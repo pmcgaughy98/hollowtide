@@ -31,6 +31,44 @@ not available to you. Everything below uses the pixflux endpoint, which works.
 
 ---
 
+## Which tool for what
+
+Revised 2026-09-22 after Preston asked what skeleton animation is actually for. The earlier
+advice in this file, PixelLab for creatures, was weighted wrong.
+
+**Use Sprite Fusion for still creature art. Use PixelLab for animation and rotation, later.**
+
+The reason is selection, not model quality:
+
+| | Images per generation | Cost of best-of-12 |
+|---|---|---|
+| Sprite Fusion generator | **12** | 1 action |
+| PixelLab pixflux | **1** | 12 generations |
+
+The Sprite Fusion sprite that looked better was a best-of-12 pick. The PixelLab ones were single
+rolls. Matching that selection on PixelLab would cost twelve generations for one creature, which is
+most of the remaining trial.
+
+**The tools compose, so this is not a choice between them.** PixelLab's animation endpoints take an
+arbitrary input image: `animate-with-skeleton` requires `reference_image`, `rotate` requires
+`from_image`. Neither cares where the art came from. Sprite Fusion maxes at 64x64 and PixelLab's
+skeleton wants 16, 32 or 64. **They agree at 64x64.** Working there keeps both doors open.
+
+### What skeleton animation is worth, honestly
+
+Mark the joints on a sprite, move them, the tool redraws the pose. One drawing becomes many poses.
+
+It is a labour saver for animation, and **this project has no animation.** Every movement in
+`battle_screen.gd` is a tween on a static sprite: the lunge slides the whole sprite, the squash
+scales it, the flash tints it, the shake moves the screen. `docs/game-feel.md` researched this and
+concluded that responsiveness makes simpler art feel alive, and that with no animation budget the
+tween juice is the highest-leverage lever available.
+
+Animation is not on the scope order. Do not let a feature that is not scoped decide which tool makes
+the art you look at today.
+
+---
+
 ## The canvas question, settled at 64x64
 
 Earlier today I told you picking PixelLab meant you could stay at 96x88. **That was wrong**, and
