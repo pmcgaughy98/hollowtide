@@ -37,6 +37,20 @@ Design research on small teams: real-world shipping scale is 80 to 150 forms for
 
 **Evolution reuses rigs.** A stage-two inherits stage-one's skeleton with new parts and palette rather than being drawn from scratch. PixelLab's skeleton rigging is built for this, and the research names it directly as the pattern that makes evolution trees affordable: *"expand via branching evolutions, regional forms, or redesigns that reuse the same animation skeleton with new parts or palettes."*
 
+### Lines are one to one. No branching, no converging.
+
+Added 2026-09-22, stated directly: what is good about Digimon is when the line makes sense, and what is bad is duplicates and several creatures that evolve into the same one.
+
+So, as a rule:
+
+- One creature evolves into **at most one** creature.
+- One creature is the evolution of **at most one** creature.
+- No loops, and no line longer than three stages.
+
+This deliberately narrows the research quoted above, which recommends branching evolutions as a way to expand cheaply. Branching is cheap in art and expensive in coherence, and coherence is the thing being protected here.
+
+These are enforced, not just written down. `CreatureRoster.validate_evolutions()` checks all four and the roster fails loudly rather than drifting. That is on purpose: the last roster went wrong quietly.
+
 ---
 
 ## THE SIX ESSENCES

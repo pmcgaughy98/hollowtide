@@ -41,6 +41,20 @@ enum Essence {
 ## Yours to write. Left blank deliberately rather than filled with invented lore.
 @export_multiline var description: String = ""
 
+@export_group("Evolution")
+## What this creature turns into. Leave empty for a creature that does not evolve.
+##
+## One link, not a list, and that is a design decision rather than a shortcut.
+## A list would allow branching lines where one creature can become several
+## things. A single link forward still allows the other bad shape, two creatures
+## both pointing at the same destination, so CreatureRoster.validate_evolutions()
+## rejects that across the whole roster.
+##
+## Both rules come from what you said you like about Digimon: the line should
+## make sense, and nothing should share a destination.
+@export var evolves_into: CreatureData
+
+
 @export_group("Base Stats")
 ## Placeholder values, all identical on purpose. Balance is a design decision
 ## and guessing at numbers here would quietly turn them into canon.

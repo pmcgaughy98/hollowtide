@@ -165,7 +165,12 @@ func _attack(attacker: CreatureData, by_player: bool) -> void:
 	await get_tree().create_timer(BEAT).timeout
 
 	if _foe_hp == 0:
-		await _finish("The wild %s fainted." % _foe.creature_name)
+		_message.text = "The wild %s fainted." % _foe.creature_name
+		await get_tree().create_timer(BEAT).timeout
+		# Leaves the message alone if nothing evolved, so _finish below just
+		# holds whatever the last line said.
+		await _try_evolve()
+		await _finish(_message.text)
 	elif _player_hp == 0:
 		await _finish("%s fainted." % player_creature.creature_name)
 
@@ -334,6 +339,83 @@ func _finish(final_message: String) -> void:
 	await get_tree().create_timer(BEAT * 1.5).timeout
 	visible = false
 	get_tree().paused = false
+
+
+# ---------------------------------------------------------------- evolution
+
+## Evolves the player's creature if it has somewhere to go. Does nothing, and
+## leaves the message untouched, if it does not.
+##
+## The trigger is simply winning, and that is deliberate rather than finished.
+## There are no levels yet, so there is nothing else to gate it on, and building
+## a level system to justify a better trigger would be building a second feature
+## to test the first one. When levels arrive this becomes one extra condition on
+## the early return below and nothing else in here changes.
+##
+## Worth knowing: the party holds CreatureData references, so evolving is
+## swapping one reference for another. That is why this did not force the rework
+## player_party.gd warns about. The moment a creature needs to remember anything
+## of its own, a nickname or current HP, that rework is still owed.
+func _try_evolve() -> void:
+	var next: CreatureData = player_creature.evolves_into
+	if next == null:
+		return
+
+	var before: String = player_creature.creature_name
+	_message.text = "%s is changing!" % before
+	await get_tree().create_timer(BEAT).timeout
+
+	await _evolution_animation(next)
+
+	var slot: int = PlayerParty.caught.find(player_creature)
+	if slot != -1:
+		PlayerParty.caught[slot] = next
+		PlayerParty.party_changed.emit()
+
+	player_creature = next
+	# The new form's HP pool is usually larger. Carrying the old current HP over
+	# rather than refilling keeps the win from doubling as a free heal, and the
+	# clamp covers the case where the evolved form is somehow frailer.
+	_player_hp = mini(_player_hp, next.base_hp)
+	_player_name.text = next.creature_name
+	_refresh_bars()
+
+	_message.text = "%s evolved into %s!" % [before, next.creature_name]
+	await get_tree().create_timer(BEAT * 1.5).timeout
+
+
+## White out, swell, swap the texture at the peak, settle back.
+##
+## The swap happens while the sprite is pure white, so you never actually watch
+## one creature turn into the other. That single trick is the whole reason the
+## genre's evolution reads as a transformation instead of a texture change, and
+## it is why the timing below matters more than the numbers do.
+func _evolution_animation(next: CreatureData) -> void:
+	var s: Sprite2D = _player_sprite
+
+	var glow := create_tween()
+	glow.tween_property(s, "modulate", Color(8, 8, 8), 0.5)
+
+	var swell := create_tween()
+	swell.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+	swell.tween_property(s, "scale", Vector2(SPRITE_ZOOM * 1.3, SPRITE_ZOOM * 1.3), 0.5)
+
+	await glow.finished
+
+	s.texture = next.sprite
+
+	# Reuses the hit shake with a high value, because the argument is damage and
+	# there is no damage here. It is the landing thump, not a hit.
+	_shake(22)
+
+	var settle := create_tween()
+	settle.tween_property(s, "modulate", Color.WHITE, 0.4)
+
+	var shrink := create_tween()
+	shrink.set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+	shrink.tween_property(s, "scale", Vector2(SPRITE_ZOOM, SPRITE_ZOOM), 0.45)
+
+	await settle.finished
 
 
 # ---------------------------------------------------------------- display

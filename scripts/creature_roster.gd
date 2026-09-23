@@ -6,6 +6,9 @@ extends RefCounted
 
 const CREATURE_DIR := "res://data/creatures/"
 
+## Three stage lines are the target, so four is an error rather than a warning.
+const MAX_STAGES := 3
+
 
 ## Every creature file, sorted by Dex number.
 static func load_all() -> Array[CreatureData]:
@@ -68,3 +71,95 @@ static func validate(creatures: Array[CreatureData]) -> PackedStringArray:
 			problems.append("%s has no sprite assigned" % c.creature_name)
 
 	return problems
+
+
+## Checks the evolution lines. Kept separate from validate() because these rules
+## are about how creatures relate to each other, not about one creature's fields.
+##
+## The rules are yours, from Digimon: a line should make sense, and you should
+## never have several creatures that evolve into the same one. Writing them as
+## checks rather than as a note in a document means the roster cannot drift away
+## from them quietly, which is how the last one went wrong.
+static func validate_evolutions(creatures: Array[CreatureData]) -> PackedStringArray:
+	var problems := PackedStringArray()
+
+	# Who points at whom. Built once, then every rule below reads from it.
+	#
+	# `settled` holds creatures whose loop problem has already been reported. It
+	# stops one loop being announced once per member, and it keeps the length
+	# walk at the bottom from following a line that never ends.
+	var incoming := {}
+	var settled := {}
+
+	for c in creatures:
+		var next: CreatureData = c.evolves_into
+		if next == null:
+			continue
+		if next == c:
+			problems.append("%s evolves into itself." % _label(c))
+			settled[c] = true
+			continue
+		if not incoming.has(next):
+			incoming[next] = []
+		incoming[next].append(_label(c))
+
+	# Converging lines. This is the specific thing you dislike, several creatures
+	# sharing one evolution, so it is an error and not a warning.
+	for target in incoming:
+		var sources: Array = incoming[target]
+		if sources.size() > 1:
+			problems.append("%s is the evolution of %d creatures (%s). Each line needs its own destination."
+				% [_label(target), sources.size(), ", ".join(sources)])
+
+	# Loops. Walking forward from a creature either runs off the end of its line
+	# or arrives somewhere already visited, and the second case means a loop.
+	#
+	# Whichever creature finds a loop first names every member of it and marks
+	# them settled, so the loop is reported once no matter how many creatures
+	# lead into it. A loop would also hang the length walk below, which is the
+	# other reason it has to be found first.
+	for c in creatures:
+		var seen := {}
+		var node: CreatureData = c
+		while node != null and not seen.has(node):
+			seen[node] = true
+			node = node.evolves_into
+
+		if node == null or settled.has(node):
+			continue
+
+		var members := PackedStringArray()
+		var walker: CreatureData = node
+		while true:
+			members.append(_label(walker))
+			settled[walker] = true
+			walker = walker.evolves_into
+			if walker == node:
+				break
+
+		problems.append("Evolution loop: %s -> %s. A line has to end somewhere."
+			% [" -> ".join(members), members[0]])
+
+	# Line length, measured only from the start of each line, so a four stage
+	# line is reported once rather than once per stage.
+	for c in creatures:
+		if incoming.has(c) or settled.has(c):
+			continue
+		var chain := PackedStringArray()
+		var node: CreatureData = c
+		while node != null and not settled.has(node):
+			chain.append(_label(node))
+			node = node.evolves_into
+		if chain.size() > MAX_STAGES:
+			problems.append("%s runs %d stages and the limit is %d: %s"
+				% [_label(c), chain.size(), MAX_STAGES, " -> ".join(chain)])
+
+	return problems
+
+
+## A creature's name, falling back to something readable when it has none yet.
+static func _label(c: CreatureData) -> String:
+	if not c.creature_name.is_empty():
+		return c.creature_name
+	var file_name: String = c.resource_path.get_file()
+	return file_name if not file_name.is_empty() else "(unnamed creature)"
