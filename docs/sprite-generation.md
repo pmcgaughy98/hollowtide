@@ -263,12 +263,15 @@ Add a row every time. This is what makes the template get better instead of rese
 |---|---|---|---|---|---|
 | 2026-09-22 | Cinderpelt | v1 pixflux | 96x88 | none, description only | Muddy, low contrast, small in frame. Rejected. |
 | 2026-09-22 | test | v2 pixflux | 64x64 | full style params, guidance 11, seed 20260922 | Bold outline, good silhouette, fills frame. Palette went grey instead of rust. |
+| 2026-09-22 | test | v2 pixflux | 64x64 | same as above **plus `color_image: docs/palettes/ember.png`** | Palette fixed. Warm charcoal, rust and ember, glowing core. Only the palette changed between this and the row above, so `color_image` is confirmed as the cause. Best result so far. |
 
 ---
 
 ## Still unknown
 
-- Whether `color_image` fixes the palette drift. Untested, and it is the top thing to try next.
+- ~~Whether `color_image` fixes the palette drift.~~ **Confirmed 2026-09-22. It does, and it is the
+  single biggest quality lever found so far.** `docs/palettes/ember.png` is the first one. Five more
+  essences need palettes, and those colours are Preston's to pick.
 - Whether bitforge with an approved sprite as `style_image` and `style_strength: 50` holds a
   consistent look across a whole roster. This is the roster consistency mechanism and it is untested.
 - Good values for `text_guidance_scale`. No user data found anywhere; 11 worked once.
