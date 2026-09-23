@@ -98,7 +98,8 @@ This keeps team building about more than type coverage.
 ## WHAT CARRIES OVER
 
 - **The Godot project and verified import pipeline.** Nearest-neighbour filtering, no mipmaps, correct compression. Finished since session one.
-- **96×88 canvas.** Baked in, fine, keep it.
+- ~~**96×88 canvas.** Baked in, fine, keep it.~~ **Changed to 64×64 on 2026-09-22.** See the
+  canvas note under ART DIRECTION.
 - **The data layer**, which references sprites by filename. Swapping art is changing one field.
 - **The shark sprite**, now named **Rimefin**. The art is good and it survives. **Tide essence, single-stage.** It is already a finished creature. The old name was gemstone plus animal with alliteration, which is the exact formula the naming rules below ban, so the sprite carried over and the name did not.
 - **Everything in CLAUDE.md about how Preston works.** One completion per session, explain the code, no scaffolding, no urgency. That was never about the concept.
@@ -121,7 +122,20 @@ Look at what the reference games do. Coromon and Nexomon use coined, evocative n
 
 Reference feel: Nexomon and Coromon for creature readability, Lumentale for environment and presentation.
 
-- **96×88**, transparent background
+- **64×64**, transparent background
+
+  Changed from 96×88 on 2026-09-22. Preston asked me to make this call, so it is mine, and the
+  reasoning is short: 96×88 was never a design choice, it was inertia. It is neither square nor a
+  power of two, and every tool assumes one or the other. Sprite Fusion's generator stops at 64.
+  PixelLab's text animation is hard locked to exactly 64×64, and its skeleton animation is
+  documented as degrading at any size other than 16, 32 or 64. At 64×64 every tool works and the
+  two can be combined. At 96×88 only plain image generation works.
+  64×64 is also a quarter fewer pixels to clean up by hand, and hand cleanup is the real budget.
+
+  **Rimefin and Cinderhide stay at 96×88 until they are regenerated.** They are not being
+  downscaled: 96 to 64 is 1.5× and 88 to 64 is 1.375×, so the two axes do not scale together and
+  any conversion would wreck the art. They are legacy at the old size, and new creatures are 64×64.
+  Full evidence in `docs/sprite-generation.md`.
 - **Strong silhouettes.** The outline carries the identity, interiors stay lower detail. This is the single most repeated rule in beginner pixel art guidance and it is exactly what the old placeholder failed.
 - **Angular over round.** Cubic volumes read better in pixels than curves.
 - **Tight palettes.** Limited ramps per creature, shared palette family per essence so a Tide creature is recognisably Tide at a glance.

@@ -169,6 +169,33 @@ hue 167.5, mid tone `#42776B`, that has no home yet. It is a candidate for a fam
 
 ---
 
+## Sprite Fusion: REST, not MCP
+
+There is no Sprite Fusion MCP server. `/api/mcp` and `/mcp` both return 404, and their docs describe
+a plain REST API. **`sprite-ai.art` is a different company** and is not this.
+
+Base URL `https://www.spritefusion.com/api/v1`. Key from Account → API keys, shown once.
+
+```bash
+export SPRITE_FUSION_API_KEY="sf_live_..."
+
+curl -sS -H "Authorization: Bearer $SPRITE_FUSION_API_KEY" \
+  https://www.spritefusion.com/api/v1/credits
+
+curl -sS -N https://www.spritefusion.com/api/v1/generate \
+  -H "Authorization: Bearer $SPRITE_FUSION_API_KEY" \
+  -H "Content-Type: application/json" \
+  --data '{"operation":"generate","prompt":"squat ember grub monster, blocky cubic body, short stubby legs, coal-lump belly, two small angular ear tufts, single bright molten ember core glowing in its chest, bold chunky silhouette","size":64}'
+```
+
+`/generate` streams Server-Sent Events and covers all five operations: generate, edit, style match,
+eight directions, animate. `size` is a single number, so square only, which is another reason 64
+is the right canvas. One generate returns 12 images.
+
+Other endpoints: `POST /uploads` for large private inputs, `GET /credits` for the balance.
+
+---
+
 ## Run it yourself
 
 Set the token once per terminal session.
