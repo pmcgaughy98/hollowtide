@@ -1,8 +1,7 @@
-[gd_resource type="Resource" script_class="CreatureData" load_steps=4 format=3]
+[gd_resource type="Resource" script_class="CreatureData" load_steps=3 format=3]
 
 [ext_resource type="Script" path="res://scripts/creature_data.gd" id="1_script"]
 [ext_resource type="Texture2D" uid="uid://b5fkq77lo56pt" path="res://assets/sprites/creatures/cinderpelt.png" id="2_sprite"]
-[ext_resource type="Resource" path="res://data/creatures/002_cinderhide.tres" id="3_evolution"]
 
 [resource]
 script = ExtResource("1_script")
@@ -11,7 +10,6 @@ creature_name = "Cinderpelt"
 essence = 0
 sprite = ExtResource("2_sprite")
 description = ""
-evolves_into = ExtResource("3_evolution")
 base_hp = 60
 base_attack = 60
 base_defense = 60

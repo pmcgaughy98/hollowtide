@@ -1,0 +1,213 @@
+# Generating creature sprites
+
+Working notes plus copy-paste commands. **This file is meant to be edited.** Every time a
+generation comes out well or badly, change the template and add a line to the log at the bottom.
+
+Written 2026-09-22.
+
+---
+
+## Account reality, read this first
+
+```
+subscription: { type: generations, status: "trial", plan: null,
+                generations: 16.8, total: 40.0 }
+credits:      { type: usd, usd: 0.0 }
+```
+
+**You are on a free trial, not a paid plan.** 40 generations total, about 16.8 left as of writing.
+Every call below spends one. Check before you burn a batch:
+
+```bash
+curl -s -H "Authorization: Bearer $PIXELLAB_TOKEN" https://api.pixellab.ai/v2/balance
+```
+
+Two separate wallets exist. `credits.usd` is pay-as-you-go and yours is empty. `subscription.generations`
+is the trial pool and it is what everything below draws from. The paid Pixel Apprentice tier is
+$12/month for 2,000 images, which is the fix when the trial runs out.
+
+**`/generate-image-v2` (Pro) returns HTTP 402 "Insufficient resources" on this account.** Pro is
+not available to you. Everything below uses the pixflux endpoint, which works.
+
+---
+
+## The canvas question, settled at 64x64
+
+Earlier today I told you picking PixelLab meant you could stay at 96x88. **That was wrong**, and
+here is the evidence that changed it. All of it comes from PixelLab's own API schema.
+
+| Feature | Size constraint | Source |
+|---|---|---|
+| `animate-with-text` | **exactly 64x64**, min 64 and max 64 | v2 OpenAPI `ImageSize` |
+| `animate-with-skeleton` keypoints | "Warning! Sizes that are not 16x16, 32x32 and 64x64 can cause the generations to be lower quality" | API schema description |
+| `create-image-bitforge` (web tiers) | tier 1 caps at 80x80 | reported, not schema-confirmed |
+| plain image generation | 16 to 400 | v2 OpenAPI |
+
+Text-based animation is **hard locked** to 64x64. Skeleton animation, the entire reason you chose
+PixelLab over Sprite Fusion, is documented as degrading outside 16/32/64. 96x88 is supported by
+exactly one thing, plain image generation, and nothing else in the pipeline.
+
+**64x64 is the only size where every PixelLab path works.** It is also what Sprite Fusion supports,
+what your original Cinderpelt prompt said, and a quarter fewer pixels to clean up by hand.
+
+Cost of switching today: redoing Rimefin and Cinderhide. That cost only grows.
+
+---
+
+## What actually improved the output
+
+One controlled comparison, same creature, one generation each.
+
+**Attempt 1.** v1 endpoint, only `description`, `image_size`, `no_background`. Result: muddy, low
+contrast, creature sits small in frame, silhouette unclear.
+
+**Attempt 2.** v2 endpoint, full style parameters, 64x64. Result: bold readable outline, clear
+silhouette, creature fills the frame. Palette drifted to grey steel instead of charcoal and rust.
+
+### The rules that came out of it
+
+1. **Always pass the style parameters.** The schema calls them "weakly guiding," but leaving them
+   out is what produced the muddy first attempt. They are the difference between the two images.
+
+2. **Never put the resolution in the description text.** Your original prompt opened with
+   "pixel art monster sprite, 64x64". Saying "64x64" or "low res" or "tiny sprite" in the text makes
+   the model draw chunky fake pixels instead of generating at that size. The size is already a
+   parameter. Take it out of the words.
+
+3. **Describing a palette in words mostly fails.** Attempt 2 asked for charcoal and rust and got
+   grey steel. Use `color_image` instead: any small PNG containing the colours you want. PixelLab
+   reads only the colours, not the content. This is the single biggest lever still untried.
+
+4. **Reference images beat prompt text.** PixelLab's own Getting Started says the init image "is
+   one of the best ways to improve the results you're getting." They publish no real prompting
+   guide, which tells you where they think quality comes from.
+
+5. **`style_strength` defaults to 0.** On bitforge, passing a `style_image` without raising this
+   does nothing at all. 50 is documented as balanced.
+
+6. **Keep the description to about 30 words.** Structure it as
+   `[subject + 2 or 3 concrete details] + [pose] + [view] + [style anchor]`.
+
+7. **`negative_description` is deprecated on pixflux** and live on bitforge. Do not count on it in
+   the command below.
+
+8. **`text_guidance_scale`** defaults to 8, ranges 1 to 20. 11 was used in attempt 2. Pushing it too
+   high is documented to cause artifacts and over-saturation.
+
+---
+
+## The template
+
+Fill the three bracketed slots. Leave everything else alone until the log says otherwise.
+
+```
+[SUBJECT: squat ember grub monster]
+[FORM: blocky cubic body, short stubby legs, coal-lump belly, two small angular ear tufts]
+[FEATURE: single bright molten ember core glowing in its chest]
+bold chunky silhouette, creature fills the frame
+```
+
+Do not add: the resolution, "pixel art", "transparent background", "no anti-aliasing", "thick
+outline". Those are all parameters below and repeating them in words costs you description budget
+for no gain.
+
+### Per essence
+
+Palette belongs in `color_image`, not in the text. Build a small PNG with the colours you want and
+point at it. Keep one per essence so a whole family reads as related, which is what
+`THE_CONCEPT.md` asks for with "shared palette family per essence."
+
+| Essence | Palette direction (yours to set) |
+|---|---|
+| Ember | charcoal, rust, ember orange, pale ash |
+| Tide | not yet chosen |
+| Stone | not yet chosen |
+| Gale | not yet chosen |
+| Bloom | not yet chosen |
+| Hollow | not yet chosen |
+
+`Preston Hub\06 Creative Projects\Design\The_Turbo_Green.md` holds a measured palette of yours,
+hue 167.5, mid tone `#42776B`, that has no home yet. It is a candidate for a family here.
+
+---
+
+## Run it yourself
+
+Set the token once per terminal session.
+
+```bash
+export PIXELLAB_TOKEN="your-token-here"
+```
+
+Then this whole block, editing only the `description`:
+
+```bash
+curl -s -X POST https://api.pixellab.ai/v2/create-image-pixflux \
+  -H "Authorization: Bearer $PIXELLAB_TOKEN" \
+  -H "Content-Type: application/json" \
+  -d '{
+    "description": "squat ember grub monster, blocky cubic body, short stubby legs, coal-lump belly, two small angular ear tufts, single bright molten ember core glowing in its chest, bold chunky silhouette, creature fills the frame",
+    "image_size": {"width": 64, "height": 64},
+    "outline": "single color black outline",
+    "shading": "basic shading",
+    "detail": "low detail",
+    "view": "side",
+    "direction": "east",
+    "no_background": true,
+    "text_guidance_scale": 11,
+    "seed": 20260922
+  }' -o out.json
+```
+
+Then decode the PNG out of the response:
+
+```bash
+python -c "import json,base64; open('sprite.png','wb').write(base64.b64decode(json.load(open('out.json'))['image']['base64']))"
+```
+
+**Same seed plus same prompt gives the same image.** Change the seed to rerol1; keep it to iterate
+on wording while holding the dice still. That is the difference between learning and gambling.
+
+### Adding a forced palette
+
+Once a palette PNG exists, add this field. The image is base64 of any PNG containing those colours.
+
+```
+"color_image": {"type": "base64", "base64": "<your palette png in base64>"}
+```
+
+```bash
+python -c "import base64;print(base64.b64encode(open('palette_ember.png','rb').read()).decode())"
+```
+
+### Valid values, from the schema
+
+- `outline`: `single color black outline`, `single color outline`, `selective outline`, `lineless`
+- `shading`: `flat shading`, `basic shading`, `medium shading`, `detailed shading`, `highly detailed shading`
+- `detail`: `low detail`, `medium detail`, `highly detailed`
+- `view`: `side`, `low top-down`, `high top-down`
+- `direction`: `north`, `north-east`, `east`, `south-east`, `south`, `south-west`, `west`, `north-west`
+
+---
+
+## Log
+
+Add a row every time. This is what makes the template get better instead of resetting each session.
+
+| Date | Creature | Endpoint | Size | Notable settings | Result |
+|---|---|---|---|---|---|
+| 2026-09-22 | Cinderpelt | v1 pixflux | 96x88 | none, description only | Muddy, low contrast, small in frame. Rejected. |
+| 2026-09-22 | test | v2 pixflux | 64x64 | full style params, guidance 11, seed 20260922 | Bold outline, good silhouette, fills frame. Palette went grey instead of rust. |
+
+---
+
+## Still unknown
+
+- Whether `color_image` fixes the palette drift. Untested, and it is the top thing to try next.
+- Whether bitforge with an approved sprite as `style_image` and `style_strength: 50` holds a
+  consistent look across a whole roster. This is the roster consistency mechanism and it is untested.
+- Good values for `text_guidance_scale`. No user data found anywhere; 11 worked once.
+- Whether `create-character-v3` with `body_type: quadruped` and the animal templates beats plain
+  image generation for creatures. It produces 8 rotations, which the plain endpoint does not.
+- No firsthand reports from other developers on holding style across many sprites could be found.
+  Reddit blocks crawlers and the rest of the search results were affiliate marketing.
