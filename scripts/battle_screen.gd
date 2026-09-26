@@ -2,15 +2,18 @@ extends CanvasLayer
 
 ## The battle. Turns alternate, one move each, first creature to zero HP faints.
 ##
-## Deliberately absent, because those are later steps: experience, levels,
-## status effects, a second move, items, evolution, and saving.
+## Not built yet: experience, levels, status effects, a second move, items,
+## and saving.
+## Evolution below has only a win-trigger prototype; Preston has not approved this
+## condition.
 
 ## The player's creature.
 ##
-## This is where a party goes once there is one. For now the player brings a
-## single fixed creature to every battle, set in the Inspector. Putting it here
+## This is the creature used by battle, assigned in the Inspector for this
+## prototype. The player brings a
+## single fixed creature to every battle. Putting it here
 ## rather than on the Player node avoids building an ownership chain for a
-## party that does not exist yet.
+## active battle party that does not exist yet.
 @export var player_creature: CreatureData
 
 ## The only move in the game.
@@ -43,7 +46,11 @@ const HIT_STOP := 0.06
 ## exposes the void behind. Bigger than the strongest shake and it never shows.
 const SHAKE_MARGIN := 48
 
-const SPRITE_ZOOM := 3
+## How tall a creature stands on screen, in screen pixels. Each sprite gets the
+## whole-number zoom that lands closest to this, so old 96x88 art draws at 3x
+## and new 64x64 art at 4x, and both end up about the same size. Whole numbers
+## only, because a zoom like 3.4 makes some pixels wider than others.
+const CREATURE_HEIGHT := 264
 
 enum Phase { CHOOSING, RESOLVING, OVER }
 
@@ -95,7 +102,7 @@ func start(wild: CreatureData) -> void:
 	_player_sprite.texture = player_creature.sprite
 	# Reset anything a previous battle's animation might have left behind.
 	for s in [_foe_sprite, _player_sprite]:
-		s.scale = Vector2(SPRITE_ZOOM, SPRITE_ZOOM)
+		s.scale = Vector2.ONE * _zoom(s)
 		s.modulate = Color.WHITE
 	offset = Vector2.ZERO
 	_foe_name.text = _foe.creature_name + "   " + _foe.essence_name()
@@ -268,8 +275,8 @@ func _flash(sprite: Sprite2D) -> void:
 	bright.tween_property(sprite, "modulate", Color.WHITE, 0.18)
 
 	var squash := create_tween()
-	squash.tween_property(sprite, "scale", Vector2(SPRITE_ZOOM * 1.15, SPRITE_ZOOM * 0.88), 0.05)
-	squash.tween_property(sprite, "scale", Vector2(SPRITE_ZOOM, SPRITE_ZOOM), 0.22) 		.set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+	squash.tween_property(sprite, "scale", Vector2(_zoom(sprite) * 1.15, _zoom(sprite) * 0.88), 0.05)
+	squash.tween_property(sprite, "scale", Vector2.ONE * _zoom(sprite), 0.22) 		.set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
 
 
 ## Screen shake, scaled by how hard the hit was.
@@ -346,11 +353,10 @@ func _finish(final_message: String) -> void:
 ## Evolves the player's creature if it has somewhere to go. Does nothing, and
 ## leaves the message untouched, if it does not.
 ##
-## The trigger is simply winning, and that is deliberate rather than finished.
-## There are no levels yet, so there is nothing else to gate it on, and building
-## a level system to justify a better trigger would be building a second feature
-## to test the first one. When levels arrive this becomes one extra condition on
-## the early return below and nothing else in here changes.
+## The current test trigger is a battle win; Preston has not approved it as the
+## final evolution condition.
+## This prototype is isolated from levels. Any final trigger conditions need
+## Preston's approval; do not add levels to justify an unapproved trigger.
 ##
 ## Worth knowing: the party holds CreatureData references, so evolving is
 ## swapping one reference for another. That is why this did not force the rework
@@ -398,7 +404,7 @@ func _evolution_animation(next: CreatureData) -> void:
 
 	var swell := create_tween()
 	swell.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
-	swell.tween_property(s, "scale", Vector2(SPRITE_ZOOM * 1.3, SPRITE_ZOOM * 1.3), 0.5)
+	swell.tween_property(s, "scale", Vector2.ONE * _zoom(s) * 1.3, 0.5)
 
 	await glow.finished
 
@@ -413,9 +419,17 @@ func _evolution_animation(next: CreatureData) -> void:
 
 	var shrink := create_tween()
 	shrink.set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
-	shrink.tween_property(s, "scale", Vector2(SPRITE_ZOOM, SPRITE_ZOOM), 0.45)
+	shrink.tween_property(s, "scale", Vector2.ONE * _zoom(s), 0.45)
 
 	await settle.finished
+
+
+## The whole-number zoom that makes this sprite stand about CREATURE_HEIGHT tall.
+## Read from the texture each time, so evolution picks up the new form's size.
+func _zoom(s: Sprite2D) -> float:
+	if s.texture == null:
+		return 3.0
+	return maxf(1.0, roundf(float(CREATURE_HEIGHT) / s.texture.get_height()))
 
 
 # ---------------------------------------------------------------- display
@@ -466,13 +480,13 @@ func _build_ui() -> void:
 	# sprite art faces right, so the foe is flipped.
 	_foe_sprite = Sprite2D.new()
 	_foe_sprite.position = Vector2(820, 190)
-	_foe_sprite.scale = Vector2(SPRITE_ZOOM, SPRITE_ZOOM)
+	_foe_sprite.scale = Vector2.ONE * _zoom(_foe_sprite)
 	_foe_sprite.flip_h = true
 	add_child(_foe_sprite)
 
 	_player_sprite = Sprite2D.new()
 	_player_sprite.position = Vector2(300, 420)
-	_player_sprite.scale = Vector2(SPRITE_ZOOM, SPRITE_ZOOM)
+	_player_sprite.scale = Vector2.ONE * _zoom(_player_sprite)
 	add_child(_player_sprite)
 
 	var foe_panel := _make_panel(Vector2(70, 90))

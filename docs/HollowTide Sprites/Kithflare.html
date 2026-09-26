@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hollowtide Bestiary | Kithflare</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        charcoal: '#1a1a1a',
+                        ink: '#0f172a',
+                        bone: '#f5f5dc',
+                        copper: '#b87333',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                        mono: ['ui-monospace', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .pixelated { image-rendering: pixelated; }
+        body { background-color: #0f172a; }
+        .glass {
+            background: rgba(245, 245, 220, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(184, 115, 51, 0.2);
+        }
+    </style>
+</head>
+<body class="text-bone min-h-screen p-4 md:p-8 flex items-center justify-center">
+
+    <main class="max-w-4xl w-full">
+        <!-- Header -->
+        <header class="mb-8 border-b-2 border-copper pb-4">
+            <h1 class="text-4xl md:text-6xl font-bold tracking-tighter uppercase text-copper">Hollowtide Archive</h1>
+            <p class="text-sm tracking-widest uppercase opacity-70 mt-2">Field Registry: Biological Anomalies</p>
+        </header>
+
+        <!-- Bento Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            
+            <!-- Sprite Display -->
+            <div class="md:col-span-1 flex flex-col items-center justify-center glass p-6 rounded-xl">
+                <div class="w-full aspect-square bg-slate-800 rounded-lg overflow-hidden flex items-center justify-center border-2 border-copper/30">
+                    <img src='https://opal.google/board/blobs/bc9ae6c3-7bf5-46b3-8c4f-3398c4d5a490' alt='Kithflare Sprite' class="pixelated w-full h-full object-contain" />
+                </div>
+                <div class="mt-4 text-center">
+                    <h2 class="text-2xl font-bold">Kithflare</h2>
+                    <p class="text-copper font-mono text-sm tracking-widest">STAGE I</p>
+                </div>
+            </div>
+
+            <!-- Details Panel -->
+            <div class="md:col-span-2 glass p-8 rounded-xl shadow-2xl">
+                <div class="mb-6">
+                    <h3 class="text-copper text-xs font-bold uppercase tracking-widest mb-2">Primary Essence</h3>
+                    <p class="text-3xl font-light">Ember</p>
+                </div>
+
+                <div class="space-y-4">
+                    <h3 class="text-copper text-xs font-bold uppercase tracking-widest">Biological Field Analysis</h3>
+                    <div class="bg-black/20 p-4 rounded-lg font-mono text-sm leading-relaxed border-l-4 border-copper">
+                        <p>
+                            Lean four-limbed runner, narrow muzzle, paired shoulder heat sacs radiating orange heat, short forked tail; 
+                            forward wedge with long rear legs; impatient but attentive to handoff signals; 
+                            three-quarter right-facing sprint-brake; soot, rust, muted orange, tiny cream heat points; 
+                            avoid horse, dog, rider, saddle, cute proportions.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="mt-8 pt-6 border-t border-white/10 flex flex-wrap gap-4">
+                    <div class="text-[10px] uppercase tracking-widest opacity-60">
+                        Status: <span class="text-copper">Active Observation</span>
+                    </div>
+                    <div class="text-[10px] uppercase tracking-widest opacity-60">
+                        Region: <span class="text-copper">Soot-lands</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Utility Footer -->
+        <div class="mt-12 text-center">
+            <p class="text-[10px] text-bone/30 uppercase tracking-[0.2em]">End of Record Entry</p>
+        </div>
+    </main>
+
+</body>
+</html>

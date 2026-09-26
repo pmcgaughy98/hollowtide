@@ -7,11 +7,23 @@ wrong and its central claim is corrected below.
 
 Revised again after the concept pivot. Crystal Creatures is superseded by THE_CONCEPT.md: six
 essences instead of eleven elements, 24 lines and 44 sprites as the finished target, six
-single-stage creatures as the first roster. Sapphire Shark survives as Tide. Every art finding
-below still holds. Only the counts changed, and the consistency strategy got easier, because a
-shared palette family per essence is a smaller target than one look across everything.
+single-stage creatures as the first roster. Sapphire Shark survives as Tide. Readability and
+consistency findings below remain useful; tool recommendations are historical and are superseded
+by the current decision below.
 
 Every number here has a source or was measured. Anything unverified is labelled unverified.
+
+---
+
+## Current decision: Hollowtide Sprite Forge (2026-09-25)
+
+Preston chose the Opal app **Hollowtide Sprite Forge** for new still-creature artwork and explicitly stopped using Pixelorama. The live app is configured to use Nano Banana Pro, a required text brief, an optional prior-stage image, and a generic sprite showcase. See `docs/opal-sprite-forge-prompt-v2.md` for the installed prompt and roster workflow.
+
+The prompt asks Opal for one square image depicting a 64×64 pixel grid over exact flat magenta (#FF00FF). It does not ask for transparency or a native 64×64 file. The local browser converter at tools/opal-sprite-converter.html removes magenta and downsamples to transparent 64×64. Its output has not been reviewed against a real Opal image, so neither raw nor converted art is approved for import yet. The input links are saved in the editor, but image quality and evolution continuity have not been tested because no sprite was generated.
+
+The art target remains mature, grounded folklore with one strong angular silhouette, crisp pixels, low interior detail, and a palette of at most 16 colours. Keep Cinderhide and Rimefin at their legacy 96×88 sizes until they are intentionally regenerated. Do not resize their existing art directly. Older PixelLab and Sprite Fusion analysis below is historical; PixelLab may be considered later for animation, but Pixelorama is not part of the current workflow.
+
+The PixelLab licensing notes below do not establish the terms for Opal-generated images. Opal's image-use terms were not reviewed in this update; do not assume the old tool's license applies.
 
 ---
 
@@ -251,35 +263,21 @@ not get reached for again.
 
 ---
 
-## Recommendation
+## Current sequence
 
-**PixelLab is the route.** Generate, then finish by hand where it needs it.
+The PixelLab recommendation and its generation budget below were written before Preston chose
+Hollowtide Sprite Forge. The current practical sequence is:
 
-The pixel art skill still has value, but its role changed. It is no longer "learn to draw
-a whole roster from scratch." It is "learn enough to judge and fix output," which is a far
-smaller ask and can be picked up alongside the work rather than before it. Aseprite or
-Pixelorama plus saint11's tutorials still earn their place, because `correct_pixelart` and
-`reduce_colors` are blunt instruments and someone has to decide when a sprite is right.
+1. Generate one roster form in Opal with Nano Banana Pro and the prepared brief.
+2. Review whether the 64×64 grid, silhouette, and palette survive in the generated square image.
+3. Use and verify the local magenta-removal and nearest-neighbour converter at tools/opal-sprite-converter.html; it
+   outputs a transparent 64×64 PNG. Preserve the raw Opal image beside it.
+4. Import only the reviewed PNG through the existing Godot import setup.
+5. Use that first approved form as the style and same-line reference for the next image. Stop if
+   the image reference changes the creature's identity or if the grid is not recoverable.
 
-### Sequence
-
-1. **Test consistency next.** One more creature, generated with the shark as a style reference
-   copying outline, detail and shading but not palette. If two creatures read as one set, the
-   approach scales. If they do not, that is the real blocker and it is better to find
-   it at creature two than at creature nine.
-2. Lock a house style once from a creature you are happy with, and use it as the style
-   reference for the rest.
-3. Do the first six battle sprites, one per essence, before touching overworld sprites,
-   evolution stages or animation. Twenty-four lines is the finished target, not the start.
-4. Run `reduce_colors` across each essence family together so a Tide creature reads as Tide at
-   a glance. That will do more for coherence than any single sprite's quality. That is what will
-   make them look like one world more than any single sprite's quality.
-
-### Budget note
-
-39 trial generations remain. The first six creatures with iteration might fit. The full 44
-sprites, plus overworld rotations, will not. Before subscribing, read PixelLab's actual checkout page, because no price found
-in research was verifiable.
+No Opal image has been generated yet; the first image will test this sequence. PixelLab's older
+trial balance and pricing notes are historical and should not be used to estimate Opal usage.
 
 ---
 

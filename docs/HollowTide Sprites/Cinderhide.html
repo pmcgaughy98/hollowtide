@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hollowtide Bestiary | Cinderhide</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        charcoal: '#1a1c20',
+                        ink: '#2c3e50',
+                        paper: '#fdf6e3',
+                        copper: '#b87333',
+                    },
+                    fontFamily: {
+                        display: ['Outfit', 'sans-serif'],
+                        body: ['Inter', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .pixelated {
+            image-rendering: pixelated;
+        }
+        .paper-texture {
+            background-color: #fdf6e3;
+            background-image: radial-gradient(#d1c9b6 0.5px, transparent 0.5px);
+            background-size: 20px 20px;
+        }
+    </style>
+</head>
+<body class="bg-charcoal min-h-screen flex items-center justify-center p-4 md:p-8 font-body">
+
+    <main class="max-w-4xl w-full grid grid-cols-1 md:grid-cols-12 gap-6">
+        
+        <!-- Header Section -->
+        <header class="md:col-span-12 border-b border-copper/30 pb-4">
+            <h1 class="text-4xl md:text-6xl font-display font-bold text-paper uppercase tracking-tighter">Cinderhide</h1>
+            <p class="text-copper italic tracking-widest uppercase text-sm mt-1">Field Guide Entry // Hollowtide Bestiary</p>
+        </header>
+
+        <!-- Sprite Display -->
+        <section class="md:col-span-5 bg-ink p-4 rounded-xl flex items-center justify-center shadow-2xl border border-white/10">
+            <div class="relative group">
+                <img src='https://opal.google/board/blobs/3fad4f3a-e8b9-4ba3-ad90-684d8dd5a36d' alt='Cinderhide Sprite' class="pixelated w-full max-w-sm aspect-square object-contain transition-transform duration-500 group-hover:scale-105" />
+            </div>
+        </section>
+
+        <!-- Details Panel -->
+        <section class="md:col-span-7 space-y-6">
+            <div class="paper-texture p-6 md:p-8 rounded-sm shadow-xl text-charcoal border-l-4 border-copper">
+                <div class="flex flex-wrap gap-4 mb-6">
+                    <div class="bg-charcoal text-paper px-4 py-1 rounded text-sm font-bold uppercase tracking-wider">
+                        Essence: <span class="text-copper">Ember</span>
+                    </div>
+                    <div class="bg-ink text-paper px-4 py-1 rounded text-sm font-bold uppercase tracking-wider">
+                        Status: <span class="text-copper">Registered</span>
+                    </div>
+                </div>
+
+                <h2 class="text-2xl font-display font-semibold mb-4 text-ink">Anatomy & Temperament</h2>
+                <div class="space-y-4 text-lg leading-relaxed">
+                    <p>
+                        <strong class="text-copper">Anatomy:</strong> Compact charcoal reptile with a blunt wedge snout. Features two short horn plates, functional ember vents, and sturdy foreclaws.
+                    </p>
+                    <p>
+                        <strong class="text-copper">Silhouette:</strong> Defined by a low braced body and a distinct broken sawtooth spine.
+                    </p>
+                    <p>
+                        <strong class="text-copper">Temperament:</strong> Exhibits a proud and wary demeanor. Primarily seen in a three-quarter pose facing right, with foreclaw extended.
+                    </p>
+                    <p>
+                        <strong class="text-copper">Palette:</strong> Defined by deep coal and iron gray, accented by restrained ember red and orange highlights.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Meta Data Grid -->
+            <div class="grid grid-cols-2 gap-4">
+                <div class="bg-ink/50 border border-white/5 p-4 rounded-lg">
+                    <p class="text-copper text-xs uppercase tracking-widest mb-1">Pose</p>
+                    <p class="text-paper font-semibold">Three-quarter Right</p>
+                </div>
+                <div class="bg-ink/50 border border-white/5 p-4 rounded-lg">
+                    <p class="text-copper text-xs uppercase tracking-widest mb-1">Classification</p>
+                    <p class="text-paper font-semibold">Compact Reptilian</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+</body>
+</html>

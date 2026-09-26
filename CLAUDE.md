@@ -8,7 +8,8 @@ The design lives in `THE_CONCEPT.md` and that file is the authority on the game 
 essences, the roster structure, naming rules, art direction, and scope order. If this file and
 that one ever disagree about the game, `THE_CONCEPT.md` wins.
 
-`docs/art-direction.md` holds the verified art pipeline and the licensing constraints.
+`docs/art-direction.md` records the current art path, prior tool research, and licensing constraints.
+The Godot import defaults are verified; the Opal image-conversion utility exists but has not been checked against a generated sprite.
 
 > **Superseded September 2026.** This file used to contain the Crystal Creatures concept: eleven
 > legendary gemstone Guardians, the strict alliteration naming rule, eleven elements, and the
@@ -22,15 +23,17 @@ that one ever disagree about the game, `THE_CONCEPT.md` wins.
 Checked against the files on 2026-09-22, not recalled.
 
 - **Next unbuilt step is 7, evolution.** Steps 1 through 6 are marked done in `THE_CONCEPT.md`.
-- **Two creatures exist:** Rimefin (Tide) and Cinderhide (Ember), in `data/creatures/`. Four of the
-  first six are still undesigned, and those designs are his authorship, not generated.
+- **Three creature resources exist:** Rimefin (Tide), Cinderhide (Ember), and Cinderpelt (Ember).
+  Cinderpelt is an unlinked experiment, not an approved evolution. Draft briefs for the larger
+  roster are in `docs/creature-roster-draft.md`; the four additional first-six starters are still
+  proposals, and no Opal-generated sprite art has been validated yet.
 - **`docs/reshape-proposal.md` is unsigned and it gates roster work.** It proposes eight essences,
   two lines each, all three stages, plus move-only essences on skills. `THE_CONCEPT.md` still says
   six essences and 24 lines, so the two disagree by design. Until he picks which two essences join
   the six, do not add creatures beyond the current six-essence plan. Evolution does not need that
   decision, so step 7 is not blocked.
-- **This folder is not a git repository**, despite the `.gitignore` and `.gitattributes`. No history,
-  no undo except OneDrive file versions.
+- **This folder is a Git repository.** Inspect its current branch and dirty files before editing;
+  do not assume the branch is clean, and do not commit unless Preston asks.
 - **The Hub copies are stale.** `Preston Hub\06 Creative Projects\Hollowtide\` holds older versions
   of the concept and art direction; `game-feel.md` there still matches. This folder is the source of
   truth. The folder name `crystal-creatures-concept` is leftover from the superseded version; the
@@ -106,3 +109,8 @@ Scope order lives in `THE_CONCEPT.md`. Do not skip ahead. Do not build step four
 - Don't generate large volumes of content because more feels better. One working thing beats ten scaffolded ones.
 - Don't invent creature names, designs, lore or stat values. That is his authorship. Generated
   creature data is how the previous roster broke.
+
+
+## Working with Codex and shared design notes
+
+Read docs/AI_COLLABORATION.md before working alongside Codex. It defines the source of truth, Git safety, research standards, and a short handoff format for both assistants. Preston has explicitly asked the assistants to help draft and synthesize the Hollowtide world and creatures. This supersedes the earlier blanket instruction not to invent names, designs, or lore only for proposal drafting. Label new ideas as proposals and do not silently promote them to canon. In particular, preserve Cinderhide and do not restore the removed Cinderpelt evolution link by inference.

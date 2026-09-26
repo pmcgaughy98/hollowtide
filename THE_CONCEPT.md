@@ -35,7 +35,7 @@ Not every line evolves the same amount. That is how Pokémon actually works, it 
 
 Design research on small teams: real-world shipping scale is 80 to 150 forms for a studio, and *"hand-authoring 300+ fully unique, fully animated monsters is rare outside large studios."* Twenty-four lines is a solo target that can actually be hit.
 
-**Evolution reuses rigs.** A stage-two inherits stage-one's skeleton with new parts and palette rather than being drawn from scratch. PixelLab's skeleton rigging is built for this, and the research names it directly as the pattern that makes evolution trees affordable: *"expand via branching evolutions, regional forms, or redesigns that reuse the same animation skeleton with new parts or palettes."*
+**Evolution preserves a line's visual skeleton.** Later stages should retain recognizable anatomy and palette anchors while changing silhouette, role, and field behavior. PixelLab skeleton animation was part of an earlier tool evaluation; it is an optional future animation path, not the current still-sprite pipeline. Preston chose Hollowtide Sprite Forge in Opal for new creature art. Image-to-image continuity still needs a real output review.
 
 ### Lines are one to one. No branching, no converging.
 
@@ -122,26 +122,33 @@ Look at what the reference games do. Coromon and Nexomon use coined, evocative n
 
 Reference feel: Nexomon and Coromon for creature readability, Lumentale for environment and presentation.
 
-- **64×64**, transparent background
+- **100×100**, transparent background in the finished Godot asset, one pixel per Forge block.
 
-  Changed from 96×88 on 2026-09-22. Preston asked me to make this call, so it is mine, and the
-  reasoning is short: 96×88 was never a design choice, it was inertia. It is neither square nor a
-  power of two, and every tool assumes one or the other. Sprite Fusion's generator stops at 64.
-  PixelLab's text animation is hard locked to exactly 64×64, and its skeleton animation is
-  documented as degrading at any size other than 16, 32 or 64. At 64×64 every tool works and the
-  two can be combined. At 96×88 only plain image generation works.
-  64×64 is also a quarter fewer pixels to clean up by hand, and hand cleanup is the real budget.
+  Changed from 64×64 on 2026-09-25, after measuring real Sprite Forge output. The Forge draws on a
+  100 by 100 block grid (10.25px per block across all three first images: Cinderhide, Kithflare,
+  Wayburn), and the creatures themselves run 72 to 98 blocks. Squeezing that into 64×64 destroys
+  detail no matter how it is done, and Preston rejected the shrunk results. Read 1:1, the sprites
+  match the originals: average colour difference 6 to 10 out of 255, which is JPEG noise.
 
-  **Rimefin and Cinderhide stay at 96×88 until they are regenerated.** They are not being
-  downscaled: 96 to 64 is 1.5× and 88 to 64 is 1.375×, so the two axes do not scale together and
-  any conversion would wreck the art. They are legacy at the old size, and new creatures are 64×64.
-  Full evidence in `docs/sprite-generation.md`.
+  The 64×64 target came from PixelLab and Sprite Fusion size limits. Neither is the art pipeline now.
+
+  The battle picks a whole-number zoom per sprite, so 100×100 art draws at 3× beside the legacy
+  96×88 Rimefin at 3×. Mixed canvas sizes are fine in battle.
+
+  Convert with `python tools/convert_forge_sprite.py <in> <out.png> --compare <sheet.png>`. The
+  compare sheet puts the original beside the result; check it before importing.
+  **`tools/opal-sprite-converter.html` targets 64×64 and shrinks; do not use it for Forge art.**
+
+  **Rimefin stays at 96×88 until it is regenerated.** Never downscale existing art: 96 to 64 and 88
+  to 64 are different ratios, so the two axes do not scale together and any conversion wrecks it.
 - **Strong silhouettes.** The outline carries the identity, interiors stay lower detail. This is the single most repeated rule in beginner pixel art guidance and it is exactly what the old placeholder failed.
 - **Angular over round.** Cubic volumes read better in pixels than curves.
 - **Tight palettes.** Limited ramps per creature, shared palette family per essence so a Tide creature is recognisably Tide at a glance.
 - **Crisp edges, no anti-aliasing.**
 
-**Pipeline, verified working:** PixelLab for generation and skeleton rotation, cleanup in Pixelorama (free, built in Godot), drop the PNG in the art folder, point the data resource at it.
+**Current still-sprite path, configured but not yet validated:** generate one form at a time in Hollowtide Sprite Forge (Google Opal, Nano Banana Pro), using the roster brief and optional immediately previous-stage image. Review the magenta-background image, then run `tools/convert_forge_sprite.py` with `--compare` to make a transparent 100×100 PNG and check it against the original before importing. Validated on Cinderhide, Kithflare and Wayburn on 2026-09-25. The Opal setup and current prompt are documented in `docs/opal-sprite-forge-prompt-v2.md`.
+
+**Pixelorama is no longer in the chosen workflow.** Preston explicitly stopped using it on 2026-09-25. PixelLab remains historical tool research and may be reconsidered for animation later; it is not the current source for new still sprites.
 
 **The spec is a target to grow into, not a gate on the first sprite.** A simpler style executed cleanly beats an ambitious one executed badly, and consistency across the roster matters more than rendering sophistication on any single creature.
 

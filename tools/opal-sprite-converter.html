@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hollowtide Sprite Prep</title>
+<style>
+  :root { color-scheme: dark; --bg:#121613; --panel:#1d241e; --line:#3a493d; --text:#e4eadf; --muted:#a8b4a5; --accent:#c3d28b; --warning:#f0c27b; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:radial-gradient(ellipse at top,#273329 0,var(--bg) 52rem); color:var(--text); font:16px/1.5 system-ui,"Segoe UI",sans-serif; }
+  main { max-width:980px; margin:0 auto; padding:38px 22px 56px; }
+  .eyebrow { color:var(--accent); letter-spacing:.14em; font-size:.75rem; font-weight:700; }
+  h1 { margin:6px 0 4px; font-size:clamp(2rem,5vw,3.2rem); line-height:1.1; }
+  h2 { margin:0 0 12px; font-size:1rem; }
+  p { color:var(--muted); margin:8px 0; }
+  .intro { max-width:700px; margin-bottom:24px; }
+  .panel { background:var(--panel); border:1px solid var(--line); border-radius:14px; padding:18px; }
+  .drop { display:grid; place-items:center; min-height:154px; text-align:center; border:1px dashed #71846d; border-radius:12px; background:#18201a; transition:background .15s,border-color .15s; }
+  .drop.active { background:#27352a; border-color:var(--accent); }
+  button,.file-button { display:inline-flex; align-items:center; justify-content:center; min-height:44px; border:1px solid var(--accent); border-radius:8px; padding:9px 16px; background:var(--accent); color:#182016; font:inherit; font-weight:700; cursor:pointer; text-decoration:none; }
+  button:disabled { cursor:not-allowed; opacity:.45; }
+  .controls { margin-top:16px; }
+  label { display:block; font-weight:650; }
+  input[type="range"] { width:100%; accent-color:var(--accent); margin:8px 0 0; }
+  input[type="text"] { width:100%; min-height:42px; margin-top:6px; padding:8px 11px; border:1px solid var(--line); border-radius:7px; background:#111712; color:var(--text); font:inherit; }
+  .previews { display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:16px; }
+  .checker { background-color:#202720; background-image:linear-gradient(45deg,#344036 25%,transparent 25%),linear-gradient(-45deg,#344036 25%,transparent 25%),linear-gradient(45deg,transparent 75%,#344036 75%),linear-gradient(-45deg,transparent 75%,#344036 75%); background-size:20px 20px; background-position:0 0,0 10px,10px -10px,-10px 0; }
+  .source-frame,.output-frame { display:grid; place-items:center; width:100%; aspect-ratio:1; overflow:hidden; }
+  #source { display:block; width:min(100%,360px); height:min(100%,360px); object-fit:contain; }
+  #preview { display:block; width:min(100%,512px); height:min(100%,512px); image-rendering:pixelated; }
+  .status { min-height:27px; margin-top:10px; color:var(--accent); overflow-wrap:anywhere; }
+  .status.warn { color:var(--warning); }
+  .download-row { display:flex; align-items:center; gap:12px; margin-top:12px; }
+  .small { font-size:.86rem; }
+  .privacy { margin-top:20px; padding-top:14px; border-top:1px solid var(--line); font-size:.9rem; }
+  @media (max-width:680px) { main { padding:24px 14px 40px; } .previews { grid-template-columns:1fr; } .download-row { align-items:stretch; flex-direction:column; } }
+</style>
+</head>
+<body>
+<main>
+  <header>
+    <div class="eyebrow">HOLLOWTIDE · ART PIPELINE</div>
+    <h1>Sprite Prep</h1>
+    <p class="intro">Turn one square Opal sprite image into a transparent 64 × 64 PNG for Godot. The original image stays untouched.</p>
+  </header>
+  <section class="panel">
+    <div class="drop" id="dropZone">
+      <div>
+        <label class="file-button" for="fileInput">Choose an Opal image</label>
+        <input id="fileInput" type="file" accept="image/*" hidden>
+        <p>or drop the image here</p>
+      </div>
+    </div>
+    <div class="controls">
+      <label for="tolerance">Magenta tolerance: <span id="toleranceValue">32</span></label>
+      <input id="tolerance" type="range" min="0" max="96" value="32">
+      <p class="small">The converter clears pixels close to pure #FF00FF, then reduces the square image with nearest-neighbor sampling.</p>
+    </div>
+    <div class="previews">
+      <section class="panel">
+        <h2>Original</h2>
+        <div class="source-frame checker"><canvas id="source"></canvas></div>
+        <p class="small" id="sourceInfo">Choose or drop a square image to begin.</p>
+      </section>
+      <section class="panel">
+        <h2>Transparent 64 × 64 preview</h2>
+        <div class="output-frame checker"><canvas id="preview" width="64" height="64"></canvas></div>
+        <p class="status" id="status" role="status" aria-live="polite">Waiting for an image.</p>
+      </section>
+    </div>
+    <div style="margin-top:16px">
+      <label for="outputName">Output filename</label>
+      <input id="outputName" type="text" value="creature_64.png" autocomplete="off">
+      <div class="download-row">
+        <button id="download" type="button" disabled>Download transparent PNG</button>
+        <span class="small">This creates a new file. It never replaces the Opal original.</span>
+      </div>
+    </div>
+  </section>
+  <p class="privacy">Everything runs in this page on your computer. No image is uploaded or sent anywhere. After downloading, inspect the preview and import the PNG into Godot only if the silhouette and transparent edges look right.</p>
+</main>
+<script>
+(() => {
+  const fileInput=document.getElementById("fileInput");
+  const dropZone=document.getElementById("dropZone");
+  const tolerance=document.getElementById("tolerance");
+  const toleranceValue=document.getElementById("toleranceValue");
+  const sourceCanvas=document.getElementById("source");
+  const previewCanvas=document.getElementById("preview");
+  const sourceInfo=document.getElementById("sourceInfo");
+  const status=document.getElementById("status");
+  const outputName=document.getElementById("outputName");
+  const download=document.getElementById("download");
+  const previewContext=previewCanvas.getContext("2d");
+  let sourceBitmap=null;
+
+  function setStatus(message,warning=false) {
+    status.textContent=message;
+    status.classList.toggle("warn",warning);
+  }
+
+  function safeOutputName() {
+    let name=outputName.value.trim().replace(/[\\/:*?"<>|]/g,"_");
+    if (!name) name="creature_64.png";
+    if (!/\.png$/i.test(name)) name+=".png";
+    return name;
+  }
+
+  function convert() {
+    if (!sourceBitmap) return;
+    const width=sourceBitmap.width;
+    const height=sourceBitmap.height;
+    const threshold=Number(tolerance.value);
+    const keyedCanvas=document.createElement("canvas");
+    keyedCanvas.width=width;
+    keyedCanvas.height=height;
+    const keyedContext=keyedCanvas.getContext("2d",{willReadFrequently:true});
+    keyedContext.drawImage(sourceBitmap,0,0);
+    const pixels=keyedContext.getImageData(0,0,width,height);
+    let cleared=0;
+
+    for (let i=0;i<pixels.data.length;i+=4) {
+      const red=pixels.data[i];
+      const green=pixels.data[i+1];
+      const blue=pixels.data[i+2];
+      if (red>=255-threshold && blue>=255-threshold && green<=threshold) {
+        pixels.data[i+3]=0;
+        cleared+=1;
+      }
+    }
+
+    keyedContext.putImageData(pixels,0,0);
+    previewContext.clearRect(0,0,64,64);
+    previewContext.imageSmoothingEnabled=false;
+    previewContext.drawImage(keyedCanvas,0,0,64,64);
+    download.disabled=false;
+
+    const percent=(cleared/(width*height)*100).toFixed(1);
+    const gridNote=width%64===0 ? "" : " Image size is not an exact multiple of 64, so check grid alignment closely.";
+    if (cleared===0) {
+      setStatus("No magenta pixels were cleared. Try a higher tolerance or confirm this is the raw Opal image."+gridNote,true);
+    } else {
+      setStatus(cleared.toLocaleString()+" pixels cleared ("+percent+"% of image)."+gridNote);
+    }
+  }
+
+  async function loadFile(file) {
+    if (!file || !file.type.startsWith("image/")) {
+      setStatus("Choose a PNG, JPEG, or WebP image.",true);
+      return;
+    }
+    try {
+      const bitmap=await createImageBitmap(file);
+      const width=bitmap.width;
+      const height=bitmap.height;
+      if (width!==height || width<64) {
+        bitmap.close();
+        sourceBitmap=null;
+        download.disabled=true;
+        setStatus("This image is "+width+" × "+height+". Use a square image at least 64 pixels wide.",true);
+        return;
+      }
+      if (sourceBitmap) sourceBitmap.close();
+      sourceBitmap=bitmap;
+      sourceCanvas.width=width;
+      sourceCanvas.height=height;
+      const sourceContext=sourceCanvas.getContext("2d");
+      sourceContext.imageSmoothingEnabled=true;
+      sourceContext.clearRect(0,0,width,height);
+      sourceContext.drawImage(bitmap,0,0);
+      sourceInfo.textContent=file.name+" · "+width+" × "+height;
+      const stem=file.name.replace(/\.[^.]+$/,"");
+      outputName.value=stem+"_64.png";
+      convert();
+    } catch (error) {
+      sourceBitmap=null;
+      download.disabled=true;
+      setStatus("The image could not be opened in this browser.",true);
+    }
+  }
+
+  fileInput.addEventListener("change",()=>loadFile(fileInput.files[0]));
+  tolerance.addEventListener("input",()=>{
+    toleranceValue.textContent=tolerance.value;
+    convert();
+  });
+  dropZone.addEventListener("dragover",event=>{
+    event.preventDefault();
+    dropZone.classList.add("active");
+  });
+  dropZone.addEventListener("dragleave",()=>dropZone.classList.remove("active"));
+  dropZone.addEventListener("drop",event=>{
+    event.preventDefault();
+    dropZone.classList.remove("active");
+    loadFile(event.dataTransfer.files[0]);
+  });
+  download.addEventListener("click",()=>{
+    if (!sourceBitmap) return;
+    previewCanvas.toBlob(blob=>{
+      if (!blob) {
+        setStatus("The PNG could not be created. Please try the image again.",true);
+        return;
+      }
+      const url=URL.createObjectURL(blob);
+      const link=document.createElement("a");
+      link.href=url;
+      link.download=safeOutputName();
+      link.click();
+      setTimeout(()=>URL.revokeObjectURL(url),1500);
+    },"image/png");
+  });
+})();
+</script>
+</body>
+</html>

@@ -5,6 +5,8 @@ generation comes out well or badly, change the template and add a line to the lo
 
 Written 2026-09-22.
 
+> **Superseded for current still-sprite work (2026-09-25):** Preston chose Hollowtide Sprite Forge in Google Opal and stopped using Pixelorama. The PixelLab and Sprite Fusion account details, commands, and recommendations below are historical research; do not use them as the current generation workflow or spend PixelLab credits for new creature sprites. The live Opal setup uses Nano Banana Pro and is documented in `docs/opal-sprite-forge-prompt-v2.md`. Its optional prior-stage image is wired to the prompt but has not been generation-tested. Raw output has a magenta background and still needs a not-yet-built 64×64 conversion before Godot import. PixelLab can be reconsidered for animation separately.
+
 ---
 
 ## Account reality, read this first
@@ -31,12 +33,14 @@ not available to you. Everything below uses the pixflux endpoint, which works.
 
 ---
 
-## Which tool for what
+## Previous tool selection: historical
 
 Revised 2026-09-22 after Preston asked what skeleton animation is actually for. The earlier
 advice in this file, PixelLab for creatures, was weighted wrong.
 
-**Use Sprite Fusion for still creature art. Use PixelLab for animation and rotation, later.**
+The former recommendation was Sprite Fusion for still art and PixelLab for animation and rotation.
+It was superseded on 2026-09-25 by Preston's choice of Hollowtide Sprite Forge in Opal, recorded
+at the top of this file.
 
 The reason is selection, not model quality:
 

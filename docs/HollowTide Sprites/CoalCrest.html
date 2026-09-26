@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hollowtide Bestiary | Coalcrest</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        charcoal: '#1a1c1e',
+                        riverInk: '#253237',
+                        bonePaper: '#e8e4d9',
+                        mutedCopper: '#b87333',
+                    },
+                    fontFamily: {
+                        display: ['Georgia', 'serif'],
+                        body: ['ui-sans-serif', 'system-ui', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .pixelated {
+            image-rendering: pixelated;
+        }
+        .bone-paper-gradient {
+            background: linear-gradient(135deg, #f4f1ea 0%, #e8e4d9 100%);
+        }
+    </style>
+</head>
+<body class="bg-charcoal min-h-screen text-riverInk p-4 md:p-8 font-body">
+
+    <main class="max-w-4xl mx-auto space-y-6">
+        <!-- Header -->
+        <header class="border-b border-mutedCopper/30 pb-6">
+            <h1 class="text-bonePaper font-display text-4xl md:text-6xl tracking-tight">Hollowtide Field Guide</h1>
+            <p class="text-mutedCopper uppercase tracking-widest text-sm mt-2 font-semibold">Classification: Specimen 03-C</p>
+        </header>
+
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-6">
+            
+            <!-- Sprite Display Panel -->
+            <section class="md:col-span-5 bone-paper-gradient p-6 rounded-lg shadow-2xl flex flex-col items-center justify-center border-t-4 border-mutedCopper">
+                <div class="bg-magenta-600 border-4 border-riverInk p-2 shadow-inner">
+                    <img src='https://opal.google/board/blobs/99821dc0-a85d-4ed2-b096-d8a3bd935c0f' alt='Coalcrest Sprite' class="pixelated w-64 h-64 object-contain" />
+                </div>
+                <div class="mt-6 text-center">
+                    <h2 class="text-2xl font-display font-bold">Coalcrest</h2>
+                    <p class="text-sm italic text-riverInk/70">Stage III • Essence: Ember</p>
+                </div>
+            </section>
+
+            <!-- Details Panel -->
+            <section class="md:col-span-7 bg-white/5 backdrop-blur-sm border border-white/10 p-8 rounded-lg text-bonePaper">
+                <h3 class="text-mutedCopper font-display text-xl mb-4 border-b border-mutedCopper/20 pb-2">Creature Brief</h3>
+                
+                <div class="space-y-4 text-bonePaper/90 leading-relaxed">
+                    <p>
+                        <strong>Evolutionary Path:</strong> Stage III. 
+                        <strong>Core Identity:</strong> This entity retains the face, signature anatomy, and palette of the previous stage while embodying the new specified silhouette.
+                    </p>
+                    
+                    <p>
+                        <strong>Physical Attributes:</strong> Long-distance runner with a shielded chest furnace. Features plated haunches, a split signal crest, a low aerodynamic torso, and a balancing tail. Stance is a right-facing guard-run with the head held high.
+                    </p>
+                    
+                    <p>
+                        <strong>Materials & Finish:</strong> Soot and rust primary coloration accented with iron plates and an active ember core. 
+                    </p>
+                    
+                    <p class="italic border-l-4 border-mutedCopper pl-4 mt-6">
+                        "Steady and discerning. Engineered for endurance over explosive force. Avoids mounted armor, lanterns, fire wings, or generic draconic archetypes."
+                    </p>
+                </div>
+            </section>
+
+        </div>
+
+        <!-- Meta Section -->
+        <footer class="text-center pt-8">
+            <p class="text-xs text-mutedCopper/50 uppercase tracking-tighter">
+                Bestiary Archive // Internal Research Database
+            </p>
+        </footer>
+    </main>
+
+</body>
+</html>

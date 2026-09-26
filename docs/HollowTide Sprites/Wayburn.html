@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hollowtide Bestiary // Specimen Entry</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600&family=Inter:wght@400;700&display=swap');
+
+        body {
+            background-color: #0f1214;
+            color: #d1d5db;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .bone-paper {
+            background-color: #e5e0d3;
+            color: #1a1c1d;
+        }
+
+        .river-ink {
+            background-color: #1a2933;
+        }
+
+        .muted-copper {
+            color: #b45309;
+        }
+
+        .pixelated {
+            image-rendering: pixelated;
+        }
+
+        .glass {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+    </style>
+</head>
+<body class="min-h-screen p-4 md:p-8 flex items-center justify-center">
+
+    <div class="max-w-4xl w-full grid grid-cols-1 md:grid-cols-2 gap-6">
+        
+        <!-- Sprite Showcase -->
+        <div class="relative group rounded-2xl overflow-hidden glass p-8 flex flex-col items-center justify-center">
+            <div class="absolute inset-0 bg-gradient-to-br from-orange-900/10 to-blue-900/10 opacity-50"></div>
+            <div class="relative z-10 p-4 border border-white/10 rounded-xl bg-[#0f1214]/50">
+                <img src='https://opal.google/board/blobs/44607b02-15e5-4b59-a2d3-dc8e710352aa' alt='Wayburn: Ember Sprite' class="pixelated w-64 h-64 object-contain shadow-2xl" />
+            </div>
+            <div class="mt-6 text-center z-10">
+                <h2 class="text-xs uppercase tracking-widest text-orange-500/80 font-bold">Specimen ID</h2>
+                <p class="font-mono text-sm">HT-WAYBURN-02</p>
+            </div>
+        </div>
+
+        <!-- Info Panel -->
+        <div class="flex flex-col gap-6">
+            <div class="p-6 rounded-2xl glass">
+                <h1 class="text-3xl font-bold mb-2 tracking-tight text-stone-100">Wayburn: Ember</h1>
+                <div class="flex gap-4">
+                    <span class="px-3 py-1 rounded-full text-xs font-semibold bg-orange-900/30 text-orange-400 border border-orange-500/20">Stage II</span>
+                    <span class="px-3 py-1 rounded-full text-xs font-semibold bg-blue-900/30 text-blue-300 border border-blue-500/20">Essence: Ember</span>
+                </div>
+            </div>
+
+            <div class="p-6 rounded-2xl bg-[#e5e0d3] text-[#1a1c1d] shadow-xl">
+                <h3 class="font-bold text-lg mb-4 uppercase tracking-tighter border-b border-[#1a1c1d]/20 pb-2">Field Briefing</h3>
+                <p class="leading-relaxed text-sm font-medium">
+                    Stage II Wayburn: Ember; attach Kithflare PNG in Previous Stage Sprite (optional); preserve this line's face, signature anatomy, and palette while making the new silhouette specified here; same runner with longer forelimbs, layered shoulder chambers, tail ember shutter; taller stable silhouette, forward-leading shoulder; disciplined and protective; right-facing, glancing back toward partner; preserve soot/rust/orange palette; avoid simple enlargement, horse tack, flames everywhere.
+                </p>
+                
+                <div class="mt-6 pt-4 border-t border-[#1a1c1d]/20 flex justify-between items-center text-xs font-bold uppercase tracking-widest opacity-60">
+                    <span>Field Guide Entry</span>
+                    <span>Hollowtide Archives</span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        // Smooth entrance for components
+        document.addEventListener('DOMContentLoaded', () => {
+            const elements = document.querySelectorAll('.glass, .bg-[#e5e0d3]');
+            elements.forEach((el, index) => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(20px)';
+                el.style.transition = `all 0.6s ease-out ${index * 0.15}s`;
+                setTimeout(() => {
+                    el.style.opacity = '1';
+                    el.style.transform = 'translateY(0)';
+                }, 100);
+            });
+        });
+    </script>
+</body>
+</html>

@@ -13,7 +13,7 @@ extends Resource
 ##
 ## The essence cycle (Ember burns Bloom, Bloom breaks Stone, Stone dams Tide,
 ## Tide quenches Ember) is deliberately NOT encoded here. It is a combat rule,
-## and combat does not exist yet. It belongs with the battle system.
+## and it lives in EssenceChart, which BattleScreen uses for attack effectiveness.
 enum Essence {
 	EMBER,
 	TIDE,
