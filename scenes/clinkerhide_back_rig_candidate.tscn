@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Texture2D" path="res://assets/sprites/creatures/rig_pilot/clinkerhide_back_source_candidate.png" id="1_original"]
+[ext_resource type="Script" path="res://scripts/whole_sprite_breath_preview.gd" id="2_breath"]
+
+[node name="ClinkerhideBackRig" type="Node2D"]
+script = ExtResource("2_breath")
+breath_depth = 0.026
+breath_period = 1.9
+
+[node name="Sprite" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_original")

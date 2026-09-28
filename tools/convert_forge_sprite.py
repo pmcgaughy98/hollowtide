@@ -22,6 +22,10 @@ import numpy as np
 from PIL import Image
 
 FLOOR_GAP = 3  # empty rows under the feet
+# Colours closer than this (straight-line RGB distance) count as one colour when
+# the palette is built. Big enough to merge JPEG noise, small enough that a glow
+# never merges into the rock around it.
+MERGE_DISTANCE = 18
 
 
 def grid_period(signal):
@@ -39,22 +43,51 @@ def grid_period(signal):
     return best
 
 
+def period_score(signal, period):
+    idx = np.arange(1, len(signal) + 1)
+    bins = np.floor(np.mod(idx, period) / period * 40).astype(int)
+    energy = np.bincount(bins, weights=signal, minlength=40)
+    return energy.max() / energy.mean()
+
+
 def is_magenta(rgb):
     r, g, b = rgb[..., 0], rgb[..., 1], rgb[..., 2]
     return (r > 170) & (b > 170) & (g < 110) & (np.abs(r - b) < 70)
+
+
+def background(a):
+    """Pure magenta, plus whatever colour actually fills the image's border.
+
+    The Forge does not always hit exact #FF00FF: Wayburn came back on a darker
+    magenta that the fixed test missed, so its whole background survived. The
+    border is always background, so its colour is the reliable one to key out.
+    """
+    border = np.concatenate([a[:4].reshape(-1, 3), a[-4:].reshape(-1, 3),
+                             a[:, :4].reshape(-1, 3), a[:, -4:].reshape(-1, 3)])
+    key = np.median(border, axis=0)
+    near_key = np.sqrt(((a - key) ** 2).sum(-1)) < 60
+    return is_magenta(a) | near_key
 
 
 def convert(src, dst, compare=None):
     a = np.asarray(Image.open(src).convert("RGB")).astype(int)
     h, w, _ = a.shape
 
-    col_strength, px = grid_period(np.abs(np.diff(a, axis=1)).sum(axis=(0, 2)))
-    row_strength, py = grid_period(np.abs(np.diff(a, axis=0)).sum(axis=(1, 2)))
-    nx, ny = round(w / px), round(h / py)
+    # Blocks are square, so one block size must fit both directions. Measuring
+    # each axis on its own once read Kithflare as 100 wide by 128 tall, which
+    # stretches the sprite. Try both axes' best guesses and keep the one that
+    # scores best across columns and rows together.
+    col_signal = np.abs(np.diff(a, axis=1)).sum(axis=(0, 2))
+    row_signal = np.abs(np.diff(a, axis=0)).sum(axis=(1, 2))
+    _, px = grid_period(col_signal)
+    _, py = grid_period(row_signal)
+    px = max((px, py), key=lambda p: period_score(col_signal, p) + period_score(row_signal, p))
+    col_strength, row_strength = period_score(col_signal, px), period_score(row_signal, px)
+    nx, ny = round(w / px), round(h / px)
     xs = np.linspace(0, w, nx + 1)
     ys = np.linspace(0, h, ny + 1)
 
-    bg = is_magenta(a)
+    bg = background(a)
     cells = np.zeros((ny, nx, 4), np.uint8)
     for j in range(ny):
         for i in range(nx):
@@ -76,19 +109,41 @@ def convert(src, dst, compare=None):
     # JPEG blends magenta into the outline, leaving pink blocks on the rim.
     # Only rim blocks are checked, so a creature's own pinks and purples survive.
     c = cells[..., :3].astype(int)
-    pink = (c[..., 0] > 140) & (c[..., 2] > 120) & (c[..., 1] < c[..., 0] - 60) & (c[..., 1] < c[..., 2] - 40)
-    padded = np.pad(opaque, 1)
-    interior = padded[:-2, 1:-1] & padded[2:, 1:-1] & padded[1:-1, :-2] & padded[1:-1, 2:]
-    cells[opaque & ~interior & pink, 3] = 0
+    # Two passes, because on detailed art (Vitrecrag) the bleed runs two blocks deep.
+    pink = (c[..., 0] > 120) & (c[..., 2] > 100) & (c[..., 1] < c[..., 0] - 50) & (c[..., 1] < c[..., 2] - 50)
+    for _ in range(2):
+        padded = np.pad(opaque, 1)
+        interior = padded[:-2, 1:-1] & padded[2:, 1:-1] & padded[1:-1, :-2] & padded[1:-1, 2:]
+        cells[opaque & ~interior & pink, 3] = 0
+        opaque = cells[..., 3] == 255
+    # The Forge prompt forbids magenta on creatures, so a hot magenta block anywhere
+    # is background showing through a gap. Slagglass had one inside its shell.
+    hot = (c[..., 0] > 180) & (c[..., 2] > 130) & (c[..., 1] < 90)
+    cells[opaque & hot, 3] = 0
     opaque = cells[..., 3] == 255
 
     # JPEG makes one real colour into many near-copies. Snap each block to the
     # nearest colour that appears in at least two blocks, which keeps small
     # features like eyes while merging the noise.
+    #
+    # The palette is built from colours that are actually different, most common
+    # first, skipping near-copies of one already chosen. A plain top-48 list lost
+    # rare but distinct colours: Ironvent's orange vents and Vitrecrag's glowing
+    # windows were outvoted by dozens of near-identical browns and purples, then
+    # snapped to them, so the glow vanished.
     rounded = (cells[..., :3].astype(int) // 8) * 8 + 4
     counts = Counter(map(tuple, rounded[opaque]))
-    palette = np.array([col for col, n in counts.most_common(48) if n >= 2] or
-                       [col for col, _ in counts.most_common(8)])
+    # Near-copies are grouped first and counted together, so an orange scattered
+    # across many one-block shades still adds up to one strong orange.
+    groups = []  # [colour, blocks]
+    for col, n in counts.most_common():
+        for g in groups:
+            if sum((x - y) ** 2 for x, y in zip(col, g[0])) <= MERGE_DISTANCE ** 2:
+                g[1] += n
+                break
+        else:
+            groups.append([col, n])
+    palette = np.array([g[0] for g in groups if g[1] >= 3] or [g[0] for g in groups[:8]])
     flat = cells[..., :3].reshape(-1, 3).astype(int)
     nearest = palette[np.argmin(((flat[:, None, :] - palette[None]) ** 2).sum(-1), axis=1)]
     cells[..., :3] = nearest.reshape(cells.shape[:2] + (3,)).astype(np.uint8)

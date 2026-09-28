@@ -1,7 +1,7 @@
 extends SceneTree
 
 ## Run with Godot --headless --path <project> --script res://tests/field_encounter_smoke.gd.
-## Exercises the real main scene, physics overlap, E input, Strike, and Flee.
+## Exercises the real main scene, physics overlap, E input, a selected move, and Flee.
 
 func _initialize() -> void:
 	call_deferred("_run")
@@ -76,7 +76,7 @@ func _run() -> void:
 	await _press_interact()
 	if not _require(paused and battle.visible, "E near Cinderhide opens battle and pauses the world"):
 		return
-	if not _require(battle.get("_foe").creature_name == "Cinderhide" and battle.player_creature.creature_name == "Rimefin", "existing Cinderhide and Rimefin are used"):
+	if not _require(battle.get("_foe").creature_name == "Cinderhide" and battle.player_creature.creature_name == "Cinderhide", "wild Cinderhide meets your Cinderhide"):
 		return
 
 	var frozen_position := player.global_position
@@ -88,21 +88,23 @@ func _run() -> void:
 
 	var strike: Button = battle.get("_strike_button")
 	var choices: VBoxContainer = battle.get("_buttons")
-	var ready := await _wait_until(func(): return choices.visible and not strike.disabled)
+	var ready := await _wait_until(func(): return choices.visible and not battle.get("_strike_button").disabled)
 	if not _require(ready, "battle reaches its action choices"):
 		return
 	var foe_hp_before: int = battle.get("_foe_hp")
 	strike.pressed.emit()
-	ready = await _wait_until(func(): return choices.visible and not strike.disabled)
-	if not _require(ready and battle.get("_foe_hp") < foe_hp_before, "Strike completes its animation and deals damage"):
+	var fire_seen := await _wait_until(func(): return battle.find_child("MoveEffect", false, false) != null)
+	if not _require(fire_seen, "Cinderhide's turn throws a selected move effect"):
+		return
+	ready = await _wait_until(func(): return choices.visible and not battle.get("_strike_button").disabled)
+	if not _require(ready and battle.get("_foe_hp") < foe_hp_before, "the selected move completes its animation and deals damage"):
 		return
 	if not _require(battle.get("_player_hp") < battle.player_creature.base_hp, "the foe takes its turn"):
 		return
+	if not _require(battle.get("_player_hp") <= battle.player_creature.base_hp - 8, "the foe's selected Ember move deals damage"):
+		return
 
-	var flee: Button
-	for button in choices.get_children():
-		if button is Button and button.text == "Flee":
-			flee = button
+	var flee: Button = battle.get("_flee_button")
 	if not _require(flee != null, "Flee control is present"):
 		return
 	flee.pressed.emit()
@@ -127,7 +129,7 @@ func _run() -> void:
 	player.global_position = encounter.global_position + Vector2(0, 20)
 	await _settle_physics()
 	await _press_interact()
-	ready = await _wait_until(func(): return choices.visible and not strike.disabled)
+	ready = await _wait_until(func(): return choices.visible and not battle.get("_strike_button").disabled)
 	if not _require(ready and battle.get("_foe_hp") == battle.get("_foe").base_hp, "the encounter can be entered again with fresh battle HP"):
 		return
 	flee.pressed.emit()

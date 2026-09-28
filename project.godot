@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Hollowtide"
-run/main_scene="res://scenes/main.tscn"
+run/main_scene="res://scenes/vitrecrag_pour_preview.tscn"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -24,6 +24,10 @@ _mcp_game_helper="*res://addons/godot_ai/runtime/game_helper.gd"
 
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
+
+[dotnet]
+
+project/assembly_name="Hollowtide"
 
 [editor_plugins]
 

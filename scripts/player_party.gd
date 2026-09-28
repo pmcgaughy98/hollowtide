@@ -1,47 +1,69 @@
 extends Node
 
-## What the player has caught.
-##
-## Registered as an autoload called PlayerParty, which means any script can
-## reach it by that name without anything passing a reference around. That is
-## the Godot convention for a small piece of state the whole game shares, and
-## it is why capture did not need plumbing through the player or the battle.
-##
-## This holds CreatureData files, not individual creatures. Catching two
-## Cinderhides gives you two entries pointing at the same file. That is correct
-## while nothing is per-creature: there are no nicknames, no levels, and no
-## current HP carried between battles. The first time any of those exist, this
-## becomes an array of small runtime objects that each point at a CreatureData,
-## and that is the moment to change it, not before.
-##
-## Nothing here is saved to disk. Close the game and the party is gone. Saving
-## is its own step.
-
+## Run-local ownership. Each slot is one creature, even when two slots share
+## the same CreatureData species file. The active slot is chosen outside battle.
+## Nothing is saved to disk yet.
 signal party_changed
 
-## Six is the genre standard and it gives capture a reason to ever say no.
 const MAX_PARTY := 6
 
-var caught: Array[CreatureData] = []
+var caught: Array[PartyMember] = []
+var active_slot := -1
 
 
 func is_full() -> bool:
 	return caught.size() >= MAX_PARTY
 
 
-## Adds a creature. Returns false if the party is already full.
+## The scene's exported creature is a fallback for a fresh game only.
+## A starter occupies one of the six party slots.
+func ensure_starter(starter: CreatureData) -> void:
+	if caught.is_empty():
+		add(starter)
+	elif active_slot < 0 or active_slot >= caught.size():
+		active_slot = 0
+		party_changed.emit()
+
+
+func active_creature() -> CreatureData:
+	if active_slot < 0 or active_slot >= caught.size():
+		return null
+	return caught[active_slot].species
+
+
+## Chooses which owned creature enters the next battle.
+func select(slot: int) -> bool:
+	if slot < 0 or slot >= caught.size():
+		return false
+	if active_slot != slot:
+		active_slot = slot
+		party_changed.emit()
+	return true
+
+
+## Adds a distinct owned creature. Returns false if the party is full.
 func add(creature: CreatureData) -> bool:
 	if creature == null or is_full():
 		return false
-	caught.append(creature)
+	caught.append(PartyMember.new(creature))
+	if active_slot == -1:
+		active_slot = 0
 	party_changed.emit()
 	return true
 
 
-## How many of this particular creature the player owns.
+## Evolves only the selected individual, not the first matching species.
+func evolve_active(expected: CreatureData, next: CreatureData) -> bool:
+	if next == null or active_creature() != expected:
+		return false
+	caught[active_slot].species = next
+	party_changed.emit()
+	return true
+
+
 func count_of(creature: CreatureData) -> int:
 	var n := 0
-	for c in caught:
-		if c == creature:
+	for member in caught:
+		if member.species == creature:
 			n += 1
 	return n

@@ -1,0 +1,32 @@
+[gd_resource type="Resource" script_class="MoveData" load_steps=12 format=3]
+
+[ext_resource type="Script" path="res://scripts/move_data.gd" id="1_script"]
+[ext_resource type="PackedScene" path="res://scenes/effects/vitrecrag_molten_glass.tscn" id="2_effect"]
+[ext_resource type="Texture2D" path="res://assets/sprites/creatures/attacks/vitrecrag_lava_pour/transplant/01_load.png" id="3_f1"]
+[ext_resource type="Texture2D" path="res://assets/sprites/creatures/attacks/vitrecrag_lava_pour/transplant/02_windup.png" id="4_f2"]
+[ext_resource type="Texture2D" path="res://assets/sprites/creatures/attacks/vitrecrag_lava_pour/transplant/03_launch.png" id="5_f3"]
+[ext_resource type="Texture2D" path="res://assets/sprites/creatures/attacks/vitrecrag_lava_pour/transplant/04_contact.png" id="6_f4"]
+[ext_resource type="Texture2D" path="res://assets/sprites/creatures/attacks/vitrecrag_lava_pour/transplant/04_contact_b.png" id="7_f4b"]
+[ext_resource type="Texture2D" path="res://assets/sprites/creatures/attacks/vitrecrag_lava_pour/transplant/04_contact_c.png" id="8_f4c"]
+[ext_resource type="Texture2D" path="res://assets/sprites/creatures/attacks/vitrecrag_lava_pour/transplant/05_recovery.png" id="9_f5"]
+[ext_resource type="PackedScene" path="res://scenes/effects/vitrecrag_glass_gush.tscn" id="10_gush"]
+[ext_resource type="PackedScene" path="res://scenes/effects/vitrecrag_glass_lob.tscn" id="11_lob"]
+
+[resource]
+script = ExtResource("1_script")
+move_name = "Molten Glass"
+essence = 0
+power = 32
+max_uses = 0
+effect = ExtResource("2_effect")
+attack_frames = Array[Texture2D]([ExtResource("3_f1"), ExtResource("4_f2"), ExtResource("5_f3"), ExtResource("6_f4"), ExtResource("7_f4b"), ExtResource("8_f4c"), ExtResource("6_f4"), ExtResource("7_f4b"), ExtResource("8_f4c"), ExtResource("6_f4"), ExtResource("7_f4b"), ExtResource("8_f4c"), ExtResource("6_f4"), ExtResource("7_f4b"), ExtResource("8_f4c"), ExtResource("9_f5")])
+attack_frame_holds = Array[float]([0.08, 0.5, 0.08, 0.11, 0.11, 0.11, 0.11, 0.11, 0.11, 0.11, 0.11, 0.11, 0.11, 0.11, 0.11, 0.3])
+attack_lunge_px = 0.0
+attack_hit_frame = 7
+attack_brace_frame = 1
+attack_emitter = ExtResource("10_gush")
+attack_emitter_offset = Vector2(38, 23)
+attack_emit_frames = Vector2i(2, 14)
+attack_emit_shake = 25
+attack_volley = ExtResource("11_lob")
+attack_volley_interval = 0.15

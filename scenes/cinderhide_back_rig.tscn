@@ -1,0 +1,59 @@
+[gd_scene format=3]
+
+[ext_resource type="Texture2D" path="res://assets/sprites/creatures/rig_pilot/cinderhide_back_body_visible.png" id="1_8ur6l"]
+[ext_resource type="Texture2D" path="res://assets/sprites/creatures/rig_pilot/cinderhide_back_head_visible.png" id="2_hcai5"]
+
+[sub_resource type="Animation" id="Animation_8i15d"]
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HeadPivot:position")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(12, -5)]
+}
+
+[sub_resource type="Animation" id="Animation_kedcs"]
+length = 1.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HeadPivot:position")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.62, 0.75, 1.12, 1.28, 1.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(12, -5), Vector2(12, -5), Vector2(12, -4), Vector2(12, -4), Vector2(12, -5), Vector2(12, -5)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xhehp"]
+_data = {
+&"RESET": SubResource("Animation_8i15d"),
+&"idle": SubResource("Animation_kedcs")
+}
+
+[node name="CinderhideBackRig" type="Node2D" unique_id=55545483]
+
+[node name="BodyVisible" type="Sprite2D" parent="." unique_id=686962493]
+texture_filter = 1
+texture = ExtResource("1_8ur6l")
+
+[node name="HeadPivot" type="Node2D" parent="." unique_id=1278952538]
+position = Vector2(12, -5)
+
+[node name="HeadVisible" type="Sprite2D" parent="HeadPivot" unique_id=440714876]
+texture_filter = 1
+position = Vector2(-12, 5)
+texture = ExtResource("2_hcai5")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=672455696]
+libraries/ = SubResource("AnimationLibrary_xhehp")
+autoplay = &"idle"

@@ -1,5 +1,9 @@
 # How to work on this project
 
+> **Preston's role order, 2026-09-27:** Read `docs/agent-role-charter-2026-09-27.md` and the latest `docs/AI_COLLABORATION.md` before choosing work. Preston directs Claude to lead complex Godot systems and battle animation architecture, while Codex leads precise asset preparation and integration, Gemini research, Grok balance and non-creature concepts, and Opal the scoped art Forges. This is a default assignment; Preston's later direct request overrides it.
+
+> **Current-state pointer, 2026-09-26:** The snapshot under WHERE THINGS STAND below was checked on 2026-09-22 and is now historical. Read `docs/AI_COLLABORATION.md` for the latest asset, battle, evolution, and first-route handoffs. `THE_CONCEPT.md` now reflects Preston's 20-line, all-three-stage roster direction; `docs/world-bible.md` tracks the provisional first route. The new `scenes/first_route_prototype.tscn` is separate from the project start scene and has not been played end to end.
+
 A 2D pixel-art monster-collecting RPG. Godot 4.x, GDScript.
 
 **This file is about how to work with Preston. It is not the design document.**
@@ -9,7 +13,7 @@ essences, the roster structure, naming rules, art direction, and scope order. If
 that one ever disagree about the game, `THE_CONCEPT.md` wins.
 
 `docs/art-direction.md` records the current art path, prior tool research, and licensing constraints.
-The Godot import defaults are verified; the Opal image-conversion utility exists but has not been checked against a generated sprite.
+The Godot import defaults are verified; the current Forge converter has been used on approved Ember sprites, while the newly installed v4 Opal prompt has not yet had a generation review.
 
 > **Superseded September 2026.** This file used to contain the Crystal Creatures concept: eleven
 > legendary gemstone Guardians, the strict alliteration naming rule, eleven elements, and the

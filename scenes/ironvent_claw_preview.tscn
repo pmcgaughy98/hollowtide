@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://ccqaxxsuwfl56"]
+
+[ext_resource type="Script" uid="uid://dx5peyypjsjns" path="res://scripts/debug/ironvent_claw_preview.gd" id="1_preview"]
+[ext_resource type="Script" uid="uid://csbds1apdrj3q" path="res://scripts/battle_screen.gd" id="2_battle"]
+[ext_resource type="Resource" path="res://data/creatures/102_ironvent.tres" id="3_player"]
+
+[node name="IronventClawPreview" type="Node2D" unique_id=1827695019]
+script = ExtResource("1_preview")
+
+[node name="BattleScreen" type="CanvasLayer" parent="." unique_id=469005413]
+script = ExtResource("2_battle")
+player_creature = ExtResource("3_player")

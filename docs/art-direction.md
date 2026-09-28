@@ -1,29 +1,14 @@
 # How the art actually gets made
 
-Written 2026-09-10. Answers "how do I get art like Nexomon, Coromon, Lumentale."
+**Current-state note, 2026-09-26.** Hollowtide's roster target is 20 three-stage lines and 60 forms across six essences. Older 24-line, 44-form, 64x64, PixelLab, and Pixelorama directions below are historical research. [THE_CONCEPT.md](../THE_CONCEPT.md) and the [current roster](creature-roster-draft.md) govern the game and its art briefs.
 
-Revised the same day after testing PixelLab directly. The first version of this document was
-wrong and its central claim is corrected below.
+## Current decision: two Opal creature Forges
 
-Revised again after the concept pivot. Crystal Creatures is superseded by THE_CONCEPT.md: six
-essences instead of eleven elements, 24 lines and 44 sprites as the finished target, six
-single-stage creatures as the first roster. Sapphire Shark survives as Tide. Readability and
-consistency findings below remain useful; tool recommendations are historical and are superseded
-by the current decision below.
+Preston chose [Hollowtide Sprite Forge](https://opal.google/edit/1-WLZWZcCWFr8l5YTMOFUqBq-1Da2V-eY) in Opal for new Stage I still-creature art and same-form front redraws. [Hollowtide Evolution Forge](https://opal.google/edit/13O5Xm_9Go-u1cKn9TUCWAZhAXDe6OKbV), repurposed from Sprite Forge 2, is for distinct Stage II/III fronts and true same-form rear sprites. The separate input roles are documented in [the production standard](forge-production-standard.md) and [Evolution Forge specification](opal-evolution-forge-prompt-v1.md). Pixelorama is no longer the current sprite workflow.
 
-Every number here has a source or was measured. Anything unverified is labelled unverified.
+The Forges request one square image with a 100x100 logical pixel grid and flat magenta (#FF00FF) background. Approved images are converted with `tools/convert_forge_sprite.py` to transparent PNGs and reviewed against the source before import. Original Forge downloads are kept in `docs/HollowTide Sprites/Creatures/`; Godot assets live in `assets/sprites/creatures/`. Nine Ember fronts and seven Ember backs have production conversions. Ironvent and Vitrecrag still need approved backs. Rimefin retains older art until its planned Forge redraw. Evolution Forge still needs a real generated front/back review.
 
----
-
-## Current decision: Hollowtide Sprite Forge (2026-09-25)
-
-Preston chose the Opal app **Hollowtide Sprite Forge** for new still-creature artwork and explicitly stopped using Pixelorama. The live app is configured to use Nano Banana Pro, a required text brief, an optional prior-stage image, and a generic sprite showcase. See `docs/opal-sprite-forge-prompt-v2.md` for the installed prompt and roster workflow.
-
-The prompt asks Opal for one square image depicting a 64×64 pixel grid over exact flat magenta (#FF00FF). It does not ask for transparency or a native 64×64 file. The local browser converter at tools/opal-sprite-converter.html removes magenta and downsamples to transparent 64×64. Its output has not been reviewed against a real Opal image, so neither raw nor converted art is approved for import yet. The input links are saved in the editor, but image quality and evolution continuity have not been tested because no sprite was generated.
-
-The art target remains mature, grounded folklore with one strong angular silhouette, crisp pixels, low interior detail, and a palette of at most 16 colours. Keep Cinderhide and Rimefin at their legacy 96×88 sizes until they are intentionally regenerated. Do not resize their existing art directly. Older PixelLab and Sprite Fusion analysis below is historical; PixelLab may be considered later for animation, but Pixelorama is not part of the current workflow.
-
-The PixelLab licensing notes below do not establish the terms for Opal-generated images. Opal's image-use terms were not reviewed in this update; do not assume the old tool's license applies.
+Aim for mature, grounded folklore: one strong angular silhouette, crisp pixels, Cinderhide-quality material shading, and a purposeful palette that does not make every essence Turbo Green.
 
 ---
 

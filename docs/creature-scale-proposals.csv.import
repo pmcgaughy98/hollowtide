@@ -1,0 +1,19 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://7njj0thkkijm"
+
+[deps]
+
+files=["res://docs/creature-scale-proposals.name.translation", "res://docs/creature-scale-proposals.height.translation", "res://docs/creature-scale-proposals.source.translation", "res://docs/creature-scale-proposals.mass.translation", "res://docs/creature-scale-proposals.battle.translation", "res://docs/creature-scale-proposals.idle.translation"]
+
+source_file="res://docs/creature-scale-proposals.csv"
+dest_files=["res://docs/creature-scale-proposals.name.translation", "res://docs/creature-scale-proposals.height.translation", "res://docs/creature-scale-proposals.source.translation", "res://docs/creature-scale-proposals.mass.translation", "res://docs/creature-scale-proposals.battle.translation", "res://docs/creature-scale-proposals.idle.translation"]
+
+[params]
+
+compress=1
+delimiter=0
+unescape_keys=false
+unescape_translations=true

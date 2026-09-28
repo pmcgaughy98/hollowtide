@@ -165,7 +165,7 @@ point at it. Keep one per essence so a whole family reads as related, which is w
 | Tide | not yet chosen |
 | Stone | not yet chosen |
 | Gale | not yet chosen |
-| Bloom | not yet chosen |
+| Nature | not yet chosen |
 | Hollow | not yet chosen |
 
 `Preston Hub\06 Creative Projects\Design\The_Turbo_Green.md` holds a measured palette of yours,

@@ -1,0 +1,63 @@
+[gd_scene format=3 uid="uid://cp0sn0n7uqhjg"]
+
+[ext_resource type="Texture2D" uid="uid://ct8qufy18juyi" path="res://assets/sprites/effects/fire_ember_2.png" id="1_j2kxh"]
+[ext_resource type="Texture2D" uid="uid://d22jcifwq8pkf" path="res://assets/sprites/effects/fire_ember_3.png" id="2_7ujcu"]
+[ext_resource type="Texture2D" uid="uid://omj334rie7hg" path="res://assets/sprites/effects/fire_ball.png" id="3_npalu"]
+[ext_resource type="Texture2D" uid="uid://c02wi7n7adwp0" path="res://assets/sprites/effects/fire_burst.png" id="4_k32bb"]
+
+[sub_resource type="Gradient" id="Gradient_tbo1o"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.75)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="Gradient" id="Gradient_vn8ny"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.75)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[node name="FireMoveEffect" type="Node2D" unique_id=127805721]
+
+[node name="Trail" type="CPUParticles2D" parent="." unique_id=1764194898]
+emitting = false
+amount = 22
+texture = ExtResource("1_j2kxh")
+lifetime = 0.4
+emission_shape = 1
+emission_sphere_radius = 30.0
+direction = Vector2(0, -1)
+spread = 35.0
+gravity = Vector2(0, -120)
+initial_velocity_min = 20.0
+initial_velocity_max = 60.0
+scale_amount_min = 3.0
+scale_amount_max = 3.0
+color_ramp = SubResource("Gradient_tbo1o")
+
+[node name="Burst" type="CPUParticles2D" parent="." unique_id=1307091346]
+emitting = false
+amount = 14
+texture = ExtResource("2_7ujcu")
+lifetime = 0.6
+one_shot = true
+explosiveness = 0.95
+emission_shape = 1
+emission_sphere_radius = 40.0
+direction = Vector2(0, -1)
+spread = 180.0
+gravity = Vector2(0, -160)
+initial_velocity_min = 140.0
+initial_velocity_max = 280.0
+damping_min = 250.0
+damping_max = 400.0
+scale_amount_min = 3.0
+scale_amount_max = 3.0
+color_ramp = SubResource("Gradient_vn8ny")
+
+[node name="Ball" type="Sprite2D" parent="." unique_id=426189093]
+scale = Vector2(3, 3)
+texture = ExtResource("3_npalu")
+
+[node name="Flash" type="Sprite2D" parent="." unique_id=544630186]
+visible = false
+scale = Vector2(3, 3)
+texture = ExtResource("4_k32bb")

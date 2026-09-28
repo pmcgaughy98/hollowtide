@@ -1,13 +1,15 @@
-[gd_scene format=4]
+[gd_scene format=4 uid="uid://bud7pr1mxouks"]
 
-[ext_resource type="TileSet" path="res://assets/tilesets/overworld_tileset.tres" id="1_jyhfs"]
+[ext_resource type="TileSet" uid="uid://bel0yl2nvhls8" path="res://assets/tilesets/overworld_tileset.tres" id="1_jyhfs"]
 [ext_resource type="PackedScene" path="res://scenes/player.tscn" id="3_tefeu"]
 [ext_resource type="Script" uid="uid://ccb0knao4m67i" path="res://scripts/debug/dex_overlay.gd" id="4_dex"]
-[ext_resource type="Script" path="res://scripts/battle_screen.gd" id="6_scr"]
-[ext_resource type="Resource" path="res://data/creatures/001_rimefin.tres" id="7_starter"]
-[ext_resource type="Script" path="res://scripts/field_creature.gd" id="8_field"]
+[ext_resource type="Script" uid="uid://csbds1apdrj3q" path="res://scripts/battle_screen.gd" id="6_scr"]
+[ext_resource type="Script" uid="uid://4dp38p41f1ys" path="res://scripts/field_creature.gd" id="8_field"]
+[ext_resource type="Script" uid="uid://bl4suxh2708tj" path="res://scripts/party_switch.gd" id="8_tipki"]
+[ext_resource type="Script" uid="uid://4wtgx2tnmlw0" path="res://scripts/encounter_trigger.gd" id="9_85g3d"]
 [ext_resource type="Resource" path="res://data/creatures/002_cinderhide.tres" id="9_cinderhide"]
-[ext_resource type="Texture2D" path="res://assets/sprites/creatures/cinderhide.png" id="10_cinderhide_sprite"]
+[ext_resource type="Script" uid="uid://d2mhtonwdj5rc" path="res://scripts/creature_data.gd" id="10_choun"]
+[ext_resource type="Texture2D" uid="uid://dd6bj36igftpp" path="res://assets/sprites/creatures/cinderhide.png" id="10_cinderhide_sprite"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_interaction"]
 radius = 28.0
@@ -21,25 +23,26 @@ tile_set = ExtResource("1_jyhfs")
 [node name="CinderhideEncounter" type="Area2D" parent="." unique_id=715339277]
 position = Vector2(424, 168)
 collision_layer = 0
-collision_mask = 1
 script = ExtResource("8_field")
 creature = ExtResource("9_cinderhide")
 player_path = NodePath("../Player")
 battle_screen_path = NodePath("../BattleScreen")
 
-[node name="Sprite2D" type="Sprite2D" parent="CinderhideEncounter"]
+[node name="Sprite2D" type="Sprite2D" parent="CinderhideEncounter" unique_id=857562822]
+texture_filter = 1
+position = Vector2(0, 33.33)
+scale = Vector2(0.3333, 0.3333)
 texture = ExtResource("10_cinderhide_sprite")
 
-[node name="InteractionRange" type="CollisionShape2D" parent="CinderhideEncounter"]
+[node name="InteractionRange" type="CollisionShape2D" parent="CinderhideEncounter" unique_id=1858061676]
 shape = SubResource("CircleShape2D_interaction")
 
-[node name="Prompt" type="Label" parent="CinderhideEncounter"]
+[node name="Prompt" type="Label" parent="CinderhideEncounter" unique_id=872736918]
 visible = false
 offset_left = -23.0
 offset_top = -28.0
 offset_right = 23.0
 offset_bottom = -14.0
-mouse_filter = 2
 theme_override_constants/outline_size = 3
 theme_override_font_sizes/font_size = 8
 text = "E: Meet"
@@ -47,15 +50,21 @@ text = "E: Meet"
 [node name="Player" parent="." unique_id=973732104 instance=ExtResource("3_tefeu")]
 position = Vector2(136, 252)
 
-[node name="Camera2D" parent="Player" index="2"]
-limit_left = 0
-limit_top = 0
-limit_right = 640
-limit_bottom = 480
-
-[node name="DexOverlay" type="CanvasLayer" parent="."]
+[node name="DexOverlay" type="CanvasLayer" parent="." unique_id=2114372032]
 script = ExtResource("4_dex")
 
-[node name="BattleScreen" type="CanvasLayer" parent="."]
+[node name="BattleScreen" type="CanvasLayer" parent="." unique_id=1500356091]
 script = ExtResource("6_scr")
-player_creature = ExtResource("7_starter")
+player_creature = ExtResource("9_cinderhide")
+
+[node name="PartySwitch" type="CanvasLayer" parent="." unique_id=369006326]
+script = ExtResource("8_tipki")
+starter_creature = ExtResource("9_cinderhide")
+
+[node name="EncounterTrigger" type="Node" parent="." unique_id=78024547]
+script = ExtResource("9_85g3d")
+encounter_pool = Array[ExtResource("10_choun")]([ExtResource("9_cinderhide")])
+player_path = NodePath("../Player")
+ground_path = NodePath("../Ground")
+
+[connection signal="encounter_started" from="EncounterTrigger" to="BattleScreen" method="start"]

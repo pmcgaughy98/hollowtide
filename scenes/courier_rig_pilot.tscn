@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://dmad60dmsbjhj"]
+
+[ext_resource type="Texture2D" uid="uid://b8rd3bpau7x8" path="res://assets/sprites/player/rig_pilot/courier_side_frame02_body_visible.png" id="1_heec3"]
+[ext_resource type="Texture2D" uid="uid://0p3n7jia55bv" path="res://assets/sprites/player/rig_pilot/courier_side_frame02_head_visible.png" id="2_emjtu"]
+
+[node name="CourierRigPilot" type="Node2D" unique_id=473053590]
+
+[node name="RigRoot" type="Node2D" parent="." unique_id=422808572]
+position = Vector2(0, -18)
+scale = Vector2(0.0727, 0.0727)
+
+[node name="BodyVisible" type="Sprite2D" parent="RigRoot" unique_id=481147059]
+texture_filter = 1
+texture = ExtResource("1_heec3")
+
+[node name="HeadPivot" type="Node2D" parent="RigRoot" unique_id=1030066542]
+position = Vector2(27, -111)
+
+[node name="HeadVisible" type="Sprite2D" parent="RigRoot/HeadPivot" unique_id=1483174813]
+texture_filter = 1
+position = Vector2(-27, 111)
+texture = ExtResource("2_emjtu")

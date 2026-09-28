@@ -1,0 +1,65 @@
+{
+  "schema": "hollowtide-rig-pilot-visible-layers-v1",
+  "status": "rest-pose-only; no animated joints or replacement of live courier",
+  "source": "res://assets/sprites/player/male_side_walk_refined_8_v2_2026_09_27.png",
+  "source_sha256": "96f8908694d386d32bbc0154a2831a570b167b65d4a9d4eab20e16609ceb5faa",
+  "frame_rect": {
+    "x": 256,
+    "y": 0,
+    "w": 256,
+    "h": 512
+  },
+  "source_visible_bbox": {
+    "x": 11,
+    "y": 20,
+    "w": 234,
+    "h": 479
+  },
+  "masks": {
+    "head_visible": "If y<110: x=85..201; if 110<=y<135: x=118..194; if 135<=y<155: x=139..172; otherwise none",
+    "body_visible": "All frame pixels not assigned to head_visible"
+  },
+  "parts": [
+    {
+      "id": "body_visible",
+      "path": "res://assets/sprites/player/rig_pilot/courier_side_frame02_body_visible.png",
+      "canvas": {
+        "w": 256,
+        "h": 512
+      },
+      "opaque_pixels": 44498,
+      "origin": {
+        "x": 128,
+        "y": 256
+      }
+    },
+    {
+      "id": "head_visible",
+      "path": "res://assets/sprites/player/rig_pilot/courier_side_frame02_head_visible.png",
+      "canvas": {
+        "w": 256,
+        "h": 512
+      },
+      "opaque_pixels": 9350,
+      "pivot_source_pixel": {
+        "x": 155,
+        "y": 145
+      },
+      "origin": {
+        "x": 128,
+        "y": 256
+      }
+    }
+  ],
+  "preview_scene": "res://scenes/courier_rig_pilot.tscn",
+  "rest_recomposition": {
+    "rgba_channel_mismatches": 0,
+    "overlap_pixels": 0
+  },
+  "constraints": [
+    "Approved source PNG unchanged",
+    "Existing player.gd walk remains active",
+    "Head movement needs new hidden neck/collar pixels",
+    "Arms, legs, bag, and coat remain flattened in body_visible"
+  ]
+}

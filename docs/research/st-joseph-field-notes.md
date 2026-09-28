@@ -1,5 +1,7 @@
 # St. Joseph field research leads
 
+**Roster scope update, 2026-09-26:** The Gemini audit notes below were written when the draft target was 24 lines. Preston later chose 20 one-to-one lines with three stages each, recorded in `THE_CONCEPT.md` and `docs/creature-roster-draft.md`. The four problematic pitches remain retired; references below to preserving 24 slots are historical audit context, not the current roster plan.
+
 ## Status
 
 These notes synthesize a Grok report Preston provided on 2026-09-25. Grok's summaries and public social posts are research leads, not verified facts. Check the original post before borrowing a detail; do not treat a poster's claim as representative of all St. Joseph residents. Keep St. Joseph, Missouri distinct from St. Joseph, Michigan and from flood accounts about other Missouri towns.

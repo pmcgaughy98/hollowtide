@@ -14,7 +14,7 @@ const WEAK := 0.5
 
 ## Attacker essence -> defender essences that are not neutral.
 ##
-## The four-part cycle: Ember burns Bloom, Bloom breaks Stone, Stone dams Tide,
+## The four-part cycle: Ember burns Nature, Nature breaks Stone, Stone dams Tide,
 ## Tide quenches Ember. Each of those also runs backwards at WEAK, which is why
 ## every cycle row has one STRONG and one WEAK.
 ##
@@ -26,7 +26,7 @@ const WEAK := 0.5
 ## once from each side, which is why HOLLOW appears in every other row too.
 const CHART := {
 	CreatureData.Essence.EMBER: {
-		CreatureData.Essence.BLOOM: STRONG,   # burns
+		CreatureData.Essence.NATURE: STRONG,   # burns
 		CreatureData.Essence.TIDE: WEAK,      # quenched by
 		CreatureData.Essence.HOLLOW: STRONG,
 	},
@@ -37,10 +37,10 @@ const CHART := {
 	},
 	CreatureData.Essence.STONE: {
 		CreatureData.Essence.TIDE: STRONG,    # dams
-		CreatureData.Essence.BLOOM: WEAK,     # broken by
+		CreatureData.Essence.NATURE: WEAK,     # broken by
 		CreatureData.Essence.HOLLOW: STRONG,
 	},
-	CreatureData.Essence.BLOOM: {
+	CreatureData.Essence.NATURE: {
 		CreatureData.Essence.STONE: STRONG,   # breaks
 		CreatureData.Essence.EMBER: WEAK,     # burned by
 		CreatureData.Essence.HOLLOW: STRONG,
@@ -53,7 +53,7 @@ const CHART := {
 		CreatureData.Essence.TIDE: STRONG,
 		CreatureData.Essence.STONE: STRONG,
 		CreatureData.Essence.GALE: STRONG,
-		CreatureData.Essence.BLOOM: STRONG,
+		CreatureData.Essence.NATURE: STRONG,
 	},
 }
 

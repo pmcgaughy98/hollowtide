@@ -1,0 +1,215 @@
+{
+  "cinder_arc": [
+    "Cinderhide Effect Sheet.jfif",
+    [
+      0.02,
+      0.02,
+      0.51,
+      0.47
+    ]
+  ],
+  "cinder_burst": [
+    "Cinderhide Effect Sheet.jfif",
+    [
+      0.22,
+      0.37,
+      0.77,
+      0.62
+    ]
+  ],
+  "clinker_arc": [
+    "Clinkerhide Effect 1.jfif"
+  ],
+  "clinker_ember": [
+    "Clinkerhide Effect 2.jfif"
+  ],
+  "clinker_blade": [
+    "Clinkerhide effect 4.jfif"
+  ],
+  "clinker_star": [
+    "Clinkerhide Effect 5..jfif"
+  ],
+  "clinker_rock": [
+    "Clinkerhide effect 6.jfif"
+  ],
+  "clinker_flame": [
+    "Clinkerhide effect 7.jfif"
+  ],
+  "clinker_orb": [
+    "Clinkerhide effect 8.jfif"
+  ],
+  "clinker_burst": [
+    "Clinkerhide effect 10.jfif"
+  ],
+  "iron_lance": [
+    "IronVent Effect sheet.jfif",
+    [
+      0.02,
+      0.01,
+      0.31,
+      0.32
+    ]
+  ],
+  "iron_burst": [
+    "IronVent Effect sheet.jfif",
+    [
+      0.41,
+      0.45,
+      0.57,
+      0.53
+    ]
+  ],
+  "iron_ember": [
+    "Ironvent Effect sheet 2.jfif",
+    [
+      0.02,
+      0.01,
+      0.52,
+      0.5
+    ]
+  ],
+  "iron_star": [
+    "Ironvent Effect sheet 2.jfif",
+    [
+      0.4,
+      0.44,
+      0.59,
+      0.55
+    ]
+  ],
+  "kith_arc": [
+    "Kithflare Effect sheet.jfif",
+    [
+      0.02,
+      0.02,
+      0.53,
+      0.5
+    ]
+  ],
+  "kith_burst": [
+    "Kithflare Effect sheet.jfif",
+    [
+      0.38,
+      0.43,
+      0.61,
+      0.56
+    ]
+  ],
+  "way_arc": [
+    "Wayburn Effect Sheet.jfif",
+    [
+      0.01,
+      0.01,
+      0.53,
+      0.52
+    ]
+  ],
+  "way_burst": [
+    "Wayburn Effect Sheet.jfif",
+    [
+      0.41,
+      0.42,
+      0.58,
+      0.57
+    ]
+  ],
+  "way_lance": [
+    "Wayburn Effect Sheet2.jfif",
+    [
+      0,
+      0,
+      0.54,
+      0.58
+    ]
+  ],
+  "way_star": [
+    "Wayburn Effect Sheet2.jfif",
+    [
+      0.42,
+      0.43,
+      0.57,
+      0.56
+    ]
+  ],
+  "coal_claw": [
+    "coalcrest Effect 2.jfif"
+  ],
+  "coal_core": [
+    "Coalcrest effect 3.jfif"
+  ],
+  "coal_spark": [
+    "Coalcrest Effect 4.jfif"
+  ],
+  "coal_burst": [
+    "Coalcrest Effect Large explosion.jfif"
+  ],
+  "coal_ultimate": [
+    "Coalcrest Effect Ultimate Claw attack.jfif"
+  ],
+  "fusern_wedge": [
+    "Fusern Effect 1.jfif"
+  ],
+  "fusern_ember": [
+    "Fusern Effect 2.jfif"
+  ],
+  "fusern_coal": [
+    "Fusern Effect 3.jfif"
+  ],
+  "fusern_spark": [
+    "Fusern Effect 4.jfif"
+  ],
+  "fusern_burst": [
+    "Fusern Effect 5.jfif"
+  ],
+  "slag_spur": [
+    "Slagglass Effect Sheet.jfif",
+    [
+      0,
+      0,
+      0.54,
+      0.54
+    ]
+  ],
+  "slag_burst": [
+    "Slagglass Effect Sheet.jfif",
+    [
+      0.42,
+      0.43,
+      0.57,
+      0.56
+    ]
+  ],
+  "slag_glass": [
+    "Slaglass effect sheet.jfif",
+    [
+      0,
+      0,
+      0.55,
+      0.55
+    ]
+  ],
+  "slag_star": [
+    "Slaglass effect sheet.jfif",
+    [
+      0.4,
+      0.42,
+      0.59,
+      0.57
+    ]
+  ],
+  "vit_lance": [
+    "Vitrecrag effect 1.jfif"
+  ],
+  "vit_flame": [
+    "Vitrecrag effect 2.jfif"
+  ],
+  "vit_rock": [
+    "Vitrecrag effect 3'.jfif"
+  ],
+  "vit_chip": [
+    "Vitrecrag effect 4.jfif"
+  ],
+  "vit_burst": [
+    "Vitrecrag effect 5.jfif"
+  ]
+}

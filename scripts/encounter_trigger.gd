@@ -23,11 +23,15 @@ const WILD_FLAG := "spawns_creatures"
 ## Chance of an encounter on each roll.
 @export_range(0.0, 1.0) var encounter_chance: float = 0.12
 
+## Only these species can appear on this map. Set the list in the scene Inspector.
+@export var encounter_pool: Array[CreatureData] = []
+
 @export var player_path: NodePath
 @export var ground_path: NodePath
 
 var _player: Node2D
 var _ground: TileMapLayer
+var _available_creatures: Array[CreatureData] = []
 var _last_position: Vector2
 var _distance_on_wild_ground: float = 0.0
 
@@ -37,6 +41,13 @@ func _ready() -> void:
 	_ground = get_node_or_null(ground_path)
 	if _player == null or _ground == null:
 		push_warning("EncounterTrigger has no player or ground assigned, so it is off.")
+		set_physics_process(false)
+		return
+	for creature in encounter_pool:
+		if creature != null:
+			_available_creatures.append(creature)
+	if _available_creatures.is_empty():
+		push_warning("EncounterTrigger has no encounter pool, so wild encounters are off.")
 		set_physics_process(false)
 		return
 	_last_position = _player.global_position
@@ -72,12 +83,5 @@ func _standing_on_wild_ground() -> bool:
 
 
 func _start_encounter() -> void:
-	var roster := CreatureRoster.load_all()
-	if roster.is_empty():
-		return
-
-	# This is where an encounter table belongs. Wild spawns should eventually
-	# be per-area and per-essence rather than "anything in the roster", but
-	# there is only a starting roster right now, so this picks from all of it.
-	var creature: CreatureData = roster[randi() % roster.size()]
+	var creature: CreatureData = _available_creatures[randi() % _available_creatures.size()]
 	encounter_started.emit(creature)

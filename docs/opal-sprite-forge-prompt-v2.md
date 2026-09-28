@@ -1,8 +1,10 @@
 # Hollowtide Sprite Forge: prompt v2
 
+> **Historical setup.** Use [the live v4 guide](opal-sprite-forge-prompt-v4.md) for the current creature generator, evolution, redraw, and back-view rules. The 64x64 conversion directions below are obsolete.
+
 Updated 2026-09-25 by Codex from Claude's v2 prompt. This file now documents the current Opal editor setup. The earlier prompt is preserved in `opal-sprite-forge-prompt-v1-backup.md`.
 
-## Current Opal setup
+## Opal setup at the time of v2
 
 - The generator is set to **Nano Banana Pro**, not Agent.
 - **Creature Brief** is a required Text input.

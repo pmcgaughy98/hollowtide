@@ -1,5 +1,5 @@
 # Hollowtide: Living Game Bible
-## Draft 0.4 | 25 September 2026
+## Draft 0.6 | 26 September 2026
 
 This is a working design document for Preston to shape. It distinguishes established project decisions from new proposals. Names marked **working** are not locked canon.
 
@@ -13,14 +13,15 @@ These points come from the current project and are treated as the foundation:
 
 - Godot 4, GDScript, 2D pixel art.
 - Cinderhide remains part of the game and its visual identity should be preserved.
-- The existing battle presentation has deliberate impact animation: wind-up, lunge, hit stop, flash, squash, shake, floating damage, and sliding health bars. New mechanics should keep that physical feel.
-- Creature art favors readable angular silhouettes, crisp pixels, transparent backgrounds, and compact palettes. New sprites target 64x64; legacy sprites stay at their original dimensions until replaced.
-- The current essence concepts are Ember, Tide, Stone, Gale, Bloom, and Hollow. Their matchups should be understandable from the idea of each essence.
-- Three-stage evolutions are a strong part of the desired identity, but the existing scope is uneven by design: 6 three-stage lines, 8 two-stage lines, and 10 single-stage lines, for 24 lines and 44 forms total. That target keeps the roster finishable.
-- Rimefin is an existing Tide creature. Cinderhide is an existing Ember creature. Cinderpelt exists as an Ember resource, but this draft does not decide whether it is Cinderhide's evolution or a separate species.
+- The existing battle presentation has deliberate impact animation: wind-up, lunge, hit stop, flash, squash, shake, floating damage, and continuously sliding HP bars. The bars use Turbo Green viridian at full health, yellow to orange at medium health, and red when low. Preston selected the Main HUD artwork for their frames and controls; the live HP fill still tracks exact remaining health. A river-landing background study now sits behind the battle stage. New mechanics should keep that physical feel.
+- Creature art favors readable angular silhouettes, crisp pixels, transparent backgrounds, and compact palettes. The current Forge conversion preserves the observed 100x100 logical pixel grid in finished transparent Godot sprites; original Forge outputs and converted assets are kept separately.
+- The current essence concepts are Ember, Tide, Stone, Gale, Nature, and Hollow. Their matchups should be understandable from the idea of each essence.
+- Preston chose three stages for every creature line. The current draft has 20 one-to-one lines and 60 forms across the six essences, including proposed full chains for the Cinderhide and Rimefin starter lines. Most forms exist only as briefs; names and exact roles remain proposals until reviewed.
+- Rimefin is an existing Tide creature and Cinderhide is an existing Ember creature. The older Cinderpelt experiment was removed from the project after its art went missing; it is not linked to Cinderhide. The currently linked next stage is the provisional Clinkerhide.
+- Preston selected a river-island turtle as the Nature starter, replacing the earlier seed-burrower line within the 20-line target. Working names: Preostmar → Oathfen → Oxbowarchon. Its [full design and Forge briefs](personal-nature-turtle-proposal.md) are ready; no approved sprite or Godot resource exists yet.
 - Creature temperament is a possible second design axis. It should be taught clearly and early if retained.
 
-The files disagree about whether the new art canvas is 96x88 or 64x64, and the project-side concept is newer than the OneDrive copy. This bible follows the project-side 64x64 decision for new art.
+Earlier 96x88 and 64x64 canvas notes are historical. Real Sprite Forge output led to the current 100x100 conversion target in THE_CONCEPT.md. Each generated asset still needs visual review before import.
 
 ## 3. Design pillars
 
@@ -45,6 +46,8 @@ A famous story may be incomplete, romanticized, or used for someone else's benef
 The first target is one compact route, one complete delivery, one meaningful battle, and a return to a changed town. Larger guild ranks, towns to rebuild, deep dungeons, and dozens of creatures wait until that loop is enjoyable.
 
 ## 4. World proposal
+
+The [region atlas draft](region-atlas-draft.md) connects the proposed areas, story progression, character roles, and habitats for all 20 three-stage lines. The [far-bank slice draft](far-bank-slice-draft.md) turns the next proposed route into a small work assignment. Both are production proposals, not approved canon.
 
 ### Region: The Siltward Reach (working name)
 
@@ -129,7 +132,7 @@ This is a small, implementable version of the opening route, not locked story ca
 
 The first slice should end with the pouch delivered, the route marker restored, and the report recorded. This gives the player a complete outward-and-return loop without deciding the Hollowtide mystery or making a claim about the real 1993 Elwood flood. The far bank and flood-history conflict belong in a later chapter, after the player has met people on both sides of the river.
 
-**Implementation order:** add the two interactable roles (dispatcher and relay post), one route-marker interaction, and a single saved-for-this-run report choice. Reuse the existing player interaction action, visible Cinderhide encounter, and BattleScreen. Do not add an inventory framework, quest journal, rank system, or new battle rules for this slice. These are implementation notes for a proposal; the current project does not yet contain this quest flow.
+**Prototype status (2026-09-26):** `scenes/first_route_prototype.tscn` now contains the delivery, marker, empty post, optional two-call river clue, and report choice. It reuses the existing player, visible Cinderhide encounter, and BattleScreen, with a muted CC0 terrain study. The original `main.tscn` remains the project start scene. Godot opened the new scene and parsed its script; the assignment has not yet been played end to end. Props and place labels are prototype placeholders, not approved canon.
 
 ## 7. First new creature-line seed
 
@@ -142,11 +145,17 @@ This is a provisional concept, not a locked species or approved name.
 - **Stage II:** The gill fans widen into hard, angular plates. It can send a short call around bends and recognizes familiar voices, but it cannot tell a true message from an echo.
 - **Stage III:** A long, powerful river guardian with a stepped dorsal ridge and dark, glassy gill chambers. It can distinguish a living call from an old echo and guide creatures away from dangerous channels.
 
-The visual evolution moves from close-to-ground and alert, to broad and resonant, to long and authoritative. Avoid making it a generic shark, catfish, turtle, or armored lizard. Its defining shape is the split gill fan and the negative space under its head. The gameplay role should be a defensive scout that redirects or interrupts rather than a high-damage attacker.
+The visual evolution moves from close-to-ground and alert, to broad and resonant, to long and authoritative. Avoid making it a generic shark, catfish, turtle, or armored lizard. Its defining shape is the split gill fan and the negative space under its head. Preston chose guards and interruptions for this line's eventual four-move kits. Its gameplay role is a defensive scout that protects and disrupts rather than a high-damage attacker; the [defensive move rules](defensive-move-rules-draft.md) are a proposal for how those actions could work in the current battle system.
 
 A later field ability might let this line reveal a safe crossing or identify which sound is an echo. Keep that out of the first battle prototype unless it proves useful in the route.
 
-Preston selected River Listener as the first three-stage evolution prototype. Its labels and details remain proposals, and no resource link has been created. The full 24-line/44-form roster draft and copy-ready Sprite Forge briefs are in [docs/creature-roster-draft.md](creature-roster-draft.md); the earlier silhouette study is not production art.
+Preston selected River Listener as the first new nonstarter three-stage line to develop. Its labels and details remain proposals, and no resource link has been created. Cinderhide-to-Clinkerhide is the current playable starter evolution prototype. The 20-line/60-form roster draft and copy-ready Sprite Forge briefs are in [docs/creature-roster-draft.md](creature-roster-draft.md); the earlier silhouette study is not production art.
+
+### Preston's Nature starter: the moving refuge
+
+**Selected concept; working names:** Preostmar → Oathfen → Oxbowarchon replaces the former seed-burrower at roster Line 17. It is a floodplain turtle with a living, recessed shell basin. Silt, root mats and three recurring reeds settle into its scutes. The stages change anatomy, shell structure, stance and mass; an elder Oxbowarchon can shelter smaller creatures and seed stores during high water. It cannot stop a regional flood.
+
+A Wayline runner could notice a moving ring of reeds near an old channel and record where a refuge shifts as water rises. People on either bank must still make their own safety decisions. The creature cannot settle the fictional levee dispute or prove what happened in real Elwood. Its eventual battle role is a slow Nature protector using a strike, guard and interruption; wider support remains a proposal. See the [stage briefs](personal-nature-turtle-proposal.md). No front, back, idle art, live creature resource or assigned moves exist yet.
 
 ## 8. Reference synthesis
 
@@ -226,6 +235,8 @@ Using the linked firsthand accounts above, identify five recurring details that 
 
 ## 11. Production plan
 
+The [opening-chapter production path](opening-chapter-production-path.md) gives the current file-checked build order and cross-assistant handoffs. The phases below describe the wider game trajectory.
+
 ### Phase 0: Protect and understand the foundation - complete
 
 Inspected the Godot project, its concept and art notes, creature resources, battle presentation, and current 2D overworld. Preserve existing assets and behavior unless a small prototype gives a clear reason to change them.
@@ -234,38 +245,42 @@ Inspected the Godot project, its concept and art notes, creature resources, batt
 
 Create this living bible, record source facts separately from proposals, define the first route, and collect Grok firsthand research. Preston reviews names and any choices that would change the existing essence chart or creature roster.
 
-### Phase 2: Make the project safe to change
+### Phase 2: Make the project safe to change - ongoing
 
-The project is already a Git repository on master at commit 84d60fe. The current working tree contains uncommitted documentation and a small field-creature interaction prototype, so review those changes before any cleanup or larger structural work. Use a feature branch before larger structural work. Keep generated assets and source references traceable.
+The project is a Git repository. Review the current branch and working tree before structural cleanup or commits; earlier branch and commit observations are stale. Keep generated assets and source references traceable. The CC0 river terrain has a source and license record, and original Forge images remain separate from converted game sprites.
 
-### Phase 3: Prove one complete creature line - next
+### Phase 3: Prove one complete creature line - in progress
 
-Source inspection shows the evolves_into resource field, win trigger, transformation animation, and three-stage line validator already exist. No creature resource currently links to another. Main assigns Rimefin as the battle creature, while PlayerParty stores caught resources only; captured creatures are not selectable for battle, and the starter is not in the caught list. The project therefore has evolution code but no complete player-usable evolution line.
+The evolution resource field, battle-win trigger, transformation animation, and three-stage line validator exist. Preston approved winning a battle as this prototype's evolution trigger and approved completing the Cinderhide starter line only. The current resources link Cinderhide → Clinkerhide → Ironvent; Clinkerhide's display name no longer carries a proposal suffix. These are playable resource links, while form names, balance, and finished art remain reviewable.
 
-Preston selected the River Listener line for the first prototype; it does not replace a starter. Before linking resources, review the generated forms and decide the evolution trigger. Then make the minimum party ownership change so the evolved form replaces the same owned creature. Source inspection also found secondary essences are not represented by CreatureData, and the starter/party ownership path is incomplete. Do not restore the removed Cinderpelt link by inference or build a large evolution tree first. This status comes from source inspection; runtime behavior remains unverified.
+Each captured creature has its own run-local `PartyMember`; `PlayerParty` tracks the active slot, and a battle updates that same member on evolution. The first-route prototype has a P-key party panel. The current main scene has a separate bottom-left button that cycles the active creature for the next battle. Battle idle uses creature-specific code-driven breathing and size values; Preston also wants hand-drawn idle frames later. Switching within battle, individual HP and level progression, and saving remain open work. The encounter connection, idle in motion, party button, and full evolution line have not had a complete play review. Preston wants a distinct Hollowtide battle camera. The [battle camera brief](battle-camera-brief.md) tracks an implemented river-landing background study, short stage focus movements, and a moving creature stage under a fixed Main HUD. A captured battle showed name and HP overlap, so the HUD was revised to place those labels above the framed bars with a pixel font. The revised layout, camera timing, and full battle flow still need an in-game visual review. Coordinate work on `scripts/battle_screen.gd` with Claude and Summer Engine.
 
-### Phase 4: Build the first region slice
+Preston also selected the River Listener as a nonstarter line prototype, but the earlier archived image conflicts with the current Cutbank Listener brief and the line is due for a redraw. Its art and resource links are pending review. Secondary essences are not represented by `CreatureData`. Do not restore the removed Cinderpelt link by inference.
 
-Create Highbank, the Switchback, and the Old Ferry Ward as one connected, readable route. Reuse current battle systems and add visible field creatures in a contained prototype.
+### Phase 4: Build the first region slice - prototype in progress
 
-### Phase 5: Complete the first player journey
+`scenes/first_route_prototype.tscn` connects a dispatch point, a sand switchback, a crooked marker, a visible Cinderhide, an empty relay post, and a river landing. Its muted grass, shore, water, and shrub tiles come from the documented CC0 sheet. An original study pass adds a Wayline office, cottonwoods, a retaining wall, and a river-height marker; the landmark props remain placeholders. The height post can record visible, undated high-water cuts in Field Notes and, if inspected before filing, in the final route report. Its reach and panel layout still need play review.
 
-Add one delivery with a consequence on return, one creature discovery, one capture, one battle, and one short story reveal about Hollowtide. The player should finish the route with a new understanding, not just more inventory.
+The current main scene has a walking `EncounterTrigger` connected to battle alongside the visible Cinderhide interaction. Its saved scene-specific wild encounter pool contains Cinderhide only, avoiding evolved all-roster spawns. The revised behavior has not been played. The [asset location index](asset-location-index.md) identifies cutbank and courier prop studies that may add place-specific texture after slicing and scale review. The route is still a compact prototype rather than a finished town, road, and ward.
+
+### Phase 5: Complete the first player journey - pending play review
+
+The prototype script supplies one delivery, a restored marker, an optional river-call clue, and two report outcomes. The existing encounter supports a battle and capture. Play the outward-and-return loop, inspect both report branches and the battle, then refine pacing, navigation, and UI before making this the project's start scene. The player should finish with a question about the river's messages, not just more inventory.
 
 ### Phase 6: Expand from evidence
 
-Only after the route works: refine the Wayline Compact, tune temperament and type teaching, finish the first three-stage line, add the next habitat, and grow the roster toward the chosen 24-line target.
+After the route loop has been played and refined: review the Wayline Compact, tune temperament and type teaching, review the linked Cinderhide line in play and art, add the next habitat, and grow the roster toward the 20-line target.
 
 ## 12. Decisions still open
 
 - Keep six essences, or revisit the separate proposal for eight defensive essences and move-only attack types?
-- Is Cinderpelt an evolution of Cinderhide, a separate Ember species, or an unused experiment?
+- Should the old Cinderpelt experiment remain retired, or be revisited as a separate concept after the current starter lines are reviewed? Do not restore the removed resource link by inference.
 - Are Highbank, the Siltward Reach, Old Ferry Ward, and Wayline Compact the right names?
 - Does the Wayline Compact register every creature formally, or is partnership personal and local?
 - What visual shape should govern the game's UI: mineral facets, river-mark lines, or another motif?
 - Should Hollowtide ultimately have a natural explanation, a creature-driven explanation, or remain partly ambiguous?
 - What is the eventual truth of Hollowtide's fictional flood story? Keep it unresolved in early drafts; the real-world record and Preston's memory are documented separately above.
-- Which new concepts should fill the four Creaturedex draft slots currently occupied by Picarum, Tranquilith, Vulpfen, and Outlawg? Preserve the 24-line roster capacity, but treat those four pitches and their names as retired until rebuilt from unrelated ecology, material, or invented folklore.
+- Which original concepts should replace any retired Creaturedex pitches within the current 20-line roster? Keep Picarum, Tranquilith, Vulpfen, and Outlawg retired unless Preston explicitly revives them.
 
 The grain/milling/brewing audit now has initial anchors in the state historic-resources survey, a Missouri DNR permit, the state archives, and local brewery sources. The 1888–89 Pearl Milling origin and regional grain scale are supported; the “flour glut” motive and Fuelling’s exact start date remain unsettled. Continue with worker and neighborhood perspectives before making an industrial site a major story location. Treat racialized commercial imagery as history to examine carefully, never as a creature-design shortcut.
 

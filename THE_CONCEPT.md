@@ -20,22 +20,18 @@ Naming the failure so this doesn't repeat it.
 
 ## THE STRUCTURE
 
-**Classic three-tier evolution, applied unevenly.**
+**Every creature line has three stages.**
 
-Not every line evolves the same amount. That is how Pokémon actually works, it produces variety instead of a formula, and it cuts the art load substantially.
+Preston changed the roster direction on 2026-09-25: no single-stage or two-stage lines. The current draft is 20 one-to-one lines across the six essences, for 60 forms. The six starter lines, including Cinderhide and Rimefin, also receive complete evolutions. Stage names and exact designs in the roster draft are proposals until reviewed.
 
-| Stages | Lines | Sprites |
-|---|---|---|
-| Three-stage | 6 | 18 |
-| Two-stage | 8 | 16 |
-| Single-stage | 10 | 10 |
-| **Total** | **24 lines** | **44 sprites** |
+| Stages | Lines | Forms |
+|---|---:|---:|
+| Three-stage | 20 | 60 |
+| **Total** | **20 lines** | **60 forms** |
 
-**Forty-four sprites, not seventy-two.** That difference is the project being finishable.
+This is the current production roster target, not the first implementation batch. Preston's [personal Nature turtle line](docs/personal-nature-turtle-proposal.md), Preostmar → Oathfen → Oxbowarchon, replaces the former seed-burrower Nature starter at Line 17. It is included in the 20-line / 60-form count. Build and review one line at a time so art continuity and battle roles stay coherent. The [roster and Forge briefs](docs/creature-roster-draft.md) track the 20 draft lines.
 
-Design research on small teams: real-world shipping scale is 80 to 150 forms for a studio, and *"hand-authoring 300+ fully unique, fully animated monsters is rare outside large studios."* Twenty-four lines is a solo target that can actually be hit.
-
-**Evolution preserves a line's visual skeleton.** Later stages should retain recognizable anatomy and palette anchors while changing silhouette, role, and field behavior. PixelLab skeleton animation was part of an earlier tool evaluation; it is an optional future animation path, not the current still-sprite pipeline. Preston chose Hollowtide Sprite Forge in Opal for new creature art. Image-to-image continuity still needs a real output review.
+**Evolution preserves a line's visual skeleton.** Later stages should retain recognizable anatomy and palette anchors while changing silhouette, role, and field behavior. PixelLab skeleton animation was part of an earlier tool evaluation; it is an optional future animation path, not the current still-sprite pipeline. Preston chose Hollowtide Sprite Forge in Opal for new creature art. Approved Cinderhide is the in-game creature finish benchmark: substantial dark outline, readable material shading, restrained accents and grounded weight. A separate Forge style-anchor image may transfer those rendering qualities to other species without transferring Cinderhide's reptile anatomy or Ember palette. Physical world scale and compressed battle display scale are separate; Vitrecrag's giant stature needs to read through anatomy and composition as well as its battle zoom. Image-to-image continuity still needs a real output review.
 
 ### Lines are one to one. No branching, no converging.
 
@@ -63,15 +59,15 @@ Type count research: ten to eighteen is the workable range. Fewer is boring, twe
 | **Tide** | flow, adaptation, erosion |
 | **Stone** | mass, endurance, structure |
 | **Gale** | speed, dispersal, evasion |
-| **Bloom** | growth, recovery, spread |
+| **Nature** | growth, recovery, spread |
 | **Hollow** | absence, decay, entropy |
 
-**Four lines per essence.**
+**Three or four lines per essence in the current 20-line draft.** Ember, Tide, Gale, and Hollow have three each; Stone and Nature have four each.
 
 ### The chart is a cycle, not a memorization test
 
-- Ember burns **Bloom**
-- Bloom breaks **Stone**
+- Ember burns **Nature**
+- Nature breaks **Stone**
 - Stone dams **Tide**
 - Tide quenches **Ember**
 - **Gale** scatters everything but commits to nothing: broad neutral coverage, few hard advantages
@@ -101,7 +97,7 @@ This keeps team building about more than type coverage.
 - ~~**96×88 canvas.** Baked in, fine, keep it.~~ **Changed to 64×64 on 2026-09-22.** See the
   canvas note under ART DIRECTION.
 - **The data layer**, which references sprites by filename. Swapping art is changing one field.
-- **The shark sprite**, now named **Rimefin**. The art is good and it survives. **Tide essence, single-stage.** It is already a finished creature. The old name was gemstone plus animal with alliteration, which is the exact formula the naming rules below ban, so the sprite carried over and the name did not.
+- **The shark sprite**, now named **Rimefin**. The art is good and it survives. **Tide essence, stage I of a planned three-stage starter line.** Its original art exists; Preston plans to redo the sprite in the Forge. The old name was gemstone plus animal with alliteration, which is the exact formula the naming rules below ban, so the sprite carried over and the name did not.
 - **Everything in CLAUDE.md about how Preston works.** One completion per session, explain the code, no scaffolding, no urgency. That was never about the concept.
 
 **Replaced:** the eleven legendaries, the gem-alliteration rule, the eleven-element system, and the Heart of Eternity lore.
@@ -122,7 +118,9 @@ Look at what the reference games do. Coromon and Nexomon use coined, evocative n
 
 Reference feel: Nexomon and Coromon for creature readability, Lumentale for environment and presentation.
 
-- **100×100**, transparent background in the finished Godot asset, one pixel per Forge block.
+**Overworld visual target (Preston, 2026-09-26):** The first route should carry the same visual weight as the approved courier and creature art. The current flat 16×16 grass, sand, and water study feels too close to a Game Boy era monster game; it is a layout foundation, not the finished world style. Refine the promising office, NPC, and tree concepts while rebuilding terrain with more natural silt, vegetation, river-edge texture, and shaded materials. Keep crisp pixels, grounded muted color, readable paths, and consistent top-down three-quarter perspective. See docs/first-route-art-pass-brief.md for the first small asset delivery and review criteria.
+
+- **100×100 is the usual creature grid**, with transparency in the finished Godot asset and one logical pixel per approved source block. Approved large forms may keep a larger native grid; Vitrecrag's official front and rear are 128×128.
 
   Changed from 64×64 on 2026-09-25, after measuring real Sprite Forge output. The Forge draws on a
   100 by 100 block grid (10.25px per block across all three first images: Cinderhide, Kithflare,
@@ -132,8 +130,9 @@ Reference feel: Nexomon and Coromon for creature readability, Lumentale for envi
 
   The 64×64 target came from PixelLab and Sprite Fusion size limits. Neither is the art pipeline now.
 
-  The battle picks a whole-number zoom per sprite, so 100×100 art draws at 3× beside the legacy
-  96×88 Rimefin at 3×. Mixed canvas sizes are fine in battle.
+  The player's battle sprite uses a whole-number zoom; the opponent receives an adjustable
+  distance scale, rounded to half steps when needed. Mixed canvas sizes are fine in battle, and
+  the source pixels remain under nearest filtering.
 
   Convert with `python tools/convert_forge_sprite.py <in> <out.png> --compare <sheet.png>`. The
   compare sheet puts the original beside the result; check it before importing.
@@ -146,7 +145,7 @@ Reference feel: Nexomon and Coromon for creature readability, Lumentale for envi
 - **Tight palettes.** Limited ramps per creature, shared palette family per essence so a Tide creature is recognisably Tide at a glance.
 - **Crisp edges, no anti-aliasing.**
 
-**Current still-sprite path, configured but not yet validated:** generate one form at a time in Hollowtide Sprite Forge (Google Opal, Nano Banana Pro), using the roster brief and optional immediately previous-stage image. Review the magenta-background image, then run `tools/convert_forge_sprite.py` with `--compare` to make a transparent 100×100 PNG and check it against the original before importing. Validated on Cinderhide, Kithflare and Wayburn on 2026-09-25. The Opal setup and current prompt are documented in `docs/opal-sprite-forge-prompt-v2.md`.
+**Current still-sprite path:** generate one form at a time in Hollowtide Sprite Forge (Google Opal, Nano Banana Pro), using the roster brief and optional immediately previous-stage image. Review the magenta-background image, then run `tools/convert_forge_sprite.py` with `--compare` to make a transparent 100×100 PNG and check it against the original before importing. Conversion was reviewed on Cinderhide, Kithflare, and Wayburn on 2026-09-25; each later asset still needs visual review. The current main Forge and Evolution Forge roles are documented in `docs/forge-production-standard.md`, with their saved prompts in `docs/opal-sprite-forge-prompt-v6.md` and `docs/opal-evolution-forge-prompt-v1.md`. Review and record each image at its actual logical grid before it becomes game art.
 
 **Pixelorama is no longer in the chosen workflow.** Preston explicitly stopped using it on 2026-09-25. PixelLab remains historical tool research and may be reconsidered for animation later; it is not the current source for new still sprites.
 
@@ -160,19 +159,18 @@ Do not skip ahead. Do not build step four before step two works.
 
 1. One sprite rendering in a scene *(done)*
 2. Player movement on a tilemap *(done)*
-3. One creature data resource, then the first few *(done, 2 of the first 6)*
-4. An encounter that can start and end *(done)*
-5. Turn-based combat, one move each *(done)*
+3. Creature data resources, beginning with Cinderhide and Rimefin *(in use; more forms are provisional)*
+4. A visible encounter that can start and end *(done)*
+5. Turn-based combat with the current impact animation and four-move Ember prototype *(in use)*
 6. Capture *(done)*
-7. Evolution *(next)*
-8. Everything else
+7. Evolution *(Cinderhide-to-Clinkerhide win-trigger prototype exists; play review pending)*
+8. First courier route *(separate scene built; full play review pending)*
+9. Expand only after those loops are reviewed
 
-**Twenty-four lines is the finished target, not the starting target.** Build the systems with three creatures. Add the rest once the systems work.
+**Twenty lines and sixty forms are the current finished roster target, not the starting batch.** Add lines one at a time once their art and game roles work.
 
 ---
 
 ## THE FIRST ROSTER DECISION
 
-Six lines, one per essence, to build and test systems against. Not twenty-four.
-
-Rimefin is Tide and Cinderhide is Ember. Two down. Four more designs, one each for Stone, Gale, Bloom and Hollow, single-stage to start. Evolution comes after combat works.
+Six starter lines, one per essence, are the first design set. Each is planned as a three-stage line. Rimefin (Tide) and Cinderhide (Ember) are the existing stage-I anchors; the Stone, Gale, Nature, and Hollow starters remain proposals until their sprites and roles are reviewed. The current Cinderhide to Clinkerhide link is a provisional evolution prototype, not final canon.
