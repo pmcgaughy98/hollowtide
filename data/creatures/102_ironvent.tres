@@ -22,4 +22,5 @@ base_defense = 60
 base_speed = 60
 idle_breath = 0.018
 idle_period = 2.4
+idle_vent_glow = 0.35
 battle_size = 1.35

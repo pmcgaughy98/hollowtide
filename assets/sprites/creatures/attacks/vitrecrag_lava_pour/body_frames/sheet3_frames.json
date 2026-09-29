@@ -1,0 +1,59 @@
+{
+ "source": "C:\\Users\\pmcga\\OneDrive\\Documents\\HollowTide Sprites\\Effect Sheets\\Vitecrag Effect\\Molten Glass Animation\\Molten Glass(BODY) Attack animation sheet 3.jfif",
+ "frames": [
+  {
+   "file": "sheet3_f00.png",
+   "sheet_box": [
+    0,
+    0,
+    512,
+    341
+   ]
+  },
+  {
+   "file": "sheet3_f01.png",
+   "sheet_box": [
+    512,
+    0,
+    1024,
+    341
+   ]
+  },
+  {
+   "file": "sheet3_f02.png",
+   "sheet_box": [
+    0,
+    341,
+    512,
+    682
+   ]
+  },
+  {
+   "file": "sheet3_f03.png",
+   "sheet_box": [
+    512,
+    341,
+    1024,
+    682
+   ]
+  },
+  {
+   "file": "sheet3_f04.png",
+   "sheet_box": [
+    0,
+    682,
+    512,
+    1024
+   ]
+  },
+  {
+   "file": "sheet3_f05.png",
+   "sheet_box": [
+    512,
+    682,
+    1024,
+    1024
+   ]
+  }
+ ]
+}

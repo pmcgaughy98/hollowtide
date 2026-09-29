@@ -1,0 +1,50 @@
+{
+ "source": "C:\\Users\\pmcga\\OneDrive\\Documents\\HollowTide Sprites\\Effect Sheets\\Vitecrag Effect\\Vitrecrag Project Effects\\Vitrecrag effect Sticky Bomb.jfif",
+ "frames": [
+  {
+   "file": "bomb_f00.png",
+   "sheet_box": [
+    41,
+    92,
+    471,
+    533
+   ]
+  },
+  {
+   "file": "bomb_f01.png",
+   "sheet_box": [
+    543,
+    92,
+    983,
+    533
+   ]
+  },
+  {
+   "file": "bomb_f02.png",
+   "sheet_box": [
+    92,
+    706,
+    246,
+    891
+   ]
+  },
+  {
+   "file": "bomb_f03.png",
+   "sheet_box": [
+    430,
+    706,
+    594,
+    891
+   ]
+  },
+  {
+   "file": "bomb_f04.png",
+   "sheet_box": [
+    778,
+    706,
+    922,
+    891
+   ]
+  }
+ ]
+}

@@ -1,0 +1,50 @@
+{
+ "source": "C:\\Users\\pmcga\\OneDrive\\Documents\\HollowTide Sprites\\Effect Sheets\\Vitecrag Effect\\Vitrecrag Project Effects\\Molten cannon Projectile(Optional).jfif",
+ "frames": [
+  {
+   "file": "proj_f00.png",
+   "sheet_box": [
+    0,
+    51,
+    502,
+    481
+   ]
+  },
+  {
+   "file": "proj_f01.png",
+   "sheet_box": [
+    563,
+    51,
+    983,
+    481
+   ]
+  },
+  {
+   "file": "proj_f02.png",
+   "sheet_box": [
+    133,
+    706,
+    256,
+    860
+   ]
+  },
+  {
+   "file": "proj_f03.png",
+   "sheet_box": [
+    461,
+    706,
+    563,
+    860
+   ]
+  },
+  {
+   "file": "proj_f04.png",
+   "sheet_box": [
+    768,
+    706,
+    860,
+    860
+   ]
+  }
+ ]
+}

@@ -1,5 +1,42 @@
 # Vitrecrag lava pour: attack frames (2026-09-28)
 
+## Live front view: v2 (2026-09-28)
+
+Built with the approved whole-pose method (`docs/attack-sheet-protocol.md`) by `tools/build_vitrecrag_molten_glass.py`
+into `v2/`: load (sheet2_f01), hole (sheet4_f01), flood (sheet2_f02), breakout (sheet2_f03), pour_a (sheet2_f04),
+pour_b (sheet1_f04), recover (sheet2_f05), from `body_frames/` (sheets 1-2 `--block 3.67 --grid 2x3`, sheets 3-4
+`--block 4 --grid 2x3`; sheets 3-4's bottom row is a leg close-up and is ignored). 140x128 canvas. Sequence and holds
+are in `data/moves/vitrecrag_molten_glass.tres`. The sections below describe the earlier versions.
+
+**Travel (2026-09-28, Preston: lava should flow toward the enemy, not beads):** the attack prompt calls for the pour
+from the opening plus separate strand travel; the bead volley came from Claude's own Effect Forge brief and is
+removed. Preston chose a **ground river**: the drawn pour lands at Vitrecrag's feet and `scripts/effects/lava_river.gd`
+(`scenes/effects/vitrecrag_lava_river.tscn`) runs a river from that pool (`attack_river_offset (42, 55)`) to the
+target's feet, drawn from art-pixel squares (outline, edge, body, core, bright bands travelling toward the target,
+rolling lumps, swollen head). It arrives on the hit, keeps flowing while the pour lasts (target flinches), then cools
+from the source end into crust with cracks and fades. The emitter is now `vitrecrag_glass_pour.tscn` (drips, splash
+and pool under the pour only). Verified: hit at about 1.5 s, cooling visible, no errors.
+
+## Recheck against the research (2026-09-28)
+
+Only sheet 1 (`alt_old_sheet/`) was used so far. All four body sheets, front end, frame by frame (`all_frames/`):
+
+| Frame | Shows | Use in v2 |
+|---|---|---|
+| sheet1/2/3/4 frame1 | Rest | Match check |
+| sheet2_frame2 | Head lowers | Load |
+| sheet4_frame2 | Head recessed into the opening, which glows orange with lava inside | Retraction-hole build-up (missing today) |
+| sheet1_frame3, sheet2_frame3 | Whole shell floods with molten glow | Brace peak (do as a brightened in-game shell, not a pasted Opal shell) |
+| sheet2_frame4 | Glass breaks out of the hole, first thin stream | Launch |
+| sheet2_frame5, sheet1_frame5, sheet4_frame4 | Thick pours with pools, three different drawings | Alternate for a drawn flowing pour instead of colour scrolling |
+| sheet3_frame3, sheet4_frame3 | Stream thins to a trickle (small spike artifact on the shell top) | Ending |
+| sheet1_frame6, sheet2_frame6 | Head back out with a drip | Recovery (used now) |
+
+Proposed v2 order: rest, head lowers, head retracts into the glowing hole, shell flood with brace tremble, break-out,
+alternating thick pours during the volley (hit mid-pour), thinning, recovery drip, rest. In-game body throughout with
+the head area transplanted per frame; eruption, rope and volley unchanged. Research extras: a 1-2 pixel recoil as the
+glass erupts, and a longer hit freeze (about 0.1 s) for heavy moves.
+
 ## Live set: `transplant/` (linked in `data/moves/vitrecrag_molten_glass.tres`)
 
 Preston asked for the head to pull into the shell while the glass pours, using the poses Opal already drew.

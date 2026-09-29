@@ -1,0 +1,24 @@
+[gd_scene load_steps=12 format=3]
+
+[ext_resource type="Script" path="res://scripts/effects/pressure_field.gd" id="1_script"]
+[ext_resource type="Texture2D" path="res://assets/sprites/effects/ironvent/field/charge.png" id="2_charge"]
+[ext_resource type="Texture2D" path="res://assets/sprites/effects/ironvent/field/geyser.png" id="3_geyser"]
+[ext_resource type="Texture2D" path="res://assets/sprites/effects/ironvent/field/smoke.png" id="4_smoke"]
+[ext_resource type="Texture2D" path="res://assets/sprites/effects/ironvent/field/fireworks.png" id="5_fireworks"]
+[ext_resource type="Texture2D" path="res://assets/sprites/effects/ironvent/field/eruption.png" id="6_beam"]
+[ext_resource type="Texture2D" path="res://assets/sprites/effects/ironvent/field/eruption_alt.png" id="7_beam_alt"]
+[ext_resource type="Texture2D" path="res://assets/sprites/effects/ironvent/furnace_roar/f5.png" id="r5"]
+[ext_resource type="Texture2D" path="res://assets/sprites/effects/ironvent/furnace_roar/f6.png" id="r6"]
+[ext_resource type="Texture2D" path="res://assets/sprites/effects/ironvent/furnace_roar/f7.png" id="r7"]
+[ext_resource type="Texture2D" path="res://assets/sprites/effects/ironvent/furnace_roar/f8.png" id="r8"]
+
+[node name="PressureField" type="Node2D"]
+texture_filter = 1
+script = ExtResource("1_script")
+charge = ExtResource("2_charge")
+geyser = ExtResource("3_geyser")
+smoke = ExtResource("4_smoke")
+fireworks = ExtResource("5_fireworks")
+eruption = ExtResource("6_beam")
+eruption_alt = ExtResource("7_beam_alt")
+ring_frames = Array[Texture2D]([ExtResource("r5"), ExtResource("r6"), ExtResource("r7"), ExtResource("r8")])

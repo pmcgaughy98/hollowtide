@@ -1,0 +1,56 @@
+[gd_scene load_steps=9 format=3]
+
+[ext_resource type="Texture2D" path="res://assets/sprites/effects/ironvent/furnace_roar/f5.png" id="5_f5"]
+[ext_resource type="Texture2D" path="res://assets/sprites/effects/ironvent/furnace_roar/f6.png" id="6_f6"]
+[ext_resource type="Texture2D" path="res://assets/sprites/effects/ironvent/furnace_roar/f7.png" id="7_f7"]
+[ext_resource type="Texture2D" path="res://assets/sprites/effects/ironvent/furnace_roar/f8.png" id="8_f8"]
+[ext_resource type="Texture2D" path="res://assets/sprites/effects/ironvent/blowdown/column.png" id="9_column"]
+[ext_resource type="Texture2D" path="res://assets/sprites/effects/ironvent/furnace_roar/f1.png" id="10_spark"]
+
+[sub_resource type="Gradient" id="Warm"]
+offsets = PackedFloat32Array(0, 0.6, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 0.9, 0.82, 1, 0.95, 0.72, 0.6, 0)
+
+[sub_resource type="SpriteFrames" id="Detonation"]
+animations = [{
+"frames": [{
+"duration": 1.4,
+"texture": ExtResource("5_f5")
+}, {
+"duration": 1.4,
+"texture": ExtResource("6_f6")
+}, {
+"duration": 2.0,
+"texture": ExtResource("7_f7")
+}, {
+"duration": 2.2,
+"texture": ExtResource("8_f8")
+}],
+"loop": false,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="RoarDetonation" type="Node2D"]
+texture_filter = 1
+
+[node name="Burst" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 18
+lifetime = 0.6
+one_shot = true
+explosiveness = 1.0
+randomness = 0.3
+texture = ExtResource("10_spark")
+emission_shape = 1
+emission_sphere_radius = 12.0
+direction = Vector2(0, -1)
+spread = 180.0
+gravity = Vector2(0, 400)
+initial_velocity_min = 200.0
+initial_velocity_max = 420.0
+damping_min = 60.0
+damping_max = 120.0
+scale_amount_min = 3.0
+scale_amount_max = 3.0
+color_ramp = SubResource("Warm")

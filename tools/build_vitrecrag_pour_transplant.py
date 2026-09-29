@@ -56,6 +56,94 @@ def flow_frame(contact, step):
     return out
 
 
+def lava_components(img):
+    """8-connected groups of lava pixels in front of the body (x >= 96)."""
+    p = img.load()
+    W, H = img.size
+    seen, groups = set(), []
+    for y in range(H):
+        for x in range(96, W):
+            if (x, y) in seen or not is_lava(p[x, y]):
+                continue
+            stack, group = [(x, y)], []
+            seen.add((x, y))
+            while stack:
+                cx, cy = stack.pop()
+                group.append((cx, cy))
+                for ax in (cx - 1, cx, cx + 1):
+                    for ay in (cy - 1, cy, cy + 1):
+                        if 96 <= ax < W and 0 <= ay < H and (ax, ay) not in seen and is_lava(p[ax, ay]):
+                            seen.add((ax, ay))
+                            stack.append((ax, ay))
+            groups.append(group)
+    return groups
+
+
+SPECK_MAX = 5  # lava groups this small are leftovers where two drawings met
+
+
+def remove_specks(img, official):
+    """Put back the in-game pixel (or clear air) under stray lava specks, and
+    clear any tiny cluster of any colour floating in open air in front of the
+    body, where Opal's splash left crumbs that touch nothing."""
+    out = img.copy()
+    o, op = out.load(), official.load()
+    for group in lava_components(img):
+        if len(group) <= SPECK_MAX:
+            for x, y in group:
+                o[x, y] = op[x, y]
+    W, H = out.size
+    seen = set()
+    for y in range(H):
+        for x in range(96, W):
+            if (x, y) in seen or not o[x, y][3] or op[x, y][3]:
+                continue
+            stack, group, touches_body = [(x, y)], [], False
+            seen.add((x, y))
+            while stack:
+                cx, cy = stack.pop()
+                group.append((cx, cy))
+                for ax in (cx - 1, cx, cx + 1):
+                    for ay in (cy - 1, cy, cy + 1):
+                        if not (0 <= ax < W and 0 <= ay < H) or not o[ax, ay][3]:
+                            continue
+                        if op[ax, ay][3]:
+                            touches_body = True
+                        elif (ax, ay) not in seen:
+                            seen.add((ax, ay))
+                            stack.append((ax, ay))
+            if not touches_body and len(group) <= SPECK_MAX:
+                for gx, gy in group:
+                    o[gx, gy] = (0, 0, 0, 0)
+    return out
+
+
+def extend_stream(img):
+    """Run the pour down in front of the foreleg until it meets its puddle.
+
+    Opal's stream stops where the in-game leg starts, leaving the puddle on the
+    ground with nothing feeding it. The gap is filled by repeating the stream's
+    own bottom rows, so its colours and outline carry on and still flow.
+    """
+    out = img.copy()
+    p = out.load()
+    groups = sorted(lava_components(img), key=len, reverse=True)
+    pool = [pt for g in groups for pt in g if pt[1] >= 112]
+    stream = [pt for pt in groups[0] if pt[1] < 112] if groups else []
+    if not pool or not stream:
+        return out
+    pool_top = min(y for _, y in pool)
+    bottom = max(y for _, y in stream)
+    span = sorted({x for x, y in stream if y >= bottom - 2})
+    for y in range(bottom + 1, pool_top + 1):
+        src_y = bottom - ((y - bottom - 1) % 4)  # tile the last four rows
+        for x in span:
+            c = p[x, src_y]
+            if is_lava(c) or c[3]:
+                p[x, y] = c
+    return out
+
+
 def canvas_official():
     off = Image.open(OFFICIAL).convert("RGBA")
     c = Image.new("RGBA", (140, 128), (0, 0, 0, 0))
@@ -147,6 +235,9 @@ def main():
     frames = []
     for name in BEATS:
         img, fit = build(name, official, head, region)
+        img = remove_specks(img, official)
+        if name == "04_contact":
+            img = extend_stream(img)
         img.save(OUT / f"{name}.png")
         frames.append(img)
         print(name, "fit IoU/shift", fit)

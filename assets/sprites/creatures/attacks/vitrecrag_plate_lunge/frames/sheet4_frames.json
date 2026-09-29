@@ -1,0 +1,59 @@
+{
+ "source": "C:\\Users\\pmcga\\OneDrive\\Documents\\HollowTide Sprites\\Effect Sheets\\Vitecrag Effect\\Plate Lunge Animation\\Plate Lunge animation sheet 4.jfif",
+ "frames": [
+  {
+   "file": "sheet4_f00.png",
+   "sheet_box": [
+    3,
+    2,
+    449,
+    346
+   ]
+  },
+  {
+   "file": "sheet4_f01.png",
+   "sheet_box": [
+    512,
+    2,
+    985,
+    346
+   ]
+  },
+  {
+   "file": "sheet4_f02.png",
+   "sheet_box": [
+    14,
+    339,
+    479,
+    685
+   ]
+  },
+  {
+   "file": "sheet4_f03.png",
+   "sheet_box": [
+    524,
+    339,
+    994,
+    685
+   ]
+  },
+  {
+   "file": "sheet4_f04.png",
+   "sheet_box": [
+    26,
+    680,
+    500,
+    1023
+   ]
+  },
+  {
+   "file": "sheet4_f05.png",
+   "sheet_box": [
+    534,
+    680,
+    992,
+    1023
+   ]
+  }
+ ]
+}

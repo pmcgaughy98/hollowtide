@@ -9,8 +9,8 @@
 - **Kithflare → Wayburn → Coalcrest:** Kithflare's approved front and back remain linked. Preston approved a distinct Wayburn Stage II front and a revised rear that keeps its matching pose with the left hind foot tucked inward; `104_wayburn.tres` links the new 100×100 pair. Preston approved Coalcrest's revised rear with front claws pointing away; `105_coalcrest.tres` links that 100×100 rear with its already approved front. These resources load in Godot. The line's evolution links remain a separate design decision.
 - **Fusern → Slagglass → Vitrecrag:** Fusern's missing back reference was removed pending new art. Slagglass keeps its pair. Preston approved Vitrecrag's new true rear; its exact previously imported 128×128 front and rear were restored to the paths linked by `108_vitrecrag.tres`, with `battle_size = 1.75`. Their source hashes match Godot's prior imports. The line's evolution links remain a separate design decision.
 - **Rimefin:** the exact legacy front was restored from the project archive to keep the current resource loadable. It is temporary art; its Forge redraw and back have not been approved or imported.
-- **Other essences:** Stone, Gale, Nature, Hollow, and the other Tide forms currently have roster briefs rather than production sprites or live creature resources. The archived River Listener image does not match the current split-brow amphibian brief.
-- **Nature starter:** Preston selected the river-island turtle [Preostmar → Oathfen → Oxbowarchon](personal-nature-turtle-proposal.md) for Line 17. Its prompts exist, but no sprite or live resource exists yet.
+- **Other essences:** Stone, Gale, Bloom, Hollow, and the other Tide forms currently have roster briefs rather than production sprites or live creature resources. The archived River Listener image does not match the current split-brow amphibian brief.
+- **Stone starter:** Preston selected his personal jade titan (an invented creature, not an Earth animal) [Preostmar → Oathfen → Oxbowarchon](personal-stone-line-proposal.md) for Line 17. Its prompts exist, but no sprite or live resource exists yet.
 
 A front is not a complete battle form. Any partner needs a matching approved rear, a transparent native-grid import, and an in-game scale/pose review. Art alone does not approve evolution links or balance values. Preserve original source images, old versions, and rejected candidates for comparison; do not silently replace approved fronts.
 
@@ -24,7 +24,7 @@ A front is not a complete battle form. Any partner needs a matching approved rea
 4. **Ironvent Cinder Claw:** follow [the reviewed Gemini combat motion note](gemini-combat-animation-research-adoption.md). Approve the anticipation and contact poses before replacing the current action frames.
 5. **Evolution lines:** keep the Kithflare and Fusern line links unassigned until their game progression rules are deliberately set. Art approval alone is not evolution approval.
 6. **Rimefin:** redraw Stage I from its current wedge head, dorsal notch and river palette; approve its front, then back, before growing Riftfin and Scourmaw one stage at a time.
-7. **Preostmar:** make the personal Nature starter from its approved concept and prepared brief. Approve Stage I before using it as Oathfen's ancestry, then Oxbowarchon's. Each rear uses the exact same form's approved front.
+7. **Preostmar:** make the personal Stone starter from its approved concept and prepared brief. Approve Stage I before using it as Oathfen's ancestry, then Oxbowarchon's. Each rear uses the exact same form's approved front.
 8. **River Listener and habitat lines:** follow the table below as those places become playable. Keep the River Listener line's guards and interruptions in its move direction, while its names and Hollow secondary remain proposals.
 
 If the generator stops for the day, stop at the last approved form and save its original output and brief. Never feed a rejected image into the next evolution.
@@ -39,17 +39,18 @@ If the generator stops for the day, stop at the last approved form and save its 
 | Rimefin → Riftfin → Scourmaw | Tide starter | Legacy Rimefin front only | Redraw Rimefin |
 | Cutbank Listener → Bend Caller → Quietwater Warden | Tide river listener | Archived rejected candidate only | Cutbank Listener |
 | Siltcrank → Millcurrent → Braidwake | Tide channel swimmer | No production art | Siltcrank |
-| Marlward → Terraceward → Bluffmantle | Stone starter | No production art | Marlward |
+| Marlward → Terraceward → Bluffmantle | Retired (replaced by Preston's line, 2026-09-29) | No production art | none |
 | Flintram → Mortarback → Cutbank Bastion | Stone bank guardian | No production art | Flintram |
 | Ballastak → Switchhold → Deepcut | Stone rail-bed burrower | No production art | Ballastak |
 | Troughspine → Archroot → Springvault | Stone spring crawler | No production art | Troughspine |
 | Skirr → Scudder → Stormveer | Gale starter | No production art | Skirr |
 | Dustkite → Waywhistle → Highsignal | Gale signal glider | No production art | Dustkite |
 | Canvaswing → Windcut → Galeshear | Gale floodplain glider | No production art | Canvaswing |
-| Preostmar → Oathfen → Oxbowarchon | Nature starter | Concept and prompts; no art | Preostmar |
-| Cotterseed → Canopyvein → Floodcrown | Nature floodplain shade | No production art | Cotterseed |
-| Milletusk → Threshback → Gleanhorn | Nature grainfield grazer | No production art | Milletusk |
-| Masonsward → Thimblecomb → Combwright | Nature pollinator-builder | No production art | Masonsward |
+| Preostmar → Oathfen → Oxbowarchon | Stone starter (Preston's, v2 prompts) | Concept and prompts; no art | Preostmar |
+| Tallowroot → (Stage II unnamed) → (Stage III unnamed) | Bloom starter (restored 2026-09-29) | No production art; Stages II-III need names | Tallowroot |
+| Cotterseed → Canopyvein → Floodcrown | Bloom floodplain shade | No production art | Cotterseed |
+| Milletusk → Threshback → Gleanhorn | Bloom grainfield grazer | No production art | Milletusk |
+| Masonsward → Thimblecomb → Combwright | Bloom pollinator-builder | No production art | Masonsward |
 | Hushmire → Lullfen → Tarnreach | Hollow starter | No production art | Hushmire |
 | Echolarva → Stillshade → Nullchorus | Hollow silence line | No production art | Echolarva |
 | Mutecho → Unanswered → Unspoken | Hollow message mimic | No production art | Mutecho |

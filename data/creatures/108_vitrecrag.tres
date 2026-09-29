@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="CreatureData" load_steps=8 format=3 uid="uid://b87rxxttmgcst"]
+[gd_resource type="Resource" script_class="CreatureData" load_steps=11 format=3 uid="uid://b87rxxttmgcst"]
 
 [ext_resource type="Script" uid="uid://d2mhtonwdj5rc" path="res://scripts/creature_data.gd" id="1_script"]
 [ext_resource type="Script" uid="uid://bhqon0w55tdjq" path="res://scripts/move_data.gd" id="2_move_script"]
@@ -8,6 +8,10 @@
 [ext_resource type="Resource" path="res://data/moves/vitrecrag_molten_beam.tres" id="4_move"]
 [ext_resource type="Resource" path="res://data/moves/vitrecrag_plate_lunge.tres" id="5_move"]
 [ext_resource type="Resource" path="res://data/moves/vitrecrag_molten_cannon.tres" id="6_move"]
+
+[ext_resource type="Texture2D" path="res://assets/sprites/creatures/idle/vitrecrag_flame/body.png" id="f0_body"]
+
+[ext_resource type="PackedScene" path="res://scenes/effects/vitrecrag_mouth_smolder.tscn" id="s1_smolder"]
 
 [resource]
 script = ExtResource("1_script")
@@ -20,3 +24,9 @@ moves = Array[ExtResource("2_move_script")]([ExtResource("3_move"), ExtResource(
 idle_breath = 0.014
 idle_period = 5.88
 battle_size = 1.75
+aim_points = Dictionary[String, Vector2]({
+"core": Vector2(-10, -3),
+"mouth": Vector2(43, 22)
+})
+idle_overlay_body = ExtResource("f0_body")
+idle_smolder = ExtResource("s1_smolder")

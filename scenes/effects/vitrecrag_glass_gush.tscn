@@ -1,8 +1,11 @@
-[gd_scene load_steps=6 format=3]
+[gd_scene load_steps=11 format=3]
 
-[ext_resource type="Texture2D" path="res://assets/sprites/effects/vitrecrag/glass_glob.png" id="1_glob"]
-[ext_resource type="Texture2D" path="res://assets/sprites/effects/vitrecrag/glass_glob_small.png" id="2_small"]
-[ext_resource type="Texture2D" path="res://assets/sprites/effects/vitrecrag/glass_glob_large.png" id="3_large"]
+[ext_resource type="Texture2D" path="res://assets/sprites/effects/vitrecrag/forge_molten_glass/bead_a.png" id="1_bead_a"]
+[ext_resource type="Texture2D" path="res://assets/sprites/effects/vitrecrag/forge_molten_glass/bead_b.png" id="2_bead_b"]
+[ext_resource type="Texture2D" path="res://assets/sprites/effects/vitrecrag/forge_molten_glass/bead_c.png" id="3_bead_c"]
+[ext_resource type="Texture2D" path="res://assets/sprites/effects/vitrecrag/forge_molten_glass/eruption.png" id="4_eruption"]
+[ext_resource type="Texture2D" path="res://assets/sprites/effects/vitrecrag/forge_molten_glass/rope_1.png" id="5_rope_1"]
+[ext_resource type="Texture2D" path="res://assets/sprites/effects/vitrecrag/forge_molten_glass/rope_2.png" id="6_rope_2"]
 
 [sub_resource type="Gradient" id="Cooling"]
 offsets = PackedFloat32Array(0, 0.6, 1)
@@ -15,107 +18,130 @@ colors = PackedColorArray(1, 1, 1, 1, 0.8, 0.55, 0.5, 1, 0.45, 0.22, 0.2, 0)
 [node name="GlassGush" type="Node2D"]
 texture_filter = 1
 
+[node name="Burst" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(12, 2)
+texture = ExtResource("4_eruption")
+
+[node name="Throw" type="Node2D" parent="."]
+
+[node name="Rope1" type="Sprite2D" parent="Throw"]
+visible = false
+position = Vector2(2, 0)
+texture = ExtResource("5_rope_1")
+centered = false
+offset = Vector2(0, -24)
+metadata/hold = 0.08
+
+[node name="Rope2" type="Sprite2D" parent="Throw"]
+visible = false
+position = Vector2(2, 0)
+texture = ExtResource("6_rope_2")
+centered = false
+offset = Vector2(0, -23)
+metadata/hold = 0.12
+
 [node name="Gush" type="CPUParticles2D" parent="."]
 emitting = false
-amount = 110
+amount = 16
 lifetime = 0.34
 randomness = 0.2
 local_coords = true
-texture = ExtResource("3_large")
+texture = ExtResource("1_bead_a")
 emission_shape = 1
 emission_sphere_radius = 2.0
 direction = Vector2(0.3, 1)
-spread = 26.0
+spread = 20.0
 gravity = Vector2(0, 260)
 initial_velocity_min = 45.0
-initial_velocity_max = 85.0
+initial_velocity_max = 80.0
 color_ramp = SubResource("Cooling")
 
 [node name="Fling" type="CPUParticles2D" parent="."]
 emitting = false
-amount = 48
+amount = 8
 lifetime = 0.5
 randomness = 0.3
 local_coords = true
-texture = ExtResource("3_large")
+texture = ExtResource("2_bead_b")
 emission_shape = 1
 emission_sphere_radius = 3.0
 direction = Vector2(1, -0.35)
-spread = 65.0
+spread = 55.0
 gravity = Vector2(0, 300)
 initial_velocity_min = 45.0
-initial_velocity_max = 130.0
+initial_velocity_max = 120.0
 color_ramp = SubResource("Cooling")
 
 [node name="Splash" type="CPUParticles2D" parent="."]
 position = Vector2(2, 33)
 emitting = false
-amount = 56
+amount = 10
 lifetime = 0.42
 randomness = 0.3
 local_coords = true
-texture = ExtResource("2_small")
+texture = ExtResource("3_bead_c")
 emission_shape = 3
 emission_rect_extents = Vector2(5, 1)
 direction = Vector2(0, -1)
 spread = 70.0
 gravity = Vector2(0, 280)
 initial_velocity_min = 30.0
-initial_velocity_max = 90.0
+initial_velocity_max = 80.0
 color_ramp = SubResource("Cooling")
 
 [node name="Pool" type="CPUParticles2D" parent="."]
 position = Vector2(2, 34)
 emitting = false
-amount = 60
+amount = 10
 lifetime = 1.7
 randomness = 0.2
 local_coords = true
-texture = ExtResource("1_glob")
+texture = ExtResource("1_bead_a")
 emission_shape = 3
 emission_rect_extents = Vector2(9, 1)
 direction = Vector2(1, 0)
 spread = 180.0
 gravity = Vector2(0, 0)
 initial_velocity_min = 6.0
-initial_velocity_max = 26.0
+initial_velocity_max = 22.0
 damping_min = 8.0
 damping_max = 14.0
 color_ramp = SubResource("PoolCooling")
 
 [node name="Eruption" type="CPUParticles2D" parent="."]
 emitting = false
-amount = 90
+amount = 18
 lifetime = 0.75
 one_shot = true
 explosiveness = 0.95
 randomness = 0.3
 local_coords = true
-texture = ExtResource("3_large")
+texture = ExtResource("1_bead_a")
 emission_shape = 1
 emission_sphere_radius = 4.0
 direction = Vector2(0.8, 0.2)
 spread = 85.0
 gravity = Vector2(0, 320)
 initial_velocity_min = 70.0
-initial_velocity_max = 190.0
+initial_velocity_max = 180.0
 damping_min = 20.0
 damping_max = 60.0
 color_ramp = SubResource("Cooling")
 
 [node name="Surge" type="CPUParticles2D" parent="."]
 emitting = false
-amount = 36
+amount = 6
 lifetime = 0.34
 explosiveness = 0.85
 randomness = 0.2
 local_coords = true
-texture = ExtResource("3_large")
+texture = ExtResource("2_bead_b")
 emission_shape = 1
 emission_sphere_radius = 3.0
 direction = Vector2(0.9, 0.5)
 spread = 40.0
 gravity = Vector2(0, 300)
 initial_velocity_min = 90.0
-initial_velocity_max = 160.0
+initial_velocity_max = 150.0
 color_ramp = SubResource("Cooling")

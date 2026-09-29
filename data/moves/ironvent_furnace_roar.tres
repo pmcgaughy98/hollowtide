@@ -1,7 +1,21 @@
-[gd_resource type="Resource" script_class="MoveData" load_steps=3 format=3]
+[gd_resource type="Resource" script_class="MoveData" load_steps=13 format=3]
 
 [ext_resource type="Script" path="res://scripts/move_data.gd" id="1_script"]
-[ext_resource type="PackedScene" path="res://scenes/effects/ironvent_furnace_roar.tscn" id="2_effect"]
+[ext_resource type="PackedScene" path="res://scenes/effects/ironvent_roar_impact.tscn" id="2_effect"]
+[ext_resource type="Texture2D" path="res://assets/sprites/creatures/attacks/ironvent_furnace_roar/built/rest.png" id="3_rest"]
+[ext_resource type="Texture2D" path="res://assets/sprites/creatures/attacks/ironvent_furnace_roar/built/warm.png" id="4_warm"]
+[ext_resource type="Texture2D" path="res://assets/sprites/creatures/attacks/ironvent_furnace_roar/built/pressure.png" id="5_pressure"]
+[ext_resource type="Texture2D" path="res://assets/sprites/creatures/attacks/ironvent_furnace_roar/built/rear.png" id="6_rear"]
+[ext_resource type="Texture2D" path="res://assets/sprites/creatures/attacks/ironvent_furnace_roar/built/open.png" id="7_open"]
+[ext_resource type="Texture2D" path="res://assets/sprites/creatures/attacks/ironvent_furnace_roar/built/roar.png" id="8_roar"]
+[ext_resource type="Texture2D" path="res://assets/sprites/creatures/attacks/ironvent_furnace_roar/built/settle.png" id="9_settle"]
+[ext_resource type="Texture2D" path="res://assets/sprites/creatures/attacks/ironvent_furnace_roar/built/cool.png" id="10_cool"]
+[ext_resource type="Texture2D" path="res://assets/sprites/creatures/attacks/ironvent_furnace_roar/built/cutin.png" id="11_cutin"]
+[ext_resource type="PackedScene" path="res://scenes/effects/ironvent_roar_mouth.tscn" id="12_blast"]
+[ext_resource type="PackedScene" path="res://scenes/effects/ironvent_pressure_field.tscn" id="13_fallout"]
+[ext_resource type="Texture2D" path="res://assets/sprites/effects/ironvent/blowdown/charge.png" id="14_charge"]
+[ext_resource type="Texture2D" path="res://assets/sprites/effects/ironvent/blowdown/column.png" id="15_column"]
+[ext_resource type="Texture2D" path="res://assets/sprites/effects/ironvent/blowdown/smoke.png" id="16_smoke"]
 
 [resource]
 script = ExtResource("1_script")
@@ -10,3 +24,30 @@ essence = 0
 power = 60
 max_uses = 2
 effect = ExtResource("2_effect")
+attack_frames = Array[Texture2D]([ExtResource("3_rest"), ExtResource("4_warm"), ExtResource("5_pressure"), ExtResource("6_rear"), ExtResource("7_open"), ExtResource("8_roar"), ExtResource("8_roar"), ExtResource("8_roar"), ExtResource("9_settle"), ExtResource("10_cool")])
+attack_frame_holds = Array[float]([0.08, 0.25, 0.6, 0.2, 0.7, 1.4, 1.1, 1.2, 0.4, 0.4])
+attack_lunge_px = 0.0
+attack_hit_frame = 7
+attack_brace_frame = 2
+attack_strain_frame = 6
+attack_emitter = ExtResource("12_blast")
+attack_emitter_offset = Vector2(27, -26)
+attack_emit_frames = Vector2i(5, 7)
+attack_emit_shake = 45
+attack_cut_in = ExtResource("11_cutin")
+attack_cut_in_frame = 4
+attack_cut_in_seconds = 0.4
+attack_overheat = 1.0
+overheat_sweep = true
+overheat_seal_frame = 4
+signature = true
+signature_light = Color(1.35, 0.92, 0.72, 1)
+signature_linger = 1.6
+signature_effect = ExtResource("13_fallout")
+vent_rest_points = PackedVector2Array(-14, -13, -2, -19, 18, -15)
+vent_points = PackedVector2Array(-13, -17, 5, -29)
+vent_charge = ExtResource("14_charge")
+vent_column = ExtResource("15_column")
+vent_smoke = ExtResource("16_smoke")
+impact_flash = true
+impact_shake = 45

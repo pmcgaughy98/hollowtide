@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scripts/effects/spark_fallout.gd" id="1_script"]
+[ext_resource type="Texture2D" path="res://assets/sprites/effects/ironvent/blowdown/fallout.png" id="2_fallout"]
+
+[node name="SparkFallout" type="Node2D"]
+texture_filter = 1
+script = ExtResource("1_script")
+fallout = ExtResource("2_fallout")

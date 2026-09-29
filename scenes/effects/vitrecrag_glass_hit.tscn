@@ -1,0 +1,66 @@
+[gd_scene load_steps=7 format=3]
+
+[ext_resource type="Texture2D" path="res://assets/sprites/effects/vitrecrag/forge_molten_glass/lob_a.png" id="1_lob"]
+[ext_resource type="Texture2D" path="res://assets/sprites/effects/vitrecrag/meltdown/splash_crown.png" id="2_splash"]
+[ext_resource type="Texture2D" path="res://assets/sprites/effects/vitrecrag/meltdown/glob_04.png" id="3_glob"]
+
+[sub_resource type="Gradient" id="Warm"]
+offsets = PackedFloat32Array(0, 0.6, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 0.9, 0.82, 1, 0.95, 0.72, 0.6, 0)
+
+[sub_resource type="SpriteFrames" id="Splash"]
+animations = [{
+"frames": [{
+"duration": 5.0,
+"texture": ExtResource("2_splash")
+}],
+"loop": false,
+"name": &"default",
+"speed": 10.0
+}]
+
+[node name="MoveEffect" type="Node2D"]
+texture_filter = 1
+
+[node name="Trail" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 4
+lifetime = 0.3
+texture = ExtResource("3_glob")
+emission_shape = 1
+emission_sphere_radius = 4.0
+direction = Vector2(0, 1)
+spread = 60.0
+gravity = Vector2(0, 600)
+initial_velocity_min = 10.0
+initial_velocity_max = 50.0
+scale_amount_min = 3.0
+scale_amount_max = 3.0
+color_ramp = SubResource("Warm")
+
+[node name="Sequence" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, 12)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("Splash")
+
+[node name="Burst" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 10
+lifetime = 0.6
+one_shot = true
+explosiveness = 0.95
+texture = ExtResource("3_glob")
+emission_shape = 1
+emission_sphere_radius = 14.0
+direction = Vector2(0, -1)
+spread = 70.0
+gravity = Vector2(0, 700)
+initial_velocity_min = 180.0
+initial_velocity_max = 320.0
+scale_amount_min = 3.0
+scale_amount_max = 3.0
+color_ramp = SubResource("Warm")
+
+[node name="Ball" type="Sprite2D" parent="."]
+scale = Vector2(3, 3)
+texture = ExtResource("1_lob")

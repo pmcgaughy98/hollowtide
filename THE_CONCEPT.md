@@ -29,7 +29,7 @@ Preston changed the roster direction on 2026-09-25: no single-stage or two-stage
 | Three-stage | 20 | 60 |
 | **Total** | **20 lines** | **60 forms** |
 
-This is the current production roster target, not the first implementation batch. Preston's [personal Nature turtle line](docs/personal-nature-turtle-proposal.md), Preostmar → Oathfen → Oxbowarchon, replaces the former seed-burrower Nature starter at Line 17. It is included in the 20-line / 60-form count. Build and review one line at a time so art continuity and battle roles stay coherent. The [roster and Forge briefs](docs/creature-roster-draft.md) track the 20 draft lines.
+This is the current production roster target, not the first implementation batch. Preston's [personal Stone line](docs/personal-stone-line-proposal.md), Preostmar → Oathfen → Oxbowarchon, is the Stone starter at Line 9, replacing the former Marlward line (Preston, 2026-09-29). Bloom's original starter, the seed-burrower Tallowroot, returns at Line 17. It is included in the 20-line / 60-form count. Build and review one line at a time so art continuity and battle roles stay coherent. The [roster and Forge briefs](docs/creature-roster-draft.md) track the 20 draft lines.
 
 **Evolution preserves a line's visual skeleton.** Later stages should retain recognizable anatomy and palette anchors while changing silhouette, role, and field behavior. PixelLab skeleton animation was part of an earlier tool evaluation; it is an optional future animation path, not the current still-sprite pipeline. Preston chose Hollowtide Sprite Forge in Opal for new creature art. Approved Cinderhide is the in-game creature finish benchmark: substantial dark outline, readable material shading, restrained accents and grounded weight. A separate Forge style-anchor image may transfer those rendering qualities to other species without transferring Cinderhide's reptile anatomy or Ember palette. Physical world scale and compressed battle display scale are separate; Vitrecrag's giant stature needs to read through anatomy and composition as well as its battle zoom. Image-to-image continuity still needs a real output review.
 
@@ -59,15 +59,15 @@ Type count research: ten to eighteen is the workable range. Fewer is boring, twe
 | **Tide** | flow, adaptation, erosion |
 | **Stone** | mass, endurance, structure |
 | **Gale** | speed, dispersal, evasion |
-| **Nature** | growth, recovery, spread |
+| **Bloom** | growth, recovery, spread |
 | **Hollow** | absence, decay, entropy |
 
-**Three or four lines per essence in the current 20-line draft.** Ember, Tide, Gale, and Hollow have three each; Stone and Nature have four each.
+**Three or four lines per essence in the current 20-line draft.** Ember, Tide, Gale, and Hollow have three each; Stone and Bloom have four each.
 
 ### The chart is a cycle, not a memorization test
 
-- Ember burns **Nature**
-- Nature breaks **Stone**
+- Ember burns **Bloom**
+- Bloom breaks **Stone**
 - Stone dams **Tide**
 - Tide quenches **Ember**
 - **Gale** scatters everything but commits to nothing: broad neutral coverage, few hard advantages
@@ -173,4 +173,4 @@ Do not skip ahead. Do not build step four before step two works.
 
 ## THE FIRST ROSTER DECISION
 
-Six starter lines, one per essence, are the first design set. Each is planned as a three-stage line. Rimefin (Tide) and Cinderhide (Ember) are the existing stage-I anchors; the Stone, Gale, Nature, and Hollow starters remain proposals until their sprites and roles are reviewed. The current Cinderhide to Clinkerhide link is a provisional evolution prototype, not final canon.
+Six starter lines, one per essence, are the first design set. Each is planned as a three-stage line. Rimefin (Tide) and Cinderhide (Ember) are the existing stage-I anchors; the Stone, Gale, Bloom, and Hollow starters remain proposals until their sprites and roles are reviewed. The current Cinderhide to Clinkerhide link is a provisional evolution prototype, not final canon.

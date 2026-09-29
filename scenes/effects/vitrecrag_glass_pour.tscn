@@ -1,0 +1,70 @@
+[gd_scene load_steps=7 format=3]
+
+[ext_resource type="Texture2D" path="res://assets/sprites/effects/vitrecrag/forge_molten_glass/drip_a.png" id="1_drip_a"]
+[ext_resource type="Texture2D" path="res://assets/sprites/effects/vitrecrag/forge_molten_glass/drip_b.png" id="2_drip_b"]
+[ext_resource type="Texture2D" path="res://assets/sprites/effects/vitrecrag/forge_molten_glass/drip_c.png" id="3_drip_c"]
+[ext_resource type="Texture2D" path="res://assets/sprites/effects/vitrecrag/meltdown/crown.png" id="4_crown"]
+
+[sub_resource type="Gradient" id="Cooling"]
+offsets = PackedFloat32Array(0, 0.6, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 0.9, 0.82, 1, 0.95, 0.72, 0.6, 0)
+
+[node name="GlassPour" type="Node2D"]
+texture_filter = 1
+
+[node name="Gush" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 8
+lifetime = 0.4
+randomness = 0.2
+local_coords = true
+texture = ExtResource("1_drip_a")
+emission_shape = 1
+emission_sphere_radius = 3.0
+direction = Vector2(0.15, 1)
+spread = 18.0
+gravity = Vector2(0, 260)
+initial_velocity_min = 45.0
+initial_velocity_max = 70.0
+color_ramp = SubResource("Cooling")
+
+[node name="Splash" type="CPUParticles2D" parent="."]
+position = Vector2(2, 33)
+emitting = false
+amount = 10
+lifetime = 0.42
+randomness = 0.3
+local_coords = true
+texture = ExtResource("3_drip_c")
+emission_shape = 3
+emission_rect_extents = Vector2(5, 1)
+direction = Vector2(0, -1)
+spread = 70.0
+gravity = Vector2(0, 280)
+initial_velocity_min = 30.0
+initial_velocity_max = 70.0
+color_ramp = SubResource("Cooling")
+
+[node name="Pool" type="CPUParticles2D" parent="."]
+position = Vector2(2, 34)
+emitting = false
+amount = 8
+lifetime = 1.4
+randomness = 0.2
+local_coords = true
+texture = ExtResource("2_drip_b")
+emission_shape = 3
+emission_rect_extents = Vector2(8, 1)
+direction = Vector2(1, 0)
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 4.0
+initial_velocity_max = 14.0
+damping_min = 8.0
+damping_max = 14.0
+color_ramp = SubResource("Cooling")
+
+[node name="Burst" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(10, -20)
+texture = ExtResource("4_crown")

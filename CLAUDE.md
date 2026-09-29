@@ -2,6 +2,8 @@
 
 > **Preston's role order, 2026-09-27:** Read `docs/agent-role-charter-2026-09-27.md` and the latest `docs/AI_COLLABORATION.md` before choosing work. Preston directs Claude to lead complex Godot systems and battle animation architecture, while Codex leads precise asset preparation and integration, Gemini research, Grok balance and non-creature concepts, and Opal the scoped art Forges. This is a default assignment; Preston's later direct request overrides it.
 
+> **Attack sheets protocol, 2026-09-28:** When Preston brings Opal sheets for an attack, follow `docs/attack-sheet-protocol.md` step by step (research, Summer MCP check, cut every frame, analyze each frame, order, re-analyze, then build).
+
 > **Current-state pointer, 2026-09-26:** The snapshot under WHERE THINGS STAND below was checked on 2026-09-22 and is now historical. Read `docs/AI_COLLABORATION.md` for the latest asset, battle, evolution, and first-route handoffs. `THE_CONCEPT.md` now reflects Preston's 20-line, all-three-stage roster direction; `docs/world-bible.md` tracks the provisional first route. The new `scenes/first_route_prototype.tscn` is separate from the project start scene and has not been played end to end.
 
 A 2D pixel-art monster-collecting RPG. Godot 4.x, GDScript.

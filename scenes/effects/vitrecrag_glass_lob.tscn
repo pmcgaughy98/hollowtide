@@ -1,8 +1,12 @@
-[gd_scene load_steps=6 format=3]
+[gd_scene load_steps=10 format=3]
 
-[ext_resource type="Texture2D" path="res://assets/sprites/effects/vitrecrag/glass_glob_large.png" id="1_large"]
-[ext_resource type="Texture2D" path="res://assets/sprites/effects/vitrecrag/glass_glob.png" id="2_glob"]
-[ext_resource type="Texture2D" path="res://assets/sprites/effects/vitrecrag/glass_glob_small.png" id="3_small"]
+[ext_resource type="Texture2D" path="res://assets/sprites/effects/vitrecrag/forge_molten_glass/lob_a.png" id="1_lob_a"]
+[ext_resource type="Texture2D" path="res://assets/sprites/effects/vitrecrag/forge_molten_glass/lob_b.png" id="2_lob_b"]
+[ext_resource type="Texture2D" path="res://assets/sprites/effects/vitrecrag/forge_molten_glass/lob_c.png" id="3_lob_c"]
+[ext_resource type="Texture2D" path="res://assets/sprites/effects/vitrecrag/forge_molten_glass/splash.png" id="4_splash"]
+[ext_resource type="Texture2D" path="res://assets/sprites/effects/vitrecrag/forge_molten_glass/crust.png" id="5_crust"]
+[ext_resource type="Texture2D" path="res://assets/sprites/effects/vitrecrag/forge_molten_glass/bead_a.png" id="6_bead_a"]
+[ext_resource type="Texture2D" path="res://assets/sprites/effects/vitrecrag/forge_molten_glass/bead_b.png" id="7_bead_b"]
 
 [sub_resource type="Gradient" id="Cooling"]
 offsets = PackedFloat32Array(0, 0.6, 1)
@@ -13,41 +17,53 @@ texture_filter = 1
 
 [node name="Trail" type="CPUParticles2D" parent="."]
 emitting = false
-amount = 18
+amount = 3
 lifetime = 0.4
 randomness = 0.3
-texture = ExtResource("2_glob")
+texture = ExtResource("7_bead_b")
 emission_shape = 1
 emission_sphere_radius = 4.0
 direction = Vector2(0, 1)
-spread = 70.0
+spread = 50.0
 gravity = Vector2(0, 700)
 initial_velocity_min = 10.0
-initial_velocity_max = 60.0
+initial_velocity_max = 40.0
 scale_amount_min = 3.0
 scale_amount_max = 3.0
 color_ramp = SubResource("Cooling")
 
 [node name="Head" type="Sprite2D" parent="."]
 scale = Vector2(3, 3)
-texture = ExtResource("1_large")
+texture = ExtResource("1_lob_a")
+metadata/variants = [ExtResource("1_lob_a"), ExtResource("2_lob_b"), ExtResource("3_lob_c")]
+
+[node name="Crust" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(0, 12)
+scale = Vector2(3, 3)
+texture = ExtResource("5_crust")
+
+[node name="Impact" type="Sprite2D" parent="."]
+visible = false
+scale = Vector2(3, 3)
+texture = ExtResource("4_splash")
 
 [node name="Splash" type="CPUParticles2D" parent="."]
 emitting = false
-amount = 26
+amount = 6
 lifetime = 0.5
 one_shot = true
 explosiveness = 1.0
 randomness = 0.3
 local_coords = true
-texture = ExtResource("3_small")
+texture = ExtResource("6_bead_a")
 emission_shape = 1
 emission_sphere_radius = 6.0
 direction = Vector2(0, -1)
 spread = 110.0
 gravity = Vector2(0, 800)
 initial_velocity_min = 120.0
-initial_velocity_max = 280.0
+initial_velocity_max = 260.0
 scale_amount_min = 3.0
 scale_amount_max = 3.0
 color_ramp = SubResource("Cooling")

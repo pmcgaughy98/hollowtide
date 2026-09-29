@@ -47,7 +47,24 @@ enum Delivery { PROJECTILE, CONTACT }
 ## Contact moves carry the unchanged creature sprite toward the defender and
 ## play the effect at impact. Existing move files keep projectile delivery.
 @export var delivery: Delivery = Delivery.PROJECTILE
-@export_range(0.06, 0.30, 0.01) var contact_travel_seconds: float = 0.14
+@export_range(0.06, 0.8, 0.01) var contact_travel_seconds: float = 0.14
+
+## Art pixels a contact attacker draws back during its brace frame before it
+## charges: the wind-up, when no drawn anticipation pose exists. 0 for none.
+@export_range(0.0, 12.0, 1.0) var contact_pullback_px: float = 0.0
+
+## Art pixels past the usual stopping point, for strikes whose weapon sticks
+## out beyond the body (a plate, a horn) and must actually reach the target.
+@export_range(0.0, 60.0, 1.0) var contact_reach_px: float = 0.0
+
+## Build-up chugs during the brace frame, like a locomotive getting up steam:
+## the attacker rocks back and stomps forward this many times, each chug deeper
+## and quicker than the last. 0 uses the plain tremble.
+@export_range(0, 12) var contact_brace_chugs: int = 0
+
+## Screen shake when a contact move lands, on the same 0-25 scale as a hit's
+## damage shake, added on top of it. 0 for none.
+@export_range(0, 25) var contact_impact_shake: int = 0
 
 @export_group("Attack Frames")
 ## Optional same-form attack poses. Each frame keeps the creature on one fixed canvas.
@@ -66,6 +83,11 @@ enum Delivery { PROJECTILE, CONTACT }
 ## creature planted, for attacks that come out of its body instead of a lunge.
 @export_range(0.0, 60.0, 1.0) var attack_lunge_px: float = 30.0
 
+## Kickback when the emitter fires, in art pixels: on the first emit frame the
+## body is thrown back this far, then settles back to its spot over the next
+## frames (half as far each frame). For a cannon; 0 for none.
+@export_range(0.0, 12.0, 1.0) var attack_recoil_px: float = 0.0
+
 ## Which drawn frame lands the hit, counting from 0. -1 keeps the usual rule:
 ## the second-to-last frame.
 @export var attack_hit_frame: int = -1
@@ -73,6 +95,42 @@ enum Delivery { PROJECTILE, CONTACT }
 ## A frame where the creature plants itself and trembles before letting go,
 ## counting from 0. -1 for none.
 @export var attack_brace_frame: int = -1
+
+## "It's about to blow" (Preston, 2026-09-29): during this frame the body
+## shakes harder and harder, the heat throbs faster and brighter with a growing
+## rumble, then everything goes still for a held breath before the release.
+## Give it a long hold (about a second). -1 for none.
+@export var attack_strain_frame: int = -1
+
+## Optional peak-overload pose for the strain (Vitrecrag's title-card look,
+## Preston 2026-09-29): it flashes in on each throb, the flashes growing longer
+## as the throbs speed up, and holds through the last stretch and the hush.
+## Same canvas and registration as the attack frames.
+@export var attack_strain_overload: Texture2D
+
+@export_group("Back View")
+## Frames for the same attack seen from behind, one per attack_frames entry, so
+## the back view keeps the front's timing, hit frame, brace and emitter beats.
+## When this is filled in, the player's side (or an ally beside it) plays the
+## drawn timeline with its back sprite instead of the plain projectile.
+@export var attack_back_frames: Array[Texture2D] = []
+
+## Where the emitter sits on the back view, in frame pixels from its centre
+## with the art facing right. From behind, a mouth is usually hidden on the far
+## side of the body, so this is where the material first shows past the body.
+@export var attack_back_emitter_offset: Vector2 = Vector2.ZERO
+
+## Draw the emitter and volley behind the attacker on the back view, so they
+## rise from behind the body instead of in front of it.
+@export var attack_back_emitter_behind: bool = true
+
+@export_group("Aim")
+## Which of the attacker's aim points (CreatureData.aim_points) this move comes
+## out of, such as "mouth". A plain projectile launches from there, and drawn
+## frames without their own emitter offset use it too. Empty, or a name the
+## creature does not have, keeps the old launch point.
+@export var aim: String = ""
+
 
 @export_group("Attack Emitter")
 ## Optional particle scene that pours out of the creature while the drawn frames
@@ -88,9 +146,9 @@ enum Delivery { PROJECTILE, CONTACT }
 ## First and last drawn frame (counting from 0) during which the emitter runs.
 @export var attack_emit_frames: Vector2i = Vector2i(-1, -1)
 
-## Screen shake when the emitter bursts open, on the same 0-25 scale as a hit's
-## damage shake. 0 for none.
-@export_range(0, 25) var attack_emit_shake: int = 0
+## Screen shake when the emitter bursts open, on the same scale as a hit's
+## damage shake (25 is a heavy hit; signatures go higher). 0 for none.
+@export_range(0, 60) var attack_emit_shake: int = 0
 
 ## Optional scene lobbed from the emitter point onto the defender, over and over
 ## while the emitter runs, so the attack actually reaches its target. The first
@@ -99,3 +157,97 @@ enum Delivery { PROJECTILE, CONTACT }
 
 ## Seconds between lobs.
 @export_range(0.05, 1.0, 0.01) var attack_volley_interval: float = 0.15
+
+## Optional ground flow (a scene with flow(start, end, px, advance, sustain),
+## such as the lava river) that runs from the attacker to the defender's feet:
+## it arrives on the hit frame and keeps flowing while the emitter runs.
+@export var attack_river: PackedScene
+
+## Where the river starts, in attack-frame pixels from centre, art facing right
+## (usually the pool under a pour). The back view has its own point.
+@export var attack_river_offset: Vector2 = Vector2.ZERO
+@export var attack_back_river_offset: Vector2 = Vector2.ZERO
+
+
+@export_group("Vents")
+## A creature that vents heat from its body (Ironvent's Furnace Roar blowdown,
+## Preston 2026-09-29). Points are art pixels from the frame's centre, art
+## facing right; mirrored for the foe.
+## Where the vents are on the wind-up and settle poses: each hisses a charge
+## puff as the heat sweep reaches it, and smokes during the aftermath.
+@export var vent_rest_points: PackedVector2Array = PackedVector2Array()
+## Where the vents are on the release pose: each erupts a column there.
+@export var vent_points: PackedVector2Array = PackedVector2Array()
+@export var vent_charge: Texture2D
+@export var vent_column: Texture2D
+@export var vent_smoke: Texture2D
+
+
+@export_group("Impact")
+## A white-hot flash of the whole scene on the hit frame (the HUD is never
+## tinted), for a detonation such as Furnace Roar's trick shot.
+@export var impact_flash: bool = false
+## Screen shake on the hit frame of drawn-frame moves, on the damage-shake
+## scale; 0 leaves only the usual hit shake.
+@export_range(0, 60) var impact_shake: int = 0
+
+
+@export_group("Cut-In")
+## A big close-up of the attacker that sweeps across the screen for a moment,
+## on a dark band, the way big moves flash a close-up (Ironvent's Furnace Roar,
+## Preston 2026-09-28). Drawn at 3x on the stage, under the HUD, sliding in from
+## the attacker's side. Art faces right as drawn; it is mirrored for the foe.
+@export var attack_cut_in: Texture2D
+## The drawn frame where it appears (counting from 0); -1 for none.
+@export var attack_cut_in_frame: int = -1
+## Seconds it holds in the middle before sliding out.
+@export var attack_cut_in_seconds: float = 0.5
+
+
+@export_group("Signature")
+## A signature move takes over the whole scene (Preston, 2026-09-28: signatures
+## are rare and must feel impactful in their own way). While the attacker winds
+## up to the first emit frame, the scene dims; at the emit frame it flashes and
+## is lit by signature_light until the effect cools. Drawn-frame moves only.
+@export var signature: bool = false
+## The light the scene takes while the signature erupts (a multiplier, so
+## values above 1 brighten; the HUD is never tinted).
+@export var signature_light: Color = Color(1.3, 0.95, 0.75)
+## Optional scene-wide effect started at the emit frame, such as Vitrecrag's
+## glass meltdown flood. Its script needs erupt(start, end, px, arrive, sustain),
+## the same call as attack_river.
+@export var signature_effect: PackedScene
+## Seconds the scene stays lit after the frames end, while the effect cools.
+@export var signature_linger: float = 2.4
+
+
+@export_group("Overheat")
+## For a contact charge by a fire-cored creature: peak strength of a glow on its
+## fire-coloured core pixels (0 is off, 1 is overheating). Each brace chug stokes
+## it higher like a locomotive's firebox, the charge runs at full heat, the hit
+## flares it, and it cools off through the recovery.
+@export_range(0.0, 1.5, 0.05) var attack_overheat: float = 0.0
+
+## Drawn-frame moves: fill the heat from the tail end to the head during the
+## wind-up instead of all at once, its leading edge flaring vent by vent
+## (Ironvent's Furnace Roar).
+@export var overheat_sweep: bool = false
+
+## Drawn-frame moves: the frame where the heat seals in, pulling its glow
+## inward for a beat before the release on the first emit frame. -1 for none.
+@export var overheat_seal_frame: int = -1
+
+
+@export_group("Mouth Heat")
+## For a creature with an idle_smolder (fire held in its mouth), what that heat
+## does during this attack, front view only. At this frame the mouth opens and
+## the trapped fire escapes in one gasp; from then on the flames become a dim
+## heat aura around the emitter point, and when the frames end the mouth closes
+## with a puff of smoke and the flames ease back. -1 leaves the smolder hidden
+## during the attack, as before.
+@export var smolder_gasp_frame: int = -1
+## Frames (first, last) where the aura burns at full strength, such as the pour.
+@export var smolder_surge_frames: Vector2i = Vector2i(-1, -1)
+## Art pixels of the stream below the emitter that also give off heat wisps
+## during the surge.
+@export var smolder_aura_column: float = 0.0

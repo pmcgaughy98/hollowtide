@@ -3,6 +3,11 @@
 
 This file coordinates work across assistants. It does not outrank Preston's current instructions. It is meant to prevent duplicate work, protect the existing game, and make research and design proposals easy to review.
 
+## Preston's latest art direction, 2026-09-28: Vitrecrag back and four-sheet attacks
+
+- Preston supplied `docs/art-review/vitrecrag_back_head_reference_2026-09-28.png` as the closest head-visibility reference for Vitrecrag's back. The final sprite must still read as a true three-quarter REAR view: broad back and hind legs near camera, low head visibly connected to its far upper-right collar and facing away, substantial furnace on the right flank. Do not follow older wording that hides the head completely. `docs/vitrecrag-back-forge-prompt-2026-09-28.md` is the copy-ready Evolution Forge prompt. A new ChatGPT image candidate is saved beside the reference in `docs/art-review/`; it is **not approved or linked in Godot**.
+- For every Opal attack Preston generates **four sheets**. Preserve all four originals, cut every sheet into individually named frames, and analyze **each frame separately** before making an animation. Record its actual action, view/anatomy/style issues and proposed beat, order the viable frames by motion, then re-analyze the full sequence and finalize it before building. Apply the same review to back-view attacks; never use a front-facing frame as a back pose. The detailed standing order is `docs/attack-sheet-protocol.md`.
+
 ## Claude: read this first when your usage returns (2026-09-27)
 
 **Preston asked for a short handoff so you do not spend your window reading the archive.** Read this section, then only the files named for the task you take. Older sections below preserve history and often describe superseded art, Forge states, and rig plans. Do not read `docs/crystal-creatures-concept/`, old Forge prompt versions, or every Gemini DOCX before working.
@@ -32,6 +37,234 @@ This file coordinates work across assistants. It does not outrank Preston's curr
   - Awaiting Preston's visual approval; a few 1-2 px splash flecks remain.
 - **Molten Glass, second pass (Preston: "stop, brace, really let out lava").** Preston called the head-retract an acceptable prototype. The move now braces for 0.5 s (sinks and trembles one art pixel), then gushes for 1.3 s with a flowing stream and particle glass, hitting mid-gush. Whole attack about 2.3 s, up from 0.8 s. New MoveData fields: `attack_hit_frame`, `attack_brace_frame`, `attack_emitter`, `attack_emitter_offset`, `attack_emit_frames`; `battle_screen.gd` gained `_brace_tremble`, `_start_emitter` and `_stop_emitter`. Emitter scenes are authored in the attack art's own pixels with local-coordinate particles; battle scales them by the sprite's zoom and mirrors them for the foe. Timeline and effect details: `assets/sprites/creatures/attacks/vitrecrag_lava_pour/README.md`. Verified by scripted runs (hit at 1.35 s, 60 to 52, returns home, no errors). **Still blocked visually:** the player HP panel covers nearly all of the gush at battle scale; review captures were taken with the HUD hidden. The framing decision for 1.75x foes is Preston's.
 - **Molten Glass, third pass (Preston: "a lot more explosive", "didn't even reach the target").** Added one-shot Eruption and pulsing Surge emitters to `scenes/effects/vitrecrag_glass_gush.tscn`, a launch screen shake (`attack_emit_shake = 25`), and a volley: `scenes/effects/vitrecrag_glass_lob.tscn` globs arc from the mouth onto the defender every 0.15 s while the emitter runs, the first timed to land on the hit frame (`attack_volley`, `attack_volley_interval`; `_start_volley`, `_lob`, `_frames_seconds` in `battle_screen.gd`). Verified with the real HUD: the arcs pass above the HP panel and splatter Cinderhide; hit at 1.35 s, 60 to 52, no errors. The lob scene hard-codes particle scale 3 (Vitrecrag's battle zoom). Pending Preston's review; a Forge glob/splash sheet could replace the hand-made 2-4 px globs if he wants more painterly glass.
+- **Molten Glass Forge art (done 2026-09-28).** Preston's Effect Forge sheet, MODE ACTION (source kept in `OneDrive/Documents/HollowTide Sprites/Effect Sheets/Vitecrag Effect/Molten Glass Animation/Molten Glass(Effect) Sheet.jfif`), converted 1:1 on its 8 px grid by `tools/cut_molten_glass_effect.py` into `assets/sprites/effects/vitrecrag/forge_molten_glass/`. In use: `eruption.png` pops from the collar (gush scene `Burst`), `lob_a/b/c.png` are the volley heads (random, mirrored to fly tail-first), `splash.png` shows on each landing, `crust.png` is left by the last lob and fades. Frames 1-2 skipped (cut-off rope blocks). Also: `docs/claude-work-plan.md` is Claude's standing task queue. Commit `18266b4` holds everything before this Forge pass; this pass is uncommitted.
+- **Battle HUD layout, first slice (Preston: the HUD covers the enemy and the new attack).** In `scripts/battle_screen.gd`: each creature's name plate and bar panel are now one card (`_make_hp_card`, same slate/silt panel, fonts, bar and colours); the foe card is top left, the player card bottom right above the commands (`PLAYER_CARD_AT`), message and commands share the bottom band. Foes are placed by `_foot_home`, which puts the lowest visible pixel on `FOE_FOOT_Y = 350`, so Vitrecrag grows upward and its legs and pour stay visible. Player home moved from y 350 to 335. The old separate header plate (`_make_health_header`) is gone. Verified by scripted captures with Vitrecrag and Cinderhide as foes, no errors.
+- **Molten Glass back view (Preston: how it plays on our or a partner's side).** New MoveData "Back View" group: `attack_back_frames` (one per front frame, same timeline), `attack_back_emitter_offset`, `attack_back_emitter_behind`. `battle_screen.gd` plays the drawn timeline from the back sprite when back frames exist, places the emitter and every lob just before the attacker in BattleStage's draw order (behind it, in front of the foe and backdrop), and computes all positions with `_emitter_point`. Back frames brighten only the furnace glow (`tools/build_vitrecrag_back_pour.py`). Verified by scripted capture in `scenes/vitrecrag_back_pour_preview.tscn`: glass rises from the front-right of the shell, hit 60 to 52, message box unobstructed. Open: Vitrecrag's back view is 512 px and half hidden by the message box (plan A7); 2v2 slots are plan B4.
+- **Molten Glass review notes (acted on 2026-09-28: particles now Forge beads, orange hit effect, rope throw, softer per-glob flinch, stream reaches the ground):** hundreds of tiny square particles read as confetti next to the outlined Forge globs; the old yellow-green impact flash does not match the orange glass; the volley reads as small pellets; the target only reacts to the first hit; the downward pour and forward volley compete. Fix list is in Claude's reply of 2026-09-28 and task A1 in `docs/claude-work-plan.md`.
+
+## Codex handoff, 2026-09-28: Vitrecrag attack style match
+
+Preston clarified that the current task is the **Plate Lunge and Molten Glass front attack sprites**, and deferred all Vitrecrag back-view redesign. The approved whole-body motion, pose order, timing, registration and emitter settings remain in place.
+
+- The live move files now use `assets/sprites/creatures/attacks/vitrecrag_plate_lunge/style_matched/` (five 128×128 frames) and `assets/sprites/creatures/attacks/vitrecrag_lava_pour/style_matched/` (seven unique 140×128 frames). The original `built/` and `v2/` source frames remain available.
+- `tools/retouch_vitrecrag_attack_finish_2026_09_28.gd` is the reproducible final-pixel pass. It replaces the faint mauve/magenta outside edge with the approved dark contour and warms selected interior black/grey/brown shadow pixels, bringing the attack poses closer to the official idle sprite without making the shell pink. Hot glass pixels remain untouched. It does not alter any alpha pixel, pose, canvas or registration. The earlier edge-only and overpink review candidates are in `style_review/`; `docs/vitrecrag-plate-style-review.png` and `docs/vitrecrag-glass-style-review.png` compare those earlier candidates, **not** the final warm pass.
+- A headless Godot load confirmed all 5 Plate frames and all 13 timeline entries of Molten Glass resolve; the twelve source-versus-finish pairs have **zero alpha changes**. The final pass made 9,398 visible colour changes across Plate and 12,460 across Molten Glass. Godot diagnostics showed zero errors, with six pre-existing `battle_screen.gd` shadowing warnings.
+- A Molten Glass preview was already running in the editor when the files were linked. It was not restarted or interrupted, so that process may still show its pre-edit textures. A fresh offscreen Plate preview reached its end state with zero runtime errors, but the moving attack pose was not captured. A fresh visual review of both moves at attack timing remains to be done. Preston approves final visual feel.
+
+## For Codex from Claude, 2026-09-28: match converted attack frames to the in-game Vitrecrag
+
+**Preston's request:** Codex is best at pixel-art consistency, including restyling frames when an Opal animation sheet
+drifts from the approved art style. Some converted Vitrecrag attack frames come out **darker** than the in-game sprite
+and keep a **faint magenta edge**; please match them to `assets/sprites/creatures/vitrecrag_official.png` (the look
+seen in battle before any animation plays).
+
+- **Frames to restyle** (Preston approved the motion; only the finish needs matching):
+  - Plate Lunge: `assets/sprites/creatures/attacks/vitrecrag_plate_lunge/built/` (load, brace, launch, contact, recover).
+  - Molten Glass v2: `assets/sprites/creatures/attacks/vitrecrag_lava_pour/v2/` (load, hole, flood, breakout, pour_a, pour_b, recover).
+- **Keep exactly:** each frame's pose, silhouette, canvas size and registration (Plate Lunge 128×128, Molten Glass
+  140×128 with the in-game sprite centred at x+6), because `data/moves/*.tres` timing and the emitter positions depend
+  on them. The builds are reproducible: `tools/build_vitrecrag_plate_lunge.py`, `tools/build_vitrecrag_molten_glass.py`
+  (both already snap to the in-game 24 colours; the darkening survives that snap, so it needs a style pass, not only a
+  palette pass).
+- **Method Preston approved** (whole Opal poses, true-grid cut, snap, register): `docs/attack-sheet-protocol.md`.
+- Verify with `scenes/vitrecrag_plate_preview.tscn` and `scenes/vitrecrag_pour_preview.tscn` (both play on Play).
+
+## Claude, 2026-09-28: Plate Lunge v2 and Molten Glass v2 (whole Opal poses)
+
+Preston approved Plate Lunge v2 ("this is what I want ... the protocol from now on") and asked for Molten Glass to be
+rebuilt the same way. Molten Glass front view now uses sheet 2 of the body sheets as the backbone (one drawing all the
+way through) plus sheet 4's head-retraction hole glowing with lava and sheet 1's pour: load, hole, flood (brace),
+breakout, alternating pours, breakout (thinning), recover. Emitter moved to the collar at `(39, 10)`; eruption, rope,
+volley, hit mid-pour and back view unchanged. Verified: front hit at 1463 ms (60 to 52), back view two pours in 10 s,
+no errors. `tools/cut_forge_frames.py` gained `--grid COLSxROWS` for sheets whose frames touch. **Later the same day:** Preston asked for the lava to flow toward the enemy instead of beads; the volley was replaced by a ground lava river (`scripts/effects/lava_river.gd`, new MoveData `attack_river*` fields, `_start_river`/`_foot_point` in `battle_screen.gd`), details in the lava-pour README. The earlier
+in-game-body transplant frames (`transplant/`, `head_retract/`) are no longer linked.
+
+## Claude, 2026-09-28: Vitrecrag mouth flame and a heavier Plate Lunge
+
+- **Mouth flame (idle):** `tools/build_vitrecrag_mouth_flame.py` splits the flame off the approved front into
+  `assets/sprites/creatures/idle/vitrecrag_flame/` (body without flame, four lengths sliding out of the mouth, three
+  full-length flicker variants). New CreatureData "Idle Overlay" fields (`idle_overlay_body`, `_frames`, `_flicker`,
+  `_period`); `battle_screen.gd` lays the flame over the creature sprite (`_setup_overlay`, `_tick_overlay`), licking
+  out and in every 1.6 s with flicker and random flicks, hidden during attacks. Verified in a scripted idle capture.
+  The approved `vitrecrag_official.png` is untouched.
+- **Mouth fire, final direction (Preston: flame billowing and spilling from a closed dragon mouth):** the tongue-flame
+  loop is unlinked (its frames stay in `idle/vitrecrag_flame/`; the flame-less `body.png` is still used). New
+  `scripts/effects/mouth_smolder.gd` + `scenes/effects/vitrecrag_mouth_smolder.tscn`, linked by CreatureData
+  `idle_smolder`: a child of the battle sprite drawing in art pixels, with a mouth seam that glows hotter on the exhale
+  and flames that spill out over the lips then rise up the snout, cooling into smoke; a bigger spill on each exhale.
+  Tunables are exports on the script (trickle, spill count and speed, buoyancy). Verified in an idle capture.
+- **Plate Lunge "like a locomotive" (Preston):** new MoveData `contact_brace_chugs` (brace becomes chugs that deepen and
+  quicken, with a small ground shake per stomp) and `contact_impact_shake`; heavy chargers accelerate on a cubic curve.
+  Plate Lunge: 5 chugs over a 1.3 s brace, 0.42 s charge, longer contact and return. Hit now at about 2.1 s
+  (60 to 48), no errors. Codex's `style_matched/` frames are still the ones linked.
+- **Mouth heat during Molten Glass (Preston: the fire becomes an aura of the lava, not an active flame):**
+  `mouth_smolder.gd` now has two moods. FLAMES is the idle spill above. AURA is a dim flickering glow ring around
+  the opening plus slow heat wisps off the rim and the pour column, with no flames. `gasp()` is the jaws opening
+  (one rush of licks and sparks), `resume_flames()` the jaws closing (smoke puff, flames ramp back over 1 s). New
+  MoveData "Mouth Heat" group: `smolder_gasp_frame`, `smolder_surge_frames`, `smolder_aura_column`; front view only.
+  Molten Glass: gasp on frame 1 (hole), full aura on frames 2 to 10, column 42 art px.
+- **Pour beads refined (Preston):** the Forge bead cutouts were mostly dark outline pixels and read as dirt in the
+  stream. `tools/build_glass_drips.py` makes outline-free hot drips (`drip_a/b/c.png`); `vitrecrag_glass_pour.tscn`
+  uses them with a warm-only cooling ramp. The Forge beads are kept, just unlinked from the pour.
+- **Plate Lunge overheat (Preston: the style-matched frames darken, so make it overheat):** the heat part of
+  `scripts/effects/creature_sprite.gdshader` brightens only the fire-coloured core pixels (rust straps untouched),
+  bleeds orange two pixels around them, and adds a warm cast. MoveData `attack_overheat` (peak); each brace chug
+  flares and ratchets it up, full heat on the charge, 1.4x flare at the hit, cools over recovery plus 0.8 s.
+  Plate Lunge peak 1.0; hit still about 2.2 s after the move starts.
+- **Breathing grid fixed (Preston saw a moving 9-box grid on Vitrecrag):** procedural breathing scaled sprites by a
+  fraction (about 3.04x), so some art pixels drew one screen pixel wider than others. Now every creature sprite wears
+  `creature_sprite.gdshader` from battle start (one material per sprite, which also means no first-use compile
+  hitch mid-attack) and stays at whole zoom; breathing lifts everything above CreatureData `idle_breath_cut`
+  (default 0.55 of the body height) by whole art pixels, `round(idle_breath * height)` at most, feet planted.
+  Applies to all procedurally breathing creatures. Vitrecrag (0.014) rises 1 px; 0.022 or more would give 2.
+- **Plate Lunge editor pause fixed:** tweening a shader value that was never set threw an error, which pauses the
+  game when played from the editor (command-line runs skip it). All creature shader values are now set at battle
+  start. Verified with an editor play of the main scene: 0 debugger errors.
+- **No back views (Preston's decision, 2026-09-28):** the player's side shows the front art facing the foe.
+  `USE_BACK_SPRITES := false` in `battle_screen.gd`; all back_sprite data is kept, and `_back_of()` is the single
+  switch. Player side now stands on a foot line (`PLAYER_X`, `PLAYER_FOOT_Y`) and a big form's zoom is capped to fit
+  `PLAYER_ROOM` (Vitrecrag 3x on the player side). Do not work on Vitrecrag's back view until Preston says so.
+- **Move structure research:** `docs/gemini-prompt-signature-moves-2026-09-28.md` is the Deep Research prompt on
+  signature vs shared moves. Preston's decisions and the open questions are in
+  `docs/move-structure-decisions-2026-09-28.md` (shared moves plus rare, impactful signatures).
+- **Molten Glass is now a signature meltdown:** longer wind-up (hole 0.35 s, brace 0.9 s) with the scene dimming
+  and the core overheating; at the rupture a white-hot flash, shake 40, and the scene lit orange; once the river
+  lands, `glass_meltdown.gd` floods the ground past the target (`glass_flood.gdshader`, art-pixel cells, cools
+  from the source end) with embers rising over the creatures; the light fades over `signature_linger` 2.4 s. The
+  scene tint is on `_focus_stage` so the HUD is never tinted. Verified in a scripted capture; hit still lands.
+  Shader note: `E` is reserved in Godot shaders (Euler's number); naming a variable E broke the first build.
+- **Molten Cannon built (drawn frames, shared-move style):** 7 frames from Molten Glass's style_matched poses
+  (load, hole, flood brace 0.6 s, breakout fire, recover), overheat 0.8, mouth gasp, muzzle blast at the mouth
+  offset (39, 10), shake 30, 4 art-px recoil, one shell lobbed via `attack_volley` (interval 1.0 = one shot),
+  hit on frame 5 about 0.4 s after firing. Verified in a scripted capture (60 to 45, no errors). Details in
+  `docs/move-structure-decisions-2026-09-28.md`.
+- **Molten Cannon rebuilt from Preston's own sheets (supersedes the entry above):** Claude missed the sheets at
+  first. They live in OneDrive `Documents/HollowTide Sprites/Effect Sheets/Vitecrag Effect/`, not in this repo.
+  Built by the protocol from cannon sheet 3 plus beam sheet 3 (Molten Beam is dropped); fire essence (a fireball,
+  not glass). Frame analysis and timeline: `assets/sprites/creatures/attacks/vitrecrag_molten_cannon/README.md`.
+  Tools: `tools/cut_vitrecrag_cannon_sheets.py`, `tools/build_vitrecrag_molten_cannon.py`. Needs Codex's
+  style-match pass. Verified in a scripted capture (hit lands, no errors).
+- **Cannon leg clipping fixed:** the brace pose spreads to 147 px and the 148 canvas cut off the near front leg.
+  Canvas is now 176 (in-game sprite at x+24, same centre). Molten Glass and Plate Lunge checked: no frame touches
+  a canvas edge and Plate Lunge's built frames equal their cuts, so nothing else was clipped.
+- **Sheet source and permission:** all of Preston's sheets are in OneDrive `Documents/HollowTide Sprites/`;
+  Preston allows using every one, provided the originals stay untouched (cut copies into the repo).
+- **Ironvent Furnace Roar built from Preston's three sheets** (protocol; README in
+  `assets/sprites/creatures/attacks/ironvent_furnace_roar/`). Pressure builds in the ridge (overheat), the head
+  rears, a close-up cut-in sweeps across, then `scripts/effects/roar_wave.gd` releases pressure arcs aimed at the
+  target. New MoveData "Cut-In" group (`attack_cut_in`, `_frame`, `_seconds`); emitters with `aim_at()` are pointed
+  at the target. Verified in a scripted capture (60 to 45, no errors). Preview: `scenes/ironvent_roar_preview.tscn`.
+  Sheet 3's fire-burst frames are rejected (legs hidden), and its lower-body strip is not usable.
+- **Furnace Roar impact art in:** Preston's Forge sheet (`IronVent Effect/Furnace roar Effect for sure.jfif`, from
+  the MODE ACTION brief) cut by `tools/cut_ironvent_roar_effect.py` (labels masked, one grid, cells kept aligned)
+  into `assets/sprites/effects/ironvent/furnace_roar/f1..f8.png`. F4-F8 play as a new impact "Sequence"
+  (AnimatedSprite2D, mirrored for the foe) in `scenes/effects/ironvent_roar_impact.tscn`, which replaced the old
+  Codex impact. F1-F3 (charge, arcs) are spare. F7-F8 haze carries a slight magenta tint (Codex, Oct 2).
+  Molten Glass module prompt: `docs/vitrecrag-molten-glass-meltdown-forge-prompt-2026-09-28.md`.
+- **Molten Glass cut-in:** the style_matched `flood` pose (shell glowing from inside) cropped to
+  `assets/sprites/creatures/attacks/vitrecrag_lava_pour/cutin.png`, shown on frame 2 (the 0.9 s brace) for 0.4 s.
+  All cut-ins now open with a white-hot flash of the band and close-up. Both moves verified: hits land, no errors.
+- **Furnace Roar travel uses the drawn arcs:** `roar_wave.gd` now plays sheet frames F1 (glow at the jaws), F2 (arc
+  peels off) and F3 (three arcs travelling to the target, no rotation, whole-pixel steps); the code-drawn arcs are
+  gone. Verified (60 to 45, no errors). Vitrecrag's comparable close-up needs generating: prompt in
+  `docs/vitrecrag-molten-glass-cutin-forge-prompt-2026-09-28.md`; the flood pose stays as the stopgap.
+- **Ironvent idle vent glow:** new CreatureData `idle_vent_glow` (Ironvent 0.35) drives a new shader uniform
+  `idle_glow` that rises with each inhale and falls with the exhale, added on top of `heat` and zeroed during
+  attacks. Verified: 0 to about 0.34 over the 2.4 s breath, 0 during Furnace Roar.
+- **Molten Glass meltdown modules in:** Preston's `Vitecrag Effect/Vitrecrag Effects.jfif` (from the MODE
+  MODULES brief) converted whole and split by transparency into `assets/sprites/effects/vitrecrag/meltdown/`
+  (crown, splash_crown, wave_lip, crust, glob_03 to glob_08). Crown bursts at the collar on the rupture (pour
+  emitter `Burst`); splash crown plays on the target as a Sequence with glob particles (`vitrecrag_glass_hit.tscn`);
+  wave lip rides the flood front and crust fades in under the target as it cools (`glass_meltdown.gd`). When the
+  foe hits the player, the flood's far end runs under the message box, so the lip and crust are mostly hidden
+  there; they show when the player's Vitrecrag hits the foe. Verified both directions (hit lands, no errors).
+- **Furnace Roar is Ironvent's signature (Preston, 2026-09-28).** Built: shader `heat_sweep` (heat fills tail
+  to head, flaring at its front), MoveData `overheat_sweep` and `overheat_seal_frame` (glow pulls in at the
+  cut-in frame), signature dim, flash and orange light, shake 45. Verified: hit lands, heat 0.9, then 0.35 at
+  the seal, then a 1.15 flare. Still to do: the vent columns, jaw spark fan and spark rain from the vent-module
+  Forge sheet Preston is generating (prompt in chat 2026-09-28, MODE MODULES M1 to M5), once it lands in
+  `IronVent Effect/`.
+- **2026-09-29: Molten Glass suspense and title card.** New MoveData `attack_strain_frame` (`_strain`): escalating
+  1 to 3 art-px shake, heat throbs speeding up with a growing rumble, then a held-breath hush before release.
+  Molten Glass gained a strain frame after the cut-in (flood, 1.1 s; beats shifted: hit 7, emit 4 to 11, surge 2
+  to 11, back frames padded). Preston's `special move title card candidate.jfif` is the cut-in now
+  (`vitrecrag_lava_pour/titlecard.png`, kept in its own colours because palette snapping dulled the white-hot
+  window). Verified: hit lands.
+- **2026-09-29: Molten Glass overload pose.** The title card doubles as a battle frame (`vitrecrag_lava_pour/
+  overload.png`, registered on the flood frame's foot line and rear edge). MoveData `attack_strain_overload`:
+  during the strain it flashes in on each throb, longer as they speed up, and holds from about 70% through the
+  hush. Signatures now spotlight the attacker (its modulate cancels the scene dim, slightly brighter) until the
+  rupture flash, so the meltdown burns against the darkened scene. Verified: hit lands.
+- **2026-09-29: back views on again (Preston).** `USE_BACK_SPRITES := true`. The strain overload pose is front art,
+  so it is skipped from behind (back frames carry on); the cut-in still shows (it is a title-card overlay). Moves
+  without back frames (Plate Lunge, Molten Cannon, Furnace Roar) fall back to the plain projectile from the player's
+  side, as before. Vitrecrag's rear is still the old one Preston wants replaced.
+- **2026-09-29: Preostmar candidate touch-ups.** Preston's `Downloads/Proestmar candidate.jfif` (body right, head a
+  literal anvil) converted to `docs/art-review/preostmar/candidate_native.png` (96x85). Touch-ups for him to pick:
+  B stone wedge (anvil top cut into a forward wedge, re-outlined), C wedge plus the jade dart seated as a spearhead
+  crest; A (dart replacing the anvil) was rejected by Claude (gap, floated). Comparison: `touchups_compare.png`.
+- **2026-09-29: Ironvent's head matches the Cinderhide line.** `tools/recolor_ironvent_head.py` swaps the head's
+  six bone shades for Clinkerhide's head charcoals (lightest to lightest), only in the head area (right 40% of the
+  art, above the belly); sheets are done frame by frame. Applied to `ironvent.png`, `ironvent_claw_6.png` (Cinder
+  Claw) and every Furnace Roar frame and the cut-in; `build_ironvent_furnace_roar.py` now applies it itself. Horns
+  keep their brown. The unused back sprite was not changed. Verified: Furnace Roar hit lands.
+- **2026-09-29: Preston's Stone line is no longer a turtle.** The first v2.1 Forge result had the right jade armor
+  over a real snapping turtle. Preston wants an invented species, nothing from Earth (Skarn is only turtle-ish in
+  stance). Body now: neckless anvil-shaped stone skull, emerald eye-points, three-part stone jaw, cracked stone hide
+  with light in its cracks, pillar legs with three stone talons, stone-wedge tail; every prompt bans turtle,
+  tortoise, lizard, crocodile, rhino, beetle and real animals. File renamed to
+  `docs/personal-stone-line-proposal.md` (links updated).
+- **2026-09-29: Furnace Roar is now a self-destructive pressure field (no projectile).** Preston's `blast furnace
+  blowdown candidate 3` cut into `assets/sprites/effects/ironvent/field/` (purple keyed to magenta, then snapped
+  to Ironvent's ember colours to remove the pink bleed; rock bases kept since these are ground vents). New
+  `scripts/effects/pressure_field.gd` (`ironvent_pressure_field.tscn`) is the signature effect: geysers burst
+  around Ironvent, then 18 more radiate outward across the whole battlefield like a shockwave (scattered off the HUD,
+  clear of the finale spot; Preston: a final-stage signature affects a wide radius), fireworks pop across the scene, the ground under the opponent hisses
+  while the opponent shakes harder (Ironvent strains on the same frame), a hush, then a giant geyser (Preston: a
+  geyser, beamlike only in how it bursts out and how long it lasts) bursts up from the opponent's feet, drawn on top
+  at double size, erupts for the whole hit and sinks back into the ground (`eruption.png`/`eruption_alt.png`, the
+  field geyser with a longer column; the straight `beam.png` is a spare). The F5-F8 heat ring now bursts at the giant geyser's base at its size
+  (`ring_frames` in the field effect); it was removed from `ironvent_roar_impact.tscn`, where it floated mid-body. The battle now passes signature effects `target`, `source_feet` and `shake` when they
+  declare them. Mouth burst is the candidate 3 fan (`ironvent_roar_mouth.tscn`). Timeline: release frame 5 (1.4 s),
+  strain frame 6 (1.1 s), hit frame 7 (1.2 s beam). The ember (`roar_wave.gd`) and `spark_fallout.gd` are spares.
+  Verified: hit lands, no errors.
+- **2026-09-29: essences and starters (Preston).** Nature is **Bloom** again (enum `NATURE` renamed `BLOOM`, same
+  slot, so saved resources are unaffected; `essence_chart.gd` updated). Preston's personal turtle line moves to
+  **Stone** as the Line 9 starter (replacing Marlward -> Terraceward -> Bluffmantle, now retired). Bloom's original
+  starter **Tallowroot** returns at Line 17; its Stages II and III need Preston's names. The turtle is now an SSS-tier
+  jade fortress with an emerald Kingstone heart (inspired by Torterra and Accel World's Green King); v2 prompts in
+  `docs/personal-stone-line-proposal.md` (renamed from `personal-nature-turtle-proposal.md`). Updated:
+  `THE_CONCEPT.md`, `docs/creature-roster-draft.md`, `docs/world-bible.md`, `docs/sprite-production-board.md`.
+- **2026-09-29: Preston's turtle v2.1.** Folded in Dauntless's Skarn (armor bound by the Kingstone's pull, not grown;
+  glowing emerald seams; floating jade railgun on Oxbowarchon) and made Preostmar's armor look like Preston's jade
+  spike (faceted jade over brown stone, arrowhead mass, emerald core). Prompts and the detachable-slab build plan
+  are in `docs/personal-stone-line-proposal.md`. The spike sheet (`Effect Sheets/Proestmar Effect/`) is cut into
+  `assets/sprites/effects/preostmar/` (its purple cell fill had to be keyed to magenta first); the bursts keep a faint
+  magenta tint for Codex. Preston considers Dauntless a standing reference source.
+- **2026-09-29: Molten Glass pours from the title-card mouth.** `tools/build_vitrecrag_overload_pour.py` lifts
+  the stream and pool out of `style_matched/pour_a` and `pour_b` and lays them under the overload pose's mouth
+  (`overload_pour_a/b.png`). The rupture frame is now the overload pose; the emitter moved to the mouth (32, 23),
+  and the pour emitter's Splash and Pool moved up to match. Verified: hit lands.
+- **2026-09-29: Furnace Roar is a trick shot.** Preston found the arcs overwhelming. `roar_wave.gd` now sends
+  one small ember (F1) that drifts over and sits on the target as a dud for 0.4 s (a new pause frame). The hit
+  frame (settle) detonates it via `ironvent_roar_impact.tscn`: a blowdown column erupting through the target, the
+  F5-F8 ring and haze, and a spark burst. New MoveData "Impact" group (`impact_flash`, `impact_shake` 45); the
+  fallout now starts at the detonation. The fan and arcs are unused spares. Verified: hit lands at the detonation.
+- **2026-09-29: Furnace Roar blowdown pieces in.** From `blast furnace blowdown candidate 2.jfif` (candidate 1
+  rejected: text labels, bowtie jaw blast). Metal pedestals trimmed off (the brief bans machine vents) into
+  `assets/sprites/effects/ironvent/blowdown/` (charge, column, fan, fallout, smoke). New MoveData "Vents" group:
+  charge puffs hiss at `vent_rest_points` as the heat sweep reaches each vent, columns erupt a beat apart at
+  `vent_points` on release, and smoke rises from the rest points afterwards. The fan is the roar blast's `Burst`;
+  `scripts/effects/spark_fallout.gd` (`ironvent_fallout.tscn`) is the signature effect raining spark clusters over
+  the scene. Verified: hit lands, no errors. The foe's half-step zoom (2.5x) makes some Ironvent pixels uneven;
+  that predates this work.
+- **Move limits (proposal, awaiting Preston):** curated learnsets per line, checked against body tags (mouth,
+  claws, tail club, vents, shell, heavy) that each move requires, plus three weight classes. Details in chat
+  2026-09-28; record in `docs/move-structure-decisions-2026-09-28.md` once decided.
+- **Aim points built:** CreatureData `aim_points` (name to art-pixel offset from the front sprite's centre),
+  MoveData `aim`. Plain projectiles launch from the named point; drawn frames without their own emitter offset
+  use it too. Vitrecrag: mouth (43, 22), core (-10, -3). Verified: Coal Spit aimed at "mouth" launches at the
+  mouth instead of mid-body. Other creatures have no aim points yet.
 
 ## Current handoff, 2026-09-27
 
@@ -98,7 +331,7 @@ Read this first. Older dated handoffs below record how decisions changed.
 ### Decisions and art
 
 - **Roster:** six essences: Ember, Tide, Stone, Gale, Nature, Hollow. Nature replaces Bloom in the same gameplay slot and keeps its matchup numbers. Current target: **20 independent three-stage lines / 60 forms**.
-- **Personal Nature starter:** Preston chose **Preostmar → Oathfen → Oxbowarchon** to replace the old seed-burrower at Line 17. Preostmar uses the older prēost root in Preston; its protective oath and flood refuge are fictional Hollowtide lore. The [living bible](world-bible.md), [full brief](personal-nature-turtle-proposal.md), [roster prompts](creature-roster-draft.md), [sprite queue](sprite-production-board.md), region atlas, concept, and scale table agree. Scale rows 040–042 are blank pending turtle-specific research. No turtle sprite or live game resource exists.
+- **Personal Nature starter:** Preston chose **Preostmar → Oathfen → Oxbowarchon** to replace the old seed-burrower at Line 17. Preostmar uses the older prēost root in Preston; its protective oath and flood refuge are fictional Hollowtide lore. The [living bible](world-bible.md), [full brief](personal-stone-line-proposal.md), [roster prompts](creature-roster-draft.md), [sprite queue](sprite-production-board.md), region atlas, concept, and scale table agree. Scale rows 040–042 are blank pending turtle-specific research. No turtle sprite or live game resource exists.
 - **Art standard:** approved Cinderhide sets the in-game creature finish: coherent pixel clusters, material shading, dark contour, restrained accents, planted mass. Do not copy its Ember anatomy/palette, impose a fixed color cap, or bake a floor shadow into every sprite. See [Gemini report adoption](cinderhide-sprite-quality-research-adoption.md). Turbo Green is the full-health UI accent, not a universal Nature or world palette; Gemini's [color research task](gemini-deep-research-queue.md) is ready.
 - **Forge roles:** [main Sprite Forge](https://opal.google/edit/1-WLZWZcCWFr8l5YTMOFUqBq-1Da2V-eY) handles Stage I fronts and same-form redraws. [Evolution Forge](https://opal.google/edit/13O5Xm_9Go-u1cKn9TUCWAZhAXDe6OKbV) produces one Stage II/III front OR one true same-form back per run. Its four input descriptions, Nano Banana Pro choice, 1:1 setting, and FRONT/BACK prompt survived reload. Its small graph-card summaries still describe two images; the saved step prompt is authoritative. Opal's daily image quota stopped the first turtle generation, so no turtle result or new evolution output has been reviewed.
 - **Idle Forge, updated 2026-09-27:** [Hollowtide Idle Sprite Forge](https://opal.google/edit/1p1-aH_DX-Ys83Fy3rxKL0fKQgChEcNs8) now links a third input, **Existing Idle Sheet**, into image generation and the review page. MODE NEW uses `NONE`; MODE COMPLETE uploads a partial 2x2 or 1x2/1x3 sheet and names KEEP/MISSING F0-F3 cells. The prompt asks to retain approved frames and fill only missing poses at the same origin and native pixel grid. The Opal editor shows saved. A completed Vitrecrag continuation candidate now exists, but its locked cells changed and one frame has an artifact; compare locked cells manually before any Godot import. Instructions: [idle-animation-workflow.md](idle-animation-workflow.md).
@@ -527,7 +760,7 @@ Preston asked for these so the next handoff goes smoother. What Codex built held
 ## Codex handoff (2026-09-26, Nature and Evolution Forge)
 
 - Preston renamed **Bloom to Nature**. `CreatureData.Essence.NATURE` occupies the former enum slot, and `EssenceChart` uses the same matchup numbers. Current `THE_CONCEPT.md`, world bible, roster, production board, and effect prompt use Nature. Archived Crystal Creatures files and older dated handoffs retain Bloom as historical wording. Static script checks for CreatureData, EssenceChart, and BattleScreen returned zero errors; gameplay was not run for this rename.
-- Preston's personal river-island turtle is proposed as **Preostmar → Oathfen → Oxbowarchon** in `docs/personal-nature-turtle-proposal.md`. It has stage-specific anatomy, palette, ecology, battle role and copy-ready front/back briefs. Preston chose it to replace the previous seed-burrower Nature starter at Line 17; it is within the 20-line / 60-form target. No creature image or Godot resource exists yet.
+- Preston's personal river-island turtle is proposed as **Preostmar → Oathfen → Oxbowarchon** in `docs/personal-stone-line-proposal.md`. It has stage-specific anatomy, palette, ecology, battle role and copy-ready front/back briefs. Preston chose it to replace the previous seed-burrower Nature starter at Line 17; it is within the 20-line / 60-form target. No creature image or Godot resource exists yet.
 - `docs/gemini-deep-research-queue.md` now has Task 6 for a gamewide color system. It asks Gemini to distinguish the existing Turbo Green full-HP accent from world and creature palettes, examine approved art, and propose usable six-essence palettes and accessibility checks.
 - The former live Sprite Forge 2 at `https://opal.google/edit/13O5Xm_9Go-u1cKn9TUCWAZhAXDe6OKbV` was renamed **Hollowtide Evolution Forge**. Its saved inputs are Evolution Brief, Previous Stage Front, Approved Evolved Front and Style Anchor. An Opal builder revision to make the Generate step explicitly handle both FRONT evolution and BACK same-form rear view was still processing during this handoff. Verify its saved prompt and image output mode before relying on it. `docs/opal-evolution-forge-prompt-v1.md` preserves the intended prompt. The main Sprite Forge remains the Stage I/redraw workflow.
 - Generic Guard and Interrupt resolver support was added to `scripts/move_data.gd` and `scripts/battle_screen.gd`; it uses committed foe intent and an unlimited Strike fallback. Existing moves default to DAMAGE. The current River Listener kit is still a proposal, not assigned resources. Static script checks returned zero errors; no gameplay run was performed for this change.
@@ -536,7 +769,7 @@ Preston asked for these so the next handoff goes smoother. What Codex built held
 
 ## 2026-09-26 handoff: Nature starter and Evolution Forge
 
-- Preston selected the personal floodplain turtle to replace the former Nature seed-burrower starter at roster Line 17. Working names: **Preostmar → Oathfen → Oxbowarchon**. The first name draws from the historical *prēost* root in Preston; the protective oath and flood-refuge behavior are fictional Hollowtide values. The roster is still 20 three-stage lines / 60 forms. Current briefs and front/back instructions are in `docs/personal-nature-turtle-proposal.md` and `docs/creature-roster-draft.md`. Region atlas, sprite board, concept, color research task, and scale proposal table were updated. Scale rows 040–042 have blank numeric fields pending new turtle-specific study. No turtle sprite or live Godot creature resource exists yet.
+- Preston selected the personal floodplain turtle to replace the former Nature seed-burrower starter at roster Line 17. Working names: **Preostmar → Oathfen → Oxbowarchon**. The first name draws from the historical *prēost* root in Preston; the protective oath and flood-refuge behavior are fictional Hollowtide values. The roster is still 20 three-stage lines / 60 forms. Current briefs and front/back instructions are in `docs/personal-stone-line-proposal.md` and `docs/creature-roster-draft.md`. Region atlas, sprite board, concept, color research task, and scale proposal table were updated. Scale rows 040–042 have blank numeric fields pending new turtle-specific study. No turtle sprite or live Godot creature resource exists yet.
 - [Hollowtide Evolution Forge](https://opal.google/edit/13O5Xm_9Go-u1cKn9TUCWAZhAXDe6OKbV) is edited and saved with a one-image FRONT/BACK prompt, Nano Banana Pro, 1:1 aspect, four labeled inputs and one-image output. The four input descriptions were updated and survived reload. Its graph-card summaries still show the old two-image wording; the step prompt and output prompt are authoritative. No image run was possible because of Opal's daily quota. Use Stage I main Forge for Preostmar, then Evolution Forge for Oathfen and Oxbowarchon only after each previous front is approved. No prior-stage lineage images exist yet.
 
 ## Codex handoff (2026-09-26, wild encounter pool)
@@ -580,3 +813,8 @@ Preston asked for these so the next handoff goes smoother. What Codex built held
 - **Not wired into a MoveData yet.** The frames need unequal holds and no engine lunge to read well; both are small code changes left for the next session. Entering and leaving the attack pops, because the sheets were not generated from `vitrecrag_official.png`.
 - Summer Engine's `setup claude-code` ran on 2026-09-28; its MCP tools load after Claude Code restarts. Note that `C:/Users/pmcga/OneDrive/Documents/hollowtide` is a second, OneDrive-synced copy of this project with identical files; Godot and Summer open `C:/Users/pmcga/dev/hollowtide`.
 - **Update, later 2026-09-28:** the main 01-05 lava pour frames are now built from `vitrecrag_official.png` itself (glow steps on its own orange ramp, lava from Opal sheet 1 placed at the in-game mouth), so entering and leaving the attack no longer pops. An Attack Forge run anchored to the official sprite still redrew a longer body (50%/56% leg change), so it is kept only as an alternate. Frame colours are snapped to the official 24-colour palette; the first conversion had been too bright. Details: the folder README.
+
+## Claude handoff (2026-09-29, Preostmar line attack briefs)
+
+- Preston generated fronts for all three Stone Line 9 forms (OneDrive `Documents/HollowTide Sprites/Creatures/`: `Proestmar.jfif`, `Oathfen.png`, `Oxbowarchon.jfif`). None is converted into the game yet.
+- Wrote Attack Forge Motion Briefs in the Ember format: `docs/preostmar-line-attack-forge-prompts-2026-09-29.md`. There are four for Preostmar, one priority run for Oathfen and a signature body run for Oxbowarchon. The move names are proposals or placeholders; no `MoveData` exists. The hip slabs stay separate effect art.

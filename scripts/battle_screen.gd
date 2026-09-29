@@ -35,13 +35,42 @@ const BEAT := 0.75
 ## verified number. It is the cheapest single thing that makes a hit land.
 const HIT_STOP := 0.06
 
+## HUD layout on the 1152x648 screen. The foe's card sits top left, the
+## player's card bottom right just above the commands, and the message and
+## commands share the bottom band, so the top right, where the foe stands,
+## stays clear of interface.
+const CARD_SIZE := Vector2(476, 102)
+const FOE_CARD_AT := Vector2(16, 16)
+const PLAYER_CARD_AT := Vector2(660, 360)
+const MESSAGE_AT := Vector2(16, 470)
+const MESSAGE_SIZE := Vector2(652, 162)
+const COMMANDS_AT := Vector2(688, 472)
+
+## Every foe's lowest visible pixel rests on this line, just above the
+## player's card; FOE_X is where it stands left to right.
+const FOE_FOOT_Y := 350.0
+const FOE_X := 820.0
+
 const RIVER_LANDING = preload("res://assets/backgrounds/river_landing_battle.svg")
 const CREATURE_NAME_FONT = preload("res://assets/fonts/Silkscreen-Bold.ttf")
 const HP_NUMBER_FONT = preload("res://assets/fonts/Silkscreen-Regular.ttf")
+## Whole-pixel breathing and the Overheat glow, worn by both creature sprites.
+const CREATURE_SHADER = preload("res://scripts/effects/creature_sprite.gdshader")
+
+## Whether the player's side shows each creature's back view (true) or its front
+## art turned to face the foe (false). Preston switched back views off on
+## 2026-09-28 (they were hard to generate and did not match) and back on on
+## 2026-09-29. A creature without a back_sprite still shows its front art.
+const USE_BACK_SPRITES := true
 
 ## The near-side scale target. Battle size still comes from each creature;
 ## the opponent also receives distance scaling so it reads farther away.
 const CREATURE_HEIGHT := 264
+
+## Where the player's creature stands (its feet), and the open stage it must fit.
+const PLAYER_X := 300.0
+const PLAYER_FOOT_Y := 455.0
+const PLAYER_ROOM := Vector2(600, 330)
 
 ## Adjustable in the BattleScreen Inspector until the dedicated battle camera
 ## and backgrounds are designed. Half-step zooms keep the distant 128px forms
@@ -92,6 +121,13 @@ var _focus_tween: Tween
 var _battle_stage: Node2D
 var _foe_sprite: Sprite2D
 var _player_sprite: Sprite2D
+# Idle overlay layers (a mouth flame and the like), one per creature sprite.
+var _foe_overlay: Sprite2D
+var _player_overlay: Sprite2D
+var _overlay_clock := 0.0
+var _flick_left := 0.0
+## Seconds each overlay frame holds; short enough to read as flickering.
+const OVERLAY_STEP := 0.07
 var _foe_name: Label
 var _player_name: Label
 var _foe_bar: ProgressBar
@@ -159,16 +195,35 @@ func start(wild: CreatureData) -> void:
 	_player_first = player_creature.base_speed >= _foe.base_speed
 
 	_foe_sprite.texture = _foe.idle_frames[0] if not _foe.idle_frames.is_empty() else _foe.sprite
-	_player_sprite.texture = player_creature.back_sprite if player_creature.back_sprite != null else (player_creature.idle_frames[0] if not player_creature.idle_frames.is_empty() else player_creature.sprite)
+	var player_back: Texture2D = _back_of(player_creature)
+	_player_sprite.texture = player_back if player_back != null else (player_creature.idle_frames[0] if not player_creature.idle_frames.is_empty() else player_creature.sprite)
+	_setup_overlay(_foe_sprite, _foe_overlay, _foe, true)
+	_setup_overlay(_player_sprite, _player_overlay, player_creature, player_back == null)
 	# Reset anything a previous battle's animation might have left behind.
 	for s in [_foe_sprite, _player_sprite]:
 		s.scale = Vector2.ONE * _zoom(s)
 		s.modulate = Color.WHITE
+		# A fresh material per battle, so no heat or breath carries over.
+		var mat := ShaderMaterial.new()
+		mat.shader = CREATURE_SHADER
+		# Set every value up front: a Tween cannot animate a shader value that
+		# has never been set, and in the editor that error pauses the game.
+		mat.set_shader_parameter("heat", 0.0)
+		mat.set_shader_parameter("breath_lift", 0.0)
+		mat.set_shader_parameter("breath_cut", 0.5)
+		mat.set_shader_parameter("idle_glow", 0.0)
+		mat.set_shader_parameter("heat_sweep", 1.0)
+		s.material = mat
+	_foe_home = _foot_home(_foe_sprite, Vector2(FOE_X, FOE_FOOT_Y))
+	# The player's creature stands on its own floor line too, so a big body
+	# keeps its feet above the message box instead of sinking behind it.
+	_player_home = _foot_home(_player_sprite, Vector2(PLAYER_X, PLAYER_FOOT_Y))
 	_battle_stage.position = Vector2.ZERO
 	if _focus_tween != null and _focus_tween.is_valid():
 		_focus_tween.kill()
 	_focus_stage.scale = Vector2.ONE * 1.035
 	_focus_stage.position = _focus_target(Vector2.ZERO, 1.035)
+	_focus_stage.modulate = Color.WHITE  # a signature's scene light never carries over
 	_foe_sprite.position = _foe_home
 	_player_sprite.position = _player_home
 	# Restart the idle clock so every battle opens on the same frame.
@@ -378,10 +433,17 @@ func _attack(attacker: CreatureData, by_player: bool, move: MoveData) -> void:
 
 	# Damage is applied at the moment of contact inside the animation, not
 	# before it, so the number and the picture agree.
-	if move and move.delivery == MoveData.Delivery.CONTACT:
+	# Contact moves opt into drawn frames by naming their hit frame; Cinder
+	# Claw's older six-frame sheet stays bypassed because it does not.
+	if move and move.delivery == MoveData.Delivery.CONTACT and not move.attack_frames.is_empty() and move.attack_hit_frame >= 0:
+		await _contact_with_frames(by_player, dealt, multiplier, move)
+	elif move and move.delivery == MoveData.Delivery.CONTACT:
 		await _strike_animation(by_player, dealt, multiplier, move)
-	elif move and not move.attack_frames.is_empty() and (not by_player or attacker.back_sprite == null):
+	elif move and not move.attack_frames.is_empty() and (not by_player or _back_of(attacker) == null):
 		await _drawn_attack_animation(by_player, dealt, multiplier, move)
+	elif move and not move.attack_back_frames.is_empty() and by_player:
+		# Seen from behind: same timeline, back-view art.
+		await _drawn_attack_animation(by_player, dealt, multiplier, move, true)
 	elif move and move.effect:
 		await _projectile_animation(by_player, dealt, multiplier, move.effect, move)
 	else:
@@ -494,6 +556,111 @@ func _strike_animation(by_player: bool, dealt: int, multiplier: float, move: Mov
 	_idle_hold = false
 
 
+## A contact move with drawn frames: the intact creature winds up, charges the
+## target as a game piece while its frames play, hits on the hit frame, and
+## returns home while the rest play out.
+##
+## Frame roles come from the move: frames before attack_hit_frame are the
+## wind-up; the brace frame draws back contact_pullback_px and trembles; the
+## frame just before the hit is shown for the whole charge; the hit frame lands
+## the damage; frames after it play on the way home. The foe sees the drawn
+## frames; from behind (no back frames) the plain sprite does the same moves.
+func _contact_with_frames(by_player: bool, dealt: int, multiplier: float, move: MoveData) -> void:
+	var sprite: Sprite2D = _player_sprite if by_player else _foe_sprite
+	var target: Sprite2D = _foe_sprite if by_player else _player_sprite
+	var home: Vector2 = _player_home if by_player else _foe_home
+	var original_texture: Texture2D = sprite.texture
+	var back: bool = by_player and _attacker_uses_back(by_player)
+	var frames: Array[Texture2D] = move.attack_back_frames if back else move.attack_frames
+	var hit: int = move.attack_hit_frame
+	if hit < 0 or hit >= move.attack_frames.size():
+		hit = maxi(0, move.attack_frames.size() - 2)
+	_idle_hold = true
+	sprite.position = home
+	sprite.scale = Vector2.ONE * _zoom(sprite)
+	var direction: Vector2 = (target.position - home).normalized()
+	# Reach carries a protruding weapon onto the target, never past 80% of the
+	# way, so the attacker does not pass through it.
+	var travel: float = _contact_travel(sprite, target, direction) + move.contact_reach_px * _zoom(sprite)
+	travel = minf(travel, home.distance_to(target.position) * 0.8)
+	var contact: Vector2 = home + direction * travel
+	var pullback: Vector2 = -direction * move.contact_pullback_px * _zoom(sprite)
+	# Overheat: a glow on the creature's fire-coloured core that the chugs stoke.
+	var heat: ShaderMaterial = null
+	var peak: float = move.attack_overheat
+	if peak > 0.0 and sprite.material is ShaderMaterial:
+		heat = sprite.material
+		_heat_to(heat, 0.15 * peak, 0.2)
+
+	for i in range(move.attack_frames.size()):
+		if i < frames.size():
+			sprite.texture = frames[i]
+		var hold: float = move.attack_frame_seconds
+		if i < move.attack_frame_holds.size():
+			hold = move.attack_frame_holds[i]
+		if i < hit - 1:
+			if i == move.attack_brace_frame:
+				var draw_back := create_tween()
+				draw_back.tween_property(sprite, "position", home + pullback, hold * 0.4).set_trans(Tween.TRANS_SINE)
+				await draw_back.finished
+				if move.contact_brace_chugs > 0:
+					await _brace_chug(sprite, home + pullback, direction, maxf(0.04, hold * 0.6), move.contact_brace_chugs,
+						heat, peak)
+				else:
+					await _brace_tremble(sprite, home + pullback, maxf(0.04, hold * 0.6))
+			else:
+				await get_tree().create_timer(maxf(0.04, hold)).timeout
+		elif i == hit - 1:
+			# The charge: this frame rides the whole way in. A heavy charger starts
+			# slow and builds speed (cubic ease-in); a light one darts (quad).
+			if heat != null:
+				_heat_to(heat, peak, move.contact_travel_seconds)
+			var charge := create_tween()
+			var curve: int = Tween.TRANS_CUBIC if move.contact_brace_chugs > 0 else Tween.TRANS_QUAD
+			charge.tween_property(sprite, "position", contact, move.contact_travel_seconds) \
+				.set_trans(curve).set_ease(Tween.EASE_IN)
+			await charge.finished
+		elif i == hit:
+			sprite.position = contact
+			_drawn_impact_effect(by_player, move)
+			_on_impact(by_player, dealt, multiplier, move)
+			if move.contact_impact_shake > 0:
+				_shake(move.contact_impact_shake)
+			if heat != null:
+				# The hit flares the core, then the long cool-off starts.
+				heat.set_shader_parameter("heat", 1.4 * peak)
+				var recovery_seconds: float = 0.0
+				for k in range(hit + 1, move.attack_frames.size()):
+					recovery_seconds += move.attack_frame_holds[k] if k < move.attack_frame_holds.size() \
+						else move.attack_frame_seconds
+				_heat_to(heat, 0.7 * peak, maxf(HIT_STOP, hold))
+				_heat_to(heat, 0.0, recovery_seconds + 0.8, maxf(HIT_STOP, hold))
+			await get_tree().create_timer(maxf(HIT_STOP, hold)).timeout
+		else:
+			# Recovery frames share the trip home.
+			var steps: int = move.attack_frames.size() - hit - 1
+			var leg := create_tween()
+			var t: float = float(i - hit) / float(steps)
+			leg.tween_property(sprite, "position", contact.lerp(home, t), maxf(0.04, hold)).set_trans(Tween.TRANS_SINE)
+			await leg.finished
+	sprite.texture = original_texture
+	sprite.position = home
+	_idle_hold = false
+
+
+## True when the attacker on this side is showing its back sprite.
+func _attacker_uses_back(by_player: bool) -> bool:
+	return by_player and _back_of(player_creature) != null
+
+
+## The rear view the player's side should show, or null to show the front art
+## facing the foe (always null while USE_BACK_SPRITES is off).
+func _back_of(creature: CreatureData) -> Texture2D:
+	if not USE_BACK_SPRITES or creature == null:
+		return null
+	return creature.back_sprite
+
+
 ## Project each sprite's visible alpha bounds onto the line of travel. A small
 ## minimum keeps a lunge readable when silhouettes already overlap in this
 ## three-quarter battle view; the maximum keeps the attacker beside its target.
@@ -528,10 +695,23 @@ func _visible_projection(sprite: Sprite2D, direction: Vector2) -> Vector2:
 
 ## Hand-drawn same-form attack poses. The source sheets share one canvas and baseline,
 ## so only a small lunge is added; the hit lands on the penultimate action pose.
-func _drawn_attack_animation(by_player: bool, dealt: int, multiplier: float, move: MoveData) -> void:
+##
+## back: play the move's back-view frames instead, on the same timeline. The
+## emitter and volley then start from the back-view offset, and can be drawn
+## behind the attacker so they rise from behind its body.
+func _drawn_attack_animation(by_player: bool, dealt: int, multiplier: float, move: MoveData, back: bool = false) -> void:
 	var sprite: Sprite2D = _player_sprite if by_player else _foe_sprite
 	var home: Vector2 = sprite.position
 	var original_texture: Texture2D = sprite.texture
+	var frames: Array[Texture2D] = move.attack_back_frames if back else move.attack_frames
+	var offset: Vector2 = move.attack_back_emitter_offset if back else move.attack_emitter_offset
+	# Frames without their own emitter point fire from the creature's aim point.
+	var attacker: CreatureData = player_creature if by_player else _foe
+	if not back and offset == Vector2.ZERO and _has_aim(attacker, move):
+		offset = attacker.aim_points[move.aim]
+	# Behind the attacker means earlier in BattleStage's draw order, not a lower
+	# z_index: a negative z would drop it behind the river backdrop too.
+	var behind: Sprite2D = sprite if back and move.attack_back_emitter_behind else null
 	var dir: float = 1.0 if by_player else -1.0
 	var impact_index: int = move.attack_hit_frame
 	if impact_index < 0 or impact_index >= move.attack_frames.size():
@@ -539,28 +719,126 @@ func _drawn_attack_animation(by_player: bool, dealt: int, multiplier: float, mov
 	# The default 30 px gives the original -8 / +12 / +30 steps; 0 stays planted.
 	var lunge: float = move.attack_lunge_px
 	var emitter: Node2D = null
+	# Mouth Heat: the fire held in the mouth reacts to the jaws opening (front only).
+	var smolder: Node2D = null
+	if not back and move.smolder_gasp_frame >= 0 and sprite.has_meta("smolder") \
+			and is_instance_valid(sprite.get_meta("smolder")):
+		smolder = sprite.get_meta("smolder")
+		smolder.attack_owned = true
+		smolder.visible = true
+		smolder.facing = -1.0 if sprite.flip_h else 1.0
+	# Overheat on drawn frames: the core climbs to near peak through the wind-up.
+	var heat: ShaderMaterial = sprite.material if move.attack_overheat > 0.0 and sprite.material is ShaderMaterial else null
+	var windup: float = _frames_seconds(move, 0, maxi(0, move.attack_emit_frames.x))
+	# The heat builds until the seal frame when there is one, otherwise until release.
+	var build_end: int = maxi(0, move.attack_emit_frames.x)
+	if move.overheat_seal_frame >= 0:
+		build_end = move.overheat_seal_frame
+	elif move.attack_strain_frame >= 0:
+		build_end = move.attack_strain_frame  # the strain throbs the heat itself
+	var build: float = _frames_seconds(move, 0, build_end)
+	if heat != null:
+		_heat_to(heat, 0.9 * move.attack_overheat, build)
+		if move.overheat_sweep:
+			# Pressure climbing vent by vent, tail end to head.
+			heat.set_shader_parameter("heat_sweep", 0.0)
+			create_tween().tween_property(heat, "shader_parameter/heat_sweep", 1.0, maxf(0.05, build))
+			# Each vent hisses as the sweep's front reaches it (the shader's front
+			# sits at heat_sweep * 1.1 across the art, tail end first).
+			if move.vent_charge != null:
+				var w: float = float(sprite.texture.get_width())
+				for p in move.vent_rest_points:
+					var reach: float = clampf((p.x + w * 0.5) / w / 1.1, 0.0, 1.0) * build
+					get_tree().create_timer(reach).timeout.connect(
+						_vent_sprite.bind(sprite, p, move.vent_charge, 0.35, 0.0))
+	# Signature: the whole scene (not the HUD) dims while it winds up.
+	if move.signature:
+		var dim_to := Color(0.5, 0.46, 0.58)
+		var dim := create_tween().set_parallel()
+		dim.tween_property(_focus_stage, "modulate", dim_to, windup).set_trans(Tween.TRANS_SINE)
+		# Spotlight: the attacker cancels the dim (a touch brighter still), so its
+		# overload burns against a darkening world, like the title card.
+		var lit := Color(1.08 / dim_to.r, 1.08 / dim_to.g, 1.08 / dim_to.b)
+		dim.tween_property(sprite, "modulate", lit, windup).set_trans(Tween.TRANS_SINE)
 	_idle_hold = true
 	for frame_index in range(move.attack_frames.size()):
-		sprite.texture = move.attack_frames[frame_index]
+		if frame_index < frames.size():
+			sprite.texture = frames[frame_index]
+		if frame_index == move.attack_cut_in_frame and move.attack_cut_in != null:
+			_show_cut_in(by_player, move)
+		if heat != null and frame_index == move.overheat_seal_frame:
+			# The seal: the glow pulls inward for a beat, the quiet before it blows.
+			_heat_to(heat, 0.35 * move.attack_overheat, 0.15)
+		if frame_index == move.attack_emit_frames.x:
+			if heat != null:
+				heat.set_shader_parameter("heat", 1.4 * move.attack_overheat)
+				_heat_to(heat, 0.8 * move.attack_overheat, 0.3)
+			if move.vent_column != null:
+				# A beat apart, tail end first, so each vent reads as its own blast.
+				for i in move.vent_points.size():
+					get_tree().create_timer(0.09 * i + 0.001).timeout.connect(
+						_vent_sprite.bind(sprite, move.vent_points[i], move.vent_column, 0.6, 0.0))
+			if move.signature:
+				# The rupture: a white-hot flash, then the scene lit by the glass.
+				sprite.modulate = Color.WHITE  # the spotlight ends with the flash
+				_focus_stage.modulate = Color(1.9, 1.6, 1.3)
+				var light := create_tween()
+				light.tween_property(_focus_stage, "modulate", move.signature_light, 0.35)
+		if smolder != null:
+			var surge: bool = frame_index >= move.smolder_surge_frames.x and frame_index <= move.smolder_surge_frames.y
+			if frame_index == move.smolder_gasp_frame:
+				smolder.gasp(offset)
+			elif frame_index > move.smolder_gasp_frame:
+				smolder.set_aura(offset, 1.0 if surge else 0.5, move.smolder_aura_column if surge else 0.0)
 		if frame_index < 2:
 			sprite.position = home - Vector2(dir * lunge * 8.0 / 30.0, 0.0)
 		elif frame_index < impact_index:
 			sprite.position = home + Vector2(dir * lunge * 12.0 / 30.0, 0.0)
 		else:
 			sprite.position = home + Vector2(dir * lunge, 0.0)
+		# Cannon kickback: thrown back on the firing frame, settling after, in
+		# whole art pixels so the sprite stays on its grid.
+		var fired_for: int = frame_index - move.attack_emit_frames.x
+		if move.attack_recoil_px > 0.0 and move.attack_emit_frames.x >= 0 and fired_for >= 0:
+			var kick: float = roundf(move.attack_recoil_px * pow(0.5, fired_for)) * _zoom(sprite)
+			sprite.position -= Vector2(dir * kick, 0.0)
 		if frame_index == move.attack_emit_frames.x:
-			emitter = _start_emitter(sprite, move)
+			emitter = _start_emitter(sprite, move, offset)
+			# An emitter that can aim (Furnace Roar's pressure wave) points at the target.
+			if emitter != null and emitter.has_method("aim_at"):
+				var aim_target: Sprite2D = _foe_sprite if by_player else _player_sprite
+				emitter.aim_at(aim_target.global_position)
+			if emitter != null and behind != null:
+				_battle_stage.move_child(emitter, behind.get_index())
 			if move.attack_volley != null:
 				_start_volley(sprite, by_player, move, _frames_seconds(move, frame_index, impact_index),
-					_frames_seconds(move, frame_index, move.attack_emit_frames.y + 1))
+					_frames_seconds(move, frame_index, move.attack_emit_frames.y + 1), offset, behind)
+			if move.attack_river != null:
+				_start_river(sprite, by_player, move, _frames_seconds(move, frame_index, impact_index),
+					_frames_seconds(move, frame_index, move.attack_emit_frames.y + 1),
+					move.attack_back_river_offset if back else move.attack_river_offset)
+			if move.signature_effect != null:
+				_start_signature_effect(sprite, by_player, move, frame_index, impact_index,
+					move.attack_back_river_offset if back else move.attack_river_offset)
 		if frame_index == impact_index:
 			_drawn_impact_effect(by_player, move)
 			_on_impact(by_player, dealt, multiplier, move)
+			if move.impact_shake > 0:
+				_shake(move.impact_shake)
+			if move.impact_flash:
+				# The detonation: the scene flashes white-hot, then returns to its light.
+				var back_to: Color = _focus_stage.modulate
+				_focus_stage.modulate = Color(2.0, 1.7, 1.4)
+				create_tween().tween_property(_focus_stage, "modulate", back_to, 0.3)
 		var hold: float = move.attack_frame_seconds
 		if frame_index < move.attack_frame_holds.size():
 			hold = move.attack_frame_holds[frame_index]
 		if frame_index == move.attack_brace_frame:
 			await _brace_tremble(sprite, sprite.position, maxf(0.04, hold))
+		elif frame_index == move.attack_strain_frame:
+			# The overload pose is front art; from behind, the back frames carry on.
+			await _strain(sprite, sprite.position, maxf(0.3, hold), heat, move.attack_overheat,
+				null if back else move.attack_strain_overload)
 		else:
 			await get_tree().create_timer(maxf(0.04, hold)).timeout
 		if emitter != null and frame_index == move.attack_emit_frames.y:
@@ -568,9 +846,101 @@ func _drawn_attack_animation(by_player: bool, dealt: int, multiplier: float, mov
 			emitter = null
 	if emitter != null:
 		_stop_emitter(emitter)
+	if smolder != null:
+		smolder.resume_flames()
+		smolder.attack_owned = false
+	if heat != null:
+		_heat_to(heat, 0.0, 1.5)
+		heat.set_shader_parameter("heat_sweep", 1.0)
+	if move.vent_smoke != null:
+		for p in move.vent_rest_points:
+			_vent_sprite(sprite, p, move.vent_smoke, 1.2, 10.0)
+	if move.signature:
+		# The light fades with the cooling glass, after the frames are done.
+		var settle := create_tween()
+		settle.tween_property(_focus_stage, "modulate", Color.WHITE, move.signature_linger) \
+			.set_trans(Tween.TRANS_SINE)
 	sprite.texture = original_texture
 	sprite.position = home
 	_idle_hold = false
+
+
+## A move's close-up cut-in: a dark band opens across the screen, the close-up
+## slides in from the attacker's side, holds, and slides out the other way,
+## then the band closes. It sits above the stage and under the HUD, and moves in
+## whole screen pixels at 3x so the art stays crisp. Not awaited by the caller.
+func _show_cut_in(by_player: bool, move: MoveData) -> void:
+	const ZOOM := 3.0
+	var tex: Texture2D = move.attack_cut_in
+	var art_size: Vector2 = tex.get_size() * ZOOM
+	var view: Vector2 = get_viewport().get_visible_rect().size
+	var band_h: float = art_size.y + 24.0
+	var mid_y: float = roundf(view.y * 0.36)
+	var band := ColorRect.new()
+	band.color = Color(0.06, 0.04, 0.05, 0.85)
+	band.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	band.clip_contents = true
+	band.position = Vector2(0, mid_y)
+	band.size = Vector2(view.x, 0)
+	add_child(band)
+	move_child(band, _focus_stage.get_index() + 1)
+	var art := Sprite2D.new()
+	art.texture = tex
+	art.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
+	art.scale = Vector2.ONE * ZOOM
+	art.flip_h = not by_player  # the foe faces left
+	band.add_child(art)
+	var side: float = 1.0 if by_player else -1.0
+	var from_x: float = view.x * 0.5 - side * (view.x * 0.5 + art_size.x * 0.5)
+	var rest_x: float = view.x * 0.5 - side * 40.0
+	var out_x: float = view.x * 0.5 + side * (view.x * 0.5 + art_size.x * 0.5)
+	var place := func(x: float) -> void:
+		art.position = Vector2(roundf(x / ZOOM) * ZOOM, roundf(band_h * 0.5))
+	place.call(from_x)
+	var open := create_tween().set_parallel()
+	open.tween_property(band, "size:y", band_h, 0.08)
+	open.tween_property(band, "position:y", mid_y - band_h * 0.5, 0.08)
+	await open.finished
+	# The flash: the band opens white-hot and the close-up burns bright, then
+	# both settle, so the moment lands like a special move's title card.
+	var dark: Color = band.color
+	band.color = Color(1.0, 0.9, 0.72, 0.95)
+	art.modulate = Color(2.2, 2.0, 1.7)
+	var flash := create_tween().set_parallel()
+	flash.tween_property(band, "color", dark, 0.18)
+	flash.tween_property(art, "modulate", Color.WHITE, 0.22)
+	var slide := create_tween()
+	slide.tween_method(place, from_x, rest_x, 0.12).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
+	slide.tween_method(place, rest_x, rest_x - side * 18.0, move.attack_cut_in_seconds)  # a slow drift while it holds
+	slide.tween_method(place, rest_x - side * 18.0, out_x, 0.12).set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_CUBIC)
+	await slide.finished
+	var close := create_tween().set_parallel()
+	close.tween_property(band, "size:y", 0.0, 0.08)
+	close.tween_property(band, "position:y", mid_y, 0.08)
+	await close.finished
+	band.queue_free()
+
+
+## Start a signature's scene-wide effect (the meltdown flood) under the river,
+## timed so it bursts out as the river reaches the target.
+func _start_signature_effect(sprite: Sprite2D, by_player: bool, move: MoveData, frame_index: int,
+		impact_index: int, offset: Vector2) -> void:
+	var target: Sprite2D = _foe_sprite if by_player else _player_sprite
+	var effect: Node2D = move.signature_effect.instantiate()
+	_battle_stage.add_child(effect)
+	_battle_stage.move_child(effect, 0)  # under the river and the creatures
+	var start: Vector2 = _emitter_point(sprite, offset)
+	var arrive: float = _frames_seconds(move, frame_index, impact_index)
+	var run: float = _frames_seconds(move, frame_index, move.attack_emit_frames.y + 1)
+	# Effects that stage the whole field (Furnace Roar) also get the opponent's
+	# sprite to shake, where the attacker stands, and the screen shake.
+	if "target" in effect:
+		effect.target = target
+	if "source_feet" in effect:
+		effect.source_feet = _foot_point(sprite, target.position)
+	if "shake" in effect:
+		effect.shake = _shake
+	effect.erupt(start, _foot_point(target, start), _zoom(sprite), arrive, maxf(0.0, run - arrive))
 
 
 ## Plant and strain before letting go: the body sinks one art pixel and shakes
@@ -587,25 +957,173 @@ func _brace_tremble(sprite: Sprite2D, base: Vector2, seconds: float) -> void:
 	sprite.position = base
 
 
+## One vent effect standing on a point of the attacker's body (a charge puff, a
+## column, a curl of smoke): its bottom edge on the vent, the creature's zoom so
+## its pixels match, mirrored with a foe. It flickers out at the end, or with
+## rise, drifts up that many art pixels while it fades. Not awaited.
+func _vent_sprite(sprite: Sprite2D, offset: Vector2, tex: Texture2D, seconds: float, rise: float) -> void:
+	if not is_instance_valid(sprite):
+		return
+	var zoom: float = _zoom(sprite)
+	var s := Sprite2D.new()
+	s.texture = tex
+	s.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
+	s.scale = Vector2.ONE * zoom
+	s.flip_h = sprite.flip_h
+	s.offset = Vector2(0, -tex.get_height() * 0.5)  # stand on the vent
+	s.position = _emitter_point(sprite, offset)
+	_battle_stage.add_child(s)
+	var t := create_tween()
+	if rise > 0.0:
+		t.set_parallel()
+		t.tween_property(s, "position:y", s.position.y - rise * zoom, seconds)
+		t.tween_property(s, "modulate:a", 0.0, seconds).set_ease(Tween.EASE_IN)
+	else:
+		t.tween_interval(seconds * 0.7)
+		for i in 3:
+			t.tween_property(s, "visible", false, 0.0)
+			t.tween_interval(seconds * 0.05)
+			t.tween_property(s, "visible", true, 0.0)
+			t.tween_interval(seconds * 0.05)
+	t.finished.connect(s.queue_free)
+
+
+## "It's about to blow": the body shakes harder and harder (one to three art
+## pixels), the heat throbs brighter and faster with a rumble that grows each
+## throb, then everything goes still for a held breath right before release.
+func _strain(sprite: Sprite2D, base: Vector2, seconds: float, heat: ShaderMaterial, peak: float,
+		overload: Texture2D = null) -> void:
+	var px: float = _zoom(sprite)
+	var hush: float = minf(0.22, seconds * 0.25)
+	var build: float = seconds - hush
+	var elapsed := 0.0
+	var side := 1.0
+	var next_throb := 0.0
+	var calm: Texture2D = sprite.texture
+	var surge_until := -1.0  # while elapsed is below this, the overload pose shows
+	while elapsed < build:
+		var k: float = elapsed / build
+		var amp: float = roundf(lerpf(1.0, 3.0, k))
+		sprite.position = base + Vector2(px * amp * side, px if side > 0.0 else 0.0)
+		side = -side
+		if elapsed >= next_throb:
+			if heat != null:
+				heat.set_shader_parameter("heat", lerpf(0.95, 1.35, k) * peak)
+				_heat_to(heat, 0.8 * peak, 0.07)
+			_shake(int(lerpf(6.0, 18.0, k)))
+			var interval: float = lerpf(0.28, 0.08, k)
+			next_throb = elapsed + interval
+			# The core surges past its limit: the overload pose flashes in, for
+			# longer each throb, and from about 70% of the way it stays.
+			surge_until = elapsed + (build if k > 0.7 else interval * lerpf(0.25, 0.8, k))
+		if overload != null:
+			sprite.texture = overload if elapsed < surge_until else calm
+		await get_tree().create_timer(0.04).timeout
+		elapsed += 0.04
+	# The held breath, at peak meltdown.
+	if overload != null:
+		sprite.texture = overload
+	sprite.position = base
+	if heat != null:
+		_heat_to(heat, 0.55 * peak, 0.08)
+	await get_tree().create_timer(hush).timeout
+
+
+## Getting up steam: the attacker rocks back and stomps forward `count` times,
+## each chug deeper and quicker than the last, with a small ground shake on
+## every stomp. Moves are whole art pixels so the sprite stays on its grid.
+##
+## heat: an Overheat glow to stoke. Each stomp flares it and it settles back a
+## little higher than before, climbing toward 0.8 of peak, like a firebox.
+func _brace_chug(sprite: Sprite2D, base: Vector2, direction: Vector2, seconds: float, count: int,
+		heat: ShaderMaterial = null, peak: float = 0.0) -> void:
+	var px: float = _zoom(sprite)
+	# Intervals shrink from long to short and add up to `seconds`.
+	var weights: Array[float] = []
+	var total := 0.0
+	for k in count:
+		var w: float = lerpf(1.6, 0.6, float(k) / maxf(1.0, count - 1))
+		weights.append(w)
+		total += w
+	for k in count:
+		var beat: float = seconds * weights[k] / total
+		var depth: float = roundf(lerpf(1.0, 3.0, float(k) / maxf(1.0, count - 1))) * px
+		var chug := create_tween()
+		chug.tween_property(sprite, "position", base - direction * depth + Vector2(0, px), beat * 0.55) \
+			.set_trans(Tween.TRANS_SINE)
+		chug.tween_property(sprite, "position", base, beat * 0.45).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_IN)
+		await chug.finished
+		_shake(8 + k * 2)
+		if heat != null:
+			var level: float = lerpf(0.35, 0.9, float(k) / maxf(1.0, count - 1)) * peak
+			heat.set_shader_parameter("heat", level + 0.5 * peak)
+			_heat_to(heat, level, beat * 0.5)
+	sprite.position = base
+
+
+## Ease an Overheat glow to `to` over `seconds`, after `delay`.
+func _heat_to(heat: ShaderMaterial, to: float, seconds: float, delay: float = 0.0) -> void:
+	if heat.get_shader_parameter("heat") == null:
+		heat.set_shader_parameter("heat", 0.0)
+	var t := create_tween()
+	t.tween_property(heat, "shader_parameter/heat", to, maxf(0.01, seconds)).set_delay(delay) \
+		.set_trans(Tween.TRANS_SINE)
+
+
 ## Attach a move's particle scene to the attacker, measured in the attack art's
 ## own pixels, so the glass or fire leaves the anatomy the frames show. Scaling
 ## by the sprite's zoom keeps one particle pixel the same size as one art pixel;
 ## the negative x scale mirrors it for a foe, whose sprite is flipped.
-func _start_emitter(sprite: Sprite2D, move: MoveData) -> Node2D:
+func _start_emitter(sprite: Sprite2D, move: MoveData, offset: Vector2) -> Node2D:
 	if move.attack_emitter == null:
 		return null
 	var mirror: float = -1.0 if sprite.flip_h else 1.0
 	var zoom: float = _zoom(sprite)
 	var emitter: Node2D = move.attack_emitter.instantiate()
 	emitter.scale = Vector2(mirror * zoom, zoom)
-	emitter.position = sprite.position + Vector2(move.attack_emitter_offset.x * mirror, move.attack_emitter_offset.y) * zoom
+	emitter.position = _emitter_point(sprite, offset)
 	_battle_stage.add_child(emitter)
 	for child in emitter.get_children():
 		if child is CPUParticles2D:
 			child.emitting = true
 	if move.attack_emit_shake > 0:
 		_shake(move.attack_emit_shake)
+	# An optional drawn Burst pops out as the emitter opens, then flickers away.
+	var burst: Sprite2D = emitter.get_node_or_null("Burst")
+	if burst:
+		burst.visible = true
+		var flicker := create_tween()
+		flicker.tween_interval(0.16)
+		for i in 2:
+			flicker.tween_property(burst, "visible", false, 0.0)
+			flicker.tween_interval(0.04)
+			flicker.tween_property(burst, "visible", true, 0.0)
+			flicker.tween_interval(0.04)
+		flicker.tween_property(burst, "visible", false, 0.0)
+	# An optional Throw: drawn frames shown one after another from the emitter
+	# point (a rope of glass stretching out), each for its "hold" seconds.
+	var throw: Node2D = emitter.get_node_or_null("Throw")
+	if throw:
+		var steps := create_tween()
+		for step in throw.get_children():
+			if step is CanvasItem:
+				steps.tween_property(step, "visible", true, 0.0)
+				steps.tween_interval(float(step.get_meta("hold", 0.08)))
+				steps.tween_property(step, "visible", false, 0.0)
 	return emitter
+
+
+## Where an offset measured in the attack art's pixels (art facing right) lands
+## on screen for this sprite: scaled by its zoom and mirrored if it is flipped.
+## Works for any sprite in any spot, which is what a 2v2 layout will need.
+## True when the move names an aim point this creature has.
+func _has_aim(creature: CreatureData, move: MoveData) -> bool:
+	return creature != null and move != null and move.aim != "" and creature.aim_points.has(move.aim)
+
+
+func _emitter_point(sprite: Sprite2D, offset: Vector2) -> Vector2:
+	var mirror: float = -1.0 if sprite.flip_h else 1.0
+	return sprite.position + Vector2(offset.x * mirror, offset.y) * _zoom(sprite)
 
 
 ## Seconds the drawn frames from first up to (not including) last stay on screen.
@@ -623,34 +1141,87 @@ func _frames_seconds(move: MoveData, first: int, last: int) -> float:
 ## steady beat while the emitter runs. Every lob flies for the same time as the
 ## first, which is timed to land on the hit frame, so glass and damage arrive
 ## together and the rest keep raining on the target. Not awaited by the caller.
-func _start_volley(sprite: Sprite2D, by_player: bool, move: MoveData, flight: float, run_seconds: float) -> void:
+func _start_volley(sprite: Sprite2D, by_player: bool, move: MoveData, flight: float, run_seconds: float, offset: Vector2, behind: Sprite2D = null) -> void:
 	var target: Sprite2D = _foe_sprite if by_player else _player_sprite
-	var mirror: float = -1.0 if sprite.flip_h else 1.0
-	var mouth: Vector2 = sprite.position + Vector2(move.attack_emitter_offset.x * mirror, move.attack_emitter_offset.y) * _zoom(sprite)
+	var mouth: Vector2 = _emitter_point(sprite, offset)
 	flight = maxf(0.15, flight)
 	var elapsed := 0.0
+	var first := true
 	while elapsed < run_seconds - flight * 0.5:
-		_lob(move.attack_volley, mouth, target.position, flight)
-		await get_tree().create_timer(move.attack_volley_interval).timeout
+		# The first lob lands dead centre on the hit; the rest scatter a little
+		# so their splashes do not pile onto one spot.
+		var landing: Vector2 = target.position
+		if not first:
+			landing += Vector2(randf_range(-28.0, 28.0), randf_range(-18.0, 18.0))
 		elapsed += move.attack_volley_interval
+		var last: bool = elapsed >= run_seconds - flight * 0.5
+		# The first lob's landing is the hit itself; later ones make the target flinch.
+		_lob(move.attack_volley, mouth, landing, flight, last, null if first else target, behind)
+		first = false
+		await get_tree().create_timer(move.attack_volley_interval).timeout
+
+
+## A ground flow from the attacker's pool to the defender's feet. It is laid
+## on the ground under both creatures, reaches the target on the hit frame, and
+## while it keeps coming the target flinches. Not awaited by the caller.
+func _start_river(sprite: Sprite2D, by_player: bool, move: MoveData, arrive: float, run_seconds: float, offset: Vector2) -> void:
+	var target: Sprite2D = _foe_sprite if by_player else _player_sprite
+	var river: Node2D = move.attack_river.instantiate()
+	_battle_stage.add_child(river)
+	_battle_stage.move_child(river, 0)
+	var start: Vector2 = _emitter_point(sprite, offset)
+	var sustain: float = maxf(0.2, run_seconds - arrive)
+	river.flow(start, _foot_point(target, start), _zoom(sprite), maxf(0.15, arrive), sustain)
+	await get_tree().create_timer(maxf(0.15, arrive) + 0.35).timeout
+	var elapsed := 0.35
+	while elapsed < sustain:
+		_flinch(target)
+		await get_tree().create_timer(0.35).timeout
+		elapsed += 0.35
+
+
+## Where a flow should end at a creature: the bottom of its visible art, a
+## little in from the side facing the attacker, kept above the message box.
+func _foot_point(target: Sprite2D, from: Vector2) -> Vector2:
+	var point: Vector2 = target.position
+	if target.texture != null:
+		var used: Rect2i = target.texture.get_image().get_used_rect()
+		point.y += (used.position.y + used.size.y - target.texture.get_height() * 0.5) * target.scale.y - 4.0 * _zoom(target)
+		var half_width: float = used.size.x * target.scale.x * 0.5
+		point.x += signf(from.x - point.x) * half_width * 0.35
+	point.y = minf(point.y, MESSAGE_AT.y - 8.0)
+	return point
 
 
 ## One lob: an arc from one point to another, dripping its Trail on the way,
-## then its Splash bursts on landing.
-func _lob(scene: PackedScene, from: Vector2, to: Vector2, seconds: float) -> void:
+## then its Splash bursts on landing. Optional pieces in the scene: a Head with
+## a "variants" list of textures (one is picked each throw, mirrored to face
+## the way it flies), an Impact sprite shown briefly on landing, and a Crust
+## sprite the final lob leaves behind to fade.
+func _lob(scene: PackedScene, from: Vector2, to: Vector2, seconds: float, last: bool = false, flinch: Sprite2D = null, behind: Sprite2D = null) -> void:
 	var lob: Node2D = scene.instantiate()
 	lob.position = from
 	_battle_stage.add_child(lob)
+	if behind != null:
+		_battle_stage.move_child(lob, behind.get_index())
 	var trail: CPUParticles2D = lob.get_node_or_null("Trail")
 	if trail:
 		trail.emitting = true
+	var head: Sprite2D = lob.get_node_or_null("Head")
+	if head:
+		if head.has_meta("variants"):
+			var variants: Array = head.get_meta("variants")
+			if not variants.is_empty():
+				head.texture = variants.pick_random()
+		# The drawn globs fly to the right with their tail behind; mirror, never
+		# rotate, so the pixels stay on the grid.
+		head.flip_h = to.x < from.x
 	var height: float = maxf(60.0, from.distance_to(to) * 0.3)
 	var fly := create_tween()
 	fly.tween_method(func(k: float) -> void:
 		lob.position = from.lerp(to, k) + Vector2(0.0, -height * 4.0 * k * (1.0 - k)),
 		0.0, 1.0, seconds)
 	await fly.finished
-	var head: Node2D = lob.get_node_or_null("Head")
 	if head:
 		head.visible = false
 	if trail:
@@ -658,7 +1229,30 @@ func _lob(scene: PackedScene, from: Vector2, to: Vector2, seconds: float) -> voi
 	var splash: CPUParticles2D = lob.get_node_or_null("Splash")
 	if splash:
 		splash.restart()
-	get_tree().create_timer(0.9).timeout.connect(lob.queue_free)
+	if flinch:
+		_flinch(flinch)
+	var impact: Sprite2D = lob.get_node_or_null("Impact")
+	if impact:
+		impact.flip_h = to.x < from.x
+		impact.visible = true
+		get_tree().create_timer(0.18).timeout.connect(impact.hide)
+	var crust: Sprite2D = lob.get_node_or_null("Crust")
+	var linger := 0.9
+	if crust and last:
+		crust.visible = true
+		var cool := create_tween()
+		cool.tween_interval(0.5)
+		cool.tween_property(crust, "modulate:a", 0.0, 0.7)
+		linger = 1.3
+	get_tree().create_timer(linger).timeout.connect(lob.queue_free)
+
+
+## A lighter version of the hit flash for follow-up blows that deal no extra
+## damage: the target brightens and settles, so every landing still registers.
+func _flinch(sprite: Sprite2D) -> void:
+	var t := create_tween()
+	t.tween_property(sprite, "modulate", Color(1.45, 1.3, 1.2), 0.02)
+	t.tween_property(sprite, "modulate", Color.WHITE, 0.14)
 
 
 ## Stop pouring but let the particles already in the air finish falling.
@@ -698,7 +1292,22 @@ func _drawn_impact_effect(by_player: bool, move: MoveData) -> void:
 		var fade := create_tween()
 		fade.tween_interval(0.12)
 		fade.tween_property(impact, "visible", false, 0.0)
-	get_tree().create_timer(0.65).timeout.connect(effect.queue_free)
+	# An optional drawn Sequence (AnimatedSprite2D) plays through once on the
+	# target, such as Furnace Roar's slam, ring and fading heat. Its art travels
+	# right as drawn; it is mirrored, offset included, when the foe attacks.
+	var linger := 0.65
+	var seq: AnimatedSprite2D = effect.get_node_or_null("Sequence")
+	if seq:
+		if not by_player:
+			seq.flip_h = true
+			seq.position.x = -seq.position.x
+		seq.play()
+		var frames: SpriteFrames = seq.sprite_frames
+		var total := 0.0
+		for i in frames.get_frame_count(seq.animation):
+			total += frames.get_frame_duration(seq.animation, i) / frames.get_animation_speed(seq.animation)
+		linger = maxf(linger, total + 0.05)
+	get_tree().create_timer(linger).timeout.connect(effect.queue_free)
 
 
 ## A move thrown across the screen instead of carried in a lunge: the user
@@ -732,9 +1341,14 @@ func _projectile_animation(by_player: bool, dealt: int, multiplier: float, effec
 	t.tween_property(sprite, "position", home + Vector2(dir * 16, 0), 0.06).set_ease(Tween.EASE_OUT)
 	await t.finished
 
-	# Added last so it draws over both creatures. Launched from the user's
-	# front edge rather than its centre, so it leaves the mouth, not the belly.
-	effect.position = home + Vector2(dir * 40, 0)
+	# Added last so it draws over both creatures. Launched from the move's aim
+	# point on the attacker (its mouth, vent...) when it has one; otherwise from
+	# the front edge rather than the centre, so it leaves the mouth, not the belly.
+	var attacker: CreatureData = player_creature if by_player else _foe
+	if _has_aim(attacker, move):
+		effect.position = _emitter_point(sprite, attacker.aim_points[move.aim])
+	else:
+		effect.position = home + Vector2(dir * 40, 0)
 	_battle_stage.add_child(effect)
 	trail.emitting = true
 
@@ -946,7 +1560,7 @@ func _evolution_animation(next: CreatureData) -> void:
 
 	await glow.finished
 
-	s.texture = next.back_sprite if next.back_sprite != null else next.sprite
+	s.texture = _back_of(next) if _back_of(next) != null else next.sprite
 
 	# Reuses the hit shake with a high value, because the argument is damage and
 	# there is no damage here. It is the landing thump, not a hit.
@@ -978,6 +1592,15 @@ func _zoom(s: Sprite2D) -> float:
 	var near_zoom: float = maxf(1.0, roundf(target / s.texture.get_height()))
 	if s == _foe_sprite:
 		return maxf(1.0, roundf(near_zoom * foe_perspective_scale * 2.0) / 2.0)
+	# The player's side has PLAYER_ROOM of open stage (left of its HP card,
+	# above the message box, below the foe's card). A big form is capped to
+	# fit it. Measured on the creature's front art, not the current frame, so
+	# the size never jumps between attack frames.
+	if player_creature != null and player_creature.sprite != null:
+		var used: Rect2i = _used_rect(player_creature.sprite)
+		if used.size.x > 0 and used.size.y > 0:
+			var fit: float = floorf(minf(PLAYER_ROOM.x / used.size.x, PLAYER_ROOM.y / used.size.y))
+			return maxf(1.0, minf(near_zoom, fit))
 	return near_zoom
 
 
@@ -1004,15 +1627,120 @@ func _battle_size_of(s: Sprite2D) -> float:
 # as two animals standing there.
 
 func _process(delta: float) -> void:
-	if not _idle_on or _idle_hold:
+	if not _idle_on:
+		return
+	if _idle_hold:
+		# Attacks swap in their own frames; the idle overlay waits until they finish.
+		_foe_overlay.visible = false
+		_player_overlay.visible = false
+		for s in [_foe_sprite, _player_sprite]:
+			_set_breath(s, 0.0, 0.5)  # attack frames are drawn as they are
+			if s.material is ShaderMaterial:
+				s.material.set_shader_parameter("idle_glow", 0.0)  # the attack's own heat takes over
+			# An attack with Mouth Heat steers its own smolder (the heat aura).
+			if s.has_meta("smolder") and is_instance_valid(s.get_meta("smolder")) \
+					and not s.get_meta("smolder").attack_owned:
+				s.get_meta("smolder").active = false
+				s.get_meta("smolder").visible = false
 		return
 	_idle_time += delta
+	_overlay_clock += delta
+	if _overlay_clock >= OVERLAY_STEP:
+		_overlay_clock = 0.0
+		_tick_overlay(_foe_sprite, _foe_overlay, _foe, true, 0.35)
+		_tick_overlay(_player_sprite, _player_overlay, player_creature, _back_of(player_creature) == null, 0.0)
 	# Read from the creature every frame rather than caching, so evolving mid-line
 	# picks up the new form's breathing the moment the sprite swaps.
 	_apply_idle(_player_sprite, _player_home, player_creature, 0.0)
 	# The foe breathes a little behind the player so they never lock in step, and
 	# its own period keeps the two from drifting back into time with each other.
 	_apply_idle(_foe_sprite, _foe_home, _foe, 0.35)
+
+
+## Show a creature's body without its moving part and lay the part on top, when
+## it has one and is seen from the front. Otherwise the layer stays hidden.
+func _setup_overlay(s: Sprite2D, overlay: Sprite2D, creature: CreatureData, front: bool) -> void:
+	var has_body: bool = creature != null and front and creature.idle_overlay_body != null
+	var has_overlay: bool = has_body and not creature.idle_overlay_frames.is_empty()
+	overlay.visible = has_overlay
+	if has_body:
+		s.texture = creature.idle_overlay_body
+	if has_overlay:
+		overlay.texture = creature.idle_overlay_frames[-1]
+		overlay.flip_h = s.flip_h
+	# A live idle effect (fire spilling from a closed mouth) rides on the sprite.
+	if s.has_meta("smolder"):
+		var old: Node = s.get_meta("smolder")
+		if is_instance_valid(old):
+			old.queue_free()
+		s.remove_meta("smolder")
+	if creature != null and front and creature.idle_smolder != null:
+		var smolder: Node2D = creature.idle_smolder.instantiate()
+		s.add_child(smolder)
+		s.set_meta("smolder", smolder)
+
+
+## Pick this step's overlay frame from the breath: the part slides out as the
+## creature breathes out and back in as it breathes in, flickers at full length,
+## and now and then gives a quick extra flick so it never looks mechanical.
+func _tick_overlay(s: Sprite2D, overlay: Sprite2D, creature: CreatureData, front: bool, phase: float) -> void:
+	if creature == null or not front:
+		overlay.visible = false
+		return
+	if creature.idle_overlay_body != null and s.texture != creature.idle_overlay_body:
+		s.texture = creature.idle_overlay_body  # an attack just handed the sprite back
+	if s.has_meta("smolder"):
+		var smolder: Node2D = s.get_meta("smolder")
+		if is_instance_valid(smolder):
+			smolder.visible = true
+			smolder.active = true
+			smolder.facing = -1.0 if s.flip_h else 1.0
+			smolder.breathe(_breath_wave(_idle_time / maxf(0.2, creature.idle_period) + phase))
+	if creature.idle_overlay_frames.is_empty():
+		overlay.visible = false
+		return
+	overlay.visible = true
+	overlay.flip_h = s.flip_h
+	var period: float = creature.idle_overlay_period if creature.idle_overlay_period > 0.0 else creature.idle_period
+	if not creature.idle_overlay_fade_frames.is_empty():
+		_loop_overlay(overlay, creature, fposmod(_idle_time / maxf(0.2, period) + phase, 1.0))
+		return
+	var breathe: float = _breath_wave(_idle_time / maxf(0.2, period) + phase)
+	var out: float = 0.5 - 0.5 * breathe  # 1 when fully breathed out
+	if _flick_left > 0.0:
+		_flick_left -= OVERLAY_STEP
+		out = 1.0
+	elif randf() < 0.02:
+		_flick_left = 0.28
+	var frames: Array[Texture2D] = creature.idle_overlay_frames
+	# Smallest frame when breathed in, longest when breathed out; it never vanishes.
+	var index: int = clampi(int(round(out * (frames.size() - 1))), 0, frames.size() - 1)
+	if index >= frames.size() - 1 and not creature.idle_overlay_flicker.is_empty() and randf() < 0.6:
+		overlay.texture = creature.idle_overlay_flicker.pick_random()
+	else:
+		overlay.texture = frames[mini(index, frames.size() - 1)]
+
+
+## One pass of an out-and-back overlay loop, t running 0 to 1: reform out
+## (first 20%), hold at full length and flicker (to 48%), fade back in (to 72%),
+## then rest: flickering between the rest frames (small flames billowing from
+## the closed mouth) or, without any, holding the last fade frame.
+func _loop_overlay(overlay: Sprite2D, creature: CreatureData, t: float) -> void:
+	var grow: Array[Texture2D] = creature.idle_overlay_frames
+	var fade: Array[Texture2D] = creature.idle_overlay_fade_frames
+	if t < 0.2:
+		overlay.texture = grow[mini(grow.size() - 1, int(t / 0.2 * grow.size()))]
+	elif t < 0.48:
+		if not creature.idle_overlay_flicker.is_empty() and randf() < 0.5:
+			overlay.texture = creature.idle_overlay_flicker.pick_random()
+		else:
+			overlay.texture = grow[-1]
+	elif t < 0.72:
+		overlay.texture = fade[mini(fade.size() - 1, int((t - 0.48) / 0.24 * fade.size()))]
+	elif not creature.idle_overlay_rest_frames.is_empty():
+		overlay.texture = creature.idle_overlay_rest_frames.pick_random()
+	else:
+		overlay.texture = fade[-1]
 
 
 ## One breath, as a wave running from -1 fully let out to +1 fully drawn in.
@@ -1036,35 +1764,54 @@ func _breath_wave(cycle: float) -> float:
 func _apply_idle(s: Sprite2D, home: Vector2, creature: CreatureData, phase: float) -> void:
 	if s == null or s.texture == null or creature == null:
 		return
+	# Breathing vents: brightest when the breath is fully drawn in.
+	if s.material is ShaderMaterial:
+		var inhale: float = 0.5 + 0.5 * _breath_wave(_idle_time / maxf(0.2, creature.idle_period) + phase)
+		s.material.set_shader_parameter("idle_glow", creature.idle_vent_glow * inhale)
 	# A hand-drawn front loop takes precedence over procedural breathing. A real
 	# back sprite keeps the old motion until its own sheet has been drawn.
-	if not creature.idle_frames.is_empty() and (s == _foe_sprite or creature.back_sprite == null):
+	if not creature.idle_frames.is_empty() and (s == _foe_sprite or _back_of(creature) == null):
 		var duration: float = maxf(0.2, creature.idle_period)
 		var frame_count: int = creature.idle_frames.size()
 		var frame_index: int = mini(frame_count - 1, int(floor(fposmod(_idle_time, duration) / duration * frame_count)))
 		s.texture = creature.idle_frames[frame_index]
 		s.scale = Vector2.ONE * _zoom(s)
 		s.position = home
+		_set_breath(s, 0.0, 0.5)
 		return
-	var zoom: float = _zoom(s)
+	# Always whole-number zoom: a fractional stretch makes some art pixels wider
+	# than others, which showed as a moving grid across the body.
+	s.scale = Vector2.ONE * _zoom(s)
+	s.position = home
 	var depth: float = maxf(0.0, creature.idle_breath)
 	if is_zero_approx(depth):
 		# A creature set to breathe 0 stands completely still.
-		s.scale = Vector2.ONE * zoom
-		s.position = home
+		_set_breath(s, 0.0, 0.5)
 		return
 	var period: float = maxf(0.2, creature.idle_period)
 	var breathe: float = _breath_wave(_idle_time / period + phase)
-	# The body stretches taller drawing breath in and squashes shorter letting it
-	# out. The sideways crush is half the vertical stretch, which is what keeps
-	# the volume reading as the same creature rather than as a growing one.
-	var tall: float = zoom * (1.0 + breathe * depth)
-	s.scale = Vector2(zoom * (1.0 - breathe * depth * 0.5), tall)
-	# Sprite2D scales about its centre, so stretching would drive the feet
-	# through the floor. Lifting by half of the height change pins them where
-	# they stand, and that is what makes this read as breathing instead of as
-	# the whole creature drifting up and down.
-	s.position = home + Vector2(0.0, roundf(-s.texture.get_height() * (tall - zoom) * 0.5))
+	# The upper body rises whole art pixels drawing breath in and settles letting
+	# it out, while the legs stay planted. depth is a share of the body's height,
+	# so a deep breather on tall art lifts more pixels than a shallow one.
+	var used: Rect2i = _used_rect(s.texture)
+	var most: float = maxf(1.0, roundf(depth * used.size.y))
+	var lift: float = roundf((breathe + 1.0) * 0.5 * most)
+	var cut_row: float = used.position.y + roundf(used.size.y * clampf(creature.idle_breath_cut, 0.0, 1.0))
+	_set_breath(s, lift, cut_row / s.texture.get_height())
+
+
+func _set_breath(s: Sprite2D, lift: float, cut: float) -> void:
+	if s.material is ShaderMaterial:
+		s.material.set_shader_parameter("breath_lift", lift)
+		s.material.set_shader_parameter("breath_cut", cut)
+
+
+## The visible part of a texture, cached because breathing asks every frame.
+var _used_rects: Dictionary = {}
+func _used_rect(texture: Texture2D) -> Rect2i:
+	if not _used_rects.has(texture):
+		_used_rects[texture] = texture.get_image().get_used_rect()
+	return _used_rects[texture]
 
 
 # ---------------------------------------------------------------- display
@@ -1166,51 +1913,49 @@ func _build_ui() -> void:
 	# Foe sits top right, player bottom left, so they face each other. The
 	# sprite art faces right, so the foe is flipped.
 	_foe_sprite = Sprite2D.new()
-	_foe_home = Vector2(820, 190)
+	# Replaced in start() once the foe's art is known: see _foot_home().
+	_foe_home = Vector2(FOE_X, 190)
 	_foe_sprite.position = _foe_home
 	_foe_sprite.scale = Vector2.ONE * _zoom(_foe_sprite)
 	_foe_sprite.flip_h = true
 	_battle_stage.add_child(_foe_sprite)
 
 	_player_sprite = Sprite2D.new()
-	_player_home = Vector2(300, 350)
+	_player_home = Vector2(300, 335)
 	_player_sprite.position = _player_home
 	_player_sprite.scale = Vector2.ONE * _zoom(_player_sprite)
 	_battle_stage.add_child(_player_sprite)
 
-	# Names and HP numbers sit on separate headers above the framed bars.
-	# This keeps the HUD sheet's top border clear and makes both lines readable.
-	var foe_header := _make_health_header(Vector2(70, 42))
-	_foe_name = _make_creature_name()
-	_foe_hp_text = _make_hp_number()
-	foe_header.add_child(_foe_name)
-	foe_header.add_child(_foe_hp_text)
-	_add_hud_panel(Vector2(52, 85), Vector2(500, 112))
-	var foe_bar_holder := _make_bar_holder()
-	foe_bar_holder.position = Vector2(90, 117)
-	_foe_bar = foe_bar_holder.get_node("Fill") as ProgressBar
-	add_child(foe_bar_holder)
+	# Idle overlay layers ride on each creature sprite, so they share its
+	# position, breathing scale and hit flash.
+	_foe_overlay = Sprite2D.new()
+	_foe_overlay.visible = false
+	_foe_sprite.add_child(_foe_overlay)
+	_player_overlay = Sprite2D.new()
+	_player_overlay.visible = false
+	_player_sprite.add_child(_player_overlay)
 
-	# The player panel ends above the move controls.
-	var player_header := _make_health_header(Vector2(660, 270))
-	_player_name = _make_creature_name()
-	_player_hp_text = _make_hp_number()
-	player_header.add_child(_player_name)
-	player_header.add_child(_player_hp_text)
-	_add_hud_panel(Vector2(642, 313), Vector2(500, 112))
-	var player_bar_holder := _make_bar_holder()
-	player_bar_holder.position = Vector2(680, 345)
-	_player_bar = player_bar_holder.get_node("Fill") as ProgressBar
-	add_child(player_bar_holder)
+	# One card per creature: name and HP number on top, the framed bar below.
+	# The foe's card sits top left, the player's bottom right above the
+	# commands, so the top right where the foe stands stays clear.
+	var foe_card := _make_hp_card(FOE_CARD_AT)
+	_foe_name = foe_card[0]
+	_foe_hp_text = foe_card[1]
+	_foe_bar = foe_card[2]
 
-	_add_hud_panel(Vector2(55, 510), Vector2(570, 130))
+	var player_card := _make_hp_card(PLAYER_CARD_AT)
+	_player_name = player_card[0]
+	_player_hp_text = player_card[1]
+	_player_bar = player_card[2]
+
+	_add_hud_panel(MESSAGE_AT, MESSAGE_SIZE)
 	_message = _make_label("", 22)
-	_message.position = Vector2(100, 550)
-	_message.size = Vector2(490, 44)
+	_message.position = MESSAGE_AT + Vector2(45, 40)
+	_message.size = Vector2(MESSAGE_SIZE.x - 90, 44)
 	add_child(_message)
 
 	_buttons = VBoxContainer.new()
-	_buttons.position = Vector2(650, 430)
+	_buttons.position = COMMANDS_AT
 	_buttons.add_theme_constant_override("separation", 8)
 	add_child(_buttons)
 
@@ -1252,7 +1997,7 @@ func _field_box(face: Color, edge: Color, border: int = 2) -> StyleBoxFlat:
 	return box
 
 
-func _add_hud_panel(at: Vector2, dimensions: Vector2) -> void:
+func _add_hud_panel(at: Vector2, dimensions: Vector2) -> Panel:
 	var outer := Panel.new()
 	outer.position = at
 	outer.size = dimensions
@@ -1271,6 +2016,38 @@ func _add_hud_panel(at: Vector2, dimensions: Vector2) -> void:
 	route_mark.color = Color("#A38C74")
 	route_mark.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	outer.add_child(route_mark)
+	return outer
+
+
+## One health card in the usual slate-and-silt panel. Returns the name label,
+## the HP number label and the bar, in that order.
+func _make_hp_card(at: Vector2) -> Array:
+	var card := _add_hud_panel(at, CARD_SIZE)
+	var row := HBoxContainer.new()
+	row.position = Vector2(22, 14)
+	row.size = Vector2(CARD_SIZE.x - 44, 32)
+	row.add_theme_constant_override("separation", 0)
+	card.add_child(row)
+	var name_label := _make_creature_name()
+	name_label.custom_minimum_size = Vector2(CARD_SIZE.x - 44 - 94, 32)
+	row.add_child(name_label)
+	var hp_label := _make_hp_number()
+	row.add_child(hp_label)
+	var holder := _make_bar_holder()
+	holder.position = Vector2((CARD_SIZE.x - holder.size.x) * 0.5, 48)
+	card.add_child(holder)
+	return [name_label, hp_label, holder.get_node("Fill") as ProgressBar]
+
+
+## The resting centre that puts a sprite's lowest visible pixel on a foot
+## line, so creatures of any size stand on the same ground and a giant grows
+## upward instead of down behind the HUD. Uses the sprite's current scale.
+func _foot_home(sprite: Sprite2D, foot: Vector2) -> Vector2:
+	if sprite.texture == null:
+		return foot
+	var used: Rect2i = sprite.texture.get_image().get_used_rect()
+	var bottom: float = used.position.y + used.size.y - sprite.texture.get_height() * 0.5
+	return Vector2(foot.x, foot.y - bottom * sprite.scale.y)
 
 
 func _make_bar_holder() -> Control:
@@ -1310,21 +2087,6 @@ func _skin_command_button(button: Button, teal: bool = false) -> void:
 	button.add_theme_color_override("font_hover_color", Color("#FFFFFF"))
 	button.add_theme_color_override("font_pressed_color", Color("#F0F4F8"))
 	button.add_theme_color_override("font_disabled_color", Color("#87928D"))
-
-
-func _make_health_header(at: Vector2) -> HBoxContainer:
-	var plate := Panel.new()
-	plate.position = at
-	plate.size = Vector2(466, 38)
-	plate.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	plate.add_theme_stylebox_override("panel", _field_box(Color("#1A2429"), Color("#75604D"), 2))
-	add_child(plate)
-	var row := HBoxContainer.new()
-	row.position = Vector2(16, 3)
-	row.size = Vector2(434, 32)
-	row.add_theme_constant_override("separation", 0)
-	plate.add_child(row)
-	return row
 
 
 func _make_creature_name() -> Label:

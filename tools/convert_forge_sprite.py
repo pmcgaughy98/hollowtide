@@ -69,7 +69,10 @@ def background(a):
     return is_magenta(a) | near_key
 
 
-def convert(src, dst, compare=None):
+def convert(src, dst, compare=None, block=None):
+    """block: force the drawn block size in pixels when detection locks onto a
+    multiple of the real grid (Opal sheets with several frames can read as 8
+    when the art is drawn on 4)."""
     a = np.asarray(Image.open(src).convert("RGB")).astype(int)
     h, w, _ = a.shape
 
@@ -82,6 +85,8 @@ def convert(src, dst, compare=None):
     _, px = grid_period(col_signal)
     _, py = grid_period(row_signal)
     px = max((px, py), key=lambda p: period_score(col_signal, p) + period_score(row_signal, p))
+    if block:
+        px = float(block)
     col_strength, row_strength = period_score(col_signal, px), period_score(row_signal, px)
     nx, ny = round(w / px), round(h / px)
     xs = np.linspace(0, w, nx + 1)

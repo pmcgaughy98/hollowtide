@@ -42,3 +42,5 @@ effect = ExtResource("3_effect")
 delivery = 1
 contact_travel_seconds = 0.16
 attack_frames = Array[Texture2D]([SubResource("Claw_0"), SubResource("Claw_1"), SubResource("Claw_2"), SubResource("Claw_3"), SubResource("Claw_4"), SubResource("Claw_5")])
+vent_rest_points = null
+vent_points = null

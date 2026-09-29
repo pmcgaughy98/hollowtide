@@ -1,7 +1,12 @@
-[gd_resource type="Resource" script_class="MoveData" load_steps=3 format=3]
+[gd_resource type="Resource" script_class="MoveData" load_steps=8 format=3]
 
 [ext_resource type="Script" path="res://scripts/move_data.gd" id="1_script"]
 [ext_resource type="PackedScene" path="res://scenes/effects/vitrecrag_plate_lunge.tscn" id="2_effect"]
+[ext_resource type="Texture2D" path="res://assets/sprites/creatures/attacks/vitrecrag_plate_lunge/style_matched/load.png" id="3_load"]
+[ext_resource type="Texture2D" path="res://assets/sprites/creatures/attacks/vitrecrag_plate_lunge/style_matched/brace.png" id="4_brace"]
+[ext_resource type="Texture2D" path="res://assets/sprites/creatures/attacks/vitrecrag_plate_lunge/style_matched/launch.png" id="5_launch"]
+[ext_resource type="Texture2D" path="res://assets/sprites/creatures/attacks/vitrecrag_plate_lunge/style_matched/contact.png" id="6_contact"]
+[ext_resource type="Texture2D" path="res://assets/sprites/creatures/attacks/vitrecrag_plate_lunge/style_matched/recover.png" id="7_recover"]
 
 [resource]
 script = ExtResource("1_script")
@@ -10,3 +15,14 @@ essence = 0
 power = 50
 max_uses = 4
 effect = ExtResource("2_effect")
+delivery = 1
+contact_travel_seconds = 0.42
+contact_pullback_px = 6.0
+contact_reach_px = 30.0
+attack_frames = Array[Texture2D]([ExtResource("3_load"), ExtResource("4_brace"), ExtResource("5_launch"), ExtResource("6_contact"), ExtResource("7_recover")])
+attack_frame_holds = Array[float]([0.25, 1.3, 0.06, 0.32, 0.38])
+attack_hit_frame = 3
+attack_brace_frame = 1
+contact_brace_chugs = 5
+contact_impact_shake = 22
+attack_overheat = 1.0

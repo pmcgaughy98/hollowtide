@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scripts/effects/roar_wave.gd" id="1_wave"]
+[ext_resource type="Texture2D" path="res://assets/sprites/effects/ironvent/furnace_roar/f1.png" id="2_f1"]
+
+[node name="RoarBlast" type="Node2D"]
+texture_filter = 1
+script = ExtResource("1_wave")
+ember = ExtResource("2_f1")

@@ -15,10 +15,10 @@ These points come from the current project and are treated as the foundation:
 - Cinderhide remains part of the game and its visual identity should be preserved.
 - The existing battle presentation has deliberate impact animation: wind-up, lunge, hit stop, flash, squash, shake, floating damage, and continuously sliding HP bars. The bars use Turbo Green viridian at full health, yellow to orange at medium health, and red when low. Preston selected the Main HUD artwork for their frames and controls; the live HP fill still tracks exact remaining health. A river-landing background study now sits behind the battle stage. New mechanics should keep that physical feel.
 - Creature art favors readable angular silhouettes, crisp pixels, transparent backgrounds, and compact palettes. The current Forge conversion preserves the observed 100x100 logical pixel grid in finished transparent Godot sprites; original Forge outputs and converted assets are kept separately.
-- The current essence concepts are Ember, Tide, Stone, Gale, Nature, and Hollow. Their matchups should be understandable from the idea of each essence.
+- The current essence concepts are Ember, Tide, Stone, Gale, Bloom, and Hollow. Their matchups should be understandable from the idea of each essence.
 - Preston chose three stages for every creature line. The current draft has 20 one-to-one lines and 60 forms across the six essences, including proposed full chains for the Cinderhide and Rimefin starter lines. Most forms exist only as briefs; names and exact roles remain proposals until reviewed.
 - Rimefin is an existing Tide creature and Cinderhide is an existing Ember creature. The older Cinderpelt experiment was removed from the project after its art went missing; it is not linked to Cinderhide. The currently linked next stage is the provisional Clinkerhide.
-- Preston selected a river-island turtle as the Nature starter, replacing the earlier seed-burrower line within the 20-line target. Working names: Preostmar → Oathfen → Oxbowarchon. Its [full design and Forge briefs](personal-nature-turtle-proposal.md) are ready; no approved sprite or Godot resource exists yet.
+- Preston selected his personal jade titan (an invented creature, not an Earth animal) as the Stone starter (Line 9, 2026-09-29); Bloom's original seed-burrower starter, Tallowroot, is restored at Line 17. Working names: Preostmar → Oathfen → Oxbowarchon. Its [full design and Forge briefs](personal-stone-line-proposal.md) are ready; no approved sprite or Godot resource exists yet.
 - Creature temperament is a possible second design axis. It should be taught clearly and early if retained.
 
 Earlier 96x88 and 64x64 canvas notes are historical. Real Sprite Forge output led to the current 100x100 conversion target in THE_CONCEPT.md. Each generated asset still needs visual review before import.
@@ -151,11 +151,16 @@ A later field ability might let this line reveal a safe crossing or identify whi
 
 Preston selected River Listener as the first new nonstarter three-stage line to develop. Its labels and details remain proposals, and no resource link has been created. Cinderhide-to-Clinkerhide is the current playable starter evolution prototype. The 20-line/60-form roster draft and copy-ready Sprite Forge briefs are in [docs/creature-roster-draft.md](creature-roster-draft.md); the earlier silhouette study is not production art.
 
-### Preston's Nature starter: the moving refuge
+### Preston's Stone starter: the jade titan
 
-**Selected concept; working names:** Preostmar → Oathfen → Oxbowarchon replaces the former seed-burrower at roster Line 17. It is a floodplain turtle with a living, recessed shell basin. Silt, root mats and three recurring reeds settle into its scutes. The stages change anatomy, shell structure, stance and mass; an elder Oxbowarchon can shelter smaller creatures and seed stores during high water. It cannot stop a regional flood.
-
-A Wayline runner could notice a moving ring of reeds near an old channel and record where a refuge shifts as water rises. People on either bank must still make their own safety decisions. The creature cannot settle the fictional levee dispute or prove what happened in real Elwood. Its eventual battle role is a slow Nature protector using a strike, guard and interruption; wider support remains a proposal. See the [stage briefs](personal-nature-turtle-proposal.md). No front, back, idle art, live creature resource or assigned moves exist yet.
+**Selected concept, updated 2026-09-29; working names:** Preostmar → Oathfen → Oxbowarchon is now the **Stone**
+starter at roster Line 9, replacing the former Marlward line. Its life is a single living emerald, the Kingstone;
+because emerald is brittle, the line grows layered jade armor, among the toughest stones there is, to protect it,
+ending in an SSS-tier jade fortress whose petrified siege spire fires the Kingstone's power. Inspired by Torterra
+and the Green King of Accel World, copying neither. The earlier floodplain-refuge lore (the moving ring of reeds)
+is superseded; whether its protector role survives in the new lore is open. See the
+[stage briefs and v2 prompts](personal-stone-line-proposal.md). No front, back, idle art, live creature resource
+or assigned moves exist yet.
 
 ## 8. Reference synthesis
 

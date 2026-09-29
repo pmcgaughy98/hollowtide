@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=3]
+
+[ext_resource type="Texture2D" path="res://assets/sprites/effects/vitrecrag/molten_cannon/bomb_f01.png" id="1_blast"]
+[ext_resource type="Texture2D" path="res://assets/sprites/effects/vitrecrag/molten_cannon/proj_f02.png" id="2_flame"]
+
+[sub_resource type="Gradient" id="Warm"]
+offsets = PackedFloat32Array(0, 0.6, 1)
+colors = PackedColorArray(1, 1, 1, 1, 1, 0.9, 0.82, 1, 0.95, 0.72, 0.6, 0)
+
+[node name="CannonBlast" type="Node2D"]
+texture_filter = 1
+
+[node name="Burst" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 18
+lifetime = 0.55
+one_shot = true
+explosiveness = 0.95
+randomness = 0.3
+texture = ExtResource("2_flame")
+emission_shape = 1
+emission_sphere_radius = 16.0
+direction = Vector2(0, -1)
+spread = 180.0
+gravity = Vector2(0, -60)
+initial_velocity_min = 120.0
+initial_velocity_max = 260.0
+damping_min = 200.0
+damping_max = 320.0
+scale_amount_min = 3.0
+scale_amount_max = 3.0
+color_ramp = SubResource("Warm")
+
+[node name="Flash" type="Sprite2D" parent="."]
+visible = false
+texture = ExtResource("1_blast")

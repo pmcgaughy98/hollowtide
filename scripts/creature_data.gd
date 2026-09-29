@@ -11,7 +11,7 @@ extends Resource
 ## a typo or an invented essence into the data. With a fixed list the Inspector
 ## gives you a dropdown and the bad value is simply not offerable.
 ##
-## The essence cycle (Ember burns Nature, Nature breaks Stone, Stone dams Tide,
+## The essence cycle (Ember burns Bloom, Bloom breaks Stone, Stone dams Tide,
 ## Tide quenches Ember) is deliberately NOT encoded here. It is a combat rule,
 ## and it lives in EssenceChart, which BattleScreen uses for attack effectiveness.
 enum Essence {
@@ -19,7 +19,7 @@ enum Essence {
 	TIDE,
 	STONE,
 	GALE,
-	NATURE,
+	BLOOM,
 	HOLLOW,
 }
 
@@ -87,9 +87,51 @@ enum Essence {
 ## Seconds for one full breath, in and out.
 @export var idle_period: float = 1.6
 
+## A glow on the creature's fire-coloured parts (vents, seams, a furnace
+## window) that brightens as it breathes in and dims as it breathes out.
+## 0 is off; an attack's overheat peaks at 1, so keep this around 0.3 to 0.4
+## (Preston, 2026-09-28: Ironvent's vents breathe, dimmer than Furnace Roar).
+@export_range(0.0, 1.0, 0.05) var idle_vent_glow: float = 0.0
+
+## Where the breath stops, as a share of the body's height from the top of the
+## art: everything above rises on the inhale, everything below (legs, feet)
+## stays planted. Breathing moves whole art pixels, never a fractional stretch.
+@export_range(0.0, 1.0, 0.01) var idle_breath_cut: float = 0.55
+
 ## Optional hand-drawn loop. Every frame must share the same canvas and foot line.
 ## Battle uses these textures instead of procedural squash/stretch when present.
 @export var idle_frames: Array[Texture2D] = []
+
+@export_group("Idle Overlay")
+## Optional moving part drawn over the front sprite while idle, such as
+## Vitrecrag's mouth flame. When set, battle shows idle_overlay_body (the sprite
+## without that part) and lays the part on top, running one loop: the frames
+## play out (ending at full length), it holds and flickers between
+## idle_overlay_flicker variants, then idle_overlay_fade_frames play it back in
+## (a flame dissipating to an ember). Without fade frames it follows the breath
+## instead, out on the exhale and in on the inhale. Attacks hide it.
+@export var idle_overlay_body: Texture2D
+@export var idle_overlay_frames: Array[Texture2D] = []
+@export var idle_overlay_flicker: Array[Texture2D] = []
+@export var idle_overlay_fade_frames: Array[Texture2D] = []
+## Frames flickered between while resting at the end of the loop, such as small
+## flames billowing out of a closed mouth. Empty rests on the last fade frame.
+@export var idle_overlay_rest_frames: Array[Texture2D] = []
+## Seconds for one full loop of the overlay. 0 follows the breath (idle_period).
+@export var idle_overlay_period: float = 0.0
+## Optional live idle effect riding on the front sprite, such as fire spilling
+## from Vitrecrag's closed mouth (a scene with `facing`, `active`, `breathe()`).
+## Works with idle_overlay_body alone, without any overlay frames.
+@export var idle_smolder: PackedScene
+
+
+@export_group("Aim Points")
+## Where this creature's attacks come out of its body: a name ("mouth", "core",
+## "vent", "horn") and a point in art pixels from the centre of the front sprite,
+## with the art facing right as drawn. A shared move names the point it fires
+## from (MoveData.aim), so the same move leaves Vitrecrag's mouth and another
+## creature's vent without any new art (Preston, 2026-09-28).
+@export var aim_points: Dictionary[String, Vector2] = {}
 
 
 @export_group("Battle Size")
