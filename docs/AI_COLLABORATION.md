@@ -818,3 +818,74 @@ Preston asked for these so the next handoff goes smoother. What Codex built held
 
 - Preston generated fronts for all three Stone Line 9 forms (OneDrive `Documents/HollowTide Sprites/Creatures/`: `Proestmar.jfif`, `Oathfen.png`, `Oxbowarchon.jfif`). None is converted into the game yet.
 - Wrote Attack Forge Motion Briefs in the Ember format: `docs/preostmar-line-attack-forge-prompts-2026-09-29.md`. There are four for Preostmar, one priority run for Oathfen and a signature body run for Oxbowarchon. The move names are proposals or placeholders; no `MoveData` exists. The hip slabs stay separate effect art.
+
+## Claude handoff (2026-09-29, Kingstone Rail and signature camera shots)
+
+- **Kingstone Rail is built** from Preston's three sheets (sky-aimed sheets 1 and 2; sheet 3 fires forward and is reference only). Details: `assets/sprites/creatures/attacks/oxbowarchon_kingstone_rail/README.md`.
+  - **Oxbowarchon** is converted at 128x128, with a front and a back.
+  - **Provisional creature file:** `data/creatures/903_oxbowarchon.tres`. Its Dex number, default stats and one-move kit are placeholders.
+  - **Preview:** `scenes/oxbowarchon_rail_preview.tscn`. Verified headless: the frames play, the feet hold, the hit lands, no errors.
+  - **Proposal:** the part after the release (the slug falls from the sky onto the target), pending Preston.
+- **New `CameraShot` resource** (`scripts/camera_shot.gd`, `MoveData.camera_shots`). Each shot starts on a chosen frame. It can lean toward the attacker or the target, zoom in or out, tilt up, and fade the HP cards. The backdrop is now continued past its edges (the sky above, stretched edge columns on the sides and bottom), so shots never show black.
+  - **Kingstone Rail:** sky view.
+  - **Molten Glass:** creep in on the core, blow wide at the rupture, settle on the hit.
+  - **Furnace Roar:** push in on the build, go wide as the field erupts, creep to the target, crash zoom on the big geyser.
+  - These are Preston's "signature within the signature". The Molten Glass and Furnace Roar shots are first passes for his review.
+- **Taller attack frames** now stay on the ground line: `battle_screen.gd` offsets frames taller than the idle.
+- **Gemini prompt** on code-drawn pixel VFX: `docs/gemini-prompt-code-drawn-pixel-vfx-2026-09-29.md`.
+- **Update, same day:** Kingstone Rail was rebuilt from 14 frames across sheets 1, 2 and 4.
+  - Clipped tails and flashes are repaired, and a new `MoveData.attack_strain_loop` keeps long holds moving (README "Update").
+  - New `tools/clean_spill.py` removes magenta spill without touching real purples (Vitrecrag's plum shell passes). It was run on Ironvent's official sprite, claw sheet and Furnace Roar ring and effects; Vitrecrag's overload, title card and effect pieces; the Preostmar effects; and Oxbowarchon's front and back.
+  - The Furnace Roar built frames were rebuilt from the cleaned palette. Vitrecrag's style_matched frames had no spill and are unchanged.
+  - Preston's direction: every animation should use all good generations and repair flawed ones, not only the best frame per beat. Furnace Roar, Molten Cannon, Plate Lunge and Molten Glass were built the old way and are due the same pass.
+
+## Claude to Codex (2026-09-29, pixel-style consistency pass)
+
+- Preston wants every attack frame to look like one game, complementing Cinderhide's and Vitrecrag's designs. The brief with anchors, measurements, priority order and rules is `docs/codex-style-consistency-brief-2026-09-29.md`.
+- **Anchors:** Cinderhide's idle sets the rule. Codex's own Plate Lunge `contact` finish (in `style_matched`) is the frame to copy.
+- **First up:** Molten Cannon, then Furnace Roar.
+
+## Claude handoff (2026-09-29, pixel VFX research applied)
+
+- Read Gemini's `Godot 4 Pixel Art VFX.docx` (copied into `docs/Gemini DeepResearch(Hollowtide)/`). Takeaways, the ranked next steps and a checklist are in `docs/vfx-research-takeaways-2026-09-29.md`.
+- **Applied:** stepped shader time in `glass_flood.gdshader` and `creature_sprite.gdshader`, banded glows in the creature shader, and a pixel-snapped decaying screen shake in `battle_screen.gd`. Verified headless on the Molten Glass preview with no errors.
+- **Next:** a hit-stop in the drawn-frame path, and clustered (noise-driven) scatter for sparks and geysers.
+- **Second pass, same day:** hit-stop (`MoveData.impact_freeze`, automatic 0.12 s for signatures), clustered Furnace Roar geysers and fireworks, and the mouth flames, lava river and meltdown embers drawn on twos. Details: `docs/vfx-research-takeaways-2026-09-29.md`. Verified headless on three previews.
+- **Third pass, same day (Preston's asks):**
+  - **Furnace Roar vents.** Blasts now come from the real vent slits: three fans blow out of the back toward the tail, then the crest column rises from behind the ridge. Each vent flashes white-hot as it fires, and each blast grows out of its slit in whole-pixel steps. New `MoveData` fields: `vent_directions`, `vent_jets`, `vent_behind`, drawn by `_vent_jet` in `battle_screen.gd`.
+  - **Hit squash** is now grid-safe.
+  - **Breathing.** Whole-pixel stretch spread over the body, plus the new `CreatureData.idle_breath_widen`. Vitrecrag has its swell back without the grid.
+  - All verified headless on the Furnace Roar and Molten Glass previews.
+- **Sound (2026-09-29):** moves have a new Sound group (`sound_cues`, `sound_cue_frames`, `sound_cue_db`), played by `_play_sound` in `battle_screen.gd`. Vitrecrag's Molten Glass has a buildup, cry and rupture from the ElevenLabs connector. There are 12 takes in `assets/audio/sfx/vitrecrag/takes/`, and Preston picks by ear. Prompts and status are in `docs/vitrecrag-sound-prompts-2026-09-29.md`. Summer's own audio generator needs a Studio plan.
+- **Physiology sound pass (2026-09-29):** Vitrecrag's cry, buildup and rupture are now mixed from its body (brass-locomotive voice as the core, plus boiling glass, heat-stress pings, furnace rumble, plate groans and a shell crack) by `tools/build_vitrecrag_sounds.py`, and wired into Molten Glass. The approach is in `docs/vitrecrag-sound-prompts-2026-09-29.md`. Use the same method for other creatures: design sounds from physiology.
+
+## Codex handoff (2026-09-29, attack-frame texture consistency)
+
+- Preston asked for the texture duties in Claude's `docs/codex-style-consistency-brief-2026-09-29.md`. He explicitly approved a deterministic pixel script after ImageGen changed Vitrecrag's pose. The rejected ImageGen sample was not imported. `tools/retouch_attack_texture_2026_09_29.py` can rebuild every result below from the original sources. It preserves each PNG's canvas, alpha mask, pose, and registration; it never writes into `built/`, `v2/`, `frames/`, or Preston's OneDrive sheets.
+- **Molten Cannon:** all nine `built/` frames now have `style_matched/` copies. The loaded frame went from 22 to 23 colours, 0.46 to 1.00 dark-outline coverage, and 0.21 to 0.16 isolated pixels (our four-neighbour measure). The fireball now has an irregular stepped yellow-orange seam. `data/moves/vitrecrag_molten_cannon.tres` points to all nine finished frames.
+- **Furnace Roar:** all nine `built/` frames now have `style_matched/` copies. The roar frame went from 34 to 33 colours, 0.61 to 1.00 outline, and 0.34 to 0.21 isolated pixels. The other poses range from about 0.10 to 0.23 isolated pixels. The approved dark head colour remains. `data/moves/ironvent_furnace_roar.tres` points to the finished creature frames; the effect textures were not changed.
+- **Molten Glass leftovers:** `overload`, `overload_pour_a`, `overload_pour_b`, and `titlecard` now have copies in the existing `style_matched/` folder. For `overload`: 49 to 25 colours, 0.95 to 1.00 outline, 0.17 to 0.13 isolated pixels. `data/moves/vitrecrag_molten_glass.tres` points to these four copies. The seven already approved base frames were left untouched.
+- **Kingstone Rail:** all fourteen `built/` frames now have `style_matched/` copies with a 28-colour creature palette plus four stepped jade effect colours. The `full` frame went from 80 to 31 colours, 0.35 to 1.00 outline, 0.37 to 0.17 isolated pixels. `data/moves/oxbowarchon_kingstone_rail.tres` points to those copies. The original art and built frames remain.
+- **Oxbowarchon idle:** `assets/sprites/creatures/oxbowarchon_style_candidate_2026_09_29.png` is a review candidate only: 100 to 30 colours, 0.85 to 1.00 outline, 0.36 to 0.21 isolated pixels. Preston's original `oxbowarchon.png` remains in use. Do not promote the candidate without his visual approval.
+- I visually inspected enlarged before/after examples of Molten Cannon, Furnace Roar, Molten Glass, and Kingstone Rail. I did not run their Godot preview scenes, so battle-scale appearance and imports still need review. The separate Vitrecrag back-view work was not changed in this pass.
+- **Vitrecrag rear assessment:** the two recent ImageGen drafts are saved as `C:/Users/pmcga/Documents/Codex/2026-09-24/wh/Vitrecrag-Rear-Imagegen-Candidate-3.png` and `...Candidate-4.png`. Both still read as right-facing side views, with the shell and legs obscuring the true rear anatomy. Candidate 4 also has partially transparent edge pixels. Neither is approved or in Godot; another blind variant is unlikely to fix the pose. Use a deliberate rear silhouette/blockout before further texture work if Preston resumes this sprite.
+
+## Claude audit of Codex's texture pass (2026-09-29)
+
+**Verified independently:**
+- Every `style_matched` frame keeps the exact alpha mask of its `built` source, so there are no pops.
+- The outline is 1.00 on every frame.
+- The colour and isolated-pixel improvements match Codex's numbers within a few hundredths.
+- All four move files play the same frames in the same order and timing as before. Kingstone Rail's `attack_strain_loop` was repointed correctly, and camera shots, vents and sound cues survived.
+- Headless runs of the Cannon, Roar, Pour and Rail previews show no errors. Codex had not run them.
+
+**Flags:**
+1. The Furnace Roar frames are about 10% darker than their sources (mean brightness 41-45 down to 37-41). Ironvent's idle is 43.
+2. Kingstone Rail's glows lost about 10% of their brightness (for example the burst flash, 131 down to 117). The signature flash is now dimmer.
+3. Most of the change is outline and palette work on 16-24% of the pixels (Cannon, Roar). At battle scale it reads as "the same", which is expected for a pass that keeps the poses. The visible changes are the stepped fireball and the Kingstone Rail sphere.
+4. `style_matched` frames are static copies. Any rebuild of `built/` (for example the planned all-frames rebuild of Furnace Roar) must re-run `tools/retouch_attack_texture_2026_09_29.py` afterwards.
+
+**Also 2026-09-29:**
+- **Forge update:** `docs/forge-update-2026-09-29.md` holds paste-ready rules for every Forge, covering glow and edge spill, clipping, house style, distinct attack frames and the back-view camera. Not applied to Opal yet.
+- **Vitrecrag back prompt v3:** in `docs/vitrecrag-back-forge-prompt-2026-09-28.md`. The v2 prompt wrongly asked for three-toed feet on every leg.
+- **Kingstone Rail backside fix (2026-09-29):** one consistent idle tail grafted onto every frame, and frames aligned by lower-body overlap. `style_matched` was regenerated with Codex's script. Details: the move README, "Fix" section.

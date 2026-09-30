@@ -2,7 +2,49 @@
 
 Use the [Evolution Forge](https://opal.google/edit/13O5Xm_9Go-u1cKn9TUCWAZhAXDe6OKbV).
 
-## Version 2 (Claude, 2026-09-28, after Preston's three candidates)
+## Version 3 (Claude, 2026-09-29): current
+
+**Why a new version:** Claude compared the twelve rear attempts saved across Codex's folders and the Sprites folder (11 generated drafts plus the 09-27 rear in the game) with the approved front and with backs that worked (Oxbowarchon, Ironvent, Cinderhide). Three causes:
+1. **Every attempt is the front pose again.** The head and mouth flame are on the right and the long side of the shell faces the camera. "Three-quarter rear" was not enough, because the model copies the attached front's pose. The backs that worked all show the hindquarters and tail nearest the viewer, with the head hidden toward the upper right. So this version says what is nearest, what is hidden, and that the long side must not face us.
+2. **The legs.** Version 2 told the model that all six legs end in three-toed feet ("exactly like the close-up"). Preston: only the two FRONT legs have three toes, and the middle and hind legs are single broad pillar feet. From behind, the front legs are hidden, so no visible foot should have toes.
+3. **The shell.** "Walnut" and "folded" still produced one smooth connected dome. This version describes the stepped outline and the overhang shadow under each plate, which is what makes plates read as separate.
+
+**Attach two images:**
+- **Approved Evolved Front:** `docs/art-review/vitrecrag_front_IDENTITY_1024.png`. This is the identity: shell, legs, palette and pixel style.
+- **Previous Stage Front** (unused in BACK mode, so it is borrowed here): `docs/art-review/vitrecrag_back_POSE_GUIDE_1024.png`. This is PixelLab's 2026-09-29 rotation of the approved front: the "east" view of 8 (all 8 are in `docs/art-review/vitrecrag_back_pixellab/`). It has the right camera (the hindquarters nearest, turned away to the right, the furnace on the right flank) but the wrong shell (a smooth dome) and the wrong feet (toes on every leg). Use it for the pose only.
+
+**Add as the first line of the brief:** `The Previous Stage Front image is a POSE GUIDE ONLY: copy its camera angle, body placement and where each leg stands. Do NOT copy its smooth shell or its toed feet; take the shell, feet, colours and pixel style from the Approved Evolved Front and this brief.`
+
+**Paste into Evolution Brief:**
+
+```text
+VIEW: BACK. SINGLE SPRITE.
+
+Vitrecrag, the same creature as the attached image, seen from BEHIND as it walks away from us toward the upper right. The camera is behind its rear end and a little above. The long side of its shell must NOT face the viewer; we look at its back end.
+
+NEAREST TO US (lower left and lower centre): the rear end of the shell and the two hind legs, the biggest things in the image.
+AT THE SIDES: the two middle legs, partly visible, smaller.
+HIDDEN: the head, the face, the mouth flame and both front legs are out of sight beyond the far side of the shell. At most a faint orange glow shows past the shell at the upper right.
+
+LEGS: every visible leg is a thick grey stone pillar with a rust-red armour plate over the thigh and an orange band at the knee, ending in ONE broad flat blunt foot pad like the base of a stone column. No toes, no claws, no split feet on any visible leg. (Only the hidden front legs have three toes.)
+
+SHELL: the dark plum shell is built from several thick, separate, angular armour slabs stacked over one another from the ridge down, like heavy overlapping slate shingles. Each slab's lower edge overhangs the slab beneath it with a hard dark shadow line under it, and each slab has its own flat facets and orange edge seam with rivets. Because the slabs overlap, the shell's outline is stepped and jagged at every slab edge. It is not one smooth rounded dome, and the slabs do not melt into each other.
+
+FURNACE: from behind, only a thin sliver of the orange-gold furnace glow shows low on the right flank, or none.
+
+STYLE: native 128x128 pixel sprite, the same palette, chunky clean pixel clusters and dark outline as the attached image; the same size in frame. One complete creature, fully in frame, feet on one flat baseline, on flat solid #FF00FF magenta. Every pixel is either the creature or pure magenta: no soft glow into the background. No ground, shadow or text.
+
+AVOID: a side view, the head or face visible, the shell's long side facing us, a smooth dome, toes or claws on the visible legs, a turtle, a mirrored copy of the front.
+```
+
+**Review before importing:** at 128x128 beside the official front, check three things first:
+- the hindquarters are nearest and the head is hidden;
+- every visible foot is a single pad;
+- the shell's outline steps at each slab.
+
+It stays a candidate until Preston approves it.
+
+## Version 2 (Claude, 2026-09-28, superseded: it wrongly asked for three-toed feet on all legs)
 
 **Why a new version:** every candidate so far missed the same two things. The shell came out as a smooth dome or as
 horizontal armadillo bands, not the walnut of folded plates Preston describes. The legs came out as six identical

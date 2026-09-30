@@ -27,6 +27,12 @@ const vec3 PALE = vec3(0.988, 0.863, 0.643);    // #fcdca4
 const vec3 CRUST = vec3(0.290, 0.141, 0.125);   // #4a2420
 const vec3 CRACK = vec3(0.612, 0.204, 0.078);   // #9c3414
 
+// Time stepped to 12 updates a second, so the flood moves like drawn frames
+// rather than a smooth 60 fps slide (Gemini VFX research, 2026-09-29).
+float stepped_time() {
+	return floor(TIME * 12.0) / 12.0;
+}
+
 void fragment() {
 	vec2 cell = floor((origin + UV * rect_size) / px);
 	vec2 c = cell + 0.5;
@@ -47,7 +53,7 @@ void fragment() {
 	float np = length(dp) / max(spread * 1.5, 0.001);
 	float m = min(n, np);
 	// A ragged, slowly heaving edge.
-	m += 0.10 * sin(c.x * 0.37 + TIME * 2.3) * sin(c.y * 0.61 - TIME * 1.7);
+	m += 0.10 * sin(c.x * 0.37 + stepped_time() * 2.3) * sin(c.y * 0.61 - stepped_time() * 1.7);
 	if (spread <= 0.0 || m > 1.0) {
 		COLOR = vec4(0.0);
 	} else {
@@ -59,8 +65,8 @@ void fragment() {
 		} else if (m > 0.38) {
 			col = BODY;
 		}
-		float band = fract(s * 7.0 - TIME * 1.6);
-		float ring = fract(length(dp) * 0.08 - TIME * 0.9);
+		float band = fract(s * 7.0 - stepped_time() * 1.6);
+		float ring = fract(length(dp) * 0.08 - stepped_time() * 0.9);
 		if (m <= 0.7 && (band < 0.14 || ring < 0.08)) {
 			col = HOT;
 		}

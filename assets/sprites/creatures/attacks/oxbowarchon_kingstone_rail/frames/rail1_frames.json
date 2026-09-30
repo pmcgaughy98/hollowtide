@@ -1,0 +1,59 @@
+{
+ "source": "C:\\Users\\pmcga\\OneDrive\\Documents\\HollowTide Sprites\\Effect Sheets\\Oxbowarchon Effect\\Kingstone rail 1.jfif",
+ "frames": [
+  {
+   "file": "rail1_f00.png",
+   "sheet_box": [
+    0,
+    0,
+    341,
+    512
+   ]
+  },
+  {
+   "file": "rail1_f01.png",
+   "sheet_box": [
+    341,
+    0,
+    682,
+    512
+   ]
+  },
+  {
+   "file": "rail1_f02.png",
+   "sheet_box": [
+    682,
+    0,
+    1024,
+    512
+   ]
+  },
+  {
+   "file": "rail1_f03.png",
+   "sheet_box": [
+    0,
+    512,
+    341,
+    1024
+   ]
+  },
+  {
+   "file": "rail1_f04.png",
+   "sheet_box": [
+    341,
+    512,
+    682,
+    1024
+   ]
+  },
+  {
+   "file": "rail1_f05.png",
+   "sheet_box": [
+    682,
+    512,
+    1024,
+    1024
+   ]
+  }
+ ]
+}

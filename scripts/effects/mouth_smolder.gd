@@ -64,6 +64,12 @@ var _time := 0.0
 var _parts: Array = []
 
 
+## Redraws per second: the effect simulates every frame but is drawn on twos
+## (30 a second), so it moves in steps like drawn frames (Gemini VFX research,
+## 2026-09-29: animate on twos or threes).
+const DRAW_FPS := 30.0
+var _redraw_clock := 0.0
+
 func breathe(value: float) -> void:
 	_breath = value
 	var exhaling: bool = value < -0.6
@@ -168,7 +174,10 @@ func _process(delta: float) -> void:
 		part[0] = (part[0] as Vector2) + v * delta + Vector2(sin(part[2] * 7.0 + part[4]) * 3.0 * delta, 0.0)
 		alive.append(part)
 	_parts = alive
-	queue_redraw()
+	_redraw_clock += delta
+	if _redraw_clock >= 1.0 / DRAW_FPS:
+		_redraw_clock = fmod(_redraw_clock, 1.0 / DRAW_FPS)
+		queue_redraw()
 
 
 func _draw() -> void:

@@ -118,6 +118,11 @@ var _last_interrupt: String = ""
 
 var _focus_stage: Node2D
 var _focus_tween: Tween
+## The two HP cards, faded out by camera shots that ask for a clear view.
+var _cards: Array[CanvasItem] = []
+var _throat_texture: ImageTexture
+## Sprites in a hit squash: Vector2(widen, lift) in whole art pixels.
+var _squash := {}
 var _battle_stage: Node2D
 var _foe_sprite: Sprite2D
 var _player_sprite: Sprite2D
@@ -764,8 +769,18 @@ func _drawn_attack_animation(by_player: bool, dealt: int, multiplier: float, mov
 	for frame_index in range(move.attack_frames.size()):
 		if frame_index < frames.size():
 			sprite.texture = frames[frame_index]
+			# A frame taller than the idle (Kingstone Rail's raised rails) is drawn
+			# with the idle at its bottom; the sprite is centred, so without this
+			# the feet would drop by half the extra height.
+			sprite.offset.y = (original_texture.get_height() - frames[frame_index].get_height()) * 0.5
 		if frame_index == move.attack_cut_in_frame and move.attack_cut_in != null:
 			_show_cut_in(by_player, move)
+		for shot in move.camera_shots:
+			if shot != null and shot.frame == frame_index:
+				_camera_shot(shot, sprite, _foe_sprite if by_player else _player_sprite)
+		for i in mini(move.sound_cues.size(), move.sound_cue_frames.size()):
+			if move.sound_cue_frames[i] == frame_index:
+				_play_sound(move.sound_cues[i], move.sound_cue_db[i] if i < move.sound_cue_db.size() else 0.0)
 		if heat != null and frame_index == move.overheat_seal_frame:
 			# The seal: the glow pulls inward for a beat, the quiet before it blows.
 			_heat_to(heat, 0.35 * move.attack_overheat, 0.15)
@@ -776,8 +791,11 @@ func _drawn_attack_animation(by_player: bool, dealt: int, multiplier: float, mov
 			if move.vent_column != null:
 				# A beat apart, tail end first, so each vent reads as its own blast.
 				for i in move.vent_points.size():
-					get_tree().create_timer(0.09 * i + 0.001).timeout.connect(
-						_vent_sprite.bind(sprite, move.vent_points[i], move.vent_column, 0.6, 0.0))
+					var jet: Texture2D = move.vent_jets[i] if i < move.vent_jets.size() and move.vent_jets[i] != null else move.vent_column
+					var way: Vector2 = move.vent_directions[i] if i < move.vent_directions.size() else Vector2.UP
+					var under: bool = i < move.vent_behind.size() and move.vent_behind[i]
+					get_tree().create_timer(0.08 * i + 0.001).timeout.connect(
+						_vent_jet.bind(sprite, move.vent_points[i], jet, way, under, 0.55))
 			if move.signature:
 				# The rupture: a white-hot flash, then the scene lit by the glass.
 				sprite.modulate = Color.WHITE  # the spotlight ends with the flash
@@ -820,9 +838,11 @@ func _drawn_attack_animation(by_player: bool, dealt: int, multiplier: float, mov
 			if move.signature_effect != null:
 				_start_signature_effect(sprite, by_player, move, frame_index, impact_index,
 					move.attack_back_river_offset if back else move.attack_river_offset)
+		var froze := false
 		if frame_index == impact_index:
 			_drawn_impact_effect(by_player, move)
 			_on_impact(by_player, dealt, multiplier, move)
+			froze = true
 			if move.impact_shake > 0:
 				_shake(move.impact_shake)
 			if move.impact_flash:
@@ -833,12 +853,17 @@ func _drawn_attack_animation(by_player: bool, dealt: int, multiplier: float, mov
 		var hold: float = move.attack_frame_seconds
 		if frame_index < move.attack_frame_holds.size():
 			hold = move.attack_frame_holds[frame_index]
+		if froze:
+			# Hit-stop: the hit frame holds a beat longer while the target
+			# freezes white-hot (see _flash) and the shake plays out.
+			hold += _freeze_for(move)
 		if frame_index == move.attack_brace_frame:
 			await _brace_tremble(sprite, sprite.position, maxf(0.04, hold))
 		elif frame_index == move.attack_strain_frame:
 			# The overload pose is front art; from behind, the back frames carry on.
 			await _strain(sprite, sprite.position, maxf(0.3, hold), heat, move.attack_overheat,
-				null if back else move.attack_strain_overload)
+				null if back else move.attack_strain_overload,
+				[] if back else move.attack_strain_loop, move.attack_strain_loop_seconds)
 		else:
 			await get_tree().create_timer(maxf(0.04, hold)).timeout
 		if emitter != null and frame_index == move.attack_emit_frames.y:
@@ -861,8 +886,11 @@ func _drawn_attack_animation(by_player: bool, dealt: int, multiplier: float, mov
 		settle.tween_property(_focus_stage, "modulate", Color.WHITE, move.signature_linger) \
 			.set_trans(Tween.TRANS_SINE)
 	sprite.texture = original_texture
+	sprite.offset.y = 0.0
 	sprite.position = home
 	_idle_hold = false
+	if not move.camera_shots.is_empty():
+		_fade_cards(1.0, 0.3)
 
 
 ## A move's close-up cut-in: a dark band opens across the screen, the close-up
@@ -961,6 +989,75 @@ func _brace_tremble(sprite: Sprite2D, base: Vector2, seconds: float) -> void:
 ## column, a curl of smoke): its bottom edge on the vent, the creature's zoom so
 ## its pixels match, mirrored with a foe. It flickers out at the end, or with
 ## rise, drifts up that many art pixels while it fades. Not awaited.
+## One vent blowing out on release (Preston, 2026-09-29: the blasts must read
+## as coming out of the vents). The vent slit flashes white-hot, then the blast
+## grows out of it in whole-pixel steps, its source edge on the slit, holds,
+## flickers and is gone. `way` is up (source at the art's bottom edge) or back
+## toward the tail (source at its right edge); `under` draws it behind the body
+## so it rises out from behind the ridge.
+func _vent_jet(sprite: Sprite2D, point: Vector2, tex: Texture2D, way: Vector2, under: bool, seconds: float) -> void:
+	if not is_instance_valid(sprite) or tex == null:
+		return
+	var zoom: float = _zoom(sprite)
+	var facing: float = -1.0 if sprite.flip_h else 1.0
+	var vent: Vector2 = _emitter_point(sprite, point)
+	_vent_throat(vent, zoom)
+	var s := Sprite2D.new()
+	s.texture = tex
+	s.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
+	s.scale = Vector2.ONE * zoom
+	s.flip_h = sprite.flip_h
+	s.region_enabled = true
+	_battle_stage.add_child(s)
+	if under:
+		_battle_stage.move_child(s, sprite.get_index())
+	var w: int = tex.get_width()
+	var h: int = tex.get_height()
+	var up: bool = absf(way.y) >= absf(way.x)
+	for share in [0.35, 0.7, 1.0]:
+		if not is_instance_valid(s):
+			return
+		if up:
+			var rh: int = maxi(1, int(round(h * share)))
+			s.region_rect = Rect2(0, h - rh, w, rh)
+			s.position = vent + Vector2(0, -rh * 0.5 * zoom)
+		else:
+			var rw: int = maxi(1, int(round(w * share)))
+			s.region_rect = Rect2(w - rw, 0, rw, h)
+			# The source edge sits on the vent; the blast spreads toward the tail.
+			s.position = vent + Vector2(-rw * 0.5 * zoom * facing, 0)
+		await get_tree().create_timer(0.03).timeout
+	var t := create_tween()
+	t.tween_interval(seconds * 0.7)
+	for i in 3:
+		t.tween_property(s, "visible", false, 0.0)
+		t.tween_interval(seconds * 0.05)
+		t.tween_property(s, "visible", true, 0.0)
+		t.tween_interval(seconds * 0.05)
+	t.finished.connect(s.queue_free)
+
+
+## The vent slit blowing white-hot as it fires: a small pale star in whole art
+## pixels on the slit, gone in a few frames.
+func _vent_throat(at: Vector2, zoom: float) -> void:
+	if _throat_texture == null:
+		var img := Image.create(5, 5, false, Image.FORMAT_RGBA8)
+		var pale := Color("fcdca4")
+		var hot := Color("fc9c4c")
+		for q in [Vector2i(2, 0), Vector2i(0, 2), Vector2i(4, 2), Vector2i(2, 4)]:
+			img.set_pixelv(q, hot)
+		for q in [Vector2i(2, 1), Vector2i(1, 2), Vector2i(2, 2), Vector2i(3, 2), Vector2i(2, 3)]:
+			img.set_pixelv(q, pale)
+		_throat_texture = ImageTexture.create_from_image(img)
+	var f := Sprite2D.new()
+	f.texture = _throat_texture
+	f.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
+	f.scale = Vector2.ONE * zoom
+	f.position = (at / zoom).round() * zoom
+	_battle_stage.add_child(f)
+	get_tree().create_timer(0.12).timeout.connect(f.queue_free)
+
+
 func _vent_sprite(sprite: Sprite2D, offset: Vector2, tex: Texture2D, seconds: float, rise: float) -> void:
 	if not is_instance_valid(sprite):
 		return
@@ -992,7 +1089,7 @@ func _vent_sprite(sprite: Sprite2D, offset: Vector2, tex: Texture2D, seconds: fl
 ## pixels), the heat throbs brighter and faster with a rumble that grows each
 ## throb, then everything goes still for a held breath right before release.
 func _strain(sprite: Sprite2D, base: Vector2, seconds: float, heat: ShaderMaterial, peak: float,
-		overload: Texture2D = null) -> void:
+		overload: Texture2D = null, loop: Array[Texture2D] = [], loop_seconds: float = 0.12) -> void:
 	var px: float = _zoom(sprite)
 	var hush: float = minf(0.22, seconds * 0.25)
 	var build: float = seconds - hush
@@ -1018,6 +1115,9 @@ func _strain(sprite: Sprite2D, base: Vector2, seconds: float, heat: ShaderMateri
 			surge_until = elapsed + (build if k > 0.7 else interval * lerpf(0.25, 0.8, k))
 		if overload != null:
 			sprite.texture = overload if elapsed < surge_until else calm
+		elif not loop.is_empty():
+			# Keep a long charge alive: step through the loop drawings.
+			sprite.texture = loop[int(elapsed / maxf(0.04, loop_seconds)) % loop.size()]
 		await get_tree().create_timer(0.04).timeout
 		elapsed += 0.04
 	# The held breath, at peak meltdown.
@@ -1408,21 +1508,51 @@ func _on_impact(by_player: bool, dealt: int, multiplier: float, move: MoveData) 
 			_last_interrupt = "%s's %s was interrupted." % [player_creature.creature_name, _player_intent.move_name]
 
 	var target: Sprite2D = _foe_sprite if by_player else _player_sprite
-	_flash(target)
+	_flash(target, _freeze_for(move))
 	_shake(dealt)
 	_pop_damage(target, dealt, multiplier)
 	_animate_bars()
 
 
-## The struck creature blows out bright and squashes, then springs back.
-func _flash(sprite: Sprite2D) -> void:
+## Seconds of hit-stop for a move: its own impact_freeze, or 0.12 for a
+## signature and the usual HIT_STOP otherwise.
+func _freeze_for(move: MoveData) -> float:
+	if move == null:
+		return HIT_STOP
+	if move.impact_freeze >= 0.0:
+		return move.impact_freeze
+	return 0.12 if move.signature else HIT_STOP
+
+
+## The struck creature blows out bright and squashes, holds there for the
+## hit-stop, then springs back.
+func _flash(sprite: Sprite2D, freeze: float = 0.0) -> void:
 	var bright := create_tween()
 	bright.tween_property(sprite, "modulate", Color(6, 6, 6), 0.03)
+	bright.tween_interval(freeze)
 	bright.tween_property(sprite, "modulate", Color.WHITE, 0.18)
 
-	var squash := create_tween()
-	squash.tween_property(sprite, "scale", Vector2(_zoom(sprite) * 1.15, _zoom(sprite) * 0.88), 0.05)
-	squash.tween_property(sprite, "scale", Vector2.ONE * _zoom(sprite), 0.22) 		.set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
+	_squash_hit(sprite, freeze)
+
+
+## The hit squash in whole art pixels (Preston, 2026-09-29): the body drops
+## shorter and wider through the hit-stop, rebounds a little taller and
+## narrower, then settles. Scaling by 1.15 x 0.88 broke the pixel grid.
+func _squash_hit(sprite: Sprite2D, freeze: float) -> void:
+	if sprite.texture == null:
+		return
+	var used: Rect2i = _used_rect(sprite.texture)
+	var room: int = mini(used.position.x, sprite.texture.get_width() - used.end.x)
+	var down: float = maxf(1.0, roundf(used.size.y * 0.1))
+	var out: float = clampf(roundf(used.size.x * 0.07), 1.0, maxf(1.0, float(room)))
+	_squash[sprite] = Vector2(out, -down)
+	_set_breath(sprite, 0.0, 0.5)
+	await get_tree().create_timer(0.05 + freeze).timeout
+	_squash[sprite] = Vector2(-roundf(out * 0.5), roundf(down * 0.5))
+	_set_breath(sprite, 0.0, 0.5)
+	await get_tree().create_timer(0.08).timeout
+	_squash.erase(sprite)
+	_set_breath(sprite, 0.0, 0.5)
 
 
 ## Battle-stage shake, scaled by how hard the hit was.
@@ -1435,11 +1565,17 @@ func _shake(dealt: int) -> void:
 	var power: float = 16.0 * trauma * trauma
 	if power < 0.5:
 		return
+	# Jumps rather than slides, in whole backdrop pixels (4 screen px), dying
+	# down over six kicks: sliding between offsets drew the scene between
+	# pixels (Gemini VFX research, 2026-09-29: snap shake to the pixel grid).
 	var t := create_tween()
 	for i in 6:
-		t.tween_property(_battle_stage, "position",
-			Vector2(randf_range(-power, power), randf_range(-power, power)), 0.035)
-	t.tween_property(_battle_stage, "position", Vector2.ZERO, 0.09)
+		var k: float = 1.0 - i / 6.0
+		var kick := Vector2(randf_range(-power, power), randf_range(-power, power)) * k
+		kick = (kick / 4.0).round() * 4.0
+		t.tween_callback(func() -> void: _battle_stage.position = kick)
+		t.tween_interval(0.035)
+	t.tween_callback(func() -> void: _battle_stage.position = Vector2.ZERO)
 
 
 ## The damage number lifts off the target and fades out.
@@ -1796,14 +1932,32 @@ func _apply_idle(s: Sprite2D, home: Vector2, creature: CreatureData, phase: floa
 	var used: Rect2i = _used_rect(s.texture)
 	var most: float = maxf(1.0, roundf(depth * used.size.y))
 	var lift: float = roundf((breathe + 1.0) * 0.5 * most)
+	# Taller and a little narrower on the inhale, like a chest filling.
+	var widen: float = -roundf((breathe + 1.0) * 0.5 * roundf(creature.idle_breath_widen * used.size.x))
 	var cut_row: float = used.position.y + roundf(used.size.y * clampf(creature.idle_breath_cut, 0.0, 1.0))
-	_set_breath(s, lift, cut_row / s.texture.get_height())
+	_set_breath(s, lift, cut_row / s.texture.get_height(), widen)
 
 
-func _set_breath(s: Sprite2D, lift: float, cut: float) -> void:
-	if s.material is ShaderMaterial:
-		s.material.set_shader_parameter("breath_lift", lift)
-		s.material.set_shader_parameter("breath_cut", cut)
+## Sets a sprite's whole-pixel stretch (see creature_sprite.gdshader). A hit
+## squash in progress (_squash) takes over from breathing until it ends.
+func _set_breath(s: Sprite2D, lift: float, cut: float, widen: float = 0.0) -> void:
+	if not (s.material is ShaderMaterial) or s.texture == null:
+		return
+	var used: Rect2i = _used_rect(s.texture)
+	var th: float = float(s.texture.get_height())
+	var tw: float = float(s.texture.get_width())
+	if _squash.has(s):
+		var q: Vector2 = _squash[s]
+		widen = q.x
+		lift = q.y
+		cut = float(used.position.y + used.size.y) / th  # the whole body, feet planted
+	var m: ShaderMaterial = s.material
+	m.set_shader_parameter("breath_lift", lift)
+	m.set_shader_parameter("breath_widen", widen)
+	m.set_shader_parameter("breath_cut", cut)
+	m.set_shader_parameter("breath_top", float(used.position.y) / th)
+	m.set_shader_parameter("breath_mid", (used.position.x + used.size.x * 0.5) / tw)
+	m.set_shader_parameter("breath_half", used.size.x * 0.5 / tw)
 
 
 ## The visible part of a texture, cached because breathing asks every frame.
@@ -1883,6 +2037,57 @@ func _tween_focus(pan_offset: Vector2, zoom: float, duration: float) -> void:
 		.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 
 
+## Screen pixels of sky painted above the backdrop, so a camera that tilts up
+## (CameraShot.lift) sees more sky instead of the black behind the scene.
+const SKY_ABOVE := 480.0
+## Screen pixels of scene continued past the backdrop's sides and bottom, so a
+## shot can pull back (zoom below 1) without showing black edges.
+const SCENE_BEYOND := 320.0
+
+
+## Plays a one-off sound and frees its player when it ends.
+func _play_sound(stream: AudioStream, db: float = 0.0) -> void:
+	if stream == null:
+		return
+	var p := AudioStreamPlayer.new()
+	p.stream = stream
+	p.volume_db = db
+	add_child(p)
+	p.finished.connect(p.queue_free)
+	p.play()
+
+
+## A move's camera shot: lean toward the attacker or target, push in, tilt up.
+## The pan is clamped so the view never runs past the backdrop's sides or
+## bottom, and past its top only into the painted sky.
+func _camera_shot(shot: CameraShot, attacker: Sprite2D, target: Sprite2D) -> void:
+	var center := Vector2(576, 324)
+	var z: float = shot.zoom
+	var pan := Vector2(0, shot.lift)
+	if shot.look != CameraShot.Look.STAGE:
+		var p: Vector2 = (attacker if shot.look == CameraShot.Look.ATTACKER else target).position
+		pan += -shot.lean * z * (p - center)
+	# How far the view can slide before a scene edge comes into view.
+	var spare: Vector2 = center * (z - 1.0)
+	pan.x = clampf(pan.x, -spare.x - SCENE_BEYOND * z, spare.x + SCENE_BEYOND * z)
+	pan.y = clampf(pan.y, -spare.y - SCENE_BEYOND * z, spare.y + SKY_ABOVE * z)
+	_tween_focus(pan, z, maxf(0.05, shot.seconds))
+	_fade_cards(0.0 if shot.hide_cards else 1.0, 0.3)
+
+
+func _fade_cards(alpha: float, seconds: float) -> void:
+	for card in _cards:
+		if is_instance_valid(card) and not is_equal_approx(card.modulate.a, alpha):
+			create_tween().tween_property(card, "modulate:a", alpha, seconds)
+
+
+## The HUD panel a card's label sits in (the direct child of this CanvasLayer).
+func _hud_root(node: Node) -> CanvasItem:
+	while node != null and node.get_parent() != self:
+		node = node.get_parent()
+	return node as CanvasItem
+
+
 func _build_ui() -> void:
 	var backdrop := ColorRect.new()
 	backdrop.set_anchors_preset(Control.PRESET_FULL_RECT)
@@ -1903,6 +2108,30 @@ func _build_ui() -> void:
 	river_landing.position = Vector2(576, 324)
 	river_landing.scale = Vector2(4, 4)
 	_focus_stage.add_child(river_landing)
+	# The painting continued past its edges for camera shots that pull back or
+	# tilt up: its outermost row or column of pixels stretched outward. The
+	# scene is horizontal bands (sky, banks, river), so a stretched edge column
+	# reads as the same bands carrying on. The sky above is its flat top band.
+	var sky := ColorRect.new()
+	sky.name = "SkyAbove"
+	sky.color = Color("1d333b")
+	sky.position = Vector2(-SCENE_BEYOND, -SKY_ABOVE)
+	sky.size = Vector2(1152 + 2 * SCENE_BEYOND, SKY_ABOVE)
+	_focus_stage.add_child(sky)
+	var w: int = RIVER_LANDING.get_width()
+	var h: int = RIVER_LANDING.get_height()
+	for edge in [
+			[Rect2(0, 0, 1, h), Vector2(-SCENE_BEYOND * 0.5, 324), Vector2(SCENE_BEYOND, 4)],
+			[Rect2(w - 1, 0, 1, h), Vector2(1152 + SCENE_BEYOND * 0.5, 324), Vector2(SCENE_BEYOND, 4)],
+			[Rect2(0, h - 1, w, 1), Vector2(576, 648 + SCENE_BEYOND * 0.5), Vector2(4, SCENE_BEYOND)]]:
+		var strip := Sprite2D.new()
+		strip.texture = RIVER_LANDING
+		strip.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
+		strip.region_enabled = true
+		strip.region_rect = edge[0]
+		strip.position = edge[1]
+		strip.scale = edge[2]
+		_focus_stage.add_child(strip)
 
 	# Creatures, projectiles, and damage numbers move together on this stage.
 	# HUD controls stay on the CanvasLayer so impacts do not shake the interface.
@@ -1944,6 +2173,7 @@ func _build_ui() -> void:
 	_foe_bar = foe_card[2]
 
 	var player_card := _make_hp_card(PLAYER_CARD_AT)
+	_cards = [_hud_root(foe_card[0]), _hud_root(player_card[0])]
 	_player_name = player_card[0]
 	_player_hp_text = player_card[1]
 	_player_bar = player_card[2]

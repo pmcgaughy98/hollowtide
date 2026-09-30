@@ -97,6 +97,10 @@ enum Essence {
 ## art: everything above rises on the inhale, everything below (legs, feet)
 ## stays planted. Breathing moves whole art pixels, never a fractional stretch.
 @export_range(0.0, 1.0, 0.01) var idle_breath_cut: float = 0.55
+## How much narrower the body draws in on the inhale, as a share of its width
+## (it grows taller and a little narrower, then settles), in whole art pixels.
+## 0 keeps the width still.
+@export_range(0.0, 0.1, 0.002) var idle_breath_widen: float = 0.0
 
 ## Optional hand-drawn loop. Every frame must share the same canvas and foot line.
 ## Battle uses these textures instead of procedural squash/stretch when present.

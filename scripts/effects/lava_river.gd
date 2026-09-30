@@ -40,6 +40,12 @@ var _max_y := 1.0
 ## start and end are stage positions; px is the size of one art pixel on screen.
 ## The head takes advance seconds to reach the end, then the river keeps
 ## flowing for sustain seconds before it cools.
+## Redraws per second: the effect simulates every frame but is drawn on twos
+## (30 a second), so it moves in steps like drawn frames (Gemini VFX research,
+## 2026-09-29: animate on twos or threes).
+const DRAW_FPS := 30.0
+var _redraw_clock := 0.0
+
 func flow(start: Vector2, end: Vector2, px: float, advance: float, sustain: float) -> void:
 	_px = maxf(1.0, px)
 	_advance = maxf(0.1, advance)
@@ -61,7 +67,10 @@ func flow(start: Vector2, end: Vector2, px: float, advance: float, sustain: floa
 
 func _process(delta: float) -> void:
 	_time += delta
-	queue_redraw()
+	_redraw_clock += delta
+	if _redraw_clock >= 1.0 / DRAW_FPS:
+		_redraw_clock = fmod(_redraw_clock, 1.0 / DRAW_FPS)
+		queue_redraw()
 	if _time > _advance + _sustain + cool_seconds:
 		queue_free()
 

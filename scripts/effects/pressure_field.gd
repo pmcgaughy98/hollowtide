@@ -33,6 +33,8 @@ const RING_CENTRE_OFFSET := Vector2(-9, 1)  # the ring's middle sits 9 px right 
 @export var field_seconds := 1.3
 @export var geysers := 18
 @export var firework_bursts := 16
+## How many fault lines the field geysers bunch along.
+const CLUSTERS := 4
 ## Where the ground is on the battle stage (the banks and the riverbed), and the
 ## HUD panels to keep clear, in stage pixels.
 @export var area := Rect2(40, 250, 1070, 215)
@@ -69,30 +71,47 @@ func erupt(start: Vector2, end: Vector2, px: float, arrive: float, sustain: floa
 	for s in spots:
 		var when: float = field_seconds * 0.9 * s.distance_to(source_feet) / farthest + randf_range(0.0, 0.12)
 		_vent(s, when)
+	# Fireworks burst over the erupting clusters, not evenly across the sky.
 	for i in firework_bursts:
-		_firework(Vector2(randf_range(area.position.x, area.end.x), randf_range(40, area.position.y + 40)),
+		var over: Vector2 = spots[randi() % spots.size()] if not spots.is_empty() else _end
+		_firework(Vector2(over.x + randfn(0.0, 40.0), clampf(over.y - randf_range(90.0, 200.0), 40.0, area.position.y + 40.0)),
 			randf_range(0.0, field_seconds + 0.4))
 	_suspense(field_seconds, arrive)
 	get_tree().create_timer(arrive).timeout.connect(_erupt_big.bind(maxf(0.8, sustain)))
 	get_tree().create_timer(arrive + maxf(0.8, sustain) + 1.6).timeout.connect(queue_free)
 
 
-## Scattered ground spots across the area, off the HUD, not on top of each
-## other, and not too near the opponent's feet (the finale's spot) or Ironvent.
+## Ground spots across the area in clusters: a few fault lines give way, each
+## erupting in a bunch, with calm ground between them. Evenly spread random
+## spots read as computer-made; bunched ones read as placed (Gemini VFX
+## research, 2026-09-29). Off the HUD, not on top of each other, and not too
+## near the opponent's feet (the finale's spot) or Ironvent.
 func _scatter(count: int) -> Array[Vector2]:
-	var spots: Array[Vector2] = []
+	var centres: Array[Vector2] = []
 	var tries := 0
-	while spots.size() < count and tries < count * 40:
+	while centres.size() < CLUSTERS and tries < 200:
 		tries += 1
-		var p := Vector2(randf_range(area.position.x, area.end.x), randf_range(area.position.y, area.end.y))
-		if HUD_CLEAR.any(func(r: Rect2) -> bool: return r.has_point(p)):
+		var c := Vector2(randf_range(area.position.x, area.end.x), randf_range(area.position.y, area.end.y))
+		if _blocked(c) or centres.any(func(q: Vector2) -> bool: return q.distance_to(c) < 220.0):
 			continue
-		if p.distance_to(_end) < 110.0 or p.distance_to(source_feet) < 60.0:
+		centres.append(c)
+	var spots: Array[Vector2] = []
+	tries = 0
+	while spots.size() < count and tries < count * 60 and not centres.is_empty():
+		tries += 1
+		var p: Vector2 = centres[randi() % centres.size()] + Vector2(randfn(0.0, 55.0), randfn(0.0, 22.0))
+		if not area.has_point(p) or _blocked(p):
 			continue
-		if spots.any(func(q: Vector2) -> bool: return q.distance_to(p) < 70.0):
+		if spots.any(func(q: Vector2) -> bool: return q.distance_to(p) < 42.0):
 			continue
 		spots.append(p)
 	return spots
+
+
+func _blocked(p: Vector2) -> bool:
+	if HUD_CLEAR.any(func(r: Rect2) -> bool: return r.has_point(p)):
+		return true
+	return p.distance_to(_end) < 110.0 or p.distance_to(source_feet) < 60.0
 
 
 ## A sprite standing on the ground at pos (its bottom edge there), on the art grid.

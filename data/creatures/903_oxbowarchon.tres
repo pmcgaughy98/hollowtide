@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="CreatureData" load_steps=5 format=3]
+
+[ext_resource type="Script" path="res://scripts/creature_data.gd" id="1_script"]
+[ext_resource type="Script" path="res://scripts/move_data.gd" id="2_move_script"]
+[ext_resource type="Texture2D" path="res://assets/sprites/creatures/oxbowarchon.png" id="3_sprite"]
+[ext_resource type="Texture2D" path="res://assets/sprites/creatures/oxbowarchon_back.png" id="4_back"]
+[ext_resource type="Resource" path="res://data/moves/oxbowarchon_kingstone_rail.tres" id="5_move"]
+
+[resource]
+script = ExtResource("1_script")
+id = 903
+creature_name = "Oxbowarchon"
+essence = 2
+sprite = ExtResource("3_sprite")
+back_sprite = ExtResource("4_back")
+description = "Provisional entry (2026-09-29) so Kingstone Rail can be previewed: Dex number 903 (Line 9, stage III), default stats and a one-move kit are placeholders for Preston to set."
+moves = Array[ExtResource("2_move_script")]([ExtResource("5_move")])
+idle_breath = 0.014
+idle_period = 5.88
+battle_size = 1.75

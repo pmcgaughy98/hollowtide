@@ -107,6 +107,12 @@ enum Delivery { PROJECTILE, CONTACT }
 ## as the throbs speed up, and holds through the last stretch and the hush.
 ## Same canvas and registration as the attack frames.
 @export var attack_strain_overload: Texture2D
+## Frames to cycle through while the strain frame holds, so a long charge keeps
+## moving instead of freezing on one drawing (Kingstone Rail's sphere turning
+## between two drawings of its rings). Empty holds the strain frame still.
+@export var attack_strain_loop: Array[Texture2D] = []
+## Seconds each loop frame shows.
+@export var attack_strain_loop_seconds: float = 0.12
 
 @export_group("Back View")
 ## Frames for the same attack seen from behind, one per attack_frames entry, so
@@ -178,6 +184,16 @@ enum Delivery { PROJECTILE, CONTACT }
 @export var vent_rest_points: PackedVector2Array = PackedVector2Array()
 ## Where the vents are on the release pose: each erupts a column there.
 @export var vent_points: PackedVector2Array = PackedVector2Array()
+## Which way each release vent blasts, one per vent_points entry: (0, -1) up,
+## (-1, 0) back toward the tail. A missing entry means up.
+@export var vent_directions: PackedVector2Array = PackedVector2Array()
+## The blast art per vent, one per vent_points entry; a missing entry uses
+## vent_column. Art for an up blast has its source at the bottom edge; art for
+## a back blast has its source at the right (head-side) edge.
+@export var vent_jets: Array[Texture2D] = []
+## Per vent: true draws the blast behind the body, so it rises out from behind
+## the ridge (for a vent on the top edge); false draws it in front.
+@export var vent_behind: Array[bool] = []
 @export var vent_charge: Texture2D
 @export var vent_column: Texture2D
 @export var vent_smoke: Texture2D
@@ -190,6 +206,11 @@ enum Delivery { PROJECTILE, CONTACT }
 ## Screen shake on the hit frame of drawn-frame moves, on the damage-shake
 ## scale; 0 leaves only the usual hit shake.
 @export_range(0, 60) var impact_shake: int = 0
+## Hit-stop: seconds everything holds at the moment of impact, the target
+## frozen white-hot in its hit pose while the flash and shake play on (Gemini
+## VFX research, 2026-09-29: 40 to 80 ms, longer for heavy hits). -1 picks it
+## automatically: 0.12 for a signature, 0.06 otherwise.
+@export var impact_freeze: float = -1.0
 
 
 @export_group("Cut-In")
@@ -219,6 +240,23 @@ enum Delivery { PROJECTILE, CONTACT }
 @export var signature_effect: PackedScene
 ## Seconds the scene stays lit after the frames end, while the effect cools.
 @export var signature_linger: float = 2.4
+
+
+@export_group("Sound")
+## Sounds played on chosen frames of a drawn attack: sound_cues[i] starts when
+## the attack reaches frame sound_cue_frames[i] (Vitrecrag's meltdown buildup on
+## the brace frame, the rupture on the release). Files live in assets/audio/sfx/.
+@export var sound_cues: Array[AudioStream] = []
+@export var sound_cue_frames: Array[int] = []
+## Loudness per cue in decibels (0 is as recorded); missing entries are 0.
+@export var sound_cue_db: Array[float] = []
+
+
+@export_group("Camera")
+## Camera moves during a drawn attack, each starting on its own frame: a tilt
+## up to the sky (Kingstone Rail), a creeping push-in, a crash zoom on the hit.
+## Empty keeps the usual attack framing. See scripts/camera_shot.gd.
+@export var camera_shots: Array[CameraShot] = []
 
 
 @export_group("Overheat")

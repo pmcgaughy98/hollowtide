@@ -1,6 +1,10 @@
 [gd_resource type="Resource" script_class="MoveData" load_steps=17 format=3]
 
 [ext_resource type="Script" path="res://scripts/move_data.gd" id="1_script"]
+[ext_resource type="AudioStream" path="res://assets/audio/sfx/vitrecrag/buildup.wav" id="snd_buildup"]
+[ext_resource type="AudioStream" path="res://assets/audio/sfx/vitrecrag/cry.wav" id="snd_cry"]
+[ext_resource type="AudioStream" path="res://assets/audio/sfx/vitrecrag/rupture.wav" id="snd_rupture"]
+[ext_resource type="Script" path="res://scripts/camera_shot.gd" id="cam_shot"]
 [ext_resource type="PackedScene" path="res://scenes/effects/vitrecrag_glass_hit.tscn" id="2_effect"]
 [ext_resource type="Texture2D" path="res://assets/sprites/creatures/attacks/vitrecrag_lava_pour/style_matched/load.png" id="3_load"]
 [ext_resource type="Texture2D" path="res://assets/sprites/creatures/attacks/vitrecrag_lava_pour/style_matched/hole.png" id="4_hole"]
@@ -15,10 +19,34 @@
 [ext_resource type="Texture2D" path="res://assets/sprites/creatures/attacks/vitrecrag_lava_pour/back/glow_2.png" id="13_back2"]
 [ext_resource type="Texture2D" path="res://assets/sprites/creatures/attacks/vitrecrag_lava_pour/back/glow_3.png" id="14_back3"]
 [ext_resource type="PackedScene" path="res://scenes/effects/vitrecrag_meltdown.tscn" id="15_meltdown"]
-[ext_resource type="Texture2D" path="res://assets/sprites/creatures/attacks/vitrecrag_lava_pour/titlecard.png" id="16_cutin"]
-[ext_resource type="Texture2D" path="res://assets/sprites/creatures/attacks/vitrecrag_lava_pour/overload.png" id="17_overload"]
-[ext_resource type="Texture2D" path="res://assets/sprites/creatures/attacks/vitrecrag_lava_pour/overload_pour_a.png" id="18_opa"]
-[ext_resource type="Texture2D" path="res://assets/sprites/creatures/attacks/vitrecrag_lava_pour/overload_pour_b.png" id="19_opb"]
+[ext_resource type="Texture2D" path="res://assets/sprites/creatures/attacks/vitrecrag_lava_pour/style_matched/titlecard.png" id="16_cutin"]
+[ext_resource type="Texture2D" path="res://assets/sprites/creatures/attacks/vitrecrag_lava_pour/style_matched/overload.png" id="17_overload"]
+[ext_resource type="Texture2D" path="res://assets/sprites/creatures/attacks/vitrecrag_lava_pour/style_matched/overload_pour_a.png" id="18_opa"]
+[ext_resource type="Texture2D" path="res://assets/sprites/creatures/attacks/vitrecrag_lava_pour/style_matched/overload_pour_b.png" id="19_opb"]
+
+[sub_resource type="Resource" id="cam_0"]
+script = ExtResource("cam_shot")
+frame = 2
+look = 1
+lean = 0.35
+zoom = 1.25
+seconds = 1.9
+hide_cards = true
+
+[sub_resource type="Resource" id="cam_1"]
+script = ExtResource("cam_shot")
+frame = 4
+zoom = 0.88
+seconds = 0.12
+hide_cards = true
+
+[sub_resource type="Resource" id="cam_2"]
+script = ExtResource("cam_shot")
+frame = 7
+look = 2
+lean = 0.2
+zoom = 1.0
+seconds = 0.35
 
 [resource]
 script = ExtResource("1_script")
@@ -52,3 +80,7 @@ attack_overheat = 1.0
 attack_river = ExtResource("11_lob")
 attack_river_offset = Vector2(42, 55)
 attack_back_river_offset = Vector2(52, 54)
+camera_shots = Array[ExtResource("cam_shot")]([SubResource("cam_0"), SubResource("cam_1"), SubResource("cam_2")])
+sound_cues = Array[AudioStream]([ExtResource("snd_buildup"), ExtResource("snd_cry"), ExtResource("snd_rupture")])
+sound_cue_frames = Array[int]([0, 2, 4])
+sound_cue_db = Array[float]([0.0, -4.0, 0.0])

@@ -50,6 +50,12 @@ var _parts: Array = []
 ## start and end are stage positions (the pour and the target's feet); px is one
 ## art pixel on screen. The flood starts arrive seconds from now, when the river
 ## lands, and stays molten through sustain plus linger_seconds.
+## Redraws per second: the effect simulates every frame but is drawn on twos
+## (30 a second), so it moves in steps like drawn frames (Gemini VFX research,
+## 2026-09-29: animate on twos or threes).
+const DRAW_FPS := 30.0
+var _redraw_clock := 0.0
+
 func erupt(start: Vector2, end: Vector2, px: float, arrive: float, sustain: float) -> void:
 	_px = maxf(1.0, px)
 	_a = start
@@ -129,7 +135,10 @@ func _process(delta: float) -> void:
 			alive.append(p)
 	_parts = alive
 	if is_instance_valid(_embers):
-		_embers.queue_redraw()
+		_redraw_clock += delta
+		if _redraw_clock >= 1.0 / DRAW_FPS:
+			_redraw_clock = fmod(_redraw_clock, 1.0 / DRAW_FPS)
+			_embers.queue_redraw()
 	if since > molten_until + cool_seconds:
 		if is_instance_valid(_embers):
 			_embers.queue_free()
