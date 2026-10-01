@@ -1,13 +1,12 @@
 # Route 1 world assets: Opal prompt list
 
-Preston, 2026-09-30: the 8-bit placeholder tiles and the map in Route 1 do not fit the creatures' finish. Codex is
-has installed the World Asset and Character Model Forges. This list supplies subjects; use the mode and layout rules below with each subject.
+Preston, 2026-09-30: the 8-bit placeholder tiles and the map in Route 1 do not fit the creatures' finish. Codex has installed the World Asset and Character Model Forges. This list supplies subjects; use the mode and layout rules below with each subject.
 
 **Status:** proposals. Nothing here is generated or approved. Place and job names are the world bible's working names
 (`docs/world/world-bible.md`, sections 4 to 6); no new names, lore or characters are invented here.
 
 **Installed contract, 2026-09-30:** [World Asset Forge](https://opal.google/app/1gkKkSpg8Pakg7888e05tKqAhps9wFl19), [Character Model Forge](https://opal.google/app/1n9s7JHBcc7O3FJx-TdohZZ71HJbYcsd2).
-- Use the current top-down three-quarter projection, 16x16 native terrain cells and a roughly 36-pixel adult courier. Preserve route geometry.
+- Use the current top-down three-quarter projection, 16x16 native terrain cells and a selected chibi courier (32x32 cell, about 30 pixels standing height). Preserve route geometry.
 - Begin each run with an explicit mode. Terrain: `MODE: TILESET; TILE: 16x16; LAYOUT: standard 4x4 terrain atlas`. Props: `MODE: PROP; CANVAS: 128x128; FOOTPRINT: [number] current 16-pixel tiles`. Water: `MODE: WATER; TILE: 16x16; LAYOUT: 2x2 chronological surface tiles`.
 - Terrain fills cells to their edges without gutters or a dark box around each tile. Full props have six logical pixels of clean magenta margin. These are different layout rules.
 - Cinderhide supplies pixel finish only; the saved overworld references supply projection and scale. Local material colors remain distinct. See `world-asset-forge-spec-2026-09-30.md`.
@@ -20,7 +19,7 @@ at a time and approve it before the next, in the batch order below. Batch 1 alon
 ## Style block (every world asset)
 
 ```text
-HOLLOWTIDE WORLD STYLE: Cinderhide-quality dark prop outlines, deliberate pixel clusters and readable material planes; do not copy its anatomy or coal/fire palette. Terrain has quieter contrast without a dark box around every cell. Three-quarter top-down view, modest visible roof tops and front walls, consistent scale beside a 36-pixel adult courier. Loess-yellow bluff soil, oak and cottonwood greens, weathered timber, rust-red brick and muted river blue-green. Use individual 4-6-tone material ramps and restrained upper-left daylight. Practical lived-in river frontier. No text or extra characters, smooth painting, checkerboard grass or repeated stamped tufts. PROP: whole object with six logical pixels of flat #FF00FF margin, no baked floor shadow. TILESET/WATER: fill each cell to its edges, no margin or magenta gutter except an explicitly transparent overlay.
+HOLLOWTIDE WORLD STYLE: Cinderhide-quality dark prop outlines, deliberate pixel clusters and readable material planes; do not copy its anatomy or coal/fire palette. Terrain has quieter contrast without a dark box around every cell. Three-quarter top-down view, modest visible roof tops and front walls, consistent scale beside the approved chibi courier: a 32x32 map cell and about 30 pixels standing height, large head and short body. This is an adult character in chibi map proportions; the adult dialogue portrait does not set world scale. Loess-yellow bluff soil, oak and cottonwood greens, weathered timber, rust-red brick and muted river blue-green. Use individual 4-6-tone material ramps and restrained upper-left daylight. Practical lived-in river frontier. No text or extra characters, smooth painting, checkerboard grass or repeated stamped tufts. PROP: whole object with six logical pixels of flat #FF00FF margin, no baked floor shadow. TILESET/WATER: fill each cell to its edges, no margin or magenta gutter except an explicitly transparent overlay.
 ```
 
 ## Batch 1: the ground (Route 1 cannot change look without these)
@@ -29,10 +28,10 @@ For ordinary surface families use the installed **sixteen-cell 4x4 atlas**: cent
 
 1. **Bluff-top grass.** `TILESET: short dry-green bluff grass with scattered clover and a few pale seed heads; edges and corners where it meets packed dirt.`
 2. **Packed dirt lane.** `TILESET: a worn packed-earth footpath, loess yellow-tan, with faint cart ruts and small stones; edges and corners where it meets grass.`
-3. **Switchback sand road.** `TILESET: a pale sandy road cut into a hillside, loose at the edges, firmer in the middle, with a few exposed roots; edges and corners where it meets grass, plus one tile of a wooden step-log laid across it.`
+3. **Switchback sand road.** `MODE: TILESET; TILE: 16x16; LAYOUT: standard 4x4 terrain atlas. Pale sandy road cut into a hillside, loose at the edges, firmer in the middle, with a few exposed roots. Neighbor: grass; edges and corners follow the standard order.` Generate the wooden step-log separately as a transparent PROP overlay; do not replace a transition slot with it.
 4. **Loess bluff face.** `TILESET: a steep loess bluff seen from the front: crumbly pale yellow-tan soil in vertical flutes, grass overhanging the top lip, roots showing; top edge, face, base, and left and right end pieces. The face is two tiles tall.`
-5. **Floodplain bank.** `TILESET: dark silty mud and flattened river grass at the water's edge, with driftwood flecks; edges and corners where it meets grass on one side and water on the other.`
-6. **River water.** `TILESET, 4 FRAMES: slow broad river water, muted blue-green with brown silt, long low ripples. Four animation frames of the same seamless tile, plus shoreline edge tiles where it meets the mud bank.`
+5. **Floodplain bank.** Two separate runs, each `MODE: TILESET; TILE: 16x16; LAYOUT: standard 4x4 terrain atlas`: dark silty mud with flattened river grass and quiet driftwood flecks. Run A neighbor: bluff grass. Run B neighbor: approved river water. One neighbor per atlas; match the approved surface references.
+6. **River water.** `MODE: WATER; TILE: 16x16; LAYOUT: 2x2 chronological surface tiles. Slow broad river water, muted blue-green with brown silt and long low ripples. Four looping phases of the same seamless surface; matching borders, no shoreline pieces, gutters or labels.` Shoreline transitions are the separate mud/water run in entry 5.
 7. **Tall prairie grass.** `TILESET: waist-high dry prairie grass in tan and olive, moving slightly; a full tile, and a front-edge tile that can draw over a character's legs. This is where wild creatures are met.`
 
 ## Batch 2: the landmarks (each replaces a placeholder now in the route)
@@ -59,9 +58,9 @@ One object per image, whole object in frame.
 
 ## Batch 4: people (the new character Forge)
 
-Use the Character Model Forge for people. First approve `MODE: NEW; OUTPUT: SINGLE; DIRECTION: DOWN; CELL: 64x64; VISIBLE HEIGHT: 36`. Identity Reference is `NONE`, and Style Reference is approved Cinderhide for finish only. Then use `MODE: REDRAW; OUTPUT: TURNAROUND` with the approved exact person, 2x2 DOWN, UP / LEFT, RIGHT at equal height. Walk cycles come afterward, one direction per run. The detailed new player brief is in `new-courier-character-forge-prompt-2026-09-30.md`; line 22 below is an alternate redraw of the existing courier, not a mandatory identity.
+Use the Character Model Forge for people. New NPC: `KIND: OVERWORLD; MODE: NEW; OUTPUT: SINGLE; DIRECTION: DOWN; CELL: 32x32; VISIBLE HEIGHT: about 30 pixels`, Identity Reference `NONE`, Style Reference approved Cinderhide for finish only. Keep chibi map proportions while preserving each person's age. Then `KIND: OVERWORLD; MODE: REDRAW; OUTPUT: TURNAROUND`, with the approved exact identity, 2x2 DOWN, UP / LEFT, RIGHT and equal scale. Walks come afterward, four distinct poses by default, one direction per run. Optional dialogue portraits use `KIND: PORTRAIT; CELL: 96x96`, adult waist-up proportions of the same identity. Preston's existing main courier is already selected; do not redesign him as a NEW person. See `new-courier-character-forge-prompt-2026-09-30.md`.
 
-22. **The courier (player).** `CHARACTER, 4 DIRECTIONS, STANDING: an adult Wayline field runner: a practical waxed jacket, a route pouch on a cross-body strap, sturdy boots, a rolled sleeve. Alert and capable, not a child and not a soldier. Match the existing courier sprite attached as reference.`
+22. **The courier (player).** `KIND: OVERWORLD; MODE: REDRAW; OUTPUT: TURNAROUND; CELL: 32x32; VISIBLE HEIGHT: about 30 pixels. The approved original chibi courier: brown hair, brass forehead goggles, teal jacket, tan trousers, brown boots and cross-body satchel. Preserve the attached identity and large-head/short-body map anatomy. 2x2 DOWN, UP / LEFT, RIGHT, same scale and foot baseline.` Identity Reference: `Character/Main Courier - Chibi Identity - Four Views.png`. Claude owns integration of the prepared original cuts; the incomplete old side strides still need contact/passing additions.
 23. **The dispatcher.** `CHARACTER, 4 DIRECTIONS, STANDING: a Wayline dispatcher, middle-aged, shirtsleeves and a work apron with pockets, ink on the fingers, a pencil behind one ear. Calm and busy.`
 24. **A ferry ward resident.** `CHARACTER, 4 DIRECTIONS, STANDING: an older river-district resident in a patched coat and rubber boots, a net bag over one shoulder. Watchful, has seen floods.`
 25. **Cinderhide in the field.** Use the creature Sprite Forge, not the human Character Forge. `TASK: REDRAW; PURPOSE: OVERWORLD; VIEW: [one direction]. Cinderhide, exactly the approved reference, at a stated small field scale. Keep its charcoal body, wedge snout, horn plates and ember vents; no new anatomy. One standing view per run.` A dedicated small field sheet remains a review candidate.

@@ -1,0 +1,46 @@
+{
+  "selection": "Preston: original chibi courier is the main model, 2026-09-30",
+  "original": "C:\\Users\\pmcga\\OneDrive\\Documents\\HollowTide Sprites\\Character\\Male.jpg",
+  "original_size": [
+    1408,
+    1408
+  ],
+  "named_byte_copy": "C:\\Users\\pmcga\\OneDrive\\Documents\\HollowTide Sprites\\Character\\Main Courier - Chibi Source.jpg",
+  "original_sha256": "580b807b9ed9e86f3aa1ca4f5bf1c73f8d0cb97aaa842536a9bd22ccd2f76253",
+  "copy_sha256": "580b807b9ed9e86f3aa1ca4f5bf1c73f8d0cb97aaa842536a9bd22ccd2f76253",
+  "four_view_identity": "C:\\Users\\pmcga\\OneDrive\\Documents\\HollowTide Sprites\\Character\\Main Courier - Chibi Identity - Four Views.png",
+  "source_pose_boxes_down_left_right_up": [
+    [
+      137,
+      57,
+      286,
+      330
+    ],
+    [
+      134,
+      386,
+      286,
+      650
+    ],
+    [
+      136,
+      715,
+      287,
+      979
+    ],
+    [
+      134,
+      1036,
+      283,
+      1314
+    ]
+  ],
+  "reference_order": [
+    "DOWN",
+    "UP",
+    "LEFT",
+    "RIGHT"
+  ],
+  "method": "Pixel-exact crops, rearranged into four views; no image generation, repaint, palette edit or body rescaling.",
+  "game_state": "Main identity recorded. Adult runtime walk atlases remain installed until matching chibi walks are prepared. Original sheet has repeated side stride poses and is not a repaired walk cycle."
+}

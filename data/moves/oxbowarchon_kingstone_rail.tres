@@ -1,23 +1,23 @@
-[gd_resource type="Resource" script_class="MoveData" load_steps=23 format=3]
+[gd_resource type="Resource" script_class="MoveData" format=3 uid="uid://c4p0an2vdkh63"]
 
-[ext_resource type="Script" path="res://scripts/move_data.gd" id="1_script"]
+[ext_resource type="Script" uid="uid://bhqon0w55tdjq" path="res://scripts/move_data.gd" id="1_script"]
 [ext_resource type="PackedScene" path="res://scenes/effects/oxbowarchon_sky_rail.tscn" id="2_strike"]
-[ext_resource type="Script" path="res://scripts/camera_shot.gd" id="11_shot"]
-[ext_resource type="Texture2D" path="res://assets/sprites/creatures/attacks/oxbowarchon_kingstone_rail/style_matched/rest.png" id="t_rest"]
-[ext_resource type="Texture2D" path="res://assets/sprites/creatures/attacks/oxbowarchon_kingstone_rail/style_matched/raise.png" id="t_raise"]
-[ext_resource type="Texture2D" path="res://assets/sprites/creatures/attacks/oxbowarchon_kingstone_rail/style_matched/glow.png" id="t_glow"]
-[ext_resource type="Texture2D" path="res://assets/sprites/creatures/attacks/oxbowarchon_kingstone_rail/style_matched/kindle.png" id="t_kindle"]
-[ext_resource type="Texture2D" path="res://assets/sprites/creatures/attacks/oxbowarchon_kingstone_rail/style_matched/kindle_arcs.png" id="t_kindle_arcs"]
-[ext_resource type="Texture2D" path="res://assets/sprites/creatures/attacks/oxbowarchon_kingstone_rail/style_matched/swirl.png" id="t_swirl"]
-[ext_resource type="Texture2D" path="res://assets/sprites/creatures/attacks/oxbowarchon_kingstone_rail/style_matched/full.png" id="t_full"]
-[ext_resource type="Texture2D" path="res://assets/sprites/creatures/attacks/oxbowarchon_kingstone_rail/style_matched/full_b.png" id="t_full_b"]
-[ext_resource type="Texture2D" path="res://assets/sprites/creatures/attacks/oxbowarchon_kingstone_rail/style_matched/burst.png" id="t_burst"]
-[ext_resource type="Texture2D" path="res://assets/sprites/creatures/attacks/oxbowarchon_kingstone_rail/style_matched/burst_b.png" id="t_burst_b"]
-[ext_resource type="Texture2D" path="res://assets/sprites/creatures/attacks/oxbowarchon_kingstone_rail/style_matched/shot.png" id="t_shot"]
-[ext_resource type="Texture2D" path="res://assets/sprites/creatures/attacks/oxbowarchon_kingstone_rail/style_matched/spent.png" id="t_spent"]
-[ext_resource type="Texture2D" path="res://assets/sprites/creatures/attacks/oxbowarchon_kingstone_rail/style_matched/afterglow.png" id="t_afterglow"]
-[ext_resource type="Texture2D" path="res://assets/sprites/creatures/attacks/oxbowarchon_kingstone_rail/style_matched/settle.png" id="t_settle"]
-[ext_resource type="Texture2D" path="res://assets/sprites/creatures/attacks/oxbowarchon_kingstone_rail/style_matched/titlecard.png" id="t_titlecard"]
+[ext_resource type="Script" uid="uid://dtck6dpiev4ck" path="res://scripts/camera_shot.gd" id="11_shot"]
+[ext_resource type="Texture2D" uid="uid://cla8igwtxyxuu" path="res://assets/sprites/creatures/attacks/oxbowarchon_kingstone_rail/style_matched/afterglow.png" id="t_afterglow"]
+[ext_resource type="Texture2D" uid="uid://csh6nyajpwnpk" path="res://assets/sprites/creatures/attacks/oxbowarchon_kingstone_rail/style_matched/burst.png" id="t_burst"]
+[ext_resource type="Texture2D" uid="uid://cf3kw0bunlb6b" path="res://assets/sprites/creatures/attacks/oxbowarchon_kingstone_rail/style_matched/burst_b.png" id="t_burst_b"]
+[ext_resource type="Texture2D" uid="uid://cfuihdokka4hx" path="res://assets/sprites/creatures/attacks/oxbowarchon_kingstone_rail/style_matched/full.png" id="t_full"]
+[ext_resource type="Texture2D" uid="uid://cva6taktxhvbc" path="res://assets/sprites/creatures/attacks/oxbowarchon_kingstone_rail/style_matched/full_b.png" id="t_full_b"]
+[ext_resource type="Texture2D" uid="uid://d0f1k3s6ofaxq" path="res://assets/sprites/creatures/attacks/oxbowarchon_kingstone_rail/style_matched/glow.png" id="t_glow"]
+[ext_resource type="Texture2D" uid="uid://bmbltcj7cxe1j" path="res://assets/sprites/creatures/attacks/oxbowarchon_kingstone_rail/style_matched/kindle.png" id="t_kindle"]
+[ext_resource type="Texture2D" uid="uid://c4mxq5wof1o1e" path="res://assets/sprites/creatures/attacks/oxbowarchon_kingstone_rail/style_matched/kindle_arcs.png" id="t_kindle_arcs"]
+[ext_resource type="Texture2D" uid="uid://bsl0u2gko1kef" path="res://assets/sprites/creatures/attacks/oxbowarchon_kingstone_rail/style_matched/raise.png" id="t_raise"]
+[ext_resource type="Texture2D" uid="uid://colyqaa0e6da5" path="res://assets/sprites/creatures/attacks/oxbowarchon_kingstone_rail/style_matched/rest.png" id="t_rest"]
+[ext_resource type="Texture2D" uid="uid://dqksybukdqxvj" path="res://assets/sprites/creatures/attacks/oxbowarchon_kingstone_rail/style_matched/settle.png" id="t_settle"]
+[ext_resource type="Texture2D" uid="uid://ciism8t5kkuwh" path="res://assets/sprites/creatures/attacks/oxbowarchon_kingstone_rail/style_matched/shot.png" id="t_shot"]
+[ext_resource type="Texture2D" uid="uid://b1s3nog45uw3y" path="res://assets/sprites/creatures/attacks/oxbowarchon_kingstone_rail/style_matched/spent.png" id="t_spent"]
+[ext_resource type="Texture2D" uid="uid://2nnjpe3nwebx" path="res://assets/sprites/creatures/attacks/oxbowarchon_kingstone_rail/style_matched/swirl.png" id="t_swirl"]
+[ext_resource type="Texture2D" uid="uid://dlvinxh82hlt6" path="res://assets/sprites/creatures/attacks/oxbowarchon_kingstone_rail/style_matched/titlecard.png" id="t_titlecard"]
 
 [sub_resource type="Resource" id="shot_sky"]
 script = ExtResource("11_shot")
@@ -50,24 +50,25 @@ script = ExtResource("1_script")
 move_name = "Kingstone Rail"
 essence = 2
 power = 60
-max_uses = 0
 attack_frames = Array[Texture2D]([ExtResource("t_rest"), ExtResource("t_raise"), ExtResource("t_glow"), ExtResource("t_kindle"), ExtResource("t_kindle_arcs"), ExtResource("t_swirl"), ExtResource("t_full"), ExtResource("t_burst"), ExtResource("t_burst_b"), ExtResource("t_shot"), ExtResource("t_spent"), ExtResource("t_afterglow"), ExtResource("t_settle"), ExtResource("t_rest")])
 attack_frame_holds = Array[float]([0.08, 0.22, 0.22, 0.2, 0.2, 0.25, 1.4, 0.08, 0.08, 0.2, 0.35, 0.3, 0.3, 0.45])
 attack_lunge_px = 0.0
 attack_recoil_px = 3.0
-attack_overheat = 1.0
 attack_hit_frame = 13
 attack_brace_frame = 1
 attack_strain_frame = 6
 attack_strain_loop = Array[Texture2D]([ExtResource("t_full"), ExtResource("t_full_b")])
-attack_strain_loop_seconds = 0.12
-attack_cut_in = ExtResource("t_titlecard")
 attack_emit_frames = Vector2i(7, 9)
-signature = true
-signature_effect = ExtResource("2_strike")
 attack_river_offset = Vector2(22, -62)
-signature_light = Color(0.85, 1.15, 0.95, 1)
-signature_linger = 1.8
+vent_rest_points = null
+vent_points = null
+vent_directions = null
 impact_flash = true
 impact_shake = 45
+attack_cut_in = ExtResource("t_titlecard")
+signature = true
+signature_light = Color(0.85, 1.15, 0.95, 1)
+signature_effect = ExtResource("2_strike")
+signature_linger = 1.8
 camera_shots = Array[ExtResource("11_shot")]([SubResource("shot_sky"), SubResource("shot_fall"), SubResource("shot_hit")])
+attack_overheat = 1.0

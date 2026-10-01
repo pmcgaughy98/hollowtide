@@ -1,6 +1,8 @@
 # Hollowtide World Asset Forge: Gemini skill
 
-Exported from Opal on 2026-09-30 by `tools/export_opal_forges.py`. Craft original pixel-art environment props and terrain tiles with ease.
+Built from a downloaded Opal graph by `tools/export_opal_forges.py`. The raw graph remains in `../opal-export/`.
+
+Includes the saved 2026-09-30 Generate prompt and input hints from [the verified revision](../records/world-chibi-scale-2026-09-30/verified-prompt-record.json). Checked after reopening in Opal; no generation-quality claim. This is a merged instruction export, not a fresh live app backup.
 
 **Skill name to use in Gemini:** `world-asset-forge`
 
@@ -12,7 +14,7 @@ Exported from Opal on 2026-09-30 by `tools/export_opal_forges.py`. Craft origina
 
 ## Model
 
-- Generate World Asset v1: Nano Banana Pro (Gemini's best image model), aspect ratio 1:1
+- Generate World Asset - Chibi Scale v2: Nano Banana Pro (Gemini's best image model), aspect ratio 1:1
 
 The Opal review page (it only displayed the result) is not part of the skill.
 
@@ -22,7 +24,7 @@ The Opal review page (it only displayed the result) is not part of the skill.
 Each time this skill runs, I will give you [Asset Brief], [Style Anchor], [World Perspective Reference] in my message. Use them exactly as described below.
 
 Create ONE original Hollowtide WORLD ASSET candidate from Asset Brief and linked images. Interpret MODE explicitly. Default MODE PROP. Do not generate a game, mockup, map screenshot or character.
-REFERENCE ROLES: Style Anchor governs crisp outlines, pixel clusters and material shading ONLY. If it is a creature, do not transfer creature anatomy, fire motifs or its whole palette. World Perspective Reference governs the top-down three-quarter camera, roof/front-wall depth and scale ONLY; never copy another game's assets, symbols or map. Use modest visible top surfaces and clear front faces, consistent with a 36-logical-pixel adult courier.
+REFERENCE ROLES: Style Anchor governs crisp outlines, pixel clusters and material shading ONLY. If it is a creature, do not transfer creature anatomy, fire motifs or its whole palette. World Perspective Reference governs the top-down three-quarter camera, roof/front-wall depth and scale ONLY; never copy another game's assets, symbols or map. Use modest visible top surfaces and clear front faces, scaled beside the approved chibi map courier: a 32x32 logical character cell and roughly 30 logical pixels of standing height, with a large head and short body. The courier is an adult drawn in chibi map proportions. Doors, paths and props fit this map figure. The 96x96 adult waist-up dialogue portrait is a separate art tier and does not set map scale. Keep the current 16x16 map grid.
 MODE PROP: one complete requested object on a 128x128 logical-pixel canvas by default. Asset Brief states footprint in the current 16x16 world tiles. Keep at least 6 logical pixels of clean margin around the entire prop, including leaves, roots and roof tips. Flat #FF00FF outside. No cast shadow on the background; separate shadows can be prepared later.
 MODE TILESET: default native tile 16x16, exactly sixteen equal cells in a 4x4 atlas (64x64 logical pixels total), no gutters or margin between cells. Brief names both surface and neighboring material. Row-major cell order: center A, center B, center C, north edge / east edge, south edge, west edge, northwest outer corner / northeast outer, southeast outer, southwest outer, northwest inner corner / northeast inner, southeast inner, southwest inner, repeat center A. Fill every tile to its edges; no magenta unless brief explicitly requests a transparent overlay. Seamless edges with stated neighbor. No dark outline boxing each terrain tile. A 32x32 native tile is allowed ONLY when brief explicitly requests a future grid migration; do not change the current 16x16 game grid automatically.
 MODE WATER: four chronological looping surface tiles in 2x2, default16x16 cells, border continuity and shared surface phase. No background gutters; no whitewater unless requested.

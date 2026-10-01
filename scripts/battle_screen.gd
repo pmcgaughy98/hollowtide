@@ -110,8 +110,14 @@ const CREATURE_HEIGHT := 264
 
 ## Where the player's creature stands (its feet), and the open stage it must fit.
 const PLAYER_X := 300.0
-const PLAYER_FOOT_Y := 455.0
-const PLAYER_ROOM := Vector2(600, 330)
+## Your creature stands closer to the camera than the opponent, like the old
+## handheld battles: bigger, and low enough that its legs go behind the message
+## box, so you see its back and shoulders rather than the whole body (Preston,
+## 2026-09-30: the full back view read as a bloated round shape). Effects still
+## land above the box: _foot_point() keeps them there. The same share of
+## every creature hides behind the box, so a small one is not cut off more.
+const NEAR_HIDDEN := 0.27
+const PLAYER_ROOM := Vector2(640, 440)  # includes the part hidden behind the message box
 
 ## Adjustable in the BattleScreen Inspector until the dedicated battle camera
 ## and backgrounds are designed. Half-step zooms keep the distant 128px forms
@@ -172,6 +178,11 @@ var _foe_sprite: Sprite2D
 var _player_sprite: Sprite2D
 # Idle overlay layers (a mouth flame and the like), one per creature sprite.
 var _foe_overlay: Sprite2D
+## True during a reverse shot: the two sides are swapped on screen and in the
+## battle's state, so the player's creature attacks from the far spot.
+var _reversed := false
+var _backdrop: Sprite2D
+var _backdrop_edges: Array[Sprite2D] = []
 var _player_overlay: Sprite2D
 var _overlay_clock := 0.0
 var _flick_left := 0.0
@@ -273,7 +284,7 @@ func start(wild: CreatureData) -> void:
 	_foe_home = _foot_home(_foe_sprite, Vector2(FOE_X, FOE_FOOT_Y))
 	# The player's creature stands on its own floor line too, so a big body
 	# keeps its feet above the message box instead of sinking behind it.
-	_player_home = _foot_home(_player_sprite, Vector2(PLAYER_X, PLAYER_FOOT_Y))
+	_player_home = _foot_home(_player_sprite, Vector2(PLAYER_X, _near_foot_y()))
 	_battle_stage.position = Vector2.ZERO
 	if _focus_tween != null and _focus_tween.is_valid():
 		_focus_tween.kill()
@@ -499,7 +510,12 @@ func _attack(attacker: CreatureData, by_player: bool, move: MoveData) -> void:
 	# before it, so the number and the picture agree.
 	# Contact moves opt into drawn frames by naming their hit frame; Cinder
 	# Claw's older six-frame sheet stays bypassed because it does not.
-	if move and move.delivery == MoveData.Delivery.CONTACT and not move.attack_frames.is_empty() and move.attack_hit_frame >= 0:
+	# A player's signature is seen from the front: the camera cuts around so
+	# the move plays exactly as it does for a wild creature (Preston,
+	# 2026-09-30), and no back-view version of a signature is ever needed.
+	if move and move.signature and by_player and not move.attack_frames.is_empty():
+		await _reverse_shot(dealt, multiplier, move)
+	elif move and move.delivery == MoveData.Delivery.CONTACT and not move.attack_frames.is_empty() and move.attack_hit_frame >= 0:
 		await _contact_with_frames(by_player, dealt, multiplier, move)
 	elif move and move.delivery == MoveData.Delivery.CONTACT:
 		await _strike_animation(by_player, dealt, multiplier, move)
@@ -959,11 +975,144 @@ func _drawn_attack_animation(by_player: bool, dealt: int, multiplier: float, mov
 	sprite.offset.y = 0.0
 	sprite.position = home
 	_idle_hold = false
-	if not move.camera_shots.is_empty():
-		_fade_cards(1.0, 0.3)
+	if not move.camera_shots.is_empty() and not _reversed:
+		_fade_cards(1.0, 0.3)  # in a reverse shot the cards return after the cut back
 	# The battle music stays down while the signature music plays on.
 	if move.signature and not is_instance_valid(_sig_theme):
 		_duck_music(false)
+
+
+## The reverse shot (Preston, 2026-09-30). The camera cuts around to the
+## other side of the field: the player's creature now stands in the far spot,
+## seen from the front, and the opponent stands in the near spot, seen from
+## behind (or as a dark foreground silhouette when it has no back view), with
+## the backdrop mirrored. The signature then plays exactly as it does when a
+## wild creature uses it, so every signature is built once, from the front.
+## Then the camera cuts back and the HP bar slides down.
+##
+## Under the hood the two sides are swapped, creatures, HP and turn state
+## alike, so the attack code runs unchanged as "the far side attacks the near
+## side"; the damage still lands on the real opponent. Swapping again undoes it.
+func _reverse_shot(dealt: int, multiplier: float, move: MoveData) -> void:
+	# The title card already swapped the sides as it covered the screen; this
+	# covers the case where it did not (a move with no card), so the shot works anyway.
+	if not _reversed:
+		await _camera_cut(func() -> void: _swap_sides())
+	await _drawn_attack_animation(false, dealt, multiplier, move)
+	await _band_sweep(func() -> void:
+		_clear_stage_effects()  # the move's leftovers belong to the other angle
+		_swap_sides())
+	_fade_cards(1.0, 0.25)
+	_animate_bars()
+
+
+## Remove whatever an attack left on the stage (floods, embers, rings), keeping
+## the two creatures. Used when the camera cuts, so nothing lingers in a spot
+## that no longer makes sense from the new angle.
+func _clear_stage_effects() -> void:
+	for child in _battle_stage.get_children():
+		if child != _foe_sprite and child != _player_sprite:
+			child.queue_free()
+
+
+## The way back from the reverse shot: a dark band in the card's style sweeps
+## across the screen from right to left, the sides swap while it covers
+## everything, and the battle is back to its normal angle behind it.
+func _band_sweep(swap: Callable) -> void:
+	var view: Vector2 = get_viewport().get_visible_rect().size
+	var band := ColorRect.new()
+	band.color = Color(0.06, 0.04, 0.05, 0.96)
+	band.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	band.size = Vector2(view.x + 240.0, view.y)
+	band.position = Vector2(view.x, 0)
+	add_child(band)
+	move_child(band, _focus_stage.get_index() + 1)
+	# A leading edge of light, so it reads as a sweep and not a blackout.
+	var edge := ColorRect.new()
+	edge.color = Color(1.0, 0.85, 0.7, 0.9)
+	edge.size = Vector2(8, view.y)
+	band.add_child(edge)
+	var cover := create_tween()
+	cover.tween_property(band, "position:x", -120.0, 0.18).set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_QUAD)
+	await cover.finished
+	swap.call()
+	var off := create_tween()
+	off.tween_property(band, "position:x", -band.size.x - 20.0, 0.2).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUAD)
+	off.tween_callback(band.queue_free)
+	await off.finished
+
+
+## A hard cut: the screen flashes white, `swap` runs under the flash, and the
+## new angle fades in.
+func _camera_cut(swap: Callable) -> void:
+	var flash := ColorRect.new()
+	flash.color = Color(1, 1, 1, 0)
+	flash.size = get_viewport().get_visible_rect().size
+	flash.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	add_child(flash)
+	var t := create_tween()
+	t.tween_property(flash, "color:a", 1.0, 0.07)
+	await t.finished
+	swap.call()
+	var out := create_tween()
+	out.tween_property(flash, "color:a", 0.0, 0.22)
+	out.tween_callback(flash.queue_free)
+	await get_tree().create_timer(0.12).timeout
+
+
+func _swap_sides() -> void:
+	var c: CreatureData = _foe
+	_foe = player_creature
+	player_creature = c
+	var hp: int = _foe_hp
+	_foe_hp = _player_hp
+	_player_hp = hp
+	var g: float = _foe_guard_fraction
+	_foe_guard_fraction = _player_guard_fraction
+	_player_guard_fraction = g
+	var intent: MoveData = _foe_intent
+	_foe_intent = _player_intent
+	_player_intent = intent
+	var pending: bool = _foe_action_pending
+	_foe_action_pending = _player_action_pending
+	_player_action_pending = pending
+	var canceled: bool = _foe_action_canceled
+	_foe_action_canceled = _player_action_canceled
+	_player_action_canceled = canceled
+	_reversed = not _reversed
+	_dress_sides()
+
+
+## Put each side's creature in its spot: the far one from the front, the near
+## one from behind, sized and stood on its floor line, each glowing its own
+## way, and the backdrop facing the right way for the camera.
+func _dress_sides() -> void:
+	_foe_sprite.texture = _foe.idle_frames[0] if not _foe.idle_frames.is_empty() else _foe.sprite
+	var near_back: Texture2D = _back_of(player_creature)
+	_player_sprite.texture = near_back if near_back != null else (player_creature.idle_frames[0] if not player_creature.idle_frames.is_empty() else player_creature.sprite)
+	# No back view: in the reverse shot the opponent is a dark shape in the
+	# foreground, which reads as "seen from behind" without showing a face.
+	_player_sprite.self_modulate = Color(0.12, 0.1, 0.15) if _reversed and near_back == null else Color.WHITE
+	_setup_overlay(_foe_sprite, _foe_overlay, _foe, true)
+	_setup_overlay(_player_sprite, _player_overlay, player_creature, near_back == null)
+	for pair in [[_foe_sprite, _foe], [_player_sprite, player_creature]]:
+		var sp: Sprite2D = pair[0]
+		sp.scale = Vector2.ONE * _zoom(sp)
+		if sp.material is ShaderMaterial:
+			(sp.material as ShaderMaterial).set_shader_parameter("glow_kind", (pair[1] as CreatureData).glow_kind)
+	_foe_home = _foot_home(_foe_sprite, Vector2(FOE_X, FOE_FOOT_Y))
+	_player_home = _foot_home(_player_sprite, Vector2(PLAYER_X, _near_foot_y()))
+	_foe_sprite.position = _foe_home
+	_player_sprite.position = _player_home
+	# The camera is on the other side of the field, so the scene is mirrored.
+	if _backdrop != null:
+		_backdrop.flip_h = _reversed
+	for strip in _backdrop_edges:
+		var r: Rect2 = strip.region_rect
+		if r.size.x == 1.0:  # the side strips: each shows the backdrop's outermost column
+			var w: float = float(_backdrop.texture.get_width())
+			r.position.x = (w - 1.0) - r.position.x
+			strip.region_rect = r
 
 
 ## Before a move plays, the message reads it out: the letters type in, then it
@@ -975,7 +1124,12 @@ func _announce(attacker: CreatureData, by_player: bool, move: MoveData) -> void:
 		return
 	_start_signature_music(move)
 	_read_out()  # types under the card; the card sets the pace
-	await _signature_card(attacker, by_player, move)
+	# A player's signature is played from the front (the reverse shot): the
+	# card itself is the camera cut, swapping the sides while it covers the screen.
+	var cover := Callable()
+	if by_player and not move.attack_frames.is_empty():
+		cover = _swap_sides
+	await _signature_card(attacker, by_player, move, cover)
 
 
 ## Type the current message out letter by letter, then hold it.
@@ -1031,7 +1185,7 @@ func _card_accent(attacker: CreatureData, move: MoveData) -> Color:
 ##      drifts while it holds. A move with no close-up yet shows its owner's
 ##      battle sprite enlarged instead.
 ## Then it closes and the attack begins.
-func _signature_card(attacker: CreatureData, by_player: bool, move: MoveData) -> void:
+func _signature_card(attacker: CreatureData, by_player: bool, move: MoveData, cover: Callable = Callable()) -> void:
 	var accent: Color = _card_accent(attacker, move)
 	var view: Vector2 = get_viewport().get_visible_rect().size
 	var band_h := 124.0
@@ -1170,6 +1324,25 @@ func _signature_card(attacker: CreatureData, by_player: bool, move: MoveData) ->
 	slide.tween_method(place, art_x, art_x + side * 18.0, hold)  # a slow drift while it holds
 	await slide.finished
 	run.kill()
+	if cover.is_valid():
+		# The card is the camera cut (Preston, 2026-09-30): the band grows to
+		# cover the whole screen as the picture and name fade, the sides swap
+		# behind it, then it opens from the middle onto the other side of the field.
+		var to_full := create_tween().set_parallel()
+		to_full.tween_property(band, "size:y", view.y, 0.16).set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_CUBIC)
+		to_full.tween_property(band, "position:y", 0.0, 0.16).set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_CUBIC)
+		for child in band.get_children():
+			if child != stripes:
+				to_full.tween_property(child, "modulate:a", 0.0, 0.12)
+		await to_full.finished
+		cover.call()
+		await get_tree().create_timer(0.08).timeout
+		var reveal := create_tween().set_parallel()
+		reveal.tween_property(band, "size:y", 0.0, 0.22).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
+		reveal.tween_property(band, "position:y", roundf(view.y * 0.5), 0.22).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
+		await reveal.finished
+		band.queue_free()
+		return
 	var close := create_tween().set_parallel()
 	close.tween_property(band, "size:y", 0.0, 0.08)
 	close.tween_property(band, "position:y", mid_y, 0.08)
@@ -1823,7 +1996,8 @@ func _on_impact(by_player: bool, dealt: int, multiplier: float, move: MoveData) 
 	_flash(target, _freeze_for(move))
 	_shake(dealt)
 	_pop_damage(target, dealt, multiplier)
-	_animate_bars()
+	if not _reversed:
+		_animate_bars()  # in a reverse shot the bars slide once the camera cuts back
 	# The chip tick over the recorded impact says how well it landed, and the HP
 	# run follows it down.
 	_ui(&"hit_strong" if multiplier > 1.0 else (&"hit_weak" if multiplier < 1.0 else &"hit"))
@@ -2059,9 +2233,8 @@ func _zoom(s: Sprite2D) -> float:
 	var near_zoom: float = maxf(1.0, roundf(target / _base_height(s)))
 	if s == _foe_sprite:
 		return maxf(1.0, roundf(near_zoom * foe_perspective_scale * 2.0) / 2.0)
-	# The player's side has PLAYER_ROOM of open stage (left of its HP card,
-	# above the message box, below the foe's card). A big form is capped to
-	# fit it. Measured on the creature's front art, not the current frame, so
+	# The player's side has PLAYER_ROOM of stage, counting the lower part that
+	# sits behind the message box. A big form is capped to fit it. Measured on the creature's front art, not the current frame, so
 	# the size never jumps between attack frames.
 	if player_creature != null and player_creature.sprite != null:
 		var used: Rect2i = _used_rect(player_creature.sprite)
@@ -2554,6 +2727,7 @@ func _build_ui() -> void:
 	river_landing.position = Vector2(576, 324)
 	river_landing.scale = Vector2(4, 4)
 	_focus_stage.add_child(river_landing)
+	_backdrop = river_landing
 	# The painting continued past its edges for camera shots that pull back or
 	# tilt up: its outermost row or column of pixels stretched outward. The
 	# scene is horizontal bands (sky, banks, river), so a stretched edge column
@@ -2578,6 +2752,7 @@ func _build_ui() -> void:
 		strip.position = edge[1]
 		strip.scale = edge[2]
 		_focus_stage.add_child(strip)
+		_backdrop_edges.append(strip)
 
 	# Creatures, projectiles, and damage numbers move together on this stage.
 	# HUD controls stay on the CanvasLayer so impacts do not shake the interface.
@@ -2720,6 +2895,15 @@ func _make_hp_card(at: Vector2) -> Array:
 ## The resting centre that puts a sprite's lowest visible pixel on a foot
 ## line, so creatures of any size stand on the same ground and a giant grows
 ## upward instead of down behind the HUD. Uses the sprite's current scale.
+## Where your creature's feet go: below the top of the message box by a fixed
+## share of its drawn height, so about three quarters of it shows above the box.
+func _near_foot_y() -> float:
+	if _player_sprite.texture == null:
+		return MESSAGE_AT.y + 80.0
+	var used: Rect2i = _player_sprite.texture.get_image().get_used_rect()
+	return roundf(MESSAGE_AT.y + NEAR_HIDDEN * used.size.y * _player_sprite.scale.y)
+
+
 func _foot_home(sprite: Sprite2D, foot: Vector2) -> Vector2:
 	if sprite.texture == null:
 		return foot

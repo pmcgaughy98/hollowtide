@@ -1,0 +1,124 @@
+{
+  "status": "candidate terrain family; not a complete transition atlas; not installed",
+  "source": "C:\\Users\\pmcga\\OneDrive\\Documents\\HollowTide Sprites\\Assets\\World-Tiles\\Bluff-Top-Grass.jfif",
+  "source_sha256": "4f7e01293c33ddde6edea2bb367a603254ea2d567af9a004dbe7cd20a01f6c09",
+  "source_size": [
+    1024,
+    1024
+  ],
+  "nominal_sheet_layout": [
+    4,
+    4
+  ],
+  "measured_grid_scale": 5.12,
+  "logical_cell_with_gutter": [
+    50,
+    50
+  ],
+  "recovered_patch_size": [
+    48,
+    48
+  ],
+  "native_atlas_size": [
+    192,
+    192
+  ],
+  "native_palette_colors": 26,
+  "method": "Recover the center of each 5.12px drawing block; median 3x3 JPEG-noise sample; source-family quantization without dithering and unify only near-identical base grass; preserve source patch shapes.",
+  "patch_roles": [
+    {
+      "slot": 0,
+      "role": "CENTER A",
+      "file": "patch_00_48.png"
+    },
+    {
+      "slot": 1,
+      "role": "CENTER B",
+      "file": "patch_01_48.png"
+    },
+    {
+      "slot": 2,
+      "role": "CENTER A",
+      "file": "patch_02_48.png"
+    },
+    {
+      "slot": 3,
+      "role": "NE OUTER",
+      "file": "patch_03_48.png"
+    },
+    {
+      "slot": 4,
+      "role": "SW OUTER",
+      "file": "patch_04_48.png"
+    },
+    {
+      "slot": 5,
+      "role": "S EDGE A",
+      "file": "patch_05_48.png"
+    },
+    {
+      "slot": 6,
+      "role": "S EDGE B",
+      "file": "patch_06_48.png"
+    },
+    {
+      "slot": 7,
+      "role": "SE OUTER",
+      "file": "patch_07_48.png"
+    },
+    {
+      "slot": 8,
+      "role": "NW OUTER",
+      "file": "patch_08_48.png"
+    },
+    {
+      "slot": 9,
+      "role": "NE OUTER",
+      "file": "patch_09_48.png"
+    },
+    {
+      "slot": 10,
+      "role": "NW OUTER",
+      "file": "patch_10_48.png"
+    },
+    {
+      "slot": 11,
+      "role": "NE OUTER",
+      "file": "patch_11_48.png"
+    },
+    {
+      "slot": 12,
+      "role": "SW OUTER",
+      "file": "patch_12_48.png"
+    },
+    {
+      "slot": 13,
+      "role": "SE OUTER",
+      "file": "patch_13_48.png"
+    },
+    {
+      "slot": 14,
+      "role": "SW OUTER",
+      "file": "patch_14_48.png"
+    },
+    {
+      "slot": 15,
+      "role": "CENTER C",
+      "file": "patch_15_48.png"
+    }
+  ],
+  "missing_roles": [
+    "N edge",
+    "E edge",
+    "W edge",
+    "NW inner",
+    "NE inner",
+    "SE inner",
+    "SW inner",
+    "pure packed dirt"
+  ],
+  "duplicate_roles": "Several outer corners and CENTER A repeat with small generated differences; not sixteen distinct transitions.",
+  "map_geometry": "48px patches can cover 3x3 existing16px cells without changing map collision or scale; never shrink the family to16 just to fit a grid.",
+  "context_preview": "Material study uses the actual current teal/goggles courier at36px visible height; Cinderhide is shown separately as the finish anchor. Its path uses an existing S border plus a vertically mirrored study for the missing N border; it is not Route1 geometry or a complete final TileSet.",
+  "remaining_review": "Inspect repetition and seams; decide if the quiet grass finish fits the world before generating missing transitions. Courier identity is decided (teal/goggles); chibi turnaround/portrait art still needs approval."
+}

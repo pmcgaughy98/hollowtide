@@ -31,7 +31,7 @@ TILESET order, row-major: center A, center B, center C, north edge; east edge, s
 
 ## Shared world finish
 
-Use the depth of the saved exploration references: ground from above, visible roof tops and front/side walls, raised tree canopies and believable door height beside a roughly 36-pixel courier. Keep an original inland river identity with loess-yellow soil, dark silty banks, cottonwood and oak, weathered timber, rust-red brick and muted river blue-green. Paths and interactable landmarks remain legible.
+Use the depth of the saved exploration references: ground from above, visible roof tops and front/side walls, raised tree canopies and believable door height beside the selected chibi courier (32x32 map cell, roughly 30 logical pixels standing height). The character is an adult drawn with a large head and short map body. The 96x96 adult dialogue portrait is a separate tier and does not set environment scale. Keep an original inland river identity with loess-yellow soil, dark silty banks, cottonwood and oak, weathered timber, rust-red brick and muted river blue-green. Paths and interactable landmarks remain legible.
 
 Use crisp consistent pixel clusters, grouped values, restrained highlights and local material ramps. Dark silhouette outlines belong on props, not around every ground tile. No toy houses, checkerboard grass, repeated stamped tufts, painterly texture or extremely coarse handheld graphics. Turbo Green stays a UI accent; it is not the whole world palette. The color report's local-ramp/shared-anchor idea is useful; its old Nature turtle and universal-grid examples are superseded by current project decisions. Bloom is the current growth essence.
 

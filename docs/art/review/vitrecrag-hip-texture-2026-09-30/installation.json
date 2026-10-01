@@ -1,0 +1,21 @@
+{
+	"installed": [
+		{
+			"original_backup": "front_original.png",
+			"sha256": "71724e731a2a385fc6e2152fa6941b5d5eec1874bfa745a481a99f87f7c7d045",
+			"target": "res://assets/sprites/creatures/vitrecrag_official.png"
+		},
+		{
+			"original_backup": "back_original.png",
+			"sha256": "6bb676fd657adfab9b8e84cc4a90b206ce3d3f3234b395cfb9aa61a1b8d5c061",
+			"target": "res://assets/sprites/creatures/vitrecrag_back_official_2026_09_30.png"
+		},
+		{
+			"original_backup": "front_idle_body_original.png",
+			"sha256": "39208c7a7274351ad2e32cac954a49dc80ec9e647354b2f0ef64e1e4e7752e83",
+			"target": "res://assets/sprites/creatures/idle/vitrecrag_flame/body.png"
+		}
+	],
+	"mode": "pixel edits only",
+	"played_after_install": false
+}

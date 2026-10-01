@@ -9,14 +9,12 @@
 [ext_resource type="Texture2D" uid="uid://kjcr4yeu16wa" path="res://assets/sprites/creatures/attacks/vitrecrag_lava_pour/style_matched/recover.png" id="9_recover"]
 [ext_resource type="PackedScene" path="res://scenes/effects/vitrecrag_glass_pour.tscn" id="10_gush"]
 [ext_resource type="PackedScene" path="res://scenes/effects/vitrecrag_lava_river.tscn" id="11_lob"]
-[ext_resource type="Texture2D" uid="uid://cowird8qhmqhj" path="res://assets/sprites/creatures/attacks/vitrecrag_lava_pour/back/glow_1.png" id="12_back1"]
-[ext_resource type="Texture2D" uid="uid://c261monolkfvy" path="res://assets/sprites/creatures/attacks/vitrecrag_lava_pour/back/glow_2.png" id="13_back2"]
-[ext_resource type="Texture2D" uid="uid://dlw4epeybmwa5" path="res://assets/sprites/creatures/attacks/vitrecrag_lava_pour/back/glow_3.png" id="14_back3"]
 [ext_resource type="PackedScene" path="res://scenes/effects/vitrecrag_meltdown.tscn" id="15_meltdown"]
 [ext_resource type="Texture2D" uid="uid://bxgm4q71iaukv" path="res://assets/sprites/creatures/attacks/vitrecrag_lava_pour/style_matched/titlecard.png" id="16_cutin"]
 [ext_resource type="Texture2D" uid="uid://cl8kbx15lh8cj" path="res://assets/sprites/creatures/attacks/vitrecrag_lava_pour/style_matched/overload.png" id="17_overload"]
 [ext_resource type="Texture2D" uid="uid://buuhspb7ugkxu" path="res://assets/sprites/creatures/attacks/vitrecrag_lava_pour/style_matched/overload_pour_a.png" id="18_opa"]
 [ext_resource type="Texture2D" uid="uid://bv7naeuxud0nu" path="res://assets/sprites/creatures/attacks/vitrecrag_lava_pour/style_matched/overload_pour_b.png" id="19_opb"]
+[ext_resource type="Texture2D" uid="uid://cs8je4wshridw" path="res://assets/sprites/creatures/vitrecrag_back_official_2026_09_30.png" id="back_official"]
 [ext_resource type="Script" uid="uid://dtck6dpiev4ck" path="res://scripts/camera_shot.gd" id="cam_shot"]
 [ext_resource type="AudioStream" uid="uid://f67amd2wdyd8" path="res://assets/audio/sfx/vitrecrag/buildup.wav" id="snd_buildup"]
 [ext_resource type="AudioStream" uid="uid://cbuwm1v7fjknx" path="res://assets/audio/sfx/vitrecrag/cry.wav" id="snd_cry"]
@@ -58,7 +56,7 @@ attack_hit_frame = 7
 attack_brace_frame = 2
 attack_strain_frame = 3
 attack_strain_overload = ExtResource("17_overload")
-attack_back_frames = Array[Texture2D]([ExtResource("12_back1"), ExtResource("13_back2"), ExtResource("14_back3"), ExtResource("14_back3"), ExtResource("14_back3"), ExtResource("14_back3"), ExtResource("14_back3"), ExtResource("14_back3"), ExtResource("14_back3"), ExtResource("14_back3"), ExtResource("14_back3"), ExtResource("14_back3"), ExtResource("13_back2"), ExtResource("12_back1")])
+attack_back_frames = Array[Texture2D]([ExtResource("back_official"), ExtResource("back_official"), ExtResource("back_official"), ExtResource("back_official"), ExtResource("back_official"), ExtResource("back_official"), ExtResource("back_official"), ExtResource("back_official"), ExtResource("back_official"), ExtResource("back_official"), ExtResource("back_official"), ExtResource("back_official"), ExtResource("back_official"), ExtResource("back_official")])
 attack_back_emitter_offset = Vector2(36, -8)
 attack_emitter = ExtResource("10_gush")
 attack_emitter_offset = Vector2(32, 23)

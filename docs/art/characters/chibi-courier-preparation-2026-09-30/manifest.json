@@ -1,0 +1,809 @@
+{
+  "status": "prepared source-pose package, not integrated or a repaired walk cycle",
+  "source": "C:\\Users\\pmcga\\OneDrive\\Documents\\HollowTide Sprites\\Character\\Male.jpg",
+  "source_sha256": "580b807b9ed9e86f3aa1ca4f5bf1c73f8d0cb97aaa842536a9bd22ccd2f76253",
+  "source_size": [
+    1408,
+    1408
+  ],
+  "actual_row_bands": [
+    [
+      69,
+      318
+    ],
+    [
+      398,
+      638
+    ],
+    [
+      727,
+      967
+    ],
+    [
+      1048,
+      1302
+    ]
+  ],
+  "actual_column_bands": [
+    [
+      146,
+      275
+    ],
+    [
+      470,
+      599
+    ],
+    [
+      795,
+      923
+    ],
+    [
+      1119,
+      1248
+    ]
+  ],
+  "selected_identity": "Preston's original chibi teal jacket/forehead goggles courier",
+  "source_order": [
+    "DOWN",
+    "LEFT",
+    "RIGHT",
+    "UP"
+  ],
+  "main_atlas_cell": [
+    272,
+    272
+  ],
+  "main_atlas_size": [
+    1088,
+    1088
+  ],
+  "main_atlas": "assets/sprites/player/courier_chibi_prepared_2026_09_30/source_detail/source_pose_atlas_4x4.png",
+  "optional_map_candidate_cell": [
+    32,
+    32
+  ],
+  "optional_map_candidate_atlas_size": [
+    128,
+    128
+  ],
+  "shared_character_palette": [
+    [
+      232,
+      178,
+      132
+    ],
+    [
+      164,
+      134,
+      95
+    ],
+    [
+      164,
+      115,
+      66
+    ],
+    [
+      139,
+      108,
+      58
+    ],
+    [
+      27,
+      145,
+      145
+    ],
+    [
+      17,
+      141,
+      143
+    ],
+    [
+      44,
+      115,
+      110
+    ],
+    [
+      12,
+      115,
+      119
+    ],
+    [
+      138,
+      95,
+      54
+    ],
+    [
+      125,
+      83,
+      49
+    ],
+    [
+      109,
+      82,
+      44
+    ],
+    [
+      107,
+      71,
+      45
+    ],
+    [
+      81,
+      83,
+      52
+    ],
+    [
+      82,
+      72,
+      43
+    ],
+    [
+      20,
+      92,
+      92
+    ],
+    [
+      19,
+      76,
+      78
+    ],
+    [
+      100,
+      67,
+      43
+    ],
+    [
+      96,
+      61,
+      42
+    ],
+    [
+      83,
+      62,
+      37
+    ],
+    [
+      83,
+      56,
+      37
+    ],
+    [
+      82,
+      52,
+      37
+    ],
+    [
+      74,
+      50,
+      31
+    ],
+    [
+      73,
+      46,
+      32
+    ],
+    [
+      69,
+      43,
+      29
+    ],
+    [
+      58,
+      53,
+      36
+    ],
+    [
+      24,
+      56,
+      55
+    ],
+    [
+      62,
+      40,
+      29
+    ],
+    [
+      51,
+      38,
+      29
+    ],
+    [
+      52,
+      34,
+      26
+    ],
+    [
+      46,
+      29,
+      23
+    ],
+    [
+      37,
+      26,
+      21
+    ],
+    [
+      32,
+      21,
+      19
+    ]
+  ],
+  "alpha": "binary0/255; all background removed",
+  "source_master_cell": [
+    272,
+    272
+  ],
+  "source_master_registration": {
+    "head_center_x": 136,
+    "bottom_boot_y": 260
+  },
+  "game_target": "Full-detail source272px cells, nearest filter, common source foot anchor(136,260), same display zoom across directions.32px reduced set is an unapproved size study; it loses source face/goggle detail.",
+  "sampling": "Source masters retain exact source proportions/poses.32px map version is a deliberate reduction: BOX cell sample, binary alpha and one32-color character palette; it is not a claim of recovering an original32px grid.",
+  "frames": [
+    {
+      "direction": "down",
+      "source_column": 0,
+      "source_box": [
+        143,
+        66,
+        278,
+        321
+      ],
+      "master": "docs\\art\\characters\\chibi-courier-preparation-2026-09-30\\source_masters\\down_source_pose_00.png",
+      "master_cell": [
+        272,
+        272
+      ],
+      "full_detail_frame": "assets\\sprites\\player\\courier_chibi_prepared_2026_09_30\\source_detail\\down\\source_pose_00.png",
+      "head_center_source": 211,
+      "foot_pixel_source": 317,
+      "master_registration": {
+        "head_center_x": 136,
+        "bottom_boot_y": 260
+      },
+      "outline_spill_pixels_repainted": 1196,
+      "keyed_visible_pixels": 21077,
+      "pose_role": "extended stride/contact variant; no confirmed passing pose",
+      "review_status": "visually inspected in full-detail contact sheet; native32 candidate inspected separately",
+      "prepared_frame": "assets\\sprites\\player\\courier_chibi_prepared_2026_09_30\\down\\source_pose_00.png",
+      "visible_bbox_32": [
+        9,
+        1,
+        23,
+        31
+      ],
+      "visual_analysis": "Front view. screen-right boot extends lower/forward; counterpart trails. Source columns0/2 and1/3 repeat the two contact ideas with small arm/face differences. No close-foot passing pose.",
+      "recommended_phase_use": "F0 contact candidate"
+    },
+    {
+      "direction": "down",
+      "source_column": 1,
+      "source_box": [
+        467,
+        66,
+        602,
+        321
+      ],
+      "master": "docs\\art\\characters\\chibi-courier-preparation-2026-09-30\\source_masters\\down_source_pose_01.png",
+      "master_cell": [
+        272,
+        272
+      ],
+      "full_detail_frame": "assets\\sprites\\player\\courier_chibi_prepared_2026_09_30\\source_detail\\down\\source_pose_01.png",
+      "head_center_source": 535,
+      "foot_pixel_source": 317,
+      "master_registration": {
+        "head_center_x": 136,
+        "bottom_boot_y": 260
+      },
+      "outline_spill_pixels_repainted": 1205,
+      "keyed_visible_pixels": 21026,
+      "pose_role": "extended stride/contact variant; no confirmed passing pose",
+      "review_status": "visually inspected in full-detail contact sheet; native32 candidate inspected separately",
+      "prepared_frame": "assets\\sprites\\player\\courier_chibi_prepared_2026_09_30\\down\\source_pose_01.png",
+      "visible_bbox_32": [
+        9,
+        1,
+        23,
+        31
+      ],
+      "visual_analysis": "Front view. screen-left boot extends lower/forward; counterpart trails. Source columns0/2 and1/3 repeat the two contact ideas with small arm/face differences. No close-foot passing pose.",
+      "recommended_phase_use": "F2 opposite contact candidate"
+    },
+    {
+      "direction": "down",
+      "source_column": 2,
+      "source_box": [
+        792,
+        66,
+        926,
+        321
+      ],
+      "master": "docs\\art\\characters\\chibi-courier-preparation-2026-09-30\\source_masters\\down_source_pose_02.png",
+      "master_cell": [
+        272,
+        272
+      ],
+      "full_detail_frame": "assets\\sprites\\player\\courier_chibi_prepared_2026_09_30\\source_detail\\down\\source_pose_02.png",
+      "head_center_source": 860,
+      "foot_pixel_source": 317,
+      "master_registration": {
+        "head_center_x": 136,
+        "bottom_boot_y": 260
+      },
+      "outline_spill_pixels_repainted": 1181,
+      "keyed_visible_pixels": 20920,
+      "pose_role": "extended stride/contact variant; no confirmed passing pose",
+      "review_status": "visually inspected in full-detail contact sheet; native32 candidate inspected separately",
+      "prepared_frame": "assets\\sprites\\player\\courier_chibi_prepared_2026_09_30\\down\\source_pose_02.png",
+      "visible_bbox_32": [
+        9,
+        1,
+        23,
+        31
+      ],
+      "visual_analysis": "Front view. screen-right boot extends lower/forward; counterpart trails. Source columns0/2 and1/3 repeat the two contact ideas with small arm/face differences. No close-foot passing pose.",
+      "recommended_phase_use": "alternate contact reference; not an in-between"
+    },
+    {
+      "direction": "down",
+      "source_column": 3,
+      "source_box": [
+        1116,
+        66,
+        1251,
+        321
+      ],
+      "master": "docs\\art\\characters\\chibi-courier-preparation-2026-09-30\\source_masters\\down_source_pose_03.png",
+      "master_cell": [
+        272,
+        272
+      ],
+      "full_detail_frame": "assets\\sprites\\player\\courier_chibi_prepared_2026_09_30\\source_detail\\down\\source_pose_03.png",
+      "head_center_source": 1184,
+      "foot_pixel_source": 317,
+      "master_registration": {
+        "head_center_x": 136,
+        "bottom_boot_y": 260
+      },
+      "outline_spill_pixels_repainted": 1192,
+      "keyed_visible_pixels": 20944,
+      "pose_role": "extended stride/contact variant; no confirmed passing pose",
+      "review_status": "visually inspected in full-detail contact sheet; native32 candidate inspected separately",
+      "prepared_frame": "assets\\sprites\\player\\courier_chibi_prepared_2026_09_30\\down\\source_pose_03.png",
+      "visible_bbox_32": [
+        9,
+        1,
+        23,
+        31
+      ],
+      "visual_analysis": "Front view. screen-left boot extends lower/forward; counterpart trails. Source columns0/2 and1/3 repeat the two contact ideas with small arm/face differences. No close-foot passing pose.",
+      "recommended_phase_use": "alternate contact reference; not an in-between"
+    },
+    {
+      "direction": "left",
+      "source_column": 0,
+      "source_box": [
+        143,
+        395,
+        278,
+        641
+      ],
+      "master": "docs\\art\\characters\\chibi-courier-preparation-2026-09-30\\source_masters\\left_source_pose_00.png",
+      "master_cell": [
+        272,
+        272
+      ],
+      "full_detail_frame": "assets\\sprites\\player\\courier_chibi_prepared_2026_09_30\\source_detail\\left\\source_pose_00.png",
+      "head_center_source": 211,
+      "foot_pixel_source": 637,
+      "master_registration": {
+        "head_center_x": 136,
+        "bottom_boot_y": 260
+      },
+      "outline_spill_pixels_repainted": 1314,
+      "keyed_visible_pixels": 18800,
+      "pose_role": "extended stride/contact variant; no confirmed passing pose",
+      "review_status": "visually inspected in full-detail contact sheet; native32 candidate inspected separately",
+      "prepared_frame": "assets\\sprites\\player\\courier_chibi_prepared_2026_09_30\\left\\source_pose_00.png",
+      "visible_bbox_32": [
+        8,
+        2,
+        23,
+        31
+      ],
+      "visual_analysis": "True LEFT view. Wide extended stride is retained in all four source cells. Tiny arm/hair/outline differences do not create a different leg phase; playing these alone produces the previous floating problem.",
+      "recommended_phase_use": "F0 contact reference"
+    },
+    {
+      "direction": "left",
+      "source_column": 1,
+      "source_box": [
+        467,
+        395,
+        602,
+        641
+      ],
+      "master": "docs\\art\\characters\\chibi-courier-preparation-2026-09-30\\source_masters\\left_source_pose_01.png",
+      "master_cell": [
+        272,
+        272
+      ],
+      "full_detail_frame": "assets\\sprites\\player\\courier_chibi_prepared_2026_09_30\\source_detail\\left\\source_pose_01.png",
+      "head_center_source": 534,
+      "foot_pixel_source": 637,
+      "master_registration": {
+        "head_center_x": 136,
+        "bottom_boot_y": 260
+      },
+      "outline_spill_pixels_repainted": 1297,
+      "keyed_visible_pixels": 18820,
+      "pose_role": "extended stride/contact variant; no confirmed passing pose",
+      "review_status": "visually inspected in full-detail contact sheet; native32 candidate inspected separately",
+      "prepared_frame": "assets\\sprites\\player\\courier_chibi_prepared_2026_09_30\\left\\source_pose_01.png",
+      "visible_bbox_32": [
+        8,
+        3,
+        23,
+        31
+      ],
+      "visual_analysis": "True LEFT view. Wide extended stride is retained in all four source cells. Tiny arm/hair/outline differences do not create a different leg phase; playing these alone produces the previous floating problem.",
+      "recommended_phase_use": "held-stride variant; do not assign to a missing gait phase"
+    },
+    {
+      "direction": "left",
+      "source_column": 2,
+      "source_box": [
+        792,
+        395,
+        926,
+        641
+      ],
+      "master": "docs\\art\\characters\\chibi-courier-preparation-2026-09-30\\source_masters\\left_source_pose_02.png",
+      "master_cell": [
+        272,
+        272
+      ],
+      "full_detail_frame": "assets\\sprites\\player\\courier_chibi_prepared_2026_09_30\\source_detail\\left\\source_pose_02.png",
+      "head_center_source": 860,
+      "foot_pixel_source": 638,
+      "master_registration": {
+        "head_center_x": 136,
+        "bottom_boot_y": 260
+      },
+      "outline_spill_pixels_repainted": 1290,
+      "keyed_visible_pixels": 18762,
+      "pose_role": "extended stride/contact variant; no confirmed passing pose",
+      "review_status": "visually inspected in full-detail contact sheet; native32 candidate inspected separately",
+      "prepared_frame": "assets\\sprites\\player\\courier_chibi_prepared_2026_09_30\\left\\source_pose_02.png",
+      "visible_bbox_32": [
+        8,
+        2,
+        23,
+        31
+      ],
+      "visual_analysis": "True LEFT view. Wide extended stride is retained in all four source cells. Tiny arm/hair/outline differences do not create a different leg phase; playing these alone produces the previous floating problem.",
+      "recommended_phase_use": "held-stride variant; do not assign to a missing gait phase"
+    },
+    {
+      "direction": "left",
+      "source_column": 3,
+      "source_box": [
+        1116,
+        395,
+        1251,
+        641
+      ],
+      "master": "docs\\art\\characters\\chibi-courier-preparation-2026-09-30\\source_masters\\left_source_pose_03.png",
+      "master_cell": [
+        272,
+        272
+      ],
+      "full_detail_frame": "assets\\sprites\\player\\courier_chibi_prepared_2026_09_30\\source_detail\\left\\source_pose_03.png",
+      "head_center_source": 1184,
+      "foot_pixel_source": 638,
+      "master_registration": {
+        "head_center_x": 136,
+        "bottom_boot_y": 260
+      },
+      "outline_spill_pixels_repainted": 1318,
+      "keyed_visible_pixels": 18790,
+      "pose_role": "extended stride/contact variant; no confirmed passing pose",
+      "review_status": "visually inspected in full-detail contact sheet; native32 candidate inspected separately",
+      "prepared_frame": "assets\\sprites\\player\\courier_chibi_prepared_2026_09_30\\left\\source_pose_03.png",
+      "visible_bbox_32": [
+        8,
+        3,
+        23,
+        31
+      ],
+      "visual_analysis": "True LEFT view. Wide extended stride is retained in all four source cells. Tiny arm/hair/outline differences do not create a different leg phase; playing these alone produces the previous floating problem.",
+      "recommended_phase_use": "held-stride variant; do not assign to a missing gait phase"
+    },
+    {
+      "direction": "right",
+      "source_column": 0,
+      "source_box": [
+        143,
+        724,
+        278,
+        970
+      ],
+      "master": "docs\\art\\characters\\chibi-courier-preparation-2026-09-30\\source_masters\\right_source_pose_00.png",
+      "master_cell": [
+        272,
+        272
+      ],
+      "full_detail_frame": "assets\\sprites\\player\\courier_chibi_prepared_2026_09_30\\source_detail\\right\\source_pose_00.png",
+      "head_center_source": 209,
+      "foot_pixel_source": 966,
+      "master_registration": {
+        "head_center_x": 136,
+        "bottom_boot_y": 260
+      },
+      "outline_spill_pixels_repainted": 1351,
+      "keyed_visible_pixels": 18841,
+      "pose_role": "extended stride/contact variant; no confirmed passing pose",
+      "review_status": "visually inspected in full-detail contact sheet; native32 candidate inspected separately",
+      "prepared_frame": "assets\\sprites\\player\\courier_chibi_prepared_2026_09_30\\right\\source_pose_00.png",
+      "visible_bbox_32": [
+        9,
+        2,
+        24,
+        31
+      ],
+      "visual_analysis": "True RIGHT view. Wide extended stride is retained in all four source cells. Tiny arm/hair/outline differences do not create a different leg phase; playing these alone produces the previous floating problem.",
+      "recommended_phase_use": "F0 contact reference"
+    },
+    {
+      "direction": "right",
+      "source_column": 1,
+      "source_box": [
+        467,
+        724,
+        602,
+        970
+      ],
+      "master": "docs\\art\\characters\\chibi-courier-preparation-2026-09-30\\source_masters\\right_source_pose_01.png",
+      "master_cell": [
+        272,
+        272
+      ],
+      "full_detail_frame": "assets\\sprites\\player\\courier_chibi_prepared_2026_09_30\\source_detail\\right\\source_pose_01.png",
+      "head_center_source": 533,
+      "foot_pixel_source": 966,
+      "master_registration": {
+        "head_center_x": 136,
+        "bottom_boot_y": 260
+      },
+      "outline_spill_pixels_repainted": 1325,
+      "keyed_visible_pixels": 18758,
+      "pose_role": "extended stride/contact variant; no confirmed passing pose",
+      "review_status": "visually inspected in full-detail contact sheet; native32 candidate inspected separately",
+      "prepared_frame": "assets\\sprites\\player\\courier_chibi_prepared_2026_09_30\\right\\source_pose_01.png",
+      "visible_bbox_32": [
+        9,
+        2,
+        24,
+        31
+      ],
+      "visual_analysis": "True RIGHT view. Wide extended stride is retained in all four source cells. Tiny arm/hair/outline differences do not create a different leg phase; playing these alone produces the previous floating problem.",
+      "recommended_phase_use": "held-stride variant; do not assign to a missing gait phase"
+    },
+    {
+      "direction": "right",
+      "source_column": 2,
+      "source_box": [
+        792,
+        724,
+        926,
+        970
+      ],
+      "master": "docs\\art\\characters\\chibi-courier-preparation-2026-09-30\\source_masters\\right_source_pose_02.png",
+      "master_cell": [
+        272,
+        272
+      ],
+      "full_detail_frame": "assets\\sprites\\player\\courier_chibi_prepared_2026_09_30\\source_detail\\right\\source_pose_02.png",
+      "head_center_source": 858,
+      "foot_pixel_source": 966,
+      "master_registration": {
+        "head_center_x": 136,
+        "bottom_boot_y": 260
+      },
+      "outline_spill_pixels_repainted": 1329,
+      "keyed_visible_pixels": 18698,
+      "pose_role": "extended stride/contact variant; no confirmed passing pose",
+      "review_status": "visually inspected in full-detail contact sheet; native32 candidate inspected separately",
+      "prepared_frame": "assets\\sprites\\player\\courier_chibi_prepared_2026_09_30\\right\\source_pose_02.png",
+      "visible_bbox_32": [
+        9,
+        3,
+        24,
+        31
+      ],
+      "visual_analysis": "True RIGHT view. Wide extended stride is retained in all four source cells. Tiny arm/hair/outline differences do not create a different leg phase; playing these alone produces the previous floating problem.",
+      "recommended_phase_use": "held-stride variant; do not assign to a missing gait phase"
+    },
+    {
+      "direction": "right",
+      "source_column": 3,
+      "source_box": [
+        1116,
+        724,
+        1251,
+        970
+      ],
+      "master": "docs\\art\\characters\\chibi-courier-preparation-2026-09-30\\source_masters\\right_source_pose_03.png",
+      "master_cell": [
+        272,
+        272
+      ],
+      "full_detail_frame": "assets\\sprites\\player\\courier_chibi_prepared_2026_09_30\\source_detail\\right\\source_pose_03.png",
+      "head_center_source": 1182,
+      "foot_pixel_source": 966,
+      "master_registration": {
+        "head_center_x": 136,
+        "bottom_boot_y": 260
+      },
+      "outline_spill_pixels_repainted": 1267,
+      "keyed_visible_pixels": 18722,
+      "pose_role": "extended stride/contact variant; no confirmed passing pose",
+      "review_status": "visually inspected in full-detail contact sheet; native32 candidate inspected separately",
+      "prepared_frame": "assets\\sprites\\player\\courier_chibi_prepared_2026_09_30\\right\\source_pose_03.png",
+      "visible_bbox_32": [
+        9,
+        2,
+        24,
+        31
+      ],
+      "visual_analysis": "True RIGHT view. Wide extended stride is retained in all four source cells. Tiny arm/hair/outline differences do not create a different leg phase; playing these alone produces the previous floating problem.",
+      "recommended_phase_use": "held-stride variant; do not assign to a missing gait phase"
+    },
+    {
+      "direction": "up",
+      "source_column": 0,
+      "source_box": [
+        143,
+        1045,
+        278,
+        1305
+      ],
+      "master": "docs\\art\\characters\\chibi-courier-preparation-2026-09-30\\source_masters\\up_source_pose_00.png",
+      "master_cell": [
+        272,
+        272
+      ],
+      "full_detail_frame": "assets\\sprites\\player\\courier_chibi_prepared_2026_09_30\\source_detail\\up\\source_pose_00.png",
+      "head_center_source": 208,
+      "foot_pixel_source": 1301,
+      "master_registration": {
+        "head_center_x": 136,
+        "bottom_boot_y": 260
+      },
+      "outline_spill_pixels_repainted": 1192,
+      "keyed_visible_pixels": 21165,
+      "pose_role": "extended stride/contact variant; no confirmed passing pose",
+      "review_status": "visually inspected in full-detail contact sheet; native32 candidate inspected separately",
+      "prepared_frame": "assets\\sprites\\player\\courier_chibi_prepared_2026_09_30\\up\\source_pose_00.png",
+      "visible_bbox_32": [
+        9,
+        1,
+        23,
+        31
+      ],
+      "visual_analysis": "True rear view, rear hair/jacket and satchel visible. screen-right boot extends farther; columns0/2 and1/3 are corresponding contact variants. No clear passing pose.",
+      "recommended_phase_use": "F0 contact candidate"
+    },
+    {
+      "direction": "up",
+      "source_column": 1,
+      "source_box": [
+        467,
+        1045,
+        602,
+        1305
+      ],
+      "master": "docs\\art\\characters\\chibi-courier-preparation-2026-09-30\\source_masters\\up_source_pose_01.png",
+      "master_cell": [
+        272,
+        272
+      ],
+      "full_detail_frame": "assets\\sprites\\player\\courier_chibi_prepared_2026_09_30\\source_detail\\up\\source_pose_01.png",
+      "head_center_source": 533,
+      "foot_pixel_source": 1301,
+      "master_registration": {
+        "head_center_x": 136,
+        "bottom_boot_y": 260
+      },
+      "outline_spill_pixels_repainted": 1243,
+      "keyed_visible_pixels": 21140,
+      "pose_role": "extended stride/contact variant; no confirmed passing pose",
+      "review_status": "visually inspected in full-detail contact sheet; native32 candidate inspected separately",
+      "prepared_frame": "assets\\sprites\\player\\courier_chibi_prepared_2026_09_30\\up\\source_pose_01.png",
+      "visible_bbox_32": [
+        9,
+        1,
+        23,
+        31
+      ],
+      "visual_analysis": "True rear view, rear hair/jacket and satchel visible. screen-left boot extends farther; columns0/2 and1/3 are corresponding contact variants. No clear passing pose.",
+      "recommended_phase_use": "F2 opposite contact candidate"
+    },
+    {
+      "direction": "up",
+      "source_column": 2,
+      "source_box": [
+        792,
+        1045,
+        926,
+        1305
+      ],
+      "master": "docs\\art\\characters\\chibi-courier-preparation-2026-09-30\\source_masters\\up_source_pose_02.png",
+      "master_cell": [
+        272,
+        272
+      ],
+      "full_detail_frame": "assets\\sprites\\player\\courier_chibi_prepared_2026_09_30\\source_detail\\up\\source_pose_02.png",
+      "head_center_source": 858,
+      "foot_pixel_source": 1298,
+      "master_registration": {
+        "head_center_x": 136,
+        "bottom_boot_y": 260
+      },
+      "outline_spill_pixels_repainted": 1212,
+      "keyed_visible_pixels": 21125,
+      "pose_role": "extended stride/contact variant; no confirmed passing pose",
+      "review_status": "visually inspected in full-detail contact sheet; native32 candidate inspected separately",
+      "prepared_frame": "assets\\sprites\\player\\courier_chibi_prepared_2026_09_30\\up\\source_pose_02.png",
+      "visible_bbox_32": [
+        9,
+        1,
+        23,
+        31
+      ],
+      "visual_analysis": "True rear view, rear hair/jacket and satchel visible. screen-right boot extends farther; columns0/2 and1/3 are corresponding contact variants. No clear passing pose.",
+      "recommended_phase_use": "alternate contact reference; not an in-between"
+    },
+    {
+      "direction": "up",
+      "source_column": 3,
+      "source_box": [
+        1116,
+        1045,
+        1251,
+        1305
+      ],
+      "master": "docs\\art\\characters\\chibi-courier-preparation-2026-09-30\\source_masters\\up_source_pose_03.png",
+      "master_cell": [
+        272,
+        272
+      ],
+      "full_detail_frame": "assets\\sprites\\player\\courier_chibi_prepared_2026_09_30\\source_detail\\up\\source_pose_03.png",
+      "head_center_source": 1182,
+      "foot_pixel_source": 1301,
+      "master_registration": {
+        "head_center_x": 136,
+        "bottom_boot_y": 260
+      },
+      "outline_spill_pixels_repainted": 1239,
+      "keyed_visible_pixels": 21126,
+      "pose_role": "extended stride/contact variant; no confirmed passing pose",
+      "review_status": "visually inspected in full-detail contact sheet; native32 candidate inspected separately",
+      "prepared_frame": "assets\\sprites\\player\\courier_chibi_prepared_2026_09_30\\up\\source_pose_03.png",
+      "visible_bbox_32": [
+        9,
+        1,
+        23,
+        31
+      ],
+      "visual_analysis": "True rear view, rear hair/jacket and satchel visible. screen-left boot extends farther; columns0/2 and1/3 are corresponding contact variants. No clear passing pose.",
+      "recommended_phase_use": "alternate contact reference; not an in-between"
+    }
+  ],
+  "missing_gait": "Side poses repeat nearly the same extended stride; no adequate passing poses. Down/up alternate contacts but also lack a clear four-phase contact/passing cycle.",
+  "runtime": "No player.gd, scene, project start or current walk resources changed. No game run or tests performed.",
+  "claude_handoff": "docs/art/characters/chibi-courier-preparation-2026-09-30/CLAUDE_HANDOFF.md",
+  "animation_order_reanalysis": "Original source column order0-3 is preserved for identification, not approved as gait order. DOWN/UP have contact0 -> missing passing -> opposite contact1 -> missing opposite passing. LEFT/RIGHT currently offer one held-stride family, so opposite contact and both passing poses are missing. Do not relabel duplicate poses as those phases.",
+  "main_finish": "Full-detail keyed cuts retain the original chibi graphics and anatomy.32px map reduction is explicitly unapproved because face/goggle detail is lost."
+}

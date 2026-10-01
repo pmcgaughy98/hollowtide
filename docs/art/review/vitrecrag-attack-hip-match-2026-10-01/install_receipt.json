@@ -1,0 +1,23 @@
+{
+	"collaboration_append": "## Codex — 2026-10-01 — Vitrecrag attack hip-material finish",
+	"gameplay_test_run": false,
+	"installed": [
+		"assets/sprites/creatures/attacks/vitrecrag_plate_lunge/style_matched/load.png",
+		"assets/sprites/creatures/attacks/vitrecrag_plate_lunge/style_matched/brace.png",
+		"assets/sprites/creatures/attacks/vitrecrag_plate_lunge/style_matched/launch.png",
+		"assets/sprites/creatures/attacks/vitrecrag_plate_lunge/style_matched/contact.png",
+		"assets/sprites/creatures/attacks/vitrecrag_plate_lunge/style_matched/recover.png",
+		"assets/sprites/creatures/attacks/vitrecrag_lava_pour/style_matched/load.png",
+		"assets/sprites/creatures/attacks/vitrecrag_lava_pour/style_matched/hole.png",
+		"assets/sprites/creatures/attacks/vitrecrag_lava_pour/style_matched/flood.png",
+		"assets/sprites/creatures/attacks/vitrecrag_lava_pour/style_matched/overload.png",
+		"assets/sprites/creatures/attacks/vitrecrag_lava_pour/style_matched/overload_pour_a.png",
+		"assets/sprites/creatures/attacks/vitrecrag_lava_pour/style_matched/overload_pour_b.png",
+		"assets/sprites/creatures/attacks/vitrecrag_lava_pour/style_matched/breakout.png",
+		"assets/sprites/creatures/attacks/vitrecrag_lava_pour/style_matched/recover.png",
+		"assets/sprites/creatures/attacks/vitrecrag_lava_pour/style_matched/titlecard.png"
+	],
+	"manual_before_backups": "docs/art/review/vitrecrag-attack-hip-match-2026-10-01/before/",
+	"pixel_changes": 2903,
+	"review_files": 22
+}

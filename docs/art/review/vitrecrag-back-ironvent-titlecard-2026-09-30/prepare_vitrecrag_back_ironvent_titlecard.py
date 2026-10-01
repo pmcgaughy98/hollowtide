@@ -21,9 +21,16 @@ sys.dont_write_bytecode = True
 sys.path.insert(0, str(ROOT / "tools"))
 import convert_forge_sprite as forge
 
+def source_after_reorganization(current, previous):
+    """Prefer current art folders while still accepting older layouts."""
+    current_path = ART / current
+    return current_path if current_path.is_file() else ART / previous
+
 SOURCES = {
-    "vitrecrag_back": args.back_source or ART / "Creatures-Back/Vitrecrag-Back.jfif",
-    "ironvent_titlecard": args.titlecard_source or ART / "Signature-Titlecards/Ironvent-titlecard.png",
+    "vitrecrag_back": args.back_source or source_after_reorganization(
+        "Creatures/Creatures-Back/Vitrecrag-Back.jfif", "Creatures-Back/Vitrecrag-Back.jfif"),
+    "ironvent_titlecard": args.titlecard_source or source_after_reorganization(
+        "Creatures/Signature-Titlecards/Ironvent-titlecard.png", "Signature-Titlecards/Ironvent-titlecard.png"),
 }
 ANCHORS = {
     "vitrecrag_front": ROOT / "assets/sprites/creatures/vitrecrag_official.png",

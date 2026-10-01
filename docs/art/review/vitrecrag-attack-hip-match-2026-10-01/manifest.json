@@ -1,0 +1,3708 @@
+{
+  "date": "2026-10-01",
+  "official_front": "C:\\Users\\pmcga\\dev\\hollowtide\\assets\\sprites\\creatures\\vitrecrag_official.png",
+  "official_sha256": "71724e731a2a385fc6e2152fa6941b5d5eec1874bfa745a481a99f87f7c7d045",
+  "scope": "Interior hip connection shading only, selected live frames. No source-sheet cuts, pose/order/timing changes, or resampling.",
+  "frames": [
+    {
+      "id": "plate/load",
+      "path": "assets/sprites/creatures/attacks/vitrecrag_plate_lunge/style_matched/load.png",
+      "source": "C:\\Users\\pmcga\\dev\\hollowtide\\assets\\sprites\\creatures\\attacks\\vitrecrag_plate_lunge\\style_matched\\load.png",
+      "source_sha256": "7d22532885c45f938fae706c8bc8656788cdb4e57e56527f7d9575c907ca2af3",
+      "candidate": "C:\\Users\\pmcga\\Documents\\Codex\\2026-09-24\\wh\\vitrecrag-attack-hip-match-2026-10-01\\candidates\\plate\\load.png",
+      "candidate_sha256": "3dbe03badb9fa5d7a615e4d0c605264202293c2268cd269d0f8106511a64cb94",
+      "canvas": [
+        128,
+        128
+      ],
+      "source_frame": "sheet4_f01",
+      "observation": "Early forward load; shell high, head down a little, existing wide legs planted.",
+      "facing": "front three-quarter, toward screen right",
+      "decision": "retain original whole pose and timing; finish hip material only",
+      "roots": [
+        [
+          28,
+          84
+        ],
+        [
+          45,
+          85
+        ],
+        [
+          59,
+          87
+        ],
+        [
+          75,
+          89
+        ]
+      ],
+      "regions": [
+        {
+          "name": "recessed continuous stone torso",
+          "polygon": [
+            [
+              28,
+              82
+            ],
+            [
+              45,
+              83
+            ],
+            [
+              59,
+              85
+            ],
+            [
+              75,
+              87
+            ],
+            [
+              75,
+              91
+            ],
+            [
+              59,
+              89
+            ],
+            [
+              45,
+              87
+            ],
+            [
+              28,
+              86
+            ]
+          ],
+          "rgb": [
+            52,
+            44,
+            36
+          ],
+          "changed": 172
+        },
+        {
+          "name": "rear hip seated beneath torso",
+          "polygon": [
+            [
+              25,
+              84
+            ],
+            [
+              27,
+              82
+            ],
+            [
+              31,
+              83
+            ],
+            [
+              31,
+              86
+            ],
+            [
+              28,
+              88
+            ],
+            [
+              25,
+              86
+            ]
+          ],
+          "rgb": [
+            68,
+            52,
+            44
+          ],
+          "changed": 28
+        },
+        {
+          "name": "rear hip upper stone face",
+          "polygon": [
+            [
+              27,
+              83
+            ],
+            [
+              29,
+              83
+            ],
+            [
+              30,
+              84
+            ],
+            [
+              28,
+              86
+            ],
+            [
+              27,
+              85
+            ]
+          ],
+          "rgb": [
+            92,
+            76,
+            68
+          ],
+          "changed": 11
+        },
+        {
+          "name": "near middle hip continuous stone root",
+          "polygon": [
+            [
+              41,
+              84
+            ],
+            [
+              44,
+              82
+            ],
+            [
+              48,
+              83
+            ],
+            [
+              49,
+              87
+            ],
+            [
+              47,
+              90
+            ],
+            [
+              43,
+              89
+            ],
+            [
+              41,
+              86
+            ]
+          ],
+          "rgb": [
+            92,
+            76,
+            68
+          ],
+          "changed": 43
+        },
+        {
+          "name": "near middle hip upper-left light",
+          "polygon": [
+            [
+              43,
+              83
+            ],
+            [
+              45,
+              83
+            ],
+            [
+              46,
+              85
+            ],
+            [
+              44,
+              87
+            ],
+            [
+              43,
+              86
+            ]
+          ],
+          "rgb": [
+            124,
+            108,
+            100
+          ],
+          "changed": 14
+        },
+        {
+          "name": "far middle hip buried behind near leg",
+          "polygon": [
+            [
+              56,
+              86
+            ],
+            [
+              61,
+              86
+            ],
+            [
+              62,
+              89
+            ],
+            [
+              59,
+              91
+            ],
+            [
+              56,
+              89
+            ]
+          ],
+          "rgb": [
+            68,
+            52,
+            44
+          ],
+          "changed": 30
+        },
+        {
+          "name": "fore hip continuous under-shell root",
+          "polygon": [
+            [
+              72,
+              88
+            ],
+            [
+              76,
+              88
+            ],
+            [
+              78,
+              90
+            ],
+            [
+              77,
+              92
+            ],
+            [
+              73,
+              91
+            ]
+          ],
+          "rgb": [
+            68,
+            52,
+            44
+          ],
+          "changed": 23
+        }
+      ],
+      "changed_pixels": 211,
+      "alpha_exact": true,
+      "outer_contour_exact": true,
+      "shell_and_heat_exact": true,
+      "before_colors": 23,
+      "after_colors": 23
+    },
+    {
+      "id": "plate/brace",
+      "path": "assets/sprites/creatures/attacks/vitrecrag_plate_lunge/style_matched/brace.png",
+      "source": "C:\\Users\\pmcga\\dev\\hollowtide\\assets\\sprites\\creatures\\attacks\\vitrecrag_plate_lunge\\style_matched\\brace.png",
+      "source_sha256": "617c58977dd2e4bac8ccbc724b1bfc5b62cc7ef4272652c5079dc851a7507ce3",
+      "candidate": "C:\\Users\\pmcga\\Documents\\Codex\\2026-09-24\\wh\\vitrecrag-attack-hip-match-2026-10-01\\candidates\\plate\\brace.png",
+      "candidate_sha256": "6a6a779f37aa754600daf44d3356bdc0c8723ec47aaa7e1732e7122db126f870",
+      "canvas": [
+        128,
+        128
+      ],
+      "source_frame": "sheet4_f02",
+      "observation": "Head tucks down; body remains on the planted feet during the code draw-back/brace.",
+      "facing": "front three-quarter, toward screen right",
+      "decision": "retain original whole pose and timing; finish hip material only",
+      "roots": [
+        [
+          28,
+          82
+        ],
+        [
+          47,
+          86
+        ],
+        [
+          64,
+          85
+        ],
+        [
+          76,
+          89
+        ]
+      ],
+      "regions": [
+        {
+          "name": "recessed continuous stone torso",
+          "polygon": [
+            [
+              28,
+              80
+            ],
+            [
+              47,
+              84
+            ],
+            [
+              64,
+              83
+            ],
+            [
+              76,
+              87
+            ],
+            [
+              76,
+              91
+            ],
+            [
+              64,
+              87
+            ],
+            [
+              47,
+              88
+            ],
+            [
+              28,
+              84
+            ]
+          ],
+          "rgb": [
+            52,
+            44,
+            36
+          ],
+          "changed": 161
+        },
+        {
+          "name": "rear hip seated beneath torso",
+          "polygon": [
+            [
+              25,
+              82
+            ],
+            [
+              27,
+              80
+            ],
+            [
+              31,
+              81
+            ],
+            [
+              31,
+              84
+            ],
+            [
+              28,
+              86
+            ],
+            [
+              25,
+              84
+            ]
+          ],
+          "rgb": [
+            68,
+            52,
+            44
+          ],
+          "changed": 29
+        },
+        {
+          "name": "rear hip upper stone face",
+          "polygon": [
+            [
+              27,
+              81
+            ],
+            [
+              29,
+              81
+            ],
+            [
+              30,
+              82
+            ],
+            [
+              28,
+              84
+            ],
+            [
+              27,
+              83
+            ]
+          ],
+          "rgb": [
+            92,
+            76,
+            68
+          ],
+          "changed": 9
+        },
+        {
+          "name": "near middle hip continuous stone root",
+          "polygon": [
+            [
+              43,
+              85
+            ],
+            [
+              46,
+              83
+            ],
+            [
+              50,
+              84
+            ],
+            [
+              51,
+              88
+            ],
+            [
+              49,
+              91
+            ],
+            [
+              45,
+              90
+            ],
+            [
+              43,
+              87
+            ]
+          ],
+          "rgb": [
+            92,
+            76,
+            68
+          ],
+          "changed": 30
+        },
+        {
+          "name": "near middle hip upper-left light",
+          "polygon": [
+            [
+              45,
+              84
+            ],
+            [
+              47,
+              84
+            ],
+            [
+              48,
+              86
+            ],
+            [
+              46,
+              88
+            ],
+            [
+              45,
+              87
+            ]
+          ],
+          "rgb": [
+            124,
+            108,
+            100
+          ],
+          "changed": 11
+        },
+        {
+          "name": "far middle hip buried behind near leg",
+          "polygon": [
+            [
+              61,
+              84
+            ],
+            [
+              66,
+              84
+            ],
+            [
+              67,
+              87
+            ],
+            [
+              64,
+              89
+            ],
+            [
+              61,
+              87
+            ]
+          ],
+          "rgb": [
+            68,
+            52,
+            44
+          ],
+          "changed": 29
+        },
+        {
+          "name": "fore hip continuous under-shell root",
+          "polygon": [
+            [
+              73,
+              88
+            ],
+            [
+              77,
+              88
+            ],
+            [
+              79,
+              90
+            ],
+            [
+              78,
+              92
+            ],
+            [
+              74,
+              91
+            ]
+          ],
+          "rgb": [
+            68,
+            52,
+            44
+          ],
+          "changed": 20
+        }
+      ],
+      "changed_pixels": 195,
+      "alpha_exact": true,
+      "outer_contour_exact": true,
+      "shell_and_heat_exact": true,
+      "before_colors": 20,
+      "after_colors": 21
+    },
+    {
+      "id": "plate/launch",
+      "path": "assets/sprites/creatures/attacks/vitrecrag_plate_lunge/style_matched/launch.png",
+      "source": "C:\\Users\\pmcga\\dev\\hollowtide\\assets\\sprites\\creatures\\attacks\\vitrecrag_plate_lunge\\style_matched\\launch.png",
+      "source_sha256": "b77e93b5788c5596fb25f4c5b6917dacdb2f11ae77eef5f8aff0ba63c4febf10",
+      "candidate": "C:\\Users\\pmcga\\Documents\\Codex\\2026-09-24\\wh\\vitrecrag-attack-hip-match-2026-10-01\\candidates\\plate\\launch.png",
+      "candidate_sha256": "99356b16c8995851731486bde6fa22fb107163b8416d5c390280ca575f9aeefe",
+      "canvas": [
+        128,
+        128
+      ],
+      "source_frame": "sheet4_f03",
+      "observation": "Plate begins extending; body leans and roots follow that lean.",
+      "facing": "front three-quarter, toward screen right",
+      "decision": "retain original whole pose and timing; finish hip material only",
+      "roots": [
+        [
+          26,
+          82
+        ],
+        [
+          45,
+          84
+        ],
+        [
+          64,
+          85
+        ],
+        [
+          77,
+          89
+        ]
+      ],
+      "regions": [
+        {
+          "name": "recessed continuous stone torso",
+          "polygon": [
+            [
+              26,
+              80
+            ],
+            [
+              45,
+              82
+            ],
+            [
+              64,
+              83
+            ],
+            [
+              77,
+              87
+            ],
+            [
+              77,
+              91
+            ],
+            [
+              64,
+              87
+            ],
+            [
+              45,
+              86
+            ],
+            [
+              26,
+              84
+            ]
+          ],
+          "rgb": [
+            52,
+            44,
+            36
+          ],
+          "changed": 153
+        },
+        {
+          "name": "rear hip seated beneath torso",
+          "polygon": [
+            [
+              23,
+              82
+            ],
+            [
+              25,
+              80
+            ],
+            [
+              29,
+              81
+            ],
+            [
+              29,
+              84
+            ],
+            [
+              26,
+              86
+            ],
+            [
+              23,
+              84
+            ]
+          ],
+          "rgb": [
+            68,
+            52,
+            44
+          ],
+          "changed": 6
+        },
+        {
+          "name": "rear hip upper stone face",
+          "polygon": [
+            [
+              25,
+              81
+            ],
+            [
+              27,
+              81
+            ],
+            [
+              28,
+              82
+            ],
+            [
+              26,
+              84
+            ],
+            [
+              25,
+              83
+            ]
+          ],
+          "rgb": [
+            92,
+            76,
+            68
+          ],
+          "changed": 1
+        },
+        {
+          "name": "near middle hip continuous stone root",
+          "polygon": [
+            [
+              41,
+              83
+            ],
+            [
+              44,
+              81
+            ],
+            [
+              48,
+              82
+            ],
+            [
+              49,
+              86
+            ],
+            [
+              47,
+              89
+            ],
+            [
+              43,
+              88
+            ],
+            [
+              41,
+              85
+            ]
+          ],
+          "rgb": [
+            92,
+            76,
+            68
+          ],
+          "changed": 48
+        },
+        {
+          "name": "near middle hip upper-left light",
+          "polygon": [
+            [
+              43,
+              82
+            ],
+            [
+              45,
+              82
+            ],
+            [
+              46,
+              84
+            ],
+            [
+              44,
+              86
+            ],
+            [
+              43,
+              85
+            ]
+          ],
+          "rgb": [
+            124,
+            108,
+            100
+          ],
+          "changed": 13
+        },
+        {
+          "name": "far middle hip buried behind near leg",
+          "polygon": [
+            [
+              61,
+              84
+            ],
+            [
+              66,
+              84
+            ],
+            [
+              67,
+              87
+            ],
+            [
+              64,
+              89
+            ],
+            [
+              61,
+              87
+            ]
+          ],
+          "rgb": [
+            68,
+            52,
+            44
+          ],
+          "changed": 30
+        },
+        {
+          "name": "fore hip continuous under-shell root",
+          "polygon": [
+            [
+              74,
+              88
+            ],
+            [
+              78,
+              88
+            ],
+            [
+              80,
+              90
+            ],
+            [
+              79,
+              92
+            ],
+            [
+              75,
+              91
+            ]
+          ],
+          "rgb": [
+            68,
+            52,
+            44
+          ],
+          "changed": 22
+        }
+      ],
+      "changed_pixels": 201,
+      "alpha_exact": true,
+      "outer_contour_exact": true,
+      "shell_and_heat_exact": true,
+      "before_colors": 21,
+      "after_colors": 22
+    },
+    {
+      "id": "plate/contact",
+      "path": "assets/sprites/creatures/attacks/vitrecrag_plate_lunge/style_matched/contact.png",
+      "source": "C:\\Users\\pmcga\\dev\\hollowtide\\assets\\sprites\\creatures\\attacks\\vitrecrag_plate_lunge\\style_matched\\contact.png",
+      "source_sha256": "df29a537670158a094b02583e3edc7b75328f452bd43bb4c3650a6c080af7c8c",
+      "candidate": "C:\\Users\\pmcga\\Documents\\Codex\\2026-09-24\\wh\\vitrecrag-attack-hip-match-2026-10-01\\candidates\\plate\\contact.png",
+      "candidate_sha256": "99e63050177e2b8605240afb8d7a3ad423a0c4fc543f6e285c61ab4a5fc36b92",
+      "canvas": [
+        128,
+        128
+      ],
+      "source_frame": "sheet4_f04",
+      "observation": "Fully extended plate reaches low; shell tips forward and the rear loads upward.",
+      "facing": "front three-quarter, toward screen right",
+      "decision": "retain original whole pose and timing; finish hip material only",
+      "roots": [
+        [
+          27,
+          84
+        ],
+        [
+          45,
+          89
+        ],
+        [
+          62,
+          89
+        ],
+        [
+          74,
+          90
+        ]
+      ],
+      "regions": [
+        {
+          "name": "recessed continuous stone torso",
+          "polygon": [
+            [
+              27,
+              82
+            ],
+            [
+              45,
+              87
+            ],
+            [
+              62,
+              87
+            ],
+            [
+              74,
+              88
+            ],
+            [
+              74,
+              92
+            ],
+            [
+              62,
+              91
+            ],
+            [
+              45,
+              91
+            ],
+            [
+              27,
+              86
+            ]
+          ],
+          "rgb": [
+            52,
+            44,
+            36
+          ],
+          "changed": 147
+        },
+        {
+          "name": "rear hip seated beneath torso",
+          "polygon": [
+            [
+              24,
+              84
+            ],
+            [
+              26,
+              82
+            ],
+            [
+              30,
+              83
+            ],
+            [
+              30,
+              86
+            ],
+            [
+              27,
+              88
+            ],
+            [
+              24,
+              86
+            ]
+          ],
+          "rgb": [
+            68,
+            52,
+            44
+          ],
+          "changed": 13
+        },
+        {
+          "name": "rear hip upper stone face",
+          "polygon": [
+            [
+              26,
+              83
+            ],
+            [
+              28,
+              83
+            ],
+            [
+              29,
+              84
+            ],
+            [
+              27,
+              86
+            ],
+            [
+              26,
+              85
+            ]
+          ],
+          "rgb": [
+            92,
+            76,
+            68
+          ],
+          "changed": 7
+        },
+        {
+          "name": "near middle hip continuous stone root",
+          "polygon": [
+            [
+              41,
+              88
+            ],
+            [
+              44,
+              86
+            ],
+            [
+              48,
+              87
+            ],
+            [
+              49,
+              91
+            ],
+            [
+              47,
+              94
+            ],
+            [
+              43,
+              93
+            ],
+            [
+              41,
+              90
+            ]
+          ],
+          "rgb": [
+            92,
+            76,
+            68
+          ],
+          "changed": 39
+        },
+        {
+          "name": "near middle hip upper-left light",
+          "polygon": [
+            [
+              43,
+              87
+            ],
+            [
+              45,
+              87
+            ],
+            [
+              46,
+              89
+            ],
+            [
+              44,
+              91
+            ],
+            [
+              43,
+              90
+            ]
+          ],
+          "rgb": [
+            124,
+            108,
+            100
+          ],
+          "changed": 12
+        },
+        {
+          "name": "far middle hip buried behind near leg",
+          "polygon": [
+            [
+              59,
+              88
+            ],
+            [
+              64,
+              88
+            ],
+            [
+              65,
+              91
+            ],
+            [
+              62,
+              93
+            ],
+            [
+              59,
+              91
+            ]
+          ],
+          "rgb": [
+            68,
+            52,
+            44
+          ],
+          "changed": 27
+        },
+        {
+          "name": "fore hip continuous under-shell root",
+          "polygon": [
+            [
+              71,
+              89
+            ],
+            [
+              75,
+              89
+            ],
+            [
+              77,
+              91
+            ],
+            [
+              76,
+              93
+            ],
+            [
+              72,
+              92
+            ]
+          ],
+          "rgb": [
+            68,
+            52,
+            44
+          ],
+          "changed": 22
+        }
+      ],
+      "changed_pixels": 182,
+      "alpha_exact": true,
+      "outer_contour_exact": true,
+      "shell_and_heat_exact": true,
+      "before_colors": 22,
+      "after_colors": 23
+    },
+    {
+      "id": "plate/recover",
+      "path": "assets/sprites/creatures/attacks/vitrecrag_plate_lunge/style_matched/recover.png",
+      "source": "C:\\Users\\pmcga\\dev\\hollowtide\\assets\\sprites\\creatures\\attacks\\vitrecrag_plate_lunge\\style_matched\\recover.png",
+      "source_sha256": "022f9bbf2bb0d720138ba982431b1d3529917d263a9f015f8588de11f1ecf77f",
+      "candidate": "C:\\Users\\pmcga\\Documents\\Codex\\2026-09-24\\wh\\vitrecrag-attack-hip-match-2026-10-01\\candidates\\plate\\recover.png",
+      "candidate_sha256": "91bb17b85fb36abedca80c23ede80c2ed95bfefafb65d24a445a01a6812c6cc4",
+      "canvas": [
+        128,
+        128
+      ],
+      "source_frame": "sheet4_f05",
+      "observation": "Plate retracts and torso rises; roots stay buried as it returns to idle.",
+      "facing": "front three-quarter, toward screen right",
+      "decision": "retain original whole pose and timing; finish hip material only",
+      "roots": [
+        [
+          28,
+          84
+        ],
+        [
+          47,
+          84
+        ],
+        [
+          61,
+          85
+        ],
+        [
+          75,
+          87
+        ]
+      ],
+      "regions": [
+        {
+          "name": "recessed continuous stone torso",
+          "polygon": [
+            [
+              28,
+              82
+            ],
+            [
+              47,
+              82
+            ],
+            [
+              61,
+              83
+            ],
+            [
+              75,
+              85
+            ],
+            [
+              75,
+              89
+            ],
+            [
+              61,
+              87
+            ],
+            [
+              47,
+              86
+            ],
+            [
+              28,
+              86
+            ]
+          ],
+          "rgb": [
+            52,
+            44,
+            36
+          ],
+          "changed": 153
+        },
+        {
+          "name": "rear hip seated beneath torso",
+          "polygon": [
+            [
+              25,
+              84
+            ],
+            [
+              27,
+              82
+            ],
+            [
+              31,
+              83
+            ],
+            [
+              31,
+              86
+            ],
+            [
+              28,
+              88
+            ],
+            [
+              25,
+              86
+            ]
+          ],
+          "rgb": [
+            68,
+            52,
+            44
+          ],
+          "changed": 32
+        },
+        {
+          "name": "rear hip upper stone face",
+          "polygon": [
+            [
+              27,
+              83
+            ],
+            [
+              29,
+              83
+            ],
+            [
+              30,
+              84
+            ],
+            [
+              28,
+              86
+            ],
+            [
+              27,
+              85
+            ]
+          ],
+          "rgb": [
+            92,
+            76,
+            68
+          ],
+          "changed": 11
+        },
+        {
+          "name": "near middle hip continuous stone root",
+          "polygon": [
+            [
+              43,
+              83
+            ],
+            [
+              46,
+              81
+            ],
+            [
+              50,
+              82
+            ],
+            [
+              51,
+              86
+            ],
+            [
+              49,
+              89
+            ],
+            [
+              45,
+              88
+            ],
+            [
+              43,
+              85
+            ]
+          ],
+          "rgb": [
+            92,
+            76,
+            68
+          ],
+          "changed": 31
+        },
+        {
+          "name": "near middle hip upper-left light",
+          "polygon": [
+            [
+              45,
+              82
+            ],
+            [
+              47,
+              82
+            ],
+            [
+              48,
+              84
+            ],
+            [
+              46,
+              86
+            ],
+            [
+              45,
+              85
+            ]
+          ],
+          "rgb": [
+            124,
+            108,
+            100
+          ],
+          "changed": 14
+        },
+        {
+          "name": "far middle hip buried behind near leg",
+          "polygon": [
+            [
+              58,
+              84
+            ],
+            [
+              63,
+              84
+            ],
+            [
+              64,
+              87
+            ],
+            [
+              61,
+              89
+            ],
+            [
+              58,
+              87
+            ]
+          ],
+          "rgb": [
+            68,
+            52,
+            44
+          ],
+          "changed": 30
+        },
+        {
+          "name": "fore hip continuous under-shell root",
+          "polygon": [
+            [
+              72,
+              86
+            ],
+            [
+              76,
+              86
+            ],
+            [
+              78,
+              88
+            ],
+            [
+              77,
+              90
+            ],
+            [
+              73,
+              89
+            ]
+          ],
+          "rgb": [
+            68,
+            52,
+            44
+          ],
+          "changed": 18
+        }
+      ],
+      "changed_pixels": 185,
+      "alpha_exact": true,
+      "outer_contour_exact": true,
+      "shell_and_heat_exact": true,
+      "before_colors": 22,
+      "after_colors": 23
+    },
+    {
+      "id": "glass/load",
+      "path": "assets/sprites/creatures/attacks/vitrecrag_lava_pour/style_matched/load.png",
+      "source": "C:\\Users\\pmcga\\dev\\hollowtide\\assets\\sprites\\creatures\\attacks\\vitrecrag_lava_pour\\style_matched\\load.png",
+      "source_sha256": "8ac9ea11a9d6c4c99025275b67c29a0c2ffd00ebcadc3cd47657086b85729926",
+      "candidate": "C:\\Users\\pmcga\\Documents\\Codex\\2026-09-24\\wh\\vitrecrag-attack-hip-match-2026-10-01\\candidates\\glass\\load.png",
+      "candidate_sha256": "c16ad6ce4754774d8daa5747e19ed346cc61ded41901a4d9c9b3516798f08b39",
+      "canvas": [
+        140,
+        128
+      ],
+      "source_frame": "sheet2_f01",
+      "observation": "Head lowers; loaded furnace remains inside the shell; legs stay planted.",
+      "facing": "front three-quarter, toward screen right",
+      "decision": "retain original whole pose and timing; finish hip material only",
+      "roots": [
+        [
+          33,
+          85
+        ],
+        [
+          50,
+          87
+        ],
+        [
+          67,
+          86
+        ],
+        [
+          82,
+          89
+        ]
+      ],
+      "regions": [
+        {
+          "name": "recessed continuous stone torso",
+          "polygon": [
+            [
+              33,
+              83
+            ],
+            [
+              50,
+              85
+            ],
+            [
+              67,
+              84
+            ],
+            [
+              82,
+              87
+            ],
+            [
+              82,
+              91
+            ],
+            [
+              67,
+              88
+            ],
+            [
+              50,
+              89
+            ],
+            [
+              33,
+              87
+            ]
+          ],
+          "rgb": [
+            52,
+            44,
+            36
+          ],
+          "changed": 151
+        },
+        {
+          "name": "rear hip seated beneath torso",
+          "polygon": [
+            [
+              30,
+              85
+            ],
+            [
+              32,
+              83
+            ],
+            [
+              36,
+              84
+            ],
+            [
+              36,
+              87
+            ],
+            [
+              33,
+              89
+            ],
+            [
+              30,
+              87
+            ]
+          ],
+          "rgb": [
+            68,
+            52,
+            44
+          ],
+          "changed": 30
+        },
+        {
+          "name": "rear hip upper stone face",
+          "polygon": [
+            [
+              32,
+              84
+            ],
+            [
+              34,
+              84
+            ],
+            [
+              35,
+              85
+            ],
+            [
+              33,
+              87
+            ],
+            [
+              32,
+              86
+            ]
+          ],
+          "rgb": [
+            92,
+            76,
+            68
+          ],
+          "changed": 9
+        },
+        {
+          "name": "near middle hip continuous stone root",
+          "polygon": [
+            [
+              46,
+              86
+            ],
+            [
+              49,
+              84
+            ],
+            [
+              53,
+              85
+            ],
+            [
+              54,
+              89
+            ],
+            [
+              52,
+              92
+            ],
+            [
+              48,
+              91
+            ],
+            [
+              46,
+              88
+            ]
+          ],
+          "rgb": [
+            92,
+            76,
+            68
+          ],
+          "changed": 39
+        },
+        {
+          "name": "near middle hip upper-left light",
+          "polygon": [
+            [
+              48,
+              85
+            ],
+            [
+              50,
+              85
+            ],
+            [
+              51,
+              87
+            ],
+            [
+              49,
+              89
+            ],
+            [
+              48,
+              88
+            ]
+          ],
+          "rgb": [
+            124,
+            108,
+            100
+          ],
+          "changed": 14
+        },
+        {
+          "name": "far middle hip buried behind near leg",
+          "polygon": [
+            [
+              64,
+              85
+            ],
+            [
+              69,
+              85
+            ],
+            [
+              70,
+              88
+            ],
+            [
+              67,
+              90
+            ],
+            [
+              64,
+              88
+            ]
+          ],
+          "rgb": [
+            68,
+            52,
+            44
+          ],
+          "changed": 27
+        },
+        {
+          "name": "fore hip continuous under-shell root",
+          "polygon": [
+            [
+              79,
+              88
+            ],
+            [
+              83,
+              88
+            ],
+            [
+              85,
+              90
+            ],
+            [
+              84,
+              92
+            ],
+            [
+              80,
+              91
+            ]
+          ],
+          "rgb": [
+            68,
+            52,
+            44
+          ],
+          "changed": 21
+        }
+      ],
+      "changed_pixels": 193,
+      "alpha_exact": true,
+      "outer_contour_exact": true,
+      "shell_and_heat_exact": true,
+      "before_colors": 22,
+      "after_colors": 23
+    },
+    {
+      "id": "glass/hole",
+      "path": "assets/sprites/creatures/attacks/vitrecrag_lava_pour/style_matched/hole.png",
+      "source": "C:\\Users\\pmcga\\dev\\hollowtide\\assets\\sprites\\creatures\\attacks\\vitrecrag_lava_pour\\style_matched\\hole.png",
+      "source_sha256": "89a900a2f4c80a648f8f7ff5cfebb734818f597d73b7e72cf2fdd7dd011f7f78",
+      "candidate": "C:\\Users\\pmcga\\Documents\\Codex\\2026-09-24\\wh\\vitrecrag-attack-hip-match-2026-10-01\\candidates\\glass\\hole.png",
+      "candidate_sha256": "228986c543832e4ea10fb3f8207b13b2cea9411f0685e0bcaf71475cad12cf22",
+      "canvas": [
+        140,
+        128
+      ],
+      "source_frame": "sheet4_f01",
+      "observation": "Head recessed, glowing front opening low; torso and hip roots descend with this pose.",
+      "facing": "front three-quarter, toward screen right",
+      "decision": "retain original whole pose and timing; finish hip material only",
+      "roots": [
+        [
+          32,
+          88
+        ],
+        [
+          53,
+          91
+        ],
+        [
+          65,
+          91
+        ],
+        [
+          81,
+          96
+        ]
+      ],
+      "regions": [
+        {
+          "name": "recessed continuous stone torso",
+          "polygon": [
+            [
+              32,
+              86
+            ],
+            [
+              53,
+              89
+            ],
+            [
+              65,
+              89
+            ],
+            [
+              81,
+              94
+            ],
+            [
+              81,
+              98
+            ],
+            [
+              65,
+              93
+            ],
+            [
+              53,
+              93
+            ],
+            [
+              32,
+              90
+            ]
+          ],
+          "rgb": [
+            52,
+            44,
+            36
+          ],
+          "changed": 146
+        },
+        {
+          "name": "rear hip seated beneath torso",
+          "polygon": [
+            [
+              29,
+              88
+            ],
+            [
+              31,
+              86
+            ],
+            [
+              35,
+              87
+            ],
+            [
+              35,
+              90
+            ],
+            [
+              32,
+              92
+            ],
+            [
+              29,
+              90
+            ]
+          ],
+          "rgb": [
+            68,
+            52,
+            44
+          ],
+          "changed": 32
+        },
+        {
+          "name": "rear hip upper stone face",
+          "polygon": [
+            [
+              31,
+              87
+            ],
+            [
+              33,
+              87
+            ],
+            [
+              34,
+              88
+            ],
+            [
+              32,
+              90
+            ],
+            [
+              31,
+              89
+            ]
+          ],
+          "rgb": [
+            92,
+            76,
+            68
+          ],
+          "changed": 11
+        },
+        {
+          "name": "near middle hip continuous stone root",
+          "polygon": [
+            [
+              49,
+              90
+            ],
+            [
+              52,
+              88
+            ],
+            [
+              56,
+              89
+            ],
+            [
+              57,
+              93
+            ],
+            [
+              55,
+              96
+            ],
+            [
+              51,
+              95
+            ],
+            [
+              49,
+              92
+            ]
+          ],
+          "rgb": [
+            92,
+            76,
+            68
+          ],
+          "changed": 36
+        },
+        {
+          "name": "near middle hip upper-left light",
+          "polygon": [
+            [
+              51,
+              89
+            ],
+            [
+              53,
+              89
+            ],
+            [
+              54,
+              91
+            ],
+            [
+              52,
+              93
+            ],
+            [
+              51,
+              92
+            ]
+          ],
+          "rgb": [
+            124,
+            108,
+            100
+          ],
+          "changed": 14
+        },
+        {
+          "name": "far middle hip buried behind near leg",
+          "polygon": [
+            [
+              62,
+              90
+            ],
+            [
+              67,
+              90
+            ],
+            [
+              68,
+              93
+            ],
+            [
+              65,
+              95
+            ],
+            [
+              62,
+              93
+            ]
+          ],
+          "rgb": [
+            68,
+            52,
+            44
+          ],
+          "changed": 26
+        },
+        {
+          "name": "fore hip continuous under-shell root",
+          "polygon": [
+            [
+              78,
+              95
+            ],
+            [
+              82,
+              95
+            ],
+            [
+              84,
+              97
+            ],
+            [
+              83,
+              99
+            ],
+            [
+              79,
+              98
+            ]
+          ],
+          "rgb": [
+            68,
+            52,
+            44
+          ],
+          "changed": 23
+        }
+      ],
+      "changed_pixels": 189,
+      "alpha_exact": true,
+      "outer_contour_exact": true,
+      "shell_and_heat_exact": true,
+      "before_colors": 21,
+      "after_colors": 22
+    },
+    {
+      "id": "glass/flood",
+      "path": "assets/sprites/creatures/attacks/vitrecrag_lava_pour/style_matched/flood.png",
+      "source": "C:\\Users\\pmcga\\dev\\hollowtide\\assets\\sprites\\creatures\\attacks\\vitrecrag_lava_pour\\style_matched\\flood.png",
+      "source_sha256": "004adffbef2c89c0659c8c987f904980b07b77f339e71b331ab0d71110e51de5",
+      "candidate": "C:\\Users\\pmcga\\Documents\\Codex\\2026-09-24\\wh\\vitrecrag-attack-hip-match-2026-10-01\\candidates\\glass\\flood.png",
+      "candidate_sha256": "78cba3be50bab21e7237b41ef2ba79fd55c56aa6920926d9bd55f4fbc7a1198b",
+      "canvas": [
+        140,
+        128
+      ],
+      "source_frame": "sheet2_f02",
+      "observation": "Raised shell glows orange during brace/strain; copper and furnace light are intentional.",
+      "facing": "front three-quarter, toward screen right",
+      "decision": "retain original whole pose and timing; finish hip material only",
+      "roots": [
+        [
+          33,
+          81
+        ],
+        [
+          51,
+          83
+        ],
+        [
+          67,
+          83
+        ],
+        [
+          82,
+          87
+        ]
+      ],
+      "regions": [
+        {
+          "name": "recessed continuous stone torso",
+          "polygon": [
+            [
+              33,
+              79
+            ],
+            [
+              51,
+              81
+            ],
+            [
+              67,
+              81
+            ],
+            [
+              82,
+              85
+            ],
+            [
+              82,
+              89
+            ],
+            [
+              67,
+              85
+            ],
+            [
+              51,
+              85
+            ],
+            [
+              33,
+              83
+            ]
+          ],
+          "rgb": [
+            52,
+            44,
+            36
+          ],
+          "changed": 200
+        },
+        {
+          "name": "rear hip seated beneath torso",
+          "polygon": [
+            [
+              30,
+              81
+            ],
+            [
+              32,
+              79
+            ],
+            [
+              36,
+              80
+            ],
+            [
+              36,
+              83
+            ],
+            [
+              33,
+              85
+            ],
+            [
+              30,
+              83
+            ]
+          ],
+          "rgb": [
+            68,
+            52,
+            44
+          ],
+          "changed": 31
+        },
+        {
+          "name": "rear hip upper stone face",
+          "polygon": [
+            [
+              32,
+              80
+            ],
+            [
+              34,
+              80
+            ],
+            [
+              35,
+              81
+            ],
+            [
+              33,
+              83
+            ],
+            [
+              32,
+              82
+            ]
+          ],
+          "rgb": [
+            92,
+            76,
+            68
+          ],
+          "changed": 11
+        },
+        {
+          "name": "near middle hip continuous stone root",
+          "polygon": [
+            [
+              47,
+              82
+            ],
+            [
+              50,
+              80
+            ],
+            [
+              54,
+              81
+            ],
+            [
+              55,
+              85
+            ],
+            [
+              53,
+              88
+            ],
+            [
+              49,
+              87
+            ],
+            [
+              47,
+              84
+            ]
+          ],
+          "rgb": [
+            92,
+            76,
+            68
+          ],
+          "changed": 42
+        },
+        {
+          "name": "near middle hip upper-left light",
+          "polygon": [
+            [
+              49,
+              81
+            ],
+            [
+              51,
+              81
+            ],
+            [
+              52,
+              83
+            ],
+            [
+              50,
+              85
+            ],
+            [
+              49,
+              84
+            ]
+          ],
+          "rgb": [
+            124,
+            108,
+            100
+          ],
+          "changed": 14
+        },
+        {
+          "name": "far middle hip buried behind near leg",
+          "polygon": [
+            [
+              64,
+              82
+            ],
+            [
+              69,
+              82
+            ],
+            [
+              70,
+              85
+            ],
+            [
+              67,
+              87
+            ],
+            [
+              64,
+              85
+            ]
+          ],
+          "rgb": [
+            68,
+            52,
+            44
+          ],
+          "changed": 27
+        },
+        {
+          "name": "fore hip continuous under-shell root",
+          "polygon": [
+            [
+              79,
+              86
+            ],
+            [
+              83,
+              86
+            ],
+            [
+              85,
+              88
+            ],
+            [
+              84,
+              90
+            ],
+            [
+              80,
+              89
+            ]
+          ],
+          "rgb": [
+            68,
+            52,
+            44
+          ],
+          "changed": 23
+        }
+      ],
+      "changed_pixels": 234,
+      "alpha_exact": true,
+      "outer_contour_exact": true,
+      "shell_and_heat_exact": true,
+      "before_colors": 23,
+      "after_colors": 23
+    },
+    {
+      "id": "glass/overload",
+      "path": "assets/sprites/creatures/attacks/vitrecrag_lava_pour/style_matched/overload.png",
+      "source": "C:\\Users\\pmcga\\dev\\hollowtide\\assets\\sprites\\creatures\\attacks\\vitrecrag_lava_pour\\style_matched\\overload.png",
+      "source_sha256": "37e64a5c6c3eb80f9cebf29ecc419314559d482ae2d3b6aa1194574f077196a3",
+      "candidate": "C:\\Users\\pmcga\\Documents\\Codex\\2026-09-24\\wh\\vitrecrag-attack-hip-match-2026-10-01\\candidates\\glass\\overload.png",
+      "candidate_sha256": "e8cb4ee5d44e6477238831fff6b142a0d6f736af794aa79bab314a6252ec5ca3",
+      "canvas": [
+        140,
+        128
+      ],
+      "source_frame": "overload.png",
+      "observation": "Pressure peak, mouth-glass bulge and hanging droplets; whole original overload pose preserved.",
+      "facing": "front three-quarter, toward screen right",
+      "decision": "retain original whole pose and timing; finish hip material only",
+      "roots": [
+        [
+          32,
+          82
+        ],
+        [
+          51,
+          82
+        ],
+        [
+          67,
+          82
+        ],
+        [
+          81,
+          85
+        ]
+      ],
+      "regions": [
+        {
+          "name": "recessed continuous stone torso",
+          "polygon": [
+            [
+              32,
+              80
+            ],
+            [
+              51,
+              80
+            ],
+            [
+              67,
+              80
+            ],
+            [
+              81,
+              83
+            ],
+            [
+              81,
+              87
+            ],
+            [
+              67,
+              84
+            ],
+            [
+              51,
+              84
+            ],
+            [
+              32,
+              84
+            ]
+          ],
+          "rgb": [
+            52,
+            44,
+            36
+          ],
+          "changed": 198
+        },
+        {
+          "name": "rear hip seated beneath torso",
+          "polygon": [
+            [
+              29,
+              82
+            ],
+            [
+              31,
+              80
+            ],
+            [
+              35,
+              81
+            ],
+            [
+              35,
+              84
+            ],
+            [
+              32,
+              86
+            ],
+            [
+              29,
+              84
+            ]
+          ],
+          "rgb": [
+            68,
+            52,
+            44
+          ],
+          "changed": 32
+        },
+        {
+          "name": "rear hip upper stone face",
+          "polygon": [
+            [
+              31,
+              81
+            ],
+            [
+              33,
+              81
+            ],
+            [
+              34,
+              82
+            ],
+            [
+              32,
+              84
+            ],
+            [
+              31,
+              83
+            ]
+          ],
+          "rgb": [
+            92,
+            76,
+            68
+          ],
+          "changed": 11
+        },
+        {
+          "name": "near middle hip continuous stone root",
+          "polygon": [
+            [
+              47,
+              81
+            ],
+            [
+              50,
+              79
+            ],
+            [
+              54,
+              80
+            ],
+            [
+              55,
+              84
+            ],
+            [
+              53,
+              87
+            ],
+            [
+              49,
+              86
+            ],
+            [
+              47,
+              83
+            ]
+          ],
+          "rgb": [
+            92,
+            76,
+            68
+          ],
+          "changed": 47
+        },
+        {
+          "name": "near middle hip upper-left light",
+          "polygon": [
+            [
+              49,
+              80
+            ],
+            [
+              51,
+              80
+            ],
+            [
+              52,
+              82
+            ],
+            [
+              50,
+              84
+            ],
+            [
+              49,
+              83
+            ]
+          ],
+          "rgb": [
+            124,
+            108,
+            100
+          ],
+          "changed": 14
+        },
+        {
+          "name": "far middle hip buried behind near leg",
+          "polygon": [
+            [
+              64,
+              81
+            ],
+            [
+              69,
+              81
+            ],
+            [
+              70,
+              84
+            ],
+            [
+              67,
+              86
+            ],
+            [
+              64,
+              84
+            ]
+          ],
+          "rgb": [
+            68,
+            52,
+            44
+          ],
+          "changed": 30
+        },
+        {
+          "name": "fore hip continuous under-shell root",
+          "polygon": [
+            [
+              78,
+              84
+            ],
+            [
+              82,
+              84
+            ],
+            [
+              84,
+              86
+            ],
+            [
+              83,
+              88
+            ],
+            [
+              79,
+              87
+            ]
+          ],
+          "rgb": [
+            68,
+            52,
+            44
+          ],
+          "changed": 22
+        }
+      ],
+      "changed_pixels": 234,
+      "alpha_exact": true,
+      "outer_contour_exact": true,
+      "shell_and_heat_exact": true,
+      "before_colors": 25,
+      "after_colors": 25
+    },
+    {
+      "id": "glass/overload_pour_a",
+      "path": "assets/sprites/creatures/attacks/vitrecrag_lava_pour/style_matched/overload_pour_a.png",
+      "source": "C:\\Users\\pmcga\\dev\\hollowtide\\assets\\sprites\\creatures\\attacks\\vitrecrag_lava_pour\\style_matched\\overload_pour_a.png",
+      "source_sha256": "9a2dd5b89606030534285118cd0fd8018cab0faa0ef197f25c16d16f5fc2a9a4",
+      "candidate": "C:\\Users\\pmcga\\Documents\\Codex\\2026-09-24\\wh\\vitrecrag-attack-hip-match-2026-10-01\\candidates\\glass\\overload_pour_a.png",
+      "candidate_sha256": "96ced9ff3e149731d20d68a0abaeed7e3979ec0e82415f486debd722173eff84",
+      "canvas": [
+        140,
+        128
+      ],
+      "source_frame": "overload.png + sheet2_f04 stream",
+      "observation": "Same pressure body; thick pouring strand and foot-level pool in phase A.",
+      "facing": "front three-quarter, toward screen right",
+      "decision": "retain original whole pose and timing; finish hip material only",
+      "roots": [
+        [
+          32,
+          82
+        ],
+        [
+          51,
+          82
+        ],
+        [
+          67,
+          82
+        ],
+        [
+          81,
+          85
+        ]
+      ],
+      "regions": [
+        {
+          "name": "recessed continuous stone torso",
+          "polygon": [
+            [
+              32,
+              80
+            ],
+            [
+              51,
+              80
+            ],
+            [
+              67,
+              80
+            ],
+            [
+              81,
+              83
+            ],
+            [
+              81,
+              87
+            ],
+            [
+              67,
+              84
+            ],
+            [
+              51,
+              84
+            ],
+            [
+              32,
+              84
+            ]
+          ],
+          "rgb": [
+            52,
+            44,
+            36
+          ],
+          "changed": 198
+        },
+        {
+          "name": "rear hip seated beneath torso",
+          "polygon": [
+            [
+              29,
+              82
+            ],
+            [
+              31,
+              80
+            ],
+            [
+              35,
+              81
+            ],
+            [
+              35,
+              84
+            ],
+            [
+              32,
+              86
+            ],
+            [
+              29,
+              84
+            ]
+          ],
+          "rgb": [
+            68,
+            52,
+            44
+          ],
+          "changed": 32
+        },
+        {
+          "name": "rear hip upper stone face",
+          "polygon": [
+            [
+              31,
+              81
+            ],
+            [
+              33,
+              81
+            ],
+            [
+              34,
+              82
+            ],
+            [
+              32,
+              84
+            ],
+            [
+              31,
+              83
+            ]
+          ],
+          "rgb": [
+            92,
+            76,
+            68
+          ],
+          "changed": 11
+        },
+        {
+          "name": "near middle hip continuous stone root",
+          "polygon": [
+            [
+              47,
+              81
+            ],
+            [
+              50,
+              79
+            ],
+            [
+              54,
+              80
+            ],
+            [
+              55,
+              84
+            ],
+            [
+              53,
+              87
+            ],
+            [
+              49,
+              86
+            ],
+            [
+              47,
+              83
+            ]
+          ],
+          "rgb": [
+            92,
+            76,
+            68
+          ],
+          "changed": 47
+        },
+        {
+          "name": "near middle hip upper-left light",
+          "polygon": [
+            [
+              49,
+              80
+            ],
+            [
+              51,
+              80
+            ],
+            [
+              52,
+              82
+            ],
+            [
+              50,
+              84
+            ],
+            [
+              49,
+              83
+            ]
+          ],
+          "rgb": [
+            124,
+            108,
+            100
+          ],
+          "changed": 14
+        },
+        {
+          "name": "far middle hip buried behind near leg",
+          "polygon": [
+            [
+              64,
+              81
+            ],
+            [
+              69,
+              81
+            ],
+            [
+              70,
+              84
+            ],
+            [
+              67,
+              86
+            ],
+            [
+              64,
+              84
+            ]
+          ],
+          "rgb": [
+            68,
+            52,
+            44
+          ],
+          "changed": 30
+        },
+        {
+          "name": "fore hip continuous under-shell root",
+          "polygon": [
+            [
+              78,
+              84
+            ],
+            [
+              82,
+              84
+            ],
+            [
+              84,
+              86
+            ],
+            [
+              83,
+              88
+            ],
+            [
+              79,
+              87
+            ]
+          ],
+          "rgb": [
+            68,
+            52,
+            44
+          ],
+          "changed": 22
+        }
+      ],
+      "changed_pixels": 234,
+      "alpha_exact": true,
+      "outer_contour_exact": true,
+      "shell_and_heat_exact": true,
+      "before_colors": 25,
+      "after_colors": 25
+    },
+    {
+      "id": "glass/overload_pour_b",
+      "path": "assets/sprites/creatures/attacks/vitrecrag_lava_pour/style_matched/overload_pour_b.png",
+      "source": "C:\\Users\\pmcga\\dev\\hollowtide\\assets\\sprites\\creatures\\attacks\\vitrecrag_lava_pour\\style_matched\\overload_pour_b.png",
+      "source_sha256": "0991e74e21def37bf512e9708c03274ae1f2fc90327cb43f231fc57577bcfbdd",
+      "candidate": "C:\\Users\\pmcga\\Documents\\Codex\\2026-09-24\\wh\\vitrecrag-attack-hip-match-2026-10-01\\candidates\\glass\\overload_pour_b.png",
+      "candidate_sha256": "f0bd60bdb12340f30ee562defd27910dcf7c0f51a8e3ac87002899e4975d9a26",
+      "canvas": [
+        140,
+        128
+      ],
+      "source_frame": "overload.png + sheet1_f04 stream",
+      "observation": "Same pressure body; alternate flowing strand and pool in phase B.",
+      "facing": "front three-quarter, toward screen right",
+      "decision": "retain original whole pose and timing; finish hip material only",
+      "roots": [
+        [
+          32,
+          82
+        ],
+        [
+          51,
+          82
+        ],
+        [
+          67,
+          82
+        ],
+        [
+          81,
+          85
+        ]
+      ],
+      "regions": [
+        {
+          "name": "recessed continuous stone torso",
+          "polygon": [
+            [
+              32,
+              80
+            ],
+            [
+              51,
+              80
+            ],
+            [
+              67,
+              80
+            ],
+            [
+              81,
+              83
+            ],
+            [
+              81,
+              87
+            ],
+            [
+              67,
+              84
+            ],
+            [
+              51,
+              84
+            ],
+            [
+              32,
+              84
+            ]
+          ],
+          "rgb": [
+            52,
+            44,
+            36
+          ],
+          "changed": 198
+        },
+        {
+          "name": "rear hip seated beneath torso",
+          "polygon": [
+            [
+              29,
+              82
+            ],
+            [
+              31,
+              80
+            ],
+            [
+              35,
+              81
+            ],
+            [
+              35,
+              84
+            ],
+            [
+              32,
+              86
+            ],
+            [
+              29,
+              84
+            ]
+          ],
+          "rgb": [
+            68,
+            52,
+            44
+          ],
+          "changed": 32
+        },
+        {
+          "name": "rear hip upper stone face",
+          "polygon": [
+            [
+              31,
+              81
+            ],
+            [
+              33,
+              81
+            ],
+            [
+              34,
+              82
+            ],
+            [
+              32,
+              84
+            ],
+            [
+              31,
+              83
+            ]
+          ],
+          "rgb": [
+            92,
+            76,
+            68
+          ],
+          "changed": 11
+        },
+        {
+          "name": "near middle hip continuous stone root",
+          "polygon": [
+            [
+              47,
+              81
+            ],
+            [
+              50,
+              79
+            ],
+            [
+              54,
+              80
+            ],
+            [
+              55,
+              84
+            ],
+            [
+              53,
+              87
+            ],
+            [
+              49,
+              86
+            ],
+            [
+              47,
+              83
+            ]
+          ],
+          "rgb": [
+            92,
+            76,
+            68
+          ],
+          "changed": 47
+        },
+        {
+          "name": "near middle hip upper-left light",
+          "polygon": [
+            [
+              49,
+              80
+            ],
+            [
+              51,
+              80
+            ],
+            [
+              52,
+              82
+            ],
+            [
+              50,
+              84
+            ],
+            [
+              49,
+              83
+            ]
+          ],
+          "rgb": [
+            124,
+            108,
+            100
+          ],
+          "changed": 14
+        },
+        {
+          "name": "far middle hip buried behind near leg",
+          "polygon": [
+            [
+              64,
+              81
+            ],
+            [
+              69,
+              81
+            ],
+            [
+              70,
+              84
+            ],
+            [
+              67,
+              86
+            ],
+            [
+              64,
+              84
+            ]
+          ],
+          "rgb": [
+            68,
+            52,
+            44
+          ],
+          "changed": 30
+        },
+        {
+          "name": "fore hip continuous under-shell root",
+          "polygon": [
+            [
+              78,
+              84
+            ],
+            [
+              82,
+              84
+            ],
+            [
+              84,
+              86
+            ],
+            [
+              83,
+              88
+            ],
+            [
+              79,
+              87
+            ]
+          ],
+          "rgb": [
+            68,
+            52,
+            44
+          ],
+          "changed": 22
+        }
+      ],
+      "changed_pixels": 234,
+      "alpha_exact": true,
+      "outer_contour_exact": true,
+      "shell_and_heat_exact": true,
+      "before_colors": 25,
+      "after_colors": 25
+    },
+    {
+      "id": "glass/breakout",
+      "path": "assets/sprites/creatures/attacks/vitrecrag_lava_pour/style_matched/breakout.png",
+      "source": "C:\\Users\\pmcga\\dev\\hollowtide\\assets\\sprites\\creatures\\attacks\\vitrecrag_lava_pour\\style_matched\\breakout.png",
+      "source_sha256": "9c98c3682bf1bb3f8e48a42dc9dc55e865380a31c7bccbda073071aea8cbcb0c",
+      "candidate": "C:\\Users\\pmcga\\Documents\\Codex\\2026-09-24\\wh\\vitrecrag-attack-hip-match-2026-10-01\\candidates\\glass\\breakout.png",
+      "candidate_sha256": "89197f9a81784c6a4ba9ef519ea18f2df2e817f33b64c3ad8270dad4b95abe80",
+      "canvas": [
+        140,
+        128
+      ],
+      "source_frame": "sheet2_f03",
+      "observation": "Head/front opens with the first material stream; body settles out of the pressure peak.",
+      "facing": "front three-quarter, toward screen right",
+      "decision": "retain original whole pose and timing; finish hip material only",
+      "roots": [
+        [
+          33,
+          82
+        ],
+        [
+          52,
+          83
+        ],
+        [
+          67,
+          82
+        ],
+        [
+          81,
+          86
+        ]
+      ],
+      "regions": [
+        {
+          "name": "recessed continuous stone torso",
+          "polygon": [
+            [
+              33,
+              80
+            ],
+            [
+              52,
+              81
+            ],
+            [
+              67,
+              80
+            ],
+            [
+              81,
+              84
+            ],
+            [
+              81,
+              88
+            ],
+            [
+              67,
+              84
+            ],
+            [
+              52,
+              85
+            ],
+            [
+              33,
+              84
+            ]
+          ],
+          "rgb": [
+            52,
+            44,
+            36
+          ],
+          "changed": 126
+        },
+        {
+          "name": "rear hip seated beneath torso",
+          "polygon": [
+            [
+              30,
+              82
+            ],
+            [
+              32,
+              80
+            ],
+            [
+              36,
+              81
+            ],
+            [
+              36,
+              84
+            ],
+            [
+              33,
+              86
+            ],
+            [
+              30,
+              84
+            ]
+          ],
+          "rgb": [
+            68,
+            52,
+            44
+          ],
+          "changed": 30
+        },
+        {
+          "name": "rear hip upper stone face",
+          "polygon": [
+            [
+              32,
+              81
+            ],
+            [
+              34,
+              81
+            ],
+            [
+              35,
+              82
+            ],
+            [
+              33,
+              84
+            ],
+            [
+              32,
+              83
+            ]
+          ],
+          "rgb": [
+            92,
+            76,
+            68
+          ],
+          "changed": 9
+        },
+        {
+          "name": "near middle hip continuous stone root",
+          "polygon": [
+            [
+              48,
+              82
+            ],
+            [
+              51,
+              80
+            ],
+            [
+              55,
+              81
+            ],
+            [
+              56,
+              85
+            ],
+            [
+              54,
+              88
+            ],
+            [
+              50,
+              87
+            ],
+            [
+              48,
+              84
+            ]
+          ],
+          "rgb": [
+            92,
+            76,
+            68
+          ],
+          "changed": 31
+        },
+        {
+          "name": "near middle hip upper-left light",
+          "polygon": [
+            [
+              50,
+              81
+            ],
+            [
+              52,
+              81
+            ],
+            [
+              53,
+              83
+            ],
+            [
+              51,
+              85
+            ],
+            [
+              50,
+              84
+            ]
+          ],
+          "rgb": [
+            124,
+            108,
+            100
+          ],
+          "changed": 13
+        },
+        {
+          "name": "far middle hip buried behind near leg",
+          "polygon": [
+            [
+              64,
+              81
+            ],
+            [
+              69,
+              81
+            ],
+            [
+              70,
+              84
+            ],
+            [
+              67,
+              86
+            ],
+            [
+              64,
+              84
+            ]
+          ],
+          "rgb": [
+            68,
+            52,
+            44
+          ],
+          "changed": 28
+        },
+        {
+          "name": "fore hip continuous under-shell root",
+          "polygon": [
+            [
+              78,
+              85
+            ],
+            [
+              82,
+              85
+            ],
+            [
+              84,
+              87
+            ],
+            [
+              83,
+              89
+            ],
+            [
+              79,
+              88
+            ]
+          ],
+          "rgb": [
+            68,
+            52,
+            44
+          ],
+          "changed": 18
+        }
+      ],
+      "changed_pixels": 174,
+      "alpha_exact": true,
+      "outer_contour_exact": true,
+      "shell_and_heat_exact": true,
+      "before_colors": 23,
+      "after_colors": 23
+    },
+    {
+      "id": "glass/recover",
+      "path": "assets/sprites/creatures/attacks/vitrecrag_lava_pour/style_matched/recover.png",
+      "source": "C:\\Users\\pmcga\\dev\\hollowtide\\assets\\sprites\\creatures\\attacks\\vitrecrag_lava_pour\\style_matched\\recover.png",
+      "source_sha256": "b37abba514d9eaeeabf801ecad0eca751c314ce1b1c473e4a550098f1a689bf4",
+      "candidate": "C:\\Users\\pmcga\\Documents\\Codex\\2026-09-24\\wh\\vitrecrag-attack-hip-match-2026-10-01\\candidates\\glass\\recover.png",
+      "candidate_sha256": "b4abed00b2fa154be406b0b3458ed7d495e4916efbd17115884c2912ac2490cf",
+      "canvas": [
+        140,
+        128
+      ],
+      "source_frame": "sheet2_f05",
+      "observation": "Head returns with cooling material at the mouth; torso returns toward the neutral stance.",
+      "facing": "front three-quarter, toward screen right",
+      "decision": "retain original whole pose and timing; finish hip material only",
+      "roots": [
+        [
+          33,
+          84
+        ],
+        [
+          52,
+          85
+        ],
+        [
+          66,
+          86
+        ],
+        [
+          80,
+          88
+        ]
+      ],
+      "regions": [
+        {
+          "name": "recessed continuous stone torso",
+          "polygon": [
+            [
+              33,
+              82
+            ],
+            [
+              52,
+              83
+            ],
+            [
+              66,
+              84
+            ],
+            [
+              80,
+              86
+            ],
+            [
+              80,
+              90
+            ],
+            [
+              66,
+              88
+            ],
+            [
+              52,
+              87
+            ],
+            [
+              33,
+              86
+            ]
+          ],
+          "rgb": [
+            52,
+            44,
+            36
+          ],
+          "changed": 171
+        },
+        {
+          "name": "rear hip seated beneath torso",
+          "polygon": [
+            [
+              30,
+              84
+            ],
+            [
+              32,
+              82
+            ],
+            [
+              36,
+              83
+            ],
+            [
+              36,
+              86
+            ],
+            [
+              33,
+              88
+            ],
+            [
+              30,
+              86
+            ]
+          ],
+          "rgb": [
+            68,
+            52,
+            44
+          ],
+          "changed": 32
+        },
+        {
+          "name": "rear hip upper stone face",
+          "polygon": [
+            [
+              32,
+              83
+            ],
+            [
+              34,
+              83
+            ],
+            [
+              35,
+              84
+            ],
+            [
+              33,
+              86
+            ],
+            [
+              32,
+              85
+            ]
+          ],
+          "rgb": [
+            92,
+            76,
+            68
+          ],
+          "changed": 11
+        },
+        {
+          "name": "near middle hip continuous stone root",
+          "polygon": [
+            [
+              48,
+              84
+            ],
+            [
+              51,
+              82
+            ],
+            [
+              55,
+              83
+            ],
+            [
+              56,
+              87
+            ],
+            [
+              54,
+              90
+            ],
+            [
+              50,
+              89
+            ],
+            [
+              48,
+              86
+            ]
+          ],
+          "rgb": [
+            92,
+            76,
+            68
+          ],
+          "changed": 34
+        },
+        {
+          "name": "near middle hip upper-left light",
+          "polygon": [
+            [
+              50,
+              83
+            ],
+            [
+              52,
+              83
+            ],
+            [
+              53,
+              85
+            ],
+            [
+              51,
+              87
+            ],
+            [
+              50,
+              86
+            ]
+          ],
+          "rgb": [
+            124,
+            108,
+            100
+          ],
+          "changed": 11
+        },
+        {
+          "name": "far middle hip buried behind near leg",
+          "polygon": [
+            [
+              63,
+              85
+            ],
+            [
+              68,
+              85
+            ],
+            [
+              69,
+              88
+            ],
+            [
+              66,
+              90
+            ],
+            [
+              63,
+              88
+            ]
+          ],
+          "rgb": [
+            68,
+            52,
+            44
+          ],
+          "changed": 30
+        },
+        {
+          "name": "fore hip continuous under-shell root",
+          "polygon": [
+            [
+              77,
+              87
+            ],
+            [
+              81,
+              87
+            ],
+            [
+              83,
+              89
+            ],
+            [
+              82,
+              91
+            ],
+            [
+              78,
+              90
+            ]
+          ],
+          "rgb": [
+            68,
+            52,
+            44
+          ],
+          "changed": 15
+        }
+      ],
+      "changed_pixels": 203,
+      "alpha_exact": true,
+      "outer_contour_exact": true,
+      "shell_and_heat_exact": true,
+      "before_colors": 23,
+      "after_colors": 23
+    },
+    {
+      "id": "glass/titlecard",
+      "path": "assets/sprites/creatures/attacks/vitrecrag_lava_pour/style_matched/titlecard.png",
+      "source": "C:\\Users\\pmcga\\dev\\hollowtide\\assets\\sprites\\creatures\\attacks\\vitrecrag_lava_pour\\style_matched\\titlecard.png",
+      "source_sha256": "7e8e4cd5701a016404cd8a8124c7c98c2e37ef7e2b2a747f93bffb2fa97f6563",
+      "candidate": "C:\\Users\\pmcga\\Documents\\Codex\\2026-09-24\\wh\\vitrecrag-attack-hip-match-2026-10-01\\candidates\\glass\\titlecard.png",
+      "candidate_sha256": "2b39510374e07b673050d4548ce06de6e0a83ff21066ec3b7e256d8983d33855",
+      "canvas": [
+        120,
+        93
+      ],
+      "source_frame": "exact visible overload crop at +9,+29",
+      "observation": "pressure title-card close-up; same body and drip pose as overload",
+      "facing": "front three-quarter, toward screen right",
+      "decision": "same hip edit as overload, exact cropped registration retained",
+      "changed_pixels": 234,
+      "alpha_exact": true,
+      "outer_contour_exact": true,
+      "before_colors": 25,
+      "after_colors": 25
+    }
+  ]
+}

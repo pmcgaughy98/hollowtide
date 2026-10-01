@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "revisions": [
+    {
+      "forge_slug": "character-model-forge",
+      "base_graph_sha256": "3e62fcd40797a1e679321e90785a6567d4f8cf179356e5b107949b3bab1e1127",
+      "record_path": "docs/forges/records/character-two-tiers-2026-09-30/verified-prompt-record.json",
+      "record_group": "character",
+      "generate_node": "node_step_character_model_image",
+      "review_node": "node_step_character_model",
+      "generate_title_key": "character_title",
+      "input_hints": {
+        "ask_user_character_brief": "character_brief_hint",
+        "ask_user_identity_reference": "identity_hint",
+        "ask_user_style_reference": "style_hint"
+      }
+    },
+    {
+      "forge_slug": "walk-cycle-forge",
+      "base_graph_sha256": "8d33e555923283e9c14c5ac562bdf0553649ed6c1c8473dc44d81d9ccca303ed",
+      "record_path": "docs/forges/records/character-two-tiers-2026-09-30/verified-prompt-record.json",
+      "record_group": "walk",
+      "generate_node": "node_step_cinderhide_sprite",
+      "review_node": "node_step_cinderhide_display",
+      "generate_title_key": "walk_title",
+      "input_hints": {
+        "ask_user_walk_cycle_brief": "walk_hint",
+        "ask_user_character_reference": "walk_reference_hint"
+      }
+    },
+    {
+      "forge_slug": "world-asset-forge",
+      "base_graph_sha256": "94cb443b7a542e2e32a4bbc997b247aea7f97871af417553299a644b9d0bc89f",
+      "record_path": "docs/forges/records/world-chibi-scale-2026-09-30/verified-prompt-record.json",
+      "record_group": "world",
+      "generate_node": "node_step_generated_pixel_art",
+      "review_node": "node_step_generated_pixel_asset",
+      "generate_title_key": "world_title",
+      "input_hints": {
+        "ask_user_asset_brief": "asset_brief_hint",
+        "ask_user_style_anchor": "style_hint",
+        "ask_user_world_perspective_reference": "perspective_hint"
+      }
+    }
+  ]
+}

@@ -37,10 +37,20 @@ Make the **portrait first**: it is the identity. The overworld sprite is then dr
 with the portrait as the identity reference), keeping the outfit's colours and silhouette so the two read as the same
 person.
 
-## Who is the courier?
-There are now two different couriers: the one in the walk sheet (teal shirt, goggles, brown hair, the current game
-sprite) and this new one (olive field jacket, backpack, satchel, short brown hair). Preston picks which identity the
-portrait uses; the other is retired.
+## Who is the courier? (decided)
+
+**Preston, 2026-09-30: the original chibi teal-shirt-and-goggles model is the main character.**
+It is `C:/Users/pmcga/OneDrive/Documents/HollowTide Sprites/Character/Male.jpg`, also preserved as
+`assets/sprites/player/character_walk_sheet.jpg` in the project. The larger-headed, short-bodied design matters;
+the taller recent walk atlases are not its anatomy reference.
+
+Codex made an exact named copy, `Main Courier - Chibi Source.jpg`, and four unchanged direction crops in
+`Main Courier - Chibi Identity - Four Views.png`, beside `Male.jpg`. Use the four-view file as the identity reference
+for portraits and the map model. No repaint or generation was used to recover it. The olive-jacket candidate
+is only an example of portrait-level finish, not the chosen courier.
+
+The current game still has the taller recent walk atlases installed. Replacement chibi walks need actual passing
+poses: the original side rows repeat extended strides. This identity selection is not a claim that the old walk is repaired.
 
 ## Forge changes for Codex (Character Model Forge, or the Gemini skill after Opal closes)
 Replace the single SCALE paragraph with two output kinds, chosen by a line in the brief:
@@ -51,7 +61,7 @@ KIND PORTRAIT: a dialogue portrait: the character from the waist up on a 96x96 l
 ```
 
 ## Prompts to run (after the Forge change)
-1. **Portrait.** `MODE NEW; KIND PORTRAIT; OUTPUT SINGLE. The adult Wayline courier: [describe the identity Preston picks]. Calm, capable, a little weathered from the road.` Attach the chosen courier image as the Identity Reference and Cinderhide as the Style Reference.
+1. **Portrait.** `MODE REDRAW; KIND PORTRAIT; OUTPUT SINGLE. The adult Wayline courier exactly as the identity reference: teal shirt, goggles, brown hair, the satchel on its cross-body strap. Calm, capable, a little weathered from the road.` Attach the original chibi four-view identity image as the Identity Reference and Cinderhide as the Style Reference.
 2. **Expressions.** `MODE REDRAW; KIND PORTRAIT; OUTPUT EXPRESSIONS.` Attach the approved portrait as the Identity Reference.
 3. **Overworld sprite.** `MODE REDRAW; KIND OVERWORLD; OUTPUT TURNAROUND.` Attach the approved portrait as the Identity Reference. The Walk Cycle Forge then makes the four-frame walks from it.
 

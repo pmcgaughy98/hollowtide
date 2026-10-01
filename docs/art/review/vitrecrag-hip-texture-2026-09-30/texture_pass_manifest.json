@@ -1,0 +1,1848 @@
+{
+  "source": "C:\\Users\\pmcga\\dev\\hollowtide\\assets\\sprites\\creatures\\vitrecrag_back_official_2026_09_30.png",
+  "source_sha256": "02a6fe979c9bc4508201b327999be60b8299c106ecda2264653ae20e80ceac84",
+  "front": "C:\\Users\\pmcga\\dev\\hollowtide\\assets\\sprites\\creatures\\vitrecrag_official.png",
+  "front_sha256": "d321a6bca163c122b56d657c06076a91054905acc4c2719c3285aa4fad60b575",
+  "size": [
+    128,
+    128
+  ],
+  "source_bbox": [
+    8,
+    31,
+    119,
+    122
+  ],
+  "candidate_bbox": [
+    8,
+    31,
+    119,
+    122
+  ],
+  "changed_pixels": 800,
+  "visible_pixels": 6601,
+  "before": {
+    "colors": 23,
+    "palette_counts": [
+      {
+        "rgb": [
+          20,
+          12,
+          20
+        ],
+        "pixels": 745
+      },
+      {
+        "rgb": [
+          4,
+          4,
+          4
+        ],
+        "pixels": 728
+      },
+      {
+        "rgb": [
+          76,
+          44,
+          60
+        ],
+        "pixels": 682
+      },
+      {
+        "rgb": [
+          108,
+          44,
+          36
+        ],
+        "pixels": 624
+      },
+      {
+        "rgb": [
+          44,
+          28,
+          44
+        ],
+        "pixels": 606
+      },
+      {
+        "rgb": [
+          68,
+          28,
+          28
+        ],
+        "pixels": 497
+      },
+      {
+        "rgb": [
+          52,
+          44,
+          36
+        ],
+        "pixels": 494
+      },
+      {
+        "rgb": [
+          140,
+          68,
+          52
+        ],
+        "pixels": 469
+      },
+      {
+        "rgb": [
+          204,
+          124,
+          100
+        ],
+        "pixels": 319
+      },
+      {
+        "rgb": [
+          92,
+          76,
+          68
+        ],
+        "pixels": 310
+      },
+      {
+        "rgb": [
+          84,
+          36,
+          36
+        ],
+        "pixels": 284
+      },
+      {
+        "rgb": [
+          164,
+          100,
+          76
+        ],
+        "pixels": 184
+      },
+      {
+        "rgb": [
+          68,
+          52,
+          44
+        ],
+        "pixels": 181
+      },
+      {
+        "rgb": [
+          124,
+          84,
+          100
+        ],
+        "pixels": 115
+      },
+      {
+        "rgb": [
+          220,
+          92,
+          36
+        ],
+        "pixels": 97
+      },
+      {
+        "rgb": [
+          28,
+          28,
+          28
+        ],
+        "pixels": 84
+      },
+      {
+        "rgb": [
+          156,
+          52,
+          20
+        ],
+        "pixels": 56
+      },
+      {
+        "rgb": [
+          252,
+          116,
+          36
+        ],
+        "pixels": 51
+      },
+      {
+        "rgb": [
+          92,
+          52,
+          44
+        ],
+        "pixels": 30
+      },
+      {
+        "rgb": [
+          124,
+          108,
+          100
+        ],
+        "pixels": 17
+      },
+      {
+        "rgb": [
+          148,
+          84,
+          68
+        ],
+        "pixels": 12
+      },
+      {
+        "rgb": [
+          116,
+          60,
+          52
+        ],
+        "pixels": 8
+      },
+      {
+        "rgb": [
+          252,
+          156,
+          76
+        ],
+        "pixels": 8
+      }
+    ]
+  },
+  "after": {
+    "colors": 24,
+    "palette_counts": [
+      {
+        "rgb": [
+          20,
+          12,
+          20
+        ],
+        "pixels": 743
+      },
+      {
+        "rgb": [
+          4,
+          4,
+          4
+        ],
+        "pixels": 700
+      },
+      {
+        "rgb": [
+          52,
+          44,
+          36
+        ],
+        "pixels": 662
+      },
+      {
+        "rgb": [
+          108,
+          44,
+          36
+        ],
+        "pixels": 580
+      },
+      {
+        "rgb": [
+          76,
+          44,
+          60
+        ],
+        "pixels": 538
+      },
+      {
+        "rgb": [
+          44,
+          28,
+          44
+        ],
+        "pixels": 512
+      },
+      {
+        "rgb": [
+          140,
+          68,
+          52
+        ],
+        "pixels": 478
+      },
+      {
+        "rgb": [
+          68,
+          28,
+          28
+        ],
+        "pixels": 399
+      },
+      {
+        "rgb": [
+          92,
+          76,
+          68
+        ],
+        "pixels": 346
+      },
+      {
+        "rgb": [
+          204,
+          124,
+          100
+        ],
+        "pixels": 314
+      },
+      {
+        "rgb": [
+          60,
+          36,
+          52
+        ],
+        "pixels": 245
+      },
+      {
+        "rgb": [
+          164,
+          100,
+          76
+        ],
+        "pixels": 186
+      },
+      {
+        "rgb": [
+          84,
+          36,
+          36
+        ],
+        "pixels": 183
+      },
+      {
+        "rgb": [
+          68,
+          52,
+          44
+        ],
+        "pixels": 159
+      },
+      {
+        "rgb": [
+          124,
+          84,
+          100
+        ],
+        "pixels": 108
+      },
+      {
+        "rgb": [
+          28,
+          28,
+          28
+        ],
+        "pixels": 106
+      },
+      {
+        "rgb": [
+          220,
+          92,
+          36
+        ],
+        "pixels": 83
+      },
+      {
+        "rgb": [
+          124,
+          108,
+          100
+        ],
+        "pixels": 81
+      },
+      {
+        "rgb": [
+          156,
+          52,
+          20
+        ],
+        "pixels": 48
+      },
+      {
+        "rgb": [
+          252,
+          116,
+          36
+        ],
+        "pixels": 45
+      },
+      {
+        "rgb": [
+          252,
+          156,
+          76
+        ],
+        "pixels": 36
+      },
+      {
+        "rgb": [
+          92,
+          52,
+          44
+        ],
+        "pixels": 29
+      },
+      {
+        "rgb": [
+          148,
+          84,
+          68
+        ],
+        "pixels": 12
+      },
+      {
+        "rgb": [
+          116,
+          60,
+          52
+        ],
+        "pixels": 8
+      }
+    ]
+  },
+  "regions": [
+    {
+      "region": "upper rear plate turning plane",
+      "material": "plum",
+      "rgb": [
+        60,
+        36,
+        52
+      ],
+      "polygon": [
+        [
+          49,
+          41
+        ],
+        [
+          61,
+          43
+        ],
+        [
+          68,
+          48
+        ],
+        [
+          67,
+          51
+        ],
+        [
+          59,
+          56
+        ],
+        [
+          51,
+          52
+        ]
+      ],
+      "painted_pixels": 149
+    },
+    {
+      "region": "upper rear plate shadow plane",
+      "material": "plum",
+      "rgb": [
+        44,
+        28,
+        44
+      ],
+      "polygon": [
+        [
+          57,
+          49
+        ],
+        [
+          66,
+          48
+        ],
+        [
+          67,
+          52
+        ],
+        [
+          61,
+          56
+        ],
+        [
+          56,
+          53
+        ]
+      ],
+      "painted_pixels": 44
+    },
+    {
+      "region": "rear left plate shoulder light",
+      "material": "plum",
+      "rgb": [
+        76,
+        44,
+        60
+      ],
+      "polygon": [
+        [
+          29,
+          53
+        ],
+        [
+          34,
+          51
+        ],
+        [
+          40,
+          53
+        ],
+        [
+          42,
+          56
+        ],
+        [
+          38,
+          59
+        ],
+        [
+          32,
+          58
+        ],
+        [
+          28,
+          62
+        ]
+      ],
+      "painted_pixels": 24
+    },
+    {
+      "region": "rear left plate upper edge highlight",
+      "material": "plum",
+      "rgb": [
+        124,
+        84,
+        100
+      ],
+      "polygon": [
+        [
+          31,
+          52
+        ],
+        [
+          34,
+          52
+        ],
+        [
+          38,
+          54
+        ],
+        [
+          38,
+          55
+        ],
+        [
+          35,
+          54
+        ],
+        [
+          32,
+          54
+        ]
+      ],
+      "painted_pixels": 12
+    },
+    {
+      "region": "rear left plate turning plane",
+      "material": "plum",
+      "rgb": [
+        60,
+        36,
+        52
+      ],
+      "polygon": [
+        [
+          43,
+          59
+        ],
+        [
+          50,
+          60
+        ],
+        [
+          53,
+          63
+        ],
+        [
+          47,
+          69
+        ],
+        [
+          40,
+          69
+        ]
+      ],
+      "painted_pixels": 100
+    },
+    {
+      "region": "rear left plate lower overlap shadow",
+      "material": "plum",
+      "rgb": [
+        44,
+        28,
+        44
+      ],
+      "polygon": [
+        [
+          40,
+          68
+        ],
+        [
+          46,
+          68
+        ],
+        [
+          49,
+          66
+        ],
+        [
+          47,
+          71
+        ],
+        [
+          40,
+          71
+        ],
+        [
+          37,
+          70
+        ]
+      ],
+      "painted_pixels": 25
+    },
+    {
+      "region": "middle overlap turned surface",
+      "material": "plum",
+      "rgb": [
+        60,
+        36,
+        52
+      ],
+      "polygon": [
+        [
+          57,
+          67
+        ],
+        [
+          63,
+          64
+        ],
+        [
+          67,
+          66
+        ],
+        [
+          65,
+          72
+        ],
+        [
+          61,
+          77
+        ],
+        [
+          57,
+          77
+        ]
+      ],
+      "painted_pixels": 69
+    },
+    {
+      "region": "middle overlap upper facet",
+      "material": "plum",
+      "rgb": [
+        76,
+        44,
+        60
+      ],
+      "polygon": [
+        [
+          60,
+          66
+        ],
+        [
+          64,
+          65
+        ],
+        [
+          65,
+          66
+        ],
+        [
+          63,
+          69
+        ],
+        [
+          60,
+          70
+        ],
+        [
+          59,
+          69
+        ]
+      ],
+      "painted_pixels": 9
+    },
+    {
+      "region": "near hind shin broad face",
+      "material": "stone",
+      "rgb": [
+        92,
+        76,
+        68
+      ],
+      "polygon": [
+        [
+          53,
+          99
+        ],
+        [
+          58,
+          100
+        ],
+        [
+          59,
+          103
+        ],
+        [
+          58,
+          108
+        ],
+        [
+          53,
+          107
+        ],
+        [
+          52,
+          103
+        ]
+      ],
+      "painted_pixels": 22
+    },
+    {
+      "region": "near hind shin lit edge",
+      "material": "stone",
+      "rgb": [
+        124,
+        108,
+        100
+      ],
+      "polygon": [
+        [
+          53,
+          99
+        ],
+        [
+          55,
+          100
+        ],
+        [
+          55,
+          106
+        ],
+        [
+          54,
+          107
+        ],
+        [
+          53,
+          104
+        ]
+      ],
+      "painted_pixels": 12
+    },
+    {
+      "region": "near hind shin turned face",
+      "material": "stone",
+      "rgb": [
+        52,
+        44,
+        36
+      ],
+      "polygon": [
+        [
+          59,
+          101
+        ],
+        [
+          62,
+          100
+        ],
+        [
+          63,
+          107
+        ],
+        [
+          59,
+          109
+        ],
+        [
+          58,
+          107
+        ]
+      ],
+      "painted_pixels": 39
+    },
+    {
+      "region": "near hind foot rock face",
+      "material": "stone",
+      "rgb": [
+        92,
+        76,
+        68
+      ],
+      "polygon": [
+        [
+          55,
+          115
+        ],
+        [
+          58,
+          114
+        ],
+        [
+          61,
+          116
+        ],
+        [
+          61,
+          119
+        ],
+        [
+          55,
+          119
+        ]
+      ],
+      "painted_pixels": 4
+    },
+    {
+      "region": "near hind foot top facet",
+      "material": "stone",
+      "rgb": [
+        124,
+        108,
+        100
+      ],
+      "polygon": [
+        [
+          56,
+          115
+        ],
+        [
+          58,
+          114
+        ],
+        [
+          59,
+          115
+        ],
+        [
+          58,
+          117
+        ],
+        [
+          56,
+          117
+        ]
+      ],
+      "painted_pixels": 3
+    },
+    {
+      "region": "middle thigh broad rock plane",
+      "material": "stone",
+      "rgb": [
+        92,
+        76,
+        68
+      ],
+      "polygon": [
+        [
+          79,
+          82
+        ],
+        [
+          82,
+          83
+        ],
+        [
+          84,
+          90
+        ],
+        [
+          82,
+          94
+        ],
+        [
+          78,
+          90
+        ]
+      ],
+      "painted_pixels": 15
+    },
+    {
+      "region": "middle thigh left highlight",
+      "material": "stone",
+      "rgb": [
+        124,
+        108,
+        100
+      ],
+      "polygon": [
+        [
+          79,
+          82
+        ],
+        [
+          80,
+          83
+        ],
+        [
+          81,
+          89
+        ],
+        [
+          80,
+          90
+        ],
+        [
+          78,
+          87
+        ]
+      ],
+      "painted_pixels": 14
+    },
+    {
+      "region": "middle shin angled plane",
+      "material": "stone",
+      "rgb": [
+        92,
+        76,
+        68
+      ],
+      "polygon": [
+        [
+          81,
+          98
+        ],
+        [
+          84,
+          98
+        ],
+        [
+          88,
+          106
+        ],
+        [
+          87,
+          109
+        ],
+        [
+          84,
+          108
+        ],
+        [
+          80,
+          102
+        ]
+      ],
+      "painted_pixels": 23
+    },
+    {
+      "region": "middle shin upper-left highlight",
+      "material": "stone",
+      "rgb": [
+        124,
+        108,
+        100
+      ],
+      "polygon": [
+        [
+          81,
+          98
+        ],
+        [
+          83,
+          99
+        ],
+        [
+          85,
+          104
+        ],
+        [
+          84,
+          105
+        ],
+        [
+          82,
+          103
+        ]
+      ],
+      "painted_pixels": 19
+    },
+    {
+      "region": "middle foot rock face",
+      "material": "stone",
+      "rgb": [
+        92,
+        76,
+        68
+      ],
+      "polygon": [
+        [
+          89,
+          112
+        ],
+        [
+          91,
+          113
+        ],
+        [
+          93,
+          116
+        ],
+        [
+          91,
+          117
+        ],
+        [
+          88,
+          115
+        ]
+      ],
+      "painted_pixels": 2
+    },
+    {
+      "region": "middle foot top light",
+      "material": "stone",
+      "rgb": [
+        124,
+        108,
+        100
+      ],
+      "polygon": [
+        [
+          89,
+          112
+        ],
+        [
+          91,
+          113
+        ],
+        [
+          91,
+          115
+        ],
+        [
+          89,
+          115
+        ]
+      ],
+      "painted_pixels": 8
+    },
+    {
+      "region": "far hind shin",
+      "material": "stone",
+      "rgb": [
+        92,
+        76,
+        68
+      ],
+      "polygon": [
+        [
+          16,
+          99
+        ],
+        [
+          19,
+          100
+        ],
+        [
+          19,
+          103
+        ],
+        [
+          17,
+          104
+        ],
+        [
+          14,
+          101
+        ]
+      ],
+      "painted_pixels": 7
+    },
+    {
+      "region": "far hind shin top light",
+      "material": "stone",
+      "rgb": [
+        124,
+        108,
+        100
+      ],
+      "polygon": [
+        [
+          16,
+          99
+        ],
+        [
+          17,
+          100
+        ],
+        [
+          17,
+          102
+        ],
+        [
+          15,
+          101
+        ]
+      ],
+      "painted_pixels": 7
+    },
+    {
+      "region": "far fore shin",
+      "material": "stone",
+      "rgb": [
+        92,
+        76,
+        68
+      ],
+      "polygon": [
+        [
+          103,
+          97
+        ],
+        [
+          105,
+          97
+        ],
+        [
+          108,
+          102
+        ],
+        [
+          108,
+          103
+        ],
+        [
+          105,
+          102
+        ]
+      ],
+      "painted_pixels": 15
+    },
+    {
+      "region": "far fore shin light",
+      "material": "stone",
+      "rgb": [
+        124,
+        108,
+        100
+      ],
+      "polygon": [
+        [
+          103,
+          97
+        ],
+        [
+          104,
+          98
+        ],
+        [
+          106,
+          100
+        ],
+        [
+          105,
+          100
+        ]
+      ],
+      "painted_pixels": 4
+    },
+    {
+      "region": "far fore foot top plane",
+      "material": "stone",
+      "rgb": [
+        92,
+        76,
+        68
+      ],
+      "polygon": [
+        [
+          111,
+          108
+        ],
+        [
+          113,
+          109
+        ],
+        [
+          114,
+          110
+        ],
+        [
+          111,
+          110
+        ]
+      ],
+      "painted_pixels": 0
+    },
+    {
+      "region": "rear hip existing plate light plane",
+      "material": "copper",
+      "rgb": [
+        116,
+        60,
+        52
+      ],
+      "polygon": [
+        [
+          30,
+          83
+        ],
+        [
+          32,
+          83
+        ],
+        [
+          35,
+          87
+        ],
+        [
+          35,
+          93
+        ],
+        [
+          32,
+          92
+        ],
+        [
+          30,
+          89
+        ]
+      ],
+      "painted_pixels": 27
+    },
+    {
+      "region": "rear hip existing plate highlight",
+      "material": "copper",
+      "rgb": [
+        148,
+        84,
+        68
+      ],
+      "polygon": [
+        [
+          30,
+          83
+        ],
+        [
+          31,
+          84
+        ],
+        [
+          32,
+          87
+        ],
+        [
+          31,
+          89
+        ],
+        [
+          30,
+          86
+        ]
+      ],
+      "painted_pixels": 4
+    },
+    {
+      "region": "near hind shoulder plane",
+      "material": "copper",
+      "rgb": [
+        140,
+        68,
+        52
+      ],
+      "polygon": [
+        [
+          52,
+          91
+        ],
+        [
+          57,
+          89
+        ],
+        [
+          61,
+          91
+        ],
+        [
+          62,
+          93
+        ],
+        [
+          57,
+          93
+        ],
+        [
+          53,
+          95
+        ]
+      ],
+      "painted_pixels": 32
+    },
+    {
+      "region": "near hind shoulder lit ridge",
+      "material": "copper",
+      "rgb": [
+        164,
+        100,
+        76
+      ],
+      "polygon": [
+        [
+          53,
+          91
+        ],
+        [
+          57,
+          90
+        ],
+        [
+          60,
+          91
+        ],
+        [
+          59,
+          92
+        ],
+        [
+          55,
+          92
+        ]
+      ],
+      "painted_pixels": 12
+    },
+    {
+      "region": "large furnace orange surround",
+      "material": "heat",
+      "rgb": [
+        252,
+        116,
+        36
+      ],
+      "polygon": [
+        [
+          81,
+          58
+        ],
+        [
+          84,
+          59
+        ],
+        [
+          88,
+          61
+        ],
+        [
+          87,
+          69
+        ],
+        [
+          82,
+          70
+        ],
+        [
+          80,
+          67
+        ]
+      ],
+      "painted_pixels": 24
+    },
+    {
+      "region": "large furnace golden core",
+      "material": "heat",
+      "rgb": [
+        252,
+        156,
+        76
+      ],
+      "polygon": [
+        [
+          83,
+          61
+        ],
+        [
+          86,
+          62
+        ],
+        [
+          87,
+          64
+        ],
+        [
+          86,
+          67
+        ],
+        [
+          84,
+          69
+        ],
+        [
+          82,
+          67
+        ],
+        [
+          82,
+          64
+        ]
+      ],
+      "painted_pixels": 28
+    },
+    {
+      "region": "small furnace golden core",
+      "material": "heat",
+      "rgb": [
+        252,
+        156,
+        76
+      ],
+      "polygon": [
+        [
+          75,
+          64
+        ],
+        [
+          77,
+          64
+        ],
+        [
+          78,
+          66
+        ],
+        [
+          77,
+          68
+        ],
+        [
+          75,
+          67
+        ]
+      ],
+      "painted_pixels": 4
+    },
+    {
+      "region": "rear hip rust-to-silver material correction",
+      "material": "stone",
+      "painted_pixels": 152,
+      "mapping": [
+        {
+          "from": [
+            68,
+            28,
+            28
+          ],
+          "to": [
+            28,
+            28,
+            28
+          ]
+        },
+        {
+          "from": [
+            84,
+            36,
+            36
+          ],
+          "to": [
+            52,
+            44,
+            36
+          ]
+        },
+        {
+          "from": [
+            108,
+            44,
+            36
+          ],
+          "to": [
+            68,
+            52,
+            44
+          ]
+        },
+        {
+          "from": [
+            116,
+            60,
+            52
+          ],
+          "to": [
+            92,
+            76,
+            68
+          ]
+        },
+        {
+          "from": [
+            140,
+            68,
+            52
+          ],
+          "to": [
+            92,
+            76,
+            68
+          ]
+        },
+        {
+          "from": [
+            148,
+            84,
+            68
+          ],
+          "to": [
+            124,
+            108,
+            100
+          ]
+        },
+        {
+          "from": [
+            164,
+            100,
+            76
+          ],
+          "to": [
+            124,
+            108,
+            100
+          ]
+        },
+        {
+          "from": [
+            204,
+            124,
+            100
+          ],
+          "to": [
+            124,
+            108,
+            100
+          ]
+        }
+      ]
+    },
+    {
+      "region": "buried stone torso to rear limb roots",
+      "material": "stone",
+      "rgb": [
+        52,
+        44,
+        36
+      ],
+      "painted_pixels": 141
+    }
+  ],
+  "alpha_preserved": true,
+  "outer_contour_preserved": true,
+  "candidate_uses_front_colors_only": true,
+  "front_hip_pass": {
+    "source_sha256": "d321a6bca163c122b56d657c06076a91054905acc4c2719c3285aa4fad60b575",
+    "body_source_sha256": "558ad619cdb4c7c04f425cccfc3fed8d13f1cf37327b33dfc150db629a26b889",
+    "changed_pixels": 282,
+    "regions": [
+      {
+        "region": "recessed continuous stone torso",
+        "rgb": [
+          52,
+          44,
+          36
+        ],
+        "polygon": [
+          [
+            24,
+            81
+          ],
+          [
+            29,
+            80
+          ],
+          [
+            38,
+            82
+          ],
+          [
+            48,
+            81
+          ],
+          [
+            56,
+            81
+          ],
+          [
+            64,
+            81
+          ],
+          [
+            75,
+            82
+          ],
+          [
+            76,
+            86
+          ],
+          [
+            69,
+            87
+          ],
+          [
+            62,
+            85
+          ],
+          [
+            57,
+            85
+          ],
+          [
+            51,
+            86
+          ],
+          [
+            45,
+            85
+          ],
+          [
+            38,
+            86
+          ],
+          [
+            31,
+            85
+          ],
+          [
+            25,
+            84
+          ]
+        ],
+        "painted_pixels": 219
+      },
+      {
+        "region": "rear hip seated under the torso",
+        "rgb": [
+          68,
+          52,
+          44
+        ],
+        "polygon": [
+          [
+            23,
+            83
+          ],
+          [
+            27,
+            81
+          ],
+          [
+            31,
+            82
+          ],
+          [
+            32,
+            85
+          ],
+          [
+            28,
+            88
+          ],
+          [
+            24,
+            87
+          ]
+        ],
+        "painted_pixels": 51
+      },
+      {
+        "region": "rear hip upper stone face",
+        "rgb": [
+          92,
+          76,
+          68
+        ],
+        "polygon": [
+          [
+            25,
+            82
+          ],
+          [
+            28,
+            82
+          ],
+          [
+            30,
+            83
+          ],
+          [
+            29,
+            85
+          ],
+          [
+            26,
+            85
+          ]
+        ],
+        "painted_pixels": 18
+      },
+      {
+        "region": "middle hip continuous stone root",
+        "rgb": [
+          92,
+          76,
+          68
+        ],
+        "polygon": [
+          [
+            36,
+            81
+          ],
+          [
+            41,
+            80
+          ],
+          [
+            46,
+            82
+          ],
+          [
+            47,
+            86
+          ],
+          [
+            44,
+            89
+          ],
+          [
+            39,
+            88
+          ],
+          [
+            36,
+            85
+          ]
+        ],
+        "painted_pixels": 65
+      },
+      {
+        "region": "middle hip upper left stone light",
+        "rgb": [
+          124,
+          108,
+          100
+        ],
+        "polygon": [
+          [
+            39,
+            81
+          ],
+          [
+            42,
+            81
+          ],
+          [
+            43,
+            83
+          ],
+          [
+            41,
+            86
+          ],
+          [
+            39,
+            85
+          ]
+        ],
+        "painted_pixels": 21
+      },
+      {
+        "region": "far hip seated behind middle limb",
+        "rgb": [
+          68,
+          52,
+          44
+        ],
+        "polygon": [
+          [
+            55,
+            82
+          ],
+          [
+            60,
+            82
+          ],
+          [
+            63,
+            85
+          ],
+          [
+            60,
+            88
+          ],
+          [
+            57,
+            87
+          ],
+          [
+            54,
+            85
+          ]
+        ],
+        "painted_pixels": 45
+      },
+      {
+        "region": "fore hip under-shell root",
+        "rgb": [
+          68,
+          52,
+          44
+        ],
+        "polygon": [
+          [
+            68,
+            83
+          ],
+          [
+            72,
+            83
+          ],
+          [
+            75,
+            85
+          ],
+          [
+            74,
+            88
+          ],
+          [
+            70,
+            87
+          ]
+        ],
+        "painted_pixels": 27
+      }
+    ],
+    "alpha_preserved": true,
+    "outer_contour_preserved": true,
+    "idle_body_received_same_pixel_changes": true
+  },
+  "scope": "Interior texture and hip attachment shading. No silhouette, body-part placement, frame timing or registration edits."
+}
