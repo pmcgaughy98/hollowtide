@@ -1,4 +1,15 @@
 # Working Together on Hollowtide
+
+## Current handoff: October 1, 2026
+
+**Preston's active order is MAIN MENU ONLY for now.** Start with [NEXT_CHAT_HANDOFF_2026-10-01.md](team/NEXT_CHAT_HANDOFF_2026-10-01.md). It records the saved Courier Lookout landscape candidate, existing menu implementation and next steps. Creature generation and Route 1 asset work are paused; Vitrecrag is shelved and its existing files are preserved.
+
+**Gemini protocol:** Codex prepares a Markdown Deep Research prompt for Preston to upload. Preston runs Gemini and returns the report. Do not run Gemini research yourself. Main-menu research is already complete; Concept C, The Courier Lookout, was selected.
+
+The dusk landscape and exact prompt are saved in `docs/art/menu/courier-lookout-2026-10-01/`. The landscape is a candidate, not approved or installed. No menu scene, script or launch setting changed in the generation session. Latest Claude chibi/walk integration remains as documented below.
+
+---
+
 ## Shared handoff guide for Preston, Grok, Claude, and Codex
 
 This file coordinates work across assistants. It does not outrank Preston's current instructions. It is meant to prevent duplicate work, protect the existing game, and make research and design proposals easy to review.
