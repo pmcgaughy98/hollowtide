@@ -20,7 +20,7 @@ the way a wall does. The buildup opens that filter as the pressure rises, so
 the voice bursts out of the shell right at the rupture.
 
   python tools/build_vitrecrag_sounds.py
-Writes assets/audio/sfx/vitrecrag/{cry,buildup,rupture}.wav (44.1 kHz mono).
+Writes assets/audio/sfx/vitrecrag/{cry,buildup,rupture}.wav (44.1 kHz; the rupture is stereo).
 """
 import subprocess
 import wave
@@ -42,13 +42,14 @@ def load(name: str) -> np.ndarray:
 
 
 def save(name: str, x: np.ndarray) -> None:
+    """Mono (1-D) or stereo (N x 2), peak-normalized to -1 dBFS."""
     x = x / max(1e-9, np.abs(x).max()) * 10 ** (-1 / 20)  # peak at -1 dBFS
     with wave.open(str(DIR / f"{name}.wav"), "wb") as w:
-        w.setnchannels(1)
+        w.setnchannels(1 if x.ndim == 1 else 2)
         w.setsampwidth(2)
         w.setframerate(SR)
         w.writeframes((x * 32767).astype(np.int16).tobytes())
-    print(f"{name}.wav  {len(x) / SR:.2f} s")
+    print(f"{name}.wav  {len(x) / SR:.2f} s  {'mono' if x.ndim == 1 else 'stereo'}")
 
 
 def lowpass(x: np.ndarray, cutoff) -> np.ndarray:
@@ -143,22 +144,115 @@ def buildup() -> np.ndarray:
     put(out, stress, 1.3, ramp(len(stress), 0.0, 0.6, 1.4))
     stress_b = unit(highpass(load("stress_b"), 1500))[: int(0.8 * SR)]
     put(out, stress_b, 1.8, ramp(len(stress_b), 0.1, 0.55))
+    # The silence before the release is not baked in here: the battle fades
+    # this out when the strain frame's hush begins (battle_screen._hush_cues),
+    # so sound and picture go quiet together however the frame timing drifts.
     return fade(out, 0.02, 0.03)
 
 
+def db(x: float) -> float:
+    return 10 ** (x / 20)
+
+
+def bandpass(x: np.ndarray, lo: float, hi: float) -> np.ndarray:
+    return lowpass(highpass(x, lo), hi)
+
+
+def sub_drop(seconds: float = 0.45, f0: float = 80.0, f1: float = 30.0) -> np.ndarray:
+    """A sine sweeping down from f0 to f1 Hz, dying away: the weight you feel."""
+    n = int(seconds * SR)
+    freq = f0 * (f1 / f0) ** np.linspace(0, 1, n)
+    wave_ = np.sin(2 * np.pi * np.cumsum(freq) / SR)
+    return wave_ * np.exp(-np.linspace(0, 5, n)) * np.minimum(1, np.arange(n) / (0.004 * SR))
+
+
+def haas(x: np.ndarray, delay: float = 0.015) -> np.ndarray:
+    """Stereo from mono: the right side 15 ms late, so it spreads wide."""
+    d = int(delay * SR)
+    right = np.concatenate([np.zeros(d), x[:-d]])
+    return np.stack([x, right], axis=1)
+
+
+def cavern_ir(seconds: float, seed: int) -> np.ndarray:
+    """A synthetic impulse response: dark noise dying away over `seconds`, the
+    sound of a big stone space. Convolving with it adds the space to a sound."""
+    rng = np.random.default_rng(seed)
+    n = int(seconds * SR)
+    ir = rng.standard_normal(n) * np.exp(-6.9 * np.linspace(0, 1, n))  # -60 dB by the end
+    ir = lowpass(ir, 2500)
+    return ir / np.sqrt((ir ** 2).sum())
+
+
+def convolve(x: np.ndarray, ir: np.ndarray) -> np.ndarray:
+    """Convolution through the FFT (numpy only; the report suggests scipy)."""
+    n = len(x) + len(ir) - 1
+    size = 1 << (n - 1).bit_length()
+    return np.fft.irfft(np.fft.rfft(x, size) * np.fft.rfft(ir, size), size)[:n]
+
+
+def put2(out: np.ndarray, x: np.ndarray, at: float, gain=1.0) -> None:
+    """Adds mono (centred, both sides) or stereo x into a stereo buffer."""
+    s = int(at * SR)
+    x = x[: max(0, len(out) - s)]
+    if x.ndim == 1:
+        x = np.stack([x, x], axis=1)
+    g = gain if np.isscalar(gain) else gain[: len(x), None]
+    out[s: s + len(x)] += x * g
+
+
 def rupture() -> np.ndarray:
-    """The shell cracks and the core pours out."""
-    out = np.zeros(int(2.6 * SR))
-    put(out, unit(load("crack_a")), 0.0, 1.0)
-    # The take swells for 0.7 s before its burst; skip most of the swell so the
-    # burst follows the crack as the glass pours out (the pour starts 0.08 s in).
-    put(out, fade(unit(load("rupture_a"))[int(0.4 * SR):], 0.01, 0.3), 0.03, 0.85)
-    # The glass flowing out gurgles; hot shards tick as they cool.
+    """The release, layered the way a big impact is built (Gemini audio
+    research, 2026-09-29): each layer has one job in its own band, so none
+    masks another. It lands out of the buildup's 60 ms silence.
+      transient  the shell cracking      1-8 kHz, under 50 ms, loudest, centred
+      sub drop   a sine 80 -> 30 Hz      felt more than heard, centred
+      body       the carapace breaking   200 Hz - 1 kHz, about 0.4 s
+      voice      Vitrecrag's brass-locomotive core peaking on the hit: a sub
+                 copy (low-passed, driven) under a bright copy, so the release
+                 is still him and not a stock explosion
+      material   the glass burst and sizzle, then the pour and cooling ticks
+      sweeteners steam and raining glass shards, spread wide with a 15 ms delay
+      space      a cavern-like reverb tail, so it happens somewhere
+    """
+    n = int(3.4 * SR)
+    out = np.zeros((n, 2))
+    dry = np.zeros(n)  # what feeds the reverb
+    # Transient: the crack, bright and hard-clipped so it snaps.
+    crack = unit(highpass(load("crack_a"), 1000))[: int(0.12 * SR)]
+    crack = np.clip(crack * 2.2, -1, 1) * np.exp(-np.linspace(0, 6, len(crack)))
+    put2(out, crack, 0.0, db(0))
+    put(dry, crack, 0.0, db(0))
+    # Sub drop.
+    put2(out, sub_drop(), 0.0, db(-2))
+    # Body: the shell giving way.
+    body = fade(unit(bandpass(load("body_a"), 200, 1000))[: int(0.7 * SR)], 0.003, 0.35)
+    put2(out, body, 0.0, db(-4))
+    put(dry, body, 0.0, db(-4))
+    # The voice on the payoff: the bellow's attack pitched up sharply.
+    cry_ = unit(speed_ramp(load("cry_a"), 0.85, 1.25, 0.7))
+    under = np.tanh(3.0 * unit(lowpass(cry_, 150)))
+    bright = unit(highpass(cry_, 800))
+    voice = fade(0.8 * under + 0.35 * bright, 0.01, 0.4)[: int(0.7 * SR)]
+    put2(out, voice, 0.0, db(-3))
+    put(dry, voice, 0.0, db(-3))
+    # Material: the glass burst (its slow lead-in skipped), then the pour.
+    burst = fade(unit(load("rupture_a"))[int(0.4 * SR):], 0.01, 0.3)
+    put2(out, burst, 0.03, db(-6))
     pour = fade(unit(lowpass(load("boil_b"), 2500))[: int(1.9 * SR)], 0.2, 0.5)
-    put(out, pour, 0.6, 0.45)
+    put2(out, pour, 0.6, db(-9))
     ticks = fade(unit(highpass(load("stress_b"), 2000))[: int(1.2 * SR)], 0.1, 0.5)
-    put(out, ticks, 1.3, 0.25)
-    return fade(out, 0.002, 0.3)
+    put2(out, haas(ticks), 1.4, db(-14))
+    # Sweeteners, spread wide.
+    steam = fade(unit(highpass(load("steam_a"), 3000))[: int(1.5 * SR)], 0.005, 0.6)
+    put2(out, haas(steam), 0.02, db(-10))
+    shards = fade(unit(highpass(load("shards_a"), 4000))[: int(1.6 * SR)], 0.02, 0.6)
+    put2(out, haas(shards, 0.012), 0.12, db(-11))
+    # Space: the dry hit rung through a stone cavern, slightly different each side.
+    wet_l = convolve(dry, cavern_ir(2.6, 1))[:n]
+    wet_r = convolve(dry, cavern_ir(2.6, 2))[:n]
+    wet = np.stack([unit(wet_l), unit(wet_r)], axis=1)
+    put2(out, wet[: n - int(0.04 * SR)], 0.04, db(-12))
+    return out
 
 
 if __name__ == "__main__":

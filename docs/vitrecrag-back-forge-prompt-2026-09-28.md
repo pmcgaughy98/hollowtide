@@ -98,3 +98,24 @@ Native 128x128 battle-sprite grid. Match the approved front's coarse clean pixel
 
 Avoid: front-facing claws or face, side-profile pose, hidden or detached head, new horn or dorsal spike, turtle dome, neat armor tile grid, shingle skirt, tiny or centered furnace, high front posture, fine noisy pixels, gradients, soft antialiasing, extra limbs or duplicate creature.
 ```
+
+## v4 changes, 2026-09-30 (after Preston's best candidate so far)
+
+The 2026-09-30 candidate got the camera right for the first time (rear three-quarter, head hidden, only the mouth
+flame showing), with four visible legs and one blunt foot each. Still wrong: the shell came out as a smooth rounded
+turtle dome with curved scutes, and the legs are short dark boots instead of tall grey stone pillars.
+
+Likely cause: v3 names the things to avoid ("dome", "turtle", "smooth"), and image models tend to draw what is named.
+v4 removes those words and describes only what is wanted. Swap these three paragraphs into the v3 prompt and delete
+the AVOID line's "a smooth dome" and "a turtle".
+
+```text
+SHELL: the dark plum shell is a stack of five or six separate flat armour slabs, like the overlapping roof tiles of a pagoda or the plates of a pinecone seen from behind. The top slab is the smallest and sits on the ridge; each slab below it is wider and sticks out past the one above. Every slab has a straight lower edge with a hard black shadow line under it and an orange riveted seam along it. The shell's outline goes down in clear stair-steps, one step per slab, with corners.
+
+LEGS: tall legs, as long as the shell is high, so the shell is carried well off the ground with clear space under it. Each visible leg is a thick pale grey stone column, the same pale grey as the legs in the attached image, with a rust-red armour plate over the thigh and an orange band at the knee. Each column ends in one broad flat pale grey foot pad.
+
+AVOID: a side view, the head or face visible, the shell's long side facing us, toes or claws on the visible legs, dark boots, short legs, a mirrored copy of the front.
+```
+
+If the next rolls still round the shell, stop rolling: have Codex retouch the 2026-09-30 candidate (step the shell
+outline into slabs and repaint the legs from the front sprite's pillars), since the camera and layout are already right.

@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="MoveData" load_steps=22 format=3]
+[gd_resource type="Resource" script_class="MoveData" load_steps=23 format=3]
 
 [ext_resource type="Script" path="res://scripts/move_data.gd" id="1_script"]
 [ext_resource type="PackedScene" path="res://scenes/effects/oxbowarchon_sky_rail.tscn" id="2_strike"]
@@ -17,6 +17,7 @@
 [ext_resource type="Texture2D" path="res://assets/sprites/creatures/attacks/oxbowarchon_kingstone_rail/style_matched/spent.png" id="t_spent"]
 [ext_resource type="Texture2D" path="res://assets/sprites/creatures/attacks/oxbowarchon_kingstone_rail/style_matched/afterglow.png" id="t_afterglow"]
 [ext_resource type="Texture2D" path="res://assets/sprites/creatures/attacks/oxbowarchon_kingstone_rail/style_matched/settle.png" id="t_settle"]
+[ext_resource type="Texture2D" path="res://assets/sprites/creatures/attacks/oxbowarchon_kingstone_rail/style_matched/titlecard.png" id="t_titlecard"]
 
 [sub_resource type="Resource" id="shot_sky"]
 script = ExtResource("11_shot")
@@ -33,6 +34,7 @@ look = 2
 lean = 0.25
 zoom = 1.05
 seconds = 0.35
+hide_cards = true
 
 [sub_resource type="Resource" id="shot_hit"]
 script = ExtResource("11_shot")
@@ -41,6 +43,7 @@ look = 2
 lean = 0.3
 zoom = 1.12
 seconds = 0.08
+hide_cards = true
 
 [resource]
 script = ExtResource("1_script")
@@ -52,14 +55,17 @@ attack_frames = Array[Texture2D]([ExtResource("t_rest"), ExtResource("t_raise"),
 attack_frame_holds = Array[float]([0.08, 0.22, 0.22, 0.2, 0.2, 0.25, 1.4, 0.08, 0.08, 0.2, 0.35, 0.3, 0.3, 0.45])
 attack_lunge_px = 0.0
 attack_recoil_px = 3.0
+attack_overheat = 1.0
 attack_hit_frame = 13
 attack_brace_frame = 1
 attack_strain_frame = 6
 attack_strain_loop = Array[Texture2D]([ExtResource("t_full"), ExtResource("t_full_b")])
 attack_strain_loop_seconds = 0.12
+attack_cut_in = ExtResource("t_titlecard")
 attack_emit_frames = Vector2i(7, 9)
 signature = true
 signature_effect = ExtResource("2_strike")
+attack_river_offset = Vector2(22, -62)
 signature_light = Color(0.85, 1.15, 0.95, 1)
 signature_linger = 1.8
 impact_flash = true

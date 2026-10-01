@@ -1,28 +1,26 @@
-[gd_resource type="Resource" script_class="MoveData" load_steps=17 format=3]
+[gd_resource type="Resource" script_class="MoveData" format=3 uid="uid://t6abg3gw701y"]
 
-[ext_resource type="Script" path="res://scripts/move_data.gd" id="1_script"]
-[ext_resource type="AudioStream" path="res://assets/audio/sfx/vitrecrag/buildup.wav" id="snd_buildup"]
-[ext_resource type="AudioStream" path="res://assets/audio/sfx/vitrecrag/cry.wav" id="snd_cry"]
-[ext_resource type="AudioStream" path="res://assets/audio/sfx/vitrecrag/rupture.wav" id="snd_rupture"]
-[ext_resource type="Script" path="res://scripts/camera_shot.gd" id="cam_shot"]
+[ext_resource type="Script" uid="uid://bhqon0w55tdjq" path="res://scripts/move_data.gd" id="1_script"]
 [ext_resource type="PackedScene" path="res://scenes/effects/vitrecrag_glass_hit.tscn" id="2_effect"]
-[ext_resource type="Texture2D" path="res://assets/sprites/creatures/attacks/vitrecrag_lava_pour/style_matched/load.png" id="3_load"]
-[ext_resource type="Texture2D" path="res://assets/sprites/creatures/attacks/vitrecrag_lava_pour/style_matched/hole.png" id="4_hole"]
-[ext_resource type="Texture2D" path="res://assets/sprites/creatures/attacks/vitrecrag_lava_pour/style_matched/flood.png" id="5_flood"]
-[ext_resource type="Texture2D" path="res://assets/sprites/creatures/attacks/vitrecrag_lava_pour/style_matched/breakout.png" id="6_breakout"]
-[ext_resource type="Texture2D" path="res://assets/sprites/creatures/attacks/vitrecrag_lava_pour/style_matched/pour_a.png" id="7_pour_a"]
-[ext_resource type="Texture2D" path="res://assets/sprites/creatures/attacks/vitrecrag_lava_pour/style_matched/pour_b.png" id="8_pour_b"]
-[ext_resource type="Texture2D" path="res://assets/sprites/creatures/attacks/vitrecrag_lava_pour/style_matched/recover.png" id="9_recover"]
+[ext_resource type="Texture2D" uid="uid://qbrr21m8vugl" path="res://assets/sprites/creatures/attacks/vitrecrag_lava_pour/style_matched/load.png" id="3_load"]
+[ext_resource type="Texture2D" uid="uid://dapna6lw63ug3" path="res://assets/sprites/creatures/attacks/vitrecrag_lava_pour/style_matched/hole.png" id="4_hole"]
+[ext_resource type="Texture2D" uid="uid://dqopd4n424kgv" path="res://assets/sprites/creatures/attacks/vitrecrag_lava_pour/style_matched/flood.png" id="5_flood"]
+[ext_resource type="Texture2D" uid="uid://by3qe2k6d7khk" path="res://assets/sprites/creatures/attacks/vitrecrag_lava_pour/style_matched/breakout.png" id="6_breakout"]
+[ext_resource type="Texture2D" uid="uid://kjcr4yeu16wa" path="res://assets/sprites/creatures/attacks/vitrecrag_lava_pour/style_matched/recover.png" id="9_recover"]
 [ext_resource type="PackedScene" path="res://scenes/effects/vitrecrag_glass_pour.tscn" id="10_gush"]
 [ext_resource type="PackedScene" path="res://scenes/effects/vitrecrag_lava_river.tscn" id="11_lob"]
-[ext_resource type="Texture2D" path="res://assets/sprites/creatures/attacks/vitrecrag_lava_pour/back/glow_1.png" id="12_back1"]
-[ext_resource type="Texture2D" path="res://assets/sprites/creatures/attacks/vitrecrag_lava_pour/back/glow_2.png" id="13_back2"]
-[ext_resource type="Texture2D" path="res://assets/sprites/creatures/attacks/vitrecrag_lava_pour/back/glow_3.png" id="14_back3"]
+[ext_resource type="Texture2D" uid="uid://cowird8qhmqhj" path="res://assets/sprites/creatures/attacks/vitrecrag_lava_pour/back/glow_1.png" id="12_back1"]
+[ext_resource type="Texture2D" uid="uid://c261monolkfvy" path="res://assets/sprites/creatures/attacks/vitrecrag_lava_pour/back/glow_2.png" id="13_back2"]
+[ext_resource type="Texture2D" uid="uid://dlw4epeybmwa5" path="res://assets/sprites/creatures/attacks/vitrecrag_lava_pour/back/glow_3.png" id="14_back3"]
 [ext_resource type="PackedScene" path="res://scenes/effects/vitrecrag_meltdown.tscn" id="15_meltdown"]
-[ext_resource type="Texture2D" path="res://assets/sprites/creatures/attacks/vitrecrag_lava_pour/style_matched/titlecard.png" id="16_cutin"]
-[ext_resource type="Texture2D" path="res://assets/sprites/creatures/attacks/vitrecrag_lava_pour/style_matched/overload.png" id="17_overload"]
-[ext_resource type="Texture2D" path="res://assets/sprites/creatures/attacks/vitrecrag_lava_pour/style_matched/overload_pour_a.png" id="18_opa"]
-[ext_resource type="Texture2D" path="res://assets/sprites/creatures/attacks/vitrecrag_lava_pour/style_matched/overload_pour_b.png" id="19_opb"]
+[ext_resource type="Texture2D" uid="uid://bxgm4q71iaukv" path="res://assets/sprites/creatures/attacks/vitrecrag_lava_pour/style_matched/titlecard.png" id="16_cutin"]
+[ext_resource type="Texture2D" uid="uid://cl8kbx15lh8cj" path="res://assets/sprites/creatures/attacks/vitrecrag_lava_pour/style_matched/overload.png" id="17_overload"]
+[ext_resource type="Texture2D" uid="uid://buuhspb7ugkxu" path="res://assets/sprites/creatures/attacks/vitrecrag_lava_pour/style_matched/overload_pour_a.png" id="18_opa"]
+[ext_resource type="Texture2D" uid="uid://bv7naeuxud0nu" path="res://assets/sprites/creatures/attacks/vitrecrag_lava_pour/style_matched/overload_pour_b.png" id="19_opb"]
+[ext_resource type="Script" uid="uid://dtck6dpiev4ck" path="res://scripts/camera_shot.gd" id="cam_shot"]
+[ext_resource type="AudioStream" uid="uid://f67amd2wdyd8" path="res://assets/audio/sfx/vitrecrag/buildup.wav" id="snd_buildup"]
+[ext_resource type="AudioStream" uid="uid://cbuwm1v7fjknx" path="res://assets/audio/sfx/vitrecrag/cry.wav" id="snd_cry"]
+[ext_resource type="AudioStream" uid="uid://c4tdu42xw38wm" path="res://assets/audio/sfx/vitrecrag/rupture.wav" id="snd_rupture"]
 
 [sub_resource type="Resource" id="cam_0"]
 script = ExtResource("cam_shot")
@@ -45,15 +43,13 @@ script = ExtResource("cam_shot")
 frame = 7
 look = 2
 lean = 0.2
-zoom = 1.0
 seconds = 0.35
+hide_cards = true
 
 [resource]
 script = ExtResource("1_script")
 move_name = "Molten Glass"
-essence = 0
 power = 32
-max_uses = 0
 effect = ExtResource("2_effect")
 attack_frames = Array[Texture2D]([ExtResource("3_load"), ExtResource("4_hole"), ExtResource("5_flood"), ExtResource("5_flood"), ExtResource("17_overload"), ExtResource("18_opa"), ExtResource("19_opb"), ExtResource("18_opa"), ExtResource("19_opb"), ExtResource("18_opa"), ExtResource("19_opb"), ExtResource("18_opa"), ExtResource("6_breakout"), ExtResource("9_recover")])
 attack_frame_holds = Array[float]([0.1, 0.35, 0.9, 1.1, 0.08, 0.14, 0.14, 0.14, 0.14, 0.14, 0.14, 0.14, 0.12, 0.25])
@@ -66,21 +62,26 @@ attack_back_frames = Array[Texture2D]([ExtResource("12_back1"), ExtResource("13_
 attack_back_emitter_offset = Vector2(36, -8)
 attack_emitter = ExtResource("10_gush")
 attack_emitter_offset = Vector2(32, 23)
-smolder_gasp_frame = 1
-smolder_surge_frames = Vector2i(2, 11)
-smolder_aura_column = 42.0
 attack_emit_frames = Vector2i(4, 11)
 attack_emit_shake = 40
+attack_river = ExtResource("11_lob")
+attack_river_offset = Vector2(42, 55)
+attack_back_river_offset = Vector2(52, 54)
+vent_rest_points = null
+vent_points = null
+vent_directions = null
 attack_cut_in = ExtResource("16_cutin")
 attack_cut_in_frame = 2
 attack_cut_in_seconds = 0.4
 signature = true
 signature_effect = ExtResource("15_meltdown")
-attack_overheat = 1.0
-attack_river = ExtResource("11_lob")
-attack_river_offset = Vector2(42, 55)
-attack_back_river_offset = Vector2(52, 54)
+sound_cues = Array[AudioStream]([ExtResource("snd_buildup"), ExtResource("snd_rupture")])
+sound_cue_frames = Array[int]([0, 4])
+sound_cue_db = Array[float]([0.0, -6.0])
+card_sound = ExtResource("snd_cry")
+card_sound_db = -11.0
 camera_shots = Array[ExtResource("cam_shot")]([SubResource("cam_0"), SubResource("cam_1"), SubResource("cam_2")])
-sound_cues = Array[AudioStream]([ExtResource("snd_buildup"), ExtResource("snd_cry"), ExtResource("snd_rupture")])
-sound_cue_frames = Array[int]([0, 2, 4])
-sound_cue_db = Array[float]([0.0, -4.0, 0.0])
+attack_overheat = 1.0
+smolder_gasp_frame = 1
+smolder_surge_frames = Vector2i(2, 11)
+smolder_aura_column = 42.0

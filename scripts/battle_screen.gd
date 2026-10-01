@@ -10,13 +10,46 @@ extends CanvasLayer
 ## The Inspector creature starts a fresh game. After that, battle reads the
 ## active member from PlayerParty, so evolution remains owned across scenes.
 @export var player_creature: CreatureData
+## Music for this battle; it loops, and ducks under attack sounds.
+@export var battle_music: AudioStream = preload("res://assets/audio/music/battle_theme.mp3")
+## The music's level under the sound effects, in decibels.
+@export var music_db: float = -80.0
+## Every signature move's music (Preston's "Signature Move", made in Suno). It
+## starts from the top when the title card opens, builds for five seconds under
+## the card, and keeps playing through the attack and on until the next turn
+## begins (Preston, 2026-09-29: the move just changed the game, let it ring).
+@export var signature_theme: AudioStream = preload("res://assets/audio/music/signature_move_full.mp3")
+## Seconds into signature_theme of its big accent. The card's close-up picture
+## slams in on this beat.
+@export var signature_accent: float = 3.6
+
+## The chiptune interface and feedback sounds (tools/build_ui_sounds.py). The
+## world and the creatures are recorded sound; menus and game feedback are chip
+## voices, tuned to the music's scale (Preston, 2026-09-30).
+const UI_SOUNDS := {
+	&"cursor": preload("res://assets/audio/sfx/ui/cursor.wav"),
+	&"confirm": preload("res://assets/audio/sfx/ui/confirm.wav"),
+	&"cancel": preload("res://assets/audio/sfx/ui/cancel.wav"),
+	&"text": preload("res://assets/audio/sfx/ui/text.wav"),
+	&"hit": preload("res://assets/audio/sfx/ui/hit.wav"),
+	&"hit_strong": preload("res://assets/audio/sfx/ui/hit_strong.wav"),
+	&"hit_weak": preload("res://assets/audio/sfx/ui/hit_weak.wav"),
+	&"hp_drain": preload("res://assets/audio/sfx/ui/hp_drain.wav"),
+	&"faint": preload("res://assets/audio/sfx/ui/faint.wav"),
+	&"catch_reach": preload("res://assets/audio/sfx/ui/catch_reach.wav"),
+	&"catch_success": preload("res://assets/audio/sfx/ui/catch_success.wav"),
+	&"catch_fail": preload("res://assets/audio/sfx/ui/catch_fail.wav"),
+	&"encounter": preload("res://assets/audio/sfx/ui/encounter.wav"),
+}
+## Loudness of all interface sounds together, in decibels.
+@export var ui_sounds_db: float = -6.0
 
 ## Strike, the move a creature uses when its `move` field is empty.
 ##
 ## Other moves are MoveData files in data/moves/. Strike stays as constants
 ## because it borrows its user's essence, which a MoveData file cannot express.
-const MOVE_NAME := "Strike"
-const MOVE_POWER := 40
+const MOVE_NAME := BattleRules.STRIKE_NAME
+const MOVE_POWER := BattleRules.STRIKE_POWER
 
 ## Capture chance. At the target's full HP it is CATCH_BASE. As its HP falls
 ## toward zero the chance climbs to CATCH_BASE plus CATCH_BONUS, which is why
@@ -24,11 +57,19 @@ const MOVE_POWER := 40
 ##
 ## No capture items. A ball with a catch rate is an item system, and items are
 ## their own step. Attempts are unlimited, and each one costs you the round.
-const CATCH_BASE := 0.20
-const CATCH_BONUS := 0.60
+const CATCH_BASE := BattleRules.CATCH_BASE  # the numbers live in battle_rules.gd
+const CATCH_BONUS := BattleRules.CATCH_BONUS
 
 ## How long each message sits on screen before the next one.
 const BEAT := 0.75
+## The read-out before a move plays (Preston, 2026-09-29: like the old games,
+## the attack is announced before it comes). Seconds per letter while the
+## message types out, and the hold after it finishes.
+const READ_OUT_LETTER := 0.022
+const READ_OUT_HOLD := 0.4
+## How long a signature's title card stays up before the animation starts
+## (Preston, 2026-09-30: five seconds, so the signature music is heard).
+const SIGNATURE_CARD_SECONDS := 5.0
 
 ## The freeze on contact. Working devs cite somewhere around 40 to 80
 ## milliseconds for this; 60 is a starting value to tune by feel, not a
@@ -123,6 +164,9 @@ var _cards: Array[CanvasItem] = []
 var _throat_texture: ImageTexture
 ## Sprites in a hit squash: Vector2(widen, lift) in whole art pixels.
 var _squash := {}
+## Sounds an attack's cues started, so the strain's hush can silence them.
+var _cue_players: Array[AudioStreamPlayer] = []
+var _music: AudioStreamPlayer
 var _battle_stage: Node2D
 var _foe_sprite: Sprite2D
 var _player_sprite: Sprite2D
@@ -140,6 +184,10 @@ var _player_bar: ProgressBar
 var _foe_hp_text: Label
 var _player_hp_text: Label
 var _message: Label
+## True while the game places the menu focus itself, so that does not click.
+var _quiet_focus := false
+## The signature music after the release, which plays on until the next turn.
+var _sig_theme: AudioStreamPlayer
 var _buttons: VBoxContainer
 var _strike_button: Button
 var _move_grid: GridContainer
@@ -180,6 +228,7 @@ func start(wild: CreatureData) -> void:
 	if player_creature == null:
 		push_warning("BattleScreen has no active creature, so it cannot start.")
 		return
+	_start_music()
 
 	_foe = wild
 	_player_hp = player_creature.base_hp
@@ -197,7 +246,7 @@ func start(wild: CreatureData) -> void:
 	_last_interrupt = ""
 
 	# Faster creature acts first for the whole battle. Ties go to the player.
-	_player_first = player_creature.base_speed >= _foe.base_speed
+	_player_first = BattleRules.player_acts_first(player_creature, _foe)
 
 	_foe_sprite.texture = _foe.idle_frames[0] if not _foe.idle_frames.is_empty() else _foe.sprite
 	var player_back: Texture2D = _back_of(player_creature)
@@ -218,6 +267,8 @@ func start(wild: CreatureData) -> void:
 		mat.set_shader_parameter("breath_cut", 0.5)
 		mat.set_shader_parameter("idle_glow", 0.0)
 		mat.set_shader_parameter("heat_sweep", 1.0)
+		# Fire or jade: which of this creature's colours light up.
+		mat.set_shader_parameter("glow_kind", (_foe if s == _foe_sprite else player_creature).glow_kind)
 		s.material = mat
 	_foe_home = _foot_home(_foe_sprite, Vector2(FOE_X, FOE_FOOT_Y))
 	# The player's creature stands on its own floor line too, so a big body
@@ -246,6 +297,7 @@ func start(wild: CreatureData) -> void:
 	_phase = Phase.RESOLVING
 	_set_buttons_enabled(false)
 	_message.text = "A wild %s appeared!" % _foe.creature_name
+	_ui(&"encounter")
 
 	await get_tree().create_timer(BEAT).timeout
 	_begin_choice()
@@ -264,13 +316,16 @@ func _begin_choice() -> void:
 	_foe_guard_fraction = 1.0
 	_last_interrupt = ""
 	_phase = Phase.CHOOSING
+	_end_signature_theme(2.0)  # a new turn: the signature's moment is over
 	if _foe_intent != null and _foe_intent.interruptible:
 		_message.text = "Wild %s readies %s. Your move?" % [_foe.creature_name, _foe_intent.move_name]
 	else:
 		_message.text = "What will %s do?" % player_creature.creature_name
 	_refresh_move_buttons()
 	_set_buttons_enabled(true)
+	_quiet_focus = true
 	_move_buttons[0].grab_focus()
+	_quiet_focus = false
 
 
 func _battle_moves(creature: CreatureData) -> Array[MoveData]:
@@ -340,6 +395,7 @@ func _refresh_move_buttons() -> void:
 		if chosen != null and chosen.max_uses > 0:
 			button.text += "  %d/%d" % [_uses_left(chosen, true), chosen.max_uses]
 		button.pressed.connect(_on_move_pressed.bind(i))
+		button.focus_entered.connect(_on_button_focus)
 		_move_grid.add_child(button)
 		_move_buttons.append(button)
 	_strike_button = _move_buttons[0] # Compatibility for older scene callers.
@@ -351,6 +407,7 @@ func _on_move_pressed(index: int) -> void:
 	var chosen: MoveData = _selected_player_move(index)
 	if _uses_left(chosen, true) == 0:
 		return
+	_ui(&"confirm")
 	_player_intent = chosen
 	_player_action_pending = true
 	_foe_action_pending = true
@@ -409,6 +466,7 @@ func _brace(by_player: bool, move: MoveData) -> void:
 	else:
 		_foe_guard_fraction = fraction
 	_message.text = "%s used %s and braced!" % [who, move.move_name]
+	await _read_out()
 	_idle_hold = true
 	var base_scale := Vector2.ONE * _zoom(sprite)
 	var t := create_tween()
@@ -426,15 +484,16 @@ func _attack(attacker: CreatureData, by_player: bool, move: MoveData) -> void:
 	var essence: CreatureData.Essence = move.essence if move else attacker.essence
 	var power: int = move.power if move else MOVE_POWER
 	var multiplier := EssenceChart.multiplier(essence, defender.essence)
-	var raw_dealt := _damage(attacker, defender, power, multiplier)
+	var raw_dealt := BattleRules.damage(attacker, defender, power, multiplier)
 	var guard_fraction := _foe_guard_fraction if by_player else _player_guard_fraction
-	var dealt := maxi(1, int(ceil(float(raw_dealt) * guard_fraction)))
+	var dealt := BattleRules.after_guard(raw_dealt, guard_fraction)
 	var guarded := raw_dealt - dealt
 	_last_interrupt = ""
 
 	var who := attacker.creature_name if by_player else "Wild " + attacker.creature_name
 	_message.text = "%s used %s!" % [who, move.move_name if move else MOVE_NAME]
 	_tween_focus(Vector2(focus_shift_px if by_player else -focus_shift_px, 0), focus_zoom, 0.16)
+	await _announce(attacker, by_player, move)
 
 	# Damage is applied at the moment of contact inside the animation, not
 	# before it, so the number and the picture agree.
@@ -468,35 +527,21 @@ func _attack(attacker: CreatureData, by_player: bool, move: MoveData) -> void:
 
 	if _foe_hp == 0:
 		_message.text = "The wild %s fainted." % _foe.creature_name
+		_ui(&"faint")
 		await get_tree().create_timer(BEAT).timeout
 		# Leaves the message alone if nothing evolved, so _finish below just
 		# holds whatever the last line said.
 		await _try_evolve()
 		await _finish(_message.text)
 	elif _player_hp == 0:
+		_ui(&"faint")
 		await _finish("%s fainted." % player_creature.creature_name)
-
-
-## Damage is attack times move power, divided by defence times four, then
-## scaled by the essence matchup, never below 1.
-##
-## With every stat at 60 and a power of 40 the base is 10 a hit. A strong
-## matchup doubles that to 20, a weak one halves it to 5, so a 60 HP creature
-## falls in three hits or twelve depending on what is hitting it.
-##
-## No random variance on purpose. It keeps the number predictable while you are
-## learning what the formula does, and it makes the battle testable. Variance is
-## one multiplication when you want it.
-func _damage(attacker: CreatureData, defender: CreatureData, power: int, multiplier: float) -> int:
-	var raw := attacker.base_attack * power / (defender.base_defense * 4.0)
-	return maxi(1, int(raw * multiplier))
 
 
 ## The chance the next capture attempt succeeds, 0 to 1. Split out from the
 ## attempt itself so the number can be checked without rolling a dice.
 func catch_chance() -> float:
-	var ratio := float(_foe_hp) / _foe.base_hp
-	return CATCH_BASE + (1.0 - ratio) * CATCH_BONUS
+	return BattleRules.catch_chance(_foe_hp, _foe.base_hp)
 
 
 func _on_catch_pressed() -> void:
@@ -512,14 +557,17 @@ func _on_catch_pressed() -> void:
 		return
 
 	_message.text = "You reach for the wild %s!" % _foe.creature_name
+	_ui(&"catch_reach")
 	await get_tree().create_timer(BEAT).timeout
 
 	if randf() < catch_chance():
 		PlayerParty.add(_foe)
+		_ui(&"catch_success")
 		await _finish("Caught %s!" % _foe.creature_name)
 		return
 
 	_message.text = "It broke free!"
+	_ui(&"catch_fail")
 	await get_tree().create_timer(BEAT).timeout
 
 	# A failed attempt costs the round; use the foe's declared action.
@@ -676,7 +724,7 @@ func _contact_travel(attacker: Sprite2D, target: Sprite2D, direction: Vector2) -
 	var attack_bounds: Vector2 = _visible_projection(attacker, direction)
 	var target_bounds: Vector2 = _visible_projection(target, direction)
 	var gap: float = distance + target_bounds.x - target_bounds.y - attack_bounds.x - attack_bounds.y
-	return clampf(gap - 18.0, 44.0, maxf(44.0, distance * 0.72))
+	return clampf(gap - 2.0, 44.0, maxf(44.0, distance * 0.80))
 
 
 ## Returns the visible center offset and half-extent along a direction.
@@ -752,10 +800,20 @@ func _drawn_attack_animation(by_player: bool, dealt: int, multiplier: float, mov
 			# sits at heat_sweep * 1.1 across the art, tail end first).
 			if move.vent_charge != null:
 				var w: float = float(sprite.texture.get_width())
+				var vent_number := 0
 				for p in move.vent_rest_points:
 					var reach: float = clampf((p.x + w * 0.5) / w / 1.1, 0.0, 1.0) * build
 					get_tree().create_timer(reach).timeout.connect(
 						_vent_sprite.bind(sprite, p, move.vent_charge, 0.35, 0.0))
+					# Its hiss, the same moment, a step higher for each vent toward the head.
+					if move.vent_charge_sound != null:
+						get_tree().create_timer(reach).timeout.connect(
+							_play_sound.bind(move.vent_charge_sound, move.vent_sound_db, 0.0, 1.0 + 0.12 * vent_number))
+					vent_number += 1
+	# Signature music: the build is started partway in so its climax lands on
+	# the release frame, whatever this move's wind-up length; the battle music
+	# steps aside until the attack is over.
+	# (The music is started by _announce, under the title card.)
 	# Signature: the whole scene (not the HUD) dims while it winds up.
 	if move.signature:
 		var dim_to := Color(0.5, 0.46, 0.58)
@@ -773,7 +831,8 @@ func _drawn_attack_animation(by_player: bool, dealt: int, multiplier: float, mov
 			# with the idle at its bottom; the sprite is centred, so without this
 			# the feet would drop by half the extra height.
 			sprite.offset.y = (original_texture.get_height() - frames[frame_index].get_height()) * 0.5
-		if frame_index == move.attack_cut_in_frame and move.attack_cut_in != null:
+		# A signature's close-up is shown on its title card before the attack.
+		if frame_index == move.attack_cut_in_frame and move.attack_cut_in != null and not move.signature:
 			_show_cut_in(by_player, move)
 		for shot in move.camera_shots:
 			if shot != null and shot.frame == frame_index:
@@ -794,8 +853,16 @@ func _drawn_attack_animation(by_player: bool, dealt: int, multiplier: float, mov
 					var jet: Texture2D = move.vent_jets[i] if i < move.vent_jets.size() and move.vent_jets[i] != null else move.vent_column
 					var way: Vector2 = move.vent_directions[i] if i < move.vent_directions.size() else Vector2.UP
 					var under: bool = i < move.vent_behind.size() and move.vent_behind[i]
+					var fan_frames: Array[Texture2D] = []
+					if absf(way.x) > absf(way.y):
+						fan_frames = move.vent_fan_frames
 					get_tree().create_timer(0.08 * i + 0.001).timeout.connect(
-						_vent_jet.bind(sprite, move.vent_points[i], jet, way, under, 0.55))
+						_vent_jet.bind(sprite, move.vent_points[i], jet, way, under, 0.55, fan_frames))
+					# Its blast, in step with the jet; a little different in pitch each, so
+					# four vents read as four blasts and not one sound repeated.
+					if move.vent_jet_sound != null:
+						get_tree().create_timer(0.08 * i + 0.001).timeout.connect(
+							_play_sound.bind(move.vent_jet_sound, move.vent_sound_db, 0.0, [0.94, 1.06, 0.88, 1.0][i % 4]))
 			if move.signature:
 				# The rupture: a white-hot flash, then the scene lit by the glass.
 				sprite.modulate = Color.WHITE  # the spotlight ends with the flash
@@ -861,9 +928,12 @@ func _drawn_attack_animation(by_player: bool, dealt: int, multiplier: float, mov
 			await _brace_tremble(sprite, sprite.position, maxf(0.04, hold))
 		elif frame_index == move.attack_strain_frame:
 			# The overload pose is front art; from behind, the back frames carry on.
+			var strain_loop: Array[Texture2D] = []
+			if not back:
+				strain_loop = move.attack_strain_loop
 			await _strain(sprite, sprite.position, maxf(0.3, hold), heat, move.attack_overheat,
 				null if back else move.attack_strain_overload,
-				[] if back else move.attack_strain_loop, move.attack_strain_loop_seconds)
+				strain_loop, move.attack_strain_loop_seconds)
 		else:
 			await get_tree().create_timer(maxf(0.04, hold)).timeout
 		if emitter != null and frame_index == move.attack_emit_frames.y:
@@ -891,6 +961,223 @@ func _drawn_attack_animation(by_player: bool, dealt: int, multiplier: float, mov
 	_idle_hold = false
 	if not move.camera_shots.is_empty():
 		_fade_cards(1.0, 0.3)
+	# The battle music stays down while the signature music plays on.
+	if move.signature and not is_instance_valid(_sig_theme):
+		_duck_music(false)
+
+
+## Before a move plays, the message reads it out: the letters type in, then it
+## holds a moment. A signature also gets its title card, and its music starts
+## here so it has room to build before the animation begins.
+func _announce(attacker: CreatureData, by_player: bool, move: MoveData) -> void:
+	if move == null or not move.signature:
+		await _read_out()
+		return
+	_start_signature_music(move)
+	_read_out()  # types under the card; the card sets the pace
+	await _signature_card(attacker, by_player, move)
+
+
+## Type the current message out letter by letter, then hold it.
+func _read_out() -> void:
+	var letters: int = _message.text.length()
+	_message.visible_ratio = 0.0
+	var t := create_tween()
+	t.tween_property(_message, "visible_ratio", 1.0, clampf(letters * READ_OUT_LETTER, 0.2, 0.7))
+	# A tick every other letter or so while it types.
+	var ticks := create_tween().set_loops()
+	ticks.tween_callback(_ui.bind(&"text")).set_delay(0.05)
+	await t.finished
+	ticks.kill()
+	await get_tree().create_timer(READ_OUT_HOLD).timeout
+
+
+## The signature music starts from the top as the title card opens; the battle
+## music steps aside for it.
+func _start_signature_music(_move: MoveData) -> void:
+	_duck_music(true)
+	_end_signature_theme(0.3)  # a second signature in the same turn takes over
+	_start_signature_theme()
+
+
+## The colour a signature's title card is trimmed in: the attacker's own glow
+## (jade) when it has one, otherwise the move's essence.
+func _card_accent(attacker: CreatureData, move: MoveData) -> Color:
+	if attacker.glow_kind == 1:
+		return Color("#84f49c")  # Oxbowarchon's brightest jade
+	match move.essence:
+		CreatureData.Essence.EMBER:
+			return Color("#fc9c4c")
+		CreatureData.Essence.TIDE:
+			return Color("#6cc4f4")
+		CreatureData.Essence.STONE:
+			return Color("#d4b47c")
+		CreatureData.Essence.GALE:
+			return Color("#c4ecf4")
+		CreatureData.Essence.BLOOM:
+			return Color("#9cdc6c")
+	return Color("#b49cdc")
+
+
+## A signature's title card (Preston, 2026-09-30: keep it, always). Five
+## seconds, in two beats timed to the signature music:
+##   1. The announcement. A dark band snaps open with a flash in the attacker's
+##      colour; the move's name slams in from the attacker's side under its
+##      owner's name and a SIGNATURE MOVE tag. Slanted stripes race behind it,
+##      faster and faster, and a charge line under the name fills up.
+##   2. The close-up, on the music's big accent. The band flashes and opens
+##      taller, the name steps aside, and the move's close-up picture (the
+##      title card art, `attack_cut_in`) slams in from the attacker's side and
+##      drifts while it holds. A move with no close-up yet shows its owner's
+##      battle sprite enlarged instead.
+## Then it closes and the attack begins.
+func _signature_card(attacker: CreatureData, by_player: bool, move: MoveData) -> void:
+	var accent: Color = _card_accent(attacker, move)
+	var view: Vector2 = get_viewport().get_visible_rect().size
+	var band_h := 124.0
+	var mid_y: float = roundf(view.y * 0.36)
+	var side: float = 1.0 if by_player else -1.0
+	var reveal_at: float = clampf(signature_accent, 1.0, SIGNATURE_CARD_SECONDS - 1.0)
+	# The close-up: the move's own picture, or its owner's sprite until one exists.
+	var art_tex: Texture2D = move.attack_cut_in if move.attack_cut_in != null else attacker.sprite
+	var art_zoom: float = 3.0 if art_tex.get_height() * 3.0 <= 390.0 else 2.0
+	var tall_h: float = maxf(band_h, art_tex.get_height() * art_zoom + 24.0)
+
+	var band := ColorRect.new()
+	band.color = Color(0.06, 0.04, 0.05, 0.9)
+	band.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	band.clip_contents = true
+	band.position = Vector2(0, mid_y)
+	band.size = Vector2(view.x, 0)
+	add_child(band)
+	move_child(band, _focus_stage.get_index() + 1)
+	# Slanted stripes that race across behind the name, like speed lines. Tall
+	# enough for the band's second, taller beat.
+	var stripes := Node2D.new()
+	band.add_child(stripes)
+	var slant: float = 40.0 * tall_h / band_h
+	for i in int(view.x / 150.0) + 3:
+		var stripe := Polygon2D.new()
+		var w: float = 24.0 + 12.0 * (i % 2)
+		stripe.polygon = PackedVector2Array([Vector2(slant, 0), Vector2(slant + w, 0), Vector2(w, tall_h), Vector2(0, tall_h)])
+		stripe.color = Color(accent, 0.22 if i % 2 == 0 else 0.12)
+		stripe.position = Vector2(i * 150.0 - 150.0, 0)
+		stripes.add_child(stripe)
+	# Two thin trim lines in the accent colour, top and bottom of the band.
+	var trims: Array[ColorRect] = []
+	for y in [6.0, band_h - 10.0]:
+		var line := ColorRect.new()
+		line.color = accent
+		line.position = Vector2(0, y)
+		line.size = Vector2(view.x, 4)
+		band.add_child(line)
+		trims.append(line)
+	var tag := Label.new()
+	tag.text = "%s   SIGNATURE MOVE" % attacker.creature_name.to_upper()
+	tag.add_theme_font_override("font", HP_NUMBER_FONT)
+	tag.add_theme_font_size_override("font_size", 18)
+	tag.add_theme_color_override("font_color", accent)
+	band.add_child(tag)
+	var title := Label.new()
+	title.text = move.move_name.to_upper()
+	title.add_theme_font_override("font", CREATURE_NAME_FONT)
+	title.add_theme_font_size_override("font_size", 48)
+	title.add_theme_color_override("font_color", Color("#F0F4F8"))
+	title.add_theme_color_override("font_shadow_color", Color(accent, 0.8))
+	title.add_theme_constant_override("shadow_offset_x", 4)
+	title.add_theme_constant_override("shadow_offset_y", 4)
+	band.add_child(title)
+	var title_w: float = maxf(title.get_minimum_size().x, tag.get_minimum_size().x)
+	var rest_x: float = roundf((view.x - title_w) * 0.5)
+	title.position = Vector2(rest_x - side * view.x, 38)
+	tag.position = Vector2(rest_x, 14)
+	tag.modulate.a = 0.0
+	# The charge line under the name: a dim track that fills in the accent
+	# colour until the close-up lands.
+	var track := ColorRect.new()
+	track.color = Color(accent, 0.25)
+	track.position = Vector2(rest_x, 98)
+	track.size = Vector2(title_w, 4)
+	band.add_child(track)
+	var charge := ColorRect.new()
+	charge.color = accent
+	charge.position = track.position
+	charge.size = Vector2(0, 4)
+	band.add_child(charge)
+
+	# The HP cards step out of the way for the whole card.
+	_fade_cards(0.0, 0.12)
+	# Beat 1. Open: the band snaps open bright in the accent colour, then settles dark.
+	var dark: Color = band.color
+	var open := create_tween().set_parallel()
+	open.tween_property(band, "size:y", band_h, 0.08)
+	open.tween_property(band, "position:y", mid_y - band_h * 0.5, 0.08)
+	await open.finished
+	band.color = Color(accent.lightened(0.5), 0.95)
+	create_tween().tween_property(band, "color", dark, 0.2)
+	_shake(12)
+	# The name slams in from the attacker's side and overshoots a touch.
+	var slam := create_tween()
+	slam.tween_property(title, "position:x", rest_x + side * 10.0, 0.12).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
+	slam.tween_property(title, "position:x", rest_x, 0.06)
+	create_tween().tween_property(tag, "modulate:a", 1.0, 0.15).set_delay(0.12)
+	# The stripes race and the charge line fills, stepped 12 times a second like
+	# drawn frames. Both speed up toward the close-up.
+	var started: int = Time.get_ticks_msec()
+	var run := create_tween().set_loops()
+	run.tween_interval(1.0 / 12.0)
+	run.tween_callback(func() -> void:
+		var k: float = clampf((Time.get_ticks_msec() - started) / 1000.0 / reveal_at, 0.0, 1.0)
+		stripes.position.x = fposmod(stripes.position.x + side * roundf(lerpf(12.0, 54.0, k * k)), 150.0)
+		charge.size.x = roundf(title_w * k / 4.0) * 4.0)
+	await get_tree().create_timer(maxf(0.1, reveal_at - 0.08)).timeout
+
+	# Beat 2. The close-up, on the music's accent: flash, the band opens taller,
+	# the name steps to the far side and the picture slams in.
+	band.color = Color(accent.lightened(0.6), 0.95)
+	create_tween().tween_property(band, "color", dark, 0.22)
+	_shake(18)
+	_play_sound(move.card_sound, move.card_sound_db)  # the creature's cry, with its picture
+	var grow := create_tween().set_parallel()
+	grow.tween_property(band, "size:y", tall_h, 0.08)
+	grow.tween_property(band, "position:y", mid_y - tall_h * 0.5, 0.08)
+	trims[1].position.y = tall_h - 10.0
+	var text_x: float = clampf(roundf(view.x * 0.5 + side * view.x * 0.25 - title_w * 0.5), 16.0, view.x - title_w - 16.0)
+	var text_y: float = roundf(tall_h * 0.5 - 30.0)
+	title.position = Vector2(text_x, text_y)
+	tag.position = Vector2(text_x, text_y - 24.0)
+	track.position = Vector2(text_x, text_y + 60.0)
+	charge.position = track.position
+	title.modulate = Color(1.6, 1.6, 1.6)
+	create_tween().tween_property(title, "modulate", Color.WHITE, 0.25)
+	var art := Sprite2D.new()
+	art.texture = art_tex
+	art.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
+	art.scale = Vector2.ONE * art_zoom
+	art.flip_h = not by_player  # drawn facing right; the foe faces left
+	band.add_child(art)
+	var art_w: float = art_tex.get_width() * art_zoom
+	var from_x: float = view.x * 0.5 - side * (view.x * 0.5 + art_w * 0.5)
+	var art_x: float = view.x * 0.5 - side * view.x * 0.24
+	var place := func(x: float) -> void:
+		art.position = Vector2(roundf(x / art_zoom) * art_zoom, roundf(tall_h * 0.5))
+	place.call(from_x)
+	art.modulate = Color(2.2, 2.0, 1.7)
+	create_tween().tween_property(art, "modulate", Color.WHITE, 0.25)
+	var hold: float = maxf(0.2, SIGNATURE_CARD_SECONDS - reveal_at - 0.12 - 0.08)
+	var slide := create_tween()
+	slide.tween_method(place, from_x, art_x, 0.12).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_CUBIC)
+	slide.tween_method(place, art_x, art_x + side * 18.0, hold)  # a slow drift while it holds
+	await slide.finished
+	run.kill()
+	var close := create_tween().set_parallel()
+	close.tween_property(band, "size:y", 0.0, 0.08)
+	close.tween_property(band, "position:y", mid_y, 0.08)
+	await close.finished
+	band.queue_free()
+	# A move with camera shots brings the cards back itself when it ends.
+	if move.camera_shots.is_empty():
+		_fade_cards(1.0, 0.2)
 
 
 ## A move's close-up cut-in: a dark band opens across the screen, the close-up
@@ -995,7 +1282,7 @@ func _brace_tremble(sprite: Sprite2D, base: Vector2, seconds: float) -> void:
 ## flickers and is gone. `way` is up (source at the art's bottom edge) or back
 ## toward the tail (source at its right edge); `under` draws it behind the body
 ## so it rises out from behind the ridge.
-func _vent_jet(sprite: Sprite2D, point: Vector2, tex: Texture2D, way: Vector2, under: bool, seconds: float) -> void:
+func _vent_jet(sprite: Sprite2D, point: Vector2, tex: Texture2D, way: Vector2, under: bool, seconds: float, fan_frames: Array[Texture2D]) -> void:
 	if not is_instance_valid(sprite) or tex == null:
 		return
 	var zoom: float = _zoom(sprite)
@@ -1007,10 +1294,27 @@ func _vent_jet(sprite: Sprite2D, point: Vector2, tex: Texture2D, way: Vector2, u
 	s.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
 	s.scale = Vector2.ONE * zoom
 	s.flip_h = sprite.flip_h
-	s.region_enabled = true
 	_battle_stage.add_child(s)
 	if under:
 		_battle_stage.move_child(s, sprite.get_index())
+	if not fan_frames.is_empty():
+		# The cut frames share a 56x48 canvas. Their fixed vent root is two
+		# pixels in from the right edge and two-thirds down the canvas.
+		for frame_index in fan_frames.size():
+			if not is_instance_valid(s):
+				return
+			var frame: Texture2D = fan_frames[frame_index]
+			if frame != null:
+				s.texture = frame
+				var size := Vector2(frame.get_width(), frame.get_height())
+				var origin := Vector2(size.x - 2.0, size.y * 2.0 / 3.0)
+				s.position = vent + Vector2((size.x * 0.5 - origin.x) * zoom * facing,
+					(size.y * 0.5 - origin.y) * zoom)
+			await get_tree().create_timer(seconds / fan_frames.size()).timeout
+		if is_instance_valid(s):
+			s.queue_free()
+		return
+	s.region_enabled = true
 	var w: int = tex.get_width()
 	var h: int = tex.get_height()
 	var up: bool = absf(way.y) >= absf(way.x)
@@ -1098,6 +1402,10 @@ func _strain(sprite: Sprite2D, base: Vector2, seconds: float, heat: ShaderMateri
 	var next_throb := 0.0
 	var calm: Texture2D = sprite.texture
 	var surge_until := -1.0  # while elapsed is below this, the overload pose shows
+	# Elapsed is read off the clock: each 0.04 s wait really lasts until the next
+	# frame, so adding 0.04 per step ran the strain about a third long and the
+	# signature music ended before the release (found 2026-09-29).
+	var started: int = Time.get_ticks_msec()
 	while elapsed < build:
 		var k: float = elapsed / build
 		var amp: float = roundf(lerpf(1.0, 3.0, k))
@@ -1119,8 +1427,12 @@ func _strain(sprite: Sprite2D, base: Vector2, seconds: float, heat: ShaderMateri
 			# Keep a long charge alive: step through the loop drawings.
 			sprite.texture = loop[int(elapsed / maxf(0.04, loop_seconds)) % loop.size()]
 		await get_tree().create_timer(0.04).timeout
-		elapsed += 0.04
-	# The held breath, at peak meltdown.
+		elapsed = (Time.get_ticks_msec() - started) / 1000.0
+	# The held breath, at peak meltdown. Sound goes silent with it, so the
+	# release lands out of silence (Gemini audio research, 2026-09-29: the
+	# vacuum before a hit is what makes it read as huge). Timed off the hush
+	# itself, so it holds however the frame timing drifts.
+	_hush_cues()
 	if overload != null:
 		sprite.texture = overload
 	sprite.position = base
@@ -1512,6 +1824,10 @@ func _on_impact(by_player: bool, dealt: int, multiplier: float, move: MoveData) 
 	_shake(dealt)
 	_pop_damage(target, dealt, multiplier)
 	_animate_bars()
+	# The chip tick over the recorded impact says how well it landed, and the HP
+	# run follows it down.
+	_ui(&"hit_strong" if multiplier > 1.0 else (&"hit_weak" if multiplier < 1.0 else &"hit"))
+	get_tree().create_timer(0.12).timeout.connect(_ui.bind(&"hp_drain"))
 
 
 ## Seconds of hit-stop for a move: its own impact_freeze, or 0.12 for a
@@ -1615,6 +1931,7 @@ func _on_flee_pressed() -> void:
 		return
 	_phase = Phase.RESOLVING
 	_set_buttons_enabled(false)
+	_ui(&"cancel")
 	# Fleeing always works. A flee that can fail is a mechanic, and mechanics
 	# come after the loop works.
 	await _finish("Got away safely.")
@@ -1629,6 +1946,8 @@ func _finish(final_message: String) -> void:
 	_idle_on = false
 	_set_buttons_enabled(false)
 	_message.text = final_message
+	_stop_music(BEAT * 1.5)
+	_end_signature_theme(BEAT * 1.5)
 	await get_tree().create_timer(BEAT * 1.5).timeout
 	visible = false
 	if _focus_tween != null and _focus_tween.is_valid():
@@ -1721,11 +2040,23 @@ func _evolution_animation(next: CreatureData) -> void:
 ## smaller, distant scale. Most sprites retain whole-number zoom. A 128px foe
 ## can land on a half step rather than jumping from 2x all the way to 1x.
 ## The battle's nearest texture filter keeps the source pixels sharp.
+## The height of a creature's own sprite, not of whatever frame it is showing.
+## Attack frames can be taller (Kingstone Rail's raised rails: 216 against 128),
+## and measuring the current frame made the creature's pixel size come out
+## halved mid-attack, which shrank every effect sized from it.
+func _base_height(s: Sprite2D) -> float:
+	if s == _foe_sprite and _foe != null and _foe.sprite != null:
+		return float(_foe.sprite.get_height())
+	if s == _player_sprite and player_creature != null and player_creature.sprite != null:
+		return float(player_creature.sprite.get_height())
+	return float(s.texture.get_height())
+
+
 func _zoom(s: Sprite2D) -> float:
 	if s.texture == null:
 		return 3.0
 	var target: float = CREATURE_HEIGHT * _battle_size_of(s)
-	var near_zoom: float = maxf(1.0, roundf(target / s.texture.get_height()))
+	var near_zoom: float = maxf(1.0, roundf(target / _base_height(s)))
 	if s == _foe_sprite:
 		return maxf(1.0, roundf(near_zoom * foe_perspective_scale * 2.0) / 2.0)
 	# The player's side has PLAYER_ROOM of open stage (left of its HP card,
@@ -2045,16 +2376,131 @@ const SKY_ABOVE := 480.0
 const SCENE_BEYOND := 320.0
 
 
-## Plays a one-off sound and frees its player when it ends.
-func _play_sound(stream: AudioStream, db: float = 0.0) -> void:
+## Plays a one-off sound and frees its player when it ends. Sounds started by
+## an attack's cues are remembered so the strain's hush can silence them.
+## `from` starts it partway in (seconds).
+## The signature music. It is not a cue, so an attack's hush does not cut it
+## (it only dips); it plays until the next turn or the battle's end.
+const SIGNATURE_THEME_DB := -5.0
+func _start_signature_theme() -> void:
+	if signature_theme == null:
+		return
+	var p := AudioStreamPlayer.new()
+	p.stream = signature_theme
+	p.volume_db = SIGNATURE_THEME_DB
+	p.bus = &"SFX"  # its accents land with the hits, not ducked under them
+	add_child(p)
+	p.finished.connect(p.queue_free)
+	p.play()
+	_sig_theme = p
+
+
+## Slide the signature music to a level: down for the held breath before the
+## release, back up on the release.
+func _signature_theme_level(db: float, seconds: float) -> void:
+	if is_instance_valid(_sig_theme):
+		create_tween().tween_property(_sig_theme, "volume_db", db, seconds)
+
+
+## Fade the signature music out and bring the battle music back.
+func _end_signature_theme(seconds: float) -> void:
+	if not is_instance_valid(_sig_theme):
+		return
+	var p: AudioStreamPlayer = _sig_theme
+	_sig_theme = null
+	var t := create_tween()
+	t.tween_property(p, "volume_db", -60.0, seconds).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN)
+	t.tween_callback(p.queue_free)
+	if _phase != Phase.OVER:
+		_duck_music(false)
+
+
+## An interface or feedback sound by name. These are not attack cues: they are
+## not hushed before a release, and they play straight to the Master bus so a
+## line of text ticks does not make the music duck.
+func _ui(sound: StringName, db: float = 0.0) -> void:
+	var stream: AudioStream = UI_SOUNDS.get(sound)
 	if stream == null:
 		return
 	var p := AudioStreamPlayer.new()
 	p.stream = stream
-	p.volume_db = db
+	p.volume_db = ui_sounds_db + db
+	if sound == &"text":
+		p.pitch_scale = randf_range(0.94, 1.06)  # a little different each letter, like a voice
+	p.bus = &"Master"
 	add_child(p)
 	p.finished.connect(p.queue_free)
 	p.play()
+
+
+## Moving onto a command with the keyboard or pad. Silent when the game itself
+## places the focus at the start of a turn.
+func _on_button_focus() -> void:
+	if _phase == Phase.CHOOSING and not _quiet_focus:
+		_ui(&"cursor")
+
+
+func _play_sound(stream: AudioStream, db: float = 0.0, from: float = 0.0, pitch: float = 1.0) -> AudioStreamPlayer:
+	if stream == null:
+		return null
+	var p := AudioStreamPlayer.new()
+	_cue_players.append(p)
+	p.tree_exiting.connect(func() -> void: _cue_players.erase(p))
+	p.stream = stream
+	p.volume_db = db
+	p.pitch_scale = pitch
+	# The SFX bus: music (when there is some) ducks under it, and the Master
+	# limiter keeps stacked hits from clipping (default_bus_layout.tres).
+	p.bus = &"SFX"
+	add_child(p)
+	p.finished.connect(p.queue_free)
+	p.play(from)
+	return p
+
+
+## The battle theme (Preston's "Galloping Triplet Pulse", made in Suno,
+## 2026-09-29), looping on the Music bus, which ducks under attack sounds.
+func _start_music() -> void:
+	if battle_music == null:
+		return
+	if _music == null:
+		_music = AudioStreamPlayer.new()
+		_music.bus = &"Music"
+		add_child(_music)
+	if "loop" in battle_music:
+		battle_music.loop = true
+	_music.stream = battle_music
+	_music.volume_db = -40.0
+	_music.play()
+	get_tree().call_group(&"area_music", &"battle_began")  # the route's music steps aside
+	create_tween().tween_property(_music, "volume_db", music_db, 0.6)
+
+
+## During a signature the battle music fades right out, and comes back after.
+func _duck_music(down: bool) -> void:
+	if _music == null or not _music.playing:
+		return
+	create_tween().tween_property(_music, "volume_db", -40.0 if down else music_db, 0.4 if down else 1.2)
+
+
+func _stop_music(seconds: float) -> void:
+	if _music == null or not _music.playing:
+		return
+	var t := create_tween()
+	t.tween_property(_music, "volume_db", -40.0, seconds)
+	t.tween_callback(_music.stop)
+	get_tree().call_group(&"area_music", &"battle_ended")  # and comes back
+
+
+func _hush_cues() -> void:
+	# The signature music holds its breath too, then comes back on the release.
+	_signature_theme_level(-18.0, 0.05)
+	get_tree().create_timer(0.22).timeout.connect(_signature_theme_level.bind(SIGNATURE_THEME_DB, 0.05))
+	for p in _cue_players.duplicate():
+		if is_instance_valid(p) and p.playing:
+			var t := create_tween()
+			t.tween_property(p, "volume_db", -60.0, 0.03)
+			t.tween_callback(p.queue_free)
 
 
 ## A move's camera shot: lean toward the attacker or target, push in, tilt up.
@@ -2205,6 +2651,7 @@ func _build_ui() -> void:
 	_catch_button.add_theme_font_size_override("font_size", 18)
 	_skin_command_button(_catch_button, true)
 	_catch_button.pressed.connect(_on_catch_pressed)
+	_catch_button.focus_entered.connect(_on_button_focus)
 	utility.add_child(_catch_button)
 
 	_flee_button = Button.new()
@@ -2213,6 +2660,7 @@ func _build_ui() -> void:
 	_flee_button.add_theme_font_size_override("font_size", 18)
 	_skin_command_button(_flee_button)
 	_flee_button.pressed.connect(_on_flee_pressed)
+	_flee_button.focus_entered.connect(_on_button_focus)
 	utility.add_child(_flee_button)
 
 

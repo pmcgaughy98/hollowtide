@@ -92,6 +92,9 @@ enum Essence {
 ## 0 is off; an attack's overheat peaks at 1, so keep this around 0.3 to 0.4
 ## (Preston, 2026-09-28: Ironvent's vents breathe, dimmer than Furnace Roar).
 @export_range(0.0, 1.0, 0.05) var idle_vent_glow: float = 0.0
+## Which colours glow when this creature heats up or idles with a glow:
+## fire (furnace windows, molten seams) or jade (Oxbowarchon's green seams).
+@export_enum("Fire", "Jade") var glow_kind: int = 0
 
 ## Where the breath stops, as a share of the body's height from the top of the
 ## art: everything above rises on the inhale, everything below (legs, feet)

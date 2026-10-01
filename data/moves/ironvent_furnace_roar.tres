@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="MoveData" load_steps=13 format=3]
+[gd_resource type="Resource" script_class="MoveData" load_steps=32 format=3]
 
 [ext_resource type="Script" path="res://scripts/move_data.gd" id="1_script"]
 [ext_resource type="Script" path="res://scripts/camera_shot.gd" id="cam_shot"]
@@ -11,14 +11,30 @@
 [ext_resource type="Texture2D" path="res://assets/sprites/creatures/attacks/ironvent_furnace_roar/style_matched/roar.png" id="8_roar"]
 [ext_resource type="Texture2D" path="res://assets/sprites/creatures/attacks/ironvent_furnace_roar/style_matched/settle.png" id="9_settle"]
 [ext_resource type="Texture2D" path="res://assets/sprites/creatures/attacks/ironvent_furnace_roar/style_matched/cool.png" id="10_cool"]
-[ext_resource type="Texture2D" path="res://assets/sprites/creatures/attacks/ironvent_furnace_roar/style_matched/cutin.png" id="11_cutin"]
+[ext_resource type="Texture2D" path="res://assets/sprites/creatures/attacks/ironvent_furnace_roar/style_matched/titlecard_official_2026_09_30.png" id="11_cutin"]
 [ext_resource type="PackedScene" path="res://scenes/effects/ironvent_roar_mouth.tscn" id="12_blast"]
 [ext_resource type="PackedScene" path="res://scenes/effects/ironvent_pressure_field.tscn" id="13_fallout"]
 [ext_resource type="Texture2D" path="res://assets/sprites/effects/ironvent/blowdown/charge.png" id="14_charge"]
 [ext_resource type="Texture2D" path="res://assets/sprites/effects/ironvent/blowdown/column.png" id="15_column"]
 [ext_resource type="Texture2D" path="res://assets/sprites/effects/ironvent/blowdown/smoke.png" id="16_smoke"]
 [ext_resource type="Texture2D" path="res://assets/sprites/effects/ironvent/blowdown/fan.png" id="17_fan"]
+[ext_resource type="Texture2D" path="res://assets/sprites/effects/ironvent/vent_heat/00_charge.png" id="18_vent0"]
+[ext_resource type="Texture2D" path="res://assets/sprites/effects/ironvent/vent_heat/01_ignite.png" id="19_vent1"]
+[ext_resource type="Texture2D" path="res://assets/sprites/effects/ironvent/vent_heat/02_first_burst.png" id="20_vent2"]
+[ext_resource type="Texture2D" path="res://assets/sprites/effects/ironvent/vent_heat/03_open.png" id="21_vent3"]
+[ext_resource type="Texture2D" path="res://assets/sprites/effects/ironvent/vent_heat/04_full.png" id="22_vent4"]
+[ext_resource type="Texture2D" path="res://assets/sprites/effects/ironvent/vent_heat/05_sustain.png" id="23_vent5"]
+[ext_resource type="Texture2D" path="res://assets/sprites/effects/ironvent/vent_heat/06_turbulence.png" id="24_vent6"]
+[ext_resource type="Texture2D" path="res://assets/sprites/effects/ironvent/vent_heat/07_breakup.png" id="25_vent7"]
+[ext_resource type="Texture2D" path="res://assets/sprites/effects/ironvent/vent_heat/08_cool.png" id="26_vent8"]
 
+[ext_resource type="AudioStream" path="res://assets/audio/sfx/ironvent/buildup.wav" id="snd_buildup"]
+[ext_resource type="AudioStream" path="res://assets/audio/sfx/ironvent/roar.wav" id="snd_roar"]
+[ext_resource type="AudioStream" path="res://assets/audio/sfx/ironvent/blowdown.wav" id="snd_blowdown"]
+[ext_resource type="AudioStream" path="res://assets/audio/sfx/ironvent/cool.wav" id="snd_cool"]
+[ext_resource type="AudioStream" path="res://assets/audio/sfx/ironvent/cry.wav" id="snd_cry"]
+[ext_resource type="AudioStream" path="res://assets/audio/sfx/ironvent/vent_hiss.wav" id="snd_vent_hiss"]
+[ext_resource type="AudioStream" path="res://assets/audio/sfx/ironvent/vent_jet.wav" id="snd_vent_jet"]
 [sub_resource type="Resource" id="cam_0"]
 script = ExtResource("cam_shot")
 frame = 3
@@ -83,10 +99,19 @@ vent_rest_points = PackedVector2Array(-14, -13, -2, -19, 18, -15)
 vent_points = PackedVector2Array(-17, -12, -12, -18, -6, -21, 0, -24)
 vent_directions = PackedVector2Array(-1, 0, -1, 0, -1, 0, 0, -1)
 vent_jets = Array[Texture2D]([ExtResource("17_fan"), ExtResource("17_fan"), ExtResource("17_fan"), ExtResource("15_column")])
+vent_fan_frames = Array[Texture2D]([ExtResource("18_vent0"), ExtResource("19_vent1"), ExtResource("20_vent2"), ExtResource("21_vent3"), ExtResource("22_vent4"), ExtResource("23_vent5"), ExtResource("24_vent6"), ExtResource("25_vent7"), ExtResource("26_vent8")])
 vent_behind = Array[bool]([false, false, false, true])
 vent_charge = ExtResource("14_charge")
 vent_column = ExtResource("15_column")
 vent_smoke = ExtResource("16_smoke")
 impact_flash = true
+sound_cues = Array[AudioStream]([ExtResource("snd_buildup"), ExtResource("snd_roar"), ExtResource("snd_blowdown"), ExtResource("snd_cool")])
+sound_cue_frames = Array[int]([0, 5, 7, 8])
+sound_cue_db = Array[float]([-3.0, 0.0, 0.0, -8.0])
+card_sound = ExtResource("snd_cry")
+card_sound_db = -4.0
+vent_charge_sound = ExtResource("snd_vent_hiss")
+vent_jet_sound = ExtResource("snd_vent_jet")
+vent_sound_db = -7.0
 impact_shake = 45
 camera_shots = Array[ExtResource("cam_shot")]([SubResource("cam_0"), SubResource("cam_1"), SubResource("cam_2"), SubResource("cam_3")])

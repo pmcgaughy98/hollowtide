@@ -16,6 +16,8 @@ const BRIGHT := Color("#fc9c4c")
 const ORANGE := Color("#fc7424")
 const EMBER := Color("#9c3414")
 const SMOKE := Color("#4a3a44")
+const PALE := Color("#fcdca4")
+const FIRE: Array[Color] = [EMBER, ORANGE, BRIGHT, PALE]
 
 ## Half-width of the flood at the target, and how far it runs past, in art pixels.
 @export var max_spread := 34.0
@@ -31,6 +33,21 @@ const SMOKE := Color("#4a3a44")
 @export var wave_lip: Texture2D
 @export var crust: Texture2D
 
+@export_group("Ultimate Impact")
+## The hit, at the Kingstone Rail bar (Preston, 2026-09-30: signatures are
+## ultimate moves). While the river crawls out, the ground under the target
+## glows hotter and wider (the omen). When it lands: a white-gold flash over
+## the whole screen, a geyser of molten glass blasting up to the sky, the
+## explosion, the molten crown bursting up around the target,
+## fire rings racing out across the ground, glass globs and slag thrown up,
+## the hardest shake and an aftershock. The flood then spreads as before.
+@export var burst: Texture2D        ## the explosion at the target (molten_cannon/proj_f01)
+@export var crown_burst: Texture2D  ## the molten crown bursting up (meltdown/crown)
+@export var splash: Texture2D       ## the crown falling back (meltdown/splash_crown)
+@export var ground_ring: Texture2D  ## a flat fire ring on the ground (furnace_roar/f5)
+@export var globs: Array[Texture2D] = []  ## glass globs thrown up as debris
+@export var burst_scale := 3
+
 var _sheet: ColorRect
 var _mat: ShaderMaterial
 var _embers: Node2D
@@ -43,6 +60,12 @@ var _time := -1.0
 var _debt := 0.0
 var _lip: Sprite2D
 var _crust: Sprite2D
+## Set by the battle: the opponent's sprite and the screen shake.
+var target: Sprite2D
+var shake: Callable
+## The impact draws over the creatures, so it lives in its own node on the stage.
+var _front: Node2D
+var _omen: Node2D
 # Each ember: [stage position, velocity, age, lifetime]
 var _parts: Array = []
 
@@ -93,6 +116,12 @@ func erupt(start: Vector2, end: Vector2, px: float, arrive: float, sustain: floa
 	_embers = Node2D.new()
 	_embers.draw.connect(_draw_embers)
 	get_parent().add_child.call_deferred(_embers)
+	_front = Node2D.new()
+	_front.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
+	get_parent().add_child(_front)
+	_omen = UltimateImpact.omen(_front, _b, _px, _arrive, FIRE)
+	get_tree().create_timer(_arrive).timeout.connect(_impact)
+	get_tree().create_timer(_arrive + 3.0).timeout.connect(_front.queue_free)
 
 
 func _process(delta: float) -> void:
@@ -193,3 +222,53 @@ func _draw_embers() -> void:
 		c.a = 1.0 - maxf(0.0, t - 0.8) / 0.2
 		var cell: Vector2 = (p[0] / _px).floor() * _px
 		_embers.draw_rect(Rect2(cell, Vector2(_px, _px)), c)
+
+
+## The river has reached the target: everything at once, then the flood.
+func _impact() -> void:
+	if not is_instance_valid(_front):
+		return
+	if is_instance_valid(_omen):
+		_omen.queue_free()
+	if shake.is_valid():
+		shake.call(60)
+	var hit: Vector2 = target.position if is_instance_valid(target) else _b - Vector2(0, 14.0 * _px)
+	UltimateImpact.flash(_front, PALE)
+	# The geyser: molten glass blasting from the ground up past the top of the screen.
+	UltimateImpact.column(_front, _b.x, _b.y, _px, FIRE, 18.0)
+	UltimateImpact.ring(_front, ground_ring, _b, _px, burst_scale, 5)
+	UltimateImpact.ring(_front, ground_ring, _b, _px, burst_scale, 5, 0.14)
+	UltimateImpact.debris(_front, _b - Vector2(0, 6.0 * _px), _px, [ORANGE, BRIGHT, HOT, SMOKE], 26, globs, 2)
+	get_tree().create_timer(0.35).timeout.connect(func() -> void:
+		if shake.is_valid():
+			shake.call(18))
+	# The explosion at the body, then the crown of glass bursting up from the
+	# ground around it, swelling one size, then falling back as a splash.
+	if burst != null:
+		var b := _piece(burst, hit, burst_scale + 1)
+		await get_tree().create_timer(0.14).timeout
+		b.queue_free()
+	if crown_burst != null:
+		# The crown stands on the ground, so it reaches up; one size smaller than
+		# the burst keeps it below the HP card.
+		var c := _piece(crown_burst, _b, burst_scale - 1, true)
+		await get_tree().create_timer(0.32).timeout
+		c.queue_free()
+	if splash != null:
+		var sp := _piece(splash, _b, burst_scale - 1, true)
+		var fade := create_tween()
+		fade.tween_property(sp, "modulate:a", 0.0, 0.4).set_delay(0.15)
+		fade.tween_callback(sp.queue_free)
+
+
+## A drawn piece on the front node at whole-number size. `grounded` stands it on
+## `at` (its bottom edge on the floor line) instead of centring it there.
+func _piece(tex: Texture2D, at: Vector2, scale_by: int, grounded := false) -> Sprite2D:
+	var s := Sprite2D.new()
+	s.texture = tex
+	s.scale = Vector2.ONE * _px * scale_by
+	if grounded:
+		s.offset.y = -tex.get_height() * 0.5
+	s.position = (at / _px).round() * _px
+	_front.add_child(s)
+	return s

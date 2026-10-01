@@ -1,0 +1,59 @@
+{
+  "date": "2026-09-30T16:31:21",
+  "authority": "Preston approved the finished Vitrecrag back and new official Ironvent card and requested texture matching and hookup.",
+  "method": "Deterministic native-grid extraction, palette/outline matching, conservative cluster edits; no image generation.",
+  "vitrecrag_back": {
+    "size": [
+      128,
+      128
+    ],
+    "colours": 23,
+    "alpha_values": [
+      0,
+      255
+    ],
+    "sha256": "02a6fe979c9bc4508201b327999be60b8299c106ecda2264653ae20e80ceac84"
+  },
+  "ironvent_titlecard": {
+    "size": [
+      100,
+      100
+    ],
+    "colours": 29,
+    "alpha_values": [
+      0,
+      255
+    ],
+    "sha256": "ba7d778e4cb2c5964d52b7ac66b89a1a5c594470bb95686df246311729151802"
+  },
+  "source_files": [
+    {
+      "path": "C:\\Users\\pmcga\\OneDrive\\Documents\\HollowTide Sprites\\Creatures-Back\\Vitrecrag-Back.jfif",
+      "sha256": "f92fb2fbc7463067f2428b97ebc3021f2fa910d98144dafb8e59a3be5a9b90eb"
+    },
+    {
+      "path": "C:\\Users\\pmcga\\OneDrive\\Documents\\HollowTide Sprites\\Signature-Titlecards\\Ironvent-titlecard.png",
+      "sha256": "5483357b3afbe44060d96bec8f04f500f12d36cc7a988f3945f9fd90c37ba408"
+    }
+  ],
+  "resource_links": [
+    {
+      "file": "C:\\Users\\pmcga\\dev\\hollowtide\\data\\creatures\\108_vitrecrag.tres",
+      "old": "res://assets/sprites/creatures/vitrecrag_rear_2026_09_27.png",
+      "new": "res://assets/sprites/creatures/vitrecrag_back_official_2026_09_30.png"
+    },
+    {
+      "file": "C:\\Users\\pmcga\\dev\\hollowtide\\data\\moves\\ironvent_furnace_roar.tres",
+      "old": "res://assets/sprites/creatures/attacks/ironvent_furnace_roar/style_matched/titlecard.png",
+      "new": "res://assets/sprites/creatures/attacks/ironvent_furnace_roar/style_matched/titlecard_official_2026_09_30.png"
+    }
+  ],
+  "notes": [
+    "Vitrecrag back is translated upward three pixels to share the front's foot baseline; no resizing.",
+    "Alpha silhouette is identical before and after texture finishing on both native canvases.",
+    "All back colours exist in the current front palette.",
+    "Previous textures and OneDrive originals remain intact.",
+    "No scenes, attack frame orders, timing, sounds or battle math were changed.",
+    "Inspected native/enlarged art; no game run or runtime test requested or performed."
+  ]
+}

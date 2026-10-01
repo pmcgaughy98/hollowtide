@@ -11,6 +11,12 @@ extends Node2D
 ## and how long it lasts, not a literal ray), sparking, flashing and shaking
 ## until it sinks back into the ground and smokes. Art from Preston's
 ## "blast furnace blowdown candidate 3" sheet (assets/sprites/effects/ironvent/field/).
+## (Preston, 2026-09-30: signatures are ultimate moves and must hit like the
+## Kingstone Rail landing. Added through scripts/effects/ultimate_impact.gd: a
+## glowing ground marker under the opponent through the suspense, a white-gold
+## flash over the whole screen, a geyser tall enough to blast off the top of
+## the screen, a burst of sparks over the body, shockwave rings racing out,
+## slag thrown up, the hardest shake and an aftershock.)
 ##
 ## Used as the move's signature_effect: the battle calls erupt(). Before that it
 ## sets target (the opponent's sprite, which this shakes), source_feet (where
@@ -31,18 +37,30 @@ const RING_SECONDS: Array[float] = [0.14, 0.14, 0.2, 0.22]
 const RING_CENTRE_OFFSET := Vector2(-9, 1)  # the ring's middle sits 9 px right of its cell centre
 ## Seconds the geysers take to advance from Ironvent to the opponent.
 @export var field_seconds := 1.3
-@export var geysers := 18
+@export var geysers := 24
 @export var firework_bursts := 16
 ## How many fault lines the field geysers bunch along.
-const CLUSTERS := 4
+const CLUSTERS := 6
 ## Where the ground is on the battle stage (the banks and the riverbed), and the
 ## HUD panels to keep clear, in stage pixels.
-@export var area := Rect2(40, 250, 1070, 215)
+@export var area := Rect2(40, 244, 1090, 214)
+## Only the message box is kept clear. The HP cards are hidden for the whole
+## signature, and keeping their spaces clear left the ground around and in
+## front of Ironvent bare, so the field only ran toward the opponent
+## (Preston, 2026-09-30).
 const HUD_CLEAR: Array[Rect2] = [
-	Rect2(0, 0, 510, 130),      # the foe's card
-	Rect2(650, 350, 500, 120),  # the player's card
 	Rect2(0, 462, 1152, 190),   # the message box and commands
 ]
+## The directions the fault lines open in, around Ironvent: toward the
+## opponent, behind it, its near side (toward the camera), its far side
+## (toward the horizon), and the two diagonals on the opponent's side. One
+## cluster of geysers goes in each, so the eruption rings the creature.
+## 0 is straight away from the opponent; PI is straight toward it.
+const SECTORS: Array[float] = [PI, 0.0, PI * 0.5, -PI * 0.5, PI * 0.75, -PI * 0.75]
+## How far a cluster can sit from Ironvent, across the screen and in depth.
+## The ground is seen at a low angle, so depth is squashed.
+const REACH := Vector2(520.0, 100.0)
+var _mid: Node2D
 
 var target: Sprite2D
 var source_feet := Vector2.ZERO
@@ -50,6 +68,18 @@ var shake: Callable
 
 var _px := 3.0
 var _end := Vector2.ZERO
+var _omen: Node2D
+## The finale's added layers draw over the creatures, in their own node on the stage.
+var _front: Node2D
+## Size of the finale's geyser and burst, in whole multiples of the pixel size.
+@export var finale_scale := 4
+## The sizes the field geysers come in, as whole multiples of the pixel size;
+## each geyser picks one at random. Ironvent is a final-stage creature, so most
+## of its field is double or triple size with a few small ones for contrast
+## (Preston, 2026-09-30: small same-size geysers read as a first-stage
+## creature's power). A first or second stage would use [1] or [1, 1, 2].
+@export var geyser_sizes: Array[int] = [1, 2, 2, 3, 3]
+const FIRE: Array[Color] = [Color("#9c3414"), Color("#fc7424"), Color("#fc9c4c"), Color("#fcdca4")]
 
 
 func erupt(start: Vector2, end: Vector2, px: float, arrive: float, sustain: float) -> void:
@@ -58,8 +88,9 @@ func erupt(start: Vector2, end: Vector2, px: float, arrive: float, sustain: floa
 	if source_feet == Vector2.ZERO:
 		source_feet = start + Vector2(0, 30 * _px)
 	# Around Ironvent first: the ground right beside it gives way.
-	_vent(source_feet + Vector2(-70, 6), 0.0)
-	_vent(source_feet + Vector2(80, -4), 0.08)
+	var biggest: int = geyser_sizes.max() if not geyser_sizes.is_empty() else 1
+	_vent(source_feet + Vector2(-70, 6), 0.0, biggest)
+	_vent(source_feet + Vector2(80, -4), 0.08, maxi(1, biggest - 1))
 	# Then the whole area goes off: eruptions radiate outward from Ironvent like
 	# a shockwave through the ground, scattered across the battlefield (Preston:
 	# a final-stage signature affects everything in a wide radius), leaving the
@@ -70,7 +101,17 @@ func erupt(start: Vector2, end: Vector2, px: float, arrive: float, sustain: floa
 		farthest = maxf(farthest, s.distance_to(source_feet))
 	for s in spots:
 		var when: float = field_seconds * 0.9 * s.distance_to(source_feet) / farthest + randf_range(0.0, 0.12)
-		_vent(s, when)
+		var size: int = geyser_sizes.pick_random() if not geyser_sizes.is_empty() else 1
+		# Depth: ground higher on the screen is farther away, so geysers there are
+		# a size smaller; ones on Ironvent's near side stand in front of it, and
+		# stay small enough close in that they do not hide it.
+		var depth: float = s.y - source_feet.y
+		if depth < -30.0:
+			size = maxi(1, size - 1)
+		var near: bool = depth > 6.0
+		if near and absf(s.x - source_feet.x) < 170.0:
+			size = mini(size, 2)
+		_vent(s, when, size, _near_layer() if near else null)
 	# Fireworks burst over the erupting clusters, not evenly across the sky.
 	for i in firework_bursts:
 		var over: Vector2 = spots[randi() % spots.size()] if not spots.is_empty() else _end
@@ -87,19 +128,27 @@ func erupt(start: Vector2, end: Vector2, px: float, arrive: float, sustain: floa
 ## research, 2026-09-29). Off the HUD, not on top of each other, and not too
 ## near the opponent's feet (the finale's spot) or Ironvent.
 func _scatter(count: int) -> Array[Vector2]:
+	var toward: float = signf(_end.x - source_feet.x)
+	if toward == 0.0:
+		toward = -1.0
 	var centres: Array[Vector2] = []
-	var tries := 0
-	while centres.size() < CLUSTERS and tries < 200:
-		tries += 1
-		var c := Vector2(randf_range(area.position.x, area.end.x), randf_range(area.position.y, area.end.y))
-		if _blocked(c) or centres.any(func(q: Vector2) -> bool: return q.distance_to(c) < 220.0):
-			continue
-		centres.append(c)
+	for k in mini(CLUSTERS, SECTORS.size()):
+		for attempt in 40:
+			var angle: float = SECTORS[k] + randf_range(-0.3, 0.3)
+			var far: float = randf_range(0.35, 1.0)
+			# cos(PI) = -1 is toward the opponent; flip it to whichever side that is.
+			var c := source_feet + Vector2(-cos(angle) * toward * REACH.x, sin(angle) * REACH.y) * far
+			c = c.clamp(area.position, area.end)
+			if _blocked(c) or centres.any(func(q: Vector2) -> bool: return q.distance_to(c) < 130.0):
+				continue
+			centres.append(c)
+			break
 	var spots: Array[Vector2] = []
-	tries = 0
+	var tries := 0
 	while spots.size() < count and tries < count * 60 and not centres.is_empty():
 		tries += 1
-		var p: Vector2 = centres[randi() % centres.size()] + Vector2(randfn(0.0, 55.0), randfn(0.0, 22.0))
+		# Each cluster in turn, so every side of Ironvent gets its share.
+		var p: Vector2 = centres[tries % centres.size()] + Vector2(randfn(0.0, 55.0), randfn(0.0, 20.0))
 		if not area.has_point(p) or _blocked(p):
 			continue
 		if spots.any(func(q: Vector2) -> bool: return q.distance_to(p) < 42.0):
@@ -115,7 +164,7 @@ func _blocked(p: Vector2) -> bool:
 
 
 ## A sprite standing on the ground at pos (its bottom edge there), on the art grid.
-func _stand(tex: Texture2D, pos: Vector2) -> Sprite2D:
+func _stand(tex: Texture2D, pos: Vector2, host: Node = null) -> Sprite2D:
 	var s := Sprite2D.new()
 	s.texture = tex
 	s.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
@@ -123,21 +172,27 @@ func _stand(tex: Texture2D, pos: Vector2) -> Sprite2D:
 	s.offset = Vector2(0, -tex.get_height() * 0.5)
 	s.position = (pos / _px).round() * _px
 	s.flip_h = randf() < 0.5
-	add_child(s)
+	(host if host != null else self).add_child(s)
 	return s
 
 
-## One ground vent: it hisses, erupts, then smokes.
-func _vent(pos: Vector2, delay: float) -> void:
+## One ground vent: it hisses, bursts up out of the ground, flickers out, then
+## smokes. `size` is a whole multiple of the pixel size; bigger ones shake harder.
+func _vent(pos: Vector2, delay: float, size: int = 1, host: Node = null) -> void:
 	await get_tree().create_timer(delay + 0.001).timeout
-	var hiss := _stand(charge, pos)
+	var full: float = _px * size
+	var hiss := _stand(charge, pos, host)
+	hiss.scale = Vector2.ONE * full
 	await get_tree().create_timer(0.22).timeout
 	hiss.queue_free()
-	var column := _stand(geyser, pos)
+	var column := _stand(geyser, pos, host)
+	# Bursts up from its base in a split second, like the finale's.
+	column.scale = Vector2(full, 0.0)
+	create_tween().tween_property(column, "scale:y", full, 0.08 + 0.02 * size).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUAD)
 	if shake.is_valid():
-		shake.call(10)
+		shake.call(6 + 5 * size)
 	var t := create_tween()
-	t.tween_interval(0.35)
+	t.tween_interval(0.35 + 0.1 * (size - 1))  # the big ones blast a little longer
 	for i in 3:
 		t.tween_property(column, "visible", false, 0.0)
 		t.tween_interval(0.04)
@@ -145,9 +200,10 @@ func _vent(pos: Vector2, delay: float) -> void:
 		t.tween_interval(0.04)
 	await t.finished
 	column.queue_free()
-	var puff := _stand(smoke, pos)
+	var puff := _stand(smoke, pos, host)
+	puff.scale = Vector2.ONE * full
 	var rise := create_tween().set_parallel()
-	rise.tween_property(puff, "position:y", puff.position.y - 10 * _px, 0.9)
+	rise.tween_property(puff, "position:y", puff.position.y - 10 * full, 0.9)
 	rise.tween_property(puff, "modulate:a", 0.0, 0.9).set_ease(Tween.EASE_IN)
 	rise.finished.connect(puff.queue_free)
 
@@ -171,6 +227,8 @@ func _firework(pos: Vector2, delay: float) -> void:
 ## then everything goes still for a held breath before the eruption.
 func _suspense(from: float, arrive: float) -> void:
 	await get_tree().create_timer(from).timeout
+	# The omen: the ground under the opponent glows wider and hotter until the hit.
+	_omen = UltimateImpact.omen(_front_node(), _end, _px, arrive - from, FIRE, 48.0)
 	var hisses: Array[Sprite2D] = []
 	var span: float = arrive - from
 	var hush: float = minf(0.2, span * 0.25)
@@ -221,19 +279,42 @@ func _ring_at_base() -> void:
 ## The big one: the giant geyser bursts out of the ground under the opponent,
 ## keeps erupting for the whole hit, then sinks back into the ground and smokes.
 func _erupt_big(seconds: float) -> void:
+	if is_instance_valid(_omen):
+		_omen.queue_free()
+	var stage: Node2D = get_parent()
+	var front: Node2D = _front_node()
+	UltimateImpact.flash(front, FIRE[3])
 	_ring_at_base()
+	var body: Vector2 = target.position if is_instance_valid(target) else _end - Vector2(0, 14.0 * _px)
+	UltimateImpact.ring(front, ring_frames[0] if not ring_frames.is_empty() else null, _end, _px, finale_scale, 5, 0.1, RING_CENTRE_OFFSET)
+	UltimateImpact.ring(front, ring_frames[0] if not ring_frames.is_empty() else null, _end, _px, finale_scale, 5, 0.24, RING_CENTRE_OFFSET)
+	UltimateImpact.debris(front, _end - Vector2(0, 6.0 * _px), _px, [FIRE[1], FIRE[2], FIRE[3], Color("#3c342c")], 26)
+	# The blast opens as a column of fire as wide as the opponent, narrowing into
+	# the drawn geyser that keeps erupting.
+	UltimateImpact.column(front, _end.x, _end.y, _px, FIRE, 26.0)
+	# A burst of sparks over the body the moment it hits, bigger than the body.
+	if fireworks != null:
+		var pop := _stand(fireworks, body)
+		pop.reparent(stage)
+		pop.offset = Vector2.ZERO
+		pop.scale = Vector2.ONE * _px * finale_scale
+		pop.position = (body / _px).round() * _px
+		get_tree().create_timer(0.18).timeout.connect(pop.queue_free)
+	get_tree().create_timer(0.4).timeout.connect(func() -> void:
+		if shake.is_valid():
+			shake.call(18))
 	var b := _stand(eruption, _end)
 	b.flip_h = false
-	# It engulfs the opponent, so it draws over everything on the stage, at
-	# double size (whole pixels) so it towers over the field geysers.
-	b.reparent(get_parent())
-	var full: float = _px * 2.0
+	# It engulfs the opponent, so it draws over everything on the stage, big
+	# enough (whole pixels) to blast off the top of the screen.
+	b.reparent(stage)
+	var full: float = _px * finale_scale
 	var top: float = eruption.get_height() * full
 	# Bursts up out of the ground in a split second (it grows from its base).
 	b.scale = Vector2(full, 0.0)
 	create_tween().tween_property(b, "scale:y", full, 0.14).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUAD)
 	if shake.is_valid():
-		shake.call(30)
+		shake.call(60)
 	var elapsed := 0.0
 	var i := 0
 	while elapsed < seconds:
@@ -261,3 +342,30 @@ func _erupt_big(seconds: float) -> void:
 		rise.tween_property(puff, "position:y", puff.position.y - 14 * _px, 1.2)
 		rise.tween_property(puff, "modulate:a", 0.0, 1.2).set_ease(Tween.EASE_IN)
 		rise.finished.connect(puff.queue_free)
+
+
+## The node the finale's added layers draw in, last on the stage so it is in
+## front of the creatures. Made on first use; freed with this effect.
+func _front_node() -> Node2D:
+	if not is_instance_valid(_front):
+		_front = Node2D.new()
+		_front.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
+		get_parent().add_child(_front)
+		tree_exiting.connect(_front.queue_free)
+	return _front
+
+
+## The layer for geysers on Ironvent's near side: in front of Ironvent, but
+## still behind an opponent that stands nearer the camera than it does. When
+## Ironvent itself is the nearer creature, that is simply the front layer.
+func _near_layer() -> Node2D:
+	if is_instance_valid(_mid):
+		return _mid
+	if not is_instance_valid(target) or target.position.y <= source_feet.y or target.get_parent() != get_parent():
+		return _front_node()
+	_mid = Node2D.new()
+	_mid.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
+	get_parent().add_child(_mid)
+	get_parent().move_child(_mid, target.get_index())  # just under the opponent
+	tree_exiting.connect(_mid.queue_free)
+	return _mid

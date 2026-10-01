@@ -1,6 +1,7 @@
 [gd_resource type="Resource" script_class="MoveData" format=3 uid="uid://bbie851tvvlia"]
 
 [ext_resource type="Script" uid="uid://bhqon0w55tdjq" path="res://scripts/move_data.gd" id="1_script"]
+[ext_resource type="Script" uid="uid://dtck6dpiev4ck" path="res://scripts/camera_shot.gd" id="2_7kjqm"]
 [ext_resource type="Texture2D" uid="uid://byu23buwalu4w" path="res://assets/sprites/creatures/ironvent_claw_6.png" id="2_atlas"]
 [ext_resource type="PackedScene" path="res://scenes/effects/ironvent_cinder_claw.tscn" id="3_effect"]
 
@@ -44,3 +45,4 @@ contact_travel_seconds = 0.16
 attack_frames = Array[Texture2D]([SubResource("Claw_0"), SubResource("Claw_1"), SubResource("Claw_2"), SubResource("Claw_3"), SubResource("Claw_4"), SubResource("Claw_5")])
 vent_rest_points = null
 vent_points = null
+vent_directions = null

@@ -40,6 +40,11 @@ var _party_buttons: Array[Button] = []
 
 
 func _ready() -> void:
+	# Route 1's music (Preston's "Two-Note Call"); steps aside for battles.
+	var music := AreaMusic.new()
+	music.name = "RouteMusic"
+	music.stream = preload("res://assets/audio/music/route1_two_note_call.mp3")
+	add_child(music)
 	PlayerParty.ensure_starter($BattleScreen.player_creature)
 	_build_hud()
 	_refresh_objective()

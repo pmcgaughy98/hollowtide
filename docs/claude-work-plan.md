@@ -16,11 +16,11 @@ Status keys: **NOW** in progress · **NEXT** ready · **WAIT** needs a Preston d
 | # | Task | Status | Done when |
 |---|---|---|---|
 | A1 | **Molten Glass Forge art.** Run the Effect Forge in MODE ACTION for heavy molten-glass globs and an on-target splash; convert, swap in for the hand-made 2-4 px globs in `assets/sprites/effects/vitrecrag/`. **2026-09-28: built.** Preston generated the sheet; `tools/cut_molten_glass_effect.py` cuts eruption, three flight globs, splash and crust into `assets/sprites/effects/vitrecrag/forge_molten_glass/`, wired into the gush and lob scenes. Verified in a scripted battle. | Awaiting Preston's look | Pour preview shows Forge glass; Preston approves or keeps the hand-made globs. |
-| A2 | **Battle framing for big foes.** Design note, then smallest refactor: place each sprite by visible bounds and foot line, keep HUD-safe rectangles, keep the size difference. Vitrecrag's pour and legs sat under the player HP panel. **2026-09-28 first slice done** (Preston asked to fix the HUD): merged each HP header and bar into one card, moved the player card to bottom right above the commands, and stand every foe on a shared foot line (`FOE_FOOT_Y`) by its lowest visible pixel. Verified with Vitrecrag and Cinderhide as foes. Still open: player-side foot line, attack focus zoom near the screen top. | Awaiting Preston's look | Vitrecrag and an ordinary foe both fully visible, both sides, including the pour. |
+| A2 | **Battle framing for big foes.** The current visible-foot lines, player-side size cap, and HUD layout show Vitrecrag fully on both sides in Summer captures (2026-09-29). Keep this framing. Attack focus near the top still needs a separate shot review. | NEXT: attack shot review | Vitrecrag and an ordinary foe remain fully readable during their attacks. |
 | A3 | **One action timeline for every move.** Fold the pieces built for Molten Glass (hit frame, brace, emitter, volley) into a documented per-move timeline. Put Molten Beam (connected, sustained) and Molten Cannon (one heavy launched mass, separate impact) on it. | NEXT | Vitrecrag's three ranged moves read as three different physical attacks. |
-| A4 | **Contact tuning.** Cinder Claw stops ~90-100 px short and crosses the player HP panel; watch Shoulder Drive; then tag the other melee moves CONTACT. | WAIT: Preston watches the claw and says how close. | Preston approves contact feel; melee moves use it. |
+| A4 | **Contact tuning.** The generic travel calculation now uses a 2 px edge margin and an 80% centre-distance cap (2026-09-29). The cap can leave a larger visual gap. The player HP card still covers part of the attacker at contact; Shoulder Drive and other melee moves still need a review before wider CONTACT tagging. | NEXT: HUD and move review | Contact reads clearly without covering either creature or the HP card. |
 | A5 | **Your-side attacks.** Drawn frames are skipped for back sprites. Decide per move whether the back view gets emitters, a volley, or its own frames. **2026-09-28: Molten Glass done** via `attack_back_frames` (glowing furnace frames from `tools/build_vitrecrag_back_pour.py`), `attack_back_emitter_offset`, and glass drawn behind the attacker; preview `scenes/vitrecrag_back_pour_preview.tscn`. Other moves still use the plain projectile from behind. | Molten Glass awaiting Preston's look |
-| A7 | **Big creatures on your side.** Vitrecrag's back view draws at 4x (512 px) and its lower half sits behind the message box. Player-side foot line and size cap, same idea as the foe's. | NEXT | A 1.75x partner is fully readable from behind. |
+| A7 | **Big creatures on your side.** The player-side foot line and size cap now keep Vitrecrag's rear body and feet above the message box in the current battle view. Verified in a Summer back-pour preview capture (2026-09-29). | DONE for idle framing | A 1.75x partner is fully readable from behind. |
 | A6 | **Hit and guard reactions.** Defender body reaction on impact and a visible brace for Guard, using whole-sprite motion first. | LATER | A guarded and an unguarded hit look different. |
 
 | A8 | **Vitrecrag Plate Lunge.** Built 2026-09-28 per the attack-sheet protocol: frame library, analysis, in-game body with transplanted lowered head and a sliding plate, contact charge with wind-up. **v2 after Preston's review:** whole Opal poses cut at their true grid so the body and legs move. See `assets/sprites/creatures/attacks/vitrecrag_plate_lunge/README.md`. | Awaiting Preston's look |
@@ -33,14 +33,14 @@ Status keys: **NOW** in progress · **NEXT** ready · **WAIT** needs a Preston d
 | B1 | **Individual creature state.** `PartyMember` carries its own HP, move uses and placeholder level/XP; battle entry, exit, capture, fainting and switching update one individual. `CreatureData` stays species data. | NEXT (after A2 or A3) | HP carries from one encounter to the next. |
 | B2 | **Save and load.** Versioned save file with defaults for missing fields. | LATER | Quit, relaunch, same party and HP. |
 | B4 | **2v2 battles with an ally (campaign partner).** Replace the fixed one-player/one-foe fields in `battle_screen.gd` with battle slots (creature, sprite, home, facing, HP card, chosen action), then turn order across all slots, a target choice, ally AI, and two HP cards per side. The attack code is already slot-ready: every effect is placed from the attacker's and target's sprites (`_emitter_point`, mirroring, zoom), and the back view serves both you and an ally. Needs B1 first; slot positions need a Preston layout pass. | LATER (after B1) | A 2v2 preview where you and an ally each attack, from the back view, at two foes. |
-| B3 | **Evolution play review.** Cinderhide to Clinkerhide win trigger, played with individual state; carry HP and moves correctly. The trigger is still a prototype. | WAIT: Preston approves the trigger after watching. | Preston watches it evolve in a normal battle. |
+| B3 | **Evolution play review.** Keep the linked Cinderhide line's battle-win trigger for the run-local prototype (decision 2026-09-29). Individual state and a normal-battle review are still needed before a permanent progression rule. | NEXT after B1 | One normal battle shows the evolution and carries the owned creature's state. |
 
 ## Phase C: the first courier route (scope step 8)
 
 | # | Task | Status | Done when |
 |---|---|---|---|
 | C1 | **Play review of `scenes/first_route_prototype.tscn`** end to end; list what breaks. | NEXT (can run any session) | A written list of issues with file paths. |
-| C2 | **Route in the real game flow.** Which scene starts the game is Preston's call. | WAIT | Press Play, walk the route, battle, return. |
+| C2 | **Route in the real game flow.** Keep `main.tscn` as the intended normal start after the active battle-preview session finishes (decision 2026-09-29); another Summer editor currently keeps `vitrecrag_pour_preview.tscn` in `project.godot`. The first route stays on F6 until its opening camera and complete journey are reviewed. | NEXT after C1 | Press Play, walk the reviewed route, battle, return. |
 | C3 | **Habitat encounter pools** per route; no late evolutions in early grass. | LATER | Each route area draws from its own pool. |
 | C4 | **Overworld layering and occlusion plan** for three-quarter trees and buildings (Grok makes the art, Codex imports). | LATER | Courier walks behind and in front of props correctly. |
 
@@ -53,11 +53,9 @@ Status keys: **NOW** in progress · **NEXT** ready · **WAIT** needs a Preston d
 
 ## Waiting on Preston (short list)
 
-1. A2 framing choice for big foes.
-2. A4 how close a contact strike should end.
-3. B3 whether winning a battle stays the evolution trigger.
-4. C2 which scene the game starts in.
-5. Names and lore for new forms and moves stay his; Claude drafts proposals only when asked.
+1. **Decided for the current prototype on 2026-09-29:** keep the HUD-safe foot lines and size cap for big creatures; use a 2-pixel calculation margin and an 80% contact travel cap; retain battle-win evolution for the linked Cinderhide line; return normal Play to `main.tscn` after the active preview session. Details and engine observations are at the top of `docs/AI_COLLABORATION.md`.
+2. Still to review in play: contact crossing the player HP card, attack focus near the top edge, and the complete first-route loop before promoting it to normal Play.
+3. Names and lore for new forms and moves stay Preston's; Claude drafts proposals only when asked.
 
 ## Not Claude's lead
 

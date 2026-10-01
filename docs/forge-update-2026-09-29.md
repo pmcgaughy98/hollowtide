@@ -2,9 +2,9 @@
 
 Preston asked for the Forges to be fixed, optimized and brought up to date. Written by Claude from what this week's builds actually ran into. Each rule below names the problem it prevents, and every problem was measured on real output.
 
-**Status: not yet applied to Opal.** Opal's editor saves a prompt change only after a graph edit, with inputs re-linked through the `@` picker (see `opal-sprite-forge-prompt-v6.md`). Paste each block into the named Forge's Generate step, add it to the end of the prompt unless marked "replace", then reload the page to confirm it stuck. Claude can apply these in Preston's Chrome if he asks.
+**Status: applied to the six live Opal Forges on 2026-09-29, plus the dedicated Back View Forge.** Codex edited each Generate prompt directly, changed its step title through the UI to commit the graph revision, and reloaded each page to confirm the rules and linked inputs persisted. The Evolution Forge's Previous Stage Front input was also renamed **Previous Stage Front / Pose Guide**, with instructions for its optional BACK-mode pose-guide use. No image was generated, so output quality remains unverified. The original paste-ready blocks below remain a reference for future revisions.
 
-## Out of date in the live Forges
+## Resolved live-Forge wording
 
 | Where | Says now | Should say |
 |---|---|---|

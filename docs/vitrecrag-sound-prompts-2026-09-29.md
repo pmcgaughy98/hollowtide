@@ -72,3 +72,7 @@ Preston: build the sounds as if they come from a creature whose molten-glass cor
 - **`rupture.wav`:** the shell cracks, the burst hits (its slow lead-in trimmed), the pouring glass gurgles, and cooling shards tick.
 
 Molten Glass now plays these three instead of the raw takes. **Checked:** peaks at -1 dBFS with nothing clipped; the spectrograms show the buildup brightening over time and the burst landing at the start of the rupture; a headless run plays each on its frame. **Not checked:** how they sound. That needs Preston's ears.
+
+## Release rebuilt from research, 2026-09-29 (live)
+
+Preston: the buildup sounds great, but the release was only hissing and bubbling, and it sounded isolated. The rupture was rebuilt as a layered, stereo release, and the silence before it is now tied to the animation's hush. See `docs/audio-research-takeaways-2026-09-29.md`. New layers in `layers/`: `body` (shell cracking open), `steam` (burst) and `shards` (glass rain), 2 takes each.

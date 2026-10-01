@@ -191,6 +191,9 @@ enum Delivery { PROJECTILE, CONTACT }
 ## vent_column. Art for an up blast has its source at the bottom edge; art for
 ## a back blast has its source at the right (head-side) edge.
 @export var vent_jets: Array[Texture2D] = []
+## Optional animated rearward fan shared by horizontal spine vents. Each frame
+## has the same transparent canvas and a fixed root near its right edge.
+@export var vent_fan_frames: Array[Texture2D] = []
 ## Per vent: true draws the blast behind the body, so it rises out from behind
 ## the ridge (for a vent on the top edge); false draws it in front.
 @export var vent_behind: Array[bool] = []
@@ -250,6 +253,19 @@ enum Delivery { PROJECTILE, CONTACT }
 @export var sound_cue_frames: Array[int] = []
 ## Loudness per cue in decibels (0 is as recorded); missing entries are 0.
 @export var sound_cue_db: Array[float] = []
+## The creature's cry, played on a signature's title card the moment the
+## close-up picture lands (Ironvent's roar, Vitrecrag's brass bellow).
+@export var card_sound: AudioStream
+@export var card_sound_db: float = 0.0
+## One short sound per vent as it pressurizes during an overheat sweep, played
+## the moment that vent lights. Each vent from tail to head is pitched a step
+## higher, so the pressure is heard climbing (Ironvent, Preston 2026-09-30:
+## the sound should follow the vents).
+@export var vent_charge_sound: AudioStream
+## One sound per vent as it blows on the release, in step with the jets.
+@export var vent_jet_sound: AudioStream
+## Loudness of the vent sounds in decibels. Several play at once, so keep it below 0.
+@export var vent_sound_db: float = -6.0
 
 
 @export_group("Camera")

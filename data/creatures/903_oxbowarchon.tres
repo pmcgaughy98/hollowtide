@@ -17,4 +17,6 @@ description = "Provisional entry (2026-09-29) so Kingstone Rail can be previewed
 moves = Array[ExtResource("2_move_script")]([ExtResource("5_move")])
 idle_breath = 0.014
 idle_period = 5.88
+idle_vent_glow = 0.3
+glow_kind = 1
 battle_size = 1.75

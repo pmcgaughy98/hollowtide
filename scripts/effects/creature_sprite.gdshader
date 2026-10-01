@@ -32,10 +32,17 @@ uniform float idle_glow : hint_range(0.0, 1.0) = 0.0;
 // Measured across the art as drawn (tail on the left), so the foe's mirroring
 // does not reverse it. At the default of 1 it changes nothing.
 uniform float heat_sweep : hint_range(0.0, 1.0) = 1.0;
+// Which colours glow. 0 = fire (Ember: furnace windows, molten seams).
+// 1 = jade (Oxbowarchon's green energy seams, Preston 2026-09-29): the bright
+// greens light toward pale mint and bleed emerald; slate stone stays as drawn.
+uniform int glow_kind = 0;
 
 const vec3 BRIGHT = vec3(0.988, 0.612, 0.298); // #fc9c4c
 const vec3 PALE = vec3(0.988, 0.863, 0.643);   // #fcdca4
 const vec3 ORANGE = vec3(0.988, 0.455, 0.141); // #fc7424
+const vec3 MINT = vec3(0.518, 0.957, 0.612);   // #84f49c, Oxbowarchon's own brightest jade
+const vec3 PALE_MINT = vec3(0.847, 0.988, 0.878); // #d8fce0
+const vec3 EMERALD = vec3(0.110, 0.737, 0.298); // #1cbc4c, Oxbowarchon's own
 
 varying vec4 tint; // modulate and self_modulate, which the hit flashes use
 
@@ -48,6 +55,18 @@ float core(vec4 c) {
 	float fire = step(0.45, c.r - c.b) * step(0.5, c.r);
 	float pale = step(0.95, c.r) * step(0.7, c.g) * step(c.b, 0.5);
 	return max(fire, pale) * step(0.5, c.a);
+}
+
+// 1 for the saturated jade greens (#0c6c34 up to #8cfcac) and the pale mint
+// highlights, 0 for the grey-green slate (#446454) and the deep shadows.
+float jade(vec4 c) {
+	float green = step(0.18, c.g - max(c.r, c.b)) * step(0.4, c.g);
+	float pale = step(0.75, c.g) * step(0.12, c.g - c.r) * step(0.08, c.g - c.b);
+	return max(green, pale) * step(0.5, c.a);
+}
+
+float glows(vec4 c) {
+	return glow_kind == 1 ? jade(c) : core(c);
 }
 
 // Glow amounts snap to quarter steps, so a glow is a few flat bands of colour
@@ -88,20 +107,32 @@ void fragment() {
 		float t = floor(TIME * 12.0) / 12.0;
 		float flicker = 0.85 + 0.15 * sin(t * 11.0 + uv.x * 40.0 + uv.y * 23.0);
 		vec3 lit = raw.rgb;
-		if (core(raw) > 0.5) {
-			vec3 hot = mix(BRIGHT, PALE, clamp(h - 0.4, 0.0, 1.0));
-			lit = mix(raw.rgb, hot, band4(clamp(h * flicker, 0.0, 1.0)));
+		vec3 bright = glow_kind == 1 ? MINT : BRIGHT;
+		vec3 pale = glow_kind == 1 ? PALE_MINT : PALE;
+		vec3 bleed_to = glow_kind == 1 ? EMERALD : ORANGE;
+		vec3 cast = glow_kind == 1 ? vec3(0.0, 0.07, 0.04) : vec3(0.10, 0.03, 0.0);
+		if (glows(raw) > 0.5) {
+			vec3 hot = mix(bright, pale, clamp(h - 0.4, 0.0, 1.0));
+			if (glow_kind == 1) {
+				// Jade is drawn with its own light and dark greens (the sphere, the
+				// rails). Brighten them by at most half the way and never darken, so
+				// the drawn shading survives instead of going one flat mint.
+				hot = mix(bright, pale, clamp(h - 0.8, 0.0, 1.0));
+				lit = max(raw.rgb, mix(raw.rgb, hot, 0.5 * band4(clamp(h * flicker, 0.0, 1.0))));
+			} else {
+				lit = mix(raw.rgb, hot, band4(clamp(h * flicker, 0.0, 1.0)));
+			}
 		} else {
 			// Heat bleeding out: how much fire sits within two pixels.
 			float near = 0.0;
 			for (int dx = -2; dx <= 2; dx++) {
 				for (int dy = -2; dy <= 2; dy++) {
-					near += core(texture(TEXTURE, uv + vec2(float(dx), float(dy)) * TEXTURE_PIXEL_SIZE));
+					near += glows(texture(TEXTURE, uv + vec2(float(dx), float(dy)) * TEXTURE_PIXEL_SIZE));
 				}
 			}
 			float bleed = clamp(near / 6.0, 0.0, 1.0) * clamp(h, 0.0, 1.3) * 0.55 * flicker;
-			lit = mix(raw.rgb, ORANGE, band4(bleed));
-			lit += vec3(0.10, 0.03, 0.0) * band4(clamp(h * h * flicker, 0.0, 1.5)); // warm cast
+			lit = mix(raw.rgb, bleed_to, band4(bleed));
+			lit += cast * band4(clamp(h * h * flicker, 0.0, 1.5)); // warm (or jade) cast
 		}
 		raw.rgb = lit;
 	}
