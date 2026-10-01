@@ -5,7 +5,7 @@ extends RefCounted
 ## simulator (tools/balance_sim.gd), so a change here changes both and the
 ## simulator can never test different rules from the ones you play.
 ##
-## Nothing here holds state or plays animation. See docs/battle-rules.md for
+## Nothing here holds state or plays animation. See docs/battle/battle-rules.md for
 ## the rules in plain language.
 
 ## Strike: what a creature uses when it has no moves, or every limited move is

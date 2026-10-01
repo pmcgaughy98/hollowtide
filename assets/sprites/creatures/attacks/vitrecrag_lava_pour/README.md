@@ -2,7 +2,7 @@
 
 ## Live front view: v2 (2026-09-28)
 
-Built with the approved whole-pose method (`docs/attack-sheet-protocol.md`) by `tools/build_vitrecrag_molten_glass.py`
+Built with the approved whole-pose method (`docs/battle/attack-sheet-protocol.md`) by `tools/build_vitrecrag_molten_glass.py`
 into `v2/`: load (sheet2_f01), hole (sheet4_f01), flood (sheet2_f02), breakout (sheet2_f03), pour_a (sheet2_f04),
 pour_b (sheet1_f04), recover (sheet2_f05), from `body_frames/` (sheets 1-2 `--block 3.67 --grid 2x3`, sheets 3-4
 `--block 4 --grid 2x3`; sheets 3-4's bottom row is a leg close-up and is ignored). 140x128 canvas. Sequence and holds

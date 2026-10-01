@@ -4,7 +4,7 @@ The source sheet is a mockup of the same gauge drawn three times at three fill
 levels, not a component sheet, so the pieces are cut by detecting the geometry
 from the art rather than by cropping hard-coded rectangles.
 
-Reads:  docs/palettes/hud-gauge-view.png   (720 x 1332, 16 colours)
+Reads:  docs/art/palettes/hud-gauge-view.png   (720 x 1332, 16 colours)
 Writes: assets/sprites/ui/gauge_housing.png
         assets/sprites/ui/gauge_hp_full.png
         assets/sprites/ui/gauge_hp_warn.png
@@ -81,7 +81,7 @@ def runs(flags: list[bool], min_len: int) -> list[tuple[int, int]]:
 
 
 def main() -> int:
-    src = Path(sys.argv[1] if len(sys.argv) > 1 else "docs/palettes/hud-gauge-view.png")
+    src = Path(sys.argv[1] if len(sys.argv) > 1 else "docs/art/palettes/hud-gauge-view.png")
     out_dir = Path(sys.argv[2] if len(sys.argv) > 2 else "assets/sprites/ui")
     if not src.exists():
         print("missing:", src)

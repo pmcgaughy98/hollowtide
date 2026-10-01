@@ -1,6 +1,6 @@
 # Vitrecrag Molten Cannon (attack-sheet protocol, 2026-09-28)
 
-Ember (fire) essence. Built by `docs/attack-sheet-protocol.md` from Preston's Opal sheets in
+Ember (fire) essence. Built by `docs/battle/attack-sheet-protocol.md` from Preston's Opal sheets in
 `OneDrive/Documents/HollowTide Sprites/Effect Sheets/Vitecrag Effect/` (originals untouched):
 
 - `Molten Cannon Animation/` sheets 1 to 4 (cannon1 to cannon4)

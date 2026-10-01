@@ -8,7 +8,7 @@ extends SceneTree
 ## Options, after a lone "--":
 ##   --runs 1000        battles per wild matchup (the wild side picks at random)
 ##   --overrides FILE   a JSON file of test numbers (see below)
-##   --out FILE         where the report goes (default docs/balance/sim-report.md)
+##   --out FILE         where the report goes (default docs/battle/balance/sim-report.md)
 ##
 ## Overrides let Grok's (or anyone's) proposed numbers be tested without
 ## touching the game's data. Names are the in-game names:
@@ -23,7 +23,7 @@ const FAINTED := 0
 const TURN_LIMIT := 60  # a battle this long is reported as a stalemate
 
 var _runs := 1000
-var _out := "res://docs/balance/sim-report.md"
+var _out := "res://docs/battle/balance/sim-report.md"
 var _overrides := {}
 
 

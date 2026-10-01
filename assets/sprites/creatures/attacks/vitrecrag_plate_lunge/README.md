@@ -1,6 +1,6 @@
 # Vitrecrag Plate Lunge: frame library and analysis (2026-09-28)
 
-Following `docs/attack-sheet-protocol.md`. Sources (untouched): `OneDrive/Documents/HollowTide Sprites/Effect Sheets/
+Following `docs/battle/attack-sheet-protocol.md`. Sources (untouched): `OneDrive/Documents/HollowTide Sprites/Effect Sheets/
 Vitecrag Effect/Plate Lunge Animation/Plate Lunge animation sheet 1-4.jfif`. Cut with
 `python tools/cut_forge_frames.py <sheet> frames --prefix sheetN --block 4` (detection read 8, the art is drawn on 4).
 

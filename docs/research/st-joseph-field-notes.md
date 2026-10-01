@@ -1,6 +1,6 @@
 # St. Joseph field research leads
 
-**Roster scope update, 2026-09-26:** The Gemini audit notes below were written when the draft target was 24 lines. Preston later chose 20 one-to-one lines with three stages each, recorded in `THE_CONCEPT.md` and `docs/creature-roster-draft.md`. The four problematic pitches remain retired; references below to preserving 24 slots are historical audit context, not the current roster plan.
+**Roster scope update, 2026-09-26:** The Gemini audit notes below were written when the draft target was 24 lines. Preston later chose 20 one-to-one lines with three stages each, recorded in `THE_CONCEPT.md` and `docs/creatures/creature-roster-draft.md`. The four problematic pitches remain retired; references below to preserving 24 slots are historical audit context, not the current roster plan.
 
 ## Status
 

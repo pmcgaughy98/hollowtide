@@ -1,6 +1,6 @@
 """Build Vitrecrag's Molten Glass front-view frames from whole Opal poses (v2).
 
-Same approved method as Plate Lunge v2 (docs/attack-sheet-protocol.md): whole
+Same approved method as Plate Lunge v2 (docs/battle/attack-sheet-protocol.md): whole
 poses, cut on their true grid to match the in-game size, snapped to the in-game
 24 colours, crumbs cleared, registered on the in-game foot line and rear edge.
 

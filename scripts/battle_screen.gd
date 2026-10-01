@@ -133,7 +133,7 @@ const PLAYER_ROOM := Vector2(600, 330)
 ## two creatures in a fight breathe alike.
 ##
 ## This is the fallback motion for every creature that has no hand-drawn idle
-## frames; see docs/idle-animation-workflow.md for that pipeline.
+## frames; see docs/art/idle-animation-workflow.md for that pipeline.
 ##
 ## Real breathing is not symmetrical: drawing a breath in takes longer than
 ## letting it out. INHALE_SHARE is how much of the cycle the intake owns, and

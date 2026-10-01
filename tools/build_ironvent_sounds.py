@@ -26,7 +26,7 @@ files. The mixing helpers come from tools/build_vitrecrag_sounds.py.
   python tools/build_ironvent_sounds.py
 Writes assets/audio/sfx/ironvent/{cry,buildup,vent_hiss,vent_jet,roar,blowdown,cool}.wav
 (44.1 kHz; roar and blowdown are stereo). Where each plays in Furnace Roar is in
-docs/ironvent-sound-prompts-2026-09-30.md.
+docs/audio/ironvent-sound-prompts-2026-09-30.md.
 """
 import subprocess
 import sys
@@ -174,7 +174,7 @@ def roar(seconds: float = 2.6) -> np.ndarray:
 
 def blowdown(seconds: float = 3.4) -> np.ndarray:
     """Frame 7, the finale: the ground under the opponent gives way. One job per
-    layer, each in its own band (docs/audio-research-takeaways-2026-09-29.md):
+    layer, each in its own band (docs/audio/audio-research-takeaways-2026-09-29.md):
     the crack as the transient, a sine drop for the weight, the geyser as the
     body, Ironvent's roar pitched down as the voice, slag rain as the sparkle,
     and an open-air tail."""

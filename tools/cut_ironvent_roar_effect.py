@@ -1,7 +1,7 @@
 """Cut Preston's Ironvent Furnace Roar impact effect sheet into eight frames.
 
 Preston (2026-09-28) generated the sheet from the MODE ACTION brief in
-docs/ironvent-furnace-roar-impact-forge-prompt-2026-09-28.md and filed it as
+docs/forges/ironvent-furnace-roar-impact-forge-prompt-2026-09-28.md and filed it as
 "Furnace roar Effect for sure.jfif". Layout: 2 columns x 4 rows, F1 to F8 in
 reading order, each with a small "F#" label in its bottom-left corner.
 

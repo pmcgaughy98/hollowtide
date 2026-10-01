@@ -1,10 +1,10 @@
 # How to work on this project
 
-> **Preston's role order, 2026-09-27:** Read `docs/agent-role-charter-2026-09-27.md` and the latest `docs/AI_COLLABORATION.md` before choosing work. Preston directs Claude to lead complex Godot systems and battle animation architecture, while Codex leads precise asset preparation and integration, Gemini research, Grok balance and non-creature concepts, and Opal the scoped art Forges. This is a default assignment; Preston's later direct request overrides it.
+> **Preston's role order, 2026-09-27:** Read `docs/team/agent-role-charter-2026-09-27.md` and the latest `docs/AI_COLLABORATION.md` before choosing work. Preston directs Claude to lead complex Godot systems and battle animation architecture, while Codex leads precise asset preparation and integration, Gemini research, Grok balance and non-creature concepts, and Opal the scoped art Forges. This is a default assignment; Preston's later direct request overrides it.
 
-> **Attack sheets protocol, 2026-09-28:** When Preston brings Opal sheets for an attack, follow `docs/attack-sheet-protocol.md` step by step (research, Summer MCP check, cut every frame, analyze each frame, order, re-analyze, then build).
+> **Attack sheets protocol, 2026-09-28:** When Preston brings Opal sheets for an attack, follow `docs/battle/attack-sheet-protocol.md` step by step (research, Summer MCP check, cut every frame, analyze each frame, order, re-analyze, then build).
 
-> **Current-state pointer, 2026-09-26:** The snapshot under WHERE THINGS STAND below was checked on 2026-09-22 and is now historical. Read `docs/AI_COLLABORATION.md` for the latest asset, battle, evolution, and first-route handoffs. `THE_CONCEPT.md` now reflects Preston's 20-line, all-three-stage roster direction; `docs/world-bible.md` tracks the provisional first route. The new `scenes/first_route_prototype.tscn` is separate from the project start scene and has not been played end to end.
+> **Current-state pointer, 2026-09-26:** The snapshot under WHERE THINGS STAND below was checked on 2026-09-22 and is now historical. Read `docs/AI_COLLABORATION.md` for the latest asset, battle, evolution, and first-route handoffs. `THE_CONCEPT.md` now reflects Preston's 20-line, all-three-stage roster direction; `docs/world/world-bible.md` tracks the provisional first route. The new `scenes/first_route_prototype.tscn` is separate from the project start scene and has not been played end to end.
 
 A 2D pixel-art monster-collecting RPG. Godot 4.x, GDScript.
 
@@ -14,7 +14,7 @@ The design lives in `THE_CONCEPT.md` and that file is the authority on the game 
 essences, the roster structure, naming rules, art direction, and scope order. If this file and
 that one ever disagree about the game, `THE_CONCEPT.md` wins.
 
-`docs/art-direction.md` records the current art path, prior tool research, and licensing constraints.
+`docs/art/art-direction.md` records the current art path, prior tool research, and licensing constraints.
 The Godot import defaults are verified; the current Forge converter has been used on approved Ember sprites, while the newly installed v4 Opal prompt has not yet had a generation review.
 
 > **Superseded September 2026.** This file used to contain the Crystal Creatures concept: eleven
@@ -31,9 +31,9 @@ Checked against the files on 2026-09-22, not recalled.
 - **Next unbuilt step is 7, evolution.** Steps 1 through 6 are marked done in `THE_CONCEPT.md`.
 - **Three creature resources exist:** Rimefin (Tide), Cinderhide (Ember), and Cinderpelt (Ember).
   Cinderpelt is an unlinked experiment, not an approved evolution. Draft briefs for the larger
-  roster are in `docs/creature-roster-draft.md`; the four additional first-six starters are still
+  roster are in `docs/creatures/creature-roster-draft.md`; the four additional first-six starters are still
   proposals, and no Opal-generated sprite art has been validated yet.
-- **`docs/reshape-proposal.md` is unsigned and it gates roster work.** It proposes eight essences,
+- **`docs/creatures/reshape-proposal.md` is unsigned and it gates roster work.** It proposes eight essences,
   two lines each, all three stages, plus move-only essences on skills. `THE_CONCEPT.md` still says
   six essences and 24 lines, so the two disagree by design. Until he picks which two essences join
   the six, do not add creatures beyond the current six-essence plan. Evolution does not need that
