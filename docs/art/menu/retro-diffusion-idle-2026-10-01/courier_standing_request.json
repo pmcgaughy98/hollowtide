@@ -1,0 +1,35 @@
+{
+  "parameters": {
+    "width": 80,
+    "height": 80,
+    "prompt": "Keep this exact chibi courier and his three-quarter rear view facing away toward the upper right of the screen. Preserve his large tousled brown-haired head, compact body, teal jacket, brass forehead goggles, tan-brown trousers, brown boots and olive-tan crossbody satchel. Correct only the walking stance into relaxed standing: both boots firmly planted on one ground plane, feet comfortably apart, balanced weight, relaxed knees and arms naturally at his sides. Keep the satchel and strap on their original anatomical side. Preserve his existing compact shading, exact colors, dark contour weight and coarse native pixel clusters. One complete character on the same 80x80 canvas at the same scale and placement, clear margin, transparent background.",
+    "prompt_style": "rd_pro__default",
+    "input_image": "../courier_rear_right_native80.png",
+    "num_images": 1,
+    "bypass_prompt_expansion": true
+  },
+  "cost": {
+    "created_at": 1790878735,
+    "credit_cost": 0,
+    "balance_cost": 0.18,
+    "output_images": [],
+    "base64_images": [],
+    "output_urls": [],
+    "model": "check_cost",
+    "remaining_credits": 0,
+    "remaining_balance": 2.650000000000001,
+    "resolved_prompt_style": "rd_pro__default",
+    "used_input_image": true,
+    "reference_images_count": 0,
+    "used_extra_input_image": false,
+    "used_input_palette": false,
+    "used_strength": false,
+    "effective_timeout_seconds": 180
+  },
+  "job": {
+    "status": "accepted",
+    "task_id": "fde1a76d-e530-4be1-afd9-632fefb8c164",
+    "request_id": "fde1a76d-e530-4be1-afd9-632fefb8c164",
+    "message": "Inference accepted. Poll GET /v2/inferences/tasks/{task_id} for status."
+  }
+}

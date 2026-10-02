@@ -5,7 +5,8 @@ extends Resource
 ## data/creatures/. To add one, right click that folder in the FileSystem dock,
 ## choose New Resource, and pick CreatureData. No code needed.
 
-## The six essences.
+## The essences. Electric and Ice were added by Preston on 2026-10-01; they go at
+## the end so every existing creature and move keeps its saved value.
 ##
 ## This is a fixed list rather than free text on purpose. A text field would let
 ## a typo or an invented essence into the data. With a fixed list the Inspector
@@ -21,6 +22,8 @@ enum Essence {
 	GALE,
 	BLOOM,
 	HOLLOW,
+	ELECTRIC,
+	ICE,
 }
 
 ## Dex number.

@@ -1,0 +1,110 @@
+{
+  "character": "cinderhide",
+  "frame_count": 8,
+  "frame_size": [
+    80,
+    80
+  ],
+  "atlas_size": [
+    640,
+    80
+  ],
+  "original_durations_ms": [
+    150,
+    150,
+    150,
+    150,
+    150,
+    150,
+    150,
+    150
+  ],
+  "input_bbox": [
+    11,
+    10,
+    68,
+    73
+  ],
+  "frame_bboxes": [
+    [
+      11,
+      9,
+      68,
+      73
+    ],
+    [
+      11,
+      8,
+      68,
+      73
+    ],
+    [
+      11,
+      7,
+      68,
+      73
+    ],
+    [
+      11,
+      6,
+      68,
+      73
+    ],
+    [
+      11,
+      6,
+      68,
+      73
+    ],
+    [
+      11,
+      6,
+      68,
+      73
+    ],
+    [
+      11,
+      7,
+      68,
+      73
+    ],
+    [
+      11,
+      8,
+      68,
+      73
+    ]
+  ],
+  "external_neutral_white_edge_pixels_removed": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "raw_lower_band_changes": [
+    0,
+    60,
+    139,
+    169,
+    168,
+    110,
+    74,
+    84
+  ],
+  "fixed_lower_band_y": 63,
+  "bottom_ten_rows_pixel_differences_from_frame0": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "gif_sha256": "e25c28f3b2058ed2e37329b9078e2cce3717f4c741cd3b8ac74ee6d7bc9ce332"
+}

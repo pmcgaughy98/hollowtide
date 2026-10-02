@@ -1,0 +1,38 @@
+{
+  "character": "cinderhide",
+  "parameters": {
+    "width": 80,
+    "height": 80,
+    "input_image": "cinderhide_input_native80.png",
+    "num_images": 1,
+    "prompt_style": "rd_advanced_animation__idle",
+    "frames_duration": 8,
+    "return_spritesheet": false,
+    "bypass_prompt_expansion": true,
+    "prompt": "Quiet resting idle, fixed rear-right three-quarter view, looking away toward the upper right. Keep exactly the input Cinderhide design: compact charcoal armored reptile, angular segmented back plates, sharp orange dorsal spikes and ember seams, horned head, thick curled plated tail. Feet and tail tip remain planted in the same pixels. One slow restrained breath moves only chest and shoulders by one pixel, a tiny head settling movement, then return precisely to the starting pose. Preserve silhouette, proportions, palette and crisp native pixel clusters. Seamless calm menu loop, stationary camera, transparent background. No stepping, walking, turning, hopping, whole-body bobbing, tail swinging, new anatomy, rounded shell, fire spray or large effects."
+  },
+  "cost": {
+    "created_at": 1790878604,
+    "credit_cost": 0,
+    "balance_cost": 0.14,
+    "output_images": [],
+    "base64_images": [],
+    "output_urls": [],
+    "model": "check_cost",
+    "remaining_credits": 0,
+    "remaining_balance": 2.790000000000001,
+    "resolved_prompt_style": "rd_advanced_animation__idle",
+    "used_input_image": true,
+    "reference_images_count": 0,
+    "used_extra_input_image": false,
+    "used_input_palette": false,
+    "used_strength": false,
+    "effective_timeout_seconds": 180
+  },
+  "job": {
+    "status": "accepted",
+    "task_id": "fdc4f498-b1d5-437b-973a-27ce20f7f5a9",
+    "request_id": "fdc4f498-b1d5-437b-973a-27ce20f7f5a9",
+    "message": "Inference accepted. Poll GET /v2/inferences/tasks/{task_id} for status."
+  }
+}

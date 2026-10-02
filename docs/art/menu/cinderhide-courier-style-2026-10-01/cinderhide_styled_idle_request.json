@@ -1,0 +1,20 @@
+{
+  "parameters": {
+    "width": 80,
+    "height": 80,
+    "prompt_style": "rd_advanced_animation__idle",
+    "frames_duration": 8,
+    "num_images": 1,
+    "input_image": "cinderhide_style_input_native80.png",
+    "return_spritesheet": false,
+    "bypass_prompt_expansion": true,
+    "prompt": "Calm stationary menu resting idle of this exact Cinderhide, fixed rear-right three-quarter view facing upper right. Preserve the input's softer matte pixel rendering, broad armor shading clusters, restrained warm charcoal shadows, orange dorsal spikes and tiny ember seams. Keep horned head, angular overlapping plates, compact anatomy, heavy curled tail and palette consistent in every frame. One slow quiet breath moves chest and shoulders by only one pixel; a very small head settling movement returns naturally to the starting pose. All feet, claws, hips and tail tip remain fixed against the ground at identical coordinates. Seamless gentle loop with fixed camera and stable sprite placement. Preserve native crisp pixel clusters and transparent background. No shiny metal texture, black band expansion, stepping, walking, turning, tail swinging, whole-body bouncing, scale change, anatomy change, new props, flames or scenery."
+  },
+  "estimated_cost": 0.14,
+  "job": {
+    "status": "accepted",
+    "task_id": "eeecb0b8-5472-4ca5-b05e-920d1498a111",
+    "request_id": "eeecb0b8-5472-4ca5-b05e-920d1498a111",
+    "message": "Inference accepted. Poll GET /v2/inferences/tasks/{task_id} for status."
+  }
+}

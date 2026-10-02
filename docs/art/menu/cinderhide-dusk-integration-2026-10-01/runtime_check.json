@@ -1,0 +1,121 @@
+{
+  "date": "2026-10-01",
+  "scene": "res://scenes/main_menu_art_preview.tscn",
+  "engine_version": "0.5.68",
+  "instance": "menu-dusk-review",
+  "mode": "offscreen",
+  "deterministic": true,
+  "process_fps": 60,
+  "frames_observed": [
+    {
+      "process_frame": 2585,
+      "actor_frame": 4,
+      "menu_time": 0.817,
+      "actor_position": "Vector2(353, 304)",
+      "shadow_position": "Vector2(432, 448)"
+    },
+    {
+      "process_frame": 4999,
+      "actor_frame": 5,
+      "menu_time": 1.217,
+      "actor_position": "Vector2(353, 304)",
+      "shadow_position": "Vector2(432, 448)"
+    },
+    {
+      "process_frame": 5031,
+      "actor_frame": 6,
+      "menu_time": 1.617,
+      "actor_position": "Vector2(353, 304)",
+      "shadow_position": "Vector2(432, 448)"
+    },
+    {
+      "process_frame": 5062,
+      "actor_frame": 7,
+      "menu_time": 2.017,
+      "actor_position": "Vector2(353, 304)",
+      "shadow_position": "Vector2(432, 448)"
+    },
+    {
+      "process_frame": 5093,
+      "actor_frame": 0,
+      "menu_time": 2.417,
+      "actor_position": "Vector2(353, 304)",
+      "shadow_position": "Vector2(432, 448)"
+    },
+    {
+      "process_frame": 5124,
+      "actor_frame": 1,
+      "menu_time": 2.817,
+      "actor_position": "Vector2(353, 304)",
+      "shadow_position": "Vector2(432, 448)"
+    },
+    {
+      "process_frame": 5156,
+      "actor_frame": 2,
+      "menu_time": 3.217,
+      "actor_position": "Vector2(353, 304)",
+      "shadow_position": "Vector2(432, 448)"
+    },
+    {
+      "process_frame": 5187,
+      "actor_frame": 3,
+      "menu_time": 3.617,
+      "actor_position": "Vector2(353, 304)",
+      "shadow_position": "Vector2(432, 448)"
+    },
+    {
+      "process_frame": 5217,
+      "actor_frame": 4,
+      "menu_time": 4.017,
+      "actor_position": "Vector2(353, 304)",
+      "shadow_position": "Vector2(432, 448)"
+    }
+  ],
+  "actual_capture": {
+    "file": "menu_dusk_integration_review.jpg",
+    "width": 1152,
+    "height": 648,
+    "process_frame": 2585,
+    "physics_frame": 2586,
+    "image_frame": 2585,
+    "actor_frame": 4,
+    "menu_time": 0.817
+  },
+  "contact_shadow": {
+    "position": [
+      432,
+      448
+    ],
+    "ambient_rgba": [
+      0.2,
+      0.15,
+      0.18,
+      0.12
+    ],
+    "contact_rgba": [
+      0.2,
+      0.15,
+      0.18,
+      0.18
+    ],
+    "static": true
+  },
+  "diagnostics": {
+    "runtime_errors": 0,
+    "open_script_errors": 0,
+    "total_errors": 0,
+    "existing_warnings": 10,
+    "coverage": "observed_console_debugger_and_open_script_buffers_not_full_project_validation"
+  },
+  "own_review_instance_stopped": true,
+  "binary_import_and_capture_copy": {
+    "errors": [],
+    "boot_errors": []
+  },
+  "generation_cost_usd": 0,
+  "not_retested": [
+    "New Game",
+    "Reduce Motion"
+  ],
+  "notes": "Existing motion and control code unchanged. All eight actor frames observed over one full 3.2-second cycle with fixed actor and contact-shadow positions. Actual screenshot inspected."
+}

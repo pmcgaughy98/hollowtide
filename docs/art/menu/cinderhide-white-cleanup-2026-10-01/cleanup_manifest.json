@@ -1,0 +1,276 @@
+{
+  "source_path": "C:\\Users\\pmcga\\dev\\hollowtide\\assets\\sprites\\menu\\retro_diffusion_idle_2026_10_01\\cinderhide_idle_courier_style_atlas.png",
+  "source_sha256": "6425649dd0ad7352340e34432d4908e66959e42d39726a4b83c62df4f6fb3c8a",
+  "output_filename": "cinderhide_idle_courier_style_clean_atlas.png",
+  "output_sha256": "fb57a7c3073ce1b7cb7b6d6c8d79d53146491a32376e588c113b59e8b4eff288",
+  "size": [
+    640,
+    80
+  ],
+  "frame_size": [
+    80,
+    80
+  ],
+  "frame_count": 8,
+  "cycle_seconds": 3.2,
+  "edits": [
+    {
+      "frame": 2,
+      "xy": [
+        39,
+        22
+      ],
+      "before": [
+        255,
+        255,
+        255,
+        255
+      ],
+      "after": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "reason": "restore transparent neck gap"
+    },
+    {
+      "frame": 2,
+      "xy": [
+        38,
+        23
+      ],
+      "before": [
+        255,
+        255,
+        255,
+        255
+      ],
+      "after": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "reason": "restore transparent neck gap"
+    },
+    {
+      "frame": 2,
+      "xy": [
+        39,
+        23
+      ],
+      "before": [
+        255,
+        255,
+        255,
+        255
+      ],
+      "after": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "reason": "restore transparent neck gap"
+    },
+    {
+      "frame": 2,
+      "xy": [
+        40,
+        23
+      ],
+      "before": [
+        255,
+        255,
+        255,
+        255
+      ],
+      "after": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "reason": "restore transparent neck gap"
+    },
+    {
+      "frame": 3,
+      "xy": [
+        28,
+        58
+      ],
+      "before": [
+        255,
+        255,
+        255,
+        255
+      ],
+      "after": [
+        10,
+        9,
+        9,
+        255
+      ],
+      "reason": "restore existing dark tail seam color"
+    },
+    {
+      "frame": 4,
+      "xy": [
+        28,
+        58
+      ],
+      "before": [
+        255,
+        255,
+        255,
+        255
+      ],
+      "after": [
+        10,
+        9,
+        9,
+        255
+      ],
+      "reason": "restore existing dark tail seam color"
+    },
+    {
+      "frame": 5,
+      "xy": [
+        28,
+        58
+      ],
+      "before": [
+        255,
+        255,
+        255,
+        255
+      ],
+      "after": [
+        10,
+        9,
+        9,
+        255
+      ],
+      "reason": "restore existing dark tail seam color"
+    },
+    {
+      "frame": 3,
+      "xy": [
+        28,
+        59
+      ],
+      "before": [
+        255,
+        255,
+        255,
+        255
+      ],
+      "after": [
+        10,
+        9,
+        9,
+        255
+      ],
+      "reason": "restore existing dark tail seam color"
+    },
+    {
+      "frame": 4,
+      "xy": [
+        28,
+        59
+      ],
+      "before": [
+        255,
+        255,
+        255,
+        255
+      ],
+      "after": [
+        10,
+        9,
+        9,
+        255
+      ],
+      "reason": "restore existing dark tail seam color"
+    },
+    {
+      "frame": 5,
+      "xy": [
+        28,
+        59
+      ],
+      "before": [
+        255,
+        255,
+        255,
+        255
+      ],
+      "after": [
+        10,
+        9,
+        9,
+        255
+      ],
+      "reason": "restore existing dark tail seam color"
+    },
+    {
+      "frame": 4,
+      "xy": [
+        28,
+        60
+      ],
+      "before": [
+        255,
+        255,
+        255,
+        255
+      ],
+      "after": [
+        10,
+        9,
+        9,
+        255
+      ],
+      "reason": "restore existing dark tail seam color"
+    },
+    {
+      "frame": 5,
+      "xy": [
+        28,
+        60
+      ],
+      "before": [
+        255,
+        255,
+        255,
+        255
+      ],
+      "after": [
+        10,
+        9,
+        9,
+        255
+      ],
+      "reason": "restore existing dark tail seam color"
+    }
+  ],
+  "edits_per_frame": [
+    0,
+    0,
+    4,
+    2,
+    3,
+    3,
+    0,
+    0
+  ],
+  "visible_white_pixels_before": 12,
+  "visible_white_pixels_after": 0,
+  "all_other_pixels_unchanged": true,
+  "lower_band_y": 62,
+  "ground_band_unchanged": true,
+  "frame_bounds_unchanged": true,
+  "new_palette_colors": false,
+  "generation_cost": 0
+}

@@ -1,0 +1,23 @@
+{
+  "parameters": {
+    "width": 80,
+    "height": 80,
+    "prompt_style": "rd_pro__default",
+    "num_images": 1,
+    "input_image": "cinderhide_pose_native80.png",
+    "reference_images": [
+      "courier_finish_reference.png",
+      "map_finish_reference.png"
+    ],
+    "bypass_prompt_expansion": true,
+    "prompt": "A FULL-BODY isolated menu sprite of Cinderhide, entirely visible with 7-pixel empty margins on every side of an 80x80 canvas. Use input ONLY to preserve its exact compact anatomy, size, rear-right pose and foot placement. Use the chibi courier and map references to repaint Cinderhide's texture so it blends with their softly illustrated pixel art. Cinderhide is the compact charcoal horned reptile with a wedge snout pointing upper right away from the viewer, orange dorsal spikes, angular armor, sturdy claws, and curled segmented tail. Keep every extremity in frame. Draw quiet, broad connected armor planes in softly related warm gray-brown and violet-shadow tones. Remove the dense black etched scale lattice and thin black bands inside the body and tail. Show major armor overlaps through subtle material shadows, with only a thin warm charcoal outer contour. The creature should feel as softly shaded as the courier jacket and landscape grass, with a similar contrast range and clean material clusters. Keep orange dorsal spikes small and muted. No glossy metal, thick pure-black internal lines, busy scale texture, checkerboard dithering, noisy pixels or harsh black-and-white contrast. NO CLOSEUP: the head, horns, neck, both arms, feet and COMPLETE curled tail must be visible together. Keep the exact size and placement of the full-body input, not the cropped texture reference. Empty transparent background, no white highlights, no scenery, no human features or clothing. A texture/style correction for the current menu sprite, not a redesigned creature.",
+    "remove_bg": true
+  },
+  "estimated_cost": 0.18,
+  "job": {
+    "status": "accepted",
+    "task_id": "3c10f87d-644d-4b32-88ae-b97b8f2d094e",
+    "request_id": "3c10f87d-644d-4b32-88ae-b97b8f2d094e",
+    "message": "Inference accepted. Poll GET /v2/inferences/tasks/{task_id} for status."
+  }
+}

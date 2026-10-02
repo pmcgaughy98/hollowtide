@@ -47,3 +47,17 @@ Be honest: if a pose cannot be drawn cleanly, leave that cell flat magenta inste
 ## When results come back
 
 Save each one in this folder as `down_result.png`, `up_result.png` and so on, and tell Claude. Claude keeps Preston's original cells, cuts only the new poses, checks each one against the kept cells, and swaps them into `scripts/player.gd` (`CHIBI_STEP_COLUMNS`, dropping the one-pixel lift).
+
+## Run 2b: UP passing poses (2026-10-01), attach `up_partial_v2_2x2.png`
+
+The first UP run showed Preston's two original up poses are the same step. This sheet has the original step in F0 and the Forge's opposite step in F2.
+
+```text
+MODE COMPLETE. DIRECTION UP (back view, walking away). KIND OVERWORLD. FRAMES 4.
+KEEP F0 (top left, viewer's right boot planted lower) and F2 (bottom left, viewer's left boot planted lower) exactly as drawn.
+MISSING F1 (top right) and F3 (bottom right): the passing poses between them. Both boots level and close together under the hips, one knee softly bent, same baseline as the kept cells.
+Match the reference exactly: back of the spiky brown hair, teal jacket, satchel strap and olive satchel on the back, tan trousers, brown boots. Same size and pixel detail as the reference.
+Be honest: if a pose cannot match, leave that cell flat magenta instead of copying a kept pose.
+```
+
+Save the result as `up_result_2.png`.

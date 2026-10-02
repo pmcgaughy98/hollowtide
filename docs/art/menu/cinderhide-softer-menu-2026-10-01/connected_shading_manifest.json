@@ -1,0 +1,67 @@
+{
+  "source_path": "C:\\Users\\pmcga\\dev\\hollowtide\\assets\\sprites\\menu\\retro_diffusion_idle_2026_10_01\\cinderhide_idle_courier_style_clean_atlas.png",
+  "source_sha256": "fb57a7c3073ce1b7cb7b6d6c8d79d53146491a32376e588c113b59e8b4eff288",
+  "output_sha256": "7b6c7f984e14fc94d1f8e42d09e27cc7e7d6508350b18839d77ee5fe9bfce4ea",
+  "frame_size": [
+    80,
+    80
+  ],
+  "frame_count": 8,
+  "cycle_seconds": 3.2,
+  "alpha_and_silhouette_unchanged": true,
+  "head_and_horns_excluded_from_material_filter_above_y": 28,
+  "tail_excluded_from_material_filter_below_y": 55,
+  "two_pixel_outer_contour_preserved": true,
+  "native_grid_unchanged": true,
+  "neutral_material_neighborhood": [
+    3,
+    3
+  ],
+  "material_filter_mix": 0.35,
+  "new_material_ramp": [
+    [
+      43,
+      38,
+      46
+    ],
+    [
+      56,
+      49,
+      54
+    ],
+    [
+      69,
+      61,
+      63
+    ],
+    [
+      82,
+      74,
+      71
+    ],
+    [
+      96,
+      87,
+      78
+    ],
+    [
+      110,
+      101,
+      88
+    ]
+  ],
+  "processed_material_pixels_per_frame": [
+    873,
+    867,
+    871,
+    874,
+    881,
+    895,
+    896,
+    904
+  ],
+  "ground_band_start_y": 62,
+  "ground_band_identical_across_frames": true,
+  "visible_white_pixels": 0,
+  "palette_pass": "Existing pure black is replaced by warm charcoal; fine interior seams become quieter gray-violet shadows and connected material planes. Rust accents remain restrained. Large tail segmentation is retained."
+}

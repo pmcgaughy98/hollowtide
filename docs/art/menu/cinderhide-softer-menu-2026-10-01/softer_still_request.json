@@ -1,0 +1,22 @@
+{
+  "parameters": {
+    "width": 80,
+    "height": 80,
+    "prompt_style": "rd_pro__painterly",
+    "num_images": 1,
+    "input_image": "cinderhide_pose_native80.png",
+    "reference_images": [
+      "courier_finish_reference.png",
+      "map_finish_reference.png"
+    ],
+    "bypass_prompt_expansion": true,
+    "prompt": "Redraw the rendering finish of this Cinderhide for the supplied Hollowtide main-menu art style. Reference 1 is the chibi courier's warm, softly shaded pixel finish; reference 2 is the menu map's connected material shading and violet dusk lighting. Copy their surface treatment and softness. Input Cinderhide supplies anatomy and rear-right three-quarter pose ONLY; its dense black internal armor lines are the defect to remove. Preserve the compact horned reptile, wedge snout looking upper-right away from camera, orange dorsal spikes, angular overlapping back armor, sturdy claws and heavy curled plated tail. Preserve the input silhouette, size, baseline and position on this 80x80 canvas. Replace fine black scale borders, thin concentric tail bands and busy etched lines with broad connected matte gray-brown armor surfaces shaded in three or four gently related tones. Only major plate overlaps need quiet dark charcoal shadows; do not outline each small scale. Softer illustrated JRPG pixel art, like the courier and landscape, with restrained warm dusk rim light and muted violet in shadow. The outer contour is a clean dark warm charcoal edge, not a thick pure-black band. The main body stays warm charcoal and gray, with small muted rust-orange spikes. No glitter, dithering, gritty single-pixel noise, detailed scale lattice, harsh black striping, shiny metal, oversharpening or high-contrast speckles. One complete stationary creature, same rear-right pose and ground contacts, centered exactly as input. Truly transparent empty background; no white pixels or highlights, no gray backdrop, no scenery, no human features or clothes. This is a quieter menu-only rendering, keep its recognizable anatomy and pose."
+  },
+  "estimated_cost": 0.18,
+  "job": {
+    "status": "accepted",
+    "task_id": "5a0694b3-ea32-4358-bcab-2f73bea92ee9",
+    "request_id": "5a0694b3-ea32-4358-bcab-2f73bea92ee9",
+    "message": "Inference accepted. Poll GET /v2/inferences/tasks/{task_id} for status."
+  }
+}

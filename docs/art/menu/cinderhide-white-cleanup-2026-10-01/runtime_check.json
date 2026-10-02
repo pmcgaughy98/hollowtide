@@ -1,0 +1,125 @@
+{
+  "scene": "res://scenes/main_menu_art_preview.tscn",
+  "instance": "menu-pixel-review",
+  "frame_sequence": [
+    {
+      "process_frame": 3270,
+      "actor_frame": 2,
+      "menu_time": 0.017,
+      "feet_position": "Vector2(353, 304)"
+    },
+    {
+      "process_frame": 5366,
+      "actor_frame": 3,
+      "menu_time": 0.417,
+      "feet_position": "Vector2(353, 304)"
+    },
+    {
+      "process_frame": 5396,
+      "actor_frame": 4,
+      "menu_time": 0.817,
+      "feet_position": "Vector2(353, 304)"
+    },
+    {
+      "process_frame": 5433,
+      "actor_frame": 5,
+      "menu_time": 1.217,
+      "feet_position": "Vector2(353, 304)"
+    },
+    {
+      "process_frame": 5465,
+      "actor_frame": 6,
+      "menu_time": 1.617,
+      "feet_position": "Vector2(353, 304)"
+    },
+    {
+      "process_frame": 5497,
+      "actor_frame": 7,
+      "menu_time": 2.017,
+      "feet_position": "Vector2(353, 304)"
+    },
+    {
+      "process_frame": 5528,
+      "actor_frame": 0,
+      "menu_time": 2.417,
+      "feet_position": "Vector2(353, 304)"
+    },
+    {
+      "process_frame": 5558,
+      "actor_frame": 1,
+      "menu_time": 2.817,
+      "feet_position": "Vector2(353, 304)"
+    },
+    {
+      "process_frame": 5588,
+      "actor_frame": 2,
+      "menu_time": 3.217,
+      "feet_position": "Vector2(353, 304)"
+    }
+  ],
+  "cycle_verified_seconds": 3.2,
+  "frames_seen": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+  ],
+  "screenshot_process_frame": 5396,
+  "screenshot_actor_frame": 4,
+  "stable_actor_position": [
+    353,
+    304
+  ],
+  "runtime_errors": 0,
+  "open_script_errors": 0,
+  "total_recorded_errors": 10,
+  "existing_warnings": 10,
+  "unrelated_console_errors": [
+    {
+      "text": "[url]res://scripts/battle_screen.gd:1175[/url] - Parse Error: Cannot find member \"ICE\" in base \"CreatureData.Essence\".",
+      "count": 1
+    },
+    {
+      "text": "[url]res://scripts/battle_screen.gd:1173[/url] - Parse Error: Cannot find member \"ELECTRIC\" in base \"CreatureData.Essence\".",
+      "count": 1
+    },
+    {
+      "text": "[url]modules\\gdscript\\gdscript_resource_format.cpp:46[/url] - Failed to load script \"res://scripts/battle_screen.gd\" with error \"Parse error\".",
+      "count": 1
+    },
+    {
+      "text": "[url]res://scripts/essence_chart.gd:27[/url] - Parse Error: Assigned value for constant \"CHART\" isn't a constant expression.",
+      "count": 1
+    },
+    {
+      "text": "[url]res://scripts/essence_chart.gd:66[/url] - Parse Error: Cannot find member \"ICE\" in base \"CreatureData.Essence\".",
+      "count": 1
+    },
+    {
+      "text": "[url]res://scripts/essence_chart.gd:65[/url] - Parse Error: Cannot find member \"ELECTRIC\" in base \"CreatureData.Essence\".",
+      "count": 1
+    },
+    {
+      "text": "[url]res://scripts/essence_chart.gd:56[/url] - Parse Error: Cannot find member \"ICE\" in base \"CreatureData.Essence\".",
+      "count": 1
+    },
+    {
+      "text": "[url]res://scripts/essence_chart.gd:53[/url] - Parse Error: Cannot find member \"ELECTRIC\" in base \"CreatureData.Essence\".",
+      "count": 1
+    }
+  ],
+  "note": "Shared editor retains battle/essence parse-error messages mentioning ELECTRIC and ICE. The current creature enum declares both. Menu review completed, but this pass does not validate or repair the concurrent battle changes.",
+  "instance_stopped": true,
+  "opal": {
+    "folder": "C:/Users/pmcga/OneDrive/Documents/HollowTide Sprites/Opal",
+    "local_graph_exports": 10,
+    "idle_forge": "https://opal.google/app/1p1-aH_DX-Ys83Fy3rxKL0fKQgChEcNs8",
+    "observed": "Saved editor and Start button available",
+    "generation_run": false
+  },
+  "paid_generation_cost": 0
+}

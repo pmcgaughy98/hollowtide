@@ -1,0 +1,17 @@
+{
+  "size": [
+    80,
+    80
+  ],
+  "bbox": [
+    0,
+    0,
+    79,
+    80
+  ],
+  "visible_pixels": 4012,
+  "visible_colors": 33,
+  "very_dark_pixels_under20": 420,
+  "bright_neutral_canvas_residue_removed": 2388,
+  "source_sha256": "b64db6083e4b4335a05632172cd789643f6d4f00eac393cc419c272e310074ab"
+}

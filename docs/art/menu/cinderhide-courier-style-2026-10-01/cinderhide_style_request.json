@@ -1,0 +1,21 @@
+{
+  "parameters": {
+    "width": 80,
+    "height": 80,
+    "prompt_style": "rd_pro__default",
+    "num_images": 1,
+    "input_image": "cinderhide_pose_reference_native80.png",
+    "reference_images": [
+      "courier_style_reference_native80.png"
+    ],
+    "bypass_prompt_expansion": true,
+    "prompt": "Restyle only the supplied Cinderhide creature's rendering finish to match the supplied chibi courier's pixel-art craft. The courier reference supplies STYLE ONLY, not anatomy, colors or clothing. Preserve Cinderhide's exact rear-right three-quarter pose looking toward the upper right, compact silhouette, scale, horned head, clawed limbs, overlapping angular armor plates, orange dorsal spikes and heavy curled armored tail. Keep the charcoal-gray and ember-orange creature identity. Render with broad readable matte color clusters, simpler flat material planes, subtle warm shadow tones, restrained highlights and clean dark contours like the courier. Reduce the thick pure-black internal bands and glossy metallic-looking plate detail; keep important plate boundaries readable with softer charcoal shadows. The orange seams remain small solid accents, not bright bloom. Preserve the existing eight-direction design and grounded pose; this is a menu-only finish. One complete Cinderhide, unchanged placement on the same 80x80 native canvas, clear margin around all extremities, transparent background. No human features, no clothing, no new anatomy, no redesign, no camera turn, no turtle shell, no scenery."
+  },
+  "estimated_cost": 0.18,
+  "job": {
+    "status": "accepted",
+    "task_id": "d0a7a229-92e1-47d2-83cf-d441010dcb1f",
+    "request_id": "d0a7a229-92e1-47d2-83cf-d441010dcb1f",
+    "message": "Inference accepted. Poll GET /v2/inferences/tasks/{task_id} for status."
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "parameters": {
+    "width": 80,
+    "height": 80,
+    "input_image": "courier_input_native80.png",
+    "num_images": 1,
+    "prompt_style": "rd_advanced_animation__idle",
+    "frames_duration": 8,
+    "return_spritesheet": false,
+    "bypass_prompt_expansion": true,
+    "prompt": "Calm stationary standing idle while this exact chibi courier watches the river, fixed three-quarter rear view facing toward the upper right. Keep the large tousled brown-haired head, brass goggles, compact teal jacket, brown trousers, boots and crossbody satchel exactly recognizable. A gentle slow breath moves only chest and shoulders by one pixel, with a tiny settling of the jacket and satchel. Both boots remain firmly planted at identical positions throughout; hips and feet stay still. Preserve head angle, hairstyle, goggles, bag side, proportions, colors and crisp native pixel clusters. Return naturally to the original pose for a seamless loop. Fixed camera, stable placement, transparent background. No walking, stepping, turning, waving, jumping, whole-body bobbing, scaling, changing character design or new props."
+  },
+  "cost": {
+    "created_at": 1790878916,
+    "credit_cost": 0,
+    "balance_cost": 0.14,
+    "output_images": [],
+    "base64_images": [],
+    "output_urls": [],
+    "model": "check_cost",
+    "remaining_credits": 0,
+    "remaining_balance": 2.4700000000000006,
+    "resolved_prompt_style": "rd_advanced_animation__idle",
+    "used_input_image": true,
+    "reference_images_count": 0,
+    "used_extra_input_image": false,
+    "used_input_palette": false,
+    "used_strength": false,
+    "effective_timeout_seconds": 180
+  },
+  "job": {
+    "status": "accepted",
+    "task_id": "45daf361-aadf-4cd4-8869-fb84ae10a1e5",
+    "request_id": "45daf361-aadf-4cd4-8869-fb84ae10a1e5",
+    "message": "Inference accepted. Poll GET /v2/inferences/tasks/{task_id} for status."
+  }
+}

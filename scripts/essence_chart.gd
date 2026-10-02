@@ -48,12 +48,22 @@ const CHART := {
 	CreatureData.Essence.GALE: {
 		CreatureData.Essence.HOLLOW: STRONG,
 	},
+	# Electric and Ice (added 2026-10-01). Only the Hollow rule applies until
+	# Preston approves their matchups (proposal in docs/creatures/electric-ice-essences-2026-10-01.md).
+	CreatureData.Essence.ELECTRIC: {
+		CreatureData.Essence.HOLLOW: STRONG,
+	},
+	CreatureData.Essence.ICE: {
+		CreatureData.Essence.HOLLOW: STRONG,
+	},
 	CreatureData.Essence.HOLLOW: {
 		CreatureData.Essence.EMBER: STRONG,
 		CreatureData.Essence.TIDE: STRONG,
 		CreatureData.Essence.STONE: STRONG,
 		CreatureData.Essence.GALE: STRONG,
 		CreatureData.Essence.BLOOM: STRONG,
+		CreatureData.Essence.ELECTRIC: STRONG,
+		CreatureData.Essence.ICE: STRONG,
 	},
 }
 

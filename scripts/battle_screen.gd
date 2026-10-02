@@ -1170,6 +1170,10 @@ func _card_accent(attacker: CreatureData, move: MoveData) -> Color:
 			return Color("#c4ecf4")
 		CreatureData.Essence.BLOOM:
 			return Color("#9cdc6c")
+		CreatureData.Essence.ELECTRIC:
+			return Color("#fce45c")
+		CreatureData.Essence.ICE:
+			return Color("#bce8fc")
 	return Color("#b49cdc")
 
 

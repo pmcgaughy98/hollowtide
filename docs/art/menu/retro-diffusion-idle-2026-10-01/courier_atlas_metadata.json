@@ -1,0 +1,110 @@
+{
+  "character": "courier",
+  "frame_count": 8,
+  "frame_size": [
+    80,
+    80
+  ],
+  "atlas_size": [
+    640,
+    80
+  ],
+  "original_durations_ms": [
+    150,
+    150,
+    150,
+    150,
+    150,
+    150,
+    150,
+    150
+  ],
+  "input_bbox": [
+    24,
+    10,
+    56,
+    71
+  ],
+  "frame_bboxes": [
+    [
+      25,
+      10,
+      55,
+      71
+    ],
+    [
+      25,
+      10,
+      55,
+      71
+    ],
+    [
+      24,
+      9,
+      55,
+      71
+    ],
+    [
+      24,
+      9,
+      54,
+      71
+    ],
+    [
+      24,
+      9,
+      54,
+      71
+    ],
+    [
+      24,
+      9,
+      54,
+      71
+    ],
+    [
+      24,
+      8,
+      54,
+      71
+    ],
+    [
+      24,
+      9,
+      54,
+      71
+    ]
+  ],
+  "external_neutral_white_edge_pixels_removed": [
+    87,
+    129,
+    127,
+    132,
+    121,
+    93,
+    113,
+    100
+  ],
+  "raw_lower_band_changes": [
+    0,
+    35,
+    45,
+    60,
+    52,
+    51,
+    48,
+    52
+  ],
+  "fixed_lower_band_y": 61,
+  "bottom_ten_rows_pixel_differences_from_frame0": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+  ],
+  "gif_sha256": "8000b8c78b3380301bbc894e185027e49bf08f7352c06ea4a953570898ec52df"
+}

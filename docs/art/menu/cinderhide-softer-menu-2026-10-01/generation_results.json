@@ -1,0 +1,25 @@
+{
+  "total_generation_cost_usd": 0.36,
+  "paid_animation_generation": false,
+  "installed_source": "Existing cleaned eight-frame Retro Diffusion menu atlas with a controlled material/palette pass.",
+  "jobs": [
+    {
+      "task_id": "5a0694b3-ea32-4358-bcab-2f73bea92ee9",
+      "style": "rd_pro__painterly",
+      "status": "succeeded",
+      "cost_usd": 0.18,
+      "artwork_status": "rejected",
+      "reason": "Generated closeup crops head and tail; full body not visible.",
+      "source": "softer_still_original.png"
+    },
+    {
+      "task_id": "3c10f87d-644d-4b32-88ae-b97b8f2d094e",
+      "style": "rd_pro__default",
+      "status": "succeeded",
+      "cost_usd": 0.18,
+      "artwork_status": "rejected",
+      "reason": "Generated full-body request still crops head and extremities, and retains dense armor detail.",
+      "source": "softer_default_original.png"
+    }
+  ]
+}

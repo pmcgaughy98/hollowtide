@@ -1,0 +1,92 @@
+{
+  "scene": "res://scenes/main_menu_art_preview.tscn",
+  "instance": "menu-material-review",
+  "actor_texture": "res://assets/sprites/menu/retro_diffusion_idle_2026_10_01/cinderhide_idle_soft_material_atlas.png",
+  "records": [
+    {
+      "process_frame": 2575,
+      "actor_frame": 2,
+      "menu_time": 0.017,
+      "position": "Vector2(353, 304)"
+    },
+    {
+      "process_frame": 2607,
+      "actor_frame": 3,
+      "menu_time": 0.417,
+      "position": "Vector2(353, 304)"
+    },
+    {
+      "process_frame": 2637,
+      "actor_frame": 4,
+      "menu_time": 0.817,
+      "position": "Vector2(353, 304)"
+    },
+    {
+      "process_frame": 2674,
+      "actor_frame": 5,
+      "menu_time": 1.217,
+      "position": "Vector2(353, 304)"
+    },
+    {
+      "process_frame": 2705,
+      "actor_frame": 6,
+      "menu_time": 1.617,
+      "position": "Vector2(353, 304)"
+    },
+    {
+      "process_frame": 2735,
+      "actor_frame": 7,
+      "menu_time": 2.017,
+      "position": "Vector2(353, 304)"
+    },
+    {
+      "process_frame": 2765,
+      "actor_frame": 0,
+      "menu_time": 2.417,
+      "position": "Vector2(353, 304)"
+    },
+    {
+      "process_frame": 2796,
+      "actor_frame": 1,
+      "menu_time": 2.817,
+      "position": "Vector2(353, 304)"
+    },
+    {
+      "process_frame": 2826,
+      "actor_frame": 2,
+      "menu_time": 3.217,
+      "position": "Vector2(353, 304)"
+    }
+  ],
+  "frames_seen": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+  ],
+  "loop_seconds": 3.2,
+  "same_alpha_and_silhouette_all_frames": true,
+  "visible_white_pixels": 0,
+  "screenshot_process_frame": 2637,
+  "screenshot_actor_frame": 4,
+  "screenshot_menu_time": 0.817,
+  "runtime_errors": 0,
+  "open_script_errors": 0,
+  "total_recorded_errors": 0,
+  "warnings": 10,
+  "disposable_instance_stopped": true,
+  "user_main_instance_not_stopped": true,
+  "cold_screenshot_copy": {
+    "saved": true,
+    "script_errors": 0,
+    "boot_errors": [
+      "Unrecognized UID: uid://blm6ps3r8bf7l",
+      "ResourceSaver empty resource path"
+    ],
+    "note": "The headless helper returned ran=true and saved both files despite these boot diagnostics. Menu runtime verification preceded this helper and passed."
+  }
+}

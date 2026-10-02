@@ -1,0 +1,45 @@
+{
+  "source_path": "C:\\Users\\pmcga\\dev\\hollowtide\\assets\\sprites\\menu\\retro_diffusion_idle_2026_10_01\\cinderhide_idle_soft_material_atlas.png",
+  "source_sha256": "7b6c7f984e14fc94d1f8e42d09e27cc7e7d6508350b18839d77ee5fe9bfce4ea",
+  "output_sha256": "56f89a5f218272f4d7cff9dd893d61139118d5681fd05cd61cf5c54d142475b1",
+  "size": [
+    640,
+    80
+  ],
+  "frames": 8,
+  "frame_size": [
+    80,
+    80
+  ],
+  "alpha_and_silhouette_unchanged": true,
+  "native_grid_unchanged": true,
+  "rim_pixels_per_frame": [
+    65,
+    64,
+    62,
+    61,
+    62,
+    62,
+    61,
+    60
+  ],
+  "rim_rgb_add": [
+    10,
+    6,
+    0
+  ],
+  "rim_upper_bounds": {
+    "x_min_exclusive": 34,
+    "y_max_exclusive": 36
+  },
+  "ground_reflection_rgb_add": [
+    4,
+    2,
+    0
+  ],
+  "ground_band_y": 62,
+  "ground_band_identical": true,
+  "visible_white_pixels": 0,
+  "generation_cost_usd": 0,
+  "notes": "Warm sandstone/amber in lit material planes; cool plum in shade; colored contour; small upper-right sunset rim; ground warmth on lower contour. Existing movement and shape are preserved."
+}
