@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://bhqon0w55tdjq" path="res://scripts/move_data.gd" id="1_script"]
 [ext_resource type="PackedScene" path="res://scenes/effects/oxbowarchon_sky_rail.tscn" id="2_strike"]
 [ext_resource type="Script" uid="uid://dtck6dpiev4ck" path="res://scripts/camera_shot.gd" id="11_shot"]
+[ext_resource type="Texture2D" uid="uid://ceufil26udvax" path="res://assets/backgrounds/signature_stages/kingstone_rail.png" id="sig_stage"]
 [ext_resource type="Texture2D" uid="uid://cla8igwtxyxuu" path="res://assets/sprites/creatures/attacks/oxbowarchon_kingstone_rail/style_matched/afterglow.png" id="t_afterglow"]
 [ext_resource type="Texture2D" uid="uid://csh6nyajpwnpk" path="res://assets/sprites/creatures/attacks/oxbowarchon_kingstone_rail/style_matched/burst.png" id="t_burst"]
 [ext_resource type="Texture2D" uid="uid://cf3kw0bunlb6b" path="res://assets/sprites/creatures/attacks/oxbowarchon_kingstone_rail/style_matched/burst_b.png" id="t_burst_b"]
@@ -69,6 +70,8 @@ attack_cut_in = ExtResource("t_titlecard")
 signature = true
 signature_light = Color(0.85, 1.15, 0.95, 1)
 signature_effect = ExtResource("2_strike")
+signature_stage = ExtResource("sig_stage")
+signature_stage_floor_y = 187
 signature_linger = 1.8
 camera_shots = Array[ExtResource("11_shot")]([SubResource("shot_sky"), SubResource("shot_fall"), SubResource("shot_hit")])
 attack_overheat = 1.0

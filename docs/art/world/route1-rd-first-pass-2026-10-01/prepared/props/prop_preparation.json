@@ -1,0 +1,15 @@
+{
+  "office_original_body_rgb_changes": 0,
+  "office_original_body_alpha_changes": 0,
+  "office_canvas": [
+    96,
+    96
+  ],
+  "office_bbox": [
+    3,
+    15,
+    89,
+    89
+  ],
+  "method": "Outpainting added only a baked checkerboard and was rejected. Preserve every original pixel at y+16 and cap the roof with a one-pixel dark ridge from the existing roof outline."
+}

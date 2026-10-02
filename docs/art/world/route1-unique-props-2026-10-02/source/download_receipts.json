@@ -1,0 +1,86 @@
+[
+  {
+    "name": "roof",
+    "tool_id": "outpainting",
+    "inference_id": "inf_y9K25A7NkXW8RGB1LyXwbBe64mg1OrDY",
+    "balance_cost": 0.18,
+    "credit_cost": 20,
+    "charged": true,
+    "remaining_balance": 5.630000000000005,
+    "remaining_credits": null,
+    "base64_images": [],
+    "output_urls": [
+      "https://da8ztllw6by0f.cloudfront.net/9a8dadf5bb3a8ba5f1cb55c3250051f3.png"
+    ]
+  },
+  {
+    "name": "tree_tall",
+    "tool_id": "inpainting",
+    "inference_id": "inf_4nJ3W7PDZdNy0wXpl0nweVYBl2px6a5g",
+    "balance_cost": 0.18,
+    "credit_cost": 20,
+    "charged": true,
+    "remaining_balance": 5.4500000000000055,
+    "remaining_credits": null,
+    "base64_images": [],
+    "output_urls": [
+      "https://da8ztllw6by0f.cloudfront.net/78361b0fa477f52f819314a871690bc7.png"
+    ]
+  },
+  {
+    "name": "tree_left",
+    "tool_id": "inpainting",
+    "inference_id": "inf_DJePMk93ngyWYG5YN2pG5zv24l1jB0mE",
+    "balance_cost": 0.18,
+    "credit_cost": 20,
+    "charged": true,
+    "remaining_balance": 4.910000000000006,
+    "remaining_credits": null,
+    "base64_images": [],
+    "output_urls": [
+      "https://da8ztllw6by0f.cloudfront.net/f87b8ea9a261fe45ef2a30300d25ef9a.png"
+    ]
+  },
+  {
+    "name": "shrub",
+    "tool_id": "image_edit",
+    "inference_id": "inf_Oeo37pmvZnj04GER7NDq5PBxJXdRLYKV",
+    "balance_cost": 0.18,
+    "credit_cost": 20,
+    "charged": true,
+    "remaining_balance": 5.270000000000006,
+    "remaining_credits": null,
+    "base64_images": [],
+    "output_urls": [
+      "https://da8ztllw6by0f.cloudfront.net/6f271d09917829348a8b3a71401b1663.png"
+    ]
+  },
+  {
+    "name": "reeds",
+    "tool_id": "image_edit",
+    "inference_id": "inf_EgzYknxpjDlaPQNpAz9GNA3doKmXBLZW",
+    "balance_cost": 0.18,
+    "credit_cost": 20,
+    "charged": true,
+    "remaining_balance": 4.550000000000007,
+    "remaining_credits": null,
+    "base64_images": [],
+    "output_urls": [
+      "https://da8ztllw6by0f.cloudfront.net/96809640d159d3e537d0f97cc7cdb34f.png"
+    ]
+  },
+  {
+    "name": "wall",
+    "tool_id": "image_edit",
+    "inference_id": "inf_MeN8nlZXaEKkJQj7ZMywY4pr0LvPOz9W",
+    "balance_cost": 0.18,
+    "credit_cost": 20,
+    "charged": true,
+    "remaining_balance": 4.730000000000007,
+    "remaining_credits": null,
+    "base64_images": [],
+    "output_urls": [
+      "https://da8ztllw6by0f.cloudfront.net/c1047501b1e5d28d06a33c1e102404e1.png"
+    ]
+  }
+]

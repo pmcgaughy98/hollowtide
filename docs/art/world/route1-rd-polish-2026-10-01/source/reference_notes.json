@@ -1,0 +1,42 @@
+{
+  "dates": [
+    "2026-10-01",
+    "2026-10-02"
+  ],
+  "references_folder": "C:/Users/pmcga/OneDrive/Documents/HollowTide Sprites/Game-Ideas",
+  "filenames": [
+    "images (1).jfif",
+    "images (2).jfif",
+    "images.jfif",
+    "Team-Details-Screen idea..jfif",
+    "1b045ebf-f8d3-42a3-8817-4cfc798756aa.c7d65c07d037360d1cb96d18cc89dab2.png",
+    "different-types-of-extra-stages-v0-uslskn6fk2gb1.webp",
+    "resizedimage640360-nexomon-screenshot-1.jpg",
+    "ss_bae51cb848b9046659b7e40f858d978d3e638cc9.600x338.jpg"
+  ],
+  "applied": [
+    "Quieter ground makes actors readable.",
+    "Layered crowns, shrubs and contact shadows give props volume.",
+    "Curved path borders and shore fringes.",
+    "Foot-based occlusion for tree crowns.",
+    "Straight south-facing doorway aligned with orthogonal movement; roof visible from above."
+  ],
+  "remaining_user_order": "Repair clipped left/right cottonwood crown edges and create small crown/branch/palette variants from the same tree before Route 1 is considered complete. Preston says no rush.",
+  "tree_edge_check": {
+    "image": "assets/sprites/world/route1_rd_2026_10_01/cottonwood_polished.png",
+    "canvas": [
+      64,
+      96
+    ],
+    "alpha_bbox": [
+      0,
+      9,
+      64,
+      89
+    ],
+    "left_edge_opaque_pixels": 30,
+    "right_edge_opaque_pixels": 18,
+    "conclusion": "Source artwork touches and clips against both canvas edges. Adding transparent padding alone cannot restore missing foliage."
+  },
+  "style_authority": "Hollowtide's riverbank, loess and cottonwood palette. Reference games provide perspective and finish goals; their art is not copied."
+}

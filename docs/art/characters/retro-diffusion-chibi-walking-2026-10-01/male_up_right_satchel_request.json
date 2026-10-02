@@ -1,0 +1,21 @@
+{
+  "parameters": {
+    "width": 80,
+    "height": 80,
+    "input_image": "male_up_right_rotation_input_native80.png",
+    "reference_images": [
+      "male_up_input_native80.png"
+    ],
+    "num_images": 1,
+    "prompt_style": "rd_pro__default",
+    "prompt": "Edit the input sprite only to restore this courier's missing olive-brown crossbody satchel and its brass buckle, using the provided rear-view reference for the bag and diagonal shoulder strap. Keep the input's exact three-quarter REAR-RIGHT view, face visibility, brown-haired head, goggles, teal jacket, short chibi body, trousers, boots, neutral stance, pixel rendering and canvas placement. The bag hangs against the lower back/hip and its strap crosses the back on the same anatomical shoulder as the reference. Add the bag and strap where visible; keep the rest of this sprite unchanged. One complete full-body character on transparent background. No rotation toward camera, no new accessories, no magenta outline, no text or ground shadow.",
+    "bypass_prompt_expansion": true,
+    "remove_bg": true,
+    "upload_outputs": true
+  },
+  "estimate": 0.18,
+  "job": "a458e13b-3cae-4758-9d9b-5d5d52e1a895",
+  "status": "succeeded",
+  "actual_cost_usd": 0.18,
+  "visual_use": "rejected; bag still absent, preserved only"
+}

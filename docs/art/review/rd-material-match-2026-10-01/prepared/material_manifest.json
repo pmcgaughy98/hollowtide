@@ -1,0 +1,436 @@
+{
+  "kithflare": {
+    "front": {
+      "source": "C:\\Users\\pmcga\\dev\\hollowtide\\assets\\sprites\\creatures\\kithflare_rd_front_2026_10_01.png",
+      "source_sha256": "0cf0c7788bfe0d33715ac8d7a95ee9b8944859ea50b02d9d0c9be19baaa3923c",
+      "output": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\work\\route_refinement\\creatures\\kithflare_front.png",
+      "changed_rgb_pixels": 0,
+      "alpha_changes": 0,
+      "size": [
+        160,
+        160
+      ],
+      "bbox": [
+        25,
+        21,
+        131,
+        140
+      ],
+      "sha256": "0cf0c7788bfe0d33715ac8d7a95ee9b8944859ea50b02d9d0c9be19baaa3923c"
+    },
+    "back": {
+      "source": "C:\\Users\\pmcga\\dev\\hollowtide\\assets\\sprites\\creatures\\kithflare_rd_back_2026_10_01.png",
+      "source_sha256": "5280e267aa19cb72892e10de4b128564c230eaff803d914c1cc0fd03bd98d7d1",
+      "output": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\work\\route_refinement\\creatures\\kithflare_back.png",
+      "changed_rgb_pixels": 6132,
+      "alpha_changes": 0,
+      "size": [
+        160,
+        160
+      ],
+      "bbox": [
+        29,
+        19,
+        130,
+        135
+      ],
+      "sha256": "14d3500ba30d37bf2650d09399a41fa6a658e758c4dd6a7a10121ab72a00f52b"
+    },
+    "8dir": {
+      "source": "C:\\Users\\pmcga\\dev\\hollowtide\\assets\\sprites\\creatures\\kithflare_rd_8dir_2026_10_01.png",
+      "source_sha256": "89a4c4e2e5ab8c61c38614ab4c4693fd453aad76e7c873f97fc3445470a0924b",
+      "output": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\work\\route_refinement\\creatures\\kithflare_8dir.png",
+      "changed_rgb_pixels": 44877,
+      "alpha_changes": 0,
+      "size": [
+        480,
+        480
+      ],
+      "bbox": [
+        17,
+        21,
+        464,
+        461
+      ],
+      "sha256": "352c6f8b6cb4a03b320b29540d28fa8e1b5b58979198b86e2cabb1a57e79d76a"
+    }
+  },
+  "wayburn": {
+    "front": {
+      "source": "C:\\Users\\pmcga\\dev\\hollowtide\\assets\\sprites\\creatures\\wayburn_rd_front_2026_10_01.png",
+      "source_sha256": "18cc5a1ca548e2a73b8af29ee7d2f8998cdff28c39b9c0032b1e0e295ba54026",
+      "output": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\work\\route_refinement\\creatures\\wayburn_front.png",
+      "changed_rgb_pixels": 0,
+      "alpha_changes": 0,
+      "size": [
+        192,
+        160
+      ],
+      "bbox": [
+        25,
+        13,
+        176,
+        136
+      ],
+      "sha256": "18cc5a1ca548e2a73b8af29ee7d2f8998cdff28c39b9c0032b1e0e295ba54026"
+    },
+    "back": {
+      "source": "C:\\Users\\pmcga\\dev\\hollowtide\\assets\\sprites\\creatures\\wayburn_rd_back_2026_10_01.png",
+      "source_sha256": "9ef2493c2b49187a15ecdb993d3fa14d8bdd9e12989e864d6a39c044c2aacb17",
+      "output": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\work\\route_refinement\\creatures\\wayburn_back.png",
+      "changed_rgb_pixels": 4862,
+      "alpha_changes": 0,
+      "size": [
+        160,
+        160
+      ],
+      "bbox": [
+        16,
+        21,
+        130,
+        144
+      ],
+      "sha256": "9a1460537d2f5a34676d7e005259d8f62cf9c5091a4878fe6b14386fb2d2022c"
+    },
+    "8dir": {
+      "source": "C:\\Users\\pmcga\\dev\\hollowtide\\assets\\sprites\\creatures\\wayburn_rd_8dir_2026_10_01.png",
+      "source_sha256": "29027f1d1f8d4367decc78834a055674a2b9d279b18a873a95fe67ecd266575d",
+      "output": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\work\\route_refinement\\creatures\\wayburn_8dir.png",
+      "changed_rgb_pixels": 38974,
+      "alpha_changes": 0,
+      "size": [
+        480,
+        480
+      ],
+      "bbox": [
+        9,
+        13,
+        470,
+        466
+      ],
+      "sha256": "ca654bb456f2a2131aaf37d3b01ad12c9cfbc9e0df158ae3fcc7af39402cb9e6"
+    }
+  },
+  "coalcrest": {
+    "front": {
+      "source": "C:\\Users\\pmcga\\dev\\hollowtide\\assets\\sprites\\creatures\\coalcrest_rd_front_2026_10_01.png",
+      "source_sha256": "614493f5d0aba2783467a3848ea7aa1e442c80a925e021e9ff4ee35b509cd70f",
+      "output": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\work\\route_refinement\\creatures\\coalcrest_front.png",
+      "changed_rgb_pixels": 0,
+      "alpha_changes": 0,
+      "size": [
+        160,
+        160
+      ],
+      "bbox": [
+        20,
+        16,
+        147,
+        142
+      ],
+      "sha256": "614493f5d0aba2783467a3848ea7aa1e442c80a925e021e9ff4ee35b509cd70f"
+    },
+    "back": {
+      "source": "C:\\Users\\pmcga\\dev\\hollowtide\\assets\\sprites\\creatures\\coalcrest_rd_back_2026_10_01.png",
+      "source_sha256": "ba7eb9c03ac2327d8e28c5c9534f8908964d2dd7ad99cc3de21ffa86270cb5e4",
+      "output": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\work\\route_refinement\\creatures\\coalcrest_back.png",
+      "changed_rgb_pixels": 5027,
+      "alpha_changes": 0,
+      "size": [
+        160,
+        160
+      ],
+      "bbox": [
+        19,
+        13,
+        125,
+        143
+      ],
+      "sha256": "81db137f797236e8a24a4fe5f84b33c98ef278cc789933601af2fbefc03b5913"
+    },
+    "8dir": {
+      "source": "C:\\Users\\pmcga\\dev\\hollowtide\\assets\\sprites\\creatures\\coalcrest_rd_8dir_2026_10_01.png",
+      "source_sha256": "4ad5aad4d17b70ae8f428fcc6394930b1421f28f4831755ce4726eadfc5930a7",
+      "output": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\work\\route_refinement\\creatures\\coalcrest_8dir.png",
+      "changed_rgb_pixels": 48085,
+      "alpha_changes": 0,
+      "size": [
+        480,
+        480
+      ],
+      "bbox": [
+        15,
+        15,
+        463,
+        464
+      ],
+      "sha256": "dc7eb463e9af51ccc0a98569f7d32b7431d55d32a4c9b708f3b6c27b48bd2e02"
+    }
+  },
+  "fusern": {
+    "front": {
+      "source": "C:\\Users\\pmcga\\dev\\hollowtide\\assets\\sprites\\creatures\\fusern_rd_front_2026_10_01.png",
+      "source_sha256": "afceef0009c2da9fe9ade7bc8ae415460149f95ceb9fde8c75a83bf7c99e642c",
+      "output": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\work\\route_refinement\\creatures\\fusern_front.png",
+      "changed_rgb_pixels": 0,
+      "alpha_changes": 0,
+      "size": [
+        192,
+        192
+      ],
+      "bbox": [
+        50,
+        64,
+        143,
+        139
+      ],
+      "sha256": "afceef0009c2da9fe9ade7bc8ae415460149f95ceb9fde8c75a83bf7c99e642c"
+    },
+    "back": {
+      "source": "C:\\Users\\pmcga\\dev\\hollowtide\\assets\\sprites\\creatures\\fusern_rd_back_2026_10_01.png",
+      "source_sha256": "058da16fe1d7543dfb2d12c479c4908f5636f8fca6f3fe2dda2e170ef1200f36",
+      "output": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\work\\route_refinement\\creatures\\fusern_back.png",
+      "changed_rgb_pixels": 4116,
+      "alpha_changes": 0,
+      "size": [
+        192,
+        192
+      ],
+      "bbox": [
+        51,
+        53,
+        143,
+        142
+      ],
+      "sha256": "1717eba8149cc19e46c3052921e446d43ef8bef9028ea1f31cba8024874d1168"
+    },
+    "8dir": {
+      "source": "C:\\Users\\pmcga\\dev\\hollowtide\\assets\\sprites\\creatures\\fusern_rd_8dir_2026_10_01.png",
+      "source_sha256": "14d831368f58931e9e7ecbedeb6542bdd00e35c2291a27417b0dbd1aeec2ef25",
+      "output": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\work\\route_refinement\\creatures\\fusern_8dir.png",
+      "changed_rgb_pixels": 31561,
+      "alpha_changes": 0,
+      "size": [
+        576,
+        576
+      ],
+      "bbox": [
+        50,
+        63,
+        528,
+        527
+      ],
+      "sha256": "24f68aa528693d6a85f365ff7e0aec62f92c213c0fc0969b9add7c8a217045eb"
+    }
+  },
+  "slagglass": {
+    "front": {
+      "source": "C:\\Users\\pmcga\\dev\\hollowtide\\assets\\sprites\\creatures\\slagglass_rd_front_2026_10_01.png",
+      "source_sha256": "1ea2cdf5f07e0739999db7748c12ef7638d3484f85ba4ecd4d435f12b1962f1c",
+      "output": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\work\\route_refinement\\creatures\\slagglass_front.png",
+      "changed_rgb_pixels": 0,
+      "alpha_changes": 0,
+      "size": [
+        192,
+        192
+      ],
+      "bbox": [
+        24,
+        26,
+        169,
+        168
+      ],
+      "sha256": "1ea2cdf5f07e0739999db7748c12ef7638d3484f85ba4ecd4d435f12b1962f1c"
+    },
+    "back": {
+      "source": "C:\\Users\\pmcga\\dev\\hollowtide\\assets\\sprites\\creatures\\slagglass_rd_back_2026_10_01.png",
+      "source_sha256": "be6ddc03a6a4b0ca802b54e4983c153cca6ced3f7198da8a200dc94587f4904c",
+      "output": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\work\\route_refinement\\creatures\\slagglass_back.png",
+      "changed_rgb_pixels": 4657,
+      "alpha_changes": 0,
+      "size": [
+        192,
+        192
+      ],
+      "bbox": [
+        31,
+        24,
+        163,
+        169
+      ],
+      "sha256": "db96918e5864c60ec4ad799f632ad0aef273e4bb23dc51b090d6a2a711485cd9"
+    },
+    "8dir": {
+      "source": "C:\\Users\\pmcga\\dev\\hollowtide\\assets\\sprites\\creatures\\slagglass_rd_8dir_2026_10_01.png",
+      "source_sha256": "e5ac14977d49c60697a6d9656a72eedeebf3a6e93ff07196dce18109909f6727",
+      "output": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\work\\route_refinement\\creatures\\slagglass_8dir.png",
+      "changed_rgb_pixels": 34967,
+      "alpha_changes": 0,
+      "size": [
+        576,
+        576
+      ],
+      "bbox": [
+        31,
+        24,
+        552,
+        553
+      ],
+      "sha256": "5920a55a583e12ed2680381b675bff5cfa1f9f5f5de0d155c557655ba35107f6"
+    }
+  },
+  "vitrecrag": {
+    "front": {
+      "source": "C:\\Users\\pmcga\\dev\\hollowtide\\assets\\sprites\\creatures\\vitrecrag_rd_front_2026_10_01.png",
+      "source_sha256": "5ecf84baa63140566d2397455b441eabe1140fb3b1493bf23fb90da06b135f87",
+      "output": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\work\\route_refinement\\creatures\\vitrecrag_front.png",
+      "changed_rgb_pixels": 0,
+      "alpha_changes": 0,
+      "size": [
+        192,
+        192
+      ],
+      "bbox": [
+        18,
+        35,
+        174,
+        170
+      ],
+      "sha256": "5ecf84baa63140566d2397455b441eabe1140fb3b1493bf23fb90da06b135f87"
+    },
+    "back": {
+      "source": "C:\\Users\\pmcga\\dev\\hollowtide\\assets\\sprites\\creatures\\vitrecrag_rd_back_2026_10_01.png",
+      "source_sha256": "b7a23d05a6e2e8f24ef5b746aeaddb66677b6cd5a30d930f8d05027f6ae862ff",
+      "output": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\work\\route_refinement\\creatures\\vitrecrag_back.png",
+      "changed_rgb_pixels": 7128,
+      "alpha_changes": 0,
+      "size": [
+        192,
+        192
+      ],
+      "bbox": [
+        20,
+        32,
+        175,
+        165
+      ],
+      "sha256": "377a09711454457eff693ffab0d6fd67039b8ba8b80d4326cc179a07f60d4735"
+    },
+    "8dir": {
+      "source": "C:\\Users\\pmcga\\dev\\hollowtide\\assets\\sprites\\creatures\\vitrecrag_rd_8dir_2026_10_01.png",
+      "source_sha256": "8f49266c42c91fd7a140e9aec1ef6153de8643135867c721b4e0e17e2c828663",
+      "output": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\work\\route_refinement\\creatures\\vitrecrag_8dir.png",
+      "changed_rgb_pixels": 52428,
+      "alpha_changes": 0,
+      "size": [
+        576,
+        576
+      ],
+      "bbox": [
+        16,
+        33,
+        561,
+        551
+      ],
+      "sha256": "d774ee05b59ca400b645354337684d49d12ff991a3f69c0b635197214c6d7b38"
+    },
+    "attacks": {
+      "f00.png": {
+        "source": "C:\\Users\\pmcga\\dev\\hollowtide\\assets\\sprites\\creatures\\attacks\\vitrecrag_rd_2026_10_01\\f00.png",
+        "source_sha256": "bd55e56477d0ff3b079c25703867dc87f48e2ecb1d71740ba5313ceb067d70ce",
+        "output": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\work\\route_refinement\\creatures\\f00.png",
+        "changed_rgb_pixels": 6290,
+        "alpha_changes": 0,
+        "sha256": "a1218b05394b5157765e7167e8c5d0d6654e3de936be6505ed0f8da62413596b"
+      },
+      "f01.png": {
+        "source": "C:\\Users\\pmcga\\dev\\hollowtide\\assets\\sprites\\creatures\\attacks\\vitrecrag_rd_2026_10_01\\f01.png",
+        "source_sha256": "51738b7052d9b0c4180f00a930093c818d07b48f16bb4a514563347bd506f109",
+        "output": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\work\\route_refinement\\creatures\\f01.png",
+        "changed_rgb_pixels": 6325,
+        "alpha_changes": 0,
+        "sha256": "93029d65adb800aebc84db8b638780c24e1cbd74d655e7d7fe6ae2a6f2414bb8"
+      },
+      "f02.png": {
+        "source": "C:\\Users\\pmcga\\dev\\hollowtide\\assets\\sprites\\creatures\\attacks\\vitrecrag_rd_2026_10_01\\f02.png",
+        "source_sha256": "9844dafb5f40b9330a6752ae7e79ef5e73edf6fe4376aaa37a71e8f54400f992",
+        "output": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\work\\route_refinement\\creatures\\f02.png",
+        "changed_rgb_pixels": 6521,
+        "alpha_changes": 0,
+        "sha256": "3ef75966e67f320dd1976870ce843bc8d642f04545246848d5e689a31a7a39f1"
+      },
+      "f03.png": {
+        "source": "C:\\Users\\pmcga\\dev\\hollowtide\\assets\\sprites\\creatures\\attacks\\vitrecrag_rd_2026_10_01\\f03.png",
+        "source_sha256": "c8234ebf6f44888939210af4366106f793c8a479f55afb2eb6e6ed296e2234eb",
+        "output": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\work\\route_refinement\\creatures\\f03.png",
+        "changed_rgb_pixels": 7249,
+        "alpha_changes": 0,
+        "sha256": "5359cb10b1404d996ce091194d4ae4441fcebbb1faba15f3f9ce5952a3ae465c"
+      },
+      "f04.png": {
+        "source": "C:\\Users\\pmcga\\dev\\hollowtide\\assets\\sprites\\creatures\\attacks\\vitrecrag_rd_2026_10_01\\f04.png",
+        "source_sha256": "528359a231447f7f9340f7cf348f4146835db1955a90e5f694f7a073f16ced4a",
+        "output": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\work\\route_refinement\\creatures\\f04.png",
+        "changed_rgb_pixels": 7072,
+        "alpha_changes": 0,
+        "sha256": "55eb5d6e9534f015a19f8d5b4d1bc57d941818ff253fd9e6a0178544720bedf8"
+      },
+      "f05.png": {
+        "source": "C:\\Users\\pmcga\\dev\\hollowtide\\assets\\sprites\\creatures\\attacks\\vitrecrag_rd_2026_10_01\\f05.png",
+        "source_sha256": "82ebfa1b029df8e53e7a939b98d2ce360192eea366c913e4c30ca798bfbebe20",
+        "output": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\work\\route_refinement\\creatures\\f05.png",
+        "changed_rgb_pixels": 7179,
+        "alpha_changes": 0,
+        "sha256": "b7cf64f935625b2d592fc3e739db3ee7eee1973329938c5c96640393e77968d7"
+      },
+      "f06.png": {
+        "source": "C:\\Users\\pmcga\\dev\\hollowtide\\assets\\sprites\\creatures\\attacks\\vitrecrag_rd_2026_10_01\\f06.png",
+        "source_sha256": "18c65c5aa86a50c39e5db1e9aa348fdf180c39315373dfc58f1f1285bc7e013c",
+        "output": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\work\\route_refinement\\creatures\\f06.png",
+        "changed_rgb_pixels": 7387,
+        "alpha_changes": 0,
+        "sha256": "062f4b2938d4a8f30ad024830276f7752fe7c13aee247701a95944e27f88345b"
+      },
+      "f07.png": {
+        "source": "C:\\Users\\pmcga\\dev\\hollowtide\\assets\\sprites\\creatures\\attacks\\vitrecrag_rd_2026_10_01\\f07.png",
+        "source_sha256": "6760609cd3522c6f47722f234f40803412662d46c81b0cc2d08edd02cb8cb05b",
+        "output": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\work\\route_refinement\\creatures\\f07.png",
+        "changed_rgb_pixels": 7194,
+        "alpha_changes": 0,
+        "sha256": "c98f08c11f3e402981b80521ae8bd0a3bb17896b6ce3f76f99192b9a7d573743"
+      },
+      "f08.png": {
+        "source": "C:\\Users\\pmcga\\dev\\hollowtide\\assets\\sprites\\creatures\\attacks\\vitrecrag_rd_2026_10_01\\f08.png",
+        "source_sha256": "d4e8b44e4e0fd5061534cfad14606082ad34770aafe345dbdf6c72cdf908f599",
+        "output": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\work\\route_refinement\\creatures\\f08.png",
+        "changed_rgb_pixels": 6928,
+        "alpha_changes": 0,
+        "sha256": "3af361133b7dae6eb521f8e218f8df45cada83b035dbec13b4481d1ca6b3c052"
+      },
+      "f09.png": {
+        "source": "C:\\Users\\pmcga\\dev\\hollowtide\\assets\\sprites\\creatures\\attacks\\vitrecrag_rd_2026_10_01\\f09.png",
+        "source_sha256": "6228cfbe9f7db6fb643fb82b24232ab8d49d319a19c8c227da0a001fcd7c56b6",
+        "output": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\work\\route_refinement\\creatures\\f09.png",
+        "changed_rgb_pixels": 6230,
+        "alpha_changes": 0,
+        "sha256": "048227a55b1deb01d66b368ca72a3b3cfeb7fc0c7f987c3e9fb48c45583934bd"
+      },
+      "f10.png": {
+        "source": "C:\\Users\\pmcga\\dev\\hollowtide\\assets\\sprites\\creatures\\attacks\\vitrecrag_rd_2026_10_01\\f10.png",
+        "source_sha256": "f149e17ca7b160d5432e26b2d921afe29e9106f49499ade1d9e0582a6b3b6204",
+        "output": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\work\\route_refinement\\creatures\\f10.png",
+        "changed_rgb_pixels": 6119,
+        "alpha_changes": 0,
+        "sha256": "c54052df04a78c065480b0f275882cbda08f3a9227a7da9da85d11179fab56a6"
+      },
+      "f11.png": {
+        "source": "C:\\Users\\pmcga\\dev\\hollowtide\\assets\\sprites\\creatures\\attacks\\vitrecrag_rd_2026_10_01\\f11.png",
+        "source_sha256": "cdd0552dd0ec1801945e73b3a11484ed11b486e65534be7313e183569f791320",
+        "output": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\work\\route_refinement\\creatures\\f11.png",
+        "changed_rgb_pixels": 6084,
+        "alpha_changes": 0,
+        "sha256": "f4852ff094977c39131c06aefe745c18395145864d6f618b4005c5852ebd4ee5"
+      }
+    }
+  }
+}

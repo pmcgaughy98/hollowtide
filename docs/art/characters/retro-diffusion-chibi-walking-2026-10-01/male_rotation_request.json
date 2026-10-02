@@ -1,0 +1,40 @@
+{
+  "source": "C:\\Users\\pmcga\\dev\\hollowtide\\assets\\sprites\\player\\courier_chibi_prepared_2026_09_30\\source_detail\\down\\source_pose_00.png",
+  "input_sha256": "25a6d778fba9bcbbca225c196937dce03d6aa61b9120985ee4b5092653f75fcd",
+  "parameters": {
+    "width": 80,
+    "height": 80,
+    "input_image": "male_down_input_native80.png",
+    "num_images": 1,
+    "prompt_style": "rd_advanced_animation__rotate",
+    "return_spritesheet": true,
+    "bypass_prompt_expansion": true,
+    "prompt": "Eight directional views of this exact male chibi courier, standing neutrally with short compact proportions and a large tousled brown-haired head. Preserve brass goggles, teal jacket, dark shirt, tan trousers, brown boots and the crossbody satchel on its correct shoulder. Matching height, camera elevation, pixel grid and palette across views. Full body stays inside every cell; no redesign, no extra accessories, no tall adult proportions.",
+    "remove_bg": true,
+    "upload_outputs": true
+  },
+  "estimate": {
+    "created_at": 1790901163,
+    "credit_cost": 0,
+    "balance_cost": 0.1,
+    "output_images": [],
+    "base64_images": [],
+    "output_urls": [],
+    "model": "check_cost",
+    "remaining_credits": 0,
+    "remaining_balance": 8.570000000000004,
+    "resolved_prompt_style": "rd_advanced_animation__rotate",
+    "used_input_image": true,
+    "reference_images_count": 0,
+    "used_extra_input_image": false,
+    "used_input_palette": false,
+    "used_strength": false,
+    "effective_timeout_seconds": 180
+  },
+  "job": {
+    "status": "accepted",
+    "task_id": "108eff74-e7d9-4d87-9465-822f32b646a3",
+    "request_id": "108eff74-e7d9-4d87-9465-822f32b646a3",
+    "message": "Inference accepted. Poll GET /v2/inferences/tasks/{task_id} for status."
+  }
+}

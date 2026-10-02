@@ -1,0 +1,20 @@
+{
+  "parameters": {
+    "width": 80,
+    "height": 80,
+    "input_image": "female_left_clean_rotation_input_native80.png",
+    "num_images": 1,
+    "prompt_style": "rd_advanced_animation__walking",
+    "frames_duration": 8,
+    "return_spritesheet": false,
+    "bypass_prompt_expansion": true,
+    "prompt": "Seamless relaxed walking cycle of this exact female chibi courier. Keep LEFT profile facing screen left throughout. Clearly alternate left and right boot contact strides, with feet passing under the hips between contacts and gentle opposite arm swing. Small natural torso bob, restrained skirt and ponytail follow-through. Preserve the large brown-haired head, side ponytail and pink bow, dusty pink jacket, dark top, teal skirt, brown stockings and boots, brass buckles and olive crossbody satchel with the same bag and strap placement. Same compact chibi proportions, pixel grid and palette. Entire body stays inside the frame. Fixed camera and stable center, transparent background. No turning, running, jumping, outfit changes, magenta halo or extra props. Last stride joins naturally to first.",
+    "remove_bg": true,
+    "upload_outputs": true
+  },
+  "task_id": "8a5f9c2c-418c-4b96-bcb6-0951b3e2f1af",
+  "status": "succeeded",
+  "actual_cost_usd": 0.14,
+  "model": "rd_fast",
+  "output": "female_left_walk_original.gif"
+}

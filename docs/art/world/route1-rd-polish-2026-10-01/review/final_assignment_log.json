@@ -1,0 +1,625 @@
+{
+  "passed": true,
+  "log": [
+    {
+      "tag": "start",
+      "frame": {
+        "frames_drawn": 4999,
+        "physics_frames": 5008,
+        "process_frames": 4998
+      },
+      "values": {
+        "/root/FirstRoutePrototype/Player/Camera2D:offset": "Vector2(0, 0)",
+        "/root/FirstRoutePrototype/Player:position": "Vector2(48, 192)",
+        "/root/FirstRoutePrototype:delivered": false,
+        "/root/FirstRoutePrototype:heard_calls": false,
+        "/root/FirstRoutePrototype:marker_restored": false,
+        "/root/FirstRoutePrototype:pouch_accepted": false,
+        "/root/FirstRoutePrototype:report_done": false,
+        "/root/FirstRoutePrototype:reported_calls": false,
+        "/root/FirstRoutePrototype:reported_water_mark": false,
+        "/root/FirstRoutePrototype:water_mark_observed": false
+      }
+    },
+    {
+      "tag": "dispatch",
+      "frame": {
+        "frames_drawn": 5041,
+        "physics_frames": 5048,
+        "process_frames": 5040
+      },
+      "values": {
+        "/root/FirstRoutePrototype/Player/Camera2D:offset": "Vector2(0, 0)",
+        "/root/FirstRoutePrototype/Player:position": "Vector2(80, 192)",
+        "/root/FirstRoutePrototype:delivered": false,
+        "/root/FirstRoutePrototype:heard_calls": false,
+        "/root/FirstRoutePrototype:marker_restored": false,
+        "/root/FirstRoutePrototype:pouch_accepted": false,
+        "/root/FirstRoutePrototype:report_done": false,
+        "/root/FirstRoutePrototype:reported_calls": false,
+        "/root/FirstRoutePrototype:reported_water_mark": false,
+        "/root/FirstRoutePrototype:water_mark_observed": false
+      }
+    },
+    {
+      "tag": "accept",
+      "frame": {
+        "frames_drawn": 5055,
+        "physics_frames": 5062,
+        "process_frames": 5054
+      },
+      "values": {
+        "/root/FirstRoutePrototype/Player/Camera2D:offset": "Vector2(0, 0)",
+        "/root/FirstRoutePrototype/Player:position": "Vector2(80, 192)",
+        "/root/FirstRoutePrototype:delivered": false,
+        "/root/FirstRoutePrototype:heard_calls": false,
+        "/root/FirstRoutePrototype:marker_restored": false,
+        "/root/FirstRoutePrototype:pouch_accepted": true,
+        "/root/FirstRoutePrototype:report_done": false,
+        "/root/FirstRoutePrototype:reported_calls": false,
+        "/root/FirstRoutePrototype:reported_water_mark": false,
+        "/root/FirstRoutePrototype:water_mark_observed": false
+      }
+    },
+    {
+      "tag": "close_accept",
+      "frame": {
+        "frames_drawn": 5073,
+        "physics_frames": 5081,
+        "process_frames": 5072
+      },
+      "values": {
+        "/root/FirstRoutePrototype/Player/Camera2D:offset": "Vector2(0, 0)",
+        "/root/FirstRoutePrototype/Player:position": "Vector2(80, 192)",
+        "/root/FirstRoutePrototype:delivered": false,
+        "/root/FirstRoutePrototype:heard_calls": false,
+        "/root/FirstRoutePrototype:marker_restored": false,
+        "/root/FirstRoutePrototype:pouch_accepted": true,
+        "/root/FirstRoutePrototype:report_done": false,
+        "/root/FirstRoutePrototype:reported_calls": false,
+        "/root/FirstRoutePrototype:reported_water_mark": false,
+        "/root/FirstRoutePrototype:water_mark_observed": false
+      }
+    },
+    {
+      "tag": "crossing",
+      "frame": {
+        "frames_drawn": 5154,
+        "physics_frames": 5162,
+        "process_frames": 5153
+      },
+      "values": {
+        "/root/FirstRoutePrototype/Player/Camera2D:offset": "Vector2(0, 0)",
+        "/root/FirstRoutePrototype/Player:position": "Vector2(176, 192)",
+        "/root/FirstRoutePrototype:delivered": false,
+        "/root/FirstRoutePrototype:heard_calls": false,
+        "/root/FirstRoutePrototype:marker_restored": false,
+        "/root/FirstRoutePrototype:pouch_accepted": true,
+        "/root/FirstRoutePrototype:report_done": false,
+        "/root/FirstRoutePrototype:reported_calls": false,
+        "/root/FirstRoutePrototype:reported_water_mark": false,
+        "/root/FirstRoutePrototype:water_mark_observed": false
+      }
+    },
+    {
+      "tag": "north_path",
+      "frame": {
+        "frames_drawn": 5234,
+        "physics_frames": 5242,
+        "process_frames": 5233
+      },
+      "values": {
+        "/root/FirstRoutePrototype/Player/Camera2D:offset": "Vector2(0, 0)",
+        "/root/FirstRoutePrototype/Player:position": "Vector2(176, 96)",
+        "/root/FirstRoutePrototype:delivered": false,
+        "/root/FirstRoutePrototype:heard_calls": false,
+        "/root/FirstRoutePrototype:marker_restored": false,
+        "/root/FirstRoutePrototype:pouch_accepted": true,
+        "/root/FirstRoutePrototype:report_done": false,
+        "/root/FirstRoutePrototype:reported_calls": false,
+        "/root/FirstRoutePrototype:reported_water_mark": false,
+        "/root/FirstRoutePrototype:water_mark_observed": false
+      }
+    },
+    {
+      "tag": "at_marker",
+      "frame": {
+        "frames_drawn": 5315,
+        "physics_frames": 5323,
+        "process_frames": 5314
+      },
+      "values": {
+        "/root/FirstRoutePrototype/Player/Camera2D:offset": "Vector2(0, 0)",
+        "/root/FirstRoutePrototype/Player:position": "Vector2(272, 96)",
+        "/root/FirstRoutePrototype:delivered": false,
+        "/root/FirstRoutePrototype:heard_calls": false,
+        "/root/FirstRoutePrototype:marker_restored": false,
+        "/root/FirstRoutePrototype:pouch_accepted": true,
+        "/root/FirstRoutePrototype:report_done": false,
+        "/root/FirstRoutePrototype:reported_calls": false,
+        "/root/FirstRoutePrototype:reported_water_mark": false,
+        "/root/FirstRoutePrototype:water_mark_observed": false
+      }
+    },
+    {
+      "tag": "restore_marker",
+      "frame": {
+        "frames_drawn": 5328,
+        "physics_frames": 5336,
+        "process_frames": 5327
+      },
+      "values": {
+        "/root/FirstRoutePrototype/Player/Camera2D:offset": "Vector2(0, 0)",
+        "/root/FirstRoutePrototype/Player:position": "Vector2(272, 96)",
+        "/root/FirstRoutePrototype:delivered": false,
+        "/root/FirstRoutePrototype:heard_calls": false,
+        "/root/FirstRoutePrototype:marker_restored": true,
+        "/root/FirstRoutePrototype:pouch_accepted": true,
+        "/root/FirstRoutePrototype:report_done": false,
+        "/root/FirstRoutePrototype:reported_calls": false,
+        "/root/FirstRoutePrototype:reported_water_mark": false,
+        "/root/FirstRoutePrototype:water_mark_observed": false
+      }
+    },
+    {
+      "tag": "close_marker",
+      "frame": {
+        "frames_drawn": 5345,
+        "physics_frames": 5353,
+        "process_frames": 5344
+      },
+      "values": {
+        "/root/FirstRoutePrototype/Player/Camera2D:offset": "Vector2(0, 0)",
+        "/root/FirstRoutePrototype/Player:position": "Vector2(272, 96)",
+        "/root/FirstRoutePrototype:delivered": false,
+        "/root/FirstRoutePrototype:heard_calls": false,
+        "/root/FirstRoutePrototype:marker_restored": true,
+        "/root/FirstRoutePrototype:pouch_accepted": true,
+        "/root/FirstRoutePrototype:report_done": false,
+        "/root/FirstRoutePrototype:reported_calls": false,
+        "/root/FirstRoutePrototype:reported_water_mark": false,
+        "/root/FirstRoutePrototype:water_mark_observed": false
+      }
+    },
+    {
+      "tag": "bend",
+      "frame": {
+        "frames_drawn": 5390,
+        "physics_frames": 5398,
+        "process_frames": 5389
+      },
+      "values": {
+        "/root/FirstRoutePrototype/Player/Camera2D:offset": "Vector2(0, 0)",
+        "/root/FirstRoutePrototype/Player:position": "Vector2(320, 96)",
+        "/root/FirstRoutePrototype:delivered": false,
+        "/root/FirstRoutePrototype:heard_calls": false,
+        "/root/FirstRoutePrototype:marker_restored": true,
+        "/root/FirstRoutePrototype:pouch_accepted": true,
+        "/root/FirstRoutePrototype:report_done": false,
+        "/root/FirstRoutePrototype:reported_calls": false,
+        "/root/FirstRoutePrototype:reported_water_mark": false,
+        "/root/FirstRoutePrototype:water_mark_observed": false
+      }
+    },
+    {
+      "tag": "lower_path",
+      "frame": {
+        "frames_drawn": 5505,
+        "physics_frames": 5513,
+        "process_frames": 5504
+      },
+      "values": {
+        "/root/FirstRoutePrototype/Player/Camera2D:offset": "Vector2(0, 0)",
+        "/root/FirstRoutePrototype/Player:position": "Vector2(320, 240)",
+        "/root/FirstRoutePrototype:delivered": false,
+        "/root/FirstRoutePrototype:heard_calls": false,
+        "/root/FirstRoutePrototype:marker_restored": true,
+        "/root/FirstRoutePrototype:pouch_accepted": true,
+        "/root/FirstRoutePrototype:report_done": false,
+        "/root/FirstRoutePrototype:reported_calls": false,
+        "/root/FirstRoutePrototype:reported_water_mark": false,
+        "/root/FirstRoutePrototype:water_mark_observed": false
+      }
+    },
+    {
+      "tag": "at_post",
+      "frame": {
+        "frames_drawn": 5567,
+        "physics_frames": 5575,
+        "process_frames": 5566
+      },
+      "values": {
+        "/root/FirstRoutePrototype/Player/Camera2D:offset": "Vector2(0, 0)",
+        "/root/FirstRoutePrototype/Player:position": "Vector2(392.001, 240)",
+        "/root/FirstRoutePrototype:delivered": false,
+        "/root/FirstRoutePrototype:heard_calls": false,
+        "/root/FirstRoutePrototype:marker_restored": true,
+        "/root/FirstRoutePrototype:pouch_accepted": true,
+        "/root/FirstRoutePrototype:report_done": false,
+        "/root/FirstRoutePrototype:reported_calls": false,
+        "/root/FirstRoutePrototype:reported_water_mark": false,
+        "/root/FirstRoutePrototype:water_mark_observed": false
+      }
+    },
+    {
+      "tag": "deliver",
+      "frame": {
+        "frames_drawn": 5579,
+        "physics_frames": 5587,
+        "process_frames": 5578
+      },
+      "values": {
+        "/root/FirstRoutePrototype/Player/Camera2D:offset": "Vector2(0, 0)",
+        "/root/FirstRoutePrototype/Player:position": "Vector2(392.001, 240)",
+        "/root/FirstRoutePrototype:delivered": true,
+        "/root/FirstRoutePrototype:heard_calls": false,
+        "/root/FirstRoutePrototype:marker_restored": true,
+        "/root/FirstRoutePrototype:pouch_accepted": true,
+        "/root/FirstRoutePrototype:report_done": false,
+        "/root/FirstRoutePrototype:reported_calls": false,
+        "/root/FirstRoutePrototype:reported_water_mark": false,
+        "/root/FirstRoutePrototype:water_mark_observed": false
+      }
+    },
+    {
+      "tag": "close_post",
+      "frame": {
+        "frames_drawn": 5595,
+        "physics_frames": 5603,
+        "process_frames": 5594
+      },
+      "values": {
+        "/root/FirstRoutePrototype/Player/Camera2D:offset": "Vector2(0, 0)",
+        "/root/FirstRoutePrototype/Player:position": "Vector2(392.001, 240)",
+        "/root/FirstRoutePrototype:delivered": true,
+        "/root/FirstRoutePrototype:heard_calls": false,
+        "/root/FirstRoutePrototype:marker_restored": true,
+        "/root/FirstRoutePrototype:pouch_accepted": true,
+        "/root/FirstRoutePrototype:report_done": false,
+        "/root/FirstRoutePrototype:reported_calls": false,
+        "/root/FirstRoutePrototype:reported_water_mark": false,
+        "/root/FirstRoutePrototype:water_mark_observed": false
+      }
+    },
+    {
+      "tag": "near_height",
+      "frame": {
+        "frames_drawn": 5630,
+        "physics_frames": 5638,
+        "process_frames": 5629
+      },
+      "values": {
+        "/root/FirstRoutePrototype/Player/Camera2D:offset": "Vector2(0, 0)",
+        "/root/FirstRoutePrototype/Player:position": "Vector2(392.001, 205.333)",
+        "/root/FirstRoutePrototype:delivered": true,
+        "/root/FirstRoutePrototype:heard_calls": false,
+        "/root/FirstRoutePrototype:marker_restored": true,
+        "/root/FirstRoutePrototype:pouch_accepted": true,
+        "/root/FirstRoutePrototype:report_done": false,
+        "/root/FirstRoutePrototype:reported_calls": false,
+        "/root/FirstRoutePrototype:reported_water_mark": false,
+        "/root/FirstRoutePrototype:water_mark_observed": false
+      }
+    },
+    {
+      "tag": "at_height",
+      "frame": {
+        "frames_drawn": 5661,
+        "physics_frames": 5669,
+        "process_frames": 5660
+      },
+      "values": {
+        "/root/FirstRoutePrototype/Player/Camera2D:offset": "Vector2(0, 0)",
+        "/root/FirstRoutePrototype/Player:position": "Vector2(422.668, 205.333)",
+        "/root/FirstRoutePrototype:delivered": true,
+        "/root/FirstRoutePrototype:heard_calls": false,
+        "/root/FirstRoutePrototype:marker_restored": true,
+        "/root/FirstRoutePrototype:pouch_accepted": true,
+        "/root/FirstRoutePrototype:report_done": false,
+        "/root/FirstRoutePrototype:reported_calls": false,
+        "/root/FirstRoutePrototype:reported_water_mark": false,
+        "/root/FirstRoutePrototype:water_mark_observed": false
+      }
+    },
+    {
+      "tag": "inspect_height",
+      "frame": {
+        "frames_drawn": 5673,
+        "physics_frames": 5681,
+        "process_frames": 5672
+      },
+      "values": {
+        "/root/FirstRoutePrototype/Player/Camera2D:offset": "Vector2(0, 0)",
+        "/root/FirstRoutePrototype/Player:position": "Vector2(422.668, 205.333)",
+        "/root/FirstRoutePrototype:delivered": true,
+        "/root/FirstRoutePrototype:heard_calls": false,
+        "/root/FirstRoutePrototype:marker_restored": true,
+        "/root/FirstRoutePrototype:pouch_accepted": true,
+        "/root/FirstRoutePrototype:report_done": false,
+        "/root/FirstRoutePrototype:reported_calls": false,
+        "/root/FirstRoutePrototype:reported_water_mark": false,
+        "/root/FirstRoutePrototype:water_mark_observed": true
+      }
+    },
+    {
+      "tag": "close_height",
+      "frame": {
+        "frames_drawn": 5689,
+        "physics_frames": 5697,
+        "process_frames": 5688
+      },
+      "values": {
+        "/root/FirstRoutePrototype/Player/Camera2D:offset": "Vector2(0, 0)",
+        "/root/FirstRoutePrototype/Player:position": "Vector2(422.668, 205.333)",
+        "/root/FirstRoutePrototype:delivered": true,
+        "/root/FirstRoutePrototype:heard_calls": false,
+        "/root/FirstRoutePrototype:marker_restored": true,
+        "/root/FirstRoutePrototype:pouch_accepted": true,
+        "/root/FirstRoutePrototype:report_done": false,
+        "/root/FirstRoutePrototype:reported_calls": false,
+        "/root/FirstRoutePrototype:reported_water_mark": false,
+        "/root/FirstRoutePrototype:water_mark_observed": true
+      }
+    },
+    {
+      "tag": "river_lane",
+      "frame": {
+        "frames_drawn": 5704,
+        "physics_frames": 5712,
+        "process_frames": 5703
+      },
+      "values": {
+        "/root/FirstRoutePrototype/Player/Camera2D:offset": "Vector2(0, 0)",
+        "/root/FirstRoutePrototype/Player:position": "Vector2(432.001, 205.333)",
+        "/root/FirstRoutePrototype:delivered": true,
+        "/root/FirstRoutePrototype:heard_calls": false,
+        "/root/FirstRoutePrototype:marker_restored": true,
+        "/root/FirstRoutePrototype:pouch_accepted": true,
+        "/root/FirstRoutePrototype:report_done": false,
+        "/root/FirstRoutePrototype:reported_calls": false,
+        "/root/FirstRoutePrototype:reported_water_mark": false,
+        "/root/FirstRoutePrototype:water_mark_observed": true
+      }
+    },
+    {
+      "tag": "at_river",
+      "frame": {
+        "frames_drawn": 5780,
+        "physics_frames": 5788,
+        "process_frames": 5779
+      },
+      "values": {
+        "/root/FirstRoutePrototype/Player/Camera2D:offset": "Vector2(0, 0)",
+        "/root/FirstRoutePrototype/Player:position": "Vector2(432.001, 296)",
+        "/root/FirstRoutePrototype:delivered": true,
+        "/root/FirstRoutePrototype:heard_calls": false,
+        "/root/FirstRoutePrototype:marker_restored": true,
+        "/root/FirstRoutePrototype:pouch_accepted": true,
+        "/root/FirstRoutePrototype:report_done": false,
+        "/root/FirstRoutePrototype:reported_calls": false,
+        "/root/FirstRoutePrototype:reported_water_mark": false,
+        "/root/FirstRoutePrototype:water_mark_observed": true
+      }
+    },
+    {
+      "tag": "listen",
+      "frame": {
+        "frames_drawn": 5793,
+        "physics_frames": 5801,
+        "process_frames": 5792
+      },
+      "values": {
+        "/root/FirstRoutePrototype/Player/Camera2D:offset": "Vector2(0, 0)",
+        "/root/FirstRoutePrototype/Player:position": "Vector2(432.001, 296)",
+        "/root/FirstRoutePrototype:delivered": true,
+        "/root/FirstRoutePrototype:heard_calls": true,
+        "/root/FirstRoutePrototype:marker_restored": true,
+        "/root/FirstRoutePrototype:pouch_accepted": true,
+        "/root/FirstRoutePrototype:report_done": false,
+        "/root/FirstRoutePrototype:reported_calls": false,
+        "/root/FirstRoutePrototype:reported_water_mark": false,
+        "/root/FirstRoutePrototype:water_mark_observed": true
+      }
+    },
+    {
+      "tag": "close_river",
+      "frame": {
+        "frames_drawn": 5809,
+        "physics_frames": 5817,
+        "process_frames": 5808
+      },
+      "values": {
+        "/root/FirstRoutePrototype/Player/Camera2D:offset": "Vector2(0, 0)",
+        "/root/FirstRoutePrototype/Player:position": "Vector2(432.001, 296)",
+        "/root/FirstRoutePrototype:delivered": true,
+        "/root/FirstRoutePrototype:heard_calls": true,
+        "/root/FirstRoutePrototype:marker_restored": true,
+        "/root/FirstRoutePrototype:pouch_accepted": true,
+        "/root/FirstRoutePrototype:report_done": false,
+        "/root/FirstRoutePrototype:reported_calls": false,
+        "/root/FirstRoutePrototype:reported_water_mark": false,
+        "/root/FirstRoutePrototype:water_mark_observed": true
+      }
+    },
+    {
+      "tag": "return_bank",
+      "frame": {
+        "frames_drawn": 5847,
+        "physics_frames": 5855,
+        "process_frames": 5846
+      },
+      "values": {
+        "/root/FirstRoutePrototype/Player/Camera2D:offset": "Vector2(0, 0)",
+        "/root/FirstRoutePrototype/Player:position": "Vector2(392.001, 296)",
+        "/root/FirstRoutePrototype:delivered": true,
+        "/root/FirstRoutePrototype:heard_calls": true,
+        "/root/FirstRoutePrototype:marker_restored": true,
+        "/root/FirstRoutePrototype:pouch_accepted": true,
+        "/root/FirstRoutePrototype:report_done": false,
+        "/root/FirstRoutePrototype:reported_calls": false,
+        "/root/FirstRoutePrototype:reported_water_mark": false,
+        "/root/FirstRoutePrototype:water_mark_observed": true
+      }
+    },
+    {
+      "tag": "return_post",
+      "frame": {
+        "frames_drawn": 5897,
+        "physics_frames": 5905,
+        "process_frames": 5896
+      },
+      "values": {
+        "/root/FirstRoutePrototype/Player/Camera2D:offset": "Vector2(0, 0)",
+        "/root/FirstRoutePrototype/Player:position": "Vector2(392.001, 240)",
+        "/root/FirstRoutePrototype:delivered": true,
+        "/root/FirstRoutePrototype:heard_calls": true,
+        "/root/FirstRoutePrototype:marker_restored": true,
+        "/root/FirstRoutePrototype:pouch_accepted": true,
+        "/root/FirstRoutePrototype:report_done": false,
+        "/root/FirstRoutePrototype:reported_calls": false,
+        "/root/FirstRoutePrototype:reported_water_mark": false,
+        "/root/FirstRoutePrototype:water_mark_observed": true
+      }
+    },
+    {
+      "tag": "return_crossing",
+      "frame": {
+        "frames_drawn": 5959,
+        "physics_frames": 5967,
+        "process_frames": 5958
+      },
+      "values": {
+        "/root/FirstRoutePrototype/Player/Camera2D:offset": "Vector2(0, 0)",
+        "/root/FirstRoutePrototype/Player:position": "Vector2(320, 240)",
+        "/root/FirstRoutePrototype:delivered": true,
+        "/root/FirstRoutePrototype:heard_calls": true,
+        "/root/FirstRoutePrototype:marker_restored": true,
+        "/root/FirstRoutePrototype:pouch_accepted": true,
+        "/root/FirstRoutePrototype:report_done": false,
+        "/root/FirstRoutePrototype:reported_calls": false,
+        "/root/FirstRoutePrototype:reported_water_mark": false,
+        "/root/FirstRoutePrototype:water_mark_observed": true
+      }
+    },
+    {
+      "tag": "return_bend",
+      "frame": {
+        "frames_drawn": 6076,
+        "physics_frames": 6084,
+        "process_frames": 6075
+      },
+      "values": {
+        "/root/FirstRoutePrototype/Player/Camera2D:offset": "Vector2(0, 0)",
+        "/root/FirstRoutePrototype/Player:position": "Vector2(320, 96)",
+        "/root/FirstRoutePrototype:delivered": true,
+        "/root/FirstRoutePrototype:heard_calls": true,
+        "/root/FirstRoutePrototype:marker_restored": true,
+        "/root/FirstRoutePrototype:pouch_accepted": true,
+        "/root/FirstRoutePrototype:report_done": false,
+        "/root/FirstRoutePrototype:reported_calls": false,
+        "/root/FirstRoutePrototype:reported_water_mark": false,
+        "/root/FirstRoutePrototype:water_mark_observed": true
+      }
+    },
+    {
+      "tag": "return_north",
+      "frame": {
+        "frames_drawn": 6194,
+        "physics_frames": 6202,
+        "process_frames": 6193
+      },
+      "values": {
+        "/root/FirstRoutePrototype/Player/Camera2D:offset": "Vector2(0, 0)",
+        "/root/FirstRoutePrototype/Player:position": "Vector2(176, 96)",
+        "/root/FirstRoutePrototype:delivered": true,
+        "/root/FirstRoutePrototype:heard_calls": true,
+        "/root/FirstRoutePrototype:marker_restored": true,
+        "/root/FirstRoutePrototype:pouch_accepted": true,
+        "/root/FirstRoutePrototype:report_done": false,
+        "/root/FirstRoutePrototype:reported_calls": false,
+        "/root/FirstRoutePrototype:reported_water_mark": false,
+        "/root/FirstRoutePrototype:water_mark_observed": true
+      }
+    },
+    {
+      "tag": "return_office_path",
+      "frame": {
+        "frames_drawn": 6274,
+        "physics_frames": 6282,
+        "process_frames": 6273
+      },
+      "values": {
+        "/root/FirstRoutePrototype/Player/Camera2D:offset": "Vector2(0, 0)",
+        "/root/FirstRoutePrototype/Player:position": "Vector2(176, 192)",
+        "/root/FirstRoutePrototype:delivered": true,
+        "/root/FirstRoutePrototype:heard_calls": true,
+        "/root/FirstRoutePrototype:marker_restored": true,
+        "/root/FirstRoutePrototype:pouch_accepted": true,
+        "/root/FirstRoutePrototype:report_done": false,
+        "/root/FirstRoutePrototype:reported_calls": false,
+        "/root/FirstRoutePrototype:reported_water_mark": false,
+        "/root/FirstRoutePrototype:water_mark_observed": true
+      }
+    },
+    {
+      "tag": "return_dispatch",
+      "frame": {
+        "frames_drawn": 6355,
+        "physics_frames": 6363,
+        "process_frames": 6354
+      },
+      "values": {
+        "/root/FirstRoutePrototype/Player/Camera2D:offset": "Vector2(0, 0)",
+        "/root/FirstRoutePrototype/Player:position": "Vector2(80, 192)",
+        "/root/FirstRoutePrototype:delivered": true,
+        "/root/FirstRoutePrototype:heard_calls": true,
+        "/root/FirstRoutePrototype:marker_restored": true,
+        "/root/FirstRoutePrototype:pouch_accepted": true,
+        "/root/FirstRoutePrototype:report_done": false,
+        "/root/FirstRoutePrototype:reported_calls": false,
+        "/root/FirstRoutePrototype:reported_water_mark": false,
+        "/root/FirstRoutePrototype:water_mark_observed": true
+      }
+    },
+    {
+      "tag": "report_choices",
+      "frame": {
+        "frames_drawn": 6366,
+        "physics_frames": 6374,
+        "process_frames": 6365
+      },
+      "values": {
+        "/root/FirstRoutePrototype/Player/Camera2D:offset": "Vector2(0, 0)",
+        "/root/FirstRoutePrototype/Player:position": "Vector2(80, 192)",
+        "/root/FirstRoutePrototype:delivered": true,
+        "/root/FirstRoutePrototype:heard_calls": true,
+        "/root/FirstRoutePrototype:marker_restored": true,
+        "/root/FirstRoutePrototype:pouch_accepted": true,
+        "/root/FirstRoutePrototype:report_done": false,
+        "/root/FirstRoutePrototype:reported_calls": false,
+        "/root/FirstRoutePrototype:reported_water_mark": false,
+        "/root/FirstRoutePrototype:water_mark_observed": true
+      }
+    },
+    {
+      "tag": "complete",
+      "frame": {
+        "frames_drawn": 6401,
+        "physics_frames": 6415,
+        "process_frames": 6401
+      },
+      "values": {
+        "/root/FirstRoutePrototype/Player/Camera2D:offset": "Vector2(0, 0)",
+        "/root/FirstRoutePrototype/Player:position": "Vector2(80, 192)",
+        "/root/FirstRoutePrototype:delivered": true,
+        "/root/FirstRoutePrototype:heard_calls": true,
+        "/root/FirstRoutePrototype:marker_restored": true,
+        "/root/FirstRoutePrototype:pouch_accepted": true,
+        "/root/FirstRoutePrototype:report_done": true,
+        "/root/FirstRoutePrototype:reported_calls": true,
+        "/root/FirstRoutePrototype:reported_water_mark": true,
+        "/root/FirstRoutePrototype:water_mark_observed": true
+      }
+    }
+  ]
+}

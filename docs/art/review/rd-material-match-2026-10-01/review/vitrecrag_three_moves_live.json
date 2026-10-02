@@ -1,0 +1,266 @@
+{
+  "glass": {
+    "input": {
+      "content": [
+        {
+          "type": "text",
+          "text": "{\n  \"results\": [\n    {\n      \"applied\": 2,\n      \"clock_mapping\": \"exact\",\n      \"clock_unit\": \"physics_tick\",\n      \"completed\": true,\n      \"drove\": false,\n      \"first_frame\": 4400,\n      \"frame\": {\n        \"frames_drawn\": 4408,\n        \"physics_frames\": 4415,\n        \"process_frames\": 4408\n      },\n      \"instance\": \"rd-material-review\",\n      \"last_frame\": 4415,\n      \"ok\": true,\n      \"op\": \"SimulateInputScript\",\n      \"physics_ticks_per_second\": 60,\n      \"provenance\": {\n        \"source\": \"runtime\",\n        \"target\": {\n          \"instance\": \"rd-material-review\",\n          \"kind\": \"game\"\n        }\n      },\n      \"rejected\": [],\n      \"requestId\": \"mcp-a638f3cb-3bbc-4efb-bb4e-fceb9a8fd668\",\n      \"scheduled\": 2,\n      \"suspended\": false,\n      \"transport\": \"summer\"\n    }\n  ],\n  \"skippedCount\": 0,\n  \"status\": \"ok\",\n  \"stopOnError\": true,\n  \"undoGroup\": false,\n  \"requestId\": \"mcp-a638f3cb-3bbc-4efb-bb4e-fceb9a8fd668\",\n  \"terminalState\": \"applied\",\n  \"appliedSeq\": 1350\n}"
+        }
+      ]
+    },
+    "after": {
+      "effective_time_scale": 1,
+      "format": "jpeg",
+      "frame": {
+        "frames_drawn": 7980,
+        "physics_frames": 7986,
+        "process_frames": 7979
+      },
+      "height": 648,
+      "image_frame": 7979,
+      "instance": "rd-material-review",
+      "mime": "image/jpeg",
+      "missing": [],
+      "ok": true,
+      "op": "GameProbe",
+      "paused": true,
+      "provenance": {
+        "source": "runtime",
+        "target": {
+          "instance": "rd-material-review",
+          "kind": "game"
+        }
+      },
+      "requestId": "mcp-b0248ec7-eb08-4953-a35f-5aec9cb5f9c2",
+      "source_height": 648,
+      "source_width": 1152,
+      "suspended": false,
+      "time_scale": 1,
+      "transport": "summer",
+      "values": {
+        "/root/RDMaterialReview/BattleScreen:_foe_hp": 52,
+        "/root/RDMaterialReview/BattleScreen:_phase": 0,
+        "/root/RDMaterialReview/BattleScreen:_player_hp": 48,
+        "/root/RDMaterialReview/BattleScreen:_reversed": false
+      },
+      "width": 1152
+    }
+  },
+  "cannon": {
+    "input": {
+      "content": [
+        {
+          "type": "text",
+          "text": "{\n  \"results\": [\n    {\n      \"applied\": 2,\n      \"clock_mapping\": \"exact\",\n      \"clock_unit\": \"physics_tick\",\n      \"completed\": true,\n      \"drove\": false,\n      \"first_frame\": 18919,\n      \"frame\": {\n        \"frames_drawn\": 18924,\n        \"physics_frames\": 18934,\n        \"process_frames\": 18924\n      },\n      \"instance\": \"rd-material-review\",\n      \"last_frame\": 18934,\n      \"ok\": true,\n      \"op\": \"SimulateInputScript\",\n      \"physics_ticks_per_second\": 60,\n      \"provenance\": {\n        \"source\": \"runtime\",\n        \"target\": {\n          \"instance\": \"rd-material-review\",\n          \"kind\": \"game\"\n        }\n      },\n      \"rejected\": [],\n      \"requestId\": \"mcp-7004e274-416a-4b7f-b17f-228aa0f6187f\",\n      \"scheduled\": 2,\n      \"suspended\": false,\n      \"transport\": \"summer\"\n    }\n  ],\n  \"skippedCount\": 0,\n  \"status\": \"ok\",\n  \"stopOnError\": true,\n  \"undoGroup\": false,\n  \"requestId\": \"mcp-7004e274-416a-4b7f-b17f-228aa0f6187f\",\n  \"terminalState\": \"applied\",\n  \"appliedSeq\": 1357\n}"
+        }
+      ]
+    },
+    "after": {
+      "effective_time_scale": 1,
+      "format": "jpeg",
+      "frame": {
+        "frames_drawn": 24540,
+        "physics_frames": 24563,
+        "process_frames": 24539
+      },
+      "height": 648,
+      "image_frame": 24539,
+      "instance": "rd-material-review",
+      "mime": "image/jpeg",
+      "missing": [],
+      "ok": true,
+      "op": "GameProbe",
+      "paused": true,
+      "provenance": {
+        "source": "runtime",
+        "target": {
+          "instance": "rd-material-review",
+          "kind": "game"
+        }
+      },
+      "requestId": "mcp-0980de79-9c79-4bf5-b3f9-1c5e5010ea1b",
+      "source_height": 648,
+      "source_width": 1152,
+      "suspended": false,
+      "time_scale": 1,
+      "transport": "summer",
+      "values": {
+        "/root/RDMaterialReview/BattleScreen:_foe_hp": 34,
+        "/root/RDMaterialReview/BattleScreen:_phase": 0,
+        "/root/RDMaterialReview/BattleScreen:_player_hp": 28,
+        "/root/RDMaterialReview/BattleScreen:_reversed": false
+      },
+      "width": 1152
+    }
+  },
+  "plate_lunge": {
+    "input": {
+      "content": [
+        {
+          "type": "text",
+          "text": "{\n  \"results\": [\n    {\n      \"applied\": 2,\n      \"clock_mapping\": \"exact\",\n      \"clock_unit\": \"physics_tick\",\n      \"completed\": true,\n      \"drove\": false,\n      \"first_frame\": 24581,\n      \"frame\": {\n        \"frames_drawn\": 24571,\n        \"physics_frames\": 24596,\n        \"process_frames\": 24571\n      },\n      \"instance\": \"rd-material-review\",\n      \"last_frame\": 24596,\n      \"ok\": true,\n      \"op\": \"SimulateInputScript\",\n      \"physics_ticks_per_second\": 60,\n      \"provenance\": {\n        \"source\": \"runtime\",\n        \"target\": {\n          \"instance\": \"rd-material-review\",\n          \"kind\": \"game\"\n        }\n      },\n      \"rejected\": [],\n      \"requestId\": \"mcp-629c7330-4842-4451-bb4e-507c5a6e1738\",\n      \"scheduled\": 2,\n      \"suspended\": false,\n      \"transport\": \"summer\"\n    }\n  ],\n  \"skippedCount\": 0,\n  \"status\": \"ok\",\n  \"stopOnError\": true,\n  \"undoGroup\": false,\n  \"requestId\": \"mcp-629c7330-4842-4451-bb4e-507c5a6e1738\",\n  \"terminalState\": \"applied\",\n  \"appliedSeq\": 1362\n}"
+        }
+      ]
+    },
+    "after": {
+      "effective_time_scale": 1,
+      "format": "jpeg",
+      "frame": {
+        "frames_drawn": 32593,
+        "physics_frames": 32625,
+        "process_frames": 32592
+      },
+      "height": 648,
+      "image_frame": 32592,
+      "instance": "rd-material-review",
+      "mime": "image/jpeg",
+      "missing": [],
+      "ok": true,
+      "op": "GameProbe",
+      "paused": true,
+      "provenance": {
+        "source": "runtime",
+        "target": {
+          "instance": "rd-material-review",
+          "kind": "game"
+        }
+      },
+      "requestId": "mcp-5ec9631f-4be0-4f2f-928a-61e95376e052",
+      "source_height": 648,
+      "source_width": 1152,
+      "suspended": false,
+      "time_scale": 1,
+      "transport": "summer",
+      "values": {
+        "/root/RDMaterialReview/BattleScreen:_foe_hp": 22,
+        "/root/RDMaterialReview/BattleScreen:_phase": 0,
+        "/root/RDMaterialReview/BattleScreen:_player_hp": 16,
+        "/root/RDMaterialReview/BattleScreen:_reversed": false
+      },
+      "width": 1152
+    }
+  },
+  "loaded_resources": {
+    "res://assets/tilesets/route1_rd_2026_10_01/route1_ground_tileset.tres": {
+      "texture": "res://assets/tilesets/route1_rd_2026_10_01/route1_ground_atlas_refined.png",
+      "tiles": 40
+    },
+    "res://data/moves/vitrecrag_molten_cannon.tres": {
+      "back_frames": [],
+      "frames": [
+        "res://assets/sprites/creatures/rd_material_match_2026_10_01/vitrecrag_attacks/f00.png",
+        "res://assets/sprites/creatures/rd_material_match_2026_10_01/vitrecrag_attacks/f01.png",
+        "res://assets/sprites/creatures/rd_material_match_2026_10_01/vitrecrag_attacks/f02.png",
+        "res://assets/sprites/creatures/rd_material_match_2026_10_01/vitrecrag_attacks/f03.png",
+        "res://assets/sprites/creatures/rd_material_match_2026_10_01/vitrecrag_attacks/f03.png",
+        "res://assets/sprites/creatures/rd_material_match_2026_10_01/vitrecrag_attacks/f03.png",
+        "res://assets/sprites/creatures/rd_material_match_2026_10_01/vitrecrag_attacks/f03.png",
+        "res://assets/sprites/creatures/rd_material_match_2026_10_01/vitrecrag_attacks/f04.png",
+        "res://assets/sprites/creatures/rd_material_match_2026_10_01/vitrecrag_attacks/f05.png",
+        "res://assets/sprites/creatures/rd_material_match_2026_10_01/vitrecrag_attacks/f09.png",
+        "res://assets/sprites/creatures/rd_material_match_2026_10_01/vitrecrag_attacks/f11.png"
+      ],
+      "hit_frame": 9,
+      "holds": [
+        0.08,
+        0.35,
+        0.14,
+        0.2,
+        0.2,
+        0.14,
+        0.3,
+        0.14,
+        0.26,
+        0.3,
+        0.2
+      ]
+    },
+    "res://data/moves/vitrecrag_molten_glass.tres": {
+      "back_frames": [
+        "res://assets/sprites/creatures/rd_material_match_2026_10_01/vitrecrag_back.png",
+        "res://assets/sprites/creatures/rd_material_match_2026_10_01/vitrecrag_back.png",
+        "res://assets/sprites/creatures/rd_material_match_2026_10_01/vitrecrag_back.png",
+        "res://assets/sprites/creatures/rd_material_match_2026_10_01/vitrecrag_back.png",
+        "res://assets/sprites/creatures/rd_material_match_2026_10_01/vitrecrag_back.png",
+        "res://assets/sprites/creatures/rd_material_match_2026_10_01/vitrecrag_back.png",
+        "res://assets/sprites/creatures/rd_material_match_2026_10_01/vitrecrag_back.png",
+        "res://assets/sprites/creatures/rd_material_match_2026_10_01/vitrecrag_back.png",
+        "res://assets/sprites/creatures/rd_material_match_2026_10_01/vitrecrag_back.png",
+        "res://assets/sprites/creatures/rd_material_match_2026_10_01/vitrecrag_back.png",
+        "res://assets/sprites/creatures/rd_material_match_2026_10_01/vitrecrag_back.png",
+        "res://assets/sprites/creatures/rd_material_match_2026_10_01/vitrecrag_back.png",
+        "res://assets/sprites/creatures/rd_material_match_2026_10_01/vitrecrag_back.png",
+        "res://assets/sprites/creatures/rd_material_match_2026_10_01/vitrecrag_back.png"
+      ],
+      "frames": [
+        "res://assets/sprites/creatures/rd_material_match_2026_10_01/vitrecrag_attacks/f00.png",
+        "res://assets/sprites/creatures/rd_material_match_2026_10_01/vitrecrag_attacks/f01.png",
+        "res://assets/sprites/creatures/rd_material_match_2026_10_01/vitrecrag_attacks/f02.png",
+        "res://assets/sprites/creatures/rd_material_match_2026_10_01/vitrecrag_attacks/f03.png",
+        "res://assets/sprites/creatures/rd_material_match_2026_10_01/vitrecrag_attacks/f04.png",
+        "res://assets/sprites/creatures/rd_material_match_2026_10_01/vitrecrag_attacks/f05.png",
+        "res://assets/sprites/creatures/rd_material_match_2026_10_01/vitrecrag_attacks/f06.png",
+        "res://assets/sprites/creatures/rd_material_match_2026_10_01/vitrecrag_attacks/f07.png",
+        "res://assets/sprites/creatures/rd_material_match_2026_10_01/vitrecrag_attacks/f06.png",
+        "res://assets/sprites/creatures/rd_material_match_2026_10_01/vitrecrag_attacks/f07.png",
+        "res://assets/sprites/creatures/rd_material_match_2026_10_01/vitrecrag_attacks/f08.png",
+        "res://assets/sprites/creatures/rd_material_match_2026_10_01/vitrecrag_attacks/f07.png",
+        "res://assets/sprites/creatures/rd_material_match_2026_10_01/vitrecrag_attacks/f09.png",
+        "res://assets/sprites/creatures/rd_material_match_2026_10_01/vitrecrag_attacks/f11.png"
+      ],
+      "hit_frame": 7,
+      "holds": [
+        0.1,
+        0.35,
+        0.9,
+        1.1,
+        0.08,
+        0.14,
+        0.14,
+        0.14,
+        0.14,
+        0.14,
+        0.14,
+        0.14,
+        0.12,
+        0.25
+      ]
+    },
+    "res://data/moves/vitrecrag_plate_lunge.tres": {
+      "back_frames": [],
+      "frames": [
+        "res://assets/sprites/creatures/rd_material_match_2026_10_01/vitrecrag_attacks/f00.png",
+        "res://assets/sprites/creatures/rd_material_match_2026_10_01/vitrecrag_attacks/f01.png",
+        "res://assets/sprites/creatures/rd_material_match_2026_10_01/vitrecrag_attacks/f00.png",
+        "res://assets/sprites/creatures/rd_material_match_2026_10_01/vitrecrag_attacks/f00.png",
+        "res://assets/sprites/creatures/rd_material_match_2026_10_01/vitrecrag_attacks/f11.png"
+      ],
+      "hit_frame": 3,
+      "holds": [
+        0.25,
+        1.3,
+        0.06,
+        0.32,
+        0.38
+      ]
+    }
+  },
+  "historical_tool_errors": {
+    "import_history": {
+      "content": [
+        {
+          "type": "text",
+          "text": "{\n  \"elapsed_ms\": 1,\n  \"results\": [\n    {\n      \"messages\": [\n        {\n          \"count\": 2,\n          \"text\": \"Failed loading resource: res://assets/tilesets/route1_rd_2026_10_01/route1_ground_atlas_refined.png.\",\n          \"type\": \"error\"\n        },\n        {\n          \"count\": 80,\n          \"text\": \"Cannot create tile. The tile is outside the texture or tiles are already present in the space the tile would cover.\",\n          \"type\": \"error\"\n        },\n        {\n          \"count\": 2,\n          \"text\": \"The TileSetAtlasSource atlas has no tile at (0, 0).\",\n          \"type\": \"error\"\n        },\n        {\n          \"count\": 2,\n          \"text\": \"TileSetAtlasSource has no tile at (0, 0).\",\n          \"type\": \"error\"\n        },\n        {\n          \"count\": 2,\n          \"text\": \"The TileSetAtlasSource atlas has no tile at (1, 0).\",\n          \"type\": \"error\"\n        },\n        {\n          \"count\": 2,\n          \"text\": \"TileSetAtlasSource has no tile at (1, 0).\",\n          \"type\": \"error\"\n        },\n        {\n          \"count\": 2,\n          \"text\": \"The TileSetAtlasSource atlas has no tile at (2, 0).\",\n          \"type\": \"error\"\n        },\n        {\n          \"count\": 2,\n          \"text\": \"TileSetAtlasSource has no tile at (2, 0).\",\n          \"type\": \"error\"\n        },\n        {\n          \"count\": 2,\n          \"text\": \"The TileSetAtlasSource atlas has no tile at (3, 0).\",\n          \"type\": \"error\"\n        },\n        {\n          \"count\": 2,\n          \"text\": \"TileSetAtlasSource has no tile at (3, 0).\",\n          \"type\": \"error\"\n        },\n        {\n          \"count\": 2,\n          \"text\": \"The TileSetAtlasSource atlas has no tile at (4, 0).\",\n          \"type\": \"error\"\n        },\n        {\n          \"count\": 2,\n          \"text\": \"TileSetAtlasSource has no tile at (4, 0).\",\n          \"type\": \"error\"\n        },\n        {\n          \"count\": 2,\n          \"text\": \"The TileSetAtlasSource atlas has no tile at (5, 0).\",\n          \"type\": \"error\"\n        },\n        {\n          \"count\": 2,\n          \"text\": \"TileSetAtlasSource has no tile at (5, 0).\",\n          \"type\": \"error\"\n        },\n        {\n          \"count\": 2,\n          \"text\": \"The TileSetAtlasSource atlas has no tile at (6, 0).\",\n          \"type\": \"error\"\n        },\n        {\n          \"count\": 2,\n          \"text\": \"TileSetAtlasSource has no tile at (6, 0).\",\n          \"type\": \"error\"\n        },\n        {\n          \"count\": 2,\n          \"text\": \"The TileSetAtlasSource atlas has no tile at (7, 0).\",\n          \"type\": \"error\"\n        },\n        {\n          \"count\": 2,\n          \"text\": \"TileSetAtlasSource has no tile at (7, 0).\",\n          \"type\": \"error\"\n        },\n        {\n          \"count\": 2,\n          \"text\": \"The TileSetAtlasSource atlas has no tile at (0, 1).\",\n          \"type\": \"error\"\n        },\n        {\n          \"count\": 2,\n          \"text\": \"TileSetAtlasSource has no tile at (0, 1).\",\n          \"type\": \"error\"\n        },\n        {\n          \"count\": 2,\n          \"text\": \"The TileSetAtlasSource atlas has no tile at (1, 1).\",\n          \"type\": \"error\"\n        },\n        {\n          \"count\": 2,\n          \"text\": \"TileSetAtlasSource has no tile at (1, 1).\",\n          \"type\": \"error\"\n        },\n        {\n          \"count\": 2,\n          \"text\": \"The TileSetAtlasSource atlas has no tile at (2, 1).\",\n          \"type\": \"error\"\n        },\n        {\n          \"count\": 2,\n          \"text\": \"TileSetAtlasSource has no tile at (2, 1).\",\n          \"type\": \"error\"\n        },\n        {\n          \"count\": 2,\n          \"text\": \"The TileSetAtlasSource atlas has no tile at (3, 1).\",\n          \"type\": \"error\"\n        },\n        {\n          \"count\": 2,\n          \"text\": \"TileSetAtlasSource has no tile at (3, 1).\",\n          \"type\": \"error\"\n        },\n        {\n          \"count\": 2,\n          \"text\": \"The TileSetAtlasSource atlas has no tile at (4, 1).\",\n          \"type\": \"error\"\n        },\n        {\n          \"count\": 2,\n          \"text\": \"TileSetAtlasSource has no tile at (4, 1).\",\n          \"type\": \"error\"\n        },\n        {\n          \"count\": 2,\n          \"text\": \"The TileSetAtlasSource atlas has no tile at (5, 1).\",\n          \"type\": \"error\"\n        },\n        {\n          \"count\": 2,\n          \"text\": \"TileSetAtlasSource has no tile at (5, 1).\",\n          \"type\": \"error\"\n        },\n        {\n          \"count\": 2,\n          \"text\": \"The TileSetAtlasSource atlas has no tile at (6, 1).\",\n          \"type\": \"error\"\n        },\n        {\n          \"count\": 2,\n          \"text\": \"TileSetAtlasSource has no tile at (6, 1).\",\n          \"type\": \"error\"\n        },\n        {\n          \"count\": 2,\n          \"text\": \"The TileSetAtlasSource atlas has no tile at (7, 1).\",\n          \"type\": \"error\"\n        },\n        {\n          \"count\": 2,\n          \"text\": \"TileSetAtlasSource has no tile at (7, 1).\",\n          \"type\": \"error\"\n        },\n        {\n          \"count\": 2,\n          \"text\": \"The TileSetAtlasSource atlas has no tile at (0, 2).\",\n          \"type\": \"error\"\n        },\n        {\n          \"count\": 2,\n          \"text\": \"TileSetAtlasSource has no tile at (0, 2).\",\n          \"type\": \"error\"\n        },\n        {\n          \"count\": 2,\n          \"text\": \"The TileSetAtlasSource atlas has no tile at (1, 2).\",\n          \"type\": \"error\"\n        },\n        {\n          \"count\": 2,\n          \"text\": \"TileSetAtlasSource has no tile at (1, 2).\",\n          \"type\": \"error\"\n        },\n        {\n          \"count\": 2,\n          \"text\": \"The TileSetAtlasSource atlas has no tile at (2, 2).\",\n          \"type\": \"error\"\n        },\n        {\n          \"count\": 2,\n          \"text\": \"TileSetAtlasSource has no tile at (2, 2).\",\n          \"type\": \"error\"\n        },\n        {\n          \"count\": 2,\n          \"text\": \"The TileSetAtlasSource atlas has no tile at (3, 2).\",\n          \"type\": \"error\"\n        },\n        {\n          \"count\": 2,\n          \"text\": \"TileSetAtlasSource has no tile at (3, 2).\",\n          \"type\": \"error\"\n        },\n        {\n          \"count\": 2,\n          \"text\": \"The TileSetAtlasSource atlas has no tile at (4, 2).\",\n          \"type\": \"error\"\n        },\n        {\n          \"count\": 2,\n          \"text\": \"TileSetAtlasSource has no tile at (4, 2).\",\n          \"type\": \"error\"\n        },\n        {\n          \"count\": 2,\n          \"text\": \"The TileSetAtlasSource atlas has no tile at (5, 2).\",\n          \"type\": \"error\"\n        },\n        {\n          \"count\": 2,\n          \"text\": \"TileSetAtlasSource has no tile at (5, 2).\",\n          \"type\": \"error\"\n        },\n        {\n          \"count\": 2,\n          \"text\": \"The TileSetAtlasSource atlas has no tile at (6, 2).\",\n          \"type\": \"error\"\n        },\n        {\n          \"count\": 2,\n          \"text\": \"TileSetAtlasSource has no tile at (6, 2).\",\n          \"type\": \"error\"\n        },\n        {\n          \"count\": 2,\n          \"text\": \"The TileSetAtlasSource atlas has no tile at (7, 2).\",\n          \"type\": \"error\"\n        },\n        {\n          \"count\": 2,\n          \"text\": \"TileSetAtlasSource has no tile at (7, 2).\",\n          \"type\": \"error\"\n        },\n        {\n          \"count\": 2,\n          \"text\": \"The TileSetAtlasSource atlas has no tile at (0, 3).\",\n          \"type\": \"error\"\n        },\n        {\n          \"count\": 2,\n          \"text\": \"TileSetAtlasSource has no tile at (0, 3).\",\n          \"type\": \"error\"\n        },\n        {\n          \"count\": 2,\n          \"text\": \"The TileSetAtlasSource atlas has no tile at (1, 3).\",\n          \"type\": \"error\"\n        },\n        {\n          \"count\": 2,\n          \"text\": \"TileSetAtlasSource has no tile at (1, 3).\",\n          \"type\": \"error\"\n        },\n        {\n          \"count\": 2,\n          \"text\": \"The TileSetAtlasSource atlas has no tile at (2, 3).\",\n          \"type\": \"error\"\n        },\n        {\n          \"count\": 2,\n          \"text\": \"TileSetAtlasSource has no tile at (2, 3).\",\n          \"type\": \"error\"\n        },\n        {\n          \"count\": 2,\n          \"text\": \"The TileSetAtlasSource atlas has no tile at (3, 3).\",\n          \"type\": \"error\"\n        },\n        {\n          \"count\": 2,\n          \"text\": \"TileSetAtlasSource has no tile at (3, 3).\",\n          \"type\": \"error\"\n        },\n        {\n          \"count\": 2,\n          \"text\": \"The TileSetAtlasSource atlas has no tile at (4, 3).\",\n          \"type\": \"error\"\n        },\n        {\n          \"count\": 2,\n          \"text\": \"TileSetAtlasSource has no tile at (4, 3).\",\n          \"type\": \"error\"\n        },\n        {\n          \"count\": 2,\n          \"text\": \"The TileSetAtlasSource atlas has no tile at (5, 3).\",\n          \"type\": \"error\"\n        },\n        {\n          \"count\": 2,\n          \"text\": \"TileSetAtlasSource has no tile at (5, 3).\",\n          \"type\": \"error\"\n        },\n        {\n          \"count\": 2,\n          \"text\": \"The TileSetAtlasSource atlas has no tile at (6, 3).\",\n          \"type\": \"error\"\n        },\n        {\n          \"count\": 2,\n          \"text\": \"TileSetAtlasSource has no tile at (6, 3).\",\n          \"type\": \"error\"\n        },\n        {\n          \"count\": 2,\n          \"text\": \"The TileSetAtlasSource atlas has no tile at (7, 3).\",\n          \"type\": \"error\"\n        },\n        {\n          \"count\": 2,\n          \"text\": \"TileSetAtlasSource has no tile at (7, 3).\",\n          \"type\": \"error\"\n        },\n        {\n          \"count\": 2,\n          \"text\": \"The TileSetAtlasSource atlas has no tile at (0, 4).\",\n          \"type\": \"error\"\n        },\n        {\n          \"count\": 2,\n          \"text\": \"TileSetAtlasSource has no tile at (0, 4).\",\n          \"type\": \"error\"\n        },\n        {\n          \"count\": 2,\n          \"text\": \"The TileSetAtlasSource atlas has no tile at (1, 4).\",\n          \"type\": \"error\"\n        },\n        {\n          \"count\": 2,\n          \"text\": \"TileSetAtlasSource has no tile at (1, 4).\",\n          \"type\": \"error\"\n        },\n        {\n          \"count\": 2,\n          \"text\": \"The TileSetAtlasSource atlas has no tile at (2, 4).\",\n          \"type\": \"error\"\n        },\n        {\n          \"count\": 2,\n          \"text\": \"TileSetAtlasSource has no tile at (2, 4).\",\n          \"type\": \"error\"\n        },\n        {\n          \"count\": 2,\n          \"text\": \"The TileSetAtlasSource atlas has no tile at (3, 4).\",\n          \"type\": \"error\"\n        },\n        {\n          \"count\": 2,\n          \"text\": \"TileSetAtlasSource has no tile at (3, 4).\",\n          \"type\": \"error\"\n        },\n        {\n          \"count\": 2,\n          \"text\": \"The TileSetAtlasSource atlas has no tile at (4, 4).\",\n          \"type\": \"error\"\n        },\n        {\n          \"count\": 2,\n          \"text\": \"TileSetAtlasSource has no tile at (4, 4).\",\n          \"type\": \"error\"\n        },\n        {\n          \"count\": 2,\n          \"text\": \"The TileSetAtlasSource atlas has no tile at (5, 4).\",\n          \"type\": \"error\"\n        },\n        {\n          \"count\": 2,\n          \"text\": \"TileSetAtlasSource has no tile at (5, 4).\",\n          \"type\": \"error\"\n        },\n        {\n          \"count\": 2,\n          \"text\": \"The TileSetAtlasSource atlas has no tile at (6, 4).\",\n          \"type\": \"error\"\n        },\n        {\n          \"count\": 2,\n          \"text\": \"TileSetAtlasSource has no tile at (6, 4).\",\n          \"type\": \"error\"\n        },\n        {\n          \"count\": 2,\n          \"text\": \"The TileSetAtlasSource atlas has no tile at (7, 4).\",\n          \"type\": \"error\"\n        },\n        {\n          \"count\": 2,\n          \"text\": \"TileSetAtlasSource has no tile at (7, 4).\",\n          \"type\": \"error\"\n        },\n        {\n          \"count\": 2,\n          \"text\": \"Failed loading resource: res://assets/sprites/world/route1_rd_2026_10_01/height.png.\",\n          \"type\": \"error\"\n        },\n        {\n          \"count\": 2,\n          \"text\": \"Failed loading resource: res://assets/sprites/world/route1_rd_2026_10_01/dispatcher.png.\",\n          \"type\": \"error\"\n        },\n        {\n          \"count\": 2,\n          \"text\": \"Failed loading resource: res://assets/sprites/world/route1_rd_2026_10_01/marker.png.\",\n          \"type\": \"error\"\n        },\n        {\n          \"count\": 2,\n          \"text\": \"Failed loading resource: res://assets/sprites/world/route1_rd_2026_10_01/post.png.\",\n          \"type\": \"error\"\n        },\n        {\n          \"count\": 2,\n          \"text\": \"Failed loading resource: res://assets/sprites/world/route1_rd_2026_10_01/reeds.png.\",\n          \"type\": \"error\"\n        }\n      ],\n      \"ok\": true,\n      \"op\": \"GetConsoleOutput\",\n      \"summary\": {\n        \"editor\": 5,\n        \"errors\": 252,\n        \"returned\": 104,\n        \"std\": 33,\n        \"total\": 287,\n        \"totalUnique\": 104,\n        \"truncated\": false,\n        \"warnings\": 0\n      },\n      \"_filter\": {\n        \"totalIn\": 104,\n        \"totalOut\": 87,\n        \"duplicatesCollapsed\": 0,\n        \"droppedByLevel\": 17,\n        \"truncated\": 0\n      }\n    }\n  ],\n  \"skippedCount\": 0,\n  \"status\": \"ok\",\n  \"stopOnError\": true,\n  \"undoGroup\": false,\n  \"requestId\": \"mcp-969a4207-9211-47d4-9414-5926bcfb4b3c\",\n  \"terminalState\": \"applied\",\n  \"appliedSeq\": 794,\n  \"_scope\": \"Editor Output panel only. Runtime errors from a played game are collected by the debugger, not here — this count is NOT the post-play verdict. Read summer_get_diagnostics (console + debugger + script errors together) or summer_get_debugger_errors for that.\"\n}"
+        }
+      ]
+    },
+    "bad_readonly_property": {
+      "content": [
+        {
+          "type": "text",
+          "text": "{\n  \"appliedThroughSeq\": 1372,\n  \"data\": {\n    \"console\": {\n      \"editor\": 4,\n      \"errors\": 1,\n      \"max_messages\": 50,\n      \"messages\": [\n        {\n          \"count\": 1,\n          \"text\": \"[url]gdscript://-9223294471322374225.gd:8[/url] - Invalid access to property or key 'attack_frame_durations' on a base object of type 'Resource (MoveData)'.\",\n          \"type\": \"error\"\n        },\n        {\n          \"count\": 1,\n          \"text\": \"[WebView2] Suspended hidden surface generation 3.\",\n          \"type\": \"std\"\n        },\n        {\n          \"count\": 1,\n          \"text\": \"[SE] RunSceneScript: executing in-process (budget 20s hard, undo none, edited scene: yes)\",\n          \"type\": \"std\"\n        },\n        {\n          \"count\": 3,\n          \"text\": \"WriteFile\",\n          \"type\": \"editor\"\n        },\n        {\n          \"count\": 1,\n          \"text\": \"[WebView2] Suspended hidden surface generation 1.\",\n          \"type\": \"std\"\n        },\n        {\n          \"count\": 1,\n          \"text\": \"[godot_ai game_helper] registered mcp capture (debugger active=true, logger=true)\",\n          \"type\": \"std\"\n        },\n        {\n          \"count\": 1,\n          \"text\": \"MCP | [debug] holding mcp:hello from debugger session 3 until the run is adopted\",\n          \"type\": \"std\"\n        },\n        {\n          \"count\": 1,\n          \"text\": \"[SE] AuthManager: CLI credential found; desktop session exchange required\",\n          \"type\": \"std\"\n        },\n        {\n          \"count\": 1,\n          \"text\": \"\",\n          \"type\": \"std\"\n        },\n        {\n          \"count\": 1,\n          \"text\": \"D3D12 12_0 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce GTX 1660 SUPER\",\n          \"type\": \"std\"\n        },\n        {\n          \"count\": 1,\n          \"text\": \"Welcome to Summer Engine (c) built on the awesome work by Godot 2007-present Juan Linietsky, Ariel Manzur & Godot Contributors.\",\n          \"type\": \"std\"\n        }\n      ],\n      \"returned\": 11,\n      \"std\": 9,\n      \"total\": 12,\n      \"warnings\": 0\n    },\n    \"debugger\": {\n      \"errors\": 0,\n      \"errors_data\": [],\n      \"is_breaked\": false,\n      \"session_active\": true,\n      \"warnings\": 11,\n      \"warnings_data\": [\n        {\n          \"callstack\": [\n            {\n              \"file\": \"res://scripts/creature_roster.gd\",\n              \"function\": \"load_all\",\n              \"line\": 25\n            },\n            {\n              \"file\": \"res://scripts/debug/dex_overlay.gd\",\n              \"function\": \"_refresh\",\n              \"line\": 63\n            },\n            {\n              \"file\": \"res://scripts/debug/dex_overlay.gd\",\n              \"function\": \"_ready\",\n              \"line\": 47\n            }\n          ],\n          \"count\": 1,\n          \"error\": \"res://data/creatures/001_rimefin.tres:4 - ext_resource, invalid UID: uid://crjluirawrgmi - using text path instead: res://assets/sprites/creatures/rimefin.png\",\n          \"error_descr\": \"\",\n          \"file\": \"scene\\\\resources\\\\resource_format_text.cpp\",\n          \"function\": \"ResourceLoaderText::load\",\n          \"line\": 516,\n          \"severity\": \"warning\",\n          \"timestamp_ms\": 41227009\n        },\n        {\n          \"callstack\": [],\n          \"count\": 1,\n          \"error\": \"SHADOWED_VARIABLE\",\n          \"error_descr\": \"The local variable \\\"start\\\" is shadowing an already-declared function at line 237 in the current class.\",\n          \"file\": \"res://scripts/battle_screen.gd\",\n          \"function\": \"GDScript::reload\",\n          \"line\": 1879,\n          \"severity\": \"warning\",\n          \"timestamp_ms\": 41226966\n        },\n        {\n          \"callstack\": [],\n          \"count\": 1,\n          \"error\": \"SHADOWED_VARIABLE_BASE_CLASS\",\n          \"error_descr\": \"The local function parameter \\\"offset\\\" is shadowing an already-declared property in the base class \\\"CanvasLayer\\\".\",\n          \"file\": \"res://scripts/battle_screen.gd\",\n          \"function\": \"GDScript::reload\",\n          \"line\": 1874,\n          \"severity\": \"warning\",\n          \"timestamp_ms\": 41226966\n        },\n        {\n          \"callstack\": [],\n          \"count\": 1,\n          \"error\": \"SHADOWED_VARIABLE_BASE_CLASS\",\n          \"error_descr\": \"The local function parameter \\\"offset\\\" is shadowing an already-declared property in the base class \\\"CanvasLayer\\\".\",\n          \"file\": \"res://scripts/battle_screen.gd\",\n          \"function\": \"GDScript::reload\",\n          \"line\": 1851,\n          \"severity\": \"warning\",\n          \"timestamp_ms\": 41226966\n        },\n        {\n          \"callstack\": [],\n          \"count\": 1,\n          \"error\": \"SHADOWED_VARIABLE_BASE_CLASS\",\n          \"error_descr\": \"The local function parameter \\\"offset\\\" is shadowing an already-declared property in the base class \\\"CanvasLayer\\\".\",\n          \"file\": \"res://scripts/battle_screen.gd\",\n          \"function\": \"GDScript::reload\",\n          \"line\": 1831,\n          \"severity\": \"warning\",\n          \"timestamp_ms\": 41226966\n        },\n        {\n          \"callstack\": [],\n          \"count\": 1,\n          \"error\": \"SHADOWED_VARIABLE_BASE_CLASS\",\n          \"error_descr\": \"The local function parameter \\\"offset\\\" is shadowing an already-declared property in the base class \\\"CanvasLayer\\\".\",\n          \"file\": \"res://scripts/battle_screen.gd\",\n          \"function\": \"GDScript::reload\",\n          \"line\": 1784,\n          \"severity\": \"warning\",\n          \"timestamp_ms\": 41226966\n        },\n        {\n          \"callstack\": [],\n          \"count\": 1,\n          \"error\": \"SHADOWED_VARIABLE_BASE_CLASS\",\n          \"error_descr\": \"The local function parameter \\\"offset\\\" is shadowing an already-declared property in the base class \\\"CanvasLayer\\\".\",\n          \"file\": \"res://scripts/battle_screen.gd\",\n          \"function\": \"GDScript::reload\",\n          \"line\": 1660,\n          \"severity\": \"warning\",\n          \"timestamp_ms\": 41226966\n        },\n        {\n          \"callstack\": [],\n          \"count\": 1,\n          \"error\": \"SHADOWED_VARIABLE\",\n          \"error_descr\": \"The local variable \\\"start\\\" is shadowing an already-declared function at line 237 in the current class.\",\n          \"file\": \"res://scripts/battle_screen.gd\",\n          \"function\": \"GDScript::reload\",\n          \"line\": 1542,\n          \"severity\": \"warning\",\n          \"timestamp_ms\": 41226966\n        },\n        {\n          \"callstack\": [],\n          \"count\": 1,\n          \"error\": \"SHADOWED_VARIABLE_BASE_CLASS\",\n          \"error_descr\": \"The local function parameter \\\"offset\\\" is shadowing an already-declared property in the base class \\\"CanvasLayer\\\".\",\n          \"file\": \"res://scripts/battle_screen.gd\",\n          \"function\": \"GDScript::reload\",\n          \"line\": 1537,\n          \"severity\": \"warning\",\n          \"timestamp_ms\": 41226966\n        },\n        {\n          \"callstack\": [],\n          \"count\": 1,\n          \"error\": \"SHADOWED_VARIABLE_BASE_CLASS\",\n          \"error_descr\": \"The local \\\"for\\\" iterator variable \\\"layer\\\" is shadowing an already-declared property in the base class \\\"CanvasLayer\\\".\",\n          \"file\": \"res://scripts/battle_screen.gd\",\n          \"function\": \"GDScript::reload\",\n          \"line\": 1099,\n          \"severity\": \"warning\",\n          \"timestamp_ms\": 41226966\n        },\n        {\n          \"callstack\": [],\n          \"count\": 1,\n          \"error\": \"SHADOWED_VARIABLE_BASE_CLASS\",\n          \"error_descr\": \"The local variable \\\"offset\\\" is shadowing an already-declared property in the base class \\\"CanvasLayer\\\".\",\n          \"file\": \"res://scripts/battle_screen.gd\",\n          \"function\": \"GDScript::reload\",\n          \"line\": 786,\n          \"severity\": \"warning\",\n          \"timestamp_ms\": 41226966\n        }\n      ]\n    },\n    \"guidance\": \"Errors present. Check console.messages, debugger, and script_errors for details.\",\n    \"has_issues\": true,\n    \"scopes\": {\n      \"application\": {\n        \"errors\": 0,\n        \"has_issues\": false,\n        \"warnings\": 0\n      },\n      \"classification\": \"known_application_signatures_and_compiler_locations\",\n      \"console_available\": true,\n      \"coverage\": \"observed_console_debugger_and_open_script_buffers_not_full_project_validation\",\n      \"csharp_unique_errors\": 0,\n      \"debugger_available\": true,\n      \"guidance\": \"Use project errors for observed game/compiler failures. Application errors describe Summer chat/WebView transport, not broken game scripts. Inspect unclassified console evidence before attributing it. Zero known project errors is not a full project validation.\",\n      \"project\": {\n        \"errors\": 0,\n        \"has_issues\": true,\n        \"script_validation_available\": true,\n        \"script_validation_incomplete\": false,\n        \"warnings\": 11\n      },\n      \"unclassified\": {\n        \"errors\": 1,\n        \"has_issues\": true,\n        \"warnings\": 0\n      }\n    },\n    \"script_errors\": {\n      \"count\": 0,\n      \"errors\": [],\n      \"scope\": \"open_script_buffers\"\n    },\n    \"total_errors\": 1,\n    \"total_warnings\": 11\n  },\n  \"ok\": true,\n  \"provenance\": {\n    \"dirty\": false,\n    \"rootName\": \"MainMenuArtPreview\",\n    \"rootType\": \"Node2D\",\n    \"scenePath\": \"res://scenes/main_menu_art_preview.tscn\",\n    \"source\": \"diagnostics\",\n    \"target\": {\n      \"kind\": \"diagnostics\",\n      \"path\": \"diagnostics\"\n    }\n  },\n  \"snapshotAt\": 42115296,\n  \"snapshotSeq\": 493970,\n  \"_view\": {\n    \"mode\": \"prioritized\",\n    \"totalConsole\": 12,\n    \"shownConsole\": 11,\n    \"suppressedInfo\": 0,\n    \"totalDebugger\": 11,\n    \"shownDebugger\": 11,\n    \"suppressedDebuggerWarnings\": 0,\n    \"hint\": \"All counts are complete; only low-severity message bodies were trimmed. Re-call with includeAll: true for the untrimmed payload, or use summer_get_console / summer_get_debugger_warnings for targeted reads.\"\n  }\n}"
+        }
+      ]
+    }
+  }
+}

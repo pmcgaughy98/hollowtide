@@ -1,0 +1,194 @@
+{
+  "kithflare": {
+    "front": {
+      "size": [
+        160,
+        160
+      ],
+      "bbox": [
+        25,
+        21,
+        131,
+        140
+      ],
+      "colors": 52,
+      "partial_alpha": 0,
+      "sha256": "0cf0c7788bfe0d33715ac8d7a95ee9b8944859ea50b02d9d0c9be19baaa3923c"
+    },
+    "back": {
+      "size": [
+        160,
+        160
+      ],
+      "bbox": [
+        29,
+        19,
+        130,
+        135
+      ],
+      "colors": 29,
+      "partial_alpha": 0,
+      "sha256": "5280e267aa19cb72892e10de4b128564c230eaff803d914c1cc0fd03bd98d7d1"
+    }
+  },
+  "wayburn": {
+    "front": {
+      "size": [
+        192,
+        160
+      ],
+      "bbox": [
+        25,
+        13,
+        176,
+        136
+      ],
+      "colors": 51,
+      "partial_alpha": 0,
+      "sha256": "18cc5a1ca548e2a73b8af29ee7d2f8998cdff28c39b9c0032b1e0e295ba54026"
+    },
+    "back": {
+      "size": [
+        160,
+        160
+      ],
+      "bbox": [
+        16,
+        21,
+        130,
+        144
+      ],
+      "colors": 29,
+      "partial_alpha": 0,
+      "sha256": "9ef2493c2b49187a15ecdb993d3fa14d8bdd9e12989e864d6a39c044c2aacb17"
+    }
+  },
+  "coalcrest": {
+    "front": {
+      "size": [
+        160,
+        160
+      ],
+      "bbox": [
+        20,
+        16,
+        147,
+        142
+      ],
+      "colors": 64,
+      "partial_alpha": 0,
+      "sha256": "614493f5d0aba2783467a3848ea7aa1e442c80a925e021e9ff4ee35b509cd70f"
+    },
+    "back": {
+      "size": [
+        160,
+        160
+      ],
+      "bbox": [
+        19,
+        13,
+        125,
+        143
+      ],
+      "colors": 24,
+      "partial_alpha": 0,
+      "sha256": "ba7eb9c03ac2327d8e28c5c9534f8908964d2dd7ad99cc3de21ffa86270cb5e4"
+    }
+  },
+  "fusern": {
+    "front": {
+      "size": [
+        192,
+        192
+      ],
+      "bbox": [
+        50,
+        64,
+        143,
+        139
+      ],
+      "colors": 32,
+      "partial_alpha": 0,
+      "sha256": "afceef0009c2da9fe9ade7bc8ae415460149f95ceb9fde8c75a83bf7c99e642c"
+    },
+    "back": {
+      "size": [
+        192,
+        192
+      ],
+      "bbox": [
+        51,
+        53,
+        143,
+        142
+      ],
+      "colors": 24,
+      "partial_alpha": 0,
+      "sha256": "058da16fe1d7543dfb2d12c479c4908f5636f8fca6f3fe2dda2e170ef1200f36"
+    }
+  },
+  "slagglass": {
+    "front": {
+      "size": [
+        192,
+        192
+      ],
+      "bbox": [
+        24,
+        26,
+        169,
+        168
+      ],
+      "colors": 41,
+      "partial_alpha": 0,
+      "sha256": "1ea2cdf5f07e0739999db7748c12ef7638d3484f85ba4ecd4d435f12b1962f1c"
+    },
+    "back": {
+      "size": [
+        192,
+        192
+      ],
+      "bbox": [
+        31,
+        24,
+        163,
+        169
+      ],
+      "colors": 28,
+      "partial_alpha": 0,
+      "sha256": "be6ddc03a6a4b0ca802b54e4983c153cca6ced3f7198da8a200dc94587f4904c"
+    }
+  },
+  "vitrecrag": {
+    "front": {
+      "size": [
+        192,
+        192
+      ],
+      "bbox": [
+        18,
+        35,
+        174,
+        170
+      ],
+      "colors": 40,
+      "partial_alpha": 0,
+      "sha256": "5ecf84baa63140566d2397455b441eabe1140fb3b1493bf23fb90da06b135f87"
+    },
+    "back": {
+      "size": [
+        192,
+        192
+      ],
+      "bbox": [
+        20,
+        32,
+        175,
+        165
+      ],
+      "colors": 28,
+      "partial_alpha": 0,
+      "sha256": "b7a23d05a6e2e8f24ef5b746aeaddb66677b6cd5a30d930f8d05027f6ae862ff"
+    }
+  }
+}

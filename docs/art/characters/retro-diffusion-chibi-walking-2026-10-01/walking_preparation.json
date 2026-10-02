@@ -1,0 +1,2125 @@
+{
+  "male_down": {
+    "source_sha256": "99daeb45a706adb4235e25438922cf53f5b40faaaedc56867830312403f65091",
+    "atlas_sha256": "882b6024869778c16e9926c949d7945e9112f3098dc3e8e197be9e4279f890ed",
+    "frame_count": 8,
+    "cell_size": [
+      80,
+      80
+    ],
+    "frames": [
+      {
+        "frame": 0,
+        "bounds": [
+          24,
+          7,
+          57,
+          73
+        ],
+        "removed_exterior_pixels": 0,
+        "isolated_body_white_repairs": [],
+        "original_duration_ms": 150,
+        "alpha_sha256": "a1da6440ecf3aa1c11ed29ada118c84f2b36505e1f0da6df4c789cbfac9c10be"
+      },
+      {
+        "frame": 1,
+        "bounds": [
+          25,
+          6,
+          56,
+          72
+        ],
+        "removed_exterior_pixels": 0,
+        "isolated_body_white_repairs": [],
+        "original_duration_ms": 150,
+        "alpha_sha256": "613e36e8769b1b61065957a4788533c9b2f7d084bf8f0c1a7e62eacb9458ca65"
+      },
+      {
+        "frame": 2,
+        "bounds": [
+          25,
+          7,
+          56,
+          71
+        ],
+        "removed_exterior_pixels": 0,
+        "isolated_body_white_repairs": [],
+        "original_duration_ms": 150,
+        "alpha_sha256": "d5927314717a1e7069e451f10a52e8a51b7b6d598485803b255531c447a09a04"
+      },
+      {
+        "frame": 3,
+        "bounds": [
+          25,
+          9,
+          56,
+          72
+        ],
+        "removed_exterior_pixels": 0,
+        "isolated_body_white_repairs": [],
+        "original_duration_ms": 150,
+        "alpha_sha256": "16bff19f84fc92d5b433c1b8876924cab529e341f61d084f131aaae2db0bba6a"
+      },
+      {
+        "frame": 4,
+        "bounds": [
+          23,
+          8,
+          57,
+          73
+        ],
+        "removed_exterior_pixels": 0,
+        "isolated_body_white_repairs": [],
+        "original_duration_ms": 150,
+        "alpha_sha256": "fc1975ce1ecc436ddc8e617be410f63ee9a364ff6eec28299669662782a3df47"
+      },
+      {
+        "frame": 5,
+        "bounds": [
+          24,
+          7,
+          55,
+          73
+        ],
+        "removed_exterior_pixels": 0,
+        "isolated_body_white_repairs": [],
+        "original_duration_ms": 150,
+        "alpha_sha256": "7b05a966c08fd301b5164e5b1af0456c72be80626a3fd95ff08a605b8bb5d2ea"
+      },
+      {
+        "frame": 6,
+        "bounds": [
+          25,
+          6,
+          55,
+          72
+        ],
+        "removed_exterior_pixels": 0,
+        "isolated_body_white_repairs": [],
+        "original_duration_ms": 150,
+        "alpha_sha256": "7737e9b06affaf27a33020f335deae5d361c5defbfd24ad587c9ff5f40039a14"
+      },
+      {
+        "frame": 7,
+        "bounds": [
+          25,
+          7,
+          55,
+          71
+        ],
+        "removed_exterior_pixels": 0,
+        "isolated_body_white_repairs": [],
+        "original_duration_ms": 150,
+        "alpha_sha256": "ca722954114ced712f03763bf3866fa859b5058bb4db6cd68f9c55523d766465"
+      }
+    ],
+    "lower_body_changed_pixels_per_step": [
+      364,
+      347,
+      361,
+      348,
+      355,
+      386,
+      346,
+      406
+    ],
+    "unique_frames": 8,
+    "no_frame_resizing_in_master": true,
+    "feet_not_frozen": true
+  },
+  "male_down_left": {
+    "source_sha256": "df3762778f6763c4a84589d4e7a6c8b47f940ea2a0e25e9a27e5deceb0d856d6",
+    "atlas_sha256": "998ea03f2478fe330cf2ef61028e8f21d5570b9890e2bd732b196f35473391ef",
+    "frame_count": 8,
+    "cell_size": [
+      80,
+      80
+    ],
+    "frames": [
+      {
+        "frame": 0,
+        "bounds": [
+          25,
+          7,
+          53,
+          73
+        ],
+        "removed_exterior_pixels": 0,
+        "isolated_body_white_repairs": [],
+        "original_duration_ms": 150,
+        "alpha_sha256": "f116ac3c47c938e3fb012c39a7bc89f056ed64701922f63e928fb43956964231"
+      },
+      {
+        "frame": 1,
+        "bounds": [
+          23,
+          8,
+          52,
+          72
+        ],
+        "removed_exterior_pixels": 0,
+        "isolated_body_white_repairs": [],
+        "original_duration_ms": 150,
+        "alpha_sha256": "5a250d58988b54d1bc68f7551fd4f53b7bd6e2d4fd0c2346fae285a98413b1ab"
+      },
+      {
+        "frame": 2,
+        "bounds": [
+          25,
+          9,
+          53,
+          72
+        ],
+        "removed_exterior_pixels": 0,
+        "isolated_body_white_repairs": [],
+        "original_duration_ms": 150,
+        "alpha_sha256": "bc95b75663cdb927e1ca08878ed5f1f4dbd89f707278654652d68a2f126223b5"
+      },
+      {
+        "frame": 3,
+        "bounds": [
+          25,
+          8,
+          51,
+          71
+        ],
+        "removed_exterior_pixels": 0,
+        "isolated_body_white_repairs": [],
+        "original_duration_ms": 150,
+        "alpha_sha256": "8ff75fe12710a9cb4000ad925c4288c0aea1438c151f3931966fced8537f2d22"
+      },
+      {
+        "frame": 4,
+        "bounds": [
+          26,
+          7,
+          52,
+          72
+        ],
+        "removed_exterior_pixels": 0,
+        "isolated_body_white_repairs": [],
+        "original_duration_ms": 150,
+        "alpha_sha256": "5ff35fe84ea8de41b78e4889fd82e72904694db0aa3a066fdffb02381b06f3ec"
+      },
+      {
+        "frame": 5,
+        "bounds": [
+          24,
+          7,
+          53,
+          71
+        ],
+        "removed_exterior_pixels": 0,
+        "isolated_body_white_repairs": [],
+        "original_duration_ms": 150,
+        "alpha_sha256": "958d6c1aebcdcca94db9389853243f8879502c577174236cfbf29092ca42cc42"
+      },
+      {
+        "frame": 6,
+        "bounds": [
+          21,
+          8,
+          56,
+          73
+        ],
+        "removed_exterior_pixels": 0,
+        "isolated_body_white_repairs": [],
+        "original_duration_ms": 150,
+        "alpha_sha256": "0d2e0ad17eb604d8a8b3e32ece86a10c58368934660c2ff07131ad4decdd7c94"
+      },
+      {
+        "frame": 7,
+        "bounds": [
+          19,
+          9,
+          57,
+          73
+        ],
+        "removed_exterior_pixels": 0,
+        "isolated_body_white_repairs": [],
+        "original_duration_ms": 150,
+        "alpha_sha256": "582ac9ac4bfffa5e4d08d7859b0b0236e4c885a66e48e9a6c3bf2ed77217db65"
+      }
+    ],
+    "lower_body_changed_pixels_per_step": [
+      423,
+      387,
+      405,
+      398,
+      298,
+      375,
+      387,
+      587
+    ],
+    "unique_frames": 8,
+    "no_frame_resizing_in_master": true,
+    "feet_not_frozen": true
+  },
+  "male_left": {
+    "source_sha256": "d8d70659e6188f8329a1471bb18d63fac3422a4e3fb9b7c893ace3d6e881a826",
+    "atlas_sha256": "09f31f9d0f5686923ec55063de1422ad6527be7475173e5001d262643f56e5d0",
+    "frame_count": 8,
+    "cell_size": [
+      80,
+      80
+    ],
+    "frames": [
+      {
+        "frame": 0,
+        "bounds": [
+          28,
+          8,
+          54,
+          73
+        ],
+        "removed_exterior_pixels": 0,
+        "isolated_body_white_repairs": [],
+        "original_duration_ms": 150,
+        "alpha_sha256": "9389c4d53a09dc619c814a90a31248ca2528c644a725889c517d2c4b5e1d0528"
+      },
+      {
+        "frame": 1,
+        "bounds": [
+          25,
+          8,
+          54,
+          73
+        ],
+        "removed_exterior_pixels": 0,
+        "isolated_body_white_repairs": [],
+        "original_duration_ms": 150,
+        "alpha_sha256": "7cb6bc6e250f18b40b5c71b70fe533989904885cc064f5fc7fe42bf8cc0a3dd6"
+      },
+      {
+        "frame": 2,
+        "bounds": [
+          25,
+          10,
+          53,
+          73
+        ],
+        "removed_exterior_pixels": 0,
+        "isolated_body_white_repairs": [],
+        "original_duration_ms": 150,
+        "alpha_sha256": "60c47d219e39c2062f4be597ff11a885e1e08b226d1451c676437be28b31593a"
+      },
+      {
+        "frame": 3,
+        "bounds": [
+          27,
+          9,
+          53,
+          72
+        ],
+        "removed_exterior_pixels": 0,
+        "isolated_body_white_repairs": [],
+        "original_duration_ms": 150,
+        "alpha_sha256": "9b9a778b90f7cb0348e38f0a0f099b6bfc40e5b96f91cec74f24afa0d3f85a9e"
+      },
+      {
+        "frame": 4,
+        "bounds": [
+          28,
+          8,
+          53,
+          72
+        ],
+        "removed_exterior_pixels": 0,
+        "isolated_body_white_repairs": [],
+        "original_duration_ms": 150,
+        "alpha_sha256": "c3764baaad8efa83f4c57a26866bf49d36fa72cfe76899c46a88f2bc14b978bd"
+      },
+      {
+        "frame": 5,
+        "bounds": [
+          28,
+          8,
+          53,
+          72
+        ],
+        "removed_exterior_pixels": 0,
+        "isolated_body_white_repairs": [],
+        "original_duration_ms": 150,
+        "alpha_sha256": "8f9c1b89922567258e1bc5f6a1155ab5347b0374235ab6595af6134486ad6995"
+      },
+      {
+        "frame": 6,
+        "bounds": [
+          26,
+          8,
+          54,
+          72
+        ],
+        "removed_exterior_pixels": 0,
+        "isolated_body_white_repairs": [],
+        "original_duration_ms": 150,
+        "alpha_sha256": "1bbeba0ecc90cebaa56a902f76d6b334ceb3a64f436bb64d58fc9c00ba6f994d"
+      },
+      {
+        "frame": 7,
+        "bounds": [
+          25,
+          9,
+          53,
+          73
+        ],
+        "removed_exterior_pixels": 0,
+        "isolated_body_white_repairs": [],
+        "original_duration_ms": 150,
+        "alpha_sha256": "66daff14c498083c3ad6c7fd0e6f09f32ccc5b7cffc2ba69ede9ed234c30d25a"
+      }
+    ],
+    "lower_body_changed_pixels_per_step": [
+      319,
+      337,
+      364,
+      302,
+      211,
+      372,
+      348,
+      483
+    ],
+    "unique_frames": 8,
+    "no_frame_resizing_in_master": true,
+    "feet_not_frozen": true
+  },
+  "male_up_left": {
+    "source_sha256": "3da8327d72e548c980a0281a94bdba68ec833ce4dcb38487f59cd3d26426aa96",
+    "atlas_sha256": "e686805b5b7b00d3840ee8b9ff13c5e778d643a79b7c8b78a7f5c769e7a82b41",
+    "frame_count": 8,
+    "cell_size": [
+      80,
+      80
+    ],
+    "frames": [
+      {
+        "frame": 0,
+        "bounds": [
+          22,
+          8,
+          55,
+          72
+        ],
+        "removed_exterior_pixels": 0,
+        "isolated_body_white_repairs": [],
+        "original_duration_ms": 150,
+        "alpha_sha256": "dce32201af985fa6decda3e5281c5b7bd9f9a616e6996621f52c58acedc5513c"
+      },
+      {
+        "frame": 1,
+        "bounds": [
+          20,
+          9,
+          55,
+          73
+        ],
+        "removed_exterior_pixels": 0,
+        "isolated_body_white_repairs": [],
+        "original_duration_ms": 150,
+        "alpha_sha256": "29cb9d4a5246a1315866cb001c86526655ddc06c1532ed54403f6a736f295667"
+      },
+      {
+        "frame": 2,
+        "bounds": [
+          21,
+          9,
+          56,
+          73
+        ],
+        "removed_exterior_pixels": 0,
+        "isolated_body_white_repairs": [],
+        "original_duration_ms": 150,
+        "alpha_sha256": "ec4a38c64881affa4c9ae8e66ccbd2358a8723dcc4bc75393fd560a4a931edf4"
+      },
+      {
+        "frame": 3,
+        "bounds": [
+          23,
+          8,
+          54,
+          72
+        ],
+        "removed_exterior_pixels": 0,
+        "isolated_body_white_repairs": [],
+        "original_duration_ms": 150,
+        "alpha_sha256": "3515991f4faedcf0b4af288e116d70a98f1ef02ef482d424f70a37ae5a50675e"
+      },
+      {
+        "frame": 4,
+        "bounds": [
+          25,
+          7,
+          54,
+          71
+        ],
+        "removed_exterior_pixels": 0,
+        "isolated_body_white_repairs": [],
+        "original_duration_ms": 150,
+        "alpha_sha256": "4b25562fe0d19efed4279f3e5991bae13480c36cecee058791debf033a5748fa"
+      },
+      {
+        "frame": 5,
+        "bounds": [
+          28,
+          7,
+          54,
+          71
+        ],
+        "removed_exterior_pixels": 0,
+        "isolated_body_white_repairs": [],
+        "original_duration_ms": 150,
+        "alpha_sha256": "5a2cc70c9eb10d2ee30d590f0ebcfdc20e35cd8c9fea7988013539bc8e63c48f"
+      },
+      {
+        "frame": 6,
+        "bounds": [
+          25,
+          8,
+          54,
+          71
+        ],
+        "removed_exterior_pixels": 0,
+        "isolated_body_white_repairs": [],
+        "original_duration_ms": 150,
+        "alpha_sha256": "dbbd11d5aa6665f167cc751b6dcd2ebc1e377da8f5bfa1b75e327631f71d9a72"
+      },
+      {
+        "frame": 7,
+        "bounds": [
+          24,
+          9,
+          55,
+          71
+        ],
+        "removed_exterior_pixels": 0,
+        "isolated_body_white_repairs": [],
+        "original_duration_ms": 150,
+        "alpha_sha256": "e8c56f18d848b58f728113981667b38c190cf235da8bfd028f61ebc75fcafa7e"
+      }
+    ],
+    "lower_body_changed_pixels_per_step": [
+      347,
+      168,
+      354,
+      374,
+      418,
+      424,
+      337,
+      559
+    ],
+    "unique_frames": 8,
+    "no_frame_resizing_in_master": true,
+    "feet_not_frozen": true
+  },
+  "male_up": {
+    "source_sha256": "525a1abdde5a889a4fbf0cab3451235e019c140cf6dd8ad24bbd9f1cb053c92b",
+    "atlas_sha256": "7e7daee1eefad42aa0d781a7d01081e590d39e2dcdbbd9fedcc61c006bdfa59f",
+    "frame_count": 8,
+    "cell_size": [
+      80,
+      80
+    ],
+    "frames": [
+      {
+        "frame": 0,
+        "bounds": [
+          23,
+          8,
+          54,
+          72
+        ],
+        "removed_exterior_pixels": 0,
+        "isolated_body_white_repairs": [],
+        "original_duration_ms": 150,
+        "alpha_sha256": "09b63362b6067d74f15b88fe770140aa072a5839650ac5299864780dc7365158"
+      },
+      {
+        "frame": 1,
+        "bounds": [
+          24,
+          9,
+          54,
+          71
+        ],
+        "removed_exterior_pixels": 0,
+        "isolated_body_white_repairs": [],
+        "original_duration_ms": 150,
+        "alpha_sha256": "a3b0404b1ded4809c42fef8299f5d40441f6dfd8572828c671def4014db2eaab"
+      },
+      {
+        "frame": 2,
+        "bounds": [
+          25,
+          8,
+          55,
+          72
+        ],
+        "removed_exterior_pixels": 0,
+        "isolated_body_white_repairs": [],
+        "original_duration_ms": 150,
+        "alpha_sha256": "e270bc427f956fb5afd5d1fae6f9fa9ebee378cf99e105a21af5251240aec2c3"
+      },
+      {
+        "frame": 3,
+        "bounds": [
+          25,
+          8,
+          55,
+          72
+        ],
+        "removed_exterior_pixels": 0,
+        "isolated_body_white_repairs": [],
+        "original_duration_ms": 150,
+        "alpha_sha256": "584f87d2543eb46318b1b2e10ec31c4cb9288b4112a1d0c5c891e780fa9ffb76"
+      },
+      {
+        "frame": 4,
+        "bounds": [
+          26,
+          8,
+          55,
+          72
+        ],
+        "removed_exterior_pixels": 0,
+        "isolated_body_white_repairs": [],
+        "original_duration_ms": 150,
+        "alpha_sha256": "d3c63847b377916baa08ab58ae4758e9a2d3bd10f27d2d599ca3fc3e0777375d"
+      },
+      {
+        "frame": 5,
+        "bounds": [
+          26,
+          9,
+          55,
+          72
+        ],
+        "removed_exterior_pixels": 0,
+        "isolated_body_white_repairs": [],
+        "original_duration_ms": 150,
+        "alpha_sha256": "d49832cb4c83027ccc47b56c16d510687861103f46e791d4a2eb641f0fc1f7ea"
+      },
+      {
+        "frame": 6,
+        "bounds": [
+          25,
+          8,
+          54,
+          71
+        ],
+        "removed_exterior_pixels": 0,
+        "isolated_body_white_repairs": [],
+        "original_duration_ms": 150,
+        "alpha_sha256": "307bb43828e410755df6a3017951996ae5ff1015c4b2ec2be2c3dcf6ed266c8e"
+      },
+      {
+        "frame": 7,
+        "bounds": [
+          25,
+          8,
+          54,
+          72
+        ],
+        "removed_exterior_pixels": 0,
+        "isolated_body_white_repairs": [],
+        "original_duration_ms": 150,
+        "alpha_sha256": "414cd814471f14199b76b6ff73acfba8bc291dd7e6d1ee113d02adcd2d861fe4"
+      }
+    ],
+    "lower_body_changed_pixels_per_step": [
+      363,
+      387,
+      278,
+      243,
+      328,
+      395,
+      276,
+      335
+    ],
+    "unique_frames": 8,
+    "no_frame_resizing_in_master": true,
+    "feet_not_frozen": true
+  },
+  "male_up_right": {
+    "source_sha256": "5efdd8f3dc72db2344e1c6d0fe971ef217135e69adfc0cb1692eca4361f71800",
+    "atlas_sha256": "b3b5fdf464628fc5fa179038b290aaa081a6ef5083f698f5e42eed30f07135a9",
+    "frame_count": 8,
+    "cell_size": [
+      80,
+      80
+    ],
+    "frames": [
+      {
+        "frame": 0,
+        "bounds": [
+          25,
+          6,
+          56,
+          76
+        ],
+        "removed_exterior_pixels": 0,
+        "isolated_body_white_repairs": [],
+        "original_duration_ms": 150,
+        "alpha_sha256": "ae299835973574932856c81cf6bd2a570776c6a2e8ff229d4f7cccd79e6ce688"
+      },
+      {
+        "frame": 1,
+        "bounds": [
+          23,
+          4,
+          57,
+          76
+        ],
+        "removed_exterior_pixels": 0,
+        "isolated_body_white_repairs": [],
+        "original_duration_ms": 150,
+        "alpha_sha256": "e06577f9ff48db31c15a832ab96e280b17deef42255ea40679d93273e5157f82"
+      },
+      {
+        "frame": 2,
+        "bounds": [
+          21,
+          4,
+          59,
+          76
+        ],
+        "removed_exterior_pixels": 0,
+        "isolated_body_white_repairs": [],
+        "original_duration_ms": 150,
+        "alpha_sha256": "a47e5b628433afb98d2288787d5963ca8de1ce5c80b1742389c7bfe95fdcc1cb"
+      },
+      {
+        "frame": 3,
+        "bounds": [
+          23,
+          6,
+          58,
+          76
+        ],
+        "removed_exterior_pixels": 0,
+        "isolated_body_white_repairs": [],
+        "original_duration_ms": 150,
+        "alpha_sha256": "fbc8f366763e61210ac90ea717fd804174d17e17d78d9fd9c1a75b44fda991a3"
+      },
+      {
+        "frame": 4,
+        "bounds": [
+          24,
+          6,
+          55,
+          75
+        ],
+        "removed_exterior_pixels": 0,
+        "isolated_body_white_repairs": [],
+        "original_duration_ms": 150,
+        "alpha_sha256": "8cbdbb5bfcd8d6f561940178879c7313f31afdacb911f67e7bdb7e448ef0f3e8"
+      },
+      {
+        "frame": 5,
+        "bounds": [
+          25,
+          5,
+          53,
+          74
+        ],
+        "removed_exterior_pixels": 0,
+        "isolated_body_white_repairs": [],
+        "original_duration_ms": 150,
+        "alpha_sha256": "64eaf1df73241f5e3581b69e4c1048eaabecc26fa654c7635f24a943a2c91682"
+      },
+      {
+        "frame": 6,
+        "bounds": [
+          24,
+          4,
+          55,
+          74
+        ],
+        "removed_exterior_pixels": 0,
+        "isolated_body_white_repairs": [],
+        "original_duration_ms": 150,
+        "alpha_sha256": "a0aea456b0b11af2a9bd390bb66e55d8f6e0f86552a987f4b1babc153e4b32ee"
+      },
+      {
+        "frame": 7,
+        "bounds": [
+          24,
+          6,
+          56,
+          75
+        ],
+        "removed_exterior_pixels": 0,
+        "isolated_body_white_repairs": [],
+        "original_duration_ms": 150,
+        "alpha_sha256": "d322fdd20e0b60f9cfe5c06a5c8cb8f29ca1bfa5e8cb7ec7cce73723cb5c71f2"
+      }
+    ],
+    "lower_body_changed_pixels_per_step": [
+      398,
+      406,
+      430,
+      510,
+      424,
+      490,
+      458,
+      648
+    ],
+    "unique_frames": 8,
+    "no_frame_resizing_in_master": true,
+    "feet_not_frozen": true
+  },
+  "male_right": {
+    "source_sha256": "06740af569714ae503361fe29fd10bb97d4d8f8f42dfffc91c807f2142cbf880",
+    "atlas_sha256": "bd62cb4729be9fe8c7cb2cdd0fb3212cba8f185a624e0b3aa4794fffea694f1f",
+    "frame_count": 8,
+    "cell_size": [
+      80,
+      80
+    ],
+    "frames": [
+      {
+        "frame": 0,
+        "bounds": [
+          25,
+          8,
+          54,
+          73
+        ],
+        "removed_exterior_pixels": 0,
+        "isolated_body_white_repairs": [],
+        "original_duration_ms": 150,
+        "alpha_sha256": "96eada40aa119f018607873815cfc111285fb0c6d9347e73e7ebd589b0518974"
+      },
+      {
+        "frame": 1,
+        "bounds": [
+          25,
+          9,
+          56,
+          73
+        ],
+        "removed_exterior_pixels": 0,
+        "isolated_body_white_repairs": [],
+        "original_duration_ms": 150,
+        "alpha_sha256": "b0fc2b5001646700715e1d3f688d470d0d3e519a45e4544c94a43bef696b7465"
+      },
+      {
+        "frame": 2,
+        "bounds": [
+          26,
+          9,
+          54,
+          72
+        ],
+        "removed_exterior_pixels": 0,
+        "isolated_body_white_repairs": [],
+        "original_duration_ms": 150,
+        "alpha_sha256": "d4af1881f3eed7974190a0ab6bbcf7857d23eb347c5253e4948c613023e1d9f6"
+      },
+      {
+        "frame": 3,
+        "bounds": [
+          26,
+          8,
+          52,
+          72
+        ],
+        "removed_exterior_pixels": 0,
+        "isolated_body_white_repairs": [],
+        "original_duration_ms": 150,
+        "alpha_sha256": "69cd2170dff156df99b7d4f57c325bf99a31c9dab22716fc782e46f9a05624d8"
+      },
+      {
+        "frame": 4,
+        "bounds": [
+          26,
+          7,
+          52,
+          72
+        ],
+        "removed_exterior_pixels": 0,
+        "isolated_body_white_repairs": [],
+        "original_duration_ms": 150,
+        "alpha_sha256": "bea2308c7717e13fddd3668f704166921bf4aabba047169bc29d72522aa14d62"
+      },
+      {
+        "frame": 5,
+        "bounds": [
+          25,
+          8,
+          55,
+          72
+        ],
+        "removed_exterior_pixels": 0,
+        "isolated_body_white_repairs": [],
+        "original_duration_ms": 150,
+        "alpha_sha256": "42628e4777bc74edfe3a9d22c5066cab0907f7f4635a61c825bbb5239ecd5041"
+      },
+      {
+        "frame": 6,
+        "bounds": [
+          25,
+          9,
+          55,
+          72
+        ],
+        "removed_exterior_pixels": 0,
+        "isolated_body_white_repairs": [],
+        "original_duration_ms": 150,
+        "alpha_sha256": "8d738062ec1cd7e9e19c51d79296da8cab3b0ee2dd942b68093199623e5ced8e"
+      },
+      {
+        "frame": 7,
+        "bounds": [
+          25,
+          9,
+          53,
+          73
+        ],
+        "removed_exterior_pixels": 0,
+        "isolated_body_white_repairs": [],
+        "original_duration_ms": 150,
+        "alpha_sha256": "1e24c249c6a2f056a05ad82ffb43032a90acc270d474a214ea3b511b85c982c3"
+      }
+    ],
+    "lower_body_changed_pixels_per_step": [
+      363,
+      322,
+      390,
+      315,
+      374,
+      385,
+      273,
+      527
+    ],
+    "unique_frames": 8,
+    "no_frame_resizing_in_master": true,
+    "feet_not_frozen": true
+  },
+  "male_down_right": {
+    "source_sha256": "a600e15f707061e603c4f91e76f1c799ab980d58d1fabc8aa0a620d3881f7aee",
+    "atlas_sha256": "f1c97376d52013b21fdf82031b4758161cc00ebd298b8c4f776b2ac1c6d591e5",
+    "frame_count": 8,
+    "cell_size": [
+      80,
+      80
+    ],
+    "frames": [
+      {
+        "frame": 0,
+        "bounds": [
+          26,
+          9,
+          55,
+          71
+        ],
+        "removed_exterior_pixels": 0,
+        "isolated_body_white_repairs": [],
+        "original_duration_ms": 150,
+        "alpha_sha256": "640fdb87539a61ccdadd23083920f2dd8676f2497f6c35f26a40fecc19101ed9"
+      },
+      {
+        "frame": 1,
+        "bounds": [
+          25,
+          10,
+          55,
+          72
+        ],
+        "removed_exterior_pixels": 0,
+        "isolated_body_white_repairs": [],
+        "original_duration_ms": 150,
+        "alpha_sha256": "fe7a38e828408c017bf4d9a172f8d3698161f3acfed98f65bacaf71f52a88535"
+      },
+      {
+        "frame": 2,
+        "bounds": [
+          26,
+          9,
+          55,
+          72
+        ],
+        "removed_exterior_pixels": 0,
+        "isolated_body_white_repairs": [],
+        "original_duration_ms": 150,
+        "alpha_sha256": "11da44a6af3ec82159f43bce38356821484faf4074f38dc47d46a1adcfd497ae"
+      },
+      {
+        "frame": 3,
+        "bounds": [
+          26,
+          8,
+          55,
+          72
+        ],
+        "removed_exterior_pixels": 0,
+        "isolated_body_white_repairs": [],
+        "original_duration_ms": 150,
+        "alpha_sha256": "5d66695a4e11fc2f895ef94a19db3767c3a0def646963641e94df88b1295b2b0"
+      },
+      {
+        "frame": 4,
+        "bounds": [
+          26,
+          9,
+          55,
+          73
+        ],
+        "removed_exterior_pixels": 0,
+        "isolated_body_white_repairs": [],
+        "original_duration_ms": 150,
+        "alpha_sha256": "709d27d01be57fc45a3c895b6fd15e87f9eef73e9bf9814f2e46d82b1a73dd05"
+      },
+      {
+        "frame": 5,
+        "bounds": [
+          23,
+          10,
+          57,
+          72
+        ],
+        "removed_exterior_pixels": 0,
+        "isolated_body_white_repairs": [],
+        "original_duration_ms": 150,
+        "alpha_sha256": "004ed78db1d04304e5a90164687829835b23f451d264129210547cefd9d80aec"
+      },
+      {
+        "frame": 6,
+        "bounds": [
+          22,
+          9,
+          58,
+          73
+        ],
+        "removed_exterior_pixels": 0,
+        "isolated_body_white_repairs": [],
+        "original_duration_ms": 150,
+        "alpha_sha256": "dd3dba008897043179c81667968f1ae474b3605743b272b3d834ef81a7fb301f"
+      },
+      {
+        "frame": 7,
+        "bounds": [
+          23,
+          9,
+          56,
+          73
+        ],
+        "removed_exterior_pixels": 0,
+        "isolated_body_white_repairs": [],
+        "original_duration_ms": 150,
+        "alpha_sha256": "45316f8cf4c05291feab957be272b451dcdae318196dd9dc1957f85faca4f51a"
+      }
+    ],
+    "lower_body_changed_pixels_per_step": [
+      389,
+      406,
+      435,
+      372,
+      427,
+      408,
+      390,
+      507
+    ],
+    "unique_frames": 8,
+    "no_frame_resizing_in_master": true,
+    "feet_not_frozen": true
+  },
+  "female_down": {
+    "source_sha256": "83e1563361c9d3e7e92134d0a6f10ea18a242cd9c9c2d7f30ea498ffe6eb546f",
+    "atlas_sha256": "c526b9127391c1392189a70a59e8ab6a05938c733fdf092d9bbea5b1e72c8171",
+    "frame_count": 8,
+    "cell_size": [
+      80,
+      80
+    ],
+    "frames": [
+      {
+        "frame": 0,
+        "bounds": [
+          24,
+          8,
+          56,
+          72
+        ],
+        "removed_exterior_pixels": 0,
+        "isolated_body_white_repairs": [],
+        "original_duration_ms": 150,
+        "alpha_sha256": "8d15c203d2ed8b97fd6b3c50fa4e651c8995a5b574d17b1660b30a9bc82ddac4"
+      },
+      {
+        "frame": 1,
+        "bounds": [
+          25,
+          9,
+          56,
+          72
+        ],
+        "removed_exterior_pixels": 0,
+        "isolated_body_white_repairs": [],
+        "original_duration_ms": 150,
+        "alpha_sha256": "3356329df7d78301f48401b0409c9cd4a0d08a47ca23afd3bbed9ee64dfad0b4"
+      },
+      {
+        "frame": 2,
+        "bounds": [
+          28,
+          10,
+          56,
+          72
+        ],
+        "removed_exterior_pixels": 0,
+        "isolated_body_white_repairs": [],
+        "original_duration_ms": 150,
+        "alpha_sha256": "97bcf094cfc71dba743217450c9230a8ca897c3bd2ca79e06adc00f9286fc732"
+      },
+      {
+        "frame": 3,
+        "bounds": [
+          28,
+          8,
+          55,
+          72
+        ],
+        "removed_exterior_pixels": 0,
+        "isolated_body_white_repairs": [],
+        "original_duration_ms": 150,
+        "alpha_sha256": "e20c247988fea4f2ef2ead57a1e8df46c57e1704545be561f31ee77fa745d692"
+      },
+      {
+        "frame": 4,
+        "bounds": [
+          26,
+          8,
+          54,
+          72
+        ],
+        "removed_exterior_pixels": 0,
+        "isolated_body_white_repairs": [],
+        "original_duration_ms": 150,
+        "alpha_sha256": "52d155e3dea6552aa13f72ce4e6779affcd607fbe7ad8f1afdfee8ff8e7dee62"
+      },
+      {
+        "frame": 5,
+        "bounds": [
+          25,
+          8,
+          55,
+          72
+        ],
+        "removed_exterior_pixels": 0,
+        "isolated_body_white_repairs": [],
+        "original_duration_ms": 150,
+        "alpha_sha256": "baf93ed9d61dddcf2e51e224994999846884aec1bed09c50bbe737c5e0196595"
+      },
+      {
+        "frame": 6,
+        "bounds": [
+          24,
+          8,
+          56,
+          72
+        ],
+        "removed_exterior_pixels": 0,
+        "isolated_body_white_repairs": [],
+        "original_duration_ms": 150,
+        "alpha_sha256": "24609b09471f730705b82e6138547cea5ea5a8f1370d0c6b93673d7f6565de46"
+      },
+      {
+        "frame": 7,
+        "bounds": [
+          25,
+          9,
+          56,
+          72
+        ],
+        "removed_exterior_pixels": 0,
+        "isolated_body_white_repairs": [],
+        "original_duration_ms": 150,
+        "alpha_sha256": "0e3f731e8f0c1dce354f21924b2159081dfb35da2e011f544683e3b36eeb293f"
+      }
+    ],
+    "lower_body_changed_pixels_per_step": [
+      277,
+      219,
+      238,
+      309,
+      203,
+      260,
+      290,
+      342
+    ],
+    "unique_frames": 8,
+    "no_frame_resizing_in_master": true,
+    "feet_not_frozen": true
+  },
+  "female_down_left": {
+    "source_sha256": "6a19fa8aa4f0ba2625f11179b65b3824eb0538ff519721c43cf8b4c141beca8a",
+    "atlas_sha256": "946379553ca913ca63afb9ad79165c775b799556d684a67ae8a35820c7ca28d8",
+    "frame_count": 8,
+    "cell_size": [
+      80,
+      80
+    ],
+    "frames": [
+      {
+        "frame": 0,
+        "bounds": [
+          27,
+          8,
+          56,
+          72
+        ],
+        "removed_exterior_pixels": 0,
+        "isolated_body_white_repairs": [],
+        "original_duration_ms": 150,
+        "alpha_sha256": "bec483f5959de03d0aa2de21c48bc773c864d7dce81c6e7c3199030e029e1689"
+      },
+      {
+        "frame": 1,
+        "bounds": [
+          24,
+          9,
+          57,
+          72
+        ],
+        "removed_exterior_pixels": 0,
+        "isolated_body_white_repairs": [],
+        "original_duration_ms": 150,
+        "alpha_sha256": "15a3c3eabe0585f36bbfd4c312cb1ff714892408a1954a0eeead7e4ab0bfd7b8"
+      },
+      {
+        "frame": 2,
+        "bounds": [
+          26,
+          9,
+          57,
+          72
+        ],
+        "removed_exterior_pixels": 0,
+        "isolated_body_white_repairs": [],
+        "original_duration_ms": 150,
+        "alpha_sha256": "262f4f69fc0bfc2ba56b379890d2c554d65b3fb152bad53336a6fadd51366a75"
+      },
+      {
+        "frame": 3,
+        "bounds": [
+          26,
+          8,
+          54,
+          72
+        ],
+        "removed_exterior_pixels": 0,
+        "isolated_body_white_repairs": [],
+        "original_duration_ms": 150,
+        "alpha_sha256": "b99f91b39322fcff9a0f4da7e6d4cfec61d38fd17be9d9807a2cae764d0a526e"
+      },
+      {
+        "frame": 4,
+        "bounds": [
+          26,
+          8,
+          54,
+          72
+        ],
+        "removed_exterior_pixels": 0,
+        "isolated_body_white_repairs": [],
+        "original_duration_ms": 150,
+        "alpha_sha256": "c572dec5ca77a86dc75d660397f7f8aaad156b7fca6504e2b562af4e2748e08b"
+      },
+      {
+        "frame": 5,
+        "bounds": [
+          27,
+          8,
+          56,
+          72
+        ],
+        "removed_exterior_pixels": 0,
+        "isolated_body_white_repairs": [],
+        "original_duration_ms": 150,
+        "alpha_sha256": "39c6bb5a04de18620fbfa564bf8df587d0f37e663cb5bbb0d49ed2abb0f5c1c1"
+      },
+      {
+        "frame": 6,
+        "bounds": [
+          27,
+          9,
+          57,
+          72
+        ],
+        "removed_exterior_pixels": 0,
+        "isolated_body_white_repairs": [],
+        "original_duration_ms": 150,
+        "alpha_sha256": "d043f0edd9261b6b8b603568d02cd72dc07a30f1bb2de314874f7f35c18adc2d"
+      },
+      {
+        "frame": 7,
+        "bounds": [
+          26,
+          9,
+          56,
+          72
+        ],
+        "removed_exterior_pixels": 0,
+        "isolated_body_white_repairs": [],
+        "original_duration_ms": 150,
+        "alpha_sha256": "bc31d4c6d19a603bbcaff815a980c09f915d3038b8d2eaacdc53e12c4848085f"
+      }
+    ],
+    "lower_body_changed_pixels_per_step": [
+      331,
+      334,
+      364,
+      308,
+      260,
+      280,
+      256,
+      434
+    ],
+    "unique_frames": 8,
+    "no_frame_resizing_in_master": true,
+    "feet_not_frozen": true
+  },
+  "female_left": {
+    "source_sha256": "8d7bea38b211b03e50e22c5a8935c31356aeac5ba0e731a95e65dc1a947ebda2",
+    "atlas_sha256": "ef483a147df57ffae837c0c4a24618d7a555a8ab03718d30e0edbcf66d1d3dcb",
+    "frame_count": 8,
+    "cell_size": [
+      80,
+      80
+    ],
+    "frames": [
+      {
+        "frame": 0,
+        "bounds": [
+          26,
+          9,
+          52,
+          72
+        ],
+        "removed_exterior_pixels": 0,
+        "isolated_body_white_repairs": [],
+        "original_duration_ms": 150,
+        "alpha_sha256": "351d4f857de5604d51a313a03d5ec83c3150fd549830f9843c0e259f58be45b8"
+      },
+      {
+        "frame": 1,
+        "bounds": [
+          22,
+          10,
+          52,
+          72
+        ],
+        "removed_exterior_pixels": 0,
+        "isolated_body_white_repairs": [],
+        "original_duration_ms": 150,
+        "alpha_sha256": "ea911f0d53a94f68f7fd4eb78a354f4dfe0c8ba62c09ef5e5e272012ad5d5db2"
+      },
+      {
+        "frame": 2,
+        "bounds": [
+          24,
+          10,
+          54,
+          72
+        ],
+        "removed_exterior_pixels": 0,
+        "isolated_body_white_repairs": [],
+        "original_duration_ms": 150,
+        "alpha_sha256": "384219374c3d57f9ad0b5cac2f00e1975fa7b55f83be9307cfa5b6f18b95615f"
+      },
+      {
+        "frame": 3,
+        "bounds": [
+          29,
+          9,
+          52,
+          71
+        ],
+        "removed_exterior_pixels": 0,
+        "isolated_body_white_repairs": [],
+        "original_duration_ms": 150,
+        "alpha_sha256": "c2b6ea2b1285841647ee7ac81f32838bdb55563cd02907a7616812644fab42b2"
+      },
+      {
+        "frame": 4,
+        "bounds": [
+          29,
+          8,
+          52,
+          71
+        ],
+        "removed_exterior_pixels": 0,
+        "isolated_body_white_repairs": [],
+        "original_duration_ms": 150,
+        "alpha_sha256": "25e1dc9958ef0808c4302a515665672d1a1ef91492be112ad0331a3f65ea2b08"
+      },
+      {
+        "frame": 5,
+        "bounds": [
+          25,
+          8,
+          51,
+          71
+        ],
+        "removed_exterior_pixels": 0,
+        "isolated_body_white_repairs": [],
+        "original_duration_ms": 150,
+        "alpha_sha256": "c1bc9e96e1db5f522ccadacaa3f31a36d26646b02d59b9032f8cc3fe76180d24"
+      },
+      {
+        "frame": 6,
+        "bounds": [
+          21,
+          9,
+          52,
+          72
+        ],
+        "removed_exterior_pixels": 0,
+        "isolated_body_white_repairs": [],
+        "original_duration_ms": 150,
+        "alpha_sha256": "fe986bae48b003e9ed27732b9109775c2db99b99089e1751953318e032155efb"
+      },
+      {
+        "frame": 7,
+        "bounds": [
+          22,
+          10,
+          53,
+          72
+        ],
+        "removed_exterior_pixels": 0,
+        "isolated_body_white_repairs": [],
+        "original_duration_ms": 150,
+        "alpha_sha256": "e930e3537e881429c7513bf28c2c621c6fe1acc9946f0ce5de9ab57f616bc9a2"
+      }
+    ],
+    "lower_body_changed_pixels_per_step": [
+      363,
+      256,
+      384,
+      288,
+      307,
+      377,
+      320,
+      433
+    ],
+    "unique_frames": 8,
+    "no_frame_resizing_in_master": true,
+    "feet_not_frozen": true
+  },
+  "female_up_left": {
+    "source_sha256": "31e0089a0f994b9999aff5a7613cb491ebb73a4f8d71771d6371e7342f290662",
+    "atlas_sha256": "f1cbd9d0739c42215aedaa1a94111d11a5e13cbaf6074a4da284e4fac965235d",
+    "frame_count": 8,
+    "cell_size": [
+      80,
+      80
+    ],
+    "frames": [
+      {
+        "frame": 0,
+        "bounds": [
+          26,
+          9,
+          52,
+          72
+        ],
+        "removed_exterior_pixels": 0,
+        "isolated_body_white_repairs": [],
+        "original_duration_ms": 150,
+        "alpha_sha256": "922bc6ce1342803f9c633deb28f0494835c273d1901df00d9a22d0ae2ac35e04"
+      },
+      {
+        "frame": 1,
+        "bounds": [
+          28,
+          9,
+          52,
+          72
+        ],
+        "removed_exterior_pixels": 0,
+        "isolated_body_white_repairs": [],
+        "original_duration_ms": 150,
+        "alpha_sha256": "02eea1a48c06e3b0de2d2dfcd942c2907864e87d9ebecdbf1f43e0ed8b5c3f11"
+      },
+      {
+        "frame": 2,
+        "bounds": [
+          28,
+          8,
+          52,
+          71
+        ],
+        "removed_exterior_pixels": 0,
+        "isolated_body_white_repairs": [
+          {
+            "x": 30,
+            "y": 49,
+            "old": [
+              255,
+              255,
+              255
+            ],
+            "new": [
+              78,
+              37,
+              28
+            ]
+          }
+        ],
+        "original_duration_ms": 150,
+        "alpha_sha256": "6a8a856db76f4f0db883ccd3cb3190d508f651dab27552e89d61ec8752d594cb"
+      },
+      {
+        "frame": 3,
+        "bounds": [
+          28,
+          8,
+          52,
+          72
+        ],
+        "removed_exterior_pixels": 0,
+        "isolated_body_white_repairs": [
+          {
+            "x": 30,
+            "y": 48,
+            "old": [
+              255,
+              255,
+              255
+            ],
+            "new": [
+              107,
+              72,
+              30
+            ]
+          }
+        ],
+        "original_duration_ms": 150,
+        "alpha_sha256": "cf21a28bf1236c458bb798a63097bb53529c3b1f08af06f461a67c4f5ee9d852"
+      },
+      {
+        "frame": 4,
+        "bounds": [
+          28,
+          8,
+          52,
+          72
+        ],
+        "removed_exterior_pixels": 0,
+        "isolated_body_white_repairs": [
+          {
+            "x": 30,
+            "y": 48,
+            "old": [
+              255,
+              255,
+              255
+            ],
+            "new": [
+              107,
+              72,
+              30
+            ]
+          }
+        ],
+        "original_duration_ms": 150,
+        "alpha_sha256": "fa1e73e30627021eeca8a8193f6f35a595b89c759fd172c5bb1be4b2cea8e656"
+      },
+      {
+        "frame": 5,
+        "bounds": [
+          27,
+          9,
+          51,
+          72
+        ],
+        "removed_exterior_pixels": 0,
+        "isolated_body_white_repairs": [
+          {
+            "x": 29,
+            "y": 49,
+            "old": [
+              255,
+              255,
+              255
+            ],
+            "new": [
+              78,
+              37,
+              28
+            ]
+          }
+        ],
+        "original_duration_ms": 150,
+        "alpha_sha256": "9daa72338f0f317b4110cf9b0bf4629fd168ce6e38d56b3657b17c82b5912c9e"
+      },
+      {
+        "frame": 6,
+        "bounds": [
+          25,
+          9,
+          51,
+          72
+        ],
+        "removed_exterior_pixels": 0,
+        "isolated_body_white_repairs": [],
+        "original_duration_ms": 150,
+        "alpha_sha256": "1eca88f25c693ad9bf8ed0f3fac460883cb439bfd5333387458f2fd95433fbc8"
+      },
+      {
+        "frame": 7,
+        "bounds": [
+          25,
+          8,
+          52,
+          72
+        ],
+        "removed_exterior_pixels": 0,
+        "isolated_body_white_repairs": [],
+        "original_duration_ms": 150,
+        "alpha_sha256": "bb3d8504c70f5302c903276b1941b1af7063ac9dd20ccc23a7695bb5ffe0ad16"
+      }
+    ],
+    "lower_body_changed_pixels_per_step": [
+      207,
+      269,
+      328,
+      201,
+      315,
+      337,
+      335,
+      342
+    ],
+    "unique_frames": 8,
+    "no_frame_resizing_in_master": true,
+    "feet_not_frozen": true
+  },
+  "female_up": {
+    "source_sha256": "508b6bee1ca09eee4b1037a3f664359b15d47b5be142b49aed74f789e0524ae2",
+    "atlas_sha256": "45f6f8b54e1e25d62f0e1217daac2def2c99d598b6059fc7a2363b37fa7cd4fd",
+    "frame_count": 8,
+    "cell_size": [
+      80,
+      80
+    ],
+    "frames": [
+      {
+        "frame": 0,
+        "bounds": [
+          23,
+          8,
+          56,
+          72
+        ],
+        "removed_exterior_pixels": 0,
+        "isolated_body_white_repairs": [],
+        "original_duration_ms": 150,
+        "alpha_sha256": "8ca57e349824baceb77598a44fc1a0dbeb5c583c44d78251c82d197b7bb97b36"
+      },
+      {
+        "frame": 1,
+        "bounds": [
+          24,
+          10,
+          55,
+          73
+        ],
+        "removed_exterior_pixels": 0,
+        "isolated_body_white_repairs": [],
+        "original_duration_ms": 150,
+        "alpha_sha256": "99561bf9f7a1824fbdb30e2c25cf04a5aaa36efb0f93a95d8cb076956285190b"
+      },
+      {
+        "frame": 2,
+        "bounds": [
+          25,
+          8,
+          53,
+          73
+        ],
+        "removed_exterior_pixels": 0,
+        "isolated_body_white_repairs": [],
+        "original_duration_ms": 150,
+        "alpha_sha256": "f1131d86641dbcf5b0f2e5b250697daf0a402b181ad0b61a51b6338b31141248"
+      },
+      {
+        "frame": 3,
+        "bounds": [
+          25,
+          7,
+          53,
+          73
+        ],
+        "removed_exterior_pixels": 0,
+        "isolated_body_white_repairs": [],
+        "original_duration_ms": 150,
+        "alpha_sha256": "f69b0a3accf2ee75aab6d87db005102d6f3d79e0bc6f467e033435e7f884ec84"
+      },
+      {
+        "frame": 4,
+        "bounds": [
+          24,
+          8,
+          53,
+          73
+        ],
+        "removed_exterior_pixels": 0,
+        "isolated_body_white_repairs": [],
+        "original_duration_ms": 150,
+        "alpha_sha256": "8b94ac485b6f675db02b7184ad86dec5fb3a885a72391df1c4bbe99daafc4510"
+      },
+      {
+        "frame": 5,
+        "bounds": [
+          24,
+          9,
+          53,
+          71
+        ],
+        "removed_exterior_pixels": 0,
+        "isolated_body_white_repairs": [],
+        "original_duration_ms": 150,
+        "alpha_sha256": "f52fa65d65f66dac08ece8fc5b7734731ff1c5a4ef324f66f76f7d74b9c01cbf"
+      },
+      {
+        "frame": 6,
+        "bounds": [
+          24,
+          7,
+          52,
+          72
+        ],
+        "removed_exterior_pixels": 0,
+        "isolated_body_white_repairs": [],
+        "original_duration_ms": 150,
+        "alpha_sha256": "cb2b05b8b2f35637c055e464d45f0f0252c386ac6008fdd08f7ab7542d0def2b"
+      },
+      {
+        "frame": 7,
+        "bounds": [
+          24,
+          8,
+          53,
+          72
+        ],
+        "removed_exterior_pixels": 0,
+        "isolated_body_white_repairs": [],
+        "original_duration_ms": 150,
+        "alpha_sha256": "4acbed6dd9514cd96c5024666525ecea07f1a9db996b1127e41459f8b037e5f5"
+      }
+    ],
+    "lower_body_changed_pixels_per_step": [
+      244,
+      242,
+      217,
+      229,
+      150,
+      207,
+      198,
+      192
+    ],
+    "unique_frames": 8,
+    "no_frame_resizing_in_master": true,
+    "feet_not_frozen": true
+  },
+  "female_up_right": {
+    "source_sha256": "49f93d077690d6979be572f0374c34fefd0450dfd8a4013c84dcdc7f23df1144",
+    "atlas_sha256": "d591bd0908ecd688367b522e33eb5279d5bbf203095ac7044baf54ceca88dac5",
+    "frame_count": 8,
+    "cell_size": [
+      80,
+      80
+    ],
+    "frames": [
+      {
+        "frame": 0,
+        "bounds": [
+          22,
+          8,
+          55,
+          73
+        ],
+        "removed_exterior_pixels": 0,
+        "isolated_body_white_repairs": [],
+        "original_duration_ms": 150,
+        "alpha_sha256": "5343b8cfb7e6f40a5be7356f849c66a1d2b554dc127ebae5aa59dc3dd9d20091"
+      },
+      {
+        "frame": 1,
+        "bounds": [
+          22,
+          9,
+          57,
+          73
+        ],
+        "removed_exterior_pixels": 0,
+        "isolated_body_white_repairs": [],
+        "original_duration_ms": 150,
+        "alpha_sha256": "4f029e132bec4aefb41acad2e67bcb4b9e33be5ab43e425115012f79aa3c2f08"
+      },
+      {
+        "frame": 2,
+        "bounds": [
+          23,
+          10,
+          56,
+          74
+        ],
+        "removed_exterior_pixels": 0,
+        "isolated_body_white_repairs": [],
+        "original_duration_ms": 150,
+        "alpha_sha256": "37fc0b2908d3107e40d2012516db1914114b287957150bdbd6b3d9d5048faa62"
+      },
+      {
+        "frame": 3,
+        "bounds": [
+          24,
+          9,
+          55,
+          73
+        ],
+        "removed_exterior_pixels": 0,
+        "isolated_body_white_repairs": [
+          {
+            "x": 48,
+            "y": 50,
+            "old": [
+              255,
+              255,
+              255
+            ],
+            "new": [
+              19,
+              38,
+              45
+            ]
+          }
+        ],
+        "original_duration_ms": 150,
+        "alpha_sha256": "5509bb85f171f877c313bf8222bcb9f8722b26142d12a43dbc8bf3af0837fab0"
+      },
+      {
+        "frame": 4,
+        "bounds": [
+          24,
+          8,
+          52,
+          72
+        ],
+        "removed_exterior_pixels": 0,
+        "isolated_body_white_repairs": [],
+        "original_duration_ms": 150,
+        "alpha_sha256": "4da3fb642cafe596bfa8ad91a0ca8ed89ad17d5ff57857182a3db65f957c0f4e"
+      },
+      {
+        "frame": 5,
+        "bounds": [
+          24,
+          8,
+          52,
+          72
+        ],
+        "removed_exterior_pixels": 0,
+        "isolated_body_white_repairs": [],
+        "original_duration_ms": 150,
+        "alpha_sha256": "fcaab3d5ac1f419ef523a24597216a03f7c5a7551c549c10f24db2f6aa24a5a2"
+      },
+      {
+        "frame": 6,
+        "bounds": [
+          22,
+          9,
+          54,
+          72
+        ],
+        "removed_exterior_pixels": 0,
+        "isolated_body_white_repairs": [],
+        "original_duration_ms": 150,
+        "alpha_sha256": "cf6ceaf44b943bc651949d10adcad206801d6ebd8b92df02c0c6c7de755e1829"
+      },
+      {
+        "frame": 7,
+        "bounds": [
+          23,
+          10,
+          52,
+          72
+        ],
+        "removed_exterior_pixels": 0,
+        "isolated_body_white_repairs": [],
+        "original_duration_ms": 150,
+        "alpha_sha256": "d9e042003f03f60890a9fd22ede4086dba84681707d716f9ee5327f5547caf57"
+      }
+    ],
+    "lower_body_changed_pixels_per_step": [
+      287,
+      225,
+      295,
+      329,
+      264,
+      345,
+      268,
+      470
+    ],
+    "unique_frames": 8,
+    "no_frame_resizing_in_master": true,
+    "feet_not_frozen": true
+  },
+  "female_right": {
+    "source_sha256": "c61737eb139ec3af53e97de9d40ec7552c378fe92f756b15e686007d90e2a3b0",
+    "atlas_sha256": "145900557e52219a38c36a9d788ff9fdbef5ebf4e0f1932cd84d3ecaaafc58b7",
+    "frame_count": 8,
+    "cell_size": [
+      80,
+      80
+    ],
+    "frames": [
+      {
+        "frame": 0,
+        "bounds": [
+          28,
+          8,
+          51,
+          72
+        ],
+        "removed_exterior_pixels": 0,
+        "isolated_body_white_repairs": [],
+        "original_duration_ms": 150,
+        "alpha_sha256": "0baa0f2297713d2fa2c67ef16156606b766acbc322908198174f698b67c8a02e"
+      },
+      {
+        "frame": 1,
+        "bounds": [
+          27,
+          9,
+          56,
+          72
+        ],
+        "removed_exterior_pixels": 0,
+        "isolated_body_white_repairs": [],
+        "original_duration_ms": 150,
+        "alpha_sha256": "5e29603b2a453398aa4e500cb2bd7ae56c46c60c2ecdced9d231dd0dee617c72"
+      },
+      {
+        "frame": 2,
+        "bounds": [
+          25,
+          10,
+          55,
+          72
+        ],
+        "removed_exterior_pixels": 0,
+        "isolated_body_white_repairs": [],
+        "original_duration_ms": 150,
+        "alpha_sha256": "79a85c7cba0670b92df54766f75604b6c5010ed00b6f09391598eb2633cab040"
+      },
+      {
+        "frame": 3,
+        "bounds": [
+          27,
+          9,
+          51,
+          72
+        ],
+        "removed_exterior_pixels": 0,
+        "isolated_body_white_repairs": [],
+        "original_duration_ms": 150,
+        "alpha_sha256": "b369da31560f6053e52e1d7c4de8be413fa2ce1d5fa7c44e8ef40e42b963cb01"
+      },
+      {
+        "frame": 4,
+        "bounds": [
+          28,
+          8,
+          50,
+          72
+        ],
+        "removed_exterior_pixels": 0,
+        "isolated_body_white_repairs": [],
+        "original_duration_ms": 150,
+        "alpha_sha256": "727d0dbd5d458e6a3bc26e50a1947a5252fd959dc5b934eb14ec34f3b50f3ab4"
+      },
+      {
+        "frame": 5,
+        "bounds": [
+          28,
+          8,
+          50,
+          71
+        ],
+        "removed_exterior_pixels": 0,
+        "isolated_body_white_repairs": [],
+        "original_duration_ms": 150,
+        "alpha_sha256": "dd11b0800b4e798840dd1127a12b48c93d1efebd8928b36589630a4a731ed10e"
+      },
+      {
+        "frame": 6,
+        "bounds": [
+          28,
+          9,
+          56,
+          71
+        ],
+        "removed_exterior_pixels": 0,
+        "isolated_body_white_repairs": [],
+        "original_duration_ms": 150,
+        "alpha_sha256": "41fb22cff1f44c334d5bc98fedf445b378076953bf3291102ff53d50df931289"
+      },
+      {
+        "frame": 7,
+        "bounds": [
+          24,
+          10,
+          56,
+          72
+        ],
+        "removed_exterior_pixels": 0,
+        "isolated_body_white_repairs": [],
+        "original_duration_ms": 150,
+        "alpha_sha256": "a1355e7463819843342f01cd3371bc9af0a7a4865998c580b069b29450522996"
+      }
+    ],
+    "lower_body_changed_pixels_per_step": [
+      413,
+      330,
+      358,
+      348,
+      298,
+      413,
+      386,
+      461
+    ],
+    "unique_frames": 8,
+    "no_frame_resizing_in_master": true,
+    "feet_not_frozen": true
+  },
+  "female_down_right": {
+    "source_sha256": "9bd20371448a460795c6b5310f488f1caff37f4b461af292a1588034917a1c2d",
+    "atlas_sha256": "80d0971689146fed99765cf71f25b543d14f56620a6441de2b791c84a58f83be",
+    "frame_count": 8,
+    "cell_size": [
+      80,
+      80
+    ],
+    "frames": [
+      {
+        "frame": 0,
+        "bounds": [
+          29,
+          8,
+          54,
+          72
+        ],
+        "removed_exterior_pixels": 0,
+        "isolated_body_white_repairs": [],
+        "original_duration_ms": 150,
+        "alpha_sha256": "befbfddc0506ab6732b384fe1de0e2ef7836ca397b5a58a5c90915846901f58d"
+      },
+      {
+        "frame": 1,
+        "bounds": [
+          25,
+          10,
+          56,
+          72
+        ],
+        "removed_exterior_pixels": 0,
+        "isolated_body_white_repairs": [],
+        "original_duration_ms": 150,
+        "alpha_sha256": "dde1780fc0c121f7242364f1e20468a66f59312392cfe7f78b9b2edc980b489a"
+      },
+      {
+        "frame": 2,
+        "bounds": [
+          25,
+          9,
+          53,
+          72
+        ],
+        "removed_exterior_pixels": 0,
+        "isolated_body_white_repairs": [],
+        "original_duration_ms": 150,
+        "alpha_sha256": "8f916fe3aed8fde2a2cd38edc0caa691d158d6913cbd5f484c304f7892ed6b20"
+      },
+      {
+        "frame": 3,
+        "bounds": [
+          28,
+          8,
+          53,
+          72
+        ],
+        "removed_exterior_pixels": 0,
+        "isolated_body_white_repairs": [],
+        "original_duration_ms": 150,
+        "alpha_sha256": "21c7fdf4fd83451ba357fd7fc73af2dd3bbd4b8a15c457fb2f9e99b0b2d9f4d5"
+      },
+      {
+        "frame": 4,
+        "bounds": [
+          29,
+          9,
+          54,
+          73
+        ],
+        "removed_exterior_pixels": 0,
+        "isolated_body_white_repairs": [],
+        "original_duration_ms": 150,
+        "alpha_sha256": "c08094c69908a8d233114c5337acb88c2a1e356ddcda78e1c0801fdef34a04d4"
+      },
+      {
+        "frame": 5,
+        "bounds": [
+          28,
+          9,
+          53,
+          74
+        ],
+        "removed_exterior_pixels": 0,
+        "isolated_body_white_repairs": [],
+        "original_duration_ms": 150,
+        "alpha_sha256": "f87c344a6f6b98c80b0b2d51daae67d2b1ea17723fb7f3eb4035f371dcd7b8a5"
+      },
+      {
+        "frame": 6,
+        "bounds": [
+          26,
+          8,
+          56,
+          73
+        ],
+        "removed_exterior_pixels": 0,
+        "isolated_body_white_repairs": [],
+        "original_duration_ms": 150,
+        "alpha_sha256": "9cc4da08d1d8cd8a4da733de5ea2747d7d6c95eeca9a17560ba11caaca8b41ef"
+      },
+      {
+        "frame": 7,
+        "bounds": [
+          23,
+          9,
+          59,
+          73
+        ],
+        "removed_exterior_pixels": 0,
+        "isolated_body_white_repairs": [],
+        "original_duration_ms": 150,
+        "alpha_sha256": "f41a726d0fe35f8f628cb6e81f5164f1858e1da9ca8d980048cdd1308bff10ba"
+      }
+    ],
+    "lower_body_changed_pixels_per_step": [
+      412,
+      339,
+      391,
+      368,
+      263,
+      369,
+      331,
+      467
+    ],
+    "unique_frames": 8,
+    "no_frame_resizing_in_master": true,
+    "feet_not_frozen": true
+  }
+}

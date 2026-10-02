@@ -1,0 +1,73 @@
+{
+  "retrieved": "2026-10-02",
+  "receipts": {
+    "cottonwood": {
+      "request_id": "0d95e2ed-5580-404e-93b9-a1e620699fa1",
+      "status": "succeeded",
+      "mode": "async",
+      "output_status": "available",
+      "credit_cost": 1,
+      "balance_cost": 0.18,
+      "charged": true,
+      "http_status": 200,
+      "error": null,
+      "completed_at": 1790907609,
+      "output_count": 1,
+      "outputs": [
+        {
+          "position": 0,
+          "media_type": "image/png",
+          "available": true,
+          "url_expires_at": 1790944925,
+          "retained_until": 1790993918
+        }
+      ]
+    },
+    "wall": {
+      "request_id": "6120a8f4-241a-4c74-bc2c-ad751fa294f1",
+      "status": "succeeded",
+      "mode": "async",
+      "output_status": "available",
+      "credit_cost": 2,
+      "balance_cost": 0.06,
+      "charged": true,
+      "http_status": 200,
+      "error": null,
+      "completed_at": 1790907534,
+      "output_count": 1,
+      "outputs": [
+        {
+          "position": 0,
+          "media_type": "image/png",
+          "available": true,
+          "url_expires_at": 1790944925,
+          "retained_until": 1790993920
+        }
+      ]
+    },
+    "shrub": {
+      "request_id": "1adff81d-94ea-4fa9-bef5-f24ffdf4bbcf",
+      "status": "succeeded",
+      "mode": "async",
+      "output_status": "available",
+      "credit_cost": 2,
+      "balance_cost": 0.06,
+      "charged": true,
+      "http_status": 200,
+      "error": null,
+      "completed_at": 1790907536,
+      "output_count": 1,
+      "outputs": [
+        {
+          "position": 0,
+          "media_type": "image/png",
+          "available": true,
+          "url_expires_at": 1790944925,
+          "retained_until": 1790993924
+        }
+      ]
+    }
+  },
+  "known_successful_cost_usd": 0.3,
+  "total_with_first_pass_usd": 1.44
+}

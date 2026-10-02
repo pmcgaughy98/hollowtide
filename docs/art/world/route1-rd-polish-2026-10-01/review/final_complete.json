@@ -1,0 +1,47 @@
+{
+  "results": [
+    {
+      "effective_time_scale": 0,
+      "format": "jpeg",
+      "frame": {
+        "frames_drawn": 14683,
+        "physics_frames": 14698,
+        "process_frames": 14682
+      },
+      "height": 648,
+      "image_frame": 14682,
+      "instance": "route-final-review",
+      "mime": "image/jpeg",
+      "missing": [],
+      "ok": true,
+      "op": "GameProbe",
+      "paused": false,
+      "provenance": {
+        "source": "runtime",
+        "target": {
+          "instance": "route-final-review",
+          "kind": "game"
+        }
+      },
+      "requestId": "mcp-42a2687b-6563-4ac6-829d-1c4e171f7fa2",
+      "source_height": 648,
+      "source_width": 1152,
+      "suspended": true,
+      "time_scale": 1,
+      "transport": "summer",
+      "values": {
+        "/root/FirstRoutePrototype:report_done": true,
+        "/root/FirstRoutePrototype:reported_calls": true,
+        "/root/FirstRoutePrototype:reported_water_mark": true
+      },
+      "width": 1152
+    }
+  ],
+  "skippedCount": 0,
+  "status": "ok",
+  "stopOnError": true,
+  "undoGroup": false,
+  "requestId": "mcp-42a2687b-6563-4ac6-829d-1c4e171f7fa2",
+  "terminalState": "applied",
+  "appliedSeq": 219
+}

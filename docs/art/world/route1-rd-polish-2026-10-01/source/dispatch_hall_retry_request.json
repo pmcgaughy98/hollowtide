@@ -1,0 +1,16 @@
+{
+  "request": {
+    "width": 128,
+    "height": 128,
+    "prompt_style": "rd_pro__default",
+    "remove_bg": true,
+    "upload_outputs": true,
+    "num_images": 1,
+    "reference_images": [
+      "source/approved_front_house: office_front_original.png"
+    ],
+    "prompt": "SINGLE COMPLETE CONNECTED BUILDING SPRITE, one view, one building, NOT a sprite sheet and NOT separate roof/wall pieces. Build a modest two-storey courier Dispatch Hall in the exact crisp pixel-art material style and straight south-facing overhead perspective of the reference house. Keep its roof connected to its walls. Show the entire building from roof ridge to ground in the middle of a square canvas with 8 pixels of transparent padding on every side. A working post office for runners, weathered rust-red brick ground floor, timber-framed muted tan upper floor, blue-grey shingle roof visible from above. Front-facing centered wide open doorway with small covered porch, a map route board mounted beside the entrance, small partner water trough at the left corner, three dots on a plaque above the door. About 96 native pixels wide, fit beside a 30-pixel-tall chibi courier. Upright front wall posts, horizontal foundation and eaves, no angled side wall. Restrained river-frontier colors and upper-left daylight. One connected intact full building only; no text, no extra houses, no floor tile, no checkerboard."
+  },
+  "rejected_first_request": "00c184f0-9dc0-4f21-b09b-bb937adea604",
+  "reason": "Output split the roof and walls into separate views and cropped the upper piece."
+}

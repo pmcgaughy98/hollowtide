@@ -241,6 +241,15 @@ enum Delivery { PROJECTILE, CONTACT }
 ## glass meltdown flood. Its script needs erupt(start, end, px, arrive, sustain),
 ## the same call as attack_river.
 @export var signature_effect: PackedScene
+
+## The signature's own stage (Preston, 2026-10-01): a full scene painted for
+## this move, shown in place of the river while it plays. 448x256, drawn at 3x,
+## so it covers the screen with room for camera shots that pull back.
+@export var signature_stage: Texture2D
+
+## The row of the stage painting (in its own pixels) where the far creature
+## stands. The painting is shifted so this row meets that creature's feet.
+@export var signature_stage_floor_y: int = 128
 ## Seconds the scene stays lit after the frames end, while the effect cools.
 @export var signature_linger: float = 2.4
 

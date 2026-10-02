@@ -40,6 +40,15 @@ var _party_buttons: Array[Button] = []
 
 
 func _ready() -> void:
+	# Keep the camera inside the route, including the dispatch starting edge.
+	var camera: Camera2D = $Player/Camera2D
+	camera.limit_left = 0
+	camera.limit_top = 0
+	camera.offset = Vector2.ZERO
+	camera.position = Vector2(0, -84)
+	camera.limit_right = 640
+	camera.limit_bottom = 384
+	camera.reset_smoothing()
 	# Route 1's music (Preston's "Two-Note Call"); steps aside for battles.
 	var music := AreaMusic.new()
 	music.name = "RouteMusic"
@@ -351,6 +360,13 @@ func _build_hud() -> void:
 	top.custom_minimum_size = Vector2(530, 62)
 	top.add_theme_stylebox_override("panel", _panel_style())
 	layer.add_child(top)
+	# Keep the hall roof visible beside the route readout.
+	top.set_anchors_preset(Control.PRESET_TOP_RIGHT)
+	top.offset_left = -542
+	top.offset_top = 12
+	top.offset_right = -12
+	top.offset_bottom = 74
+	top.grow_horizontal = Control.GROW_DIRECTION_BEGIN
 	var top_lines := VBoxContainer.new()
 	top.add_child(top_lines)
 	_objective = Label.new()
@@ -365,9 +381,9 @@ func _build_hud() -> void:
 	_hint = Label.new()
 	_hint.set_anchors_preset(Control.PRESET_BOTTOM_WIDE)
 	_hint.offset_left = 18
-	_hint.offset_top = -182
+	_hint.offset_top = -38
 	_hint.offset_right = -18
-	_hint.offset_bottom = -154
+	_hint.offset_bottom = -12
 	_hint.add_theme_font_override("font", ROUTE_READOUT_FONT)
 	_hint.add_theme_font_size_override("font_size", 14)
 	layer.add_child(_hint)
@@ -375,9 +391,11 @@ func _build_hud() -> void:
 	_panel = PanelContainer.new()
 	_panel.set_anchors_preset(Control.PRESET_BOTTOM_WIDE)
 	_panel.offset_left = 18
-	_panel.offset_top = -150
+	_panel.offset_top = -186
 	_panel.offset_right = -18
 	_panel.offset_bottom = -18
+	# Long dialogue and report buttons expand upward, keeping Continue on screen.
+	_panel.grow_vertical = Control.GROW_DIRECTION_BEGIN
 	_panel.add_theme_stylebox_override("panel", _panel_style())
 	layer.add_child(_panel)
 	var dialogue_lines := VBoxContainer.new()

@@ -42,6 +42,10 @@ const FIRE: Array[Color] = [EMBER, ORANGE, BRIGHT, PALE]
 ## fire rings racing out across the ground, glass globs and slag thrown up,
 ## the hardest shake and an aftershock. The flood then spreads as before.
 @export var burst: Texture2D        ## the explosion at the target (molten_cannon/proj_f01)
+## The explosion as an animated Retro Diffusion VFX sheet (4x4 frames). When
+## set it replaces `burst` and the drawn crown (2026-10-01: VFX lead now).
+@export var impact_vfx: Texture2D
+@export var impact_vfx_scale := 3
 @export var crown_burst: Texture2D  ## the molten crown bursting up (meltdown/crown)
 @export var splash: Texture2D       ## the crown falling back (meltdown/splash_crown)
 @export var ground_ring: Texture2D  ## a flat fire ring on the ground (furnace_roar/f5)
@@ -244,11 +248,21 @@ func _impact() -> void:
 			shake.call(18))
 	# The explosion at the body, then the crown of glass bursting up from the
 	# ground around it, swelling one size, then falling back as a splash.
-	if burst != null:
+	if impact_vfx != null:
+		var v := VfxSprite.new()
+		v.texture = impact_vfx
+		v.hframes = 4
+		v.vframes = 4
+		v.fps = 20.0
+		v.scale = Vector2.ONE * _px * impact_vfx_scale
+		v.position = (hit / _px).round() * _px
+		_front.add_child(v)
+		await get_tree().create_timer(0.3).timeout
+	elif burst != null:
 		var b := _piece(burst, hit, burst_scale + 1)
 		await get_tree().create_timer(0.14).timeout
 		b.queue_free()
-	if crown_burst != null:
+	if crown_burst != null and impact_vfx == null:
 		# The crown stands on the ground, so it reaches up; one size smaller than
 		# the burst keeps it below the HP card.
 		var c := _piece(crown_burst, _b, burst_scale - 1, true)

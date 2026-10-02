@@ -1,0 +1,40 @@
+{
+  "source": "C:\\Users\\pmcga\\OneDrive\\Documents\\HollowTide Sprites\\Character\\Female.jpg",
+  "input_sha256": "f64d2272a3d8cc86cba53ed821b2c2c9bc79c02ee591f4ba1601d6dbd1d7f2e4",
+  "parameters": {
+    "width": 80,
+    "height": 80,
+    "input_image": "female_down_input_native80.png",
+    "num_images": 1,
+    "prompt_style": "rd_advanced_animation__rotate",
+    "return_spritesheet": true,
+    "bypass_prompt_expansion": true,
+    "prompt": "Eight directional views of this exact female chibi courier, standing neutrally with a large brown-haired head, side ponytail and pink bow. Preserve the dusty pink jacket, dark shirt, teal skirt, brown stockings and boots, brass buckles and olive crossbody satchel on its correct shoulder. Keep the same compact chibi proportions, outfit and hair across all views. Matching height, camera elevation, crisp pixel grid and palette. Full body stays inside every cell; no magenta background, no redesign, no tall adult proportions.",
+    "remove_bg": true,
+    "upload_outputs": true
+  },
+  "estimate": {
+    "created_at": 1790901164,
+    "credit_cost": 0,
+    "balance_cost": 0.1,
+    "output_images": [],
+    "base64_images": [],
+    "output_urls": [],
+    "model": "check_cost",
+    "remaining_credits": 0,
+    "remaining_balance": 8.570000000000004,
+    "resolved_prompt_style": "rd_advanced_animation__rotate",
+    "used_input_image": true,
+    "reference_images_count": 0,
+    "used_extra_input_image": false,
+    "used_input_palette": false,
+    "used_strength": false,
+    "effective_timeout_seconds": 180
+  },
+  "job": {
+    "status": "accepted",
+    "task_id": "1673a020-4f0d-434a-abc7-61a84775307b",
+    "request_id": "1673a020-4f0d-434a-abc7-61a84775307b",
+    "message": "Inference accepted. Poll GET /v2/inferences/tasks/{task_id} for status."
+  }
+}

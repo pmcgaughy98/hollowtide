@@ -1,13 +1,13 @@
-[gd_resource type="Resource" script_class="CreatureData" load_steps=8 format=3]
+[gd_resource type="Resource" script_class="CreatureData" format=3]
 
 [ext_resource type="Script" path="res://scripts/creature_data.gd" id="1_script"]
-[ext_resource type="Texture2D" path="res://assets/sprites/creatures/slagglass_head_right.png" id="2_sprite"]
+[ext_resource type="Texture2D" path="res://assets/sprites/creatures/rd_material_match_2026_10_01/slagglass_front.png" id="2_sprite"]
 [ext_resource type="Resource" path="res://data/moves/slagglass_glass_spur.tres" id="3_move"]
 [ext_resource type="Resource" path="res://data/moves/slagglass_shield_flare.tres" id="4_move"]
 [ext_resource type="Resource" path="res://data/moves/slagglass_furnace_shard.tres" id="5_move"]
 [ext_resource type="Resource" path="res://data/moves/slagglass_glassburst.tres" id="6_move"]
 
-[ext_resource type="Texture2D" path="res://assets/sprites/creatures/slagglass_true_rear.png" id="7_back"]
+[ext_resource type="Texture2D" path="res://assets/sprites/creatures/rd_material_match_2026_10_01/slagglass_back.png" id="7_back"]
 
 [resource]
 script = ExtResource("1_script")
@@ -21,5 +21,6 @@ base_hp = 60
 base_attack = 60
 base_defense = 60
 base_speed = 60
+battle_size = 1.45
 idle_breath = 0.018
 idle_period = 2.3

@@ -1,0 +1,12 @@
+{
+  "tool_id": "outpainting",
+  "input_image": "source/roof_original.png",
+  "expand_top": 32,
+  "expand_left": 0,
+  "expand_right": 0,
+  "expand_bottom": 0,
+  "soft_inpaint": false,
+  "prompt": "Complete only the missing UPPER ROOF of this exact brick-and-timber courier dispatch building. Its blue-gray tiled main roof is currently cut off at the top: continue those same roof tiles upward and finish a closed sloping roof with a continuous ridge, intact dark outline, and a little transparent space above it. The complete roof must remain within the expanded canvas. One connected building, same front-facing orthogonal RPG perspective, same width and same facade, three-dot sign, door, porch, brickwork and route board. Muted blue-gray slate, existing warm timber and brick palette, native pixel-art clusters matching the reference, crisp edges, upper-left light. No detached roof, no new floors, no people, no trees, no ground, no background scenery, no roof cut off by image edge.",
+  "seed": 2026100201,
+  "input_source": "res://assets/sprites/world/route1_rd_2026_10_01/dispatch_hall.png"
+}

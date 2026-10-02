@@ -1,0 +1,125 @@
+from pathlib import Path
+from PIL import Image, ImageDraw
+import json, hashlib, re, shutil
+import numpy as np
+
+p=Path(__file__).parent
+project=Path('C:/Users/pmcga/dev/hollowtide')
+out=p/'prepared';out.mkdir(exist_ok=True)
+previous_manifest=json.loads((p/'manifest.json').read_text()) if (p/'manifest.json').exists() else []
+previous_hashes={r['name']:r['sha256'] for r in previous_manifest}
+archive=project/'docs/art/world/route1-unique-props-2026-10-02'
+runtime=project/'assets/sprites/world/route1_rd_2026_10_02'
+runtime.mkdir(parents=True,exist_ok=True)
+source=project/'assets/sprites/world/route1_rd_2026_10_01'
+records=[]
+def record(name,im,original,notes):
+    target=out/(name+'.png');im.save(target)
+    bounds=im.getbbox()
+    assert bounds and bounds[0]>0 and bounds[1]>0 and bounds[2]<im.width and bounds[3]<im.height,(name,bounds)
+    records.append({'name':name,'file':str(target),'runtime':'res://assets/sprites/world/route1_rd_2026_10_02/'+name+'.png','size':im.size,'bounds':bounds,'sha256':hashlib.sha256(target.read_bytes()).hexdigest(),'source':original,'preparation':notes})
+
+# Complete a connected upper roof from the existing column-aligned slate tiles.
+# Outpaint's detached triangular cap supplied the roof profile reference only.
+old=Image.open(p/'roof_original.png').convert('RGBA')
+roof=Image.new('RGBA',(136,168))
+mask=Image.new('L',roof.size);d=ImageDraw.Draw(mask)
+d.polygon([(9,45),(66,5),(126,45)],fill=255)
+tiles=Image.new('RGBA',roof.size)
+for y in range(4,47):
+    for x in range(8,128):
+        sx=min(118,max(17,x))
+        sy=10+((y-42)%12)
+        tiles.putpixel((x,y),old.getpixel((sx,sy)))
+roof.paste(tiles,(0,0),mask)
+# Every source pixel from row 14 onward, including facade and ground contact, is exact.
+roof.paste(old.crop((0,14,136,136)),(0,46))
+d=ImageDraw.Draw(roof)
+d.line([(9,44),(66,5),(126,44)],fill=(44,54,54,255),width=1)
+d.line([(66,7),(66,45)],fill=(50,65,70,255),width=1)
+assert np.array_equal(np.array(roof)[46:],np.array(old)[14:])
+record('dispatch_hall_complete',roof,'dispatch_hall.png','Connected roof cap sampled from original slate columns; no filtering. Original rows 14..135 restored exactly at y+32; threshold and footprint unchanged; new offset (0,-70).')
+
+tree=Image.open(p/'tree_original.png').convert('RGBA')
+tree_names=['cottonwood_north','cottonwood_ridge','cottonwood_east','cottonwood_south','cottonwood_west','cottonwood_office_grove','cottonwood_bank_bend']
+tree_dims=[(112,62),(107,65),(115,61),(110,59),(116,64),(106,61),(113,65)]
+for i,(name,(w,h)) in enumerate(zip(tree_names,tree_dims)):
+    im=Image.new('RGBA',tree.size)
+    im.alpha_composite(tree.crop((0,0,112,62)).resize((w,h),Image.Resampling.NEAREST),((112-w)//2,62-h))
+    im.paste(tree.crop((0,62,112,96)),(0,62))
+    # A small existing leaf clump varies the ridge silhouettes without adding colors.
+    if i>0:
+        clump=tree.crop((40,13,48,21))
+        places=[(43,15),(60,14),(34,21),(52,11),(38,18),(59,18)]
+        im.alpha_composite(clump,places[i-1])
+    assert np.array_equal(np.array(im)[62:],np.array(tree)[62:])
+    record(name,im,'cottonwood_complete.png',f'Canopy nearest sampling {w}x{h}, centered at unchanged crown base y62, plus existing leaf-clump placement {i}. All rows 62..95 and original palette preserved. Native 112x96 canvas and foot remain.')
+
+shrub=Image.open(p/'shrub_original.png').convert('RGBA')
+for i,(w,h) in enumerate([(32,23),(34,23),(30,25),(33,21),(31,24),(35,22),(30,22),(33,25)],1):
+    im=Image.new('RGBA',shrub.size)
+    im.alpha_composite(shrub.crop((0,0,32,23)).resize((w,h),Image.Resampling.NEAREST),((32-w)//2,23-h))
+    im.paste(shrub.crop((0,23,32,32)),(0,23))
+    if i>1:
+        # Reuse a three-pixel-wide leaf cluster at an individual position.
+        im.alpha_composite(shrub.crop((9,10,13,14)),(10+(i%3)*3,8+(i%4)*2))
+    assert np.array_equal(np.array(im)[23:],np.array(shrub)[23:])
+    record('bank_shrub_'+str(i),im,'shrub_polished.png',f'Canopy {w}x{h} and individual original leaf cluster; bottom nine rows unchanged. Palette and native grid retained.')
+
+reeds=Image.open(p/'reeds_original.png').convert('RGBA')
+edited=Image.open(p/'reeds_raw.png').convert('RGBA')
+pal=np.unique(np.array(reeds)[np.array(reeds)[:,:,3]>0,:3],axis=0).astype(np.int32)
+arr=np.array(edited);rgb=arr[:,:,:3].astype(np.int32)
+for y,x in np.argwhere(arr[:,:,3]>0):
+    arr[y,x,:3]=pal[np.argmin(np.sum((pal-rgb[y,x])**2,axis=1))]
+edited=Image.fromarray(arr)
+for i,(kind,w,h) in enumerate([('original',32,32),('edit',32,32),('original',30,30),('edit',34,34),('original',34,31),('edit',30,30)],1):
+    base=reeds if kind=='original' else edited
+    im=Image.new('RGBA',(32,32))
+    if kind=='edit':
+        base2=Image.new('RGBA',(32,32));base2.alpha_composite(base,(0,3));base=base2
+    upper=base.crop((0,0,32,25)).resize((w,h-7),Image.Resampling.NEAREST)
+    im.alpha_composite(upper,((32-w)//2,25-upper.height))
+    im.paste(base.crop((0,25,32,32)),(0,25))
+    record('bank_reeds_'+str(i),im,'reeds.png'+(' + RD edited reeds' if kind=='edit' else ''),f'Individual stem arrangement {kind}; {w}x{h}; existing palette; aligned base and unchanged placement.')
+
+wall=Image.open(p/'wall_original.png').convert('RGBA')
+record('retaining_wall_west',wall,'retaining_wall_polished.png','Preserved original wall as west segment.')
+wall2=wall.copy()
+wall2.alpha_composite(wall.crop((38,19,45,24)),(8,19))
+wall2.paste(wall.crop((19,9,25,16)),(40,9))
+wall2.paste(wall.crop((43,10,48,16)),(18,10))
+record('retaining_wall_east',wall2,'retaining_wall_polished.png','Individual native stone faces and moss clusters transplanted from the original. Same silhouette, shared wall ends, palette and base; no displacement. RD wall edit preserved as rejected style reference.')
+
+hashes=[r['sha256'] for r in records]
+assert len(hashes)==len(set(hashes)), 'A runtime prop still duplicates another texture exactly'
+for r in records:
+    target=runtime/(r['name']+'.png')
+    if target.exists():
+        current_hash=hashlib.sha256(target.read_bytes()).hexdigest()
+        assert current_hash in [r['sha256'],previous_hashes.get(r['name'])],target
+    shutil.copy2(r['file'],target)
+for folder in ['raw','prepared','source','review']:(archive/folder).mkdir(parents=True,exist_ok=True)
+for f in p.glob('*_raw.png'):shutil.copy2(f,archive/'raw'/f.name)
+for f in p.glob('*_original.png'):shutil.copy2(f,archive/'source'/f.name)
+for f in out.glob('*.png'):shutil.copy2(f,archive/'prepared'/f.name)
+shutil.copy2(p/'build_props.py',archive/'source/native_preparation.py.txt')
+shutil.copy2(p/'downloads.json',archive/'source/download_receipts.json')
+shutil.copy2(p/'scene_before.txt',archive/'source/scene_before.txt')
+(p/'manifest.json').write_text(json.dumps(records,indent=2),encoding='utf-8')
+shutil.copy2(p/'manifest.json',archive/'source/asset_manifest.json')
+
+board=Image.new('RGB',(700,680),(65,82,73));draw=ImageDraw.Draw(board)
+for i,r in enumerate(records):
+    im=Image.open(r['file']).convert('RGBA');scale=2 if im.width>64 else 3
+    im=im.resize((im.width*scale,im.height*scale),Image.Resampling.NEAREST)
+    x=(i%5)*140;y=(i//5)*136
+    if i==0:continue
+    im.thumbnail((134,112),Image.Resampling.NEAREST)
+    board.paste(im,(x+(140-im.width)//2,y+19),im)
+    draw.text((x+3,y+3),r['name'].replace('cottonwood_','tree_').replace('retaining_wall_','wall_'),fill='white')
+board.save(p/'unique_prop_review.png');shutil.copy2(p/'unique_prop_review.png',archive/'review/unique_prop_review.png')
+preview=Image.new('RGBA',roof.size,(65,82,73,255));preview.alpha_composite(roof)
+preview.resize((408,504),Image.Resampling.NEAREST).convert('RGB').save(p/'roof_complete_review.png')
+shutil.copy2(p/'roof_complete_review.png',archive/'review/roof_complete_review.png')
+print(json.dumps({'count':len(records),'manifest':str(p/'manifest.json'),'all_unique':True,'tree_trunks_preserved':True,'shrub_trunks_preserved':True,'hall_facade_preserved':True}))

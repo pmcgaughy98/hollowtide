@@ -1,0 +1,11 @@
+{
+  "date": "2026-10-02",
+  "request": {
+    "width": 96,
+    "height": 96,
+    "prompt_style": "rd_pro__default",
+    "prompt": "One small weathered courier dispatch office overworld sprite for Hollowtide, drawn for an orthographic top-down RPG map with a south-facing entrance. Camera looks down from directly in front and above the building. Straight-on symmetric front facade, both vertical corner posts upright, front foundation and roof eaves exactly horizontal, roof ridge horizontal, roof planes recede upwards. Door centered on the front wall, dark open doorway and one small centered stone threshold aligned with the north-south walking axis. The entire front wall is seen straight on and NO left or right side wall is visible. Absolutely not an isometric or rotated building. Warm muted brown timber posts, pale worn tan plaster, cool slate blue-grey shingle roof with readable rows and restrained pixel clusters. One small warm window on each side of the door. Small plain timber plaque above door with three little pale route dots, no words. Cohesive compact crisp native pixel art, softly shaded volume, upper-left daylight, natural loess and cottonwood riverbank palette, built to sit beside a brown-haired teal-jacket chibi courier. Full roof ridge, eaves and foundation entirely within canvas, generous transparent margin of 6 pixels on every side, no ground tile, no surrounding props, no checkerboard background. Flat rectangular footprint, one storey."
+  },
+  "estimated_cost_usd": 0.18,
+  "brief": "Preston requested a south-facing doorway and building perspective consistent with orthogonal movement, using Nexomon views as perspective references while retaining Hollowtide style."
+}

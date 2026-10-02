@@ -1,0 +1,20 @@
+{
+  "parameters": {
+    "width": 80,
+    "height": 80,
+    "input_image": "male_right_rotation_input_native80.png",
+    "num_images": 1,
+    "prompt_style": "rd_advanced_animation__walking",
+    "frames_duration": 8,
+    "return_spritesheet": false,
+    "bypass_prompt_expansion": true,
+    "prompt": "Seamless relaxed walking cycle of this exact male chibi courier. Keep RIGHT profile facing screen right throughout. Clearly alternate left and right boot contact strides, with close-foot passing poses between contacts and gentle opposite arm swing. Small natural torso bob and restrained satchel follow-through. Preserve the large tousled brown-haired head, brass forehead goggles, short teal jacket, dark shirt, tan trousers, brown boots and olive-brown crossbody satchel. Keep the bag and its diagonal strap present wherever the current view shows them, on the same anatomical side. Same compact big-head chibi proportions, pixel grid and palette. Entire body stays inside the frame. Fixed camera and stable center, transparent background. No turning, running, jumping, outfit changes, disappearing bag or extra props. Last stride joins naturally to first.",
+    "remove_bg": true,
+    "upload_outputs": true
+  },
+  "task_id": "f500a986-d12e-4710-9914-ce6fc89fbbef",
+  "status": "succeeded",
+  "actual_cost_usd": 0.14,
+  "model": "rd_fast",
+  "output": "male_right_walk_original.gif"
+}

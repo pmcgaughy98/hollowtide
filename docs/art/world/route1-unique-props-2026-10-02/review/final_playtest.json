@@ -1,0 +1,1279 @@
+{
+  "scene": "res://scenes/first_route_prototype.tscn",
+  "scene_sha256": "b986a617ddf384d9b09d7594dedf270fcb44b165a570e3a21ae22bc59cd5f1c2",
+  "instance": "route-regional-final2",
+  "passed": true,
+  "method": "Normal movement actions and E/Down/Enter. No teleports or direct quest-state edits. Physics stepping from suspended runtime. Both tieoffs visible; river corridor traversed and whole assignment returned.",
+  "states": [
+    {
+      "tag": "start",
+      "frame": {
+        "frames_drawn": 2988,
+        "physics_frames": 3007,
+        "process_frames": 2987
+      },
+      "values": {
+        "/root/FirstRoutePrototype/Player:position": "Vector2(48, 192)",
+        "/root/FirstRoutePrototype:delivered": false,
+        "/root/FirstRoutePrototype:heard_calls": false,
+        "/root/FirstRoutePrototype:marker_restored": false,
+        "/root/FirstRoutePrototype:pouch_accepted": false,
+        "/root/FirstRoutePrototype:report_done": false,
+        "/root/FirstRoutePrototype:reported_calls": false,
+        "/root/FirstRoutePrototype:reported_water_mark": false,
+        "/root/FirstRoutePrototype:water_mark_observed": false
+      }
+    },
+    {
+      "tag": "dispatch",
+      "frame": {
+        "frames_drawn": 3029,
+        "physics_frames": 3049,
+        "process_frames": 3028
+      },
+      "values": {
+        "/root/FirstRoutePrototype/Player:position": "Vector2(80, 192)",
+        "/root/FirstRoutePrototype:delivered": false,
+        "/root/FirstRoutePrototype:heard_calls": false,
+        "/root/FirstRoutePrototype:marker_restored": false,
+        "/root/FirstRoutePrototype:pouch_accepted": false,
+        "/root/FirstRoutePrototype:report_done": false,
+        "/root/FirstRoutePrototype:reported_calls": false,
+        "/root/FirstRoutePrototype:reported_water_mark": false,
+        "/root/FirstRoutePrototype:water_mark_observed": false
+      }
+    },
+    {
+      "tag": "accept",
+      "frame": {
+        "frames_drawn": 3044,
+        "physics_frames": 3064,
+        "process_frames": 3043
+      },
+      "values": {
+        "/root/FirstRoutePrototype/Player:position": "Vector2(80, 192)",
+        "/root/FirstRoutePrototype:delivered": false,
+        "/root/FirstRoutePrototype:heard_calls": false,
+        "/root/FirstRoutePrototype:marker_restored": false,
+        "/root/FirstRoutePrototype:pouch_accepted": true,
+        "/root/FirstRoutePrototype:report_done": false,
+        "/root/FirstRoutePrototype:reported_calls": false,
+        "/root/FirstRoutePrototype:reported_water_mark": false,
+        "/root/FirstRoutePrototype:water_mark_observed": false
+      }
+    },
+    {
+      "tag": "close_accept",
+      "frame": {
+        "frames_drawn": 3060,
+        "physics_frames": 3080,
+        "process_frames": 3059
+      },
+      "values": {
+        "/root/FirstRoutePrototype/Player:position": "Vector2(80, 192)",
+        "/root/FirstRoutePrototype:delivered": false,
+        "/root/FirstRoutePrototype:heard_calls": false,
+        "/root/FirstRoutePrototype:marker_restored": false,
+        "/root/FirstRoutePrototype:pouch_accepted": true,
+        "/root/FirstRoutePrototype:report_done": false,
+        "/root/FirstRoutePrototype:reported_calls": false,
+        "/root/FirstRoutePrototype:reported_water_mark": false,
+        "/root/FirstRoutePrototype:water_mark_observed": false
+      }
+    },
+    {
+      "tag": "crossing",
+      "frame": {
+        "frames_drawn": 3146,
+        "physics_frames": 3166,
+        "process_frames": 3145
+      },
+      "values": {
+        "/root/FirstRoutePrototype/Player:position": "Vector2(176, 192)",
+        "/root/FirstRoutePrototype:delivered": false,
+        "/root/FirstRoutePrototype:heard_calls": false,
+        "/root/FirstRoutePrototype:marker_restored": false,
+        "/root/FirstRoutePrototype:pouch_accepted": true,
+        "/root/FirstRoutePrototype:report_done": false,
+        "/root/FirstRoutePrototype:reported_calls": false,
+        "/root/FirstRoutePrototype:reported_water_mark": false,
+        "/root/FirstRoutePrototype:water_mark_observed": false
+      }
+    },
+    {
+      "tag": "north_path",
+      "frame": {
+        "frames_drawn": 3231,
+        "physics_frames": 3251,
+        "process_frames": 3230
+      },
+      "values": {
+        "/root/FirstRoutePrototype/Player:position": "Vector2(176, 96)",
+        "/root/FirstRoutePrototype:delivered": false,
+        "/root/FirstRoutePrototype:heard_calls": false,
+        "/root/FirstRoutePrototype:marker_restored": false,
+        "/root/FirstRoutePrototype:pouch_accepted": true,
+        "/root/FirstRoutePrototype:report_done": false,
+        "/root/FirstRoutePrototype:reported_calls": false,
+        "/root/FirstRoutePrototype:reported_water_mark": false,
+        "/root/FirstRoutePrototype:water_mark_observed": false
+      }
+    },
+    {
+      "tag": "at_marker",
+      "frame": {
+        "frames_drawn": 3318,
+        "physics_frames": 3338,
+        "process_frames": 3317
+      },
+      "values": {
+        "/root/FirstRoutePrototype/Player:position": "Vector2(272, 96)",
+        "/root/FirstRoutePrototype:delivered": false,
+        "/root/FirstRoutePrototype:heard_calls": false,
+        "/root/FirstRoutePrototype:marker_restored": false,
+        "/root/FirstRoutePrototype:pouch_accepted": true,
+        "/root/FirstRoutePrototype:report_done": false,
+        "/root/FirstRoutePrototype:reported_calls": false,
+        "/root/FirstRoutePrototype:reported_water_mark": false,
+        "/root/FirstRoutePrototype:water_mark_observed": false
+      }
+    },
+    {
+      "tag": "restore_marker",
+      "frame": {
+        "frames_drawn": 3332,
+        "physics_frames": 3352,
+        "process_frames": 3331
+      },
+      "values": {
+        "/root/FirstRoutePrototype/Player:position": "Vector2(272, 96)",
+        "/root/FirstRoutePrototype:delivered": false,
+        "/root/FirstRoutePrototype:heard_calls": false,
+        "/root/FirstRoutePrototype:marker_restored": true,
+        "/root/FirstRoutePrototype:pouch_accepted": true,
+        "/root/FirstRoutePrototype:report_done": false,
+        "/root/FirstRoutePrototype:reported_calls": false,
+        "/root/FirstRoutePrototype:reported_water_mark": false,
+        "/root/FirstRoutePrototype:water_mark_observed": false
+      }
+    },
+    {
+      "tag": "close_marker",
+      "frame": {
+        "frames_drawn": 3348,
+        "physics_frames": 3368,
+        "process_frames": 3347
+      },
+      "values": {
+        "/root/FirstRoutePrototype/Player:position": "Vector2(272, 96)",
+        "/root/FirstRoutePrototype:delivered": false,
+        "/root/FirstRoutePrototype:heard_calls": false,
+        "/root/FirstRoutePrototype:marker_restored": true,
+        "/root/FirstRoutePrototype:pouch_accepted": true,
+        "/root/FirstRoutePrototype:report_done": false,
+        "/root/FirstRoutePrototype:reported_calls": false,
+        "/root/FirstRoutePrototype:reported_water_mark": false,
+        "/root/FirstRoutePrototype:water_mark_observed": false
+      }
+    },
+    {
+      "tag": "bend",
+      "frame": {
+        "frames_drawn": 3398,
+        "physics_frames": 3418,
+        "process_frames": 3397
+      },
+      "values": {
+        "/root/FirstRoutePrototype/Player:position": "Vector2(320, 96)",
+        "/root/FirstRoutePrototype:delivered": false,
+        "/root/FirstRoutePrototype:heard_calls": false,
+        "/root/FirstRoutePrototype:marker_restored": true,
+        "/root/FirstRoutePrototype:pouch_accepted": true,
+        "/root/FirstRoutePrototype:report_done": false,
+        "/root/FirstRoutePrototype:reported_calls": false,
+        "/root/FirstRoutePrototype:reported_water_mark": false,
+        "/root/FirstRoutePrototype:water_mark_observed": false
+      }
+    },
+    {
+      "tag": "lower_path",
+      "frame": {
+        "frames_drawn": 3520,
+        "physics_frames": 3540,
+        "process_frames": 3519
+      },
+      "values": {
+        "/root/FirstRoutePrototype/Player:position": "Vector2(320, 240)",
+        "/root/FirstRoutePrototype:delivered": false,
+        "/root/FirstRoutePrototype:heard_calls": false,
+        "/root/FirstRoutePrototype:marker_restored": true,
+        "/root/FirstRoutePrototype:pouch_accepted": true,
+        "/root/FirstRoutePrototype:report_done": false,
+        "/root/FirstRoutePrototype:reported_calls": false,
+        "/root/FirstRoutePrototype:reported_water_mark": false,
+        "/root/FirstRoutePrototype:water_mark_observed": false
+      }
+    },
+    {
+      "tag": "at_post",
+      "frame": {
+        "frames_drawn": 3587,
+        "physics_frames": 3607,
+        "process_frames": 3586
+      },
+      "values": {
+        "/root/FirstRoutePrototype/Player:position": "Vector2(392.001, 240)",
+        "/root/FirstRoutePrototype:delivered": false,
+        "/root/FirstRoutePrototype:heard_calls": false,
+        "/root/FirstRoutePrototype:marker_restored": true,
+        "/root/FirstRoutePrototype:pouch_accepted": true,
+        "/root/FirstRoutePrototype:report_done": false,
+        "/root/FirstRoutePrototype:reported_calls": false,
+        "/root/FirstRoutePrototype:reported_water_mark": false,
+        "/root/FirstRoutePrototype:water_mark_observed": false
+      }
+    },
+    {
+      "tag": "deliver",
+      "frame": {
+        "frames_drawn": 3602,
+        "physics_frames": 3622,
+        "process_frames": 3601
+      },
+      "values": {
+        "/root/FirstRoutePrototype/Player:position": "Vector2(392.001, 240)",
+        "/root/FirstRoutePrototype:delivered": true,
+        "/root/FirstRoutePrototype:heard_calls": false,
+        "/root/FirstRoutePrototype:marker_restored": true,
+        "/root/FirstRoutePrototype:pouch_accepted": true,
+        "/root/FirstRoutePrototype:report_done": false,
+        "/root/FirstRoutePrototype:reported_calls": false,
+        "/root/FirstRoutePrototype:reported_water_mark": false,
+        "/root/FirstRoutePrototype:water_mark_observed": false
+      }
+    },
+    {
+      "tag": "close_post",
+      "frame": {
+        "frames_drawn": 3615,
+        "physics_frames": 3635,
+        "process_frames": 3614
+      },
+      "values": {
+        "/root/FirstRoutePrototype/Player:position": "Vector2(392.001, 240)",
+        "/root/FirstRoutePrototype:delivered": true,
+        "/root/FirstRoutePrototype:heard_calls": false,
+        "/root/FirstRoutePrototype:marker_restored": true,
+        "/root/FirstRoutePrototype:pouch_accepted": true,
+        "/root/FirstRoutePrototype:report_done": false,
+        "/root/FirstRoutePrototype:reported_calls": false,
+        "/root/FirstRoutePrototype:reported_water_mark": false,
+        "/root/FirstRoutePrototype:water_mark_observed": false
+      }
+    },
+    {
+      "tag": "near_height",
+      "frame": {
+        "frames_drawn": 3652,
+        "physics_frames": 3672,
+        "process_frames": 3651
+      },
+      "values": {
+        "/root/FirstRoutePrototype/Player:position": "Vector2(392.001, 205.333)",
+        "/root/FirstRoutePrototype:delivered": true,
+        "/root/FirstRoutePrototype:heard_calls": false,
+        "/root/FirstRoutePrototype:marker_restored": true,
+        "/root/FirstRoutePrototype:pouch_accepted": true,
+        "/root/FirstRoutePrototype:report_done": false,
+        "/root/FirstRoutePrototype:reported_calls": false,
+        "/root/FirstRoutePrototype:reported_water_mark": false,
+        "/root/FirstRoutePrototype:water_mark_observed": false
+      }
+    },
+    {
+      "tag": "at_height",
+      "frame": {
+        "frames_drawn": 3686,
+        "physics_frames": 3706,
+        "process_frames": 3685
+      },
+      "values": {
+        "/root/FirstRoutePrototype/Player:position": "Vector2(422.668, 205.333)",
+        "/root/FirstRoutePrototype:delivered": true,
+        "/root/FirstRoutePrototype:heard_calls": false,
+        "/root/FirstRoutePrototype:marker_restored": true,
+        "/root/FirstRoutePrototype:pouch_accepted": true,
+        "/root/FirstRoutePrototype:report_done": false,
+        "/root/FirstRoutePrototype:reported_calls": false,
+        "/root/FirstRoutePrototype:reported_water_mark": false,
+        "/root/FirstRoutePrototype:water_mark_observed": false
+      }
+    },
+    {
+      "tag": "inspect_height",
+      "frame": {
+        "frames_drawn": 3699,
+        "physics_frames": 3719,
+        "process_frames": 3698
+      },
+      "values": {
+        "/root/FirstRoutePrototype/Player:position": "Vector2(422.668, 205.333)",
+        "/root/FirstRoutePrototype:delivered": true,
+        "/root/FirstRoutePrototype:heard_calls": false,
+        "/root/FirstRoutePrototype:marker_restored": true,
+        "/root/FirstRoutePrototype:pouch_accepted": true,
+        "/root/FirstRoutePrototype:report_done": false,
+        "/root/FirstRoutePrototype:reported_calls": false,
+        "/root/FirstRoutePrototype:reported_water_mark": false,
+        "/root/FirstRoutePrototype:water_mark_observed": true
+      }
+    },
+    {
+      "tag": "close_height",
+      "frame": {
+        "frames_drawn": 3713,
+        "physics_frames": 3733,
+        "process_frames": 3712
+      },
+      "values": {
+        "/root/FirstRoutePrototype/Player:position": "Vector2(422.668, 205.333)",
+        "/root/FirstRoutePrototype:delivered": true,
+        "/root/FirstRoutePrototype:heard_calls": false,
+        "/root/FirstRoutePrototype:marker_restored": true,
+        "/root/FirstRoutePrototype:pouch_accepted": true,
+        "/root/FirstRoutePrototype:report_done": false,
+        "/root/FirstRoutePrototype:reported_calls": false,
+        "/root/FirstRoutePrototype:reported_water_mark": false,
+        "/root/FirstRoutePrototype:water_mark_observed": true
+      }
+    },
+    {
+      "tag": "river_lane",
+      "frame": {
+        "frames_drawn": 3748,
+        "physics_frames": 3768,
+        "process_frames": 3747
+      },
+      "values": {
+        "/root/FirstRoutePrototype/Player:position": "Vector2(432.001, 205.333)",
+        "/root/FirstRoutePrototype:delivered": true,
+        "/root/FirstRoutePrototype:heard_calls": false,
+        "/root/FirstRoutePrototype:marker_restored": true,
+        "/root/FirstRoutePrototype:pouch_accepted": true,
+        "/root/FirstRoutePrototype:report_done": false,
+        "/root/FirstRoutePrototype:reported_calls": false,
+        "/root/FirstRoutePrototype:reported_water_mark": false,
+        "/root/FirstRoutePrototype:water_mark_observed": true
+      }
+    },
+    {
+      "tag": "at_river",
+      "frame": {
+        "frames_drawn": 3829,
+        "physics_frames": 3849,
+        "process_frames": 3828
+      },
+      "values": {
+        "/root/FirstRoutePrototype/Player:position": "Vector2(432.001, 296)",
+        "/root/FirstRoutePrototype:delivered": true,
+        "/root/FirstRoutePrototype:heard_calls": false,
+        "/root/FirstRoutePrototype:marker_restored": true,
+        "/root/FirstRoutePrototype:pouch_accepted": true,
+        "/root/FirstRoutePrototype:report_done": false,
+        "/root/FirstRoutePrototype:reported_calls": false,
+        "/root/FirstRoutePrototype:reported_water_mark": false,
+        "/root/FirstRoutePrototype:water_mark_observed": true
+      }
+    },
+    {
+      "tag": "river_approach",
+      "frame": {
+        "frames_drawn": 3833,
+        "physics_frames": 3853,
+        "process_frames": 3832
+      },
+      "values": {
+        "/root/FirstRoutePrototype/Player:position": "Vector2(432.001, 296)",
+        "/root/FirstRoutePrototype:delivered": true,
+        "/root/FirstRoutePrototype:heard_calls": false,
+        "/root/FirstRoutePrototype:marker_restored": true,
+        "/root/FirstRoutePrototype:pouch_accepted": true,
+        "/root/FirstRoutePrototype:report_done": false,
+        "/root/FirstRoutePrototype:reported_calls": false,
+        "/root/FirstRoutePrototype:reported_water_mark": false,
+        "/root/FirstRoutePrototype:water_mark_observed": true
+      }
+    },
+    {
+      "tag": "listen",
+      "frame": {
+        "frames_drawn": 3853,
+        "physics_frames": 3870,
+        "process_frames": 3852
+      },
+      "values": {
+        "/root/FirstRoutePrototype/Player:position": "Vector2(432.001, 296)",
+        "/root/FirstRoutePrototype:delivered": true,
+        "/root/FirstRoutePrototype:heard_calls": true,
+        "/root/FirstRoutePrototype:marker_restored": true,
+        "/root/FirstRoutePrototype:pouch_accepted": true,
+        "/root/FirstRoutePrototype:report_done": false,
+        "/root/FirstRoutePrototype:reported_calls": false,
+        "/root/FirstRoutePrototype:reported_water_mark": false,
+        "/root/FirstRoutePrototype:water_mark_observed": true
+      }
+    },
+    {
+      "tag": "close_river",
+      "frame": {
+        "frames_drawn": 3867,
+        "physics_frames": 3884,
+        "process_frames": 3866
+      },
+      "values": {
+        "/root/FirstRoutePrototype/Player:position": "Vector2(432.001, 296)",
+        "/root/FirstRoutePrototype:delivered": true,
+        "/root/FirstRoutePrototype:heard_calls": true,
+        "/root/FirstRoutePrototype:marker_restored": true,
+        "/root/FirstRoutePrototype:pouch_accepted": true,
+        "/root/FirstRoutePrototype:report_done": false,
+        "/root/FirstRoutePrototype:reported_calls": false,
+        "/root/FirstRoutePrototype:reported_water_mark": false,
+        "/root/FirstRoutePrototype:water_mark_observed": true
+      }
+    },
+    {
+      "tag": "return_bank",
+      "frame": {
+        "frames_drawn": 3908,
+        "physics_frames": 3925,
+        "process_frames": 3907
+      },
+      "values": {
+        "/root/FirstRoutePrototype/Player:position": "Vector2(392.001, 296)",
+        "/root/FirstRoutePrototype:delivered": true,
+        "/root/FirstRoutePrototype:heard_calls": true,
+        "/root/FirstRoutePrototype:marker_restored": true,
+        "/root/FirstRoutePrototype:pouch_accepted": true,
+        "/root/FirstRoutePrototype:report_done": false,
+        "/root/FirstRoutePrototype:reported_calls": false,
+        "/root/FirstRoutePrototype:reported_water_mark": false,
+        "/root/FirstRoutePrototype:water_mark_observed": true
+      }
+    },
+    {
+      "tag": "post_details",
+      "frame": {
+        "frames_drawn": 3911,
+        "physics_frames": 3928,
+        "process_frames": 3910
+      },
+      "values": {
+        "/root/FirstRoutePrototype/Player:position": "Vector2(392.001, 296)",
+        "/root/FirstRoutePrototype:delivered": true,
+        "/root/FirstRoutePrototype:heard_calls": true,
+        "/root/FirstRoutePrototype:marker_restored": true,
+        "/root/FirstRoutePrototype:pouch_accepted": true,
+        "/root/FirstRoutePrototype:report_done": false,
+        "/root/FirstRoutePrototype:reported_calls": false,
+        "/root/FirstRoutePrototype:reported_water_mark": false,
+        "/root/FirstRoutePrototype:water_mark_observed": true
+      }
+    },
+    {
+      "tag": "return_post",
+      "frame": {
+        "frames_drawn": 3970,
+        "physics_frames": 3988,
+        "process_frames": 3969
+      },
+      "values": {
+        "/root/FirstRoutePrototype/Player:position": "Vector2(392.001, 240)",
+        "/root/FirstRoutePrototype:delivered": true,
+        "/root/FirstRoutePrototype:heard_calls": true,
+        "/root/FirstRoutePrototype:marker_restored": true,
+        "/root/FirstRoutePrototype:pouch_accepted": true,
+        "/root/FirstRoutePrototype:report_done": false,
+        "/root/FirstRoutePrototype:reported_calls": false,
+        "/root/FirstRoutePrototype:reported_water_mark": false,
+        "/root/FirstRoutePrototype:water_mark_observed": true
+      }
+    },
+    {
+      "tag": "return_crossing",
+      "frame": {
+        "frames_drawn": 4036,
+        "physics_frames": 4054,
+        "process_frames": 4035
+      },
+      "values": {
+        "/root/FirstRoutePrototype/Player:position": "Vector2(320, 240)",
+        "/root/FirstRoutePrototype:delivered": true,
+        "/root/FirstRoutePrototype:heard_calls": true,
+        "/root/FirstRoutePrototype:marker_restored": true,
+        "/root/FirstRoutePrototype:pouch_accepted": true,
+        "/root/FirstRoutePrototype:report_done": false,
+        "/root/FirstRoutePrototype:reported_calls": false,
+        "/root/FirstRoutePrototype:reported_water_mark": false,
+        "/root/FirstRoutePrototype:water_mark_observed": true
+      }
+    },
+    {
+      "tag": "return_bend",
+      "frame": {
+        "frames_drawn": 4157,
+        "physics_frames": 4175,
+        "process_frames": 4156
+      },
+      "values": {
+        "/root/FirstRoutePrototype/Player:position": "Vector2(320, 96)",
+        "/root/FirstRoutePrototype:delivered": true,
+        "/root/FirstRoutePrototype:heard_calls": true,
+        "/root/FirstRoutePrototype:marker_restored": true,
+        "/root/FirstRoutePrototype:pouch_accepted": true,
+        "/root/FirstRoutePrototype:report_done": false,
+        "/root/FirstRoutePrototype:reported_calls": false,
+        "/root/FirstRoutePrototype:reported_water_mark": false,
+        "/root/FirstRoutePrototype:water_mark_observed": true
+      }
+    },
+    {
+      "tag": "return_north",
+      "frame": {
+        "frames_drawn": 4279,
+        "physics_frames": 4297,
+        "process_frames": 4278
+      },
+      "values": {
+        "/root/FirstRoutePrototype/Player:position": "Vector2(176, 96)",
+        "/root/FirstRoutePrototype:delivered": true,
+        "/root/FirstRoutePrototype:heard_calls": true,
+        "/root/FirstRoutePrototype:marker_restored": true,
+        "/root/FirstRoutePrototype:pouch_accepted": true,
+        "/root/FirstRoutePrototype:report_done": false,
+        "/root/FirstRoutePrototype:reported_calls": false,
+        "/root/FirstRoutePrototype:reported_water_mark": false,
+        "/root/FirstRoutePrototype:water_mark_observed": true
+      }
+    },
+    {
+      "tag": "return_office_path",
+      "frame": {
+        "frames_drawn": 4363,
+        "physics_frames": 4381,
+        "process_frames": 4362
+      },
+      "values": {
+        "/root/FirstRoutePrototype/Player:position": "Vector2(176, 192)",
+        "/root/FirstRoutePrototype:delivered": true,
+        "/root/FirstRoutePrototype:heard_calls": true,
+        "/root/FirstRoutePrototype:marker_restored": true,
+        "/root/FirstRoutePrototype:pouch_accepted": true,
+        "/root/FirstRoutePrototype:report_done": false,
+        "/root/FirstRoutePrototype:reported_calls": false,
+        "/root/FirstRoutePrototype:reported_water_mark": false,
+        "/root/FirstRoutePrototype:water_mark_observed": true
+      }
+    },
+    {
+      "tag": "return_dispatch",
+      "frame": {
+        "frames_drawn": 4447,
+        "physics_frames": 4465,
+        "process_frames": 4446
+      },
+      "values": {
+        "/root/FirstRoutePrototype/Player:position": "Vector2(80, 192)",
+        "/root/FirstRoutePrototype:delivered": true,
+        "/root/FirstRoutePrototype:heard_calls": true,
+        "/root/FirstRoutePrototype:marker_restored": true,
+        "/root/FirstRoutePrototype:pouch_accepted": true,
+        "/root/FirstRoutePrototype:report_done": false,
+        "/root/FirstRoutePrototype:reported_calls": false,
+        "/root/FirstRoutePrototype:reported_water_mark": false,
+        "/root/FirstRoutePrototype:water_mark_observed": true
+      }
+    },
+    {
+      "tag": "report_choices",
+      "frame": {
+        "frames_drawn": 4462,
+        "physics_frames": 4480,
+        "process_frames": 4461
+      },
+      "values": {
+        "/root/FirstRoutePrototype/Player:position": "Vector2(80, 192)",
+        "/root/FirstRoutePrototype:delivered": true,
+        "/root/FirstRoutePrototype:heard_calls": true,
+        "/root/FirstRoutePrototype:marker_restored": true,
+        "/root/FirstRoutePrototype:pouch_accepted": true,
+        "/root/FirstRoutePrototype:report_done": false,
+        "/root/FirstRoutePrototype:reported_calls": false,
+        "/root/FirstRoutePrototype:reported_water_mark": false,
+        "/root/FirstRoutePrototype:water_mark_observed": true
+      }
+    },
+    {
+      "tag": "report_choices_visible",
+      "frame": {
+        "frames_drawn": 4465,
+        "physics_frames": 4483,
+        "process_frames": 4464
+      },
+      "values": {
+        "/root/FirstRoutePrototype/Player:position": "Vector2(80, 192)",
+        "/root/FirstRoutePrototype:delivered": true,
+        "/root/FirstRoutePrototype:heard_calls": true,
+        "/root/FirstRoutePrototype:marker_restored": true,
+        "/root/FirstRoutePrototype:pouch_accepted": true,
+        "/root/FirstRoutePrototype:report_done": false,
+        "/root/FirstRoutePrototype:reported_calls": false,
+        "/root/FirstRoutePrototype:reported_water_mark": false,
+        "/root/FirstRoutePrototype:water_mark_observed": true
+      }
+    },
+    {
+      "tag": "select_full_report",
+      "frame": {
+        "frames_drawn": 4486,
+        "physics_frames": 4506,
+        "process_frames": 4485
+      },
+      "values": {
+        "/root/FirstRoutePrototype/Player:position": "Vector2(80, 192)",
+        "/root/FirstRoutePrototype:delivered": true,
+        "/root/FirstRoutePrototype:heard_calls": true,
+        "/root/FirstRoutePrototype:marker_restored": true,
+        "/root/FirstRoutePrototype:pouch_accepted": true,
+        "/root/FirstRoutePrototype:report_done": false,
+        "/root/FirstRoutePrototype:reported_calls": false,
+        "/root/FirstRoutePrototype:reported_water_mark": false,
+        "/root/FirstRoutePrototype:water_mark_observed": true
+      }
+    },
+    {
+      "tag": "complete",
+      "frame": {
+        "frames_drawn": 4501,
+        "physics_frames": 4521,
+        "process_frames": 4500
+      },
+      "values": {
+        "/root/FirstRoutePrototype/Player:position": "Vector2(80, 192)",
+        "/root/FirstRoutePrototype:delivered": true,
+        "/root/FirstRoutePrototype:heard_calls": true,
+        "/root/FirstRoutePrototype:marker_restored": true,
+        "/root/FirstRoutePrototype:pouch_accepted": true,
+        "/root/FirstRoutePrototype:report_done": true,
+        "/root/FirstRoutePrototype:reported_calls": true,
+        "/root/FirstRoutePrototype:reported_water_mark": true,
+        "/root/FirstRoutePrototype:water_mark_observed": true
+      }
+    },
+    {
+      "tag": "complete_rendered",
+      "frame": {
+        "frames_drawn": 4511,
+        "physics_frames": 4531,
+        "process_frames": 4510
+      },
+      "values": {
+        "/root/FirstRoutePrototype/Player:position": "Vector2(80, 192)",
+        "/root/FirstRoutePrototype:delivered": true,
+        "/root/FirstRoutePrototype:heard_calls": true,
+        "/root/FirstRoutePrototype:marker_restored": true,
+        "/root/FirstRoutePrototype:pouch_accepted": true,
+        "/root/FirstRoutePrototype:report_done": true,
+        "/root/FirstRoutePrototype:reported_calls": true,
+        "/root/FirstRoutePrototype:reported_water_mark": true,
+        "/root/FirstRoutePrototype:water_mark_observed": true
+      }
+    }
+  ],
+  "inputs": [
+    {
+      "tag": "dispatch",
+      "events": [
+        {
+          "at_frame": 0,
+          "type": "action",
+          "action": "move_right",
+          "pressed": true
+        },
+        {
+          "at_frame": 24,
+          "type": "action",
+          "action": "move_right",
+          "pressed": false
+        }
+      ],
+      "stepped_frames": 26
+    },
+    {
+      "tag": "accept",
+      "events": [
+        {
+          "at_frame": 0,
+          "type": "key",
+          "keycode": 69,
+          "physical_keycode": 69,
+          "pressed": true
+        },
+        {
+          "at_frame": 2,
+          "type": "key",
+          "keycode": 69,
+          "physical_keycode": 69,
+          "pressed": false
+        }
+      ],
+      "stepped_frames": 4
+    },
+    {
+      "tag": "close_accept",
+      "events": [
+        {
+          "at_frame": 0,
+          "type": "key",
+          "keycode": 69,
+          "physical_keycode": 69,
+          "pressed": true
+        },
+        {
+          "at_frame": 2,
+          "type": "key",
+          "keycode": 69,
+          "physical_keycode": 69,
+          "pressed": false
+        }
+      ],
+      "stepped_frames": 4
+    },
+    {
+      "tag": "crossing",
+      "events": [
+        {
+          "at_frame": 0,
+          "type": "action",
+          "action": "move_right",
+          "pressed": true
+        },
+        {
+          "at_frame": 72,
+          "type": "action",
+          "action": "move_right",
+          "pressed": false
+        }
+      ],
+      "stepped_frames": 74
+    },
+    {
+      "tag": "north_path",
+      "events": [
+        {
+          "at_frame": 0,
+          "type": "action",
+          "action": "move_up",
+          "pressed": true
+        },
+        {
+          "at_frame": 72,
+          "type": "action",
+          "action": "move_up",
+          "pressed": false
+        }
+      ],
+      "stepped_frames": 74
+    },
+    {
+      "tag": "at_marker",
+      "events": [
+        {
+          "at_frame": 0,
+          "type": "action",
+          "action": "move_right",
+          "pressed": true
+        },
+        {
+          "at_frame": 72,
+          "type": "action",
+          "action": "move_right",
+          "pressed": false
+        }
+      ],
+      "stepped_frames": 74
+    },
+    {
+      "tag": "restore_marker",
+      "events": [
+        {
+          "at_frame": 0,
+          "type": "key",
+          "keycode": 69,
+          "physical_keycode": 69,
+          "pressed": true
+        },
+        {
+          "at_frame": 2,
+          "type": "key",
+          "keycode": 69,
+          "physical_keycode": 69,
+          "pressed": false
+        }
+      ],
+      "stepped_frames": 4
+    },
+    {
+      "tag": "close_marker",
+      "events": [
+        {
+          "at_frame": 0,
+          "type": "key",
+          "keycode": 69,
+          "physical_keycode": 69,
+          "pressed": true
+        },
+        {
+          "at_frame": 2,
+          "type": "key",
+          "keycode": 69,
+          "physical_keycode": 69,
+          "pressed": false
+        }
+      ],
+      "stepped_frames": 4
+    },
+    {
+      "tag": "bend",
+      "events": [
+        {
+          "at_frame": 0,
+          "type": "action",
+          "action": "move_right",
+          "pressed": true
+        },
+        {
+          "at_frame": 36,
+          "type": "action",
+          "action": "move_right",
+          "pressed": false
+        }
+      ],
+      "stepped_frames": 38
+    },
+    {
+      "tag": "lower_path",
+      "events": [
+        {
+          "at_frame": 0,
+          "type": "action",
+          "action": "move_down",
+          "pressed": true
+        },
+        {
+          "at_frame": 108,
+          "type": "action",
+          "action": "move_down",
+          "pressed": false
+        }
+      ],
+      "stepped_frames": 110
+    },
+    {
+      "tag": "at_post",
+      "events": [
+        {
+          "at_frame": 0,
+          "type": "action",
+          "action": "move_right",
+          "pressed": true
+        },
+        {
+          "at_frame": 54,
+          "type": "action",
+          "action": "move_right",
+          "pressed": false
+        }
+      ],
+      "stepped_frames": 56
+    },
+    {
+      "tag": "deliver",
+      "events": [
+        {
+          "at_frame": 0,
+          "type": "key",
+          "keycode": 69,
+          "physical_keycode": 69,
+          "pressed": true
+        },
+        {
+          "at_frame": 2,
+          "type": "key",
+          "keycode": 69,
+          "physical_keycode": 69,
+          "pressed": false
+        }
+      ],
+      "stepped_frames": 4
+    },
+    {
+      "tag": "close_post",
+      "events": [
+        {
+          "at_frame": 0,
+          "type": "key",
+          "keycode": 69,
+          "physical_keycode": 69,
+          "pressed": true
+        },
+        {
+          "at_frame": 2,
+          "type": "key",
+          "keycode": 69,
+          "physical_keycode": 69,
+          "pressed": false
+        }
+      ],
+      "stepped_frames": 4
+    },
+    {
+      "tag": "near_height",
+      "events": [
+        {
+          "at_frame": 0,
+          "type": "action",
+          "action": "move_up",
+          "pressed": true
+        },
+        {
+          "at_frame": 26,
+          "type": "action",
+          "action": "move_up",
+          "pressed": false
+        }
+      ],
+      "stepped_frames": 28
+    },
+    {
+      "tag": "at_height",
+      "events": [
+        {
+          "at_frame": 0,
+          "type": "action",
+          "action": "move_right",
+          "pressed": true
+        },
+        {
+          "at_frame": 23,
+          "type": "action",
+          "action": "move_right",
+          "pressed": false
+        }
+      ],
+      "stepped_frames": 25
+    },
+    {
+      "tag": "inspect_height",
+      "events": [
+        {
+          "at_frame": 0,
+          "type": "key",
+          "keycode": 69,
+          "physical_keycode": 69,
+          "pressed": true
+        },
+        {
+          "at_frame": 2,
+          "type": "key",
+          "keycode": 69,
+          "physical_keycode": 69,
+          "pressed": false
+        }
+      ],
+      "stepped_frames": 4
+    },
+    {
+      "tag": "close_height",
+      "events": [
+        {
+          "at_frame": 0,
+          "type": "key",
+          "keycode": 69,
+          "physical_keycode": 69,
+          "pressed": true
+        },
+        {
+          "at_frame": 2,
+          "type": "key",
+          "keycode": 69,
+          "physical_keycode": 69,
+          "pressed": false
+        }
+      ],
+      "stepped_frames": 4
+    },
+    {
+      "tag": "river_lane",
+      "events": [
+        {
+          "at_frame": 0,
+          "type": "action",
+          "action": "move_right",
+          "pressed": true
+        },
+        {
+          "at_frame": 7,
+          "type": "action",
+          "action": "move_right",
+          "pressed": false
+        }
+      ],
+      "stepped_frames": 9
+    },
+    {
+      "tag": "at_river",
+      "events": [
+        {
+          "at_frame": 0,
+          "type": "action",
+          "action": "move_down",
+          "pressed": true
+        },
+        {
+          "at_frame": 68,
+          "type": "action",
+          "action": "move_down",
+          "pressed": false
+        }
+      ],
+      "stepped_frames": 70
+    },
+    {
+      "tag": "listen",
+      "events": [
+        {
+          "at_frame": 0,
+          "type": "key",
+          "keycode": 69,
+          "physical_keycode": 69,
+          "pressed": true
+        },
+        {
+          "at_frame": 2,
+          "type": "key",
+          "keycode": 69,
+          "physical_keycode": 69,
+          "pressed": false
+        }
+      ],
+      "stepped_frames": 4
+    },
+    {
+      "tag": "close_river",
+      "events": [
+        {
+          "at_frame": 0,
+          "type": "key",
+          "keycode": 69,
+          "physical_keycode": 69,
+          "pressed": true
+        },
+        {
+          "at_frame": 2,
+          "type": "key",
+          "keycode": 69,
+          "physical_keycode": 69,
+          "pressed": false
+        }
+      ],
+      "stepped_frames": 4
+    },
+    {
+      "tag": "return_bank",
+      "events": [
+        {
+          "at_frame": 0,
+          "type": "action",
+          "action": "move_left",
+          "pressed": true
+        },
+        {
+          "at_frame": 30,
+          "type": "action",
+          "action": "move_left",
+          "pressed": false
+        }
+      ],
+      "stepped_frames": 32
+    },
+    {
+      "tag": "return_post",
+      "events": [
+        {
+          "at_frame": 0,
+          "type": "action",
+          "action": "move_up",
+          "pressed": true
+        },
+        {
+          "at_frame": 42,
+          "type": "action",
+          "action": "move_up",
+          "pressed": false
+        }
+      ],
+      "stepped_frames": 44
+    },
+    {
+      "tag": "return_crossing",
+      "events": [
+        {
+          "at_frame": 0,
+          "type": "action",
+          "action": "move_left",
+          "pressed": true
+        },
+        {
+          "at_frame": 54,
+          "type": "action",
+          "action": "move_left",
+          "pressed": false
+        }
+      ],
+      "stepped_frames": 56
+    },
+    {
+      "tag": "return_bend",
+      "events": [
+        {
+          "at_frame": 0,
+          "type": "action",
+          "action": "move_up",
+          "pressed": true
+        },
+        {
+          "at_frame": 108,
+          "type": "action",
+          "action": "move_up",
+          "pressed": false
+        }
+      ],
+      "stepped_frames": 110
+    },
+    {
+      "tag": "return_north",
+      "events": [
+        {
+          "at_frame": 0,
+          "type": "action",
+          "action": "move_left",
+          "pressed": true
+        },
+        {
+          "at_frame": 108,
+          "type": "action",
+          "action": "move_left",
+          "pressed": false
+        }
+      ],
+      "stepped_frames": 110
+    },
+    {
+      "tag": "return_office_path",
+      "events": [
+        {
+          "at_frame": 0,
+          "type": "action",
+          "action": "move_down",
+          "pressed": true
+        },
+        {
+          "at_frame": 72,
+          "type": "action",
+          "action": "move_down",
+          "pressed": false
+        }
+      ],
+      "stepped_frames": 74
+    },
+    {
+      "tag": "return_dispatch",
+      "events": [
+        {
+          "at_frame": 0,
+          "type": "action",
+          "action": "move_left",
+          "pressed": true
+        },
+        {
+          "at_frame": 72,
+          "type": "action",
+          "action": "move_left",
+          "pressed": false
+        }
+      ],
+      "stepped_frames": 74
+    },
+    {
+      "tag": "report_choices",
+      "events": [
+        {
+          "at_frame": 0,
+          "type": "key",
+          "keycode": 69,
+          "physical_keycode": 69,
+          "pressed": true
+        },
+        {
+          "at_frame": 2,
+          "type": "key",
+          "keycode": 69,
+          "physical_keycode": 69,
+          "pressed": false
+        }
+      ],
+      "stepped_frames": 4
+    },
+    {
+      "tag": "select_full_report",
+      "events": [
+        {
+          "at_frame": 0,
+          "type": "key",
+          "keycode": 4194322,
+          "physical_keycode": 4194322,
+          "pressed": true
+        },
+        {
+          "at_frame": 2,
+          "type": "key",
+          "keycode": 4194322,
+          "physical_keycode": 4194322,
+          "pressed": false
+        }
+      ],
+      "stepped_frames": 4
+    },
+    {
+      "tag": "complete",
+      "events": [
+        {
+          "at_frame": 0,
+          "type": "key",
+          "keycode": 4194309,
+          "physical_keycode": 4194309,
+          "pressed": true
+        },
+        {
+          "at_frame": 2,
+          "type": "key",
+          "keycode": 4194309,
+          "physical_keycode": 4194309,
+          "pressed": false
+        }
+      ],
+      "stepped_frames": 4
+    }
+  ]
+}

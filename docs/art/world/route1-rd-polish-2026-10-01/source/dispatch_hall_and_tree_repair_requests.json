@@ -1,0 +1,24 @@
+{
+  "date": "2026-10-02",
+  "tree_repair": {
+    "tool_id": "outpainting",
+    "input_image": "assets/sprites/world/route1_rd_2026_10_01/cottonwood_polished.png",
+    "expand_left": 16,
+    "expand_right": 16,
+    "expand_top": 0,
+    "expand_bottom": 0,
+    "soft_inpaint": false,
+    "prompt": "Restore the clipped left and right outer cottonwood leaf crown. Extend the existing natural rounded irregular sage-green and dark forest-teal leaf masses into the new side margins, following this same native crisp pixel art, upper-left light and tiny leaf clusters. Keep the whole original tree, trunk, inner crown, palette, shading and root position exactly unchanged. Complete small outward bulges of foliage on both sides so no leaves end at a straight vertical cut. Finish the silhouette at least 6 pixels before the new left and right canvas edges. Empty space outside foliage is transparent, no floor, no checkerboard, no extra tree, no text."
+  },
+  "dispatch_hall": {
+    "width": 112,
+    "height": 128,
+    "prompt_style": "rd_pro__default",
+    "remove_bg": true,
+    "upload_outputs": true,
+    "num_images": 1,
+    "prompt": "One practical two-storey courier dispatch hall for Hollowtide, production overworld pixel-art building sprite on transparent background. Orthographic top-down RPG projection: camera directly above and south of the building, straight south-facing front facade, door on the north-south walking axis, upright corner posts, horizontal foundation and front eaves; no rotated isometric side wall. Full roof surfaces visible from above. Width about six native 16-pixel map tiles beside a chibi courier with visible height 30 pixels. A modest working post office for runners, not a mansion or castle. Weathered rust-red brick lower walls with brown structural timber, pale muted loess plaster upper storey, restrained cool slate-blue shingle roof matching our reviewed small dispatch-office house. Compact upper storey with two small windows, one warm lit window. Ground floor has a wide dark open centered door and a short covered porch, a readable rectangular route/map board on the wall to the right of the door, a small brass message bell. Small stone water trough for creature partners at lower left beside the front wall, kept within the facade footprint. Small plaque with three pale dots above the doorway, no letters or numbers. Crisp native pixel clusters and distinct material planes, muted cottonwood riverbank palette, soft upper-left daylight, grounded and lived in. Whole roof, porch, trough and foundation within the image with at least 6 transparent pixels on all sides. Flat rectangular footprint, no surrounding grass, no extra people, no checkerboard."
+  },
+  "brief_source": "docs/forges/world-asset-forge-prompts-2026-09-30.md:41, explicitly marked proposals; adopted as a review candidate following Preston's current building instruction.",
+  "house_approval": "Preston loves the front-facing house; preserve it as a reusable house asset."
+}

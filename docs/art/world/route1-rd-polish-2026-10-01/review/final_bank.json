@@ -1,0 +1,46 @@
+{
+  "results": [
+    {
+      "effective_time_scale": 0,
+      "format": "jpeg",
+      "frame": {
+        "frames_drawn": 24174,
+        "physics_frames": 24189,
+        "process_frames": 24173
+      },
+      "height": 648,
+      "image_frame": 24173,
+      "instance": "route-final-review",
+      "mime": "image/jpeg",
+      "missing": [],
+      "ok": true,
+      "op": "GameProbe",
+      "paused": false,
+      "provenance": {
+        "source": "runtime",
+        "target": {
+          "instance": "route-final-review",
+          "kind": "game"
+        }
+      },
+      "requestId": "mcp-8452dbe5-02bd-4da8-b23c-da9ad650eabf",
+      "source_height": 648,
+      "source_width": 1152,
+      "suspended": true,
+      "time_scale": 1,
+      "transport": "summer",
+      "values": {
+        "/root/FirstRoutePrototype/CinderhideEncounter:field_idle_texture": "CompressedTexture2D#-9223371962934360358",
+        "/root/FirstRoutePrototype/Player:position": "Vector2(400, 296)"
+      },
+      "width": 1152
+    }
+  ],
+  "skippedCount": 0,
+  "status": "ok",
+  "stopOnError": true,
+  "undoGroup": false,
+  "requestId": "mcp-8452dbe5-02bd-4da8-b23c-da9ad650eabf",
+  "terminalState": "applied",
+  "appliedSeq": 239
+}

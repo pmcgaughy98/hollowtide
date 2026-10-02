@@ -1,18 +1,22 @@
-[gd_resource type="Resource" script_class="MoveData" load_steps=14 format=3]
+[gd_resource type="Resource" script_class="MoveData" format=3]
 
 [ext_resource type="Script" path="res://scripts/move_data.gd" id="1_script"]
 [ext_resource type="PackedScene" path="res://scenes/effects/vitrecrag_cannon_blast.tscn" id="2_effect"]
-[ext_resource type="Texture2D" path="res://assets/sprites/creatures/attacks/vitrecrag_molten_cannon/style_matched/rest.png" id="3_rest"]
-[ext_resource type="Texture2D" path="res://assets/sprites/creatures/attacks/vitrecrag_molten_cannon/style_matched/brace.png" id="4_brace"]
-[ext_resource type="Texture2D" path="res://assets/sprites/creatures/attacks/vitrecrag_molten_cannon/style_matched/charge.png" id="5_charge"]
-[ext_resource type="Texture2D" path="res://assets/sprites/creatures/attacks/vitrecrag_molten_cannon/style_matched/swirl.png" id="6_swirl"]
-[ext_resource type="Texture2D" path="res://assets/sprites/creatures/attacks/vitrecrag_molten_cannon/style_matched/blaze.png" id="7_blaze"]
-[ext_resource type="Texture2D" path="res://assets/sprites/creatures/attacks/vitrecrag_molten_cannon/style_matched/kindle.png" id="8_kindle"]
-[ext_resource type="Texture2D" path="res://assets/sprites/creatures/attacks/vitrecrag_molten_cannon/style_matched/loaded.png" id="9_loaded"]
-[ext_resource type="Texture2D" path="res://assets/sprites/creatures/attacks/vitrecrag_molten_cannon/style_matched/spent.png" id="10_spent"]
-[ext_resource type="Texture2D" path="res://assets/sprites/creatures/attacks/vitrecrag_molten_cannon/style_matched/vent.png" id="11_vent"]
 [ext_resource type="PackedScene" path="res://scenes/effects/vitrecrag_cannon_muzzle.tscn" id="12_muzzle"]
 [ext_resource type="PackedScene" path="res://scenes/effects/vitrecrag_cannon_shell.tscn" id="13_shell"]
+
+[ext_resource type="Texture2D" path="res://assets/sprites/creatures/rd_material_match_2026_10_01/vitrecrag_attacks/f00.png" id="rd_f00"]
+[ext_resource type="Texture2D" path="res://assets/sprites/creatures/rd_material_match_2026_10_01/vitrecrag_attacks/f01.png" id="rd_f01"]
+[ext_resource type="Texture2D" path="res://assets/sprites/creatures/rd_material_match_2026_10_01/vitrecrag_attacks/f02.png" id="rd_f02"]
+[ext_resource type="Texture2D" path="res://assets/sprites/creatures/rd_material_match_2026_10_01/vitrecrag_attacks/f03.png" id="rd_f03"]
+[ext_resource type="Texture2D" path="res://assets/sprites/creatures/rd_material_match_2026_10_01/vitrecrag_attacks/f04.png" id="rd_f04"]
+[ext_resource type="Texture2D" path="res://assets/sprites/creatures/rd_material_match_2026_10_01/vitrecrag_attacks/f05.png" id="rd_f05"]
+[ext_resource type="Texture2D" path="res://assets/sprites/creatures/rd_material_match_2026_10_01/vitrecrag_attacks/f06.png" id="rd_f06"]
+[ext_resource type="Texture2D" path="res://assets/sprites/creatures/rd_material_match_2026_10_01/vitrecrag_attacks/f07.png" id="rd_f07"]
+[ext_resource type="Texture2D" path="res://assets/sprites/creatures/rd_material_match_2026_10_01/vitrecrag_attacks/f08.png" id="rd_f08"]
+[ext_resource type="Texture2D" path="res://assets/sprites/creatures/rd_material_match_2026_10_01/vitrecrag_attacks/f09.png" id="rd_f09"]
+[ext_resource type="Texture2D" path="res://assets/sprites/creatures/rd_material_match_2026_10_01/vitrecrag_attacks/f10.png" id="rd_f10"]
+[ext_resource type="Texture2D" path="res://assets/sprites/creatures/rd_material_match_2026_10_01/vitrecrag_attacks/f11.png" id="rd_f11"]
 
 [resource]
 script = ExtResource("1_script")
@@ -21,14 +25,14 @@ essence = 0
 power = 60
 max_uses = 2
 effect = ExtResource("2_effect")
-attack_frames = Array[Texture2D]([ExtResource("3_rest"), ExtResource("4_brace"), ExtResource("5_charge"), ExtResource("6_swirl"), ExtResource("7_blaze"), ExtResource("8_kindle"), ExtResource("9_loaded"), ExtResource("10_spent"), ExtResource("10_spent"), ExtResource("11_vent"), ExtResource("11_vent")])
+attack_frames = Array[Texture2D]([ExtResource("rd_f00"), ExtResource("rd_f01"), ExtResource("rd_f02"), ExtResource("rd_f03"), ExtResource("rd_f03"), ExtResource("rd_f03"), ExtResource("rd_f03"), ExtResource("rd_f04"), ExtResource("rd_f05"), ExtResource("rd_f09"), ExtResource("rd_f11")])
 attack_frame_holds = Array[float]([0.08, 0.35, 0.14, 0.2, 0.2, 0.14, 0.3, 0.14, 0.26, 0.3, 0.2])
 attack_lunge_px = 0.0
 attack_recoil_px = 4.0
 attack_hit_frame = 9
 attack_brace_frame = 1
 attack_emitter = ExtResource("12_muzzle")
-attack_emitter_offset = Vector2(48, 14)
+attack_emitter_offset = Vector2(0, -48)
 attack_emit_frames = Vector2i(7, 8)
 attack_emit_shake = 30
 attack_volley = ExtResource("13_shell")

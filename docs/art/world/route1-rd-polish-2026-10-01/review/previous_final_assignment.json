@@ -1,0 +1,22 @@
+{
+  "date": "2026-10-01",
+  "observed_in_conversation": true,
+  "scene_sha256": "fa1b8bea4a45f12ac56c2272dd9c3e5bd46a83a99d3fb0e548edbaa028d31435",
+  "script_sha256": "f7223a3d5918c70245381758c6d5f1f096743ecaec773b881fcc6d1fbe1abbb6",
+  "steps": 31,
+  "player_final_position": [
+    80,
+    192
+  ],
+  "flags": {
+    "pouch_accepted": true,
+    "marker_restored": true,
+    "delivered": true,
+    "water_mark_observed": true,
+    "heard_calls": true,
+    "report_done": true,
+    "reported_calls": true,
+    "reported_water_mark": true
+  },
+  "record_limit": "The full per-frame second-pass log was lost in session memory when the app restarted. These final observed values are preserved from the completed tool result; no frame numbers are reconstructed."
+}

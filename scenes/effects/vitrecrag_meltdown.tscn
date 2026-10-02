@@ -12,9 +12,12 @@
 [ext_resource type="Texture2D" path="res://assets/sprites/effects/vitrecrag/meltdown/glob_05.png" id="8_glob5"]
 [ext_resource type="Texture2D" path="res://assets/sprites/effects/vitrecrag/meltdown/glob_07.png" id="8_glob7"]
 
+[ext_resource type="Texture2D" path="res://assets/sprites/effects/vfx_rd_2026_10_01/molten_glass_impact_4x4.png" id="9_vfx"]
+
 [node name="GlassMeltdown" type="Node2D"]
 texture_filter = 1
 script = ExtResource("1_script")
+impact_vfx = ExtResource("9_vfx")
 wave_lip = ExtResource("2_lip")
 crust = ExtResource("3_crust")
 burst = ExtResource("4_burst")

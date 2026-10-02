@@ -27,6 +27,7 @@
 [ext_resource type="Texture2D" uid="uid://ccdohu48o02i1" path="res://assets/sprites/effects/ironvent/vent_heat/07_breakup.png" id="25_vent7"]
 [ext_resource type="Texture2D" uid="uid://b8i0ekl2w1pau" path="res://assets/sprites/effects/ironvent/vent_heat/08_cool.png" id="26_vent8"]
 [ext_resource type="Script" uid="uid://dtck6dpiev4ck" path="res://scripts/camera_shot.gd" id="cam_shot"]
+[ext_resource type="Texture2D" uid="uid://c1jvp56k1crhn" path="res://assets/backgrounds/signature_stages/furnace_roar.png" id="sig_stage"]
 [ext_resource type="AudioStream" uid="uid://cikp6em365xt" path="res://assets/audio/sfx/ironvent/blowdown.wav" id="snd_blowdown"]
 [ext_resource type="AudioStream" uid="uid://d2dia2nohcn01" path="res://assets/audio/sfx/ironvent/buildup.wav" id="snd_buildup"]
 [ext_resource type="AudioStream" uid="uid://cqpaq75pran8r" path="res://assets/audio/sfx/ironvent/cool.wav" id="snd_cool"]
@@ -101,6 +102,8 @@ attack_cut_in_seconds = 0.4
 signature = true
 signature_light = Color(1.35, 0.92, 0.72, 1)
 signature_effect = ExtResource("13_fallout")
+signature_stage = ExtResource("sig_stage")
+signature_stage_floor_y = 187
 signature_linger = 1.6
 sound_cues = Array[AudioStream]([ExtResource("snd_buildup"), ExtResource("snd_roar"), ExtResource("snd_blowdown"), ExtResource("snd_cool")])
 sound_cue_frames = Array[int]([0, 5, 7, 8])

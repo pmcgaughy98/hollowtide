@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="CreatureData" load_steps=8 format=3]
+[gd_resource type="Resource" script_class="CreatureData" format=3]
 
 [ext_resource type="Script" path="res://scripts/creature_data.gd" id="1_script"]
 [ext_resource type="Texture2D" path="res://assets/sprites/creatures/clinkerhide.png" id="2_sprite"]
@@ -9,12 +9,15 @@
 
 [ext_resource type="Resource" path="res://data/creatures/102_ironvent.tres" id="8_evolution"]
 
+[ext_resource type="Texture2D" path="res://assets/sprites/creatures/clinkerhide_rd_back_2026_10_01.png" id="rd_back"]
+
 [resource]
 script = ExtResource("1_script")
 id = 101
 creature_name = "Clinkerhide"
 essence = 0
 sprite = ExtResource("2_sprite")
+back_sprite = ExtResource("rd_back")
 moves = [ExtResource("3_move"), ExtResource("4_move"), ExtResource("5_move"), ExtResource("6_move")]
 evolves_into = ExtResource("8_evolution")
 base_hp = 60

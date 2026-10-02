@@ -183,6 +183,9 @@ var _foe_overlay: Sprite2D
 var _reversed := false
 var _backdrop: Sprite2D
 var _backdrop_edges: Array[Sprite2D] = []
+## A signature's own stage, laid over the river while the move plays: the
+## painting plus its outermost pixels stretched outward, like the river's edges.
+var _sig_stage: Node2D
 var _player_overlay: Sprite2D
 var _overlay_clock := 0.0
 var _flick_left := 0.0
@@ -513,6 +516,11 @@ func _attack(attacker: CreatureData, by_player: bool, move: MoveData) -> void:
 	# A player's signature is seen from the front: the camera cuts around so
 	# the move plays exactly as it does for a wild creature (Preston,
 	# 2026-09-30), and no back-view version of a signature is ever needed.
+	# A wild creature's signature fades its stage in after the title card; the
+	# player's arrives under the card itself, as part of the camera cut.
+	var foe_stage: bool = move != null and move.signature and not by_player and move.signature_stage != null
+	if foe_stage:
+		await _set_stage(move, true, 0.3)
 	if move and move.signature and by_player and not move.attack_frames.is_empty():
 		await _reverse_shot(dealt, multiplier, move)
 	elif move and move.delivery == MoveData.Delivery.CONTACT and not move.attack_frames.is_empty() and move.attack_hit_frame >= 0:
@@ -528,6 +536,8 @@ func _attack(attacker: CreatureData, by_player: bool, move: MoveData) -> void:
 		await _projectile_animation(by_player, dealt, multiplier, move.effect, move)
 	else:
 		await _strike_animation(by_player, dealt, multiplier, move)
+	if foe_stage:
+		await _set_stage(move, false, 0.35)
 	_tween_focus(Vector2.ZERO, 1.0, 0.24)
 
 	var note := EssenceChart.effectiveness_text(multiplier)
@@ -997,9 +1007,12 @@ func _reverse_shot(dealt: int, multiplier: float, move: MoveData) -> void:
 	# The title card already swapped the sides as it covered the screen; this
 	# covers the case where it did not (a move with no card), so the shot works anyway.
 	if not _reversed:
-		await _camera_cut(func() -> void: _swap_sides())
+		await _camera_cut(func() -> void:
+			_swap_sides()
+			_set_stage(move, true))
 	await _drawn_attack_animation(false, dealt, multiplier, move)
 	await _band_sweep(func() -> void:
+		_set_stage(move, false)
 		_clear_stage_effects()  # the move's leftovers belong to the other angle
 		_swap_sides())
 	_fade_cards(1.0, 0.25)
@@ -1009,6 +1022,109 @@ func _reverse_shot(dealt: int, multiplier: float, move: MoveData) -> void:
 ## Remove whatever an attack left on the stage (floods, embers, rings), keeping
 ## the two creatures. Used when the camera cuts, so nothing lingers in a spot
 ## that no longer makes sense from the new angle.
+## Show or hide a signature's stage. Instant when seconds is 0 (under the
+## title card or the sweep, where nothing is visible), otherwise a fade.
+func _set_stage(move: MoveData, on: bool, seconds: float = 0.0) -> void:
+	if on and (move == null or move.signature_stage == null):
+		return
+	if not on and not _sig_stage.visible:
+		return
+	if on:
+		_dress_stage(move)
+		_sig_stage.visible = true
+	if seconds <= 0.0:
+		_sig_stage.modulate.a = 1.0 if on else 0.0
+		_sig_stage.visible = on
+		return
+	_sig_stage.modulate.a = 0.0 if on else 1.0
+	var t := create_tween()
+	t.tween_property(_sig_stage, "modulate:a", 1.0 if on else 0.0, seconds)
+	await t.finished
+	_sig_stage.visible = on
+
+
+## Lay a stage painting out at 3x, centred, with its outermost column, row
+## and top stretched past the edges so camera shots that pull back or pan
+## (down to 0.8x) never run off it.
+func _dress_stage(move: MoveData) -> void:
+	var tex: Texture2D = move.signature_stage
+	var w := float(tex.get_width())
+	var h := float(tex.get_height())
+	var full := Vector2(w, h) * 3.0
+	# Shift the painting so its floor row meets the far creature's feet.
+	var mid := FOE_FOOT_Y - (move.signature_stage_floor_y - h * 0.5) * 3.0
+	var left := 576.0 - full.x * 0.5
+	var right := 576.0 + full.x * 0.5
+	var top := mid - full.y * 0.5
+	var bottom := mid + full.y * 0.5
+	var wide := full.x + 2.0 * SCENE_BEYOND
+	# [region, position, scale] for the painting and each stretched edge.
+	var layout := [
+		[Rect2(0, 0, w, h), Vector2(576, mid), Vector2(3, 3)],
+		[Rect2(0, 0, 1, h), Vector2(left - SCENE_BEYOND * 0.5, mid), Vector2(SCENE_BEYOND, 3)],
+		[Rect2(w - 1, 0, 1, h), Vector2(right + SCENE_BEYOND * 0.5, mid), Vector2(SCENE_BEYOND, 3)],
+		[Rect2(0, 0, w, 1), Vector2(576, top - SKY_ABOVE * 0.5), Vector2(wide / w, SKY_ABOVE)],
+		[Rect2(0, h - 1, w, 1), Vector2(576, bottom + SCENE_BEYOND * 0.5), Vector2(wide / w, SCENE_BEYOND)]]
+	for i in layout.size():
+		var piece: Sprite2D = _sig_stage.get_child(i)
+		piece.texture = tex
+		piece.region_enabled = true
+		piece.region_rect = layout[i][0]
+		piece.position = layout[i][1]
+		piece.scale = layout[i][2]
+	# Battle platforms, Pokemon style: an oval of the stage's own floor under
+	# each creature, so both stand on something whatever the painting shows.
+	var img: Image = tex.get_image()
+	var floor_colour: Color = img.get_pixel(clampi(int((FOE_X - left) / 3.0), 0, int(w) - 1), clampi(move.signature_stage_floor_y + 4, 0, int(h) - 1))
+	var spots := [[_foe_sprite, Vector2(FOE_X, FOE_FOOT_Y)], [_player_sprite, Vector2(PLAYER_X, _near_foot_y())]]
+	for i in spots.size():
+		var sprite: Sprite2D = spots[i][0]
+		var used: Rect2i = sprite.texture.get_image().get_used_rect() if sprite.texture else Rect2i(0, 0, 64, 64)
+		var platform: Sprite2D = _sig_stage.get_child(5 + i)
+		platform.texture = _platform_texture(used.size.x * sprite.scale.x * 1.05, floor_colour)
+		platform.scale = Vector2(3, 3)
+		platform.position = spots[i][1] + Vector2(0, 6)
+
+
+## A pixel oval of ground, drawn at 1/3 size (shown at 3x like the stage): a
+## lit top face over a darker front rim, with a dark outline.
+func _platform_texture(width_px: float, top: Color) -> ImageTexture:
+	var w: int = maxi(10, int(width_px / 3.0))
+	var h: int = maxi(4, int(w * 0.26))
+	var rim := 2
+	var img := Image.create(w + 2, h + rim + 2, false, Image.FORMAT_RGBA8)
+	# A solid slab of the stage's own ground: darker than the floor it was
+	# sampled from, with a lit back edge, so it reads as rock, not a decal.
+	var face: Color = top.darkened(0.3)
+	for layer in [[rim, top.darkened(0.62)], [0, face]]:
+		for y in h:
+			var t: float = (y + 0.5 - h * 0.5) / (h * 0.5)
+			var half: float = w * 0.5 * sqrt(maxf(0.0, 1.0 - t * t))
+			for x in w:
+				if absf(x + 0.5 - w * 0.5) <= half:
+					img.set_pixel(x + 1, y + 1 + layer[0], layer[1])
+	var ink: Color = top.darkened(0.82)
+	var outline: Array[Vector2i] = []
+	for y in img.get_height():
+		for x in img.get_width():
+			if img.get_pixel(x, y).a > 0.0:
+				continue
+			for d in [Vector2i(1, 0), Vector2i(-1, 0), Vector2i(0, 1), Vector2i(0, -1)]:
+				var n: Vector2i = Vector2i(x, y) + d
+				if n.x >= 0 and n.y >= 0 and n.x < img.get_width() and n.y < img.get_height() and img.get_pixelv(n).a > 0.0:
+					outline.append(Vector2i(x, y))
+					break
+	for p in outline:
+		img.set_pixelv(p, ink)
+	# The lit back edge: the first face pixel down each column catches the light.
+	for x in img.get_width():
+		for y in img.get_height():
+			if img.get_pixel(x, y) == face:
+				img.set_pixel(x, y, top.lightened(0.05))
+				break
+	return ImageTexture.create_from_image(img)
+
+
 func _clear_stage_effects() -> void:
 	for child in _battle_stage.get_children():
 		if child != _foe_sprite and child != _player_sprite:
@@ -1128,7 +1244,9 @@ func _announce(attacker: CreatureData, by_player: bool, move: MoveData) -> void:
 	# card itself is the camera cut, swapping the sides while it covers the screen.
 	var cover := Callable()
 	if by_player and not move.attack_frames.is_empty():
-		cover = _swap_sides
+		cover = func() -> void:
+			_swap_sides()
+			_set_stage(move, true)
 	await _signature_card(attacker, by_player, move, cover)
 
 
@@ -1851,6 +1969,8 @@ func _stop_emitter(emitter: Node2D) -> void:
 		if child is CPUParticles2D:
 			child.emitting = false
 			longest = maxf(longest, child.lifetime)
+		elif child.has_method("finish"):
+			longest = maxf(longest, child.finish())  # a VFX plays out its last frames
 	get_tree().create_timer(longest + 0.1).timeout.connect(emitter.queue_free)
 
 
@@ -1911,7 +2031,8 @@ func _projectile_animation(by_player: bool, dealt: int, multiplier: float, effec
 	var home: Vector2 = sprite.position
 
 	var effect: Node2D = effect_scene.instantiate()
-	var trail: CPUParticles2D = effect.get_node("Trail")
+	# Optional: an effect with no Trail (Molten Cannon's blast) flies without one.
+	var trail: CPUParticles2D = effect.get_node_or_null("Trail")
 	var burst: CPUParticles2D = effect.get_node("Burst")
 	# Optional drawn pieces. An effect made only of particles still works.
 	var ball: Sprite2D = effect.get_node_or_null("Ball")
@@ -1939,7 +2060,8 @@ func _projectile_animation(by_player: bool, dealt: int, multiplier: float, effec
 	else:
 		effect.position = home + Vector2(dir * 40, 0)
 	_battle_stage.add_child(effect)
-	trail.emitting = true
+	if trail:
+		trail.emitting = true
 
 	var fly := create_tween()
 	fly.set_parallel()
@@ -1947,7 +2069,8 @@ func _projectile_animation(by_player: bool, dealt: int, multiplier: float, effec
 	fly.tween_property(sprite, "position", home, 0.22).set_trans(Tween.TRANS_SINE)
 	await fly.finished
 
-	trail.emitting = false
+	if trail:
+		trail.emitting = false
 	if ball:
 		ball.visible = false
 	burst.restart()
@@ -2233,8 +2356,14 @@ func _base_height(s: Sprite2D) -> float:
 func _zoom(s: Sprite2D) -> float:
 	if s.texture == null:
 		return 3.0
-	var target: float = CREATURE_HEIGHT * _battle_size_of(s)
+	var size: float = _battle_size_of(s)
+	var target: float = CREATURE_HEIGHT * size
 	var near_zoom: float = maxf(1.0, roundf(target / _base_height(s)))
+	# A creature given its own battle_size (an evolution line growing stage by
+	# stage) sizes in half steps, since whole steps are too coarse to tell
+	# stages apart. Everyone else keeps whole steps, so their size is unchanged.
+	if not is_equal_approx(size, 1.0):
+		near_zoom = maxf(1.0, roundf(target / _base_height(s) * 2.0) / 2.0)
 	if s == _foe_sprite:
 		return maxf(1.0, roundf(near_zoom * foe_perspective_scale * 2.0) / 2.0)
 	# The player's side has PLAYER_ROOM of stage, counting the lower part that
@@ -2757,6 +2886,19 @@ func _build_ui() -> void:
 		strip.scale = edge[2]
 		_focus_stage.add_child(strip)
 		_backdrop_edges.append(strip)
+
+	# A signature's stage sits over the river (and its stretched edges) but
+	# under the creatures. Dimmed a little so the creatures stay the brightest thing.
+	_sig_stage = Node2D.new()
+	_sig_stage.name = "SignatureStage"
+	_sig_stage.visible = false
+	_focus_stage.add_child(_sig_stage)
+	for i in 7:  # the painting, its left, right, top and bottom edges, then two platforms
+		var piece := Sprite2D.new()
+		piece.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
+		if i < 5:
+			piece.self_modulate = Color(0.74, 0.72, 0.76)
+		_sig_stage.add_child(piece)
 
 	# Creatures, projectiles, and damage numbers move together on this stage.
 	# HUD controls stay on the CanvasLayer so impacts do not shake the interface.

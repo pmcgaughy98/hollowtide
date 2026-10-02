@@ -1,0 +1,6 @@
+{
+  "field_idle": "All eight 80px cells observed in the route at four frames per second on October 1.",
+  "tree_collision": "Movement stopped at (194,95.503) in front of the trunk; actor at (194,60) occluded by crown.",
+  "office_collision": "Movement stopped at (80,174.003), remaining visible in front of the door.",
+  "field_battle": "Player (320,144) pressed E; BattleScreen changed from invisible to visible, with player/foe HP 60 and phase 1."
+}

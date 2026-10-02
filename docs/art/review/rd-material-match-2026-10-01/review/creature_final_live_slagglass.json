@@ -1,0 +1,48 @@
+{
+  "results": [
+    {
+      "effective_time_scale": 1,
+      "format": "jpeg",
+      "frame": {
+        "frames_drawn": 1465,
+        "physics_frames": 1471,
+        "process_frames": 1464
+      },
+      "height": 648,
+      "image_frame": 1464,
+      "instance": "rd-material-review",
+      "mime": "image/jpeg",
+      "missing": [],
+      "ok": true,
+      "op": "GameProbe",
+      "paused": true,
+      "provenance": {
+        "source": "runtime",
+        "target": {
+          "instance": "rd-material-review",
+          "kind": "game"
+        }
+      },
+      "requestId": "mcp-f5fedf26-cf0d-4caa-b209-89c69abedac0",
+      "source_height": 648,
+      "source_width": 1152,
+      "suspended": false,
+      "time_scale": 1,
+      "transport": "summer",
+      "values": {
+        "/root/RDMaterialReview/BattleScreen:_foe_hp": 60,
+        "/root/RDMaterialReview/BattleScreen:_phase": 0,
+        "/root/RDMaterialReview/BattleScreen:_player_hp": 60,
+        "/root/RDMaterialReview:review_species_index": 4
+      },
+      "width": 1152
+    }
+  ],
+  "skippedCount": 0,
+  "status": "ok",
+  "stopOnError": true,
+  "undoGroup": false,
+  "requestId": "mcp-f5fedf26-cf0d-4caa-b209-89c69abedac0",
+  "terminalState": "applied",
+  "appliedSeq": 1342
+}

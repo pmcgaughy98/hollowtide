@@ -1,0 +1,98 @@
+{
+  "cell_count": 960,
+  "world_size": [
+    640,
+    384
+  ],
+  "native_tile_size": 16,
+  "atlas_size": [
+    128,
+    80
+  ],
+  "topology_changes": 0,
+  "collision_changes": 0,
+  "source_generation_sizes": {
+    "grass": [
+      32,
+      32
+    ],
+    "path": [
+      32,
+      32
+    ],
+    "water": [
+      32,
+      32
+    ]
+  },
+  "edge_repeat_repair": "Opposite last edges copy first native rows/columns; no interpolation.",
+  "palette_ramps": {
+    "grass": [
+      "#526c56",
+      "#5c755c",
+      "#657d62",
+      "#6e8467",
+      "#788c6e",
+      "#819374"
+    ],
+    "path": [
+      "#9b8968",
+      "#a5916e",
+      "#af9b76",
+      "#b8a37d",
+      "#c1ad85",
+      "#c8b68d"
+    ],
+    "water": [
+      "#3f635d",
+      "#466c63",
+      "#4c756a",
+      "#557e71",
+      "#5e8577",
+      "#698d7f"
+    ]
+  },
+  "tileset_types": [
+    [
+      1,
+      1
+    ],
+    [
+      0,
+      6
+    ],
+    [
+      1,
+      6
+    ],
+    [
+      1,
+      3
+    ],
+    [
+      1,
+      4
+    ],
+    [
+      1,
+      5
+    ],
+    [
+      0,
+      4
+    ],
+    [
+      2,
+      4
+    ],
+    [
+      3,
+      1
+    ],
+    [
+      4,
+      1
+    ]
+  ],
+  "converted_data_sha256": "8ede072788968dcdd396bf1353d71d7e02a2caa2908b2f75063959de59bc2b53"
+}

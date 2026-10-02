@@ -1,17 +1,15 @@
-[gd_resource type="Resource" script_class="CreatureData" load_steps=11 format=3 uid="uid://b87rxxttmgcst"]
+[gd_resource type="Resource" script_class="CreatureData" format=3 uid="uid://b87rxxttmgcst"]
 
 [ext_resource type="Script" uid="uid://d2mhtonwdj5rc" path="res://scripts/creature_data.gd" id="1_script"]
 [ext_resource type="Script" uid="uid://bhqon0w55tdjq" path="res://scripts/move_data.gd" id="2_move_script"]
-[ext_resource type="Texture2D" path="res://assets/sprites/creatures/vitrecrag_official.png" id="2_sprite"]
-[ext_resource type="Texture2D" path="res://assets/sprites/creatures/vitrecrag_back_official_2026_09_30.png" id="7_back"]
+[ext_resource type="Texture2D" path="res://assets/sprites/creatures/rd_material_match_2026_10_01/vitrecrag_front.png" id="2_sprite"]
+[ext_resource type="Texture2D" path="res://assets/sprites/creatures/rd_material_match_2026_10_01/vitrecrag_back.png" id="7_back"]
 [ext_resource type="Resource" path="res://data/moves/vitrecrag_molten_glass.tres" id="3_move"]
 [ext_resource type="Resource" path="res://data/moves/vitrecrag_molten_beam.tres" id="4_move"]
 [ext_resource type="Resource" path="res://data/moves/vitrecrag_plate_lunge.tres" id="5_move"]
 [ext_resource type="Resource" path="res://data/moves/vitrecrag_molten_cannon.tres" id="6_move"]
 
-[ext_resource type="Texture2D" path="res://assets/sprites/creatures/idle/vitrecrag_flame/body.png" id="f0_body"]
 
-[ext_resource type="PackedScene" path="res://scenes/effects/vitrecrag_mouth_smolder.tscn" id="s1_smolder"]
 
 [resource]
 script = ExtResource("1_script")
@@ -26,8 +24,6 @@ idle_breath_widen = 0.012
 idle_period = 5.88
 battle_size = 1.75
 aim_points = Dictionary[String, Vector2]({
-"core": Vector2(-10, -3),
-"mouth": Vector2(43, 22)
+"core": Vector2(29, -2),
+"mouth": Vector2(36, 31)
 })
-idle_overlay_body = ExtResource("f0_body")
-idle_smolder = ExtResource("s1_smolder")

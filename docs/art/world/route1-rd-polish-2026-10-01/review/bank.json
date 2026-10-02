@@ -1,0 +1,317 @@
+{
+  "results": [
+    {
+      "effective_time_scale": 0,
+      "format": "jpeg",
+      "frame": {
+        "frames_drawn": 9497,
+        "physics_frames": 9508,
+        "process_frames": 9496
+      },
+      "height": 648,
+      "image_frame": 9496,
+      "instance": "route-archive-review",
+      "mime": "image/jpeg",
+      "missing": [],
+      "ok": true,
+      "op": "GameProbe",
+      "paused": false,
+      "provenance": {
+        "source": "runtime",
+        "target": {
+          "instance": "route-archive-review",
+          "kind": "game"
+        }
+      },
+      "requestId": "mcp-ce6d1403-5fe8-49b7-bf78-8e1b699a342c",
+      "source_height": 648,
+      "source_width": 1152,
+      "suspended": true,
+      "time_scale": 1,
+      "total_nodes": 42,
+      "transport": "summer",
+      "tree": {
+        "children": [
+          {
+            "children": [
+              {
+                "children": [
+                  {
+                    "children": [],
+                    "class": "CollisionShape2D",
+                    "name": "@CollisionShape2D@149",
+                    "path": "/root/FirstRoutePrototype/RouteDecor/WaylineOffice/FootCollision/@CollisionShape2D@149"
+                  }
+                ],
+                "class": "StaticBody2D",
+                "name": "FootCollision",
+                "path": "/root/FirstRoutePrototype/RouteDecor/WaylineOffice/FootCollision"
+              }
+            ],
+            "class": "Sprite2D",
+            "name": "WaylineOffice",
+            "path": "/root/FirstRoutePrototype/RouteDecor/WaylineOffice"
+          },
+          {
+            "children": [
+              {
+                "children": [
+                  {
+                    "children": [],
+                    "class": "CollisionShape2D",
+                    "name": "@CollisionShape2D@142",
+                    "path": "/root/FirstRoutePrototype/RouteDecor/CottonwoodNorth/FootCollision/@CollisionShape2D@142"
+                  }
+                ],
+                "class": "StaticBody2D",
+                "name": "FootCollision",
+                "path": "/root/FirstRoutePrototype/RouteDecor/CottonwoodNorth/FootCollision"
+              }
+            ],
+            "class": "Sprite2D",
+            "name": "CottonwoodNorth",
+            "path": "/root/FirstRoutePrototype/RouteDecor/CottonwoodNorth"
+          },
+          {
+            "children": [
+              {
+                "children": [
+                  {
+                    "children": [],
+                    "class": "CollisionShape2D",
+                    "name": "@CollisionShape2D@143",
+                    "path": "/root/FirstRoutePrototype/RouteDecor/CottonwoodRidge/FootCollision/@CollisionShape2D@143"
+                  }
+                ],
+                "class": "StaticBody2D",
+                "name": "FootCollision",
+                "path": "/root/FirstRoutePrototype/RouteDecor/CottonwoodRidge/FootCollision"
+              }
+            ],
+            "class": "Sprite2D",
+            "name": "CottonwoodRidge",
+            "path": "/root/FirstRoutePrototype/RouteDecor/CottonwoodRidge"
+          },
+          {
+            "children": [
+              {
+                "children": [
+                  {
+                    "children": [],
+                    "class": "CollisionShape2D",
+                    "name": "@CollisionShape2D@144",
+                    "path": "/root/FirstRoutePrototype/RouteDecor/CottonwoodEast/FootCollision/@CollisionShape2D@144"
+                  }
+                ],
+                "class": "StaticBody2D",
+                "name": "FootCollision",
+                "path": "/root/FirstRoutePrototype/RouteDecor/CottonwoodEast/FootCollision"
+              }
+            ],
+            "class": "Sprite2D",
+            "name": "CottonwoodEast",
+            "path": "/root/FirstRoutePrototype/RouteDecor/CottonwoodEast"
+          },
+          {
+            "children": [
+              {
+                "children": [
+                  {
+                    "children": [],
+                    "class": "CollisionShape2D",
+                    "name": "@CollisionShape2D@145",
+                    "path": "/root/FirstRoutePrototype/RouteDecor/CottonwoodSouth/FootCollision/@CollisionShape2D@145"
+                  }
+                ],
+                "class": "StaticBody2D",
+                "name": "FootCollision",
+                "path": "/root/FirstRoutePrototype/RouteDecor/CottonwoodSouth/FootCollision"
+              }
+            ],
+            "class": "Sprite2D",
+            "name": "CottonwoodSouth",
+            "path": "/root/FirstRoutePrototype/RouteDecor/CottonwoodSouth"
+          },
+          {
+            "children": [
+              {
+                "children": [
+                  {
+                    "children": [],
+                    "class": "CollisionShape2D",
+                    "name": "@CollisionShape2D@146",
+                    "path": "/root/FirstRoutePrototype/RouteDecor/CottonwoodWest/FootCollision/@CollisionShape2D@146"
+                  }
+                ],
+                "class": "StaticBody2D",
+                "name": "FootCollision",
+                "path": "/root/FirstRoutePrototype/RouteDecor/CottonwoodWest/FootCollision"
+              }
+            ],
+            "class": "Sprite2D",
+            "name": "CottonwoodWest",
+            "path": "/root/FirstRoutePrototype/RouteDecor/CottonwoodWest"
+          },
+          {
+            "children": [],
+            "class": "Sprite2D",
+            "name": "RetainingWallWest",
+            "path": "/root/FirstRoutePrototype/RouteDecor/RetainingWallWest"
+          },
+          {
+            "children": [],
+            "class": "Sprite2D",
+            "name": "RetainingWallEast",
+            "path": "/root/FirstRoutePrototype/RouteDecor/RetainingWallEast"
+          },
+          {
+            "children": [],
+            "class": "Sprite2D",
+            "name": "RiverHeightMarker",
+            "path": "/root/FirstRoutePrototype/RouteDecor/RiverHeightMarker"
+          },
+          {
+            "children": [],
+            "class": "Sprite2D",
+            "name": "BankReeds1",
+            "path": "/root/FirstRoutePrototype/RouteDecor/BankReeds1"
+          },
+          {
+            "children": [],
+            "class": "Sprite2D",
+            "name": "BankReeds2",
+            "path": "/root/FirstRoutePrototype/RouteDecor/BankReeds2"
+          },
+          {
+            "children": [],
+            "class": "Sprite2D",
+            "name": "BankReeds3",
+            "path": "/root/FirstRoutePrototype/RouteDecor/BankReeds3"
+          },
+          {
+            "children": [],
+            "class": "Sprite2D",
+            "name": "BankReeds4",
+            "path": "/root/FirstRoutePrototype/RouteDecor/BankReeds4"
+          },
+          {
+            "children": [],
+            "class": "Sprite2D",
+            "name": "BankReeds5",
+            "path": "/root/FirstRoutePrototype/RouteDecor/BankReeds5"
+          },
+          {
+            "children": [],
+            "class": "Sprite2D",
+            "name": "BankReeds6",
+            "path": "/root/FirstRoutePrototype/RouteDecor/BankReeds6"
+          },
+          {
+            "children": [],
+            "class": "Sprite2D",
+            "name": "BankShrub1",
+            "path": "/root/FirstRoutePrototype/RouteDecor/BankShrub1"
+          },
+          {
+            "children": [],
+            "class": "Sprite2D",
+            "name": "BankShrub2",
+            "path": "/root/FirstRoutePrototype/RouteDecor/BankShrub2"
+          },
+          {
+            "children": [],
+            "class": "Sprite2D",
+            "name": "BankShrub3",
+            "path": "/root/FirstRoutePrototype/RouteDecor/BankShrub3"
+          },
+          {
+            "children": [],
+            "class": "Sprite2D",
+            "name": "BankShrub4",
+            "path": "/root/FirstRoutePrototype/RouteDecor/BankShrub4"
+          },
+          {
+            "children": [],
+            "class": "Sprite2D",
+            "name": "BankShrub5",
+            "path": "/root/FirstRoutePrototype/RouteDecor/BankShrub5"
+          },
+          {
+            "children": [],
+            "class": "Sprite2D",
+            "name": "BankShrub6",
+            "path": "/root/FirstRoutePrototype/RouteDecor/BankShrub6"
+          },
+          {
+            "children": [],
+            "class": "Sprite2D",
+            "name": "BankShrub7",
+            "path": "/root/FirstRoutePrototype/RouteDecor/BankShrub7"
+          },
+          {
+            "children": [],
+            "class": "Sprite2D",
+            "name": "BankShrub8",
+            "path": "/root/FirstRoutePrototype/RouteDecor/BankShrub8"
+          },
+          {
+            "children": [
+              {
+                "children": [
+                  {
+                    "children": [],
+                    "class": "CollisionShape2D",
+                    "name": "@CollisionShape2D@147",
+                    "path": "/root/FirstRoutePrototype/RouteDecor/CottonwoodOfficeGrove/FootCollision/@CollisionShape2D@147"
+                  }
+                ],
+                "class": "StaticBody2D",
+                "name": "FootCollision",
+                "path": "/root/FirstRoutePrototype/RouteDecor/CottonwoodOfficeGrove/FootCollision"
+              }
+            ],
+            "class": "Sprite2D",
+            "name": "CottonwoodOfficeGrove",
+            "path": "/root/FirstRoutePrototype/RouteDecor/CottonwoodOfficeGrove"
+          },
+          {
+            "children": [
+              {
+                "children": [
+                  {
+                    "children": [],
+                    "class": "CollisionShape2D",
+                    "name": "@CollisionShape2D@148",
+                    "path": "/root/FirstRoutePrototype/RouteDecor/CottonwoodBankBend/FootCollision/@CollisionShape2D@148"
+                  }
+                ],
+                "class": "StaticBody2D",
+                "name": "FootCollision",
+                "path": "/root/FirstRoutePrototype/RouteDecor/CottonwoodBankBend/FootCollision"
+              }
+            ],
+            "class": "Sprite2D",
+            "name": "CottonwoodBankBend",
+            "path": "/root/FirstRoutePrototype/RouteDecor/CottonwoodBankBend"
+          }
+        ],
+        "class": "Node2D",
+        "name": "RouteDecor",
+        "path": "/root/FirstRoutePrototype/RouteDecor"
+      },
+      "truncated": false,
+      "values": {
+        "/root/FirstRoutePrototype/Player/Camera2D:offset": "Vector2(0, 0)",
+        "/root/FirstRoutePrototype/Player:position": "Vector2(400, 296)"
+      },
+      "width": 1152
+    }
+  ],
+  "skippedCount": 0,
+  "status": "ok",
+  "stopOnError": true,
+  "undoGroup": false,
+  "requestId": "mcp-ce6d1403-5fe8-49b7-bf78-8e1b699a342c",
+  "terminalState": "applied",
+  "appliedSeq": 34
+}

@@ -1,0 +1,7 @@
+{
+  "tool_id": "background_remover",
+  "inference_id": "inf_KMARLpVexrZEWq03nmLGjXN7mPyDz9Ba",
+  "balance_cost": 0.01,
+  "credit_cost": 2,
+  "charged": true
+}

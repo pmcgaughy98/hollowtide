@@ -1,0 +1,38 @@
+{
+  "source_cells": 960,
+  "preserved_cell_positions": true,
+  "unique_native_tiles": 99,
+  "atlas_size": [
+    256,
+    112
+  ],
+  "palette": {
+    "grass": [
+      "#526c55",
+      "#576f57",
+      "#5b745a",
+      "#60795e",
+      "#657e61",
+      "#6b8365"
+    ],
+    "path": [
+      "#ad9873",
+      "#b3a078",
+      "#b7a57d",
+      "#bbaa80",
+      "#bfae84",
+      "#c3b389"
+    ],
+    "water": [
+      "#37655e",
+      "#3b6b63",
+      "#3f7067",
+      "#45766c",
+      "#4b7c72",
+      "#538479"
+    ]
+  },
+  "colour_interpolation": false,
+  "collision_changes": 0,
+  "converted_sha256": "7323cbfece8e49b260712f27ac916e61dceec8129381a05adcccee5979178e01"
+}

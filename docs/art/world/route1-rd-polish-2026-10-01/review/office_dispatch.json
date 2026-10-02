@@ -1,0 +1,48 @@
+{
+  "results": [
+    {
+      "effective_time_scale": 0,
+      "format": "jpeg",
+      "frame": {
+        "frames_drawn": 7882,
+        "physics_frames": 7890,
+        "process_frames": 7881
+      },
+      "height": 648,
+      "image_frame": 7881,
+      "instance": "route-office-review",
+      "mime": "image/jpeg",
+      "missing": [],
+      "ok": true,
+      "op": "GameProbe",
+      "paused": false,
+      "provenance": {
+        "source": "runtime",
+        "target": {
+          "instance": "route-office-review",
+          "kind": "game"
+        }
+      },
+      "requestId": "mcp-09141f1c-8cb4-4648-b6a5-b9c15f1ba607",
+      "source_height": 648,
+      "source_width": 1152,
+      "suspended": true,
+      "time_scale": 1,
+      "transport": "summer",
+      "values": {
+        "/root/FirstRoutePrototype/Player:position": "Vector2(80, 174.003)",
+        "/root/FirstRoutePrototype/RouteDecor/WaylineOffice:offset": "Vector2(0, -45)",
+        "/root/FirstRoutePrototype/RouteDecor/WaylineOffice:texture": "CompressedTexture2D#-9223371990314776921",
+        "/root/FirstRoutePrototype:pouch_accepted": true
+      },
+      "width": 1152
+    }
+  ],
+  "skippedCount": 0,
+  "status": "ok",
+  "stopOnError": true,
+  "undoGroup": false,
+  "requestId": "mcp-09141f1c-8cb4-4648-b6a5-b9c15f1ba607",
+  "terminalState": "applied",
+  "appliedSeq": 91
+}

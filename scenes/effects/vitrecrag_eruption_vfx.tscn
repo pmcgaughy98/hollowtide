@@ -1,0 +1,17 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/effects/vfx_sprite.gd" id="1_vfx"]
+[ext_resource type="Texture2D" path="res://assets/sprites/effects/vfx_rd_2026_10_01/volcano_eruption_4x4.png" id="2_sheet"]
+
+[node name="Eruption" type="Node2D"]
+
+[node name="Vfx" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("2_sheet")
+offset = Vector2(0, 2)
+scale = Vector2(2, 2)
+hframes = 4
+vframes = 4
+script = ExtResource("1_vfx")
+fps = 14.0
+loop = true

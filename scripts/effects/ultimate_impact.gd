@@ -79,10 +79,14 @@ static func flash(host: Node, colour: Color) -> void:
 	rect.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	rect.set_anchors_preset(Control.PRESET_FULL_RECT)
 	layer.add_child(rect)
+	var tree := host.get_tree()
 	for a in [0.85, 0.5, 0.2]:
+		if not is_instance_valid(rect):
+			return  # cleared with the host (the camera cut back); nothing left to do
 		rect.color = Color(colour, a)
-		await host.get_tree().create_timer(0.05).timeout
-	layer.queue_free()
+		await tree.create_timer(0.05).timeout
+	if is_instance_valid(layer):
+		layer.queue_free()
 
 
 ## A column of energy from the top of the screen down to `bottom_y`, centred on
@@ -93,15 +97,19 @@ static func column(host: Node2D, x: float, bottom_y: float, px: float, palette: 
 	host.add_child(col)
 	host.move_child(col, 0)
 	var tall: float = ceilf(bottom_y / px)
+	var tree := host.get_tree()
 	for f in [1.0, 0.82, 0.6, 0.36, 0.18, 0.09]:
+		if not is_instance_valid(col):
+			return  # cleared with the host (the camera cut back)
 		for c in col.get_children():
 			c.queue_free()
 		var half_w: float = widest * f
 		for band in [[half_w, palette[1]], [half_w * 0.66, palette[2]], [half_w * 0.3, palette[3]]]:
 			var w: float = maxf(1.0, roundf(band[0]))
 			_block(col, Vector2(x - w * px, bottom_y - tall * px), Vector2(w * 2.0, tall), Color(band[1], 0.85), px)
-		await host.get_tree().create_timer(1.0 / STEPS).timeout
-	col.queue_free()
+		await tree.create_timer(1.0 / STEPS).timeout
+	if is_instance_valid(col):
+		col.queue_free()
 
 
 ## `count` chips thrown up and out from `at`, falling back under gravity and
@@ -125,16 +133,22 @@ static func debris(host: Node2D, at: Vector2, px: float, colours: Array[Color], 
 			var size: float = [2.0, 3.0, 3.0, 4.0].pick_random()
 			node = _block(host, at, Vector2(size, size), colours.pick_random(), px)
 		bits.append({"node": node, "at": at, "v": Vector2(cos(angle), sin(angle)) * speed * px})
+	var tree := host.get_tree()
 	for step in 14:
+		if not is_instance_valid(host):
+			return  # cleared with the host (the camera cut back)
 		for bit in bits:
+			if not is_instance_valid(bit["node"]):
+				continue
 			bit["v"] += Vector2(0, 4.0 * px)  # gravity
 			bit["at"] += bit["v"]
 			bit["node"].position = _snap(bit["at"], px)
 			if step > 8:
 				bit["node"].modulate.a = 1.0 - (step - 8) / 6.0
-		await host.get_tree().create_timer(1.0 / STEPS).timeout
+		await tree.create_timer(1.0 / STEPS).timeout
 	for bit in bits:
-		bit["node"].queue_free()
+		if is_instance_valid(bit["node"]):
+			bit["node"].queue_free()
 
 
 ## A drawn ring (a shockwave) spreading from `at` by whole sizes and fading.
@@ -143,8 +157,11 @@ static func ring(host: Node2D, tex: Texture2D, at: Vector2, px: float, from_scal
 		centre_offset := Vector2.ZERO) -> void:
 	if tex == null:
 		return
+	var tree := host.get_tree()
 	if delay > 0.0:
-		await host.get_tree().create_timer(delay).timeout
+		await tree.create_timer(delay).timeout
+		if not is_instance_valid(host):
+			return
 	var r := Sprite2D.new()
 	r.texture = tex
 	r.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
@@ -153,7 +170,10 @@ static func ring(host: Node2D, tex: Texture2D, at: Vector2, px: float, from_scal
 	host.add_child(r)
 	host.move_child(r, 0)
 	for i in steps:
+		if not is_instance_valid(r):
+			return
 		r.scale = Vector2.ONE * px * (from_scale + i)
 		r.modulate.a = 1.0 - float(i) / steps
-		await host.get_tree().create_timer(0.09).timeout
-	r.queue_free()
+		await tree.create_timer(0.09).timeout
+	if is_instance_valid(r):
+		r.queue_free()

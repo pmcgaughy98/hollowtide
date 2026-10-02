@@ -1,0 +1,55 @@
+{
+  "passed": true,
+  "instance": "route-unique-final",
+  "log": [
+    {
+      "tag": "before_walk",
+      "frame": {
+        "frames_drawn": 5454,
+        "physics_frames": 5482,
+        "process_frames": 5453
+      },
+      "values": {
+        "/root/FirstRoutePrototype/Player:position": "Vector2(48, 192)",
+        "/root/FirstRoutePrototype:pouch_accepted": false
+      }
+    },
+    {
+      "tag": "after_walk",
+      "frame": {
+        "frames_drawn": 5493,
+        "physics_frames": 5521,
+        "process_frames": 5492
+      },
+      "values": {
+        "/root/FirstRoutePrototype/Player:position": "Vector2(80, 192)",
+        "/root/FirstRoutePrototype:pouch_accepted": false
+      }
+    },
+    {
+      "tag": "door_collision",
+      "frame": {
+        "frames_drawn": 5535,
+        "physics_frames": 5563,
+        "process_frames": 5534
+      },
+      "values": {
+        "/root/FirstRoutePrototype/Player:position": "Vector2(80, 174.003)",
+        "/root/FirstRoutePrototype:pouch_accepted": false
+      }
+    },
+    {
+      "tag": "dispatch_interaction",
+      "frame": {
+        "frames_drawn": 5559,
+        "physics_frames": 5589,
+        "process_frames": 5558
+      },
+      "values": {
+        "/root/FirstRoutePrototype/Player:position": "Vector2(80, 174.003)",
+        "/root/FirstRoutePrototype:pouch_accepted": true
+      }
+    }
+  ],
+  "note": "Initial keycode-only D events did not move the player because movement bindings use physical keys; action-based movement and keycode+physical-keycode E then passed. Captured roof, wall, tree depth, doorway collision and actual pouch acceptance; no quest flag was directly changed."
+}

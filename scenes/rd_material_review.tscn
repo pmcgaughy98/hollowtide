@@ -1,0 +1,10 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/debug/rd_material_review.gd" id="1_review"]
+[ext_resource type="Script" path="res://scripts/battle_screen.gd" id="2_battle"]
+
+[node name="RDMaterialReview" type="Node2D"]
+script = ExtResource("1_review")
+
+[node name="BattleScreen" type="CanvasLayer" parent="."]
+script = ExtResource("2_battle")

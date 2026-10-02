@@ -1,0 +1,317 @@
+{
+  "date": "2026-10-01",
+  "scene": "res://scenes/main_menu_art_preview.tscn",
+  "instance": "menu-walk-review",
+  "deterministic": true,
+  "fixed_fps": 60,
+  "walking_observations": [
+    {
+      "process_frame": 3343,
+      "values": {
+        "/root/MainMenuArtPreview/CinderhideContactShadow:position": "Vector2(337, 483)",
+        "/root/MainMenuArtPreview/CinderhideMenuIdle:frame": 7,
+        "/root/MainMenuArtPreview/CinderhideMenuIdle:position": "Vector2(257, 339)",
+        "/root/MainMenuArtPreview/CourierMenuIdle:frame": 2,
+        "/root/MainMenuArtPreview/CourierMenuIdle:position": "Vector2(113, 234)",
+        "/root/MainMenuArtPreview:_time": 1.367
+      },
+      "missing": []
+    },
+    {
+      "process_frame": 3361,
+      "values": {
+        "/root/MainMenuArtPreview/CinderhideContactShadow:position": "Vector2(342, 481)",
+        "/root/MainMenuArtPreview/CinderhideMenuIdle:frame": 0,
+        "/root/MainMenuArtPreview/CinderhideMenuIdle:position": "Vector2(262, 337)",
+        "/root/MainMenuArtPreview/CourierMenuIdle:frame": 3,
+        "/root/MainMenuArtPreview/CourierMenuIdle:position": "Vector2(119, 232)",
+        "/root/MainMenuArtPreview:_time": 1.483
+      },
+      "missing": []
+    },
+    {
+      "process_frame": 3376,
+      "values": {
+        "/root/MainMenuArtPreview/CinderhideContactShadow:position": "Vector2(348, 479)",
+        "/root/MainMenuArtPreview/CinderhideMenuIdle:frame": 1,
+        "/root/MainMenuArtPreview/CinderhideMenuIdle:position": "Vector2(268, 335)",
+        "/root/MainMenuArtPreview/CourierMenuIdle:frame": 4,
+        "/root/MainMenuArtPreview/CourierMenuIdle:position": "Vector2(125, 230)",
+        "/root/MainMenuArtPreview:_time": 1.6
+      },
+      "missing": []
+    },
+    {
+      "process_frame": 3392,
+      "values": {
+        "/root/MainMenuArtPreview/CinderhideContactShadow:position": "Vector2(353, 477)",
+        "/root/MainMenuArtPreview/CinderhideMenuIdle:frame": 2,
+        "/root/MainMenuArtPreview/CinderhideMenuIdle:position": "Vector2(273, 333)",
+        "/root/MainMenuArtPreview/CourierMenuIdle:frame": 6,
+        "/root/MainMenuArtPreview/CourierMenuIdle:position": "Vector2(131, 228)",
+        "/root/MainMenuArtPreview:_time": 1.717
+      },
+      "missing": []
+    },
+    {
+      "process_frame": 3408,
+      "values": {
+        "/root/MainMenuArtPreview/CinderhideContactShadow:position": "Vector2(359, 475)",
+        "/root/MainMenuArtPreview/CinderhideMenuIdle:frame": 3,
+        "/root/MainMenuArtPreview/CinderhideMenuIdle:position": "Vector2(279, 331)",
+        "/root/MainMenuArtPreview/CourierMenuIdle:frame": 7,
+        "/root/MainMenuArtPreview/CourierMenuIdle:position": "Vector2(138, 226)",
+        "/root/MainMenuArtPreview:_time": 1.833
+      },
+      "missing": []
+    },
+    {
+      "process_frame": 3421,
+      "values": {
+        "/root/MainMenuArtPreview/CinderhideContactShadow:position": "Vector2(364, 473)",
+        "/root/MainMenuArtPreview/CinderhideMenuIdle:frame": 4,
+        "/root/MainMenuArtPreview/CinderhideMenuIdle:position": "Vector2(284, 329)",
+        "/root/MainMenuArtPreview/CourierMenuIdle:frame": 0,
+        "/root/MainMenuArtPreview/CourierMenuIdle:position": "Vector2(144, 224)",
+        "/root/MainMenuArtPreview:_time": 1.95
+      },
+      "missing": []
+    },
+    {
+      "process_frame": 3436,
+      "values": {
+        "/root/MainMenuArtPreview/CinderhideContactShadow:position": "Vector2(370, 471)",
+        "/root/MainMenuArtPreview/CinderhideMenuIdle:frame": 5,
+        "/root/MainMenuArtPreview/CinderhideMenuIdle:position": "Vector2(290, 327)",
+        "/root/MainMenuArtPreview/CourierMenuIdle:frame": 1,
+        "/root/MainMenuArtPreview/CourierMenuIdle:position": "Vector2(150, 222)",
+        "/root/MainMenuArtPreview:_time": 2.067
+      },
+      "missing": []
+    },
+    {
+      "process_frame": 3449,
+      "values": {
+        "/root/MainMenuArtPreview/CinderhideContactShadow:position": "Vector2(375, 469)",
+        "/root/MainMenuArtPreview/CinderhideMenuIdle:frame": 6,
+        "/root/MainMenuArtPreview/CinderhideMenuIdle:position": "Vector2(295, 325)",
+        "/root/MainMenuArtPreview/CourierMenuIdle:frame": 2,
+        "/root/MainMenuArtPreview/CourierMenuIdle:position": "Vector2(156, 220)",
+        "/root/MainMenuArtPreview:_time": 2.183
+      },
+      "missing": []
+    },
+    {
+      "process_frame": 3463,
+      "values": {
+        "/root/MainMenuArtPreview/CinderhideContactShadow:position": "Vector2(381, 467)",
+        "/root/MainMenuArtPreview/CinderhideMenuIdle:frame": 6,
+        "/root/MainMenuArtPreview/CinderhideMenuIdle:position": "Vector2(301, 323)",
+        "/root/MainMenuArtPreview/CourierMenuIdle:frame": 3,
+        "/root/MainMenuArtPreview/CourierMenuIdle:position": "Vector2(162, 218)",
+        "/root/MainMenuArtPreview:_time": 2.3
+      },
+      "missing": []
+    },
+    {
+      "process_frame": 3478,
+      "values": {
+        "/root/MainMenuArtPreview/CinderhideContactShadow:position": "Vector2(387, 465)",
+        "/root/MainMenuArtPreview/CinderhideMenuIdle:frame": 7,
+        "/root/MainMenuArtPreview/CinderhideMenuIdle:position": "Vector2(307, 321)",
+        "/root/MainMenuArtPreview/CourierMenuIdle:frame": 5,
+        "/root/MainMenuArtPreview/CourierMenuIdle:position": "Vector2(168, 216)",
+        "/root/MainMenuArtPreview:_time": 2.417
+      },
+      "missing": []
+    }
+  ],
+  "walking_capture": {
+    "effective_time_scale": 0,
+    "format": "jpeg",
+    "frame": {
+      "frames_drawn": 1778,
+      "physics_frames": 1778,
+      "process_frames": 1777
+    },
+    "height": 648,
+    "image_frame": 1777,
+    "instance": "menu-walk-review",
+    "mime": "image/jpeg",
+    "missing": [],
+    "ok": true,
+    "op": "GameProbe",
+    "paused": false,
+    "provenance": {
+      "source": "runtime",
+      "target": {
+        "instance": "menu-walk-review",
+        "kind": "game"
+      }
+    },
+    "requestId": "mcp-5bbe3789-fe29-4c2a-a416-bb3b2f336099",
+    "source_height": 648,
+    "source_width": 1152,
+    "suspended": true,
+    "time_scale": 1,
+    "transport": "summer",
+    "values": {
+      "/root/MainMenuArtPreview/CinderhideContactShadow:position": "Vector2(331, 485)",
+      "/root/MainMenuArtPreview/CinderhideMenuIdle:frame": 6,
+      "/root/MainMenuArtPreview/CinderhideMenuIdle:position": "Vector2(251, 341)",
+      "/root/MainMenuArtPreview/CourierMenuIdle:frame": 1,
+      "/root/MainMenuArtPreview/CourierMenuIdle:position": "Vector2(107, 236)",
+      "/root/MainMenuArtPreview:_time": 1.25
+    },
+    "width": 1152
+  },
+  "settled_capture": {
+    "effective_time_scale": 0,
+    "format": "jpeg",
+    "frame": {
+      "frames_drawn": 6589,
+      "physics_frames": 6589,
+      "process_frames": 6588
+    },
+    "height": 648,
+    "image_frame": 6588,
+    "instance": "menu-walk-review",
+    "mime": "image/jpeg",
+    "missing": [],
+    "ok": true,
+    "op": "GameProbe",
+    "paused": false,
+    "provenance": {
+      "source": "runtime",
+      "target": {
+        "instance": "menu-walk-review",
+        "kind": "game"
+      }
+    },
+    "requestId": "mcp-52d5d2df-2e3b-45c6-a6eb-5cbae3bbabdd",
+    "source_height": 648,
+    "source_width": 1152,
+    "suspended": true,
+    "time_scale": 1,
+    "transport": "summer",
+    "values": {
+      "/root/MainMenuArtPreview/CinderhideContactShadow:position": "Vector2(432, 448)",
+      "/root/MainMenuArtPreview/CinderhideMenuIdle:frame": 2,
+      "/root/MainMenuArtPreview/CinderhideMenuIdle:position": "Vector2(353, 304)",
+      "/root/MainMenuArtPreview/CinderhideMenuIdle:texture": "CompressedTexture2D#-9223371991858280829",
+      "/root/MainMenuArtPreview/CourierMenuIdle:frame": 5,
+      "/root/MainMenuArtPreview/CourierMenuIdle:position": "Vector2(180, 211)",
+      "/root/MainMenuArtPreview/CourierMenuIdle:texture": "CompressedTexture2D#-9223371992177047939",
+      "/root/MainMenuArtPreview:_reduce_motion": false,
+      "/root/MainMenuArtPreview:_time": 4.417
+    },
+    "width": 1152
+  },
+  "reduce_motion": {
+    "method": "_on_toggle_motion",
+    "before": {
+      "process_frame": 6331,
+      "values": {
+        "/root/MainMenuArtPreview/CinderhideContactShadow:position": "Vector2(387, 465)",
+        "/root/MainMenuArtPreview/CinderhideMenuIdle:frame": 7,
+        "/root/MainMenuArtPreview/CinderhideMenuIdle:position": "Vector2(307, 321)",
+        "/root/MainMenuArtPreview/CourierMenuIdle:frame": 5,
+        "/root/MainMenuArtPreview/CourierMenuIdle:position": "Vector2(168, 216)",
+        "/root/MainMenuArtPreview:_reduce_motion": true,
+        "/root/MainMenuArtPreview:_time": 2.417
+      }
+    },
+    "after": {
+      "process_frame": 6457,
+      "values": {
+        "/root/MainMenuArtPreview/CinderhideContactShadow:position": "Vector2(387, 465)",
+        "/root/MainMenuArtPreview/CinderhideMenuIdle:frame": 7,
+        "/root/MainMenuArtPreview/CinderhideMenuIdle:position": "Vector2(307, 321)",
+        "/root/MainMenuArtPreview/CourierMenuIdle:frame": 5,
+        "/root/MainMenuArtPreview/CourierMenuIdle:position": "Vector2(168, 216)",
+        "/root/MainMenuArtPreview:_reduce_motion": true,
+        "/root/MainMenuArtPreview:_time": 2.417
+      }
+    },
+    "stepped_process_ticks": 120,
+    "identical": true,
+    "resumed": true
+  },
+  "new_game_during_arrival": {
+    "menu_time": 0.6,
+    "transition_method": "_on_new_game",
+    "result": {
+      "effective_time_scale": 0,
+      "frame": {
+        "frames_drawn": 16633,
+        "physics_frames": 16633,
+        "process_frames": 16632
+      },
+      "instance": "menu-walk-review",
+      "missing": [],
+      "ok": true,
+      "op": "GameProbe",
+      "paused": false,
+      "provenance": {
+        "source": "runtime",
+        "target": {
+          "instance": "menu-walk-review",
+          "kind": "game"
+        }
+      },
+      "requestId": "mcp-aadaa188-6dc0-4e88-a392-bc6eaa750871",
+      "suspended": true,
+      "time_scale": 1,
+      "total_nodes": 207,
+      "transport": "summer",
+      "tree": {
+        "children": [
+          {
+            "children": [],
+            "class": "Node",
+            "name": "PlayerParty",
+            "path": "/root/PlayerParty"
+          },
+          {
+            "children": [],
+            "class": "Node",
+            "name": "_mcp_game_helper",
+            "path": "/root/_mcp_game_helper"
+          },
+          {
+            "children": [],
+            "class": "Node2D",
+            "name": "FirstRoutePrototype",
+            "path": "/root/FirstRoutePrototype"
+          }
+        ],
+        "class": "Window",
+        "name": "root",
+        "path": "/root"
+      },
+      "truncated": true,
+      "values": {}
+    },
+    "scope": "Opened route solely to verify menu transition"
+  },
+  "actual_gif_capture": {
+    "frames": 37,
+    "step_process_ticks": 7,
+    "initial_process_ticks": 1,
+    "size": [
+      576,
+      324
+    ],
+    "file": "menu_walk_in_runtime_smooth.gif"
+  },
+  "diagnostics": {
+    "runtime_errors": 0,
+    "script_errors": 0,
+    "total_errors": 0,
+    "total_warnings": 11,
+    "changed_preview_script_warnings": 0
+  },
+  "own_review_instance_stopped": true,
+  "controller_and_audible_quality_not_retested": true,
+  "generation_cost_usd": 0.28
+}

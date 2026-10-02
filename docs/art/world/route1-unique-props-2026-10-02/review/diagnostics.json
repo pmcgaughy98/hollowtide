@@ -1,0 +1,270 @@
+{
+  "appliedThroughSeq": 318,
+  "data": {
+    "console": {
+      "editor": 8,
+      "errors": 0,
+      "max_messages": 50,
+      "messages": [
+        {
+          "count": 4,
+          "text": "WriteFile",
+          "type": "editor"
+        },
+        {
+          "count": 1,
+          "text": "[WebView2] Suspended hidden surface generation 1.",
+          "type": "std"
+        },
+        {
+          "count": 1,
+          "text": "MCP | [debug] holding mcp:hello from debugger session 0 until the run is adopted",
+          "type": "std"
+        },
+        {
+          "count": 1,
+          "text": "[godot_ai game_helper] registered mcp capture (debugger active=true, logger=true)",
+          "type": "std"
+        },
+        {
+          "count": 1,
+          "text": "[SE] AuthManager: CLI credential found; desktop session exchange required",
+          "type": "std"
+        },
+        {
+          "count": 1,
+          "text": "",
+          "type": "std"
+        },
+        {
+          "count": 1,
+          "text": "D3D12 12_0 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce GTX 1660 SUPER",
+          "type": "std"
+        },
+        {
+          "count": 1,
+          "text": "Welcome to Summer Engine (c) built on the awesome work by Godot 2007-present Juan Linietsky, Ariel Manzur & Godot Contributors.",
+          "type": "std"
+        },
+        {
+          "count": 1,
+          "text": "[SE] game instance 'route-unique-final' (pid 24644) attached as debugger session 0.",
+          "type": "std"
+        },
+        {
+          "count": 1,
+          "text": "[SE] spawned game instance 'route-unique-final' (pid 24644, offscreen).",
+          "type": "std"
+        }
+      ],
+      "returned": 10,
+      "std": 32,
+      "total": 34,
+      "warnings": 0
+    },
+    "debugger": {
+      "errors": 0,
+      "errors_data": [],
+      "is_breaked": false,
+      "session_active": true,
+      "warnings": 11,
+      "warnings_data": [
+        {
+          "callstack": [
+            {
+              "file": "res://scripts/creature_roster.gd",
+              "function": "load_all",
+              "line": 25
+            },
+            {
+              "file": "res://scripts/debug/dex_overlay.gd",
+              "function": "_refresh",
+              "line": 63
+            },
+            {
+              "file": "res://scripts/debug/dex_overlay.gd",
+              "function": "_ready",
+              "line": 47
+            }
+          ],
+          "count": 1,
+          "error": "res://data/creatures/001_rimefin.tres:4 - ext_resource, invalid UID: uid://crjluirawrgmi - using text path instead: res://assets/sprites/creatures/rimefin.png",
+          "error_descr": "",
+          "file": "scene\\resources\\resource_format_text.cpp",
+          "function": "ResourceLoaderText::load",
+          "line": 516,
+          "severity": "warning",
+          "timestamp_ms": 5597602
+        },
+        {
+          "callstack": [],
+          "count": 1,
+          "error": "SHADOWED_VARIABLE",
+          "error_descr": "The local variable \"start\" is shadowing an already-declared function at line 237 in the current class.",
+          "file": "res://scripts/battle_screen.gd",
+          "function": "GDScript::reload",
+          "line": 1879,
+          "severity": "warning",
+          "timestamp_ms": 5597547
+        },
+        {
+          "callstack": [],
+          "count": 1,
+          "error": "SHADOWED_VARIABLE_BASE_CLASS",
+          "error_descr": "The local function parameter \"offset\" is shadowing an already-declared property in the base class \"CanvasLayer\".",
+          "file": "res://scripts/battle_screen.gd",
+          "function": "GDScript::reload",
+          "line": 1874,
+          "severity": "warning",
+          "timestamp_ms": 5597547
+        },
+        {
+          "callstack": [],
+          "count": 1,
+          "error": "SHADOWED_VARIABLE_BASE_CLASS",
+          "error_descr": "The local function parameter \"offset\" is shadowing an already-declared property in the base class \"CanvasLayer\".",
+          "file": "res://scripts/battle_screen.gd",
+          "function": "GDScript::reload",
+          "line": 1851,
+          "severity": "warning",
+          "timestamp_ms": 5597547
+        },
+        {
+          "callstack": [],
+          "count": 1,
+          "error": "SHADOWED_VARIABLE_BASE_CLASS",
+          "error_descr": "The local function parameter \"offset\" is shadowing an already-declared property in the base class \"CanvasLayer\".",
+          "file": "res://scripts/battle_screen.gd",
+          "function": "GDScript::reload",
+          "line": 1831,
+          "severity": "warning",
+          "timestamp_ms": 5597547
+        },
+        {
+          "callstack": [],
+          "count": 1,
+          "error": "SHADOWED_VARIABLE_BASE_CLASS",
+          "error_descr": "The local function parameter \"offset\" is shadowing an already-declared property in the base class \"CanvasLayer\".",
+          "file": "res://scripts/battle_screen.gd",
+          "function": "GDScript::reload",
+          "line": 1784,
+          "severity": "warning",
+          "timestamp_ms": 5597547
+        },
+        {
+          "callstack": [],
+          "count": 1,
+          "error": "SHADOWED_VARIABLE_BASE_CLASS",
+          "error_descr": "The local function parameter \"offset\" is shadowing an already-declared property in the base class \"CanvasLayer\".",
+          "file": "res://scripts/battle_screen.gd",
+          "function": "GDScript::reload",
+          "line": 1660,
+          "severity": "warning",
+          "timestamp_ms": 5597547
+        },
+        {
+          "callstack": [],
+          "count": 1,
+          "error": "SHADOWED_VARIABLE",
+          "error_descr": "The local variable \"start\" is shadowing an already-declared function at line 237 in the current class.",
+          "file": "res://scripts/battle_screen.gd",
+          "function": "GDScript::reload",
+          "line": 1542,
+          "severity": "warning",
+          "timestamp_ms": 5597547
+        },
+        {
+          "callstack": [],
+          "count": 1,
+          "error": "SHADOWED_VARIABLE_BASE_CLASS",
+          "error_descr": "The local function parameter \"offset\" is shadowing an already-declared property in the base class \"CanvasLayer\".",
+          "file": "res://scripts/battle_screen.gd",
+          "function": "GDScript::reload",
+          "line": 1537,
+          "severity": "warning",
+          "timestamp_ms": 5597547
+        },
+        {
+          "callstack": [],
+          "count": 1,
+          "error": "SHADOWED_VARIABLE_BASE_CLASS",
+          "error_descr": "The local \"for\" iterator variable \"layer\" is shadowing an already-declared property in the base class \"CanvasLayer\".",
+          "file": "res://scripts/battle_screen.gd",
+          "function": "GDScript::reload",
+          "line": 1099,
+          "severity": "warning",
+          "timestamp_ms": 5597547
+        },
+        {
+          "callstack": [],
+          "count": 1,
+          "error": "SHADOWED_VARIABLE_BASE_CLASS",
+          "error_descr": "The local variable \"offset\" is shadowing an already-declared property in the base class \"CanvasLayer\".",
+          "file": "res://scripts/battle_screen.gd",
+          "function": "GDScript::reload",
+          "line": 786,
+          "severity": "warning",
+          "timestamp_ms": 5597547
+        }
+      ]
+    },
+    "guidance": "Only warnings present. Check console.messages for details.",
+    "has_issues": true,
+    "scopes": {
+      "application": {
+        "errors": 0,
+        "has_issues": false,
+        "warnings": 0
+      },
+      "classification": "known_application_signatures_and_compiler_locations",
+      "console_available": true,
+      "coverage": "observed_console_debugger_and_open_script_buffers_not_full_project_validation",
+      "csharp_unique_errors": 0,
+      "debugger_available": true,
+      "guidance": "Use project errors for observed game/compiler failures. Application errors describe Summer chat/WebView transport, not broken game scripts. Inspect unclassified console evidence before attributing it. Zero known project errors is not a full project validation.",
+      "project": {
+        "errors": 0,
+        "has_issues": true,
+        "script_validation_available": true,
+        "script_validation_incomplete": false,
+        "warnings": 11
+      },
+      "unclassified": {
+        "errors": 0,
+        "has_issues": false,
+        "warnings": 0
+      }
+    },
+    "script_errors": {
+      "count": 0,
+      "errors": [],
+      "scope": "open_script_buffers"
+    },
+    "total_errors": 0,
+    "total_warnings": 11
+  },
+  "ok": true,
+  "provenance": {
+    "dirty": false,
+    "rootName": "MainMenuArtPreview",
+    "rootType": "Node2D",
+    "scenePath": "res://scenes/main_menu_art_preview.tscn",
+    "source": "diagnostics",
+    "target": {
+      "kind": "diagnostics",
+      "path": "diagnostics"
+    }
+  },
+  "snapshotAt": 5780344,
+  "snapshotSeq": 64442,
+  "_view": {
+    "mode": "prioritized",
+    "totalConsole": 34,
+    "shownConsole": 10,
+    "suppressedInfo": 5,
+    "totalDebugger": 11,
+    "shownDebugger": 11,
+    "suppressedDebuggerWarnings": 0,
+    "hint": "All counts are complete; only low-severity message bodies were trimmed. Re-call with includeAll: true for the untrimmed payload, or use summer_get_console / summer_get_debugger_warnings for targeted reads."
+  }
+}

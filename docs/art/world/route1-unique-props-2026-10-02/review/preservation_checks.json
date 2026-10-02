@@ -1,0 +1,16 @@
+{
+  "runtime_images_match_manifests_and_prepared": 27,
+  "all_27_runtime_images_have_distinct_hashes": true,
+  "original_roof_pixels_preserved": "de7b140d182c01026a4b00e197c76d1b072e5fec04491aae71093bb83cb6e8e8",
+  "original_tree_pixels_preserved": "5f7d048ee8df9b93814563db307a92f498930b47640abd138f10feb6e33effb1",
+  "original_shrub_pixels_preserved": "9e2c6548c9bfbe343a5224b5583407769d134f21b11295eeeb8f3767860a8e34",
+  "original_reeds_pixels_preserved": "1d5721f8ffff36e38198c9bbfe6e08f10286e463b8dcd78c4a7059c594dc74d4",
+  "original_wall_pixels_preserved": "ccb270ffe6191ff24def2ee3e80a6e5d5fbc66948c86a9d92c5cdc501ecee85c",
+  "all_seven_tree_trunks_and_roots_exact": true,
+  "house_facade_and_threshold_pixels_exact": true,
+  "terrain_cell_data_exact": true,
+  "route_script_changes_only_camera_offset": true,
+  "full_route_input_playtest_passed": true,
+  "observed_final_errors": 0,
+  "observed_existing_warnings": 11
+}

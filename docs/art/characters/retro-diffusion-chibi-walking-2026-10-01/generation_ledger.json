@@ -1,0 +1,194 @@
+{
+  "jobs": [
+    {
+      "asset": "menu_courier",
+      "kind": "menu_walk",
+      "task_id": "86ec9aa0-1337-46c2-addb-014fc0c7fa45",
+      "status": "succeeded",
+      "cost_usd": 0.14,
+      "output": "menu_courier_walk_original.gif"
+    },
+    {
+      "asset": "menu_cinderhide",
+      "kind": "menu_walk",
+      "task_id": "08232bc8-fd47-436f-bf16-0454cf2c5ba9",
+      "status": "succeeded",
+      "cost_usd": 0.14,
+      "output": "menu_cinderhide_walk_original.gif"
+    },
+    {
+      "asset": "male",
+      "kind": "rotation",
+      "task_id": "108eff74-e7d9-4d87-9465-822f32b646a3",
+      "status": "succeeded",
+      "cost_usd": 0.1,
+      "output": "male_rotation_original.png"
+    },
+    {
+      "asset": "female",
+      "kind": "rotation",
+      "task_id": "1673a020-4f0d-434a-abc7-61a84775307b",
+      "status": "succeeded",
+      "cost_usd": 0.1,
+      "output": "female_rotation_original.png"
+    },
+    {
+      "asset": "male_up_left",
+      "kind": "satchel_correction",
+      "task_id": "2776ad17-032c-4095-afad-9fe220e07a58",
+      "status": "succeeded",
+      "cost_usd": 0.18,
+      "output": "male_up_left_bag_corrected_original.png",
+      "visual_use": "walking_anchor"
+    },
+    {
+      "asset": "male_up_right",
+      "kind": "satchel_correction",
+      "task_id": "a458e13b-3cae-4758-9d9b-5d5d52e1a895",
+      "status": "succeeded",
+      "cost_usd": 0.18,
+      "output": "male_up_right_bag_corrected_original.png",
+      "visual_use": "rejected; bag still absent, preserved only"
+    },
+    {
+      "asset": "male_up_right",
+      "kind": "satchel_correction_retry",
+      "task_id": "eca15be3-7a0f-41f1-827a-0d247dd361dc",
+      "status": "succeeded",
+      "cost_usd": 0.18,
+      "output": "male_up_right_bag_retry_original.png",
+      "visual_use": "walking_anchor; strap and partially occluded bag present"
+    },
+    {
+      "asset": "male_down",
+      "kind": "chibi_walk",
+      "task_id": "1760c008-638a-4437-96cb-347dc66f7f7a",
+      "status": "succeeded",
+      "cost_usd": 0.14,
+      "output": "male_down_walk_original.gif"
+    },
+    {
+      "asset": "male_down_left",
+      "kind": "chibi_walk",
+      "task_id": "0c7163eb-c924-4e2c-a5d1-fc2aae85f113",
+      "status": "succeeded",
+      "cost_usd": 0.14,
+      "output": "male_down_left_walk_original.gif"
+    },
+    {
+      "asset": "male_left",
+      "kind": "chibi_walk",
+      "task_id": "a13d2038-d7bf-4b1d-8458-bad806a5d383",
+      "status": "succeeded",
+      "cost_usd": 0.14,
+      "output": "male_left_walk_original.gif"
+    },
+    {
+      "asset": "male_up_left",
+      "kind": "chibi_walk",
+      "task_id": "f96da34a-1387-4707-a9c4-ad932c420875",
+      "status": "succeeded",
+      "cost_usd": 0.14,
+      "output": "male_up_left_walk_original.gif"
+    },
+    {
+      "asset": "male_up",
+      "kind": "chibi_walk",
+      "task_id": "184509c0-aae6-4335-a72d-ae2c47a57678",
+      "status": "succeeded",
+      "cost_usd": 0.14,
+      "output": "male_up_walk_original.gif"
+    },
+    {
+      "asset": "male_up_right",
+      "kind": "chibi_walk",
+      "task_id": "b4a5e76d-4935-415f-bba7-e60f3524db13",
+      "status": "succeeded",
+      "cost_usd": 0.14,
+      "output": "male_up_right_walk_original.gif"
+    },
+    {
+      "asset": "male_right",
+      "kind": "chibi_walk",
+      "task_id": "f500a986-d12e-4710-9914-ce6fc89fbbef",
+      "status": "succeeded",
+      "cost_usd": 0.14,
+      "output": "male_right_walk_original.gif"
+    },
+    {
+      "asset": "male_down_right",
+      "kind": "chibi_walk",
+      "task_id": "4d470171-33a0-4852-9c09-3d93f89ad438",
+      "status": "succeeded",
+      "cost_usd": 0.14,
+      "output": "male_down_right_walk_original.gif"
+    },
+    {
+      "asset": "female_down",
+      "kind": "chibi_walk",
+      "task_id": "e81b5edd-0424-4951-b192-76ce25ec1cd6",
+      "status": "succeeded",
+      "cost_usd": 0.14,
+      "output": "female_down_walk_original.gif"
+    },
+    {
+      "asset": "female_down_left",
+      "kind": "chibi_walk",
+      "task_id": "fbe7d1c3-a7d2-409b-aed5-47d9158e5016",
+      "status": "succeeded",
+      "cost_usd": 0.14,
+      "output": "female_down_left_walk_original.gif"
+    },
+    {
+      "asset": "female_left",
+      "kind": "chibi_walk",
+      "task_id": "8a5f9c2c-418c-4b96-bcb6-0951b3e2f1af",
+      "status": "succeeded",
+      "cost_usd": 0.14,
+      "output": "female_left_walk_original.gif"
+    },
+    {
+      "asset": "female_up_left",
+      "kind": "chibi_walk",
+      "task_id": "f25f9ad2-dd2d-4707-b030-f379074e3cd1",
+      "status": "succeeded",
+      "cost_usd": 0.14,
+      "output": "female_up_left_walk_original.gif"
+    },
+    {
+      "asset": "female_up",
+      "kind": "chibi_walk",
+      "task_id": "3e0c5c4a-567f-4a85-b2ff-217ce5ef3833",
+      "status": "succeeded",
+      "cost_usd": 0.14,
+      "output": "female_up_walk_original.gif"
+    },
+    {
+      "asset": "female_up_right",
+      "kind": "chibi_walk",
+      "task_id": "a164b4fa-5cd2-4957-a91c-71c917fe256d",
+      "status": "succeeded",
+      "cost_usd": 0.14,
+      "output": "female_up_right_walk_original.gif"
+    },
+    {
+      "asset": "female_right",
+      "kind": "chibi_walk",
+      "task_id": "2b944f43-e849-48a2-937d-a5ebb0f1e204",
+      "status": "succeeded",
+      "cost_usd": 0.14,
+      "output": "female_right_walk_original.gif"
+    },
+    {
+      "asset": "female_down_right",
+      "kind": "chibi_walk",
+      "task_id": "8bc3b6c2-d804-4c4a-b55a-551207ada496",
+      "status": "succeeded",
+      "cost_usd": 0.14,
+      "output": "female_down_right_walk_original.gif"
+    }
+  ],
+  "total_cost_usd": 3.26,
+  "job_count": 23,
+  "account_balance_change_not_attributed": true
+}

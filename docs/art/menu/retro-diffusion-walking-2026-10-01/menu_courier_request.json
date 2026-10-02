@@ -1,0 +1,41 @@
+{
+  "parameters": {
+    "width": 80,
+    "height": 80,
+    "input_image": "menu_courier_input_native80.png",
+    "num_images": 1,
+    "prompt_style": "rd_advanced_animation__walking",
+    "frames_duration": 8,
+    "return_spritesheet": false,
+    "bypass_prompt_expansion": true,
+    "prompt": "Seamless relaxed walking cycle. This exact chibi courier walks facing upper right in the same three-quarter rear-right view throughout. Clearly alternate left and right boot contacts with close-foot passing poses between them, opposite arm swing, small natural torso bob and slight satchel lag. Preserve the large brown-haired head, brass goggles, short teal jacket, brown trousers, boots, crossbody satchel, compact proportions, dark warm contour and exact dusk palette. Full body and both boots stay inside the frame. Fixed camera, stable center, transparent background. No turning, running, jumping, outfit changes or new props. Last stride joins naturally to first.",
+    "remove_bg": true,
+    "upload_outputs": true
+  },
+  "estimate": {
+    "created_at": 1790900557,
+    "credit_cost": 0,
+    "balance_cost": 0.14,
+    "output_images": [],
+    "base64_images": [],
+    "output_urls": [],
+    "model": "check_cost",
+    "remaining_credits": 0,
+    "remaining_balance": 9.050000000000004,
+    "resolved_prompt_style": "rd_advanced_animation__walking",
+    "used_input_image": true,
+    "reference_images_count": 0,
+    "used_extra_input_image": false,
+    "used_input_palette": false,
+    "used_strength": false,
+    "effective_timeout_seconds": 180
+  },
+  "job": {
+    "status": "accepted",
+    "task_id": "86ec9aa0-1337-46c2-addb-014fc0c7fa45",
+    "request_id": "86ec9aa0-1337-46c2-addb-014fc0c7fa45",
+    "message": "Inference accepted. Poll GET /v2/inferences/tasks/{task_id} for status."
+  },
+  "source": "C:\\Users\\pmcga\\dev\\hollowtide\\assets\\sprites\\menu\\retro_diffusion_idle_2026_10_01\\courier_idle_contrast_atlas.png",
+  "input_sha256": "7b285e44c1d1f7f1cb8d23a9bf9bed8e158a3ee1cee271b5cf8b70a8494a92e7"
+}

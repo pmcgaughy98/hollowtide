@@ -1,0 +1,32 @@
+{
+  "source": "C:\\Users\\pmcga\\dev\\hollowtide\\assets\\sprites\\world\\route1_rd_2026_10_01\\cottonwood_polished.png",
+  "source_sha256": "beb620024b3cd248e6d603531073932743234608045f4bdf09adee99c98a6baf",
+  "raw_outpaint": "cottonwood_outpaint_raw.png",
+  "background_cleanup": "cottonwood_outpaint_transparent.png",
+  "original_core_restored_exactly": true,
+  "core_pixel_changes": 0,
+  "new_foliage_strips": [
+    [
+      8,
+      24
+    ],
+    [
+      88,
+      104
+    ]
+  ],
+  "removed_matte_pixels": 0,
+  "added_transparent_side_margin": 8,
+  "canvas": [
+    112,
+    96
+  ],
+  "alpha_bbox": [
+    11,
+    9,
+    99,
+    89
+  ],
+  "trunk_and_foot_global_positions_preserved": true,
+  "colour_interpolation": false
+}

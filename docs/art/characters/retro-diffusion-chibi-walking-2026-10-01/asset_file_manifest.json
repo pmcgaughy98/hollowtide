@@ -1,0 +1,422 @@
+{
+  "res://docs/art/characters/retro-diffusion-chibi-walking-2026-10-01/chibi_input_review.png": {
+    "bytes": 53739,
+    "sha256": "76f390c41eed28d03e8d3d84ac36d137a6c5ef0c7337ea1696d6a59bf313b748"
+  },
+  "res://docs/art/characters/retro-diffusion-chibi-walking-2026-10-01/female_chibi_eight_direction_walk_review.gif": {
+    "bytes": 154528,
+    "sha256": "fd4d6bb71b4affc0378e189fd49968001b39bbbd6d326358b91ff52724a114e5"
+  },
+  "res://assets/sprites/player/retro_diffusion_chibi_walking_2026_10_01/female_chibi_walk_eight_directions_native80.png": {
+    "bytes": 87113,
+    "sha256": "6b11c733a78b26772c73fa4f0405f0138c13b1871a4e8f9e15f8a5405eddd2aa"
+  },
+  "res://docs/art/characters/retro-diffusion-chibi-walking-2026-10-01/female_chibi_walk_eight_directions_study32.png": {
+    "bytes": 23030,
+    "sha256": "4fb85c65f575870b8e4b6a861401e3d6e14f99d2f144043ecaf9748350e5faad"
+  },
+  "res://docs/art/characters/retro-diffusion-chibi-walking-2026-10-01/female_clean_rotation_review.png": {
+    "bytes": 24423,
+    "sha256": "6e0c2839a178be6b4aed7debcf841ef92f27fd44a2ee4a5bf7915abf94d6cbd7"
+  },
+  "res://docs/art/characters/retro-diffusion-chibi-walking-2026-10-01/female_down_clean_rotation_input_native80.png": {
+    "bytes": 3147,
+    "sha256": "5f19086d11cf56a1391d9914b5cc67aabb37dfc96d87cc6c13f2da5e27a94a39"
+  },
+  "res://docs/art/characters/retro-diffusion-chibi-walking-2026-10-01/female_down_input_native80.png": {
+    "bytes": 4585,
+    "sha256": "f64d2272a3d8cc86cba53ed821b2c2c9bc79c02ee591f4ba1601d6dbd1d7f2e4"
+  },
+  "res://docs/art/characters/retro-diffusion-chibi-walking-2026-10-01/female_down_left_clean_rotation_input_native80.png": {
+    "bytes": 2730,
+    "sha256": "e5fc4836bbe58bf9de0f88582832544db914558823d6fcd2cb2b291e9a7dcb7f"
+  },
+  "res://docs/art/characters/retro-diffusion-chibi-walking-2026-10-01/female_down_left_rotation_input_native80.png": {
+    "bytes": 2731,
+    "sha256": "ec57a4fd90a55bd5994bd764e608faf5f41bb0a33a4e91b368bfee15fcf6167d"
+  },
+  "res://docs/art/characters/retro-diffusion-chibi-walking-2026-10-01/female_down_left_walk_atlas_native80.png": {
+    "bytes": 12162,
+    "sha256": "946379553ca913ca63afb9ad79165c775b799556d684a67ae8a35820c7ca28d8"
+  },
+  "res://docs/art/characters/retro-diffusion-chibi-walking-2026-10-01/female_down_left_walk_atlas_study32.png": {
+    "bytes": 3503,
+    "sha256": "d2e66085b2d6cbb81f00ac132bb5f7e33bf9be90fe5e2a619caea48cb51d91cd"
+  },
+  "res://docs/art/characters/retro-diffusion-chibi-walking-2026-10-01/female_down_left_walk_original.gif": {
+    "bytes": 13669,
+    "sha256": "6a19fa8aa4f0ba2625f11179b65b3824eb0538ff519721c43cf8b4c141beca8a"
+  },
+  "res://docs/art/characters/retro-diffusion-chibi-walking-2026-10-01/female_down_right_clean_rotation_input_native80.png": {
+    "bytes": 2562,
+    "sha256": "50ad48e2e6adfdb30994297effd62b5149e2be3d5fba785381fa28b4193440f5"
+  },
+  "res://docs/art/characters/retro-diffusion-chibi-walking-2026-10-01/female_down_right_rotation_input_native80.png": {
+    "bytes": 2570,
+    "sha256": "bbb2bfe2be0ec684b6b2b1daa26e056297e7994c748a995b19e7c57455b6d61c"
+  },
+  "res://docs/art/characters/retro-diffusion-chibi-walking-2026-10-01/female_down_right_walk_atlas_native80.png": {
+    "bytes": 12750,
+    "sha256": "80d0971689146fed99765cf71f25b543d14f56620a6441de2b791c84a58f83be"
+  },
+  "res://docs/art/characters/retro-diffusion-chibi-walking-2026-10-01/female_down_right_walk_atlas_study32.png": {
+    "bytes": 3425,
+    "sha256": "bd2eae41580fc8ba96e0b1b272a77fe2a5e90b6bf0d9b4d53c38ea93ece9f1b2"
+  },
+  "res://docs/art/characters/retro-diffusion-chibi-walking-2026-10-01/female_down_right_walk_original.gif": {
+    "bytes": 13400,
+    "sha256": "9bd20371448a460795c6b5310f488f1caff37f4b461af292a1588034917a1c2d"
+  },
+  "res://docs/art/characters/retro-diffusion-chibi-walking-2026-10-01/female_down_rotation_input_native80.png": {
+    "bytes": 3211,
+    "sha256": "80cb6f3ed5ab0304d75052e966714d4783579f3bd5263c052cee863c073e6ca0"
+  },
+  "res://docs/art/characters/retro-diffusion-chibi-walking-2026-10-01/female_down_walk_atlas_native80.png": {
+    "bytes": 13103,
+    "sha256": "c526b9127391c1392189a70a59e8ab6a05938c733fdf092d9bbea5b1e72c8171"
+  },
+  "res://docs/art/characters/retro-diffusion-chibi-walking-2026-10-01/female_down_walk_atlas_study32.png": {
+    "bytes": 3493,
+    "sha256": "e2f2d21307d1898df5b560d6e732912522c32d4a4d2f8cc75d13756760f99809"
+  },
+  "res://docs/art/characters/retro-diffusion-chibi-walking-2026-10-01/female_down_walk_original.gif": {
+    "bytes": 13900,
+    "sha256": "83e1563361c9d3e7e92134d0a6f10ea18a242cd9c9c2d7f30ea498ffe6eb546f"
+  },
+  "res://docs/art/characters/retro-diffusion-chibi-walking-2026-10-01/female_fringe_cleanup.json": {
+    "bytes": 2436,
+    "sha256": "1a7097084e36083105f866b08d3e226a88392984b1e9835251a0ec53e12c6389"
+  },
+  "res://docs/art/characters/retro-diffusion-chibi-walking-2026-10-01/female_left_clean_rotation_input_native80.png": {
+    "bytes": 1924,
+    "sha256": "263b7ccbae085438339a152b40c3b7e175ee95e106cb3ce0cc30c32e1e9916f8"
+  },
+  "res://docs/art/characters/retro-diffusion-chibi-walking-2026-10-01/female_left_input_native80.png": {
+    "bytes": 4734,
+    "sha256": "eed3f49106c1230489677111b98a8671356e7b509fde7b7f3b6fc129530eaeed"
+  },
+  "res://docs/art/characters/retro-diffusion-chibi-walking-2026-10-01/female_left_rotation_input_native80.png": {
+    "bytes": 1926,
+    "sha256": "7d22d79d4d435618ad189505061daace274bb0d14d4d0088043eee1df5a2460b"
+  },
+  "res://docs/art/characters/retro-diffusion-chibi-walking-2026-10-01/female_left_walk_atlas_native80.png": {
+    "bytes": 8983,
+    "sha256": "ef483a147df57ffae837c0c4a24618d7a555a8ab03718d30e0edbcf66d1d3dcb"
+  },
+  "res://docs/art/characters/retro-diffusion-chibi-walking-2026-10-01/female_left_walk_atlas_study32.png": {
+    "bytes": 2592,
+    "sha256": "6138e0f71592318e8d0120bd34173775510c61dc6e2f84ee38b79f8941726011"
+  },
+  "res://docs/art/characters/retro-diffusion-chibi-walking-2026-10-01/female_left_walk_original.gif": {
+    "bytes": 12545,
+    "sha256": "8d7bea38b211b03e50e22c5a8935c31356aeac5ba0e731a95e65dc1a947ebda2"
+  },
+  "res://docs/art/characters/retro-diffusion-chibi-walking-2026-10-01/female_right_clean_rotation_input_native80.png": {
+    "bytes": 1907,
+    "sha256": "91c0d5a08edc243c8ac58f12373e3170111d9e7f8adfd217a52cf8e74b9b15d0"
+  },
+  "res://docs/art/characters/retro-diffusion-chibi-walking-2026-10-01/female_right_input_native80.png": {
+    "bytes": 4761,
+    "sha256": "62ea06c0f0ced611a2248d57f1b122609f6610848655e65c398e76f4f5f730cb"
+  },
+  "res://docs/art/characters/retro-diffusion-chibi-walking-2026-10-01/female_right_rotation_input_native80.png": {
+    "bytes": 1980,
+    "sha256": "5d35ffdaf047c54af767a7cda93b0eef469f0a1f2bf439214c383e6f71076dfe"
+  },
+  "res://docs/art/characters/retro-diffusion-chibi-walking-2026-10-01/female_right_walk_atlas_native80.png": {
+    "bytes": 9347,
+    "sha256": "145900557e52219a38c36a9d788ff9fdbef5ebf4e0f1932cd84d3ecaaafc58b7"
+  },
+  "res://docs/art/characters/retro-diffusion-chibi-walking-2026-10-01/female_right_walk_atlas_study32.png": {
+    "bytes": 2693,
+    "sha256": "ec2d6466ca8f1a508a0c55942759b3d8fe2554244884c1e73e0ff521b3a24a87"
+  },
+  "res://docs/art/characters/retro-diffusion-chibi-walking-2026-10-01/female_right_walk_original.gif": {
+    "bytes": 12468,
+    "sha256": "c61737eb139ec3af53e97de9d40ec7552c378fe92f756b15e686007d90e2a3b0"
+  },
+  "res://docs/art/characters/retro-diffusion-chibi-walking-2026-10-01/female_rotation_original.png": {
+    "bytes": 20234,
+    "sha256": "47aae53cd87e14c6c647bd2f848a45375426366585c0970dcbb770b9094d5d9a"
+  },
+  "res://docs/art/characters/retro-diffusion-chibi-walking-2026-10-01/female_rotation_review.png": {
+    "bytes": 24836,
+    "sha256": "02d8293d6ebc953f62532b8e72c698300700f1824a67e5c302550fef686a617a"
+  },
+  "res://docs/art/characters/retro-diffusion-chibi-walking-2026-10-01/female_up_clean_rotation_input_native80.png": {
+    "bytes": 2275,
+    "sha256": "2904fb0df9355476e0de356bab4f1c38d842648d7f2fe8ca1c90b1a5f6b84bc4"
+  },
+  "res://docs/art/characters/retro-diffusion-chibi-walking-2026-10-01/female_up_input_native80.png": {
+    "bytes": 3883,
+    "sha256": "d7d7f6719ff4768d9a028c9ab82c57d186e03867016ddbde709289902838497b"
+  },
+  "res://docs/art/characters/retro-diffusion-chibi-walking-2026-10-01/female_up_left_clean_rotation_input_native80.png": {
+    "bytes": 2169,
+    "sha256": "22b34d71d7d0d2d5770fe18dc51cbacdbadc17f947695f7db4d417419dc81ed0"
+  },
+  "res://docs/art/characters/retro-diffusion-chibi-walking-2026-10-01/female_up_left_rotation_input_native80.png": {
+    "bytes": 2169,
+    "sha256": "22b34d71d7d0d2d5770fe18dc51cbacdbadc17f947695f7db4d417419dc81ed0"
+  },
+  "res://docs/art/characters/retro-diffusion-chibi-walking-2026-10-01/female_up_left_walk_atlas_native80.png": {
+    "bytes": 9621,
+    "sha256": "f1cbd9d0739c42215aedaa1a94111d11a5e13cbaf6074a4da284e4fac965235d"
+  },
+  "res://docs/art/characters/retro-diffusion-chibi-walking-2026-10-01/female_up_left_walk_atlas_study32.png": {
+    "bytes": 2941,
+    "sha256": "6cd482a8297430c7df4a76876829e6a68593f24a16371937c4b9802259ddb49d"
+  },
+  "res://docs/art/characters/retro-diffusion-chibi-walking-2026-10-01/female_up_left_walk_original.gif": {
+    "bytes": 12492,
+    "sha256": "31e0089a0f994b9999aff5a7613cb491ebb73a4f8d71771d6371e7342f290662"
+  },
+  "res://docs/art/characters/retro-diffusion-chibi-walking-2026-10-01/female_up_right_clean_rotation_input_native80.png": {
+    "bytes": 2232,
+    "sha256": "ca08b00f713b9204066a82b488ba556fe8af1d02ae84f60f6d7eff2e41d106ed"
+  },
+  "res://docs/art/characters/retro-diffusion-chibi-walking-2026-10-01/female_up_right_rotation_input_native80.png": {
+    "bytes": 2222,
+    "sha256": "137579300977c1fd89203748fdd2e76caee2fdcd16d0abc5bf7a5a3c9f2a2861"
+  },
+  "res://docs/art/characters/retro-diffusion-chibi-walking-2026-10-01/female_up_right_walk_atlas_native80.png": {
+    "bytes": 10964,
+    "sha256": "d591bd0908ecd688367b522e33eb5279d5bbf203095ac7044baf54ceca88dac5"
+  },
+  "res://docs/art/characters/retro-diffusion-chibi-walking-2026-10-01/female_up_right_walk_atlas_study32.png": {
+    "bytes": 3069,
+    "sha256": "280eaacb9483614e6b8b973625c5a7c500acfac62ee77122aae5e8f0c8cd7701"
+  },
+  "res://docs/art/characters/retro-diffusion-chibi-walking-2026-10-01/female_up_right_walk_original.gif": {
+    "bytes": 12791,
+    "sha256": "49f93d077690d6979be572f0374c34fefd0450dfd8a4013c84dcdc7f23df1144"
+  },
+  "res://docs/art/characters/retro-diffusion-chibi-walking-2026-10-01/female_up_rotation_input_native80.png": {
+    "bytes": 2360,
+    "sha256": "74edea33ec0c52ca56b2b07e8a06dd8e974aa5861787385eae5b57d77ff00669"
+  },
+  "res://docs/art/characters/retro-diffusion-chibi-walking-2026-10-01/female_up_walk_atlas_native80.png": {
+    "bytes": 10952,
+    "sha256": "45f6f8b54e1e25d62f0e1217daac2def2c99d598b6059fc7a2363b37fa7cd4fd"
+  },
+  "res://docs/art/characters/retro-diffusion-chibi-walking-2026-10-01/female_up_walk_atlas_study32.png": {
+    "bytes": 3068,
+    "sha256": "659a83e6e46b7122aae3568ce5efd70ab3c7549993e3c12a2e7b15cd310d6815"
+  },
+  "res://docs/art/characters/retro-diffusion-chibi-walking-2026-10-01/female_up_walk_original.gif": {
+    "bytes": 13104,
+    "sha256": "508b6bee1ca09eee4b1037a3f664359b15d47b5be142b49aed74f789e0524ae2"
+  },
+  "res://docs/art/characters/retro-diffusion-chibi-walking-2026-10-01/female_walk_all_frames_review_1.png": {
+    "bytes": 65285,
+    "sha256": "21dbbe6a4b3994bffdbebc902e265c661723ef6b81d5aaa612080a06ae94774b"
+  },
+  "res://docs/art/characters/retro-diffusion-chibi-walking-2026-10-01/female_walk_all_frames_review_2.png": {
+    "bytes": 63843,
+    "sha256": "00ae8cad4ddf41c8761cbe4c71628f8d21e074327bcd9cc7773e5f9055aa59c8"
+  },
+  "res://docs/art/characters/retro-diffusion-chibi-walking-2026-10-01/input_manifest.json": {
+    "bytes": 6173,
+    "sha256": "5f9fa584e65957d4b76c88257d53049a6c16d170add120e4b2839cd4f66ad20a"
+  },
+  "res://docs/art/characters/retro-diffusion-chibi-walking-2026-10-01/male_chibi_eight_direction_walk_review.gif": {
+    "bytes": 185669,
+    "sha256": "5d5c69ac633715675c0e4ad4de5e1dfa47d8659f4c6dcc18f21d7cd12d314e93"
+  },
+  "res://assets/sprites/player/retro_diffusion_chibi_walking_2026_10_01/male_chibi_walk_eight_directions_native80.png": {
+    "bytes": 98147,
+    "sha256": "db838a6520874d974796cda537e241b676a31828de60aae8c09366c6d5ad0f7a"
+  },
+  "res://docs/art/characters/retro-diffusion-chibi-walking-2026-10-01/male_chibi_walk_eight_directions_study32.png": {
+    "bytes": 26794,
+    "sha256": "91ca312ebbd606b3d1b90dce1d724f7835ed6d5aae883b2da543747a5d3efac2"
+  },
+  "res://docs/art/characters/retro-diffusion-chibi-walking-2026-10-01/male_down_input_native80.png": {
+    "bytes": 4790,
+    "sha256": "25a6d778fba9bcbbca225c196937dce03d6aa61b9120985ee4b5092653f75fcd"
+  },
+  "res://docs/art/characters/retro-diffusion-chibi-walking-2026-10-01/male_down_left_rotation_input_native80.png": {
+    "bytes": 2849,
+    "sha256": "5e1a5a656e23cb08f372abf3011b57122a7f46c20dbaf15d0c0d17d7c8ad4cc2"
+  },
+  "res://docs/art/characters/retro-diffusion-chibi-walking-2026-10-01/male_down_left_walk_atlas_native80.png": {
+    "bytes": 13548,
+    "sha256": "998ea03f2478fe330cf2ef61028e8f21d5570b9890e2bd732b196f35473391ef"
+  },
+  "res://docs/art/characters/retro-diffusion-chibi-walking-2026-10-01/male_down_left_walk_atlas_study32.png": {
+    "bytes": 3673,
+    "sha256": "f06c2e676ebb2c7441c2bf6e8e97797640bf71f41ed1c8d1aadbb010c75d2486"
+  },
+  "res://docs/art/characters/retro-diffusion-chibi-walking-2026-10-01/male_down_left_walk_original.gif": {
+    "bytes": 13895,
+    "sha256": "df3762778f6763c4a84589d4e7a6c8b47f940ea2a0e25e9a27e5deceb0d856d6"
+  },
+  "res://docs/art/characters/retro-diffusion-chibi-walking-2026-10-01/male_down_right_rotation_input_native80.png": {
+    "bytes": 2918,
+    "sha256": "daae1e17c75b41a8013bb508503001c47d68a56c7d2408064caf8d6682ded77f"
+  },
+  "res://docs/art/characters/retro-diffusion-chibi-walking-2026-10-01/male_down_right_walk_atlas_native80.png": {
+    "bytes": 12163,
+    "sha256": "f1c97376d52013b21fdf82031b4758161cc00ebd298b8c4f776b2ac1c6d591e5"
+  },
+  "res://docs/art/characters/retro-diffusion-chibi-walking-2026-10-01/male_down_right_walk_atlas_study32.png": {
+    "bytes": 3318,
+    "sha256": "830d513febd196c39ae28bb3e124a0ec6e84057121243ebf17f5ff0193376049"
+  },
+  "res://docs/art/characters/retro-diffusion-chibi-walking-2026-10-01/male_down_right_walk_original.gif": {
+    "bytes": 13826,
+    "sha256": "a600e15f707061e603c4f91e76f1c799ab980d58d1fabc8aa0a620d3881f7aee"
+  },
+  "res://docs/art/characters/retro-diffusion-chibi-walking-2026-10-01/male_down_rotation_input_native80.png": {
+    "bytes": 3268,
+    "sha256": "0d0a932f487f2fc2788916e0a9b37662bc2b59f3a06dd6538baaf2fa9dfe6984"
+  },
+  "res://docs/art/characters/retro-diffusion-chibi-walking-2026-10-01/male_down_walk_atlas_native80.png": {
+    "bytes": 14723,
+    "sha256": "882b6024869778c16e9926c949d7945e9112f3098dc3e8e197be9e4279f890ed"
+  },
+  "res://docs/art/characters/retro-diffusion-chibi-walking-2026-10-01/male_down_walk_atlas_study32.png": {
+    "bytes": 3964,
+    "sha256": "5a0690b7c8007baa796ffc222b21feb273143c5df929a0aa3158b6a35bd8bb27"
+  },
+  "res://docs/art/characters/retro-diffusion-chibi-walking-2026-10-01/male_down_walk_original.gif": {
+    "bytes": 15341,
+    "sha256": "99daeb45a706adb4235e25438922cf53f5b40faaaedc56867830312403f65091"
+  },
+  "res://docs/art/characters/retro-diffusion-chibi-walking-2026-10-01/male_left_input_native80.png": {
+    "bytes": 4526,
+    "sha256": "30f4740715a2c999d24f4f5e8c68729ad51e0138eb3186b6f29b97c5d660ea1d"
+  },
+  "res://docs/art/characters/retro-diffusion-chibi-walking-2026-10-01/male_left_rotation_input_native80.png": {
+    "bytes": 2122,
+    "sha256": "c63c0546e2e9cadadebd073ead0fef61ea72d3c47a3bf0f882781fdd037fb55d"
+  },
+  "res://docs/art/characters/retro-diffusion-chibi-walking-2026-10-01/male_left_walk_atlas_native80.png": {
+    "bytes": 9847,
+    "sha256": "09f31f9d0f5686923ec55063de1422ad6527be7475173e5001d262643f56e5d0"
+  },
+  "res://docs/art/characters/retro-diffusion-chibi-walking-2026-10-01/male_left_walk_atlas_study32.png": {
+    "bytes": 2898,
+    "sha256": "5d7f95ada855653c9fc46abe82a98658409c827711c28fe0f1fc47f39940f996"
+  },
+  "res://docs/art/characters/retro-diffusion-chibi-walking-2026-10-01/male_left_walk_original.gif": {
+    "bytes": 12840,
+    "sha256": "d8d70659e6188f8329a1471bb18d63fac3422a4e3fb9b7c893ace3d6e881a826"
+  },
+  "res://docs/art/characters/retro-diffusion-chibi-walking-2026-10-01/male_rear_bag_review.png": {
+    "bytes": 21348,
+    "sha256": "ed82df5e18636f7bc45d6710749cd25d33f3adaddc58b7c41e4f757e8f23b47f"
+  },
+  "res://docs/art/characters/retro-diffusion-chibi-walking-2026-10-01/male_right_input_native80.png": {
+    "bytes": 4531,
+    "sha256": "f4742de9de2e09f0e0ac418628167479801459238d5f1f5e1a18ba5b8303dd56"
+  },
+  "res://docs/art/characters/retro-diffusion-chibi-walking-2026-10-01/male_right_rotation_input_native80.png": {
+    "bytes": 2237,
+    "sha256": "a7de7c0f39c99ff9fc52743b231be900efa9894efbfb2e0c4ce1aef10606a5ce"
+  },
+  "res://docs/art/characters/retro-diffusion-chibi-walking-2026-10-01/male_right_walk_atlas_native80.png": {
+    "bytes": 11137,
+    "sha256": "bd62cb4729be9fe8c7cb2cdd0fb3212cba8f185a624e0b3aa4794fffea694f1f"
+  },
+  "res://docs/art/characters/retro-diffusion-chibi-walking-2026-10-01/male_right_walk_atlas_study32.png": {
+    "bytes": 3319,
+    "sha256": "324240ce0b8258d4e3e0db7aa5a6a3110049b30beb2eeffde8b10c2195abb944"
+  },
+  "res://docs/art/characters/retro-diffusion-chibi-walking-2026-10-01/male_right_walk_original.gif": {
+    "bytes": 13040,
+    "sha256": "06740af569714ae503361fe29fd10bb97d4d8f8f42dfffc91c807f2142cbf880"
+  },
+  "res://docs/art/characters/retro-diffusion-chibi-walking-2026-10-01/male_rotation_original.png": {
+    "bytes": 21207,
+    "sha256": "4f9e11bac632348278471c3129fd86bd50103d261ff7fb834c6732448eeb9101"
+  },
+  "res://docs/art/characters/retro-diffusion-chibi-walking-2026-10-01/male_rotation_review.png": {
+    "bytes": 25505,
+    "sha256": "e13771bcd083fa4c41dbd8e98d0178a163ae1e323322ab0bc24e38da3b111e52"
+  },
+  "res://docs/art/characters/retro-diffusion-chibi-walking-2026-10-01/male_up_input_native80.png": {
+    "bytes": 4316,
+    "sha256": "83711201a9e566e8a6a0544ee8f638c808df07ce27305a9a8cb0dd1cf99611ca"
+  },
+  "res://docs/art/characters/retro-diffusion-chibi-walking-2026-10-01/male_up_left_bag_corrected_original.png": {
+    "bytes": 3074,
+    "sha256": "3e8f4dde8d45ebf00933eb56ef46e3aa24ee0afa4e69b0f146e2f9afa9acb948"
+  },
+  "res://docs/art/characters/retro-diffusion-chibi-walking-2026-10-01/male_up_left_rotation_input_native80.png": {
+    "bytes": 2242,
+    "sha256": "1a486f3b43103389166ae4194af3b8743bb203ff6f90fc6291d46ca8538ff805"
+  },
+  "res://docs/art/characters/retro-diffusion-chibi-walking-2026-10-01/male_up_left_walk_atlas_native80.png": {
+    "bytes": 10793,
+    "sha256": "e686805b5b7b00d3840ee8b9ff13c5e778d643a79b7c8b78a7f5c769e7a82b41"
+  },
+  "res://docs/art/characters/retro-diffusion-chibi-walking-2026-10-01/male_up_left_walk_atlas_study32.png": {
+    "bytes": 3353,
+    "sha256": "9767c5e9f2301aeeb6131e40b1b5f171648a75d4473dbfc826104621e4e190bc"
+  },
+  "res://docs/art/characters/retro-diffusion-chibi-walking-2026-10-01/male_up_left_walk_original.gif": {
+    "bytes": 14083,
+    "sha256": "3da8327d72e548c980a0281a94bdba68ec833ce4dcb38487f59cd3d26426aa96"
+  },
+  "res://docs/art/characters/retro-diffusion-chibi-walking-2026-10-01/male_up_right_bag_corrected_original.png": {
+    "bytes": 2953,
+    "sha256": "b88444dd11fbcce4d3c505ef009481b6b6a750e26fd9c6d9964328829b20dd2b"
+  },
+  "res://docs/art/characters/retro-diffusion-chibi-walking-2026-10-01/male_up_right_bag_retry_original.png": {
+    "bytes": 3457,
+    "sha256": "9b39273891b4454d25f29439175b5ced535d8ae8203a7c0037554d1f38f98f00"
+  },
+  "res://docs/art/characters/retro-diffusion-chibi-walking-2026-10-01/male_up_right_bag_retry_review.png": {
+    "bytes": 5262,
+    "sha256": "5adb4b887ff847c035595dc24b8e57b6a9c452cc2436710bdc6e85fe3240fe73"
+  },
+  "res://docs/art/characters/retro-diffusion-chibi-walking-2026-10-01/male_up_right_rotation_input_native80.png": {
+    "bytes": 2180,
+    "sha256": "f5d0540afcda4bcee7772713e3e0833ca852c034a721009975b6534955ffb219"
+  },
+  "res://docs/art/characters/retro-diffusion-chibi-walking-2026-10-01/male_up_right_walk_atlas_native80.png": {
+    "bytes": 14377,
+    "sha256": "b3b5fdf464628fc5fa179038b290aaa081a6ef5083f698f5e42eed30f07135a9"
+  },
+  "res://docs/art/characters/retro-diffusion-chibi-walking-2026-10-01/male_up_right_walk_atlas_study32.png": {
+    "bytes": 3955,
+    "sha256": "76af245a5771240ce7ac4919aa462959e1e049d47df6a9104fcb00f8493487cd"
+  },
+  "res://docs/art/characters/retro-diffusion-chibi-walking-2026-10-01/male_up_right_walk_original.gif": {
+    "bytes": 14605,
+    "sha256": "5efdd8f3dc72db2344e1c6d0fe971ef217135e69adfc0cb1692eca4361f71800"
+  },
+  "res://docs/art/characters/retro-diffusion-chibi-walking-2026-10-01/male_up_rotation_input_native80.png": {
+    "bytes": 2360,
+    "sha256": "0d72016f4c8ca0f1e0c6db484897850443e20df1e72d85d07f479938aaebfe4b"
+  },
+  "res://docs/art/characters/retro-diffusion-chibi-walking-2026-10-01/male_up_walk_atlas_native80.png": {
+    "bytes": 12254,
+    "sha256": "7e7daee1eefad42aa0d781a7d01081e590d39e2dcdbbd9fedcc61c006bdfa59f"
+  },
+  "res://docs/art/characters/retro-diffusion-chibi-walking-2026-10-01/male_up_walk_atlas_study32.png": {
+    "bytes": 3527,
+    "sha256": "47fa9edf46e22dd4ee309172bf96299cf46a27abd1ed079d2636f5d217975922"
+  },
+  "res://docs/art/characters/retro-diffusion-chibi-walking-2026-10-01/male_up_walk_original.gif": {
+    "bytes": 14282,
+    "sha256": "525a1abdde5a889a4fbf0cab3451235e019c140cf6dd8ad24bbd9f1cb053c92b"
+  },
+  "res://docs/art/characters/retro-diffusion-chibi-walking-2026-10-01/male_walk_all_frames_review_1.png": {
+    "bytes": 69692,
+    "sha256": "c47718864c07371363849d91cd4a9f9fb19fa3996d16a7966af0075a8fc245e1"
+  },
+  "res://docs/art/characters/retro-diffusion-chibi-walking-2026-10-01/male_walk_all_frames_review_2.png": {
+    "bytes": 69773,
+    "sha256": "48237f70240e1532eab68a41c3d690c38187db50169856af0e06b163104840a7"
+  },
+  "res://docs/art/characters/retro-diffusion-chibi-walking-2026-10-01/rotation_preparation.json": {
+    "bytes": 9629,
+    "sha256": "3a4ee1f68767732ad8694cd88e585099ff2f02bfded8bdd9ebc7dde40764a75e"
+  },
+  "res://docs/art/characters/retro-diffusion-chibi-walking-2026-10-01/walking_preparation.json": {
+    "bytes": 54138,
+    "sha256": "3cf2f224643606064cdd07a0b62cd4624e032867c2b4d01425439737a501b82c"
+  }
+}

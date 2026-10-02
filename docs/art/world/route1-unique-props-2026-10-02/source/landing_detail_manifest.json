@@ -1,0 +1,50 @@
+[
+  {
+    "name": "ferry_tieoff_full",
+    "size": [
+      28,
+      60
+    ],
+    "bounds": [
+      3,
+      4,
+      23,
+      56
+    ],
+    "runtime": "res://assets/sprites/world/route1_rd_2026_10_02/ferry_tieoff_full.png",
+    "sha256": "2a6442122c5c7beb4de5ad752e0e47d06cd42e9594458702dd497774383a8706",
+    "preparation": "Grok saved rope-post study, crop 548,202..684,522; conservative magenta key; nearest 24x56; two native padding pixels."
+  },
+  {
+    "name": "ferry_tieoff_short",
+    "size": [
+      28,
+      44
+    ],
+    "bounds": [
+      3,
+      4,
+      23,
+      40
+    ],
+    "runtime": "res://assets/sprites/world/route1_rd_2026_10_02/ferry_tieoff_short.png",
+    "sha256": "58e4dc57a636aebca4eb1b8b81772515763a3b0745da9271e1c2495dd39ba580",
+    "preparation": "Short companion from the same rope-post study; reused wooden cap and lower shaft; no whole-sprite stretching."
+  },
+  {
+    "name": "relay_post_empty_slot",
+    "size": [
+      32,
+      56
+    ],
+    "bounds": [
+      4,
+      4,
+      28,
+      53
+    ],
+    "runtime": "res://assets/sprites/world/route1_rd_2026_10_02/relay_post_empty_slot.png",
+    "sha256": "ed38239bb068f6aac4204193bfdfc4f7e11026d76d5b9cfe2dca5da676cce958",
+    "preparation": "Original relay post with a small recessed empty tab holder at x12..20,y31..40; pixels outside that region unchanged."
+  }
+]

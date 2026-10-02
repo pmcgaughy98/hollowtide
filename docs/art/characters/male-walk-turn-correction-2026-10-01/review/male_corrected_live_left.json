@@ -1,0 +1,50 @@
+{
+  "results": [
+    {
+      "effective_time_scale": 0,
+      "format": "jpeg",
+      "frame": {
+        "frames_drawn": 12258,
+        "physics_frames": 12258,
+        "process_frames": 12257
+      },
+      "height": 648,
+      "image_frame": 12257,
+      "instance": "male-turn-review",
+      "mime": "image/jpeg",
+      "missing": [],
+      "ok": true,
+      "op": "GameProbe",
+      "paused": false,
+      "provenance": {
+        "source": "runtime",
+        "target": {
+          "instance": "male-turn-review",
+          "kind": "game"
+        }
+      },
+      "requestId": "mcp-5f328a2b-a98f-4332-91b5-76d300928408",
+      "source_height": 648,
+      "source_width": 1152,
+      "suspended": true,
+      "time_scale": 1,
+      "transport": "summer",
+      "values": {
+        "/root/FirstRoutePrototype/Player/Sprite2D:position": "Vector2(0, -15)",
+        "/root/FirstRoutePrototype/Player/Sprite2D:region_rect": "Rect2(0, 160, 80, 80)",
+        "/root/FirstRoutePrototype/Player/Sprite2D:scale": "Vector2(0.469, 0.469)",
+        "/root/FirstRoutePrototype/Player:_chibi_row": 2,
+        "/root/FirstRoutePrototype/Player:_walk_phase": 0.133,
+        "/root/FirstRoutePrototype/Player:position": "Vector2(298.667, 210)"
+      },
+      "width": 1152
+    }
+  ],
+  "skippedCount": 0,
+  "status": "ok",
+  "stopOnError": true,
+  "undoGroup": false,
+  "requestId": "mcp-5f328a2b-a98f-4332-91b5-76d300928408",
+  "terminalState": "applied",
+  "appliedSeq": 1253
+}

@@ -1,0 +1,325 @@
+{
+  "menu_courier": {
+    "source_path": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\outputs\\retro-diffusion-walking-2026-10-01\\menu_courier_walk_original.gif",
+    "source_sha256": "c58618d5638e000866066536085842484bb7ae84e252f3cb3c68978c7b0fe65c",
+    "atlas_sha256": "15df641e529e0a4fd0662f448419a1e264dabea0b4e8571eaa62139e006fc675",
+    "size": [
+      640,
+      80
+    ],
+    "frames": [
+      {
+        "index": 0,
+        "bounds": [
+          23,
+          9,
+          55,
+          71
+        ],
+        "original_duration_ms": 150,
+        "removed_exterior_neutral_pixels": 0,
+        "white_pixel_repairs": [],
+        "visible_white_pixels": 0,
+        "alpha_sha256": "9a91422fe5ff3ac278dc4cc7f072eb670c20f9253327a192bc692400a3a67686"
+      },
+      {
+        "index": 1,
+        "bounds": [
+          22,
+          7,
+          57,
+          71
+        ],
+        "original_duration_ms": 150,
+        "removed_exterior_neutral_pixels": 0,
+        "white_pixel_repairs": [
+          {
+            "x": 30,
+            "y": 47,
+            "old": [
+              255,
+              255,
+              255
+            ],
+            "new": [
+              14,
+              13,
+              20
+            ]
+          }
+        ],
+        "visible_white_pixels": 0,
+        "alpha_sha256": "33142b39534e36529816e9a6efed23e89db400c1ddba82c959e5a110015c6625"
+      },
+      {
+        "index": 2,
+        "bounds": [
+          22,
+          8,
+          57,
+          72
+        ],
+        "original_duration_ms": 150,
+        "removed_exterior_neutral_pixels": 0,
+        "white_pixel_repairs": [
+          {
+            "x": 30,
+            "y": 48,
+            "old": [
+              255,
+              255,
+              255
+            ],
+            "new": [
+              14,
+              13,
+              20
+            ]
+          }
+        ],
+        "visible_white_pixels": 0,
+        "alpha_sha256": "c3140457d2d1a16a97a7263c1fdfecc9f4987008936e59e7dd73b780b4e7ac99"
+      },
+      {
+        "index": 3,
+        "bounds": [
+          22,
+          10,
+          57,
+          72
+        ],
+        "original_duration_ms": 150,
+        "removed_exterior_neutral_pixels": 0,
+        "white_pixel_repairs": [],
+        "visible_white_pixels": 0,
+        "alpha_sha256": "60b4777f6d0026f4bd0aece1c0597952af01e856c4464cbce1988668f02a56bc"
+      },
+      {
+        "index": 4,
+        "bounds": [
+          24,
+          10,
+          55,
+          70
+        ],
+        "original_duration_ms": 150,
+        "removed_exterior_neutral_pixels": 0,
+        "white_pixel_repairs": [
+          {
+            "x": 47,
+            "y": 53,
+            "old": [
+              255,
+              255,
+              255
+            ],
+            "new": [
+              14,
+              13,
+              20
+            ]
+          }
+        ],
+        "visible_white_pixels": 0,
+        "alpha_sha256": "81a353b8dda93117d028a6253a4eb4286b5e147c3b868f41e7d6e5b136531544"
+      },
+      {
+        "index": 5,
+        "bounds": [
+          24,
+          8,
+          53,
+          69
+        ],
+        "original_duration_ms": 150,
+        "removed_exterior_neutral_pixels": 0,
+        "white_pixel_repairs": [],
+        "visible_white_pixels": 0,
+        "alpha_sha256": "16ad6d64d0352e5bf4713b8ee02ac7adea2b7a121a97f925394814ba848e6356"
+      },
+      {
+        "index": 6,
+        "bounds": [
+          25,
+          7,
+          54,
+          69
+        ],
+        "original_duration_ms": 150,
+        "removed_exterior_neutral_pixels": 0,
+        "white_pixel_repairs": [],
+        "visible_white_pixels": 0,
+        "alpha_sha256": "52a3438dcee15edb69fd468e912f52080d283900fd56935ea759c14234afeba2"
+      },
+      {
+        "index": 7,
+        "bounds": [
+          25,
+          9,
+          54,
+          70
+        ],
+        "original_duration_ms": 150,
+        "removed_exterior_neutral_pixels": 0,
+        "white_pixel_repairs": [],
+        "visible_white_pixels": 0,
+        "alpha_sha256": "ce693dbecbbdb9092c067c3176779b2af763bacd5d49f669d4bb480701db4f9b"
+      }
+    ],
+    "preparation": "Exact frame extraction, exterior-only near-white cleanup and five isolated white artifacts replaced with existing neighboring colors. All alpha preserved. No frozen feet or frame resizing."
+  },
+  "menu_cinderhide": {
+    "source_path": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\outputs\\retro-diffusion-walking-2026-10-01\\menu_cinderhide_walk_original.gif",
+    "source_sha256": "eb11ca7cd76a9dae9f29b39acef76781b19604de9e4945f3b6eca948bebd5b17",
+    "atlas_sha256": "8005ffcbde7d6e9ccb12c6df556da66b005a93440a1f1426fc48b7bd1851200f",
+    "size": [
+      640,
+      80
+    ],
+    "frames": [
+      {
+        "index": 0,
+        "bounds": [
+          11,
+          8,
+          69,
+          72
+        ],
+        "original_duration_ms": 150,
+        "removed_exterior_neutral_pixels": 0,
+        "white_pixel_repairs": [],
+        "visible_white_pixels": 0,
+        "alpha_sha256": "2ff56d4c66300e4e5dfa3467e76cdf7f1bf391dc04769c48902721f51ba2adf3"
+      },
+      {
+        "index": 1,
+        "bounds": [
+          13,
+          9,
+          69,
+          72
+        ],
+        "original_duration_ms": 150,
+        "removed_exterior_neutral_pixels": 0,
+        "white_pixel_repairs": [],
+        "visible_white_pixels": 0,
+        "alpha_sha256": "9a8587d637fb4a80eeecad6d0893f93839ab61be150bcf6b94e02c69c4e1db87"
+      },
+      {
+        "index": 2,
+        "bounds": [
+          14,
+          9,
+          69,
+          72
+        ],
+        "original_duration_ms": 150,
+        "removed_exterior_neutral_pixels": 0,
+        "white_pixel_repairs": [],
+        "visible_white_pixels": 0,
+        "alpha_sha256": "7dd7afdcae70c776f5bea999c417cd699449aca736b389525e7621bfbcd809d7"
+      },
+      {
+        "index": 3,
+        "bounds": [
+          14,
+          8,
+          69,
+          72
+        ],
+        "original_duration_ms": 150,
+        "removed_exterior_neutral_pixels": 0,
+        "white_pixel_repairs": [
+          {
+            "x": 38,
+            "y": 22,
+            "old": [
+              255,
+              255,
+              255
+            ],
+            "new": [
+              35,
+              27,
+              33
+            ]
+          }
+        ],
+        "visible_white_pixels": 0,
+        "alpha_sha256": "562b8123f5cf27a6ffd2a9c1a1979931a3f7a7741d0bcc79bff25f9cd334a663"
+      },
+      {
+        "index": 4,
+        "bounds": [
+          14,
+          7,
+          69,
+          72
+        ],
+        "original_duration_ms": 150,
+        "removed_exterior_neutral_pixels": 0,
+        "white_pixel_repairs": [
+          {
+            "x": 29,
+            "y": 65,
+            "old": [
+              255,
+              255,
+              255
+            ],
+            "new": [
+              35,
+              27,
+              33
+            ]
+          }
+        ],
+        "visible_white_pixels": 0,
+        "alpha_sha256": "818c26911abbb41baee83b3bbf11eda5e146a276cc19ec6f68524b0510ce2852"
+      },
+      {
+        "index": 5,
+        "bounds": [
+          14,
+          7,
+          69,
+          73
+        ],
+        "original_duration_ms": 150,
+        "removed_exterior_neutral_pixels": 0,
+        "white_pixel_repairs": [],
+        "visible_white_pixels": 0,
+        "alpha_sha256": "c1b8f05cd666c0c023244bd28038a36793131bc432f03942e0897ebb1f2528ef"
+      },
+      {
+        "index": 6,
+        "bounds": [
+          14,
+          8,
+          69,
+          72
+        ],
+        "original_duration_ms": 150,
+        "removed_exterior_neutral_pixels": 0,
+        "white_pixel_repairs": [],
+        "visible_white_pixels": 0,
+        "alpha_sha256": "cffdc860f55eb1244d012e9f306f9b5a89163026bd07ecf967006c4d29728f6a"
+      },
+      {
+        "index": 7,
+        "bounds": [
+          12,
+          9,
+          69,
+          72
+        ],
+        "original_duration_ms": 150,
+        "removed_exterior_neutral_pixels": 0,
+        "white_pixel_repairs": [],
+        "visible_white_pixels": 0,
+        "alpha_sha256": "56a5a1cc2f71b72a35daec92c975345a474d00396ee88f6435811c8cd5b7acd6"
+      }
+    ],
+    "preparation": "Exact frame extraction, exterior-only near-white cleanup and five isolated white artifacts replaced with existing neighboring colors. All alpha preserved. No frozen feet or frame resizing."
+  }
+}

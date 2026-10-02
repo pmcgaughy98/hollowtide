@@ -1,0 +1,95 @@
+{
+  "generation_date": "2026-10-01",
+  "requests": {
+    "cottonwood": {
+      "width": 64,
+      "height": 96,
+      "prompt_style": "rd_pro__default",
+      "prompt": "Production game sprite, one mature cottonwood tree for a riverbank RPG viewed from above at a three-quarter top-down angle. Complete broad rounded irregular green crown, distinct overlapping masses of fine heart-shaped leaves, softly lit sage upper leaves, deep forest teal green undersides, warm neutral branched trunk and small roots at the bottom. Rich compact pixel clusters and cohesive volumes, clear silhouette and dark natural contact shadows, polished hand-painted pixel RPG feel that fits a brown-haired teal jacket chibi courier, native crisp pixel art. Muted river green and warm loess palette, warm light from upper left. Full tree entirely inside the canvas, transparent padding above and below, no cut crown, no floor, no checkerboard, no flowers, no lettering. Crown occupies about two thirds of the height, lower trunk visible."
+    },
+    "wall": {
+      "width": 64,
+      "height": 32,
+      "prompt_style": "rd_tile__tile_object",
+      "prompt": "Pixel art overworld environment sprite: a straight 64 pixel wide low old retaining wall built from weathered pale warm limestone blocks and loess rubble beside a cottonwood riverbank. Three quarter top-down RPG view, front face visible, narrow lighter flat cap, darker masonry below and a narrow shadowed bottom edge. Two subtle tiers of irregular stone blocks, tiny chips and restrained moss in just two joints. Horizontal straight continuous section with no corner posts. Wall fills the horizontal width, with 4 transparent pixels above and below. Cohesive compact detail and shaded volume, warm muted tan limestone and forest green, upper-left sunlight. Match a detailed teal jacket chibi sprite. Transparent background, no surrounding grass, no dark black outlines, no letters, no props."
+    },
+    "shrub": {
+      "width": 32,
+      "height": 32,
+      "prompt_style": "rd_tile__tile_object",
+      "prompt": "One small natural riverbank shrub game sprite, three quarter top-down pixel RPG view. Dense low clump of irregular cottonwood sapling leaves and two tiny loess stones beside its base. Compact sage upper leaves and deep teal olive shadow masses, three dimensional leafy volume, warm upper-left lighting, restrained natural palette, crisp hand painted pixel art at native scale. Distinct layered leaves, few small gold dry leaves, match a detailed teal jacket chibi sprite and a cottonwood tree. Full silhouette entirely inside canvas with transparent padding. No pot, no large trunk, no flower, no floor, no text, no checkerboard."
+    }
+  },
+  "receipts": {
+    "cottonwood": {
+      "request_id": "0d95e2ed-5580-404e-93b9-a1e620699fa1",
+      "status": "succeeded",
+      "mode": "async",
+      "output_status": "available",
+      "credit_cost": 1,
+      "balance_cost": 0.18,
+      "charged": true,
+      "http_status": 200,
+      "error": null,
+      "completed_at": 1790907609,
+      "output_count": 1,
+      "outputs": [
+        {
+          "position": 0,
+          "media_type": "image/png",
+          "available": true,
+          "url_expires_at": 1790944925,
+          "retained_until": 1790993918
+        }
+      ]
+    },
+    "wall": {
+      "request_id": "6120a8f4-241a-4c74-bc2c-ad751fa294f1",
+      "status": "succeeded",
+      "mode": "async",
+      "output_status": "available",
+      "credit_cost": 2,
+      "balance_cost": 0.06,
+      "charged": true,
+      "http_status": 200,
+      "error": null,
+      "completed_at": 1790907534,
+      "output_count": 1,
+      "outputs": [
+        {
+          "position": 0,
+          "media_type": "image/png",
+          "available": true,
+          "url_expires_at": 1790944925,
+          "retained_until": 1790993920
+        }
+      ]
+    },
+    "shrub": {
+      "request_id": "1adff81d-94ea-4fa9-bef5-f24ffdf4bbcf",
+      "status": "succeeded",
+      "mode": "async",
+      "output_status": "available",
+      "credit_cost": 2,
+      "balance_cost": 0.06,
+      "charged": true,
+      "http_status": 200,
+      "error": null,
+      "completed_at": 1790907536,
+      "output_count": 1,
+      "outputs": [
+        {
+          "position": 0,
+          "media_type": "image/png",
+          "available": true,
+          "url_expires_at": 1790944925,
+          "retained_until": 1790993924
+        }
+      ]
+    }
+  },
+  "known_successful_cost_usd": 0.3,
+  "total_with_first_pass_usd": 1.44,
+  "retrieved_receipts_date": "2026-10-02",
+  "download_recovery": "The original three jobs were downloaded through get_inference_result after polling returned base64 output with empty URL lists. No paid rerun."
+}

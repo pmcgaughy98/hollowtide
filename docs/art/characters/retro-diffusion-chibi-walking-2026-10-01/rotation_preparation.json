@@ -1,0 +1,276 @@
+{
+  "male": {
+    "source_sha256": "4f9e11bac632348278471c3129fd86bd50103d261ff7fb834c6732448eeb9101",
+    "size": [
+      240,
+      240
+    ],
+    "cells": {
+      "male_down": {
+        "direction": "down",
+        "sheet_cell": [
+          1,
+          0
+        ],
+        "input_path": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\outputs\\retro-diffusion-walking-2026-10-01\\chibi_models\\male_down_rotation_input_native80.png",
+        "input_sha256": "0d0a932f487f2fc2788916e0a9b37662bc2b59f3a06dd6538baaf2fa9dfe6984",
+        "bounds": [
+          24,
+          8,
+          56,
+          72
+        ],
+        "removed_exterior_neutral_pixels": 0
+      },
+      "male_down_left": {
+        "direction": "down_left",
+        "sheet_cell": [
+          2,
+          0
+        ],
+        "input_path": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\outputs\\retro-diffusion-walking-2026-10-01\\chibi_models\\male_down_left_rotation_input_native80.png",
+        "input_sha256": "5e1a5a656e23cb08f372abf3011b57122a7f46c20dbaf15d0c0d17d7c8ad4cc2",
+        "bounds": [
+          24,
+          8,
+          54,
+          73
+        ],
+        "removed_exterior_neutral_pixels": 0
+      },
+      "male_left": {
+        "direction": "left",
+        "sheet_cell": [
+          2,
+          1
+        ],
+        "input_path": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\outputs\\retro-diffusion-walking-2026-10-01\\chibi_models\\male_left_rotation_input_native80.png",
+        "input_sha256": "c63c0546e2e9cadadebd073ead0fef61ea72d3c47a3bf0f882781fdd037fb55d",
+        "bounds": [
+          28,
+          8,
+          54,
+          73
+        ],
+        "removed_exterior_neutral_pixels": 0
+      },
+      "male_up_left": {
+        "direction": "up_left",
+        "sheet_cell": [
+          2,
+          2
+        ],
+        "input_path": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\outputs\\retro-diffusion-walking-2026-10-01\\chibi_models\\male_up_left_rotation_input_native80.png",
+        "input_sha256": "1a486f3b43103389166ae4194af3b8743bb203ff6f90fc6291d46ca8538ff805",
+        "bounds": [
+          26,
+          7,
+          54,
+          72
+        ],
+        "removed_exterior_neutral_pixels": 0
+      },
+      "male_up": {
+        "direction": "up",
+        "sheet_cell": [
+          1,
+          2
+        ],
+        "input_path": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\outputs\\retro-diffusion-walking-2026-10-01\\chibi_models\\male_up_rotation_input_native80.png",
+        "input_sha256": "0d72016f4c8ca0f1e0c6db484897850443e20df1e72d85d07f479938aaebfe4b",
+        "bounds": [
+          24,
+          6,
+          56,
+          71
+        ],
+        "removed_exterior_neutral_pixels": 0
+      },
+      "male_up_right": {
+        "direction": "up_right",
+        "sheet_cell": [
+          0,
+          2
+        ],
+        "input_path": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\outputs\\retro-diffusion-walking-2026-10-01\\chibi_models\\male_up_right_rotation_input_native80.png",
+        "input_sha256": "f5d0540afcda4bcee7772713e3e0833ca852c034a721009975b6534955ffb219",
+        "bounds": [
+          26,
+          7,
+          53,
+          72
+        ],
+        "removed_exterior_neutral_pixels": 0
+      },
+      "male_right": {
+        "direction": "right",
+        "sheet_cell": [
+          0,
+          1
+        ],
+        "input_path": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\outputs\\retro-diffusion-walking-2026-10-01\\chibi_models\\male_right_rotation_input_native80.png",
+        "input_sha256": "a7de7c0f39c99ff9fc52743b231be900efa9894efbfb2e0c4ce1aef10606a5ce",
+        "bounds": [
+          25,
+          8,
+          51,
+          73
+        ],
+        "removed_exterior_neutral_pixels": 0
+      },
+      "male_down_right": {
+        "direction": "down_right",
+        "sheet_cell": [
+          0,
+          0
+        ],
+        "input_path": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\outputs\\retro-diffusion-walking-2026-10-01\\chibi_models\\male_down_right_rotation_input_native80.png",
+        "input_sha256": "daae1e17c75b41a8013bb508503001c47d68a56c7d2408064caf8d6682ded77f",
+        "bounds": [
+          26,
+          8,
+          55,
+          72
+        ],
+        "removed_exterior_neutral_pixels": 0
+      }
+    }
+  },
+  "female": {
+    "source_sha256": "47aae53cd87e14c6c647bd2f848a45375426366585c0970dcbb770b9094d5d9a",
+    "size": [
+      240,
+      240
+    ],
+    "cells": {
+      "female_down": {
+        "direction": "down",
+        "sheet_cell": [
+          1,
+          0
+        ],
+        "input_path": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\outputs\\retro-diffusion-walking-2026-10-01\\chibi_models\\female_down_rotation_input_native80.png",
+        "input_sha256": "80cb6f3ed5ab0304d75052e966714d4783579f3bd5263c052cee863c073e6ca0",
+        "bounds": [
+          25,
+          8,
+          55,
+          72
+        ],
+        "removed_exterior_neutral_pixels": 0
+      },
+      "female_down_left": {
+        "direction": "down_left",
+        "sheet_cell": [
+          2,
+          0
+        ],
+        "input_path": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\outputs\\retro-diffusion-walking-2026-10-01\\chibi_models\\female_down_left_rotation_input_native80.png",
+        "input_sha256": "ec57a4fd90a55bd5994bd764e608faf5f41bb0a33a4e91b368bfee15fcf6167d",
+        "bounds": [
+          26,
+          8,
+          55,
+          72
+        ],
+        "removed_exterior_neutral_pixels": 0
+      },
+      "female_left": {
+        "direction": "left",
+        "sheet_cell": [
+          2,
+          1
+        ],
+        "input_path": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\outputs\\retro-diffusion-walking-2026-10-01\\chibi_models\\female_left_rotation_input_native80.png",
+        "input_sha256": "7d22d79d4d435618ad189505061daace274bb0d14d4d0088043eee1df5a2460b",
+        "bounds": [
+          29,
+          8,
+          52,
+          72
+        ],
+        "removed_exterior_neutral_pixels": 0
+      },
+      "female_up_left": {
+        "direction": "up_left",
+        "sheet_cell": [
+          2,
+          2
+        ],
+        "input_path": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\outputs\\retro-diffusion-walking-2026-10-01\\chibi_models\\female_up_left_rotation_input_native80.png",
+        "input_sha256": "22b34d71d7d0d2d5770fe18dc51cbacdbadc17f947695f7db4d417419dc81ed0",
+        "bounds": [
+          26,
+          8,
+          53,
+          72
+        ],
+        "removed_exterior_neutral_pixels": 0
+      },
+      "female_up": {
+        "direction": "up",
+        "sheet_cell": [
+          1,
+          2
+        ],
+        "input_path": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\outputs\\retro-diffusion-walking-2026-10-01\\chibi_models\\female_up_rotation_input_native80.png",
+        "input_sha256": "74edea33ec0c52ca56b2b07e8a06dd8e974aa5861787385eae5b57d77ff00669",
+        "bounds": [
+          24,
+          8,
+          54,
+          72
+        ],
+        "removed_exterior_neutral_pixels": 0
+      },
+      "female_up_right": {
+        "direction": "up_right",
+        "sheet_cell": [
+          0,
+          2
+        ],
+        "input_path": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\outputs\\retro-diffusion-walking-2026-10-01\\chibi_models\\female_up_right_rotation_input_native80.png",
+        "input_sha256": "137579300977c1fd89203748fdd2e76caee2fdcd16d0abc5bf7a5a3c9f2a2861",
+        "bounds": [
+          24,
+          8,
+          53,
+          72
+        ],
+        "removed_exterior_neutral_pixels": 0
+      },
+      "female_right": {
+        "direction": "right",
+        "sheet_cell": [
+          0,
+          1
+        ],
+        "input_path": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\outputs\\retro-diffusion-walking-2026-10-01\\chibi_models\\female_right_rotation_input_native80.png",
+        "input_sha256": "5d35ffdaf047c54af767a7cda93b0eef469f0a1f2bf439214c383e6f71076dfe",
+        "bounds": [
+          28,
+          8,
+          50,
+          72
+        ],
+        "removed_exterior_neutral_pixels": 0
+      },
+      "female_down_right": {
+        "direction": "down_right",
+        "sheet_cell": [
+          0,
+          0
+        ],
+        "input_path": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\outputs\\retro-diffusion-walking-2026-10-01\\chibi_models\\female_down_right_rotation_input_native80.png",
+        "input_sha256": "bbb2bfe2be0ec684b6b2b1daa26e056297e7994c748a995b19e7c57455b6d61c",
+        "bounds": [
+          26,
+          8,
+          53,
+          72
+        ],
+        "removed_exterior_neutral_pixels": 0
+      }
+    }
+  }
+}

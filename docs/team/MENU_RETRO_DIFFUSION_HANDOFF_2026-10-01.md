@@ -1,6 +1,19 @@
 # Courier Lookout Retro Diffusion menu update | October 1, 2026
 
 
+## Latest revision: real walking arrival and eight-direction chibi assets
+Preston requested Retro Diffusion walking motion, then male/female chibi walks, selecting all eight directions. The menu now uses two new walking atlases before returning to the saved idles. Courier walks from feet (174,466) to (300,424), starting at 0.3s and arriving at 2.7s after three 0.8s cycles. Cinderhide walks from (296,498) to (432,448), starting at 0.5s and arriving at 3.38s after three 0.96s cycles. Its layered ground shadow follows the foot anchor. Existing scenery, sizes, direction, controls and idle artwork are preserved. Idle clocks start from standing frame 0 after arrival; old phase timing below is superseded.
+
+RD Advanced Walking generated eight native 80x80 frames for each actor, extracted without resizing or freezing feet into 640x80 atlases. Five isolated white artifacts repaired with existing neighboring colors, no alpha changes. Source input, raw GIF, exact prompts and repair coordinates remain saved. Menu generation cost $0.28.
+
+Fresh menu-walk-review observed all eight frames for both actors, travel and moving contact shadow, followed by original idle positions. Reduce Motion froze every frame/position/shadow and menu time at 2.417 over 120 more process ticks, then resumed. New Game invoked during walking at time 0.6 loaded FirstRoutePrototype. Zero runtime/open-script/total errors; 11 shared warnings, none from this script. Actual 37-frame game-capture GIF saved. Own offscreen instance stopped. Exact actions, files and receipts: [menu walking record](../art/menu/retro-diffusion-walking-2026-10-01/README.md).
+
+The subsequent male and female chibi package supplies eight walk directions and eight frames per direction, native 80px masters, SpriteFrames resources and scenes/chibi_walk_review.tscn. All 128 frames individually inspected and every frame observed in the correct animation in the isolated review: zero errors and warnings. Movement, collision, gender selection and player.gd/player.tscn are unchanged. These walking assets are ready for display-size/gameplay integration review. Complete scope, source choices, satchel corrections, cost ledger and remaining visual review: [chibi walking handoff](CHIBI_RETRO_DIFFUSION_WALK_HANDOFF_2026-10-01.md).
+
+Total generation cost for this request: $3.26. One still rejected visually and preserved; no animation retry. No blockers, commits, staging, discarded work, launch-setting or shared collaboration-file edits. Roster/world production stays paused and Vitrecrag shelved; user-run Gemini Deep Research rule unchanged.
+
+
+
 ## Latest revision: Cinderhide blends into the dusk scene
 Preston said the male courier blends into the scenery more naturally than Cinderhide. The menu now uses cinderhide_idle_dusk_lit_atlas.png, with warmer sunset reflections, muted plum shadows, a colored contour and a quiet upper-right lit rim. The preview script also adds a static, layered pixel-aligned contact shadow at feet (432,448), behind Cinderhide. This is a scene-integration pass on the existing approved menu animation, with no new generated creature.
 

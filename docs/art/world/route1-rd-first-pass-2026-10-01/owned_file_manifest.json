@@ -1,0 +1,1721 @@
+{
+  "date": "2026-10-02",
+  "files": {
+    "scripts/player.gd": {
+      "sha256": "08c2a8272f7861e65e6e12db5bd4727859fd45faf14dcabcb280d31afb1d23be",
+      "bytes": 5312,
+      "change": "modified"
+    },
+    "scenes/player.tscn": {
+      "sha256": "ceada949c1f04093e0abed0127c53c4514a72c45fc74924bd9d4e708a73d166f",
+      "bytes": 1016,
+      "change": "modified"
+    },
+    "scripts/first_route_prototype.gd": {
+      "sha256": "da74598fb1e0d4a3faac1ad90147c16ecba3376e45e5a2de316548a7ca35a92a",
+      "bytes": 17656,
+      "change": "modified"
+    },
+    "scenes/first_route_prototype.tscn": {
+      "sha256": "14b02c24c3660d568d20d81147f0f87f2f9adff73cb32da12245ac2344568651",
+      "bytes": 25872,
+      "change": "modified"
+    },
+    "scripts/field_creature.gd": {
+      "sha256": "e698f9859d84af22e0862d2eee9f92bb9b841cdacfe69abc328804bcd2f50185",
+      "bytes": 1970,
+      "change": "modified"
+    },
+    "assets/sprites/player/retro_diffusion_chibi_walking_2026_10_01/male_chibi_walk_frames.tres": {
+      "sha256": "525ba76fb28fc028cf125d63c0f74f823c78ce40b1b8caf5ce48aaaaad3da7bd",
+      "bytes": 13254,
+      "change": "modified"
+    },
+    "data/creatures/103_kithflare.tres": {
+      "sha256": "d36fa40d244d99788c3feab2e31cce3913e00567c335cb02ebb4755497747a98",
+      "bytes": 1217,
+      "change": "modified"
+    },
+    "data/creatures/104_wayburn.tres": {
+      "sha256": "24156678e46e1d261bcfb683decb583d78ce42d89457dee36e8bdd7299967ee7",
+      "bytes": 1178,
+      "change": "modified"
+    },
+    "data/creatures/105_coalcrest.tres": {
+      "sha256": "8934ca2f8931b922410402ffc2b515accb33d73ede372e8fad0e7f6375d96bd5",
+      "bytes": 1216,
+      "change": "modified"
+    },
+    "data/creatures/106_fusern.tres": {
+      "sha256": "d17b249629bfaf68dc9fbf86ddbf95db2c149ee8fe3b7bec96364c524f69c622",
+      "bytes": 1174,
+      "change": "modified"
+    },
+    "data/creatures/107_slagglass.tres": {
+      "sha256": "72c88e84b698efde52f8fa3046b42d8e6e1b65d6f396eb498af95b308e4feaed",
+      "bytes": 1201,
+      "change": "modified"
+    },
+    "data/creatures/108_vitrecrag.tres": {
+      "sha256": "ce124b3f627270bed84b91c30190532374315bcbd08007b7f19bc205377dfeb7",
+      "bytes": 1463,
+      "change": "modified"
+    },
+    "data/moves/vitrecrag_molten_glass.tres": {
+      "sha256": "01d0caaa779a194c20dfb3462673b68c46dc691c9f24ef7caeac41152d8fada6",
+      "bytes": 5740,
+      "change": "modified"
+    },
+    "data/moves/vitrecrag_molten_cannon.tres": {
+      "sha256": "c88579fcc2550c4c51ee924abdffa8b57ef27fbb0ea8ac4e005ff4a088302238",
+      "bytes": 3009,
+      "change": "modified"
+    },
+    "data/moves/vitrecrag_plate_lunge.tres": {
+      "sha256": "3d6fdd153761fd188746ad1ce563d4fda150b23dcb33622225a0577a60f59ec2",
+      "bytes": 2489,
+      "change": "modified"
+    },
+    "docs/AI_COLLABORATION.md": {
+      "sha256": "befafe83ac62e65220d241d63868c117f253605ee8f44cb8b193016a93818e85",
+      "bytes": 220876,
+      "change": "modified"
+    },
+    "assets/sprites/creatures/rd_material_match_2026_10_01/coalcrest_8dir.png": {
+      "sha256": "dc7eb463e9af51ccc0a98569f7d32b7431d55d32a4c9b708f3b6c27b48bd2e02",
+      "bytes": 80920,
+      "change": "new"
+    },
+    "assets/sprites/creatures/rd_material_match_2026_10_01/coalcrest_back.png": {
+      "sha256": "81db137f797236e8a24a4fe5f84b33c98ef278cc789933601af2fbefc03b5913",
+      "bytes": 8169,
+      "change": "new"
+    },
+    "assets/sprites/creatures/rd_material_match_2026_10_01/coalcrest_front.png": {
+      "sha256": "614493f5d0aba2783467a3848ea7aa1e442c80a925e021e9ff4ee35b509cd70f",
+      "bytes": 11347,
+      "change": "new"
+    },
+    "assets/sprites/creatures/rd_material_match_2026_10_01/fusern_8dir.png": {
+      "sha256": "24f68aa528693d6a85f365ff7e0aec62f92c213c0fc0969b9add7c8a217045eb",
+      "bytes": 53289,
+      "change": "new"
+    },
+    "assets/sprites/creatures/rd_material_match_2026_10_01/fusern_back.png": {
+      "sha256": "1717eba8149cc19e46c3052921e446d43ef8bef9028ea1f31cba8024874d1168",
+      "bytes": 7680,
+      "change": "new"
+    },
+    "assets/sprites/creatures/rd_material_match_2026_10_01/fusern_front.png": {
+      "sha256": "afceef0009c2da9fe9ade7bc8ae415460149f95ceb9fde8c75a83bf7c99e642c",
+      "bytes": 7555,
+      "change": "new"
+    },
+    "assets/sprites/creatures/rd_material_match_2026_10_01/kithflare_8dir.png": {
+      "sha256": "352c6f8b6cb4a03b320b29540d28fa8e1b5b58979198b86e2cabb1a57e79d76a",
+      "bytes": 65729,
+      "change": "new"
+    },
+    "assets/sprites/creatures/rd_material_match_2026_10_01/kithflare_back.png": {
+      "sha256": "14d3500ba30d37bf2650d09399a41fa6a658e758c4dd6a7a10121ab72a00f52b",
+      "bytes": 8779,
+      "change": "new"
+    },
+    "assets/sprites/creatures/rd_material_match_2026_10_01/kithflare_front.png": {
+      "sha256": "0cf0c7788bfe0d33715ac8d7a95ee9b8944859ea50b02d9d0c9be19baaa3923c",
+      "bytes": 9051,
+      "change": "new"
+    },
+    "assets/sprites/creatures/rd_material_match_2026_10_01/slagglass_8dir.png": {
+      "sha256": "5920a55a583e12ed2680381b675bff5cfa1f9f5f5de0d155c557655ba35107f6",
+      "bytes": 107378,
+      "change": "new"
+    },
+    "assets/sprites/creatures/rd_material_match_2026_10_01/slagglass_back.png": {
+      "sha256": "db96918e5864c60ec4ad799f632ad0aef273e4bb23dc51b090d6a2a711485cd9",
+      "bytes": 12988,
+      "change": "new"
+    },
+    "assets/sprites/creatures/rd_material_match_2026_10_01/slagglass_front.png": {
+      "sha256": "1ea2cdf5f07e0739999db7748c12ef7638d3484f85ba4ecd4d435f12b1962f1c",
+      "bytes": 15481,
+      "change": "new"
+    },
+    "assets/sprites/creatures/rd_material_match_2026_10_01/vitrecrag_8dir.png": {
+      "sha256": "d774ee05b59ca400b645354337684d49d12ff991a3f69c0b635197214c6d7b38",
+      "bytes": 103788,
+      "change": "new"
+    },
+    "assets/sprites/creatures/rd_material_match_2026_10_01/vitrecrag_attacks/f00.png": {
+      "sha256": "a1218b05394b5157765e7167e8c5d0d6654e3de936be6505ed0f8da62413596b",
+      "bytes": 13260,
+      "change": "new"
+    },
+    "assets/sprites/creatures/rd_material_match_2026_10_01/vitrecrag_attacks/f01.png": {
+      "sha256": "93029d65adb800aebc84db8b638780c24e1cbd74d655e7d7fe6ae2a6f2414bb8",
+      "bytes": 12262,
+      "change": "new"
+    },
+    "assets/sprites/creatures/rd_material_match_2026_10_01/vitrecrag_attacks/f02.png": {
+      "sha256": "3ef75966e67f320dd1976870ce843bc8d642f04545246848d5e689a31a7a39f1",
+      "bytes": 11935,
+      "change": "new"
+    },
+    "assets/sprites/creatures/rd_material_match_2026_10_01/vitrecrag_attacks/f03.png": {
+      "sha256": "5359cb10b1404d996ce091194d4ae4441fcebbb1faba15f3f9ce5952a3ae465c",
+      "bytes": 12516,
+      "change": "new"
+    },
+    "assets/sprites/creatures/rd_material_match_2026_10_01/vitrecrag_attacks/f04.png": {
+      "sha256": "55eb5d6e9534f015a19f8d5b4d1bc57d941818ff253fd9e6a0178544720bedf8",
+      "bytes": 13244,
+      "change": "new"
+    },
+    "assets/sprites/creatures/rd_material_match_2026_10_01/vitrecrag_attacks/f05.png": {
+      "sha256": "b7cf64f935625b2d592fc3e739db3ee7eee1973329938c5c96640393e77968d7",
+      "bytes": 12972,
+      "change": "new"
+    },
+    "assets/sprites/creatures/rd_material_match_2026_10_01/vitrecrag_attacks/f06.png": {
+      "sha256": "062f4b2938d4a8f30ad024830276f7752fe7c13aee247701a95944e27f88345b",
+      "bytes": 13381,
+      "change": "new"
+    },
+    "assets/sprites/creatures/rd_material_match_2026_10_01/vitrecrag_attacks/f07.png": {
+      "sha256": "c98f08c11f3e402981b80521ae8bd0a3bb17896b6ce3f76f99192b9a7d573743",
+      "bytes": 13345,
+      "change": "new"
+    },
+    "assets/sprites/creatures/rd_material_match_2026_10_01/vitrecrag_attacks/f08.png": {
+      "sha256": "3af361133b7dae6eb521f8e218f8df45cada83b035dbec13b4481d1ca6b3c052",
+      "bytes": 13024,
+      "change": "new"
+    },
+    "assets/sprites/creatures/rd_material_match_2026_10_01/vitrecrag_attacks/f09.png": {
+      "sha256": "048227a55b1deb01d66b368ca72a3b3cfeb7fc0c7f987c3e9fb48c45583934bd",
+      "bytes": 12888,
+      "change": "new"
+    },
+    "assets/sprites/creatures/rd_material_match_2026_10_01/vitrecrag_attacks/f10.png": {
+      "sha256": "c54052df04a78c065480b0f275882cbda08f3a9227a7da9da85d11179fab56a6",
+      "bytes": 12909,
+      "change": "new"
+    },
+    "assets/sprites/creatures/rd_material_match_2026_10_01/vitrecrag_attacks/f11.png": {
+      "sha256": "f4852ff094977c39131c06aefe745c18395145864d6f618b4005c5852ebd4ee5",
+      "bytes": 12948,
+      "change": "new"
+    },
+    "assets/sprites/creatures/rd_material_match_2026_10_01/vitrecrag_back.png": {
+      "sha256": "377a09711454457eff693ffab0d6fd67039b8ba8b80d4326cc179a07f60d4735",
+      "bytes": 13459,
+      "change": "new"
+    },
+    "assets/sprites/creatures/rd_material_match_2026_10_01/vitrecrag_front.png": {
+      "sha256": "5ecf84baa63140566d2397455b441eabe1140fb3b1493bf23fb90da06b135f87",
+      "bytes": 14536,
+      "change": "new"
+    },
+    "assets/sprites/creatures/rd_material_match_2026_10_01/wayburn_8dir.png": {
+      "sha256": "ca654bb456f2a2131aaf37d3b01ad12c9cfbc9e0df158ae3fcc7af39402cb9e6",
+      "bytes": 73372,
+      "change": "new"
+    },
+    "assets/sprites/creatures/rd_material_match_2026_10_01/wayburn_back.png": {
+      "sha256": "9a1460537d2f5a34676d7e005259d8f62cf9c5091a4878fe6b14386fb2d2022c",
+      "bytes": 8904,
+      "change": "new"
+    },
+    "assets/sprites/creatures/rd_material_match_2026_10_01/wayburn_front.png": {
+      "sha256": "18cc5a1ca548e2a73b8af29ee7d2f8998cdff28c39b9c0032b1e0e295ba54026",
+      "bytes": 9056,
+      "change": "new"
+    },
+    "assets/sprites/player/retro_diffusion_chibi_walking_2026_10_01/male_chibi_walk_matched_turns_native80.png": {
+      "sha256": "21ad8dbd0de80a5825f2a2f8590b31c240dea127ba458934ddff121087e153ef",
+      "bytes": 93328,
+      "change": "new"
+    },
+    "assets/sprites/world/route1_rd_2026_10_01/cinderhide_field_idle.png": {
+      "sha256": "7b6c7f984e14fc94d1f8e42d09e27cc7e7d6508350b18839d77ee5fe9bfce4ea",
+      "bytes": 11195,
+      "change": "new"
+    },
+    "assets/sprites/world/route1_rd_2026_10_01/cottonwood.png": {
+      "sha256": "5dab09ad8527c2e1c99c247acf34e47717634c33a8923d7ef7c26aec720d6034",
+      "bytes": 3990,
+      "change": "new"
+    },
+    "assets/sprites/world/route1_rd_2026_10_01/cottonwood_complete.png": {
+      "sha256": "5f7d048ee8df9b93814563db307a92f498930b47640abd138f10feb6e33effb1",
+      "bytes": 4784,
+      "change": "new"
+    },
+    "assets/sprites/world/route1_rd_2026_10_01/cottonwood_polished.png": {
+      "sha256": "beb620024b3cd248e6d603531073932743234608045f4bdf09adee99c98a6baf",
+      "bytes": 4658,
+      "change": "new"
+    },
+    "assets/sprites/world/route1_rd_2026_10_01/dispatch_hall.png": {
+      "sha256": "de7b140d182c01026a4b00e197c76d1b072e5fec04491aae71093bb83cb6e8e8",
+      "bytes": 10089,
+      "change": "new"
+    },
+    "assets/sprites/world/route1_rd_2026_10_01/dispatcher.png": {
+      "sha256": "e54f3cea9d8f536e72bb7ecb62792eceba30188827d105f91d825b02785e58f7",
+      "bytes": 1824,
+      "change": "new"
+    },
+    "assets/sprites/world/route1_rd_2026_10_01/height.png": {
+      "sha256": "90de1df2b2c949a1fb0616d95c981bde511f89c2445f6f7ef4518f719e2fc2a1",
+      "bytes": 657,
+      "change": "new"
+    },
+    "assets/sprites/world/route1_rd_2026_10_01/marker.png": {
+      "sha256": "b2d8fd787b3fadbcc2ed922534010b80c6459a097b2b984977dff221666f3ce9",
+      "bytes": 625,
+      "change": "new"
+    },
+    "assets/sprites/world/route1_rd_2026_10_01/post.png": {
+      "sha256": "73d5450437f80376638b9fcebaa7e86b585e54a660bbf00acf37c903b506058e",
+      "bytes": 1135,
+      "change": "new"
+    },
+    "assets/sprites/world/route1_rd_2026_10_01/reeds.png": {
+      "sha256": "1d5721f8ffff36e38198c9bbfe6e08f10286e463b8dcd78c4a7059c594dc74d4",
+      "bytes": 849,
+      "change": "new"
+    },
+    "assets/sprites/world/route1_rd_2026_10_01/retaining_wall_polished.png": {
+      "sha256": "ccb270ffe6191ff24def2ee3e80a6e5d5fbc66948c86a9d92c5cdc501ecee85c",
+      "bytes": 1383,
+      "change": "new"
+    },
+    "assets/sprites/world/route1_rd_2026_10_01/shrub_polished.png": {
+      "sha256": "9e2c6548c9bfbe343a5224b5583407769d134f21b11295eeeb8f3767860a8e34",
+      "bytes": 1135,
+      "change": "new"
+    },
+    "assets/sprites/world/route1_rd_2026_10_01/wayline_office.png": {
+      "sha256": "73b93015ebaae46f1b4f4cdf9818460c6b2288cac7d629ebf6e4f7e3768d955c",
+      "bytes": 3707,
+      "change": "new"
+    },
+    "assets/sprites/world/route1_rd_2026_10_01/wayline_office_front.png": {
+      "sha256": "1141f7363e7047b05d74c615ffc1121f21a4f979adf20934aec9dd871e7c5e9e",
+      "bytes": 5414,
+      "change": "new"
+    },
+    "assets/tilesets/route1_rd_2026_10_01/route1_ground_atlas.png": {
+      "sha256": "e60e3bc56b49a1b3e3c8968b3805fee3919564d195f35c5602803e04ca733b76",
+      "bytes": 6932,
+      "change": "new"
+    },
+    "assets/tilesets/route1_rd_2026_10_01/route1_ground_atlas_polished.png": {
+      "sha256": "3c5cf177727cb41f152bb4cabfbaa8dc2a9c0ac3f74a9492b31d19835f71dc14",
+      "bytes": 7553,
+      "change": "new"
+    },
+    "assets/tilesets/route1_rd_2026_10_01/route1_ground_atlas_refined.png": {
+      "sha256": "91fbc05c3cb0383a422f93b82dc57f4e7ff073db947b2bdaaf4e24a8d58ca15f",
+      "bytes": 5097,
+      "change": "new"
+    },
+    "assets/tilesets/route1_rd_2026_10_01/route1_ground_polished.tres": {
+      "sha256": "c13926c2bdd833d4840363fcda659f26c869e6996275f2507319f98d59b7d15a",
+      "bytes": 1378,
+      "change": "new"
+    },
+    "assets/tilesets/route1_rd_2026_10_01/route1_ground_tileset.tres": {
+      "sha256": "da04a0b5042f85cf92ed16c5c7a4edf8e30356ebd6a1dd8f67005a70fc712336",
+      "bytes": 752,
+      "change": "new"
+    },
+    "docs/art/characters/male-walk-turn-correction-2026-10-01/README.md": {
+      "sha256": "05a7009eee1e8899716ba1865b14a88166a0691e7b0e5ba16b9532c982262388",
+      "bytes": 1510,
+      "change": "new"
+    },
+    "docs/art/characters/male-walk-turn-correction-2026-10-01/review/male_corrected_live_left.jpg": {
+      "sha256": "b098e2aa59e57e453364fb8edd9e2779456605cabe661c131df402b071308899",
+      "bytes": 128214,
+      "change": "new"
+    },
+    "docs/art/characters/male-walk-turn-correction-2026-10-01/review/male_corrected_live_left.json": {
+      "sha256": "20a04729e7f2114860949824adea7f41ba9d01bbcc67abe862edbf0254ec52a6",
+      "bytes": 1512,
+      "change": "new"
+    },
+    "docs/art/characters/male-walk-turn-correction-2026-10-01/review/male_corrected_live_right.jpg": {
+      "sha256": "093f56dac1388044de372ead0f93a59bbc7a80315a4297434981b492b984557e",
+      "bytes": 128443,
+      "change": "new"
+    },
+    "docs/art/characters/male-walk-turn-correction-2026-10-01/review/male_corrected_live_right.json": {
+      "sha256": "629a7bde2e791f82c17458ac8ee1d61d71cbe688363db23d2a20571e1936849e",
+      "bytes": 1512,
+      "change": "new"
+    },
+    "docs/art/characters/male-walk-turn-correction-2026-10-01/review/male_corrected_live_up_left.jpg": {
+      "sha256": "0291514e512fa63311701ff4680e5b8479a97d8b12841f1acd59ca3cb1232697",
+      "bytes": 130627,
+      "change": "new"
+    },
+    "docs/art/characters/male-walk-turn-correction-2026-10-01/review/male_corrected_live_up_left.json": {
+      "sha256": "cbc1c0ace573435c430e8600715ba1a40e6a7d9646b4aa02385d4d3ad892d2b8",
+      "bytes": 1516,
+      "change": "new"
+    },
+    "docs/art/characters/male-walk-turn-correction-2026-10-01/review/male_corrected_live_up_right.jpg": {
+      "sha256": "728374416c991f15013e85ab45003475c849e993a2913f6b43adb03ec96bcaf6",
+      "bytes": 129894,
+      "change": "new"
+    },
+    "docs/art/characters/male-walk-turn-correction-2026-10-01/review/male_corrected_live_up_right.json": {
+      "sha256": "fbeeae119406337fb5ed662bed0d91a89985a3544f904959ab0e1dbf9cc81e64",
+      "bytes": 1516,
+      "change": "new"
+    },
+    "docs/art/characters/male-walk-turn-correction-2026-10-01/review/male_turn_correction.json": {
+      "sha256": "c9e65c4c7dbdf3561d4192856b60183d89c6b6de5af17c4f7d82fc8c3774e4ad",
+      "bytes": 2771,
+      "change": "new"
+    },
+    "docs/art/characters/male-walk-turn-correction-2026-10-01/review/male_turns_before.json": {
+      "sha256": "f9f2c9b099c1031d6c12d376ca444ee4d397743f45226e3d158ad064c50e6f7d",
+      "bytes": 5332,
+      "change": "new"
+    },
+    "docs/art/characters/male-walk-turn-correction-2026-10-01/review/male_turns_before.png": {
+      "sha256": "008acdfdc93ed726ff7d0cbc3faa38194e61f1ae9714d52861502a5a7b479326",
+      "bytes": 59228,
+      "change": "new"
+    },
+    "docs/art/characters/male-walk-turn-correction-2026-10-01/review/male_turns_matched.gif": {
+      "sha256": "20b496bf2d26cb14ce4de8ed1fde02f85c71c49083c299f933ee5bde0189e5b5",
+      "bytes": 56953,
+      "change": "new"
+    },
+    "docs/art/characters/male-walk-turn-correction-2026-10-01/review/male_turns_matched.png": {
+      "sha256": "f424cb609fdeffe606fae9c3109a37f1bfa486ad6488af271658239a1d02f42e",
+      "bytes": 55073,
+      "change": "new"
+    },
+    "docs/art/characters/male-walk-turn-correction-2026-10-01/source/inspect_male_turns.py": {
+      "sha256": "8a4cc64e9e888ca722e6a135285db787c3bc7b4764d66f242c72814f3129befe",
+      "bytes": 1101,
+      "change": "new"
+    },
+    "docs/art/characters/male-walk-turn-correction-2026-10-01/source/match_male_turns.py": {
+      "sha256": "497bf44540b797735fef021b4bc63f5cc5bac5559e8029cb4c827ceed8817f0a",
+      "bytes": 2692,
+      "change": "new"
+    },
+    "docs/art/review/rd-material-match-2026-10-01/README.md": {
+      "sha256": "fe5f893cbbe11bb7dca6dec3c807893702848f0e6aa4c8947449698a8319ad0c",
+      "bytes": 2328,
+      "change": "new"
+    },
+    "docs/art/review/rd-material-match-2026-10-01/prepared/coalcrest_8dir.png": {
+      "sha256": "dc7eb463e9af51ccc0a98569f7d32b7431d55d32a4c9b708f3b6c27b48bd2e02",
+      "bytes": 80920,
+      "change": "new"
+    },
+    "docs/art/review/rd-material-match-2026-10-01/prepared/coalcrest_back.png": {
+      "sha256": "81db137f797236e8a24a4fe5f84b33c98ef278cc789933601af2fbefc03b5913",
+      "bytes": 8169,
+      "change": "new"
+    },
+    "docs/art/review/rd-material-match-2026-10-01/prepared/coalcrest_front.png": {
+      "sha256": "614493f5d0aba2783467a3848ea7aa1e442c80a925e021e9ff4ee35b509cd70f",
+      "bytes": 11347,
+      "change": "new"
+    },
+    "docs/art/review/rd-material-match-2026-10-01/prepared/creature_materials_after.png": {
+      "sha256": "d2235e4ee373c9b7398d34b05cc73c32d35ff0c30254e0f7da15a12ff228e0c3",
+      "bytes": 159434,
+      "change": "new"
+    },
+    "docs/art/review/rd-material-match-2026-10-01/prepared/f00.png": {
+      "sha256": "a1218b05394b5157765e7167e8c5d0d6654e3de936be6505ed0f8da62413596b",
+      "bytes": 13260,
+      "change": "new"
+    },
+    "docs/art/review/rd-material-match-2026-10-01/prepared/f01.png": {
+      "sha256": "93029d65adb800aebc84db8b638780c24e1cbd74d655e7d7fe6ae2a6f2414bb8",
+      "bytes": 12262,
+      "change": "new"
+    },
+    "docs/art/review/rd-material-match-2026-10-01/prepared/f02.png": {
+      "sha256": "3ef75966e67f320dd1976870ce843bc8d642f04545246848d5e689a31a7a39f1",
+      "bytes": 11935,
+      "change": "new"
+    },
+    "docs/art/review/rd-material-match-2026-10-01/prepared/f03.png": {
+      "sha256": "5359cb10b1404d996ce091194d4ae4441fcebbb1faba15f3f9ce5952a3ae465c",
+      "bytes": 12516,
+      "change": "new"
+    },
+    "docs/art/review/rd-material-match-2026-10-01/prepared/f04.png": {
+      "sha256": "55eb5d6e9534f015a19f8d5b4d1bc57d941818ff253fd9e6a0178544720bedf8",
+      "bytes": 13244,
+      "change": "new"
+    },
+    "docs/art/review/rd-material-match-2026-10-01/prepared/f05.png": {
+      "sha256": "b7cf64f935625b2d592fc3e739db3ee7eee1973329938c5c96640393e77968d7",
+      "bytes": 12972,
+      "change": "new"
+    },
+    "docs/art/review/rd-material-match-2026-10-01/prepared/f06.png": {
+      "sha256": "062f4b2938d4a8f30ad024830276f7752fe7c13aee247701a95944e27f88345b",
+      "bytes": 13381,
+      "change": "new"
+    },
+    "docs/art/review/rd-material-match-2026-10-01/prepared/f07.png": {
+      "sha256": "c98f08c11f3e402981b80521ae8bd0a3bb17896b6ce3f76f99192b9a7d573743",
+      "bytes": 13345,
+      "change": "new"
+    },
+    "docs/art/review/rd-material-match-2026-10-01/prepared/f08.png": {
+      "sha256": "3af361133b7dae6eb521f8e218f8df45cada83b035dbec13b4481d1ca6b3c052",
+      "bytes": 13024,
+      "change": "new"
+    },
+    "docs/art/review/rd-material-match-2026-10-01/prepared/f09.png": {
+      "sha256": "048227a55b1deb01d66b368ca72a3b3cfeb7fc0c7f987c3e9fb48c45583934bd",
+      "bytes": 12888,
+      "change": "new"
+    },
+    "docs/art/review/rd-material-match-2026-10-01/prepared/f10.png": {
+      "sha256": "c54052df04a78c065480b0f275882cbda08f3a9227a7da9da85d11179fab56a6",
+      "bytes": 12909,
+      "change": "new"
+    },
+    "docs/art/review/rd-material-match-2026-10-01/prepared/f11.png": {
+      "sha256": "f4852ff094977c39131c06aefe745c18395145864d6f618b4005c5852ebd4ee5",
+      "bytes": 12948,
+      "change": "new"
+    },
+    "docs/art/review/rd-material-match-2026-10-01/prepared/fusern_8dir.png": {
+      "sha256": "24f68aa528693d6a85f365ff7e0aec62f92c213c0fc0969b9add7c8a217045eb",
+      "bytes": 53289,
+      "change": "new"
+    },
+    "docs/art/review/rd-material-match-2026-10-01/prepared/fusern_back.png": {
+      "sha256": "1717eba8149cc19e46c3052921e446d43ef8bef9028ea1f31cba8024874d1168",
+      "bytes": 7680,
+      "change": "new"
+    },
+    "docs/art/review/rd-material-match-2026-10-01/prepared/fusern_front.png": {
+      "sha256": "afceef0009c2da9fe9ade7bc8ae415460149f95ceb9fde8c75a83bf7c99e642c",
+      "bytes": 7555,
+      "change": "new"
+    },
+    "docs/art/review/rd-material-match-2026-10-01/prepared/kithflare_8dir.png": {
+      "sha256": "352c6f8b6cb4a03b320b29540d28fa8e1b5b58979198b86e2cabb1a57e79d76a",
+      "bytes": 65729,
+      "change": "new"
+    },
+    "docs/art/review/rd-material-match-2026-10-01/prepared/kithflare_back.png": {
+      "sha256": "14d3500ba30d37bf2650d09399a41fa6a658e758c4dd6a7a10121ab72a00f52b",
+      "bytes": 8779,
+      "change": "new"
+    },
+    "docs/art/review/rd-material-match-2026-10-01/prepared/kithflare_front.png": {
+      "sha256": "0cf0c7788bfe0d33715ac8d7a95ee9b8944859ea50b02d9d0c9be19baaa3923c",
+      "bytes": 9051,
+      "change": "new"
+    },
+    "docs/art/review/rd-material-match-2026-10-01/prepared/material_manifest.json": {
+      "sha256": "affd0fb6c605e03326a7e9edc5f60334a84d9d2b36a31297f893f978dfddac13",
+      "bytes": 19042,
+      "change": "new"
+    },
+    "docs/art/review/rd-material-match-2026-10-01/prepared/slagglass_8dir.png": {
+      "sha256": "5920a55a583e12ed2680381b675bff5cfa1f9f5f5de0d155c557655ba35107f6",
+      "bytes": 107378,
+      "change": "new"
+    },
+    "docs/art/review/rd-material-match-2026-10-01/prepared/slagglass_back.png": {
+      "sha256": "db96918e5864c60ec4ad799f632ad0aef273e4bb23dc51b090d6a2a711485cd9",
+      "bytes": 12988,
+      "change": "new"
+    },
+    "docs/art/review/rd-material-match-2026-10-01/prepared/slagglass_front.png": {
+      "sha256": "1ea2cdf5f07e0739999db7748c12ef7638d3484f85ba4ecd4d435f12b1962f1c",
+      "bytes": 15481,
+      "change": "new"
+    },
+    "docs/art/review/rd-material-match-2026-10-01/prepared/vitrecrag_8dir.png": {
+      "sha256": "d774ee05b59ca400b645354337684d49d12ff991a3f69c0b635197214c6d7b38",
+      "bytes": 103788,
+      "change": "new"
+    },
+    "docs/art/review/rd-material-match-2026-10-01/prepared/vitrecrag_back.png": {
+      "sha256": "377a09711454457eff693ffab0d6fd67039b8ba8b80d4326cc179a07f60d4735",
+      "bytes": 13459,
+      "change": "new"
+    },
+    "docs/art/review/rd-material-match-2026-10-01/prepared/vitrecrag_front.png": {
+      "sha256": "5ecf84baa63140566d2397455b441eabe1140fb3b1493bf23fb90da06b135f87",
+      "bytes": 14536,
+      "change": "new"
+    },
+    "docs/art/review/rd-material-match-2026-10-01/prepared/wayburn_8dir.png": {
+      "sha256": "ca654bb456f2a2131aaf37d3b01ad12c9cfbc9e0df158ae3fcc7af39402cb9e6",
+      "bytes": 73372,
+      "change": "new"
+    },
+    "docs/art/review/rd-material-match-2026-10-01/prepared/wayburn_back.png": {
+      "sha256": "9a1460537d2f5a34676d7e005259d8f62cf9c5091a4878fe6b14386fb2d2022c",
+      "bytes": 8904,
+      "change": "new"
+    },
+    "docs/art/review/rd-material-match-2026-10-01/prepared/wayburn_front.png": {
+      "sha256": "18cc5a1ca548e2a73b8af29ee7d2f8998cdff28c39b9c0032b1e0e295ba54026",
+      "bytes": 9056,
+      "change": "new"
+    },
+    "docs/art/review/rd-material-match-2026-10-01/review/creature_final_live_coalcrest.jpg": {
+      "sha256": "62b4c322cd52df5cf8761ff6fe4ad311e2a5afb5aa5828a87e41d062f3df0ffa",
+      "bytes": 75645,
+      "change": "new"
+    },
+    "docs/art/review/rd-material-match-2026-10-01/review/creature_final_live_coalcrest.json": {
+      "sha256": "562e8fd525d0e2f65a2d508620d3420a78ddd8ae2e57665be710d80c46bb6b62",
+      "bytes": 1292,
+      "change": "new"
+    },
+    "docs/art/review/rd-material-match-2026-10-01/review/creature_final_live_fusern.jpg": {
+      "sha256": "aea07af08c26f89ad3a17fc5530333862a23a02d55262350b9f3f2d839b91a35",
+      "bytes": 63299,
+      "change": "new"
+    },
+    "docs/art/review/rd-material-match-2026-10-01/review/creature_final_live_fusern.json": {
+      "sha256": "541a7e4d41ed7d20ddc788bf3553c8d9e0774212ae8ad25d9518218139cae307",
+      "bytes": 1292,
+      "change": "new"
+    },
+    "docs/art/review/rd-material-match-2026-10-01/review/creature_final_live_kithflare.jpg": {
+      "sha256": "593a07743b5638dd9190aa583a15806d7a2926fade7f8cbc363d3a421f0b309d",
+      "bytes": 66821,
+      "change": "new"
+    },
+    "docs/art/review/rd-material-match-2026-10-01/review/creature_final_live_kithflare.json": {
+      "sha256": "c3a8e27429c4ff8b04fa6de59f86f0fe46f9c3221315191e5b72c09565ce3100",
+      "bytes": 1292,
+      "change": "new"
+    },
+    "docs/art/review/rd-material-match-2026-10-01/review/creature_final_live_slagglass.jpg": {
+      "sha256": "6d0743f11c9bee9bd00b3924dcc9a7113c34e17c787d102dec7686431e3b7cfb",
+      "bytes": 89630,
+      "change": "new"
+    },
+    "docs/art/review/rd-material-match-2026-10-01/review/creature_final_live_slagglass.json": {
+      "sha256": "3c4cd22406f9222bbc7f370d38f883789897e6b2beaccd9895d0378c20ad4e96",
+      "bytes": 1292,
+      "change": "new"
+    },
+    "docs/art/review/rd-material-match-2026-10-01/review/creature_final_live_vitrecrag.jpg": {
+      "sha256": "25e074e26528b4964a30b2c94a9acf96356baf11253d204c2f6fa92d7410551f",
+      "bytes": 88011,
+      "change": "new"
+    },
+    "docs/art/review/rd-material-match-2026-10-01/review/creature_final_live_vitrecrag.json": {
+      "sha256": "8e05ffd4bfa8b3900ff7c983ad151ddd68eed40d4c4fd0eb963390d32a106659",
+      "bytes": 1292,
+      "change": "new"
+    },
+    "docs/art/review/rd-material-match-2026-10-01/review/creature_final_live_wayburn.jpg": {
+      "sha256": "f04bcce8ee89f57deb4359dd8148bc1b764082f20d9f5b51108bc1327d63b57c",
+      "bytes": 74211,
+      "change": "new"
+    },
+    "docs/art/review/rd-material-match-2026-10-01/review/creature_final_live_wayburn.json": {
+      "sha256": "7d1dfca0e7347a4f8e443f5f2e57e102c9279b020fe32bb3975b0510858ef2b9",
+      "bytes": 1292,
+      "change": "new"
+    },
+    "docs/art/review/rd-material-match-2026-10-01/review/creature_live_before.json": {
+      "sha256": "e6555823cb7383ff6a20639d2339afa6245ddf5cedb696b4ca735f99ccc74a61",
+      "bytes": 3610,
+      "change": "new"
+    },
+    "docs/art/review/rd-material-match-2026-10-01/review/creature_live_before.png": {
+      "sha256": "237c736438488a71a3dcf842cb0983c3910ae17ef7ac0b998e6ddac8f7cc4614",
+      "bytes": 159055,
+      "change": "new"
+    },
+    "docs/art/review/rd-material-match-2026-10-01/review/six_forms_battle_review.png": {
+      "sha256": "b220dc69e0739ea7c6b6fda3ba62bcbddae3e417f6f04d8cdda144d710b8c0a3",
+      "bytes": 572452,
+      "change": "new"
+    },
+    "docs/art/review/rd-material-match-2026-10-01/review/vitrecrag_three_moves_live.json": {
+      "sha256": "5f6aad49ad458e92c0fa69128b89c65b6e07a988a16e3a809458cfb786bfdbc6",
+      "bytes": 37706,
+      "change": "new"
+    },
+    "docs/art/review/rd-material-match-2026-10-01/source/match_creature_materials.py": {
+      "sha256": "fa87efed6c7f9e5fa5d72fe0f9eb714f221849449c8b451a29016562a95ef455",
+      "bytes": 4226,
+      "change": "new"
+    },
+    "docs/art/world/route1-rd-first-pass-2026-10-01/PROMPTS.md": {
+      "sha256": "66942364a6dee7c0767dca2c38e4b1ce0a50b7263a9c8d938a75c81ea252114c",
+      "bytes": 7373,
+      "change": "new"
+    },
+    "docs/art/world/route1-rd-first-pass-2026-10-01/README.md": {
+      "sha256": "ce8c0cb7ff33bca1d11525646ff8dd813694167372305a2a8f7d553f4ef50f47",
+      "bytes": 3940,
+      "change": "new"
+    },
+    "docs/art/world/route1-rd-first-pass-2026-10-01/archive_file_manifest.json": {
+      "sha256": "15da8af1bebff42abeac5f3eed4bdc5b89bc4813960e689d3b1469602d2d8fcc",
+      "bytes": 23225,
+      "change": "new"
+    },
+    "docs/art/world/route1-rd-first-pass-2026-10-01/prepared/grass_matched32.png": {
+      "sha256": "a100becd2ed4d1d01b2cfcfec9ccf0d765221f68eaf1e973fd26f3c8e49e4e9f",
+      "bytes": 909,
+      "change": "new"
+    },
+    "docs/art/world/route1-rd-first-pass-2026-10-01/prepared/path_matched32.png": {
+      "sha256": "d0bc8904e69d13b253627a0e246b7cd6ac7273f35c5178895c666f0f487900f6",
+      "bytes": 1051,
+      "change": "new"
+    },
+    "docs/art/world/route1-rd-first-pass-2026-10-01/prepared/props/cottonwood.png": {
+      "sha256": "5dab09ad8527c2e1c99c247acf34e47717634c33a8923d7ef7c26aec720d6034",
+      "bytes": 3990,
+      "change": "new"
+    },
+    "docs/art/world/route1-rd-first-pass-2026-10-01/prepared/props/dispatcher.png": {
+      "sha256": "e54f3cea9d8f536e72bb7ecb62792eceba30188827d105f91d825b02785e58f7",
+      "bytes": 1824,
+      "change": "new"
+    },
+    "docs/art/world/route1-rd-first-pass-2026-10-01/prepared/props/height.png": {
+      "sha256": "90de1df2b2c949a1fb0616d95c981bde511f89c2445f6f7ef4518f719e2fc2a1",
+      "bytes": 657,
+      "change": "new"
+    },
+    "docs/art/world/route1-rd-first-pass-2026-10-01/prepared/props/landmark_preparation.json": {
+      "sha256": "8a2d7f169822d3351b312f0b18a82c1f7e4e172e0399dcc8117731a045ac9f46",
+      "bytes": 897,
+      "change": "new"
+    },
+    "docs/art/world/route1-rd-first-pass-2026-10-01/prepared/props/landmarks_review.png": {
+      "sha256": "e686e64364ea69634ac97d9a18fc875294029a2aefaf3085db48676e5a231f66",
+      "bytes": 10054,
+      "change": "new"
+    },
+    "docs/art/world/route1-rd-first-pass-2026-10-01/prepared/props/marker.png": {
+      "sha256": "b2d8fd787b3fadbcc2ed922534010b80c6459a097b2b984977dff221666f3ce9",
+      "bytes": 625,
+      "change": "new"
+    },
+    "docs/art/world/route1-rd-first-pass-2026-10-01/prepared/props/post.png": {
+      "sha256": "73d5450437f80376638b9fcebaa7e86b585e54a660bbf00acf37c903b506058e",
+      "bytes": 1135,
+      "change": "new"
+    },
+    "docs/art/world/route1-rd-first-pass-2026-10-01/prepared/props/prop_preparation.json": {
+      "sha256": "33a133c796fb2b1a669ed47e8eb9d8b72bebd5b83bd464f87643e90bba80d331",
+      "bytes": 387,
+      "change": "new"
+    },
+    "docs/art/world/route1-rd-first-pass-2026-10-01/prepared/props/props_review.png": {
+      "sha256": "5fb32272b57808b690deff22b12bdef9db8ceb0401f671c71303faf19af4d395",
+      "bytes": 13198,
+      "change": "new"
+    },
+    "docs/art/world/route1-rd-first-pass-2026-10-01/prepared/props/reeds.png": {
+      "sha256": "1d5721f8ffff36e38198c9bbfe6e08f10286e463b8dcd78c4a7059c594dc74d4",
+      "bytes": 849,
+      "change": "new"
+    },
+    "docs/art/world/route1-rd-first-pass-2026-10-01/prepared/props/wayline_office.png": {
+      "sha256": "73b93015ebaae46f1b4f4cdf9818460c6b2288cac7d629ebf6e4f7e3768d955c",
+      "bytes": 3707,
+      "change": "new"
+    },
+    "docs/art/world/route1-rd-first-pass-2026-10-01/prepared/route1_ground_atlas.png": {
+      "sha256": "91fbc05c3cb0383a422f93b82dc57f4e7ff073db947b2bdaaf4e24a8d58ca15f",
+      "bytes": 5097,
+      "change": "new"
+    },
+    "docs/art/world/route1-rd-first-pass-2026-10-01/prepared/route1_ground_tileset.tres": {
+      "sha256": "2446795afd079f7455005b11a1b644417a0eb8873637e2ebf73bad65638de917",
+      "bytes": 812,
+      "change": "new"
+    },
+    "docs/art/world/route1-rd-first-pass-2026-10-01/prepared/route_ground_review.png": {
+      "sha256": "dc80b5ea4aaf8010572b46bbcbd52a64716ae543475d65cb18b4ee5a7f85beef",
+      "bytes": 66962,
+      "change": "new"
+    },
+    "docs/art/world/route1-rd-first-pass-2026-10-01/prepared/terrain_data_base64.txt": {
+      "sha256": "69189f0e24eb0c005438e22cebebe182d5d4ab43c2d46898dd35eda57729c9ca",
+      "bytes": 15364,
+      "change": "new"
+    },
+    "docs/art/world/route1-rd-first-pass-2026-10-01/prepared/terrain_preparation.json": {
+      "sha256": "9ab3878499812bce5cddb0f0d97f4d6db560690e8bba8f32b6cadd3d6c575678",
+      "bytes": 1343,
+      "change": "new"
+    },
+    "docs/art/world/route1-rd-first-pass-2026-10-01/prepared/water_matched32.png": {
+      "sha256": "c658d8893d5fa634763537cf7293713c25a40e12abd8b045e6049ba5a66876f2",
+      "bytes": 901,
+      "change": "new"
+    },
+    "docs/art/world/route1-rd-first-pass-2026-10-01/raw/dispatcher_original.png": {
+      "sha256": "fb68d606b3abf1cf36c6e69c6bfe180ee5f5030dc3760e4618e6cadc636d8886",
+      "bytes": 1986,
+      "change": "new"
+    },
+    "docs/art/world/route1-rd-first-pass-2026-10-01/raw/grass_original.png": {
+      "sha256": "7ca4e38fe979f01e60da3abd531ee0f55da6f6b05251826b457758907fa4ca51",
+      "bytes": 2610,
+      "change": "new"
+    },
+    "docs/art/world/route1-rd-first-pass-2026-10-01/raw/height_original.png": {
+      "sha256": "ed0a4302665f3d43077c694f382bbb2cee607fa590094ca876b9eb43aa884870",
+      "bytes": 677,
+      "change": "new"
+    },
+    "docs/art/world/route1-rd-first-pass-2026-10-01/raw/marker_original.png": {
+      "sha256": "613a00876dc499f5dbed38208c415dae13d2e5d36ced2891138dfe9f535b3983",
+      "bytes": 827,
+      "change": "new"
+    },
+    "docs/art/world/route1-rd-first-pass-2026-10-01/raw/office_original.png": {
+      "sha256": "739169b620eb60689a38c033cc25c12fda924ab481aeacc77db9217ff7c7b188",
+      "bytes": 4055,
+      "change": "new"
+    },
+    "docs/art/world/route1-rd-first-pass-2026-10-01/raw/office_outpaint_rejected.png": {
+      "sha256": "055335b0b3ba5970b98851d6bfe9180747bb15814ef888f283970eb5b167aa41",
+      "bytes": 4132,
+      "change": "new"
+    },
+    "docs/art/world/route1-rd-first-pass-2026-10-01/raw/path_original.png": {
+      "sha256": "e2575cdb745deb00872fae246b7f0f768c6c11cd8492552718f7dcbcd75e42d6",
+      "bytes": 2278,
+      "change": "new"
+    },
+    "docs/art/world/route1-rd-first-pass-2026-10-01/raw/post_original.png": {
+      "sha256": "8b2d749ec513d79ee835ff39fe24641943eaec0057710d51498f7e854b888d07",
+      "bytes": 1252,
+      "change": "new"
+    },
+    "docs/art/world/route1-rd-first-pass-2026-10-01/raw/reeds_original.png": {
+      "sha256": "bf708b6e4a115aee930e7d3861f79f6f0fd8b3464ff3a4b378f87d480d219602",
+      "bytes": 899,
+      "change": "new"
+    },
+    "docs/art/world/route1-rd-first-pass-2026-10-01/raw/tree_original.png": {
+      "sha256": "0a4494835937d6352486acd7a210ac00f95a6aa92a242c02e7822a2b3d7b81f8",
+      "bytes": 4605,
+      "change": "new"
+    },
+    "docs/art/world/route1-rd-first-pass-2026-10-01/raw/water_original.png": {
+      "sha256": "bdb7d78aab05bebec1e2642cc4b7ad5c9fd854dab964cbeb31dc5518a8e44ab5",
+      "bytes": 2398,
+      "change": "new"
+    },
+    "docs/art/world/route1-rd-first-pass-2026-10-01/review/route_assignment_accepted_probe.jpg": {
+      "sha256": "80ddcba7cb0fb34081f7920be7f75042505c8c2e609f5200fc98e67f51cff22b",
+      "bytes": 121935,
+      "change": "new"
+    },
+    "docs/art/world/route1-rd-first-pass-2026-10-01/review/route_assignment_accepted_probe.json": {
+      "sha256": "1da8763f6ea9843a9b6ac8913a1f6741fba843c9e943160a35f9965da9827d05",
+      "bytes": 1615,
+      "change": "new"
+    },
+    "docs/art/world/route1-rd-first-pass-2026-10-01/review/route_assignment_complete_real_probe.jpg": {
+      "sha256": "d2d770797a36b9ac8cda1492db2a86ddf2b4d5992b8f8a875a62b934152b92ad",
+      "bytes": 126259,
+      "change": "new"
+    },
+    "docs/art/world/route1-rd-first-pass-2026-10-01/review/route_assignment_complete_real_probe.json": {
+      "sha256": "8acb4c6d9fad7ae99d9782d9353234d57c545f99a33ec00f09e4c2e46d04ad38",
+      "bytes": 1242,
+      "change": "new"
+    },
+    "docs/art/world/route1-rd-first-pass-2026-10-01/review/route_assignment_delivered_probe.jpg": {
+      "sha256": "c3970d5bcf5bd2bbeac112aa8609540a726c5a48998d61ec9b67ba20e80955c3",
+      "bytes": 107458,
+      "change": "new"
+    },
+    "docs/art/world/route1-rd-first-pass-2026-10-01/review/route_assignment_delivered_probe.json": {
+      "sha256": "dd8adcb0608a1306703096a3b953494247c1c562fb21730e543097f41d017a8c",
+      "bytes": 1618,
+      "change": "new"
+    },
+    "docs/art/world/route1-rd-first-pass-2026-10-01/review/route_assignment_height_inspected_probe.jpg": {
+      "sha256": "f5a6b0f907064f7f0e8d72d0a32ae373a9df51b7d12e902c44e428d155396502",
+      "bytes": 110081,
+      "change": "new"
+    },
+    "docs/art/world/route1-rd-first-pass-2026-10-01/review/route_assignment_height_inspected_probe.json": {
+      "sha256": "70aece9cb49540f7d3980edfd9a5269a8c2d56f4597520ded83e3dedbec6fcb4",
+      "bytes": 1621,
+      "change": "new"
+    },
+    "docs/art/world/route1-rd-first-pass-2026-10-01/review/route_assignment_marker_restored_probe.jpg": {
+      "sha256": "f74932772caecfbf515902943945c1dd1994260b46c4f72b9f76ad8b53cd82b1",
+      "bytes": 115022,
+      "change": "new"
+    },
+    "docs/art/world/route1-rd-first-pass-2026-10-01/review/route_assignment_marker_restored_probe.json": {
+      "sha256": "f24d66b2e5e2e7cbb3d2bb253dc228078720b6e6378baaf889c3afc661b76d49",
+      "bytes": 1614,
+      "change": "new"
+    },
+    "docs/art/world/route1-rd-first-pass-2026-10-01/review/route_assignment_report_choices_probe.jpg": {
+      "sha256": "604324bb0c053b10d4fd34db63e6a6e45da8ccd8a524a5e41b9cc67ffeb14a0f",
+      "bytes": 127836,
+      "change": "new"
+    },
+    "docs/art/world/route1-rd-first-pass-2026-10-01/review/route_assignment_report_choices_probe.json": {
+      "sha256": "79ce593e411996f434ed1dca84464f93b3b06f161043539dfd3a5f6ddc126796",
+      "bytes": 1611,
+      "change": "new"
+    },
+    "docs/art/world/route1-rd-first-pass-2026-10-01/review/route_assignment_river_heard_probe.jpg": {
+      "sha256": "4a83a495c29b39d6a12764ca1663581c349451c223c424b9aba8a4ae44a5d251",
+      "bytes": 111629,
+      "change": "new"
+    },
+    "docs/art/world/route1-rd-first-pass-2026-10-01/review/route_assignment_river_heard_probe.json": {
+      "sha256": "fd24f93d2c964eb7012e6e3800c173195613d7129b488c641cd70e7699b8351f",
+      "bytes": 1616,
+      "change": "new"
+    },
+    "docs/art/world/route1-rd-first-pass-2026-10-01/review/terrain_before.png": {
+      "sha256": "9fae46c591ead79021e2a1d5b36401a84bf7642355bdfed2a741ebc56b6d0dfe",
+      "bytes": 12431,
+      "change": "new"
+    },
+    "docs/art/world/route1-rd-first-pass-2026-10-01/source/build_route_terrain.py": {
+      "sha256": "b85e8652faf22dfdfac5f2527e714aaf4d120795c5925de7ce9c89478bd57f21",
+      "bytes": 4030,
+      "change": "new"
+    },
+    "docs/art/world/route1-rd-first-pass-2026-10-01/source/finish_route_landmarks.py": {
+      "sha256": "56966ab424788bfbf8fd9783ee1321d70342dae67eebf7e8f065b54181c71ab8",
+      "bytes": 1400,
+      "change": "new"
+    },
+    "docs/art/world/route1-rd-first-pass-2026-10-01/source/finish_route_props.py": {
+      "sha256": "789a9939b2dd3b1a504a9737b53ae5bb61d5c7f080f1bf99a8a7b3f4ab7860b1",
+      "bytes": 1779,
+      "change": "new"
+    },
+    "docs/art/world/route1-rd-first-pass-2026-10-01/source/live_validation.json": {
+      "sha256": "04c5433cb98d5b8185811c3eb1e4b82046b212bd8628d14629ef298389ddbcc7",
+      "bytes": 156599,
+      "change": "new"
+    },
+    "docs/art/world/route1-rd-first-pass-2026-10-01/source/retro_diffusion_requests_and_receipts.json": {
+      "sha256": "91f5227afa473c2ecd3c039b1b366cbceac06f10e5b6b21efa3b40393382347f",
+      "bytes": 17484,
+      "change": "new"
+    },
+    "docs/art/world/route1-rd-first-pass-2026-10-01/source/route_cells.json": {
+      "sha256": "36fd36db0e23e7c43735ef55f2e52b2a975a10774fe636d62533e11d5b15aa9a",
+      "bytes": 20480,
+      "change": "new"
+    },
+    "docs/art/world/route1-rd-polish-2026-10-01/PROMPTS.md": {
+      "sha256": "401747bbee1979b86a5fa1f4d7188d4b1eec0a82e90e81673e2d62d5b036eb77",
+      "bytes": 2434,
+      "change": "new"
+    },
+    "docs/art/world/route1-rd-polish-2026-10-01/README.md": {
+      "sha256": "deaf887ae7e500c5fcd7ee0b81224e92a423d4605cf1edc4bc067d325c78ed4c",
+      "bytes": 4476,
+      "change": "new"
+    },
+    "docs/art/world/route1-rd-polish-2026-10-01/archive_file_manifest.json": {
+      "sha256": "f3415834feeb012ed6c83bccf8a12766dd323894fc1fddc7122d39600a553428",
+      "bytes": 26062,
+      "change": "new"
+    },
+    "docs/art/world/route1-rd-polish-2026-10-01/prepared/cottonwood_complete.png": {
+      "sha256": "5f7d048ee8df9b93814563db307a92f498930b47640abd138f10feb6e33effb1",
+      "bytes": 4784,
+      "change": "new"
+    },
+    "docs/art/world/route1-rd-polish-2026-10-01/prepared/dispatch_hall_complete.png": {
+      "sha256": "18fb5bada1b0651c91c85e13ff2f1d0c0ce89cfcdb411454dfa0014f15e2afb0",
+      "bytes": 11997,
+      "change": "new"
+    },
+    "docs/art/world/route1-rd-polish-2026-10-01/prepared/dispatch_hall_prepared.png": {
+      "sha256": "de7b140d182c01026a4b00e197c76d1b072e5fec04491aae71093bb83cb6e8e8",
+      "bytes": 10089,
+      "change": "new"
+    },
+    "docs/art/world/route1-rd-polish-2026-10-01/prepared/grass_quiet32.png": {
+      "sha256": "1ccf4b392c22d19a09d14da1be6b49e03abbf50d18cde72d653a253baa4d95d6",
+      "bytes": 498,
+      "change": "new"
+    },
+    "docs/art/world/route1-rd-polish-2026-10-01/prepared/path_quiet32.png": {
+      "sha256": "0bc1711d71a8a8133da3be181c0d2d7620149bd73d0f1a302abc4584b665df1f",
+      "bytes": 670,
+      "change": "new"
+    },
+    "docs/art/world/route1-rd-polish-2026-10-01/prepared/polished_ground_review.png": {
+      "sha256": "52cf5b6fce1b35570bccfce9c8e0e522337feba2c12d0510d6e0b3361c5256b7",
+      "bytes": 48576,
+      "change": "new"
+    },
+    "docs/art/world/route1-rd-polish-2026-10-01/prepared/route1_ground_atlas_polished.png": {
+      "sha256": "3c5cf177727cb41f152bb4cabfbaa8dc2a9c0ac3f74a9492b31d19835f71dc14",
+      "bytes": 7553,
+      "change": "new"
+    },
+    "docs/art/world/route1-rd-polish-2026-10-01/prepared/tree_crown_review.png": {
+      "sha256": "22280c3fa3e81218eefa93ae842918f3f94df295e9a302675d14fb9c3d64dbd6",
+      "bytes": 10076,
+      "change": "new"
+    },
+    "docs/art/world/route1-rd-polish-2026-10-01/prepared/water_quiet32.png": {
+      "sha256": "ecc1b44e8b7446599e16b40b450d459b4ebeba3b66de7518a63296dde77956f8",
+      "bytes": 545,
+      "change": "new"
+    },
+    "docs/art/world/route1-rd-polish-2026-10-01/raw/cottonwood_original.png": {
+      "sha256": "beb620024b3cd248e6d603531073932743234608045f4bdf09adee99c98a6baf",
+      "bytes": 4658,
+      "change": "new"
+    },
+    "docs/art/world/route1-rd-polish-2026-10-01/raw/cottonwood_outpaint_raw.png": {
+      "sha256": "bfe2d5dae7589774de569610533794bae79747df6e3bad078b328c4b1f71b317",
+      "bytes": 5471,
+      "change": "new"
+    },
+    "docs/art/world/route1-rd-polish-2026-10-01/raw/cottonwood_outpaint_transparent.png": {
+      "sha256": "a734d14747c53379cb2f2f7083011370b232cecd278abaccf9eb82589ae77e48",
+      "bytes": 5533,
+      "change": "new"
+    },
+    "docs/art/world/route1-rd-polish-2026-10-01/raw/dispatch_hall_original.png": {
+      "sha256": "fbfd6b282f68d451b9680a6107b66e9cf31fa19b8b4310ce8ee36722a80743d1",
+      "bytes": 6222,
+      "change": "new"
+    },
+    "docs/art/world/route1-rd-polish-2026-10-01/raw/office_front_original.png": {
+      "sha256": "1141f7363e7047b05d74c615ffc1121f21a4f979adf20934aec9dd871e7c5e9e",
+      "bytes": 5414,
+      "change": "new"
+    },
+    "docs/art/world/route1-rd-polish-2026-10-01/raw/shrub_original.png": {
+      "sha256": "9e2c6548c9bfbe343a5224b5583407769d134f21b11295eeeb8f3767860a8e34",
+      "bytes": 1135,
+      "change": "new"
+    },
+    "docs/art/world/route1-rd-polish-2026-10-01/raw/wall_original.png": {
+      "sha256": "ccb270ffe6191ff24def2ee3e80a6e5d5fbc66948c86a9d92c5cdc501ecee85c",
+      "bytes": 1383,
+      "change": "new"
+    },
+    "docs/art/world/route1-rd-polish-2026-10-01/review/all_flags_passed.json": {
+      "sha256": "b5bea41b6c623f7c09f1bf24dcae58ebab3c0cdd90ad966bc43a45b44867e12b",
+      "bytes": 4,
+      "change": "new"
+    },
+    "docs/art/world/route1-rd-polish-2026-10-01/review/assignment_log.json": {
+      "sha256": "0dc9fbca9747efaf9d0f731ff056a39c1a54fc049a60e1b43ec38699c8efd36c",
+      "bytes": 24365,
+      "change": "new"
+    },
+    "docs/art/world/route1-rd-polish-2026-10-01/review/bank.jpg": {
+      "sha256": "269de84d5508d2a676e72f1a5ff8c482fef277a445cb7676db5de667e8dce96c",
+      "bytes": 76087,
+      "change": "new"
+    },
+    "docs/art/world/route1-rd-polish-2026-10-01/review/bank.json": {
+      "sha256": "0a5d853fe0d10c8e232bdc5af2b399ecb16b9fd46a5bca6afd9c1af22bb4efad",
+      "bytes": 11118,
+      "change": "new"
+    },
+    "docs/art/world/route1-rd-polish-2026-10-01/review/diagnostics.json": {
+      "sha256": "50c857d3b30b3cac77fb6b8ddd333fecbae88c4f432f8d0e1785d05183434485",
+      "bytes": 8034,
+      "change": "new"
+    },
+    "docs/art/world/route1-rd-polish-2026-10-01/review/final_accept.jpg": {
+      "sha256": "f41e3fb9ca6c77158c2eb853b5a6fc3fb300f76d9f6bf48b5ee97fa8902330e3",
+      "bytes": 119308,
+      "change": "new"
+    },
+    "docs/art/world/route1-rd-polish-2026-10-01/review/final_accept.json": {
+      "sha256": "6f95f4ec16b1a529d6ec7ece5d61edbd2c15a8440b7c4736faee657c03465b74",
+      "bytes": 1682,
+      "change": "new"
+    },
+    "docs/art/world/route1-rd-polish-2026-10-01/review/final_assignment_log.json": {
+      "sha256": "8edf8436f8adc2867d167bb3e441079b955bec835a5d1d6c29325d588415ff42",
+      "bytes": 25017,
+      "change": "new"
+    },
+    "docs/art/world/route1-rd-polish-2026-10-01/review/final_bank.jpg": {
+      "sha256": "5be70554fb9691b8b67d2bc7db0c6dd32f7223c61afec323ff91b093119badcf",
+      "bytes": 84997,
+      "change": "new"
+    },
+    "docs/art/world/route1-rd-polish-2026-10-01/review/final_bank.json": {
+      "sha256": "dd9dfdcc22a04450eed83f070b7bcf29295f8dfb30936c7f24a7c2e37c0c2419",
+      "bytes": 1251,
+      "change": "new"
+    },
+    "docs/art/world/route1-rd-polish-2026-10-01/review/final_complete.jpg": {
+      "sha256": "e724ae2839a68bf8265f7927d3cea278ed54f4623f32e4ebff8762a9a3fa18f2",
+      "bytes": 123734,
+      "change": "new"
+    },
+    "docs/art/world/route1-rd-polish-2026-10-01/review/final_complete.json": {
+      "sha256": "d8e793ade4ee427134ddcea0bdc4722ff36f88d9227ffb17ee1e0b1b68c723b0",
+      "bytes": 1234,
+      "change": "new"
+    },
+    "docs/art/world/route1-rd-polish-2026-10-01/review/final_deliver.jpg": {
+      "sha256": "36c5c3fe882e6b9d0aac777090f790117e755e4ccf5caa4937b792e5454317c9",
+      "bytes": 89921,
+      "change": "new"
+    },
+    "docs/art/world/route1-rd-polish-2026-10-01/review/final_deliver.json": {
+      "sha256": "9a499861bd45313a3157950eb7af9830f1bd6399f70899c1988dd44ff029ca09",
+      "bytes": 1685,
+      "change": "new"
+    },
+    "docs/art/world/route1-rd-polish-2026-10-01/review/final_diagnostics.json": {
+      "sha256": "d66b1f0615387810f55b70c8a829d62b6e78c460268ce7ee2494aa0d7e172135",
+      "bytes": 7816,
+      "change": "new"
+    },
+    "docs/art/world/route1-rd-polish-2026-10-01/review/final_inspect_height.jpg": {
+      "sha256": "688ec535ee0f5d2d74253ae986b5901ab39acd3492d6a03d7d7a7b93112046ba",
+      "bytes": 90381,
+      "change": "new"
+    },
+    "docs/art/world/route1-rd-polish-2026-10-01/review/final_inspect_height.json": {
+      "sha256": "e0b7960dc1fa6e75bcddc3f987ecef11a5740967d1899118aad9b794cdc5176e",
+      "bytes": 1688,
+      "change": "new"
+    },
+    "docs/art/world/route1-rd-polish-2026-10-01/review/final_listen.jpg": {
+      "sha256": "3b7f041f5f911afa1f3b885f2227a8e164fbab7616837f0fef00700b79b3a1aa",
+      "bytes": 80851,
+      "change": "new"
+    },
+    "docs/art/world/route1-rd-polish-2026-10-01/review/final_listen.json": {
+      "sha256": "00416f9e4b8ec0ea719fcfa710e645fa239113fbd7d31862cffaabb65a5396e2",
+      "bytes": 1683,
+      "change": "new"
+    },
+    "docs/art/world/route1-rd-polish-2026-10-01/review/final_report_choices.jpg": {
+      "sha256": "ab45f4797b6fecd96241f91284fb082e78b45ddfd0a277b143686a21f52611af",
+      "bytes": 125710,
+      "change": "new"
+    },
+    "docs/art/world/route1-rd-polish-2026-10-01/review/final_report_choices.json": {
+      "sha256": "7f2d6ec2d1a278902d0940a997af57ea7bfe8d2a27b15c2f28bf18fa16e5b0e4",
+      "bytes": 1678,
+      "change": "new"
+    },
+    "docs/art/world/route1-rd-polish-2026-10-01/review/final_restore_marker.jpg": {
+      "sha256": "7b6cfc0d4202c53a72f4428e54d41724169b5caaafb361587f1d4b382e48444e",
+      "bytes": 120093,
+      "change": "new"
+    },
+    "docs/art/world/route1-rd-polish-2026-10-01/review/final_restore_marker.json": {
+      "sha256": "dae89e5329f78b5269e20e3937ec3b9fe59f145aa63a1cfcdd651ffe207f2885",
+      "bytes": 1681,
+      "change": "new"
+    },
+    "docs/art/world/route1-rd-polish-2026-10-01/review/final_start.jpg": {
+      "sha256": "78dbb86f86e6b4493e9655988545fb5c11dab13cd92158d5c4d55a33545d241b",
+      "bytes": 117385,
+      "change": "new"
+    },
+    "docs/art/world/route1-rd-polish-2026-10-01/review/final_start.json": {
+      "sha256": "1327fe2dbd4b52956eba664f523a2bb019332f1045330ccf976d56e98082964c",
+      "bytes": 1683,
+      "change": "new"
+    },
+    "docs/art/world/route1-rd-polish-2026-10-01/review/historical_import_diagnostics.json": {
+      "sha256": "d96fd559fa8548a3f4a119f9ac08cd82e0a5c4fc136dbcd50f8c5fe3bf4c82f0",
+      "bytes": 9782,
+      "change": "new"
+    },
+    "docs/art/world/route1-rd-polish-2026-10-01/review/office_approach.jpg": {
+      "sha256": "f0abea7c8ec62f1546a8f9c36ff06e912a378868cf9d37bd9c762149cb98b997",
+      "bytes": 100474,
+      "change": "new"
+    },
+    "docs/art/world/route1-rd-polish-2026-10-01/review/office_approach.json": {
+      "sha256": "c4086f05df0a38e767e54fd103247e098d7563b2e7d15ba2b1eac644c877aa14",
+      "bytes": 1394,
+      "change": "new"
+    },
+    "docs/art/world/route1-rd-polish-2026-10-01/review/office_dispatch.jpg": {
+      "sha256": "1ab0c5626f2fddc2c1664d07b383d8f45a46080adfb5f775867d9452a4d3abd1",
+      "bytes": 106673,
+      "change": "new"
+    },
+    "docs/art/world/route1-rd-polish-2026-10-01/review/office_dispatch.json": {
+      "sha256": "68d3754fde5787a21bef209bec0385531840e58f942ee60e29a5179f408b1a9b",
+      "bytes": 1393,
+      "change": "new"
+    },
+    "docs/art/world/route1-rd-polish-2026-10-01/review/office_final_bank.jpg": {
+      "sha256": "2a5bb489a14430d92862bb884baa2edd56b0093bf8516dee404d9be4c190f641",
+      "bytes": 75822,
+      "change": "new"
+    },
+    "docs/art/world/route1-rd-polish-2026-10-01/review/office_final_bank.json": {
+      "sha256": "2aa80e8abae7eb4e69bcdefee76647ae4b16cbcf4cc2d9ea373babc74c4e9339",
+      "bytes": 1390,
+      "change": "new"
+    },
+    "docs/art/world/route1-rd-polish-2026-10-01/review/office_start.jpg": {
+      "sha256": "fe8c3886d293544ee7135204425ade8506373a2ff18544a2e25ff27ee119e867",
+      "bytes": 98891,
+      "change": "new"
+    },
+    "docs/art/world/route1-rd-polish-2026-10-01/review/office_start.json": {
+      "sha256": "b8234541f0a8195c75a2fdfbf626cc7b09c50dd15c683185355718e9ef6413fd",
+      "bytes": 1390,
+      "change": "new"
+    },
+    "docs/art/world/route1-rd-polish-2026-10-01/review/previous_final_assignment.json": {
+      "sha256": "f346a2d013d6a4494fe1d5f829081187ef40ee6a898a5a67bdf26d1b2b86a9df",
+      "bytes": 779,
+      "change": "new"
+    },
+    "docs/art/world/route1-rd-polish-2026-10-01/review/previous_tests.json": {
+      "sha256": "16d42feea20f3c863bb5eeb66cbaf13c3f2be4d9e869671ccfbf488130894bcd",
+      "bytes": 456,
+      "change": "new"
+    },
+    "docs/art/world/route1-rd-polish-2026-10-01/review/start.jpg": {
+      "sha256": "92b3aa3eec30811f1e855ef1596438ef6655bee80dc4f2fe2ae726bebcf07d20",
+      "bytes": 98479,
+      "change": "new"
+    },
+    "docs/art/world/route1-rd-polish-2026-10-01/review/start.json": {
+      "sha256": "81deb56bf9476ec30ec0e15367a676e95ebdbaf8c31bfcc9a583290667f72039",
+      "bytes": 1431,
+      "change": "new"
+    },
+    "docs/art/world/route1-rd-polish-2026-10-01/review/tree_behind.jpg": {
+      "sha256": "889ef6f4ce2d895c5a945c25ec11acaea37e6c3fa38fd30937984f4ec551c473",
+      "bytes": 111141,
+      "change": "new"
+    },
+    "docs/art/world/route1-rd-polish-2026-10-01/review/tree_behind.json": {
+      "sha256": "08095b1b9f242be055486e8dacf036d8c16e4843bce0f211e2cf0723f9a2d2ad",
+      "bytes": 11117,
+      "change": "new"
+    },
+    "docs/art/world/route1-rd-polish-2026-10-01/review/tree_front.jpg": {
+      "sha256": "57bdc8226786cd7d62987901d83c60b0af4101c3451ce2ee33eb185e29e7caf7",
+      "bytes": 112611,
+      "change": "new"
+    },
+    "docs/art/world/route1-rd-polish-2026-10-01/review/tree_front.json": {
+      "sha256": "a1c09367435299fdac181521b477bed9e2ea3753141007ddbbff7042248244ae",
+      "bytes": 11118,
+      "change": "new"
+    },
+    "docs/art/world/route1-rd-polish-2026-10-01/source/build_polished_terrain.py": {
+      "sha256": "389e0a1388e82b608bc8ef1af96c8f3a663b96677c89eb8874c3627b9a9a2125",
+      "bytes": 4163,
+      "change": "new"
+    },
+    "docs/art/world/route1-rd-polish-2026-10-01/source/capture_final_accept.json": {
+      "sha256": "b3e9950931bc5f679ce25da2773302b295693022ab05c030c6acca625dc43de2",
+      "bytes": 160371,
+      "change": "new"
+    },
+    "docs/art/world/route1-rd-polish-2026-10-01/source/capture_final_bank.json": {
+      "sha256": "d02c92a13cc058bec39114e758159ff12e93cd11170ae8f5a523f81d00974be1",
+      "bytes": 114280,
+      "change": "new"
+    },
+    "docs/art/world/route1-rd-polish-2026-10-01/source/capture_final_complete.json": {
+      "sha256": "b33ee74d3c2e9a76da3433bf7b3a1a3a7de9d2fafaab7327552da1402c688693",
+      "bytes": 165900,
+      "change": "new"
+    },
+    "docs/art/world/route1-rd-polish-2026-10-01/source/capture_final_deliver.json": {
+      "sha256": "d07676e24f7a8d335c09f63bfac698aeb0db1c9fedebd1ba689cd4dec3be7ec2",
+      "bytes": 121190,
+      "change": "new"
+    },
+    "docs/art/world/route1-rd-polish-2026-10-01/source/capture_final_inspect_height.json": {
+      "sha256": "d291644437c3caa17f5608758b96579a652f3e993f4b33f98220794455274429",
+      "bytes": 121805,
+      "change": "new"
+    },
+    "docs/art/world/route1-rd-polish-2026-10-01/source/capture_final_listen.json": {
+      "sha256": "f66b8ebb1bac590a04d90257a9a3507f1d313b82afd74c282bb5bf412a0f752b",
+      "bytes": 109096,
+      "change": "new"
+    },
+    "docs/art/world/route1-rd-polish-2026-10-01/source/capture_final_report_choices.json": {
+      "sha256": "e7bc72735195515bc2122010e700c85f1310e81e0578babc0e4f9a920be16f86",
+      "bytes": 168903,
+      "change": "new"
+    },
+    "docs/art/world/route1-rd-polish-2026-10-01/source/capture_final_restore_marker.json": {
+      "sha256": "b8dbf7ef8f0dc449844dcdb848f628c0aafaf170df0958414d2a4a9cba83172e",
+      "bytes": 161414,
+      "change": "new"
+    },
+    "docs/art/world/route1-rd-polish-2026-10-01/source/capture_final_start.json": {
+      "sha256": "e31f9a7bddb916e6d778f6661df8cd96ea0c5b9483e8f5f1ede78fde9c0b2e7d",
+      "bytes": 157808,
+      "change": "new"
+    },
+    "docs/art/world/route1-rd-polish-2026-10-01/source/dispatch_hall_and_tree_repair_requests.json": {
+      "sha256": "95bb1b41eb2732a361d49216700067d5215e3f73c56597b41019d2a610fa1a73",
+      "bytes": 2992,
+      "change": "new"
+    },
+    "docs/art/world/route1-rd-polish-2026-10-01/source/dispatch_hall_final_receipt.json": {
+      "sha256": "89336163795bcbbf9f358d1e77e0606f7a151089543546772e150103fd22e82e",
+      "bytes": 286,
+      "change": "new"
+    },
+    "docs/art/world/route1-rd-polish-2026-10-01/source/dispatch_hall_preparation.json": {
+      "sha256": "ba77851a8d272d65034b898e9ea70ee16afb130ef2e909d0447c41b3559cfb07",
+      "bytes": 522,
+      "change": "new"
+    },
+    "docs/art/world/route1-rd-polish-2026-10-01/source/dispatch_hall_receipt.json": {
+      "sha256": "86d845e2c353a737a67bd9380a5769f4a190d78a0d67347c8b3a2495ebc7af73",
+      "bytes": 286,
+      "change": "new"
+    },
+    "docs/art/world/route1-rd-polish-2026-10-01/source/dispatch_hall_retry_request.json": {
+      "sha256": "48afff59932ea01267974c40a45d8a349d1758a2eb2bdc452e9d48e76c4b4adb",
+      "bytes": 1565,
+      "change": "new"
+    },
+    "docs/art/world/route1-rd-polish-2026-10-01/source/finish_tree_crown.py": {
+      "sha256": "e1f19b07a3bdc45a2db08d3cfd6c01b4d5bd96dcf7a362c13d7c5261cc636a3f",
+      "bytes": 2065,
+      "change": "new"
+    },
+    "docs/art/world/route1-rd-polish-2026-10-01/source/first_route_before_polish.tscn.txt": {
+      "sha256": "501a4fe3f2be05b7ddf6e74e8b0303cdc1700e6447c5aad64181c96ede8207c7",
+      "bytes": 23426,
+      "change": "new"
+    },
+    "docs/art/world/route1-rd-polish-2026-10-01/source/first_route_polished.tscn.txt": {
+      "sha256": "45eb6015fc7aa0b861b377d9716213bba53807422ed92eb860961eca098699bd",
+      "bytes": 25888,
+      "change": "new"
+    },
+    "docs/art/world/route1-rd-polish-2026-10-01/source/foot_anchors.json": {
+      "sha256": "3ddf8bcd1eeb8163b212f9cc23baabeeef104f6bd65baea3888083a762f6f628",
+      "bytes": 1660,
+      "change": "new"
+    },
+    "docs/art/world/route1-rd-polish-2026-10-01/source/installed_field_creature.gd.txt": {
+      "sha256": "e698f9859d84af22e0862d2eee9f92bb9b841cdacfe69abc328804bcd2f50185",
+      "bytes": 1970,
+      "change": "new"
+    },
+    "docs/art/world/route1-rd-polish-2026-10-01/source/installed_first_route_prototype.gd.txt": {
+      "sha256": "da74598fb1e0d4a3faac1ad90147c16ecba3376e45e5a2de316548a7ca35a92a",
+      "bytes": 17656,
+      "change": "new"
+    },
+    "docs/art/world/route1-rd-polish-2026-10-01/source/installed_first_route_prototype.tscn.txt": {
+      "sha256": "14b02c24c3660d568d20d81147f0f87f2f9adff73cb32da12245ac2344568651",
+      "bytes": 25872,
+      "change": "new"
+    },
+    "docs/art/world/route1-rd-polish-2026-10-01/source/installed_route1_map_polish.gd.txt": {
+      "sha256": "bbdb1dc04e9f1ed27ca402d691592b15eaf41f3ec2d8cee87e19d1e3d96a3368",
+      "bytes": 2491,
+      "change": "new"
+    },
+    "docs/art/world/route1-rd-polish-2026-10-01/source/live_capture_payload.json": {
+      "sha256": "dc9e2418ab224b21ee9f99f1ee2d76b1e1de40a4e8627d051ec16678cb079409",
+      "bytes": 558779,
+      "change": "new"
+    },
+    "docs/art/world/route1-rd-polish-2026-10-01/source/office_live_capture_payload.json": {
+      "sha256": "8f26028856a74b99269f8fd3e3fe21ea7e80f91e71818021c42f402570a66ce5",
+      "bytes": 520009,
+      "change": "new"
+    },
+    "docs/art/world/route1-rd-polish-2026-10-01/source/office_perspective_receipt.json": {
+      "sha256": "7396ad701103d5cd2e81b33478e401d948dbd9808ddf5fe7ab9dfb278529516e",
+      "bytes": 286,
+      "change": "new"
+    },
+    "docs/art/world/route1-rd-polish-2026-10-01/source/office_perspective_request.json": {
+      "sha256": "8642969df40059fa286a23eab50082b42d2dc05b31ad696a89907139738fd702",
+      "bytes": 1705,
+      "change": "new"
+    },
+    "docs/art/world/route1-rd-polish-2026-10-01/source/original_route_cells.json": {
+      "sha256": "36fd36db0e23e7c43735ef55f2e52b2a975a10774fe636d62533e11d5b15aa9a",
+      "bytes": 20480,
+      "change": "new"
+    },
+    "docs/art/world/route1-rd-polish-2026-10-01/source/prepare_dispatch_hall.py": {
+      "sha256": "ae64f3b41ff0be9950d899ce6d451064a8649e3df9cf590702f7b7fe485ea08f",
+      "bytes": 1236,
+      "change": "new"
+    },
+    "docs/art/world/route1-rd-polish-2026-10-01/source/prepare_polished_scene.py": {
+      "sha256": "9fa8ededfe9d8f2a9c9a15622412f8ec9b01565813c5f521e9399251cb797ad7",
+      "bytes": 5276,
+      "change": "new"
+    },
+    "docs/art/world/route1-rd-polish-2026-10-01/source/recovered_generation_receipts.json": {
+      "sha256": "406d43036436228cd6b0c481f7d38098b684b5346efe0471e1dd86dad45c96e1",
+      "bytes": 1832,
+      "change": "new"
+    },
+    "docs/art/world/route1-rd-polish-2026-10-01/source/reference_notes.json": {
+      "sha256": "6927070228af2a21f54f7d0eba6b539158b0aec8c54c92066a1d74feb28e443e",
+      "bytes": 1639,
+      "change": "new"
+    },
+    "docs/art/world/route1-rd-polish-2026-10-01/source/requests_and_receipts.json": {
+      "sha256": "9093ac1e34e74a2c5ffa1b4e6a6eb3fbadaa69500c9a5e86cfd302c9a9e9c76a",
+      "bytes": 4711,
+      "change": "new"
+    },
+    "docs/art/world/route1-rd-polish-2026-10-01/source/route1_ground_polished.tres.txt": {
+      "sha256": "d135c2c64280602cbb0cc0269f4a7e8cca0c54e96649a22a1edd54e7c9a558a1",
+      "bytes": 1506,
+      "change": "new"
+    },
+    "docs/art/world/route1-rd-polish-2026-10-01/source/terrain_polish.json": {
+      "sha256": "f7929065e089314c1ff5bc9c2121deeea616879cf14fd5be7b2a1fc36a1d38ca",
+      "bytes": 703,
+      "change": "new"
+    },
+    "docs/art/world/route1-rd-polish-2026-10-01/source/tile_map_data.txt": {
+      "sha256": "4dea03da504c40dc45ac98e2b5a376f6d8b0813ecd12e70666d824fbae0d0b40",
+      "bytes": 15364,
+      "change": "new"
+    },
+    "docs/art/world/route1-rd-polish-2026-10-01/source/tree_repair_image_payload.json": {
+      "sha256": "68070379ad4422af8f1da2bbfdf03db8c9c43bf20ead7d11889b0fbae0ecbf97",
+      "bytes": 20,
+      "change": "new"
+    },
+    "docs/art/world/route1-rd-polish-2026-10-01/source/tree_repair_preparation.json": {
+      "sha256": "06022f408b5a10bbf28ca2e638ef7d134c5306c8bfb9a783d8b0d5439c422775",
+      "bytes": 756,
+      "change": "new"
+    },
+    "docs/art/world/route1-rd-polish-2026-10-01/source/tree_repair_receipt.json": {
+      "sha256": "2ac1c31e6ca9d922735a67f1ffaae77fcbf93687679edbb2f912390737ab078f",
+      "bytes": 152,
+      "change": "new"
+    },
+    "docs/art/world/route1-rd-polish-2026-10-01/source/tree_transparency_receipt.json": {
+      "sha256": "7a2598c69cd07de33e9ec8985db53743d9ee60c9a6a877f62dce1f4bdbc38023",
+      "bytes": 158,
+      "change": "new"
+    },
+    "docs/team/ROUTE1_RD_AND_WALKS_HANDOFF_2026-10-01.md": {
+      "sha256": "750fa19936ff5583d2eaa517bec833ed0d1921bf541479dfae5b6c5de200d000",
+      "bytes": 5688,
+      "change": "new"
+    },
+    "scenes/first_route_female_preview.tscn": {
+      "sha256": "51051570063cac3e693af0b2060a1f33f904814b105d71ffdb834036d046f742",
+      "bytes": 238,
+      "change": "new"
+    },
+    "scenes/rd_material_review.tscn": {
+      "sha256": "3cf8f7e0cae4533809a739a640fd892fc8e4ad3a40cbaa8f7d29995bd109c557",
+      "bytes": 364,
+      "change": "new"
+    },
+    "scripts/debug/rd_material_review.gd": {
+      "sha256": "5931c63df2bdb5b18977de9e184801896db3e021385541058bc42a8d42d0c05b",
+      "bytes": 1266,
+      "change": "new"
+    },
+    "scripts/route1_map_polish.gd": {
+      "sha256": "bbdb1dc04e9f1ed27ca402d691592b15eaf41f3ec2d8cee87e19d1e3d96a3368",
+      "bytes": 2491,
+      "change": "new"
+    },
+    "assets/sprites/creatures/rd_material_match_2026_10_01/coalcrest_8dir.png.import": {
+      "sha256": "1f82160dd9259a625019a6e2c4461005be271d75859d2e025a01ca97af5fc624",
+      "bytes": 1000,
+      "change": "new"
+    },
+    "assets/sprites/creatures/rd_material_match_2026_10_01/coalcrest_back.png.import": {
+      "sha256": "ee0d8f92c36ac901e3a28c9fc04e4454b8f0cf1ad4f2dde0a8d226c5fd23a207",
+      "bytes": 1001,
+      "change": "new"
+    },
+    "assets/sprites/creatures/rd_material_match_2026_10_01/coalcrest_front.png.import": {
+      "sha256": "762cf5a6142bf5a0e5da9f54380e8929a66e0929cfa24289206a014ead02cbc1",
+      "bytes": 1004,
+      "change": "new"
+    },
+    "assets/sprites/creatures/rd_material_match_2026_10_01/fusern_8dir.png.import": {
+      "sha256": "8d190a94742ba81553f6590c96bf2a3a7561259ce48c4e4fea557b128e06704d",
+      "bytes": 991,
+      "change": "new"
+    },
+    "assets/sprites/creatures/rd_material_match_2026_10_01/fusern_back.png.import": {
+      "sha256": "d5c7f110430209ef9ac3dbbbc9678aad521f1bfe0adc62b3df196608e51009e1",
+      "bytes": 991,
+      "change": "new"
+    },
+    "assets/sprites/creatures/rd_material_match_2026_10_01/fusern_front.png.import": {
+      "sha256": "d8057269ded792da292e4b0cc3497c5231b0d092b186e1d6e090031cffed1828",
+      "bytes": 995,
+      "change": "new"
+    },
+    "assets/sprites/creatures/rd_material_match_2026_10_01/kithflare_8dir.png.import": {
+      "sha256": "6f2f04d6072bc49bc52b52bde8e86a0478197dc3984c9c8382aa4643f1a36b89",
+      "bytes": 1001,
+      "change": "new"
+    },
+    "assets/sprites/creatures/rd_material_match_2026_10_01/kithflare_back.png.import": {
+      "sha256": "dfa1ce2953a33ac4c2a7c041f114fabb857ac5951280339e58b413e28c05f0c7",
+      "bytes": 1001,
+      "change": "new"
+    },
+    "assets/sprites/creatures/rd_material_match_2026_10_01/kithflare_front.png.import": {
+      "sha256": "1c1f51bc7bf372dab556331f15c954e9b71afae0fd01085a8645c3d338ef1e18",
+      "bytes": 1004,
+      "change": "new"
+    },
+    "assets/sprites/creatures/rd_material_match_2026_10_01/slagglass_8dir.png.import": {
+      "sha256": "f755a2033a29b95e6f3d802eae71e33d3ab3f98dce73b7dfc261947607c44f30",
+      "bytes": 1001,
+      "change": "new"
+    },
+    "assets/sprites/creatures/rd_material_match_2026_10_01/slagglass_back.png.import": {
+      "sha256": "509983a112f949a4f3ca624dca6aa46c9d71d1b1c199ba6abcdcd4e584d835f0",
+      "bytes": 1001,
+      "change": "new"
+    },
+    "assets/sprites/creatures/rd_material_match_2026_10_01/slagglass_front.png.import": {
+      "sha256": "a95a6be130a872f32f0d4c3402150be23ef22857b588ea5eec03bbf53a9aed57",
+      "bytes": 1002,
+      "change": "new"
+    },
+    "assets/sprites/creatures/rd_material_match_2026_10_01/vitrecrag_8dir.png.import": {
+      "sha256": "3ac9a9123331007bc070dc2735efe86e0280f50696e6f5711a04ece99a1c9578",
+      "bytes": 1001,
+      "change": "new"
+    },
+    "assets/sprites/creatures/rd_material_match_2026_10_01/vitrecrag_attacks/f00.png.import": {
+      "sha256": "d0735f5e72b3970ca2ae8955d9c5037337401bd6f84b2abf8280f36ef5a518c1",
+      "bytes": 986,
+      "change": "new"
+    },
+    "assets/sprites/creatures/rd_material_match_2026_10_01/vitrecrag_attacks/f01.png.import": {
+      "sha256": "eca9110322e5551ced981ec29021de7e20a88289d2353284c72464735639bd1b",
+      "bytes": 986,
+      "change": "new"
+    },
+    "assets/sprites/creatures/rd_material_match_2026_10_01/vitrecrag_attacks/f02.png.import": {
+      "sha256": "90602de2b0155229bb715e38cce37bea7452c82cd92979362dd331bb00d0be1c",
+      "bytes": 986,
+      "change": "new"
+    },
+    "assets/sprites/creatures/rd_material_match_2026_10_01/vitrecrag_attacks/f03.png.import": {
+      "sha256": "32493ae94b4e30757fa0370d294aa3e0f9041f9814134d59281b181048c1fbaa",
+      "bytes": 986,
+      "change": "new"
+    },
+    "assets/sprites/creatures/rd_material_match_2026_10_01/vitrecrag_attacks/f04.png.import": {
+      "sha256": "be7d1c2d4f79196ed8ee3cd5163a3ac779413bff57b01dd8ef15d2f26994499a",
+      "bytes": 986,
+      "change": "new"
+    },
+    "assets/sprites/creatures/rd_material_match_2026_10_01/vitrecrag_attacks/f05.png.import": {
+      "sha256": "68340cbc23aa4656938c5157b1028d145815a7e4232f5b112bdff982354cde57",
+      "bytes": 986,
+      "change": "new"
+    },
+    "assets/sprites/creatures/rd_material_match_2026_10_01/vitrecrag_attacks/f06.png.import": {
+      "sha256": "7313029132f368cf861413686d8d9b7598598bc8c8b9487d8db3ef7eb8f2c175",
+      "bytes": 986,
+      "change": "new"
+    },
+    "assets/sprites/creatures/rd_material_match_2026_10_01/vitrecrag_attacks/f07.png.import": {
+      "sha256": "10f41dab6c9d9e352a424a99c9a04b50f506976533790cac0b494512c0ae93ae",
+      "bytes": 986,
+      "change": "new"
+    },
+    "assets/sprites/creatures/rd_material_match_2026_10_01/vitrecrag_attacks/f08.png.import": {
+      "sha256": "338eefea7123f4a5983a5e46232e8cda6836d6211402b9174171703db9879a08",
+      "bytes": 986,
+      "change": "new"
+    },
+    "assets/sprites/creatures/rd_material_match_2026_10_01/vitrecrag_attacks/f09.png.import": {
+      "sha256": "dd9e8d86bfdc6ffded4083ff0d54cb074ba2bd7453f6e53db0735d9af2eb9a6a",
+      "bytes": 985,
+      "change": "new"
+    },
+    "assets/sprites/creatures/rd_material_match_2026_10_01/vitrecrag_attacks/f10.png.import": {
+      "sha256": "40758d7bc7e35af6390dc2a200ef3e5ba53267367468ec3efab3b74ea6e50ae2",
+      "bytes": 986,
+      "change": "new"
+    },
+    "assets/sprites/creatures/rd_material_match_2026_10_01/vitrecrag_attacks/f11.png.import": {
+      "sha256": "d7dc472668d86d0628fb1036a3178b9e526548c31175dbaad4d0977998cd26ad",
+      "bytes": 986,
+      "change": "new"
+    },
+    "assets/sprites/creatures/rd_material_match_2026_10_01/vitrecrag_back.png.import": {
+      "sha256": "68dae1ef78ff91676e62a6e654c049fc05a6a62e074f2d96caa216e050161b1c",
+      "bytes": 1000,
+      "change": "new"
+    },
+    "assets/sprites/creatures/rd_material_match_2026_10_01/vitrecrag_front.png.import": {
+      "sha256": "b7180e568b7dabbcfc065de06e1c1e283044af010ce69859834af737aa268a15",
+      "bytes": 1004,
+      "change": "new"
+    },
+    "assets/sprites/creatures/rd_material_match_2026_10_01/wayburn_8dir.png.import": {
+      "sha256": "5fa4600bf81ba69db42ac576ea1e42cf7ab7b4a0c19f4baf646370a10cf61755",
+      "bytes": 995,
+      "change": "new"
+    },
+    "assets/sprites/creatures/rd_material_match_2026_10_01/wayburn_back.png.import": {
+      "sha256": "c0a99e94c23f232518df99f4ab86aff49866f5730148b6fe6e4d7e05049688ec",
+      "bytes": 995,
+      "change": "new"
+    },
+    "assets/sprites/creatures/rd_material_match_2026_10_01/wayburn_front.png.import": {
+      "sha256": "9cd15cf1b049c1c376644fa141287e744882fe2debe3ec7771086e9e8061ad1c",
+      "bytes": 998,
+      "change": "new"
+    },
+    "assets/sprites/player/retro_diffusion_chibi_walking_2026_10_01/male_chibi_walk_matched_turns_native80.png.import": {
+      "sha256": "88cabdadd107e01e6cabad9af6591f93143cffdd6f5865cb093e80d9ee244fc8",
+      "bytes": 1082,
+      "change": "new"
+    },
+    "assets/sprites/world/route1_rd_2026_10_01/cinderhide_field_idle.png.import": {
+      "sha256": "7dee5631f6de2ab24effc8ae9c2ddb4b00170dfb402270b29c2f807dd36c0ba0",
+      "bytes": 1009,
+      "change": "new"
+    },
+    "assets/sprites/world/route1_rd_2026_10_01/cottonwood.png.import": {
+      "sha256": "86d770dbe80063ddbc5cbfe68900f878d3233f670c93af00170d8dc852dcc919",
+      "bytes": 977,
+      "change": "new"
+    },
+    "assets/sprites/world/route1_rd_2026_10_01/cottonwood_complete.png.import": {
+      "sha256": "2404768baa5aae377071cb02f60849323da21b21decbe8bbe163a9797fa47238",
+      "bytes": 1004,
+      "change": "new"
+    },
+    "assets/sprites/world/route1_rd_2026_10_01/cottonwood_polished.png.import": {
+      "sha256": "12930887d498863fbc6c67e3400361d68ba1bc039a2e0d21154afc93931fe708",
+      "bytes": 1004,
+      "change": "new"
+    },
+    "assets/sprites/world/route1_rd_2026_10_01/dispatch_hall.png.import": {
+      "sha256": "9e088a1697c4adf10d39a8fa771e12b5116f87b4312d47fc7f91c5a7ba50c9de",
+      "bytes": 986,
+      "change": "new"
+    },
+    "assets/sprites/world/route1_rd_2026_10_01/dispatcher.png.import": {
+      "sha256": "4c87a4c7b58ff7049739b3495c91e771b9072b9efe651e7394fe28dc5a7ed624",
+      "bytes": 977,
+      "change": "new"
+    },
+    "assets/sprites/world/route1_rd_2026_10_01/height.png.import": {
+      "sha256": "35435416e4e31eb8982c31e00035c4489063e661b21baffe7ae22653fe12484d",
+      "bytes": 965,
+      "change": "new"
+    },
+    "assets/sprites/world/route1_rd_2026_10_01/marker.png.import": {
+      "sha256": "29f81789047a3bf3d29c54343d51f0606ac0079f4ae4c8fa765808314cf6dde0",
+      "bytes": 964,
+      "change": "new"
+    },
+    "assets/sprites/world/route1_rd_2026_10_01/post.png.import": {
+      "sha256": "30cae6941236a0a8d5906901f6d2e1b6bf9577cdbbcf5ed0575ff15b9073e6ec",
+      "bytes": 959,
+      "change": "new"
+    },
+    "assets/sprites/world/route1_rd_2026_10_01/reeds.png.import": {
+      "sha256": "81ee00522bcea1ec35e05e76330da03ff1b7c7d7356d73eae9dcddb22aa5ad02",
+      "bytes": 962,
+      "change": "new"
+    },
+    "assets/sprites/world/route1_rd_2026_10_01/retaining_wall_polished.png.import": {
+      "sha256": "9c8ad3fb2e3ed368fe17e7afd64034a6001b8b76a2d5862f517a1435edf8dfe0",
+      "bytes": 1016,
+      "change": "new"
+    },
+    "assets/sprites/world/route1_rd_2026_10_01/shrub_polished.png.import": {
+      "sha256": "effe464f70574ca9edeeb4d025d4ffe725debb4b12ce0a5775cd2624bf01a8e6",
+      "bytes": 989,
+      "change": "new"
+    },
+    "assets/sprites/world/route1_rd_2026_10_01/wayline_office.png.import": {
+      "sha256": "89ec440e3e6407e5a28df2dcfb431852c3ff5772bf4c025aaf8c8d43c7b55001",
+      "bytes": 989,
+      "change": "new"
+    },
+    "assets/sprites/world/route1_rd_2026_10_01/wayline_office_front.png.import": {
+      "sha256": "4484cdf1abc6f100745cd93f0e62a44fb601cb4e2e281f4013170ceb7ad2bdb9",
+      "bytes": 1007,
+      "change": "new"
+    },
+    "assets/tilesets/route1_rd_2026_10_01/route1_ground_atlas.png.import": {
+      "sha256": "5a362be4f7446f26c221e5f8756d222562939c198fd49e49f0e70531eca1f146",
+      "bytes": 998,
+      "change": "new"
+    },
+    "assets/tilesets/route1_rd_2026_10_01/route1_ground_atlas_polished.png.import": {
+      "sha256": "4283becce7c0a05bf34c3a366f0a40d80fd8be6f4eeeb8dd52e5d06d9d93955e",
+      "bytes": 1025,
+      "change": "new"
+    },
+    "assets/tilesets/route1_rd_2026_10_01/route1_ground_atlas_refined.png.import": {
+      "sha256": "ed780d734623af9272f5c9a535bb8f1b458d29b1a0e2f1d92e46b1965f70581c",
+      "bytes": 1023,
+      "change": "new"
+    },
+    "scripts/debug/rd_material_review.gd.uid": {
+      "sha256": "4d538663eba11792662bc1067dc0d386d036190457925316faa7221ab8863fcc",
+      "bytes": 20,
+      "change": "new"
+    },
+    "scripts/route1_map_polish.gd.uid": {
+      "sha256": "0851f8cbc7a08ae402a9038b77d0b91ebe0cdfa17bc157868f567e2647ac1589",
+      "bytes": 19,
+      "change": "new"
+    }
+  },
+  "checks": {
+    "runtime_assets": 48,
+    "archive_hashes": 190,
+    "preserved_alpha": "passed",
+    "concurrent_source_changes": []
+  }
+}

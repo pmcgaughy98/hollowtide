@@ -1,0 +1,134 @@
+{
+  "male_down": {
+    "source": "C:\\Users\\pmcga\\dev\\hollowtide\\assets\\sprites\\player\\courier_chibi_prepared_2026_09_30\\source_detail\\down\\source_pose_00.png",
+    "source_sha256": "5559f80644ed77484c5427aeb79c1bbd4a43ed2053aed1e212d15e33042ebdab",
+    "source_cell": null,
+    "source_alpha_bounds": [
+      74,
+      11,
+      199,
+      261
+    ],
+    "input_path": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\outputs\\retro-diffusion-walking-2026-10-01\\chibi_models\\male_down_input_native80.png",
+    "input_sha256": "25a6d778fba9bcbbca225c196937dce03d6aa61b9120985ee4b5092653f75fcd",
+    "preparation": "tight crop, fit 64px tall, nearest sample, centered in 80px cell with feet at y=72"
+  },
+  "male_left": {
+    "source": "C:\\Users\\pmcga\\dev\\hollowtide\\assets\\sprites\\player\\courier_chibi_prepared_2026_09_30\\source_detail\\left\\source_pose_00.png",
+    "source_sha256": "d35a8528afdb7064a71a9aa7bb872382cc00c90fbef3f40c39ca0ebeb50648c0",
+    "source_cell": null,
+    "source_alpha_bounds": [
+      71,
+      21,
+      199,
+      261
+    ],
+    "input_path": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\outputs\\retro-diffusion-walking-2026-10-01\\chibi_models\\male_left_input_native80.png",
+    "input_sha256": "30f4740715a2c999d24f4f5e8c68729ad51e0138eb3186b6f29b97c5d660ea1d",
+    "preparation": "tight crop, fit 64px tall, nearest sample, centered in 80px cell with feet at y=72"
+  },
+  "male_right": {
+    "source": "C:\\Users\\pmcga\\dev\\hollowtide\\assets\\sprites\\player\\courier_chibi_prepared_2026_09_30\\source_detail\\right\\source_pose_00.png",
+    "source_sha256": "5c0ba511209faad38cc2122db0713ef4dab0eaab90dffa57527fd60f822df821",
+    "source_cell": null,
+    "source_alpha_bounds": [
+      75,
+      21,
+      202,
+      261
+    ],
+    "input_path": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\outputs\\retro-diffusion-walking-2026-10-01\\chibi_models\\male_right_input_native80.png",
+    "input_sha256": "f4742de9de2e09f0e0ac418628167479801459238d5f1f5e1a18ba5b8303dd56",
+    "preparation": "tight crop, fit 64px tall, nearest sample, centered in 80px cell with feet at y=72"
+  },
+  "male_up": {
+    "source": "C:\\Users\\pmcga\\dev\\hollowtide\\assets\\sprites\\player\\courier_chibi_prepared_2026_09_30\\source_detail\\up\\source_pose_00.png",
+    "source_sha256": "6089c85a926bbe91323290ce83fa15f43b91f7e985fccb2b47ada2b4bd72f822",
+    "source_cell": null,
+    "source_alpha_bounds": [
+      74,
+      7,
+      199,
+      261
+    ],
+    "input_path": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\outputs\\retro-diffusion-walking-2026-10-01\\chibi_models\\male_up_input_native80.png",
+    "input_sha256": "83711201a9e566e8a6a0544ee8f638c808df07ce27305a9a8cb0dd1cf99611ca",
+    "preparation": "tight crop, fit 64px tall, nearest sample, centered in 80px cell with feet at y=72"
+  },
+  "female_down": {
+    "source": "C:\\Users\\pmcga\\OneDrive\\Documents\\HollowTide Sprites\\Character\\Female.jpg",
+    "source_sha256": "8d999b66dafcee179cf08b941a88942e45a16002bfabc1a4e177c32c12a361cb",
+    "source_cell": [
+      0,
+      0,
+      352,
+      352
+    ],
+    "source_alpha_bounds": [
+      153,
+      72,
+      283,
+      352
+    ],
+    "input_path": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\outputs\\retro-diffusion-walking-2026-10-01\\chibi_models\\female_down_input_native80.png",
+    "input_sha256": "f64d2272a3d8cc86cba53ed821b2c2c9bc79c02ee591f4ba1601d6dbd1d7f2e4",
+    "preparation": "tight crop, fit 64px tall, nearest sample, centered in 80px cell with feet at y=72"
+  },
+  "female_left": {
+    "source": "C:\\Users\\pmcga\\OneDrive\\Documents\\HollowTide Sprites\\Character\\Female.jpg",
+    "source_sha256": "8d999b66dafcee179cf08b941a88942e45a16002bfabc1a4e177c32c12a361cb",
+    "source_cell": [
+      0,
+      352,
+      352,
+      704
+    ],
+    "source_alpha_bounds": [
+      141,
+      64,
+      296,
+      327
+    ],
+    "input_path": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\outputs\\retro-diffusion-walking-2026-10-01\\chibi_models\\female_left_input_native80.png",
+    "input_sha256": "eed3f49106c1230489677111b98a8671356e7b509fde7b7f3b6fc129530eaeed",
+    "preparation": "tight crop, fit 64px tall, nearest sample, centered in 80px cell with feet at y=72"
+  },
+  "female_right": {
+    "source": "C:\\Users\\pmcga\\OneDrive\\Documents\\HollowTide Sprites\\Character\\Female.jpg",
+    "source_sha256": "8d999b66dafcee179cf08b941a88942e45a16002bfabc1a4e177c32c12a361cb",
+    "source_cell": [
+      0,
+      704,
+      352,
+      1056
+    ],
+    "source_alpha_bounds": [
+      138,
+      43,
+      293,
+      303
+    ],
+    "input_path": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\outputs\\retro-diffusion-walking-2026-10-01\\chibi_models\\female_right_input_native80.png",
+    "input_sha256": "62ea06c0f0ced611a2248d57f1b122609f6610848655e65c398e76f4f5f730cb",
+    "preparation": "tight crop, fit 64px tall, nearest sample, centered in 80px cell with feet at y=72"
+  },
+  "female_up": {
+    "source": "C:\\Users\\pmcga\\OneDrive\\Documents\\HollowTide Sprites\\Character\\Female.jpg",
+    "source_sha256": "8d999b66dafcee179cf08b941a88942e45a16002bfabc1a4e177c32c12a361cb",
+    "source_cell": [
+      0,
+      1056,
+      352,
+      1408
+    ],
+    "source_alpha_bounds": [
+      154,
+      0,
+      277,
+      284
+    ],
+    "input_path": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\outputs\\retro-diffusion-walking-2026-10-01\\chibi_models\\female_up_input_native80.png",
+    "input_sha256": "d7d7f6719ff4768d9a028c9ab82c57d186e03867016ddbde709289902838497b",
+    "preparation": "tight crop, fit 64px tall, nearest sample, centered in 80px cell with feet at y=72"
+  }
+}

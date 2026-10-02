@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bpewxr51sqy80"]
 
 [ext_resource type="Script" uid="uid://dhpfj26kyss0x" path="res://scripts/player.gd" id="1_player"]
-[ext_resource type="Texture2D" uid="uid://dsx4ao2yq47y1" path="res://assets/sprites/player/courier_chibi_walk_2026_10_01.png" id="2_g2els"]
+[ext_resource type="Texture2D" path="res://assets/sprites/player/retro_diffusion_chibi_walking_2026_10_01/male_chibi_walk_matched_turns_native80.png" id="2_g2els"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_feet"]
 size = Vector2(12, 8)
@@ -11,11 +11,11 @@ script = ExtResource("1_player")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=2046112236]
 texture_filter = 1
-position = Vector2(0, -14.6457)
-scale = Vector2(0.11811, 0.11811)
+position = Vector2(0, -15)
+scale = Vector2(0.46875, 0.46875)
 texture = ExtResource("2_g2els")
 region_enabled = true
-region_rect = Rect2(0, 0, 272, 272)
+region_rect = Rect2(0, 0, 80, 80)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1950325636]
 position = Vector2(0, -4)

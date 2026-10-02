@@ -1,0 +1,20 @@
+{
+  "creatures": {
+    "Rimefin": {"base_hp": 72, "base_attack": 44, "base_defense": 64, "base_speed": 57},
+    "Cinderhide": {"base_hp": 80, "base_attack": 62, "base_defense": 58, "base_speed": 55},
+    "Clinkerhide": {"base_hp": 84, "base_attack": 68, "base_defense": 72, "base_speed": 47},
+    "Ironvent": {"base_hp": 98, "base_attack": 76, "base_defense": 80, "base_speed": 39},
+    "Kithflare": {"base_hp": 74, "base_attack": 66, "base_defense": 56, "base_speed": 73},
+    "Wayburn": {"base_hp": 76, "base_attack": 70, "base_defense": 58, "base_speed": 67},
+    "Coalcrest": {"base_hp": 86, "base_attack": 68, "base_defense": 66, "base_speed": 61},
+    "Fusern": {"base_hp": 70, "base_attack": 72, "base_defense": 54, "base_speed": 63},
+    "Slagglass": {"base_hp": 78, "base_attack": 74, "base_defense": 70, "base_speed": 49},
+    "Vitrecrag": {"base_hp": 96, "base_attack": 74, "base_defense": 78, "base_speed": 33},
+    "Oxbowarchon": {"base_hp": 110, "base_attack": 78, "base_defense": 96, "base_speed": 41}
+  },
+  "moves": {
+    "Kingstone Rail": {"power": 58, "max_uses": 2},
+    "Molten Glass": {"power": 66, "max_uses": 2},
+    "Molten Beam": {"power": 36, "max_uses": 0}
+  }
+}

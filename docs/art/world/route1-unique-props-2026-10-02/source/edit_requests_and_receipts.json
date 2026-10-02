@@ -1,0 +1,115 @@
+[
+  {
+    "name": "tree_tall",
+    "tool_id": "inpainting",
+    "prompt": "Make a SMALL individual variant of this exact Hollowtide route prop. Preserve the native pixel scale, current muted colors, dark green outlines, clustered shading and upper-left light. Same species and material, same general proportions and ground-contact point, transparent background, complete silhouette with clear empty margins. No scenery, no text, no people, no ornaments, no new species, no cut-off edges. Change only foliage in the mask: a slightly taller, narrower crown with a small high tuft on the right and a visible small fork between the two upper leaf masses. Keep the lower exposed trunk and roots unchanged.",
+    "seed": 2026100202,
+    "input_image": "source/tree_original.png",
+    "mask_image": "source/tree_mask.png",
+    "receipt": {
+      "tool_id": "inpainting",
+      "inference_id": "inf_4nJ3W7PDZdNy0wXpl0nweVYBl2px6a5g",
+      "balance_cost": 0.18,
+      "credit_cost": 20,
+      "charged": true,
+      "remaining_balance": 5.4500000000000055,
+      "remaining_credits": null,
+      "base64_images": [],
+      "output_urls": [
+        "https://da8ztllw6by0f.cloudfront.net/78361b0fa477f52f819314a871690bc7.png"
+      ]
+    }
+  },
+  {
+    "name": "tree_left",
+    "tool_id": "inpainting",
+    "prompt": "Make a SMALL individual variant of this exact Hollowtide route prop. Preserve the native pixel scale, current muted colors, dark green outlines, clustered shading and upper-left light. Same species and material, same general proportions and ground-contact point, transparent background, complete silhouette with clear empty margins. No scenery, no text, no people, no ornaments, no new species, no cut-off edges. Change only foliage in the mask: a fuller irregular leaf mass toward the left, a small notch on the right edge, and two distinct midtone leaf clumps at the front. Keep the lower exposed trunk and roots unchanged.",
+    "seed": 2026100203,
+    "input_image": "source/tree_original.png",
+    "mask_image": "source/tree_mask.png",
+    "receipt": {
+      "tool_id": "inpainting",
+      "inference_id": "inf_DJePMk93ngyWYG5YN2pG5zv24l1jB0mE",
+      "balance_cost": 0.18,
+      "credit_cost": 20,
+      "charged": true,
+      "remaining_balance": 4.910000000000006,
+      "remaining_credits": null,
+      "base64_images": [],
+      "output_urls": [
+        "https://da8ztllw6by0f.cloudfront.net/f87b8ea9a261fe45ef2a30300d25ef9a.png"
+      ]
+    }
+  },
+  {
+    "name": "tree_round",
+    "tool_id": "inpainting",
+    "prompt": "Make a SMALL individual variant of this exact Hollowtide route prop. Preserve the native pixel scale, current muted colors, dark green outlines, clustered shading and upper-left light. Same species and material, same general proportions and ground-contact point, transparent background, complete silhouette with clear empty margins. No scenery, no text, no people, no ornaments, no new species, no cut-off edges. Change only foliage in the mask: a slightly lower broad crown with three uneven upper leaf mounds, a small branch gap at the upper left, and a short leafy sprig at the right. Keep the lower exposed trunk and roots unchanged.",
+    "seed": 2026100204,
+    "input_image": "source/tree_original.png",
+    "mask_image": "source/tree_mask.png",
+    "receipt": {
+      "error": "MCP call timed out after 120 seconds. No inference ID/result was returned; recent inference job listing does not include edit-tool jobs. No retry was made."
+    }
+  },
+  {
+    "name": "shrub",
+    "tool_id": "image_edit",
+    "prompt": "Make a SMALL individual variant of this exact Hollowtide route prop. Preserve the native pixel scale, current muted colors, dark green outlines, clustered shading and upper-left light. Same species and material, same general proportions and ground-contact point, transparent background, complete silhouette with clear empty margins. No scenery, no text, no people, no ornaments, no new species, no cut-off edges. Make this shrub slightly broader on the left, with a shorter middle leaf mound, an offset right sprig and a tiny visible woody branch. Keep its same subdued leaf palette and little brown trunk.",
+    "seed": 2026100205,
+    "input_image": "source/shrub_original.png",
+    "receipt": {
+      "tool_id": "image_edit",
+      "inference_id": "inf_Oeo37pmvZnj04GER7NDq5PBxJXdRLYKV",
+      "balance_cost": 0.18,
+      "credit_cost": 20,
+      "charged": true,
+      "remaining_balance": 5.270000000000006,
+      "remaining_credits": null,
+      "base64_images": [],
+      "output_urls": [
+        "https://da8ztllw6by0f.cloudfront.net/6f271d09917829348a8b3a71401b1663.png"
+      ]
+    }
+  },
+  {
+    "name": "reeds",
+    "tool_id": "image_edit",
+    "prompt": "Make a SMALL individual variant of this exact Hollowtide route prop. Preserve the native pixel scale, current muted colors, dark green outlines, clustered shading and upper-left light. Same species and material, same general proportions and ground-contact point, transparent background, complete silhouette with clear empty margins. No scenery, no text, no people, no ornaments, no new species, no cut-off edges. Keep these river reeds but vary the arrangement: two taller stems near the left, a shorter pair on the right, and a few bent leaves through the center. Same sparse green reeds, same bottom contact point, no water or soil.",
+    "seed": 2026100206,
+    "input_image": "source/reeds_original.png",
+    "receipt": {
+      "tool_id": "image_edit",
+      "inference_id": "inf_EgzYknxpjDlaPQNpAz9GNA3doKmXBLZW",
+      "balance_cost": 0.18,
+      "credit_cost": 20,
+      "charged": true,
+      "remaining_balance": 4.550000000000007,
+      "remaining_credits": null,
+      "base64_images": [],
+      "output_urls": [
+        "https://da8ztllw6by0f.cloudfront.net/96809640d159d3e537d0f97cc7cdb34f.png"
+      ]
+    }
+  },
+  {
+    "name": "wall",
+    "tool_id": "image_edit",
+    "prompt": "Make a SMALL individual variant of this exact Hollowtide route prop. Preserve the native pixel scale, current muted colors, dark green outlines, clustered shading and upper-left light. Same species and material, same general proportions and ground-contact point, transparent background, complete silhouette with clear empty margins. No scenery, no text, no people, no ornaments, no new species, no cut-off edges. Keep this exact low masonry wall length, height and complete end stones. Give its stones slightly different cracks, chipped corners and moss placement, preserving the straight shared top and base and original limestone palette. No extra wall tiers or fence.",
+    "seed": 2026100207,
+    "input_image": "source/wall_original.png",
+    "receipt": {
+      "tool_id": "image_edit",
+      "inference_id": "inf_MeN8nlZXaEKkJQj7ZMywY4pr0LvPOz9W",
+      "balance_cost": 0.18,
+      "credit_cost": 20,
+      "charged": true,
+      "remaining_balance": 4.730000000000007,
+      "remaining_credits": null,
+      "base64_images": [],
+      "output_urls": [
+        "https://da8ztllw6by0f.cloudfront.net/c1047501b1e5d28d06a33c1e102404e1.png"
+      ]
+    }
+  }
+]

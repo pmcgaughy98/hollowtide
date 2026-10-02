@@ -1,0 +1,34 @@
+{
+  "menu_courier": {
+    "source": "C:\\Users\\pmcga\\dev\\hollowtide\\assets\\sprites\\menu\\retro_diffusion_idle_2026_10_01\\courier_idle_contrast_atlas.png",
+    "source_sha256": "4fde9e1f7020bc11a9455f44c362b8b433e3fa8caa097e9e9bfa936cd65a497a",
+    "input_path": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\outputs\\retro-diffusion-walking-2026-10-01\\menu_courier_input_native80.png",
+    "sha256": "7b285e44c1d1f7f1cb8d23a9bf9bed8e158a3ee1cee271b5cf8b70a8494a92e7",
+    "size": [
+      80,
+      80
+    ],
+    "alpha_bounds": [
+      25,
+      10,
+      55,
+      71
+    ]
+  },
+  "menu_cinderhide": {
+    "source": "C:\\Users\\pmcga\\dev\\hollowtide\\assets\\sprites\\menu\\retro_diffusion_idle_2026_10_01\\cinderhide_idle_dusk_lit_atlas.png",
+    "source_sha256": "56f89a5f218272f4d7cff9dd893d61139118d5681fd05cd61cf5c54d142475b1",
+    "input_path": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\outputs\\retro-diffusion-walking-2026-10-01\\menu_cinderhide_input_native80.png",
+    "sha256": "d033d359cb416b74a9027c385243d0126afea6840ccc4d4c4e9b239532aa690b",
+    "size": [
+      80,
+      80
+    ],
+    "alpha_bounds": [
+      10,
+      7,
+      69,
+      72
+    ]
+  }
+}

@@ -1,0 +1,434 @@
+[
+  {
+    "name": "dispatch_hall_complete",
+    "file": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\work\\route_unique\\prepared\\dispatch_hall_complete.png",
+    "runtime": "res://assets/sprites/world/route1_rd_2026_10_02/dispatch_hall_complete.png",
+    "size": [
+      136,
+      168
+    ],
+    "bounds": [
+      8,
+      5,
+      127,
+      155
+    ],
+    "sha256": "2648d93f1f5842322c9c83b5fed9cc9cf3fb9e53912b8d9c906a76802e31a8d2",
+    "source": "dispatch_hall.png",
+    "preparation": "Connected roof cap sampled from original slate columns; no filtering. Original rows 14..135 restored exactly at y+32; threshold and footprint unchanged; new offset (0,-70)."
+  },
+  {
+    "name": "cottonwood_north",
+    "file": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\work\\route_unique\\prepared\\cottonwood_north.png",
+    "runtime": "res://assets/sprites/world/route1_rd_2026_10_02/cottonwood_north.png",
+    "size": [
+      112,
+      96
+    ],
+    "bounds": [
+      11,
+      9,
+      99,
+      89
+    ],
+    "sha256": "09756a0fc409544848cbbcb203d0a37993f21a25798d00bfd904dd70d4eee786",
+    "source": "cottonwood_complete.png",
+    "preparation": "Canopy nearest sampling 112x62, centered at unchanged crown base y62, plus existing leaf-clump placement 0. All rows 62..95 and original palette preserved. Native 112x96 canvas and foot remain."
+  },
+  {
+    "name": "cottonwood_ridge",
+    "file": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\work\\route_unique\\prepared\\cottonwood_ridge.png",
+    "runtime": "res://assets/sprites/world/route1_rd_2026_10_02/cottonwood_ridge.png",
+    "size": [
+      112,
+      96
+    ],
+    "bounds": [
+      13,
+      6,
+      97,
+      89
+    ],
+    "sha256": "90129fb60207abdd08dc702a71fd067cc5bc376877d2d6614b080b67334d11b8",
+    "source": "cottonwood_complete.png",
+    "preparation": "Canopy nearest sampling 107x65, centered at unchanged crown base y62, plus existing leaf-clump placement 1. All rows 62..95 and original palette preserved. Native 112x96 canvas and foot remain."
+  },
+  {
+    "name": "cottonwood_east",
+    "file": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\work\\route_unique\\prepared\\cottonwood_east.png",
+    "runtime": "res://assets/sprites/world/route1_rd_2026_10_02/cottonwood_east.png",
+    "size": [
+      112,
+      96
+    ],
+    "bounds": [
+      9,
+      10,
+      100,
+      89
+    ],
+    "sha256": "2b677551a002dadb71c28c1150032a8e1420398e797436cdf68c883ba84deaa9",
+    "source": "cottonwood_complete.png",
+    "preparation": "Canopy nearest sampling 115x61, centered at unchanged crown base y62, plus existing leaf-clump placement 2. All rows 62..95 and original palette preserved. Native 112x96 canvas and foot remain."
+  },
+  {
+    "name": "cottonwood_south",
+    "file": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\work\\route_unique\\prepared\\cottonwood_south.png",
+    "runtime": "res://assets/sprites/world/route1_rd_2026_10_02/cottonwood_south.png",
+    "size": [
+      112,
+      96
+    ],
+    "bounds": [
+      12,
+      12,
+      98,
+      89
+    ],
+    "sha256": "a996021a26647c8505585d1da884a3621015512d4a38dc646427e6ccb841ab6c",
+    "source": "cottonwood_complete.png",
+    "preparation": "Canopy nearest sampling 110x59, centered at unchanged crown base y62, plus existing leaf-clump placement 3. All rows 62..95 and original palette preserved. Native 112x96 canvas and foot remain."
+  },
+  {
+    "name": "cottonwood_west",
+    "file": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\work\\route_unique\\prepared\\cottonwood_west.png",
+    "runtime": "res://assets/sprites/world/route1_rd_2026_10_02/cottonwood_west.png",
+    "size": [
+      112,
+      96
+    ],
+    "bounds": [
+      9,
+      7,
+      101,
+      89
+    ],
+    "sha256": "673b15c7a745fffe22aed9273cd97a7751d0c3482734b94dc7feec3bdf056f5b",
+    "source": "cottonwood_complete.png",
+    "preparation": "Canopy nearest sampling 116x64, centered at unchanged crown base y62, plus existing leaf-clump placement 4. All rows 62..95 and original palette preserved. Native 112x96 canvas and foot remain."
+  },
+  {
+    "name": "cottonwood_office_grove",
+    "file": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\work\\route_unique\\prepared\\cottonwood_office_grove.png",
+    "runtime": "res://assets/sprites/world/route1_rd_2026_10_02/cottonwood_office_grove.png",
+    "size": [
+      112,
+      96
+    ],
+    "bounds": [
+      13,
+      10,
+      97,
+      89
+    ],
+    "sha256": "8c0bca04f74310a7feec66e9c7a4063bb87b90355b80d84cb68a5e702b18c730",
+    "source": "cottonwood_complete.png",
+    "preparation": "Canopy nearest sampling 106x61, centered at unchanged crown base y62, plus existing leaf-clump placement 5. All rows 62..95 and original palette preserved. Native 112x96 canvas and foot remain."
+  },
+  {
+    "name": "cottonwood_bank_bend",
+    "file": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\work\\route_unique\\prepared\\cottonwood_bank_bend.png",
+    "runtime": "res://assets/sprites/world/route1_rd_2026_10_02/cottonwood_bank_bend.png",
+    "size": [
+      112,
+      96
+    ],
+    "bounds": [
+      10,
+      6,
+      99,
+      89
+    ],
+    "sha256": "ea07a91510b81d8a9cae842df37b186b7049833419af44e1c3e4f45bd47f93b5",
+    "source": "cottonwood_complete.png",
+    "preparation": "Canopy nearest sampling 113x65, centered at unchanged crown base y62, plus existing leaf-clump placement 6. All rows 62..95 and original palette preserved. Native 112x96 canvas and foot remain."
+  },
+  {
+    "name": "bank_shrub_1",
+    "file": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\work\\route_unique\\prepared\\bank_shrub_1.png",
+    "runtime": "res://assets/sprites/world/route1_rd_2026_10_02/bank_shrub_1.png",
+    "size": [
+      32,
+      32
+    ],
+    "bounds": [
+      3,
+      4,
+      26,
+      30
+    ],
+    "sha256": "43b251dd378df0cc67515333048ab6952b7e16c380cc405e1212609b07153c8f",
+    "source": "shrub_polished.png",
+    "preparation": "Canopy 32x23 and individual original leaf cluster; bottom nine rows unchanged. Palette and native grid retained."
+  },
+  {
+    "name": "bank_shrub_2",
+    "file": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\work\\route_unique\\prepared\\bank_shrub_2.png",
+    "runtime": "res://assets/sprites/world/route1_rd_2026_10_02/bank_shrub_2.png",
+    "size": [
+      32,
+      32
+    ],
+    "bounds": [
+      3,
+      4,
+      27,
+      30
+    ],
+    "sha256": "6d61db1636f3690e2660327fb22e553eb72ff16e51b4559492e2fe408c077200",
+    "source": "shrub_polished.png",
+    "preparation": "Canopy 34x23 and individual original leaf cluster; bottom nine rows unchanged. Palette and native grid retained."
+  },
+  {
+    "name": "bank_shrub_3",
+    "file": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\work\\route_unique\\prepared\\bank_shrub_3.png",
+    "runtime": "res://assets/sprites/world/route1_rd_2026_10_02/bank_shrub_3.png",
+    "size": [
+      32,
+      32
+    ],
+    "bounds": [
+      3,
+      2,
+      25,
+      30
+    ],
+    "sha256": "e045241b0bbbcb404b64da72a1cbf0e0d245abbed054aab0018a162c93f04acb",
+    "source": "shrub_polished.png",
+    "preparation": "Canopy 30x25 and individual original leaf cluster; bottom nine rows unchanged. Palette and native grid retained."
+  },
+  {
+    "name": "bank_shrub_4",
+    "file": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\work\\route_unique\\prepared\\bank_shrub_4.png",
+    "runtime": "res://assets/sprites/world/route1_rd_2026_10_02/bank_shrub_4.png",
+    "size": [
+      32,
+      32
+    ],
+    "bounds": [
+      3,
+      6,
+      26,
+      30
+    ],
+    "sha256": "0f6c61e231ba31bf0905e198e105cf5f36d448f9ec01c0e0bc7646178148d162",
+    "source": "shrub_polished.png",
+    "preparation": "Canopy 33x21 and individual original leaf cluster; bottom nine rows unchanged. Palette and native grid retained."
+  },
+  {
+    "name": "bank_shrub_5",
+    "file": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\work\\route_unique\\prepared\\bank_shrub_5.png",
+    "runtime": "res://assets/sprites/world/route1_rd_2026_10_02/bank_shrub_5.png",
+    "size": [
+      32,
+      32
+    ],
+    "bounds": [
+      3,
+      3,
+      25,
+      30
+    ],
+    "sha256": "e9f1d691e199c39af64ba2a9b806e096cd7c12e34f80e7b85cedc61c49ca11a7",
+    "source": "shrub_polished.png",
+    "preparation": "Canopy 31x24 and individual original leaf cluster; bottom nine rows unchanged. Palette and native grid retained."
+  },
+  {
+    "name": "bank_shrub_6",
+    "file": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\work\\route_unique\\prepared\\bank_shrub_6.png",
+    "runtime": "res://assets/sprites/world/route1_rd_2026_10_02/bank_shrub_6.png",
+    "size": [
+      32,
+      32
+    ],
+    "bounds": [
+      2,
+      5,
+      26,
+      30
+    ],
+    "sha256": "f68e55f58f78d9d90834ab5e22785e6c09e000e0b31e594b95dbeecbbdf932fe",
+    "source": "shrub_polished.png",
+    "preparation": "Canopy 35x22 and individual original leaf cluster; bottom nine rows unchanged. Palette and native grid retained."
+  },
+  {
+    "name": "bank_shrub_7",
+    "file": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\work\\route_unique\\prepared\\bank_shrub_7.png",
+    "runtime": "res://assets/sprites/world/route1_rd_2026_10_02/bank_shrub_7.png",
+    "size": [
+      32,
+      32
+    ],
+    "bounds": [
+      3,
+      5,
+      25,
+      30
+    ],
+    "sha256": "b22397b747edf858d881ec279d30ffe220cd6f786990b4ee5d86e2fe357875bc",
+    "source": "shrub_polished.png",
+    "preparation": "Canopy 30x22 and individual original leaf cluster; bottom nine rows unchanged. Palette and native grid retained."
+  },
+  {
+    "name": "bank_shrub_8",
+    "file": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\work\\route_unique\\prepared\\bank_shrub_8.png",
+    "runtime": "res://assets/sprites/world/route1_rd_2026_10_02/bank_shrub_8.png",
+    "size": [
+      32,
+      32
+    ],
+    "bounds": [
+      3,
+      2,
+      26,
+      30
+    ],
+    "sha256": "6b85d469554da0a733d6bc7508dbaea50a071bcf3ec35fb64ee408b2493b97ea",
+    "source": "shrub_polished.png",
+    "preparation": "Canopy 33x25 and individual original leaf cluster; bottom nine rows unchanged. Palette and native grid retained."
+  },
+  {
+    "name": "bank_reeds_1",
+    "file": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\work\\route_unique\\prepared\\bank_reeds_1.png",
+    "runtime": "res://assets/sprites/world/route1_rd_2026_10_02/bank_reeds_1.png",
+    "size": [
+      32,
+      32
+    ],
+    "bounds": [
+      4,
+      5,
+      27,
+      28
+    ],
+    "sha256": "8557c82e9a00a98377adc84e60a7fda9bf987d8143f4b72a1d77f2aa51ab8065",
+    "source": "reeds.png",
+    "preparation": "Individual stem arrangement original; 32x32; existing palette; aligned base and unchanged placement."
+  },
+  {
+    "name": "bank_reeds_2",
+    "file": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\work\\route_unique\\prepared\\bank_reeds_2.png",
+    "runtime": "res://assets/sprites/world/route1_rd_2026_10_02/bank_reeds_2.png",
+    "size": [
+      32,
+      32
+    ],
+    "bounds": [
+      7,
+      9,
+      24,
+      28
+    ],
+    "sha256": "7013a5f6bc39d5563ed7fadc5bfaf095efb4db5ac99a9912605bd9c645c340de",
+    "source": "reeds.png + RD edited reeds",
+    "preparation": "Individual stem arrangement edit; 32x32; existing palette; aligned base and unchanged placement."
+  },
+  {
+    "name": "bank_reeds_3",
+    "file": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\work\\route_unique\\prepared\\bank_reeds_3.png",
+    "runtime": "res://assets/sprites/world/route1_rd_2026_10_02/bank_reeds_3.png",
+    "size": [
+      32,
+      32
+    ],
+    "bounds": [
+      5,
+      7,
+      26,
+      28
+    ],
+    "sha256": "2f66eb30ef03d4adec0165acc804845d97db2ad173fc1e92c8f2a52fbe915106",
+    "source": "reeds.png",
+    "preparation": "Individual stem arrangement original; 30x30; existing palette; aligned base and unchanged placement."
+  },
+  {
+    "name": "bank_reeds_4",
+    "file": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\work\\route_unique\\prepared\\bank_reeds_4.png",
+    "runtime": "res://assets/sprites/world/route1_rd_2026_10_02/bank_reeds_4.png",
+    "size": [
+      32,
+      32
+    ],
+    "bounds": [
+      6,
+      8,
+      24,
+      28
+    ],
+    "sha256": "6cbf87374a215df6a992884eb08e6d4da2dd7bea04135f7679c4fe47fd8eed99",
+    "source": "reeds.png + RD edited reeds",
+    "preparation": "Individual stem arrangement edit; 34x34; existing palette; aligned base and unchanged placement."
+  },
+  {
+    "name": "bank_reeds_5",
+    "file": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\work\\route_unique\\prepared\\bank_reeds_5.png",
+    "runtime": "res://assets/sprites/world/route1_rd_2026_10_02/bank_reeds_5.png",
+    "size": [
+      32,
+      32
+    ],
+    "bounds": [
+      3,
+      6,
+      28,
+      28
+    ],
+    "sha256": "12a2a857e0911609165887cec934f5e42c68a04e1bc41fc9e5f061a640fb67b3",
+    "source": "reeds.png",
+    "preparation": "Individual stem arrangement original; 34x31; existing palette; aligned base and unchanged placement."
+  },
+  {
+    "name": "bank_reeds_6",
+    "file": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\work\\route_unique\\prepared\\bank_reeds_6.png",
+    "runtime": "res://assets/sprites/world/route1_rd_2026_10_02/bank_reeds_6.png",
+    "size": [
+      32,
+      32
+    ],
+    "bounds": [
+      8,
+      10,
+      24,
+      28
+    ],
+    "sha256": "d6893b8eae3df89d27ecb6c2fd4beec7787949b8e27015589056d11039f8a465",
+    "source": "reeds.png + RD edited reeds",
+    "preparation": "Individual stem arrangement edit; 30x30; existing palette; aligned base and unchanged placement."
+  },
+  {
+    "name": "retaining_wall_west",
+    "file": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\work\\route_unique\\prepared\\retaining_wall_west.png",
+    "runtime": "res://assets/sprites/world/route1_rd_2026_10_02/retaining_wall_west.png",
+    "size": [
+      64,
+      32
+    ],
+    "bounds": [
+      3,
+      7,
+      62,
+      26
+    ],
+    "sha256": "96eb43414897d3d2cbe4ffd8e7f24c0add645573fade20afcc34d2e8cbd1000d",
+    "source": "retaining_wall_polished.png",
+    "preparation": "Preserved original wall as west segment."
+  },
+  {
+    "name": "retaining_wall_east",
+    "file": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\work\\route_unique\\prepared\\retaining_wall_east.png",
+    "runtime": "res://assets/sprites/world/route1_rd_2026_10_02/retaining_wall_east.png",
+    "size": [
+      64,
+      32
+    ],
+    "bounds": [
+      3,
+      7,
+      62,
+      26
+    ],
+    "sha256": "35abe572e0684eb228747e82d95c27dde27ac39e4e97ff2ad5642be3bfd5c744",
+    "source": "retaining_wall_polished.png",
+    "preparation": "Individual native stone faces and moss clusters transplanted from the original. Same silhouette, shared wall ends, palette and base; no displacement. RD wall edit preserved as rejected style reference."
+  }
+]

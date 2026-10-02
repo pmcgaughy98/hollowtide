@@ -1,0 +1,59 @@
+from pathlib import Path
+from PIL import Image, ImageDraw
+import numpy as np, json, shutil, hashlib
+p=Path(__file__).parent;root=Path('C:/Users/pmcga/dev/hollowtide')
+archive=root/'docs/art/world/route1-unique-props-2026-10-02'
+runtime=root/'assets/sprites/world/route1_rd_2026_10_02'
+old_manifest=json.loads((archive/'source/landing_detail_manifest.json').read_text()) if (archive/'source/landing_detail_manifest.json').exists() else []
+old_hashes={r['name']:r['sha256'] for r in old_manifest}
+source=Path('C:/Users/pmcga/OneDrive/Documents/HollowTide Sprites/Assets/Customer grok asset.png')
+im=Image.open(source).convert('RGBA');crop=im.crop((548,202,684,522))
+a=np.array(crop);rgb=a[:,:,:3].astype(int)
+matte=(rgb[:,:,0]>35)&(rgb[:,:,2]>25)&(rgb[:,:,1]<130)&(rgb[:,:,0]>rgb[:,:,1]*1.4)&(rgb[:,:,2]>rgb[:,:,1]*1.4)
+a[matte,3]=0
+crop=Image.fromarray(a)
+bollard=crop.resize((24,56),Image.Resampling.NEAREST)
+# Retain the full post and rope, with clean padding after native preparation.
+bollard2=Image.new('RGBA',(28,60));bollard2.paste(bollard,(2,2))
+short=Image.new('RGBA',(28,44))
+short.paste(bollard.crop((0,18,24,56)),(2,4))
+short.alpha_composite(bollard.crop((0,0,24,11)),(2,2))
+post=Image.open(root/'assets/sprites/world/route1_rd_2026_10_01/post.png').convert('RGBA')
+slot=post.copy();d=ImageDraw.Draw(slot)
+# A recessed empty return-tab holder on the post, not a new return mark.
+d.rectangle((12,31,20,40),fill=(56,44,31,255))
+d.line([(12,31),(20,31),(20,40)],fill=(130,113,72,255),width=1)
+d.line([(12,32),(12,40),(19,40)],fill=(76,69,44,255),width=1)
+d.rectangle((14,33,18,38),fill=(36,40,33,255))
+d.line([(14,39),(18,39)],fill=(103,91,57,255),width=1)
+assets=[('ferry_tieoff_full',bollard2,'Grok saved rope-post study, crop 548,202..684,522; conservative magenta key; nearest 24x56; two native padding pixels.'),('ferry_tieoff_short',short,'Short companion from the same rope-post study; reused wooden cap and lower shaft; no whole-sprite stretching.'),('relay_post_empty_slot',slot,'Original relay post with a small recessed empty tab holder at x12..20,y31..40; pixels outside that region unchanged.')]
+result=[]
+for name,image,note in assets:
+    path=p/'prepared'/(name+'.png');image.save(path)
+    target=runtime/path.name
+    if target.exists():assert hashlib.sha256(target.read_bytes()).hexdigest()==old_hashes.get(name),target
+    shutil.copy2(path,target);shutil.copy2(path,archive/'prepared'/path.name)
+    result.append({'name':name,'size':image.size,'bounds':image.getbbox(),'runtime':'res://assets/sprites/world/route1_rd_2026_10_02/'+path.name,'sha256':hashlib.sha256(target.read_bytes()).hexdigest(),'preparation':note})
+(archive/'source/landing_detail_manifest.json').write_text(json.dumps(result,indent=2),encoding='utf-8')
+shutil.copy2(source,archive/'source/grok_rope_post_original.png')
+shutil.copy2(p/'prepare_landing_details.py',archive/'source/landing_preparation.py.txt')
+shutil.copy2(p/'tree_mask.png',archive/'source/tree_mask.png')
+ref=archive/'reference';ref.mkdir(exist_ok=True)
+refs=[]
+for number in range(160,168):
+    src=Path('C:/Users/pmcga/OneDrive/Documents/Lightshot')/f'Screenshot_{number}.png'
+    assert src.exists(),src
+    dest=ref/src.name;shutil.copy2(src,dest)
+    refs.append({'source':str(src),'copy':str(dest),'sha256':hashlib.sha256(dest.read_bytes()).hexdigest()})
+(archive/'source/map_reference_manifest.json').write_text(json.dumps(refs,indent=2),encoding='utf-8')
+for tag in ['start','door','interaction','bank']:
+    capture=json.loads((archive/'review'/(tag+'_capture.json')).read_text())
+    if capture.get('image'):
+        import base64
+        (archive/'review'/(tag+'.jpg')).write_bytes(base64.b64decode(capture['image']['data']))
+board=Image.new('RGBA',(420,228),(65,82,73,255));draw=ImageDraw.Draw(board)
+for i,(name,image,note) in enumerate(assets):
+    enlarged=image.resize((image.width*3,image.height*3),Image.Resampling.NEAREST)
+    board.alpha_composite(enlarged,(i*140+24,24));draw.text((i*140+5,7),name,fill='white')
+board.convert('RGB').save(archive/'review/landing_details.png')
+print(json.dumps({'assets':result,'references_copied':len(refs),'screenshots_saved':4}))

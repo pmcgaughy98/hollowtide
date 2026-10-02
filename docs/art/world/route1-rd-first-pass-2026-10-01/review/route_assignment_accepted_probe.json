@@ -1,0 +1,53 @@
+{
+  "results": [
+    {
+      "effective_time_scale": 0,
+      "format": "jpeg",
+      "frame": {
+        "frames_drawn": 37961,
+        "physics_frames": 37961,
+        "process_frames": 37960
+      },
+      "height": 648,
+      "image_frame": 37960,
+      "instance": "route-complete-review",
+      "mime": "image/jpeg",
+      "missing": [],
+      "ok": true,
+      "op": "GameProbe",
+      "paused": false,
+      "provenance": {
+        "source": "runtime",
+        "target": {
+          "instance": "route-complete-review",
+          "kind": "game"
+        }
+      },
+      "requestId": "mcp-09bb4485-04bc-4cdf-9e51-12d22ea70a0a",
+      "source_height": 648,
+      "source_width": 1152,
+      "suspended": true,
+      "time_scale": 1,
+      "transport": "summer",
+      "values": {
+        "/root/FirstRoutePrototype/Player:position": "Vector2(80, 192)",
+        "/root/FirstRoutePrototype:delivered": false,
+        "/root/FirstRoutePrototype:heard_calls": false,
+        "/root/FirstRoutePrototype:marker_restored": false,
+        "/root/FirstRoutePrototype:pouch_accepted": true,
+        "/root/FirstRoutePrototype:report_done": false,
+        "/root/FirstRoutePrototype:reported_calls": false,
+        "/root/FirstRoutePrototype:reported_water_mark": false,
+        "/root/FirstRoutePrototype:water_mark_observed": false
+      },
+      "width": 1152
+    }
+  ],
+  "skippedCount": 0,
+  "status": "ok",
+  "stopOnError": true,
+  "undoGroup": false,
+  "requestId": "mcp-09bb4485-04bc-4cdf-9e51-12d22ea70a0a",
+  "terminalState": "applied",
+  "appliedSeq": 1167
+}

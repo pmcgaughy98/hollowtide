@@ -1,0 +1,48 @@
+{
+  "results": [
+    {
+      "effective_time_scale": 0,
+      "format": "jpeg",
+      "frame": {
+        "frames_drawn": 9264,
+        "physics_frames": 9275,
+        "process_frames": 9263
+      },
+      "height": 648,
+      "image_frame": 9263,
+      "instance": "route-archive-review",
+      "mime": "image/jpeg",
+      "missing": [],
+      "ok": true,
+      "op": "GameProbe",
+      "paused": false,
+      "provenance": {
+        "source": "runtime",
+        "target": {
+          "instance": "route-archive-review",
+          "kind": "game"
+        }
+      },
+      "requestId": "mcp-72ecc07c-2991-4f6f-a8e2-0a6c081bf3c0",
+      "source_height": 648,
+      "source_width": 1152,
+      "suspended": true,
+      "time_scale": 1,
+      "transport": "summer",
+      "values": {
+        "/root/FirstRoutePrototype/CinderhideEncounter/Sprite2D:region_rect": "Rect2(160, 0, 80, 80)",
+        "/root/FirstRoutePrototype/CinderhideEncounter:field_idle_texture": "CompressedTexture2D#-9223371962934360358",
+        "/root/FirstRoutePrototype/Player/Camera2D:offset": "Vector2(0, 0)",
+        "/root/FirstRoutePrototype/Player:position": "Vector2(48, 192)"
+      },
+      "width": 1152
+    }
+  ],
+  "skippedCount": 0,
+  "status": "ok",
+  "stopOnError": true,
+  "undoGroup": false,
+  "requestId": "mcp-72ecc07c-2991-4f6f-a8e2-0a6c081bf3c0",
+  "terminalState": "applied",
+  "appliedSeq": 31
+}

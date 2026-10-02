@@ -1,0 +1,41 @@
+{
+  "parameters": {
+    "width": 80,
+    "height": 80,
+    "input_image": "menu_cinderhide_input_native80.png",
+    "num_images": 1,
+    "prompt_style": "rd_advanced_animation__walking",
+    "frames_duration": 8,
+    "return_spritesheet": false,
+    "bypass_prompt_expansion": true,
+    "prompt": "Seamless slow sturdy quadruped walking cycle facing upper right, keeping this exact three-quarter rear-right view. Clearly alternate the four legs with planted supporting claws and lifted passing feet, restrained shoulder and hip weight transfer and a small secondary tail sway. Preserve this exact angular armored Cinderhide: horned head, jagged ember-orange dorsal spikes, charcoal-brown plates with warm sunset edges and plum shadows, clawed legs and segmented curled tail. Whole creature including horns and tail stays inside the frame. Fixed camera, stable center, transparent background, crisp native pixel clusters. No turning, rolling, hopping, shell rounding, redesign or new flames. Last stride joins naturally to first.",
+    "remove_bg": true,
+    "upload_outputs": true
+  },
+  "estimate": {
+    "created_at": 1790900557,
+    "credit_cost": 0,
+    "balance_cost": 0.14,
+    "output_images": [],
+    "base64_images": [],
+    "output_urls": [],
+    "model": "check_cost",
+    "remaining_credits": 0,
+    "remaining_balance": 9.050000000000004,
+    "resolved_prompt_style": "rd_advanced_animation__walking",
+    "used_input_image": true,
+    "reference_images_count": 0,
+    "used_extra_input_image": false,
+    "used_input_palette": false,
+    "used_strength": false,
+    "effective_timeout_seconds": 180
+  },
+  "job": {
+    "status": "accepted",
+    "task_id": "08232bc8-fd47-436f-bf16-0454cf2c5ba9",
+    "request_id": "08232bc8-fd47-436f-bf16-0454cf2c5ba9",
+    "message": "Inference accepted. Poll GET /v2/inferences/tasks/{task_id} for status."
+  },
+  "source": "C:\\Users\\pmcga\\dev\\hollowtide\\assets\\sprites\\menu\\retro_diffusion_idle_2026_10_01\\cinderhide_idle_dusk_lit_atlas.png",
+  "input_sha256": "d033d359cb416b74a9027c385243d0126afea6840ccc4d4c4e9b239532aa690b"
+}

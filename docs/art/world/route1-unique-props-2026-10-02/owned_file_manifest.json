@@ -1,0 +1,767 @@
+[
+  {
+    "path": "scenes/first_route_prototype.tscn",
+    "size": 30556,
+    "sha256": "b986a617ddf384d9b09d7594dedf270fcb44b165a570e3a21ae22bc59cd5f1c2"
+  },
+  {
+    "path": "scripts/first_route_prototype.gd",
+    "size": 17656,
+    "sha256": "8eea93e44e4715ad59d96e48555a274d6d3e66a5e0dce06d3bece3257ac3645a"
+  },
+  {
+    "path": "docs/team/ROUTE1_RD_AND_WALKS_HANDOFF_2026-10-01.md",
+    "size": 7751,
+    "sha256": "de1c6ee66e8fd9e140a5b29d7c7c50f897d162be970ac859904303af7739fccd"
+  },
+  {
+    "path": "docs/AI_COLLABORATION.md",
+    "size": 221367,
+    "sha256": "003ed152a003afb234630cc109e6f25f3e3f3aeaf41b512cb25616f461641a94"
+  },
+  {
+    "path": "docs/world/route1-regional-synthesis-2026-10-02.md",
+    "size": 5270,
+    "sha256": "e0284116c1cef31a5ebad45169d224e2717cd4df396bb6c2564f87bfbf2031da"
+  },
+  {
+    "path": "assets/sprites/world/route1_rd_2026_10_02/bank_reeds_1.png",
+    "size": 836,
+    "sha256": "8557c82e9a00a98377adc84e60a7fda9bf987d8143f4b72a1d77f2aa51ab8065"
+  },
+  {
+    "path": "assets/sprites/world/route1_rd_2026_10_02/bank_reeds_1.png.import",
+    "size": 983,
+    "sha256": "ffcc7ecf4950d9beb54efea0545a070a0d9ba6ea2610bd26f0bcd7db85680439"
+  },
+  {
+    "path": "assets/sprites/world/route1_rd_2026_10_02/bank_reeds_2.png",
+    "size": 373,
+    "sha256": "7013a5f6bc39d5563ed7fadc5bfaf095efb4db5ac99a9912605bd9c645c340de"
+  },
+  {
+    "path": "assets/sprites/world/route1_rd_2026_10_02/bank_reeds_2.png.import",
+    "size": 982,
+    "sha256": "9ebc25b43bf4dae886887a314fa651327edf7c006f8418c0602e842eee35d44e"
+  },
+  {
+    "path": "assets/sprites/world/route1_rd_2026_10_02/bank_reeds_3.png",
+    "size": 768,
+    "sha256": "2f66eb30ef03d4adec0165acc804845d97db2ad173fc1e92c8f2a52fbe915106"
+  },
+  {
+    "path": "assets/sprites/world/route1_rd_2026_10_02/bank_reeds_3.png.import",
+    "size": 983,
+    "sha256": "ef85e3670c6ed70d66f1760c3eea4d77994370d4653e9e71b3d5b7ca03a12015"
+  },
+  {
+    "path": "assets/sprites/world/route1_rd_2026_10_02/bank_reeds_4.png",
+    "size": 392,
+    "sha256": "6cbf87374a215df6a992884eb08e6d4da2dd7bea04135f7679c4fe47fd8eed99"
+  },
+  {
+    "path": "assets/sprites/world/route1_rd_2026_10_02/bank_reeds_4.png.import",
+    "size": 983,
+    "sha256": "e2b4b98eab969c6fdd17f75c11375ee80f11ac31ec7f655d4d83e671132a280f"
+  },
+  {
+    "path": "assets/sprites/world/route1_rd_2026_10_02/bank_reeds_5.png",
+    "size": 822,
+    "sha256": "12a2a857e0911609165887cec934f5e42c68a04e1bc41fc9e5f061a640fb67b3"
+  },
+  {
+    "path": "assets/sprites/world/route1_rd_2026_10_02/bank_reeds_5.png.import",
+    "size": 982,
+    "sha256": "1156035de31cdf9667eb039c8f28e58c1a3c9b42e202d23cfde7a6b117ebf56b"
+  },
+  {
+    "path": "assets/sprites/world/route1_rd_2026_10_02/bank_reeds_6.png",
+    "size": 336,
+    "sha256": "d6893b8eae3df89d27ecb6c2fd4beec7787949b8e27015589056d11039f8a465"
+  },
+  {
+    "path": "assets/sprites/world/route1_rd_2026_10_02/bank_reeds_6.png.import",
+    "size": 983,
+    "sha256": "2c3aad4358c74feea57b7e5f0aad4553774863b481b0a74e458aefcb7869900d"
+  },
+  {
+    "path": "assets/sprites/world/route1_rd_2026_10_02/bank_shrub_1.png",
+    "size": 973,
+    "sha256": "43b251dd378df0cc67515333048ab6952b7e16c380cc405e1212609b07153c8f"
+  },
+  {
+    "path": "assets/sprites/world/route1_rd_2026_10_02/bank_shrub_1.png.import",
+    "size": 983,
+    "sha256": "7c9da18587c8828fb67e27b6fe3f6782df79a876b3e95b4e89ae15efeee55a1f"
+  },
+  {
+    "path": "assets/sprites/world/route1_rd_2026_10_02/bank_shrub_2.png",
+    "size": 997,
+    "sha256": "6d61db1636f3690e2660327fb22e553eb72ff16e51b4559492e2fe408c077200"
+  },
+  {
+    "path": "assets/sprites/world/route1_rd_2026_10_02/bank_shrub_2.png.import",
+    "size": 983,
+    "sha256": "e693c7b7b344cdb3c955722c76580bc1f2e49257d07f4483fa70e6960a03aa8a"
+  },
+  {
+    "path": "assets/sprites/world/route1_rd_2026_10_02/bank_shrub_3.png",
+    "size": 957,
+    "sha256": "e045241b0bbbcb404b64da72a1cbf0e0d245abbed054aab0018a162c93f04acb"
+  },
+  {
+    "path": "assets/sprites/world/route1_rd_2026_10_02/bank_shrub_3.png.import",
+    "size": 983,
+    "sha256": "35873adbc6fbb7c58d86d6f457e74efab93258e3486ed9236d99a98d30df95f4"
+  },
+  {
+    "path": "assets/sprites/world/route1_rd_2026_10_02/bank_shrub_4.png",
+    "size": 939,
+    "sha256": "0f6c61e231ba31bf0905e198e105cf5f36d448f9ec01c0e0bc7646178148d162"
+  },
+  {
+    "path": "assets/sprites/world/route1_rd_2026_10_02/bank_shrub_4.png.import",
+    "size": 983,
+    "sha256": "bb4ce8992fcfbc76d9fbd4a5b6dd0cfb5dfca4980eca92f544a8e4bad3c7af35"
+  },
+  {
+    "path": "assets/sprites/world/route1_rd_2026_10_02/bank_shrub_5.png",
+    "size": 973,
+    "sha256": "e9f1d691e199c39af64ba2a9b806e096cd7c12e34f80e7b85cedc61c49ca11a7"
+  },
+  {
+    "path": "assets/sprites/world/route1_rd_2026_10_02/bank_shrub_5.png.import",
+    "size": 982,
+    "sha256": "fe054f301c7c8268bf604f22da92e047b822bd6606f49cde33571cdc668d0a78"
+  },
+  {
+    "path": "assets/sprites/world/route1_rd_2026_10_02/bank_shrub_6.png",
+    "size": 986,
+    "sha256": "f68e55f58f78d9d90834ab5e22785e6c09e000e0b31e594b95dbeecbbdf932fe"
+  },
+  {
+    "path": "assets/sprites/world/route1_rd_2026_10_02/bank_shrub_6.png.import",
+    "size": 983,
+    "sha256": "99d223cb3407f1a1d05ebe96a9e85ecf83f9743559f211aa14e0e0e9a96adc60"
+  },
+  {
+    "path": "assets/sprites/world/route1_rd_2026_10_02/bank_shrub_7.png",
+    "size": 936,
+    "sha256": "b22397b747edf858d881ec279d30ffe220cd6f786990b4ee5d86e2fe357875bc"
+  },
+  {
+    "path": "assets/sprites/world/route1_rd_2026_10_02/bank_shrub_7.png.import",
+    "size": 983,
+    "sha256": "e076845bd8d7bfd4adf1f46d94248cfb64637d393f4541160004959d1b51837e"
+  },
+  {
+    "path": "assets/sprites/world/route1_rd_2026_10_02/bank_shrub_8.png",
+    "size": 997,
+    "sha256": "6b85d469554da0a733d6bc7508dbaea50a071bcf3ec35fb64ee408b2493b97ea"
+  },
+  {
+    "path": "assets/sprites/world/route1_rd_2026_10_02/bank_shrub_8.png.import",
+    "size": 983,
+    "sha256": "4834c5bb4cab986266ca29f36016a9009337ba156a24d54a9941c2689dd9beec"
+  },
+  {
+    "path": "assets/sprites/world/route1_rd_2026_10_02/cottonwood_bank_bend.png",
+    "size": 4755,
+    "sha256": "ea07a91510b81d8a9cae842df37b186b7049833419af44e1c3e4f45bd47f93b5"
+  },
+  {
+    "path": "assets/sprites/world/route1_rd_2026_10_02/cottonwood_bank_bend.png.import",
+    "size": 1007,
+    "sha256": "1b110c982b3ab92e7295758a537fabd46d3546d6c921c07c2a80b68ef8b41f12"
+  },
+  {
+    "path": "assets/sprites/world/route1_rd_2026_10_02/cottonwood_east.png",
+    "size": 4663,
+    "sha256": "2b677551a002dadb71c28c1150032a8e1420398e797436cdf68c883ba84deaa9"
+  },
+  {
+    "path": "assets/sprites/world/route1_rd_2026_10_02/cottonwood_east.png.import",
+    "size": 992,
+    "sha256": "f1971cb6d662b3c41ba44aff76392e7854ce01f04eb3ab22bed7197450af1593"
+  },
+  {
+    "path": "assets/sprites/world/route1_rd_2026_10_02/cottonwood_north.png",
+    "size": 4686,
+    "sha256": "09756a0fc409544848cbbcb203d0a37993f21a25798d00bfd904dd70d4eee786"
+  },
+  {
+    "path": "assets/sprites/world/route1_rd_2026_10_02/cottonwood_north.png.import",
+    "size": 995,
+    "sha256": "48a6fc0a62887074320362901266c2b4ded29ad0798d37d58be24e8327b3e270"
+  },
+  {
+    "path": "assets/sprites/world/route1_rd_2026_10_02/cottonwood_office_grove.png",
+    "size": 4629,
+    "sha256": "8c0bca04f74310a7feec66e9c7a4063bb87b90355b80d84cb68a5e702b18c730"
+  },
+  {
+    "path": "assets/sprites/world/route1_rd_2026_10_02/cottonwood_office_grove.png.import",
+    "size": 1016,
+    "sha256": "e94f0b7a833dbc5af1346d37876c6a1da7d42451fa9cff6a9cdb69f921302605"
+  },
+  {
+    "path": "assets/sprites/world/route1_rd_2026_10_02/cottonwood_ridge.png",
+    "size": 4670,
+    "sha256": "90129fb60207abdd08dc702a71fd067cc5bc376877d2d6614b080b67334d11b8"
+  },
+  {
+    "path": "assets/sprites/world/route1_rd_2026_10_02/cottonwood_ridge.png.import",
+    "size": 995,
+    "sha256": "444c05d1fdd78f50662b0d619468f21264dec0d2d7c37a20430d56befde9d03f"
+  },
+  {
+    "path": "assets/sprites/world/route1_rd_2026_10_02/cottonwood_south.png",
+    "size": 4523,
+    "sha256": "a996021a26647c8505585d1da884a3621015512d4a38dc646427e6ccb841ab6c"
+  },
+  {
+    "path": "assets/sprites/world/route1_rd_2026_10_02/cottonwood_south.png.import",
+    "size": 995,
+    "sha256": "f8b3b9991e15f70c3f644c9e56f9c962bdf491cdf443b02ef8bd89545cedafaa"
+  },
+  {
+    "path": "assets/sprites/world/route1_rd_2026_10_02/cottonwood_west.png",
+    "size": 4795,
+    "sha256": "673b15c7a745fffe22aed9273cd97a7751d0c3482734b94dc7feec3bdf056f5b"
+  },
+  {
+    "path": "assets/sprites/world/route1_rd_2026_10_02/cottonwood_west.png.import",
+    "size": 992,
+    "sha256": "c427fb706d98e3def3c4a519056e990637e7554b13e1242e2d4e8feb6760ec31"
+  },
+  {
+    "path": "assets/sprites/world/route1_rd_2026_10_02/dispatch_hall_complete.png",
+    "size": 10712,
+    "sha256": "2648d93f1f5842322c9c83b5fed9cc9cf3fb9e53912b8d9c906a76802e31a8d2"
+  },
+  {
+    "path": "assets/sprites/world/route1_rd_2026_10_02/dispatch_hall_complete.png.import",
+    "size": 1013,
+    "sha256": "4633373fa717815e92a0e6aa88b51dfab5b53200be8e405f78412c68e5d71eb4"
+  },
+  {
+    "path": "assets/sprites/world/route1_rd_2026_10_02/ferry_tieoff_full.png",
+    "size": 3629,
+    "sha256": "2a6442122c5c7beb4de5ad752e0e47d06cd42e9594458702dd497774383a8706"
+  },
+  {
+    "path": "assets/sprites/world/route1_rd_2026_10_02/ferry_tieoff_full.png.import",
+    "size": 997,
+    "sha256": "f08f7847edd5b45488868e377a334b8ef22a36153d974409c889fe932ee36102"
+  },
+  {
+    "path": "assets/sprites/world/route1_rd_2026_10_02/ferry_tieoff_short.png",
+    "size": 2628,
+    "sha256": "58e4dc57a636aebca4eb1b8b81772515763a3b0745da9271e1c2495dd39ba580"
+  },
+  {
+    "path": "assets/sprites/world/route1_rd_2026_10_02/ferry_tieoff_short.png.import",
+    "size": 1000,
+    "sha256": "acda80931fd7f23f4ba2e7971d3adf1de37d56570991d51696ae70b069ff8725"
+  },
+  {
+    "path": "assets/sprites/world/route1_rd_2026_10_02/relay_post_empty_slot.png",
+    "size": 1153,
+    "sha256": "ed38239bb068f6aac4204193bfdfc4f7e11026d76d5b9cfe2dca5da676cce958"
+  },
+  {
+    "path": "assets/sprites/world/route1_rd_2026_10_02/relay_post_empty_slot.png.import",
+    "size": 1010,
+    "sha256": "658cc55ca203bd1b79defa4f7036592ebbbdd962badfe55c57004f8695dc2c20"
+  },
+  {
+    "path": "assets/sprites/world/route1_rd_2026_10_02/retaining_wall_east.png",
+    "size": 1213,
+    "sha256": "35abe572e0684eb228747e82d95c27dde27ac39e4e97ff2ad5642be3bfd5c744"
+  },
+  {
+    "path": "assets/sprites/world/route1_rd_2026_10_02/retaining_wall_east.png.import",
+    "size": 1004,
+    "sha256": "3968839d2f79f5aacc69dd43f96bd9e8efb76186a30108f180d21e574e941151"
+  },
+  {
+    "path": "assets/sprites/world/route1_rd_2026_10_02/retaining_wall_west.png",
+    "size": 1198,
+    "sha256": "96eb43414897d3d2cbe4ffd8e7f24c0add645573fade20afcc34d2e8cbd1000d"
+  },
+  {
+    "path": "assets/sprites/world/route1_rd_2026_10_02/retaining_wall_west.png.import",
+    "size": 1004,
+    "sha256": "50da26a9e3eb40f2a7fbd1e131365fb1842e36aebf4f1b15804a8c4358cc4460"
+  },
+  {
+    "path": "docs/art/world/route1-unique-props-2026-10-02/CHANGED_FILES.md",
+    "size": 6741,
+    "sha256": "a6d59f18cc5b4a6a832357223c17bcb6091097e9b4ed5d37f873d8de92dccdf7"
+  },
+  {
+    "path": "docs/art/world/route1-unique-props-2026-10-02/prepared/bank_reeds_1.png",
+    "size": 836,
+    "sha256": "8557c82e9a00a98377adc84e60a7fda9bf987d8143f4b72a1d77f2aa51ab8065"
+  },
+  {
+    "path": "docs/art/world/route1-unique-props-2026-10-02/prepared/bank_reeds_2.png",
+    "size": 373,
+    "sha256": "7013a5f6bc39d5563ed7fadc5bfaf095efb4db5ac99a9912605bd9c645c340de"
+  },
+  {
+    "path": "docs/art/world/route1-unique-props-2026-10-02/prepared/bank_reeds_3.png",
+    "size": 768,
+    "sha256": "2f66eb30ef03d4adec0165acc804845d97db2ad173fc1e92c8f2a52fbe915106"
+  },
+  {
+    "path": "docs/art/world/route1-unique-props-2026-10-02/prepared/bank_reeds_4.png",
+    "size": 392,
+    "sha256": "6cbf87374a215df6a992884eb08e6d4da2dd7bea04135f7679c4fe47fd8eed99"
+  },
+  {
+    "path": "docs/art/world/route1-unique-props-2026-10-02/prepared/bank_reeds_5.png",
+    "size": 822,
+    "sha256": "12a2a857e0911609165887cec934f5e42c68a04e1bc41fc9e5f061a640fb67b3"
+  },
+  {
+    "path": "docs/art/world/route1-unique-props-2026-10-02/prepared/bank_reeds_6.png",
+    "size": 336,
+    "sha256": "d6893b8eae3df89d27ecb6c2fd4beec7787949b8e27015589056d11039f8a465"
+  },
+  {
+    "path": "docs/art/world/route1-unique-props-2026-10-02/prepared/bank_shrub_1.png",
+    "size": 973,
+    "sha256": "43b251dd378df0cc67515333048ab6952b7e16c380cc405e1212609b07153c8f"
+  },
+  {
+    "path": "docs/art/world/route1-unique-props-2026-10-02/prepared/bank_shrub_2.png",
+    "size": 997,
+    "sha256": "6d61db1636f3690e2660327fb22e553eb72ff16e51b4559492e2fe408c077200"
+  },
+  {
+    "path": "docs/art/world/route1-unique-props-2026-10-02/prepared/bank_shrub_3.png",
+    "size": 957,
+    "sha256": "e045241b0bbbcb404b64da72a1cbf0e0d245abbed054aab0018a162c93f04acb"
+  },
+  {
+    "path": "docs/art/world/route1-unique-props-2026-10-02/prepared/bank_shrub_4.png",
+    "size": 939,
+    "sha256": "0f6c61e231ba31bf0905e198e105cf5f36d448f9ec01c0e0bc7646178148d162"
+  },
+  {
+    "path": "docs/art/world/route1-unique-props-2026-10-02/prepared/bank_shrub_5.png",
+    "size": 973,
+    "sha256": "e9f1d691e199c39af64ba2a9b806e096cd7c12e34f80e7b85cedc61c49ca11a7"
+  },
+  {
+    "path": "docs/art/world/route1-unique-props-2026-10-02/prepared/bank_shrub_6.png",
+    "size": 986,
+    "sha256": "f68e55f58f78d9d90834ab5e22785e6c09e000e0b31e594b95dbeecbbdf932fe"
+  },
+  {
+    "path": "docs/art/world/route1-unique-props-2026-10-02/prepared/bank_shrub_7.png",
+    "size": 936,
+    "sha256": "b22397b747edf858d881ec279d30ffe220cd6f786990b4ee5d86e2fe357875bc"
+  },
+  {
+    "path": "docs/art/world/route1-unique-props-2026-10-02/prepared/bank_shrub_8.png",
+    "size": 997,
+    "sha256": "6b85d469554da0a733d6bc7508dbaea50a071bcf3ec35fb64ee408b2493b97ea"
+  },
+  {
+    "path": "docs/art/world/route1-unique-props-2026-10-02/prepared/cottonwood_bank_bend.png",
+    "size": 4755,
+    "sha256": "ea07a91510b81d8a9cae842df37b186b7049833419af44e1c3e4f45bd47f93b5"
+  },
+  {
+    "path": "docs/art/world/route1-unique-props-2026-10-02/prepared/cottonwood_east.png",
+    "size": 4663,
+    "sha256": "2b677551a002dadb71c28c1150032a8e1420398e797436cdf68c883ba84deaa9"
+  },
+  {
+    "path": "docs/art/world/route1-unique-props-2026-10-02/prepared/cottonwood_north.png",
+    "size": 4686,
+    "sha256": "09756a0fc409544848cbbcb203d0a37993f21a25798d00bfd904dd70d4eee786"
+  },
+  {
+    "path": "docs/art/world/route1-unique-props-2026-10-02/prepared/cottonwood_office_grove.png",
+    "size": 4629,
+    "sha256": "8c0bca04f74310a7feec66e9c7a4063bb87b90355b80d84cb68a5e702b18c730"
+  },
+  {
+    "path": "docs/art/world/route1-unique-props-2026-10-02/prepared/cottonwood_ridge.png",
+    "size": 4670,
+    "sha256": "90129fb60207abdd08dc702a71fd067cc5bc376877d2d6614b080b67334d11b8"
+  },
+  {
+    "path": "docs/art/world/route1-unique-props-2026-10-02/prepared/cottonwood_south.png",
+    "size": 4523,
+    "sha256": "a996021a26647c8505585d1da884a3621015512d4a38dc646427e6ccb841ab6c"
+  },
+  {
+    "path": "docs/art/world/route1-unique-props-2026-10-02/prepared/cottonwood_west.png",
+    "size": 4795,
+    "sha256": "673b15c7a745fffe22aed9273cd97a7751d0c3482734b94dc7feec3bdf056f5b"
+  },
+  {
+    "path": "docs/art/world/route1-unique-props-2026-10-02/prepared/dispatch_hall_complete.png",
+    "size": 10712,
+    "sha256": "2648d93f1f5842322c9c83b5fed9cc9cf3fb9e53912b8d9c906a76802e31a8d2"
+  },
+  {
+    "path": "docs/art/world/route1-unique-props-2026-10-02/prepared/ferry_tieoff_full.png",
+    "size": 3629,
+    "sha256": "2a6442122c5c7beb4de5ad752e0e47d06cd42e9594458702dd497774383a8706"
+  },
+  {
+    "path": "docs/art/world/route1-unique-props-2026-10-02/prepared/ferry_tieoff_short.png",
+    "size": 2628,
+    "sha256": "58e4dc57a636aebca4eb1b8b81772515763a3b0745da9271e1c2495dd39ba580"
+  },
+  {
+    "path": "docs/art/world/route1-unique-props-2026-10-02/prepared/relay_post_empty_slot.png",
+    "size": 1153,
+    "sha256": "ed38239bb068f6aac4204193bfdfc4f7e11026d76d5b9cfe2dca5da676cce958"
+  },
+  {
+    "path": "docs/art/world/route1-unique-props-2026-10-02/prepared/retaining_wall_east.png",
+    "size": 1213,
+    "sha256": "35abe572e0684eb228747e82d95c27dde27ac39e4e97ff2ad5642be3bfd5c744"
+  },
+  {
+    "path": "docs/art/world/route1-unique-props-2026-10-02/prepared/retaining_wall_west.png",
+    "size": 1198,
+    "sha256": "96eb43414897d3d2cbe4ffd8e7f24c0add645573fade20afcc34d2e8cbd1000d"
+  },
+  {
+    "path": "docs/art/world/route1-unique-props-2026-10-02/raw/reeds_raw.png",
+    "size": 890,
+    "sha256": "e020ca7de4910723cc7c98e77284b267bac59bf97641ceeff3e25adf20430822"
+  },
+  {
+    "path": "docs/art/world/route1-unique-props-2026-10-02/raw/roof_raw.png",
+    "size": 12593,
+    "sha256": "b4ca3d45fdd2e131a090a75ad156e60d62444ecafa0c70b0d3252e06d902fb68"
+  },
+  {
+    "path": "docs/art/world/route1-unique-props-2026-10-02/raw/shrub_raw.png",
+    "size": 732,
+    "sha256": "fe4f11223062d213e0ab2fb3684ce626ba89472c8489a2579a768a88dba29db0"
+  },
+  {
+    "path": "docs/art/world/route1-unique-props-2026-10-02/raw/tree_left_raw.png",
+    "size": 7399,
+    "sha256": "b0a5ebedc74f64e0c53f6eee34d34de43ec73f6da00d3b693aac0cfddfe9e0a0"
+  },
+  {
+    "path": "docs/art/world/route1-unique-props-2026-10-02/raw/tree_tall_raw.png",
+    "size": 5540,
+    "sha256": "a81008aa359d12e4687e48907943861c5bbb51a607874d2b2ac6a9ccdea4875a"
+  },
+  {
+    "path": "docs/art/world/route1-unique-props-2026-10-02/raw/wall_raw.png",
+    "size": 1643,
+    "sha256": "7f392b891a868edd20d9ee1e9a4bda7dce615fdaa5f5cd5f6942eebae2c69035"
+  },
+  {
+    "path": "docs/art/world/route1-unique-props-2026-10-02/README.md",
+    "size": 5422,
+    "sha256": "602b200a3d152611e776590fe59a88f76af1236069740edc210029d2d1d0fa47"
+  },
+  {
+    "path": "docs/art/world/route1-unique-props-2026-10-02/reference/Screenshot_160.png",
+    "size": 3081122,
+    "sha256": "966634b31d249d71d736c38939c3d76261ad04b9ab99e29450bfdc57d310dfdc"
+  },
+  {
+    "path": "docs/art/world/route1-unique-props-2026-10-02/reference/Screenshot_161.png",
+    "size": 181207,
+    "sha256": "d974cea4fd64477812dba1bb4d35cbe5389e1d53654b20155faa0412b0fcce43"
+  },
+  {
+    "path": "docs/art/world/route1-unique-props-2026-10-02/reference/Screenshot_162.png",
+    "size": 646499,
+    "sha256": "0576e437db82025f4150ba194701ed016aada3d6024da3e9842f9b024ce97fab"
+  },
+  {
+    "path": "docs/art/world/route1-unique-props-2026-10-02/reference/Screenshot_163.png",
+    "size": 4620557,
+    "sha256": "ccf2d19cf9aec6ddd81cf59fb2deeea101af4b51d97ad74770b8e6e12fc13cc6"
+  },
+  {
+    "path": "docs/art/world/route1-unique-props-2026-10-02/reference/Screenshot_164.png",
+    "size": 669481,
+    "sha256": "9e61cad904c7569bd364870483fc79d1b26b5b3416ff81196426fa75ced1f8d6"
+  },
+  {
+    "path": "docs/art/world/route1-unique-props-2026-10-02/reference/Screenshot_165.png",
+    "size": 5109061,
+    "sha256": "8503d391c295416e8c7f13786c082437d488e89adb11b736140993631b8d9c86"
+  },
+  {
+    "path": "docs/art/world/route1-unique-props-2026-10-02/reference/Screenshot_166.png",
+    "size": 771566,
+    "sha256": "3b9efa194ac61fc29ef3e812ede956709791b97a0d2aad761446535c50b39dfb"
+  },
+  {
+    "path": "docs/art/world/route1-unique-props-2026-10-02/reference/Screenshot_167.png",
+    "size": 5122865,
+    "sha256": "d1b10a49b34e3fc2007c7961918bdc988619f7704119c4202e7f1aa8f2301923"
+  },
+  {
+    "path": "docs/art/world/route1-unique-props-2026-10-02/review/bank.jpg",
+    "size": 90539,
+    "sha256": "b2f1b6913218159d9478e55b791b3bedf00fec877c66df9155de1bd9001ccd40"
+  },
+  {
+    "path": "docs/art/world/route1-unique-props-2026-10-02/review/bank_capture.json",
+    "size": 121813,
+    "sha256": "58af0d7584869e27d67f74d004cbae029cd2b1eac0e8dd6abbee9a49e1298d4d"
+  },
+  {
+    "path": "docs/art/world/route1-unique-props-2026-10-02/review/diagnostics.json",
+    "size": 9372,
+    "sha256": "ca9ed800be51b5442e283738ee01a7cf802aefd377941b42becc0cca6f31a51f"
+  },
+  {
+    "path": "docs/art/world/route1-unique-props-2026-10-02/review/door.jpg",
+    "size": 123999,
+    "sha256": "4f90638282d3386922f73615f1ed37b4b2cd52365fe2cbe2e7be5b1911f2c4d0"
+  },
+  {
+    "path": "docs/art/world/route1-unique-props-2026-10-02/review/door_capture.json",
+    "size": 166200,
+    "sha256": "f61f324c25459c68d79576ba10d7b451c849983720fe8b332f85c31f2b16502f"
+  },
+  {
+    "path": "docs/art/world/route1-unique-props-2026-10-02/review/final_complete_rendered.jpg",
+    "size": 126278,
+    "sha256": "850f3c7c38cd6b6a23a80e8c01efdadb33752d138112a36c5dc2842692410b55"
+  },
+  {
+    "path": "docs/art/world/route1-unique-props-2026-10-02/review/final_complete_rendered_capture.json",
+    "size": 170105,
+    "sha256": "e96fa39a3a3ed309a702f05a448a1226929677b4c8b9b31c633d1f8c5ea217ff"
+  },
+  {
+    "path": "docs/art/world/route1-unique-props-2026-10-02/review/final_diagnostics.json",
+    "size": 7960,
+    "sha256": "64a10366aabc074b593f7c890723a017b1555c7fec51c9c211802df6a9305bfc"
+  },
+  {
+    "path": "docs/art/world/route1-unique-props-2026-10-02/review/final_playtest.json",
+    "size": 38535,
+    "sha256": "1a5dd3771f7619ce1f02b1f18b8e44d83d764cfb04717b176cf1fa3b798eb392"
+  },
+  {
+    "path": "docs/art/world/route1-unique-props-2026-10-02/review/final_post_details.jpg",
+    "size": 93278,
+    "sha256": "6e2aef31b8be6c26d6829ee0a9e8b658e577d42e32bc84edcc575286d4506ef5"
+  },
+  {
+    "path": "docs/art/world/route1-unique-props-2026-10-02/review/final_post_details_capture.json",
+    "size": 126113,
+    "sha256": "9bc16626cd9cdf1cf9ad803e64cdf52cd2b2063078d811d31cdb7dc64aa5235a"
+  },
+  {
+    "path": "docs/art/world/route1-unique-props-2026-10-02/review/final_report_choices_visible.jpg",
+    "size": 128122,
+    "sha256": "a044fb58bc20a0e10594a6b29fc750243aed67d8ef7618934f5577831ea0d0d4"
+  },
+  {
+    "path": "docs/art/world/route1-unique-props-2026-10-02/review/final_report_choices_visible_capture.json",
+    "size": 172568,
+    "sha256": "9661840511dc49dd6d35839fde75ca47427330fb3a1e9b84a964c3881fccf167"
+  },
+  {
+    "path": "docs/art/world/route1-unique-props-2026-10-02/review/final_river_approach.jpg",
+    "size": 91265,
+    "sha256": "24f13712f1312b9fc8428148bdf43009fc1318ec7c0e2df06c31adc236b8d056"
+  },
+  {
+    "path": "docs/art/world/route1-unique-props-2026-10-02/review/final_river_approach_capture.json",
+    "size": 123430,
+    "sha256": "53d386ce0b1033da12cf2bd5108c950d14f1e9ad0040dc0acaa362f8267a5efe"
+  },
+  {
+    "path": "docs/art/world/route1-unique-props-2026-10-02/review/final_start.jpg",
+    "size": 125208,
+    "sha256": "f7b075d6d439d2bad6d2df4edb6c822174030b983922617d87f59cc61f1810ed"
+  },
+  {
+    "path": "docs/art/world/route1-unique-props-2026-10-02/review/final_start_capture.json",
+    "size": 168685,
+    "sha256": "8f2aa5345b840f911f731babeb2d512903515a392176bba6b7ed70bf80633fed"
+  },
+  {
+    "path": "docs/art/world/route1-unique-props-2026-10-02/review/historical_import_diagnostics.json",
+    "size": 11938,
+    "sha256": "cffffada1842ecc59c58945ad3bb6adddc03ea1fc77f51e98a6f996243f8a855"
+  },
+  {
+    "path": "docs/art/world/route1-unique-props-2026-10-02/review/interaction.jpg",
+    "size": 122051,
+    "sha256": "735d5538fc5ba2f01de5d011df91b24433dc8d0f77af67938d02cff5732fdde8"
+  },
+  {
+    "path": "docs/art/world/route1-unique-props-2026-10-02/review/interaction_capture.json",
+    "size": 163603,
+    "sha256": "6ffdd079d947920fe4018818ac88a630f628e00ff9898148e08015c9b7ac5f00"
+  },
+  {
+    "path": "docs/art/world/route1-unique-props-2026-10-02/review/landing_details.png",
+    "size": 9435,
+    "sha256": "03382684c8082b0e99214587a5b36a024e48399ce1d07e90ddc0e5c415da1742"
+  },
+  {
+    "path": "docs/art/world/route1-unique-props-2026-10-02/review/preservation_checks.json",
+    "size": 942,
+    "sha256": "0bdc7cf46b54f9edf3dca1dd993ed11a839562d9783892bd1a7d6f51b7b3b8f0"
+  },
+  {
+    "path": "docs/art/world/route1-unique-props-2026-10-02/review/roof_complete_review.png",
+    "size": 16482,
+    "sha256": "72a51dafce98f05a267f4c26976cb9a34cb5652cd6a4fa3ad0a9b5d49f0305c3"
+  },
+  {
+    "path": "docs/art/world/route1-unique-props-2026-10-02/review/start.jpg",
+    "size": 125272,
+    "sha256": "cebf75b4137ca363658566983bf30b09b0e6e4829c9b79d7e6632326203342a1"
+  },
+  {
+    "path": "docs/art/world/route1-unique-props-2026-10-02/review/start_capture.json",
+    "size": 168108,
+    "sha256": "681e781f68d145130fafae90a10ce8709c0bf3996aa937b72fe28bd784671a83"
+  },
+  {
+    "path": "docs/art/world/route1-unique-props-2026-10-02/review/targeted_playtest.json",
+    "size": 1651,
+    "sha256": "8dfa89a00d5b09a8de4e9ca7e1612231e2c363183fbfe38fd45f784c8693d13e"
+  },
+  {
+    "path": "docs/art/world/route1-unique-props-2026-10-02/review/unique_prop_review.png",
+    "size": 39486,
+    "sha256": "d3b16eb2b829b8cb8283ede50ddf0fbc28c123d904852cfc23488bcb4518e9e9"
+  },
+  {
+    "path": "docs/art/world/route1-unique-props-2026-10-02/source/asset_manifest.json",
+    "size": 16276,
+    "sha256": "5c0f03d060df4618f2f15aed15e65a671f7386300ed591613014acc3dd54d9b3"
+  },
+  {
+    "path": "docs/art/world/route1-unique-props-2026-10-02/source/download_receipts.json",
+    "size": 2399,
+    "sha256": "0892e78d9d0663775eadc1c4f0e5068985d87a9143a1b942e2c4bb4c90e012db"
+  },
+  {
+    "path": "docs/art/world/route1-unique-props-2026-10-02/source/edit_requests_and_receipts.json",
+    "size": 7089,
+    "sha256": "fdca5088f4efb88f9ce177d850da4d54a4a0ea70c770c65204d3daf6c562e0b8"
+  },
+  {
+    "path": "docs/art/world/route1-unique-props-2026-10-02/source/grok_rope_post_original.png",
+    "size": 560135,
+    "sha256": "988afbf5f92e81e5b88c93428a4f89fb106d09ad12cdb6512caca8a67ed5a4a6"
+  },
+  {
+    "path": "docs/art/world/route1-unique-props-2026-10-02/source/landing_detail_manifest.json",
+    "size": 1406,
+    "sha256": "9585325dd65f32f8fbf7c152f35479e26f7346468afb6a682270b0ca8f9072ba"
+  },
+  {
+    "path": "docs/art/world/route1-unique-props-2026-10-02/source/landing_preparation.py.txt",
+    "size": 4151,
+    "sha256": "eb0ff19bb1d45ec0bb227cab4d47ca00b8355c26e58187b6dfefc8ae1bfbc2e0"
+  },
+  {
+    "path": "docs/art/world/route1-unique-props-2026-10-02/source/map_reference_manifest.json",
+    "size": 2491,
+    "sha256": "2a1d373e0d1370996f9ff5bebb6990c02b44cf0014ee0a5930968001f5222197"
+  },
+  {
+    "path": "docs/art/world/route1-unique-props-2026-10-02/source/native_preparation.py.txt",
+    "size": 7904,
+    "sha256": "429352bb16c6407d00f798382a0fa0acefbd85084c8114abb350f443b36146aa"
+  },
+  {
+    "path": "docs/art/world/route1-unique-props-2026-10-02/source/reeds_original.png",
+    "size": 849,
+    "sha256": "1d5721f8ffff36e38198c9bbfe6e08f10286e463b8dcd78c4a7059c594dc74d4"
+  },
+  {
+    "path": "docs/art/world/route1-unique-props-2026-10-02/source/reference_notes.md",
+    "size": 1834,
+    "sha256": "5962ea60bf506102c6f45165c3432780e9432596fb9200800c67ab939d712edf"
+  },
+  {
+    "path": "docs/art/world/route1-unique-props-2026-10-02/source/research_ledger.json",
+    "size": 823,
+    "sha256": "871443abed42a9ce1b67b1516a08ee07ca5cda14d6d0281d170d6ae273b77504"
+  },
+  {
+    "path": "docs/art/world/route1-unique-props-2026-10-02/source/roof_original.png",
+    "size": 10089,
+    "sha256": "de7b140d182c01026a4b00e197c76d1b072e5fec04491aae71093bb83cb6e8e8"
+  },
+  {
+    "path": "docs/art/world/route1-unique-props-2026-10-02/source/roof_receipt.json",
+    "size": 350,
+    "sha256": "5b23f5cbaab889dc3c949e113b5dc977439bbb308541c9a56573ae03ba2f6763"
+  },
+  {
+    "path": "docs/art/world/route1-unique-props-2026-10-02/source/roof_request.json",
+    "size": 1099,
+    "sha256": "56172ed244c0b00f22fb2a69f228542be3b627a1245f172717d467eac83bd5e5"
+  },
+  {
+    "path": "docs/art/world/route1-unique-props-2026-10-02/source/route_script_before.txt",
+    "size": 17656,
+    "sha256": "da74598fb1e0d4a3faac1ad90147c16ecba3376e45e5a2de316548a7ca35a92a"
+  },
+  {
+    "path": "docs/art/world/route1-unique-props-2026-10-02/source/route_script_final.txt",
+    "size": 17656,
+    "sha256": "8eea93e44e4715ad59d96e48555a274d6d3e66a5e0dce06d3bece3257ac3645a"
+  },
+  {
+    "path": "docs/art/world/route1-unique-props-2026-10-02/source/scene_before.txt",
+    "size": 25884,
+    "sha256": "76dc6b2866d5a7a9fb80fd250f4f04f6448cdd27e3b664a5983d595d714f8ee2"
+  },
+  {
+    "path": "docs/art/world/route1-unique-props-2026-10-02/source/scene_final.txt",
+    "size": 30556,
+    "sha256": "b986a617ddf384d9b09d7594dedf270fcb44b165a570e3a21ae22bc59cd5f1c2"
+  },
+  {
+    "path": "docs/art/world/route1-unique-props-2026-10-02/source/shrub_original.png",
+    "size": 968,
+    "sha256": "a150bf4bacbad99fef03166da9d393e8ffbdae440d47048a8ac01e68e82e54ad"
+  },
+  {
+    "path": "docs/art/world/route1-unique-props-2026-10-02/source/St._Joseph_Creaturedex_Design.txt",
+    "size": 37630,
+    "sha256": "7b04dd3693f4c7ed28f31df1c37a1b7ff3cc6d01021f2d5d5f8a7b892e25b325"
+  },
+  {
+    "path": "docs/art/world/route1-unique-props-2026-10-02/source/St._Joseph_History_And_Lore.txt",
+    "size": 41746,
+    "sha256": "b11f7fcb98f40bd167a2f1e278b6b3448455734dc565c8a8fc59c3f5d83e901c"
+  },
+  {
+    "path": "docs/art/world/route1-unique-props-2026-10-02/source/tree_mask.png",
+    "size": 241,
+    "sha256": "4ee01eb02b1b4e1fc1923e92d9509b49d089857eb5066fcbf588c942709f7f77"
+  },
+  {
+    "path": "docs/art/world/route1-unique-props-2026-10-02/source/tree_original.png",
+    "size": 4784,
+    "sha256": "5f7d048ee8df9b93814563db307a92f498930b47640abd138f10feb6e33effb1"
+  },
+  {
+    "path": "docs/art/world/route1-unique-props-2026-10-02/source/wall_original.png",
+    "size": 1198,
+    "sha256": "96eb43414897d3d2cbe4ffd8e7f24c0add645573fade20afcc34d2e8cbd1000d"
+  }
+]

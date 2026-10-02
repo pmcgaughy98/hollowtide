@@ -1,0 +1,13 @@
+{
+  "tool_id": "outpainting",
+  "inference_id": "inf_y9K25A7NkXW8RGB1LyXwbBe64mg1OrDY",
+  "balance_cost": 0.18,
+  "credit_cost": 20,
+  "charged": true,
+  "remaining_balance": 5.630000000000005,
+  "remaining_credits": null,
+  "base64_images": [],
+  "output_urls": [
+    "https://da8ztllw6by0f.cloudfront.net/9a8dadf5bb3a8ba5f1cb55c3250051f3.png"
+  ]
+}

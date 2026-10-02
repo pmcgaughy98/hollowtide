@@ -6,6 +6,10 @@ extends Area2D
 @export var creature: CreatureData
 @export var player_path: NodePath
 @export var battle_screen_path: NodePath
+## Optional overworld-only idle art; battle continues to use CreatureData.
+@export var field_idle_texture: Texture2D
+@export var field_idle_fps: float = 4.0
+var _field_idle_phase := 0.0
 
 @onready var _sprite: Sprite2D = $Sprite2D
 @onready var _prompt: Label = $Prompt
@@ -21,7 +25,10 @@ func _ready() -> void:
 	if creature == null:
 		push_warning("Field creature has no creature resource assigned.")
 	else:
-		_sprite.texture = creature.sprite
+		_sprite.texture = field_idle_texture if field_idle_texture != null else creature.sprite
+		if field_idle_texture != null:
+			_sprite.region_enabled = true
+			_sprite.region_rect = Rect2(0, 0, 80, 80)
 
 	body_entered.connect(_on_body_entered)
 	body_exited.connect(_on_body_exited)
@@ -52,3 +59,10 @@ func _on_body_exited(body: Node2D) -> void:
 		return
 	_player_nearby = false
 	_prompt.visible = false
+
+
+func _process(delta: float) -> void:
+	if field_idle_texture == null:
+		return
+	_field_idle_phase = fmod(_field_idle_phase + delta * field_idle_fps, 8.0)
+	_sprite.region_rect = Rect2(int(_field_idle_phase) * 80, 0, 80, 80)

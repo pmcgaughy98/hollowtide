@@ -1,0 +1,20 @@
+{
+  "parameters": {
+    "width": 80,
+    "height": 80,
+    "input_image": "male_up_input_native80.png",
+    "reference_images": [
+      "male_up_right_rotation_input_native80.png"
+    ],
+    "num_images": 1,
+    "prompt_style": "rd_pro__default",
+    "bypass_prompt_expansion": true,
+    "prompt": "Redraw the exact chibi male courier from the main input in a three-quarter REAR-RIGHT view, facing away toward the upper right, using the second image only to guide that viewing angle. The OLIVE SATCHEL ON HIS LOWER BACK and DIAGONAL BRASS-BROWN STRAP across his teal jacket are essential and must remain clearly visible, like the main input. Keep the same large tousled brown-haired head, brass goggles, compact short body, tan trousers, boots, olive canvas bag with brass buckle and warm pixel palette. Turn his body about 45 degrees toward screen right while retaining the broad back and only a small right-edge cheek. Neutral standing pose with both boots on the ground, same 80px canvas and similar height. One full-body transparent pixel sprite. Do not remove the satchel or strap, no tall proportions, no front view, no extra props.",
+    "remove_bg": true,
+    "upload_outputs": true
+  },
+  "task_id": "eca15be3-7a0f-41f1-827a-0d247dd361dc",
+  "status": "succeeded",
+  "actual_cost_usd": 0.18,
+  "visual_use": "walking_anchor"
+}

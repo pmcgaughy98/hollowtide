@@ -1,0 +1,24 @@
+{
+  "raw_source_sha256": "18fb5bada1b0651c91c85e13ff2f1d0c0ce89cfcdb411454dfa0014f15e2afb0",
+  "canvas": [
+    136,
+    136
+  ],
+  "alpha_bbox": [
+    8,
+    8,
+    127,
+    123
+  ],
+  "stray_figure_region": [
+    23,
+    104,
+    43,
+    128
+  ],
+  "material_repair": "Same-row existing eight-pixel brick pattern from x16..23; pixels outside the small repair rectangle unchanged.",
+  "extra_transparent_margin": 4,
+  "foot_baseline": 122,
+  "sprite_offset_y": -54,
+  "colour_interpolation": false
+}

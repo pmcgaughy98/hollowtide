@@ -1,0 +1,377 @@
+{
+  "res://docs/art/world/route1-rd-polish-2026-10-01/raw/cottonwood_original.png": {
+    "source": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/work/route_refinement/polish/cottonwood_original.png",
+    "sha256": "beb620024b3cd248e6d603531073932743234608045f4bdf09adee99c98a6baf",
+    "bytes": 4658
+  },
+  "res://docs/art/world/route1-rd-polish-2026-10-01/raw/wall_original.png": {
+    "source": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/work/route_refinement/polish/wall_original.png",
+    "sha256": "ccb270ffe6191ff24def2ee3e80a6e5d5fbc66948c86a9d92c5cdc501ecee85c",
+    "bytes": 1383
+  },
+  "res://docs/art/world/route1-rd-polish-2026-10-01/raw/shrub_original.png": {
+    "source": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/work/route_refinement/polish/shrub_original.png",
+    "sha256": "9e2c6548c9bfbe343a5224b5583407769d134f21b11295eeeb8f3767860a8e34",
+    "bytes": 1135
+  },
+  "res://docs/art/world/route1-rd-polish-2026-10-01/raw/office_front_original.png": {
+    "source": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/work/route_refinement/polish/office_front_original.png",
+    "sha256": "1141f7363e7047b05d74c615ffc1121f21a4f979adf20934aec9dd871e7c5e9e",
+    "bytes": 5414
+  },
+  "res://docs/art/world/route1-rd-polish-2026-10-01/source/build_polished_terrain.py": {
+    "source": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/work/route_refinement/polish/build_polished_terrain.py",
+    "sha256": "389e0a1388e82b608bc8ef1af96c8f3a663b96677c89eb8874c3627b9a9a2125",
+    "bytes": 4163
+  },
+  "res://docs/art/world/route1-rd-polish-2026-10-01/source/prepare_polished_scene.py": {
+    "source": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/work/route_refinement/polish/prepare_polished_scene.py",
+    "sha256": "9fa8ededfe9d8f2a9c9a15622412f8ec9b01565813c5f521e9399251cb797ad7",
+    "bytes": 5276
+  },
+  "res://docs/art/world/route1-rd-polish-2026-10-01/source/first_route_before_polish.tscn.txt": {
+    "source": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/work/route_refinement/polish/first_route_before_polish.tscn",
+    "sha256": "501a4fe3f2be05b7ddf6e74e8b0303cdc1700e6447c5aad64181c96ede8207c7",
+    "bytes": 23426
+  },
+  "res://docs/art/world/route1-rd-polish-2026-10-01/source/first_route_polished.tscn.txt": {
+    "source": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/work/route_refinement/polish/first_route_polished.tscn",
+    "sha256": "45eb6015fc7aa0b861b377d9716213bba53807422ed92eb860961eca098699bd",
+    "bytes": 25888
+  },
+  "res://docs/art/world/route1-rd-polish-2026-10-01/source/foot_anchors.json": {
+    "source": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/work/route_refinement/polish/foot_anchors.json",
+    "sha256": "3ddf8bcd1eeb8163b212f9cc23baabeeef104f6bd65baea3888083a762f6f628",
+    "bytes": 1660
+  },
+  "res://docs/art/world/route1-rd-polish-2026-10-01/source/terrain_polish.json": {
+    "source": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/work/route_refinement/polish/terrain_polish.json",
+    "sha256": "f7929065e089314c1ff5bc9c2121deeea616879cf14fd5be7b2a1fc36a1d38ca",
+    "bytes": 703
+  },
+  "res://docs/art/world/route1-rd-polish-2026-10-01/source/tile_map_data.txt": {
+    "source": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/work/route_refinement/polish/tile_map_data.txt",
+    "sha256": "4dea03da504c40dc45ac98e2b5a376f6d8b0813ecd12e70666d824fbae0d0b40",
+    "bytes": 15364
+  },
+  "res://docs/art/world/route1-rd-polish-2026-10-01/source/route1_ground_polished.tres.txt": {
+    "source": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/work/route_refinement/polish/route1_ground_polished.tres",
+    "sha256": "d135c2c64280602cbb0cc0269f4a7e8cca0c54e96649a22a1edd54e7c9a558a1",
+    "bytes": 1506
+  },
+  "res://docs/art/world/route1-rd-polish-2026-10-01/prepared/route1_ground_atlas_polished.png": {
+    "source": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/work/route_refinement/polish/route1_ground_atlas_polished.png",
+    "sha256": "3c5cf177727cb41f152bb4cabfbaa8dc2a9c0ac3f74a9492b31d19835f71dc14",
+    "bytes": 7553
+  },
+  "res://docs/art/world/route1-rd-polish-2026-10-01/prepared/polished_ground_review.png": {
+    "source": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/work/route_refinement/polish/polished_ground_review.png",
+    "sha256": "52cf5b6fce1b35570bccfce9c8e0e522337feba2c12d0510d6e0b3361c5256b7",
+    "bytes": 48576
+  },
+  "res://docs/art/world/route1-rd-polish-2026-10-01/prepared/grass_quiet32.png": {
+    "source": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/work/route_refinement/polish/grass_quiet32.png",
+    "sha256": "1ccf4b392c22d19a09d14da1be6b49e03abbf50d18cde72d653a253baa4d95d6",
+    "bytes": 498
+  },
+  "res://docs/art/world/route1-rd-polish-2026-10-01/prepared/path_quiet32.png": {
+    "source": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/work/route_refinement/polish/path_quiet32.png",
+    "sha256": "0bc1711d71a8a8133da3be181c0d2d7620149bd73d0f1a302abc4584b665df1f",
+    "bytes": 670
+  },
+  "res://docs/art/world/route1-rd-polish-2026-10-01/prepared/water_quiet32.png": {
+    "source": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/work/route_refinement/polish/water_quiet32.png",
+    "sha256": "ecc1b44e8b7446599e16b40b450d459b4ebeba3b66de7518a63296dde77956f8",
+    "bytes": 545
+  },
+  "res://docs/art/world/route1-rd-polish-2026-10-01/source/original_route_cells.json": {
+    "source": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/work/route_refinement/route_cells.json",
+    "sha256": "36fd36db0e23e7c43735ef55f2e52b2a975a10774fe636d62533e11d5b15aa9a",
+    "bytes": 20480
+  },
+  "res://docs/art/world/route1-rd-polish-2026-10-01/raw/cottonwood_outpaint_raw.png": {
+    "source": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/work/route_refinement/polish/cottonwood_outpaint_raw.png",
+    "sha256": "bfe2d5dae7589774de569610533794bae79747df6e3bad078b328c4b1f71b317",
+    "bytes": 5471
+  },
+  "res://docs/art/world/route1-rd-polish-2026-10-01/raw/cottonwood_outpaint_transparent.png": {
+    "source": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/work/route_refinement/polish/cottonwood_outpaint_transparent.png",
+    "sha256": "a734d14747c53379cb2f2f7083011370b232cecd278abaccf9eb82589ae77e48",
+    "bytes": 5533
+  },
+  "res://docs/art/world/route1-rd-polish-2026-10-01/raw/dispatch_hall_original.png": {
+    "source": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/work/route_refinement/polish/dispatch_hall_original.png",
+    "sha256": "fbfd6b282f68d451b9680a6107b66e9cf31fa19b8b4310ce8ee36722a80743d1",
+    "bytes": 6222
+  },
+  "res://docs/art/world/route1-rd-polish-2026-10-01/prepared/cottonwood_complete.png": {
+    "source": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/work/route_refinement/polish/cottonwood_complete.png",
+    "sha256": "5f7d048ee8df9b93814563db307a92f498930b47640abd138f10feb6e33effb1",
+    "bytes": 4784
+  },
+  "res://docs/art/world/route1-rd-polish-2026-10-01/prepared/tree_crown_review.png": {
+    "source": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/work/route_refinement/polish/tree_crown_review.png",
+    "sha256": "22280c3fa3e81218eefa93ae842918f3f94df295e9a302675d14fb9c3d64dbd6",
+    "bytes": 10076
+  },
+  "res://docs/art/world/route1-rd-polish-2026-10-01/prepared/dispatch_hall_complete.png": {
+    "source": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/work/route_refinement/polish/dispatch_hall_complete.png",
+    "sha256": "18fb5bada1b0651c91c85e13ff2f1d0c0ce89cfcdb411454dfa0014f15e2afb0",
+    "bytes": 11997
+  },
+  "res://docs/art/world/route1-rd-polish-2026-10-01/prepared/dispatch_hall_prepared.png": {
+    "source": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/work/route_refinement/polish/dispatch_hall_prepared.png",
+    "sha256": "de7b140d182c01026a4b00e197c76d1b072e5fec04491aae71093bb83cb6e8e8",
+    "bytes": 10089
+  },
+  "res://docs/art/world/route1-rd-polish-2026-10-01/source/tree_repair_preparation.json": {
+    "source": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/work/route_refinement/polish/tree_repair_preparation.json",
+    "sha256": "06022f408b5a10bbf28ca2e638ef7d134c5306c8bfb9a783d8b0d5439c422775",
+    "bytes": 756
+  },
+  "res://docs/art/world/route1-rd-polish-2026-10-01/source/finish_tree_crown.py": {
+    "source": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/work/route_refinement/finish_tree_crown.py",
+    "sha256": "e1f19b07a3bdc45a2db08d3cfd6c01b4d5bd96dcf7a362c13d7c5261cc636a3f",
+    "bytes": 2065
+  },
+  "res://docs/art/world/route1-rd-polish-2026-10-01/source/prepare_dispatch_hall.py": {
+    "source": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/work/route_refinement/prepare_dispatch_hall.py",
+    "sha256": "ae64f3b41ff0be9950d899ce6d451064a8649e3df9cf590702f7b7fe485ea08f",
+    "bytes": 1236
+  },
+  "res://docs/art/world/route1-rd-polish-2026-10-01/source/dispatch_hall_preparation.json": {
+    "source": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/work/route_refinement/polish/dispatch_hall_preparation.json",
+    "sha256": "ba77851a8d272d65034b898e9ea70ee16afb130ef2e909d0447c41b3559cfb07",
+    "bytes": 522
+  },
+  "res://docs/art/world/route1-rd-polish-2026-10-01/source/installed_route1_map_polish.gd.txt": {
+    "source": "C:/Users/pmcga/dev/hollowtide/scripts/route1_map_polish.gd",
+    "sha256": "bbdb1dc04e9f1ed27ca402d691592b15eaf41f3ec2d8cee87e19d1e3d96a3368",
+    "bytes": 2491
+  },
+  "res://docs/art/world/route1-rd-polish-2026-10-01/source/installed_field_creature.gd.txt": {
+    "source": "C:/Users/pmcga/dev/hollowtide/scripts/field_creature.gd",
+    "sha256": "e698f9859d84af22e0862d2eee9f92bb9b841cdacfe69abc328804bcd2f50185",
+    "bytes": 1970
+  },
+  "res://docs/art/world/route1-rd-polish-2026-10-01/source/installed_first_route_prototype.gd.txt": {
+    "source": "C:/Users/pmcga/dev/hollowtide/scripts/first_route_prototype.gd",
+    "sha256": "da74598fb1e0d4a3faac1ad90147c16ecba3376e45e5a2de316548a7ca35a92a",
+    "bytes": 17656
+  },
+  "res://docs/art/world/route1-rd-polish-2026-10-01/source/installed_first_route_prototype.tscn.txt": {
+    "source": "C:/Users/pmcga/dev/hollowtide/scenes/first_route_prototype.tscn",
+    "sha256": "14b02c24c3660d568d20d81147f0f87f2f9adff73cb32da12245ac2344568651",
+    "bytes": 25872
+  },
+  "res://docs/art/world/route1-rd-polish-2026-10-01/source/requests_and_receipts.json": {
+    "source": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/work/route_refinement/polish/archive/requests_and_receipts.json",
+    "sha256": "9093ac1e34e74a2c5ffa1b4e6a6eb3fbadaa69500c9a5e86cfd302c9a9e9c76a",
+    "bytes": 4711
+  },
+  "res://docs/art/world/route1-rd-polish-2026-10-01/source/reference_notes.json": {
+    "source": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/work/route_refinement/polish/archive/reference_notes.json",
+    "sha256": "6927070228af2a21f54f7d0eba6b539158b0aec8c54c92066a1d74feb28e443e",
+    "bytes": 1639
+  },
+  "res://docs/art/world/route1-rd-polish-2026-10-01/PROMPTS.md": {
+    "source": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/work/route_refinement/polish/archive/PROMPTS.md",
+    "sha256": "401747bbee1979b86a5fa1f4d7188d4b1eec0a82e90e81673e2d62d5b036eb77",
+    "bytes": 2434
+  },
+  "res://docs/art/world/route1-rd-polish-2026-10-01/review/all_flags_passed.json": {
+    "source": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/work/route_refinement/polish/review/all_flags_passed.json",
+    "sha256": "b5bea41b6c623f7c09f1bf24dcae58ebab3c0cdd90ad966bc43a45b44867e12b",
+    "bytes": 4
+  },
+  "res://docs/art/world/route1-rd-polish-2026-10-01/review/assignment_log.json": {
+    "source": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/work/route_refinement/polish/review/assignment_log.json",
+    "sha256": "0dc9fbca9747efaf9d0f731ff056a39c1a54fc049a60e1b43ec38699c8efd36c",
+    "bytes": 24365
+  },
+  "res://docs/art/world/route1-rd-polish-2026-10-01/review/bank.jpg": {
+    "source": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/work/route_refinement/polish/review/bank.jpg",
+    "sha256": "269de84d5508d2a676e72f1a5ff8c482fef277a445cb7676db5de667e8dce96c",
+    "bytes": 76087
+  },
+  "res://docs/art/world/route1-rd-polish-2026-10-01/review/bank.json": {
+    "source": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/work/route_refinement/polish/review/bank.json",
+    "sha256": "0a5d853fe0d10c8e232bdc5af2b399ecb16b9fd46a5bca6afd9c1af22bb4efad",
+    "bytes": 11118
+  },
+  "res://docs/art/world/route1-rd-polish-2026-10-01/review/diagnostics.json": {
+    "source": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/work/route_refinement/polish/review/diagnostics.json",
+    "sha256": "50c857d3b30b3cac77fb6b8ddd333fecbae88c4f432f8d0e1785d05183434485",
+    "bytes": 8034
+  },
+  "res://docs/art/world/route1-rd-polish-2026-10-01/review/final_accept.jpg": {
+    "source": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/work/route_refinement/polish/review/final_accept.jpg",
+    "sha256": "f41e3fb9ca6c77158c2eb853b5a6fc3fb300f76d9f6bf48b5ee97fa8902330e3",
+    "bytes": 119308
+  },
+  "res://docs/art/world/route1-rd-polish-2026-10-01/review/final_accept.json": {
+    "source": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/work/route_refinement/polish/review/final_accept.json",
+    "sha256": "6f95f4ec16b1a529d6ec7ece5d61edbd2c15a8440b7c4736faee657c03465b74",
+    "bytes": 1682
+  },
+  "res://docs/art/world/route1-rd-polish-2026-10-01/review/final_bank.jpg": {
+    "source": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/work/route_refinement/polish/review/final_bank.jpg",
+    "sha256": "5be70554fb9691b8b67d2bc7db0c6dd32f7223c61afec323ff91b093119badcf",
+    "bytes": 84997
+  },
+  "res://docs/art/world/route1-rd-polish-2026-10-01/review/final_bank.json": {
+    "source": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/work/route_refinement/polish/review/final_bank.json",
+    "sha256": "dd9dfdcc22a04450eed83f070b7bcf29295f8dfb30936c7f24a7c2e37c0c2419",
+    "bytes": 1251
+  },
+  "res://docs/art/world/route1-rd-polish-2026-10-01/review/final_complete.jpg": {
+    "source": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/work/route_refinement/polish/review/final_complete.jpg",
+    "sha256": "e724ae2839a68bf8265f7927d3cea278ed54f4623f32e4ebff8762a9a3fa18f2",
+    "bytes": 123734
+  },
+  "res://docs/art/world/route1-rd-polish-2026-10-01/review/final_complete.json": {
+    "source": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/work/route_refinement/polish/review/final_complete.json",
+    "sha256": "d8e793ade4ee427134ddcea0bdc4722ff36f88d9227ffb17ee1e0b1b68c723b0",
+    "bytes": 1234
+  },
+  "res://docs/art/world/route1-rd-polish-2026-10-01/review/final_deliver.jpg": {
+    "source": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/work/route_refinement/polish/review/final_deliver.jpg",
+    "sha256": "36c5c3fe882e6b9d0aac777090f790117e755e4ccf5caa4937b792e5454317c9",
+    "bytes": 89921
+  },
+  "res://docs/art/world/route1-rd-polish-2026-10-01/review/final_deliver.json": {
+    "source": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/work/route_refinement/polish/review/final_deliver.json",
+    "sha256": "9a499861bd45313a3157950eb7af9830f1bd6399f70899c1988dd44ff029ca09",
+    "bytes": 1685
+  },
+  "res://docs/art/world/route1-rd-polish-2026-10-01/review/final_inspect_height.jpg": {
+    "source": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/work/route_refinement/polish/review/final_inspect_height.jpg",
+    "sha256": "688ec535ee0f5d2d74253ae986b5901ab39acd3492d6a03d7d7a7b93112046ba",
+    "bytes": 90381
+  },
+  "res://docs/art/world/route1-rd-polish-2026-10-01/review/final_inspect_height.json": {
+    "source": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/work/route_refinement/polish/review/final_inspect_height.json",
+    "sha256": "e0b7960dc1fa6e75bcddc3f987ecef11a5740967d1899118aad9b794cdc5176e",
+    "bytes": 1688
+  },
+  "res://docs/art/world/route1-rd-polish-2026-10-01/review/final_listen.jpg": {
+    "source": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/work/route_refinement/polish/review/final_listen.jpg",
+    "sha256": "3b7f041f5f911afa1f3b885f2227a8e164fbab7616837f0fef00700b79b3a1aa",
+    "bytes": 80851
+  },
+  "res://docs/art/world/route1-rd-polish-2026-10-01/review/final_listen.json": {
+    "source": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/work/route_refinement/polish/review/final_listen.json",
+    "sha256": "00416f9e4b8ec0ea719fcfa710e645fa239113fbd7d31862cffaabb65a5396e2",
+    "bytes": 1683
+  },
+  "res://docs/art/world/route1-rd-polish-2026-10-01/review/final_report_choices.jpg": {
+    "source": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/work/route_refinement/polish/review/final_report_choices.jpg",
+    "sha256": "ab45f4797b6fecd96241f91284fb082e78b45ddfd0a277b143686a21f52611af",
+    "bytes": 125710
+  },
+  "res://docs/art/world/route1-rd-polish-2026-10-01/review/final_report_choices.json": {
+    "source": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/work/route_refinement/polish/review/final_report_choices.json",
+    "sha256": "7f2d6ec2d1a278902d0940a997af57ea7bfe8d2a27b15c2f28bf18fa16e5b0e4",
+    "bytes": 1678
+  },
+  "res://docs/art/world/route1-rd-polish-2026-10-01/review/final_restore_marker.jpg": {
+    "source": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/work/route_refinement/polish/review/final_restore_marker.jpg",
+    "sha256": "7b6cfc0d4202c53a72f4428e54d41724169b5caaafb361587f1d4b382e48444e",
+    "bytes": 120093
+  },
+  "res://docs/art/world/route1-rd-polish-2026-10-01/review/final_restore_marker.json": {
+    "source": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/work/route_refinement/polish/review/final_restore_marker.json",
+    "sha256": "dae89e5329f78b5269e20e3937ec3b9fe59f145aa63a1cfcdd651ffe207f2885",
+    "bytes": 1681
+  },
+  "res://docs/art/world/route1-rd-polish-2026-10-01/review/final_start.jpg": {
+    "source": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/work/route_refinement/polish/review/final_start.jpg",
+    "sha256": "78dbb86f86e6b4493e9655988545fb5c11dab13cd92158d5c4d55a33545d241b",
+    "bytes": 117385
+  },
+  "res://docs/art/world/route1-rd-polish-2026-10-01/review/final_start.json": {
+    "source": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/work/route_refinement/polish/review/final_start.json",
+    "sha256": "1327fe2dbd4b52956eba664f523a2bb019332f1045330ccf976d56e98082964c",
+    "bytes": 1683
+  },
+  "res://docs/art/world/route1-rd-polish-2026-10-01/review/office_approach.jpg": {
+    "source": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/work/route_refinement/polish/review/office_approach.jpg",
+    "sha256": "f0abea7c8ec62f1546a8f9c36ff06e912a378868cf9d37bd9c762149cb98b997",
+    "bytes": 100474
+  },
+  "res://docs/art/world/route1-rd-polish-2026-10-01/review/office_approach.json": {
+    "source": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/work/route_refinement/polish/review/office_approach.json",
+    "sha256": "c4086f05df0a38e767e54fd103247e098d7563b2e7d15ba2b1eac644c877aa14",
+    "bytes": 1394
+  },
+  "res://docs/art/world/route1-rd-polish-2026-10-01/review/office_dispatch.jpg": {
+    "source": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/work/route_refinement/polish/review/office_dispatch.jpg",
+    "sha256": "1ab0c5626f2fddc2c1664d07b383d8f45a46080adfb5f775867d9452a4d3abd1",
+    "bytes": 106673
+  },
+  "res://docs/art/world/route1-rd-polish-2026-10-01/review/office_dispatch.json": {
+    "source": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/work/route_refinement/polish/review/office_dispatch.json",
+    "sha256": "68d3754fde5787a21bef209bec0385531840e58f942ee60e29a5179f408b1a9b",
+    "bytes": 1393
+  },
+  "res://docs/art/world/route1-rd-polish-2026-10-01/review/office_final_bank.jpg": {
+    "source": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/work/route_refinement/polish/review/office_final_bank.jpg",
+    "sha256": "2a5bb489a14430d92862bb884baa2edd56b0093bf8516dee404d9be4c190f641",
+    "bytes": 75822
+  },
+  "res://docs/art/world/route1-rd-polish-2026-10-01/review/office_final_bank.json": {
+    "source": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/work/route_refinement/polish/review/office_final_bank.json",
+    "sha256": "2aa80e8abae7eb4e69bcdefee76647ae4b16cbcf4cc2d9ea373babc74c4e9339",
+    "bytes": 1390
+  },
+  "res://docs/art/world/route1-rd-polish-2026-10-01/review/office_start.jpg": {
+    "source": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/work/route_refinement/polish/review/office_start.jpg",
+    "sha256": "fe8c3886d293544ee7135204425ade8506373a2ff18544a2e25ff27ee119e867",
+    "bytes": 98891
+  },
+  "res://docs/art/world/route1-rd-polish-2026-10-01/review/office_start.json": {
+    "source": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/work/route_refinement/polish/review/office_start.json",
+    "sha256": "b8234541f0a8195c75a2fdfbf626cc7b09c50dd15c683185355718e9ef6413fd",
+    "bytes": 1390
+  },
+  "res://docs/art/world/route1-rd-polish-2026-10-01/review/previous_final_assignment.json": {
+    "source": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/work/route_refinement/polish/review/previous_final_assignment.json",
+    "sha256": "f346a2d013d6a4494fe1d5f829081187ef40ee6a898a5a67bdf26d1b2b86a9df",
+    "bytes": 779
+  },
+  "res://docs/art/world/route1-rd-polish-2026-10-01/review/previous_tests.json": {
+    "source": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/work/route_refinement/polish/review/previous_tests.json",
+    "sha256": "16d42feea20f3c863bb5eeb66cbaf13c3f2be4d9e869671ccfbf488130894bcd",
+    "bytes": 456
+  },
+  "res://docs/art/world/route1-rd-polish-2026-10-01/review/start.jpg": {
+    "source": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/work/route_refinement/polish/review/start.jpg",
+    "sha256": "92b3aa3eec30811f1e855ef1596438ef6655bee80dc4f2fe2ae726bebcf07d20",
+    "bytes": 98479
+  },
+  "res://docs/art/world/route1-rd-polish-2026-10-01/review/start.json": {
+    "source": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/work/route_refinement/polish/review/start.json",
+    "sha256": "81deb56bf9476ec30ec0e15367a676e95ebdbaf8c31bfcc9a583290667f72039",
+    "bytes": 1431
+  },
+  "res://docs/art/world/route1-rd-polish-2026-10-01/review/tree_behind.jpg": {
+    "source": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/work/route_refinement/polish/review/tree_behind.jpg",
+    "sha256": "889ef6f4ce2d895c5a945c25ec11acaea37e6c3fa38fd30937984f4ec551c473",
+    "bytes": 111141
+  },
+  "res://docs/art/world/route1-rd-polish-2026-10-01/review/tree_behind.json": {
+    "source": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/work/route_refinement/polish/review/tree_behind.json",
+    "sha256": "08095b1b9f242be055486e8dacf036d8c16e4843bce0f211e2cf0723f9a2d2ad",
+    "bytes": 11117
+  },
+  "res://docs/art/world/route1-rd-polish-2026-10-01/review/tree_front.jpg": {
+    "source": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/work/route_refinement/polish/review/tree_front.jpg",
+    "sha256": "57bdc8226786cd7d62987901d83c60b0af4101c3451ce2ee33eb185e29e7caf7",
+    "bytes": 112611
+  },
+  "res://docs/art/world/route1-rd-polish-2026-10-01/review/tree_front.json": {
+    "source": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/work/route_refinement/polish/review/tree_front.json",
+    "sha256": "a1c09367435299fdac181521b477bed9e2ea3753141007ddbbff7042248244ae",
+    "bytes": 11118
+  }
+}

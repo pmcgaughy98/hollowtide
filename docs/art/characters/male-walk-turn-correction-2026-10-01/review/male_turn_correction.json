@@ -1,0 +1,132 @@
+{
+  "source": "C:\\Users\\pmcga\\dev\\hollowtide\\assets\\sprites\\player\\retro_diffusion_chibi_walking_2026_10_01\\male_chibi_walk_eight_directions_native80.png",
+  "source_sha256": "db838a6520874d974796cda537e241b676a31828de60aae8c09366c6d5ad0f7a",
+  "output_sha256": "21ad8dbd0de80a5825f2a2f8590b31c240dea127ba458934ddff121087e153ef",
+  "unchanged_rows": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    7
+  ],
+  "corrected_rows": [
+    5,
+    6
+  ],
+  "method": "Per-frame horizontal reflection of approved left and up-left. No resampling. Accessories follow the reflection.",
+  "checks": [
+    {
+      "source_row": 2,
+      "destination_row": 6,
+      "beat": 0,
+      "height": 65,
+      "exact_mirror": true
+    },
+    {
+      "source_row": 2,
+      "destination_row": 6,
+      "beat": 1,
+      "height": 65,
+      "exact_mirror": true
+    },
+    {
+      "source_row": 2,
+      "destination_row": 6,
+      "beat": 2,
+      "height": 63,
+      "exact_mirror": true
+    },
+    {
+      "source_row": 2,
+      "destination_row": 6,
+      "beat": 3,
+      "height": 63,
+      "exact_mirror": true
+    },
+    {
+      "source_row": 2,
+      "destination_row": 6,
+      "beat": 4,
+      "height": 64,
+      "exact_mirror": true
+    },
+    {
+      "source_row": 2,
+      "destination_row": 6,
+      "beat": 5,
+      "height": 64,
+      "exact_mirror": true
+    },
+    {
+      "source_row": 2,
+      "destination_row": 6,
+      "beat": 6,
+      "height": 64,
+      "exact_mirror": true
+    },
+    {
+      "source_row": 2,
+      "destination_row": 6,
+      "beat": 7,
+      "height": 64,
+      "exact_mirror": true
+    },
+    {
+      "source_row": 3,
+      "destination_row": 5,
+      "beat": 0,
+      "height": 64,
+      "exact_mirror": true
+    },
+    {
+      "source_row": 3,
+      "destination_row": 5,
+      "beat": 1,
+      "height": 64,
+      "exact_mirror": true
+    },
+    {
+      "source_row": 3,
+      "destination_row": 5,
+      "beat": 2,
+      "height": 64,
+      "exact_mirror": true
+    },
+    {
+      "source_row": 3,
+      "destination_row": 5,
+      "beat": 3,
+      "height": 64,
+      "exact_mirror": true
+    },
+    {
+      "source_row": 3,
+      "destination_row": 5,
+      "beat": 4,
+      "height": 64,
+      "exact_mirror": true
+    },
+    {
+      "source_row": 3,
+      "destination_row": 5,
+      "beat": 5,
+      "height": 64,
+      "exact_mirror": true
+    },
+    {
+      "source_row": 3,
+      "destination_row": 5,
+      "beat": 6,
+      "height": 63,
+      "exact_mirror": true
+    },
+    {
+      "source_row": 3,
+      "destination_row": 5,
+      "beat": 7,
+      "height": 62,
+      "exact_mirror": true
+    }
+  ]
+}
