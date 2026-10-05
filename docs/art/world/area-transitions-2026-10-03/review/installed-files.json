@@ -1,0 +1,21 @@
+[
+  "scripts/main_menu.gd",
+  "scripts/first_route_prototype.gd",
+  "scenes/first_route_prototype.tscn",
+  "scripts/route1_crossing.gd",
+  "scripts/route1_landscape.gd",
+  "scripts/route1_map_polish.gd",
+  "scripts/world_journey.gd",
+  "scripts/world_area.gd",
+  "scripts/area_landscape.gd",
+  "scripts/route1_approach.gd",
+  "scenes/world_journey.tscn",
+  "scenes/hometown.tscn",
+  "scenes/city_riverfront.tscn",
+  "assets/sprites/world/area_transitions_2026_10_03/brick_shop.png",
+  "assets/sprites/world/area_transitions_2026_10_03/hometown_streets.png",
+  "assets/sprites/world/area_transitions_2026_10_03/ledger_house.png",
+  "assets/sprites/world/area_transitions_2026_10_03/riverfront_streets.png",
+  "assets/sprites/world/area_transitions_2026_10_03/riverfront_water_mask.png",
+  "assets/sprites/world/area_transitions_2026_10_03/route1_meadow_approach.png"
+]

@@ -1,0 +1,13 @@
+Precisely repair only the white mask on this native 256x192 pixel-art atlas of SIX TAIL CROPS. Black mask pixels, existing glowing bulbs, native grid and crop positions must stay exact. Background is solid magenta #ff00ff. There are six separate crops, NOT one connected drawing. Never join across crop boundaries. No text, no extra creature bodies, no extra lanterns.
+
+1. TOP LEFT x0..111,y0..95: WAYBURN FRONT tail. Rebuild the actual awkward flat horizontal loop as a naturally curved reptile tail. Smooth rising C/S shape behind the hips, strong at its preserved root at x78,y81, gradual tapered curves ending in a readable 3-pixel brown skin neck at the EXISTING top-right lantern around x103,y20. Preserve that lamp and the protected hip. Avoid a flat straight shelf, squared pipe or hair-thin thread. Match the existing tan tail's continuous golden marking, scale shading and dark outline.
+
+2. TOP CENTER x112..175,y0..63: KITHFLARE FRONT curled tail and bulb. Strengthen only its masked small stem/collar so the warm bulb reads as an organic growth at the tail tip, not a dangling separate ornament. Smooth warm brown skin attachment with continuous dark outline.
+3. TOP RIGHT x176..239,y0..63: KITHFLARE BACK tail and bulb, same attachment fix.
+4. CENTER x112..175,y64..127: WAYBURN BACK tail and bulb, same attachment fix with the original tan skin shading.
+
+5. LOWER LEFT x0..79,y96..175: COALCREST FRONT tail base and its repositioned original striped round lantern.
+6. CENTER RIGHT x176..255,y64..143: COALCREST BACK tail base and same striped round lantern.
+For BOTH Coalcrest crops, rebuild the distal tail into a strong organic upward curl from the preserved brown root at the right of the crop, sweeping left then upward/inward and terminating at the TOP of the existing lantern. The local crop lamp occupies x26..56,y18..48; attach a short thick skin neck at local x42,y19. Same design from both angles. Match each view's own brown scale material and dark outlines. Keep every lantern pixel unchanged. No cord, chain, metal handle, disconnected bulb, second tail, foot-like tail stump or straight shelf. Remove obsolete tail mass only inside the white mask. Keep the protected rump, legs and sail outside it intact.
+
+Use one-native-pixel clusters, restrained highlights and the source sprites' own materials. No antialiasing, no resizing, no checkerboard, no whole-sheet repaint. All remaining background exact magenta.

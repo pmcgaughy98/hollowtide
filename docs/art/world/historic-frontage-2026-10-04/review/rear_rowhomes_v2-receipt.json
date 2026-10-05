@@ -1,0 +1,27 @@
+[
+  {
+    "request_id": "762d5bd2-e42e-46cd-8879-1600531e6a03",
+    "operation": "inference",
+    "status": "succeeded",
+    "mode": "async",
+    "created_at": 1791122063,
+    "updated_at": 1791122097,
+    "completed_at": 1791122097,
+    "credit_cost": 1,
+    "balance_cost": 0.18,
+    "charged": true,
+    "http_status": 200,
+    "output_status": "available",
+    "input": {
+      "name": "rear_rowhomes_v2",
+      "prompt_sha256": "36c984308196a43d3b929872b4d1a60c9e5213d56f14f620299034a6da52eabe",
+      "seed": 2026100412,
+      "width": 224,
+      "height": 192,
+      "prompt_style": "rd_pro__default",
+      "reference_images": 0
+    },
+    "saved_original": "rear_rowhomes_v2-original.png",
+    "sha256": "b3838f8274cceff2246bb99f4e378ce33fe4da1933a8709c1ec1b31302cc7c39"
+  }
+]

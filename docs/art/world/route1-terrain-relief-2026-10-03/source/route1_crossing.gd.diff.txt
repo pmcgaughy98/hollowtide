@@ -1,0 +1,13 @@
+--- before/scripts/route1_crossing.gd
++++ current/scripts/route1_crossing.gd
+@@ -43,6 +43,10 @@
+ 	landscape.name = "Landscape"
+ 	landscape.z_index = -2
+ 	add_child(landscape)
++	var relief := preload("res://scripts/route1_terrain_relief.gd").new()
++	relief.name = "TerrainRelief"
++	relief.z_index = -1
++	add_child(relief)
+ 	queue_redraw()
+ 
+ 

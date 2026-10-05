@@ -1,0 +1,18 @@
+{
+  "width": 32,
+  "height": 24,
+  "num_images": 2,
+  "prompt": "One isolated small low tuft of meadow grass for Hollowtide, native 32x24 pixel art, top-down three-quarter RPG view. Mostly muted sage and olive blades matching the reference grass ground. Nine short irregular thin grass blades rising loosely from an almost invisible root point, height 10 to 14 pixels, airy gaps and asymmetric shape. Leaves only, no flowers, no large reed stalks, no crescent, no hedge, no dirt patch, no planter, no rock, no ground slab, no chunky black outer border. Tiny dry tips on two leaves. Crisp single pixels and compact leaf clusters, desaturated forest-green shadows. Transparent background, 4 pixel margin all sides.",
+  "prompt_style": "rd_pro__topdown",
+  "remove_bg": true,
+  "bypass_prompt_expansion": true,
+  "references": [
+    "assets/tilesets/route1_rd_2026_10_01/route1_ground_atlas_polished.png",
+    "assets/sprites/world/route1_rd_2026_10_02/cottonwood_ridge.png"
+  ],
+  "task_id": "a0c31f5e-7247-4868-a131-9a8fe123af49",
+  "confirmed_balance_cost": 0.36,
+  "seed": null,
+  "seed_note": "Not echoed in saved paid response; omitted rather than inferred."
+}
+

@@ -1,0 +1,395 @@
+{
+	"checks": [
+		{
+			"installed_texture": true,
+			"native_texture": "res://assets/sprites/creatures/coalcrest_rechecked_2026_10_04/coalcrest_front.png",
+			"original_zoom": 2.0,
+			"scale_preserved": true,
+			"species": "coalcrest",
+			"updated_zoom": 2.0,
+			"view": "front"
+		},
+		{
+			"diagnostic_hud_hidden": true,
+			"motion_samples": [
+				{
+					"frame": 1,
+					"position": "(820.0, 226.0)",
+					"rotation": 0.0,
+					"scale": "(2.0, 2.0)",
+					"texture": "res://assets/sprites/creatures/coalcrest_rechecked_2026_10_04/coalcrest_front.png"
+				},
+				{
+					"frame": 15,
+					"position": "(820.0, 226.0)",
+					"rotation": 0.0,
+					"scale": "(2.0, 2.0)",
+					"texture": "res://assets/sprites/creatures/coalcrest_rechecked_2026_10_04/coalcrest_front.png"
+				},
+				{
+					"frame": 30,
+					"position": "(820.0, 226.0)",
+					"rotation": 0.0,
+					"scale": "(2.0, 2.0)",
+					"texture": "res://assets/sprites/creatures/coalcrest_rechecked_2026_10_04/coalcrest_front.png"
+				},
+				{
+					"frame": 60,
+					"position": "(820.0, 226.0)",
+					"rotation": 0.0,
+					"scale": "(2.0, 2.0)",
+					"texture": "res://assets/sprites/creatures/coalcrest_rechecked_2026_10_04/coalcrest_front.png"
+				},
+				{
+					"frame": 90,
+					"position": "(818.9282, 226.0)",
+					"rotation": 0.0,
+					"scale": "(2.0, 2.0)",
+					"texture": "res://assets/sprites/creatures/coalcrest_rechecked_2026_10_04/coalcrest_front.png"
+				},
+				{
+					"frame": 120,
+					"position": "(820.0, 226.0)",
+					"rotation": 0.0,
+					"scale": "(2.0, 2.0)",
+					"texture": "res://assets/sprites/creatures/coalcrest_rechecked_2026_10_04/coalcrest_front.png"
+				}
+			],
+			"move": "coalcrest-front-crest_signal",
+			"observed_frames": 158,
+			"passed": true,
+			"position_restored": true,
+			"reverse_released": true,
+			"sampled_frames": [
+				1,
+				15,
+				30,
+				60,
+				90,
+				120
+			],
+			"texture_restored": true,
+			"unrepaired_texture_seen": false
+		},
+		{
+			"diagnostic_hud_hidden": true,
+			"motion_samples": [
+				{
+					"frame": 1,
+					"position": "(820.0, 226.0)",
+					"rotation": 0.0,
+					"scale": "(2.0, 2.0)",
+					"texture": "res://assets/sprites/creatures/coalcrest_rechecked_2026_10_04/coalcrest_front.png"
+				},
+				{
+					"frame": 15,
+					"position": "(820.0, 226.0)",
+					"rotation": 0.0,
+					"scale": "(2.0, 2.0)",
+					"texture": "res://assets/sprites/creatures/coalcrest_rechecked_2026_10_04/coalcrest_front.png"
+				},
+				{
+					"frame": 30,
+					"position": "(820.0, 226.0)",
+					"rotation": 0.0,
+					"scale": "(2.0, 2.0)",
+					"texture": "res://assets/sprites/creatures/coalcrest_rechecked_2026_10_04/coalcrest_front.png"
+				},
+				{
+					"frame": 60,
+					"position": "(820.0, 226.0)",
+					"rotation": 0.0,
+					"scale": "(2.0, 2.0)",
+					"texture": "res://assets/sprites/creatures/coalcrest_rechecked_2026_10_04/coalcrest_front.png"
+				},
+				{
+					"frame": 90,
+					"position": "(817.7899, 226.0)",
+					"rotation": 0.0,
+					"scale": "(2.0, 2.0)",
+					"texture": "res://assets/sprites/creatures/coalcrest_rechecked_2026_10_04/coalcrest_front.png"
+				},
+				{
+					"frame": 120,
+					"position": "(820.0, 226.0)",
+					"rotation": 0.0,
+					"scale": "(2.0, 2.0)",
+					"texture": "res://assets/sprites/creatures/coalcrest_rechecked_2026_10_04/coalcrest_front.png"
+				}
+			],
+			"move": "coalcrest-front-furnace_bolt",
+			"observed_frames": 159,
+			"passed": true,
+			"position_restored": true,
+			"reverse_released": true,
+			"sampled_frames": [
+				1,
+				15,
+				30,
+				60,
+				90,
+				120
+			],
+			"texture_restored": true,
+			"unrepaired_texture_seen": false
+		},
+		{
+			"diagnostic_hud_hidden": true,
+			"motion_samples": [
+				{
+					"frame": 1,
+					"position": "(820.0, 226.0)",
+					"rotation": 0.0,
+					"scale": "(2.0, 2.0)",
+					"texture": "res://assets/sprites/creatures/coalcrest_rechecked_2026_10_04/coalcrest_front.png"
+				},
+				{
+					"frame": 15,
+					"position": "(820.0, 226.0)",
+					"rotation": 0.0,
+					"scale": "(2.0, 2.0)",
+					"texture": "res://assets/sprites/creatures/coalcrest_rechecked_2026_10_04/coalcrest_front.png"
+				},
+				{
+					"frame": 30,
+					"position": "(820.0, 226.0)",
+					"rotation": 0.0,
+					"scale": "(2.0, 2.0)",
+					"texture": "res://assets/sprites/creatures/coalcrest_rechecked_2026_10_04/coalcrest_front.png"
+				},
+				{
+					"frame": 60,
+					"position": "(820.0, 226.0)",
+					"rotation": 0.0,
+					"scale": "(2.0, 2.0)",
+					"texture": "res://assets/sprites/creatures/coalcrest_rechecked_2026_10_04/coalcrest_front.png"
+				},
+				{
+					"frame": 90,
+					"position": "(817.7899, 226.0)",
+					"rotation": 0.0,
+					"scale": "(2.0, 2.0)",
+					"texture": "res://assets/sprites/creatures/coalcrest_rechecked_2026_10_04/coalcrest_front.png"
+				},
+				{
+					"frame": 120,
+					"position": "(820.0, 226.0)",
+					"rotation": 0.0,
+					"scale": "(2.0, 2.0)",
+					"texture": "res://assets/sprites/creatures/coalcrest_rechecked_2026_10_04/coalcrest_front.png"
+				}
+			],
+			"move": "coalcrest-front-longfire_burst",
+			"observed_frames": 159,
+			"passed": true,
+			"position_restored": true,
+			"reverse_released": true,
+			"sampled_frames": [
+				1,
+				15,
+				30,
+				60,
+				90,
+				120
+			],
+			"texture_restored": true,
+			"unrepaired_texture_seen": false
+		},
+		{
+			"installed_texture": true,
+			"native_texture": "res://assets/sprites/creatures/coalcrest_rechecked_2026_10_04/coalcrest_back.png",
+			"original_zoom": 2.5,
+			"scale_preserved": true,
+			"species": "coalcrest",
+			"updated_zoom": 2.5,
+			"view": "back"
+		},
+		{
+			"diagnostic_hud_hidden": true,
+			"motion_samples": [
+				{
+					"frame": 1,
+					"position": "(300.0, 406.0)",
+					"rotation": 0.0,
+					"scale": "(2.5, 2.5)",
+					"texture": "res://assets/sprites/creatures/coalcrest_rechecked_2026_10_04/coalcrest_back.png"
+				},
+				{
+					"frame": 15,
+					"position": "(300.0, 406.0)",
+					"rotation": 0.0,
+					"scale": "(2.5, 2.5)",
+					"texture": "res://assets/sprites/creatures/coalcrest_rechecked_2026_10_04/coalcrest_back.png"
+				},
+				{
+					"frame": 30,
+					"position": "(300.0, 406.0)",
+					"rotation": 0.0,
+					"scale": "(2.5, 2.5)",
+					"texture": "res://assets/sprites/creatures/coalcrest_rechecked_2026_10_04/coalcrest_back.png"
+				},
+				{
+					"frame": 60,
+					"position": "(300.0, 406.0)",
+					"rotation": 0.0,
+					"scale": "(2.5, 2.5)",
+					"texture": "res://assets/sprites/creatures/coalcrest_rechecked_2026_10_04/coalcrest_back.png"
+				},
+				{
+					"frame": 90,
+					"position": "(300.0, 406.0)",
+					"rotation": 0.0,
+					"scale": "(2.5, 2.5)",
+					"texture": "res://assets/sprites/creatures/coalcrest_rechecked_2026_10_04/coalcrest_back.png"
+				},
+				{
+					"frame": 120,
+					"position": "(300.0, 406.0)",
+					"rotation": 0.0,
+					"scale": "(2.5, 2.5)",
+					"texture": "res://assets/sprites/creatures/coalcrest_rechecked_2026_10_04/coalcrest_back.png"
+				}
+			],
+			"move": "coalcrest-back-crest_signal",
+			"observed_frames": 153,
+			"passed": true,
+			"position_restored": true,
+			"reverse_released": true,
+			"sampled_frames": [
+				1,
+				15,
+				30,
+				60,
+				90,
+				120
+			],
+			"texture_restored": true,
+			"unrepaired_texture_seen": false
+		},
+		{
+			"diagnostic_hud_hidden": true,
+			"motion_samples": [
+				{
+					"frame": 1,
+					"position": "(300.0, 406.0)",
+					"rotation": 0.0,
+					"scale": "(2.5, 2.5)",
+					"texture": "res://assets/sprites/creatures/coalcrest_rechecked_2026_10_04/coalcrest_back.png"
+				},
+				{
+					"frame": 15,
+					"position": "(300.0, 406.0)",
+					"rotation": 0.0,
+					"scale": "(2.5, 2.5)",
+					"texture": "res://assets/sprites/creatures/coalcrest_rechecked_2026_10_04/coalcrest_back.png"
+				},
+				{
+					"frame": 30,
+					"position": "(300.0, 406.0)",
+					"rotation": 0.0,
+					"scale": "(2.5, 2.5)",
+					"texture": "res://assets/sprites/creatures/coalcrest_rechecked_2026_10_04/coalcrest_back.png"
+				},
+				{
+					"frame": 60,
+					"position": "(300.0, 406.0)",
+					"rotation": 0.0,
+					"scale": "(2.5, 2.5)",
+					"texture": "res://assets/sprites/creatures/coalcrest_rechecked_2026_10_04/coalcrest_back.png"
+				},
+				{
+					"frame": 90,
+					"position": "(300.0, 406.0)",
+					"rotation": 0.0,
+					"scale": "(2.5, 2.5)",
+					"texture": "res://assets/sprites/creatures/coalcrest_rechecked_2026_10_04/coalcrest_back.png"
+				},
+				{
+					"frame": 120,
+					"position": "(300.0, 406.0)",
+					"rotation": 0.0,
+					"scale": "(2.5, 2.5)",
+					"texture": "res://assets/sprites/creatures/coalcrest_rechecked_2026_10_04/coalcrest_back.png"
+				}
+			],
+			"move": "coalcrest-back-furnace_bolt",
+			"observed_frames": 154,
+			"passed": true,
+			"position_restored": true,
+			"reverse_released": true,
+			"sampled_frames": [
+				1,
+				15,
+				30,
+				60,
+				90,
+				120
+			],
+			"texture_restored": true,
+			"unrepaired_texture_seen": false
+		},
+		{
+			"diagnostic_hud_hidden": true,
+			"motion_samples": [
+				{
+					"frame": 1,
+					"position": "(300.0, 406.0)",
+					"rotation": 0.0,
+					"scale": "(2.5, 2.5)",
+					"texture": "res://assets/sprites/creatures/coalcrest_rechecked_2026_10_04/coalcrest_back.png"
+				},
+				{
+					"frame": 15,
+					"position": "(300.0, 406.0)",
+					"rotation": 0.0,
+					"scale": "(2.5, 2.5)",
+					"texture": "res://assets/sprites/creatures/coalcrest_rechecked_2026_10_04/coalcrest_back.png"
+				},
+				{
+					"frame": 30,
+					"position": "(300.0, 406.0)",
+					"rotation": 0.0,
+					"scale": "(2.5, 2.5)",
+					"texture": "res://assets/sprites/creatures/coalcrest_rechecked_2026_10_04/coalcrest_back.png"
+				},
+				{
+					"frame": 60,
+					"position": "(300.0, 406.0)",
+					"rotation": 0.0,
+					"scale": "(2.5, 2.5)",
+					"texture": "res://assets/sprites/creatures/coalcrest_rechecked_2026_10_04/coalcrest_back.png"
+				},
+				{
+					"frame": 90,
+					"position": "(300.3241, 406.0)",
+					"rotation": 0.0,
+					"scale": "(2.5, 2.5)",
+					"texture": "res://assets/sprites/creatures/coalcrest_rechecked_2026_10_04/coalcrest_back.png"
+				},
+				{
+					"frame": 120,
+					"position": "(300.0, 406.0)",
+					"rotation": 0.0,
+					"scale": "(2.5, 2.5)",
+					"texture": "res://assets/sprites/creatures/coalcrest_rechecked_2026_10_04/coalcrest_back.png"
+				}
+			],
+			"move": "coalcrest-back-longfire_burst",
+			"observed_frames": 157,
+			"passed": true,
+			"position_restored": true,
+			"reverse_released": true,
+			"sampled_frames": [
+				1,
+				15,
+				30,
+				60,
+				90,
+				120
+			],
+			"texture_restored": true,
+			"unrepaired_texture_seen": false
+		}
+	],
+	"passed": true
+}

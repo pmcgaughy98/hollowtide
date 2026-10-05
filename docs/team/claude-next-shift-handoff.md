@@ -1,5 +1,7 @@
 # Claude's next Hollowtide work: battle framing and creature state
 
+**2026-10-02.** This shift note is older than the creature rules. Read the top of `docs/AI_COLLABORATION.md` first. `PartyMember` now also keeps that run's known moves after an evolution. The win trigger is already the rule for any form with a link. HP between battles and saving are still the open job in section 2. Grok now owns future creature and move rules in `docs/creatures/DESIGN_RULES.md`. Grok still does not draw creature sprites. Codex still has Route 1.
+
 **Prepared 2026-09-27 for Claude's next available session.** Preston asked which research-backed tasks should get attention when Claude's usage resets. This is a handoff proposal, not a change to the game or a command from Gemini. Preston's current direction and approved art remain authoritative.
 
 ## Decision

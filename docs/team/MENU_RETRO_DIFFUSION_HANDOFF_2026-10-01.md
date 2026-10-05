@@ -1,5 +1,14 @@
 # Courier Lookout Retro Diffusion menu update | October 1, 2026
 
+## Current status: October 3 menu flow and sprite consistency
+
+Later direct user requests expanded work beyond this historical menu-only handoff. The broader world goal remains active. Current menu flow and sprite consistency are installed and verified; the saved terrain candidate remains inactive. See [exact current record](../art/review/consistency-2026-10-03/README.md) and the top of [AI collaboration](../AI_COLLABORATION.md).
+
+Courier selection now updates with keyboard/D-pad/mouse; female texture finish is shared by current player/menu/review/clerk uses; Vitrecrag cracks remain through attacks and portrait; Ironvent uses grey head armor through both views and raised Furnace Roar poses; Clinkerhide uses Preston's chosen rear, converted with real alpha and front-derived palette. Original artwork and creature/gameplay rules remain preserved. User runs Gemini Deep Research; prompts only on request. The accidental setup command was cancelled and never run.
+
+The sections below are historical records and retain their original checks/scope.
+
+
 
 ## Latest revision: real walking arrival and eight-direction chibi assets
 Preston requested Retro Diffusion walking motion, then male/female chibi walks, selecting all eight directions. The menu now uses two new walking atlases before returning to the saved idles. Courier walks from feet (174,466) to (300,424), starting at 0.3s and arriving at 2.7s after three 0.8s cycles. Cinderhide walks from (296,498) to (432,448), starting at 0.5s and arriving at 3.38s after three 0.96s cycles. Its layered ground shadow follows the foot anchor. Existing scenery, sizes, direction, controls and idle artwork are preserved. Idle clocks start from standing frame 0 after arrival; old phase timing below is superseded.

@@ -1,0 +1,12 @@
+{
+  "scripts/world_journey.gd": "9390c4a367eefe3a8e43d534140b949765d9178632e0be946c39ad53eeb6838a",
+  "scripts/world_area.gd": "1cd3a31df3f45bade6aae60fe9062bd5d8ee638887261f215275de857ae768ae",
+  "scripts/area_landscape.gd": "dc0220da591edd37e0d16ccc3bff7960c979e2d192ad86fd24f349e3cd5b0d2f",
+  "scripts/courier_hall.gd": "db995b69cfe76dd39deb3aab0d631d83bff1bee9fe77e63848606d7cc712e941",
+  "scripts/courier_hall.gd.uid": "f4c1792f45ec4706343efa9e3790eef3248cc0480204f835578990ef65e5725e",
+  "scenes/courier_hall.tscn": "cc0fb058387f0d81b2e6546ef32b9785f786cffa4d3847ac21ea66153f8c3a2e",
+  "assets/sprites/world/courier_hall_2026_10_03/courier_hall_native.png": "7f40930c335f3292141b12bb6093ac852404dac821aaadee64479eb94f7b97e8",
+  "assets/sprites/world/courier_hall_2026_10_03/courier_hall_native.png.import": "329fc9ba188049c5dd451a52e49cece82b67053efb2f43f99e9e3f5493ba7fd4",
+  "assets/sprites/world/courier_hall_2026_10_03/counter_foreground.png": "e298824e335d987953e8c63385318e77baaa3813ab6915719d0bed89919c04c3",
+  "assets/sprites/world/courier_hall_2026_10_03/counter_foreground.png.import": "0fad1a49d818e35d84a894eb5d8939cc3adb4ff22a713f2cfde0eabae58aa221"
+}

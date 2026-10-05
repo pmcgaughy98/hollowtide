@@ -1,0 +1,51 @@
+from pathlib import Path
+import hashlib,json
+p=Path("C:/Users/pmcga/dev/hollowtide");s=Path.cwd();r=s/"route1-startup-review"
+guard={"scripts/route1_crossing.gd":"c38ec618cc9f4ba63d2642e8c919a57d93442fb244e4be56d376a6d7fe63a5c8","scripts/route1_landscape.gd":"9485eac765486adb5522a634981fa9c9cf30f1924e3e948766a88ea33c9d0867"}
+for rel,sha in guard.items(): assert hashlib.sha256((p/rel).read_bytes()).hexdigest()==sha
+for row in json.loads((r/"static-surface-manifest.json").read_text(encoding="utf-8")):
+ assert hashlib.sha256((p/row["file"]).read_bytes()).hexdigest()==row["sha256"]
+for target,candidate in [("scripts/route1_crossing.gd","startup_crossing_candidate.gd.txt"),("scripts/route1_landscape.gd","startup_landscape_candidate.gd.txt")]:
+ (p/target).write_bytes((s/candidate).read_bytes())
+def instrument(src,calls):
+ src=src.replace("extends Node2D","extends Node2D\nvar startup_profile_ms: Dictionary = {}",1)
+ for i,call in enumerate(calls):
+  needle="\t"+call+"()"
+  assert src.count(needle)==1,(call,src.count(needle))
+  src=src.replace(needle,"\tvar profile_started_%d := Time.get_ticks_msec()\n"%i+needle+"\n\tstartup_profile_ms[\""+call+"\"] = Time.get_ticks_msec() - profile_started_%d"%i)
+ return src
+land=instrument((p/"scripts/route1_landscape.gd").read_text(encoding="utf-8"),["_build_banks","_build_groves","_build_details","_vary_city_trees"])
+(s/"startup_after_profile_landscape.gd").write_text(land,encoding="utf-8")
+cross=instrument((p/"scripts/route1_crossing.gd").read_text(encoding="utf-8"),["_extend_ground","_build_river_surface","_build_levee_materials","_build_city_road_surface","_replace_bounds","_build_wayfinding","_build_arrival","_build_bridge_front"])
+cross=cross.replace('preload("res://scripts/route1_landscape.gd")','preload("'+(s/"startup_after_profile_landscape.gd").as_posix()+'")')
+(s/"startup_after_profile_crossing.gd").write_text(cross,encoding="utf-8")
+probe=(s/"startup_profile_review.gd").read_text(encoding="utf-8")
+probe=probe.replace("startup_profile_crossing.gd","startup_after_profile_crossing.gd").replace('"before-','"after-')
+# The after fixture reads imported textures and must not overwrite exact before bake sources.
+probe=probe.replace('image.save_png(OUT+pair[1])','image.save_png(OUT+"imported-"+pair[1])')
+(s/"startup_after_review.gd").write_text(probe,encoding="utf-8")
+ordinary=(s/"terrain_ordinary_walkthrough.gd").read_text(encoding="utf-8").replace('/terrain-relief-review/','/route1-startup-review/').replace('ordinary-walkthrough-results.json','after-ordinary-walkthrough-results.json').replace("ORDINARY_TERRAIN_WALKTHROUGH","ORDINARY_CACHED_ROUTE_WALKTHROUGH")
+(s/"startup_ordinary_walkthrough.gd").write_text(ordinary,encoding="utf-8")
+timing=r'''extends SceneTree
+const OUT := "__OUT__/"
+func _initialize() -> void:
+	call_deferred("_run")
+func _run() -> void:
+	var samples: Array=[]
+	for i in 3:
+		var started:=Time.get_ticks_msec()
+		var route: Node2D=load("res://scenes/first_route_prototype.tscn").instantiate()
+		root.add_child(route);current_scene=route
+		var ready_ms:=Time.get_ticks_msec()-started
+		var bank: Sprite2D=route.get_node("RiverCrossing/Landscape/WetBankContours")
+		var river: Node=route.get_node("RiverCrossing")
+		samples.append({"iteration":i+1,"scene_ready_ms":ready_ms,"fresh_flags":not route.pouch_accepted and not route.report_done,"water_animation_running":river.is_processing(),"foliage_animation_running":river.get_node("Landscape").is_processing(),"bank_visible":bank.visible})
+		route.queue_free();current_scene=null
+		for beat in 8:await process_frame
+	var file:=FileAccess.open(OUT+"after-unmodified-startup-samples.json",FileAccess.WRITE)
+	file.store_string(JSON.stringify({"unmodified_runtime":true,"first_load_fresh_process":true,"samples":samples},"\t"))
+	print("UNMODIFIED_ROUTE_STARTUP ",samples)
+	quit()
+'''.replace("__OUT__",r.as_posix())
+(s/"startup_repeated_loads.gd").write_text(timing,encoding="utf-8")
+print("Installed exact cached scenery renderers; final fixture, ordinary trip and reload timings prepared.")

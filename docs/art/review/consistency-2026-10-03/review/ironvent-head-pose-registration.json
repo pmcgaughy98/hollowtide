@@ -1,0 +1,47 @@
+[
+	{
+		"bounds": "(0.76, 0.4, 1.0, 0.67)",
+		"name": "rest",
+		"texture": "res://assets/sprites/creatures/attacks/ironvent_furnace_roar/style_matched/rest.png"
+	},
+	{
+		"bounds": "(0.76, 0.4, 1.0, 0.67)",
+		"name": "warm",
+		"texture": "res://assets/sprites/creatures/attacks/ironvent_furnace_roar/style_matched/warm.png"
+	},
+	{
+		"bounds": "(0.76, 0.4, 1.0, 0.67)",
+		"name": "pressure",
+		"texture": "res://assets/sprites/creatures/attacks/ironvent_furnace_roar/style_matched/pressure.png"
+	},
+	{
+		"bounds": "(0.73, 0.18, 1.0, 0.43)",
+		"name": "rear",
+		"texture": "res://assets/sprites/creatures/attacks/ironvent_furnace_roar/style_matched/rear.png"
+	},
+	{
+		"bounds": "(0.73, 0.18, 1.0, 0.43)",
+		"name": "open",
+		"texture": "res://assets/sprites/creatures/attacks/ironvent_furnace_roar/style_matched/open.png"
+	},
+	{
+		"bounds": "(0.73, 0.1, 1.0, 0.34)",
+		"name": "roar",
+		"texture": "res://assets/sprites/creatures/attacks/ironvent_furnace_roar/style_matched/roar.png"
+	},
+	{
+		"bounds": "(0.74, 0.16, 1.0, 0.37)",
+		"name": "settle",
+		"texture": "res://assets/sprites/creatures/attacks/ironvent_furnace_roar/style_matched/settle.png"
+	},
+	{
+		"bounds": "(0.76, 0.4, 1.0, 0.67)",
+		"name": "cool",
+		"texture": "res://assets/sprites/creatures/attacks/ironvent_furnace_roar/style_matched/cool.png"
+	},
+	{
+		"bounds": "(0.76, 0.32, 1.0, 0.64)",
+		"name": "titlecard_official_2026_09_30",
+		"texture": "res://assets/sprites/creatures/attacks/ironvent_furnace_roar/style_matched/titlecard_official_2026_09_30.png"
+	}
+]

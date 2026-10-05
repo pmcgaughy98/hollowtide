@@ -1,0 +1,6 @@
+{
+  "shop": "external paving rows 162..175 alpha-cleared; RGB and facade pixels above row 162 exact",
+  "ledger": "all original RGBA pixels exact",
+  "padding": "8 transparent pixels on each side; no scaling/filtering",
+  "source_originals_preserved": true
+}

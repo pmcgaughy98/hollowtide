@@ -1,0 +1,33 @@
+extends SceneTree
+const OUT := "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/route1-startup-review/"
+var route: Node2D
+func _initialize() -> void:
+	call_deferred("_run")
+func _capture(name: String) -> void:
+	await RenderingServer.frame_post_draw
+	root.get_texture().get_image().save_png(OUT+name+".png")
+func _run() -> void:
+	route=load("res://scenes/first_route_prototype.tscn").instantiate()
+	root.add_child(route);current_scene=route
+	var player: CharacterBody2D=route.get_node("Player")
+	player.set_physics_process(false);player.position=Vector2(512,320)
+	var camera: Camera2D=player.get_node("Camera2D")
+	camera.zoom=Vector2.ONE;camera.position=Vector2.ZERO;camera.position_smoothing_enabled=false;camera.reset_smoothing()
+	route._process(0.0);route.set_process(false)
+	for beat in 12:await process_frame
+	var crossing: Node=route.get_node("RiverCrossing")
+	var landscape: Node=crossing.get_node("Landscape")
+	var material: ShaderMaterial=crossing.get("_river_material")
+	var first: Vector2=material.get_shader_parameter("flow_offset")
+	var wind_first: float=landscape.get("_wind_material").get_shader_parameter("scene_clock")
+	await _capture("live-motion-start")
+	for beat in 150:await process_frame
+	var second: Vector2=material.get_shader_parameter("flow_offset")
+	var wind_second: float=landscape.get("_wind_material").get_shader_parameter("scene_clock")
+	await _capture("live-motion-end")
+	var passed:=first!=second and wind_first!=wind_second and crossing.is_processing() and landscape.is_processing()
+	var report:={"fixture_only":true,"fixed_fps":60,"elapsed_scene_seconds":2.5,"river_offset_start":str(first),"river_offset_end":str(second),"wind_clock_start":wind_first,"wind_clock_end":wind_second,"passed":passed}
+	var file:=FileAccess.open(OUT+"live-motion-results.json",FileAccess.WRITE)
+	file.store_string(JSON.stringify(report,"\t"))
+	print("CACHED_ROUTE_LIVE_MOTION ",report)
+	quit(0 if passed else 1)

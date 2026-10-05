@@ -1,0 +1,953 @@
+WorkerThreadPool: 12 threads, 3 max low-priority.
+[SE] Bundled .NET SDK found, set DOTNET_ROOT=C:/Users/pmcga/AppData/Local/SummerEngine/current/dotnet and prepended to PATH
+Welcome to Summer Engine (c) built on the awesome work by Godot 2007-present Juan Linietsky, Ariel Manzur & Godot Contributors.
+TextServer: Added interface "Dummy"
+TextServer: Added interface "ICU / HarfBuzz / Graphite (Built-in)"
+Devices:
+  #0: NVIDIA NVIDIA GeForce GTX 1660 SUPER - Supported, Discrete
+  #1: Microsoft Microsoft Basic Render Driver - Supported, CPU
+- Shader:
+  model: 6.5
+- D3D12 Variable Rate Shading supported:
+  Draw call
+  Primitive
+  Screen-space image (tile size: 16)
+- D3D12 multiview supported:
+  max view count: 4
+- Relaxed casting not supported
+- D3D12 16-bit ops supported: yes
+- Depth bounds test supported
+D3D12: Device does NOT support GPU UPLOAD heap. ReBAR must be enabled for this feature. Regular UPLOAD heaps will be used as fallback.
+D3D12 12_0 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce GTX 1660 SUPER
+SDL: Init OK!
+Using "winink" pen tablet driver...
+Shader 'CanvasSdfShaderRD' (group 0) SHA256: 0ea496eb6d6a6df84a2a39f969bb226bda3f9770915d3b8248c558777fe1d768
+Loading cache for shader CanvasSdfShaderRD, variant 0
+Loading cache for shader CanvasSdfShaderRD, variant 1
+Loading cache for shader CanvasSdfShaderRD, variant 2
+Loading cache for shader CanvasSdfShaderRD, variant 3
+Loading cache for shader CanvasSdfShaderRD, variant 4
+Loading cache for shader CanvasSdfShaderRD, variant 5
+Shader 'SkeletonShaderRD' (group 0) SHA256: e621158263ccb04752e0aa3e0f8d000462491910a89c5fce79234598a7f973c5
+Loading cache for shader SkeletonShaderRD, variant 0
+Loading cache for shader SkeletonShaderRD, variant 1
+Shader 'SortShaderRD' (group 0) SHA256: 688d31f907b67ca0c41d5d4e4caef1a4bbfdebdf27abf065859719411d44ec63
+Loading cache for shader SortShaderRD, variant 0
+Loading cache for shader SortShaderRD, variant 1
+Loading cache for shader SortShaderRD, variant 2
+Shader 'ParticlesShaderRD' (group 0) SHA256: 934aec733eff16f0e031332048ab817545f500fe49e6c2e564e0b50467d4d0a7
+Loading cache for shader ParticlesShaderRD, variant 0
+Shader 'ParticlesCopyShaderRD' (group 0) SHA256: 0bf55194bc9245a738a8707afaaa4eb834ac4a7c16789772807a6574ff81f557
+Loading cache for shader ParticlesCopyShaderRD, variant 0
+Loading cache for shader ParticlesCopyShaderRD, variant 1
+Loading cache for shader ParticlesCopyShaderRD, variant 2
+Loading cache for shader ParticlesCopyShaderRD, variant 3
+Loading cache for shader ParticlesCopyShaderRD, variant 4
+Loading cache for shader ParticlesCopyShaderRD, variant 5
+Loading cache for shader ParticlesCopyShaderRD, variant 6
+Loading cache for shader ParticlesCopyShaderRD, variant 7
+Loading cache for shader ParticlesCopyShaderRD, variant 8
+Loading cache for shader ParticlesCopyShaderRD, variant 9
+Loading cache for shader ParticlesCopyShaderRD, variant 10
+Loading cache for shader ParticlesCopyShaderRD, variant 11
+Loading cache for shader ParticlesCopyShaderRD, variant 12
+Loading cache for shader ParticlesCopyShaderRD, variant 13
+Loading cache for shader ParticlesCopyShaderRD, variant 14
+Loading cache for shader ParticlesCopyShaderRD, variant 15
+Loading cache for shader ParticlesCopyShaderRD, variant 16
+Loading cache for shader ParticlesCopyShaderRD, variant 17
+Loading cache for shader ParticlesCopyShaderRD, variant 18
+Loading cache for shader ParticlesCopyShaderRD, variant 19
+Loading cache for shader ParticlesCopyShaderRD, variant 20
+Shader 'CanvasShaderRD' (group 0) SHA256: 0bb8a81b4964b7285aac9e30ed73b0b197b1afd060e09d5bd36b019a588bf920
+Loading cache for shader CanvasShaderRD, variant 0
+Loading cache for shader CanvasShaderRD, variant 1
+Loading cache for shader CanvasShaderRD, variant 2
+Loading cache for shader CanvasShaderRD, variant 3
+Loading cache for shader CanvasShaderRD, variant 4
+Loading cache for shader CanvasShaderRD, variant 5
+Shader 'CanvasOcclusionShaderRD' (group 0) SHA256: 37d2ed3903d8c90d19777dfd3b2271ce6e4f34779b04ec75f263a56a384f9135
+Loading cache for shader CanvasOcclusionShaderRD, variant 0
+Loading cache for shader CanvasOcclusionShaderRD, variant 1
+Loading cache for shader CanvasOcclusionShaderRD, variant 2
+Loading cache for shader CanvasShaderRD, variant 0
+Loading cache for shader CanvasShaderRD, variant 1
+Loading cache for shader CanvasShaderRD, variant 2
+Loading cache for shader CanvasShaderRD, variant 3
+Loading cache for shader CanvasShaderRD, variant 4
+Loading cache for shader CanvasShaderRD, variant 5
+Loading cache for shader CanvasShaderRD, variant 0
+Loading cache for shader CanvasShaderRD, variant 1
+Loading cache for shader CanvasShaderRD, variant 2
+Loading cache for shader CanvasShaderRD, variant 3
+Loading cache for shader CanvasShaderRD, variant 4
+Loading cache for shader CanvasShaderRD, variant 5
+Shader 'TexBlitShaderRD' (group 0) SHA256: 964dbc43351dccfe68b9c5c9cfacd3496454ae7bfdeb28d288943638a6cf41cc
+Loading cache for shader TexBlitShaderRD, variant 0
+Loading cache for shader TexBlitShaderRD, variant 1
+Loading cache for shader TexBlitShaderRD, variant 2
+Loading cache for shader TexBlitShaderRD, variant 3
+Shader 'ClusterRenderShaderRD' (group 0) SHA256: f22a1c724c62b6e521846b0fab0db7c1a9fa96e56da9293ee7575682e76f9c8e
+Loading cache for shader ClusterRenderShaderRD, variant 0
+Loading cache for shader ClusterRenderShaderRD, variant 1
+Shader 'ClusterStoreShaderRD' (group 0) SHA256: 8a8a80addab18bf5c7c56811e0646b47c13a94e09c7097282fa7c8dc3ec8993c
+Loading cache for shader ClusterStoreShaderRD, variant 0
+Shader 'ClusterDebugShaderRD' (group 0) SHA256: f75d62cae3b2010dc85726ac6d1b3246ea64998a282322a3e0989d28b9f2a9b6
+Loading cache for shader ClusterDebugShaderRD, variant 0
+Shader 'SceneForwardClusteredShaderRD' (group 0) SHA256: a82c1328dfdfc7b8ad66922b337eb623a56b54a4d5907024c906facfe76d6225
+Shader 'SceneForwardClusteredShaderRD' (group 1) SHA256: e9fd5ed96dba15054f028062941a74ca13719649f2b363489ed58607b2865950
+Shader 'SceneForwardClusteredShaderRD' (group 2) SHA256: 9a1aea55d6b807d2bc5af70949a3998d3c37dc48a8952b26cea4b22516929ad9
+Shader 'SceneForwardClusteredShaderRD' (group 3) SHA256: 83cc752cc70e5d5f81279bc1e44e02eb04864d5fc0c28f026bb1874429febf78
+Loading cache for shader SceneForwardClusteredShaderRD, variant 0
+Loading cache for shader SceneForwardClusteredShaderRD, variant 1
+Loading cache for shader SceneForwardClusteredShaderRD, variant 2
+Loading cache for shader SceneForwardClusteredShaderRD, variant 3
+Loading cache for shader SceneForwardClusteredShaderRD, variant 4
+Loading cache for shader SceneForwardClusteredShaderRD, variant 5
+Loading cache for shader SceneForwardClusteredShaderRD, variant 6
+Loading cache for shader SceneForwardClusteredShaderRD, variant 7
+Loading cache for shader SceneForwardClusteredShaderRD, variant 0
+Loading cache for shader SceneForwardClusteredShaderRD, variant 1
+Loading cache for shader SceneForwardClusteredShaderRD, variant 2
+Loading cache for shader SceneForwardClusteredShaderRD, variant 3
+Loading cache for shader SceneForwardClusteredShaderRD, variant 4
+Loading cache for shader SceneForwardClusteredShaderRD, variant 5
+Loading cache for shader SceneForwardClusteredShaderRD, variant 6
+Loading cache for shader SceneForwardClusteredShaderRD, variant 7
+Loading cache for shader SceneForwardClusteredShaderRD, variant 0
+Loading cache for shader SceneForwardClusteredShaderRD, variant 1
+Loading cache for shader SceneForwardClusteredShaderRD, variant 2
+Loading cache for shader SceneForwardClusteredShaderRD, variant 3
+Loading cache for shader SceneForwardClusteredShaderRD, variant 4
+Loading cache for shader SceneForwardClusteredShaderRD, variant 5
+Loading cache for shader SceneForwardClusteredShaderRD, variant 6
+Loading cache for shader SceneForwardClusteredShaderRD, variant 7
+Shader 'BestFitNormalShaderRD' (group 0) SHA256: 0978df8720099b311680145be469c85c267a0728848b111635949cfbfc2054ff
+Loading cache for shader BestFitNormalShaderRD, variant 0
+Shader 'IntegrateDfgShaderRD' (group 0) SHA256: 0007516d760e58fc791c09fb3c75149c45e331a5f4ed071ac48bada5156f9d60
+Loading cache for shader IntegrateDfgShaderRD, variant 0
+Shader 'TaaResolveShaderRD' (group 0) SHA256: cf423907437eb781f115c7023052be41ed1f5f370fb0379d529b1df43ad53537
+Loading cache for shader TaaResolveShaderRD, variant 0
+Shader 'Fsr2DepthClipPassShaderRD' (group 0) SHA256: 4bfd5aa8912d5767756f9c277fd6baa3fb69faf628edcb4dfc4fc945d93b2d4a
+Shader 'Fsr2ReconstructPreviousDepthPassShaderRD' (group 0) SHA256: 03637a75fafab74547782da761d102ea3bb15ed29796ae1a235611651c2977d7
+Shader 'Fsr2LockPassShaderRD' (group 0) SHA256: 9de9c0d64f3b01b3162a3d38c682fc11815f39c6c2cefda9794fd0e2cba8e19e
+Shader 'Fsr2AccumulatePassShaderRD' (group 0) SHA256: 4935bfc61e608c40d59b1253439b6bbe5f7ac7482d978c55bf98f69094fae6c4
+Shader 'Fsr2RcasPassShaderRD' (group 0) SHA256: 19a6007dda07d485c373d80b5754800b1989083eedf96065944b8391e6fa95e3
+Shader 'Fsr2ComputeLuminancePyramidPassShaderRD' (group 0) SHA256: 5dbd9d6eb096a54501a905d6a620558ba20eb3c1462ea5ba1b760d94331891c5
+Shader 'Fsr2AutogenReactivePassShaderRD' (group 0) SHA256: ac32d422432060e0487090e93cc78f2db1f7725adff1251bb1f5037d8850b25f
+Shader 'Fsr2TcrAutogenPassShaderRD' (group 0) SHA256: e25fb7b8093310f3ab1d8b802b45ba51cba37de15a97a74d3ac4dbd51beabdd8
+Shader 'SsEffectsDownsampleShaderRD' (group 0) SHA256: bed2afd23e0691c83aec0857a229c07d20662bbd7fcfc6615225bd1fcc23ebb6
+Loading cache for shader SsEffectsDownsampleShaderRD, variant 0
+Loading cache for shader SsEffectsDownsampleShaderRD, variant 1
+Loading cache for shader SsEffectsDownsampleShaderRD, variant 2
+Loading cache for shader SsEffectsDownsampleShaderRD, variant 3
+Loading cache for shader SsEffectsDownsampleShaderRD, variant 4
+Loading cache for shader SsEffectsDownsampleShaderRD, variant 5
+Loading cache for shader SsEffectsDownsampleShaderRD, variant 6
+Shader 'SsilShaderRD' (group 0) SHA256: 39650879bcd090de84c267de50808bf9e7e90fd97ab72fe1a4d2c27a6cd428ab
+Loading cache for shader SsilShaderRD, variant 0
+Loading cache for shader SsilShaderRD, variant 1
+Loading cache for shader SsilShaderRD, variant 2
+Shader 'SsilImportanceMapShaderRD' (group 0) SHA256: ade825af7870ff9d66d3929aaaa953a56f57a10495042796a816249498e9cebc
+Loading cache for shader SsilImportanceMapShaderRD, variant 0
+Loading cache for shader SsilImportanceMapShaderRD, variant 1
+Loading cache for shader SsilImportanceMapShaderRD, variant 2
+Shader 'SsilBlurShaderRD' (group 0) SHA256: 7f7450ce6b895334c0bbee92dc45c1ce08daa96d3f40d86d7d111a7fb50a6d2b
+Loading cache for shader SsilBlurShaderRD, variant 0
+Loading cache for shader SsilBlurShaderRD, variant 1
+Loading cache for shader SsilBlurShaderRD, variant 2
+Shader 'SsilInterleaveShaderRD' (group 0) SHA256: 0c7759d3d058f547df5fc8ae141221d3339072b2658e733fc04cf89e789ec5fa
+Loading cache for shader SsilInterleaveShaderRD, variant 0
+Loading cache for shader SsilInterleaveShaderRD, variant 1
+Loading cache for shader SsilInterleaveShaderRD, variant 2
+Shader 'SsaoShaderRD' (group 0) SHA256: 0dd375ddd4479acd504f73b770e09c32b7a311c3a5567c7b98c8f7083f8dbd71
+Loading cache for shader SsaoShaderRD, variant 0
+Loading cache for shader SsaoShaderRD, variant 1
+Loading cache for shader SsaoShaderRD, variant 2
+Shader 'SsaoImportanceMapShaderRD' (group 0) SHA256: 125039bc61a993659776424847e6ee1e3c8d67e5270278e1f79025467881b7b5
+Loading cache for shader SsaoImportanceMapShaderRD, variant 0
+Loading cache for shader SsaoImportanceMapShaderRD, variant 1
+Loading cache for shader SsaoImportanceMapShaderRD, variant 2
+Shader 'SsaoBlurShaderRD' (group 0) SHA256: ce1a287514dfb38208969193ee151e736abe48b97d90b0c1a0c3dd7d15d59b21
+Loading cache for shader SsaoBlurShaderRD, variant 0
+Loading cache for shader SsaoBlurShaderRD, variant 1
+Loading cache for shader SsaoBlurShaderRD, variant 2
+Shader 'SsaoInterleaveShaderRD' (group 0) SHA256: c3acbd41b8f7f9d398685d24e06c3ccc281a0a2c641d73ef1230b8a9ad752a90
+Loading cache for shader SsaoInterleaveShaderRD, variant 0
+Loading cache for shader SsaoInterleaveShaderRD, variant 1
+Loading cache for shader SsaoInterleaveShaderRD, variant 2
+Shader 'ScreenSpaceReflectionDownsampleShaderRD' (group 0) SHA256: d1a3db74e3757f974e28f02c1cadda5cbd8e2bdbb20bdec2abd964e0bd70e672
+Loading cache for shader ScreenSpaceReflectionDownsampleShaderRD, variant 0
+Loading cache for shader ScreenSpaceReflectionDownsampleShaderRD, variant 1
+Loading cache for shader ScreenSpaceReflectionDownsampleShaderRD, variant 2
+Loading cache for shader ScreenSpaceReflectionDownsampleShaderRD, variant 3
+Shader 'ScreenSpaceReflectionHizShaderRD' (group 0) SHA256: 46ba29613192182b9cd0cd93ed117a81deb38c19dea211fe8535f35cca45c63d
+Loading cache for shader ScreenSpaceReflectionHizShaderRD, variant 0
+Loading cache for shader ScreenSpaceReflectionHizShaderRD, variant 1
+Loading cache for shader ScreenSpaceReflectionHizShaderRD, variant 2
+Loading cache for shader ScreenSpaceReflectionHizShaderRD, variant 3
+Shader 'ScreenSpaceReflectionShaderRD' (group 0) SHA256: ae58d7550cc51bfb8075c65a560b4b34f01bcbc37023019074c68247cecad0b1
+Loading cache for shader ScreenSpaceReflectionShaderRD, variant 0
+Shader 'ScreenSpaceReflectionFilterShaderRD' (group 0) SHA256: 0e86f8d017403bd2cc21c99bf0780a2bacb611bdc4eca1e5b8f2df114a657653
+Loading cache for shader ScreenSpaceReflectionFilterShaderRD, variant 0
+Shader 'ScreenSpaceReflectionResolveShaderRD' (group 0) SHA256: af6e52e6680be293b88e8e80de78a0a42dbbd6fa2d8cee1a047d590fa4f70846
+Loading cache for shader ScreenSpaceReflectionResolveShaderRD, variant 0
+Shader 'SubsurfaceScatteringShaderRD' (group 0) SHA256: 8fdc1f623333035da117031f8adb324914cfb238782e0bd1b6baa58940b50e69
+Loading cache for shader SubsurfaceScatteringShaderRD, variant 0
+Loading cache for shader SubsurfaceScatteringShaderRD, variant 1
+Loading cache for shader SubsurfaceScatteringShaderRD, variant 2
+Shader 'SkyShaderRD' (group 0) SHA256: 8103d5a47a8393dd935bbdf86964187cac035eec0b0e1da15796dfc16db1e9c3
+Loading cache for shader SkyShaderRD, variant 0
+Loading cache for shader SkyShaderRD, variant 1
+Loading cache for shader SkyShaderRD, variant 2
+Loading cache for shader SkyShaderRD, variant 3
+Loading cache for shader SkyShaderRD, variant 4
+Loading cache for shader SkyShaderRD, variant 5
+Loading cache for shader SkyShaderRD, variant 0
+Loading cache for shader SkyShaderRD, variant 1
+Loading cache for shader SkyShaderRD, variant 2
+Loading cache for shader SkyShaderRD, variant 3
+Loading cache for shader SkyShaderRD, variant 4
+Loading cache for shader SkyShaderRD, variant 5
+Shader 'VoxelGiShaderRD' (group 0) SHA256: c66085b7de6d4ed8b442b7f0bfa7ad741da34295d59b7d3f544e0c0d12150885
+Loading cache for shader VoxelGiShaderRD, variant 0
+Loading cache for shader VoxelGiShaderRD, variant 1
+Loading cache for shader VoxelGiShaderRD, variant 2
+Loading cache for shader VoxelGiShaderRD, variant 3
+Loading cache for shader VoxelGiShaderRD, variant 4
+Loading cache for shader VoxelGiShaderRD, variant 5
+Loading cache for shader VoxelGiShaderRD, variant 6
+Loading cache for shader VoxelGiShaderRD, variant 7
+Shader 'VoxelGiDebugShaderRD' (group 0) SHA256: d9eab5d26cfa2273d72e5fc9d9e8eda54b845291f3efd111367e528a80e5b390
+Loading cache for shader VoxelGiDebugShaderRD, variant 0
+Loading cache for shader VoxelGiDebugShaderRD, variant 1
+Loading cache for shader VoxelGiDebugShaderRD, variant 2
+Loading cache for shader VoxelGiDebugShaderRD, variant 3
+Shader 'SdfgiPreprocessShaderRD' (group 0) SHA256: d0edad17fea22f41f0dff5a67e149e2bce16043cf5d5b27410fcbb0808d6928f
+Loading cache for shader SdfgiPreprocessShaderRD, variant 0
+Loading cache for shader SdfgiPreprocessShaderRD, variant 1
+Loading cache for shader SdfgiPreprocessShaderRD, variant 2
+Loading cache for shader SdfgiPreprocessShaderRD, variant 3
+Loading cache for shader SdfgiPreprocessShaderRD, variant 4
+Loading cache for shader SdfgiPreprocessShaderRD, variant 5
+Loading cache for shader SdfgiPreprocessShaderRD, variant 6
+Loading cache for shader SdfgiPreprocessShaderRD, variant 7
+Loading cache for shader SdfgiPreprocessShaderRD, variant 8
+Shader 'SdfgiDirectLightShaderRD' (group 0) SHA256: d1199c36873114e7d086d3fdb8d7b0f683b4f0e6d3c0811fec7017c2ee91f350
+Loading cache for shader SdfgiDirectLightShaderRD, variant 0
+Loading cache for shader SdfgiDirectLightShaderRD, variant 1
+Shader 'SdfgiIntegrateShaderRD' (group 0) SHA256: 475093f98ffb4b9f361b83c81490909ee538d573b2a894863cedba5ecba68917
+Loading cache for shader SdfgiIntegrateShaderRD, variant 0
+Loading cache for shader SdfgiIntegrateShaderRD, variant 1
+Loading cache for shader SdfgiIntegrateShaderRD, variant 2
+Loading cache for shader SdfgiIntegrateShaderRD, variant 3
+Shader 'GiShaderRD' (group 0) SHA256: ef04db7f482aafefa4e8a0bfb1ca11528b635575ab3ec140f558cecd9faa7856
+Shader 'GiShaderRD' (group 1) SHA256: b454c7615de0ce7068d117884c9c4812e9a791c1d32efff8fff1260a71fb958b
+Loading cache for shader GiShaderRD, variant 0
+Loading cache for shader GiShaderRD, variant 1
+Loading cache for shader GiShaderRD, variant 2
+Loading cache for shader GiShaderRD, variant 3
+Loading cache for shader GiShaderRD, variant 4
+Loading cache for shader GiShaderRD, variant 0
+Loading cache for shader GiShaderRD, variant 1
+Loading cache for shader GiShaderRD, variant 2
+Loading cache for shader GiShaderRD, variant 3
+Loading cache for shader GiShaderRD, variant 4
+Shader 'SdfgiDebugShaderRD' (group 0) SHA256: d30d7a091b22ccc7f87801f56d0a1f133a08381c1a14b205b58c3716feb0c2db
+Loading cache for shader SdfgiDebugShaderRD, variant 0
+Shader 'SdfgiDebugProbesShaderRD' (group 0) SHA256: 276f8ba83a1cea0cc2ca96dccb5d64ad696756e5eeab3e7adbee7c3d14fc159c
+Loading cache for shader SdfgiDebugProbesShaderRD, variant 0
+Loading cache for shader SdfgiDebugProbesShaderRD, variant 1
+Loading cache for shader SdfgiDebugProbesShaderRD, variant 2
+Loading cache for shader SdfgiDebugProbesShaderRD, variant 3
+Shader 'VolumetricFogShaderRD' (group 0) SHA256: 0f876b3a917fe8b79886c611341dd676d186435471f0262aa6cbe4fcef6d7317
+Shader 'VolumetricFogShaderRD' (group 1) SHA256: a6cd5eabbf4165811d248c35704e381b1f564a2fe2775ee882e135bad3e1537f
+Shader 'VolumetricFogShaderRD' (group 2) SHA256: 92b2578291e76c3529625911247b7cdbfd7a7f258fe3870763dabb4a0a568a0b
+Shader 'VolumetricFogShaderRD' (group 3) SHA256: e48a1f812ec39a193e0c84f55cd8082bba68eed2ad9f75b2559f799e690b1eb9
+Loading cache for shader VolumetricFogShaderRD, variant 0
+Shader 'VolumetricFogProcessShaderRD' (group 0) SHA256: 7ec3cde0b8b4b64f81ef82dea95dc4e3e7df4a2cdbe20d014352ad7dcbcc3306
+Shader 'VolumetricFogProcessShaderRD' (group 1) SHA256: 72de824a0bd9b09c12aa02a6188f43f3f6c82e4278e76e67b5b3b504a1453d50
+Shader 'VolumetricFogProcessShaderRD' (group 2) SHA256: 4f1762ca2702af3a598edbf30934907dad1446c7adbcca314025c61607b5b8b2
+Shader 'VolumetricFogProcessShaderRD' (group 3) SHA256: 277ebd10dddd568f8f5147468912f8beaafb3ca0fe8ccb66a3de2c0f9caaafcd
+Loading cache for shader VolumetricFogProcessShaderRD, variant 0
+Loading cache for shader VolumetricFogProcessShaderRD, variant 1
+Loading cache for shader VolumetricFogProcessShaderRD, variant 2
+Loading cache for shader VolumetricFogProcessShaderRD, variant 3
+Loading cache for shader VolumetricFogProcessShaderRD, variant 4
+Shader 'BokehDofShaderRD' (group 0) SHA256: 04a9046f68c4bfef0018c049d8eff0203221da6ef71ef5ab4a9c11b9e4014431
+Loading cache for shader BokehDofShaderRD, variant 0
+Loading cache for shader BokehDofShaderRD, variant 1
+Loading cache for shader BokehDofShaderRD, variant 3
+Loading cache for shader BokehDofShaderRD, variant 5
+Loading cache for shader BokehDofShaderRD, variant 6
+Shader 'CopyShaderRD' (group 0) SHA256: ef879cfe1955eda6d6e275c1c8a95d6bd3eac5363afbf2d73eb5c7bd02dd41e2
+Loading cache for shader CopyShaderRD, variant 0
+Loading cache for shader CopyShaderRD, variant 1
+Loading cache for shader CopyShaderRD, variant 2
+Loading cache for shader CopyShaderRD, variant 3
+Loading cache for shader CopyShaderRD, variant 4
+Loading cache for shader CopyShaderRD, variant 5
+Loading cache for shader CopyShaderRD, variant 6
+Loading cache for shader CopyShaderRD, variant 7
+Loading cache for shader CopyShaderRD, variant 8
+Loading cache for shader CopyShaderRD, variant 9
+Loading cache for shader CopyShaderRD, variant 10
+Loading cache for shader CopyShaderRD, variant 11
+Loading cache for shader CopyShaderRD, variant 12
+Shader 'CopyToFbShaderRD' (group 0) SHA256: 8f7bc8f1468827dad3c3de3ee8ae4d842071f7bed2a5a798f22afd3bc095f701
+Loading cache for shader CopyToFbShaderRD, variant 0
+Loading cache for shader CopyToFbShaderRD, variant 1
+Loading cache for shader CopyToFbShaderRD, variant 2
+Loading cache for shader CopyToFbShaderRD, variant 3
+Shader 'CubeToDpShaderRD' (group 0) SHA256: c30c3cdeeb9a096f2fecf7f1a77ae08efd42c2848860420715536c96d3146425
+Loading cache for shader CubeToDpShaderRD, variant 0
+Shader 'CubeToOctmapShaderRD' (group 0) SHA256: 5e1bc00e22eeeaf7061d9903d2ae1aacb046d5413c2924ab7ae32ec0d666477e
+Loading cache for shader CubeToOctmapShaderRD, variant 0
+Shader 'OctmapDownsamplerShaderRD' (group 0) SHA256: 8895586f3eafd030eae5ffb57425f3a655e1cca614c602a912ddb9d743e067bf
+Loading cache for shader OctmapDownsamplerShaderRD, variant 0
+Loading cache for shader OctmapDownsamplerShaderRD, variant 1
+Shader 'OctmapFilterShaderRD' (group 0) SHA256: 720bd9ffb2572604e4f834dceaea992d0f18458d142decf725bc0f9199994681
+Loading cache for shader OctmapFilterShaderRD, variant 0
+Loading cache for shader OctmapFilterShaderRD, variant 1
+Loading cache for shader OctmapFilterShaderRD, variant 2
+Loading cache for shader OctmapFilterShaderRD, variant 3
+Loading cache for shader OctmapFilterShaderRD, variant 4
+Loading cache for shader OctmapFilterShaderRD, variant 5
+Loading cache for shader OctmapFilterShaderRD, variant 6
+Loading cache for shader OctmapFilterShaderRD, variant 7
+Shader 'OctmapRoughnessShaderRD' (group 0) SHA256: e525cf9fb52db7d434b03f0197ee838fc21a347e339f9d98c84e50089ffe397d
+Loading cache for shader OctmapRoughnessShaderRD, variant 0
+Loading cache for shader OctmapRoughnessShaderRD, variant 1
+Shader 'SpecularMergeShaderRD' (group 0) SHA256: 06af2e881ba265f4c7e3598623701435bd0538a85cc0e0083b720999a6101ecf
+Loading cache for shader SpecularMergeShaderRD, variant 0
+Loading cache for shader SpecularMergeShaderRD, variant 1
+Loading cache for shader SpecularMergeShaderRD, variant 2
+Loading cache for shader SpecularMergeShaderRD, variant 3
+Shader 'ShadowFrustumShaderRD' (group 0) SHA256: 720c0bb37e02dbc58d52ea733cb7a32f6421644bea786731066966ccd589fa88
+Loading cache for shader ShadowFrustumShaderRD, variant 0
+Shader 'MotionVectorsShaderRD' (group 0) SHA256: adee12cb9f0cfd99557fa35ac918d0a47b3992c974ab7f0af57eb41cf93ecdae
+Loading cache for shader MotionVectorsShaderRD, variant 0
+Shader 'LuminanceReduceShaderRD' (group 0) SHA256: fa9cf5b60d641519ccf052835a4aa4fc3902cb64a5e9fab620570d232b1fe351
+Loading cache for shader LuminanceReduceShaderRD, variant 0
+Loading cache for shader LuminanceReduceShaderRD, variant 1
+Loading cache for shader LuminanceReduceShaderRD, variant 2
+Shader 'SmaaEdgeDetectionShaderRD' (group 0) SHA256: e8413ff2f4372feab0995014c1695c5f57187bf5f4337c0278b3e06ed36cfa38
+Loading cache for shader SmaaEdgeDetectionShaderRD, variant 0
+Shader 'SmaaWeightCalculationShaderRD' (group 0) SHA256: 80d125e32d43b194f3d7c13ca3e5df59ae05f85bf42564295d9ae036d56dd9a8
+Loading cache for shader SmaaWeightCalculationShaderRD, variant 0
+Shader 'SmaaBlendingShaderRD' (group 0) SHA256: cb8beea3fecce4004a6a122b796c0e0c63d37a8653b7c261e63a81ee30737fba
+Loading cache for shader SmaaBlendingShaderRD, variant 0
+Shader 'TonemapShaderRD' (group 0) SHA256: 6d85e02bcc2d98af2ec4b9bcc468190db080fd252f11df31a083e521f0328513
+Loading cache for shader TonemapShaderRD, variant 0
+Loading cache for shader TonemapShaderRD, variant 1
+Loading cache for shader TonemapShaderRD, variant 2
+Loading cache for shader TonemapShaderRD, variant 3
+Shader 'VrsShaderRD' (group 0) SHA256: fc3b831138e6daf0ea5ae54f0acc37953f6090c75b79a90b3962bab8658a2a93
+Loading cache for shader VrsShaderRD, variant 0
+Loading cache for shader VrsShaderRD, variant 2
+Loading cache for shader VrsShaderRD, variant 3
+Shader 'FsrUpscaleShaderRD' (group 0) SHA256: 01ac10824c81d54665aad7e703d05341c55af46f85ac62ec9d9fc7fd3ec69411
+Loading cache for shader FsrUpscaleShaderRD, variant 0
+Loading cache for shader FsrUpscaleShaderRD, variant 1
+Shader 'ResolveShaderRD' (group 0) SHA256: 2aad53763b24f0fcb0017993b039e11e1f737a465f407c290916ac4c89d0f2bb
+Loading cache for shader ResolveShaderRD, variant 0
+Loading cache for shader ResolveShaderRD, variant 1
+Loading cache for shader ResolveShaderRD, variant 2
+Shader 'BlitShaderRD' (group 0) SHA256: e8a4e7694eb70bca0a49d0e539871067bf4a254b9f14ce9b592ebb96d313f737
+
+Loading cache for shader BlitShaderRD, variant 0
+Loading cache for shader BlitShaderRD, variant 1
+Loading cache for shader BlitShaderRD, variant 2
+Loading cache for shader BlitShaderRD, variant 3
+TextServer: Primary interface set to: "ICU / HarfBuzz / Graphite (Built-in)".
+[SE] AuthManager: CLI credential found; desktop session exchange required
+Loading cache for shader CanvasShaderRD, variant 0
+Loading cache for shader CanvasShaderRD, variant 1
+Loading cache for shader CanvasShaderRD, variant 2
+Loading cache for shader CanvasShaderRD, variant 3
+Loading cache for shader CanvasShaderRD, variant 4
+Loading cache for shader CanvasShaderRD, variant 5
+.NET: Initializing module...
+[SE] .NET: Using bundled SDK root C:/Users/pmcga/AppData/Local/SummerEngine/current/dotnet
+[SE] .NET: Resolved hostfxr from bundled SDK C:/Users/pmcga/AppData/Local/SummerEngine/current/dotnet/host/fxr/8.0.24/hostfxr.dll
+Found hostfxr: C:/Users/pmcga/AppData/Local/SummerEngine/current/dotnet/host/fxr/8.0.24/hostfxr.dll
+.NET: hostfxr initialized
+.NET: GodotPlugins initialized
+Loading resource: res://default_bus_layout.tres remapped: res://default_bus_layout.tres
+Completed load for: 'res://default_bus_layout.tres' remapped 'res://default_bus_layout.tres' at thread -1
+CORE API HASH: 1721208789
+EDITOR API HASH: 1629494564
+Loading resource: C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/menu_flow_probe.gd remapped: C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/menu_flow_probe.gd
+Completed load for: 'C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/menu_flow_probe.gd' remapped 'C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/menu_flow_probe.gd' at thread -1
+SceneTreeFTI: traversal method DEFAULT
+Loading resource: res://scripts/player_party.gd remapped: res://scripts/player_party.gd
+Completed load for: 'res://scripts/player_party.gd' remapped 'res://scripts/player_party.gd' at thread -1
+Loading resource: res://addons/godot_ai/runtime/game_helper.gd remapped: res://addons/godot_ai/runtime/game_helper.gd
+Completed load for: 'res://addons/godot_ai/runtime/game_helper.gd' remapped 'res://addons/godot_ai/runtime/game_helper.gd' at thread -1
+Loaded system CA certificates
+[godot_ai game_helper] registered mcp capture (debugger active=false, logger=true)
+Loading resource: res://scenes/main_menu_art_preview.tscn remapped: res://scenes/main_menu_art_preview.tscn
+Loading resource: res://scripts/main_menu_art_preview.gd remapped: res://scripts/main_menu_art_preview.gd
+Loading resource: res://scripts/effects/creature_sprite.gdshader remapped: res://scripts/effects/creature_sprite.gdshader
+Completed load for: 'res://scripts/effects/creature_sprite.gdshader' remapped 'res://scripts/effects/creature_sprite.gdshader' at thread -1
+Loading resource: res://scripts/effects/pixel_rain.gdshader remapped: res://scripts/effects/pixel_rain.gdshader
+Completed load for: 'res://scripts/effects/pixel_rain.gdshader' remapped 'res://scripts/effects/pixel_rain.gdshader' at thread -1
+Loading resource: res://assets/fonts/AlegreyaSansSC-Bold.ttf remapped: res://assets/fonts/AlegreyaSansSC-Bold.ttf
+Loading resource: res://.godot/imported/AlegreyaSansSC-Bold.ttf-daa69cc198ac3094928145a2f5cc767e.fontdata remapped: res://.godot/imported/AlegreyaSansSC-Bold.ttf-daa69cc198ac3094928145a2f5cc767e.fontdata
+Completed load for: 'res://assets/fonts/AlegreyaSansSC-Bold.ttf' remapped 'res://assets/fonts/AlegreyaSansSC-Bold.ttf' at thread -1
+Loading resource: res://assets/fonts/Silkscreen-Regular.ttf remapped: res://assets/fonts/Silkscreen-Regular.ttf
+Loading resource: res://.godot/imported/Silkscreen-Regular.ttf-0088f200f2f1c02c371962cb8d277333.fontdata remapped: res://.godot/imported/Silkscreen-Regular.ttf-0088f200f2f1c02c371962cb8d277333.fontdata
+Completed load for: 'res://assets/fonts/Silkscreen-Regular.ttf' remapped 'res://assets/fonts/Silkscreen-Regular.ttf' at thread -1
+Loading resource: res://assets/audio/music/main_menu_pixel_rain.mp3 remapped: res://assets/audio/music/main_menu_pixel_rain.mp3
+Loading resource: res://.godot/imported/main_menu_pixel_rain.mp3-3dc8af6bafc020f44b97c51dddd277c0.mp3str remapped: res://.godot/imported/main_menu_pixel_rain.mp3-3dc8af6bafc020f44b97c51dddd277c0.mp3str
+Completed load for: 'res://assets/audio/music/main_menu_pixel_rain.mp3' remapped 'res://assets/audio/music/main_menu_pixel_rain.mp3' at thread -1
+Loading resource: res://assets/audio/sfx/ui/confirm.wav remapped: res://assets/audio/sfx/ui/confirm.wav
+Loading resource: res://.godot/imported/confirm.wav-447f95c9d2259fdec8824499a732b240.sample remapped: res://.godot/imported/confirm.wav-447f95c9d2259fdec8824499a732b240.sample
+Completed load for: 'res://assets/audio/sfx/ui/confirm.wav' remapped 'res://assets/audio/sfx/ui/confirm.wav' at thread -1
+Loading resource: res://assets/audio/sfx/ui/cursor.wav remapped: res://assets/audio/sfx/ui/cursor.wav
+Loading resource: res://.godot/imported/cursor.wav-f9d43327ffe5d754f3c43f5fcaf51ed7.sample remapped: res://.godot/imported/cursor.wav-f9d43327ffe5d754f3c43f5fcaf51ed7.sample
+Completed load for: 'res://assets/audio/sfx/ui/cursor.wav' remapped 'res://assets/audio/sfx/ui/cursor.wav' at thread -1
+Loading resource: res://assets/audio/sfx/ui/cancel.wav remapped: res://assets/audio/sfx/ui/cancel.wav
+Loading resource: res://.godot/imported/cancel.wav-33332b9d9ab2f05525bb0f33a8b9bdea.sample remapped: res://.godot/imported/cancel.wav-33332b9d9ab2f05525bb0f33a8b9bdea.sample
+Completed load for: 'res://assets/audio/sfx/ui/cancel.wav' remapped 'res://assets/audio/sfx/ui/cancel.wav' at thread -1
+Completed load for: 'res://scripts/main_menu_art_preview.gd' remapped 'res://scripts/main_menu_art_preview.gd' at thread -1
+Completed load for: 'res://scenes/main_menu_art_preview.tscn' remapped 'res://scenes/main_menu_art_preview.tscn' at thread -1
+Loading resource: res://scenes/first_route_prototype.tscn remapped: res://scenes/first_route_prototype.tscn
+Loading resource: res://assets/sprites/menu/courier_lookout_dusk_candidate_576.png remapped: res://assets/sprites/menu/courier_lookout_dusk_candidate_576.png
+Loading resource: res://assets/tilesets/route1_rd_2026_10_01/route1_ground_polished.tres remapped: res://assets/tilesets/route1_rd_2026_10_01/route1_ground_polished.tres
+Loading resource: res://.godot/imported/courier_lookout_dusk_candidate_576.png-d9eab4e12782aa96d5e5f01a3237d683.ctex remapped: res://.godot/imported/courier_lookout_dusk_candidate_576.png-d9eab4e12782aa96d5e5f01a3237d683.ctex
+Loading resource: res://assets/tilesets/route1_rd_2026_10_01/route1_ground_atlas_polished.png remapped: res://assets/tilesets/route1_rd_2026_10_01/route1_ground_atlas_polished.png
+Loading resource: res://.godot/imported/route1_ground_atlas_polished.png-2dfbf24c59f93e2c164ce462ab96133b.ctex remapped: res://.godot/imported/route1_ground_atlas_polished.png-2dfbf24c59f93e2c164ce462ab96133b.ctex
+Completed load for: 'res://assets/tilesets/route1_rd_2026_10_01/route1_ground_atlas_polished.png' remapped 'res://assets/tilesets/route1_rd_2026_10_01/route1_ground_atlas_polished.png' at thread 8
+Completed load for: 'res://assets/sprites/menu/courier_lookout_dusk_candidate_576.png' remapped 'res://assets/sprites/menu/courier_lookout_dusk_candidate_576.png' at thread -1
+Completed load for: 'res://assets/tilesets/route1_rd_2026_10_01/route1_ground_polished.tres' remapped 'res://assets/tilesets/route1_rd_2026_10_01/route1_ground_polished.tres' at thread 8
+Loading resource: res://assets/sprites/menu/retro_diffusion_idle_2026_10_01/courier_idle_contrast_atlas.png remapped: res://assets/sprites/menu/retro_diffusion_idle_2026_10_01/courier_idle_contrast_atlas.png
+Loading resource: res://scripts/first_route_prototype.gd remapped: res://scripts/first_route_prototype.gd
+Loading resource: res://.godot/imported/courier_idle_contrast_atlas.png-74a77264a92a1f082b56bb66e2e7180e.ctex remapped: res://.godot/imported/courier_idle_contrast_atlas.png-74a77264a92a1f082b56bb66e2e7180e.ctex
+Completed load for: 'res://assets/sprites/menu/retro_diffusion_idle_2026_10_01/courier_idle_contrast_atlas.png' remapped 'res://assets/sprites/menu/retro_diffusion_idle_2026_10_01/courier_idle_contrast_atlas.png' at thread -1
+Loading resource: res://assets/sprites/menu/retro_diffusion_idle_2026_10_01/cinderhide_idle_dusk_lit_atlas.png remapped: res://assets/sprites/menu/retro_diffusion_idle_2026_10_01/cinderhide_idle_dusk_lit_atlas.png
+Loading resource: res://.godot/imported/cinderhide_idle_dusk_lit_atlas.png-c4d76910cd8cdbad917381e079c8638d.ctex remapped: res://.godot/imported/cinderhide_idle_dusk_lit_atlas.png-c4d76910cd8cdbad917381e079c8638d.ctex
+Completed load for: 'res://assets/sprites/menu/retro_diffusion_idle_2026_10_01/cinderhide_idle_dusk_lit_atlas.png' remapped 'res://assets/sprites/menu/retro_diffusion_idle_2026_10_01/cinderhide_idle_dusk_lit_atlas.png' at thread -1
+Loading resource: res://assets/fonts/Vollkorn-Variable.ttf remapped: res://assets/fonts/Vollkorn-Variable.ttf
+Loading resource: res://assets/sprites/menu/retro_diffusion_idle_2026_10_01/menu_courier_walk_atlas.png remapped: res://assets/sprites/menu/retro_diffusion_idle_2026_10_01/menu_courier_walk_atlas.png
+Loading resource: res://.godot/imported/Vollkorn-Variable.ttf-e1b9cfdb1c3dd6184741d1892f9858c0.fontdata remapped: res://.godot/imported/Vollkorn-Variable.ttf-e1b9cfdb1c3dd6184741d1892f9858c0.fontdata
+Loading resource: res://.godot/imported/menu_courier_walk_atlas.png-4c1d56334c26392c8b67bcbc58856501.ctex remapped: res://.godot/imported/menu_courier_walk_atlas.png-4c1d56334c26392c8b67bcbc58856501.ctex
+Completed load for: 'res://assets/fonts/Vollkorn-Variable.ttf' remapped 'res://assets/fonts/Vollkorn-Variable.ttf' at thread 8
+Completed load for: 'res://assets/sprites/menu/retro_diffusion_idle_2026_10_01/menu_courier_walk_atlas.png' remapped 'res://assets/sprites/menu/retro_diffusion_idle_2026_10_01/menu_courier_walk_atlas.png' at thread -1
+Loading resource: res://assets/sprites/menu/retro_diffusion_idle_2026_10_01/menu_cinderhide_walk_atlas.png remapped: res://assets/sprites/menu/retro_diffusion_idle_2026_10_01/menu_cinderhide_walk_atlas.png
+Loading resource: res://assets/audio/music/route1_two_note_call.mp3 remapped: res://assets/audio/music/route1_two_note_call.mp3
+Loading resource: res://.godot/imported/menu_cinderhide_walk_atlas.png-c54394a52bbd943c65e25961277cd507.ctex remapped: res://.godot/imported/menu_cinderhide_walk_atlas.png-c54394a52bbd943c65e25961277cd507.ctex
+Loading resource: res://.godot/imported/route1_two_note_call.mp3-9e0a996b0af6f387c43d8822a9ed2be5.mp3str remapped: res://.godot/imported/route1_two_note_call.mp3-9e0a996b0af6f387c43d8822a9ed2be5.mp3str
+Completed load for: 'res://assets/sprites/menu/retro_diffusion_idle_2026_10_01/menu_cinderhide_walk_atlas.png' remapped 'res://assets/sprites/menu/retro_diffusion_idle_2026_10_01/menu_cinderhide_walk_atlas.png' at thread -1
+Loading cache for shader CanvasShaderRD, variant 0
+Loading cache for shader CanvasShaderRD, variant 1
+Completed load for: 'res://assets/audio/music/route1_two_note_call.mp3' remapped 'res://assets/audio/music/route1_two_note_call.mp3' at thread 8
+Loading cache for shader CanvasShaderRD, variant 2
+Loading cache for shader CanvasShaderRD, variant 3
+Loading cache for shader CanvasShaderRD, variant 4
+Loading cache for shader CanvasShaderRD, variant 5
+Loading resource: res://assets/sprites/player/retro_diffusion_chibi_walking_2026_10_01/male_chibi_walk_matched_turns_native80.png remapped: res://assets/sprites/player/retro_diffusion_chibi_walking_2026_10_01/male_chibi_walk_matched_turns_native80.png
+Loading resource: res://.godot/imported/male_chibi_walk_matched_turns_native80.png-fcfd2eb9d458f12ad1b505c56a678249.ctex remapped: res://.godot/imported/male_chibi_walk_matched_turns_native80.png-fcfd2eb9d458f12ad1b505c56a678249.ctex
+Completed load for: 'res://assets/sprites/player/retro_diffusion_chibi_walking_2026_10_01/male_chibi_walk_matched_turns_native80.png' remapped 'res://assets/sprites/player/retro_diffusion_chibi_walking_2026_10_01/male_chibi_walk_matched_turns_native80.png' at thread -1
+Loading resource: res://assets/sprites/player/retro_diffusion_chibi_walking_2026_10_01/female_chibi_walk_eight_directions_native80.png remapped: res://assets/sprites/player/retro_diffusion_chibi_walking_2026_10_01/female_chibi_walk_eight_directions_native80.png
+Loading resource: res://.godot/imported/female_chibi_walk_eight_directions_native80.png-bdfc4e1588bf156be474bd085f4af3d3.ctex remapped: res://.godot/imported/female_chibi_walk_eight_directions_native80.png-bdfc4e1588bf156be474bd085f4af3d3.ctex
+Completed load for: 'res://assets/sprites/player/retro_diffusion_chibi_walking_2026_10_01/female_chibi_walk_eight_directions_native80.png' remapped 'res://assets/sprites/player/retro_diffusion_chibi_walking_2026_10_01/female_chibi_walk_eight_directions_native80.png' at thread -1
+Completed load for: 'res://scripts/first_route_prototype.gd' remapped 'res://scripts/first_route_prototype.gd' at thread 8
+Loading resource: res://scenes/player.tscn remapped: res://scenes/player.tscn
+Loading resource: res://scripts/player.gd remapped: res://scripts/player.gd
+Loading resource: res://assets/sprites/player/male_vertical_walk_4x2_2026_09_27.png remapped: res://assets/sprites/player/male_vertical_walk_4x2_2026_09_27.png
+Loading resource: res://.godot/imported/male_vertical_walk_4x2_2026_09_27.png-5d6b8cdd8a04b659b51ba24d25fc95f2.ctex remapped: res://.godot/imported/male_vertical_walk_4x2_2026_09_27.png-5d6b8cdd8a04b659b51ba24d25fc95f2.ctex
+Completed load for: 'res://assets/sprites/player/male_vertical_walk_4x2_2026_09_27.png' remapped 'res://assets/sprites/player/male_vertical_walk_4x2_2026_09_27.png' at thread 8
+Loading resource: res://assets/sprites/player/male_side_walk_refined_8_v2_2026_09_27.png remapped: res://assets/sprites/player/male_side_walk_refined_8_v2_2026_09_27.png
+Loading resource: res://.godot/imported/male_side_walk_refined_8_v2_2026_09_27.png-5dd712ffced0e43e9da947118063f81f.ctex remapped: res://.godot/imported/male_side_walk_refined_8_v2_2026_09_27.png-5dd712ffced0e43e9da947118063f81f.ctex
+Completed load for: 'res://assets/sprites/player/male_side_walk_refined_8_v2_2026_09_27.png' remapped 'res://assets/sprites/player/male_side_walk_refined_8_v2_2026_09_27.png' at thread 8
+Completed load for: 'res://scripts/player.gd' remapped 'res://scripts/player.gd' at thread 8
+Completed load for: 'res://scenes/player.tscn' remapped 'res://scenes/player.tscn' at thread 8
+Loading resource: res://assets/sprites/world/route1_rd_2026_10_02/dispatch_hall_complete.png remapped: res://assets/sprites/world/route1_rd_2026_10_02/dispatch_hall_complete.png
+Loading resource: res://.godot/imported/dispatch_hall_complete.png-d16b754f0930f7c36a47bb573dede71d.ctex remapped: res://.godot/imported/dispatch_hall_complete.png-d16b754f0930f7c36a47bb573dede71d.ctex
+Completed load for: 'res://assets/sprites/world/route1_rd_2026_10_02/dispatch_hall_complete.png' remapped 'res://assets/sprites/world/route1_rd_2026_10_02/dispatch_hall_complete.png' at thread 8
+Loading resource: res://scripts/battle_screen.gd remapped: res://scripts/battle_screen.gd
+Loading resource: res://assets/audio/music/battle_theme.mp3 remapped: res://assets/audio/music/battle_theme.mp3
+Loading resource: res://.godot/imported/battle_theme.mp3-68920a1e6ab68d8cf4b55fac39b8964a.mp3str remapped: res://.godot/imported/battle_theme.mp3-68920a1e6ab68d8cf4b55fac39b8964a.mp3str
+Completed load for: 'res://assets/audio/music/battle_theme.mp3' remapped 'res://assets/audio/music/battle_theme.mp3' at thread 8
+Loading resource: res://assets/audio/music/signature_move_full.mp3 remapped: res://assets/audio/music/signature_move_full.mp3
+Loading resource: res://.godot/imported/signature_move_full.mp3-b510552a5a15f5a90f6bcc435ff44022.mp3str remapped: res://.godot/imported/signature_move_full.mp3-b510552a5a15f5a90f6bcc435ff44022.mp3str
+Completed load for: 'res://assets/audio/music/signature_move_full.mp3' remapped 'res://assets/audio/music/signature_move_full.mp3' at thread 8
+Loading resource: res://assets/audio/sfx/ui/text.wav remapped: res://assets/audio/sfx/ui/text.wav
+Loading resource: res://.godot/imported/text.wav-1a72347e8b16134f4d7c8170b671936f.sample remapped: res://.godot/imported/text.wav-1a72347e8b16134f4d7c8170b671936f.sample
+Completed load for: 'res://assets/audio/sfx/ui/text.wav' remapped 'res://assets/audio/sfx/ui/text.wav' at thread 8
+Loading resource: res://assets/audio/sfx/ui/hit.wav remapped: res://assets/audio/sfx/ui/hit.wav
+Loading resource: res://.godot/imported/hit.wav-07a23d23cafbb9ce00b97a22a51c3928.sample remapped: res://.godot/imported/hit.wav-07a23d23cafbb9ce00b97a22a51c3928.sample
+Completed load for: 'res://assets/audio/sfx/ui/hit.wav' remapped 'res://assets/audio/sfx/ui/hit.wav' at thread 8
+Loading resource: res://assets/audio/sfx/ui/hit_strong.wav remapped: res://assets/audio/sfx/ui/hit_strong.wav
+Loading resource: res://.godot/imported/hit_strong.wav-f1427642105c2d9cb450050b7fa6831d.sample remapped: res://.godot/imported/hit_strong.wav-f1427642105c2d9cb450050b7fa6831d.sample
+Completed load for: 'res://assets/audio/sfx/ui/hit_strong.wav' remapped 'res://assets/audio/sfx/ui/hit_strong.wav' at thread 8
+Loading resource: res://assets/audio/sfx/ui/hit_weak.wav remapped: res://assets/audio/sfx/ui/hit_weak.wav
+Loading resource: res://.godot/imported/hit_weak.wav-8414c3be24126ed7573bd90dfae6e0a4.sample remapped: res://.godot/imported/hit_weak.wav-8414c3be24126ed7573bd90dfae6e0a4.sample
+Completed load for: 'res://assets/audio/sfx/ui/hit_weak.wav' remapped 'res://assets/audio/sfx/ui/hit_weak.wav' at thread 8
+Loading resource: res://assets/audio/sfx/ui/hp_drain.wav remapped: res://assets/audio/sfx/ui/hp_drain.wav
+Loading resource: res://.godot/imported/hp_drain.wav-0b5878ad3daeed6be8a767e1a37b601e.sample remapped: res://.godot/imported/hp_drain.wav-0b5878ad3daeed6be8a767e1a37b601e.sample
+Completed load for: 'res://assets/audio/sfx/ui/hp_drain.wav' remapped 'res://assets/audio/sfx/ui/hp_drain.wav' at thread 8
+Loading resource: res://assets/audio/sfx/ui/faint.wav remapped: res://assets/audio/sfx/ui/faint.wav
+Loading resource: res://.godot/imported/faint.wav-d64779d792d5fa4fea0e98cc26ebbe61.sample remapped: res://.godot/imported/faint.wav-d64779d792d5fa4fea0e98cc26ebbe61.sample
+Completed load for: 'res://assets/audio/sfx/ui/faint.wav' remapped 'res://assets/audio/sfx/ui/faint.wav' at thread 8
+Loading resource: res://assets/audio/sfx/ui/catch_reach.wav remapped: res://assets/audio/sfx/ui/catch_reach.wav
+Loading resource: res://.godot/imported/catch_reach.wav-f424839a98efa67050546b3ae7da2210.sample remapped: res://.godot/imported/catch_reach.wav-f424839a98efa67050546b3ae7da2210.sample
+Completed load for: 'res://assets/audio/sfx/ui/catch_reach.wav' remapped 'res://assets/audio/sfx/ui/catch_reach.wav' at thread 8
+Loading resource: res://assets/audio/sfx/ui/catch_success.wav remapped: res://assets/audio/sfx/ui/catch_success.wav
+Loading resource: res://.godot/imported/catch_success.wav-6adc7ea4c81207c0099afd3eb3267f50.sample remapped: res://.godot/imported/catch_success.wav-6adc7ea4c81207c0099afd3eb3267f50.sample
+Completed load for: 'res://assets/audio/sfx/ui/catch_success.wav' remapped 'res://assets/audio/sfx/ui/catch_success.wav' at thread 8
+Loading resource: res://assets/audio/sfx/ui/catch_fail.wav remapped: res://assets/audio/sfx/ui/catch_fail.wav
+Loading resource: res://.godot/imported/catch_fail.wav-1d57bd96169200e30dd377d4f8e65baf.sample remapped: res://.godot/imported/catch_fail.wav-1d57bd96169200e30dd377d4f8e65baf.sample
+Completed load for: 'res://assets/audio/sfx/ui/catch_fail.wav' remapped 'res://assets/audio/sfx/ui/catch_fail.wav' at thread 8
+Loading resource: res://assets/audio/sfx/ui/encounter.wav remapped: res://assets/audio/sfx/ui/encounter.wav
+Loading resource: res://.godot/imported/encounter.wav-3b2f22b2e1fefbf5f97ac9ca3aa73654.sample remapped: res://.godot/imported/encounter.wav-3b2f22b2e1fefbf5f97ac9ca3aa73654.sample
+Completed load for: 'res://assets/audio/sfx/ui/encounter.wav' remapped 'res://assets/audio/sfx/ui/encounter.wav' at thread 8
+Loading resource: res://scenes/effects/basic_hit_pop.tscn remapped: res://scenes/effects/basic_hit_pop.tscn
+Loading resource: res://scripts/effects/vfx_sprite.gd remapped: res://scripts/effects/vfx_sprite.gd
+Completed load for: 'res://scripts/effects/vfx_sprite.gd' remapped 'res://scripts/effects/vfx_sprite.gd' at thread 8
+Loading resource: res://assets/sprites/effects/vfx_basic_2026_10_02/hit_pop_4x4.png remapped: res://assets/sprites/effects/vfx_basic_2026_10_02/hit_pop_4x4.png
+Loading resource: res://.godot/imported/hit_pop_4x4.png-2e32cfc574af0fb3ff099da2442fadef.ctex remapped: res://.godot/imported/hit_pop_4x4.png-2e32cfc574af0fb3ff099da2442fadef.ctex
+Completed load for: 'res://assets/sprites/effects/vfx_basic_2026_10_02/hit_pop_4x4.png' remapped 'res://assets/sprites/effects/vfx_basic_2026_10_02/hit_pop_4x4.png' at thread 8
+Completed load for: 'res://scenes/effects/basic_hit_pop.tscn' remapped 'res://scenes/effects/basic_hit_pop.tscn' at thread 8
+Loading resource: res://assets/backgrounds/river_landing_battle.svg remapped: res://assets/backgrounds/river_landing_battle.svg
+Loading resource: res://.godot/imported/river_landing_battle.svg-8e49c46091949a6fae024d4f1ae2752a.ctex remapped: res://.godot/imported/river_landing_battle.svg-8e49c46091949a6fae024d4f1ae2752a.ctex
+Completed load for: 'res://assets/backgrounds/river_landing_battle.svg' remapped 'res://assets/backgrounds/river_landing_battle.svg' at thread 8
+Loading resource: res://assets/fonts/Silkscreen-Bold.ttf remapped: res://assets/fonts/Silkscreen-Bold.ttf
+Loading resource: res://.godot/imported/Silkscreen-Bold.ttf-c5bfe206a7f26b7a826f144afbfe2747.fontdata remapped: res://.godot/imported/Silkscreen-Bold.ttf-c5bfe206a7f26b7a826f144afbfe2747.fontdata
+Completed load for: 'res://assets/fonts/Silkscreen-Bold.ttf' remapped 'res://assets/fonts/Silkscreen-Bold.ttf' at thread 8
+Completed load for: 'res://scripts/battle_screen.gd' remapped 'res://scripts/battle_screen.gd' at thread 8
+Loading resource: res://assets/sprites/world/route1_rd_2026_10_01/cottonwood_complete.png remapped: res://assets/sprites/world/route1_rd_2026_10_01/cottonwood_complete.png
+Loading resource: res://.godot/imported/cottonwood_complete.png-db3b9b702e55c75ffbe37f9f8e4595d9.ctex remapped: res://.godot/imported/cottonwood_complete.png-db3b9b702e55c75ffbe37f9f8e4595d9.ctex
+Completed load for: 'res://assets/sprites/world/route1_rd_2026_10_01/cottonwood_complete.png' remapped 'res://assets/sprites/world/route1_rd_2026_10_01/cottonwood_complete.png' at thread 8
+Loading resource: res://data/creatures/002_cinderhide.tres remapped: res://data/creatures/002_cinderhide.tres
+Loading resource: res://assets/sprites/creatures/cinderhide.png remapped: res://assets/sprites/creatures/cinderhide.png
+Loading resource: res://.godot/imported/cinderhide.png-da98df866a88f220a52ba17b23945a05.ctex remapped: res://.godot/imported/cinderhide.png-da98df866a88f220a52ba17b23945a05.ctex
+Completed load for: 'res://assets/sprites/creatures/cinderhide.png' remapped 'res://assets/sprites/creatures/cinderhide.png' at thread 8
+Loading resource: res://data/moves/cinderhide_ember_flick.tres remapped: res://data/moves/cinderhide_ember_flick.tres
+Loading resource: res://scenes/effects/cinderhide_ember_flick.tscn remapped: res://scenes/effects/cinderhide_ember_flick.tscn
+Loading resource: res://assets/sprites/effects/forge/clinker_ember.png remapped: res://assets/sprites/effects/forge/clinker_ember.png
+Loading resource: res://.godot/imported/clinker_ember.png-d25163a33cc7503b5a26505667b29613.ctex remapped: res://.godot/imported/clinker_ember.png-d25163a33cc7503b5a26505667b29613.ctex
+Completed load for: 'res://assets/sprites/effects/forge/clinker_ember.png' remapped 'res://assets/sprites/effects/forge/clinker_ember.png' at thread 8
+Loading resource: res://assets/sprites/effects/forge/cinder_burst.png remapped: res://assets/sprites/effects/forge/cinder_burst.png
+Loading resource: res://.godot/imported/cinder_burst.png-a7132682e415ec8e5423cd688ec76e84.ctex remapped: res://.godot/imported/cinder_burst.png-a7132682e415ec8e5423cd688ec76e84.ctex
+Completed load for: 'res://assets/sprites/effects/forge/cinder_burst.png' remapped 'res://assets/sprites/effects/forge/cinder_burst.png' at thread 8
+Loading resource: res://assets/sprites/effects/fire_ember_2.png remapped: res://assets/sprites/effects/fire_ember_2.png
+Loading resource: res://.godot/imported/fire_ember_2.png-e0baaf5c38525c1d74fe06ff9b867278.ctex remapped: res://.godot/imported/fire_ember_2.png-e0baaf5c38525c1d74fe06ff9b867278.ctex
+Completed load for: 'res://assets/sprites/effects/fire_ember_2.png' remapped 'res://assets/sprites/effects/fire_ember_2.png' at thread 8
+Loading resource: res://assets/sprites/effects/vfx_basic_2026_10_02/ember_shot_4x4.png remapped: res://assets/sprites/effects/vfx_basic_2026_10_02/ember_shot_4x4.png
+Loading resource: res://.godot/imported/ember_shot_4x4.png-283cf759b5fd8491628b8c47dcde1ddc.ctex remapped: res://.godot/imported/ember_shot_4x4.png-283cf759b5fd8491628b8c47dcde1ddc.ctex
+Completed load for: 'res://assets/sprites/effects/vfx_basic_2026_10_02/ember_shot_4x4.png' remapped 'res://assets/sprites/effects/vfx_basic_2026_10_02/ember_shot_4x4.png' at thread 8
+Completed load for: 'res://scenes/effects/cinderhide_ember_flick.tscn' remapped 'res://scenes/effects/cinderhide_ember_flick.tscn' at thread 8
+Completed load for: 'res://data/moves/cinderhide_ember_flick.tres' remapped 'res://data/moves/cinderhide_ember_flick.tres' at thread 8
+Loading resource: res://data/moves/cinderhide_vent_rake.tres remapped: res://data/moves/cinderhide_vent_rake.tres
+Loading resource: res://scenes/effects/cinderhide_vent_rake.tscn remapped: res://scenes/effects/cinderhide_vent_rake.tscn
+Loading resource: res://assets/sprites/effects/forge/cinder_arc.png remapped: res://assets/sprites/effects/forge/cinder_arc.png
+Loading resource: res://.godot/imported/cinder_arc.png-fa0222c443e3dcad3e484d010f5bfbf9.ctex remapped: res://.godot/imported/cinder_arc.png-fa0222c443e3dcad3e484d010f5bfbf9.ctex
+Completed load for: 'res://assets/sprites/effects/forge/cinder_arc.png' remapped 'res://assets/sprites/effects/forge/cinder_arc.png' at thread 8
+Loading resource: res://assets/sprites/effects/vfx_basic_2026_10_02/slash_4x4.png remapped: res://assets/sprites/effects/vfx_basic_2026_10_02/slash_4x4.png
+Loading resource: res://.godot/imported/slash_4x4.png-4bb6aace29c6626c738187ff879de996.ctex remapped: res://.godot/imported/slash_4x4.png-4bb6aace29c6626c738187ff879de996.ctex
+Completed load for: 'res://assets/sprites/effects/vfx_basic_2026_10_02/slash_4x4.png' remapped 'res://assets/sprites/effects/vfx_basic_2026_10_02/slash_4x4.png' at thread 8
+Completed load for: 'res://scenes/effects/cinderhide_vent_rake.tscn' remapped 'res://scenes/effects/cinderhide_vent_rake.tscn' at thread 8
+Completed load for: 'res://data/moves/cinderhide_vent_rake.tres' remapped 'res://data/moves/cinderhide_vent_rake.tres' at thread 8
+Loading resource: res://data/moves/cinderhide_coal_spit.tres remapped: res://data/moves/cinderhide_coal_spit.tres
+Loading resource: res://scenes/effects/cinderhide_coal_spit.tscn remapped: res://scenes/effects/cinderhide_coal_spit.tscn
+Loading resource: res://assets/sprites/effects/forge/clinker_orb.png remapped: res://assets/sprites/effects/forge/clinker_orb.png
+Loading resource: res://.godot/imported/clinker_orb.png-b56bf15a163c110f2b54e634a3411d67.ctex remapped: res://.godot/imported/clinker_orb.png-b56bf15a163c110f2b54e634a3411d67.ctex
+Completed load for: 'res://assets/sprites/effects/forge/clinker_orb.png' remapped 'res://assets/sprites/effects/forge/clinker_orb.png' at thread 8
+Loading resource: res://assets/sprites/effects/forge/clinker_star.png remapped: res://assets/sprites/effects/forge/clinker_star.png
+Loading resource: res://.godot/imported/clinker_star.png-1b141e2b55bec901406d3d005fdd6ccb.ctex remapped: res://.godot/imported/clinker_star.png-1b141e2b55bec901406d3d005fdd6ccb.ctex
+Completed load for: 'res://assets/sprites/effects/forge/clinker_star.png' remapped 'res://assets/sprites/effects/forge/clinker_star.png' at thread 8
+Loading resource: res://assets/sprites/effects/vfx_basic_2026_10_02/coal_shot_4x4.png remapped: res://assets/sprites/effects/vfx_basic_2026_10_02/coal_shot_4x4.png
+Loading resource: res://.godot/imported/coal_shot_4x4.png-d293910865f8ad7731c012b83003ffea.ctex remapped: res://.godot/imported/coal_shot_4x4.png-d293910865f8ad7731c012b83003ffea.ctex
+Completed load for: 'res://assets/sprites/effects/vfx_basic_2026_10_02/coal_shot_4x4.png' remapped 'res://assets/sprites/effects/vfx_basic_2026_10_02/coal_shot_4x4.png' at thread 8
+Completed load for: 'res://scenes/effects/cinderhide_coal_spit.tscn' remapped 'res://scenes/effects/cinderhide_coal_spit.tscn' at thread 8
+Completed load for: 'res://data/moves/cinderhide_coal_spit.tres' remapped 'res://data/moves/cinderhide_coal_spit.tres' at thread 8
+Loading resource: res://data/moves/cinderhide_spineflare.tres remapped: res://data/moves/cinderhide_spineflare.tres
+Loading resource: res://scenes/effects/cinderhide_spineflare.tscn remapped: res://scenes/effects/cinderhide_spineflare.tscn
+Loading resource: res://assets/sprites/effects/forge/clinker_burst.png remapped: res://assets/sprites/effects/forge/clinker_burst.png
+Loading resource: res://.godot/imported/clinker_burst.png-ab1d6f792fc30026745691aad368b1af.ctex remapped: res://.godot/imported/clinker_burst.png-ab1d6f792fc30026745691aad368b1af.ctex
+Completed load for: 'res://assets/sprites/effects/forge/clinker_burst.png' remapped 'res://assets/sprites/effects/forge/clinker_burst.png' at thread 8
+Completed load for: 'res://scenes/effects/cinderhide_spineflare.tscn' remapped 'res://scenes/effects/cinderhide_spineflare.tscn' at thread 8
+Completed load for: 'res://data/moves/cinderhide_spineflare.tres' remapped 'res://data/moves/cinderhide_spineflare.tres' at thread 8
+Loading resource: res://assets/sprites/creatures/cinderhide_back.png remapped: res://assets/sprites/creatures/cinderhide_back.png
+Loading resource: res://.godot/imported/cinderhide_back.png-a9bdc1f85e1981f060e7c8fdb775741a.ctex remapped: res://.godot/imported/cinderhide_back.png-a9bdc1f85e1981f060e7c8fdb775741a.ctex
+Completed load for: 'res://assets/sprites/creatures/cinderhide_back.png' remapped 'res://assets/sprites/creatures/cinderhide_back.png' at thread 8
+Loading resource: res://data/creatures/101_clinkerhide.tres remapped: res://data/creatures/101_clinkerhide.tres
+Loading resource: res://assets/sprites/creatures/clinkerhide.png remapped: res://assets/sprites/creatures/clinkerhide.png
+Loading resource: res://.godot/imported/clinkerhide.png-d9f33263cf5499be6d1eafd71ce1eba0.ctex remapped: res://.godot/imported/clinkerhide.png-d9f33263cf5499be6d1eafd71ce1eba0.ctex
+Completed load for: 'res://assets/sprites/creatures/clinkerhide.png' remapped 'res://assets/sprites/creatures/clinkerhide.png' at thread 8
+Loading resource: res://data/moves/clinkerhide_brow_shear.tres remapped: res://data/moves/clinkerhide_brow_shear.tres
+Loading resource: res://scenes/effects/clinkerhide_brow_shear.tscn remapped: res://scenes/effects/clinkerhide_brow_shear.tscn
+Loading resource: res://assets/sprites/effects/forge/clinker_arc.png remapped: res://assets/sprites/effects/forge/clinker_arc.png
+Loading resource: res://.godot/imported/clinker_arc.png-b629788de405b41a8f12900d4ead4e07.ctex remapped: res://.godot/imported/clinker_arc.png-b629788de405b41a8f12900d4ead4e07.ctex
+Completed load for: 'res://assets/sprites/effects/forge/clinker_arc.png' remapped 'res://assets/sprites/effects/forge/clinker_arc.png' at thread 8
+Completed load for: 'res://scenes/effects/clinkerhide_brow_shear.tscn' remapped 'res://scenes/effects/clinkerhide_brow_shear.tscn' at thread 8
+Completed load for: 'res://data/moves/clinkerhide_brow_shear.tres' remapped 'res://data/moves/clinkerhide_brow_shear.tres' at thread 8
+Loading resource: res://data/moves/clinkerhide_clinker_toss.tres remapped: res://data/moves/clinkerhide_clinker_toss.tres
+Loading resource: res://scenes/effects/clinkerhide_clinker_toss.tscn remapped: res://scenes/effects/clinkerhide_clinker_toss.tscn
+Loading resource: res://assets/sprites/effects/forge/clinker_rock.png remapped: res://assets/sprites/effects/forge/clinker_rock.png
+Loading resource: res://.godot/imported/clinker_rock.png-90d04e5f4d3d3296358f51e8967691fc.ctex remapped: res://.godot/imported/clinker_rock.png-90d04e5f4d3d3296358f51e8967691fc.ctex
+Completed load for: 'res://assets/sprites/effects/forge/clinker_rock.png' remapped 'res://assets/sprites/effects/forge/clinker_rock.png' at thread 8
+Completed load for: 'res://scenes/effects/clinkerhide_clinker_toss.tscn' remapped 'res://scenes/effects/clinkerhide_clinker_toss.tscn' at thread 8
+Completed load for: 'res://data/moves/clinkerhide_clinker_toss.tres' remapped 'res://data/moves/clinkerhide_clinker_toss.tres' at thread 8
+Loading resource: res://data/moves/clinkerhide_vent_row.tres remapped: res://data/moves/clinkerhide_vent_row.tres
+Loading resource: res://scenes/effects/clinkerhide_vent_row.tscn remapped: res://scenes/effects/clinkerhide_vent_row.tscn
+Loading resource: res://assets/sprites/effects/forge/clinker_blade.png remapped: res://assets/sprites/effects/forge/clinker_blade.png
+Loading resource: res://.godot/imported/clinker_blade.png-52f786bfdcbc12ed5750e41a480aaf29.ctex remapped: res://.godot/imported/clinker_blade.png-52f786bfdcbc12ed5750e41a480aaf29.ctex
+Completed load for: 'res://assets/sprites/effects/forge/clinker_blade.png' remapped 'res://assets/sprites/effects/forge/clinker_blade.png' at thread 8
+Completed load for: 'res://scenes/effects/clinkerhide_vent_row.tscn' remapped 'res://scenes/effects/clinkerhide_vent_row.tscn' at thread 8
+Completed load for: 'res://data/moves/clinkerhide_vent_row.tres' remapped 'res://data/moves/clinkerhide_vent_row.tres' at thread 8
+Loading resource: res://data/moves/clinkerhide_slagburst.tres remapped: res://data/moves/clinkerhide_slagburst.tres
+Loading resource: res://scenes/effects/clinkerhide_slagburst.tscn remapped: res://scenes/effects/clinkerhide_slagburst.tscn
+Completed load for: 'res://scenes/effects/clinkerhide_slagburst.tscn' remapped 'res://scenes/effects/clinkerhide_slagburst.tscn' at thread 8
+Completed load for: 'res://data/moves/clinkerhide_slagburst.tres' remapped 'res://data/moves/clinkerhide_slagburst.tres' at thread 8
+Loading resource: res://data/creatures/102_ironvent.tres remapped: res://data/creatures/102_ironvent.tres
+Loading resource: res://assets/sprites/creatures/ironvent.png remapped: res://assets/sprites/creatures/ironvent.png
+Loading resource: res://.godot/imported/ironvent.png-4ec5e0f352ebee46f4f2ff1ce4d85ebe.ctex remapped: res://.godot/imported/ironvent.png-4ec5e0f352ebee46f4f2ff1ce4d85ebe.ctex
+Completed load for: 'res://assets/sprites/creatures/ironvent.png' remapped 'res://assets/sprites/creatures/ironvent.png' at thread 8
+Loading resource: res://assets/sprites/creatures/ironvent_back_2026_09_27.png remapped: res://assets/sprites/creatures/ironvent_back_2026_09_27.png
+Loading resource: res://.godot/imported/ironvent_back_2026_09_27.png-2e22d04580c8e81797980b4a5c556517.ctex remapped: res://.godot/imported/ironvent_back_2026_09_27.png-2e22d04580c8e81797980b4a5c556517.ctex
+Completed load for: 'res://assets/sprites/creatures/ironvent_back_2026_09_27.png' remapped 'res://assets/sprites/creatures/ironvent_back_2026_09_27.png' at thread 8
+Loading resource: res://data/moves/ironvent_crest_ram.tres remapped: res://data/moves/ironvent_crest_ram.tres
+Loading resource: res://scenes/effects/ironvent_crest_ram.tscn remapped: res://scenes/effects/ironvent_crest_ram.tscn
+Loading resource: res://assets/sprites/effects/forge/iron_lance.png remapped: res://assets/sprites/effects/forge/iron_lance.png
+Loading resource: res://.godot/imported/iron_lance.png-50abc823ea7a42c9393df5aafc2e381d.ctex remapped: res://.godot/imported/iron_lance.png-50abc823ea7a42c9393df5aafc2e381d.ctex
+Completed load for: 'res://assets/sprites/effects/forge/iron_lance.png' remapped 'res://assets/sprites/effects/forge/iron_lance.png' at thread 8
+Loading resource: res://assets/sprites/effects/forge/iron_burst.png remapped: res://assets/sprites/effects/forge/iron_burst.png
+Loading resource: res://.godot/imported/iron_burst.png-963fecc7ec6ce9a6096f8630850a2786.ctex remapped: res://.godot/imported/iron_burst.png-963fecc7ec6ce9a6096f8630850a2786.ctex
+Completed load for: 'res://assets/sprites/effects/forge/iron_burst.png' remapped 'res://assets/sprites/effects/forge/iron_burst.png' at thread 8
+Completed load for: 'res://scenes/effects/ironvent_crest_ram.tscn' remapped 'res://scenes/effects/ironvent_crest_ram.tscn' at thread 8
+Completed load for: 'res://data/moves/ironvent_crest_ram.tres' remapped 'res://data/moves/ironvent_crest_ram.tres' at thread 8
+Loading resource: res://data/moves/ironvent_cinder_claw.tres remapped: res://data/moves/ironvent_cinder_claw.tres
+Loading resource: res://assets/sprites/creatures/ironvent_claw_6.png remapped: res://assets/sprites/creatures/ironvent_claw_6.png
+Loading resource: res://.godot/imported/ironvent_claw_6.png-264c458679dacb7816864c11d144ab06.ctex remapped: res://.godot/imported/ironvent_claw_6.png-264c458679dacb7816864c11d144ab06.ctex
+Completed load for: 'res://assets/sprites/creatures/ironvent_claw_6.png' remapped 'res://assets/sprites/creatures/ironvent_claw_6.png' at thread 8
+Loading resource: res://scenes/effects/ironvent_cinder_claw.tscn remapped: res://scenes/effects/ironvent_cinder_claw.tscn
+Loading resource: res://assets/sprites/effects/ironvent/ironvent_claw_projectile.png remapped: res://assets/sprites/effects/ironvent/ironvent_claw_projectile.png
+Loading resource: res://.godot/imported/ironvent_claw_projectile.png-677eeb2a72a47a825690293c6bb80691.ctex remapped: res://.godot/imported/ironvent_claw_projectile.png-677eeb2a72a47a825690293c6bb80691.ctex
+Completed load for: 'res://assets/sprites/effects/ironvent/ironvent_claw_projectile.png' remapped 'res://assets/sprites/effects/ironvent/ironvent_claw_projectile.png' at thread 8
+Loading resource: res://assets/sprites/effects/ironvent/ironvent_claw_impact.png remapped: res://assets/sprites/effects/ironvent/ironvent_claw_impact.png
+Loading resource: res://.godot/imported/ironvent_claw_impact.png-f8904cd83c70f5d6404290f650bde9a3.ctex remapped: res://.godot/imported/ironvent_claw_impact.png-f8904cd83c70f5d6404290f650bde9a3.ctex
+Completed load for: 'res://assets/sprites/effects/ironvent/ironvent_claw_impact.png' remapped 'res://assets/sprites/effects/ironvent/ironvent_claw_impact.png' at thread 8
+Completed load for: 'res://scenes/effects/ironvent_cinder_claw.tscn' remapped 'res://scenes/effects/ironvent_cinder_claw.tscn' at thread 8
+Completed load for: 'res://data/moves/ironvent_cinder_claw.tres' remapped 'res://data/moves/ironvent_cinder_claw.tres' at thread 8
+Loading resource: res://data/moves/ironvent_vent_barrage.tres remapped: res://data/moves/ironvent_vent_barrage.tres
+Loading resource: res://scenes/effects/ironvent_vent_barrage.tscn remapped: res://scenes/effects/ironvent_vent_barrage.tscn
+Loading resource: res://assets/sprites/effects/forge/iron_ember.png remapped: res://assets/sprites/effects/forge/iron_ember.png
+Loading resource: res://.godot/imported/iron_ember.png-b856e15c9765d8a03b8b189d411714a7.ctex remapped: res://.godot/imported/iron_ember.png-b856e15c9765d8a03b8b189d411714a7.ctex
+Completed load for: 'res://assets/sprites/effects/forge/iron_ember.png' remapped 'res://assets/sprites/effects/forge/iron_ember.png' at thread 8
+Completed load for: 'res://scenes/effects/ironvent_vent_barrage.tscn' remapped 'res://scenes/effects/ironvent_vent_barrage.tscn' at thread 8
+Completed load for: 'res://data/moves/ironvent_vent_barrage.tres' remapped 'res://data/moves/ironvent_vent_barrage.tres' at thread 8
+Loading resource: res://data/moves/ironvent_furnace_roar.tres remapped: res://data/moves/ironvent_furnace_roar.tres
+Loading resource: res://scenes/effects/ironvent_roar_impact.tscn remapped: res://scenes/effects/ironvent_roar_impact.tscn
+Loading resource: res://assets/sprites/effects/ironvent/furnace_roar/f5.png remapped: res://assets/sprites/effects/ironvent/furnace_roar/f5.png
+Loading resource: res://.godot/imported/f5.png-3fc0cb40d98ec79d61ff462a7b29ae93.ctex remapped: res://.godot/imported/f5.png-3fc0cb40d98ec79d61ff462a7b29ae93.ctex
+Completed load for: 'res://assets/sprites/effects/ironvent/furnace_roar/f5.png' remapped 'res://assets/sprites/effects/ironvent/furnace_roar/f5.png' at thread 8
+Loading resource: res://assets/sprites/effects/ironvent/furnace_roar/f6.png remapped: res://assets/sprites/effects/ironvent/furnace_roar/f6.png
+Loading resource: res://.godot/imported/f6.png-c7b4fa3fdc70d88c941bb0027d0327c0.ctex remapped: res://.godot/imported/f6.png-c7b4fa3fdc70d88c941bb0027d0327c0.ctex
+Completed load for: 'res://assets/sprites/effects/ironvent/furnace_roar/f6.png' remapped 'res://assets/sprites/effects/ironvent/furnace_roar/f6.png' at thread 8
+Loading resource: res://assets/sprites/effects/ironvent/furnace_roar/f7.png remapped: res://assets/sprites/effects/ironvent/furnace_roar/f7.png
+Loading resource: res://.godot/imported/f7.png-64ec19d9d31fbd88e1e4672658ca74a2.ctex remapped: res://.godot/imported/f7.png-64ec19d9d31fbd88e1e4672658ca74a2.ctex
+Completed load for: 'res://assets/sprites/effects/ironvent/furnace_roar/f7.png' remapped 'res://assets/sprites/effects/ironvent/furnace_roar/f7.png' at thread 8
+Loading resource: res://assets/sprites/effects/ironvent/furnace_roar/f8.png remapped: res://assets/sprites/effects/ironvent/furnace_roar/f8.png
+Loading resource: res://.godot/imported/f8.png-263f21eeba974850ece529394052ae38.ctex remapped: res://.godot/imported/f8.png-263f21eeba974850ece529394052ae38.ctex
+Completed load for: 'res://assets/sprites/effects/ironvent/furnace_roar/f8.png' remapped 'res://assets/sprites/effects/ironvent/furnace_roar/f8.png' at thread 8
+Loading resource: res://assets/sprites/effects/ironvent/blowdown/column.png remapped: res://assets/sprites/effects/ironvent/blowdown/column.png
+Loading resource: res://.godot/imported/column.png-176ed6eb2f6cc93dcd217de26fb8eb27.ctex remapped: res://.godot/imported/column.png-176ed6eb2f6cc93dcd217de26fb8eb27.ctex
+Completed load for: 'res://assets/sprites/effects/ironvent/blowdown/column.png' remapped 'res://assets/sprites/effects/ironvent/blowdown/column.png' at thread 8
+Loading resource: res://assets/sprites/effects/ironvent/furnace_roar/f1.png remapped: res://assets/sprites/effects/ironvent/furnace_roar/f1.png
+Loading resource: res://.godot/imported/f1.png-29ae4c22d699071c01aa718e30c67987.ctex remapped: res://.godot/imported/f1.png-29ae4c22d699071c01aa718e30c67987.ctex
+Completed load for: 'res://assets/sprites/effects/ironvent/furnace_roar/f1.png' remapped 'res://assets/sprites/effects/ironvent/furnace_roar/f1.png' at thread 8
+Completed load for: 'res://scenes/effects/ironvent_roar_impact.tscn' remapped 'res://scenes/effects/ironvent_roar_impact.tscn' at thread 8
+Loading resource: res://assets/sprites/creatures/attacks/ironvent_furnace_roar/style_matched/rest.png remapped: res://assets/sprites/creatures/attacks/ironvent_furnace_roar/style_matched/rest.png
+Loading resource: res://.godot/imported/rest.png-f1385619eb243a39d7deb1d1ce0bc141.ctex remapped: res://.godot/imported/rest.png-f1385619eb243a39d7deb1d1ce0bc141.ctex
+Completed load for: 'res://assets/sprites/creatures/attacks/ironvent_furnace_roar/style_matched/rest.png' remapped 'res://assets/sprites/creatures/attacks/ironvent_furnace_roar/style_matched/rest.png' at thread 8
+Loading resource: res://assets/sprites/creatures/attacks/ironvent_furnace_roar/style_matched/warm.png remapped: res://assets/sprites/creatures/attacks/ironvent_furnace_roar/style_matched/warm.png
+Loading resource: res://.godot/imported/warm.png-ce13867b3989b9da049d03054437f829.ctex remapped: res://.godot/imported/warm.png-ce13867b3989b9da049d03054437f829.ctex
+Completed load for: 'res://assets/sprites/creatures/attacks/ironvent_furnace_roar/style_matched/warm.png' remapped 'res://assets/sprites/creatures/attacks/ironvent_furnace_roar/style_matched/warm.png' at thread 8
+Loading resource: res://assets/sprites/creatures/attacks/ironvent_furnace_roar/style_matched/pressure.png remapped: res://assets/sprites/creatures/attacks/ironvent_furnace_roar/style_matched/pressure.png
+Loading resource: res://.godot/imported/pressure.png-60379fb1b3f92eab6abf2836ff3fc080.ctex remapped: res://.godot/imported/pressure.png-60379fb1b3f92eab6abf2836ff3fc080.ctex
+Completed load for: 'res://assets/sprites/creatures/attacks/ironvent_furnace_roar/style_matched/pressure.png' remapped 'res://assets/sprites/creatures/attacks/ironvent_furnace_roar/style_matched/pressure.png' at thread 8
+Loading resource: res://assets/sprites/creatures/attacks/ironvent_furnace_roar/style_matched/rear.png remapped: res://assets/sprites/creatures/attacks/ironvent_furnace_roar/style_matched/rear.png
+Loading resource: res://.godot/imported/rear.png-4e81910e20326bfa087e6212124d1249.ctex remapped: res://.godot/imported/rear.png-4e81910e20326bfa087e6212124d1249.ctex
+Completed load for: 'res://assets/sprites/creatures/attacks/ironvent_furnace_roar/style_matched/rear.png' remapped 'res://assets/sprites/creatures/attacks/ironvent_furnace_roar/style_matched/rear.png' at thread 8
+Loading resource: res://assets/sprites/creatures/attacks/ironvent_furnace_roar/style_matched/open.png remapped: res://assets/sprites/creatures/attacks/ironvent_furnace_roar/style_matched/open.png
+Loading resource: res://.godot/imported/open.png-fa56236d9425dbba27d005a3d006e10b.ctex remapped: res://.godot/imported/open.png-fa56236d9425dbba27d005a3d006e10b.ctex
+Completed load for: 'res://assets/sprites/creatures/attacks/ironvent_furnace_roar/style_matched/open.png' remapped 'res://assets/sprites/creatures/attacks/ironvent_furnace_roar/style_matched/open.png' at thread 8
+Loading resource: res://assets/sprites/creatures/attacks/ironvent_furnace_roar/style_matched/roar.png remapped: res://assets/sprites/creatures/attacks/ironvent_furnace_roar/style_matched/roar.png
+Loading resource: res://.godot/imported/roar.png-0889359c3c34ca4e3911a240108e9d48.ctex remapped: res://.godot/imported/roar.png-0889359c3c34ca4e3911a240108e9d48.ctex
+Completed load for: 'res://assets/sprites/creatures/attacks/ironvent_furnace_roar/style_matched/roar.png' remapped 'res://assets/sprites/creatures/attacks/ironvent_furnace_roar/style_matched/roar.png' at thread 8
+Loading resource: res://assets/sprites/creatures/attacks/ironvent_furnace_roar/style_matched/settle.png remapped: res://assets/sprites/creatures/attacks/ironvent_furnace_roar/style_matched/settle.png
+Loading resource: res://.godot/imported/settle.png-39728d752fc2fdf7a977b8b44f601a09.ctex remapped: res://.godot/imported/settle.png-39728d752fc2fdf7a977b8b44f601a09.ctex
+Completed load for: 'res://assets/sprites/creatures/attacks/ironvent_furnace_roar/style_matched/settle.png' remapped 'res://assets/sprites/creatures/attacks/ironvent_furnace_roar/style_matched/settle.png' at thread 8
+Loading resource: res://assets/sprites/creatures/attacks/ironvent_furnace_roar/style_matched/cool.png remapped: res://assets/sprites/creatures/attacks/ironvent_furnace_roar/style_matched/cool.png
+Loading resource: res://.godot/imported/cool.png-cbf0f615fecb68caee4f37d1346bbc71.ctex remapped: res://.godot/imported/cool.png-cbf0f615fecb68caee4f37d1346bbc71.ctex
+Completed load for: 'res://assets/sprites/creatures/attacks/ironvent_furnace_roar/style_matched/cool.png' remapped 'res://assets/sprites/creatures/attacks/ironvent_furnace_roar/style_matched/cool.png' at thread 8
+Loading resource: res://assets/sprites/creatures/attacks/ironvent_furnace_roar/style_matched/titlecard_official_2026_09_30.png remapped: res://assets/sprites/creatures/attacks/ironvent_furnace_roar/style_matched/titlecard_official_2026_09_30.png
+Loading resource: res://.godot/imported/titlecard_official_2026_09_30.png-270d29ba45bfc6e2babbf9953d01209d.ctex remapped: res://.godot/imported/titlecard_official_2026_09_30.png-270d29ba45bfc6e2babbf9953d01209d.ctex
+Completed load for: 'res://assets/sprites/creatures/attacks/ironvent_furnace_roar/style_matched/titlecard_official_2026_09_30.png' remapped 'res://assets/sprites/creatures/attacks/ironvent_furnace_roar/style_matched/titlecard_official_2026_09_30.png' at thread 8
+Loading resource: res://scenes/effects/ironvent_roar_mouth.tscn remapped: res://scenes/effects/ironvent_roar_mouth.tscn
+Loading resource: res://assets/sprites/effects/ironvent/field/fan.png remapped: res://assets/sprites/effects/ironvent/field/fan.png
+Loading resource: res://.godot/imported/fan.png-5d344a714cbcf5e7f51c043035d6383d.ctex remapped: res://.godot/imported/fan.png-5d344a714cbcf5e7f51c043035d6383d.ctex
+Completed load for: 'res://assets/sprites/effects/ironvent/field/fan.png' remapped 'res://assets/sprites/effects/ironvent/field/fan.png' at thread 8
+Completed load for: 'res://scenes/effects/ironvent_roar_mouth.tscn' remapped 'res://scenes/effects/ironvent_roar_mouth.tscn' at thread 8
+Loading resource: res://scenes/effects/ironvent_pressure_field.tscn remapped: res://scenes/effects/ironvent_pressure_field.tscn
+Loading resource: res://scripts/effects/pressure_field.gd remapped: res://scripts/effects/pressure_field.gd
+Completed load for: 'res://scripts/effects/pressure_field.gd' remapped 'res://scripts/effects/pressure_field.gd' at thread 8
+Loading resource: res://assets/sprites/effects/ironvent/field/charge.png remapped: res://assets/sprites/effects/ironvent/field/charge.png
+Loading resource: res://.godot/imported/charge.png-9e8393fc259e52602cfdbbb82103d102.ctex remapped: res://.godot/imported/charge.png-9e8393fc259e52602cfdbbb82103d102.ctex
+Completed load for: 'res://assets/sprites/effects/ironvent/field/charge.png' remapped 'res://assets/sprites/effects/ironvent/field/charge.png' at thread 8
+Loading resource: res://assets/sprites/effects/ironvent/field/geyser.png remapped: res://assets/sprites/effects/ironvent/field/geyser.png
+Loading resource: res://.godot/imported/geyser.png-b52b7589b610b4c8d0a7fa1377f0a16c.ctex remapped: res://.godot/imported/geyser.png-b52b7589b610b4c8d0a7fa1377f0a16c.ctex
+Completed load for: 'res://assets/sprites/effects/ironvent/field/geyser.png' remapped 'res://assets/sprites/effects/ironvent/field/geyser.png' at thread 8
+Loading resource: res://assets/sprites/effects/ironvent/field/smoke.png remapped: res://assets/sprites/effects/ironvent/field/smoke.png
+Loading resource: res://.godot/imported/smoke.png-932a3b7b99f35831e9c55762153124d7.ctex remapped: res://.godot/imported/smoke.png-932a3b7b99f35831e9c55762153124d7.ctex
+Completed load for: 'res://assets/sprites/effects/ironvent/field/smoke.png' remapped 'res://assets/sprites/effects/ironvent/field/smoke.png' at thread 8
+Loading resource: res://assets/sprites/effects/ironvent/field/fireworks.png remapped: res://assets/sprites/effects/ironvent/field/fireworks.png
+Loading resource: res://.godot/imported/fireworks.png-958d642d59278f365b6d3ed9d8b2bea9.ctex remapped: res://.godot/imported/fireworks.png-958d642d59278f365b6d3ed9d8b2bea9.ctex
+Completed load for: 'res://assets/sprites/effects/ironvent/field/fireworks.png' remapped 'res://assets/sprites/effects/ironvent/field/fireworks.png' at thread 8
+Loading resource: res://assets/sprites/effects/ironvent/field/eruption.png remapped: res://assets/sprites/effects/ironvent/field/eruption.png
+Loading resource: res://.godot/imported/eruption.png-70515bd807459b5402041ecb44aca1af.ctex remapped: res://.godot/imported/eruption.png-70515bd807459b5402041ecb44aca1af.ctex
+Completed load for: 'res://assets/sprites/effects/ironvent/field/eruption.png' remapped 'res://assets/sprites/effects/ironvent/field/eruption.png' at thread 8
+Loading resource: res://assets/sprites/effects/ironvent/field/eruption_alt.png remapped: res://assets/sprites/effects/ironvent/field/eruption_alt.png
+Loading resource: res://.godot/imported/eruption_alt.png-c788d5e9d9d2b2bda722444b761b9d5e.ctex remapped: res://.godot/imported/eruption_alt.png-c788d5e9d9d2b2bda722444b761b9d5e.ctex
+Completed load for: 'res://assets/sprites/effects/ironvent/field/eruption_alt.png' remapped 'res://assets/sprites/effects/ironvent/field/eruption_alt.png' at thread 8
+Loading resource: res://assets/sprites/effects/vfx_rd_2026_10_01/furnace_roar_geyser_4x4.png remapped: res://assets/sprites/effects/vfx_rd_2026_10_01/furnace_roar_geyser_4x4.png
+Loading resource: res://.godot/imported/furnace_roar_geyser_4x4.png-b8dddfa65cc3a68e1a29e56ab946d73b.ctex remapped: res://.godot/imported/furnace_roar_geyser_4x4.png-b8dddfa65cc3a68e1a29e56ab946d73b.ctex
+Completed load for: 'res://assets/sprites/effects/vfx_rd_2026_10_01/furnace_roar_geyser_4x4.png' remapped 'res://assets/sprites/effects/vfx_rd_2026_10_01/furnace_roar_geyser_4x4.png' at thread 8
+Loading resource: res://assets/sprites/effects/ironvent/furnace_roar/f5.png remapped: res://assets/sprites/effects/ironvent/furnace_roar/f5.png
+Loading resource: res://.godot/imported/f5.png-3fc0cb40d98ec79d61ff462a7b29ae93.ctex remapped: res://.godot/imported/f5.png-3fc0cb40d98ec79d61ff462a7b29ae93.ctex
+Completed load for: 'res://assets/sprites/effects/ironvent/furnace_roar/f5.png' remapped 'res://assets/sprites/effects/ironvent/furnace_roar/f5.png' at thread 8
+Loading resource: res://assets/sprites/effects/ironvent/furnace_roar/f6.png remapped: res://assets/sprites/effects/ironvent/furnace_roar/f6.png
+Loading resource: res://.godot/imported/f6.png-c7b4fa3fdc70d88c941bb0027d0327c0.ctex remapped: res://.godot/imported/f6.png-c7b4fa3fdc70d88c941bb0027d0327c0.ctex
+Completed load for: 'res://assets/sprites/effects/ironvent/furnace_roar/f6.png' remapped 'res://assets/sprites/effects/ironvent/furnace_roar/f6.png' at thread 8
+Loading resource: res://assets/sprites/effects/ironvent/furnace_roar/f7.png remapped: res://assets/sprites/effects/ironvent/furnace_roar/f7.png
+Loading resource: res://.godot/imported/f7.png-64ec19d9d31fbd88e1e4672658ca74a2.ctex remapped: res://.godot/imported/f7.png-64ec19d9d31fbd88e1e4672658ca74a2.ctex
+Completed load for: 'res://assets/sprites/effects/ironvent/furnace_roar/f7.png' remapped 'res://assets/sprites/effects/ironvent/furnace_roar/f7.png' at thread 8
+Loading resource: res://assets/sprites/effects/ironvent/furnace_roar/f8.png remapped: res://assets/sprites/effects/ironvent/furnace_roar/f8.png
+Loading resource: res://.godot/imported/f8.png-263f21eeba974850ece529394052ae38.ctex remapped: res://.godot/imported/f8.png-263f21eeba974850ece529394052ae38.ctex
+Completed load for: 'res://assets/sprites/effects/ironvent/furnace_roar/f8.png' remapped 'res://assets/sprites/effects/ironvent/furnace_roar/f8.png' at thread 8
+Completed load for: 'res://scenes/effects/ironvent_pressure_field.tscn' remapped 'res://scenes/effects/ironvent_pressure_field.tscn' at thread 8
+Loading resource: res://assets/sprites/effects/ironvent/blowdown/charge.png remapped: res://assets/sprites/effects/ironvent/blowdown/charge.png
+Loading resource: res://.godot/imported/charge.png-8e31882d47e26c7a060147fecf5e8071.ctex remapped: res://.godot/imported/charge.png-8e31882d47e26c7a060147fecf5e8071.ctex
+Completed load for: 'res://assets/sprites/effects/ironvent/blowdown/charge.png' remapped 'res://assets/sprites/effects/ironvent/blowdown/charge.png' at thread 8
+Loading resource: res://assets/sprites/effects/ironvent/blowdown/column.png remapped: res://assets/sprites/effects/ironvent/blowdown/column.png
+Loading resource: res://.godot/imported/column.png-176ed6eb2f6cc93dcd217de26fb8eb27.ctex remapped: res://.godot/imported/column.png-176ed6eb2f6cc93dcd217de26fb8eb27.ctex
+Completed load for: 'res://assets/sprites/effects/ironvent/blowdown/column.png' remapped 'res://assets/sprites/effects/ironvent/blowdown/column.png' at thread 8
+Loading resource: res://assets/sprites/effects/ironvent/blowdown/smoke.png remapped: res://assets/sprites/effects/ironvent/blowdown/smoke.png
+Loading resource: res://.godot/imported/smoke.png-a07d2461a1effafc1b29eeebd681f343.ctex remapped: res://.godot/imported/smoke.png-a07d2461a1effafc1b29eeebd681f343.ctex
+Completed load for: 'res://assets/sprites/effects/ironvent/blowdown/smoke.png' remapped 'res://assets/sprites/effects/ironvent/blowdown/smoke.png' at thread 8
+Loading resource: res://assets/sprites/effects/ironvent/blowdown/fan.png remapped: res://assets/sprites/effects/ironvent/blowdown/fan.png
+Loading resource: res://.godot/imported/fan.png-e841a54336f5915f2511e3b0c2735e41.ctex remapped: res://.godot/imported/fan.png-e841a54336f5915f2511e3b0c2735e41.ctex
+Completed load for: 'res://assets/sprites/effects/ironvent/blowdown/fan.png' remapped 'res://assets/sprites/effects/ironvent/blowdown/fan.png' at thread 8
+Loading resource: res://assets/sprites/effects/ironvent/vent_heat/00_charge.png remapped: res://assets/sprites/effects/ironvent/vent_heat/00_charge.png
+Loading resource: res://.godot/imported/00_charge.png-36c45c1b4be85abec2400b9af9317409.ctex remapped: res://.godot/imported/00_charge.png-36c45c1b4be85abec2400b9af9317409.ctex
+Completed load for: 'res://assets/sprites/effects/ironvent/vent_heat/00_charge.png' remapped 'res://assets/sprites/effects/ironvent/vent_heat/00_charge.png' at thread 8
+Loading resource: res://assets/sprites/effects/ironvent/vent_heat/01_ignite.png remapped: res://assets/sprites/effects/ironvent/vent_heat/01_ignite.png
+Loading resource: res://.godot/imported/01_ignite.png-7bab2f0d863c2dee09751c15b15a32e6.ctex remapped: res://.godot/imported/01_ignite.png-7bab2f0d863c2dee09751c15b15a32e6.ctex
+Completed load for: 'res://assets/sprites/effects/ironvent/vent_heat/01_ignite.png' remapped 'res://assets/sprites/effects/ironvent/vent_heat/01_ignite.png' at thread 8
+Loading resource: res://assets/sprites/effects/ironvent/vent_heat/02_first_burst.png remapped: res://assets/sprites/effects/ironvent/vent_heat/02_first_burst.png
+Loading resource: res://.godot/imported/02_first_burst.png-0e974eda102c5c5508ec324ceb8ff7a3.ctex remapped: res://.godot/imported/02_first_burst.png-0e974eda102c5c5508ec324ceb8ff7a3.ctex
+Completed load for: 'res://assets/sprites/effects/ironvent/vent_heat/02_first_burst.png' remapped 'res://assets/sprites/effects/ironvent/vent_heat/02_first_burst.png' at thread 8
+Loading resource: res://assets/sprites/effects/ironvent/vent_heat/03_open.png remapped: res://assets/sprites/effects/ironvent/vent_heat/03_open.png
+Loading resource: res://.godot/imported/03_open.png-26b4d9d97663597febd54b2f6af91c42.ctex remapped: res://.godot/imported/03_open.png-26b4d9d97663597febd54b2f6af91c42.ctex
+Completed load for: 'res://assets/sprites/effects/ironvent/vent_heat/03_open.png' remapped 'res://assets/sprites/effects/ironvent/vent_heat/03_open.png' at thread 8
+Loading resource: res://assets/sprites/effects/ironvent/vent_heat/04_full.png remapped: res://assets/sprites/effects/ironvent/vent_heat/04_full.png
+Loading resource: res://.godot/imported/04_full.png-963437f81136e4dd8f7cffe1eebafaa6.ctex remapped: res://.godot/imported/04_full.png-963437f81136e4dd8f7cffe1eebafaa6.ctex
+Completed load for: 'res://assets/sprites/effects/ironvent/vent_heat/04_full.png' remapped 'res://assets/sprites/effects/ironvent/vent_heat/04_full.png' at thread 8
+Loading resource: res://assets/sprites/effects/ironvent/vent_heat/05_sustain.png remapped: res://assets/sprites/effects/ironvent/vent_heat/05_sustain.png
+Loading resource: res://.godot/imported/05_sustain.png-482cc0ac233ecef069779f028539adda.ctex remapped: res://.godot/imported/05_sustain.png-482cc0ac233ecef069779f028539adda.ctex
+Completed load for: 'res://assets/sprites/effects/ironvent/vent_heat/05_sustain.png' remapped 'res://assets/sprites/effects/ironvent/vent_heat/05_sustain.png' at thread 8
+Loading resource: res://assets/sprites/effects/ironvent/vent_heat/06_turbulence.png remapped: res://assets/sprites/effects/ironvent/vent_heat/06_turbulence.png
+Loading resource: res://.godot/imported/06_turbulence.png-f453dc39b58de6b6c6a630b6a164492f.ctex remapped: res://.godot/imported/06_turbulence.png-f453dc39b58de6b6c6a630b6a164492f.ctex
+Completed load for: 'res://assets/sprites/effects/ironvent/vent_heat/06_turbulence.png' remapped 'res://assets/sprites/effects/ironvent/vent_heat/06_turbulence.png' at thread 8
+Loading resource: res://assets/sprites/effects/ironvent/vent_heat/07_breakup.png remapped: res://assets/sprites/effects/ironvent/vent_heat/07_breakup.png
+Loading resource: res://.godot/imported/07_breakup.png-e25d0c865027ab92abf68243a87fff91.ctex remapped: res://.godot/imported/07_breakup.png-e25d0c865027ab92abf68243a87fff91.ctex
+Completed load for: 'res://assets/sprites/effects/ironvent/vent_heat/07_breakup.png' remapped 'res://assets/sprites/effects/ironvent/vent_heat/07_breakup.png' at thread 8
+Loading resource: res://assets/sprites/effects/ironvent/vent_heat/08_cool.png remapped: res://assets/sprites/effects/ironvent/vent_heat/08_cool.png
+Loading resource: res://.godot/imported/08_cool.png-a79940c742deae20f99e96dc9979f833.ctex remapped: res://.godot/imported/08_cool.png-a79940c742deae20f99e96dc9979f833.ctex
+Completed load for: 'res://assets/sprites/effects/ironvent/vent_heat/08_cool.png' remapped 'res://assets/sprites/effects/ironvent/vent_heat/08_cool.png' at thread 8
+Loading resource: res://assets/backgrounds/signature_stages/furnace_roar.png remapped: res://assets/backgrounds/signature_stages/furnace_roar.png
+Loading resource: res://.godot/imported/furnace_roar.png-d285f049a1990a2fa7d364d22d702c34.ctex remapped: res://.godot/imported/furnace_roar.png-d285f049a1990a2fa7d364d22d702c34.ctex
+Completed load for: 'res://assets/backgrounds/signature_stages/furnace_roar.png' remapped 'res://assets/backgrounds/signature_stages/furnace_roar.png' at thread 8
+Loading resource: res://assets/audio/sfx/ironvent/blowdown.wav remapped: res://assets/audio/sfx/ironvent/blowdown.wav
+Loading resource: res://.godot/imported/blowdown.wav-39ab12820b4e78da16d22fb7d9cd807a.sample remapped: res://.godot/imported/blowdown.wav-39ab12820b4e78da16d22fb7d9cd807a.sample
+Completed load for: 'res://assets/audio/sfx/ironvent/blowdown.wav' remapped 'res://assets/audio/sfx/ironvent/blowdown.wav' at thread 8
+Loading resource: res://assets/audio/sfx/ironvent/buildup.wav remapped: res://assets/audio/sfx/ironvent/buildup.wav
+Loading resource: res://.godot/imported/buildup.wav-badb6070f54d8dd8369772b390c1e1b0.sample remapped: res://.godot/imported/buildup.wav-badb6070f54d8dd8369772b390c1e1b0.sample
+Completed load for: 'res://assets/audio/sfx/ironvent/buildup.wav' remapped 'res://assets/audio/sfx/ironvent/buildup.wav' at thread 8
+Loading resource: res://assets/audio/sfx/ironvent/cool.wav remapped: res://assets/audio/sfx/ironvent/cool.wav
+Loading resource: res://.godot/imported/cool.wav-2fa85226c4838dc5552c8d534884de9c.sample remapped: res://.godot/imported/cool.wav-2fa85226c4838dc5552c8d534884de9c.sample
+Completed load for: 'res://assets/audio/sfx/ironvent/cool.wav' remapped 'res://assets/audio/sfx/ironvent/cool.wav' at thread 8
+Loading resource: res://assets/audio/sfx/ironvent/cry.wav remapped: res://assets/audio/sfx/ironvent/cry.wav
+Loading resource: res://.godot/imported/cry.wav-11d3dc933b9701821619f5b9daf85d9f.sample remapped: res://.godot/imported/cry.wav-11d3dc933b9701821619f5b9daf85d9f.sample
+Completed load for: 'res://assets/audio/sfx/ironvent/cry.wav' remapped 'res://assets/audio/sfx/ironvent/cry.wav' at thread 8
+Loading resource: res://assets/audio/sfx/ironvent/roar.wav remapped: res://assets/audio/sfx/ironvent/roar.wav
+Loading resource: res://.godot/imported/roar.wav-b88ce99b16542a1660803c42c2e2cc9a.sample remapped: res://.godot/imported/roar.wav-b88ce99b16542a1660803c42c2e2cc9a.sample
+Completed load for: 'res://assets/audio/sfx/ironvent/roar.wav' remapped 'res://assets/audio/sfx/ironvent/roar.wav' at thread 8
+Loading resource: res://assets/audio/sfx/ironvent/vent_hiss.wav remapped: res://assets/audio/sfx/ironvent/vent_hiss.wav
+Loading resource: res://.godot/imported/vent_hiss.wav-6ec2b72942c618ca613bfda99ca747a6.sample remapped: res://.godot/imported/vent_hiss.wav-6ec2b72942c618ca613bfda99ca747a6.sample
+Completed load for: 'res://assets/audio/sfx/ironvent/vent_hiss.wav' remapped 'res://assets/audio/sfx/ironvent/vent_hiss.wav' at thread 8
+Loading resource: res://assets/audio/sfx/ironvent/vent_jet.wav remapped: res://assets/audio/sfx/ironvent/vent_jet.wav
+Loading resource: res://.godot/imported/vent_jet.wav-05ee2f658605bcf74649c3b2161e80b9.sample remapped: res://.godot/imported/vent_jet.wav-05ee2f658605bcf74649c3b2161e80b9.sample
+Completed load for: 'res://assets/audio/sfx/ironvent/vent_jet.wav' remapped 'res://assets/audio/sfx/ironvent/vent_jet.wav' at thread 8
+Completed load for: 'res://data/moves/ironvent_furnace_roar.tres' remapped 'res://data/moves/ironvent_furnace_roar.tres' at thread 8
+Completed load for: 'res://data/creatures/102_ironvent.tres' remapped 'res://data/creatures/102_ironvent.tres' at thread 8
+Loading resource: res://assets/sprites/creatures/clinkerhide_rd_back_2026_10_01.png remapped: res://assets/sprites/creatures/clinkerhide_rd_back_2026_10_01.png
+Loading resource: res://.godot/imported/clinkerhide_rd_back_2026_10_01.png-2ce57acb4f66e2d20d29dc27078ab61f.ctex remapped: res://.godot/imported/clinkerhide_rd_back_2026_10_01.png-2ce57acb4f66e2d20d29dc27078ab61f.ctex
+Completed load for: 'res://assets/sprites/creatures/clinkerhide_rd_back_2026_10_01.png' remapped 'res://assets/sprites/creatures/clinkerhide_rd_back_2026_10_01.png' at thread 8
+Completed load for: 'res://data/creatures/101_clinkerhide.tres' remapped 'res://data/creatures/101_clinkerhide.tres' at thread 8
+Completed load for: 'res://data/creatures/002_cinderhide.tres' remapped 'res://data/creatures/002_cinderhide.tres' at thread 8
+Loading resource: res://assets/sprites/world/route1_rd_2026_10_01/retaining_wall_polished.png remapped: res://assets/sprites/world/route1_rd_2026_10_01/retaining_wall_polished.png
+Loading resource: res://.godot/imported/retaining_wall_polished.png-0a11acb5b22f05e7fa01336041c7b0fe.ctex remapped: res://.godot/imported/retaining_wall_polished.png-0a11acb5b22f05e7fa01336041c7b0fe.ctex
+Completed load for: 'res://assets/sprites/world/route1_rd_2026_10_01/retaining_wall_polished.png' remapped 'res://assets/sprites/world/route1_rd_2026_10_01/retaining_wall_polished.png' at thread 8
+Loading resource: res://scripts/field_creature.gd remapped: res://scripts/field_creature.gd
+Completed load for: 'res://scripts/field_creature.gd' remapped 'res://scripts/field_creature.gd' at thread 8
+Loading resource: res://assets/sprites/world/route1_rd_2026_10_01/height.png remapped: res://assets/sprites/world/route1_rd_2026_10_01/height.png
+Loading resource: res://.godot/imported/height.png-66de52ef6360ab31c4b48136f714f3e3.ctex remapped: res://.godot/imported/height.png-66de52ef6360ab31c4b48136f714f3e3.ctex
+Completed load for: 'res://assets/sprites/world/route1_rd_2026_10_01/height.png' remapped 'res://assets/sprites/world/route1_rd_2026_10_01/height.png' at thread 8
+Loading resource: res://assets/sprites/world/route1_rd_2026_10_01/cinderhide_field_idle.png remapped: res://assets/sprites/world/route1_rd_2026_10_01/cinderhide_field_idle.png
+Loading resource: res://.godot/imported/cinderhide_field_idle.png-f24b127ec6504112fff81c5257c9a9f6.ctex remapped: res://.godot/imported/cinderhide_field_idle.png-f24b127ec6504112fff81c5257c9a9f6.ctex
+Completed load for: 'res://assets/sprites/world/route1_rd_2026_10_01/cinderhide_field_idle.png' remapped 'res://assets/sprites/world/route1_rd_2026_10_01/cinderhide_field_idle.png' at thread 8
+Loading resource: res://scripts/debug/dex_overlay.gd remapped: res://scripts/debug/dex_overlay.gd
+Completed load for: 'res://scripts/debug/dex_overlay.gd' remapped 'res://scripts/debug/dex_overlay.gd' at thread 8
+Loading resource: res://assets/sprites/world/route1_rd_2026_10_01/dispatcher.png remapped: res://assets/sprites/world/route1_rd_2026_10_01/dispatcher.png
+Loading resource: res://.godot/imported/dispatcher.png-5e437962ca1d93157e3675a824d8889a.ctex remapped: res://.godot/imported/dispatcher.png-5e437962ca1d93157e3675a824d8889a.ctex
+Completed load for: 'res://assets/sprites/world/route1_rd_2026_10_01/dispatcher.png' remapped 'res://assets/sprites/world/route1_rd_2026_10_01/dispatcher.png' at thread 8
+Loading resource: res://assets/sprites/world/route1_rd_2026_10_01/marker.png remapped: res://assets/sprites/world/route1_rd_2026_10_01/marker.png
+Loading resource: res://.godot/imported/marker.png-2e1e81a9d10e0aa0b6aca2888bed73be.ctex remapped: res://.godot/imported/marker.png-2e1e81a9d10e0aa0b6aca2888bed73be.ctex
+Completed load for: 'res://assets/sprites/world/route1_rd_2026_10_01/marker.png' remapped 'res://assets/sprites/world/route1_rd_2026_10_01/marker.png' at thread 8
+Loading resource: res://assets/sprites/world/route1_rd_2026_10_02/relay_post_empty_slot.png remapped: res://assets/sprites/world/route1_rd_2026_10_02/relay_post_empty_slot.png
+Loading resource: res://.godot/imported/relay_post_empty_slot.png-5bf4d124ea7f8464fb6c84cf6fd337a4.ctex remapped: res://.godot/imported/relay_post_empty_slot.png-5bf4d124ea7f8464fb6c84cf6fd337a4.ctex
+Completed load for: 'res://assets/sprites/world/route1_rd_2026_10_02/relay_post_empty_slot.png' remapped 'res://assets/sprites/world/route1_rd_2026_10_02/relay_post_empty_slot.png' at thread 8
+Loading resource: res://assets/sprites/river_call_placeholder.svg remapped: res://assets/sprites/river_call_placeholder.svg
+Loading resource: res://.godot/imported/river_call_placeholder.svg-11234ea8ce3b0a40a82db68383c09fed.ctex remapped: res://.godot/imported/river_call_placeholder.svg-11234ea8ce3b0a40a82db68383c09fed.ctex
+Completed load for: 'res://assets/sprites/river_call_placeholder.svg' remapped 'res://assets/sprites/river_call_placeholder.svg' at thread 8
+Loading resource: res://assets/sprites/world/route1_rd_2026_10_01/reeds.png remapped: res://assets/sprites/world/route1_rd_2026_10_01/reeds.png
+Loading resource: res://.godot/imported/reeds.png-201519a12908e8d126aed950da3ae72f.ctex remapped: res://.godot/imported/reeds.png-201519a12908e8d126aed950da3ae72f.ctex
+Completed load for: 'res://assets/sprites/world/route1_rd_2026_10_01/reeds.png' remapped 'res://assets/sprites/world/route1_rd_2026_10_01/reeds.png' at thread 8
+Loading resource: res://scripts/route1_map_polish.gd remapped: res://scripts/route1_map_polish.gd
+Completed load for: 'res://scripts/route1_map_polish.gd' remapped 'res://scripts/route1_map_polish.gd' at thread 8
+Loading resource: res://assets/sprites/world/route1_rd_2026_10_01/shrub_polished.png remapped: res://assets/sprites/world/route1_rd_2026_10_01/shrub_polished.png
+Loading resource: res://.godot/imported/shrub_polished.png-e70d12310cf0773846ae6ac34560a9ab.ctex remapped: res://.godot/imported/shrub_polished.png-e70d12310cf0773846ae6ac34560a9ab.ctex
+Completed load for: 'res://assets/sprites/world/route1_rd_2026_10_01/shrub_polished.png' remapped 'res://assets/sprites/world/route1_rd_2026_10_01/shrub_polished.png' at thread 8
+Loading resource: res://assets/sprites/world/route1_rd_2026_10_02/cottonwood_north.png remapped: res://assets/sprites/world/route1_rd_2026_10_02/cottonwood_north.png
+Loading resource: res://.godot/imported/cottonwood_north.png-6dbc5fbd95caca028451dfa741463729.ctex remapped: res://.godot/imported/cottonwood_north.png-6dbc5fbd95caca028451dfa741463729.ctex
+Completed load for: 'res://assets/sprites/world/route1_rd_2026_10_02/cottonwood_north.png' remapped 'res://assets/sprites/world/route1_rd_2026_10_02/cottonwood_north.png' at thread 8
+Loading resource: res://assets/sprites/world/route1_rd_2026_10_02/cottonwood_ridge.png remapped: res://assets/sprites/world/route1_rd_2026_10_02/cottonwood_ridge.png
+Loading resource: res://.godot/imported/cottonwood_ridge.png-01b0b052bcc8bdaf3e6ea201b95db146.ctex remapped: res://.godot/imported/cottonwood_ridge.png-01b0b052bcc8bdaf3e6ea201b95db146.ctex
+Completed load for: 'res://assets/sprites/world/route1_rd_2026_10_02/cottonwood_ridge.png' remapped 'res://assets/sprites/world/route1_rd_2026_10_02/cottonwood_ridge.png' at thread 8
+Loading resource: res://assets/sprites/world/route1_rd_2026_10_02/cottonwood_east.png remapped: res://assets/sprites/world/route1_rd_2026_10_02/cottonwood_east.png
+Loading resource: res://.godot/imported/cottonwood_east.png-705ba3f042da8b3589873d06407663d1.ctex remapped: res://.godot/imported/cottonwood_east.png-705ba3f042da8b3589873d06407663d1.ctex
+Completed load for: 'res://assets/sprites/world/route1_rd_2026_10_02/cottonwood_east.png' remapped 'res://assets/sprites/world/route1_rd_2026_10_02/cottonwood_east.png' at thread 8
+Loading resource: res://assets/sprites/world/route1_rd_2026_10_02/cottonwood_south.png remapped: res://assets/sprites/world/route1_rd_2026_10_02/cottonwood_south.png
+Loading resource: res://.godot/imported/cottonwood_south.png-491cd01d7774df6694a09613fc64788b.ctex remapped: res://.godot/imported/cottonwood_south.png-491cd01d7774df6694a09613fc64788b.ctex
+Completed load for: 'res://assets/sprites/world/route1_rd_2026_10_02/cottonwood_south.png' remapped 'res://assets/sprites/world/route1_rd_2026_10_02/cottonwood_south.png' at thread 8
+Loading resource: res://assets/sprites/world/route1_rd_2026_10_02/cottonwood_west.png remapped: res://assets/sprites/world/route1_rd_2026_10_02/cottonwood_west.png
+Loading resource: res://.godot/imported/cottonwood_west.png-75e90b0bf17187fe32b03ef8903046e6.ctex remapped: res://.godot/imported/cottonwood_west.png-75e90b0bf17187fe32b03ef8903046e6.ctex
+Completed load for: 'res://assets/sprites/world/route1_rd_2026_10_02/cottonwood_west.png' remapped 'res://assets/sprites/world/route1_rd_2026_10_02/cottonwood_west.png' at thread 8
+Loading resource: res://assets/sprites/world/route1_rd_2026_10_02/cottonwood_office_grove.png remapped: res://assets/sprites/world/route1_rd_2026_10_02/cottonwood_office_grove.png
+Loading resource: res://.godot/imported/cottonwood_office_grove.png-f25156d2d13dd2273ebb6061eea2dc3e.ctex remapped: res://.godot/imported/cottonwood_office_grove.png-f25156d2d13dd2273ebb6061eea2dc3e.ctex
+Completed load for: 'res://assets/sprites/world/route1_rd_2026_10_02/cottonwood_office_grove.png' remapped 'res://assets/sprites/world/route1_rd_2026_10_02/cottonwood_office_grove.png' at thread 8
+Loading resource: res://assets/sprites/world/route1_rd_2026_10_02/cottonwood_bank_bend.png remapped: res://assets/sprites/world/route1_rd_2026_10_02/cottonwood_bank_bend.png
+Loading resource: res://.godot/imported/cottonwood_bank_bend.png-85cc3c0f77cccf0c6c70255a68e0bb3b.ctex remapped: res://.godot/imported/cottonwood_bank_bend.png-85cc3c0f77cccf0c6c70255a68e0bb3b.ctex
+Completed load for: 'res://assets/sprites/world/route1_rd_2026_10_02/cottonwood_bank_bend.png' remapped 'res://assets/sprites/world/route1_rd_2026_10_02/cottonwood_bank_bend.png' at thread 8
+Loading resource: res://assets/sprites/world/route1_rd_2026_10_02/retaining_wall_west.png remapped: res://assets/sprites/world/route1_rd_2026_10_02/retaining_wall_west.png
+Loading resource: res://.godot/imported/retaining_wall_west.png-1122d4eb3080be9a8684b658b1a80d85.ctex remapped: res://.godot/imported/retaining_wall_west.png-1122d4eb3080be9a8684b658b1a80d85.ctex
+Completed load for: 'res://assets/sprites/world/route1_rd_2026_10_02/retaining_wall_west.png' remapped 'res://assets/sprites/world/route1_rd_2026_10_02/retaining_wall_west.png' at thread 8
+Loading resource: res://assets/sprites/world/route1_rd_2026_10_02/retaining_wall_east.png remapped: res://assets/sprites/world/route1_rd_2026_10_02/retaining_wall_east.png
+Loading resource: res://.godot/imported/retaining_wall_east.png-9a8c4d6c94c79eb5f990f459175c7a01.ctex remapped: res://.godot/imported/retaining_wall_east.png-9a8c4d6c94c79eb5f990f459175c7a01.ctex
+Completed load for: 'res://assets/sprites/world/route1_rd_2026_10_02/retaining_wall_east.png' remapped 'res://assets/sprites/world/route1_rd_2026_10_02/retaining_wall_east.png' at thread 8
+Loading resource: res://assets/sprites/world/route1_rd_2026_10_02/bank_shrub_1.png remapped: res://assets/sprites/world/route1_rd_2026_10_02/bank_shrub_1.png
+Loading resource: res://.godot/imported/bank_shrub_1.png-dd48536244ceb859f42afd7adca2edd9.ctex remapped: res://.godot/imported/bank_shrub_1.png-dd48536244ceb859f42afd7adca2edd9.ctex
+Completed load for: 'res://assets/sprites/world/route1_rd_2026_10_02/bank_shrub_1.png' remapped 'res://assets/sprites/world/route1_rd_2026_10_02/bank_shrub_1.png' at thread 8
+Loading resource: res://assets/sprites/world/route1_rd_2026_10_02/bank_shrub_2.png remapped: res://assets/sprites/world/route1_rd_2026_10_02/bank_shrub_2.png
+Loading resource: res://.godot/imported/bank_shrub_2.png-af27ace883b1b5efb6227ac74bda0217.ctex remapped: res://.godot/imported/bank_shrub_2.png-af27ace883b1b5efb6227ac74bda0217.ctex
+Completed load for: 'res://assets/sprites/world/route1_rd_2026_10_02/bank_shrub_2.png' remapped 'res://assets/sprites/world/route1_rd_2026_10_02/bank_shrub_2.png' at thread 8
+Loading resource: res://assets/sprites/world/route1_rd_2026_10_02/bank_shrub_3.png remapped: res://assets/sprites/world/route1_rd_2026_10_02/bank_shrub_3.png
+Loading resource: res://.godot/imported/bank_shrub_3.png-aaa656d69b668c69f6050651c4a7b196.ctex remapped: res://.godot/imported/bank_shrub_3.png-aaa656d69b668c69f6050651c4a7b196.ctex
+Completed load for: 'res://assets/sprites/world/route1_rd_2026_10_02/bank_shrub_3.png' remapped 'res://assets/sprites/world/route1_rd_2026_10_02/bank_shrub_3.png' at thread 8
+Loading resource: res://assets/sprites/world/route1_rd_2026_10_02/bank_shrub_4.png remapped: res://assets/sprites/world/route1_rd_2026_10_02/bank_shrub_4.png
+Loading resource: res://.godot/imported/bank_shrub_4.png-3e586cd5e47c02d538388193a4bafd98.ctex remapped: res://.godot/imported/bank_shrub_4.png-3e586cd5e47c02d538388193a4bafd98.ctex
+Completed load for: 'res://assets/sprites/world/route1_rd_2026_10_02/bank_shrub_4.png' remapped 'res://assets/sprites/world/route1_rd_2026_10_02/bank_shrub_4.png' at thread 8
+Loading resource: res://assets/sprites/world/route1_rd_2026_10_02/bank_shrub_5.png remapped: res://assets/sprites/world/route1_rd_2026_10_02/bank_shrub_5.png
+Loading resource: res://.godot/imported/bank_shrub_5.png-8c8a4937def0e49157852843bb8fff36.ctex remapped: res://.godot/imported/bank_shrub_5.png-8c8a4937def0e49157852843bb8fff36.ctex
+Completed load for: 'res://assets/sprites/world/route1_rd_2026_10_02/bank_shrub_5.png' remapped 'res://assets/sprites/world/route1_rd_2026_10_02/bank_shrub_5.png' at thread 8
+Loading resource: res://assets/sprites/world/route1_rd_2026_10_02/bank_shrub_6.png remapped: res://assets/sprites/world/route1_rd_2026_10_02/bank_shrub_6.png
+Loading resource: res://.godot/imported/bank_shrub_6.png-e311066c9a8130f6b369bd4432a2647d.ctex remapped: res://.godot/imported/bank_shrub_6.png-e311066c9a8130f6b369bd4432a2647d.ctex
+Completed load for: 'res://assets/sprites/world/route1_rd_2026_10_02/bank_shrub_6.png' remapped 'res://assets/sprites/world/route1_rd_2026_10_02/bank_shrub_6.png' at thread 8
+Loading resource: res://assets/sprites/world/route1_rd_2026_10_02/bank_shrub_7.png remapped: res://assets/sprites/world/route1_rd_2026_10_02/bank_shrub_7.png
+Loading resource: res://.godot/imported/bank_shrub_7.png-916705cacd1e1d21b3b6a17b99dc7db8.ctex remapped: res://.godot/imported/bank_shrub_7.png-916705cacd1e1d21b3b6a17b99dc7db8.ctex
+Completed load for: 'res://assets/sprites/world/route1_rd_2026_10_02/bank_shrub_7.png' remapped 'res://assets/sprites/world/route1_rd_2026_10_02/bank_shrub_7.png' at thread 8
+Loading resource: res://assets/sprites/world/route1_rd_2026_10_02/bank_shrub_8.png remapped: res://assets/sprites/world/route1_rd_2026_10_02/bank_shrub_8.png
+Loading resource: res://.godot/imported/bank_shrub_8.png-e853b09cbfd3871b2567d14c12c86e36.ctex remapped: res://.godot/imported/bank_shrub_8.png-e853b09cbfd3871b2567d14c12c86e36.ctex
+Completed load for: 'res://assets/sprites/world/route1_rd_2026_10_02/bank_shrub_8.png' remapped 'res://assets/sprites/world/route1_rd_2026_10_02/bank_shrub_8.png' at thread 8
+Loading resource: res://assets/sprites/world/route1_rd_2026_10_02/bank_reeds_1.png remapped: res://assets/sprites/world/route1_rd_2026_10_02/bank_reeds_1.png
+Loading resource: res://.godot/imported/bank_reeds_1.png-a21915b8ba4010d661bfd8f97dcaa9f4.ctex remapped: res://.godot/imported/bank_reeds_1.png-a21915b8ba4010d661bfd8f97dcaa9f4.ctex
+Completed load for: 'res://assets/sprites/world/route1_rd_2026_10_02/bank_reeds_1.png' remapped 'res://assets/sprites/world/route1_rd_2026_10_02/bank_reeds_1.png' at thread 8
+Loading resource: res://assets/sprites/world/route1_rd_2026_10_02/bank_reeds_2.png remapped: res://assets/sprites/world/route1_rd_2026_10_02/bank_reeds_2.png
+Loading resource: res://.godot/imported/bank_reeds_2.png-eaff806b2692ec0c4630aede180f8e95.ctex remapped: res://.godot/imported/bank_reeds_2.png-eaff806b2692ec0c4630aede180f8e95.ctex
+Completed load for: 'res://assets/sprites/world/route1_rd_2026_10_02/bank_reeds_2.png' remapped 'res://assets/sprites/world/route1_rd_2026_10_02/bank_reeds_2.png' at thread 8
+Loading resource: res://assets/sprites/world/route1_rd_2026_10_02/bank_reeds_3.png remapped: res://assets/sprites/world/route1_rd_2026_10_02/bank_reeds_3.png
+Loading resource: res://.godot/imported/bank_reeds_3.png-5adc8b095fdf040cf74a2c3b354f3b99.ctex remapped: res://.godot/imported/bank_reeds_3.png-5adc8b095fdf040cf74a2c3b354f3b99.ctex
+Completed load for: 'res://assets/sprites/world/route1_rd_2026_10_02/bank_reeds_3.png' remapped 'res://assets/sprites/world/route1_rd_2026_10_02/bank_reeds_3.png' at thread 8
+Loading resource: res://assets/sprites/world/route1_rd_2026_10_02/bank_reeds_4.png remapped: res://assets/sprites/world/route1_rd_2026_10_02/bank_reeds_4.png
+Loading resource: res://.godot/imported/bank_reeds_4.png-8b5ef553475c6c2775ef5e4decc2ef26.ctex remapped: res://.godot/imported/bank_reeds_4.png-8b5ef553475c6c2775ef5e4decc2ef26.ctex
+Completed load for: 'res://assets/sprites/world/route1_rd_2026_10_02/bank_reeds_4.png' remapped 'res://assets/sprites/world/route1_rd_2026_10_02/bank_reeds_4.png' at thread 8
+Loading resource: res://assets/sprites/world/route1_rd_2026_10_02/bank_reeds_5.png remapped: res://assets/sprites/world/route1_rd_2026_10_02/bank_reeds_5.png
+Loading resource: res://.godot/imported/bank_reeds_5.png-476688c28582c1b886ced5d98c28fb4e.ctex remapped: res://.godot/imported/bank_reeds_5.png-476688c28582c1b886ced5d98c28fb4e.ctex
+Completed load for: 'res://assets/sprites/world/route1_rd_2026_10_02/bank_reeds_5.png' remapped 'res://assets/sprites/world/route1_rd_2026_10_02/bank_reeds_5.png' at thread 8
+Loading resource: res://assets/sprites/world/route1_rd_2026_10_02/bank_reeds_6.png remapped: res://assets/sprites/world/route1_rd_2026_10_02/bank_reeds_6.png
+Loading resource: res://.godot/imported/bank_reeds_6.png-9cbd42e1b1278b00427f2f0ff14ed496.ctex remapped: res://.godot/imported/bank_reeds_6.png-9cbd42e1b1278b00427f2f0ff14ed496.ctex
+Completed load for: 'res://assets/sprites/world/route1_rd_2026_10_02/bank_reeds_6.png' remapped 'res://assets/sprites/world/route1_rd_2026_10_02/bank_reeds_6.png' at thread 8
+Loading resource: res://assets/sprites/world/route1_rd_2026_10_02/ferry_tieoff_full.png remapped: res://assets/sprites/world/route1_rd_2026_10_02/ferry_tieoff_full.png
+Loading resource: res://.godot/imported/ferry_tieoff_full.png-c34cf28fd221b9bc89eab9610cf54b4e.ctex remapped: res://.godot/imported/ferry_tieoff_full.png-c34cf28fd221b9bc89eab9610cf54b4e.ctex
+Completed load for: 'res://assets/sprites/world/route1_rd_2026_10_02/ferry_tieoff_full.png' remapped 'res://assets/sprites/world/route1_rd_2026_10_02/ferry_tieoff_full.png' at thread 8
+Loading resource: res://assets/sprites/world/route1_rd_2026_10_02/ferry_tieoff_short.png remapped: res://assets/sprites/world/route1_rd_2026_10_02/ferry_tieoff_short.png
+Loading resource: res://.godot/imported/ferry_tieoff_short.png-e0ad83a76603ffe07fd4f3c4f6fcc13f.ctex remapped: res://.godot/imported/ferry_tieoff_short.png-e0ad83a76603ffe07fd4f3c4f6fcc13f.ctex
+Completed load for: 'res://assets/sprites/world/route1_rd_2026_10_02/ferry_tieoff_short.png' remapped 'res://assets/sprites/world/route1_rd_2026_10_02/ferry_tieoff_short.png' at thread 8
+Loading resource: res://scripts/route1_crossing.gd remapped: res://scripts/route1_crossing.gd
+Loading resource: res://assets/sprites/world/route1_crossing_2026_10_02/river_bridge_peg_fixed.png remapped: res://assets/sprites/world/route1_crossing_2026_10_02/river_bridge_peg_fixed.png
+Loading resource: res://.godot/imported/river_bridge_peg_fixed.png-d723f95b3475776a4122513ba5afa787.ctex remapped: res://.godot/imported/river_bridge_peg_fixed.png-d723f95b3475776a4122513ba5afa787.ctex
+Completed load for: 'res://assets/sprites/world/route1_crossing_2026_10_02/river_bridge_peg_fixed.png' remapped 'res://assets/sprites/world/route1_crossing_2026_10_02/river_bridge_peg_fixed.png' at thread 8
+Loading resource: res://assets/sprites/world/route1_crossing_2026_10_02/river_water_native32.png remapped: res://assets/sprites/world/route1_crossing_2026_10_02/river_water_native32.png
+Loading resource: res://.godot/imported/river_water_native32.png-72148ec1a7f2ceb27947c2da16cd365a.ctex remapped: res://.godot/imported/river_water_native32.png-72148ec1a7f2ceb27947c2da16cd365a.ctex
+Completed load for: 'res://assets/sprites/world/route1_crossing_2026_10_02/river_water_native32.png' remapped 'res://assets/sprites/world/route1_crossing_2026_10_02/river_water_native32.png' at thread 8
+Loading resource: res://assets/sprites/world/route1_crossing_2026_10_02/river_flow.gdshader remapped: res://assets/sprites/world/route1_crossing_2026_10_02/river_flow.gdshader
+Completed load for: 'res://assets/sprites/world/route1_crossing_2026_10_02/river_flow.gdshader' remapped 'res://assets/sprites/world/route1_crossing_2026_10_02/river_flow.gdshader' at thread 8
+Loading resource: res://assets/sprites/world/route1_crossing_2026_10_02/path_soil_native32.png remapped: res://assets/sprites/world/route1_crossing_2026_10_02/path_soil_native32.png
+Loading resource: res://.godot/imported/path_soil_native32.png-3a11a5013ba7f2ff405f6b80da8fc6fe.ctex remapped: res://.godot/imported/path_soil_native32.png-3a11a5013ba7f2ff405f6b80da8fc6fe.ctex
+Completed load for: 'res://assets/sprites/world/route1_crossing_2026_10_02/path_soil_native32.png' remapped 'res://assets/sprites/world/route1_crossing_2026_10_02/path_soil_native32.png' at thread 8
+Loading resource: res://assets/sprites/world/route1_landscape_2026_10_03/meadow_grass.png remapped: res://assets/sprites/world/route1_landscape_2026_10_03/meadow_grass.png
+Loading resource: res://.godot/imported/meadow_grass.png-1e4bee5dd443ee02fb4eb6fb5111945e.ctex remapped: res://.godot/imported/meadow_grass.png-1e4bee5dd443ee02fb4eb6fb5111945e.ctex
+Completed load for: 'res://assets/sprites/world/route1_landscape_2026_10_03/meadow_grass.png' remapped 'res://assets/sprites/world/route1_landscape_2026_10_03/meadow_grass.png' at thread 8
+Loading resource: res://assets/sprites/world/route1_landscape_2026_10_03/silt_roots_small.png remapped: res://assets/sprites/world/route1_landscape_2026_10_03/silt_roots_small.png
+Loading resource: res://.godot/imported/silt_roots_small.png-11d035b78a28e5c1ca1eb648898253c6.ctex remapped: res://.godot/imported/silt_roots_small.png-11d035b78a28e5c1ca1eb648898253c6.ctex
+Completed load for: 'res://assets/sprites/world/route1_landscape_2026_10_03/silt_roots_small.png' remapped 'res://assets/sprites/world/route1_landscape_2026_10_03/silt_roots_small.png' at thread 8
+Loading resource: res://assets/sprites/world/route1_landscape_2026_10_03/meadow_tuft_1.png remapped: res://assets/sprites/world/route1_landscape_2026_10_03/meadow_tuft_1.png
+Loading resource: res://.godot/imported/meadow_tuft_1.png-0998fdea9ee726d76d20e4188fcda315.ctex remapped: res://.godot/imported/meadow_tuft_1.png-0998fdea9ee726d76d20e4188fcda315.ctex
+Completed load for: 'res://assets/sprites/world/route1_landscape_2026_10_03/meadow_tuft_1.png' remapped 'res://assets/sprites/world/route1_landscape_2026_10_03/meadow_tuft_1.png' at thread 8
+Loading resource: res://assets/sprites/world/route1_landscape_2026_10_03/meadow_tuft_2.png remapped: res://assets/sprites/world/route1_landscape_2026_10_03/meadow_tuft_2.png
+Loading resource: res://.godot/imported/meadow_tuft_2.png-e501cd4ee5a163e05dced02d11d00ab5.ctex remapped: res://.godot/imported/meadow_tuft_2.png-e501cd4ee5a163e05dced02d11d00ab5.ctex
+Completed load for: 'res://assets/sprites/world/route1_landscape_2026_10_03/meadow_tuft_2.png' remapped 'res://assets/sprites/world/route1_landscape_2026_10_03/meadow_tuft_2.png' at thread 8
+Loading resource: res://assets/sprites/world/route1_landscape_2026_10_03/river_stones.png remapped: res://assets/sprites/world/route1_landscape_2026_10_03/river_stones.png
+Loading resource: res://.godot/imported/river_stones.png-c90bc692cc6becd6b8c273b9fb9ae76b.ctex remapped: res://.godot/imported/river_stones.png-c90bc692cc6becd6b8c273b9fb9ae76b.ctex
+Completed load for: 'res://assets/sprites/world/route1_landscape_2026_10_03/river_stones.png' remapped 'res://assets/sprites/world/route1_landscape_2026_10_03/river_stones.png' at thread 8
+Loading resource: res://assets/sprites/world/route1_landscape_2026_10_03/ground_variation.gdshader remapped: res://assets/sprites/world/route1_landscape_2026_10_03/ground_variation.gdshader
+Completed load for: 'res://assets/sprites/world/route1_landscape_2026_10_03/ground_variation.gdshader' remapped 'res://assets/sprites/world/route1_landscape_2026_10_03/ground_variation.gdshader' at thread 8
+Loading resource: res://assets/sprites/world/route1_landscape_2026_10_03/foliage_wind.gdshader remapped: res://assets/sprites/world/route1_landscape_2026_10_03/foliage_wind.gdshader
+Completed load for: 'res://assets/sprites/world/route1_landscape_2026_10_03/foliage_wind.gdshader' remapped 'res://assets/sprites/world/route1_landscape_2026_10_03/foliage_wind.gdshader' at thread 8
+Completed load for: 'res://scripts/route1_crossing.gd' remapped 'res://scripts/route1_crossing.gd' at thread 8
+Completed load for: 'res://scenes/first_route_prototype.tscn' remapped 'res://scenes/first_route_prototype.tscn' at thread 8
+SCENE_NODE_API { "name": "change_scene_to_node", "args": [{ "name": "node", "class_name": &"Node", "type": 24, "hint": 0, "hint_string": "", "usage": 6 }], "default_args": [], "flags": 1, "id": 13809, "return": { "name": "", "class_name": &"Error", "type": 2, "hint": 0, "hint_string": "", "usage": 65542 } }
+CHECK main MainChoices in viewport true [P: (820.0, 410.0), S: (290.0, 184.0)]
+CHECK initial focus New Game true /root/MainMenuArtPreview/MenuUI/MainChoices/Choices/NewGame
+CHECK fresh launch restores preferences true <null>
+CHECK test preferences restored to defaults true <null>
+CHECK Quit confirmation defaults to safe choice true /root/MainMenuArtPreview/MenuUI/QuitConfirmation/Choices/Back
+CHECK quit QuitConfirmation in viewport true [P: (720.0, 330.0), S: (390.0, 173.0)]
+CHECK controller Cancel returns to Quit choice false /root/MainMenuArtPreview/MenuUI/QuitConfirmation/Choices/Back
+CHECK controller Accept opens courier selection false quit
+CHECK mouse selects Male false Female
+CHECK couriers QuitConfirmation in viewport true [P: (720.0, 330.0), S: (390.0, 173.0)]

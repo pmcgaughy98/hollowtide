@@ -1,0 +1,258 @@
+[
+	{
+		"eight_frames_observed": true,
+		"female_finish": true,
+		"frames": [
+			0,
+			1,
+			2,
+			3,
+			4,
+			5,
+			6,
+			7
+		],
+		"name": "Male_down",
+		"scale": "(2.0, 2.0)"
+	},
+	{
+		"eight_frames_observed": true,
+		"female_finish": true,
+		"frames": [
+			0,
+			1,
+			2,
+			3,
+			4,
+			5,
+			6,
+			7
+		],
+		"name": "Male_down_left",
+		"scale": "(2.0, 2.0)"
+	},
+	{
+		"eight_frames_observed": true,
+		"female_finish": true,
+		"frames": [
+			0,
+			1,
+			2,
+			3,
+			4,
+			5,
+			6,
+			7
+		],
+		"name": "Male_left",
+		"scale": "(2.0, 2.0)"
+	},
+	{
+		"eight_frames_observed": true,
+		"female_finish": true,
+		"frames": [
+			0,
+			1,
+			2,
+			3,
+			4,
+			5,
+			6,
+			7
+		],
+		"name": "Male_up_left",
+		"scale": "(2.0, 2.0)"
+	},
+	{
+		"eight_frames_observed": true,
+		"female_finish": true,
+		"frames": [
+			0,
+			1,
+			2,
+			3,
+			4,
+			5,
+			6,
+			7
+		],
+		"name": "Male_up",
+		"scale": "(2.0, 2.0)"
+	},
+	{
+		"eight_frames_observed": true,
+		"female_finish": true,
+		"frames": [
+			0,
+			1,
+			2,
+			3,
+			4,
+			5,
+			6,
+			7
+		],
+		"name": "Male_up_right",
+		"scale": "(2.0, 2.0)"
+	},
+	{
+		"eight_frames_observed": true,
+		"female_finish": true,
+		"frames": [
+			0,
+			1,
+			2,
+			3,
+			4,
+			5,
+			6,
+			7
+		],
+		"name": "Male_right",
+		"scale": "(2.0, 2.0)"
+	},
+	{
+		"eight_frames_observed": true,
+		"female_finish": true,
+		"frames": [
+			0,
+			1,
+			2,
+			3,
+			4,
+			5,
+			6,
+			7
+		],
+		"name": "Male_down_right",
+		"scale": "(2.0, 2.0)"
+	},
+	{
+		"eight_frames_observed": true,
+		"female_finish": true,
+		"frames": [
+			0,
+			1,
+			2,
+			3,
+			4,
+			5,
+			6,
+			7
+		],
+		"name": "Female_down",
+		"scale": "(2.0, 2.0)"
+	},
+	{
+		"eight_frames_observed": true,
+		"female_finish": true,
+		"frames": [
+			0,
+			1,
+			2,
+			3,
+			4,
+			5,
+			6,
+			7
+		],
+		"name": "Female_down_left",
+		"scale": "(2.0, 2.0)"
+	},
+	{
+		"eight_frames_observed": true,
+		"female_finish": true,
+		"frames": [
+			0,
+			1,
+			2,
+			3,
+			4,
+			5,
+			6,
+			7
+		],
+		"name": "Female_left",
+		"scale": "(2.0, 2.0)"
+	},
+	{
+		"eight_frames_observed": true,
+		"female_finish": true,
+		"frames": [
+			0,
+			1,
+			2,
+			3,
+			4,
+			5,
+			6,
+			7
+		],
+		"name": "Female_up_left",
+		"scale": "(2.0, 2.0)"
+	},
+	{
+		"eight_frames_observed": true,
+		"female_finish": true,
+		"frames": [
+			0,
+			1,
+			2,
+			3,
+			4,
+			5,
+			6,
+			7
+		],
+		"name": "Female_up",
+		"scale": "(2.0, 2.0)"
+	},
+	{
+		"eight_frames_observed": true,
+		"female_finish": true,
+		"frames": [
+			0,
+			1,
+			2,
+			3,
+			4,
+			5,
+			6,
+			7
+		],
+		"name": "Female_up_right",
+		"scale": "(2.0, 2.0)"
+	},
+	{
+		"eight_frames_observed": true,
+		"female_finish": true,
+		"frames": [
+			0,
+			1,
+			2,
+			3,
+			4,
+			5,
+			6,
+			7
+		],
+		"name": "Female_right",
+		"scale": "(2.0, 2.0)"
+	},
+	{
+		"eight_frames_observed": true,
+		"female_finish": true,
+		"frames": [
+			0,
+			1,
+			2,
+			3,
+			4,
+			5,
+			6,
+			7
+		],
+		"name": "Female_down_right",
+		"scale": "(2.0, 2.0)"
+	}
+]

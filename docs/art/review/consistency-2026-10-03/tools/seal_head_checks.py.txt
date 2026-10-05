@@ -1,0 +1,30 @@
+from pathlib import Path
+import json,numpy as np
+from PIL import Image
+p=Path("C:/Users/pmcga/dev/hollowtide");o=Path("consistency-review")
+registrations=json.loads((o/"ironvent-head-pose-registration.json").read_text());stats=[]
+for row in registrations:
+ a=np.array(Image.open(p/row["texture"].removeprefix("res://")).convert("RGBA"))
+ b=np.array(Image.open(o/("ironvent-"+row["name"]+"-registered-head-native.png")).convert("RGBA"))
+ opaque=a[:,:,3]>0
+ af=a[:,:,:3].astype(float)/255
+ fire=((af[:,:,0]-af[:,:,2]>=0.45)&(af[:,:,0]>=0.5))|((af[:,:,0]>=0.95)&(af[:,:,1]>=0.7)&(af[:,:,2]<=0.5))
+ changed=np.any(a[:,:,:3]!=b[:,:,:3],axis=2)&opaque
+ x0,y0,x1,y1=map(float,row["bounds"].strip("()").split(","))
+ mask=np.zeros(opaque.shape,dtype=bool);mask[round(y0*100):round(y1*100),round(x0*100):round(x1*100)]=True
+ st={"pose":row["name"],"alpha_exact":bool(np.array_equal(a[:,:,3],b[:,:,3])),"opaque_changed":int(changed.sum()),"changed_outside_head":int((changed&~mask).sum()),"fire_changed":int((changed&fire).sum())}
+ assert st["alpha_exact"] and st["changed_outside_head"]==0 and st["fire_changed"]==0
+ stats.append(st)
+(o/"ironvent-registered-head-audit.json").write_text(json.dumps(stats,indent=2))
+print(json.dumps({"registered_poses":len(stats),"alpha_and_fire_preserved":True,"changes_confined_to_heads":True}))
+s=Path("consistency_final_battle_probe.gd").read_text()
+start=s.index("\tfor pair in [");end=s.index("\t\tbattle = await _new_battle()",start)
+s=s[:start]+'''	for pair in [
+		["foe-ultimate", cinderhide, vitrecrag, false, 0],
+		["player-ultimate", vitrecrag, cinderhide, true, 0],
+		["foe-cannon", cinderhide, vitrecrag, false, 3],
+		["foe-plate-lunge", cinderhide, vitrecrag, false, 2]]:
+'''+s[end:]
+s=s.replace('for i in 900:', 'for i in 600:')
+s=s.replace('OUT+"consistency-final-battle-results.json"','OUT+"vitrecrag-final-battle-results.json"')
+Path("consistency_final_vitrecrag_probe.gd").write_text(s)

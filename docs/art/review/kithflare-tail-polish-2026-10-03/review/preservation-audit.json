@@ -1,0 +1,19 @@
+{
+  "recorded_existing_runtime_files": 2146,
+  "preserved_exact": 2143,
+  "only_previous_runtime_files_changed": [
+    "data/creatures/103_kithflare.tres",
+    "data/creatures/104_wayburn.tres",
+    "data/creatures/105_coalcrest.tres"
+  ],
+  "texture_reference_only_resource_edits": true,
+  "six_original_source_pngs_exact": true,
+  "prior_six_attachment_pngs_exact": true,
+  "foot_restored_from_original": true,
+  "original_completed_fin_pixels_exact": true,
+  "native_lamp_and_mask_and_alpha_checks": 6,
+  "battle_idle_views": 6,
+  "battle_attack_runs": 22,
+  "runtime_stderr_empty": true,
+  "new_generation_cost": 0
+}

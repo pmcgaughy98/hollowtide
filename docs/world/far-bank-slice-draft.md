@@ -1,5 +1,9 @@
 # Far-bank route: repair day
 
+## Current direction — October 2, 2026
+
+The confirmed opening is an Elwood-inspired fictional hometown → Route 1 at the referenced levee entrance → river bridge → a St. Joseph-inspired fictional city. Real place names are source references; in-game locations use Hollowtide names. See [the current hometown/route/bridge plan](route1-bridge-and-city-sector-plan-2026-10-02.md). The western repair-day loop below remains an optional proposal, not the committed next destination. Its observations and maintenance work can be reused in a later bank/levee assignment after the new geography is built. Preserve this draft's existing evidence limits.
+
 **Proposal draft, 2026-09-26.** This is the next small playable slice after the [first route](first-route-playguide.md), not a built scene or approved chapter. Highbank, the Wayline Compact, and the far-bank settlement are working labels. The [region atlas](region-atlas-draft.md) gives the wider geography; the [field notes](../research/st-joseph-field-notes.md) keep real research separate from this fiction.
 
 ## Purpose

@@ -1,0 +1,27 @@
+[
+  {
+    "path": "data/creatures/105_coalcrest.tres",
+    "sha256": "c96c06a57de62457632c27b356f163fb2ead212f02aa7b3fc7808af53bb13fbd",
+    "action": "two texture paths updated"
+  },
+  {
+    "path": "assets/sprites/creatures/coalcrest_rechecked_2026_10_04/coalcrest_front.png",
+    "sha256": "6cbd82720f1c9673e51fea21cc6261fc2798bc80e4c0d3e0a433a224202f669f",
+    "action": "new versioned file"
+  },
+  {
+    "path": "assets/sprites/creatures/coalcrest_rechecked_2026_10_04/coalcrest_front.png.import",
+    "sha256": "b9581e1c141df66ef68cbf7105f323e2bfe1c8237a02e2d7274f5b9e9548d621",
+    "action": "new versioned file"
+  },
+  {
+    "path": "assets/sprites/creatures/coalcrest_rechecked_2026_10_04/coalcrest_back.png",
+    "sha256": "1235702d663a3bf7bb6aeac703eea769321d9ecbab35a1f6004e02567f5013d3",
+    "action": "new versioned file"
+  },
+  {
+    "path": "assets/sprites/creatures/coalcrest_rechecked_2026_10_04/coalcrest_back.png.import",
+    "sha256": "65ec44dd0ef6f910f28fd46b338a37316c4da3d82f602f763dc56cb896497eed",
+    "action": "new versioned file"
+  }
+]

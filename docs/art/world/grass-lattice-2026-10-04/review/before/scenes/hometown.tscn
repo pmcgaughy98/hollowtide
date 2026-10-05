@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://scripts/world_area.gd" id="1"]
+[ext_resource type="PackedScene" path="res://scenes/player.tscn" id="2"]
+[ext_resource type="Script" path="res://scripts/area_landscape.gd" id="3"]
+[node name="Hometown" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1")
+area_id = "hometown"
+[node name="RouteDecor" type="Node2D" parent="."]
+y_sort_enabled = true
+[node name="Player" parent="." instance=ExtResource("2")]
+position = Vector2(224,280)
+[node name="Landscape" type="Node2D" parent="."]
+script = ExtResource("3")
+area_id = "hometown"

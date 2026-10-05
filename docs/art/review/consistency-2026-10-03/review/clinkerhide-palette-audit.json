@@ -1,0 +1,58 @@
+{
+  "alpha_exact": true,
+  "colors": 22,
+  "all_colors_from_front": false,
+  "colors_outside_front": [
+    [
+      243,
+      116,
+      44
+    ],
+    [
+      51,
+      36,
+      28
+    ],
+    [
+      0,
+      0,
+      0
+    ],
+    [
+      131,
+      52,
+      36
+    ],
+    [
+      155,
+      52,
+      28
+    ],
+    [
+      179,
+      68,
+      36
+    ],
+    [
+      107,
+      44,
+      36
+    ],
+    [
+      195,
+      84,
+      44
+    ],
+    [
+      227,
+      100,
+      44
+    ]
+  ],
+  "opaque_magenta": 0,
+  "front_palette_colors": 22,
+  "nearest_front_color_max_channel_delta": 4,
+  "notes": "RD palette converter returns small channel-rounding differences (0-4); actual silhouette/alpha exact. No dithering.",
+  "installed_file": "res://assets/sprites/creatures/clinkerhide_selected_rear_2026_10_03/clinkerhide_back_matched_native100.png",
+  "installed_sha256": "f8c7b6f2c330779ad76717d04eda28ad66d7e45fe1bff1eeab9ea46f2a1989ba"
+}

@@ -1,0 +1,606 @@
+extends Node2D
+
+## One complete courier assignment using the existing player and battle scene.
+## Names and props are prototype placeholders; no quest framework or save file.
+const REACH := 30.0
+const ROUTE_TITLE_FONT = preload("res://assets/fonts/AlegreyaSansSC-Bold.ttf")
+const ROUTE_BODY_FONT = preload("res://assets/fonts/Vollkorn-Variable.ttf")
+const ROUTE_READOUT_FONT = preload("res://assets/fonts/Silkscreen-Regular.ttf")
+const SITES := {
+	"dispatch": Vector2(80, 192),
+	"marker": Vector2(272, 96),
+	"post": Vector2(392, 240),
+	"river": Vector2(432, 296),
+	"height_post": Vector2(423, 205),
+	"levee_entrance": Vector2(216, 264),
+	"city_clerk": Vector2(816, 480),
+	"city_directions": Vector2(912, 444),
+	"landing_notice": Vector2(320, 316),
+	"home_courtyard": Vector2(-336, 184),
+	"home_directions": Vector2(-32, 192),
+	"shared_garden": Vector2(-172, 310),
+}
+
+@onready var player: CharacterBody2D = $Player
+@onready var marker: Sprite2D = $Marker
+
+var pouch_accepted := false
+var marker_restored := false
+var delivered := false
+var heard_calls := false
+var water_mark_observed := false
+var report_done := false
+var reported_calls := false
+var reported_water_mark := false
+var levee_entrance_read := false
+var city_arrival_registered := false
+var city_directions_read := false
+var _area_label: Label
+
+var _hint: Label
+var _objective: Label
+var _board: Label
+var _panel: PanelContainer
+var _body: Label
+var _choices: VBoxContainer
+var _notes_panel: PanelContainer
+var _notes_body: Label
+var _party_panel: PanelContainer
+var _party_summary: Label
+var _party_buttons: Array[Button] = []
+
+
+func _ready() -> void:
+	# Keep the camera inside the route, including the dispatch starting edge.
+	var camera: Camera2D = $Player/Camera2D
+	camera.limit_left = -480
+	camera.limit_top = 0
+	camera.offset = Vector2.ZERO
+	camera.position = Vector2(0, -84)
+	camera.limit_right = 1024
+	camera.limit_bottom = 640
+	camera.reset_smoothing()
+	# Route 1's music (Preston's "Two-Note Call"); steps aside for battles.
+	var music := AreaMusic.new()
+	music.name = "RouteMusic"
+	music.stream = preload("res://assets/audio/music/route1_two_note_call.mp3")
+	add_child(music)
+	PlayerParty.ensure_starter($BattleScreen.player_creature)
+	_build_hud()
+	_refresh_objective()
+
+
+func _process(_delta: float) -> void:
+	var camera: Camera2D = $Player/Camera2D
+	camera.limit_bottom = 384 if player.position.x < 0 else 640
+	var at_home := player.position.x < 200.0 and player.position.y < 248.0
+	camera.position.y = move_toward(camera.position.y, -84.0 if at_home else -24.0, _delta * 96.0)
+	if _area_label != null:
+		if player.position.x < 0:
+			_area_label.text = "HOMETOWN / COURTYARD LANE"
+		elif player.position.x >= 672:
+			_area_label.text = "CITY RIVERFRONT"
+		elif player.position.x >= 448:
+			_area_label.text = "RIVER CROSSING"
+		elif player.position.y >= 248 or player.position.x >= 200:
+			_area_label.text = "ROUTE 1 / LEVEE ROAD"
+		else:
+			_area_label.text = "HOME / DISPATCH LANE"
+	if _panel.visible:
+		_hint.text = ""
+		return
+	if _notes_panel.visible:
+		_hint.text = "J / E  Close field notes"
+		return
+	if _party_panel.visible:
+		_hint.text = "P / E  Close party"
+		return
+	match _nearest_site():
+		"dispatch":
+			_hint.text = "E  Speak to dispatcher"
+		"marker":
+			_hint.text = "E  Check route marker"
+		"post":
+			_hint.text = "E  Check relay post"
+		"river":
+			_hint.text = "E  Listen at river"
+		"height_post":
+			_hint.text = "E  Inspect height post"
+		"levee_entrance":
+			_hint.text = "E  Read levee route sign"
+		"city_clerk":
+			_hint.text = "E  Speak to city courier"
+		"city_directions":
+			_hint.text = "E  Read city directions"
+		"landing_notice":
+			_hint.text = "E  Read old landing notice"
+		"home_courtyard":
+			_hint.text = "E  Check home courtyard"
+		"home_directions":
+			_hint.text = "E  Read dispatch directions"
+		"shared_garden":
+			_hint.text = "E  Read shared garden notice"
+		_:
+			_hint.text = "WASD / arrows  Move    E  Interact"
+
+	_hint.text += "    J  Notes    P  Party"
+
+
+func _unhandled_input(event: InputEvent) -> void:
+	if $BattleScreen.visible:
+		return
+	if event is InputEventKey:
+		var key_event := event as InputEventKey
+		if key_event.pressed and not key_event.echo and (key_event.physical_keycode == KEY_J or key_event.keycode == KEY_J):
+			if not _panel.visible and not _party_panel.visible:
+				_toggle_notes()
+				get_viewport().set_input_as_handled()
+			return
+		if key_event.pressed and not key_event.echo and (key_event.physical_keycode == KEY_P or key_event.keycode == KEY_P):
+			if not _panel.visible and not _notes_panel.visible:
+				_toggle_party()
+				get_viewport().set_input_as_handled()
+			return
+	if not event.is_action_pressed("interact") or event.is_echo():
+		return
+	if _notes_panel.visible:
+		_toggle_notes()
+		get_viewport().set_input_as_handled()
+		return
+	if _party_panel.visible:
+		_toggle_party()
+		get_viewport().set_input_as_handled()
+		return
+	if _panel.visible:
+		if _choices.visible:
+			return
+		_panel.hide()
+		player.set_physics_process(true)
+		get_viewport().set_input_as_handled()
+		return
+
+	match _nearest_site():
+		"dispatch":
+			_visit_dispatch()
+		"marker":
+			_visit_marker()
+		"post":
+			_visit_post()
+		"river":
+			_visit_river()
+		"height_post":
+			_visit_height_post()
+		"levee_entrance":
+			_visit_levee_entrance()
+		"city_clerk":
+			_visit_city_clerk()
+		"city_directions":
+			_visit_city_directions()
+		"landing_notice":
+			_visit_landing_notice()
+		"home_courtyard":
+			_visit_home_courtyard()
+		"home_directions":
+			_visit_home_directions()
+		"shared_garden":
+			_visit_shared_garden()
+		_:
+			return
+	get_viewport().set_input_as_handled()
+
+
+func _visit_levee_entrance() -> void:
+	levee_entrance_read = true
+	_show_message("ROUTE 1\nThe crest road follows the river to the bridge. The old landing and relay post lie along the side path. Keep to the worn track on the raised earth.")
+
+
+func _visit_city_clerk() -> void:
+	city_arrival_registered = true
+	var report_note := "Your western route report is already on the board." if report_done else "Bring your landing report back to the hometown dispatcher when you are ready."
+	_show_message("CITY COURIER\nWelcome across the river. I have recorded your arrival at this branch. " + report_note + " The direction board marks the streets into the city.")
+	_refresh_objective()
+
+
+func _visit_city_directions() -> void:
+	city_directions_read = true
+	_show_message("CITY ROUTES\nHistoric quarter: north and uphill. Works district: south along the river. The older school quarter lies beyond the historic streets; the newer trade roads continue inland. The bridge returns to your hometown.")
+
+
+func _visit_landing_notice() -> void:
+	_show_message("OLD LANDING FOOTPATH\nThe bank trail reaches the relay post and height marker, then winds under the cottonwoods back to the bridge road. The crest is higher ground. Worn rope grooves mark the older crossing; the cuts on the height post have no dates.")
+
+
+func _visit_home_courtyard() -> void:
+	var progress := "The dispatcher is taking runners at the east end of the lane."
+	if report_done:
+		progress = "Your landing report is with the dispatcher. You are back on your own doorstep."
+	elif pouch_accepted:
+		progress = "The lane leads back to the dispatcher and the raised river route."
+	_show_message("HOME COURTYARD\nThe patched porch and stacked wood make this place easy to recognize from the lane. " + progress)
+
+
+func _visit_home_directions() -> void:
+	_show_message("DISPATCH LANE\nFollow the worn lane east to the courier hall. The dispatcher waits in front. From there, the marked levee entrance leads to Route 1 and the river bridge. This lane returns to the courtyard homes.")
+
+
+func _visit_shared_garden() -> void:
+	_show_message("SHARED GARDEN\nLeave the little rows clear. The loop around the beds returns to the dispatch lane. Spare kindling and cuttings are left by the porch for neighbors to take.")
+
+
+func _nearest_site() -> String:
+	var closest := ""
+	var distance := REACH
+	for site in SITES:
+		var point: Vector2 = SITES[site]
+		var gap := player.position.distance_to(point)
+		if gap < distance:
+			distance = gap
+			closest = site
+	return closest
+
+
+func _visit_dispatch() -> void:
+	if not pouch_accepted:
+		pouch_accepted = true
+		_show_message("DISPATCHER\nTake this sealed pouch along the river bend to the old ferry relay post. Check whether anyone is keeping the return mark. Leave the seal intact.")
+	elif not delivered:
+		_show_message("DISPATCHER\nThe pouch belongs in the post's dry slot. Follow the marked side path toward the old river landing.")
+	elif not marker_restored:
+		_show_message("DISPATCHER\nThe road marker still points across the wrong ground. Straighten it before you close this assignment.")
+	elif not report_done:
+		_offer_report()
+	else:
+		var reply := "Your report is on the board."
+		if reported_calls:
+			reply += " I will send a second runner to listen."
+		_show_message("DISPATCHER\n" + reply + " Your first route is complete.")
+	_refresh_objective()
+
+
+func _visit_marker() -> void:
+	if marker_restored:
+		_show_message("The three-dot route mark points down the safe trail.")
+		return
+	marker_restored = true
+	marker.rotation = 0.0
+	_show_message("The marker was turned toward the riverbank. You set its three-dot sign straight and check the ground around its foot.")
+	_refresh_objective()
+
+
+func _visit_post() -> void:
+	if not pouch_accepted:
+		_show_message("The relay post has a dry slot, but you have no pouch to deliver.")
+		return
+	if not delivered:
+		delivered = true
+		_show_message("You slide the sealed pouch into the dry slot. No keeper answers. Today's return mark is missing, but the delivery counts.")
+		_refresh_objective()
+	else:
+		_show_message("The pouch is secure. The return mark is still missing.")
+
+
+func _visit_river() -> void:
+	if not delivered:
+		_show_message("Water presses against the old landing. The relay post is farther up the bank.")
+		return
+	if not heard_calls:
+		heard_calls = true
+		_show_message("A two-note call comes from across the river. A weaker copy answers from beside the empty post. You cannot tell whether it was a creature, an echo, or a signal.")
+		_refresh_objective()
+	else:
+		_show_message("The river covers the second call. You remember where it seemed to come from.")
+
+
+func _visit_height_post() -> void:
+	if not water_mark_observed:
+		water_mark_observed = true
+		_show_message("Several old cut lines stand above today's water. The height post has no date plate. You record what you can see, without assigning a cause.")
+		_refresh_objective()
+	else:
+		_show_message("The higher cuts are dry. None is dated.")
+
+
+func _offer_report() -> void:
+	_show_message("DISPATCHER\nThe pouch reached the post. What should I put on the route board?")
+	_body.text = "DISPATCHER\nThe pouch reached the post. What should I put on the route board?"
+	_choices.show()
+	var simple := Button.new()
+	simple.text = "Report the empty post and height marks" if water_mark_observed else "Report the empty post"
+	_style_route_button(simple)
+	simple.pressed.connect(_record_report.bind(false))
+	_choices.add_child(simple)
+	if heard_calls:
+		var full := Button.new()
+		full.text = "Report post, height marks, and two calls" if water_mark_observed else "Report the empty post and two calls"
+		_style_route_button(full)
+		full.pressed.connect(_record_report.bind(true))
+		_choices.add_child(full)
+	simple.grab_focus()
+
+
+func _record_report(include_calls: bool) -> void:
+	report_done = true
+	reported_calls = include_calls
+	reported_water_mark = water_mark_observed
+	_choices.hide()
+	for child in _choices.get_children():
+		child.queue_free()
+	var mark_note := " I also logged the undated high-water marks." if reported_water_mark else ""
+	if include_calls:
+		_show_message("DISPATCHER\nI marked the empty post and both calls on the board." + mark_note + " Another runner will check the bank. Your first route is complete.")
+	else:
+		_show_message("DISPATCHER\nI marked the post empty." + mark_note + " Another runner will check it tomorrow. Your first route is complete.")
+	_refresh_objective()
+
+
+func _refresh_objective() -> void:
+	if not pouch_accepted:
+		_objective.text = "FIRST ROUTE  /  Speak to the dispatcher"
+	elif not delivered:
+		_objective.text = "FIRST ROUTE  /  Deliver the sealed pouch"
+	elif not marker_restored:
+		_objective.text = "FIRST ROUTE  /  Straighten the route marker"
+	elif not report_done:
+		_objective.text = "FIRST ROUTE  /  Listen at the river or report back"
+	else:
+		_objective.text = "FIRST ROUTE COMPLETE  /  Delivery and report recorded"
+	if report_done:
+		var board_items := "Empty post"
+		if reported_water_mark:
+			board_items += " + high-water marks"
+		if reported_calls:
+			board_items += " + two calls"
+		_board.text = "ROUTE BOARD  /  " + board_items
+	else:
+		_board.text = "ROUTE BOARD  /  Return mark missing" if delivered else "ROUTE BOARD  /  Assignment open"
+
+
+func _toggle_notes() -> void:
+	if _notes_panel.visible:
+		_notes_panel.hide()
+		player.set_physics_process(true)
+	else:
+		_refresh_notes()
+		_notes_panel.show()
+		player.set_physics_process(false)
+
+
+func _toggle_party() -> void:
+	if _party_panel.visible:
+		_party_panel.hide()
+		player.set_physics_process(true)
+	else:
+		_refresh_party()
+		_party_panel.show()
+		player.set_physics_process(false)
+		if PlayerParty.active_slot >= 0:
+			_party_buttons[PlayerParty.active_slot].grab_focus()
+
+
+func _refresh_party() -> void:
+	_party_summary.text = "PARTNERS  %d / %d    Choose who travels with you" % [PlayerParty.caught.size(), PlayerParty.MAX_PARTY]
+	for slot in range(PlayerParty.MAX_PARTY):
+		var button := _party_buttons[slot]
+		if slot < PlayerParty.caught.size():
+			var member: PartyMember = PlayerParty.caught[slot]
+			var active := "  [ON ROUTE]" if slot == PlayerParty.active_slot else ""
+			button.text = "%d. %s  /  %s%s" % [slot + 1, member.species.creature_name, member.species.essence_name(), active]
+			button.disabled = false
+		else:
+			button.text = "%d. Empty" % [slot + 1]
+			button.disabled = true
+
+
+func _select_party_member(slot: int) -> void:
+	if PlayerParty.select(slot):
+		_refresh_party()
+		_party_buttons[slot].grab_focus()
+
+
+func _refresh_notes() -> void:
+	var notes := "ASSIGNMENT\n"
+	if pouch_accepted:
+		notes += "Sealed pouch for the old ferry relay post.\n"
+	else:
+		notes += "Speak to the dispatcher for a route.\n"
+	notes += "\nOBSERVED\n"
+	if marker_restored:
+		notes += "Route marker was turned toward the bank; now straight.\n"
+	if delivered:
+		notes += "Pouch in the dry slot. Keeper absent; return mark missing.\n"
+	if heard_calls:
+		notes += "Two-note call across river; weaker copy near the post.\n"
+	if water_mark_observed:
+		notes += "Undated high-water cuts stand above today's river level.\n"
+	if not marker_restored and not delivered and not heard_calls and not water_mark_observed:
+		notes += "No route findings yet.\n"
+	if levee_entrance_read:
+		notes += "Levee crest road links home to the river bridge.\n"
+	if city_arrival_registered:
+		notes += "Arrival recorded at the city courier branch.\n"
+	if city_directions_read:
+		notes += "City direction board describes the neighboring quarters.\n"
+	notes += "\nUNKNOWN\n"
+	if heard_calls:
+		notes += "Who made the calls, and why the return mark is missing.\n"
+	elif delivered:
+		notes += "Why the return mark is missing.\n"
+	else:
+		notes += "What the route will reveal.\n"
+	if water_mark_observed:
+		notes += "When the higher water cuts were made.\n"
+	if report_done:
+		notes += "\nREPORTED\n"
+		var reported := "Empty post"
+		if reported_water_mark:
+			reported += " and undated high-water marks"
+		if reported_calls:
+			reported += " and two calls"
+		notes += reported + ".\n"
+	_notes_body.text = notes
+
+
+func _show_message(message: String) -> void:
+	_body.text = message + "\n\n[E] Continue"
+	_choices.hide()
+	_panel.show()
+	player.set_physics_process(false)
+
+
+func _build_hud() -> void:
+	var layer := CanvasLayer.new()
+	layer.name = "RouteHUD"
+	layer.layer = 10
+	_area_label = Label.new()
+	_area_label.set_anchors_preset(Control.PRESET_BOTTOM_LEFT)
+	_area_label.offset_left = 18
+	_area_label.offset_top = -70
+	_area_label.offset_bottom = -48
+	_area_label.add_theme_font_override("font", ROUTE_READOUT_FONT)
+	_area_label.add_theme_font_size_override("font_size", 15)
+	_area_label.add_theme_color_override("font_color", Color("#e9e4c8"))
+	_area_label.add_theme_color_override("font_outline_color", Color("#26362e"))
+	_area_label.add_theme_constant_override("outline_size", 4)
+	layer.add_child(_area_label)
+	add_child(layer)
+
+	var top := PanelContainer.new()
+	top.position = Vector2(12, 12)
+	top.custom_minimum_size = Vector2(530, 62)
+	top.add_theme_stylebox_override("panel", _panel_style())
+	layer.add_child(top)
+	# Keep the hall roof visible beside the route readout.
+	top.set_anchors_preset(Control.PRESET_TOP_RIGHT)
+	top.offset_left = -542
+	top.offset_top = 12
+	top.offset_right = -12
+	top.offset_bottom = 74
+	top.grow_horizontal = Control.GROW_DIRECTION_BEGIN
+	var top_lines := VBoxContainer.new()
+	top.add_child(top_lines)
+	_objective = Label.new()
+	_objective.add_theme_font_override("font", ROUTE_TITLE_FONT)
+	_objective.add_theme_font_size_override("font_size", 19)
+	top_lines.add_child(_objective)
+	_board = Label.new()
+	_board.add_theme_font_override("font", ROUTE_READOUT_FONT)
+	_board.add_theme_font_size_override("font_size", 13)
+	top_lines.add_child(_board)
+
+	_hint = Label.new()
+	_hint.set_anchors_preset(Control.PRESET_BOTTOM_WIDE)
+	_hint.offset_left = 18
+	_hint.offset_top = -38
+	_hint.offset_right = -18
+	_hint.offset_bottom = -12
+	_hint.add_theme_font_override("font", ROUTE_READOUT_FONT)
+	_hint.add_theme_font_size_override("font_size", 14)
+	layer.add_child(_hint)
+
+	_panel = PanelContainer.new()
+	_panel.set_anchors_preset(Control.PRESET_BOTTOM_WIDE)
+	_panel.offset_left = 18
+	_panel.offset_top = -186
+	_panel.offset_right = -18
+	_panel.offset_bottom = -18
+	# Long dialogue and report buttons expand upward, keeping Continue on screen.
+	_panel.grow_vertical = Control.GROW_DIRECTION_BEGIN
+	_panel.add_theme_stylebox_override("panel", _panel_style())
+	layer.add_child(_panel)
+	var dialogue_lines := VBoxContainer.new()
+	_panel.add_child(dialogue_lines)
+	_body = Label.new()
+	_body.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	_body.custom_minimum_size = Vector2(0, 65)
+	_body.add_theme_font_override("font", ROUTE_BODY_FONT)
+	_body.add_theme_font_size_override("font_size", 20)
+	dialogue_lines.add_child(_body)
+	_choices = VBoxContainer.new()
+	dialogue_lines.add_child(_choices)
+	_choices.hide()
+	_panel.hide()
+
+	_notes_panel = PanelContainer.new()
+	_notes_panel.position = Vector2(64, 64)
+	_notes_panel.custom_minimum_size = Vector2(512, 256)
+	_notes_panel.add_theme_stylebox_override("panel", _panel_style())
+	layer.add_child(_notes_panel)
+	var note_lines := VBoxContainer.new()
+	_notes_panel.add_child(note_lines)
+	var note_title := Label.new()
+	note_title.text = "FIELD NOTES    J / E  Close"
+	note_title.add_theme_font_override("font", ROUTE_TITLE_FONT)
+	note_title.add_theme_font_size_override("font_size", 20)
+	note_lines.add_child(note_title)
+	var notes_scroll := ScrollContainer.new()
+	notes_scroll.custom_minimum_size = Vector2(480, 205)
+	notes_scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
+	note_lines.add_child(notes_scroll)
+	_notes_body = Label.new()
+	_notes_body.custom_minimum_size = Vector2(460, 0)
+	_notes_body.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	_notes_body.add_theme_font_override("font", ROUTE_BODY_FONT)
+	_notes_body.add_theme_font_size_override("font_size", 18)
+	notes_scroll.add_child(_notes_body)
+	_notes_panel.hide()
+
+	_party_panel = PanelContainer.new()
+	_party_panel.position = Vector2(64, 48)
+	_party_panel.custom_minimum_size = Vector2(512, 300)
+	_party_panel.add_theme_stylebox_override("panel", _panel_style())
+	layer.add_child(_party_panel)
+	var party_lines := VBoxContainer.new()
+	_party_panel.add_child(party_lines)
+	var party_title := Label.new()
+	party_title.text = "YOUR CREATURES    P / E  Close"
+	party_title.add_theme_font_override("font", ROUTE_TITLE_FONT)
+	party_title.add_theme_font_size_override("font_size", 20)
+	party_lines.add_child(party_title)
+	_party_summary = Label.new()
+	_party_summary.add_theme_font_override("font", ROUTE_READOUT_FONT)
+	_party_summary.add_theme_font_size_override("font_size", 13)
+	party_lines.add_child(_party_summary)
+	for slot in range(PlayerParty.MAX_PARTY):
+		var button := Button.new()
+		button.custom_minimum_size = Vector2(480, 30)
+		button.alignment = HORIZONTAL_ALIGNMENT_LEFT
+		_style_route_button(button)
+		button.pressed.connect(_select_party_member.bind(slot))
+		party_lines.add_child(button)
+		_party_buttons.append(button)
+	_party_panel.hide()
+
+
+func _route_button_style(face: Color, edge: Color) -> StyleBoxFlat:
+	var style := StyleBoxFlat.new()
+	style.bg_color = face
+	style.border_color = edge
+	style.set_border_width_all(2)
+	style.set_corner_radius_all(2)
+	style.content_margin_left = 8
+	style.content_margin_right = 8
+	style.content_margin_top = 3
+	style.content_margin_bottom = 3
+	return style
+
+
+func _style_route_button(button: Button) -> void:
+	button.add_theme_font_override("font", ROUTE_TITLE_FONT)
+	button.add_theme_font_size_override("font_size", 18)
+	button.add_theme_color_override("font_color", Color("#F0F4F8"))
+	button.add_theme_color_override("font_hover_color", Color("#FFFFFF"))
+	button.add_theme_color_override("font_disabled_color", Color("#87928D"))
+	button.add_theme_stylebox_override("normal", _route_button_style(Color("#29343A"), Color("#75604D")))
+	button.add_theme_stylebox_override("hover", _route_button_style(Color("#36524B"), Color("#1B8E78")))
+	button.add_theme_stylebox_override("pressed", _route_button_style(Color("#1B302D"), Color("#1B8E78")))
+	button.add_theme_stylebox_override("disabled", _route_button_style(Color("#20272B"), Color("#494B48")))
+	button.add_theme_stylebox_override("focus", _route_button_style(Color.TRANSPARENT, Color("#1B8E78")))
+
+
+func _panel_style() -> StyleBoxFlat:
+	var style := StyleBoxFlat.new()
+	style.bg_color = Color("#242E32")
+	style.border_color = Color("#75604D")
+	style.set_border_width_all(2)
+	style.set_content_margin_all(10)
+	return style

@@ -1,11 +1,13 @@
 extends CanvasLayer
 
+const Gate = preload("res://scripts/move_gate.gd")
+
 ## The battle. Each side chooses one move per round; first creature to zero HP faints.
 ##
 ## Not built yet: experience, levels, status effects, items,
 ## and saving.
-## Evolution below uses the battle-win prototype Preston approved for the
-## Cinderhide line. Other lines are not linked by that decision.
+## Evolution below is one stage on a battle win, for whatever form has a link.
+## There are no levels. The rules are in docs/creatures/evolution-and-signatures.md.
 
 ## The Inspector creature starts a fresh game. After that, battle reads the
 ## active member from PlayerParty, so evolution remains owned across scenes.
@@ -75,6 +77,8 @@ const SIGNATURE_CARD_SECONDS := 5.0
 ## milliseconds for this; 60 is a starting value to tune by feel, not a
 ## verified number. It is the cheapest single thing that makes a hit land.
 const HIT_STOP := 0.06
+## Strike has no move effect. This is only the small hit pop.
+const BASIC_HIT_POP := preload("res://scenes/effects/basic_hit_pop.tscn")
 
 ## HUD layout on the 1152x648 screen. The foe's card sits top left, the
 ## player's card bottom right just above the commands, and the message and
@@ -283,6 +287,7 @@ func start(wild: CreatureData) -> void:
 		mat.set_shader_parameter("heat_sweep", 1.0)
 		# Fire or jade: which of this creature's colours light up.
 		mat.set_shader_parameter("glow_kind", (_foe if s == _foe_sprite else player_creature).glow_kind)
+		mat.set_shader_parameter("charcoal_head", (_foe if s == _foe_sprite else player_creature).id == 102)
 		s.material = mat
 	_foe_home = _foot_home(_foe_sprite, Vector2(FOE_X, FOE_FOOT_Y))
 	# The player's creature stands on its own floor line too, so a big body
@@ -343,10 +348,19 @@ func _begin_choice() -> void:
 
 
 func _battle_moves(creature: CreatureData) -> Array[MoveData]:
-	if not creature.moves.is_empty():
-		return creature.moves
+	var source: Array[MoveData] = creature.moves
+	if creature == player_creature:
+		var member := PlayerParty.active_member()
+		if member != null and member.species == creature and not member.known.is_empty():
+			source = member.known
+	var legal: Array[MoveData] = []
+	for move in source:
+		if Gate.can_learn(creature, move):
+			legal.append(move)
+	if not legal.is_empty():
+		return legal
 	var result: Array[MoveData] = []
-	if creature.move != null:
+	if creature.move != null and Gate.can_learn(creature, creature.move):
 		result.append(creature.move)
 	return result
 
@@ -651,6 +665,8 @@ func _contact_with_frames(by_player: bool, dealt: int, multiplier: float, move: 
 	var original_texture: Texture2D = sprite.texture
 	var back: bool = by_player and _attacker_uses_back(by_player)
 	var frames: Array[Texture2D] = move.attack_back_frames if back else move.attack_frames
+	var attacker: CreatureData = player_creature if by_player else _foe
+	var shell_details := _keep_attack_shell_details(sprite, attacker, frames, back)
 	var hit: int = move.attack_hit_frame
 	if hit < 0 or hit >= move.attack_frames.size():
 		hit = maxi(0, move.attack_frames.size() - 2)
@@ -674,6 +690,7 @@ func _contact_with_frames(by_player: bool, dealt: int, multiplier: float, move: 
 	for i in range(move.attack_frames.size()):
 		if i < frames.size():
 			sprite.texture = frames[i]
+			_set_ironvent_head_bounds(sprite)
 		var hold: float = move.attack_frame_seconds
 		if i < move.attack_frame_holds.size():
 			hold = move.attack_frame_holds[i]
@@ -722,7 +739,10 @@ func _contact_with_frames(by_player: bool, dealt: int, multiplier: float, move: 
 			var t: float = float(i - hit) / float(steps)
 			leg.tween_property(sprite, "position", contact.lerp(home, t), maxf(0.04, hold)).set_trans(Tween.TRANS_SINE)
 			await leg.finished
+	if shell_details != null:
+		shell_details.set_shader_parameter("keep_authored_cracks", false)
 	sprite.texture = original_texture
+	_set_ironvent_head_bounds(sprite)
 	sprite.position = home
 	_idle_hold = false
 
@@ -778,6 +798,61 @@ func _visible_projection(sprite: Sprite2D, direction: Vector2) -> Vector2:
 ## back: play the move's back-view frames instead, on the same timeline. The
 ## emitter and volley then start from the back-view offset, and can be drawn
 ## behind the attacker so they rise from behind its body.
+
+## Retain the approved seams on Vitrecrag's registered RD attack family.
+## Other forms, rear art and differently registered sheets keep their own drawing.
+
+## Measured head armor bounds for each registered Ironvent attack pose.
+func _ironvent_head_bounds(texture: Texture2D) -> Vector4:
+	var bounds := Vector4(0.76, 0.40, 1.0, 0.67)
+	if texture == null or not texture.resource_path.begins_with("res://assets/sprites/creatures/attacks/ironvent_furnace_roar/style_matched/"):
+		return bounds
+	# The raised poses are registered at different head heights. Keep the
+	# grey armor on the actual head, below the horns and above the chest.
+	match texture.resource_path.get_file().get_basename():
+		"rear", "open": return Vector4(0.73, 0.18, 1.0, 0.43)
+		"roar": return Vector4(0.73, 0.10, 1.0, 0.34)
+		"settle": return Vector4(0.74, 0.16, 1.0, 0.37)
+		"titlecard_official_2026_09_30": return Vector4(0.76, 0.32, 1.0, 0.64)
+	return bounds
+
+
+func _set_ironvent_head_bounds(sprite: Sprite2D) -> void:
+	if sprite.material is ShaderMaterial and sprite.material.get_shader_parameter("charcoal_head"):
+		sprite.material.set_shader_parameter("head_finish_bounds", _ironvent_head_bounds(sprite.texture))
+
+
+## Keep the creature's material finish on title cards and attack close-ups.
+func _finish_attack_portrait(art: Sprite2D, creature: CreatureData) -> void:
+	if creature.id == 102:
+		var finish := ShaderMaterial.new()
+		finish.shader = CREATURE_SHADER
+		finish.set_shader_parameter("charcoal_head", true)
+		art.material = finish
+		_set_ironvent_head_bounds(art)
+		return
+	if creature.id != 108 or not art.texture.resource_path.begins_with("res://assets/sprites/creatures/rd_material_match_2026_10_01/vitrecrag_attacks/"):
+		return
+	var material := ShaderMaterial.new()
+	material.shader = CREATURE_SHADER
+	art.material = material
+	var frames: Array[Texture2D] = [art.texture]
+	_keep_attack_shell_details(art, creature, frames, false)
+
+
+func _keep_attack_shell_details(sprite: Sprite2D, creature: CreatureData, frames: Array[Texture2D], back: bool) -> ShaderMaterial:
+	if back or creature.id != 108 or frames.is_empty() or not sprite.material is ShaderMaterial:
+		return null
+	for frame in frames:
+		if frame == null or frame.get_size() != creature.sprite.get_size() \
+				or not frame.resource_path.begins_with("res://assets/sprites/creatures/rd_material_match_2026_10_01/vitrecrag_attacks/"):
+			return null
+	var material: ShaderMaterial = sprite.material
+	material.set_shader_parameter("authored_shell", creature.sprite)
+	material.set_shader_parameter("keep_authored_cracks", true)
+	return material
+
+
 func _drawn_attack_animation(by_player: bool, dealt: int, multiplier: float, move: MoveData, back: bool = false) -> void:
 	var sprite: Sprite2D = _player_sprite if by_player else _foe_sprite
 	var home: Vector2 = sprite.position
@@ -786,6 +861,7 @@ func _drawn_attack_animation(by_player: bool, dealt: int, multiplier: float, mov
 	var offset: Vector2 = move.attack_back_emitter_offset if back else move.attack_emitter_offset
 	# Frames without their own emitter point fire from the creature's aim point.
 	var attacker: CreatureData = player_creature if by_player else _foe
+	var shell_details := _keep_attack_shell_details(sprite, attacker, frames, back)
 	if not back and offset == Vector2.ZERO and _has_aim(attacker, move):
 		offset = attacker.aim_points[move.aim]
 	# Behind the attacker means earlier in BattleStage's draw order, not a lower
@@ -853,6 +929,7 @@ func _drawn_attack_animation(by_player: bool, dealt: int, multiplier: float, mov
 	for frame_index in range(move.attack_frames.size()):
 		if frame_index < frames.size():
 			sprite.texture = frames[frame_index]
+			_set_ironvent_head_bounds(sprite)
 			# A frame taller than the idle (Kingstone Rail's raised rails) is drawn
 			# with the idle at its bottom; the sprite is centred, so without this
 			# the feet would drop by half the extra height.
@@ -981,7 +1058,10 @@ func _drawn_attack_animation(by_player: bool, dealt: int, multiplier: float, mov
 		var settle := create_tween()
 		settle.tween_property(_focus_stage, "modulate", Color.WHITE, move.signature_linger) \
 			.set_trans(Tween.TRANS_SINE)
+	if shell_details != null:
+		shell_details.set_shader_parameter("keep_authored_cracks", false)
 	sprite.texture = original_texture
+	_set_ironvent_head_bounds(sprite)
 	sprite.offset.y = 0.0
 	sprite.position = home
 	_idle_hold = false
@@ -1216,6 +1296,7 @@ func _dress_sides() -> void:
 		sp.scale = Vector2.ONE * _zoom(sp)
 		if sp.material is ShaderMaterial:
 			(sp.material as ShaderMaterial).set_shader_parameter("glow_kind", (pair[1] as CreatureData).glow_kind)
+			(sp.material as ShaderMaterial).set_shader_parameter("charcoal_head", (pair[1] as CreatureData).id == 102)
 	_foe_home = _foot_home(_foe_sprite, Vector2(FOE_X, FOE_FOOT_Y))
 	_player_home = _foot_home(_player_sprite, Vector2(PLAYER_X, _near_foot_y()))
 	_foe_sprite.position = _foe_home
@@ -1428,6 +1509,7 @@ func _signature_card(attacker: CreatureData, by_player: bool, move: MoveData, co
 	create_tween().tween_property(title, "modulate", Color.WHITE, 0.25)
 	var art := Sprite2D.new()
 	art.texture = art_tex
+	_finish_attack_portrait(art, attacker)
 	art.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
 	art.scale = Vector2.ONE * art_zoom
 	art.flip_h = not by_player  # drawn facing right; the foe faces left
@@ -1496,6 +1578,7 @@ func _show_cut_in(by_player: bool, move: MoveData) -> void:
 	move_child(band, _focus_stage.get_index() + 1)
 	var art := Sprite2D.new()
 	art.texture = tex
+	_finish_attack_portrait(art, player_creature if by_player else _foe)
 	art.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
 	art.scale = Vector2.ONE * ZOOM
 	art.flip_h = not by_player  # the foe faces left
@@ -1974,10 +2057,23 @@ func _stop_emitter(emitter: Node2D) -> void:
 	get_tree().create_timer(longest + 0.1).timeout.connect(emitter.queue_free)
 
 
+## Strike, and any hit with no effect scene, still gets the small drawn pop.
+func _play_basic_pop(by_player: bool) -> void:
+	var target: Sprite2D = _foe_sprite if by_player else _player_sprite
+	var effect: Node2D = BASIC_HIT_POP.instantiate()
+	effect.position = target.position
+	_battle_stage.add_child(effect)
+	get_tree().create_timer(1.05).timeout.connect(effect.queue_free)
+
+
 ## Show the claw art on the target at the exact hit frame. The creature
 ## animation stays on Ironvent; the slash and molten debris belong to the hit.
 func _drawn_impact_effect(by_player: bool, move: MoveData) -> void:
 	if move == null or move.effect == null:
+		# A signature brings its own impact (Kingstone Rail's jade hit), so the
+		# orange Strike pop would only paint a stray flame over it.
+		if move == null or move.signature_effect == null:
+			_play_basic_pop(by_player)
 		return
 	var target: Sprite2D = _foe_sprite if by_player else _player_sprite
 	var effect: Node2D = move.effect.instantiate()
@@ -1989,12 +2085,23 @@ func _drawn_impact_effect(by_player: bool, move: MoveData) -> void:
 	var trail: CPUParticles2D = effect.get_node_or_null("Trail")
 	if trail:
 		trail.emitting = false
-	var burst: CPUParticles2D = effect.get_node_or_null("Burst")
-	if burst:
-		burst.restart()
-	var flash: Sprite2D = effect.get_node_or_null("Flash")
-	if flash:
-		_burst_flash(flash)
+	var shot: Sprite2D = effect.get_node_or_null("Shot")
+	if shot:
+		shot.visible = false
+	# A drawn pop replaces the particle puff. Ultimates have no Pop node,
+	# so their burst and flash stay as they were.
+	var pop: Sprite2D = effect.get_node_or_null("Pop")
+	var linger := 0.65
+	if pop:
+		pop.visible = true
+		linger = 1.05
+	else:
+		var burst: CPUParticles2D = effect.get_node_or_null("Burst")
+		if burst:
+			burst.restart()
+		var flash: Sprite2D = effect.get_node_or_null("Flash")
+		if flash:
+			_burst_flash(flash)
 	var impact: Sprite2D = effect.get_node_or_null("Impact")
 	if impact:
 		impact.visible = true
@@ -2004,7 +2111,6 @@ func _drawn_impact_effect(by_player: bool, move: MoveData) -> void:
 	# An optional drawn Sequence (AnimatedSprite2D) plays through once on the
 	# target, such as Furnace Roar's slam, ring and fading heat. Its art travels
 	# right as drawn; it is mirrored, offset included, when the foe attacks.
-	var linger := 0.65
 	var seq: AnimatedSprite2D = effect.get_node_or_null("Sequence")
 	if seq:
 		if not by_player:
@@ -2020,9 +2126,10 @@ func _drawn_impact_effect(by_player: bool, move: MoveData) -> void:
 
 
 ## A move thrown across the screen instead of carried in a lunge: the user
-## rears back and flicks forward, the effect flies to the target leaving its
-## Trail, and the Burst goes off on contact. The contact frame is the same
-## _on_impact Strike uses, so flash, shake and damage numbers still apply.
+## rears back and flicks forward, the effect flies to the target, and the hit
+## plays on contact. A drawn pop replaces the particle trail and burst. The
+## contact frame is the same _on_impact Strike uses, so flash, shake and
+## damage numbers still apply.
 func _projectile_animation(by_player: bool, dealt: int, multiplier: float, effect_scene: PackedScene, move: MoveData) -> void:
 	var sprite: Sprite2D = _player_sprite if by_player else _foe_sprite
 	var target: Sprite2D = _foe_sprite if by_player else _player_sprite
@@ -2037,6 +2144,8 @@ func _projectile_animation(by_player: bool, dealt: int, multiplier: float, effec
 	# Optional drawn pieces. An effect made only of particles still works.
 	var ball: Sprite2D = effect.get_node_or_null("Ball")
 	var flash: Sprite2D = effect.get_node_or_null("Flash")
+	var shot: Sprite2D = effect.get_node_or_null("Shot")
+	var pop: Sprite2D = effect.get_node_or_null("Pop")
 
 	# The ball art flies down and to the right. Mirroring, never rotating,
 	# because rotated pixel art stops lining up with the pixel grid. Your side
@@ -2045,6 +2154,12 @@ func _projectile_animation(by_player: bool, dealt: int, multiplier: float, effec
 	if ball:
 		ball.flip_v = by_player
 		ball.flip_h = not by_player
+	# Blob moves fly an animated shot instead of the still. Shaped moves keep Ball.
+	if shot:
+		shot.flip_v = by_player
+		shot.flip_h = not by_player
+		if ball:
+			ball.visible = false
 
 	var t := create_tween()
 	t.tween_property(sprite, "position", home - Vector2(dir * 14, 6), 0.14).set_trans(Tween.TRANS_SINE)
@@ -2060,7 +2175,8 @@ func _projectile_animation(by_player: bool, dealt: int, multiplier: float, effec
 	else:
 		effect.position = home + Vector2(dir * 40, 0)
 	_battle_stage.add_child(effect)
-	if trail:
+	# The particle trail is the old puff. A scene with a drawn pop does not use it.
+	if trail and pop == null:
 		trail.emitting = true
 
 	var fly := create_tween()
@@ -2071,16 +2187,26 @@ func _projectile_animation(by_player: bool, dealt: int, multiplier: float, effec
 
 	if trail:
 		trail.emitting = false
-	if ball:
-		ball.visible = false
-	burst.restart()
-	if flash:
-		_burst_flash(flash)
+	if shot:
+		shot.visible = false
+	if pop:
+		if ball:
+			ball.visible = false
+		pop.visible = true
+	else:
+		if ball:
+			ball.visible = false
+		burst.restart()
+		if flash:
+			_burst_flash(flash)
 	_on_impact(by_player, dealt, multiplier, move)
 	await get_tree().create_timer(HIT_STOP + 0.22).timeout
 
-	# Let the last embers finish their lives before removing the effect.
-	get_tree().create_timer(burst.lifetime + 0.1).timeout.connect(effect.queue_free)
+	# 16 frames at 16 fps. Particles still use their own lifetime when there is no pop.
+	var linger := burst.lifetime + 0.1
+	if pop:
+		linger = 1.05
+	get_tree().create_timer(linger).timeout.connect(effect.queue_free)
 	_idle_hold = false
 
 
@@ -2260,15 +2386,10 @@ func _finish(final_message: String) -> void:
 
 # ---------------------------------------------------------------- evolution
 
-## Evolves the player's creature if it has somewhere to go. Does nothing, and
-## leaves the message untouched, if it does not.
-##
-## The current prototype trigger is the battle win Preston approved for the
-## Cinderhide line. Final evolution conditions remain open; do not add levels
-## to justify an unapproved trigger.
-##
-## The active party member keeps its identity while its species changes.
-## This is still a run-local prototype; evolution conditions remain provisional.
+## Evolves the creature that just won, one stage, when that form has a link.
+## A battle win is the trigger. There are no levels. The line stops when
+## evolves_into is empty. HP carries over and is clamped. It is not a heal.
+## The new form arrives with its own legal moves, not the old kit.
 func _try_evolve() -> void:
 	var next: CreatureData = player_creature.evolves_into
 	if next == null or PlayerParty.active_creature() != player_creature:
@@ -2317,6 +2438,8 @@ func _evolution_animation(next: CreatureData) -> void:
 	await glow.finished
 
 	s.texture = _back_of(next) if _back_of(next) != null else next.sprite
+	if s.material is ShaderMaterial:
+		s.material.set_shader_parameter("charcoal_head", next.id == 102)
 
 	# Reuses the hit shake with a high value, because the argument is damage and
 	# there is no damage here. It is the landing thump, not a hit.
@@ -2539,6 +2662,7 @@ func _apply_idle(s: Sprite2D, home: Vector2, creature: CreatureData, phase: floa
 		return
 	# Breathing vents: brightest when the breath is fully drawn in.
 	if s.material is ShaderMaterial:
+		s.material.set_shader_parameter("charcoal_head", creature.id == 102)
 		var inhale: float = 0.5 + 0.5 * _breath_wave(_idle_time / maxf(0.2, creature.idle_period) + phase)
 		s.material.set_shader_parameter("idle_glow", creature.idle_vent_glow * inhale)
 	# A hand-drawn front loop takes precedence over procedural breathing. A real
@@ -2589,6 +2713,7 @@ func _set_breath(s: Sprite2D, lift: float, cut: float, widen: float = 0.0) -> vo
 		lift = q.y
 		cut = float(used.position.y + used.size.y) / th  # the whole body, feet planted
 	var m: ShaderMaterial = s.material
+	_set_ironvent_head_bounds(s)
 	m.set_shader_parameter("breath_lift", lift)
 	m.set_shader_parameter("breath_widen", widen)
 	m.set_shader_parameter("breath_cut", cut)

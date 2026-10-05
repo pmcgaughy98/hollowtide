@@ -1,0 +1,46 @@
+{
+  "scope": "Terminal results observed by parent agent, separate from fixture JSON fields.",
+  "full_journeys": [
+    {
+      "courier": "male",
+      "pid": 2180,
+      "exec_session": 77572,
+      "exit_code": 0,
+      "gates": 12,
+      "steps": 352
+    },
+    {
+      "courier": "female",
+      "pid": 12948,
+      "exec_session": 90366,
+      "exit_code": 0,
+      "gates": 12,
+      "steps": 338
+    }
+  ],
+  "exact_final_garden": [
+    {
+      "courier": "male",
+      "pid": 22008,
+      "exec_session": 43155,
+      "exit_code": 0,
+      "gates": 2,
+      "steps": 134
+    },
+    {
+      "courier": "female",
+      "pid": 37968,
+      "exec_session": 29558,
+      "exit_code": 0,
+      "gates": 2,
+      "steps": 134
+    }
+  ],
+  "final_render": {
+    "pid": 20784,
+    "completed": true,
+    "runtime_stderr_bytes": 0
+  },
+  "all_owned_processes_finished": true,
+  "initial_failed_fixture_runs_excluded": true
+}

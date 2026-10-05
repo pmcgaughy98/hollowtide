@@ -6,6 +6,8 @@
 [resource]
 script = ExtResource("1_script")
 move_name = "Ember Flick"
+required_parts = PackedStringArray("vent")
+aim = "vent"
 essence = 0
 power = 32
 max_uses = 0

@@ -1,0 +1,20 @@
+from pathlib import Path
+import shutil
+s=Path.cwd();r=s/"hometown-review";p=Path("C:/Users/pmcga/dev/hollowtide")
+(r/"initial").mkdir(exist_ok=True)
+for f in r.glob("installed-*.png"):shutil.copyfile(f,r/"initial"/f.name)
+for f in ["review.stdout.log","review.stderr.log","full.stdout.log","full.stderr.log"]:
+ if (r/f).exists():shutil.copyfile(r/f,r/"initial"/f)
+old=(s/"prepare_hometown.py").read_text()
+bake=old[old.index("# Authored rounded paths"):old.index('print(json.dumps')]
+bake=bake.replace("w,h=480,384","w,h=528,384").replace("(480,192)","(528,192)")
+bake=bake.replace("mask=dist<0","mask=dist<0\nmask |= (xx>=448) & (yy>=176) & (yy<208)")
+exec(bake,{"Path":__import__("pathlib").Path,"Image":__import__("PIL.Image",fromlist=["Image"]),"ImageDraw":__import__("PIL.ImageDraw",fromlist=["ImageDraw"]),"np":__import__("numpy"),"json":__import__("json"),"p":p,"r":r})
+shutil.copyfile(r/"hometown_lanes.png",p/"assets/sprites/world/hometown_courtyard_2026_10_03/hometown_lanes.png")
+gd=p/"scripts/hometown_courtyard.gd";txt=gd.read_text();assert txt.count("lanes.z_index = -1")==1
+txt=txt.replace("lanes.z_index = -1","lanes.z_index = 1 # Join over the earlier route-edge grass patch.")
+gd.write_text(txt,encoding="utf-8")
+for name in ["hometown_full_walkthrough.gd","hometown_female_walkthrough.gd"]:
+ f=s/name;txt=f.read_text();txt=txt.replace("var okay := _flags() == before","var okay: bool = _flags() == before")
+ f.write_text(txt,encoding="utf-8")
+print("Joined both road surfaces and fixed a type declaration in the review driver")

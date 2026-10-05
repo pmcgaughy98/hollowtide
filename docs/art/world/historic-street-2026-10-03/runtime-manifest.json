@@ -1,0 +1,46 @@
+[
+  {
+    "path": "scripts/world_journey.gd",
+    "sha256": "64083a028e8eeb6d3baeaf7edaa16a9c849814b00347411f87468fdfa9ac5974"
+  },
+  {
+    "path": "scripts/area_landscape.gd",
+    "sha256": "2dfa6331f85ce1cff0263161c7bac25182df7b7a4c2f47d2d0867e56ff6f5dc5"
+  },
+  {
+    "path": "scripts/first_route_prototype.gd",
+    "sha256": "6cee96a25e6c84e550bd8cda03a610c4805f78535994912d9ba3fcbc7686df67"
+  },
+  {
+    "path": "scripts/world_area.gd",
+    "sha256": "8ad4a30f03ea162d650c17c4f49785906382e83dc76831beed8afbb6e63d37c1"
+  },
+  {
+    "path": "scripts/historic_street.gd",
+    "sha256": "194a04ce6a609fbcb89efe34bc5a1788c1023311c4382b1982138fcbc7a96529"
+  },
+  {
+    "path": "scripts/historic_street.gd.uid",
+    "sha256": "51ead930a3e34f2a0c1dafe811da667487a6f973ae80e74e5bce8c1cc5ae0029"
+  },
+  {
+    "path": "scenes/historic_street.tscn",
+    "sha256": "0e19e5a70d4648f0653f65e5cd7952513541badd6f77bddb1827531a8fe2fa69"
+  },
+  {
+    "path": "assets/sprites/world/historic_street_2026_10_03/street_pavers.png",
+    "sha256": "6e09e5f110cc708c0e203adf333982b49ded7c959a91a5437baeb16d081e46d5"
+  },
+  {
+    "path": "assets/sprites/world/historic_street_2026_10_03/street_pavers.png.import",
+    "sha256": "216549d7bc154e2183d732b7f44459a30f3c55c710bd2177a634f576525996a3"
+  },
+  {
+    "path": "assets/sprites/world/historic_street_2026_10_03/riverfront_north_lane.png",
+    "sha256": "52b1be1f841470fe1f48d69b15a020c5ed226b1b6fe2fa883a58aef3b66a776f"
+  },
+  {
+    "path": "assets/sprites/world/historic_street_2026_10_03/riverfront_north_lane.png.import",
+    "sha256": "765ccb87c9523f46d86ec00371fd128b1b8867942bf8011b50e3146a8a583e8c"
+  }
+]

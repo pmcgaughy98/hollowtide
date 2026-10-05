@@ -1,5 +1,7 @@
 extends Node2D
 
+var city_activity: Node2D
+
 ## One complete courier assignment using the existing player and battle scene.
 ## Names and props are prototype placeholders; no quest framework or save file.
 const REACH := 30.0
@@ -7,11 +9,12 @@ const ROUTE_TITLE_FONT = preload("res://assets/fonts/AlegreyaSansSC-Bold.ttf")
 const ROUTE_BODY_FONT = preload("res://assets/fonts/Vollkorn-Variable.ttf")
 const ROUTE_READOUT_FONT = preload("res://assets/fonts/Silkscreen-Regular.ttf")
 const SITES := {
-	"dispatch": Vector2(80, 192),
 	"marker": Vector2(272, 96),
-	"post": Vector2(392, 240),
-	"river": Vector2(432, 296),
+	"post": Vector2(398, 530),
+	"river": Vector2(416, 592),
 	"height_post": Vector2(423, 205),
+	"levee_entrance": Vector2(64, 200),
+	"landing_notice": Vector2(304, 454),
 }
 
 @onready var player: CharacterBody2D = $Player
@@ -25,6 +28,10 @@ var water_mark_observed := false
 var report_done := false
 var reported_calls := false
 var reported_water_mark := false
+var levee_entrance_read := false
+var city_arrival_registered := false
+var city_directions_read := false
+var _area_label: Label
 
 var _hint: Label
 var _objective: Label
@@ -42,12 +49,12 @@ var _party_buttons: Array[Button] = []
 func _ready() -> void:
 	# Keep the camera inside the route, including the dispatch starting edge.
 	var camera: Camera2D = $Player/Camera2D
-	camera.limit_left = 0
+	camera.limit_left = -768
 	camera.limit_top = 0
 	camera.offset = Vector2.ZERO
 	camera.position = Vector2(0, -84)
-	camera.limit_right = 640
-	camera.limit_bottom = 384
+	camera.limit_right = 704
+	camera.limit_bottom = 640
 	camera.reset_smoothing()
 	# Route 1's music (Preston's "Two-Note Call"); steps aside for battles.
 	var music := AreaMusic.new()
@@ -57,9 +64,38 @@ func _ready() -> void:
 	PlayerParty.ensure_starter($BattleScreen.player_creature)
 	_build_hud()
 	_refresh_objective()
+	# F6 / a direct Route 1 launch also gets the same real area entrances.
+	if get_parent() is Window:
+		call_deferred("_open_standalone_journey")
+
+
+func _open_standalone_journey() -> void:
+	var journey: Node2D = load("res://scenes/world_journey.tscn").instantiate()
+	journey.set("initial_area", "route1")
+	journey.call("set_courier_model", $Player.chibi_model)
+	var error := get_tree().change_scene_to_node(journey)
+	if error != OK:
+		journey.free()
+		push_error("Could not open the connected Route 1 journey.")
 
 
 func _process(_delta: float) -> void:
+	var camera: Camera2D = $Player/Camera2D
+	camera.limit_bottom = 640
+	camera.position.y = -24.0
+	if _area_label != null:
+		if player.position.x < 0:
+			_area_label.text = "ROUTE 1 / LEVEE MEADOW"
+		elif player.position.x >= 672:
+			_area_label.text = "BRIDGE / CITY ENTRANCE"
+		elif player.position.x >= 448:
+			_area_label.text = "RIVER CROSSING"
+		elif player.position.y >= 480:
+			_area_label.text = "ROUTE 1 / OLD LANDING"
+		elif player.position.y >= 248 or player.position.x >= 200:
+			_area_label.text = "ROUTE 1 / LEVEE ROAD"
+		else:
+			_area_label.text = "ROUTE 1 / WEST APPROACH"
 	if _panel.visible:
 		_hint.text = ""
 		return
@@ -80,6 +116,20 @@ func _process(_delta: float) -> void:
 			_hint.text = "E  Listen at river"
 		"height_post":
 			_hint.text = "E  Inspect height post"
+		"levee_entrance":
+			_hint.text = "E  Read levee route sign"
+		"city_clerk":
+			_hint.text = "E  Speak to city courier"
+		"city_directions":
+			_hint.text = "E  Read city directions"
+		"landing_notice":
+			_hint.text = "E  Read old landing notice"
+		"home_courtyard":
+			_hint.text = "E  Check home courtyard"
+		"home_directions":
+			_hint.text = "E  Read dispatch directions"
+		"shared_garden":
+			_hint.text = "E  Read shared garden notice"
 		_:
 			_hint.text = "WASD / arrows  Move    E  Interact"
 
@@ -130,9 +180,61 @@ func _unhandled_input(event: InputEvent) -> void:
 			_visit_river()
 		"height_post":
 			_visit_height_post()
+		"levee_entrance":
+			_visit_levee_entrance()
+		"city_clerk":
+			_visit_city_clerk()
+		"city_directions":
+			_visit_city_directions()
+		"landing_notice":
+			_visit_landing_notice()
+		"home_courtyard":
+			_visit_home_courtyard()
+		"home_directions":
+			_visit_home_directions()
+		"shared_garden":
+			_visit_shared_garden()
 		_:
 			return
 	get_viewport().set_input_as_handled()
+
+
+func _visit_levee_entrance() -> void:
+	levee_entrance_read = true
+	_show_message("ROUTE 1\nThe crest road follows the river to the bridge. The old landing and relay post lie along the side path. Keep to the worn track on the raised earth.")
+
+
+func _visit_city_clerk() -> void:
+	city_arrival_registered = true
+	var report_note := "Your western route report is already on the board." if report_done else "Bring your landing report back to the hometown dispatcher when you are ready."
+	_show_message("CITY COURIER\nWelcome across the river. I have recorded your arrival at this branch. " + report_note + " The direction board marks the streets into the city.")
+	_refresh_objective()
+
+
+func _visit_city_directions() -> void:
+	city_directions_read = true
+	_show_message("CITY ROUTES\nThis riverfront branch marks your arrival in the city. The brick frontage and records house are local landmarks. The marked northern lane reaches the historic street, with its repaired shop, public ledger and courier board. The works, school and trade quarters will have separate entrances as they are built. Return west over the bridge for Route 1 and the hometown.")
+
+
+func _visit_landing_notice() -> void:
+	_show_message("OLD LANDING FOOTPATH\nThe bank trail passes the height post, then follows lower ground south to the relay and old tieoffs. A second worn track returns to the bridge road. The crest is higher ground. Worn rope grooves mark the older crossing; the cuts on the height post have no dates.")
+
+
+func _visit_home_courtyard() -> void:
+	var progress := "The dispatcher is taking runners inside the courier hall on the eastern street."
+	if report_done:
+		progress = "Your landing report is with the dispatcher. You are back on your own doorstep."
+	elif pouch_accepted:
+		progress = "The eastern street leads to the courier hall and the marked Route 1 entrance."
+	_show_message("HOME COURTYARD\nThe patched porch and stacked wood make this place easy to recognize from the lane. " + progress)
+
+
+func _visit_home_directions() -> void:
+	_show_message("DISPATCH LANE\nThe courier hall stands beside the eastern street. Follow the Route 1 sign to the opening at the end of that street. Beyond the entrance, the meadow path bends toward the raised levee and river bridge. The courtyard streets return to your home.")
+
+
+func _visit_shared_garden() -> void:
+	_show_message("SHARED GARDEN\nLeave the little rows clear. The loop around the beds returns to the main courtyard street. Spare kindling and cuttings are left by the porch for neighbors to take.")
 
 
 func _nearest_site() -> String:
@@ -150,9 +252,9 @@ func _nearest_site() -> String:
 func _visit_dispatch() -> void:
 	if not pouch_accepted:
 		pouch_accepted = true
-		_show_message("DISPATCHER\nTake this sealed pouch along the bluff bend to the old ferry relay post. Check whether anyone is keeping the return mark. Leave the seal intact.")
+		_show_message("DISPATCHER\nTake this sealed pouch along the river bend to the old ferry relay post. Check whether anyone is keeping the return mark. Leave the seal intact.")
 	elif not delivered:
-		_show_message("DISPATCHER\nThe pouch belongs in the post's dry slot. Follow the marked bluff bend down toward the river.")
+		_show_message("DISPATCHER\nThe pouch belongs in the post's dry slot. Follow the marked side path toward the old river landing.")
 	elif not marker_restored:
 		_show_message("DISPATCHER\nThe road marker still points across the wrong ground. Straighten it before you close this assignment.")
 	elif not report_done:
@@ -322,6 +424,12 @@ func _refresh_notes() -> void:
 		notes += "Undated high-water cuts stand above today's river level.\n"
 	if not marker_restored and not delivered and not heard_calls and not water_mark_observed:
 		notes += "No route findings yet.\n"
+	if levee_entrance_read:
+		notes += "Levee crest road links home to the river bridge.\n"
+	if city_arrival_registered:
+		notes += "Arrival recorded at the city courier branch.\n"
+	if city_directions_read:
+		notes += "City direction board describes the neighboring quarters.\n"
 	notes += "\nUNKNOWN\n"
 	if heard_calls:
 		notes += "Who made the calls, and why the return mark is missing.\n"
@@ -339,6 +447,8 @@ func _refresh_notes() -> void:
 		if reported_calls:
 			reported += " and two calls"
 		notes += reported + ".\n"
+	if is_instance_valid(city_activity):
+		notes += city_activity.call("notes_text")
 	_notes_body.text = notes
 
 
@@ -353,6 +463,17 @@ func _build_hud() -> void:
 	var layer := CanvasLayer.new()
 	layer.name = "RouteHUD"
 	layer.layer = 10
+	_area_label = Label.new()
+	_area_label.set_anchors_preset(Control.PRESET_BOTTOM_LEFT)
+	_area_label.offset_left = 18
+	_area_label.offset_top = -70
+	_area_label.offset_bottom = -48
+	_area_label.add_theme_font_override("font", ROUTE_READOUT_FONT)
+	_area_label.add_theme_font_size_override("font_size", 15)
+	_area_label.add_theme_color_override("font_color", Color("#e9e4c8"))
+	_area_label.add_theme_color_override("font_outline_color", Color("#26362e"))
+	_area_label.add_theme_constant_override("outline_size", 4)
+	layer.add_child(_area_label)
 	add_child(layer)
 
 	var top := PanelContainer.new()

@@ -2,6 +2,8 @@
 
 **Effective 2026-09-27. Preston's instruction:** Use this assignment as the default way to divide Hollowtide work among Opal and its Forges, Gemini, Codex, Claude, and Grok. Preston remains the creative director and final approver. A later direct instruction from Preston changes any assignment here. These are **primary owners**, not claims that one model is incapable of another task.
 
+**Update 2026-10-02.** Preston assigned Grok the rules for future creatures and moves. Start at the top of `docs/AI_COLLABORATION.md`, then `docs/creatures/DESIGN_RULES.md` and `docs/creatures/evolution-and-signatures.md`. Grok still does not generate creature sprites or spend Retro Diffusion on them. Codex still has Route 1. Claude still has battle presentation and the save/state model. The September 27 table below stands except where this update changes Grok's lane.
+
 This assignment considers the local `docs/Gemini DeepResearch(Hollowtide)/Three-Agent Godot Game Pipeline.docx`, current project files, and what Preston and the agents actually observed while building Hollowtide. The report is a research input, not an automatic mandate. It omitted Gemini and separated Opal from its individual Forges; this charter includes both.
 
 | Owner | Primary responsibility | Deliverable and boundary |

@@ -1,0 +1,30 @@
+{
+  "before_scene_sha256": "b986a617ddf384d9b09d7594dedf270fcb44b165a570e3a21ae22bc59cd5f1c2",
+  "before_script_sha256": "8eea93e44e4715ad59d96e48555a274d6d3e66a5e0dce06d3bece3257ac3645a",
+  "bridge_preparation": "Transparent 8px padding on each side; original 256x80 pixels unmodified.",
+  "world_size": [
+    1024,
+    640
+  ],
+  "river_bounds_x": [
+    448,
+    672
+  ],
+  "bridge_foot_walk_y": [
+    408,
+    432
+  ],
+  "generation_cost_usd": 0.18,
+  "installed_sha256": {
+    "scripts/first_route_prototype.gd": "16642c8d181b1704656b1f2fbf90064b8b7ba87a1376b7021218e886fb4d2cd1",
+    "scripts/route1_crossing.gd": "64b24744768c81163d6da595d8a204f5453c4f0d732cf876a99c9084bf11be65",
+    "scenes/first_route_prototype.tscn": "88edcd961f4608584a5d1c505bffab7e7a44af0662b1ab9a2a8584030a3abddc"
+  },
+  "final_diagnostics": {
+    "errors": 0,
+    "existing_warnings": 11
+  },
+  "review": "review/verification.json",
+  "final_scene": "scenes/first_route_prototype.tscn",
+  "names": "Descriptive placeholders; real names are research references."
+}

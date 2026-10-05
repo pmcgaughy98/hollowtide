@@ -1,0 +1,288 @@
+{
+  "passed": true,
+  "walks": {
+    "male": {
+      "completed_walk": true,
+      "engine_entrance_arrivals": [
+        {
+          "arrival": "(128.0, 208.0)",
+          "from": "hometown",
+          "to": "courtyard_home"
+        },
+        {
+          "arrival": "(233.0, 280.0)",
+          "from": "courtyard_home",
+          "to": "hometown"
+        },
+        {
+          "arrival": "(128.0, 208.0)",
+          "from": "hometown",
+          "to": "courier_hall"
+        },
+        {
+          "arrival": "(768.0, 452.0)",
+          "from": "courier_hall",
+          "to": "hometown"
+        },
+        {
+          "arrival": "(-720.0, 512.0)",
+          "from": "hometown",
+          "to": "route1"
+        },
+        {
+          "arrival": "(320.0, 512.0)",
+          "from": "route1",
+          "to": "riverfront"
+        },
+        {
+          "arrival": "(384.0, 848.0)",
+          "from": "riverfront",
+          "to": "historic_street"
+        },
+        {
+          "arrival": "(880.0, 48.0)",
+          "from": "historic_street",
+          "to": "riverfront"
+        },
+        {
+          "arrival": "(384.0, 848.0)",
+          "from": "riverfront",
+          "to": "historic_street"
+        },
+        {
+          "arrival": "(880.0, 48.0)",
+          "from": "historic_street",
+          "to": "riverfront"
+        },
+        {
+          "arrival": "(432.0, 416.0)",
+          "from": "riverfront",
+          "to": "route1"
+        },
+        {
+          "arrival": "(980.0, 512.0)",
+          "from": "route1",
+          "to": "hometown"
+        },
+        {
+          "arrival": "(128.0, 208.0)",
+          "from": "hometown",
+          "to": "courier_hall"
+        },
+        {
+          "arrival": "(768.0, 452.0)",
+          "from": "courier_hall",
+          "to": "hometown"
+        },
+        {
+          "arrival": "(128.0, 208.0)",
+          "from": "hometown",
+          "to": "courtyard_home"
+        },
+        {
+          "arrival": "(233.0, 280.0)",
+          "from": "courtyard_home",
+          "to": "hometown"
+        }
+      ],
+      "fixed_fps": 60,
+      "flags": {
+        "city_arrival_registered": true,
+        "city_directions_read": true,
+        "delivered": true,
+        "heard_calls": true,
+        "levee_entrance_read": true,
+        "marker_restored": true,
+        "pouch_accepted": true,
+        "report_done": true,
+        "reported_calls": true,
+        "reported_water_mark": true,
+        "water_mark_observed": true
+      },
+      "home_contract_ready": true,
+      "home_loop_count": 2,
+      "home_walk_frames_before_exit": 5656,
+      "levee_sign_to_relay_walk_frames": 743,
+      "model": "Male",
+      "ordinary_input_only": true,
+      "passed": true,
+      "quest_overrides": 0,
+      "route_approach_walk_frames": 816,
+      "startup_ms": 1284,
+      "test_teleports": 0,
+      "recorded_steps": 577,
+      "observed_terminal_exit": 0
+    },
+    "female": {
+      "completed_walk": true,
+      "engine_entrance_arrivals": [
+        {
+          "arrival": "(128.0, 208.0)",
+          "from": "hometown",
+          "to": "courtyard_home"
+        },
+        {
+          "arrival": "(233.0, 280.0)",
+          "from": "courtyard_home",
+          "to": "hometown"
+        },
+        {
+          "arrival": "(128.0, 208.0)",
+          "from": "hometown",
+          "to": "courier_hall"
+        },
+        {
+          "arrival": "(768.0, 452.0)",
+          "from": "courier_hall",
+          "to": "hometown"
+        },
+        {
+          "arrival": "(-720.0, 512.0)",
+          "from": "hometown",
+          "to": "route1"
+        },
+        {
+          "arrival": "(320.0, 512.0)",
+          "from": "route1",
+          "to": "riverfront"
+        },
+        {
+          "arrival": "(384.0, 848.0)",
+          "from": "riverfront",
+          "to": "historic_street"
+        },
+        {
+          "arrival": "(880.0, 48.0)",
+          "from": "historic_street",
+          "to": "riverfront"
+        },
+        {
+          "arrival": "(384.0, 848.0)",
+          "from": "riverfront",
+          "to": "historic_street"
+        },
+        {
+          "arrival": "(880.0, 48.0)",
+          "from": "historic_street",
+          "to": "riverfront"
+        },
+        {
+          "arrival": "(432.0, 416.0)",
+          "from": "riverfront",
+          "to": "route1"
+        },
+        {
+          "arrival": "(980.0, 512.0)",
+          "from": "route1",
+          "to": "hometown"
+        },
+        {
+          "arrival": "(128.0, 208.0)",
+          "from": "hometown",
+          "to": "courier_hall"
+        },
+        {
+          "arrival": "(768.0, 452.0)",
+          "from": "courier_hall",
+          "to": "hometown"
+        },
+        {
+          "arrival": "(128.0, 208.0)",
+          "from": "hometown",
+          "to": "courtyard_home"
+        },
+        {
+          "arrival": "(233.0, 280.0)",
+          "from": "courtyard_home",
+          "to": "hometown"
+        }
+      ],
+      "fixed_fps": 60,
+      "flags": {
+        "city_arrival_registered": true,
+        "city_directions_read": true,
+        "delivered": true,
+        "heard_calls": false,
+        "levee_entrance_read": true,
+        "marker_restored": true,
+        "pouch_accepted": true,
+        "report_done": true,
+        "reported_calls": false,
+        "reported_water_mark": false,
+        "water_mark_observed": false
+      },
+      "home_contract_ready": true,
+      "home_loop_count": 2,
+      "home_walk_frames_before_exit": 5656,
+      "levee_sign_to_relay_walk_frames": 508,
+      "model": "Female",
+      "ordinary_input_only": true,
+      "passed": true,
+      "quest_overrides": 0,
+      "route_approach_walk_frames": 816,
+      "startup_ms": 1095,
+      "test_teleports": 0,
+      "recorded_steps": 563,
+      "observed_terminal_exit": 0
+    }
+  },
+  "direct_entry": {
+    "active_area": "courtyard_home",
+    "completed": true,
+    "direct_scene": "res://scenes/courtyard_home.tscn",
+    "notes_freeze_and_resume": true,
+    "ordinary_movement": true,
+    "original_flags_party_player_exact": true,
+    "passed": true,
+    "screenshot_save_error": 0,
+    "temporary_scene_freed": true,
+    "test_teleports": 0
+  },
+  "overview": {
+    "completed": true,
+    "diagnostic_camera_only": true,
+    "passed": true,
+    "records": [
+      {
+        "capture": "homes-hometown-native",
+        "save_error": 0,
+        "size": "(1024, 768)"
+      },
+      {
+        "full_alpha_fits_map": true,
+        "house": "CourtyardHome",
+        "scale": "(0.75, 0.75)",
+        "visible_world_bounds": "[P: (167.75, 161.5), S: (111.0, 94.5)]"
+      },
+      {
+        "full_alpha_fits_map": true,
+        "house": "NeighborHome",
+        "scale": "(0.75, 0.75)",
+        "visible_world_bounds": "[P: (502.25, 123.5), S: (115.5, 100.5)]"
+      },
+      {
+        "full_alpha_fits_map": true,
+        "house": "GardenHome",
+        "scale": "(0.75, 0.75)",
+        "visible_world_bounds": "[P: (238.5, 525.875), S: (99.0, 81.75)]"
+      },
+      {
+        "capture": "homes-north-detail",
+        "save_error": 0,
+        "size": "(1024, 560)"
+      },
+      {
+        "capture": "homes-garden-detail",
+        "save_error": 0,
+        "size": "(900, 600)"
+      },
+      {
+        "capture": "home-room-native",
+        "save_error": 0,
+        "size": "(512, 512)"
+      }
+    ]
+  },
+  "audit_passed": true,
+  "runtime_count": 20
+}

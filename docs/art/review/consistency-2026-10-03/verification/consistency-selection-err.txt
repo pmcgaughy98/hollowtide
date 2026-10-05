@@ -1,0 +1,6 @@
+WARNING: res://data/creatures/001_rimefin.tres:4 - ext_resource, invalid UID: uid://crjluirawrgmi - using text path instead: res://assets/sprites/creatures/rimefin.png
+   at: ResourceLoaderText::load (scene\resources\resource_format_text.cpp:516)
+   GDScript backtrace (most recent call first):
+       [0] load_all (res://scripts/creature_roster.gd:27)
+       [1] _refresh (res://scripts/debug/dex_overlay.gd:63)
+       [2] _ready (res://scripts/debug/dex_overlay.gd:47)

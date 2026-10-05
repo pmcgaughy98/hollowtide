@@ -1,0 +1,49 @@
+Game probe — frame 27856, physics 27857, drawn 27857, image_frame 27856, instance route-quality-final, SUSPENDED (1152x648). The image above and the state below describe this ONE frame; review the image and describe what you actually see before claiming anything about it.
+
+{
+  "results": [
+    {
+      "effective_time_scale": 0,
+      "format": "jpeg",
+      "frame": {
+        "frames_drawn": 27857,
+        "physics_frames": 27857,
+        "process_frames": 27856
+      },
+      "height": 648,
+      "image_frame": 27856,
+      "instance": "route-quality-final",
+      "mime": "image/jpeg",
+      "missing": [],
+      "ok": true,
+      "op": "GameProbe",
+      "paused": false,
+      "provenance": {
+        "source": "runtime",
+        "target": {
+          "instance": "route-quality-final",
+          "kind": "game"
+        }
+      },
+      "requestId": "mcp-f7938b33-0798-47ca-a70e-90068ea92a17",
+      "source_height": 648,
+      "source_width": 1152,
+      "suspended": true,
+      "time_scale": 1,
+      "transport": "summer",
+      "values": {
+        "/root/FirstRoutePrototype/Player:position": "Vector2(81.125, 192.5)",
+        "/root/FirstRoutePrototype:marker_restored": true,
+        "/root/FirstRoutePrototype:report_done": false
+      },
+      "width": 1152
+    }
+  ],
+  "skippedCount": 0,
+  "status": "ok",
+  "stopOnError": true,
+  "undoGroup": false,
+  "requestId": "mcp-f7938b33-0798-47ca-a70e-90068ea92a17",
+  "terminalState": "applied",
+  "appliedSeq": 1482
+}

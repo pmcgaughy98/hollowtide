@@ -1,8 +1,11 @@
-[gd_scene load_steps=4 format=3]
+[gd_scene load_steps=7 format=3]
 
 [ext_resource type="Texture2D" path="res://assets/sprites/effects/forge/clinker_orb.png" id="1_projectile"]
 [ext_resource type="Texture2D" path="res://assets/sprites/effects/forge/clinker_burst.png" id="2_impact"]
 [ext_resource type="Texture2D" path="res://assets/sprites/effects/fire_ember_2.png" id="3_ember"]
+[ext_resource type="Script" path="res://scripts/effects/vfx_sprite.gd" id="4_vfx"]
+[ext_resource type="Texture2D" path="res://assets/sprites/effects/vfx_basic_2026_10_02/coal_shot_4x4.png" id="5_shot"]
+[ext_resource type="Texture2D" path="res://assets/sprites/effects/vfx_basic_2026_10_02/hit_pop_4x4.png" id="6_pop"]
 
 [node name="MoveEffect" type="Node2D"]
 
@@ -49,3 +52,24 @@ texture = ExtResource("1_projectile")
 visible = false
 texture_filter = 1
 texture = ExtResource("2_impact")
+
+[node name="Shot" type="Sprite2D" parent="."]
+scale = Vector2(2, 2)
+texture_filter = 1
+hframes = 4
+vframes = 4
+texture = ExtResource("5_shot")
+script = ExtResource("4_vfx")
+fps = 14.0
+loop = true
+
+[node name="Pop" type="Sprite2D" parent="."]
+visible = false
+scale = Vector2(2, 2)
+texture_filter = 1
+hframes = 4
+vframes = 4
+texture = ExtResource("6_pop")
+script = ExtResource("4_vfx")
+fps = 16.0
+loop = false

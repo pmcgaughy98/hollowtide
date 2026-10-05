@@ -1,0 +1,9 @@
+{
+  "scripts/first_route_prototype.gd": "feee9227b882afb8760b889841a62314f2990d8ffb0307490cc3b9331377082d",
+  "scripts/route1_landing_loop.gd": "eeefb32044ac7f3f577d60dafdef7cdae741f2e80c4ade1747c44773a79a85cf",
+  "scripts/route1_crossing.gd": "2ba2ffa45973cf68b908b6afaf76911409feeb0ca126e58d0de1ba5788e28d6c",
+  "scripts/route1_landscape.gd": "0d5e3cfc530fbbcd13e23bc7bad2848930f508757d85216a19576c5a217efb25",
+  "scenes/first_route_prototype.tscn": "7b653840085eef8690cf9209c7dd935f7d0898aa4bcf7bd1f7fa86e6f6c77bb7",
+  "assets/sprites/world/route1_spaced_landing_2026_10_03/landing_south_loop.png": "fbfba25f47ebf72b00194745b3589ada6d3038b8794da8cbc65fbefb809529c0",
+  "assets/sprites/world/route1_spaced_landing_2026_10_03/landing_south_loop.png.import": "4b12fe97e97c00b93fa7c3c884f5a212106280038fac7205ba145563bc57a71a"
+}

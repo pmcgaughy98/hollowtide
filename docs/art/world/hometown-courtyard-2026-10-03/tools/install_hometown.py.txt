@@ -1,0 +1,67 @@
+from pathlib import Path
+import hashlib,json,shutil
+p=Path("C:/Users/pmcga/dev/hollowtide");s=Path.cwd();r=s/"hometown-review"
+manifest=json.loads((r/"before-manifest.json").read_text())
+for entry in manifest:
+ assert hashlib.sha256((p/entry["file"]).read_bytes()).hexdigest()==entry["sha256"],"Concurrent edit: "+entry["file"]
+folder=p/"assets/sprites/world/hometown_courtyard_2026_10_03"
+folder.mkdir(exist_ok=True)
+for src,dst in [("courtyard_home_source.png","courtyard_home.png"),("hometown_lanes.png","hometown_lanes.png")]:
+ assert not (folder/dst).exists()
+ shutil.copyfile(r/src,folder/dst)
+assert not (p/"scripts/hometown_courtyard.gd").exists()
+(p/"scripts/hometown_courtyard.gd").write_text((s/"hometown_courtyard.candidate.gd").read_text(),encoding="utf-8")
+assert not (p/"scenes/hometown_courtyard.tscn").exists()
+(p/"scenes/hometown_courtyard.tscn").write_text('[gd_scene load_steps=2 format=3]\n\n[ext_resource type="Script" path="res://scripts/hometown_courtyard.gd" id="1_home"]\n\n[node name="HometownCourtyard" type="Node2D"]\nposition = Vector2(-480, 0)\nz_index = -8\nscript = ExtResource("1_home")\n',encoding="utf-8")
+cross=(p/"scripts/route1_crossing.gd").read_text(encoding="utf-8")
+needle='\t_obstacle(bounds, "West", Vector2(-8, 320), Vector2(16, 640))'
+assert cross.count(needle)==1
+cross=cross.replace(needle,'\t# The home lane is the only opening in the west edge.\n\t_obstacle(bounds, "WestAboveHomeLane", Vector2(-8, 84), Vector2(16, 168))\n\t_obstacle(bounds, "WestBelowHomeLane", Vector2(-8, 428), Vector2(16, 424))')
+(p/"scripts/route1_crossing.gd").write_text(cross,encoding="utf-8")
+first=(p/"scripts/first_route_prototype.gd").read_text(encoding="utf-8")
+needle='\t"landing_notice": Vector2(320, 316),'
+assert first.count(needle)==1
+first=first.replace(needle,needle+'\n\t"home_courtyard": Vector2(-336, 184),\n\t"home_directions": Vector2(-32, 192),\n\t"shared_garden": Vector2(-172, 310),')
+needle='\tcamera.limit_left = 0'
+assert first.count(needle)==1
+first=first.replace(needle,'\tcamera.limit_left = -480')
+needle='\t\tif player.position.x >= 672:'
+assert first.count(needle)==1
+first=first.replace(needle,'\t\tif player.position.x < 0:\n\t\t\t_area_label.text = "HOMETOWN / COURTYARD LANE"\n\t\telif player.position.x >= 672:')
+needle='\t\t"landing_notice":\n\t\t\t_hint.text = "E  Read old landing notice"'
+assert first.count(needle)==1
+first=first.replace(needle,needle+'\n\t\t"home_courtyard":\n\t\t\t_hint.text = "E  Check home courtyard"\n\t\t"home_directions":\n\t\t\t_hint.text = "E  Read dispatch directions"\n\t\t"shared_garden":\n\t\t\t_hint.text = "E  Read shared garden notice"')
+needle='\t\t"landing_notice":\n\t\t\t_visit_landing_notice()'
+assert first.count(needle)==1
+first=first.replace(needle,needle+'\n\t\t"home_courtyard":\n\t\t\t_visit_home_courtyard()\n\t\t"home_directions":\n\t\t\t_visit_home_directions()\n\t\t"shared_garden":\n\t\t\t_visit_shared_garden()')
+needle='func _nearest_site() -> String:'
+assert first.count(needle)==1
+first=first.replace(needle,'''func _visit_home_courtyard() -> void:
+	var progress := "The dispatcher is taking runners at the east end of the lane."
+	if report_done:
+		progress = "Your landing report is with the dispatcher. You are back on your own doorstep."
+	elif pouch_accepted:
+		progress = "The lane leads back to the dispatcher and the raised river route."
+	_show_message("HOME COURTYARD\\nThe patched porch and stacked wood make this place easy to recognize from the lane. " + progress)
+
+
+func _visit_home_directions() -> void:
+	_show_message("DISPATCH LANE\\nFollow the worn lane east to the courier hall. The dispatcher waits in front. From there, the marked levee entrance leads to Route 1 and the river bridge. This lane returns to the courtyard homes.")
+
+
+func _visit_shared_garden() -> void:
+	_show_message("SHARED GARDEN\\nLeave the little rows clear. The loop around the beds returns to the dispatch lane. Spare kindling and cuttings are left by the porch for neighbors to take.")
+
+
+'''+needle)
+(p/"scripts/first_route_prototype.gd").write_text(first,encoding="utf-8")
+scene=(p/"scenes/first_route_prototype.tscn").read_text(encoding="utf-8")
+needle='[ext_resource type="TileSet" path="res://assets/tilesets/route1_rd_2026_10_01/route1_ground_polished.tres" id="1_tiles"]'
+assert scene.count(needle)==1
+scene=scene.replace(needle,needle+'\n[ext_resource type="PackedScene" path="res://scenes/hometown_courtyard.tscn" id="hometown_level"]')
+needle='[node name="Player" parent="." unique_id=458435790 instance=ExtResource("3_player")]\nposition = Vector2(48, 192)'
+assert scene.count(needle)==1
+scene=scene.replace(needle,needle.replace('Vector2(48, 192)','Vector2(-336, 192)'))
+scene+='\n[node name="HometownCourtyard" parent="." instance=ExtResource("hometown_level")]\n'
+(p/"scenes/first_route_prototype.tscn").write_text(scene,encoding="utf-8")
+print("HOMETOWN_INSTALLED: 3 existing runtime files, 1 new script, 1 new scene, 2 new PNGs")

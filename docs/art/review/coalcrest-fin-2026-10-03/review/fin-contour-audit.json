@@ -1,0 +1,21 @@
+{
+  "changed_from_previous_finish": 138,
+  "old_border_seam_pixels_retextured": 63,
+  "upper_rim_pixels": 102,
+  "outline_native_rgb": [
+    22,
+    8,
+    4
+  ],
+  "changed_outside_fin_mask": 0,
+  "outer_silhouette_exact": true,
+  "bounds": [
+    20,
+    3,
+    147,
+    142
+  ],
+  "sha256": "22d97b9fb29195cc384b0c082bc27f433866a552848206e9d0e75ae2a397dbe2",
+  "user_request": "Clean the back black line and top black outline",
+  "original_visible_pixels_retextured_inside_requested_fin_region": 64
+}

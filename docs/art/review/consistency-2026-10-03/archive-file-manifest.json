@@ -1,0 +1,1372 @@
+[
+  {
+    "path": "README.md",
+    "bytes": 10396,
+    "sha256": "fde4bb491608e1d7962d0ba8c750d86ca98032275c7d329aa93ec21fcc96df90"
+  },
+  {
+    "path": "review\\asset-consistency-audit.initial.json",
+    "bytes": 77910,
+    "sha256": "148f30506930151a95d0d679be3d461f544628b65a12d505e4b9fe6d92c429a5"
+  },
+  {
+    "path": "review\\asset-consistency-audit.json",
+    "bytes": 77990,
+    "sha256": "e186f5f8c08034296e86e54724905f975a3b86f22e6a24951150faeb8cb43ef7"
+  },
+  {
+    "path": "review\\battle-runtime-results.json",
+    "bytes": 19701,
+    "sha256": "7edcc8800e2200c26034bb54616181099a5c1e26c7222412bbdb5add0282c6af"
+  },
+  {
+    "path": "review\\Clinkerhide-Back.original.jfif",
+    "bytes": 90746,
+    "sha256": "210b4819431cd9f77e0f76bee968fcf47b89885d4d0a19cb82c5a20363ca6e30"
+  },
+  {
+    "path": "review\\clinkerhide-background-receipt.json",
+    "bytes": 333,
+    "sha256": "be882488ee825ecaea8cb4ee861a453d98656e85873bc79759998acbb1345d0e"
+  },
+  {
+    "path": "review\\clinkerhide-chosen-rear-comparison.png",
+    "bytes": 30015,
+    "sha256": "7c1a5bcf8d70cc5110d4bd1ab12caa227e6f6cc828d40b616e400893ad661e0f"
+  },
+  {
+    "path": "review\\clinkerhide-grid-receipt.json",
+    "bytes": 53,
+    "sha256": "bd4ad746ea6187434f5c83867d83b34bfe6d61ace0efee6374135398994f9eea"
+  },
+  {
+    "path": "review\\clinkerhide-palette-audit.json",
+    "bytes": 997,
+    "sha256": "53dd031c298e998c9458b8d906ce28fa6496794eb2eb51632f1aad1d12026125"
+  },
+  {
+    "path": "review\\clinkerhide-palette-receipt.json",
+    "bytes": 330,
+    "sha256": "c064ac9d129d971b984be6f63a19a7f930a170a9ec1dfc10a936fdc5fee4d52c"
+  },
+  {
+    "path": "review\\clinkerhide-selected-back-native100.png",
+    "bytes": 18268,
+    "sha256": "c7e19195253756568bb6373fe2c858f06175d049cf310bbd3f93c4bb0a3734a0"
+  },
+  {
+    "path": "review\\clinkerhide-selected-back-palette-native100.png",
+    "bytes": 6120,
+    "sha256": "f8c7b6f2c330779ad76717d04eda28ad66d7e45fe1bff1eeab9ea46f2a1989ba"
+  },
+  {
+    "path": "review\\clinkerhide-selected-conversion-audit.json",
+    "bytes": 784,
+    "sha256": "e4c89767bb4fe7d1027989efcd21af0721da3ae1af2c52d1cb49e9dba9246544"
+  },
+  {
+    "path": "review\\clinkerhide-selected-palette-comparison.png",
+    "bytes": 37638,
+    "sha256": "7de1b00f0ca9e013024efa8a84619851c405b81da32bdbcf0f1f4aad4b85d5c1"
+  },
+  {
+    "path": "review\\clinkerhide-user-selected-grid.png",
+    "bytes": 19098,
+    "sha256": "409ecb0e65f7fcee952854d79dbfb4ec885b69c115523946bf118eb2e8ff780a"
+  },
+  {
+    "path": "review\\clinkerhide-user-selected-source.png",
+    "bytes": 685269,
+    "sha256": "924d7559005eb0796f9672cbd0f34188aee9080c12749a1d5b4092289827c8d7"
+  },
+  {
+    "path": "review\\clinkerhide-user-selected-transparent.png",
+    "bytes": 18239,
+    "sha256": "aeab950e230bd29d52fcf74069784f0dc01264f5aaa473ff8b30b5c63aa317d2"
+  },
+  {
+    "path": "review\\consistency-final-battle-results.json",
+    "bytes": 10008,
+    "sha256": "09f16b8e62dddfb220aacdb68c7df54020f4339c48d772b37cd28dd2cca0a198"
+  },
+  {
+    "path": "review\\courier-directions-before.png",
+    "bytes": 52624,
+    "sha256": "61952598d6f2bb00071a1135e5c4becf929c3fe6c2df7c72911d7f82dbaeb611"
+  },
+  {
+    "path": "review\\courier-eight-direction-walking.gif",
+    "bytes": 816294,
+    "sha256": "8e7f226d5ba0b616181c4f79253e1c7e1983a7954433816fa331907c699e1cf0"
+  },
+  {
+    "path": "review\\courier-finish-comparison.png",
+    "bytes": 79439,
+    "sha256": "02fe6eae7456d42173b6f4c4dc3260404d1af87ecdf1d63dc46079eb359e8925"
+  },
+  {
+    "path": "review\\courier_palette_stats.json",
+    "bytes": 7211,
+    "sha256": "74b484b7701356ae39e1d7d40c0a5cf417c4ad9430539e7970c4a86b99f69e6a"
+  },
+  {
+    "path": "review\\female-finish-all64-render.png",
+    "bytes": 112670,
+    "sha256": "1ed1ec526cf846a3067c059308de5f0481b5650032386387a9891e92eea7a609"
+  },
+  {
+    "path": "review\\female_native80.png",
+    "bytes": 2674,
+    "sha256": "f9dcf836f628754e5e3aef626f7e7454ca046b00af7d6ee50c8a8d5a37182b80"
+  },
+  {
+    "path": "review\\foe-cannon-after.png",
+    "bytes": 44183,
+    "sha256": "497f3f61bad0bcca807d94e827178bed674af45efbf52da29013fadca72eff3c"
+  },
+  {
+    "path": "review\\foe-cannon-before.png",
+    "bytes": 44105,
+    "sha256": "3206ec107a03b82d34da8c4eda9e6dbe2f52c96af29270472d557a6f048e4c3d"
+  },
+  {
+    "path": "review\\foe-cannon-foe_sprite-f00.png",
+    "bytes": 43779,
+    "sha256": "a4c88f09ca1f9896ca3f5efe0a114dd9d0c39b3d38f7816b6ed3a4f0e367fcf9"
+  },
+  {
+    "path": "review\\foe-cannon-foe_sprite-f01.png",
+    "bytes": 42986,
+    "sha256": "5706b00ef1b1243ae539073236beb7735cddbb007c03b7f0f13b6afabe048012"
+  },
+  {
+    "path": "review\\foe-cannon-foe_sprite-f02.png",
+    "bytes": 42839,
+    "sha256": "c1033d23356bfef85f4171f9b4405f9d090dc60bc5008fc8b096064a9ba14fe6"
+  },
+  {
+    "path": "review\\foe-cannon-foe_sprite-f03.png",
+    "bytes": 46862,
+    "sha256": "4fb5e9bcffcd38e8f8fa9de11307dfad5418c6719877c9cee60eca5af6b89808"
+  },
+  {
+    "path": "review\\foe-cannon-foe_sprite-f04.png",
+    "bytes": 51083,
+    "sha256": "80155919ae5af7b90c08e5a39f5e1aad91e44bb61f285c14b54cc8e3d0a188aa"
+  },
+  {
+    "path": "review\\foe-cannon-foe_sprite-f05.png",
+    "bytes": 50453,
+    "sha256": "e0b1608b40cb6694d2cb36027eba9f38e810f442faedd2fff8bfacd4599d8841"
+  },
+  {
+    "path": "review\\foe-cannon-foe_sprite-f09.png",
+    "bytes": 51414,
+    "sha256": "bb28cb300ceca3ecf9d1dc2bc842b91a876c7f45043a7fcc732d900f47597878"
+  },
+  {
+    "path": "review\\foe-cannon-foe_sprite-f11.png",
+    "bytes": 57281,
+    "sha256": "254342d0c72f377979cd8191eaf3e625a11b266f86638267fd95734f452ee324"
+  },
+  {
+    "path": "review\\foe-furnace-roar-after.png",
+    "bytes": 35719,
+    "sha256": "aa80b1193fbed5249e76cf7f94be8c29b072e34155f1c2df539c9fa39570973b"
+  },
+  {
+    "path": "review\\foe-furnace-roar-before.png",
+    "bytes": 35450,
+    "sha256": "4fd24f1448e5d16e939574e2786a51162526a50595b7d4c6ef0fa55619d0f5fc"
+  },
+  {
+    "path": "review\\foe-furnace-roar-foe_sprite-cool.png",
+    "bytes": 65502,
+    "sha256": "5aa1dc83a09200074d7e727d4278d74bc5f81b9d6662fa13d3150b6c83bc1abf"
+  },
+  {
+    "path": "review\\foe-furnace-roar-foe_sprite-ironvent.png",
+    "bytes": 36005,
+    "sha256": "39219ae388aff9c15bca5ac1b42f3818fca664b0948f029c9307222f590b5423"
+  },
+  {
+    "path": "review\\foe-furnace-roar-foe_sprite-open.png",
+    "bytes": 80283,
+    "sha256": "459a9183481f1b8369583cda1ec66070daa5ade708b43ef6d97682e13ebd135f"
+  },
+  {
+    "path": "review\\foe-furnace-roar-foe_sprite-pressure.png",
+    "bytes": 74077,
+    "sha256": "bdb78d7deccb8dcf9559a8a7ae894b0b4ad8332c784620096788b155aa8177e2"
+  },
+  {
+    "path": "review\\foe-furnace-roar-foe_sprite-rear.png",
+    "bytes": 88600,
+    "sha256": "6bbf5b6767a93d0ffb1c915e20decb0b5b86eea24ee1070faf27bf185f6e963f"
+  },
+  {
+    "path": "review\\foe-furnace-roar-foe_sprite-rest.png",
+    "bytes": 72984,
+    "sha256": "4d0d2c504dcdaec433732e1941ab6451b9dadd92d2eee0b41ab64c73d5561c25"
+  },
+  {
+    "path": "review\\foe-furnace-roar-foe_sprite-roar.png",
+    "bytes": 78159,
+    "sha256": "1009c2b55d7859e2952d1f52b8630e03a125df76f27d71f342cc2bf36a306b4b"
+  },
+  {
+    "path": "review\\foe-furnace-roar-foe_sprite-settle.png",
+    "bytes": 63321,
+    "sha256": "cdebe101ef2dc1dbb5f5e5c5112369b01971c191eb599491f5d610c912af1f21"
+  },
+  {
+    "path": "review\\foe-furnace-roar-foe_sprite-warm.png",
+    "bytes": 73513,
+    "sha256": "caf9168aaa27e523f5fd7208cdaec39c00885e7ae07adf86e6c00c87e3d4f8fb"
+  },
+  {
+    "path": "review\\foe-furnace-roar-signature-portrait.png",
+    "bytes": 42198,
+    "sha256": "88e9ebdd64566b9de0f0a5bd85712776a1b6b3f3a6cb2d40aa9f7bf98806e50b"
+  },
+  {
+    "path": "review\\foe-plate-lunge-after.png",
+    "bytes": 44175,
+    "sha256": "5ad445be120b8ce1355b2c739266d7db4b72f63a1f1893879745366bfccd19ef"
+  },
+  {
+    "path": "review\\foe-plate-lunge-before.png",
+    "bytes": 44105,
+    "sha256": "3206ec107a03b82d34da8c4eda9e6dbe2f52c96af29270472d557a6f048e4c3d"
+  },
+  {
+    "path": "review\\foe-plate-lunge-foe_sprite-f00.png",
+    "bytes": 43694,
+    "sha256": "909a106072f2ba54e55fb1b2803b3636a3d069d1bda51875cb67fd919e0278eb"
+  },
+  {
+    "path": "review\\foe-plate-lunge-foe_sprite-f01.png",
+    "bytes": 43465,
+    "sha256": "efd6a425beaa055584651ee19b4c01cb4de0948154acccca74f04a17eb43ef50"
+  },
+  {
+    "path": "review\\foe-plate-lunge-foe_sprite-f11.png",
+    "bytes": 48351,
+    "sha256": "4b48c8e1c645980bae0eed5bae0f5d2fd0c9d08ea2f7af59ed807055a2961b4b"
+  },
+  {
+    "path": "review\\foe-ultimate-after.png",
+    "bytes": 44137,
+    "sha256": "7512aee9323d258ba0861c1f1be947c09ac3b6202fb969969527de49e943db73"
+  },
+  {
+    "path": "review\\foe-ultimate-before.png",
+    "bytes": 44105,
+    "sha256": "3206ec107a03b82d34da8c4eda9e6dbe2f52c96af29270472d557a6f048e4c3d"
+  },
+  {
+    "path": "review\\foe-ultimate-foe_sprite-f00.png",
+    "bytes": 71478,
+    "sha256": "41d6a3fdf0c822640a7b116a58845880a6d2f16866d02faac50724aba710a531"
+  },
+  {
+    "path": "review\\foe-ultimate-foe_sprite-f01.png",
+    "bytes": 70778,
+    "sha256": "52c00073f4677c30b2ba64bc468d80b0da5d036498b043e01703d965f6b126f5"
+  },
+  {
+    "path": "review\\foe-ultimate-foe_sprite-f02.png",
+    "bytes": 70590,
+    "sha256": "606e52749e1fd2e7259636849d4bb56d4460e1550ab95bf4592297665f939b5b"
+  },
+  {
+    "path": "review\\foe-ultimate-foe_sprite-f03.png",
+    "bytes": 68842,
+    "sha256": "5197cab92082229252c415c06aa6b8d0840b4a86d0f6aeb44d7d883f4781de52"
+  },
+  {
+    "path": "review\\foe-ultimate-foe_sprite-f04.png",
+    "bytes": 71911,
+    "sha256": "0aa7586399add182aa5ef1c8f5792fc68b63305250266d47e24454cb4133dd49"
+  },
+  {
+    "path": "review\\foe-ultimate-foe_sprite-f05.png",
+    "bytes": 91912,
+    "sha256": "551ca45e1e3bf672acc7bfd8493666975b398e933965e51641207a67c1a249c2"
+  },
+  {
+    "path": "review\\foe-ultimate-foe_sprite-f06.png",
+    "bytes": 89908,
+    "sha256": "463bb8ff1ef4dd8831e976719664302fb9bd65b4ab2a50a96f7b27ca8efeadc3"
+  },
+  {
+    "path": "review\\foe-ultimate-foe_sprite-f07.png",
+    "bytes": 78269,
+    "sha256": "523be612876ad52fb5b1699f8c49bbf563184d8ee8e0ccaa616fd3658fa464cd"
+  },
+  {
+    "path": "review\\foe-ultimate-foe_sprite-f08.png",
+    "bytes": 84449,
+    "sha256": "7a7431f486bed41d8c929313947f56a07a7e7726048232fdb13b38fbf1c867f8"
+  },
+  {
+    "path": "review\\foe-ultimate-foe_sprite-f09.png",
+    "bytes": 77973,
+    "sha256": "67741a5de44c9d1ea28aeeb1b2b136304fbed1b406f467d8192ee25f3f6efad8"
+  },
+  {
+    "path": "review\\foe-ultimate-foe_sprite-f11.png",
+    "bytes": 78366,
+    "sha256": "aceaf1372943476de4fdc599bb5a7d4f9eb4df68ab1e02cc11aec0dc1b774107"
+  },
+  {
+    "path": "review\\foe-ultimate-signature-portrait.png",
+    "bytes": 54197,
+    "sha256": "16075366f1fad6a44ebb55967de3801cc5f0ac73684f39e4f5ed3c634ae2facd"
+  },
+  {
+    "path": "review\\ironvent-attack-head-coordinate-review.png",
+    "bytes": 98088,
+    "sha256": "a463b6d7d555c1920b2c5708013c45a647c42307db9dfeb54fa397fd8e839b6e"
+  },
+  {
+    "path": "review\\ironvent-battle-final-results.json",
+    "bytes": 9555,
+    "sha256": "45f950d1f53294d19b47d4586db8421593a6d33da2d7ec126ab0aac9b47a7f6a"
+  },
+  {
+    "path": "review\\ironvent-cool-registered-head-native.png",
+    "bytes": 7777,
+    "sha256": "5dcbe6ec88d8c84d0591fc62d56ac6b1e98fbb1ed1ec14f72a69e8cccac92a29"
+  },
+  {
+    "path": "review\\ironvent-front-head-mask.png",
+    "bytes": 527,
+    "sha256": "309072de03c2e57189f0e3e56107fa87f592b3627140379240c6aaa43a813be3"
+  },
+  {
+    "path": "review\\ironvent-front-head-native-finish.png",
+    "bytes": 7383,
+    "sha256": "04935a415a944f173be9bbbddb06fa6b59ec3be4e9c5c7e5225b5e94a63af0e8"
+  },
+  {
+    "path": "review\\ironvent-front-head-rd.png",
+    "bytes": 6774,
+    "sha256": "2b3f476d4d64a03cd24100a98c63994cdf1e07f22548214b7a11cdb206947356"
+  },
+  {
+    "path": "review\\ironvent-front-head-receipt.json",
+    "bytes": 313,
+    "sha256": "dea8b91ce46c6d49128610525a134542dcbfa88da7fbd4533470dee35a54d69f"
+  },
+  {
+    "path": "review\\ironvent-front-head-source.png",
+    "bytes": 6244,
+    "sha256": "70a6346602a8a6bf7c798304b9a9153dc73232c7f42847ff312962f5c761db7c"
+  },
+  {
+    "path": "review\\ironvent-head-lineage-comparison.png",
+    "bytes": 64739,
+    "sha256": "a164977a1990a83c085e70d60cefdc57b02739317b7dbcdbbc79f2c472261f7a"
+  },
+  {
+    "path": "review\\ironvent-head-pose-registration.json",
+    "bytes": 1526,
+    "sha256": "4500ea4a108c7a2b594438baf47d480dfb110c7c143d44ad34449cc4b21c9675"
+  },
+  {
+    "path": "review\\ironvent-head-prompt.txt",
+    "bytes": 740,
+    "sha256": "3f4e7a632e7ada5ad5f4e45d2fa5be0d4430a817a08338e76613473affa6e0d8"
+  },
+  {
+    "path": "review\\ironvent-open-registered-head-native.png",
+    "bytes": 7757,
+    "sha256": "2a2168b8e62e29b08b235cee68264805487796b6b08c6ae953b99986155997d2"
+  },
+  {
+    "path": "review\\ironvent-pressure-registered-head-native.png",
+    "bytes": 7368,
+    "sha256": "611c136525d7c29ddba0365471b5c12545d7743a1d07c489f6d2fe4f66bcfaee"
+  },
+  {
+    "path": "review\\ironvent-rear-head-mask.png",
+    "bytes": 504,
+    "sha256": "cb56f0ec58450d629201f4c66d3eaaff6e117517a517b148beeffb053402c1f3"
+  },
+  {
+    "path": "review\\ironvent-rear-head-native-finish.png",
+    "bytes": 6032,
+    "sha256": "39b99e6280be748454b03375b2f021521076553372fa320627fe07807fdb7c68"
+  },
+  {
+    "path": "review\\ironvent-rear-head-source.png",
+    "bytes": 5149,
+    "sha256": "94c6af6d51500e1603ee4512d82de3ce09775602bf8fbe57728df699ea466cdb"
+  },
+  {
+    "path": "review\\ironvent-rear-native-region.png",
+    "bytes": 5481,
+    "sha256": "8955918a3aa42abc784f4c6d7b8a4cb9f37fe70bcd59a2f7c3041f2f83ae436c"
+  },
+  {
+    "path": "review\\ironvent-rear-registered-head-native.png",
+    "bytes": 7346,
+    "sha256": "73a0eb8558de8417270a3801ee826abf477f3250363c45410f3d62fada82e79c"
+  },
+  {
+    "path": "review\\ironvent-registered-head-audit.json",
+    "bytes": 1303,
+    "sha256": "2f055177c74d62fffe9f2c24a4bc12b3c38e1553a2372186f92ff5260997d124"
+  },
+  {
+    "path": "review\\ironvent-registered-head-poses.png",
+    "bytes": 100505,
+    "sha256": "6ac44ea2035c7643488123b147f5ec1437c54d1e71cd7efe3bbc851d432c8cea"
+  },
+  {
+    "path": "review\\ironvent-rest-registered-head-native.png",
+    "bytes": 7180,
+    "sha256": "8b37be8243636a934a703d3f66bae09f9a91231ee4a487cddb98348bdac52b14"
+  },
+  {
+    "path": "review\\ironvent-roar-registered-head-native.png",
+    "bytes": 7568,
+    "sha256": "6ac3593ecb256887c39e5229d34d62fb10bf56e0771d3c9a0e3db827451dd249"
+  },
+  {
+    "path": "review\\ironvent-settle-registered-head-native.png",
+    "bytes": 7454,
+    "sha256": "a1e95e0073ba401f2922bd6fa1b08ddc41957faf129915f0ef6271b272eafff0"
+  },
+  {
+    "path": "review\\ironvent-source-coordinate-review.png",
+    "bytes": 28891,
+    "sha256": "202cd4ce22f52605f5ea89c922dd8ebb08cb50d1e5e5c92e5de8fb084e86d023"
+  },
+  {
+    "path": "review\\ironvent-titlecard_official_2026_09_30-registered-head-native.png",
+    "bytes": 7002,
+    "sha256": "e0c96c73821eef4b4bb2209cba87c84be2993b160da208245e5aef34748a1af9"
+  },
+  {
+    "path": "review\\ironvent-warm-registered-head-native.png",
+    "bytes": 7260,
+    "sha256": "86a6d8c29de37d801dcd18aeeb7521020aa7dd85c943d31ca4856dce89ef34bd"
+  },
+  {
+    "path": "review\\male_native80.png",
+    "bytes": 3246,
+    "sha256": "447e1f8ff78ebbdb581ab0e08d32ed47d4068b44f13a9f2f2111070ef56b6dc2"
+  },
+  {
+    "path": "review\\original-art-preservation.json",
+    "bytes": 17187,
+    "sha256": "09f77ece36146087c0b801fe562691ee61ae7e0d84320ad6f294411538dab9b4"
+  },
+  {
+    "path": "review\\player-furnace-roar-after.png",
+    "bytes": 32315,
+    "sha256": "1d278e6b78983d8c2f645a4b79afaaba6e071c527ddb6b6f798cbe18b79f12a0"
+  },
+  {
+    "path": "review\\player-furnace-roar-before.png",
+    "bytes": 32241,
+    "sha256": "e0074f867252375041244ec871cd5ce494b32c4d5f7d7296f165f815ff6f9e36"
+  },
+  {
+    "path": "review\\player-furnace-roar-foe_sprite-cool.png",
+    "bytes": 65534,
+    "sha256": "723317f7d606122646a392d157d54fc02e437785642c58f5014eb3e9cf86ef4d"
+  },
+  {
+    "path": "review\\player-furnace-roar-foe_sprite-ironvent.png",
+    "bytes": 70137,
+    "sha256": "d11d0dc95b570fc6be6e7b939951729d95d84369882f9b2689423e7d3908338a"
+  },
+  {
+    "path": "review\\player-furnace-roar-foe_sprite-open.png",
+    "bytes": 80002,
+    "sha256": "53aad818c5b00c8d7e4c03947aad22621c729537123e065fabc7bb65957d2515"
+  },
+  {
+    "path": "review\\player-furnace-roar-foe_sprite-pressure.png",
+    "bytes": 73753,
+    "sha256": "e8b18899ef4b6e7fbcc5a966af6da0a153794451ddd7a1eed06739a358ad9daa"
+  },
+  {
+    "path": "review\\player-furnace-roar-foe_sprite-rear.png",
+    "bytes": 88489,
+    "sha256": "58340a5d6cf185d43fa60df1d6d816735894f9ce0805cc793643bea6cec3443d"
+  },
+  {
+    "path": "review\\player-furnace-roar-foe_sprite-rest.png",
+    "bytes": 72689,
+    "sha256": "931ab83658349616e929ff3d6220689cdd10fddd2c3dfb4a98621e462b108569"
+  },
+  {
+    "path": "review\\player-furnace-roar-foe_sprite-roar.png",
+    "bytes": 78518,
+    "sha256": "cec6aad5b2af5a47d89ca96f2f272db2e51166ddbdc17592a2d4004cbf979875"
+  },
+  {
+    "path": "review\\player-furnace-roar-foe_sprite-settle.png",
+    "bytes": 64428,
+    "sha256": "2dfb519d9db5fb375cf75ee2bd4a88ebf9b4a1b0a01d0f074fc1830c13191371"
+  },
+  {
+    "path": "review\\player-furnace-roar-foe_sprite-warm.png",
+    "bytes": 73223,
+    "sha256": "e7077ffb35bb3cfe09459c9c2b73363e1d99579614733a8218ff1114f5373d0b"
+  },
+  {
+    "path": "review\\player-furnace-roar-player_sprite-102_ironvent.png",
+    "bytes": 32731,
+    "sha256": "af45a28e05f0762cad406ce51d4d40f788ab245bd0850e87a14f14f7eaac52ac"
+  },
+  {
+    "path": "review\\player-furnace-roar-signature-portrait.png",
+    "bytes": 44301,
+    "sha256": "52c0c87a306fe208e322e9649a6064b07f58b10d5250e58abfd158fbaca5e829"
+  },
+  {
+    "path": "review\\player-ultimate-after.png",
+    "bytes": 40058,
+    "sha256": "f3cb890bb5363736be28f3160cbc3a9b582335faeb10a7427549267a30e6ac8d"
+  },
+  {
+    "path": "review\\player-ultimate-before.png",
+    "bytes": 40022,
+    "sha256": "18b671b2356860258c7c924f8e60f7e7d8c0ff055b039359f8901b661829e6ec"
+  },
+  {
+    "path": "review\\player-ultimate-foe_sprite-f00.png",
+    "bytes": 70742,
+    "sha256": "976e566cf22e8294d8e363e85e584a0175407925feddf73b5f2371245e57d265"
+  },
+  {
+    "path": "review\\player-ultimate-foe_sprite-f01.png",
+    "bytes": 70017,
+    "sha256": "aead9fb83af711f369dce7c13412f14a35a44ecf1275f14760cff1f9b0e3c6bc"
+  },
+  {
+    "path": "review\\player-ultimate-foe_sprite-f02.png",
+    "bytes": 69854,
+    "sha256": "a23a00e2fab02d8d8875397543efb15c78ee9f8e70a52af744403bebab637195"
+  },
+  {
+    "path": "review\\player-ultimate-foe_sprite-f03.png",
+    "bytes": 68418,
+    "sha256": "eedc05037bffc91b4cd68592b001e1d005d43ea7ad449943661fb1300d16b45f"
+  },
+  {
+    "path": "review\\player-ultimate-foe_sprite-f04.png",
+    "bytes": 71641,
+    "sha256": "58c1a75b471588dd58bdcdebf020a133310e735b6dc1da3dfd757ac475b0b165"
+  },
+  {
+    "path": "review\\player-ultimate-foe_sprite-f05.png",
+    "bytes": 89558,
+    "sha256": "83ea407f05dfeb61bde29ae517d36b2d07abfb96b1d71c9b74e470d10f2eac58"
+  },
+  {
+    "path": "review\\player-ultimate-foe_sprite-f06.png",
+    "bytes": 89566,
+    "sha256": "e0a360f9a1112468a107b5913dbf5e77d8471080e2a7c119dc5a0a03ddf87454"
+  },
+  {
+    "path": "review\\player-ultimate-foe_sprite-f07.png",
+    "bytes": 78002,
+    "sha256": "1622691d46882c4e0c4128d317135199f8dc03d18ba398d8f7a10ff3fb0658b9"
+  },
+  {
+    "path": "review\\player-ultimate-foe_sprite-f08.png",
+    "bytes": 83824,
+    "sha256": "d19161275f9a87b7fd3d3638afe49a801d4bcded7c4f3b589205d813e09bbabb"
+  },
+  {
+    "path": "review\\player-ultimate-foe_sprite-f09.png",
+    "bytes": 77739,
+    "sha256": "90131db4553f50a783a415d5d7badbd7188e712b96d7a5a7addb677643290175"
+  },
+  {
+    "path": "review\\player-ultimate-foe_sprite-f11.png",
+    "bytes": 77961,
+    "sha256": "0977ad30b3b649d32c8d3ef927969f6412a082438a8dbedd75717ab52945a8e5"
+  },
+  {
+    "path": "review\\player-ultimate-signature-portrait.png",
+    "bytes": 54962,
+    "sha256": "0e394f72d33ff1a9facc2f350387ee2189e8a3550ae5c4aa474e26951c4c8a52"
+  },
+  {
+    "path": "review\\roster-001_rimefin.png",
+    "bytes": 38775,
+    "sha256": "2d5aba9a3972a268e697736a4ac4af0e423b8d9dd1abf7b42c50a7461f1e2774"
+  },
+  {
+    "path": "review\\roster-002_cinderhide.png",
+    "bytes": 29275,
+    "sha256": "c8a27d1d11e2435eab3e93b2ca86303bc75690e2d0078b54bb26d3733d87ebac"
+  },
+  {
+    "path": "review\\roster-101_clinkerhide.png",
+    "bytes": 34363,
+    "sha256": "c49d691ef9651058d2f26a02a10764258e0b5df92e15d59fac930dafd7724e3e"
+  },
+  {
+    "path": "review\\roster-102_ironvent.png",
+    "bytes": 38369,
+    "sha256": "0f33bb58ca8a394be05bc8e156015d1ade0879856ebb2bb884245bc719229cde"
+  },
+  {
+    "path": "review\\roster-103_kithflare.png",
+    "bytes": 40231,
+    "sha256": "57fdea61c462ab1308d4024aa5febe7f35e7d1b36cc804f2b43fa4e01933189c"
+  },
+  {
+    "path": "review\\roster-104_wayburn.png",
+    "bytes": 43341,
+    "sha256": "79376e58a5a8746f0b0ef3dbc1782227c6afff1ee38d889d20c92eacb82bd464"
+  },
+  {
+    "path": "review\\roster-105_coalcrest.png",
+    "bytes": 44405,
+    "sha256": "d88fc1d45a271105926807cf6e232372b9c3183a91bb7e37bed73ba7d60ed985"
+  },
+  {
+    "path": "review\\roster-106_fusern.png",
+    "bytes": 37724,
+    "sha256": "313809cb399710047f59712bc0d756d45f856f10a14e2f335a1fedef7820138f"
+  },
+  {
+    "path": "review\\roster-107_slagglass.png",
+    "bytes": 57702,
+    "sha256": "e367faca205808c11c529bb34481434781342f91b43cd4568fc01bdfd5147f16"
+  },
+  {
+    "path": "review\\roster-108_vitrecrag.png",
+    "bytes": 53812,
+    "sha256": "5731bdbe5b567bf03907aa33aca9eb78558c008c695f27799893bf6f1bb30d86"
+  },
+  {
+    "path": "review\\roster-903_oxbowarchon.png",
+    "bytes": 49421,
+    "sha256": "04f3c41eb2f0d37480c66f07ee59dcbf5e2960a14fa39905d37592c7792462ad"
+  },
+  {
+    "path": "review\\roster-front-rear-contact.png",
+    "bytes": 231667,
+    "sha256": "597428f35f04fd0433593affa41cefb3de01975aa3d8a415227e88d2cde70e70"
+  },
+  {
+    "path": "review\\selected-palette-battle-results.json",
+    "bytes": 3969,
+    "sha256": "d4cda14cdc8a6fbfe160ae0cabac3e6cf884eb70a73eafedac35d67543ef2134"
+  },
+  {
+    "path": "review\\selected-rear-brow-shear-after.png",
+    "bytes": 31769,
+    "sha256": "95a4164eb6e777f0b30b23a678ce3c4c1b31882c9fe6fc5fd84b4c0d46ca8b10"
+  },
+  {
+    "path": "review\\selected-rear-brow-shear-before.png",
+    "bytes": 31731,
+    "sha256": "39e9c661ed24bc7b0a9362d76360201a23d2316f94d62a8713c78c6310b4f515"
+  },
+  {
+    "path": "review\\selected-rear-slagburst-after.png",
+    "bytes": 31772,
+    "sha256": "09ab719c4541abbc660327be7e1a6592d0f1fe4616b9610ab83b937561fb4952"
+  },
+  {
+    "path": "review\\selected-rear-slagburst-before.png",
+    "bytes": 31731,
+    "sha256": "39e9c661ed24bc7b0a9362d76360201a23d2316f94d62a8713c78c6310b4f515"
+  },
+  {
+    "path": "review\\selection-female-arrow.png",
+    "bytes": 414878,
+    "sha256": "a14d674b59bd166ee6bc6c3ec40a4eca31b07d738be609f444ee66386b84e43b"
+  },
+  {
+    "path": "review\\selection-female-mouse.png",
+    "bytes": 415418,
+    "sha256": "4f76460688dbc6adb8355aa7b709e4fa2d9e678b276dc998280b3bcc1cc80076"
+  },
+  {
+    "path": "review\\selection-female-pad.png",
+    "bytes": 414878,
+    "sha256": "a14d674b59bd166ee6bc6c3ec40a4eca31b07d738be609f444ee66386b84e43b"
+  },
+  {
+    "path": "review\\selection-female-route.png",
+    "bytes": 116967,
+    "sha256": "538ba4d7194da0aa0040f81424021605a2596c3421c221cff55fd3cb1287112c"
+  },
+  {
+    "path": "review\\selection-final-results.json",
+    "bytes": 2847,
+    "sha256": "c57550c90640c53aee038f60cdf0f943b3c12c9f7aaedcea52f06631a664bd3b"
+  },
+  {
+    "path": "review\\selection-final-with-clerk-results.json",
+    "bytes": 2940,
+    "sha256": "1a682f73d061104ea904ffbfe1a3ed99bffe71c0810f19259704634520c7a276"
+  },
+  {
+    "path": "review\\selection-male-arrow.png",
+    "bytes": 415448,
+    "sha256": "d555473764a23b2d7cbbcdef00dafe0dc7cb18462c818ff0213eab8c9c79ade2"
+  },
+  {
+    "path": "review\\selection-results.json",
+    "bytes": 2009,
+    "sha256": "9cd22941576c7e0bed8ffc360005d0ffa1149a3968b1246339783c4a62e09110"
+  },
+  {
+    "path": "review\\source_stats.json",
+    "bytes": 3250,
+    "sha256": "8279596efde74b9f16e06496df988f352ffd1a4ea49a2271a8fe2daef45e5a9d"
+  },
+  {
+    "path": "review\\vitrecrag-crack-comparison.png",
+    "bytes": 111958,
+    "sha256": "43bcbf83956b1376310de1818585dd753220ab5c37ddd9700f8d1e4c02a25604"
+  },
+  {
+    "path": "review\\vitrecrag-f00-finish.png",
+    "bytes": 15450,
+    "sha256": "b35a5f41286d980069bc6cb7009cba6d91c877772b0a13330fa8308cedff2c26"
+  },
+  {
+    "path": "review\\vitrecrag-f01-finish.png",
+    "bytes": 14755,
+    "sha256": "63c7861229bc3605dbe570242008375ca012575f78ee718d4a87eed98d8bd0a5"
+  },
+  {
+    "path": "review\\vitrecrag-f02-finish.png",
+    "bytes": 14526,
+    "sha256": "d6d5cd346e4a6e508cb208969b5b35d524821276645489e7ae79e0864c7a9532"
+  },
+  {
+    "path": "review\\vitrecrag-f03-finish.png",
+    "bytes": 14953,
+    "sha256": "e7a8f3f062aed4c42995b847c2a897d66982afe9890362f446ac224126fc1832"
+  },
+  {
+    "path": "review\\vitrecrag-f04-finish.png",
+    "bytes": 15734,
+    "sha256": "21740deb0659bbf233381716e119f19e579630ab76ff756f72ae14ba25363d36"
+  },
+  {
+    "path": "review\\vitrecrag-f05-finish.png",
+    "bytes": 15342,
+    "sha256": "010f6c895f0a27649460b993644fd868d7a68118b25bf64f4bdc84279d61656a"
+  },
+  {
+    "path": "review\\vitrecrag-f06-finish.png",
+    "bytes": 15853,
+    "sha256": "dbba6615ffea4e055e1ab57172079391d5cb9c805968482747f1760426bcd833"
+  },
+  {
+    "path": "review\\vitrecrag-f07-finish.png",
+    "bytes": 16014,
+    "sha256": "1b020428d795fd41a2e203d7affd2423cad6fc6fd8c90f6314320a1a0c7491b4"
+  },
+  {
+    "path": "review\\vitrecrag-f08-finish.png",
+    "bytes": 16196,
+    "sha256": "fab5900bd1585402f3cc9d0de6b0876f84531caf41e78a6964be0b55500c4adc"
+  },
+  {
+    "path": "review\\vitrecrag-f09-finish.png",
+    "bytes": 15161,
+    "sha256": "06a8222a9f297e8b4a3ec67ce03cf5e0010df2776423373c3b1d753f86a00b1c"
+  },
+  {
+    "path": "review\\vitrecrag-f10-finish.png",
+    "bytes": 15580,
+    "sha256": "7133f6dfca637b65abae06ed6115e8ea4c4827e3fb38f580d5ac8319f811d1ca"
+  },
+  {
+    "path": "review\\vitrecrag-f11-finish.png",
+    "bytes": 15277,
+    "sha256": "f85823a69fe6e119117182b807dd38ed90fa6c09be52c0b9d22410a4ea7448ee"
+  },
+  {
+    "path": "review\\vitrecrag-final-battle-results.json",
+    "bytes": 13686,
+    "sha256": "ee60af010ac4d16b076faf012932abeda7ed97012f1aca6e4df98ed3e51ddf9b"
+  },
+  {
+    "path": "review\\vitrecrag-frames-before.png",
+    "bytes": 180210,
+    "sha256": "0b2637086367478db3b5fd3ed41cdfc32decf4232f965d6648eef2387e92d9fe"
+  },
+  {
+    "path": "review\\vitrecrag-reference-grid.png",
+    "bytes": 28692,
+    "sha256": "cb663e61e3bfa1ed6aba38d651d8bf4b7a89720ec1c9017932b73267fa1e38cd"
+  },
+  {
+    "path": "review\\walk-native-006.png",
+    "bytes": 64245,
+    "sha256": "449d1c6114ff5bbda4eab79dcaf284e753153bd2bbf56522b08a836378523602"
+  },
+  {
+    "path": "review\\walk-native-012.png",
+    "bytes": 62633,
+    "sha256": "25a70ac30476505891c1b6aa5a02a9c2879d1011971ab9481173413f3ba67e4f"
+  },
+  {
+    "path": "review\\walk-native-018.png",
+    "bytes": 63467,
+    "sha256": "87eb726ee6802dbfa06d022423eedde4e11c524c280f35be09335df075bb7013"
+  },
+  {
+    "path": "review\\walk-native-024.png",
+    "bytes": 61450,
+    "sha256": "e71f9676ba958094f50471715938e2189683c38c35d89820affd9b17647a93f9"
+  },
+  {
+    "path": "review\\walk-native-030.png",
+    "bytes": 62071,
+    "sha256": "ee3ca5d1fb319eae1cb265b78717eca1c93c5e84b1e9710493265360bdee3156"
+  },
+  {
+    "path": "review\\walk-native-036.png",
+    "bytes": 62071,
+    "sha256": "ee3ca5d1fb319eae1cb265b78717eca1c93c5e84b1e9710493265360bdee3156"
+  },
+  {
+    "path": "review\\walk-native-042.png",
+    "bytes": 60422,
+    "sha256": "8d2b19bf312c6a440993a6fe6079900004abc943d5f95cfc36678b17c681a9d1"
+  },
+  {
+    "path": "review\\walk-native-048.png",
+    "bytes": 63067,
+    "sha256": "b489da7c7c8f9580a128ddd2f66e0738f24083e842baf684bf7a884f1efa5359"
+  },
+  {
+    "path": "review\\walk-native-054.png",
+    "bytes": 63190,
+    "sha256": "ba2eb4218860f40d6529146f471e88925b1aa330ef74ea0935a7cdfc9ac87d7e"
+  },
+  {
+    "path": "review\\walk-native-060.png",
+    "bytes": 64245,
+    "sha256": "449d1c6114ff5bbda4eab79dcaf284e753153bd2bbf56522b08a836378523602"
+  },
+  {
+    "path": "review\\walk-native-066.png",
+    "bytes": 64245,
+    "sha256": "449d1c6114ff5bbda4eab79dcaf284e753153bd2bbf56522b08a836378523602"
+  },
+  {
+    "path": "review\\walk-native-072.png",
+    "bytes": 62633,
+    "sha256": "25a70ac30476505891c1b6aa5a02a9c2879d1011971ab9481173413f3ba67e4f"
+  },
+  {
+    "path": "review\\walk-native-078.png",
+    "bytes": 63467,
+    "sha256": "87eb726ee6802dbfa06d022423eedde4e11c524c280f35be09335df075bb7013"
+  },
+  {
+    "path": "review\\walk-native-084.png",
+    "bytes": 61450,
+    "sha256": "e71f9676ba958094f50471715938e2189683c38c35d89820affd9b17647a93f9"
+  },
+  {
+    "path": "review\\walk-native-090.png",
+    "bytes": 62071,
+    "sha256": "ee3ca5d1fb319eae1cb265b78717eca1c93c5e84b1e9710493265360bdee3156"
+  },
+  {
+    "path": "review\\walk-native-096.png",
+    "bytes": 62071,
+    "sha256": "ee3ca5d1fb319eae1cb265b78717eca1c93c5e84b1e9710493265360bdee3156"
+  },
+  {
+    "path": "review\\walk-native-102.png",
+    "bytes": 60422,
+    "sha256": "8d2b19bf312c6a440993a6fe6079900004abc943d5f95cfc36678b17c681a9d1"
+  },
+  {
+    "path": "review\\walk-native-108.png",
+    "bytes": 63067,
+    "sha256": "b489da7c7c8f9580a128ddd2f66e0738f24083e842baf684bf7a884f1efa5359"
+  },
+  {
+    "path": "review\\walk-native-114.png",
+    "bytes": 63190,
+    "sha256": "ba2eb4218860f40d6529146f471e88925b1aa330ef74ea0935a7cdfc9ac87d7e"
+  },
+  {
+    "path": "review\\walk-native-120.png",
+    "bytes": 64245,
+    "sha256": "449d1c6114ff5bbda4eab79dcaf284e753153bd2bbf56522b08a836378523602"
+  },
+  {
+    "path": "review\\walk-native-126.png",
+    "bytes": 64245,
+    "sha256": "449d1c6114ff5bbda4eab79dcaf284e753153bd2bbf56522b08a836378523602"
+  },
+  {
+    "path": "review\\walk-runtime-results.json",
+    "bytes": 2900,
+    "sha256": "d53238ff64596139f67000074df64b79f5f81df4853094c616f746a2306394c5"
+  },
+  {
+    "path": "runtime-file-manifest.json",
+    "bytes": 4870,
+    "sha256": "9656c650103395f5059adf52636d623b1b88aad679dc7e2dd451c9744bc845fa"
+  },
+  {
+    "path": "source\\before\\data\\creatures\\001_rimefin.tres.txt",
+    "bytes": 731,
+    "sha256": "b00590b5245a4652db4e13a842a122c70a948990406ccb2a5e2fddfb52cde847"
+  },
+  {
+    "path": "source\\before\\data\\creatures\\101_clinkerhide.tres.txt",
+    "bytes": 1465,
+    "sha256": "444d87f6e9bb64cd7a70d3c46c736280ddc543435929e1c99fcee64c445de13f"
+  },
+  {
+    "path": "source\\before\\data\\creatures\\102_ironvent.tres.txt",
+    "bytes": 1373,
+    "sha256": "a024d0af43bb1246c131b0d2a933ba76ef6d1fa1d3dffa177c5bc16adf4ee49e"
+  },
+  {
+    "path": "source\\before\\scripts\\battle_screen.gd.txt",
+    "bytes": 141415,
+    "sha256": "dde2ca92035d0391ec51ad274e5dec93dd69fb03a056bd5bf72d7956e0f1f660"
+  },
+  {
+    "path": "source\\before\\scripts\\debug\\chibi_walk_review.gd.txt",
+    "bytes": 1860,
+    "sha256": "ea470dd9aa6dbf226ecfc662c0cd23b1ec3cabac805218d0098148fd3006fc6e"
+  },
+  {
+    "path": "source\\before\\scripts\\effects\\creature_sprite.gdshader.txt",
+    "bytes": 6756,
+    "sha256": "6cb602957efb1617f02c1565e58f1cff0a2da77b33a8a93c991d9165a232a2df"
+  },
+  {
+    "path": "source\\before\\scripts\\main_menu.gd.txt",
+    "bytes": 28514,
+    "sha256": "e010228c3ee6281119ccdf7adf0bb720af687da7c3505b7805e71d22e47a564e"
+  },
+  {
+    "path": "source\\before\\scripts\\player.gd.txt",
+    "bytes": 5312,
+    "sha256": "08c2a8272f7861e65e6e12db5bd4727859fd45faf14dcabcb280d31afb1d23be"
+  },
+  {
+    "path": "source\\before\\scripts\\route1_crossing.gd.txt",
+    "bytes": 16064,
+    "sha256": "31f999b8f2e09eadaadc45196bc441d84a253999f8a0efc42195ef0f2ba1876e"
+  },
+  {
+    "path": "source\\current\\data\\creatures\\001_rimefin.tres.txt",
+    "bytes": 731,
+    "sha256": "e9bcb6b3046ba9adf85f30245cd2cee2fc70584325391dec6344852d6949af10"
+  },
+  {
+    "path": "source\\current\\data\\creatures\\101_clinkerhide.tres.txt",
+    "bytes": 1540,
+    "sha256": "192a5b75c3be07c7c82f102f1bfddba8fae4bf3578b5f30747d2fda8413e6ac7"
+  },
+  {
+    "path": "source\\current\\data\\creatures\\102_ironvent.tres.txt",
+    "bytes": 1598,
+    "sha256": "c5fd3ed4da4543ffd7ac0574818f7e34b424510b28109620b996a917ef371c4a"
+  },
+  {
+    "path": "source\\current\\scripts\\battle_screen.gd.txt",
+    "bytes": 145168,
+    "sha256": "c2899874210c614da43917d76ab5e35eef24439ea94da8aa544f6930d3e616cf"
+  },
+  {
+    "path": "source\\current\\scripts\\debug\\chibi_walk_review.gd.txt",
+    "bytes": 2124,
+    "sha256": "adb9cbf6bfe6fdf9c6296a2bb2d6c5576c7b06624c13a399e9f5a436e43527b7"
+  },
+  {
+    "path": "source\\current\\scripts\\effects\\courier_finish.gdshader.txt",
+    "bytes": 2422,
+    "sha256": "230934cea220b4d6c4a3d1ce49882bbdee348c396429a0c67bf76a0b744dda62"
+  },
+  {
+    "path": "source\\current\\scripts\\effects\\creature_sprite.gdshader.txt",
+    "bytes": 8563,
+    "sha256": "3cfe1eccf9da29e5dbf07e59faba0d87648286d2d83ad6ba082c625a0f6cef57"
+  },
+  {
+    "path": "source\\current\\scripts\\main_menu.gd.txt",
+    "bytes": 29709,
+    "sha256": "2428f5518d5ab35ea71a5938ca3e61dfb23e454d40700c3b93f5f6cb97a974b6"
+  },
+  {
+    "path": "source\\current\\scripts\\player.gd.txt",
+    "bytes": 5577,
+    "sha256": "ed85fe5f58401d10e9500a1308d2595ffd0d320a3c6fe281190606479ea5e6ac"
+  },
+  {
+    "path": "source\\current\\scripts\\route1_crossing.gd.txt",
+    "bytes": 16621,
+    "sha256": "ad880f72ca2cd2e1d568991f45ddda6b5a0258a9430cadc17dd68d0577d9354c"
+  },
+  {
+    "path": "source\\task-changes.patch.txt",
+    "bytes": 20691,
+    "sha256": "41050b6c95a1e918185c00c758f338ee9fc273d5e21617edeee2f42fedfc6091"
+  },
+  {
+    "path": "tools\\audit_clinker_palette.py.txt",
+    "bytes": 1316,
+    "sha256": "d6447485b85aad7b3fb2c70d60dbfc1c564152b05006b71b63025c94bedf4687"
+  },
+  {
+    "path": "tools\\audit_clinker_selected.py.txt",
+    "bytes": 1460,
+    "sha256": "66233268b783a673a49de113c093beda9df61e0ac52e1da6b407efa4ca2643b2"
+  },
+  {
+    "path": "tools\\audit_consistency.py.txt",
+    "bytes": 5569,
+    "sha256": "5e7f8d2acc70458cffd81427ce7214f99f71434dec38fafa011459c83a339014"
+  },
+  {
+    "path": "tools\\consistency_battle_probe.gd.txt",
+    "bytes": 6222,
+    "sha256": "1131f2cf72cd27a6ee5a1862ba970733f26b82cc62d300dcff80302dac44e53d"
+  },
+  {
+    "path": "tools\\consistency_crack_probe.gd.txt",
+    "bytes": 2375,
+    "sha256": "569d95ac08503bccb40c05cc76d1549deb15fa8f875d2e4dfbc318da5e1a6acf"
+  },
+  {
+    "path": "tools\\consistency_final_battle_probe.gd.txt",
+    "bytes": 6547,
+    "sha256": "ae033957eda15a8df5a04bb83f9b5176fe25c9b4fa1cd82046d4fadbb062f49a"
+  },
+  {
+    "path": "tools\\consistency_final_selection_probe.gd.txt",
+    "bytes": 3804,
+    "sha256": "a564c65f067161d2d4a6959302482e9809af4c081cbc8025bd471ab52a36a11a"
+  },
+  {
+    "path": "tools\\consistency_final_vitrecrag_probe.gd.txt",
+    "bytes": 6501,
+    "sha256": "aa503150ae500d740be1a375ddb0786f74948f0b4121c43f13d8dc0a1984c9c1"
+  },
+  {
+    "path": "tools\\consistency_finish_probe.gd.txt",
+    "bytes": 2212,
+    "sha256": "64bde837a4aecbe8e1ba064a806a520d4b8a59d5b047f130001bd128b6ff076e"
+  },
+  {
+    "path": "tools\\consistency_ironvent_battle_probe.gd.txt",
+    "bytes": 6285,
+    "sha256": "ac01ba7286a11724aa0a03bc435f3450546ede7e721f5a04f878d63c6a2fcfa9"
+  },
+  {
+    "path": "tools\\consistency_ironvent_probe.gd.txt",
+    "bytes": 2196,
+    "sha256": "60212f937db9345b4e584a72a5ef5f334a22fc0b100c2cf750a912892e2b0469"
+  },
+  {
+    "path": "tools\\consistency_registered_heads_probe.gd.txt",
+    "bytes": 2471,
+    "sha256": "a061fd6bbee663afacb69d19ea5415dc2d055242188ab5160397e6acaec9b622"
+  },
+  {
+    "path": "tools\\consistency_selected_palette_battle_probe.gd.txt",
+    "bytes": 6416,
+    "sha256": "493d1dddda9c7bf41d1a851dec6cc760ef4856f83d19db22a23bd5cd10eb216e"
+  },
+  {
+    "path": "tools\\consistency_selection_probe.gd.txt",
+    "bytes": 3320,
+    "sha256": "a38c4d19163a1348887ab7334af96ea5916e4dbe4afb9e23458d256dbd866da0"
+  },
+  {
+    "path": "tools\\consistency_selection_with_clerk_probe.gd.txt",
+    "bytes": 4055,
+    "sha256": "516c3af5f73b47a9a1a42de0d224e224a1578657a87e5b12f07f23aa0739f6a5"
+  },
+  {
+    "path": "tools\\consistency_walk_probe.gd.txt",
+    "bytes": 1327,
+    "sha256": "35a8cef23b417183de36bb6c3191fc3a37ea379f77f6dfbb54be5bad8754891d"
+  },
+  {
+    "path": "tools\\prepare_clinker_alpha.gd.txt",
+    "bytes": 1214,
+    "sha256": "1da093aee0be2bbf9527035f885ef33a4983f31d6b776e5ef2c1f456ceed742f"
+  },
+  {
+    "path": "tools\\prepare_clinker_source.py.txt",
+    "bytes": 878,
+    "sha256": "0ecb2ae591c9fc1ef9b72354addde5bebddab09bfb677f6d8b1201c61c47cefa"
+  },
+  {
+    "path": "tools\\refine_ironvent_grey_armor.py.txt",
+    "bytes": 1604,
+    "sha256": "dde756749aa8b983d70781b4f03faf1f4832c2626572c24614bbe7f4ed6cd560"
+  },
+  {
+    "path": "tools\\register_ironvent_attack_heads.py.txt",
+    "bytes": 3083,
+    "sha256": "d6c023e3e941ad106be508c80a6fe97795e108c144846ba9f08de2dafba196be"
+  },
+  {
+    "path": "tools\\seal_head_checks.py.txt",
+    "bytes": 1930,
+    "sha256": "3e93db391b97a816b10300560805af1585ac66201338a7c714770fd304f529a4"
+  },
+  {
+    "path": "tools\\verify_preservation.py.txt",
+    "bytes": 1828,
+    "sha256": "840c3846097d5baaf177a7e538f83cdf39f1b89b3f643919e3d6ea51d2aeee43"
+  },
+  {
+    "path": "verification\\consistency-battle-clean-err.txt",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "verification\\consistency-battle-clean-out.txt",
+    "bytes": 1116,
+    "sha256": "6b8ab48acd3b8cae9ab4c32e4898bda7c9d123c40bc59f19d2880f4d0cb19edd"
+  },
+  {
+    "path": "verification\\consistency-battle-complete-err.txt",
+    "bytes": 954,
+    "sha256": "cb10aebd86ce7b828ed724e0bc480bc5d059bd9a5a319bb63273d0f2fd420e51"
+  },
+  {
+    "path": "verification\\consistency-battle-complete-out.txt",
+    "bytes": 287,
+    "sha256": "833c7540ceb5f53486de312aeaf6b54f8e1dc676581bc6f2d36d3c44d52fbf69"
+  },
+  {
+    "path": "verification\\consistency-battle-err.txt",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "verification\\consistency-battle-final-err.txt",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "verification\\consistency-battle-final-out.txt",
+    "bytes": 1116,
+    "sha256": "6b8ab48acd3b8cae9ab4c32e4898bda7c9d123c40bc59f19d2880f4d0cb19edd"
+  },
+  {
+    "path": "verification\\consistency-battle-final2-err.txt",
+    "bytes": 274,
+    "sha256": "34ed1035a058e38b6fa7bb5ff74c6b4026a4b214801f4ca0145210617bcba80b"
+  },
+  {
+    "path": "verification\\consistency-battle-final2-out.txt",
+    "bytes": 1643,
+    "sha256": "2d6e75e1e0af02c8a3aa3063f76a628084501448c38467567e7ceb00a2156538"
+  },
+  {
+    "path": "verification\\consistency-battle-out.txt",
+    "bytes": 548,
+    "sha256": "7f73b7afe67fdc6670e374320427eb0e2308c052072883be182208fc32bb0382"
+  },
+  {
+    "path": "verification\\consistency-battle-verified-err.txt",
+    "bytes": 428,
+    "sha256": "af80187c89a82dd43cb3b97ea8cd407b4389e1c735c16d16038644f7874def58"
+  },
+  {
+    "path": "verification\\consistency-battle-verified-out.txt",
+    "bytes": 1116,
+    "sha256": "6b8ab48acd3b8cae9ab4c32e4898bda7c9d123c40bc59f19d2880f4d0cb19edd"
+  },
+  {
+    "path": "verification\\consistency-chosen-rear-import-err.txt",
+    "bytes": 1198,
+    "sha256": "9e4bc6772d2316daf9290a27e1792de5bf89c26d7e65d59fa52318995295491c"
+  },
+  {
+    "path": "verification\\consistency-chosen-rear-import-out.txt",
+    "bytes": 3216,
+    "sha256": "23e967e7a9058bb629b6186c551f677b1c1ca42fffd6027451bc1e9b6b5c035f"
+  },
+  {
+    "path": "verification\\consistency-clinker-alpha-err.txt",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "verification\\consistency-clinker-alpha-out.txt",
+    "bytes": 442,
+    "sha256": "08a51fbe6c299c05c69c06f4a7179cd69afc76664cf040987f13bbb11704a4ee"
+  },
+  {
+    "path": "verification\\consistency-final-battle-err.txt",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "verification\\consistency-final-battle-out.txt",
+    "bytes": 1287,
+    "sha256": "7bd76e28d582fb7cd850cf80a8a9ffc8ef698d77a48efb240c40f674ec7b4ba8"
+  },
+  {
+    "path": "verification\\consistency-final-selection-err.txt",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "verification\\consistency-final-selection-out.txt",
+    "bytes": 2090,
+    "sha256": "75aa9317f017c2c4c3101d1319a7f3acc9729fb4d69bde64d0e12a8bacc111ab"
+  },
+  {
+    "path": "verification\\consistency-final-vitrecrag-err.txt",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "verification\\consistency-final-vitrecrag-out.txt",
+    "bytes": 1257,
+    "sha256": "280706bed917a77b3dec1a6289b8f0271296ada3294a8ff05213247359fd719d"
+  },
+  {
+    "path": "verification\\consistency-grey-head-err.txt",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "verification\\consistency-grey-head-out.txt",
+    "bytes": 402,
+    "sha256": "d2d99f02c5f0f47ae21a6d71a4470d047bf11cf8adeae5dfee9c56d11df74c8f"
+  },
+  {
+    "path": "verification\\consistency-head-poses-err.txt",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "verification\\consistency-head-poses-out.txt",
+    "bytes": 413,
+    "sha256": "662813ab579c545db432477051c8d03df7f47a8b9e73ec50406ed499f93787f0"
+  },
+  {
+    "path": "verification\\consistency-ironvent-battle-err.txt",
+    "bytes": 1385,
+    "sha256": "59cce2a25f018faace62db81dc006d10f054bd06eb36e47dabc4ba29eca32474"
+  },
+  {
+    "path": "verification\\consistency-ironvent-battle-out.txt",
+    "bytes": 151544,
+    "sha256": "92b9244c43bb069c837f5ef8f40da238e084c48dcf73dbaa8e4b660d3d354227"
+  },
+  {
+    "path": "verification\\consistency-ironvent-err.txt",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "verification\\consistency-ironvent-final-err.txt",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "verification\\consistency-ironvent-final-out.txt",
+    "bytes": 402,
+    "sha256": "d2d99f02c5f0f47ae21a6d71a4470d047bf11cf8adeae5dfee9c56d11df74c8f"
+  },
+  {
+    "path": "verification\\consistency-ironvent-out.txt",
+    "bytes": 402,
+    "sha256": "d2d99f02c5f0f47ae21a6d71a4470d047bf11cf8adeae5dfee9c56d11df74c8f"
+  },
+  {
+    "path": "verification\\consistency-lineage-final-err.txt",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "verification\\consistency-lineage-final-out.txt",
+    "bytes": 402,
+    "sha256": "d2d99f02c5f0f47ae21a6d71a4470d047bf11cf8adeae5dfee9c56d11df74c8f"
+  },
+  {
+    "path": "verification\\consistency-player-compile.txt",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "verification\\consistency-registered-head-battle-err.txt",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "verification\\consistency-registered-head-battle-out.txt",
+    "bytes": 823,
+    "sha256": "33fecf9addcb0a481a0c6b89936c67fec67f32c76cbe807c36ef8b371a68fe7b"
+  },
+  {
+    "path": "verification\\consistency-selected-palette-battle-err.txt",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "verification\\consistency-selected-palette-battle-out.txt",
+    "bytes": 868,
+    "sha256": "1d051794c22e99a500a774316c3e6501caa65e36a53deb75b49f0da80ae711ef"
+  },
+  {
+    "path": "verification\\consistency-selected-palette-import-err.txt",
+    "bytes": 913,
+    "sha256": "d5db57f3005f38914f359f8c8adab6147bf4807dcef4ad7cc13a217b7355c1c0"
+  },
+  {
+    "path": "verification\\consistency-selected-palette-import-out.txt",
+    "bytes": 2635,
+    "sha256": "c3abd0c43b25e22716631d4c0dc3e9bc76986a6a877d587c318b03bf3504d409"
+  },
+  {
+    "path": "verification\\consistency-selection-err.txt",
+    "bytes": 477,
+    "sha256": "4f220c0d99ab53dc18f68ca0b5a1cc9305bab26edb223ffcc3a4c8a7dd009c47"
+  },
+  {
+    "path": "verification\\consistency-selection-out.txt",
+    "bytes": 1588,
+    "sha256": "3ac590be889e74a69f0f011b12546921ebf90ba624d9fbd1dca4f3ad751eeeb9"
+  },
+  {
+    "path": "verification\\consistency-selection-with-clerk-err.txt",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "verification\\consistency-selection-with-clerk-out.txt",
+    "bytes": 2151,
+    "sha256": "73dc1be6baacd87618eb760338f34b43e131da5b747636615c84d10d72b46c6a"
+  },
+  {
+    "path": "verification\\consistency-walk-err.txt",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "verification\\consistency-walk-out.txt",
+    "bytes": 403,
+    "sha256": "1fef6b49e8f5932ea67882c051c3542f07a2c322b6e394234b3305ae7bbf8e0e"
+  }
+]

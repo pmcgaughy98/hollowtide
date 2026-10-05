@@ -1,0 +1,19 @@
+{
+  "status": "succeeded",
+  "task_id": "289c52f2-1b9e-4a88-8b0b-2b2de19ee5f8",
+  "created_at": 1791138465,
+  "updated_at": 1791138538,
+  "result": {
+    "created_at": 1791138538,
+    "credit_cost": 1,
+    "balance_cost": 0.18,
+    "model": "rd_pro",
+    "remaining_credits": 0,
+    "remaining_balance": 3.12,
+    "request_id": "289c52f2-1b9e-4a88-8b0b-2b2de19ee5f8",
+    "outputs_retained_until": 1791224865,
+    "output_url_expires_at": 1791139891
+  },
+  "output_file": "timber-bed-source.png",
+  "output_sha256": "d8ecb665b0ee28147468ef97a1cb2f26b921e5931b573b7dbcfc777680745b90"
+}

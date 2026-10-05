@@ -1,0 +1,12 @@
+{
+  "input_file": "bridge_white_input.png",
+  "expand_left": 8,
+  "expand_right": 8,
+  "expand_top": 8,
+  "expand_bottom": 8,
+  "soft_inpaint": false,
+  "scheduled_region_mode": true,
+  "prompt": "Complete the four clipped STONE CORNERS of this existing bridge. Preserve the intact horizontal wood deck and exact top-down RPG perspective and native pixel size. In the added border continue only the upper two stone caps and lower two stone feet, connecting directly to the original corner shapes. One simple full stone corner at each existing end. Use the SAME dark warm-grey rectangular masonry and fine dark outline as the original stone, same brown timber and upper-left light. Finish the whole silhouette clearly inside the new canvas. Pure white background everywhere outside the bridge and between the wooden supports below its deck. No black rectangle, no new pillars, no disconnected rocks, no water, no land, no scenery.",
+  "seed": 20261004,
+  "custom_id": "hollowtide-whole-white-corners-20261002-1"
+}

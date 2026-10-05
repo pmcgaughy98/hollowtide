@@ -1,0 +1,18 @@
+{
+  "furrow_tone_native_palette": [
+    59,
+    33,
+    30
+  ],
+  "soil_grain_native_palette": [
+    66,
+    38,
+    34
+  ],
+  "furrow_pixels_retouched": 384,
+  "grain_pixels": 33,
+  "outside_interior_exact": true,
+  "silhouette_alpha_exact": true,
+  "east_join_pixels": 4158,
+  "join_uses_existing_soil": true
+}

@@ -1,0 +1,49 @@
+{
+  "canopy_native_size": [
+    112,
+    96
+  ],
+  "opaque_render_changed_pixels": 0,
+  "lower_trunk_changed_pixels": 0,
+  "crown_alpha_changed_pixels": 3332,
+  "notice_checks": [
+    {
+      "body": "OLD LANDING FOOTPATH\nThe bank trail reaches the relay post and height marker, then winds under the cottonwoods back to the bridge road. The crest is higher ground. Worn rope grooves mark the older crossing; the cuts on the height post have no dates.\n\n[E] Continue",
+      "interaction": "landing-notice",
+      "position": "(318.0525, 315.3856)",
+      "quest_flags_unchanged": true
+    },
+    {
+      "body": "OLD LANDING FOOTPATH\nThe bank trail reaches the relay post and height marker, then winds under the cottonwoods back to the bridge road. The crest is higher ground. Worn rope grooves mark the older crossing; the cuts on the height post have no dates.\n\n[E] Continue",
+      "interaction": "landing-notice",
+      "position": "(317.8983, 316.8682)",
+      "quest_flags_unchanged": true
+    }
+  ],
+  "bank_return_opacity": [
+    {
+      "bank_return_position": "(429.3828, 315.2273)",
+      "canopy_opacity": 0.35
+    },
+    {
+      "bank_return_position": "(429.3828, 339.2274)",
+      "canopy_opacity": 0.35
+    },
+    {
+      "bank_return_position": "(428.44, 364.1704)",
+      "canopy_opacity": 0.65
+    },
+    {
+      "bank_return_position": "(414.5894, 380.5887)",
+      "canopy_opacity": 1.0
+    },
+    {
+      "bank_return_position": "(396.609, 391.9025)",
+      "canopy_opacity": 1.0
+    }
+  ],
+  "full_loop_passed": true,
+  "optional_bypass_passed": true,
+  "full_ready_ms": 810,
+  "bypass_ready_ms": 827
+}

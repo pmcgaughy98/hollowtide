@@ -1,0 +1,58 @@
+Game probe — frame 29290, physics 29291, drawn 29291, image_frame 29290, instance route-quality-final, SUSPENDED (1152x648). The image above and the state below describe this ONE frame; review the image and describe what you actually see before claiming anything about it.
+
+{
+  "results": [
+    {
+      "effective_time_scale": 0,
+      "format": "jpeg",
+      "frame": {
+        "frames_drawn": 29291,
+        "physics_frames": 29291,
+        "process_frames": 29290
+      },
+      "height": 648,
+      "image_frame": 29290,
+      "instance": "route-quality-final",
+      "mime": "image/jpeg",
+      "missing": [],
+      "ok": true,
+      "op": "GameProbe",
+      "paused": false,
+      "provenance": {
+        "source": "runtime",
+        "target": {
+          "instance": "route-quality-final",
+          "kind": "game"
+        }
+      },
+      "requestId": "mcp-2001eecd-59ac-44a1-9efd-e25310f4f8a7",
+      "source_height": 648,
+      "source_width": 1152,
+      "suspended": true,
+      "time_scale": 1,
+      "transport": "summer",
+      "values": {
+        "/root/FirstRoutePrototype/Player:position": "Vector2(81.125, 192.5)",
+        "/root/FirstRoutePrototype:city_arrival_registered": true,
+        "/root/FirstRoutePrototype:city_directions_read": true,
+        "/root/FirstRoutePrototype:delivered": true,
+        "/root/FirstRoutePrototype:heard_calls": true,
+        "/root/FirstRoutePrototype:levee_entrance_read": true,
+        "/root/FirstRoutePrototype:marker_restored": true,
+        "/root/FirstRoutePrototype:pouch_accepted": true,
+        "/root/FirstRoutePrototype:report_done": true,
+        "/root/FirstRoutePrototype:reported_calls": true,
+        "/root/FirstRoutePrototype:reported_water_mark": true,
+        "/root/FirstRoutePrototype:water_mark_observed": true
+      },
+      "width": 1152
+    }
+  ],
+  "skippedCount": 0,
+  "status": "ok",
+  "stopOnError": true,
+  "undoGroup": false,
+  "requestId": "mcp-2001eecd-59ac-44a1-9efd-e25310f4f8a7",
+  "terminalState": "applied",
+  "appliedSeq": 1484
+}

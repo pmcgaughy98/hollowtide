@@ -1,0 +1,34 @@
+{
+  "size": [
+    100,
+    100
+  ],
+  "bounds": [
+    3,
+    12,
+    95,
+    95
+  ],
+  "opaque": 4800,
+  "opaque_magenta": 0,
+  "partial_alpha": 0,
+  "rgb_preserved": true,
+  "opaque_changed_rgb": 0,
+  "edge_opaque": 0,
+  "sha256": "aeab950e230bd29d52fcf74069784f0dc01264f5aaa473ff8b30b5c63aa317d2",
+  "installed_file": "assets\\sprites\\creatures\\clinkerhide_selected_rear_2026_10_03\\clinkerhide_back_native100.png",
+  "installed_sha256": "c7e19195253756568bb6373fe2c858f06175d049cf310bbd3f93c4bb0a3734a0",
+  "alpha_cleanup_yx": [
+    [
+      58,
+      87
+    ],
+    [
+      59,
+      88
+    ]
+  ],
+  "alpha_cleanup_count": 2,
+  "rgb_preserved_after_alpha_cleanup": true,
+  "resource_change": "rear texture reference only; previous rear retained"
+}

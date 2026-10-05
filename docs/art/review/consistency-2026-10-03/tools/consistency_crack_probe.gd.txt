@@ -1,0 +1,56 @@
+extends SceneTree
+const OUT := "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/consistency-review/"
+func _initialize() -> void:
+	call_deferred("_run")
+func _run() -> void:
+	root.size = Vector2i(1152, 648)
+	var bg := ColorRect.new()
+	bg.color = Color("#211d35")
+	bg.size = Vector2(1152,648)
+	root.add_child(bg)
+	var shader: Shader = load("C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/creature_sprite.finish.gdshader")
+	var ref: Texture2D = load("res://assets/sprites/creatures/rd_material_match_2026_10_01/vitrecrag_front.png")
+	var indices := [1,3,5,8]
+	for row in 2:
+		for col in 4:
+			var label := Label.new()
+			label.text = ("Before" if row == 0 else "Cracks retained") + " f%02d" % indices[col]
+			label.position = Vector2(col*288+8,row*324+4)
+			root.add_child(label)
+			var sprite := Sprite2D.new()
+			sprite.texture = load("res://assets/sprites/creatures/rd_material_match_2026_10_01/vitrecrag_attacks/f%02d.png" % indices[col])
+			sprite.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
+			sprite.position = Vector2(col*288+144,row*324+180)
+			sprite.scale = Vector2.ONE*1.5
+			var mat := ShaderMaterial.new()
+			mat.shader = shader
+			mat.set_shader_parameter("keep_authored_cracks", row == 1)
+			mat.set_shader_parameter("authored_shell",ref)
+			sprite.material = mat
+			root.add_child(sprite)
+	for i in 10:
+		await process_frame
+	await RenderingServer.frame_post_draw
+	root.get_texture().get_image().save_png(OUT+"vitrecrag-crack-comparison.png")
+	var view := SubViewport.new()
+	view.size = Vector2i(192,192)
+	view.transparent_bg = true
+	view.render_target_update_mode = SubViewport.UPDATE_ALWAYS
+	root.add_child(view)
+	var sprite := Sprite2D.new()
+	sprite.position = Vector2(96,96)
+	sprite.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
+	var mat := ShaderMaterial.new()
+	mat.shader = shader
+	mat.set_shader_parameter("keep_authored_cracks", true)
+	mat.set_shader_parameter("authored_shell",ref)
+	sprite.material = mat
+	view.add_child(sprite)
+	for index in 12:
+		sprite.texture = load("res://assets/sprites/creatures/rd_material_match_2026_10_01/vitrecrag_attacks/f%02d.png" % index)
+		for i in 3:
+			await process_frame
+		await RenderingServer.frame_post_draw
+		view.get_texture().get_image().save_png(OUT+"vitrecrag-f%02d-finish.png" % index)
+	print("CRACK_RENDER_OK")
+	quit()

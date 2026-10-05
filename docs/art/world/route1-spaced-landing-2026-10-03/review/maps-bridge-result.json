@@ -1,0 +1,31 @@
+{
+  "id": 2,
+  "jsonrpc": "2.0",
+  "result": {
+    "content": [
+      {
+        "text": "{\n  \"places\": [\n    {\n      \"place\": \"places/Ii4qLAoUChIJ7fy86OYawIcR7AjkaazuI4gSFAoSCXElLpNOGsCHEahx01t5lnXm\",\n      \"id\": \"Ii4qLAoUChIJ7fy86OYawIcR7AjkaazuI4gSFAoSCXElLpNOGsCHEahx01t5lnXm\",\n      \"location\": {\n        \"latitude\": 39.7494039,\n        \"longitude\": -94.863744\n      },\n      \"googleMapsLinks\": {\n        \"directionsUrl\": \"https://www.google.com/maps/dir//39.7494039,-94.863744/data=!4m5!4m4!1m1!4e2!1m0!3e0\"\n      },\n      \"attribution\": {\n        \"title\": \"Pony Express Bridges - Google Maps\"\n      }\n    }\n  ],\n  \"summary\": \"**Pony Express Bridges** [0] is a notable route connecting St. Joseph, Missouri, and Elwood, Kansas.\"\n}\n",
+        "type": "text"
+      }
+    ],
+    "structuredContent": {
+      "places": [
+        {
+          "attribution": {
+            "title": "Pony Express Bridges - Google Maps"
+          },
+          "googleMapsLinks": {
+            "directionsUrl": "https://www.google.com/maps/dir//39.7494039,-94.863744/data=!4m5!4m4!1m1!4e2!1m0!3e0"
+          },
+          "id": "Ii4qLAoUChIJ7fy86OYawIcR7AjkaazuI4gSFAoSCXElLpNOGsCHEahx01t5lnXm",
+          "location": {
+            "latitude": 39.7494039,
+            "longitude": -94.863744
+          },
+          "place": "places/Ii4qLAoUChIJ7fy86OYawIcR7AjkaazuI4gSFAoSCXElLpNOGsCHEahx01t5lnXm"
+        }
+      ],
+      "summary": "**Pony Express Bridges** [0] is a notable route connecting St. Joseph, Missouri, and Elwood, Kansas."
+    }
+  }
+}

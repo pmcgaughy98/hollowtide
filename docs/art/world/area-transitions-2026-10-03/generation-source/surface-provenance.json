@@ -1,0 +1,56 @@
+{
+  "street_size": [
+    480,
+    480
+  ],
+  "street_origin": [
+    672,
+    -480
+  ],
+  "street_pixels": 32636,
+  "approach_size": [
+    144,
+    464
+  ],
+  "approach_origin": [
+    864,
+    0
+  ],
+  "approach_pixels": 10305,
+  "source_soil_cell": [
+    11,
+    0
+  ],
+  "source_paver": "historic_pavers_tile_source.png",
+  "approach_points": [
+    [
+      912,
+      444
+    ],
+    [
+      936,
+      392
+    ],
+    [
+      944,
+      320
+    ],
+    [
+      980,
+      280
+    ],
+    [
+      980,
+      196
+    ],
+    [
+      944,
+      132
+    ],
+    [
+      944,
+      0
+    ]
+  ],
+  "baked_offline": true
+}

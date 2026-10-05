@@ -1,0 +1,38 @@
+[
+  {
+    "view": "front",
+    "move": "crest_signal",
+    "sampled_screens": 6,
+    "sheet": "front-crest_signal-stages.png"
+  },
+  {
+    "view": "front",
+    "move": "furnace_bolt",
+    "sampled_screens": 6,
+    "sheet": "front-furnace_bolt-stages.png"
+  },
+  {
+    "view": "front",
+    "move": "longfire_burst",
+    "sampled_screens": 6,
+    "sheet": "front-longfire_burst-stages.png"
+  },
+  {
+    "view": "back",
+    "move": "crest_signal",
+    "sampled_screens": 6,
+    "sheet": "back-crest_signal-stages.png"
+  },
+  {
+    "view": "back",
+    "move": "furnace_bolt",
+    "sampled_screens": 6,
+    "sheet": "back-furnace_bolt-stages.png"
+  },
+  {
+    "view": "back",
+    "move": "longfire_burst",
+    "sampled_screens": 6,
+    "sheet": "back-longfire_burst-stages.png"
+  }
+]

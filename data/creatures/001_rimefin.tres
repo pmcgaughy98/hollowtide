@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="CreatureData" format=3]
 
 [ext_resource type="Script" path="res://scripts/creature_data.gd" id="1_script"]
-[ext_resource type="Texture2D" uid="uid://crjluirawrgmi" path="res://assets/sprites/creatures/rimefin.png" id="2_sprite"]
+[ext_resource type="Texture2D" uid="uid://b77tr6wr2pclq" path="res://assets/sprites/creatures/rimefin.png" id="2_sprite"]
 
 [ext_resource type="Texture2D" path="res://assets/sprites/creatures/rimefin_rd_back_2026_10_01.png" id="rd_back"]
 
@@ -9,6 +9,7 @@
 script = ExtResource("1_script")
 id = 1
 creature_name = "Rimefin"
+body_parts = PackedStringArray("fin", "jaw")
 essence = 1
 sprite = ExtResource("2_sprite")
 back_sprite = ExtResource("rd_back")

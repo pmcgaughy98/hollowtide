@@ -1,0 +1,45 @@
+from pathlib import Path
+from PIL import Image,ImageDraw
+import numpy as np,json,hashlib
+D=Path(r"C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/hometown-homes-2026-10-04")
+records=[]
+for source,name in [("neighbor-home","neighbor_home"),("garden-home","garden_home")]:
+ i=Image.open(D/"generated"/(source+"-source.png")).convert("RGBA");b=i.getbbox()
+ assert b and b[0]>0 and b[1]>0 and b[2]<i.width and b[3]<i.height,"source touches edge"
+ cropped=i.crop(b);out=Image.new("RGBA",(cropped.width+24,cropped.height+24));out.paste(cropped,(12,12))
+ out.save(D/"prepared"/(name+".png"))
+ assert out.crop((12,12,12+cropped.width,12+cropped.height)).tobytes()==cropped.tobytes()
+ out.resize((out.width*3,out.height*3),Image.Resampling.NEAREST).save(D/"render"/(name+"-native-x3.png"))
+ records.append({"asset":name,"source_size":i.size,"source_bounds":b,"native_size":out.size,
+ "native_used_size":cropped.size,"method":"exact crop plus12px transparent padding; no source pixel change or resampling"})
+source=Image.open(D/"generated/courtyard-home-room-source.png").convert("RGBA");a=np.array(source);bg=a.copy()
+groups=[
+ ("home_stove_front",177,[(35,112,59,159),(35,160,59,177)]),
+ ("home_coat_front",176,[(184,116,220,166),(200,166,218,176)]),
+ ("home_threshold_front",233,[(26,211,106,233),(154,211,231,233)])
+]
+recomposed=bg.copy();layers=[]
+for name,foot,rects in groups:
+ mask=np.zeros((256,256),dtype=bool)
+ for x0,y0,x1,y1 in rects:mask[y0:y1,x0:x1]=True
+ mask&=a[:,:,3]>0
+ fore=np.zeros_like(a);fore[mask]=a[mask]
+ # Underpaint only hidden layer regions with exact native floor material at matching row.
+ for y,x in np.argwhere(mask):bg[y,x]=a[y,124+(x%24)]
+ i=Image.fromarray(fore);b=i.getbbox();assert b
+ cropped=i.crop(b);out=Image.new("RGBA",(cropped.width+4,cropped.height+4));out.paste(cropped,(2,2));out.save(D/"prepared"/(name+".png"))
+ layers.append(fore)
+ records.append({"asset":name,"source_bounds":b,"native_size":out.size,"used_rect":[2,2,cropped.width,cropped.height],
+ "draw_origin":[b[0]-2,b[1]-2],"y_sort_foot":foot,"mask_rectangles":rects,
+ "method":"exact source foreground pixels plus2px transparent padding; native floor underpainting below layer"})
+Image.fromarray(bg).save(D/"prepared/home_room.png")
+combined=Image.fromarray(bg)
+for fore in layers:combined.alpha_composite(Image.fromarray(fore))
+assert np.array_equal(np.array(combined),a),"foreground/background reconstruction must retain all original pixels"
+combined.save(D/"render/home-room-recomposed.png")
+combined.resize((768,768),Image.Resampling.NEAREST).save(D/"render/home-room-recomposed-x3.png")
+records.append({"asset":"home_room","native_size":source.size,"source_bounds":source.getbbox(),
+ "background_and_foreground_composite_exact_to_original":True,"outside_foreground_masks_rgba_exact":True,
+ "method":"native floor underpainting behind three exact foreground layers; no image resampling"})
+(D/"native-preparation.json").write_text(json.dumps(records,indent=2),encoding="utf-8")
+print(json.dumps(records))

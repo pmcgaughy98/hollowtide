@@ -42,6 +42,9 @@ extends Node2D
 @export var rings: Texture2D
 ## The glowing core left burning where it hit, fading out last.
 @export var core: Texture2D
+## 16-frame jade burst (4x4). When set, it replaces the two still burst frames.
+@export var impact_vfx: Texture2D
+@export var impact_vfx_scale := 3
 @export var launch_seconds := 0.28
 @export var fall_seconds := 0.2
 ## Size of each stage as a multiple of the creature's pixel size (whole numbers).
@@ -197,18 +200,32 @@ func _impact(hit: Vector2) -> void:
 	get_tree().create_timer(0.35).timeout.connect(func() -> void:
 		if shake.is_valid():
 			shake.call(18))
+	if impact_vfx != null:
+		var v := VfxSprite.new()
+		v.texture = impact_vfx
+		v.hframes = 4
+		v.vframes = 4
+		v.fps = 16.0
+		v.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
+		v.scale = Vector2.ONE * _px * impact_vfx_scale
+		v.position = _snap(hit)
+		add_child(v)
 	# Starburst, then the bloom swelling one size, then the burning core.
+	# The sheet above takes this beat when it is set.
 	var holds := [0.16, 0.22]
-	for i in bursts.size():
-		var b := _sprite(bursts[i], hit, burst_scale)
-		if i == 1:
-			# The bloom swells by whole sizes, stepped, not smoothly.
-			await get_tree().create_timer(holds[1] * 0.5).timeout
-			b.scale = Vector2.ONE * _px * (burst_scale + 1)
-			await get_tree().create_timer(holds[1] * 0.5).timeout
-		else:
-			await get_tree().create_timer(holds[mini(i, holds.size() - 1)]).timeout
-		b.queue_free()
+	if impact_vfx != null:
+		await get_tree().create_timer(0.7).timeout
+	else:
+		for i in bursts.size():
+			var b := _sprite(bursts[i], hit, burst_scale)
+			if i == 1:
+				# The bloom swells by whole sizes, stepped, not smoothly.
+				await get_tree().create_timer(holds[1] * 0.5).timeout
+				b.scale = Vector2.ONE * _px * (burst_scale + 1)
+				await get_tree().create_timer(holds[1] * 0.5).timeout
+			else:
+				await get_tree().create_timer(holds[mini(i, holds.size() - 1)]).timeout
+			b.queue_free()
 	if core != null:
 		var c := _sprite(core, hit, burst_scale)
 		var fade := create_tween()

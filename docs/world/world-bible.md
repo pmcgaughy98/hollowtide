@@ -1,4 +1,8 @@
 # Hollowtide: Living Game Bible
+
+## Current city geography direction — October 2, 2026
+
+Preston confirmed the opening geography: an Elwood-inspired fictional Hollowtide hometown west of the river → Route 1 at the supplied levee-entrance reference → river bridge → a St. Joseph-inspired fictional city to the east with distinct industrial, historic, older neighborhood and newer retail sectors. Elwood, St. Joseph and other real names are research references only; the game uses fictional Hollowtide names. [Current hometown/route/bridge plan](route1-bridge-and-city-sector-plan-2026-10-02.md); [verified research](../research/st-joseph-city-sectors-2026-10-02.md). This supersedes conflicting older opening geography and next-destination assumptions below. Highbank/Old Ferry Ward remain provisional labels; Highbank is not automatically the hometown. The prototype is staging, and the hometown/bridge/city maps remain future implementation.
 ## Draft 0.6 | 26 September 2026
 
 This is a working design document for Preston to shape. It distinguishes established project decisions from new proposals. Names marked **working** are not locked canon.

@@ -1,0 +1,213 @@
+[
+  {
+    "asset": "neighbor_home",
+    "source_size": [
+      160,
+      144
+    ],
+    "source_bounds": [
+      3,
+      6,
+      157,
+      140
+    ],
+    "native_size": [
+      178,
+      158
+    ],
+    "native_used_size": [
+      154,
+      134
+    ],
+    "method": "exact crop plus12px transparent padding; no source pixel change or resampling"
+  },
+  {
+    "asset": "garden_home",
+    "source_size": [
+      160,
+      144
+    ],
+    "source_bounds": [
+      14,
+      17,
+      146,
+      126
+    ],
+    "native_size": [
+      156,
+      133
+    ],
+    "native_used_size": [
+      132,
+      109
+    ],
+    "method": "exact crop plus12px transparent padding; no source pixel change or resampling"
+  },
+  {
+    "asset": "home_stove_front",
+    "source_bounds": [
+      35,
+      112,
+      59,
+      177
+    ],
+    "native_size": [
+      28,
+      69
+    ],
+    "used_rect": [
+      2,
+      2,
+      24,
+      65
+    ],
+    "draw_origin": [
+      33,
+      110
+    ],
+    "y_sort_foot": 177,
+    "mask_rectangles": [
+      [
+        35,
+        112,
+        59,
+        159
+      ],
+      [
+        35,
+        160,
+        59,
+        177
+      ]
+    ],
+    "method": "exact source foreground pixels plus2px transparent padding; native floor underpainting below layer"
+  },
+  {
+    "asset": "home_coat_front",
+    "source_bounds": [
+      184,
+      116,
+      220,
+      176
+    ],
+    "native_size": [
+      40,
+      64
+    ],
+    "used_rect": [
+      2,
+      2,
+      36,
+      60
+    ],
+    "draw_origin": [
+      182,
+      114
+    ],
+    "y_sort_foot": 176,
+    "mask_rectangles": [
+      [
+        184,
+        116,
+        220,
+        166
+      ],
+      [
+        200,
+        166,
+        218,
+        176
+      ]
+    ],
+    "method": "exact source foreground pixels plus2px transparent padding; native floor underpainting below layer"
+  },
+  {
+    "asset": "home_threshold_front",
+    "source_bounds": [
+      26,
+      211,
+      231,
+      233
+    ],
+    "native_size": [
+      209,
+      26
+    ],
+    "used_rect": [
+      2,
+      2,
+      205,
+      22
+    ],
+    "draw_origin": [
+      24,
+      209
+    ],
+    "y_sort_foot": 233,
+    "mask_rectangles": [
+      [
+        26,
+        211,
+        106,
+        233
+      ],
+      [
+        154,
+        211,
+        231,
+        233
+      ]
+    ],
+    "method": "exact source foreground pixels plus2px transparent padding; native floor underpainting below layer"
+  },
+  {
+    "asset": "home_room",
+    "native_size": [
+      256,
+      256
+    ],
+    "source_bounds": [
+      26,
+      25,
+      231,
+      233
+    ],
+    "background_and_foreground_composite_exact_to_original": true,
+    "outside_foreground_masks_rgba_exact": true,
+    "method": "native floor underpainting behind three exact foreground layers; no image resampling"
+  },
+  {
+    "asset": "home_approaches",
+    "size": [
+      1024,
+      768
+    ],
+    "source_tile": "route1_ground_atlas_polished.png tile(11,0)",
+    "phase_matches_original_streets": true,
+    "operation": "exact native existing soil tile under two threshold approach masks",
+    "mask_shapes": {
+      "courtyard": [
+        224,
+        247,
+        242,
+        281
+      ],
+      "courtyard_join": [
+        [
+          233,
+          274
+        ],
+        [
+          224,
+          290
+        ]
+      ],
+      "neighbor": [
+        549,
+        220,
+        571,
+        260
+      ]
+    }
+  }
+]

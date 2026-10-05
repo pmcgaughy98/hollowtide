@@ -1,0 +1,794 @@
+{
+  "audit_utc": "2026-10-04T20:38:48.125097+00:00",
+  "project_root": "C:\\Users\\pmcga\\dev\\hollowtide",
+  "work_folder": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\hometown-homes-2026-10-04",
+  "baseline_path": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\hometown-homes-2026-10-04\\baseline.json",
+  "baseline_sha256": "8ab9c124ca10b84a24331081e1a0d92c612b440730fd1a1c49482535edd29739",
+  "pass": true,
+  "scope": "Current installed runtime preservation and native source-pixel evidence. Prepared script snapshots are separately identified as current or historical; the authorized final coat visibility change is checked against the original installed script hash.",
+  "existing_runtime": {
+    "recorded_count": 2205,
+    "exact_count": 2202,
+    "changed_count": 3,
+    "missing_count": 0,
+    "expected_changed_paths": [
+      "scripts/area_landscape.gd",
+      "scripts/world_area.gd",
+      "scripts/world_journey.gd"
+    ],
+    "changed_files": [
+      {
+        "path": "scripts/area_landscape.gd",
+        "baseline_sha256": "040409f209952a1b717409646ab4c2895845e2d12e6869bd438439f1925c1622",
+        "current_sha256": "394d13fb8a62d24f472ed5c4f02a58be8e586ac9491eb22400d29b76e73af0ab"
+      },
+      {
+        "path": "scripts/world_area.gd",
+        "baseline_sha256": "8895f5457b13fad79fe672d0b6d232d78d85c391c7d82e4d249529ae780ba1f8",
+        "current_sha256": "149eb8f2fd5e60ba9e675cf42e21de926de62b52b0e905b257a5f9b342cab260"
+      },
+      {
+        "path": "scripts/world_journey.gd",
+        "baseline_sha256": "64083a028e8eeb6d3baeaf7edaa16a9c849814b00347411f87468fdfa9ac5974",
+        "current_sha256": "77acdcf7821ab00150a0d2ff05a05cfc19ec41d1bdf2edeb1111b3c019c35129"
+      }
+    ],
+    "missing_files": [],
+    "unexpected_changes": [],
+    "expected_changes_not_present": []
+  },
+  "new_runtime": {
+    "count": 17,
+    "png_count": 7,
+    "import_count": 7,
+    "script_count": 1,
+    "uid_count": 1,
+    "scene_count": 1,
+    "files": [
+      {
+        "path": "assets/sprites/world/hometown_homes_2026_10_04/garden_home.png",
+        "sha256": "139017e3662bf6bd19349d0600b3f0b57eebd725ad0190b3fea9ff4f66dddf9f",
+        "bytes": 8841
+      },
+      {
+        "path": "assets/sprites/world/hometown_homes_2026_10_04/garden_home.png.import",
+        "sha256": "ee85844d644d92c8b85a98bd84f6a8389bfb9dfa2af0c08ca0530c2fdec71ebc",
+        "bytes": 985
+      },
+      {
+        "path": "assets/sprites/world/hometown_homes_2026_10_04/home_approaches.png",
+        "sha256": "8f67af22eef521f0b8bda968226b701da66339ea5ce6d73e89ad3919443e4670",
+        "bytes": 30328
+      },
+      {
+        "path": "assets/sprites/world/hometown_homes_2026_10_04/home_approaches.png.import",
+        "sha256": "f95bae869e1f8da7afdc1cf167f7deb4e51f8cb0d8b71baf3fb79932923a19ce",
+        "bytes": 996
+      },
+      {
+        "path": "assets/sprites/world/hometown_homes_2026_10_04/home_coat_front.png",
+        "sha256": "7c69225f05ec6cd8504d2ee22116e78e3ebd0fec4240fee933752a475b8dadd1",
+        "bytes": 2410
+      },
+      {
+        "path": "assets/sprites/world/hometown_homes_2026_10_04/home_coat_front.png.import",
+        "sha256": "9d0e10798f95c226fbde476e2cd058d439faca7503ebb9a2d2609671c2d69a4e",
+        "bytes": 997
+      },
+      {
+        "path": "assets/sprites/world/hometown_homes_2026_10_04/home_room.png",
+        "sha256": "2a348fc65e1cf71f5006c15ba66e26e76c53b0e0266de93682cb629abad852ae",
+        "bytes": 23605
+      },
+      {
+        "path": "assets/sprites/world/hometown_homes_2026_10_04/home_room.png.import",
+        "sha256": "bb3f526efc384924121451d1520fd7753deb204bd8125d82c608c32d8dc0fd58",
+        "bytes": 979
+      },
+      {
+        "path": "assets/sprites/world/hometown_homes_2026_10_04/home_stove_front.png",
+        "sha256": "66f630f49d89bb8d0f6537f5b300b14c07573595701ba6ba9049a2d3af0ad935",
+        "bytes": 2393
+      },
+      {
+        "path": "assets/sprites/world/hometown_homes_2026_10_04/home_stove_front.png.import",
+        "sha256": "065a8e046925bb149c41c55e2343e1e9c85992027345bbf65ba90c855e4d18f8",
+        "bytes": 1000
+      },
+      {
+        "path": "assets/sprites/world/hometown_homes_2026_10_04/home_threshold_front.png",
+        "sha256": "6d75150dcff0bafab9b20a6920dc67656438a9dcc42e69c5eabf409e9a64d4c0",
+        "bytes": 2161
+      },
+      {
+        "path": "assets/sprites/world/hometown_homes_2026_10_04/home_threshold_front.png.import",
+        "sha256": "d62f7584bec7fdab2ba456f20e304aaf30769668f4080043682709d1d1028936",
+        "bytes": 1012
+      },
+      {
+        "path": "assets/sprites/world/hometown_homes_2026_10_04/neighbor_home.png",
+        "sha256": "4a80b8030b1250b723a4589f2b1ed54a7bf2f3992d7b0b0c3dd6cbf1b4f3b586",
+        "bytes": 8109
+      },
+      {
+        "path": "assets/sprites/world/hometown_homes_2026_10_04/neighbor_home.png.import",
+        "sha256": "f8d0b2ccfd76c84d58a5c0a50d41d42d5f0f8aca26cd914fc15cfa611f3d26a3",
+        "bytes": 991
+      },
+      {
+        "path": "scenes/courtyard_home.tscn",
+        "sha256": "3385096051add4df6e90e704dbc06dc50e420525e394a8a1c7104136fcecfbd8",
+        "bytes": 442
+      },
+      {
+        "path": "scripts/courtyard_home_room.gd",
+        "sha256": "e522cb8ce96aadd6a5668bb67e2baafdec1b0f1423c63ec5d2a8f5324c7e0c71",
+        "bytes": 5864
+      },
+      {
+        "path": "scripts/courtyard_home_room.gd.uid",
+        "sha256": "de6bcf1421421c1777dd9372be3ecf532eff4d1ccb52924306f560b2f7bdd63a",
+        "bytes": 19
+      }
+    ],
+    "unexpected_files": [],
+    "expected_files_not_present": []
+  },
+  "protected_groups": {
+    "all_preexisting_art": {
+      "recorded_files": 1945,
+      "all_exact": true,
+      "nonexact_paths": []
+    },
+    "garden_art_and_code": {
+      "recorded_files": 10,
+      "all_exact": true,
+      "nonexact_paths": []
+    },
+    "creatures": {
+      "recorded_files": 997,
+      "all_exact": true,
+      "nonexact_paths": []
+    },
+    "menu": {
+      "recorded_files": 47,
+      "all_exact": true,
+      "nonexact_paths": []
+    },
+    "player_party_state": {
+      "recorded_files": 9,
+      "all_exact": true,
+      "nonexact_paths": []
+    },
+    "rules_moves_battle": {
+      "recorded_files": 139,
+      "all_exact": true,
+      "nonexact_paths": []
+    },
+    "original_controller": {
+      "recorded_files": 2,
+      "all_exact": true,
+      "nonexact_paths": []
+    },
+    "all_data": {
+      "recorded_files": 53,
+      "all_exact": true,
+      "nonexact_paths": []
+    },
+    "all_existing_scenes": {
+      "recorded_files": 90,
+      "all_exact": true,
+      "nonexact_paths": []
+    },
+    "launch_audio": {
+      "recorded_files": 165,
+      "all_exact": true,
+      "nonexact_paths": []
+    },
+    "all_other_existing_runtime": {
+      "recorded_files": 2202,
+      "all_exact": true,
+      "nonexact_paths": []
+    },
+    "existing_canopy_visibility_shader": {
+      "recorded_files": 2,
+      "all_exact": true,
+      "nonexact_paths": []
+    }
+  },
+  "protected_exact_flags": {
+    "all_other_original_runtime_exact": true,
+    "world_area_only_home_hint_changed": true,
+    "HOME_SITES_and_CITY_SITES_exact": true,
+    "city_landscaping_suffix_exact": true,
+    "landscape_other_functions_exact": true,
+    "landscape_prefix_exact_after_three_asset_preloads_removed": true,
+    "garden_hall_tree_shrub_suffix_exact": true,
+    "journey_only_authorized_home_additions": true,
+    "all_eight_old_gate_definitions_exact": true,
+    "all_five_old_area_entries_exact": true,
+    "generic_travel_input_cache_functions_exact": true,
+    "old_startup_arrivals_exact_including_hometown_224_280": true,
+    "new_room_controller_calls_only_existing_message_display": true,
+    "new_house_visible_pixels_exact_no_resampling": true,
+    "home_room_plus_three_foregrounds_rgba_exact_to_source": true,
+    "home_room_outside_foreground_masks_exact": true,
+    "all_foregrounds_exact_source_pixels_no_resampling": true,
+    "home_approaches_original_native_soil_tile_phase_exact": true,
+    "all_seven_prepared_pngs_match_installed": true,
+    "all_seven_pngs_have_binary_alpha": true,
+    "prepared_script_and_scene_exact_to_installed": false,
+    "existing_canopy_visibility_shader_exact": true,
+    "room_only_authorized_coat_visibility_change_since_initial_install": true,
+    "room_physics_collisions_interactions_camera_source_pngs_unchanged": true,
+    "room_composite_exact_at_full_opacity": true
+  },
+  "source_snapshots": [
+    {
+      "path": "assets/sprites/world/hometown_courtyard_2026_10_03/courtyard_home.png",
+      "sha256": "ab061eacf61a4fe950c37af1de2376a153916af95360f280a0df19d4df21cfcc",
+      "matches_baseline": true
+    },
+    {
+      "path": "scenes/hometown.tscn",
+      "sha256": "302881706312ff6104bd8b2cfeba170a94d412598d5a68173dc2e1264f033617",
+      "matches_baseline": true
+    },
+    {
+      "path": "scripts/area_landscape.gd",
+      "sha256": "040409f209952a1b717409646ab4c2895845e2d12e6869bd438439f1925c1622",
+      "matches_baseline": true
+    },
+    {
+      "path": "scripts/world_area.gd",
+      "sha256": "8895f5457b13fad79fe672d0b6d232d78d85c391c7d82e4d249529ae780ba1f8",
+      "matches_baseline": true
+    },
+    {
+      "path": "scripts/world_journey.gd",
+      "sha256": "64083a028e8eeb6d3baeaf7edaa16a9c849814b00347411f87468fdfa9ac5974",
+      "matches_baseline": true
+    }
+  ],
+  "landscape_function_checks": [
+    {
+      "function": "_ready",
+      "exact": true
+    },
+    {
+      "function": "_surface",
+      "exact": true
+    },
+    {
+      "function": "_prop",
+      "exact": true
+    },
+    {
+      "function": "_wall",
+      "exact": true
+    },
+    {
+      "function": "_label",
+      "exact": true
+    },
+    {
+      "function": "_tree",
+      "exact": true
+    },
+    {
+      "function": "_build_city",
+      "exact": true
+    },
+    {
+      "function": "_process",
+      "exact": true
+    }
+  ],
+  "journey_function_checks": [
+    {
+      "function": "set_courier_model",
+      "exact": true
+    },
+    {
+      "function": "_activate",
+      "exact": true
+    },
+    {
+      "function": "_gate",
+      "exact": true
+    },
+    {
+      "function": "travel",
+      "exact": true
+    },
+    {
+      "function": "_perform_travel",
+      "exact": true
+    },
+    {
+      "function": "_unhandled_input",
+      "exact": true
+    },
+    {
+      "function": "_exit_tree",
+      "exact": true
+    }
+  ],
+  "journey_modified_function_checks": [
+    {
+      "function": "_ready",
+      "exact_after_authorized_home_additions_removed": true
+    },
+    {
+      "function": "_build_entrances",
+      "exact_after_authorized_home_additions_removed": true
+    },
+    {
+      "function": "_process",
+      "exact_after_authorized_home_additions_removed": true
+    }
+  ],
+  "old_gate_definitions": [
+    "_gate(entrances, \"CourierHallDoor\", Vector2(768,424), Vector2(20,8), \"courier_hall\", Vector2(128,208), Vector2.UP)",
+    "_gate(entrances, \"LeveeEntrance\", Vector2(1016,512), Vector2(16,56), \"route1\", Vector2(-720,512), Vector2.RIGHT)",
+    "_gate(entrances, \"HallExit\", Vector2(128,244), Vector2(22,12), \"hometown\", Vector2(768,452), Vector2.DOWN)",
+    "_gate(entrances, \"HometownEntrance\", Vector2(-760,512), Vector2(16,56), \"hometown\", Vector2(980,512), Vector2.LEFT)",
+    "_gate(entrances, \"CityBridgeEntrance\", Vector2(696,416), Vector2(16,32), \"riverfront\", Vector2(320,512), Vector2.RIGHT)",
+    "_gate(entrances, \"RiverfrontReturn\", Vector2(384,888), Vector2(56,16), \"riverfront\", Vector2(880,48), Vector2.DOWN)",
+    "_gate(entrances, \"HistoricStreetEntrance\", Vector2(880,8), Vector2(40,16), \"historic_street\", Vector2(384,848), Vector2.UP)",
+    "_gate(entrances, \"ReturnBridgeEntrance\", Vector2(8,512), Vector2(16,32), \"route1\", Vector2(432,416), Vector2.LEFT)"
+  ],
+  "old_area_entries": [
+    "\"hometown\": preload(\"res://scenes/hometown.tscn\"),",
+    "\"courier_hall\": preload(\"res://scenes/courier_hall.tscn\"),",
+    "\"route1\": preload(\"res://scenes/first_route_prototype.tscn\"),",
+    "\"riverfront\": preload(\"res://scenes/city_riverfront.tscn\"),",
+    "\"historic_street\": preload(\"res://scenes/historic_street.tscn\"),"
+  ],
+  "old_startup_arrivals": "\"hometown\":Vector2(224,280),\"courier_hall\":Vector2(128,208),\"route1\":Vector2(-720,512),\"riverfront\":Vector2(320,512),\"historic_street\":Vector2(384,848)",
+  "authorized_world_area_hint_change": {
+    "before": "E  Check home courtyard",
+    "after": "Walk up through courtyard home doorway"
+  },
+  "asset_manifest_checks": [
+    {
+      "asset": "neighbor_home",
+      "prepared_path": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\hometown-homes-2026-10-04\\prepared\\neighbor_home.png",
+      "installed_path": "C:\\Users\\pmcga\\dev\\hollowtide\\assets\\sprites\\world\\hometown_homes_2026_10_04\\neighbor_home.png",
+      "sha256": "4a80b8030b1250b723a4589f2b1ed54a7bf2f3992d7b0b0c3dd6cbf1b4f3b586",
+      "prepared_matches_installed": true,
+      "size": [
+        178,
+        158
+      ],
+      "alpha_bounds": [
+        12,
+        12,
+        166,
+        146
+      ],
+      "binary_alpha": true
+    },
+    {
+      "asset": "garden_home",
+      "prepared_path": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\hometown-homes-2026-10-04\\prepared\\garden_home.png",
+      "installed_path": "C:\\Users\\pmcga\\dev\\hollowtide\\assets\\sprites\\world\\hometown_homes_2026_10_04\\garden_home.png",
+      "sha256": "139017e3662bf6bd19349d0600b3f0b57eebd725ad0190b3fea9ff4f66dddf9f",
+      "prepared_matches_installed": true,
+      "size": [
+        156,
+        133
+      ],
+      "alpha_bounds": [
+        12,
+        12,
+        144,
+        121
+      ],
+      "binary_alpha": true
+    },
+    {
+      "asset": "home_approaches",
+      "prepared_path": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\hometown-homes-2026-10-04\\prepared\\home_approaches.png",
+      "installed_path": "C:\\Users\\pmcga\\dev\\hollowtide\\assets\\sprites\\world\\hometown_homes_2026_10_04\\home_approaches.png",
+      "sha256": "8f67af22eef521f0b8bda968226b701da66339ea5ce6d73e89ad3919443e4670",
+      "prepared_matches_installed": true,
+      "size": [
+        1024,
+        768
+      ],
+      "alpha_bounds": [
+        215,
+        220,
+        572,
+        300
+      ],
+      "binary_alpha": true
+    },
+    {
+      "asset": "home_room",
+      "prepared_path": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\hometown-homes-2026-10-04\\prepared\\home_room.png",
+      "installed_path": "C:\\Users\\pmcga\\dev\\hollowtide\\assets\\sprites\\world\\hometown_homes_2026_10_04\\home_room.png",
+      "sha256": "2a348fc65e1cf71f5006c15ba66e26e76c53b0e0266de93682cb629abad852ae",
+      "prepared_matches_installed": true,
+      "size": [
+        256,
+        256
+      ],
+      "alpha_bounds": [
+        26,
+        25,
+        231,
+        233
+      ],
+      "binary_alpha": true
+    },
+    {
+      "asset": "home_stove_front",
+      "prepared_path": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\hometown-homes-2026-10-04\\prepared\\home_stove_front.png",
+      "installed_path": "C:\\Users\\pmcga\\dev\\hollowtide\\assets\\sprites\\world\\hometown_homes_2026_10_04\\home_stove_front.png",
+      "sha256": "66f630f49d89bb8d0f6537f5b300b14c07573595701ba6ba9049a2d3af0ad935",
+      "prepared_matches_installed": true,
+      "size": [
+        28,
+        69
+      ],
+      "alpha_bounds": [
+        2,
+        2,
+        26,
+        67
+      ],
+      "binary_alpha": true
+    },
+    {
+      "asset": "home_coat_front",
+      "prepared_path": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\hometown-homes-2026-10-04\\prepared\\home_coat_front.png",
+      "installed_path": "C:\\Users\\pmcga\\dev\\hollowtide\\assets\\sprites\\world\\hometown_homes_2026_10_04\\home_coat_front.png",
+      "sha256": "7c69225f05ec6cd8504d2ee22116e78e3ebd0fec4240fee933752a475b8dadd1",
+      "prepared_matches_installed": true,
+      "size": [
+        40,
+        64
+      ],
+      "alpha_bounds": [
+        2,
+        2,
+        38,
+        62
+      ],
+      "binary_alpha": true
+    },
+    {
+      "asset": "home_threshold_front",
+      "prepared_path": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\hometown-homes-2026-10-04\\prepared\\home_threshold_front.png",
+      "installed_path": "C:\\Users\\pmcga\\dev\\hollowtide\\assets\\sprites\\world\\hometown_homes_2026_10_04\\home_threshold_front.png",
+      "sha256": "6d75150dcff0bafab9b20a6920dc67656438a9dcc42e69c5eabf409e9a64d4c0",
+      "prepared_matches_installed": true,
+      "size": [
+        209,
+        26
+      ],
+      "alpha_bounds": [
+        2,
+        2,
+        207,
+        24
+      ],
+      "binary_alpha": true
+    }
+  ],
+  "new_house_source_checks": [
+    {
+      "asset": "neighbor_home",
+      "source_path": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\hometown-homes-2026-10-04\\generated\\neighbor-home-source.png",
+      "source_sha256": "e779ac7e5f1f20e391fce67a610341e272e56cc4d4a7f0d0b77a853abc7b4379",
+      "source_size": [
+        160,
+        144
+      ],
+      "source_alpha_bounds": [
+        3,
+        6,
+        157,
+        140
+      ],
+      "prepared_size": [
+        178,
+        158
+      ],
+      "no_resampling_and_visible_rgba_exact": true,
+      "transparent_twelve_pixel_padding": true,
+      "source_visible_pixels": 16782,
+      "prepared_visible_pixels": 16782
+    },
+    {
+      "asset": "garden_home",
+      "source_path": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\hometown-homes-2026-10-04\\generated\\garden-home-source.png",
+      "source_sha256": "768b55089a0ff80c2c9ab726b89a27beadf7cd6a70fbc59aad70b50f4ad55d43",
+      "source_size": [
+        160,
+        144
+      ],
+      "source_alpha_bounds": [
+        14,
+        17,
+        146,
+        126
+      ],
+      "prepared_size": [
+        156,
+        133
+      ],
+      "no_resampling_and_visible_rgba_exact": true,
+      "transparent_twelve_pixel_padding": true,
+      "source_visible_pixels": 11914,
+      "prepared_visible_pixels": 11914
+    }
+  ],
+  "room_source": {
+    "path": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\hometown-homes-2026-10-04\\generated\\courtyard-home-room-source.png",
+    "sha256": "a74fb9aa97f9cbf23fdf75443b2d82e85521c53c9d6904ba29b1cf9e94f42f5f",
+    "size": [
+      256,
+      256
+    ],
+    "alpha_bounds": [
+      26,
+      25,
+      231,
+      233
+    ]
+  },
+  "foreground_checks": [
+    {
+      "asset": "home_stove_front",
+      "source_bounds": [
+        35,
+        112,
+        59,
+        177
+      ],
+      "mask_rectangles": [
+        [
+          35,
+          112,
+          59,
+          159
+        ],
+        [
+          35,
+          160,
+          59,
+          177
+        ]
+      ],
+      "draw_origin": [
+        33,
+        110
+      ],
+      "transparent_two_pixel_padding": true,
+      "no_resampling_and_visible_source_rgba_exact": true,
+      "alpha_mask_exact": true,
+      "zero_alpha_rgb_difference_from_zero_filled_mask_pixels": 0
+    },
+    {
+      "asset": "home_coat_front",
+      "source_bounds": [
+        184,
+        116,
+        220,
+        176
+      ],
+      "mask_rectangles": [
+        [
+          184,
+          116,
+          220,
+          166
+        ],
+        [
+          200,
+          166,
+          218,
+          176
+        ]
+      ],
+      "draw_origin": [
+        182,
+        114
+      ],
+      "transparent_two_pixel_padding": true,
+      "no_resampling_and_visible_source_rgba_exact": true,
+      "alpha_mask_exact": true,
+      "zero_alpha_rgb_difference_from_zero_filled_mask_pixels": 0
+    },
+    {
+      "asset": "home_threshold_front",
+      "source_bounds": [
+        26,
+        211,
+        231,
+        233
+      ],
+      "mask_rectangles": [
+        [
+          26,
+          211,
+          106,
+          233
+        ],
+        [
+          154,
+          211,
+          231,
+          233
+        ]
+      ],
+      "draw_origin": [
+        24,
+        209
+      ],
+      "transparent_two_pixel_padding": true,
+      "no_resampling_and_visible_source_rgba_exact": true,
+      "alpha_mask_exact": true,
+      "zero_alpha_rgb_difference_from_zero_filled_mask_pixels": 467
+    }
+  ],
+  "home_approaches_source": {
+    "atlas_path": "C:\\Users\\pmcga\\dev\\hollowtide\\assets\\tilesets\\route1_rd_2026_10_01\\route1_ground_atlas_polished.png",
+    "atlas_sha256": "3c5cf177727cb41f152bb4cabfbaa8dc2a9c0ac3f74a9492b31d19835f71dc14",
+    "tile": [
+      11,
+      0
+    ],
+    "tile_size": [
+      16,
+      16
+    ],
+    "all_visible_rgba_matches_original_tile_phase": true
+  },
+  "prepared_code_checks": [
+    {
+      "runtime_path": "scripts/courtyard_home_room.gd",
+      "prepared_path": "prepared/courtyard_home_room.gd.txt",
+      "byte_exact": false,
+      "prepared_sha256": "6a32b4a5d6f46a6c816554fe9cd273ce66c79456493b662868142cb91fe3c768",
+      "installed_sha256": "e522cb8ce96aadd6a5668bb67e2baafdec1b0f1423c63ec5d2a8f5324c7e0c71",
+      "status": "historical_initial_install_superseded_by_authorized_coat_visibility"
+    },
+    {
+      "runtime_path": "scenes/courtyard_home.tscn",
+      "prepared_path": "prepared/courtyard_home.tscn.txt",
+      "byte_exact": true,
+      "prepared_sha256": "3385096051add4df6e90e704dbc06dc50e420525e394a8a1c7104136fcecfbd8",
+      "installed_sha256": "3385096051add4df6e90e704dbc06dc50e420525e394a8a1c7104136fcecfbd8",
+      "status": "current"
+    }
+  ],
+  "hash_stability_during_audit": {
+    "all_changed_and_new_files_stable": true,
+    "checks": [
+      {
+        "path": "assets/sprites/world/hometown_homes_2026_10_04/garden_home.png",
+        "stable": true
+      },
+      {
+        "path": "assets/sprites/world/hometown_homes_2026_10_04/garden_home.png.import",
+        "stable": true
+      },
+      {
+        "path": "assets/sprites/world/hometown_homes_2026_10_04/home_approaches.png",
+        "stable": true
+      },
+      {
+        "path": "assets/sprites/world/hometown_homes_2026_10_04/home_approaches.png.import",
+        "stable": true
+      },
+      {
+        "path": "assets/sprites/world/hometown_homes_2026_10_04/home_coat_front.png",
+        "stable": true
+      },
+      {
+        "path": "assets/sprites/world/hometown_homes_2026_10_04/home_coat_front.png.import",
+        "stable": true
+      },
+      {
+        "path": "assets/sprites/world/hometown_homes_2026_10_04/home_room.png",
+        "stable": true
+      },
+      {
+        "path": "assets/sprites/world/hometown_homes_2026_10_04/home_room.png.import",
+        "stable": true
+      },
+      {
+        "path": "assets/sprites/world/hometown_homes_2026_10_04/home_stove_front.png",
+        "stable": true
+      },
+      {
+        "path": "assets/sprites/world/hometown_homes_2026_10_04/home_stove_front.png.import",
+        "stable": true
+      },
+      {
+        "path": "assets/sprites/world/hometown_homes_2026_10_04/home_threshold_front.png",
+        "stable": true
+      },
+      {
+        "path": "assets/sprites/world/hometown_homes_2026_10_04/home_threshold_front.png.import",
+        "stable": true
+      },
+      {
+        "path": "assets/sprites/world/hometown_homes_2026_10_04/neighbor_home.png",
+        "stable": true
+      },
+      {
+        "path": "assets/sprites/world/hometown_homes_2026_10_04/neighbor_home.png.import",
+        "stable": true
+      },
+      {
+        "path": "scenes/courtyard_home.tscn",
+        "stable": true
+      },
+      {
+        "path": "scripts/area_landscape.gd",
+        "stable": true
+      },
+      {
+        "path": "scripts/courtyard_home_room.gd",
+        "stable": true
+      },
+      {
+        "path": "scripts/courtyard_home_room.gd.uid",
+        "stable": true
+      },
+      {
+        "path": "scripts/world_area.gd",
+        "stable": true
+      },
+      {
+        "path": "scripts/world_journey.gd",
+        "stable": true
+      }
+    ]
+  },
+  "limitations": [
+    "Filesystem and source-pixel evidence only; parent task records ordinary walking, collision, camera, state and cache tests separately.",
+    "Generated Godot cache files and documentation are outside the runtime baseline.",
+    "No game launch, project edits, user-editor control, upload, paid request, stage or commit performed by this audit.",
+    "The full world objective remains unachieved; this audit does not mark it complete.",
+    "The initial prepared room script text is historical and differs from the installed final script only by the independently verified authorized coat visibility additions; prepared scene and all seven PNGs remain current.",
+    "Native room plus three foregrounds equals the generated source at full opacity. Conditional upper-cupboard fading to 0.45 is an intentional local rendering change, so visual equality is not claimed during fading.",
+    "Foreground source-pixel checks require exact visible RGBA and exact alpha masks; hidden RGB under fully transparent threshold pixels does not affect rendering. The full-opacity composite is separately exact to every RGBA pixel of the generated source."
+  ],
+  "coat_visibility": {
+    "current_script_sha256": "e522cb8ce96aadd6a5668bb67e2baafdec1b0f1423c63ec5d2a8f5324c7e0c71",
+    "original_installed_script_sha256": "6a32b4a5d6f46a6c816554fe9cd273ce66c79456493b662868142cb91fe3c768",
+    "normalized_current_script_sha256": "6a32b4a5d6f46a6c816554fe9cd273ce66c79456493b662868142cb91fe3c768",
+    "only_authorized_visibility_additions": true,
+    "shader_path": "assets/sprites/world/route1_landing_loop_2026_10_03/canopy_visibility.gdshader",
+    "shader_sha256": "87a9dc919189650ef337a8c389ffdec220ab2a1eae1527502141246bbd91a6f7",
+    "shader_baseline_sha256": "87a9dc919189650ef337a8c389ffdec220ab2a1eae1527502141246bbd91a6f7",
+    "shader_source_exact": true,
+    "foreground_asset": "home_coat_front",
+    "covered_opacity": 0.45,
+    "uncovered_opacity": 1.0,
+    "opacity_change_per_second": 4.0,
+    "head_offset": [
+      0,
+      -16
+    ],
+    "cover_condition": "player global y < coat global y - 2, and head point inside coat local rectangle",
+    "upper_fade_uv_transition": [
+      0.67,
+      0.73
+    ],
+    "lower_cupboard_base_preserved_by_shader": true,
+    "composite_source_rgba_exact_at_opacity_1": true,
+    "conditional_visibility_is_intentional_rendering_change": true,
+    "physics_collision_interaction_camera_and_source_pngs_unchanged": true,
+    "shader_semantics_checked_with_line_endings_normalized": true
+  },
+  "runtime_preservation_pass": true,
+  "source_pixel_checks_pass": true,
+  "prepared_current_copy_pass": false
+}

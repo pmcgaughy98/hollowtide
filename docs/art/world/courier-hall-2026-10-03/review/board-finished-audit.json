@@ -1,0 +1,22 @@
+{
+  "dimensions": [
+    256,
+    256
+  ],
+  "changed_pixels": 1842,
+  "changed_outside_board_mask": 0,
+  "generated_board_crop": [
+    22,
+    15,
+    52,
+    18
+  ],
+  "board_placement": [
+    42,
+    31
+  ],
+  "wall_material_source": "Original sage plaster x111..126 at the same row; native repetition",
+  "rejected_delivery_parts": "Generated white margin and extra wall posts outside the noticeboard",
+  "single_wide_board": true,
+  "sha256": "7f40930c335f3292141b12bb6093ac852404dac821aaadee64479eb94f7b97e8"
+}

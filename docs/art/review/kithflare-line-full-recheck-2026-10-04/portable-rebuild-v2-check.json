@@ -1,0 +1,35 @@
+{
+  "passed": true,
+  "files": [
+    {
+      "key": "kithflare-front",
+      "byte_exact_rebuild": true,
+      "sha256": "9b694edbaa7726caa2d040a93e125f4ae0508837507b1066cb3e2454a1523243"
+    },
+    {
+      "key": "kithflare-back",
+      "byte_exact_rebuild": true,
+      "sha256": "0118a9e94c080dc37c27e1770385e2bdb2d055e20950d81f2792e32e0ade14e1"
+    },
+    {
+      "key": "wayburn-front",
+      "byte_exact_rebuild": true,
+      "sha256": "f23868dc25363eee1aaeccfb438e6d2ae1d19f904a2bc3aa617f862e12d32d68"
+    },
+    {
+      "key": "wayburn-back",
+      "byte_exact_rebuild": true,
+      "sha256": "86dc93681fe5c1e97d637d75bf15d3a02ae10affba6b539911d8dc9ccd5cf70d"
+    },
+    {
+      "key": "coalcrest-front",
+      "byte_exact_rebuild": true,
+      "sha256": "6cbd82720f1c9673e51fea21cc6261fc2798bc80e4c0d3e0a433a224202f669f"
+    },
+    {
+      "key": "coalcrest-back",
+      "byte_exact_rebuild": true,
+      "sha256": "e2cde80eb484a38d0322c225a83d8584a37fb96c1ebfc6c1db83d373966020a1"
+    }
+  ]
+}

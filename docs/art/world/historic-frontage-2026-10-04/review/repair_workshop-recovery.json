@@ -1,0 +1,26 @@
+[
+  {
+    "request_id": "dcf06cad-d7f2-4468-831a-3d872d68cd1b",
+    "operation": "inference",
+    "status": "succeeded",
+    "mode": "async",
+    "created_at": 1791120990,
+    "updated_at": 1791121108,
+    "completed_at": 1791121108,
+    "credit_cost": 1,
+    "balance_cost": 0.18,
+    "charged": true,
+    "http_status": 200,
+    "output_status": "available",
+    "input": {
+      "name": "repair_workshop",
+      "prompt_sha256": "826be03b62ddb602a1486a170c8d6bb4e6a40139b2894d7e142164e66e08fa78",
+      "seed": 2026100401,
+      "width": 200,
+      "height": 192,
+      "reference_images": 0
+    },
+    "saved_original": "repair_workshop-original.png",
+    "sha256": "987d3903f39276a75087a86af3b65d5f296ed92bf3f753c13f26e9417e3a8e12"
+  }
+]

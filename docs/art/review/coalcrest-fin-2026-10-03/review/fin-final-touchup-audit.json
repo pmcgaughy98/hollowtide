@@ -1,0 +1,10 @@
+{
+  "touched_new_pixels": 131,
+  "changed_from_original": 368,
+  "existing_visible_pixels_changed": 0,
+  "changed_outside_mask": 0,
+  "approved_outline_exact": true,
+  "top_clearance": 3,
+  "sha256": "cfdaf2aba3df180c94c533b13070c041ee69d1cccebaedcd86b83a931decedfd",
+  "method": "Original membrane/rib material, nearest native samples from 2px inside authored sail; outer outline kept exact"
+}

@@ -1,0 +1,33 @@
+.NET: Failed to load project assembly
+WARNING: Image format RGB8 not supported by hardware, converting to RGBA8.
+   at: RendererRD::TextureStorage::_validate_texture_format (servers\rendering\renderer_rd\storage_rd\texture_storage.cpp:2855)
+   GDScript backtrace (most recent call first):
+       [0] _layer (res://scripts/main_menu.gd:134)
+       [1] _build_scenery (res://scripts/main_menu_art_preview.gd:21)
+       [2] _ready (res://scripts/main_menu.gd:112)
+       [3] _ready (res://scripts/main_menu_art_preview.gd:15)
+       [4] _run (C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/menu_flow_probe.gd:132)
+WARNING: Image format RGB8 not supported by hardware, converting to RGBA8.
+   at: RendererRD::TextureStorage::_validate_texture_format (servers\rendering\renderer_rd\storage_rd\texture_storage.cpp:2855)
+WARNING: Image format RGB8 not supported by hardware, converting to RGBA8.
+   at: RendererRD::TextureStorage::_validate_texture_format (servers\rendering\renderer_rd\storage_rd\texture_storage.cpp:2855)
+WARNING: Image format RGB8 not supported by hardware, converting to RGBA8.
+   at: RendererRD::TextureStorage::_validate_texture_format (servers\rendering\renderer_rd\storage_rd\texture_storage.cpp:2855)
+WARNING: res://data/creatures/001_rimefin.tres:4 - ext_resource, invalid UID: uid://crjluirawrgmi - using text path instead: res://assets/sprites/creatures/rimefin.png
+   at: ResourceLoaderText::load (scene\resources\resource_format_text.cpp:516)
+   GDScript backtrace (most recent call first):
+       [0] load_all (res://scripts/creature_roster.gd:27)
+       [1] _refresh (res://scripts/debug/dex_overlay.gd:63)
+       [2] _ready (res://scripts/debug/dex_overlay.gd:47)
+WARNING: Image format RGB8 not supported by hardware, converting to RGBA8.
+   at: RendererRD::TextureStorage::_validate_texture_format (servers\rendering\renderer_rd\storage_rd\texture_storage.cpp:2855)
+   GDScript backtrace (most recent call first):
+       [0] load_all (res://scripts/creature_roster.gd:27)
+       [1] _refresh (res://scripts/debug/dex_overlay.gd:63)
+       [2] _ready (res://scripts/debug/dex_overlay.gd:47)
+WARNING: Image format RGB8 not supported by hardware, converting to RGBA8.
+   at: RendererRD::TextureStorage::_validate_texture_format (servers\rendering\renderer_rd\storage_rd\texture_storage.cpp:2855)
+   GDScript backtrace (most recent call first):
+       [0] load_all (res://scripts/creature_roster.gd:27)
+       [1] _refresh (res://scripts/debug/dex_overlay.gd:63)
+       [2] _ready (res://scripts/debug/dex_overlay.gd:47)

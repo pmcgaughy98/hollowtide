@@ -1,0 +1,14 @@
+from PIL import Image,ImageDraw
+from pathlib import Path
+import numpy as np,json
+o=Path("consistency-review")
+a=np.array(Image.open(o/"clinkerhide-selected-back-native100.png").convert("RGBA"))
+pic=Image.open(o/"clinkerhide-selected-back-palette-native100.png").convert("RGBA");b=np.array(pic);mask=b[:,:,3]>0
+front=Image.open("C:/Users/pmcga/dev/hollowtide/assets/sprites/creatures/clinkerhide.png").convert("RGBA");c=np.array(front)
+palette={tuple(map(int,row)) for row in c[c[:,:,3]>0,:3]};colors={tuple(map(int,row)) for row in b[mask,:3]}
+stats={"alpha_exact":bool(np.array_equal(a[:,:,3],b[:,:,3])),"colors":len(colors),"all_colors_from_front":colors<=palette,"colors_outside_front":list(colors-palette),"opaque_magenta":int(((b[:,:,0]>180)&(b[:,:,1]<70)&(b[:,:,2]>180)&mask).sum())}
+(o/"clinkerhide-palette-audit.json").write_text(json.dumps(stats,indent=2));print(json.dumps(stats))
+canvas=Image.new("RGBA",(990,380),(33,29,53,255));draw=ImageDraw.Draw(canvas)
+for n,(name,img) in enumerate([("Clinkerhide front",front),("Chosen rear: JPEG noise",Image.fromarray(a)),("Chosen rear: front palette",pic)]):
+ draw.text((n*330+8,8),name,fill="white");canvas.alpha_composite(img.resize((300,300),Image.Resampling.NEAREST),(n*330+12,42))
+canvas.convert("RGB").save(o/"clinkerhide-selected-palette-comparison.png")

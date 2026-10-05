@@ -1,0 +1,13 @@
+--- before/scripts/route1_crossing.gd
++++ current/scripts/route1_crossing.gd
+@@ -48,6 +48,10 @@
+ 	relief.name = "TerrainRelief"
+ 	relief.z_index = -1
+ 	add_child(relief)
++	var landing_loop := preload("res://scripts/route1_landing_loop.gd").new()
++	landing_loop.name = "LandingLoop"
++	landing_loop.z_index = -1
++	add_child(landing_loop)
+ 	queue_redraw()
+ 
+ 

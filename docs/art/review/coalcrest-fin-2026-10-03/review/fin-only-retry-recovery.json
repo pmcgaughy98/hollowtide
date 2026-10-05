@@ -1,0 +1,19 @@
+{
+  "request_id": "5bf05598-00cb-4e9e-a385-11aea22eb12b",
+  "operation": "edit_tool",
+  "status": "succeeded",
+  "mode": "sync",
+  "created_at": 1791063567,
+  "updated_at": 1791063688,
+  "completed_at": 1791063688,
+  "credit_cost": 20,
+  "balance_cost": 0.18,
+  "charged": true,
+  "http_status": 200,
+  "output_status": "available",
+  "request_role": "User-approved 64x48 Coalcrest fin-only crop and mask retry",
+  "input_sha256": "dec10a054fdb98a8cf2cbc0b41a15368edacbb6f7eff445ebe23d7c5163ace41",
+  "mask_sha256": "fb92cf7b7e0554b515df45186461137370be8148a7e69a6a5906fb890bd20199",
+  "output_sha256": "8add5947165c50f0fe8deb9d9c6ee7a8584c97d9b36683028511a8636b9539f7",
+  "output_file": "rd-fin-only-retry-output.png"
+}

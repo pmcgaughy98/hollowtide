@@ -1,0 +1,27 @@
+[
+  {
+    "request_id": "5d22ed66-c9c4-4e3e-8804-95d70f9328fb",
+    "operation": "inference",
+    "status": "succeeded",
+    "mode": "async",
+    "created_at": 1791122093,
+    "updated_at": 1791122116,
+    "completed_at": 1791122116,
+    "credit_cost": 1,
+    "balance_cost": 0.18,
+    "charged": true,
+    "http_status": 200,
+    "output_status": "available",
+    "input": {
+      "name": "workshop_keeper",
+      "prompt_sha256": "ec4a85a461afa7af4c098620f49ccb8a0a4b119a5046f5befe94c8540a09b95f",
+      "seed": 2026100413,
+      "width": 48,
+      "height": 64,
+      "prompt_style": "rd_pro__default",
+      "reference_images": 0
+    },
+    "saved_original": "workshop_keeper-original.png",
+    "sha256": "2c15595fab42eebb2b744a9f6297743c295dffdff27b66dfc4fa5d2f9fee8a39"
+  }
+]

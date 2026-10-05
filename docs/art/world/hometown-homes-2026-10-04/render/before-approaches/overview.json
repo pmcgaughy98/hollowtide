@@ -1,0 +1,45 @@
+{
+  "completed": true,
+  "diagnostic_camera_only": true,
+  "passed": true,
+  "records": [
+    {
+      "capture": "homes-hometown-native",
+      "save_error": 0,
+      "size": "(1024, 768)"
+    },
+    {
+      "full_alpha_fits_map": true,
+      "house": "CourtyardHome",
+      "scale": "(0.75, 0.75)",
+      "visible_world_bounds": "[P: (167.75, 161.5), S: (111.0, 94.5)]"
+    },
+    {
+      "full_alpha_fits_map": true,
+      "house": "NeighborHome",
+      "scale": "(0.75, 0.75)",
+      "visible_world_bounds": "[P: (502.25, 123.5), S: (115.5, 100.5)]"
+    },
+    {
+      "full_alpha_fits_map": true,
+      "house": "GardenHome",
+      "scale": "(0.75, 0.75)",
+      "visible_world_bounds": "[P: (238.5, 525.875), S: (99.0, 81.75)]"
+    },
+    {
+      "capture": "homes-north-detail",
+      "save_error": 0,
+      "size": "(1024, 560)"
+    },
+    {
+      "capture": "homes-garden-detail",
+      "save_error": 0,
+      "size": "(900, 600)"
+    },
+    {
+      "capture": "home-room-native",
+      "save_error": 0,
+      "size": "(512, 512)"
+    }
+  ]
+}

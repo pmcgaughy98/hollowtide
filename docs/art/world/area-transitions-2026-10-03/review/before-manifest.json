@@ -1,0 +1,10 @@
+{
+  "scripts/main_menu.gd": "2428f5518d5ab35ea71a5938ca3e61dfb23e454d40700c3b93f5f6cb97a974b6",
+  "scripts/first_route_prototype.gd": "9e5206d7b8c5ee5775dccf732cf5c562820cbbe7ab40723c0ff8c1036c317336",
+  "scripts/route1_crossing.gd": "95c84e73a95c1bf2e1d927c83c89a18ab183bba8f2e26195433af602261c853e",
+  "scripts/route1_landscape.gd": "64456afdff2872206c7666bbccd9303cafca6524aea82d32c0678f89cc42c416",
+  "scripts/route1_map_polish.gd": "dddfb7a6b67bb4d6179a843fa9ad546fed0a0ef3c9ca356152a8028fec9add5d",
+  "scenes/first_route_prototype.tscn": "92baca2f7c06eb966cc8fcb422195db3f1b5ee8569b472a05229ee4814928717",
+  "project.godot": "c7a2ce8c465500c1e47f946a7b7c28e25cc1173069c866012c156becc12d8c69",
+  "docs/AI_COLLABORATION.md": "bb85a0289984bcc1125b6da4f73cdd3aa3385c1dc8548645a43c15cc9b6993c4"
+}

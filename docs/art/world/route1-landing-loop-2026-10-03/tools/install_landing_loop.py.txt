@@ -1,0 +1,115 @@
+from pathlib import Path
+import hashlib,json
+p=Path("C:/Users/pmcga/dev/hollowtide");s=Path.cwd();r=s/"landing-loop-review"
+guards={"scripts/route1_crossing.gd":"0e7a0e6fa65b3f699115180d819f91c71e2714a44415c63f4a3f1a136d728c51","scripts/first_route_prototype.gd":"16642c8d181b1704656b1f2fbf90064b8b7ba87a1376b7021218e886fb4d2cd1"}
+for rel,h in guards.items():assert hashlib.sha256((p/rel).read_bytes()).hexdigest()==h
+new=p/"scripts/route1_landing_loop.gd";assert not new.exists()
+new.write_bytes((s/"landing_loop_runtime.gd.txt").read_bytes())
+cross=p/"scripts/route1_crossing.gd";t=cross.read_text(encoding="utf-8")
+needle="\tadd_child(relief)\n\tqueue_redraw()";assert t.count(needle)==1
+cross.write_text(t.replace(needle,'''	add_child(relief)
+	var landing_loop := preload("res://scripts/route1_landing_loop.gd").new()
+	landing_loop.name = "LandingLoop"
+	landing_loop.z_index = -1
+	add_child(landing_loop)
+	queue_redraw()'''),encoding="utf-8")
+(p/"scripts/first_route_prototype.gd").write_bytes((s/"landing_first_route_candidate.gd").read_bytes())
+base=(s/"startup_ordinary_walkthrough.gd").read_text(encoding="utf-8")
+start=base.index("func _run() -> void:");end=base.index("func _finish(",start)
+helpers=r'''func _notice_test() -> bool:
+	if not await _walk(Vector2(320,316)):return false
+	var before: Dictionary={}
+	for flag in ["pouch_accepted","levee_entrance_read","city_arrival_registered","city_directions_read","delivered","water_mark_observed","heard_calls","marker_restored","report_done","reported_calls","reported_water_mark"]:before[flag]=route.get(flag)
+	await _key(KEY_E);await _frames(4)
+	var panel: PanelContainer=route.get("_panel")
+	var body: Label=route.get("_body")
+	var okay:=panel.visible and body.text.begins_with("OLD LANDING FOOTPATH")
+	for flag in before:
+		if route.get(flag)!=before[flag]:okay=false
+	steps.append({"interaction":"landing-notice","body":body.text,"quest_flags_unchanged":okay,"position":str(player.position)})
+	await _capture("landing-notice")
+	await _key(KEY_E)
+	if not okay:failed=true
+	return okay
+'''
+full=r'''func _run() -> void:
+	var started:=Time.get_ticks_msec()
+	route=load("res://scenes/first_route_prototype.tscn").instantiate()
+	root.add_child(route);current_scene=route;player=route.get_node("Player")
+	var load_ms:=Time.get_ticks_msec()-started
+	await _frames(12);await _capture("start")
+	if not await _site(Vector2(70,205),"pouch_accepted","assignment"):_finish(load_ms);return
+	if not await _walk(Vector2(184,205)):_finish(load_ms);return
+	if not await _site(Vector2(216,264),"levee_entrance_read","levee-sign"):_finish(load_ms);return
+	for point in [Vector2(266,298),Vector2(304,316)]:
+		if not await _walk(point):_finish(load_ms);return
+	if not await _notice_test():_finish(load_ms);return
+	for point in [Vector2(330,294),Vector2(352,280),Vector2(374,265)]:
+		if not await _walk(point):_finish(load_ms);return
+	await _capture("new-landing-entry")
+	if not await _site(Vector2(392,260),"delivered","relay-delivery"):_finish(load_ms);return
+	if not await _walk(Vector2(410,240)):_finish(load_ms);return
+	if not await _site(Vector2(423,215),"water_mark_observed","height-marks"):_finish(load_ms);return
+	for point in [Vector2(410,240),Vector2(402,296)]:
+		if not await _walk(point):_finish(load_ms);return
+	if not await _site(Vector2(427,296),"heard_calls","river-calls"):_finish(load_ms);return
+	for point in [Vector2(430,318),Vector2(430,341),Vector2(427,366),Vector2(414,383),Vector2(395,393)]:
+		if not await _walk(point):_finish(load_ms);return
+		await _capture("bank-return-%d"%int(point.y))
+	for point in [Vector2(432,416),Vector2(560,416),Vector2(704,416),Vector2(750,472)]:
+		if not await _walk(point):_finish(load_ms);return
+	if not await _site(Vector2(816,480),"city_arrival_registered","city-clerk"):_finish(load_ms);return
+	if not await _walk(Vector2(900,480)):_finish(load_ms);return
+	if not await _site(Vector2(912,444),"city_directions_read","city-board"):_finish(load_ms);return
+	for point in [Vector2(900,480),Vector2(750,472),Vector2(704,416),Vector2(560,416),Vector2(432,416),Vector2(395,393),Vector2(328,334),Vector2(304,316)]:
+		if not await _walk(point):_finish(load_ms);return
+	if not await _notice_test():_finish(load_ms);return
+	for point in [Vector2(330,294),Vector2(352,280),Vector2(368,280),Vector2(368,112),Vector2(272,112)]:
+		if not await _walk(point):_finish(load_ms);return
+	if not await _site(Vector2(272,112),"marker_restored","marker-repair"):_finish(load_ms);return
+	for point in [Vector2(184,112),Vector2(184,205),Vector2(80,205)]:
+		if not await _walk(point):_finish(load_ms);return
+	await _key(KEY_E);await _frames(5);await _capture("report-choices")
+	await _key(KEY_DOWN);await _key(KEY_ENTER);await _frames(6);await _capture("report-complete")
+	for flag in ["report_done","reported_calls","reported_water_mark"]:
+		if not route.get(flag):failed=true
+	_finish(load_ms)
+'''
+simple=r'''func _run() -> void:
+	var started:=Time.get_ticks_msec()
+	route=load("res://scenes/first_route_prototype.tscn").instantiate()
+	route.get_node("Player").set("chibi_model","Female")
+	root.add_child(route);current_scene=route;player=route.get_node("Player")
+	var load_ms:=Time.get_ticks_msec()-started
+	await _frames(12);await _capture("start")
+	if not await _site(Vector2(70,205),"pouch_accepted","assignment"):_finish(load_ms);return
+	if not await _walk(Vector2(184,205)):_finish(load_ms);return
+	if not await _site(Vector2(216,264),"levee_entrance_read","levee-sign"):_finish(load_ms);return
+	for point in [Vector2(266,298),Vector2(328,334),Vector2(390,390),Vector2(432,416),Vector2(560,416),Vector2(704,416),Vector2(750,472)]:
+		if not await _walk(point):_finish(load_ms);return
+	if not await _site(Vector2(816,480),"city_arrival_registered","city-clerk"):_finish(load_ms);return
+	if not await _walk(Vector2(900,480)):_finish(load_ms);return
+	if not await _site(Vector2(912,444),"city_directions_read","city-board"):_finish(load_ms);return
+	for point in [Vector2(900,480),Vector2(750,472),Vector2(704,416),Vector2(560,416),Vector2(432,416),Vector2(390,390),Vector2(350,320),Vector2(368,280)]:
+		if not await _walk(point):_finish(load_ms);return
+	if not await _site(Vector2(392,260),"delivered","relay-delivery"):_finish(load_ms);return
+	for point in [Vector2(368,280),Vector2(368,112),Vector2(272,112)]:
+		if not await _walk(point):_finish(load_ms);return
+	if not await _site(Vector2(272,112),"marker_restored","marker-repair"):_finish(load_ms);return
+	for point in [Vector2(184,112),Vector2(184,205),Vector2(80,205)]:
+		if not await _walk(point):_finish(load_ms);return
+	await _key(KEY_E);await _frames(5);await _capture("report-choices")
+	await _key(KEY_ENTER);await _frames(6);await _capture("report-complete")
+	if not route.get("report_done"):failed=true
+	for flag in ["heard_calls","water_mark_observed","reported_calls","reported_water_mark"]:
+		if route.get(flag):failed=true
+	_finish(load_ms)
+'''
+for name,run,extra in [("full",full,helpers),("bypass",simple,"")]:
+ out=r/name;out.mkdir(exist_ok=True)
+ code=base[:start]+extra+run+base[end:]
+ code=code.replace("/route1-startup-review/",f"/landing-loop-review/{name}/").replace("after-ordinary-walkthrough-results.json","walkthrough-results.json").replace("ORDINARY_CACHED_ROUTE_WALKTHROUGH","LANDING_"+name.upper()+"_WALKTHROUGH")
+ (s/("landing_"+name+"_walkthrough.gd")).write_text(code,encoding="utf-8")
+preview=(s/"terrain_installed_review.gd").read_text(encoding="utf-8").replace("/terrain-relief-review/","/landing-loop-review/").replace("installed-overview","installed-overview").replace('Vector2(218,262)','Vector2(310,324)').replace('"installed-entrance"','"installed-turn"').replace('Vector2(310,354)','Vector2(426,338)').replace('"installed-crest"','"installed-bank"').replace('Vector2(395,240)','Vector2(422,376)').replace('"installed-landing"','"installed-return"')
+(s/"landing_installed_review.gd").write_text(preview,encoding="utf-8")
+print("Installed guarded landing-loop renderer and notice; full-loop and optional-bypass inputs prepared.")

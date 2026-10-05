@@ -1,0 +1,266 @@
+[
+  {
+    "tag": "kithflare-front-signal_spark",
+    "timeline": "kithflare-front-signal_spark-timeline.png",
+    "frames": [
+      1,
+      15,
+      30,
+      60,
+      90,
+      120
+    ]
+  },
+  {
+    "tag": "kithflare-front-tail_brake",
+    "timeline": "kithflare-front-tail_brake-timeline.png",
+    "frames": [
+      1,
+      15,
+      30,
+      60,
+      90,
+      120
+    ]
+  },
+  {
+    "tag": "kithflare-front-shoulder_kindle",
+    "timeline": "kithflare-front-shoulder_kindle-timeline.png",
+    "frames": [
+      1,
+      15,
+      30,
+      60,
+      90,
+      120
+    ]
+  },
+  {
+    "tag": "kithflare-front-handoff_dash",
+    "timeline": "kithflare-front-handoff_dash-timeline.png",
+    "frames": [
+      1,
+      15,
+      30,
+      60,
+      90,
+      120
+    ]
+  },
+  {
+    "tag": "kithflare-back-signal_spark",
+    "timeline": "kithflare-back-signal_spark-timeline.png",
+    "frames": [
+      1,
+      15,
+      30,
+      60,
+      90,
+      120
+    ]
+  },
+  {
+    "tag": "kithflare-back-tail_brake",
+    "timeline": "kithflare-back-tail_brake-timeline.png",
+    "frames": [
+      1,
+      15,
+      30,
+      60,
+      90,
+      120
+    ]
+  },
+  {
+    "tag": "kithflare-back-shoulder_kindle",
+    "timeline": "kithflare-back-shoulder_kindle-timeline.png",
+    "frames": [
+      1,
+      15,
+      30,
+      60,
+      90,
+      120
+    ]
+  },
+  {
+    "tag": "kithflare-back-handoff_dash",
+    "timeline": "kithflare-back-handoff_dash-timeline.png",
+    "frames": [
+      1,
+      15,
+      30,
+      60,
+      90,
+      120
+    ]
+  },
+  {
+    "tag": "wayburn-front-relay_arc",
+    "timeline": "wayburn-front-relay_arc-timeline.png",
+    "frames": [
+      1,
+      15,
+      30,
+      60,
+      90,
+      120
+    ]
+  },
+  {
+    "tag": "wayburn-front-shoulder_drive",
+    "timeline": "wayburn-front-shoulder_drive-timeline.png",
+    "frames": [
+      1,
+      15,
+      30,
+      60,
+      90,
+      120
+    ]
+  },
+  {
+    "tag": "wayburn-front-tail_shutter",
+    "timeline": "wayburn-front-tail_shutter-timeline.png",
+    "frames": [
+      1,
+      15,
+      30,
+      60,
+      90,
+      120
+    ]
+  },
+  {
+    "tag": "wayburn-front-wayflare",
+    "timeline": "wayburn-front-wayflare-timeline.png",
+    "frames": [
+      1,
+      15,
+      30,
+      60,
+      90,
+      120
+    ]
+  },
+  {
+    "tag": "wayburn-back-relay_arc",
+    "timeline": "wayburn-back-relay_arc-timeline.png",
+    "frames": [
+      1,
+      15,
+      30,
+      60,
+      90,
+      120
+    ]
+  },
+  {
+    "tag": "wayburn-back-shoulder_drive",
+    "timeline": "wayburn-back-shoulder_drive-timeline.png",
+    "frames": [
+      1,
+      15,
+      30,
+      60,
+      90,
+      120
+    ]
+  },
+  {
+    "tag": "wayburn-back-tail_shutter",
+    "timeline": "wayburn-back-tail_shutter-timeline.png",
+    "frames": [
+      1,
+      15,
+      30,
+      60,
+      90,
+      120
+    ]
+  },
+  {
+    "tag": "wayburn-back-wayflare",
+    "timeline": "wayburn-back-wayflare-timeline.png",
+    "frames": [
+      1,
+      15,
+      30,
+      60,
+      90,
+      120
+    ]
+  },
+  {
+    "tag": "coalcrest-front-crest_signal",
+    "timeline": "coalcrest-front-crest_signal-timeline.png",
+    "frames": [
+      1,
+      15,
+      30,
+      60,
+      90,
+      120
+    ]
+  },
+  {
+    "tag": "coalcrest-front-furnace_bolt",
+    "timeline": "coalcrest-front-furnace_bolt-timeline.png",
+    "frames": [
+      1,
+      15,
+      30,
+      60,
+      90,
+      120
+    ]
+  },
+  {
+    "tag": "coalcrest-front-longfire_burst",
+    "timeline": "coalcrest-front-longfire_burst-timeline.png",
+    "frames": [
+      1,
+      15,
+      30,
+      60,
+      90,
+      120
+    ]
+  },
+  {
+    "tag": "coalcrest-back-crest_signal",
+    "timeline": "coalcrest-back-crest_signal-timeline.png",
+    "frames": [
+      1,
+      15,
+      30,
+      60,
+      90,
+      120
+    ]
+  },
+  {
+    "tag": "coalcrest-back-furnace_bolt",
+    "timeline": "coalcrest-back-furnace_bolt-timeline.png",
+    "frames": [
+      1,
+      15,
+      30,
+      60,
+      90,
+      120
+    ]
+  },
+  {
+    "tag": "coalcrest-back-longfire_burst",
+    "timeline": "coalcrest-back-longfire_burst-timeline.png",
+    "frames": [
+      1,
+      15,
+      30,
+      60,
+      90,
+      120
+    ]
+  }
+]

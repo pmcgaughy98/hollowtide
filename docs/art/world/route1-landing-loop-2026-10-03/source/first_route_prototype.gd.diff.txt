@@ -1,0 +1,39 @@
+--- before/scripts/first_route_prototype.gd
++++ current/scripts/first_route_prototype.gd
+@@ -15,6 +15,7 @@
+ 	"levee_entrance": Vector2(216, 264),
+ 	"city_clerk": Vector2(816, 480),
+ 	"city_directions": Vector2(912, 444),
++	"landing_notice": Vector2(320, 316),
+ }
+ 
+ @onready var player: CharacterBody2D = $Player
+@@ -105,6 +106,8 @@
+ 			_hint.text = "E  Speak to city courier"
+ 		"city_directions":
+ 			_hint.text = "E  Read city directions"
++		"landing_notice":
++			_hint.text = "E  Read old landing notice"
+ 		_:
+ 			_hint.text = "WASD / arrows  Move    E  Interact"
+ 
+@@ -161,6 +164,8 @@
+ 			_visit_city_clerk()
+ 		"city_directions":
+ 			_visit_city_directions()
++		"landing_notice":
++			_visit_landing_notice()
+ 		_:
+ 			return
+ 	get_viewport().set_input_as_handled()
+@@ -181,6 +186,10 @@
+ func _visit_city_directions() -> void:
+ 	city_directions_read = true
+ 	_show_message("CITY ROUTES\nHistoric quarter: north and uphill. Works district: south along the river. The older school quarter lies beyond the historic streets; the newer trade roads continue inland. The bridge returns to your hometown.")
++
++
++func _visit_landing_notice() -> void:
++	_show_message("OLD LANDING FOOTPATH\nThe bank trail reaches the relay post and height marker, then winds under the cottonwoods back to the bridge road. The crest is higher ground. Worn rope grooves mark the older crossing; the cuts on the height post have no dates.")
+ 
+ 
+ func _nearest_site() -> String:

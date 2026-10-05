@@ -1,0 +1,220 @@
+extends Node2D
+
+## Native terrain contours assembled from the approved ground materials.
+## The grassy embankment slopes gradually into the field; the old landing stays clear.
+const ATLAS = preload("res://assets/tilesets/route1_rd_2026_10_01/route1_ground_atlas_polished.png")
+const SOIL = preload("res://assets/sprites/world/route1_crossing_2026_10_02/path_soil_native32.png")
+const SOIL_COLOURS = {0xad9873: true, 0xb3a078: true, 0xb7a57d: true, 0xbbaa80: true, 0xbfae84: true, 0xc3b389: true, 0x9d906a: true}
+const GRASS_RAMP = [Color("#526c55"), Color("#576f57"), Color("#5b745a"), Color("#60795e"), Color("#657e61"), Color("#6b8365")]
+
+var _terrain: TileMapLayer
+var _atlas: Image
+var _soil: Image
+var _crest: PackedVector2Array
+var _road: Image
+var _road_at: Vector2i
+var slope_pixel_count := 0
+var lane_corner_pixel_count := 0
+var bank_face_pixel_count := 0
+
+
+func _ready() -> void:
+	var crossing := get_parent()
+	_terrain = crossing.get_parent().get_node("Terrain")
+	_atlas = ATLAS.get_image()
+	_soil = SOIL.get_image()
+	_crest = crossing.get("_levee")
+	var road: Sprite2D = crossing.get_node("JoinedLeveeRoad")
+	_road = road.texture.get_image()
+	_road_at = Vector2i(road.position)
+	_build_crest_shoulders()
+	_round_old_lanes()
+	_build_bank_faces()
+
+
+func _surface(label: String, image: Image, at: Vector2i, grass_material: bool = true) -> void:
+	var surface := Sprite2D.new()
+	surface.name = label
+	surface.texture = ImageTexture.create_from_image(image)
+	surface.centered = false
+	surface.position = at
+	surface.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
+	if grass_material:
+		surface.material = _terrain.material
+	add_child(surface)
+
+
+func _colour_is_soil(colour: Color) -> bool:
+	return colour.a > 0.5 and SOIL_COLOURS.has((colour.r8 << 16) | (colour.g8 << 8) | colour.b8)
+
+
+func _terrain_colour(at: Vector2i) -> Color:
+	var tile := _terrain.get_cell_atlas_coords(Vector2i(floori(at.x / 16.0), floori(at.y / 16.0)))
+	if tile.x < 0:
+		return Color.TRANSPARENT
+	return _atlas.get_pixelv(tile * 16 + Vector2i(posmod(at.x, 16), posmod(at.y, 16)))
+
+
+func _on_crest_road(at: Vector2i) -> bool:
+	var pixel := at - _road_at
+	return pixel.x >= 0 and pixel.y >= 0 and pixel.x < _road.get_width() and pixel.y < _road.get_height() and _colour_is_soil(_road.get_pixelv(pixel))
+
+
+func _grass(at: Vector2i, shade_shift: int = 0) -> Color:
+	var source := _atlas.get_pixel(posmod(at.x, 32), posmod(at.y, 16))
+	var level := 0
+	var difference := INF
+	for i in range(GRASS_RAMP.size()):
+		var gap: float = absf(source.g - GRASS_RAMP[i].g)
+		if gap < difference:
+			level = i
+			difference = gap
+	return GRASS_RAMP[clampi(level + shade_shift, 0, 5)]
+
+
+func _crest_sample(point: Vector2) -> Vector3:
+	var result := Vector3(INF, 0, 0)
+	for i in range(_crest.size() - 1):
+		var segment := _crest[i + 1] - _crest[i]
+		var travel := clampf((point - _crest[i]).dot(segment) / segment.length_squared(), 0.0, 1.0)
+		var nearest := _crest[i] + segment * travel
+		var away := point - nearest
+		if away.length() < result.x:
+			var normal := Vector2(-segment.y, segment.x).normalized()
+			result = Vector3(away.length(), away.dot(normal), nearest.y)
+	return result
+
+
+func _build_crest_shoulders() -> void:
+	var area := Rect2i(136, 216, 296, 248)
+	var image := Image.create(area.size.x, area.size.y, false, Image.FORMAT_RGBA8)
+	image.fill(Color.TRANSPARENT)
+	for y in range(area.size.y):
+		for x in range(area.size.x):
+			var at := area.position + Vector2i(x, y)
+			if _on_crest_road(at) or _colour_is_soil(_terrain_colour(at)):
+				continue
+			var sample := _crest_sample(Vector2(at) + Vector2(0.5, 0.5))
+			var start_blend := smoothstep(224.0, 282.0, sample.z)
+			var end_blend := 1.0 - smoothstep(386.0, 421.0, float(at.x))
+			var half_width := lerpf(24.0, 13.0, smoothstep(216.0, 264.0, sample.z))
+			var breadth := (28.0 if sample.y > 0 else 20.0) * start_blend * end_blend
+			var margin := sample.x - half_width
+			if breadth < 2.0 or margin < -2.0 or margin >= breadth:
+				continue
+			var downhill := clampf(margin / breadth, 0.0, 1.0)
+			var shift := 0
+			if sample.y > 0:
+				# A broad shaded grass face, with a level toe joining the field.
+				shift = -2 if downhill < 0.62 else -1
+			else:
+				shift = 1 if downhill < 0.48 else 0
+			var colour := _grass(at, shift)
+			if downhill > 0.84:
+				colour = _grass(at)
+			image.set_pixel(x, y, colour)
+			slope_pixel_count += 1
+	_surface("GrassyLeveeShoulders", image, area.position)
+
+
+func _mask_at(mask: PackedByteArray, size: Vector2i, at: Vector2i) -> int:
+	if at.x < 0 or at.y < 0 or at.x >= size.x or at.y >= size.y:
+		return 0
+	return mask[at.y * size.x + at.x]
+
+
+func _near(mask: PackedByteArray, size: Vector2i, at: Vector2i, radius: int, value: int) -> bool:
+	for dy in range(-radius, radius + 1):
+		for dx in range(-radius, radius + 1):
+			if _mask_at(mask, size, at + Vector2i(dx, dy)) == value:
+				return true
+	return false
+
+
+func _round_old_lanes() -> void:
+	# Smooth the authored lane footprint, keeping its width, stops and soil phase.
+	var area := Rect2i(0, 80, 416, 248)
+	var original := PackedByteArray()
+	original.resize(area.size.x * area.size.y)
+	for y in range(area.size.y):
+		for x in range(area.size.x):
+			original[y * area.size.x + x] = int(_colour_is_soil(_terrain_colour(area.position + Vector2i(x, y))))
+	var mask := original.duplicate()
+	for _pass_index in range(10):
+		var rounded := mask.duplicate()
+		for y in range(2, area.size.y - 2):
+			for x in range(2, area.size.x - 2):
+				var neighbours := 0
+				for dy in range(-1, 2):
+					for dx in range(-1, 2):
+						neighbours += _mask_at(mask, area.size, Vector2i(x + dx, y + dy))
+				rounded[y * area.size.x + x] = int(neighbours >= 5)
+		mask = rounded
+	var image := Image.create(area.size.x, area.size.y, false, Image.FORMAT_RGBA8)
+	image.fill(Color.TRANSPARENT)
+	for y in range(area.size.y):
+		for x in range(area.size.x):
+			var pixel := Vector2i(x, y)
+			var at := area.position + pixel
+			# A crest road above this layer retains its accepted complete join.
+			if _on_crest_road(at):
+				continue
+			var soil_here := _mask_at(mask, area.size, pixel) == 1
+			var near_old := _near(original, area.size, pixel, 3, 1)
+			var near_new := _near(mask, area.size, pixel, 3, 1)
+			if not near_old and not near_new:
+				continue
+			var colour := _grass(at)
+			if soil_here:
+				colour = _soil.get_pixel(posmod(at.x, 32), posmod(at.y, 32))
+				if _near(mask, area.size, pixel, 1, 0):
+					colour = Color("#9d906a")
+			elif near_new:
+				# Broken turf fringe is less rigid than a continuous dark band.
+				var root_texture := posmod(at.x * 7 + at.y * 11, 9)
+				colour = _grass(at, -1 if root_texture < 5 else 0)
+			image.set_pixel(x, y, colour)
+			if soil_here != (_mask_at(original, area.size, pixel) == 1):
+				lane_corner_pixel_count += 1
+	_surface("RoundedDispatchAndLandingLanes", image, area.position)
+
+
+func _build_bank_faces() -> void:
+	# Keep the accepted approaches; a short exposed earth face meets the current.
+	get_parent().get_node("Landscape/WetBankContours").visible = false
+	var area := Rect2i(408, 0, 296, 640)
+	var image := Image.create(area.size.x, area.size.y, false, Image.FORMAT_RGBA8)
+	image.fill(Color.TRANSPARENT)
+	for y in range(640):
+		var blend := smoothstep(0.0, 28.0, maxf(372.0 - y, y - 476.0))
+		if blend <= 0.0:
+			continue
+		var wave := roundi(sin(float(y) / 61.0) * 5.0 + sin(float(y) / 19.0) * 2.0)
+		var landing := y >= 180 and y <= 332
+		var west_edge := roundi(lerpf(448.0, 448 + (0 if landing else wave), blend))
+		var east_edge := roundi(lerpf(672.0, 676 + wave, blend))
+		for bank_index in range(2):
+			var facing := 1 if bank_index == 0 else -1
+			var edge := west_edge if bank_index == 0 else east_edge
+			for distance in range(-16, 13):
+				var x := edge + distance * facing
+				var at := Vector2i(x, y)
+				var colour := Color.TRANSPARENT
+				if distance < 0:
+					if bank_index == 0 and landing:
+						colour = _soil.get_pixel(posmod(x, 32), y % 32)
+					else:
+						colour = _grass(at, 1 if distance > -4 else 0)
+				elif distance < 7:
+					var dirt := _soil.get_pixel(posmod(x, 32), y % 32)
+					var facing_tint := Color("#79684e") if bank_index == 0 else Color("#9c8660")
+					colour = dirt.lerp(facing_tint, 0.72)
+					if distance == 0:
+						colour = _grass(at, -1)
+					elif distance > 4:
+						colour = Color("#5b6550")
+					bank_face_pixel_count += 1
+				elif distance < 10:
+					colour = Color("#45766c") if distance > 7 else Color("#53796a")
+				image.set_pixel(x - area.position.x, y, colour)
+	_surface("GrassyRimsAndSiltFaces", image, area.position)

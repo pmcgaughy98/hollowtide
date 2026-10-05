@@ -1,0 +1,62 @@
+[
+  {
+    "path": "data/creatures/104_wayburn.tres",
+    "status": "changed_texture_paths_only",
+    "sha256": "bdaeed81e5fd2987aece2054afb706e89fb48c889f7bc3267dc901abc9b84cbf"
+  },
+  {
+    "path": "data/creatures/105_coalcrest.tres",
+    "status": "changed_texture_paths_only",
+    "sha256": "6849548d230164847c842483a54464e8ed6f07dcec006d36ab032729bec53e7d"
+  },
+  {
+    "path": "assets/sprites/creatures/kithflare_line_rechecked_2026_10_04/coalcrest_back.png",
+    "status": "new_retained_unreferenced_candidate",
+    "sha256": "b78f5205c0b6b6e04e2a65bf3ada1dfe6897a613b25c390955ad3e026c81c49b"
+  },
+  {
+    "path": "assets/sprites/creatures/kithflare_line_rechecked_2026_10_04/coalcrest_back.png.import",
+    "status": "new_retained_unreferenced_candidate",
+    "sha256": "1f8bc2de33620e0c556fea9dbcbd9c48a3cdcbd7a5adc23bfb4dcda4222136e9"
+  },
+  {
+    "path": "assets/sprites/creatures/kithflare_line_rechecked_2026_10_04/coalcrest_back_anatomy_v2.png",
+    "status": "new_retained_unreferenced_candidate",
+    "sha256": "7b643970f84b2b79fd9e8892648ab09f2d3b9e1e981ee521d7651cd43c5ede09"
+  },
+  {
+    "path": "assets/sprites/creatures/kithflare_line_rechecked_2026_10_04/coalcrest_back_anatomy_v2.png.import",
+    "status": "new_retained_unreferenced_candidate",
+    "sha256": "6ecbfd6bb618ba0f6b45a66d7d96928c25f073c2f883c62741072253d4259219"
+  },
+  {
+    "path": "assets/sprites/creatures/kithflare_line_rechecked_2026_10_04/coalcrest_back_occluded_leg_v3.png",
+    "status": "new_active",
+    "sha256": "e2cde80eb484a38d0322c225a83d8584a37fb96c1ebfc6c1db83d373966020a1"
+  },
+  {
+    "path": "assets/sprites/creatures/kithflare_line_rechecked_2026_10_04/coalcrest_back_occluded_leg_v3.png.import",
+    "status": "new_active",
+    "sha256": "e4ab51d0ff1791269444096bdaa5d2e3d55b2a0099be8f82869f161909edd3ab"
+  },
+  {
+    "path": "assets/sprites/creatures/kithflare_line_rechecked_2026_10_04/wayburn_back.png",
+    "status": "new_active",
+    "sha256": "86dc93681fe5c1e97d637d75bf15d3a02ae10affba6b539911d8dc9ccd5cf70d"
+  },
+  {
+    "path": "assets/sprites/creatures/kithflare_line_rechecked_2026_10_04/wayburn_back.png.import",
+    "status": "new_active",
+    "sha256": "8c63e8eef64e59af95bdcac213d958c31603ec9d39cb227258047c2cf238e57e"
+  },
+  {
+    "path": "assets/sprites/creatures/kithflare_line_rechecked_2026_10_04/wayburn_front.png",
+    "status": "new_active",
+    "sha256": "f23868dc25363eee1aaeccfb438e6d2ae1d19f904a2bc3aa617f862e12d32d68"
+  },
+  {
+    "path": "assets/sprites/creatures/kithflare_line_rechecked_2026_10_04/wayburn_front.png.import",
+    "status": "new_active",
+    "sha256": "d07c6285bba597824d5188d0c6f25fcbfa2163fbb788f85058eb51cc08b54cdc"
+  }
+]

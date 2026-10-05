@@ -1,0 +1,43 @@
+from pathlib import Path
+import json,hashlib,shutil
+W=Path(r"C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an");D=W/"hometown-homes-2026-10-04";P=Path(r"C:/Users/pmcga/dev/hollowtide")
+base=json.loads((D/"baseline.json").read_text())
+for rel in ["scripts/area_landscape.gd","scripts/world_area.gd","scripts/world_journey.gd"]:
+ assert hashlib.sha256((P/rel).read_bytes()).hexdigest()==base[rel],"shared source changed; reread before installing"
+art=P/"assets/sprites/world/hometown_homes_2026_10_04";assert not art.exists();art.mkdir()
+for p in (D/"prepared").glob("*.png"):shutil.copy2(p,art/p.name)
+shutil.copy2(D/"prepared/courtyard_home_room.gd.txt",P/"scripts/courtyard_home_room.gd")
+shutil.copy2(D/"prepared/courtyard_home.tscn.txt",P/"scenes/courtyard_home.tscn")
+def replace_once(s,old,new):
+ assert s.count(old)==1,old[:100]
+ return s.replace(old,new,1)
+p=P/"scripts/area_landscape.gd";s=p.read_text()
+anchor='const HOME = preload("res://assets/sprites/world/hometown_courtyard_2026_10_03/courtyard_home.png")\n'
+s=replace_once(s,anchor,anchor+'const NEIGHBOR_HOME = preload("res://assets/sprites/world/hometown_homes_2026_10_04/neighbor_home.png")\nconst GARDEN_HOME = preload("res://assets/sprites/world/hometown_homes_2026_10_04/garden_home.png")\n')
+old='''    for pair in [[Vector2(224,256),"CourtyardHome"],[Vector2(560,224),"NeighborHome"],[Vector2(288,608),"GardenHome"]]:
+        _prop(pair[1],HOME,pair[0],0.75)
+        _wall(pair[1]+"Footprint",pair[0]+Vector2(0,-23),Vector2(96,50))
+'''
+new='''    _prop("CourtyardHome",HOME,Vector2(224,256),0.75)
+    # Keep a forgiving door corridor inside the original home footprint.
+    _wall("CourtyardHomeRear",Vector2(224,218),Vector2(96,20))
+    _wall("CourtyardHomeWest",Vector2(196,243),Vector2(40,30))
+    _wall("CourtyardHomeEast",Vector2(260,243),Vector2(24,30))
+    _prop("NeighborHome",NEIGHBOR_HOME,Vector2(560,224),0.75)
+    _wall("NeighborHomeFootprint",Vector2(560,201),Vector2(108,50))
+    _prop("GardenHome",GARDEN_HOME,Vector2(288,608),0.75)
+    _wall("GardenHomeFootprint",Vector2(288,590),Vector2(92,40))
+'''
+s=replace_once(s,old,new);p.write_text(s,encoding="utf-8",newline="\n")
+p=P/"scripts/world_area.gd";s=p.read_text()
+s=replace_once(s,'"home": return "E  Check home courtyard"','"home": return "Walk up through courtyard home doorway"');p.write_text(s,encoding="utf-8",newline="\n")
+p=P/"scripts/world_journey.gd";s=p.read_text()
+s=replace_once(s,'"courier_hall": preload("res://scenes/courier_hall.tscn"),','"courier_hall": preload("res://scenes/courier_hall.tscn"),\n    "courtyard_home": preload("res://scenes/courtyard_home.tscn"),')
+s=replace_once(s,'@export_enum("hometown", "route1", "riverfront", "courier_hall", "historic_street")','@export_enum("hometown", "route1", "riverfront", "courier_hall", "historic_street", "courtyard_home")')
+s=replace_once(s,'var arrival: Vector2 = {"hometown":Vector2(224,280),','var arrival: Vector2 = {"courtyard_home":Vector2(128,208),"hometown":Vector2(224,280),')
+s=replace_once(s,'Vector2.DOWN if initial_area == "hometown" else Vector2.RIGHT','Vector2.DOWN if initial_area == "hometown" else (Vector2.UP if initial_area == "courtyard_home" else Vector2.RIGHT)')
+s=replace_once(s,'        "hometown":\n            _gate(entrances, "CourierHallDoor"','        "hometown":\n            _gate(entrances, "CourtyardHomeDoor", Vector2(233,242), Vector2(20,8), "courtyard_home", Vector2(128,208), Vector2.UP)\n            _gate(entrances, "CourierHallDoor"')
+s=replace_once(s,'        "courier_hall":\n            _gate(entrances, "HallExit"','        "courtyard_home":\n            _gate(entrances, "HomeExit", Vector2(128,232), Vector2(28,12), "hometown", Vector2(233,280), Vector2.DOWN)\n        "courier_hall":\n            _gate(entrances, "HallExit"')
+s=replace_once(s,'{"hometown":"HOMETOWN / COURTYARD STREETS",','{"courtyard_home":"HOMETOWN / COURTYARD HOME", "hometown":"HOMETOWN / COURTYARD STREETS",')
+p.write_text(s,encoding="utf-8",newline="\n")
+print(json.dumps({"existing_changed":["scripts/area_landscape.gd","scripts/world_area.gd","scripts/world_journey.gd"],"new_script":"scripts/courtyard_home_room.gd","new_scene":"scenes/courtyard_home.tscn","new_native_pngs":sorted(p.name for p in art.glob("*.png")),"protected_state_architecture_edited":False}))

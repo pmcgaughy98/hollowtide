@@ -1,0 +1,1882 @@
+{
+  "created_utc": "2026-10-02T18:54:00Z",
+  "instance": "route-crossing-verified",
+  "seed": 20261002,
+  "fixed_fps": 60,
+  "tests": [
+    {
+      "name": "verified_home",
+      "state": [
+        {
+          "results": [
+            {
+              "effective_time_scale": 0,
+              "frame": {
+                "frames_drawn": 2358,
+                "physics_frames": 2358,
+                "process_frames": 2357
+              },
+              "instance": "route-crossing-verified",
+              "missing": [],
+              "ok": true,
+              "op": "GameProbe",
+              "paused": false,
+              "provenance": {
+                "source": "runtime",
+                "target": {
+                  "instance": "route-crossing-verified",
+                  "kind": "game"
+                }
+              },
+              "requestId": "mcp-e3ae537b-39cd-4c59-874f-6ee2a3881b34",
+              "suspended": true,
+              "time_scale": 1,
+              "transport": "summer",
+              "values": {
+                "/root/FirstRoutePrototype/Player:position": "Vector2(48, 192)",
+                "/root/FirstRoutePrototype:pouch_accepted": false
+              }
+            }
+          ],
+          "skippedCount": 0,
+          "status": "ok",
+          "stopOnError": true,
+          "undoGroup": false,
+          "requestId": "mcp-e3ae537b-39cd-4c59-874f-6ee2a3881b34",
+          "terminalState": "applied",
+          "appliedSeq": 843
+        }
+      ]
+    },
+    {
+      "name": "verified_levee",
+      "state": [
+        {
+          "results": [
+            {
+              "effective_time_scale": 0,
+              "format": "jpeg",
+              "frame": {
+                "frames_drawn": 2582,
+                "physics_frames": 2582,
+                "process_frames": 2581
+              },
+              "height": 648,
+              "image_frame": 2581,
+              "instance": "route-crossing-verified",
+              "mime": "image/jpeg",
+              "missing": [],
+              "ok": true,
+              "op": "GameProbe",
+              "paused": false,
+              "provenance": {
+                "source": "runtime",
+                "target": {
+                  "instance": "route-crossing-verified",
+                  "kind": "game"
+                }
+              },
+              "requestId": "mcp-d483a15d-e0d8-4eff-9f9b-ba1bbebcdd4b",
+              "source_height": 648,
+              "source_width": 1152,
+              "suspended": true,
+              "time_scale": 1,
+              "transport": "summer",
+              "values": {
+                "/root/FirstRoutePrototype/Player:position": "Vector2(216, 264)",
+                "/root/FirstRoutePrototype:levee_entrance_read": true,
+                "/root/FirstRoutePrototype:pouch_accepted": true
+              },
+              "width": 1152
+            }
+          ],
+          "skippedCount": 0,
+          "status": "ok",
+          "stopOnError": true,
+          "undoGroup": false,
+          "requestId": "mcp-d483a15d-e0d8-4eff-9f9b-ba1bbebcdd4b",
+          "terminalState": "applied",
+          "appliedSeq": 845
+        }
+      ]
+    },
+    {
+      "name": "verified_bridge",
+      "state": [
+        {
+          "results": [
+            {
+              "effective_time_scale": 0,
+              "format": "jpeg",
+              "frame": {
+                "frames_drawn": 16176,
+                "physics_frames": 16176,
+                "process_frames": 16175
+              },
+              "height": 648,
+              "image_frame": 16175,
+              "instance": "route-crossing-verified",
+              "mime": "image/jpeg",
+              "missing": [],
+              "ok": true,
+              "op": "GameProbe",
+              "paused": false,
+              "provenance": {
+                "source": "runtime",
+                "target": {
+                  "instance": "route-crossing-verified",
+                  "kind": "game"
+                }
+              },
+              "requestId": "mcp-e2998560-62df-4169-acbf-09e01e0cb8ea",
+              "source_height": 648,
+              "source_width": 1152,
+              "suspended": true,
+              "time_scale": 1,
+              "transport": "summer",
+              "values": {
+                "/root/FirstRoutePrototype/Player:position": "Vector2(551.792, 415.792)",
+                "/root/FirstRoutePrototype:pouch_accepted": true
+              },
+              "width": 1152
+            }
+          ],
+          "skippedCount": 0,
+          "status": "ok",
+          "stopOnError": true,
+          "undoGroup": false,
+          "requestId": "mcp-e2998560-62df-4169-acbf-09e01e0cb8ea",
+          "terminalState": "applied",
+          "appliedSeq": 847
+        }
+      ]
+    },
+    {
+      "name": "verified_city",
+      "state": [
+        {
+          "results": [
+            {
+              "effective_time_scale": 0,
+              "format": "jpeg",
+              "frame": {
+                "frames_drawn": 17726,
+                "physics_frames": 17726,
+                "process_frames": 17725
+              },
+              "height": 648,
+              "image_frame": 17725,
+              "instance": "route-crossing-verified",
+              "mime": "image/jpeg",
+              "missing": [
+                "/root/FirstRoutePrototype:dialogue_open"
+              ],
+              "ok": true,
+              "op": "GameProbe",
+              "paused": false,
+              "provenance": {
+                "source": "runtime",
+                "target": {
+                  "instance": "route-crossing-verified",
+                  "kind": "game"
+                }
+              },
+              "requestId": "mcp-168d3773-0410-45a4-8e42-ac28da438afe",
+              "source_height": 648,
+              "source_width": 1152,
+              "suspended": true,
+              "time_scale": 1,
+              "transport": "summer",
+              "values": {
+                "/root/FirstRoutePrototype/Player:position": "Vector2(815.788, 479.793)",
+                "/root/FirstRoutePrototype:city_arrival_registered": true
+              },
+              "width": 1152
+            }
+          ],
+          "skippedCount": 0,
+          "status": "ok",
+          "stopOnError": true,
+          "undoGroup": false,
+          "requestId": "mcp-168d3773-0410-45a4-8e42-ac28da438afe",
+          "terminalState": "applied",
+          "appliedSeq": 849
+        }
+      ]
+    },
+    {
+      "name": "verified_board",
+      "state": [
+        {
+          "results": [
+            {
+              "effective_time_scale": 0,
+              "format": "jpeg",
+              "frame": {
+                "frames_drawn": 20509,
+                "physics_frames": 20509,
+                "process_frames": 20508
+              },
+              "height": 648,
+              "image_frame": 20508,
+              "instance": "route-crossing-verified",
+              "mime": "image/jpeg",
+              "missing": [],
+              "ok": true,
+              "op": "GameProbe",
+              "paused": false,
+              "provenance": {
+                "source": "runtime",
+                "target": {
+                  "instance": "route-crossing-verified",
+                  "kind": "game"
+                }
+              },
+              "requestId": "mcp-5b643e35-0e01-4d4e-81f1-1d3b2defddfc",
+              "source_height": 648,
+              "source_width": 1152,
+              "suspended": true,
+              "time_scale": 1,
+              "transport": "summer",
+              "values": {
+                "/root/FirstRoutePrototype/Player:position": "Vector2(911.787, 443.792)",
+                "/root/FirstRoutePrototype:city_directions_read": true
+              },
+              "width": 1152
+            }
+          ],
+          "skippedCount": 0,
+          "status": "ok",
+          "stopOnError": true,
+          "undoGroup": false,
+          "requestId": "mcp-5b643e35-0e01-4d4e-81f1-1d3b2defddfc",
+          "terminalState": "applied",
+          "appliedSeq": 852
+        }
+      ]
+    },
+    {
+      "name": "verified_return_midbridge",
+      "state": [
+        {
+          "results": [
+            {
+              "effective_time_scale": 0,
+              "frame": {
+                "frames_drawn": 22474,
+                "physics_frames": 22474,
+                "process_frames": 22473
+              },
+              "instance": "route-crossing-verified",
+              "missing": [],
+              "ok": true,
+              "op": "GameProbe",
+              "paused": false,
+              "provenance": {
+                "source": "runtime",
+                "target": {
+                  "instance": "route-crossing-verified",
+                  "kind": "game"
+                }
+              },
+              "requestId": "mcp-69fa666f-1ae4-47ed-8922-1bf07c75b23e",
+              "suspended": true,
+              "time_scale": 1,
+              "transport": "summer",
+              "values": {
+                "/root/FirstRoutePrototype/Player:position": "Vector2(551.792, 415.792)",
+                "/root/FirstRoutePrototype:city_arrival_registered": true,
+                "/root/FirstRoutePrototype:city_directions_read": true
+              }
+            }
+          ],
+          "skippedCount": 0,
+          "status": "ok",
+          "stopOnError": true,
+          "undoGroup": false,
+          "requestId": "mcp-69fa666f-1ae4-47ed-8922-1bf07c75b23e",
+          "terminalState": "applied",
+          "appliedSeq": 855
+        }
+      ]
+    },
+    {
+      "name": "verified_north_rail",
+      "state": [
+        {
+          "results": [
+            {
+              "effective_time_scale": 0,
+              "frame": {
+                "frames_drawn": 22542,
+                "physics_frames": 22542,
+                "process_frames": 22541
+              },
+              "instance": "route-crossing-verified",
+              "missing": [],
+              "ok": true,
+              "op": "GameProbe",
+              "paused": false,
+              "provenance": {
+                "source": "runtime",
+                "target": {
+                  "instance": "route-crossing-verified",
+                  "kind": "game"
+                }
+              },
+              "requestId": "mcp-ad2074e8-ab0f-4091-a85b-b3efc6940e2d",
+              "suspended": true,
+              "time_scale": 1,
+              "transport": "summer",
+              "values": {
+                "/root/FirstRoutePrototype/Player:position": "Vector2(551.792, 408.003)"
+              }
+            }
+          ],
+          "skippedCount": 0,
+          "status": "ok",
+          "stopOnError": true,
+          "undoGroup": false,
+          "requestId": "mcp-ad2074e8-ab0f-4091-a85b-b3efc6940e2d",
+          "terminalState": "applied",
+          "appliedSeq": 857
+        }
+      ]
+    },
+    {
+      "name": "verified_south_rail",
+      "state": [
+        {
+          "results": [
+            {
+              "effective_time_scale": 0,
+              "frame": {
+                "frames_drawn": 22612,
+                "physics_frames": 22612,
+                "process_frames": 22611
+              },
+              "instance": "route-crossing-verified",
+              "missing": [],
+              "ok": true,
+              "op": "GameProbe",
+              "paused": false,
+              "provenance": {
+                "source": "runtime",
+                "target": {
+                  "instance": "route-crossing-verified",
+                  "kind": "game"
+                }
+              },
+              "requestId": "mcp-8be00021-3ea9-49ec-b904-0957e80f3a37",
+              "suspended": true,
+              "time_scale": 1,
+              "transport": "summer",
+              "values": {
+                "/root/FirstRoutePrototype/Player:position": "Vector2(551.792, 431.999)"
+              }
+            }
+          ],
+          "skippedCount": 0,
+          "status": "ok",
+          "stopOnError": true,
+          "undoGroup": false,
+          "requestId": "mcp-8be00021-3ea9-49ec-b904-0957e80f3a37",
+          "terminalState": "applied",
+          "appliedSeq": 859
+        }
+      ]
+    },
+    {
+      "name": "verified_return_landing",
+      "state": [
+        {
+          "results": [
+            {
+              "effective_time_scale": 0,
+              "format": "jpeg",
+              "frame": {
+                "frames_drawn": 26254,
+                "physics_frames": 26254,
+                "process_frames": 26253
+              },
+              "height": 648,
+              "image_frame": 26253,
+              "instance": "route-crossing-verified",
+              "mime": "image/jpeg",
+              "missing": [],
+              "ok": true,
+              "op": "GameProbe",
+              "paused": false,
+              "provenance": {
+                "source": "runtime",
+                "target": {
+                  "instance": "route-crossing-verified",
+                  "kind": "game"
+                }
+              },
+              "requestId": "mcp-9027daab-c64e-4d9a-9739-ba70a6a23eba",
+              "source_height": 648,
+              "source_width": 1152,
+              "suspended": true,
+              "time_scale": 1,
+              "transport": "summer",
+              "values": {
+                "/root/FirstRoutePrototype/Player:position": "Vector2(422.459, 268.497)",
+                "/root/FirstRoutePrototype:delivered": true,
+                "/root/FirstRoutePrototype:heard_calls": true,
+                "/root/FirstRoutePrototype:water_mark_observed": true
+              },
+              "width": 1152
+            }
+          ],
+          "skippedCount": 0,
+          "status": "ok",
+          "stopOnError": true,
+          "undoGroup": false,
+          "requestId": "mcp-9027daab-c64e-4d9a-9739-ba70a6a23eba",
+          "terminalState": "applied",
+          "appliedSeq": 863
+        }
+      ]
+    },
+    {
+      "name": "verified_report_choices",
+      "state": [
+        {
+          "results": [
+            {
+              "effective_time_scale": 0,
+              "format": "jpeg",
+              "frame": {
+                "frames_drawn": 28082,
+                "physics_frames": 28082,
+                "process_frames": 28081
+              },
+              "height": 648,
+              "image_frame": 28081,
+              "instance": "route-crossing-verified",
+              "mime": "image/jpeg",
+              "missing": [],
+              "ok": true,
+              "op": "GameProbe",
+              "paused": false,
+              "provenance": {
+                "source": "runtime",
+                "target": {
+                  "instance": "route-crossing-verified",
+                  "kind": "game"
+                }
+              },
+              "requestId": "mcp-4dd8236b-be2c-45db-8c1f-e1d7891c88d0",
+              "source_height": 648,
+              "source_width": 1152,
+              "suspended": true,
+              "time_scale": 1,
+              "total_nodes": 33,
+              "transport": "summer",
+              "tree": {
+                "children": [
+                  {
+                    "children": [],
+                    "class": "Label",
+                    "name": "@Label@169",
+                    "path": "/root/FirstRoutePrototype/RouteHUD/@Label@169"
+                  },
+                  {
+                    "children": [
+                      {
+                        "children": [
+                          {
+                            "children": [],
+                            "class": "Label",
+                            "name": "@Label@172",
+                            "path": "/root/FirstRoutePrototype/RouteHUD/@PanelContainer@170/@VBoxContainer@171/@Label@172"
+                          },
+                          {
+                            "children": [],
+                            "class": "Label",
+                            "name": "@Label@173",
+                            "path": "/root/FirstRoutePrototype/RouteHUD/@PanelContainer@170/@VBoxContainer@171/@Label@173"
+                          }
+                        ],
+                        "class": "VBoxContainer",
+                        "name": "@VBoxContainer@171",
+                        "path": "/root/FirstRoutePrototype/RouteHUD/@PanelContainer@170/@VBoxContainer@171"
+                      }
+                    ],
+                    "class": "PanelContainer",
+                    "name": "@PanelContainer@170",
+                    "path": "/root/FirstRoutePrototype/RouteHUD/@PanelContainer@170"
+                  },
+                  {
+                    "children": [],
+                    "class": "Label",
+                    "name": "@Label@174",
+                    "path": "/root/FirstRoutePrototype/RouteHUD/@Label@174"
+                  },
+                  {
+                    "children": [
+                      {
+                        "children": [
+                          {
+                            "children": [],
+                            "class": "Label",
+                            "name": "@Label@177",
+                            "path": "/root/FirstRoutePrototype/RouteHUD/@PanelContainer@175/@VBoxContainer@176/@Label@177"
+                          },
+                          {
+                            "children": [
+                              {
+                                "children": [],
+                                "class": "Button",
+                                "name": "@Button@196",
+                                "path": "/root/FirstRoutePrototype/RouteHUD/@PanelContainer@175/@VBoxContainer@176/@VBoxContainer@178/@Button@196"
+                              },
+                              {
+                                "children": [],
+                                "class": "Button",
+                                "name": "@Button@197",
+                                "path": "/root/FirstRoutePrototype/RouteHUD/@PanelContainer@175/@VBoxContainer@176/@VBoxContainer@178/@Button@197"
+                              }
+                            ],
+                            "class": "VBoxContainer",
+                            "name": "@VBoxContainer@178",
+                            "path": "/root/FirstRoutePrototype/RouteHUD/@PanelContainer@175/@VBoxContainer@176/@VBoxContainer@178"
+                          }
+                        ],
+                        "class": "VBoxContainer",
+                        "name": "@VBoxContainer@176",
+                        "path": "/root/FirstRoutePrototype/RouteHUD/@PanelContainer@175/@VBoxContainer@176"
+                      }
+                    ],
+                    "class": "PanelContainer",
+                    "name": "@PanelContainer@175",
+                    "path": "/root/FirstRoutePrototype/RouteHUD/@PanelContainer@175"
+                  },
+                  {
+                    "children": [
+                      {
+                        "children": [
+                          {
+                            "children": [],
+                            "class": "Label",
+                            "name": "@Label@181",
+                            "path": "/root/FirstRoutePrototype/RouteHUD/@PanelContainer@179/@VBoxContainer@180/@Label@181"
+                          },
+                          {
+                            "children": [
+                              {
+                                "children": [],
+                                "class": "Label",
+                                "name": "@Label@185",
+                                "path": "/root/FirstRoutePrototype/RouteHUD/@PanelContainer@179/@VBoxContainer@180/@ScrollContainer@184/@Label@185"
+                              },
+                              {
+                                "children": [],
+                                "class": "TextureRect",
+                                "name": "@TextureRect@182",
+                                "path": "/root/FirstRoutePrototype/RouteHUD/@PanelContainer@179/@VBoxContainer@180/@ScrollContainer@184/@TextureRect@182"
+                              },
+                              {
+                                "children": [],
+                                "class": "TextureRect",
+                                "name": "@TextureRect@183",
+                                "path": "/root/FirstRoutePrototype/RouteHUD/@PanelContainer@179/@VBoxContainer@180/@ScrollContainer@184/@TextureRect@183"
+                              },
+                              {
+                                "children": [],
+                                "class": "HScrollBar",
+                                "name": "_h_scroll",
+                                "path": "/root/FirstRoutePrototype/RouteHUD/@PanelContainer@179/@VBoxContainer@180/@ScrollContainer@184/_h_scroll"
+                              },
+                              {
+                                "children": [],
+                                "class": "VScrollBar",
+                                "name": "_v_scroll",
+                                "path": "/root/FirstRoutePrototype/RouteHUD/@PanelContainer@179/@VBoxContainer@180/@ScrollContainer@184/_v_scroll"
+                              },
+                              {
+                                "children": [],
+                                "class": "PanelContainer",
+                                "name": "_focus",
+                                "path": "/root/FirstRoutePrototype/RouteHUD/@PanelContainer@179/@VBoxContainer@180/@ScrollContainer@184/_focus"
+                              }
+                            ],
+                            "class": "ScrollContainer",
+                            "name": "@ScrollContainer@184",
+                            "path": "/root/FirstRoutePrototype/RouteHUD/@PanelContainer@179/@VBoxContainer@180/@ScrollContainer@184"
+                          }
+                        ],
+                        "class": "VBoxContainer",
+                        "name": "@VBoxContainer@180",
+                        "path": "/root/FirstRoutePrototype/RouteHUD/@PanelContainer@179/@VBoxContainer@180"
+                      }
+                    ],
+                    "class": "PanelContainer",
+                    "name": "@PanelContainer@179",
+                    "path": "/root/FirstRoutePrototype/RouteHUD/@PanelContainer@179"
+                  },
+                  {
+                    "children": [
+                      {
+                        "children": [
+                          {
+                            "children": [],
+                            "class": "Label",
+                            "name": "@Label@188",
+                            "path": "/root/FirstRoutePrototype/RouteHUD/@PanelContainer@186/@VBoxContainer@187/@Label@188"
+                          },
+                          {
+                            "children": [],
+                            "class": "Label",
+                            "name": "@Label@189",
+                            "path": "/root/FirstRoutePrototype/RouteHUD/@PanelContainer@186/@VBoxContainer@187/@Label@189"
+                          },
+                          {
+                            "children": [],
+                            "class": "Button",
+                            "name": "@Button@190",
+                            "path": "/root/FirstRoutePrototype/RouteHUD/@PanelContainer@186/@VBoxContainer@187/@Button@190"
+                          },
+                          {
+                            "children": [],
+                            "class": "Button",
+                            "name": "@Button@191",
+                            "path": "/root/FirstRoutePrototype/RouteHUD/@PanelContainer@186/@VBoxContainer@187/@Button@191"
+                          },
+                          {
+                            "children": [],
+                            "class": "Button",
+                            "name": "@Button@192",
+                            "path": "/root/FirstRoutePrototype/RouteHUD/@PanelContainer@186/@VBoxContainer@187/@Button@192"
+                          },
+                          {
+                            "children": [],
+                            "class": "Button",
+                            "name": "@Button@193",
+                            "path": "/root/FirstRoutePrototype/RouteHUD/@PanelContainer@186/@VBoxContainer@187/@Button@193"
+                          },
+                          {
+                            "children": [],
+                            "class": "Button",
+                            "name": "@Button@194",
+                            "path": "/root/FirstRoutePrototype/RouteHUD/@PanelContainer@186/@VBoxContainer@187/@Button@194"
+                          },
+                          {
+                            "children": [],
+                            "class": "Button",
+                            "name": "@Button@195",
+                            "path": "/root/FirstRoutePrototype/RouteHUD/@PanelContainer@186/@VBoxContainer@187/@Button@195"
+                          }
+                        ],
+                        "class": "VBoxContainer",
+                        "name": "@VBoxContainer@187",
+                        "path": "/root/FirstRoutePrototype/RouteHUD/@PanelContainer@186/@VBoxContainer@187"
+                      }
+                    ],
+                    "class": "PanelContainer",
+                    "name": "@PanelContainer@186",
+                    "path": "/root/FirstRoutePrototype/RouteHUD/@PanelContainer@186"
+                  }
+                ],
+                "class": "CanvasLayer",
+                "name": "RouteHUD",
+                "path": "/root/FirstRoutePrototype/RouteHUD"
+              },
+              "truncated": false,
+              "values": {
+                "/root/FirstRoutePrototype/Player:position": "Vector2(81.125, 192.497)",
+                "/root/FirstRoutePrototype:marker_restored": true,
+                "/root/FirstRoutePrototype:report_done": false
+              },
+              "width": 1152
+            }
+          ],
+          "skippedCount": 0,
+          "status": "ok",
+          "stopOnError": true,
+          "undoGroup": false,
+          "requestId": "mcp-4dd8236b-be2c-45db-8c1f-e1d7891c88d0",
+          "terminalState": "applied",
+          "appliedSeq": 865
+        }
+      ]
+    },
+    {
+      "name": "verified_full_report",
+      "state": [
+        {
+          "results": [
+            {
+              "effective_time_scale": 0,
+              "format": "jpeg",
+              "frame": {
+                "frames_drawn": 29458,
+                "physics_frames": 29458,
+                "process_frames": 29457
+              },
+              "height": 648,
+              "image_frame": 29457,
+              "instance": "route-crossing-verified",
+              "mime": "image/jpeg",
+              "missing": [],
+              "ok": true,
+              "op": "GameProbe",
+              "paused": false,
+              "provenance": {
+                "source": "runtime",
+                "target": {
+                  "instance": "route-crossing-verified",
+                  "kind": "game"
+                }
+              },
+              "requestId": "mcp-d5acbd92-51c7-4746-8332-40c3d9b2171d",
+              "source_height": 648,
+              "source_width": 1152,
+              "suspended": true,
+              "time_scale": 1,
+              "transport": "summer",
+              "values": {
+                "/root/FirstRoutePrototype/Player:position": "Vector2(81.125, 192.497)",
+                "/root/FirstRoutePrototype:city_arrival_registered": true,
+                "/root/FirstRoutePrototype:city_directions_read": true,
+                "/root/FirstRoutePrototype:delivered": true,
+                "/root/FirstRoutePrototype:heard_calls": true,
+                "/root/FirstRoutePrototype:levee_entrance_read": true,
+                "/root/FirstRoutePrototype:marker_restored": true,
+                "/root/FirstRoutePrototype:pouch_accepted": true,
+                "/root/FirstRoutePrototype:report_done": true,
+                "/root/FirstRoutePrototype:reported_calls": true,
+                "/root/FirstRoutePrototype:reported_water_mark": true,
+                "/root/FirstRoutePrototype:water_mark_observed": true
+              },
+              "width": 1152
+            }
+          ],
+          "skippedCount": 0,
+          "status": "ok",
+          "stopOnError": true,
+          "undoGroup": false,
+          "requestId": "mcp-d5acbd92-51c7-4746-8332-40c3d9b2171d",
+          "terminalState": "applied",
+          "appliedSeq": 867
+        }
+      ]
+    },
+    {
+      "name": "verified_simple_report",
+      "state": [
+        {
+          "results": [
+            {
+              "effective_time_scale": 0,
+              "frame": {
+                "frames_drawn": 31578,
+                "physics_frames": 31578,
+                "process_frames": 31577
+              },
+              "instance": "route-crossing-verified",
+              "missing": [],
+              "ok": true,
+              "op": "GameProbe",
+              "paused": false,
+              "provenance": {
+                "source": "runtime",
+                "target": {
+                  "instance": "route-crossing-verified",
+                  "kind": "game"
+                }
+              },
+              "requestId": "mcp-37655981-021e-44bc-b204-0673b193d6d3",
+              "suspended": true,
+              "time_scale": 1,
+              "transport": "summer",
+              "values": {
+                "/root/FirstRoutePrototype/RouteHUD/@PanelContainer@179/@VBoxContainer@180/@ScrollContainer@184/@Label@185:text": "ASSIGNMENT\nSealed pouch for the old ferry relay post.\n\nOBSERVED\nRoute marker was turned toward the bank; now straight.\nPouch in the dry slot. Keeper absent; return mark missing.\nTwo-note call across river; weaker copy near the post.\nUndated high-water cuts stand above today's river level.\nLevee crest road links home to the river bridge.\nArrival recorded at the city courier branch.\nCity direction board describes the neighboring quarters.\n\nUNKNOWN\nWho made the calls, and why the return mark is missing.\nWhen the higher water cuts were made.\n\nREPORTED\nEmpty post and undated high-water marks.\n",
+                "/root/FirstRoutePrototype:report_done": true,
+                "/root/FirstRoutePrototype:reported_calls": false,
+                "/root/FirstRoutePrototype:reported_water_mark": true
+              }
+            }
+          ],
+          "skippedCount": 0,
+          "status": "ok",
+          "stopOnError": true,
+          "undoGroup": false,
+          "requestId": "mcp-37655981-021e-44bc-b204-0673b193d6d3",
+          "terminalState": "applied",
+          "appliedSeq": 871
+        }
+      ]
+    },
+    {
+      "name": "verified_simple_report_fixture",
+      "state": [
+        {
+          "results": [
+            {
+              "applied": true,
+              "frame": {
+                "frames_drawn": 31539,
+                "physics_frames": 31539,
+                "process_frames": 31538
+              },
+              "instance": "route-crossing-verified",
+              "ok": true,
+              "op": "SetRuntimeProp",
+              "path": "/root/FirstRoutePrototype",
+              "property": "report_done",
+              "provenance": {
+                "source": "runtime",
+                "target": {
+                  "instance": "route-crossing-verified",
+                  "kind": "game"
+                }
+              },
+              "requestId": "mcp-0667ef8b-6d90-45af-8a68-66989d48a1e3",
+              "transport": "summer",
+              "value_after": false,
+              "value_before": true
+            }
+          ],
+          "skippedCount": 0,
+          "status": "ok",
+          "stopOnError": true,
+          "undoGroup": false,
+          "requestId": "mcp-0667ef8b-6d90-45af-8a68-66989d48a1e3",
+          "terminalState": "applied",
+          "appliedSeq": 869
+        }
+      ]
+    },
+    {
+      "name": "verified_final_diagnostics",
+      "state": [
+        {
+          "appliedThroughSeq": 870,
+          "data": {
+            "console": {
+              "editor": 32,
+              "errors": 0,
+              "max_messages": 50,
+              "messages": [
+                {
+                  "count": 1,
+                  "text": "[WebView2] Suspended hidden surface generation 3.",
+                  "type": "std"
+                },
+                {
+                  "count": 2,
+                  "text": "[WebView2] Suspended hidden surface generation 1.",
+                  "type": "std"
+                },
+                {
+                  "count": 1,
+                  "text": "[godot_ai game_helper] registered mcp capture (debugger active=true, logger=true)",
+                  "type": "std"
+                },
+                {
+                  "count": 1,
+                  "text": "MCP | [debug] holding mcp:hello from debugger session 0 until the run is adopted",
+                  "type": "std"
+                },
+                {
+                  "count": 1,
+                  "text": "[SE] AuthManager: CLI credential found; desktop session exchange required",
+                  "type": "std"
+                },
+                {
+                  "count": 1,
+                  "text": "",
+                  "type": "std"
+                },
+                {
+                  "count": 1,
+                  "text": "D3D12 12_0 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce GTX 1660 SUPER",
+                  "type": "std"
+                },
+                {
+                  "count": 1,
+                  "text": "Welcome to Summer Engine (c) built on the awesome work by Godot 2007-present Juan Linietsky, Ariel Manzur & Godot Contributors.",
+                  "type": "std"
+                },
+                {
+                  "count": 1,
+                  "text": "[SE] game instance 'route-crossing-verified' (pid 22024) attached as debugger session 0.",
+                  "type": "std"
+                },
+                {
+                  "count": 1,
+                  "text": "[SE] spawned game instance 'route-crossing-verified' (pid 22024, offscreen, deterministic).",
+                  "type": "std"
+                }
+              ],
+              "returned": 10,
+              "std": 53,
+              "total": 56,
+              "warnings": 0
+            },
+            "debugger": {
+              "errors": 0,
+              "errors_data": [],
+              "is_breaked": false,
+              "session_active": true,
+              "warnings": 11,
+              "warnings_data": [
+                {
+                  "callstack": [
+                    {
+                      "file": "res://scripts/creature_roster.gd",
+                      "function": "load_all",
+                      "line": 25
+                    },
+                    {
+                      "file": "res://scripts/debug/dex_overlay.gd",
+                      "function": "_refresh",
+                      "line": 63
+                    },
+                    {
+                      "file": "res://scripts/debug/dex_overlay.gd",
+                      "function": "_ready",
+                      "line": 47
+                    }
+                  ],
+                  "count": 1,
+                  "error": "res://data/creatures/001_rimefin.tres:4 - ext_resource, invalid UID: uid://crjluirawrgmi - using text path instead: res://assets/sprites/creatures/rimefin.png",
+                  "error_descr": "",
+                  "file": "scene\\resources\\resource_format_text.cpp",
+                  "function": "ResourceLoaderText::load",
+                  "line": 516,
+                  "severity": "warning",
+                  "timestamp_ms": 23335684
+                },
+                {
+                  "callstack": [],
+                  "count": 1,
+                  "error": "SHADOWED_VARIABLE",
+                  "error_descr": "The local variable \"start\" is shadowing an already-declared function at line 237 in the current class.",
+                  "file": "res://scripts/battle_screen.gd",
+                  "function": "GDScript::reload",
+                  "line": 1879,
+                  "severity": "warning",
+                  "timestamp_ms": 23335622
+                },
+                {
+                  "callstack": [],
+                  "count": 1,
+                  "error": "SHADOWED_VARIABLE_BASE_CLASS",
+                  "error_descr": "The local function parameter \"offset\" is shadowing an already-declared property in the base class \"CanvasLayer\".",
+                  "file": "res://scripts/battle_screen.gd",
+                  "function": "GDScript::reload",
+                  "line": 1874,
+                  "severity": "warning",
+                  "timestamp_ms": 23335622
+                },
+                {
+                  "callstack": [],
+                  "count": 1,
+                  "error": "SHADOWED_VARIABLE_BASE_CLASS",
+                  "error_descr": "The local function parameter \"offset\" is shadowing an already-declared property in the base class \"CanvasLayer\".",
+                  "file": "res://scripts/battle_screen.gd",
+                  "function": "GDScript::reload",
+                  "line": 1851,
+                  "severity": "warning",
+                  "timestamp_ms": 23335622
+                },
+                {
+                  "callstack": [],
+                  "count": 1,
+                  "error": "SHADOWED_VARIABLE_BASE_CLASS",
+                  "error_descr": "The local function parameter \"offset\" is shadowing an already-declared property in the base class \"CanvasLayer\".",
+                  "file": "res://scripts/battle_screen.gd",
+                  "function": "GDScript::reload",
+                  "line": 1831,
+                  "severity": "warning",
+                  "timestamp_ms": 23335622
+                },
+                {
+                  "callstack": [],
+                  "count": 1,
+                  "error": "SHADOWED_VARIABLE_BASE_CLASS",
+                  "error_descr": "The local function parameter \"offset\" is shadowing an already-declared property in the base class \"CanvasLayer\".",
+                  "file": "res://scripts/battle_screen.gd",
+                  "function": "GDScript::reload",
+                  "line": 1784,
+                  "severity": "warning",
+                  "timestamp_ms": 23335622
+                },
+                {
+                  "callstack": [],
+                  "count": 1,
+                  "error": "SHADOWED_VARIABLE_BASE_CLASS",
+                  "error_descr": "The local function parameter \"offset\" is shadowing an already-declared property in the base class \"CanvasLayer\".",
+                  "file": "res://scripts/battle_screen.gd",
+                  "function": "GDScript::reload",
+                  "line": 1660,
+                  "severity": "warning",
+                  "timestamp_ms": 23335622
+                },
+                {
+                  "callstack": [],
+                  "count": 1,
+                  "error": "SHADOWED_VARIABLE",
+                  "error_descr": "The local variable \"start\" is shadowing an already-declared function at line 237 in the current class.",
+                  "file": "res://scripts/battle_screen.gd",
+                  "function": "GDScript::reload",
+                  "line": 1542,
+                  "severity": "warning",
+                  "timestamp_ms": 23335622
+                },
+                {
+                  "callstack": [],
+                  "count": 1,
+                  "error": "SHADOWED_VARIABLE_BASE_CLASS",
+                  "error_descr": "The local function parameter \"offset\" is shadowing an already-declared property in the base class \"CanvasLayer\".",
+                  "file": "res://scripts/battle_screen.gd",
+                  "function": "GDScript::reload",
+                  "line": 1537,
+                  "severity": "warning",
+                  "timestamp_ms": 23335622
+                },
+                {
+                  "callstack": [],
+                  "count": 1,
+                  "error": "SHADOWED_VARIABLE_BASE_CLASS",
+                  "error_descr": "The local \"for\" iterator variable \"layer\" is shadowing an already-declared property in the base class \"CanvasLayer\".",
+                  "file": "res://scripts/battle_screen.gd",
+                  "function": "GDScript::reload",
+                  "line": 1099,
+                  "severity": "warning",
+                  "timestamp_ms": 23335622
+                },
+                {
+                  "callstack": [],
+                  "count": 1,
+                  "error": "SHADOWED_VARIABLE_BASE_CLASS",
+                  "error_descr": "The local variable \"offset\" is shadowing an already-declared property in the base class \"CanvasLayer\".",
+                  "file": "res://scripts/battle_screen.gd",
+                  "function": "GDScript::reload",
+                  "line": 786,
+                  "severity": "warning",
+                  "timestamp_ms": 23335622
+                }
+              ]
+            },
+            "guidance": "Only warnings present. Check console.messages for details.",
+            "has_issues": true,
+            "scopes": {
+              "application": {
+                "errors": 0,
+                "has_issues": false,
+                "warnings": 0
+              },
+              "classification": "known_application_signatures_and_compiler_locations",
+              "console_available": true,
+              "coverage": "observed_console_debugger_and_open_script_buffers_not_full_project_validation",
+              "csharp_unique_errors": 0,
+              "debugger_available": true,
+              "guidance": "Use project errors for observed game/compiler failures. Application errors describe Summer chat/WebView transport, not broken game scripts. Inspect unclassified console evidence before attributing it. Zero known project errors is not a full project validation.",
+              "project": {
+                "errors": 0,
+                "has_issues": true,
+                "script_validation_available": true,
+                "script_validation_incomplete": false,
+                "warnings": 11
+              },
+              "unclassified": {
+                "errors": 0,
+                "has_issues": false,
+                "warnings": 0
+              }
+            },
+            "script_errors": {
+              "count": 0,
+              "errors": [],
+              "scope": "open_script_buffers"
+            },
+            "total_errors": 0,
+            "total_warnings": 11
+          },
+          "ok": true,
+          "provenance": {
+            "dirty": false,
+            "rootName": "MainMenuArtPreview",
+            "rootType": "Node2D",
+            "scenePath": "res://scenes/main_menu_art_preview.tscn",
+            "source": "diagnostics",
+            "target": {
+              "kind": "diagnostics",
+              "path": "diagnostics"
+            }
+          },
+          "snapshotAt": 23870918,
+          "snapshotSeq": 166665,
+          "_view": {
+            "mode": "prioritized",
+            "totalConsole": 56,
+            "shownConsole": 10,
+            "suppressedInfo": 8,
+            "totalDebugger": 11,
+            "shownDebugger": 11,
+            "suppressedDebuggerWarnings": 0,
+            "hint": "All counts are complete; only low-severity message bodies were trimmed. Re-call with includeAll: true for the untrimmed payload, or use summer_get_console / summer_get_debugger_warnings for targeted reads."
+          }
+        }
+      ]
+    }
+  ],
+  "inputs": [
+    {
+      "name": "verified_inputs_home_levee",
+      "events": {
+        "content": [
+          {
+            "type": "text",
+            "text": "{\n  \"results\": [\n    {\n      \"applied\": 14,\n      \"clock_mapping\": \"exact\",\n      \"clock_unit\": \"physics_tick\",\n      \"completed\": true,\n      \"drove\": true,\n      \"first_frame\": 2362,\n      \"frame\": {\n        \"frames_drawn\": 2578,\n        \"physics_frames\": 2579,\n        \"process_frames\": 2578\n      },\n      \"instance\": \"route-crossing-verified\",\n      \"last_frame\": 2579,\n      \"ok\": true,\n      \"op\": \"SimulateInputScript\",\n      \"physics_ticks_per_second\": 60,\n      \"provenance\": {\n        \"source\": \"runtime\",\n        \"target\": {\n          \"instance\": \"route-crossing-verified\",\n          \"kind\": \"game\"\n        }\n      },\n      \"rejected\": [],\n      \"requestId\": \"mcp-3fc049d1-7794-40c6-97d1-e6e1991be633\",\n      \"scheduled\": 14,\n      \"suspended\": true,\n      \"transport\": \"summer\"\n    }\n  ],\n  \"skippedCount\": 0,\n  \"status\": \"ok\",\n  \"stopOnError\": true,\n  \"undoGroup\": false,\n  \"requestId\": \"mcp-3fc049d1-7794-40c6-97d1-e6e1991be633\",\n  \"terminalState\": \"applied\",\n  \"appliedSeq\": 844\n}"
+          }
+        ]
+      }
+    },
+    {
+      "name": "verified_inputs_levee_bridge",
+      "events": [
+        {
+          "at_frame": 0,
+          "type": "action",
+          "action": "move_right",
+          "pressed": true
+        },
+        {
+          "at_frame": 12,
+          "type": "action",
+          "action": "move_right",
+          "pressed": false
+        },
+        {
+          "at_frame": 14,
+          "type": "action",
+          "action": "move_right",
+          "pressed": true
+        },
+        {
+          "at_frame": 14,
+          "type": "action",
+          "action": "move_down",
+          "pressed": true
+        },
+        {
+          "at_frame": 48,
+          "type": "action",
+          "action": "move_right",
+          "pressed": false
+        },
+        {
+          "at_frame": 48,
+          "type": "action",
+          "action": "move_down",
+          "pressed": false
+        },
+        {
+          "at_frame": 50,
+          "type": "action",
+          "action": "move_right",
+          "pressed": true
+        },
+        {
+          "at_frame": 74,
+          "type": "action",
+          "action": "move_right",
+          "pressed": false
+        },
+        {
+          "at_frame": 76,
+          "type": "action",
+          "action": "move_right",
+          "pressed": true
+        },
+        {
+          "at_frame": 76,
+          "type": "action",
+          "action": "move_down",
+          "pressed": true
+        },
+        {
+          "at_frame": 110,
+          "type": "action",
+          "action": "move_right",
+          "pressed": false
+        },
+        {
+          "at_frame": 110,
+          "type": "action",
+          "action": "move_down",
+          "pressed": false
+        },
+        {
+          "at_frame": 112,
+          "type": "action",
+          "action": "move_right",
+          "pressed": true
+        },
+        {
+          "at_frame": 112,
+          "type": "action",
+          "action": "move_down",
+          "pressed": true
+        },
+        {
+          "at_frame": 180,
+          "type": "action",
+          "action": "move_right",
+          "pressed": false
+        },
+        {
+          "at_frame": 180,
+          "type": "action",
+          "action": "move_down",
+          "pressed": false
+        },
+        {
+          "at_frame": 182,
+          "type": "action",
+          "action": "move_right",
+          "pressed": true
+        },
+        {
+          "at_frame": 194,
+          "type": "action",
+          "action": "move_right",
+          "pressed": false
+        },
+        {
+          "at_frame": 196,
+          "type": "action",
+          "action": "move_right",
+          "pressed": true
+        },
+        {
+          "at_frame": 196,
+          "type": "action",
+          "action": "move_down",
+          "pressed": true
+        },
+        {
+          "at_frame": 221,
+          "type": "action",
+          "action": "move_right",
+          "pressed": false
+        },
+        {
+          "at_frame": 221,
+          "type": "action",
+          "action": "move_down",
+          "pressed": false
+        },
+        {
+          "at_frame": 223,
+          "type": "action",
+          "action": "move_right",
+          "pressed": true
+        },
+        {
+          "at_frame": 313,
+          "type": "action",
+          "action": "move_right",
+          "pressed": false
+        }
+      ]
+    },
+    {
+      "name": "verified_inputs_bridge_city",
+      "events": [
+        {
+          "at_frame": 0,
+          "type": "action",
+          "action": "move_right",
+          "pressed": true
+        },
+        {
+          "at_frame": 150,
+          "type": "action",
+          "action": "move_right",
+          "pressed": false
+        },
+        {
+          "at_frame": 152,
+          "type": "action",
+          "action": "move_down",
+          "pressed": true
+        },
+        {
+          "at_frame": 200,
+          "type": "action",
+          "action": "move_down",
+          "pressed": false
+        },
+        {
+          "at_frame": 202,
+          "type": "action",
+          "action": "move_right",
+          "pressed": true
+        },
+        {
+          "at_frame": 250,
+          "type": "action",
+          "action": "move_right",
+          "pressed": false
+        },
+        {
+          "at_frame": 252,
+          "type": "key",
+          "keycode": 69,
+          "physical_keycode": 69,
+          "pressed": true
+        },
+        {
+          "at_frame": 253,
+          "type": "key",
+          "keycode": 69,
+          "physical_keycode": 69,
+          "pressed": false
+        },
+        {
+          "at_frame": 262,
+          "type": "key",
+          "keycode": 69,
+          "physical_keycode": 69,
+          "pressed": true
+        },
+        {
+          "at_frame": 263,
+          "type": "key",
+          "keycode": 69,
+          "physical_keycode": 69,
+          "pressed": false
+        }
+      ]
+    },
+    {
+      "name": "verified_inputs_city_board",
+      "events": [
+        {
+          "at_frame": 0,
+          "type": "action",
+          "action": "move_right",
+          "pressed": true
+        },
+        {
+          "at_frame": 72,
+          "type": "action",
+          "action": "move_right",
+          "pressed": false
+        },
+        {
+          "at_frame": 74,
+          "type": "action",
+          "action": "move_up",
+          "pressed": true
+        },
+        {
+          "at_frame": 101,
+          "type": "action",
+          "action": "move_up",
+          "pressed": false
+        },
+        {
+          "at_frame": 103,
+          "type": "key",
+          "keycode": 69,
+          "physical_keycode": 69,
+          "pressed": true
+        },
+        {
+          "at_frame": 104,
+          "type": "key",
+          "keycode": 69,
+          "physical_keycode": 69,
+          "pressed": false
+        }
+      ]
+    },
+    {
+      "name": "verified_inputs_city_return_bridge",
+      "events": [
+        {
+          "at_frame": 0,
+          "type": "key",
+          "keycode": 69,
+          "physical_keycode": 69,
+          "pressed": true
+        },
+        {
+          "at_frame": 1,
+          "type": "key",
+          "keycode": 69,
+          "physical_keycode": 69,
+          "pressed": false
+        },
+        {
+          "at_frame": 10,
+          "type": "action",
+          "action": "move_down",
+          "pressed": true
+        },
+        {
+          "at_frame": 37,
+          "type": "action",
+          "action": "move_down",
+          "pressed": false
+        },
+        {
+          "at_frame": 39,
+          "type": "action",
+          "action": "move_left",
+          "pressed": true
+        },
+        {
+          "at_frame": 159,
+          "type": "action",
+          "action": "move_left",
+          "pressed": false
+        },
+        {
+          "at_frame": 161,
+          "type": "action",
+          "action": "move_up",
+          "pressed": true
+        },
+        {
+          "at_frame": 209,
+          "type": "action",
+          "action": "move_up",
+          "pressed": false
+        },
+        {
+          "at_frame": 211,
+          "type": "action",
+          "action": "move_left",
+          "pressed": true
+        },
+        {
+          "at_frame": 361,
+          "type": "action",
+          "action": "move_left",
+          "pressed": false
+        }
+      ]
+    },
+    {
+      "name": "verified_inputs_return_landing",
+      "events": [
+        {
+          "at_frame": 0,
+          "type": "action",
+          "action": "move_up",
+          "pressed": true
+        },
+        {
+          "at_frame": 12,
+          "type": "action",
+          "action": "move_up",
+          "pressed": false
+        },
+        {
+          "at_frame": 14,
+          "type": "action",
+          "action": "move_left",
+          "pressed": true
+        },
+        {
+          "at_frame": 134,
+          "type": "action",
+          "action": "move_left",
+          "pressed": false
+        },
+        {
+          "at_frame": 136,
+          "type": "action",
+          "action": "move_up",
+          "pressed": true
+        },
+        {
+          "at_frame": 256,
+          "type": "action",
+          "action": "move_up",
+          "pressed": false
+        },
+        {
+          "at_frame": 258,
+          "type": "key",
+          "keycode": 69,
+          "physical_keycode": 69,
+          "pressed": true
+        },
+        {
+          "at_frame": 259,
+          "type": "key",
+          "keycode": 69,
+          "physical_keycode": 69,
+          "pressed": false
+        },
+        {
+          "at_frame": 268,
+          "type": "key",
+          "keycode": 69,
+          "physical_keycode": 69,
+          "pressed": true
+        },
+        {
+          "at_frame": 269,
+          "type": "key",
+          "keycode": 69,
+          "physical_keycode": 69,
+          "pressed": false
+        },
+        {
+          "at_frame": 278,
+          "type": "action",
+          "action": "move_right",
+          "pressed": true
+        },
+        {
+          "at_frame": 301,
+          "type": "action",
+          "action": "move_right",
+          "pressed": false
+        },
+        {
+          "at_frame": 303,
+          "type": "action",
+          "action": "move_up",
+          "pressed": true
+        },
+        {
+          "at_frame": 341,
+          "type": "action",
+          "action": "move_up",
+          "pressed": false
+        },
+        {
+          "at_frame": 343,
+          "type": "key",
+          "keycode": 69,
+          "physical_keycode": 69,
+          "pressed": true
+        },
+        {
+          "at_frame": 344,
+          "type": "key",
+          "keycode": 69,
+          "physical_keycode": 69,
+          "pressed": false
+        },
+        {
+          "at_frame": 353,
+          "type": "key",
+          "keycode": 69,
+          "physical_keycode": 69,
+          "pressed": true
+        },
+        {
+          "at_frame": 354,
+          "type": "key",
+          "keycode": 69,
+          "physical_keycode": 69,
+          "pressed": false
+        },
+        {
+          "at_frame": 363,
+          "type": "action",
+          "action": "move_down",
+          "pressed": true
+        },
+        {
+          "at_frame": 431,
+          "type": "action",
+          "action": "move_down",
+          "pressed": false
+        },
+        {
+          "at_frame": 433,
+          "type": "key",
+          "keycode": 69,
+          "physical_keycode": 69,
+          "pressed": true
+        },
+        {
+          "at_frame": 434,
+          "type": "key",
+          "keycode": 69,
+          "physical_keycode": 69,
+          "pressed": false
+        },
+        {
+          "at_frame": 443,
+          "type": "key",
+          "keycode": 69,
+          "physical_keycode": 69,
+          "pressed": true
+        },
+        {
+          "at_frame": 444,
+          "type": "key",
+          "keycode": 69,
+          "physical_keycode": 69,
+          "pressed": false
+        }
+      ]
+    },
+    {
+      "name": "verified_inputs_landing_report",
+      "events": [
+        {
+          "at_frame": 0,
+          "type": "action",
+          "action": "move_left",
+          "pressed": true
+        },
+        {
+          "at_frame": 112,
+          "type": "action",
+          "action": "move_left",
+          "pressed": false
+        },
+        {
+          "at_frame": 114,
+          "type": "action",
+          "action": "move_up",
+          "pressed": true
+        },
+        {
+          "at_frame": 243,
+          "type": "action",
+          "action": "move_up",
+          "pressed": false
+        },
+        {
+          "at_frame": 245,
+          "type": "key",
+          "keycode": 69,
+          "physical_keycode": 69,
+          "pressed": true
+        },
+        {
+          "at_frame": 246,
+          "type": "key",
+          "keycode": 69,
+          "physical_keycode": 69,
+          "pressed": false
+        },
+        {
+          "at_frame": 255,
+          "type": "key",
+          "keycode": 69,
+          "physical_keycode": 69,
+          "pressed": true
+        },
+        {
+          "at_frame": 256,
+          "type": "key",
+          "keycode": 69,
+          "physical_keycode": 69,
+          "pressed": false
+        },
+        {
+          "at_frame": 265,
+          "type": "action",
+          "action": "move_down",
+          "pressed": true
+        },
+        {
+          "at_frame": 337,
+          "type": "action",
+          "action": "move_down",
+          "pressed": false
+        },
+        {
+          "at_frame": 339,
+          "type": "action",
+          "action": "move_left",
+          "pressed": true
+        },
+        {
+          "at_frame": 483,
+          "type": "action",
+          "action": "move_left",
+          "pressed": false
+        },
+        {
+          "at_frame": 485,
+          "type": "key",
+          "keycode": 69,
+          "physical_keycode": 69,
+          "pressed": true
+        },
+        {
+          "at_frame": 486,
+          "type": "key",
+          "keycode": 69,
+          "physical_keycode": 69,
+          "pressed": false
+        }
+      ]
+    },
+    {
+      "name": "verified_inputs_full_report",
+      "events": [
+        {
+          "at_frame": 0,
+          "type": "key",
+          "keycode": 4194322,
+          "physical_keycode": 4194322,
+          "pressed": true
+        },
+        {
+          "at_frame": 1,
+          "type": "key",
+          "keycode": 4194322,
+          "physical_keycode": 4194322,
+          "pressed": false
+        },
+        {
+          "at_frame": 10,
+          "type": "key",
+          "keycode": 4194309,
+          "physical_keycode": 4194309,
+          "pressed": true
+        },
+        {
+          "at_frame": 11,
+          "type": "key",
+          "keycode": 4194309,
+          "physical_keycode": 4194309,
+          "pressed": false
+        },
+        {
+          "at_frame": 20,
+          "type": "key",
+          "keycode": 69,
+          "physical_keycode": 69,
+          "pressed": true
+        },
+        {
+          "at_frame": 21,
+          "type": "key",
+          "keycode": 69,
+          "physical_keycode": 69,
+          "pressed": false
+        },
+        {
+          "at_frame": 30,
+          "type": "key",
+          "keycode": 74,
+          "physical_keycode": 74,
+          "pressed": true
+        },
+        {
+          "at_frame": 31,
+          "type": "key",
+          "keycode": 74,
+          "physical_keycode": 74,
+          "pressed": false
+        }
+      ]
+    },
+    {
+      "name": "verified_inputs_simple_report",
+      "events": [
+        {
+          "at_frame": 0,
+          "type": "key",
+          "keycode": 69,
+          "physical_keycode": 69,
+          "pressed": true
+        },
+        {
+          "at_frame": 1,
+          "type": "key",
+          "keycode": 69,
+          "physical_keycode": 69,
+          "pressed": false
+        },
+        {
+          "at_frame": 10,
+          "type": "key",
+          "keycode": 4194309,
+          "physical_keycode": 4194309,
+          "pressed": true
+        },
+        {
+          "at_frame": 11,
+          "type": "key",
+          "keycode": 4194309,
+          "physical_keycode": 4194309,
+          "pressed": false
+        },
+        {
+          "at_frame": 20,
+          "type": "key",
+          "keycode": 69,
+          "physical_keycode": 69,
+          "pressed": true
+        },
+        {
+          "at_frame": 21,
+          "type": "key",
+          "keycode": 69,
+          "physical_keycode": 69,
+          "pressed": false
+        },
+        {
+          "at_frame": 30,
+          "type": "key",
+          "keycode": 74,
+          "physical_keycode": 74,
+          "pressed": true
+        },
+        {
+          "at_frame": 31,
+          "type": "key",
+          "keycode": 74,
+          "physical_keycode": 74,
+          "pressed": false
+        }
+      ]
+    },
+    {
+      "name": "bridge_up_boundary",
+      "events": [
+        {
+          "at_frame": 0,
+          "type": "action",
+          "action": "move_up",
+          "pressed": true
+        },
+        {
+          "at_frame": 60,
+          "type": "action",
+          "action": "move_up",
+          "pressed": false
+        }
+      ]
+    },
+    {
+      "name": "bridge_down_boundary",
+      "events": [
+        {
+          "at_frame": 0,
+          "type": "action",
+          "action": "move_down",
+          "pressed": true
+        },
+        {
+          "at_frame": 60,
+          "type": "action",
+          "action": "move_down",
+          "pressed": false
+        }
+      ]
+    }
+  ],
+  "note": "Full home-to-city and return/delivery path used only ordinary movement and actual E/J/arrow/Enter keys. After full completion, report_done alone was reset in memory to test the alternate simple report choice through the real UI. No file or player position was changed by that fixture."
+}

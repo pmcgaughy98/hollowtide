@@ -1,0 +1,12 @@
+{
+  "task_id": "792a9501-5f48-4ad7-9869-e8c99ca51a2d",
+  "prompt_style": "rd_pro__topdown",
+  "width": 256,
+  "height": 80,
+  "reference_paths": [
+    "assets/sprites/world/route1_rd_2026_10_02/dispatch_hall_complete.png",
+    "assets/tilesets/route1_rd_2026_10_01/route1_ground_atlas_polished.png"
+  ],
+  "cost_usd": 0.18,
+  "remaining_balance": 4.37
+}

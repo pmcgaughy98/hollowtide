@@ -1,0 +1,39 @@
+Welcome to Summer Engine (c) built on the awesome work by Godot 2007-present Juan Linietsky, Ariel Manzur & Godot Contributors.
+D3D12 12_0 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce GTX 1660 SUPER
+
+[SE] AuthManager: CLI credential found; desktop session exchange required
+[godot_ai game_helper] registered mcp capture (debugger active=false, logger=true)
+SELECT_CHECK Male caption for Male true Male (selected)
+SELECT_CHECK Male toggle for Male true <null>
+SELECT_CHECK Female caption for Male true Female
+SELECT_CHECK Female toggle for Male true <null>
+SELECT_CHECK model value Male true <null>
+SELECT_CHECK Male caption for Female true Male
+SELECT_CHECK Male toggle for Female true <null>
+SELECT_CHECK Female caption for Female true Female (selected)
+SELECT_CHECK Female toggle for Female true <null>
+SELECT_CHECK model value Female true <null>
+SELECT_CHECK Male caption for Male true Male (selected)
+SELECT_CHECK Male toggle for Male true <null>
+SELECT_CHECK Female caption for Male true Female
+SELECT_CHECK Female toggle for Male true <null>
+SELECT_CHECK model value Male true <null>
+SELECT_CHECK Male caption for Female true Male
+SELECT_CHECK Male toggle for Female true <null>
+SELECT_CHECK Female caption for Female true Female (selected)
+SELECT_CHECK Female toggle for Female true <null>
+SELECT_CHECK model value Female true <null>
+SELECT_CHECK Male caption for Male true Male (selected)
+SELECT_CHECK Male toggle for Male true <null>
+SELECT_CHECK Female caption for Male true Female
+SELECT_CHECK Female toggle for Male true <null>
+SELECT_CHECK model value Male true <null>
+SELECT_CHECK Male caption for Female true Male
+SELECT_CHECK Male toggle for Female true <null>
+SELECT_CHECK Female caption for Female true Female (selected)
+SELECT_CHECK Female toggle for Female true <null>
+SELECT_CHECK model value Female true <null>
+SELECT_CHECK female entered route true <null>
+SELECT_CHECK female finish installed true <null>
+SELECT_CHECK ordinary walking true { "from": "(48.0, 192.0)", "to": "(62.66665, 192.0)" }
+SELECTION_COMPLETE true

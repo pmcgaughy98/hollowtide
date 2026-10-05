@@ -1,0 +1,8 @@
+[
+  "scripts/first_route_prototype.gd",
+  "scripts/route1_landing_loop.gd",
+  "scripts/route1_crossing.gd",
+  "scripts/route1_landscape.gd",
+  "scenes/first_route_prototype.tscn",
+  "assets/sprites/world/route1_spaced_landing_2026_10_03/landing_south_loop.png"
+]

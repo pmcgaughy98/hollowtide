@@ -1,0 +1,55 @@
+{
+  "source": "Observed exit values returned by the owned process waits, not inferred from JSON or timeout.",
+  "owned_processes": [
+    {
+      "label": "initial import",
+      "pid": 12432,
+      "exit": 0
+    },
+    {
+      "label": "approach import",
+      "pid": 9124,
+      "exit": 0
+    },
+    {
+      "label": "visibility import",
+      "pid": 14940,
+      "exit": 0
+    },
+    {
+      "label": "initial native overview",
+      "pid": 32124,
+      "exit": 0
+    },
+    {
+      "label": "direct room scene",
+      "pid": 35240,
+      "exit": 0
+    },
+    {
+      "label": "final native overview",
+      "pid": 29376,
+      "exit": 0
+    },
+    {
+      "label": "first male journey before cupboard fade",
+      "pid": 13216,
+      "exit": 0
+    },
+    {
+      "label": "first female journey before cupboard fade",
+      "pid": 28956,
+      "exit": 0
+    },
+    {
+      "label": "final male journey",
+      "pid": 11112,
+      "exit": 0
+    },
+    {
+      "label": "final female journey",
+      "pid": 23248,
+      "exit": 0
+    }
+  ]
+}

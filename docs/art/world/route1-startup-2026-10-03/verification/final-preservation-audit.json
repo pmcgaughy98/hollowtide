@@ -1,0 +1,176 @@
+{
+  "protected_functions": [
+    {
+      "file": "scripts/route1_crossing.gd",
+      "function": "_ready",
+      "unchanged": true
+    },
+    {
+      "file": "scripts/route1_crossing.gd",
+      "function": "_extend_ground",
+      "unchanged": true
+    },
+    {
+      "file": "scripts/route1_crossing.gd",
+      "function": "_trail",
+      "unchanged": true
+    },
+    {
+      "file": "scripts/route1_crossing.gd",
+      "function": "_replace_bounds",
+      "unchanged": true
+    },
+    {
+      "file": "scripts/route1_crossing.gd",
+      "function": "_obstacle",
+      "unchanged": true
+    },
+    {
+      "file": "scripts/route1_crossing.gd",
+      "function": "_sprite",
+      "unchanged": true
+    },
+    {
+      "file": "scripts/route1_crossing.gd",
+      "function": "_label",
+      "unchanged": true
+    },
+    {
+      "file": "scripts/route1_crossing.gd",
+      "function": "_build_wayfinding",
+      "unchanged": true
+    },
+    {
+      "file": "scripts/route1_crossing.gd",
+      "function": "_build_arrival",
+      "unchanged": true
+    },
+    {
+      "file": "scripts/route1_crossing.gd",
+      "function": "_build_bridge_front",
+      "unchanged": true
+    },
+    {
+      "file": "scripts/route1_crossing.gd",
+      "function": "_process",
+      "unchanged": true
+    },
+    {
+      "file": "scripts/route1_crossing.gd",
+      "function": "_draw",
+      "unchanged": true
+    },
+    {
+      "file": "scripts/route1_landscape.gd",
+      "function": "_ready",
+      "unchanged": true
+    },
+    {
+      "file": "scripts/route1_landscape.gd",
+      "function": "_process",
+      "unchanged": true
+    },
+    {
+      "file": "scripts/route1_landscape.gd",
+      "function": "_prop",
+      "unchanged": true
+    },
+    {
+      "file": "scripts/route1_landscape.gd",
+      "function": "_build_groves",
+      "unchanged": true
+    },
+    {
+      "file": "scripts/route1_landscape.gd",
+      "function": "_build_details",
+      "unchanged": true
+    },
+    {
+      "file": "scripts/route1_landscape.gd",
+      "function": "_vary_city_trees",
+      "unchanged": true
+    }
+  ],
+  "unchanged_sources": [
+    {
+      "file": "scripts/route1_map_polish.gd",
+      "sha256": "dddfb7a6b67bb4d6179a843fa9ad546fed0a0ef3c9ca356152a8028fec9add5d"
+    },
+    {
+      "file": "scripts/first_route_prototype.gd",
+      "sha256": "16642c8d181b1704656b1f2fbf90064b8b7ba87a1376b7021218e886fb4d2cd1"
+    },
+    {
+      "file": "scripts/route1_terrain_relief.gd",
+      "sha256": "c8a2ab722e34618293b1be1ee4b801ba8fef64fa6838591ec0583b6ada191861"
+    },
+    {
+      "file": "scenes/first_route_prototype.tscn",
+      "sha256": "88edcd961f4608584a5d1c505bffab7e7a44af0662b1ab9a2a8584030a3abddc"
+    },
+    {
+      "file": "project.godot",
+      "sha256": "8181a45681c3f76379226b90d61ec2a3921f7b5a4cf7b20722bec00d4e34f262"
+    }
+  ],
+  "prior_sprite_runtime_files_unchanged": [
+    "scripts/main_menu.gd",
+    "scripts/player.gd",
+    "scripts/battle_screen.gd",
+    "scripts/debug/chibi_walk_review.gd",
+    "scripts/effects/creature_sprite.gdshader",
+    "scripts/effects/courier_finish.gdshader",
+    "data/creatures/001_rimefin.tres",
+    "data/creatures/101_clinkerhide.tres",
+    "data/creatures/102_ironvent.tres",
+    "scripts/effects/courier_finish.gdshader.uid",
+    "assets/sprites/creatures/clinkerhide_selected_rear_2026_10_03/clinkerhide_back_matched_native100.png",
+    "assets/sprites/creatures/clinkerhide_selected_rear_2026_10_03/clinkerhide_back_matched_native100.png.import",
+    "assets/sprites/creatures/clinkerhide_selected_rear_2026_10_03/clinkerhide_back_native100.png",
+    "assets/sprites/creatures/clinkerhide_selected_rear_2026_10_03/clinkerhide_back_native100.png.import"
+  ],
+  "fixed_clock_pixel_identical_views": 5,
+  "scene_nodes_equal": 420,
+  "exact_imported_native_surfaces": 4,
+  "ordinary_input_trip_flags": {
+    "city_arrival_registered": true,
+    "city_directions_read": true,
+    "delivered": true,
+    "heard_calls": true,
+    "levee_entrance_read": true,
+    "marker_restored": true,
+    "pouch_accepted": true,
+    "report_done": true,
+    "reported_calls": true,
+    "reported_water_mark": true,
+    "water_mark_observed": true
+  },
+  "live_motion_passed": true,
+  "unmodified_scene_startup_samples": [
+    {
+      "bank_visible": true,
+      "foliage_animation_running": true,
+      "fresh_flags": true,
+      "iteration": 1,
+      "scene_ready_ms": 1238,
+      "water_animation_running": true
+    },
+    {
+      "bank_visible": true,
+      "foliage_animation_running": true,
+      "fresh_flags": true,
+      "iteration": 2,
+      "scene_ready_ms": 207,
+      "water_animation_running": true
+    },
+    {
+      "bank_visible": true,
+      "foliage_animation_running": true,
+      "fresh_flags": true,
+      "iteration": 3,
+      "scene_ready_ms": 244,
+      "water_animation_running": true
+    }
+  ],
+  "runtime_stderr_empty": true
+}

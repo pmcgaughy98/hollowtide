@@ -1,0 +1,30 @@
+{
+	"first_load_fresh_process": true,
+	"samples": [
+		{
+			"bank_visible": true,
+			"foliage_animation_running": true,
+			"fresh_flags": true,
+			"iteration": 1,
+			"scene_ready_ms": 1238,
+			"water_animation_running": true
+		},
+		{
+			"bank_visible": true,
+			"foliage_animation_running": true,
+			"fresh_flags": true,
+			"iteration": 2,
+			"scene_ready_ms": 207,
+			"water_animation_running": true
+		},
+		{
+			"bank_visible": true,
+			"foliage_animation_running": true,
+			"fresh_flags": true,
+			"iteration": 3,
+			"scene_ready_ms": 244,
+			"water_animation_running": true
+		}
+	],
+	"unmodified_runtime": true
+}

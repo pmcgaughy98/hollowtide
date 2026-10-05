@@ -1,0 +1,124 @@
+--- before/scripts/first_route_prototype.gd
++++ current/scripts/first_route_prototype.gd
+@@ -16,6 +16,9 @@
+ 	"city_clerk": Vector2(816, 480),
+ 	"city_directions": Vector2(912, 444),
+ 	"landing_notice": Vector2(320, 316),
++	"home_courtyard": Vector2(-336, 184),
++	"home_directions": Vector2(-32, 192),
++	"shared_garden": Vector2(-172, 310),
+ }
+ 
+ @onready var player: CharacterBody2D = $Player
+@@ -50,7 +53,7 @@
+ func _ready() -> void:
+ 	# Keep the camera inside the route, including the dispatch starting edge.
+ 	var camera: Camera2D = $Player/Camera2D
+-	camera.limit_left = 0
++	camera.limit_left = -480
+ 	camera.limit_top = 0
+ 	camera.offset = Vector2.ZERO
+ 	camera.position = Vector2(0, -84)
+@@ -69,10 +72,13 @@
+ 
+ func _process(_delta: float) -> void:
+ 	var camera: Camera2D = $Player/Camera2D
++	camera.limit_bottom = 384 if player.position.x < 0 else 640
+ 	var at_home := player.position.x < 200.0 and player.position.y < 248.0
+ 	camera.position.y = move_toward(camera.position.y, -84.0 if at_home else -24.0, _delta * 96.0)
+ 	if _area_label != null:
+-		if player.position.x >= 672:
++		if player.position.x < 0:
++			_area_label.text = "HOMETOWN / COURTYARD LANE"
++		elif player.position.x >= 672:
+ 			_area_label.text = "CITY RIVERFRONT"
+ 		elif player.position.x >= 448:
+ 			_area_label.text = "RIVER CROSSING"
+@@ -108,6 +114,12 @@
+ 			_hint.text = "E  Read city directions"
+ 		"landing_notice":
+ 			_hint.text = "E  Read old landing notice"
++		"home_courtyard":
++			_hint.text = "E  Check home courtyard"
++		"home_directions":
++			_hint.text = "E  Read dispatch directions"
++		"shared_garden":
++			_hint.text = "E  Read shared garden notice"
+ 		_:
+ 			_hint.text = "WASD / arrows  Move    E  Interact"
+ 
+@@ -166,6 +178,12 @@
+ 			_visit_city_directions()
+ 		"landing_notice":
+ 			_visit_landing_notice()
++		"home_courtyard":
++			_visit_home_courtyard()
++		"home_directions":
++			_visit_home_directions()
++		"shared_garden":
++			_visit_shared_garden()
+ 		_:
+ 			return
+ 	get_viewport().set_input_as_handled()
+@@ -190,6 +208,23 @@
+ 
+ func _visit_landing_notice() -> void:
+ 	_show_message("OLD LANDING FOOTPATH\nThe bank trail reaches the relay post and height marker, then winds under the cottonwoods back to the bridge road. The crest is higher ground. Worn rope grooves mark the older crossing; the cuts on the height post have no dates.")
++
++
++func _visit_home_courtyard() -> void:
++	var progress := "The dispatcher is taking runners at the east end of the lane."
++	if report_done:
++		progress = "Your landing report is with the dispatcher. You are back on your own doorstep."
++	elif pouch_accepted:
++		progress = "The lane leads back to the dispatcher and the raised river route."
++	_show_message("HOME COURTYARD\nThe patched porch and stacked wood make this place easy to recognize from the lane. " + progress)
++
++
++func _visit_home_directions() -> void:
++	_show_message("DISPATCH LANE\nFollow the worn lane east to the courier hall. The dispatcher waits in front. From there, the marked levee entrance leads to Route 1 and the river bridge. This lane returns to the courtyard homes.")
++
++
++func _visit_shared_garden() -> void:
++	_show_message("SHARED GARDEN\nLeave the little rows clear. The loop around the beds returns to the dispatch lane. Spare kindling and cuttings are left by the porch for neighbors to take.")
+ 
+ 
+ func _nearest_site() -> String:
+--- before/scripts/route1_crossing.gd
++++ current/scripts/route1_crossing.gd
+@@ -97,7 +97,9 @@
+ 	_obstacle(bounds, "WaterSouth", Vector2(560, (BRIDGE_SOUTH + 640.0) * 0.5), Vector2(224, 640.0 - BRIDGE_SOUTH))
+ 	_obstacle(bounds, "North", Vector2(512, -8), Vector2(1024, 16))
+ 	_obstacle(bounds, "South", Vector2(512, 648), Vector2(1024, 16))
+-	_obstacle(bounds, "West", Vector2(-8, 320), Vector2(16, 640))
++	# The home lane is the only opening in the west edge.
++	_obstacle(bounds, "WestAboveHomeLane", Vector2(-8, 84), Vector2(16, 168))
++	_obstacle(bounds, "WestBelowHomeLane", Vector2(-8, 428), Vector2(16, 424))
+ 	_obstacle(bounds, "East", Vector2(1032, 320), Vector2(16, 640))
+ 
+ 
+--- before/scenes/first_route_prototype.tscn
++++ current/scenes/first_route_prototype.tscn
+@@ -1,6 +1,7 @@
+ [gd_scene format=4 uid="uid://bjejrnjqihy7b"]
+ 
+ [ext_resource type="TileSet" path="res://assets/tilesets/route1_rd_2026_10_01/route1_ground_polished.tres" id="1_tiles"]
++[ext_resource type="PackedScene" path="res://scenes/hometown_courtyard.tscn" id="hometown_level"]
+ [ext_resource type="Script" uid="uid://ldyvrxcbbghq" path="res://scripts/first_route_prototype.gd" id="2_route"]
+ [ext_resource type="PackedScene" uid="uid://bpewxr51sqy80" path="res://scenes/player.tscn" id="3_player"]
+ [ext_resource type="Texture2D" path="res://assets/sprites/world/route1_rd_2026_10_02/dispatch_hall_complete.png" id="3_s4ix1"]
+@@ -238,7 +239,7 @@
+ text = "E: Meet"
+ 
+ [node name="Player" parent="." unique_id=458435790 instance=ExtResource("3_player")]
+-position = Vector2(48, 192)
++position = Vector2(-336, 192)
+ 
+ [node name="DexOverlay" type="CanvasLayer" parent="." unique_id=1886438422]
+ script = ExtResource("8_dex")
+@@ -330,3 +331,5 @@
+ z_index = -7
+ texture_filter = 1
+ script = ExtResource("crossing_route")
++
++[node name="HometownCourtyard" parent="." instance=ExtResource("hometown_level")]

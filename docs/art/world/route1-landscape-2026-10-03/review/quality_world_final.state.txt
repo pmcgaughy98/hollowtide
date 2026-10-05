@@ -1,0 +1,50 @@
+Game probe — frame 31611, physics 31612, drawn 31612, image_frame 31611, instance route-quality-final, SUSPENDED (1152x648). The image above and the state below describe this ONE frame; review the image and describe what you actually see before claiming anything about it.
+
+{
+  "results": [
+    {
+      "effective_time_scale": 0,
+      "format": "jpeg",
+      "frame": {
+        "frames_drawn": 31612,
+        "physics_frames": 31612,
+        "process_frames": 31611
+      },
+      "height": 648,
+      "image_frame": 31611,
+      "instance": "route-quality-final",
+      "mime": "image/jpeg",
+      "missing": [],
+      "ok": true,
+      "op": "GameProbe",
+      "paused": false,
+      "provenance": {
+        "source": "runtime",
+        "target": {
+          "instance": "route-quality-final",
+          "kind": "game"
+        }
+      },
+      "requestId": "mcp-6ca3690c-fb52-454b-a991-edf957dcaf77",
+      "source_height": 648,
+      "source_width": 1152,
+      "suspended": true,
+      "time_scale": 1,
+      "transport": "summer",
+      "values": {
+        "/root/FirstRoutePrototype/Player/Camera2D:zoom": "Vector2(1, 1)",
+        "/root/FirstRoutePrototype/Player:position": "Vector2(512, 408.058)",
+        "/root/FirstRoutePrototype/RiverCrossing/Landscape:added_detail_count": 79,
+        "/root/FirstRoutePrototype/RiverCrossing/Landscape:added_tree_count": 15
+      },
+      "width": 1152
+    }
+  ],
+  "skippedCount": 0,
+  "status": "ok",
+  "stopOnError": true,
+  "undoGroup": false,
+  "requestId": "mcp-6ca3690c-fb52-454b-a991-edf957dcaf77",
+  "terminalState": "applied",
+  "appliedSeq": 1489
+}

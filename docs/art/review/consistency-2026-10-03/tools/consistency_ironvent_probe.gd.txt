@@ -1,0 +1,53 @@
+extends SceneTree
+const OUT := "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/consistency-review/"
+func _initialize() -> void:
+	call_deferred("_run")
+func _run() -> void:
+	root.size = Vector2i(1152,648)
+	var bg := ColorRect.new()
+	bg.color=Color("#211d35")
+	bg.size=Vector2(1152,648)
+	root.add_child(bg)
+	var creatures: Array = [load("res://data/creatures/002_cinderhide.tres"),load("res://data/creatures/101_clinkerhide.tres"),load("res://data/creatures/102_ironvent.tres")]
+	var shader: Shader = load("res://scripts/effects/creature_sprite.gdshader")
+	for row in 2:
+		for col in 4:
+			var c: Resource=creatures[mini(col,2)]
+			var label:=Label.new()
+			label.text=c.creature_name+(" front" if row==0 else " rear")+(" before" if col==2 else " darker head" if col==3 else "")
+			label.position=Vector2(col*288+8,row*324+8)
+			root.add_child(label)
+			var sprite:=Sprite2D.new()
+			sprite.texture=c.sprite if row==0 else c.back_sprite
+			sprite.texture_filter=CanvasItem.TEXTURE_FILTER_NEAREST
+			sprite.position=Vector2(col*288+144,row*324+175)
+			sprite.scale=Vector2.ONE*2.5
+			if col==3:
+				var mat:=ShaderMaterial.new()
+				mat.shader=shader
+				mat.set_shader_parameter("charcoal_head",true)
+				sprite.material=mat
+			root.add_child(sprite)
+	for i in 10: await process_frame
+	await RenderingServer.frame_post_draw
+	root.get_texture().get_image().save_png(OUT+"ironvent-head-lineage-comparison.png")
+	var view:=SubViewport.new()
+	view.size=Vector2i(100,100)
+	view.transparent_bg=true
+	view.render_target_update_mode=SubViewport.UPDATE_ALWAYS
+	root.add_child(view)
+	var sprite:=Sprite2D.new()
+	sprite.position=Vector2(50,50)
+	sprite.texture_filter=CanvasItem.TEXTURE_FILTER_NEAREST
+	var mat:=ShaderMaterial.new()
+	mat.shader=shader
+	mat.set_shader_parameter("charcoal_head",true)
+	sprite.material=mat
+	view.add_child(sprite)
+	for name in ["front","rear"]:
+		sprite.texture=creatures[2].sprite if name=="front" else creatures[2].back_sprite
+		for i in 3: await process_frame
+		await RenderingServer.frame_post_draw
+		view.get_texture().get_image().save_png(OUT+"ironvent-"+name+"-head-native-finish.png")
+	print("IRONVENT_HEAD_RENDER_COMPLETE")
+	quit()

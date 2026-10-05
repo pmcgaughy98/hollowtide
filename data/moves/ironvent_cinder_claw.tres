@@ -38,6 +38,7 @@ filter_clip = true
 [resource]
 script = ExtResource("1_script")
 move_name = "Cinder Claw"
+required_parts = PackedStringArray("claw")
 max_uses = 6
 effect = ExtResource("3_effect")
 delivery = 1

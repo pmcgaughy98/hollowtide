@@ -1,0 +1,17 @@
+{
+  "first_approved_upload": {
+    "inference_id": "inf_be1OW29mXj4NYQn29mbQvzBZ6gl5DyKR",
+    "cost": 0.18,
+    "charged": true,
+    "installed": false,
+    "rejected_reason": "Changed entire pose and body, changed pixels outside mask, flattened transparency to checkerboard"
+  },
+  "fin_only_retry": {
+    "estimated_cost": 0.18,
+    "charged": false,
+    "status": "Automatic approval review requires explicit authorization for changed crop/mask and additional charge",
+    "input": "fin-only-input.png",
+    "mask": "fin-only-mask.png",
+    "prompt": "fin-only-prompt.txt"
+  }
+}

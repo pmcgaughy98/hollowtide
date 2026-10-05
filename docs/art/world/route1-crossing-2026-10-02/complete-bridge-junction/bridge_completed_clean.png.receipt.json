@@ -1,0 +1,21 @@
+{
+  "status": "succeeded",
+  "task_id": "27cc01ad-31b1-57cc-9798-595b0fab6e49",
+  "created_at": 1790973336,
+  "updated_at": 1790973343,
+  "result": {
+    "tool_id": "background_remover",
+    "inference_id": "inf_M0jyORNa2PWvmwZMeWYQdAe9bzn3rEYZ",
+    "balance_cost": 0.01,
+    "credit_cost": 2,
+    "charged": true,
+    "remaining_balance": 4.000000000000008,
+    "output_width": 288,
+    "output_height": 112,
+    "toolId": "background_remover",
+    "inferenceId": "inf_M0jyORNa2PWvmwZMeWYQdAe9bzn3rEYZ",
+    "balanceCost": 0.01,
+    "creditCost": 2
+  },
+  "output_sha256": "6951c008881d16e5deec9f3ae85669e220061e748299260ba0fdd0559e0a8040"
+}

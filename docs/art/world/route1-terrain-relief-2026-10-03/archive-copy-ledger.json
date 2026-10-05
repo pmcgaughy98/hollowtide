@@ -1,0 +1,440 @@
+[
+  {
+    "source": "C:\\Users\\pmcga\\dev\\hollowtide\\docs\\art\\world\\route1-terrain-relief-2026-10-03\\README.md",
+    "archive": "source/README.before-this-pass.md.txt",
+    "sha256": "c911546ed5b4fd4d59d8ec4609f49f557b96c49b9160663c1490f822a3671dd4",
+    "bytes": 1242
+  },
+  {
+    "source": "C:\\Users\\pmcga\\dev\\hollowtide\\docs\\AI_COLLABORATION.md",
+    "archive": "source/AI_COLLABORATION.before-this-pass.md.txt",
+    "sha256": "82daa9bac1e86c6c7317cf619b9922f8251e59d138043f18acdb51b8b29ba6a2",
+    "bytes": 243707
+  },
+  {
+    "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\route1_crossing.terrain.before.gd",
+    "archive": "source/before/route1_crossing.gd.txt",
+    "sha256": "ad880f72ca2cd2e1d568991f45ddda6b5a0258a9430cadc17dd68d0577d9354c",
+    "bytes": 16621
+  },
+  {
+    "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\route1_terrain_relief.before-install.gd.txt",
+    "archive": "source/before/route1_terrain_relief.gd.txt",
+    "sha256": "5cd13886b74cc4a3e65342811c85d8fe3a50c006bb90e139b489c5de91255ab2",
+    "bytes": 8528
+  },
+  {
+    "source": "C:\\Users\\pmcga\\dev\\hollowtide\\scripts\\route1_crossing.gd",
+    "archive": "source/current/route1_crossing.gd.txt",
+    "sha256": "c38ec618cc9f4ba63d2642e8c919a57d93442fb244e4be56d376a6d7fe63a5c8",
+    "bytes": 16767
+  },
+  {
+    "source": "C:\\Users\\pmcga\\dev\\hollowtide\\scripts\\route1_terrain_relief.gd",
+    "archive": "source/current/route1_terrain_relief.gd.txt",
+    "sha256": "c8a2ab722e34618293b1be1ee4b801ba8fef64fa6838591ec0583b6ada191861",
+    "bytes": 1113
+  },
+  {
+    "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\terrain_relief_revised_candidate.gd",
+    "archive": "source/build/terrain_relief_revised_candidate.gd.txt",
+    "sha256": "99319c524d2e33c929df6682f14dfb7871261248f055763b3e3697c5f75248da",
+    "bytes": 9736
+  },
+  {
+    "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\prepare_revised_terrain.py",
+    "archive": "source/build/prepare_revised_terrain.py.txt",
+    "sha256": "be43da01d26bc1b62960e0595dab743d9c3f826c207f815b4051b1b667722b1a",
+    "bytes": 3108
+  },
+  {
+    "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\stage_terrain_bake.py",
+    "archive": "source/build/stage_terrain_bake.py.txt",
+    "sha256": "d680b05b676837f432542a25ec94b346c2f5b395aeca192ed1300fc615437de4",
+    "bytes": 1336
+  },
+  {
+    "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\install_terrain_relief.py",
+    "archive": "source/build/install_terrain_relief.py.txt",
+    "sha256": "2f7d23116e0f1e33992d94eb0a97421f39598baee324e8b529cfa98bfb4ffb32",
+    "bytes": 1970
+  },
+  {
+    "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\terrain_candidate_review.gd",
+    "archive": "tools/terrain_candidate_review.gd.txt",
+    "sha256": "25b0cd92def01c57904cf57cb2241620b690059da22eebaa5b3776eb53b2c339",
+    "bytes": 2156
+  },
+  {
+    "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\terrain_revised_candidate_review.gd",
+    "archive": "tools/terrain_revised_candidate_review.gd.txt",
+    "sha256": "a9e2d0236bc6ebd74034992019030c0f7ca08d045f6dcfac58d0de5c374be2fc",
+    "bytes": 2271
+  },
+  {
+    "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\terrain_installed_review.gd",
+    "archive": "tools/terrain_installed_review.gd.txt",
+    "sha256": "b9beedcfdab2a6c292f87158228f15795401c858df9fcd59050ee15e59d38301",
+    "bytes": 1659
+  },
+  {
+    "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\terrain_ordinary_walkthrough.gd",
+    "archive": "tools/terrain_ordinary_walkthrough.gd.txt",
+    "sha256": "b450fa96759e4dd36b8c3ad4bea294d4ed1e01e6651429cb7255f62470d2cf47",
+    "bytes": 5336
+  },
+  {
+    "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\terrain-relief-review\\baked-input-output-manifest.json",
+    "archive": "review/baked-input-output-manifest.json",
+    "sha256": "93e71b9bfbdcece0915aefdfbaf990974e96f2bb656cffe1245af4590e8d7520",
+    "bytes": 1415
+  },
+  {
+    "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\terrain-relief-review\\baseline-crest.png",
+    "archive": "review/baseline-crest.png",
+    "sha256": "a8d77290530aa5cb9aff82f7779e3da382683380ea65032bb20e0d4183fb18d3",
+    "bytes": 118176
+  },
+  {
+    "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\terrain-relief-review\\baseline-entrance.png",
+    "archive": "review/baseline-entrance.png",
+    "sha256": "fd2a385dbd6063ef8433645374fc3a2e3d42a73f28ecf1d71459258b62d60174",
+    "bytes": 116734
+  },
+  {
+    "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\terrain-relief-review\\baseline-landing.png",
+    "archive": "review/baseline-landing.png",
+    "sha256": "7d932770f1d7356f4ffeb8d49b17da7306469f35250aae33ccaf15c7d55c7120",
+    "bytes": 101611
+  },
+  {
+    "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\terrain-relief-review\\baseline-overview.png",
+    "archive": "review/baseline-overview.png",
+    "sha256": "d1a9ba21abbed2b5f4de01c8cae9e8544bcd0ab6fc1dc76c6e5a21d05c3cd10f",
+    "bytes": 515584
+  },
+  {
+    "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\terrain-relief-review\\candidate-crest.png",
+    "archive": "review/candidate-crest.png",
+    "sha256": "b26bfbff0a4dfa4d94ba7607f58a0c4e1400107828007afc184113680f45477f",
+    "bytes": 119441
+  },
+  {
+    "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\terrain-relief-review\\candidate-entrance.png",
+    "archive": "review/candidate-entrance.png",
+    "sha256": "5e588548b3dbc4fbeb837c28c2e1e43b3a678695bb652d067a6acf03ae51933d",
+    "bytes": 119970
+  },
+  {
+    "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\terrain-relief-review\\candidate-landing.png",
+    "archive": "review/candidate-landing.png",
+    "sha256": "19461bb9b3f04f1119461288838c8d14c4faabe1b29414ee386a047ae06ec772",
+    "bytes": 102608
+  },
+  {
+    "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\terrain-relief-review\\candidate-overview.png",
+    "archive": "review/candidate-overview.png",
+    "sha256": "a66070239aa7011203caa35f9ee10d94080b4fc79a2fbad5c062a7f05a542ea5",
+    "bytes": 516005
+  },
+  {
+    "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\terrain-relief-review\\candidate-results.json",
+    "archive": "review/candidate-results.json",
+    "sha256": "c302f7f19e97099785b701e3a8dd9add3331da314942b7e9e1396e7cb532fd01",
+    "bytes": 161
+  },
+  {
+    "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\terrain-relief-review\\GrassyLeveeShoulders.png",
+    "archive": "review/GrassyLeveeShoulders.png",
+    "sha256": "ebb8aa87ae04b7f3a2d8d9c44e2cf68e36640508bfd730c98c2f506f2686c786",
+    "bytes": 11227
+  },
+  {
+    "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\terrain-relief-review\\installed-crest.png",
+    "archive": "review/installed-crest.png",
+    "sha256": "05909f2dcc656ee79e8f55214a63e47176d44a83e25b778b8773a86a3787e38d",
+    "bytes": 124464
+  },
+  {
+    "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\terrain-relief-review\\installed-entrance.png",
+    "archive": "review/installed-entrance.png",
+    "sha256": "51e3e7433a07cd92a1de8e8027c156531ef5819b72cada5ec885adf7bf92426b",
+    "bytes": 120956
+  },
+  {
+    "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\terrain-relief-review\\installed-landing.png",
+    "archive": "review/installed-landing.png",
+    "sha256": "bf3d0488e3c88339fbc86981a66a26c0af5cd1dc56f081ce95d50b011eb0f37b",
+    "bytes": 104503
+  },
+  {
+    "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\terrain-relief-review\\installed-overview.png",
+    "archive": "review/installed-overview.png",
+    "sha256": "e59c48d89887142f2dc2777a5714e9d68073e32dbad166b8437d711ad0402d0f",
+    "bytes": 523202
+  },
+  {
+    "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\terrain-relief-review\\installed-results.json",
+    "archive": "review/installed-results.json",
+    "sha256": "42f7f36d97939762ecd7be8bfa3411b0bede7446881be0fc322eec226b86dac7",
+    "bytes": 91
+  },
+  {
+    "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\terrain-relief-review\\ordinary-walkthrough-results.json",
+    "archive": "review/ordinary-walkthrough-results.json",
+    "sha256": "4790df4c9aade10cacb048dde4de29969c9c439aa1423070e7272bf210a27fb5",
+    "bytes": 5765
+  },
+  {
+    "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\terrain-relief-review\\revised-crest.png",
+    "archive": "review/revised-crest.png",
+    "sha256": "0d1cadee537b2104d81cbb405bcc18bdcc3894a7d6763b6b5a15c2bd06709463",
+    "bytes": 124706
+  },
+  {
+    "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\terrain-relief-review\\revised-entrance.png",
+    "archive": "review/revised-entrance.png",
+    "sha256": "505a469252d891ccbe98cbffab1773214a99cab9f410942f0c8647730bcd4e91",
+    "bytes": 122033
+  },
+  {
+    "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\terrain-relief-review\\revised-landing.png",
+    "archive": "review/revised-landing.png",
+    "sha256": "3eb6dde737156bdb2479b629741bb02b268cb9a999f602f38e10867b12ffa097",
+    "bytes": 105800
+  },
+  {
+    "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\terrain-relief-review\\revised-overview.png",
+    "archive": "review/revised-overview.png",
+    "sha256": "7d79fef16abc23890b9a9251917ae3f2eaa7af9e66b7f78970a720714fccd9a3",
+    "bytes": 524097
+  },
+  {
+    "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\terrain-relief-review\\revised-results.json",
+    "archive": "review/revised-results.json",
+    "sha256": "9a54e4ee82c8c871d942ecdf6567464cf79907de9581fc387126a9130442cfc3",
+    "bytes": 159
+  },
+  {
+    "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\terrain-relief-review\\RoundedDispatchAndLandingLanes.png",
+    "archive": "review/RoundedDispatchAndLandingLanes.png",
+    "sha256": "aa6b983512245267297ec9625518809719e5c112d2180ac0f5069df091609191",
+    "bytes": 12373
+  },
+  {
+    "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\terrain-relief-review\\route1_terrain_relief.saved-candidate.gd.txt",
+    "archive": "review/route1_terrain_relief.saved-candidate.gd.txt",
+    "sha256": "5cd13886b74cc4a3e65342811c85d8fe3a50c006bb90e139b489c5de91255ab2",
+    "bytes": 8528
+  },
+  {
+    "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\terrain-relief-review\\walkthrough-assignment.png",
+    "archive": "review/walkthrough-assignment.png",
+    "sha256": "dd634af17755e0829adcf99b970e3e89c5d7fe589c7140fca7e631e85eed5f87",
+    "bytes": 104419
+  },
+  {
+    "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\terrain-relief-review\\walkthrough-bridge-arrival.png",
+    "archive": "review/walkthrough-bridge-arrival.png",
+    "sha256": "a66aebd749b1ae2cc775820536623c2ab5ff492c3c6ce13869f3760a8f247284",
+    "bytes": 90042
+  },
+  {
+    "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\terrain-relief-review\\walkthrough-city-board.png",
+    "archive": "review/walkthrough-city-board.png",
+    "sha256": "39bd0900e931342c339397222fbebf68d02830288cac24631b440a02ab7aabc3",
+    "bytes": 102576
+  },
+  {
+    "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\terrain-relief-review\\walkthrough-city-clerk.png",
+    "archive": "review/walkthrough-city-clerk.png",
+    "sha256": "8263cb3e37a0123a5dd19009d8b64dc3953b3f0b0552867b0ec1af0c9f4747aa",
+    "bytes": 93989
+  },
+  {
+    "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\terrain-relief-review\\walkthrough-height-marks.png",
+    "archive": "review/walkthrough-height-marks.png",
+    "sha256": "24edd83109803cf1fd8f79bc7023e35c9ae4b82215bcb244457fe32ab88a1af3",
+    "bytes": 93871
+  },
+  {
+    "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\terrain-relief-review\\walkthrough-levee-sign.png",
+    "archive": "review/walkthrough-levee-sign.png",
+    "sha256": "0e0c7f33b25d33f8eb8384ecce05f8fa7a6643847da88ddceda3560b60c66c3e",
+    "bytes": 106001
+  },
+  {
+    "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\terrain-relief-review\\walkthrough-marker-repair.png",
+    "archive": "review/walkthrough-marker-repair.png",
+    "sha256": "459f8300ea93ea4f7e0b38a4a0922c85bbcd3f6ce6c29699db2683566276c476",
+    "bytes": 105881
+  },
+  {
+    "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\terrain-relief-review\\walkthrough-relay-delivery.png",
+    "archive": "review/walkthrough-relay-delivery.png",
+    "sha256": "575baef6cfe5cbb4d33410ce2298bd1da71230bd38e368642842b9b5435da5c9",
+    "bytes": 93847
+  },
+  {
+    "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\terrain-relief-review\\walkthrough-report-choices.png",
+    "archive": "review/walkthrough-report-choices.png",
+    "sha256": "c3149e2da3bb0e054a7866fb849678783511dab6e6882705a2681daf8b2de0ae",
+    "bytes": 105420
+  },
+  {
+    "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\terrain-relief-review\\walkthrough-report-complete.png",
+    "archive": "review/walkthrough-report-complete.png",
+    "sha256": "71fbe58693f8c1766b5350513826f4e33248c931db11375f7cccfb4ab7407869",
+    "bytes": 107327
+  },
+  {
+    "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\terrain-relief-review\\walkthrough-river-calls.png",
+    "archive": "review/walkthrough-river-calls.png",
+    "sha256": "bc1a956222eb05d6df50e6b99b9d67ae0405e39a106ae25cfa7af7b63ef98142",
+    "bytes": 88276
+  },
+  {
+    "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\terrain-relief-review\\walkthrough-start.png",
+    "archive": "review/walkthrough-start.png",
+    "sha256": "852c2b1735241e4519d9497b286129383a48eee21f1c0511e55ee9dbff765eb8",
+    "bytes": 118309
+  },
+  {
+    "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\terrain-bake-import-err.txt",
+    "archive": "verification/terrain-bake-import-err.txt",
+    "sha256": "faeaea9924884f4b8cad1be79b1b011b1321d623048399c96a2a58ea6c807433",
+    "bytes": 1198
+  },
+  {
+    "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\terrain-bake-import-out.txt",
+    "archive": "verification/terrain-bake-import-out.txt",
+    "sha256": "977c80c211cb8792f28568e3b17054ed9e50f83f0b0753ae541de35cbcb5785d",
+    "bytes": 3477
+  },
+  {
+    "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\terrain-candidate-review-err.txt",
+    "archive": "verification/terrain-candidate-review-err.txt",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "bytes": 0
+  },
+  {
+    "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\terrain-candidate-review-out.txt",
+    "archive": "verification/terrain-candidate-review-out.txt",
+    "sha256": "13bd82771718b9eb588b3d29198fc05e60e8627960410b7cfb2004e0dd94c758",
+    "bytes": 552
+  },
+  {
+    "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\terrain-installed-review-err.txt",
+    "archive": "verification/terrain-installed-review-err.txt",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "bytes": 0
+  },
+  {
+    "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\terrain-installed-review-out.txt",
+    "archive": "verification/terrain-installed-review-out.txt",
+    "sha256": "6749b51a7a2909a39e25b47d33bd67294337603c106ff4c05c0e27e121911679",
+    "bytes": 485
+  },
+  {
+    "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\terrain-ordinary-walkthrough-err.txt",
+    "archive": "verification/terrain-ordinary-walkthrough-err.txt",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "bytes": 0
+  },
+  {
+    "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\terrain-ordinary-walkthrough-out.txt",
+    "archive": "verification/terrain-ordinary-walkthrough-out.txt",
+    "sha256": "a5a46386d17c2eb0509c2b3df2c366cee3182c3261405b8bc8cee3457391ee32",
+    "bytes": 2880
+  },
+  {
+    "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\terrain-revised-review-err.txt",
+    "archive": "verification/terrain-revised-review-err.txt",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "bytes": 0
+  },
+  {
+    "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\terrain-revised-review-out.txt",
+    "archive": "verification/terrain-revised-review-out.txt",
+    "sha256": "5840db98d63b8d7461ba08b6a4c7987db769cc983c883498e1c8fda0c2cbcb3d",
+    "bytes": 550
+  },
+  {
+    "source": "C:\\Users\\pmcga\\dev\\hollowtide\\scripts\\route1_crossing.gd",
+    "archive": "source/installed/scripts/route1_crossing.gd.txt",
+    "sha256": "c38ec618cc9f4ba63d2642e8c919a57d93442fb244e4be56d376a6d7fe63a5c8",
+    "bytes": 16767
+  },
+  {
+    "source": "C:\\Users\\pmcga\\dev\\hollowtide\\scripts\\route1_crossing.gd.uid",
+    "archive": "source/installed/scripts/route1_crossing.gd.uid.txt",
+    "sha256": "1306f6aae37d817e410b966fcf10d90549bfdb8c2fa276cd064732b52db5e58e",
+    "bytes": 20
+  },
+  {
+    "source": "C:\\Users\\pmcga\\dev\\hollowtide\\scripts\\route1_terrain_relief.gd",
+    "archive": "source/installed/scripts/route1_terrain_relief.gd.txt",
+    "sha256": "c8a2ab722e34618293b1be1ee4b801ba8fef64fa6838591ec0583b6ada191861",
+    "bytes": 1113
+  },
+  {
+    "source": "C:\\Users\\pmcga\\dev\\hollowtide\\scripts\\route1_terrain_relief.gd.uid",
+    "archive": "source/installed/scripts/route1_terrain_relief.gd.uid.txt",
+    "sha256": "76e9d53ec81e3c0ed67b69b78ad39c5cd18196f1c22b0ba01a6858ccf69a44ab",
+    "bytes": 20
+  },
+  {
+    "source": "C:\\Users\\pmcga\\dev\\hollowtide\\assets\\sprites\\world\\route1_terrain_relief_2026_10_03\\levee_grass_slopes.png",
+    "archive": "source/installed/assets/sprites/world/route1_terrain_relief_2026_10_03/levee_grass_slopes.png",
+    "sha256": "ebb8aa87ae04b7f3a2d8d9c44e2cf68e36640508bfd730c98c2f506f2686c786",
+    "bytes": 11227
+  },
+  {
+    "source": "C:\\Users\\pmcga\\dev\\hollowtide\\assets\\sprites\\world\\route1_terrain_relief_2026_10_03\\levee_grass_slopes.png.import",
+    "archive": "source/installed/assets/sprites/world/route1_terrain_relief_2026_10_03/levee_grass_slopes.png.import.txt",
+    "sha256": "d66759b56004ec4b0e6ef5ff0551cfc8ebefd127d0ac5719bc5315b8db5e0125",
+    "bytes": 1013
+  },
+  {
+    "source": "C:\\Users\\pmcga\\dev\\hollowtide\\assets\\sprites\\world\\route1_terrain_relief_2026_10_03\\rounded_dispatch_landing_paths.png",
+    "archive": "source/installed/assets/sprites/world/route1_terrain_relief_2026_10_03/rounded_dispatch_landing_paths.png",
+    "sha256": "aa6b983512245267297ec9625518809719e5c112d2180ac0f5069df091609191",
+    "bytes": 12373
+  },
+  {
+    "source": "C:\\Users\\pmcga\\dev\\hollowtide\\assets\\sprites\\world\\route1_terrain_relief_2026_10_03\\rounded_dispatch_landing_paths.png.import",
+    "archive": "source/installed/assets/sprites/world/route1_terrain_relief_2026_10_03/rounded_dispatch_landing_paths.png.import.txt",
+    "sha256": "56b8bec16b422d4fc8fc50753d0ff3a4715b9a52638568aaf3bd6647ac60a703",
+    "bytes": 1049
+  },
+  {
+    "source": "C:\\Users\\pmcga\\dev\\hollowtide\\scenes\\first_route_prototype.tscn",
+    "archive": "source/inputs/scenes/first_route_prototype.tscn.txt",
+    "sha256": "88edcd961f4608584a5d1c505bffab7e7a44af0662b1ab9a2a8584030a3abddc",
+    "bytes": 30773
+  },
+  {
+    "source": "C:\\Users\\pmcga\\dev\\hollowtide\\assets\\tilesets\\route1_rd_2026_10_01\\route1_ground_atlas_polished.png",
+    "archive": "source/inputs/assets/tilesets/route1_rd_2026_10_01/route1_ground_atlas_polished.png",
+    "sha256": "3c5cf177727cb41f152bb4cabfbaa8dc2a9c0ac3f74a9492b31d19835f71dc14",
+    "bytes": 7553
+  },
+  {
+    "source": "C:\\Users\\pmcga\\dev\\hollowtide\\assets\\sprites\\world\\route1_crossing_2026_10_02\\path_soil_native32.png",
+    "archive": "source/inputs/assets/sprites/world/route1_crossing_2026_10_02/path_soil_native32.png",
+    "sha256": "0bc1711d71a8a8133da3be181c0d2d7620149bd73d0f1a302abc4584b665df1f",
+    "bytes": 670
+  },
+  {
+    "source": "C:\\Users\\pmcga\\dev\\hollowtide\\docs\\AI_COLLABORATION.md",
+    "archive": "source/AI_COLLABORATION.after-this-pass.md.txt",
+    "sha256": "b6ab88e866952a065821aeff2bb86ab1a1701c6a8c95be7da36ddcc18d77cdfc",
+    "bytes": 245617
+  },
+  {
+    "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\archive_terrain_pass.py",
+    "archive": "tools/archive_terrain_pass.py.txt",
+    "sha256": "2e8dc4f9696ea253ce55719a5977be29c0c4a2e4c831afbec933aa343bf8b2d6",
+    "bytes": 14844
+  }
+]

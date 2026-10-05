@@ -36,6 +36,15 @@ uniform float heat_sweep : hint_range(0.0, 1.0) = 1.0;
 // 1 = jade (Oxbowarchon's green energy seams, Preston 2026-09-29): the bright
 // greens light toward pale mint and bleed emerald; slate stone stays as drawn.
 uniform int glow_kind = 0;
+// Ironvent's head keeps the same soot-charcoal ramp in both views and attacks.
+uniform bool charcoal_head = false;
+uniform vec4 head_finish_bounds = vec4(0.76, 0.40, 1.0, 0.67);
+
+// Registered Vitrecrag attack frames can omit the authored shell seams.
+// Opt in only for that frame family; default materials remain unchanged.
+uniform bool keep_authored_cracks = false;
+uniform sampler2D authored_shell : filter_nearest, repeat_disable;
+
 
 const vec3 BRIGHT = vec3(0.988, 0.612, 0.298); // #fc9c4c
 const vec3 PALE = vec3(0.988, 0.863, 0.643);   // #fcdca4
@@ -96,6 +105,36 @@ void fragment() {
 		uv = (src + 0.5) / size;
 	}
 	vec4 raw = texture(TEXTURE, uv);
+	if (keep_authored_cracks && raw.a > 0.99) {
+		vec2 shell_px = floor(uv * size);
+		vec4 shell = texture(authored_shell, uv);
+		bool plate = shell_px.x >= 22.0 && shell_px.x < 165.0
+			&& shell_px.y >= 50.0 && shell_px.y < 119.0;
+		bool window = shell_px.x >= 115.0 && shell_px.x < 137.0
+			&& shell_px.y >= 76.0 && shell_px.y < 105.0;
+		bool seam = shell.r > 0.45 && shell.r - shell.b > 0.20
+			&& shell.g < shell.r * 0.85 && shell.a > 0.99;
+		// Keep contours, the window and each pose's eruption as drawn.
+		// The same snapped UV as breathing keeps seams on the body grid.
+		if (plate && !window && seam && raw.r > 0.08 && core(raw) < 0.5) {
+			raw.rgb = max(raw.rgb, shell.rgb);
+		}
+	}
+
+
+	// Registered Ironvent art uses a 100px canvas. The head armor starts
+	// below the horn bases; its finish leaves the horns and body rust intact.
+	if (charcoal_head && raw.a > 0.0
+		&& all(greaterThanEqual(uv, head_finish_bounds.xy))
+		&& all(lessThan(uv, head_finish_bounds.zw))) {
+		float brightest = max(raw.r, max(raw.g, raw.b));
+		// Match the lineage's charcoal-grey armor, keeping the drawn planes,
+		// black contour and molten highlights instead of flattening the head.
+		if (core(raw) < 0.5 && brightest > 0.14) {
+			float plane = dot(raw.rgb, vec3(0.28, 0.56, 0.16));
+			raw.rgb = vec3(plane) * vec3(0.68, 0.72, 0.70);
+		}
+	}
 	float edge = heat_sweep * 1.1;
 	float filled = smoothstep(uv.x - 0.05, uv.x + 0.05, edge);
 	float front = heat_sweep < 1.0 ? max(0.0, 1.0 - abs(uv.x - edge) / 0.06) : 0.0;

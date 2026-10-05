@@ -1,0 +1,56 @@
+Welcome to Summer Engine (c) built on the awesome work by Godot 2007-present Juan Linietsky, Ariel Manzur & Godot Contributors.
+
+[SE] AuthManager: CLI credential found; desktop session exchange required
+[SE] LocalApiServer: local HTTP API disabled (--summer-no-api / SUMMER_NO_API=1); nothing bound on 127.0.0.1, no ~/.summer discovery files written
+[SE] No update available.
+[WebView2] Failed to get parent window
+[WebView2] Failed to get parent window
+[   0% ] [90m[1mfirst_scan_filesystem[22m | Started Project initialization (5 steps)[39m[0m
+[   0% ] [90m[1mfirst_scan_filesystem[22m | Scanning file structure...[39m[0m
+[  16% ] [90m[1mfirst_scan_filesystem[22m | Loading global class names...[39m[0m
+[  33% ] [90m[1mfirst_scan_filesystem[22m | Verifying GDExtensions...[39m[0m
+[  50% ] [90m[1mfirst_scan_filesystem[22m | Creating autoload scripts...[39m[0m
+[  66% ] [90m[1mfirst_scan_filesystem[22m | Initializing plugins...[39m[0m
+MCP | plugin disabled in headless mode
+[  83% ] [90m[1mfirst_scan_filesystem[22m | Starting file scan...[39m[0m
+[92m[ DONE ][39m [1mfirst_scan_filesystem[22m
+[0m
+[   0% ] [90m[1m_update_scan_actions[22m | Started Scanning actions... (4 steps)[39m[0m
+[   0% ] [90m[1m_update_scan_actions[22m | joined_city_landing.png[39m[0m
+[  20% ] [90m[1m_update_scan_actions[22m | joined_levee_road.png[39m[0m
+[  40% ] [90m[1m_update_scan_actions[22m | river_water_mask.png[39m[0m
+[  60% ] [90m[1m_update_scan_actions[22m | wet_bank_contours.png[39m[0m
+[92m[ DONE ][39m [1m_update_scan_actions[22m
+[0m
+[   0% ] [90m[1mreimport[22m | Started (Re)Importing Assets (4 steps)[39m[0m
+[   0% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  20% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  40% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  60% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[   0% ] [90m[1mreimport[22m | Executing pre-reimport operations...[39m[0m
+[   0% ] [90m[1mreimport[22m | joined_city_landing.png[39m[0m
+[  20% ] [90m[1mreimport[22m | joined_levee_road.png[39m[0m
+[  40% ] [90m[1mreimport[22m | river_water_mask.png[39m[0m
+[  60% ] [90m[1mreimport[22m | wet_bank_contours.png[39m[0m
+[  80% ] [90m[1mreimport[22m | Finalizing Asset Import...[39m[0m
+[92m[ DONE ][39m [1mreimport[22m
+[0m
+[   0% ] [90m[1mreimport[22m | Started (Re)Importing Assets (4 steps)[39m[0m
+[   0% ] [90m[1mreimport[22m | Executing post-reimport operations...[39m[0m
+[92m[ DONE ][39m [1mreimport[22m
+[0m
+[   0% ] [90m[1mloading_editor_layout[22m | Started Loading editor (5 steps)[39m[0m
+[   0% ] [90m[1mloading_editor_layout[22m | Loading editor layout...[39m[0m
+[  16% ] [90m[1mloading_editor_layout[22m | Loading docks...[39m[0m
+[  33% ] [90m[1mloading_editor_layout[22m | Reopening scenes...[39m[0m
+[  50% ] [90m[1mloading_editor_layout[22m | Loading central editor layout...[39m[0m
+[  66% ] [90m[1mloading_editor_layout[22m | Loading plugin window layout...[39m[0m
+[  83% ] [90m[1mloading_editor_layout[22m | Editor layout ready.[39m[0m
+[92m[ DONE ][39m [1mloading_editor_layout[22m
+[0m
+[WebView2] Failed to get parent window
+[WebView2] set_cookie: webview not ready, skipping
+[SE] AuthManager: applied native session (user=031f9064-36f5-488c-87c0-43b622e8ffdb)
+[WebView2] set_cookie: webview not ready, skipping
+[WebView2] set_cookie: webview not ready, skipping
+[SE] ChatDock: Native fallback session active, reloading chat with se_session cookie

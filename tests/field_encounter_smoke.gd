@@ -138,4 +138,3 @@ func _run() -> void:
 		return
 	print("FIELD_ENCOUNTER_SMOKE_OK")
 	quit(0)
-

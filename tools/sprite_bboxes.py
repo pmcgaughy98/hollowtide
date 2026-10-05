@@ -15,27 +15,27 @@ CREATURE_HEIGHT = 264
 
 
 def main() -> None:
-    print("%-26s %-11s %-20s %-9s %-8s %s" % (
-        "file", "canvas", "content bbox", "content", "zoom", "on-screen"))
-    for path in sorted(glob.glob("assets/sprites/creatures/*.png")):
-        with Image.open(path) as image:
-            canvas = image.size
-            box = image.convert("RGBA").getbbox()
-        if box is None:
-            continue
-        width = box[2] - box[0]
-        height = box[3] - box[1]
-        zoom = max(1, round(CREATURE_HEIGHT / canvas[1]))
-        print("%-26s %-11s %-20s %-9s %-8d %dx%d" % (
-            os.path.basename(path),
-            "%dx%d" % canvas,
-            "%d,%d,%d,%d" % box,
-            "%dx%d" % (width, height),
-            zoom,
-            width * zoom,
-            height * zoom,
-        ))
+	print("%-26s %-11s %-20s %-9s %-8s %s" % (
+		"file", "canvas", "content bbox", "content", "zoom", "on-screen"))
+	for path in sorted(glob.glob("assets/sprites/creatures/*.png")):
+		with Image.open(path) as image:
+			canvas = image.size
+			box = image.convert("RGBA").getbbox()
+		if box is None:
+			continue
+		width = box[2] - box[0]
+		height = box[3] - box[1]
+		zoom = max(1, round(CREATURE_HEIGHT / canvas[1]))
+		print("%-26s %-11s %-20s %-9s %-8d %dx%d" % (
+			os.path.basename(path),
+			"%dx%d" % canvas,
+			"%d,%d,%d,%d" % box,
+			"%dx%d" % (width, height),
+			zoom,
+			width * zoom,
+			height * zoom,
+		))
 
 
 if __name__ == "__main__":
-    main()
+	main()

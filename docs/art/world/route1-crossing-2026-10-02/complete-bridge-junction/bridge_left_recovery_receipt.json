@@ -1,0 +1,21 @@
+{
+  "request_id": "78c438c6-e8a5-4d83-84a9-fb710b81039f",
+  "operation": "edit_tool",
+  "status": "succeeded",
+  "mode": "sync",
+  "created_at": 1790972734,
+  "updated_at": 1790972883,
+  "completed_at": 1790972883,
+  "credit_cost": 20,
+  "balance_cost": 0.18,
+  "charged": true,
+  "http_status": 200,
+  "output_status": "available",
+  "request_summary": {
+    "tool_id": "outpainting",
+    "prompt_role": "left bridge half",
+    "input_sha256": "7f697f24db60a4ddf65d34cce74890fc12afea6759902528a0360a6bfe9823e3"
+  },
+  "output_file": "bridge_left_outpaint.png",
+  "output_sha256": "2df0af3f6665497e5f5a5bb520b757717f53c837bfdc084f6ee6cf79b4afc07d"
+}

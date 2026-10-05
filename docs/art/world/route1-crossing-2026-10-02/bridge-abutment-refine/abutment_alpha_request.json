@@ -1,0 +1,7 @@
+{
+  "tool_id": "background_remover",
+  "input_file": "abutment_joined_white.png",
+  "force_solid_pixels": true,
+  "transparency_threshold": 12,
+  "custom_id": "hollowtide-abutment-alpha-20261003-0154"
+}

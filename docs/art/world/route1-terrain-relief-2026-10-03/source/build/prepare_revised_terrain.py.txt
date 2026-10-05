@@ -1,0 +1,50 @@
+from pathlib import Path
+S=Path.cwd();p=Path("C:/Users/pmcga/dev/hollowtide/scripts/route1_terrain_relief.gd")
+s=p.read_text(encoding="utf-8")
+(S/"terrain-relief-review/route1_terrain_relief.saved-candidate.gd.txt").write_bytes(p.read_bytes())
+s=s.replace("\t_build_bank_faces()\n","")
+s=s.replace('var area := Rect2i(136, 216, 296, 248)','var area := Rect2i(136, 216, 296, 248)',1)
+s=s.replace('(28.0 if sample.y > 0 else 20.0)', '(31.0 if sample.y > 0 else 22.0)')
+start=s.index("\t\t\tvar shift := 0",s.index("func _build_crest_shoulders"));end=s.index("\t\t\timage.set_pixel(x, y, colour)",start)
+s=s[:start]+'''			# A broad shadowed slope and lighter crest shoulder communicate
+			# raised earth while the native grass pattern remains visible.
+			var base := _atlas.get_pixel(posmod(at.x, 32), posmod(at.y, 16))
+			var shade := lerpf(0.72, 1.0, smoothstep(0.02, 0.96, downhill)) if sample.y > 0 else lerpf(1.13, 1.0, smoothstep(0.05, 0.90, downhill))
+			shade = roundf(shade * 24.0) / 24.0
+			var colour := Color(base.r * shade, base.g * shade, base.b * shade, 1.0)
+			# The toe returns to field grass; no hard dark outline is added.
+			if downhill > 0.92:
+				colour = base
+'''+s[end:]
+start=s.index("\tfor _pass_index in range(10):",s.index("func _round_old_lanes"));end=s.index("\tvar image := Image.create",start)
+s=s[:start]+'''	# Summed-area smoothing rounds the larger square joins in native pixels.
+	for _pass_index in range(3):
+		var prefix := PackedInt32Array()
+		var stride := area.size.x + 1
+		prefix.resize(stride * (area.size.y + 1))
+		for y in range(area.size.y):
+			var running := 0
+			for x in range(area.size.x):
+				running += mask[y * area.size.x + x]
+				prefix[(y + 1) * stride + x + 1] = prefix[y * stride + x + 1] + running
+		var rounded := mask.duplicate()
+		for y in range(1, area.size.y - 1):
+			for x in range(1, area.size.x - 1):
+				var left := maxi(0, x - 6)
+				var right := mini(area.size.x, x + 7)
+				var top := maxi(0, y - 6)
+				var bottom := mini(area.size.y, y + 7)
+				var count := prefix[bottom * stride + right] - prefix[top * stride + right] - prefix[bottom * stride + left] + prefix[top * stride + left]
+				var pixels := (right - left) * (bottom - top)
+				rounded[y * area.size.x + x] = int(count * 2 >= pixels)
+		mask = rounded
+'''+s[end:]
+needle="\tadd_child(surface)\n"
+assert s.count(needle)==1
+s=s.replace(needle,needle+'\timage.save_png("C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/terrain-relief-review/"+label+".png")\n')
+(S/"terrain_relief_revised_candidate.gd").write_text(s,encoding="utf-8")
+s=(S/"terrain_candidate_review.gd").read_text(encoding="utf-8")
+s=s.replace('load("res://scripts/route1_terrain_relief.gd")','load("C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/terrain_relief_revised_candidate.gd")')
+s=s.replace('"candidate-', '"revised-').replace('candidate-results.json','revised-results.json')
+(S/"terrain_revised_candidate_review.gd").write_text(s,encoding="utf-8")
+print("Revised offline slope/path build prepared; original wet-bank layer retained.")

@@ -1,0 +1,17 @@
+from pathlib import Path
+import hashlib,json
+p=Path("C:/Users/pmcga/dev/hollowtide");s=Path.cwd();r=s/"landing-loop-review"
+for name in ["candidate-turn.png","candidate-bank.png","candidate-return.png","candidate-overview.png"]:
+ (r/(Path(name).stem+".v2.png")).write_bytes((r/name).read_bytes())
+layer=s/"landing_loop_candidate.gd";t=layer.read_text(encoding="utf-8");(r/"landing_loop_candidate.v2.gd.txt").write_bytes(layer.read_bytes())
+assert t.count("label.position=Vector2(278,294)")==1
+t=t.replace("label.position=Vector2(278,294)","label.position=Vector2(278,270)")
+layer.write_text(t,encoding="utf-8")
+asset=p/"assets/sprites/world/route1_landing_loop_2026_10_03/landing_footpath.png";asset.parent.mkdir(parents=True,exist_ok=True)
+assert not asset.exists() or asset.read_bytes()==(r/"landing_footpath.png").read_bytes()
+asset.write_bytes((r/"landing_footpath.png").read_bytes())
+(r/"asset-manifest.json").write_text(json.dumps({"file":asset.relative_to(p).as_posix(),"sha256":hashlib.sha256(asset.read_bytes()).hexdigest(),"size":[152,154],"at":[292,258],"native_source_pixels_reused":True},indent=2),encoding="utf-8")
+runtime=t.replace('const SURFACE_PATH := "'+(r/"landing_footpath.png").as_posix()+'"','const FOOTPATH = preload("res://'+asset.relative_to(p).as_posix()+'")')
+runtime=runtime.replace("ImageTexture.create_from_image(Image.load_from_file(SURFACE_PATH))","FOOTPATH")
+(s/"landing_loop_runtime.gd.txt").write_text(runtime,encoding="utf-8")
+print("Staged exact native footpath and final renderer; label cleared above the notice.")

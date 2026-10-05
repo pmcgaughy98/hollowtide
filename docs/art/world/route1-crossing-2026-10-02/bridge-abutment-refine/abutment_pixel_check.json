@@ -1,0 +1,48 @@
+{
+  "size": [
+    288,
+    112
+  ],
+  "bounds": [
+    22,
+    3,
+    265,
+    103
+  ],
+  "opaque_edge_pixels": 0,
+  "changed_pixels_including_transparent_RGB": 5150,
+  "white_removed": [
+    [
+      72,
+      23,
+      [
+        255,
+        255,
+        255,
+        255
+      ]
+    ],
+    [
+      96,
+      23,
+      [
+        255,
+        255,
+        255,
+        255
+      ]
+    ],
+    [
+      224,
+      23,
+      [
+        255,
+        255,
+        255,
+        255
+      ]
+    ]
+  ],
+  "protected_nonwhite_changes": [],
+  "remaining_nearwhite": []
+}

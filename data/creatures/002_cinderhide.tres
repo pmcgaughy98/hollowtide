@@ -14,6 +14,12 @@
 script = ExtResource("1_script")
 id = 2
 creature_name = "Cinderhide"
+body_parts = PackedStringArray("claw", "brow", "vent", "mouth", "ridge")
+aim_points = Dictionary[String, Vector2]({
+"vent": Vector2(-16, -5),
+"ridge": Vector2(-9, -9),
+"claw": Vector2(32, 30)
+})
 essence = 0
 sprite = ExtResource("2_sprite")
 back_sprite = ExtResource("7_back")

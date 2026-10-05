@@ -1,0 +1,10 @@
+{
+  "request_id": "c8079c88-efa7-4eeb-912e-dcae37ff7cb8",
+  "balance_cost": 0.18,
+  "model": "rd_pro",
+  "width": 160,
+  "height": 144,
+  "resolved_prompt_style": "rd_pro__topdown",
+  "reference_images_count": 1,
+  "created_at": 1791051013
+}

@@ -1,0 +1,72 @@
+[
+  {
+    "path": "assets/sprites/world/hometown_garden_2026_10_04/cuttings_row.png",
+    "sha256": "076385f81f479850301deeab49b40b008a2cb2c8dfbff06ae10a976c223a5a60",
+    "status": "new"
+  },
+  {
+    "path": "assets/sprites/world/hometown_garden_2026_10_04/cuttings_row.png.import",
+    "sha256": "06e2d3db7f8d51eb1f5eb8e8cb08f57f2a5b77d6c38fd32681cdbdf4947e44df",
+    "status": "new"
+  },
+  {
+    "path": "assets/sprites/world/hometown_garden_2026_10_04/garden_lanes.png",
+    "sha256": "3369e1d619236d5dc165123fe63a556a2e7d6321edcd855ab5ec81b2c5607f6c",
+    "status": "new"
+  },
+  {
+    "path": "assets/sprites/world/hometown_garden_2026_10_04/garden_lanes.png.import",
+    "sha256": "2dd2df3485edaba817050ad2b3c45d8560e94bc7cd2b4ec64d57471f9a224ee8",
+    "status": "new"
+  },
+  {
+    "path": "assets/sprites/world/hometown_garden_2026_10_04/garden_neighbor.png",
+    "sha256": "c0f31928258cec2f26248cccd40581a60c4704bf1f1a015a9f994bc1fabfb7e1",
+    "status": "new"
+  },
+  {
+    "path": "assets/sprites/world/hometown_garden_2026_10_04/garden_neighbor.png.import",
+    "sha256": "b682a16aea6d594f351590e70d49daaec4c3a5bfba6dac39e5f2bec42e0d3f82",
+    "status": "new"
+  },
+  {
+    "path": "assets/sprites/world/hometown_garden_2026_10_04/timber_bed.png",
+    "sha256": "38a088783cc147761439be0134576c96b09fefb1ed1e7dafc38776d97db5e582",
+    "status": "new"
+  },
+  {
+    "path": "assets/sprites/world/hometown_garden_2026_10_04/timber_bed.png.import",
+    "sha256": "b191a19f32c08f12846af4767c724675cb0fee4f3b1e8ee73f9bf6b1d9cf5c4c",
+    "status": "new"
+  },
+  {
+    "path": "scenes/hometown.tscn",
+    "sha256": "302881706312ff6104bd8b2cfeba170a94d412598d5a68173dc2e1264f033617",
+    "status": "changed-existing"
+  },
+  {
+    "path": "scripts/area_landscape.gd",
+    "sha256": "040409f209952a1b717409646ab4c2895845e2d12e6869bd438439f1925c1622",
+    "status": "changed-existing"
+  },
+  {
+    "path": "scripts/first_route_prototype.gd",
+    "sha256": "0519fd97fd85c43d975fde4528ca32f7c30f45790b26a0881be408283606a18d",
+    "status": "changed-existing"
+  },
+  {
+    "path": "scripts/hometown_garden.gd",
+    "sha256": "f4e7f3da3d7199b81488f9f18983c42ae25844ab601d59ff896c6c86f98b9ef8",
+    "status": "new"
+  },
+  {
+    "path": "scripts/hometown_garden.gd.uid",
+    "sha256": "153910a1fd11bec27ba3e8e30baa49123eda3d8faba0eff26cde90ae04a628f0",
+    "status": "new"
+  },
+  {
+    "path": "scripts/world_area.gd",
+    "sha256": "8895f5457b13fad79fe672d0b6d232d78d85c391c7d82e4d249529ae780ba1f8",
+    "status": "changed-existing"
+  }
+]

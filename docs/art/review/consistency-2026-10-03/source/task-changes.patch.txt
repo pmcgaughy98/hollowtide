@@ -1,0 +1,446 @@
+--- before/scripts/main_menu.gd
++++ current/scripts/main_menu.gd
+@@ -392,6 +392,8 @@
+ 		card.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+ 		card.toggle_mode = true
+ 		card.pressed.connect(_select_courier.bind(model))
++		# Moving onto a courier also chooses it, so arrows and the label agree.
++		card.focus_entered.connect(_select_courier.bind(model))
+ 		row.add_child(card)
+ 		_courier_buttons.append(card)
+ 		_journey_controls.append(card)
+@@ -402,6 +404,10 @@
+ 		atlas.atlas = load(WALK_ART + file)
+ 		atlas.region = Rect2(0, 0, 80, 80)
+ 		preview.texture = atlas
++		if model == "Female":
++			var finish := ShaderMaterial.new()
++			finish.shader = preload("res://scripts/effects/courier_finish.gdshader")
++			preview.material = finish
+ 		preview.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
+ 		preview.position = Vector2(21, 4)
+ 		preview.size = Vector2(160, 160)
+@@ -634,6 +640,9 @@
+ 
+ 
+ func _select_courier(model: String) -> void:
++	if _leaving or model == _selected_courier:
++		_update_courier_selection()
++		return
+ 	_selected_courier = model
+ 	_settings_dirty = true
+ 	_update_courier_selection()
+--- before/scripts/player.gd
++++ current/scripts/player.gd
+@@ -18,6 +18,7 @@
+ # up-right, right, down-right. Both models share the same foot anchor.
+ const CHIBI_MALE: Texture2D = preload("res://assets/sprites/player/retro_diffusion_chibi_walking_2026_10_01/male_chibi_walk_matched_turns_native80.png")
+ const CHIBI_FEMALE: Texture2D = preload("res://assets/sprites/player/retro_diffusion_chibi_walking_2026_10_01/female_chibi_walk_eight_directions_native80.png")
++const COURIER_FINISH: Shader = preload("res://scripts/effects/courier_finish.gdshader")
+ const CHIBI_CELL := 80.0
+ const CHIBI_SCALE := 30.0 / 64.0
+ const CHIBI_FOOT := 72.0
+@@ -52,6 +53,10 @@
+ 
+ 
+ func _ready() -> void:
++	if use_chibi and chibi_model == "Female":
++		var finish := ShaderMaterial.new()
++		finish.shader = COURIER_FINISH
++		_sprite.material = finish
+ 	_update_walk(Vector2.ZERO, 0.0)
+ 
+ 
+--- before/scripts/battle_screen.gd
++++ current/scripts/battle_screen.gd
+@@ -287,6 +287,7 @@
+ 		mat.set_shader_parameter("heat_sweep", 1.0)
+ 		# Fire or jade: which of this creature's colours light up.
+ 		mat.set_shader_parameter("glow_kind", (_foe if s == _foe_sprite else player_creature).glow_kind)
++		mat.set_shader_parameter("charcoal_head", (_foe if s == _foe_sprite else player_creature).id == 102)
+ 		s.material = mat
+ 	_foe_home = _foot_home(_foe_sprite, Vector2(FOE_X, FOE_FOOT_Y))
+ 	# The player's creature stands on its own floor line too, so a big body
+@@ -664,6 +665,8 @@
+ 	var original_texture: Texture2D = sprite.texture
+ 	var back: bool = by_player and _attacker_uses_back(by_player)
+ 	var frames: Array[Texture2D] = move.attack_back_frames if back else move.attack_frames
++	var attacker: CreatureData = player_creature if by_player else _foe
++	var shell_details := _keep_attack_shell_details(sprite, attacker, frames, back)
+ 	var hit: int = move.attack_hit_frame
+ 	if hit < 0 or hit >= move.attack_frames.size():
+ 		hit = maxi(0, move.attack_frames.size() - 2)
+@@ -687,6 +690,7 @@
+ 	for i in range(move.attack_frames.size()):
+ 		if i < frames.size():
+ 			sprite.texture = frames[i]
++			_set_ironvent_head_bounds(sprite)
+ 		var hold: float = move.attack_frame_seconds
+ 		if i < move.attack_frame_holds.size():
+ 			hold = move.attack_frame_holds[i]
+@@ -735,7 +739,10 @@
+ 			var t: float = float(i - hit) / float(steps)
+ 			leg.tween_property(sprite, "position", contact.lerp(home, t), maxf(0.04, hold)).set_trans(Tween.TRANS_SINE)
+ 			await leg.finished
++	if shell_details != null:
++		shell_details.set_shader_parameter("keep_authored_cracks", false)
+ 	sprite.texture = original_texture
++	_set_ironvent_head_bounds(sprite)
+ 	sprite.position = home
+ 	_idle_hold = false
+ 
+@@ -791,6 +798,61 @@
+ ## back: play the move's back-view frames instead, on the same timeline. The
+ ## emitter and volley then start from the back-view offset, and can be drawn
+ ## behind the attacker so they rise from behind its body.
++
++## Retain the approved seams on Vitrecrag's registered RD attack family.
++## Other forms, rear art and differently registered sheets keep their own drawing.
++
++## Measured head armor bounds for each registered Ironvent attack pose.
++func _ironvent_head_bounds(texture: Texture2D) -> Vector4:
++	var bounds := Vector4(0.76, 0.40, 1.0, 0.67)
++	if texture == null or not texture.resource_path.begins_with("res://assets/sprites/creatures/attacks/ironvent_furnace_roar/style_matched/"):
++		return bounds
++	# The raised poses are registered at different head heights. Keep the
++	# grey armor on the actual head, below the horns and above the chest.
++	match texture.resource_path.get_file().get_basename():
++		"rear", "open": return Vector4(0.73, 0.18, 1.0, 0.43)
++		"roar": return Vector4(0.73, 0.10, 1.0, 0.34)
++		"settle": return Vector4(0.74, 0.16, 1.0, 0.37)
++		"titlecard_official_2026_09_30": return Vector4(0.76, 0.32, 1.0, 0.64)
++	return bounds
++
++
++func _set_ironvent_head_bounds(sprite: Sprite2D) -> void:
++	if sprite.material is ShaderMaterial and sprite.material.get_shader_parameter("charcoal_head"):
++		sprite.material.set_shader_parameter("head_finish_bounds", _ironvent_head_bounds(sprite.texture))
++
++
++## Keep the creature's material finish on title cards and attack close-ups.
++func _finish_attack_portrait(art: Sprite2D, creature: CreatureData) -> void:
++	if creature.id == 102:
++		var finish := ShaderMaterial.new()
++		finish.shader = CREATURE_SHADER
++		finish.set_shader_parameter("charcoal_head", true)
++		art.material = finish
++		_set_ironvent_head_bounds(art)
++		return
++	if creature.id != 108 or not art.texture.resource_path.begins_with("res://assets/sprites/creatures/rd_material_match_2026_10_01/vitrecrag_attacks/"):
++		return
++	var material := ShaderMaterial.new()
++	material.shader = CREATURE_SHADER
++	art.material = material
++	var frames: Array[Texture2D] = [art.texture]
++	_keep_attack_shell_details(art, creature, frames, false)
++
++
++func _keep_attack_shell_details(sprite: Sprite2D, creature: CreatureData, frames: Array[Texture2D], back: bool) -> ShaderMaterial:
++	if back or creature.id != 108 or frames.is_empty() or not sprite.material is ShaderMaterial:
++		return null
++	for frame in frames:
++		if frame == null or frame.get_size() != creature.sprite.get_size() \
++				or not frame.resource_path.begins_with("res://assets/sprites/creatures/rd_material_match_2026_10_01/vitrecrag_attacks/"):
++			return null
++	var material: ShaderMaterial = sprite.material
++	material.set_shader_parameter("authored_shell", creature.sprite)
++	material.set_shader_parameter("keep_authored_cracks", true)
++	return material
++
++
+ func _drawn_attack_animation(by_player: bool, dealt: int, multiplier: float, move: MoveData, back: bool = false) -> void:
+ 	var sprite: Sprite2D = _player_sprite if by_player else _foe_sprite
+ 	var home: Vector2 = sprite.position
+@@ -799,6 +861,7 @@
+ 	var offset: Vector2 = move.attack_back_emitter_offset if back else move.attack_emitter_offset
+ 	# Frames without their own emitter point fire from the creature's aim point.
+ 	var attacker: CreatureData = player_creature if by_player else _foe
++	var shell_details := _keep_attack_shell_details(sprite, attacker, frames, back)
+ 	if not back and offset == Vector2.ZERO and _has_aim(attacker, move):
+ 		offset = attacker.aim_points[move.aim]
+ 	# Behind the attacker means earlier in BattleStage's draw order, not a lower
+@@ -866,6 +929,7 @@
+ 	for frame_index in range(move.attack_frames.size()):
+ 		if frame_index < frames.size():
+ 			sprite.texture = frames[frame_index]
++			_set_ironvent_head_bounds(sprite)
+ 			# A frame taller than the idle (Kingstone Rail's raised rails) is drawn
+ 			# with the idle at its bottom; the sprite is centred, so without this
+ 			# the feet would drop by half the extra height.
+@@ -994,7 +1058,10 @@
+ 		var settle := create_tween()
+ 		settle.tween_property(_focus_stage, "modulate", Color.WHITE, move.signature_linger) \
+ 			.set_trans(Tween.TRANS_SINE)
++	if shell_details != null:
++		shell_details.set_shader_parameter("keep_authored_cracks", false)
+ 	sprite.texture = original_texture
++	_set_ironvent_head_bounds(sprite)
+ 	sprite.offset.y = 0.0
+ 	sprite.position = home
+ 	_idle_hold = false
+@@ -1229,6 +1296,7 @@
+ 		sp.scale = Vector2.ONE * _zoom(sp)
+ 		if sp.material is ShaderMaterial:
+ 			(sp.material as ShaderMaterial).set_shader_parameter("glow_kind", (pair[1] as CreatureData).glow_kind)
++			(sp.material as ShaderMaterial).set_shader_parameter("charcoal_head", (pair[1] as CreatureData).id == 102)
+ 	_foe_home = _foot_home(_foe_sprite, Vector2(FOE_X, FOE_FOOT_Y))
+ 	_player_home = _foot_home(_player_sprite, Vector2(PLAYER_X, _near_foot_y()))
+ 	_foe_sprite.position = _foe_home
+@@ -1441,6 +1509,7 @@
+ 	create_tween().tween_property(title, "modulate", Color.WHITE, 0.25)
+ 	var art := Sprite2D.new()
+ 	art.texture = art_tex
++	_finish_attack_portrait(art, attacker)
+ 	art.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
+ 	art.scale = Vector2.ONE * art_zoom
+ 	art.flip_h = not by_player  # drawn facing right; the foe faces left
+@@ -1509,6 +1578,7 @@
+ 	move_child(band, _focus_stage.get_index() + 1)
+ 	var art := Sprite2D.new()
+ 	art.texture = tex
++	_finish_attack_portrait(art, player_creature if by_player else _foe)
+ 	art.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
+ 	art.scale = Vector2.ONE * ZOOM
+ 	art.flip_h = not by_player  # the foe faces left
+@@ -2365,6 +2435,8 @@
+ 	await glow.finished
+ 
+ 	s.texture = _back_of(next) if _back_of(next) != null else next.sprite
++	if s.material is ShaderMaterial:
++		s.material.set_shader_parameter("charcoal_head", next.id == 102)
+ 
+ 	# Reuses the hit shake with a high value, because the argument is damage and
+ 	# there is no damage here. It is the landing thump, not a hit.
+@@ -2587,6 +2659,7 @@
+ 		return
+ 	# Breathing vents: brightest when the breath is fully drawn in.
+ 	if s.material is ShaderMaterial:
++		s.material.set_shader_parameter("charcoal_head", creature.id == 102)
+ 		var inhale: float = 0.5 + 0.5 * _breath_wave(_idle_time / maxf(0.2, creature.idle_period) + phase)
+ 		s.material.set_shader_parameter("idle_glow", creature.idle_vent_glow * inhale)
+ 	# A hand-drawn front loop takes precedence over procedural breathing. A real
+@@ -2637,6 +2710,7 @@
+ 		lift = q.y
+ 		cut = float(used.position.y + used.size.y) / th  # the whole body, feet planted
+ 	var m: ShaderMaterial = s.material
++	_set_ironvent_head_bounds(s)
+ 	m.set_shader_parameter("breath_lift", lift)
+ 	m.set_shader_parameter("breath_widen", widen)
+ 	m.set_shader_parameter("breath_cut", cut)
+--- before/scripts/debug/chibi_walk_review.gd
++++ current/scripts/debug/chibi_walk_review.gd
+@@ -4,6 +4,7 @@
+ const ART := "res://assets/sprites/player/retro_diffusion_chibi_walking_2026_10_01/"
+ const FONT = preload("res://assets/fonts/Silkscreen-Regular.ttf")
+ const TITLE_FONT = preload("res://assets/fonts/AlegreyaSansSC-Bold.ttf")
++const COURIER_FINISH: Shader = preload("res://scripts/effects/courier_finish.gdshader")
+ const DIRECTIONS := ["down", "down_left", "left", "up_left", "up", "up_right", "right", "down_right"]
+ 
+ func _ready() -> void:
+@@ -26,6 +27,10 @@
+ 		var actor := AnimatedSprite2D.new()
+ 		actor.name = model_name + "_" + direction
+ 		actor.sprite_frames = frames
++		if model_name == "Female":
++			var finish := ShaderMaterial.new()
++			finish.shader = COURIER_FINISH
++			actor.material = finish
+ 		actor.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
+ 		actor.scale = Vector2(2, 2)
+ 		actor.offset = Vector2(0, -32)
+--- before/scripts/effects/creature_sprite.gdshader
++++ current/scripts/effects/creature_sprite.gdshader
+@@ -36,6 +36,15 @@
+ // 1 = jade (Oxbowarchon's green energy seams, Preston 2026-09-29): the bright
+ // greens light toward pale mint and bleed emerald; slate stone stays as drawn.
+ uniform int glow_kind = 0;
++// Ironvent's head keeps the same soot-charcoal ramp in both views and attacks.
++uniform bool charcoal_head = false;
++uniform vec4 head_finish_bounds = vec4(0.76, 0.40, 1.0, 0.67);
++
++// Registered Vitrecrag attack frames can omit the authored shell seams.
++// Opt in only for that frame family; default materials remain unchanged.
++uniform bool keep_authored_cracks = false;
++uniform sampler2D authored_shell : filter_nearest, repeat_disable;
++
+ 
+ const vec3 BRIGHT = vec3(0.988, 0.612, 0.298); // #fc9c4c
+ const vec3 PALE = vec3(0.988, 0.863, 0.643);   // #fcdca4
+@@ -96,6 +105,36 @@
+ 		uv = (src + 0.5) / size;
+ 	}
+ 	vec4 raw = texture(TEXTURE, uv);
++	if (keep_authored_cracks && raw.a > 0.99) {
++		vec2 shell_px = floor(uv * size);
++		vec4 shell = texture(authored_shell, uv);
++		bool plate = shell_px.x >= 22.0 && shell_px.x < 165.0
++			&& shell_px.y >= 50.0 && shell_px.y < 119.0;
++		bool window = shell_px.x >= 115.0 && shell_px.x < 137.0
++			&& shell_px.y >= 76.0 && shell_px.y < 105.0;
++		bool seam = shell.r > 0.45 && shell.r - shell.b > 0.20
++			&& shell.g < shell.r * 0.85 && shell.a > 0.99;
++		// Keep contours, the window and each pose's eruption as drawn.
++		// The same snapped UV as breathing keeps seams on the body grid.
++		if (plate && !window && seam && raw.r > 0.08 && core(raw) < 0.5) {
++			raw.rgb = max(raw.rgb, shell.rgb);
++		}
++	}
++
++
++	// Registered Ironvent art uses a 100px canvas. The head armor starts
++	// below the horn bases; its finish leaves the horns and body rust intact.
++	if (charcoal_head && raw.a > 0.0
++		&& all(greaterThanEqual(uv, head_finish_bounds.xy))
++		&& all(lessThan(uv, head_finish_bounds.zw))) {
++		float brightest = max(raw.r, max(raw.g, raw.b));
++		// Match the lineage's charcoal-grey armor, keeping the drawn planes,
++		// black contour and molten highlights instead of flattening the head.
++		if (core(raw) < 0.5 && brightest > 0.14) {
++			float plane = dot(raw.rgb, vec3(0.28, 0.56, 0.16));
++			raw.rgb = vec3(plane) * vec3(0.68, 0.72, 0.70);
++		}
++	}
+ 	float edge = heat_sweep * 1.1;
+ 	float filled = smoothstep(uv.x - 0.05, uv.x + 0.05, edge);
+ 	float front = heat_sweep < 1.0 ? max(0.0, 1.0 - abs(uv.x - edge) / 0.06) : 0.0;
+--- before/scripts/effects/courier_finish.gdshader
++++ current/scripts/effects/courier_finish.gdshader
+@@ -0,0 +1,66 @@
++shader_type canvas_item;
++
++// A material finish for the existing female RD atlas, in native art pixels.
++// Alpha, frame geometry, pose registration and gait remain as authored.
++uniform float finish_strength : hint_range(0.0, 1.0) = 1.0;
++varying vec4 sprite_tint;
++
++void vertex() {
++	sprite_tint = COLOR;
++}
++
++float luminance(vec3 c) {
++	return dot(c, vec3(0.28, 0.56, 0.16));
++}
++
++bool rose(vec3 c) {
++	return c.r > 0.48 && c.g / max(c.r, 0.001) > 0.34
++		&& c.g / max(c.r, 0.001) < 0.65 && c.b > c.g * 0.82;
++}
++
++void fragment() {
++	vec4 raw = texture(TEXTURE, UV);
++	vec3 c = raw.rgb;
++	if (raw.a > 0.0) {
++		vec4 above = texture(TEXTURE, UV - vec2(0.0, TEXTURE_PIXEL_SIZE.y));
++		vec4 left = texture(TEXTURE, UV - vec2(TEXTURE_PIXEL_SIZE.x, 0.0));
++		vec4 below = texture(TEXTURE, UV + vec2(0.0, TEXTURE_PIXEL_SIZE.y));
++		vec4 right = texture(TEXTURE, UV + vec2(TEXTURE_PIXEL_SIZE.x, 0.0));
++		bool inside = above.a > 0.99 && left.a > 0.99 && below.a > 0.99 && right.a > 0.99;
++		bool upper_plane = inside && (luminance(above.rgb) + 0.04 < luminance(c)
++			|| luminance(left.rgb) + 0.04 < luminance(c));
++		bool lower_plane = inside && !upper_plane && (luminance(below.rgb) + 0.04 < luminance(c)
++			|| luminance(right.rgb) + 0.04 < luminance(c));
++		if (max(c.r, max(c.g, c.b)) < 0.15 || (c.g < 0.04 && c.r < 0.25)) {
++			// Match the male courier's warm dark ink, clearing the red fringe.
++			c = vec3(0.051, 0.039, 0.016);
++		} else if (c.r > 0.7 && c.g / c.r > 0.62 && c.b < c.g * 0.9) {
++			// Keep facial highlights warm, with the same light as the male.
++			c = min(vec3(1.0), c + vec3(0.008, 0.028, 0.025));
++		} else if (rose(c)) {
++			// Pink stays pink. Narrow folds add a material plane, not random grain.
++			c = clamp(vec3(0.28) + (c - vec3(0.28)) * 1.10, vec3(0.0), vec3(1.0));
++			if (upper_plane) {
++				c += vec3(0.043, 0.027, 0.023);
++			} else if (lower_plane) {
++				c *= vec3(0.94, 0.92, 0.92);
++			}
++		} else if (c.g > c.r * 1.4 && c.b > c.r * 1.6) {
++			c *= vec3(0.96, 1.06, 1.01);
++			if (upper_plane) {
++				c += vec3(0.016, 0.039, 0.032);
++			} else if (lower_plane) {
++				c *= 0.91;
++			}
++		} else {
++			// Brown hair, leather and the satchel keep separate existing ramps.
++			c *= vec3(1.02, 1.0, 0.96);
++			if (upper_plane && c.r > 0.25) {
++				c += vec3(0.025, 0.021, 0.010);
++			} else if (lower_plane) {
++				c *= 0.94;
++			}
++		}
++	}
++	COLOR = vec4(mix(raw.rgb, clamp(c, vec3(0.0), vec3(1.0)), finish_strength), raw.a) * sprite_tint;
++}
+--- before/scripts/route1_crossing.gd
++++ current/scripts/route1_crossing.gd
+@@ -16,6 +16,7 @@
+ const GROUND = preload("res://assets/tilesets/route1_rd_2026_10_01/route1_ground_atlas_polished.png")
+ const MARK = preload("res://assets/sprites/world/route1_rd_2026_10_01/marker.png")
+ const FEMALE = preload("res://assets/sprites/player/retro_diffusion_chibi_walking_2026_10_01/female_chibi_walk_eight_directions_native80.png")
++const COURIER_FINISH = preload("res://scripts/effects/courier_finish.gdshader")
+ const HALL = preload("res://assets/sprites/world/route1_rd_2026_10_02/dispatch_hall_complete.png")
+ const TREE = preload("res://assets/sprites/world/route1_rd_2026_10_02/cottonwood_ridge.png")
+ const SHRUB = preload("res://assets/sprites/world/route1_rd_2026_10_02/bank_shrub_5.png")
+@@ -140,6 +141,9 @@
+ 	hall.scale = Vector2.ONE * 0.75
+ 	_obstacle(hall, "FootCollision", Vector2(0, -46), Vector2(106, 84))
+ 	var clerk := _sprite("CityCourierClerk", FEMALE, Vector2(816, 456))
++	var finish := ShaderMaterial.new()
++	finish.shader = COURIER_FINISH
++	clerk.material = finish
+ 	clerk.region_enabled = true
+ 	clerk.region_rect = Rect2(0, 0, 80, 80)
+ 	clerk.scale = Vector2.ONE * (30.0 / 64.0)
+--- before/data/creatures/001_rimefin.tres
++++ current/data/creatures/001_rimefin.tres
+@@ -1,7 +1,7 @@
+ [gd_resource type="Resource" script_class="CreatureData" format=3]
+ 
+ [ext_resource type="Script" path="res://scripts/creature_data.gd" id="1_script"]
+-[ext_resource type="Texture2D" uid="uid://crjluirawrgmi" path="res://assets/sprites/creatures/rimefin.png" id="2_sprite"]
++[ext_resource type="Texture2D" uid="uid://b77tr6wr2pclq" path="res://assets/sprites/creatures/rimefin.png" id="2_sprite"]
+ 
+ [ext_resource type="Texture2D" path="res://assets/sprites/creatures/rimefin_rd_back_2026_10_01.png" id="rd_back"]
+ 
+--- before/data/creatures/101_clinkerhide.tres
++++ current/data/creatures/101_clinkerhide.tres
+@@ -9,7 +9,7 @@
+ 
+ [ext_resource type="Resource" path="res://data/creatures/102_ironvent.tres" id="8_evolution"]
+ 
+-[ext_resource type="Texture2D" path="res://assets/sprites/creatures/clinkerhide_rd_back_2026_10_01.png" id="rd_back"]
++[ext_resource type="Texture2D" path="res://assets/sprites/creatures/clinkerhide_selected_rear_2026_10_03/clinkerhide_back_matched_native100.png" id="rd_back"]
+ 
+ [resource]
+ script = ExtResource("1_script")
+--- before/data/creatures/102_ironvent.tres
++++ current/data/creatures/102_ironvent.tres
+@@ -1,4 +1,4 @@
+-[gd_resource type="Resource" script_class="CreatureData" load_steps=8 format=3]
++[gd_resource type="Resource" script_class="CreatureData" load_steps=9 format=3]
+ 
+ [ext_resource type="Script" path="res://scripts/creature_data.gd" id="1_script"]
+ [ext_resource type="Texture2D" path="res://assets/sprites/creatures/ironvent.png" id="2_sprite"]
+@@ -7,6 +7,12 @@
+ [ext_resource type="Resource" path="res://data/moves/ironvent_cinder_claw.tres" id="4_move"]
+ [ext_resource type="Resource" path="res://data/moves/ironvent_vent_barrage.tres" id="5_move"]
+ [ext_resource type="Resource" path="res://data/moves/ironvent_furnace_roar.tres" id="6_move"]
++
++[sub_resource type="AtlasTexture" id="AtlasTexture_back_clean"]
++atlas = ExtResource("7_back")
++region = Rect2(0, 0, 100, 96)
++margin = Rect2(0, 0, 0, 4)
++filter_clip = true
+ 
+ [resource]
+ script = ExtResource("1_script")
+@@ -19,7 +25,7 @@
+ })
+ essence = 0
+ sprite = ExtResource("2_sprite")
+-back_sprite = ExtResource("7_back")
++back_sprite = SubResource("AtlasTexture_back_clean")
+ moves = [ExtResource("3_move"), ExtResource("4_move"), ExtResource("5_move"), ExtResource("6_move")]
+ base_hp = 60
+ base_attack = 60

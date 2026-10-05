@@ -1,0 +1,1662 @@
+{
+  "seed": 20261002,
+  "fixed_fps": 60,
+  "instance": "bank-road-final",
+  "probes": [
+    {
+      "name": "bank_fix_before_probe",
+      "state": [
+        {
+          "results": [
+            {
+              "effective_time_scale": 0,
+              "format": "jpeg",
+              "frame": {
+                "frames_drawn": 2113,
+                "physics_frames": 2113,
+                "process_frames": 2112
+              },
+              "height": 648,
+              "image_frame": 2112,
+              "instance": "bank-road-before",
+              "mime": "image/jpeg",
+              "missing": [],
+              "ok": true,
+              "op": "GameProbe",
+              "paused": false,
+              "provenance": {
+                "source": "runtime",
+                "target": {
+                  "instance": "bank-road-before",
+                  "kind": "game"
+                }
+              },
+              "requestId": "mcp-b7f7de6e-c449-44a4-ae6b-41b3162089d1",
+              "source_height": 648,
+              "source_width": 1152,
+              "suspended": true,
+              "time_scale": 1,
+              "transport": "summer",
+              "values": {
+                "/root/FirstRoutePrototype/Player:position": "Vector2(441.926, 400)"
+              },
+              "width": 1152
+            }
+          ],
+          "skippedCount": 0,
+          "status": "ok",
+          "stopOnError": true,
+          "undoGroup": false,
+          "requestId": "mcp-b7f7de6e-c449-44a4-ae6b-41b3162089d1",
+          "terminalState": "applied",
+          "appliedSeq": 910
+        }
+      ]
+    },
+    {
+      "name": "bank_fix_final_home",
+      "state": [
+        {
+          "results": [
+            {
+              "effective_time_scale": 0,
+              "frame": {
+                "frames_drawn": 1237,
+                "physics_frames": 1237,
+                "process_frames": 1236
+              },
+              "instance": "bank-road-final",
+              "missing": [],
+              "ok": true,
+              "op": "GameProbe",
+              "paused": false,
+              "provenance": {
+                "source": "runtime",
+                "target": {
+                  "instance": "bank-road-final",
+                  "kind": "game"
+                }
+              },
+              "requestId": "mcp-31d381cf-1cfe-4f50-aa81-387f740f831d",
+              "suspended": true,
+              "time_scale": 1,
+              "transport": "summer",
+              "values": {
+                "/root/FirstRoutePrototype/Player:position": "Vector2(48, 192)"
+              }
+            }
+          ],
+          "skippedCount": 0,
+          "status": "ok",
+          "stopOnError": true,
+          "undoGroup": false,
+          "requestId": "mcp-31d381cf-1cfe-4f50-aa81-387f740f831d",
+          "terminalState": "applied",
+          "appliedSeq": 958
+        }
+      ]
+    },
+    {
+      "name": "bank_fix_final_bridge",
+      "state": [
+        {
+          "results": [
+            {
+              "effective_time_scale": 0,
+              "format": "jpeg",
+              "frame": {
+                "frames_drawn": 1812,
+                "physics_frames": 1812,
+                "process_frames": 1811
+              },
+              "height": 648,
+              "image_frame": 1811,
+              "instance": "bank-road-final",
+              "mime": "image/jpeg",
+              "missing": [],
+              "ok": true,
+              "op": "GameProbe",
+              "paused": false,
+              "provenance": {
+                "source": "runtime",
+                "target": {
+                  "instance": "bank-road-final",
+                  "kind": "game"
+                }
+              },
+              "requestId": "mcp-c59eeeef-3538-405d-902e-f4cac4501db4",
+              "source_height": 648,
+              "source_width": 1152,
+              "suspended": true,
+              "time_scale": 1,
+              "transport": "summer",
+              "values": {
+                "/root/FirstRoutePrototype/Player:position": "Vector2(551.792, 415.792)",
+                "/root/FirstRoutePrototype:levee_entrance_read": true,
+                "/root/FirstRoutePrototype:pouch_accepted": true
+              },
+              "width": 1152
+            }
+          ],
+          "skippedCount": 0,
+          "status": "ok",
+          "stopOnError": true,
+          "undoGroup": false,
+          "requestId": "mcp-c59eeeef-3538-405d-902e-f4cac4501db4",
+          "terminalState": "applied",
+          "appliedSeq": 963
+        }
+      ]
+    },
+    {
+      "name": "bank_fix_final_city",
+      "state": [
+        {
+          "results": [
+            {
+              "effective_time_scale": 0,
+              "frame": {
+                "frames_drawn": 5017,
+                "physics_frames": 5017,
+                "process_frames": 5016
+              },
+              "instance": "bank-road-final",
+              "missing": [],
+              "ok": true,
+              "op": "GameProbe",
+              "paused": false,
+              "provenance": {
+                "source": "runtime",
+                "target": {
+                  "instance": "bank-road-final",
+                  "kind": "game"
+                }
+              },
+              "requestId": "mcp-84d32a0c-7390-4220-93e0-0e72210e8c5b",
+              "suspended": true,
+              "time_scale": 1,
+              "transport": "summer",
+              "values": {
+                "/root/FirstRoutePrototype/Player:position": "Vector2(815.788, 479.793)",
+                "/root/FirstRoutePrototype:city_arrival_registered": true
+              }
+            }
+          ],
+          "skippedCount": 0,
+          "status": "ok",
+          "stopOnError": true,
+          "undoGroup": false,
+          "requestId": "mcp-84d32a0c-7390-4220-93e0-0e72210e8c5b",
+          "terminalState": "applied",
+          "appliedSeq": 965
+        }
+      ]
+    },
+    {
+      "name": "bank_fix_final_return",
+      "state": [
+        {
+          "results": [
+            {
+              "effective_time_scale": 0,
+              "frame": {
+                "frames_drawn": 5364,
+                "physics_frames": 5364,
+                "process_frames": 5363
+              },
+              "instance": "bank-road-final",
+              "missing": [],
+              "ok": true,
+              "op": "GameProbe",
+              "paused": false,
+              "provenance": {
+                "source": "runtime",
+                "target": {
+                  "instance": "bank-road-final",
+                  "kind": "game"
+                }
+              },
+              "requestId": "mcp-604bb769-22e5-4b14-a19a-05f96e3720eb",
+              "suspended": true,
+              "time_scale": 1,
+              "transport": "summer",
+              "values": {
+                "/root/FirstRoutePrototype/Player:position": "Vector2(431.792, 415.792)",
+                "/root/FirstRoutePrototype:city_arrival_registered": true
+              }
+            }
+          ],
+          "skippedCount": 0,
+          "status": "ok",
+          "stopOnError": true,
+          "undoGroup": false,
+          "requestId": "mcp-604bb769-22e5-4b14-a19a-05f96e3720eb",
+          "terminalState": "applied",
+          "appliedSeq": 967
+        }
+      ]
+    },
+    {
+      "name": "bank_fix_final_overview",
+      "state": [
+        {
+          "results": [
+            {
+              "effective_time_scale": 0,
+              "format": "jpeg",
+              "frame": {
+                "frames_drawn": 5641,
+                "physics_frames": 5641,
+                "process_frames": 5640
+              },
+              "height": 648,
+              "image_frame": 5640,
+              "instance": "bank-road-final",
+              "mime": "image/jpeg",
+              "missing": [],
+              "ok": true,
+              "op": "GameProbe",
+              "paused": false,
+              "provenance": {
+                "source": "runtime",
+                "target": {
+                  "instance": "bank-road-final",
+                  "kind": "game"
+                }
+              },
+              "requestId": "mcp-24a8808c-813b-4805-a2cd-acf778f95866",
+              "source_height": 648,
+              "source_width": 1152,
+              "suspended": true,
+              "time_scale": 1,
+              "transport": "summer",
+              "values": {
+                "/root/FirstRoutePrototype/Player/Camera2D:zoom": "Vector2(2, 2)",
+                "/root/FirstRoutePrototype/Player:position": "Vector2(431.792, 415.792)"
+              },
+              "width": 1152
+            }
+          ],
+          "skippedCount": 0,
+          "status": "ok",
+          "stopOnError": true,
+          "undoGroup": false,
+          "requestId": "mcp-24a8808c-813b-4805-a2cd-acf778f95866",
+          "terminalState": "applied",
+          "appliedSeq": 970
+        }
+      ]
+    },
+    {
+      "name": "bank_fix_final_entrance",
+      "state": [
+        {
+          "results": [
+            {
+              "effective_time_scale": 0,
+              "format": "jpeg",
+              "frame": {
+                "frames_drawn": 9954,
+                "physics_frames": 9954,
+                "process_frames": 9953
+              },
+              "height": 648,
+              "image_frame": 9953,
+              "instance": "bank-road-final",
+              "mime": "image/jpeg",
+              "missing": [],
+              "ok": true,
+              "op": "GameProbe",
+              "paused": false,
+              "provenance": {
+                "source": "runtime",
+                "target": {
+                  "instance": "bank-road-final",
+                  "kind": "game"
+                }
+              },
+              "requestId": "mcp-001bf1c2-25bd-4ccb-b304-f6208432d5b8",
+              "source_height": 648,
+              "source_width": 1152,
+              "suspended": true,
+              "time_scale": 1,
+              "transport": "summer",
+              "values": {
+                "/root/FirstRoutePrototype/Player:position": "Vector2(216, 264)",
+                "/root/FirstRoutePrototype:levee_entrance_read": true
+              },
+              "width": 1152
+            }
+          ],
+          "skippedCount": 0,
+          "status": "ok",
+          "stopOnError": true,
+          "undoGroup": false,
+          "requestId": "mcp-001bf1c2-25bd-4ccb-b304-f6208432d5b8",
+          "terminalState": "applied",
+          "appliedSeq": 982
+        }
+      ]
+    },
+    {
+      "name": "bank_fix_final_home_return",
+      "state": [
+        {
+          "results": [
+            {
+              "effective_time_scale": 0,
+              "frame": {
+                "frames_drawn": 10151,
+                "physics_frames": 10151,
+                "process_frames": 10150
+              },
+              "instance": "bank-road-final",
+              "missing": [],
+              "ok": true,
+              "op": "GameProbe",
+              "paused": false,
+              "provenance": {
+                "source": "runtime",
+                "target": {
+                  "instance": "bank-road-final",
+                  "kind": "game"
+                }
+              },
+              "requestId": "mcp-0a0383d3-fc34-493b-a65a-d1a2367882fb",
+              "suspended": true,
+              "time_scale": 1,
+              "transport": "summer",
+              "values": {
+                "/root/FirstRoutePrototype/Player:position": "Vector2(48, 192)",
+                "/root/FirstRoutePrototype:city_arrival_registered": true,
+                "/root/FirstRoutePrototype:pouch_accepted": true
+              }
+            }
+          ],
+          "skippedCount": 0,
+          "status": "ok",
+          "stopOnError": true,
+          "undoGroup": false,
+          "requestId": "mcp-0a0383d3-fc34-493b-a65a-d1a2367882fb",
+          "terminalState": "applied",
+          "appliedSeq": 984
+        }
+      ]
+    },
+    {
+      "name": "bank_fix_final_diagnostics",
+      "state": [
+        {
+          "appliedThroughSeq": 982,
+          "data": {
+            "console": {
+              "editor": 0,
+              "errors": 0,
+              "max_messages": 50,
+              "messages": [
+                {
+                  "count": 1,
+                  "text": "[godot_ai game_helper] registered mcp capture (debugger active=true, logger=true)",
+                  "type": "std"
+                },
+                {
+                  "count": 1,
+                  "text": "MCP | [debug] holding mcp:hello from debugger session 0 until the run is adopted",
+                  "type": "std"
+                },
+                {
+                  "count": 1,
+                  "text": "[SE] AuthManager: CLI credential found; desktop session exchange required",
+                  "type": "std"
+                },
+                {
+                  "count": 1,
+                  "text": "",
+                  "type": "std"
+                },
+                {
+                  "count": 1,
+                  "text": "D3D12 12_0 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce GTX 1660 SUPER",
+                  "type": "std"
+                },
+                {
+                  "count": 1,
+                  "text": "Welcome to Summer Engine (c) built on the awesome work by Godot 2007-present Juan Linietsky, Ariel Manzur & Godot Contributors.",
+                  "type": "std"
+                }
+              ],
+              "returned": 6,
+              "std": 6,
+              "total": 6,
+              "warnings": 0
+            },
+            "debugger": {
+              "errors": 0,
+              "errors_data": [],
+              "is_breaked": false,
+              "session_active": true,
+              "warnings": 10,
+              "warnings_data": [
+                {
+                  "callstack": [],
+                  "count": 1,
+                  "error": "SHADOWED_VARIABLE",
+                  "error_descr": "The local variable \"start\" is shadowing an already-declared function at line 237 in the current class.",
+                  "file": "res://scripts/battle_screen.gd",
+                  "function": "GDScript::reload",
+                  "line": 1888,
+                  "severity": "warning",
+                  "timestamp_ms": 28609251
+                },
+                {
+                  "callstack": [],
+                  "count": 1,
+                  "error": "SHADOWED_VARIABLE_BASE_CLASS",
+                  "error_descr": "The local function parameter \"offset\" is shadowing an already-declared property in the base class \"CanvasLayer\".",
+                  "file": "res://scripts/battle_screen.gd",
+                  "function": "GDScript::reload",
+                  "line": 1883,
+                  "severity": "warning",
+                  "timestamp_ms": 28609251
+                },
+                {
+                  "callstack": [],
+                  "count": 1,
+                  "error": "SHADOWED_VARIABLE_BASE_CLASS",
+                  "error_descr": "The local function parameter \"offset\" is shadowing an already-declared property in the base class \"CanvasLayer\".",
+                  "file": "res://scripts/battle_screen.gd",
+                  "function": "GDScript::reload",
+                  "line": 1860,
+                  "severity": "warning",
+                  "timestamp_ms": 28609251
+                },
+                {
+                  "callstack": [],
+                  "count": 1,
+                  "error": "SHADOWED_VARIABLE_BASE_CLASS",
+                  "error_descr": "The local function parameter \"offset\" is shadowing an already-declared property in the base class \"CanvasLayer\".",
+                  "file": "res://scripts/battle_screen.gd",
+                  "function": "GDScript::reload",
+                  "line": 1840,
+                  "severity": "warning",
+                  "timestamp_ms": 28609251
+                },
+                {
+                  "callstack": [],
+                  "count": 1,
+                  "error": "SHADOWED_VARIABLE_BASE_CLASS",
+                  "error_descr": "The local function parameter \"offset\" is shadowing an already-declared property in the base class \"CanvasLayer\".",
+                  "file": "res://scripts/battle_screen.gd",
+                  "function": "GDScript::reload",
+                  "line": 1793,
+                  "severity": "warning",
+                  "timestamp_ms": 28609251
+                },
+                {
+                  "callstack": [],
+                  "count": 1,
+                  "error": "SHADOWED_VARIABLE_BASE_CLASS",
+                  "error_descr": "The local function parameter \"offset\" is shadowing an already-declared property in the base class \"CanvasLayer\".",
+                  "file": "res://scripts/battle_screen.gd",
+                  "function": "GDScript::reload",
+                  "line": 1669,
+                  "severity": "warning",
+                  "timestamp_ms": 28609251
+                },
+                {
+                  "callstack": [],
+                  "count": 1,
+                  "error": "SHADOWED_VARIABLE",
+                  "error_descr": "The local variable \"start\" is shadowing an already-declared function at line 237 in the current class.",
+                  "file": "res://scripts/battle_screen.gd",
+                  "function": "GDScript::reload",
+                  "line": 1551,
+                  "severity": "warning",
+                  "timestamp_ms": 28609251
+                },
+                {
+                  "callstack": [],
+                  "count": 1,
+                  "error": "SHADOWED_VARIABLE_BASE_CLASS",
+                  "error_descr": "The local function parameter \"offset\" is shadowing an already-declared property in the base class \"CanvasLayer\".",
+                  "file": "res://scripts/battle_screen.gd",
+                  "function": "GDScript::reload",
+                  "line": 1546,
+                  "severity": "warning",
+                  "timestamp_ms": 28609251
+                },
+                {
+                  "callstack": [],
+                  "count": 1,
+                  "error": "SHADOWED_VARIABLE_BASE_CLASS",
+                  "error_descr": "The local \"for\" iterator variable \"layer\" is shadowing an already-declared property in the base class \"CanvasLayer\".",
+                  "file": "res://scripts/battle_screen.gd",
+                  "function": "GDScript::reload",
+                  "line": 1108,
+                  "severity": "warning",
+                  "timestamp_ms": 28609251
+                },
+                {
+                  "callstack": [],
+                  "count": 1,
+                  "error": "SHADOWED_VARIABLE_BASE_CLASS",
+                  "error_descr": "The local variable \"offset\" is shadowing an already-declared property in the base class \"CanvasLayer\".",
+                  "file": "res://scripts/battle_screen.gd",
+                  "function": "GDScript::reload",
+                  "line": 795,
+                  "severity": "warning",
+                  "timestamp_ms": 28609251
+                }
+              ]
+            },
+            "guidance": "Errors present. Check console.messages, debugger, and script_errors for details.",
+            "has_issues": true,
+            "scopes": {
+              "application": {
+                "errors": 0,
+                "has_issues": false,
+                "warnings": 0
+              },
+              "classification": "known_application_signatures_and_compiler_locations",
+              "console_available": true,
+              "coverage": "observed_console_debugger_and_open_script_buffers_not_full_project_validation",
+              "csharp_unique_errors": 0,
+              "debugger_available": true,
+              "guidance": "Use project errors for observed game/compiler failures. Application errors describe Summer chat/WebView transport, not broken game scripts. Inspect unclassified console evidence before attributing it. Zero known project errors is not a full project validation.",
+              "project": {
+                "errors": 2,
+                "has_issues": true,
+                "script_validation_available": true,
+                "script_validation_incomplete": false,
+                "warnings": 10
+              },
+              "unclassified": {
+                "errors": 0,
+                "has_issues": false,
+                "warnings": 0
+              }
+            },
+            "script_errors": {
+              "count": 2,
+              "errors": [
+                {
+                  "column": 6,
+                  "line": 353,
+                  "message": "Identifier \"MoveGate\" not declared in the current scope.",
+                  "path": "res://scripts/battle_screen.gd",
+                  "severity": "error"
+                },
+                {
+                  "column": 31,
+                  "line": 358,
+                  "message": "Identifier \"MoveGate\" not declared in the current scope.",
+                  "path": "res://scripts/battle_screen.gd",
+                  "severity": "error"
+                }
+              ],
+              "scope": "open_script_buffers"
+            },
+            "total_errors": 2,
+            "total_warnings": 10
+          },
+          "ok": true,
+          "provenance": {
+            "dirty": false,
+            "rootName": "MainMenuArtPreview",
+            "rootType": "Node2D",
+            "scenePath": "res://scenes/main_menu_art_preview.tscn",
+            "source": "diagnostics",
+            "target": {
+              "kind": "diagnostics",
+              "path": "diagnostics"
+            }
+          },
+          "snapshotAt": 28635757,
+          "snapshotSeq": 221561,
+          "_view": {
+            "mode": "prioritized",
+            "totalConsole": 6,
+            "shownConsole": 6,
+            "suppressedInfo": 0,
+            "totalDebugger": 10,
+            "shownDebugger": 10,
+            "suppressedDebuggerWarnings": 0,
+            "hint": "All counts are complete; only low-severity message bodies were trimmed. Re-call with includeAll: true for the untrimmed payload, or use summer_get_console / summer_get_debugger_warnings for targeted reads."
+          }
+        }
+      ]
+    },
+    {
+      "name": "bank_fix_poststop_diagnostics",
+      "state": [
+        {
+          "appliedThroughSeq": 985,
+          "data": {
+            "console": {
+              "editor": 0,
+              "errors": 0,
+              "max_messages": 50,
+              "messages": [
+                {
+                  "count": 1,
+                  "text": "[godot_ai game_helper] registered mcp capture (debugger active=true, logger=true)",
+                  "type": "std"
+                },
+                {
+                  "count": 1,
+                  "text": "MCP | [debug] holding mcp:hello from debugger session 0 until the run is adopted",
+                  "type": "std"
+                },
+                {
+                  "count": 1,
+                  "text": "[SE] AuthManager: CLI credential found; desktop session exchange required",
+                  "type": "std"
+                },
+                {
+                  "count": 1,
+                  "text": "",
+                  "type": "std"
+                },
+                {
+                  "count": 1,
+                  "text": "D3D12 12_0 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce GTX 1660 SUPER",
+                  "type": "std"
+                },
+                {
+                  "count": 1,
+                  "text": "Welcome to Summer Engine (c) built on the awesome work by Godot 2007-present Juan Linietsky, Ariel Manzur & Godot Contributors.",
+                  "type": "std"
+                }
+              ],
+              "returned": 6,
+              "std": 6,
+              "total": 6,
+              "warnings": 0
+            },
+            "debugger": {
+              "errors": 0,
+              "errors_data": [],
+              "is_breaked": false,
+              "session_active": true,
+              "warnings": 10,
+              "warnings_data": [
+                {
+                  "callstack": [],
+                  "count": 1,
+                  "error": "SHADOWED_VARIABLE",
+                  "error_descr": "The local variable \"start\" is shadowing an already-declared function at line 237 in the current class.",
+                  "file": "res://scripts/battle_screen.gd",
+                  "function": "GDScript::reload",
+                  "line": 1888,
+                  "severity": "warning",
+                  "timestamp_ms": 28609251
+                },
+                {
+                  "callstack": [],
+                  "count": 1,
+                  "error": "SHADOWED_VARIABLE_BASE_CLASS",
+                  "error_descr": "The local function parameter \"offset\" is shadowing an already-declared property in the base class \"CanvasLayer\".",
+                  "file": "res://scripts/battle_screen.gd",
+                  "function": "GDScript::reload",
+                  "line": 1883,
+                  "severity": "warning",
+                  "timestamp_ms": 28609251
+                },
+                {
+                  "callstack": [],
+                  "count": 1,
+                  "error": "SHADOWED_VARIABLE_BASE_CLASS",
+                  "error_descr": "The local function parameter \"offset\" is shadowing an already-declared property in the base class \"CanvasLayer\".",
+                  "file": "res://scripts/battle_screen.gd",
+                  "function": "GDScript::reload",
+                  "line": 1860,
+                  "severity": "warning",
+                  "timestamp_ms": 28609251
+                },
+                {
+                  "callstack": [],
+                  "count": 1,
+                  "error": "SHADOWED_VARIABLE_BASE_CLASS",
+                  "error_descr": "The local function parameter \"offset\" is shadowing an already-declared property in the base class \"CanvasLayer\".",
+                  "file": "res://scripts/battle_screen.gd",
+                  "function": "GDScript::reload",
+                  "line": 1840,
+                  "severity": "warning",
+                  "timestamp_ms": 28609251
+                },
+                {
+                  "callstack": [],
+                  "count": 1,
+                  "error": "SHADOWED_VARIABLE_BASE_CLASS",
+                  "error_descr": "The local function parameter \"offset\" is shadowing an already-declared property in the base class \"CanvasLayer\".",
+                  "file": "res://scripts/battle_screen.gd",
+                  "function": "GDScript::reload",
+                  "line": 1793,
+                  "severity": "warning",
+                  "timestamp_ms": 28609251
+                },
+                {
+                  "callstack": [],
+                  "count": 1,
+                  "error": "SHADOWED_VARIABLE_BASE_CLASS",
+                  "error_descr": "The local function parameter \"offset\" is shadowing an already-declared property in the base class \"CanvasLayer\".",
+                  "file": "res://scripts/battle_screen.gd",
+                  "function": "GDScript::reload",
+                  "line": 1669,
+                  "severity": "warning",
+                  "timestamp_ms": 28609251
+                },
+                {
+                  "callstack": [],
+                  "count": 1,
+                  "error": "SHADOWED_VARIABLE",
+                  "error_descr": "The local variable \"start\" is shadowing an already-declared function at line 237 in the current class.",
+                  "file": "res://scripts/battle_screen.gd",
+                  "function": "GDScript::reload",
+                  "line": 1551,
+                  "severity": "warning",
+                  "timestamp_ms": 28609251
+                },
+                {
+                  "callstack": [],
+                  "count": 1,
+                  "error": "SHADOWED_VARIABLE_BASE_CLASS",
+                  "error_descr": "The local function parameter \"offset\" is shadowing an already-declared property in the base class \"CanvasLayer\".",
+                  "file": "res://scripts/battle_screen.gd",
+                  "function": "GDScript::reload",
+                  "line": 1546,
+                  "severity": "warning",
+                  "timestamp_ms": 28609251
+                },
+                {
+                  "callstack": [],
+                  "count": 1,
+                  "error": "SHADOWED_VARIABLE_BASE_CLASS",
+                  "error_descr": "The local \"for\" iterator variable \"layer\" is shadowing an already-declared property in the base class \"CanvasLayer\".",
+                  "file": "res://scripts/battle_screen.gd",
+                  "function": "GDScript::reload",
+                  "line": 1108,
+                  "severity": "warning",
+                  "timestamp_ms": 28609251
+                },
+                {
+                  "callstack": [],
+                  "count": 1,
+                  "error": "SHADOWED_VARIABLE_BASE_CLASS",
+                  "error_descr": "The local variable \"offset\" is shadowing an already-declared property in the base class \"CanvasLayer\".",
+                  "file": "res://scripts/battle_screen.gd",
+                  "function": "GDScript::reload",
+                  "line": 795,
+                  "severity": "warning",
+                  "timestamp_ms": 28609251
+                }
+              ]
+            },
+            "guidance": "Errors present. Check console.messages, debugger, and script_errors for details.",
+            "has_issues": true,
+            "scopes": {
+              "application": {
+                "errors": 0,
+                "has_issues": false,
+                "warnings": 0
+              },
+              "classification": "known_application_signatures_and_compiler_locations",
+              "console_available": true,
+              "coverage": "observed_console_debugger_and_open_script_buffers_not_full_project_validation",
+              "csharp_unique_errors": 0,
+              "debugger_available": true,
+              "guidance": "Use project errors for observed game/compiler failures. Application errors describe Summer chat/WebView transport, not broken game scripts. Inspect unclassified console evidence before attributing it. Zero known project errors is not a full project validation.",
+              "project": {
+                "errors": 2,
+                "has_issues": true,
+                "script_validation_available": true,
+                "script_validation_incomplete": false,
+                "warnings": 10
+              },
+              "unclassified": {
+                "errors": 0,
+                "has_issues": false,
+                "warnings": 0
+              }
+            },
+            "script_errors": {
+              "count": 2,
+              "errors": [
+                {
+                  "column": 6,
+                  "line": 353,
+                  "message": "Identifier \"MoveGate\" not declared in the current scope.",
+                  "path": "res://scripts/battle_screen.gd",
+                  "severity": "error"
+                },
+                {
+                  "column": 31,
+                  "line": 358,
+                  "message": "Identifier \"MoveGate\" not declared in the current scope.",
+                  "path": "res://scripts/battle_screen.gd",
+                  "severity": "error"
+                }
+              ],
+              "scope": "open_script_buffers"
+            },
+            "total_errors": 2,
+            "total_warnings": 10
+          },
+          "ok": true,
+          "provenance": {
+            "dirty": false,
+            "rootName": "MainMenuArtPreview",
+            "rootType": "Node2D",
+            "scenePath": "res://scenes/main_menu_art_preview.tscn",
+            "source": "diagnostics",
+            "target": {
+              "kind": "diagnostics",
+              "path": "diagnostics"
+            }
+          },
+          "snapshotAt": 28655774,
+          "snapshotSeq": 221802,
+          "_view": {
+            "mode": "prioritized",
+            "totalConsole": 6,
+            "shownConsole": 6,
+            "suppressedInfo": 0,
+            "totalDebugger": 10,
+            "shownDebugger": 10,
+            "suppressedDebuggerWarnings": 0,
+            "hint": "All counts are complete; only low-severity message bodies were trimmed. Re-call with includeAll: true for the untrimmed payload, or use summer_get_console / summer_get_debugger_warnings for targeted reads."
+          }
+        }
+      ]
+    },
+    {
+      "name": "latest_diagnostics",
+      "state": [
+        {
+          "appliedThroughSeq": 994,
+          "data": {
+            "console": {
+              "editor": 1,
+              "errors": 0,
+              "max_messages": 50,
+              "messages": [
+                {
+                  "count": 1,
+                  "text": "[WebView2] Suspended hidden surface generation 2.",
+                  "type": "std"
+                },
+                {
+                  "count": 1,
+                  "text": "--- Debugging process stopped ---",
+                  "type": "editor"
+                },
+                {
+                  "count": 1,
+                  "text": "[godot_ai game_helper] registered mcp capture (debugger active=true, logger=true)",
+                  "type": "std"
+                },
+                {
+                  "count": 1,
+                  "text": "MCP | [debug] holding mcp:hello from debugger session 0 until the run is adopted",
+                  "type": "std"
+                },
+                {
+                  "count": 1,
+                  "text": "[SE] AuthManager: CLI credential found; desktop session exchange required",
+                  "type": "std"
+                },
+                {
+                  "count": 1,
+                  "text": "",
+                  "type": "std"
+                },
+                {
+                  "count": 1,
+                  "text": "D3D12 12_0 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce GTX 1660 SUPER",
+                  "type": "std"
+                },
+                {
+                  "count": 1,
+                  "text": "Welcome to Summer Engine (c) built on the awesome work by Godot 2007-present Juan Linietsky, Ariel Manzur & Godot Contributors.",
+                  "type": "std"
+                }
+              ],
+              "returned": 8,
+              "std": 7,
+              "total": 8,
+              "warnings": 0
+            },
+            "debugger": {
+              "errors": 0,
+              "errors_data": [],
+              "is_breaked": false,
+              "session_active": false,
+              "warnings": 10,
+              "warnings_data": [
+                {
+                  "callstack": [],
+                  "count": 1,
+                  "error": "SHADOWED_VARIABLE",
+                  "error_descr": "The local variable \"start\" is shadowing an already-declared function at line 237 in the current class.",
+                  "file": "res://scripts/battle_screen.gd",
+                  "function": "GDScript::reload",
+                  "line": 1888,
+                  "severity": "warning",
+                  "timestamp_ms": 28609251
+                },
+                {
+                  "callstack": [],
+                  "count": 1,
+                  "error": "SHADOWED_VARIABLE_BASE_CLASS",
+                  "error_descr": "The local function parameter \"offset\" is shadowing an already-declared property in the base class \"CanvasLayer\".",
+                  "file": "res://scripts/battle_screen.gd",
+                  "function": "GDScript::reload",
+                  "line": 1883,
+                  "severity": "warning",
+                  "timestamp_ms": 28609251
+                },
+                {
+                  "callstack": [],
+                  "count": 1,
+                  "error": "SHADOWED_VARIABLE_BASE_CLASS",
+                  "error_descr": "The local function parameter \"offset\" is shadowing an already-declared property in the base class \"CanvasLayer\".",
+                  "file": "res://scripts/battle_screen.gd",
+                  "function": "GDScript::reload",
+                  "line": 1860,
+                  "severity": "warning",
+                  "timestamp_ms": 28609251
+                },
+                {
+                  "callstack": [],
+                  "count": 1,
+                  "error": "SHADOWED_VARIABLE_BASE_CLASS",
+                  "error_descr": "The local function parameter \"offset\" is shadowing an already-declared property in the base class \"CanvasLayer\".",
+                  "file": "res://scripts/battle_screen.gd",
+                  "function": "GDScript::reload",
+                  "line": 1840,
+                  "severity": "warning",
+                  "timestamp_ms": 28609251
+                },
+                {
+                  "callstack": [],
+                  "count": 1,
+                  "error": "SHADOWED_VARIABLE_BASE_CLASS",
+                  "error_descr": "The local function parameter \"offset\" is shadowing an already-declared property in the base class \"CanvasLayer\".",
+                  "file": "res://scripts/battle_screen.gd",
+                  "function": "GDScript::reload",
+                  "line": 1793,
+                  "severity": "warning",
+                  "timestamp_ms": 28609251
+                },
+                {
+                  "callstack": [],
+                  "count": 1,
+                  "error": "SHADOWED_VARIABLE_BASE_CLASS",
+                  "error_descr": "The local function parameter \"offset\" is shadowing an already-declared property in the base class \"CanvasLayer\".",
+                  "file": "res://scripts/battle_screen.gd",
+                  "function": "GDScript::reload",
+                  "line": 1669,
+                  "severity": "warning",
+                  "timestamp_ms": 28609251
+                },
+                {
+                  "callstack": [],
+                  "count": 1,
+                  "error": "SHADOWED_VARIABLE",
+                  "error_descr": "The local variable \"start\" is shadowing an already-declared function at line 237 in the current class.",
+                  "file": "res://scripts/battle_screen.gd",
+                  "function": "GDScript::reload",
+                  "line": 1551,
+                  "severity": "warning",
+                  "timestamp_ms": 28609251
+                },
+                {
+                  "callstack": [],
+                  "count": 1,
+                  "error": "SHADOWED_VARIABLE_BASE_CLASS",
+                  "error_descr": "The local function parameter \"offset\" is shadowing an already-declared property in the base class \"CanvasLayer\".",
+                  "file": "res://scripts/battle_screen.gd",
+                  "function": "GDScript::reload",
+                  "line": 1546,
+                  "severity": "warning",
+                  "timestamp_ms": 28609251
+                },
+                {
+                  "callstack": [],
+                  "count": 1,
+                  "error": "SHADOWED_VARIABLE_BASE_CLASS",
+                  "error_descr": "The local \"for\" iterator variable \"layer\" is shadowing an already-declared property in the base class \"CanvasLayer\".",
+                  "file": "res://scripts/battle_screen.gd",
+                  "function": "GDScript::reload",
+                  "line": 1108,
+                  "severity": "warning",
+                  "timestamp_ms": 28609251
+                },
+                {
+                  "callstack": [],
+                  "count": 1,
+                  "error": "SHADOWED_VARIABLE_BASE_CLASS",
+                  "error_descr": "The local variable \"offset\" is shadowing an already-declared property in the base class \"CanvasLayer\".",
+                  "file": "res://scripts/battle_screen.gd",
+                  "function": "GDScript::reload",
+                  "line": 795,
+                  "severity": "warning",
+                  "timestamp_ms": 28609251
+                }
+              ]
+            },
+            "guidance": "Only warnings present. Check console.messages for details.",
+            "has_issues": true,
+            "scopes": {
+              "application": {
+                "errors": 0,
+                "has_issues": false,
+                "warnings": 0
+              },
+              "classification": "known_application_signatures_and_compiler_locations",
+              "console_available": true,
+              "coverage": "observed_console_debugger_and_open_script_buffers_not_full_project_validation",
+              "csharp_unique_errors": 0,
+              "debugger_available": true,
+              "guidance": "Use project errors for observed game/compiler failures. Application errors describe Summer chat/WebView transport, not broken game scripts. Inspect unclassified console evidence before attributing it. Zero known project errors is not a full project validation.",
+              "project": {
+                "errors": 0,
+                "has_issues": true,
+                "script_validation_available": true,
+                "script_validation_incomplete": false,
+                "warnings": 10
+              },
+              "unclassified": {
+                "errors": 0,
+                "has_issues": false,
+                "warnings": 0
+              }
+            },
+            "script_errors": {
+              "count": 0,
+              "errors": [],
+              "scope": "open_script_buffers"
+            },
+            "total_errors": 0,
+            "total_warnings": 10
+          },
+          "ok": true,
+          "provenance": {
+            "dirty": false,
+            "rootName": "MainMenuArtPreview",
+            "rootType": "Node2D",
+            "scenePath": "res://scenes/main_menu_art_preview.tscn",
+            "source": "diagnostics",
+            "target": {
+              "kind": "diagnostics",
+              "path": "diagnostics"
+            }
+          },
+          "snapshotAt": 28775067,
+          "snapshotSeq": 223132,
+          "_view": {
+            "mode": "prioritized",
+            "totalConsole": 8,
+            "shownConsole": 8,
+            "suppressedInfo": 0,
+            "totalDebugger": 10,
+            "shownDebugger": 10,
+            "suppressedDebuggerWarnings": 0,
+            "hint": "All counts are complete; only low-severity message bodies were trimmed. Re-call with includeAll: true for the untrimmed payload, or use summer_get_console / summer_get_debugger_warnings for targeted reads."
+          }
+        }
+      ]
+    }
+  ],
+  "inputs": [
+    [
+      "home_to_bridge",
+      [
+        {
+          "at_frame": 0,
+          "type": "action",
+          "action": "move_right",
+          "pressed": true
+        },
+        {
+          "at_frame": 24,
+          "type": "action",
+          "action": "move_right",
+          "pressed": false
+        },
+        {
+          "at_frame": 26,
+          "type": "key",
+          "keycode": 69,
+          "physical_keycode": 69,
+          "pressed": true
+        },
+        {
+          "at_frame": 27,
+          "type": "key",
+          "keycode": 69,
+          "physical_keycode": 69,
+          "pressed": false
+        },
+        {
+          "at_frame": 36,
+          "type": "key",
+          "keycode": 69,
+          "physical_keycode": 69,
+          "pressed": true
+        },
+        {
+          "at_frame": 37,
+          "type": "key",
+          "keycode": 69,
+          "physical_keycode": 69,
+          "pressed": false
+        },
+        {
+          "at_frame": 46,
+          "type": "action",
+          "action": "move_right",
+          "pressed": true
+        },
+        {
+          "at_frame": 124,
+          "type": "action",
+          "action": "move_right",
+          "pressed": false
+        },
+        {
+          "at_frame": 126,
+          "type": "action",
+          "action": "move_down",
+          "pressed": true
+        },
+        {
+          "at_frame": 180,
+          "type": "action",
+          "action": "move_down",
+          "pressed": false
+        },
+        {
+          "at_frame": 182,
+          "type": "action",
+          "action": "move_right",
+          "pressed": true
+        },
+        {
+          "at_frame": 206,
+          "type": "action",
+          "action": "move_right",
+          "pressed": false
+        },
+        {
+          "at_frame": 208,
+          "type": "key",
+          "keycode": 69,
+          "physical_keycode": 69,
+          "pressed": true
+        },
+        {
+          "at_frame": 209,
+          "type": "key",
+          "keycode": 69,
+          "physical_keycode": 69,
+          "pressed": false
+        },
+        {
+          "at_frame": 218,
+          "type": "key",
+          "keycode": 69,
+          "physical_keycode": 69,
+          "pressed": true
+        },
+        {
+          "at_frame": 219,
+          "type": "key",
+          "keycode": 69,
+          "physical_keycode": 69,
+          "pressed": false
+        },
+        {
+          "at_frame": 231,
+          "type": "action",
+          "action": "move_right",
+          "pressed": true
+        },
+        {
+          "at_frame": 243,
+          "type": "action",
+          "action": "move_right",
+          "pressed": false
+        },
+        {
+          "at_frame": 245,
+          "type": "action",
+          "action": "move_right",
+          "pressed": true
+        },
+        {
+          "at_frame": 245,
+          "type": "action",
+          "action": "move_down",
+          "pressed": true
+        },
+        {
+          "at_frame": 279,
+          "type": "action",
+          "action": "move_right",
+          "pressed": false
+        },
+        {
+          "at_frame": 279,
+          "type": "action",
+          "action": "move_down",
+          "pressed": false
+        },
+        {
+          "at_frame": 281,
+          "type": "action",
+          "action": "move_right",
+          "pressed": true
+        },
+        {
+          "at_frame": 305,
+          "type": "action",
+          "action": "move_right",
+          "pressed": false
+        },
+        {
+          "at_frame": 307,
+          "type": "action",
+          "action": "move_right",
+          "pressed": true
+        },
+        {
+          "at_frame": 307,
+          "type": "action",
+          "action": "move_down",
+          "pressed": true
+        },
+        {
+          "at_frame": 341,
+          "type": "action",
+          "action": "move_right",
+          "pressed": false
+        },
+        {
+          "at_frame": 341,
+          "type": "action",
+          "action": "move_down",
+          "pressed": false
+        },
+        {
+          "at_frame": 343,
+          "type": "action",
+          "action": "move_right",
+          "pressed": true
+        },
+        {
+          "at_frame": 343,
+          "type": "action",
+          "action": "move_down",
+          "pressed": true
+        },
+        {
+          "at_frame": 411,
+          "type": "action",
+          "action": "move_right",
+          "pressed": false
+        },
+        {
+          "at_frame": 411,
+          "type": "action",
+          "action": "move_down",
+          "pressed": false
+        },
+        {
+          "at_frame": 413,
+          "type": "action",
+          "action": "move_right",
+          "pressed": true
+        },
+        {
+          "at_frame": 425,
+          "type": "action",
+          "action": "move_right",
+          "pressed": false
+        },
+        {
+          "at_frame": 427,
+          "type": "action",
+          "action": "move_right",
+          "pressed": true
+        },
+        {
+          "at_frame": 427,
+          "type": "action",
+          "action": "move_down",
+          "pressed": true
+        },
+        {
+          "at_frame": 452,
+          "type": "action",
+          "action": "move_right",
+          "pressed": false
+        },
+        {
+          "at_frame": 452,
+          "type": "action",
+          "action": "move_down",
+          "pressed": false
+        },
+        {
+          "at_frame": 454,
+          "type": "action",
+          "action": "move_right",
+          "pressed": true
+        },
+        {
+          "at_frame": 544,
+          "type": "action",
+          "action": "move_right",
+          "pressed": false
+        }
+      ]
+    ],
+    [
+      "bridge_to_city",
+      [
+        {
+          "at_frame": 0,
+          "type": "action",
+          "action": "move_right",
+          "pressed": true
+        },
+        {
+          "at_frame": 150,
+          "type": "action",
+          "action": "move_right",
+          "pressed": false
+        },
+        {
+          "at_frame": 152,
+          "type": "action",
+          "action": "move_down",
+          "pressed": true
+        },
+        {
+          "at_frame": 200,
+          "type": "action",
+          "action": "move_down",
+          "pressed": false
+        },
+        {
+          "at_frame": 202,
+          "type": "action",
+          "action": "move_right",
+          "pressed": true
+        },
+        {
+          "at_frame": 250,
+          "type": "action",
+          "action": "move_right",
+          "pressed": false
+        },
+        {
+          "at_frame": 252,
+          "type": "key",
+          "keycode": 69,
+          "physical_keycode": 69,
+          "pressed": true
+        },
+        {
+          "at_frame": 253,
+          "type": "key",
+          "keycode": 69,
+          "physical_keycode": 69,
+          "pressed": false
+        },
+        {
+          "at_frame": 262,
+          "type": "key",
+          "keycode": 69,
+          "physical_keycode": 69,
+          "pressed": true
+        },
+        {
+          "at_frame": 263,
+          "type": "key",
+          "keycode": 69,
+          "physical_keycode": 69,
+          "pressed": false
+        }
+      ]
+    ],
+    [
+      "city_to_west_bank",
+      [
+        {
+          "at_frame": 0,
+          "type": "action",
+          "action": "move_left",
+          "pressed": true
+        },
+        {
+          "at_frame": 48,
+          "type": "action",
+          "action": "move_left",
+          "pressed": false
+        },
+        {
+          "at_frame": 50,
+          "type": "action",
+          "action": "move_up",
+          "pressed": true
+        },
+        {
+          "at_frame": 98,
+          "type": "action",
+          "action": "move_up",
+          "pressed": false
+        },
+        {
+          "at_frame": 100,
+          "type": "action",
+          "action": "move_left",
+          "pressed": true
+        },
+        {
+          "at_frame": 340,
+          "type": "action",
+          "action": "move_left",
+          "pressed": false
+        }
+      ]
+    ],
+    [
+      "west_bank_to_entrance",
+      [
+        {
+          "at_frame": 0,
+          "type": "action",
+          "action": "move_left",
+          "pressed": true
+        },
+        {
+          "at_frame": 0,
+          "type": "action",
+          "action": "move_up",
+          "pressed": true
+        },
+        {
+          "at_frame": 25,
+          "type": "action",
+          "action": "move_left",
+          "pressed": false
+        },
+        {
+          "at_frame": 25,
+          "type": "action",
+          "action": "move_up",
+          "pressed": false
+        },
+        {
+          "at_frame": 27,
+          "type": "action",
+          "action": "move_left",
+          "pressed": true
+        },
+        {
+          "at_frame": 39,
+          "type": "action",
+          "action": "move_left",
+          "pressed": false
+        },
+        {
+          "at_frame": 41,
+          "type": "action",
+          "action": "move_left",
+          "pressed": true
+        },
+        {
+          "at_frame": 41,
+          "type": "action",
+          "action": "move_up",
+          "pressed": true
+        },
+        {
+          "at_frame": 109,
+          "type": "action",
+          "action": "move_left",
+          "pressed": false
+        },
+        {
+          "at_frame": 109,
+          "type": "action",
+          "action": "move_up",
+          "pressed": false
+        },
+        {
+          "at_frame": 111,
+          "type": "action",
+          "action": "move_left",
+          "pressed": true
+        },
+        {
+          "at_frame": 111,
+          "type": "action",
+          "action": "move_up",
+          "pressed": true
+        },
+        {
+          "at_frame": 145,
+          "type": "action",
+          "action": "move_left",
+          "pressed": false
+        },
+        {
+          "at_frame": 145,
+          "type": "action",
+          "action": "move_up",
+          "pressed": false
+        },
+        {
+          "at_frame": 147,
+          "type": "action",
+          "action": "move_left",
+          "pressed": true
+        },
+        {
+          "at_frame": 171,
+          "type": "action",
+          "action": "move_left",
+          "pressed": false
+        },
+        {
+          "at_frame": 173,
+          "type": "action",
+          "action": "move_left",
+          "pressed": true
+        },
+        {
+          "at_frame": 173,
+          "type": "action",
+          "action": "move_up",
+          "pressed": true
+        },
+        {
+          "at_frame": 207,
+          "type": "action",
+          "action": "move_left",
+          "pressed": false
+        },
+        {
+          "at_frame": 207,
+          "type": "action",
+          "action": "move_up",
+          "pressed": false
+        },
+        {
+          "at_frame": 209,
+          "type": "action",
+          "action": "move_left",
+          "pressed": true
+        },
+        {
+          "at_frame": 221,
+          "type": "action",
+          "action": "move_left",
+          "pressed": false
+        }
+      ]
+    ],
+    [
+      "entrance_to_home",
+      [
+        {
+          "at_frame": 0,
+          "type": "action",
+          "action": "move_left",
+          "pressed": true
+        },
+        {
+          "at_frame": 24,
+          "type": "action",
+          "action": "move_left",
+          "pressed": false
+        },
+        {
+          "at_frame": 26,
+          "type": "action",
+          "action": "move_up",
+          "pressed": true
+        },
+        {
+          "at_frame": 80,
+          "type": "action",
+          "action": "move_up",
+          "pressed": false
+        },
+        {
+          "at_frame": 82,
+          "type": "action",
+          "action": "move_left",
+          "pressed": true
+        },
+        {
+          "at_frame": 184,
+          "type": "action",
+          "action": "move_left",
+          "pressed": false
+        }
+      ]
+    ]
+  ],
+  "inspection_note": "Before screenshot used a player-position fixture and 2x inspection zoom. Final traversal used ordinary controls from home through city and back home, with no player-position fixture. Final overview temporarily used 2x camera zoom after the west-bank return; normal 3x zoom was restored. Main user game was never stopped by this pass.",
+  "helper_sha256": "9c9ecca4c0efc77521a4d20a7c18bd13fc834fff951671da0b6ae2749ab53f51",
+  "final_observed_diagnostics": {
+    "runtime_errors": 0,
+    "open_script_errors": 0,
+    "existing_warnings": 10
+  },
+  "note": "Two MoveGate errors briefly appeared in the concurrent open battle script buffer late in verification. Final observed diagnostics cleared them; no battle source was edited by this fix."
+}

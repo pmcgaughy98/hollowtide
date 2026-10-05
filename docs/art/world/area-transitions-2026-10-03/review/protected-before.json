@@ -1,0 +1,5 @@
+{
+  "scripts/player.gd": "ed85fe5f58401d10e9500a1308d2595ffd0d320a3c6fe281190606479ea5e6ac",
+  "scripts/player_party.gd": "ec6553d6b534d7d53ec196665431a5a01c91743dda50486fa9b8668dfe430d8e",
+  "scripts/battle_screen.gd": "c2899874210c614da43917d76ab5e35eef24439ea94da8aa544f6930d3e616cf"
+}

@@ -1,5 +1,9 @@
 # Hollowtide Region Atlas
 
+## Current bridge/city direction — October 2, 2026
+
+Preston confirmed the opening sequence: an Elwood-inspired fictional hometown on the west bank → Route 1 beginning at the levee entrance shown in his screenshots → river bridge → a St. Joseph-inspired fictional city on the east bank, divided into locally distinct sectors. The reference names are not in-game names; hometown, river, bridge, city and district names remain Hollowtide decisions. See [the current hometown, route and bridge plan](route1-bridge-and-city-sector-plan-2026-10-02.md) and [verified city research](../research/st-joseph-city-sectors-2026-10-02.md). This takes precedence over the older Highbank opening and second-loop geography below. Highbank is still a working label, not an approved hometown name. The current map is prototype staging; hometown/bridge/city maps are not implemented. Preserve approved art and the verified delivery loop.
+
 **Proposal draft, 2026-09-26.** This extends the [living bible](world-bible.md) and [20-line creature roster](../creatures/creature-roster-draft.md). Area labels and character roles below are working proposals, not approved names or final plot reveals. The real St. Joseph, Missouri research remains in [field notes](../research/st-joseph-field-notes.md); the setting and people here are fictional.
 
 ## Geographic spine

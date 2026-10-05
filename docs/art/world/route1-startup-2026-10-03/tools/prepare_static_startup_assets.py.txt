@@ -1,0 +1,78 @@
+from pathlib import Path
+import hashlib,json,re
+from PIL import Image
+p=Path("C:/Users/pmcga/dev/hollowtide");s=Path.cwd();r=s/"route1-startup-review"
+a=p/"assets/sprites/world/route1_static_surfaces_2026_10_03";a.mkdir(exist_ok=True)
+manifest=[]
+for name in ["river_water_mask.png","joined_levee_road.png","joined_city_landing.png","wet_bank_contours.png"]:
+ src=r/name;dst=a/name
+ assert src.exists()
+ assert not dst.exists() or dst.read_bytes()==src.read_bytes()
+ dst.write_bytes(src.read_bytes())
+ assert dst.read_bytes()==src.read_bytes()
+ im=Image.open(dst);assert im.mode=="RGBA"
+ manifest.append({"file":dst.relative_to(p).as_posix(),"sha256":hashlib.sha256(dst.read_bytes()).hexdigest(),"size":list(im.size),"mode":im.mode,"opaque_bounds":im.getchannel("A").getbbox()})
+(r/"static-surface-manifest.json").write_text(json.dumps(manifest,indent=2),encoding="utf-8")
+source=(p/"scripts/route1_crossing.gd").read_text(encoding="utf-8")
+for name in ["ROAD_SOIL","GROUND"]:
+ source,n=re.subn(r"^const "+name+r" = .*\n","",source,flags=re.M);assert n==1
+source,n=re.subn(r"^var _levee := .*\n","",source,flags=re.M);assert n==1
+needle='const RIVER_FLOW = preload("res://assets/sprites/world/route1_crossing_2026_10_02/river_flow.gdshader")'
+assert source.count(needle)==1
+source=source.replace(needle,needle+'''
+# Exact native outputs are baked once; provenance and rebuild source are in docs/art/world.
+const RIVER_MASK = preload("res://assets/sprites/world/route1_static_surfaces_2026_10_03/river_water_mask.png")
+const LEVEE_ROAD = preload("res://assets/sprites/world/route1_static_surfaces_2026_10_03/joined_levee_road.png")
+const CITY_LANDING = preload("res://assets/sprites/world/route1_static_surfaces_2026_10_03/joined_city_landing.png")''')
+cut=source.index("func _build_river_surface() -> void:")
+source=source[:cut]+'''func _build_river_surface() -> void:
+	# The saved mask keeps the approved bank silhouette; only water samples move.
+	var surface := Sprite2D.new()
+	surface.name = "RiverSurface"
+	surface.texture = RIVER_MASK
+	surface.position = Vector2(RIVER_LEFT, 0)
+	surface.centered = false
+	surface.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
+	surface.z_index = -2
+	_river_material = ShaderMaterial.new()
+	_river_material.shader = RIVER_FLOW
+	_river_material.set_shader_parameter("river_texture", WATER)
+	surface.material = _river_material
+	add_child(surface)
+
+
+func _build_levee_materials() -> void:
+	_static_road("JoinedLeveeRoad", LEVEE_ROAD, Vector2(144, 184))
+
+
+func _build_city_road_surface() -> void:
+	_static_road("JoinedCityLanding", CITY_LANDING, Vector2(672, 336))
+
+
+func _static_road(label: String, texture: Texture2D, at: Vector2) -> void:
+	var surface := Sprite2D.new()
+	surface.name = label
+	surface.texture = texture
+	surface.position = at
+	surface.centered = false
+	surface.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
+	surface.z_index = -1
+	add_child(surface)
+'''
+(s/"startup_crossing_candidate.gd.txt").write_text(source,encoding="utf-8")
+source=(p/"scripts/route1_landscape.gd").read_text(encoding="utf-8")
+source=source.replace("## Terrain materials are assembled from the approved native sources at runtime.","## The approved wet-bank contour is baked; vegetation and wind remain live.")
+for name in ["ATLAS","SOIL"]:
+ source,n=re.subn(r"^const "+name+r" = .*\n","",source,flags=re.M);assert n==1
+source=source.replace("const GRASS =",'const WET_BANKS = preload("res://assets/sprites/world/route1_static_surfaces_2026_10_03/wet_bank_contours.png")\nconst GRASS =',1)
+source=source[:source.index("func _build_banks() -> void:")]+'''func _build_banks() -> void:
+	var surface := Sprite2D.new()
+	surface.name = "WetBankContours"
+	surface.texture = WET_BANKS
+	surface.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
+	surface.centered = false
+	surface.position = Vector2(408, 0)
+	add_child(surface)
+'''
+(s/"startup_landscape_candidate.gd.txt").write_text(source,encoding="utf-8")
+print(json.dumps({"exact_native_assets":len(manifest),"source_pixels_modified":0,"candidates_ready":True}))

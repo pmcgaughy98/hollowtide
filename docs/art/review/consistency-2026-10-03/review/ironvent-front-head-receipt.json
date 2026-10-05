@@ -1,0 +1,12 @@
+{
+  "tool_id": "inpainting",
+  "inference_id": "inf_KaBmJAb6EDrz8QVpm68GRvoV7M4P3jdL",
+  "balance_cost": 0.18,
+  "credit_cost": 20,
+  "charged": true,
+  "remaining_balance": 6.19,
+  "remaining_credits": null,
+  "output_urls": [
+    "https://da8ztllw6by0f.cloudfront.net/7f4a311fdd1cc6d6bd8d128ebecdbd19.png"
+  ]
+}

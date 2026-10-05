@@ -1,0 +1,18 @@
+from pathlib import Path
+p=Path("C:/Users/pmcga/dev/hollowtide")
+f=p/"scripts/hometown_courtyard.gd";t=f.read_text()
+t=t.replace('\n\tVector2(67, 516), Vector2(146, 572), Vector2(301, 563), Vector2(408, 608),','')
+t=t.replace('Vector2(-8, 320), Vector2(16, 640)','Vector2(-8, 192), Vector2(16, 384)')
+t=t.replace('Vector2(240, 648), Vector2(480, 16)','Vector2(240, 392), Vector2(480, 16)')
+t=t.replace('for y in 40:','for y in 24:')
+t=t.replace(', Vector2(306, 427), Vector2(197, 451)','')
+t=t.replace('[Vector2(68, 401), Vector2(431, 414), Vector2(236, 523)]','[Vector2(68, 356), Vector2(431, 324), Vector2(236, 350)]')
+t=t.replace('for i in 7:','for i in 5:')
+t=t.replace(', Vector2(205, 394), Vector2(276, 491)','')
+f.write_text(t,encoding="utf-8")
+f=p/"scripts/first_route_prototype.gd";t=f.read_text()
+needle='\tvar camera: Camera2D = $Player/Camera2D\n\tvar at_home := '
+assert t.count(needle)==1
+t=t.replace(needle,'\tvar camera: Camera2D = $Player/Camera2D\n\tcamera.limit_bottom = 384 if player.position.x < 0 else 640\n\tvar at_home := ')
+f.write_text(t,encoding="utf-8")
+print("Kept the hometown compact: 480x384 and six distinct existing tree variants")

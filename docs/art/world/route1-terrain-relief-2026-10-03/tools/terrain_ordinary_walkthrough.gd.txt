@@ -1,0 +1,109 @@
+extends SceneTree
+const OUT := "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/terrain-relief-review/"
+var route: Node2D
+var player: CharacterBody2D
+var steps: Array = []
+var failed := false
+func _initialize() -> void:
+	call_deferred("_run")
+func _frames(n: int) -> void:
+	for i in n: await process_frame
+func _key(code: Key) -> void:
+	for pressed in [true,false]:
+		var event := InputEventKey.new()
+		event.keycode=code
+		event.physical_keycode=code
+		event.pressed=pressed
+		Input.parse_input_event(event)
+		await _frames(3)
+func _capture(name: String) -> void:
+	await RenderingServer.frame_post_draw
+	root.get_texture().get_image().save_png(OUT+"walkthrough-"+name+".png")
+func _walk(to: Vector2) -> bool:
+	var origin:=player.position
+	var stationary:=0
+	for tick in 2200:
+		var delta:=to-player.position
+		if delta.length()<3.0:
+			for action in ["move_left","move_right","move_up","move_down"]:Input.action_release(action)
+			await _frames(2)
+			steps.append({"target":str(to),"from":str(origin),"to":str(player.position),"frames":tick})
+			print("ROUTE_WALK ",to," reached ",player.position)
+			return true
+		var before:=player.position
+		for pair in [["move_left",delta.x < -1.5],["move_right",delta.x > 1.5],["move_up",delta.y < -1.5],["move_down",delta.y > 1.5]]:
+			if pair[1]:Input.action_press(pair[0])
+			else:Input.action_release(pair[0])
+		await physics_frame
+		stationary = stationary+1 if player.position.distance_to(before)<0.02 else 0
+		if stationary>35:
+			print("BLOCKED_WALK ",to," at ",player.position)
+			break
+	for action in ["move_left","move_right","move_up","move_down"]:Input.action_release(action)
+	failed=true
+	await _capture("blocked")
+	return false
+func _site(to: Vector2, flag: String, name: String) -> bool:
+	if not await _walk(to): return false
+	await _key(KEY_E)
+	await _frames(4)
+	var value: bool=route.get(flag)
+	steps.append({"interaction":name,"flag":flag,"value":value,"position":str(player.position)})
+	print("ROUTE_INTERACTION ",name," ",value)
+	if not value:
+		failed=true
+		await _capture(name+"-failed")
+		return false
+	await _capture(name)
+	await _key(KEY_E)
+	return true
+func _run() -> void:
+	var started:=Time.get_ticks_msec()
+	route=load("res://scenes/first_route_prototype.tscn").instantiate()
+	root.add_child(route)
+	current_scene=route
+	player=route.get_node("Player")
+	var load_ms:=Time.get_ticks_msec()-started
+	await _frames(12)
+	await _capture("start")
+	if not await _site(Vector2(70,205),"pouch_accepted","assignment"): _finish(load_ms);return
+	if not await _walk(Vector2(184,205)): _finish(load_ms);return
+	if not await _site(Vector2(216,264),"levee_entrance_read","levee-sign"): _finish(load_ms);return
+	# Crest track to the full-width bridge.
+	for point in [Vector2(266,298),Vector2(328,334),Vector2(390,390),Vector2(432,416),Vector2(560,416),Vector2(704,416),Vector2(750,472)]:
+		if not await _walk(point):_finish(load_ms);return
+	await _capture("bridge-arrival")
+	if not await _site(Vector2(816,480),"city_arrival_registered","city-clerk"): _finish(load_ms);return
+	if not await _walk(Vector2(900,480)): _finish(load_ms);return
+	if not await _site(Vector2(912,444),"city_directions_read","city-board"): _finish(load_ms);return
+	for point in [Vector2(900,480),Vector2(750,472),Vector2(704,416),Vector2(560,416),Vector2(432,416),Vector2(390,390),Vector2(350,320),Vector2(368,280)]:
+		if not await _walk(point):_finish(load_ms);return
+	if not await _site(Vector2(392,260),"delivered","relay-delivery"): _finish(load_ms);return
+	if not await _walk(Vector2(410,240)): _finish(load_ms);return
+	if not await _site(Vector2(423,215),"water_mark_observed","height-marks"): _finish(load_ms);return
+	for point in [Vector2(410,240),Vector2(402,296)]:
+		if not await _walk(point):_finish(load_ms);return
+	if not await _site(Vector2(427,296),"heard_calls","river-calls"): _finish(load_ms);return
+	for point in [Vector2(368,296),Vector2(368,112),Vector2(272,112)]:
+		if not await _walk(point):_finish(load_ms);return
+	if not await _site(Vector2(272,112),"marker_restored","marker-repair"): _finish(load_ms);return
+	for point in [Vector2(184,112),Vector2(184,205),Vector2(80,205)]:
+		if not await _walk(point):_finish(load_ms);return
+	await _key(KEY_E)
+	await _frames(5)
+	await _capture("report-choices")
+	await _key(KEY_DOWN)
+	await _key(KEY_ENTER)
+	await _frames(6)
+	await _capture("report-complete")
+	for flag in ["report_done","reported_calls","reported_water_mark"]:
+		if not route.get(flag):failed=true
+	_finish(load_ms)
+func _finish(load_ms: int) -> void:
+	var flags: Dictionary={}
+	for flag in ["pouch_accepted","levee_entrance_read","city_arrival_registered","city_directions_read","delivered","water_mark_observed","heard_calls","marker_restored","report_done","reported_calls","reported_water_mark"]:flags[flag]=route.get(flag)
+	var layer: Node=route.get_node("RiverCrossing/TerrainRelief")
+	var file:=FileAccess.open(OUT+"ordinary-walkthrough-results.json",FileAccess.WRITE)
+	file.store_string(JSON.stringify({"passed":not failed,"ordinary_input_only":true,"teleports":0,"quest_flag_overrides":0,"scene_ready_ms":load_ms,"terrain_surface_build_ms":layer.get("surface_build_ms"),"final_position":str(player.position),"flags":flags,"steps":steps},"\t"))
+	print("ORDINARY_TERRAIN_WALKTHROUGH ",not failed," ",flags)
+	quit(1 if failed else 0)

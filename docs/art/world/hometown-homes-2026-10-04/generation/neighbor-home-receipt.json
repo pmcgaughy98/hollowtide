@@ -1,0 +1,19 @@
+{
+  "status": "succeeded",
+  "task_id": "c39f1d7f-58f1-4b25-8432-281bac202299",
+  "created_at": 1791142957,
+  "updated_at": 1791143112,
+  "result": {
+    "created_at": 1791143112,
+    "credit_cost": 1,
+    "balance_cost": 0.18,
+    "model": "rd_pro",
+    "remaining_credits": 0,
+    "remaining_balance": 2.22,
+    "request_id": "c39f1d7f-58f1-4b25-8432-281bac202299",
+    "outputs_retained_until": 1791229357,
+    "output_url_expires_at": 1791144163
+  },
+  "output_file": "neighbor-home-source.png",
+  "output_sha256": "e779ac7e5f1f20e391fce67a610341e272e56cc4d4a7f0d0b77a853abc7b4379"
+}

@@ -1,0 +1,46 @@
+{
+  "requests": [
+    {
+      "request_id": "dcf06cad-d7f2-4468-831a-3d872d68cd1b",
+      "status": "succeeded",
+      "accepted": false,
+      "cost_usd": 0.18,
+      "source": "repair_workshop-original.png",
+      "source_sha256": "987d3903f39276a75087a86af3b65d5f296ed92bf3f753c13f26e9417e3a8e12",
+      "reason": "Rejected: diagonal front wall and side face"
+    },
+    {
+      "request_id": "57dd4550-4917-45ba-a231-a24a445608f9",
+      "status": "succeeded",
+      "accepted": true,
+      "cost_usd": 0.18,
+      "source": "repair_workshop_v2-original.png",
+      "source_sha256": "469303ee2e90fa5f474f9c7cb01177843622e3db5699ec215b269c0cf94314aa",
+      "reason": "Reviewed straight frontage/native NPC"
+    },
+    {
+      "request_id": "762d5bd2-e42e-46cd-8879-1600531e6a03",
+      "status": "succeeded",
+      "accepted": true,
+      "cost_usd": 0.18,
+      "source": "rear_rowhomes_v2-original.png",
+      "source_sha256": "b3838f8274cceff2246bb99f4e378ce33fe4da1933a8709c1ec1b31302cc7c39",
+      "reason": "Reviewed straight frontage/native NPC"
+    },
+    {
+      "request_id": "5d22ed66-c9c4-4e3e-8804-95d70f9328fb",
+      "status": "succeeded",
+      "accepted": true,
+      "cost_usd": 0.18,
+      "source": "workshop_keeper-original.png",
+      "source_sha256": "2c15595fab42eebb2b744a9f6297743c295dffdff27b66dfc4fa5d2f9fee8a39",
+      "reason": "Reviewed straight frontage/native NPC"
+    }
+  ],
+  "total_cost_usd": 0.72,
+  "successful_selected_cost_usd": 0.54,
+  "rejected_cost_usd": 0.18,
+  "text_only_no_reference_uploads": true,
+  "retrieval_did_not_repeat_generation": true,
+  "balance_after": 3.48
+}

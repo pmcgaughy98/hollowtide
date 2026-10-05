@@ -1,0 +1,200 @@
+{
+  "checks": [
+    {
+      "key": "kithflare-front",
+      "tests": {
+        "canvas_preserved": true,
+        "binary_alpha": true,
+        "native_palette_only": true,
+        "outside_regions_exact": true,
+        "no_new_islands": true,
+        "single_body_component": true,
+        "tail_corridor_4_connected": true,
+        "no_canvas_clipping": true,
+        "head_eyes_frill_exact": true,
+        "no_unclassified_white_pixels": true,
+        "feet_except_three_toe_highlights_exact": true,
+        "foot_silhouette_exact": true,
+        "light_organ_exact": true
+      },
+      "passed": true,
+      "changed_pixels": 0,
+      "components": [
+        6797
+      ],
+      "tail_path_pixels": 1651,
+      "bounds": [
+        25,
+        21,
+        131,
+        140
+      ],
+      "sha256": "9b694edbaa7726caa2d040a93e125f4ae0508837507b1066cb3e2454a1523243"
+    },
+    {
+      "key": "kithflare-back",
+      "tests": {
+        "canvas_preserved": true,
+        "binary_alpha": true,
+        "native_palette_only": true,
+        "outside_regions_exact": true,
+        "no_new_islands": true,
+        "single_body_component": true,
+        "tail_corridor_4_connected": true,
+        "no_canvas_clipping": true,
+        "head_eyes_frill_exact": true,
+        "no_unclassified_white_pixels": true,
+        "feet_except_three_toe_highlights_exact": true,
+        "foot_silhouette_exact": true,
+        "light_organ_exact": true
+      },
+      "passed": true,
+      "changed_pixels": 0,
+      "components": [
+        6404
+      ],
+      "tail_path_pixels": 1704,
+      "bounds": [
+        29,
+        19,
+        130,
+        135
+      ],
+      "sha256": "0118a9e94c080dc37c27e1770385e2bdb2d055e20950d81f2792e32e0ade14e1"
+    },
+    {
+      "key": "wayburn-front",
+      "tests": {
+        "canvas_preserved": true,
+        "binary_alpha": true,
+        "native_palette_only": true,
+        "outside_regions_exact": true,
+        "no_new_islands": true,
+        "single_body_component": true,
+        "tail_corridor_4_connected": true,
+        "no_canvas_clipping": true,
+        "head_eyes_frill_exact": true,
+        "no_unclassified_white_pixels": true,
+        "feet_except_three_toe_highlights_exact": true,
+        "foot_silhouette_exact": true,
+        "light_organ_exact": true
+      },
+      "passed": true,
+      "changed_pixels": 535,
+      "components": [
+        5894
+      ],
+      "tail_path_pixels": 1638,
+      "bounds": [
+        21,
+        13,
+        176,
+        136
+      ],
+      "sha256": "f23868dc25363eee1aaeccfb438e6d2ae1d19f904a2bc3aa617f862e12d32d68"
+    },
+    {
+      "key": "wayburn-back",
+      "tests": {
+        "canvas_preserved": true,
+        "binary_alpha": true,
+        "native_palette_only": true,
+        "outside_regions_exact": true,
+        "no_new_islands": true,
+        "single_body_component": true,
+        "tail_corridor_4_connected": true,
+        "no_canvas_clipping": true,
+        "head_eyes_frill_exact": true,
+        "no_unclassified_white_pixels": true,
+        "feet_except_three_toe_highlights_exact": true,
+        "foot_silhouette_exact": true,
+        "light_organ_exact": true
+      },
+      "passed": true,
+      "changed_pixels": 113,
+      "components": [
+        5127
+      ],
+      "tail_path_pixels": 1192,
+      "bounds": [
+        16,
+        21,
+        130,
+        144
+      ],
+      "sha256": "86dc93681fe5c1e97d637d75bf15d3a02ae10affba6b539911d8dc9ccd5cf70d"
+    },
+    {
+      "key": "coalcrest-front",
+      "tests": {
+        "canvas_preserved": true,
+        "binary_alpha": true,
+        "native_palette_only": true,
+        "outside_regions_exact": true,
+        "no_new_islands": true,
+        "single_body_component": true,
+        "tail_corridor_4_connected": true,
+        "no_canvas_clipping": true,
+        "head_eyes_frill_exact": true,
+        "no_unclassified_white_pixels": true,
+        "feet_except_three_toe_highlights_exact": true,
+        "foot_silhouette_exact": true,
+        "light_organ_exact": true
+      },
+      "passed": true,
+      "changed_pixels": 0,
+      "components": [
+        7673
+      ],
+      "tail_path_pixels": 1629,
+      "bounds": [
+        13,
+        3,
+        129,
+        142
+      ],
+      "sha256": "6cbd82720f1c9673e51fea21cc6261fc2798bc80e4c0d3e0a433a224202f669f"
+    },
+    {
+      "key": "coalcrest-back",
+      "tests": {
+        "canvas_preserved": true,
+        "binary_alpha": true,
+        "native_palette_only": true,
+        "outside_regions_exact": true,
+        "no_new_islands": true,
+        "single_body_component": true,
+        "tail_corridor_4_connected": true,
+        "no_canvas_clipping": true,
+        "head_eyes_frill_exact": true,
+        "no_unclassified_white_pixels": true,
+        "feet_except_three_toe_highlights_exact": true,
+        "foot_silhouette_exact": true,
+        "light_organ_exact": true,
+        "near_hind_leg_exact": true,
+        "fin_head_upper_torso_exact": true,
+        "old_left_tail_curl_cleared": true,
+        "leg_tail_negative_space": true,
+        "far_leg_hidden_inside_curl": true,
+        "original_far_foot_position": true,
+        "original_far_foot_colors": true,
+        "foot_peeks_beneath_tail": true,
+        "foreground_tail_over_foot": true
+      },
+      "passed": true,
+      "changed_pixels": 2733,
+      "components": [
+        5685
+      ],
+      "tail_path_pixels": 1590,
+      "bounds": [
+        23,
+        13,
+        125,
+        140
+      ],
+      "sha256": "e2cde80eb484a38d0322c225a83d8584a37fb96c1ebfc6c1db83d373966020a1"
+    }
+  ],
+  "passed": true
+}

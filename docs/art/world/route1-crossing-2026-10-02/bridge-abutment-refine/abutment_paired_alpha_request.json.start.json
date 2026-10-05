@@ -1,0 +1,6 @@
+{
+  "status": "accepted",
+  "task_id": "aaf21bc6-4f8d-511d-8f27-126272e9dfc1",
+  "request_id": "aaf21bc6-4f8d-511d-8f27-126272e9dfc1",
+  "message": "Edit accepted. Poll GET /v2/edit/tasks/{task_id} for status."
+}

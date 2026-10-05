@@ -1,0 +1,30 @@
+{
+  "status": "approved hat edit completed; real garden neighbor installed",
+  "crown_new_visible_pixels": 20,
+  "composed_source_bounds": [
+    6,
+    10,
+    42,
+    74
+  ],
+  "all_original_body_rgba_exact_before_native_reduction": true,
+  "generated_checker_margin_excluded": true,
+  "generated_existing_image_changes_not_used": 1465,
+  "palette": "source hat native ramp",
+  "prepared_size": [
+    21,
+    34
+  ],
+  "prepared_used_bounds": [
+    2,
+    2,
+    19,
+    32
+  ],
+  "visible_height": 30,
+  "native_reduction": "nearest",
+  "source_sha256": "6e47c38ca16f2cdb3117a6838761c0288eb1371cb814c1a933d4a95cda24db08",
+  "approved_job": "2852abde-e5a5-4f75-94c4-baa6efc7afc8",
+  "edit_usd": 0.18,
+  "total_generation_usd": 0.9
+}

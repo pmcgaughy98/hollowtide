@@ -1,0 +1,31 @@
+extends SceneTree
+const OUT := "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/hometown-review/"
+var route: Node2D
+func _initialize() -> void: call_deferred("_run")
+func _capture(label: String, at: Vector2, zoom: float) -> void:
+	var courier: CharacterBody2D = route.get_node("Player")
+	courier.position = at # Review-only camera fixture, not traversal evidence.
+	courier.set_physics_process(false)
+	var camera: Camera2D = courier.get_node("Camera2D")
+	camera.zoom = Vector2.ONE * zoom
+	camera.position = Vector2(0, -70) if zoom == 3 else Vector2.ZERO
+	route.set_process(false)
+	route._process(0.0)
+	camera.reset_smoothing()
+	for i in 12: await process_frame
+	await RenderingServer.frame_post_draw
+	root.get_texture().get_image().save_png(OUT + label + ".png")
+func _run() -> void:
+	route=load("res://scenes/first_route_prototype.tscn").instantiate()
+	root.add_child(route);current_scene=route
+	for i in 12: await process_frame
+	await _capture("installed-home",Vector2(-336,192),3.0)
+	await _capture("installed-garden",Vector2(-172,310),3.0)
+	await _capture("installed-gateway",Vector2(-16,192),3.0)
+	await _capture("installed-hometown-overview",Vector2(-240,224),1.5)
+	print("HOMETOWN_FIXTURE_CAPTURED")
+	call_deferred("_exit_probe")
+func _exit_probe() -> void:
+	route.queue_free();current_scene=null;route=null
+	for i in 8: await process_frame
+	quit()

@@ -65,6 +65,7 @@ func _refresh() -> void:
 	# The evolution rules live in their own check. Append them so the overlay
 	# reports a bad line instead of only the single-creature fields.
 	problems.append_array(CreatureRoster.validate_evolutions(creatures))
+	problems.append_array(CreatureRoster.validate_move_gates(creatures))
 
 	if problems.is_empty():
 		_status.text = "%d creatures loaded. All checks passed.   Party: %d / %d" % [

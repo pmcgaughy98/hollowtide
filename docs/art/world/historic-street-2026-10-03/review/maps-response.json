@@ -1,0 +1,36 @@
+{
+  "id": 2,
+  "jsonrpc": "2.0",
+  "result": {
+    "content": [
+      {
+        "text": "{\n  \"places\": [\n    {\n      \"place\": \"places/ChIJ18lEFqgbwIcRKuHmC1BGmf8\",\n      \"id\": \"ChIJ18lEFqgbwIcRKuHmC1BGmf8\",\n      \"location\": {\n        \"latitude\": 39.7659532,\n        \"longitude\": -94.8510362\n      },\n      \"googleMapsLinks\": {\n        \"directionsUrl\": \"https://www.google.com/maps/dir//''/data=!4m7!4m6!1m1!4e2!1m2!1m1!1s0x87c01ba81644c9d7:0xff9946500be6e12a!3e0\",\n        \"placeUrl\": \"https://www.google.com/maps/place//data=!4m2!3m1!1s0x87c01ba81644c9d7:0xff9946500be6e12a\",\n        \"writeAReviewUrl\": \"https://www.google.com/maps/place//data=!4m3!3m2!1s0x87c01ba81644c9d7:0xff9946500be6e12a!12e1\",\n        \"reviewsUrl\": \"https://www.google.com/maps/place//data=!4m4!3m3!1s0x87c01ba81644c9d7:0xff9946500be6e12a!9m1!1b1\",\n        \"photosUrl\": \"https://www.google.com/maps/place//data=!4m3!3m2!1s0x87c01ba81644c9d7:0xff9946500be6e12a!10e5\"\n      },\n      \"attribution\": {\n        \"title\": \"Missouri Theater - Google Maps\",\n        \"url\": \"https://www.google.com/maps/place//data=!4m2!3m1!1s0x87c01ba81644c9d7:0xff9946500be6e12a\"\n      }\n    }\n  ],\n  \"summary\": \"**Missouri Theater** [0] (4.8\u2605 (418)) is a historic playhouse set in old-world surrounds that spotlights a variety of musical and theatrical productions. Visitors mention that it is a great, family-friendly venue for enjoying live performances and concerts in an accessible space.\"\n}\n",
+        "type": "text"
+      }
+    ],
+    "structuredContent": {
+      "places": [
+        {
+          "attribution": {
+            "title": "Missouri Theater - Google Maps",
+            "url": "https://www.google.com/maps/place//data=!4m2!3m1!1s0x87c01ba81644c9d7:0xff9946500be6e12a"
+          },
+          "googleMapsLinks": {
+            "directionsUrl": "https://www.google.com/maps/dir//''/data=!4m7!4m6!1m1!4e2!1m2!1m1!1s0x87c01ba81644c9d7:0xff9946500be6e12a!3e0",
+            "photosUrl": "https://www.google.com/maps/place//data=!4m3!3m2!1s0x87c01ba81644c9d7:0xff9946500be6e12a!10e5",
+            "placeUrl": "https://www.google.com/maps/place//data=!4m2!3m1!1s0x87c01ba81644c9d7:0xff9946500be6e12a",
+            "reviewsUrl": "https://www.google.com/maps/place//data=!4m4!3m3!1s0x87c01ba81644c9d7:0xff9946500be6e12a!9m1!1b1",
+            "writeAReviewUrl": "https://www.google.com/maps/place//data=!4m3!3m2!1s0x87c01ba81644c9d7:0xff9946500be6e12a!12e1"
+          },
+          "id": "ChIJ18lEFqgbwIcRKuHmC1BGmf8",
+          "location": {
+            "latitude": 39.7659532,
+            "longitude": -94.8510362
+          },
+          "place": "places/ChIJ18lEFqgbwIcRKuHmC1BGmf8"
+        }
+      ],
+      "summary": "**Missouri Theater** [0] (4.8\u2605 (418)) is a historic playhouse set in old-world surrounds that spotlights a variety of musical and theatrical productions. Visitors mention that it is a great, family-friendly venue for enjoying live performances and concerts in an accessible space."
+    }
+  }
+}

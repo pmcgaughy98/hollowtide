@@ -1,0 +1,38 @@
+{
+  "key": "meadow_grass",
+  "width": 64,
+  "height": 40,
+  "prompt": "Original Hollowtide environment asset, top-down three-quarter 2D RPG view. Match the reference's grounded muted olive/sage vegetation, warm loess soil and deep desaturated forest-green shadows. Native crisp 1-pixel clusters, substantial material shading, small restrained highlights; no smooth gradients, no antialiasing, no thick black border around ground, no neon greens. One isolated object centered with at least 4 pixels of empty margin, transparent surrounding background, no scenery, labels, grid or characters. A low natural crescent of mixed late-summer meadow grasses, seven uneven small tufts with a few bent straw tips and only two tiny muted cream wildflower heads. Uneven heights, broad open gaps, compact roots. Mostly sage and olive green, readable relaxed leaf silhouettes. Tiny footprint that blends into turf without a dirt plinth. Viewed from above with short stems visible.",
+  "prompt_style": "rd_pro__topdown",
+  "seed": 20261003,
+  "remove_bg": true,
+  "bypass_prompt_expansion": true,
+  "references": [
+    "assets/tilesets/route1_rd_2026_10_01/route1_ground_atlas_polished.png",
+    "assets/sprites/world/route1_rd_2026_10_02/cottonwood_ridge.png"
+  ],
+  "task": {
+    "status": "accepted",
+    "task_id": "3b367059-fc24-42d2-b81a-63d0269e6701",
+    "request_id": "3b367059-fc24-42d2-b81a-63d0269e6701",
+    "message": "Inference accepted. Poll GET /v2/inferences/tasks/{task_id} for status."
+  },
+  "estimate": {
+    "created_at": 1790995546,
+    "credit_cost": 0,
+    "balance_cost": 0.18,
+    "output_images": [],
+    "base64_images": [],
+    "output_urls": [],
+    "model": "check_cost",
+    "remaining_credits": 0,
+    "remaining_balance": 2.940000000000008,
+    "resolved_prompt_style": "rd_pro__topdown",
+    "used_input_image": false,
+    "reference_images_count": 2,
+    "used_extra_input_image": false,
+    "used_input_palette": false,
+    "used_strength": false,
+    "effective_timeout_seconds": 180
+  }
+}

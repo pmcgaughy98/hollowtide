@@ -1,0 +1,35 @@
+extends SceneTree
+const OUT := "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/terrain-relief-review/"
+var route: Node2D
+func _initialize() -> void:
+	call_deferred("_run")
+func _capture(name: String, pos: Vector2, zoom: float) -> void:
+	var player: CharacterBody2D=route.get_node("Player")
+	player.position=pos
+	route.set_process(false)
+	var camera: Camera2D=player.get_node("Camera2D")
+	camera.position=Vector2.ZERO if zoom==1 else Vector2(0,-24)
+	camera.zoom=Vector2.ONE*zoom
+	camera.position_smoothing_enabled=false
+	camera.reset_smoothing()
+	route._process(0.0)
+	for i in 12: await process_frame
+	await RenderingServer.frame_post_draw
+	root.get_texture().get_image().save_png(OUT+name+".png")
+func _run() -> void:
+	DirAccess.make_dir_recursive_absolute(OUT)
+	route=load("res://scenes/first_route_prototype.tscn").instantiate()
+	root.add_child(route)
+	current_scene=route
+	for i in 10: await process_frame
+	await _capture("installed-overview",Vector2(512,320),1.0)
+	await _capture("installed-entrance",Vector2(218,262),3.0)
+	await _capture("installed-crest",Vector2(310,354),3.0)
+	await _capture("installed-landing",Vector2(395,240),3.0)
+
+	var relief: Node=route.get_node("RiverCrossing/TerrainRelief")
+	var record := {"installed":true,"surface_build_ms":relief.get("surface_build_ms"),"surfaces":relief.get_child_count(),"shoreline_retained":route.get_node("RiverCrossing/Landscape/WetBankContours").visible}
+	var file:=FileAccess.open(OUT+"installed-results.json",FileAccess.WRITE)
+	file.store_string(JSON.stringify(record,"\t"))
+	print("INSTALLED_TERRAIN_REVIEW ",record)
+	quit()

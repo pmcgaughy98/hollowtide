@@ -1,0 +1,45 @@
+Game probe — frame 5620, physics 5621, drawn 5621, image_frame 5620, instance route-quality-after, SUSPENDED (1152x648). The image above and the state below describe this ONE frame; review the image and describe what you actually see before claiming anything about it.
+
+{
+  "results": [
+    {
+      "effective_time_scale": 0,
+      "format": "jpeg",
+      "frame": {
+        "frames_drawn": 5621,
+        "physics_frames": 5621,
+        "process_frames": 5620
+      },
+      "height": 648,
+      "image_frame": 5620,
+      "instance": "route-quality-after",
+      "mime": "image/jpeg",
+      "missing": [],
+      "ok": true,
+      "op": "GameProbe",
+      "paused": false,
+      "provenance": {
+        "source": "runtime",
+        "target": {
+          "instance": "route-quality-after",
+          "kind": "game"
+        }
+      },
+      "requestId": "mcp-9416512a-1dc2-4d7b-b1a6-d6ffa0489e19",
+      "source_height": 648,
+      "source_width": 1152,
+      "suspended": true,
+      "time_scale": 1,
+      "transport": "summer",
+      "values": {},
+      "width": 1152
+    }
+  ],
+  "skippedCount": 0,
+  "status": "ok",
+  "stopOnError": true,
+  "undoGroup": false,
+  "requestId": "mcp-9416512a-1dc2-4d7b-b1a6-d6ffa0489e19",
+  "terminalState": "applied",
+  "appliedSeq": 1393
+}

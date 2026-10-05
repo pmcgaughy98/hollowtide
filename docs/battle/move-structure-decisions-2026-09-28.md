@@ -1,5 +1,7 @@
 # Move structure: decisions and open questions (2026-09-28)
 
+**Preston, 2026-10-02.** The scene-taking move is an ultimate, not a signature. A signature is a named attack another creature can learn when its body has every part that attack uses. Essence types the hit and does not grant the move. Fins do not learn claw moves. No shell, no plate move. Molten Cannon needs a heat chamber and an opening that can lob. The full rule is in `docs/creatures/DESIGN_RULES.md`. The mechanic that runs is `docs/creatures/evolution-and-signatures.md`. The code flag is still called `signature`. That flag now means ultimate. Molten Glass, Furnace Roar, and Kingstone Rail are the ultimates that exist. The "Not built yet" body-tag sentence below is the 2026-09-28 state. The notes below keep the old word where they were written on 2026-09-28. Questions 1 to 3 stay open.
+
 Source research: `RPG Move Animation Scaling` (Gemini Deep Research, Preston's OneDrive copy of
 `docs/Gemini DeepResearch(Hollowtide)/`). Prompt: `docs/research/gemini-prompt-signature-moves-2026-09-28.md`.
 
@@ -32,7 +34,7 @@ Source research: `RPG Move Animation Scaling` (Gemini Deep Research, Preston's O
 1. Signature on the final stage only, or one per stage?
 2. How a signature is gated: turn cooldown, meter, or once per battle.
 3. The grade or requirement scheme that makes a move rare.
-4. How many shared moves per essence (the research suggests 10 to 15).
+4. How many shared moves per essence (the research suggests 10 to 15). A proposal that counts the moves already equipped, and does not invent names to fill that range, is `docs/creatures/shared-move-pool.md`. Questions 1 to 3 stay open. The 2026-10-02 split already answers which moves are teachable.
 
 ## Claude's recommendation: Cannon before Beam
 

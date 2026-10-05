@@ -1,0 +1,6 @@
+SCRIPT ERROR: Parse Error: Expected statement, found "Indent" instead.
+   at: GDScript::reload (C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/landing_loop_bake_review.gd:92)
+ERROR: Failed to load script "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/landing_loop_bake_review.gd" with error "Parse error".
+   at: ResourceFormatLoaderGDScript::load (modules\gdscript\gdscript_resource_format.cpp:46)
+ERROR: Can't run script "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/landing_loop_bake_review.gd": it failed to compile (see the parse errors above).
+   at: Main::start (main\main.cpp:4997)

@@ -1,0 +1,31 @@
+from pathlib import Path
+import hashlib,json,re
+p=Path("C:/Users/pmcga/dev/hollowtide");r=Path.cwd()/"hometown-review"
+before=json.loads((r/"before-manifest.json").read_text())
+allowed={"scripts/first_route_prototype.gd","scripts/route1_crossing.gd","scenes/first_route_prototype.tscn"}
+rows=[]
+for e in before:
+ now=hashlib.sha256((p/e["file"]).read_bytes()).hexdigest()
+ rows.append({"file":e["file"],"changed":now!=e["sha256"],"allowed":e["file"] in allowed,"before_sha256":e["sha256"],"current_sha256":now})
+ assert now==e["sha256"] or e["file"] in allowed,e["file"]
+arts=json.loads((r/"existing-art-manifest.json").read_text())
+bad=[e["file"] for e in arts if hashlib.sha256((p/e["file"]).read_bytes()).hexdigest()!=e["sha256"]]
+assert not bad,bad
+def funcs(t):
+ matches=list(re.finditer(r"(?m)^func (\w+)\(",t));result={}
+ for i,m in enumerate(matches):result[m.group(1)]=t[m.start():matches[i+1].start() if i+1<len(matches) else len(t)].rstrip()
+ return result
+a=funcs((r/"source-before/scripts/first_route_prototype.gd.txt").read_text())
+b=funcs((p/"scripts/first_route_prototype.gd").read_text())
+protected=[]
+for name in a:
+ if name in {"_ready","_process","_unhandled_input"}:continue
+ assert a[name]==b[name],"Changed protected route function "+name
+ protected.append(name)
+runtime=["scripts/hometown_courtyard.gd","scenes/hometown_courtyard.tscn","scripts/first_route_prototype.gd","scripts/route1_crossing.gd","scenes/first_route_prototype.tscn"]
+runtime+=[str(f.relative_to(p)).replace("\\","/") for f in (p/"assets/sprites/world/hometown_courtyard_2026_10_03").glob("*") if f.is_file()]
+if (p/"scripts/hometown_courtyard.gd.uid").exists():runtime.append("scripts/hometown_courtyard.gd.uid")
+manifest=[{"file":f,"sha256":hashlib.sha256((p/f).read_bytes()).hexdigest()} for f in runtime]
+(r/"runtime-file-manifest.json").write_text(json.dumps(manifest,indent=2),encoding="utf-8")
+(r/"preservation-audit.json").write_text(json.dumps({"existing_runtime":rows,"existing_art_count":len(arts),"existing_art_all_unchanged":not bad,"protected_route_functions":protected,"runtime_manifest_count":len(manifest),"new_quest_flags":0,"new_save_system":False,"same_existing_player_and_route":True},indent=2),encoding="utf-8")
+print(json.dumps({"runtime":len(manifest),"preserved_art":len(arts),"protected_route_functions":len(protected),"unexpected_changes":0}))

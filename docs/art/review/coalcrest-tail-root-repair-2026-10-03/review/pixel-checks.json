@@ -1,0 +1,130 @@
+{
+  "checks": [
+    {
+      "view": "front",
+      "canvas": [
+        160,
+        160
+      ],
+      "binary_alpha": true,
+      "four_connected_components": [
+        8061
+      ],
+      "old_component_sizes": [
+        8141
+      ],
+      "lamp_and_body_same_main_component": true,
+      "lamp_rgba_exact": true,
+      "fin_rgba_exact": true,
+      "genuine_foot_regions_exact": true,
+      "old_stem_or_rear_shelf_absent": true,
+      "intended_tail_core_checks": [
+        {
+          "x": 60,
+          "y": 105,
+          "solid_3x3_core": true
+        },
+        {
+          "x": 56,
+          "y": 110,
+          "solid_3x3_core": true
+        },
+        {
+          "x": 52,
+          "y": 116,
+          "solid_3x3_core": true
+        },
+        {
+          "x": 46,
+          "y": 124,
+          "solid_3x3_core": true
+        },
+        {
+          "x": 40,
+          "y": 130,
+          "solid_3x3_core": true
+        },
+        {
+          "x": 28,
+          "y": 128,
+          "solid_3x3_core": true
+        },
+        {
+          "x": 15,
+          "y": 115,
+          "solid_3x3_core": true
+        }
+      ],
+      "changed_pixels_from_previous": 1445,
+      "bbox": [
+        10,
+        3,
+        129,
+        142
+      ],
+      "sha256": "ef0b461868aa9c7cdd5c0b6d1d02803df374e53b6771801d4cdbd374da5be133"
+    },
+    {
+      "view": "back",
+      "canvas": [
+        160,
+        160
+      ],
+      "binary_alpha": true,
+      "four_connected_components": [
+        6639
+      ],
+      "old_component_sizes": [
+        6526
+      ],
+      "lamp_and_body_same_main_component": true,
+      "lamp_rgba_exact": true,
+      "fin_rgba_exact": false,
+      "genuine_foot_regions_exact": true,
+      "old_stem_or_rear_shelf_absent": true,
+      "intended_tail_core_checks": [
+        {
+          "x": 68,
+          "y": 115,
+          "solid_3x3_core": true
+        },
+        {
+          "x": 62,
+          "y": 124,
+          "solid_3x3_core": true
+        },
+        {
+          "x": 52,
+          "y": 131,
+          "solid_3x3_core": true
+        },
+        {
+          "x": 40,
+          "y": 134,
+          "solid_3x3_core": true
+        },
+        {
+          "x": 28,
+          "y": 128,
+          "solid_3x3_core": true
+        },
+        {
+          "x": 16,
+          "y": 114,
+          "solid_3x3_core": true
+        }
+      ],
+      "changed_pixels_from_previous": 1409,
+      "bbox": [
+        9,
+        13,
+        125,
+        142
+      ],
+      "sha256": "c43c8ce9074254a83d85474556312f976ea63a6051ca6eb3ac89d632f82a3404"
+    }
+  ],
+  "source_art_exact": true,
+  "protected_runtime_files": 2165,
+  "passed": true
+}

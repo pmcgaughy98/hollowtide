@@ -1,0 +1,62 @@
+{
+  "historic_prompts": [
+    {
+      "label": "reused_brick_shop",
+      "width": 192,
+      "height": 176,
+      "remove_bg": true,
+      "prompt": "Hollowtide original game asset. Reference image guides only material colors, native pixel finish and front-facing orthographic RPG perspective. Crisp mature pixel art with coherent planes, readable material clusters, soft charcoal dark outline, quiet muted brick/soil/timber/slate colors, upper-left daylight, restrained amber windows. No dithering, no blur, no gradients, no bloom, no cast ground shadow. One complete two-storey reused historic red-brown brick shop building on transparent background. A wide, squat rectangular footprint; straight south-facing facade with horizontal cornice and roof line, no visible angled side wall, no rotated/isometric building. Warm old brick masonry, a dark blue-grey shallow roof behind a dentilled cornice, three tall upper sash windows with sandstone lintels, an occupied ground floor with two large glass display windows and a single centered dark entrance directly facing down. A repaired muted teal fabric awning above the ground floor, older cream signboard ABOVE the awning deliberately left blank. A few patches of new mortar and a bricked-up small side service window communicate reuse. Balanced age and current care, no ruin. Whole roof/chimney/cornice/base fully within canvas, at least eight transparent pixels all around. Ground-floor door 18 to 22 pixels wide. No readable text, letters, numbers, people, objects outside the building, sidewalks, grass, trees, surrounding scene, background rectangle, floating platform, stairs or cut-off eaves."
+    },
+    {
+      "label": "street_ledger_house",
+      "width": 160,
+      "height": 176,
+      "remove_bg": true,
+      "prompt": "Hollowtide original game asset. Reference image guides only material colors, native pixel finish and front-facing orthographic RPG perspective. Crisp mature pixel art with coherent planes, readable material clusters, soft charcoal dark outline, quiet muted brick/soil/timber/slate colors, upper-left daylight, restrained amber windows. No dithering, no blur, no gradients, no bloom, no cast ground shadow. One complete narrow historic city records office building on transparent background, distinct from the reference courier hall and from a shop. Straight south-facing front facade, horizontal roof/cornice, orthographic view from above about 35 degrees, no angled side wall and no rotated/isometric footprint. Two storeys of subdued ochre-brown brick on a dark stone foundation; blue-grey low mansard roof with a short chimney and one small centered dormer. Two tall upper windows with weathered pale stone lintels, arched centered dark ground-floor doorway directly facing down, broad street-ledger display window to its left, closed timber shutter to its right. A plain empty small hanging frame over the door. Maintained but old, repaired mortar, lived-in civic building at courier/player scale, sparse high-quality native texture. Whole building within canvas with at least eight transparent pixels on all edges. Door 18 to 22 pixels wide. No readable text, numbers, signs with letters, people, external props, sidewalk, stairs, grass, scenery, cast ground shadow or background rectangle."
+    },
+    {
+      "label": "historic_pavers_tile",
+      "width": 48,
+      "height": 48,
+      "remove_bg": false,
+      "tile_x": true,
+      "tile_y": true,
+      "prompt": "Hollowtide original game asset. Reference image guides only material colors, native pixel finish and front-facing orthographic RPG perspective. Crisp mature pixel art with coherent planes, readable material clusters, soft charcoal dark outline, quiet muted brick/soil/timber/slate colors, upper-left daylight, restrained amber windows. No dithering, no blur, no gradients, no bloom, no cast ground shadow. One seamless flat TOP-DOWN ground texture tile only, 48x48 pixels, opaque full square. Worn sandstone and river-stone pavers in offset rows, quiet warm grey with a muted brown soil undertone, irregular but tightly fitted rectangular stones about 8 to 14 pixels wide, narrow dark mortar joints and sparse lighter worn edges. Same quiet local material ramp as reference foundation/slate, coherent flat 2D game ground, no side faces, no raised brick blocks, no border, no object, no grass, no puddles, no vegetation, no symbols, no text. Tile cleanly on both axes, avoid an obvious central feature or noisy repeated cracks."
+    }
+  ],
+  "final_shop_prompt": "One isolated COMPLETE pixel-art brick shop facade, 192x176 canvas, transparent background, 10-pixel empty margin. COPY THE REFERENCE IMAGE'S EXACT STRAIGHT-ON CAMERA and pixel cluster finish, but design a different, wider and lower brick building. A perfectly symmetrical front elevation seen square-on in a top-down 2D RPG: camera yaw ZERO, all roof/cornice/awning/foundation lines perfectly horizontal, both side edges perfectly vertical. FRONT FACE ONLY. NO left or right side wall visible. Wide two-storey red-brown old brick storefront, shallow blue-grey slate roof tucked behind a horizontal sandstone cornice, three tall upper windows, a muted teal horizontal fabric awning over two lower display windows and a centered dark entrance opening straight down. Pale blank sign frame above awning. Repaired warm masonry, tiny weathering, three-tone native material clusters, restrained amber glass, dark charcoal contours. Whole roof, front face, threshold and foundation completely visible. Reference ONLY anchors front-facing perspective, finish and palette. No ground, platform, sidewalk, paving, external steps, cast shadow, angled building, perspective side face, surrounding props, characters, text, numbers, blur, dithering, gradients or painterly rendering.",
+  "shop_edit_prompt": "Keep this same warm brick two-storey shop's front design, teal awning, shallow slate roof, three tall upper windows, centered ground-floor doorway, repaired masonry, charcoal contours and exact native pixel-art style. Change ONLY the game viewpoint to a straight-on south-facing orthographic RPG frontage: facade fills the building width symmetrically, roof/cornice/awning perfectly horizontal, no rotated footprint, no visible side wall at all. Remove the entire paving strip and ground platform below/outside the building; the building's own foundation stays. Center the complete building with at least 8 transparent pixels of padding all around. Preserve transparent background and 192x176 canvas. The dark entrance faces straight down toward a walking player. No side faces, isometric angle, cast ground shadow, external paving, props, text, new objects, blur or dithering.",
+  "receipts": [
+    {
+      "id": "dd6c89dc-2ffe-4670-8778-c3dfe3668972",
+      "cost_usd": 0.18,
+      "role": "initial shop",
+      "status": "rejected angled frontage"
+    },
+    {
+      "id": "5a37256e-9449-4cdf-bac5-0c982d84b255",
+      "cost_usd": 0.18,
+      "role": "ledger house",
+      "status": "accepted; recovered from successful job history"
+    },
+    {
+      "id": "606c08ab-7e42-489b-b1d5-33f8bcc77a93",
+      "cost_usd": 0.18,
+      "role": "pavers tile",
+      "status": "accepted"
+    },
+    {
+      "id": "inf_ndJOXpRjv0Kk2GYpNb4wby98ArNxzPL3",
+      "cost_usd": 0.18,
+      "role": "shop image edit",
+      "status": "rejected angled frontage"
+    },
+    {
+      "id": "1e3983b7-3c3c-4a14-92bf-ec86ce4caa20",
+      "cost_usd": 0.18,
+      "role": "final shop",
+      "status": "accepted"
+    }
+  ],
+  "confirmed_total_usd": 0.9
+}

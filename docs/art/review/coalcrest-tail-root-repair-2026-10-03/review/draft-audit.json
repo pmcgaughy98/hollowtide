@@ -1,0 +1,18 @@
+[
+  {
+    "view": "front",
+    "original_root_pixels_restored": 266,
+    "changed_pixels": 496,
+    "old_visible_stem_pixels_removed": 223,
+    "feet_and_fin_and_lamp_guarded": true,
+    "sha256": "f55ce8cc1ff8263893330373c7ca043effe1fdd26a8c0c6772c0756a5d678a40"
+  },
+  {
+    "view": "back",
+    "original_root_pixels_restored": 173,
+    "changed_pixels": 173,
+    "old_visible_stem_pixels_removed": 0,
+    "feet_and_fin_and_lamp_guarded": true,
+    "sha256": "8193e988e4445d6ca92cff42518fed512db6efd7379f83a849f7e3e32fea75b0"
+  }
+]

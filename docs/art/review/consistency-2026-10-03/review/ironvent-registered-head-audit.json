@@ -1,0 +1,65 @@
+[
+  {
+    "pose": "rest",
+    "alpha_exact": true,
+    "opaque_changed": 275,
+    "changed_outside_head": 0,
+    "fire_changed": 0
+  },
+  {
+    "pose": "warm",
+    "alpha_exact": true,
+    "opaque_changed": 261,
+    "changed_outside_head": 0,
+    "fire_changed": 0
+  },
+  {
+    "pose": "pressure",
+    "alpha_exact": true,
+    "opaque_changed": 263,
+    "changed_outside_head": 0,
+    "fire_changed": 0
+  },
+  {
+    "pose": "rear",
+    "alpha_exact": true,
+    "opaque_changed": 254,
+    "changed_outside_head": 0,
+    "fire_changed": 0
+  },
+  {
+    "pose": "open",
+    "alpha_exact": true,
+    "opaque_changed": 256,
+    "changed_outside_head": 0,
+    "fire_changed": 0
+  },
+  {
+    "pose": "roar",
+    "alpha_exact": true,
+    "opaque_changed": 208,
+    "changed_outside_head": 0,
+    "fire_changed": 0
+  },
+  {
+    "pose": "settle",
+    "alpha_exact": true,
+    "opaque_changed": 164,
+    "changed_outside_head": 0,
+    "fire_changed": 0
+  },
+  {
+    "pose": "cool",
+    "alpha_exact": true,
+    "opaque_changed": 255,
+    "changed_outside_head": 0,
+    "fire_changed": 0
+  },
+  {
+    "pose": "titlecard_official_2026_09_30",
+    "alpha_exact": true,
+    "opaque_changed": 343,
+    "changed_outside_head": 0,
+    "fire_changed": 0
+  }
+]

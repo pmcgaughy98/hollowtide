@@ -1,0 +1,27 @@
+from pathlib import Path
+import json,hashlib,numpy as np
+from PIL import Image
+o=Path("consistency-review");p=Path("C:/Users/pmcga/dev/hollowtide")
+prior=o/"asset-consistency-audit.json"
+baseline=o/"asset-consistency-audit.initial.json"
+if not baseline.exists(): baseline.write_bytes(prior.read_bytes())
+old=json.loads(baseline.read_text());preserved=[]
+for row in old["textures"]+old["walks"]:
+ f=p/row["file"]
+ preserved.append({"file":row["file"],"sha256":hashlib.sha256(f.read_bytes()).hexdigest(),"unchanged":hashlib.sha256(f.read_bytes()).hexdigest()==row["sha256"]})
+assert all(v["unchanged"] for v in preserved),"Original art changed"
+head=[]
+for side,path in [("front","ironvent.png"),("rear","ironvent_back_2026_09_27.png")]:
+ a=np.array(Image.open(p/"assets/sprites/creatures"/path).convert("RGBA"))
+ if side=="rear":a[96:,:,3]=0
+ b=np.array(Image.open(o/("ironvent-"+side+"-head-native-finish.png")).convert("RGBA"))
+ opaque=a[:,:,3]>0
+ expected=np.zeros(opaque.shape,dtype=bool);expected[40:67,76:]=True
+ changed=np.any(a[:,:,:3]!=b[:,:,:3],axis=2)&opaque
+ stats={"view":side,"alpha_exact":bool(np.array_equal(a[:,:,3],b[:,:,3])),"changed_opaque":int(changed.sum()),"changed_outside_head":int((changed&~expected).sum())}
+ assert stats["alpha_exact"] and stats["changed_outside_head"]==0
+ head.append(stats)
+(o/"original-art-preservation.json").write_text(json.dumps({"all_originals_unchanged":all(x["unchanged"] for x in preserved),"checked_files":len(preserved),"files":preserved,"ironvent_native_head":head},indent=2))
+print(json.dumps({"originals_unchanged":len(preserved),"ironvent_head":head}))
+imgs=[Image.open(f).convert("RGB") for f in sorted(o.glob("walk-native-*.png"))]
+if imgs:imgs[0].save(o/"courier-eight-direction-walking.gif",save_all=True,append_images=imgs[1:],duration=117,loop=0,optimize=False)

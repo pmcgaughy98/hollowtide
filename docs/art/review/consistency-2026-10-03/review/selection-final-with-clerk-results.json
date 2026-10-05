@@ -1,0 +1,178 @@
+{
+	"checks": [
+		{
+			"data": "Male (selected)",
+			"name": "Male caption for Male",
+			"passed": true
+		},
+		{
+			"data": null,
+			"name": "Male toggle for Male",
+			"passed": true
+		},
+		{
+			"data": "Female",
+			"name": "Female caption for Male",
+			"passed": true
+		},
+		{
+			"data": null,
+			"name": "Female toggle for Male",
+			"passed": true
+		},
+		{
+			"data": null,
+			"name": "model value Male",
+			"passed": true
+		},
+		{
+			"data": "Male",
+			"name": "Male caption for Female",
+			"passed": true
+		},
+		{
+			"data": null,
+			"name": "Male toggle for Female",
+			"passed": true
+		},
+		{
+			"data": "Female (selected)",
+			"name": "Female caption for Female",
+			"passed": true
+		},
+		{
+			"data": null,
+			"name": "Female toggle for Female",
+			"passed": true
+		},
+		{
+			"data": null,
+			"name": "model value Female",
+			"passed": true
+		},
+		{
+			"data": "Male (selected)",
+			"name": "Male caption for Male",
+			"passed": true
+		},
+		{
+			"data": null,
+			"name": "Male toggle for Male",
+			"passed": true
+		},
+		{
+			"data": "Female",
+			"name": "Female caption for Male",
+			"passed": true
+		},
+		{
+			"data": null,
+			"name": "Female toggle for Male",
+			"passed": true
+		},
+		{
+			"data": null,
+			"name": "model value Male",
+			"passed": true
+		},
+		{
+			"data": "Male",
+			"name": "Male caption for Female",
+			"passed": true
+		},
+		{
+			"data": null,
+			"name": "Male toggle for Female",
+			"passed": true
+		},
+		{
+			"data": "Female (selected)",
+			"name": "Female caption for Female",
+			"passed": true
+		},
+		{
+			"data": null,
+			"name": "Female toggle for Female",
+			"passed": true
+		},
+		{
+			"data": null,
+			"name": "model value Female",
+			"passed": true
+		},
+		{
+			"data": "Male (selected)",
+			"name": "Male caption for Male",
+			"passed": true
+		},
+		{
+			"data": null,
+			"name": "Male toggle for Male",
+			"passed": true
+		},
+		{
+			"data": "Female",
+			"name": "Female caption for Male",
+			"passed": true
+		},
+		{
+			"data": null,
+			"name": "Female toggle for Male",
+			"passed": true
+		},
+		{
+			"data": null,
+			"name": "model value Male",
+			"passed": true
+		},
+		{
+			"data": "Male",
+			"name": "Male caption for Female",
+			"passed": true
+		},
+		{
+			"data": null,
+			"name": "Male toggle for Female",
+			"passed": true
+		},
+		{
+			"data": "Female (selected)",
+			"name": "Female caption for Female",
+			"passed": true
+		},
+		{
+			"data": null,
+			"name": "Female toggle for Female",
+			"passed": true
+		},
+		{
+			"data": null,
+			"name": "model value Female",
+			"passed": true
+		},
+		{
+			"data": null,
+			"name": "female entered route",
+			"passed": true
+		},
+		{
+			"data": null,
+			"name": "female finish installed",
+			"passed": true
+		},
+		{
+			"data": null,
+			"name": "city clerk uses same female finish",
+			"passed": true
+		},
+		{
+			"data": {
+				"from": "(48.0, 192.0)",
+				"to": "(62.66665, 192.0)"
+			},
+			"name": "ordinary walking",
+			"passed": true
+		}
+	],
+	"failed": false
+}

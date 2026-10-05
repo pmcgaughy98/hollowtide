@@ -1,0 +1,8 @@
+SCRIPT ERROR: Parse Error: Identifier "ironvent" not declared in the current scope.
+   at: GDScript::reload (C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/consistency_battle_probe.gd:97)
+SCRIPT ERROR: Parse Error: Identifier "ironvent" not declared in the current scope.
+   at: GDScript::reload (C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/consistency_battle_probe.gd:99)
+ERROR: Failed to load script "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/consistency_battle_probe.gd" with error "Parse error".
+   at: ResourceFormatLoaderGDScript::load (modules\gdscript\gdscript_resource_format.cpp:46)
+ERROR: Can't run script "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/consistency_battle_probe.gd": it failed to compile (see the parse errors above).
+   at: Main::start (main\main.cpp:4997)

@@ -1,0 +1,46 @@
+{
+  "world_existing_changes": [
+    "scripts/world_journey.gd",
+    "scripts/area_landscape.gd",
+    "scripts/first_route_prototype.gd",
+    "scripts/world_area.gd"
+  ],
+  "subsequent_separate_creature_repair": "data/creatures/105_coalcrest.tres",
+  "all_other_baseline_files_exact": true,
+  "project_launch_and_audio_exact": true,
+  "native_canopies_inside_map": 14,
+  "world_runtime_stderr_empty": true,
+  "journeys": {
+    "trip/male-walkthrough.json": {
+      "passed": true,
+      "steps": 191,
+      "test_teleports": 0
+    },
+    "trip/female-walkthrough.json": {
+      "passed": true,
+      "steps": 177,
+      "test_teleports": 0
+    },
+    "final-city-check/male-walkthrough.json": {
+      "passed": true,
+      "steps": 66,
+      "test_teleports": 0
+    },
+    "final-city-check/female-walkthrough.json": {
+      "passed": true,
+      "steps": 66,
+      "test_teleports": 0
+    },
+    "hud-check/male-walkthrough.json": {
+      "passed": true,
+      "steps": 68,
+      "test_teleports": 0
+    },
+    "direct-entry/checks.json": {
+      "passed": true,
+      "steps": 0,
+      "test_teleports": null
+    }
+  },
+  "paid_generation": 0
+}

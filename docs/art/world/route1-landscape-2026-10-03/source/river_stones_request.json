@@ -1,0 +1,38 @@
+{
+  "key": "river_stones",
+  "width": 48,
+  "height": 32,
+  "prompt": "Original Hollowtide environment asset, top-down three-quarter 2D RPG view. Match the reference's grounded muted olive/sage vegetation, warm loess soil and deep desaturated forest-green shadows. Native crisp 1-pixel clusters, substantial material shading, small restrained highlights; no smooth gradients, no antialiasing, no thick black border around ground, no neon greens. One isolated object centered with at least 4 pixels of empty margin, transparent surrounding background, no scenery, labels, grid or characters. A low uneven cluster of three rounded flat river stones partially set into the soil, one larger horizontal grey-brown stone and two tiny companions, with sparse dark moss along one edge and two thin grass blades. Worn river-washed faces, subtle warm reflected light, shallow compact form, no dramatic cliff rocks, no pedestal, no wide cast shadow.",
+  "prompt_style": "rd_pro__topdown",
+  "seed": 20261003,
+  "remove_bg": true,
+  "bypass_prompt_expansion": true,
+  "references": [
+    "assets/tilesets/route1_rd_2026_10_01/route1_ground_atlas_polished.png",
+    "assets/sprites/world/route1_rd_2026_10_02/cottonwood_ridge.png"
+  ],
+  "task": {
+    "status": "accepted",
+    "task_id": "9f4e4b49-7e15-450b-908c-2383312c02d7",
+    "request_id": "9f4e4b49-7e15-450b-908c-2383312c02d7",
+    "message": "Inference accepted. Poll GET /v2/inferences/tasks/{task_id} for status."
+  },
+  "estimate": {
+    "created_at": 1790995547,
+    "credit_cost": 0,
+    "balance_cost": 0.18,
+    "output_images": [],
+    "base64_images": [],
+    "output_urls": [],
+    "model": "check_cost",
+    "remaining_credits": 0,
+    "remaining_balance": 2.940000000000008,
+    "resolved_prompt_style": "rd_pro__topdown",
+    "used_input_image": false,
+    "reference_images_count": 2,
+    "used_extra_input_image": false,
+    "used_input_palette": false,
+    "used_strength": false,
+    "effective_timeout_seconds": 180
+  }
+}

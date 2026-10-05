@@ -1,0 +1,42 @@
+[
+  {
+    "file": "scripts/hometown_courtyard.gd",
+    "sha256": "5c602676ae732734dbd1060f8a28e66937dd44428d7a91ec4b44e81a5e867e0d"
+  },
+  {
+    "file": "scenes/hometown_courtyard.tscn",
+    "sha256": "07e66009e9425e858aad138e5dd62b9bc30e08acccc2ee830fcc4e00918cb1e4"
+  },
+  {
+    "file": "scripts/first_route_prototype.gd",
+    "sha256": "9e5206d7b8c5ee5775dccf732cf5c562820cbbe7ab40723c0ff8c1036c317336"
+  },
+  {
+    "file": "scripts/route1_crossing.gd",
+    "sha256": "95c84e73a95c1bf2e1d927c83c89a18ab183bba8f2e26195433af602261c853e"
+  },
+  {
+    "file": "scenes/first_route_prototype.tscn",
+    "sha256": "92baca2f7c06eb966cc8fcb422195db3f1b5ee8569b472a05229ee4814928717"
+  },
+  {
+    "file": "assets/sprites/world/hometown_courtyard_2026_10_03/courtyard_home.png",
+    "sha256": "ab061eacf61a4fe950c37af1de2376a153916af95360f280a0df19d4df21cfcc"
+  },
+  {
+    "file": "assets/sprites/world/hometown_courtyard_2026_10_03/courtyard_home.png.import",
+    "sha256": "06c79f70cc232c0780725b6bd026da70a81a0fa904c2c8abae7e09c81070f994"
+  },
+  {
+    "file": "assets/sprites/world/hometown_courtyard_2026_10_03/hometown_lanes.png",
+    "sha256": "ea562c392af09765f987dc7432c52f39c95e9f98850a161e51656b406fa7f99c"
+  },
+  {
+    "file": "assets/sprites/world/hometown_courtyard_2026_10_03/hometown_lanes.png.import",
+    "sha256": "7fa39b27eaa2d3f815675909e9c031acc7591600db0ecda056d4607b545a4921"
+  },
+  {
+    "file": "scripts/hometown_courtyard.gd.uid",
+    "sha256": "909bc09e2eba86d05c4b5f5b8906735184ddaf00c5eefc4721e7d532007524bc"
+  }
+]

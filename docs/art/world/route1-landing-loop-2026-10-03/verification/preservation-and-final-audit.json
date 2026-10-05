@@ -1,0 +1,265 @@
+{
+  "unchanged_project_sources": [
+    {
+      "file": "scripts/route1_landscape.gd",
+      "sha256": "64456afdff2872206c7666bbccd9303cafca6524aea82d32c0678f89cc42c416"
+    },
+    {
+      "file": "scripts/route1_terrain_relief.gd",
+      "sha256": "c8a2ab722e34618293b1be1ee4b801ba8fef64fa6838591ec0583b6ada191861"
+    },
+    {
+      "file": "scripts/route1_map_polish.gd",
+      "sha256": "dddfb7a6b67bb4d6179a843fa9ad546fed0a0ef3c9ca356152a8028fec9add5d"
+    },
+    {
+      "file": "scenes/first_route_prototype.tscn",
+      "sha256": "88edcd961f4608584a5d1c505bffab7e7a44af0662b1ab9a2a8584030a3abddc"
+    },
+    {
+      "file": "project.godot",
+      "sha256": "8181a45681c3f76379226b90d61ec2a3921f7b5a4cf7b20722bec00d4e34f262"
+    }
+  ],
+  "preserved_previous_runtime_files": [
+    "scripts/route1_crossing.gd.uid",
+    "scripts/route1_landscape.gd",
+    "scripts/route1_landscape.gd.uid",
+    "assets/sprites/world/route1_static_surfaces_2026_10_03/river_water_mask.png",
+    "assets/sprites/world/route1_static_surfaces_2026_10_03/river_water_mask.png.import",
+    "assets/sprites/world/route1_static_surfaces_2026_10_03/joined_levee_road.png",
+    "assets/sprites/world/route1_static_surfaces_2026_10_03/joined_levee_road.png.import",
+    "assets/sprites/world/route1_static_surfaces_2026_10_03/joined_city_landing.png",
+    "assets/sprites/world/route1_static_surfaces_2026_10_03/joined_city_landing.png.import",
+    "assets/sprites/world/route1_static_surfaces_2026_10_03/wet_bank_contours.png",
+    "assets/sprites/world/route1_static_surfaces_2026_10_03/wet_bank_contours.png.import",
+    "scripts/route1_terrain_relief.gd",
+    "scripts/route1_terrain_relief.gd.uid",
+    "assets/sprites/world/route1_terrain_relief_2026_10_03/levee_grass_slopes.png",
+    "assets/sprites/world/route1_terrain_relief_2026_10_03/levee_grass_slopes.png.import",
+    "assets/sprites/world/route1_terrain_relief_2026_10_03/rounded_dispatch_landing_paths.png",
+    "assets/sprites/world/route1_terrain_relief_2026_10_03/rounded_dispatch_landing_paths.png.import",
+    "scripts/main_menu.gd",
+    "scripts/player.gd",
+    "scripts/battle_screen.gd",
+    "scripts/debug/chibi_walk_review.gd",
+    "scripts/effects/creature_sprite.gdshader",
+    "scripts/effects/courier_finish.gdshader",
+    "data/creatures/001_rimefin.tres",
+    "data/creatures/101_clinkerhide.tres",
+    "data/creatures/102_ironvent.tres",
+    "scripts/effects/courier_finish.gdshader.uid",
+    "assets/sprites/creatures/clinkerhide_selected_rear_2026_10_03/clinkerhide_back_matched_native100.png",
+    "assets/sprites/creatures/clinkerhide_selected_rear_2026_10_03/clinkerhide_back_matched_native100.png.import",
+    "assets/sprites/creatures/clinkerhide_selected_rear_2026_10_03/clinkerhide_back_native100.png",
+    "assets/sprites/creatures/clinkerhide_selected_rear_2026_10_03/clinkerhide_back_native100.png.import"
+  ],
+  "protected_existing_functions": [
+    {
+      "file": "scripts/route1_crossing.gd",
+      "function": "_extend_ground",
+      "unchanged": true
+    },
+    {
+      "file": "scripts/route1_crossing.gd",
+      "function": "_trail",
+      "unchanged": true
+    },
+    {
+      "file": "scripts/route1_crossing.gd",
+      "function": "_replace_bounds",
+      "unchanged": true
+    },
+    {
+      "file": "scripts/route1_crossing.gd",
+      "function": "_obstacle",
+      "unchanged": true
+    },
+    {
+      "file": "scripts/route1_crossing.gd",
+      "function": "_sprite",
+      "unchanged": true
+    },
+    {
+      "file": "scripts/route1_crossing.gd",
+      "function": "_label",
+      "unchanged": true
+    },
+    {
+      "file": "scripts/route1_crossing.gd",
+      "function": "_build_wayfinding",
+      "unchanged": true
+    },
+    {
+      "file": "scripts/route1_crossing.gd",
+      "function": "_build_arrival",
+      "unchanged": true
+    },
+    {
+      "file": "scripts/route1_crossing.gd",
+      "function": "_build_bridge_front",
+      "unchanged": true
+    },
+    {
+      "file": "scripts/route1_crossing.gd",
+      "function": "_process",
+      "unchanged": true
+    },
+    {
+      "file": "scripts/route1_crossing.gd",
+      "function": "_draw",
+      "unchanged": true
+    },
+    {
+      "file": "scripts/route1_crossing.gd",
+      "function": "_build_river_surface",
+      "unchanged": true
+    },
+    {
+      "file": "scripts/route1_crossing.gd",
+      "function": "_build_levee_materials",
+      "unchanged": true
+    },
+    {
+      "file": "scripts/route1_crossing.gd",
+      "function": "_build_city_road_surface",
+      "unchanged": true
+    },
+    {
+      "file": "scripts/route1_crossing.gd",
+      "function": "_static_road",
+      "unchanged": true
+    },
+    {
+      "file": "scripts/first_route_prototype.gd",
+      "function": "_ready",
+      "unchanged": true
+    },
+    {
+      "file": "scripts/first_route_prototype.gd",
+      "function": "_visit_levee_entrance",
+      "unchanged": true
+    },
+    {
+      "file": "scripts/first_route_prototype.gd",
+      "function": "_visit_city_clerk",
+      "unchanged": true
+    },
+    {
+      "file": "scripts/first_route_prototype.gd",
+      "function": "_visit_city_directions",
+      "unchanged": true
+    },
+    {
+      "file": "scripts/first_route_prototype.gd",
+      "function": "_nearest_site",
+      "unchanged": true
+    },
+    {
+      "file": "scripts/first_route_prototype.gd",
+      "function": "_visit_dispatch",
+      "unchanged": true
+    },
+    {
+      "file": "scripts/first_route_prototype.gd",
+      "function": "_visit_marker",
+      "unchanged": true
+    },
+    {
+      "file": "scripts/first_route_prototype.gd",
+      "function": "_visit_post",
+      "unchanged": true
+    },
+    {
+      "file": "scripts/first_route_prototype.gd",
+      "function": "_visit_river",
+      "unchanged": true
+    },
+    {
+      "file": "scripts/first_route_prototype.gd",
+      "function": "_visit_height_post",
+      "unchanged": true
+    },
+    {
+      "file": "scripts/first_route_prototype.gd",
+      "function": "_offer_report",
+      "unchanged": true
+    },
+    {
+      "file": "scripts/first_route_prototype.gd",
+      "function": "_record_report",
+      "unchanged": true
+    },
+    {
+      "file": "scripts/first_route_prototype.gd",
+      "function": "_refresh_objective",
+      "unchanged": true
+    },
+    {
+      "file": "scripts/first_route_prototype.gd",
+      "function": "_toggle_notes",
+      "unchanged": true
+    },
+    {
+      "file": "scripts/first_route_prototype.gd",
+      "function": "_toggle_party",
+      "unchanged": true
+    },
+    {
+      "file": "scripts/first_route_prototype.gd",
+      "function": "_refresh_party",
+      "unchanged": true
+    },
+    {
+      "file": "scripts/first_route_prototype.gd",
+      "function": "_select_party_member",
+      "unchanged": true
+    },
+    {
+      "file": "scripts/first_route_prototype.gd",
+      "function": "_refresh_notes",
+      "unchanged": true
+    },
+    {
+      "file": "scripts/first_route_prototype.gd",
+      "function": "_show_message",
+      "unchanged": true
+    },
+    {
+      "file": "scripts/first_route_prototype.gd",
+      "function": "_build_hud",
+      "unchanged": true
+    },
+    {
+      "file": "scripts/first_route_prototype.gd",
+      "function": "_route_button_style",
+      "unchanged": true
+    },
+    {
+      "file": "scripts/first_route_prototype.gd",
+      "function": "_style_route_button",
+      "unchanged": true
+    },
+    {
+      "file": "scripts/first_route_prototype.gd",
+      "function": "_panel_style",
+      "unchanged": true
+    }
+  ],
+  "original_sites": {
+    "dispatch": "80, 192",
+    "marker": "272, 96",
+    "post": "392, 240",
+    "river": "432, 296",
+    "height_post": "423, 205",
+    "levee_entrance": "216, 264",
+    "city_clerk": "816, 480",
+    "city_directions": "912, 444"
+  },
+  "new_site": "320, 316",
+  "new_route_quest_flags": 0,
+  "asset_matches_native_bake": true,
+  "final_runtime_stderr_empty": true,
+  "full_and_optional_bypass_passed": true,
+  "normal_tree_and_lower_trunk_exact": true
+}

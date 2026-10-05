@@ -1,0 +1,10 @@
+Welcome to Summer Engine (c) built on the awesome work by Godot 2007-present Juan Linietsky, Ariel Manzur & Godot Contributors.
+D3D12 12_0 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce GTX 1660 SUPER
+
+[SE] AuthManager: CLI credential found; desktop session exchange required
+[godot_ai game_helper] registered mcp capture (debugger active=false, logger=true)
+SCENE_NODE_API { "name": "change_scene_to_node", "args": [{ "name": "node", "class_name": &"Node", "type": 24, "hint": 0, "hint_string": "", "usage": 6 }], "default_args": [], "flags": 1, "id": 13809, "return": { "name": "", "class_name": &"Error", "type": 2, "hint": 0, "hint_string": "", "usage": 65542 } }
+CHECK main MainChoices in viewport true [P: (820.0, 410.0), S: (290.0, 184.0)]
+CHECK initial focus New Game true /root/MainMenuArtPreview/MenuUI/MainChoices/Choices/NewGame
+CHECK Quit opens confirmation true quit
+CHECK Quit Game focus reachable true /root/MainMenuArtPreview/MenuUI/QuitConfirmation/Choices/ConfirmQuit

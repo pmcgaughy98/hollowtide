@@ -1,0 +1,104 @@
+{
+	"engine_entrance_arrivals": [],
+	"fixed_fps": 60,
+	"flags": {
+		"city_arrival_registered": false,
+		"city_directions_read": false,
+		"delivered": false,
+		"heard_calls": false,
+		"levee_entrance_read": false,
+		"marker_restored": false,
+		"pouch_accepted": false,
+		"report_done": false,
+		"reported_calls": false,
+		"reported_water_mark": false,
+		"water_mark_observed": false
+	},
+	"home_walk_frames_before_exit": 0,
+	"levee_sign_to_relay_walk_frames": 0,
+	"model": "Female",
+	"ordinary_input_only": true,
+	"passed": true,
+	"quest_overrides": 0,
+	"route_approach_walk_frames": 0,
+	"startup_ms": 1191,
+	"steps": [
+		{
+			"area": "hometown",
+			"movement_frozen_and_resumed": true,
+			"panel": "_notes_panel"
+		},
+		{
+			"area": "hometown",
+			"movement_frozen_and_resumed": true,
+			"panel": "_party_panel"
+		},
+		{
+			"area": "hometown",
+			"frames": 0,
+			"from": "(224.0, 280.0)",
+			"walk": "(224.0, 280.0)"
+		},
+		{
+			"at": "(224.0, 280.0)",
+			"body": "HOME COURTYARD\nThe patched porch and stacked wood make this place easy to recognize from the lane. The dispatcher is taking runners inside the courier hall on the eastern street.\n\n[E] Continue",
+			"interaction": "HOME COURTYARD",
+			"passed": true
+		},
+		{
+			"at": "(224.0, 266.0031)",
+			"house_collision": true
+		},
+		{
+			"area": "hometown",
+			"frames": 52,
+			"from": "(224.0, 266.0031)",
+			"walk": "(224.0, 336.0)"
+		},
+		{
+			"area": "hometown",
+			"frames": 252,
+			"from": "(224.0, 334.0753)",
+			"walk": "(560.0, 336.0)"
+		},
+		{
+			"area": "hometown",
+			"frames": 132,
+			"from": "(558.2773, 335.0181)",
+			"walk": "(560.0, 512.0)"
+		},
+		{
+			"area": "hometown",
+			"frames": 79,
+			"from": "(559.2201, 509.2956)",
+			"walk": "(560.0, 616.0)"
+		},
+		{
+			"area": "hometown",
+			"frames": 83,
+			"from": "(559.2201, 613.2941)",
+			"walk": "(448.0, 616.0)"
+		},
+		{
+			"area": "hometown",
+			"frames": 5,
+			"from": "(450.668, 615.1797)",
+			"walk": "(448.0, 608.0)"
+		},
+		{
+			"at": "(448.7824, 610.6274)",
+			"body": "SHARED GARDEN\nKeep to the aisles around and between the timber beds. The neighbor beside the northern aisle has spare cuttings for the open bed on the right.\n\n[E] Continue",
+			"garden": {
+				"module": 156346878636,
+				"offered": false,
+				"planted": false,
+				"rows": []
+			},
+			"garden_dialogue": "garden-notice",
+			"original_controller_flags_party_objective_board_notes_exact": true,
+			"panel_froze_and_resumed": true,
+			"passed": true
+		}
+	],
+	"test_teleports": 0
+}

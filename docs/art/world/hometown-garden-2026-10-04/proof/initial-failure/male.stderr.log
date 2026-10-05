@@ -1,0 +1,16 @@
+ERROR: Node not found: "BedFootprint/CollisionShape2D" (relative to "/root/WorldJourney/Hometown/RouteDecor/SharedGardenLeftBed").
+   at: Node::get_node (scene\main\node.cpp:1976)
+   GDScript backtrace (most recent call first):
+       [0] garden_bounds_check (C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/hometown_neighborhood_walk.gd:282)
+       [1] garden_visit (C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/hometown_neighborhood_walk.gd:341)
+       [2] garden_dialogue (C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/hometown_neighborhood_walk.gd:335)
+       [3] key (C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/hometown_neighborhood_walk.gd:49)
+       [4] frames (C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/hometown_neighborhood_walk.gd:37)
+SCRIPT ERROR: Invalid access to property or key 'shape' on a base object of type 'null instance'.
+   at: garden_bounds_check (C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/hometown_neighborhood_walk.gd:283)
+   GDScript backtrace (most recent call first):
+       [0] garden_bounds_check (C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/hometown_neighborhood_walk.gd:283)
+       [1] garden_visit (C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/hometown_neighborhood_walk.gd:341)
+       [2] garden_dialogue (C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/hometown_neighborhood_walk.gd:335)
+       [3] key (C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/hometown_neighborhood_walk.gd:49)
+       [4] frames (C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/hometown_neighborhood_walk.gd:37)

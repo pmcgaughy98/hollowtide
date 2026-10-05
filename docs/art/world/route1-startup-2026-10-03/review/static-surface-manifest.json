@@ -1,0 +1,62 @@
+[
+  {
+    "file": "assets/sprites/world/route1_static_surfaces_2026_10_03/river_water_mask.png",
+    "sha256": "e66cde72f35700eea7910e00ed7cc6985eab6fd143d216815090c3851967981e",
+    "size": [
+      224,
+      640
+    ],
+    "mode": "RGBA",
+    "opaque_bounds": [
+      0,
+      0,
+      224,
+      640
+    ]
+  },
+  {
+    "file": "assets/sprites/world/route1_static_surfaces_2026_10_03/joined_levee_road.png",
+    "sha256": "e22973b5c1bf154bc69562a7bf1ff17a0d2ada2fdffe00b43d1b1bbbf1327186",
+    "size": [
+      320,
+      264
+    ],
+    "mode": "RGBA",
+    "opaque_bounds": [
+      13,
+      13,
+      307,
+      248
+    ]
+  },
+  {
+    "file": "assets/sprites/world/route1_static_surfaces_2026_10_03/joined_city_landing.png",
+    "sha256": "404d9ebee56a320dfa5a46bcb7b8c942fcd1057279044dc640aed2e9270f9f99",
+    "size": [
+      336,
+      240
+    ],
+    "mode": "RGBA",
+    "opaque_bounds": [
+      0,
+      13,
+      323,
+      227
+    ]
+  },
+  {
+    "file": "assets/sprites/world/route1_static_surfaces_2026_10_03/wet_bank_contours.png",
+    "sha256": "925739998c2cc2a1ca9b9664b3c94abce7d6f06668806fc259ce8af08d724a38",
+    "size": [
+      296,
+      640
+    ],
+    "mode": "RGBA",
+    "opaque_bounds": [
+      18,
+      0,
+      288,
+      640
+    ]
+  }
+]

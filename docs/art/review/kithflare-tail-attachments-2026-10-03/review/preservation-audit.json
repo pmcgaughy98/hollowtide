@@ -1,0 +1,16 @@
+{
+  "protected_existing_files": 2134,
+  "preserved_exact": 2131,
+  "only_existing_runtime_changes": [
+    "data/creatures/103_kithflare.tres",
+    "data/creatures/104_wayburn.tres",
+    "data/creatures/105_coalcrest.tres"
+  ],
+  "resource_properties_exact_except_front_back_texture_paths": true,
+  "all_six_original_pngs_byte_exact": true,
+  "coalcrest_completed_fin_existing_pixels_exact": true,
+  "all_tail_masks_outside_pixels_exact": true,
+  "battle_idle_views": 6,
+  "battle_attack_runs": 22,
+  "runtime_stderr_empty": true
+}

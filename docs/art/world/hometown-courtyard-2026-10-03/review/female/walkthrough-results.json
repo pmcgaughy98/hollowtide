@@ -1,0 +1,285 @@
+{
+	"final_position": "(45.1963, 192.7528)",
+	"flags": {
+		"city_arrival_registered": false,
+		"city_directions_read": false,
+		"delivered": false,
+		"heard_calls": false,
+		"levee_entrance_read": false,
+		"marker_restored": false,
+		"pouch_accepted": true,
+		"report_done": false,
+		"reported_calls": false,
+		"reported_water_mark": false,
+		"water_mark_observed": false
+	},
+	"ordinary_input_only": true,
+	"passed": true,
+	"quest_flag_overrides": 0,
+	"scene_ready_ms": 1025,
+	"steps": [
+		{
+			"frames": 5,
+			"from": "(-336.0, 192.0)",
+			"target": "(-336.0, 184.0)",
+			"to": "(-336.0, 186.6667)"
+		},
+		{
+			"body": "HOME COURTYARD\nThe patched porch and stacked wood make this place easy to recognize from the lane. The dispatcher is taking runners at the east end of the lane.\n\n[E] Continue",
+			"flags_unchanged": true,
+			"interaction": "home-courtyard",
+			"position": "(-336.0, 186.6667)"
+		},
+		{
+			"collision": "home-footprint",
+			"passed": true,
+			"position": "(-336.0, 178.0032)"
+		},
+		{
+			"frames": 22,
+			"from": "(-336.0, 178.0032)",
+			"target": "(-336.0, 208.0)",
+			"to": "(-336.0, 206.0747)"
+		},
+		{
+			"frames": 65,
+			"from": "(-336.0, 206.0747)",
+			"target": "(-256.0, 224.0)",
+			"to": "(-257.6956, 223.0453)"
+		},
+		{
+			"frames": 34,
+			"from": "(-257.6956, 223.0453)",
+			"target": "(-272.0, 264.0)",
+			"to": "(-270.895, 261.5779)"
+		},
+		{
+			"frames": 36,
+			"from": "(-270.895, 261.5779)",
+			"target": "(-244.0, 300.0)",
+			"to": "(-245.4391, 297.7005)"
+		},
+		{
+			"frames": 46,
+			"from": "(-245.4391, 297.7005)",
+			"target": "(-190.0, 316.0)",
+			"to": "(-192.4686, 314.6711)"
+		},
+		{
+			"frames": 16,
+			"from": "(-192.4686, 314.6711)",
+			"target": "(-172.0, 310.0)",
+			"to": "(-174.0308, 310.8999)"
+		},
+		{
+			"body": "SHARED GARDEN\nLeave the little rows clear. The loop around the beds returns to the dispatch lane. Spare kindling and cuttings are left by the porch for neighbors to take.\n\n[E] Continue",
+			"flags_unchanged": true,
+			"interaction": "garden-notice",
+			"position": "(-174.0308, 310.8999)"
+		},
+		{
+			"frames": 34,
+			"from": "(-174.0308, 310.8999)",
+			"target": "(-134.0, 294.0)",
+			"to": "(-136.6698, 294.8721)"
+		},
+		{
+			"frames": 46,
+			"from": "(-136.6698, 294.8721)",
+			"target": "(-104.0, 246.0)",
+			"to": "(-104.6142, 248.1499)"
+		},
+		{
+			"frames": 44,
+			"from": "(-104.6142, 248.1499)",
+			"target": "(-96.0, 192.0)",
+			"to": "(-97.07175, 193.9409)"
+		},
+		{
+			"frames": 63,
+			"from": "(-97.07175, 193.9409)",
+			"target": "(-32.0, 144.0)",
+			"to": "(-34.7123, 144.9148)"
+		},
+		{
+			"collision": "west-gate-upper-edge",
+			"passed": true,
+			"position": "(-22.00316, 144.9148)"
+		},
+		{
+			"frames": 73,
+			"from": "(-22.00316, 144.9148)",
+			"target": "(-32.0, 240.0)",
+			"to": "(-30.52426, 237.4356)"
+		},
+		{
+			"collision": "west-gate-lower-edge",
+			"passed": true,
+			"position": "(-22.00316, 237.4356)"
+		},
+		{
+			"frames": 36,
+			"from": "(-22.00316, 237.4356)",
+			"target": "(-32.0, 192.0)",
+			"to": "(-30.52426, 194.2479)"
+		},
+		{
+			"body": "DISPATCH LANE\nFollow the worn lane east to the courier hall. The dispatcher waits in front. From there, the marked levee entrance leads to Route 1 and the river bridge. This lane returns to the courtyard homes.\n\n[E] Continue",
+			"flags_unchanged": true,
+			"interaction": "home-directions",
+			"position": "(-30.52426, 194.2479)"
+		},
+		{
+			"frames": 59,
+			"from": "(-30.52426, 194.2479)",
+			"target": "(48.0, 192.0)",
+			"to": "(46.41855, 193.3051)"
+		},
+		{
+			"frames": 20,
+			"from": "(46.41855, 193.3051)",
+			"target": "(70.0, 205.0)",
+			"to": "(67.45613, 203.676)"
+		},
+		{
+			"flag": "pouch_accepted",
+			"interaction": "female-assignment",
+			"position": "(67.45613, 203.676)",
+			"value": true
+		},
+		{
+			"frames": 17,
+			"from": "(67.45613, 203.676)",
+			"target": "(48.0, 192.0)",
+			"to": "(50.41856, 193.3051)"
+		},
+		{
+			"frames": 61,
+			"from": "(50.41856, 193.3051)",
+			"target": "(-32.0, 192.0)",
+			"to": "(-29.58144, 193.3051)"
+		},
+		{
+			"frames": 49,
+			"from": "(-29.58144, 193.3051)",
+			"target": "(-96.0, 192.0)",
+			"to": "(-93.58147, 193.3051)"
+		},
+		{
+			"frames": 185,
+			"from": "(-93.58147, 193.3051)",
+			"target": "(-336.0, 208.0)",
+			"to": "(-333.4476, 206.5045)"
+		},
+		{
+			"frames": 17,
+			"from": "(-333.4476, 206.5045)",
+			"target": "(-336.0, 184.0)",
+			"to": "(-335.3333, 185.9522)"
+		},
+		{
+			"body": "HOME COURTYARD\nThe patched porch and stacked wood make this place easy to recognize from the lane. The lane leads back to the dispatcher and the raised river route.\n\n[E] Continue",
+			"flags_unchanged": true,
+			"interaction": "female-home-0",
+			"position": "(-335.3333, 185.9522)"
+		},
+		{
+			"frames": 16,
+			"from": "(-335.3333, 185.9522)",
+			"target": "(-336.0, 208.0)",
+			"to": "(-335.3333, 205.9522)"
+		},
+		{
+			"frames": 64,
+			"from": "(-335.3333, 205.9522)",
+			"target": "(-256.0, 224.0)",
+			"to": "(-258.3622, 222.9227)"
+		},
+		{
+			"frames": 130,
+			"from": "(-258.3622, 222.9227)",
+			"target": "(-96.0, 192.0)",
+			"to": "(-98.85928, 192.7528)"
+		},
+		{
+			"frames": 49,
+			"from": "(-98.85928, 192.7528)",
+			"target": "(-32.0, 192.0)",
+			"to": "(-34.85925, 192.7528)"
+		},
+		{
+			"frames": 61,
+			"from": "(-34.85925, 192.7528)",
+			"target": "(48.0, 192.0)",
+			"to": "(45.14075, 192.7528)"
+		},
+		{
+			"frames": 0,
+			"from": "(45.14075, 192.7528)",
+			"target": "(48.0, 192.0)",
+			"to": "(45.14075, 192.7528)"
+		},
+		{
+			"frames": 57,
+			"from": "(45.14075, 192.7528)",
+			"target": "(-32.0, 192.0)",
+			"to": "(-29.52591, 192.7528)"
+		},
+		{
+			"frames": 49,
+			"from": "(-29.52591, 192.7528)",
+			"target": "(-96.0, 192.0)",
+			"to": "(-93.52594, 192.7528)"
+		},
+		{
+			"frames": 186,
+			"from": "(-93.52594, 192.7528)",
+			"target": "(-336.0, 208.0)",
+			"to": "(-334.3349, 206.895)"
+		},
+		{
+			"frames": 17,
+			"from": "(-334.3349, 206.895)",
+			"target": "(-336.0, 184.0)",
+			"to": "(-335.2777, 185.9522)"
+		},
+		{
+			"body": "HOME COURTYARD\nThe patched porch and stacked wood make this place easy to recognize from the lane. The lane leads back to the dispatcher and the raised river route.\n\n[E] Continue",
+			"flags_unchanged": true,
+			"interaction": "female-home-1",
+			"position": "(-335.2777, 185.9522)"
+		},
+		{
+			"frames": 16,
+			"from": "(-335.2777, 185.9522)",
+			"target": "(-336.0, 208.0)",
+			"to": "(-335.2777, 205.9522)"
+		},
+		{
+			"frames": 64,
+			"from": "(-335.2777, 205.9522)",
+			"target": "(-256.0, 224.0)",
+			"to": "(-258.3067, 222.9227)"
+		},
+		{
+			"frames": 130,
+			"from": "(-258.3067, 222.9227)",
+			"target": "(-96.0, 192.0)",
+			"to": "(-98.80374, 192.7528)"
+		},
+		{
+			"frames": 49,
+			"from": "(-98.80374, 192.7528)",
+			"target": "(-32.0, 192.0)",
+			"to": "(-34.8037, 192.7528)"
+		},
+		{
+			"frames": 61,
+			"from": "(-34.8037, 192.7528)",
+			"target": "(48.0, 192.0)",
+			"to": "(45.1963, 192.7528)"
+		}
+	],
+	"teleports": 0,
+	"terrain_surface_build_ms": 0
+}

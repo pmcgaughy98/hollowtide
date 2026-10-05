@@ -1,0 +1,80 @@
+{
+  "revision": "bridge-abutment-refine",
+  "date_local": "2026-10-02",
+  "request": "Still needs refining",
+  "scope": "Bridge stone supports, transparency and native east-bank road integration",
+  "installed_sha256": {
+    "scripts/route1_crossing.gd": "88ad88af5097994d43a3ac60dfd9df6fa44e0c1f8a85418a64fa8752d2bcf198",
+    "assets/sprites/world/route1_crossing_2026_10_02/river_bridge_refined.png": "878640ff82a6af55ba4718ed4c9f0bfd51d4ee0d3e41523ecb38b568a70dc8da",
+    "scripts/first_route_prototype.gd": "16642c8d181b1704656b1f2fbf90064b8b7ba87a1376b7021218e886fb4d2cd1",
+    "scenes/first_route_prototype.tscn": "88edcd961f4608584a5d1c505bffab7e7a44af0662b1ab9a2a8584030a3abddc"
+  },
+  "before_helper_sha256": "a441a4d5bc83ebe91280bda67df2c4493ef84f2cb3919250d57090744c4641e9",
+  "before_bridge_sha256": "9f8d28e778f6cfd4777a66dabad5d8874b14f968c30636a407c0aa3da041ac90",
+  "generation_cost_usd": 0.37,
+  "remaining_balance_usd": 3.26,
+  "credits_unchanged": 50,
+  "paid_tasks": [
+    {
+      "id": "f6dd55b0-40f8-5db1-a049-cd7be96c78f4",
+      "cost": 0.18,
+      "accepted": false,
+      "reason": "Left support became an unrelated broad stair wall."
+    },
+    {
+      "id": "0f88f84f-4249-513b-8eb2-bd1f63470a18",
+      "cost": 0.18,
+      "accepted": true,
+      "role": "Right support registered on the right and mirrored for the left, retaining protected original span."
+    },
+    {
+      "id": "aaf21bc6-4f8d-511d-8f27-126272e9dfc1",
+      "cost": 0.01,
+      "accepted": true,
+      "role": "Paired white-background cutout."
+    }
+  ],
+  "preparation": {
+    "native_size": [
+      288,
+      112
+    ],
+    "alpha_cleanup_pixels": 54,
+    "restored_protected_pixels": 22722,
+    "opaque_bounds_inclusive": [
+      22,
+      3,
+      265,
+      103
+    ],
+    "opaque_canvas_edge_pixels": 0,
+    "opaque_pure_white_pixels": 0,
+    "protected_nonwhite_changes": 0,
+    "protected_original_white_speckles_removed": 3,
+    "registration": "Same origin (416,360) and foreground region (0,70,288,42), unchanged deck and foot collision."
+  },
+  "road": {
+    "area": [
+      672,
+      336,
+      336,
+      240
+    ],
+    "mouth_width": 26,
+    "courtyard_join_width": 48,
+    "join_centre_y": [
+      416,
+      424
+    ],
+    "texture_phase": "Same approved 32px soil sampled in world coordinates as the west levee road",
+    "collision_changes": false
+  },
+  "verification": "abutment_verification.json",
+  "diagnostics": {
+    "observed_errors": 0,
+    "existing_warnings": 11
+  },
+  "rejected_and_unsubmitted": "The broad left stairwall and first joined composite were rejected. The unpaired alpha request and cap correction were only estimated, not submitted; the cap was already connected on pixel inspection.",
+  "blockers": [],
+  "remaining": "Route 1 is still a prototype slice. Bank dressing, shoreline continuity, full hometown and distinct city-sector art remain future work."
+}

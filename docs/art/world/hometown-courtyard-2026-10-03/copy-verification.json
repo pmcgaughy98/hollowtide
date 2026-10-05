@@ -1,0 +1,791 @@
+{
+  "copies": [
+    {
+      "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\hometown-review\\before-manifest.json",
+      "file": "review/before-manifest.json",
+      "sha256": "e53d9a3f1a4fb814e10463296cf9df768c74804c3505a220902aa0bfb28c7822"
+    },
+    {
+      "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\hometown-review\\courtyard_home_source.png",
+      "file": "review/courtyard_home_source.png",
+      "sha256": "ab061eacf61a4fe950c37af1de2376a153916af95360f280a0df19d4df21cfcc"
+    },
+    {
+      "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\hometown-review\\existing-art-manifest.json",
+      "file": "review/existing-art-manifest.json",
+      "sha256": "4cef63ea9feb3ec22fc67e3e52037819357b1e2acb01f72efac00c99ae92e318"
+    },
+    {
+      "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\hometown-review\\female-final.stderr.log",
+      "file": "review/female-final.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\hometown-review\\female-final.stdout.log",
+      "file": "review/female-final.stdout.log",
+      "sha256": "76e62a538d976b42f2c3257f894431b9fd00de5cd44969ef2ef0c6dd434b267f"
+    },
+    {
+      "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\hometown-review\\female-release.stderr.log",
+      "file": "review/female-release.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\hometown-review\\female-release.stdout.log",
+      "file": "review/female-release.stdout.log",
+      "sha256": "76e62a538d976b42f2c3257f894431b9fd00de5cd44969ef2ef0c6dd434b267f"
+    },
+    {
+      "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\hometown-review\\full-final.stderr.log",
+      "file": "review/full-final.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\hometown-review\\full-final.stdout.log",
+      "file": "review/full-final.stdout.log",
+      "sha256": "4204d3808d9b3ba555c59e453eecb3a9da22a4fcb2a7349c2fc4e4fb699f8914"
+    },
+    {
+      "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\hometown-review\\full-release.stderr.log",
+      "file": "review/full-release.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\hometown-review\\full-release.stdout.log",
+      "file": "review/full-release.stdout.log",
+      "sha256": "4204d3808d9b3ba555c59e453eecb3a9da22a4fcb2a7349c2fc4e4fb699f8914"
+    },
+    {
+      "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\hometown-review\\full.stderr.log",
+      "file": "review/full.stderr.log",
+      "sha256": "e04a02bffcaf5ec4bd857f02a721f4c3791c2a679c19aab4c6a9dae1f3005bde"
+    },
+    {
+      "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\hometown-review\\full.stdout.log",
+      "file": "review/full.stdout.log",
+      "sha256": "833c7540ceb5f53486de312aeaf6b54f8e1dc676581bc6f2d36d3c44d52fbf69"
+    },
+    {
+      "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\hometown-review\\hometown_lanes.png",
+      "file": "review/hometown_lanes.png",
+      "sha256": "ea562c392af09765f987dc7432c52f39c95e9f98850a161e51656b406fa7f99c"
+    },
+    {
+      "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\hometown-review\\house-cost-estimate.json",
+      "file": "review/house-cost-estimate.json",
+      "sha256": "83474cd938821939fbaf6aa02ca9e5c4556eae04f20ad88640dbd1d620765ea5"
+    },
+    {
+      "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\hometown-review\\house-generation-prompt.txt",
+      "file": "review/house-generation-prompt.txt",
+      "sha256": "25a285700935ec2dc0b21fbacab9fe5c392730a1eaf964a0dee0f29df9732c9e"
+    },
+    {
+      "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\hometown-review\\house-generation-receipt.json",
+      "file": "review/house-generation-receipt.json",
+      "sha256": "338d0ccb8b4aca48bf5582574431e44f64ca0dd5d3f68636f601a28b9cb677aa"
+    },
+    {
+      "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\hometown-review\\house-source-audit.json",
+      "file": "review/house-source-audit.json",
+      "sha256": "98b42bca9ea76d74fa7df886073c6f9bbcec98e6dd22cc1b33f497d5bfc7a10d"
+    },
+    {
+      "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\hometown-review\\import-final.stderr.log",
+      "file": "review/import-final.stderr.log",
+      "sha256": "28065bf6fc41b5254b6ac6beba47a9a6939de535da6725613d9e2fdea2f470e3"
+    },
+    {
+      "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\hometown-review\\import-final.stdout.log",
+      "file": "review/import-final.stdout.log",
+      "sha256": "630a8e27cc650aab5e5d45790f3102b8c470a04aa5ce2b9ec6846c9720044861"
+    },
+    {
+      "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\hometown-review\\import-release.stderr.log",
+      "file": "review/import-release.stderr.log",
+      "sha256": "6c5e9767e0d63bbc75a3fee2d0d03e5fcc5f12f498d4fb47b12e9b1631be0551"
+    },
+    {
+      "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\hometown-review\\import-release.stdout.log",
+      "file": "review/import-release.stdout.log",
+      "sha256": "c96d44d0e0209212e238f27618261cac422a5683faf21364c4627d4f4006ed0b"
+    },
+    {
+      "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\hometown-review\\import.stderr.log",
+      "file": "review/import.stderr.log",
+      "sha256": "c18d173934dba3544c2f79ad0fb7d68f4a4e4b7ff311f33d8e0295ec6a2fefa5"
+    },
+    {
+      "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\hometown-review\\import.stdout.log",
+      "file": "review/import.stdout.log",
+      "sha256": "be921a77554a3cd287d30078262f24175907f87c8a56ce1de6ba5c255e838c3c"
+    },
+    {
+      "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\hometown-review\\installed-garden.png",
+      "file": "review/installed-garden.png",
+      "sha256": "a0f4bee2b5e6a666ade23a43f583f4fa78e6e5c3d57831738f38ee508268bd21"
+    },
+    {
+      "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\hometown-review\\installed-gateway.png",
+      "file": "review/installed-gateway.png",
+      "sha256": "8a2af1feec959003681ef703ea28d82e01643d3a21349403ad860c2196dfe464"
+    },
+    {
+      "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\hometown-review\\installed-home.png",
+      "file": "review/installed-home.png",
+      "sha256": "eae94a7e046449efc99e84e9a0849d0d09183c46ef2d4a9fc14214e8628c3712"
+    },
+    {
+      "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\hometown-review\\installed-hometown-overview.png",
+      "file": "review/installed-hometown-overview.png",
+      "sha256": "c0b2a501c7387adf7e4f085cd5c450e6bbd2de5209ebe8b53895d9c7ba1ede98"
+    },
+    {
+      "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\hometown-review\\path-bake.json",
+      "file": "review/path-bake.json",
+      "sha256": "be0212c00606ee90b1e4ff7ba7e1274acf9a0b1b25fdd0e99f590e7148757efa"
+    },
+    {
+      "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\hometown-review\\preservation-audit.json",
+      "file": "review/preservation-audit.json",
+      "sha256": "2a8ee43b2cfcfba42f390c2471a4453658f2536d2fac39cfaca77125083129a6"
+    },
+    {
+      "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\hometown-review\\review-final.stderr.log",
+      "file": "review/review-final.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\hometown-review\\review-final.stdout.log",
+      "file": "review/review-final.stdout.log",
+      "sha256": "7c7d41210eee1f568be9fbb3c84aa171aa6a523e1f74a13fecf8e295c5b00fe0"
+    },
+    {
+      "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\hometown-review\\review-release.stderr.log",
+      "file": "review/review-release.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\hometown-review\\review-release.stdout.log",
+      "file": "review/review-release.stdout.log",
+      "sha256": "7c7d41210eee1f568be9fbb3c84aa171aa6a523e1f74a13fecf8e295c5b00fe0"
+    },
+    {
+      "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\hometown-review\\review.stderr.log",
+      "file": "review/review.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\hometown-review\\review.stdout.log",
+      "file": "review/review.stdout.log",
+      "sha256": "7c7d41210eee1f568be9fbb3c84aa171aa6a523e1f74a13fecf8e295c5b00fe0"
+    },
+    {
+      "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\hometown-review\\runtime-file-manifest.json",
+      "file": "review/runtime-file-manifest.json",
+      "sha256": "469e49f44a9b084a4bb44cc6c8e05f8c00926ec81f1230313ebd2f60fff2d2b6"
+    },
+    {
+      "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\hometown-review\\female\\walkthrough-female-assignment.png",
+      "file": "review/female/walkthrough-female-assignment.png",
+      "sha256": "29ead4e522faa57682e4f56f05aee1e83c793cbdad25923a04f5c58eff7e5ac3"
+    },
+    {
+      "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\hometown-review\\female\\walkthrough-female-home-0.png",
+      "file": "review/female/walkthrough-female-home-0.png",
+      "sha256": "a740db4f5aaa9dde235f78b17e906ef8db1bdb32f4b561bf26fda906b9bb288a"
+    },
+    {
+      "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\hometown-review\\female\\walkthrough-female-home-1.png",
+      "file": "review/female/walkthrough-female-home-1.png",
+      "sha256": "a740db4f5aaa9dde235f78b17e906ef8db1bdb32f4b561bf26fda906b9bb288a"
+    },
+    {
+      "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\hometown-review\\female\\walkthrough-garden-notice.png",
+      "file": "review/female/walkthrough-garden-notice.png",
+      "sha256": "dc9e9591941862534cb895572f20bf2ee10ea6008cb6c21a5852ed912e060e0b"
+    },
+    {
+      "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\hometown-review\\female\\walkthrough-home-courtyard.png",
+      "file": "review/female/walkthrough-home-courtyard.png",
+      "sha256": "c22911860ae5da27b9e3e6215b7f32c6e606f55ab90eff30244fa9f02eb283e9"
+    },
+    {
+      "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\hometown-review\\female\\walkthrough-home-directions.png",
+      "file": "review/female/walkthrough-home-directions.png",
+      "sha256": "a303fe072d4a66044476b75e823fed45af9a8db7e302149ce2fa17c028497a0b"
+    },
+    {
+      "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\hometown-review\\female\\walkthrough-ordinary-first-exit.png",
+      "file": "review/female/walkthrough-ordinary-first-exit.png",
+      "sha256": "2504e0e768e42d515e0479f1d417e328729c25727e22bbd149328de63cae5d57"
+    },
+    {
+      "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\hometown-review\\female\\walkthrough-results.json",
+      "file": "review/female/walkthrough-results.json",
+      "sha256": "90854bc00c0f27c352f45bc561156641b2757112dc5b83dcb835afd6bcdda2e7"
+    },
+    {
+      "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\hometown-review\\full\\walkthrough-assignment.png",
+      "file": "review/full/walkthrough-assignment.png",
+      "sha256": "29ead4e522faa57682e4f56f05aee1e83c793cbdad25923a04f5c58eff7e5ac3"
+    },
+    {
+      "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\hometown-review\\full\\walkthrough-bank-return-318.png",
+      "file": "review/full/walkthrough-bank-return-318.png",
+      "sha256": "037515abb051271ccf64b487d65b1231066bed563c625c065cf8cdb944e5317c"
+    },
+    {
+      "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\hometown-review\\full\\walkthrough-bank-return-341.png",
+      "file": "review/full/walkthrough-bank-return-341.png",
+      "sha256": "a094f11ca9081bb46528ce52a36126ac12590ac97e000cf8f55ce5d25af68f43"
+    },
+    {
+      "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\hometown-review\\full\\walkthrough-bank-return-366.png",
+      "file": "review/full/walkthrough-bank-return-366.png",
+      "sha256": "4f4f0a9721b1ba1d2147f70044fe75591bcc44a4628ef1502c8fe5312208fe30"
+    },
+    {
+      "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\hometown-review\\full\\walkthrough-bank-return-383.png",
+      "file": "review/full/walkthrough-bank-return-383.png",
+      "sha256": "98c9aa9826d46e4890e23cf3afd3d6597cc9b602963732d888612771730dfa88"
+    },
+    {
+      "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\hometown-review\\full\\walkthrough-bank-return-393.png",
+      "file": "review/full/walkthrough-bank-return-393.png",
+      "sha256": "7e6e93e45b5bb100a3eee6f6b921960e1ed7a5d8c3c9a4628d207e48d3575355"
+    },
+    {
+      "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\hometown-review\\full\\walkthrough-city-board.png",
+      "file": "review/full/walkthrough-city-board.png",
+      "sha256": "af743ca5113e6d2789f36dd8d7f4a74a4f3968dc2c4178a3189ff0a242d2b527"
+    },
+    {
+      "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\hometown-review\\full\\walkthrough-city-clerk.png",
+      "file": "review/full/walkthrough-city-clerk.png",
+      "sha256": "4e08d35131f5f67ed151e86111759667155546736f9e856820f436545db7abcc"
+    },
+    {
+      "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\hometown-review\\full\\walkthrough-garden-notice.png",
+      "file": "review/full/walkthrough-garden-notice.png",
+      "sha256": "03e63c1769f1d087e5c2f49eddbe6e0918f346d10d63232101a6060b06e78216"
+    },
+    {
+      "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\hometown-review\\full\\walkthrough-height-marks.png",
+      "file": "review/full/walkthrough-height-marks.png",
+      "sha256": "a08ac403cd38fc0baed723599e0b2e0faedf8a23b9a433849866af136f9938d6"
+    },
+    {
+      "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\hometown-review\\full\\walkthrough-home-courtyard.png",
+      "file": "review/full/walkthrough-home-courtyard.png",
+      "sha256": "c22911860ae5da27b9e3e6215b7f32c6e606f55ab90eff30244fa9f02eb283e9"
+    },
+    {
+      "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\hometown-review\\full\\walkthrough-home-directions.png",
+      "file": "review/full/walkthrough-home-directions.png",
+      "sha256": "a303fe072d4a66044476b75e823fed45af9a8db7e302149ce2fa17c028497a0b"
+    },
+    {
+      "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\hometown-review\\full\\walkthrough-landing-notice.png",
+      "file": "review/full/walkthrough-landing-notice.png",
+      "sha256": "f999f2d4006fde925af40b0a2770385298b4963bdc194c9736822e8ac3d8c875"
+    },
+    {
+      "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\hometown-review\\full\\walkthrough-levee-sign.png",
+      "file": "review/full/walkthrough-levee-sign.png",
+      "sha256": "7687caff39d3f3d10392829df8529dd2e2a0e986c97ef1b0338f2d52ee1535e5"
+    },
+    {
+      "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\hometown-review\\full\\walkthrough-marker-repair.png",
+      "file": "review/full/walkthrough-marker-repair.png",
+      "sha256": "684ff41519d96613ec986977007c15edaca8404ab8fec5fba81d4a794c83077a"
+    },
+    {
+      "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\hometown-review\\full\\walkthrough-new-landing-entry.png",
+      "file": "review/full/walkthrough-new-landing-entry.png",
+      "sha256": "b43e1e3185419561980086455833064dc1008f4956d48079d6644967db8fdade"
+    },
+    {
+      "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\hometown-review\\full\\walkthrough-ordinary-first-exit.png",
+      "file": "review/full/walkthrough-ordinary-first-exit.png",
+      "sha256": "ac78fce61ac4e60f099139a664819d736a9747175e58f3b707308b403ae03925"
+    },
+    {
+      "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\hometown-review\\full\\walkthrough-ordinary-return-home.png",
+      "file": "review/full/walkthrough-ordinary-return-home.png",
+      "sha256": "fd26bfeadf4b99705293d85852de26800333175ed444b3fc259ee0c7cebad0d9"
+    },
+    {
+      "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\hometown-review\\full\\walkthrough-relay-delivery.png",
+      "file": "review/full/walkthrough-relay-delivery.png",
+      "sha256": "cf762b7a598ce3cefd01f489450eedf3afbdfb165729d9e16031d9b0ac12ac62"
+    },
+    {
+      "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\hometown-review\\full\\walkthrough-report-choices.png",
+      "file": "review/full/walkthrough-report-choices.png",
+      "sha256": "7969d0e413baaa1aaca6224a0ab0471c78812cd20b9e1db6db1d15a73649a480"
+    },
+    {
+      "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\hometown-review\\full\\walkthrough-report-complete.png",
+      "file": "review/full/walkthrough-report-complete.png",
+      "sha256": "b7a19e4c29c3b60e738a8c8373f8e092bde8a88e6ed8173d0afb5d3cbfface71"
+    },
+    {
+      "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\hometown-review\\full\\walkthrough-results.json",
+      "file": "review/full/walkthrough-results.json",
+      "sha256": "97816e32a096934fbdaa8b6d36bc837eabb3f4436dae875d89d9af7dfcab5d2b"
+    },
+    {
+      "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\hometown-review\\full\\walkthrough-river-calls.png",
+      "file": "review/full/walkthrough-river-calls.png",
+      "sha256": "0bd6ecfe9760cea08eecfac3d5570ce30103b540d52439737e87628ebca3b992"
+    },
+    {
+      "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\hometown-review\\full\\walkthrough-start.png",
+      "file": "review/full/walkthrough-start.png",
+      "sha256": "14565839c2bcfca54e33990972c3ce4699a385c7af28c5a788014fc002712165"
+    },
+    {
+      "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\hometown-review\\initial\\full.stderr.log",
+      "file": "review/initial/full.stderr.log",
+      "sha256": "e04a02bffcaf5ec4bd857f02a721f4c3791c2a679c19aab4c6a9dae1f3005bde"
+    },
+    {
+      "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\hometown-review\\initial\\full.stdout.log",
+      "file": "review/initial/full.stdout.log",
+      "sha256": "833c7540ceb5f53486de312aeaf6b54f8e1dc676581bc6f2d36d3c44d52fbf69"
+    },
+    {
+      "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\hometown-review\\initial\\installed-garden.png",
+      "file": "review/initial/installed-garden.png",
+      "sha256": "10511e03814f07427620d459f06561ad8a62785cd83fadb81264f5bbb6f8d16d"
+    },
+    {
+      "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\hometown-review\\initial\\installed-gateway.png",
+      "file": "review/initial/installed-gateway.png",
+      "sha256": "fe3458977882fb2a55e7d6e5b2084ce655a53017480d26ee8da7c45fd21d5527"
+    },
+    {
+      "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\hometown-review\\initial\\installed-home.png",
+      "file": "review/initial/installed-home.png",
+      "sha256": "9609e6e6d7b73a697435402e10be9cd87fdc0573e1fef6a3b90632335ec4bd35"
+    },
+    {
+      "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\hometown-review\\initial\\installed-hometown-overview.png",
+      "file": "review/initial/installed-hometown-overview.png",
+      "sha256": "07c37298df1f016cd31a1d2f142977f040b29fbdb9fa3a074038ae0494d8e2a4"
+    },
+    {
+      "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\hometown-review\\initial\\review.stderr.log",
+      "file": "review/initial/review.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\hometown-review\\initial\\review.stdout.log",
+      "file": "review/initial/review.stdout.log",
+      "sha256": "7c7d41210eee1f568be9fbb3c84aa171aa6a523e1f74a13fecf8e295c5b00fe0"
+    },
+    {
+      "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\hometown-review\\joined-v2\\female-final.stderr.log",
+      "file": "review/joined-v2/female-final.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\hometown-review\\joined-v2\\female-final.stdout.log",
+      "file": "review/joined-v2/female-final.stdout.log",
+      "sha256": "76e62a538d976b42f2c3257f894431b9fd00de5cd44969ef2ef0c6dd434b267f"
+    },
+    {
+      "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\hometown-review\\joined-v2\\full-final.stderr.log",
+      "file": "review/joined-v2/full-final.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\hometown-review\\joined-v2\\full-final.stdout.log",
+      "file": "review/joined-v2/full-final.stdout.log",
+      "sha256": "4204d3808d9b3ba555c59e453eecb3a9da22a4fcb2a7349c2fc4e4fb699f8914"
+    },
+    {
+      "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\hometown-review\\joined-v2\\import-final.stderr.log",
+      "file": "review/joined-v2/import-final.stderr.log",
+      "sha256": "28065bf6fc41b5254b6ac6beba47a9a6939de535da6725613d9e2fdea2f470e3"
+    },
+    {
+      "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\hometown-review\\joined-v2\\import-final.stdout.log",
+      "file": "review/joined-v2/import-final.stdout.log",
+      "sha256": "630a8e27cc650aab5e5d45790f3102b8c470a04aa5ce2b9ec6846c9720044861"
+    },
+    {
+      "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\hometown-review\\joined-v2\\installed-garden.png",
+      "file": "review/joined-v2/installed-garden.png",
+      "sha256": "049ee82402a3fde80083ac15b1b5b614dbe9e62aa62fe5cb32efcb5c5d76cdca"
+    },
+    {
+      "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\hometown-review\\joined-v2\\installed-gateway.png",
+      "file": "review/joined-v2/installed-gateway.png",
+      "sha256": "e22371df135a3cadffaf92f398b86dbb6345dc4d2acbc17a488fc76575bf1b6a"
+    },
+    {
+      "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\hometown-review\\joined-v2\\installed-home.png",
+      "file": "review/joined-v2/installed-home.png",
+      "sha256": "eae94a7e046449efc99e84e9a0849d0d09183c46ef2d4a9fc14214e8628c3712"
+    },
+    {
+      "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\hometown-review\\joined-v2\\installed-hometown-overview.png",
+      "file": "review/joined-v2/installed-hometown-overview.png",
+      "sha256": "aaecccc6205166432ba191df9faa5f3d3843e20675db0709da2bd6ee817aba29"
+    },
+    {
+      "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\hometown-review\\joined-v2\\review-final.stderr.log",
+      "file": "review/joined-v2/review-final.stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\hometown-review\\joined-v2\\review-final.stdout.log",
+      "file": "review/joined-v2/review-final.stdout.log",
+      "sha256": "7c7d41210eee1f568be9fbb3c84aa171aa6a523e1f74a13fecf8e295c5b00fe0"
+    },
+    {
+      "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\hometown-review\\source-before\\project.godot.txt",
+      "file": "review/source-before/project.godot.txt",
+      "sha256": "8181a45681c3f76379226b90d61ec2a3921f7b5a4cf7b20722bec00d4e34f262"
+    },
+    {
+      "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\hometown-review\\joined-v2\\female\\walkthrough-female-assignment.png",
+      "file": "review/joined-v2/female/walkthrough-female-assignment.png",
+      "sha256": "29ead4e522faa57682e4f56f05aee1e83c793cbdad25923a04f5c58eff7e5ac3"
+    },
+    {
+      "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\hometown-review\\joined-v2\\female\\walkthrough-female-home-0.png",
+      "file": "review/joined-v2/female/walkthrough-female-home-0.png",
+      "sha256": "a740db4f5aaa9dde235f78b17e906ef8db1bdb32f4b561bf26fda906b9bb288a"
+    },
+    {
+      "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\hometown-review\\joined-v2\\female\\walkthrough-female-home-1.png",
+      "file": "review/joined-v2/female/walkthrough-female-home-1.png",
+      "sha256": "a740db4f5aaa9dde235f78b17e906ef8db1bdb32f4b561bf26fda906b9bb288a"
+    },
+    {
+      "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\hometown-review\\joined-v2\\female\\walkthrough-garden-notice.png",
+      "file": "review/joined-v2/female/walkthrough-garden-notice.png",
+      "sha256": "17a9aefdec5ff2254ce5f207343c57af240eb7a4c98e87b93683e259b1e07a09"
+    },
+    {
+      "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\hometown-review\\joined-v2\\female\\walkthrough-home-courtyard.png",
+      "file": "review/joined-v2/female/walkthrough-home-courtyard.png",
+      "sha256": "c22911860ae5da27b9e3e6215b7f32c6e606f55ab90eff30244fa9f02eb283e9"
+    },
+    {
+      "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\hometown-review\\joined-v2\\female\\walkthrough-home-directions.png",
+      "file": "review/joined-v2/female/walkthrough-home-directions.png",
+      "sha256": "a303fe072d4a66044476b75e823fed45af9a8db7e302149ce2fa17c028497a0b"
+    },
+    {
+      "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\hometown-review\\joined-v2\\female\\walkthrough-ordinary-first-exit.png",
+      "file": "review/joined-v2/female/walkthrough-ordinary-first-exit.png",
+      "sha256": "23c686af8299e78f2b82bb489c424ce98dba23ae9bb2f1b3d6f7249c37148e7f"
+    },
+    {
+      "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\hometown-review\\joined-v2\\female\\walkthrough-results.json",
+      "file": "review/joined-v2/female/walkthrough-results.json",
+      "sha256": "a4453b5d52d709735ef73961c71fa0370e21d25e8f6ce32de50065ffbe2c9426"
+    },
+    {
+      "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\hometown-review\\joined-v2\\full\\walkthrough-assignment.png",
+      "file": "review/joined-v2/full/walkthrough-assignment.png",
+      "sha256": "29ead4e522faa57682e4f56f05aee1e83c793cbdad25923a04f5c58eff7e5ac3"
+    },
+    {
+      "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\hometown-review\\joined-v2\\full\\walkthrough-bank-return-318.png",
+      "file": "review/joined-v2/full/walkthrough-bank-return-318.png",
+      "sha256": "037515abb051271ccf64b487d65b1231066bed563c625c065cf8cdb944e5317c"
+    },
+    {
+      "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\hometown-review\\joined-v2\\full\\walkthrough-bank-return-341.png",
+      "file": "review/joined-v2/full/walkthrough-bank-return-341.png",
+      "sha256": "a094f11ca9081bb46528ce52a36126ac12590ac97e000cf8f55ce5d25af68f43"
+    },
+    {
+      "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\hometown-review\\joined-v2\\full\\walkthrough-bank-return-366.png",
+      "file": "review/joined-v2/full/walkthrough-bank-return-366.png",
+      "sha256": "4f4f0a9721b1ba1d2147f70044fe75591bcc44a4628ef1502c8fe5312208fe30"
+    },
+    {
+      "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\hometown-review\\joined-v2\\full\\walkthrough-bank-return-383.png",
+      "file": "review/joined-v2/full/walkthrough-bank-return-383.png",
+      "sha256": "98c9aa9826d46e4890e23cf3afd3d6597cc9b602963732d888612771730dfa88"
+    },
+    {
+      "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\hometown-review\\joined-v2\\full\\walkthrough-bank-return-393.png",
+      "file": "review/joined-v2/full/walkthrough-bank-return-393.png",
+      "sha256": "7e6e93e45b5bb100a3eee6f6b921960e1ed7a5d8c3c9a4628d207e48d3575355"
+    },
+    {
+      "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\hometown-review\\joined-v2\\full\\walkthrough-city-board.png",
+      "file": "review/joined-v2/full/walkthrough-city-board.png",
+      "sha256": "af743ca5113e6d2789f36dd8d7f4a74a4f3968dc2c4178a3189ff0a242d2b527"
+    },
+    {
+      "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\hometown-review\\joined-v2\\full\\walkthrough-city-clerk.png",
+      "file": "review/joined-v2/full/walkthrough-city-clerk.png",
+      "sha256": "4e08d35131f5f67ed151e86111759667155546736f9e856820f436545db7abcc"
+    },
+    {
+      "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\hometown-review\\joined-v2\\full\\walkthrough-garden-notice.png",
+      "file": "review/joined-v2/full/walkthrough-garden-notice.png",
+      "sha256": "14beb0ab1a191235b617a6ddbad1b8246fb791c665239bd09e7fc7acfd279a1d"
+    },
+    {
+      "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\hometown-review\\joined-v2\\full\\walkthrough-height-marks.png",
+      "file": "review/joined-v2/full/walkthrough-height-marks.png",
+      "sha256": "a08ac403cd38fc0baed723599e0b2e0faedf8a23b9a433849866af136f9938d6"
+    },
+    {
+      "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\hometown-review\\joined-v2\\full\\walkthrough-home-courtyard.png",
+      "file": "review/joined-v2/full/walkthrough-home-courtyard.png",
+      "sha256": "c22911860ae5da27b9e3e6215b7f32c6e606f55ab90eff30244fa9f02eb283e9"
+    },
+    {
+      "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\hometown-review\\joined-v2\\full\\walkthrough-home-directions.png",
+      "file": "review/joined-v2/full/walkthrough-home-directions.png",
+      "sha256": "a303fe072d4a66044476b75e823fed45af9a8db7e302149ce2fa17c028497a0b"
+    },
+    {
+      "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\hometown-review\\joined-v2\\full\\walkthrough-landing-notice.png",
+      "file": "review/joined-v2/full/walkthrough-landing-notice.png",
+      "sha256": "f999f2d4006fde925af40b0a2770385298b4963bdc194c9736822e8ac3d8c875"
+    },
+    {
+      "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\hometown-review\\joined-v2\\full\\walkthrough-levee-sign.png",
+      "file": "review/joined-v2/full/walkthrough-levee-sign.png",
+      "sha256": "c21696811d070ede3cd8677bbd532b4244671cfd38032380ba9e70b609041341"
+    },
+    {
+      "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\hometown-review\\joined-v2\\full\\walkthrough-marker-repair.png",
+      "file": "review/joined-v2/full/walkthrough-marker-repair.png",
+      "sha256": "684ff41519d96613ec986977007c15edaca8404ab8fec5fba81d4a794c83077a"
+    },
+    {
+      "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\hometown-review\\joined-v2\\full\\walkthrough-new-landing-entry.png",
+      "file": "review/joined-v2/full/walkthrough-new-landing-entry.png",
+      "sha256": "b43e1e3185419561980086455833064dc1008f4956d48079d6644967db8fdade"
+    },
+    {
+      "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\hometown-review\\joined-v2\\full\\walkthrough-ordinary-first-exit.png",
+      "file": "review/joined-v2/full/walkthrough-ordinary-first-exit.png",
+      "sha256": "ba4e7f46195d7cf1e9de068cfc6cff8601879db0e5559d232496532d60154aef"
+    },
+    {
+      "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\hometown-review\\joined-v2\\full\\walkthrough-ordinary-return-home.png",
+      "file": "review/joined-v2/full/walkthrough-ordinary-return-home.png",
+      "sha256": "fd26bfeadf4b99705293d85852de26800333175ed444b3fc259ee0c7cebad0d9"
+    },
+    {
+      "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\hometown-review\\joined-v2\\full\\walkthrough-relay-delivery.png",
+      "file": "review/joined-v2/full/walkthrough-relay-delivery.png",
+      "sha256": "cf762b7a598ce3cefd01f489450eedf3afbdfb165729d9e16031d9b0ac12ac62"
+    },
+    {
+      "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\hometown-review\\joined-v2\\full\\walkthrough-report-choices.png",
+      "file": "review/joined-v2/full/walkthrough-report-choices.png",
+      "sha256": "7969d0e413baaa1aaca6224a0ab0471c78812cd20b9e1db6db1d15a73649a480"
+    },
+    {
+      "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\hometown-review\\joined-v2\\full\\walkthrough-report-complete.png",
+      "file": "review/joined-v2/full/walkthrough-report-complete.png",
+      "sha256": "b7a19e4c29c3b60e738a8c8373f8e092bde8a88e6ed8173d0afb5d3cbfface71"
+    },
+    {
+      "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\hometown-review\\joined-v2\\full\\walkthrough-results.json",
+      "file": "review/joined-v2/full/walkthrough-results.json",
+      "sha256": "3c3ffa6366b3c036d0226516dbeb04bfa4aebd9de68fad99f8634ce50f21abb7"
+    },
+    {
+      "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\hometown-review\\joined-v2\\full\\walkthrough-river-calls.png",
+      "file": "review/joined-v2/full/walkthrough-river-calls.png",
+      "sha256": "0bd6ecfe9760cea08eecfac3d5570ce30103b540d52439737e87628ebca3b992"
+    },
+    {
+      "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\hometown-review\\joined-v2\\full\\walkthrough-start.png",
+      "file": "review/joined-v2/full/walkthrough-start.png",
+      "sha256": "14565839c2bcfca54e33990972c3ce4699a385c7af28c5a788014fc002712165"
+    },
+    {
+      "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\hometown-review\\source-before\\docs\\AI_COLLABORATION.md.txt",
+      "file": "review/source-before/docs/AI_COLLABORATION.md.txt",
+      "sha256": "75d66ba7c1e1f58de349d002ce38684348a6455097f21a0dfd1e3791572d4b5d"
+    },
+    {
+      "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\hometown-review\\source-before\\scenes\\first_route_prototype.tscn.txt",
+      "file": "review/source-before/scenes/first_route_prototype.tscn.txt",
+      "sha256": "88edcd961f4608584a5d1c505bffab7e7a44af0662b1ab9a2a8584030a3abddc"
+    },
+    {
+      "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\hometown-review\\source-before\\scripts\\battle_screen.gd.txt",
+      "file": "review/source-before/scripts/battle_screen.gd.txt",
+      "sha256": "c2899874210c614da43917d76ab5e35eef24439ea94da8aa544f6930d3e616cf"
+    },
+    {
+      "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\hometown-review\\source-before\\scripts\\first_route_prototype.gd.txt",
+      "file": "review/source-before/scripts/first_route_prototype.gd.txt",
+      "sha256": "59b394a6f42144260ead13dd496b55735b7280ae2aa7ddf2c426c5028845d23c"
+    },
+    {
+      "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\hometown-review\\source-before\\scripts\\main_menu.gd.txt",
+      "file": "review/source-before/scripts/main_menu.gd.txt",
+      "sha256": "2428f5518d5ab35ea71a5938ca3e61dfb23e454d40700c3b93f5f6cb97a974b6"
+    },
+    {
+      "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\hometown-review\\source-before\\scripts\\party_member.gd.txt",
+      "file": "review/source-before/scripts/party_member.gd.txt",
+      "sha256": "24a2321e227001ccee389e911ff5cef427872e426668219fb29640ee4f817835"
+    },
+    {
+      "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\hometown-review\\source-before\\scripts\\player.gd.txt",
+      "file": "review/source-before/scripts/player.gd.txt",
+      "sha256": "ed85fe5f58401d10e9500a1308d2595ffd0d320a3c6fe281190606479ea5e6ac"
+    },
+    {
+      "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\hometown-review\\source-before\\scripts\\player_party.gd.txt",
+      "file": "review/source-before/scripts/player_party.gd.txt",
+      "sha256": "ec6553d6b534d7d53ec196665431a5a01c91743dda50486fa9b8668dfe430d8e"
+    },
+    {
+      "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\hometown-review\\source-before\\scripts\\route1_crossing.gd.txt",
+      "file": "review/source-before/scripts/route1_crossing.gd.txt",
+      "sha256": "75e4138503f990cec10e1e7e4375a64298ff642cee7ca92f26f9c44d9b586a79"
+    },
+    {
+      "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\hometown-review\\source-before\\scripts\\route1_landing_loop.gd.txt",
+      "file": "review/source-before/scripts/route1_landing_loop.gd.txt",
+      "sha256": "fc6f02adc74750f1665d64b2579fbfd7e0d83c4b446539dcfa9c77d2766b6adc"
+    },
+    {
+      "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\hometown-review\\source-before\\scripts\\route1_landscape.gd.txt",
+      "file": "review/source-before/scripts/route1_landscape.gd.txt",
+      "sha256": "64456afdff2872206c7666bbccd9303cafca6524aea82d32c0678f89cc42c416"
+    },
+    {
+      "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\hometown-review\\source-before\\scripts\\route1_map_polish.gd.txt",
+      "file": "review/source-before/scripts/route1_map_polish.gd.txt",
+      "sha256": "dddfb7a6b67bb4d6179a843fa9ad546fed0a0ef3c9ca356152a8028fec9add5d"
+    },
+    {
+      "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\hometown-review\\source-before\\scripts\\route1_terrain_relief.gd.txt",
+      "file": "review/source-before/scripts/route1_terrain_relief.gd.txt",
+      "sha256": "c8a2ab722e34618293b1be1ee4b801ba8fef64fa6838591ec0583b6ada191861"
+    },
+    {
+      "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\hometown-review\\source-before\\data\\creatures\\102_ironvent.tres.txt",
+      "file": "review/source-before/data/creatures/102_ironvent.tres.txt",
+      "sha256": "c5fd3ed4da4543ffd7ac0574818f7e34b424510b28109620b996a917ef371c4a"
+    },
+    {
+      "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\hometown-review\\source-before\\scripts\\effects\\creature_sprite.gdshader.txt",
+      "file": "review/source-before/scripts/effects/creature_sprite.gdshader.txt",
+      "sha256": "3cfe1eccf9da29e5dbf07e59faba0d87648286d2d83ad6ba082c625a0f6cef57"
+    },
+    {
+      "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\prepare_hometown.py",
+      "file": "tools/prepare_hometown.py.txt",
+      "sha256": "074cbd48134e5681cf4cee3f8e776bc3716de7779a0c383fac9bb892b519c7fa"
+    },
+    {
+      "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\install_hometown.py",
+      "file": "tools/install_hometown.py.txt",
+      "sha256": "4d6c1881d8d90c32656474db7a1fb6433f480f1b83d337d92f1b4aeaab0ba7f1"
+    },
+    {
+      "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\refine_hometown_join.py",
+      "file": "tools/refine_hometown_join.py.txt",
+      "sha256": "44922be7d9bcddcd092dabbcf98811e13bf7ce09168ae431d909e82898d5a058"
+    },
+    {
+      "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\compact_hometown.py",
+      "file": "tools/compact_hometown.py.txt",
+      "sha256": "b8d00d02131d045208be163f5120bb1ff6d7deda81d5f9e1aed37ec938b029df"
+    },
+    {
+      "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\finish_hometown_materials.py",
+      "file": "tools/finish_hometown_materials.py.txt",
+      "sha256": "a351d0c0a1d77bcca7fd8960b59262f2158af39cfce66ead33b7ac012aa7f45b"
+    },
+    {
+      "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\prepare_hometown_probes.py",
+      "file": "tools/prepare_hometown_probes.py.txt",
+      "sha256": "c0c4cd016c4d5b0b5c34bc765476ccb2e3d85d8ec1f77c38beae4c55610b4687"
+    },
+    {
+      "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\audit_hometown.py",
+      "file": "tools/audit_hometown.py.txt",
+      "sha256": "46cdd96f54fdc768236657e04ba7058f1abbcddd16a8c42a4f885408aec07c6a"
+    },
+    {
+      "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\hometown_installed_review.gd",
+      "file": "tools/hometown_installed_review.gd.txt",
+      "sha256": "b5c04b39ff74eae02121d16bf76f5600a42bc9a40df1be17f9759eb8ec9645a9"
+    },
+    {
+      "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\hometown_full_walkthrough.gd",
+      "file": "tools/hometown_full_walkthrough.gd.txt",
+      "sha256": "f12d462955424afcaff77d5a6c9316a3e0460518abf3dfaae71045ce25214b4b"
+    },
+    {
+      "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\hometown_female_walkthrough.gd",
+      "file": "tools/hometown_female_walkthrough.gd.txt",
+      "sha256": "a6d8cdf307cf413c0b59e4b53a75bbe41d0701ae579dda391b89dea7f15392fa"
+    },
+    {
+      "source": "C:\\Users\\pmcga\\dev\\hollowtide\\scripts\\hometown_courtyard.gd",
+      "file": "source/current/scripts/hometown_courtyard.gd.txt",
+      "sha256": "5c602676ae732734dbd1060f8a28e66937dd44428d7a91ec4b44e81a5e867e0d"
+    },
+    {
+      "source": "C:\\Users\\pmcga\\dev\\hollowtide\\scenes\\hometown_courtyard.tscn",
+      "file": "source/current/scenes/hometown_courtyard.tscn.txt",
+      "sha256": "07e66009e9425e858aad138e5dd62b9bc30e08acccc2ee830fcc4e00918cb1e4"
+    },
+    {
+      "source": "C:\\Users\\pmcga\\dev\\hollowtide\\scripts\\first_route_prototype.gd",
+      "file": "source/current/scripts/first_route_prototype.gd.txt",
+      "sha256": "9e5206d7b8c5ee5775dccf732cf5c562820cbbe7ab40723c0ff8c1036c317336"
+    },
+    {
+      "source": "C:\\Users\\pmcga\\dev\\hollowtide\\scripts\\route1_crossing.gd",
+      "file": "source/current/scripts/route1_crossing.gd.txt",
+      "sha256": "95c84e73a95c1bf2e1d927c83c89a18ab183bba8f2e26195433af602261c853e"
+    },
+    {
+      "source": "C:\\Users\\pmcga\\dev\\hollowtide\\scenes\\first_route_prototype.tscn",
+      "file": "source/current/scenes/first_route_prototype.tscn.txt",
+      "sha256": "92baca2f7c06eb966cc8fcb422195db3f1b5ee8569b472a05229ee4814928717"
+    },
+    {
+      "source": "C:\\Users\\pmcga\\dev\\hollowtide\\assets\\sprites\\world\\hometown_courtyard_2026_10_03\\courtyard_home.png",
+      "file": "source/current/assets/sprites/world/hometown_courtyard_2026_10_03/courtyard_home.png.txt",
+      "sha256": "ab061eacf61a4fe950c37af1de2376a153916af95360f280a0df19d4df21cfcc"
+    },
+    {
+      "source": "C:\\Users\\pmcga\\dev\\hollowtide\\assets\\sprites\\world\\hometown_courtyard_2026_10_03\\courtyard_home.png.import",
+      "file": "source/current/assets/sprites/world/hometown_courtyard_2026_10_03/courtyard_home.png.import.txt",
+      "sha256": "06c79f70cc232c0780725b6bd026da70a81a0fa904c2c8abae7e09c81070f994"
+    },
+    {
+      "source": "C:\\Users\\pmcga\\dev\\hollowtide\\assets\\sprites\\world\\hometown_courtyard_2026_10_03\\hometown_lanes.png",
+      "file": "source/current/assets/sprites/world/hometown_courtyard_2026_10_03/hometown_lanes.png.txt",
+      "sha256": "ea562c392af09765f987dc7432c52f39c95e9f98850a161e51656b406fa7f99c"
+    },
+    {
+      "source": "C:\\Users\\pmcga\\dev\\hollowtide\\assets\\sprites\\world\\hometown_courtyard_2026_10_03\\hometown_lanes.png.import",
+      "file": "source/current/assets/sprites/world/hometown_courtyard_2026_10_03/hometown_lanes.png.import.txt",
+      "sha256": "7fa39b27eaa2d3f815675909e9c031acc7591600db0ecda056d4607b545a4921"
+    },
+    {
+      "source": "C:\\Users\\pmcga\\dev\\hollowtide\\scripts\\hometown_courtyard.gd.uid",
+      "file": "source/current/scripts/hometown_courtyard.gd.uid.txt",
+      "sha256": "909bc09e2eba86d05c4b5f5b8906735184ddaf00c5eefc4721e7d532007524bc"
+    }
+  ],
+  "all_byte_identical": true,
+  "count": 157
+}

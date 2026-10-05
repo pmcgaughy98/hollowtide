@@ -1,6 +1,8 @@
 class_name CreatureRoster
 extends RefCounted
 
+const Gate = preload("res://scripts/move_gate.gd")
+
 ## Loads the creature files off disk and checks them for duplicates. Nothing
 ## here holds state, so you call these directly: CreatureRoster.load_all()
 
@@ -154,6 +156,18 @@ static func validate_evolutions(creatures: Array[CreatureData]) -> PackedStringA
 			problems.append("%s runs %d stages and the limit is %d: %s"
 				% [_label(c), chain.size(), MAX_STAGES, " -> ".join(chain)])
 
+	return problems
+
+
+## An equipped move the body cannot learn. Plate Rake on Coalcrest is the
+## known failure. The creature file is left as it is. Battle hides the move.
+static func validate_move_gates(creatures: Array[CreatureData]) -> PackedStringArray:
+	var problems := PackedStringArray()
+	for c in creatures:
+		for move in c.moves:
+			if move != null and not Gate.can_learn(c, move):
+				problems.append("%s equips %s without the parts it needs (%s)."
+					% [_label(c), move.move_name, ", ".join(move.required_parts)])
 	return problems
 
 

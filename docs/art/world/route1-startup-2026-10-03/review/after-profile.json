@@ -1,0 +1,63 @@
+{
+	"attach_ready_ms": 330,
+	"baked": [
+		{
+			"centered": false,
+			"error": 0,
+			"file": "river_water_mask.png",
+			"node": "RiverSurface",
+			"position": "(448.0, 0.0)",
+			"size": "(224, 640)",
+			"texture_filter": 1,
+			"z_index": -2
+		},
+		{
+			"centered": false,
+			"error": 0,
+			"file": "joined_levee_road.png",
+			"node": "JoinedLeveeRoad",
+			"position": "(144.0, 184.0)",
+			"size": "(320, 264)",
+			"texture_filter": 1,
+			"z_index": -1
+		},
+		{
+			"centered": false,
+			"error": 0,
+			"file": "joined_city_landing.png",
+			"node": "JoinedCityLanding",
+			"position": "(672.0, 336.0)",
+			"size": "(336, 240)",
+			"texture_filter": 1,
+			"z_index": -1
+		},
+		{
+			"centered": false,
+			"error": 0,
+			"file": "wet_bank_contours.png",
+			"node": "Landscape/WetBankContours",
+			"position": "(408.0, 0.0)",
+			"size": "(296, 640)",
+			"texture_filter": 1,
+			"z_index": 0
+		}
+	],
+	"crossing_builders_ms": {
+		"_build_arrival": 4,
+		"_build_bridge_front": 0,
+		"_build_city_road_surface": 0,
+		"_build_levee_materials": 0,
+		"_build_river_surface": 1,
+		"_build_wayfinding": 1,
+		"_extend_ground": 3,
+		"_replace_bounds": 0
+	},
+	"fixture_only": true,
+	"full_scene_ready_ms": 1100,
+	"landscape_builders_ms": {
+		"_build_banks": 0,
+		"_build_details": 11,
+		"_build_groves": 5,
+		"_vary_city_trees": 0
+	}
+}

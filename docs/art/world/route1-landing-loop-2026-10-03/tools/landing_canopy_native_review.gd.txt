@@ -1,0 +1,35 @@
+extends SceneTree
+const OUT := "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/landing-loop-review/"
+const TREE = preload("res://assets/sprites/world/route1_rd_2026_10_02/cottonwood_south.png")
+const CANOPY = preload("res://assets/sprites/world/route1_landing_loop_2026_10_03/canopy_visibility.gdshader")
+var views: Array=[]
+func _initialize() -> void:call_deferred("_run")
+func _view(alpha: float, with_shader: bool) -> SubViewport:
+	var view:=SubViewport.new()
+	view.size=Vector2i(TREE.get_size())
+	view.transparent_bg=true;view.disable_3d=true
+	view.render_target_update_mode=SubViewport.UPDATE_ALWAYS
+	root.add_child(view);views.append(view)
+	var sprite:=Sprite2D.new()
+	sprite.texture=TREE;sprite.centered=false;sprite.texture_filter=CanvasItem.TEXTURE_FILTER_NEAREST
+	if with_shader:
+		var material:=ShaderMaterial.new();material.shader=CANOPY
+		material.set_shader_parameter("canopy_opacity",alpha);sprite.material=material
+	view.add_child(sprite)
+	return view
+func _run() -> void:
+	var base:=_view(1.0,false)
+	var opaque:=_view(1.0,true)
+	var faded:=_view(0.35,true)
+	for beat in 12:await process_frame
+	await RenderingServer.frame_post_draw
+	base.get_texture().get_image().save_png(OUT+"canopy-source-render.png")
+	opaque.get_texture().get_image().save_png(OUT+"canopy-opaque-render.png")
+	faded.get_texture().get_image().save_png(OUT+"canopy-faded-render.png")
+	print("CANOPY_NATIVE_RENDERS_READY")
+	call_deferred("_exit_probe")
+func _exit_probe() -> void:
+	for view in views:view.queue_free()
+	views.clear()
+	for beat in 8:await process_frame
+	quit()

@@ -1,0 +1,67 @@
+{
+  "before_scene_sha256": "b986a617ddf384d9b09d7594dedf270fcb44b165a570e3a21ae22bc59cd5f1c2",
+  "before_script_sha256": "8eea93e44e4715ad59d96e48555a274d6d3e66a5e0dce06d3bece3257ac3645a",
+  "bridge_preparation": "Prior paired stone supports retained. One Retro Diffusion peg repair changes only 107 pixels in [160,78,16,18]; original accepted source saved.",
+  "world_size": [
+    1024,
+    640
+  ],
+  "river_bounds_x": [
+    448,
+    672
+  ],
+  "bridge_foot_walk_y": [
+    408,
+    432
+  ],
+  "generation_cost_usd": 0.18,
+  "installed_sha256": {
+    "scripts/first_route_prototype.gd": "16642c8d181b1704656b1f2fbf90064b8b7ba87a1376b7021218e886fb4d2cd1",
+    "scripts/route1_crossing.gd": "b0995bc9a38966152979bdb0d2f0ea9c126c7ca7385a13243310477a08f9df21",
+    "scenes/first_route_prototype.tscn": "88edcd961f4608584a5d1c505bffab7e7a44af0662b1ab9a2a8584030a3abddc",
+    "assets/sprites/world/route1_crossing_2026_10_02/river_bridge_complete.png": "9f8d28e778f6cfd4777a66dabad5d8874b14f968c30636a407c0aa3da041ac90",
+    "assets/sprites/world/route1_crossing_2026_10_02/path_soil_native32.png": "0bc1711d71a8a8133da3be181c0d2d7620149bd73d0f1a302abc4584b665df1f",
+    "assets/sprites/world/route1_crossing_2026_10_02/river_bridge_refined.png": "878640ff82a6af55ba4718ed4c9f0bfd51d4ee0d3e41523ecb38b568a70dc8da",
+    "assets/sprites/world/route1_crossing_2026_10_02/river_bridge_peg_fixed.png": "f8da8c47673edaf21763ea96756ad3f2017f16dcce5bf940d0a4b800d5809c5d",
+    "assets/sprites/world/route1_crossing_2026_10_02/river_water_native32.png": "ecc1b44e8b7446599e16b40b450d459b4ebeba3b66de7518a63296dde77956f8",
+    "assets/sprites/world/route1_crossing_2026_10_02/river_flow.gdshader": "182123b76ab3429802bd9aba517cf36b5c643e6f3ef9e6fd86beae716fc23f53"
+  },
+  "final_diagnostics": {
+    "observed_errors": 0,
+    "existing_warnings": 11,
+    "intermediate_cold_editor_boot_UID_errors": 2,
+    "later_archive_boot_errors": 0
+  },
+  "review": "peg-and-river-flow/full_verification.json",
+  "final_scene": "scenes/first_route_prototype.tscn",
+  "names": "Descriptive placeholders; real names are research references.",
+  "initial_installed_sha256": {
+    "scripts/first_route_prototype.gd": "16642c8d181b1704656b1f2fbf90064b8b7ba87a1376b7021218e886fb4d2cd1",
+    "scripts/route1_crossing.gd": "64b24744768c81163d6da595d8a204f5453c4f0d732cf876a99c9084bf11be65",
+    "scenes/first_route_prototype.tscn": "88edcd961f4608584a5d1c505bffab7e7a44af0662b1ab9a2a8584030a3abddc"
+  },
+  "latest_revision": "peg-and-river-flow/README.md",
+  "installed_helper_snapshot": "peg-and-river-flow/route1_crossing.installed.gd.txt",
+  "bridge_origin": [
+    416,
+    360
+  ],
+  "bridge_bank_overlap": 10,
+  "initial_generation_cost_usd": 0.18,
+  "total_bridge_generation_cost_usd": 1.47,
+  "prior_generation_costs_usd": {
+    "initial": 0.18,
+    "complete_bridge_junction": 0.74,
+    "bridge_abutment_refine": 0.37,
+    "peg_and_river_flow": 0.18
+  },
+  "bridge_bank_overlap_measure": "Opaque contour bounds; same canvas origin and foot corridor.",
+  "river_animation": {
+    "source": "unchanged approved water_quiet32.png",
+    "speed_native_pixels_per_scene_second": 2,
+    "direction": "down",
+    "clock": "scene delta",
+    "bank_mask": "fixed original water pixels",
+    "shader": "2D canvas_item nearest filtered"
+  }
+}

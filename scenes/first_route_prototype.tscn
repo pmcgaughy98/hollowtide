@@ -1,6 +1,7 @@
 [gd_scene format=4 uid="uid://bjejrnjqihy7b"]
 
 [ext_resource type="TileSet" path="res://assets/tilesets/route1_rd_2026_10_01/route1_ground_polished.tres" id="1_tiles"]
+[ext_resource type="Script" path="res://scripts/route1_approach.gd" id="route_approach"]
 [ext_resource type="Script" uid="uid://ldyvrxcbbghq" path="res://scripts/first_route_prototype.gd" id="2_route"]
 [ext_resource type="PackedScene" uid="uid://bpewxr51sqy80" path="res://scenes/player.tscn" id="3_player"]
 [ext_resource type="Texture2D" path="res://assets/sprites/world/route1_rd_2026_10_02/dispatch_hall_complete.png" id="3_s4ix1"]
@@ -48,6 +49,8 @@
 
 [ext_resource type="Texture2D" path="res://assets/sprites/world/route1_rd_2026_10_02/ferry_tieoff_full.png" id="regional_tieoff_full"]
 [ext_resource type="Texture2D" path="res://assets/sprites/world/route1_rd_2026_10_02/ferry_tieoff_short.png" id="regional_tieoff_short"]
+
+[ext_resource type="Script" path="res://scripts/route1_crossing.gd" id="crossing_route"]
 
 [sub_resource type="RectangleShape2D" id="TieoffFoot"]
 size = Vector2(10, 8)
@@ -171,14 +174,14 @@ texture = ExtResource("10_marker")
 
 [node name="RelayPost" type="Sprite2D" parent="." unique_id=1033938185]
 offset = Vector2(0, -25)
-position = Vector2(392, 240)
+position = Vector2(398, 530)
 scale = Vector2(0.75, 0.75)
 texture = ExtResource("11_post")
 
 [node name="RiverCall" type="Sprite2D" parent="." unique_id=197000950]
 visible = false
 modulate = Color(0.76, 0.84, 0.87, 0.75)
-position = Vector2(432, 286)
+position = Vector2(416, 582)
 texture = ExtResource("12_call")
 
 [node name="RiverWall" type="StaticBody2D" parent="." unique_id=1726284443]
@@ -206,7 +209,7 @@ position = Vector2(-8, 192)
 shape = SubResource("WestBarrier")
 
 [node name="CinderhideEncounter" type="Area2D" parent="." unique_id=186000283]
-position = Vector2(320, 164)
+position = Vector2(258, 352)
 collision_layer = 0
 script = ExtResource("6_field")
 creature = ExtResource("5_cinder")
@@ -236,7 +239,7 @@ theme_override_font_sizes/font_size = 8
 text = "E: Meet"
 
 [node name="Player" parent="." unique_id=458435790 instance=ExtResource("3_player")]
-position = Vector2(48, 192)
+position = Vector2(-720, 512)
 
 [node name="DexOverlay" type="CanvasLayer" parent="." unique_id=1886438422]
 script = ExtResource("8_dex")
@@ -301,7 +304,7 @@ offset = Vector2(0, -41)
 texture = ExtResource("unique_cottonwood_bank_bend")
 
 [node name="FerryTieoffFull" type="Sprite2D" parent="RouteDecor"]
-position = Vector2(442, 273)
+position = Vector2(438, 558)
 offset = Vector2(0, -27)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("regional_tieoff_full")
@@ -313,7 +316,7 @@ position = Vector2(0, -3)
 shape = SubResource("TieoffFoot")
 
 [node name="FerryTieoffShort" type="Sprite2D" parent="RouteDecor"]
-position = Vector2(414, 272)
+position = Vector2(438, 586)
 offset = Vector2(0, -19)
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("regional_tieoff_short")
@@ -323,3 +326,11 @@ position = Vector2(0, -3)
 
 [node name="Shape" type="CollisionShape2D" parent="RouteDecor/FerryTieoffShort/FootCollision"]
 shape = SubResource("TieoffFoot")
+
+[node name="RiverCrossing" type="Node2D" parent="."]
+z_index = -7
+texture_filter = 1
+script = ExtResource("crossing_route")
+
+[node name="MeadowApproach" type="Node2D" parent="."]
+script = ExtResource("route_approach")

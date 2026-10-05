@@ -1,0 +1,107 @@
+extends SceneTree
+const OUT := "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/landing-loop-review/"
+const GROUND = preload("res://assets/tilesets/route1_rd_2026_10_01/route1_ground_atlas_polished.png")
+const SOIL = preload("res://assets/sprites/world/route1_crossing_2026_10_02/path_soil_native32.png")
+const AREA := Rect2i(292,258,152,154)
+var route: Node2D
+var atlas: Image
+var overlays: Array=[]
+func _initialize() -> void:call_deferred("_run")
+func _curve(points: PackedVector2Array) -> PackedVector2Array:
+	for pass_index in 2:
+		var rounded:=PackedVector2Array([points[0]])
+		for i in range(points.size()-1):
+			rounded.append(points[i].lerp(points[i+1],0.25));rounded.append(points[i].lerp(points[i+1],0.75))
+		rounded.append(points[-1]);points=rounded
+	return points
+func _polygon(points: PackedVector2Array, half_width: float) -> PackedVector2Array:
+	var left:=PackedVector2Array();var right:=PackedVector2Array()
+	for i in points.size():
+		var direction: Vector2=(points[mini(i+1,points.size()-1)]-points[maxi(i-1,0)]).normalized()
+		var normal:=Vector2(-direction.y,direction.x)*half_width
+		left.append((points[i]+normal).round());right.append((points[i]-normal).round())
+	right.reverse();left.append_array(right);return left
+func _base(world: Vector2i) -> Color:
+	var terrain: TileMapLayer=route.get_node("Terrain")
+	var tile:=terrain.get_cell_atlas_coords(Vector2i(world.x/16,world.y/16))
+	var pixel:=atlas.get_pixelv(tile*16+Vector2i(world.x%16,world.y%16))
+	for overlay in overlays:
+		var at: Vector2i=world-overlay["at"]
+		var image: Image=overlay["image"]
+		if at.x>=0 and at.x<image.get_width() and at.y>=0 and at.y<image.get_height():
+			var above:=image.get_pixelv(at)
+			if above.a>0:pixel=above
+	return pixel
+func _near(mask: PackedByteArray, at: Vector2i, radius: int, value: int) -> bool:
+	for dy in range(-radius,radius+1):
+		for dx in range(-radius,radius+1):
+			var x:=at.x+dx;var y:=at.y+dy
+			if x>=0 and x<AREA.size.x and y>=0 and y<AREA.size.y and mask[y*AREA.size.x+x]==value:return true
+	return false
+func _bake() -> void:
+	var started:=Time.get_ticks_msec()
+	atlas=GROUND.get_image()
+	for path in ["RiverCrossing/JoinedLeveeRoad","RiverCrossing/Landscape/WetBankContours","RiverCrossing/TerrainRelief/RoundedDispatchAndLandingLanes"]:
+		var node: Sprite2D=route.get_node(path)
+		overlays.append({"at":Vector2i(node.position),"image":node.texture.get_image()})
+	var incoming:=_curve(PackedVector2Array([Vector2(304,316),Vector2(326,296),Vector2(349,281),Vector2(382,264)]))
+	var returning:=_curve(PackedVector2Array([Vector2(416,280),Vector2(425,296),Vector2(431,320),Vector2(431,343),Vector2(428,367),Vector2(414,383),Vector2(395,393)]))
+	var polygons: Array=[_polygon(incoming,8.0),_polygon(returning,8.0)]
+	var new_mask:=PackedByteArray();new_mask.resize(AREA.size.x*AREA.size.y)
+	var joined:=PackedByteArray();joined.resize(new_mask.size())
+	var soil_colours: Dictionary={0xad9873:true,0xb3a078:true,0xb7a57d:true,0xbbaa80:true,0xbfae84:true,0xc3b389:true,0x9d906a:true}
+	for y in AREA.size.y:
+		for x in AREA.size.x:
+			var world:=AREA.position+Vector2i(x,y)
+			var i:=y*AREA.size.x+x
+			for polygon in polygons:
+				if Geometry2D.is_point_in_polygon(Vector2(world)+Vector2(0.5,0.5),polygon):new_mask[i]=1
+			var pixel:=_base(world)
+			var key: int=(pixel.r8<<16)|(pixel.g8<<8)|pixel.b8
+			joined[i]=int(new_mask[i]==1 or soil_colours.has(key))
+	var image:=Image.create(AREA.size.x,AREA.size.y,false,Image.FORMAT_RGBA8);image.fill(Color.TRANSPARENT)
+	var soil:=SOIL.get_image();var drawn:=0
+	for y in AREA.size.y:
+		for x in AREA.size.x:
+			var at:=Vector2i(x,y);var world:=AREA.position+at
+			if world.x>441 or not _near(new_mask,at,2,1):continue
+			var i:=y*AREA.size.x+x
+			if joined[i]==1:
+				var colour:=soil.get_pixel(world.x%32,world.y%32)
+				if _near(joined,at,1,0):colour=Color("#9d906a")
+				image.set_pixelv(at,colour)
+			else:image.set_pixelv(at,Color("#435e46"))
+			drawn+=1
+	var error:=image.save_png(OUT+"landing_footpath.png")
+	var record:={"offline_bake":true,"area":str(AREA),"bake_ms":Time.get_ticks_msec()-started,"drawn_pixels":drawn,"error":error,"incoming":str(incoming),"returning":str(returning),"rightmost_world_pixel":441}
+	var file:=FileAccess.open(OUT+"candidate-bake-results.json",FileAccess.WRITE);file.store_string(JSON.stringify(record,"\t"))
+	print("LANDING_LOOP_BAKE ",record)
+func _freeze(node: Node) -> void:
+	node.set_process(false);node.set_physics_process(false)
+	for child in node.get_children():_freeze(child)
+func _capture(name: String, at: Vector2, zoom: float) -> void:
+	route.get_node("Player").position=at
+	var camera: Camera2D=route.get_node("Player/Camera2D")
+	camera.position_smoothing_enabled=false;camera.position=Vector2.ZERO if zoom==1.0 else Vector2(0,-24)
+	camera.zoom=Vector2.ONE*zoom;camera.reset_smoothing();route._process(0.0)
+	for beat in 8:await process_frame
+	await RenderingServer.frame_post_draw
+	root.get_texture().get_image().save_png(OUT+name+".png")
+func _run() -> void:
+	route=load("res://scenes/first_route_prototype.tscn").instantiate()
+	root.add_child(route);current_scene=route
+	_freeze(route)
+	var crossing: Node=route.get_node("RiverCrossing")
+	crossing.set("_clock",0.0);crossing.get("_river_material").set_shader_parameter("flow_offset",Vector2.ZERO)
+	crossing.get_node("Landscape").get("_wind_material").set_shader_parameter("scene_clock",0.0);crossing.queue_redraw()
+	await _capture("before-overview",Vector2(512,320),1.0)
+	await _capture("before-turn",Vector2(310,324),3.0)
+	await _capture("before-bank",Vector2(426,338),3.0)
+	_bake()
+	var loop: Node2D=load("C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/landing_loop_candidate.gd").new()
+	loop.name="LandingLoop";loop.z_index=-1;crossing.add_child(loop)
+	await _capture("candidate-overview",Vector2(512,320),1.0)
+	await _capture("candidate-turn",Vector2(310,324),3.0)
+	await _capture("candidate-bank",Vector2(426,338),3.0)
+	await _capture("candidate-return",Vector2(422,376),3.0)
+	quit()

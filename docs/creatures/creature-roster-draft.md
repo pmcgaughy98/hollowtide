@@ -1,5 +1,7 @@
 # Hollowtide Creature Roster and Sprite Forge Briefs
 
+Battle jobs, move shape, and who is allowed to exist next live in `DESIGN_RULES.md` (Preston assigned that file to Grok, 2026-10-02). The live evolution and learn gate is `evolution-and-signatures.md`. Proposal kits in `legal-learnsets.md` are not in the creature files. The Punchybuns line is reserved there. Do not replace it with another Electric starter. Claude finds the short version at the top of `docs/AI_COLLABORATION.md`.
+
 **Draft, not canon.** Preston selected the River Listener line as the first evolution prototype. Its stage names and exact designs remain proposals. New names below have not been collision-checked against Pokémon, Coromon, Nexomon, Temtem, or Cassette Beasts.
 
 **2026-09-25, Preston's direction:** every line is three stages. No two-stage or single-stage lines. The six starters get full lines, starting with Cinderhide and Rimefin. The four single-stage non-starters (Wickthorn, Backeddy, Switchgust, Glassquiet) are removed, and each former two-stage line gains a third stage. Stage II and III names added in this pass are proposals.

@@ -1,0 +1,80 @@
+from pathlib import Path
+p=Path("C:/Users/pmcga/dev/hollowtide");s=Path.cwd();r=s/"landing-loop-review"
+f=p/"scripts/route1_landing_loop.gd";original=f.read_bytes();(r/"landing_loop.before-canopy.gd.txt").write_bytes(original)
+t=f.read_text(encoding="utf-8");assert "var _canopy_material" not in t
+needle='const FONT = preload("res://assets/fonts/Silkscreen-Regular.ttf")';assert t.count(needle)==1
+t=t.replace(needle,needle+'''
+const CANOPY = preload("res://assets/sprites/world/route1_landing_loop_2026_10_03/canopy_visibility.gdshader")
+var _tree: Sprite2D
+var _player: Node2D
+var _old_tree_material: Material
+var _canopy_material: ShaderMaterial
+var _canopy_opacity := 1.0
+''')
+needle='\tvar route: Node2D=get_parent().get_parent()';assert t.count(needle)==1
+t=t.replace(needle,needle+'''
+	_tree=route.get_node("RouteDecor/CottonwoodSouth")
+	_player=route.get_node("Player")
+	_old_tree_material=_tree.material
+	_canopy_material=ShaderMaterial.new()
+	_canopy_material.shader=CANOPY
+	_tree.material=_canopy_material''')
+t+='''
+func _process(delta: float) -> void:
+	# Fade the crown while the courier passes behind it; the trunk stays grounded.
+	var head:=_tree.to_local(_player.global_position+Vector2(0,-16))
+	var behind:=_player.global_position.y<_tree.global_position.y-2 and _tree.get_rect().has_point(head)
+	_canopy_opacity=move_toward(_canopy_opacity,0.35 if behind else 1.0,delta*3.0)
+	_canopy_material.set_shader_parameter("canopy_opacity",_canopy_opacity)
+
+func _exit_tree() -> void:
+	if is_instance_valid(_tree):
+		_tree.material=_old_tree_material
+'''
+shader='''shader_type canvas_item;
+uniform float canopy_opacity : hint_range(0.0, 1.0) = 1.0;
+void fragment() {
+	vec4 ink = texture(TEXTURE, UV) * COLOR;
+	float crown = 1.0 - smoothstep(0.67, 0.73, UV.y);
+	ink.a *= mix(1.0, canopy_opacity, crown);
+	COLOR = ink;
+}
+'''
+sf=p/"assets/sprites/world/route1_landing_loop_2026_10_03/canopy_visibility.gdshader";assert not sf.exists();sf.write_text(shader,encoding="utf-8")
+assert f.read_bytes()==original;f.write_text(t,encoding="utf-8")
+for name in ["landing_full_walkthrough.gd","landing_bypass_walkthrough.gd"]:
+ f=s/name;t=f.read_text(encoding="utf-8")
+ needle='\tquit(1 if failed else 0)';assert t.count(needle)==1
+ t=t.replace(needle,'''	file.close()
+	file=null
+	call_deferred("_exit_probe",1 if failed else 0)
+func _exit_probe(code: int) -> void:
+	route.queue_free()
+	current_scene=null
+	player=null
+	route=null
+	await _frames(8)
+	quit(code)''')
+ # Record actual crown opacity when the ordinary path reaches its shaded bend.
+ if "full_" in name:
+  needle='\t\tawait _capture("bank-return-%d"%int(point.y))'
+  assert t.count(needle)==1
+  t=t.replace(needle,needle+'''
+		steps.append({"bank_return_position":str(player.position),"canopy_opacity":route.get_node("RiverCrossing/LandingLoop").get("_canopy_opacity")})''')
+ f.write_text(t,encoding="utf-8")
+f=s/"landing_installed_review.gd";t=f.read_text(encoding="utf-8");assert t.count('\tquit()')==1
+t=t.replace('\tquit()','''	file.close()
+	file=null
+	call_deferred("_exit_probe")
+func _exit_probe() -> void:
+	route.queue_free()
+	current_scene=null
+	route=null
+	for beat in 8:await process_frame
+	quit()''');f.write_text(t,encoding="utf-8")
+# Keep pre-canopy proof, since this rerun validates the changed presentation.
+for name in ["full","bypass"]:
+ for src in (r/name).iterdir():
+  if src.is_file() and not src.name.startswith("before-canopy-"):
+   (r/name/("before-canopy-"+src.name)).write_bytes(src.read_bytes())
+print("Crown-only visibility fade added; final ordinary/preview cleanup and opacity evidence prepared.")

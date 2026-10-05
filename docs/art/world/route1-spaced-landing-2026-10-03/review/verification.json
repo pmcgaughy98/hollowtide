@@ -1,0 +1,65 @@
+{
+  "passed": true,
+  "runs": {
+    "male": {
+      "full_journey": true,
+      "encounter": true,
+      "four_real_gates": true,
+      "flags": {
+        "city_arrival_registered": true,
+        "city_directions_read": true,
+        "delivered": true,
+        "heard_calls": true,
+        "levee_entrance_read": true,
+        "marker_restored": true,
+        "pouch_accepted": true,
+        "report_done": true,
+        "reported_calls": true,
+        "reported_water_mark": true,
+        "water_mark_observed": true
+      },
+      "levee_sign_to_relay_movement_seconds": 12.383333333333333,
+      "both_canopies_work_after_return": true
+    },
+    "female": {
+      "full_journey": true,
+      "encounter": true,
+      "four_real_gates": true,
+      "flags": {
+        "city_arrival_registered": true,
+        "city_directions_read": true,
+        "delivered": true,
+        "heard_calls": false,
+        "levee_entrance_read": true,
+        "marker_restored": true,
+        "pouch_accepted": true,
+        "report_done": true,
+        "reported_calls": false,
+        "reported_water_mark": false,
+        "water_mark_observed": false
+      },
+      "levee_sign_to_relay_movement_seconds": 8.466666666666667,
+      "both_canopies_work_after_return": true
+    }
+  },
+  "protected_existing_files": 1021,
+  "protected_file_changes": [],
+  "unchanged_controller_functions": 28,
+  "changed_controller_functions": [
+    "_process",
+    "_visit_landing_notice"
+  ],
+  "old_height_to_relay_distance": 46.75467891024384,
+  "new_height_to_relay_distance": 325.96012026013244,
+  "geometry_bake": {
+    "area": "[P: (244, 336), S: (200, 288)]",
+    "bake_ms": 2317,
+    "drawn_pixels": 11158,
+    "error": 0,
+    "incoming": "[(344.0, 352.0), (341.5, 354.5), (336.5, 359.5), (329.0, 367.0), (319.0, 377.0), (312.25, 388.5), (308.75, 401.5), (308.5, 416.0), (311.5, 432.0), (316.125, 446.5), (322.375, 459.5), (330.25, 471.0), (339.75, 481.0), (349.25, 491.0), (358.75, 501.0), (368.25, 511.0), (377.75, 521.0), (384.875, 528.5), (389.625, 533.5), (392.0, 536.0)]",
+    "offline_bake": true,
+    "returning": "[(392.0, 536.0), (393.75, 534.375), (397.25, 531.125), (402.5, 526.25), (409.5, 519.75), (415.0, 512.0), (419.0, 503.0), (421.5, 492.75), (422.5, 481.25), (423.25, 469.625), (423.75, 457.875), (424.0, 446.0), (424.0, 434.0), (424.0, 425.0), (424.0, 419.0), (424.0, 416.0)]",
+    "rightmost_world_pixel": 441
+  },
+  "new_rd_charges": 0
+}

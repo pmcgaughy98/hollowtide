@@ -1,0 +1,6 @@
+{
+  "tool_id": "background_remover",
+  "input_file": "bridge_completed_raw.png",
+  "force_solid_pixels": true,
+  "custom_id": "hollowtide-complete-bridge-alpha-20261002-1"
+}

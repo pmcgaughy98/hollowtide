@@ -1,0 +1,110 @@
+[
+  {
+    "name": "wayburn",
+    "view": "front",
+    "source_crop": [
+      0,
+      0,
+      112,
+      96
+    ],
+    "atlas_origin": [
+      0,
+      0
+    ],
+    "crop_size": [
+      112,
+      96
+    ]
+  },
+  {
+    "name": "kithflare",
+    "view": "front",
+    "source_crop": [
+      16,
+      16,
+      80,
+      80
+    ],
+    "atlas_origin": [
+      112,
+      0
+    ],
+    "crop_size": [
+      64,
+      64
+    ]
+  },
+  {
+    "name": "kithflare",
+    "view": "back",
+    "source_crop": [
+      16,
+      26,
+      80,
+      90
+    ],
+    "atlas_origin": [
+      176,
+      0
+    ],
+    "crop_size": [
+      64,
+      64
+    ]
+  },
+  {
+    "name": "wayburn",
+    "view": "back",
+    "source_crop": [
+      8,
+      20,
+      72,
+      84
+    ],
+    "atlas_origin": [
+      112,
+      64
+    ],
+    "crop_size": [
+      64,
+      64
+    ]
+  },
+  {
+    "name": "coalcrest",
+    "view": "front",
+    "source_crop": [
+      0,
+      80,
+      80,
+      160
+    ],
+    "atlas_origin": [
+      0,
+      96
+    ],
+    "crop_size": [
+      80,
+      80
+    ]
+  },
+  {
+    "name": "coalcrest",
+    "view": "back",
+    "source_crop": [
+      0,
+      80,
+      80,
+      160
+    ],
+    "atlas_origin": [
+      176,
+      64
+    ],
+    "crop_size": [
+      80,
+      80
+    ]
+  }
+]

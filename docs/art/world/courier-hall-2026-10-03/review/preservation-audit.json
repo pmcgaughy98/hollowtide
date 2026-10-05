@@ -1,0 +1,11 @@
+{
+  "protected_files_recorded": 2123,
+  "preserved_exact": 2120,
+  "targeted_existing_runtime_changes": [
+    "scripts/area_landscape.gd",
+    "scripts/world_area.gd",
+    "scripts/world_journey.gd"
+  ],
+  "unexpected_changes": [],
+  "coalcrest_only_front_reference_changed": true
+}

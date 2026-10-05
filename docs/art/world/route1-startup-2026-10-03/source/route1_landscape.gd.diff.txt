@@ -1,0 +1,73 @@
+--- before/scripts/route1_landscape.gd
++++ current/scripts/route1_landscape.gd
+@@ -1,9 +1,8 @@
+ extends Node2D
+ 
+ ## A quiet river corridor: irregular wet margins, meadow groups and cottonwood groves.
+-## Terrain materials are assembled from the approved native sources at runtime.
+-const ATLAS = preload("res://assets/tilesets/route1_rd_2026_10_01/route1_ground_atlas_polished.png")
+-const SOIL = preload("res://assets/sprites/world/route1_crossing_2026_10_02/path_soil_native32.png")
++## The approved wet-bank contour is baked; vegetation and wind remain live.
++const WET_BANKS = preload("res://assets/sprites/world/route1_static_surfaces_2026_10_03/wet_bank_contours.png")
+ const GRASS = preload("res://assets/sprites/world/route1_landscape_2026_10_03/meadow_grass.png")
+ const ROOTS = preload("res://assets/sprites/world/route1_landscape_2026_10_03/silt_roots_small.png")
+ const TUFTS = [
+@@ -154,57 +153,9 @@
+ 
+ 
+ func _build_banks() -> void:
+-	var soil := SOIL.get_image()
+-	var atlas := ATLAS.get_image()
+-	var bank := Image.create(296, 640, false, Image.FORMAT_RGBA8)
+-	bank.fill(Color.TRANSPARENT)
+-	for y in range(640):
+-		# The approved bridge approaches retain their complete contour.
+-		var bank_blend := smoothstep(0.0, 28.0, maxf(372.0 - y, y - 476.0))
+-		if bank_blend <= 0.0:
+-			continue
+-		var wave := roundi(sin(float(y) / 61.0) * 5.0 + sin(float(y) / 19.0) * 2.0)
+-		var landing := y >= 180 and y <= 332
+-		var original_outer := 432.0 if y < 384 else 448.0
+-		var original_wet := 456.0 if y < 384 else 448.0
+-		var outer_left := roundi(lerpf(original_outer, 432 + (0 if landing else wave), bank_blend))
+-		var wet_left := roundi(lerpf(original_wet, 456 + maxi(0, wave + 3), bank_blend))
+-		var outer_right := roundi(lerpf(672.0, 688 + wave, bank_blend))
+-		var wet_right := roundi(lerpf(672.0, 660 + wave, bank_blend))
+-		for x in range(424, 476):
+-			var colour := Color.TRANSPARENT
+-			if x < outer_left:
+-				# Cover the old straight dirt edge only where the bank bends inward.
+-				if x >= 432:
+-					colour = atlas.get_pixel(x % 32, y % 16)
+-			elif x < wet_left:
+-				colour = soil.get_pixel(x % 32, y % 32)
+-				var damp := smoothstep(float(wet_left - 10), float(wet_left), float(x))
+-				colour = colour.lerp(Color("#687660"), damp * 0.7)
+-				if x == outer_left:
+-					colour = Color("#596d4e")
+-			elif x < wet_left + 3:
+-				colour = Color("#628975").lerp(Color("#45766c"), float(x - wet_left) / 3.0)
+-			if colour.a > 0:
+-				bank.set_pixel(x - 408, y, colour)
+-		for x in range(648, 700):
+-			var colour := Color.TRANSPARENT
+-			if x > outer_right:
+-				if x < 689:
+-					colour = atlas.get_pixel(x % 32, y % 16)
+-			elif x > wet_right:
+-				colour = soil.get_pixel(x % 32, y % 32)
+-				var damp := 1.0 - smoothstep(float(wet_right), float(wet_right + 10), float(x))
+-				colour = colour.lerp(Color("#687660"), damp * 0.7)
+-				if x == outer_right:
+-					colour = Color("#596d4e")
+-			elif x >= wet_right - 3:
+-				colour = Color("#45766c").lerp(Color("#628975"), float(x - wet_right + 3) / 3.0)
+-			if colour.a > 0:
+-				bank.set_pixel(x - 408, y, colour)
+ 	var surface := Sprite2D.new()
+ 	surface.name = "WetBankContours"
+-	surface.texture = ImageTexture.create_from_image(bank)
++	surface.texture = WET_BANKS
+ 	surface.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
+ 	surface.centered = false
+ 	surface.position = Vector2(408, 0)

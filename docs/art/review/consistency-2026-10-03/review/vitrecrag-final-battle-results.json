@@ -1,0 +1,465 @@
+{
+	"captures": [
+		{
+			"charcoal_head": null,
+			"cracks": true,
+			"frame": 269,
+			"name": "foe-ultimate-signature-portrait",
+			"texture": "res://assets/sprites/creatures/rd_material_match_2026_10_01/vitrecrag_attacks/f05.png"
+		},
+		{
+			"charcoal_head": false,
+			"cracks": true,
+			"frame": 368,
+			"heat": 0.000338421383639798,
+			"name": "foe-ultimate-foe_sprite-f00",
+			"side": "_foe_sprite",
+			"texture": "res://assets/sprites/creatures/rd_material_match_2026_10_01/vitrecrag_attacks/f00.png"
+		},
+		{
+			"charcoal_head": false,
+			"cracks": true,
+			"frame": 375,
+			"heat": 0.0214884538203478,
+			"name": "foe-ultimate-foe_sprite-f01",
+			"side": "_foe_sprite",
+			"texture": "res://assets/sprites/creatures/rd_material_match_2026_10_01/vitrecrag_attacks/f01.png"
+		},
+		{
+			"charcoal_head": false,
+			"cracks": true,
+			"frame": 397,
+			"heat": 0.271764099597931,
+			"name": "foe-ultimate-foe_sprite-f02",
+			"side": "_foe_sprite",
+			"texture": "res://assets/sprites/creatures/rd_material_match_2026_10_01/vitrecrag_attacks/f02.png"
+		},
+		{
+			"charcoal_head": false,
+			"cracks": true,
+			"frame": 466,
+			"heat": 0.880604752898216,
+			"name": "foe-ultimate-foe_sprite-f04",
+			"side": "_foe_sprite",
+			"texture": "res://assets/sprites/creatures/rd_material_match_2026_10_01/vitrecrag_attacks/f04.png"
+		},
+		{
+			"charcoal_head": false,
+			"cracks": true,
+			"frame": 469,
+			"heat": 0.8,
+			"name": "foe-ultimate-foe_sprite-f03",
+			"side": "_foe_sprite",
+			"texture": "res://assets/sprites/creatures/rd_material_match_2026_10_01/vitrecrag_attacks/f03.png"
+		},
+		{
+			"charcoal_head": false,
+			"cracks": true,
+			"frame": 539,
+			"heat": 1.20260606408119,
+			"name": "foe-ultimate-foe_sprite-f05",
+			"side": "_foe_sprite",
+			"texture": "res://assets/sprites/creatures/rd_material_match_2026_10_01/vitrecrag_attacks/f05.png"
+		},
+		{
+			"charcoal_head": false,
+			"cracks": true,
+			"frame": 548,
+			"heat": 0.818092215061188,
+			"name": "foe-ultimate-foe_sprite-f06",
+			"side": "_foe_sprite",
+			"texture": "res://assets/sprites/creatures/rd_material_match_2026_10_01/vitrecrag_attacks/f06.png"
+		},
+		{
+			"charcoal_head": false,
+			"cracks": true,
+			"frame": 557,
+			"heat": 0.8,
+			"name": "foe-ultimate-foe_sprite-f07",
+			"side": "_foe_sprite",
+			"texture": "res://assets/sprites/creatures/rd_material_match_2026_10_01/vitrecrag_attacks/f07.png"
+		},
+		{
+			"charcoal_head": false,
+			"cracks": true,
+			"frame": 591,
+			"heat": 0.8,
+			"name": "foe-ultimate-foe_sprite-f08",
+			"side": "_foe_sprite",
+			"texture": "res://assets/sprites/creatures/rd_material_match_2026_10_01/vitrecrag_attacks/f08.png"
+		},
+		{
+			"charcoal_head": false,
+			"cracks": true,
+			"frame": 609,
+			"heat": 0.8,
+			"name": "foe-ultimate-foe_sprite-f09",
+			"side": "_foe_sprite",
+			"texture": "res://assets/sprites/creatures/rd_material_match_2026_10_01/vitrecrag_attacks/f09.png"
+		},
+		{
+			"charcoal_head": false,
+			"cracks": true,
+			"frame": 617,
+			"heat": 0.8,
+			"name": "foe-ultimate-foe_sprite-f11",
+			"side": "_foe_sprite",
+			"texture": "res://assets/sprites/creatures/rd_material_match_2026_10_01/vitrecrag_attacks/f11.png"
+		},
+		{
+			"charcoal_head": null,
+			"cracks": true,
+			"frame": 1567,
+			"name": "player-ultimate-signature-portrait",
+			"texture": "res://assets/sprites/creatures/rd_material_match_2026_10_01/vitrecrag_attacks/f05.png"
+		},
+		{
+			"charcoal_head": false,
+			"cracks": true,
+			"frame": 1671,
+			"heat": 0.000338421383639798,
+			"name": "player-ultimate-foe_sprite-f00",
+			"side": "_foe_sprite",
+			"texture": "res://assets/sprites/creatures/rd_material_match_2026_10_01/vitrecrag_attacks/f00.png"
+		},
+		{
+			"charcoal_head": false,
+			"cracks": true,
+			"frame": 1678,
+			"heat": 0.0214884538203478,
+			"name": "player-ultimate-foe_sprite-f01",
+			"side": "_foe_sprite",
+			"texture": "res://assets/sprites/creatures/rd_material_match_2026_10_01/vitrecrag_attacks/f01.png"
+		},
+		{
+			"charcoal_head": false,
+			"cracks": true,
+			"frame": 1700,
+			"heat": 0.271764099597931,
+			"name": "player-ultimate-foe_sprite-f02",
+			"side": "_foe_sprite",
+			"texture": "res://assets/sprites/creatures/rd_material_match_2026_10_01/vitrecrag_attacks/f02.png"
+		},
+		{
+			"charcoal_head": false,
+			"cracks": true,
+			"frame": 1769,
+			"heat": 0.880604752898216,
+			"name": "player-ultimate-foe_sprite-f04",
+			"side": "_foe_sprite",
+			"texture": "res://assets/sprites/creatures/rd_material_match_2026_10_01/vitrecrag_attacks/f04.png"
+		},
+		{
+			"charcoal_head": false,
+			"cracks": true,
+			"frame": 1772,
+			"heat": 0.8,
+			"name": "player-ultimate-foe_sprite-f03",
+			"side": "_foe_sprite",
+			"texture": "res://assets/sprites/creatures/rd_material_match_2026_10_01/vitrecrag_attacks/f03.png"
+		},
+		{
+			"charcoal_head": false,
+			"cracks": true,
+			"frame": 1842,
+			"heat": 1.20260606408119,
+			"name": "player-ultimate-foe_sprite-f05",
+			"side": "_foe_sprite",
+			"texture": "res://assets/sprites/creatures/rd_material_match_2026_10_01/vitrecrag_attacks/f05.png"
+		},
+		{
+			"charcoal_head": false,
+			"cracks": true,
+			"frame": 1851,
+			"heat": 0.818092215061188,
+			"name": "player-ultimate-foe_sprite-f06",
+			"side": "_foe_sprite",
+			"texture": "res://assets/sprites/creatures/rd_material_match_2026_10_01/vitrecrag_attacks/f06.png"
+		},
+		{
+			"charcoal_head": false,
+			"cracks": true,
+			"frame": 1860,
+			"heat": 0.8,
+			"name": "player-ultimate-foe_sprite-f07",
+			"side": "_foe_sprite",
+			"texture": "res://assets/sprites/creatures/rd_material_match_2026_10_01/vitrecrag_attacks/f07.png"
+		},
+		{
+			"charcoal_head": false,
+			"cracks": true,
+			"frame": 1894,
+			"heat": 0.8,
+			"name": "player-ultimate-foe_sprite-f08",
+			"side": "_foe_sprite",
+			"texture": "res://assets/sprites/creatures/rd_material_match_2026_10_01/vitrecrag_attacks/f08.png"
+		},
+		{
+			"charcoal_head": false,
+			"cracks": true,
+			"frame": 1912,
+			"heat": 0.8,
+			"name": "player-ultimate-foe_sprite-f09",
+			"side": "_foe_sprite",
+			"texture": "res://assets/sprites/creatures/rd_material_match_2026_10_01/vitrecrag_attacks/f09.png"
+		},
+		{
+			"charcoal_head": false,
+			"cracks": true,
+			"frame": 1920,
+			"heat": 0.8,
+			"name": "player-ultimate-foe_sprite-f11",
+			"side": "_foe_sprite",
+			"texture": "res://assets/sprites/creatures/rd_material_match_2026_10_01/vitrecrag_attacks/f11.png"
+		},
+		{
+			"charcoal_head": false,
+			"cracks": true,
+			"frame": 2720,
+			"heat": 0.000992411887273193,
+			"name": "foe-cannon-foe_sprite-f00",
+			"side": "_foe_sprite",
+			"texture": "res://assets/sprites/creatures/rd_material_match_2026_10_01/vitrecrag_attacks/f00.png"
+		},
+		{
+			"charcoal_head": false,
+			"cracks": true,
+			"frame": 2725,
+			"heat": 0.0120943017303944,
+			"name": "foe-cannon-foe_sprite-f01",
+			"side": "_foe_sprite",
+			"texture": "res://assets/sprites/creatures/rd_material_match_2026_10_01/vitrecrag_attacks/f01.png"
+		},
+		{
+			"charcoal_head": false,
+			"cracks": true,
+			"frame": 2752,
+			"heat": 0.250790104866028,
+			"name": "foe-cannon-foe_sprite-f02",
+			"side": "_foe_sprite",
+			"texture": "res://assets/sprites/creatures/rd_material_match_2026_10_01/vitrecrag_attacks/f02.png"
+		},
+		{
+			"charcoal_head": false,
+			"cracks": true,
+			"frame": 2761,
+			"heat": 0.369356875419617,
+			"name": "foe-cannon-foe_sprite-f03",
+			"side": "_foe_sprite",
+			"texture": "res://assets/sprites/creatures/rd_material_match_2026_10_01/vitrecrag_attacks/f03.png"
+		},
+		{
+			"charcoal_head": false,
+			"cracks": true,
+			"frame": 2815,
+			"heat": 1.10552622884512,
+			"name": "foe-cannon-foe_sprite-f04",
+			"side": "_foe_sprite",
+			"texture": "res://assets/sprites/creatures/rd_material_match_2026_10_01/vitrecrag_attacks/f04.png"
+		},
+		{
+			"charcoal_head": false,
+			"cracks": true,
+			"frame": 2824,
+			"heat": 0.797915163040161,
+			"name": "foe-cannon-foe_sprite-f05",
+			"side": "_foe_sprite",
+			"texture": "res://assets/sprites/creatures/rd_material_match_2026_10_01/vitrecrag_attacks/f05.png"
+		},
+		{
+			"charcoal_head": false,
+			"cracks": true,
+			"frame": 2840,
+			"heat": 0.64,
+			"name": "foe-cannon-foe_sprite-f09",
+			"side": "_foe_sprite",
+			"texture": "res://assets/sprites/creatures/rd_material_match_2026_10_01/vitrecrag_attacks/f09.png"
+		},
+		{
+			"charcoal_head": false,
+			"cracks": true,
+			"frame": 2862,
+			"heat": 0.64,
+			"name": "foe-cannon-foe_sprite-f11",
+			"side": "_foe_sprite",
+			"texture": "res://assets/sprites/creatures/rd_material_match_2026_10_01/vitrecrag_attacks/f11.png"
+		},
+		{
+			"charcoal_head": false,
+			"cracks": true,
+			"frame": 3636,
+			"heat": 0.0100480958819389,
+			"name": "foe-plate-lunge-foe_sprite-f00",
+			"side": "_foe_sprite",
+			"texture": "res://assets/sprites/creatures/rd_material_match_2026_10_01/vitrecrag_attacks/f00.png"
+		},
+		{
+			"charcoal_head": false,
+			"cracks": true,
+			"frame": 3652,
+			"heat": 0.15,
+			"name": "foe-plate-lunge-foe_sprite-f01",
+			"side": "_foe_sprite",
+			"texture": "res://assets/sprites/creatures/rd_material_match_2026_10_01/vitrecrag_attacks/f01.png"
+		},
+		{
+			"charcoal_head": false,
+			"cracks": true,
+			"frame": 3779,
+			"heat": 0.698884202423505,
+			"name": "foe-plate-lunge-foe_sprite-f11",
+			"side": "_foe_sprite",
+			"texture": "res://assets/sprites/creatures/rd_material_match_2026_10_01/vitrecrag_attacks/f11.png"
+		}
+	],
+	"checks": [
+		{
+			"cracks_released": true,
+			"foe_hp": 60,
+			"head_finish_owner": true,
+			"name": "foe-ultimate",
+			"player_hp": 52,
+			"position_restored": true,
+			"reversed_released": true,
+			"texture_restored": true
+		},
+		{
+			"cracks_released": true,
+			"foe_hp": 52,
+			"head_finish_owner": true,
+			"name": "player-ultimate",
+			"player_hp": 60,
+			"position_restored": true,
+			"reversed_released": true,
+			"texture_restored": true
+		},
+		{
+			"cracks_released": true,
+			"foe_hp": 60,
+			"head_finish_owner": true,
+			"name": "foe-cannon",
+			"player_hp": 45,
+			"position_restored": true,
+			"reversed_released": true,
+			"texture_restored": true
+		},
+		{
+			"cracks_released": true,
+			"foe_hp": 60,
+			"head_finish_owner": true,
+			"name": "foe-plate-lunge",
+			"player_hp": 48,
+			"position_restored": true,
+			"reversed_released": true,
+			"texture_restored": true
+		},
+		{
+			"image_size": "(100, 96)",
+			"name": "Ironvent rear region",
+			"region_excludes_row96": true,
+			"size": "(100.0, 100.0)",
+			"used_rect": "[P: (4, 14), S: (92, 82)]"
+		}
+	],
+	"roster": [
+		{
+			"back": "res://assets/sprites/creatures/rimefin_rd_back_2026_10_01.png",
+			"back_scale": "(3.0, 3.0)",
+			"battle_size": 1.0,
+			"front": "res://assets/sprites/creatures/rimefin.png",
+			"front_scale": "(2.0, 2.0)",
+			"id": 1,
+			"name": "Rimefin"
+		},
+		{
+			"back": "res://assets/sprites/creatures/cinderhide_back.png",
+			"back_scale": "(3.0, 3.0)",
+			"battle_size": 1.0,
+			"front": "res://assets/sprites/creatures/cinderhide.png",
+			"front_scale": "(2.0, 2.0)",
+			"id": 2,
+			"name": "Cinderhide"
+		},
+		{
+			"back": "res://assets/sprites/creatures/clinkerhide_selected_rear_2026_10_03/clinkerhide_back_matched_native100.png",
+			"back_scale": "(3.0, 3.0)",
+			"battle_size": 1.0,
+			"front": "res://assets/sprites/creatures/clinkerhide.png",
+			"front_scale": "(2.0, 2.0)",
+			"id": 101,
+			"name": "Clinkerhide"
+		},
+		{
+			"back": "res://data/creatures/102_ironvent.tres::AtlasTexture_back_clean",
+			"back_scale": "(3.5, 3.5)",
+			"battle_size": 1.35,
+			"front": "res://assets/sprites/creatures/ironvent.png",
+			"front_scale": "(2.5, 2.5)",
+			"id": 102,
+			"name": "Ironvent"
+		},
+		{
+			"back": "res://assets/sprites/creatures/rd_material_match_2026_10_01/kithflare_back.png",
+			"back_scale": "(1.5, 1.5)",
+			"battle_size": 0.85,
+			"front": "res://assets/sprites/creatures/rd_material_match_2026_10_01/kithflare_front.png",
+			"front_scale": "(1.0, 1.0)",
+			"id": 103,
+			"name": "Kithflare"
+		},
+		{
+			"back": "res://assets/sprites/creatures/rd_material_match_2026_10_01/wayburn_back.png",
+			"back_scale": "(2.0, 2.0)",
+			"battle_size": 1.0,
+			"front": "res://assets/sprites/creatures/rd_material_match_2026_10_01/wayburn_front.png",
+			"front_scale": "(1.5, 1.5)",
+			"id": 104,
+			"name": "Wayburn"
+		},
+		{
+			"back": "res://assets/sprites/creatures/rd_material_match_2026_10_01/coalcrest_back.png",
+			"back_scale": "(2.5, 2.5)",
+			"battle_size": 1.5,
+			"front": "res://assets/sprites/creatures/rd_material_match_2026_10_01/coalcrest_front.png",
+			"front_scale": "(2.0, 2.0)",
+			"id": 105,
+			"name": "Coalcrest"
+		},
+		{
+			"back": "res://assets/sprites/creatures/rd_material_match_2026_10_01/fusern_back.png",
+			"back_scale": "(1.5, 1.5)",
+			"battle_size": 1.1,
+			"front": "res://assets/sprites/creatures/rd_material_match_2026_10_01/fusern_front.png",
+			"front_scale": "(1.0, 1.0)",
+			"id": 106,
+			"name": "Fusern"
+		},
+		{
+			"back": "res://assets/sprites/creatures/rd_material_match_2026_10_01/slagglass_back.png",
+			"back_scale": "(2.0, 2.0)",
+			"battle_size": 1.45,
+			"front": "res://assets/sprites/creatures/rd_material_match_2026_10_01/slagglass_front.png",
+			"front_scale": "(1.5, 1.5)",
+			"id": 107,
+			"name": "Slagglass"
+		},
+		{
+			"back": "res://assets/sprites/creatures/rd_material_match_2026_10_01/vitrecrag_back.png",
+			"back_scale": "(2.5, 2.5)",
+			"battle_size": 1.75,
+			"front": "res://assets/sprites/creatures/rd_material_match_2026_10_01/vitrecrag_front.png",
+			"front_scale": "(2.0, 2.0)",
+			"id": 108,
+			"name": "Vitrecrag"
+		},
+		{
+			"back": "res://assets/sprites/creatures/oxbowarchon_back.png",
+			"back_scale": "(3.5, 3.5)",
+			"battle_size": 1.75,
+			"front": "res://assets/sprites/creatures/oxbowarchon.png",
+			"front_scale": "(2.5, 2.5)",
+			"id": 903,
+			"name": "Oxbowarchon"
+		}
+	]
+}

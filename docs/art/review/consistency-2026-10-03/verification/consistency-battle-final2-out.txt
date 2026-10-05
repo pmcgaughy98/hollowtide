@@ -1,0 +1,12 @@
+Welcome to Summer Engine (c) built on the awesome work by Godot 2007-present Juan Linietsky, Ariel Manzur & Godot Contributors.
+D3D12 12_0 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce GTX 1660 SUPER
+
+[SE] AuthManager: CLI credential found; desktop session exchange required
+[godot_ai game_helper] registered mcp capture (debugger active=false, logger=true)
+ATTACK_CHECK { "name": "foe-ultimate", "cracks_released": true, "texture_restored": true, "position_restored": true, "reversed_released": true, "head_finish_owner": true, "player_hp": 52, "foe_hp": 60 }
+ATTACK_CHECK { "name": "player-ultimate", "cracks_released": true, "texture_restored": true, "position_restored": true, "reversed_released": true, "head_finish_owner": true, "player_hp": 60, "foe_hp": 52 }
+ATTACK_CHECK { "name": "foe-cannon", "cracks_released": true, "texture_restored": true, "position_restored": true, "reversed_released": true, "head_finish_owner": true, "player_hp": 45, "foe_hp": 60 }
+ATTACK_CHECK { "name": "foe-plate-lunge", "cracks_released": true, "texture_restored": true, "position_restored": true, "reversed_released": true, "head_finish_owner": true, "player_hp": 48, "foe_hp": 60 }
+ATTACK_CHECK { "name": "foe-furnace-roar", "cracks_released": true, "texture_restored": true, "position_restored": true, "reversed_released": true, "head_finish_owner": true, "player_hp": 45, "foe_hp": 60 }
+ATTACK_CHECK { "name": "player-furnace-roar", "cracks_released": true, "texture_restored": true, "position_restored": true, "reversed_released": true, "head_finish_owner": true, "player_hp": 60, "foe_hp": 45 }
+CONSISTENCY_RUNTIME_COMPLETE 11

@@ -1,0 +1,21 @@
+{
+  "status": "succeeded",
+  "task_id": "2852abde-e5a5-4f75-94c4-baa6efc7afc8",
+  "created_at": 1791140873,
+  "updated_at": 1791140897,
+  "result": {
+    "tool_id": "outpainting",
+    "inference_id": "inf_ry1MDYEJzWjkgwx3yPaQZ7K9elBovAOn",
+    "balance_cost": 0.18,
+    "credit_cost": 20,
+    "charged": true,
+    "remaining_balance": 2.4000000000000026,
+    "output_width": 48,
+    "output_height": 76,
+    "toolId": "outpainting",
+    "inferenceId": "inf_ry1MDYEJzWjkgwx3yPaQZ7K9elBovAOn",
+    "balanceCost": 0.18,
+    "creditCost": 20
+  },
+  "output_sha256": "667a41d5874c1f335ae614a9d1cbed9efd9987b4aa2ca14753a8fe17e17987e5"
+}

@@ -1,0 +1,250 @@
+extends SceneTree
+
+const OUT := "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/menu-flow-review/"
+var checks: Array = []
+var snapshots: Array = []
+var mode := "baseline"
+var menu: Node
+var failed := false
+
+func _initialize() -> void:
+	DirAccess.make_dir_recursive_absolute(OUT)
+	var args := OS.get_cmdline_user_args()
+	if not args.is_empty():
+		mode = args[0]
+	call_deferred("_run")
+
+func _frames(count: int) -> void:
+	for i in count:
+		await process_frame
+
+func _key(code: Key) -> void:
+	var event := InputEventKey.new()
+	event.keycode = code
+	event.pressed = true
+	Input.parse_input_event(event)
+	await _frames(2)
+	event = InputEventKey.new()
+	event.keycode = code
+	event.pressed = false
+	Input.parse_input_event(event)
+	await _frames(2)
+
+func _joy(button: JoyButton) -> void:
+	var event := InputEventJoypadButton.new()
+	event.button_index = button
+	event.pressed = true
+	Input.parse_input_event(event)
+	await _frames(2)
+	event = InputEventJoypadButton.new()
+	event.button_index = button
+	event.pressed = false
+	Input.parse_input_event(event)
+	await _frames(2)
+
+func _click(at: Vector2) -> void:
+	var motion := InputEventMouseMotion.new()
+	motion.position = at
+	motion.global_position = at
+	Input.parse_input_event(motion)
+	await _frames(1)
+	var event := InputEventMouseButton.new()
+	event.position = at
+	event.global_position = at
+	event.button_index = MOUSE_BUTTON_LEFT
+	event.pressed = true
+	Input.parse_input_event(event)
+	await _frames(2)
+	event = InputEventMouseButton.new()
+	event.position = at
+	event.global_position = at
+	event.button_index = MOUSE_BUTTON_LEFT
+	event.pressed = false
+	Input.parse_input_event(event)
+	await _frames(2)
+
+func _focus() -> String:
+	var focused := root.gui_get_focus_owner()
+	return str(focused.get_path()) if focused != null else ""
+
+func _check(name: String, passed: bool, evidence: Variant = null) -> void:
+	checks.append({"name": name, "passed": passed, "evidence": evidence})
+	if not passed:
+		failed = true
+		push_error("MENU_CHECK_FAILED: " + name)
+	print("CHECK ", name, " ", passed, " ", evidence)
+
+func _snapshot(name: String) -> void:
+	await RenderingServer.frame_post_draw
+	var frame := Engine.get_process_frames()
+	var file := OUT + mode + "-" + name + ".png"
+	var image := root.get_texture().get_image()
+	var error := image.save_png(file)
+	var state: Dictionary = {"name": name, "image": file, "frame": frame, "focus": _focus(), "image_saved": error == OK}
+	if is_instance_valid(menu):
+		for property in ["_page", "_selected_courier", "_reduce_motion", "_time", "_master_volume", "_music_volume", "_leaving"]:
+			if property in menu:
+				state[property] = menu.get(property)
+		var courier := menu.get_node_or_null("CourierMenuIdle")
+		if courier != null:
+			state.courier_frame = courier.frame
+			state.courier_position = str(courier.position)
+		var creature := menu.get_node_or_null("CinderhideMenuIdle")
+		if creature != null:
+			state.creature_frame = creature.frame
+			state.creature_position = str(creature.position)
+		var panels: Dictionary = {}
+		for panel_name in ["MainChoices", "Journey", "Options", "QuitConfirmation"]:
+			var panel := menu.get_node_or_null("MenuUI/" + panel_name)
+			if panel != null and panel.visible:
+				var rect: Rect2 = panel.get_global_rect()
+				panels[panel_name] = str(rect)
+				_check(name + " " + panel_name + " in viewport", rect.position.x >= 0 and rect.position.y >= 0 and rect.end.x <= 1152 and rect.end.y <= 648, str(rect))
+		state.panels = panels
+	else:
+		state.scene = str(current_scene.get_path())
+		var player := current_scene.get_node_or_null("Player")
+		if player != null:
+			state.player_model = player.chibi_model
+			state.player_position = str(player.position)
+			state.player_texture = player.get_node("Sprite2D").texture.resource_path
+	snapshots.append(state)
+
+func _save() -> void:
+	var file := FileAccess.open(OUT + mode + "-results.json", FileAccess.WRITE)
+	file.store_string(JSON.stringify({"mode": mode, "checks": checks, "snapshots": snapshots, "failed": failed}, "\t"))
+	file.close()
+
+func _run() -> void:
+	seed(20261003)
+	root.size = Vector2i(1152, 648)
+	if mode == "female":
+		# Test fixture: this preference file was created by this task, initially absent.
+		# Normalize only the menu preferences before the keyboard checks.
+		var config := ConfigFile.new()
+		config.set_value("audio", "master", 100.0)
+		config.set_value("audio", "music", 100.0)
+		config.set_value("menu", "reduce_motion", false)
+		config.set_value("menu", "courier", "Male")
+		config.save("user://menu_preferences.cfg")
+		print("SETUP normalized task-created menu preferences")
+	menu = load("res://scenes/main_menu_art_preview.tscn").instantiate()
+	root.add_child(menu)
+	current_scene = menu
+	await _frames(240)
+	for method in ClassDB.class_get_method_list("SceneTree"):
+		if method.name == "change_scene_to_node":
+			print("SCENE_NODE_API ", method)
+	await _snapshot("main")
+	if mode == "baseline":
+		_save()
+		quit(0)
+		return
+	_check("initial focus New Game", _focus().ends_with("/NewGame"), _focus())
+	if mode == "female":
+		await _key(KEY_DOWN)
+		await _key(KEY_ENTER)
+		_check("keyboard opens Options", menu._page == "options", menu._page)
+		_check("options initial focus Master", _focus().ends_with("/MasterVolume"), _focus())
+		await _key(KEY_LEFT)
+		await _key(KEY_LEFT)
+		var master_slider := menu.get_node("MenuUI/Options/Choices/MasterVolume")
+		_check("keyboard Master volume", master_slider.value == 90, master_slider.value)
+		var bus := AudioServer.get_bus_index("Master")
+		_check("Master audio bus changed", is_equal_approx(AudioServer.get_bus_volume_db(bus), linear_to_db(0.9)), AudioServer.get_bus_volume_db(bus))
+		await _key(KEY_DOWN)
+		_check("Down reaches Music slider", _focus().ends_with("/MusicVolume"), _focus())
+		await _key(KEY_LEFT)
+		_check("Music volume changed", menu._music_volume == 95, menu._music_volume)
+		await _key(KEY_DOWN)
+		await _key(KEY_ENTER)
+		_check("Reduce Motion toggles", menu._reduce_motion, menu._reduce_motion)
+		await _snapshot("options")
+		var frozen_time: float = menu._time
+		var courier := menu.get_node("CourierMenuIdle")
+		var creature := menu.get_node("CinderhideMenuIdle")
+		var courier_frame: int = courier.frame
+		var creature_frame: int = creature.frame
+		var courier_at: Vector2 = courier.position
+		var creature_at: Vector2 = creature.position
+		await _frames(120)
+		_check("Reduced Motion freezes clock and both actors", menu._time == frozen_time and courier.frame == courier_frame and creature.frame == creature_frame and courier.position == courier_at and creature.position == creature_at)
+		await _key(KEY_DOWN)
+		_check("frozen menu focus still moves", _focus().ends_with("/Back"), _focus())
+		await _key(KEY_ESCAPE)
+		_check("Escape saves Options and returns focus", menu._page == "main" and _focus().ends_with("/Options"), _focus())
+		var config := ConfigFile.new()
+		var error := config.load("user://menu_preferences.cfg")
+		_check("Options persisted", error == OK and config.get_value("audio", "master") == 90 and config.get_value("audio", "music") == 95 and config.get_value("menu", "reduce_motion") == true)
+		await _key(KEY_UP)
+		await _key(KEY_ENTER)
+		_check("keyboard opens courier selection", menu._page == "journey", menu._page)
+		await _key(KEY_RIGHT)
+		_check("Right reaches Female", _focus().ends_with("/Female"), _focus())
+		await _key(KEY_ENTER)
+		_check("Female selected", menu._selected_courier == "Female", menu._selected_courier)
+		await _snapshot("couriers")
+		await _key(KEY_DOWN)
+		_check("Down reaches Begin", _focus().ends_with("/Begin"), _focus())
+		await _key(KEY_ENTER)
+		await _frames(30)
+		await _snapshot("fade")
+		await _frames(95)
+		_check("Female transition reaches route", is_instance_valid(current_scene) and current_scene.name == "FirstRoutePrototype", current_scene.name)
+		var player := current_scene.get_node("Player")
+		_check("Female applied before player ready", player.chibi_model == "Female" and player.get_node("Sprite2D").texture.resource_path.ends_with("female_chibi_walk_eight_directions_native80.png"), player.get_node("Sprite2D").texture.resource_path)
+		var before: Vector2 = player.position
+		Input.action_press("move_right")
+		await _frames(20)
+		Input.action_release("move_right")
+		await _frames(2)
+		_check("Female route walking works", player.position.x > before.x + 5, [str(before), str(player.position)])
+		await _snapshot("route")
+	elif mode == "male":
+		_check("fresh launch restores preferences", menu._master_volume == 90 and menu._music_volume == 95 and menu._reduce_motion and menu._selected_courier == "Female")
+		await _key(KEY_DOWN)
+		await _key(KEY_ENTER)
+		await _key(KEY_RIGHT)
+		await _key(KEY_RIGHT)
+		await _key(KEY_DOWN)
+		await _key(KEY_RIGHT)
+		await _key(KEY_DOWN)
+		await _key(KEY_ENTER)
+		_check("test preferences restored to defaults", menu._master_volume == 100 and menu._music_volume == 100 and not menu._reduce_motion)
+		await _key(KEY_ESCAPE)
+		await _key(KEY_DOWN)
+		await _key(KEY_ENTER)
+		_check("Quit confirmation defaults to safe choice", menu._page == "quit" and _focus().ends_with("/Back"), _focus())
+		await _snapshot("quit")
+		await _joy(JOY_BUTTON_B)
+		_check("controller Cancel returns to Quit choice", menu._page == "main" and _focus().ends_with("/Quit"), _focus())
+		await _key(KEY_DOWN)
+		await _joy(JOY_BUTTON_A)
+		_check("controller Accept opens courier selection", menu._page == "journey", menu._page)
+		var male := menu.get_node("MenuUI/Journey/Choices/Couriers/Male")
+		await _click(male.get_global_rect().get_center())
+		_check("mouse selects Male", menu._selected_courier == "Male", menu._selected_courier)
+		await _snapshot("couriers")
+		var begin := menu.get_node("MenuUI/Journey/Choices/Begin")
+		await _click(begin.get_global_rect().get_center())
+		await _frames(125)
+		var player := current_scene.get_node("Player")
+		_check("Male applied before player ready", player.chibi_model == "Male" and player.get_node("Sprite2D").texture.resource_path.ends_with("male_chibi_walk_matched_turns_native80.png"), player.get_node("Sprite2D").texture.resource_path)
+		var before: Vector2 = player.position
+		Input.action_press("move_right")
+		await _frames(20)
+		Input.action_release("move_right")
+		await _frames(2)
+		_check("Male route walking works", player.position.x > before.x + 5, [str(before), str(player.position)])
+		await _snapshot("route")
+	elif mode == "quit":
+		await _key(KEY_UP)
+		await _key(KEY_ENTER)
+		_check("Quit opens confirmation", menu._page == "quit", menu._page)
+		await _key(KEY_DOWN)
+		_check("Quit Game focus reachable", _focus().ends_with("/ConfirmQuit"), _focus())
+		_save()
+		await _key(KEY_ENTER)
+		return
+	_save()
+	quit(1 if failed else 0)

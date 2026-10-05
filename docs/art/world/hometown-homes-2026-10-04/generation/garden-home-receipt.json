@@ -1,0 +1,19 @@
+{
+  "status": "succeeded",
+  "task_id": "7343c192-49a2-4057-be9e-1ffa5b02df85",
+  "created_at": 1791142962,
+  "updated_at": 1791143005,
+  "result": {
+    "created_at": 1791143005,
+    "credit_cost": 1,
+    "balance_cost": 0.18,
+    "model": "rd_pro",
+    "remaining_credits": 0,
+    "remaining_balance": 2.04,
+    "request_id": "7343c192-49a2-4057-be9e-1ffa5b02df85",
+    "outputs_retained_until": 1791229362,
+    "output_url_expires_at": 1791144010
+  },
+  "output_file": "garden-home-source.png",
+  "output_sha256": "768b55089a0ff80c2c9ab726b89a27beadf7cd6a70fbc59aad70b50f4ad55d43"
+}

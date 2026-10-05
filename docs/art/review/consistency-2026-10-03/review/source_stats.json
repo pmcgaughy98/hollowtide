@@ -1,0 +1,128 @@
+[
+  {
+    "file": "C:\\Users\\pmcga\\dev\\hollowtide\\assets\\sprites\\creatures\\rd_material_match_2026_10_01\\vitrecrag_front.png",
+    "size": [
+      192,
+      192
+    ],
+    "colors": 41,
+    "opaque": 14123
+  },
+  {
+    "file": "C:\\Users\\pmcga\\dev\\hollowtide\\assets\\sprites\\creatures\\rd_material_match_2026_10_01\\vitrecrag_back.png",
+    "size": [
+      192,
+      192
+    ],
+    "colors": 31,
+    "opaque": 13749
+  },
+  {
+    "file": "C:\\Users\\pmcga\\dev\\hollowtide\\assets\\sprites\\creatures\\rd_material_match_2026_10_01\\vitrecrag_attacks\\f00.png",
+    "size": [
+      192,
+      192
+    ],
+    "colors": 32,
+    "opaque": 14123
+  },
+  {
+    "file": "C:\\Users\\pmcga\\dev\\hollowtide\\assets\\sprites\\creatures\\rd_material_match_2026_10_01\\vitrecrag_attacks\\f01.png",
+    "size": [
+      192,
+      192
+    ],
+    "colors": 29,
+    "opaque": 14110
+  },
+  {
+    "file": "C:\\Users\\pmcga\\dev\\hollowtide\\assets\\sprites\\creatures\\rd_material_match_2026_10_01\\vitrecrag_attacks\\f02.png",
+    "size": [
+      192,
+      192
+    ],
+    "colors": 29,
+    "opaque": 14121
+  },
+  {
+    "file": "C:\\Users\\pmcga\\dev\\hollowtide\\assets\\sprites\\creatures\\rd_material_match_2026_10_01\\vitrecrag_attacks\\f03.png",
+    "size": [
+      192,
+      192
+    ],
+    "colors": 30,
+    "opaque": 14581
+  },
+  {
+    "file": "C:\\Users\\pmcga\\dev\\hollowtide\\assets\\sprites\\creatures\\rd_material_match_2026_10_01\\vitrecrag_attacks\\f04.png",
+    "size": [
+      192,
+      192
+    ],
+    "colors": 32,
+    "opaque": 14302
+  },
+  {
+    "file": "C:\\Users\\pmcga\\dev\\hollowtide\\assets\\sprites\\creatures\\rd_material_match_2026_10_01\\vitrecrag_attacks\\f05.png",
+    "size": [
+      192,
+      192
+    ],
+    "colors": 31,
+    "opaque": 14364
+  },
+  {
+    "file": "C:\\Users\\pmcga\\dev\\hollowtide\\assets\\sprites\\creatures\\rd_material_match_2026_10_01\\vitrecrag_attacks\\f06.png",
+    "size": [
+      192,
+      192
+    ],
+    "colors": 32,
+    "opaque": 14516
+  },
+  {
+    "file": "C:\\Users\\pmcga\\dev\\hollowtide\\assets\\sprites\\creatures\\rd_material_match_2026_10_01\\vitrecrag_attacks\\f07.png",
+    "size": [
+      192,
+      192
+    ],
+    "colors": 32,
+    "opaque": 14506
+  },
+  {
+    "file": "C:\\Users\\pmcga\\dev\\hollowtide\\assets\\sprites\\creatures\\rd_material_match_2026_10_01\\vitrecrag_attacks\\f08.png",
+    "size": [
+      192,
+      192
+    ],
+    "colors": 31,
+    "opaque": 14428
+  },
+  {
+    "file": "C:\\Users\\pmcga\\dev\\hollowtide\\assets\\sprites\\creatures\\rd_material_match_2026_10_01\\vitrecrag_attacks\\f09.png",
+    "size": [
+      192,
+      192
+    ],
+    "colors": 29,
+    "opaque": 14060
+  },
+  {
+    "file": "C:\\Users\\pmcga\\dev\\hollowtide\\assets\\sprites\\creatures\\rd_material_match_2026_10_01\\vitrecrag_attacks\\f10.png",
+    "size": [
+      192,
+      192
+    ],
+    "colors": 31,
+    "opaque": 13943
+  },
+  {
+    "file": "C:\\Users\\pmcga\\dev\\hollowtide\\assets\\sprites\\creatures\\rd_material_match_2026_10_01\\vitrecrag_attacks\\f11.png",
+    "size": [
+      192,
+      192
+    ],
+    "colors": 29,
+    "opaque": 13972
+  }
+]

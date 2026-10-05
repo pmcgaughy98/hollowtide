@@ -1,5 +1,9 @@
 # Hollowtide opening chapter: production path
 
+## Current expansion direction — October 2, 2026
+
+Preston confirmed the opening sequence: an Elwood-inspired fictional hometown → Route 1 at the referenced levee entrance → river bridge → a St. Joseph-inspired fictional city with distinct sectors. Use Hollowtide names in-game; the real place names below are research references. Follow [the current hometown/route/bridge plan](route1-bridge-and-city-sector-plan-2026-10-02.md), informed by [verified research](../research/st-joseph-city-sectors-2026-10-02.md), ahead of conflicting destination/build-order proposals below. The compact map and delivery loop are verified; hometown/bridge/city maps are not built. Review the hometown exit and levee entrance, then a purposeful route approach and one small bridge/arrival loop before extending districts.
+
 **Working plan, 26 September 2026.** This is a sequence for building the first playable journey, not a new canon decision. Preston's current directions, `THE_CONCEPT.md`, and the living [world bible](world-bible.md) govern design choices. The [AI handoff](../AI_COLLABORATION.md) records shared ownership.
 
 ## Target
@@ -12,8 +16,8 @@ This opening is deliberately one finished local loop. The 20-line, 60-form roste
 
 - `scenes/main.tscn` is still the project start scene. It contains the existing player, Dex overlay, field creature, encounter trigger, battle screen, and party switch.
 - `scenes/first_route_prototype.tscn` is a separate courier route. Its script has dispatcher, marker, relay post, river and height-post interactions; Field Notes; party selection; and two report outcomes. A visible Cinderhide field encounter already lets the player battle or capture during this route. It is not yet the start scene.
-- `scripts/battle_screen.gd` has attack motion, hit stop, effects, capture, battle-win evolution for the approved Cinderhide line, an original river-landing study, stage focus motion, and continuous HP bars under the Main HUD art. The latest name and HP header layout has not yet been viewed in a fresh battle.
-- `scripts/player_party.gd` owns individual party slots, but `scripts/party_member.gd` currently stores species only. Individual HP, level, experience, and save data are still future systems.
+- `scripts/battle_screen.gd` has attack motion, hit stop, effects, capture, battle-win evolution for any owned form that has a link (`docs/creatures/evolution-and-signatures.md`), an original river-landing study, stage focus motion, and continuous HP bars under the Main HUD art. The latest name and HP header layout has not yet been viewed in a fresh battle.
+- `scripts/player_party.gd` owns individual party slots. `scripts/party_member.gd` stores the species and, after an evolution, that run's known moves. HP between battles, level, experience, and save data are still future systems. Claude still leads that state model.
 - All nine Ember forms have linked fronts and backs. Eight backs are approved matching views; Ironvent uses Preston's existing side-facing back provisionally, pending an in-battle review. Vitrecrag's approved front and rear use 128×128 native grids. Rimefin's legacy sprite is due for a Forge redraw. The [production board](../creatures/sprite-production-board.md) tracks one approved image at a time.
 
 ## Build order
@@ -30,7 +34,7 @@ Once the loop is readable, make the reviewed route the normal start of the game.
 
 ### 3. Make one complete creature line feel owned
 
-Keep the approved Cinderhide → Clinkerhide → Ironvent resource links and the existing four-move choices for each Ember form. The next systems design should specify when one owned creature retains HP and progression between encounters, when it evolves, and what a battle win changes. Claude leads the state model and scene relationships; Codex can implement the exact resource and UI edits after the rules are settled. Preston chose guards and interruptions for River Listener's eventual move kit; the [defensive move rules draft](../battle/defensive-move-rules-draft.md) records the combat extension that will be needed. Do not infer links for other draft lines from artwork alone.
+Keep the approved Cinderhide → Clinkerhide → Ironvent resource links and the moves those files already equip. Do not replace them from the proposal in `docs/creatures/legal-learnsets.md`. A win already evolves the fighter one stage when `evolves_into` is set. HP carries and is clamped. The new form gets its own legal kit. That rule is `docs/creatures/evolution-and-signatures.md`. What is still open, and still Claude's, is how one owned creature keeps HP and progression between encounters, and how any of that is saved. There are no levels until Preston adds them. Claude leads the state model and scene relationships; Codex can implement the exact resource and UI edits after those remaining rules are settled. Preston chose guards and interruptions for River Listener's eventual move kit; the [defensive move rules draft](../battle/defensive-move-rules-draft.md) records the combat extension that will be needed. Do not infer links for other draft lines from artwork alone.
 
 Preston's Forge workflow supplies creature art. Review the linked provisional Ironvent back in battle, then review Rimefin's redraw and its next two stages one form at a time. For each Stage II and III prompt, attach the immediately previous approved sprite so anatomy and palette carry through. Keep original Forge output, converted game PNG, and approval status separate.
 

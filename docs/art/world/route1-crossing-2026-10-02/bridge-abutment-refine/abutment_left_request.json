@@ -1,0 +1,9 @@
+{
+  "tool_id": "inpainting",
+  "input_file": "abutment_left_input.png",
+  "mask_file": "abutment_left_mask.png",
+  "prompt": "LEFT END OF BRIDGE. Pixel art. Repair the masked stone end of this horizontal wooden river bridge into one clean coherent bridge abutment. The bridge is viewed from above with a shallow south-facing front visible. Retain the two short masonry parapet pillars, one above the walking deck and one below it, and the narrow flush stone approach between them. Remove the pasted rectangular panels, protruding flat slab extensions, white seams, stray fragments and inconsistent block patterns. Redraw each stone pillar with a complete enclosed silhouette, a modest capstone top and a grounded stepped foot directly beneath it. Match the original bridge's finely drawn warm gray stone blocks, thin dark brown outlines, subdued three-tone shading and small crisp single-pixel texture. Existing wooden deck and railing retain their positions and native pixel scale. Keep the stone approach level with the wooden deck so a character can walk straight across. Upper-left light, slightly darker south faces. Both upper and lower pillars have fully finished corners. Keep generous plain white space around the entire silhouette. No extra structures, no black background, no floating plates, no oversized masonry, no blur.",
+  "soft_inpaint": false,
+  "seed": 20261003,
+  "custom_id": "hollowtide-abutment-left-20261003-0149"
+}

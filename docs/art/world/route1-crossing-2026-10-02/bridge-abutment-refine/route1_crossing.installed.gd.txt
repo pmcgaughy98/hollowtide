@@ -1,0 +1,327 @@
+extends Node2D
+
+## Route geography added around the preserved courier assignment.
+## Real-world place names stay in research; these are descriptive map labels.
+const WORLD_SIZE := Vector2i(1024, 640)
+const RIVER_LEFT := 448.0
+const RIVER_RIGHT := 672.0
+const BRIDGE_NORTH := 400.0
+const BRIDGE_SOUTH := 432.0
+const BRIDGE_ORIGIN := Vector2(416, 360)
+const BRIDGE_SOUTH_RAIL_ORIGIN := Vector2(560, 451)
+const BRIDGE = preload("res://assets/sprites/world/route1_crossing_2026_10_02/river_bridge_refined.png")
+const ROAD_SOIL = preload("res://assets/sprites/world/route1_crossing_2026_10_02/path_soil_native32.png")
+const GROUND = preload("res://assets/tilesets/route1_rd_2026_10_01/route1_ground_atlas_polished.png")
+const MARK = preload("res://assets/sprites/world/route1_rd_2026_10_01/marker.png")
+const FEMALE = preload("res://assets/sprites/player/retro_diffusion_chibi_walking_2026_10_01/female_chibi_walk_eight_directions_native80.png")
+const HALL = preload("res://assets/sprites/world/route1_rd_2026_10_02/dispatch_hall_complete.png")
+const TREE = preload("res://assets/sprites/world/route1_rd_2026_10_02/cottonwood_ridge.png")
+const SHRUB = preload("res://assets/sprites/world/route1_rd_2026_10_02/bank_shrub_5.png")
+const FONT = preload("res://assets/fonts/Silkscreen-Regular.ttf")
+
+var _route: Node2D
+var _clock := 0.0
+var _levee := PackedVector2Array([Vector2(184, 200), Vector2(184, 240), Vector2(208, 264), Vector2(264, 296), Vector2(328, 328), Vector2(392, 392), Vector2(432, 416), Vector2(448, 416)])
+
+
+func _ready() -> void:
+	_route = get_parent()
+	_extend_ground()
+	_build_levee_materials()
+	_build_city_road_surface()
+	_replace_bounds()
+	_build_wayfinding()
+	_build_arrival()
+	_build_bridge_front()
+	queue_redraw()
+
+
+func _extend_ground() -> void:
+	var terrain: TileMapLayer = _route.get_node("Terrain")
+	for x in range(64):
+		for y in range(40):
+			# The authored original 40x24 tile slice stays byte-for-byte in its scene.
+			if x < 40 and y < 24:
+				continue
+			var water := x >= 28 and x < 42
+			var tile := Vector2i((x + y) % 2, 6) if water else Vector2i((x * 3 + y) % 2, 0)
+			terrain.set_cell(Vector2i(x, y), 0, tile)
+	# Paths below the original slice and through the arrival courtyard.
+	_trail(terrain, Vector2i(42, 26), Vector2i(60, 26), 1)
+	_trail(terrain, Vector2i(50, 26), Vector2i(50, 30), 1)
+	_trail(terrain, Vector2i(55, 23), Vector2i(55, 33), 1)
+	for x in range(46, 59):
+		for y in range(26, 31):
+			terrain.set_cell(Vector2i(x, y), 0, Vector2i(11, 0))
+
+
+func _trail(terrain: TileMapLayer, start: Vector2i, end: Vector2i, radius: int) -> void:
+	var steps: int = maxi(absi(end.x - start.x), absi(end.y - start.y))
+	for beat in range(steps + 1):
+		var point := Vector2(start).lerp(Vector2(end), float(beat) / maxf(1.0, float(steps)))
+		for dx in range(-radius, radius + 1):
+			for dy in range(-radius, radius + 1):
+				var cell := Vector2i(roundi(point.x), roundi(point.y)) + Vector2i(dx, dy)
+				if cell.x < 28 or cell.x >= 42:
+					terrain.set_cell(cell, 0, Vector2i(11, 0))
+
+
+func _replace_bounds() -> void:
+	for old in ["RiverWall", "NorthWall", "SouthWall", "WestWall"]:
+		_route.get_node(old).queue_free()
+	var bounds := Node2D.new()
+	bounds.name = "CrossingBounds"
+	add_child(bounds)
+	# Water is solid except for the narrow bridge deck. Foot-sized player collision
+	# keeps the chibi body visually above the north rail and behind the south rail.
+	_obstacle(bounds, "WaterNorth", Vector2(560, BRIDGE_NORTH * 0.5), Vector2(224, BRIDGE_NORTH))
+	_obstacle(bounds, "WaterSouth", Vector2(560, (BRIDGE_SOUTH + 640.0) * 0.5), Vector2(224, 640.0 - BRIDGE_SOUTH))
+	_obstacle(bounds, "North", Vector2(512, -8), Vector2(1024, 16))
+	_obstacle(bounds, "South", Vector2(512, 648), Vector2(1024, 16))
+	_obstacle(bounds, "West", Vector2(-8, 320), Vector2(16, 640))
+	_obstacle(bounds, "East", Vector2(1032, 320), Vector2(16, 640))
+
+
+func _obstacle(parent: Node2D, label: String, at: Vector2, size: Vector2) -> void:
+	var body := StaticBody2D.new()
+	body.name = label
+	body.position = at
+	var shape := CollisionShape2D.new()
+	var rectangle := RectangleShape2D.new()
+	rectangle.size = size
+	shape.shape = rectangle
+	body.add_child(shape)
+	parent.add_child(body)
+
+
+func _sprite(label: String, texture: Texture2D, at: Vector2, offset: Vector2 = Vector2.ZERO) -> Sprite2D:
+	var sprite := Sprite2D.new()
+	sprite.name = label
+	sprite.texture = texture
+	sprite.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
+	sprite.position = at
+	sprite.offset = offset
+	_route.get_node("RouteDecor").add_child(sprite)
+	return sprite
+
+
+func _label(text: String, at: Vector2) -> void:
+	var label := Label.new()
+	label.text = text
+	label.position = at
+	label.add_theme_font_override("font", FONT)
+	label.add_theme_font_size_override("font_size", 8)
+	label.add_theme_color_override("font_color", Color("#e5ddba"))
+	label.add_theme_color_override("font_outline_color", Color("#293831"))
+	label.add_theme_constant_override("outline_size", 2)
+	add_child(label)
+
+
+func _build_wayfinding() -> void:
+	var route_mark := _sprite("LeveeEntranceMark", MARK, Vector2(216, 248), Vector2(0, -15))
+	route_mark.scale = Vector2.ONE * 0.75
+	_label("RIVER ROAD", Vector2(235, 235))
+	var tree := _sprite("CottonwoodLeveeFoot", TREE, Vector2(134, 478), Vector2(0, -41))
+	_obstacle(tree, "FootCollision", Vector2(0, -3), Vector2(10, 7))
+	_sprite("LowFieldShrub", SHRUB, Vector2(258, 522), Vector2(0, -14))
+
+
+func _build_arrival() -> void:
+	var hall := _sprite("CityCourierBranch", HALL, Vector2(816, 418), Vector2(0, -70))
+	hall.scale = Vector2.ONE * 0.75
+	_obstacle(hall, "FootCollision", Vector2(0, -46), Vector2(106, 84))
+	var clerk := _sprite("CityCourierClerk", FEMALE, Vector2(816, 456))
+	clerk.region_enabled = true
+	clerk.region_rect = Rect2(0, 0, 80, 80)
+	clerk.scale = Vector2.ONE * (30.0 / 64.0)
+	clerk.position = Vector2(816, 456)
+	clerk.offset = Vector2(0, -32)
+	_obstacle(clerk, "FootCollision", Vector2(0, -4), Vector2(16, 10))
+	var board := _sprite("CityDirectionBoard", MARK, Vector2(912, 424), Vector2(0, -15))
+	board.scale = Vector2.ONE * 0.75
+	_label("COURIER BRANCH", Vector2(767, 337))
+	_label("CITY ROUTES", Vector2(888, 392))
+	for at in [Vector2(726, 316), Vector2(950, 560), Vector2(914, 225)]:
+		var tree := _sprite("CityCottonwood%d" % int(at.x), TREE, at, Vector2(0, -41))
+		_obstacle(tree, "FootCollision", Vector2(0, -3), Vector2(10, 7))
+	_sprite("CityShrub", SHRUB, Vector2(714, 497), Vector2(0, -14))
+	_sprite("CityShrubEast", SHRUB, Vector2(970, 350), Vector2(0, -14))
+
+
+func _build_bridge_front() -> void:
+	# Only the south rail is in the foot-sorted foreground. Its deck and north
+	# rail draw below actors, so walking never puts the character under the floor.
+	var front := _sprite("BridgeSouthRail", BRIDGE, BRIDGE_SOUTH_RAIL_ORIGIN)
+	front.region_enabled = true
+	front.region_rect = Rect2(0, 70, 288, 42)
+
+
+func _process(delta: float) -> void:
+	_clock = fmod(_clock + delta, 30.0)
+	queue_redraw()
+
+
+func _draw() -> void:
+	# Center the deck on the water so both stone approaches overlap dry bank.
+	# Keep the underside shadow over water, without darkening the road shoulders.
+	draw_rect(Rect2(RIVER_LEFT, 432, RIVER_RIGHT - RIVER_LEFT, 14), Color(0.1, 0.17, 0.15, 0.15))
+	draw_texture(BRIDGE, BRIDGE_ORIGIN)
+	for y in range(32, 640, 56):
+		var drift := floorf(fmod(_clock + y * 0.05, 12.0))
+		for x in range(468, 664, 48):
+			if y >= 376 and y <= 460:
+				continue
+			draw_line(Vector2(x + drift, y), Vector2(x + drift + 10, y), Color(0.7, 0.8, 0.67, 0.16), 1, false)
+
+func _build_levee_materials() -> void:
+	# Keep the native pixel contour, then widen the entrance to the original lane.
+	for _pass_index in range(2):
+		var rounded := PackedVector2Array([_levee[0]])
+		for i in range(_levee.size() - 1):
+			rounded.append(_levee[i].lerp(_levee[i + 1], 0.25))
+			rounded.append(_levee[i].lerp(_levee[i + 1], 0.75))
+		rounded.append(_levee[-1])
+		_levee = rounded
+	_build_joined_road()
+
+
+func _road_contour() -> PackedVector2Array:
+	var left := PackedVector2Array()
+	var right := PackedVector2Array()
+	for i in range(_levee.size()):
+		var direction := (_levee[mini(i + 1, _levee.size() - 1)] - _levee[maxi(i - 1, 0)]).normalized()
+		var blend := smoothstep(216.0, 264.0, _levee[i].y)
+		var half_width := lerpf(24.0, 13.0, blend)
+		var normal := Vector2(-direction.y, direction.x) * half_width
+		left.append((_levee[i] + normal).round())
+		right.append((_levee[i] - normal).round())
+	right.reverse()
+	left.append_array(right)
+	return left
+
+
+func _mask_near(mask: PackedByteArray, size: Vector2i, at: Vector2i, radius: int, value: int) -> bool:
+	for dy in range(-radius, radius + 1):
+		for dx in range(-radius, radius + 1):
+			var x := at.x + dx
+			var y := at.y + dy
+			if x >= 0 and x < size.x and y >= 0 and y < size.y:
+				if mask[y * size.x + x] == value:
+					return true
+	return false
+
+
+func _build_joined_road() -> void:
+	# Draw the union of the new crest road and the authored lane at native pixels.
+	# Repeating world coordinates preserve the original 32px soil texture phase.
+	# Recompute their shared rim so the old end cap cannot cross the new entrance.
+	var terrain: TileMapLayer = _route.get_node("Terrain")
+	var atlas := GROUND.get_image()
+	var soil := ROAD_SOIL.get_image()
+	var area := Rect2i(144, 184, 320, 264)
+	var count := area.size.x * area.size.y
+	var new_mask := PackedByteArray()
+	var joined_mask := PackedByteArray()
+	new_mask.resize(count)
+	joined_mask.resize(count)
+	var contour := _road_contour()
+	var soil_colours := {0xad9873: true, 0xb3a078: true, 0xb7a57d: true, 0xbbaa80: true, 0xbfae84: true, 0xc3b389: true, 0x9d906a: true}
+	for y in range(area.size.y):
+		for x in range(area.size.x):
+			var world := area.position + Vector2i(x, y)
+			var index := y * area.size.x + x
+			var cell := Vector2i(floori(world.x / 16.0), floori(world.y / 16.0))
+			var tile := terrain.get_cell_atlas_coords(cell)
+			var old_road := false
+			if tile.x >= 0:
+				var pixel := atlas.get_pixelv(tile * 16 + Vector2i(world.x % 16, world.y % 16))
+				var colour_key := (pixel.r8 << 16) | (pixel.g8 << 8) | pixel.b8
+				old_road = soil_colours.has(colour_key)
+			new_mask[index] = int(Geometry2D.is_point_in_polygon(Vector2(world) + Vector2(0.5, 0.5), contour))
+			joined_mask[index] = int(old_road or new_mask[index] == 1)
+	var image := Image.create(area.size.x, area.size.y, false, Image.FORMAT_RGBA8)
+	image.fill(Color.TRANSPARENT)
+	for y in range(3, area.size.y - 3):
+		for x in range(3, area.size.x - 3):
+			var at := Vector2i(x, y)
+			var index := y * area.size.x + x
+			if not _mask_near(new_mask, area.size, at, 3, 1):
+				continue
+			if joined_mask[index] == 1:
+				var world := area.position + at
+				var colour := soil.get_pixel(world.x % 32, world.y % 32)
+				if _mask_near(joined_mask, area.size, at, 1, 0):
+					colour = Color("#9d906a")
+				image.set_pixelv(at, colour)
+			else:
+				image.set_pixelv(at, Color("#435e46"))
+	var surface := Sprite2D.new()
+	surface.name = "JoinedLeveeRoad"
+	surface.texture = ImageTexture.create_from_image(image)
+	surface.position = area.position
+	surface.centered = false
+	surface.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
+	surface.z_index = -1
+	add_child(surface)
+
+
+func _build_city_road_surface() -> void:
+	# A level landing widens from the bridge into the existing courtyard.
+	# Round the authored tile footprint, then use the same soil and turf as home.
+	var terrain: TileMapLayer = _route.get_node("Terrain")
+	var atlas := GROUND.get_image()
+	var soil := ROAD_SOIL.get_image()
+	var area := Rect2i(672, 336, 336, 240)
+	var mask := PackedByteArray()
+	var old_mask := PackedByteArray()
+	mask.resize(area.size.x * area.size.y)
+	old_mask.resize(mask.size())
+	for y in range(area.size.y):
+		for x in range(area.size.x):
+			var world := area.position + Vector2i(x, y)
+			var cell := Vector2i(floori(world.x / 16.0), floori(world.y / 16.0))
+			var index := y * area.size.x + x
+			old_mask[index] = int(terrain.get_cell_atlas_coords(cell) == Vector2i(11, 0))
+			mask[index] = old_mask[index]
+			if world.x < 720 and world.y >= 392 and world.y < 456:
+				var blend := smoothstep(696.0, 720.0, float(world.x))
+				var centre := lerpf(416.0, 424.0, blend)
+				var half_width := lerpf(13.0, 24.0, blend)
+				mask[index] = int(absf(float(world.y) + 0.5 - centre) <= half_width)
+	for _pass_index in range(8):
+		var rounded := mask.duplicate()
+		for y in range(1, area.size.y - 1):
+			for x in range(1, area.size.x - 1):
+				var index := y * area.size.x + x
+				var neighbours := 0
+				for dy in range(-1, 2):
+					for dx in range(-1, 2):
+						neighbours += mask[index + dy * area.size.x + dx]
+				rounded[index] = int(neighbours >= 5)
+		mask = rounded
+	var image := Image.create(area.size.x, area.size.y, false, Image.FORMAT_RGBA8)
+	image.fill(Color.TRANSPARENT)
+	for y in range(area.size.y):
+		for x in range(area.size.x):
+			var at := Vector2i(x, y)
+			var index := y * area.size.x + x
+			var world := area.position + at
+			var near_road := _mask_near(mask, area.size, at, 3, 1)
+			if mask[index] == 1:
+				var colour := soil.get_pixel(world.x % 32, world.y % 32)
+				if _mask_near(mask, area.size, at, 1, 0):
+					colour = Color("#9d906a")
+				image.set_pixelv(at, colour)
+			elif near_road:
+				image.set_pixelv(at, Color("#435e46"))
+			elif old_mask[index] == 1:
+				# Cover the former square corner with approved native grass.
+				image.set_pixelv(at, atlas.get_pixel(world.x % 32, world.y % 16))
+	var surface := Sprite2D.new()
+	surface.name = "JoinedCityLanding"
+	surface.texture = ImageTexture.create_from_image(image)
+	surface.position = area.position
+	surface.centered = false
+	surface.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
+	surface.z_index = -1
+	add_child(surface)

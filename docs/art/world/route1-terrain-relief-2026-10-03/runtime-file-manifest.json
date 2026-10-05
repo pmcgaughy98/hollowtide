@@ -1,0 +1,42 @@
+[
+  {
+    "file": "scripts/route1_crossing.gd",
+    "sha256": "c38ec618cc9f4ba63d2642e8c919a57d93442fb244e4be56d376a6d7fe63a5c8",
+    "bytes": 16767
+  },
+  {
+    "file": "scripts/route1_crossing.gd.uid",
+    "sha256": "1306f6aae37d817e410b966fcf10d90549bfdb8c2fa276cd064732b52db5e58e",
+    "bytes": 20
+  },
+  {
+    "file": "scripts/route1_terrain_relief.gd",
+    "sha256": "c8a2ab722e34618293b1be1ee4b801ba8fef64fa6838591ec0583b6ada191861",
+    "bytes": 1113
+  },
+  {
+    "file": "scripts/route1_terrain_relief.gd.uid",
+    "sha256": "76e9d53ec81e3c0ed67b69b78ad39c5cd18196f1c22b0ba01a6858ccf69a44ab",
+    "bytes": 20
+  },
+  {
+    "file": "assets/sprites/world/route1_terrain_relief_2026_10_03/levee_grass_slopes.png",
+    "sha256": "ebb8aa87ae04b7f3a2d8d9c44e2cf68e36640508bfd730c98c2f506f2686c786",
+    "bytes": 11227
+  },
+  {
+    "file": "assets/sprites/world/route1_terrain_relief_2026_10_03/levee_grass_slopes.png.import",
+    "sha256": "d66759b56004ec4b0e6ef5ff0551cfc8ebefd127d0ac5719bc5315b8db5e0125",
+    "bytes": 1013
+  },
+  {
+    "file": "assets/sprites/world/route1_terrain_relief_2026_10_03/rounded_dispatch_landing_paths.png",
+    "sha256": "aa6b983512245267297ec9625518809719e5c112d2180ac0f5069df091609191",
+    "bytes": 12373
+  },
+  {
+    "file": "assets/sprites/world/route1_terrain_relief_2026_10_03/rounded_dispatch_landing_paths.png.import",
+    "sha256": "56b8bec16b422d4fc8fc50753d0ff3a4715b9a52638568aaf3bd6647ac60a703",
+    "bytes": 1049
+  }
+]

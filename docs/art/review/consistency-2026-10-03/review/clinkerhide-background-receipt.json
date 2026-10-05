@@ -1,0 +1,12 @@
+{
+  "tool_id": "background_remover",
+  "inference_id": "inf_M0jyORNa2PWvmwZMA1KQdAe9bzn3rEYZ",
+  "balance_cost": 0.01,
+  "credit_cost": 2,
+  "charged": true,
+  "remaining_balance": 6.180000000000001,
+  "remaining_credits": null,
+  "output_urls": [
+    "https://da8ztllw6by0f.cloudfront.net/389e3fb6513b95b3a259fe19635f61a4.png"
+  ]
+}

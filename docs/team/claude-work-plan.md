@@ -5,6 +5,8 @@
 systems and battle architecture; Codex asset prep and wiring; Gemini research; Grok balance and
 non-creature art; Opal the Forges; Preston approves art, lore, move feel and releases).
 
+**2026-10-02.** Preston assigned Grok future creature and move rules. Read the top of `docs/AI_COLLABORATION.md` before this queue. The win trigger and the body gate are already in the scripts. HP between battles and saving are still open here. Do not rebuild evolution, and do not copy proposal stats or kit swaps into the creature files.
+
 **How to use it:** take the first task that is not done and not waiting on Preston. One task per session,
 ending in something he can press Play on. Mark it done here with the date and what was verified. If
 Preston asks for something else, his request wins; slot it in and carry on after.
@@ -33,7 +35,7 @@ Status keys: **NOW** in progress · **NEXT** ready · **WAIT** needs a Preston d
 | B1 | **Individual creature state.** `PartyMember` carries its own HP, move uses and placeholder level/XP; battle entry, exit, capture, fainting and switching update one individual. `CreatureData` stays species data. | NEXT (after A2 or A3) | HP carries from one encounter to the next. |
 | B2 | **Save and load.** Versioned save file with defaults for missing fields. | LATER | Quit, relaunch, same party and HP. |
 | B4 | **2v2 battles with an ally (campaign partner).** Replace the fixed one-player/one-foe fields in `battle_screen.gd` with battle slots (creature, sprite, home, facing, HP card, chosen action), then turn order across all slots, a target choice, ally AI, and two HP cards per side. The attack code is already slot-ready: every effect is placed from the attacker's and target's sprites (`_emitter_point`, mirroring, zoom), and the back view serves both you and an ally. Needs B1 first; slot positions need a Preston layout pass. | LATER (after B1) | A 2v2 preview where you and an ally each attack, from the back view, at two foes. |
-| B3 | **Evolution play review.** Keep the linked Cinderhide line's battle-win trigger for the run-local prototype (decision 2026-09-29). Individual state and a normal-battle review are still needed before a permanent progression rule. | NEXT after B1 | One normal battle shows the evolution and carries the owned creature's state. |
+| B3 | **Evolution play review.** The win trigger is already the rule for any form with `evolves_into` (`docs/creatures/evolution-and-signatures.md`, 2026-10-02). It was checked headless, not in a played battle. A normal battle still needs to show the change. Do not replace the trigger, and do not add levels. | NEXT after B1 | One normal battle shows the evolution and carries the owned creature's state. |
 
 ## Phase C: the first courier route (scope step 8)
 
@@ -53,7 +55,7 @@ Status keys: **NOW** in progress · **NEXT** ready · **WAIT** needs a Preston d
 
 ## Waiting on Preston (short list)
 
-1. **Decided for the current prototype on 2026-09-29:** keep the HUD-safe foot lines and size cap for big creatures; use a 2-pixel calculation margin and an 80% contact travel cap; retain battle-win evolution for the linked Cinderhide line; return normal Play to `main.tscn` after the active preview session. Details and engine observations are at the top of `docs/AI_COLLABORATION.md`.
+1. **Decided for the current prototype on 2026-09-29:** keep the HUD-safe foot lines and size cap for big creatures; use a 2-pixel calculation margin and an 80% contact travel cap; return normal Play to `main.tscn` after the active preview session. The Cinderhide-only evolution limit in this item was superseded on 2026-10-02. Any form with a link evolves on a win. Details are at the top of `docs/AI_COLLABORATION.md`.
 2. Still to review in play: contact crossing the player HP card, attack focus near the top edge, and the complete first-route loop before promoting it to normal Play.
 3. Names and lore for new forms and moves stay Preston's; Claude drafts proposals only when asked.
 

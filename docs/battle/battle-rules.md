@@ -1,5 +1,7 @@
 # Hollowtide battle rules, as the game runs them today
 
+Future creature and move numbers follow `docs/creatures/DESIGN_RULES.md` (Preston, 2026-10-02). The numbers below are still the placeholders the game runs until he approves a proposal.
+
 Written 2026-09-30 from the code, not from design notes. The numbers live in `scripts/battle_rules.gd`; the turn
 order lives in `scripts/battle_screen.gd` (`_on_move_pressed`). The balance simulator
 (`tools/balance_sim.gd`) runs these exact rules. Stats and powers here are placeholders until Preston approves real ones.
@@ -45,7 +47,7 @@ order lives in `scripts/battle_screen.gd` (`_on_move_pressed`). The balance simu
     default).
   - **Interrupt:** a hit that also cancels a slower opponent's committed move, if that move is marked interruptible.
   - The code supports guards and interrupts, but **no move uses either yet.**
-- **Signature** changes only presentation: the title card, music, camera and effects. It carries no rules bonus.
+- **Signature** in the code changes only presentation: the title card, music, camera and effects. It carries no rules bonus. As of 2026-10-02 that flag is an ultimate. It is not taught. The flag name was not renamed. Who can learn a non-ultimate move is `MoveGate` in `scripts/move_gate.gd`, from `CreatureData.body_parts` and `MoveData.required_parts`. The rule is `docs/creatures/evolution-and-signatures.md`.
 
 ## Catching
 - Chance = 20% at the wild creature's full HP, rising in a straight line to 80% at 0 HP.
@@ -53,11 +55,13 @@ order lives in `scripts/battle_screen.gd` (`_on_move_pressed`). The balance simu
 - A full party cannot catch; that costs nothing.
 
 ## Evolution
-- If your active creature defeats a wild creature and has an `evolves_into`, it evolves right after the win.
+- If your active creature defeats a wild creature and has an `evolves_into`, it evolves right after the win. One stage. No levels. The same rule applies to every form that has a link.
 - It keeps its current HP, capped at the new form's maximum. Evolution is not a free heal.
+- The new form arrives with its own legal moves. The old kit is not kept. There is no teach screen. `PlayerParty.try_learn` refuses a fifth move, an ultimate, and a move the body lacks.
+- Full rule: `docs/creatures/evolution-and-signatures.md`.
 
 ## Not in the game yet
-Levels and experience, stat growth, status effects, accuracy, critical hits, damage variance, items, switching
+Levels and experience, stat growth, status effects, accuracy, critical hits, damage variance, items, a teach screen, saving the party, switching
 creatures mid-battle, trainer battles and a smarter wild AI.
 
 ## What the first simulator run found (all stats at 60)

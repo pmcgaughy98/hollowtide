@@ -1,0 +1,20 @@
+extends SceneTree
+const OUT := "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/route1-startup-review/"
+func _initialize() -> void:
+	call_deferred("_run")
+func _run() -> void:
+	var samples: Array=[]
+	for i in 3:
+		var started:=Time.get_ticks_msec()
+		var route: Node2D=load("res://scenes/first_route_prototype.tscn").instantiate()
+		root.add_child(route);current_scene=route
+		var ready_ms:=Time.get_ticks_msec()-started
+		var bank: Sprite2D=route.get_node("RiverCrossing/Landscape/WetBankContours")
+		var river: Node=route.get_node("RiverCrossing")
+		samples.append({"iteration":i+1,"scene_ready_ms":ready_ms,"fresh_flags":not route.pouch_accepted and not route.report_done,"water_animation_running":river.is_processing(),"foliage_animation_running":river.get_node("Landscape").is_processing(),"bank_visible":bank.visible})
+		route.queue_free();current_scene=null
+		for beat in 8:await process_frame
+	var file:=FileAccess.open(OUT+"after-unmodified-startup-samples.json",FileAccess.WRITE)
+	file.store_string(JSON.stringify({"unmodified_runtime":true,"first_load_fresh_process":true,"samples":samples},"\t"))
+	print("UNMODIFIED_ROUTE_STARTUP ",samples)
+	quit()

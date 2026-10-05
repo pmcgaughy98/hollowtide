@@ -1,0 +1,10 @@
+{
+	"elapsed_scene_seconds": 2.5,
+	"fixed_fps": 60,
+	"fixture_only": true,
+	"passed": true,
+	"river_offset_end": "(0.0, 5.0)",
+	"river_offset_start": "(0.0, 0.0)",
+	"wind_clock_end": 2.68333333333333,
+	"wind_clock_start": 0.183333333333333
+}

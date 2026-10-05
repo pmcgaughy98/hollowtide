@@ -1,0 +1,30 @@
+{
+  "source_sha256": "614493f5d0aba2783467a3848ea7aa1e442c80a925e021e9ff4ee35b509cd70f",
+  "candidate_sha256": "0a62801df21614a195dd78532569ace531d288106b1f7daf95d34ec103c65dea",
+  "source_dimensions": [
+    160,
+    160
+  ],
+  "candidate_dimensions": [
+    160,
+    160
+  ],
+  "changed_pixels": 873,
+  "changed_outside_mask": 0,
+  "new_visible_pixels": 381,
+  "original_top": 16,
+  "new_top": 3,
+  "used_box": [
+    20,
+    3,
+    147,
+    142
+  ],
+  "changed_bbox": [
+    60,
+    3,
+    106,
+    30
+  ],
+  "magenta_pixels_in_patch": 0
+}

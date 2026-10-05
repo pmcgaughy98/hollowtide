@@ -1,0 +1,584 @@
+{
+	"engine_entrance_arrivals": [
+		{
+			"arrival": "(384.0, 848.0)",
+			"from": "riverfront",
+			"to": "historic_street"
+		},
+		{
+			"arrival": "(880.0, 48.0)",
+			"from": "historic_street",
+			"to": "riverfront"
+		},
+		{
+			"arrival": "(384.0, 848.0)",
+			"from": "riverfront",
+			"to": "historic_street"
+		},
+		{
+			"arrival": "(880.0, 48.0)",
+			"from": "historic_street",
+			"to": "riverfront"
+		}
+	],
+	"fixed_fps": 60,
+	"flags": {
+		"city_arrival_registered": true,
+		"city_directions_read": true,
+		"delivered": false,
+		"heard_calls": false,
+		"levee_entrance_read": false,
+		"marker_restored": false,
+		"pouch_accepted": false,
+		"report_done": false,
+		"reported_calls": false,
+		"reported_water_mark": false,
+		"water_mark_observed": false
+	},
+	"home_walk_frames_before_exit": 0,
+	"levee_sign_to_relay_walk_frames": 0,
+	"model": "Male",
+	"ordinary_input_only": true,
+	"passed": true,
+	"quest_overrides": 0,
+	"route_approach_walk_frames": 0,
+	"startup_ms": 0,
+	"steps": [
+		{
+			"area": "riverfront",
+			"frames": 47,
+			"from": "(320.0, 512.0)",
+			"walk": "(384.0, 512.0)"
+		},
+		{
+			"area": "riverfront",
+			"frames": 114,
+			"from": "(381.3338, 512.0)",
+			"walk": "(512.0, 456.0)"
+		},
+		{
+			"area": "riverfront",
+			"frames": 43,
+			"from": "(509.3507, 457.317)",
+			"walk": "(512.0, 400.0)"
+		},
+		{
+			"at": "(511.2363, 402.0977)",
+			"body": "CITY COURIER\nWelcome across the river. I have recorded your arrival at this branch. Bring your landing report back to the hometown dispatcher when you are ready. The direction board marks the streets into the city.\n\n[E] Continue",
+			"interaction": "CITY COURIER",
+			"passed": true
+		},
+		{
+			"area": "riverfront",
+			"frames": 40,
+			"from": "(511.2363, 402.0977)",
+			"walk": "(512.0, 456.0)"
+		},
+		{
+			"area": "riverfront",
+			"frames": 114,
+			"from": "(511.2363, 454.0981)",
+			"walk": "(640.0, 512.0)"
+		},
+		{
+			"area": "riverfront",
+			"frames": 133,
+			"from": "(638.4705, 510.6667)",
+			"walk": "(816.0, 512.0)"
+		},
+		{
+			"at": "(814.4678, 510.6667)",
+			"body": "CITY ROUTES\nThis riverfront branch marks your arrival in the city. The brick frontage and records house are local landmarks. The marked northern lane reaches the historic street, with its repaired shop, public ledger and courier board. The works, school and trade quarters will have separate entrances as they are built. Return west over the bridge for Route 1 and the hometown.\n\n[E] Continue",
+			"interaction": "CITY ROUTES",
+			"passed": true
+		},
+		{
+			"area": "riverfront",
+			"frames": 49,
+			"from": "(814.4678, 510.6667)",
+			"walk": "(880.0, 512.0)"
+		},
+		{
+			"area": "riverfront",
+			"frames": 335,
+			"from": "(878.4668, 510.6667)",
+			"walk": "(880.0, 64.0)"
+		},
+		{
+			"area": "riverfront",
+			"frames": 31,
+			"from": "(879.4096, 65.72228)",
+			"walk": "(880.0, 24.0)"
+		},
+		{
+			"entrance_from": "riverfront",
+			"flags_preserved": true,
+			"passed": true,
+			"selected_model": "Male",
+			"to": "historic_street"
+		},
+		{
+			"area": "historic_street",
+			"movement_frozen_and_resumed": true,
+			"panel": "_party_panel"
+		},
+		{
+			"area": "historic_street",
+			"frames": 137,
+			"from": "(384.0, 848.0)",
+			"walk": "(384.0, 664.0)"
+		},
+		{
+			"at": "(384.0, 666.6694)",
+			"body": "CITY ADDRESS CHECK\nThe branch has two address labels for the repaired shop. Compare the old doorway number with the public street ledger, then take the current address back to the city courier.\n\n[E] Continue",
+			"interaction": "CITY ADDRESS CHECK",
+			"passed": true
+		},
+		{
+			"area": "historic_street",
+			"frames": 24,
+			"from": "(384.0, 666.6694)",
+			"walk": "(416.0, 664.0)"
+		},
+		{
+			"area": "historic_street",
+			"frames": 138,
+			"from": "(413.8858, 664.7838)",
+			"walk": "(416.0, 480.0)"
+		},
+		{
+			"area": "historic_street",
+			"frames": 23,
+			"from": "(414.8286, 482.5097)",
+			"walk": "(384.0, 480.0)"
+		},
+		{
+			"area": "historic_street",
+			"frames": 39,
+			"from": "(386.2762, 480.6241)",
+			"walk": "(384.0, 428.0)"
+		},
+		{
+			"at": "(385.3333, 430.3476)",
+			"body": "REPAIR WORKSHOP\nTools hang in the display windows beneath a worn awning. The keeper is outside, within speaking distance of the doorway.\n\n[E] Continue",
+			"interaction": "REPAIR WORKSHOP",
+			"passed": true
+		},
+		{
+			"workshop_facade_collision": true
+		},
+		{
+			"area": "historic_street",
+			"frames": 53,
+			"from": "(385.3333, 408.0031)",
+			"walk": "(384.0, 480.0)"
+		},
+		{
+			"area": "historic_street",
+			"frames": 29,
+			"from": "(385.3333, 477.4086)",
+			"walk": "(424.0, 480.0)"
+		},
+		{
+			"area": "historic_street",
+			"frames": 31,
+			"from": "(421.8859, 479.2943)",
+			"walk": "(424.0, 438.0)"
+		},
+		{
+			"at": "(422.8287, 439.6845)",
+			"body": "WORKSHOP KEEPER\nThese buildings get new fittings without losing their old doorways. If a parcel label and a lintel disagree, the public ledger across the street has today's address.\n\n[E] Continue",
+			"interaction": "WORKSHOP KEEPER",
+			"passed": true
+		},
+		{
+			"keeper_hint_does_not_grant_observations": true
+		},
+		{
+			"area": "historic_street",
+			"frames": 30,
+			"from": "(422.8287, 439.6845)",
+			"walk": "(424.0, 480.0)"
+		},
+		{
+			"area": "historic_street",
+			"frames": 174,
+			"from": "(422.8287, 478.3514)",
+			"walk": "(656.0, 480.0)"
+		},
+		{
+			"area": "historic_street",
+			"frames": 176,
+			"from": "(653.1034, 479.2943)",
+			"walk": "(656.0, 244.0)"
+		},
+		{
+			"area": "historic_street",
+			"frames": 217,
+			"from": "(654.989, 246.7403)",
+			"walk": "(365.0, 244.0)"
+		},
+		{
+			"area": "historic_street",
+			"frames": 0,
+			"from": "(367.7711, 244.8547)",
+			"walk": "(365.0, 244.0)"
+		},
+		{
+			"at": "(367.7711, 244.8547)",
+			"body": "RESIDENTIAL DOORSTEP\nA small notice asks delivery runners to knock at each ground-floor door. The separate upstairs curtains and repaired thresholds show that the old row is still lived in.\n\n[E] Continue",
+			"interaction": "RESIDENTIAL DOORSTEP",
+			"passed": true
+		},
+		{
+			"residential_doorway_collision": true
+		},
+		{
+			"area": "historic_street",
+			"frames": 9,
+			"from": "(367.7711, 232.0032)",
+			"walk": "(365.0, 244.0)"
+		},
+		{
+			"area": "historic_street",
+			"frames": 178,
+			"from": "(365.8497, 241.9246)",
+			"walk": "(128.0, 244.0)"
+		},
+		{
+			"area": "historic_street",
+			"frames": 178,
+			"from": "(130.2399, 242.8674)",
+			"walk": "(128.0, 480.0)"
+		},
+		{
+			"area": "historic_street",
+			"frames": 71,
+			"from": "(129.297, 478.4785)",
+			"walk": "(224.0, 480.0)"
+		},
+		{
+			"area": "historic_street",
+			"frames": 38,
+			"from": "(222.2395, 479.4213)",
+			"walk": "(224.0, 428.0)"
+		},
+		{
+			"at": "(223.1823, 430.4781)",
+			"body": "PUBLIC STREET LEDGER\nOld doorway 6 and current street address 18 refer to the same shop. The street was renumbered; the old lintel was kept. Use 18 for a current courier handoff.\n\n[E] Continue",
+			"interaction": "PUBLIC STREET LEDGER",
+			"passed": true
+		},
+		{
+			"historic_ledger_facade_collision": true
+		},
+		{
+			"area": "historic_street",
+			"frames": 53,
+			"from": "(223.1823, 408.0031)",
+			"walk": "(224.0, 480.0)"
+		},
+		{
+			"area": "historic_street",
+			"frames": 241,
+			"from": "(223.1823, 477.4086)",
+			"walk": "(544.0, 480.0)"
+		},
+		{
+			"area": "historic_street",
+			"frames": 38,
+			"from": "(542.4026, 479.2943)",
+			"walk": "(544.0, 428.0)"
+		},
+		{
+			"at": "(543.3455, 430.3511)",
+			"body": "REPAIRED SHOP\nThe doorway lintel still carries 6. The new sign above the awning reads 18. The brick frontage is older than this shop's fittings; check the public ledger before choosing a route label.\n\n[E] Continue",
+			"interaction": "REPAIRED SHOP",
+			"passed": true
+		},
+		{
+			"area": "historic_street",
+			"frames": 37,
+			"from": "(543.3455, 430.3511)",
+			"walk": "(544.0, 480.0)"
+		},
+		{
+			"area": "historic_street",
+			"frames": 89,
+			"from": "(543.3455, 478.3514)",
+			"walk": "(424.0, 480.0)"
+		},
+		{
+			"area": "historic_street",
+			"frames": 31,
+			"from": "(426.4024, 479.2943)",
+			"walk": "(424.0, 438.0)"
+		},
+		{
+			"at": "(425.4596, 439.6845)",
+			"body": "WORKSHOP KEEPER\nYou have both versions now. Take the current street address to the courier at the riverfront branch; the older lintel can stay where it is.\n\n[E] Continue",
+			"interaction": "WORKSHOP KEEPER",
+			"passed": true
+		},
+		{
+			"keeper_reflects_checked_addresses": true
+		},
+		{
+			"area": "historic_street",
+			"movement_frozen_and_resumed": true,
+			"panel": "_notes_panel"
+		},
+		{
+			"historic_findings_in_shared_notes": true
+		},
+		{
+			"area": "historic_street",
+			"frames": 101,
+			"from": "(425.4596, 439.6845)",
+			"walk": "(544.0, 480.0)"
+		},
+		{
+			"area": "historic_street",
+			"frames": 94,
+			"from": "(542.3909, 479.2825)",
+			"walk": "(416.0, 480.0)"
+		},
+		{
+			"area": "historic_street",
+			"frames": 168,
+			"from": "(418.3906, 479.2825)",
+			"walk": "(416.0, 704.0)"
+		},
+		{
+			"area": "historic_street",
+			"frames": 71,
+			"from": "(417.4478, 701.556)",
+			"walk": "(384.0, 784.0)"
+		},
+		{
+			"area": "historic_street",
+			"frames": 63,
+			"from": "(385.3922, 781.6108)",
+			"walk": "(384.0, 866.0)"
+		},
+		{
+			"entrance_from": "historic_street",
+			"flags_preserved": true,
+			"passed": true,
+			"selected_model": "Male",
+			"to": "riverfront"
+		},
+		{
+			"area": "riverfront",
+			"frames": 347,
+			"from": "(880.0, 48.0)",
+			"walk": "(880.0, 512.0)"
+		},
+		{
+			"area": "riverfront",
+			"frames": 180,
+			"from": "(880.0, 509.3349)",
+			"walk": "(640.0, 512.0)"
+		},
+		{
+			"area": "riverfront",
+			"frames": 114,
+			"from": "(642.118, 511.2205)",
+			"walk": "(512.0, 456.0)"
+		},
+		{
+			"area": "riverfront",
+			"frames": 43,
+			"from": "(513.7123, 457.4803)",
+			"walk": "(512.0, 400.0)"
+		},
+		{
+			"wrong_old_number_keeps_activity_open": true
+		},
+		{
+			"current_number_verifies_handoff": true,
+			"original_route_flags_exact": true
+		},
+		{
+			"area": "riverfront",
+			"frames": 40,
+			"from": "(512.7695, 401.8704)",
+			"walk": "(512.0, 456.0)"
+		},
+		{
+			"area": "riverfront",
+			"frames": 113,
+			"from": "(512.7695, 453.8708)",
+			"walk": "(640.0, 512.0)"
+		},
+		{
+			"area": "riverfront",
+			"frames": 181,
+			"from": "(638.2798, 511.3822)",
+			"walk": "(880.0, 512.0)"
+		},
+		{
+			"area": "riverfront",
+			"frames": 365,
+			"from": "(878.2762, 511.3822)",
+			"walk": "(880.0, 24.0)"
+		},
+		{
+			"entrance_from": "riverfront",
+			"flags_preserved": true,
+			"passed": true,
+			"selected_model": "Male",
+			"to": "historic_street"
+		},
+		{
+			"cached_historic_area_and_verified_board": true
+		},
+		{
+			"area": "historic_street",
+			"frames": 23,
+			"from": "(384.0, 848.0)",
+			"walk": "(416.0, 848.0)"
+		},
+		{
+			"area": "historic_street",
+			"frames": 138,
+			"from": "(413.3336, 848.0)",
+			"walk": "(416.0, 664.0)"
+		},
+		{
+			"area": "historic_street",
+			"frames": 139,
+			"from": "(415.2192, 666.1171)",
+			"walk": "(416.0, 480.0)"
+		},
+		{
+			"area": "historic_street",
+			"frames": 6,
+			"from": "(415.2192, 482.1192)",
+			"walk": "(424.0, 480.0)"
+		},
+		{
+			"area": "historic_street",
+			"frames": 32,
+			"from": "(421.4954, 481.1764)",
+			"walk": "(424.0, 438.0)"
+		},
+		{
+			"at": "(423.381, 440.6238)",
+			"body": "WORKSHOP KEEPER\nThe shop route is marked eighteen now. A new fitting is useful, but you do not have to tear out the old stone to keep the street working.\n\n[E] Continue",
+			"interaction": "WORKSHOP KEEPER",
+			"passed": true
+		},
+		{
+			"keeper_reflects_verified_handoff": true
+		},
+		{
+			"area": "historic_street",
+			"frames": 29,
+			"from": "(423.381, 440.6238)",
+			"walk": "(424.0, 480.0)"
+		},
+		{
+			"area": "historic_street",
+			"frames": 233,
+			"from": "(423.381, 477.9575)",
+			"walk": "(112.0, 480.0)"
+		},
+		{
+			"area": "historic_street",
+			"frames": 179,
+			"from": "(114.4374, 478.9003)",
+			"walk": "(112.0, 240.0)"
+		},
+		{
+			"area": "historic_street",
+			"frames": 75,
+			"from": "(113.4946, 241.9558)",
+			"walk": "(104.0, 144.0)"
+		},
+		{
+			"area": "historic_street",
+			"frames": 25,
+			"from": "(105.0093, 146.8042)",
+			"walk": "(72.0, 144.0)"
+		},
+		{
+			"historic_canopy_after_return": true,
+			"opacity": 0.35
+		},
+		{
+			"area": "historic_street",
+			"frames": 22,
+			"from": "(73.79026, 144.9186)",
+			"walk": "(104.0, 144.0)"
+		},
+		{
+			"area": "historic_street",
+			"frames": 59,
+			"from": "(101.7903, 144.9186)",
+			"walk": "(104.0, 224.0)"
+		},
+		{
+			"historic_canopy_restored": true
+		},
+		{
+			"area": "historic_street",
+			"frames": 196,
+			"from": "(102.7331, 221.8611)",
+			"walk": "(112.0, 480.0)"
+		},
+		{
+			"area": "historic_street",
+			"frames": 84,
+			"from": "(111.2184, 478.348)",
+			"walk": "(168.0, 568.0)"
+		},
+		{
+			"area": "historic_street",
+			"frames": 78,
+			"from": "(166.8442, 565.9733)",
+			"walk": "(184.0, 664.0)"
+		},
+		{
+			"area": "historic_street",
+			"frames": 110,
+			"from": "(182.872, 661.9998)",
+			"walk": "(304.0, 728.0)"
+		},
+		{
+			"area": "historic_street",
+			"frames": 79,
+			"from": "(301.2595, 727.0537)",
+			"walk": "(384.0, 784.0)"
+		},
+		{
+			"area": "historic_street",
+			"frames": 62,
+			"from": "(382.2188, 782.6795)",
+			"walk": "(384.0, 866.0)"
+		},
+		{
+			"entrance_from": "historic_street",
+			"flags_preserved": true,
+			"passed": true,
+			"selected_model": "Male",
+			"to": "riverfront"
+		},
+		{
+			"area": "riverfront",
+			"frames": 347,
+			"from": "(880.0, 48.0)",
+			"walk": "(880.0, 512.0)"
+		},
+		{
+			"area": "riverfront",
+			"frames": 48,
+			"from": "(880.0, 509.3349)",
+			"walk": "(816.0, 512.0)"
+		},
+		{
+			"historic_complete_loop_preserves_primary_route_and_party": true
+		}
+	],
+	"test_teleports": 0
+}

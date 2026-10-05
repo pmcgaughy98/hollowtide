@@ -1,0 +1,22 @@
+[
+  {
+    "path": "assets/sprites/creatures/coalcrest_tail_root_repaired_2026_10_03/coalcrest_front.png",
+    "sha256": "ef0b461868aa9c7cdd5c0b6d1d02803df374e53b6771801d4cdbd374da5be133"
+  },
+  {
+    "path": "assets/sprites/creatures/coalcrest_tail_root_repaired_2026_10_03/coalcrest_back.png",
+    "sha256": "c43c8ce9074254a83d85474556312f976ea63a6051ca6eb3ac89d632f82a3404"
+  },
+  {
+    "path": "data/creatures/105_coalcrest.tres",
+    "sha256": "1c3de11a5d98dbacdac6e4754c9d1f055c798713634a54ba1f75cba32d74eac3"
+  },
+  {
+    "path": "assets/sprites/creatures/coalcrest_tail_root_repaired_2026_10_03/coalcrest_front.png.import",
+    "sha256": "4d0fb4fc11ae37c3ebe462f570376a84a3053b4f6856bce79dcfd143b2cf22e2"
+  },
+  {
+    "path": "assets/sprites/creatures/coalcrest_tail_root_repaired_2026_10_03/coalcrest_back.png.import",
+    "sha256": "e6423da1e2e9e94c975966ec341b68d8d9411475f923c5e9b95c29c39bff9376"
+  }
+]

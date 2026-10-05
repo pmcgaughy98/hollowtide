@@ -1,0 +1,43 @@
+extends SceneTree
+const OUT := "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/terrain-relief-review/"
+var route: Node2D
+func _initialize() -> void:
+	call_deferred("_run")
+func _capture(name: String, pos: Vector2, zoom: float) -> void:
+	var player: CharacterBody2D=route.get_node("Player")
+	player.position=pos
+	route.set_process(false)
+	var camera: Camera2D=player.get_node("Camera2D")
+	camera.position=Vector2.ZERO if zoom==1 else Vector2(0,-24)
+	camera.zoom=Vector2.ONE*zoom
+	camera.position_smoothing_enabled=false
+	camera.reset_smoothing()
+	for i in 12: await process_frame
+	await RenderingServer.frame_post_draw
+	root.get_texture().get_image().save_png(OUT+name+".png")
+func _run() -> void:
+	DirAccess.make_dir_recursive_absolute(OUT)
+	route=load("res://scenes/first_route_prototype.tscn").instantiate()
+	root.add_child(route)
+	current_scene=route
+	for i in 10: await process_frame
+	await _capture("baseline-overview",Vector2(512,320),1.0)
+	await _capture("baseline-entrance",Vector2(218,262),3.0)
+	await _capture("baseline-crest",Vector2(310,354),3.0)
+	await _capture("baseline-landing",Vector2(395,240),3.0)
+	var crossing: Node=route.get_node("RiverCrossing")
+	var candidate: Node2D=load("res://scripts/route1_terrain_relief.gd").new()
+	candidate.name="TerrainReliefCandidate"
+	candidate.z_index=-1
+	var started:=Time.get_ticks_msec()
+	crossing.add_child(candidate)
+	var build_ms:=Time.get_ticks_msec()-started
+	await _capture("candidate-overview",Vector2(512,320),1.0)
+	await _capture("candidate-entrance",Vector2(218,262),3.0)
+	await _capture("candidate-crest",Vector2(310,354),3.0)
+	await _capture("candidate-landing",Vector2(395,240),3.0)
+	var result: Dictionary={"fixture_only":true,"installed":false,"build_ms":build_ms,"slope_pixels":candidate.get("slope_pixel_count"),"rounded_lane_pixels":candidate.get("lane_corner_pixel_count"),"bank_face_pixels":candidate.get("bank_face_pixel_count"),"surfaces":candidate.get_child_count()}
+	var file:=FileAccess.open(OUT+"candidate-results.json",FileAccess.WRITE)
+	file.store_string(JSON.stringify(result,"\t"))
+	print("TERRAIN_CANDIDATE_REVIEW ",result)
+	quit()

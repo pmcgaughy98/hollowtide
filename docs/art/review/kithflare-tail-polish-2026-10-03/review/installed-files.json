@@ -1,0 +1,11 @@
+[
+  "assets/sprites/creatures/kithflare_tail_polish_2026_10_03/kithflare_front.png",
+  "assets/sprites/creatures/kithflare_tail_polish_2026_10_03/kithflare_back.png",
+  "assets/sprites/creatures/kithflare_tail_polish_2026_10_03/wayburn_front.png",
+  "assets/sprites/creatures/kithflare_tail_polish_2026_10_03/wayburn_back.png",
+  "assets/sprites/creatures/kithflare_tail_polish_2026_10_03/coalcrest_front.png",
+  "assets/sprites/creatures/kithflare_tail_polish_2026_10_03/coalcrest_back.png",
+  "data/creatures/103_kithflare.tres",
+  "data/creatures/104_wayburn.tres",
+  "data/creatures/105_coalcrest.tres"
+]

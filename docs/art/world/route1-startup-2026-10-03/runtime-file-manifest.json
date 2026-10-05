@@ -1,0 +1,62 @@
+[
+  {
+    "file": "scripts/route1_crossing.gd",
+    "sha256": "0e7a0e6fa65b3f699115180d819f91c71e2714a44415c63f4a3f1a136d728c51",
+    "bytes": 10190
+  },
+  {
+    "file": "scripts/route1_crossing.gd.uid",
+    "sha256": "1306f6aae37d817e410b966fcf10d90549bfdb8c2fa276cd064732b52db5e58e",
+    "bytes": 20
+  },
+  {
+    "file": "scripts/route1_landscape.gd",
+    "sha256": "64456afdff2872206c7666bbccd9303cafca6524aea82d32c0678f89cc42c416",
+    "bytes": 7195
+  },
+  {
+    "file": "scripts/route1_landscape.gd.uid",
+    "sha256": "a5179d77c36c468935773eb8f4deed2307343fdc79f554a117b56a02ebcf3072",
+    "bytes": 19
+  },
+  {
+    "file": "assets/sprites/world/route1_static_surfaces_2026_10_03/river_water_mask.png",
+    "sha256": "e66cde72f35700eea7910e00ed7cc6985eab6fd143d216815090c3851967981e",
+    "bytes": 2052
+  },
+  {
+    "file": "assets/sprites/world/route1_static_surfaces_2026_10_03/river_water_mask.png.import",
+    "sha256": "788a03a3d19c6b4125f5278f5e127250ce26a3132ac28bce659a9f55329f0704",
+    "bytes": 1008
+  },
+  {
+    "file": "assets/sprites/world/route1_static_surfaces_2026_10_03/joined_levee_road.png",
+    "sha256": "e22973b5c1bf154bc69562a7bf1ff17a0d2ada2fdffe00b43d1b1bbbf1327186",
+    "bytes": 7625
+  },
+  {
+    "file": "assets/sprites/world/route1_static_surfaces_2026_10_03/joined_levee_road.png.import",
+    "sha256": "2d93b82530090ff3e51d65a86616d6fc651847ce4100795e1d051df7dca4a47d",
+    "bytes": 1011
+  },
+  {
+    "file": "assets/sprites/world/route1_static_surfaces_2026_10_03/joined_city_landing.png",
+    "sha256": "404d9ebee56a320dfa5a46bcb7b8c942fcd1057279044dc640aed2e9270f9f99",
+    "bytes": 7149
+  },
+  {
+    "file": "assets/sprites/world/route1_static_surfaces_2026_10_03/joined_city_landing.png.import",
+    "sha256": "311626129246e10b134b4a83177a4a2481839dbe02f3a19a6fe5fefa04005780",
+    "bytes": 1017
+  },
+  {
+    "file": "assets/sprites/world/route1_static_surfaces_2026_10_03/wet_bank_contours.png",
+    "sha256": "925739998c2cc2a1ca9b9664b3c94abce7d6f06668806fc259ce8af08d724a38",
+    "bytes": 24959
+  },
+  {
+    "file": "assets/sprites/world/route1_static_surfaces_2026_10_03/wet_bank_contours.png.import",
+    "sha256": "e66850b739eb12a97a9bfd6484290b2612a306797a73368e33ce4c581440660c",
+    "bytes": 1010
+  }
+]

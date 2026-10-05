@@ -1,0 +1,33 @@
+{
+  "id": 2,
+  "jsonrpc": "2.0",
+  "result": {
+    "content": [
+      {
+        "text": "{\n  \"places\": [\n    {\n      \"place\": \"places/Ii4qLAoUChIJZ4n2f00EwIcRGNax-ZeSjiYSFAoSCf9edcTYGsCHEbqoG-bBXiXS\",\n      \"id\": \"Ii4qLAoUChIJZ4n2f00EwIcRGNax-ZeSjiYSFAoSCf9edcTYGsCHEbqoG-bBXiXS\",\n      \"location\": {\n        \"latitude\": 39.7333768,\n        \"longitude\": -94.9107797\n      },\n      \"googleMapsLinks\": {\n        \"directionsUrl\": \"https://www.google.com/maps/dir//39.7333768,-94.9107797/data=!4m5!4m4!1m1!4e2!1m0!3e0\",\n        \"placeUrl\": \"https://www.google.com/maps/place/Washington%20Township%2C%20KS%2066090\"\n      },\n      \"attribution\": {\n        \"title\": \"Elwood Gladden Levee - Google Maps\",\n        \"url\": \"https://www.google.com/maps/place/Washington%20Township%2C%20KS%2066090\"\n      }\n    }\n  ],\n  \"summary\": \"**Elwood Gladden Levee** [0] is a route located in Washington Township, Kansas.\"\n}\n",
+        "type": "text"
+      }
+    ],
+    "structuredContent": {
+      "places": [
+        {
+          "attribution": {
+            "title": "Elwood Gladden Levee - Google Maps",
+            "url": "https://www.google.com/maps/place/Washington%20Township%2C%20KS%2066090"
+          },
+          "googleMapsLinks": {
+            "directionsUrl": "https://www.google.com/maps/dir//39.7333768,-94.9107797/data=!4m5!4m4!1m1!4e2!1m0!3e0",
+            "placeUrl": "https://www.google.com/maps/place/Washington%20Township%2C%20KS%2066090"
+          },
+          "id": "Ii4qLAoUChIJZ4n2f00EwIcRGNax-ZeSjiYSFAoSCf9edcTYGsCHEbqoG-bBXiXS",
+          "location": {
+            "latitude": 39.7333768,
+            "longitude": -94.9107797
+          },
+          "place": "places/Ii4qLAoUChIJZ4n2f00EwIcRGNax-ZeSjiYSFAoSCf9edcTYGsCHEbqoG-bBXiXS"
+        }
+      ],
+      "summary": "**Elwood Gladden Levee** [0] is a route located in Washington Township, Kansas."
+    }
+  }
+}

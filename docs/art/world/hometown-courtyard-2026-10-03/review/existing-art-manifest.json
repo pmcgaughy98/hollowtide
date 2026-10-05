@@ -1,0 +1,2310 @@
+[
+  {
+    "file": "assets/sprites/creatures/cinderhide.png",
+    "sha256": "4c6403594e71a93c698e453a7aef62df44bbb2c4e03cbda1ad130fe274a5e22e"
+  },
+  {
+    "file": "assets/sprites/creatures/cinderhide_back.png",
+    "sha256": "4c523a530665ea29322c72b18b492150afffbfae7c109bb466dbed3d49f49988"
+  },
+  {
+    "file": "assets/sprites/creatures/clinkerhide.png",
+    "sha256": "1e64190c2333e0e6d5330f3ce6e35dee7727e46c9566d67ec816cd967e17afe5"
+  },
+  {
+    "file": "assets/sprites/creatures/clinkerhide_rd_8dir_2026_10_01.png",
+    "sha256": "ca80f1e62e18a2fca69b7b78eafd21e1bbabdf5052ba9eca68cedb2694881dd6"
+  },
+  {
+    "file": "assets/sprites/creatures/clinkerhide_rd_back_2026_10_01.png",
+    "sha256": "f665ad9e5d4dc6a4b68e6b9b61625924e506656ba15aaefccefeba6ddf3469e9"
+  },
+  {
+    "file": "assets/sprites/creatures/coalcrest_rd_8dir_2026_10_01.png",
+    "sha256": "4ad5aad4d17b70ae8f428fcc6394930b1421f28f4831755ce4726eadfc5930a7"
+  },
+  {
+    "file": "assets/sprites/creatures/coalcrest_rd_back_2026_10_01.png",
+    "sha256": "ba7eb9c03ac2327d8e28c5c9534f8908964d2dd7ad99cc3de21ffa86270cb5e4"
+  },
+  {
+    "file": "assets/sprites/creatures/coalcrest_rd_front_2026_10_01.png",
+    "sha256": "614493f5d0aba2783467a3848ea7aa1e442c80a925e021e9ff4ee35b509cd70f"
+  },
+  {
+    "file": "assets/sprites/creatures/coalcrest_rear_2026_09_27.png",
+    "sha256": "22cb93f55e334f2b62bd9fc17e8bddca3c65a3d4f49ccdcc93f3ce31bd339f00"
+  },
+  {
+    "file": "assets/sprites/creatures/coalcrest_redesign_front.png",
+    "sha256": "37246e26a395f16a15de982a2be3ac540cf411bca34a8cac418654bc9ed27bed"
+  },
+  {
+    "file": "assets/sprites/creatures/fusern.png",
+    "sha256": "1b66c8c58d27f7fb93e936c45416596dd0d688ea84aea40ba31f0315df90422e"
+  },
+  {
+    "file": "assets/sprites/creatures/fusern_rd_8dir_2026_10_01.png",
+    "sha256": "14d831368f58931e9e7ecbedeb6542bdd00e35c2291a27417b0dbd1aeec2ef25"
+  },
+  {
+    "file": "assets/sprites/creatures/fusern_rd_back_2026_10_01.png",
+    "sha256": "058da16fe1d7543dfb2d12c479c4908f5636f8fca6f3fe2dda2e170ef1200f36"
+  },
+  {
+    "file": "assets/sprites/creatures/fusern_rd_front_2026_10_01.png",
+    "sha256": "afceef0009c2da9fe9ade7bc8ae415460149f95ceb9fde8c75a83bf7c99e642c"
+  },
+  {
+    "file": "assets/sprites/creatures/ironvent.png",
+    "sha256": "70a6346602a8a6bf7c798304b9a9153dc73232c7f42847ff312962f5c761db7c"
+  },
+  {
+    "file": "assets/sprites/creatures/ironvent_back_2026_09_27.png",
+    "sha256": "556c783f4923d9f167efbf7a4646a9c1d4a03e83042289a6a904cae0e42b8a06"
+  },
+  {
+    "file": "assets/sprites/creatures/ironvent_claw_6.png",
+    "sha256": "3fe48d61bd1322a7edbb56d40959a9aa9cf2209e9b42eae1b6dcca6e7802d0ad"
+  },
+  {
+    "file": "assets/sprites/creatures/kithflare.png",
+    "sha256": "fd9327abc43b79b265766a3fdfb888e0586f57b0a5ec196b5d4a08dab520107b"
+  },
+  {
+    "file": "assets/sprites/creatures/kithflare_back.png",
+    "sha256": "d748e92260ef091160426d8f72d405e97d1c42f5ee187387243c3f96ac53f365"
+  },
+  {
+    "file": "assets/sprites/creatures/kithflare_rd_8dir_2026_10_01.png",
+    "sha256": "89a4c4e2e5ab8c61c38614ab4c4693fd453aad76e7c873f97fc3445470a0924b"
+  },
+  {
+    "file": "assets/sprites/creatures/kithflare_rd_back_2026_10_01.png",
+    "sha256": "5280e267aa19cb72892e10de4b128564c230eaff803d914c1cc0fd03bd98d7d1"
+  },
+  {
+    "file": "assets/sprites/creatures/kithflare_rd_front_2026_10_01.png",
+    "sha256": "0cf0c7788bfe0d33715ac8d7a95ee9b8944859ea50b02d9d0c9be19baaa3923c"
+  },
+  {
+    "file": "assets/sprites/creatures/kithflare_redesign_back.png",
+    "sha256": "f51fccedfa1c5d32108a1f65b8e8eb89638f2aa6a463f66f507c9bf9f387f05d"
+  },
+  {
+    "file": "assets/sprites/creatures/kithflare_redesign_front.png",
+    "sha256": "8cf01bd7bcf908a665e894aa0d45cb7aa81d2a3882f713b4af0d9909b0742cf4"
+  },
+  {
+    "file": "assets/sprites/creatures/oxbowarchon.png",
+    "sha256": "0638f8c032019075b66c2675637c3aebadfdd71e609b78ca75469dc475d007ea"
+  },
+  {
+    "file": "assets/sprites/creatures/oxbowarchon_back.png",
+    "sha256": "5c77dbba3ac378a8093c37e908a8f596f0e359ae05b479fda4f9f4a6a76f9ced"
+  },
+  {
+    "file": "assets/sprites/creatures/oxbowarchon_style_candidate_2026_09_29.png",
+    "sha256": "d9684cb7f60571e18ed941ca82e557ead86bba40494482d9ff943f3178062b07"
+  },
+  {
+    "file": "assets/sprites/creatures/rimefin.png",
+    "sha256": "4bdea8e6e5937fe60f199d32fbc6cb0bb90a4e5a5b1ef01d2cf648e119fce58d"
+  },
+  {
+    "file": "assets/sprites/creatures/rimefin_rd_8dir_2026_10_01.png",
+    "sha256": "da4fae91a221d4d0e62148006c96465861a818caa06558b945675571808acfe1"
+  },
+  {
+    "file": "assets/sprites/creatures/rimefin_rd_back_2026_10_01.png",
+    "sha256": "1ad280d3ed8c147b0dda2a7ee9d4216e50927c17bfc5cd28290aa1eac088e592"
+  },
+  {
+    "file": "assets/sprites/creatures/slagglass.png",
+    "sha256": "6c17465803e37783ed5104af79f228c0c5c3bd210c4aa0325f339061ee20bdf5"
+  },
+  {
+    "file": "assets/sprites/creatures/slagglass_back.png",
+    "sha256": "82302d4387b3d5d920bef7c68f90d7d140f3d8422d344db0133d28e592a3fb0b"
+  },
+  {
+    "file": "assets/sprites/creatures/slagglass_head_right.png",
+    "sha256": "041c321271cc3844ab7e8cb4a455be61a0e2dcd5aa47d00417ec539e33517d69"
+  },
+  {
+    "file": "assets/sprites/creatures/slagglass_rd_8dir_2026_10_01.png",
+    "sha256": "e5ac14977d49c60697a6d9656a72eedeebf3a6e93ff07196dce18109909f6727"
+  },
+  {
+    "file": "assets/sprites/creatures/slagglass_rd_back_2026_10_01.png",
+    "sha256": "be6ddc03a6a4b0ca802b54e4983c153cca6ced3f7198da8a200dc94587f4904c"
+  },
+  {
+    "file": "assets/sprites/creatures/slagglass_rd_front_2026_10_01.png",
+    "sha256": "1ea2cdf5f07e0739999db7748c12ef7638d3484f85ba4ecd4d435f12b1962f1c"
+  },
+  {
+    "file": "assets/sprites/creatures/slagglass_true_rear.png",
+    "sha256": "aae5d17e99f9f899a8694bd6ff07f72f3e24dc4199d67a6714a7406c997c556c"
+  },
+  {
+    "file": "assets/sprites/creatures/vitrecrag_back_official_2026_09_30.png",
+    "sha256": "6bb676fd657adfab9b8e84cc4a90b206ce3d3f3234b395cfb9aa61a1b8d5c061"
+  },
+  {
+    "file": "assets/sprites/creatures/vitrecrag_official.png",
+    "sha256": "71724e731a2a385fc6e2152fa6941b5d5eec1874bfa745a481a99f87f7c7d045"
+  },
+  {
+    "file": "assets/sprites/creatures/vitrecrag_rd_8dir_2026_10_01.png",
+    "sha256": "8f49266c42c91fd7a140e9aec1ef6153de8643135867c721b4e0e17e2c828663"
+  },
+  {
+    "file": "assets/sprites/creatures/vitrecrag_rd_back_2026_10_01.png",
+    "sha256": "b7a23d05a6e2e8f24ef5b746aeaddb66677b6cd5a30d930f8d05027f6ae862ff"
+  },
+  {
+    "file": "assets/sprites/creatures/vitrecrag_rd_front_2026_10_01.png",
+    "sha256": "5ecf84baa63140566d2397455b441eabe1140fb3b1493bf23fb90da06b135f87"
+  },
+  {
+    "file": "assets/sprites/creatures/vitrecrag_rear_2026_09_27.png",
+    "sha256": "410aa5b02cacb63082a7c15f8b950801bbe11c038491e5ee349db3c60a904a75"
+  },
+  {
+    "file": "assets/sprites/creatures/vitrecrag_rear_palette_snapped_candidate.png",
+    "sha256": "f214042f8bd99027a8c4469a4fba82727cae1e17972ef418c212465143ae93bb"
+  },
+  {
+    "file": "assets/sprites/creatures/wayburn_front_2026_09_27.png",
+    "sha256": "ad0130f958161c16eb82b1af5d41daa226130118cbdb304c1c0cbc983d84c096"
+  },
+  {
+    "file": "assets/sprites/creatures/wayburn_rd_8dir_2026_10_01.png",
+    "sha256": "29027f1d1f8d4367decc78834a055674a2b9d279b18a873a95fe67ecd266575d"
+  },
+  {
+    "file": "assets/sprites/creatures/wayburn_rd_back_2026_10_01.png",
+    "sha256": "9ef2493c2b49187a15ecdb993d3fa14d8bdd9e12989e864d6a39c044c2aacb17"
+  },
+  {
+    "file": "assets/sprites/creatures/wayburn_rd_front_2026_10_01.png",
+    "sha256": "18cc5a1ca548e2a73b8af29ee7d2f8998cdff28c39b9c0032b1e0e295ba54026"
+  },
+  {
+    "file": "assets/sprites/creatures/wayburn_rear_2026_09_27.png",
+    "sha256": "6d31357afad0db36863a627e8035e79fe5cb61117717d098618ffe934416d3a5"
+  },
+  {
+    "file": "assets/sprites/creatures/clinkerhide_selected_rear_2026_10_03/clinkerhide_back_matched_native100.png",
+    "sha256": "f8c7b6f2c330779ad76717d04eda28ad66d7e45fe1bff1eeab9ea46f2a1989ba"
+  },
+  {
+    "file": "assets/sprites/creatures/clinkerhide_selected_rear_2026_10_03/clinkerhide_back_native100.png",
+    "sha256": "c7e19195253756568bb6373fe2c858f06175d049cf310bbd3f93c4bb0a3734a0"
+  },
+  {
+    "file": "assets/sprites/creatures/idle/vitrecrag_idle_12.png",
+    "sha256": "4ac11802c1fb0ee74bf823ab9b5ef3cf1143d86e04b8869eb659c14949a89a9e"
+  },
+  {
+    "file": "assets/sprites/creatures/idle/vitrecrag_idle_continuation_2.png",
+    "sha256": "4d0ab3972ab9fc503358cbfff1ac17efc3b1c7221c42801cacf35af7fc4c8a76"
+  },
+  {
+    "file": "assets/sprites/creatures/rd_material_match_2026_10_01/coalcrest_8dir.png",
+    "sha256": "dc7eb463e9af51ccc0a98569f7d32b7431d55d32a4c9b708f3b6c27b48bd2e02"
+  },
+  {
+    "file": "assets/sprites/creatures/rd_material_match_2026_10_01/coalcrest_back.png",
+    "sha256": "81db137f797236e8a24a4fe5f84b33c98ef278cc789933601af2fbefc03b5913"
+  },
+  {
+    "file": "assets/sprites/creatures/rd_material_match_2026_10_01/coalcrest_front.png",
+    "sha256": "614493f5d0aba2783467a3848ea7aa1e442c80a925e021e9ff4ee35b509cd70f"
+  },
+  {
+    "file": "assets/sprites/creatures/rd_material_match_2026_10_01/fusern_8dir.png",
+    "sha256": "24f68aa528693d6a85f365ff7e0aec62f92c213c0fc0969b9add7c8a217045eb"
+  },
+  {
+    "file": "assets/sprites/creatures/rd_material_match_2026_10_01/fusern_back.png",
+    "sha256": "1717eba8149cc19e46c3052921e446d43ef8bef9028ea1f31cba8024874d1168"
+  },
+  {
+    "file": "assets/sprites/creatures/rd_material_match_2026_10_01/fusern_front.png",
+    "sha256": "afceef0009c2da9fe9ade7bc8ae415460149f95ceb9fde8c75a83bf7c99e642c"
+  },
+  {
+    "file": "assets/sprites/creatures/rd_material_match_2026_10_01/kithflare_8dir.png",
+    "sha256": "352c6f8b6cb4a03b320b29540d28fa8e1b5b58979198b86e2cabb1a57e79d76a"
+  },
+  {
+    "file": "assets/sprites/creatures/rd_material_match_2026_10_01/kithflare_back.png",
+    "sha256": "14d3500ba30d37bf2650d09399a41fa6a658e758c4dd6a7a10121ab72a00f52b"
+  },
+  {
+    "file": "assets/sprites/creatures/rd_material_match_2026_10_01/kithflare_front.png",
+    "sha256": "0cf0c7788bfe0d33715ac8d7a95ee9b8944859ea50b02d9d0c9be19baaa3923c"
+  },
+  {
+    "file": "assets/sprites/creatures/rd_material_match_2026_10_01/slagglass_8dir.png",
+    "sha256": "5920a55a583e12ed2680381b675bff5cfa1f9f5f5de0d155c557655ba35107f6"
+  },
+  {
+    "file": "assets/sprites/creatures/rd_material_match_2026_10_01/slagglass_back.png",
+    "sha256": "db96918e5864c60ec4ad799f632ad0aef273e4bb23dc51b090d6a2a711485cd9"
+  },
+  {
+    "file": "assets/sprites/creatures/rd_material_match_2026_10_01/slagglass_front.png",
+    "sha256": "1ea2cdf5f07e0739999db7748c12ef7638d3484f85ba4ecd4d435f12b1962f1c"
+  },
+  {
+    "file": "assets/sprites/creatures/rd_material_match_2026_10_01/vitrecrag_8dir.png",
+    "sha256": "d774ee05b59ca400b645354337684d49d12ff991a3f69c0b635197214c6d7b38"
+  },
+  {
+    "file": "assets/sprites/creatures/rd_material_match_2026_10_01/vitrecrag_back.png",
+    "sha256": "377a09711454457eff693ffab0d6fd67039b8ba8b80d4326cc179a07f60d4735"
+  },
+  {
+    "file": "assets/sprites/creatures/rd_material_match_2026_10_01/vitrecrag_front.png",
+    "sha256": "5ecf84baa63140566d2397455b441eabe1140fb3b1493bf23fb90da06b135f87"
+  },
+  {
+    "file": "assets/sprites/creatures/rd_material_match_2026_10_01/wayburn_8dir.png",
+    "sha256": "ca654bb456f2a2131aaf37d3b01ad12c9cfbc9e0df158ae3fcc7af39402cb9e6"
+  },
+  {
+    "file": "assets/sprites/creatures/rd_material_match_2026_10_01/wayburn_back.png",
+    "sha256": "9a1460537d2f5a34676d7e005259d8f62cf9c5091a4878fe6b14386fb2d2022c"
+  },
+  {
+    "file": "assets/sprites/creatures/rd_material_match_2026_10_01/wayburn_front.png",
+    "sha256": "18cc5a1ca548e2a73b8af29ee7d2f8998cdff28c39b9c0032b1e0e295ba54026"
+  },
+  {
+    "file": "assets/sprites/creatures/rig_pilot/cinderhide_back_body_visible.png",
+    "sha256": "3c93d13a16e5b5307dfdf2e70d6e1378707651cd371c74e098d659dfb61f7791"
+  },
+  {
+    "file": "assets/sprites/creatures/rig_pilot/cinderhide_back_head_visible.png",
+    "sha256": "7b942008605c8bbac376c5ccab7cde7b4537f1b3dc78a16691c301ec0631faa4"
+  },
+  {
+    "file": "assets/sprites/creatures/rig_pilot/cinderhide_body_visible.png",
+    "sha256": "81a245aeeb4e54be970d57e92bef5a9e44fcd7a3e6656171fdd7108a07a02f46"
+  },
+  {
+    "file": "assets/sprites/creatures/rig_pilot/cinderhide_head_visible.png",
+    "sha256": "46fb08d63f7f9e1b686b093379c5707f5e8d85cd6e367c6a6a5b3bd9bfc56536"
+  },
+  {
+    "file": "assets/sprites/creatures/rig_pilot/clinkerhide_back_body_visible.png",
+    "sha256": "8222df13d506145581f808b767435a9a6a949879709348bdb41075b70aa8a7f8"
+  },
+  {
+    "file": "assets/sprites/creatures/rig_pilot/clinkerhide_back_head_visible.png",
+    "sha256": "7649d29dabeab318463ee733a8ecb4159f3786bd2c8f1d6d15a765b70133ccad"
+  },
+  {
+    "file": "assets/sprites/creatures/rig_pilot/clinkerhide_back_source_candidate.png",
+    "sha256": "ae277acdad0769252afc81250322515ab432d4a6ba940b73265b5600f8bb72d4"
+  },
+  {
+    "file": "assets/sprites/creatures/rig_pilot/clinkerhide_body_visible.png",
+    "sha256": "2b0fd6f78bcb1d45dd13c86e7d9f167a1891aedaa93d81e7d143571934727381"
+  },
+  {
+    "file": "assets/sprites/creatures/rig_pilot/clinkerhide_head_visible.png",
+    "sha256": "be3f14608358b8aaa0b1d6fb8bce3aa8d5669356a7249d0beb9750f9a46210ea"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_lava_pour/01_load.png",
+    "sha256": "00aa5b8965c626e75284d902690dc01f18481ea83dd0f6407ebd3f70626c205c"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_lava_pour/02_windup.png",
+    "sha256": "b251b6195cf7ce382ba6a7854c040301c503a109c4db93920aab27a7b72dcc20"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_lava_pour/03_launch.png",
+    "sha256": "a30ffa3cdd13189e5a1dbdc94aae9cc7ac045ec5e36238585f4eaed477c5c752"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_lava_pour/04_contact.png",
+    "sha256": "fd5b3ce68d4678816d93f44b41191a8b5c4253059521f2a4307c2d9a1d3156db"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_lava_pour/05_recovery.png",
+    "sha256": "34f068c0002700a25b58199aa59f541e1b775ded7a089719b049154d6a5466be"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_lava_pour/cutin.png",
+    "sha256": "4c2e1ddbccdfe4601281277a0c68142dde35135fce2893ecaffb2333c8642158"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_lava_pour/overload.png",
+    "sha256": "43ebd379348ffb717120470c567c019521c4f6127cd9fbdd12a71b4bd75f291a"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_lava_pour/overload_pour_a.png",
+    "sha256": "83a83e649e667c653abe869a9c7c587e82a065175f1a948edd75c9d300500586"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_lava_pour/overload_pour_b.png",
+    "sha256": "81398f74dc4b61f0484c849bcd53437af4e73798ed0e282df30f1ead86a8c2e1"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_lava_pour/titlecard.png",
+    "sha256": "f9e31ba0d79e5329b35aa64799c8ebdef60012a697f670020fd9def39b4fa694"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_rd_2026_10_01/f00.png",
+    "sha256": "bd55e56477d0ff3b079c25703867dc87f48e2ecb1d71740ba5313ceb067d70ce"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_rd_2026_10_01/f01.png",
+    "sha256": "51738b7052d9b0c4180f00a930093c818d07b48f16bb4a514563347bd506f109"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_rd_2026_10_01/f02.png",
+    "sha256": "9844dafb5f40b9330a6752ae7e79ef5e73edf6fe4376aaa37a71e8f54400f992"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_rd_2026_10_01/f03.png",
+    "sha256": "c8234ebf6f44888939210af4366106f793c8a479f55afb2eb6e6ed296e2234eb"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_rd_2026_10_01/f04.png",
+    "sha256": "528359a231447f7f9340f7cf348f4146835db1955a90e5f694f7a073f16ced4a"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_rd_2026_10_01/f05.png",
+    "sha256": "82ebfa1b029df8e53e7a939b98d2ce360192eea366c913e4c30ca798bfbebe20"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_rd_2026_10_01/f06.png",
+    "sha256": "18c65c5aa86a50c39e5db1e9aa348fdf180c39315373dfc58f1f1285bc7e013c"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_rd_2026_10_01/f07.png",
+    "sha256": "6760609cd3522c6f47722f234f40803412662d46c81b0cc2d08edd02cb8cb05b"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_rd_2026_10_01/f08.png",
+    "sha256": "d4e8b44e4e0fd5061534cfad14606082ad34770aafe345dbdf6c72cdf908f599"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_rd_2026_10_01/f09.png",
+    "sha256": "6228cfbe9f7db6fb643fb82b24232ab8d49d319a19c8c227da0a001fcd7c56b6"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_rd_2026_10_01/f10.png",
+    "sha256": "f149e17ca7b160d5432e26b2d921afe29e9106f49499ade1d9e0582a6b3b6204"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_rd_2026_10_01/f11.png",
+    "sha256": "cdd0552dd0ec1801945e73b3a11484ed11b486e65534be7313e183569f791320"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_rd_2026_10_01/molten_glass_12f_sheet.png",
+    "sha256": "a1b1293e03db2b9991248da98df7b7a751b525160422bcbd77bc13679b2b6153"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/ironvent_furnace_roar/built/cool.png",
+    "sha256": "342e0dd069d481ed4a2cfaf5fb8a68f1484ed7f65e8327e7fff38bddac4f1640"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/ironvent_furnace_roar/built/cutin.png",
+    "sha256": "68310017e487e20b087184c2da117142fda20c2c438a184eead6072f052ddd77"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/ironvent_furnace_roar/built/open.png",
+    "sha256": "5219c9c6eb26a03d19e7cc5487576674971fc683904136372012557585baf7bb"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/ironvent_furnace_roar/built/pressure.png",
+    "sha256": "ac3d23b342128efccfe40a1c2716a3610d8dc75ce84f3ee4dd249bfdbe5ed2ee"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/ironvent_furnace_roar/built/rear.png",
+    "sha256": "2204afebcffa79379c16877bb1ad020e5307f995ef005aa437d093b94e127b30"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/ironvent_furnace_roar/built/rest.png",
+    "sha256": "519e65794069b140ed3f291f23899312ee8c5d81709f69fea3a557a268277cee"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/ironvent_furnace_roar/built/roar.png",
+    "sha256": "557f0998c3219251f9fcd4c21d03dca7ae3fae5cc757fab6e0ed8b966d68bf70"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/ironvent_furnace_roar/built/settle.png",
+    "sha256": "95ea76c1b572daa36ad3d41f2d0060835213fc7917105dc6d81443e60a6c9a3d"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/ironvent_furnace_roar/built/warm.png",
+    "sha256": "2e1d808dcf17b084c0468e80bcdeaf12419605d275fbc986b3909b31badf7821"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/ironvent_furnace_roar/frames/closeup.png",
+    "sha256": "79967cf17e7efa49e61b4a3fecbf824e04fdff8e9b2182832fdc9d9fe75f0df4"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/ironvent_furnace_roar/frames/roar1_f00.png",
+    "sha256": "8546ecdd3dca1e6e23c50bf0f9ef643d4014ea60f48eaa59929973323fd4241e"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/ironvent_furnace_roar/frames/roar1_f01.png",
+    "sha256": "1151c099d7c5d1829902c7ebc680b431cdd96c23fb0d9cbff0443a7aaa6db114"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/ironvent_furnace_roar/frames/roar1_f02.png",
+    "sha256": "38be3bbf92b017552ebff3df41534d28f05619ac7927ee0b755f1524251d9002"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/ironvent_furnace_roar/frames/roar1_f03.png",
+    "sha256": "1215b78312b4026ca6ae7a2233bccdfc404e2cb30c90d83a6f85499113421162"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/ironvent_furnace_roar/frames/roar1_f04.png",
+    "sha256": "81d56bf751f813003b9aade79ba73bc784971a6207295541f287abb7cb83668a"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/ironvent_furnace_roar/frames/roar1_f05.png",
+    "sha256": "72a239a08584f9b26529a536cbc3d4d72a139590070c1e7caba6cb2e837d09b6"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/ironvent_furnace_roar/frames/roar1_f06.png",
+    "sha256": "352f6db15c4c524e674abdcbb301505529c7995ea17de4774e5a7d21dc544c8b"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/ironvent_furnace_roar/frames/roar1_f07.png",
+    "sha256": "5f66d7570643217b3972d8852808d99640fa50cda07b75d166bd73a333b176de"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/ironvent_furnace_roar/frames/roar1_f08.png",
+    "sha256": "a8a43be0b80fabeaa2680f6d360ec5345d9ae17d7abcd6d71d7ce64e1ec1e6a3"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/ironvent_furnace_roar/frames/roar2_f00.png",
+    "sha256": "8940f6dc09ea1ace6def3abc5d23b89bd14c744ddf9d2bb02152c6a09ab92a51"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/ironvent_furnace_roar/frames/roar2_f01.png",
+    "sha256": "86328dd18a2859a54b296b1befe3a976364531f354422eef7bb4352981f12704"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/ironvent_furnace_roar/frames/roar2_f02.png",
+    "sha256": "3751690c24a1ee47b7e252f5785932ad437f61eeadeae17b4aa5ed4c289f946e"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/ironvent_furnace_roar/frames/roar3_f00.png",
+    "sha256": "66b2e28700aa5417b0e786eebe72d2f191b5bc2d6604989da61ec9c33b86121d"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/ironvent_furnace_roar/frames/roar3_f01.png",
+    "sha256": "5cf471c519974ce1606ada48c280c4fe73b51f510c4ef9bcee63e65810e55cca"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/ironvent_furnace_roar/frames/roar3_f02.png",
+    "sha256": "cb54a01be604a530e3b560f88859f45fb69cab72b8874dca0ec7eff2c3a5b4c6"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/ironvent_furnace_roar/frames/roar3_f03.png",
+    "sha256": "89f815a5a402138b187b7ab11d0df9f78fe3de86c51ba7ea8f11d7975952ffef"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/ironvent_furnace_roar/frames/roar3_f04.png",
+    "sha256": "481bae89cfaa30ec68e82468cd0358ad12e749926417ad8c83334ab9b80167e4"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/ironvent_furnace_roar/frames/roar3_f05.png",
+    "sha256": "1b7bb51615f97a7ab318794d2d3452cc078cde7f9af09c5beca8732163fe92d1"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/ironvent_furnace_roar/style_matched/cool.png",
+    "sha256": "f77c4c06cbefec2a63b3cd0fda9af7729c457acf0a379c23f0eac1b51b698623"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/ironvent_furnace_roar/style_matched/cutin.png",
+    "sha256": "6cfe5cd242df48939670897398f406298d25dbdabb89e5a8fe024ad6669ad9db"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/ironvent_furnace_roar/style_matched/cutin_roar_pose.png",
+    "sha256": "6cfe5cd242df48939670897398f406298d25dbdabb89e5a8fe024ad6669ad9db"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/ironvent_furnace_roar/style_matched/open.png",
+    "sha256": "df5842f7119ca41e8cc117653f8685f1a675090433cce5febab874a2c5ebac47"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/ironvent_furnace_roar/style_matched/pressure.png",
+    "sha256": "368fc201cb26f0b38ae783b025ecd3aa32a77d060bb8166a10830de541dd5b9d"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/ironvent_furnace_roar/style_matched/rear.png",
+    "sha256": "a823b3a87cbb61cf305a01108ff5d66a08dcb3b7136b1885a29c81b8b4804086"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/ironvent_furnace_roar/style_matched/rest.png",
+    "sha256": "be88fb3e9e76b5130a2b67a9129ae4012dbb1e36d6a42bc954978bb9a8e8ef3b"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/ironvent_furnace_roar/style_matched/roar.png",
+    "sha256": "321e107c3c63b550717805707c9c19e498e695907777ee3666e7deebb86abe9b"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/ironvent_furnace_roar/style_matched/settle.png",
+    "sha256": "7c74092bcf6d0616677752b12adaec11615e7b4d2a1ac71f2e821f78dfc9ad4e"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/ironvent_furnace_roar/style_matched/titlecard.png",
+    "sha256": "7f8d1c238d3328cf757e5c6b518ff8181f9bd36dd271663e82d1786fec2c171e"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/ironvent_furnace_roar/style_matched/titlecard_official_2026_09_30.png",
+    "sha256": "ba7d778e4cb2c5964d52b7ac66b89a1a5c594470bb95686df246311729151802"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/ironvent_furnace_roar/style_matched/warm.png",
+    "sha256": "3d232678b9f32a876af654b8268168ff54bfe1c0122f9e8c65f868b9626c43b1"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/oxbowarchon_kingstone_rail/built/afterglow.png",
+    "sha256": "356db16826b946014655e15b4196ae51b4f687f3954c94b796cb79ed34df26ff"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/oxbowarchon_kingstone_rail/built/burst.png",
+    "sha256": "3fe60e6af70333004ce752a7da6248fc7780c51af0fcd79a6d05691fce64a886"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/oxbowarchon_kingstone_rail/built/burst_b.png",
+    "sha256": "c09fee9b6f4901d996794d6c551442e7672782c5afccbfb57ea91a943fcc7f24"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/oxbowarchon_kingstone_rail/built/full.png",
+    "sha256": "14a14b1ec3008a7a7781c8e9f34cd61c62686f15c480e509147c72e1ea94e0df"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/oxbowarchon_kingstone_rail/built/full_b.png",
+    "sha256": "ebe6ce5f7098abeac9566e07a31846463b4355305309bcba7397d5ebd5264a41"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/oxbowarchon_kingstone_rail/built/glow.png",
+    "sha256": "90f03d7955bed30952c22024618057b26c0a830fdb3bb94f03d802c6670025f9"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/oxbowarchon_kingstone_rail/built/kindle.png",
+    "sha256": "cd23aca2474933934385fb3f7b9be77cc6a62ad5cc4650789490c0340ef9b369"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/oxbowarchon_kingstone_rail/built/kindle_arcs.png",
+    "sha256": "7649fe4e307915d0999fcccf27fcebb38d2c6437fb9f1235053d20676253d595"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/oxbowarchon_kingstone_rail/built/raise.png",
+    "sha256": "72850d5b8a929bd0f99146004abcd8172a12c7c1406972a4ff6b288485c39e45"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/oxbowarchon_kingstone_rail/built/rest.png",
+    "sha256": "021a96fbddde11e75d36475b0f0f10a90bba5378551a813531e70827f559eb1d"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/oxbowarchon_kingstone_rail/built/settle.png",
+    "sha256": "27c440a2ec260c27a7d15e4884042edd392a6be137a6c6100702b0aef03047c3"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/oxbowarchon_kingstone_rail/built/shot.png",
+    "sha256": "bee83d885de6904633c68b56e833dfd9b0abf298b13df250f9a30d8811eca2a0"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/oxbowarchon_kingstone_rail/built/spent.png",
+    "sha256": "156864e6126192113990eea975e003efdfac5aeccfa32e24896c8e3d3b8024a3"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/oxbowarchon_kingstone_rail/built/swirl.png",
+    "sha256": "ba682623e283e082de96190285062137c15430ae4b58ce9ffe0909318e9aee40"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/oxbowarchon_kingstone_rail/frames/rail1_f00.png",
+    "sha256": "76fef210ab5fd2097b28a52f499aecdf7d8c5deea7db9304fe2bb2b91c8f7eef"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/oxbowarchon_kingstone_rail/frames/rail1_f01.png",
+    "sha256": "732f18174fa6671889f620d723e173ce0ffd849041b9342dcd8cf11c88b117eb"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/oxbowarchon_kingstone_rail/frames/rail1_f02.png",
+    "sha256": "34df451948673bfd85ef0ebaadb1456a515229ed914e3d8d82f5fd588eef986f"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/oxbowarchon_kingstone_rail/frames/rail1_f03.png",
+    "sha256": "b4e91b555cd3a9438a133798ba763e297037fb527e56617c48f956dac94ab53c"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/oxbowarchon_kingstone_rail/frames/rail1_f04.png",
+    "sha256": "f0ddf10038b1a07cbce3101987bc7452d5b8619c1f3ed5d6a52bd61ac3aecaeb"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/oxbowarchon_kingstone_rail/frames/rail1_f05.png",
+    "sha256": "8cfaf6194e8926f8da145141a39f9157d90c3ab6555a73f8a70bd0671be36def"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/oxbowarchon_kingstone_rail/frames/rail2_f00.png",
+    "sha256": "871bf33eda94e6404bde9952a659baf60f74454e3b63d328850ebf423e525079"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/oxbowarchon_kingstone_rail/frames/rail2_f01.png",
+    "sha256": "204a013307f53cf07b046fb4888c384baeccd11595d688867d14ff325c6ad045"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/oxbowarchon_kingstone_rail/frames/rail2_f02.png",
+    "sha256": "2312822d90f53cd8041a20ee42af0a0600d90f2074790202d0825c10939cb90e"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/oxbowarchon_kingstone_rail/frames/rail2_f03.png",
+    "sha256": "365bbe86d32b298093b086e735f748925bc106cbb6f82ba66326c5ec47aed53a"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/oxbowarchon_kingstone_rail/frames/rail2_f04.png",
+    "sha256": "3584b596f48410cebaa8dfcef38e356c962e64a9e1101163bd2c8507076f4231"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/oxbowarchon_kingstone_rail/frames/rail2_f05.png",
+    "sha256": "f8a64aa95b3020db8162d320ae38837a6577d983e7e93c970c1fc52604c5fa76"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/oxbowarchon_kingstone_rail/frames/rail3_f00.png",
+    "sha256": "050e11be2337f55d68b0bc2084fc6f9e2ce006e45f5b0efe2d4a37897ea4c8a3"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/oxbowarchon_kingstone_rail/frames/rail3_f01.png",
+    "sha256": "4a234b51dda52c4de34e3fd9dafa82c26d8909ddbe3ae14ccfad9d7a76da5dde"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/oxbowarchon_kingstone_rail/frames/rail3_f02.png",
+    "sha256": "a3ebc7b090fd9b7eb8ec866e9cb766edd141f7fedea9b56ac70a7ff90a6b1061"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/oxbowarchon_kingstone_rail/frames/rail3_f03.png",
+    "sha256": "bd11a8a8ce0b6981ade82fbaf20c03a350d9e9e492e34cbe953b44d2e99a3daf"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/oxbowarchon_kingstone_rail/frames/rail3_f04.png",
+    "sha256": "0c1104993f42f2e6e474dbb8e662104aac1d7b8d1bc2eb0ebe60a7bf72a595a8"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/oxbowarchon_kingstone_rail/frames/rail3_f05.png",
+    "sha256": "587dd56021a0ae657b71c0220c54b0a067d98f57e6a39e5783ea7defeb593a03"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/oxbowarchon_kingstone_rail/frames/rail3_f06.png",
+    "sha256": "2e9d7e8ca0ef87f3beab0196907a787fef3701e59893f83281e1a94884106cdc"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/oxbowarchon_kingstone_rail/frames/rail4_f00.png",
+    "sha256": "5f568772acdc508c6524e5a2fed295d86f18e52048f98b6bedb878a1da524be2"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/oxbowarchon_kingstone_rail/frames/rail4_f01.png",
+    "sha256": "4f5545c55cda4333b30873834ceff683448f6029642b85b4dfa2ecf036808c00"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/oxbowarchon_kingstone_rail/frames/rail4_f02.png",
+    "sha256": "d957b72f261dc3926800099548a56bc1b27a3f702ac00423f8d2a501cd0d0c56"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/oxbowarchon_kingstone_rail/frames/rail4_f03.png",
+    "sha256": "b1bfb3c058391d7dbe5dc0e73b1af86c607269196a9ee3edc99578a9c8685181"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/oxbowarchon_kingstone_rail/frames/rail4_f04.png",
+    "sha256": "8993646ef7bc4dd45c368f8dbd338c07d8497f62d18fa3506726f8116961c843"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/oxbowarchon_kingstone_rail/frames/rail4_f05.png",
+    "sha256": "3ad1954aca8868ce41d9d1e36b15d85d4ae1990c7ae26041915ad0b83f8f3dc5"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/oxbowarchon_kingstone_rail/style_matched/afterglow.png",
+    "sha256": "8ed0fd1b2a78e74067b5817d9236e79d85cf9d763c58c1a7f1fc57075375b901"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/oxbowarchon_kingstone_rail/style_matched/burst.png",
+    "sha256": "af26dc894458e9aee4fd444ab5542aecc929a2f85cfd8a023640faf3c21d1e02"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/oxbowarchon_kingstone_rail/style_matched/burst_b.png",
+    "sha256": "1aaea6ca870df9ef774978548315bea46cd6196cdc0953a0d4bde4eb2b4c351a"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/oxbowarchon_kingstone_rail/style_matched/full.png",
+    "sha256": "21584665c5c3fbf001fb42460e65d4d2ad2ce45d5a6cc187a17e042d1a66ab4a"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/oxbowarchon_kingstone_rail/style_matched/full_b.png",
+    "sha256": "b653a93634d14f653fff70e2ee51d4fb853ec6884a3d6b00d435697daf1f2d4c"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/oxbowarchon_kingstone_rail/style_matched/glow.png",
+    "sha256": "905117081f7779d7ece747c9aac7f665987d57486e35b235339f1582aee71a1b"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/oxbowarchon_kingstone_rail/style_matched/kindle.png",
+    "sha256": "14196dd4a68054f040445cafc99992a4bc1f9114f080766cc06fbd82139d0264"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/oxbowarchon_kingstone_rail/style_matched/kindle_arcs.png",
+    "sha256": "b75978a3b2757a7e85a6f864a5e314abc8d7701d78b0711380bd2209f537edb6"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/oxbowarchon_kingstone_rail/style_matched/raise.png",
+    "sha256": "df7ea9cc79e8fce1a39d63132b9e3b0ab3ff8848464b2dbc03b7e8b470be4328"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/oxbowarchon_kingstone_rail/style_matched/rest.png",
+    "sha256": "fadcaf285dd60cb57f9ece287f77136acd502c7d1dd1afb3eca828d98787ebee"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/oxbowarchon_kingstone_rail/style_matched/settle.png",
+    "sha256": "eb2921c13d0a66a29b7df03a68938b5d9020660ff86d7ecc2cd390333382e2ea"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/oxbowarchon_kingstone_rail/style_matched/shot.png",
+    "sha256": "cc1732dda6f83594ab163299a8b37e1b62de9c4838935d5f23cfaaa447f2e8bf"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/oxbowarchon_kingstone_rail/style_matched/spent.png",
+    "sha256": "284ce4a379705d22677771774536520f3b34fc90c50c8dd436fd217bce52fa12"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/oxbowarchon_kingstone_rail/style_matched/swirl.png",
+    "sha256": "ef7e51e9f613a7085dcba5d7e10921f3267a829846138fedee49d94b351b712f"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/oxbowarchon_kingstone_rail/style_matched/titlecard.png",
+    "sha256": "49ebf71ddb5228ddbb36f1c250fa84b6296db7218a2a10a82c588505889ccd45"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_lava_pour/all_frames/sheet1_frame1.png",
+    "sha256": "02e1eff10b9de8844aeaddb9d921a2f530a78bf9f9ed45f2ee6a014ccd0ae501"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_lava_pour/all_frames/sheet1_frame2.png",
+    "sha256": "4eb226631bb772ede218e3f476cc0503352ef9004214dc1daac415169a8a1fdd"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_lava_pour/all_frames/sheet1_frame3.png",
+    "sha256": "a26b103894100a9a5e4f4148d7925b147e5f7aa3470d2da19469ee7bf228bcc4"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_lava_pour/all_frames/sheet1_frame4.png",
+    "sha256": "96ee57df66b6ef657837cad7d7e2f0a613fb9257e46c88793b7919ed6a91297a"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_lava_pour/all_frames/sheet1_frame5.png",
+    "sha256": "c91f5b2e494d99e72f8fcb8c7d2b415698df44311c10ffb62d0cb67ebac57a95"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_lava_pour/all_frames/sheet1_frame6.png",
+    "sha256": "6fd2d80591a87645c841a09e12c82f9a5b97427e1e619125f00d4f6c645f9f59"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_lava_pour/all_frames/sheet2_frame1.png",
+    "sha256": "dae0a71b995e6a2a8f5762725ef288c3726c5a2b9d369d0b2d9eb27d2a65a38a"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_lava_pour/all_frames/sheet2_frame2.png",
+    "sha256": "dfab8bf21e5ee2826c28d40a79a81cd3c9185bd948958ee74c280a8a88cf701d"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_lava_pour/all_frames/sheet2_frame3.png",
+    "sha256": "cf4c6ffe67e8ff98503e37f84d55318b60d9e982e3f70e835f89bfcd9a49ec7a"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_lava_pour/all_frames/sheet2_frame4.png",
+    "sha256": "b2b2e56306b2262e1e266f7cfad6e7a0f2864d50e584dba8aaa47c5d9eda76f6"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_lava_pour/all_frames/sheet2_frame5.png",
+    "sha256": "bf40acde054c886bc75a4faca7acd9474107a73e5bc053a556c90a064aecd53c"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_lava_pour/all_frames/sheet2_frame6.png",
+    "sha256": "7ac350dc44a040c442ebff2777b0582563119320e58ff16c48914da97dcace7f"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_lava_pour/all_frames/sheet3_frame1.png",
+    "sha256": "a7ddcc8c4332e0e0fec23d13c91a75ef1a2d34c6e80cc57d823fdd885b65cef4"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_lava_pour/all_frames/sheet3_frame2.png",
+    "sha256": "cfee44064cdd8fab97dd597f10b9ae495dbb9e0a2a261f5b886663fbfb5c9889"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_lava_pour/all_frames/sheet3_frame3.png",
+    "sha256": "824db6a8aa2c4c046dbd2c6e8dd68bd831fbe7f01e28c7f32e9e0a5b3d5e8216"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_lava_pour/all_frames/sheet3_frame4.png",
+    "sha256": "573e826fc73046a99f4de2d34d00c0bc1330ff093e3964d3c00e716f44a6ddff"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_lava_pour/all_frames/sheet4_frame1.png",
+    "sha256": "964c6d8edd8177d3b7fd25ec7876607fcb2dca0219ab492625bc126d49e9d070"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_lava_pour/all_frames/sheet4_frame2.png",
+    "sha256": "ec15c68384a8818aaa0bea1cda064b997d3f314e1a557a2a787b4d8274764171"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_lava_pour/all_frames/sheet4_frame3.png",
+    "sha256": "4ff9d8a401c7bb40c9301010b063a32424d986ddd52bbf082f6d4b4bdf547baa"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_lava_pour/all_frames/sheet4_frame4.png",
+    "sha256": "b4c7e2a6da56ceb38a195e53c28b6d512755d571f5d291fa76601eb3a7ca2581"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_lava_pour/alt_forge_anchored/F0_ready.png",
+    "sha256": "0b51f6550b2c9e0469fdd5a1cead33a23d5da5540441893736c8e6016a05e6ec"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_lava_pour/alt_forge_anchored/F1_anticipate.png",
+    "sha256": "c3db1f11b22157ce91b010d457ed35b389b643b2b6f65e056418927fc36fd1b7"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_lava_pour/alt_forge_anchored/F2_coil.png",
+    "sha256": "08428ed07bff210f03bf0c6b94326cf84256b73fab1fcc18499bd7ef4e2628a2"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_lava_pour/alt_forge_anchored/F3_launch.png",
+    "sha256": "91c5e129fbddf49f06defe4b800ccbc4f1b5c3450f6d43293eff820347269e4f"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_lava_pour/alt_forge_anchored/F4_hit.png",
+    "sha256": "d53e11205c60f158011314248976bd240c8bc3fb31ae10ff8519da9527356407"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_lava_pour/alt_forge_anchored/F5_recovery.png",
+    "sha256": "0a6e411bb2dbd11281134390916a785ab185e1ba5ecf57e0d1d9d366b22870d6"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_lava_pour/alt_old_sheet/01_load.png",
+    "sha256": "4eb226631bb772ede218e3f476cc0503352ef9004214dc1daac415169a8a1fdd"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_lava_pour/alt_old_sheet/02_windup.png",
+    "sha256": "a26b103894100a9a5e4f4148d7925b147e5f7aa3470d2da19469ee7bf228bcc4"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_lava_pour/alt_old_sheet/03_launch.png",
+    "sha256": "96ee57df66b6ef657837cad7d7e2f0a613fb9257e46c88793b7919ed6a91297a"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_lava_pour/alt_old_sheet/04_contact.png",
+    "sha256": "c91f5b2e494d99e72f8fcb8c7d2b415698df44311c10ffb62d0cb67ebac57a95"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_lava_pour/alt_old_sheet/05_recovery.png",
+    "sha256": "6fd2d80591a87645c841a09e12c82f9a5b97427e1e619125f00d4f6c645f9f59"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_lava_pour/back/glow_1.png",
+    "sha256": "2bdcd2b1ad3e5889026d5160dd90ae339076475561ee2c44882a8959099a4b9b"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_lava_pour/back/glow_2.png",
+    "sha256": "db92b22cbdcd4b3360b9ef588c08b6df497bc45c30fc52269aa545cab176339a"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_lava_pour/back/glow_3.png",
+    "sha256": "a83e7c75fb7d03e132b2e9f0f14beefb9d6bb2f2b37642872fd84cd4e0bc24d0"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_lava_pour/body_frames/sheet1_f00.png",
+    "sha256": "2e72d479df63625101eec2a907e5dc39a4be6fc552d3519bfe2d9e320d7d9915"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_lava_pour/body_frames/sheet1_f01.png",
+    "sha256": "8b695a7b253291875eb93403a5c8c292175dc879774c894c9e1e39614167166c"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_lava_pour/body_frames/sheet1_f02.png",
+    "sha256": "f5e02611b721a787f995709db687078bde34e9ff38651859066632b191fadb4c"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_lava_pour/body_frames/sheet1_f03.png",
+    "sha256": "bfb4716fc3a858da6c4d6073eee41336b50afaee99505c3de54c14227a48c12d"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_lava_pour/body_frames/sheet1_f04.png",
+    "sha256": "f22e823abd82dc66b2d196a991a7bb17a061006018f7318fb292a47da61a3b68"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_lava_pour/body_frames/sheet1_f05.png",
+    "sha256": "bb7958d5e921f9a8c70a7b349794a997a61bdca5c4b8ddb9ee2ea55abfaa8daa"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_lava_pour/body_frames/sheet2_f00.png",
+    "sha256": "23764ed25d9875099908e65711bcb31a0f04036259b4bbe56e1c7f8e2da37f0f"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_lava_pour/body_frames/sheet2_f01.png",
+    "sha256": "50736ad5c7c12519cae19372a0823d78252f00a481ea48d39001b94881fb3a9f"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_lava_pour/body_frames/sheet2_f02.png",
+    "sha256": "28e1cad686135736c9b330d71836b37c964758a80249f91b7d5ccc614b364771"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_lava_pour/body_frames/sheet2_f03.png",
+    "sha256": "686405ccf6c2c5f00900b0880c805a99fa2a7c0d86b79aadc02ff8450f882cda"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_lava_pour/body_frames/sheet2_f04.png",
+    "sha256": "4890becc79765afc65397ee5fc715510a6895b21e6a3d7bda6c577b7e8301109"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_lava_pour/body_frames/sheet2_f05.png",
+    "sha256": "8be9cec28710bd5c368a7b61601ad2ef8af3ccc4cdfda5d4729c0cb707e3772b"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_lava_pour/body_frames/sheet3_f00.png",
+    "sha256": "948b871d249ed704d055e44d1f608d07771b1844ebae0d29ab34166eae2fbe1e"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_lava_pour/body_frames/sheet3_f01.png",
+    "sha256": "72e42e1af2ddf2f5683f9fc1a6a702a37768da3da4664730ddec1f24b8359f54"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_lava_pour/body_frames/sheet3_f02.png",
+    "sha256": "e9d3214c223db3003cfc6f3a5f6c4d2e5cdc88cfc81386b971d26668ea1435dd"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_lava_pour/body_frames/sheet3_f03.png",
+    "sha256": "5274c542554cb80b7042dea4d42458d878922be7f3de85d4120d8ce7fd75bffa"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_lava_pour/body_frames/sheet3_f04.png",
+    "sha256": "d3339086f04375145ff15044755f5dc1ccfec5bc75efa8a6906ea4e1b5736b91"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_lava_pour/body_frames/sheet3_f05.png",
+    "sha256": "566b705ca3b72a870d6dbbb0383110bab6fdb37bc82264a2baa8f60b2a13e20b"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_lava_pour/body_frames/sheet4_f00.png",
+    "sha256": "25a3b0e43e5678f1f869a9f0ed0d72f5eedc9d06c476b23fbc4be3381f16d101"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_lava_pour/body_frames/sheet4_f01.png",
+    "sha256": "1dfa546f29b1b9c9bcf6c481152dfa0a21a3fb9f72540ac3150e0eace54d16d9"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_lava_pour/body_frames/sheet4_f02.png",
+    "sha256": "2ce98c1cd0d6544166255ae8872f8ee4e29d63246aeccc2dfb8bd89e577e0297"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_lava_pour/body_frames/sheet4_f03.png",
+    "sha256": "0c0bab0dd43bbf37c2dbbb66f0b26e0387e39bf7f1614c47f8df99d793feddeb"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_lava_pour/body_frames/sheet4_f04.png",
+    "sha256": "5037cdcd0ba02be646919d43501255f9a32c0ff8cc0d52058177d30f7bd0df52"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_lava_pour/body_frames/sheet4_f05.png",
+    "sha256": "cf01dcc6a64abcf174483792d310a9406fbea07f0e3dc6074fabef9942f0668d"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_lava_pour/head_retract/01_load.png",
+    "sha256": "f406a2a5f3e7a65e49fc4a836c31c05adfdad1b81edad033a386004d04c7931c"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_lava_pour/head_retract/02_windup.png",
+    "sha256": "e144022f7a7a46da7b98a17f803cfa46165117ea034bd617b413930d27072add"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_lava_pour/head_retract/03_launch.png",
+    "sha256": "e29edba7f4fd2b20f790569814bf92e8f41f3079e885cbb419d71329cac7391d"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_lava_pour/head_retract/04_contact.png",
+    "sha256": "290665cdb0d171f77f19e78ef8f63edbf580321be293e50586c7880aefb47cee"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_lava_pour/head_retract/05_recovery.png",
+    "sha256": "ce3b1efc2ca930f9cb481d66f76ae69635ff6f9f6334b2b545f3570c6a7aa991"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_lava_pour/style_matched/breakout.png",
+    "sha256": "89197f9a81784c6a4ba9ef519ea18f2df2e817f33b64c3ad8270dad4b95abe80"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_lava_pour/style_matched/flood.png",
+    "sha256": "78cba3be50bab21e7237b41ef2ba79fd55c56aa6920926d9bd55f4fbc7a1198b"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_lava_pour/style_matched/hole.png",
+    "sha256": "228986c543832e4ea10fb3f8207b13b2cea9411f0685e0bcaf71475cad12cf22"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_lava_pour/style_matched/load.png",
+    "sha256": "c16ad6ce4754774d8daa5747e19ed346cc61ded41901a4d9c9b3516798f08b39"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_lava_pour/style_matched/overload.png",
+    "sha256": "e8cb4ee5d44e6477238831fff6b142a0d6f736af794aa79bab314a6252ec5ca3"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_lava_pour/style_matched/overload_pour_a.png",
+    "sha256": "96ced9ff3e149731d20d68a0abaeed7e3979ec0e82415f486debd722173eff84"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_lava_pour/style_matched/overload_pour_b.png",
+    "sha256": "f0bd60bdb12340f30ee562defd27910dcf7c0f51a8e3ac87002899e4975d9a26"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_lava_pour/style_matched/pour_a.png",
+    "sha256": "8d927f746b48061ad2f7e6041035bac3bb27aeb2cb38c289d0d5add896f35647"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_lava_pour/style_matched/pour_b.png",
+    "sha256": "f58d8b42dbf394a5fc119b92b676b713fbfb6cc0944e001ce3b9d209f3250404"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_lava_pour/style_matched/recover.png",
+    "sha256": "b4abed00b2fa154be406b0b3458ed7d495e4916efbd17115884c2912ac2490cf"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_lava_pour/style_matched/titlecard.png",
+    "sha256": "2b39510374e07b673050d4548ce06de6e0a83ff21066ec3b7e256d8983d33855"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_lava_pour/transplant/01_load.png",
+    "sha256": "ff84f943b0bb3888945cfe4498d32918ca9e975995eba031243bc5c70c35d983"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_lava_pour/transplant/02_windup.png",
+    "sha256": "8c2ddb642ff73dc4c2b3a04c18f64b6ee58290869289091e749e71d2a263a2f1"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_lava_pour/transplant/03_launch.png",
+    "sha256": "1eb3f6500e9195ffded217d0cb5fb22174db91109514055841f70687f3a9731d"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_lava_pour/transplant/04_contact.png",
+    "sha256": "119b849d0c69d22bdcd25c562024c9c8e27ca8b9d8763414750d10a809699f19"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_lava_pour/transplant/04_contact_b.png",
+    "sha256": "b4b6a63c1843e2ab609aa5819fd22aaf0d3e003845dc1154bb7a05afc5ef9bc2"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_lava_pour/transplant/04_contact_c.png",
+    "sha256": "cbda3ff24282b228bfd7c269b4d021b683224dbbdb1c92a98615ae9bb01d870f"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_lava_pour/transplant/05_recovery.png",
+    "sha256": "434150a0ebad69515120b10437c130028b8ac655cc2925d965ec5c86e03e1488"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_lava_pour/v2/breakout.png",
+    "sha256": "ba8d4c2214780f83ce64b701fd7cd79e4f718fc6010a162cf6cd234aeee6347f"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_lava_pour/v2/flood.png",
+    "sha256": "7cee0e57f0dba47d0ada31c82f4ef56e5b0bb2e2e317390055a2443142bc3b95"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_lava_pour/v2/hole.png",
+    "sha256": "62a0e79ec8023b7fa46021ff3965966aab28ab22d81b41f47fbb974cce817c91"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_lava_pour/v2/load.png",
+    "sha256": "4024a603f1c2276797e91fea2ad1cc6da375868baa080097dca5135e9ffd700c"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_lava_pour/v2/pour_a.png",
+    "sha256": "45336fe3ad25d0fc938bd428285b8de1654666458c47fa1de84bdd067bbb36a6"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_lava_pour/v2/pour_b.png",
+    "sha256": "998e82a94464072d683247d0d6f77afcaf2c0d87295a4d5695da232975ae7555"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_lava_pour/v2/recover.png",
+    "sha256": "3e4ec94246c40a53ffeef51247b7884852c203f6878157d40c2fb747ee2208e6"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_lava_pour/style_review/edge/breakout.png",
+    "sha256": "399d75d2d78681a793d8fc6dcc20183222db767c0ec6a23bf614fa0a88cd1239"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_lava_pour/style_review/edge/flood.png",
+    "sha256": "178c81fbe4639e70f09578a07bc9e9533bef47265c5766b8c46a2161e611cca9"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_lava_pour/style_review/edge/hole.png",
+    "sha256": "e6af3794f4c43b4806ad46836e09f8a8eb64c88ecd23d04ee7f402a65560c204"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_lava_pour/style_review/edge/load.png",
+    "sha256": "d96cf172517592e770d5d4078cf5b4e52c042ebba5eb62b86dfddaba09825d0c"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_lava_pour/style_review/edge/pour_a.png",
+    "sha256": "f9a175a7a5d8c1c6f607fd0a9602df1bb5b4f8361b73070efd6b1e134f30f9a8"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_lava_pour/style_review/edge/pour_b.png",
+    "sha256": "64d21d885fcfc66be0d2798c82a2fb3e5065bee1c5beec113739c932babfa90a"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_lava_pour/style_review/edge/recover.png",
+    "sha256": "a7bfc9ccbf9120fec8528615c176ed4c9e758e8d14c086847e801cef2e8fe24d"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_lava_pour/style_review/lit/breakout.png",
+    "sha256": "692b407bc327f5033db324296f08527c0fd12c76bffbbf41aa8eed08b061e924"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_lava_pour/style_review/lit/flood.png",
+    "sha256": "7403cedea41b1269c5e05c070a3d20e0d6500a96fb71485f5681e4b6439a84c5"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_lava_pour/style_review/lit/hole.png",
+    "sha256": "5f627c0b5c2c259721304e5c1ff84802a7b76e17101c587e1b588af2d9b0e1f7"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_lava_pour/style_review/lit/load.png",
+    "sha256": "4be95b814f18070175878afaa2bc709f0a25b03fd25cf1efd995cc91e132889d"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_lava_pour/style_review/lit/pour_a.png",
+    "sha256": "a869b035a1d6d6fbbe91811ba850dc08d054635e19573a5d7519da82c8a1a080"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_lava_pour/style_review/lit/pour_b.png",
+    "sha256": "66d5eb664dabdebcea8e39389d2cb87dda9f2020ffef85633c2ecfaba91aa95a"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_lava_pour/style_review/lit/recover.png",
+    "sha256": "29821ef012558d0fdf2309e5bfd896fa48d745cbc88a21ce0c0e3d6f44edba60"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_lava_pour/style_review/warm/load.png",
+    "sha256": "8ac9ea11a9d6c4c99025275b67c29a0c2ffd00ebcadc3cd47657086b85729926"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_lava_pour/style_review/warm/pour_a.png",
+    "sha256": "8d927f746b48061ad2f7e6041035bac3bb27aeb2cb38c289d0d5add896f35647"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_molten_cannon/built/blaze.png",
+    "sha256": "9a29350ea062342a575daf276b116e28679d32e0b23f45356ed4ad7298d272ff"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_molten_cannon/built/brace.png",
+    "sha256": "8ded20b16a62a25a8570dc3a0be18adb9d669829cc3f9ccb293f13e87fe2a870"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_molten_cannon/built/charge.png",
+    "sha256": "969650f57ff8db5c05129533798a09a16c463b65a6f076b76260a0f90db51af5"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_molten_cannon/built/kindle.png",
+    "sha256": "9ea500bf49bfddfd37b29233f5085563274a1b00a4ffaaa9932cad0bd2fe057e"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_molten_cannon/built/loaded.png",
+    "sha256": "a6ae939808c0e9321107fe068122bd7bdefaf0eb34c9c0fd15c7f974c1525980"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_molten_cannon/built/rest.png",
+    "sha256": "56b75cd329688f3c8073ba6fc5b255d4fed96af821e7477c724061837e8fdd30"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_molten_cannon/built/spent.png",
+    "sha256": "11a6f2f1d04dd6643aa16e55148e42af9ae228ea8362c1e4576d80f5c0c0f357"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_molten_cannon/built/swirl.png",
+    "sha256": "8b072638033c2446b2612de3194d5d09490821a1ce4d5fdc69d2b83a6a2b0cc3"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_molten_cannon/built/vent.png",
+    "sha256": "02ab6971f95d2181ad145ff6df43fd82907e41c794a6db1223ee260d7f019141"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_molten_cannon/frames/beam1_f00.png",
+    "sha256": "db854719c4dde85125cc9fdbc7cf79a2f392e35aa8ca6ab136fd9f681934c077"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_molten_cannon/frames/beam1_f01.png",
+    "sha256": "53015796d5f87a5b9bf4386d11a0253c064f40a2e0b767cab879a838d05a6822"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_molten_cannon/frames/beam1_f02.png",
+    "sha256": "55a9a45ff3113717b5a01b057af9dc7aee694dd0ab30b43bc6b3662ec07f3e3c"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_molten_cannon/frames/beam1_f03.png",
+    "sha256": "1de6b55dd97f39cba31bd7e6e7d64a2cfe1d12015a1a3fc700dee2b37a9fe27c"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_molten_cannon/frames/beam1_f04.png",
+    "sha256": "02575a044f6ffccd066be080c296056813f5663975fbf61f813df85f161d0ba9"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_molten_cannon/frames/beam1_f05.png",
+    "sha256": "aa0315cf72f7c66dadb1a9c160a9012434ea0390c20972ada1514d58735ed1cf"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_molten_cannon/frames/beam1_f06.png",
+    "sha256": "c222fa5027b3aeb19c8727eaa0de2f0c8d2213dd872608c0e4475325a268a3eb"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_molten_cannon/frames/beam1_f07.png",
+    "sha256": "eb23a91410c877cc34fe0d8dcdb1853afe31003559e43e77fa275c4f18470aed"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_molten_cannon/frames/beam1_f08.png",
+    "sha256": "f79494ad9aedb033efa9510f7e0dd5e21b8e321c098b20ab5d8b619e3b2e3a4a"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_molten_cannon/frames/beam2_f00.png",
+    "sha256": "0bec61fdd16ff021f264f83c1b11723ed0bc58f80d3ecad7f98956a6ec2a0afb"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_molten_cannon/frames/beam2_f01.png",
+    "sha256": "df2f3248e6e64d78c8510e2294a4917acf6bfbaddcc505bacadcab86082aa1ee"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_molten_cannon/frames/beam2_f02.png",
+    "sha256": "e50cf66f07e3a713d1b6eb663418c51939296ea139d154b487bcbdcfac9d827c"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_molten_cannon/frames/beam3_f00.png",
+    "sha256": "27fec3e8864b86723545fde59bd55130154e19e9ac19695e9230b8c9b2857a8c"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_molten_cannon/frames/beam3_f01.png",
+    "sha256": "f1ebeec7a7ffc1df1af422c78ac97073c14004556ed2f2cf60bbd2deae84e31c"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_molten_cannon/frames/beam3_f02.png",
+    "sha256": "b6e6f274a55a7d7ba6117fd89a5182f208c1d0297ddfc25812c028e65a023d2a"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_molten_cannon/frames/beam3_f03.png",
+    "sha256": "0d774d0565a02a76fcfadeec3fe99d87396309b59729eeac678e2810b18fc1bf"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_molten_cannon/frames/beam3_f04.png",
+    "sha256": "f08ed87a5f712a9e71aae3ec81ffe1cad3f7c231a069b8da25804b934821e926"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_molten_cannon/frames/beam3_f05.png",
+    "sha256": "73b74f72c33400f8bfdb981ef5107193a86b72761afad601a7d253cebf2d57dc"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_molten_cannon/frames/beam4_f00.png",
+    "sha256": "f92bd1dd421781dfd52f2bf72a359513d6bd3e7f9c88dfc11a95ded696c57bcf"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_molten_cannon/frames/beam4_f01.png",
+    "sha256": "ada4ca27ee7e0f2fccfb3fcf853595e056028258c65a5f581cdd23a79aa0c37a"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_molten_cannon/frames/beam4_f02.png",
+    "sha256": "e7760e8cf85fa8ed77760698a1086fd2a40c21c8b5028847f89a749da66e83a4"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_molten_cannon/frames/beam4_f03.png",
+    "sha256": "35fb9adc2206fcefb51b751188e0de9e75bdc075860a51ca93846db48cec8385"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_molten_cannon/frames/beam4_f04.png",
+    "sha256": "6a8f539d6cd46d001d985eda4d49fd1b953f223b86396aab890750e03b626660"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_molten_cannon/frames/cannon1_f00.png",
+    "sha256": "e32afc7b8cfd442c03e815e077834af15f24159a1ebb67d7f4c2882538f3d751"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_molten_cannon/frames/cannon1_f01.png",
+    "sha256": "010450082ba26caf2ad85b9afb2df1b9acfd08215c0b329b583be265fb5a082b"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_molten_cannon/frames/cannon1_f02.png",
+    "sha256": "2f8b1e4ce0a20e729d588e23455f414764665657db037633d5649b33b4b84940"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_molten_cannon/frames/cannon1_f03.png",
+    "sha256": "90914f930b8e305e0d5d6a1aa4229a7ac0534f6e2c69b27058edb0d831eae744"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_molten_cannon/frames/cannon1_f04.png",
+    "sha256": "fa2bd93b7f2295799dc3f90e22dc01acfa6c7847ec741f74344cc1e63b2a8917"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_molten_cannon/frames/cannon1_f05.png",
+    "sha256": "09e287cddd513100450bcde98fd9c951ae52942fbb0b607c3a4afc299b672649"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_molten_cannon/frames/cannon1_f06.png",
+    "sha256": "57a409a04b9d5e2f5fc9f64fea05ea91a4c57c1dc23ecb83654e349c3f2e120c"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_molten_cannon/frames/cannon2_f00.png",
+    "sha256": "fd33726cdc741f65bdc232de631eb118b6f86954c6bf6b199cb4e50d893dba6c"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_molten_cannon/frames/cannon2_f01.png",
+    "sha256": "353f6811bd7706eaf6c9236b3e205a222de40d83e2e3bc2dd1e4d62d90ca9ddb"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_molten_cannon/frames/cannon2_f02.png",
+    "sha256": "49925973f50673cf9851d23c3021fe9e1199e1a0c53927265838e58603d4c3bc"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_molten_cannon/frames/cannon2_f03.png",
+    "sha256": "39be974d8e2a7580829850ce29ad9b7b5d5102d239fd88714ec763b6753336bb"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_molten_cannon/frames/cannon2_f04.png",
+    "sha256": "96aae459317d914609011d2a372963f6e13bb953e6edc2aba8fa7b30e451aee7"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_molten_cannon/frames/cannon2_f05.png",
+    "sha256": "9af005aa606c1ba3561488c14110e685eafee05a19c3ad0fa030d8450902d130"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_molten_cannon/frames/cannon3_f00.png",
+    "sha256": "2e0b2e89ada1a7ff8d9d289a448726d02619d9f64cc659a4fcde6453853e7593"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_molten_cannon/frames/cannon3_f01.png",
+    "sha256": "4b6167c52b165abe309b5131965bc3d4b24854922946c8cdb1e9456cd2bd4974"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_molten_cannon/frames/cannon3_f02.png",
+    "sha256": "a5bfdddf2891094c3a51ffcd11dc6b590a8406037ed257f2c13e39fef84f642b"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_molten_cannon/frames/cannon3_f03.png",
+    "sha256": "f3e932856fcbac33362b526879dcc234b1730f6e09d43191525ce3abe2016fc4"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_molten_cannon/frames/cannon3_f04.png",
+    "sha256": "5b25c2703396ec8d1b9e0d8643d508e64c810d10f4e4a69d792c57c712da0161"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_molten_cannon/frames/cannon3_f05.png",
+    "sha256": "0d5006441a830070b0db3df50124b4cca8867d543e66df4837908cccd38c869f"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_molten_cannon/frames/cannon4_f00.png",
+    "sha256": "2a2cf9cfc398e23cf26d8de89f5e9319ee54be0cbf1377cc55b2ff4995b73152"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_molten_cannon/frames/cannon4_f01.png",
+    "sha256": "a9057e00c5fbbeb22994e69db162501d0cccfe43f87dd9dec4c6de01db65e169"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_molten_cannon/frames/cannon4_f02.png",
+    "sha256": "13ccfe057d669f0fc0586453d5cd02a4b35e674db2d7cf0b948b9fbea6868c5c"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_molten_cannon/frames/cannon4_f03.png",
+    "sha256": "ba7f0755cae60457f2628e3d4437e90adcd7ec89346d95d893b7cff2656b3fd6"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_molten_cannon/frames/cannon4_f04.png",
+    "sha256": "b14b1bb34d0de000737126b37cf57e673a2d8483dd86cff9bfb3a63dc26a53a0"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_molten_cannon/frames/cannon4_f05.png",
+    "sha256": "4f6532270d830584f39bab895e0da61003ff079fb3eddbd1c3895a3b7725fe57"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_molten_cannon/style_matched/blaze.png",
+    "sha256": "d02c1c3d6243b7b95d02d6618cf2f76d5cff3e01a4a6f01fe3aba5fcab4b7e7b"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_molten_cannon/style_matched/brace.png",
+    "sha256": "33172c88457070ad0d45252ca2c42e9a096b4d65624c138d6007df3e08496751"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_molten_cannon/style_matched/charge.png",
+    "sha256": "6fed668be0dd588a761eb146044cd5067cbf189aa3550fdc2e85ec38787fce56"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_molten_cannon/style_matched/kindle.png",
+    "sha256": "ecdc6c02bc7a53663744e233004d08414ac698a1e6b4eee5be74374ca93780c8"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_molten_cannon/style_matched/loaded.png",
+    "sha256": "841c97bed74509fca352ac5db42fa7ad75e848e73fa24daea090336f6d29fd2a"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_molten_cannon/style_matched/rest.png",
+    "sha256": "d92f6af6e424f1fc585c1d783c9562782f2486d65378b7d7e4a7ff3ccc5e849b"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_molten_cannon/style_matched/spent.png",
+    "sha256": "f2eeb32e95b685e9e698a65c3208760e2fb8730b3bfd7a15a8596ca2c98bd8d1"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_molten_cannon/style_matched/swirl.png",
+    "sha256": "35ef7fbfc8ff050d2aca1135ed06c6904564e1a84717bf1296d807eb20fd35e7"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_molten_cannon/style_matched/vent.png",
+    "sha256": "1631959881844c40e944b367cf2133f28e26bd9cee3364a73fa1206f2860009e"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_plate_lunge/built/brace.png",
+    "sha256": "d93979731ecfc5a5633f2109fb55e08a08bcaf90df54d0754eaf59b12bbd666e"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_plate_lunge/built/contact.png",
+    "sha256": "f5c4f47382355634b279ed0fab8acd4f31d2dc5a6241da588819ec6c3ee1333a"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_plate_lunge/built/launch.png",
+    "sha256": "da3e95f40ee9d57199c96cc73be230b6c4c629b46a1342dd62211baa3bae0afa"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_plate_lunge/built/load.png",
+    "sha256": "2126abed87a193947fb293af6cf21d5705ba2f6957c6c034eb4945f5d672db23"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_plate_lunge/built/recover.png",
+    "sha256": "d5748b9462aefd2642cb89639e892e5cb08b353301a4e39a208b10c398c3e7ed"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_plate_lunge/frames/sheet1_f00.png",
+    "sha256": "9999ea768ef15b165645b43a00b9c6cd26ea7f86548cc2814444b07906393265"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_plate_lunge/frames/sheet1_f01.png",
+    "sha256": "de243bf6bdc3c6a005190b4d160bc63773cef04fa3ac557f857ceb7b4724e49b"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_plate_lunge/frames/sheet1_f02.png",
+    "sha256": "1a31c7c9296ab7ef5f286ddb07c14c53b9397e62bec2432419f95fef16a7503c"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_plate_lunge/frames/sheet1_f03.png",
+    "sha256": "ca7b672556ada6e6775f56959a40e65b677f2e55c364e886236588469caeb7ee"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_plate_lunge/frames/sheet1_f04.png",
+    "sha256": "f952b213767f83134ddb4573d3756082bf9188f4aa15a6b76b218049aead3225"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_plate_lunge/frames/sheet1_f05.png",
+    "sha256": "d14c512d325a5c8656f6471a0cb117a8b56f46d9aee1b64a2394670713bb183d"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_plate_lunge/frames/sheet1_f06.png",
+    "sha256": "4f8f5b2c4ef467010921b607ceedb8e26211d225504dac17f22ede282e60cbdc"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_plate_lunge/frames/sheet2_f00.png",
+    "sha256": "6a3a947c37adcb31e78163999c3d55c0fe28540b582afa4cb724d27e30499e85"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_plate_lunge/frames/sheet2_f01.png",
+    "sha256": "0d3b4dff07b44bc7bd3fe5b960d0679d8110fc7fded4a473191cc2f63381d9f2"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_plate_lunge/frames/sheet2_f02.png",
+    "sha256": "191d6aa267237815a0e007d1dc5b4b975859c4bc8e8df0c639113e590351b036"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_plate_lunge/frames/sheet2_f03.png",
+    "sha256": "41ffef80c49e1ba3ae80ad6f15aa67c2c9ea91e4c5d7d7061b7462c74ee688d5"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_plate_lunge/frames/sheet2_f04.png",
+    "sha256": "9232f431282acf6af16e43b86cb44ff2245d30522212f9796805155e251d2cc1"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_plate_lunge/frames/sheet2_f05.png",
+    "sha256": "60c8a86d5878919f617c64199567171310ccbc320489625252a65b6d6ad4bb3b"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_plate_lunge/frames/sheet3_f00.png",
+    "sha256": "d16a73b12b42071192f5a19169272f9e35cb3276ed540a7a40a638880198e053"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_plate_lunge/frames/sheet3_f01.png",
+    "sha256": "e0751bd58c154010266c3ffbc2f999598cfb880f7943c3fc32a86f32edad636b"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_plate_lunge/frames/sheet3_f02.png",
+    "sha256": "46730a964621bcd35a9d2042d4d43ea12e21216e133733f8f06b5a4e17d4f448"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_plate_lunge/frames/sheet3_f03.png",
+    "sha256": "e4c89e7239ef57d353fd6d2df825500a2fe74d2d9cce336ebe409e21171e8445"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_plate_lunge/frames/sheet3_f04.png",
+    "sha256": "17149f92eef0b9093e6006bae93cba289449d30cd7ecd8dd27d57599af582ca8"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_plate_lunge/frames/sheet3_f05.png",
+    "sha256": "a1edee18f256a883d1f3f345e5a6b57cc7fd431f68c0a366ba46c9fe4bff2a23"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_plate_lunge/frames/sheet4_f00.png",
+    "sha256": "a471097f4add60c9306a0387103eb1c6994782ec109169686774d39c88d5565a"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_plate_lunge/frames/sheet4_f01.png",
+    "sha256": "5952357d60571cea3c6b7cb24982f18b263ffba5306d74abbf634290beadfa78"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_plate_lunge/frames/sheet4_f02.png",
+    "sha256": "e48f03e6c7234b038b2dc11994c1cc2f78914a365c9633aec34ee92700074e83"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_plate_lunge/frames/sheet4_f03.png",
+    "sha256": "95d69025d3d5b3d7852124f57959087c93b9c15b1be7770f4ecfa4bfc2caf2c8"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_plate_lunge/frames/sheet4_f04.png",
+    "sha256": "93b1f821d514464ccffd8d2936eb34bd8318d88ba602b31098a7c0c42131d17c"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_plate_lunge/frames/sheet4_f05.png",
+    "sha256": "5fc6657a866e8bfeba3d825aeaf59b380864ac0383b29877dc83631624329dd0"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_plate_lunge/frames_fullsize/sheet3_f00.png",
+    "sha256": "7c8c3d8c1b5d66a5cdaa75ed231b97429e2aad910b8e4e27d739ff02a5e1f3ef"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_plate_lunge/frames_fullsize/sheet3_f01.png",
+    "sha256": "8bf1a1c9db8effcb5dbdd1879c7b6b2da00ac6345cf98363961ed3013e8d610b"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_plate_lunge/frames_fullsize/sheet3_f02.png",
+    "sha256": "66b93ffa45d1ce76356007a5ea59cd7a0f49421af3da0367358a222862f8996b"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_plate_lunge/frames_fullsize/sheet3_f03.png",
+    "sha256": "813055e66d7440e59c6c18ecd3930955719285dcdcde0ca78c75101acc25a9b3"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_plate_lunge/frames_fullsize/sheet3_f04.png",
+    "sha256": "7d3c5a247b6ef6005123ad7a9b31bf9a59652ad80825cbfdbd9151b731d0c07c"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_plate_lunge/frames_fullsize/sheet3_f05.png",
+    "sha256": "1002b1c2504a553b3725ac0fcd6cfd7298100a6a84494c2fb58d91c96065ace4"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_plate_lunge/frames_fullsize/sheet4_f00.png",
+    "sha256": "29e402353ca69837b4d19c23442a1f03d8573d97c620fc8980d74b39bcb0d94e"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_plate_lunge/frames_fullsize/sheet4_f01.png",
+    "sha256": "33fd87a20c423386034b0485a658ad922b472baae3ad4cbc323295164ff1095a"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_plate_lunge/frames_fullsize/sheet4_f02.png",
+    "sha256": "cd188f9cd63a0b27da47d3ad183774db8cb2eb30b2d05d2d91c0261a29917cb4"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_plate_lunge/frames_fullsize/sheet4_f03.png",
+    "sha256": "a8d85984d6ac6e9fdc490f7292ed9211eeb27f66d28ae4426202ab28b29df2cd"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_plate_lunge/frames_fullsize/sheet4_f04.png",
+    "sha256": "07cf6644b600ac0408e8af1aa255a806533c625b3593f670be966268e079e3fb"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_plate_lunge/frames_fullsize/sheet4_f05.png",
+    "sha256": "41ad200bb10d7bbc644134d2df63852e6788bd3d77d5ec11964b850176482b8b"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_plate_lunge/style_matched/brace.png",
+    "sha256": "6a6a779f37aa754600daf44d3356bdc0c8723ec47aaa7e1732e7122db126f870"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_plate_lunge/style_matched/contact.png",
+    "sha256": "99e63050177e2b8605240afb8d7a3ad423a0c4fc543f6e285c61ab4a5fc36b92"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_plate_lunge/style_matched/launch.png",
+    "sha256": "99356b16c8995851731486bde6fa22fb107163b8416d5c390280ca575f9aeefe"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_plate_lunge/style_matched/load.png",
+    "sha256": "3dbe03badb9fa5d7a615e4d0c605264202293c2268cd269d0f8106511a64cb94"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_plate_lunge/style_matched/recover.png",
+    "sha256": "91bb17b85fb36abedca80c23ede80c2ed95bfefafb65d24a445a01a6812c6cc4"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_plate_lunge/style_review/edge/brace.png",
+    "sha256": "62ceb2c1f13d71c4255b5acfd28a8fbe3d6c834d966030bf86409bd4506236cd"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_plate_lunge/style_review/edge/contact.png",
+    "sha256": "ae78227ed0df0bc062de4d4cd36452f70f5fd5e8b513e04aef8319a70bc37e6f"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_plate_lunge/style_review/edge/launch.png",
+    "sha256": "b9c47488e0f7c341150b066577ba049c12a01ab736e82f79b99fbd581915c25e"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_plate_lunge/style_review/edge/load.png",
+    "sha256": "311802b76eab6351572092d1277cac10fe411c6e9d655778d526252887426178"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_plate_lunge/style_review/edge/recover.png",
+    "sha256": "d6d9de029840605aa6c404b11eab49972a87e8c512bc6018fa05a40f2ad3c49e"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_plate_lunge/style_review/lit/brace.png",
+    "sha256": "c9231726295c44a0851f1bd6135165820b5db02099c74ce1499c72357f81f50e"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_plate_lunge/style_review/lit/contact.png",
+    "sha256": "bb6be3e4ca6a2d2a2c138593fa40d29b0d39a54f9ed74d2aca196314b9b11eb1"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_plate_lunge/style_review/lit/launch.png",
+    "sha256": "c31939ace318990551ab98e061ec0f14f25c05c6e32ceada7b12ea00168e4f47"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_plate_lunge/style_review/lit/load.png",
+    "sha256": "89b909abdf266c13ca41d1f2923b0f9c141c5664ddc53025f34b6dd672d613e0"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_plate_lunge/style_review/lit/recover.png",
+    "sha256": "609c1dab589db34185cf1becd355b9947243d4ca5a5668d4b21441ab25391058"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_plate_lunge/style_review/warm/contact.png",
+    "sha256": "df29a537670158a094b02583e3edc7b75328f452bd43bb4c3650a6c080af7c8c"
+  },
+  {
+    "file": "assets/sprites/creatures/attacks/vitrecrag_plate_lunge/style_review/warm/load.png",
+    "sha256": "7d22532885c45f938fae706c8bc8656788cdb4e57e56527f7d9575c907ca2af3"
+  },
+  {
+    "file": "assets/sprites/creatures/idle/vitrecrag_flame/billow_1.png",
+    "sha256": "e1a59cd98ae046d3f3ccd7d396e4a764b17e2cda010b78b227edf8b32898a015"
+  },
+  {
+    "file": "assets/sprites/creatures/idle/vitrecrag_flame/billow_2.png",
+    "sha256": "1bb81f55c32ea764dcdf59e188a467ab773e6601f0bc4cfbac1bec42a0b03d35"
+  },
+  {
+    "file": "assets/sprites/creatures/idle/vitrecrag_flame/billow_3.png",
+    "sha256": "6cfe83f341fec746cccac755d4811edb4651d7baaef00d08d40d65ed058931a3"
+  },
+  {
+    "file": "assets/sprites/creatures/idle/vitrecrag_flame/billow_4.png",
+    "sha256": "8279d1c9b7ac532cae60812b554e18908700e4b1f20accd6a005203e229170df"
+  },
+  {
+    "file": "assets/sprites/creatures/idle/vitrecrag_flame/billow_5.png",
+    "sha256": "b2e59e3cce5fb2f6053bc2cecd0c7138cd19a2f34e8404b9b4bec7ea4f4a1a6e"
+  },
+  {
+    "file": "assets/sprites/creatures/idle/vitrecrag_flame/body.png",
+    "sha256": "39208c7a7274351ad2e32cac954a49dc80ec9e647354b2f0ef64e1e4e7752e83"
+  },
+  {
+    "file": "assets/sprites/creatures/idle/vitrecrag_flame/ember.png",
+    "sha256": "75defbee3e1f48b5c071a6dbfa7bbf47cb3fa2eeab56719066dd0703733276b4"
+  },
+  {
+    "file": "assets/sprites/creatures/idle/vitrecrag_flame/fade_1.png",
+    "sha256": "e234f4f48c30f03a2a21062662c875176b14975b84ea8f4bd6e23ad87f801e2b"
+  },
+  {
+    "file": "assets/sprites/creatures/idle/vitrecrag_flame/fade_2.png",
+    "sha256": "35b1a26e9a6d6249856ceacb15dfde7eb73b6a1fa62516c402e22d0b1f7540a9"
+  },
+  {
+    "file": "assets/sprites/creatures/idle/vitrecrag_flame/fade_3.png",
+    "sha256": "2405695f24ce71c41a2e2818d459967fae6ea209a281cae3743fd82fff90bca6"
+  },
+  {
+    "file": "assets/sprites/creatures/idle/vitrecrag_flame/fade_4.png",
+    "sha256": "f9d006fece109e8da07401853454208dcad5a99541885895bcf66d41c921fee8"
+  },
+  {
+    "file": "assets/sprites/creatures/idle/vitrecrag_flame/flick_down.png",
+    "sha256": "07e4bf040b7d65886280ce7bf3ffd8da515f7e8867c73d813a489be1e653278c"
+  },
+  {
+    "file": "assets/sprites/creatures/idle/vitrecrag_flame/flick_long.png",
+    "sha256": "3be472d2b38a7c2dc8dc1ebcb0c8ded3540a17bb46a877611524da821f8e8da6"
+  },
+  {
+    "file": "assets/sprites/creatures/idle/vitrecrag_flame/flick_up.png",
+    "sha256": "1f65c4ff0566abed8cd71b556b97442eba53399d866d6318e293a84edecddf50"
+  },
+  {
+    "file": "assets/sprites/creatures/idle/vitrecrag_flame/full.png",
+    "sha256": "48c6ee1038c66efcda1486d2d79bd611083d3d3058ce31d05f1b95031e332595"
+  },
+  {
+    "file": "assets/sprites/creatures/idle/vitrecrag_flame/grow_1.png",
+    "sha256": "a105b0b0f7d70b965f0176aa5ae82e4df4df0debe7fb08b7ff821513f7c896cf"
+  },
+  {
+    "file": "assets/sprites/creatures/idle/vitrecrag_flame/grow_2.png",
+    "sha256": "d744597c988356d6a8462d12bd9aeaddf12c722e1183e3cc34eb5e221ae6b8a5"
+  },
+  {
+    "file": "assets/sprites/creatures/idle/vitrecrag_flame/grow_3.png",
+    "sha256": "7d51aeb179a44246c10d56bbecf7a20b754afb47a8d969e47307713ce6939d44"
+  },
+  {
+    "file": "assets/sprites/creatures/rd_material_match_2026_10_01/vitrecrag_attacks/f00.png",
+    "sha256": "a1218b05394b5157765e7167e8c5d0d6654e3de936be6505ed0f8da62413596b"
+  },
+  {
+    "file": "assets/sprites/creatures/rd_material_match_2026_10_01/vitrecrag_attacks/f01.png",
+    "sha256": "93029d65adb800aebc84db8b638780c24e1cbd74d655e7d7fe6ae2a6f2414bb8"
+  },
+  {
+    "file": "assets/sprites/creatures/rd_material_match_2026_10_01/vitrecrag_attacks/f02.png",
+    "sha256": "3ef75966e67f320dd1976870ce843bc8d642f04545246848d5e689a31a7a39f1"
+  },
+  {
+    "file": "assets/sprites/creatures/rd_material_match_2026_10_01/vitrecrag_attacks/f03.png",
+    "sha256": "5359cb10b1404d996ce091194d4ae4441fcebbb1faba15f3f9ce5952a3ae465c"
+  },
+  {
+    "file": "assets/sprites/creatures/rd_material_match_2026_10_01/vitrecrag_attacks/f04.png",
+    "sha256": "55eb5d6e9534f015a19f8d5b4d1bc57d941818ff253fd9e6a0178544720bedf8"
+  },
+  {
+    "file": "assets/sprites/creatures/rd_material_match_2026_10_01/vitrecrag_attacks/f05.png",
+    "sha256": "b7cf64f935625b2d592fc3e739db3ee7eee1973329938c5c96640393e77968d7"
+  },
+  {
+    "file": "assets/sprites/creatures/rd_material_match_2026_10_01/vitrecrag_attacks/f06.png",
+    "sha256": "062f4b2938d4a8f30ad024830276f7752fe7c13aee247701a95944e27f88345b"
+  },
+  {
+    "file": "assets/sprites/creatures/rd_material_match_2026_10_01/vitrecrag_attacks/f07.png",
+    "sha256": "c98f08c11f3e402981b80521ae8bd0a3bb17896b6ce3f76f99192b9a7d573743"
+  },
+  {
+    "file": "assets/sprites/creatures/rd_material_match_2026_10_01/vitrecrag_attacks/f08.png",
+    "sha256": "3af361133b7dae6eb521f8e218f8df45cada83b035dbec13b4481d1ca6b3c052"
+  },
+  {
+    "file": "assets/sprites/creatures/rd_material_match_2026_10_01/vitrecrag_attacks/f09.png",
+    "sha256": "048227a55b1deb01d66b368ca72a3b3cfeb7fc0c7f987c3e9fb48c45583934bd"
+  },
+  {
+    "file": "assets/sprites/creatures/rd_material_match_2026_10_01/vitrecrag_attacks/f10.png",
+    "sha256": "c54052df04a78c065480b0f275882cbda08f3a9227a7da9da85d11179fab56a6"
+  },
+  {
+    "file": "assets/sprites/creatures/rd_material_match_2026_10_01/vitrecrag_attacks/f11.png",
+    "sha256": "f4852ff094977c39131c06aefe745c18395145864d6f618b4005c5852ebd4ee5"
+  },
+  {
+    "file": "assets/sprites/player/courier_chibi_walk_2026_10_01.png",
+    "sha256": "ccfcbf9be2571eb7bf8bda72e9ed4d00ecefdee4da9ddb3758b9ecc4702ee2ba"
+  },
+  {
+    "file": "assets/sprites/player/male_side_walk_harmonized_8.png",
+    "sha256": "3a5e3dbe289a5cd1c8c69590931c76e1405e3515486795f193bdcd6bb1bca438"
+  },
+  {
+    "file": "assets/sprites/player/male_side_walk_refined_8_2026_09_27.png",
+    "sha256": "9c9d67382f0094bcbdcb0123b4ba45e6441ec73eae8e46599bd4cca0fca3f9f5"
+  },
+  {
+    "file": "assets/sprites/player/male_side_walk_refined_8_v2_2026_09_27.png",
+    "sha256": "96f8908694d386d32bbc0154a2831a570b167b65d4a9d4eab20e16609ceb5faa"
+  },
+  {
+    "file": "assets/sprites/player/male_vertical_walk_4x2_2026_09_27.png",
+    "sha256": "eb973da516123f8eece678c3307347ca08f47eb013ddf29c84892c215181a502"
+  },
+  {
+    "file": "assets/sprites/player/player_placeholder.png",
+    "sha256": "e5ab9505a30817f8dcf818ede0b7ea8381630739a1dc7eb5673e3919608ecc07"
+  },
+  {
+    "file": "assets/sprites/player/courier_chibi_prepared_2026_09_30/down_source_poses_4x1.png",
+    "sha256": "730beb34d250640926979222f6c546e2f1c82f978766828ab69afb547e73e66c"
+  },
+  {
+    "file": "assets/sprites/player/courier_chibi_prepared_2026_09_30/left_source_poses_4x1.png",
+    "sha256": "967e5929fe7dbdbfa15fa412f87fb888ac1ad12ccc76501da849fb3f39cdcab0"
+  },
+  {
+    "file": "assets/sprites/player/courier_chibi_prepared_2026_09_30/right_source_poses_4x1.png",
+    "sha256": "bffb443c6e32360574712902f8415b5e27fb0c80fe937f1120ed4f763ec691ca"
+  },
+  {
+    "file": "assets/sprites/player/courier_chibi_prepared_2026_09_30/source_pose_atlas_4x4.png",
+    "sha256": "261af747eab01334fac48d7da68ae370a70c7a44919085037487dce2138505cd"
+  },
+  {
+    "file": "assets/sprites/player/courier_chibi_prepared_2026_09_30/up_source_poses_4x1.png",
+    "sha256": "679b8648632b031d8a098c91a0d9f1ba8297275f2c9723681b49a809ece6a253"
+  },
+  {
+    "file": "assets/sprites/player/retro_diffusion_chibi_walking_2026_10_01/female_chibi_walk_eight_directions_native80.png",
+    "sha256": "6b11c733a78b26772c73fa4f0405f0138c13b1871a4e8f9e15f8a5405eddd2aa"
+  },
+  {
+    "file": "assets/sprites/player/retro_diffusion_chibi_walking_2026_10_01/male_chibi_walk_eight_directions_native80.png",
+    "sha256": "db838a6520874d974796cda537e241b676a31828de60aae8c09366c6d5ad0f7a"
+  },
+  {
+    "file": "assets/sprites/player/retro_diffusion_chibi_walking_2026_10_01/male_chibi_walk_matched_turns_native80.png",
+    "sha256": "21ad8dbd0de80a5825f2a2f8590b31c240dea127ba458934ddff121087e153ef"
+  },
+  {
+    "file": "assets/sprites/player/rig_pilot/courier_side_frame02_body_visible.png",
+    "sha256": "c2c43d2863ce03a62197cb2f2a9546317f9f06f9dec9456e2096de02851c0fbd"
+  },
+  {
+    "file": "assets/sprites/player/rig_pilot/courier_side_frame02_head_visible.png",
+    "sha256": "d7af696dd1d7cff73d4d7b5829741725aaef489041552ee2131d55614b8c4cd1"
+  },
+  {
+    "file": "assets/sprites/player/courier_chibi_prepared_2026_09_30/down/source_pose_00.png",
+    "sha256": "ade188639547258d446c2ecd7e04297762e0cf05f7725736de75ac751561dc15"
+  },
+  {
+    "file": "assets/sprites/player/courier_chibi_prepared_2026_09_30/down/source_pose_01.png",
+    "sha256": "164c2c7d784d60238f4e7c1ce8ae9720f1a057f650eacff1fe55b120ead386b0"
+  },
+  {
+    "file": "assets/sprites/player/courier_chibi_prepared_2026_09_30/down/source_pose_02.png",
+    "sha256": "251bbf3f2dfb88d6afbba3726feed7b6ad3bf023068395af5660270af47f28f0"
+  },
+  {
+    "file": "assets/sprites/player/courier_chibi_prepared_2026_09_30/down/source_pose_03.png",
+    "sha256": "16f160d85640e93203ae9d054a92bb538cc42d486a2de5520a66e6e7421a6481"
+  },
+  {
+    "file": "assets/sprites/player/courier_chibi_prepared_2026_09_30/left/source_pose_00.png",
+    "sha256": "adc690f5084e9c1d53e14ceda4b28f8b3e771cc2371923d112246979aa85c407"
+  },
+  {
+    "file": "assets/sprites/player/courier_chibi_prepared_2026_09_30/left/source_pose_01.png",
+    "sha256": "e7e725af7f953a9b1e7038e1ff6c3126c2b2921192f1b63c7c9243e7f839c52b"
+  },
+  {
+    "file": "assets/sprites/player/courier_chibi_prepared_2026_09_30/left/source_pose_02.png",
+    "sha256": "06c523d4e813887e8cfb09fcc64e5c80b7fb30a4ecb82661f8dde7820f606281"
+  },
+  {
+    "file": "assets/sprites/player/courier_chibi_prepared_2026_09_30/left/source_pose_03.png",
+    "sha256": "78acaa3224f83a0fd5b65c665a9aa360ae3b605ef456aaad6b7a01c9fa0e165b"
+  },
+  {
+    "file": "assets/sprites/player/courier_chibi_prepared_2026_09_30/right/source_pose_00.png",
+    "sha256": "b0a31bea954d7304bda4ae8b218b22913d12a6c679c75b6eb31b7443a41b35e8"
+  },
+  {
+    "file": "assets/sprites/player/courier_chibi_prepared_2026_09_30/right/source_pose_01.png",
+    "sha256": "7ca7abb381cc2a29ee1d70661678d10cd9667e9c3af3e0befb7673863daf89cb"
+  },
+  {
+    "file": "assets/sprites/player/courier_chibi_prepared_2026_09_30/right/source_pose_02.png",
+    "sha256": "2ab728915e1d117d998cadb920ab0d8db874ab96631264c67bfb12fbedd3b3bb"
+  },
+  {
+    "file": "assets/sprites/player/courier_chibi_prepared_2026_09_30/right/source_pose_03.png",
+    "sha256": "4feabf84a817483a1a311adf8fbc60c28554e02026faf5511e2d3b85c7d18c47"
+  },
+  {
+    "file": "assets/sprites/player/courier_chibi_prepared_2026_09_30/source_detail/down_source_poses_4x1.png",
+    "sha256": "49afc2980390c525067de0d9f3852775e67dd660e08fe44e0bbe5673f2befd30"
+  },
+  {
+    "file": "assets/sprites/player/courier_chibi_prepared_2026_09_30/source_detail/left_source_poses_4x1.png",
+    "sha256": "f8ef4da8ce5b232607cf2b34c3c64574b6bdb699f2e00923b7785c79bddc3e47"
+  },
+  {
+    "file": "assets/sprites/player/courier_chibi_prepared_2026_09_30/source_detail/right_source_poses_4x1.png",
+    "sha256": "f85a59c3166111fcf8effd128afdbe3c7051ad8a67a15d968b0e5d203d472547"
+  },
+  {
+    "file": "assets/sprites/player/courier_chibi_prepared_2026_09_30/source_detail/source_pose_atlas_4x4.png",
+    "sha256": "e8aa443067dbb69f5fa132b77af03aa9574eb3c56f1439c70a763a0c994cbc93"
+  },
+  {
+    "file": "assets/sprites/player/courier_chibi_prepared_2026_09_30/source_detail/up_source_poses_4x1.png",
+    "sha256": "68d973b9b6cec0f701dc178172ad128d0a461ecfebf7f337eceaf8dac0f09d67"
+  },
+  {
+    "file": "assets/sprites/player/courier_chibi_prepared_2026_09_30/up/source_pose_00.png",
+    "sha256": "ad97fc43e75e32dc682bb6e2173829e89499bdbfb3c5e68b4895ed591014e153"
+  },
+  {
+    "file": "assets/sprites/player/courier_chibi_prepared_2026_09_30/up/source_pose_01.png",
+    "sha256": "542243ee3bd9747237d3989d6d71855bf2ff734fa9493d10fbcd0fac29d5d148"
+  },
+  {
+    "file": "assets/sprites/player/courier_chibi_prepared_2026_09_30/up/source_pose_02.png",
+    "sha256": "142ccc318e279f49db79dccd0265dc35f05c2e009f7e8a794e1fd34b77b5c409"
+  },
+  {
+    "file": "assets/sprites/player/courier_chibi_prepared_2026_09_30/up/source_pose_03.png",
+    "sha256": "e229c7cb1f5828628182179cb556fb94ecfd27394b6080c3929df78972ae80c6"
+  },
+  {
+    "file": "assets/sprites/player/courier_chibi_prepared_2026_09_30/source_detail/down/source_pose_00.png",
+    "sha256": "5559f80644ed77484c5427aeb79c1bbd4a43ed2053aed1e212d15e33042ebdab"
+  },
+  {
+    "file": "assets/sprites/player/courier_chibi_prepared_2026_09_30/source_detail/down/source_pose_01.png",
+    "sha256": "2a5523e11876913bc95cdfe2207f9ed9b532d3fa6cd5cfa0037d5d8d1e2f5c44"
+  },
+  {
+    "file": "assets/sprites/player/courier_chibi_prepared_2026_09_30/source_detail/down/source_pose_02.png",
+    "sha256": "5e6076cef0a28dab3f51982393e8a3eb655157387d68bf705868dd58767e6aae"
+  },
+  {
+    "file": "assets/sprites/player/courier_chibi_prepared_2026_09_30/source_detail/down/source_pose_03.png",
+    "sha256": "d7e9da822e3ede436a03350bfe1d8c45116622def4a5638de2b616d83400c1c7"
+  },
+  {
+    "file": "assets/sprites/player/courier_chibi_prepared_2026_09_30/source_detail/left/source_pose_00.png",
+    "sha256": "d35a8528afdb7064a71a9aa7bb872382cc00c90fbef3f40c39ca0ebeb50648c0"
+  },
+  {
+    "file": "assets/sprites/player/courier_chibi_prepared_2026_09_30/source_detail/left/source_pose_01.png",
+    "sha256": "eeddf4bb6d27d2a6decd094837a951453dbee3c021d9cbcc3a01e9e38c361fd6"
+  },
+  {
+    "file": "assets/sprites/player/courier_chibi_prepared_2026_09_30/source_detail/left/source_pose_02.png",
+    "sha256": "3ef8a8a940b72f6d4272b40a62bbd62a9438e09832e90e6eb3a8b5b0b5b4957d"
+  },
+  {
+    "file": "assets/sprites/player/courier_chibi_prepared_2026_09_30/source_detail/left/source_pose_03.png",
+    "sha256": "70a34038905ecb968246056056858e6d07f5353390970a869fe4677f1f677fe3"
+  },
+  {
+    "file": "assets/sprites/player/courier_chibi_prepared_2026_09_30/source_detail/right/source_pose_00.png",
+    "sha256": "5c0ba511209faad38cc2122db0713ef4dab0eaab90dffa57527fd60f822df821"
+  },
+  {
+    "file": "assets/sprites/player/courier_chibi_prepared_2026_09_30/source_detail/right/source_pose_01.png",
+    "sha256": "7ca2c1034e1e8c41bb4260c7d40cee321ba89e982341a5c4c403cc47a2793651"
+  },
+  {
+    "file": "assets/sprites/player/courier_chibi_prepared_2026_09_30/source_detail/right/source_pose_02.png",
+    "sha256": "1156d21ba0e5eafacc226b36128df7fcb7dd97008d6766cd9e878f3bf1643a47"
+  },
+  {
+    "file": "assets/sprites/player/courier_chibi_prepared_2026_09_30/source_detail/right/source_pose_03.png",
+    "sha256": "c97ae636f32a8a1f74f84dc19af3cf0f8fc37ec9f116e44aff72767128b47d99"
+  },
+  {
+    "file": "assets/sprites/player/courier_chibi_prepared_2026_09_30/source_detail/up/source_pose_00.png",
+    "sha256": "6089c85a926bbe91323290ce83fa15f43b91f7e985fccb2b47ada2b4bd72f822"
+  },
+  {
+    "file": "assets/sprites/player/courier_chibi_prepared_2026_09_30/source_detail/up/source_pose_01.png",
+    "sha256": "0f979e9e0b56f6f42d83bff6971829278375f3343d47dbce793e35030f612bbf"
+  },
+  {
+    "file": "assets/sprites/player/courier_chibi_prepared_2026_09_30/source_detail/up/source_pose_02.png",
+    "sha256": "61b599ea53a8f3f2e18c783b947050fa6cc0316c9348aa577f65aeae0fa9a732"
+  },
+  {
+    "file": "assets/sprites/player/courier_chibi_prepared_2026_09_30/source_detail/up/source_pose_03.png",
+    "sha256": "a420ab9af6cd6536e5be252237e4b1e65c2389c00f79aadfe4fb0af8aeb4d120"
+  },
+  {
+    "file": "assets/sprites/world/route1_crossing_2026_10_02/path_soil_native32.png",
+    "sha256": "0bc1711d71a8a8133da3be181c0d2d7620149bd73d0f1a302abc4584b665df1f"
+  },
+  {
+    "file": "assets/sprites/world/route1_crossing_2026_10_02/river_bridge.png",
+    "sha256": "1a4e70c5b111a70ce2a600f6ba1cbe6f7e4ff055444b372750e85ed6421df0ad"
+  },
+  {
+    "file": "assets/sprites/world/route1_crossing_2026_10_02/river_bridge_complete.png",
+    "sha256": "9f8d28e778f6cfd4777a66dabad5d8874b14f968c30636a407c0aa3da041ac90"
+  },
+  {
+    "file": "assets/sprites/world/route1_crossing_2026_10_02/river_bridge_peg_fixed.png",
+    "sha256": "f8da8c47673edaf21763ea96756ad3f2017f16dcce5bf940d0a4b800d5809c5d"
+  },
+  {
+    "file": "assets/sprites/world/route1_crossing_2026_10_02/river_bridge_refined.png",
+    "sha256": "878640ff82a6af55ba4718ed4c9f0bfd51d4ee0d3e41523ecb38b568a70dc8da"
+  },
+  {
+    "file": "assets/sprites/world/route1_crossing_2026_10_02/river_water_native32.png",
+    "sha256": "ecc1b44e8b7446599e16b40b450d459b4ebeba3b66de7518a63296dde77956f8"
+  },
+  {
+    "file": "assets/sprites/world/route1_landing_loop_2026_10_03/landing_footpath.png",
+    "sha256": "8b2e7ab2ea44b0d654cfd3b5b6062bea88beba1e98d1c5c53db634816ab6a366"
+  },
+  {
+    "file": "assets/sprites/world/route1_landscape_2026_10_03/meadow_grass.png",
+    "sha256": "af6e319c26b020ea44d40a56ff68785465955e6eacafe7ea8819ec684429b4dc"
+  },
+  {
+    "file": "assets/sprites/world/route1_landscape_2026_10_03/meadow_tuft_1.png",
+    "sha256": "3a32ddc171d21debe9cdab4d73b103858c11250b05234853c53870a603b41a01"
+  },
+  {
+    "file": "assets/sprites/world/route1_landscape_2026_10_03/meadow_tuft_2.png",
+    "sha256": "0d8028780644f2f2e1df9218724c54e0d8c8aa25a2fefa517f23bb7cb1410fe8"
+  },
+  {
+    "file": "assets/sprites/world/route1_landscape_2026_10_03/river_stones.png",
+    "sha256": "e4eb98c20e6dee18dfb6df2121fced4f1f6303d587e23cf545ac33a4cfa5974e"
+  },
+  {
+    "file": "assets/sprites/world/route1_landscape_2026_10_03/silt_roots.png",
+    "sha256": "6b235f95851f736cb4f84d29fe7e82091729591d9784541cda7ca945057aec27"
+  },
+  {
+    "file": "assets/sprites/world/route1_landscape_2026_10_03/silt_roots_small.png",
+    "sha256": "f93dd383c0ac66605351dbc2c4e8d2e33d3869ac696e01839630dfe0f2c6606c"
+  },
+  {
+    "file": "assets/sprites/world/route1_rd_2026_10_01/cinderhide_field_idle.png",
+    "sha256": "7b6c7f984e14fc94d1f8e42d09e27cc7e7d6508350b18839d77ee5fe9bfce4ea"
+  },
+  {
+    "file": "assets/sprites/world/route1_rd_2026_10_01/cottonwood.png",
+    "sha256": "5dab09ad8527c2e1c99c247acf34e47717634c33a8923d7ef7c26aec720d6034"
+  },
+  {
+    "file": "assets/sprites/world/route1_rd_2026_10_01/cottonwood_complete.png",
+    "sha256": "5f7d048ee8df9b93814563db307a92f498930b47640abd138f10feb6e33effb1"
+  },
+  {
+    "file": "assets/sprites/world/route1_rd_2026_10_01/cottonwood_polished.png",
+    "sha256": "beb620024b3cd248e6d603531073932743234608045f4bdf09adee99c98a6baf"
+  },
+  {
+    "file": "assets/sprites/world/route1_rd_2026_10_01/dispatcher.png",
+    "sha256": "e54f3cea9d8f536e72bb7ecb62792eceba30188827d105f91d825b02785e58f7"
+  },
+  {
+    "file": "assets/sprites/world/route1_rd_2026_10_01/dispatch_hall.png",
+    "sha256": "de7b140d182c01026a4b00e197c76d1b072e5fec04491aae71093bb83cb6e8e8"
+  },
+  {
+    "file": "assets/sprites/world/route1_rd_2026_10_01/height.png",
+    "sha256": "90de1df2b2c949a1fb0616d95c981bde511f89c2445f6f7ef4518f719e2fc2a1"
+  },
+  {
+    "file": "assets/sprites/world/route1_rd_2026_10_01/marker.png",
+    "sha256": "b2d8fd787b3fadbcc2ed922534010b80c6459a097b2b984977dff221666f3ce9"
+  },
+  {
+    "file": "assets/sprites/world/route1_rd_2026_10_01/post.png",
+    "sha256": "73d5450437f80376638b9fcebaa7e86b585e54a660bbf00acf37c903b506058e"
+  },
+  {
+    "file": "assets/sprites/world/route1_rd_2026_10_01/reeds.png",
+    "sha256": "1d5721f8ffff36e38198c9bbfe6e08f10286e463b8dcd78c4a7059c594dc74d4"
+  },
+  {
+    "file": "assets/sprites/world/route1_rd_2026_10_01/retaining_wall_polished.png",
+    "sha256": "ccb270ffe6191ff24def2ee3e80a6e5d5fbc66948c86a9d92c5cdc501ecee85c"
+  },
+  {
+    "file": "assets/sprites/world/route1_rd_2026_10_01/shrub_polished.png",
+    "sha256": "9e2c6548c9bfbe343a5224b5583407769d134f21b11295eeeb8f3767860a8e34"
+  },
+  {
+    "file": "assets/sprites/world/route1_rd_2026_10_01/wayline_office.png",
+    "sha256": "73b93015ebaae46f1b4f4cdf9818460c6b2288cac7d629ebf6e4f7e3768d955c"
+  },
+  {
+    "file": "assets/sprites/world/route1_rd_2026_10_01/wayline_office_front.png",
+    "sha256": "1141f7363e7047b05d74c615ffc1121f21a4f979adf20934aec9dd871e7c5e9e"
+  },
+  {
+    "file": "assets/sprites/world/route1_rd_2026_10_02/bank_reeds_1.png",
+    "sha256": "8557c82e9a00a98377adc84e60a7fda9bf987d8143f4b72a1d77f2aa51ab8065"
+  },
+  {
+    "file": "assets/sprites/world/route1_rd_2026_10_02/bank_reeds_2.png",
+    "sha256": "7013a5f6bc39d5563ed7fadc5bfaf095efb4db5ac99a9912605bd9c645c340de"
+  },
+  {
+    "file": "assets/sprites/world/route1_rd_2026_10_02/bank_reeds_3.png",
+    "sha256": "2f66eb30ef03d4adec0165acc804845d97db2ad173fc1e92c8f2a52fbe915106"
+  },
+  {
+    "file": "assets/sprites/world/route1_rd_2026_10_02/bank_reeds_4.png",
+    "sha256": "6cbf87374a215df6a992884eb08e6d4da2dd7bea04135f7679c4fe47fd8eed99"
+  },
+  {
+    "file": "assets/sprites/world/route1_rd_2026_10_02/bank_reeds_5.png",
+    "sha256": "12a2a857e0911609165887cec934f5e42c68a04e1bc41fc9e5f061a640fb67b3"
+  },
+  {
+    "file": "assets/sprites/world/route1_rd_2026_10_02/bank_reeds_6.png",
+    "sha256": "d6893b8eae3df89d27ecb6c2fd4beec7787949b8e27015589056d11039f8a465"
+  },
+  {
+    "file": "assets/sprites/world/route1_rd_2026_10_02/bank_shrub_1.png",
+    "sha256": "43b251dd378df0cc67515333048ab6952b7e16c380cc405e1212609b07153c8f"
+  },
+  {
+    "file": "assets/sprites/world/route1_rd_2026_10_02/bank_shrub_2.png",
+    "sha256": "6d61db1636f3690e2660327fb22e553eb72ff16e51b4559492e2fe408c077200"
+  },
+  {
+    "file": "assets/sprites/world/route1_rd_2026_10_02/bank_shrub_3.png",
+    "sha256": "e045241b0bbbcb404b64da72a1cbf0e0d245abbed054aab0018a162c93f04acb"
+  },
+  {
+    "file": "assets/sprites/world/route1_rd_2026_10_02/bank_shrub_4.png",
+    "sha256": "0f6c61e231ba31bf0905e198e105cf5f36d448f9ec01c0e0bc7646178148d162"
+  },
+  {
+    "file": "assets/sprites/world/route1_rd_2026_10_02/bank_shrub_5.png",
+    "sha256": "e9f1d691e199c39af64ba2a9b806e096cd7c12e34f80e7b85cedc61c49ca11a7"
+  },
+  {
+    "file": "assets/sprites/world/route1_rd_2026_10_02/bank_shrub_6.png",
+    "sha256": "f68e55f58f78d9d90834ab5e22785e6c09e000e0b31e594b95dbeecbbdf932fe"
+  },
+  {
+    "file": "assets/sprites/world/route1_rd_2026_10_02/bank_shrub_7.png",
+    "sha256": "b22397b747edf858d881ec279d30ffe220cd6f786990b4ee5d86e2fe357875bc"
+  },
+  {
+    "file": "assets/sprites/world/route1_rd_2026_10_02/bank_shrub_8.png",
+    "sha256": "6b85d469554da0a733d6bc7508dbaea50a071bcf3ec35fb64ee408b2493b97ea"
+  },
+  {
+    "file": "assets/sprites/world/route1_rd_2026_10_02/cottonwood_bank_bend.png",
+    "sha256": "ea07a91510b81d8a9cae842df37b186b7049833419af44e1c3e4f45bd47f93b5"
+  },
+  {
+    "file": "assets/sprites/world/route1_rd_2026_10_02/cottonwood_east.png",
+    "sha256": "2b677551a002dadb71c28c1150032a8e1420398e797436cdf68c883ba84deaa9"
+  },
+  {
+    "file": "assets/sprites/world/route1_rd_2026_10_02/cottonwood_north.png",
+    "sha256": "09756a0fc409544848cbbcb203d0a37993f21a25798d00bfd904dd70d4eee786"
+  },
+  {
+    "file": "assets/sprites/world/route1_rd_2026_10_02/cottonwood_office_grove.png",
+    "sha256": "8c0bca04f74310a7feec66e9c7a4063bb87b90355b80d84cb68a5e702b18c730"
+  },
+  {
+    "file": "assets/sprites/world/route1_rd_2026_10_02/cottonwood_ridge.png",
+    "sha256": "90129fb60207abdd08dc702a71fd067cc5bc376877d2d6614b080b67334d11b8"
+  },
+  {
+    "file": "assets/sprites/world/route1_rd_2026_10_02/cottonwood_south.png",
+    "sha256": "a996021a26647c8505585d1da884a3621015512d4a38dc646427e6ccb841ab6c"
+  },
+  {
+    "file": "assets/sprites/world/route1_rd_2026_10_02/cottonwood_west.png",
+    "sha256": "673b15c7a745fffe22aed9273cd97a7751d0c3482734b94dc7feec3bdf056f5b"
+  },
+  {
+    "file": "assets/sprites/world/route1_rd_2026_10_02/dispatch_hall_complete.png",
+    "sha256": "2648d93f1f5842322c9c83b5fed9cc9cf3fb9e53912b8d9c906a76802e31a8d2"
+  },
+  {
+    "file": "assets/sprites/world/route1_rd_2026_10_02/ferry_tieoff_full.png",
+    "sha256": "2a6442122c5c7beb4de5ad752e0e47d06cd42e9594458702dd497774383a8706"
+  },
+  {
+    "file": "assets/sprites/world/route1_rd_2026_10_02/ferry_tieoff_short.png",
+    "sha256": "58e4dc57a636aebca4eb1b8b81772515763a3b0745da9271e1c2495dd39ba580"
+  },
+  {
+    "file": "assets/sprites/world/route1_rd_2026_10_02/relay_post_empty_slot.png",
+    "sha256": "ed38239bb068f6aac4204193bfdfc4f7e11026d76d5b9cfe2dca5da676cce958"
+  },
+  {
+    "file": "assets/sprites/world/route1_rd_2026_10_02/retaining_wall_east.png",
+    "sha256": "35abe572e0684eb228747e82d95c27dde27ac39e4e97ff2ad5642be3bfd5c744"
+  },
+  {
+    "file": "assets/sprites/world/route1_rd_2026_10_02/retaining_wall_west.png",
+    "sha256": "96eb43414897d3d2cbe4ffd8e7f24c0add645573fade20afcc34d2e8cbd1000d"
+  },
+  {
+    "file": "assets/sprites/world/route1_static_surfaces_2026_10_03/joined_city_landing.png",
+    "sha256": "404d9ebee56a320dfa5a46bcb7b8c942fcd1057279044dc640aed2e9270f9f99"
+  },
+  {
+    "file": "assets/sprites/world/route1_static_surfaces_2026_10_03/joined_levee_road.png",
+    "sha256": "e22973b5c1bf154bc69562a7bf1ff17a0d2ada2fdffe00b43d1b1bbbf1327186"
+  },
+  {
+    "file": "assets/sprites/world/route1_static_surfaces_2026_10_03/river_water_mask.png",
+    "sha256": "e66cde72f35700eea7910e00ed7cc6985eab6fd143d216815090c3851967981e"
+  },
+  {
+    "file": "assets/sprites/world/route1_static_surfaces_2026_10_03/wet_bank_contours.png",
+    "sha256": "925739998c2cc2a1ca9b9664b3c94abce7d6f06668806fc259ce8af08d724a38"
+  },
+  {
+    "file": "assets/sprites/world/route1_terrain_relief_2026_10_03/levee_grass_slopes.png",
+    "sha256": "ebb8aa87ae04b7f3a2d8d9c44e2cf68e36640508bfd730c98c2f506f2686c786"
+  },
+  {
+    "file": "assets/sprites/world/route1_terrain_relief_2026_10_03/rounded_dispatch_landing_paths.png",
+    "sha256": "aa6b983512245267297ec9625518809719e5c112d2180ac0f5069df091609191"
+  },
+  {
+    "file": "assets/tilesets/route1_rd_2026_10_01/route1_ground_atlas.png",
+    "sha256": "e60e3bc56b49a1b3e3c8968b3805fee3919564d195f35c5602803e04ca733b76"
+  },
+  {
+    "file": "assets/tilesets/route1_rd_2026_10_01/route1_ground_atlas.png.import",
+    "sha256": "5a362be4f7446f26c221e5f8756d222562939c198fd49e49f0e70531eca1f146"
+  },
+  {
+    "file": "assets/tilesets/route1_rd_2026_10_01/route1_ground_atlas_polished.png",
+    "sha256": "3c5cf177727cb41f152bb4cabfbaa8dc2a9c0ac3f74a9492b31d19835f71dc14"
+  },
+  {
+    "file": "assets/tilesets/route1_rd_2026_10_01/route1_ground_atlas_polished.png.import",
+    "sha256": "4283becce7c0a05bf34c3a366f0a40d80fd8be6f4eeeb8dd52e5d06d9d93955e"
+  },
+  {
+    "file": "assets/tilesets/route1_rd_2026_10_01/route1_ground_atlas_refined.png",
+    "sha256": "91fbc05c3cb0383a422f93b82dc57f4e7ff073db947b2bdaaf4e24a8d58ca15f"
+  },
+  {
+    "file": "assets/tilesets/route1_rd_2026_10_01/route1_ground_atlas_refined.png.import",
+    "sha256": "ed780d734623af9272f5c9a535bb8f1b458d29b1a0e2f1d92e46b1965f70581c"
+  },
+  {
+    "file": "assets/tilesets/route1_rd_2026_10_01/route1_ground_polished.tres",
+    "sha256": "c13926c2bdd833d4840363fcda659f26c869e6996275f2507319f98d59b7d15a"
+  },
+  {
+    "file": "assets/tilesets/route1_rd_2026_10_01/route1_ground_tileset.tres",
+    "sha256": "da04a0b5042f85cf92ed16c5c7a4edf8e30356ebd6a1dd8f67005a70fc712336"
+  }
+]

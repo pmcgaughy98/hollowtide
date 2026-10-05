@@ -1,0 +1,25 @@
+{
+  "checks": [
+    {
+      "file": "timber_bed.png",
+      "byte_exact": true,
+      "sha256": "38a088783cc147761439be0134576c96b09fefb1ed1e7dafc38776d97db5e582"
+    },
+    {
+      "file": "cuttings_row.png",
+      "byte_exact": true,
+      "sha256": "076385f81f479850301deeab49b40b008a2cb2c8dfbff06ae10a976c223a5a60"
+    },
+    {
+      "file": "garden_lanes.png",
+      "byte_exact": true,
+      "sha256": "3369e1d619236d5dc165123fe63a556a2e7d6321edcd855ab5ec81b2c5607f6c"
+    },
+    {
+      "file": "garden_neighbor.png",
+      "byte_exact": true,
+      "sha256": "c0f31928258cec2f26248cccd40581a60c4704bf1f1a015a9f994bc1fabfb7e1"
+    }
+  ],
+  "passed": true
+}

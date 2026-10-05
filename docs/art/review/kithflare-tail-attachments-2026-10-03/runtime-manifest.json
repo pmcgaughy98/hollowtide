@@ -1,0 +1,17 @@
+{
+  "data/creatures/103_kithflare.tres": "77fcc68efe34d31e2d413c4ee551f4b5f312ea168e93bec51729f08931432c51",
+  "data/creatures/104_wayburn.tres": "da6870cdbb582dc53697f009933dd00a62699c62bc66f6f17a7abaac2b31efe4",
+  "data/creatures/105_coalcrest.tres": "88ae3ac94ff09d45b85aa4521dcbd7ea1aa266c7a1c0b08c0b33ea97d0407aa4",
+  "assets/sprites/creatures/kithflare_tail_attached_2026_10_03/kithflare_front.png": "77f7c99cf004a997787e0f0d49d7339a08717b1498717d63c18a7c003750b0b0",
+  "assets/sprites/creatures/kithflare_tail_attached_2026_10_03/kithflare_front.png.import": "c3fa5551f7947823d0e319b980466ec219b650908787a6b4ac6b40d45f46deac",
+  "assets/sprites/creatures/kithflare_tail_attached_2026_10_03/kithflare_back.png": "3c9870bd05a5a2d68514fca4c75490f96397ed627782cfec39342e9dd3fc1dc7",
+  "assets/sprites/creatures/kithflare_tail_attached_2026_10_03/kithflare_back.png.import": "0a2fc19516d3ca484afd47520faf305f6037a7896c96beea1f7cd884522abf85",
+  "assets/sprites/creatures/kithflare_tail_attached_2026_10_03/wayburn_front.png": "9cd5dcec545b35202116a0f8021a28c6f4abe493d8a051c525118a400a5bd610",
+  "assets/sprites/creatures/kithflare_tail_attached_2026_10_03/wayburn_front.png.import": "b18dc5f6dd081f616ddb86d6d1eac138c8ff3c7c7533caaebf69a04646e8ed59",
+  "assets/sprites/creatures/kithflare_tail_attached_2026_10_03/wayburn_back.png": "59dbb95711a3a80fbe31821f06716a7f4e4f31357dcebba24ebdebe800373d9a",
+  "assets/sprites/creatures/kithflare_tail_attached_2026_10_03/wayburn_back.png.import": "14d5a4326d88c76f71b1c528fdc179f57b2a77d3af95cefd2e960a745855b624",
+  "assets/sprites/creatures/kithflare_tail_attached_2026_10_03/coalcrest_front.png": "3a0eb38af7d62a8e4130e6211ba8db13147d1d202c790c59a97c022e6cfd74a5",
+  "assets/sprites/creatures/kithflare_tail_attached_2026_10_03/coalcrest_front.png.import": "125951c3da9c901012ff926b9d5dc7bf0c2fa82df4dc740079245d27933a4944",
+  "assets/sprites/creatures/kithflare_tail_attached_2026_10_03/coalcrest_back.png": "b2aa69387d61dd18070bfccf4f56a9aec8ddff29dc729a117edc63cd479c29a1",
+  "assets/sprites/creatures/kithflare_tail_attached_2026_10_03/coalcrest_back.png.import": "63189c55035b4b9e11a86ac40c261fbd1b72c749f7ec2a8cd85c8a92e7fc217f"
+}

@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3]
+[gd_scene load_steps=8 format=3]
 
 [ext_resource type="Script" path="res://scripts/effects/sky_rail_strike.gd" id="1_script"]
 [ext_resource type="Texture2D" path="res://assets/sprites/effects/oxbowarchon/kingstone_rail/orb4_p09.png" id="6_meteor"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" path="res://assets/sprites/effects/oxbowarchon/kingstone_rail/orb2_p06.png" id="8_b1"]
 [ext_resource type="Texture2D" path="res://assets/sprites/effects/oxbowarchon/kingstone_rail/orb1_p08.png" id="9_rings"]
 [ext_resource type="Texture2D" path="res://assets/sprites/effects/oxbowarchon/kingstone_rail/orb3_p10.png" id="10_core"]
+[ext_resource type="Texture2D" path="res://assets/sprites/effects/vfx_rd_2026_10_01/kingstone_impact_4x4.png" id="11_vfx"]
 
 [node name="OxbowarchonSkyRail" type="Node2D"]
 script = ExtResource("1_script")
@@ -13,6 +14,7 @@ meteor = ExtResource("6_meteor")
 bursts = Array[Texture2D]([ExtResource("7_b0"), ExtResource("8_b1")])
 rings = ExtResource("9_rings")
 core = ExtResource("10_core")
+impact_vfx = ExtResource("11_vfx")
 fall_seconds = 0.5
 meteor_scale = 4
 burst_scale = 3

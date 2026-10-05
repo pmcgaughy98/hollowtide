@@ -1,0 +1,22 @@
+{
+	"checks": [],
+	"failed": false,
+	"mode": "baseline",
+	"snapshots": [
+		{
+			"_leaving": false,
+			"_reduce_motion": false,
+			"_time": 3.99999999999999,
+			"courier_frame": 4,
+			"courier_position": "(180.0, 211.0)",
+			"creature_frame": 1,
+			"creature_position": "(353.0, 304.0)",
+			"focus": "/root/MainMenuArtPreview/@CanvasLayer@7/@PanelContainer@9/@VBoxContainer@10/@Button@11",
+			"frame": 239,
+			"image": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/menu-flow-review/baseline-main.png",
+			"image_saved": true,
+			"name": "main",
+			"panels": {}
+		}
+	]
+}

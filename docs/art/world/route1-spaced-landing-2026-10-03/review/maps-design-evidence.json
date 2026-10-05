@@ -1,0 +1,63 @@
+{
+  "date": "2026-10-03",
+  "protocol": "Official Google Maps MCP tools/call search_places",
+  "server": "https://mapstools.googleapis.com/mcp",
+  "public_queries_only": true,
+  "returned_places": {
+    "roseport": [
+      {
+        "id": "ChIJ2yT4zvoawIcRs5SLckrPVJE",
+        "location": {
+          "latitude": 39.7478144,
+          "longitude": -94.8619874
+        },
+        "attribution": {
+          "title": "Roseport Landing - Google Maps",
+          "url": "https://www.google.com/maps/place//data=!4m2!3m1!1s0x87c01afacef824db:0x9154cf4a728b94b3"
+        },
+        "googleMapsLinks": {
+          "directionsUrl": "https://www.google.com/maps/dir//''/data=!4m7!4m6!1m1!4e2!1m2!1m1!1s0x87c01afacef824db:0x9154cf4a728b94b3!3e0",
+          "photosUrl": "https://www.google.com/maps/place//data=!4m3!3m2!1s0x87c01afacef824db:0x9154cf4a728b94b3!10e5",
+          "placeUrl": "https://www.google.com/maps/place//data=!4m2!3m1!1s0x87c01afacef824db:0x9154cf4a728b94b3",
+          "reviewsUrl": "https://www.google.com/maps/place//data=!4m4!3m3!1s0x87c01afacef824db:0x9154cf4a728b94b3!9m1!1b1",
+          "writeAReviewUrl": "https://www.google.com/maps/place//data=!4m3!3m2!1s0x87c01afacef824db:0x9154cf4a728b94b3!12e1"
+        }
+      }
+    ],
+    "levee": [
+      {
+        "id": "Ii4qLAoUChIJZ4n2f00EwIcRGNax-ZeSjiYSFAoSCf9edcTYGsCHEbqoG-bBXiXS",
+        "location": {
+          "latitude": 39.7333768,
+          "longitude": -94.9107797
+        },
+        "attribution": {
+          "title": "Elwood Gladden Levee - Google Maps",
+          "url": "https://www.google.com/maps/place/Washington%20Township%2C%20KS%2066090"
+        },
+        "googleMapsLinks": {
+          "directionsUrl": "https://www.google.com/maps/dir//39.7333768,-94.9107797/data=!4m5!4m4!1m1!4e2!1m0!3e0",
+          "placeUrl": "https://www.google.com/maps/place/Washington%20Township%2C%20KS%2066090"
+        }
+      }
+    ],
+    "bridge": [
+      {
+        "id": "Ii4qLAoUChIJ7fy86OYawIcR7AjkaazuI4gSFAoSCXElLpNOGsCHEahx01t5lnXm",
+        "location": {
+          "latitude": 39.7494039,
+          "longitude": -94.863744
+        },
+        "attribution": {
+          "title": "Pony Express Bridges - Google Maps"
+        },
+        "googleMapsLinks": {
+          "directionsUrl": "https://www.google.com/maps/dir//39.7494039,-94.863744/data=!4m5!4m4!1m1!4e2!1m0!3e0"
+        }
+      }
+    ]
+  },
+  "inference": "The returned Roseport Landing point is south of the returned Pony Express Bridges point. This supports the southern landing pocket in the fictional route.",
+  "limitation": "The levee lookup returns a broad Washington Township route location. It does not establish the exact entrance or embankment cross-section; supplied screenshots and prior regional synthesis remain the geometry references.",
+  "applied": "Keep the raised crest and complete river crossing. Place the relay, old tieoffs and listening spot in the lower west-bank pocket south of the bridge; connect it with a return track. Hollowtide names and materials remain original."
+}

@@ -1,0 +1,19 @@
+{
+  "status": "succeeded",
+  "task_id": "310d2414-8b7e-4d0b-865e-1b63f3329b06",
+  "created_at": 1791138482,
+  "updated_at": 1791138512,
+  "result": {
+    "created_at": 1791138512,
+    "credit_cost": 1,
+    "balance_cost": 0.18,
+    "model": "rd_pro",
+    "remaining_credits": 0,
+    "remaining_balance": 2.76,
+    "request_id": "310d2414-8b7e-4d0b-865e-1b63f3329b06",
+    "outputs_retained_until": 1791224882,
+    "output_url_expires_at": 1791139892
+  },
+  "output_file": "garden-neighbor-source.png",
+  "output_sha256": "6e47c38ca16f2cdb3117a6838761c0288eb1371cb814c1a933d4a95cda24db08"
+}

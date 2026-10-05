@@ -1,0 +1,99 @@
+from pathlib import Path
+import hashlib,json
+p=Path("C:/Users/pmcga/dev/hollowtide"); s=Path.cwd(); out=s/"route1-startup-review";out.mkdir(exist_ok=True)
+sources=["scripts/route1_crossing.gd","scripts/route1_landscape.gd","scripts/route1_map_polish.gd","scripts/first_route_prototype.gd","scripts/route1_terrain_relief.gd","scenes/first_route_prototype.tscn","project.godot","docs/AI_COLLABORATION.md"]
+rows=[]
+for rel in sources:
+ f=p/rel; dst=out/"source-before"/(rel+".txt");dst.parent.mkdir(parents=True,exist_ok=True)
+ assert not dst.exists() or dst.read_bytes()==f.read_bytes()
+ dst.write_bytes(f.read_bytes())
+ rows.append({"file":rel,"sha256":hashlib.sha256(f.read_bytes()).hexdigest()})
+(out/"source-before-manifest.json").write_text(json.dumps(rows,indent=2),encoding="utf-8")
+def instrument(src,calls):
+ src=src.replace("extends Node2D","extends Node2D\nvar startup_profile_ms: Dictionary = {}",1)
+ for i,call in enumerate(calls):
+  needle="\t"+call+"()"
+  assert src.count(needle)==1,(call,src.count(needle))
+  src=src.replace(needle,"\tvar profile_started_%d := Time.get_ticks_msec()\n"%i+needle+"\n\tstartup_profile_ms[\""+call+"\"] = Time.get_ticks_msec() - profile_started_%d"%i)
+ return src
+land=instrument((p/"scripts/route1_landscape.gd").read_text(encoding="utf-8"),["_build_banks","_build_groves","_build_details","_vary_city_trees"])
+(s/"startup_profile_landscape.gd").write_text(land,encoding="utf-8")
+cross=instrument((p/"scripts/route1_crossing.gd").read_text(encoding="utf-8"),["_extend_ground","_build_river_surface","_build_levee_materials","_build_city_road_surface","_replace_bounds","_build_wayfinding","_build_arrival","_build_bridge_front"])
+cross=cross.replace('preload("res://scripts/route1_landscape.gd")','preload("'+(s/"startup_profile_landscape.gd").as_posix()+'")')
+(s/"startup_profile_crossing.gd").write_text(cross,encoding="utf-8")
+probe=r'''extends SceneTree
+const OUT := "__OUT__/"
+const PROFILE := "__PROFILE__"
+var route: Node2D
+func _initialize() -> void:
+	call_deferred("_run")
+func _halt(node: Node) -> void:
+	node.set_process(false)
+	node.set_physics_process(false)
+	for child in node.get_children(): _halt(child)
+func _state(node: Node, rows: Array) -> void:
+	var row := {"node":str(route.get_path_to(node)),"class":node.get_class()}
+	if node is Node2D:
+		row["position"]=str(node.position);row["z_index"]=node.z_index;row["scale"]=str(node.scale)
+	if node is Sprite2D:
+		row["offset"]=str(node.offset);row["centered"]=node.centered;row["region_enabled"]=node.region_enabled;row["region_rect"]=str(node.region_rect);row["texture_filter"]=node.texture_filter
+		if node.texture:
+			var image: Image=node.texture.get_image()
+			image.convert(Image.FORMAT_RGBA8)
+			row["texture_size"]=str(image.get_size())
+			row["texture_rgba_sha256"]=image.get_data().hex_encode().sha256_text()
+	if node is CollisionShape2D and node.shape is RectangleShape2D:
+		row["collision_rectangle"]=str(node.shape.size);row["disabled"]=node.disabled
+	if node is TileMapLayer:
+		var cells: Array=[]
+		for cell in node.get_used_cells():
+			cells.append([str(cell),node.get_cell_source_id(cell),str(node.get_cell_atlas_coords(cell)),node.get_cell_alternative_tile(cell)])
+		row["cells"]=cells
+	rows.append(row)
+	for child in node.get_children():_state(child,rows)
+func _capture(label: String, at: Vector2, zoom: float) -> void:
+	var player: CharacterBody2D=route.get_node("Player")
+	player.position=at
+	var camera: Camera2D=player.get_node("Camera2D")
+	camera.zoom=Vector2.ONE*zoom;camera.position=Vector2.ZERO if zoom==1.0 else Vector2(0,-24)
+	camera.position_smoothing_enabled=false;camera.reset_smoothing()
+	route._process(0.0)
+	for i in 8:await process_frame
+	await RenderingServer.frame_post_draw
+	root.get_texture().get_image().save_png(OUT+"before-"+label+".png")
+func _run() -> void:
+	var load_started:=Time.get_ticks_msec()
+	route=load("res://scenes/first_route_prototype.tscn").instantiate()
+	var crossing: Node=route.get_node("RiverCrossing")
+	crossing.set_script(load(PROFILE))
+	var attach_started:=Time.get_ticks_msec()
+	root.add_child(route);current_scene=route
+	var attach_ms:=Time.get_ticks_msec()-attach_started
+	var ready_ms:=Time.get_ticks_msec()-load_started
+	_halt(route)
+	# Review fixtures use fixed water/wind clocks; ordinary gameplay is tested separately.
+	crossing.set("_clock",0.0);crossing.set("_flow_offset",Vector2.ZERO)
+	crossing.get("_river_material").set_shader_parameter("flow_offset",Vector2.ZERO);crossing.queue_redraw()
+	var landscape: Node=crossing.get_node("Landscape")
+	landscape.get("_wind_material").set_shader_parameter("scene_clock",0.0)
+	var baked: Array=[]
+	for pair in [["RiverSurface","river_water_mask.png"],["JoinedLeveeRoad","joined_levee_road.png"],["JoinedCityLanding","joined_city_landing.png"],["Landscape/WetBankContours","wet_bank_contours.png"]]:
+		var surface: Sprite2D=crossing.get_node(pair[0])
+		var image:=surface.texture.get_image()
+		var error:=image.save_png(OUT+pair[1])
+		baked.append({"node":pair[0],"file":pair[1],"error":error,"size":str(image.get_size()),"position":str(surface.position),"z_index":surface.z_index,"centered":surface.centered,"texture_filter":surface.texture_filter})
+	var rows: Array=[]
+	_state(route,rows)
+	var state_file:=FileAccess.open(OUT+"before-scene-state.json",FileAccess.WRITE);state_file.store_string(JSON.stringify(rows,"\t"))
+	var report:={"fixture_only":true,"full_scene_ready_ms":ready_ms,"attach_ready_ms":attach_ms,"crossing_builders_ms":crossing.get("startup_profile_ms"),"landscape_builders_ms":landscape.get("startup_profile_ms"),"baked":baked}
+	var file:=FileAccess.open(OUT+"before-profile.json",FileAccess.WRITE);file.store_string(JSON.stringify(report,"\t"))
+	print("ROUTE_STARTUP_PROFILE ",report)
+	await _capture("overview",Vector2(512,320),1.0)
+	await _capture("entrance",Vector2(218,262),3.0)
+	await _capture("crest",Vector2(310,354),3.0)
+	await _capture("landing",Vector2(395,240),3.0)
+	await _capture("city",Vector2(816,480),3.0)
+	quit()
+'''.replace("__OUT__",out.as_posix()).replace("__PROFILE__",(s/"startup_profile_crossing.gd").as_posix())
+(s/"startup_profile_review.gd").write_text(probe,encoding="utf-8")
+print("Prepared exact native-surface capture and isolated startup profiling fixture.")

@@ -65,6 +65,9 @@ enum Essence {
 ## Both rules come from what you said you like about Digimon: the line should
 ## make sense, and nothing should share a destination.
 @export var evolves_into: CreatureData
+## Parts this body actually has. MoveGate reads this. Empty means the form
+## has not been gated, and then only ultimates are refused.
+@export var body_parts: PackedStringArray = []
 
 
 @export_group("Base Stats")

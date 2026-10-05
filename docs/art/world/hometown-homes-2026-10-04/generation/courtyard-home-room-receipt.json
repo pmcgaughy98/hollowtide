@@ -1,0 +1,19 @@
+{
+  "status": "succeeded",
+  "task_id": "b9751f1d-8281-44e8-85d9-b8874c01b003",
+  "created_at": 1791142971,
+  "updated_at": 1791143007,
+  "result": {
+    "created_at": 1791143007,
+    "credit_cost": 1,
+    "balance_cost": 0.18,
+    "model": "rd_pro",
+    "remaining_credits": 0,
+    "remaining_balance": 1.86,
+    "request_id": "b9751f1d-8281-44e8-85d9-b8874c01b003",
+    "outputs_retained_until": 1791229371,
+    "output_url_expires_at": 1791144011
+  },
+  "output_file": "courtyard-home-room-source.png",
+  "output_sha256": "a74fb9aa97f9cbf23fdf75443b2d82e85521c53c9d6904ba29b1cf9e94f42f5f"
+}

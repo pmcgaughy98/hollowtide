@@ -15,6 +15,7 @@
 script = ExtResource("1_script")
 id = 108
 creature_name = "Vitrecrag"
+body_parts = PackedStringArray("shell", "buttress", "chamber", "mouth")
 essence = 0
 sprite = ExtResource("2_sprite")
 back_sprite = ExtResource("7_back")
@@ -24,6 +25,6 @@ idle_breath_widen = 0.012
 idle_period = 5.88
 battle_size = 1.75
 aim_points = Dictionary[String, Vector2]({
-"core": Vector2(29, -2),
-"mouth": Vector2(36, 31)
+"mouth": Vector2(42, 24),
+"core": Vector2(36, -4)
 })

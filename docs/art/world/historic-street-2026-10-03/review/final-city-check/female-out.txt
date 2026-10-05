@@ -1,0 +1,6 @@
+Welcome to Summer Engine (c) built on the awesome work by Godot 2007-present Juan Linietsky, Ariel Manzur & Godot Contributors.
+D3D12 12_0 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce GTX 1660 SUPER
+
+[SE] AuthManager: CLI credential found; desktop session exchange required
+[godot_ai game_helper] registered mcp capture (debugger active=false, logger=true)
+AREA_ORDINARY_WALK Female true { "pouch_accepted": false, "levee_entrance_read": false, "city_arrival_registered": true, "city_directions_read": true, "delivered": false, "water_mark_observed": false, "heard_calls": false, "marker_restored": false, "report_done": false, "reported_calls": false, "reported_water_mark": false }

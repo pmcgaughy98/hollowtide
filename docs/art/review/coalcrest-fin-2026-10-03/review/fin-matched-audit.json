@@ -1,0 +1,14 @@
+{
+  "dimensions": [
+    160,
+    160
+  ],
+  "changed_pixels": 368,
+  "changed_outside_mask": 0,
+  "existing_visible_pixels_changed": 0,
+  "new_visible_pixels": 368,
+  "generated_outline_preserved": true,
+  "top_clearance": 3,
+  "material_source": "Original sail only; radial continuation from anchor (96,65), reflected source rim y16 with 0.5 depth factor; nearest native sampling",
+  "sha256": "614ea10b0ad7e5f5097887907d6ccf36fd5538081df7d99fad3e5812e1a89d73"
+}

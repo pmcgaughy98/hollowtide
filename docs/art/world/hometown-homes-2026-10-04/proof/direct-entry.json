@@ -1,0 +1,12 @@
+{
+  "active_area": "courtyard_home",
+  "completed": true,
+  "direct_scene": "res://scenes/courtyard_home.tscn",
+  "notes_freeze_and_resume": true,
+  "ordinary_movement": true,
+  "original_flags_party_player_exact": true,
+  "passed": true,
+  "screenshot_save_error": 0,
+  "temporary_scene_freed": true,
+  "test_teleports": 0
+}

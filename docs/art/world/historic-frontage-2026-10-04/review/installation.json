@@ -1,0 +1,30 @@
+{
+  "runtime": [
+    "scripts/historic_street.gd",
+    "assets/sprites/world/historic_frontage_2026_10_04/rear_rowhomes.png",
+    "assets/sprites/world/historic_frontage_2026_10_04/repair_workshop.png",
+    "assets/sprites/world/historic_frontage_2026_10_04/street_pavers.png",
+    "assets/sprites/world/historic_frontage_2026_10_04/workshop_keeper.png"
+  ],
+  "new_dialogue": "Prototype proposal, not approved canon",
+  "map_size": [
+    768,
+    896
+  ],
+  "new_landmarks": {
+    "workshop": [
+      384,
+      400
+    ],
+    "rowhomes": [
+      384,
+      224
+    ],
+    "keeper": [
+      424,
+      426
+    ]
+  },
+  "original_address_activity_methods_preserved": true,
+  "source_art_preserved": true
+}

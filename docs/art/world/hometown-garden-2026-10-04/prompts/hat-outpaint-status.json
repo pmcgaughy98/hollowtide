@@ -1,0 +1,12 @@
+{
+  "status": "approved_and_executed",
+  "estimated_usd": 0.18,
+  "executed": true,
+  "source": "generated/garden-neighbor-source.png",
+  "reason": "Automatic approval review rejected sending the generated non-public image for paid editing without specific payload authorization.",
+  "existing_resident_used_for_safe_garden_integration": true,
+  "actual_usd": 0.18,
+  "job": "2852abde-e5a5-4f75-94c4-baa6efc7afc8",
+  "approval": "direct human asynchronous answer Approve this upload",
+  "original_rejection_resolved": true
+}

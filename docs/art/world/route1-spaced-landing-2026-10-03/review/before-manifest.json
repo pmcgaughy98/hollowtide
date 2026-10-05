@@ -1,0 +1,8 @@
+{
+  "scripts/first_route_prototype.gd": "a1f486190cfba0cfe8759f4786de477f710fee889708d1827bebaa402629235b",
+  "scripts/route1_landing_loop.gd": "fc6f02adc74750f1665d64b2579fbfd7e0d83c4b446539dcfa9c77d2766b6adc",
+  "scripts/route1_crossing.gd": "1c07c2abb970e5b4c55208ebb364a8f043801d1aeea86c11a56c5f479e5eca03",
+  "scripts/route1_landscape.gd": "82fce7b471bc82c53e0c92e5e4c2a055e62c012f8b1cc750b222ceeddcde934e",
+  "scenes/first_route_prototype.tscn": "f827b7e20308e374c03e202d1c77bb5d5d0648be32965789091ffb831b350ab0",
+  "docs/AI_COLLABORATION.md": "f004c8f31ff28afb4102edce3321973d4c6a6f650f5c0c35caaa0b26d93fa2a1"
+}

@@ -1,0 +1,67 @@
+{
+  "existing_count": 2177,
+  "existing_exact": 2176,
+  "changed_existing": [
+    "scripts/historic_street.gd"
+  ],
+  "new_runtime": [
+    "assets/sprites/world/historic_frontage_2026_10_04/rear_rowhomes.png",
+    "assets/sprites/world/historic_frontage_2026_10_04/rear_rowhomes.png.import",
+    "assets/sprites/world/historic_frontage_2026_10_04/repair_workshop.png",
+    "assets/sprites/world/historic_frontage_2026_10_04/repair_workshop.png.import",
+    "assets/sprites/world/historic_frontage_2026_10_04/street_pavers.png",
+    "assets/sprites/world/historic_frontage_2026_10_04/street_pavers.png.import",
+    "assets/sprites/world/historic_frontage_2026_10_04/workshop_keeper.png",
+    "assets/sprites/world/historic_frontage_2026_10_04/workshop_keeper.png.import"
+  ],
+  "original_activity_functions_exact": {
+    "visit_board": true,
+    "visit_shop": true,
+    "visit_ledger": true,
+    "offer_handoff_if_requested": true,
+    "_record_handoff": true,
+    "_update_board": true,
+    "objective_text": true,
+    "board_summary": true,
+    "notes_text": true,
+    "_process": true,
+    "_open_journey": true
+  },
+  "native_assets": [
+    {
+      "name": "repair_workshop",
+      "source_pixels_exact": true,
+      "transparent_padding_12px": true,
+      "alpha_binary": true,
+      "native_size": [
+        162,
+        209
+      ],
+      "displayed_visible_height": 138.75
+    },
+    {
+      "name": "rear_rowhomes",
+      "source_pixels_exact": true,
+      "transparent_padding_12px": true,
+      "alpha_binary": true,
+      "native_size": [
+        206,
+        207
+      ],
+      "displayed_visible_height": 155.54999999999998
+    },
+    {
+      "name": "workshop_keeper",
+      "source_pixels_exact": true,
+      "transparent_padding_12px": true,
+      "alpha_binary": true,
+      "native_size": [
+        57,
+        80
+      ],
+      "displayed_visible_height": 28.0
+    }
+  ],
+  "original_launch_exact": true,
+  "all_creature_runtime_exact": true
+}

@@ -1,0 +1,38 @@
+{
+  "key": "silt_roots",
+  "width": 64,
+  "height": 48,
+  "prompt": "Original Hollowtide environment asset, top-down three-quarter 2D RPG view. Match the reference's grounded muted olive/sage vegetation, warm loess soil and deep desaturated forest-green shadows. Native crisp 1-pixel clusters, substantial material shading, small restrained highlights; no smooth gradients, no antialiasing, no thick black border around ground, no neon greens. One isolated object centered with at least 4 pixels of empty margin, transparent surrounding background, no scenery, labels, grid or characters. One short irregular worn river-cutbank segment, gently curved, a thin low exposed warm tan silt lip topped with dark damp grass and two small twisting exposed roots. The face is shallow and layered, not a cliff or wall. The lower edge has darker damp soil and a few small grey pebbles. A small broken grass crown, no water painted behind or in front, no isolated island, no square tile, no tall tree or log.",
+  "prompt_style": "rd_pro__topdown",
+  "seed": 20261003,
+  "remove_bg": true,
+  "bypass_prompt_expansion": true,
+  "references": [
+    "assets/tilesets/route1_rd_2026_10_01/route1_ground_atlas_polished.png",
+    "assets/sprites/world/route1_rd_2026_10_02/cottonwood_ridge.png"
+  ],
+  "task": {
+    "status": "accepted",
+    "task_id": "771a2f54-3d9b-4069-b3f1-cdad51b72a6d",
+    "request_id": "771a2f54-3d9b-4069-b3f1-cdad51b72a6d",
+    "message": "Inference accepted. Poll GET /v2/inferences/tasks/{task_id} for status."
+  },
+  "estimate": {
+    "created_at": 1790995547,
+    "credit_cost": 0,
+    "balance_cost": 0.18,
+    "output_images": [],
+    "base64_images": [],
+    "output_urls": [],
+    "model": "check_cost",
+    "remaining_credits": 0,
+    "remaining_balance": 2.940000000000008,
+    "resolved_prompt_style": "rd_pro__topdown",
+    "used_input_image": false,
+    "reference_images_count": 2,
+    "used_extra_input_image": false,
+    "used_input_palette": false,
+    "used_strength": false,
+    "effective_timeout_seconds": 180
+  }
+}

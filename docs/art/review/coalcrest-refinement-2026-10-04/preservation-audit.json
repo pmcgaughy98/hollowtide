@@ -1,0 +1,9 @@
+{
+  "recorded_existing_runtime_files": 2169,
+  "exact_existing_runtime_files": 2168,
+  "changed_existing_runtime_files": [
+    "data/creatures/105_coalcrest.tres"
+  ],
+  "missing_existing_runtime_files": [],
+  "no_new_rd_requests_or_cost": true
+}

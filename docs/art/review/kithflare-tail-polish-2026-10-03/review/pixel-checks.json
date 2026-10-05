@@ -1,0 +1,83 @@
+{
+  "checks": [
+    {
+      "name": "kithflare",
+      "view": "front",
+      "four_neighbor_lantern_body_connection": true,
+      "exact_original_lamp_pixels": true,
+      "exact_rgba_outside_tail_mask": true,
+      "native_canvas_and_binary_alpha": true,
+      "original_completed_fin_exact": null,
+      "front_foot_exact": null,
+      "sprite_8_neighbor_components": 1,
+      "original_components": 1,
+      "changed_pixels_from_previous": 19
+    },
+    {
+      "name": "kithflare",
+      "view": "back",
+      "four_neighbor_lantern_body_connection": true,
+      "exact_original_lamp_pixels": true,
+      "exact_rgba_outside_tail_mask": true,
+      "native_canvas_and_binary_alpha": true,
+      "original_completed_fin_exact": null,
+      "front_foot_exact": null,
+      "sprite_8_neighbor_components": 1,
+      "original_components": 1,
+      "changed_pixels_from_previous": 22
+    },
+    {
+      "name": "wayburn",
+      "view": "front",
+      "four_neighbor_lantern_body_connection": true,
+      "exact_original_lamp_pixels": true,
+      "exact_rgba_outside_tail_mask": true,
+      "native_canvas_and_binary_alpha": true,
+      "original_completed_fin_exact": null,
+      "front_foot_exact": null,
+      "sprite_8_neighbor_components": 1,
+      "original_components": 1,
+      "changed_pixels_from_previous": 0
+    },
+    {
+      "name": "wayburn",
+      "view": "back",
+      "four_neighbor_lantern_body_connection": true,
+      "exact_original_lamp_pixels": true,
+      "exact_rgba_outside_tail_mask": true,
+      "native_canvas_and_binary_alpha": true,
+      "original_completed_fin_exact": null,
+      "front_foot_exact": null,
+      "sprite_8_neighbor_components": 1,
+      "original_components": 1,
+      "changed_pixels_from_previous": 23
+    },
+    {
+      "name": "coalcrest",
+      "view": "front",
+      "four_neighbor_lantern_body_connection": true,
+      "exact_original_lamp_pixels": true,
+      "exact_rgba_outside_tail_mask": true,
+      "native_canvas_and_binary_alpha": true,
+      "original_completed_fin_exact": true,
+      "front_foot_exact": true,
+      "sprite_8_neighbor_components": 1,
+      "original_components": 1,
+      "changed_pixels_from_previous": 1155
+    },
+    {
+      "name": "coalcrest",
+      "view": "back",
+      "four_neighbor_lantern_body_connection": true,
+      "exact_original_lamp_pixels": true,
+      "exact_rgba_outside_tail_mask": true,
+      "native_canvas_and_binary_alpha": true,
+      "original_completed_fin_exact": null,
+      "front_foot_exact": null,
+      "sprite_8_neighbor_components": 1,
+      "original_components": 1,
+      "changed_pixels_from_previous": 1018
+    }
+  ],
+  "passed": true
+}

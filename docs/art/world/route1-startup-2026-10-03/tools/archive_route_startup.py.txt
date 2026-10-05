@@ -1,0 +1,146 @@
+from pathlib import Path
+import hashlib,json,re,difflib
+p=Path("C:/Users/pmcga/dev/hollowtide");s=Path.cwd();r=s/"route1-startup-review";a=p/"docs/art/world/route1-startup-2026-10-03";a.mkdir(parents=True,exist_ok=True)
+def sha(f):return hashlib.sha256(f.read_bytes()).hexdigest()
+guards={"scripts/route1_crossing.gd":"0e7a0e6fa65b3f699115180d819f91c71e2714a44415c63f4a3f1a136d728c51","scripts/route1_landscape.gd":"64456afdff2872206c7666bbccd9303cafca6524aea82d32c0678f89cc42c416","docs/AI_COLLABORATION.md":"b6ab88e866952a065821aeff2bb86ab1a1701c6a8c95be7da36ddcc18d77cdfc"}
+for rel,h in guards.items():assert sha(p/rel)==h,("Shared file changed",rel)
+def write_new(f,data):
+ f.parent.mkdir(parents=True,exist_ok=True)
+ if f.exists():assert f.read_bytes()==data,("Existing archive differs",str(f))
+ else:f.write_bytes(data)
+ assert f.read_bytes()==data
+ledger=[]
+def copy(f,rel):
+ write_new(a/rel,f.read_bytes());ledger.append({"source":str(f),"archive":rel,"sha256":sha(f),"bytes":f.stat().st_size})
+for f in sorted(r.rglob("*")):
+ if f.is_file():copy(f,"review/"+f.relative_to(r).as_posix())
+for f in sorted(s.glob("startup-*.txt")):copy(f,"verification/"+f.name)
+for name in ["prepare_startup_profile.py","prepare_static_startup_assets.py","install_cached_route_surfaces.py","compare_cached_route.py","archive_route_startup.py",
+ "startup_profile_crossing.gd","startup_profile_landscape.gd","startup_profile_review.gd","startup_after_profile_crossing.gd","startup_after_profile_landscape.gd","startup_after_review.gd","startup_ordinary_walkthrough.gd","startup_repeated_loads.gd","startup_live_motion.gd"]:
+ copy(s/name,"tools/"+name+".txt")
+runtime=[]
+for rel in ["scripts/route1_crossing.gd","scripts/route1_crossing.gd.uid","scripts/route1_landscape.gd","scripts/route1_landscape.gd.uid"]:
+ copy(p/rel,"source/current/"+rel+".txt");runtime.append({"file":rel,"sha256":sha(p/rel),"bytes":(p/rel).stat().st_size})
+for row in json.loads((r/"static-surface-manifest.json").read_text(encoding="utf-8")):
+ for rel in [row["file"],row["file"]+".import"]:
+  copy(p/rel,"source/current/"+rel+("" if rel.endswith(".png") else ".txt"))
+  runtime.append({"file":rel,"sha256":sha(p/rel),"bytes":(p/rel).stat().st_size})
+ imports=(p/(row["file"]+".import")).read_text(encoding="utf-8")
+ for option in ["compress/mode=0","mipmaps/generate=false","process/fix_alpha_border=false"]:
+  assert option in imports,(row["file"],option)
+for rel in ["assets/tilesets/route1_rd_2026_10_01/route1_ground_atlas_polished.png","assets/sprites/world/route1_crossing_2026_10_02/path_soil_native32.png","assets/sprites/world/route1_crossing_2026_10_02/river_water_native32.png","assets/sprites/world/route1_crossing_2026_10_02/river_flow.gdshader","assets/sprites/world/route1_landscape_2026_10_03/ground_variation.gdshader","assets/sprites/world/route1_landscape_2026_10_03/foliage_wind.gdshader"]:
+ copy(p/rel,"source/inputs/"+rel+("" if rel.endswith(".png") else ".txt"))
+def functions(t):
+ parts=re.split(r"(?m)(?=^func )",t)
+ return {re.match(r"func (\w+)",x).group(1):x.strip() for x in parts if x.startswith("func ")}
+protected=[]
+for rel,names in [("scripts/route1_crossing.gd",["_ready","_extend_ground","_trail","_replace_bounds","_obstacle","_sprite","_label","_build_wayfinding","_build_arrival","_build_bridge_front","_process","_draw"]),("scripts/route1_landscape.gd",["_ready","_process","_prop","_build_groves","_build_details","_vary_city_trees"])]:
+ before=(r/"source-before"/(rel+".txt")).read_text(encoding="utf-8");after=(p/rel).read_text(encoding="utf-8")
+ bf=functions(before);af=functions(after)
+ for name in names:
+  assert bf[name]==af[name],("Protected logic changed",rel,name);protected.append({"file":rel,"function":name,"unchanged":True})
+ diff="".join(difflib.unified_diff(before.splitlines(True),after.splitlines(True),fromfile="before/"+rel,tofile="current/"+rel))
+ write_new(a/"source"/(Path(rel).name+".diff.txt"),diff.encode("utf-8"))
+preserved=[]
+for row in json.loads((r/"source-before-manifest.json").read_text(encoding="utf-8")):
+ if row["file"] in guards:continue
+ assert sha(p/row["file"])==row["sha256"],("Unaffected source changed",row["file"])
+ preserved.append(row)
+prior_sprite=[]
+for row in json.loads((p/"docs/art/review/consistency-2026-10-03/runtime-file-manifest.json").read_text(encoding="utf-8")):
+ if row["file"]=="scripts/route1_crossing.gd":continue
+ assert sha(p/row["file"])==row["sha256"]
+ prior_sprite.append(row["file"])
+texture_inputs=json.loads((p/"docs/art/world/route1-terrain-relief-2026-10-03/review/baked-input-output-manifest.json").read_text(encoding="utf-8"))
+for row in texture_inputs["source_inputs"]:
+ if row["file"].endswith(".png"):assert sha(p/row["file"])==row["sha256"]
+comparison=json.loads((r/"exact-scene-comparison.json").read_text(encoding="utf-8"));assert comparison["passed"]
+walk=json.loads((r/"after-ordinary-walkthrough-results.json").read_text(encoding="utf-8"));assert walk["passed"] and all(walk["flags"].values()) and walk["ordinary_input_only"] and walk["teleports"]==0 and walk["quest_flag_overrides"]==0
+motion=json.loads((r/"live-motion-results.json").read_text(encoding="utf-8"));assert motion["passed"]
+samples=json.loads((r/"after-unmodified-startup-samples.json").read_text(encoding="utf-8"));assert all(x["fresh_flags"] and x["water_animation_running"] and x["foliage_animation_running"] and x["bank_visible"] for x in samples["samples"])
+for name in ["startup-before-err.txt","startup-after-err.txt","startup-ordinary-err.txt","startup-repeat-err.txt","startup-motion-err.txt"]:assert (s/name).stat().st_size==0,name
+audit={"protected_functions":protected,"unchanged_sources":preserved,"prior_sprite_runtime_files_unchanged":prior_sprite,"fixed_clock_pixel_identical_views":5,"scene_nodes_equal":420,"exact_imported_native_surfaces":4,"ordinary_input_trip_flags":walk["flags"],"live_motion_passed":True,"unmodified_scene_startup_samples":samples["samples"],"runtime_stderr_empty":True}
+write_new(a/"verification/final-preservation-audit.json",(json.dumps(audit,indent=2)+"\n").encode("utf-8"))
+write_new(a/"runtime-file-manifest.json",(json.dumps(runtime,indent=2)+"\n").encode("utf-8"))
+readme="""# Route 1 startup: exact saved surfaces | October 3, 2026
+
+Route 1 now opens without regenerating the approved crest road, city landing, river mask and wet banks. Four exact native outputs are saved as lossless PNG textures; the existing node anchors, depth, filtering, shaders and animation remain. This removes a long pause before the player can move and supports the next map-production work. The active world goal and Route 1 are still incomplete.
+
+## Measured result
+
+| Check | Before | After |
+| --- | ---: | ---: |
+| Same profiling fixture: scene load/instantiate/ready | 13,693 ms | 1,100 ms |
+| Scene attach/ready portion | 12,627 ms | 330 ms |
+| Crest road builder | 4,891 ms | 0 ms at millisecond resolution |
+| City landing builder | 6,790 ms | 0 ms at millisecond resolution |
+| River surface builder | 261 ms | 1 ms |
+| Wet bank builder | 60 ms | 0 ms at millisecond resolution |
+
+The profiling fixture preserves actual builder operations and adds timing only. Independent unmodified-runtime runs measured 1,238 ms for the first route load in a fresh process, then 207/244 ms for repeat scene loads. The ordinary-input walkthrough separately measured 853 ms. These timings cover route resource loading, instantiation and ready work on this PC, not total engine/application boot, the menu's authored fade, or a guaranteed loading time on every machine.
+
+[Before profile](review/before-profile.json), [after profile](review/after-profile.json), [unmodified runtime samples](review/after-unmodified-startup-samples.json).
+
+## Exact runtime files
+
+| File | Change |
+| --- | --- |
+| scripts/route1_crossing.gd | Uses saved water mask/crest-road/city-landing textures; removes their CPU pixel builders and unused helpers |
+| scripts/route1_landscape.gd | Uses saved wet-bank texture; vegetation/ground finish/wind remain live |
+| assets/sprites/world/route1_static_surfaces_2026_10_03/river_water_mask.png | Exact 224x640 alpha mask, at (448,0), z -2 |
+| assets/sprites/world/route1_static_surfaces_2026_10_03/joined_levee_road.png | Exact 320x264 crest-road surface, at (144,184), z -1 |
+| assets/sprites/world/route1_static_surfaces_2026_10_03/joined_city_landing.png | Exact 336x240 landing surface, at (672,336), z -1 |
+| assets/sprites/world/route1_static_surfaces_2026_10_03/wet_bank_contours.png | Exact 296x640 wet bank, at (408,0), landscape z 0 |
+
+Normal import metadata and the two existing script UID companions are included in the twelve-entry [runtime manifest](runtime-file-manifest.json); UID snapshots are retained, not newly redesigned files. All imports are lossless, no mipmaps or alpha-border rewriting, and native surfaces retain nearest filtering.
+
+Updated records: docs/AI_COLLABORATION.md, this README and the accompanying source/review/tools/verification/manifests. The exact before/current code and diffs are retained. No paid generation or source-art repainting was used.
+
+## Verification
+
+- All four imported surfaces match the original CPU-generated RGBA pixels exactly.
+- Five fixed-clock actual-engine captures are pixel-identical: full overview, levee entrance, crest, old landing and city arrival. All 746,496 pixels in each view match.
+- All 420 scene nodes match the recorded class/position/depth/scale, sprite offset/region/filter/texture pixels, rectangular collision geometry and terrain cells. Eighteen protected construction/animation functions are text-identical. The route scene, quest script, map polish, terrain-relief layer and project settings are hash-identical. Fourteen other sprite-consistency runtime files remain unchanged.
+- An ordinary-control walkthrough completed the default spawn → dispatch assignment → levee sign → crest/bridge → city clerk/direction board → relay delivery → high-water observation/two calls → marker repair → full dispatcher report. All eleven flags are true, with zero teleports or quest overrides.
+- Three unmodified-runtime scene loads start with fresh quest flags and running water/foliage processing. A separate live-motion capture observed river offset (0,0) → (0,5) and wind clock 0.1833 → 2.6833 over 2.5 scene seconds.
+- Before/after fixture, ordinary walk, repeat-load and live-motion stderr logs are empty. The headless import separately retained known CanvasItem/ObjectDB shutdown warnings; it logged no asset-import failure.
+
+[Exact scene/render comparison](review/exact-scene-comparison.json), [ordinary inputs and flags](review/after-ordinary-walkthrough-results.json), [live motion](review/live-motion-results.json), [preservation audit](verification/final-preservation-audit.json).
+
+Review fixtures deliberately place the camera/player and fix animation clocks for pixel comparison. They are separate from ordinary traversal, which uses movement and E/Down/Enter inputs only. Live-motion fixture placement is also explicitly recorded.
+
+Owned checks exited. The user's editor PID 25788 and its running game were not stopped or controlled. No staging, commit, deletion, external messaging, battle/save/state or game-rule change occurred.
+
+## Future map changes and next work
+
+These textures describe this exact authored map. If its ground atlas, soil, river footprint, crest contour or city trail footprint changes, regenerate and review the affected surfaces. Do not silently keep an old bake after a geography edit. The full original native builders are retained under review/source-before/scripts/ and in tools/startup_profile_crossing.gd.txt and tools/startup_profile_landscape.gd.txt. Copy archived scripts into an isolated workspace as .gd and update their local preload/output paths when rebuilding; the profile preparation script normally reads current runtime and is not by itself a replacement for those original builders.
+
+source/inputs/ preserves approved material inputs. review/source-before-manifest.json and static-surface-manifest.json identify the code and outputs used in this pass. Archived scripts end in .txt and docs/.gdignore keeps them out of normal game imports.
+
+No blocker for this optimization. Next work returns to the [world checkpoint](../route1-landscape-2026-10-03/WORLD_DESIGN_NEXT.md): purposeful optional exploration, actual hometown/riverfront map connections and distinctive district architecture. Coordinate inventory/rewards/save persistence with Claude's ownership. Final fictional names remain open. The saved [levee terrain pass](../route1-terrain-relief-2026-10-03/README.md) and [menu/sprite finish](../../review/consistency-2026-10-03/README.md) remain installed. This result does not certify the complete world or a finished Route 1.
+"""
+write_new(a/"README.md",readme.encode("utf-8"))
+f=p/"docs/AI_COLLABORATION.md";assert sha(f)==guards["docs/AI_COLLABORATION.md"]
+prior=f.read_text(encoding="utf-8");heading="# Working Together on Hollowtide\n\n";assert prior.startswith(heading)
+copy(f,"source/AI_COLLABORATION.before-this-pass.md.txt")
+entry="""## Route 1 opens quickly with exact saved surfaces (October 3, 2026)
+
+The remaining startup pause came mostly from rebuilding the approved crest road and city landing at every scene load. Their exact outputs, the existing river mask and wet-bank contour are now four lossless native PNGs under assets/sprites/world/route1_static_surfaces_2026_10_03/. scripts/route1_crossing.gd and scripts/route1_landscape.gd use those saved textures. Existing road/bridge/bank appearance, flow, foliage and collision/quest geometry are preserved.
+
+Same-fixture route readiness fell from 13.693s to 1.100s. Independent unmodified runtime measured 1.238s for first load in a fresh process and 0.207/0.244s for repeats; a full ordinary-input trip measured 0.853s. Timings exclude application boot/menu fade and are machine-specific. Five rendered map views and all four imported surfaces are pixel-identical; 420 recorded scene nodes match, eighteen protected functions are unchanged, and all eleven courier flags passed with no teleports or flag overrides. Live river/foliage animation advances; final runtime stderr logs are empty.
+
+[Exact files, timings, saved builders, hashes, visual comparison and ordinary-trip proof](art/world/route1-startup-2026-10-03/README.md). Rebuild the saved surfaces when their geography/material inputs change. No paid generation, source-art repainting, game-rule/save/state edits, staging, commits or deletions. Owned checks exited; the user's editor/game were left alone. No implementation blocker.
+
+This supersedes the startup-delay limitation in older terrain notes. The world goal stays active; Route 1 is not complete. Continue purposeful optional exploration, actual hometown/riverfront maps and district identity from the [world checkpoint](art/world/route1-landscape-2026-10-03/WORLD_DESIGN_NEXT.md), preserving Claude's reward/save/state ownership and fictional names.
+
+"""
+f.write_text(heading+entry+prior[len(heading):],encoding="utf-8")
+copy(f,"source/AI_COLLABORATION.after-this-pass.md.txt")
+write_new(a/"archive-copy-ledger.json",(json.dumps(ledger,indent=2)+"\n").encode("utf-8"))
+manifest=[]
+for f in sorted(a.rglob("*")):
+ if f.is_file() and f.name!="archive-file-manifest.json":manifest.append({"file":f.relative_to(a).as_posix(),"sha256":sha(f),"bytes":f.stat().st_size})
+(a/"archive-file-manifest.json").write_text(json.dumps(manifest,indent=2)+"\n",encoding="utf-8")
+for row in manifest:assert sha(a/row["file"])==row["sha256"]
+for row in ledger:assert sha(a/row["archive"])==row["sha256"]
+print(json.dumps({"runtime_entries":len(runtime),"protected_functions":len(protected),"byte_verified_copies":len(ledger),"archive_files":len(manifest),"prior_sprite_files_unchanged":len(prior_sprite),"full_ordinary_trip_passed":True,"record":str(a/"README.md")}))

@@ -1,0 +1,56 @@
+{
+  "new_runtime": [
+    "scripts/historic_street.gd",
+    "scenes/historic_street.tscn",
+    "assets/sprites/world/historic_street_2026_10_03/street_pavers.png",
+    "assets/sprites/world/historic_street_2026_10_03/riverfront_north_lane.png"
+  ],
+  "existing_changes": [
+    "scripts/world_journey.gd",
+    "scripts/area_landscape.gd",
+    "scripts/first_route_prototype.gd",
+    "scripts/world_area.gd"
+  ],
+  "map_size": [
+    768,
+    896
+  ],
+  "gate_from_riverfront": [
+    880,
+    8
+  ],
+  "historic_arrival": [
+    384,
+    848
+  ],
+  "sites": {
+    "board": [
+      384,
+      664
+    ],
+    "ledger": [
+      224,
+      428
+    ],
+    "shop": [
+      544,
+      428
+    ]
+  },
+  "paid_generation": 0,
+  "local_run_state_only": true,
+  "final_runtime_files": [
+    "scripts/world_journey.gd",
+    "scripts/area_landscape.gd",
+    "scripts/first_route_prototype.gd",
+    "scripts/world_area.gd",
+    "scripts/historic_street.gd",
+    "scripts/historic_street.gd.uid",
+    "scenes/historic_street.tscn",
+    "assets/sprites/world/historic_street_2026_10_03/street_pavers.png",
+    "assets/sprites/world/historic_street_2026_10_03/street_pavers.png.import",
+    "assets/sprites/world/historic_street_2026_10_03/riverfront_north_lane.png",
+    "assets/sprites/world/historic_street_2026_10_03/riverfront_north_lane.png.import"
+  ],
+  "direct_entries_connect_to_journey": true
+}

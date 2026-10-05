@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scripts/effects/vfx_sprite.gd" id="1_vfx"]
+[ext_resource type="Texture2D" path="res://assets/sprites/effects/vfx_basic_2026_10_02/hit_pop_4x4.png" id="2_pop"]
+
+[node name="MoveEffect" type="Node2D"]
+
+[node name="Pop" type="Sprite2D" parent="."]
+scale = Vector2(2, 2)
+texture_filter = 1
+hframes = 4
+vframes = 4
+texture = ExtResource("2_pop")
+script = ExtResource("1_vfx")
+fps = 16.0
+loop = false

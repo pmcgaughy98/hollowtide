@@ -1,0 +1,95 @@
+[
+  {
+    "file": "scripts/main_menu.gd",
+    "sha256": "2428f5518d5ab35ea71a5938ca3e61dfb23e454d40700c3b93f5f6cb97a974b6",
+    "current_snapshot": "source\\current\\scripts\\main_menu.gd.txt",
+    "before_sha256": "e010228c3ee6281119ccdf7adf0bb720af687da7c3505b7805e71d22e47a564e",
+    "before_snapshot": "source\\before\\scripts\\main_menu.gd.txt"
+  },
+  {
+    "file": "scripts/player.gd",
+    "sha256": "ed85fe5f58401d10e9500a1308d2595ffd0d320a3c6fe281190606479ea5e6ac",
+    "current_snapshot": "source\\current\\scripts\\player.gd.txt",
+    "before_sha256": "08c2a8272f7861e65e6e12db5bd4727859fd45faf14dcabcb280d31afb1d23be",
+    "before_snapshot": "source\\before\\scripts\\player.gd.txt"
+  },
+  {
+    "file": "scripts/battle_screen.gd",
+    "sha256": "c2899874210c614da43917d76ab5e35eef24439ea94da8aa544f6930d3e616cf",
+    "current_snapshot": "source\\current\\scripts\\battle_screen.gd.txt",
+    "before_sha256": "dde2ca92035d0391ec51ad274e5dec93dd69fb03a056bd5bf72d7956e0f1f660",
+    "before_snapshot": "source\\before\\scripts\\battle_screen.gd.txt"
+  },
+  {
+    "file": "scripts/debug/chibi_walk_review.gd",
+    "sha256": "adb9cbf6bfe6fdf9c6296a2bb2d6c5576c7b06624c13a399e9f5a436e43527b7",
+    "current_snapshot": "source\\current\\scripts\\debug\\chibi_walk_review.gd.txt",
+    "before_sha256": "ea470dd9aa6dbf226ecfc662c0cd23b1ec3cabac805218d0098148fd3006fc6e",
+    "before_snapshot": "source\\before\\scripts\\debug\\chibi_walk_review.gd.txt"
+  },
+  {
+    "file": "scripts/effects/creature_sprite.gdshader",
+    "sha256": "3cfe1eccf9da29e5dbf07e59faba0d87648286d2d83ad6ba082c625a0f6cef57",
+    "current_snapshot": "source\\current\\scripts\\effects\\creature_sprite.gdshader.txt",
+    "before_sha256": "6cb602957efb1617f02c1565e58f1cff0a2da77b33a8a93c991d9165a232a2df",
+    "before_snapshot": "source\\before\\scripts\\effects\\creature_sprite.gdshader.txt"
+  },
+  {
+    "file": "scripts/effects/courier_finish.gdshader",
+    "sha256": "230934cea220b4d6c4a3d1ce49882bbdee348c396429a0c67bf76a0b744dda62",
+    "current_snapshot": "source\\current\\scripts\\effects\\courier_finish.gdshader.txt"
+  },
+  {
+    "file": "scripts/route1_crossing.gd",
+    "sha256": "ad880f72ca2cd2e1d568991f45ddda6b5a0258a9430cadc17dd68d0577d9354c",
+    "current_snapshot": "source\\current\\scripts\\route1_crossing.gd.txt",
+    "before_sha256": "31f999b8f2e09eadaadc45196bc441d84a253999f8a0efc42195ef0f2ba1876e",
+    "before_snapshot": "source\\before\\scripts\\route1_crossing.gd.txt"
+  },
+  {
+    "file": "data/creatures/001_rimefin.tres",
+    "sha256": "e9bcb6b3046ba9adf85f30245cd2cee2fc70584325391dec6344852d6949af10",
+    "current_snapshot": "source\\current\\data\\creatures\\001_rimefin.tres.txt",
+    "before_sha256": "b00590b5245a4652db4e13a842a122c70a948990406ccb2a5e2fddfb52cde847",
+    "before_snapshot": "source\\before\\data\\creatures\\001_rimefin.tres.txt"
+  },
+  {
+    "file": "data/creatures/101_clinkerhide.tres",
+    "sha256": "192a5b75c3be07c7c82f102f1bfddba8fae4bf3578b5f30747d2fda8413e6ac7",
+    "current_snapshot": "source\\current\\data\\creatures\\101_clinkerhide.tres.txt",
+    "before_sha256": "444d87f6e9bb64cd7a70d3c46c736280ddc543435929e1c99fcee64c445de13f",
+    "before_snapshot": "source\\before\\data\\creatures\\101_clinkerhide.tres.txt"
+  },
+  {
+    "file": "data/creatures/102_ironvent.tres",
+    "sha256": "c5fd3ed4da4543ffd7ac0574818f7e34b424510b28109620b996a917ef371c4a",
+    "current_snapshot": "source\\current\\data\\creatures\\102_ironvent.tres.txt",
+    "before_sha256": "a024d0af43bb1246c131b0d2a933ba76ef6d1fa1d3dffa177c5bc16adf4ee49e",
+    "before_snapshot": "source\\before\\data\\creatures\\102_ironvent.tres.txt"
+  },
+  {
+    "file": "scripts/effects/courier_finish.gdshader.uid",
+    "sha256": "a147bb2b513dfbcc6d81989d97fbd67ad14fe1c118363f50aff80154c41761bd",
+    "kind": "metadata"
+  },
+  {
+    "file": "assets/sprites/creatures/clinkerhide_selected_rear_2026_10_03/clinkerhide_back_matched_native100.png",
+    "sha256": "f8c7b6f2c330779ad76717d04eda28ad66d7e45fe1bff1eeab9ea46f2a1989ba",
+    "kind": "new preserved sprite"
+  },
+  {
+    "file": "assets/sprites/creatures/clinkerhide_selected_rear_2026_10_03/clinkerhide_back_matched_native100.png.import",
+    "sha256": "256f0736d1ba0d58cc7a09e8a10b9b504a1debc8095999d6c7963379318745fe",
+    "kind": "metadata"
+  },
+  {
+    "file": "assets/sprites/creatures/clinkerhide_selected_rear_2026_10_03/clinkerhide_back_native100.png",
+    "sha256": "c7e19195253756568bb6373fe2c858f06175d049cf310bbd3f93c4bb0a3734a0",
+    "kind": "new preserved sprite"
+  },
+  {
+    "file": "assets/sprites/creatures/clinkerhide_selected_rear_2026_10_03/clinkerhide_back_native100.png.import",
+    "sha256": "42163db56cb00e6557f4a8f63f4fe5c3f2654680b3b32426887b2d2ba3b4f116",
+    "kind": "metadata"
+  }
+]

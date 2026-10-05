@@ -1,0 +1,52 @@
+from pathlib import Path
+import hashlib
+p=Path("C:/Users/pmcga/dev/hollowtide")
+f=p/"scripts/effects/creature_sprite.gdshader"
+assert hashlib.sha256(f.read_bytes()).hexdigest().upper()=="D9031301605677FFC2D5F3117810E90A371415C12FE545F8B429886963476ADC"
+Path("creature_sprite.raised_head.before.gdshader").write_bytes(f.read_bytes())
+s=f.read_text();needle="uniform bool charcoal_head = false;"
+assert s.count(needle)==1
+s=s.replace(needle,needle+"\nuniform vec4 head_finish_bounds = vec4(0.76, 0.40, 1.0, 0.67);")
+needle="if (charcoal_head && raw.a > 0.0 && uv.x >= 0.76 && uv.y >= 0.40 && uv.y < 0.67) {"
+assert s.count(needle)==1
+s=s.replace(needle,"if (charcoal_head && raw.a > 0.0\n\t\t&& all(greaterThanEqual(uv, head_finish_bounds.xy))\n\t\t&& all(lessThan(uv, head_finish_bounds.zw))) {")
+f.write_text(s)
+f=p/"scripts/battle_screen.gd"
+assert hashlib.sha256(f.read_bytes()).hexdigest().upper()=="B8AD9D8D9A8EC9AD0D28F96CF4A67B434EFF496175A6C8FCDAD57C3634377659"
+Path("battle_screen.raised_head.before.gd").write_bytes(f.read_bytes())
+s=f.read_text()
+needle="func _finish_attack_portrait(art: Sprite2D, creature: CreatureData) -> void:"
+helper='''func _ironvent_head_bounds(texture: Texture2D) -> Vector4:
+	var bounds := Vector4(0.76, 0.40, 1.0, 0.67)
+	if texture == null or not texture.resource_path.begins_with("res://assets/sprites/creatures/attacks/ironvent_furnace_roar/style_matched/"):
+		return bounds
+	# The raised poses are registered at different head heights. Keep the
+	# grey armor on the actual head, below the horns and above the chest.
+	match texture.resource_path.get_file().get_basename():
+		"rear", "open": return Vector4(0.73, 0.18, 1.0, 0.43)
+		"roar": return Vector4(0.73, 0.10, 1.0, 0.34)
+		"settle": return Vector4(0.74, 0.16, 1.0, 0.37)
+		"titlecard_official_2026_09_30": return Vector4(0.76, 0.32, 1.0, 0.64)
+	return bounds
+
+
+func _set_ironvent_head_bounds(sprite: Sprite2D) -> void:
+	if sprite.material is ShaderMaterial and sprite.material.get_shader_parameter("charcoal_head"):
+		sprite.material.set_shader_parameter("head_finish_bounds", _ironvent_head_bounds(sprite.texture))
+
+
+'''
+assert s.count(needle)==1;s=s.replace(needle,helper+needle)
+needle='\t\tart.material = finish\n\t\treturn'
+assert s.count(needle)==1
+s=s.replace(needle,'\t\tart.material = finish\n\t\t_set_ironvent_head_bounds(art)\n\t\treturn')
+for needle in ['\t\t\tsprite.texture = frames[i]','\t\t\tsprite.texture = frames[frame_index]','\tsprite.texture = original_texture']:
+ count=s.count(needle)
+ assert count==(2 if needle.endswith("original_texture") else 1),(needle,count)
+ indentation=needle[:len(needle)-len(needle.lstrip())]
+ s=s.replace(needle,needle+'\n'+indentation+'_set_ironvent_head_bounds(sprite)')
+needle='\tvar m: ShaderMaterial = s.material\n\tm.set_shader_parameter("breath_lift", lift)'
+assert s.count(needle)==1
+s=s.replace(needle,'\tvar m: ShaderMaterial = s.material\n\t_set_ironvent_head_bounds(s)\n\tm.set_shader_parameter("breath_lift", lift)')
+f.write_text(s)
+print("Grey armor follows each Furnace Roar head pose and both close-up presentations.")

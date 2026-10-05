@@ -1,0 +1,22 @@
+[
+  {
+    "view": "front",
+    "changed_pixels": 1445,
+    "bbox": [
+      10,
+      3,
+      129,
+      142
+    ]
+  },
+  {
+    "view": "back",
+    "changed_pixels": 1409,
+    "bbox": [
+      9,
+      13,
+      125,
+      142
+    ]
+  }
+]

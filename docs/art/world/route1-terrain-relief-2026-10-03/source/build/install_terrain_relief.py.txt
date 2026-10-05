@@ -1,0 +1,34 @@
+from pathlib import Path
+import hashlib,json
+p=Path("C:/Users/pmcga/dev/hollowtide");s=Path.cwd()
+f=p/"scripts/route1_terrain_relief.gd"
+assert hashlib.sha256(f.read_bytes()).hexdigest().upper()=="5CD13886B74CC4A3E65342811C85D8FE3A50C006BB90E139B489C5DE91255AB2"
+(s/"route1_terrain_relief.before-install.gd.txt").write_bytes(f.read_bytes())
+f.write_bytes((s/"terrain_relief_runtime.gd").read_bytes())
+f=p/"scripts/route1_crossing.gd"
+assert hashlib.sha256(f.read_bytes()).hexdigest().upper()=="AD880F72CA2CD2E1D568991F45DDDA6B5A0258A9430CADC17DD68D0577D9354C"
+(s/"route1_crossing.terrain.before.gd").write_bytes(f.read_bytes())
+t=f.read_text(encoding="utf-8")
+needle='\tadd_child(landscape)\n\tqueue_redraw()'
+assert t.count(needle)==1
+t=t.replace(needle,'''	add_child(landscape)
+	var relief := preload("res://scripts/route1_terrain_relief.gd").new()
+	relief.name = "TerrainRelief"
+	relief.z_index = -1
+	add_child(relief)
+	queue_redraw()''')
+f.write_text(t,encoding="utf-8")
+# Final preview uses the installed layer; all positioning here is explicitly a review fixture.
+src=(s/"terrain_candidate_review.gd").read_text(encoding="utf-8")
+src=src[:src.index('\tvar crossing: Node=route.get_node("RiverCrossing")')]+'''
+	var relief: Node=route.get_node("RiverCrossing/TerrainRelief")
+	var record := {"installed":true,"surface_build_ms":relief.get("surface_build_ms"),"surfaces":relief.get_child_count(),"shoreline_retained":route.get_node("RiverCrossing/Landscape/WetBankContours").visible}
+	var file:=FileAccess.open(OUT+"installed-results.json",FileAccess.WRITE)
+	file.store_string(JSON.stringify(record,"\\t"))
+	print("INSTALLED_TERRAIN_REVIEW ",record)
+	quit()
+'''
+src=src.replace('"baseline-','"installed-')
+src=src.replace('\tcamera.reset_smoothing()','\tcamera.reset_smoothing()\n\troute._process(0.0)')
+(s/"terrain_installed_review.gd").write_text(src,encoding="utf-8")
+print("Fast baked terrain layer installed; original shoreline and gameplay sources preserved.")

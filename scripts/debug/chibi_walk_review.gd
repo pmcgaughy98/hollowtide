@@ -4,6 +4,7 @@ extends Node2D
 const ART := "res://assets/sprites/player/retro_diffusion_chibi_walking_2026_10_01/"
 const FONT = preload("res://assets/fonts/Silkscreen-Regular.ttf")
 const TITLE_FONT = preload("res://assets/fonts/AlegreyaSansSC-Bold.ttf")
+const COURIER_FINISH: Shader = preload("res://scripts/effects/courier_finish.gdshader")
 const DIRECTIONS := ["down", "down_left", "left", "up_left", "up", "up_right", "right", "down_right"]
 
 func _ready() -> void:
@@ -26,6 +27,10 @@ func _build_row(model_name: String, label_y: float, feet_y: float) -> void:
 		var actor := AnimatedSprite2D.new()
 		actor.name = model_name + "_" + direction
 		actor.sprite_frames = frames
+		if model_name == "Female":
+			var finish := ShaderMaterial.new()
+			finish.shader = COURIER_FINISH
+			actor.material = finish
 		actor.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
 		actor.scale = Vector2(2, 2)
 		actor.offset = Vector2(0, -32)

@@ -1,0 +1,15 @@
+from pathlib import Path
+s=Path.cwd();r=s/"landing-loop-review"
+for f in sorted(r.glob("candidate-*.png")): (r/(f.stem+".v1"+f.suffix)).write_bytes(f.read_bytes())
+(r/"landing_footpath.v1.png").write_bytes((r/"landing_footpath.png").read_bytes())
+(r/"candidate-bake-results.v1.json").write_bytes((r/"candidate-bake-results.json").read_bytes())
+for name in ["prepare_landing_loop.py","landing_loop_bake_review.gd"]:
+ f=s/name;t=f.read_text(encoding="utf-8")
+ assert t.count("Vector2(349,281),Vector2(368,272)")==1
+ t=t.replace("Vector2(349,281),Vector2(368,272)","Vector2(349,281),Vector2(382,264)")
+ if name.endswith(".py"):
+  assert t.count("label.position=Vector2(329,302)")==1
+  t=t.replace("label.position=Vector2(329,302)","label.position=Vector2(278,294)")
+ f.write_text(t,encoding="utf-8")
+f=s/"landing_loop_candidate.gd";t=f.read_text(encoding="utf-8");assert t.count("label.position=Vector2(329,302)")==1;f.write_text(t.replace("label.position=Vector2(329,302)","label.position=Vector2(278,294)"),encoding="utf-8")
+print("Preserved first candidate; extended the old-landing join and cleared the label from canopy.")

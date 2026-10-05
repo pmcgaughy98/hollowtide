@@ -1,0 +1,158 @@
+from pathlib import Path
+import hashlib,json,difflib
+from PIL import Image
+p=Path("C:/Users/pmcga/dev/hollowtide")
+s=Path.cwd()
+a=p/"docs/art/world/route1-terrain-relief-2026-10-03"
+def sha(f): return hashlib.sha256(f.read_bytes()).hexdigest()
+guards={
+ "docs/AI_COLLABORATION.md":"82daa9bac1e86c6c7317cf619b9922f8251e59d138043f18acdb51b8b29ba6a2",
+ "docs/art/world/route1-terrain-relief-2026-10-03/README.md":"c911546ed5b4fd4d59d8ec4609f49f557b96c49b9160663c1490f822a3671dd4",
+ "scripts/route1_crossing.gd":"c38ec618cc9f4ba63d2642e8c919a57d93442fb244e4be56d376a6d7fe63a5c8",
+ "scripts/route1_terrain_relief.gd":"c8a2ab722e34618293b1be1ee4b801ba8fef64fa6838591ec0583b6ada191861"}
+for rel,h in guards.items(): assert sha(p/rel)==h,("Shared file changed",rel)
+copies=[]
+def save_bytes(dst,data):
+ dst.parent.mkdir(parents=True,exist_ok=True)
+ if dst.exists(): assert dst.read_bytes()==data,("Existing archive differs",str(dst))
+ else: dst.write_bytes(data)
+ assert dst.read_bytes()==data
+def copy(src,rel):
+ dst=a/rel
+ save_bytes(dst,src.read_bytes())
+ copies.append({"source":str(src),"archive":rel,"sha256":sha(src),"bytes":src.stat().st_size})
+copy(a/"README.md","source/README.before-this-pass.md.txt")
+copy(p/"docs/AI_COLLABORATION.md","source/AI_COLLABORATION.before-this-pass.md.txt")
+copy(s/"route1_crossing.terrain.before.gd","source/before/route1_crossing.gd.txt")
+copy(s/"route1_terrain_relief.before-install.gd.txt","source/before/route1_terrain_relief.gd.txt")
+for f in ["route1_crossing.gd","route1_terrain_relief.gd"]:
+ copy(p/"scripts"/f,"source/current/"+f+".txt")
+ diff="".join(difflib.unified_diff((a/"source/before"/(f+".txt")).read_text(encoding="utf-8").splitlines(True),(p/"scripts"/f).read_text(encoding="utf-8").splitlines(True),fromfile="before/scripts/"+f,tofile="current/scripts/"+f))
+ save_bytes(a/"source"/(f+".diff.txt"),diff.encode("utf-8"))
+for f in ["terrain_relief_revised_candidate.gd","prepare_revised_terrain.py","stage_terrain_bake.py","install_terrain_relief.py"]:
+ copy(s/f,"source/build/"+f+".txt")
+for f in ["terrain_candidate_review.gd","terrain_revised_candidate_review.gd","terrain_installed_review.gd","terrain_ordinary_walkthrough.gd"]:
+ copy(s/f,"tools/"+f+".txt")
+for src in sorted((s/"terrain-relief-review").iterdir()):
+ if src.is_file(): copy(src,"review/"+src.name)
+for src in sorted(s.glob("terrain-*.txt")):
+ copy(src,"verification/"+src.name)
+runtime=[]
+for rel in ["scripts/route1_crossing.gd","scripts/route1_crossing.gd.uid","scripts/route1_terrain_relief.gd","scripts/route1_terrain_relief.gd.uid",
+ "assets/sprites/world/route1_terrain_relief_2026_10_03/levee_grass_slopes.png","assets/sprites/world/route1_terrain_relief_2026_10_03/levee_grass_slopes.png.import",
+ "assets/sprites/world/route1_terrain_relief_2026_10_03/rounded_dispatch_landing_paths.png","assets/sprites/world/route1_terrain_relief_2026_10_03/rounded_dispatch_landing_paths.png.import"]:
+ f=p/rel
+ copy(f,"source/installed/"+rel+(".txt" if not rel.endswith(".png") else ""))
+ runtime.append({"file":rel,"sha256":sha(f),"bytes":f.stat().st_size})
+asset_manifest=json.loads((s/"terrain-relief-review/baked-input-output-manifest.json").read_text(encoding="utf-8"))
+qa=[]
+for row in asset_manifest["assets"]:
+ f=p/row["file"]; im=Image.open(f)
+ assert sha(f)==row["sha256"] and list(im.size)==row["size"] and im.mode=="RGBA"
+ alpha=im.getchannel("A")
+ qa.append({"file":row["file"].replace("\\","/"),"size":list(im.size),"mode":im.mode,"alpha_values":sorted(set(alpha.getdata())),"opaque_bounds":alpha.getbbox(),"at":row["at"],"exact_bake_hash":True})
+preserved=[]
+for row in asset_manifest["source_inputs"]:
+ if row["file"]=="scripts/route1_crossing.gd":
+  f=s/"route1_crossing.terrain.before.gd"
+ else: f=p/row["file"]
+ assert sha(f)==row["sha256"],("Input changed",row["file"])
+ preserved.append({"file":row["file"],"original_sha256":row["sha256"],"unchanged":row["file"]!="scripts/route1_crossing.gd","before_snapshot_verified":row["file"]=="scripts/route1_crossing.gd"})
+ if row["file"]!="scripts/route1_crossing.gd":
+  copy(f,"source/inputs/"+row["file"]+(".txt" if f.suffix==".tscn" else ""))
+prior=json.loads((p/"docs/art/review/consistency-2026-10-03/runtime-file-manifest.json").read_text(encoding="utf-8"))
+consistency=[]
+for row in prior:
+ if row["file"]=="scripts/route1_crossing.gd": continue
+ assert sha(p/row["file"])==row["sha256"],("Consistency file changed",row["file"])
+ consistency.append({"file":row["file"],"sha256":row["sha256"],"unchanged":True})
+walk=json.loads((s/"terrain-relief-review/ordinary-walkthrough-results.json").read_text(encoding="utf-8"))
+assert walk["passed"] and all(walk["flags"].values()) and len(walk["flags"])==11
+assert walk["ordinary_input_only"] and walk["quest_flag_overrides"]==0 and walk["teleports"]==0
+assert (s/"terrain-ordinary-walkthrough-err.txt").stat().st_size==0
+installed=json.loads((s/"terrain-relief-review/installed-results.json").read_text(encoding="utf-8"))
+assert installed["installed"] and installed["surfaces"]==2 and installed["shoreline_retained"]
+audit={"preserved_build_inputs":preserved,"prior_consistency_runtime_files_unchanged":consistency,"textures":qa,"ordinary_trip_passed":True,"all_11_quest_flags":True,"runtime_stderr_empty":True,"scene_ready_ms":walk["scene_ready_ms"],"new_relief_build_ms":installed["surface_build_ms"]}
+save_bytes(a/"verification/preservation-and-final-audit.json",(json.dumps(audit,indent=2)+"\n").encode("utf-8"))
+save_bytes(a/"runtime-file-manifest.json",(json.dumps(runtime,indent=2)+"\n").encode("utf-8"))
+save_bytes(a/"archive-copy-ledger.json",(json.dumps(copies,indent=2)+"\n").encode("utf-8"))
+readme="""# Route 1 grassy levee and path refinement | October 3, 2026
+
+## Installed and verified
+
+The levee now has a broader shaded southwest grassy face and a brighter northeast crest shoulder, with the existing grass texture visible through both. The dispatch, relay and old-landing path joins have softer contours. The existing approved wet shoreline, roots, reeds, repaired bridge and flowing river remain in place. This advances the active Hollowtide world goal; Route 1 and the full world are still in development.
+
+Two textures are baked offline from the existing approved native materials. Runtime only creates two nearest-filtered sprites sharing the terrain finish. The measured new-layer build was 0 ms at millisecond resolution. The full route still took 13.008 seconds to become ready in the recorded run; older crossing/landscape builders remain a performance limitation.
+
+[Installed crest view](review/installed-crest.png). [Installed overview](review/installed-overview.png). [Actual ordinary-control city arrival](review/walkthrough-bridge-arrival.png). [Actual completed return report](review/walkthrough-report-complete.png).
+
+## Exact changed runtime files
+
+| File | Change |
+| --- | --- |
+| scripts/route1_terrain_relief.gd | Replaces the saved inactive builder with a fast renderer for two baked native surfaces |
+| scripts/route1_crossing.gd | Adds TerrainRelief after the existing landscape; no geography or interaction logic changes |
+| assets/sprites/world/route1_terrain_relief_2026_10_03/levee_grass_slopes.png | 296x248 RGBA surface anchored at (136,216) |
+| assets/sprites/world/route1_terrain_relief_2026_10_03/rounded_dispatch_landing_paths.png | 416x248 RGBA surface anchored at (0,80) |
+
+Normal PNG import and script UID metadata are recorded with the two scripts and two textures in [runtime-file-manifest.json](runtime-file-manifest.json). The new textures match the saved offline output byte-for-byte. No paid image generation was used.
+
+The crossing change is the four-line child installation only. Source/current and source/before retain exact copies and per-file diffs. The previous terrain candidate and all supplied references remain saved. Original terrain/soil sources and the route scene are hash-verified; 14 prior consistency-pass runtime files are unchanged. [Preservation and final audit](verification/preservation-and-final-audit.json).
+
+Record/handoff changes: this README and its source/review/tools/verification/manifests, plus the new top entry in docs/AI_COLLABORATION.md. The prior README and prior collaboration guide are retained under source/. Older sprite/landscape records describe their state at that time; this entry supersedes their statement that the terrain pass is inactive.
+
+## Review decisions
+
+The saved initial candidate was rendered and rejected: it left the levee too flat, produced a narrow exposed-bank strip that weakened the accepted shoreline, and took 30.709 seconds to build. It changed 20 old-lane pixels and made three surfaces.
+
+The revised offline builder keeps the existing WetBankContours. It strengthens the grassy shoulder shading and uses three radius-six majority contour passes on the older lane mask while excluding the accepted crest core. Its build took 15.784 seconds, producing 13,659 slope pixels and 785 lane changes across two surfaces. This work runs offline and is not part of runtime loading.
+
+Baseline, rejected candidate, revised candidate and installed views are preserved separately in review/. Candidate/revised/installed overview and close-up captures are camera/position review fixtures. They are not ordinary traversal proof. Earlier candidate fixture HUD labels were stale because route processing was paused; installed fixtures update the route HUD once. Actual ordinary-input screenshots are prefixed walkthrough-.
+
+The offline builder, preparation, staging and guarded install records are in source/build/; probe sources are in tools/. Archived scripts use .txt so they do not become runtime duplicates.
+
+## Ordinary gameplay proof
+
+The native Summer renderer walked from the default hometown staging spawn using movement keys and E/Down/Enter interactions. There were no teleports or quest-flag overrides.
+
+Passed: accept the pouch, read the levee entrance, traverse the crest and bridge, register with the city clerk, read the city direction board, return to deliver at the relay, observe high-water marks and two calls, repair the marker, and return to the dispatcher with the full report. All eleven existing quest flags are true. Final position: (82.35247,203.9769).
+
+[Recorded inputs, positions and final flags](review/ordinary-walkthrough-results.json). Final walkthrough and installed-review stderr logs are empty. The isolated checks used offscreen fixed-60-FPS rendering, Dummy audio, API/publishing disabled. Owned check instances exited; the user's editor PID 25788 remained running.
+
+Headless editor import separately logged the existing default-audio-bus UID/empty-resource-save-path diagnostics and shutdown CanvasItem/ObjectDB warnings. These retained import diagnostics are distinct from the clean game-runtime logs.
+
+## Limits and next justified work
+
+No implementation blocker for this pass. Overall route startup still needs attention before expanding level production. Then continue the [world checkpoint](../route1-landscape-2026-10-03/WORLD_DESIGN_NEXT.md): a purposeful optional loop, actual connected hometown and riverfront maps, distinctive district architecture, sound, interactions and repeat-visit behavior. Coordinate reward/save/state work with Claude rather than creating a parallel state system.
+
+The current compact first-route map is staging for the west-bank hometown-to-levee-to-east-bank journey. Final fictional world names remain open. Existing quest/collision geometry, player/creature/menu/battle rules and launch setting were not changed by this terrain pass. No staging, commits, deletions or external messages. The [completed Ironvent/menu/sprite consistency work](../../review/consistency-2026-10-03/README.md) remains installed.
+
+The broad world goal remains active. User runs Gemini Deep Research; prompt files only when requested.
+"""
+assert sha(a/"README.md")==guards["docs/art/world/route1-terrain-relief-2026-10-03/README.md"]
+(a/"README.md").write_text(readme,encoding="utf-8")
+entry="""## Route 1 grassy levee and softened paths (October 3, 2026)
+
+The active world goal continues after the installed menu/sprite consistency pass. The saved terrain candidate was inspected and rejected for flat slope reading, weakened wet banks and a 30.709-second build. A revised native-material bake is now installed: shaded grassy levee shoulders and softer dispatch/relay/landing path contours. The approved wet shoreline and crest-road core are retained.
+
+Runtime changes: scripts/route1_terrain_relief.gd, four added installation lines in scripts/route1_crossing.gd, two baked RGBA PNGs under assets/sprites/world/route1_terrain_relief_2026_10_03/, and normal import/UID metadata. The new layer measured 0 ms to build at millisecond resolution; the full route still took 13.008 seconds to become ready because older scenery builders remain. No paid image generation.
+
+Native ordinary-control verification passed the full pouch/levee/bridge/city-board/relay/observations/marker/return-report trip. All eleven existing flags are true, with zero teleports or quest overrides and clean final runtime stderr. Original source textures and route scene are preserved; 14 other runtime files from the prior consistency pass remain hash-identical. The user's editor stayed open; owned test instances exited. No implementation blocker.
+
+[Exact changes, original/revised/installed captures, sources, hashes and traversal proof](art/world/route1-terrain-relief-2026-10-03/README.md). This supersedes the inactive-candidate status in older entries. Route 1 and the broader world are not complete. Remaining priorities include the startup delay, purposeful optional exploration, actual hometown/riverfront map connections and district identity, following the [world checkpoint](art/world/route1-landscape-2026-10-03/WORLD_DESIGN_NEXT.md). Claude retains save/state ownership. No commits, staging or deletions.
+
+"""
+f=p/"docs/AI_COLLABORATION.md"
+assert sha(f)==guards["docs/AI_COLLABORATION.md"]
+prior_text=f.read_text(encoding="utf-8")
+heading="# Working Together on Hollowtide\n\n"
+assert prior_text.startswith(heading)
+f.write_text(heading+entry+prior_text[len(heading):],encoding="utf-8")
+copy(f,"source/AI_COLLABORATION.after-this-pass.md.txt")
+manifest=[]
+for f in sorted(a.rglob("*")):
+ if f.is_file() and f.name!="archive-file-manifest.json":
+  manifest.append({"file":f.relative_to(a).as_posix(),"sha256":sha(f),"bytes":f.stat().st_size})
+(a/"archive-file-manifest.json").write_text(json.dumps(manifest,indent=2)+"\n",encoding="utf-8")
+for row in manifest: assert sha(a/row["file"])==row["sha256"]
+print(json.dumps({"runtime_entries":len(runtime),"byte_verified_copies":len(copies),"archive_files":len(manifest),"prior_consistency_files_unchanged":len(consistency),"quest_flags":len(walk["flags"]),"runtime_stderr_empty":True,"record":str(a/"README.md")}))

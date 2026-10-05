@@ -1,0 +1,437 @@
+[
+  {
+    "file": "archive-copy-ledger.json",
+    "sha256": "90b22285957c1596b46623822ebb069faa3e854ed8fd1127ee594285d2f8795d",
+    "bytes": 23216
+  },
+  {
+    "file": "README.md",
+    "sha256": "d9fab395a88ac248ec53efa6a0a9721d05ac41cbd2483a7e067decc50a9e86f4",
+    "bytes": 6239
+  },
+  {
+    "file": "references/coromon river map idea.jfif",
+    "sha256": "ec7c761be4a5924a8b41100a8a54aa5e128c0f2cc9a47521835f6d5f46c6159a",
+    "bytes": 62936
+  },
+  {
+    "file": "references/coromon river map.jfif",
+    "sha256": "08aa2aa75cc29455470c64acbfc380bed8fd0884e38f094e0edbe5a50d4f53bd",
+    "bytes": 46188
+  },
+  {
+    "file": "references/Coromon river map.jpg",
+    "sha256": "246e1cb9e36c268f5473103e65adc2dcb502e4df6590b7956f215921f9341deb",
+    "bytes": 344544
+  },
+  {
+    "file": "references/Nexomon river idea.webp",
+    "sha256": "9dbd7a3b75d4f4835ffb31995326aea683d4d98e23eb957f7caeaca077449d80",
+    "bytes": 21758
+  },
+  {
+    "file": "references/Nexomon river.jfif",
+    "sha256": "4d062c8b009602e1261640cdcb7e61d3c463f5944a8a37318808fcf16360578a",
+    "bytes": 15107
+  },
+  {
+    "file": "review/baked-input-output-manifest.json",
+    "sha256": "93e71b9bfbdcece0915aefdfbaf990974e96f2bb656cffe1245af4590e8d7520",
+    "bytes": 1415
+  },
+  {
+    "file": "review/baseline-crest.png",
+    "sha256": "a8d77290530aa5cb9aff82f7779e3da382683380ea65032bb20e0d4183fb18d3",
+    "bytes": 118176
+  },
+  {
+    "file": "review/baseline-entrance.png",
+    "sha256": "fd2a385dbd6063ef8433645374fc3a2e3d42a73f28ecf1d71459258b62d60174",
+    "bytes": 116734
+  },
+  {
+    "file": "review/baseline-landing.png",
+    "sha256": "7d932770f1d7356f4ffeb8d49b17da7306469f35250aae33ccaf15c7d55c7120",
+    "bytes": 101611
+  },
+  {
+    "file": "review/baseline-overview.png",
+    "sha256": "d1a9ba21abbed2b5f4de01c8cae9e8544bcd0ab6fc1dc76c6e5a21d05c3cd10f",
+    "bytes": 515584
+  },
+  {
+    "file": "review/candidate-crest.png",
+    "sha256": "b26bfbff0a4dfa4d94ba7607f58a0c4e1400107828007afc184113680f45477f",
+    "bytes": 119441
+  },
+  {
+    "file": "review/candidate-entrance.png",
+    "sha256": "5e588548b3dbc4fbeb837c28c2e1e43b3a678695bb652d067a6acf03ae51933d",
+    "bytes": 119970
+  },
+  {
+    "file": "review/candidate-landing.png",
+    "sha256": "19461bb9b3f04f1119461288838c8d14c4faabe1b29414ee386a047ae06ec772",
+    "bytes": 102608
+  },
+  {
+    "file": "review/candidate-overview.png",
+    "sha256": "a66070239aa7011203caa35f9ee10d94080b4fc79a2fbad5c062a7f05a542ea5",
+    "bytes": 516005
+  },
+  {
+    "file": "review/candidate-results.json",
+    "sha256": "c302f7f19e97099785b701e3a8dd9add3331da314942b7e9e1396e7cb532fd01",
+    "bytes": 161
+  },
+  {
+    "file": "review/GrassyLeveeShoulders.png",
+    "sha256": "ebb8aa87ae04b7f3a2d8d9c44e2cf68e36640508bfd730c98c2f506f2686c786",
+    "bytes": 11227
+  },
+  {
+    "file": "review/installed-crest.png",
+    "sha256": "05909f2dcc656ee79e8f55214a63e47176d44a83e25b778b8773a86a3787e38d",
+    "bytes": 124464
+  },
+  {
+    "file": "review/installed-entrance.png",
+    "sha256": "51e3e7433a07cd92a1de8e8027c156531ef5819b72cada5ec885adf7bf92426b",
+    "bytes": 120956
+  },
+  {
+    "file": "review/installed-landing.png",
+    "sha256": "bf3d0488e3c88339fbc86981a66a26c0af5cd1dc56f081ce95d50b011eb0f37b",
+    "bytes": 104503
+  },
+  {
+    "file": "review/installed-overview.png",
+    "sha256": "e59c48d89887142f2dc2777a5714e9d68073e32dbad166b8437d711ad0402d0f",
+    "bytes": 523202
+  },
+  {
+    "file": "review/installed-results.json",
+    "sha256": "42f7f36d97939762ecd7be8bfa3411b0bede7446881be0fc322eec226b86dac7",
+    "bytes": 91
+  },
+  {
+    "file": "review/ordinary-walkthrough-results.json",
+    "sha256": "4790df4c9aade10cacb048dde4de29969c9c439aa1423070e7272bf210a27fb5",
+    "bytes": 5765
+  },
+  {
+    "file": "review/revised-crest.png",
+    "sha256": "0d1cadee537b2104d81cbb405bcc18bdcc3894a7d6763b6b5a15c2bd06709463",
+    "bytes": 124706
+  },
+  {
+    "file": "review/revised-entrance.png",
+    "sha256": "505a469252d891ccbe98cbffab1773214a99cab9f410942f0c8647730bcd4e91",
+    "bytes": 122033
+  },
+  {
+    "file": "review/revised-landing.png",
+    "sha256": "3eb6dde737156bdb2479b629741bb02b268cb9a999f602f38e10867b12ffa097",
+    "bytes": 105800
+  },
+  {
+    "file": "review/revised-overview.png",
+    "sha256": "7d79fef16abc23890b9a9251917ae3f2eaa7af9e66b7f78970a720714fccd9a3",
+    "bytes": 524097
+  },
+  {
+    "file": "review/revised-results.json",
+    "sha256": "9a54e4ee82c8c871d942ecdf6567464cf79907de9581fc387126a9130442cfc3",
+    "bytes": 159
+  },
+  {
+    "file": "review/RoundedDispatchAndLandingLanes.png",
+    "sha256": "aa6b983512245267297ec9625518809719e5c112d2180ac0f5069df091609191",
+    "bytes": 12373
+  },
+  {
+    "file": "review/route1_terrain_relief.saved-candidate.gd.txt",
+    "sha256": "5cd13886b74cc4a3e65342811c85d8fe3a50c006bb90e139b489c5de91255ab2",
+    "bytes": 8528
+  },
+  {
+    "file": "review/walkthrough-assignment.png",
+    "sha256": "dd634af17755e0829adcf99b970e3e89c5d7fe589c7140fca7e631e85eed5f87",
+    "bytes": 104419
+  },
+  {
+    "file": "review/walkthrough-bridge-arrival.png",
+    "sha256": "a66aebd749b1ae2cc775820536623c2ab5ff492c3c6ce13869f3760a8f247284",
+    "bytes": 90042
+  },
+  {
+    "file": "review/walkthrough-city-board.png",
+    "sha256": "39bd0900e931342c339397222fbebf68d02830288cac24631b440a02ab7aabc3",
+    "bytes": 102576
+  },
+  {
+    "file": "review/walkthrough-city-clerk.png",
+    "sha256": "8263cb3e37a0123a5dd19009d8b64dc3953b3f0b0552867b0ec1af0c9f4747aa",
+    "bytes": 93989
+  },
+  {
+    "file": "review/walkthrough-height-marks.png",
+    "sha256": "24edd83109803cf1fd8f79bc7023e35c9ae4b82215bcb244457fe32ab88a1af3",
+    "bytes": 93871
+  },
+  {
+    "file": "review/walkthrough-levee-sign.png",
+    "sha256": "0e0c7f33b25d33f8eb8384ecce05f8fa7a6643847da88ddceda3560b60c66c3e",
+    "bytes": 106001
+  },
+  {
+    "file": "review/walkthrough-marker-repair.png",
+    "sha256": "459f8300ea93ea4f7e0b38a4a0922c85bbcd3f6ce6c29699db2683566276c476",
+    "bytes": 105881
+  },
+  {
+    "file": "review/walkthrough-relay-delivery.png",
+    "sha256": "575baef6cfe5cbb4d33410ce2298bd1da71230bd38e368642842b9b5435da5c9",
+    "bytes": 93847
+  },
+  {
+    "file": "review/walkthrough-report-choices.png",
+    "sha256": "c3149e2da3bb0e054a7866fb849678783511dab6e6882705a2681daf8b2de0ae",
+    "bytes": 105420
+  },
+  {
+    "file": "review/walkthrough-report-complete.png",
+    "sha256": "71fbe58693f8c1766b5350513826f4e33248c931db11375f7cccfb4ab7407869",
+    "bytes": 107327
+  },
+  {
+    "file": "review/walkthrough-river-calls.png",
+    "sha256": "bc1a956222eb05d6df50e6b99b9d67ae0405e39a106ae25cfa7af7b63ef98142",
+    "bytes": 88276
+  },
+  {
+    "file": "review/walkthrough-start.png",
+    "sha256": "852c2b1735241e4519d9497b286129383a48eee21f1c0511e55ee9dbff765eb8",
+    "bytes": 118309
+  },
+  {
+    "file": "runtime-file-manifest.json",
+    "sha256": "d1ea1e27c7c7b7d07e22e15c65a6b9193c7dcc5a7c560d45ddfda590325cb46a",
+    "bytes": 1468
+  },
+  {
+    "file": "source/AI_COLLABORATION.after-this-pass.md.txt",
+    "sha256": "b6ab88e866952a065821aeff2bb86ab1a1701c6a8c95be7da36ddcc18d77cdfc",
+    "bytes": 245617
+  },
+  {
+    "file": "source/AI_COLLABORATION.before-this-pass.md.txt",
+    "sha256": "82daa9bac1e86c6c7317cf619b9922f8251e59d138043f18acdb51b8b29ba6a2",
+    "bytes": 243707
+  },
+  {
+    "file": "source/before/route1_crossing.gd.txt",
+    "sha256": "ad880f72ca2cd2e1d568991f45ddda6b5a0258a9430cadc17dd68d0577d9354c",
+    "bytes": 16621
+  },
+  {
+    "file": "source/before/route1_terrain_relief.gd.txt",
+    "sha256": "5cd13886b74cc4a3e65342811c85d8fe3a50c006bb90e139b489c5de91255ab2",
+    "bytes": 8528
+  },
+  {
+    "file": "source/build/install_terrain_relief.py.txt",
+    "sha256": "2f7d23116e0f1e33992d94eb0a97421f39598baee324e8b529cfa98bfb4ffb32",
+    "bytes": 1970
+  },
+  {
+    "file": "source/build/prepare_revised_terrain.py.txt",
+    "sha256": "be43da01d26bc1b62960e0595dab743d9c3f826c207f815b4051b1b667722b1a",
+    "bytes": 3108
+  },
+  {
+    "file": "source/build/stage_terrain_bake.py.txt",
+    "sha256": "d680b05b676837f432542a25ec94b346c2f5b395aeca192ed1300fc615437de4",
+    "bytes": 1336
+  },
+  {
+    "file": "source/build/terrain_relief_revised_candidate.gd.txt",
+    "sha256": "99319c524d2e33c929df6682f14dfb7871261248f055763b3e3697c5f75248da",
+    "bytes": 9736
+  },
+  {
+    "file": "source/current/route1_crossing.gd.txt",
+    "sha256": "c38ec618cc9f4ba63d2642e8c919a57d93442fb244e4be56d376a6d7fe63a5c8",
+    "bytes": 16767
+  },
+  {
+    "file": "source/current/route1_terrain_relief.gd.txt",
+    "sha256": "c8a2ab722e34618293b1be1ee4b801ba8fef64fa6838591ec0583b6ada191861",
+    "bytes": 1113
+  },
+  {
+    "file": "source/inputs/assets/sprites/world/route1_crossing_2026_10_02/path_soil_native32.png",
+    "sha256": "0bc1711d71a8a8133da3be181c0d2d7620149bd73d0f1a302abc4584b665df1f",
+    "bytes": 670
+  },
+  {
+    "file": "source/inputs/assets/tilesets/route1_rd_2026_10_01/route1_ground_atlas_polished.png",
+    "sha256": "3c5cf177727cb41f152bb4cabfbaa8dc2a9c0ac3f74a9492b31d19835f71dc14",
+    "bytes": 7553
+  },
+  {
+    "file": "source/inputs/scenes/first_route_prototype.tscn.txt",
+    "sha256": "88edcd961f4608584a5d1c505bffab7e7a44af0662b1ab9a2a8584030a3abddc",
+    "bytes": 30773
+  },
+  {
+    "file": "source/installed/assets/sprites/world/route1_terrain_relief_2026_10_03/levee_grass_slopes.png",
+    "sha256": "ebb8aa87ae04b7f3a2d8d9c44e2cf68e36640508bfd730c98c2f506f2686c786",
+    "bytes": 11227
+  },
+  {
+    "file": "source/installed/assets/sprites/world/route1_terrain_relief_2026_10_03/levee_grass_slopes.png.import.txt",
+    "sha256": "d66759b56004ec4b0e6ef5ff0551cfc8ebefd127d0ac5719bc5315b8db5e0125",
+    "bytes": 1013
+  },
+  {
+    "file": "source/installed/assets/sprites/world/route1_terrain_relief_2026_10_03/rounded_dispatch_landing_paths.png",
+    "sha256": "aa6b983512245267297ec9625518809719e5c112d2180ac0f5069df091609191",
+    "bytes": 12373
+  },
+  {
+    "file": "source/installed/assets/sprites/world/route1_terrain_relief_2026_10_03/rounded_dispatch_landing_paths.png.import.txt",
+    "sha256": "56b8bec16b422d4fc8fc50753d0ff3a4715b9a52638568aaf3bd6647ac60a703",
+    "bytes": 1049
+  },
+  {
+    "file": "source/installed/scripts/route1_crossing.gd.txt",
+    "sha256": "c38ec618cc9f4ba63d2642e8c919a57d93442fb244e4be56d376a6d7fe63a5c8",
+    "bytes": 16767
+  },
+  {
+    "file": "source/installed/scripts/route1_crossing.gd.uid.txt",
+    "sha256": "1306f6aae37d817e410b966fcf10d90549bfdb8c2fa276cd064732b52db5e58e",
+    "bytes": 20
+  },
+  {
+    "file": "source/installed/scripts/route1_terrain_relief.gd.txt",
+    "sha256": "c8a2ab722e34618293b1be1ee4b801ba8fef64fa6838591ec0583b6ada191861",
+    "bytes": 1113
+  },
+  {
+    "file": "source/installed/scripts/route1_terrain_relief.gd.uid.txt",
+    "sha256": "76e9d53ec81e3c0ed67b69b78ad39c5cd18196f1c22b0ba01a6858ccf69a44ab",
+    "bytes": 20
+  },
+  {
+    "file": "source/README.before-this-pass.md.txt",
+    "sha256": "c911546ed5b4fd4d59d8ec4609f49f557b96c49b9160663c1490f822a3671dd4",
+    "bytes": 1242
+  },
+  {
+    "file": "source/route1_crossing.gd.before.txt",
+    "sha256": "31f999b8f2e09eadaadc45196bc441d84a253999f8a0efc42195ef0f2ba1876e",
+    "bytes": 16064
+  },
+  {
+    "file": "source/route1_crossing.gd.diff.txt",
+    "sha256": "86564acd34ceb195a925be8e473558a4c9861b17b56b3c7fa461c1fd3e32fd69",
+    "bytes": 342
+  },
+  {
+    "file": "source/route1_landscape.gd.before.txt",
+    "sha256": "9485eac765486adb5522a634981fa9c9cf30f1924e3e948766a88ea33c9d0867",
+    "bytes": 9249
+  },
+  {
+    "file": "source/route1_terrain_relief.gd.candidate.txt",
+    "sha256": "5cd13886b74cc4a3e65342811c85d8fe3a50c006bb90e139b489c5de91255ab2",
+    "bytes": 8528
+  },
+  {
+    "file": "source/route1_terrain_relief.gd.diff.txt",
+    "sha256": "d9f3eae4f4c9c8a2a6787b6563b0ac97634c105484bd0f780a4df10e7eb8472f",
+    "bytes": 9760
+  },
+  {
+    "file": "tools/archive_terrain_pass.py.txt",
+    "sha256": "2e8dc4f9696ea253ce55719a5977be29c0c4a2e4c831afbec933aa343bf8b2d6",
+    "bytes": 14844
+  },
+  {
+    "file": "tools/terrain_candidate_review.gd.txt",
+    "sha256": "25b0cd92def01c57904cf57cb2241620b690059da22eebaa5b3776eb53b2c339",
+    "bytes": 2156
+  },
+  {
+    "file": "tools/terrain_installed_review.gd.txt",
+    "sha256": "b9beedcfdab2a6c292f87158228f15795401c858df9fcd59050ee15e59d38301",
+    "bytes": 1659
+  },
+  {
+    "file": "tools/terrain_ordinary_walkthrough.gd.txt",
+    "sha256": "b450fa96759e4dd36b8c3ad4bea294d4ed1e01e6651429cb7255f62470d2cf47",
+    "bytes": 5336
+  },
+  {
+    "file": "tools/terrain_revised_candidate_review.gd.txt",
+    "sha256": "a9e2d0236bc6ebd74034992019030c0f7ca08d045f6dcfac58d0de5c374be2fc",
+    "bytes": 2271
+  },
+  {
+    "file": "verification/preservation-and-final-audit.json",
+    "sha256": "38e4c9eb9ba5dde5daddbbc1451b11bfdd267cbb141fd8fc32a11370e4bcd475",
+    "bytes": 4672
+  },
+  {
+    "file": "verification/terrain-bake-import-err.txt",
+    "sha256": "faeaea9924884f4b8cad1be79b1b011b1321d623048399c96a2a58ea6c807433",
+    "bytes": 1198
+  },
+  {
+    "file": "verification/terrain-bake-import-out.txt",
+    "sha256": "977c80c211cb8792f28568e3b17054ed9e50f83f0b0753ae541de35cbcb5785d",
+    "bytes": 3477
+  },
+  {
+    "file": "verification/terrain-candidate-review-err.txt",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "bytes": 0
+  },
+  {
+    "file": "verification/terrain-candidate-review-out.txt",
+    "sha256": "13bd82771718b9eb588b3d29198fc05e60e8627960410b7cfb2004e0dd94c758",
+    "bytes": 552
+  },
+  {
+    "file": "verification/terrain-installed-review-err.txt",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "bytes": 0
+  },
+  {
+    "file": "verification/terrain-installed-review-out.txt",
+    "sha256": "6749b51a7a2909a39e25b47d33bd67294337603c106ff4c05c0e27e121911679",
+    "bytes": 485
+  },
+  {
+    "file": "verification/terrain-ordinary-walkthrough-err.txt",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "bytes": 0
+  },
+  {
+    "file": "verification/terrain-ordinary-walkthrough-out.txt",
+    "sha256": "a5a46386d17c2eb0509c2b3df2c366cee3182c3261405b8bc8cee3457391ee32",
+    "bytes": 2880
+  },
+  {
+    "file": "verification/terrain-revised-review-err.txt",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "bytes": 0
+  },
+  {
+    "file": "verification/terrain-revised-review-out.txt",
+    "sha256": "5840db98d63b8d7461ba08b6a4c7987db769cc983c883498e1c8fda0c2cbcb3d",
+    "bytes": 550
+  }
+]

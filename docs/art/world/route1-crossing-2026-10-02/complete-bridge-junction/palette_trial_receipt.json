@@ -1,0 +1,13 @@
+{
+  "tool_id": "palette_converter",
+  "inference_id": "inf_xL6l87ZNz2pm5wMkMDpq9VAJg1WMePjn",
+  "balance_cost": 0,
+  "credit_cost": 0,
+  "charged": false,
+  "remaining_balance": 4.000000000000008,
+  "remaining_credits": null,
+  "normalization_notes": [
+    "Stripped a data URL prefix from `input_image`.",
+    "Stripped a data URL prefix from `input_palette`."
+  ]
+}

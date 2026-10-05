@@ -1,20 +1,19 @@
 {
   "creatures": {
-    "Rimefin": {"base_hp": 72, "base_attack": 44, "base_defense": 64, "base_speed": 57},
-    "Cinderhide": {"base_hp": 80, "base_attack": 62, "base_defense": 58, "base_speed": 55},
-    "Clinkerhide": {"base_hp": 84, "base_attack": 68, "base_defense": 72, "base_speed": 47},
-    "Ironvent": {"base_hp": 98, "base_attack": 76, "base_defense": 80, "base_speed": 39},
-    "Kithflare": {"base_hp": 74, "base_attack": 66, "base_defense": 56, "base_speed": 73},
-    "Wayburn": {"base_hp": 76, "base_attack": 70, "base_defense": 58, "base_speed": 67},
-    "Coalcrest": {"base_hp": 86, "base_attack": 68, "base_defense": 66, "base_speed": 61},
-    "Fusern": {"base_hp": 70, "base_attack": 72, "base_defense": 54, "base_speed": 63},
-    "Slagglass": {"base_hp": 78, "base_attack": 74, "base_defense": 70, "base_speed": 49},
-    "Vitrecrag": {"base_hp": 96, "base_attack": 74, "base_defense": 78, "base_speed": 33},
-    "Oxbowarchon": {"base_hp": 110, "base_attack": 78, "base_defense": 96, "base_speed": 41}
+    "Rimefin": {"base_hp": 96, "base_attack": 54, "base_defense": 66, "base_speed": 58},
+    "Cinderhide": {"base_hp": 90, "base_attack": 64, "base_defense": 64, "base_speed": 54},
+    "Clinkerhide": {"base_hp": 104, "base_attack": 70, "base_defense": 86, "base_speed": 46},
+    "Ironvent": {"base_hp": 112, "base_attack": 84, "base_defense": 76, "base_speed": 38},
+    "Kithflare": {"base_hp": 78, "base_attack": 64, "base_defense": 56, "base_speed": 74},
+    "Wayburn": {"base_hp": 92, "base_attack": 68, "base_defense": 64, "base_speed": 70},
+    "Coalcrest": {"base_hp": 108, "base_attack": 72, "base_defense": 74, "base_speed": 62},
+    "Fusern": {"base_hp": 90, "base_attack": 62, "base_defense": 56, "base_speed": 66},
+    "Slagglass": {"base_hp": 100, "base_attack": 74, "base_defense": 80, "base_speed": 50},
+    "Vitrecrag": {"base_hp": 116, "base_attack": 92, "base_defense": 72, "base_speed": 34},
+    "Oxbowarchon": {"base_hp": 100, "base_attack": 82, "base_defense": 96, "base_speed": 42}
   },
   "moves": {
-    "Kingstone Rail": {"power": 58, "max_uses": 2},
-    "Molten Glass": {"power": 66, "max_uses": 2},
-    "Molten Beam": {"power": 36, "max_uses": 0}
+    "Kingstone Rail": {"power": 54, "max_uses": 2},
+    "Molten Glass": {"power": 62, "max_uses": 2}
   }
 }

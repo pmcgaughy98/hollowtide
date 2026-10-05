@@ -1,0 +1,17 @@
+{
+  "dimensions": [
+    256,
+    256
+  ],
+  "changed_pixels": 2043,
+  "changed_outside_board_mask": 0,
+  "board_source_rect": [
+    20,
+    20,
+    96,
+    48
+  ],
+  "poster_count_before": 3,
+  "wide_board_count_after": 1,
+  "sha256": "c61e4880e95975ed10e3f0d56930c1cdbd2549faaf56801961e42c631700fe00"
+}

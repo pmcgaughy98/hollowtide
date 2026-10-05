@@ -1,0 +1,26 @@
+[
+  {
+    "name": "repair_workshop",
+    "width": 200,
+    "height": 192,
+    "seed": 2026100401,
+    "prompt": "One complete narrow two-storey brick repair workshop, standalone transparent-background building sprite for Hollowtide, a grounded monster-collecting pixel-art RPG. Orthogonal top-down three-quarter view with a straight horizontal front wall and doorway facing screen-bottom, roof seen from above; do not turn the building diagonally or use diamond isometric perspective. Warm weathered brown-red brick, carved pale sandstone cornice, muted grey slate shallow roof with a small rear chimney, three tall narrow upper sash windows, modest dark timber double entrance at ground level, two workshop display windows holding simple tools, dull ochre canvas awning, blank small wooden fascia. Fine crisp material pixel clusters, dark warm-brown outline, restrained earthy palette, subdued green-grey slate, grounded weight, medium detail matching a mature storybook pixel RPG. Center the whole building with 12 px clear padding on every side. Approximately 155 px wide and 158 px high visible building, closed simple footprint, minimal contact shadow immediately under doorstep. No characters, scenery, roads, plants, logos, readable lettering, floating parts, cut-off roof, exaggerated cartoon saturation, pixel grid, blurry edges.",
+    "prompt_style": "rd_pro__topdown"
+  },
+  {
+    "name": "rear_rowhomes",
+    "width": 224,
+    "height": 192,
+    "seed": 2026100402,
+    "prompt": "One complete attached pair of modest historic brick homes, a single connected duplex building sprite on transparent background for Hollowtide, grounded creature-collecting pixel-art RPG. Orthogonal top-down three-quarter view, straight horizontal facade facing screen-bottom with roof visible from above, no diamond isometric or diagonal facade. One shared low slate roof with two subtly different chimney stacks, warm tan-brown and subdued red-brown brick units joined at a real party wall, two distinct narrow front doors, tall upstairs windows, a shallow dark-timber stoop with two or three grounded stone steps, plain worn fabric curtain in one upper window and a closed shutter on the other unit. Authentic restrained old-building texture, fine crisp native pixel clusters, warm dark outline, desaturated slate and cream details, irregular mortar and repair patches. Entire connected building approximately 185 px wide and 155 px high, centered with at least 12 px clear padding around all sides. Minimal contact shadow directly under stoop. No people, trees, background ground, surrounding street, text, signs, logos, floating pieces, clipped sides or roof, giant porch, bright candy palette, fuzzy antialiasing.",
+    "prompt_style": "rd_pro__topdown"
+  },
+  {
+    "name": "workshop_keeper",
+    "width": 48,
+    "height": 64,
+    "seed": 2026100403,
+    "prompt": "One full-body older adult workshop keeper standing at rest, standalone transparent pixel-art overworld NPC sprite for Hollowtide, grounded creature-collecting RPG. Orthogonal top-down three-quarter view facing down slightly toward screen-left, both feet planted, all limbs visible. Compact chibi proportions matching a detailed brown-haired teal-jacket courier: large expressive head, short sturdy body, about two and a half heads tall. Grey swept-back hair, warm weathered face, muted charcoal shirt with sleeves rolled up, worn tan leather apron with a small tool pocket, dark brown trousers, sturdy boots, one hand lightly holding a small repair tool near waist. Strong readable dark brown outline and clustered earth-tone shading, restrained highlights and mature folklore pixel-art feel. Single person centered, visible height about 32 px inside the 48 by 64 px canvas with generous clear padding. No sprite sheet, duplicates, rotation views, scenery, ground plane, text, logos, hard white halo, soft blurry edges, neon saturation, giant realistic proportions.",
+    "prompt_style": "rd_pro__topdown"
+  }
+]

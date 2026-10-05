@@ -1,0 +1,44 @@
+[
+  {
+    "key": "kithflare-front",
+    "changed_pixels": 0,
+    "allowed_pixels": 0,
+    "alpha_changed": 0,
+    "retained_exact": true
+  },
+  {
+    "key": "kithflare-back",
+    "changed_pixels": 0,
+    "allowed_pixels": 0,
+    "alpha_changed": 0,
+    "retained_exact": true
+  },
+  {
+    "key": "wayburn-front",
+    "changed_pixels": 535,
+    "allowed_pixels": 3374,
+    "alpha_changed": 98,
+    "retained_exact": false
+  },
+  {
+    "key": "wayburn-back",
+    "changed_pixels": 113,
+    "allowed_pixels": 200,
+    "alpha_changed": 0,
+    "retained_exact": false
+  },
+  {
+    "key": "coalcrest-front",
+    "changed_pixels": 0,
+    "allowed_pixels": 0,
+    "alpha_changed": 0,
+    "retained_exact": true
+  },
+  {
+    "key": "coalcrest-back",
+    "changed_pixels": 0,
+    "allowed_pixels": 0,
+    "alpha_changed": 0,
+    "retained_exact": true
+  }
+]

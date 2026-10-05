@@ -1,0 +1,76 @@
+{
+	"canopies": [
+		{
+			"bounds": "[P: (16.0, 71.0), S: (112.0, 96.0)]",
+			"tree": "HistoricCottonwood00",
+			"within_level": true
+		},
+		{
+			"bounds": "[P: (112.0, 71.0), S: (112.0, 96.0)]",
+			"tree": "HistoricCottonwood01",
+			"within_level": true
+		},
+		{
+			"bounds": "[P: (232.0, 79.0), S: (112.0, 96.0)]",
+			"tree": "HistoricCottonwood02",
+			"within_level": true
+		},
+		{
+			"bounds": "[P: (424.0, 79.0), S: (112.0, 96.0)]",
+			"tree": "HistoricCottonwood03",
+			"within_level": true
+		},
+		{
+			"bounds": "[P: (544.0, 71.0), S: (112.0, 96.0)]",
+			"tree": "HistoricCottonwood04",
+			"within_level": true
+		},
+		{
+			"bounds": "[P: (640.0, 95.0), S: (112.0, 96.0)]",
+			"tree": "HistoricCottonwood05",
+			"within_level": true
+		},
+		{
+			"bounds": "[P: (16.0, 279.0), S: (112.0, 96.0)]",
+			"tree": "HistoricCottonwood06",
+			"within_level": true
+		},
+		{
+			"bounds": "[P: (640.0, 295.0), S: (112.0, 96.0)]",
+			"tree": "HistoricCottonwood07",
+			"within_level": true
+		},
+		{
+			"bounds": "[P: (24.0, 487.0), S: (112.0, 96.0)]",
+			"tree": "HistoricCottonwood08",
+			"within_level": true
+		},
+		{
+			"bounds": "[P: (632.0, 487.0), S: (112.0, 96.0)]",
+			"tree": "HistoricCottonwood09",
+			"within_level": true
+		},
+		{
+			"bounds": "[P: (40.0, 695.0), S: (112.0, 96.0)]",
+			"tree": "HistoricCottonwood10",
+			"within_level": true
+		},
+		{
+			"bounds": "[P: (136.0, 727.0), S: (112.0, 96.0)]",
+			"tree": "HistoricCottonwood11",
+			"within_level": true
+		},
+		{
+			"bounds": "[P: (520.0, 727.0), S: (112.0, 96.0)]",
+			"tree": "HistoricCottonwood12",
+			"within_level": true
+		},
+		{
+			"bounds": "[P: (616.0, 695.0), S: (112.0, 96.0)]",
+			"tree": "HistoricCottonwood13",
+			"within_level": true
+		}
+	],
+	"ordinary_traversal_checked_separately": true,
+	"render_camera_only_changed": true
+}

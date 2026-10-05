@@ -1,0 +1,48 @@
+Welcome to Summer Engine (c) built on the awesome work by Godot 2007-present Juan Linietsky, Ariel Manzur & Godot Contributors.
+D3D12 12_0 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce GTX 1660 SUPER
+
+[SE] AuthManager: CLI credential found; desktop session exchange required
+[godot_ai game_helper] registered mcp capture (debugger active=false, logger=true)
+ROUTE_WALK (70.0, 205.0) reached (68.25654, 204.2565)
+ROUTE_INTERACTION assignment true
+ROUTE_WALK (184.0, 205.0) reached (181.5898, 204.2565)
+ROUTE_WALK (216.0, 264.0) reached (214.5881, 262.5882)
+ROUTE_INTERACTION levee-sign true
+ROUTE_WALK (266.0, 298.0) reached (264.5293, 296.5294)
+ROUTE_WALK (328.0, 334.0) reached (325.2991, 333.299)
+ROUTE_WALK (390.0, 390.0) reached (387.5916, 388.9247)
+ROUTE_WALK (432.0, 416.0) reached (429.9904, 415.3234)
+ROUTE_WALK (560.0, 416.0) reached (557.9904, 415.3234)
+ROUTE_WALK (704.0, 416.0) reached (701.9882, 415.3234)
+ROUTE_WALK (750.0, 472.0) reached (749.1287, 469.1306)
+ROUTE_WALK (816.0, 480.0) reached (814.5559, 478.5587)
+ROUTE_INTERACTION city-clerk true
+ROUTE_WALK (900.0, 480.0) reached (898.5546, 478.5587)
+ROUTE_WALK (912.0, 444.0) reached (910.8112, 446.3021)
+ROUTE_INTERACTION city-board true
+ROUTE_WALK (900.0, 480.0) reached (901.3831, 478.397)
+ROUTE_WALK (750.0, 472.0) reached (751.7284, 472.7401)
+ROUTE_WALK (704.0, 416.0) reached (704.5879, 418.9329)
+ROUTE_WALK (560.0, 416.0) reached (562.7044, 417.0473)
+ROUTE_WALK (432.0, 416.0) reached (434.7046, 417.0473)
+ROUTE_WALK (390.0, 390.0) reached (392.3058, 390.6486)
+ROUTE_WALK (350.0, 320.0) reached (350.8221, 322.4981)
+ROUTE_WALK (368.0, 280.0) reached (366.8499, 282.4702)
+ROUTE_WALK (392.0, 260.0) reached (389.8679, 260.7855)
+ROUTE_INTERACTION relay-delivery true
+ROUTE_WALK (410.0, 240.0) reached (408.7241, 241.9293)
+ROUTE_WALK (423.0, 215.0) reached (421.9234, 216.73)
+ROUTE_INTERACTION height-marks true
+ROUTE_WALK (410.0, 240.0) reached (410.6097, 237.377)
+ROUTE_WALK (402.0, 296.0) reached (403.0672, 294.2531)
+ROUTE_WALK (427.0, 296.0) reached (425.3435, 295.1959)
+ROUTE_INTERACTION river-calls true
+ROUTE_WALK (368.0, 296.0) reached (370.6765, 295.1959)
+ROUTE_WALK (368.0, 112.0) reached (368.7908, 114.6438)
+ROUTE_WALK (272.0, 112.0) reached (273.5712, 112.7582)
+ROUTE_WALK (272.0, 112.0) reached (273.5712, 112.7582)
+ROUTE_INTERACTION marker-repair true
+ROUTE_WALK (184.0, 112.0) reached (185.5713, 112.7582)
+ROUTE_WALK (184.0, 205.0) reached (184.6285, 203.0341)
+ROUTE_WALK (80.0, 205.0) reached (82.35247, 203.9769)
+ORDINARY_TERRAIN_WALKTHROUGH true { "pouch_accepted": true, "levee_entrance_read": true, "city_arrival_registered": true, "city_directions_read": true, "delivered": true, "water_mark_observed": true, "heard_calls": true, "marker_restored": true, "report_done": true, "reported_calls": true, "reported_water_mark": true }

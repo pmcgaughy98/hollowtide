@@ -1,0 +1,14 @@
+[
+	{
+		"model": "Male",
+		"new_game_hometown": true,
+		"preference_writes_suppressed_in_fixture": true,
+		"selection_exclusive": true
+	},
+	{
+		"model": "Female",
+		"new_game_hometown": true,
+		"preference_writes_suppressed_in_fixture": true,
+		"selection_exclusive": true
+	}
+]

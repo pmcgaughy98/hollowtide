@@ -1,0 +1,84 @@
+[
+  {
+    "source": "repair_workshop_v2-original.png",
+    "runtime": "assets/sprites/world/historic_frontage_2026_10_04/repair_workshop.png",
+    "source_bounds": [
+      31,
+      2,
+      169,
+      187
+    ],
+    "runtime_size": [
+      162,
+      209
+    ],
+    "visible_size": [
+      138,
+      185
+    ],
+    "padding": 12,
+    "opaque_pixels_preserved": true,
+    "semi_transparent_pixels": 0
+  },
+  {
+    "source": "rear_rowhomes_v2-original.png",
+    "runtime": "assets/sprites/world/historic_frontage_2026_10_04/rear_rowhomes.png",
+    "source_bounds": [
+      21,
+      5,
+      203,
+      188
+    ],
+    "runtime_size": [
+      206,
+      207
+    ],
+    "visible_size": [
+      182,
+      183
+    ],
+    "padding": 12,
+    "opaque_pixels_preserved": true,
+    "semi_transparent_pixels": 0
+  },
+  {
+    "source": "workshop_keeper-original.png",
+    "runtime": "assets/sprites/world/historic_frontage_2026_10_04/workshop_keeper.png",
+    "source_bounds": [
+      7,
+      4,
+      40,
+      60
+    ],
+    "runtime_size": [
+      57,
+      80
+    ],
+    "visible_size": [
+      33,
+      56
+    ],
+    "padding": 12,
+    "opaque_pixels_preserved": true,
+    "semi_transparent_pixels": 0
+  },
+  {
+    "runtime": "assets/sprites/world/historic_frontage_2026_10_04/street_pavers.png",
+    "original_paving_unchanged_outside_new_paths_and_2px_junction_band": true,
+    "new_path_pixels": 43356,
+    "material_source": "historic-riverfront-review/historic_pavers_tile_source.png",
+    "lanes": {
+      "rear_y": 244,
+      "sides_x": [
+        128,
+        656
+      ],
+      "rear_half_width": 14
+    },
+    "workshop_forecourt_half_width": 46,
+    "rowhome_doors_x": [
+      365,
+      404
+    ]
+  }
+]

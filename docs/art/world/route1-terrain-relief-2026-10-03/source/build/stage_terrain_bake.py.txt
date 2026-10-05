@@ -1,0 +1,17 @@
+from pathlib import Path
+from PIL import Image
+import shutil,hashlib,json
+P=Path("C:/Users/pmcga/dev/hollowtide");S=Path.cwd();D=P/"assets/sprites/world/route1_terrain_relief_2026_10_03"
+D.mkdir(parents=True,exist_ok=True)
+rows=[]
+for source,name,size,at in [("GrassyLeveeShoulders.png","levee_grass_slopes.png",(296,248),(136,216)),("RoundedDispatchAndLandingLanes.png","rounded_dispatch_landing_paths.png",(416,248),(0,80))]:
+ f=S/"terrain-relief-review"/source;im=Image.open(f)
+ assert im.size==size and im.mode=="RGBA"
+ dest=D/name;assert not dest.exists(),"Preserve previous baked texture"
+ shutil.copy2(f,dest)
+ rows.append({"file":str(dest.relative_to(P)),"sha256":hashlib.sha256(dest.read_bytes()).hexdigest(),"size":list(size),"at":list(at)})
+ledger={"offline_native_terrain_bake":True,"runtime_pixel_generation":False,"assets":rows,"source_inputs":[]}
+for rel in ["scripts/route1_crossing.gd","scenes/first_route_prototype.tscn","assets/tilesets/route1_rd_2026_10_01/route1_ground_atlas_polished.png","assets/sprites/world/route1_crossing_2026_10_02/path_soil_native32.png"]:
+ f=P/rel;ledger["source_inputs"].append({"file":rel,"sha256":hashlib.sha256(f.read_bytes()).hexdigest()})
+(S/"terrain-relief-review/baked-input-output-manifest.json").write_text(json.dumps(ledger,indent=2))
+print(json.dumps({"baked_textures":rows}))

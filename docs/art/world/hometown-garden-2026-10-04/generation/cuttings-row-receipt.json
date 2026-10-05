@@ -1,0 +1,19 @@
+{
+  "status": "succeeded",
+  "task_id": "812a5d49-eff6-4870-8d82-11542633b530",
+  "created_at": 1791138476,
+  "updated_at": 1791138521,
+  "result": {
+    "created_at": 1791138521,
+    "credit_cost": 1,
+    "balance_cost": 0.18,
+    "model": "rd_pro",
+    "remaining_credits": 0,
+    "remaining_balance": 2.94,
+    "request_id": "812a5d49-eff6-4870-8d82-11542633b530",
+    "outputs_retained_until": 1791224876,
+    "output_url_expires_at": 1791139892
+  },
+  "output_file": "cuttings-row-source.png",
+  "output_sha256": "a7b4eecb0cc57cf3c52388673c85b80afba8d990433ed5553ad9a983e57b7af7"
+}

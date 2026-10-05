@@ -1,0 +1,24 @@
+ERROR: No loader found for resource: res://assets/sprites/creatures/coalcrest_tail_root_repaired_2026_10_03/coalcrest_front.png (expected type: Texture2D)
+   at: ResourceLoader::_load (core\io\resource_loader.cpp:328)
+   GDScript backtrace (most recent call first):
+       [0] _run (C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/coalcrest_tail_root_runtime.gd:34)
+ERROR: No loader found for resource: res://assets/sprites/creatures/coalcrest_tail_root_repaired_2026_10_03/coalcrest_back.png (expected type: Texture2D)
+   at: ResourceLoader::_load (core\io\resource_loader.cpp:328)
+   GDScript backtrace (most recent call first):
+       [0] _run (C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/coalcrest_tail_root_runtime.gd:34)
+ERROR: res://data/creatures/105_coalcrest.tres:22 - Parse Error: [ext_resource] referenced non-existent resource at: res://assets/sprites/creatures/coalcrest_tail_root_repaired_2026_10_03/coalcrest_front.png.
+   at: ResourceLoaderText::_printerr (scene\resources\resource_format_text.cpp:41)
+   GDScript backtrace (most recent call first):
+       [0] _run (C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/coalcrest_tail_root_runtime.gd:34)
+ERROR: res://data/creatures/105_coalcrest.tres:22 - Parse Error: [ext_resource] referenced non-existent resource at: res://assets/sprites/creatures/coalcrest_tail_root_repaired_2026_10_03/coalcrest_front.png.
+   at: ResourceLoaderText::_printerr (scene\resources\resource_format_text.cpp:41)
+   GDScript backtrace (most recent call first):
+       [0] _run (C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/coalcrest_tail_root_runtime.gd:34)
+ERROR: Failed loading resource: res://data/creatures/105_coalcrest.tres.
+   at: ResourceLoader::_load (core\io\resource_loader.cpp:313)
+   GDScript backtrace (most recent call first):
+       [0] _run (C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/coalcrest_tail_root_runtime.gd:34)
+SCRIPT ERROR: Cannot call method 'duplicate' on a null value.
+   at: _run (C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/coalcrest_tail_root_runtime.gd:34)
+   GDScript backtrace (most recent call first):
+       [0] _run (C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/coalcrest_tail_root_runtime.gd:34)

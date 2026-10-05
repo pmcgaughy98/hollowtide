@@ -1,5 +1,7 @@
 # The electric ferret line, for Adrianna (2026-10-01)
 
+Reserved in `docs/creatures/DESIGN_RULES.md` (2026-10-02). This line stays. It is not a generic Electric starter and it is not optional. In the project today: this note, `stage1_prompt.json`, and `stage1_front_128_take1.png`. Stages II and III are designed below and are not drawn yet. No creature data file yet.
+
 Made for Adrianna ("Punchybuns"), at the request of her twin sister Gabrielle. Gabrielle's direction: three stages, electric, a ferret, inspired by Pikachu without echoing it. Adrianna loved Steven Universe. Everything below is a proposal for Gabrielle and Preston to change.
 
 ## The idea: a ferret who protects the people it loves

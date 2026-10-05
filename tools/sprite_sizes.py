@@ -19,24 +19,24 @@ CREATURE_HEIGHT = 264
 
 
 def zoom_for(height: int) -> int:
-    return max(1, round(CREATURE_HEIGHT / height))
+	return max(1, round(CREATURE_HEIGHT / height))
 
 
 def main() -> int:
-    paths = sorted(glob.glob("assets/sprites/creatures/*.png"))
-    if not paths:
-        print("no creature sprites found")
-        return 1
+	paths = sorted(glob.glob("assets/sprites/creatures/*.png"))
+	if not paths:
+		print("no creature sprites found")
+		return 1
 
-    print("%-26s %-12s %-6s %s" % ("file", "size", "zoom", "on-screen height"))
-    for path in paths:
-        with Image.open(path) as img:
-            width, height = img.size
-        zoom = zoom_for(height)
-        print("%-26s %-12s %-6d %d"
-              % (os.path.basename(path), "%dx%d" % (width, height), zoom, height * zoom))
-    return 0
+	print("%-26s %-12s %-6s %s" % ("file", "size", "zoom", "on-screen height"))
+	for path in paths:
+		with Image.open(path) as img:
+			width, height = img.size
+		zoom = zoom_for(height)
+		print("%-26s %-12s %-6d %d"
+			  % (os.path.basename(path), "%dx%d" % (width, height), zoom, height * zoom))
+	return 0
 
 
 if __name__ == "__main__":
-    raise SystemExit(main())
+	raise SystemExit(main())

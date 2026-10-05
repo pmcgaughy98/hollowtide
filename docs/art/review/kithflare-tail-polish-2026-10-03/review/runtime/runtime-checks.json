@@ -1,0 +1,235 @@
+{
+	"checks": [
+		{
+			"installed_texture": true,
+			"native_texture": "res://assets/sprites/creatures/kithflare_tail_polish_2026_10_03/kithflare_front.png",
+			"original_zoom": 1.0,
+			"scale_preserved": true,
+			"species": "kithflare",
+			"updated_zoom": 1.0,
+			"view": "front"
+		},
+		{
+			"move": "kithflare-front-signal_spark",
+			"passed": true,
+			"position_restored": true,
+			"reverse_released": true,
+			"texture_restored": true,
+			"unrepaired_texture_seen": false
+		},
+		{
+			"move": "kithflare-front-tail_brake",
+			"passed": true,
+			"position_restored": true,
+			"reverse_released": true,
+			"texture_restored": true,
+			"unrepaired_texture_seen": false
+		},
+		{
+			"move": "kithflare-front-shoulder_kindle",
+			"passed": true,
+			"position_restored": true,
+			"reverse_released": true,
+			"texture_restored": true,
+			"unrepaired_texture_seen": false
+		},
+		{
+			"move": "kithflare-front-handoff_dash",
+			"passed": true,
+			"position_restored": true,
+			"reverse_released": true,
+			"texture_restored": true,
+			"unrepaired_texture_seen": false
+		},
+		{
+			"installed_texture": true,
+			"native_texture": "res://assets/sprites/creatures/kithflare_tail_polish_2026_10_03/kithflare_back.png",
+			"original_zoom": 1.5,
+			"scale_preserved": true,
+			"species": "kithflare",
+			"updated_zoom": 1.5,
+			"view": "back"
+		},
+		{
+			"move": "kithflare-back-signal_spark",
+			"passed": true,
+			"position_restored": true,
+			"reverse_released": true,
+			"texture_restored": true,
+			"unrepaired_texture_seen": false
+		},
+		{
+			"move": "kithflare-back-tail_brake",
+			"passed": true,
+			"position_restored": true,
+			"reverse_released": true,
+			"texture_restored": true,
+			"unrepaired_texture_seen": false
+		},
+		{
+			"move": "kithflare-back-shoulder_kindle",
+			"passed": true,
+			"position_restored": true,
+			"reverse_released": true,
+			"texture_restored": true,
+			"unrepaired_texture_seen": false
+		},
+		{
+			"move": "kithflare-back-handoff_dash",
+			"passed": true,
+			"position_restored": true,
+			"reverse_released": true,
+			"texture_restored": true,
+			"unrepaired_texture_seen": false
+		},
+		{
+			"installed_texture": true,
+			"native_texture": "res://assets/sprites/creatures/kithflare_tail_polish_2026_10_03/wayburn_front.png",
+			"original_zoom": 1.5,
+			"scale_preserved": true,
+			"species": "wayburn",
+			"updated_zoom": 1.5,
+			"view": "front"
+		},
+		{
+			"move": "wayburn-front-relay_arc",
+			"passed": true,
+			"position_restored": true,
+			"reverse_released": true,
+			"texture_restored": true,
+			"unrepaired_texture_seen": false
+		},
+		{
+			"move": "wayburn-front-shoulder_drive",
+			"passed": true,
+			"position_restored": true,
+			"reverse_released": true,
+			"texture_restored": true,
+			"unrepaired_texture_seen": false
+		},
+		{
+			"move": "wayburn-front-tail_shutter",
+			"passed": true,
+			"position_restored": true,
+			"reverse_released": true,
+			"texture_restored": true,
+			"unrepaired_texture_seen": false
+		},
+		{
+			"move": "wayburn-front-wayflare",
+			"passed": true,
+			"position_restored": true,
+			"reverse_released": true,
+			"texture_restored": true,
+			"unrepaired_texture_seen": false
+		},
+		{
+			"installed_texture": true,
+			"native_texture": "res://assets/sprites/creatures/kithflare_tail_polish_2026_10_03/wayburn_back.png",
+			"original_zoom": 2.0,
+			"scale_preserved": true,
+			"species": "wayburn",
+			"updated_zoom": 2.0,
+			"view": "back"
+		},
+		{
+			"move": "wayburn-back-relay_arc",
+			"passed": true,
+			"position_restored": true,
+			"reverse_released": true,
+			"texture_restored": true,
+			"unrepaired_texture_seen": false
+		},
+		{
+			"move": "wayburn-back-shoulder_drive",
+			"passed": true,
+			"position_restored": true,
+			"reverse_released": true,
+			"texture_restored": true,
+			"unrepaired_texture_seen": false
+		},
+		{
+			"move": "wayburn-back-tail_shutter",
+			"passed": true,
+			"position_restored": true,
+			"reverse_released": true,
+			"texture_restored": true,
+			"unrepaired_texture_seen": false
+		},
+		{
+			"move": "wayburn-back-wayflare",
+			"passed": true,
+			"position_restored": true,
+			"reverse_released": true,
+			"texture_restored": true,
+			"unrepaired_texture_seen": false
+		},
+		{
+			"installed_texture": true,
+			"native_texture": "res://assets/sprites/creatures/kithflare_tail_polish_2026_10_03/coalcrest_front.png",
+			"original_zoom": 2.0,
+			"scale_preserved": true,
+			"species": "coalcrest",
+			"updated_zoom": 2.0,
+			"view": "front"
+		},
+		{
+			"move": "coalcrest-front-crest_signal",
+			"passed": true,
+			"position_restored": true,
+			"reverse_released": true,
+			"texture_restored": true,
+			"unrepaired_texture_seen": false
+		},
+		{
+			"move": "coalcrest-front-furnace_bolt",
+			"passed": true,
+			"position_restored": true,
+			"reverse_released": true,
+			"texture_restored": true,
+			"unrepaired_texture_seen": false
+		},
+		{
+			"move": "coalcrest-front-longfire_burst",
+			"passed": true,
+			"position_restored": true,
+			"reverse_released": true,
+			"texture_restored": true,
+			"unrepaired_texture_seen": false
+		},
+		{
+			"installed_texture": true,
+			"native_texture": "res://assets/sprites/creatures/kithflare_tail_polish_2026_10_03/coalcrest_back.png",
+			"original_zoom": 2.5,
+			"scale_preserved": true,
+			"species": "coalcrest",
+			"updated_zoom": 2.5,
+			"view": "back"
+		},
+		{
+			"move": "coalcrest-back-crest_signal",
+			"passed": true,
+			"position_restored": true,
+			"reverse_released": true,
+			"texture_restored": true,
+			"unrepaired_texture_seen": false
+		},
+		{
+			"move": "coalcrest-back-furnace_bolt",
+			"passed": true,
+			"position_restored": true,
+			"reverse_released": true,
+			"texture_restored": true,
+			"unrepaired_texture_seen": false
+		},
+		{
+			"move": "coalcrest-back-longfire_burst",
+			"passed": true,
+			"position_restored": true,
+			"reverse_released": true,
+			"texture_restored": true,
+			"unrepaired_texture_seen": false
+		}
+	],
+	"passed": true
+}

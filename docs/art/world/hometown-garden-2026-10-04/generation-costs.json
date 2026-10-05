@@ -1,0 +1,12 @@
+{
+  "actual_usd": 0.9,
+  "text_only_generations": 4,
+  "text_only_usd": 0.72,
+  "approved_image_edits": 1,
+  "approved_hat_edit_usd": 0.18,
+  "approved_hat_edit_executed": true,
+  "pending_upload_approvals": false,
+  "remaining_balance_usd": 2.4,
+  "credits": 50,
+  "balance_observed_after_completed_hat_job": true
+}

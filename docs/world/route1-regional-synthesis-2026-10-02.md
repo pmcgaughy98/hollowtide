@@ -1,5 +1,9 @@
 # Route 1: St. Joseph references and Hollowtide design synthesis
 
+## Later October 2 direction: bridge into the city
+
+Preston confirmed an Elwood-inspired fictional hometown → Route 1 beginning at the levee entrance in his screenshots → river bridge → a St. Joseph-inspired fictional city with district identities. These are Hollowtide places with fictional names; the real names identify research references. West-bank hometown and travel order are confirmed, while exact layout and final names remain open. The [current hometown/route/bridge plan](route1-bridge-and-city-sector-plan-2026-10-02.md) and [verified research](../research/st-joseph-city-sectors-2026-10-02.md) guide expansion. The implemented art record below remains; its east-bank Highbank opening assumptions are superseded. Preserve west/left hometown, river between and east/right city in regional views. No runtime map or art was changed in this clarification pass.
+
 October 2, 2026. Current implementation brief following Preston's house, individual-prop, native-tree and Elwood/St. Joseph map feedback. Regional names remain working labels. This refines the existing courier slice; it does not lock new canon or add a second chapter.
 
 ## What governs this pass

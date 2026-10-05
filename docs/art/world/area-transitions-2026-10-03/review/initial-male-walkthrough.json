@@ -1,0 +1,588 @@
+{
+	"engine_entrance_arrivals": [
+		{
+			"arrival": "(-720.0, 512.0)",
+			"from": "hometown",
+			"to": "route1"
+		},
+		{
+			"arrival": "(320.0, 512.0)",
+			"from": "route1",
+			"to": "riverfront"
+		},
+		{
+			"arrival": "(432.0, 416.0)",
+			"from": "riverfront",
+			"to": "route1"
+		},
+		{
+			"arrival": "(980.0, 512.0)",
+			"from": "route1",
+			"to": "hometown"
+		}
+	],
+	"fixed_fps": 60,
+	"flags": {
+		"city_arrival_registered": true,
+		"city_directions_read": true,
+		"delivered": true,
+		"heard_calls": true,
+		"levee_entrance_read": true,
+		"marker_restored": true,
+		"pouch_accepted": true,
+		"report_done": true,
+		"reported_calls": true,
+		"reported_water_mark": true,
+		"water_mark_observed": true
+	},
+	"home_walk_frames_before_exit": 958,
+	"model": "Male",
+	"ordinary_input_only": true,
+	"passed": true,
+	"quest_overrides": 0,
+	"route_approach_walk_frames": 923,
+	"startup_ms": 1702,
+	"steps": [
+		{
+			"area": "hometown",
+			"movement_frozen_and_resumed": true,
+			"panel": "_notes_panel"
+		},
+		{
+			"area": "hometown",
+			"movement_frozen_and_resumed": true,
+			"panel": "_party_panel"
+		},
+		{
+			"area": "hometown",
+			"frames": 0,
+			"from": "(224.0, 280.0)",
+			"walk": "(224.0, 280.0)"
+		},
+		{
+			"at": "(224.0, 280.0)",
+			"body": "HOME COURTYARD\nThe patched porch and stacked wood make this place easy to recognize from the lane. The dispatcher is taking runners beside the eastern street.\n\n[E] Continue",
+			"interaction": "HOME COURTYARD",
+			"passed": true
+		},
+		{
+			"at": "(224.0, 266.0031)",
+			"house_collision": true
+		},
+		{
+			"area": "hometown",
+			"frames": 52,
+			"from": "(224.0, 266.0031)",
+			"walk": "(224.0, 336.0)"
+		},
+		{
+			"area": "hometown",
+			"frames": 252,
+			"from": "(224.0, 334.0753)",
+			"walk": "(560.0, 336.0)"
+		},
+		{
+			"area": "hometown",
+			"frames": 132,
+			"from": "(558.2773, 335.0181)",
+			"walk": "(560.0, 512.0)"
+		},
+		{
+			"area": "hometown",
+			"frames": 157,
+			"from": "(559.2201, 509.2956)",
+			"walk": "(768.0, 512.0)"
+		},
+		{
+			"area": "hometown",
+			"frames": 41,
+			"from": "(766.4359, 511.1812)",
+			"walk": "(768.0, 456.0)"
+		},
+		{
+			"at": "(767.3787, 458.238)",
+			"body": "DISPATCHER\nTake this sealed pouch along the river bend to the old ferry relay post. Check whether anyone is keeping the return mark. Leave the seal intact.\n\n[E] Continue",
+			"interaction": "DISPATCHER",
+			"passed": true
+		},
+		{
+			"area": "hometown",
+			"frames": 40,
+			"from": "(767.3787, 458.238)",
+			"walk": "(768.0, 512.0)"
+		},
+		{
+			"area": "hometown",
+			"frames": 156,
+			"from": "(767.3787, 510.2384)",
+			"walk": "(976.0, 512.0)"
+		},
+		{
+			"area": "hometown",
+			"frames": 35,
+			"from": "(973.6517, 511.1812)",
+			"walk": "(976.0, 464.0)"
+		},
+		{
+			"at": "(1017.997, 466.238)",
+			"entrance_side_wall": true
+		},
+		{
+			"area": "hometown",
+			"frames": 46,
+			"from": "(1017.997, 466.238)",
+			"walk": "(976.0, 512.0)"
+		},
+		{
+			"area": "hometown",
+			"frames": 25,
+			"from": "(977.4202, 509.4814)",
+			"walk": "(944.0, 512.0)"
+		},
+		{
+			"at": "(946.2017, 511.367)",
+			"body": "DISPATCH LANE\nThe courier hall stands beside the eastern street. Follow the Route 1 sign to the opening at the end of that street. Beyond the entrance, the meadow path bends toward the raised levee and river bridge. The courtyard streets return to your home.\n\n[E] Continue",
+			"interaction": "DISPATCH LANE",
+			"passed": true
+		},
+		{
+			"area": "hometown",
+			"frames": 22,
+			"from": "(946.2017, 511.367)",
+			"walk": "(976.0, 512.0)"
+		},
+		{
+			"entrance_from": "hometown",
+			"flags_preserved": true,
+			"passed": true,
+			"selected_model": "Male",
+			"to": "route1"
+		},
+		{
+			"area": "route1",
+			"frames": 59,
+			"from": "(-720.0, 512.0)",
+			"walk": "(-640.0, 512.0)"
+		},
+		{
+			"area": "route1",
+			"frames": 132,
+			"from": "(-642.6678, 512.0)",
+			"walk": "(-640.0, 336.0)"
+		},
+		{
+			"area": "route1",
+			"frames": 156,
+			"from": "(-640.7822, 338.1131)",
+			"walk": "(-432.0, 336.0)"
+		},
+		{
+			"area": "route1",
+			"frames": 109,
+			"from": "(-434.5074, 337.1703)",
+			"walk": "(-432.0, 192.0)"
+		},
+		{
+			"area": "route1",
+			"frames": 360,
+			"from": "(-432.6218, 193.9509)",
+			"walk": "(48.0, 192.0)"
+		},
+		{
+			"area": "route1",
+			"frames": 107,
+			"from": "(45.65528, 193.0081)",
+			"walk": "(184.0, 205.0)"
+		},
+		{
+			"area": "route1",
+			"frames": 54,
+			"from": "(182.3022, 204.3219)",
+			"walk": "(216.0, 264.0)"
+		},
+		{
+			"at": "(215.3006, 261.3202)",
+			"body": "ROUTE 1\nThe crest road follows the river to the bridge. The old landing and relay post lie along the side path. Keep to the worn track on the raised earth.\n\n[E] Continue",
+			"interaction": "ROUTE 1",
+			"passed": true
+		},
+		{
+			"area": "route1",
+			"frames": 48,
+			"from": "(215.3006, 261.3202)",
+			"walk": "(266.0, 298.0)"
+		},
+		{
+			"area": "route1",
+			"frames": 36,
+			"from": "(263.1274, 297.1469)",
+			"walk": "(304.0, 316.0)"
+		},
+		{
+			"area": "route1",
+			"frames": 32,
+			"from": "(302.3743, 315.0603)",
+			"walk": "(330.0, 294.0)"
+		},
+		{
+			"area": "route1",
+			"frames": 22,
+			"from": "(328.1371, 295.2613)",
+			"walk": "(352.0, 280.0)"
+		},
+		{
+			"area": "route1",
+			"frames": 22,
+			"from": "(350.2794, 281.1192)",
+			"walk": "(374.0, 265.0)"
+		},
+		{
+			"area": "route1",
+			"frames": 16,
+			"from": "(372.031, 266.0342)",
+			"walk": "(392.0, 260.0)"
+		},
+		{
+			"at": "(390.0785, 261.3202)",
+			"body": "You slide the sealed pouch into the dry slot. No keeper answers. Today's return mark is missing, but the delivery counts.\n\n[E] Continue",
+			"interaction": "You slide",
+			"passed": true
+		},
+		{
+			"area": "route1",
+			"frames": 21,
+			"from": "(390.0785, 261.3202)",
+			"walk": "(410.0, 240.0)"
+		},
+		{
+			"area": "route1",
+			"frames": 24,
+			"from": "(408.9347, 242.464)",
+			"walk": "(423.0, 215.0)"
+		},
+		{
+			"at": "(422.1341, 217.2647)",
+			"body": "Several old cut lines stand above today's water. The height post has no date plate. You record what you can see, without assigning a cause.\n\n[E] Continue",
+			"interaction": "Several old",
+			"passed": true
+		},
+		{
+			"area": "route1",
+			"frames": 20,
+			"from": "(422.1341, 217.2647)",
+			"walk": "(410.0, 240.0)"
+		},
+		{
+			"area": "route1",
+			"frames": 45,
+			"from": "(410.8203, 237.9117)",
+			"walk": "(402.0, 296.0)"
+		},
+		{
+			"area": "route1",
+			"frames": 18,
+			"from": "(403.2779, 293.4544)",
+			"walk": "(427.0, 296.0)"
+		},
+		{
+			"at": "(425.1636, 295.34)",
+			"body": "A two-note call comes from across the river. A weaker copy answers from beside the empty post. You cannot tell whether it was a creature, an echo, or a signal.\n\n[E] Continue",
+			"interaction": "A two-note",
+			"passed": true
+		},
+		{
+			"area": "route1",
+			"frames": 18,
+			"from": "(425.1636, 295.34)",
+			"walk": "(430.0, 318.0)"
+		},
+		{
+			"area": "route1",
+			"frames": 18,
+			"from": "(428.9349, 316.4447)",
+			"walk": "(430.0, 341.0)"
+		},
+		{
+			"area": "route1",
+			"frames": 20,
+			"from": "(428.9349, 339.1116)",
+			"walk": "(427.0, 366.0)"
+		},
+		{
+			"area": "route1",
+			"frames": 18,
+			"from": "(427.9921, 364.0546)",
+			"walk": "(414.0, 383.0)"
+		},
+		{
+			"area": "route1",
+			"frames": 18,
+			"from": "(414.5894, 380.4729)",
+			"walk": "(395.0, 393.0)"
+		},
+		{
+			"area": "route1",
+			"frames": 33,
+			"from": "(396.609, 391.7866)",
+			"walk": "(432.0, 416.0)"
+		},
+		{
+			"area": "route1",
+			"frames": 97,
+			"from": "(429.5126, 415.3568)",
+			"walk": "(560.0, 416.0)"
+		},
+		{
+			"area": "route1",
+			"frames": 91,
+			"from": "(557.5126, 415.3568)",
+			"walk": "(680.0, 416.0)"
+		},
+		{
+			"entrance_from": "route1",
+			"flags_preserved": true,
+			"passed": true,
+			"selected_model": "Male",
+			"to": "riverfront"
+		},
+		{
+			"area": "riverfront",
+			"frames": 47,
+			"from": "(320.0, 512.0)",
+			"walk": "(384.0, 512.0)"
+		},
+		{
+			"area": "riverfront",
+			"frames": 114,
+			"from": "(381.3338, 512.0)",
+			"walk": "(512.0, 456.0)"
+		},
+		{
+			"area": "riverfront",
+			"frames": 43,
+			"from": "(509.3507, 457.317)",
+			"walk": "(512.0, 400.0)"
+		},
+		{
+			"at": "(511.2363, 402.0977)",
+			"body": "CITY COURIER\nWelcome across the river. I have recorded your arrival at this branch. Bring your landing report back to the hometown dispatcher when you are ready. The direction board marks the streets into the city.\n\n[E] Continue",
+			"interaction": "CITY COURIER",
+			"passed": true
+		},
+		{
+			"area": "riverfront",
+			"movement_frozen_and_resumed": true,
+			"panel": "_notes_panel"
+		},
+		{
+			"area": "riverfront",
+			"frames": 40,
+			"from": "(511.2363, 402.0977)",
+			"walk": "(512.0, 456.0)"
+		},
+		{
+			"area": "riverfront",
+			"frames": 114,
+			"from": "(511.2363, 454.0981)",
+			"walk": "(640.0, 512.0)"
+		},
+		{
+			"area": "riverfront",
+			"frames": 133,
+			"from": "(638.4705, 510.6667)",
+			"walk": "(816.0, 512.0)"
+		},
+		{
+			"at": "(814.4678, 510.6667)",
+			"body": "CITY ROUTES\nThis riverfront branch marks your arrival in the city. The brick frontage and records house are local landmarks. The historic, works, school and trade quarters will each have their own entrances as they are built. Return west over the bridge for Route 1 and the hometown.\n\n[E] Continue",
+			"interaction": "CITY ROUTES",
+			"passed": true
+		},
+		{
+			"area": "riverfront",
+			"frames": 322,
+			"from": "(814.4678, 510.6667)",
+			"walk": "(384.0, 512.0)"
+		},
+		{
+			"area": "riverfront",
+			"frames": 49,
+			"from": "(386.4714, 510.6667)",
+			"walk": "(320.0, 512.0)"
+		},
+		{
+			"area": "riverfront",
+			"frames": 217,
+			"from": "(322.4709, 510.6667)",
+			"walk": "(32.0, 512.0)"
+		},
+		{
+			"entrance_from": "riverfront",
+			"flags_preserved": true,
+			"passed": true,
+			"selected_model": "Male",
+			"to": "route1"
+		},
+		{
+			"area": "route1",
+			"frames": 34,
+			"from": "(432.0, 416.0)",
+			"walk": "(395.0, 393.0)"
+		},
+		{
+			"area": "route1",
+			"frames": 70,
+			"from": "(396.9819, 394.3154)",
+			"walk": "(328.0, 334.0)"
+		},
+		{
+			"area": "route1",
+			"frames": 24,
+			"from": "(329.5848, 334.9183)",
+			"walk": "(304.0, 316.0)"
+		},
+		{
+			"area": "route1",
+			"frames": 34,
+			"from": "(306.3381, 317.0049)",
+			"walk": "(330.0, 294.0)"
+		},
+		{
+			"area": "route1",
+			"frames": 21,
+			"from": "(328.9655, 296.4818)",
+			"walk": "(352.0, 280.0)"
+		},
+		{
+			"area": "route1",
+			"frames": 13,
+			"from": "(349.3839, 281.3968)",
+			"walk": "(368.0, 280.0)"
+		},
+		{
+			"area": "route1",
+			"frames": 127,
+			"from": "(365.384, 281.3968)",
+			"walk": "(368.0, 112.0)"
+		},
+		{
+			"area": "route1",
+			"frames": 71,
+			"from": "(367.2696, 114.1782)",
+			"walk": "(272.0, 112.0)"
+		},
+		{
+			"at": "(274.3261, 113.2353)",
+			"body": "The marker was turned toward the riverbank. You set its three-dot sign straight and check the ground around its foot.\n\n[E] Continue",
+			"interaction": "The marker",
+			"passed": true
+		},
+		{
+			"area": "route1",
+			"frames": 67,
+			"from": "(274.3261, 113.2353)",
+			"walk": "(184.0, 112.0)"
+		},
+		{
+			"area": "route1",
+			"frames": 59,
+			"from": "(186.3262, 113.2353)",
+			"walk": "(184.0, 192.0)"
+		},
+		{
+			"area": "route1",
+			"frames": 463,
+			"from": "(185.3834, 190.1779)",
+			"walk": "(-432.0, 192.0)"
+		},
+		{
+			"area": "route1",
+			"frames": 108,
+			"from": "(-430.2269, 191.1208)",
+			"walk": "(-432.0, 336.0)"
+		},
+		{
+			"area": "route1",
+			"frames": 157,
+			"from": "(-431.1697, 333.3972)",
+			"walk": "(-640.0, 336.0)"
+		},
+		{
+			"area": "route1",
+			"frames": 132,
+			"from": "(-638.3873, 335.2829)",
+			"walk": "(-640.0, 512.0)"
+		},
+		{
+			"area": "route1",
+			"frames": 75,
+			"from": "(-639.3301, 509.5603)",
+			"walk": "(-740.0, 512.0)"
+		},
+		{
+			"entrance_from": "route1",
+			"flags_preserved": true,
+			"passed": true,
+			"selected_model": "Male",
+			"to": "hometown"
+		},
+		{
+			"area": "hometown",
+			"frames": 158,
+			"from": "(980.0, 512.0)",
+			"walk": "(768.0, 512.0)"
+		},
+		{
+			"area": "hometown",
+			"frames": 42,
+			"from": "(770.6699, 512.0)",
+			"walk": "(768.0, 456.0)"
+		},
+		{
+			"count": 2,
+			"report_choices": true
+		},
+		{
+			"area": "hometown",
+			"frames": 40,
+			"from": "(768.7842, 458.114)",
+			"walk": "(768.0, 512.0)"
+		},
+		{
+			"area": "hometown",
+			"frames": 156,
+			"from": "(768.7842, 510.1144)",
+			"walk": "(560.0, 512.0)"
+		},
+		{
+			"area": "hometown",
+			"frames": 131,
+			"from": "(562.5112, 511.0572)",
+			"walk": "(560.0, 336.0)"
+		},
+		{
+			"area": "hometown",
+			"frames": 252,
+			"from": "(560.6256, 338.5036)",
+			"walk": "(224.0, 336.0)"
+		},
+		{
+			"area": "hometown",
+			"frames": 42,
+			"from": "(226.7389, 336.618)",
+			"walk": "(224.0, 280.0)"
+		},
+		{
+			"cached_route_and_home_preserved": true,
+			"loaded_area_children": 1,
+			"party_count": 1,
+			"party_member_preserved": true
+		},
+		{
+			"area": "hometown",
+			"movement_frozen_and_resumed": true,
+			"panel": "_party_panel"
+		}
+	],
+	"test_teleports": 0
+}

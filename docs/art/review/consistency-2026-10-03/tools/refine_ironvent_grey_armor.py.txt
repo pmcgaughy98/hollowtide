@@ -1,0 +1,29 @@
+from pathlib import Path
+import hashlib
+p=Path("C:/Users/pmcga/dev/hollowtide/scripts/effects/creature_sprite.gdshader")
+assert hashlib.sha256(p.read_bytes()).hexdigest().upper()=="1DA46321C4E3B584390278DF84C68FD3A23CEA856F2CA8167FFA417069304FCC","Shader changed concurrently"
+Path("creature_sprite.grey_armor.before.gdshader").write_bytes(p.read_bytes())
+s=p.read_text()
+old="""\tif (charcoal_head && raw.a > 0.0 && uv.x >= 0.60 && uv.y >= 0.15 && uv.y < 0.64) {
+\t\tfloat brightest = max(raw.r, max(raw.g, raw.b));
+\t\tfloat darkest = min(raw.r, min(raw.g, raw.b));
+\t\t// Darken neutral armor planes, retaining their ramp and molten accents.
+\t\tif (core(raw) < 0.5 && brightest > 0.14) {
+\t\t\tfloat plane = dot(raw.rgb, vec3(0.28, 0.56, 0.16));
+\t\t\traw.rgb = mix(raw.rgb, vec3(plane), 0.35) * vec3(0.66, 0.64, 0.62);
+\t\t}
+\t}"""
+new="""\t// Registered Ironvent art uses a 100px canvas. The head armor starts
+\t// below the horn bases; its finish leaves the horns and body rust intact.
+\tif (charcoal_head && raw.a > 0.0 && uv.x >= 0.76 && uv.y >= 0.40 && uv.y < 0.67) {
+\t\tfloat brightest = max(raw.r, max(raw.g, raw.b));
+\t\t// Match the lineage's charcoal-grey armor, keeping the drawn planes,
+\t\t// black contour and molten highlights instead of flattening the head.
+\t\tif (core(raw) < 0.5 && brightest > 0.14) {
+\t\t\tfloat plane = dot(raw.rgb, vec3(0.28, 0.56, 0.16));
+\t\t\traw.rgb = vec3(plane) * vec3(0.68, 0.72, 0.70);
+\t\t}
+\t}"""
+assert s.count(old)==1
+p.write_text(s.replace(old,new))
+print("Ironvent head now uses the lineage charcoal-grey armor ramp; horn/body region retained.")

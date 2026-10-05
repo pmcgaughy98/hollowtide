@@ -1,0 +1,1423 @@
+{
+  "instance": "crossing-final",
+  "scene": "res://scenes/first_route_prototype.tscn",
+  "seed": 20261002,
+  "fixed_fps": 60,
+  "teleports": false,
+  "starting_probe": [
+    {
+      "results": [
+        {
+          "effective_time_scale": 0,
+          "frame": {
+            "frames_drawn": 862,
+            "physics_frames": 862,
+            "process_frames": 861
+          },
+          "instance": "crossing-final",
+          "missing": [],
+          "ok": true,
+          "op": "GameProbe",
+          "paused": false,
+          "provenance": {
+            "source": "runtime",
+            "target": {
+              "instance": "crossing-final",
+              "kind": "game"
+            }
+          },
+          "requestId": "mcp-efe681d6-30e5-401c-bf9f-d08cab673891",
+          "suspended": true,
+          "time_scale": 1,
+          "transport": "summer",
+          "values": {
+            "/root/FirstRoutePrototype/Player:position": "Vector2(48, 192)",
+            "/root/FirstRoutePrototype:pouch_accepted": false
+          }
+        }
+      ],
+      "skippedCount": 0,
+      "status": "ok",
+      "stopOnError": true,
+      "undoGroup": false,
+      "requestId": "mcp-efe681d6-30e5-401c-bf9f-d08cab673891",
+      "terminalState": "applied",
+      "appliedSeq": 1197
+    }
+  ],
+  "steps": [
+    {
+      "label": "home",
+      "events": [
+        {
+          "at_frame": 0,
+          "type": "action",
+          "action": "move_right",
+          "pressed": true
+        },
+        {
+          "at_frame": 24,
+          "type": "action",
+          "action": "move_right",
+          "pressed": false
+        },
+        {
+          "at_frame": 26,
+          "type": "key",
+          "keycode": 69,
+          "physical_keycode": 69,
+          "pressed": true
+        },
+        {
+          "at_frame": 27,
+          "type": "key",
+          "keycode": 69,
+          "physical_keycode": 69,
+          "pressed": false
+        },
+        {
+          "at_frame": 36,
+          "type": "key",
+          "keycode": 69,
+          "physical_keycode": 69,
+          "pressed": true
+        },
+        {
+          "at_frame": 37,
+          "type": "key",
+          "keycode": 69,
+          "physical_keycode": 69,
+          "pressed": false
+        },
+        {
+          "at_frame": 46,
+          "type": "action",
+          "action": "move_right",
+          "pressed": true
+        },
+        {
+          "at_frame": 124,
+          "type": "action",
+          "action": "move_right",
+          "pressed": false
+        },
+        {
+          "at_frame": 126,
+          "type": "action",
+          "action": "move_down",
+          "pressed": true
+        },
+        {
+          "at_frame": 180,
+          "type": "action",
+          "action": "move_down",
+          "pressed": false
+        },
+        {
+          "at_frame": 182,
+          "type": "action",
+          "action": "move_right",
+          "pressed": true
+        },
+        {
+          "at_frame": 206,
+          "type": "action",
+          "action": "move_right",
+          "pressed": false
+        },
+        {
+          "at_frame": 208,
+          "type": "key",
+          "keycode": 69,
+          "physical_keycode": 69,
+          "pressed": true
+        },
+        {
+          "at_frame": 209,
+          "type": "key",
+          "keycode": 69,
+          "physical_keycode": 69,
+          "pressed": false
+        },
+        {
+          "at_frame": 218,
+          "type": "key",
+          "keycode": 69,
+          "physical_keycode": 69,
+          "pressed": true
+        },
+        {
+          "at_frame": 219,
+          "type": "key",
+          "keycode": 69,
+          "physical_keycode": 69,
+          "pressed": false
+        }
+      ],
+      "receipt": [
+        {
+          "results": [
+            {
+              "applied": 16,
+              "clock_mapping": "exact",
+              "clock_unit": "physics_tick",
+              "completed": true,
+              "drove": true,
+              "first_frame": 867,
+              "frame": {
+                "frames_drawn": 1085,
+                "physics_frames": 1086,
+                "process_frames": 1085
+              },
+              "instance": "crossing-final",
+              "last_frame": 1086,
+              "ok": true,
+              "op": "SimulateInputScript",
+              "physics_ticks_per_second": 60,
+              "provenance": {
+                "source": "runtime",
+                "target": {
+                  "instance": "crossing-final",
+                  "kind": "game"
+                }
+              },
+              "rejected": [],
+              "requestId": "mcp-8e962774-3d52-4906-9ea2-373188c6f8bd",
+              "scheduled": 16,
+              "suspended": true,
+              "transport": "summer"
+            }
+          ],
+          "skippedCount": 0,
+          "status": "ok",
+          "stopOnError": true,
+          "undoGroup": false,
+          "requestId": "mcp-8e962774-3d52-4906-9ea2-373188c6f8bd",
+          "terminalState": "applied",
+          "appliedSeq": 1198
+        }
+      ],
+      "probe": [
+        {
+          "results": [
+            {
+              "effective_time_scale": 0,
+              "format": "jpeg",
+              "frame": {
+                "frames_drawn": 1089,
+                "physics_frames": 1089,
+                "process_frames": 1088
+              },
+              "height": 648,
+              "image_frame": 1088,
+              "instance": "crossing-final",
+              "mime": "image/jpeg",
+              "missing": [],
+              "ok": true,
+              "op": "GameProbe",
+              "paused": false,
+              "provenance": {
+                "source": "runtime",
+                "target": {
+                  "instance": "crossing-final",
+                  "kind": "game"
+                }
+              },
+              "requestId": "mcp-556e2f81-c3a0-4655-948c-d5aab9176b38",
+              "source_height": 648,
+              "source_width": 1152,
+              "suspended": true,
+              "time_scale": 1,
+              "transport": "summer",
+              "values": {
+                "/root/FirstRoutePrototype/Player:position": "Vector2(216, 264)",
+                "/root/FirstRoutePrototype:city_arrival_registered": false,
+                "/root/FirstRoutePrototype:levee_entrance_read": true,
+                "/root/FirstRoutePrototype:pouch_accepted": true
+              },
+              "width": 1152
+            }
+          ],
+          "skippedCount": 0,
+          "status": "ok",
+          "stopOnError": true,
+          "undoGroup": false,
+          "requestId": "mcp-556e2f81-c3a0-4655-948c-d5aab9176b38",
+          "terminalState": "applied",
+          "appliedSeq": 1199
+        }
+      ]
+    },
+    {
+      "label": "bridge",
+      "events": [
+        {
+          "at_frame": 0,
+          "type": "action",
+          "action": "move_right",
+          "pressed": true
+        },
+        {
+          "at_frame": 12,
+          "type": "action",
+          "action": "move_right",
+          "pressed": false
+        },
+        {
+          "at_frame": 14,
+          "type": "action",
+          "action": "move_right",
+          "pressed": true
+        },
+        {
+          "at_frame": 14,
+          "type": "action",
+          "action": "move_down",
+          "pressed": true
+        },
+        {
+          "at_frame": 48,
+          "type": "action",
+          "action": "move_right",
+          "pressed": false
+        },
+        {
+          "at_frame": 48,
+          "type": "action",
+          "action": "move_down",
+          "pressed": false
+        },
+        {
+          "at_frame": 50,
+          "type": "action",
+          "action": "move_right",
+          "pressed": true
+        },
+        {
+          "at_frame": 74,
+          "type": "action",
+          "action": "move_right",
+          "pressed": false
+        },
+        {
+          "at_frame": 76,
+          "type": "action",
+          "action": "move_right",
+          "pressed": true
+        },
+        {
+          "at_frame": 76,
+          "type": "action",
+          "action": "move_down",
+          "pressed": true
+        },
+        {
+          "at_frame": 110,
+          "type": "action",
+          "action": "move_right",
+          "pressed": false
+        },
+        {
+          "at_frame": 110,
+          "type": "action",
+          "action": "move_down",
+          "pressed": false
+        },
+        {
+          "at_frame": 112,
+          "type": "action",
+          "action": "move_right",
+          "pressed": true
+        },
+        {
+          "at_frame": 112,
+          "type": "action",
+          "action": "move_down",
+          "pressed": true
+        },
+        {
+          "at_frame": 180,
+          "type": "action",
+          "action": "move_right",
+          "pressed": false
+        },
+        {
+          "at_frame": 180,
+          "type": "action",
+          "action": "move_down",
+          "pressed": false
+        },
+        {
+          "at_frame": 182,
+          "type": "action",
+          "action": "move_right",
+          "pressed": true
+        },
+        {
+          "at_frame": 194,
+          "type": "action",
+          "action": "move_right",
+          "pressed": false
+        },
+        {
+          "at_frame": 196,
+          "type": "action",
+          "action": "move_right",
+          "pressed": true
+        },
+        {
+          "at_frame": 196,
+          "type": "action",
+          "action": "move_down",
+          "pressed": true
+        },
+        {
+          "at_frame": 221,
+          "type": "action",
+          "action": "move_right",
+          "pressed": false
+        },
+        {
+          "at_frame": 221,
+          "type": "action",
+          "action": "move_down",
+          "pressed": false
+        },
+        {
+          "at_frame": 223,
+          "type": "action",
+          "action": "move_right",
+          "pressed": true
+        },
+        {
+          "at_frame": 313,
+          "type": "action",
+          "action": "move_right",
+          "pressed": false
+        }
+      ],
+      "receipt": [
+        {
+          "results": [
+            {
+              "applied": 24,
+              "clock_mapping": "exact",
+              "clock_unit": "physics_tick",
+              "completed": true,
+              "drove": true,
+              "first_frame": 1098,
+              "frame": {
+                "frames_drawn": 1410,
+                "physics_frames": 1411,
+                "process_frames": 1410
+              },
+              "instance": "crossing-final",
+              "last_frame": 1411,
+              "ok": true,
+              "op": "SimulateInputScript",
+              "physics_ticks_per_second": 60,
+              "provenance": {
+                "source": "runtime",
+                "target": {
+                  "instance": "crossing-final",
+                  "kind": "game"
+                }
+              },
+              "rejected": [],
+              "requestId": "mcp-d6505af5-dbc5-46bf-be7a-5e0a0362430a",
+              "scheduled": 24,
+              "suspended": true,
+              "transport": "summer"
+            }
+          ],
+          "skippedCount": 0,
+          "status": "ok",
+          "stopOnError": true,
+          "undoGroup": false,
+          "requestId": "mcp-d6505af5-dbc5-46bf-be7a-5e0a0362430a",
+          "terminalState": "applied",
+          "appliedSeq": 1200
+        }
+      ],
+      "probe": [
+        {
+          "results": [
+            {
+              "effective_time_scale": 0,
+              "format": "jpeg",
+              "frame": {
+                "frames_drawn": 1417,
+                "physics_frames": 1417,
+                "process_frames": 1416
+              },
+              "height": 648,
+              "image_frame": 1416,
+              "instance": "crossing-final",
+              "mime": "image/jpeg",
+              "missing": [],
+              "ok": true,
+              "op": "GameProbe",
+              "paused": false,
+              "provenance": {
+                "source": "runtime",
+                "target": {
+                  "instance": "crossing-final",
+                  "kind": "game"
+                }
+              },
+              "requestId": "mcp-fec3c3e6-833b-4566-85a6-63a35014c131",
+              "source_height": 648,
+              "source_width": 1152,
+              "suspended": true,
+              "time_scale": 1,
+              "transport": "summer",
+              "values": {
+                "/root/FirstRoutePrototype/Player:position": "Vector2(551.792, 415.792)",
+                "/root/FirstRoutePrototype:city_arrival_registered": false,
+                "/root/FirstRoutePrototype:levee_entrance_read": true,
+                "/root/FirstRoutePrototype:pouch_accepted": true
+              },
+              "width": 1152
+            }
+          ],
+          "skippedCount": 0,
+          "status": "ok",
+          "stopOnError": true,
+          "undoGroup": false,
+          "requestId": "mcp-fec3c3e6-833b-4566-85a6-63a35014c131",
+          "terminalState": "applied",
+          "appliedSeq": 1201
+        }
+      ]
+    },
+    {
+      "label": "city",
+      "events": [
+        {
+          "at_frame": 0,
+          "type": "action",
+          "action": "move_right",
+          "pressed": true
+        },
+        {
+          "at_frame": 150,
+          "type": "action",
+          "action": "move_right",
+          "pressed": false
+        },
+        {
+          "at_frame": 152,
+          "type": "action",
+          "action": "move_down",
+          "pressed": true
+        },
+        {
+          "at_frame": 200,
+          "type": "action",
+          "action": "move_down",
+          "pressed": false
+        },
+        {
+          "at_frame": 202,
+          "type": "action",
+          "action": "move_right",
+          "pressed": true
+        },
+        {
+          "at_frame": 250,
+          "type": "action",
+          "action": "move_right",
+          "pressed": false
+        },
+        {
+          "at_frame": 252,
+          "type": "key",
+          "keycode": 69,
+          "physical_keycode": 69,
+          "pressed": true
+        },
+        {
+          "at_frame": 253,
+          "type": "key",
+          "keycode": 69,
+          "physical_keycode": 69,
+          "pressed": false
+        },
+        {
+          "at_frame": 262,
+          "type": "key",
+          "keycode": 69,
+          "physical_keycode": 69,
+          "pressed": true
+        },
+        {
+          "at_frame": 263,
+          "type": "key",
+          "keycode": 69,
+          "physical_keycode": 69,
+          "pressed": false
+        }
+      ],
+      "receipt": [
+        {
+          "results": [
+            {
+              "applied": 10,
+              "clock_mapping": "exact",
+              "clock_unit": "physics_tick",
+              "completed": true,
+              "drove": true,
+              "first_frame": 3780,
+              "frame": {
+                "frames_drawn": 4042,
+                "physics_frames": 4043,
+                "process_frames": 4042
+              },
+              "instance": "crossing-final",
+              "last_frame": 4043,
+              "ok": true,
+              "op": "SimulateInputScript",
+              "physics_ticks_per_second": 60,
+              "provenance": {
+                "source": "runtime",
+                "target": {
+                  "instance": "crossing-final",
+                  "kind": "game"
+                }
+              },
+              "rejected": [],
+              "requestId": "mcp-73d38d71-b692-481f-9c8f-686d41286cd3",
+              "scheduled": 10,
+              "suspended": true,
+              "transport": "summer"
+            }
+          ],
+          "skippedCount": 0,
+          "status": "ok",
+          "stopOnError": true,
+          "undoGroup": false,
+          "requestId": "mcp-73d38d71-b692-481f-9c8f-686d41286cd3",
+          "terminalState": "applied",
+          "appliedSeq": 1205
+        }
+      ],
+      "probe": [
+        {
+          "results": [
+            {
+              "effective_time_scale": 0,
+              "format": "jpeg",
+              "frame": {
+                "frames_drawn": 4047,
+                "physics_frames": 4047,
+                "process_frames": 4046
+              },
+              "height": 648,
+              "image_frame": 4046,
+              "instance": "crossing-final",
+              "mime": "image/jpeg",
+              "missing": [],
+              "ok": true,
+              "op": "GameProbe",
+              "paused": false,
+              "provenance": {
+                "source": "runtime",
+                "target": {
+                  "instance": "crossing-final",
+                  "kind": "game"
+                }
+              },
+              "requestId": "mcp-d34f7cd4-e521-4fd5-a7a5-fd8e486fa2ce",
+              "source_height": 648,
+              "source_width": 1152,
+              "suspended": true,
+              "time_scale": 1,
+              "transport": "summer",
+              "values": {
+                "/root/FirstRoutePrototype/Player:position": "Vector2(815.788, 479.793)",
+                "/root/FirstRoutePrototype:city_arrival_registered": true,
+                "/root/FirstRoutePrototype:levee_entrance_read": true,
+                "/root/FirstRoutePrototype:pouch_accepted": true
+              },
+              "width": 1152
+            }
+          ],
+          "skippedCount": 0,
+          "status": "ok",
+          "stopOnError": true,
+          "undoGroup": false,
+          "requestId": "mcp-d34f7cd4-e521-4fd5-a7a5-fd8e486fa2ce",
+          "terminalState": "applied",
+          "appliedSeq": 1206
+        }
+      ]
+    },
+    {
+      "label": "return_west",
+      "events": [
+        {
+          "at_frame": 0,
+          "type": "action",
+          "action": "move_left",
+          "pressed": true
+        },
+        {
+          "at_frame": 48,
+          "type": "action",
+          "action": "move_left",
+          "pressed": false
+        },
+        {
+          "at_frame": 50,
+          "type": "action",
+          "action": "move_up",
+          "pressed": true
+        },
+        {
+          "at_frame": 98,
+          "type": "action",
+          "action": "move_up",
+          "pressed": false
+        },
+        {
+          "at_frame": 100,
+          "type": "action",
+          "action": "move_left",
+          "pressed": true
+        },
+        {
+          "at_frame": 340,
+          "type": "action",
+          "action": "move_left",
+          "pressed": false
+        }
+      ],
+      "receipt": [
+        {
+          "results": [
+            {
+              "applied": 6,
+              "clock_mapping": "exact",
+              "clock_unit": "physics_tick",
+              "completed": true,
+              "drove": true,
+              "first_frame": 4058,
+              "frame": {
+                "frames_drawn": 4397,
+                "physics_frames": 4398,
+                "process_frames": 4397
+              },
+              "instance": "crossing-final",
+              "last_frame": 4398,
+              "ok": true,
+              "op": "SimulateInputScript",
+              "physics_ticks_per_second": 60,
+              "provenance": {
+                "source": "runtime",
+                "target": {
+                  "instance": "crossing-final",
+                  "kind": "game"
+                }
+              },
+              "rejected": [],
+              "requestId": "mcp-cc7c23cd-44d6-4c9e-a076-fe329b1063bb",
+              "scheduled": 6,
+              "suspended": true,
+              "transport": "summer"
+            }
+          ],
+          "skippedCount": 0,
+          "status": "ok",
+          "stopOnError": true,
+          "undoGroup": false,
+          "requestId": "mcp-cc7c23cd-44d6-4c9e-a076-fe329b1063bb",
+          "terminalState": "applied",
+          "appliedSeq": 1207
+        }
+      ],
+      "probe": [
+        {
+          "results": [
+            {
+              "effective_time_scale": 0,
+              "format": "jpeg",
+              "frame": {
+                "frames_drawn": 4401,
+                "physics_frames": 4401,
+                "process_frames": 4400
+              },
+              "height": 648,
+              "image_frame": 4400,
+              "instance": "crossing-final",
+              "mime": "image/jpeg",
+              "missing": [],
+              "ok": true,
+              "op": "GameProbe",
+              "paused": false,
+              "provenance": {
+                "source": "runtime",
+                "target": {
+                  "instance": "crossing-final",
+                  "kind": "game"
+                }
+              },
+              "requestId": "mcp-83762135-b896-457a-bcce-db386215e163",
+              "source_height": 648,
+              "source_width": 1152,
+              "suspended": true,
+              "time_scale": 1,
+              "transport": "summer",
+              "values": {
+                "/root/FirstRoutePrototype/Player:position": "Vector2(431.792, 415.792)",
+                "/root/FirstRoutePrototype:city_arrival_registered": true,
+                "/root/FirstRoutePrototype:levee_entrance_read": true,
+                "/root/FirstRoutePrototype:pouch_accepted": true
+              },
+              "width": 1152
+            }
+          ],
+          "skippedCount": 0,
+          "status": "ok",
+          "stopOnError": true,
+          "undoGroup": false,
+          "requestId": "mcp-83762135-b896-457a-bcce-db386215e163",
+          "terminalState": "applied",
+          "appliedSeq": 1208
+        }
+      ]
+    },
+    {
+      "label": "return_levee",
+      "events": [
+        {
+          "at_frame": 0,
+          "type": "action",
+          "action": "move_left",
+          "pressed": true
+        },
+        {
+          "at_frame": 0,
+          "type": "action",
+          "action": "move_up",
+          "pressed": true
+        },
+        {
+          "at_frame": 25,
+          "type": "action",
+          "action": "move_left",
+          "pressed": false
+        },
+        {
+          "at_frame": 25,
+          "type": "action",
+          "action": "move_up",
+          "pressed": false
+        },
+        {
+          "at_frame": 27,
+          "type": "action",
+          "action": "move_left",
+          "pressed": true
+        },
+        {
+          "at_frame": 39,
+          "type": "action",
+          "action": "move_left",
+          "pressed": false
+        },
+        {
+          "at_frame": 41,
+          "type": "action",
+          "action": "move_left",
+          "pressed": true
+        },
+        {
+          "at_frame": 41,
+          "type": "action",
+          "action": "move_up",
+          "pressed": true
+        },
+        {
+          "at_frame": 109,
+          "type": "action",
+          "action": "move_left",
+          "pressed": false
+        },
+        {
+          "at_frame": 109,
+          "type": "action",
+          "action": "move_up",
+          "pressed": false
+        },
+        {
+          "at_frame": 111,
+          "type": "action",
+          "action": "move_left",
+          "pressed": true
+        },
+        {
+          "at_frame": 111,
+          "type": "action",
+          "action": "move_up",
+          "pressed": true
+        },
+        {
+          "at_frame": 145,
+          "type": "action",
+          "action": "move_left",
+          "pressed": false
+        },
+        {
+          "at_frame": 145,
+          "type": "action",
+          "action": "move_up",
+          "pressed": false
+        },
+        {
+          "at_frame": 147,
+          "type": "action",
+          "action": "move_left",
+          "pressed": true
+        },
+        {
+          "at_frame": 171,
+          "type": "action",
+          "action": "move_left",
+          "pressed": false
+        },
+        {
+          "at_frame": 173,
+          "type": "action",
+          "action": "move_left",
+          "pressed": true
+        },
+        {
+          "at_frame": 173,
+          "type": "action",
+          "action": "move_up",
+          "pressed": true
+        },
+        {
+          "at_frame": 207,
+          "type": "action",
+          "action": "move_left",
+          "pressed": false
+        },
+        {
+          "at_frame": 207,
+          "type": "action",
+          "action": "move_up",
+          "pressed": false
+        },
+        {
+          "at_frame": 209,
+          "type": "action",
+          "action": "move_left",
+          "pressed": true
+        },
+        {
+          "at_frame": 221,
+          "type": "action",
+          "action": "move_left",
+          "pressed": false
+        }
+      ],
+      "receipt": [
+        {
+          "results": [
+            {
+              "applied": 22,
+              "clock_mapping": "exact",
+              "clock_unit": "physics_tick",
+              "completed": true,
+              "drove": true,
+              "first_frame": 4410,
+              "frame": {
+                "frames_drawn": 4630,
+                "physics_frames": 4631,
+                "process_frames": 4630
+              },
+              "instance": "crossing-final",
+              "last_frame": 4631,
+              "ok": true,
+              "op": "SimulateInputScript",
+              "physics_ticks_per_second": 60,
+              "provenance": {
+                "source": "runtime",
+                "target": {
+                  "instance": "crossing-final",
+                  "kind": "game"
+                }
+              },
+              "rejected": [],
+              "requestId": "mcp-1fac869a-062c-4a78-935c-a8129d50ee7c",
+              "scheduled": 22,
+              "suspended": true,
+              "transport": "summer"
+            }
+          ],
+          "skippedCount": 0,
+          "status": "ok",
+          "stopOnError": true,
+          "undoGroup": false,
+          "requestId": "mcp-1fac869a-062c-4a78-935c-a8129d50ee7c",
+          "terminalState": "applied",
+          "appliedSeq": 1209
+        }
+      ],
+      "probe": [
+        {
+          "results": [
+            {
+              "effective_time_scale": 0,
+              "frame": {
+                "frames_drawn": 4636,
+                "physics_frames": 4636,
+                "process_frames": 4635
+              },
+              "instance": "crossing-final",
+              "missing": [],
+              "ok": true,
+              "op": "GameProbe",
+              "paused": false,
+              "provenance": {
+                "source": "runtime",
+                "target": {
+                  "instance": "crossing-final",
+                  "kind": "game"
+                }
+              },
+              "requestId": "mcp-6a89ad95-db28-4a0f-9dab-1f383a4316fe",
+              "suspended": true,
+              "time_scale": 1,
+              "transport": "summer",
+              "values": {
+                "/root/FirstRoutePrototype/Player:position": "Vector2(216, 264)",
+                "/root/FirstRoutePrototype:city_arrival_registered": true,
+                "/root/FirstRoutePrototype:levee_entrance_read": true,
+                "/root/FirstRoutePrototype:pouch_accepted": true
+              }
+            }
+          ],
+          "skippedCount": 0,
+          "status": "ok",
+          "stopOnError": true,
+          "undoGroup": false,
+          "requestId": "mcp-6a89ad95-db28-4a0f-9dab-1f383a4316fe",
+          "terminalState": "applied",
+          "appliedSeq": 1210
+        }
+      ]
+    },
+    {
+      "label": "return_home",
+      "events": [
+        {
+          "at_frame": 0,
+          "type": "action",
+          "action": "move_left",
+          "pressed": true
+        },
+        {
+          "at_frame": 24,
+          "type": "action",
+          "action": "move_left",
+          "pressed": false
+        },
+        {
+          "at_frame": 26,
+          "type": "action",
+          "action": "move_up",
+          "pressed": true
+        },
+        {
+          "at_frame": 80,
+          "type": "action",
+          "action": "move_up",
+          "pressed": false
+        },
+        {
+          "at_frame": 82,
+          "type": "action",
+          "action": "move_left",
+          "pressed": true
+        },
+        {
+          "at_frame": 184,
+          "type": "action",
+          "action": "move_left",
+          "pressed": false
+        }
+      ],
+      "receipt": [
+        {
+          "results": [
+            {
+              "applied": 6,
+              "clock_mapping": "exact",
+              "clock_unit": "physics_tick",
+              "completed": true,
+              "drove": true,
+              "first_frame": 4640,
+              "frame": {
+                "frames_drawn": 4823,
+                "physics_frames": 4824,
+                "process_frames": 4823
+              },
+              "instance": "crossing-final",
+              "last_frame": 4824,
+              "ok": true,
+              "op": "SimulateInputScript",
+              "physics_ticks_per_second": 60,
+              "provenance": {
+                "source": "runtime",
+                "target": {
+                  "instance": "crossing-final",
+                  "kind": "game"
+                }
+              },
+              "rejected": [],
+              "requestId": "mcp-48750b52-466b-402f-a39c-67f7546c4d5e",
+              "scheduled": 6,
+              "suspended": true,
+              "transport": "summer"
+            }
+          ],
+          "skippedCount": 0,
+          "status": "ok",
+          "stopOnError": true,
+          "undoGroup": false,
+          "requestId": "mcp-48750b52-466b-402f-a39c-67f7546c4d5e",
+          "terminalState": "applied",
+          "appliedSeq": 1211
+        }
+      ],
+      "probe": [
+        {
+          "results": [
+            {
+              "effective_time_scale": 0,
+              "format": "jpeg",
+              "frame": {
+                "frames_drawn": 4828,
+                "physics_frames": 4828,
+                "process_frames": 4827
+              },
+              "height": 648,
+              "image_frame": 4827,
+              "instance": "crossing-final",
+              "mime": "image/jpeg",
+              "missing": [],
+              "ok": true,
+              "op": "GameProbe",
+              "paused": false,
+              "provenance": {
+                "source": "runtime",
+                "target": {
+                  "instance": "crossing-final",
+                  "kind": "game"
+                }
+              },
+              "requestId": "mcp-2aa9de94-c06e-4f22-87e2-7995f696a552",
+              "source_height": 648,
+              "source_width": 1152,
+              "suspended": true,
+              "time_scale": 1,
+              "transport": "summer",
+              "values": {
+                "/root/FirstRoutePrototype/Player:position": "Vector2(48, 192)",
+                "/root/FirstRoutePrototype:city_arrival_registered": true,
+                "/root/FirstRoutePrototype:levee_entrance_read": true,
+                "/root/FirstRoutePrototype:pouch_accepted": true
+              },
+              "width": 1152
+            }
+          ],
+          "skippedCount": 0,
+          "status": "ok",
+          "stopOnError": true,
+          "undoGroup": false,
+          "requestId": "mcp-2aa9de94-c06e-4f22-87e2-7995f696a552",
+          "terminalState": "applied",
+          "appliedSeq": 1212
+        }
+      ]
+    }
+  ],
+  "diagnostics": [
+    {
+      "appliedThroughSeq": 1210,
+      "data": {
+        "console": {
+          "editor": 4,
+          "errors": 0,
+          "max_messages": 50,
+          "messages": [
+            {
+              "count": 1,
+              "text": "[godot_ai game_helper] registered mcp capture (debugger active=true, logger=true)",
+              "type": "std"
+            },
+            {
+              "count": 1,
+              "text": "MCP | [debug] holding mcp:hello from debugger session 0 until the run is adopted",
+              "type": "std"
+            },
+            {
+              "count": 1,
+              "text": "[SE] game instance 'crossing-final' (pid 27168) attached as debugger session 0.",
+              "type": "std"
+            },
+            {
+              "count": 1,
+              "text": "[SE] AuthManager: CLI credential found; desktop session exchange required",
+              "type": "std"
+            },
+            {
+              "count": 1,
+              "text": "",
+              "type": "std"
+            },
+            {
+              "count": 1,
+              "text": "D3D12 12_0 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce GTX 1660 SUPER",
+              "type": "std"
+            },
+            {
+              "count": 1,
+              "text": "Welcome to Summer Engine (c) built on the awesome work by Godot 2007-present Juan Linietsky, Ariel Manzur & Godot Contributors.",
+              "type": "std"
+            },
+            {
+              "count": 1,
+              "text": "[SE] spawned game instance 'crossing-final' (pid 27168, offscreen, deterministic).",
+              "type": "std"
+            },
+            {
+              "count": 1,
+              "text": "WriteFile",
+              "type": "editor"
+            },
+            {
+              "count": 1,
+              "text": "[WebView2] Suspended hidden surface generation 1.",
+              "type": "std"
+            }
+          ],
+          "returned": 10,
+          "std": 35,
+          "total": 37,
+          "warnings": 0
+        },
+        "debugger": {
+          "errors": 0,
+          "errors_data": [],
+          "is_breaked": false,
+          "session_active": true,
+          "warnings": 11,
+          "warnings_data": [
+            {
+              "callstack": [
+                {
+                  "file": "res://scripts/creature_roster.gd",
+                  "function": "load_all",
+                  "line": 27
+                },
+                {
+                  "file": "res://scripts/debug/dex_overlay.gd",
+                  "function": "_refresh",
+                  "line": 63
+                },
+                {
+                  "file": "res://scripts/debug/dex_overlay.gd",
+                  "function": "_ready",
+                  "line": 47
+                }
+              ],
+              "count": 1,
+              "error": "res://data/creatures/001_rimefin.tres:4 - ext_resource, invalid UID: uid://crjluirawrgmi - using text path instead: res://assets/sprites/creatures/rimefin.png",
+              "error_descr": "",
+              "file": "scene\\resources\\resource_format_text.cpp",
+              "function": "ResourceLoaderText::load",
+              "line": 516,
+              "severity": "warning",
+              "timestamp_ms": 49700460
+            },
+            {
+              "callstack": [],
+              "count": 1,
+              "error": "SHADOWED_VARIABLE",
+              "error_descr": "The local variable \"start\" is shadowing an already-declared function at line 239 in the current class.",
+              "file": "res://scripts/battle_screen.gd",
+              "function": "GDScript::reload",
+              "line": 1890,
+              "severity": "warning",
+              "timestamp_ms": 49700362
+            },
+            {
+              "callstack": [],
+              "count": 1,
+              "error": "SHADOWED_VARIABLE_BASE_CLASS",
+              "error_descr": "The local function parameter \"offset\" is shadowing an already-declared property in the base class \"CanvasLayer\".",
+              "file": "res://scripts/battle_screen.gd",
+              "function": "GDScript::reload",
+              "line": 1885,
+              "severity": "warning",
+              "timestamp_ms": 49700362
+            },
+            {
+              "callstack": [],
+              "count": 1,
+              "error": "SHADOWED_VARIABLE_BASE_CLASS",
+              "error_descr": "The local function parameter \"offset\" is shadowing an already-declared property in the base class \"CanvasLayer\".",
+              "file": "res://scripts/battle_screen.gd",
+              "function": "GDScript::reload",
+              "line": 1862,
+              "severity": "warning",
+              "timestamp_ms": 49700362
+            },
+            {
+              "callstack": [],
+              "count": 1,
+              "error": "SHADOWED_VARIABLE_BASE_CLASS",
+              "error_descr": "The local function parameter \"offset\" is shadowing an already-declared property in the base class \"CanvasLayer\".",
+              "file": "res://scripts/battle_screen.gd",
+              "function": "GDScript::reload",
+              "line": 1842,
+              "severity": "warning",
+              "timestamp_ms": 49700362
+            },
+            {
+              "callstack": [],
+              "count": 1,
+              "error": "SHADOWED_VARIABLE_BASE_CLASS",
+              "error_descr": "The local function parameter \"offset\" is shadowing an already-declared property in the base class \"CanvasLayer\".",
+              "file": "res://scripts/battle_screen.gd",
+              "function": "GDScript::reload",
+              "line": 1795,
+              "severity": "warning",
+              "timestamp_ms": 49700362
+            },
+            {
+              "callstack": [],
+              "count": 1,
+              "error": "SHADOWED_VARIABLE_BASE_CLASS",
+              "error_descr": "The local function parameter \"offset\" is shadowing an already-declared property in the base class \"CanvasLayer\".",
+              "file": "res://scripts/battle_screen.gd",
+              "function": "GDScript::reload",
+              "line": 1671,
+              "severity": "warning",
+              "timestamp_ms": 49700362
+            },
+            {
+              "callstack": [],
+              "count": 1,
+              "error": "SHADOWED_VARIABLE",
+              "error_descr": "The local variable \"start\" is shadowing an already-declared function at line 239 in the current class.",
+              "file": "res://scripts/battle_screen.gd",
+              "function": "GDScript::reload",
+              "line": 1553,
+              "severity": "warning",
+              "timestamp_ms": 49700362
+            },
+            {
+              "callstack": [],
+              "count": 1,
+              "error": "SHADOWED_VARIABLE_BASE_CLASS",
+              "error_descr": "The local function parameter \"offset\" is shadowing an already-declared property in the base class \"CanvasLayer\".",
+              "file": "res://scripts/battle_screen.gd",
+              "function": "GDScript::reload",
+              "line": 1548,
+              "severity": "warning",
+              "timestamp_ms": 49700362
+            },
+            {
+              "callstack": [],
+              "count": 1,
+              "error": "SHADOWED_VARIABLE_BASE_CLASS",
+              "error_descr": "The local \"for\" iterator variable \"layer\" is shadowing an already-declared property in the base class \"CanvasLayer\".",
+              "file": "res://scripts/battle_screen.gd",
+              "function": "GDScript::reload",
+              "line": 1110,
+              "severity": "warning",
+              "timestamp_ms": 49700362
+            },
+            {
+              "callstack": [],
+              "count": 1,
+              "error": "SHADOWED_VARIABLE_BASE_CLASS",
+              "error_descr": "The local variable \"offset\" is shadowing an already-declared property in the base class \"CanvasLayer\".",
+              "file": "res://scripts/battle_screen.gd",
+              "function": "GDScript::reload",
+              "line": 797,
+              "severity": "warning",
+              "timestamp_ms": 49700362
+            }
+          ]
+        },
+        "guidance": "Only warnings present. Check console.messages for details.",
+        "has_issues": true,
+        "scopes": {
+          "application": {
+            "errors": 0,
+            "has_issues": false,
+            "warnings": 0
+          },
+          "classification": "known_application_signatures_and_compiler_locations",
+          "console_available": true,
+          "coverage": "observed_console_debugger_and_open_script_buffers_not_full_project_validation",
+          "csharp_unique_errors": 0,
+          "debugger_available": true,
+          "guidance": "Use project errors for observed game/compiler failures. Application errors describe Summer chat/WebView transport, not broken game scripts. Inspect unclassified console evidence before attributing it. Zero known project errors is not a full project validation.",
+          "project": {
+            "errors": 0,
+            "has_issues": true,
+            "script_validation_available": true,
+            "script_validation_incomplete": false,
+            "warnings": 11
+          },
+          "unclassified": {
+            "errors": 0,
+            "has_issues": false,
+            "warnings": 0
+          }
+        },
+        "script_errors": {
+          "count": 0,
+          "errors": [],
+          "scope": "open_script_buffers"
+        },
+        "total_errors": 0,
+        "total_warnings": 11
+      },
+      "ok": true,
+      "provenance": {
+        "dirty": false,
+        "rootName": "MainMenuArtPreview",
+        "rootType": "Node2D",
+        "source": "diagnostics",
+        "target": {
+          "kind": "diagnostics",
+          "path": "diagnostics"
+        }
+      },
+      "snapshotAt": 49792571,
+      "snapshotSeq": 470955,
+      "_view": {
+        "mode": "prioritized",
+        "totalConsole": 37,
+        "shownConsole": 10,
+        "suppressedInfo": 6,
+        "totalDebugger": 11,
+        "shownDebugger": 11,
+        "suppressedDebuggerWarnings": 0,
+        "hint": "All counts are complete; only low-severity message bodies were trimmed. Re-call with includeAll: true for the untrimmed payload, or use summer_get_console / summer_get_debugger_warnings for targeted reads."
+      }
+    }
+  ],
+  "notes": [
+    "Final normal-control round trip used real movement and E interaction events. Pouch accepted, levee read, city arrival registered, then player returned to (48,192).",
+    "Earlier abutment-before fixtures used teleport only for visual comparison.",
+    "Cold editor asset-preparation processes logged a stale unknown UID uid://blm6ps3r8bf7l and empty resource-save path. Helper reload returned OK; fresh final game and observed diagnostics have zero errors. No matching reference was found in assets/scripts/scenes/data. No UID repair outside scope was attempted."
+  ]
+}

@@ -1,0 +1,26 @@
+[
+  {
+    "name": "repair_workshop_v2",
+    "width": 200,
+    "height": 192,
+    "seed": 2026100411,
+    "prompt": "Hollowtide original transparent pixel-art overworld building. Perfectly straight-on south-facing orthographic frontage viewed from above about 35 degrees, camera yaw ZERO. FRONT FACE ONLY. Every roof edge, cornice, awning and foundation line horizontal; both side edges vertical. No visible side wall, no diagonal footprint, no diamond isometric view. Crisp mature pixel art, coherent three-tone material clusters, muted brick, soil, timber and blue-grey slate, soft charcoal contours, upper-left daylight. No dithering, blur, gradients, bloom or ground platform. One complete narrow two-storey brick repair workshop. Warm weathered brown-red masonry, pale sandstone cornice, shallow slate roof tucked behind the cornice, small chimney, three tall upper sash windows. A centered dark timber double entrance faces directly down, flanked by two display windows with simple tool shapes. Dull ochre horizontal fabric awning and small blank wooden fascia. Maintained and used, with restrained repaired mortar. Visible footprint approximately 155 pixels wide and 158 pixels tall. Door opening 18 to 22 pixels wide. Whole roof, walls, threshold and foundation fully visible with at least 12 transparent pixels around every edge in the 200 by 192 canvas. No characters, roads, grass, scenery, stairs, cast ground shadow, readable lettering, logos, cut-off roof or floating parts.",
+    "prompt_style": "rd_pro__default"
+  },
+  {
+    "name": "rear_rowhomes_v2",
+    "width": 224,
+    "height": 192,
+    "seed": 2026100412,
+    "prompt": "Hollowtide original transparent pixel-art overworld building. Perfectly straight-on south-facing orthographic frontage viewed from above about 35 degrees, camera yaw ZERO. FRONT FACE ONLY. Every roof edge, cornice, awning and foundation line horizontal; both side edges vertical. No visible side wall, no diagonal footprint, no diamond isometric view. Crisp mature pixel art, coherent three-tone material clusters, muted brick, soil, timber and blue-grey slate, soft charcoal contours, upper-left daylight. No dithering, blur, gradients, bloom or ground platform. One complete connected pair of modest two-storey historic brick homes, sharing a real party wall and a low slate roof. Left unit subdued tan-brown brick, right unit weathered red-brown brick. Two subtly different chimney stacks; two separate centered ground-floor doors face directly down. Tall upper sash windows, a plain fabric curtain in one window, a closed dark timber shutter on the other unit. Small grounded stone thresholds, repaired mortar, lived-in care. Single connected building approximately 185 pixels wide and 155 pixels high. Each door 18 to 22 pixels wide. Whole building centered with at least 12 transparent pixels around every edge in the 224 by 192 canvas. No people, exterior props, trees, surrounding ground, sidewalk, signs, text, cast ground shadow, angled side walls, clipped roof, floating porch or bright candy colors.",
+    "prompt_style": "rd_pro__default"
+  },
+  {
+    "name": "workshop_keeper",
+    "width": 48,
+    "height": 64,
+    "seed": 2026100413,
+    "prompt": "One full-body older adult workshop keeper standing at rest, standalone transparent pixel-art overworld NPC sprite for Hollowtide, grounded creature-collecting RPG. Orthogonal top-down three-quarter view facing down slightly toward screen-left, both feet planted, all limbs visible. Compact chibi proportions matching a detailed brown-haired teal-jacket courier: large expressive head, short sturdy body, about two and a half heads tall. Grey swept-back hair, warm weathered face, muted charcoal shirt with sleeves rolled up, worn tan leather apron with a small tool pocket, dark brown trousers, sturdy boots, one hand lightly holding a small repair tool near waist. Strong readable dark brown outline and clustered earth-tone shading, restrained highlights and mature folklore pixel-art feel. Single person centered, visible height about 32 px inside the 48 by 64 px canvas with generous clear padding. No sprite sheet, duplicates, rotation views, scenery, ground plane, text, logos, hard white halo, soft blurry edges, neon saturation, giant realistic proportions.",
+    "prompt_style": "rd_pro__default"
+  }
+]

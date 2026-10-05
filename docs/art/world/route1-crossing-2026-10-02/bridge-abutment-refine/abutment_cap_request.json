@@ -1,0 +1,9 @@
+{
+  "tool_id": "inpainting",
+  "input_file": "abutment_cap_input.png",
+  "mask_file": "abutment_cap_mask.png",
+  "prompt": "Repair this stone bridge's upper-right parapet pillar. The light gray rectangular capstone MUST sit directly on the masonry pillar, with a continuous attached stone silhouette from its top to the bridge approach below. Eliminate the white horizontal air gap beneath the capstone. It is one squat connected bridge pier, not a floating lid. Preserve its current size, color palette, fine pixel scale, horizontal wooden rail attachment, surrounding white background and all unmasked pixels. Match warm gray-brown stone with a thin dark brown contour and small staggered masonry joints. No separate slabs, no tall tower, no white line between stone components, no extra decorations. Pixel art.",
+  "soft_inpaint": false,
+  "seed": 20261003,
+  "custom_id": "hollowtide-abutment-cap-contact-20261003-0212"
+}

@@ -1,0 +1,242 @@
+extends Node2D
+
+## Route geography added around the preserved courier assignment.
+## Real-world place names stay in research; these are descriptive map labels.
+const WORLD_SIZE := Vector2i(1024, 640)
+const RIVER_LEFT := 448.0
+const RIVER_RIGHT := 672.0
+const BRIDGE_NORTH := 400.0
+const BRIDGE_SOUTH := 432.0
+const BRIDGE_ORIGIN := Vector2(416, 360)
+const BRIDGE_SOUTH_RAIL_ORIGIN := Vector2(560, 451)
+const BRIDGE = preload("res://assets/sprites/world/route1_crossing_2026_10_02/river_bridge_peg_fixed.png")
+const WATER = preload("res://assets/sprites/world/route1_crossing_2026_10_02/river_water_native32.png")
+const RIVER_FLOW = preload("res://assets/sprites/world/route1_crossing_2026_10_02/river_flow.gdshader")
+# Exact native outputs are baked once; provenance and rebuild source are in docs/art/world.
+const RIVER_MASK = preload("res://assets/sprites/world/route1_static_surfaces_2026_10_03/river_water_mask.png")
+const LEVEE_ROAD = preload("res://assets/sprites/world/route1_static_surfaces_2026_10_03/joined_levee_road.png")
+const CITY_LANDING = preload("res://assets/sprites/world/route1_static_surfaces_2026_10_03/joined_city_landing.png")
+const MARK = preload("res://assets/sprites/world/route1_rd_2026_10_01/marker.png")
+const FEMALE = preload("res://assets/sprites/player/retro_diffusion_chibi_walking_2026_10_01/female_chibi_walk_eight_directions_native80.png")
+const COURIER_FINISH = preload("res://scripts/effects/courier_finish.gdshader")
+const HALL = preload("res://assets/sprites/world/route1_rd_2026_10_02/dispatch_hall_complete.png")
+const TREE = preload("res://assets/sprites/world/route1_rd_2026_10_02/cottonwood_ridge.png")
+const SHRUB = preload("res://assets/sprites/world/route1_rd_2026_10_02/bank_shrub_5.png")
+const FONT = preload("res://assets/fonts/Silkscreen-Regular.ttf")
+
+var _route: Node2D
+var _clock := 0.0
+var _flow_offset := Vector2.ZERO
+var _river_material: ShaderMaterial
+
+
+func _ready() -> void:
+	_route = get_parent()
+	_extend_ground()
+	_build_river_surface()
+	_build_levee_materials()
+	_replace_bounds()
+	_build_wayfinding()
+	# The dispatcher and eastern branch now live in their own area scenes.
+	_route.get_node("RouteDecor/WaylineOffice").hide()
+	_route.get_node("Dispatcher").hide()
+	for body in _route.get_node("RouteDecor/WaylineOffice").find_children("*", "StaticBody2D"):
+		body.collision_layer = 0
+		body.collision_mask = 0
+	_build_bridge_front()
+	var landscape := preload("res://scripts/route1_landscape.gd").new()
+	landscape.name = "Landscape"
+	landscape.z_index = -2
+	add_child(landscape)
+	var relief := preload("res://scripts/route1_terrain_relief.gd").new()
+	relief.name = "TerrainRelief"
+	relief.z_index = -1
+	add_child(relief)
+	var landing_loop := preload("res://scripts/route1_landing_loop.gd").new()
+	landing_loop.name = "LandingLoop"
+	landing_loop.z_index = -1
+	add_child(landing_loop)
+	queue_redraw()
+
+
+func _extend_ground() -> void:
+	var terrain: TileMapLayer = _route.get_node("Terrain")
+	for x in range(44):
+		for y in range(40):
+			# The authored original 40x24 tile slice stays byte-for-byte in its scene.
+			if x < 40 and y < 24:
+				continue
+			var water := x >= 28 and x < 42
+			var tile := Vector2i((x + y) % 2, 6) if water else Vector2i((x * 3 + y) % 2, 0)
+			terrain.set_cell(Vector2i(x, y), 0, tile)
+
+
+
+func _trail(terrain: TileMapLayer, start: Vector2i, end: Vector2i, radius: int) -> void:
+	var steps: int = maxi(absi(end.x - start.x), absi(end.y - start.y))
+	for beat in range(steps + 1):
+		var point := Vector2(start).lerp(Vector2(end), float(beat) / maxf(1.0, float(steps)))
+		for dx in range(-radius, radius + 1):
+			for dy in range(-radius, radius + 1):
+				var cell := Vector2i(roundi(point.x), roundi(point.y)) + Vector2i(dx, dy)
+				if cell.x < 28 or cell.x >= 42:
+					terrain.set_cell(cell, 0, Vector2i(11, 0))
+
+
+func _replace_bounds() -> void:
+	for old in ["RiverWall", "NorthWall", "SouthWall", "WestWall"]:
+		_route.get_node(old).queue_free()
+	var bounds := Node2D.new()
+	bounds.name = "CrossingBounds"
+	add_child(bounds)
+	# Water is solid except for the narrow bridge deck. Foot-sized player collision
+	# keeps the chibi body visually above the north rail and behind the south rail.
+	_obstacle(bounds, "WaterNorth", Vector2(560, BRIDGE_NORTH * 0.5), Vector2(224, BRIDGE_NORTH))
+	_obstacle(bounds, "WaterSouth", Vector2(560, (BRIDGE_SOUTH + 640.0) * 0.5), Vector2(224, 640.0 - BRIDGE_SOUTH))
+	_obstacle(bounds, "North", Vector2(-32, -8), Vector2(1472, 16))
+	_obstacle(bounds, "South", Vector2(-32, 648), Vector2(1472, 16))
+	_obstacle(bounds, "WestAboveEntrance", Vector2(-776, 242), Vector2(16, 484))
+	_obstacle(bounds, "WestBelowEntrance", Vector2(-776, 590), Vector2(16, 100))
+	_obstacle(bounds, "EastAboveBridge", Vector2(712, 200), Vector2(16, 400))
+	_obstacle(bounds, "EastBelowBridge", Vector2(712, 536), Vector2(16, 208))
+
+
+func _obstacle(parent: Node2D, label: String, at: Vector2, size: Vector2) -> void:
+	var body := StaticBody2D.new()
+	body.name = label
+	body.position = at
+	var shape := CollisionShape2D.new()
+	var rectangle := RectangleShape2D.new()
+	rectangle.size = size
+	shape.shape = rectangle
+	body.add_child(shape)
+	parent.add_child(body)
+
+
+func _sprite(label: String, texture: Texture2D, at: Vector2, offset: Vector2 = Vector2.ZERO) -> Sprite2D:
+	var sprite := Sprite2D.new()
+	sprite.name = label
+	sprite.texture = texture
+	sprite.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
+	sprite.position = at
+	sprite.offset = offset
+	_route.get_node("RouteDecor").add_child(sprite)
+	return sprite
+
+
+func _label(text: String, at: Vector2) -> void:
+	var label := Label.new()
+	label.text = text
+	label.position = at
+	label.add_theme_font_override("font", FONT)
+	label.add_theme_font_size_override("font_size", 8)
+	label.add_theme_color_override("font_color", Color("#e5ddba"))
+	label.add_theme_color_override("font_outline_color", Color("#293831"))
+	label.add_theme_constant_override("outline_size", 2)
+	add_child(label)
+
+
+func _build_wayfinding() -> void:
+	var route_mark := _sprite("LeveeEntranceMark", MARK, Vector2(216, 248), Vector2(0, -15))
+	route_mark.scale = Vector2.ONE * 0.75
+	_label("RIVER ROAD", Vector2(235, 235))
+	var tree := _sprite("CottonwoodLeveeFoot", TREE, Vector2(134, 478), Vector2(0, -41))
+	_obstacle(tree, "FootCollision", Vector2(0, -3), Vector2(10, 7))
+	_sprite("LowFieldShrub", SHRUB, Vector2(258, 522), Vector2(0, -14))
+
+
+func _build_arrival() -> void:
+	var hall := _sprite("CityCourierBranch", HALL, Vector2(816, 418), Vector2(0, -70))
+	hall.scale = Vector2.ONE * 0.75
+	_obstacle(hall, "FootCollision", Vector2(0, -46), Vector2(106, 84))
+	var clerk := _sprite("CityCourierClerk", FEMALE, Vector2(816, 456))
+	var finish := ShaderMaterial.new()
+	finish.shader = COURIER_FINISH
+	clerk.material = finish
+	clerk.region_enabled = true
+	clerk.region_rect = Rect2(0, 0, 80, 80)
+	clerk.scale = Vector2.ONE * (30.0 / 64.0)
+	clerk.position = Vector2(816, 456)
+	clerk.offset = Vector2(0, -32)
+	_obstacle(clerk, "FootCollision", Vector2(0, -4), Vector2(16, 10))
+	var board := _sprite("CityDirectionBoard", MARK, Vector2(912, 424), Vector2(0, -15))
+	board.scale = Vector2.ONE * 0.75
+	_label("COURIER BRANCH", Vector2(767, 337))
+	_label("CITY ROUTES", Vector2(888, 392))
+	for at in [Vector2(726, 316), Vector2(950, 560), Vector2(914, 225)]:
+		var tree := _sprite("CityCottonwood%d" % int(at.x), TREE, at, Vector2(0, -41))
+		_obstacle(tree, "FootCollision", Vector2(0, -3), Vector2(10, 7))
+	_sprite("CityShrub", SHRUB, Vector2(714, 497), Vector2(0, -14))
+	_sprite("CityShrubEast", SHRUB, Vector2(970, 350), Vector2(0, -14))
+
+
+func _build_bridge_front() -> void:
+	# Only the south rail is in the foot-sorted foreground. Its deck and north
+	# rail draw below actors, so walking never puts the character under the floor.
+	var front := _sprite("BridgeSouthRail", BRIDGE, BRIDGE_SOUTH_RAIL_ORIGIN)
+	front.region_enabled = true
+	front.region_rect = Rect2(0, 70, 288, 42)
+
+
+func _process(delta: float) -> void:
+	# The 320s cycle is an exact whole number of texture and river-height wraps.
+	_clock = fmod(_clock + delta, 320.0)
+	_flow_offset = Vector2(floorf(sin(_clock * TAU / 32.0)), fmod(floorf(_clock * 2.0), 32.0))
+	if _river_material:
+		_river_material.set_shader_parameter("flow_offset", _flow_offset)
+	queue_redraw()
+
+
+func _draw() -> void:
+	# Water animation is a separate lower layer; this bridge stays still.
+	draw_rect(Rect2(RIVER_LEFT, 432, RIVER_RIGHT - RIVER_LEFT, 14), Color(0.1, 0.17, 0.15, 0.15))
+	draw_texture(BRIDGE, BRIDGE_ORIGIN)
+	# Unevenly spaced glints travel with the current and stay clear of the span.
+	for index in range(38):
+		var y := floorf(fmod(float(index) * 97.0 + _clock * 2.0, 640.0))
+		if y >= 376 and y <= 464:
+			continue
+		var x := RIVER_LEFT + 36.0 + fmod(float(index) * 43.0, 156.0)
+		x += floorf(sin(_clock * TAU / 32.0 + float(index)))
+		var length := float(4 + index % 8)
+		var opacity := 0.13 + 0.025 * sin(_clock * TAU / 8.0 + float(index))
+		var tint := Color(0.7, 0.8, 0.67, opacity)
+		draw_line(Vector2(x, y), Vector2(x + length, y), tint, 1, false)
+		if index % 4 == 0:
+			tint.a *= 0.35
+			draw_line(Vector2(x + 2, y + 2), Vector2(x + length - 1, y + 2), tint, 1, false)
+
+
+func _build_river_surface() -> void:
+	# The saved mask keeps the approved bank silhouette; only water samples move.
+	var surface := Sprite2D.new()
+	surface.name = "RiverSurface"
+	surface.texture = RIVER_MASK
+	surface.position = Vector2(RIVER_LEFT, 0)
+	surface.centered = false
+	surface.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
+	surface.z_index = -2
+	_river_material = ShaderMaterial.new()
+	_river_material.shader = RIVER_FLOW
+	_river_material.set_shader_parameter("river_texture", WATER)
+	surface.material = _river_material
+	add_child(surface)
+
+
+func _build_levee_materials() -> void:
+	_static_road("JoinedLeveeRoad", LEVEE_ROAD, Vector2(144, 184))
+
+
+func _build_city_road_surface() -> void:
+	_static_road("JoinedCityLanding", CITY_LANDING, Vector2(672, 336))
+
+
+func _static_road(label: String, texture: Texture2D, at: Vector2) -> void:
+	var surface := Sprite2D.new()
+	surface.name = label
+	surface.texture = texture
+	surface.position = at
+	surface.centered = false
+	surface.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
+	surface.z_index = -1
+	add_child(surface)

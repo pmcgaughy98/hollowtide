@@ -1,0 +1,26 @@
+[
+  {
+    "name": "neighbor-home",
+    "width": 160,
+    "height": 144,
+    "prompt_style": "rd_pro__topdown",
+    "remove_bg": true,
+    "prompt": "One individually usable Hollowtide riverside hometown cottage sprite, 160x144 native pixels, transparent background. Complete compact building centered inside canvas with at least 8 transparent pixels on every side. Orthographic monster-collecting RPG art projection from above about 35 degrees, SOUTH FRONT WALL DIRECTLY FACING THE SCREEN, rectangular footprint aligned horizontally and vertically; no diagonal/isometric rotation, no angled side wall. A modest one-storey worker's home, long low muted blue-grey side-gable roof with ridge running horizontally, a small squared pale brick chimney near the right rear, weathered warm cream brick lower wall and dull blue-grey horizontal timber siding, two narrow shuttered amber windows, a straight dark CENTERED doorway, a narrow shallow timber front stoop with two visible steps. Roof silhouette has a horizontal ridge and sloped ends, distinctly not a hipped roof. Mature handcrafted pixel clusters, medium local material detail, restrained highlights, soft dark charcoal outlines, warm desaturated timber/soil palette, upper-left daylight. Door opening 18 native pixels wide; compact grounded architecture for a 30-world-pixel courier rendered at building scale 0.75. Full roof/eaves/chimney/steps inside margins. No people, text, signage, plants, fence, scene, ground rectangle or cast ground shadow. No cutoffs, blur, gradients, dither, bloom, candy colors or enormous roof."
+  },
+  {
+    "name": "garden-home",
+    "width": 160,
+    "height": 144,
+    "prompt_style": "rd_pro__topdown",
+    "remove_bg": true,
+    "prompt": "One individually usable Hollowtide riverside hometown garden cottage sprite, 160x144 native pixels, transparent background. Complete compact building centered inside canvas with at least 8 transparent pixels on every side. Orthographic monster-collecting RPG art projection from above about 35 degrees, SOUTH FRONT WALL DIRECTLY FACING THE SCREEN, rectangular footprint aligned horizontally/vertically; no diagonal/isometric rotation or angled side wall. Modest lived-in one-storey cottage, one small front-facing central gable above a shallow wide sheltered timber porch, warm desaturated clay-brown shingle roof, pale weathered brick base and muted sage timber siding, one slim chimney at the left rear, straight dark CENTERED front doorway framed by two simple porch posts, small shuttered amber windows to each side, one low window box with sparse leaves on the left. Covered porch and visible posts make a silhouette distinctly different from a hipped-roof or long side-gable house. Door opening 18 native pixels wide. Mature handcrafted pixel clusters, moderate coherent wood/brick/shingle material texture, restrained highlights, soft dark charcoal outlines, upper-left daylight and same quiet Hollowtide soil/timber palette. Native crisp pixel art for a 30-world-pixel courier at building scale0.75. Full roof/eaves/chimney/posts/base inside margins. No people, text, signs, fence, scenery, ground rectangle or cast ground shadow. No cutoffs, blur, gradients, dithering, bloom, bright toy colors or enormous roof."
+  },
+  {
+    "name": "courtyard-home-room",
+    "width": 256,
+    "height": 256,
+    "prompt_style": "rd_pro__topdown",
+    "remove_bg": true,
+    "prompt": "One complete Hollowtide modest hometown home interior, 256x256 native pixel-art game background on transparent exterior. Orthographic south-facing RPG cutaway room viewed from above about35 degrees; a SINGLE RECTANGULAR ROOM with back wall horizontal across top and parallel left/right walls, NO diamond/isometric angled footprint. Building rectangle runs roughly x16 to240,y16 to240, with 16px transparent outer margin. Warm worn brown timber plank floor, pale weathered plaster back wall with dark timber framing, two small amber-lit windows, muted sage/sand woven rug. Clear walkable CENTER FLOOR and a broad unblocked central aisle from bottom doorway to upper middle. Small bed with desaturated teal quilt tucked against upper-left wall, a narrow bedside cabinet; compact black cast-iron stove and low firewood stack along far-left middle wall; a simple small wooden worktable with folded map/paper and one tucked-in stool against upper-right wall; coat hooks with one brown courier coat and paired boots along right-middle wall; low kitchen shelf with crockery in upper-right corner. All furniture is native-sized for a30-pixel courier, NOT tiny dollhouse furniture; bed about45pixels long, tabletop about40x28pixels. Bottom wall has two low corner returns and a clearly OPEN SOUTH DOORWAY at x114..142,y228..240 with shallow timber threshold; no furniture or opaque wall in front of that doorway. No ceiling/roof, no people, animals, text, icons, UI or outdoor scenery. Same mature Hollowtide material rendering as weathered pale brick cottages and teal-clothed courier: restrained dark charcoal outlines, coherent clustered texture, medium detail, muted teal/sage accents, warm natural wood, upper-left daylight. Crisp actual pixel grid, no blur, gradients, dithering, bloom, photographic texture or clutter across walkable floor. Every wall/furniture edge fully inside canvas."
+  }
+]

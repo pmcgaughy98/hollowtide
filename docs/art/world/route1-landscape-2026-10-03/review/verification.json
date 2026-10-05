@@ -1,0 +1,1415 @@
+{
+  "created_utc": "2026-10-03T03:13:41.550Z",
+  "instance": "route-quality-final",
+  "seed": 20261003,
+  "fixed_fps": 60,
+  "quest_traversal": "ordinary keyboard controls, no teleports or flag overrides",
+  "final_assignment_state": {
+    "/root/FirstRoutePrototype/Player:position": "Vector2(81.125, 192.5)",
+    "/root/FirstRoutePrototype:city_arrival_registered": true,
+    "/root/FirstRoutePrototype:city_directions_read": true,
+    "/root/FirstRoutePrototype:delivered": true,
+    "/root/FirstRoutePrototype:heard_calls": true,
+    "/root/FirstRoutePrototype:levee_entrance_read": true,
+    "/root/FirstRoutePrototype:marker_restored": true,
+    "/root/FirstRoutePrototype:pouch_accepted": true,
+    "/root/FirstRoutePrototype:report_done": true,
+    "/root/FirstRoutePrototype:reported_calls": true,
+    "/root/FirstRoutePrototype:reported_water_mark": true,
+    "/root/FirstRoutePrototype:water_mark_observed": true
+  },
+  "diagnostics": {
+    "errors": 0,
+    "warnings": 12,
+    "warnings_data": [
+      {
+        "callstack": [
+          {
+            "file": "res://scripts/creature_roster.gd",
+            "function": "load_all",
+            "line": 27
+          },
+          {
+            "file": "res://scripts/debug/dex_overlay.gd",
+            "function": "_refresh",
+            "line": 63
+          },
+          {
+            "file": "res://scripts/debug/dex_overlay.gd",
+            "function": "_ready",
+            "line": 47
+          }
+        ],
+        "count": 1,
+        "error": "res://data/creatures/001_rimefin.tres:4 - ext_resource, invalid UID: uid://crjluirawrgmi - using text path instead: res://assets/sprites/creatures/rimefin.png",
+        "error_descr": "",
+        "file": "scene\\resources\\resource_format_text.cpp",
+        "function": "ResourceLoaderText::load",
+        "line": 516,
+        "severity": "warning",
+        "timestamp_ms": 53364459
+      },
+      {
+        "callstack": [],
+        "count": 1,
+        "error": "INCOMPATIBLE_TERNARY",
+        "error_descr": "Values of the ternary operator are not mutually compatible.",
+        "file": "res://scripts/effects/pressure_field.gd",
+        "function": "GDScript::reload",
+        "line": 332,
+        "severity": "warning",
+        "timestamp_ms": 53364397
+      },
+      {
+        "callstack": [],
+        "count": 1,
+        "error": "SHADOWED_VARIABLE",
+        "error_descr": "The local variable \"start\" is shadowing an already-declared function at line 239 in the current class.",
+        "file": "res://scripts/battle_screen.gd",
+        "function": "GDScript::reload",
+        "line": 1890,
+        "severity": "warning",
+        "timestamp_ms": 53364397
+      },
+      {
+        "callstack": [],
+        "count": 1,
+        "error": "SHADOWED_VARIABLE_BASE_CLASS",
+        "error_descr": "The local function parameter \"offset\" is shadowing an already-declared property in the base class \"CanvasLayer\".",
+        "file": "res://scripts/battle_screen.gd",
+        "function": "GDScript::reload",
+        "line": 1885,
+        "severity": "warning",
+        "timestamp_ms": 53364397
+      },
+      {
+        "callstack": [],
+        "count": 1,
+        "error": "SHADOWED_VARIABLE_BASE_CLASS",
+        "error_descr": "The local function parameter \"offset\" is shadowing an already-declared property in the base class \"CanvasLayer\".",
+        "file": "res://scripts/battle_screen.gd",
+        "function": "GDScript::reload",
+        "line": 1862,
+        "severity": "warning",
+        "timestamp_ms": 53364397
+      },
+      {
+        "callstack": [],
+        "count": 1,
+        "error": "SHADOWED_VARIABLE_BASE_CLASS",
+        "error_descr": "The local function parameter \"offset\" is shadowing an already-declared property in the base class \"CanvasLayer\".",
+        "file": "res://scripts/battle_screen.gd",
+        "function": "GDScript::reload",
+        "line": 1842,
+        "severity": "warning",
+        "timestamp_ms": 53364397
+      },
+      {
+        "callstack": [],
+        "count": 1,
+        "error": "SHADOWED_VARIABLE_BASE_CLASS",
+        "error_descr": "The local function parameter \"offset\" is shadowing an already-declared property in the base class \"CanvasLayer\".",
+        "file": "res://scripts/battle_screen.gd",
+        "function": "GDScript::reload",
+        "line": 1795,
+        "severity": "warning",
+        "timestamp_ms": 53364397
+      },
+      {
+        "callstack": [],
+        "count": 1,
+        "error": "SHADOWED_VARIABLE_BASE_CLASS",
+        "error_descr": "The local function parameter \"offset\" is shadowing an already-declared property in the base class \"CanvasLayer\".",
+        "file": "res://scripts/battle_screen.gd",
+        "function": "GDScript::reload",
+        "line": 1671,
+        "severity": "warning",
+        "timestamp_ms": 53364397
+      },
+      {
+        "callstack": [],
+        "count": 1,
+        "error": "SHADOWED_VARIABLE",
+        "error_descr": "The local variable \"start\" is shadowing an already-declared function at line 239 in the current class.",
+        "file": "res://scripts/battle_screen.gd",
+        "function": "GDScript::reload",
+        "line": 1553,
+        "severity": "warning",
+        "timestamp_ms": 53364397
+      },
+      {
+        "callstack": [],
+        "count": 1,
+        "error": "SHADOWED_VARIABLE_BASE_CLASS",
+        "error_descr": "The local function parameter \"offset\" is shadowing an already-declared property in the base class \"CanvasLayer\".",
+        "file": "res://scripts/battle_screen.gd",
+        "function": "GDScript::reload",
+        "line": 1548,
+        "severity": "warning",
+        "timestamp_ms": 53364397
+      },
+      {
+        "callstack": [],
+        "count": 1,
+        "error": "SHADOWED_VARIABLE_BASE_CLASS",
+        "error_descr": "The local \"for\" iterator variable \"layer\" is shadowing an already-declared property in the base class \"CanvasLayer\".",
+        "file": "res://scripts/battle_screen.gd",
+        "function": "GDScript::reload",
+        "line": 1110,
+        "severity": "warning",
+        "timestamp_ms": 53364397
+      },
+      {
+        "callstack": [],
+        "count": 1,
+        "error": "SHADOWED_VARIABLE_BASE_CLASS",
+        "error_descr": "The local variable \"offset\" is shadowing an already-declared property in the base class \"CanvasLayer\".",
+        "file": "res://scripts/battle_screen.gd",
+        "function": "GDScript::reload",
+        "line": 797,
+        "severity": "warning",
+        "timestamp_ms": 53364397
+      }
+    ]
+  },
+  "motion": {
+    "note": "Review GIF combines ten actual runtime captures displayed at 2 fps; this is a sampled review, not a continuous recording. Fixture at (410,500), camera zoom 3, only after full normal-control assignment verification.",
+    "frames": [
+      {
+        "results": [
+          {
+            "effective_time_scale": 0,
+            "format": "jpeg",
+            "frame": {
+              "frames_drawn": 34042,
+              "physics_frames": 34042,
+              "process_frames": 34041
+            },
+            "height": 648,
+            "image_frame": 34041,
+            "instance": "route-quality-final",
+            "mime": "image/jpeg",
+            "missing": [],
+            "ok": true,
+            "op": "GameProbe",
+            "paused": false,
+            "provenance": {
+              "source": "runtime",
+              "target": {
+                "instance": "route-quality-final",
+                "kind": "game"
+              }
+            },
+            "requestId": "mcp-30111063-6733-4ab3-88b0-333a47243652",
+            "source_height": 648,
+            "source_width": 1152,
+            "suspended": true,
+            "time_scale": 1,
+            "transport": "summer",
+            "values": {
+              "/root/FirstRoutePrototype/Player:position": "Vector2(410, 500)",
+              "/root/FirstRoutePrototype/RiverCrossing/Landscape:_clock": 5.44,
+              "/root/FirstRoutePrototype/RiverCrossing:_clock": 38.95
+            },
+            "width": 1152
+          }
+        ],
+        "skippedCount": 0,
+        "status": "ok",
+        "stopOnError": true,
+        "undoGroup": false,
+        "requestId": "mcp-30111063-6733-4ab3-88b0-333a47243652",
+        "terminalState": "applied",
+        "appliedSeq": 1493
+      },
+      {
+        "results": [
+          {
+            "effective_time_scale": 0,
+            "format": "jpeg",
+            "frame": {
+              "frames_drawn": 34085,
+              "physics_frames": 34085,
+              "process_frames": 34084
+            },
+            "height": 648,
+            "image_frame": 34084,
+            "instance": "route-quality-final",
+            "mime": "image/jpeg",
+            "missing": [],
+            "ok": true,
+            "op": "GameProbe",
+            "paused": false,
+            "provenance": {
+              "source": "runtime",
+              "target": {
+                "instance": "route-quality-final",
+                "kind": "game"
+              }
+            },
+            "requestId": "mcp-b02ee8f7-cbf5-4dc7-803d-1c8da32dabc8",
+            "source_height": 648,
+            "source_width": 1152,
+            "suspended": true,
+            "time_scale": 1,
+            "transport": "summer",
+            "values": {
+              "/root/FirstRoutePrototype/Player:position": "Vector2(410, 500)",
+              "/root/FirstRoutePrototype/RiverCrossing/Landscape:_clock": 5.94,
+              "/root/FirstRoutePrototype/RiverCrossing:_clock": 39.45
+            },
+            "width": 1152
+          }
+        ],
+        "skippedCount": 0,
+        "status": "ok",
+        "stopOnError": true,
+        "undoGroup": false,
+        "requestId": "mcp-b02ee8f7-cbf5-4dc7-803d-1c8da32dabc8",
+        "terminalState": "applied",
+        "appliedSeq": 1495
+      },
+      {
+        "results": [
+          {
+            "effective_time_scale": 0,
+            "format": "jpeg",
+            "frame": {
+              "frames_drawn": 34127,
+              "physics_frames": 34127,
+              "process_frames": 34126
+            },
+            "height": 648,
+            "image_frame": 34126,
+            "instance": "route-quality-final",
+            "mime": "image/jpeg",
+            "missing": [],
+            "ok": true,
+            "op": "GameProbe",
+            "paused": false,
+            "provenance": {
+              "source": "runtime",
+              "target": {
+                "instance": "route-quality-final",
+                "kind": "game"
+              }
+            },
+            "requestId": "mcp-afc47d5d-3574-4000-b2d6-ed9a4cc46237",
+            "source_height": 648,
+            "source_width": 1152,
+            "suspended": true,
+            "time_scale": 1,
+            "transport": "summer",
+            "values": {
+              "/root/FirstRoutePrototype/Player:position": "Vector2(410, 500)",
+              "/root/FirstRoutePrototype/RiverCrossing/Landscape:_clock": 6.44,
+              "/root/FirstRoutePrototype/RiverCrossing:_clock": 39.95
+            },
+            "width": 1152
+          }
+        ],
+        "skippedCount": 0,
+        "status": "ok",
+        "stopOnError": true,
+        "undoGroup": false,
+        "requestId": "mcp-afc47d5d-3574-4000-b2d6-ed9a4cc46237",
+        "terminalState": "applied",
+        "appliedSeq": 1497
+      },
+      {
+        "results": [
+          {
+            "effective_time_scale": 0,
+            "format": "jpeg",
+            "frame": {
+              "frames_drawn": 34170,
+              "physics_frames": 34170,
+              "process_frames": 34169
+            },
+            "height": 648,
+            "image_frame": 34169,
+            "instance": "route-quality-final",
+            "mime": "image/jpeg",
+            "missing": [],
+            "ok": true,
+            "op": "GameProbe",
+            "paused": false,
+            "provenance": {
+              "source": "runtime",
+              "target": {
+                "instance": "route-quality-final",
+                "kind": "game"
+              }
+            },
+            "requestId": "mcp-1784f372-8196-417d-bde7-15dceba91054",
+            "source_height": 648,
+            "source_width": 1152,
+            "suspended": true,
+            "time_scale": 1,
+            "transport": "summer",
+            "values": {
+              "/root/FirstRoutePrototype/Player:position": "Vector2(410, 500)",
+              "/root/FirstRoutePrototype/RiverCrossing/Landscape:_clock": 6.94,
+              "/root/FirstRoutePrototype/RiverCrossing:_clock": 40.45
+            },
+            "width": 1152
+          }
+        ],
+        "skippedCount": 0,
+        "status": "ok",
+        "stopOnError": true,
+        "undoGroup": false,
+        "requestId": "mcp-1784f372-8196-417d-bde7-15dceba91054",
+        "terminalState": "applied",
+        "appliedSeq": 1499
+      },
+      {
+        "results": [
+          {
+            "effective_time_scale": 0,
+            "format": "jpeg",
+            "frame": {
+              "frames_drawn": 34212,
+              "physics_frames": 34212,
+              "process_frames": 34211
+            },
+            "height": 648,
+            "image_frame": 34211,
+            "instance": "route-quality-final",
+            "mime": "image/jpeg",
+            "missing": [],
+            "ok": true,
+            "op": "GameProbe",
+            "paused": false,
+            "provenance": {
+              "source": "runtime",
+              "target": {
+                "instance": "route-quality-final",
+                "kind": "game"
+              }
+            },
+            "requestId": "mcp-00ea6219-314b-4aa8-848a-508c13ca434e",
+            "source_height": 648,
+            "source_width": 1152,
+            "suspended": true,
+            "time_scale": 1,
+            "transport": "summer",
+            "values": {
+              "/root/FirstRoutePrototype/Player:position": "Vector2(410, 500)",
+              "/root/FirstRoutePrototype/RiverCrossing/Landscape:_clock": 7.44,
+              "/root/FirstRoutePrototype/RiverCrossing:_clock": 40.95
+            },
+            "width": 1152
+          }
+        ],
+        "skippedCount": 0,
+        "status": "ok",
+        "stopOnError": true,
+        "undoGroup": false,
+        "requestId": "mcp-00ea6219-314b-4aa8-848a-508c13ca434e",
+        "terminalState": "applied",
+        "appliedSeq": 1501
+      },
+      {
+        "results": [
+          {
+            "effective_time_scale": 0,
+            "format": "jpeg",
+            "frame": {
+              "frames_drawn": 34255,
+              "physics_frames": 34255,
+              "process_frames": 34254
+            },
+            "height": 648,
+            "image_frame": 34254,
+            "instance": "route-quality-final",
+            "mime": "image/jpeg",
+            "missing": [],
+            "ok": true,
+            "op": "GameProbe",
+            "paused": false,
+            "provenance": {
+              "source": "runtime",
+              "target": {
+                "instance": "route-quality-final",
+                "kind": "game"
+              }
+            },
+            "requestId": "mcp-9c3c50d8-5839-4ebf-b6b6-9649cc2007b4",
+            "source_height": 648,
+            "source_width": 1152,
+            "suspended": true,
+            "time_scale": 1,
+            "transport": "summer",
+            "values": {
+              "/root/FirstRoutePrototype/Player:position": "Vector2(410, 500)",
+              "/root/FirstRoutePrototype/RiverCrossing/Landscape:_clock": 7.94,
+              "/root/FirstRoutePrototype/RiverCrossing:_clock": 41.45
+            },
+            "width": 1152
+          }
+        ],
+        "skippedCount": 0,
+        "status": "ok",
+        "stopOnError": true,
+        "undoGroup": false,
+        "requestId": "mcp-9c3c50d8-5839-4ebf-b6b6-9649cc2007b4",
+        "terminalState": "applied",
+        "appliedSeq": 1503
+      },
+      {
+        "results": [
+          {
+            "effective_time_scale": 0,
+            "format": "jpeg",
+            "frame": {
+              "frames_drawn": 34301,
+              "physics_frames": 34301,
+              "process_frames": 34300
+            },
+            "height": 648,
+            "image_frame": 34300,
+            "instance": "route-quality-final",
+            "mime": "image/jpeg",
+            "missing": [],
+            "ok": true,
+            "op": "GameProbe",
+            "paused": false,
+            "provenance": {
+              "source": "runtime",
+              "target": {
+                "instance": "route-quality-final",
+                "kind": "game"
+              }
+            },
+            "requestId": "mcp-a01bb373-a80f-48b7-bb56-7a3e0f93e0b6",
+            "source_height": 648,
+            "source_width": 1152,
+            "suspended": true,
+            "time_scale": 1,
+            "transport": "summer",
+            "values": {
+              "/root/FirstRoutePrototype/Player:position": "Vector2(410, 500)",
+              "/root/FirstRoutePrototype/RiverCrossing/Landscape:_clock": 0.062,
+              "/root/FirstRoutePrototype/RiverCrossing:_clock": 41.95
+            },
+            "width": 1152
+          }
+        ],
+        "skippedCount": 0,
+        "status": "ok",
+        "stopOnError": true,
+        "undoGroup": false,
+        "requestId": "mcp-a01bb373-a80f-48b7-bb56-7a3e0f93e0b6",
+        "terminalState": "applied",
+        "appliedSeq": 1505
+      },
+      {
+        "results": [
+          {
+            "effective_time_scale": 0,
+            "format": "jpeg",
+            "frame": {
+              "frames_drawn": 34342,
+              "physics_frames": 34342,
+              "process_frames": 34341
+            },
+            "height": 648,
+            "image_frame": 34341,
+            "instance": "route-quality-final",
+            "mime": "image/jpeg",
+            "missing": [],
+            "ok": true,
+            "op": "GameProbe",
+            "paused": false,
+            "provenance": {
+              "source": "runtime",
+              "target": {
+                "instance": "route-quality-final",
+                "kind": "game"
+              }
+            },
+            "requestId": "mcp-b7d9212f-8d6c-45eb-956d-3ec4e2097111",
+            "source_height": 648,
+            "source_width": 1152,
+            "suspended": true,
+            "time_scale": 1,
+            "transport": "summer",
+            "values": {
+              "/root/FirstRoutePrototype/Player:position": "Vector2(410, 500)",
+              "/root/FirstRoutePrototype/RiverCrossing/Landscape:_clock": 0.562,
+              "/root/FirstRoutePrototype/RiverCrossing:_clock": 42.45
+            },
+            "width": 1152
+          }
+        ],
+        "skippedCount": 0,
+        "status": "ok",
+        "stopOnError": true,
+        "undoGroup": false,
+        "requestId": "mcp-b7d9212f-8d6c-45eb-956d-3ec4e2097111",
+        "terminalState": "applied",
+        "appliedSeq": 1507
+      },
+      {
+        "results": [
+          {
+            "effective_time_scale": 0,
+            "format": "jpeg",
+            "frame": {
+              "frames_drawn": 34383,
+              "physics_frames": 34383,
+              "process_frames": 34382
+            },
+            "height": 648,
+            "image_frame": 34382,
+            "instance": "route-quality-final",
+            "mime": "image/jpeg",
+            "missing": [],
+            "ok": true,
+            "op": "GameProbe",
+            "paused": false,
+            "provenance": {
+              "source": "runtime",
+              "target": {
+                "instance": "route-quality-final",
+                "kind": "game"
+              }
+            },
+            "requestId": "mcp-49e865a4-85dc-4a9e-889a-dad83d2aa70e",
+            "source_height": 648,
+            "source_width": 1152,
+            "suspended": true,
+            "time_scale": 1,
+            "transport": "summer",
+            "values": {
+              "/root/FirstRoutePrototype/Player:position": "Vector2(410, 500)",
+              "/root/FirstRoutePrototype/RiverCrossing/Landscape:_clock": 1.062,
+              "/root/FirstRoutePrototype/RiverCrossing:_clock": 42.95
+            },
+            "width": 1152
+          }
+        ],
+        "skippedCount": 0,
+        "status": "ok",
+        "stopOnError": true,
+        "undoGroup": false,
+        "requestId": "mcp-49e865a4-85dc-4a9e-889a-dad83d2aa70e",
+        "terminalState": "applied",
+        "appliedSeq": 1509
+      },
+      {
+        "results": [
+          {
+            "effective_time_scale": 0,
+            "format": "jpeg",
+            "frame": {
+              "frames_drawn": 34425,
+              "physics_frames": 34425,
+              "process_frames": 34424
+            },
+            "height": 648,
+            "image_frame": 34424,
+            "instance": "route-quality-final",
+            "mime": "image/jpeg",
+            "missing": [],
+            "ok": true,
+            "op": "GameProbe",
+            "paused": false,
+            "provenance": {
+              "source": "runtime",
+              "target": {
+                "instance": "route-quality-final",
+                "kind": "game"
+              }
+            },
+            "requestId": "mcp-af28d3d7-758b-4e2d-b671-9c96f1a42281",
+            "source_height": 648,
+            "source_width": 1152,
+            "suspended": true,
+            "time_scale": 1,
+            "transport": "summer",
+            "values": {
+              "/root/FirstRoutePrototype/Player:position": "Vector2(410, 500)",
+              "/root/FirstRoutePrototype/RiverCrossing/Landscape:_clock": 1.562,
+              "/root/FirstRoutePrototype/RiverCrossing:_clock": 43.45
+            },
+            "width": 1152
+          }
+        ],
+        "skippedCount": 0,
+        "status": "ok",
+        "stopOnError": true,
+        "undoGroup": false,
+        "requestId": "mcp-af28d3d7-758b-4e2d-b671-9c96f1a42281",
+        "terminalState": "applied",
+        "appliedSeq": 1511
+      }
+    ]
+  },
+  "overview": {
+    "note": "Camera zoom 1 and player position (512,344) are review fixtures only; collisions move player to (512,408.058). Matches before overview.",
+    "state": {
+      "/root/FirstRoutePrototype/Player/Camera2D:zoom": "Vector2(1, 1)",
+      "/root/FirstRoutePrototype/Player:position": "Vector2(512, 408.058)",
+      "/root/FirstRoutePrototype/RiverCrossing/Landscape:added_detail_count": 79,
+      "/root/FirstRoutePrototype/RiverCrossing/Landscape:added_tree_count": 15
+    }
+  },
+  "inputs": [
+    {
+      "name": "bank_fix_home_inputs",
+      "events": [
+        {
+          "at_frame": 0,
+          "type": "action",
+          "action": "move_right",
+          "pressed": true
+        },
+        {
+          "at_frame": 24,
+          "type": "action",
+          "action": "move_right",
+          "pressed": false
+        },
+        {
+          "at_frame": 26,
+          "type": "key",
+          "keycode": 69,
+          "physical_keycode": 69,
+          "pressed": true
+        },
+        {
+          "at_frame": 27,
+          "type": "key",
+          "keycode": 69,
+          "physical_keycode": 69,
+          "pressed": false
+        },
+        {
+          "at_frame": 36,
+          "type": "key",
+          "keycode": 69,
+          "physical_keycode": 69,
+          "pressed": true
+        },
+        {
+          "at_frame": 37,
+          "type": "key",
+          "keycode": 69,
+          "physical_keycode": 69,
+          "pressed": false
+        },
+        {
+          "at_frame": 46,
+          "type": "action",
+          "action": "move_right",
+          "pressed": true
+        },
+        {
+          "at_frame": 124,
+          "type": "action",
+          "action": "move_right",
+          "pressed": false
+        },
+        {
+          "at_frame": 126,
+          "type": "action",
+          "action": "move_down",
+          "pressed": true
+        },
+        {
+          "at_frame": 180,
+          "type": "action",
+          "action": "move_down",
+          "pressed": false
+        },
+        {
+          "at_frame": 182,
+          "type": "action",
+          "action": "move_right",
+          "pressed": true
+        },
+        {
+          "at_frame": 206,
+          "type": "action",
+          "action": "move_right",
+          "pressed": false
+        },
+        {
+          "at_frame": 208,
+          "type": "key",
+          "keycode": 69,
+          "physical_keycode": 69,
+          "pressed": true
+        },
+        {
+          "at_frame": 209,
+          "type": "key",
+          "keycode": 69,
+          "physical_keycode": 69,
+          "pressed": false
+        },
+        {
+          "at_frame": 218,
+          "type": "key",
+          "keycode": 69,
+          "physical_keycode": 69,
+          "pressed": true
+        },
+        {
+          "at_frame": 219,
+          "type": "key",
+          "keycode": 69,
+          "physical_keycode": 69,
+          "pressed": false
+        }
+      ]
+    },
+    {
+      "name": "verified_inputs_levee_bridge",
+      "events": [
+        {
+          "at_frame": 0,
+          "type": "action",
+          "action": "move_right",
+          "pressed": true
+        },
+        {
+          "at_frame": 12,
+          "type": "action",
+          "action": "move_right",
+          "pressed": false
+        },
+        {
+          "at_frame": 14,
+          "type": "action",
+          "action": "move_right",
+          "pressed": true
+        },
+        {
+          "at_frame": 14,
+          "type": "action",
+          "action": "move_down",
+          "pressed": true
+        },
+        {
+          "at_frame": 48,
+          "type": "action",
+          "action": "move_right",
+          "pressed": false
+        },
+        {
+          "at_frame": 48,
+          "type": "action",
+          "action": "move_down",
+          "pressed": false
+        },
+        {
+          "at_frame": 50,
+          "type": "action",
+          "action": "move_right",
+          "pressed": true
+        },
+        {
+          "at_frame": 74,
+          "type": "action",
+          "action": "move_right",
+          "pressed": false
+        },
+        {
+          "at_frame": 76,
+          "type": "action",
+          "action": "move_right",
+          "pressed": true
+        },
+        {
+          "at_frame": 76,
+          "type": "action",
+          "action": "move_down",
+          "pressed": true
+        },
+        {
+          "at_frame": 110,
+          "type": "action",
+          "action": "move_right",
+          "pressed": false
+        },
+        {
+          "at_frame": 110,
+          "type": "action",
+          "action": "move_down",
+          "pressed": false
+        },
+        {
+          "at_frame": 112,
+          "type": "action",
+          "action": "move_right",
+          "pressed": true
+        },
+        {
+          "at_frame": 112,
+          "type": "action",
+          "action": "move_down",
+          "pressed": true
+        },
+        {
+          "at_frame": 180,
+          "type": "action",
+          "action": "move_right",
+          "pressed": false
+        },
+        {
+          "at_frame": 180,
+          "type": "action",
+          "action": "move_down",
+          "pressed": false
+        },
+        {
+          "at_frame": 182,
+          "type": "action",
+          "action": "move_right",
+          "pressed": true
+        },
+        {
+          "at_frame": 194,
+          "type": "action",
+          "action": "move_right",
+          "pressed": false
+        },
+        {
+          "at_frame": 196,
+          "type": "action",
+          "action": "move_right",
+          "pressed": true
+        },
+        {
+          "at_frame": 196,
+          "type": "action",
+          "action": "move_down",
+          "pressed": true
+        },
+        {
+          "at_frame": 221,
+          "type": "action",
+          "action": "move_right",
+          "pressed": false
+        },
+        {
+          "at_frame": 221,
+          "type": "action",
+          "action": "move_down",
+          "pressed": false
+        },
+        {
+          "at_frame": 223,
+          "type": "action",
+          "action": "move_right",
+          "pressed": true
+        },
+        {
+          "at_frame": 313,
+          "type": "action",
+          "action": "move_right",
+          "pressed": false
+        }
+      ]
+    },
+    {
+      "name": "verified_inputs_bridge_city",
+      "events": [
+        {
+          "at_frame": 0,
+          "type": "action",
+          "action": "move_right",
+          "pressed": true
+        },
+        {
+          "at_frame": 150,
+          "type": "action",
+          "action": "move_right",
+          "pressed": false
+        },
+        {
+          "at_frame": 152,
+          "type": "action",
+          "action": "move_down",
+          "pressed": true
+        },
+        {
+          "at_frame": 200,
+          "type": "action",
+          "action": "move_down",
+          "pressed": false
+        },
+        {
+          "at_frame": 202,
+          "type": "action",
+          "action": "move_right",
+          "pressed": true
+        },
+        {
+          "at_frame": 250,
+          "type": "action",
+          "action": "move_right",
+          "pressed": false
+        },
+        {
+          "at_frame": 252,
+          "type": "key",
+          "keycode": 69,
+          "physical_keycode": 69,
+          "pressed": true
+        },
+        {
+          "at_frame": 253,
+          "type": "key",
+          "keycode": 69,
+          "physical_keycode": 69,
+          "pressed": false
+        },
+        {
+          "at_frame": 262,
+          "type": "key",
+          "keycode": 69,
+          "physical_keycode": 69,
+          "pressed": true
+        },
+        {
+          "at_frame": 263,
+          "type": "key",
+          "keycode": 69,
+          "physical_keycode": 69,
+          "pressed": false
+        }
+      ]
+    },
+    {
+      "name": "quality_city_board_inputs",
+      "events": [
+        {
+          "at_frame": 0,
+          "type": "action",
+          "action": "move_right",
+          "pressed": true
+        },
+        {
+          "at_frame": 72,
+          "type": "action",
+          "action": "move_right",
+          "pressed": false
+        },
+        {
+          "at_frame": 74,
+          "type": "action",
+          "action": "move_up",
+          "pressed": true
+        },
+        {
+          "at_frame": 101,
+          "type": "action",
+          "action": "move_up",
+          "pressed": false
+        },
+        {
+          "at_frame": 103,
+          "type": "key",
+          "keycode": 69,
+          "physical_keycode": 69,
+          "pressed": true
+        },
+        {
+          "at_frame": 104,
+          "type": "key",
+          "keycode": 69,
+          "physical_keycode": 69,
+          "pressed": false
+        }
+      ]
+    },
+    {
+      "name": "quality_city_return_inputs",
+      "events": [
+        {
+          "at_frame": 0,
+          "type": "key",
+          "keycode": 69,
+          "physical_keycode": 69,
+          "pressed": true
+        },
+        {
+          "at_frame": 1,
+          "type": "key",
+          "keycode": 69,
+          "physical_keycode": 69,
+          "pressed": false
+        },
+        {
+          "at_frame": 10,
+          "type": "action",
+          "action": "move_down",
+          "pressed": true
+        },
+        {
+          "at_frame": 37,
+          "type": "action",
+          "action": "move_down",
+          "pressed": false
+        },
+        {
+          "at_frame": 39,
+          "type": "action",
+          "action": "move_left",
+          "pressed": true
+        },
+        {
+          "at_frame": 159,
+          "type": "action",
+          "action": "move_left",
+          "pressed": false
+        },
+        {
+          "at_frame": 161,
+          "type": "action",
+          "action": "move_up",
+          "pressed": true
+        },
+        {
+          "at_frame": 209,
+          "type": "action",
+          "action": "move_up",
+          "pressed": false
+        },
+        {
+          "at_frame": 211,
+          "type": "action",
+          "action": "move_left",
+          "pressed": true
+        },
+        {
+          "at_frame": 361,
+          "type": "action",
+          "action": "move_left",
+          "pressed": false
+        }
+      ]
+    },
+    {
+      "name": "quality_landing_inputs",
+      "events": [
+        {
+          "at_frame": 0,
+          "type": "action",
+          "action": "move_left",
+          "pressed": true
+        },
+        {
+          "at_frame": 120,
+          "type": "action",
+          "action": "move_left",
+          "pressed": false
+        },
+        {
+          "at_frame": 122,
+          "type": "action",
+          "action": "move_up",
+          "pressed": true
+        },
+        {
+          "at_frame": 242,
+          "type": "action",
+          "action": "move_up",
+          "pressed": false
+        },
+        {
+          "at_frame": 244,
+          "type": "key",
+          "keycode": 69,
+          "physical_keycode": 69,
+          "pressed": true
+        },
+        {
+          "at_frame": 245,
+          "type": "key",
+          "keycode": 69,
+          "physical_keycode": 69,
+          "pressed": false
+        },
+        {
+          "at_frame": 254,
+          "type": "key",
+          "keycode": 69,
+          "physical_keycode": 69,
+          "pressed": true
+        },
+        {
+          "at_frame": 255,
+          "type": "key",
+          "keycode": 69,
+          "physical_keycode": 69,
+          "pressed": false
+        },
+        {
+          "at_frame": 264,
+          "type": "action",
+          "action": "move_right",
+          "pressed": true
+        },
+        {
+          "at_frame": 287,
+          "type": "action",
+          "action": "move_right",
+          "pressed": false
+        },
+        {
+          "at_frame": 289,
+          "type": "action",
+          "action": "move_up",
+          "pressed": true
+        },
+        {
+          "at_frame": 327,
+          "type": "action",
+          "action": "move_up",
+          "pressed": false
+        },
+        {
+          "at_frame": 329,
+          "type": "key",
+          "keycode": 69,
+          "physical_keycode": 69,
+          "pressed": true
+        },
+        {
+          "at_frame": 330,
+          "type": "key",
+          "keycode": 69,
+          "physical_keycode": 69,
+          "pressed": false
+        },
+        {
+          "at_frame": 339,
+          "type": "key",
+          "keycode": 69,
+          "physical_keycode": 69,
+          "pressed": true
+        },
+        {
+          "at_frame": 340,
+          "type": "key",
+          "keycode": 69,
+          "physical_keycode": 69,
+          "pressed": false
+        },
+        {
+          "at_frame": 349,
+          "type": "action",
+          "action": "move_down",
+          "pressed": true
+        },
+        {
+          "at_frame": 417,
+          "type": "action",
+          "action": "move_down",
+          "pressed": false
+        },
+        {
+          "at_frame": 419,
+          "type": "key",
+          "keycode": 69,
+          "physical_keycode": 69,
+          "pressed": true
+        },
+        {
+          "at_frame": 420,
+          "type": "key",
+          "keycode": 69,
+          "physical_keycode": 69,
+          "pressed": false
+        },
+        {
+          "at_frame": 429,
+          "type": "key",
+          "keycode": 69,
+          "physical_keycode": 69,
+          "pressed": true
+        },
+        {
+          "at_frame": 430,
+          "type": "key",
+          "keycode": 69,
+          "physical_keycode": 69,
+          "pressed": false
+        }
+      ]
+    },
+    {
+      "name": "quality_report_approach_inputs",
+      "events": [
+        {
+          "at_frame": 0,
+          "type": "action",
+          "action": "move_left",
+          "pressed": true
+        },
+        {
+          "at_frame": 112,
+          "type": "action",
+          "action": "move_left",
+          "pressed": false
+        },
+        {
+          "at_frame": 114,
+          "type": "action",
+          "action": "move_up",
+          "pressed": true
+        },
+        {
+          "at_frame": 243,
+          "type": "action",
+          "action": "move_up",
+          "pressed": false
+        },
+        {
+          "at_frame": 245,
+          "type": "key",
+          "keycode": 69,
+          "physical_keycode": 69,
+          "pressed": true
+        },
+        {
+          "at_frame": 246,
+          "type": "key",
+          "keycode": 69,
+          "physical_keycode": 69,
+          "pressed": false
+        },
+        {
+          "at_frame": 255,
+          "type": "key",
+          "keycode": 69,
+          "physical_keycode": 69,
+          "pressed": true
+        },
+        {
+          "at_frame": 256,
+          "type": "key",
+          "keycode": 69,
+          "physical_keycode": 69,
+          "pressed": false
+        },
+        {
+          "at_frame": 265,
+          "type": "action",
+          "action": "move_down",
+          "pressed": true
+        },
+        {
+          "at_frame": 337,
+          "type": "action",
+          "action": "move_down",
+          "pressed": false
+        },
+        {
+          "at_frame": 339,
+          "type": "action",
+          "action": "move_left",
+          "pressed": true
+        },
+        {
+          "at_frame": 483,
+          "type": "action",
+          "action": "move_left",
+          "pressed": false
+        },
+        {
+          "at_frame": 485,
+          "type": "key",
+          "keycode": 69,
+          "physical_keycode": 69,
+          "pressed": true
+        },
+        {
+          "at_frame": 486,
+          "type": "key",
+          "keycode": 69,
+          "physical_keycode": 69,
+          "pressed": false
+        }
+      ]
+    },
+    {
+      "name": "quality_report_select_inputs",
+      "events": [
+        {
+          "at_frame": 0,
+          "type": "key",
+          "keycode": 4194322,
+          "physical_keycode": 4194322,
+          "pressed": true
+        },
+        {
+          "at_frame": 1,
+          "type": "key",
+          "keycode": 4194322,
+          "physical_keycode": 4194322,
+          "pressed": false
+        },
+        {
+          "at_frame": 10,
+          "type": "key",
+          "keycode": 4194309,
+          "physical_keycode": 4194309,
+          "pressed": true
+        },
+        {
+          "at_frame": 11,
+          "type": "key",
+          "keycode": 4194309,
+          "physical_keycode": 4194309,
+          "pressed": false
+        },
+        {
+          "at_frame": 20,
+          "type": "key",
+          "keycode": 69,
+          "physical_keycode": 69,
+          "pressed": true
+        },
+        {
+          "at_frame": 21,
+          "type": "key",
+          "keycode": 69,
+          "physical_keycode": 69,
+          "pressed": false
+        },
+        {
+          "at_frame": 30,
+          "type": "key",
+          "keycode": 74,
+          "physical_keycode": 74,
+          "pressed": true
+        },
+        {
+          "at_frame": 31,
+          "type": "key",
+          "keycode": 74,
+          "physical_keycode": 74,
+          "pressed": false
+        }
+      ]
+    }
+  ],
+  "archive_copy": {
+    "copies": 49,
+    "ok": true,
+    "exit_code": 0,
+    "errors": [],
+    "boot_errors": [
+      "ERROR|core\\io\\resource_uid.cpp:246|ResourceUID::get_id_path|Unrecognized UID: \"uid://blm6ps3r8bf7l\".|",
+      "ERROR|core\\io\\resource_saver.cpp:108|ResourceSaver::save|Condition \"path.is_empty()\" is true. Returning: ERR_INVALID_PARAMETER|Can't save resource to empty path. Provide non-empty path or a Resource with non-empty resource_path."
+    ],
+    "no_rewind_point": true,
+    "note": "Each archive copy was checked against the source hash. Original pre-edit helper snapshots were saved separately. Cold editor import logs contain a stale UID/empty-resource-save-path pair; no archive copy failed."
+  }
+}

@@ -1,0 +1,52 @@
+[
+  {
+    "file": "scripts/route1_crossing.gd",
+    "sha256": "75e4138503f990cec10e1e7e4375a64298ff642cee7ca92f26f9c44d9b586a79",
+    "bytes": 10356
+  },
+  {
+    "file": "scripts/route1_crossing.gd.uid",
+    "sha256": "1306f6aae37d817e410b966fcf10d90549bfdb8c2fa276cd064732b52db5e58e",
+    "bytes": 20
+  },
+  {
+    "file": "scripts/first_route_prototype.gd",
+    "sha256": "59b394a6f42144260ead13dd496b55735b7280ae2aa7ddf2c426c5028845d23c",
+    "bytes": 21121
+  },
+  {
+    "file": "scripts/first_route_prototype.gd.uid",
+    "sha256": "6fcecb827b8131cf77c0aae174ae119f6d661d23d83def3b639d1901164996cc",
+    "bytes": 19
+  },
+  {
+    "file": "scripts/route1_landing_loop.gd",
+    "sha256": "fc6f02adc74750f1665d64b2579fbfd7e0d83c4b446539dcfa9c77d2766b6adc",
+    "bytes": 2640
+  },
+  {
+    "file": "scripts/route1_landing_loop.gd.uid",
+    "sha256": "a892e0c104d783833b0a199686f0d8e1e6f98f19ae008411d8a85f9fc90affbd",
+    "bytes": 20
+  },
+  {
+    "file": "assets/sprites/world/route1_landing_loop_2026_10_03/landing_footpath.png",
+    "sha256": "8b2e7ab2ea44b0d654cfd3b5b6062bea88beba1e98d1c5c53db634816ab6a366",
+    "bytes": 3708
+  },
+  {
+    "file": "assets/sprites/world/route1_landing_loop_2026_10_03/landing_footpath.png.import",
+    "sha256": "ed14caa3cfda66358385125b4d1f5a05835c1940672a64e4411fb28cb431d21f",
+    "bytes": 1004
+  },
+  {
+    "file": "assets/sprites/world/route1_landing_loop_2026_10_03/canopy_visibility.gdshader",
+    "sha256": "87a9dc919189650ef337a8c389ffdec220ab2a1eae1527502141246bbd91a6f7",
+    "bytes": 239
+  },
+  {
+    "file": "assets/sprites/world/route1_landing_loop_2026_10_03/canopy_visibility.gdshader.uid",
+    "sha256": "6c3311c3d68e5468bca2df2dc529bd5af65040e1d3cb7b3d620f9396fc3ba3d4",
+    "bytes": 20
+  }
+]

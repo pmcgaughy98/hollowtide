@@ -30,6 +30,10 @@ extends Node2D
 ## erupting under the opponent and blasting for a sustained stretch like a beam.
 @export var eruption: Texture2D
 @export var eruption_alt: Texture2D
+## 16-frame blast sheet (4x4). When set, it is the giant geyser. The two
+## eruption frames stay as the fallback.
+@export var geyser_vfx: Texture2D
+@export var geyser_vfx_scale := 2
 ## The heat ring from Preston's first Furnace Roar effect sheet (F5 to F8): it
 ## bursts out around the giant geyser's base, breaks apart and fades to haze.
 @export var ring_frames: Array[Texture2D] = []
@@ -303,13 +307,30 @@ func _erupt_big(seconds: float) -> void:
 	get_tree().create_timer(0.4).timeout.connect(func() -> void:
 		if shake.is_valid():
 			shake.call(18))
-	var b := _stand(eruption, _end)
-	b.flip_h = false
+	var b: Sprite2D
+	var using_vfx := geyser_vfx != null
+	if using_vfx:
+		var v := VfxSprite.new()
+		v.texture = geyser_vfx
+		v.hframes = 4
+		v.vframes = 4
+		v.fps = 14.0
+		v.loop = true
+		v.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
+		# The frame's bottom sits on the ground under the opponent.
+		v.offset = Vector2(0, -float(geyser_vfx.get_height()) / 8.0)
+		v.position = (_end / _px).round() * _px
+		stage.add_child(v)
+		b = v
+	else:
+		b = _stand(eruption, _end)
+		b.flip_h = false
+		b.reparent(stage)
 	# It engulfs the opponent, so it draws over everything on the stage, big
 	# enough (whole pixels) to blast off the top of the screen.
-	b.reparent(stage)
-	var full: float = _px * finale_scale
-	var top: float = eruption.get_height() * full
+	var full: float = _px * (geyser_vfx_scale if using_vfx else finale_scale)
+	var frame_h: float = float(geyser_vfx.get_height()) / 4.0 if using_vfx else eruption.get_height()
+	var top: float = frame_h * full
 	# Bursts up out of the ground in a split second (it grows from its base).
 	b.scale = Vector2(full, 0.0)
 	create_tween().tween_property(b, "scale:y", full, 0.14).set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUAD)
@@ -318,7 +339,8 @@ func _erupt_big(seconds: float) -> void:
 	var elapsed := 0.0
 	var i := 0
 	while elapsed < seconds:
-		b.texture = eruption if i % 2 == 0 else eruption_alt
+		if not using_vfx:
+			b.texture = eruption if i % 2 == 0 else eruption_alt
 		if i % 3 == 0:
 			# Sparks keep bursting out of its crown.
 			_firework(_end + Vector2(randf_range(-40, 40), -top * randf_range(0.75, 1.0)), 0.0)
@@ -331,6 +353,8 @@ func _erupt_big(seconds: float) -> void:
 		i += 1
 	if is_instance_valid(target):
 		target.self_modulate = Color.WHITE
+	if using_vfx:
+		(b as VfxSprite).finish()
 	# It sinks back into the ground, leaving smoke where it stood.
 	var sink := create_tween()
 	sink.tween_property(b, "scale:y", 0.0, 0.2).set_ease(Tween.EASE_IN)

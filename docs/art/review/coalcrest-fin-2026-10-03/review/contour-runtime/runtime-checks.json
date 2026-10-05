@@ -1,0 +1,57 @@
+{
+	"checks": [
+		{
+			"home": "(820.0, 226.0)",
+			"original_zoom": 2.0,
+			"repaired_zoom": 2.0,
+			"scale_preserved": true,
+			"side": "far_front",
+			"texture": "res://assets/sprites/creatures/coalcrest_front_fin_complete_2026_10_03.png"
+		},
+		{
+			"home_restored": true,
+			"move": "far-crest_signal",
+			"passed": true,
+			"repaired_front_observed": true,
+			"reverse_released": true,
+			"texture_restored": true,
+			"unrepaired_front_observed": false
+		},
+		{
+			"home_restored": true,
+			"move": "far-longfire_burst",
+			"passed": true,
+			"repaired_front_observed": true,
+			"reverse_released": true,
+			"texture_restored": true,
+			"unrepaired_front_observed": false
+		},
+		{
+			"home": "(300.0, 400.5)",
+			"original_zoom": 2.5,
+			"repaired_zoom": 2.5,
+			"scale_preserved": true,
+			"side": "near_rear",
+			"texture": "res://assets/sprites/creatures/rd_material_match_2026_10_01/coalcrest_back.png"
+		},
+		{
+			"home_restored": true,
+			"move": "near-crest_signal",
+			"passed": true,
+			"repaired_front_observed": false,
+			"reverse_released": true,
+			"texture_restored": true,
+			"unrepaired_front_observed": false
+		},
+		{
+			"home_restored": true,
+			"move": "near-longfire_burst",
+			"passed": true,
+			"repaired_front_observed": false,
+			"reverse_released": true,
+			"texture_restored": true,
+			"unrepaired_front_observed": false
+		}
+	],
+	"passed": true
+}

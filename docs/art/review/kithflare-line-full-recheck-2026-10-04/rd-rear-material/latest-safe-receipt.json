@@ -1,0 +1,12 @@
+{
+  "status": "succeeded",
+  "task_id": "2aa7306e-a3de-4836-bd1d-10fb7a6793d1",
+  "created_at": 1791127808,
+  "updated_at": 1791127835,
+  "output_file": "result.png",
+  "output_sha256": "8dae6694a2e27a3deb6e3f7b1c4beba6778ddd44e5540566b8af429cdf933a69",
+  "result_metadata": {
+    "balance_cost": 0.18,
+    "credit_cost": 20
+  }
+}

@@ -1,0 +1,116 @@
+[
+  {
+    "id": 103,
+    "species": "kithflare",
+    "view": "front",
+    "resource": "data/creatures/103_kithflare.tres",
+    "current_path": "assets/sprites/creatures/kithflare_tail_polish_2026_10_03/kithflare_front.png",
+    "snapshot": "kithflare-front-before.png",
+    "sha256": "9b694edbaa7726caa2d040a93e125f4ae0508837507b1066cb3e2454a1523243",
+    "size": [
+      160,
+      160
+    ],
+    "bounds": [
+      25,
+      21,
+      131,
+      140
+    ]
+  },
+  {
+    "id": 103,
+    "species": "kithflare",
+    "view": "back",
+    "resource": "data/creatures/103_kithflare.tres",
+    "current_path": "assets/sprites/creatures/kithflare_tail_polish_2026_10_03/kithflare_back.png",
+    "snapshot": "kithflare-back-before.png",
+    "sha256": "0118a9e94c080dc37c27e1770385e2bdb2d055e20950d81f2792e32e0ade14e1",
+    "size": [
+      160,
+      160
+    ],
+    "bounds": [
+      29,
+      19,
+      130,
+      135
+    ]
+  },
+  {
+    "id": 104,
+    "species": "wayburn",
+    "view": "front",
+    "resource": "data/creatures/104_wayburn.tres",
+    "current_path": "assets/sprites/creatures/kithflare_tail_polish_2026_10_03/wayburn_front.png",
+    "snapshot": "wayburn-front-before.png",
+    "sha256": "9cd5dcec545b35202116a0f8021a28c6f4abe493d8a051c525118a400a5bd610",
+    "size": [
+      192,
+      160
+    ],
+    "bounds": [
+      21,
+      13,
+      176,
+      136
+    ]
+  },
+  {
+    "id": 104,
+    "species": "wayburn",
+    "view": "back",
+    "resource": "data/creatures/104_wayburn.tres",
+    "current_path": "assets/sprites/creatures/kithflare_tail_polish_2026_10_03/wayburn_back.png",
+    "snapshot": "wayburn-back-before.png",
+    "sha256": "5dc11052559ad43ef8b64803b0e1bb2d612ad2e9fb6fecac81f607e0815120e1",
+    "size": [
+      160,
+      160
+    ],
+    "bounds": [
+      16,
+      21,
+      130,
+      144
+    ]
+  },
+  {
+    "id": 105,
+    "species": "coalcrest",
+    "view": "front",
+    "resource": "data/creatures/105_coalcrest.tres",
+    "current_path": "assets/sprites/creatures/coalcrest_rechecked_2026_10_04/coalcrest_front.png",
+    "snapshot": "coalcrest-front-before.png",
+    "sha256": "6cbd82720f1c9673e51fea21cc6261fc2798bc80e4c0d3e0a433a224202f669f",
+    "size": [
+      160,
+      160
+    ],
+    "bounds": [
+      13,
+      3,
+      129,
+      142
+    ]
+  },
+  {
+    "id": 105,
+    "species": "coalcrest",
+    "view": "back",
+    "resource": "data/creatures/105_coalcrest.tres",
+    "current_path": "assets/sprites/creatures/coalcrest_rechecked_2026_10_04/coalcrest_back.png",
+    "snapshot": "coalcrest-back-before.png",
+    "sha256": "1235702d663a3bf7bb6aeac703eea769321d9ecbab35a1f6004e02567f5013d3",
+    "size": [
+      160,
+      160
+    ],
+    "bounds": [
+      13,
+      13,
+      125,
+      140
+    ]
+  }
+]

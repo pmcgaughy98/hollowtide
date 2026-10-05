@@ -1,0 +1,10 @@
+{
+  "input_file": "bridge_white_right.png",
+  "expand_top": 16,
+  "expand_bottom": 16,
+  "soft_inpaint": false,
+  "prompt": "This is the RIGHT HALF of an existing horizontal wooden pixel-art bridge. Keep this exact half bridge and all original pixels at their native size. Continue only the clipped stone abutment on the RIGHT edge, including the missing upper-right stone cap above the top and the lower-right masonry foot below the bottom. Finish those shapes naturally several pixels inside the expanded canvas with empty PURE WHITE margin. Complete the existing upper railing tops and lower support tips only where truncated. The left edge is the MIDPOINT of the whole bridge; do not add an end cap, turn, support tower or closure there. Match weathered warm grey stone and brown timber, dark fine outline, sharp one-pixel texture, the exact top-down RPG perspective. Isolated bridge half on PURE WHITE background. No water, no land, no background, no new deck, no resizing or crop. Preserve the PURE WHITE empty background, including all gaps below the deck and outside the stones. Complete only the clipped stones at the outer end with matching rectangular masonry; no extra column, no displaced second cap, no black block shadow.",
+  "seed": 20261006,
+  "custom_id": "hollowtide-white-right-20261002-1",
+  "expand_right": 16
+}

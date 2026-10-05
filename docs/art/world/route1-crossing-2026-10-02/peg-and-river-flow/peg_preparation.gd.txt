@@ -1,0 +1,23 @@
+func _run():
+	var scratch = "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/"
+	var original = Image.load_from_file("res://assets/sprites/world/route1_crossing_2026_10_02/river_bridge_refined.png")
+	var result = Image.load_from_file(scratch + "peg_repair_edited.png")
+	assert(result.get_size() == Vector2i(96, 48))
+	var edited = original.duplicate()
+	var changed = 0
+	for y in range(78, 96):
+		for x in range(160, 176):
+			var color = result.get_pixel(x - 112, y - 60)
+			if color.r8 == 255 and color.g8 == 255 and color.b8 == 255:
+				color.a = 0.0
+			if edited.get_pixel(x, y) != color:
+				changed += 1
+			edited.set_pixel(x, y, color)
+	var target = "res://assets/sprites/world/route1_crossing_2026_10_02/river_bridge_peg_fixed.png"
+	assert(not FileAccess.file_exists(target))
+	assert(edited.save_png(target) == OK)
+	assert(edited.save_png(scratch + "peg_bridge_final.png") == OK)
+	var preview = edited.get_region(Rect2i(112, 60, 96, 48))
+	preview.resize(576, 288, Image.INTERPOLATE_NEAREST)
+	assert(preview.save_png(scratch + "peg_repair_preview.png") == OK)
+	print(JSON.stringify({"changed_pixels": changed, "editable_region": [160, 78, 16, 18], "native_size": edited.get_size(), "sha256": FileAccess.get_sha256(target)}))

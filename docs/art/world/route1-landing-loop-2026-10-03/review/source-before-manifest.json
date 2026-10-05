@@ -1,0 +1,34 @@
+[
+  {
+    "file": "scripts/route1_crossing.gd",
+    "sha256": "0e7a0e6fa65b3f699115180d819f91c71e2714a44415c63f4a3f1a136d728c51"
+  },
+  {
+    "file": "scripts/first_route_prototype.gd",
+    "sha256": "16642c8d181b1704656b1f2fbf90064b8b7ba87a1376b7021218e886fb4d2cd1"
+  },
+  {
+    "file": "scripts/route1_landscape.gd",
+    "sha256": "64456afdff2872206c7666bbccd9303cafca6524aea82d32c0678f89cc42c416"
+  },
+  {
+    "file": "scripts/route1_terrain_relief.gd",
+    "sha256": "c8a2ab722e34618293b1be1ee4b801ba8fef64fa6838591ec0583b6ada191861"
+  },
+  {
+    "file": "scripts/route1_map_polish.gd",
+    "sha256": "dddfb7a6b67bb4d6179a843fa9ad546fed0a0ef3c9ca356152a8028fec9add5d"
+  },
+  {
+    "file": "scenes/first_route_prototype.tscn",
+    "sha256": "88edcd961f4608584a5d1c505bffab7e7a44af0662b1ab9a2a8584030a3abddc"
+  },
+  {
+    "file": "project.godot",
+    "sha256": "8181a45681c3f76379226b90d61ec2a3921f7b5a4cf7b20722bec00d4e34f262"
+  },
+  {
+    "file": "docs/AI_COLLABORATION.md",
+    "sha256": "841ac1e1d1a6153d6f06320d58b99d39d7c4a897985cf597e5380fc8212e971f"
+  }
+]

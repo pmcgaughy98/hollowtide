@@ -1,0 +1,16 @@
+{
+  "width": 32,
+  "height": 24,
+  "num_images": 1,
+  "prompt": "Reduce this exact small river-cutbank asset to a true 32 by 24 native pixel sprite. Preserve its muted sage grass crown, low warm-tan silt face, dark damp lower edge and exposed roots. Keep a low shallow silhouette with no thick outer border or pedestal. Transparent background, clear empty margin, same top-down three-quarter lighting, no added objects.",
+  "prompt_style": "rd_pro__pixelate",
+  "remove_bg": true,
+  "bypass_prompt_expansion": true,
+  "input_image": "source/silt_roots_rd.png",
+  "input_sha256": "6b235f95851f736cb4f84d29fe7e82091729591d9784541cda7ca945057aec27",
+  "task_id": "5134a074-cc4e-4b0c-97b5-448ef5ae7353",
+  "confirmed_balance_cost": 0.18,
+  "seed": null,
+  "seed_note": "Not echoed in saved paid response; omitted rather than inferred."
+}
+

@@ -1,0 +1,416 @@
+{
+	"checks": [
+		{
+			"area": "hometown",
+			"hud_count": 1,
+			"music_count": 1,
+			"one_area_in_tree": true
+		},
+		{
+			"area": "hometown",
+			"complete_ink_in_bounds": true,
+			"ink": "[P: (33.0, 46.0), S: (92.0, 82.0)]",
+			"tree": "Cottonwood00"
+		},
+		{
+			"area": "hometown",
+			"complete_ink_in_bounds": true,
+			"ink": "[P: (99.0, 80.0), S: (88.0, 80.0)]",
+			"tree": "Cottonwood01"
+		},
+		{
+			"area": "hometown",
+			"complete_ink_in_bounds": true,
+			"ink": "[P: (322.0, 45.0), S: (89.0, 83.0)]",
+			"tree": "Cottonwood02"
+		},
+		{
+			"area": "hometown",
+			"complete_ink_in_bounds": true,
+			"ink": "[P: (385.0, 81.0), S: (91.0, 79.0)]",
+			"tree": "Cottonwood03"
+		},
+		{
+			"area": "hometown",
+			"complete_ink_in_bounds": true,
+			"ink": "[P: (613.0, 33.0), S: (84.0, 79.0)]",
+			"tree": "Cottonwood04"
+		},
+		{
+			"area": "hometown",
+			"complete_ink_in_bounds": true,
+			"ink": "[P: (693.0, 53.0), S: (84.0, 83.0)]",
+			"tree": "Cottonwood05"
+		},
+		{
+			"area": "hometown",
+			"complete_ink_in_bounds": true,
+			"ink": "[P: (817.0, 46.0), S: (92.0, 82.0)]",
+			"tree": "Cottonwood06"
+		},
+		{
+			"area": "hometown",
+			"complete_ink_in_bounds": true,
+			"ink": "[P: (899.0, 88.0), S: (88.0, 80.0)]",
+			"tree": "Cottonwood07"
+		},
+		{
+			"area": "hometown",
+			"complete_ink_in_bounds": true,
+			"ink": "[P: (34.0, 221.0), S: (89.0, 83.0)]",
+			"tree": "Cottonwood08"
+		},
+		{
+			"area": "hometown",
+			"complete_ink_in_bounds": true,
+			"ink": "[P: (49.0, 313.0), S: (91.0, 79.0)]",
+			"tree": "Cottonwood09"
+		},
+		{
+			"area": "hometown",
+			"complete_ink_in_bounds": true,
+			"ink": "[P: (53.0, 409.0), S: (84.0, 79.0)]",
+			"tree": "Cottonwood10"
+		},
+		{
+			"area": "hometown",
+			"complete_ink_in_bounds": true,
+			"ink": "[P: (37.0, 525.0), S: (84.0, 83.0)]",
+			"tree": "Cottonwood11"
+		},
+		{
+			"area": "hometown",
+			"complete_ink_in_bounds": true,
+			"ink": "[P: (369.0, 350.0), S: (92.0, 82.0)]",
+			"tree": "Cottonwood12"
+		},
+		{
+			"area": "hometown",
+			"complete_ink_in_bounds": true,
+			"ink": "[P: (419.0, 384.0), S: (88.0, 80.0)]",
+			"tree": "Cottonwood13"
+		},
+		{
+			"area": "hometown",
+			"complete_ink_in_bounds": true,
+			"ink": "[P: (594.0, 557.0), S: (89.0, 83.0)]",
+			"tree": "Cottonwood14"
+		},
+		{
+			"area": "hometown",
+			"complete_ink_in_bounds": true,
+			"ink": "[P: (673.0, 593.0), S: (91.0, 79.0)]",
+			"tree": "Cottonwood15"
+		},
+		{
+			"area": "hometown",
+			"complete_ink_in_bounds": true,
+			"ink": "[P: (885.0, 257.0), S: (84.0, 79.0)]",
+			"tree": "Cottonwood16"
+		},
+		{
+			"area": "hometown",
+			"complete_ink_in_bounds": true,
+			"ink": "[P: (901.0, 333.0), S: (84.0, 83.0)]",
+			"tree": "Cottonwood17"
+		},
+		{
+			"area": "hometown",
+			"complete_ink_in_bounds": true,
+			"ink": "[P: (849.0, 526.0), S: (92.0, 82.0)]",
+			"tree": "Cottonwood18"
+		},
+		{
+			"area": "hometown",
+			"complete_ink_in_bounds": true,
+			"ink": "[P: (899.0, 600.0), S: (88.0, 80.0)]",
+			"tree": "Cottonwood19"
+		},
+		{
+			"area": "hometown",
+			"complete_ink_in_bounds": true,
+			"ink": "[P: (50.0, 653.0), S: (89.0, 83.0)]",
+			"tree": "Cottonwood20"
+		},
+		{
+			"area": "hometown",
+			"complete_ink_in_bounds": true,
+			"ink": "[P: (129.0, 625.0), S: (91.0, 79.0)]",
+			"tree": "Cottonwood21"
+		},
+		{
+			"area": "hometown",
+			"complete_ink_in_bounds": true,
+			"ink": "[P: (341.0, 657.0), S: (84.0, 79.0)]",
+			"tree": "Cottonwood22"
+		},
+		{
+			"area": "hometown",
+			"complete_ink_in_bounds": true,
+			"ink": "[P: (453.0, 629.0), S: (84.0, 83.0)]",
+			"tree": "Cottonwood23"
+		},
+		{
+			"area": "hometown",
+			"complete_ink_in_bounds": true,
+			"ink": "[P: (769.0, 654.0), S: (92.0, 82.0)]",
+			"tree": "Cottonwood24"
+		},
+		{
+			"area": "hometown",
+			"complete_ink_in_bounds": true,
+			"ink": "[P: (883.0, 664.0), S: (88.0, 80.0)]",
+			"tree": "Cottonwood25"
+		},
+		{
+			"area": "route1",
+			"hud_count": 1,
+			"music_count": 1,
+			"one_area_in_tree": true
+		},
+		{
+			"area": "route1",
+			"complete_ink_in_bounds": true,
+			"ink": "[P: (-735.0, 46.0), S: (92.0, 82.0)]",
+			"tree": "MeadowCottonwood00"
+		},
+		{
+			"area": "route1",
+			"complete_ink_in_bounds": true,
+			"ink": "[P: (-653.0, 32.0), S: (88.0, 80.0)]",
+			"tree": "MeadowCottonwood01"
+		},
+		{
+			"area": "route1",
+			"complete_ink_in_bounds": true,
+			"ink": "[P: (-526.0, 61.0), S: (89.0, 83.0)]",
+			"tree": "MeadowCottonwood02"
+		},
+		{
+			"area": "route1",
+			"complete_ink_in_bounds": true,
+			"ink": "[P: (-383.0, 33.0), S: (91.0, 79.0)]",
+			"tree": "MeadowCottonwood03"
+		},
+		{
+			"area": "route1",
+			"complete_ink_in_bounds": true,
+			"ink": "[P: (-267.0, 49.0), S: (84.0, 79.0)]",
+			"tree": "MeadowCottonwood04"
+		},
+		{
+			"area": "route1",
+			"complete_ink_in_bounds": true,
+			"ink": "[P: (-139.0, 29.0), S: (84.0, 83.0)]",
+			"tree": "MeadowCottonwood05"
+		},
+		{
+			"area": "route1",
+			"complete_ink_in_bounds": true,
+			"ink": "[P: (-735.0, 206.0), S: (92.0, 82.0)]",
+			"tree": "MeadowCottonwood06"
+		},
+		{
+			"area": "route1",
+			"complete_ink_in_bounds": true,
+			"ink": "[P: (-573.0, 144.0), S: (88.0, 80.0)]",
+			"tree": "MeadowCottonwood07"
+		},
+		{
+			"area": "route1",
+			"complete_ink_in_bounds": true,
+			"ink": "[P: (-398.0, 205.0), S: (89.0, 83.0)]",
+			"tree": "MeadowCottonwood08"
+		},
+		{
+			"area": "route1",
+			"complete_ink_in_bounds": true,
+			"ink": "[P: (-255.0, 209.0), S: (91.0, 79.0)]",
+			"tree": "MeadowCottonwood09"
+		},
+		{
+			"area": "route1",
+			"complete_ink_in_bounds": true,
+			"ink": "[P: (-123.0, 209.0), S: (84.0, 79.0)]",
+			"tree": "MeadowCottonwood10"
+		},
+		{
+			"area": "route1",
+			"complete_ink_in_bounds": true,
+			"ink": "[P: (-747.0, 365.0), S: (84.0, 83.0)]",
+			"tree": "MeadowCottonwood11"
+		},
+		{
+			"area": "route1",
+			"complete_ink_in_bounds": true,
+			"ink": "[P: (-559.0, 366.0), S: (92.0, 82.0)]",
+			"tree": "MeadowCottonwood12"
+		},
+		{
+			"area": "route1",
+			"complete_ink_in_bounds": true,
+			"ink": "[P: (-445.0, 400.0), S: (88.0, 80.0)]",
+			"tree": "MeadowCottonwood13"
+		},
+		{
+			"area": "route1",
+			"complete_ink_in_bounds": true,
+			"ink": "[P: (-286.0, 381.0), S: (89.0, 83.0)]",
+			"tree": "MeadowCottonwood14"
+		},
+		{
+			"area": "route1",
+			"complete_ink_in_bounds": true,
+			"ink": "[P: (-719.0, 537.0), S: (91.0, 79.0)]",
+			"tree": "MeadowCottonwood15"
+		},
+		{
+			"area": "route1",
+			"complete_ink_in_bounds": true,
+			"ink": "[P: (-619.0, 529.0), S: (84.0, 79.0)]",
+			"tree": "MeadowCottonwood16"
+		},
+		{
+			"area": "route1",
+			"complete_ink_in_bounds": true,
+			"ink": "[P: (-459.0, 525.0), S: (84.0, 83.0)]",
+			"tree": "MeadowCottonwood17"
+		},
+		{
+			"area": "route1",
+			"complete_ink_in_bounds": true,
+			"ink": "[P: (-287.0, 518.0), S: (92.0, 82.0)]",
+			"tree": "MeadowCottonwood18"
+		},
+		{
+			"area": "route1",
+			"complete_ink_in_bounds": true,
+			"ink": "[P: (-141.0, 504.0), S: (88.0, 80.0)]",
+			"tree": "MeadowCottonwood19"
+		},
+		{
+			"old_hall_body_count": 1,
+			"old_hall_collisions_disabled": true
+		},
+		{
+			"ordinary_walk_through_former_hall": true,
+			"position": "(80.0, 112.0002)",
+			"review_arrival_used": true
+		},
+		{
+			"area": "riverfront",
+			"hud_count": 1,
+			"music_count": 1,
+			"one_area_in_tree": true
+		},
+		{
+			"area": "riverfront",
+			"complete_ink_in_bounds": true,
+			"ink": "[P: (241.0, 30.0), S: (92.0, 82.0)]",
+			"tree": "Cottonwood00"
+		},
+		{
+			"area": "riverfront",
+			"complete_ink_in_bounds": true,
+			"ink": "[P: (323.0, 56.0), S: (88.0, 80.0)]",
+			"tree": "Cottonwood01"
+		},
+		{
+			"area": "riverfront",
+			"complete_ink_in_bounds": true,
+			"ink": "[P: (418.0, 29.0), S: (89.0, 83.0)]",
+			"tree": "Cottonwood02"
+		},
+		{
+			"area": "riverfront",
+			"complete_ink_in_bounds": true,
+			"ink": "[P: (513.0, 49.0), S: (91.0, 79.0)]",
+			"tree": "Cottonwood03"
+		},
+		{
+			"area": "riverfront",
+			"complete_ink_in_bounds": true,
+			"ink": "[P: (597.0, 33.0), S: (84.0, 79.0)]",
+			"tree": "Cottonwood04"
+		},
+		{
+			"area": "riverfront",
+			"complete_ink_in_bounds": true,
+			"ink": "[P: (821.0, 53.0), S: (84.0, 83.0)]",
+			"tree": "Cottonwood05"
+		},
+		{
+			"area": "riverfront",
+			"complete_ink_in_bounds": true,
+			"ink": "[P: (897.0, 86.0), S: (92.0, 82.0)]",
+			"tree": "Cottonwood06"
+		},
+		{
+			"area": "riverfront",
+			"complete_ink_in_bounds": true,
+			"ink": "[P: (899.0, 224.0), S: (88.0, 80.0)]",
+			"tree": "Cottonwood07"
+		},
+		{
+			"area": "riverfront",
+			"complete_ink_in_bounds": true,
+			"ink": "[P: (258.0, 221.0), S: (89.0, 83.0)]",
+			"tree": "Cottonwood08"
+		},
+		{
+			"area": "riverfront",
+			"complete_ink_in_bounds": true,
+			"ink": "[P: (289.0, 305.0), S: (91.0, 79.0)]",
+			"tree": "Cottonwood09"
+		},
+		{
+			"area": "riverfront",
+			"complete_ink_in_bounds": true,
+			"ink": "[P: (853.0, 321.0), S: (84.0, 79.0)]",
+			"tree": "Cottonwood10"
+		},
+		{
+			"area": "riverfront",
+			"complete_ink_in_bounds": true,
+			"ink": "[P: (597.0, 541.0), S: (84.0, 83.0)]",
+			"tree": "Cottonwood11"
+		},
+		{
+			"area": "riverfront",
+			"complete_ink_in_bounds": true,
+			"ink": "[P: (673.0, 582.0), S: (92.0, 82.0)]",
+			"tree": "Cottonwood12"
+		},
+		{
+			"area": "riverfront",
+			"complete_ink_in_bounds": true,
+			"ink": "[P: (899.0, 528.0), S: (88.0, 80.0)]",
+			"tree": "Cottonwood13"
+		},
+		{
+			"area": "riverfront",
+			"complete_ink_in_bounds": true,
+			"ink": "[P: (898.0, 629.0), S: (89.0, 83.0)]",
+			"tree": "Cottonwood14"
+		},
+		{
+			"area": "riverfront",
+			"complete_ink_in_bounds": true,
+			"ink": "[P: (401.0, 657.0), S: (91.0, 79.0)]",
+			"tree": "Cottonwood15"
+		},
+		{
+			"area": "riverfront",
+			"complete_ink_in_bounds": true,
+			"ink": "[P: (501.0, 633.0), S: (84.0, 79.0)]",
+			"tree": "Cottonwood16"
+		},
+		{
+			"area": "riverfront",
+			"complete_ink_in_bounds": true,
+			"ink": "[P: (789.0, 653.0), S: (84.0, 83.0)]",
+			"tree": "Cottonwood17"
+		}
+	],
+	"passed": true
+}

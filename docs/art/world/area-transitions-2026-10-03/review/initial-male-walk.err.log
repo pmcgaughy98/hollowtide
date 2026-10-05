@@ -1,0 +1,20 @@
+ERROR: Disabling a CollisionObject node during a physics callback is not allowed and will cause undesired behavior. Disable with call_deferred() instead.
+   at: CollisionObject2D::_apply_disabled (scene\2d\physics\collision_object_2d.cpp:245)
+   GDScript backtrace (most recent call first):
+       [0] travel (res://scripts/world_journey.gd:108)
+       [1] <anonymous lambda> (res://scripts/world_journey.gd:100)
+ERROR: Disabling a CollisionObject node during a physics callback is not allowed and will cause undesired behavior. Disable with call_deferred() instead.
+   at: CollisionObject2D::_apply_disabled (scene\2d\physics\collision_object_2d.cpp:245)
+   GDScript backtrace (most recent call first):
+       [0] travel (res://scripts/world_journey.gd:108)
+       [1] <anonymous lambda> (res://scripts/world_journey.gd:100)
+ERROR: Disabling a CollisionObject node during a physics callback is not allowed and will cause undesired behavior. Disable with call_deferred() instead.
+   at: CollisionObject2D::_apply_disabled (scene\2d\physics\collision_object_2d.cpp:245)
+   GDScript backtrace (most recent call first):
+       [0] travel (res://scripts/world_journey.gd:108)
+       [1] <anonymous lambda> (res://scripts/world_journey.gd:100)
+ERROR: Disabling a CollisionObject node during a physics callback is not allowed and will cause undesired behavior. Disable with call_deferred() instead.
+   at: CollisionObject2D::_apply_disabled (scene\2d\physics\collision_object_2d.cpp:245)
+   GDScript backtrace (most recent call first):
+       [0] travel (res://scripts/world_journey.gd:108)
+       [1] <anonymous lambda> (res://scripts/world_journey.gd:100)

@@ -1,0 +1,339 @@
+{
+	"captures": [
+		{
+			"charcoal_head": true,
+			"cracks": null,
+			"frame": 49,
+			"heat": 0.0,
+			"name": "foe-furnace-roar-foe_sprite-ironvent",
+			"side": "_foe_sprite",
+			"texture": "res://assets/sprites/creatures/ironvent.png"
+		},
+		{
+			"charcoal_head": true,
+			"cracks": null,
+			"frame": 269,
+			"name": "foe-furnace-roar-signature-portrait",
+			"texture": "res://assets/sprites/creatures/attacks/ironvent_furnace_roar/style_matched/titlecard_official_2026_09_30.png"
+		},
+		{
+			"charcoal_head": true,
+			"cracks": null,
+			"frame": 368,
+			"heat": 0.000482997897779569,
+			"name": "foe-furnace-roar-foe_sprite-rest",
+			"side": "_foe_sprite",
+			"texture": "res://assets/sprites/creatures/attacks/ironvent_furnace_roar/style_matched/rest.png"
+		},
+		{
+			"charcoal_head": true,
+			"cracks": null,
+			"frame": 373,
+			"heat": 0.0172793034464121,
+			"name": "foe-furnace-roar-foe_sprite-warm",
+			"side": "_foe_sprite",
+			"texture": "res://assets/sprites/creatures/attacks/ironvent_furnace_roar/style_matched/warm.png"
+		},
+		{
+			"charcoal_head": true,
+			"cracks": null,
+			"frame": 389,
+			"heat": 0.214253716170788,
+			"name": "foe-furnace-roar-foe_sprite-pressure",
+			"side": "_foe_sprite",
+			"texture": "res://assets/sprites/creatures/attacks/ironvent_furnace_roar/style_matched/pressure.png"
+		},
+		{
+			"charcoal_head": true,
+			"cracks": null,
+			"frame": 434,
+			"heat": 0.899690848588944,
+			"name": "foe-furnace-roar-foe_sprite-rear",
+			"side": "_foe_sprite",
+			"texture": "res://assets/sprites/creatures/attacks/ironvent_furnace_roar/style_matched/rear.png"
+		},
+		{
+			"charcoal_head": true,
+			"cracks": null,
+			"frame": 447,
+			"heat": 0.835662220418453,
+			"name": "foe-furnace-roar-foe_sprite-open",
+			"side": "_foe_sprite",
+			"texture": "res://assets/sprites/creatures/attacks/ironvent_furnace_roar/style_matched/open.png"
+		},
+		{
+			"charcoal_head": true,
+			"cracks": null,
+			"frame": 489,
+			"heat": 1.3819077860564,
+			"name": "foe-furnace-roar-foe_sprite-roar",
+			"side": "_foe_sprite",
+			"texture": "res://assets/sprites/creatures/attacks/ironvent_furnace_roar/style_matched/roar.png"
+		},
+		{
+			"charcoal_head": true,
+			"cracks": null,
+			"frame": 721,
+			"heat": 0.55,
+			"name": "foe-furnace-roar-foe_sprite-settle",
+			"side": "_foe_sprite",
+			"texture": "res://assets/sprites/creatures/attacks/ironvent_furnace_roar/style_matched/settle.png"
+		},
+		{
+			"charcoal_head": true,
+			"cracks": null,
+			"frame": 746,
+			"heat": 0.55,
+			"name": "foe-furnace-roar-foe_sprite-cool",
+			"side": "_foe_sprite",
+			"texture": "res://assets/sprites/creatures/attacks/ironvent_furnace_roar/style_matched/cool.png"
+		},
+		{
+			"charcoal_head": true,
+			"cracks": null,
+			"frame": 1785,
+			"heat": 0.0,
+			"name": "player-furnace-roar-player_sprite-102_ironvent",
+			"side": "_player_sprite",
+			"texture": "res://data/creatures/102_ironvent.tres::AtlasTexture_back_clean"
+		},
+		{
+			"charcoal_head": true,
+			"cracks": null,
+			"frame": 2005,
+			"name": "player-furnace-roar-signature-portrait",
+			"texture": "res://assets/sprites/creatures/attacks/ironvent_furnace_roar/style_matched/titlecard_official_2026_09_30.png"
+		},
+		{
+			"charcoal_head": true,
+			"cracks": null,
+			"frame": 2091,
+			"heat": 0.0,
+			"name": "player-furnace-roar-foe_sprite-ironvent",
+			"side": "_foe_sprite",
+			"texture": "res://assets/sprites/creatures/ironvent.png"
+		},
+		{
+			"charcoal_head": true,
+			"cracks": null,
+			"frame": 2109,
+			"heat": 0.000482997897779569,
+			"name": "player-furnace-roar-foe_sprite-rest",
+			"side": "_foe_sprite",
+			"texture": "res://assets/sprites/creatures/attacks/ironvent_furnace_roar/style_matched/rest.png"
+		},
+		{
+			"charcoal_head": true,
+			"cracks": null,
+			"frame": 2114,
+			"heat": 0.0172793034464121,
+			"name": "player-furnace-roar-foe_sprite-warm",
+			"side": "_foe_sprite",
+			"texture": "res://assets/sprites/creatures/attacks/ironvent_furnace_roar/style_matched/warm.png"
+		},
+		{
+			"charcoal_head": true,
+			"cracks": null,
+			"frame": 2130,
+			"heat": 0.214253716170788,
+			"name": "player-furnace-roar-foe_sprite-pressure",
+			"side": "_foe_sprite",
+			"texture": "res://assets/sprites/creatures/attacks/ironvent_furnace_roar/style_matched/pressure.png"
+		},
+		{
+			"charcoal_head": true,
+			"cracks": null,
+			"frame": 2175,
+			"heat": 0.899690848588944,
+			"name": "player-furnace-roar-foe_sprite-rear",
+			"side": "_foe_sprite",
+			"texture": "res://assets/sprites/creatures/attacks/ironvent_furnace_roar/style_matched/rear.png"
+		},
+		{
+			"charcoal_head": true,
+			"cracks": null,
+			"frame": 2188,
+			"heat": 0.835662220418453,
+			"name": "player-furnace-roar-foe_sprite-open",
+			"side": "_foe_sprite",
+			"texture": "res://assets/sprites/creatures/attacks/ironvent_furnace_roar/style_matched/open.png"
+		},
+		{
+			"charcoal_head": true,
+			"cracks": null,
+			"frame": 2230,
+			"heat": 1.3819077860564,
+			"name": "player-furnace-roar-foe_sprite-roar",
+			"side": "_foe_sprite",
+			"texture": "res://assets/sprites/creatures/attacks/ironvent_furnace_roar/style_matched/roar.png"
+		},
+		{
+			"charcoal_head": true,
+			"cracks": null,
+			"frame": 2462,
+			"heat": 0.55,
+			"name": "player-furnace-roar-foe_sprite-settle",
+			"side": "_foe_sprite",
+			"texture": "res://assets/sprites/creatures/attacks/ironvent_furnace_roar/style_matched/settle.png"
+		},
+		{
+			"charcoal_head": true,
+			"cracks": null,
+			"frame": 2487,
+			"heat": 0.55,
+			"name": "player-furnace-roar-foe_sprite-cool",
+			"side": "_foe_sprite",
+			"texture": "res://assets/sprites/creatures/attacks/ironvent_furnace_roar/style_matched/cool.png"
+		}
+	],
+	"checks": [
+		{
+			"cracks_released": true,
+			"foe_hp": 60,
+			"head_finish_owner": true,
+			"name": "foe-furnace-roar",
+			"player_hp": 45,
+			"position_restored": true,
+			"reversed_released": true,
+			"texture_restored": true
+		},
+		{
+			"cracks_released": true,
+			"foe_hp": 45,
+			"head_finish_owner": true,
+			"name": "player-furnace-roar",
+			"player_hp": 60,
+			"position_restored": true,
+			"reversed_released": true,
+			"texture_restored": true
+		},
+		{
+			"cracks_released": true,
+			"foe_hp": 52,
+			"head_finish_owner": true,
+			"name": "selected-rear-brow-shear",
+			"player_hp": 60,
+			"position_restored": true,
+			"reversed_released": true,
+			"texture_restored": true
+		},
+		{
+			"cracks_released": true,
+			"foe_hp": 45,
+			"head_finish_owner": true,
+			"name": "selected-rear-slagburst",
+			"player_hp": 60,
+			"position_restored": true,
+			"reversed_released": true,
+			"texture_restored": true
+		},
+		{
+			"image_size": "(100, 96)",
+			"name": "Ironvent rear region",
+			"region_excludes_row96": true,
+			"size": "(100.0, 100.0)",
+			"used_rect": "[P: (4, 14), S: (92, 82)]"
+		}
+	],
+	"roster": [
+		{
+			"back": "res://assets/sprites/creatures/rimefin_rd_back_2026_10_01.png",
+			"back_scale": "(3.0, 3.0)",
+			"battle_size": 1.0,
+			"front": "res://assets/sprites/creatures/rimefin.png",
+			"front_scale": "(2.0, 2.0)",
+			"id": 1,
+			"name": "Rimefin"
+		},
+		{
+			"back": "res://assets/sprites/creatures/cinderhide_back.png",
+			"back_scale": "(3.0, 3.0)",
+			"battle_size": 1.0,
+			"front": "res://assets/sprites/creatures/cinderhide.png",
+			"front_scale": "(2.0, 2.0)",
+			"id": 2,
+			"name": "Cinderhide"
+		},
+		{
+			"back": "res://assets/sprites/creatures/clinkerhide_selected_rear_2026_10_03/clinkerhide_back_native100.png",
+			"back_scale": "(3.0, 3.0)",
+			"battle_size": 1.0,
+			"front": "res://assets/sprites/creatures/clinkerhide.png",
+			"front_scale": "(2.0, 2.0)",
+			"id": 101,
+			"name": "Clinkerhide"
+		},
+		{
+			"back": "res://data/creatures/102_ironvent.tres::AtlasTexture_back_clean",
+			"back_scale": "(3.5, 3.5)",
+			"battle_size": 1.35,
+			"front": "res://assets/sprites/creatures/ironvent.png",
+			"front_scale": "(2.5, 2.5)",
+			"id": 102,
+			"name": "Ironvent"
+		},
+		{
+			"back": "res://assets/sprites/creatures/rd_material_match_2026_10_01/kithflare_back.png",
+			"back_scale": "(1.5, 1.5)",
+			"battle_size": 0.85,
+			"front": "res://assets/sprites/creatures/rd_material_match_2026_10_01/kithflare_front.png",
+			"front_scale": "(1.0, 1.0)",
+			"id": 103,
+			"name": "Kithflare"
+		},
+		{
+			"back": "res://assets/sprites/creatures/rd_material_match_2026_10_01/wayburn_back.png",
+			"back_scale": "(2.0, 2.0)",
+			"battle_size": 1.0,
+			"front": "res://assets/sprites/creatures/rd_material_match_2026_10_01/wayburn_front.png",
+			"front_scale": "(1.5, 1.5)",
+			"id": 104,
+			"name": "Wayburn"
+		},
+		{
+			"back": "res://assets/sprites/creatures/rd_material_match_2026_10_01/coalcrest_back.png",
+			"back_scale": "(2.5, 2.5)",
+			"battle_size": 1.5,
+			"front": "res://assets/sprites/creatures/rd_material_match_2026_10_01/coalcrest_front.png",
+			"front_scale": "(2.0, 2.0)",
+			"id": 105,
+			"name": "Coalcrest"
+		},
+		{
+			"back": "res://assets/sprites/creatures/rd_material_match_2026_10_01/fusern_back.png",
+			"back_scale": "(1.5, 1.5)",
+			"battle_size": 1.1,
+			"front": "res://assets/sprites/creatures/rd_material_match_2026_10_01/fusern_front.png",
+			"front_scale": "(1.0, 1.0)",
+			"id": 106,
+			"name": "Fusern"
+		},
+		{
+			"back": "res://assets/sprites/creatures/rd_material_match_2026_10_01/slagglass_back.png",
+			"back_scale": "(2.0, 2.0)",
+			"battle_size": 1.45,
+			"front": "res://assets/sprites/creatures/rd_material_match_2026_10_01/slagglass_front.png",
+			"front_scale": "(1.5, 1.5)",
+			"id": 107,
+			"name": "Slagglass"
+		},
+		{
+			"back": "res://assets/sprites/creatures/rd_material_match_2026_10_01/vitrecrag_back.png",
+			"back_scale": "(2.5, 2.5)",
+			"battle_size": 1.75,
+			"front": "res://assets/sprites/creatures/rd_material_match_2026_10_01/vitrecrag_front.png",
+			"front_scale": "(2.0, 2.0)",
+			"id": 108,
+			"name": "Vitrecrag"
+		},
+		{
+			"back": "res://assets/sprites/creatures/oxbowarchon_back.png",
+			"back_scale": "(3.5, 3.5)",
+			"battle_size": 1.75,
+			"front": "res://assets/sprites/creatures/oxbowarchon.png",
+			"front_scale": "(2.5, 2.5)",
+			"id": 903,
+			"name": "Oxbowarchon"
+		}
+	]
+}

@@ -1,0 +1,586 @@
+[
+  {
+    "archive": "review/art-before.json",
+    "sha256": "613a0901c0f337fe126b76753c838fbb8da8d0ebf7601aad30229ca832ddf267"
+  },
+  {
+    "archive": "review/before-manifest.json",
+    "sha256": "70adc13589b9cb118378c99030d24747b6fccb5ed420ca7ef259ce8454a4e08c"
+  },
+  {
+    "archive": "review/concurrent-launch-setting.json",
+    "sha256": "962b537c14c64c46576382d9d247cbd89f62b88afaa6ac4d33fe76165234367c"
+  },
+  {
+    "archive": "review/direct-launch.err.log",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "archive": "review/direct-launch.json",
+    "sha256": "41a57d3c5ac292fa8b2327f6d53fc4657c757462a75bee3e7dee013970ac4d2e"
+  },
+  {
+    "archive": "review/direct-launch.out.log",
+    "sha256": "0e04633c05e89e73b96c4ab5746967deb00dbc8d57cd1db3edf0b9df3dc00ee0"
+  },
+  {
+    "archive": "review/female-entrance-hometown-to-route1.png",
+    "sha256": "193d58523bb29b4c4162c4d772b37e1a378ad9863f9ae40fc749e8f144a20806"
+  },
+  {
+    "archive": "review/female-entrance-riverfront-to-route1.png",
+    "sha256": "62d3c81f2578951793b896bb97e0e998341b5ebc246101cc71b05d46bb2c797e"
+  },
+  {
+    "archive": "review/female-entrance-route1-to-hometown.png",
+    "sha256": "0d5d94fcd12ebd2fd01dd2f7fff50ebce8b4ab43f10102a0e8e57853334a48ce"
+  },
+  {
+    "archive": "review/female-entrance-route1-to-riverfront.png",
+    "sha256": "7dc3e3bc153b08333da0423c7191c9582b758b2478a329b3bbe2a191cfa4da57"
+  },
+  {
+    "archive": "review/female-report.png",
+    "sha256": "b4ed74a45a47870fece10e53b68d693c89ea710480f32e7cfb0b8a8066fc98b9"
+  },
+  {
+    "archive": "review/female-return-home.png",
+    "sha256": "fa4bf78beda9ba8083dbcc61346e0376f0c815addeea139633659bebf07b10f7"
+  },
+  {
+    "archive": "review/female-start.png",
+    "sha256": "487585e7d93fdb83517f9fe9f8480d56e752567a385afb2577c5e54c592e2c83"
+  },
+  {
+    "archive": "review/female-walk.err.log",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "archive": "review/female-walk.out.log",
+    "sha256": "cc624fe1b897b53fe5886dd3dcbad68fd7cc697694a8bedefd2969264096a429"
+  },
+  {
+    "archive": "review/female-walkthrough.json",
+    "sha256": "585e5954d84c2391b94c229fecb8ae60e88e03b12514450a17f86f066b072b67"
+  },
+  {
+    "archive": "review/generation-records.json",
+    "sha256": "bb66031b22c800949f8dd8bff6435d93ccfcba60ffa92ab3430c08d35f54d703"
+  },
+  {
+    "archive": "review/import.err.log",
+    "sha256": "aa84ce4d273c2a75b2c64247c04868c3aa5bf72c56c52dee6eeedba743dc6683"
+  },
+  {
+    "archive": "review/import.out.log",
+    "sha256": "67a68776f83dabcdb47bce376f6d0600d7acc761910d5a32beddd155595c112d"
+  },
+  {
+    "archive": "review/initial-installed-home-gameplay.png",
+    "sha256": "aeb5421abad6bbb98c679f84013df0daa48742fe6fa44392cd369a3e4b78558a"
+  },
+  {
+    "archive": "review/initial-installed-home-overview.png",
+    "sha256": "15c0eb16248254425282ec9fe9882f9f0075feee40f5cf5de7a32f4c979a6c30"
+  },
+  {
+    "archive": "review/initial-installed-riverfront-gameplay.png",
+    "sha256": "992a6d530163dda004f74fe367c62113187fe5ad4a96a279e9f100b7853eb9e2"
+  },
+  {
+    "archive": "review/initial-installed-riverfront-overview.png",
+    "sha256": "6b41dd49a49ed0b9a31a0b57732293f645c0c31cfc18d41284ec6a02343c30fb"
+  },
+  {
+    "archive": "review/initial-installed-route-approach.png",
+    "sha256": "f4421a4d5a2b4ecef31c92fe0609d8559a3f8a6741ee9a9636801de885fe4f04"
+  },
+  {
+    "archive": "review/initial-layout-audit.err.log",
+    "sha256": "8c7815ee829c7e542f79148dd35b9b9c1daf53fedc3af76a15d417c7cdaf9b47"
+  },
+  {
+    "archive": "review/initial-male-walk.err.log",
+    "sha256": "566a63cad7b4a86579fbd2061785cabfaca4d74bcd37a2f2492f10aa606194e1"
+  },
+  {
+    "archive": "review/initial-male-walk.out.log",
+    "sha256": "2bd1f527add50efb48e1920217990afc95d2e9cee628b5bf83997481c470dfdd"
+  },
+  {
+    "archive": "review/initial-male-walkthrough.json",
+    "sha256": "525ffb3fab99b6342e06d182b583a2e36fb7f8d1d99e52aaff26090c38b6f9c7"
+  },
+  {
+    "archive": "review/initial-menu-entry.err.log",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "archive": "review/initial-menu-entry.json",
+    "sha256": "f0536e0c7029f3802ab1f312e7296837ea94e0490e5f448dc987c443fa451fd4"
+  },
+  {
+    "archive": "review/initial-menu-entry.out.log",
+    "sha256": "55c15c8ffaffcbc83cee4582ba4671284cbd3f0cd0228623379d68cf6bd9cd22"
+  },
+  {
+    "archive": "review/initial-menu-to-hometown-male.png",
+    "sha256": "3092f124c271a1d75dc6b3596352438b3c0798ed39c417984be2567916b13c3a"
+  },
+  {
+    "archive": "review/initial-render.err.log",
+    "sha256": "e52378467f6879faf0e1066c1873f7b466d237dfc06aeeb1431da85fc0a67b6d"
+  },
+  {
+    "archive": "review/initial-render.out.log",
+    "sha256": "3d00e7e077fb630abf6d96ffa055ff57f75c75ca5c04a336155d3ce7332c75fa"
+  },
+  {
+    "archive": "review/installed-files.json",
+    "sha256": "0d11475dc9a3dc1664d69d227d270259370f410c32a7f1b170565c25472f3835"
+  },
+  {
+    "archive": "review/installed-home-gameplay.png",
+    "sha256": "aeb5421abad6bbb98c679f84013df0daa48742fe6fa44392cd369a3e4b78558a"
+  },
+  {
+    "archive": "review/installed-home-overview.png",
+    "sha256": "83e6691b5d22b33f576502d754d35e94708767504247b3dd5e38c49092f658e2"
+  },
+  {
+    "archive": "review/installed-riverfront-gameplay.png",
+    "sha256": "992a6d530163dda004f74fe367c62113187fe5ad4a96a279e9f100b7853eb9e2"
+  },
+  {
+    "archive": "review/installed-riverfront-overview.png",
+    "sha256": "6b41dd49a49ed0b9a31a0b57732293f645c0c31cfc18d41284ec6a02343c30fb"
+  },
+  {
+    "archive": "review/installed-route-approach.png",
+    "sha256": "f4421a4d5a2b4ecef31c92fe0609d8559a3f8a6741ee9a9636801de885fe4f04"
+  },
+  {
+    "archive": "review/layout-audit.err.log",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "archive": "review/layout-audit.json",
+    "sha256": "8450259dc0befe06e3e3b1064bd20bea090e6476f25f07edeaad2738231c8294"
+  },
+  {
+    "archive": "review/layout-audit.out.log",
+    "sha256": "0bf89dc3ee4fd8e069c4af1d541e9741d52b94b8c7c76e17f3059e0a1e3bbfbd"
+  },
+  {
+    "archive": "review/male-entrance-hometown-to-route1.png",
+    "sha256": "772cd46641922ebd160743bc5dc6a86128f6b0436e9ba08f631a8a8deaf79ee4"
+  },
+  {
+    "archive": "review/male-entrance-riverfront-to-route1.png",
+    "sha256": "eb0ba50a643df8662f321008ed78d4e79c84abe2d56765bdaf94bfb87e1a0a53"
+  },
+  {
+    "archive": "review/male-entrance-route1-to-hometown.png",
+    "sha256": "af528d019374d75a33bc797559d1a029165347da34c6520816bf309e88a94217"
+  },
+  {
+    "archive": "review/male-entrance-route1-to-riverfront.png",
+    "sha256": "75b25b3e57db82de317bede8eed1a29a959c69fd3a1c05db3562904eacfbcf30"
+  },
+  {
+    "archive": "review/male-report.png",
+    "sha256": "236b92406ca47a73c495220f5176ac9a3e8c7fefb9422d656ca1cc7db893b026"
+  },
+  {
+    "archive": "review/male-return-home.png",
+    "sha256": "82046462cc2e92ed87f1f5711f0b7d50fd7b3fe732a7bc0016835b006757bda1"
+  },
+  {
+    "archive": "review/male-start.png",
+    "sha256": "aeb5421abad6bbb98c679f84013df0daa48742fe6fa44392cd369a3e4b78558a"
+  },
+  {
+    "archive": "review/male-walk.err.log",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "archive": "review/male-walk.out.log",
+    "sha256": "2bd1f527add50efb48e1920217990afc95d2e9cee628b5bf83997481c470dfdd"
+  },
+  {
+    "archive": "review/male-walkthrough.json",
+    "sha256": "7c0646bf53eb87863756c0244bb99d46914acbd5444f8f1b71580a0c19e73c82"
+  },
+  {
+    "archive": "review/menu-entry.err.log",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "archive": "review/menu-entry.json",
+    "sha256": "82035a319b9054bb48f43bfeee2c0d65b64734598bfba0da8daacb9459c99f70"
+  },
+  {
+    "archive": "review/menu-entry.out.log",
+    "sha256": "ec18714edf5638dded5cd265c9169503d4344c360c9cd22b166e4ae45ad72d17"
+  },
+  {
+    "archive": "review/menu-to-hometown-female.png",
+    "sha256": "487585e7d93fdb83517f9fe9f8480d56e752567a385afb2577c5e54c592e2c83"
+  },
+  {
+    "archive": "review/menu-to-hometown-male.png",
+    "sha256": "aeb5421abad6bbb98c679f84013df0daa48742fe6fa44392cd369a3e4b78558a"
+  },
+  {
+    "archive": "review/menu_preview_noprefs.gd",
+    "sha256": "da79b6d0581cebfd7a063139a718acca8901f12dc951bf71a1b571efc845647a"
+  },
+  {
+    "archive": "review/protected-before.json",
+    "sha256": "2bc37553b33a0bc7c5259e50541a1d47268b2112f1a65791144cdd290aaa1200"
+  },
+  {
+    "archive": "review/render.err.log",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "archive": "review/render.out.log",
+    "sha256": "3d00e7e077fb630abf6d96ffa055ff57f75c75ca5c04a336155d3ce7332c75fa"
+  },
+  {
+    "archive": "review/verification.json",
+    "sha256": "3d7710f2d829aed79e3d4ec344f9d34b62caaaf5c999c23d45ca923376aee3fc"
+  },
+  {
+    "archive": "review/before/project.godot",
+    "sha256": "c7a2ce8c465500c1e47f946a7b7c28e25cc1173069c866012c156becc12d8c69"
+  },
+  {
+    "archive": "review/candidate/area_landscape.gd",
+    "sha256": "d4ccded0183afea2a33d1ffe4c9ce10f44d45a77051a0e2ae60a4833d7e65c6d"
+  },
+  {
+    "archive": "review/candidate/city_riverfront.tscn",
+    "sha256": "987c073ce0034e6861344ae69b54f13013b80aa78e68f61e3fb52c844a70a9d1"
+  },
+  {
+    "archive": "review/candidate/first_route_prototype.gd",
+    "sha256": "deb651b98d39cce39f1ae11d170e1e066fae0d49b74948df1daaf385264ddd12"
+  },
+  {
+    "archive": "review/candidate/first_route_prototype.tscn",
+    "sha256": "037d2b4f0f895dbbde4d31e904e6321c9ad0133795c5fd0307dbec7a420f9829"
+  },
+  {
+    "archive": "review/candidate/hometown.tscn",
+    "sha256": "42a9ad7712e5d36c61dac2e56b9feac43a7b73e40f7399b31e221cc95c670db4"
+  },
+  {
+    "archive": "review/candidate/hometown_streets.png",
+    "sha256": "7d5fb9e9a9d10d641a23579b1cb9ec628b23a9712d1cef6a49f409d62ed8e4f6"
+  },
+  {
+    "archive": "review/candidate/main_menu.gd",
+    "sha256": "7ea777f84d895b9e0dd7c9b6f5d8153be2e948920bdaebea62b769c23215a588"
+  },
+  {
+    "archive": "review/candidate/paths.json",
+    "sha256": "38e698fa3d2fde639f54f9f9fde03c7c42c07068660f8d2bd0e10159f53664e1"
+  },
+  {
+    "archive": "review/candidate/riverfront_streets.png",
+    "sha256": "4d77d47fb6cb958425317247d3e83c7be90838468985c1685e335ea0a1395599"
+  },
+  {
+    "archive": "review/candidate/riverfront_water_mask.png",
+    "sha256": "cc5ec7017f0331c050ad9b888124397e606cfe54b533b09dc6d9ec274e2b4b7e"
+  },
+  {
+    "archive": "review/candidate/route1_approach.gd",
+    "sha256": "1c9836e44b5f4c40a52691d39b4526bcc0c86c27bae10bcbc846da6b3d13df7c"
+  },
+  {
+    "archive": "review/candidate/route1_crossing.gd",
+    "sha256": "9c5b9bdb535e856fd30f77c00384107f4e5be76964ef67d5da44fc1820df7b22"
+  },
+  {
+    "archive": "review/candidate/route1_landscape.gd",
+    "sha256": "003524c91aaa22997525f21b35ef65f6a703964c0283a2d9b7eadd9957b78f33"
+  },
+  {
+    "archive": "review/candidate/route1_map_polish.gd",
+    "sha256": "aab605707c564c4135e59c688f4f7412e55a9ff73166c4188a77d7d3a90b63c3"
+  },
+  {
+    "archive": "review/candidate/route1_meadow_approach.png",
+    "sha256": "a4c7c14e90b48cf09316251bcfe77baa6bfe46d7ce7588a211ebe5555952ad42"
+  },
+  {
+    "archive": "review/candidate/world_area.gd",
+    "sha256": "dadba400d3497bc1a2a1423f3f062c9a2bfe6c82817df3f5471289643740ea9c"
+  },
+  {
+    "archive": "review/candidate/world_journey.gd",
+    "sha256": "ec8c1cddd8c894f2d53da7f83fa177379b8669401d6e1a9a7f2e8bdb13a04010"
+  },
+  {
+    "archive": "review/candidate/world_journey.tscn",
+    "sha256": "75ac3ddeeb0a420779b7f37da5b21f8ab0cf1c89fe66147f1073e47f9078a5ab"
+  },
+  {
+    "archive": "review/before/docs/AI_COLLABORATION.md",
+    "sha256": "bb85a0289984bcc1125b6da4f73cdd3aa3385c1dc8548645a43c15cc9b6993c4"
+  },
+  {
+    "archive": "review/before/scenes/first_route_prototype.tscn",
+    "sha256": "92baca2f7c06eb966cc8fcb422195db3f1b5ee8569b472a05229ee4814928717"
+  },
+  {
+    "archive": "review/before/scripts/first_route_prototype.gd",
+    "sha256": "9e5206d7b8c5ee5775dccf732cf5c562820cbbe7ab40723c0ff8c1036c317336"
+  },
+  {
+    "archive": "review/before/scripts/main_menu.gd",
+    "sha256": "2428f5518d5ab35ea71a5938ca3e61dfb23e454d40700c3b93f5f6cb97a974b6"
+  },
+  {
+    "archive": "review/before/scripts/route1_crossing.gd",
+    "sha256": "95c84e73a95c1bf2e1d927c83c89a18ab183bba8f2e26195433af602261c853e"
+  },
+  {
+    "archive": "review/before/scripts/route1_landscape.gd",
+    "sha256": "64456afdff2872206c7666bbccd9303cafca6524aea82d32c0678f89cc42c416"
+  },
+  {
+    "archive": "review/before/scripts/route1_map_polish.gd",
+    "sha256": "dddfb7a6b67bb4d6179a843fa9ad546fed0a0ef3c9ca356152a8028fec9add5d"
+  },
+  {
+    "archive": "runtime-after/scripts/main_menu.gd",
+    "sha256": "6e42c74d2d309838a53ddc54ed04cd7874b0b02c7536c3ee305a28954a8b8eb8"
+  },
+  {
+    "archive": "runtime-after/scripts/first_route_prototype.gd",
+    "sha256": "a1f486190cfba0cfe8759f4786de477f710fee889708d1827bebaa402629235b"
+  },
+  {
+    "archive": "runtime-after/scenes/first_route_prototype.tscn",
+    "sha256": "f827b7e20308e374c03e202d1c77bb5d5d0648be32965789091ffb831b350ab0"
+  },
+  {
+    "archive": "runtime-after/scripts/route1_crossing.gd",
+    "sha256": "1c07c2abb970e5b4c55208ebb364a8f043801d1aeea86c11a56c5f479e5eca03"
+  },
+  {
+    "archive": "runtime-after/scripts/route1_landscape.gd",
+    "sha256": "82fce7b471bc82c53e0c92e5e4c2a055e62c012f8b1cc750b222ceeddcde934e"
+  },
+  {
+    "archive": "runtime-after/scripts/route1_map_polish.gd",
+    "sha256": "22cbe72b517eee872a841710937c716e30af2bf0513bde2b0d4baec2330c7e1f"
+  },
+  {
+    "archive": "runtime-after/scripts/world_journey.gd",
+    "sha256": "3e22fb534bad554a9f0d29ef457c52970429b1a8aefa528b9d882116dc94268e"
+  },
+  {
+    "archive": "runtime-after/scripts/world_area.gd",
+    "sha256": "dadba400d3497bc1a2a1423f3f062c9a2bfe6c82817df3f5471289643740ea9c"
+  },
+  {
+    "archive": "runtime-after/scripts/area_landscape.gd",
+    "sha256": "e5e4321b9b8ced4f5f053642010c990f2c7fbca9bd39b78884d00c11f391ac2d"
+  },
+  {
+    "archive": "runtime-after/scripts/route1_approach.gd",
+    "sha256": "e7eb68761c382e8757188e0773f401dc915148afde729a66b063762078dfa516"
+  },
+  {
+    "archive": "runtime-after/scenes/world_journey.tscn",
+    "sha256": "75ac3ddeeb0a420779b7f37da5b21f8ab0cf1c89fe66147f1073e47f9078a5ab"
+  },
+  {
+    "archive": "runtime-after/scenes/hometown.tscn",
+    "sha256": "42a9ad7712e5d36c61dac2e56b9feac43a7b73e40f7399b31e221cc95c670db4"
+  },
+  {
+    "archive": "runtime-after/scenes/city_riverfront.tscn",
+    "sha256": "987c073ce0034e6861344ae69b54f13013b80aa78e68f61e3fb52c844a70a9d1"
+  },
+  {
+    "archive": "runtime-after/assets/sprites/world/area_transitions_2026_10_03/brick_shop.png",
+    "sha256": "61346652e187f2548caf21ef51bba3cca8547f25b053fcf045c65d9206992a6b"
+  },
+  {
+    "archive": "runtime-after/assets/sprites/world/area_transitions_2026_10_03/hometown_streets.png",
+    "sha256": "7d5fb9e9a9d10d641a23579b1cb9ec628b23a9712d1cef6a49f409d62ed8e4f6"
+  },
+  {
+    "archive": "runtime-after/assets/sprites/world/area_transitions_2026_10_03/ledger_house.png",
+    "sha256": "87355e862592de3c69234afc5a2fdaa0e58e4d1fda0aa9dcadaefeab41d858ce"
+  },
+  {
+    "archive": "runtime-after/assets/sprites/world/area_transitions_2026_10_03/riverfront_streets.png",
+    "sha256": "4d77d47fb6cb958425317247d3e83c7be90838468985c1685e335ea0a1395599"
+  },
+  {
+    "archive": "runtime-after/assets/sprites/world/area_transitions_2026_10_03/riverfront_water_mask.png",
+    "sha256": "cc5ec7017f0331c050ad9b888124397e606cfe54b533b09dc6d9ec274e2b4b7e"
+  },
+  {
+    "archive": "runtime-after/assets/sprites/world/area_transitions_2026_10_03/route1_meadow_approach.png",
+    "sha256": "a4c7c14e90b48cf09316251bcfe77baa6bfe46d7ce7588a211ebe5555952ad42"
+  },
+  {
+    "archive": "runtime-after/scripts/world_journey.gd.uid",
+    "sha256": "f5c6240505bfe1b351351903e1d9a01518db2fceeb6ed9a427781a35ff632ea6"
+  },
+  {
+    "archive": "runtime-after/scripts/world_area.gd.uid",
+    "sha256": "8d8fa93291239e56bc0360b61f51cc20effbe00cd1a0dd1a72f8da85d545e981"
+  },
+  {
+    "archive": "runtime-after/scripts/area_landscape.gd.uid",
+    "sha256": "167741285fcfbcc22cf424cda99c00a34fb2c17ab6ebe11856d915672496ce6c"
+  },
+  {
+    "archive": "runtime-after/scripts/route1_approach.gd.uid",
+    "sha256": "72734b337c9a98f9332d320d6cc9053eeb2146ea609914cf57042a6861427f60"
+  },
+  {
+    "archive": "runtime-after/assets/sprites/world/area_transitions_2026_10_03/hometown_streets.png.import",
+    "sha256": "0b4811d2570b853e82198468f9a69ea5f8bdbef256c401c11620e7237fd719ba"
+  },
+  {
+    "archive": "runtime-after/assets/sprites/world/area_transitions_2026_10_03/route1_meadow_approach.png.import",
+    "sha256": "24a851df46168efc1bf9193eff4106c21a6a0c756a08a49ad0de7eae3bda2814"
+  },
+  {
+    "archive": "runtime-after/assets/sprites/world/area_transitions_2026_10_03/riverfront_streets.png.import",
+    "sha256": "68356773d296502c6d941a29d462df8eeae0d79bbfbc095299d6555a9a493910"
+  },
+  {
+    "archive": "runtime-after/assets/sprites/world/area_transitions_2026_10_03/riverfront_water_mask.png.import",
+    "sha256": "b3940fe04c74545d379c9c6c066d178b0f1ef5deb58faea3819e79ca86ac43ed"
+  },
+  {
+    "archive": "runtime-after/assets/sprites/world/area_transitions_2026_10_03/brick_shop.png.import",
+    "sha256": "0c9a26d67af185684dd5a8975df04156507f9bc3ecdfa7bc0e6332c7e62f6471"
+  },
+  {
+    "archive": "runtime-after/assets/sprites/world/area_transitions_2026_10_03/ledger_house.png.import",
+    "sha256": "8f0c2148334f5ad3f495412b20e291987bd9f7029b3fb0ef398fb8689e1baa64"
+  },
+  {
+    "archive": "source/prepare_area_transition.py",
+    "sha256": "4b91aad57498daa04591f92d229f574b0b5ddf9a1ead061f6cfe503e9281f456"
+  },
+  {
+    "archive": "source/write_transition_candidates.py",
+    "sha256": "914836e181e05f3870fdf682bda526c5cd240a2fce24b6219c080ff516bb0720"
+  },
+  {
+    "archive": "source/bake_area_paths.py",
+    "sha256": "a5503f39dbc1002186e8858bb5f61e78b88a54910f75c857c35de94b1ea5f271"
+  },
+  {
+    "archive": "source/write_area_landscapes.py",
+    "sha256": "b4e4d4c99465703d9cb690fed8928f1e8049bdd02cb791aeace5d2504aed3c6f"
+  },
+  {
+    "archive": "source/install_area_transitions.py",
+    "sha256": "d477d7fb854bf0ae05541e3571fc5823f4c3ddeae256410f909ab97c1aacd1d7"
+  },
+  {
+    "archive": "source/fix_area_render.py",
+    "sha256": "af99fb79195ce24f03e003e86645cc105d4e89a287b2e4ff324aa76968fe2fc7"
+  },
+  {
+    "archive": "source/fix_area_entrance_callback.py",
+    "sha256": "756a69fbc949de093c41276713601d27d132130fc6aa85e2267fffeea54bde7c"
+  },
+  {
+    "archive": "source/fix_journey_focus.py",
+    "sha256": "597531abe1b36f43927cb15b215d2852619936e8b0472abe4fb39056e8601cc0"
+  },
+  {
+    "archive": "source/fix_hidden_route_hall.py",
+    "sha256": "edf63769ad898f8e4c53d147c222f794ed94bb0ad4dc71a10b341239d2f91d75"
+  },
+  {
+    "archive": "source/audit_area_transition.py",
+    "sha256": "4a7845074ed0d33fd548f1135c6cbdd725e3ee2bdadfe11dfeea24b0435a0447"
+  },
+  {
+    "archive": "source/area_transition_walkthrough.gd",
+    "sha256": "69ce3fa14def024fac3bbb88ef948e266bc04581781cd3d7f2129f300a17631f"
+  },
+  {
+    "archive": "source/area_transition_render.gd",
+    "sha256": "26bad724f66be9dbfd971987d5469560b5520ef9f5e0969ce23557af81e22c84"
+  },
+  {
+    "archive": "source/area_transition_menu.gd",
+    "sha256": "dec03214a3f1bc4f436fcefa53870da30b0a4d2a40ad04fc99d9f19878d082f1"
+  },
+  {
+    "archive": "source/area_transition_layout_audit.gd",
+    "sha256": "39223ece75a3e9e8c85542d3ee1822c35c15450cd851b36f1755d5fbd28bd5c0"
+  },
+  {
+    "archive": "source/connect_direct_route_launch.py",
+    "sha256": "4cda9b046753f336ce2da29e486e539073a21829400dbc0368f8684c3cfbfdce"
+  },
+  {
+    "archive": "source/area_transition_direct_launch.gd",
+    "sha256": "ae3f7799edffddbcaa2da7b7646b51ef864fe332d56c18855af81cf66563663f"
+  },
+  {
+    "archive": "generation-source/historic_approach_surface.png",
+    "sha256": "ce35b554a0b25eb5c3e26bb5049f10fb96ce98da12f17efe9e6289ab85ee09a3"
+  },
+  {
+    "archive": "generation-source/historic_pavers_tile_source.png",
+    "sha256": "52f692af9c2a71e827f2e8308c68dab313dc115f2fc6134e8a675119840032ea"
+  },
+  {
+    "archive": "generation-source/historic_street_surface.png",
+    "sha256": "3cbab5bec17e09aff2d99031ef1a6c1fb91fcbaf9ac31cd16330c003e8e32ea2"
+  },
+  {
+    "archive": "generation-source/reused_brick_shop_edited.png",
+    "sha256": "b45845ec771cf393ef27936b5083569067c1966f37903a0201db5da4e4ca4ea5"
+  },
+  {
+    "archive": "generation-source/reused_brick_shop_front_source.png",
+    "sha256": "e3187ce5619180595939d7214b993e0493a01f24312f6039386cef42a43cbc81"
+  },
+  {
+    "archive": "generation-source/reused_brick_shop_native.png",
+    "sha256": "61346652e187f2548caf21ef51bba3cca8547f25b053fcf045c65d9206992a6b"
+  },
+  {
+    "archive": "generation-source/reused_brick_shop_source.png",
+    "sha256": "c7da85d8fdf97276fce3cf590bf25ae421d2d98daf20e5b1538f03d632a2d8ee"
+  },
+  {
+    "archive": "generation-source/street_ledger_house_native.png",
+    "sha256": "87355e862592de3c69234afc5a2fdaa0e58e4d1fda0aa9dcadaefeab41d858ce"
+  },
+  {
+    "archive": "generation-source/street_ledger_house_source.png",
+    "sha256": "dd59cae52244e6e238aa409cdb4df9fd50a702ac1c02a3500d81c2f706555302"
+  },
+  {
+    "archive": "generation-source/native-preparation.json",
+    "sha256": "1cf013b906dc341bc8e179438e27ce5af3d672e3a82c260e99c5f302e7c728f5"
+  },
+  {
+    "archive": "generation-source/surface-provenance.json",
+    "sha256": "10313db442e0180a1fbe0078da16124c29a37070c14a647bade5fb66e1d47aa4"
+  },
+  {
+    "archive": "generation-source/initial-source-audit.json",
+    "sha256": "58aa0cd663359c293c49daec2db6e82e55c8ad51f291d53b50a585102f72b845"
+  }
+]

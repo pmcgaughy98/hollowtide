@@ -1,0 +1,419 @@
+{
+  "audit_utc": "2026-10-04T19:23:00.387592+00:00",
+  "project_root": "C:\\Users\\pmcga\\dev\\hollowtide",
+  "baseline_path": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\hometown-garden-2026-10-04\\baseline.json",
+  "baseline_sha256": "9d78ee07c0b1ad997953aa3da371dce1ecdbbc660efaf85cb7adf2d7660c7171",
+  "scope": "Read-only comparison of recorded assets/data/scenes/scripts/project.godot; only this audit JSON is written to the Codex work folder.",
+  "pass": true,
+  "existing_runtime": {
+    "recorded_count": 2195,
+    "exact_count": 2191,
+    "changed_count": 4,
+    "missing_count": 0,
+    "expected_changed_paths": [
+      "scripts/area_landscape.gd",
+      "scripts/first_route_prototype.gd",
+      "scripts/world_area.gd",
+      "scenes/hometown.tscn"
+    ],
+    "changed_files": [
+      {
+        "path": "scenes/hometown.tscn",
+        "baseline_sha256": "42a9ad7712e5d36c61dac2e56b9feac43a7b73e40f7399b31e221cc95c670db4",
+        "current_sha256": "302881706312ff6104bd8b2cfeba170a94d412598d5a68173dc2e1264f033617"
+      },
+      {
+        "path": "scripts/area_landscape.gd",
+        "baseline_sha256": "2dfa6331f85ce1cff0263161c7bac25182df7b7a4c2f47d2d0867e56ff6f5dc5",
+        "current_sha256": "040409f209952a1b717409646ab4c2895845e2d12e6869bd438439f1925c1622"
+      },
+      {
+        "path": "scripts/first_route_prototype.gd",
+        "baseline_sha256": "6cee96a25e6c84e550bd8cda03a610c4805f78535994912d9ba3fcbc7686df67",
+        "current_sha256": "0519fd97fd85c43d975fde4528ca32f7c30f45790b26a0881be408283606a18d"
+      },
+      {
+        "path": "scripts/world_area.gd",
+        "baseline_sha256": "8ad4a30f03ea162d650c17c4f49785906382e83dc76831beed8afbb6e63d37c1",
+        "current_sha256": "8895f5457b13fad79fe672d0b6d232d78d85c391c7d82e4d249529ae780ba1f8"
+      }
+    ],
+    "missing_files": [],
+    "unexpected_changes": [],
+    "expected_changes_not_present": []
+  },
+  "new_runtime": {
+    "count": 10,
+    "png_count": 4,
+    "import_count": 4,
+    "script_count": 1,
+    "uid_count": 1,
+    "files": [
+      {
+        "path": "assets/sprites/world/hometown_garden_2026_10_04/cuttings_row.png",
+        "sha256": "076385f81f479850301deeab49b40b008a2cb2c8dfbff06ae10a976c223a5a60",
+        "bytes": 1187
+      },
+      {
+        "path": "assets/sprites/world/hometown_garden_2026_10_04/cuttings_row.png.import",
+        "sha256": "06e2d3db7f8d51eb1f5eb8e8cb08f57f2a5b77d6c38fd32681cdbdf4947e44df",
+        "bytes": 989
+      },
+      {
+        "path": "assets/sprites/world/hometown_garden_2026_10_04/garden_lanes.png",
+        "sha256": "3369e1d619236d5dc165123fe63a556a2e7d6321edcd855ab5ec81b2c5607f6c",
+        "bytes": 30742
+      },
+      {
+        "path": "assets/sprites/world/hometown_garden_2026_10_04/garden_lanes.png.import",
+        "sha256": "2dd2df3485edaba817050ad2b3c45d8560e94bc7cd2b4ec64d57471f9a224ee8",
+        "bytes": 989
+      },
+      {
+        "path": "assets/sprites/world/hometown_garden_2026_10_04/garden_neighbor.png",
+        "sha256": "c0f31928258cec2f26248cccd40581a60c4704bf1f1a015a9f994bc1fabfb7e1",
+        "bytes": 1090
+      },
+      {
+        "path": "assets/sprites/world/hometown_garden_2026_10_04/garden_neighbor.png.import",
+        "sha256": "b682a16aea6d594f351590e70d49daaec4c3a5bfba6dac39e5f2bec42e0d3f82",
+        "bytes": 997
+      },
+      {
+        "path": "assets/sprites/world/hometown_garden_2026_10_04/timber_bed.png",
+        "sha256": "38a088783cc147761439be0134576c96b09fefb1ed1e7dafc38776d97db5e582",
+        "bytes": 2069
+      },
+      {
+        "path": "assets/sprites/world/hometown_garden_2026_10_04/timber_bed.png.import",
+        "sha256": "b191a19f32c08f12846af4767c724675cb0fee4f3b1e8ee73f9bf6b1d9cf5c4c",
+        "bytes": 983
+      },
+      {
+        "path": "scripts/hometown_garden.gd",
+        "sha256": "f4e7f3da3d7199b81488f9f18983c42ae25844ab601d59ff896c6c86f98b9ef8",
+        "bytes": 6677
+      },
+      {
+        "path": "scripts/hometown_garden.gd.uid",
+        "sha256": "153910a1fd11bec27ba3e8e30baa49123eda3d8faba0eff26cde90ae04a628f0",
+        "bytes": 20
+      }
+    ],
+    "unexpected_files": [],
+    "expected_files_not_present": []
+  },
+  "protected_groups": {
+    "preexisting_assets": {
+      "recorded_files": 1937,
+      "all_exact": true,
+      "nonexact_paths": []
+    },
+    "creatures": {
+      "recorded_files": 997,
+      "all_exact": true,
+      "nonexact_paths": []
+    },
+    "menu": {
+      "recorded_files": 47,
+      "all_exact": true,
+      "nonexact_paths": []
+    },
+    "player_party": {
+      "recorded_files": 9,
+      "all_exact": true,
+      "nonexact_paths": []
+    },
+    "battle_rules_moves": {
+      "recorded_files": 139,
+      "all_exact": true,
+      "nonexact_paths": []
+    },
+    "journey_and_entrances": {
+      "recorded_files": 5,
+      "all_exact": true,
+      "nonexact_paths": []
+    },
+    "launch_audio": {
+      "recorded_files": 165,
+      "all_exact": true,
+      "nonexact_paths": []
+    },
+    "all_other_existing_runtime": {
+      "recorded_files": 2191,
+      "all_exact": true,
+      "nonexact_paths": []
+    }
+  },
+  "source_snapshots": [
+    {
+      "path": "scripts/area_landscape.gd",
+      "sha256": "2dfa6331f85ce1cff0263161c7bac25182df7b7a4c2f47d2d0867e56ff6f5dc5",
+      "matches_baseline": true
+    },
+    {
+      "path": "scripts/first_route_prototype.gd",
+      "sha256": "6cee96a25e6c84e550bd8cda03a610c4805f78535994912d9ba3fcbc7686df67",
+      "matches_baseline": true
+    },
+    {
+      "path": "scripts/world_area.gd",
+      "sha256": "8ad4a30f03ea162d650c17c4f49785906382e83dc76831beed8afbb6e63d37c1",
+      "matches_baseline": true
+    },
+    {
+      "path": "scenes/hometown.tscn",
+      "sha256": "42a9ad7712e5d36c61dac2e56b9feac43a7b73e40f7399b31e221cc95c670db4",
+      "matches_baseline": true
+    }
+  ],
+  "protected_exact_flags": {
+    "controller_exact_after_only_two_home_dialogue_replacements": true,
+    "other_controller_functions_exact": true,
+    "area_landscape_prefix_and_entrance_walls_exact": true,
+    "area_landscape_city_suffix_through_eof_exact": true,
+    "HOME_SITES_and_CITY_SITES_exact": true,
+    "original_hometown_scene_nodes_properties_preserved": true,
+    "original_controller_state_and_logic_exact_except_two_home_texts": true
+  },
+  "controller_function_checks": [
+    {
+      "function": "_ready",
+      "exact": true
+    },
+    {
+      "function": "_open_standalone_journey",
+      "exact": true
+    },
+    {
+      "function": "_process",
+      "exact": true
+    },
+    {
+      "function": "_unhandled_input",
+      "exact": true
+    },
+    {
+      "function": "_visit_levee_entrance",
+      "exact": true
+    },
+    {
+      "function": "_visit_city_clerk",
+      "exact": true
+    },
+    {
+      "function": "_visit_city_directions",
+      "exact": true
+    },
+    {
+      "function": "_visit_landing_notice",
+      "exact": true
+    },
+    {
+      "function": "_visit_home_directions",
+      "exact": true
+    },
+    {
+      "function": "_visit_shared_garden",
+      "exact": true
+    },
+    {
+      "function": "_nearest_site",
+      "exact": true
+    },
+    {
+      "function": "_visit_dispatch",
+      "exact": true
+    },
+    {
+      "function": "_visit_marker",
+      "exact": true
+    },
+    {
+      "function": "_visit_post",
+      "exact": true
+    },
+    {
+      "function": "_visit_river",
+      "exact": true
+    },
+    {
+      "function": "_visit_height_post",
+      "exact": true
+    },
+    {
+      "function": "_offer_report",
+      "exact": true
+    },
+    {
+      "function": "_record_report",
+      "exact": true
+    },
+    {
+      "function": "_refresh_objective",
+      "exact": true
+    },
+    {
+      "function": "_toggle_notes",
+      "exact": true
+    },
+    {
+      "function": "_toggle_party",
+      "exact": true
+    },
+    {
+      "function": "_refresh_party",
+      "exact": true
+    },
+    {
+      "function": "_select_party_member",
+      "exact": true
+    },
+    {
+      "function": "_refresh_notes",
+      "exact": true
+    },
+    {
+      "function": "_show_message",
+      "exact": true
+    },
+    {
+      "function": "_build_hud",
+      "exact": true
+    },
+    {
+      "function": "_route_button_style",
+      "exact": true
+    },
+    {
+      "function": "_style_route_button",
+      "exact": true
+    },
+    {
+      "function": "_panel_style",
+      "exact": true
+    }
+  ],
+  "authorized_controller_text_changes": [
+    {
+      "before": "The dispatcher is taking runners beside the eastern street.",
+      "after": "The dispatcher is taking runners inside the courier hall on the eastern street."
+    },
+    {
+      "before": "The eastern street leads to the dispatcher and the marked Route 1 entrance.",
+      "after": "The eastern street leads to the courier hall and the marked Route 1 entrance."
+    }
+  ],
+  "resident": {
+    "status": "Final approved generated garden neighbor installed; original workshop keeper stand-in is superseded and preserved in the work folder.",
+    "approved_outpaint_job": "2852abde-e5a5-4f75-94c4-baa6efc7afc8",
+    "original_source": "generation/garden-neighbor-source.png",
+    "original_source_sha256": "6e47c38ca16f2cdb3117a6838761c0288eb1371cb814c1a933d4a95cda24db08",
+    "original_source_matches_completion_record": true,
+    "outpaint_source": "generation/garden-neighbor-hat-outpaint.png",
+    "outpaint_sha256": "667a41d5874c1f335ae614a9d1cbed9efd9987b4aa2ca14753a8fe17e17987e5",
+    "outpaint_hash_matches_receipt": true,
+    "composed_source": "prepared/garden_neighbor_completed_source.png",
+    "composed_source_sha256": "b01b57fa2d973dcc375201a6e9f492e22a8bfa4320fb4186bda395b459ddf8f9",
+    "all_original_body_rgba_exact_before_native_reduction": true,
+    "crown_new_visible_pixels": 20,
+    "composed_source_bounds": [
+      6,
+      10,
+      42,
+      74
+    ],
+    "prepared_asset": "assets/sprites/world/hometown_garden_2026_10_04/garden_neighbor.png",
+    "prepared_asset_sha256": "c0f31928258cec2f26248cccd40581a60c4704bf1f1a015a9f994bc1fabfb7e1",
+    "installed_exact_to_prepared": true,
+    "native_canvas_size": [
+      21,
+      34
+    ],
+    "native_visible_bounds": [
+      2,
+      2,
+      19,
+      32
+    ],
+    "native_visible_size": [
+      17,
+      30
+    ],
+    "native_reduction": "nearest, with transparent two-pixel padding",
+    "historical_standin": "prepared/garden_neighbor_standin.png",
+    "historical_standin_sha256": "6cd4a1d2c22928c8cb458fdb6e540bba8aaf63c85ab6cee9d7f41dbdbd955f62",
+    "historical_standin_matches_prior_audit": true,
+    "historical_preparation_entry": "The original garden_neighbor keeper entry in native-preparation.json records the earlier stand-in; the final source is documented by neighbor-completion.json.",
+    "completion_record": "neighbor-completion.json",
+    "runtime_evidence_scope": "Filesystem audit only. Parent task records prior full twelve-gate journeys with the stand-in separately from final NPC garden-only checks."
+  },
+  "hash_stability_during_audit": {
+    "all_changed_and_new_files_stable": true,
+    "checks": [
+      {
+        "path": "scenes/hometown.tscn",
+        "stable": true
+      },
+      {
+        "path": "scripts/area_landscape.gd",
+        "stable": true
+      },
+      {
+        "path": "scripts/first_route_prototype.gd",
+        "stable": true
+      },
+      {
+        "path": "scripts/world_area.gd",
+        "stable": true
+      },
+      {
+        "path": "assets/sprites/world/hometown_garden_2026_10_04/cuttings_row.png",
+        "stable": true
+      },
+      {
+        "path": "assets/sprites/world/hometown_garden_2026_10_04/cuttings_row.png.import",
+        "stable": true
+      },
+      {
+        "path": "assets/sprites/world/hometown_garden_2026_10_04/garden_lanes.png",
+        "stable": true
+      },
+      {
+        "path": "assets/sprites/world/hometown_garden_2026_10_04/garden_lanes.png.import",
+        "stable": true
+      },
+      {
+        "path": "assets/sprites/world/hometown_garden_2026_10_04/garden_neighbor.png",
+        "stable": true
+      },
+      {
+        "path": "assets/sprites/world/hometown_garden_2026_10_04/garden_neighbor.png.import",
+        "stable": true
+      },
+      {
+        "path": "assets/sprites/world/hometown_garden_2026_10_04/timber_bed.png",
+        "stable": true
+      },
+      {
+        "path": "assets/sprites/world/hometown_garden_2026_10_04/timber_bed.png.import",
+        "stable": true
+      },
+      {
+        "path": "scripts/hometown_garden.gd",
+        "stable": true
+      },
+      {
+        "path": "scripts/hometown_garden.gd.uid",
+        "stable": true
+      }
+    ]
+  },
+  "limitations": [
+    "Filesystem preservation only; native rendering/walking evidence is recorded separately by the parent task.",
+    "Generated Godot cache files and documentation are outside the runtime baseline.",
+    "No project edits, launch, editor control, upload, paid request, stage or commit performed by this audit.",
+    "The full world objective remains unachieved; this audit does not mark it complete."
+  ],
+  "archive_relative_path_note": "Relative generated/* paths remapped to generation/* in this archive; original independent work-folder audit is preserved under sources/preservation-audit-work-original.json."
+}

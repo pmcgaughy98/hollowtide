@@ -1,0 +1,116 @@
+[
+  {
+    "name": "kithflare",
+    "view": "front",
+    "previous_bbox": [
+      25,
+      21,
+      131,
+      140
+    ],
+    "polished_bbox": [
+      25,
+      21,
+      131,
+      140
+    ],
+    "changed_from_previous": 19,
+    "original_tail_mask_only": true,
+    "sha256": "9b694edbaa7726caa2d040a93e125f4ae0508837507b1066cb3e2454a1523243"
+  },
+  {
+    "name": "kithflare",
+    "view": "back",
+    "previous_bbox": [
+      29,
+      19,
+      130,
+      135
+    ],
+    "polished_bbox": [
+      29,
+      19,
+      130,
+      135
+    ],
+    "changed_from_previous": 22,
+    "original_tail_mask_only": true,
+    "sha256": "0118a9e94c080dc37c27e1770385e2bdb2d055e20950d81f2792e32e0ade14e1"
+  },
+  {
+    "name": "wayburn",
+    "view": "front",
+    "previous_bbox": [
+      21,
+      13,
+      176,
+      136
+    ],
+    "polished_bbox": [
+      21,
+      13,
+      176,
+      136
+    ],
+    "changed_from_previous": 0,
+    "original_tail_mask_only": true,
+    "sha256": "9cd5dcec545b35202116a0f8021a28c6f4abe493d8a051c525118a400a5bd610"
+  },
+  {
+    "name": "wayburn",
+    "view": "back",
+    "previous_bbox": [
+      16,
+      21,
+      130,
+      144
+    ],
+    "polished_bbox": [
+      16,
+      21,
+      130,
+      144
+    ],
+    "changed_from_previous": 23,
+    "original_tail_mask_only": true,
+    "sha256": "5dc11052559ad43ef8b64803b0e1bb2d612ad2e9fb6fecac81f607e0815120e1"
+  },
+  {
+    "name": "coalcrest",
+    "view": "front",
+    "previous_bbox": [
+      10,
+      3,
+      129,
+      142
+    ],
+    "polished_bbox": [
+      10,
+      3,
+      129,
+      142
+    ],
+    "changed_from_previous": 1155,
+    "original_tail_mask_only": true,
+    "sha256": "9f6bb2bf082e037a74795ca664e5e411a581ad6fcea47ad4b7ebcdd87f135d24"
+  },
+  {
+    "name": "coalcrest",
+    "view": "back",
+    "previous_bbox": [
+      9,
+      13,
+      125,
+      145
+    ],
+    "polished_bbox": [
+      9,
+      13,
+      125,
+      143
+    ],
+    "changed_from_previous": 1018,
+    "original_tail_mask_only": true,
+    "sha256": "532b5d173d90fa1df4e39c9d38915bfaa744d63f51a51d776dcb533dd76118ce"
+  }
+]

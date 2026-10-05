@@ -1,0 +1,36 @@
+{
+  "id": 2,
+  "jsonrpc": "2.0",
+  "result": {
+    "content": [
+      {
+        "text": "{\n  \"places\": [\n    {\n      \"place\": \"places/ChIJT9Qn6FQawIcRtcJ8ET4reZ8\",\n      \"id\": \"ChIJT9Qn6FQawIcRtcJ8ET4reZ8\",\n      \"location\": {\n        \"latitude\": 39.7561682,\n        \"longitude\": -94.8486314\n      },\n      \"googleMapsLinks\": {\n        \"directionsUrl\": \"https://www.google.com/maps/dir//''/data=!4m7!4m6!1m1!4e2!1m2!1m1!1s0x87c01a54e827d44f:0x9f792b3e117cc2b5!3e0\",\n        \"placeUrl\": \"https://www.google.com/maps/place//data=!4m2!3m1!1s0x87c01a54e827d44f:0x9f792b3e117cc2b5\",\n        \"writeAReviewUrl\": \"https://www.google.com/maps/place//data=!4m3!3m2!1s0x87c01a54e827d44f:0x9f792b3e117cc2b5!12e1\",\n        \"reviewsUrl\": \"https://www.google.com/maps/place//data=!4m4!3m3!1s0x87c01a54e827d44f:0x9f792b3e117cc2b5!9m1!1b1\",\n        \"photosUrl\": \"https://www.google.com/maps/place//data=!4m3!3m2!1s0x87c01a54e827d44f:0x9f792b3e117cc2b5!10e5\"\n      },\n      \"attribution\": {\n        \"title\": \"Pony Express Museum - Google Maps\",\n        \"url\": \"https://www.google.com/maps/place//data=!4m2!3m1!1s0x87c01a54e827d44f:0x9f792b3e117cc2b5\"\n      }\n    }\n  ],\n  \"summary\": \"**Pony Express Museum** [0] (4.6\u2605 (826)) features exhibits detailing the legendary cross-country mail delivery service via horse and rider in the 1860s. Visitors mention that the informative museum includes interactive exhibits and interesting artifacts.\"\n}\n",
+        "type": "text"
+      }
+    ],
+    "structuredContent": {
+      "places": [
+        {
+          "attribution": {
+            "title": "Pony Express Museum - Google Maps",
+            "url": "https://www.google.com/maps/place//data=!4m2!3m1!1s0x87c01a54e827d44f:0x9f792b3e117cc2b5"
+          },
+          "googleMapsLinks": {
+            "directionsUrl": "https://www.google.com/maps/dir//''/data=!4m7!4m6!1m1!4e2!1m2!1m1!1s0x87c01a54e827d44f:0x9f792b3e117cc2b5!3e0",
+            "photosUrl": "https://www.google.com/maps/place//data=!4m3!3m2!1s0x87c01a54e827d44f:0x9f792b3e117cc2b5!10e5",
+            "placeUrl": "https://www.google.com/maps/place//data=!4m2!3m1!1s0x87c01a54e827d44f:0x9f792b3e117cc2b5",
+            "reviewsUrl": "https://www.google.com/maps/place//data=!4m4!3m3!1s0x87c01a54e827d44f:0x9f792b3e117cc2b5!9m1!1b1",
+            "writeAReviewUrl": "https://www.google.com/maps/place//data=!4m3!3m2!1s0x87c01a54e827d44f:0x9f792b3e117cc2b5!12e1"
+          },
+          "id": "ChIJT9Qn6FQawIcRtcJ8ET4reZ8",
+          "location": {
+            "latitude": 39.7561682,
+            "longitude": -94.8486314
+          },
+          "place": "places/ChIJT9Qn6FQawIcRtcJ8ET4reZ8"
+        }
+      ],
+      "summary": "**Pony Express Museum** [0] (4.6\u2605 (826)) features exhibits detailing the legendary cross-country mail delivery service via horse and rider in the 1860s. Visitors mention that the informative museum includes interactive exhibits and interesting artifacts."
+    }
+  }
+}

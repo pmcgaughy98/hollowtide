@@ -1,12 +1,12 @@
-[gd_scene format=3]
+[gd_scene format=3 uid="uid://cqv80tnt5ris0"]
 
-[ext_resource type="Script" path="res://scripts/debug/oxbowarchon_rail_preview.gd" id="1_preview"]
-[ext_resource type="Script" path="res://scripts/battle_screen.gd" id="2_battle"]
+[ext_resource type="Script" uid="uid://5iifg4f1o53y" path="res://scripts/debug/oxbowarchon_rail_preview.gd" id="1_preview"]
+[ext_resource type="Script" uid="uid://csbds1apdrj3q" path="res://scripts/battle_screen.gd" id="2_battle"]
 [ext_resource type="Resource" path="res://data/creatures/002_cinderhide.tres" id="3_player"]
 
-[node name="OxbowarchonRailPreview" type="Node2D"]
+[node name="OxbowarchonRailPreview" type="Node2D" unique_id=650194595]
 script = ExtResource("1_preview")
 
-[node name="BattleScreen" type="CanvasLayer" parent="."]
+[node name="BattleScreen" type="CanvasLayer" parent="." unique_id=275354369]
 script = ExtResource("2_battle")
 player_creature = ExtResource("3_player")

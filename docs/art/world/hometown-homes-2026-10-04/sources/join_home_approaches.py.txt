@@ -1,0 +1,26 @@
+from pathlib import Path
+from PIL import Image,ImageDraw
+import numpy as np,json,shutil
+W=Path(r"C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an");D=W/"hometown-homes-2026-10-04";P=Path(r"C:/Users/pmcga/dev/hollowtide")
+atlas=Image.open(P/"assets/tilesets/route1_rd_2026_10_01/route1_ground_atlas_polished.png").convert("RGBA")
+tile=np.array(atlas.crop((176,0,192,16)))
+mask=Image.new("L",(1024,768));draw=ImageDraw.Draw(mask)
+draw.rounded_rectangle((224,247,242,281),radius=6,fill=255)
+draw.line([(233,274),(224,290)],width=18,fill=255)
+draw.ellipse((215,281,233,299),fill=255)
+draw.rounded_rectangle((549,220,571,260),radius=6,fill=255)
+yy,xx=np.mgrid[:768,:1024];a=tile[yy%16,xx%16].copy();a[:,:,3]=np.array(mask)
+target=D/"prepared/home_approaches.png";Image.fromarray(a).save(target)
+shutil.copy2(target,P/"assets/sprites/world/hometown_homes_2026_10_04/home_approaches.png")
+r=json.loads((D/"native-preparation.json").read_text())
+r.append({"asset":"home_approaches","size":[1024,768],"source_tile":"route1_ground_atlas_polished.png tile(11,0)",
+ "phase_matches_original_streets":True,"operation":"exact native existing soil tile under two threshold approach masks",
+ "mask_shapes":{"courtyard":[224,247,242,281],"courtyard_join":[[233,274],[224,290]],"neighbor":[549,220,571,260]}})
+(D/"native-preparation.json").write_text(json.dumps(r,indent=2),encoding="utf-8")
+p=P/"scripts/area_landscape.gd";s=p.read_text()
+anchor='const GARDEN_HOME = preload("res://assets/sprites/world/hometown_homes_2026_10_04/garden_home.png")\n'
+assert s.count(anchor)==1
+s=s.replace(anchor,anchor+'const HOME_APPROACHES = preload("res://assets/sprites/world/hometown_homes_2026_10_04/home_approaches.png")\n',1)
+anchor="func _build_home() -> void:\n";assert s.count(anchor)==1
+s=s.replace(anchor,anchor+'    _surface("HomeApproaches",HOME_APPROACHES,Vector2.ZERO,-6)\n',1);p.write_text(s,encoding="utf-8",newline="\n")
+print(json.dumps({"approach_asset_installed":True,"source_material":"existing native soil","new_paid_requests":0}))

@@ -10,6 +10,7 @@
 script = ExtResource("1_script")
 id = 903
 creature_name = "Oxbowarchon"
+body_parts = PackedStringArray("rail")
 essence = 2
 sprite = ExtResource("3_sprite")
 back_sprite = ExtResource("4_back")

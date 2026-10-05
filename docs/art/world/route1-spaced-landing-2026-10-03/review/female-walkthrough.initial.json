@@ -1,0 +1,226 @@
+{
+	"engine_entrance_arrivals": [
+		{
+			"arrival": "(-720.0, 512.0)",
+			"from": "hometown",
+			"to": "route1"
+		}
+	],
+	"fixed_fps": 60,
+	"flags": {
+		"city_arrival_registered": false,
+		"city_directions_read": false,
+		"delivered": false,
+		"heard_calls": false,
+		"levee_entrance_read": true,
+		"marker_restored": false,
+		"pouch_accepted": true,
+		"report_done": false,
+		"reported_calls": false,
+		"reported_water_mark": false,
+		"water_mark_observed": false
+	},
+	"home_walk_frames_before_exit": 958,
+	"levee_sign_to_relay_walk_frames": 0,
+	"model": "Female",
+	"ordinary_input_only": true,
+	"passed": false,
+	"quest_overrides": 0,
+	"route_approach_walk_frames": 816,
+	"startup_ms": 1196,
+	"steps": [
+		{
+			"area": "hometown",
+			"movement_frozen_and_resumed": true,
+			"panel": "_notes_panel"
+		},
+		{
+			"area": "hometown",
+			"movement_frozen_and_resumed": true,
+			"panel": "_party_panel"
+		},
+		{
+			"area": "hometown",
+			"frames": 0,
+			"from": "(224.0, 280.0)",
+			"walk": "(224.0, 280.0)"
+		},
+		{
+			"at": "(224.0, 280.0)",
+			"body": "HOME COURTYARD\nThe patched porch and stacked wood make this place easy to recognize from the lane. The dispatcher is taking runners beside the eastern street.\n\n[E] Continue",
+			"interaction": "HOME COURTYARD",
+			"passed": true
+		},
+		{
+			"at": "(224.0, 266.0031)",
+			"house_collision": true
+		},
+		{
+			"area": "hometown",
+			"frames": 52,
+			"from": "(224.0, 266.0031)",
+			"walk": "(224.0, 336.0)"
+		},
+		{
+			"area": "hometown",
+			"frames": 252,
+			"from": "(224.0, 334.0753)",
+			"walk": "(560.0, 336.0)"
+		},
+		{
+			"area": "hometown",
+			"frames": 132,
+			"from": "(558.2773, 335.0181)",
+			"walk": "(560.0, 512.0)"
+		},
+		{
+			"area": "hometown",
+			"frames": 157,
+			"from": "(559.2201, 509.2956)",
+			"walk": "(768.0, 512.0)"
+		},
+		{
+			"area": "hometown",
+			"frames": 41,
+			"from": "(766.4359, 511.1812)",
+			"walk": "(768.0, 456.0)"
+		},
+		{
+			"at": "(767.3787, 458.238)",
+			"body": "DISPATCHER\nTake this sealed pouch along the river bend to the old ferry relay post. Check whether anyone is keeping the return mark. Leave the seal intact.\n\n[E] Continue",
+			"interaction": "DISPATCHER",
+			"passed": true
+		},
+		{
+			"area": "hometown",
+			"frames": 40,
+			"from": "(767.3787, 458.238)",
+			"walk": "(768.0, 512.0)"
+		},
+		{
+			"area": "hometown",
+			"frames": 156,
+			"from": "(767.3787, 510.2384)",
+			"walk": "(976.0, 512.0)"
+		},
+		{
+			"area": "hometown",
+			"frames": 35,
+			"from": "(973.6517, 511.1812)",
+			"walk": "(976.0, 464.0)"
+		},
+		{
+			"at": "(1017.997, 466.238)",
+			"entrance_side_wall": true
+		},
+		{
+			"area": "hometown",
+			"frames": 46,
+			"from": "(1017.997, 466.238)",
+			"walk": "(976.0, 512.0)"
+		},
+		{
+			"area": "hometown",
+			"frames": 25,
+			"from": "(977.4202, 509.4814)",
+			"walk": "(944.0, 512.0)"
+		},
+		{
+			"at": "(946.2017, 511.367)",
+			"body": "DISPATCH LANE\nThe courier hall stands beside the eastern street. Follow the Route 1 sign to the opening at the end of that street. Beyond the entrance, the meadow path bends toward the raised levee and river bridge. The courtyard streets return to your home.\n\n[E] Continue",
+			"interaction": "DISPATCH LANE",
+			"passed": true
+		},
+		{
+			"area": "hometown",
+			"frames": 22,
+			"from": "(946.2017, 511.367)",
+			"walk": "(976.0, 512.0)"
+		},
+		{
+			"entrance_from": "hometown",
+			"flags_preserved": true,
+			"passed": true,
+			"selected_model": "Female",
+			"to": "route1"
+		},
+		{
+			"area": "route1",
+			"frames": 59,
+			"from": "(-720.0, 512.0)",
+			"walk": "(-640.0, 512.0)"
+		},
+		{
+			"area": "route1",
+			"frames": 132,
+			"from": "(-642.6678, 512.0)",
+			"walk": "(-640.0, 336.0)"
+		},
+		{
+			"area": "route1",
+			"frames": 156,
+			"from": "(-640.7822, 338.1131)",
+			"walk": "(-432.0, 336.0)"
+		},
+		{
+			"area": "route1",
+			"frames": 109,
+			"from": "(-434.5074, 337.1703)",
+			"walk": "(-432.0, 192.0)"
+		},
+		{
+			"area": "route1",
+			"frames": 360,
+			"from": "(-432.6218, 193.9509)",
+			"walk": "(48.0, 192.0)"
+		},
+		{
+			"area": "route1",
+			"frames": 15,
+			"from": "(45.65528, 193.0081)",
+			"walk": "(64.0, 200.0)"
+		},
+		{
+			"at": "(61.9788, 198.665)",
+			"body": "ROUTE 1\nThe crest road follows the river to the bridge. The old landing and relay post lie along the side path. Keep to the worn track on the raised earth.\n\n[E] Continue",
+			"interaction": "ROUTE 1",
+			"passed": true
+		},
+		{
+			"area": "route1",
+			"frames": 93,
+			"from": "(61.9788, 198.665)",
+			"walk": "(184.0, 192.0)"
+		},
+		{
+			"area": "route1",
+			"frames": 67,
+			"from": "(182.3022, 193.0081)",
+			"walk": "(272.0, 192.0)"
+		},
+		{
+			"area": "route1",
+			"frames": 69,
+			"from": "(270.3021, 193.0081)",
+			"walk": "(306.0, 272.0)"
+		},
+		{
+			"area": "route1",
+			"frames": 73,
+			"from": "(305.186, 269.2254)",
+			"walk": "(344.0, 352.0)"
+		},
+		{
+			"area": "route1",
+			"frames": 36,
+			"from": "(342.8984, 349.6048)",
+			"walk": "(318.0, 388.0)"
+		},
+		{
+			"area": "route1",
+			"at": "(319.3282, 438.7485)",
+			"blocked": "(320.0, 456.0)"
+		}
+	],
+	"test_teleports": 0
+}

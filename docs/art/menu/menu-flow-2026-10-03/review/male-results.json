@@ -1,0 +1,145 @@
+{
+	"checks": [
+		{
+			"evidence": "[P: (820.0, 410.0), S: (290.0, 184.0)]",
+			"name": "main MainChoices in viewport",
+			"passed": true
+		},
+		{
+			"evidence": "/root/MainMenuArtPreview/MenuUI/MainChoices/Choices/NewGame",
+			"name": "initial focus New Game",
+			"passed": true
+		},
+		{
+			"evidence": null,
+			"name": "fresh launch restores preferences",
+			"passed": true
+		},
+		{
+			"evidence": null,
+			"name": "test preferences restored to defaults",
+			"passed": true
+		},
+		{
+			"evidence": "/root/MainMenuArtPreview/MenuUI/QuitConfirmation/Choices/Back",
+			"name": "Quit confirmation defaults to safe choice",
+			"passed": true
+		},
+		{
+			"evidence": "[P: (720.0, 330.0), S: (390.0, 173.0)]",
+			"name": "quit QuitConfirmation in viewport",
+			"passed": true
+		},
+		{
+			"evidence": "/root/MainMenuArtPreview/MenuUI/MainChoices/Choices/Quit",
+			"name": "controller Cancel returns to Quit choice",
+			"passed": true
+		},
+		{
+			"evidence": "journey",
+			"name": "controller Accept opens courier selection",
+			"passed": true
+		},
+		{
+			"evidence": "Male",
+			"name": "mouse selects Male",
+			"passed": true
+		},
+		{
+			"evidence": "[P: (650.0, 150.0), S: (460.0, 414.0)]",
+			"name": "couriers Journey in viewport",
+			"passed": true
+		},
+		{
+			"evidence": "res://assets/sprites/player/retro_diffusion_chibi_walking_2026_10_01/male_chibi_walk_matched_turns_native80.png",
+			"name": "Male applied before player ready",
+			"passed": true
+		},
+		{
+			"evidence": [
+				"(48.0, 192.0)",
+				"(74.66667, 192.0)"
+			],
+			"name": "Male route walking works",
+			"passed": true
+		}
+	],
+	"failed": false,
+	"mode": "male",
+	"snapshots": [
+		{
+			"_leaving": false,
+			"_master_volume": 90.0,
+			"_music_volume": 95.0,
+			"_page": "main",
+			"_reduce_motion": true,
+			"_selected_courier": "Female",
+			"_time": 0.0,
+			"courier_frame": 0,
+			"courier_position": "(57.0, 253.0)",
+			"creature_frame": 0,
+			"creature_position": "(216.0, 354.0)",
+			"focus": "/root/MainMenuArtPreview/MenuUI/MainChoices/Choices/NewGame",
+			"frame": 239,
+			"image": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/menu-flow-review/male-main.png",
+			"image_saved": true,
+			"name": "main",
+			"panels": {
+				"MainChoices": "[P: (820.0, 410.0), S: (290.0, 184.0)]"
+			}
+		},
+		{
+			"_leaving": false,
+			"_master_volume": 100.0,
+			"_music_volume": 100.0,
+			"_page": "quit",
+			"_reduce_motion": false,
+			"_selected_courier": "Female",
+			"_time": 0.233333333333333,
+			"courier_frame": 0,
+			"courier_position": "(57.0, 253.0)",
+			"creature_frame": 0,
+			"creature_position": "(216.0, 354.0)",
+			"focus": "/root/MainMenuArtPreview/MenuUI/QuitConfirmation/Choices/Back",
+			"frame": 283,
+			"image": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/menu-flow-review/male-quit.png",
+			"image_saved": true,
+			"name": "quit",
+			"panels": {
+				"QuitConfirmation": "[P: (720.0, 330.0), S: (390.0, 173.0)]"
+			}
+		},
+		{
+			"_leaving": false,
+			"_master_volume": 100.0,
+			"_music_volume": 100.0,
+			"_page": "journey",
+			"_reduce_motion": false,
+			"_selected_courier": "Male",
+			"_time": 0.516666666666667,
+			"courier_frame": 2,
+			"courier_position": "(68.0, 249.0)",
+			"creature_frame": 0,
+			"creature_position": "(217.0, 354.0)",
+			"focus": "/root/MainMenuArtPreview/MenuUI/Journey/Choices/Couriers/Male",
+			"frame": 300,
+			"image": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/menu-flow-review/male-couriers.png",
+			"image_saved": true,
+			"name": "couriers",
+			"panels": {
+				"Journey": "[P: (650.0, 150.0), S: (460.0, 414.0)]"
+			}
+		},
+		{
+			"focus": "",
+			"frame": 452,
+			"image": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/menu-flow-review/male-route.png",
+			"image_saved": true,
+			"name": "route",
+			"player_model": "Male",
+			"player_position": "(74.66667, 192.0)",
+			"player_texture": "res://assets/sprites/player/retro_diffusion_chibi_walking_2026_10_01/male_chibi_walk_matched_turns_native80.png",
+			"scene": "/root/FirstRoutePrototype"
+		}
+	]
+}

@@ -1,0 +1,348 @@
+{
+  "records": [
+    {
+      "key": "river_final_city",
+      "events": [
+        {
+          "at_frame": 0,
+          "type": "action",
+          "action": "move_right",
+          "pressed": true
+        },
+        {
+          "at_frame": 150,
+          "type": "action",
+          "action": "move_right",
+          "pressed": false
+        },
+        {
+          "at_frame": 152,
+          "type": "action",
+          "action": "move_down",
+          "pressed": true
+        },
+        {
+          "at_frame": 200,
+          "type": "action",
+          "action": "move_down",
+          "pressed": false
+        },
+        {
+          "at_frame": 202,
+          "type": "action",
+          "action": "move_right",
+          "pressed": true
+        },
+        {
+          "at_frame": 250,
+          "type": "action",
+          "action": "move_right",
+          "pressed": false
+        },
+        {
+          "at_frame": 252,
+          "type": "key",
+          "keycode": 69,
+          "physical_keycode": 69,
+          "pressed": true
+        },
+        {
+          "at_frame": 253,
+          "type": "key",
+          "keycode": 69,
+          "physical_keycode": 69,
+          "pressed": false
+        },
+        {
+          "at_frame": 262,
+          "type": "key",
+          "keycode": 69,
+          "physical_keycode": 69,
+          "pressed": true
+        },
+        {
+          "at_frame": 263,
+          "type": "key",
+          "keycode": 69,
+          "physical_keycode": 69,
+          "pressed": false
+        }
+      ],
+      "input": [
+        {
+          "type": "text",
+          "text": "{\n  \"results\": [\n    {\n      \"applied\": 10,\n      \"clock_mapping\": \"exact\",\n      \"clock_unit\": \"physics_tick\",\n      \"completed\": true,\n      \"drove\": true,\n      \"first_frame\": 6189,\n      \"frame\": {\n        \"frames_drawn\": 6451,\n        \"physics_frames\": 6452,\n        \"process_frames\": 6451\n      },\n      \"instance\": \"river-final\",\n      \"last_frame\": 6452,\n      \"ok\": true,\n      \"op\": \"SimulateInputScript\",\n      \"physics_ticks_per_second\": 60,\n      \"provenance\": {\n        \"source\": \"runtime\",\n        \"target\": {\n          \"instance\": \"river-final\",\n          \"kind\": \"game\"\n        }\n      },\n      \"rejected\": [],\n      \"requestId\": \"mcp-a86b4e53-b56e-4a85-8c46-c93ba8459b74\",\n      \"scheduled\": 10,\n      \"suspended\": true,\n      \"transport\": \"summer\"\n    }\n  ],\n  \"skippedCount\": 0,\n  \"status\": \"ok\",\n  \"stopOnError\": true,\n  \"undoGroup\": false,\n  \"requestId\": \"mcp-a86b4e53-b56e-4a85-8c46-c93ba8459b74\",\n  \"terminalState\": \"applied\",\n  \"appliedSeq\": 1286\n}"
+        }
+      ],
+      "probe": [
+        {
+          "type": "text",
+          "text": "Game probe — frame 6456, physics 6457, drawn 6457, image_frame 6456, instance river-final, SUSPENDED (1152x648). The image above and the state below describe this ONE frame; review the image and describe what you actually see before claiming anything about it.\n\n{\n  \"results\": [\n    {\n      \"effective_time_scale\": 0,\n      \"format\": \"jpeg\",\n      \"frame\": {\n        \"frames_drawn\": 6457,\n        \"physics_frames\": 6457,\n        \"process_frames\": 6456\n      },\n      \"height\": 648,\n      \"image_frame\": 6456,\n      \"instance\": \"river-final\",\n      \"mime\": \"image/jpeg\",\n      \"missing\": [],\n      \"ok\": true,\n      \"op\": \"GameProbe\",\n      \"paused\": false,\n      \"provenance\": {\n        \"source\": \"runtime\",\n        \"target\": {\n          \"instance\": \"river-final\",\n          \"kind\": \"game\"\n        }\n      },\n      \"requestId\": \"mcp-b4316a2d-9315-4c48-84df-8038aabdd206\",\n      \"source_height\": 648,\n      \"source_width\": 1152,\n      \"suspended\": true,\n      \"time_scale\": 1,\n      \"transport\": \"summer\",\n      \"values\": {\n        \"/root/FirstRoutePrototype/Player:position\": \"Vector2(815.788, 479.793)\",\n        \"/root/FirstRoutePrototype:city_arrival_registered\": true,\n        \"/root/FirstRoutePrototype:levee_entrance_read\": true,\n        \"/root/FirstRoutePrototype:pouch_accepted\": true\n      },\n      \"width\": 1152\n    }\n  ],\n  \"skippedCount\": 0,\n  \"status\": \"ok\",\n  \"stopOnError\": true,\n  \"undoGroup\": false,\n  \"requestId\": \"mcp-b4316a2d-9315-4c48-84df-8038aabdd206\",\n  \"terminalState\": \"applied\",\n  \"appliedSeq\": 1287\n}"
+        }
+      ]
+    },
+    {
+      "key": "river_final_westbank",
+      "events": [
+        {
+          "at_frame": 0,
+          "type": "action",
+          "action": "move_left",
+          "pressed": true
+        },
+        {
+          "at_frame": 48,
+          "type": "action",
+          "action": "move_left",
+          "pressed": false
+        },
+        {
+          "at_frame": 50,
+          "type": "action",
+          "action": "move_up",
+          "pressed": true
+        },
+        {
+          "at_frame": 98,
+          "type": "action",
+          "action": "move_up",
+          "pressed": false
+        },
+        {
+          "at_frame": 100,
+          "type": "action",
+          "action": "move_left",
+          "pressed": true
+        },
+        {
+          "at_frame": 340,
+          "type": "action",
+          "action": "move_left",
+          "pressed": false
+        }
+      ],
+      "input": [
+        {
+          "type": "text",
+          "text": "{\n  \"results\": [\n    {\n      \"applied\": 6,\n      \"clock_mapping\": \"exact\",\n      \"clock_unit\": \"physics_tick\",\n      \"completed\": true,\n      \"drove\": true,\n      \"first_frame\": 6468,\n      \"frame\": {\n        \"frames_drawn\": 6807,\n        \"physics_frames\": 6808,\n        \"process_frames\": 6807\n      },\n      \"instance\": \"river-final\",\n      \"last_frame\": 6808,\n      \"ok\": true,\n      \"op\": \"SimulateInputScript\",\n      \"physics_ticks_per_second\": 60,\n      \"provenance\": {\n        \"source\": \"runtime\",\n        \"target\": {\n          \"instance\": \"river-final\",\n          \"kind\": \"game\"\n        }\n      },\n      \"rejected\": [],\n      \"requestId\": \"mcp-4650963f-685b-477d-92b4-e5b443879056\",\n      \"scheduled\": 6,\n      \"suspended\": true,\n      \"transport\": \"summer\"\n    }\n  ],\n  \"skippedCount\": 0,\n  \"status\": \"ok\",\n  \"stopOnError\": true,\n  \"undoGroup\": false,\n  \"requestId\": \"mcp-4650963f-685b-477d-92b4-e5b443879056\",\n  \"terminalState\": \"applied\",\n  \"appliedSeq\": 1288\n}"
+        }
+      ],
+      "probe": [
+        {
+          "type": "text",
+          "text": "{\n  \"results\": [\n    {\n      \"effective_time_scale\": 0,\n      \"frame\": {\n        \"frames_drawn\": 6812,\n        \"physics_frames\": 6812,\n        \"process_frames\": 6811\n      },\n      \"instance\": \"river-final\",\n      \"missing\": [],\n      \"ok\": true,\n      \"op\": \"GameProbe\",\n      \"paused\": false,\n      \"provenance\": {\n        \"source\": \"runtime\",\n        \"target\": {\n          \"instance\": \"river-final\",\n          \"kind\": \"game\"\n        }\n      },\n      \"requestId\": \"mcp-cdab397b-64ee-4b48-8038-7b353713c075\",\n      \"suspended\": true,\n      \"time_scale\": 1,\n      \"transport\": \"summer\",\n      \"values\": {\n        \"/root/FirstRoutePrototype/Player:position\": \"Vector2(431.792, 415.792)\",\n        \"/root/FirstRoutePrototype:city_arrival_registered\": true,\n        \"/root/FirstRoutePrototype:levee_entrance_read\": true,\n        \"/root/FirstRoutePrototype:pouch_accepted\": true\n      }\n    }\n  ],\n  \"skippedCount\": 0,\n  \"status\": \"ok\",\n  \"stopOnError\": true,\n  \"undoGroup\": false,\n  \"requestId\": \"mcp-cdab397b-64ee-4b48-8038-7b353713c075\",\n  \"terminalState\": \"applied\",\n  \"appliedSeq\": 1289\n}"
+        }
+      ]
+    },
+    {
+      "key": "river_final_return_levee",
+      "events": [
+        {
+          "at_frame": 0,
+          "type": "action",
+          "action": "move_left",
+          "pressed": true
+        },
+        {
+          "at_frame": 0,
+          "type": "action",
+          "action": "move_up",
+          "pressed": true
+        },
+        {
+          "at_frame": 25,
+          "type": "action",
+          "action": "move_left",
+          "pressed": false
+        },
+        {
+          "at_frame": 25,
+          "type": "action",
+          "action": "move_up",
+          "pressed": false
+        },
+        {
+          "at_frame": 27,
+          "type": "action",
+          "action": "move_left",
+          "pressed": true
+        },
+        {
+          "at_frame": 39,
+          "type": "action",
+          "action": "move_left",
+          "pressed": false
+        },
+        {
+          "at_frame": 41,
+          "type": "action",
+          "action": "move_left",
+          "pressed": true
+        },
+        {
+          "at_frame": 41,
+          "type": "action",
+          "action": "move_up",
+          "pressed": true
+        },
+        {
+          "at_frame": 109,
+          "type": "action",
+          "action": "move_left",
+          "pressed": false
+        },
+        {
+          "at_frame": 109,
+          "type": "action",
+          "action": "move_up",
+          "pressed": false
+        },
+        {
+          "at_frame": 111,
+          "type": "action",
+          "action": "move_left",
+          "pressed": true
+        },
+        {
+          "at_frame": 111,
+          "type": "action",
+          "action": "move_up",
+          "pressed": true
+        },
+        {
+          "at_frame": 145,
+          "type": "action",
+          "action": "move_left",
+          "pressed": false
+        },
+        {
+          "at_frame": 145,
+          "type": "action",
+          "action": "move_up",
+          "pressed": false
+        },
+        {
+          "at_frame": 147,
+          "type": "action",
+          "action": "move_left",
+          "pressed": true
+        },
+        {
+          "at_frame": 171,
+          "type": "action",
+          "action": "move_left",
+          "pressed": false
+        },
+        {
+          "at_frame": 173,
+          "type": "action",
+          "action": "move_left",
+          "pressed": true
+        },
+        {
+          "at_frame": 173,
+          "type": "action",
+          "action": "move_up",
+          "pressed": true
+        },
+        {
+          "at_frame": 207,
+          "type": "action",
+          "action": "move_left",
+          "pressed": false
+        },
+        {
+          "at_frame": 207,
+          "type": "action",
+          "action": "move_up",
+          "pressed": false
+        },
+        {
+          "at_frame": 209,
+          "type": "action",
+          "action": "move_left",
+          "pressed": true
+        },
+        {
+          "at_frame": 221,
+          "type": "action",
+          "action": "move_left",
+          "pressed": false
+        }
+      ],
+      "input": [
+        {
+          "type": "text",
+          "text": "{\n  \"results\": [\n    {\n      \"applied\": 22,\n      \"clock_mapping\": \"exact\",\n      \"clock_unit\": \"physics_tick\",\n      \"completed\": true,\n      \"drove\": true,\n      \"first_frame\": 6817,\n      \"frame\": {\n        \"frames_drawn\": 7037,\n        \"physics_frames\": 7038,\n        \"process_frames\": 7037\n      },\n      \"instance\": \"river-final\",\n      \"last_frame\": 7038,\n      \"ok\": true,\n      \"op\": \"SimulateInputScript\",\n      \"physics_ticks_per_second\": 60,\n      \"provenance\": {\n        \"source\": \"runtime\",\n        \"target\": {\n          \"instance\": \"river-final\",\n          \"kind\": \"game\"\n        }\n      },\n      \"rejected\": [],\n      \"requestId\": \"mcp-12e3332b-97e9-47b3-b9bf-52ef40bcec30\",\n      \"scheduled\": 22,\n      \"suspended\": true,\n      \"transport\": \"summer\"\n    }\n  ],\n  \"skippedCount\": 0,\n  \"status\": \"ok\",\n  \"stopOnError\": true,\n  \"undoGroup\": false,\n  \"requestId\": \"mcp-12e3332b-97e9-47b3-b9bf-52ef40bcec30\",\n  \"terminalState\": \"applied\",\n  \"appliedSeq\": 1290\n}"
+        }
+      ],
+      "probe": [
+        {
+          "type": "text",
+          "text": "{\n  \"results\": [\n    {\n      \"effective_time_scale\": 0,\n      \"frame\": {\n        \"frames_drawn\": 7043,\n        \"physics_frames\": 7043,\n        \"process_frames\": 7042\n      },\n      \"instance\": \"river-final\",\n      \"missing\": [],\n      \"ok\": true,\n      \"op\": \"GameProbe\",\n      \"paused\": false,\n      \"provenance\": {\n        \"source\": \"runtime\",\n        \"target\": {\n          \"instance\": \"river-final\",\n          \"kind\": \"game\"\n        }\n      },\n      \"requestId\": \"mcp-73e9ce16-0ce9-428b-9ae5-080dc65ea52e\",\n      \"suspended\": true,\n      \"time_scale\": 1,\n      \"transport\": \"summer\",\n      \"values\": {\n        \"/root/FirstRoutePrototype/Player:position\": \"Vector2(216, 264)\",\n        \"/root/FirstRoutePrototype:city_arrival_registered\": true,\n        \"/root/FirstRoutePrototype:levee_entrance_read\": true,\n        \"/root/FirstRoutePrototype:pouch_accepted\": true\n      }\n    }\n  ],\n  \"skippedCount\": 0,\n  \"status\": \"ok\",\n  \"stopOnError\": true,\n  \"undoGroup\": false,\n  \"requestId\": \"mcp-73e9ce16-0ce9-428b-9ae5-080dc65ea52e\",\n  \"terminalState\": \"applied\",\n  \"appliedSeq\": 1291\n}"
+        }
+      ]
+    },
+    {
+      "key": "river_final_return_home",
+      "events": [
+        {
+          "at_frame": 0,
+          "type": "action",
+          "action": "move_left",
+          "pressed": true
+        },
+        {
+          "at_frame": 24,
+          "type": "action",
+          "action": "move_left",
+          "pressed": false
+        },
+        {
+          "at_frame": 26,
+          "type": "action",
+          "action": "move_up",
+          "pressed": true
+        },
+        {
+          "at_frame": 80,
+          "type": "action",
+          "action": "move_up",
+          "pressed": false
+        },
+        {
+          "at_frame": 82,
+          "type": "action",
+          "action": "move_left",
+          "pressed": true
+        },
+        {
+          "at_frame": 184,
+          "type": "action",
+          "action": "move_left",
+          "pressed": false
+        }
+      ],
+      "input": [
+        {
+          "type": "text",
+          "text": "{\n  \"results\": [\n    {\n      \"applied\": 6,\n      \"clock_mapping\": \"exact\",\n      \"clock_unit\": \"physics_tick\",\n      \"completed\": true,\n      \"drove\": true,\n      \"first_frame\": 7047,\n      \"frame\": {\n        \"frames_drawn\": 7230,\n        \"physics_frames\": 7231,\n        \"process_frames\": 7230\n      },\n      \"instance\": \"river-final\",\n      \"last_frame\": 7231,\n      \"ok\": true,\n      \"op\": \"SimulateInputScript\",\n      \"physics_ticks_per_second\": 60,\n      \"provenance\": {\n        \"source\": \"runtime\",\n        \"target\": {\n          \"instance\": \"river-final\",\n          \"kind\": \"game\"\n        }\n      },\n      \"rejected\": [],\n      \"requestId\": \"mcp-9e443f18-047e-4e77-8bf8-1d0d2ee44881\",\n      \"scheduled\": 6,\n      \"suspended\": true,\n      \"transport\": \"summer\"\n    }\n  ],\n  \"skippedCount\": 0,\n  \"status\": \"ok\",\n  \"stopOnError\": true,\n  \"undoGroup\": false,\n  \"requestId\": \"mcp-9e443f18-047e-4e77-8bf8-1d0d2ee44881\",\n  \"terminalState\": \"applied\",\n  \"appliedSeq\": 1292\n}"
+        }
+      ],
+      "probe": [
+        {
+          "type": "text",
+          "text": "Game probe — frame 7235, physics 7236, drawn 7236, image_frame 7235, instance river-final, SUSPENDED (1152x648). The image above and the state below describe this ONE frame; review the image and describe what you actually see before claiming anything about it.\n\n{\n  \"results\": [\n    {\n      \"effective_time_scale\": 0,\n      \"format\": \"jpeg\",\n      \"frame\": {\n        \"frames_drawn\": 7236,\n        \"physics_frames\": 7236,\n        \"process_frames\": 7235\n      },\n      \"height\": 648,\n      \"image_frame\": 7235,\n      \"instance\": \"river-final\",\n      \"mime\": \"image/jpeg\",\n      \"missing\": [],\n      \"ok\": true,\n      \"op\": \"GameProbe\",\n      \"paused\": false,\n      \"provenance\": {\n        \"source\": \"runtime\",\n        \"target\": {\n          \"instance\": \"river-final\",\n          \"kind\": \"game\"\n        }\n      },\n      \"requestId\": \"mcp-15ff4d18-cf25-4fe3-b4c2-8858bf306038\",\n      \"source_height\": 648,\n      \"source_width\": 1152,\n      \"suspended\": true,\n      \"time_scale\": 1,\n      \"transport\": \"summer\",\n      \"values\": {\n        \"/root/FirstRoutePrototype/Player:position\": \"Vector2(48, 192)\",\n        \"/root/FirstRoutePrototype:city_arrival_registered\": true,\n        \"/root/FirstRoutePrototype:levee_entrance_read\": true,\n        \"/root/FirstRoutePrototype:pouch_accepted\": true\n      },\n      \"width\": 1152\n    }\n  ],\n  \"skippedCount\": 0,\n  \"status\": \"ok\",\n  \"stopOnError\": true,\n  \"undoGroup\": false,\n  \"requestId\": \"mcp-15ff4d18-cf25-4fe3-b4c2-8858bf306038\",\n  \"terminalState\": \"applied\",\n  \"appliedSeq\": 1293\n}"
+        }
+      ]
+    }
+  ],
+  "diagnostics": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\n  \"appliedThroughSeq\": 1291,\n  \"data\": {\n    \"console\": {\n      \"editor\": 18,\n      \"errors\": 0,\n      \"max_messages\": 50,\n      \"messages\": [\n        {\n          \"count\": 1,\n          \"text\": \"[WebView2] Suspended hidden surface generation 1.\",\n          \"type\": \"std\"\n        },\n        {\n          \"count\": 1,\n          \"text\": \"[godot_ai game_helper] registered mcp capture (debugger active=true, logger=true)\",\n          \"type\": \"std\"\n        },\n        {\n          \"count\": 1,\n          \"text\": \"MCP | [debug] holding mcp:hello from debugger session 0 until the run is adopted\",\n          \"type\": \"std\"\n        },\n        {\n          \"count\": 1,\n          \"text\": \"[SE] AuthManager: CLI credential found; desktop session exchange required\",\n          \"type\": \"std\"\n        },\n        {\n          \"count\": 1,\n          \"text\": \"\",\n          \"type\": \"std\"\n        },\n        {\n          \"count\": 1,\n          \"text\": \"D3D12 12_0 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce GTX 1660 SUPER\",\n          \"type\": \"std\"\n        },\n        {\n          \"count\": 1,\n          \"text\": \"Welcome to Summer Engine (c) built on the awesome work by Godot 2007-present Juan Linietsky, Ariel Manzur & Godot Contributors.\",\n          \"type\": \"std\"\n        },\n        {\n          \"count\": 1,\n          \"text\": \"[SE] game instance 'river-final' (pid 40432) attached as debugger session 0.\",\n          \"type\": \"std\"\n        },\n        {\n          \"count\": 1,\n          \"text\": \"[SE] spawned game instance 'river-final' (pid 40432, offscreen, deterministic).\",\n          \"type\": \"std\"\n        },\n        {\n          \"count\": 1,\n          \"text\": \"WriteFile\",\n          \"type\": \"editor\"\n        }\n      ],\n      \"returned\": 10,\n      \"std\": 56,\n      \"total\": 62,\n      \"warnings\": 0\n    },\n    \"debugger\": {\n      \"errors\": 0,\n      \"errors_data\": [],\n      \"is_breaked\": false,\n      \"session_active\": true,\n      \"warnings\": 11,\n      \"warnings_data\": [\n        {\n          \"callstack\": [\n            {\n              \"file\": \"res://scripts/creature_roster.gd\",\n              \"function\": \"load_all\",\n              \"line\": 27\n            },\n            {\n              \"file\": \"res://scripts/debug/dex_overlay.gd\",\n              \"function\": \"_refresh\",\n              \"line\": 63\n            },\n            {\n              \"file\": \"res://scripts/debug/dex_overlay.gd\",\n              \"function\": \"_ready\",\n              \"line\": 47\n            }\n          ],\n          \"count\": 1,\n          \"error\": \"res://data/creatures/001_rimefin.tres:4 - ext_resource, invalid UID: uid://crjluirawrgmi - using text path instead: res://assets/sprites/creatures/rimefin.png\",\n          \"error_descr\": \"\",\n          \"file\": \"scene\\\\resources\\\\resource_format_text.cpp\",\n          \"function\": \"ResourceLoaderText::load\",\n          \"line\": 516,\n          \"severity\": \"warning\",\n          \"timestamp_ms\": 51164731\n        },\n        {\n          \"callstack\": [],\n          \"count\": 1,\n          \"error\": \"SHADOWED_VARIABLE\",\n          \"error_descr\": \"The local variable \\\"start\\\" is shadowing an already-declared function at line 239 in the current class.\",\n          \"file\": \"res://scripts/battle_screen.gd\",\n          \"function\": \"GDScript::reload\",\n          \"line\": 1890,\n          \"severity\": \"warning\",\n          \"timestamp_ms\": 51164669\n        },\n        {\n          \"callstack\": [],\n          \"count\": 1,\n          \"error\": \"SHADOWED_VARIABLE_BASE_CLASS\",\n          \"error_descr\": \"The local function parameter \\\"offset\\\" is shadowing an already-declared property in the base class \\\"CanvasLayer\\\".\",\n          \"file\": \"res://scripts/battle_screen.gd\",\n          \"function\": \"GDScript::reload\",\n          \"line\": 1885,\n          \"severity\": \"warning\",\n          \"timestamp_ms\": 51164669\n        },\n        {\n          \"callstack\": [],\n          \"count\": 1,\n          \"error\": \"SHADOWED_VARIABLE_BASE_CLASS\",\n          \"error_descr\": \"The local function parameter \\\"offset\\\" is shadowing an already-declared property in the base class \\\"CanvasLayer\\\".\",\n          \"file\": \"res://scripts/battle_screen.gd\",\n          \"function\": \"GDScript::reload\",\n          \"line\": 1862,\n          \"severity\": \"warning\",\n          \"timestamp_ms\": 51164669\n        },\n        {\n          \"callstack\": [],\n          \"count\": 1,\n          \"error\": \"SHADOWED_VARIABLE_BASE_CLASS\",\n          \"error_descr\": \"The local function parameter \\\"offset\\\" is shadowing an already-declared property in the base class \\\"CanvasLayer\\\".\",\n          \"file\": \"res://scripts/battle_screen.gd\",\n          \"function\": \"GDScript::reload\",\n          \"line\": 1842,\n          \"severity\": \"warning\",\n          \"timestamp_ms\": 51164669\n        },\n        {\n          \"callstack\": [],\n          \"count\": 1,\n          \"error\": \"SHADOWED_VARIABLE_BASE_CLASS\",\n          \"error_descr\": \"The local function parameter \\\"offset\\\" is shadowing an already-declared property in the base class \\\"CanvasLayer\\\".\",\n          \"file\": \"res://scripts/battle_screen.gd\",\n          \"function\": \"GDScript::reload\",\n          \"line\": 1795,\n          \"severity\": \"warning\",\n          \"timestamp_ms\": 51164669\n        },\n        {\n          \"callstack\": [],\n          \"count\": 1,\n          \"error\": \"SHADOWED_VARIABLE_BASE_CLASS\",\n          \"error_descr\": \"The local function parameter \\\"offset\\\" is shadowing an already-declared property in the base class \\\"CanvasLayer\\\".\",\n          \"file\": \"res://scripts/battle_screen.gd\",\n          \"function\": \"GDScript::reload\",\n          \"line\": 1671,\n          \"severity\": \"warning\",\n          \"timestamp_ms\": 51164669\n        },\n        {\n          \"callstack\": [],\n          \"count\": 1,\n          \"error\": \"SHADOWED_VARIABLE\",\n          \"error_descr\": \"The local variable \\\"start\\\" is shadowing an already-declared function at line 239 in the current class.\",\n          \"file\": \"res://scripts/battle_screen.gd\",\n          \"function\": \"GDScript::reload\",\n          \"line\": 1553,\n          \"severity\": \"warning\",\n          \"timestamp_ms\": 51164669\n        },\n        {\n          \"callstack\": [],\n          \"count\": 1,\n          \"error\": \"SHADOWED_VARIABLE_BASE_CLASS\",\n          \"error_descr\": \"The local function parameter \\\"offset\\\" is shadowing an already-declared property in the base class \\\"CanvasLayer\\\".\",\n          \"file\": \"res://scripts/battle_screen.gd\",\n          \"function\": \"GDScript::reload\",\n          \"line\": 1548,\n          \"severity\": \"warning\",\n          \"timestamp_ms\": 51164669\n        },\n        {\n          \"callstack\": [],\n          \"count\": 1,\n          \"error\": \"SHADOWED_VARIABLE_BASE_CLASS\",\n          \"error_descr\": \"The local \\\"for\\\" iterator variable \\\"layer\\\" is shadowing an already-declared property in the base class \\\"CanvasLayer\\\".\",\n          \"file\": \"res://scripts/battle_screen.gd\",\n          \"function\": \"GDScript::reload\",\n          \"line\": 1110,\n          \"severity\": \"warning\",\n          \"timestamp_ms\": 51164669\n        },\n        {\n          \"callstack\": [],\n          \"count\": 1,\n          \"error\": \"SHADOWED_VARIABLE_BASE_CLASS\",\n          \"error_descr\": \"The local variable \\\"offset\\\" is shadowing an already-declared property in the base class \\\"CanvasLayer\\\".\",\n          \"file\": \"res://scripts/battle_screen.gd\",\n          \"function\": \"GDScript::reload\",\n          \"line\": 797,\n          \"severity\": \"warning\",\n          \"timestamp_ms\": 51164669\n        }\n      ]\n    },\n    \"guidance\": \"Only warnings present. Check console.messages for details.\",\n    \"has_issues\": true,\n    \"scopes\": {\n      \"application\": {\n        \"errors\": 0,\n        \"has_issues\": false,\n        \"warnings\": 0\n      },\n      \"classification\": \"known_application_signatures_and_compiler_locations\",\n      \"console_available\": true,\n      \"coverage\": \"observed_console_debugger_and_open_script_buffers_not_full_project_validation\",\n      \"csharp_unique_errors\": 0,\n      \"debugger_available\": true,\n      \"guidance\": \"Use project errors for observed game/compiler failures. Application errors describe Summer chat/WebView transport, not broken game scripts. Inspect unclassified console evidence before attributing it. Zero known project errors is not a full project validation.\",\n      \"project\": {\n        \"errors\": 0,\n        \"has_issues\": true,\n        \"script_validation_available\": true,\n        \"script_validation_incomplete\": false,\n        \"warnings\": 11\n      },\n      \"unclassified\": {\n        \"errors\": 0,\n        \"has_issues\": false,\n        \"warnings\": 0\n      }\n    },\n    \"script_errors\": {\n      \"count\": 0,\n      \"errors\": [],\n      \"scope\": \"open_script_buffers\"\n    },\n    \"total_errors\": 0,\n    \"total_warnings\": 11\n  },\n  \"ok\": true,\n  \"provenance\": {\n    \"dirty\": false,\n    \"rootName\": \"MainMenuArtPreview\",\n    \"rootType\": \"Node2D\",\n    \"source\": \"diagnostics\",\n    \"target\": {\n      \"kind\": \"diagnostics\",\n      \"path\": \"diagnostics\"\n    }\n  },\n  \"snapshotAt\": 51296618,\n  \"snapshotSeq\": 487386,\n  \"_view\": {\n    \"mode\": \"prioritized\",\n    \"totalConsole\": 62,\n    \"shownConsole\": 10,\n    \"suppressedInfo\": 10,\n    \"totalDebugger\": 11,\n    \"shownDebugger\": 11,\n    \"suppressedDebuggerWarnings\": 0,\n    \"hint\": \"All counts are complete; only low-severity message bodies were trimmed. Re-call with includeAll: true for the untrimmed payload, or use summer_get_console / summer_get_debugger_warnings for targeted reads.\"\n  }\n}"
+      }
+    ]
+  }
+}

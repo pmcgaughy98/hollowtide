@@ -1,0 +1,32 @@
+[gd_resource type="Resource" script_class="CreatureData" load_steps=8 format=3]
+
+[ext_resource type="Script" path="res://scripts/creature_data.gd" id="1_script"]
+[ext_resource type="Texture2D" path="res://assets/sprites/creatures/rd_material_match_2026_10_01/kithflare_front.png" id="2_sprite"]
+[ext_resource type="Resource" path="res://data/moves/kithflare_signal_spark.tres" id="3_move"]
+[ext_resource type="Resource" path="res://data/moves/kithflare_tail_brake.tres" id="4_move"]
+[ext_resource type="Resource" path="res://data/moves/kithflare_shoulder_kindle.tres" id="5_move"]
+[ext_resource type="Resource" path="res://data/moves/kithflare_handoff_dash.tres" id="6_move"]
+
+[ext_resource type="Texture2D" path="res://assets/sprites/creatures/rd_material_match_2026_10_01/kithflare_back.png" id="7_back"]
+
+[resource]
+script = ExtResource("1_script")
+id = 103
+creature_name = "Kithflare"
+body_parts = PackedStringArray("splittail", "throat", "marking")
+aim_points = Dictionary[String, Vector2]({
+"throat": Vector2(22, -14),
+"splittail": Vector2(-21, -33),
+"marking": Vector2(14, -8)
+})
+essence = 0
+sprite = ExtResource("2_sprite")
+back_sprite = ExtResource("7_back")
+moves = [ExtResource("3_move"), ExtResource("4_move"), ExtResource("5_move"), ExtResource("6_move")]
+base_hp = 60
+base_attack = 60
+base_defense = 60
+base_speed = 60
+battle_size = 0.85
+idle_breath = 0.02
+idle_period = 1.1

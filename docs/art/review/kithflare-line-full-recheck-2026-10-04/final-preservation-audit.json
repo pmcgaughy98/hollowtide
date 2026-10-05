@@ -1,0 +1,46 @@
+{
+  "existing_count": 2185,
+  "exact_count": 2183,
+  "changed": [
+    {
+      "path": "data/creatures/104_wayburn.tres",
+      "before": "43185c78cc101f03281d2aa70641f7a085b1d62d575c0aee381344a2b8cf4d76",
+      "after": "bdaeed81e5fd2987aece2054afb706e89fb48c889f7bc3267dc901abc9b84cbf"
+    },
+    {
+      "path": "data/creatures/105_coalcrest.tres",
+      "before": "c96c06a57de62457632c27b356f163fb2ead212f02aa7b3fc7808af53bb13fbd",
+      "after": "6849548d230164847c842483a54464e8ed6f07dcec006d36ab032729bec53e7d"
+    }
+  ],
+  "missing": [],
+  "new_runtime_files": [
+    "assets/sprites/creatures/kithflare_line_rechecked_2026_10_04/coalcrest_back.png",
+    "assets/sprites/creatures/kithflare_line_rechecked_2026_10_04/coalcrest_back.png.import",
+    "assets/sprites/creatures/kithflare_line_rechecked_2026_10_04/coalcrest_back_anatomy_v2.png",
+    "assets/sprites/creatures/kithflare_line_rechecked_2026_10_04/coalcrest_back_anatomy_v2.png.import",
+    "assets/sprites/creatures/kithflare_line_rechecked_2026_10_04/coalcrest_back_occluded_leg_v3.png",
+    "assets/sprites/creatures/kithflare_line_rechecked_2026_10_04/coalcrest_back_occluded_leg_v3.png.import",
+    "assets/sprites/creatures/kithflare_line_rechecked_2026_10_04/wayburn_back.png",
+    "assets/sprites/creatures/kithflare_line_rechecked_2026_10_04/wayburn_back.png.import",
+    "assets/sprites/creatures/kithflare_line_rechecked_2026_10_04/wayburn_front.png",
+    "assets/sprites/creatures/kithflare_line_rechecked_2026_10_04/wayburn_front.png.import"
+  ],
+  "new_active_files": [
+    "assets/sprites/creatures/kithflare_line_rechecked_2026_10_04/wayburn_front.png",
+    "assets/sprites/creatures/kithflare_line_rechecked_2026_10_04/wayburn_front.png.import",
+    "assets/sprites/creatures/kithflare_line_rechecked_2026_10_04/wayburn_back.png",
+    "assets/sprites/creatures/kithflare_line_rechecked_2026_10_04/wayburn_back.png.import",
+    "assets/sprites/creatures/kithflare_line_rechecked_2026_10_04/coalcrest_back_occluded_leg_v3.png",
+    "assets/sprites/creatures/kithflare_line_rechecked_2026_10_04/coalcrest_back_occluded_leg_v3.png.import"
+  ],
+  "retained_unreferenced_candidates": [
+    "assets/sprites/creatures/kithflare_line_rechecked_2026_10_04/coalcrest_back.png",
+    "assets/sprites/creatures/kithflare_line_rechecked_2026_10_04/coalcrest_back.png.import",
+    "assets/sprites/creatures/kithflare_line_rechecked_2026_10_04/coalcrest_back_anatomy_v2.png",
+    "assets/sprites/creatures/kithflare_line_rechecked_2026_10_04/coalcrest_back_anatomy_v2.png.import"
+  ],
+  "all_other_runtime_preserved": true,
+  "resource_changes_texture_paths_only": true,
+  "final_rear_sha256": "e2cde80eb484a38d0322c225a83d8584a37fb96c1ebfc6c1db83d373966020a1"
+}

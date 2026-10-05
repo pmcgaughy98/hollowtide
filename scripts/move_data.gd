@@ -228,9 +228,16 @@ enum Delivery { PROJECTILE, CONTACT }
 @export var attack_cut_in_seconds: float = 0.5
 
 
+@export_group("Requirements")
+## Parts a body needs before it can learn this move. Empty means any body.
+## The signature flag below is the ultimate, the scene-taking move. An ultimate
+## is not taught. Only the form whose own move list contains it may use it.
+@export var required_parts: PackedStringArray = []
+
+
 @export_group("Signature")
-## A signature move takes over the whole scene (Preston, 2026-09-28: signatures
-## are rare and must feel impactful in their own way). While the attacker winds
+## An ultimate takes over the whole scene. The code name is still signature
+## (Preston, 2026-09-28, and the 2026-10-02 split). While the attacker winds
 ## up to the first emit frame, the scene dims; at the emit frame it flashes and
 ## is lit by signature_light until the effect cools. Drawn-frame moves only.
 @export var signature: bool = false

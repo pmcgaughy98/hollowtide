@@ -1,0 +1,66 @@
+[
+  {
+    "file": "historic_pavers_tile_source.png",
+    "size": [
+      48,
+      48
+    ],
+    "used_rect": [
+      0,
+      0,
+      48,
+      48
+    ],
+    "edge_pixels": 192,
+    "transparent_pixels": 0,
+    "unique_opaque_colors": 26
+  },
+  {
+    "file": "reused_brick_shop_edited.png",
+    "size": [
+      192,
+      176
+    ],
+    "used_rect": [
+      33,
+      26,
+      158,
+      148
+    ],
+    "edge_pixels": 0,
+    "transparent_pixels": 19594,
+    "unique_opaque_colors": 38
+  },
+  {
+    "file": "reused_brick_shop_source.png",
+    "size": [
+      192,
+      176
+    ],
+    "used_rect": [
+      0,
+      5,
+      192,
+      176
+    ],
+    "edge_pixels": 247,
+    "transparent_pixels": 4979,
+    "unique_opaque_colors": 22
+  },
+  {
+    "file": "street_ledger_house_source.png",
+    "size": [
+      160,
+      176
+    ],
+    "used_rect": [
+      6,
+      1,
+      154,
+      172
+    ],
+    "edge_pixels": 0,
+    "transparent_pixels": 5393,
+    "unique_opaque_colors": 27
+  }
+]

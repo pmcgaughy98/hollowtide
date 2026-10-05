@@ -1,0 +1,20 @@
+from pathlib import Path
+from PIL import Image
+import numpy as np,json,math
+r=Path.cwd()/"landing-loop-review"
+base=np.asarray(Image.open(r/"canopy-source-render.png").convert("RGBA"))
+opaque=np.asarray(Image.open(r/"canopy-opaque-render.png").convert("RGBA"))
+faded=np.asarray(Image.open(r/"canopy-faded-render.png").convert("RGBA"))
+same=int(np.count_nonzero(np.any(base!=opaque,axis=2)))
+start=math.ceil(0.73*base.shape[0]);trunk=int(np.count_nonzero(np.any(base[start:]!=faded[start:],axis=2)))
+leaf_alpha=int(np.count_nonzero(base[:start,:,3]!=faded[:start,:,3]))
+full=json.loads((r/"full/walkthrough-results.json").read_text(encoding="utf-8"))
+bypass=json.loads((r/"bypass/walkthrough-results.json").read_text(encoding="utf-8"))
+notices=[x for x in full["steps"] if x.get("interaction")=="landing-notice"]
+opacity=[x for x in full["steps"] if "canopy_opacity" in x]
+report={"canopy_native_size":[base.shape[1],base.shape[0]],"opaque_render_changed_pixels":same,"lower_trunk_changed_pixels":trunk,"crown_alpha_changed_pixels":leaf_alpha,"notice_checks":notices,"bank_return_opacity":opacity,"full_loop_passed":full["passed"] and all(full["flags"].values()),"optional_bypass_passed":bypass["passed"] and bypass["flags"]["report_done"] and all(not bypass["flags"][x] for x in ["heard_calls","water_mark_observed","reported_calls","reported_water_mark"]),"full_ready_ms":full["scene_ready_ms"],"bypass_ready_ms":bypass["scene_ready_ms"]}
+assert same==0 and trunk==0 and leaf_alpha>0 and len(notices)==2 and all(x["quest_flags_unchanged"] for x in notices)
+assert min(x["canopy_opacity"] for x in opacity)<=0.351 and opacity[-1]["canopy_opacity"]>=0.999
+assert report["full_loop_passed"] and report["optional_bypass_passed"]
+(r/"final-play-and-canopy-audit.json").write_text(json.dumps(report,indent=2),encoding="utf-8")
+print(json.dumps({k:v for k,v in report.items() if k not in ["notice_checks","bank_return_opacity"]}))

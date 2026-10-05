@@ -1,0 +1,539 @@
+{
+	"final_position": "(-335.1004, 185.5587)",
+	"flags": {
+		"city_arrival_registered": true,
+		"city_directions_read": true,
+		"delivered": true,
+		"heard_calls": true,
+		"levee_entrance_read": true,
+		"marker_restored": true,
+		"pouch_accepted": true,
+		"report_done": true,
+		"reported_calls": true,
+		"reported_water_mark": true,
+		"water_mark_observed": true
+	},
+	"ordinary_input_only": true,
+	"passed": true,
+	"quest_flag_overrides": 0,
+	"scene_ready_ms": 1030,
+	"steps": [
+		{
+			"frames": 5,
+			"from": "(-336.0, 192.0)",
+			"target": "(-336.0, 184.0)",
+			"to": "(-336.0, 186.6667)"
+		},
+		{
+			"body": "HOME COURTYARD\nThe patched porch and stacked wood make this place easy to recognize from the lane. The dispatcher is taking runners at the east end of the lane.\n\n[E] Continue",
+			"flags_unchanged": true,
+			"interaction": "home-courtyard",
+			"position": "(-336.0, 186.6667)"
+		},
+		{
+			"collision": "home-footprint",
+			"passed": true,
+			"position": "(-336.0, 178.0032)"
+		},
+		{
+			"frames": 22,
+			"from": "(-336.0, 178.0032)",
+			"target": "(-336.0, 208.0)",
+			"to": "(-336.0, 206.0747)"
+		},
+		{
+			"frames": 65,
+			"from": "(-336.0, 206.0747)",
+			"target": "(-256.0, 224.0)",
+			"to": "(-257.6956, 223.0453)"
+		},
+		{
+			"frames": 34,
+			"from": "(-257.6956, 223.0453)",
+			"target": "(-272.0, 264.0)",
+			"to": "(-270.895, 261.5779)"
+		},
+		{
+			"frames": 36,
+			"from": "(-270.895, 261.5779)",
+			"target": "(-244.0, 300.0)",
+			"to": "(-245.4391, 297.7005)"
+		},
+		{
+			"frames": 46,
+			"from": "(-245.4391, 297.7005)",
+			"target": "(-190.0, 316.0)",
+			"to": "(-192.4686, 314.6711)"
+		},
+		{
+			"frames": 16,
+			"from": "(-192.4686, 314.6711)",
+			"target": "(-172.0, 310.0)",
+			"to": "(-174.0308, 310.8999)"
+		},
+		{
+			"body": "SHARED GARDEN\nLeave the little rows clear. The loop around the beds returns to the dispatch lane. Spare kindling and cuttings are left by the porch for neighbors to take.\n\n[E] Continue",
+			"flags_unchanged": true,
+			"interaction": "garden-notice",
+			"position": "(-174.0308, 310.8999)"
+		},
+		{
+			"frames": 34,
+			"from": "(-174.0308, 310.8999)",
+			"target": "(-134.0, 294.0)",
+			"to": "(-136.6698, 294.8721)"
+		},
+		{
+			"frames": 46,
+			"from": "(-136.6698, 294.8721)",
+			"target": "(-104.0, 246.0)",
+			"to": "(-104.6142, 248.1499)"
+		},
+		{
+			"frames": 44,
+			"from": "(-104.6142, 248.1499)",
+			"target": "(-96.0, 192.0)",
+			"to": "(-97.07175, 193.9409)"
+		},
+		{
+			"frames": 63,
+			"from": "(-97.07175, 193.9409)",
+			"target": "(-32.0, 144.0)",
+			"to": "(-34.7123, 144.9148)"
+		},
+		{
+			"collision": "west-gate-upper-edge",
+			"passed": true,
+			"position": "(-22.00316, 144.9148)"
+		},
+		{
+			"frames": 73,
+			"from": "(-22.00316, 144.9148)",
+			"target": "(-32.0, 240.0)",
+			"to": "(-30.52426, 237.4356)"
+		},
+		{
+			"collision": "west-gate-lower-edge",
+			"passed": true,
+			"position": "(-22.00316, 237.4356)"
+		},
+		{
+			"frames": 36,
+			"from": "(-22.00316, 237.4356)",
+			"target": "(-32.0, 192.0)",
+			"to": "(-30.52426, 194.2479)"
+		},
+		{
+			"body": "DISPATCH LANE\nFollow the worn lane east to the courier hall. The dispatcher waits in front. From there, the marked levee entrance leads to Route 1 and the river bridge. This lane returns to the courtyard homes.\n\n[E] Continue",
+			"flags_unchanged": true,
+			"interaction": "home-directions",
+			"position": "(-30.52426, 194.2479)"
+		},
+		{
+			"frames": 59,
+			"from": "(-30.52426, 194.2479)",
+			"target": "(48.0, 192.0)",
+			"to": "(46.41855, 193.3051)"
+		},
+		{
+			"frames": 20,
+			"from": "(46.41855, 193.3051)",
+			"target": "(70.0, 205.0)",
+			"to": "(67.45613, 203.676)"
+		},
+		{
+			"flag": "pouch_accepted",
+			"interaction": "assignment",
+			"position": "(67.45613, 203.676)",
+			"value": true
+		},
+		{
+			"frames": 87,
+			"from": "(67.45613, 203.676)",
+			"target": "(184.0, 205.0)",
+			"to": "(182.1227, 203.676)"
+		},
+		{
+			"frames": 55,
+			"from": "(182.1227, 203.676)",
+			"target": "(216.0, 264.0)",
+			"to": "(215.1211, 262.0077)"
+		},
+		{
+			"flag": "levee_entrance_read",
+			"interaction": "levee-sign",
+			"position": "(215.1211, 262.0077)",
+			"value": true
+		},
+		{
+			"frames": 48,
+			"from": "(215.1211, 262.0077)",
+			"target": "(266.0, 298.0)",
+			"to": "(263.3384, 296.8917)"
+		},
+		{
+			"frames": 35,
+			"from": "(263.3384, 296.8917)",
+			"target": "(304.0, 316.0)",
+			"to": "(301.252, 314.8051)"
+		},
+		{
+			"frames": 13,
+			"from": "(301.252, 314.8051)",
+			"target": "(320.0, 316.0)",
+			"to": "(317.2521, 314.8051)"
+		},
+		{
+			"body": "OLD LANDING FOOTPATH\nThe bank trail reaches the relay post and height marker, then winds under the cottonwoods back to the bridge road. The crest is higher ground. Worn rope grooves mark the older crossing; the cuts on the height post have no dates.\n\n[E] Continue",
+			"interaction": "landing-notice",
+			"position": "(317.2521, 314.8051)",
+			"quest_flags_unchanged": true
+		},
+		{
+			"frames": 23,
+			"from": "(317.2521, 314.8051)",
+			"target": "(330.0, 294.0)",
+			"to": "(328.5658, 296.0912)"
+		},
+		{
+			"frames": 22,
+			"from": "(328.5658, 296.0912)",
+			"target": "(352.0, 280.0)",
+			"to": "(350.3175, 281.0063)"
+		},
+		{
+			"frames": 22,
+			"from": "(350.3175, 281.0063)",
+			"target": "(374.0, 265.0)",
+			"to": "(372.0692, 265.9213)"
+		},
+		{
+			"frames": 16,
+			"from": "(372.0692, 265.9213)",
+			"target": "(392.0, 260.0)",
+			"to": "(390.1166, 261.2073)"
+		},
+		{
+			"flag": "delivered",
+			"interaction": "relay-delivery",
+			"position": "(390.1166, 261.2073)",
+			"value": true
+		},
+		{
+			"frames": 21,
+			"from": "(390.1166, 261.2073)",
+			"target": "(410.0, 240.0)",
+			"to": "(408.9728, 242.3511)"
+		},
+		{
+			"frames": 24,
+			"from": "(408.9728, 242.3511)",
+			"target": "(423.0, 215.0)",
+			"to": "(422.1722, 217.1518)"
+		},
+		{
+			"flag": "water_mark_observed",
+			"interaction": "height-marks",
+			"position": "(422.1722, 217.1518)",
+			"value": true
+		},
+		{
+			"frames": 20,
+			"from": "(422.1722, 217.1518)",
+			"target": "(410.0, 240.0)",
+			"to": "(410.8585, 237.7988)"
+		},
+		{
+			"frames": 45,
+			"from": "(410.8585, 237.7988)",
+			"target": "(402.0, 296.0)",
+			"to": "(403.316, 293.3415)"
+		},
+		{
+			"frames": 18,
+			"from": "(403.316, 293.3415)",
+			"target": "(427.0, 296.0)",
+			"to": "(425.2018, 295.2271)"
+		},
+		{
+			"flag": "heard_calls",
+			"interaction": "river-calls",
+			"position": "(425.2018, 295.2271)",
+			"value": true
+		},
+		{
+			"frames": 18,
+			"from": "(425.2018, 295.2271)",
+			"target": "(430.0, 318.0)",
+			"to": "(428.973, 316.3318)"
+		},
+		{
+			"bank_return_position": "(428.973, 316.3318)",
+			"canopy_opacity": 0.35
+		},
+		{
+			"frames": 18,
+			"from": "(428.973, 316.3318)",
+			"target": "(430.0, 341.0)",
+			"to": "(428.973, 338.9987)"
+		},
+		{
+			"bank_return_position": "(428.973, 338.9987)",
+			"canopy_opacity": 0.35
+		},
+		{
+			"frames": 20,
+			"from": "(428.973, 338.9987)",
+			"target": "(427.0, 366.0)",
+			"to": "(428.0302, 363.9417)"
+		},
+		{
+			"bank_return_position": "(428.0302, 363.9417)",
+			"canopy_opacity": 0.6
+		},
+		{
+			"frames": 18,
+			"from": "(428.0302, 363.9417)",
+			"target": "(414.0, 383.0)",
+			"to": "(414.5894, 380.36)"
+		},
+		{
+			"bank_return_position": "(414.5894, 380.36)",
+			"canopy_opacity": 1.0
+		},
+		{
+			"frames": 18,
+			"from": "(414.5894, 380.36)",
+			"target": "(395.0, 393.0)",
+			"to": "(396.609, 391.6737)"
+		},
+		{
+			"bank_return_position": "(396.609, 391.6737)",
+			"canopy_opacity": 1.0
+		},
+		{
+			"frames": 33,
+			"from": "(396.609, 391.6737)",
+			"target": "(432.0, 416.0)",
+			"to": "(429.5126, 415.244)"
+		},
+		{
+			"frames": 97,
+			"from": "(429.5126, 415.244)",
+			"target": "(560.0, 416.0)",
+			"to": "(557.5126, 415.244)"
+		},
+		{
+			"frames": 109,
+			"from": "(557.5126, 415.244)",
+			"target": "(704.0, 416.0)",
+			"to": "(701.5104, 415.244)"
+		},
+		{
+			"frames": 57,
+			"from": "(701.5104, 415.244)",
+			"target": "(750.0, 472.0)",
+			"to": "(748.6509, 470.3845)"
+		},
+		{
+			"frames": 53,
+			"from": "(748.6509, 470.3845)",
+			"target": "(816.0, 480.0)",
+			"to": "(814.4686, 478.8698)"
+		},
+		{
+			"flag": "city_arrival_registered",
+			"interaction": "city-clerk",
+			"position": "(814.4686, 478.8698)",
+			"value": true
+		},
+		{
+			"frames": 64,
+			"from": "(814.4686, 478.8698)",
+			"target": "(900.0, 480.0)",
+			"to": "(898.4673, 478.8698)"
+		},
+		{
+			"frames": 29,
+			"from": "(898.4673, 478.8698)",
+			"target": "(912.0, 444.0)",
+			"to": "(910.7239, 446.6131)"
+		},
+		{
+			"flag": "city_directions_read",
+			"interaction": "city-board",
+			"position": "(910.7239, 446.6131)",
+			"value": true
+		},
+		{
+			"frames": 27,
+			"from": "(910.7239, 446.6131)",
+			"target": "(900.0, 480.0)",
+			"to": "(901.2958, 477.3747)"
+		},
+		{
+			"frames": 114,
+			"from": "(901.2958, 477.3747)",
+			"target": "(750.0, 472.0)",
+			"to": "(752.5839, 472.6607)"
+		},
+		{
+			"frames": 57,
+			"from": "(752.5839, 472.6607)",
+			"target": "(704.0, 416.0)",
+			"to": "(705.4434, 417.5201)"
+		},
+		{
+			"frames": 109,
+			"from": "(705.4434, 417.5201)",
+			"target": "(560.0, 416.0)",
+			"to": "(561.8361, 416.5773)"
+		},
+		{
+			"frames": 97,
+			"from": "(561.8361, 416.5773)",
+			"target": "(432.0, 416.0)",
+			"to": "(433.8363, 416.5773)"
+		},
+		{
+			"frames": 36,
+			"from": "(433.8363, 416.5773)",
+			"target": "(395.0, 393.0)",
+			"to": "(396.5421, 393.9499)"
+		},
+		{
+			"frames": 69,
+			"from": "(396.5421, 393.9499)",
+			"target": "(328.0, 334.0)",
+			"to": "(330.0878, 335.4956)"
+		},
+		{
+			"frames": 25,
+			"from": "(330.0878, 335.4956)",
+			"target": "(304.0, 316.0)",
+			"to": "(305.8982, 316.6394)"
+		},
+		{
+			"frames": 10,
+			"from": "(305.8982, 316.6394)",
+			"target": "(320.0, 316.0)",
+			"to": "(317.8983, 316.6394)"
+		},
+		{
+			"body": "OLD LANDING FOOTPATH\nThe bank trail reaches the relay post and height marker, then winds under the cottonwoods back to the bridge road. The crest is higher ground. Worn rope grooves mark the older crossing; the cuts on the height post have no dates.\n\n[E] Continue",
+			"interaction": "landing-notice",
+			"position": "(317.8983, 316.6394)",
+			"quest_flags_unchanged": true
+		},
+		{
+			"frames": 22,
+			"from": "(317.8983, 316.6394)",
+			"target": "(330.0, 294.0)",
+			"to": "(329.212, 296.4818)"
+		},
+		{
+			"frames": 21,
+			"from": "(329.212, 296.4818)",
+			"target": "(352.0, 280.0)",
+			"to": "(349.6303, 281.3968)"
+		},
+		{
+			"frames": 13,
+			"from": "(349.6303, 281.3968)",
+			"target": "(368.0, 280.0)",
+			"to": "(365.6305, 281.3968)"
+		},
+		{
+			"frames": 127,
+			"from": "(365.6305, 281.3968)",
+			"target": "(368.0, 112.0)",
+			"to": "(366.5733, 113.7876)"
+		},
+		{
+			"frames": 71,
+			"from": "(366.5733, 113.7876)",
+			"target": "(272.0, 112.0)",
+			"to": "(273.6298, 112.8448)"
+		},
+		{
+			"frames": 0,
+			"from": "(273.6298, 112.8448)",
+			"target": "(272.0, 112.0)",
+			"to": "(273.6298, 112.8448)"
+		},
+		{
+			"flag": "marker_restored",
+			"interaction": "marker-repair",
+			"position": "(273.6298, 112.8448)",
+			"value": true
+		},
+		{
+			"frames": 67,
+			"from": "(273.6298, 112.8448)",
+			"target": "(184.0, 112.0)",
+			"to": "(185.6299, 112.8448)"
+		},
+		{
+			"frames": 69,
+			"from": "(185.6299, 112.8448)",
+			"target": "(184.0, 205.0)",
+			"to": "(184.6871, 203.1207)"
+		},
+		{
+			"frames": 78,
+			"from": "(184.6871, 203.1207)",
+			"target": "(80.0, 205.0)",
+			"to": "(82.41106, 204.0635)"
+		},
+		{
+			"frames": 29,
+			"from": "(82.41106, 204.0635)",
+			"target": "(48.0, 192.0)",
+			"to": "(49.76401, 192.7498)"
+		},
+		{
+			"frames": 61,
+			"from": "(49.76401, 192.7498)",
+			"target": "(-32.0, 192.0)",
+			"to": "(-30.23598, 192.7498)"
+		},
+		{
+			"frames": 49,
+			"from": "(-30.23598, 192.7498)",
+			"target": "(-96.0, 192.0)",
+			"to": "(-94.23602, 192.7498)"
+		},
+		{
+			"frames": 130,
+			"from": "(-94.23602, 192.7498)",
+			"target": "(-256.0, 224.0)",
+			"to": "(-253.7388, 222.9197)"
+		},
+		{
+			"frames": 65,
+			"from": "(-253.7388, 222.9197)",
+			"target": "(-336.0, 208.0)",
+			"to": "(-333.2148, 208.7776)"
+		},
+		{
+			"frames": 19,
+			"from": "(-333.2148, 208.7776)",
+			"target": "(-336.0, 184.0)",
+			"to": "(-335.1004, 185.5587)"
+		},
+		{
+			"body": "HOME COURTYARD\nThe patched porch and stacked wood make this place easy to recognize from the lane. Your landing report is with the dispatcher. You are back on your own doorstep.\n\n[E] Continue",
+			"flags_unchanged": true,
+			"interaction": "ordinary-return-home",
+			"position": "(-335.1004, 185.5587)"
+		},
+		{
+			"party_member_identity": -9223371893644457466,
+			"player_identity": 96485771085,
+			"return_state_preserved": true,
+			"route_identity": 95898568198
+		}
+	],
+	"teleports": 0,
+	"terrain_surface_build_ms": 0
+}

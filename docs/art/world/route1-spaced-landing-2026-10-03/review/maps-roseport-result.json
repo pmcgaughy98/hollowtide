@@ -1,0 +1,36 @@
+{
+  "id": 2,
+  "jsonrpc": "2.0",
+  "result": {
+    "content": [
+      {
+        "text": "{\n  \"places\": [\n    {\n      \"place\": \"places/ChIJ2yT4zvoawIcRs5SLckrPVJE\",\n      \"id\": \"ChIJ2yT4zvoawIcRs5SLckrPVJE\",\n      \"location\": {\n        \"latitude\": 39.7478144,\n        \"longitude\": -94.8619874\n      },\n      \"googleMapsLinks\": {\n        \"directionsUrl\": \"https://www.google.com/maps/dir//''/data=!4m7!4m6!1m1!4e2!1m2!1m1!1s0x87c01afacef824db:0x9154cf4a728b94b3!3e0\",\n        \"placeUrl\": \"https://www.google.com/maps/place//data=!4m2!3m1!1s0x87c01afacef824db:0x9154cf4a728b94b3\",\n        \"writeAReviewUrl\": \"https://www.google.com/maps/place//data=!4m3!3m2!1s0x87c01afacef824db:0x9154cf4a728b94b3!12e1\",\n        \"reviewsUrl\": \"https://www.google.com/maps/place//data=!4m4!3m3!1s0x87c01afacef824db:0x9154cf4a728b94b3!9m1!1b1\",\n        \"photosUrl\": \"https://www.google.com/maps/place//data=!4m3!3m2!1s0x87c01afacef824db:0x9154cf4a728b94b3!10e5\"\n      },\n      \"attribution\": {\n        \"title\": \"Roseport Landing - Google Maps\",\n        \"url\": \"https://www.google.com/maps/place//data=!4m2!3m1!1s0x87c01afacef824db:0x9154cf4a728b94b3\"\n      }\n    }\n  ],\n  \"summary\": \"**Roseport Landing** [0] (3.7\u2605 (6)) is a park located along Roseport Rd in Wathena, KS. Visitors mention that it is a good spot for kids and features public restroom amenities.\"\n}\n",
+        "type": "text"
+      }
+    ],
+    "structuredContent": {
+      "places": [
+        {
+          "attribution": {
+            "title": "Roseport Landing - Google Maps",
+            "url": "https://www.google.com/maps/place//data=!4m2!3m1!1s0x87c01afacef824db:0x9154cf4a728b94b3"
+          },
+          "googleMapsLinks": {
+            "directionsUrl": "https://www.google.com/maps/dir//''/data=!4m7!4m6!1m1!4e2!1m2!1m1!1s0x87c01afacef824db:0x9154cf4a728b94b3!3e0",
+            "photosUrl": "https://www.google.com/maps/place//data=!4m3!3m2!1s0x87c01afacef824db:0x9154cf4a728b94b3!10e5",
+            "placeUrl": "https://www.google.com/maps/place//data=!4m2!3m1!1s0x87c01afacef824db:0x9154cf4a728b94b3",
+            "reviewsUrl": "https://www.google.com/maps/place//data=!4m4!3m3!1s0x87c01afacef824db:0x9154cf4a728b94b3!9m1!1b1",
+            "writeAReviewUrl": "https://www.google.com/maps/place//data=!4m3!3m2!1s0x87c01afacef824db:0x9154cf4a728b94b3!12e1"
+          },
+          "id": "ChIJ2yT4zvoawIcRs5SLckrPVJE",
+          "location": {
+            "latitude": 39.7478144,
+            "longitude": -94.8619874
+          },
+          "place": "places/ChIJ2yT4zvoawIcRs5SLckrPVJE"
+        }
+      ],
+      "summary": "**Roseport Landing** [0] (3.7\u2605 (6)) is a park located along Roseport Rd in Wathena, KS. Visitors mention that it is a good spot for kids and features public restroom amenities."
+    }
+  }
+}

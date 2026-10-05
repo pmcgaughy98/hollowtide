@@ -1,0 +1,74 @@
+{
+  "date": "2026-10-02",
+  "runtime_changed": [
+    "scripts/route1_crossing.gd",
+    "assets/sprites/world/route1_crossing_2026_10_02/river_bridge_complete.png",
+    "assets/sprites/world/route1_crossing_2026_10_02/path_soil_native32.png"
+  ],
+  "installed_sha256": {
+    "scripts/route1_crossing.gd": "a441a4d5bc83ebe91280bda67df2c4493ef84f2cb3919250d57090744c4641e9",
+    "scripts/first_route_prototype.gd": "16642c8d181b1704656b1f2fbf90064b8b7ba87a1376b7021218e886fb4d2cd1",
+    "scenes/first_route_prototype.tscn": "88edcd961f4608584a5d1c505bffab7e7a44af0662b1ab9a2a8584030a3abddc",
+    "assets/sprites/world/route1_crossing_2026_10_02/river_bridge_complete.png": "9f8d28e778f6cfd4777a66dabad5d8874b14f968c30636a407c0aa3da041ac90",
+    "assets/sprites/world/route1_crossing_2026_10_02/path_soil_native32.png": "0bc1711d71a8a8133da3be181c0d2d7620149bd73d0f1a302abc4584b665df1f"
+  },
+  "before_helper_sha256": "9c9ecca4c0efc77521a4d20a7c18bd13fc834fff951671da0b6ae2749ab53f51",
+  "bridge_size": [
+    288,
+    112
+  ],
+  "bridge_origin": [
+    416,
+    360
+  ],
+  "bridge_front_rect": [
+    0,
+    70,
+    288,
+    42
+  ],
+  "bridge_front_position": [
+    560,
+    451
+  ],
+  "original_bridge_core_pixel_changes": 0,
+  "original_bridge_pixel_origin_in_completed": [
+    16,
+    16
+  ],
+  "empty_outer_edges": true,
+  "opaque_bounds": [
+    12,
+    6,
+    279,
+    102
+  ],
+  "road_entry_width": 48,
+  "road_crest_width": 26,
+  "road_entry_taper_world_y": [
+    216,
+    264
+  ],
+  "road_texture_world_phase": 32,
+  "road_border_colours": [
+    "#435e46",
+    "#9d906a"
+  ],
+  "merged_original_path_mask": true,
+  "generation_cost_usd": 0.74,
+  "accepted_asset_generation_cost_usd": 0.37,
+  "rejected_trial_cost_usd": 0.37,
+  "balance_before_usd": 4.37,
+  "balance_after_usd": 3.63,
+  "final_diagnostics": {
+    "runtime_debugger_errors": 0,
+    "project_errors": 0,
+    "script_errors": 0,
+    "existing_warnings": 11,
+    "historical_console_errors": 1,
+    "historical_error_resolved_by_final_boot": true
+  },
+  "normal_control_roundtrip": true,
+  "quest_and_scene_unchanged_since_bank_road_fix": true,
+  "blockers": []
+}

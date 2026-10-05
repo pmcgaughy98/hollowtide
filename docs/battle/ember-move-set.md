@@ -1,6 +1,8 @@
 # Ember creature move set
 
-These are playable first-pass move choices for the nine Forge creatures. Names, power, and uses are provisional; the anatomy and visual cues come from `creature-roster-draft.md` and Preston’s effect sheets. The Forge JPEG originals stay in `docs/HollowTide Sprites/`. No new art was generated.
+These are playable first-pass move choices for the nine Forge creatures. Names, power, and uses are provisional; the anatomy and visual cues come from `creature-roster-draft.md` and Preston's effect sheets. The Forge JPEG originals stay in `docs/HollowTide Sprites/`. No new art was generated.
+
+The Brief column is that first pass. Shoulder sacs, shoulder chambers, a Coalcrest chest furnace, and a mechanical tail shutter were rejected. What a creature can learn is `docs/creatures/move-body-gate.md`. Plate Rake still fails that gate.
 
 Each creature has four damaging Ember moves. A basic move is unlimited; the other three have 6, 4, and 2 uses per battle. Status effects, accuracy, and sound are future work. Power is 32/40/50/60, so this pass tests pacing and visual identity rather than final balance.
 

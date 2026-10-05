@@ -1,0 +1,23 @@
+from pathlib import Path
+from PIL import Image
+import numpy as np,json,hashlib
+r=Path.cwd()/"route1-startup-review"
+b=json.loads((r/"before-scene-state.json").read_text(encoding="utf-8"));a=json.loads((r/"after-scene-state.json").read_text(encoding="utf-8"))
+bm={x["node"]:x for x in b};am={x["node"]:x for x in a}
+differences=[]
+for node in sorted(set(bm)|set(am)):
+ if bm.get(node)!=am.get(node):differences.append({"node":node,"before":bm.get(node),"after":am.get(node)})
+texture_checks=[]
+for name in ["river_water_mask.png","joined_levee_road.png","joined_city_landing.png","wet_bank_contours.png"]:
+ old=np.asarray(Image.open(r/name).convert("RGBA"));new=np.asarray(Image.open(r/("imported-"+name)).convert("RGBA"))
+ n=int(np.count_nonzero(np.any(old!=new,axis=2)))
+ texture_checks.append({"file":name,"changed_pixels":n,"exact_rgba":n==0})
+visual=[]
+for name in ["overview","entrance","crest","landing","city"]:
+ old=np.asarray(Image.open(r/("before-"+name+".png")).convert("RGBA"));new=np.asarray(Image.open(r/("after-"+name+".png")).convert("RGBA"))
+ n=int(np.count_nonzero(np.any(old!=new,axis=2)))
+ visual.append({"view":name,"changed_pixels":n,"total_pixels":int(old.shape[0]*old.shape[1]),"exact_render":n==0})
+report={"scene_nodes_before":len(b),"scene_nodes_after":len(a),"scene_state_differences":differences,"imported_surface_checks":texture_checks,"fixed_clock_view_checks":visual,"passed":not differences and all(x["exact_rgba"] for x in texture_checks) and all(x["exact_render"] for x in visual)}
+(r/"exact-scene-comparison.json").write_text(json.dumps(report,indent=2),encoding="utf-8")
+print(json.dumps({k:v for k,v in report.items() if k!="scene_state_differences"}))
+if differences:print(json.dumps(differences[:3]))

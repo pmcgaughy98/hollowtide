@@ -1,0 +1,935 @@
+{
+  "frames": [
+    {
+      "results": [
+        {
+          "effective_time_scale": 0,
+          "format": "jpeg",
+          "frame": {
+            "frames_drawn": 2124,
+            "physics_frames": 2124,
+            "process_frames": 2123
+          },
+          "height": 648,
+          "image_frame": 2123,
+          "instance": "river-final",
+          "mime": "image/jpeg",
+          "missing": [],
+          "ok": true,
+          "op": "GameProbe",
+          "paused": false,
+          "provenance": {
+            "source": "runtime",
+            "target": {
+              "instance": "river-final",
+              "kind": "game"
+            }
+          },
+          "requestId": "mcp-df78cd77-091f-4dce-b3f1-3087744542d4",
+          "source_height": 648,
+          "source_width": 1152,
+          "suspended": true,
+          "time_scale": 1,
+          "transport": "summer",
+          "values": {
+            "/root/FirstRoutePrototype/Player:position": "Vector2(551.792, 415.792)",
+            "/root/FirstRoutePrototype/RiverCrossing:_clock": 8.9,
+            "/root/FirstRoutePrototype/RiverCrossing:_flow_offset": "Vector2(0, 17)"
+          },
+          "width": 1152
+        }
+      ],
+      "skippedCount": 0,
+      "status": "ok",
+      "stopOnError": true,
+      "undoGroup": false,
+      "requestId": "mcp-df78cd77-091f-4dce-b3f1-3087744542d4",
+      "terminalState": "applied",
+      "appliedSeq": 1267
+    },
+    {
+      "results": [
+        {
+          "effective_time_scale": 0,
+          "format": "jpeg",
+          "frame": {
+            "frames_drawn": 4075,
+            "physics_frames": 4075,
+            "process_frames": 4074
+          },
+          "height": 648,
+          "image_frame": 4074,
+          "instance": "river-final",
+          "mime": "image/jpeg",
+          "missing": [],
+          "ok": true,
+          "op": "GameProbe",
+          "paused": false,
+          "provenance": {
+            "source": "runtime",
+            "target": {
+              "instance": "river-final",
+              "kind": "game"
+            }
+          },
+          "requestId": "mcp-2a7d8d1a-c48b-4771-abc6-515cb8c4e070",
+          "source_height": 648,
+          "source_width": 1152,
+          "suspended": true,
+          "time_scale": 1,
+          "transport": "summer",
+          "values": {
+            "/root/FirstRoutePrototype/Player:position": "Vector2(551.792, 415.792)",
+            "/root/FirstRoutePrototype/RiverCrossing:_clock": 9.4,
+            "/root/FirstRoutePrototype/RiverCrossing:_flow_offset": "Vector2(0, 18)"
+          },
+          "width": 1152
+        }
+      ],
+      "skippedCount": 0,
+      "status": "ok",
+      "stopOnError": true,
+      "undoGroup": false,
+      "requestId": "mcp-2a7d8d1a-c48b-4771-abc6-515cb8c4e070",
+      "terminalState": "applied",
+      "appliedSeq": 1269
+    },
+    {
+      "results": [
+        {
+          "effective_time_scale": 0,
+          "format": "jpeg",
+          "frame": {
+            "frames_drawn": 4118,
+            "physics_frames": 4118,
+            "process_frames": 4117
+          },
+          "height": 648,
+          "image_frame": 4117,
+          "instance": "river-final",
+          "mime": "image/jpeg",
+          "missing": [],
+          "ok": true,
+          "op": "GameProbe",
+          "paused": false,
+          "provenance": {
+            "source": "runtime",
+            "target": {
+              "instance": "river-final",
+              "kind": "game"
+            }
+          },
+          "requestId": "mcp-03f3a242-915e-4166-9ab2-a49ad151957c",
+          "source_height": 648,
+          "source_width": 1152,
+          "suspended": true,
+          "time_scale": 1,
+          "transport": "summer",
+          "values": {
+            "/root/FirstRoutePrototype/Player:position": "Vector2(551.792, 415.792)",
+            "/root/FirstRoutePrototype/RiverCrossing:_clock": 9.9,
+            "/root/FirstRoutePrototype/RiverCrossing:_flow_offset": "Vector2(0, 19)"
+          },
+          "width": 1152
+        }
+      ],
+      "skippedCount": 0,
+      "status": "ok",
+      "stopOnError": true,
+      "undoGroup": false,
+      "requestId": "mcp-03f3a242-915e-4166-9ab2-a49ad151957c",
+      "terminalState": "applied",
+      "appliedSeq": 1271
+    },
+    {
+      "results": [
+        {
+          "effective_time_scale": 0,
+          "format": "jpeg",
+          "frame": {
+            "frames_drawn": 4162,
+            "physics_frames": 4162,
+            "process_frames": 4161
+          },
+          "height": 648,
+          "image_frame": 4161,
+          "instance": "river-final",
+          "mime": "image/jpeg",
+          "missing": [],
+          "ok": true,
+          "op": "GameProbe",
+          "paused": false,
+          "provenance": {
+            "source": "runtime",
+            "target": {
+              "instance": "river-final",
+              "kind": "game"
+            }
+          },
+          "requestId": "mcp-92683ccd-38bc-4231-9aae-85fc08fa535a",
+          "source_height": 648,
+          "source_width": 1152,
+          "suspended": true,
+          "time_scale": 1,
+          "transport": "summer",
+          "values": {
+            "/root/FirstRoutePrototype/Player:position": "Vector2(551.792, 415.792)",
+            "/root/FirstRoutePrototype/RiverCrossing:_clock": 10.4,
+            "/root/FirstRoutePrototype/RiverCrossing:_flow_offset": "Vector2(0, 20)"
+          },
+          "width": 1152
+        }
+      ],
+      "skippedCount": 0,
+      "status": "ok",
+      "stopOnError": true,
+      "undoGroup": false,
+      "requestId": "mcp-92683ccd-38bc-4231-9aae-85fc08fa535a",
+      "terminalState": "applied",
+      "appliedSeq": 1273
+    },
+    {
+      "results": [
+        {
+          "effective_time_scale": 0,
+          "format": "jpeg",
+          "frame": {
+            "frames_drawn": 4205,
+            "physics_frames": 4205,
+            "process_frames": 4204
+          },
+          "height": 648,
+          "image_frame": 4204,
+          "instance": "river-final",
+          "mime": "image/jpeg",
+          "missing": [],
+          "ok": true,
+          "op": "GameProbe",
+          "paused": false,
+          "provenance": {
+            "source": "runtime",
+            "target": {
+              "instance": "river-final",
+              "kind": "game"
+            }
+          },
+          "requestId": "mcp-d6c177f3-e94d-455c-996f-0d4f8ff1b7f1",
+          "source_height": 648,
+          "source_width": 1152,
+          "suspended": true,
+          "time_scale": 1,
+          "transport": "summer",
+          "values": {
+            "/root/FirstRoutePrototype/Player:position": "Vector2(551.792, 415.792)",
+            "/root/FirstRoutePrototype/RiverCrossing:_clock": 10.9,
+            "/root/FirstRoutePrototype/RiverCrossing:_flow_offset": "Vector2(0, 21)"
+          },
+          "width": 1152
+        }
+      ],
+      "skippedCount": 0,
+      "status": "ok",
+      "stopOnError": true,
+      "undoGroup": false,
+      "requestId": "mcp-d6c177f3-e94d-455c-996f-0d4f8ff1b7f1",
+      "terminalState": "applied",
+      "appliedSeq": 1275
+    },
+    {
+      "results": [
+        {
+          "effective_time_scale": 0,
+          "format": "jpeg",
+          "frame": {
+            "frames_drawn": 4247,
+            "physics_frames": 4247,
+            "process_frames": 4246
+          },
+          "height": 648,
+          "image_frame": 4246,
+          "instance": "river-final",
+          "mime": "image/jpeg",
+          "missing": [],
+          "ok": true,
+          "op": "GameProbe",
+          "paused": false,
+          "provenance": {
+            "source": "runtime",
+            "target": {
+              "instance": "river-final",
+              "kind": "game"
+            }
+          },
+          "requestId": "mcp-ddbbe759-bce7-480e-9aed-37dd5753496a",
+          "source_height": 648,
+          "source_width": 1152,
+          "suspended": true,
+          "time_scale": 1,
+          "transport": "summer",
+          "values": {
+            "/root/FirstRoutePrototype/Player:position": "Vector2(551.792, 415.792)",
+            "/root/FirstRoutePrototype/RiverCrossing:_clock": 11.4,
+            "/root/FirstRoutePrototype/RiverCrossing:_flow_offset": "Vector2(0, 22)"
+          },
+          "width": 1152
+        }
+      ],
+      "skippedCount": 0,
+      "status": "ok",
+      "stopOnError": true,
+      "undoGroup": false,
+      "requestId": "mcp-ddbbe759-bce7-480e-9aed-37dd5753496a",
+      "terminalState": "applied",
+      "appliedSeq": 1277
+    },
+    {
+      "results": [
+        {
+          "effective_time_scale": 0,
+          "format": "jpeg",
+          "frame": {
+            "frames_drawn": 4292,
+            "physics_frames": 4292,
+            "process_frames": 4291
+          },
+          "height": 648,
+          "image_frame": 4291,
+          "instance": "river-final",
+          "mime": "image/jpeg",
+          "missing": [],
+          "ok": true,
+          "op": "GameProbe",
+          "paused": false,
+          "provenance": {
+            "source": "runtime",
+            "target": {
+              "instance": "river-final",
+              "kind": "game"
+            }
+          },
+          "requestId": "mcp-a31ee3bf-af33-40de-be8f-e25a690ce280",
+          "source_height": 648,
+          "source_width": 1152,
+          "suspended": true,
+          "time_scale": 1,
+          "transport": "summer",
+          "values": {
+            "/root/FirstRoutePrototype/Player:position": "Vector2(551.792, 415.792)",
+            "/root/FirstRoutePrototype/RiverCrossing:_clock": 11.9,
+            "/root/FirstRoutePrototype/RiverCrossing:_flow_offset": "Vector2(0, 23)"
+          },
+          "width": 1152
+        }
+      ],
+      "skippedCount": 0,
+      "status": "ok",
+      "stopOnError": true,
+      "undoGroup": false,
+      "requestId": "mcp-a31ee3bf-af33-40de-be8f-e25a690ce280",
+      "terminalState": "applied",
+      "appliedSeq": 1279
+    },
+    {
+      "results": [
+        {
+          "effective_time_scale": 0,
+          "format": "jpeg",
+          "frame": {
+            "frames_drawn": 4336,
+            "physics_frames": 4336,
+            "process_frames": 4335
+          },
+          "height": 648,
+          "image_frame": 4335,
+          "instance": "river-final",
+          "mime": "image/jpeg",
+          "missing": [],
+          "ok": true,
+          "op": "GameProbe",
+          "paused": false,
+          "provenance": {
+            "source": "runtime",
+            "target": {
+              "instance": "river-final",
+              "kind": "game"
+            }
+          },
+          "requestId": "mcp-9711e8fd-f993-4f8e-a1a3-79c6b7e4cbda",
+          "source_height": 648,
+          "source_width": 1152,
+          "suspended": true,
+          "time_scale": 1,
+          "transport": "summer",
+          "values": {
+            "/root/FirstRoutePrototype/Player:position": "Vector2(551.792, 415.792)",
+            "/root/FirstRoutePrototype/RiverCrossing:_clock": 12.4,
+            "/root/FirstRoutePrototype/RiverCrossing:_flow_offset": "Vector2(0, 24)"
+          },
+          "width": 1152
+        }
+      ],
+      "skippedCount": 0,
+      "status": "ok",
+      "stopOnError": true,
+      "undoGroup": false,
+      "requestId": "mcp-9711e8fd-f993-4f8e-a1a3-79c6b7e4cbda",
+      "terminalState": "applied",
+      "appliedSeq": 1281
+    },
+    {
+      "results": [
+        {
+          "effective_time_scale": 0,
+          "format": "jpeg",
+          "frame": {
+            "frames_drawn": 4378,
+            "physics_frames": 4378,
+            "process_frames": 4377
+          },
+          "height": 648,
+          "image_frame": 4377,
+          "instance": "river-final",
+          "mime": "image/jpeg",
+          "missing": [],
+          "ok": true,
+          "op": "GameProbe",
+          "paused": false,
+          "provenance": {
+            "source": "runtime",
+            "target": {
+              "instance": "river-final",
+              "kind": "game"
+            }
+          },
+          "requestId": "mcp-08bc6daa-09fb-4d1b-b453-3e4f2c6a80ae",
+          "source_height": 648,
+          "source_width": 1152,
+          "suspended": true,
+          "time_scale": 1,
+          "transport": "summer",
+          "values": {
+            "/root/FirstRoutePrototype/Player:position": "Vector2(551.792, 415.792)",
+            "/root/FirstRoutePrototype/RiverCrossing:_clock": 12.9,
+            "/root/FirstRoutePrototype/RiverCrossing:_flow_offset": "Vector2(0, 25)"
+          },
+          "width": 1152
+        }
+      ],
+      "skippedCount": 0,
+      "status": "ok",
+      "stopOnError": true,
+      "undoGroup": false,
+      "requestId": "mcp-08bc6daa-09fb-4d1b-b453-3e4f2c6a80ae",
+      "terminalState": "applied",
+      "appliedSeq": 1283
+    },
+    {
+      "results": [
+        {
+          "effective_time_scale": 0,
+          "format": "jpeg",
+          "frame": {
+            "frames_drawn": 4419,
+            "physics_frames": 4419,
+            "process_frames": 4418
+          },
+          "height": 648,
+          "image_frame": 4418,
+          "instance": "river-final",
+          "mime": "image/jpeg",
+          "missing": [],
+          "ok": true,
+          "op": "GameProbe",
+          "paused": false,
+          "provenance": {
+            "source": "runtime",
+            "target": {
+              "instance": "river-final",
+              "kind": "game"
+            }
+          },
+          "requestId": "mcp-9674bb61-0ff7-4034-b96d-fa2a8617d327",
+          "source_height": 648,
+          "source_width": 1152,
+          "suspended": true,
+          "time_scale": 1,
+          "transport": "summer",
+          "values": {
+            "/root/FirstRoutePrototype/Player:position": "Vector2(551.792, 415.792)",
+            "/root/FirstRoutePrototype/RiverCrossing:_clock": 13.4,
+            "/root/FirstRoutePrototype/RiverCrossing:_flow_offset": "Vector2(0, 26)"
+          },
+          "width": 1152
+        }
+      ],
+      "skippedCount": 0,
+      "status": "ok",
+      "stopOnError": true,
+      "undoGroup": false,
+      "requestId": "mcp-9674bb61-0ff7-4034-b96d-fa2a8617d327",
+      "terminalState": "applied",
+      "appliedSeq": 1285
+    }
+  ],
+  "steps": [
+    {
+      "results": [
+        {
+          "after": {
+            "frames_drawn": 4071,
+            "physics_frames": 4072,
+            "process_frames": 4071
+          },
+          "before": {
+            "frames_drawn": 4042,
+            "physics_frames": 4042,
+            "process_frames": 4041
+          },
+          "exact": true,
+          "frame": {
+            "frames_drawn": 4071,
+            "physics_frames": 4072,
+            "process_frames": 4071
+          },
+          "instance": "river-final",
+          "kind": "physics",
+          "ok": true,
+          "op": "GameStep",
+          "overshoot": 0,
+          "paused": false,
+          "provenance": {
+            "source": "runtime",
+            "target": {
+              "instance": "river-final",
+              "kind": "game"
+            }
+          },
+          "requestId": "mcp-b870b674-7982-4053-a949-af9a31b19d5e",
+          "requested": 30,
+          "stepped": {
+            "physics_frames": 30,
+            "process_frames": 30
+          },
+          "suspended": true,
+          "transport": "summer",
+          "was_suspended": true
+        }
+      ],
+      "skippedCount": 0,
+      "status": "ok",
+      "stopOnError": true,
+      "undoGroup": false,
+      "requestId": "mcp-b870b674-7982-4053-a949-af9a31b19d5e",
+      "terminalState": "applied",
+      "appliedSeq": 1268
+    },
+    {
+      "results": [
+        {
+          "after": {
+            "frames_drawn": 4113,
+            "physics_frames": 4114,
+            "process_frames": 4113
+          },
+          "before": {
+            "frames_drawn": 4084,
+            "physics_frames": 4084,
+            "process_frames": 4083
+          },
+          "exact": true,
+          "frame": {
+            "frames_drawn": 4113,
+            "physics_frames": 4114,
+            "process_frames": 4113
+          },
+          "instance": "river-final",
+          "kind": "physics",
+          "ok": true,
+          "op": "GameStep",
+          "overshoot": 0,
+          "paused": false,
+          "provenance": {
+            "source": "runtime",
+            "target": {
+              "instance": "river-final",
+              "kind": "game"
+            }
+          },
+          "requestId": "mcp-39c67bf5-ee1c-4bec-bc14-813a6fbc1246",
+          "requested": 30,
+          "stepped": {
+            "physics_frames": 30,
+            "process_frames": 30
+          },
+          "suspended": true,
+          "transport": "summer",
+          "was_suspended": true
+        }
+      ],
+      "skippedCount": 0,
+      "status": "ok",
+      "stopOnError": true,
+      "undoGroup": false,
+      "requestId": "mcp-39c67bf5-ee1c-4bec-bc14-813a6fbc1246",
+      "terminalState": "applied",
+      "appliedSeq": 1270
+    },
+    {
+      "results": [
+        {
+          "after": {
+            "frames_drawn": 4155,
+            "physics_frames": 4156,
+            "process_frames": 4155
+          },
+          "before": {
+            "frames_drawn": 4126,
+            "physics_frames": 4126,
+            "process_frames": 4125
+          },
+          "exact": true,
+          "frame": {
+            "frames_drawn": 4155,
+            "physics_frames": 4156,
+            "process_frames": 4155
+          },
+          "instance": "river-final",
+          "kind": "physics",
+          "ok": true,
+          "op": "GameStep",
+          "overshoot": 0,
+          "paused": false,
+          "provenance": {
+            "source": "runtime",
+            "target": {
+              "instance": "river-final",
+              "kind": "game"
+            }
+          },
+          "requestId": "mcp-cee91b9a-573b-449c-964c-63a84a779f7d",
+          "requested": 30,
+          "stepped": {
+            "physics_frames": 30,
+            "process_frames": 30
+          },
+          "suspended": true,
+          "transport": "summer",
+          "was_suspended": true
+        }
+      ],
+      "skippedCount": 0,
+      "status": "ok",
+      "stopOnError": true,
+      "undoGroup": false,
+      "requestId": "mcp-cee91b9a-573b-449c-964c-63a84a779f7d",
+      "terminalState": "applied",
+      "appliedSeq": 1272
+    },
+    {
+      "results": [
+        {
+          "after": {
+            "frames_drawn": 4200,
+            "physics_frames": 4201,
+            "process_frames": 4200
+          },
+          "before": {
+            "frames_drawn": 4171,
+            "physics_frames": 4171,
+            "process_frames": 4170
+          },
+          "exact": true,
+          "frame": {
+            "frames_drawn": 4200,
+            "physics_frames": 4201,
+            "process_frames": 4200
+          },
+          "instance": "river-final",
+          "kind": "physics",
+          "ok": true,
+          "op": "GameStep",
+          "overshoot": 0,
+          "paused": false,
+          "provenance": {
+            "source": "runtime",
+            "target": {
+              "instance": "river-final",
+              "kind": "game"
+            }
+          },
+          "requestId": "mcp-21535fbe-aaa1-41ec-9905-6b5c5fb3dde3",
+          "requested": 30,
+          "stepped": {
+            "physics_frames": 30,
+            "process_frames": 30
+          },
+          "suspended": true,
+          "transport": "summer",
+          "was_suspended": true
+        }
+      ],
+      "skippedCount": 0,
+      "status": "ok",
+      "stopOnError": true,
+      "undoGroup": false,
+      "requestId": "mcp-21535fbe-aaa1-41ec-9905-6b5c5fb3dde3",
+      "terminalState": "applied",
+      "appliedSeq": 1274
+    },
+    {
+      "results": [
+        {
+          "after": {
+            "frames_drawn": 4242,
+            "physics_frames": 4243,
+            "process_frames": 4242
+          },
+          "before": {
+            "frames_drawn": 4213,
+            "physics_frames": 4213,
+            "process_frames": 4212
+          },
+          "exact": true,
+          "frame": {
+            "frames_drawn": 4242,
+            "physics_frames": 4243,
+            "process_frames": 4242
+          },
+          "instance": "river-final",
+          "kind": "physics",
+          "ok": true,
+          "op": "GameStep",
+          "overshoot": 0,
+          "paused": false,
+          "provenance": {
+            "source": "runtime",
+            "target": {
+              "instance": "river-final",
+              "kind": "game"
+            }
+          },
+          "requestId": "mcp-045def91-4445-44f3-afcd-fd30942dc039",
+          "requested": 30,
+          "stepped": {
+            "physics_frames": 30,
+            "process_frames": 30
+          },
+          "suspended": true,
+          "transport": "summer",
+          "was_suspended": true
+        }
+      ],
+      "skippedCount": 0,
+      "status": "ok",
+      "stopOnError": true,
+      "undoGroup": false,
+      "requestId": "mcp-045def91-4445-44f3-afcd-fd30942dc039",
+      "terminalState": "applied",
+      "appliedSeq": 1276
+    },
+    {
+      "results": [
+        {
+          "after": {
+            "frames_drawn": 4287,
+            "physics_frames": 4288,
+            "process_frames": 4287
+          },
+          "before": {
+            "frames_drawn": 4258,
+            "physics_frames": 4258,
+            "process_frames": 4257
+          },
+          "exact": true,
+          "frame": {
+            "frames_drawn": 4287,
+            "physics_frames": 4288,
+            "process_frames": 4287
+          },
+          "instance": "river-final",
+          "kind": "physics",
+          "ok": true,
+          "op": "GameStep",
+          "overshoot": 0,
+          "paused": false,
+          "provenance": {
+            "source": "runtime",
+            "target": {
+              "instance": "river-final",
+              "kind": "game"
+            }
+          },
+          "requestId": "mcp-a96b2229-5cc3-4875-a2a2-2a4c572a029d",
+          "requested": 30,
+          "stepped": {
+            "physics_frames": 30,
+            "process_frames": 30
+          },
+          "suspended": true,
+          "transport": "summer",
+          "was_suspended": true
+        }
+      ],
+      "skippedCount": 0,
+      "status": "ok",
+      "stopOnError": true,
+      "undoGroup": false,
+      "requestId": "mcp-a96b2229-5cc3-4875-a2a2-2a4c572a029d",
+      "terminalState": "applied",
+      "appliedSeq": 1278
+    },
+    {
+      "results": [
+        {
+          "after": {
+            "frames_drawn": 4331,
+            "physics_frames": 4332,
+            "process_frames": 4331
+          },
+          "before": {
+            "frames_drawn": 4302,
+            "physics_frames": 4302,
+            "process_frames": 4301
+          },
+          "exact": true,
+          "frame": {
+            "frames_drawn": 4331,
+            "physics_frames": 4332,
+            "process_frames": 4331
+          },
+          "instance": "river-final",
+          "kind": "physics",
+          "ok": true,
+          "op": "GameStep",
+          "overshoot": 0,
+          "paused": false,
+          "provenance": {
+            "source": "runtime",
+            "target": {
+              "instance": "river-final",
+              "kind": "game"
+            }
+          },
+          "requestId": "mcp-acf458bb-de2a-4c9c-b0a9-1852a50b82ea",
+          "requested": 30,
+          "stepped": {
+            "physics_frames": 30,
+            "process_frames": 30
+          },
+          "suspended": true,
+          "transport": "summer",
+          "was_suspended": true
+        }
+      ],
+      "skippedCount": 0,
+      "status": "ok",
+      "stopOnError": true,
+      "undoGroup": false,
+      "requestId": "mcp-acf458bb-de2a-4c9c-b0a9-1852a50b82ea",
+      "terminalState": "applied",
+      "appliedSeq": 1280
+    },
+    {
+      "results": [
+        {
+          "after": {
+            "frames_drawn": 4373,
+            "physics_frames": 4374,
+            "process_frames": 4373
+          },
+          "before": {
+            "frames_drawn": 4344,
+            "physics_frames": 4344,
+            "process_frames": 4343
+          },
+          "exact": true,
+          "frame": {
+            "frames_drawn": 4373,
+            "physics_frames": 4374,
+            "process_frames": 4373
+          },
+          "instance": "river-final",
+          "kind": "physics",
+          "ok": true,
+          "op": "GameStep",
+          "overshoot": 0,
+          "paused": false,
+          "provenance": {
+            "source": "runtime",
+            "target": {
+              "instance": "river-final",
+              "kind": "game"
+            }
+          },
+          "requestId": "mcp-4e5b7032-24d3-49d5-a248-be193ecee72d",
+          "requested": 30,
+          "stepped": {
+            "physics_frames": 30,
+            "process_frames": 30
+          },
+          "suspended": true,
+          "transport": "summer",
+          "was_suspended": true
+        }
+      ],
+      "skippedCount": 0,
+      "status": "ok",
+      "stopOnError": true,
+      "undoGroup": false,
+      "requestId": "mcp-4e5b7032-24d3-49d5-a248-be193ecee72d",
+      "terminalState": "applied",
+      "appliedSeq": 1282
+    },
+    {
+      "results": [
+        {
+          "after": {
+            "frames_drawn": 4415,
+            "physics_frames": 4416,
+            "process_frames": 4415
+          },
+          "before": {
+            "frames_drawn": 4386,
+            "physics_frames": 4386,
+            "process_frames": 4385
+          },
+          "exact": true,
+          "frame": {
+            "frames_drawn": 4415,
+            "physics_frames": 4416,
+            "process_frames": 4415
+          },
+          "instance": "river-final",
+          "kind": "physics",
+          "ok": true,
+          "op": "GameStep",
+          "overshoot": 0,
+          "paused": false,
+          "provenance": {
+            "source": "runtime",
+            "target": {
+              "instance": "river-final",
+              "kind": "game"
+            }
+          },
+          "requestId": "mcp-5911e9b3-f305-43c6-8cfb-392bfcdd6893",
+          "requested": 30,
+          "stepped": {
+            "physics_frames": 30,
+            "process_frames": 30
+          },
+          "suspended": true,
+          "transport": "summer",
+          "was_suspended": true
+        }
+      ],
+      "skippedCount": 0,
+      "status": "ok",
+      "stopOnError": true,
+      "undoGroup": false,
+      "requestId": "mcp-5911e9b3-f305-43c6-8cfb-392bfcdd6893",
+      "terminalState": "applied",
+      "appliedSeq": 1284
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+[
+  {
+    "file": "105_coalcrest-before.tres",
+    "sha256": "4be3ba3e7e354e020e88808d5a23b2751f8f541575092c853de5570321a2b052"
+  },
+  {
+    "file": "exact-prompt.txt",
+    "sha256": "753139b4131596471e3036f3301c9fc93941c3120a38478028c7d815ed5dc9c8"
+  },
+  {
+    "file": "fin-mask.png",
+    "sha256": "c2cdaf3d5019a50f153a849b4433abf18f0b1da0508c64555576e1d384195bed"
+  },
+  {
+    "file": "fin-only-input.png",
+    "sha256": "dec10a054fdb98a8cf2cbc0b41a15368edacbb6f7eff445ebe23d7c5163ace41"
+  },
+  {
+    "file": "fin-only-mask.png",
+    "sha256": "fb92cf7b7e0554b515df45186461137370be8148a7e69a6a5906fb890bd20199"
+  },
+  {
+    "file": "fin-only-prompt.txt",
+    "sha256": "45853f9e06c87f675d84a97997836b8fd325fb567ae888aa4b6de9ffed01f6ac"
+  },
+  {
+    "file": "front-before.png",
+    "sha256": "614493f5d0aba2783467a3848ea7aa1e442c80a925e021e9ff4ee35b509cd70f"
+  },
+  {
+    "file": "generation-records.json",
+    "sha256": "35521ddbf02982d44c611b275b6ada7d6c8dfb8e4922f7a6baedada6a1d4d30b"
+  },
+  {
+    "file": "rd-approved-output.png",
+    "sha256": "3201b3c8364ca3002fa23e1e5a5c9ef9c7f5f195c3045ac2fe999928a6257837"
+  }
+]

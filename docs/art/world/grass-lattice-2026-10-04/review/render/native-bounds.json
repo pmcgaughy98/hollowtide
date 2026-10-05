@@ -1,0 +1,140 @@
+{
+	"canopies": [
+		{
+			"bounds": "[P: (24.0, 39.0), S: (112.0, 96.0)]",
+			"tree": "Cottonwood00",
+			"within_level": true
+		},
+		{
+			"bounds": "[P: (88.0, 71.0), S: (112.0, 96.0)]",
+			"tree": "Cottonwood01",
+			"within_level": true
+		},
+		{
+			"bounds": "[P: (312.0, 39.0), S: (112.0, 96.0)]",
+			"tree": "Cottonwood02",
+			"within_level": true
+		},
+		{
+			"bounds": "[P: (376.0, 71.0), S: (112.0, 96.0)]",
+			"tree": "Cottonwood03",
+			"within_level": true
+		},
+		{
+			"bounds": "[P: (600.0, 23.0), S: (112.0, 96.0)]",
+			"tree": "Cottonwood04",
+			"within_level": true
+		},
+		{
+			"bounds": "[P: (680.0, 47.0), S: (112.0, 96.0)]",
+			"tree": "Cottonwood05",
+			"within_level": true
+		},
+		{
+			"bounds": "[P: (808.0, 39.0), S: (112.0, 96.0)]",
+			"tree": "Cottonwood06",
+			"within_level": true
+		},
+		{
+			"bounds": "[P: (888.0, 79.0), S: (112.0, 96.0)]",
+			"tree": "Cottonwood07",
+			"within_level": true
+		},
+		{
+			"bounds": "[P: (24.0, 215.0), S: (112.0, 96.0)]",
+			"tree": "Cottonwood08",
+			"within_level": true
+		},
+		{
+			"bounds": "[P: (40.0, 303.0), S: (112.0, 96.0)]",
+			"tree": "Cottonwood09",
+			"within_level": true
+		},
+		{
+			"bounds": "[P: (40.0, 399.0), S: (112.0, 96.0)]",
+			"tree": "Cottonwood10",
+			"within_level": true
+		},
+		{
+			"bounds": "[P: (24.0, 519.0), S: (112.0, 96.0)]",
+			"tree": "Cottonwood11",
+			"within_level": true
+		},
+		{
+			"bounds": "[P: (360.0, 343.0), S: (112.0, 96.0)]",
+			"tree": "Cottonwood12",
+			"within_level": true
+		},
+		{
+			"bounds": "[P: (408.0, 375.0), S: (112.0, 96.0)]",
+			"tree": "Cottonwood13",
+			"within_level": true
+		},
+		{
+			"bounds": "[P: (584.0, 551.0), S: (112.0, 96.0)]",
+			"tree": "Cottonwood14",
+			"within_level": true
+		},
+		{
+			"bounds": "[P: (664.0, 583.0), S: (112.0, 96.0)]",
+			"tree": "Cottonwood15",
+			"within_level": true
+		},
+		{
+			"bounds": "[P: (872.0, 247.0), S: (112.0, 96.0)]",
+			"tree": "Cottonwood16",
+			"within_level": true
+		},
+		{
+			"bounds": "[P: (888.0, 327.0), S: (112.0, 96.0)]",
+			"tree": "Cottonwood17",
+			"within_level": true
+		},
+		{
+			"bounds": "[P: (840.0, 519.0), S: (112.0, 96.0)]",
+			"tree": "Cottonwood18",
+			"within_level": true
+		},
+		{
+			"bounds": "[P: (888.0, 591.0), S: (112.0, 96.0)]",
+			"tree": "Cottonwood19",
+			"within_level": true
+		},
+		{
+			"bounds": "[P: (40.0, 647.0), S: (112.0, 96.0)]",
+			"tree": "Cottonwood20",
+			"within_level": true
+		},
+		{
+			"bounds": "[P: (120.0, 615.0), S: (112.0, 96.0)]",
+			"tree": "Cottonwood21",
+			"within_level": true
+		},
+		{
+			"bounds": "[P: (328.0, 647.0), S: (112.0, 96.0)]",
+			"tree": "Cottonwood22",
+			"within_level": true
+		},
+		{
+			"bounds": "[P: (440.0, 623.0), S: (112.0, 96.0)]",
+			"tree": "Cottonwood23",
+			"within_level": true
+		},
+		{
+			"bounds": "[P: (760.0, 647.0), S: (112.0, 96.0)]",
+			"tree": "Cottonwood24",
+			"within_level": true
+		},
+		{
+			"bounds": "[P: (872.0, 655.0), S: (112.0, 96.0)]",
+			"tree": "Cottonwood25",
+			"within_level": true
+		}
+	],
+	"native_subviewport": [
+		1024,
+		768
+	],
+	"ordinary_traversal_checked_separately": true,
+	"visual_camera_only_changed": true
+}

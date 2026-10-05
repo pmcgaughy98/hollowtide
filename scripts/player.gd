@@ -18,6 +18,7 @@ extends CharacterBody2D
 # up-right, right, down-right. Both models share the same foot anchor.
 const CHIBI_MALE: Texture2D = preload("res://assets/sprites/player/retro_diffusion_chibi_walking_2026_10_01/male_chibi_walk_matched_turns_native80.png")
 const CHIBI_FEMALE: Texture2D = preload("res://assets/sprites/player/retro_diffusion_chibi_walking_2026_10_01/female_chibi_walk_eight_directions_native80.png")
+const COURIER_FINISH: Shader = preload("res://scripts/effects/courier_finish.gdshader")
 const CHIBI_CELL := 80.0
 const CHIBI_SCALE := 30.0 / 64.0
 const CHIBI_FOOT := 72.0
@@ -52,6 +53,10 @@ func _physics_process(delta: float) -> void:
 
 
 func _ready() -> void:
+	if use_chibi and chibi_model == "Female":
+		var finish := ShaderMaterial.new()
+		finish.shader = COURIER_FINISH
+		_sprite.material = finish
 	_update_walk(Vector2.ZERO, 0.0)
 
 

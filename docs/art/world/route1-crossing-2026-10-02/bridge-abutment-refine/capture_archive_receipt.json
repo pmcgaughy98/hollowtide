@@ -1,0 +1,219 @@
+[
+  {
+    "bytes": 203,
+    "file": "res://docs/art/world/route1-crossing-2026-10-02/bridge-abutment-refine/abutment_alpha_request.json",
+    "sha256": "e452e3e7687e94c9224745f0089149e3b3b290a146e75bd3f38fa51767232a2d"
+  },
+  {
+    "bytes": 338,
+    "file": "res://docs/art/world/route1-crossing-2026-10-02/bridge-abutment-refine/abutment_alpha_request.json.estimate.json",
+    "sha256": "eae25dd6490016345e7cc15b937618f2c1cfd0c701712ec170a94a7fe6b184a8"
+  },
+  {
+    "bytes": 108317,
+    "file": "res://docs/art/world/route1-crossing-2026-10-02/bridge-abutment-refine/bridge_before.jpg",
+    "sha256": "0e1337b54345390f961b2ad260b74aa7e6cb8f9cbd4dc24eb8422dfadbff0e5c"
+  },
+  {
+    "bytes": 106557,
+    "file": "res://docs/art/world/route1-crossing-2026-10-02/bridge-abutment-refine/bridge_after.jpg",
+    "sha256": "469749a55b99705ac7258c5f1d34b0770a6acc9454d04747faf7aaab0c96bb2f"
+  },
+  {
+    "bytes": 6836,
+    "file": "res://docs/art/world/route1-crossing-2026-10-02/bridge-abutment-refine/abutment_cap_input.png",
+    "sha256": "077a6c75c41d95c5ba86a6bcf5b829665a00d90655d7216cf58b7fc7674e7518"
+  },
+  {
+    "bytes": 388,
+    "file": "res://docs/art/world/route1-crossing-2026-10-02/bridge-abutment-refine/abutment_cap_mask.png",
+    "sha256": "a4af6239e430accb7dd122b4ff7d4b854f00f54b1f7f533eb453a29cc3896517"
+  },
+  {
+    "bytes": 926,
+    "file": "res://docs/art/world/route1-crossing-2026-10-02/bridge-abutment-refine/abutment_cap_request.json",
+    "sha256": "1f78d69ffb495c785710737b8ee2a0b4fdc4104e65f1c5c25a67ca5079e101e2"
+  },
+  {
+    "bytes": 324,
+    "file": "res://docs/art/world/route1-crossing-2026-10-02/bridge-abutment-refine/abutment_cap_request.json.estimate.json",
+    "sha256": "b893ca9cd4c22e346924ca2031d07ab44b23e8c71c03977b6e0cb72ba79e5ae8"
+  },
+  {
+    "bytes": 97859,
+    "file": "res://docs/art/world/route1-crossing-2026-10-02/bridge-abutment-refine/city_after.jpg",
+    "sha256": "ca8c80006558335d9f5c7b67669021d026aa5c2c4b8ff4b067223e914b90b113"
+  },
+  {
+    "bytes": 94337,
+    "file": "res://docs/art/world/route1-crossing-2026-10-02/bridge-abutment-refine/city_before.jpg",
+    "sha256": "c3c88bde2a4b4d6ad6fbd53d08c9ef8288790281e055341c6e46f2c33fe357fc"
+  },
+  {
+    "bytes": 12235,
+    "file": "res://docs/art/world/route1-crossing-2026-10-02/bridge-abutment-refine/abutment_final.png",
+    "sha256": "878640ff82a6af55ba4718ed4c9f0bfd51d4ee0d3e41523ecb38b568a70dc8da"
+  },
+  {
+    "bytes": 126043,
+    "file": "res://docs/art/world/route1-crossing-2026-10-02/bridge-abutment-refine/home_return.jpg",
+    "sha256": "b4249742541d04106f649da9af7b0c3f4c7cab5285894fe19a1393a39198b3f2"
+  },
+  {
+    "bytes": 18778,
+    "file": "res://docs/art/world/route1-crossing-2026-10-02/bridge-abutment-refine/abutment_joined_preview.png",
+    "sha256": "9a93aa65c7406b1bbaf9583bc3d805f0da46c8deead9db4ab4c4e1293ad878be"
+  },
+  {
+    "bytes": 13476,
+    "file": "res://docs/art/world/route1-crossing-2026-10-02/bridge-abutment-refine/abutment_joined_white.png",
+    "sha256": "72863e0dbd5dd0052a7f578fd03c8c715c75991927160de4faf30053d53816ef"
+  },
+  {
+    "bytes": 7487,
+    "file": "res://docs/art/world/route1-crossing-2026-10-02/bridge-abutment-refine/abutment_left_edited.png",
+    "sha256": "0f5498642db06e08f2debe0969d250a25273aafd6a81ec9baa112ae28e55a822"
+  },
+  {
+    "bytes": 650,
+    "file": "res://docs/art/world/route1-crossing-2026-10-02/bridge-abutment-refine/abutment_left_edited.png.receipt.json",
+    "sha256": "440c216b7e0debea3eab83c8dd1c5b78211a2050a4c7ec49291d6a6d98f02fed"
+  },
+  {
+    "bytes": 6960,
+    "file": "res://docs/art/world/route1-crossing-2026-10-02/bridge-abutment-refine/abutment_left_input.png",
+    "sha256": "3b9e60deecca9afdbfefac46a88009b5fae1604e99f8fe7f6ea479be7ee06ede"
+  },
+  {
+    "bytes": 395,
+    "file": "res://docs/art/world/route1-crossing-2026-10-02/bridge-abutment-refine/abutment_left_mask.png",
+    "sha256": "9e8d86aa2d5598224d9f277b77a0a2105015d02e5accbcddab235d90c2118412"
+  },
+  {
+    "bytes": 9877,
+    "file": "res://docs/art/world/route1-crossing-2026-10-02/bridge-abutment-refine/abutment_left_preview.png",
+    "sha256": "130f740937183cf20b63e0e761913ccf817fc788e251423cac684792312a63ea"
+  },
+  {
+    "bytes": 1440,
+    "file": "res://docs/art/world/route1-crossing-2026-10-02/bridge-abutment-refine/abutment_left_request.json",
+    "sha256": "0b35ca2a005c0a7c5e103d007bf37b233595e2ebba2b82b580c6015cc4aed945"
+  },
+  {
+    "bytes": 324,
+    "file": "res://docs/art/world/route1-crossing-2026-10-02/bridge-abutment-refine/abutment_left_request.json.estimate.json",
+    "sha256": "b893ca9cd4c22e346924ca2031d07ab44b23e8c71c03977b6e0cb72ba79e5ae8"
+  },
+  {
+    "bytes": 217,
+    "file": "res://docs/art/world/route1-crossing-2026-10-02/bridge-abutment-refine/abutment_left_request.json.start.json",
+    "sha256": "eb6e8dd71318f03ddea84938b9e02e9205f0b974aafab70924c6da0bb4fe9284"
+  },
+  {
+    "bytes": 210,
+    "file": "res://docs/art/world/route1-crossing-2026-10-02/bridge-abutment-refine/abutment_paired_alpha_request.json",
+    "sha256": "957e1b659223a0fe4eea939657461590f8f69a5958ab8770856a4213f0cc36cd"
+  },
+  {
+    "bytes": 338,
+    "file": "res://docs/art/world/route1-crossing-2026-10-02/bridge-abutment-refine/abutment_paired_alpha_request.json.estimate.json",
+    "sha256": "eae25dd6490016345e7cc15b937618f2c1cfd0c701712ec170a94a7fe6b184a8"
+  },
+  {
+    "bytes": 217,
+    "file": "res://docs/art/world/route1-crossing-2026-10-02/bridge-abutment-refine/abutment_paired_alpha_request.json.start.json",
+    "sha256": "7e298d6aefd5a40ddb18decb9a67cfb28e1bbff9866bd7f4dcf8f1ad6d2ad6d5"
+  },
+  {
+    "bytes": 12361,
+    "file": "res://docs/art/world/route1-crossing-2026-10-02/bridge-abutment-refine/abutment_paired_clean.png",
+    "sha256": "69386566a23c130c9d9c446f07c82006c2a09b063b3dda3e72f44b68e5765e81"
+  },
+  {
+    "bytes": 663,
+    "file": "res://docs/art/world/route1-crossing-2026-10-02/bridge-abutment-refine/abutment_paired_clean.png.receipt.json",
+    "sha256": "5add993039b5c113b7ad75ce6727ab8f359e9f9badb0554026a0f62c6c9736f3"
+  },
+  {
+    "bytes": 17088,
+    "file": "res://docs/art/world/route1-crossing-2026-10-02/bridge-abutment-refine/abutment_paired_preview.png",
+    "sha256": "9bb928e62d102e51bc7ae6c1c1071d037e0acf7f1d36bef208628c078509b3f5"
+  },
+  {
+    "bytes": 12185,
+    "file": "res://docs/art/world/route1-crossing-2026-10-02/bridge-abutment-refine/abutment_paired_white.png",
+    "sha256": "a189f5ed804171be103b46b52600053dcd11a39e95201b488aea4eacfd7e48b0"
+  },
+  {
+    "bytes": 604,
+    "file": "res://docs/art/world/route1-crossing-2026-10-02/bridge-abutment-refine/abutment_pixel_check.json",
+    "sha256": "72f91b51483dab83ba22244e6400e6e71a2a99e8ddcec98bb8e86c5f179d6e65"
+  },
+  {
+    "bytes": 6821,
+    "file": "res://docs/art/world/route1-crossing-2026-10-02/bridge-abutment-refine/abutment_right_edited.png",
+    "sha256": "bad5c1cb82894d9b0611fbf09b759f1b573b7ccce34389244b4c081d1fcb6d9b"
+  },
+  {
+    "bytes": 650,
+    "file": "res://docs/art/world/route1-crossing-2026-10-02/bridge-abutment-refine/abutment_right_edited.png.receipt.json",
+    "sha256": "1494ba735a947c9c382187a6a455f67503adde30464bbeda6d60de4ee7696ef5"
+  },
+  {
+    "bytes": 7309,
+    "file": "res://docs/art/world/route1-crossing-2026-10-02/bridge-abutment-refine/abutment_right_input.png",
+    "sha256": "45cfc6ef29da6a3a4c90ecb85f5bf44634a1e864fc042fe3e07debbec64ec13e"
+  },
+  {
+    "bytes": 392,
+    "file": "res://docs/art/world/route1-crossing-2026-10-02/bridge-abutment-refine/abutment_right_mask.png",
+    "sha256": "e41ae579f346a2279d446edbb3bc90ba4df9d8b680bfbbd1a876d819ee9439ff"
+  },
+  {
+    "bytes": 10286,
+    "file": "res://docs/art/world/route1-crossing-2026-10-02/bridge-abutment-refine/abutment_right_preview.png",
+    "sha256": "b6c3a28c8a023a2711a37dc315e9d74f04880b9dd4ad291726b002ddfe8944ee"
+  },
+  {
+    "bytes": 1444,
+    "file": "res://docs/art/world/route1-crossing-2026-10-02/bridge-abutment-refine/abutment_right_request.json",
+    "sha256": "eb9c3f2a0d9195ca18679c1a4f68dbb551fcf6d6324f8c6fb57223594912d860"
+  },
+  {
+    "bytes": 324,
+    "file": "res://docs/art/world/route1-crossing-2026-10-02/bridge-abutment-refine/abutment_right_request.json.estimate.json",
+    "sha256": "b893ca9cd4c22e346924ca2031d07ab44b23e8c71c03977b6e0cb72ba79e5ae8"
+  },
+  {
+    "bytes": 217,
+    "file": "res://docs/art/world/route1-crossing-2026-10-02/bridge-abutment-refine/abutment_right_request.json.start.json",
+    "sha256": "b8656be3715af68987e53c18c109742460e68f57ea35c169bc0b0f894d42241d"
+  },
+  {
+    "bytes": 42180,
+    "file": "res://docs/art/world/route1-crossing-2026-10-02/bridge-abutment-refine/abutment_verification.json",
+    "sha256": "ce35a7a3af20939cd8cfd585fc71683c6121b2b87053fe97b5b0cd99a277ae19"
+  },
+  {
+    "bytes": 98021,
+    "file": "res://docs/art/world/route1-crossing-2026-10-02/bridge-abutment-refine/westbank_after.jpg",
+    "sha256": "32e3a1f676f4e174b50a4d6b35f291a1120f7273f1377e349cc5286aae68361c"
+  },
+  {
+    "bytes": 98117,
+    "file": "res://docs/art/world/route1-crossing-2026-10-02/bridge-abutment-refine/westbank_before.jpg",
+    "sha256": "8c98679fcbf819a6d09e6874faa9776fcf0c4ad37e9425cc0ea09f7263b7fc27"
+  },
+  {
+    "file": "res://docs/art/world/route1-crossing-2026-10-02/bridge-abutment-refine/bridge_before_native.png",
+    "sha256": "9f8d28e778f6cfd4777a66dabad5d8874b14f968c30636a407c0aa3da041ac90"
+  },
+  {
+    "file": "res://docs/art/world/route1-crossing-2026-10-02/bridge-abutment-refine/bridge_installed_native.png",
+    "sha256": "878640ff82a6af55ba4718ed4c9f0bfd51d4ee0d3e41523ecb38b568a70dc8da"
+  },
+  {
+    "file": "res://docs/art/world/route1-crossing-2026-10-02/bridge-abutment-refine/bridge_installed_import.txt",
+    "sha256": "e7342cc4fb6c76f3a6258106932ae40e2c9d1abbae07e8144202fe8580cc8019"
+  }
+]

@@ -1,0 +1,926 @@
+[
+  {
+    "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\landing-loop-review\\asset-manifest.json",
+    "archive": "review/asset-manifest.json",
+    "sha256": "e6bc95fd83869476a5f5e4f35373da2d1b8a1bc4cc937164dc4957e667e303c0",
+    "bytes": 285
+  },
+  {
+    "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\landing-loop-review\\before-bank.png",
+    "archive": "review/before-bank.png",
+    "sha256": "7de88611e6152275edea89fbfc5c02fdb13f070744c65a260daceef0b554f22b",
+    "bytes": 93543
+  },
+  {
+    "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\landing-loop-review\\before-overview.png",
+    "archive": "review/before-overview.png",
+    "sha256": "a0f69d35c56a425a45972e9e12b9cd0de76a38f27da57d60cc8637f6f9f0945c",
+    "bytes": 524838
+  },
+  {
+    "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\landing-loop-review\\before-turn.png",
+    "archive": "review/before-turn.png",
+    "sha256": "604b7b7fa1c2bcb2ce3086ea40fce1591856f3f0e5bea8d5f87032c3d63fa988",
+    "bytes": 118548
+  },
+  {
+    "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\landing-loop-review\\bypass\\before-canopy-walkthrough-assignment.png",
+    "archive": "review/bypass/before-canopy-walkthrough-assignment.png",
+    "sha256": "dd634af17755e0829adcf99b970e3e89c5d7fe589c7140fca7e631e85eed5f87",
+    "bytes": 104419
+  },
+  {
+    "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\landing-loop-review\\bypass\\before-canopy-walkthrough-city-board.png",
+    "archive": "review/bypass/before-canopy-walkthrough-city-board.png",
+    "sha256": "44628958079dfe3b15de511636bf577e3e30f1d52cff32f7d6067a5bcc0f0f7b",
+    "bytes": 102605
+  },
+  {
+    "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\landing-loop-review\\bypass\\before-canopy-walkthrough-city-clerk.png",
+    "archive": "review/bypass/before-canopy-walkthrough-city-clerk.png",
+    "sha256": "6aebe0eeaff3989ce6a6f5cc79c4ffe3c5970813459d43122512bbc6639673c9",
+    "bytes": 93839
+  },
+  {
+    "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\landing-loop-review\\bypass\\before-canopy-walkthrough-levee-sign.png",
+    "archive": "review/bypass/before-canopy-walkthrough-levee-sign.png",
+    "sha256": "a5193355fa01b7a268978d145cba8a3d9dc9c57e4ac1b8541c825b5af7697d5b",
+    "bytes": 106184
+  },
+  {
+    "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\landing-loop-review\\bypass\\before-canopy-walkthrough-marker-repair.png",
+    "archive": "review/bypass/before-canopy-walkthrough-marker-repair.png",
+    "sha256": "9055b1c62e02dc7cfa81b16d7668000728d5b4a8e76af270e68999868f82de27",
+    "bytes": 105682
+  },
+  {
+    "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\landing-loop-review\\bypass\\before-canopy-walkthrough-relay-delivery.png",
+    "archive": "review/bypass/before-canopy-walkthrough-relay-delivery.png",
+    "sha256": "bd419886afc0c1f90bd6dd6c401fdfe38c4e505195a9c38e79f585b6e5645af7",
+    "bytes": 94096
+  },
+  {
+    "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\landing-loop-review\\bypass\\before-canopy-walkthrough-report-choices.png",
+    "archive": "review/bypass/before-canopy-walkthrough-report-choices.png",
+    "sha256": "cbb3dbed322c85f6eb0d353e7f665db161da8ebfa33d47aba2f42ed16475d837",
+    "bytes": 99538
+  },
+  {
+    "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\landing-loop-review\\bypass\\before-canopy-walkthrough-report-complete.png",
+    "archive": "review/bypass/before-canopy-walkthrough-report-complete.png",
+    "sha256": "41bedc0c562e49876756d7c6c8cfbe54cfd3e15d195b90c036ab24de3a2838f1",
+    "bytes": 101715
+  },
+  {
+    "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\landing-loop-review\\bypass\\before-canopy-walkthrough-results.json",
+    "archive": "review/bypass/before-canopy-walkthrough-results.json",
+    "sha256": "4c5eb7cfd91c58e98f6913de92b5c827cc2d693b0431b371a82d2ab4ddfe55ff",
+    "bytes": 4898
+  },
+  {
+    "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\landing-loop-review\\bypass\\before-canopy-walkthrough-start.png",
+    "archive": "review/bypass/before-canopy-walkthrough-start.png",
+    "sha256": "7aee512f0f4e379fe83ebe58795c1694b8af88fc6dc11446c7b5415e28c99b3b",
+    "bytes": 118162
+  },
+  {
+    "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\landing-loop-review\\bypass\\walkthrough-assignment.png",
+    "archive": "review/bypass/walkthrough-assignment.png",
+    "sha256": "dd634af17755e0829adcf99b970e3e89c5d7fe589c7140fca7e631e85eed5f87",
+    "bytes": 104419
+  },
+  {
+    "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\landing-loop-review\\bypass\\walkthrough-city-board.png",
+    "archive": "review/bypass/walkthrough-city-board.png",
+    "sha256": "44628958079dfe3b15de511636bf577e3e30f1d52cff32f7d6067a5bcc0f0f7b",
+    "bytes": 102605
+  },
+  {
+    "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\landing-loop-review\\bypass\\walkthrough-city-clerk.png",
+    "archive": "review/bypass/walkthrough-city-clerk.png",
+    "sha256": "6aebe0eeaff3989ce6a6f5cc79c4ffe3c5970813459d43122512bbc6639673c9",
+    "bytes": 93839
+  },
+  {
+    "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\landing-loop-review\\bypass\\walkthrough-levee-sign.png",
+    "archive": "review/bypass/walkthrough-levee-sign.png",
+    "sha256": "a5193355fa01b7a268978d145cba8a3d9dc9c57e4ac1b8541c825b5af7697d5b",
+    "bytes": 106184
+  },
+  {
+    "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\landing-loop-review\\bypass\\walkthrough-marker-repair.png",
+    "archive": "review/bypass/walkthrough-marker-repair.png",
+    "sha256": "9055b1c62e02dc7cfa81b16d7668000728d5b4a8e76af270e68999868f82de27",
+    "bytes": 105682
+  },
+  {
+    "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\landing-loop-review\\bypass\\walkthrough-relay-delivery.png",
+    "archive": "review/bypass/walkthrough-relay-delivery.png",
+    "sha256": "bd419886afc0c1f90bd6dd6c401fdfe38c4e505195a9c38e79f585b6e5645af7",
+    "bytes": 94096
+  },
+  {
+    "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\landing-loop-review\\bypass\\walkthrough-report-choices.png",
+    "archive": "review/bypass/walkthrough-report-choices.png",
+    "sha256": "cbb3dbed322c85f6eb0d353e7f665db161da8ebfa33d47aba2f42ed16475d837",
+    "bytes": 99538
+  },
+  {
+    "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\landing-loop-review\\bypass\\walkthrough-report-complete.png",
+    "archive": "review/bypass/walkthrough-report-complete.png",
+    "sha256": "41bedc0c562e49876756d7c6c8cfbe54cfd3e15d195b90c036ab24de3a2838f1",
+    "bytes": 101715
+  },
+  {
+    "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\landing-loop-review\\bypass\\walkthrough-results.json",
+    "archive": "review/bypass/walkthrough-results.json",
+    "sha256": "c97dc4928ba2b948cc846ef42831b49c52924a7499ca659b66ca1328bf9faf09",
+    "bytes": 4898
+  },
+  {
+    "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\landing-loop-review\\bypass\\walkthrough-start.png",
+    "archive": "review/bypass/walkthrough-start.png",
+    "sha256": "7aee512f0f4e379fe83ebe58795c1694b8af88fc6dc11446c7b5415e28c99b3b",
+    "bytes": 118162
+  },
+  {
+    "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\landing-loop-review\\candidate-bake-results.json",
+    "archive": "review/candidate-bake-results.json",
+    "sha256": "5b024198cd76deeaf51cec85a9b0fac53e544c44332cace8e6724eb6d5959337",
+    "bytes": 1025
+  },
+  {
+    "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\landing-loop-review\\candidate-bake-results.v1.json",
+    "archive": "review/candidate-bake-results.v1.json",
+    "sha256": "2ab029cc21f7c94d25484c660b85acd2740293e3a56bb19ed9273a5e46cdea99",
+    "bytes": 1027
+  },
+  {
+    "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\landing-loop-review\\candidate-bank.png",
+    "archive": "review/candidate-bank.png",
+    "sha256": "d3bcd47e1304f6ca014b4adc707d03fc28c5bb46411ca709e2180893f077bf1b",
+    "bytes": 92531
+  },
+  {
+    "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\landing-loop-review\\candidate-bank.v1.png",
+    "archive": "review/candidate-bank.v1.png",
+    "sha256": "815a9b147da7b7f4854b687de3cff202be8b24e5f23f1698840c90a5cbca2905",
+    "bytes": 92374
+  },
+  {
+    "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\landing-loop-review\\candidate-bank.v2.png",
+    "archive": "review/candidate-bank.v2.png",
+    "sha256": "d3bcd47e1304f6ca014b4adc707d03fc28c5bb46411ca709e2180893f077bf1b",
+    "bytes": 92531
+  },
+  {
+    "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\landing-loop-review\\candidate-overview.png",
+    "archive": "review/candidate-overview.png",
+    "sha256": "a982ef842cb226cd7572a149179f7fff1cb95be459329a918cf2e14b60c3c3a1",
+    "bytes": 523633
+  },
+  {
+    "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\landing-loop-review\\candidate-overview.v1.png",
+    "archive": "review/candidate-overview.v1.png",
+    "sha256": "ffe002741a187c076aa3fa2d20b80a2219457a43def51d14db40e7c8ec1130c5",
+    "bytes": 523420
+  },
+  {
+    "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\landing-loop-review\\candidate-overview.v2.png",
+    "archive": "review/candidate-overview.v2.png",
+    "sha256": "a982ef842cb226cd7572a149179f7fff1cb95be459329a918cf2e14b60c3c3a1",
+    "bytes": 523633
+  },
+  {
+    "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\landing-loop-review\\candidate-return.png",
+    "archive": "review/candidate-return.png",
+    "sha256": "9fb25ca86b13114e64e2cf2e44536ca1b76eaf8a4ef8a5b1c3107a1e5fac180e",
+    "bytes": 99468
+  },
+  {
+    "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\landing-loop-review\\candidate-return.v1.png",
+    "archive": "review/candidate-return.v1.png",
+    "sha256": "fedb8e41e63cffb15fd830920c6856e9caa1e4fc86df5ed71cbf64230e4cb5f7",
+    "bytes": 99316
+  },
+  {
+    "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\landing-loop-review\\candidate-return.v2.png",
+    "archive": "review/candidate-return.v2.png",
+    "sha256": "9fb25ca86b13114e64e2cf2e44536ca1b76eaf8a4ef8a5b1c3107a1e5fac180e",
+    "bytes": 99468
+  },
+  {
+    "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\landing-loop-review\\candidate-turn.png",
+    "archive": "review/candidate-turn.png",
+    "sha256": "25f51d8afa765bb942db9aa49ae53f022375c90b45472f0d1586475addd47ede",
+    "bytes": 117482
+  },
+  {
+    "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\landing-loop-review\\candidate-turn.v1.png",
+    "archive": "review/candidate-turn.v1.png",
+    "sha256": "9de52f2716ae42bfb2b279ba423450e24fc661cdb92009391594af25628adf04",
+    "bytes": 117624
+  },
+  {
+    "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\landing-loop-review\\candidate-turn.v2.png",
+    "archive": "review/candidate-turn.v2.png",
+    "sha256": "25f51d8afa765bb942db9aa49ae53f022375c90b45472f0d1586475addd47ede",
+    "bytes": 117482
+  },
+  {
+    "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\landing-loop-review\\canopy-faded-render.png",
+    "archive": "review/canopy-faded-render.png",
+    "sha256": "c13d255d862bbe510eb45b8f6d005c217d6ea79942bae480a306d25f3b06ba1d",
+    "bytes": 5201
+  },
+  {
+    "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\landing-loop-review\\canopy-opaque-render.png",
+    "archive": "review/canopy-opaque-render.png",
+    "sha256": "51ade34114f4206b4167bacc0599ccacff8585ed0b0ec72e4888a11171f99b8e",
+    "bytes": 5024
+  },
+  {
+    "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\landing-loop-review\\canopy-source-render.png",
+    "archive": "review/canopy-source-render.png",
+    "sha256": "51ade34114f4206b4167bacc0599ccacff8585ed0b0ec72e4888a11171f99b8e",
+    "bytes": 5024
+  },
+  {
+    "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\landing-loop-review\\final-play-and-canopy-audit.json",
+    "archive": "review/final-play-and-canopy-audit.json",
+    "sha256": "2072a9c692287676a0033d2bec204bd03378038d79a02a06901241d4607ea054",
+    "bytes": 1678
+  },
+  {
+    "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\landing-loop-review\\full\\before-canopy-walkthrough-assignment.png",
+    "archive": "review/full/before-canopy-walkthrough-assignment.png",
+    "sha256": "dd634af17755e0829adcf99b970e3e89c5d7fe589c7140fca7e631e85eed5f87",
+    "bytes": 104419
+  },
+  {
+    "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\landing-loop-review\\full\\before-canopy-walkthrough-bank-return-318.png",
+    "archive": "review/full/before-canopy-walkthrough-bank-return-318.png",
+    "sha256": "3ad2eb9d758b79afa10e0fa25c93e7fc3636e2f9ec4ba9b4c0f865552d9efe8a",
+    "bytes": 91493
+  },
+  {
+    "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\landing-loop-review\\full\\before-canopy-walkthrough-bank-return-341.png",
+    "archive": "review/full/before-canopy-walkthrough-bank-return-341.png",
+    "sha256": "ac9d58f4a1f3d36f13f37e6b42e51aeb43396234e132505d8b83f73b9803272f",
+    "bytes": 92268
+  },
+  {
+    "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\landing-loop-review\\full\\before-canopy-walkthrough-bank-return-366.png",
+    "archive": "review/full/before-canopy-walkthrough-bank-return-366.png",
+    "sha256": "c2f222490ae1769647aa25c1db87374214b122d4c768020472919bc6f76b12c5",
+    "bytes": 98002
+  },
+  {
+    "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\landing-loop-review\\full\\before-canopy-walkthrough-bank-return-383.png",
+    "archive": "review/full/before-canopy-walkthrough-bank-return-383.png",
+    "sha256": "564b68cc412e69cd0476bf86b6ce1b099b2b0b545ea22d80ade3f87d918d246b",
+    "bytes": 100243
+  },
+  {
+    "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\landing-loop-review\\full\\before-canopy-walkthrough-bank-return-393.png",
+    "archive": "review/full/before-canopy-walkthrough-bank-return-393.png",
+    "sha256": "13f9a98a051b18b263fb8483894f8a9c52eff55e7a67cb9e9ac6fee7da28c91a",
+    "bytes": 101788
+  },
+  {
+    "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\landing-loop-review\\full\\before-canopy-walkthrough-city-board.png",
+    "archive": "review/full/before-canopy-walkthrough-city-board.png",
+    "sha256": "807c9ba33c22dc02d6d82475a2733b1ee542389f4591b9b4fabaf550d09e2896",
+    "bytes": 103102
+  },
+  {
+    "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\landing-loop-review\\full\\before-canopy-walkthrough-city-clerk.png",
+    "archive": "review/full/before-canopy-walkthrough-city-clerk.png",
+    "sha256": "8c72fc0a6e128dc2caebd3a5f2236fdd53545e78480c366cbb891a9f895f9bf7",
+    "bytes": 92933
+  },
+  {
+    "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\landing-loop-review\\full\\before-canopy-walkthrough-height-marks.png",
+    "archive": "review/full/before-canopy-walkthrough-height-marks.png",
+    "sha256": "f9f775862049e412c3f3446f3a22f4b21d4024c7c1def8fcfd504fdc3430171c",
+    "bytes": 93544
+  },
+  {
+    "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\landing-loop-review\\full\\before-canopy-walkthrough-landing-notice.png",
+    "archive": "review/full/before-canopy-walkthrough-landing-notice.png",
+    "sha256": "e2baeaa5c43a7d6303421afce7ee17ada77f63a199f595faa4fa82576a195660",
+    "bytes": 103871
+  },
+  {
+    "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\landing-loop-review\\full\\before-canopy-walkthrough-levee-sign.png",
+    "archive": "review/full/before-canopy-walkthrough-levee-sign.png",
+    "sha256": "2e590757be7ea0d068bc7620ba15b344569165c55a835df08bc19b7b7752f855",
+    "bytes": 106391
+  },
+  {
+    "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\landing-loop-review\\full\\before-canopy-walkthrough-marker-repair.png",
+    "archive": "review/full/before-canopy-walkthrough-marker-repair.png",
+    "sha256": "adf641be3a7e31221602c39db150e8d836c9918f2499f70019d2eae5a2336a5e",
+    "bytes": 105996
+  },
+  {
+    "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\landing-loop-review\\full\\before-canopy-walkthrough-new-landing-entry.png",
+    "archive": "review/full/before-canopy-walkthrough-new-landing-entry.png",
+    "sha256": "f66593320dcbcae1471eb2266e175154b62d1fb870fb1c432083626662e9a5d3",
+    "bytes": 110695
+  },
+  {
+    "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\landing-loop-review\\full\\before-canopy-walkthrough-relay-delivery.png",
+    "archive": "review/full/before-canopy-walkthrough-relay-delivery.png",
+    "sha256": "c1ca0b8ff9c26820debd647c7eac268eba3544765f2a5aaa172006585c38237d",
+    "bytes": 94385
+  },
+  {
+    "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\landing-loop-review\\full\\before-canopy-walkthrough-report-choices.png",
+    "archive": "review/full/before-canopy-walkthrough-report-choices.png",
+    "sha256": "02b6c211928631b6b469447aa31906ecc0be911ceacc04784300402888bfe928",
+    "bytes": 105302
+  },
+  {
+    "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\landing-loop-review\\full\\before-canopy-walkthrough-report-complete.png",
+    "archive": "review/full/before-canopy-walkthrough-report-complete.png",
+    "sha256": "14bd724bcaa903171ebbaefcb6f72889e16a7aefcdf1bc5e924af3bb59763262",
+    "bytes": 107377
+  },
+  {
+    "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\landing-loop-review\\full\\before-canopy-walkthrough-results.json",
+    "archive": "review/full/before-canopy-walkthrough-results.json",
+    "sha256": "dbc469321c915287c196a6a74a51b36587c7aae6851db4a75490b2403ad4aac3",
+    "bytes": 7916
+  },
+  {
+    "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\landing-loop-review\\full\\before-canopy-walkthrough-river-calls.png",
+    "archive": "review/full/before-canopy-walkthrough-river-calls.png",
+    "sha256": "eaeb9e2add97775ddadff4bb5c60131103c042e0175d8f73cf7b79c42e1ed4b8",
+    "bytes": 88925
+  },
+  {
+    "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\landing-loop-review\\full\\before-canopy-walkthrough-start.png",
+    "archive": "review/full/before-canopy-walkthrough-start.png",
+    "sha256": "852c2b1735241e4519d9497b286129383a48eee21f1c0511e55ee9dbff765eb8",
+    "bytes": 118309
+  },
+  {
+    "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\landing-loop-review\\full\\walkthrough-assignment.png",
+    "archive": "review/full/walkthrough-assignment.png",
+    "sha256": "dd634af17755e0829adcf99b970e3e89c5d7fe589c7140fca7e631e85eed5f87",
+    "bytes": 104419
+  },
+  {
+    "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\landing-loop-review\\full\\walkthrough-bank-return-318.png",
+    "archive": "review/full/walkthrough-bank-return-318.png",
+    "sha256": "9e39fd45f9c51592d9408ba072dd4975df4f545d6196c578b5a50c091ddd5276",
+    "bytes": 98640
+  },
+  {
+    "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\landing-loop-review\\full\\walkthrough-bank-return-341.png",
+    "archive": "review/full/walkthrough-bank-return-341.png",
+    "sha256": "438110427ec81da98aa510423254a5eee5c7eedba644e45d790d14f55ec4c30a",
+    "bytes": 100665
+  },
+  {
+    "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\landing-loop-review\\full\\walkthrough-bank-return-366.png",
+    "archive": "review/full/walkthrough-bank-return-366.png",
+    "sha256": "f3b9edf990a08c5326e9b284dc0ea5c9221620dbeec6f15bf5d958aac45eee1a",
+    "bytes": 101930
+  },
+  {
+    "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\landing-loop-review\\full\\walkthrough-bank-return-383.png",
+    "archive": "review/full/walkthrough-bank-return-383.png",
+    "sha256": "564b68cc412e69cd0476bf86b6ce1b099b2b0b545ea22d80ade3f87d918d246b",
+    "bytes": 100243
+  },
+  {
+    "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\landing-loop-review\\full\\walkthrough-bank-return-393.png",
+    "archive": "review/full/walkthrough-bank-return-393.png",
+    "sha256": "13f9a98a051b18b263fb8483894f8a9c52eff55e7a67cb9e9ac6fee7da28c91a",
+    "bytes": 101788
+  },
+  {
+    "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\landing-loop-review\\full\\walkthrough-city-board.png",
+    "archive": "review/full/walkthrough-city-board.png",
+    "sha256": "807c9ba33c22dc02d6d82475a2733b1ee542389f4591b9b4fabaf550d09e2896",
+    "bytes": 103102
+  },
+  {
+    "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\landing-loop-review\\full\\walkthrough-city-clerk.png",
+    "archive": "review/full/walkthrough-city-clerk.png",
+    "sha256": "8c72fc0a6e128dc2caebd3a5f2236fdd53545e78480c366cbb891a9f895f9bf7",
+    "bytes": 92933
+  },
+  {
+    "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\landing-loop-review\\full\\walkthrough-height-marks.png",
+    "archive": "review/full/walkthrough-height-marks.png",
+    "sha256": "f9f775862049e412c3f3446f3a22f4b21d4024c7c1def8fcfd504fdc3430171c",
+    "bytes": 93544
+  },
+  {
+    "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\landing-loop-review\\full\\walkthrough-landing-notice.png",
+    "archive": "review/full/walkthrough-landing-notice.png",
+    "sha256": "e2baeaa5c43a7d6303421afce7ee17ada77f63a199f595faa4fa82576a195660",
+    "bytes": 103871
+  },
+  {
+    "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\landing-loop-review\\full\\walkthrough-levee-sign.png",
+    "archive": "review/full/walkthrough-levee-sign.png",
+    "sha256": "2e590757be7ea0d068bc7620ba15b344569165c55a835df08bc19b7b7752f855",
+    "bytes": 106391
+  },
+  {
+    "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\landing-loop-review\\full\\walkthrough-marker-repair.png",
+    "archive": "review/full/walkthrough-marker-repair.png",
+    "sha256": "adf641be3a7e31221602c39db150e8d836c9918f2499f70019d2eae5a2336a5e",
+    "bytes": 105996
+  },
+  {
+    "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\landing-loop-review\\full\\walkthrough-new-landing-entry.png",
+    "archive": "review/full/walkthrough-new-landing-entry.png",
+    "sha256": "f66593320dcbcae1471eb2266e175154b62d1fb870fb1c432083626662e9a5d3",
+    "bytes": 110695
+  },
+  {
+    "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\landing-loop-review\\full\\walkthrough-relay-delivery.png",
+    "archive": "review/full/walkthrough-relay-delivery.png",
+    "sha256": "c1ca0b8ff9c26820debd647c7eac268eba3544765f2a5aaa172006585c38237d",
+    "bytes": 94385
+  },
+  {
+    "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\landing-loop-review\\full\\walkthrough-report-choices.png",
+    "archive": "review/full/walkthrough-report-choices.png",
+    "sha256": "02b6c211928631b6b469447aa31906ecc0be911ceacc04784300402888bfe928",
+    "bytes": 105302
+  },
+  {
+    "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\landing-loop-review\\full\\walkthrough-report-complete.png",
+    "archive": "review/full/walkthrough-report-complete.png",
+    "sha256": "14bd724bcaa903171ebbaefcb6f72889e16a7aefcdf1bc5e924af3bb59763262",
+    "bytes": 107377
+  },
+  {
+    "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\landing-loop-review\\full\\walkthrough-results.json",
+    "archive": "review/full/walkthrough-results.json",
+    "sha256": "19b0e9632b8a2a58b42fb44833c1ff959d2ff0d6bf7cdef4b27327e2e9c9f591",
+    "bytes": 8341
+  },
+  {
+    "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\landing-loop-review\\full\\walkthrough-river-calls.png",
+    "archive": "review/full/walkthrough-river-calls.png",
+    "sha256": "0318e559c55b47c399aa2a51f137a45deaae0da9dda661ec1451e2363d8b3f91",
+    "bytes": 90364
+  },
+  {
+    "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\landing-loop-review\\full\\walkthrough-start.png",
+    "archive": "review/full/walkthrough-start.png",
+    "sha256": "852c2b1735241e4519d9497b286129383a48eee21f1c0511e55ee9dbff765eb8",
+    "bytes": 118309
+  },
+  {
+    "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\landing-loop-review\\installed-bank.png",
+    "archive": "review/installed-bank.png",
+    "sha256": "14010854fb1306c07aab61ac2eadff427e56d103dc8bd67603f93c177c5cd0d1",
+    "bytes": 100506
+  },
+  {
+    "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\landing-loop-review\\installed-overview.png",
+    "archive": "review/installed-overview.png",
+    "sha256": "76e6b3a4320e54e43c6fc9c926d244ec7511e5c1642a295a6ad808b38ed6e05c",
+    "bytes": 523823
+  },
+  {
+    "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\landing-loop-review\\installed-results.json",
+    "archive": "review/installed-results.json",
+    "sha256": "42f7f36d97939762ecd7be8bfa3411b0bede7446881be0fc322eec226b86dac7",
+    "bytes": 91
+  },
+  {
+    "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\landing-loop-review\\installed-return.png",
+    "archive": "review/installed-return.png",
+    "sha256": "c4359348bda5ba125737b8b209a6be71b9af2420e8a86f4230a0db6825e40e1a",
+    "bytes": 98919
+  },
+  {
+    "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\landing-loop-review\\installed-turn.png",
+    "archive": "review/installed-turn.png",
+    "sha256": "1b9b7f782c6ef7fb37c7897982af176a5a9000faf257bb255e3c420e489e8442",
+    "bytes": 116653
+  },
+  {
+    "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\landing-loop-review\\landing_footpath.png",
+    "archive": "review/landing_footpath.png",
+    "sha256": "8b2e7ab2ea44b0d654cfd3b5b6062bea88beba1e98d1c5c53db634816ab6a366",
+    "bytes": 3708
+  },
+  {
+    "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\landing-loop-review\\landing_footpath.v1.png",
+    "archive": "review/landing_footpath.v1.png",
+    "sha256": "bf5ec28cc279470850afc9af2ddb196d3a914a50c695b70b1b7f2002752a7094",
+    "bytes": 3546
+  },
+  {
+    "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\landing-loop-review\\landing_loop.before-canopy.gd.txt",
+    "archive": "review/landing_loop.before-canopy.gd.txt",
+    "sha256": "e77675c020344de7f36672c47e3b64ef845b151d9db237e6d346023d6160d58e",
+    "bytes": 1609
+  },
+  {
+    "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\landing-loop-review\\landing_loop_candidate.v2.gd.txt",
+    "archive": "review/landing_loop_candidate.v2.gd.txt",
+    "sha256": "df778e21e1b83aa9c31eb37e3e941810e7ce304082abca29224326df4ba13ff3",
+    "bytes": 1710
+  },
+  {
+    "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\landing-loop-review\\source-before\\docs\\AI_COLLABORATION.md.txt",
+    "archive": "review/source-before/docs/AI_COLLABORATION.md.txt",
+    "sha256": "841ac1e1d1a6153d6f06320d58b99d39d7c4a897985cf597e5380fc8212e971f",
+    "bytes": 247523
+  },
+  {
+    "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\landing-loop-review\\source-before\\project.godot.txt",
+    "archive": "review/source-before/project.godot.txt",
+    "sha256": "8181a45681c3f76379226b90d61ec2a3921f7b5a4cf7b20722bec00d4e34f262",
+    "bytes": 4396
+  },
+  {
+    "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\landing-loop-review\\source-before\\scenes\\first_route_prototype.tscn.txt",
+    "archive": "review/source-before/scenes/first_route_prototype.tscn.txt",
+    "sha256": "88edcd961f4608584a5d1c505bffab7e7a44af0662b1ab9a2a8584030a3abddc",
+    "bytes": 30773
+  },
+  {
+    "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\landing-loop-review\\source-before\\scripts\\first_route_prototype.gd.txt",
+    "archive": "review/source-before/scripts/first_route_prototype.gd.txt",
+    "sha256": "16642c8d181b1704656b1f2fbf90064b8b7ba87a1376b7021218e886fb4d2cd1",
+    "bytes": 20568
+  },
+  {
+    "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\landing-loop-review\\source-before\\scripts\\route1_crossing.gd.txt",
+    "archive": "review/source-before/scripts/route1_crossing.gd.txt",
+    "sha256": "0e7a0e6fa65b3f699115180d819f91c71e2714a44415c63f4a3f1a136d728c51",
+    "bytes": 10190
+  },
+  {
+    "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\landing-loop-review\\source-before\\scripts\\route1_landscape.gd.txt",
+    "archive": "review/source-before/scripts/route1_landscape.gd.txt",
+    "sha256": "64456afdff2872206c7666bbccd9303cafca6524aea82d32c0678f89cc42c416",
+    "bytes": 7195
+  },
+  {
+    "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\landing-loop-review\\source-before\\scripts\\route1_map_polish.gd.txt",
+    "archive": "review/source-before/scripts/route1_map_polish.gd.txt",
+    "sha256": "dddfb7a6b67bb4d6179a843fa9ad546fed0a0ef3c9ca356152a8028fec9add5d",
+    "bytes": 2805
+  },
+  {
+    "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\landing-loop-review\\source-before\\scripts\\route1_terrain_relief.gd.txt",
+    "archive": "review/source-before/scripts/route1_terrain_relief.gd.txt",
+    "sha256": "c8a2ab722e34618293b1be1ee4b801ba8fef64fa6838591ec0583b6ada191861",
+    "bytes": 1113
+  },
+  {
+    "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\landing-loop-review\\source-before-manifest.json",
+    "archive": "review/source-before-manifest.json",
+    "sha256": "7a17ff8ef8530fec6b5e685c0f7e1e061e991e824c86ae0b0425d9ae9134cc01",
+    "bytes": 1098
+  },
+  {
+    "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\landing-bypass-err.txt",
+    "archive": "verification/landing-bypass-err.txt",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "bytes": 0
+  },
+  {
+    "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\landing-bypass-out.txt",
+    "archive": "verification/landing-bypass-out.txt",
+    "sha256": "db011f4516c3b9e92d4883d899e2a74e0254e4bbbfa7ab4afd22e23f8df4a00f",
+    "bytes": 2532
+  },
+  {
+    "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\landing-candidate-err.txt",
+    "archive": "verification/landing-candidate-err.txt",
+    "sha256": "3420cf9cc6ecfb9119c3840d624b91065d56ce94ef6ccc2c57d5409ac3b58e3b",
+    "bytes": 754
+  },
+  {
+    "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\landing-candidate-fixed-err.txt",
+    "archive": "verification/landing-candidate-fixed-err.txt",
+    "sha256": "8ad62bb2a893f960b4f851e1e37f61c336d2a4c37954e314ca604ba40b54e48e",
+    "bytes": 713
+  },
+  {
+    "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\landing-candidate-fixed-out.txt",
+    "archive": "verification/landing-candidate-fixed-out.txt",
+    "sha256": "833c7540ceb5f53486de312aeaf6b54f8e1dc676581bc6f2d36d3c44d52fbf69",
+    "bytes": 287
+  },
+  {
+    "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\landing-candidate-initial-indent-error.txt",
+    "archive": "verification/landing-candidate-initial-indent-error.txt",
+    "sha256": "8ad62bb2a893f960b4f851e1e37f61c336d2a4c37954e314ca604ba40b54e48e",
+    "bytes": 713
+  },
+  {
+    "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\landing-candidate-initial-type-error.txt",
+    "archive": "verification/landing-candidate-initial-type-error.txt",
+    "sha256": "3420cf9cc6ecfb9119c3840d624b91065d56ce94ef6ccc2c57d5409ac3b58e3b",
+    "bytes": 754
+  },
+  {
+    "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\landing-candidate-out.txt",
+    "archive": "verification/landing-candidate-out.txt",
+    "sha256": "833c7540ceb5f53486de312aeaf6b54f8e1dc676581bc6f2d36d3c44d52fbf69",
+    "bytes": 287
+  },
+  {
+    "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\landing-candidate-ready-err.txt",
+    "archive": "verification/landing-candidate-ready-err.txt",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "bytes": 0
+  },
+  {
+    "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\landing-candidate-ready-out.txt",
+    "archive": "verification/landing-candidate-ready-out.txt",
+    "sha256": "1cc28a4fbe14a438a825db335931f4c87dcd7a9a02becc73dc95866985f2f54f",
+    "bytes": 1410
+  },
+  {
+    "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\landing-canopy-err.txt",
+    "archive": "verification/landing-canopy-err.txt",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "bytes": 0
+  },
+  {
+    "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\landing-canopy-out.txt",
+    "archive": "verification/landing-canopy-out.txt",
+    "sha256": "20403ba666d16e88283d6fc6b25e64a44fc4c9a1328afc7b800a318f14e9cf22",
+    "bytes": 400
+  },
+  {
+    "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\landing-final-bypass-err.txt",
+    "archive": "verification/landing-final-bypass-err.txt",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "bytes": 0
+  },
+  {
+    "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\landing-final-bypass-out.txt",
+    "archive": "verification/landing-final-bypass-out.txt",
+    "sha256": "db011f4516c3b9e92d4883d899e2a74e0254e4bbbfa7ab4afd22e23f8df4a00f",
+    "bytes": 2532
+  },
+  {
+    "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\landing-final-full-err.txt",
+    "archive": "verification/landing-final-full-err.txt",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "bytes": 0
+  },
+  {
+    "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\landing-final-full-out.txt",
+    "archive": "verification/landing-final-full-out.txt",
+    "sha256": "354038e092cd5a7e77400e24c73dcb91af62afa31bdf7e3d086e9223bb7fd003",
+    "bytes": 3489
+  },
+  {
+    "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\landing-final-import-err.txt",
+    "archive": "verification/landing-final-import-err.txt",
+    "sha256": "bfc530f88e089b115d3dc4c00544fa2904a35f9373531f29a90a92e4a7651fa3",
+    "bytes": 913
+  },
+  {
+    "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\landing-final-import-out.txt",
+    "archive": "verification/landing-final-import-out.txt",
+    "sha256": "2d4e334fa1bdbb22b8f15cc9dee203cd1609307d46feca8b43a3a82cfb666c0c",
+    "bytes": 2330
+  },
+  {
+    "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\landing-final-installed-err.txt",
+    "archive": "verification/landing-final-installed-err.txt",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "bytes": 0
+  },
+  {
+    "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\landing-final-installed-out.txt",
+    "archive": "verification/landing-final-installed-out.txt",
+    "sha256": "6749b51a7a2909a39e25b47d33bd67294337603c106ff4c05c0e27e121911679",
+    "bytes": 485
+  },
+  {
+    "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\landing-full-err.txt",
+    "archive": "verification/landing-full-err.txt",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "bytes": 0
+  },
+  {
+    "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\landing-full-out.txt",
+    "archive": "verification/landing-full-out.txt",
+    "sha256": "354038e092cd5a7e77400e24c73dcb91af62afa31bdf7e3d086e9223bb7fd003",
+    "bytes": 3489
+  },
+  {
+    "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\landing-import-err.txt",
+    "archive": "verification/landing-import-err.txt",
+    "sha256": "fd2eba2b98b6e2da4cb7b2bbd9de24df5705846f8006f6973d37720454fc6467",
+    "bytes": 1198
+  },
+  {
+    "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\landing-import-out.txt",
+    "archive": "verification/landing-import-out.txt",
+    "sha256": "9809be6d822182d3e56825934c7e618b6fc59d9f9addb6a63fc93eda4e0deea8",
+    "bytes": 3283
+  },
+  {
+    "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\landing-installed-err.txt",
+    "archive": "verification/landing-installed-err.txt",
+    "sha256": "da425eddfad05fa4368586e3afbef19d7a89c37304250d436e12ab01b5aee31e",
+    "bytes": 274
+  },
+  {
+    "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\landing-installed-out.txt",
+    "archive": "verification/landing-installed-out.txt",
+    "sha256": "6749b51a7a2909a39e25b47d33bd67294337603c106ff4c05c0e27e121911679",
+    "bytes": 485
+  },
+  {
+    "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\landing-refined-err.txt",
+    "archive": "verification/landing-refined-err.txt",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "bytes": 0
+  },
+  {
+    "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\landing-refined-out.txt",
+    "archive": "verification/landing-refined-out.txt",
+    "sha256": "f87aa1bc87d48eb07f2758818b6710c1b94b22c2b72b46528f8f2a6d7211bfaa",
+    "bytes": 1408
+  },
+  {
+    "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\prepare_landing_loop.py",
+    "archive": "tools/prepare_landing_loop.py.txt",
+    "sha256": "bdf0170d44e244dd94addd251e95aa0d726f6c4f4b2f7b603cac197f1da93887",
+    "bytes": 9983
+  },
+  {
+    "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\fix_landing_preview_indent.py",
+    "archive": "tools/fix_landing_preview_indent.py.txt",
+    "sha256": "6344a1f324b0dec5f4ac238f6d16cda20e802c30383bf5c50913a6aa5a3f359c",
+    "bytes": 418
+  },
+  {
+    "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\refine_landing_loop.py",
+    "archive": "tools/refine_landing_loop.py.txt",
+    "sha256": "a80ef529db9ceb524697976280a0fcfb9ce185dc8535df59755fe7d995383b56",
+    "bytes": 1125
+  },
+  {
+    "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\stage_landing_loop.py",
+    "archive": "tools/stage_landing_loop.py.txt",
+    "sha256": "67e7db7a9610c621d0bde91759935d456703ac74d503dde06e9b34714998e62e",
+    "bytes": 1554
+  },
+  {
+    "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\install_landing_loop.py",
+    "archive": "tools/install_landing_loop.py.txt",
+    "sha256": "ca57e3d727f3ce41faf9d79b1bab39e678c5116388b33569110a09af7a184aa7",
+    "bytes": 8005
+  },
+  {
+    "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\finish_landing_canopy_visibility.py",
+    "archive": "tools/finish_landing_canopy_visibility.py.txt",
+    "sha256": "23063e917a518807aa8cc03a659aa669cfdc02b841791fa5e178a464263b0849",
+    "bytes": 3585
+  },
+  {
+    "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\audit_landing_loop.py",
+    "archive": "tools/audit_landing_loop.py.txt",
+    "sha256": "2c1dd7c6bd2bfad77fa141d1809c7a76fc120ee0af9427a09ff3b84edb179d83",
+    "bytes": 1925
+  },
+  {
+    "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\archive_landing_loop.py",
+    "archive": "tools/archive_landing_loop.py.txt",
+    "sha256": "735fdba6a43ff66796abe2a0199ee4634584f51ef2f4a33be69976ea7b88d42c",
+    "bytes": 15953
+  },
+  {
+    "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\landing_first_route_candidate.gd",
+    "archive": "tools/landing_first_route_candidate.gd.txt",
+    "sha256": "59b394a6f42144260ead13dd496b55735b7280ae2aa7ddf2c426c5028845d23c",
+    "bytes": 21121
+  },
+  {
+    "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\landing_loop_candidate.gd",
+    "archive": "tools/landing_loop_candidate.gd.txt",
+    "sha256": "9c83b9fbb8e4aa6f3705c98a68316ba763f036e19f4323f46358467493149253",
+    "bytes": 1710
+  },
+  {
+    "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\landing_loop_bake_review.gd",
+    "archive": "tools/landing_loop_bake_review.gd.txt",
+    "sha256": "b962a194ed836d634633adf196c40aef16e9a1bd18888c017314b1997de6a4a0",
+    "bytes": 6146
+  },
+  {
+    "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\landing_loop_runtime.gd.txt",
+    "archive": "tools/landing_loop_runtime.gd.txt",
+    "sha256": "e77675c020344de7f36672c47e3b64ef845b151d9db237e6d346023d6160d58e",
+    "bytes": 1609
+  },
+  {
+    "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\landing_full_walkthrough.gd",
+    "archive": "tools/landing_full_walkthrough.gd.txt",
+    "sha256": "9569eae80b84f562f9f717d8442fefeb7449c485431af7acce851d6d1258e710",
+    "bytes": 7079
+  },
+  {
+    "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\landing_bypass_walkthrough.gd",
+    "archive": "tools/landing_bypass_walkthrough.gd.txt",
+    "sha256": "1179d28cac04237d2d85f91772eb8f9024bf153a71ec1d733a66dd3573dac85d",
+    "bytes": 5263
+  },
+  {
+    "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\landing_installed_review.gd",
+    "archive": "tools/landing_installed_review.gd.txt",
+    "sha256": "0f8e6e231830fc662c3b01ca6d6a7b5f77f76fe3d62e24a819545837fb8fa8e9",
+    "bytes": 1829
+  },
+  {
+    "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\landing_canopy_native_review.gd",
+    "archive": "tools/landing_canopy_native_review.gd.txt",
+    "sha256": "683e325479284650271c14bfb5bdc2189f52d5dfa0da032da630dc93cc526f85",
+    "bytes": 1600
+  },
+  {
+    "source": "C:\\Users\\pmcga\\dev\\hollowtide\\scripts\\route1_crossing.gd",
+    "archive": "source/current/scripts/route1_crossing.gd.txt",
+    "sha256": "75e4138503f990cec10e1e7e4375a64298ff642cee7ca92f26f9c44d9b586a79",
+    "bytes": 10356
+  },
+  {
+    "source": "C:\\Users\\pmcga\\dev\\hollowtide\\scripts\\route1_crossing.gd.uid",
+    "archive": "source/current/scripts/route1_crossing.gd.uid.txt",
+    "sha256": "1306f6aae37d817e410b966fcf10d90549bfdb8c2fa276cd064732b52db5e58e",
+    "bytes": 20
+  },
+  {
+    "source": "C:\\Users\\pmcga\\dev\\hollowtide\\scripts\\first_route_prototype.gd",
+    "archive": "source/current/scripts/first_route_prototype.gd.txt",
+    "sha256": "59b394a6f42144260ead13dd496b55735b7280ae2aa7ddf2c426c5028845d23c",
+    "bytes": 21121
+  },
+  {
+    "source": "C:\\Users\\pmcga\\dev\\hollowtide\\scripts\\first_route_prototype.gd.uid",
+    "archive": "source/current/scripts/first_route_prototype.gd.uid.txt",
+    "sha256": "6fcecb827b8131cf77c0aae174ae119f6d661d23d83def3b639d1901164996cc",
+    "bytes": 19
+  },
+  {
+    "source": "C:\\Users\\pmcga\\dev\\hollowtide\\scripts\\route1_landing_loop.gd",
+    "archive": "source/current/scripts/route1_landing_loop.gd.txt",
+    "sha256": "fc6f02adc74750f1665d64b2579fbfd7e0d83c4b446539dcfa9c77d2766b6adc",
+    "bytes": 2640
+  },
+  {
+    "source": "C:\\Users\\pmcga\\dev\\hollowtide\\scripts\\route1_landing_loop.gd.uid",
+    "archive": "source/current/scripts/route1_landing_loop.gd.uid.txt",
+    "sha256": "a892e0c104d783833b0a199686f0d8e1e6f98f19ae008411d8a85f9fc90affbd",
+    "bytes": 20
+  },
+  {
+    "source": "C:\\Users\\pmcga\\dev\\hollowtide\\assets\\sprites\\world\\route1_landing_loop_2026_10_03\\landing_footpath.png",
+    "archive": "source/current/assets/sprites/world/route1_landing_loop_2026_10_03/landing_footpath.png",
+    "sha256": "8b2e7ab2ea44b0d654cfd3b5b6062bea88beba1e98d1c5c53db634816ab6a366",
+    "bytes": 3708
+  },
+  {
+    "source": "C:\\Users\\pmcga\\dev\\hollowtide\\assets\\sprites\\world\\route1_landing_loop_2026_10_03\\landing_footpath.png.import",
+    "archive": "source/current/assets/sprites/world/route1_landing_loop_2026_10_03/landing_footpath.png.import.txt",
+    "sha256": "ed14caa3cfda66358385125b4d1f5a05835c1940672a64e4411fb28cb431d21f",
+    "bytes": 1004
+  },
+  {
+    "source": "C:\\Users\\pmcga\\dev\\hollowtide\\assets\\sprites\\world\\route1_landing_loop_2026_10_03\\canopy_visibility.gdshader",
+    "archive": "source/current/assets/sprites/world/route1_landing_loop_2026_10_03/canopy_visibility.gdshader.txt",
+    "sha256": "87a9dc919189650ef337a8c389ffdec220ab2a1eae1527502141246bbd91a6f7",
+    "bytes": 239
+  },
+  {
+    "source": "C:\\Users\\pmcga\\dev\\hollowtide\\assets\\sprites\\world\\route1_landing_loop_2026_10_03\\canopy_visibility.gdshader.uid",
+    "archive": "source/current/assets/sprites/world/route1_landing_loop_2026_10_03/canopy_visibility.gdshader.uid.txt",
+    "sha256": "6c3311c3d68e5468bca2df2dc529bd5af65040e1d3cb7b3d620f9396fc3ba3d4",
+    "bytes": 20
+  },
+  {
+    "source": "C:\\Users\\pmcga\\dev\\hollowtide\\docs\\AI_COLLABORATION.md",
+    "archive": "source/AI_COLLABORATION.before-this-pass.md.txt",
+    "sha256": "841ac1e1d1a6153d6f06320d58b99d39d7c4a897985cf597e5380fc8212e971f",
+    "bytes": 247523
+  },
+  {
+    "source": "C:\\Users\\pmcga\\dev\\hollowtide\\docs\\AI_COLLABORATION.md",
+    "archive": "source/AI_COLLABORATION.after-this-pass.md.txt",
+    "sha256": "75d66ba7c1e1f58de349d002ce38684348a6455097f21a0dfd1e3791572d4b5d",
+    "bytes": 249882
+  }
+]

@@ -1,0 +1,87 @@
+{
+  "changed_peg_pixels": 107,
+  "editable_rect": [
+    160,
+    78,
+    16,
+    18
+  ],
+  "outside_peg_pixels_equal": true,
+  "canvas_size": [
+    288,
+    112
+  ],
+  "original_asset_retained": true,
+  "approved_water_source_byte_identical": true,
+  "unchanged_helper_functions": [
+    "_replace_bounds",
+    "_obstacle",
+    "_build_arrival",
+    "_build_bridge_front",
+    "_build_joined_road",
+    "_build_city_road_surface",
+    "_road_contour",
+    "_extend_ground"
+  ],
+  "installed_sha256": {
+    "scripts/route1_crossing.gd": "b0995bc9a38966152979bdb0d2f0ea9c126c7ca7385a13243310477a08f9df21",
+    "scripts/first_route_prototype.gd": "16642c8d181b1704656b1f2fbf90064b8b7ba87a1376b7021218e886fb4d2cd1",
+    "scenes/first_route_prototype.tscn": "88edcd961f4608584a5d1c505bffab7e7a44af0662b1ab9a2a8584030a3abddc",
+    "assets/sprites/world/route1_crossing_2026_10_02/river_bridge_refined.png": "878640ff82a6af55ba4718ed4c9f0bfd51d4ee0d3e41523ecb38b568a70dc8da",
+    "assets/sprites/world/route1_crossing_2026_10_02/river_bridge_peg_fixed.png": "f8da8c47673edaf21763ea96756ad3f2017f16dcce5bf940d0a4b800d5809c5d",
+    "assets/sprites/world/route1_crossing_2026_10_02/river_water_native32.png": "ecc1b44e8b7446599e16b40b450d459b4ebeba3b66de7518a63296dde77956f8",
+    "assets/sprites/world/route1_crossing_2026_10_02/river_flow.gdshader": "182123b76ab3429802bd9aba517cf36b5c643e6f3ef9e6fd86beae716fc23f53",
+    "assets/sprites/world/route1_crossing_2026_10_02/path_soil_native32.png": "0bc1711d71a8a8133da3be181c0d2d7620149bd73d0f1a302abc4584b665df1f"
+  },
+  "flow_probe_frames": [
+    2123,
+    4418
+  ],
+  "flow_probe_scene_seconds": [
+    8.9,
+    13.4
+  ],
+  "flow_probe_offsets": [
+    "Vector2(0,17)",
+    "Vector2(0,26)"
+  ],
+  "jpeg_comparison": {
+    "water": {
+      "mean_absolute_channel_difference": 3.1611,
+      "changed_pixels_over_10": 4328,
+      "rectangle": [
+        360,
+        90,
+        850,
+        230
+      ]
+    },
+    "land": {
+      "mean_absolute_channel_difference": 0,
+      "changed_pixels_over_10": 0,
+      "rectangle": [
+        1030,
+        120,
+        1130,
+        220
+      ]
+    },
+    "bridge_deck": {
+      "mean_absolute_channel_difference": 0,
+      "changed_pixels_over_10": 0,
+      "rectangle": [
+        320,
+        410,
+        880,
+        462
+      ]
+    }
+  },
+  "comparison_limit": "JPEG compression makes this a motion comparison, not raw game-pixel equality.",
+  "observed_runtime_errors": 0,
+  "existing_runtime_warnings": 11,
+  "cost_usd": 0.18,
+  "remaining_balance_usd": 3.08,
+  "total_bridge_generation_cost_usd": 1.47,
+  "rd_task_id": "3eea86e6-d1b9-53f6-90e3-fd0990ea2da1"
+}

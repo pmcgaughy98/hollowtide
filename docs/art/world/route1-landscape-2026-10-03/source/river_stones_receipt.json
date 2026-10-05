@@ -1,0 +1,14 @@
+{
+  "created_at": 1790995646,
+  "credit_cost": 1,
+  "balance_cost": 0.18,
+  "model": "rd_pro",
+  "remaining_credits": 0,
+  "remaining_balance": 2.26,
+  "request_id": "9f4e4b49-7e15-450b-908c-2383312c02d7",
+  "outputs_retained_until": 1791081993,
+  "output_url_expires_at": 1790996655,
+  "base64_images_count": 1,
+  "output_images_count": 0,
+  "output_sha256": "e4eb98c20e6dee18dfb6df2121fced4f1f6303d587e23cf545ac33a4cfa5974e"
+}

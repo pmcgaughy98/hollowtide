@@ -1,0 +1,888 @@
+{
+  "scene": "res://scenes/first_route_prototype.tscn",
+  "instance": "clean-final",
+  "seed": 20261002,
+  "fixed_fps": 60,
+  "ordinary_control_roundtrip": true,
+  "teleport_used_during_traversal": false,
+  "fixtures_note": "Before/after junction shots and the old bridge comparison used isolated inspection positions only; final traversal used normal movement and E.",
+  "probes": [
+    {
+      "key": "clean_bridge_before",
+      "file": "bridge_before.jpg",
+      "effective_time_scale": 0,
+      "format": "jpeg",
+      "frame": {
+        "frames_drawn": 110623,
+        "physics_frames": 110623,
+        "process_frames": 110622
+      },
+      "height": 648,
+      "image_frame": 110622,
+      "instance": "edges-before",
+      "mime": "image/jpeg",
+      "missing": [],
+      "ok": true,
+      "op": "GameProbe",
+      "paused": false,
+      "provenance": {
+        "source": "runtime",
+        "target": {
+          "instance": "edges-before",
+          "kind": "game"
+        }
+      },
+      "requestId": "mcp-40b83f70-68cc-4518-8e80-9e7ba762d708",
+      "source_height": 648,
+      "source_width": 1152,
+      "suspended": true,
+      "time_scale": 1,
+      "transport": "summer",
+      "values": {
+        "/root/FirstRoutePrototype/Player/Camera2D:position": "Vector2(0, -24)",
+        "/root/FirstRoutePrototype/Player:position": "Vector2(551.792, 415.792)"
+      },
+      "width": 1152
+    },
+    {
+      "key": "clean_final_bridge",
+      "file": "bridge_after.jpg",
+      "effective_time_scale": 0,
+      "format": "jpeg",
+      "frame": {
+        "frames_drawn": 2660,
+        "physics_frames": 2660,
+        "process_frames": 2659
+      },
+      "height": 648,
+      "image_frame": 2659,
+      "instance": "clean-final",
+      "mime": "image/jpeg",
+      "missing": [],
+      "ok": true,
+      "op": "GameProbe",
+      "paused": false,
+      "provenance": {
+        "source": "runtime",
+        "target": {
+          "instance": "clean-final",
+          "kind": "game"
+        }
+      },
+      "requestId": "mcp-58f25ad2-0ec2-4aa6-9e0e-b812c25775fb",
+      "source_height": 648,
+      "source_width": 1152,
+      "suspended": true,
+      "time_scale": 1,
+      "transport": "summer",
+      "values": {
+        "/root/FirstRoutePrototype/Player/Camera2D:zoom": "Vector2(3, 3)",
+        "/root/FirstRoutePrototype/Player:position": "Vector2(551.792, 415.792)"
+      },
+      "width": 1152
+    },
+    {
+      "key": "junction_before_probe",
+      "file": "junction_before.jpg",
+      "effective_time_scale": 0,
+      "format": "jpeg",
+      "frame": {
+        "frames_drawn": 3648,
+        "physics_frames": 3648,
+        "process_frames": 3647
+      },
+      "height": 648,
+      "image_frame": 3647,
+      "instance": "edges-before",
+      "mime": "image/jpeg",
+      "missing": [],
+      "ok": true,
+      "op": "GameProbe",
+      "paused": false,
+      "provenance": {
+        "source": "runtime",
+        "target": {
+          "instance": "edges-before",
+          "kind": "game"
+        }
+      },
+      "requestId": "mcp-bdf30817-3d93-4029-a7f8-f611595260b4",
+      "source_height": 648,
+      "source_width": 1152,
+      "suspended": true,
+      "time_scale": 1,
+      "transport": "summer",
+      "values": {
+        "/root/FirstRoutePrototype/Player:position": "Vector2(184, 216)"
+      },
+      "width": 1152
+    },
+    {
+      "key": "clean_junction_final",
+      "file": "junction_after.jpg",
+      "effective_time_scale": 0,
+      "format": "jpeg",
+      "frame": {
+        "frames_drawn": 12904,
+        "physics_frames": 12904,
+        "process_frames": 12903
+      },
+      "height": 648,
+      "image_frame": 12903,
+      "instance": "clean-final",
+      "mime": "image/jpeg",
+      "missing": [],
+      "ok": true,
+      "op": "GameProbe",
+      "paused": false,
+      "provenance": {
+        "source": "runtime",
+        "target": {
+          "instance": "clean-final",
+          "kind": "game"
+        }
+      },
+      "requestId": "mcp-47a296af-1a90-493c-81da-cb2fc437bfd4",
+      "source_height": 648,
+      "source_width": 1152,
+      "suspended": true,
+      "time_scale": 1,
+      "transport": "summer",
+      "values": {
+        "/root/FirstRoutePrototype/Player:position": "Vector2(184, 216)"
+      },
+      "width": 1152
+    },
+    {
+      "key": "clean_final_entrance",
+      "file": "road_after.jpg",
+      "effective_time_scale": 0,
+      "format": "jpeg",
+      "frame": {
+        "frames_drawn": 2335,
+        "physics_frames": 2335,
+        "process_frames": 2334
+      },
+      "height": 648,
+      "image_frame": 2334,
+      "instance": "clean-final",
+      "mime": "image/jpeg",
+      "missing": [],
+      "ok": true,
+      "op": "GameProbe",
+      "paused": false,
+      "provenance": {
+        "source": "runtime",
+        "target": {
+          "instance": "clean-final",
+          "kind": "game"
+        }
+      },
+      "requestId": "mcp-574bf790-60e2-465f-9ee4-8d1e9b83b495",
+      "source_height": 648,
+      "source_width": 1152,
+      "suspended": true,
+      "time_scale": 1,
+      "transport": "summer",
+      "values": {
+        "/root/FirstRoutePrototype/Player:position": "Vector2(216, 264)",
+        "/root/FirstRoutePrototype:levee_entrance_read": true,
+        "/root/FirstRoutePrototype:pouch_accepted": true
+      },
+      "width": 1152
+    },
+    {
+      "key": "clean_final_city",
+      "file": "city_after.jpg",
+      "effective_time_scale": 0,
+      "format": "jpeg",
+      "frame": {
+        "frames_drawn": 6093,
+        "physics_frames": 6093,
+        "process_frames": 6092
+      },
+      "height": 648,
+      "image_frame": 6092,
+      "instance": "clean-final",
+      "mime": "image/jpeg",
+      "missing": [],
+      "ok": true,
+      "op": "GameProbe",
+      "paused": false,
+      "provenance": {
+        "source": "runtime",
+        "target": {
+          "instance": "clean-final",
+          "kind": "game"
+        }
+      },
+      "requestId": "mcp-02110191-3762-4f4d-a3ea-6c665d55250f",
+      "source_height": 648,
+      "source_width": 1152,
+      "suspended": true,
+      "time_scale": 1,
+      "transport": "summer",
+      "values": {
+        "/root/FirstRoutePrototype/Player:position": "Vector2(815.788, 479.793)",
+        "/root/FirstRoutePrototype:city_arrival_registered": true,
+        "/root/FirstRoutePrototype:pouch_accepted": true
+      },
+      "width": 1152
+    },
+    {
+      "key": "clean_final_westbank",
+      "file": "westbank_after.jpg",
+      "effective_time_scale": 0,
+      "format": "jpeg",
+      "frame": {
+        "frames_drawn": 6445,
+        "physics_frames": 6445,
+        "process_frames": 6444
+      },
+      "height": 648,
+      "image_frame": 6444,
+      "instance": "clean-final",
+      "mime": "image/jpeg",
+      "missing": [],
+      "ok": true,
+      "op": "GameProbe",
+      "paused": false,
+      "provenance": {
+        "source": "runtime",
+        "target": {
+          "instance": "clean-final",
+          "kind": "game"
+        }
+      },
+      "requestId": "mcp-f21f2f1e-4e83-4ec1-b5c2-1b15b59a2349",
+      "source_height": 648,
+      "source_width": 1152,
+      "suspended": true,
+      "time_scale": 1,
+      "transport": "summer",
+      "values": {
+        "/root/FirstRoutePrototype/Player:position": "Vector2(431.792, 415.792)"
+      },
+      "width": 1152
+    },
+    {
+      "key": "clean_final_return_home",
+      "file": "home_return.jpg",
+      "effective_time_scale": 0,
+      "format": "jpeg",
+      "frame": {
+        "frames_drawn": 6875,
+        "physics_frames": 6875,
+        "process_frames": 6874
+      },
+      "height": 648,
+      "image_frame": 6874,
+      "instance": "clean-final",
+      "mime": "image/jpeg",
+      "missing": [],
+      "ok": true,
+      "op": "GameProbe",
+      "paused": false,
+      "provenance": {
+        "source": "runtime",
+        "target": {
+          "instance": "clean-final",
+          "kind": "game"
+        }
+      },
+      "requestId": "mcp-15198ac8-a54a-4ca6-aba1-1dcba61baa9b",
+      "source_height": 648,
+      "source_width": 1152,
+      "suspended": true,
+      "time_scale": 1,
+      "transport": "summer",
+      "values": {
+        "/root/FirstRoutePrototype/Player:position": "Vector2(48, 192)",
+        "/root/FirstRoutePrototype:city_arrival_registered": true,
+        "/root/FirstRoutePrototype:levee_entrance_read": true
+      },
+      "width": 1152
+    }
+  ],
+  "start": [
+    {
+      "type": "text",
+      "text": "Game probe — frame 2103, physics 2104, drawn 2104, image_frame 2103, instance clean-final, SUSPENDED (1152x648). The image above and the state below describe this ONE frame; review the image and describe what you actually see before claiming anything about it.\n\n{\n  \"results\": [\n    {\n      \"effective_time_scale\": 0,\n      \"format\": \"jpeg\",\n      \"frame\": {\n        \"frames_drawn\": 2104,\n        \"physics_frames\": 2104,\n        \"process_frames\": 2103\n      },\n      \"height\": 648,\n      \"image_frame\": 2103,\n      \"instance\": \"clean-final\",\n      \"mime\": \"image/jpeg\",\n      \"missing\": [],\n      \"ok\": true,\n      \"op\": \"GameProbe\",\n      \"paused\": false,\n      \"provenance\": {\n        \"source\": \"runtime\",\n        \"target\": {\n          \"instance\": \"clean-final\",\n          \"kind\": \"game\"\n        }\n      },\n      \"requestId\": \"mcp-8b3270ff-330c-4397-90cb-3037c66fca58\",\n      \"source_height\": 648,\n      \"source_width\": 1152,\n      \"suspended\": true,\n      \"time_scale\": 1,\n      \"transport\": \"summer\",\n      \"values\": {\n        \"/root/FirstRoutePrototype/Player:position\": \"Vector2(48, 192)\",\n        \"/root/FirstRoutePrototype:city_arrival_registered\": false\n      },\n      \"width\": 1152\n    }\n  ],\n  \"skippedCount\": 0,\n  \"status\": \"ok\",\n  \"stopOnError\": true,\n  \"undoGroup\": false,\n  \"requestId\": \"mcp-8b3270ff-330c-4397-90cb-3037c66fca58\",\n  \"terminalState\": \"applied\",\n  \"appliedSeq\": 1104\n}"
+    }
+  ],
+  "input_sequences": {
+    "home_to_entrance": [
+      {
+        "at_frame": 0,
+        "type": "action",
+        "action": "move_right",
+        "pressed": true
+      },
+      {
+        "at_frame": 24,
+        "type": "action",
+        "action": "move_right",
+        "pressed": false
+      },
+      {
+        "at_frame": 26,
+        "type": "key",
+        "keycode": 69,
+        "physical_keycode": 69,
+        "pressed": true
+      },
+      {
+        "at_frame": 27,
+        "type": "key",
+        "keycode": 69,
+        "physical_keycode": 69,
+        "pressed": false
+      },
+      {
+        "at_frame": 36,
+        "type": "key",
+        "keycode": 69,
+        "physical_keycode": 69,
+        "pressed": true
+      },
+      {
+        "at_frame": 37,
+        "type": "key",
+        "keycode": 69,
+        "physical_keycode": 69,
+        "pressed": false
+      },
+      {
+        "at_frame": 46,
+        "type": "action",
+        "action": "move_right",
+        "pressed": true
+      },
+      {
+        "at_frame": 124,
+        "type": "action",
+        "action": "move_right",
+        "pressed": false
+      },
+      {
+        "at_frame": 126,
+        "type": "action",
+        "action": "move_down",
+        "pressed": true
+      },
+      {
+        "at_frame": 180,
+        "type": "action",
+        "action": "move_down",
+        "pressed": false
+      },
+      {
+        "at_frame": 182,
+        "type": "action",
+        "action": "move_right",
+        "pressed": true
+      },
+      {
+        "at_frame": 206,
+        "type": "action",
+        "action": "move_right",
+        "pressed": false
+      },
+      {
+        "at_frame": 208,
+        "type": "key",
+        "keycode": 69,
+        "physical_keycode": 69,
+        "pressed": true
+      },
+      {
+        "at_frame": 209,
+        "type": "key",
+        "keycode": 69,
+        "physical_keycode": 69,
+        "pressed": false
+      },
+      {
+        "at_frame": 218,
+        "type": "key",
+        "keycode": 69,
+        "physical_keycode": 69,
+        "pressed": true
+      },
+      {
+        "at_frame": 219,
+        "type": "key",
+        "keycode": 69,
+        "physical_keycode": 69,
+        "pressed": false
+      }
+    ],
+    "entrance_to_bridge": [
+      {
+        "at_frame": 0,
+        "type": "action",
+        "action": "move_right",
+        "pressed": true
+      },
+      {
+        "at_frame": 12,
+        "type": "action",
+        "action": "move_right",
+        "pressed": false
+      },
+      {
+        "at_frame": 14,
+        "type": "action",
+        "action": "move_right",
+        "pressed": true
+      },
+      {
+        "at_frame": 14,
+        "type": "action",
+        "action": "move_down",
+        "pressed": true
+      },
+      {
+        "at_frame": 48,
+        "type": "action",
+        "action": "move_right",
+        "pressed": false
+      },
+      {
+        "at_frame": 48,
+        "type": "action",
+        "action": "move_down",
+        "pressed": false
+      },
+      {
+        "at_frame": 50,
+        "type": "action",
+        "action": "move_right",
+        "pressed": true
+      },
+      {
+        "at_frame": 74,
+        "type": "action",
+        "action": "move_right",
+        "pressed": false
+      },
+      {
+        "at_frame": 76,
+        "type": "action",
+        "action": "move_right",
+        "pressed": true
+      },
+      {
+        "at_frame": 76,
+        "type": "action",
+        "action": "move_down",
+        "pressed": true
+      },
+      {
+        "at_frame": 110,
+        "type": "action",
+        "action": "move_right",
+        "pressed": false
+      },
+      {
+        "at_frame": 110,
+        "type": "action",
+        "action": "move_down",
+        "pressed": false
+      },
+      {
+        "at_frame": 112,
+        "type": "action",
+        "action": "move_right",
+        "pressed": true
+      },
+      {
+        "at_frame": 112,
+        "type": "action",
+        "action": "move_down",
+        "pressed": true
+      },
+      {
+        "at_frame": 180,
+        "type": "action",
+        "action": "move_right",
+        "pressed": false
+      },
+      {
+        "at_frame": 180,
+        "type": "action",
+        "action": "move_down",
+        "pressed": false
+      },
+      {
+        "at_frame": 182,
+        "type": "action",
+        "action": "move_right",
+        "pressed": true
+      },
+      {
+        "at_frame": 194,
+        "type": "action",
+        "action": "move_right",
+        "pressed": false
+      },
+      {
+        "at_frame": 196,
+        "type": "action",
+        "action": "move_right",
+        "pressed": true
+      },
+      {
+        "at_frame": 196,
+        "type": "action",
+        "action": "move_down",
+        "pressed": true
+      },
+      {
+        "at_frame": 221,
+        "type": "action",
+        "action": "move_right",
+        "pressed": false
+      },
+      {
+        "at_frame": 221,
+        "type": "action",
+        "action": "move_down",
+        "pressed": false
+      },
+      {
+        "at_frame": 223,
+        "type": "action",
+        "action": "move_right",
+        "pressed": true
+      },
+      {
+        "at_frame": 313,
+        "type": "action",
+        "action": "move_right",
+        "pressed": false
+      }
+    ],
+    "bridge_to_city": [
+      {
+        "at_frame": 0,
+        "type": "action",
+        "action": "move_right",
+        "pressed": true
+      },
+      {
+        "at_frame": 150,
+        "type": "action",
+        "action": "move_right",
+        "pressed": false
+      },
+      {
+        "at_frame": 152,
+        "type": "action",
+        "action": "move_down",
+        "pressed": true
+      },
+      {
+        "at_frame": 200,
+        "type": "action",
+        "action": "move_down",
+        "pressed": false
+      },
+      {
+        "at_frame": 202,
+        "type": "action",
+        "action": "move_right",
+        "pressed": true
+      },
+      {
+        "at_frame": 250,
+        "type": "action",
+        "action": "move_right",
+        "pressed": false
+      },
+      {
+        "at_frame": 252,
+        "type": "key",
+        "keycode": 69,
+        "physical_keycode": 69,
+        "pressed": true
+      },
+      {
+        "at_frame": 253,
+        "type": "key",
+        "keycode": 69,
+        "physical_keycode": 69,
+        "pressed": false
+      },
+      {
+        "at_frame": 262,
+        "type": "key",
+        "keycode": 69,
+        "physical_keycode": 69,
+        "pressed": true
+      },
+      {
+        "at_frame": 263,
+        "type": "key",
+        "keycode": 69,
+        "physical_keycode": 69,
+        "pressed": false
+      }
+    ],
+    "city_to_west_bank": [
+      {
+        "at_frame": 0,
+        "type": "action",
+        "action": "move_left",
+        "pressed": true
+      },
+      {
+        "at_frame": 48,
+        "type": "action",
+        "action": "move_left",
+        "pressed": false
+      },
+      {
+        "at_frame": 50,
+        "type": "action",
+        "action": "move_up",
+        "pressed": true
+      },
+      {
+        "at_frame": 98,
+        "type": "action",
+        "action": "move_up",
+        "pressed": false
+      },
+      {
+        "at_frame": 100,
+        "type": "action",
+        "action": "move_left",
+        "pressed": true
+      },
+      {
+        "at_frame": 340,
+        "type": "action",
+        "action": "move_left",
+        "pressed": false
+      }
+    ],
+    "west_bank_to_entrance": [
+      {
+        "at_frame": 0,
+        "type": "action",
+        "action": "move_left",
+        "pressed": true
+      },
+      {
+        "at_frame": 0,
+        "type": "action",
+        "action": "move_up",
+        "pressed": true
+      },
+      {
+        "at_frame": 25,
+        "type": "action",
+        "action": "move_left",
+        "pressed": false
+      },
+      {
+        "at_frame": 25,
+        "type": "action",
+        "action": "move_up",
+        "pressed": false
+      },
+      {
+        "at_frame": 27,
+        "type": "action",
+        "action": "move_left",
+        "pressed": true
+      },
+      {
+        "at_frame": 39,
+        "type": "action",
+        "action": "move_left",
+        "pressed": false
+      },
+      {
+        "at_frame": 41,
+        "type": "action",
+        "action": "move_left",
+        "pressed": true
+      },
+      {
+        "at_frame": 41,
+        "type": "action",
+        "action": "move_up",
+        "pressed": true
+      },
+      {
+        "at_frame": 109,
+        "type": "action",
+        "action": "move_left",
+        "pressed": false
+      },
+      {
+        "at_frame": 109,
+        "type": "action",
+        "action": "move_up",
+        "pressed": false
+      },
+      {
+        "at_frame": 111,
+        "type": "action",
+        "action": "move_left",
+        "pressed": true
+      },
+      {
+        "at_frame": 111,
+        "type": "action",
+        "action": "move_up",
+        "pressed": true
+      },
+      {
+        "at_frame": 145,
+        "type": "action",
+        "action": "move_left",
+        "pressed": false
+      },
+      {
+        "at_frame": 145,
+        "type": "action",
+        "action": "move_up",
+        "pressed": false
+      },
+      {
+        "at_frame": 147,
+        "type": "action",
+        "action": "move_left",
+        "pressed": true
+      },
+      {
+        "at_frame": 171,
+        "type": "action",
+        "action": "move_left",
+        "pressed": false
+      },
+      {
+        "at_frame": 173,
+        "type": "action",
+        "action": "move_left",
+        "pressed": true
+      },
+      {
+        "at_frame": 173,
+        "type": "action",
+        "action": "move_up",
+        "pressed": true
+      },
+      {
+        "at_frame": 207,
+        "type": "action",
+        "action": "move_left",
+        "pressed": false
+      },
+      {
+        "at_frame": 207,
+        "type": "action",
+        "action": "move_up",
+        "pressed": false
+      },
+      {
+        "at_frame": 209,
+        "type": "action",
+        "action": "move_left",
+        "pressed": true
+      },
+      {
+        "at_frame": 221,
+        "type": "action",
+        "action": "move_left",
+        "pressed": false
+      }
+    ],
+    "entrance_to_home": [
+      {
+        "at_frame": 0,
+        "type": "action",
+        "action": "move_left",
+        "pressed": true
+      },
+      {
+        "at_frame": 24,
+        "type": "action",
+        "action": "move_left",
+        "pressed": false
+      },
+      {
+        "at_frame": 26,
+        "type": "action",
+        "action": "move_up",
+        "pressed": true
+      },
+      {
+        "at_frame": 80,
+        "type": "action",
+        "action": "move_up",
+        "pressed": false
+      },
+      {
+        "at_frame": 82,
+        "type": "action",
+        "action": "move_left",
+        "pressed": true
+      },
+      {
+        "at_frame": 184,
+        "type": "action",
+        "action": "move_left",
+        "pressed": false
+      }
+    ]
+  },
+  "input_receipts": {
+    "home": [
+      {
+        "type": "text",
+        "text": "{\n  \"results\": [\n    {\n      \"applied\": 16,\n      \"clock_mapping\": \"exact\",\n      \"clock_unit\": \"physics_tick\",\n      \"completed\": true,\n      \"drove\": true,\n      \"first_frame\": 2113,\n      \"frame\": {\n        \"frames_drawn\": 2331,\n        \"physics_frames\": 2332,\n        \"process_frames\": 2331\n      },\n      \"instance\": \"clean-final\",\n      \"last_frame\": 2332,\n      \"ok\": true,\n      \"op\": \"SimulateInputScript\",\n      \"physics_ticks_per_second\": 60,\n      \"provenance\": {\n        \"source\": \"runtime\",\n        \"target\": {\n          \"instance\": \"clean-final\",\n          \"kind\": \"game\"\n        }\n      },\n      \"rejected\": [],\n      \"requestId\": \"mcp-4e940a28-c6b4-4e6e-b3bc-a5c5c23019a3\",\n      \"scheduled\": 16,\n      \"suspended\": true,\n      \"transport\": \"summer\"\n    }\n  ],\n  \"skippedCount\": 0,\n  \"status\": \"ok\",\n  \"stopOnError\": true,\n  \"undoGroup\": false,\n  \"requestId\": \"mcp-4e940a28-c6b4-4e6e-b3bc-a5c5c23019a3\",\n  \"terminalState\": \"applied\",\n  \"appliedSeq\": 1105\n}"
+      }
+    ],
+    "levee": [
+      {
+        "type": "text",
+        "text": "{\n  \"results\": [\n    {\n      \"applied\": 24,\n      \"clock_mapping\": \"exact\",\n      \"clock_unit\": \"physics_tick\",\n      \"completed\": true,\n      \"drove\": true,\n      \"first_frame\": 2344,\n      \"frame\": {\n        \"frames_drawn\": 2656,\n        \"physics_frames\": 2657,\n        \"process_frames\": 2656\n      },\n      \"instance\": \"clean-final\",\n      \"last_frame\": 2657,\n      \"ok\": true,\n      \"op\": \"SimulateInputScript\",\n      \"physics_ticks_per_second\": 60,\n      \"provenance\": {\n        \"source\": \"runtime\",\n        \"target\": {\n          \"instance\": \"clean-final\",\n          \"kind\": \"game\"\n        }\n      },\n      \"rejected\": [],\n      \"requestId\": \"mcp-c60f3f63-46dd-49e5-834b-a154d1ee3daf\",\n      \"scheduled\": 24,\n      \"suspended\": true,\n      \"transport\": \"summer\"\n    }\n  ],\n  \"skippedCount\": 0,\n  \"status\": \"ok\",\n  \"stopOnError\": true,\n  \"undoGroup\": false,\n  \"requestId\": \"mcp-c60f3f63-46dd-49e5-834b-a154d1ee3daf\",\n  \"terminalState\": \"applied\",\n  \"appliedSeq\": 1107\n}"
+      }
+    ],
+    "city": [
+      {
+        "type": "text",
+        "text": "{\n  \"results\": [\n    {\n      \"applied\": 10,\n      \"clock_mapping\": \"exact\",\n      \"clock_unit\": \"physics_tick\",\n      \"completed\": true,\n      \"drove\": true,\n      \"first_frame\": 5826,\n      \"frame\": {\n        \"frames_drawn\": 6088,\n        \"physics_frames\": 6089,\n        \"process_frames\": 6088\n      },\n      \"instance\": \"clean-final\",\n      \"last_frame\": 6089,\n      \"ok\": true,\n      \"op\": \"SimulateInputScript\",\n      \"physics_ticks_per_second\": 60,\n      \"provenance\": {\n        \"source\": \"runtime\",\n        \"target\": {\n          \"instance\": \"clean-final\",\n          \"kind\": \"game\"\n        }\n      },\n      \"rejected\": [],\n      \"requestId\": \"mcp-67e7c7bb-50a6-4d57-b638-347f24458481\",\n      \"scheduled\": 10,\n      \"suspended\": true,\n      \"transport\": \"summer\"\n    }\n  ],\n  \"skippedCount\": 0,\n  \"status\": \"ok\",\n  \"stopOnError\": true,\n  \"undoGroup\": false,\n  \"requestId\": \"mcp-67e7c7bb-50a6-4d57-b638-347f24458481\",\n  \"terminalState\": \"applied\",\n  \"appliedSeq\": 1109\n}"
+      }
+    ],
+    "return": [
+      {
+        "type": "text",
+        "text": "{\n  \"results\": [\n    {\n      \"applied\": 6,\n      \"clock_mapping\": \"exact\",\n      \"clock_unit\": \"physics_tick\",\n      \"completed\": true,\n      \"drove\": true,\n      \"first_frame\": 6102,\n      \"frame\": {\n        \"frames_drawn\": 6441,\n        \"physics_frames\": 6442,\n        \"process_frames\": 6441\n      },\n      \"instance\": \"clean-final\",\n      \"last_frame\": 6442,\n      \"ok\": true,\n      \"op\": \"SimulateInputScript\",\n      \"physics_ticks_per_second\": 60,\n      \"provenance\": {\n        \"source\": \"runtime\",\n        \"target\": {\n          \"instance\": \"clean-final\",\n          \"kind\": \"game\"\n        }\n      },\n      \"rejected\": [],\n      \"requestId\": \"mcp-2fec24ee-6c5b-453e-ad8a-36f684e2d887\",\n      \"scheduled\": 6,\n      \"suspended\": true,\n      \"transport\": \"summer\"\n    }\n  ],\n  \"skippedCount\": 0,\n  \"status\": \"ok\",\n  \"stopOnError\": true,\n  \"undoGroup\": false,\n  \"requestId\": \"mcp-2fec24ee-6c5b-453e-ad8a-36f684e2d887\",\n  \"terminalState\": \"applied\",\n  \"appliedSeq\": 1111\n}"
+      }
+    ],
+    "return_levee": [
+      {
+        "type": "text",
+        "text": "{\n  \"results\": [\n    {\n      \"applied\": 22,\n      \"clock_mapping\": \"exact\",\n      \"clock_unit\": \"physics_tick\",\n      \"completed\": true,\n      \"drove\": true,\n      \"first_frame\": 6454,\n      \"frame\": {\n        \"frames_drawn\": 6674,\n        \"physics_frames\": 6675,\n        \"process_frames\": 6674\n      },\n      \"instance\": \"clean-final\",\n      \"last_frame\": 6675,\n      \"ok\": true,\n      \"op\": \"SimulateInputScript\",\n      \"physics_ticks_per_second\": 60,\n      \"provenance\": {\n        \"source\": \"runtime\",\n        \"target\": {\n          \"instance\": \"clean-final\",\n          \"kind\": \"game\"\n        }\n      },\n      \"rejected\": [],\n      \"requestId\": \"mcp-fdf3dfc2-599e-4c5c-ada1-6a16c0f98bf2\",\n      \"scheduled\": 22,\n      \"suspended\": true,\n      \"transport\": \"summer\"\n    }\n  ],\n  \"skippedCount\": 0,\n  \"status\": \"ok\",\n  \"stopOnError\": true,\n  \"undoGroup\": false,\n  \"requestId\": \"mcp-fdf3dfc2-599e-4c5c-ada1-6a16c0f98bf2\",\n  \"terminalState\": \"applied\",\n  \"appliedSeq\": 1113\n}"
+      }
+    ],
+    "return_home": [
+      {
+        "type": "text",
+        "text": "{\n  \"results\": [\n    {\n      \"applied\": 6,\n      \"clock_mapping\": \"exact\",\n      \"clock_unit\": \"physics_tick\",\n      \"completed\": true,\n      \"drove\": true,\n      \"first_frame\": 6687,\n      \"frame\": {\n        \"frames_drawn\": 6870,\n        \"physics_frames\": 6871,\n        \"process_frames\": 6870\n      },\n      \"instance\": \"clean-final\",\n      \"last_frame\": 6871,\n      \"ok\": true,\n      \"op\": \"SimulateInputScript\",\n      \"physics_ticks_per_second\": 60,\n      \"provenance\": {\n        \"source\": \"runtime\",\n        \"target\": {\n          \"instance\": \"clean-final\",\n          \"kind\": \"game\"\n        }\n      },\n      \"rejected\": [],\n      \"requestId\": \"mcp-1898d66e-a1ba-454d-9f75-ab438ddb6b62\",\n      \"scheduled\": 6,\n      \"suspended\": true,\n      \"transport\": \"summer\"\n    }\n  ],\n  \"skippedCount\": 0,\n  \"status\": \"ok\",\n  \"stopOnError\": true,\n  \"undoGroup\": false,\n  \"requestId\": \"mcp-1898d66e-a1ba-454d-9f75-ab438ddb6b62\",\n  \"terminalState\": \"applied\",\n  \"appliedSeq\": 1115\n}"
+      }
+    ]
+  },
+  "diagnostics": [
+    {
+      "type": "text",
+      "text": "{\n  \"appliedThroughSeq\": 1122,\n  \"data\": {\n    \"console\": {\n      \"editor\": 18,\n      \"errors\": 1,\n      \"max_messages\": 50,\n      \"messages\": [\n        {\n          \"count\": 1,\n          \"text\": \"[url]res://scripts/route1_crossing.gd:12[/url] - Parse Error: Preload file \\\"res://assets/sprites/world/route1_crossing_2026_10_02/river_bridge_complete.png\\\" does not exist.\",\n          \"type\": \"error\"\n        },\n        {\n          \"count\": 1,\n          \"text\": \"[godot_ai game_helper] registered mcp capture (debugger active=true, logger=true)\",\n          \"type\": \"std\"\n        },\n        {\n          \"count\": 1,\n          \"text\": \"MCP | [debug] holding mcp:hello from debugger session 1 until the run is adopted\",\n          \"type\": \"std\"\n        },\n        {\n          \"count\": 1,\n          \"text\": \"[SE] AuthManager: CLI credential found; desktop session exchange required\",\n          \"type\": \"std\"\n        },\n        {\n          \"count\": 1,\n          \"text\": \"\",\n          \"type\": \"std\"\n        },\n        {\n          \"count\": 1,\n          \"text\": \"D3D12 12_0 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce GTX 1660 SUPER\",\n          \"type\": \"std\"\n        },\n        {\n          \"count\": 1,\n          \"text\": \"Welcome to Summer Engine (c) built on the awesome work by Godot 2007-present Juan Linietsky, Ariel Manzur & Godot Contributors.\",\n          \"type\": \"std\"\n        },\n        {\n          \"count\": 1,\n          \"text\": \"[SE] game instance 'clean-final' (pid 39664) attached as debugger session 1.\",\n          \"type\": \"std\"\n        },\n        {\n          \"count\": 1,\n          \"text\": \"[SE] spawned game instance 'clean-final' (pid 39664, offscreen, deterministic).\",\n          \"type\": \"std\"\n        },\n        {\n          \"count\": 1,\n          \"text\": \"[WebView2] Suspended hidden surface generation 1.\",\n          \"type\": \"std\"\n        },\n        {\n          \"count\": 1,\n          \"text\": \"WriteFile\",\n          \"type\": \"editor\"\n        }\n      ],\n      \"returned\": 11,\n      \"std\": 58,\n      \"total\": 65,\n      \"warnings\": 0\n    },\n    \"debugger\": {\n      \"errors\": 0,\n      \"errors_data\": [],\n      \"is_breaked\": false,\n      \"session_active\": true,\n      \"warnings\": 11,\n      \"warnings_data\": [\n        {\n          \"callstack\": [\n            {\n              \"file\": \"res://scripts/creature_roster.gd\",\n              \"function\": \"load_all\",\n              \"line\": 27\n            },\n            {\n              \"file\": \"res://scripts/debug/dex_overlay.gd\",\n              \"function\": \"_refresh\",\n              \"line\": 63\n            },\n            {\n              \"file\": \"res://scripts/debug/dex_overlay.gd\",\n              \"function\": \"_ready\",\n              \"line\": 47\n            }\n          ],\n          \"count\": 1,\n          \"error\": \"res://data/creatures/001_rimefin.tres:4 - ext_resource, invalid UID: uid://crjluirawrgmi - using text path instead: res://assets/sprites/creatures/rimefin.png\",\n          \"error_descr\": \"\",\n          \"file\": \"scene\\\\resources\\\\resource_format_text.cpp\",\n          \"function\": \"ResourceLoaderText::load\",\n          \"line\": 516,\n          \"severity\": \"warning\",\n          \"timestamp_ms\": 29480287\n        },\n        {\n          \"callstack\": [],\n          \"count\": 1,\n          \"error\": \"SHADOWED_VARIABLE\",\n          \"error_descr\": \"The local variable \\\"start\\\" is shadowing an already-declared function at line 239 in the current class.\",\n          \"file\": \"res://scripts/battle_screen.gd\",\n          \"function\": \"GDScript::reload\",\n          \"line\": 1890,\n          \"severity\": \"warning\",\n          \"timestamp_ms\": 29480157\n        },\n        {\n          \"callstack\": [],\n          \"count\": 1,\n          \"error\": \"SHADOWED_VARIABLE_BASE_CLASS\",\n          \"error_descr\": \"The local function parameter \\\"offset\\\" is shadowing an already-declared property in the base class \\\"CanvasLayer\\\".\",\n          \"file\": \"res://scripts/battle_screen.gd\",\n          \"function\": \"GDScript::reload\",\n          \"line\": 1885,\n          \"severity\": \"warning\",\n          \"timestamp_ms\": 29480157\n        },\n        {\n          \"callstack\": [],\n          \"count\": 1,\n          \"error\": \"SHADOWED_VARIABLE_BASE_CLASS\",\n          \"error_descr\": \"The local function parameter \\\"offset\\\" is shadowing an already-declared property in the base class \\\"CanvasLayer\\\".\",\n          \"file\": \"res://scripts/battle_screen.gd\",\n          \"function\": \"GDScript::reload\",\n          \"line\": 1862,\n          \"severity\": \"warning\",\n          \"timestamp_ms\": 29480157\n        },\n        {\n          \"callstack\": [],\n          \"count\": 1,\n          \"error\": \"SHADOWED_VARIABLE_BASE_CLASS\",\n          \"error_descr\": \"The local function parameter \\\"offset\\\" is shadowing an already-declared property in the base class \\\"CanvasLayer\\\".\",\n          \"file\": \"res://scripts/battle_screen.gd\",\n          \"function\": \"GDScript::reload\",\n          \"line\": 1842,\n          \"severity\": \"warning\",\n          \"timestamp_ms\": 29480157\n        },\n        {\n          \"callstack\": [],\n          \"count\": 1,\n          \"error\": \"SHADOWED_VARIABLE_BASE_CLASS\",\n          \"error_descr\": \"The local function parameter \\\"offset\\\" is shadowing an already-declared property in the base class \\\"CanvasLayer\\\".\",\n          \"file\": \"res://scripts/battle_screen.gd\",\n          \"function\": \"GDScript::reload\",\n          \"line\": 1795,\n          \"severity\": \"warning\",\n          \"timestamp_ms\": 29480157\n        },\n        {\n          \"callstack\": [],\n          \"count\": 1,\n          \"error\": \"SHADOWED_VARIABLE_BASE_CLASS\",\n          \"error_descr\": \"The local function parameter \\\"offset\\\" is shadowing an already-declared property in the base class \\\"CanvasLayer\\\".\",\n          \"file\": \"res://scripts/battle_screen.gd\",\n          \"function\": \"GDScript::reload\",\n          \"line\": 1671,\n          \"severity\": \"warning\",\n          \"timestamp_ms\": 29480157\n        },\n        {\n          \"callstack\": [],\n          \"count\": 1,\n          \"error\": \"SHADOWED_VARIABLE\",\n          \"error_descr\": \"The local variable \\\"start\\\" is shadowing an already-declared function at line 239 in the current class.\",\n          \"file\": \"res://scripts/battle_screen.gd\",\n          \"function\": \"GDScript::reload\",\n          \"line\": 1553,\n          \"severity\": \"warning\",\n          \"timestamp_ms\": 29480157\n        },\n        {\n          \"callstack\": [],\n          \"count\": 1,\n          \"error\": \"SHADOWED_VARIABLE_BASE_CLASS\",\n          \"error_descr\": \"The local function parameter \\\"offset\\\" is shadowing an already-declared property in the base class \\\"CanvasLayer\\\".\",\n          \"file\": \"res://scripts/battle_screen.gd\",\n          \"function\": \"GDScript::reload\",\n          \"line\": 1548,\n          \"severity\": \"warning\",\n          \"timestamp_ms\": 29480157\n        },\n        {\n          \"callstack\": [],\n          \"count\": 1,\n          \"error\": \"SHADOWED_VARIABLE_BASE_CLASS\",\n          \"error_descr\": \"The local \\\"for\\\" iterator variable \\\"layer\\\" is shadowing an already-declared property in the base class \\\"CanvasLayer\\\".\",\n          \"file\": \"res://scripts/battle_screen.gd\",\n          \"function\": \"GDScript::reload\",\n          \"line\": 1110,\n          \"severity\": \"warning\",\n          \"timestamp_ms\": 29480157\n        },\n        {\n          \"callstack\": [],\n          \"count\": 1,\n          \"error\": \"SHADOWED_VARIABLE_BASE_CLASS\",\n          \"error_descr\": \"The local variable \\\"offset\\\" is shadowing an already-declared property in the base class \\\"CanvasLayer\\\".\",\n          \"file\": \"res://scripts/battle_screen.gd\",\n          \"function\": \"GDScript::reload\",\n          \"line\": 797,\n          \"severity\": \"warning\",\n          \"timestamp_ms\": 29480157\n        }\n      ]\n    },\n    \"guidance\": \"Errors present. Check console.messages, debugger, and script_errors for details.\",\n    \"has_issues\": true,\n    \"scopes\": {\n      \"application\": {\n        \"errors\": 0,\n        \"has_issues\": false,\n        \"warnings\": 0\n      },\n      \"classification\": \"known_application_signatures_and_compiler_locations\",\n      \"console_available\": true,\n      \"coverage\": \"observed_console_debugger_and_open_script_buffers_not_full_project_validation\",\n      \"csharp_unique_errors\": 0,\n      \"debugger_available\": true,\n      \"guidance\": \"Use project errors for observed game/compiler failures. Application errors describe Summer chat/WebView transport, not broken game scripts. Inspect unclassified console evidence before attributing it. Zero known project errors is not a full project validation.\",\n      \"project\": {\n        \"errors\": 0,\n        \"has_issues\": true,\n        \"script_validation_available\": true,\n        \"script_validation_incomplete\": false,\n        \"warnings\": 11\n      },\n      \"unclassified\": {\n        \"errors\": 1,\n        \"has_issues\": true,\n        \"warnings\": 0\n      }\n    },\n    \"script_errors\": {\n      \"count\": 0,\n      \"errors\": [],\n      \"scope\": \"open_script_buffers\"\n    },\n    \"total_errors\": 1,\n    \"total_warnings\": 11\n  },\n  \"ok\": true,\n  \"provenance\": {\n    \"dirty\": false,\n    \"rootName\": \"MainMenuArtPreview\",\n    \"rootType\": \"Node2D\",\n    \"source\": \"diagnostics\",\n    \"target\": {\n      \"kind\": \"diagnostics\",\n      \"path\": \"diagnostics\"\n    }\n  },\n  \"snapshotAt\": 31328242,\n  \"snapshotSeq\": 253268,\n  \"_view\": {\n    \"mode\": \"prioritized\",\n    \"totalConsole\": 65,\n    \"shownConsole\": 11,\n    \"suppressedInfo\": 13,\n    \"totalDebugger\": 11,\n    \"shownDebugger\": 11,\n    \"suppressedDebuggerWarnings\": 0,\n    \"hint\": \"All counts are complete; only low-severity message bodies were trimmed. Re-call with includeAll: true for the untrimmed payload, or use summer_get_console / summer_get_debugger_warnings for targeted reads.\"\n  }\n}"
+    }
+  ],
+  "transient_note": "The combined console retains one earlier preload error caused during staged asset installation. The final headless boot and helper reload passed, final runtime debugger and project script validation contain zero errors. Eleven existing battle/roster warnings remain."
+}

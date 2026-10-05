@@ -1,0 +1,5 @@
+ERROR: Index p_y = 96 is out of bounds (height = 96).
+   at: Image::get_pixel (core\io\image.cpp:3690)
+   GDScript backtrace (most recent call first):
+       [0] _run (C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/consistency_battle_probe.gd:99)
+       [1] _capture (C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/consistency_battle_probe.gd:14)

@@ -1,0 +1,34 @@
+[gd_resource type="Resource" script_class="CreatureData" format=3]
+
+[ext_resource type="Script" path="res://scripts/creature_data.gd" id="1_script"]
+[ext_resource type="Texture2D" path="res://assets/sprites/creatures/clinkerhide.png" id="2_sprite"]
+[ext_resource type="Resource" path="res://data/moves/clinkerhide_brow_shear.tres" id="3_move"]
+[ext_resource type="Resource" path="res://data/moves/clinkerhide_clinker_toss.tres" id="4_move"]
+[ext_resource type="Resource" path="res://data/moves/clinkerhide_vent_row.tres" id="5_move"]
+[ext_resource type="Resource" path="res://data/moves/clinkerhide_slagburst.tres" id="6_move"]
+
+[ext_resource type="Resource" path="res://data/creatures/102_ironvent.tres" id="8_evolution"]
+
+[ext_resource type="Texture2D" path="res://assets/sprites/creatures/clinkerhide_rd_back_2026_10_01.png" id="rd_back"]
+
+[resource]
+script = ExtResource("1_script")
+id = 101
+creature_name = "Clinkerhide"
+body_parts = PackedStringArray("claw", "fusedbrow", "vent", "ventrow", "heavytail")
+aim_points = Dictionary[String, Vector2]({
+"brow": Vector2(28, -20),
+"ventrow": Vector2(15, 0),
+"heavytail": Vector2(-40, 8)
+})
+essence = 0
+sprite = ExtResource("2_sprite")
+back_sprite = ExtResource("rd_back")
+moves = [ExtResource("3_move"), ExtResource("4_move"), ExtResource("5_move"), ExtResource("6_move")]
+evolves_into = ExtResource("8_evolution")
+base_hp = 60
+base_attack = 60
+base_defense = 60
+base_speed = 60
+idle_breath = 0.026
+idle_period = 1.9

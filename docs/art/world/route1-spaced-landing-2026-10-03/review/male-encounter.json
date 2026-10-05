@@ -1,0 +1,87 @@
+{
+	"model": "Male",
+	"ordinary_input_only": true,
+	"passed": true,
+	"quest_overrides": 0,
+	"steps": [
+		{
+			"area": "route1",
+			"frames": 59,
+			"from": "(-720.0, 512.0)",
+			"walk": "(-640.0, 512.0)"
+		},
+		{
+			"area": "route1",
+			"frames": 132,
+			"from": "(-642.6678, 512.0)",
+			"walk": "(-640.0, 336.0)"
+		},
+		{
+			"area": "route1",
+			"frames": 156,
+			"from": "(-640.7822, 338.1131)",
+			"walk": "(-432.0, 336.0)"
+		},
+		{
+			"area": "route1",
+			"frames": 109,
+			"from": "(-434.5074, 337.1703)",
+			"walk": "(-432.0, 192.0)"
+		},
+		{
+			"area": "route1",
+			"frames": 360,
+			"from": "(-432.6218, 193.9509)",
+			"walk": "(48.0, 192.0)"
+		},
+		{
+			"area": "route1",
+			"frames": 103,
+			"from": "(45.65528, 193.0081)",
+			"walk": "(184.0, 192.0)"
+		},
+		{
+			"area": "route1",
+			"frames": 67,
+			"from": "(181.6552, 193.0081)",
+			"walk": "(272.0, 192.0)"
+		},
+		{
+			"area": "route1",
+			"frames": 70,
+			"from": "(269.655, 193.0081)",
+			"walk": "(306.0, 272.0)"
+		},
+		{
+			"area": "route1",
+			"frames": 72,
+			"from": "(304.539, 270.5588)",
+			"walk": "(344.0, 352.0)"
+		},
+		{
+			"area": "route1",
+			"frames": 43,
+			"from": "(343.1942, 349.2143)",
+			"walk": "(304.0, 392.0)"
+		},
+		{
+			"area": "route1",
+			"frames": 28,
+			"from": "(305.4818, 389.5934)",
+			"walk": "(276.0, 368.0)"
+		},
+		{
+			"area": "route1",
+			"frames": 35,
+			"from": "(278.0732, 368.8516)",
+			"walk": "(240.0, 344.0)"
+		},
+		{
+			"creature_resource_matches": true,
+			"nearby_prompt": true,
+			"ordinary_encounter_started": true,
+			"quest_flags_preserved": true
+		}
+	],
+	"test_teleports": 0
+}

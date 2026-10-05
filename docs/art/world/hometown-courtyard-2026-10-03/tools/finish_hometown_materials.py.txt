@@ -1,0 +1,22 @@
+from pathlib import Path
+import shutil,numpy as np
+from PIL import Image,ImageDraw
+import json
+s=Path.cwd();r=s/"hometown-review";p=Path("C:/Users/pmcga/dev/hollowtide")
+(r/"joined-v2").mkdir(exist_ok=True)
+for f in r.glob("installed-*.png"):shutil.copyfile(f,r/"joined-v2"/f.name)
+bake=(s/"prepare_hometown.py").read_text();bake=bake[bake.index("# Authored rounded paths"):bake.index('print(json.dumps')]
+bake=bake.replace("w,h=480,384","w,h=528,384").replace("(480,192)","(528,192)")
+bake=bake.replace("mask=dist<0","mask=dist<0\njoin_half_width=12+np.clip((xx-400)/48,0,1)*4\nmask |= (xx>=400) & (np.abs(yy-192)<join_half_width)")
+exec(bake,globals())
+shutil.copyfile(r/"hometown_lanes.png",p/"assets/sprites/world/hometown_courtyard_2026_10_03/hometown_lanes.png")
+f=p/"scripts/hometown_courtyard.gd";txt=f.read_text()
+needle='\tpreload("res://assets/sprites/world/route1_rd_2026_10_02/cottonwood_office_grove.png"),'
+assert txt.count(needle)==1
+txt=txt.replace(needle,needle+'\n\tpreload("res://assets/sprites/world/route1_rd_2026_10_02/cottonwood_ridge.png"),')
+f.write_text(txt,encoding="utf-8")
+# Preserve previous successful runs rather than overwriting their evidence.
+for name in ["full","female"]:
+ shutil.copytree(r/name,r/"joined-v2"/name,dirs_exist_ok=True)
+for f in r.glob("*-final.*.log"):shutil.copyfile(f,r/"joined-v2"/f.name)
+print("Softened the gate's width transition; every hometown tree now uses a distinct saved variant")

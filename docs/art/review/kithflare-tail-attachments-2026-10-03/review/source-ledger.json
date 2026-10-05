@@ -1,0 +1,62 @@
+[
+  {
+    "name": "kithflare",
+    "view": "front",
+    "source": "assets/sprites/creatures/rd_material_match_2026_10_01/kithflare_front.png",
+    "size": [
+      160,
+      160
+    ],
+    "sha256": "0cf0c7788bfe0d33715ac8d7a95ee9b8944859ea50b02d9d0c9be19baaa3923c"
+  },
+  {
+    "name": "kithflare",
+    "view": "back",
+    "source": "assets/sprites/creatures/rd_material_match_2026_10_01/kithflare_back.png",
+    "size": [
+      160,
+      160
+    ],
+    "sha256": "14d3500ba30d37bf2650d09399a41fa6a658e758c4dd6a7a10121ab72a00f52b"
+  },
+  {
+    "name": "wayburn",
+    "view": "front",
+    "source": "assets/sprites/creatures/rd_material_match_2026_10_01/wayburn_front.png",
+    "size": [
+      192,
+      160
+    ],
+    "sha256": "18cc5a1ca548e2a73b8af29ee7d2f8998cdff28c39b9c0032b1e0e295ba54026"
+  },
+  {
+    "name": "wayburn",
+    "view": "back",
+    "source": "assets/sprites/creatures/rd_material_match_2026_10_01/wayburn_back.png",
+    "size": [
+      160,
+      160
+    ],
+    "sha256": "9a1460537d2f5a34676d7e005259d8f62cf9c5091a4878fe6b14386fb2d2022c"
+  },
+  {
+    "name": "coalcrest",
+    "view": "front",
+    "source": "assets/sprites/creatures/coalcrest_front_fin_complete_2026_10_03.png",
+    "size": [
+      160,
+      160
+    ],
+    "sha256": "22d97b9fb29195cc384b0c082bc27f433866a552848206e9d0e75ae2a397dbe2"
+  },
+  {
+    "name": "coalcrest",
+    "view": "back",
+    "source": "assets/sprites/creatures/rd_material_match_2026_10_01/coalcrest_back.png",
+    "size": [
+      160,
+      160
+    ],
+    "sha256": "81db137f797236e8a24a4fe5f84b33c98ef278cc789933601af2fbefc03b5913"
+  }
+]

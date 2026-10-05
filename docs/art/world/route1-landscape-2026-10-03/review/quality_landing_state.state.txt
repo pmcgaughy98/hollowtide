@@ -1,0 +1,46 @@
+{
+  "results": [
+    {
+      "effective_time_scale": 0,
+      "frame": {
+        "frames_drawn": 25654,
+        "physics_frames": 25654,
+        "process_frames": 25653
+      },
+      "instance": "route-quality-final",
+      "missing": [],
+      "ok": true,
+      "op": "GameProbe",
+      "paused": false,
+      "provenance": {
+        "source": "runtime",
+        "target": {
+          "instance": "route-quality-final",
+          "kind": "game"
+        }
+      },
+      "requestId": "mcp-4d3bf5ae-38c0-450b-a205-8ef26da24ee2",
+      "suspended": true,
+      "time_scale": 1,
+      "transport": "summer",
+      "values": {
+        "/root/FirstRoutePrototype/Player:position": "Vector2(422.459, 268.499)",
+        "/root/FirstRoutePrototype:city_arrival_registered": true,
+        "/root/FirstRoutePrototype:city_directions_read": true,
+        "/root/FirstRoutePrototype:delivered": true,
+        "/root/FirstRoutePrototype:heard_calls": true,
+        "/root/FirstRoutePrototype:marker_restored": false,
+        "/root/FirstRoutePrototype:pouch_accepted": true,
+        "/root/FirstRoutePrototype:report_done": false,
+        "/root/FirstRoutePrototype:water_mark_observed": true
+      }
+    }
+  ],
+  "skippedCount": 0,
+  "status": "ok",
+  "stopOnError": true,
+  "undoGroup": false,
+  "requestId": "mcp-4d3bf5ae-38c0-450b-a205-8ef26da24ee2",
+  "terminalState": "applied",
+  "appliedSeq": 1480
+}

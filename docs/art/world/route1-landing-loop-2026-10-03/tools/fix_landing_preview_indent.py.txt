@@ -1,0 +1,7 @@
+from pathlib import Path
+for name in ["prepare_landing_loop.py","landing_loop_bake_review.gd"]:
+ f=Path(name);t=f.read_text(encoding="utf-8")
+ needle="\t\troot.add_child(route);current_scene=route"
+ assert t.count(needle)==1,(name,t.count(needle))
+ f.write_text(t.replace(needle,"\troot.add_child(route);current_scene=route"),encoding="utf-8")
+print("Corrected preview indentation; shared runtime remains unchanged.")

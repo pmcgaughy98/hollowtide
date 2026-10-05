@@ -1,0 +1,83 @@
+[
+  {
+    "name": "neighbor-home",
+    "job": {
+      "status": "accepted",
+      "task_id": "c39f1d7f-58f1-4b25-8432-281bac202299",
+      "request_id": "c39f1d7f-58f1-4b25-8432-281bac202299",
+      "message": "Inference accepted. Poll GET /v2/inferences/tasks/{task_id} for status."
+    },
+    "estimate": {
+      "created_at": 1791142936,
+      "credit_cost": 0,
+      "balance_cost": 0.18,
+      "output_images": [],
+      "base64_images": [],
+      "output_urls": [],
+      "model": "check_cost",
+      "remaining_credits": 0,
+      "remaining_balance": 2.4000000000000026,
+      "resolved_prompt_style": "rd_pro__topdown",
+      "used_input_image": false,
+      "reference_images_count": 0,
+      "used_extra_input_image": false,
+      "used_input_palette": false,
+      "used_strength": false,
+      "effective_timeout_seconds": 180
+    }
+  },
+  {
+    "name": "garden-home",
+    "job": {
+      "status": "accepted",
+      "task_id": "7343c192-49a2-4057-be9e-1ffa5b02df85",
+      "request_id": "7343c192-49a2-4057-be9e-1ffa5b02df85",
+      "message": "Inference accepted. Poll GET /v2/inferences/tasks/{task_id} for status."
+    },
+    "estimate": {
+      "created_at": 1791142937,
+      "credit_cost": 0,
+      "balance_cost": 0.18,
+      "output_images": [],
+      "base64_images": [],
+      "output_urls": [],
+      "model": "check_cost",
+      "remaining_credits": 0,
+      "remaining_balance": 2.4000000000000026,
+      "resolved_prompt_style": "rd_pro__topdown",
+      "used_input_image": false,
+      "reference_images_count": 0,
+      "used_extra_input_image": false,
+      "used_input_palette": false,
+      "used_strength": false,
+      "effective_timeout_seconds": 180
+    }
+  },
+  {
+    "name": "courtyard-home-room",
+    "job": {
+      "status": "accepted",
+      "task_id": "b9751f1d-8281-44e8-85d9-b8874c01b003",
+      "request_id": "b9751f1d-8281-44e8-85d9-b8874c01b003",
+      "message": "Inference accepted. Poll GET /v2/inferences/tasks/{task_id} for status."
+    },
+    "estimate": {
+      "created_at": 1791142937,
+      "credit_cost": 0,
+      "balance_cost": 0.18,
+      "output_images": [],
+      "base64_images": [],
+      "output_urls": [],
+      "model": "check_cost",
+      "remaining_credits": 0,
+      "remaining_balance": 2.4000000000000026,
+      "resolved_prompt_style": "rd_pro__topdown",
+      "used_input_image": false,
+      "reference_images_count": 0,
+      "used_extra_input_image": false,
+      "used_input_palette": false,
+      "used_strength": false,
+      "effective_timeout_seconds": 180
+    }
+  }
+]

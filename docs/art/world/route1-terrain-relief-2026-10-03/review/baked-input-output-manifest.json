@@ -1,0 +1,48 @@
+{
+  "offline_native_terrain_bake": true,
+  "runtime_pixel_generation": false,
+  "assets": [
+    {
+      "file": "assets\\sprites\\world\\route1_terrain_relief_2026_10_03\\levee_grass_slopes.png",
+      "sha256": "ebb8aa87ae04b7f3a2d8d9c44e2cf68e36640508bfd730c98c2f506f2686c786",
+      "size": [
+        296,
+        248
+      ],
+      "at": [
+        136,
+        216
+      ]
+    },
+    {
+      "file": "assets\\sprites\\world\\route1_terrain_relief_2026_10_03\\rounded_dispatch_landing_paths.png",
+      "sha256": "aa6b983512245267297ec9625518809719e5c112d2180ac0f5069df091609191",
+      "size": [
+        416,
+        248
+      ],
+      "at": [
+        0,
+        80
+      ]
+    }
+  ],
+  "source_inputs": [
+    {
+      "file": "scripts/route1_crossing.gd",
+      "sha256": "ad880f72ca2cd2e1d568991f45ddda6b5a0258a9430cadc17dd68d0577d9354c"
+    },
+    {
+      "file": "scenes/first_route_prototype.tscn",
+      "sha256": "88edcd961f4608584a5d1c505bffab7e7a44af0662b1ab9a2a8584030a3abddc"
+    },
+    {
+      "file": "assets/tilesets/route1_rd_2026_10_01/route1_ground_atlas_polished.png",
+      "sha256": "3c5cf177727cb41f152bb4cabfbaa8dc2a9c0ac3f74a9492b31d19835f71dc14"
+    },
+    {
+      "file": "assets/sprites/world/route1_crossing_2026_10_02/path_soil_native32.png",
+      "sha256": "0bc1711d71a8a8133da3be181c0d2d7620149bd73d0f1a302abc4584b665df1f"
+    }
+  ]
+}

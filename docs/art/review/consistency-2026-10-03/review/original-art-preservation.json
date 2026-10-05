@@ -1,0 +1,405 @@
+{
+  "all_originals_unchanged": true,
+  "checked_files": 77,
+  "files": [
+    {
+      "file": "assets\\backgrounds\\signature_stages\\furnace_roar.png",
+      "sha256": "3f89df83cc1fa834b087d6c5e6c4c8c379df90f8812848292a52bbe735be5bd5",
+      "unchanged": true
+    },
+    {
+      "file": "assets\\backgrounds\\signature_stages\\kingstone_rail.png",
+      "sha256": "5313335c9bed8c19e0eca8b21db9764995d625cbf4818b5ea84084dd8ecb9af7",
+      "unchanged": true
+    },
+    {
+      "file": "assets\\backgrounds\\signature_stages\\molten_glass.png",
+      "sha256": "07eaede92f45cf74bdb6b5a573a380572e100c6da2f6d68a364772d4ebb6b516",
+      "unchanged": true
+    },
+    {
+      "file": "assets\\sprites\\creatures\\attacks\\ironvent_furnace_roar\\style_matched\\cool.png",
+      "sha256": "f77c4c06cbefec2a63b3cd0fda9af7729c457acf0a379c23f0eac1b51b698623",
+      "unchanged": true
+    },
+    {
+      "file": "assets\\sprites\\creatures\\attacks\\ironvent_furnace_roar\\style_matched\\open.png",
+      "sha256": "df5842f7119ca41e8cc117653f8685f1a675090433cce5febab874a2c5ebac47",
+      "unchanged": true
+    },
+    {
+      "file": "assets\\sprites\\creatures\\attacks\\ironvent_furnace_roar\\style_matched\\pressure.png",
+      "sha256": "368fc201cb26f0b38ae783b025ecd3aa32a77d060bb8166a10830de541dd5b9d",
+      "unchanged": true
+    },
+    {
+      "file": "assets\\sprites\\creatures\\attacks\\ironvent_furnace_roar\\style_matched\\rear.png",
+      "sha256": "a823b3a87cbb61cf305a01108ff5d66a08dcb3b7136b1885a29c81b8b4804086",
+      "unchanged": true
+    },
+    {
+      "file": "assets\\sprites\\creatures\\attacks\\ironvent_furnace_roar\\style_matched\\rest.png",
+      "sha256": "be88fb3e9e76b5130a2b67a9129ae4012dbb1e36d6a42bc954978bb9a8e8ef3b",
+      "unchanged": true
+    },
+    {
+      "file": "assets\\sprites\\creatures\\attacks\\ironvent_furnace_roar\\style_matched\\roar.png",
+      "sha256": "321e107c3c63b550717805707c9c19e498e695907777ee3666e7deebb86abe9b",
+      "unchanged": true
+    },
+    {
+      "file": "assets\\sprites\\creatures\\attacks\\ironvent_furnace_roar\\style_matched\\settle.png",
+      "sha256": "7c74092bcf6d0616677752b12adaec11615e7b4d2a1ac71f2e821f78dfc9ad4e",
+      "unchanged": true
+    },
+    {
+      "file": "assets\\sprites\\creatures\\attacks\\ironvent_furnace_roar\\style_matched\\titlecard_official_2026_09_30.png",
+      "sha256": "ba7d778e4cb2c5964d52b7ac66b89a1a5c594470bb95686df246311729151802",
+      "unchanged": true
+    },
+    {
+      "file": "assets\\sprites\\creatures\\attacks\\ironvent_furnace_roar\\style_matched\\warm.png",
+      "sha256": "3d232678b9f32a876af654b8268168ff54bfe1c0122f9e8c65f868b9626c43b1",
+      "unchanged": true
+    },
+    {
+      "file": "assets\\sprites\\creatures\\attacks\\oxbowarchon_kingstone_rail\\style_matched\\afterglow.png",
+      "sha256": "8ed0fd1b2a78e74067b5817d9236e79d85cf9d763c58c1a7f1fc57075375b901",
+      "unchanged": true
+    },
+    {
+      "file": "assets\\sprites\\creatures\\attacks\\oxbowarchon_kingstone_rail\\style_matched\\burst.png",
+      "sha256": "af26dc894458e9aee4fd444ab5542aecc929a2f85cfd8a023640faf3c21d1e02",
+      "unchanged": true
+    },
+    {
+      "file": "assets\\sprites\\creatures\\attacks\\oxbowarchon_kingstone_rail\\style_matched\\burst_b.png",
+      "sha256": "1aaea6ca870df9ef774978548315bea46cd6196cdc0953a0d4bde4eb2b4c351a",
+      "unchanged": true
+    },
+    {
+      "file": "assets\\sprites\\creatures\\attacks\\oxbowarchon_kingstone_rail\\style_matched\\full.png",
+      "sha256": "21584665c5c3fbf001fb42460e65d4d2ad2ce45d5a6cc187a17e042d1a66ab4a",
+      "unchanged": true
+    },
+    {
+      "file": "assets\\sprites\\creatures\\attacks\\oxbowarchon_kingstone_rail\\style_matched\\full_b.png",
+      "sha256": "b653a93634d14f653fff70e2ee51d4fb853ec6884a3d6b00d435697daf1f2d4c",
+      "unchanged": true
+    },
+    {
+      "file": "assets\\sprites\\creatures\\attacks\\oxbowarchon_kingstone_rail\\style_matched\\glow.png",
+      "sha256": "905117081f7779d7ece747c9aac7f665987d57486e35b235339f1582aee71a1b",
+      "unchanged": true
+    },
+    {
+      "file": "assets\\sprites\\creatures\\attacks\\oxbowarchon_kingstone_rail\\style_matched\\kindle.png",
+      "sha256": "14196dd4a68054f040445cafc99992a4bc1f9114f080766cc06fbd82139d0264",
+      "unchanged": true
+    },
+    {
+      "file": "assets\\sprites\\creatures\\attacks\\oxbowarchon_kingstone_rail\\style_matched\\kindle_arcs.png",
+      "sha256": "b75978a3b2757a7e85a6f864a5e314abc8d7701d78b0711380bd2209f537edb6",
+      "unchanged": true
+    },
+    {
+      "file": "assets\\sprites\\creatures\\attacks\\oxbowarchon_kingstone_rail\\style_matched\\raise.png",
+      "sha256": "df7ea9cc79e8fce1a39d63132b9e3b0ab3ff8848464b2dbc03b7e8b470be4328",
+      "unchanged": true
+    },
+    {
+      "file": "assets\\sprites\\creatures\\attacks\\oxbowarchon_kingstone_rail\\style_matched\\rest.png",
+      "sha256": "fadcaf285dd60cb57f9ece287f77136acd502c7d1dd1afb3eca828d98787ebee",
+      "unchanged": true
+    },
+    {
+      "file": "assets\\sprites\\creatures\\attacks\\oxbowarchon_kingstone_rail\\style_matched\\settle.png",
+      "sha256": "eb2921c13d0a66a29b7df03a68938b5d9020660ff86d7ecc2cd390333382e2ea",
+      "unchanged": true
+    },
+    {
+      "file": "assets\\sprites\\creatures\\attacks\\oxbowarchon_kingstone_rail\\style_matched\\shot.png",
+      "sha256": "cc1732dda6f83594ab163299a8b37e1b62de9c4838935d5f23cfaaa447f2e8bf",
+      "unchanged": true
+    },
+    {
+      "file": "assets\\sprites\\creatures\\attacks\\oxbowarchon_kingstone_rail\\style_matched\\spent.png",
+      "sha256": "284ce4a379705d22677771774536520f3b34fc90c50c8dd436fd217bce52fa12",
+      "unchanged": true
+    },
+    {
+      "file": "assets\\sprites\\creatures\\attacks\\oxbowarchon_kingstone_rail\\style_matched\\swirl.png",
+      "sha256": "ef7e51e9f613a7085dcba5d7e10921f3267a829846138fedee49d94b351b712f",
+      "unchanged": true
+    },
+    {
+      "file": "assets\\sprites\\creatures\\attacks\\oxbowarchon_kingstone_rail\\style_matched\\titlecard.png",
+      "sha256": "49ebf71ddb5228ddbb36f1c250fa84b6296db7218a2a10a82c588505889ccd45",
+      "unchanged": true
+    },
+    {
+      "file": "assets\\sprites\\creatures\\cinderhide.png",
+      "sha256": "4c6403594e71a93c698e453a7aef62df44bbb2c4e03cbda1ad130fe274a5e22e",
+      "unchanged": true
+    },
+    {
+      "file": "assets\\sprites\\creatures\\cinderhide_back.png",
+      "sha256": "4c523a530665ea29322c72b18b492150afffbfae7c109bb466dbed3d49f49988",
+      "unchanged": true
+    },
+    {
+      "file": "assets\\sprites\\creatures\\clinkerhide.png",
+      "sha256": "1e64190c2333e0e6d5330f3ce6e35dee7727e46c9566d67ec816cd967e17afe5",
+      "unchanged": true
+    },
+    {
+      "file": "assets\\sprites\\creatures\\clinkerhide_rd_back_2026_10_01.png",
+      "sha256": "f665ad9e5d4dc6a4b68e6b9b61625924e506656ba15aaefccefeba6ddf3469e9",
+      "unchanged": true
+    },
+    {
+      "file": "assets\\sprites\\creatures\\ironvent.png",
+      "sha256": "70a6346602a8a6bf7c798304b9a9153dc73232c7f42847ff312962f5c761db7c",
+      "unchanged": true
+    },
+    {
+      "file": "assets\\sprites\\creatures\\ironvent_back_2026_09_27.png",
+      "sha256": "556c783f4923d9f167efbf7a4646a9c1d4a03e83042289a6a904cae0e42b8a06",
+      "unchanged": true
+    },
+    {
+      "file": "assets\\sprites\\creatures\\ironvent_claw_6.png",
+      "sha256": "3fe48d61bd1322a7edbb56d40959a9aa9cf2209e9b42eae1b6dcca6e7802d0ad",
+      "unchanged": true
+    },
+    {
+      "file": "assets\\sprites\\creatures\\oxbowarchon.png",
+      "sha256": "0638f8c032019075b66c2675637c3aebadfdd71e609b78ca75469dc475d007ea",
+      "unchanged": true
+    },
+    {
+      "file": "assets\\sprites\\creatures\\oxbowarchon_back.png",
+      "sha256": "5c77dbba3ac378a8093c37e908a8f596f0e359ae05b479fda4f9f4a6a76f9ced",
+      "unchanged": true
+    },
+    {
+      "file": "assets\\sprites\\creatures\\rd_material_match_2026_10_01\\coalcrest_back.png",
+      "sha256": "81db137f797236e8a24a4fe5f84b33c98ef278cc789933601af2fbefc03b5913",
+      "unchanged": true
+    },
+    {
+      "file": "assets\\sprites\\creatures\\rd_material_match_2026_10_01\\coalcrest_front.png",
+      "sha256": "614493f5d0aba2783467a3848ea7aa1e442c80a925e021e9ff4ee35b509cd70f",
+      "unchanged": true
+    },
+    {
+      "file": "assets\\sprites\\creatures\\rd_material_match_2026_10_01\\fusern_back.png",
+      "sha256": "1717eba8149cc19e46c3052921e446d43ef8bef9028ea1f31cba8024874d1168",
+      "unchanged": true
+    },
+    {
+      "file": "assets\\sprites\\creatures\\rd_material_match_2026_10_01\\fusern_front.png",
+      "sha256": "afceef0009c2da9fe9ade7bc8ae415460149f95ceb9fde8c75a83bf7c99e642c",
+      "unchanged": true
+    },
+    {
+      "file": "assets\\sprites\\creatures\\rd_material_match_2026_10_01\\kithflare_back.png",
+      "sha256": "14d3500ba30d37bf2650d09399a41fa6a658e758c4dd6a7a10121ab72a00f52b",
+      "unchanged": true
+    },
+    {
+      "file": "assets\\sprites\\creatures\\rd_material_match_2026_10_01\\kithflare_front.png",
+      "sha256": "0cf0c7788bfe0d33715ac8d7a95ee9b8944859ea50b02d9d0c9be19baaa3923c",
+      "unchanged": true
+    },
+    {
+      "file": "assets\\sprites\\creatures\\rd_material_match_2026_10_01\\slagglass_back.png",
+      "sha256": "db96918e5864c60ec4ad799f632ad0aef273e4bb23dc51b090d6a2a711485cd9",
+      "unchanged": true
+    },
+    {
+      "file": "assets\\sprites\\creatures\\rd_material_match_2026_10_01\\slagglass_front.png",
+      "sha256": "1ea2cdf5f07e0739999db7748c12ef7638d3484f85ba4ecd4d435f12b1962f1c",
+      "unchanged": true
+    },
+    {
+      "file": "assets\\sprites\\creatures\\rd_material_match_2026_10_01\\vitrecrag_attacks\\f00.png",
+      "sha256": "a1218b05394b5157765e7167e8c5d0d6654e3de936be6505ed0f8da62413596b",
+      "unchanged": true
+    },
+    {
+      "file": "assets\\sprites\\creatures\\rd_material_match_2026_10_01\\vitrecrag_attacks\\f01.png",
+      "sha256": "93029d65adb800aebc84db8b638780c24e1cbd74d655e7d7fe6ae2a6f2414bb8",
+      "unchanged": true
+    },
+    {
+      "file": "assets\\sprites\\creatures\\rd_material_match_2026_10_01\\vitrecrag_attacks\\f02.png",
+      "sha256": "3ef75966e67f320dd1976870ce843bc8d642f04545246848d5e689a31a7a39f1",
+      "unchanged": true
+    },
+    {
+      "file": "assets\\sprites\\creatures\\rd_material_match_2026_10_01\\vitrecrag_attacks\\f03.png",
+      "sha256": "5359cb10b1404d996ce091194d4ae4441fcebbb1faba15f3f9ce5952a3ae465c",
+      "unchanged": true
+    },
+    {
+      "file": "assets\\sprites\\creatures\\rd_material_match_2026_10_01\\vitrecrag_attacks\\f04.png",
+      "sha256": "55eb5d6e9534f015a19f8d5b4d1bc57d941818ff253fd9e6a0178544720bedf8",
+      "unchanged": true
+    },
+    {
+      "file": "assets\\sprites\\creatures\\rd_material_match_2026_10_01\\vitrecrag_attacks\\f05.png",
+      "sha256": "b7cf64f935625b2d592fc3e739db3ee7eee1973329938c5c96640393e77968d7",
+      "unchanged": true
+    },
+    {
+      "file": "assets\\sprites\\creatures\\rd_material_match_2026_10_01\\vitrecrag_attacks\\f06.png",
+      "sha256": "062f4b2938d4a8f30ad024830276f7752fe7c13aee247701a95944e27f88345b",
+      "unchanged": true
+    },
+    {
+      "file": "assets\\sprites\\creatures\\rd_material_match_2026_10_01\\vitrecrag_attacks\\f07.png",
+      "sha256": "c98f08c11f3e402981b80521ae8bd0a3bb17896b6ce3f76f99192b9a7d573743",
+      "unchanged": true
+    },
+    {
+      "file": "assets\\sprites\\creatures\\rd_material_match_2026_10_01\\vitrecrag_attacks\\f08.png",
+      "sha256": "3af361133b7dae6eb521f8e218f8df45cada83b035dbec13b4481d1ca6b3c052",
+      "unchanged": true
+    },
+    {
+      "file": "assets\\sprites\\creatures\\rd_material_match_2026_10_01\\vitrecrag_attacks\\f09.png",
+      "sha256": "048227a55b1deb01d66b368ca72a3b3cfeb7fc0c7f987c3e9fb48c45583934bd",
+      "unchanged": true
+    },
+    {
+      "file": "assets\\sprites\\creatures\\rd_material_match_2026_10_01\\vitrecrag_attacks\\f10.png",
+      "sha256": "c54052df04a78c065480b0f275882cbda08f3a9227a7da9da85d11179fab56a6",
+      "unchanged": true
+    },
+    {
+      "file": "assets\\sprites\\creatures\\rd_material_match_2026_10_01\\vitrecrag_attacks\\f11.png",
+      "sha256": "f4852ff094977c39131c06aefe745c18395145864d6f618b4005c5852ebd4ee5",
+      "unchanged": true
+    },
+    {
+      "file": "assets\\sprites\\creatures\\rd_material_match_2026_10_01\\vitrecrag_back.png",
+      "sha256": "377a09711454457eff693ffab0d6fd67039b8ba8b80d4326cc179a07f60d4735",
+      "unchanged": true
+    },
+    {
+      "file": "assets\\sprites\\creatures\\rd_material_match_2026_10_01\\vitrecrag_front.png",
+      "sha256": "5ecf84baa63140566d2397455b441eabe1140fb3b1493bf23fb90da06b135f87",
+      "unchanged": true
+    },
+    {
+      "file": "assets\\sprites\\creatures\\rd_material_match_2026_10_01\\wayburn_back.png",
+      "sha256": "9a1460537d2f5a34676d7e005259d8f62cf9c5091a4878fe6b14386fb2d2022c",
+      "unchanged": true
+    },
+    {
+      "file": "assets\\sprites\\creatures\\rd_material_match_2026_10_01\\wayburn_front.png",
+      "sha256": "18cc5a1ca548e2a73b8af29ee7d2f8998cdff28c39b9c0032b1e0e295ba54026",
+      "unchanged": true
+    },
+    {
+      "file": "assets\\sprites\\creatures\\rimefin.png",
+      "sha256": "4bdea8e6e5937fe60f199d32fbc6cb0bb90a4e5a5b1ef01d2cf648e119fce58d",
+      "unchanged": true
+    },
+    {
+      "file": "assets\\sprites\\creatures\\rimefin_rd_back_2026_10_01.png",
+      "sha256": "1ad280d3ed8c147b0dda2a7ee9d4216e50927c17bfc5cd28290aa1eac088e592",
+      "unchanged": true
+    },
+    {
+      "file": "assets\\sprites\\effects\\ironvent\\blowdown\\charge.png",
+      "sha256": "bb50ef4ee04c2ac8b88e3cef5e9c9ce16eaa8c88f8bbd8506135238ddd7a5241",
+      "unchanged": true
+    },
+    {
+      "file": "assets\\sprites\\effects\\ironvent\\blowdown\\column.png",
+      "sha256": "6e8537ef6de34e5db80f2501280d2d8a6bbfc60f1227ab27dc131c7b3833ee91",
+      "unchanged": true
+    },
+    {
+      "file": "assets\\sprites\\effects\\ironvent\\blowdown\\fan.png",
+      "sha256": "447f3ffcd7c0caa3284353ea7aa298f05959fdad150fdd05ec5de14ea91342d6",
+      "unchanged": true
+    },
+    {
+      "file": "assets\\sprites\\effects\\ironvent\\blowdown\\smoke.png",
+      "sha256": "331d411f20f2224da60fc240c3d1fe53310032922ab8ac64ed499dcf1b0a6e65",
+      "unchanged": true
+    },
+    {
+      "file": "assets\\sprites\\effects\\ironvent\\vent_heat\\00_charge.png",
+      "sha256": "4573d497d3f00f916c1a0004dd8e6a8e312885b6e40938abccba324b2f3b089b",
+      "unchanged": true
+    },
+    {
+      "file": "assets\\sprites\\effects\\ironvent\\vent_heat\\01_ignite.png",
+      "sha256": "093042386e7b817109b9476a4479107373783bb972a130b3422bc6b3e2d2819a",
+      "unchanged": true
+    },
+    {
+      "file": "assets\\sprites\\effects\\ironvent\\vent_heat\\02_first_burst.png",
+      "sha256": "6d5157bff1eb2329dbe3e4d5bdefeb1f834e831090d150f16733ed295395a77b",
+      "unchanged": true
+    },
+    {
+      "file": "assets\\sprites\\effects\\ironvent\\vent_heat\\03_open.png",
+      "sha256": "256fd72b308e5be7bae9b69c20ecf81438ada8ec0c1bb3a4090735d859152d2e",
+      "unchanged": true
+    },
+    {
+      "file": "assets\\sprites\\effects\\ironvent\\vent_heat\\04_full.png",
+      "sha256": "a70afba5f89b541ba8cd4a900d5d8c42ebc279ae9dbddfb274dddf480638354d",
+      "unchanged": true
+    },
+    {
+      "file": "assets\\sprites\\effects\\ironvent\\vent_heat\\05_sustain.png",
+      "sha256": "3210a9153f9b9627f826f711372fafa948c7ba4e01d64af59838fba38778ca8a",
+      "unchanged": true
+    },
+    {
+      "file": "assets\\sprites\\effects\\ironvent\\vent_heat\\06_turbulence.png",
+      "sha256": "26c06be173a5c4637f9f03986fc2c6290b482b89d666358bff80812d4058f10d",
+      "unchanged": true
+    },
+    {
+      "file": "assets\\sprites\\effects\\ironvent\\vent_heat\\07_breakup.png",
+      "sha256": "b217c4a8e80a0db4f15f1f26978fda4b9e6795e748ee50ae465200dfd290b992",
+      "unchanged": true
+    },
+    {
+      "file": "assets\\sprites\\effects\\ironvent\\vent_heat\\08_cool.png",
+      "sha256": "d7dec682cba760b45625ac3c0e311d72e54835ad37bbae851af0a6d069e8844f",
+      "unchanged": true
+    },
+    {
+      "file": "assets\\sprites\\player\\retro_diffusion_chibi_walking_2026_10_01\\male_chibi_walk_matched_turns_native80.png",
+      "sha256": "21ad8dbd0de80a5825f2a2f8590b31c240dea127ba458934ddff121087e153ef",
+      "unchanged": true
+    },
+    {
+      "file": "assets\\sprites\\player\\retro_diffusion_chibi_walking_2026_10_01\\female_chibi_walk_eight_directions_native80.png",
+      "sha256": "6b11c733a78b26772c73fa4f0405f0138c13b1871a4e8f9e15f8a5405eddd2aa",
+      "unchanged": true
+    }
+  ],
+  "ironvent_native_head": [
+    {
+      "view": "front",
+      "alpha_exact": true,
+      "changed_opaque": 355,
+      "changed_outside_head": 0
+    },
+    {
+      "view": "rear",
+      "alpha_exact": true,
+      "changed_opaque": 254,
+      "changed_outside_head": 0
+    }
+  ]
+}

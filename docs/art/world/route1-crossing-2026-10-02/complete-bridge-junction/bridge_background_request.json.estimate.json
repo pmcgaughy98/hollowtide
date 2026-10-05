@@ -1,0 +1,14 @@
+{
+  "tool_id": "background_remover",
+  "balance_cost": 0.01,
+  "credit_cost": 2,
+  "estimate_seconds": 150,
+  "scheduled_region_summary": null,
+  "region_plan": null,
+  "toolId": "background_remover",
+  "balanceCost": 0.01,
+  "creditCost": 2,
+  "estimateSeconds": 150,
+  "scheduledRegionSummary": null,
+  "regionPlan": null
+}

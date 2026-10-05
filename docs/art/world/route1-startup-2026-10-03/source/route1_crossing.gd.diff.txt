@@ -1,0 +1,218 @@
+--- before/scripts/route1_crossing.gd
++++ current/scripts/route1_crossing.gd
+@@ -12,8 +12,10 @@
+ const BRIDGE = preload("res://assets/sprites/world/route1_crossing_2026_10_02/river_bridge_peg_fixed.png")
+ const WATER = preload("res://assets/sprites/world/route1_crossing_2026_10_02/river_water_native32.png")
+ const RIVER_FLOW = preload("res://assets/sprites/world/route1_crossing_2026_10_02/river_flow.gdshader")
+-const ROAD_SOIL = preload("res://assets/sprites/world/route1_crossing_2026_10_02/path_soil_native32.png")
+-const GROUND = preload("res://assets/tilesets/route1_rd_2026_10_01/route1_ground_atlas_polished.png")
++# Exact native outputs are baked once; provenance and rebuild source are in docs/art/world.
++const RIVER_MASK = preload("res://assets/sprites/world/route1_static_surfaces_2026_10_03/river_water_mask.png")
++const LEVEE_ROAD = preload("res://assets/sprites/world/route1_static_surfaces_2026_10_03/joined_levee_road.png")
++const CITY_LANDING = preload("res://assets/sprites/world/route1_static_surfaces_2026_10_03/joined_city_landing.png")
+ const MARK = preload("res://assets/sprites/world/route1_rd_2026_10_01/marker.png")
+ const FEMALE = preload("res://assets/sprites/player/retro_diffusion_chibi_walking_2026_10_01/female_chibi_walk_eight_directions_native80.png")
+ const COURIER_FINISH = preload("res://scripts/effects/courier_finish.gdshader")
+@@ -26,7 +28,6 @@
+ var _clock := 0.0
+ var _flow_offset := Vector2.ZERO
+ var _river_material: ShaderMaterial
+-var _levee := PackedVector2Array([Vector2(184, 200), Vector2(184, 240), Vector2(208, 264), Vector2(264, 296), Vector2(328, 328), Vector2(392, 392), Vector2(432, 416), Vector2(448, 416)])
+ 
+ 
+ func _ready() -> void:
+@@ -203,26 +204,10 @@
+ 
+ 
+ func _build_river_surface() -> void:
+-	# Only existing water pixels move. Authored dirt-bank and grass pixels remain.
+-	var terrain: TileMapLayer = _route.get_node("Terrain")
+-	var atlas := GROUND.get_image()
+-	var mask := Image.create(224, 640, false, Image.FORMAT_RGBA8)
+-	mask.fill(Color.TRANSPARENT)
+-	var water_colours := {0x37655e: true, 0x3b6b63: true, 0x3f7067: true, 0x45766c: true, 0x4b7c72: true, 0x538479: true, 0x628975: true}
+-	for y in range(640):
+-		for x in range(224):
+-			var world := Vector2i(int(RIVER_LEFT) + x, y)
+-			var cell := Vector2i(floori(world.x / 16.0), floori(world.y / 16.0))
+-			var tile := terrain.get_cell_atlas_coords(cell)
+-			if tile.x < 0:
+-				continue
+-			var pixel := atlas.get_pixelv(tile * 16 + Vector2i(world.x % 16, world.y % 16))
+-			var colour_key := (pixel.r8 << 16) | (pixel.g8 << 8) | pixel.b8
+-			if water_colours.has(colour_key):
+-				mask.set_pixel(x, y, Color.WHITE)
++	# The saved mask keeps the approved bank silhouette; only water samples move.
+ 	var surface := Sprite2D.new()
+ 	surface.name = "RiverSurface"
+-	surface.texture = ImageTexture.create_from_image(mask)
++	surface.texture = RIVER_MASK
+ 	surface.position = Vector2(RIVER_LEFT, 0)
+ 	surface.centered = false
+ 	surface.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
+@@ -235,154 +220,19 @@
+ 
+ 
+ func _build_levee_materials() -> void:
+-	# Keep the native pixel contour, then widen the entrance to the original lane.
+-	for _pass_index in range(2):
+-		var rounded := PackedVector2Array([_levee[0]])
+-		for i in range(_levee.size() - 1):
+-			rounded.append(_levee[i].lerp(_levee[i + 1], 0.25))
+-			rounded.append(_levee[i].lerp(_levee[i + 1], 0.75))
+-		rounded.append(_levee[-1])
+-		_levee = rounded
+-	_build_joined_road()
+-
+-
+-func _road_contour() -> PackedVector2Array:
+-	var left := PackedVector2Array()
+-	var right := PackedVector2Array()
+-	for i in range(_levee.size()):
+-		var direction := (_levee[mini(i + 1, _levee.size() - 1)] - _levee[maxi(i - 1, 0)]).normalized()
+-		var blend := smoothstep(216.0, 264.0, _levee[i].y)
+-		var half_width := lerpf(24.0, 13.0, blend)
+-		var normal := Vector2(-direction.y, direction.x) * half_width
+-		left.append((_levee[i] + normal).round())
+-		right.append((_levee[i] - normal).round())
+-	right.reverse()
+-	left.append_array(right)
+-	return left
+-
+-
+-func _mask_near(mask: PackedByteArray, size: Vector2i, at: Vector2i, radius: int, value: int) -> bool:
+-	for dy in range(-radius, radius + 1):
+-		for dx in range(-radius, radius + 1):
+-			var x := at.x + dx
+-			var y := at.y + dy
+-			if x >= 0 and x < size.x and y >= 0 and y < size.y:
+-				if mask[y * size.x + x] == value:
+-					return true
+-	return false
+-
+-
+-func _build_joined_road() -> void:
+-	# Draw the union of the new crest road and the authored lane at native pixels.
+-	# Repeating world coordinates preserve the original 32px soil texture phase.
+-	# Recompute their shared rim so the old end cap cannot cross the new entrance.
+-	var terrain: TileMapLayer = _route.get_node("Terrain")
+-	var atlas := GROUND.get_image()
+-	var soil := ROAD_SOIL.get_image()
+-	var area := Rect2i(144, 184, 320, 264)
+-	var count := area.size.x * area.size.y
+-	var new_mask := PackedByteArray()
+-	var joined_mask := PackedByteArray()
+-	new_mask.resize(count)
+-	joined_mask.resize(count)
+-	var contour := _road_contour()
+-	var soil_colours := {0xad9873: true, 0xb3a078: true, 0xb7a57d: true, 0xbbaa80: true, 0xbfae84: true, 0xc3b389: true, 0x9d906a: true}
+-	for y in range(area.size.y):
+-		for x in range(area.size.x):
+-			var world := area.position + Vector2i(x, y)
+-			var index := y * area.size.x + x
+-			var cell := Vector2i(floori(world.x / 16.0), floori(world.y / 16.0))
+-			var tile := terrain.get_cell_atlas_coords(cell)
+-			var old_road := false
+-			if tile.x >= 0:
+-				var pixel := atlas.get_pixelv(tile * 16 + Vector2i(world.x % 16, world.y % 16))
+-				var colour_key := (pixel.r8 << 16) | (pixel.g8 << 8) | pixel.b8
+-				old_road = soil_colours.has(colour_key)
+-			new_mask[index] = int(Geometry2D.is_point_in_polygon(Vector2(world) + Vector2(0.5, 0.5), contour))
+-			joined_mask[index] = int(old_road or new_mask[index] == 1)
+-	var image := Image.create(area.size.x, area.size.y, false, Image.FORMAT_RGBA8)
+-	image.fill(Color.TRANSPARENT)
+-	for y in range(3, area.size.y - 3):
+-		for x in range(3, area.size.x - 3):
+-			var at := Vector2i(x, y)
+-			var index := y * area.size.x + x
+-			if not _mask_near(new_mask, area.size, at, 3, 1):
+-				continue
+-			if joined_mask[index] == 1:
+-				var world := area.position + at
+-				var colour := soil.get_pixel(world.x % 32, world.y % 32)
+-				if _mask_near(joined_mask, area.size, at, 1, 0):
+-					colour = Color("#9d906a")
+-				image.set_pixelv(at, colour)
+-			else:
+-				image.set_pixelv(at, Color("#435e46"))
++	_static_road("JoinedLeveeRoad", LEVEE_ROAD, Vector2(144, 184))
++
++
++func _build_city_road_surface() -> void:
++	_static_road("JoinedCityLanding", CITY_LANDING, Vector2(672, 336))
++
++
++func _static_road(label: String, texture: Texture2D, at: Vector2) -> void:
+ 	var surface := Sprite2D.new()
+-	surface.name = "JoinedLeveeRoad"
+-	surface.texture = ImageTexture.create_from_image(image)
+-	surface.position = area.position
++	surface.name = label
++	surface.texture = texture
++	surface.position = at
+ 	surface.centered = false
+ 	surface.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
+ 	surface.z_index = -1
+ 	add_child(surface)
+-
+-
+-func _build_city_road_surface() -> void:
+-	# A level landing widens from the bridge into the existing courtyard.
+-	# Round the authored tile footprint, then use the same soil and turf as home.
+-	var terrain: TileMapLayer = _route.get_node("Terrain")
+-	var atlas := GROUND.get_image()
+-	var soil := ROAD_SOIL.get_image()
+-	var area := Rect2i(672, 336, 336, 240)
+-	var mask := PackedByteArray()
+-	var old_mask := PackedByteArray()
+-	mask.resize(area.size.x * area.size.y)
+-	old_mask.resize(mask.size())
+-	for y in range(area.size.y):
+-		for x in range(area.size.x):
+-			var world := area.position + Vector2i(x, y)
+-			var cell := Vector2i(floori(world.x / 16.0), floori(world.y / 16.0))
+-			var index := y * area.size.x + x
+-			old_mask[index] = int(terrain.get_cell_atlas_coords(cell) == Vector2i(11, 0))
+-			mask[index] = old_mask[index]
+-			if world.x < 720 and world.y >= 392 and world.y < 456:
+-				var blend := smoothstep(696.0, 720.0, float(world.x))
+-				var centre := lerpf(416.0, 424.0, blend)
+-				var half_width := lerpf(13.0, 24.0, blend)
+-				mask[index] = int(absf(float(world.y) + 0.5 - centre) <= half_width)
+-	for _pass_index in range(8):
+-		var rounded := mask.duplicate()
+-		for y in range(1, area.size.y - 1):
+-			for x in range(1, area.size.x - 1):
+-				var index := y * area.size.x + x
+-				var neighbours := 0
+-				for dy in range(-1, 2):
+-					for dx in range(-1, 2):
+-						neighbours += mask[index + dy * area.size.x + dx]
+-				rounded[index] = int(neighbours >= 5)
+-		mask = rounded
+-	var image := Image.create(area.size.x, area.size.y, false, Image.FORMAT_RGBA8)
+-	image.fill(Color.TRANSPARENT)
+-	for y in range(area.size.y):
+-		for x in range(area.size.x):
+-			var at := Vector2i(x, y)
+-			var index := y * area.size.x + x
+-			var world := area.position + at
+-			var near_road := _mask_near(mask, area.size, at, 3, 1)
+-			if mask[index] == 1:
+-				var colour := soil.get_pixel(world.x % 32, world.y % 32)
+-				if _mask_near(mask, area.size, at, 1, 0):
+-					colour = Color("#9d906a")
+-				image.set_pixelv(at, colour)
+-			elif near_road:
+-				image.set_pixelv(at, Color("#435e46"))
+-			elif old_mask[index] == 1:
+-				# Cover the former square corner with approved native grass.
+-				image.set_pixelv(at, atlas.get_pixel(world.x % 32, world.y % 16))
+-	var surface := Sprite2D.new()
+-	surface.name = "JoinedCityLanding"
+-	surface.texture = ImageTexture.create_from_image(image)
+-	surface.position = area.position
+-	surface.centered = false
+-	surface.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
+-	surface.z_index = -1
+-	add_child(surface)

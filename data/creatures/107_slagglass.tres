@@ -13,6 +13,10 @@
 script = ExtResource("1_script")
 id = 107
 creature_name = "Slagglass"
+body_parts = PackedStringArray("shell", "shelf")
+aim_points = Dictionary[String, Vector2]({
+"shelf": Vector2(38, -28)
+})
 essence = 0
 sprite = ExtResource("2_sprite")
 back_sprite = ExtResource("7_back")

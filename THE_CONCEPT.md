@@ -175,4 +175,4 @@ Do not skip ahead. Do not build step four before step two works.
 
 ## THE FIRST ROSTER DECISION
 
-Six starter lines, one per essence, are the first design set. Each is planned as a three-stage line. Rimefin (Tide) and Cinderhide (Ember) are the existing stage-I anchors; the Stone, Gale, Bloom, and Hollow starters remain proposals until their sprites and roles are reviewed. The current Cinderhide to Clinkerhide link is a provisional evolution prototype, not final canon.
+Six starter lines, one per essence, are the first design set. Each is planned as a three-stage line. Rimefin (Tide) and Cinderhide (Ember) are the existing stage-I anchors; the Stone, Gale, Bloom, and Hollow starters remain proposals until their sprites and roles are reviewed. The current Cinderhide to Clinkerhide link is a provisional evolution prototype, not final canon. The mechanic that runs, as of 2026-10-02, is in `docs/creatures/evolution-and-signatures.md`: a win evolves whatever form already has a link, one stage, with no levels. That file does not promote proposal names or proposal stats to canon.

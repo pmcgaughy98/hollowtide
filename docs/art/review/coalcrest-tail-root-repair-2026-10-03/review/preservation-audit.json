@@ -1,0 +1,13 @@
+{
+  "protected_runtime_files": 2165,
+  "byte_exact_existing": 2164,
+  "existing_changes": [
+    "data/creatures/105_coalcrest.tres"
+  ],
+  "only_two_texture_paths_changed": true,
+  "fixed_tail_regions_only": true,
+  "original_sources_preserved": true,
+  "both_views_and_six_legal_attacks_passed": true,
+  "final_stderr_empty": true,
+  "paid_generation": 0
+}

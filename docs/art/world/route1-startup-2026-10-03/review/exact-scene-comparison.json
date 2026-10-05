@@ -1,0 +1,60 @@
+{
+  "scene_nodes_before": 420,
+  "scene_nodes_after": 420,
+  "scene_state_differences": [],
+  "imported_surface_checks": [
+    {
+      "file": "river_water_mask.png",
+      "changed_pixels": 0,
+      "exact_rgba": true
+    },
+    {
+      "file": "joined_levee_road.png",
+      "changed_pixels": 0,
+      "exact_rgba": true
+    },
+    {
+      "file": "joined_city_landing.png",
+      "changed_pixels": 0,
+      "exact_rgba": true
+    },
+    {
+      "file": "wet_bank_contours.png",
+      "changed_pixels": 0,
+      "exact_rgba": true
+    }
+  ],
+  "fixed_clock_view_checks": [
+    {
+      "view": "overview",
+      "changed_pixels": 0,
+      "total_pixels": 746496,
+      "exact_render": true
+    },
+    {
+      "view": "entrance",
+      "changed_pixels": 0,
+      "total_pixels": 746496,
+      "exact_render": true
+    },
+    {
+      "view": "crest",
+      "changed_pixels": 0,
+      "total_pixels": 746496,
+      "exact_render": true
+    },
+    {
+      "view": "landing",
+      "changed_pixels": 0,
+      "total_pixels": 746496,
+      "exact_render": true
+    },
+    {
+      "view": "city",
+      "changed_pixels": 0,
+      "total_pixels": 746496,
+      "exact_render": true
+    }
+  ],
+  "passed": true
+}

@@ -1,0 +1,103 @@
+[
+  {
+    "path": "scripts/route1_crossing.gd",
+    "bytes": 16064,
+    "sha256": "31f999b8f2e09eadaadc45196bc441d84a253999f8a0efc42195ef0f2ba1876e"
+  },
+  {
+    "path": "scripts/route1_map_polish.gd",
+    "bytes": 2805,
+    "sha256": "dddfb7a6b67bb4d6179a843fa9ad546fed0a0ef3c9ca356152a8028fec9add5d"
+  },
+  {
+    "path": "scripts/route1_landscape.gd",
+    "bytes": 9249,
+    "sha256": "9485eac765486adb5522a634981fa9c9cf30f1924e3e948766a88ea33c9d0867"
+  },
+  {
+    "path": "scripts/route1_landscape.gd.uid",
+    "bytes": 19,
+    "sha256": "a5179d77c36c468935773eb8f4deed2307343fdc79f554a117b56a02ebcf3072"
+  },
+  {
+    "path": "assets/sprites/world/route1_landscape_2026_10_03/foliage_wind.gdshader",
+    "bytes": 559,
+    "sha256": "e04bae3149c7655e7c1dee61ee769942df30e909c84f6bdf82618844736dc90c"
+  },
+  {
+    "path": "assets/sprites/world/route1_landscape_2026_10_03/foliage_wind.gdshader.uid",
+    "bytes": 20,
+    "sha256": "f5f8360b3c9083c4f4b1b3153d4b1da9e23df00f3a91e367cd1caa4b08df8315"
+  },
+  {
+    "path": "assets/sprites/world/route1_landscape_2026_10_03/ground_variation.gdshader",
+    "bytes": 1037,
+    "sha256": "caee339e4f51310ddd4863bf47d0d8c85967ed8684cf2870fb24477b98d47ad6"
+  },
+  {
+    "path": "assets/sprites/world/route1_landscape_2026_10_03/ground_variation.gdshader.uid",
+    "bytes": 19,
+    "sha256": "ee450231fb599fea45a0aa96fa408a3f583004e62b1fe3fa410a02824cb362df"
+  },
+  {
+    "path": "assets/sprites/world/route1_landscape_2026_10_03/meadow_grass.png",
+    "bytes": 2968,
+    "sha256": "af6e319c26b020ea44d40a56ff68785465955e6eacafe7ea8819ec684429b4dc"
+  },
+  {
+    "path": "assets/sprites/world/route1_landscape_2026_10_03/meadow_grass.png.import",
+    "bytes": 990,
+    "sha256": "6836b133b78235cbb7852a185f1aeeefcc99677fc09ec709c0fcb62b3d2f8bb3"
+  },
+  {
+    "path": "assets/sprites/world/route1_landscape_2026_10_03/meadow_tuft_1.png",
+    "bytes": 758,
+    "sha256": "3a32ddc171d21debe9cdab4d73b103858c11250b05234853c53870a603b41a01"
+  },
+  {
+    "path": "assets/sprites/world/route1_landscape_2026_10_03/meadow_tuft_1.png.import",
+    "bytes": 992,
+    "sha256": "242a48a8fcce7056a379135cfa02be2c1543ef28ddb5672058746a939cbf796a"
+  },
+  {
+    "path": "assets/sprites/world/route1_landscape_2026_10_03/meadow_tuft_2.png",
+    "bytes": 708,
+    "sha256": "0d8028780644f2f2e1df9218724c54e0d8c8aa25a2fefa517f23bb7cb1410fe8"
+  },
+  {
+    "path": "assets/sprites/world/route1_landscape_2026_10_03/meadow_tuft_2.png.import",
+    "bytes": 993,
+    "sha256": "4cb1a739f5047e14caf066e04a7c0d0998cc8611b66ef1d5c0ab08c68c27745f"
+  },
+  {
+    "path": "assets/sprites/world/route1_landscape_2026_10_03/river_stones.png",
+    "bytes": 1193,
+    "sha256": "e4eb98c20e6dee18dfb6df2121fced4f1f6303d587e23cf545ac33a4cfa5974e"
+  },
+  {
+    "path": "assets/sprites/world/route1_landscape_2026_10_03/river_stones.png.import",
+    "bytes": 989,
+    "sha256": "89db716675f035b07b7519ccdfbf27a695502ebed32e8747ed03cb8a9dec2832"
+  },
+  {
+    "path": "assets/sprites/world/route1_landscape_2026_10_03/silt_roots.png",
+    "bytes": 2457,
+    "sha256": "6b235f95851f736cb4f84d29fe7e82091729591d9784541cda7ca945057aec27"
+  },
+  {
+    "path": "assets/sprites/world/route1_landscape_2026_10_03/silt_roots.png.import",
+    "bytes": 984,
+    "sha256": "801aef5384c7b505ded80adbbf6d8dfc92895a66da2f62ef1383ae4d1d0daedd"
+  },
+  {
+    "path": "assets/sprites/world/route1_landscape_2026_10_03/silt_roots_small.png",
+    "bytes": 1146,
+    "sha256": "f93dd383c0ac66605351dbc2c4e8d2e33d3869ac696e01839630dfe0f2c6606c"
+  },
+  {
+    "path": "assets/sprites/world/route1_landscape_2026_10_03/silt_roots_small.png.import",
+    "bytes": 1002,
+    "sha256": "e1cc328da4afc85cf908916289846d6f214aeadb43266d24a541025dc54f116d"
+  }
+]
+

@@ -1,0 +1,13 @@
+{
+  "candidate_sha256": "a8f2acb7e299816ea6f45cb2c50cc842cdde4187286bab488d3447b96bcb58f2",
+  "dimensions": [
+    160,
+    160
+  ],
+  "changed_pixels": 803,
+  "changed_outside_mask": 0,
+  "palette_source": "Original front sail x54..105 y16..53, opaque warm colors",
+  "palette_colors": 34,
+  "top_clearance_pixels": 3,
+  "magenta_hue_pixels_remaining": 0
+}

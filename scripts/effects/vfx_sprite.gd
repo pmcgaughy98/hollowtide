@@ -19,6 +19,10 @@ func _ready() -> void:
 
 
 func _process(delta: float) -> void:
+	# A hidden one-shot, such as a hit pop riding along during the flight,
+	# must not advance. Otherwise it frees itself before the hit.
+	if not visible:
+		return
 	_time += delta
 	var count: int = hframes * vframes
 	var step: int = int(_time * fps)

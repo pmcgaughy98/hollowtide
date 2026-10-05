@@ -1,0 +1,116 @@
+[
+  {
+    "asset": "timber_bed",
+    "source_size": [
+      64,
+      64
+    ],
+    "source_bounds": [
+      5,
+      7,
+      59,
+      57
+    ],
+    "native_used_size": [
+      54,
+      50
+    ],
+    "operation": "exact crop and transparent 2px padding; no pixel resampling",
+    "stage": "exact initial crop; final interior palette polish is recorded in native-soil-polish.json"
+  },
+  {
+    "asset": "cuttings_row",
+    "source_size": [
+      40,
+      24
+    ],
+    "source_bounds": [
+      1,
+      3,
+      39,
+      21
+    ],
+    "native_used_size": [
+      38,
+      18
+    ],
+    "operation": "exact crop and transparent 2px padding; no pixel resampling"
+  },
+  {
+    "asset": "garden_lanes",
+    "source": "route1_ground_atlas_polished.png tile(11,0)",
+    "operation": "native existing soil under local path mask",
+    "size": [
+      1024,
+      768
+    ],
+    "phase_matches_original_streets": true,
+    "region": [
+      352,
+      488,
+      184,
+      112
+    ],
+    "bed_rectangles": [
+      [
+        377,
+        518,
+        54,
+        50
+      ],
+      [
+        457,
+        518,
+        54,
+        50
+      ]
+    ],
+    "central_aisle": [
+      431,
+      457
+    ],
+    "final_join_rectangle": [
+      524,
+      488,
+      561,
+      600
+    ],
+    "final_join_radius": 12
+  },
+  {
+    "asset": "garden_neighbor",
+    "status": "historical keeper stand-in, superseded by approved completed garden neighbor",
+    "source": "assets\\sprites\\world\\historic_frontage_2026_10_04\\workshop_keeper.png",
+    "source_sha256": "b115f5e59c5998b576223d4773e4570470fa12283f925a71c538fde240985862",
+    "original_used_size": [
+      33,
+      56
+    ],
+    "prepared_used_size": [
+      18,
+      30
+    ],
+    "method": "nearest reduction to courier-height30; transparentpadding",
+    "current": false
+  },
+  {
+    "asset": "garden_neighbor",
+    "current": true,
+    "status": "approved crown repair installed",
+    "source": "generation/garden-neighbor-source.png",
+    "outpaint": "generation/garden-neighbor-hat-outpaint.png",
+    "completion_record": "neighbor-completion.json",
+    "original_body_rgba_exact_before_native_reduction": true,
+    "crown_new_visible_pixels": 20,
+    "false_checker_margin_excluded": true,
+    "prepared_size": [
+      21,
+      34
+    ],
+    "prepared_used_size": [
+      17,
+      30
+    ],
+    "method": "original body plus repaired crown; nearest reduction to courier height30; 2px transparent padding"
+  }
+]

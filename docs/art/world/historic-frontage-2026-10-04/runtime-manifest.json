@@ -1,0 +1,47 @@
+[
+  {
+    "path": "scripts/historic_street.gd",
+    "sha256": "1846df40a8d84bc47e76c9671396ffc600b417549462d4573dd703dfa185f4c4",
+    "action": "targeted frontage integration"
+  },
+  {
+    "path": "assets/sprites/world/historic_frontage_2026_10_04/rear_rowhomes.png",
+    "sha256": "297ecffda537817d929fe982fe3aff491a1f0dad5fe4d6d256d6cff5a2d52561",
+    "action": "new versioned file"
+  },
+  {
+    "path": "assets/sprites/world/historic_frontage_2026_10_04/rear_rowhomes.png.import",
+    "sha256": "211fcc9b69a10910bf067207e735fecabf754465e81130de8ba9bed9d92cbb60",
+    "action": "new versioned file"
+  },
+  {
+    "path": "assets/sprites/world/historic_frontage_2026_10_04/repair_workshop.png",
+    "sha256": "78314a07d5f546c9f5549e589fda17c73e147af022a8338b69ff1f69dc7b87a9",
+    "action": "new versioned file"
+  },
+  {
+    "path": "assets/sprites/world/historic_frontage_2026_10_04/repair_workshop.png.import",
+    "sha256": "29aed9d91dde3cf0843dc35c8796e810f71901efaa5021cceab1f867952b7592",
+    "action": "new versioned file"
+  },
+  {
+    "path": "assets/sprites/world/historic_frontage_2026_10_04/street_pavers.png",
+    "sha256": "5d9b501ffe400f0bd9b0193d96f4da9301ad0202722f8d82614da1f19b44c83c",
+    "action": "new versioned file"
+  },
+  {
+    "path": "assets/sprites/world/historic_frontage_2026_10_04/street_pavers.png.import",
+    "sha256": "1e4e6db2ca494478d433ee368a960202440b141dd0d74fd1d6cd33df29785509",
+    "action": "new versioned file"
+  },
+  {
+    "path": "assets/sprites/world/historic_frontage_2026_10_04/workshop_keeper.png",
+    "sha256": "b115f5e59c5998b576223d4773e4570470fa12283f925a71c538fde240985862",
+    "action": "new versioned file"
+  },
+  {
+    "path": "assets/sprites/world/historic_frontage_2026_10_04/workshop_keeper.png.import",
+    "sha256": "24853c8c6898eca34677efc745f729b2471c43bfc6c95529771ae6350f001c61",
+    "action": "new versioned file"
+  }
+]

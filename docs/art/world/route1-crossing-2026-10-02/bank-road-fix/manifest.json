@@ -1,0 +1,36 @@
+{
+  "before_helper_sha256": "64b24744768c81163d6da595d8a204f5453c4f0d732cf876a99c9084bf11be65",
+  "installed_helper_sha256": "9c9ecca4c0efc77521a4d20a7c18bd13fc834fff951671da0b6ae2749ab53f51",
+  "bridge_origin": [
+    424,
+    368
+  ],
+  "bridge_south_rail_origin": [
+    560,
+    447
+  ],
+  "dry_bank_overlap_pixels_each_side": 16,
+  "river_bounds_x": [
+    448,
+    672
+  ],
+  "road_start": [
+    184,
+    200
+  ],
+  "road_end": [
+    448,
+    416
+  ],
+  "camera_zoom_unchanged": [
+    3,
+    3
+  ],
+  "inspection_zoom": [
+    2,
+    2
+  ],
+  "generation_cost_usd": 0,
+  "unchanged_scene_sha256": "88edcd961f4608584a5d1c505bffab7e7a44af0662b1ab9a2a8584030a3abddc",
+  "unchanged_quest_script_sha256": "16642c8d181b1704656b1f2fbf90064b8b7ba87a1376b7021218e886fb4d2cd1"
+}

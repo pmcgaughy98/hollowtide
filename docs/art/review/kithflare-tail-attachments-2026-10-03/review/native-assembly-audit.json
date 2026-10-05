@@ -1,0 +1,68 @@
+[
+  {
+    "name": "kithflare",
+    "view": "front",
+    "changed_pixels": 48,
+    "outside_final_tail_mask_changed": 0,
+    "canvas_size": [
+      160,
+      160
+    ],
+    "sha256": "77f7c99cf004a997787e0f0d49d7339a08717b1498717d63c18a7c003750b0b0"
+  },
+  {
+    "name": "kithflare",
+    "view": "back",
+    "changed_pixels": 31,
+    "outside_final_tail_mask_changed": 0,
+    "canvas_size": [
+      160,
+      160
+    ],
+    "sha256": "3c9870bd05a5a2d68514fca4c75490f96397ed627782cfec39342e9dd3fc1dc7"
+  },
+  {
+    "name": "wayburn",
+    "view": "front",
+    "changed_pixels": 5043,
+    "outside_final_tail_mask_changed": 0,
+    "canvas_size": [
+      192,
+      160
+    ],
+    "sha256": "9cd5dcec545b35202116a0f8021a28c6f4abe493d8a051c525118a400a5bd610"
+  },
+  {
+    "name": "wayburn",
+    "view": "back",
+    "changed_pixels": 51,
+    "outside_final_tail_mask_changed": 0,
+    "canvas_size": [
+      160,
+      160
+    ],
+    "sha256": "59dbb95711a3a80fbe31821f06716a7f4e4f31357dcebba24ebdebe800373d9a"
+  },
+  {
+    "name": "coalcrest",
+    "view": "front",
+    "changed_pixels": 2823,
+    "outside_final_tail_mask_changed": 0,
+    "canvas_size": [
+      160,
+      160
+    ],
+    "sha256": "3a0eb38af7d62a8e4130e6211ba8db13147d1d202c790c59a97c022e6cfd74a5"
+  },
+  {
+    "name": "coalcrest",
+    "view": "back",
+    "changed_pixels": 4215,
+    "outside_final_tail_mask_changed": 0,
+    "canvas_size": [
+      160,
+      160
+    ],
+    "sha256": "b2aa69387d61dd18070bfccf4f56a9aec8ddff29dc729a117edc63cd479c29a1"
+  }
+]

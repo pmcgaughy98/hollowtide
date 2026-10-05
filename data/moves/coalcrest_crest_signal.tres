@@ -6,6 +6,8 @@
 [resource]
 script = ExtResource("1_script")
 move_name = "Crest Signal"
+required_parts = PackedStringArray("crest")
+aim = "crest"
 essence = 0
 power = 32
 max_uses = 0

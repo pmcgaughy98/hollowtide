@@ -1,0 +1,3303 @@
+{
+	"completed_walk": true,
+	"engine_entrance_arrivals": [
+		{
+			"arrival": "(128.0, 208.0)",
+			"from": "hometown",
+			"to": "courier_hall"
+		},
+		{
+			"arrival": "(768.0, 452.0)",
+			"from": "courier_hall",
+			"to": "hometown"
+		},
+		{
+			"arrival": "(-720.0, 512.0)",
+			"from": "hometown",
+			"to": "route1"
+		},
+		{
+			"arrival": "(320.0, 512.0)",
+			"from": "route1",
+			"to": "riverfront"
+		},
+		{
+			"arrival": "(384.0, 848.0)",
+			"from": "riverfront",
+			"to": "historic_street"
+		},
+		{
+			"arrival": "(880.0, 48.0)",
+			"from": "historic_street",
+			"to": "riverfront"
+		},
+		{
+			"arrival": "(384.0, 848.0)",
+			"from": "riverfront",
+			"to": "historic_street"
+		},
+		{
+			"arrival": "(880.0, 48.0)",
+			"from": "historic_street",
+			"to": "riverfront"
+		},
+		{
+			"arrival": "(432.0, 416.0)",
+			"from": "riverfront",
+			"to": "route1"
+		},
+		{
+			"arrival": "(980.0, 512.0)",
+			"from": "route1",
+			"to": "hometown"
+		},
+		{
+			"arrival": "(128.0, 208.0)",
+			"from": "hometown",
+			"to": "courier_hall"
+		},
+		{
+			"arrival": "(768.0, 452.0)",
+			"from": "courier_hall",
+			"to": "hometown"
+		}
+	],
+	"fixed_fps": 60,
+	"flags": {
+		"city_arrival_registered": true,
+		"city_directions_read": true,
+		"delivered": true,
+		"heard_calls": true,
+		"levee_entrance_read": true,
+		"marker_restored": true,
+		"pouch_accepted": true,
+		"report_done": true,
+		"reported_calls": true,
+		"reported_water_mark": true,
+		"water_mark_observed": true
+	},
+	"home_walk_frames_before_exit": 3684,
+	"levee_sign_to_relay_walk_frames": 743,
+	"model": "Male",
+	"ordinary_input_only": true,
+	"passed": true,
+	"quest_overrides": 0,
+	"route_approach_walk_frames": 816,
+	"startup_ms": 1873,
+	"steps": [
+		{
+			"capture": "start",
+			"path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/hometown-garden-2026-10-04/proof/walk/retry1/male-start.png",
+			"save_error": 0,
+			"saved": true
+		},
+		{
+			"area": "hometown",
+			"movement_frozen_and_resumed": true,
+			"panel": "_notes_panel"
+		},
+		{
+			"area": "hometown",
+			"movement_frozen_and_resumed": true,
+			"panel": "_party_panel"
+		},
+		{
+			"area": "hometown",
+			"frames": 0,
+			"from": "(224.0, 280.0)",
+			"walk": "(224.0, 280.0)"
+		},
+		{
+			"at": "(224.0, 280.0)",
+			"body": "HOME COURTYARD\nThe patched porch and stacked wood make this place easy to recognize from the lane. The dispatcher is taking runners inside the courier hall on the eastern street.\n\n[E] Continue",
+			"interaction": "HOME COURTYARD",
+			"passed": true
+		},
+		{
+			"at": "(224.0, 266.0031)",
+			"house_collision": true
+		},
+		{
+			"area": "hometown",
+			"frames": 52,
+			"from": "(224.0, 266.0031)",
+			"walk": "(224.0, 336.0)"
+		},
+		{
+			"area": "hometown",
+			"frames": 252,
+			"from": "(224.0, 334.0753)",
+			"walk": "(560.0, 336.0)"
+		},
+		{
+			"area": "hometown",
+			"frames": 132,
+			"from": "(558.2773, 335.0181)",
+			"walk": "(560.0, 512.0)"
+		},
+		{
+			"area": "hometown",
+			"frames": 79,
+			"from": "(559.2201, 509.2956)",
+			"walk": "(560.0, 616.0)"
+		},
+		{
+			"area": "hometown",
+			"frames": 83,
+			"from": "(559.2201, 613.2941)",
+			"walk": "(448.0, 616.0)"
+		},
+		{
+			"area": "hometown",
+			"frames": 5,
+			"from": "(450.668, 615.1797)",
+			"walk": "(448.0, 608.0)"
+		},
+		{
+			"capture": "garden-notice",
+			"path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/hometown-garden-2026-10-04/proof/walk/retry1/male-garden-notice.png",
+			"save_error": 0,
+			"saved": true
+		},
+		{
+			"at": "(448.7824, 610.6274)",
+			"body": "SHARED GARDEN\nKeep to the aisles around and between the timber beds. The neighbor beside the northern aisle has spare cuttings for the open bed on the right.\n\n[E] Continue",
+			"garden": {
+				"module": 156246215339,
+				"offered": false,
+				"planted": false,
+				"rows": []
+			},
+			"garden_dialogue": "garden-notice",
+			"original_controller_flags_party_objective_board_notes_exact": true,
+			"panel_froze_and_resumed": true,
+			"passed": true
+		},
+		{
+			"details": [
+				{
+					"bed": "SharedGardenLeftBed",
+					"exact_native_anchor_art_collision": true,
+					"footprint": "[P: (377.0, 518.0), S: (54.0, 50.0)]"
+				},
+				{
+					"exact_native_anchor_art": true,
+					"row": "ExistingCuttings0",
+					"state": {
+						"bounds": "[P: (385.0, 518.0), S: (38.0, 18.0)]",
+						"centered": false,
+						"global_position": "(404.0, 536.0)",
+						"id": 160021089126,
+						"offset": "(-21.0, -20.0)",
+						"scale": "(1.0, 1.0)",
+						"texture_id": -9223371983369009502,
+						"texture_path": "res://assets/sprites/world/hometown_garden_2026_10_04/cuttings_row.png",
+						"texture_size": "(42.0, 22.0)",
+						"visible": true
+					}
+				},
+				{
+					"exact_native_anchor_art": true,
+					"row": "ExistingCuttings1",
+					"state": {
+						"bounds": "[P: (385.0, 530.0), S: (38.0, 18.0)]",
+						"centered": false,
+						"global_position": "(404.0, 548.0)",
+						"id": 160054643559,
+						"offset": "(-21.0, -20.0)",
+						"scale": "(1.0, 1.0)",
+						"texture_id": -9223371983369009502,
+						"texture_path": "res://assets/sprites/world/hometown_garden_2026_10_04/cuttings_row.png",
+						"texture_size": "(42.0, 22.0)",
+						"visible": true
+					}
+				},
+				{
+					"exact_native_anchor_art": true,
+					"row": "ExistingCuttings2",
+					"state": {
+						"bounds": "[P: (385.0, 542.0), S: (38.0, 18.0)]",
+						"centered": false,
+						"global_position": "(404.0, 560.0)",
+						"id": 160088197992,
+						"offset": "(-21.0, -20.0)",
+						"scale": "(1.0, 1.0)",
+						"texture_id": -9223371983369009502,
+						"texture_path": "res://assets/sprites/world/hometown_garden_2026_10_04/cuttings_row.png",
+						"texture_size": "(42.0, 22.0)",
+						"visible": true
+					}
+				},
+				{
+					"bed": "SharedGardenLeftBed",
+					"expected_row_count": 3,
+					"row_count": 3
+				},
+				{
+					"bed": "SharedGardenRightBed",
+					"exact_native_anchor_art_collision": true,
+					"footprint": "[P: (457.0, 518.0), S: (54.0, 50.0)]"
+				},
+				{
+					"bed": "SharedGardenRightBed",
+					"expected_row_count": 0,
+					"row_count": 0
+				},
+				{
+					"all_visible_pixels_inside_map": true,
+					"sprite": "/root/WorldJourney/Hometown/RouteDecor/GardenNeighbor",
+					"visible_bounds": "[P: (359.0, 450.0), S: (18.0, 30.0)]"
+				},
+				{
+					"all_visible_pixels_inside_map": true,
+					"sprite": "/root/WorldJourney/Hometown/RouteDecor/GardenNotice",
+					"visible_bounds": "[P: (467.2, 574.8), S: (10.19998, 19.20001)]"
+				},
+				{
+					"all_visible_pixels_inside_map": true,
+					"sprite": "/root/WorldJourney/Hometown/RouteDecor/SharedGardenLeftBed/TimberBed",
+					"visible_bounds": "[P: (377.0, 518.0), S: (54.0, 50.0)]"
+				},
+				{
+					"all_visible_pixels_inside_map": true,
+					"sprite": "/root/WorldJourney/Hometown/RouteDecor/SharedGardenLeftBed/ExistingCuttings0",
+					"visible_bounds": "[P: (385.0, 518.0), S: (38.0, 18.0)]"
+				},
+				{
+					"all_visible_pixels_inside_map": true,
+					"sprite": "/root/WorldJourney/Hometown/RouteDecor/SharedGardenLeftBed/ExistingCuttings1",
+					"visible_bounds": "[P: (385.0, 530.0), S: (38.0, 18.0)]"
+				},
+				{
+					"all_visible_pixels_inside_map": true,
+					"sprite": "/root/WorldJourney/Hometown/RouteDecor/SharedGardenLeftBed/ExistingCuttings2",
+					"visible_bounds": "[P: (385.0, 542.0), S: (38.0, 18.0)]"
+				},
+				{
+					"all_visible_pixels_inside_map": true,
+					"sprite": "/root/WorldJourney/Hometown/RouteDecor/SharedGardenRightBed/TimberBed",
+					"visible_bounds": "[P: (457.0, 518.0), S: (54.0, 50.0)]"
+				}
+			],
+			"garden_visible_bounds_check": "before-offer",
+			"native_neighbor_notice_anchors": true,
+			"passed": true
+		},
+		{
+			"garden_initially_unoffered_unplanted": true
+		},
+		{
+			"area": "hometown",
+			"frames": 59,
+			"from": "(448.7824, 610.6274)",
+			"walk": "(528.0, 608.0)"
+		},
+		{
+			"area": "hometown",
+			"frames": 20,
+			"from": "(525.335, 608.7418)",
+			"walk": "(528.0, 582.0)"
+		},
+		{
+			"area": "hometown",
+			"frames": 32,
+			"from": "(527.2206, 584.1899)",
+			"walk": "(484.0, 582.0)"
+		},
+		{
+			"capture": "row-before-cuttings",
+			"path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/hometown-garden-2026-10-04/proof/walk/retry1/male-row-before-cuttings.png",
+			"save_error": 0,
+			"saved": true
+		},
+		{
+			"at": "(486.2778, 583.2471)",
+			"body": "OPEN GARDEN BED\nThe right bed has room for three rows. The neighbor beside the northern aisle has the shared cuttings; speak to them before planting.\n\n[E] Continue",
+			"garden": {
+				"module": 156246215339,
+				"offered": false,
+				"planted": false,
+				"rows": []
+			},
+			"garden_dialogue": "row-before-cuttings",
+			"original_controller_flags_party_objective_board_notes_exact": true,
+			"panel_froze_and_resumed": true,
+			"passed": true
+		},
+		{
+			"row_cannot_plant_without_cuttings": true
+		},
+		{
+			"at": "(486.2778, 576.0032)",
+			"garden_right_bed_blocks_entry": true
+		},
+		{
+			"area": "hometown",
+			"frames": 33,
+			"from": "(486.2778, 576.0032)",
+			"walk": "(528.0, 584.0)"
+		},
+		{
+			"area": "hometown",
+			"frames": 130,
+			"from": "(526.2465, 582.6387)",
+			"walk": "(352.0, 584.0)"
+		},
+		{
+			"area": "hometown",
+			"frames": 59,
+			"from": "(354.2455, 582.6387)",
+			"walk": "(352.0, 504.0)"
+		},
+		{
+			"area": "hometown",
+			"frames": 71,
+			"from": "(353.3027, 505.6969)",
+			"walk": "(448.0, 504.0)"
+		},
+		{
+			"area": "hometown",
+			"frames": 61,
+			"from": "(446.2462, 504.7541)",
+			"walk": "(528.0, 504.0)"
+		},
+		{
+			"area": "hometown",
+			"frames": 59,
+			"from": "(526.2465, 504.7541)",
+			"walk": "(528.0, 584.0)"
+		},
+		{
+			"area": "hometown",
+			"frames": 59,
+			"from": "(527.1893, 581.6959)",
+			"walk": "(448.0, 584.0)"
+		},
+		{
+			"area": "hometown",
+			"frames": 59,
+			"from": "(450.2462, 582.6387)",
+			"walk": "(448.0, 504.0)"
+		},
+		{
+			"area": "hometown",
+			"frames": 61,
+			"from": "(449.3034, 505.6969)",
+			"walk": "(368.0, 504.0)"
+		},
+		{
+			"area": "hometown",
+			"frames": 0,
+			"from": "(369.6934, 504.7541)",
+			"walk": "(368.0, 504.0)"
+		},
+		{
+			"capture": "garden-neighbor",
+			"path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/hometown-garden-2026-10-04/proof/walk/retry1/male-garden-neighbor.png",
+			"save_error": 0,
+			"saved": true
+		},
+		{
+			"at": "(369.6934, 504.7541)",
+			"body": "GARDEN NEIGHBOR\nThe left bed is planted. We left the right bed open for these spare cuttings. You can plant them from the southern aisle; keep your feet out of the beds.\n\n[E] Continue",
+			"garden": {
+				"module": 156246215339,
+				"offered": true,
+				"planted": false,
+				"rows": []
+			},
+			"garden_dialogue": "garden-neighbor",
+			"original_controller_flags_party_objective_board_notes_exact": true,
+			"panel_froze_and_resumed": true,
+			"passed": true
+		},
+		{
+			"neighbor_offers_cuttings_without_planting": true
+		},
+		{
+			"area": "hometown",
+			"frames": 58,
+			"from": "(369.6934, 504.7541)",
+			"walk": "(448.0, 504.0)"
+		},
+		{
+			"area": "hometown",
+			"frames": 65,
+			"from": "(445.6939, 504.7541)",
+			"walk": "(448.0, 592.0)"
+		},
+		{
+			"area": "hometown",
+			"frames": 29,
+			"from": "(446.6367, 589.6957)",
+			"walk": "(484.0, 582.0)"
+		},
+		{
+			"capture": "garden-planting",
+			"path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/hometown-garden-2026-10-04/proof/walk/retry1/male-garden-planting.png",
+			"save_error": 0,
+			"saved": true
+		},
+		{
+			"at": "(481.2366, 583.0961)",
+			"body": "SHARED CUTTINGS\nYou place the spare cuttings in three spaced rows. Both timber beds are planted now, and the aisles around them are clear.\n\n[E] Continue",
+			"garden": {
+				"module": 156246215339,
+				"offered": true,
+				"planted": true,
+				"rows": [
+					{
+						"bounds": "[P: (465.0, 518.0), S: (38.0, 18.0)]",
+						"centered": false,
+						"global_position": "(484.0, 536.0)",
+						"id": 199363659581,
+						"offset": "(-21.0, -20.0)",
+						"scale": "(1.0, 1.0)",
+						"texture_id": -9223371983369009502,
+						"texture_path": "res://assets/sprites/world/hometown_garden_2026_10_04/cuttings_row.png",
+						"texture_size": "(42.0, 22.0)",
+						"visible": true
+					},
+					{
+						"bounds": "[P: (465.0, 530.0), S: (38.0, 18.0)]",
+						"centered": false,
+						"global_position": "(484.0, 548.0)",
+						"id": 199397215141,
+						"offset": "(-21.0, -20.0)",
+						"scale": "(1.0, 1.0)",
+						"texture_id": -9223371983369009502,
+						"texture_path": "res://assets/sprites/world/hometown_garden_2026_10_04/cuttings_row.png",
+						"texture_size": "(42.0, 22.0)",
+						"visible": true
+					},
+					{
+						"bounds": "[P: (465.0, 542.0), S: (38.0, 18.0)]",
+						"centered": false,
+						"global_position": "(484.0, 560.0)",
+						"id": 199430769566,
+						"offset": "(-21.0, -20.0)",
+						"scale": "(1.0, 1.0)",
+						"texture_id": -9223371983369009502,
+						"texture_path": "res://assets/sprites/world/hometown_garden_2026_10_04/cuttings_row.png",
+						"texture_size": "(42.0, 22.0)",
+						"visible": true
+					}
+				]
+			},
+			"garden_dialogue": "garden-planting",
+			"original_controller_flags_party_objective_board_notes_exact": true,
+			"panel_froze_and_resumed": true,
+			"passed": true
+		},
+		{
+			"garden_planting_visible": true,
+			"original_route_flags_exact": true,
+			"visible_cuttings": 3
+		},
+		{
+			"details": [
+				{
+					"bed": "SharedGardenLeftBed",
+					"exact_native_anchor_art_collision": true,
+					"footprint": "[P: (377.0, 518.0), S: (54.0, 50.0)]"
+				},
+				{
+					"exact_native_anchor_art": true,
+					"row": "ExistingCuttings0",
+					"state": {
+						"bounds": "[P: (385.0, 518.0), S: (38.0, 18.0)]",
+						"centered": false,
+						"global_position": "(404.0, 536.0)",
+						"id": 160021089126,
+						"offset": "(-21.0, -20.0)",
+						"scale": "(1.0, 1.0)",
+						"texture_id": -9223371983369009502,
+						"texture_path": "res://assets/sprites/world/hometown_garden_2026_10_04/cuttings_row.png",
+						"texture_size": "(42.0, 22.0)",
+						"visible": true
+					}
+				},
+				{
+					"exact_native_anchor_art": true,
+					"row": "ExistingCuttings1",
+					"state": {
+						"bounds": "[P: (385.0, 530.0), S: (38.0, 18.0)]",
+						"centered": false,
+						"global_position": "(404.0, 548.0)",
+						"id": 160054643559,
+						"offset": "(-21.0, -20.0)",
+						"scale": "(1.0, 1.0)",
+						"texture_id": -9223371983369009502,
+						"texture_path": "res://assets/sprites/world/hometown_garden_2026_10_04/cuttings_row.png",
+						"texture_size": "(42.0, 22.0)",
+						"visible": true
+					}
+				},
+				{
+					"exact_native_anchor_art": true,
+					"row": "ExistingCuttings2",
+					"state": {
+						"bounds": "[P: (385.0, 542.0), S: (38.0, 18.0)]",
+						"centered": false,
+						"global_position": "(404.0, 560.0)",
+						"id": 160088197992,
+						"offset": "(-21.0, -20.0)",
+						"scale": "(1.0, 1.0)",
+						"texture_id": -9223371983369009502,
+						"texture_path": "res://assets/sprites/world/hometown_garden_2026_10_04/cuttings_row.png",
+						"texture_size": "(42.0, 22.0)",
+						"visible": true
+					}
+				},
+				{
+					"bed": "SharedGardenLeftBed",
+					"expected_row_count": 3,
+					"row_count": 3
+				},
+				{
+					"bed": "SharedGardenRightBed",
+					"exact_native_anchor_art_collision": true,
+					"footprint": "[P: (457.0, 518.0), S: (54.0, 50.0)]"
+				},
+				{
+					"exact_native_anchor_art": true,
+					"row": "PlantedCuttings0",
+					"state": {
+						"bounds": "[P: (465.0, 518.0), S: (38.0, 18.0)]",
+						"centered": false,
+						"global_position": "(484.0, 536.0)",
+						"id": 199363659581,
+						"offset": "(-21.0, -20.0)",
+						"scale": "(1.0, 1.0)",
+						"texture_id": -9223371983369009502,
+						"texture_path": "res://assets/sprites/world/hometown_garden_2026_10_04/cuttings_row.png",
+						"texture_size": "(42.0, 22.0)",
+						"visible": true
+					}
+				},
+				{
+					"exact_native_anchor_art": true,
+					"row": "PlantedCuttings1",
+					"state": {
+						"bounds": "[P: (465.0, 530.0), S: (38.0, 18.0)]",
+						"centered": false,
+						"global_position": "(484.0, 548.0)",
+						"id": 199397215141,
+						"offset": "(-21.0, -20.0)",
+						"scale": "(1.0, 1.0)",
+						"texture_id": -9223371983369009502,
+						"texture_path": "res://assets/sprites/world/hometown_garden_2026_10_04/cuttings_row.png",
+						"texture_size": "(42.0, 22.0)",
+						"visible": true
+					}
+				},
+				{
+					"exact_native_anchor_art": true,
+					"row": "PlantedCuttings2",
+					"state": {
+						"bounds": "[P: (465.0, 542.0), S: (38.0, 18.0)]",
+						"centered": false,
+						"global_position": "(484.0, 560.0)",
+						"id": 199430769566,
+						"offset": "(-21.0, -20.0)",
+						"scale": "(1.0, 1.0)",
+						"texture_id": -9223371983369009502,
+						"texture_path": "res://assets/sprites/world/hometown_garden_2026_10_04/cuttings_row.png",
+						"texture_size": "(42.0, 22.0)",
+						"visible": true
+					}
+				},
+				{
+					"bed": "SharedGardenRightBed",
+					"expected_row_count": 3,
+					"row_count": 3
+				},
+				{
+					"all_visible_pixels_inside_map": true,
+					"sprite": "/root/WorldJourney/Hometown/RouteDecor/GardenNeighbor",
+					"visible_bounds": "[P: (359.0, 450.0), S: (18.0, 30.0)]"
+				},
+				{
+					"all_visible_pixels_inside_map": true,
+					"sprite": "/root/WorldJourney/Hometown/RouteDecor/GardenNotice",
+					"visible_bounds": "[P: (467.2, 574.8), S: (10.19998, 19.20001)]"
+				},
+				{
+					"all_visible_pixels_inside_map": true,
+					"sprite": "/root/WorldJourney/Hometown/RouteDecor/SharedGardenLeftBed/TimberBed",
+					"visible_bounds": "[P: (377.0, 518.0), S: (54.0, 50.0)]"
+				},
+				{
+					"all_visible_pixels_inside_map": true,
+					"sprite": "/root/WorldJourney/Hometown/RouteDecor/SharedGardenLeftBed/ExistingCuttings0",
+					"visible_bounds": "[P: (385.0, 518.0), S: (38.0, 18.0)]"
+				},
+				{
+					"all_visible_pixels_inside_map": true,
+					"sprite": "/root/WorldJourney/Hometown/RouteDecor/SharedGardenLeftBed/ExistingCuttings1",
+					"visible_bounds": "[P: (385.0, 530.0), S: (38.0, 18.0)]"
+				},
+				{
+					"all_visible_pixels_inside_map": true,
+					"sprite": "/root/WorldJourney/Hometown/RouteDecor/SharedGardenLeftBed/ExistingCuttings2",
+					"visible_bounds": "[P: (385.0, 542.0), S: (38.0, 18.0)]"
+				},
+				{
+					"all_visible_pixels_inside_map": true,
+					"sprite": "/root/WorldJourney/Hometown/RouteDecor/SharedGardenRightBed/TimberBed",
+					"visible_bounds": "[P: (457.0, 518.0), S: (54.0, 50.0)]"
+				},
+				{
+					"all_visible_pixels_inside_map": true,
+					"sprite": "/root/WorldJourney/Hometown/RouteDecor/SharedGardenRightBed/PlantedCuttings0",
+					"visible_bounds": "[P: (465.0, 518.0), S: (38.0, 18.0)]"
+				},
+				{
+					"all_visible_pixels_inside_map": true,
+					"sprite": "/root/WorldJourney/Hometown/RouteDecor/SharedGardenRightBed/PlantedCuttings1",
+					"visible_bounds": "[P: (465.0, 530.0), S: (38.0, 18.0)]"
+				},
+				{
+					"all_visible_pixels_inside_map": true,
+					"sprite": "/root/WorldJourney/Hometown/RouteDecor/SharedGardenRightBed/PlantedCuttings2",
+					"visible_bounds": "[P: (465.0, 542.0), S: (38.0, 18.0)]"
+				}
+			],
+			"garden_visible_bounds_check": "planted",
+			"native_neighbor_notice_anchors": true,
+			"passed": true
+		},
+		{
+			"area": "hometown",
+			"frames": 0,
+			"from": "(481.2366, 583.0961)",
+			"walk": "(484.0, 582.0)"
+		},
+		{
+			"capture": "garden-planting-repeat",
+			"path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/hometown-garden-2026-10-04/proof/walk/retry1/male-garden-planting-repeat.png",
+			"save_error": 0,
+			"saved": true
+		},
+		{
+			"at": "(481.2366, 583.0961)",
+			"body": "SHARED CUTTINGS\nThree fresh rows fill the right bed. The cuttings are still small, with open soil between them. The walking aisles remain clear.\n\n[E] Continue",
+			"garden": {
+				"module": 156246215339,
+				"offered": true,
+				"planted": true,
+				"rows": [
+					{
+						"bounds": "[P: (465.0, 518.0), S: (38.0, 18.0)]",
+						"centered": false,
+						"global_position": "(484.0, 536.0)",
+						"id": 199363659581,
+						"offset": "(-21.0, -20.0)",
+						"scale": "(1.0, 1.0)",
+						"texture_id": -9223371983369009502,
+						"texture_path": "res://assets/sprites/world/hometown_garden_2026_10_04/cuttings_row.png",
+						"texture_size": "(42.0, 22.0)",
+						"visible": true
+					},
+					{
+						"bounds": "[P: (465.0, 530.0), S: (38.0, 18.0)]",
+						"centered": false,
+						"global_position": "(484.0, 548.0)",
+						"id": 199397215141,
+						"offset": "(-21.0, -20.0)",
+						"scale": "(1.0, 1.0)",
+						"texture_id": -9223371983369009502,
+						"texture_path": "res://assets/sprites/world/hometown_garden_2026_10_04/cuttings_row.png",
+						"texture_size": "(42.0, 22.0)",
+						"visible": true
+					},
+					{
+						"bounds": "[P: (465.0, 542.0), S: (38.0, 18.0)]",
+						"centered": false,
+						"global_position": "(484.0, 560.0)",
+						"id": 199430769566,
+						"offset": "(-21.0, -20.0)",
+						"scale": "(1.0, 1.0)",
+						"texture_id": -9223371983369009502,
+						"texture_path": "res://assets/sprites/world/hometown_garden_2026_10_04/cuttings_row.png",
+						"texture_size": "(42.0, 22.0)",
+						"visible": true
+					}
+				]
+			},
+			"garden_dialogue": "garden-planting-repeat",
+			"original_controller_flags_party_objective_board_notes_exact": true,
+			"panel_froze_and_resumed": true,
+			"passed": true
+		},
+		{
+			"repeat_planting_keeps_exact_rows_textures_positions_and_original_state": true
+		},
+		{
+			"area": "hometown",
+			"frames": 31,
+			"from": "(481.2366, 583.0961)",
+			"walk": "(448.0, 592.0)"
+		},
+		{
+			"area": "hometown",
+			"frames": 65,
+			"from": "(450.6091, 590.7537)",
+			"walk": "(448.0, 504.0)"
+		},
+		{
+			"area": "hometown",
+			"frames": 60,
+			"from": "(448.7235, 506.2025)",
+			"walk": "(368.0, 504.0)"
+		},
+		{
+			"capture": "neighbor-after-planting",
+			"path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/hometown-garden-2026-10-04/proof/walk/retry1/male-neighbor-after-planting.png",
+			"save_error": 0,
+			"saved": true
+		},
+		{
+			"at": "(370.4468, 505.2597)",
+			"body": "GARDEN NEIGHBOR\nThose three rows are in. The new cuttings are easy to see against the open soil. Thanks for helping, and keep to the aisles while they settle.\n\n[E] Continue",
+			"garden": {
+				"module": 156246215339,
+				"offered": true,
+				"planted": true,
+				"rows": [
+					{
+						"bounds": "[P: (465.0, 518.0), S: (38.0, 18.0)]",
+						"centered": false,
+						"global_position": "(484.0, 536.0)",
+						"id": 199363659581,
+						"offset": "(-21.0, -20.0)",
+						"scale": "(1.0, 1.0)",
+						"texture_id": -9223371983369009502,
+						"texture_path": "res://assets/sprites/world/hometown_garden_2026_10_04/cuttings_row.png",
+						"texture_size": "(42.0, 22.0)",
+						"visible": true
+					},
+					{
+						"bounds": "[P: (465.0, 530.0), S: (38.0, 18.0)]",
+						"centered": false,
+						"global_position": "(484.0, 548.0)",
+						"id": 199397215141,
+						"offset": "(-21.0, -20.0)",
+						"scale": "(1.0, 1.0)",
+						"texture_id": -9223371983369009502,
+						"texture_path": "res://assets/sprites/world/hometown_garden_2026_10_04/cuttings_row.png",
+						"texture_size": "(42.0, 22.0)",
+						"visible": true
+					},
+					{
+						"bounds": "[P: (465.0, 542.0), S: (38.0, 18.0)]",
+						"centered": false,
+						"global_position": "(484.0, 560.0)",
+						"id": 199430769566,
+						"offset": "(-21.0, -20.0)",
+						"scale": "(1.0, 1.0)",
+						"texture_id": -9223371983369009502,
+						"texture_path": "res://assets/sprites/world/hometown_garden_2026_10_04/cuttings_row.png",
+						"texture_size": "(42.0, 22.0)",
+						"visible": true
+					}
+				]
+			},
+			"garden_dialogue": "neighbor-after-planting",
+			"original_controller_flags_party_objective_board_notes_exact": true,
+			"panel_froze_and_resumed": true,
+			"passed": true
+		},
+		{
+			"area": "hometown",
+			"frames": 13,
+			"from": "(370.4468, 505.2597)",
+			"walk": "(352.0, 504.0)"
+		},
+		{
+			"area": "hometown",
+			"frames": 59,
+			"from": "(354.4467, 505.2597)",
+			"walk": "(352.0, 584.0)"
+		},
+		{
+			"area": "hometown",
+			"frames": 25,
+			"from": "(352.561, 581.8109)",
+			"walk": "(352.0, 616.0)"
+		},
+		{
+			"area": "hometown",
+			"frames": 155,
+			"from": "(352.561, 613.8104)",
+			"walk": "(560.0, 616.0)"
+		},
+		{
+			"area": "hometown",
+			"frames": 77,
+			"from": "(557.5043, 614.7532)",
+			"walk": "(560.0, 512.0)"
+		},
+		{
+			"area": "hometown",
+			"frames": 133,
+			"from": "(559.39, 514.2025)",
+			"walk": "(560.0, 336.0)"
+		},
+		{
+			"area": "hometown",
+			"frames": 251,
+			"from": "(559.39, 338.2011)",
+			"walk": "(224.0, 336.0)"
+		},
+		{
+			"area": "hometown",
+			"frames": 43,
+			"from": "(226.446, 337.2583)",
+			"walk": "(224.0, 280.0)"
+		},
+		{
+			"area": "hometown",
+			"frames": 40,
+			"from": "(224.5604, 282.039)",
+			"walk": "(224.0, 336.0)"
+		},
+		{
+			"area": "hometown",
+			"frames": 251,
+			"from": "(224.5604, 334.0394)",
+			"walk": "(560.0, 336.0)"
+		},
+		{
+			"area": "hometown",
+			"frames": 133,
+			"from": "(557.5043, 334.9822)",
+			"walk": "(560.0, 512.0)"
+		},
+		{
+			"area": "hometown",
+			"frames": 156,
+			"from": "(559.39, 510.2025)",
+			"walk": "(768.0, 512.0)"
+		},
+		{
+			"area": "hometown",
+			"frames": 41,
+			"from": "(765.663, 511.1453)",
+			"walk": "(768.0, 456.0)"
+		},
+		{
+			"entrance_from": "hometown",
+			"flags_preserved": true,
+			"passed": true,
+			"selected_model": "Male",
+			"to": "courier_hall"
+		},
+		{
+			"capture": "entrance-hometown-to-courier_hall",
+			"path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/hometown-garden-2026-10-04/proof/walk/retry1/male-entrance-hometown-to-courier_hall.png",
+			"save_error": 0,
+			"saved": true
+		},
+		{
+			"area": "courier_hall",
+			"movement_frozen_and_resumed": true,
+			"panel": "_notes_panel"
+		},
+		{
+			"area": "courier_hall",
+			"movement_frozen_and_resumed": true,
+			"panel": "_party_panel"
+		},
+		{
+			"area": "courier_hall",
+			"frames": 53,
+			"from": "(128.0, 208.0)",
+			"walk": "(72.0, 171.0)"
+		},
+		{
+			"area": "courier_hall",
+			"frames": 64,
+			"from": "(73.50652, 172.1732)",
+			"walk": "(72.0, 86.0)"
+		},
+		{
+			"area": "courier_hall",
+			"frames": 0,
+			"from": "(72.56371, 88.56383)",
+			"walk": "(72.0, 86.0)"
+		},
+		{
+			"at": "(72.56371, 88.56383)",
+			"body": "COURIER BOARD\nFIRST ROUTE  /  Speak to the dispatcher\nROUTE BOARD  /  Assignment open\n\n[E] Continue",
+			"interaction": "COURIER BOARD",
+			"passed": true
+		},
+		{
+			"area": "courier_hall",
+			"frames": 61,
+			"from": "(72.56371, 88.56383)",
+			"walk": "(72.0, 171.0)"
+		},
+		{
+			"area": "courier_hall",
+			"frames": 80,
+			"from": "(72.56371, 168.5638)",
+			"walk": "(180.0, 171.0)"
+		},
+		{
+			"at": "(177.5064, 169.5066)",
+			"body": "SORTING SHELVES\nTied canvas bags are arranged beside the counter. Your sealed route pouch stays closed; the dispatcher handles the assignment.\n\n[E] Continue",
+			"interaction": "SORTING SHELVES",
+			"passed": true
+		},
+		{
+			"hall_notices_preserve_assignment": true
+		},
+		{
+			"area": "courier_hall",
+			"frames": 42,
+			"from": "(177.5064, 169.5066)",
+			"walk": "(132.0, 142.0)"
+		},
+		{
+			"at": "(133.7745, 143.1079)",
+			"body": "DISPATCHER\nTake this sealed pouch along the river bend to the old ferry relay post. Check whether anyone is keeping the return mark. Leave the seal intact.\n\n[E] Continue",
+			"interaction": "DISPATCHER",
+			"passed": true
+		},
+		{
+			"counter_collision": true,
+			"position": "(133.7745, 138.0032)"
+		},
+		{
+			"capture": "hall-counter",
+			"path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/hometown-garden-2026-10-04/proof/walk/retry1/male-hall-counter.png",
+			"save_error": 0,
+			"saved": true
+		},
+		{
+			"area": "courier_hall",
+			"frames": 65,
+			"from": "(133.7745, 138.0032)",
+			"walk": "(128.0, 224.0)"
+		},
+		{
+			"entrance_from": "courier_hall",
+			"flags_preserved": true,
+			"passed": true,
+			"selected_model": "Male",
+			"to": "hometown"
+		},
+		{
+			"capture": "entrance-courier_hall-to-hometown",
+			"path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/hometown-garden-2026-10-04/proof/walk/retry1/male-entrance-courier_hall-to-hometown.png",
+			"save_error": 0,
+			"saved": true
+		},
+		{
+			"area": "hometown",
+			"frames": 44,
+			"from": "(768.0, 452.0)",
+			"walk": "(768.0, 512.0)"
+		},
+		{
+			"area": "hometown",
+			"frames": 156,
+			"from": "(768.0, 509.3338)",
+			"walk": "(976.0, 512.0)"
+		},
+		{
+			"area": "hometown",
+			"frames": 35,
+			"from": "(973.8825, 511.2194)",
+			"walk": "(976.0, 464.0)"
+		},
+		{
+			"at": "(1017.997, 466.2762)",
+			"entrance_side_wall": true
+		},
+		{
+			"area": "hometown",
+			"frames": 46,
+			"from": "(1017.997, 466.2762)",
+			"walk": "(976.0, 512.0)"
+		},
+		{
+			"area": "hometown",
+			"frames": 25,
+			"from": "(977.4202, 509.5196)",
+			"walk": "(944.0, 512.0)"
+		},
+		{
+			"at": "(946.2017, 511.4052)",
+			"body": "DISPATCH LANE\nThe courier hall stands beside the eastern street. Follow the Route 1 sign to the opening at the end of that street. Beyond the entrance, the meadow path bends toward the raised levee and river bridge. The courtyard streets return to your home.\n\n[E] Continue",
+			"interaction": "DISPATCH LANE",
+			"passed": true
+		},
+		{
+			"area": "hometown",
+			"frames": 22,
+			"from": "(946.2017, 511.4052)",
+			"walk": "(976.0, 512.0)"
+		},
+		{
+			"entrance_from": "hometown",
+			"flags_preserved": true,
+			"passed": true,
+			"selected_model": "Male",
+			"to": "route1"
+		},
+		{
+			"capture": "entrance-hometown-to-route1",
+			"path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/hometown-garden-2026-10-04/proof/walk/retry1/male-entrance-hometown-to-route1.png",
+			"save_error": 0,
+			"saved": true
+		},
+		{
+			"area": "route1",
+			"frames": 59,
+			"from": "(-720.0, 512.0)",
+			"walk": "(-640.0, 512.0)"
+		},
+		{
+			"area": "route1",
+			"frames": 132,
+			"from": "(-642.6678, 512.0)",
+			"walk": "(-640.0, 336.0)"
+		},
+		{
+			"area": "route1",
+			"frames": 156,
+			"from": "(-640.7822, 338.1131)",
+			"walk": "(-432.0, 336.0)"
+		},
+		{
+			"area": "route1",
+			"frames": 109,
+			"from": "(-434.5074, 337.1703)",
+			"walk": "(-432.0, 192.0)"
+		},
+		{
+			"area": "route1",
+			"frames": 360,
+			"from": "(-432.6218, 193.9509)",
+			"walk": "(48.0, 192.0)"
+		},
+		{
+			"area": "route1",
+			"frames": 15,
+			"from": "(45.65528, 193.0081)",
+			"walk": "(64.0, 200.0)"
+		},
+		{
+			"at": "(61.9788, 198.665)",
+			"body": "ROUTE 1\nThe crest road follows the river to the bridge. The old landing and relay post lie along the side path. Keep to the worn track on the raised earth.\n\n[E] Continue",
+			"interaction": "ROUTE 1",
+			"passed": true
+		},
+		{
+			"area": "route1",
+			"frames": 93,
+			"from": "(61.9788, 198.665)",
+			"walk": "(184.0, 192.0)"
+		},
+		{
+			"area": "route1",
+			"frames": 67,
+			"from": "(182.3022, 193.0081)",
+			"walk": "(272.0, 192.0)"
+		},
+		{
+			"area": "route1",
+			"frames": 37,
+			"from": "(270.3021, 193.0081)",
+			"walk": "(320.0, 192.0)"
+		},
+		{
+			"area": "route1",
+			"frames": 39,
+			"from": "(318.3024, 193.0081)",
+			"walk": "(360.0, 220.0)"
+		},
+		{
+			"area": "route1",
+			"frames": 40,
+			"from": "(358.0345, 219.4068)",
+			"walk": "(392.0, 260.0)"
+		},
+		{
+			"area": "route1",
+			"frames": 20,
+			"from": "(391.0329, 257.7385)",
+			"walk": "(414.0, 245.0)"
+		},
+		{
+			"area": "route1",
+			"frames": 26,
+			"from": "(411.68, 246.4248)",
+			"walk": "(423.0, 215.0)"
+		},
+		{
+			"at": "(422.0509, 217.3873)",
+			"body": "Several old cut lines stand above today's water. The height post has no date plate. You record what you can see, without assigning a cause.\n\n[E] Continue",
+			"interaction": "Several old",
+			"passed": true
+		},
+		{
+			"area": "route1",
+			"frames": 20,
+			"from": "(422.0509, 217.3873)",
+			"walk": "(410.0, 240.0)"
+		},
+		{
+			"area": "route1",
+			"frames": 45,
+			"from": "(410.7372, 238.0343)",
+			"walk": "(402.0, 296.0)"
+		},
+		{
+			"area": "route1",
+			"frames": 27,
+			"from": "(403.1947, 293.577)",
+			"walk": "(430.0, 318.0)"
+		},
+		{
+			"area": "route1",
+			"frames": 18,
+			"from": "(428.0983, 317.1473)",
+			"walk": "(430.0, 341.0)"
+		},
+		{
+			"area": "route1",
+			"frames": 20,
+			"from": "(429.0411, 339.4236)",
+			"walk": "(427.0, 366.0)"
+		},
+		{
+			"area": "route1",
+			"frames": 18,
+			"from": "(428.0983, 364.3666)",
+			"walk": "(414.0, 383.0)"
+		},
+		{
+			"area": "route1",
+			"frames": 18,
+			"from": "(414.5894, 380.7849)",
+			"walk": "(395.0, 393.0)"
+		},
+		{
+			"area": "route1",
+			"frames": 51,
+			"from": "(396.609, 392.0986)",
+			"walk": "(344.0, 352.0)"
+		},
+		{
+			"area": "route1",
+			"frames": 34,
+			"from": "(345.9537, 353.4434)",
+			"walk": "(318.0, 388.0)"
+		},
+		{
+			"area": "route1",
+			"frames": 52,
+			"from": "(318.6122, 386.1183)",
+			"walk": "(320.0, 456.0)"
+		},
+		{
+			"area": "route1",
+			"frames": 10,
+			"from": "(318.6122, 454.1188)",
+			"walk": "(304.0, 454.0)"
+		},
+		{
+			"at": "(306.6121, 454.1188)",
+			"body": "OLD LANDING FOOTPATH\nThe bank trail passes the height post, then follows lower ground south to the relay and old tieoffs. A second worn track returns to the bridge road. The crest is higher ground. Worn rope grooves mark the older crossing; the cuts on the height post have no dates.\n\n[E] Continue",
+			"interaction": "OLD LANDING FOOTPATH",
+			"passed": true
+		},
+		{
+			"notice_preserves_flags": true
+		},
+		{
+			"area": "route1",
+			"frames": 48,
+			"from": "(306.6121, 454.1188)",
+			"walk": "(354.0, 496.0)"
+		},
+		{
+			"area": "route1",
+			"frames": 41,
+			"from": "(352.4863, 494.6596)",
+			"walk": "(378.0, 540.0)"
+		},
+		{
+			"area": "route1",
+			"frames": 19,
+			"from": "(376.9994, 537.8391)",
+			"walk": "(398.0, 550.0)"
+		},
+		{
+			"at": "(396.3131, 549.1528)",
+			"body": "You slide the sealed pouch into the dry slot. No keeper answers. Today's return mark is missing, but the delivery counts.\n\n[E] Continue",
+			"interaction": "You slide",
+			"passed": true
+		},
+		{
+			"area": "route1",
+			"frames": 23,
+			"from": "(396.3131, 549.1528)",
+			"walk": "(414.0, 574.0)"
+		},
+		{
+			"area": "route1",
+			"frames": 15,
+			"from": "(413.2837, 571.4566)",
+			"walk": "(416.0, 592.0)"
+		},
+		{
+			"area": "route1",
+			"frames": 0,
+			"from": "(415.1693, 589.342)",
+			"walk": "(416.0, 592.0)"
+		},
+		{
+			"at": "(415.1693, 589.342)",
+			"body": "A two-note call comes from across the river. A weaker copy answers from beside the empty post. You cannot tell whether it was a creature, an echo, or a signal.\n\n[E] Continue",
+			"interaction": "A two-note",
+			"passed": true
+		},
+		{
+			"canopy": "landing",
+			"check": "landing-canopy-first",
+			"material_bound": true,
+			"opacity": 0.35,
+			"passed": true
+		},
+		{
+			"capture": "landing-canopy-first",
+			"path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/hometown-garden-2026-10-04/proof/walk/retry1/male-landing-canopy-first.png",
+			"save_error": 0,
+			"saved": true
+		},
+		{
+			"area": "route1",
+			"frames": 60,
+			"from": "(415.1693, 589.342)",
+			"walk": "(420.0, 510.0)"
+		},
+		{
+			"canopy": "landing",
+			"check": "landing-canopy-restored",
+			"material_bound": true,
+			"opacity": 1.0,
+			"passed": true
+		},
+		{
+			"capture": "landing-canopy-restored",
+			"path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/hometown-garden-2026-10-04/proof/walk/retry1/male-landing-canopy-restored.png",
+			"save_error": 0,
+			"saved": true
+		},
+		{
+			"area": "route1",
+			"frames": 37,
+			"from": "(418.9406, 512.2385)",
+			"walk": "(424.0, 464.0)"
+		},
+		{
+			"area": "route1",
+			"frames": 37,
+			"from": "(422.7118, 465.8003)",
+			"walk": "(424.0, 416.0)"
+		},
+		{
+			"area": "route1",
+			"frames": 7,
+			"from": "(422.7118, 417.7999)",
+			"walk": "(432.0, 416.0)"
+		},
+		{
+			"area": "route1",
+			"frames": 97,
+			"from": "(430.3214, 416.8571)",
+			"walk": "(560.0, 416.0)"
+		},
+		{
+			"area": "route1",
+			"frames": 91,
+			"from": "(558.3213, 416.8571)",
+			"walk": "(680.0, 416.0)"
+		},
+		{
+			"entrance_from": "route1",
+			"flags_preserved": true,
+			"passed": true,
+			"selected_model": "Male",
+			"to": "riverfront"
+		},
+		{
+			"capture": "entrance-route1-to-riverfront",
+			"path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/hometown-garden-2026-10-04/proof/walk/retry1/male-entrance-route1-to-riverfront.png",
+			"save_error": 0,
+			"saved": true
+		},
+		{
+			"area": "riverfront",
+			"frames": 47,
+			"from": "(320.0, 512.0)",
+			"walk": "(384.0, 512.0)"
+		},
+		{
+			"area": "riverfront",
+			"frames": 114,
+			"from": "(381.3338, 512.0)",
+			"walk": "(512.0, 456.0)"
+		},
+		{
+			"area": "riverfront",
+			"frames": 43,
+			"from": "(509.3507, 457.317)",
+			"walk": "(512.0, 400.0)"
+		},
+		{
+			"at": "(511.2363, 402.0977)",
+			"body": "CITY COURIER\nWelcome across the river. I have recorded your arrival at this branch. Bring your landing report back to the hometown dispatcher when you are ready. The direction board marks the streets into the city.\n\n[E] Continue",
+			"interaction": "CITY COURIER",
+			"passed": true
+		},
+		{
+			"area": "riverfront",
+			"movement_frozen_and_resumed": true,
+			"panel": "_notes_panel"
+		},
+		{
+			"area": "riverfront",
+			"frames": 40,
+			"from": "(511.2363, 402.0977)",
+			"walk": "(512.0, 456.0)"
+		},
+		{
+			"area": "riverfront",
+			"frames": 114,
+			"from": "(511.2363, 454.0981)",
+			"walk": "(640.0, 512.0)"
+		},
+		{
+			"area": "riverfront",
+			"frames": 133,
+			"from": "(638.4705, 510.6667)",
+			"walk": "(816.0, 512.0)"
+		},
+		{
+			"at": "(814.4678, 510.6667)",
+			"body": "CITY ROUTES\nThis riverfront branch marks your arrival in the city. The brick frontage and records house are local landmarks. The marked northern lane reaches the historic street, with its repaired shop, public ledger and courier board. The works, school and trade quarters will have separate entrances as they are built. Return west over the bridge for Route 1 and the hometown.\n\n[E] Continue",
+			"interaction": "CITY ROUTES",
+			"passed": true
+		},
+		{
+			"area": "riverfront",
+			"frames": 49,
+			"from": "(814.4678, 510.6667)",
+			"walk": "(880.0, 512.0)"
+		},
+		{
+			"area": "riverfront",
+			"frames": 335,
+			"from": "(878.4668, 510.6667)",
+			"walk": "(880.0, 64.0)"
+		},
+		{
+			"area": "riverfront",
+			"frames": 31,
+			"from": "(879.4096, 65.72228)",
+			"walk": "(880.0, 24.0)"
+		},
+		{
+			"entrance_from": "riverfront",
+			"flags_preserved": true,
+			"passed": true,
+			"selected_model": "Male",
+			"to": "historic_street"
+		},
+		{
+			"capture": "entrance-riverfront-to-historic_street",
+			"path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/hometown-garden-2026-10-04/proof/walk/retry1/male-entrance-riverfront-to-historic_street.png",
+			"save_error": 0,
+			"saved": true
+		},
+		{
+			"area": "historic_street",
+			"movement_frozen_and_resumed": true,
+			"panel": "_party_panel"
+		},
+		{
+			"area": "historic_street",
+			"frames": 137,
+			"from": "(384.0, 848.0)",
+			"walk": "(384.0, 664.0)"
+		},
+		{
+			"at": "(384.0, 666.6694)",
+			"body": "CITY ADDRESS CHECK\nThe branch has two address labels for the repaired shop. Compare the old doorway number with the public street ledger, then take the current address back to the city courier.\n\n[E] Continue",
+			"interaction": "CITY ADDRESS CHECK",
+			"passed": true
+		},
+		{
+			"area": "historic_street",
+			"frames": 24,
+			"from": "(384.0, 666.6694)",
+			"walk": "(416.0, 664.0)"
+		},
+		{
+			"area": "historic_street",
+			"frames": 138,
+			"from": "(413.8858, 664.7838)",
+			"walk": "(416.0, 480.0)"
+		},
+		{
+			"area": "historic_street",
+			"frames": 23,
+			"from": "(414.8286, 482.5097)",
+			"walk": "(384.0, 480.0)"
+		},
+		{
+			"area": "historic_street",
+			"frames": 39,
+			"from": "(386.2762, 480.6241)",
+			"walk": "(384.0, 428.0)"
+		},
+		{
+			"at": "(385.3333, 430.3476)",
+			"body": "REPAIR WORKSHOP\nTools hang in the display windows beneath a worn awning. The keeper is outside, within speaking distance of the doorway.\n\n[E] Continue",
+			"interaction": "REPAIR WORKSHOP",
+			"passed": true
+		},
+		{
+			"capture": "workshop",
+			"path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/hometown-garden-2026-10-04/proof/walk/retry1/male-workshop.png",
+			"save_error": 0,
+			"saved": true
+		},
+		{
+			"workshop_facade_collision": true
+		},
+		{
+			"area": "historic_street",
+			"frames": 53,
+			"from": "(385.3333, 408.0031)",
+			"walk": "(384.0, 480.0)"
+		},
+		{
+			"area": "historic_street",
+			"frames": 29,
+			"from": "(385.3333, 477.4086)",
+			"walk": "(424.0, 480.0)"
+		},
+		{
+			"area": "historic_street",
+			"frames": 31,
+			"from": "(421.8859, 479.2943)",
+			"walk": "(424.0, 438.0)"
+		},
+		{
+			"at": "(422.8287, 439.6845)",
+			"body": "WORKSHOP KEEPER\nThese buildings get new fittings without losing their old doorways. If a parcel label and a lintel disagree, the public ledger across the street has today's address.\n\n[E] Continue",
+			"interaction": "WORKSHOP KEEPER",
+			"passed": true
+		},
+		{
+			"keeper_hint_does_not_grant_observations": true
+		},
+		{
+			"capture": "keeper",
+			"path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/hometown-garden-2026-10-04/proof/walk/retry1/male-keeper.png",
+			"save_error": 0,
+			"saved": true
+		},
+		{
+			"area": "historic_street",
+			"frames": 30,
+			"from": "(422.8287, 439.6845)",
+			"walk": "(424.0, 480.0)"
+		},
+		{
+			"area": "historic_street",
+			"frames": 174,
+			"from": "(422.8287, 478.3514)",
+			"walk": "(656.0, 480.0)"
+		},
+		{
+			"area": "historic_street",
+			"frames": 176,
+			"from": "(653.1034, 479.2943)",
+			"walk": "(656.0, 244.0)"
+		},
+		{
+			"area": "historic_street",
+			"frames": 217,
+			"from": "(654.989, 246.7403)",
+			"walk": "(365.0, 244.0)"
+		},
+		{
+			"area": "historic_street",
+			"frames": 0,
+			"from": "(367.7711, 244.8547)",
+			"walk": "(365.0, 244.0)"
+		},
+		{
+			"at": "(367.7711, 244.8547)",
+			"body": "RESIDENTIAL DOORSTEP\nA small notice asks delivery runners to knock at each ground-floor door. The separate upstairs curtains and repaired thresholds show that the old row is still lived in.\n\n[E] Continue",
+			"interaction": "RESIDENTIAL DOORSTEP",
+			"passed": true
+		},
+		{
+			"capture": "residential-doorstep",
+			"path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/hometown-garden-2026-10-04/proof/walk/retry1/male-residential-doorstep.png",
+			"save_error": 0,
+			"saved": true
+		},
+		{
+			"residential_doorway_collision": true
+		},
+		{
+			"area": "historic_street",
+			"frames": 9,
+			"from": "(367.7711, 232.0032)",
+			"walk": "(365.0, 244.0)"
+		},
+		{
+			"area": "historic_street",
+			"frames": 178,
+			"from": "(365.8497, 241.9246)",
+			"walk": "(128.0, 244.0)"
+		},
+		{
+			"area": "historic_street",
+			"frames": 178,
+			"from": "(130.2399, 242.8674)",
+			"walk": "(128.0, 480.0)"
+		},
+		{
+			"area": "historic_street",
+			"frames": 71,
+			"from": "(129.297, 478.4785)",
+			"walk": "(224.0, 480.0)"
+		},
+		{
+			"area": "historic_street",
+			"frames": 38,
+			"from": "(222.2395, 479.4213)",
+			"walk": "(224.0, 428.0)"
+		},
+		{
+			"at": "(223.1823, 430.4781)",
+			"body": "PUBLIC STREET LEDGER\nOld doorway 6 and current street address 18 refer to the same shop. The street was renumbered; the old lintel was kept. Use 18 for a current courier handoff.\n\n[E] Continue",
+			"interaction": "PUBLIC STREET LEDGER",
+			"passed": true
+		},
+		{
+			"capture": "historic-ledger",
+			"path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/hometown-garden-2026-10-04/proof/walk/retry1/male-historic-ledger.png",
+			"save_error": 0,
+			"saved": true
+		},
+		{
+			"historic_ledger_facade_collision": true
+		},
+		{
+			"area": "historic_street",
+			"frames": 53,
+			"from": "(223.1823, 408.0031)",
+			"walk": "(224.0, 480.0)"
+		},
+		{
+			"area": "historic_street",
+			"frames": 241,
+			"from": "(223.1823, 477.4086)",
+			"walk": "(544.0, 480.0)"
+		},
+		{
+			"area": "historic_street",
+			"frames": 38,
+			"from": "(542.4026, 479.2943)",
+			"walk": "(544.0, 428.0)"
+		},
+		{
+			"at": "(543.3455, 430.3511)",
+			"body": "REPAIRED SHOP\nThe doorway lintel still carries 6. The new sign above the awning reads 18. The brick frontage is older than this shop's fittings; check the public ledger before choosing a route label.\n\n[E] Continue",
+			"interaction": "REPAIRED SHOP",
+			"passed": true
+		},
+		{
+			"capture": "historic-shop",
+			"path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/hometown-garden-2026-10-04/proof/walk/retry1/male-historic-shop.png",
+			"save_error": 0,
+			"saved": true
+		},
+		{
+			"area": "historic_street",
+			"frames": 37,
+			"from": "(543.3455, 430.3511)",
+			"walk": "(544.0, 480.0)"
+		},
+		{
+			"area": "historic_street",
+			"frames": 89,
+			"from": "(543.3455, 478.3514)",
+			"walk": "(424.0, 480.0)"
+		},
+		{
+			"area": "historic_street",
+			"frames": 31,
+			"from": "(426.4024, 479.2943)",
+			"walk": "(424.0, 438.0)"
+		},
+		{
+			"at": "(425.4596, 439.6845)",
+			"body": "WORKSHOP KEEPER\nYou have both versions now. Take the current street address to the courier at the riverfront branch; the older lintel can stay where it is.\n\n[E] Continue",
+			"interaction": "WORKSHOP KEEPER",
+			"passed": true
+		},
+		{
+			"keeper_reflects_checked_addresses": true
+		},
+		{
+			"area": "historic_street",
+			"movement_frozen_and_resumed": true,
+			"panel": "_notes_panel"
+		},
+		{
+			"historic_findings_in_shared_notes": true
+		},
+		{
+			"area": "historic_street",
+			"frames": 101,
+			"from": "(425.4596, 439.6845)",
+			"walk": "(544.0, 480.0)"
+		},
+		{
+			"area": "historic_street",
+			"frames": 94,
+			"from": "(542.3909, 479.2825)",
+			"walk": "(416.0, 480.0)"
+		},
+		{
+			"area": "historic_street",
+			"frames": 168,
+			"from": "(418.3906, 479.2825)",
+			"walk": "(416.0, 704.0)"
+		},
+		{
+			"area": "historic_street",
+			"frames": 71,
+			"from": "(417.4478, 701.556)",
+			"walk": "(384.0, 784.0)"
+		},
+		{
+			"area": "historic_street",
+			"frames": 63,
+			"from": "(385.3922, 781.6108)",
+			"walk": "(384.0, 866.0)"
+		},
+		{
+			"entrance_from": "historic_street",
+			"flags_preserved": true,
+			"passed": true,
+			"selected_model": "Male",
+			"to": "riverfront"
+		},
+		{
+			"capture": "entrance-historic_street-to-riverfront",
+			"path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/hometown-garden-2026-10-04/proof/walk/retry1/male-entrance-historic_street-to-riverfront.png",
+			"save_error": 0,
+			"saved": true
+		},
+		{
+			"area": "riverfront",
+			"frames": 347,
+			"from": "(880.0, 48.0)",
+			"walk": "(880.0, 512.0)"
+		},
+		{
+			"area": "riverfront",
+			"frames": 180,
+			"from": "(880.0, 509.3349)",
+			"walk": "(640.0, 512.0)"
+		},
+		{
+			"area": "riverfront",
+			"frames": 114,
+			"from": "(642.118, 511.2205)",
+			"walk": "(512.0, 456.0)"
+		},
+		{
+			"area": "riverfront",
+			"frames": 43,
+			"from": "(513.7123, 457.4803)",
+			"walk": "(512.0, 400.0)"
+		},
+		{
+			"wrong_old_number_keeps_activity_open": true
+		},
+		{
+			"capture": "historic-wrong-number",
+			"path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/hometown-garden-2026-10-04/proof/walk/retry1/male-historic-wrong-number.png",
+			"save_error": 0,
+			"saved": true
+		},
+		{
+			"current_number_verifies_handoff": true,
+			"original_route_flags_exact": true
+		},
+		{
+			"capture": "historic-handoff",
+			"path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/hometown-garden-2026-10-04/proof/walk/retry1/male-historic-handoff.png",
+			"save_error": 0,
+			"saved": true
+		},
+		{
+			"area": "riverfront",
+			"frames": 40,
+			"from": "(512.7695, 401.8704)",
+			"walk": "(512.0, 456.0)"
+		},
+		{
+			"area": "riverfront",
+			"frames": 113,
+			"from": "(512.7695, 453.8708)",
+			"walk": "(640.0, 512.0)"
+		},
+		{
+			"area": "riverfront",
+			"frames": 181,
+			"from": "(638.2798, 511.3822)",
+			"walk": "(880.0, 512.0)"
+		},
+		{
+			"area": "riverfront",
+			"frames": 365,
+			"from": "(878.2762, 511.3822)",
+			"walk": "(880.0, 24.0)"
+		},
+		{
+			"entrance_from": "riverfront",
+			"flags_preserved": true,
+			"passed": true,
+			"selected_model": "Male",
+			"to": "historic_street"
+		},
+		{
+			"capture": "entrance-riverfront-to-historic_street",
+			"path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/hometown-garden-2026-10-04/proof/walk/retry1/male-entrance-riverfront-to-historic_street.png",
+			"save_error": 0,
+			"saved": true
+		},
+		{
+			"cached_historic_area_and_verified_board": true
+		},
+		{
+			"area": "historic_street",
+			"frames": 23,
+			"from": "(384.0, 848.0)",
+			"walk": "(416.0, 848.0)"
+		},
+		{
+			"area": "historic_street",
+			"frames": 138,
+			"from": "(413.3336, 848.0)",
+			"walk": "(416.0, 664.0)"
+		},
+		{
+			"area": "historic_street",
+			"frames": 139,
+			"from": "(415.2192, 666.1171)",
+			"walk": "(416.0, 480.0)"
+		},
+		{
+			"area": "historic_street",
+			"frames": 6,
+			"from": "(415.2192, 482.1192)",
+			"walk": "(424.0, 480.0)"
+		},
+		{
+			"area": "historic_street",
+			"frames": 32,
+			"from": "(421.4954, 481.1764)",
+			"walk": "(424.0, 438.0)"
+		},
+		{
+			"at": "(423.381, 440.6238)",
+			"body": "WORKSHOP KEEPER\nThe shop route is marked eighteen now. A new fitting is useful, but you do not have to tear out the old stone to keep the street working.\n\n[E] Continue",
+			"interaction": "WORKSHOP KEEPER",
+			"passed": true
+		},
+		{
+			"keeper_reflects_verified_handoff": true
+		},
+		{
+			"area": "historic_street",
+			"frames": 29,
+			"from": "(423.381, 440.6238)",
+			"walk": "(424.0, 480.0)"
+		},
+		{
+			"area": "historic_street",
+			"frames": 233,
+			"from": "(423.381, 477.9575)",
+			"walk": "(112.0, 480.0)"
+		},
+		{
+			"area": "historic_street",
+			"frames": 179,
+			"from": "(114.4374, 478.9003)",
+			"walk": "(112.0, 240.0)"
+		},
+		{
+			"area": "historic_street",
+			"frames": 75,
+			"from": "(113.4946, 241.9558)",
+			"walk": "(104.0, 144.0)"
+		},
+		{
+			"area": "historic_street",
+			"frames": 25,
+			"from": "(105.0093, 146.8042)",
+			"walk": "(72.0, 144.0)"
+		},
+		{
+			"historic_canopy_after_return": true,
+			"opacity": 0.35
+		},
+		{
+			"capture": "historic-canopy-after-return",
+			"path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/hometown-garden-2026-10-04/proof/walk/retry1/male-historic-canopy-after-return.png",
+			"save_error": 0,
+			"saved": true
+		},
+		{
+			"area": "historic_street",
+			"frames": 22,
+			"from": "(73.79026, 144.9186)",
+			"walk": "(104.0, 144.0)"
+		},
+		{
+			"area": "historic_street",
+			"frames": 59,
+			"from": "(101.7903, 144.9186)",
+			"walk": "(104.0, 224.0)"
+		},
+		{
+			"historic_canopy_restored": true
+		},
+		{
+			"area": "historic_street",
+			"frames": 196,
+			"from": "(102.7331, 221.8611)",
+			"walk": "(112.0, 480.0)"
+		},
+		{
+			"area": "historic_street",
+			"frames": 84,
+			"from": "(111.2184, 478.348)",
+			"walk": "(168.0, 568.0)"
+		},
+		{
+			"area": "historic_street",
+			"frames": 78,
+			"from": "(166.8442, 565.9733)",
+			"walk": "(184.0, 664.0)"
+		},
+		{
+			"area": "historic_street",
+			"frames": 110,
+			"from": "(182.872, 661.9998)",
+			"walk": "(304.0, 728.0)"
+		},
+		{
+			"area": "historic_street",
+			"frames": 79,
+			"from": "(301.2595, 727.0537)",
+			"walk": "(384.0, 784.0)"
+		},
+		{
+			"area": "historic_street",
+			"frames": 62,
+			"from": "(382.2188, 782.6795)",
+			"walk": "(384.0, 866.0)"
+		},
+		{
+			"entrance_from": "historic_street",
+			"flags_preserved": true,
+			"passed": true,
+			"selected_model": "Male",
+			"to": "riverfront"
+		},
+		{
+			"capture": "entrance-historic_street-to-riverfront",
+			"path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/hometown-garden-2026-10-04/proof/walk/retry1/male-entrance-historic_street-to-riverfront.png",
+			"save_error": 0,
+			"saved": true
+		},
+		{
+			"area": "riverfront",
+			"frames": 347,
+			"from": "(880.0, 48.0)",
+			"walk": "(880.0, 512.0)"
+		},
+		{
+			"area": "riverfront",
+			"frames": 48,
+			"from": "(880.0, 509.3349)",
+			"walk": "(816.0, 512.0)"
+		},
+		{
+			"historic_complete_loop_preserves_primary_route_and_party": true
+		},
+		{
+			"area": "riverfront",
+			"frames": 325,
+			"from": "(818.1153, 511.2205)",
+			"walk": "(384.0, 512.0)"
+		},
+		{
+			"area": "riverfront",
+			"frames": 49,
+			"from": "(386.119, 511.2205)",
+			"walk": "(320.0, 512.0)"
+		},
+		{
+			"area": "riverfront",
+			"frames": 217,
+			"from": "(322.1185, 511.2205)",
+			"walk": "(32.0, 512.0)"
+		},
+		{
+			"entrance_from": "riverfront",
+			"flags_preserved": true,
+			"passed": true,
+			"selected_model": "Male",
+			"to": "route1"
+		},
+		{
+			"capture": "entrance-riverfront-to-route1",
+			"path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/hometown-garden-2026-10-04/proof/walk/retry1/male-entrance-riverfront-to-route1.png",
+			"save_error": 0,
+			"saved": true
+		},
+		{
+			"both_canopies_bound_after_route_return": true
+		},
+		{
+			"area": "route1",
+			"frames": 38,
+			"from": "(432.0, 416.0)",
+			"walk": "(424.0, 464.0)"
+		},
+		{
+			"area": "route1",
+			"frames": 36,
+			"from": "(425.4003, 462.6)",
+			"walk": "(420.0, 510.0)"
+		},
+		{
+			"area": "route1",
+			"frames": 64,
+			"from": "(420.6863, 507.3143)",
+			"walk": "(416.0, 592.0)"
+		},
+		{
+			"canopy": "landing",
+			"check": "landing-canopy-after-return",
+			"material_bound": true,
+			"opacity": 0.35,
+			"passed": true
+		},
+		{
+			"capture": "landing-canopy-after-return",
+			"path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/hometown-garden-2026-10-04/proof/walk/retry1/male-landing-canopy-after-return.png",
+			"save_error": 0,
+			"saved": true
+		},
+		{
+			"area": "route1",
+			"frames": 60,
+			"from": "(416.915, 589.751)",
+			"walk": "(420.0, 510.0)"
+		},
+		{
+			"area": "route1",
+			"frames": 37,
+			"from": "(418.8007, 511.8665)",
+			"walk": "(424.0, 464.0)"
+		},
+		{
+			"area": "route1",
+			"frames": 37,
+			"from": "(422.5719, 465.4283)",
+			"walk": "(424.0, 416.0)"
+		},
+		{
+			"area": "route1",
+			"frames": 27,
+			"from": "(422.5719, 417.4279)",
+			"walk": "(395.0, 393.0)"
+		},
+		{
+			"area": "route1",
+			"frames": 15,
+			"from": "(397.6683, 393.8577)",
+			"walk": "(414.0, 383.0)"
+		},
+		{
+			"area": "route1",
+			"frames": 17,
+			"from": "(412.4298, 384.4296)",
+			"walk": "(427.0, 366.0)"
+		},
+		{
+			"area": "route1",
+			"frames": 21,
+			"from": "(425.6291, 368.5636)",
+			"walk": "(430.0, 341.0)"
+		},
+		{
+			"canopy": "bank",
+			"check": "bank-canopy-after-return",
+			"material_bound": true,
+			"opacity": 0.35,
+			"passed": true
+		},
+		{
+			"capture": "bank-canopy-after-return",
+			"path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/hometown-garden-2026-10-04/proof/walk/retry1/male-bank-canopy-after-return.png",
+			"save_error": 0,
+			"saved": true
+		},
+		{
+			"area": "route1",
+			"frames": 66,
+			"from": "(429.4004, 343.4588)",
+			"walk": "(368.0, 280.0)"
+		},
+		{
+			"area": "route1",
+			"frames": 127,
+			"from": "(369.0605, 281.7856)",
+			"walk": "(368.0, 112.0)"
+		},
+		{
+			"area": "route1",
+			"frames": 72,
+			"from": "(369.0605, 113.7859)",
+			"walk": "(272.0, 112.0)"
+		},
+		{
+			"at": "(274.7837, 112.8431)",
+			"body": "The marker was turned toward the riverbank. You set its three-dot sign straight and check the ground around its foot.\n\n[E] Continue",
+			"interaction": "The marker",
+			"passed": true
+		},
+		{
+			"area": "route1",
+			"frames": 67,
+			"from": "(274.7837, 112.8431)",
+			"walk": "(184.0, 112.0)"
+		},
+		{
+			"area": "route1",
+			"frames": 59,
+			"from": "(186.7838, 112.8431)",
+			"walk": "(184.0, 192.0)"
+		},
+		{
+			"area": "route1",
+			"frames": 463,
+			"from": "(184.8982, 189.3952)",
+			"walk": "(-432.0, 192.0)"
+		},
+		{
+			"area": "route1",
+			"frames": 108,
+			"from": "(-430.3216, 191.2808)",
+			"walk": "(-432.0, 336.0)"
+		},
+		{
+			"area": "route1",
+			"frames": 156,
+			"from": "(-431.2644, 333.5573)",
+			"walk": "(-640.0, 336.0)"
+		},
+		{
+			"area": "route1",
+			"frames": 133,
+			"from": "(-637.5392, 334.5001)",
+			"walk": "(-640.0, 512.0)"
+		},
+		{
+			"area": "route1",
+			"frames": 75,
+			"from": "(-639.4249, 509.7204)",
+			"walk": "(-740.0, 512.0)"
+		},
+		{
+			"entrance_from": "route1",
+			"flags_preserved": true,
+			"passed": true,
+			"selected_model": "Male",
+			"to": "hometown"
+		},
+		{
+			"capture": "entrance-route1-to-hometown",
+			"path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/hometown-garden-2026-10-04/proof/walk/retry1/male-entrance-route1-to-hometown.png",
+			"save_error": 0,
+			"saved": true
+		},
+		{
+			"area": "hometown",
+			"frames": 158,
+			"from": "(980.0, 512.0)",
+			"walk": "(768.0, 512.0)"
+		},
+		{
+			"area": "hometown",
+			"frames": 42,
+			"from": "(770.6699, 512.0)",
+			"walk": "(768.0, 456.0)"
+		},
+		{
+			"entrance_from": "hometown",
+			"flags_preserved": true,
+			"passed": true,
+			"selected_model": "Male",
+			"to": "courier_hall"
+		},
+		{
+			"capture": "entrance-hometown-to-courier_hall",
+			"path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/hometown-garden-2026-10-04/proof/walk/retry1/male-entrance-hometown-to-courier_hall.png",
+			"save_error": 0,
+			"saved": true
+		},
+		{
+			"cached_hall_preserved": true
+		},
+		{
+			"area": "courier_hall",
+			"frames": 50,
+			"from": "(128.0, 208.0)",
+			"walk": "(132.0, 142.0)"
+		},
+		{
+			"count": 2,
+			"report_choices": true
+		},
+		{
+			"capture": "report",
+			"path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/hometown-garden-2026-10-04/proof/walk/retry1/male-report.png",
+			"save_error": 0,
+			"saved": true
+		},
+		{
+			"area": "courier_hall",
+			"frames": 60,
+			"from": "(130.8284, 143.8385)",
+			"walk": "(128.0, 224.0)"
+		},
+		{
+			"entrance_from": "courier_hall",
+			"flags_preserved": true,
+			"passed": true,
+			"selected_model": "Male",
+			"to": "hometown"
+		},
+		{
+			"capture": "entrance-courier_hall-to-hometown",
+			"path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/hometown-garden-2026-10-04/proof/walk/retry1/male-entrance-courier_hall-to-hometown.png",
+			"save_error": 0,
+			"saved": true
+		},
+		{
+			"area": "hometown",
+			"frames": 44,
+			"from": "(768.0, 452.0)",
+			"walk": "(768.0, 512.0)"
+		},
+		{
+			"area": "hometown",
+			"frames": 156,
+			"from": "(768.0, 509.3338)",
+			"walk": "(560.0, 512.0)"
+		},
+		{
+			"area": "hometown",
+			"frames": 131,
+			"from": "(562.1175, 511.2194)",
+			"walk": "(560.0, 336.0)"
+		},
+		{
+			"area": "hometown",
+			"frames": 253,
+			"from": "(561.1747, 338.2753)",
+			"walk": "(224.0, 336.0)"
+		},
+		{
+			"area": "hometown",
+			"frames": 43,
+			"from": "(225.5641, 337.3325)",
+			"walk": "(224.0, 280.0)"
+		},
+		{
+			"cached_route_and_home_preserved": true,
+			"loaded_area_children": 1,
+			"party_count": 1,
+			"party_member_preserved": true
+		},
+		{
+			"area": "hometown",
+			"movement_frozen_and_resumed": true,
+			"panel": "_party_panel"
+		},
+		{
+			"area": "hometown",
+			"frames": 40,
+			"from": "(224.6213, 281.7226)",
+			"walk": "(224.0, 336.0)"
+		},
+		{
+			"area": "hometown",
+			"frames": 251,
+			"from": "(224.6213, 333.723)",
+			"walk": "(560.0, 336.0)"
+		},
+		{
+			"area": "hometown",
+			"frames": 133,
+			"from": "(557.5652, 334.6658)",
+			"walk": "(560.0, 512.0)"
+		},
+		{
+			"area": "hometown",
+			"frames": 79,
+			"from": "(558.5081, 510.2766)",
+			"walk": "(560.0, 616.0)"
+		},
+		{
+			"area": "hometown",
+			"frames": 83,
+			"from": "(558.5081, 614.275)",
+			"walk": "(448.0, 616.0)"
+		},
+		{
+			"area": "hometown",
+			"frames": 5,
+			"from": "(449.5655, 615.2178)",
+			"walk": "(448.0, 608.0)"
+		},
+		{
+			"capture": "garden-notice-return",
+			"path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/hometown-garden-2026-10-04/proof/walk/retry1/male-garden-notice-return.png",
+			"save_error": 0,
+			"saved": true
+		},
+		{
+			"at": "(448.6227, 610.2751)",
+			"body": "SHARED GARDEN\nBoth timber beds hold cuttings now. Keep to the aisles around and between the beds. The garden neighbor is beside the northern aisle.\n\n[E] Continue",
+			"garden": {
+				"module": 156246215339,
+				"offered": true,
+				"planted": true,
+				"rows": [
+					{
+						"bounds": "[P: (465.0, 518.0), S: (38.0, 18.0)]",
+						"centered": false,
+						"global_position": "(484.0, 536.0)",
+						"id": 199363659581,
+						"offset": "(-21.0, -20.0)",
+						"scale": "(1.0, 1.0)",
+						"texture_id": -9223371983369009502,
+						"texture_path": "res://assets/sprites/world/hometown_garden_2026_10_04/cuttings_row.png",
+						"texture_size": "(42.0, 22.0)",
+						"visible": true
+					},
+					{
+						"bounds": "[P: (465.0, 530.0), S: (38.0, 18.0)]",
+						"centered": false,
+						"global_position": "(484.0, 548.0)",
+						"id": 199397215141,
+						"offset": "(-21.0, -20.0)",
+						"scale": "(1.0, 1.0)",
+						"texture_id": -9223371983369009502,
+						"texture_path": "res://assets/sprites/world/hometown_garden_2026_10_04/cuttings_row.png",
+						"texture_size": "(42.0, 22.0)",
+						"visible": true
+					},
+					{
+						"bounds": "[P: (465.0, 542.0), S: (38.0, 18.0)]",
+						"centered": false,
+						"global_position": "(484.0, 560.0)",
+						"id": 199430769566,
+						"offset": "(-21.0, -20.0)",
+						"scale": "(1.0, 1.0)",
+						"texture_id": -9223371983369009502,
+						"texture_path": "res://assets/sprites/world/hometown_garden_2026_10_04/cuttings_row.png",
+						"texture_size": "(42.0, 22.0)",
+						"visible": true
+					}
+				]
+			},
+			"garden_dialogue": "garden-notice-return",
+			"original_controller_flags_party_objective_board_notes_exact": true,
+			"panel_froze_and_resumed": true,
+			"passed": true
+		},
+		{
+			"details": [
+				{
+					"bed": "SharedGardenLeftBed",
+					"exact_native_anchor_art_collision": true,
+					"footprint": "[P: (377.0, 518.0), S: (54.0, 50.0)]"
+				},
+				{
+					"exact_native_anchor_art": true,
+					"row": "ExistingCuttings0",
+					"state": {
+						"bounds": "[P: (385.0, 518.0), S: (38.0, 18.0)]",
+						"centered": false,
+						"global_position": "(404.0, 536.0)",
+						"id": 160021089126,
+						"offset": "(-21.0, -20.0)",
+						"scale": "(1.0, 1.0)",
+						"texture_id": -9223371983369009502,
+						"texture_path": "res://assets/sprites/world/hometown_garden_2026_10_04/cuttings_row.png",
+						"texture_size": "(42.0, 22.0)",
+						"visible": true
+					}
+				},
+				{
+					"exact_native_anchor_art": true,
+					"row": "ExistingCuttings1",
+					"state": {
+						"bounds": "[P: (385.0, 530.0), S: (38.0, 18.0)]",
+						"centered": false,
+						"global_position": "(404.0, 548.0)",
+						"id": 160054643559,
+						"offset": "(-21.0, -20.0)",
+						"scale": "(1.0, 1.0)",
+						"texture_id": -9223371983369009502,
+						"texture_path": "res://assets/sprites/world/hometown_garden_2026_10_04/cuttings_row.png",
+						"texture_size": "(42.0, 22.0)",
+						"visible": true
+					}
+				},
+				{
+					"exact_native_anchor_art": true,
+					"row": "ExistingCuttings2",
+					"state": {
+						"bounds": "[P: (385.0, 542.0), S: (38.0, 18.0)]",
+						"centered": false,
+						"global_position": "(404.0, 560.0)",
+						"id": 160088197992,
+						"offset": "(-21.0, -20.0)",
+						"scale": "(1.0, 1.0)",
+						"texture_id": -9223371983369009502,
+						"texture_path": "res://assets/sprites/world/hometown_garden_2026_10_04/cuttings_row.png",
+						"texture_size": "(42.0, 22.0)",
+						"visible": true
+					}
+				},
+				{
+					"bed": "SharedGardenLeftBed",
+					"expected_row_count": 3,
+					"row_count": 3
+				},
+				{
+					"bed": "SharedGardenRightBed",
+					"exact_native_anchor_art_collision": true,
+					"footprint": "[P: (457.0, 518.0), S: (54.0, 50.0)]"
+				},
+				{
+					"exact_native_anchor_art": true,
+					"row": "PlantedCuttings0",
+					"state": {
+						"bounds": "[P: (465.0, 518.0), S: (38.0, 18.0)]",
+						"centered": false,
+						"global_position": "(484.0, 536.0)",
+						"id": 199363659581,
+						"offset": "(-21.0, -20.0)",
+						"scale": "(1.0, 1.0)",
+						"texture_id": -9223371983369009502,
+						"texture_path": "res://assets/sprites/world/hometown_garden_2026_10_04/cuttings_row.png",
+						"texture_size": "(42.0, 22.0)",
+						"visible": true
+					}
+				},
+				{
+					"exact_native_anchor_art": true,
+					"row": "PlantedCuttings1",
+					"state": {
+						"bounds": "[P: (465.0, 530.0), S: (38.0, 18.0)]",
+						"centered": false,
+						"global_position": "(484.0, 548.0)",
+						"id": 199397215141,
+						"offset": "(-21.0, -20.0)",
+						"scale": "(1.0, 1.0)",
+						"texture_id": -9223371983369009502,
+						"texture_path": "res://assets/sprites/world/hometown_garden_2026_10_04/cuttings_row.png",
+						"texture_size": "(42.0, 22.0)",
+						"visible": true
+					}
+				},
+				{
+					"exact_native_anchor_art": true,
+					"row": "PlantedCuttings2",
+					"state": {
+						"bounds": "[P: (465.0, 542.0), S: (38.0, 18.0)]",
+						"centered": false,
+						"global_position": "(484.0, 560.0)",
+						"id": 199430769566,
+						"offset": "(-21.0, -20.0)",
+						"scale": "(1.0, 1.0)",
+						"texture_id": -9223371983369009502,
+						"texture_path": "res://assets/sprites/world/hometown_garden_2026_10_04/cuttings_row.png",
+						"texture_size": "(42.0, 22.0)",
+						"visible": true
+					}
+				},
+				{
+					"bed": "SharedGardenRightBed",
+					"expected_row_count": 3,
+					"row_count": 3
+				},
+				{
+					"all_visible_pixels_inside_map": true,
+					"sprite": "/root/WorldJourney/Hometown/RouteDecor/GardenNeighbor",
+					"visible_bounds": "[P: (359.0, 450.0), S: (18.0, 30.0)]"
+				},
+				{
+					"all_visible_pixels_inside_map": true,
+					"sprite": "/root/WorldJourney/Hometown/RouteDecor/GardenNotice",
+					"visible_bounds": "[P: (467.2, 574.8), S: (10.19998, 19.20001)]"
+				},
+				{
+					"all_visible_pixels_inside_map": true,
+					"sprite": "/root/WorldJourney/Hometown/RouteDecor/SharedGardenLeftBed/TimberBed",
+					"visible_bounds": "[P: (377.0, 518.0), S: (54.0, 50.0)]"
+				},
+				{
+					"all_visible_pixels_inside_map": true,
+					"sprite": "/root/WorldJourney/Hometown/RouteDecor/SharedGardenLeftBed/ExistingCuttings0",
+					"visible_bounds": "[P: (385.0, 518.0), S: (38.0, 18.0)]"
+				},
+				{
+					"all_visible_pixels_inside_map": true,
+					"sprite": "/root/WorldJourney/Hometown/RouteDecor/SharedGardenLeftBed/ExistingCuttings1",
+					"visible_bounds": "[P: (385.0, 530.0), S: (38.0, 18.0)]"
+				},
+				{
+					"all_visible_pixels_inside_map": true,
+					"sprite": "/root/WorldJourney/Hometown/RouteDecor/SharedGardenLeftBed/ExistingCuttings2",
+					"visible_bounds": "[P: (385.0, 542.0), S: (38.0, 18.0)]"
+				},
+				{
+					"all_visible_pixels_inside_map": true,
+					"sprite": "/root/WorldJourney/Hometown/RouteDecor/SharedGardenRightBed/TimberBed",
+					"visible_bounds": "[P: (457.0, 518.0), S: (54.0, 50.0)]"
+				},
+				{
+					"all_visible_pixels_inside_map": true,
+					"sprite": "/root/WorldJourney/Hometown/RouteDecor/SharedGardenRightBed/PlantedCuttings0",
+					"visible_bounds": "[P: (465.0, 518.0), S: (38.0, 18.0)]"
+				},
+				{
+					"all_visible_pixels_inside_map": true,
+					"sprite": "/root/WorldJourney/Hometown/RouteDecor/SharedGardenRightBed/PlantedCuttings1",
+					"visible_bounds": "[P: (465.0, 530.0), S: (38.0, 18.0)]"
+				},
+				{
+					"all_visible_pixels_inside_map": true,
+					"sprite": "/root/WorldJourney/Hometown/RouteDecor/SharedGardenRightBed/PlantedCuttings2",
+					"visible_bounds": "[P: (465.0, 542.0), S: (38.0, 18.0)]"
+				}
+			],
+			"garden_visible_bounds_check": "cached-return",
+			"native_neighbor_notice_anchors": true,
+			"passed": true
+		},
+		{
+			"art": {
+				"existing_rows": [
+					{
+						"bounds": "[P: (385.0, 518.0), S: (38.0, 18.0)]",
+						"centered": false,
+						"global_position": "(404.0, 536.0)",
+						"id": 160021089126,
+						"offset": "(-21.0, -20.0)",
+						"scale": "(1.0, 1.0)",
+						"texture_id": -9223371983369009502,
+						"texture_path": "res://assets/sprites/world/hometown_garden_2026_10_04/cuttings_row.png",
+						"texture_size": "(42.0, 22.0)",
+						"visible": true
+					},
+					{
+						"bounds": "[P: (385.0, 530.0), S: (38.0, 18.0)]",
+						"centered": false,
+						"global_position": "(404.0, 548.0)",
+						"id": 160054643559,
+						"offset": "(-21.0, -20.0)",
+						"scale": "(1.0, 1.0)",
+						"texture_id": -9223371983369009502,
+						"texture_path": "res://assets/sprites/world/hometown_garden_2026_10_04/cuttings_row.png",
+						"texture_size": "(42.0, 22.0)",
+						"visible": true
+					},
+					{
+						"bounds": "[P: (385.0, 542.0), S: (38.0, 18.0)]",
+						"centered": false,
+						"global_position": "(404.0, 560.0)",
+						"id": 160088197992,
+						"offset": "(-21.0, -20.0)",
+						"scale": "(1.0, 1.0)",
+						"texture_id": -9223371983369009502,
+						"texture_path": "res://assets/sprites/world/hometown_garden_2026_10_04/cuttings_row.png",
+						"texture_size": "(42.0, 22.0)",
+						"visible": true
+					}
+				],
+				"left_bed": {
+					"bounds": "[P: (377.0, 518.0), S: (54.0, 50.0)]",
+					"centered": false,
+					"global_position": "(404.0, 568.0)",
+					"id": 159937203042,
+					"offset": "(-29.0, -52.0)",
+					"scale": "(1.0, 1.0)",
+					"texture_id": -9223371983670999391,
+					"texture_path": "res://assets/sprites/world/hometown_garden_2026_10_04/timber_bed.png",
+					"texture_size": "(58.0, 54.0)",
+					"visible": true
+				},
+				"left_bed_group": 159920425825,
+				"neighbor": {
+					"bounds": "[P: (359.0, 450.0), S: (18.0, 30.0)]",
+					"centered": false,
+					"global_position": "(368.0, 480.0)",
+					"id": 160222415726,
+					"offset": "(-11.0, -32.0)",
+					"scale": "(1.0, 1.0)",
+					"texture_id": -9223371983067019613,
+					"texture_path": "res://assets/sprites/world/hometown_garden_2026_10_04/garden_neighbor.png",
+					"texture_size": "(22.0, 34.0)",
+					"visible": true
+				},
+				"notice": {
+					"bounds": "[P: (467.2, 574.8), S: (10.19998, 19.20001)]",
+					"centered": true,
+					"global_position": "(472.0, 594.0)",
+					"id": 156850195146,
+					"offset": "(0.0, -15.0)",
+					"scale": "(0.6, 0.6)",
+					"texture_id": -9223371991656954232,
+					"texture_path": "res://assets/sprites/world/route1_rd_2026_10_01/marker.png",
+					"texture_size": "(24.0, 40.0)",
+					"visible": true
+				},
+				"planted_rows": [
+					{
+						"bounds": "[P: (465.0, 518.0), S: (38.0, 18.0)]",
+						"centered": false,
+						"global_position": "(484.0, 536.0)",
+						"id": 199363659581,
+						"offset": "(-21.0, -20.0)",
+						"scale": "(1.0, 1.0)",
+						"texture_id": -9223371983369009502,
+						"texture_path": "res://assets/sprites/world/hometown_garden_2026_10_04/cuttings_row.png",
+						"texture_size": "(42.0, 22.0)",
+						"visible": true
+					},
+					{
+						"bounds": "[P: (465.0, 530.0), S: (38.0, 18.0)]",
+						"centered": false,
+						"global_position": "(484.0, 548.0)",
+						"id": 199397215141,
+						"offset": "(-21.0, -20.0)",
+						"scale": "(1.0, 1.0)",
+						"texture_id": -9223371983369009502,
+						"texture_path": "res://assets/sprites/world/hometown_garden_2026_10_04/cuttings_row.png",
+						"texture_size": "(42.0, 22.0)",
+						"visible": true
+					},
+					{
+						"bounds": "[P: (465.0, 542.0), S: (38.0, 18.0)]",
+						"centered": false,
+						"global_position": "(484.0, 560.0)",
+						"id": 199430769566,
+						"offset": "(-21.0, -20.0)",
+						"scale": "(1.0, 1.0)",
+						"texture_id": -9223371983369009502,
+						"texture_path": "res://assets/sprites/world/hometown_garden_2026_10_04/cuttings_row.png",
+						"texture_size": "(42.0, 22.0)",
+						"visible": true
+					}
+				],
+				"right_bed": {
+					"bounds": "[P: (457.0, 518.0), S: (54.0, 50.0)]",
+					"centered": false,
+					"global_position": "(484.0, 568.0)",
+					"id": 160138529642,
+					"offset": "(-29.0, -52.0)",
+					"scale": "(1.0, 1.0)",
+					"texture_id": -9223371983670999391,
+					"texture_path": "res://assets/sprites/world/hometown_garden_2026_10_04/timber_bed.png",
+					"texture_size": "(58.0, 54.0)",
+					"visible": true
+				},
+				"right_bed_group": 160121752425
+			},
+			"cached_garden_offering_planting_and_exact_art_retained": true,
+			"garden": {
+				"module": 156246215339,
+				"offered": true,
+				"planted": true,
+				"rows": [
+					{
+						"bounds": "[P: (465.0, 518.0), S: (38.0, 18.0)]",
+						"centered": false,
+						"global_position": "(484.0, 536.0)",
+						"id": 199363659581,
+						"offset": "(-21.0, -20.0)",
+						"scale": "(1.0, 1.0)",
+						"texture_id": -9223371983369009502,
+						"texture_path": "res://assets/sprites/world/hometown_garden_2026_10_04/cuttings_row.png",
+						"texture_size": "(42.0, 22.0)",
+						"visible": true
+					},
+					{
+						"bounds": "[P: (465.0, 530.0), S: (38.0, 18.0)]",
+						"centered": false,
+						"global_position": "(484.0, 548.0)",
+						"id": 199397215141,
+						"offset": "(-21.0, -20.0)",
+						"scale": "(1.0, 1.0)",
+						"texture_id": -9223371983369009502,
+						"texture_path": "res://assets/sprites/world/hometown_garden_2026_10_04/cuttings_row.png",
+						"texture_size": "(42.0, 22.0)",
+						"visible": true
+					},
+					{
+						"bounds": "[P: (465.0, 542.0), S: (38.0, 18.0)]",
+						"centered": false,
+						"global_position": "(484.0, 560.0)",
+						"id": 199430769566,
+						"offset": "(-21.0, -20.0)",
+						"scale": "(1.0, 1.0)",
+						"texture_id": -9223371983369009502,
+						"texture_path": "res://assets/sprites/world/hometown_garden_2026_10_04/cuttings_row.png",
+						"texture_size": "(42.0, 22.0)",
+						"visible": true
+					}
+				]
+			}
+		},
+		{
+			"area": "hometown",
+			"frames": 59,
+			"from": "(448.6227, 610.2751)",
+			"walk": "(528.0, 608.0)"
+		},
+		{
+			"area": "hometown",
+			"frames": 20,
+			"from": "(525.5657, 609.3323)",
+			"walk": "(528.0, 582.0)"
+		},
+		{
+			"area": "hometown",
+			"frames": 0,
+			"from": "(526.5085, 584.3898)",
+			"walk": "(528.0, 584.0)"
+		},
+		{
+			"area": "hometown",
+			"frames": 130,
+			"from": "(526.5085, 584.3898)",
+			"walk": "(352.0, 584.0)"
+		},
+		{
+			"area": "hometown",
+			"frames": 60,
+			"from": "(354.5075, 584.3898)",
+			"walk": "(352.0, 504.0)"
+		},
+		{
+			"area": "hometown",
+			"frames": 71,
+			"from": "(352.6219, 506.5052)",
+			"walk": "(448.0, 504.0)"
+		},
+		{
+			"area": "hometown",
+			"frames": 61,
+			"from": "(445.1749, 504.6196)",
+			"walk": "(528.0, 504.0)"
+		},
+		{
+			"area": "hometown",
+			"frames": 59,
+			"from": "(525.1752, 504.6196)",
+			"walk": "(528.0, 584.0)"
+		},
+		{
+			"area": "hometown",
+			"frames": 59,
+			"from": "(527.0609, 581.1709)",
+			"walk": "(448.0, 584.0)"
+		},
+		{
+			"area": "hometown",
+			"frames": 59,
+			"from": "(450.5083, 583.0565)",
+			"walk": "(448.0, 504.0)"
+		},
+		{
+			"area": "hometown",
+			"frames": 60,
+			"from": "(448.6227, 506.5052)",
+			"walk": "(368.0, 504.0)"
+		},
+		{
+			"area": "hometown",
+			"frames": 0,
+			"from": "(370.7365, 504.6196)",
+			"walk": "(368.0, 504.0)"
+		},
+		{
+			"capture": "garden-neighbor-return",
+			"path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/hometown-garden-2026-10-04/proof/walk/retry1/male-garden-neighbor-return.png",
+			"save_error": 0,
+			"saved": true
+		},
+		{
+			"at": "(370.7365, 504.6196)",
+			"body": "GARDEN NEIGHBOR\nThose three rows are in. The new cuttings are easy to see against the open soil. Thanks for helping, and keep to the aisles while they settle.\n\n[E] Continue",
+			"garden": {
+				"module": 156246215339,
+				"offered": true,
+				"planted": true,
+				"rows": [
+					{
+						"bounds": "[P: (465.0, 518.0), S: (38.0, 18.0)]",
+						"centered": false,
+						"global_position": "(484.0, 536.0)",
+						"id": 199363659581,
+						"offset": "(-21.0, -20.0)",
+						"scale": "(1.0, 1.0)",
+						"texture_id": -9223371983369009502,
+						"texture_path": "res://assets/sprites/world/hometown_garden_2026_10_04/cuttings_row.png",
+						"texture_size": "(42.0, 22.0)",
+						"visible": true
+					},
+					{
+						"bounds": "[P: (465.0, 530.0), S: (38.0, 18.0)]",
+						"centered": false,
+						"global_position": "(484.0, 548.0)",
+						"id": 199397215141,
+						"offset": "(-21.0, -20.0)",
+						"scale": "(1.0, 1.0)",
+						"texture_id": -9223371983369009502,
+						"texture_path": "res://assets/sprites/world/hometown_garden_2026_10_04/cuttings_row.png",
+						"texture_size": "(42.0, 22.0)",
+						"visible": true
+					},
+					{
+						"bounds": "[P: (465.0, 542.0), S: (38.0, 18.0)]",
+						"centered": false,
+						"global_position": "(484.0, 560.0)",
+						"id": 199430769566,
+						"offset": "(-21.0, -20.0)",
+						"scale": "(1.0, 1.0)",
+						"texture_id": -9223371983369009502,
+						"texture_path": "res://assets/sprites/world/hometown_garden_2026_10_04/cuttings_row.png",
+						"texture_size": "(42.0, 22.0)",
+						"visible": true
+					}
+				]
+			},
+			"garden_dialogue": "garden-neighbor-return",
+			"original_controller_flags_party_objective_board_notes_exact": true,
+			"panel_froze_and_resumed": true,
+			"passed": true
+		},
+		{
+			"neighbor_acknowledges_cached_planting": true
+		},
+		{
+			"area": "hometown",
+			"frames": 57,
+			"from": "(370.7365, 504.6196)",
+			"walk": "(448.0, 504.0)"
+		},
+		{
+			"area": "hometown",
+			"frames": 65,
+			"from": "(445.4037, 504.6196)",
+			"walk": "(448.0, 592.0)"
+		},
+		{
+			"area": "hometown",
+			"frames": 29,
+			"from": "(447.2893, 589.1708)",
+			"walk": "(484.0, 582.0)"
+		},
+		{
+			"capture": "garden-planted-row-return",
+			"path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/hometown-garden-2026-10-04/proof/walk/retry1/male-garden-planted-row-return.png",
+			"save_error": 0,
+			"saved": true
+		},
+		{
+			"at": "(481.8892, 582.5711)",
+			"body": "SHARED CUTTINGS\nThree fresh rows fill the right bed. The cuttings are still small, with open soil between them. The walking aisles remain clear.\n\n[E] Continue",
+			"garden": {
+				"module": 156246215339,
+				"offered": true,
+				"planted": true,
+				"rows": [
+					{
+						"bounds": "[P: (465.0, 518.0), S: (38.0, 18.0)]",
+						"centered": false,
+						"global_position": "(484.0, 536.0)",
+						"id": 199363659581,
+						"offset": "(-21.0, -20.0)",
+						"scale": "(1.0, 1.0)",
+						"texture_id": -9223371983369009502,
+						"texture_path": "res://assets/sprites/world/hometown_garden_2026_10_04/cuttings_row.png",
+						"texture_size": "(42.0, 22.0)",
+						"visible": true
+					},
+					{
+						"bounds": "[P: (465.0, 530.0), S: (38.0, 18.0)]",
+						"centered": false,
+						"global_position": "(484.0, 548.0)",
+						"id": 199397215141,
+						"offset": "(-21.0, -20.0)",
+						"scale": "(1.0, 1.0)",
+						"texture_id": -9223371983369009502,
+						"texture_path": "res://assets/sprites/world/hometown_garden_2026_10_04/cuttings_row.png",
+						"texture_size": "(42.0, 22.0)",
+						"visible": true
+					},
+					{
+						"bounds": "[P: (465.0, 542.0), S: (38.0, 18.0)]",
+						"centered": false,
+						"global_position": "(484.0, 560.0)",
+						"id": 199430769566,
+						"offset": "(-21.0, -20.0)",
+						"scale": "(1.0, 1.0)",
+						"texture_id": -9223371983369009502,
+						"texture_path": "res://assets/sprites/world/hometown_garden_2026_10_04/cuttings_row.png",
+						"texture_size": "(42.0, 22.0)",
+						"visible": true
+					}
+				]
+			},
+			"garden_dialogue": "garden-planted-row-return",
+			"original_controller_flags_party_objective_board_notes_exact": true,
+			"panel_froze_and_resumed": true,
+			"passed": true
+		},
+		{
+			"garden_planting_visible": true,
+			"original_route_flags_exact": true,
+			"visible_cuttings": 3
+		},
+		{
+			"details": [
+				{
+					"bed": "SharedGardenLeftBed",
+					"exact_native_anchor_art_collision": true,
+					"footprint": "[P: (377.0, 518.0), S: (54.0, 50.0)]"
+				},
+				{
+					"exact_native_anchor_art": true,
+					"row": "ExistingCuttings0",
+					"state": {
+						"bounds": "[P: (385.0, 518.0), S: (38.0, 18.0)]",
+						"centered": false,
+						"global_position": "(404.0, 536.0)",
+						"id": 160021089126,
+						"offset": "(-21.0, -20.0)",
+						"scale": "(1.0, 1.0)",
+						"texture_id": -9223371983369009502,
+						"texture_path": "res://assets/sprites/world/hometown_garden_2026_10_04/cuttings_row.png",
+						"texture_size": "(42.0, 22.0)",
+						"visible": true
+					}
+				},
+				{
+					"exact_native_anchor_art": true,
+					"row": "ExistingCuttings1",
+					"state": {
+						"bounds": "[P: (385.0, 530.0), S: (38.0, 18.0)]",
+						"centered": false,
+						"global_position": "(404.0, 548.0)",
+						"id": 160054643559,
+						"offset": "(-21.0, -20.0)",
+						"scale": "(1.0, 1.0)",
+						"texture_id": -9223371983369009502,
+						"texture_path": "res://assets/sprites/world/hometown_garden_2026_10_04/cuttings_row.png",
+						"texture_size": "(42.0, 22.0)",
+						"visible": true
+					}
+				},
+				{
+					"exact_native_anchor_art": true,
+					"row": "ExistingCuttings2",
+					"state": {
+						"bounds": "[P: (385.0, 542.0), S: (38.0, 18.0)]",
+						"centered": false,
+						"global_position": "(404.0, 560.0)",
+						"id": 160088197992,
+						"offset": "(-21.0, -20.0)",
+						"scale": "(1.0, 1.0)",
+						"texture_id": -9223371983369009502,
+						"texture_path": "res://assets/sprites/world/hometown_garden_2026_10_04/cuttings_row.png",
+						"texture_size": "(42.0, 22.0)",
+						"visible": true
+					}
+				},
+				{
+					"bed": "SharedGardenLeftBed",
+					"expected_row_count": 3,
+					"row_count": 3
+				},
+				{
+					"bed": "SharedGardenRightBed",
+					"exact_native_anchor_art_collision": true,
+					"footprint": "[P: (457.0, 518.0), S: (54.0, 50.0)]"
+				},
+				{
+					"exact_native_anchor_art": true,
+					"row": "PlantedCuttings0",
+					"state": {
+						"bounds": "[P: (465.0, 518.0), S: (38.0, 18.0)]",
+						"centered": false,
+						"global_position": "(484.0, 536.0)",
+						"id": 199363659581,
+						"offset": "(-21.0, -20.0)",
+						"scale": "(1.0, 1.0)",
+						"texture_id": -9223371983369009502,
+						"texture_path": "res://assets/sprites/world/hometown_garden_2026_10_04/cuttings_row.png",
+						"texture_size": "(42.0, 22.0)",
+						"visible": true
+					}
+				},
+				{
+					"exact_native_anchor_art": true,
+					"row": "PlantedCuttings1",
+					"state": {
+						"bounds": "[P: (465.0, 530.0), S: (38.0, 18.0)]",
+						"centered": false,
+						"global_position": "(484.0, 548.0)",
+						"id": 199397215141,
+						"offset": "(-21.0, -20.0)",
+						"scale": "(1.0, 1.0)",
+						"texture_id": -9223371983369009502,
+						"texture_path": "res://assets/sprites/world/hometown_garden_2026_10_04/cuttings_row.png",
+						"texture_size": "(42.0, 22.0)",
+						"visible": true
+					}
+				},
+				{
+					"exact_native_anchor_art": true,
+					"row": "PlantedCuttings2",
+					"state": {
+						"bounds": "[P: (465.0, 542.0), S: (38.0, 18.0)]",
+						"centered": false,
+						"global_position": "(484.0, 560.0)",
+						"id": 199430769566,
+						"offset": "(-21.0, -20.0)",
+						"scale": "(1.0, 1.0)",
+						"texture_id": -9223371983369009502,
+						"texture_path": "res://assets/sprites/world/hometown_garden_2026_10_04/cuttings_row.png",
+						"texture_size": "(42.0, 22.0)",
+						"visible": true
+					}
+				},
+				{
+					"bed": "SharedGardenRightBed",
+					"expected_row_count": 3,
+					"row_count": 3
+				},
+				{
+					"all_visible_pixels_inside_map": true,
+					"sprite": "/root/WorldJourney/Hometown/RouteDecor/GardenNeighbor",
+					"visible_bounds": "[P: (359.0, 450.0), S: (18.0, 30.0)]"
+				},
+				{
+					"all_visible_pixels_inside_map": true,
+					"sprite": "/root/WorldJourney/Hometown/RouteDecor/GardenNotice",
+					"visible_bounds": "[P: (467.2, 574.8), S: (10.19998, 19.20001)]"
+				},
+				{
+					"all_visible_pixels_inside_map": true,
+					"sprite": "/root/WorldJourney/Hometown/RouteDecor/SharedGardenLeftBed/TimberBed",
+					"visible_bounds": "[P: (377.0, 518.0), S: (54.0, 50.0)]"
+				},
+				{
+					"all_visible_pixels_inside_map": true,
+					"sprite": "/root/WorldJourney/Hometown/RouteDecor/SharedGardenLeftBed/ExistingCuttings0",
+					"visible_bounds": "[P: (385.0, 518.0), S: (38.0, 18.0)]"
+				},
+				{
+					"all_visible_pixels_inside_map": true,
+					"sprite": "/root/WorldJourney/Hometown/RouteDecor/SharedGardenLeftBed/ExistingCuttings1",
+					"visible_bounds": "[P: (385.0, 530.0), S: (38.0, 18.0)]"
+				},
+				{
+					"all_visible_pixels_inside_map": true,
+					"sprite": "/root/WorldJourney/Hometown/RouteDecor/SharedGardenLeftBed/ExistingCuttings2",
+					"visible_bounds": "[P: (385.0, 542.0), S: (38.0, 18.0)]"
+				},
+				{
+					"all_visible_pixels_inside_map": true,
+					"sprite": "/root/WorldJourney/Hometown/RouteDecor/SharedGardenRightBed/TimberBed",
+					"visible_bounds": "[P: (457.0, 518.0), S: (54.0, 50.0)]"
+				},
+				{
+					"all_visible_pixels_inside_map": true,
+					"sprite": "/root/WorldJourney/Hometown/RouteDecor/SharedGardenRightBed/PlantedCuttings0",
+					"visible_bounds": "[P: (465.0, 518.0), S: (38.0, 18.0)]"
+				},
+				{
+					"all_visible_pixels_inside_map": true,
+					"sprite": "/root/WorldJourney/Hometown/RouteDecor/SharedGardenRightBed/PlantedCuttings1",
+					"visible_bounds": "[P: (465.0, 530.0), S: (38.0, 18.0)]"
+				},
+				{
+					"all_visible_pixels_inside_map": true,
+					"sprite": "/root/WorldJourney/Hometown/RouteDecor/SharedGardenRightBed/PlantedCuttings2",
+					"visible_bounds": "[P: (465.0, 542.0), S: (38.0, 18.0)]"
+				}
+			],
+			"garden_visible_bounds_check": "planted-cached-return",
+			"native_neighbor_notice_anchors": true,
+			"passed": true
+		},
+		{
+			"area": "hometown",
+			"frames": 0,
+			"from": "(481.8892, 582.5711)",
+			"walk": "(484.0, 582.0)"
+		},
+		{
+			"capture": "garden-planted-row-repeat-return",
+			"path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/hometown-garden-2026-10-04/proof/walk/retry1/male-garden-planted-row-repeat-return.png",
+			"save_error": 0,
+			"saved": true
+		},
+		{
+			"at": "(481.8892, 582.5711)",
+			"body": "SHARED CUTTINGS\nThree fresh rows fill the right bed. The cuttings are still small, with open soil between them. The walking aisles remain clear.\n\n[E] Continue",
+			"garden": {
+				"module": 156246215339,
+				"offered": true,
+				"planted": true,
+				"rows": [
+					{
+						"bounds": "[P: (465.0, 518.0), S: (38.0, 18.0)]",
+						"centered": false,
+						"global_position": "(484.0, 536.0)",
+						"id": 199363659581,
+						"offset": "(-21.0, -20.0)",
+						"scale": "(1.0, 1.0)",
+						"texture_id": -9223371983369009502,
+						"texture_path": "res://assets/sprites/world/hometown_garden_2026_10_04/cuttings_row.png",
+						"texture_size": "(42.0, 22.0)",
+						"visible": true
+					},
+					{
+						"bounds": "[P: (465.0, 530.0), S: (38.0, 18.0)]",
+						"centered": false,
+						"global_position": "(484.0, 548.0)",
+						"id": 199397215141,
+						"offset": "(-21.0, -20.0)",
+						"scale": "(1.0, 1.0)",
+						"texture_id": -9223371983369009502,
+						"texture_path": "res://assets/sprites/world/hometown_garden_2026_10_04/cuttings_row.png",
+						"texture_size": "(42.0, 22.0)",
+						"visible": true
+					},
+					{
+						"bounds": "[P: (465.0, 542.0), S: (38.0, 18.0)]",
+						"centered": false,
+						"global_position": "(484.0, 560.0)",
+						"id": 199430769566,
+						"offset": "(-21.0, -20.0)",
+						"scale": "(1.0, 1.0)",
+						"texture_id": -9223371983369009502,
+						"texture_path": "res://assets/sprites/world/hometown_garden_2026_10_04/cuttings_row.png",
+						"texture_size": "(42.0, 22.0)",
+						"visible": true
+					}
+				]
+			},
+			"garden_dialogue": "garden-planted-row-repeat-return",
+			"original_controller_flags_party_objective_board_notes_exact": true,
+			"panel_froze_and_resumed": true,
+			"passed": true
+		},
+		{
+			"repeat_planting_keeps_exact_rows_textures_positions_and_original_state": true
+		},
+		{
+			"area": "hometown",
+			"frames": 32,
+			"from": "(481.8892, 582.5711)",
+			"walk": "(448.0, 592.0)"
+		},
+		{
+			"area": "hometown",
+			"frames": 65,
+			"from": "(449.9284, 590.6788)",
+			"walk": "(448.0, 504.0)"
+		},
+		{
+			"area": "hometown",
+			"frames": 60,
+			"from": "(448.9856, 505.7371)",
+			"walk": "(368.0, 504.0)"
+		},
+		{
+			"capture": "neighbor-after-return",
+			"path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/hometown-garden-2026-10-04/proof/walk/retry1/male-neighbor-after-return.png",
+			"save_error": 0,
+			"saved": true
+		},
+		{
+			"at": "(370.7088, 504.7943)",
+			"body": "GARDEN NEIGHBOR\nThose three rows are in. The new cuttings are easy to see against the open soil. Thanks for helping, and keep to the aisles while they settle.\n\n[E] Continue",
+			"garden": {
+				"module": 156246215339,
+				"offered": true,
+				"planted": true,
+				"rows": [
+					{
+						"bounds": "[P: (465.0, 518.0), S: (38.0, 18.0)]",
+						"centered": false,
+						"global_position": "(484.0, 536.0)",
+						"id": 199363659581,
+						"offset": "(-21.0, -20.0)",
+						"scale": "(1.0, 1.0)",
+						"texture_id": -9223371983369009502,
+						"texture_path": "res://assets/sprites/world/hometown_garden_2026_10_04/cuttings_row.png",
+						"texture_size": "(42.0, 22.0)",
+						"visible": true
+					},
+					{
+						"bounds": "[P: (465.0, 530.0), S: (38.0, 18.0)]",
+						"centered": false,
+						"global_position": "(484.0, 548.0)",
+						"id": 199397215141,
+						"offset": "(-21.0, -20.0)",
+						"scale": "(1.0, 1.0)",
+						"texture_id": -9223371983369009502,
+						"texture_path": "res://assets/sprites/world/hometown_garden_2026_10_04/cuttings_row.png",
+						"texture_size": "(42.0, 22.0)",
+						"visible": true
+					},
+					{
+						"bounds": "[P: (465.0, 542.0), S: (38.0, 18.0)]",
+						"centered": false,
+						"global_position": "(484.0, 560.0)",
+						"id": 199430769566,
+						"offset": "(-21.0, -20.0)",
+						"scale": "(1.0, 1.0)",
+						"texture_id": -9223371983369009502,
+						"texture_path": "res://assets/sprites/world/hometown_garden_2026_10_04/cuttings_row.png",
+						"texture_size": "(42.0, 22.0)",
+						"visible": true
+					}
+				]
+			},
+			"garden_dialogue": "neighbor-after-return",
+			"original_controller_flags_party_objective_board_notes_exact": true,
+			"panel_froze_and_resumed": true,
+			"passed": true
+		},
+		{
+			"area": "hometown",
+			"frames": 13,
+			"from": "(370.7088, 504.7943)",
+			"walk": "(352.0, 504.0)"
+		},
+		{
+			"area": "hometown",
+			"frames": 59,
+			"from": "(354.7087, 504.7943)",
+			"walk": "(352.0, 584.0)"
+		},
+		{
+			"area": "hometown",
+			"frames": 25,
+			"from": "(352.8231, 581.3455)",
+			"walk": "(352.0, 616.0)"
+		},
+		{
+			"area": "hometown",
+			"frames": 155,
+			"from": "(352.8231, 613.345)",
+			"walk": "(560.0, 616.0)"
+		},
+		{
+			"area": "hometown",
+			"frames": 77,
+			"from": "(557.3759, 615.2307)",
+			"walk": "(560.0, 512.0)"
+		},
+		{
+			"area": "hometown",
+			"frames": 133,
+			"from": "(559.2615, 514.6799)",
+			"walk": "(560.0, 336.0)"
+		},
+		{
+			"area": "hometown",
+			"frames": 251,
+			"from": "(559.2615, 338.6786)",
+			"walk": "(224.0, 336.0)"
+		},
+		{
+			"area": "hometown",
+			"frames": 43,
+			"from": "(226.708, 336.793)",
+			"walk": "(224.0, 280.0)"
+		},
+		{
+			"exact_final_flags": true,
+			"expected_final_flags": {
+				"city_arrival_registered": true,
+				"city_directions_read": true,
+				"delivered": true,
+				"heard_calls": true,
+				"levee_entrance_read": true,
+				"marker_restored": true,
+				"pouch_accepted": true,
+				"report_done": true,
+				"reported_calls": true,
+				"reported_water_mark": true,
+				"water_mark_observed": true
+			},
+			"male_or_female_observation_notes": true,
+			"original_party_and_known_moves_exact": true,
+			"passed": true,
+			"report_notes": true,
+			"twelve_real_gate_crossings": true
+		},
+		{
+			"capture": "return-home",
+			"path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/hometown-garden-2026-10-04/proof/walk/retry1/male-return-home.png",
+			"save_error": 0,
+			"saved": true
+		}
+	],
+	"test_teleports": 0
+}

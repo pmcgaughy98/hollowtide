@@ -1,0 +1,150 @@
+{
+  "date": "2026-10-04",
+  "baseline_files": 2205,
+  "existing_exact": 2202,
+  "changed_existing_count": 3,
+  "new_count": 17,
+  "missing": [],
+  "runtime_files": [
+    {
+      "path": "scripts/area_landscape.gd",
+      "status": "changed_existing",
+      "sha256": "394d13fb8a62d24f472ed5c4f02a58be8e586ac9491eb22400d29b76e73af0ab",
+      "baseline_sha256": "040409f209952a1b717409646ab4c2895845e2d12e6869bd438439f1925c1622",
+      "archive_copy": "runtime-after/scripts/area_landscape.gd"
+    },
+    {
+      "path": "scripts/world_area.gd",
+      "status": "changed_existing",
+      "sha256": "149eb8f2fd5e60ba9e675cf42e21de926de62b52b0e905b257a5f9b342cab260",
+      "baseline_sha256": "8895f5457b13fad79fe672d0b6d232d78d85c391c7d82e4d249529ae780ba1f8",
+      "archive_copy": "runtime-after/scripts/world_area.gd"
+    },
+    {
+      "path": "scripts/world_journey.gd",
+      "status": "changed_existing",
+      "sha256": "77acdcf7821ab00150a0d2ff05a05cfc19ec41d1bdf2edeb1111b3c019c35129",
+      "baseline_sha256": "64083a028e8eeb6d3baeaf7edaa16a9c849814b00347411f87468fdfa9ac5974",
+      "archive_copy": "runtime-after/scripts/world_journey.gd"
+    },
+    {
+      "path": "assets/sprites/world/hometown_homes_2026_10_04/garden_home.png",
+      "status": "new",
+      "sha256": "139017e3662bf6bd19349d0600b3f0b57eebd725ad0190b3fea9ff4f66dddf9f",
+      "baseline_sha256": null,
+      "archive_copy": "runtime-after/assets/sprites/world/hometown_homes_2026_10_04/garden_home.png"
+    },
+    {
+      "path": "assets/sprites/world/hometown_homes_2026_10_04/garden_home.png.import",
+      "status": "new",
+      "sha256": "ee85844d644d92c8b85a98bd84f6a8389bfb9dfa2af0c08ca0530c2fdec71ebc",
+      "baseline_sha256": null,
+      "archive_copy": "runtime-after/assets/sprites/world/hometown_homes_2026_10_04/garden_home.png.import"
+    },
+    {
+      "path": "assets/sprites/world/hometown_homes_2026_10_04/home_approaches.png",
+      "status": "new",
+      "sha256": "8f67af22eef521f0b8bda968226b701da66339ea5ce6d73e89ad3919443e4670",
+      "baseline_sha256": null,
+      "archive_copy": "runtime-after/assets/sprites/world/hometown_homes_2026_10_04/home_approaches.png"
+    },
+    {
+      "path": "assets/sprites/world/hometown_homes_2026_10_04/home_approaches.png.import",
+      "status": "new",
+      "sha256": "f95bae869e1f8da7afdc1cf167f7deb4e51f8cb0d8b71baf3fb79932923a19ce",
+      "baseline_sha256": null,
+      "archive_copy": "runtime-after/assets/sprites/world/hometown_homes_2026_10_04/home_approaches.png.import"
+    },
+    {
+      "path": "assets/sprites/world/hometown_homes_2026_10_04/home_coat_front.png",
+      "status": "new",
+      "sha256": "7c69225f05ec6cd8504d2ee22116e78e3ebd0fec4240fee933752a475b8dadd1",
+      "baseline_sha256": null,
+      "archive_copy": "runtime-after/assets/sprites/world/hometown_homes_2026_10_04/home_coat_front.png"
+    },
+    {
+      "path": "assets/sprites/world/hometown_homes_2026_10_04/home_coat_front.png.import",
+      "status": "new",
+      "sha256": "9d0e10798f95c226fbde476e2cd058d439faca7503ebb9a2d2609671c2d69a4e",
+      "baseline_sha256": null,
+      "archive_copy": "runtime-after/assets/sprites/world/hometown_homes_2026_10_04/home_coat_front.png.import"
+    },
+    {
+      "path": "assets/sprites/world/hometown_homes_2026_10_04/home_room.png",
+      "status": "new",
+      "sha256": "2a348fc65e1cf71f5006c15ba66e26e76c53b0e0266de93682cb629abad852ae",
+      "baseline_sha256": null,
+      "archive_copy": "runtime-after/assets/sprites/world/hometown_homes_2026_10_04/home_room.png"
+    },
+    {
+      "path": "assets/sprites/world/hometown_homes_2026_10_04/home_room.png.import",
+      "status": "new",
+      "sha256": "bb3f526efc384924121451d1520fd7753deb204bd8125d82c608c32d8dc0fd58",
+      "baseline_sha256": null,
+      "archive_copy": "runtime-after/assets/sprites/world/hometown_homes_2026_10_04/home_room.png.import"
+    },
+    {
+      "path": "assets/sprites/world/hometown_homes_2026_10_04/home_stove_front.png",
+      "status": "new",
+      "sha256": "66f630f49d89bb8d0f6537f5b300b14c07573595701ba6ba9049a2d3af0ad935",
+      "baseline_sha256": null,
+      "archive_copy": "runtime-after/assets/sprites/world/hometown_homes_2026_10_04/home_stove_front.png"
+    },
+    {
+      "path": "assets/sprites/world/hometown_homes_2026_10_04/home_stove_front.png.import",
+      "status": "new",
+      "sha256": "065a8e046925bb149c41c55e2343e1e9c85992027345bbf65ba90c855e4d18f8",
+      "baseline_sha256": null,
+      "archive_copy": "runtime-after/assets/sprites/world/hometown_homes_2026_10_04/home_stove_front.png.import"
+    },
+    {
+      "path": "assets/sprites/world/hometown_homes_2026_10_04/home_threshold_front.png",
+      "status": "new",
+      "sha256": "6d75150dcff0bafab9b20a6920dc67656438a9dcc42e69c5eabf409e9a64d4c0",
+      "baseline_sha256": null,
+      "archive_copy": "runtime-after/assets/sprites/world/hometown_homes_2026_10_04/home_threshold_front.png"
+    },
+    {
+      "path": "assets/sprites/world/hometown_homes_2026_10_04/home_threshold_front.png.import",
+      "status": "new",
+      "sha256": "d62f7584bec7fdab2ba456f20e304aaf30769668f4080043682709d1d1028936",
+      "baseline_sha256": null,
+      "archive_copy": "runtime-after/assets/sprites/world/hometown_homes_2026_10_04/home_threshold_front.png.import"
+    },
+    {
+      "path": "assets/sprites/world/hometown_homes_2026_10_04/neighbor_home.png",
+      "status": "new",
+      "sha256": "4a80b8030b1250b723a4589f2b1ed54a7bf2f3992d7b0b0c3dd6cbf1b4f3b586",
+      "baseline_sha256": null,
+      "archive_copy": "runtime-after/assets/sprites/world/hometown_homes_2026_10_04/neighbor_home.png"
+    },
+    {
+      "path": "assets/sprites/world/hometown_homes_2026_10_04/neighbor_home.png.import",
+      "status": "new",
+      "sha256": "f8d0b2ccfd76c84d58a5c0a50d41d42d5f0f8aca26cd914fc15cfa611f3d26a3",
+      "baseline_sha256": null,
+      "archive_copy": "runtime-after/assets/sprites/world/hometown_homes_2026_10_04/neighbor_home.png.import"
+    },
+    {
+      "path": "scenes/courtyard_home.tscn",
+      "status": "new",
+      "sha256": "3385096051add4df6e90e704dbc06dc50e420525e394a8a1c7104136fcecfbd8",
+      "baseline_sha256": null,
+      "archive_copy": "runtime-after/scenes/courtyard_home.tscn"
+    },
+    {
+      "path": "scripts/courtyard_home_room.gd",
+      "status": "new",
+      "sha256": "e522cb8ce96aadd6a5668bb67e2baafdec1b0f1423c63ec5d2a8f5324c7e0c71",
+      "baseline_sha256": null,
+      "archive_copy": "runtime-after/scripts/courtyard_home_room.gd"
+    },
+    {
+      "path": "scripts/courtyard_home_room.gd.uid",
+      "status": "new",
+      "sha256": "de6bcf1421421c1777dd9372be3ecf532eff4d1ccb52924306f560b2f7bdd63a",
+      "baseline_sha256": null,
+      "archive_copy": "runtime-after/scripts/courtyard_home_room.gd.uid"
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+from pathlib import Path
+P=Path(r"C:/Users/pmcga/dev/hollowtide")
+p=P/"scripts/courtyard_home_room.gd";s=p.read_text()
+anchor='const SITES = {\n';assert s.count(anchor)==1
+s=s.replace(anchor,'const VISIBILITY = preload("res://assets/sprites/world/route1_landing_loop_2026_10_03/canopy_visibility.gdshader")\nvar _coat: Sprite2D\nvar _coat_material: ShaderMaterial\n'+anchor,1)
+anchor='    _foreground("RoomCoatFront", COAT_FRONT, Vector2(182,176),114)\n';assert s.count(anchor)==1
+s=s.replace(anchor,'    _coat = _foreground("RoomCoatFront", COAT_FRONT, Vector2(182,176),114)\n    _coat_material = ShaderMaterial.new()\n    _coat_material.shader = VISIBILITY\n    _coat_material.set_shader_parameter("canopy_opacity",1.0)\n    _coat.material = _coat_material\n',1)
+s=s.replace('func _foreground(label: String, texture: Texture2D, foot: Vector2, top: float) -> void:','func _foreground(label: String, texture: Texture2D, foot: Vector2, top: float) -> Sprite2D:',1)
+anchor='    $RouteDecor.add_child(sprite)\n\nfunc _solid';assert s.count(anchor)==1
+s=s.replace(anchor,'    $RouteDecor.add_child(sprite)\n    return sprite\n\nfunc _process(delta: float) -> void:\n    if _coat == null:\n        return\n    # Preserve the cupboard base while revealing a courier behind its upper body.\n    var player: Node2D = $Player\n    var head := _coat.to_local(player.global_position+Vector2(0,-16))\n    var covered := player.global_position.y < _coat.global_position.y-2 and _coat.get_rect().has_point(head)\n    var opacity: float = _coat_material.get_shader_parameter("canopy_opacity")\n    _coat_material.set_shader_parameter("canopy_opacity",move_toward(opacity,0.45 if covered else 1.0,delta*4))\n\nfunc _solid',1)
+p.write_text(s,encoding="utf-8",newline="\n")
+print("Coat foreground visibility adjusted; source artwork, collisions and gameplay state unchanged.")

@@ -1,0 +1,10 @@
+[
+  {
+    "view": "front",
+    "portable_rebuild_exact": true
+  },
+  {
+    "view": "back",
+    "portable_rebuild_exact": true
+  }
+]

@@ -1,0 +1,18 @@
+from pathlib import Path
+from PIL import Image, ImageDraw
+import numpy as np,json,hashlib
+o=Path("consistency-review")
+src=Image.open(o/"clinkerhide-user-selected-grid.png").convert("RGBA")
+im=Image.open(o/"clinkerhide-user-selected-transparent.png").convert("RGBA")
+a=np.array(im);b=np.array(src);opaque=a[:,:,3]>0
+m=(a[:,:,0]>180)&(a[:,:,1]<70)&(a[:,:,2]>180)
+stats={"size":list(im.size),"bounds":im.getbbox(),"opaque":int(opaque.sum()),"opaque_magenta":int((m&opaque).sum()),"partial_alpha":int(((a[:,:,3]>0)&(a[:,:,3]<255)).sum()),"rgb_preserved":bool(np.array_equal(a[:,:,:3],b[:,:,:3])),"opaque_changed_rgb":int(np.any(a[:,:,:3]!=b[:,:,:3],axis=2)[opaque].sum()),"edge_opaque":int(opaque[0].sum()+opaque[-1].sum()+opaque[:,0].sum()+opaque[:,-1].sum()),"sha256":hashlib.sha256((o/"clinkerhide-user-selected-transparent.png").read_bytes()).hexdigest()}
+(o/"clinkerhide-selected-conversion-audit.json").write_text(json.dumps(stats,indent=2))
+canvas=Image.new("RGBA",(660,380),(33,29,53,255));d=ImageDraw.Draw(canvas)
+old=Image.open("C:/Users/pmcga/dev/hollowtide/assets/sprites/creatures/clinkerhide_rd_back_2026_10_01.png").convert("RGBA")
+for n,(name,pic) in enumerate([("Previous candidate",old),("Your chosen rear",im)]):
+ d.text((n*330+10,10),name,fill="white")
+ pic=pic.resize((300,300),Image.Resampling.NEAREST)
+ canvas.alpha_composite(pic,(n*330+10,42))
+canvas.convert("RGB").save(o/"clinkerhide-chosen-rear-comparison.png")
+print(json.dumps(stats))

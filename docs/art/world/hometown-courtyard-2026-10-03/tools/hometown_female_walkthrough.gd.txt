@@ -1,0 +1,175 @@
+extends SceneTree
+const OUT := "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/hometown-review/female/"
+var route: Node2D
+var player: CharacterBody2D
+var steps: Array = []
+var failed := false
+var original_route_id: int
+var original_player_id: int
+var original_party_member: int
+const FLAGS := ["pouch_accepted","levee_entrance_read","city_arrival_registered","city_directions_read","delivered","water_mark_observed","heard_calls","marker_restored","report_done","reported_calls","reported_water_mark"]
+func _flags() -> Dictionary:
+	var result: Dictionary = {}
+	for flag in FLAGS: result[flag] = route.get(flag)
+	return result
+func _home_message(to: Vector2, prefix: String, label: String) -> bool:
+	if not await _walk(to): return false
+	var before := _flags()
+	await _key(KEY_E); await _frames(4)
+	var body: Label = route.get("_body")
+	var panel: PanelContainer = route.get("_panel")
+	var okay := panel.visible and body.text.begins_with(prefix) and _flags() == before
+	steps.append({"interaction":label,"body":body.text,"flags_unchanged":okay,"position":str(player.position)})
+	await _capture(label)
+	await _key(KEY_E)
+	if not okay: failed = true
+	return okay
+func _hold_direction(action: String, beats: int) -> void:
+	Input.action_press(action)
+	for i in beats: await physics_frame
+	Input.action_release(action)
+	await _frames(3)
+func _home_intro() -> bool:
+	if not await _home_message(Vector2(-336,184),"HOME COURTYARD","home-courtyard"): return false
+	await _hold_direction("move_up",90)
+	var footprint_okay := player.position.y >= 177.9 and player.position.y < 181
+	steps.append({"collision":"home-footprint","passed":footprint_okay,"position":str(player.position)})
+	if not footprint_okay: failed=true; return false
+	for point in [Vector2(-336,208),Vector2(-256,224),Vector2(-272,264),Vector2(-244,300),Vector2(-190,316)]:
+		if not await _walk(point): return false
+	if not await _home_message(Vector2(-172,310),"SHARED GARDEN","garden-notice"): return false
+	for point in [Vector2(-134,294),Vector2(-104,246),Vector2(-96,192),Vector2(-32,144)]:
+		if not await _walk(point): return false
+	await _hold_direction("move_right",90)
+	var upper_okay := player.position.x < -21.9 and player.position.x > -24
+	steps.append({"collision":"west-gate-upper-edge","passed":upper_okay,"position":str(player.position)})
+	if not upper_okay: failed=true; return false
+	if not await _walk(Vector2(-32,240)): return false
+	await _hold_direction("move_right",90)
+	var lower_okay := player.position.x < -21.9 and player.position.x > -24
+	steps.append({"collision":"west-gate-lower-edge","passed":lower_okay,"position":str(player.position)})
+	if not lower_okay: failed=true; return false
+	if not await _home_message(Vector2(-32,192),"DISPATCH LANE","home-directions"): return false
+	if not await _walk(Vector2(48,192)): return false
+	await _capture("ordinary-first-exit")
+	return true
+func _home_return() -> bool:
+	await _key(KEY_E) # Close completed-report dialogue.
+	var before := _flags()
+	for point in [Vector2(48,192),Vector2(-32,192),Vector2(-96,192),Vector2(-256,224),Vector2(-336,208)]:
+		if not await _walk(point): return false
+	if not await _home_message(Vector2(-336,184),"HOME COURTYARD","ordinary-return-home"): return false
+	var member = root.get_node("PlayerParty").active_member()
+	var okay: bool = _flags() == before and route.get_instance_id() == original_route_id and player.get_instance_id() == original_player_id and member.get_instance_id() == original_party_member
+	steps.append({"return_state_preserved":okay,"route_identity":route.get_instance_id(),"player_identity":player.get_instance_id(),"party_member_identity":member.get_instance_id()})
+	if not okay: failed=true
+	return okay
+
+func _initialize() -> void:
+	call_deferred("_run")
+func _frames(n: int) -> void:
+	for i in n: await process_frame
+func _key(code: Key) -> void:
+	for pressed in [true,false]:
+		var event := InputEventKey.new()
+		event.keycode=code
+		event.physical_keycode=code
+		event.pressed=pressed
+		Input.parse_input_event(event)
+		await _frames(3)
+func _capture(name: String) -> void:
+	await RenderingServer.frame_post_draw
+	root.get_texture().get_image().save_png(OUT+"walkthrough-"+name+".png")
+func _walk(to: Vector2) -> bool:
+	var origin:=player.position
+	var stationary:=0
+	for tick in 2200:
+		var delta:=to-player.position
+		if delta.length()<3.0:
+			for action in ["move_left","move_right","move_up","move_down"]:Input.action_release(action)
+			await _frames(2)
+			steps.append({"target":str(to),"from":str(origin),"to":str(player.position),"frames":tick})
+			print("ROUTE_WALK ",to," reached ",player.position)
+			return true
+		var before:=player.position
+		for pair in [["move_left",delta.x < -1.5],["move_right",delta.x > 1.5],["move_up",delta.y < -1.5],["move_down",delta.y > 1.5]]:
+			if pair[1]:Input.action_press(pair[0])
+			else:Input.action_release(pair[0])
+		await physics_frame
+		stationary = stationary+1 if player.position.distance_to(before)<0.02 else 0
+		if stationary>35:
+			print("BLOCKED_WALK ",to," at ",player.position)
+			break
+	for action in ["move_left","move_right","move_up","move_down"]:Input.action_release(action)
+	failed=true
+	await _capture("blocked")
+	return false
+func _site(to: Vector2, flag: String, name: String) -> bool:
+	if not await _walk(to): return false
+	await _key(KEY_E)
+	await _frames(4)
+	var value: bool=route.get(flag)
+	steps.append({"interaction":name,"flag":flag,"value":value,"position":str(player.position)})
+	print("ROUTE_INTERACTION ",name," ",value)
+	if not value:
+		failed=true
+		await _capture(name+"-failed")
+		return false
+	await _capture(name)
+	await _key(KEY_E)
+	return true
+func _notice_test() -> bool:
+	if not await _walk(Vector2(320,316)):return false
+	var before: Dictionary={}
+	for flag in ["pouch_accepted","levee_entrance_read","city_arrival_registered","city_directions_read","delivered","water_mark_observed","heard_calls","marker_restored","report_done","reported_calls","reported_water_mark"]:before[flag]=route.get(flag)
+	await _key(KEY_E);await _frames(4)
+	var panel: PanelContainer=route.get("_panel")
+	var body: Label=route.get("_body")
+	var okay:=panel.visible and body.text.begins_with("OLD LANDING FOOTPATH")
+	for flag in before:
+		if route.get(flag)!=before[flag]:okay=false
+	steps.append({"interaction":"landing-notice","body":body.text,"quest_flags_unchanged":okay,"position":str(player.position)})
+	await _capture("landing-notice")
+	await _key(KEY_E)
+	if not okay:failed=true
+	return okay
+func _run() -> void:
+	var started := Time.get_ticks_msec()
+	route=load("res://scenes/first_route_prototype.tscn").instantiate()
+	player=route.get_node("Player");player.set("chibi_model","Female")
+	root.add_child(route);current_scene=route
+	var load_ms := Time.get_ticks_msec()-started
+	original_route_id=route.get_instance_id();original_player_id=player.get_instance_id()
+	original_party_member=root.get_node("PlayerParty").active_member().get_instance_id()
+	await _frames(12)
+	if player.get("chibi_model") != "Female" or player.get_node("Sprite2D").material == null: failed=true
+	if not await _home_intro(): _finish(load_ms); return
+	if not await _site(Vector2(70,205),"pouch_accepted","female-assignment"): _finish(load_ms); return
+	var before := _flags()
+	for repeat in 2:
+		for point in [Vector2(48,192),Vector2(-32,192),Vector2(-96,192),Vector2(-336,208)]:
+			if not await _walk(point): _finish(load_ms); return
+		if not await _home_message(Vector2(-336,184),"HOME COURTYARD","female-home-%d"%repeat): _finish(load_ms); return
+		for point in [Vector2(-336,208),Vector2(-256,224),Vector2(-96,192),Vector2(-32,192),Vector2(48,192)]:
+			if not await _walk(point): _finish(load_ms); return
+	if _flags() != before: failed=true
+	if route.get_instance_id() != original_route_id or player.get_instance_id() != original_player_id: failed=true
+	if root.get_node("PlayerParty").active_member().get_instance_id() != original_party_member: failed=true
+	_finish(load_ms)
+func _finish(load_ms: int) -> void:
+	var flags: Dictionary={}
+	for flag in ["pouch_accepted","levee_entrance_read","city_arrival_registered","city_directions_read","delivered","water_mark_observed","heard_calls","marker_restored","report_done","reported_calls","reported_water_mark"]:flags[flag]=route.get(flag)
+	var layer: Node=route.get_node("RiverCrossing/TerrainRelief")
+	var file:=FileAccess.open(OUT+"walkthrough-results.json",FileAccess.WRITE)
+	file.store_string(JSON.stringify({"passed":not failed,"ordinary_input_only":true,"teleports":0,"quest_flag_overrides":0,"scene_ready_ms":load_ms,"terrain_surface_build_ms":layer.get("surface_build_ms"),"final_position":str(player.position),"flags":flags,"steps":steps},"\t"))
+	print("HOMETOWN_FEMALE_RETURN ",not failed," ",flags)
+	file.close()
+	file=null
+	call_deferred("_exit_probe",1 if failed else 0)
+func _exit_probe(code: int) -> void:
+	route.queue_free()
+	current_scene=null
+	player=null
+	route=null
+	await _frames(8)
+	quit(code)

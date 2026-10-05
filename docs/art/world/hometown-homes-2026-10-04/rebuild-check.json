@@ -1,0 +1,41 @@
+{
+  "passed": true,
+  "original_room_composite_rgba_exact": true,
+  "checks": [
+    {
+      "file": "neighbor_home.png",
+      "byte_exact": true,
+      "sha256": "4a80b8030b1250b723a4589f2b1ed54a7bf2f3992d7b0b0c3dd6cbf1b4f3b586"
+    },
+    {
+      "file": "garden_home.png",
+      "byte_exact": true,
+      "sha256": "139017e3662bf6bd19349d0600b3f0b57eebd725ad0190b3fea9ff4f66dddf9f"
+    },
+    {
+      "file": "home_room.png",
+      "byte_exact": true,
+      "sha256": "2a348fc65e1cf71f5006c15ba66e26e76c53b0e0266de93682cb629abad852ae"
+    },
+    {
+      "file": "home_stove_front.png",
+      "byte_exact": true,
+      "sha256": "66f630f49d89bb8d0f6537f5b300b14c07573595701ba6ba9049a2d3af0ad935"
+    },
+    {
+      "file": "home_coat_front.png",
+      "byte_exact": true,
+      "sha256": "7c69225f05ec6cd8504d2ee22116e78e3ebd0fec4240fee933752a475b8dadd1"
+    },
+    {
+      "file": "home_threshold_front.png",
+      "byte_exact": true,
+      "sha256": "6d75150dcff0bafab9b20a6920dc67656438a9dcc42e69c5eabf409e9a64d4c0"
+    },
+    {
+      "file": "home_approaches.png",
+      "byte_exact": true,
+      "sha256": "8f67af22eef521f0b8bda968226b701da66339ea5ce6d73e89ad3919443e4670"
+    }
+  ]
+}

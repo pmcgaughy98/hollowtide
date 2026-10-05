@@ -9,12 +9,18 @@
 
 [ext_resource type="Resource" path="res://data/creatures/102_ironvent.tres" id="8_evolution"]
 
-[ext_resource type="Texture2D" path="res://assets/sprites/creatures/clinkerhide_rd_back_2026_10_01.png" id="rd_back"]
+[ext_resource type="Texture2D" path="res://assets/sprites/creatures/clinkerhide_selected_rear_2026_10_03/clinkerhide_back_matched_native100.png" id="rd_back"]
 
 [resource]
 script = ExtResource("1_script")
 id = 101
 creature_name = "Clinkerhide"
+body_parts = PackedStringArray("claw", "fusedbrow", "vent", "ventrow", "heavytail")
+aim_points = Dictionary[String, Vector2]({
+"brow": Vector2(28, -20),
+"ventrow": Vector2(15, 0),
+"heavytail": Vector2(-40, 8)
+})
 essence = 0
 sprite = ExtResource("2_sprite")
 back_sprite = ExtResource("rd_back")

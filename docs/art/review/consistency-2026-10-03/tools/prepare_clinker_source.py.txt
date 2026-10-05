@@ -1,0 +1,14 @@
+from PIL import Image
+from pathlib import Path
+import json,base64,hashlib
+p=Path("C:/Users/pmcga/OneDrive/Documents/HollowTide Sprites/Creatures/Creatures-Back/Clinkerhide-Back.jfif")
+o=Path("consistency-review")
+im=Image.open(p).convert("RGBA")
+im.save(o/"clinkerhide-user-selected-source.png")
+(o/"Clinkerhide-Back.original.jfif").write_bytes(p.read_bytes())
+items=[]
+for rel in ["clinkerhide.png","clinkerhide_rd_back_2026_10_01.png","ironvent.png","ironvent_back_2026_09_27.png"]:
+ q=Path("C:/Users/pmcga/dev/hollowtide/assets/sprites/creatures")/rel
+ x=Image.open(q).convert("RGBA")
+ items.append({"file":rel,"size":list(x.size),"bounds":x.getbbox()})
+print(json.dumps({"source_sha256":hashlib.sha256(p.read_bytes()).hexdigest(),"source_size":list(im.size),"existing":items,"input_image":base64.b64encode((o/"clinkerhide-user-selected-source.png").read_bytes()).decode()}))

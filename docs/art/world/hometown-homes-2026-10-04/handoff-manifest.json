@@ -1,0 +1,20 @@
+{
+  "documents": [
+    {
+      "path": "docs/AI_COLLABORATION.md",
+      "baseline_sha256": "e1a6ab1aea27a8fa580ffe0164a785c8f8e08ee97057cf0ae67231183f46cd52",
+      "final_sha256": "4235fb6347e845d1ec491a1e5cea4044d7df6d323987ebe830ee207a6eec63fa",
+      "before_copy": "sources/before-final-handoff/docs/AI_COLLABORATION.md"
+    },
+    {
+      "path": "docs/team/WORLD_GOAL_CHECKPOINT_2026-10-03.md",
+      "baseline_sha256": "8bb4b6236d1234a9da7c0c7bb9c52dc16c00e614b01b04e4a5dece23719774db",
+      "final_sha256": "1c26c83002618205e84036998286d44654aa27e4c52d0ba2435696800eae4263",
+      "before_copy": "sources/before-final-handoff/docs/team/WORLD_GOAL_CHECKPOINT_2026-10-03.md"
+    }
+  ],
+  "prior_AI_history_preserved": true,
+  "historical_repeated_house_note_superseded": true,
+  "approved_documentation_complete": true,
+  "world_goal_active": true
+}

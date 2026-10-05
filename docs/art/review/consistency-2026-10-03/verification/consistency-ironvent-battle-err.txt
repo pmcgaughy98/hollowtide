@@ -1,0 +1,14 @@
+.NET: Failed to load project assembly
+WARNING: Image format RGB8 not supported by hardware, converting to RGBA8.
+   at: RendererRD::TextureStorage::_validate_texture_format (servers\rendering\renderer_rd\storage_rd\texture_storage.cpp:2855)
+   GDScript backtrace (most recent call first):
+       [0] _run (C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/consistency_ironvent_battle_probe.gd:55)
+WARNING: Image format RGB8 not supported by hardware, converting to RGBA8.
+   at: RendererRD::TextureStorage::_validate_texture_format (servers\rendering\renderer_rd\storage_rd\texture_storage.cpp:2855)
+   GDScript backtrace (most recent call first):
+       [0] _run (C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/consistency_ironvent_battle_probe.gd:56)
+WARNING: Image format RGB8 not supported by hardware, converting to RGBA8.
+   at: RendererRD::TextureStorage::_validate_texture_format (servers\rendering\renderer_rd\storage_rd\texture_storage.cpp:2855)
+   GDScript backtrace (most recent call first):
+       [0] _run (C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/consistency_ironvent_battle_probe.gd:92)
+       [1] _new_battle (C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/consistency_ironvent_battle_probe.gd:119)

@@ -1,0 +1,20 @@
+{
+	"checks": [
+		{
+			"connected_area": "historic_street",
+			"direct_scene": "historic_street",
+			"one_live_area_and_original_controller": true
+		},
+		{
+			"connected_area": "riverfront",
+			"direct_scene": "city_riverfront",
+			"one_live_area_and_original_controller": true
+		},
+		{
+			"connected_area": "hometown",
+			"direct_scene": "hometown",
+			"one_live_area_and_original_controller": true
+		}
+	],
+	"passed": true
+}

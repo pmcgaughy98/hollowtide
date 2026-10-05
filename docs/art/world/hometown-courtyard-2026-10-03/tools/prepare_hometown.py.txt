@@ -1,0 +1,53 @@
+from pathlib import Path
+from PIL import Image,ImageDraw,ImageFilter
+import hashlib,json,numpy as np,time
+p=Path("C:/Users/pmcga/dev/hollowtide");s=Path.cwd();r=s/"hometown-review";r.mkdir(exist_ok=True)
+rels=["scripts/route1_crossing.gd","scripts/first_route_prototype.gd","scenes/first_route_prototype.tscn","docs/AI_COLLABORATION.md","scripts/main_menu.gd","scripts/player.gd","scripts/player_party.gd","scripts/party_member.gd","scripts/battle_screen.gd","scripts/route1_landscape.gd","scripts/route1_landing_loop.gd","scripts/route1_map_polish.gd","scripts/route1_terrain_relief.gd","project.godot","data/creatures/102_ironvent.tres","scripts/effects/creature_sprite.gdshader"]
+record=[]
+for rel in rels:
+ src=p/rel;dst=r/"source-before"/(rel+".txt");dst.parent.mkdir(parents=True,exist_ok=True)
+ assert not dst.exists() or dst.read_bytes()==src.read_bytes(),"Snapshot already differs "+rel
+ dst.write_bytes(src.read_bytes());record.append({"file":rel,"sha256":hashlib.sha256(src.read_bytes()).hexdigest()})
+(r/"before-manifest.json").write_text(json.dumps(record,indent=2),encoding="utf-8")
+assets=[]
+for pattern in ["assets/sprites/creatures/**/*.png","assets/sprites/player/**/*.png","assets/sprites/world/**/*.png","assets/tilesets/route1_rd_2026_10_01/*"]:
+ for f in p.glob(pattern):
+  if f.is_file():assets.append({"file":f.relative_to(p).as_posix(),"sha256":hashlib.sha256(f.read_bytes()).hexdigest()})
+(r/"existing-art-manifest.json").write_text(json.dumps(assets,indent=2),encoding="utf-8")
+home=Image.open(r/"courtyard_home_source.png").convert("RGBA");a=np.array(home);mask=a[:,:,3]>0
+assert home.size==(160,144) and a[:,:,3].min()==0
+ys,xs=np.where(mask)
+audit={"size":home.size,"used_rect":[int(xs.min()),int(ys.min()),int(xs.max()+1),int(ys.max()+1)],"alpha_pixels":int(mask.sum()),"opaque":int((a[:,:,3]==255).sum()),"edge_opaque":int(mask[0].sum()+mask[-1].sum()+mask[:,0].sum()+mask[:,-1].sum()),"unique_opaque_colors":len(np.unique(a[a[:,:,3]==255,:3],axis=0))}
+assert audit["edge_opaque"]==0
+(r/"house-source-audit.json").write_text(json.dumps(audit,indent=2),encoding="utf-8")
+# Authored rounded paths reuse existing native ground pixels; no new painted material.
+w,h=480,384
+roads=[([(144,184),(144,208),(224,224),(308,208),(384,192),(480,192)],12),
+ ([(228,224),(208,264),(236,300),(290,316),(346,294),(376,246),(384,192)],8)]
+def curve(points):
+ for _ in range(2):
+  nxt=[points[0]]
+  for u,v in zip(points,points[1:]):
+   nxt.extend([(u[0]*.75+v[0]*.25,u[1]*.75+v[1]*.25),(u[0]*.25+v[0]*.75,u[1]*.25+v[1]*.75)])
+  nxt.append(points[-1]);points=nxt
+ return points
+yy,xx=np.mgrid[:h,:w];dist=np.full((h,w),1e9)
+for points,half in roads:
+ for u,v in zip(curve(points),curve(points)[1:]):
+  vx,vy=v[0]-u[0],v[1]-u[1];den=vx*vx+vy*vy
+  t=np.clip(((xx-u[0])*vx+(yy-u[1])*vy)/max(den,.001),0,1)
+  dist=np.minimum(dist,np.sqrt((xx-u[0]-t*vx)**2+(yy-u[1]-t*vy)**2)-half)
+mask=dist<0
+# Worn garden beds use the same soil pixels, with rounded corners.
+bed=Image.new("1",(w,h));d=ImageDraw.Draw(bed)
+d.rounded_rectangle((262,260,308,274),radius=3,fill=1)
+d.rounded_rectangle((262,282,308,296),radius=3,fill=1)
+mask|=np.array(bed,dtype=bool)
+atlas=np.array(Image.open(p/"assets/tilesets/route1_rd_2026_10_01/route1_ground_atlas_polished.png").convert("RGBA"))
+soil=atlas[0:16,176:192]
+out=np.zeros((h,w,4),dtype=np.uint8)
+# World x phase uses negative coords aligned to 16, same as route terrain at x=0.
+out[mask]=soil[yy[mask]%16,xx[mask]%16];out[:,:,3][mask]=255
+Image.fromarray(out).save(r/"hometown_lanes.png")
+(r/"path-bake.json").write_text(json.dumps({"size":[w,h],"source":"assets/tilesets/route1_rd_2026_10_01/route1_ground_atlas_polished.png","source_cell":[11,0],"path_pixels":int(mask.sum()),"roads":roads,"garden_beds":[[262,260,308,274],[262,282,308,296]],"phase_world_origin":[-480,0]},indent=2),encoding="utf-8")
+print(json.dumps({"house":audit,"preserved_runtime":len(record),"preserved_art":len(assets),"path_pixels":int(mask.sum())}))

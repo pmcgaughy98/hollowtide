@@ -1,0 +1,48 @@
+{
+	"keeper_height": 28.0,
+	"minimum_clearance_to_rear_roof": 2.875,
+	"props": [
+		{
+			"bounds": "[P: (455.6, 255.5), S: (176.8, 163.2)]",
+			"entire_canvas_within_level": true,
+			"foot_anchor_y": 400.0,
+			"name": "RemodelledBrickShop",
+			"opaque_bounds": "[P: (464.95, 266.55), S: (158.1, 133.45)]",
+			"visible_height": 133.450003743172
+		},
+		{
+			"bounds": "[P: (149.2, 247.0), S: (149.6, 163.2)]",
+			"entire_canvas_within_level": true,
+			"foot_anchor_y": 400.0,
+			"name": "PublicLedgerHouse",
+			"opaque_bounds": "[P: (161.1, 254.65), S: (125.8, 145.35)]",
+			"visible_height": 145.350004076958
+		},
+		{
+			"bounds": "[P: (323.25, 251.875), S: (121.5, 156.75)]",
+			"entire_canvas_within_level": true,
+			"foot_anchor_y": 400.0,
+			"name": "OccupiedRepairWorkshop",
+			"opaque_bounds": "[P: (332.25, 260.875), S: (103.5, 138.75)]",
+			"visible_height": 138.75
+		},
+		{
+			"bounds": "[P: (296.45, 57.825), S: (175.1, 175.95)]",
+			"entire_canvas_within_level": true,
+			"foot_anchor_y": 224.0,
+			"name": "UpperFloorRowhomes",
+			"opaque_bounds": "[P: (306.65, 68.02499), S: (154.7, 155.55)]",
+			"visible_height": 155.55000436306
+		},
+		{
+			"bounds": "[P: (409.75, 392.0), S: (28.5, 40.0)]",
+			"entire_canvas_within_level": true,
+			"foot_anchor_y": 426.0,
+			"name": "WorkshopKeeper",
+			"opaque_bounds": "[P: (415.75, 398.0), S: (16.5, 28.0)]",
+			"visible_height": 28.0
+		}
+	],
+	"rear_lane_south_edge": 258,
+	"workshop_rear_roof_y": 260.875
+}

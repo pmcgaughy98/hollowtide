@@ -1,0 +1,153 @@
+{
+  "preserved_build_inputs": [
+    {
+      "file": "scripts/route1_crossing.gd",
+      "original_sha256": "ad880f72ca2cd2e1d568991f45ddda6b5a0258a9430cadc17dd68d0577d9354c",
+      "unchanged": false,
+      "before_snapshot_verified": true
+    },
+    {
+      "file": "scenes/first_route_prototype.tscn",
+      "original_sha256": "88edcd961f4608584a5d1c505bffab7e7a44af0662b1ab9a2a8584030a3abddc",
+      "unchanged": true,
+      "before_snapshot_verified": false
+    },
+    {
+      "file": "assets/tilesets/route1_rd_2026_10_01/route1_ground_atlas_polished.png",
+      "original_sha256": "3c5cf177727cb41f152bb4cabfbaa8dc2a9c0ac3f74a9492b31d19835f71dc14",
+      "unchanged": true,
+      "before_snapshot_verified": false
+    },
+    {
+      "file": "assets/sprites/world/route1_crossing_2026_10_02/path_soil_native32.png",
+      "original_sha256": "0bc1711d71a8a8133da3be181c0d2d7620149bd73d0f1a302abc4584b665df1f",
+      "unchanged": true,
+      "before_snapshot_verified": false
+    }
+  ],
+  "prior_consistency_runtime_files_unchanged": [
+    {
+      "file": "scripts/main_menu.gd",
+      "sha256": "2428f5518d5ab35ea71a5938ca3e61dfb23e454d40700c3b93f5f6cb97a974b6",
+      "unchanged": true
+    },
+    {
+      "file": "scripts/player.gd",
+      "sha256": "ed85fe5f58401d10e9500a1308d2595ffd0d320a3c6fe281190606479ea5e6ac",
+      "unchanged": true
+    },
+    {
+      "file": "scripts/battle_screen.gd",
+      "sha256": "c2899874210c614da43917d76ab5e35eef24439ea94da8aa544f6930d3e616cf",
+      "unchanged": true
+    },
+    {
+      "file": "scripts/debug/chibi_walk_review.gd",
+      "sha256": "adb9cbf6bfe6fdf9c6296a2bb2d6c5576c7b06624c13a399e9f5a436e43527b7",
+      "unchanged": true
+    },
+    {
+      "file": "scripts/effects/creature_sprite.gdshader",
+      "sha256": "3cfe1eccf9da29e5dbf07e59faba0d87648286d2d83ad6ba082c625a0f6cef57",
+      "unchanged": true
+    },
+    {
+      "file": "scripts/effects/courier_finish.gdshader",
+      "sha256": "230934cea220b4d6c4a3d1ce49882bbdee348c396429a0c67bf76a0b744dda62",
+      "unchanged": true
+    },
+    {
+      "file": "data/creatures/001_rimefin.tres",
+      "sha256": "e9bcb6b3046ba9adf85f30245cd2cee2fc70584325391dec6344852d6949af10",
+      "unchanged": true
+    },
+    {
+      "file": "data/creatures/101_clinkerhide.tres",
+      "sha256": "192a5b75c3be07c7c82f102f1bfddba8fae4bf3578b5f30747d2fda8413e6ac7",
+      "unchanged": true
+    },
+    {
+      "file": "data/creatures/102_ironvent.tres",
+      "sha256": "c5fd3ed4da4543ffd7ac0574818f7e34b424510b28109620b996a917ef371c4a",
+      "unchanged": true
+    },
+    {
+      "file": "scripts/effects/courier_finish.gdshader.uid",
+      "sha256": "a147bb2b513dfbcc6d81989d97fbd67ad14fe1c118363f50aff80154c41761bd",
+      "unchanged": true
+    },
+    {
+      "file": "assets/sprites/creatures/clinkerhide_selected_rear_2026_10_03/clinkerhide_back_matched_native100.png",
+      "sha256": "f8c7b6f2c330779ad76717d04eda28ad66d7e45fe1bff1eeab9ea46f2a1989ba",
+      "unchanged": true
+    },
+    {
+      "file": "assets/sprites/creatures/clinkerhide_selected_rear_2026_10_03/clinkerhide_back_matched_native100.png.import",
+      "sha256": "256f0736d1ba0d58cc7a09e8a10b9b504a1debc8095999d6c7963379318745fe",
+      "unchanged": true
+    },
+    {
+      "file": "assets/sprites/creatures/clinkerhide_selected_rear_2026_10_03/clinkerhide_back_native100.png",
+      "sha256": "c7e19195253756568bb6373fe2c858f06175d049cf310bbd3f93c4bb0a3734a0",
+      "unchanged": true
+    },
+    {
+      "file": "assets/sprites/creatures/clinkerhide_selected_rear_2026_10_03/clinkerhide_back_native100.png.import",
+      "sha256": "42163db56cb00e6557f4a8f63f4fe5c3f2654680b3b32426887b2d2ba3b4f116",
+      "unchanged": true
+    }
+  ],
+  "textures": [
+    {
+      "file": "assets/sprites/world/route1_terrain_relief_2026_10_03/levee_grass_slopes.png",
+      "size": [
+        296,
+        248
+      ],
+      "mode": "RGBA",
+      "alpha_values": [
+        0,
+        255
+      ],
+      "opaque_bounds": [
+        27,
+        12,
+        280,
+        225
+      ],
+      "at": [
+        136,
+        216
+      ],
+      "exact_bake_hash": true
+    },
+    {
+      "file": "assets/sprites/world/route1_terrain_relief_2026_10_03/rounded_dispatch_landing_paths.png",
+      "size": [
+        416,
+        248
+      ],
+      "mode": "RGBA",
+      "alpha_values": [
+        0,
+        255
+      ],
+      "opaque_bounds": [
+        14,
+        7,
+        416,
+        233
+      ],
+      "at": [
+        0,
+        80
+      ],
+      "exact_bake_hash": true
+    }
+  ],
+  "ordinary_trip_passed": true,
+  "all_11_quest_flags": true,
+  "runtime_stderr_empty": true,
+  "scene_ready_ms": 13008,
+  "new_relief_build_ms": 0
+}
