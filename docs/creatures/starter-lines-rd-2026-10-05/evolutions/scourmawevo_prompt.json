@@ -1,0 +1,12 @@
+{
+ "prompt": "An EVOLVED version of the river monster catfish in the first reference image: same species, same dark blue armour, cyan eyes, toothy gaping mouth and four heavy spined legs, but transformed with new body features so it looks evolved, not just grown up, and with NO wood, no branches, no driftwood anywhere. Its head has become an enormous armoured dredge-like scoop with a massive underbite of teeth, and a full beard of many thick barbels hangs from its jaw. Its back carries a twin row of tall pale spines, and its body plates are scoured smooth like river stone with small pebbles set into them. Its legs end in wide webbed spined fins, and its tail ends in a broad heavy paddle. Low, wide, ancient and dominant stance, jaw open. Dark river blue, slate, stone grey, cold cyan only at the spine tips, eyes and barbels. Three-quarter view facing right. Same finish and outline as the reference. Not a shark, not a crocodile, no wood, no glow, no bubbles, no water. Shown whole in the centre of the frame with empty space on every side. On a plain white background.",
+ "prompt_style": "rd_pro__default",
+ "width": 224,
+ "height": 224,
+ "num_images": 2,
+ "remove_bg": true,
+ "reference_images": [
+  "docs/creatures/starter-lines-rd-2026-10-05/evolutions/scourmawnew_front_take1.png",
+  "assets/sprites/creatures/cinderhide.png"
+ ]
+}

@@ -1,0 +1,2452 @@
+{
+  "schema_version": 1,
+  "verified_at_utc": "2026-10-05T13:25:59.847254+00:00",
+  "revision_root": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/home-interior-linework-2026-10-04",
+  "revision_basis": "Installed first sharp linework version with the approved clear worktable; native runs reported complete on2026-10-05. This snapshot precedes the ongoing further room-item detail refinement.",
+  "native_verification_passed": true,
+  "visual_registration_verified": true,
+  "room_detail_refinement_status": "Ongoing user request; visual concerns are recorded, not an assertion that aesthetic refinement is finished.",
+  "verification_scope": {
+    "ordinary_input": "Male and female, each two real courtyard-home entry/exit round trips; four interactions and twelve physical contacts per visit; original core, party, notes, objective, board, cache, garden and cupboard fade/restoration checks.",
+    "rendering": "Four separately initialized native scenes using diagnostic cameras/HUD visibility only; full-room2x, four room2x crops, three outdoor full1x maps and outdoor detail views at actual3x.",
+    "process_exit_provenance": "Read the saved observed terminal completion records from proof/terminal-results.json: male PID592/session72681, female PID32252/session50277, overview PID32328/session53213, all exit0. Record source states these are observed terminal outputs. Overview PID/run_id and native stdout/stderr were independently checked against these records; no exit status was inferred from a green fixture report."
+  },
+  "walks": {
+    "male": {
+      "scope": "Two ordinary hometown/courtyard_home round trips, with the original cached room revisited.",
+      "process_completion": {
+        "pid": 592,
+        "session": 72681,
+        "exit_code": 0,
+        "evidence_source": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/home-interior-linework-2026-10-04/proof/terminal-results.json / male_walk",
+        "record_source": "Observed terminal completion outputs in this Codex turn, not inferred from proof files.",
+        "independently_read_from_process_exit_artifact": true,
+        "owned_hidden_only": true
+      },
+      "json": {
+        "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/home-interior-linework-2026-10-04/proof/walk/male-walkthrough.json",
+        "relative_to_revision": "proof/walk/male-walkthrough.json",
+        "sha256": "6c7b649cbddec3b221863e96a0cf06e6eba269c238d08402401a54c09ef7fdf0",
+        "bytes": 53363,
+        "modified_utc": "2026-10-05T13:07:12.745854+00:00"
+      },
+      "passed": true,
+      "completed_walk": true,
+      "gate_count": 4,
+      "engine_gate_arrivals": [
+        {
+          "arrival": "(128.0, 208.0)",
+          "from": "hometown",
+          "to": "courtyard_home"
+        },
+        {
+          "arrival": "(233.0, 280.0)",
+          "from": "courtyard_home",
+          "to": "hometown"
+        },
+        {
+          "arrival": "(128.0, 208.0)",
+          "from": "hometown",
+          "to": "courtyard_home"
+        },
+        {
+          "arrival": "(233.0, 280.0)",
+          "from": "courtyard_home",
+          "to": "hometown"
+        }
+      ],
+      "visit_count": 2,
+      "dialogue_count": 8,
+      "physical_contact_count": 24,
+      "foreground_view_count": 4,
+      "per_visit": {
+        "1": {
+          "dialogues": 4,
+          "physical_contacts": 12,
+          "foreground_views": 2
+        },
+        "2": {
+          "dialogues": 4,
+          "physical_contacts": 12,
+          "foreground_views": 2
+        }
+      },
+      "flags": {
+        "city_arrival_registered": false,
+        "city_directions_read": false,
+        "delivered": false,
+        "heard_calls": false,
+        "levee_entrance_read": false,
+        "marker_restored": false,
+        "pouch_accepted": false,
+        "report_done": false,
+        "reported_calls": false,
+        "reported_water_mark": false,
+        "water_mark_observed": false
+      },
+      "test_teleports": 0,
+      "quest_overrides": 0,
+      "capture_events": 46,
+      "unique_png_count": 44,
+      "capture_path_note": "Each entrance-direction screenshot path is reused for the cached visit; 46 saved capture events produce44 unique PNGs.",
+      "foreground_views": [
+        {
+          "label": "stove-behind",
+          "visit": 1,
+          "position": "(50.31511, 127.7059)",
+          "opacity": 1.0,
+          "shader_path": "res://assets/sprites/world/route1_landing_loop_2026_10_03/canopy_visibility.gdshader",
+          "passed": true
+        },
+        {
+          "label": "coat-behind",
+          "visit": 1,
+          "position": "(205.5339, 142.9248)",
+          "opacity": 0.45,
+          "shader_path": "res://assets/sprites/world/route1_landing_loop_2026_10_03/canopy_visibility.gdshader",
+          "passed": true
+        },
+        {
+          "label": "stove-behind",
+          "visit": 2,
+          "position": "(50.31511, 127.7059)",
+          "opacity": 1.0,
+          "shader_path": "res://assets/sprites/world/route1_landing_loop_2026_10_03/canopy_visibility.gdshader",
+          "passed": true
+        },
+        {
+          "label": "coat-behind",
+          "visit": 2,
+          "position": "(205.5339, 142.9248)",
+          "opacity": 0.45,
+          "shader_path": "res://assets/sprites/world/route1_landing_loop_2026_10_03/canopy_visibility.gdshader",
+          "passed": true
+        }
+      ],
+      "worktable_messages": [
+        "WORKTABLE\nThe worktable is clear, with room to lay out your next task.\n\nFIRST ROUTE  /  Speak to the dispatcher\nROUTE BOARD  /  Assignment open\n\n[E] Continue",
+        "WORKTABLE\nThe worktable is clear, with room to lay out your next task.\n\nFIRST ROUTE  /  Speak to the dispatcher\nROUTE BOARD  /  Assignment open\n\n[E] Continue"
+      ],
+      "checks": {
+        "passed_and_completed": true,
+        "two_visits_four_exact_doorway_gates": true,
+        "eight_dialogues_twenty_four_contacts_four_views": true,
+        "each_visit_four_dialogues_twelve_contacts_two_views": true,
+        "all_eleven_original_flags_false": true,
+        "ordinary_input_zero_teleports_and_quest_overrides": true,
+        "all_contacts_have_physical_slide_collision": true,
+        "coat_fade_and_clear_restoration_each_visit": true,
+        "worktable_clear_no_map_existing_objective_board": true,
+        "original_core_party_notes_objective_board_player_cache_and_garden_exact": true,
+        "no_failed_steps_and_all_capture_events_saved": true,
+        "forty_six_capture_events_forty_four_unique_pngs": true,
+        "runtime_stderr_zero_bytes": true,
+        "terminal_stdout_success_line": true,
+        "observed_terminal_exit_zero": true
+      },
+      "terminal_stdout": {
+        "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/home-interior-linework-2026-10-04/proof/male-walk-stdout.log",
+        "relative_to_revision": "proof/male-walk-stdout.log",
+        "sha256": "96469955b92c316a80e13b2f23beb1e448971ca69b94a308fc6ecb91019eb2f2",
+        "bytes": 699,
+        "modified_utc": "2026-10-05T13:07:12.747879+00:00"
+      },
+      "terminal_completion_line": "AREA_ORDINARY_WALK Male true { \"pouch_accepted\": false, \"levee_entrance_read\": false, \"city_arrival_registered\": false, \"city_directions_read\": false, \"delivered\": false, \"water_mark_observed\": false, \"heard_calls\": false, \"marker_restored\": false, \"report_done\": false, \"reported_calls\": false, \"reported_water_mark\": false }",
+      "runtime_stderr": {
+        "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/home-interior-linework-2026-10-04/proof/male-walk-stderr.log",
+        "relative_to_revision": "proof/male-walk-stderr.log",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0,
+        "modified_utc": "2026-10-05T13:05:25.028790+00:00"
+      },
+      "runtime_stderr_empty": true
+    },
+    "female": {
+      "scope": "Two ordinary hometown/courtyard_home round trips, with the original cached room revisited.",
+      "process_completion": {
+        "pid": 32252,
+        "session": 50277,
+        "exit_code": 0,
+        "evidence_source": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/home-interior-linework-2026-10-04/proof/terminal-results.json / female_walk",
+        "record_source": "Observed terminal completion outputs in this Codex turn, not inferred from proof files.",
+        "independently_read_from_process_exit_artifact": true,
+        "owned_hidden_only": true
+      },
+      "json": {
+        "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/home-interior-linework-2026-10-04/proof/walk/female-walkthrough.json",
+        "relative_to_revision": "proof/walk/female-walkthrough.json",
+        "sha256": "930595a4088085f8d31ec97922b90bf5a9928c2744c00f0ac54b6500649199d7",
+        "bytes": 53465,
+        "modified_utc": "2026-10-05T13:07:10.109054+00:00"
+      },
+      "passed": true,
+      "completed_walk": true,
+      "gate_count": 4,
+      "engine_gate_arrivals": [
+        {
+          "arrival": "(128.0, 208.0)",
+          "from": "hometown",
+          "to": "courtyard_home"
+        },
+        {
+          "arrival": "(233.0, 280.0)",
+          "from": "courtyard_home",
+          "to": "hometown"
+        },
+        {
+          "arrival": "(128.0, 208.0)",
+          "from": "hometown",
+          "to": "courtyard_home"
+        },
+        {
+          "arrival": "(233.0, 280.0)",
+          "from": "courtyard_home",
+          "to": "hometown"
+        }
+      ],
+      "visit_count": 2,
+      "dialogue_count": 8,
+      "physical_contact_count": 24,
+      "foreground_view_count": 4,
+      "per_visit": {
+        "1": {
+          "dialogues": 4,
+          "physical_contacts": 12,
+          "foreground_views": 2
+        },
+        "2": {
+          "dialogues": 4,
+          "physical_contacts": 12,
+          "foreground_views": 2
+        }
+      },
+      "flags": {
+        "city_arrival_registered": false,
+        "city_directions_read": false,
+        "delivered": false,
+        "heard_calls": false,
+        "levee_entrance_read": false,
+        "marker_restored": false,
+        "pouch_accepted": false,
+        "report_done": false,
+        "reported_calls": false,
+        "reported_water_mark": false,
+        "water_mark_observed": false
+      },
+      "test_teleports": 0,
+      "quest_overrides": 0,
+      "capture_events": 46,
+      "unique_png_count": 44,
+      "capture_path_note": "Each entrance-direction screenshot path is reused for the cached visit; 46 saved capture events produce44 unique PNGs.",
+      "foreground_views": [
+        {
+          "label": "stove-behind",
+          "visit": 1,
+          "position": "(50.31511, 127.7059)",
+          "opacity": 1.0,
+          "shader_path": "res://assets/sprites/world/route1_landing_loop_2026_10_03/canopy_visibility.gdshader",
+          "passed": true
+        },
+        {
+          "label": "coat-behind",
+          "visit": 1,
+          "position": "(205.5339, 142.9248)",
+          "opacity": 0.45,
+          "shader_path": "res://assets/sprites/world/route1_landing_loop_2026_10_03/canopy_visibility.gdshader",
+          "passed": true
+        },
+        {
+          "label": "stove-behind",
+          "visit": 2,
+          "position": "(50.31511, 127.7059)",
+          "opacity": 1.0,
+          "shader_path": "res://assets/sprites/world/route1_landing_loop_2026_10_03/canopy_visibility.gdshader",
+          "passed": true
+        },
+        {
+          "label": "coat-behind",
+          "visit": 2,
+          "position": "(205.5339, 142.9248)",
+          "opacity": 0.45,
+          "shader_path": "res://assets/sprites/world/route1_landing_loop_2026_10_03/canopy_visibility.gdshader",
+          "passed": true
+        }
+      ],
+      "worktable_messages": [
+        "WORKTABLE\nThe worktable is clear, with room to lay out your next task.\n\nFIRST ROUTE  /  Speak to the dispatcher\nROUTE BOARD  /  Assignment open\n\n[E] Continue",
+        "WORKTABLE\nThe worktable is clear, with room to lay out your next task.\n\nFIRST ROUTE  /  Speak to the dispatcher\nROUTE BOARD  /  Assignment open\n\n[E] Continue"
+      ],
+      "checks": {
+        "passed_and_completed": true,
+        "two_visits_four_exact_doorway_gates": true,
+        "eight_dialogues_twenty_four_contacts_four_views": true,
+        "each_visit_four_dialogues_twelve_contacts_two_views": true,
+        "all_eleven_original_flags_false": true,
+        "ordinary_input_zero_teleports_and_quest_overrides": true,
+        "all_contacts_have_physical_slide_collision": true,
+        "coat_fade_and_clear_restoration_each_visit": true,
+        "worktable_clear_no_map_existing_objective_board": true,
+        "original_core_party_notes_objective_board_player_cache_and_garden_exact": true,
+        "no_failed_steps_and_all_capture_events_saved": true,
+        "forty_six_capture_events_forty_four_unique_pngs": true,
+        "runtime_stderr_zero_bytes": true,
+        "terminal_stdout_success_line": true,
+        "observed_terminal_exit_zero": true
+      },
+      "terminal_stdout": {
+        "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/home-interior-linework-2026-10-04/proof/female-walk-stdout.log",
+        "relative_to_revision": "proof/female-walk-stdout.log",
+        "sha256": "dcc8629dc0d8bc99e9e13edc663b14d29b17576fe3737565452217bbef7727d8",
+        "bytes": 701,
+        "modified_utc": "2026-10-05T13:07:10.110050+00:00"
+      },
+      "terminal_completion_line": "AREA_ORDINARY_WALK Female true { \"pouch_accepted\": false, \"levee_entrance_read\": false, \"city_arrival_registered\": false, \"city_directions_read\": false, \"delivered\": false, \"water_mark_observed\": false, \"heard_calls\": false, \"marker_restored\": false, \"report_done\": false, \"reported_calls\": false, \"reported_water_mark\": false }",
+      "runtime_stderr": {
+        "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/home-interior-linework-2026-10-04/proof/female-walk-stderr.log",
+        "relative_to_revision": "proof/female-walk-stderr.log",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "bytes": 0,
+        "modified_utc": "2026-10-05T13:05:21.896221+00:00"
+      },
+      "runtime_stderr_empty": true
+    }
+  },
+  "overview": {
+    "json": {
+      "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/home-interior-linework-2026-10-04/proof/overview/male-overview.json",
+      "relative_to_revision": "proof/overview/male-overview.json",
+      "sha256": "fac23e3688a71c0066cdc92fbd4d616b48ae0c0157a385d48d54da1d34a3ad2b",
+      "bytes": 31007,
+      "modified_utc": "2026-10-05T13:05:35.672484+00:00"
+    },
+    "pid": 32328,
+    "run_id": "32328-1791205524.698",
+    "exit_code": 0,
+    "exit_code_evidence_source": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/home-interior-linework-2026-10-04/proof/terminal-results.json / overview",
+    "passed": true,
+    "completed": true,
+    "capture_count": 14,
+    "completed_area_count": 4,
+    "checked_target_sprite_count": 11,
+    "areas": [
+      "courtyard_home",
+      "hometown",
+      "riverfront",
+      "historic_street"
+    ],
+    "checks": {
+      "passed_completed_and_complete_phase": true,
+      "correct_pid_and_run_id": true,
+      "four_exact_areas_completed": true,
+      "fourteen_unique_captures_saved_and_read_back": true,
+      "eleven_unique_target_sprite_contracts": true,
+      "all_original_core_states_equal_after_each_area": true,
+      "diagnostic_camera_only_zero_quest_player_art_overrides": true,
+      "all_captured_png_dimensions_match_report": true,
+      "runtime_stderr_zero_bytes": true,
+      "terminal_stdout_counts_and_run_id_match": true,
+      "observed_terminal_exit_zero": true
+    },
+    "captures": [
+      {
+        "area": "courtyard_home",
+        "camera_zoom": "(2.0, 2.0)",
+        "core_party_local_state_art_material_and_cache_exact": true,
+        "detail_at_actual_gameplay_camera_zoom": false,
+        "label": "home-room-native-2x",
+        "passed": true,
+        "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/home-interior-linework-2026-10-04/proof/overview/male-home-room-native-2x.png",
+        "pixel_size": "(512, 512)",
+        "primary_full_area_view": true,
+        "readback_error": 0,
+        "save_error": 0,
+        "saved_and_read_back": true,
+        "world_region": "[P: (0.0, 0.0), S: (256.0, 256.0)]"
+      },
+      {
+        "area": "courtyard_home",
+        "camera_zoom": "(2.0, 2.0)",
+        "core_party_local_state_art_material_and_cache_exact": true,
+        "detail_at_actual_gameplay_camera_zoom": true,
+        "label": "home-bed-quilt-native-2x",
+        "passed": true,
+        "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/home-interior-linework-2026-10-04/proof/overview/male-home-bed-quilt-native-2x.png",
+        "pixel_size": "(184, 152)",
+        "primary_full_area_view": false,
+        "readback_error": 0,
+        "save_error": 0,
+        "saved_and_read_back": true,
+        "world_region": "[P: (32.0, 52.0), S: (92.0, 76.0)]"
+      },
+      {
+        "area": "courtyard_home",
+        "camera_zoom": "(2.0, 2.0)",
+        "core_party_local_state_art_material_and_cache_exact": true,
+        "detail_at_actual_gameplay_camera_zoom": true,
+        "label": "home-stove-woodpile-native-2x",
+        "passed": true,
+        "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/home-interior-linework-2026-10-04/proof/overview/male-home-stove-woodpile-native-2x.png",
+        "pixel_size": "(104, 160)",
+        "primary_full_area_view": false,
+        "readback_error": 0,
+        "save_error": 0,
+        "saved_and_read_back": true,
+        "world_region": "[P: (28.0, 104.0), S: (52.0, 80.0)]"
+      },
+      {
+        "area": "courtyard_home",
+        "camera_zoom": "(2.0, 2.0)",
+        "core_party_local_state_art_material_and_cache_exact": true,
+        "detail_at_actual_gameplay_camera_zoom": true,
+        "label": "home-cupboard-coat-native-2x",
+        "passed": true,
+        "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/home-interior-linework-2026-10-04/proof/overview/male-home-cupboard-coat-native-2x.png",
+        "pixel_size": "(104, 168)",
+        "primary_full_area_view": false,
+        "readback_error": 0,
+        "save_error": 0,
+        "saved_and_read_back": true,
+        "world_region": "[P: (176.0, 106.0), S: (52.0, 84.0)]"
+      },
+      {
+        "area": "courtyard_home",
+        "camera_zoom": "(2.0, 2.0)",
+        "core_party_local_state_art_material_and_cache_exact": true,
+        "detail_at_actual_gameplay_camera_zoom": true,
+        "label": "home-shelf-worktable-native-2x",
+        "passed": true,
+        "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/home-interior-linework-2026-10-04/proof/overview/male-home-shelf-worktable-native-2x.png",
+        "pixel_size": "(160, 176)",
+        "primary_full_area_view": false,
+        "readback_error": 0,
+        "save_error": 0,
+        "saved_and_read_back": true,
+        "world_region": "[P: (144.0, 28.0), S: (80.0, 88.0)]"
+      },
+      {
+        "area": "hometown",
+        "camera_zoom": "(1.0, 1.0)",
+        "core_party_local_state_art_material_and_cache_exact": true,
+        "detail_at_actual_gameplay_camera_zoom": false,
+        "label": "hometown-overview-native-1x",
+        "passed": true,
+        "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/home-interior-linework-2026-10-04/proof/overview/male-hometown-overview-native-1x.png",
+        "pixel_size": "(1024, 768)",
+        "primary_full_area_view": true,
+        "readback_error": 0,
+        "save_error": 0,
+        "saved_and_read_back": true,
+        "world_region": "[P: (0.0, 0.0), S: (1024.0, 768.0)]"
+      },
+      {
+        "area": "hometown",
+        "camera_zoom": "(3.0, 3.0)",
+        "core_party_local_state_art_material_and_cache_exact": true,
+        "detail_at_actual_gameplay_camera_zoom": true,
+        "label": "hometown-courtyard-native-3x",
+        "passed": true,
+        "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/home-interior-linework-2026-10-04/proof/overview/male-hometown-courtyard-native-3x.png",
+        "pixel_size": "(432, 381)",
+        "primary_full_area_view": false,
+        "readback_error": 0,
+        "save_error": 0,
+        "saved_and_read_back": true,
+        "world_region": "[P: (151.0, 145.0), S: (144.0, 127.0)]"
+      },
+      {
+        "area": "hometown",
+        "camera_zoom": "(3.0, 3.0)",
+        "core_party_local_state_art_material_and_cache_exact": true,
+        "detail_at_actual_gameplay_camera_zoom": true,
+        "label": "hometown-hall-native-3x",
+        "passed": true,
+        "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/home-interior-linework-2026-10-04/proof/overview/male-hometown-hall-native-3x.png",
+        "pixel_size": "(366, 435)",
+        "primary_full_area_view": false,
+        "readback_error": 0,
+        "save_error": 0,
+        "saved_and_read_back": true,
+        "world_region": "[P: (707.0, 289.0), S: (122.0, 145.0)]"
+      },
+      {
+        "area": "riverfront",
+        "camera_zoom": "(1.0, 1.0)",
+        "core_party_local_state_art_material_and_cache_exact": true,
+        "detail_at_actual_gameplay_camera_zoom": false,
+        "label": "riverfront-overview-native-1x",
+        "passed": true,
+        "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/home-interior-linework-2026-10-04/proof/overview/male-riverfront-overview-native-1x.png",
+        "pixel_size": "(1024, 768)",
+        "primary_full_area_view": true,
+        "readback_error": 0,
+        "save_error": 0,
+        "saved_and_read_back": true,
+        "world_region": "[P: (0.0, 0.0), S: (1024.0, 768.0)]"
+      },
+      {
+        "area": "riverfront",
+        "camera_zoom": "(3.0, 3.0)",
+        "core_party_local_state_art_material_and_cache_exact": true,
+        "detail_at_actual_gameplay_camera_zoom": true,
+        "label": "riverfront-hall-native-3x",
+        "passed": true,
+        "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/home-interior-linework-2026-10-04/proof/overview/male-riverfront-hall-native-3x.png",
+        "pixel_size": "(366, 435)",
+        "primary_full_area_view": false,
+        "readback_error": 0,
+        "save_error": 0,
+        "saved_and_read_back": true,
+        "world_region": "[P: (451.0, 233.0), S: (122.0, 145.0)]"
+      },
+      {
+        "area": "riverfront",
+        "camera_zoom": "(3.0, 3.0)",
+        "core_party_local_state_art_material_and_cache_exact": true,
+        "detail_at_actual_gameplay_camera_zoom": true,
+        "label": "riverfront-shop-native-3x",
+        "passed": true,
+        "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/home-interior-linework-2026-10-04/proof/overview/male-riverfront-shop-native-3x.png",
+        "pixel_size": "(516, 450)",
+        "primary_full_area_view": false,
+        "readback_error": 0,
+        "save_error": 0,
+        "saved_and_read_back": true,
+        "world_region": "[P: (682.0, 130.0), S: (172.0, 150.0)]"
+      },
+      {
+        "area": "riverfront",
+        "camera_zoom": "(3.0, 3.0)",
+        "core_party_local_state_art_material_and_cache_exact": true,
+        "detail_at_actual_gameplay_camera_zoom": true,
+        "label": "riverfront-ledger-native-3x",
+        "passed": true,
+        "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/home-interior-linework-2026-10-04/proof/overview/male-riverfront-ledger-native-3x.png",
+        "pixel_size": "(432, 483)",
+        "primary_full_area_view": false,
+        "readback_error": 0,
+        "save_error": 0,
+        "saved_and_read_back": true,
+        "world_region": "[P: (264.0, 495.0), S: (144.0, 161.0)]"
+      },
+      {
+        "area": "historic_street",
+        "camera_zoom": "(1.0, 1.0)",
+        "core_party_local_state_art_material_and_cache_exact": true,
+        "detail_at_actual_gameplay_camera_zoom": false,
+        "label": "historic-street-overview-native-1x",
+        "passed": true,
+        "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/home-interior-linework-2026-10-04/proof/overview/male-historic-street-overview-native-1x.png",
+        "pixel_size": "(768, 896)",
+        "primary_full_area_view": true,
+        "readback_error": 0,
+        "save_error": 0,
+        "saved_and_read_back": true,
+        "world_region": "[P: (0.0, 0.0), S: (768.0, 896.0)]"
+      },
+      {
+        "area": "historic_street",
+        "camera_zoom": "(3.0, 3.0)",
+        "core_party_local_state_art_material_and_cache_exact": true,
+        "detail_at_actual_gameplay_camera_zoom": true,
+        "label": "historic-shop-ledger-native-3x",
+        "passed": true,
+        "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/home-interior-linework-2026-10-04/proof/overview/male-historic-shop-ledger-native-3x.png",
+        "pixel_size": "(1485, 534)",
+        "primary_full_area_view": false,
+        "readback_error": 0,
+        "save_error": 0,
+        "saved_and_read_back": true,
+        "world_region": "[P: (145.0, 238.0), S: (495.0, 178.0)]"
+      }
+    ],
+    "target_sprites": [
+      {
+        "key": "courtyard_home/RoomArt",
+        "state": {
+          "centered": false,
+          "filter": 1,
+          "id": 161866582764,
+          "material": {
+            "class": "",
+            "id": 0,
+            "shader_id": 0,
+            "shader_path": ""
+          },
+          "modulate": "(1.0, 1.0, 1.0, 1.0)",
+          "offset": "(0.0, 0.0)",
+          "position": "(0.0, 0.0)",
+          "scale": "(1.0, 1.0)",
+          "texture_id": -9223371979594135889,
+          "texture_path": "res://assets/sprites/world/courtyard_home_linework_2026_10_04/home_room.png",
+          "texture_size": "(256.0, 256.0)",
+          "visible": true,
+          "visible_world_bounds": "[P: (26.0, 25.0), S: (205.0, 208.0)]",
+          "z_index": -10
+        },
+        "target_contract": true
+      },
+      {
+        "key": "courtyard_home/RouteDecor/RoomStoveFront",
+        "state": {
+          "centered": false,
+          "filter": 1,
+          "id": 161883359981,
+          "material": {
+            "class": "",
+            "id": 0,
+            "shader_id": 0,
+            "shader_path": ""
+          },
+          "modulate": "(1.0, 1.0, 1.0, 1.0)",
+          "offset": "(0.0, -67.0)",
+          "position": "(33.0, 177.0)",
+          "scale": "(1.0, 1.0)",
+          "texture_id": -9223371979292145998,
+          "texture_path": "res://assets/sprites/world/courtyard_home_linework_2026_10_04/home_stove_front.png",
+          "texture_size": "(28.0, 69.0)",
+          "visible": true,
+          "visible_world_bounds": "[P: (35.0, 112.0), S: (24.0, 65.0)]",
+          "z_index": 0
+        },
+        "target_contract": true
+      },
+      {
+        "key": "courtyard_home/RouteDecor/RoomCoatFront",
+        "state": {
+          "centered": false,
+          "filter": 1,
+          "id": 161900137198,
+          "material": {
+            "canopy_opacity": 1.0,
+            "class": "ShaderMaterial",
+            "id": -9223371874937861393,
+            "shader_id": -9223371988385397214,
+            "shader_path": "res://assets/sprites/world/route1_landing_loop_2026_10_03/canopy_visibility.gdshader"
+          },
+          "modulate": "(1.0, 1.0, 1.0, 1.0)",
+          "offset": "(0.0, -62.0)",
+          "position": "(182.0, 176.0)",
+          "scale": "(1.0, 1.0)",
+          "texture_id": -9223371978990156109,
+          "texture_path": "res://assets/sprites/world/courtyard_home_linework_2026_10_04/home_coat_front.png",
+          "texture_size": "(40.0, 64.0)",
+          "visible": true,
+          "visible_world_bounds": "[P: (184.0, 116.0), S: (36.0, 60.0)]",
+          "z_index": 0
+        },
+        "target_contract": true
+      },
+      {
+        "key": "courtyard_home/RouteDecor/RoomThresholdFront",
+        "state": {
+          "centered": false,
+          "filter": 1,
+          "id": 161933691632,
+          "material": {
+            "class": "",
+            "id": 0,
+            "shader_id": 0,
+            "shader_path": ""
+          },
+          "modulate": "(1.0, 1.0, 1.0, 1.0)",
+          "offset": "(0.0, -24.0)",
+          "position": "(24.0, 233.0)",
+          "scale": "(1.0, 1.0)",
+          "texture_id": -9223371978688166220,
+          "texture_path": "res://assets/sprites/world/courtyard_home_linework_2026_10_04/home_threshold_front.png",
+          "texture_size": "(209.0, 26.0)",
+          "visible": true,
+          "visible_world_bounds": "[P: (26.0, 211.0), S: (205.0, 22.0)]",
+          "z_index": 0
+        },
+        "target_contract": true
+      },
+      {
+        "key": "hometown/RouteDecor/CourtyardHome",
+        "state": {
+          "centered": true,
+          "filter": 1,
+          "id": 217801820192,
+          "material": {
+            "class": "",
+            "id": 0,
+            "shader_id": 0,
+            "shader_path": ""
+          },
+          "modulate": "(1.0, 1.0, 1.0, 1.0)",
+          "offset": "(0.0, -64.0)",
+          "position": "(224.0, 256.0)",
+          "scale": "(0.75, 0.75)",
+          "texture_id": -9223371992126716383,
+          "texture_path": "res://assets/sprites/world/world_linework_2026_10_04/courtyard_home.png",
+          "texture_size": "(160.0, 144.0)",
+          "visible": true,
+          "visible_world_bounds": "[P: (167.75, 161.5), S: (111.0, 94.5)]",
+          "z_index": 0
+        },
+        "target_contract": true
+      },
+      {
+        "key": "hometown/RouteDecor/DispatcherHall",
+        "state": {
+          "centered": true,
+          "filter": 1,
+          "id": 218154141644,
+          "material": {
+            "class": "",
+            "id": 0,
+            "shader_id": 0,
+            "shader_path": ""
+          },
+          "modulate": "(1.0, 1.0, 1.0, 1.0)",
+          "offset": "(0.0, -71.0)",
+          "position": "(768.0, 418.0)",
+          "scale": "(0.75, 0.75)",
+          "texture_id": -9223371990918756721,
+          "texture_path": "res://assets/sprites/world/world_linework_2026_10_04/dispatch_hall.png",
+          "texture_size": "(136.0, 168.0)",
+          "visible": true,
+          "visible_world_bounds": "[P: (723.0, 305.5), S: (89.25, 112.5)]",
+          "z_index": 0
+        },
+        "target_contract": true
+      },
+      {
+        "key": "riverfront/RouteDecor/CityCourierBranch",
+        "state": {
+          "centered": true,
+          "filter": 1,
+          "id": 275582552692,
+          "material": {
+            "class": "",
+            "id": 0,
+            "shader_id": 0,
+            "shader_path": ""
+          },
+          "modulate": "(1.0, 1.0, 1.0, 1.0)",
+          "offset": "(0.0, -71.0)",
+          "position": "(512.0, 362.0)",
+          "scale": "(0.75, 0.75)",
+          "texture_id": -9223371990918756721,
+          "texture_path": "res://assets/sprites/world/world_linework_2026_10_04/dispatch_hall.png",
+          "texture_size": "(136.0, 168.0)",
+          "visible": true,
+          "visible_world_bounds": "[P: (467.0, 249.5), S: (89.25, 112.5)]",
+          "z_index": 0
+        },
+        "target_contract": true
+      },
+      {
+        "key": "riverfront/RouteDecor/ReusedBrickShop",
+        "state": {
+          "centered": true,
+          "filter": 1,
+          "id": 275918096281,
+          "material": {
+            "class": "",
+            "id": 0,
+            "shader_id": 0,
+            "shader_path": ""
+          },
+          "modulate": "(1.0, 1.0, 1.0, 1.0)",
+          "offset": "(0.0, -74.0)",
+          "position": "(768.0, 264.0)",
+          "scale": "(0.75, 0.75)",
+          "texture_id": -9223371989945678190,
+          "texture_path": "res://assets/sprites/world/world_linework_2026_10_04/brick_shop.png",
+          "texture_size": "(208.0, 192.0)",
+          "visible": true,
+          "visible_world_bounds": "[P: (698.25, 146.25), S: (139.5, 117.75)]",
+          "z_index": 0
+        },
+        "target_contract": true
+      },
+      {
+        "key": "riverfront/RouteDecor/StreetLedgerHouse",
+        "state": {
+          "centered": true,
+          "filter": 1,
+          "id": 276001982369,
+          "material": {
+            "class": "",
+            "id": 0,
+            "shader_id": 0,
+            "shader_path": ""
+          },
+          "modulate": "(1.0, 1.0, 1.0, 1.0)",
+          "offset": "(0.0, -84.0)",
+          "position": "(336.0, 640.0)",
+          "scale": "(0.75, 0.75)",
+          "texture_id": -9223371989643688301,
+          "texture_path": "res://assets/sprites/world/world_linework_2026_10_04/ledger_house.png",
+          "texture_size": "(176.0, 192.0)",
+          "visible": true,
+          "visible_world_bounds": "[P: (280.5, 511.75), S: (111.0, 128.25)]",
+          "z_index": 0
+        },
+        "target_contract": true
+      },
+      {
+        "key": "historic_street/RouteDecor/RemodelledBrickShop",
+        "state": {
+          "centered": true,
+          "filter": 1,
+          "id": 332440537339,
+          "material": {
+            "class": "",
+            "id": 0,
+            "shader_id": 0,
+            "shader_path": ""
+          },
+          "modulate": "(1.0, 1.0, 1.0, 1.0)",
+          "offset": "(0.0, -74.0)",
+          "position": "(544.0, 400.0)",
+          "scale": "(0.85, 0.85)",
+          "texture_id": -9223371989945678190,
+          "texture_path": "res://assets/sprites/world/world_linework_2026_10_04/brick_shop.png",
+          "texture_size": "(208.0, 192.0)",
+          "visible": true,
+          "visible_world_bounds": "[P: (464.95, 266.55), S: (158.1, 133.45)]",
+          "z_index": 0
+        },
+        "target_contract": true
+      },
+      {
+        "key": "historic_street/RouteDecor/PublicLedgerHouse",
+        "state": {
+          "centered": true,
+          "filter": 1,
+          "id": 332524423423,
+          "material": {
+            "class": "",
+            "id": 0,
+            "shader_id": 0,
+            "shader_path": ""
+          },
+          "modulate": "(1.0, 1.0, 1.0, 1.0)",
+          "offset": "(0.0, -84.0)",
+          "position": "(224.0, 400.0)",
+          "scale": "(0.85, 0.85)",
+          "texture_id": -9223371989643688301,
+          "texture_path": "res://assets/sprites/world/world_linework_2026_10_04/ledger_house.png",
+          "texture_size": "(176.0, 192.0)",
+          "visible": true,
+          "visible_world_bounds": "[P: (161.1, 254.65), S: (125.8, 145.35)]",
+          "z_index": 0
+        },
+        "target_contract": true
+      }
+    ],
+    "terminal_stdout": {
+      "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/home-interior-linework-2026-10-04/proof/overview-stdout.log",
+      "relative_to_revision": "proof/overview-stdout.log",
+      "sha256": "6303c0942fe390c06049c8d72ffd90f16e64bcd4dedc4d84cae00d0c4831f949",
+      "bytes": 465,
+      "modified_utc": "2026-10-05T13:05:35.674478+00:00"
+    },
+    "terminal_completion_line": "SHARPER_WORLD_OVERVIEW 32328-1791205524.698 Male true captures=14/14 areas=4/4 sprites=11/11",
+    "runtime_stderr": {
+      "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/home-interior-linework-2026-10-04/proof/overview-stderr.log",
+      "relative_to_revision": "proof/overview-stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "modified_utc": "2026-10-05T13:05:23.405087+00:00"
+    },
+    "runtime_stderr_empty": true,
+    "process_session": 53213
+  },
+  "source_to_room_render_pixel_registration": {
+    "source": {
+      "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/home-interior-linework-2026-10-04/prepared/room_cleared_registered_source.png",
+      "relative_to_revision": "prepared/room_cleared_registered_source.png",
+      "sha256": "3232fff46305634fe509872d759e305e3e3ae4a2c76a282efb6f73d18fded95b",
+      "bytes": 30102,
+      "modified_utc": "2026-10-05T12:50:04.643496+00:00",
+      "image_size": [
+        256,
+        256
+      ],
+      "image_mode": "RGBA"
+    },
+    "native_render": {
+      "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/home-interior-linework-2026-10-04/proof/overview/male-home-room-native-2x.png",
+      "relative_to_revision": "proof/overview/male-home-room-native-2x.png",
+      "sha256": "30d9959a8752a8206d819a7886a8fbd6aa05850e09f7ef1795e8045421943788",
+      "bytes": 40228,
+      "modified_utc": "2026-10-05T13:05:27.131807+00:00",
+      "image_size": [
+        512,
+        512
+      ],
+      "image_mode": "RGB"
+    },
+    "method": "Compare RGB at every2x2 render pixel corresponding to source pixels with alpha255, excluding courier world rectangle x112..143,y176..215. Transparent source pixels and courier region are excluded. No image was altered.",
+    "source_size": [
+      256,
+      256
+    ],
+    "render_size": [
+      512,
+      512
+    ],
+    "checked_render_pixels": 162324,
+    "exact_rgb_render_pixels": 162324,
+    "different_rgb_render_pixels": 0
+  },
+  "visual_images_inspected": 18,
+  "visual_findings": [
+    {
+      "files": [
+        "male-home-room-native-2x.png",
+        "male-home-bed-quilt-native-2x.png",
+        "male-home-stove-woodpile-native-2x.png",
+        "male-home-cupboard-coat-native-2x.png",
+        "male-home-shelf-worktable-native-2x.png"
+      ],
+      "finding": "Full room and selected furniture are complete in the frames. No apparent split-layer seams, doubled edges or furniture registration shift. Worktable surface is empty. Crops intentionally include partial adjacent walls/windows/furniture at their borders.",
+      "severity": "observation",
+      "blocking_native_verification": false
+    },
+    {
+      "files": [
+        "male-home-bed-quilt-native-2x.png",
+        "male-home-cupboard-coat-native-2x.png",
+        "male-home-shelf-worktable-native-2x.png"
+      ],
+      "finding": "At2x the quilt still has a broad flat color field with sparse fold marks; cupboard backplate/coat and shelf crockery have limited small-form detail. Stove and woodpile silhouettes remain legible. These visual detail concerns remain part of the user's ongoing room refinement.",
+      "severity": "visual_refinement_pending",
+      "blocking_native_verification": false
+    },
+    {
+      "files": [
+        "male-hometown-courtyard-native-3x.png",
+        "male-hometown-hall-native-3x.png",
+        "male-riverfront-hall-native-3x.png",
+        "male-riverfront-shop-native-3x.png",
+        "male-riverfront-ledger-native-3x.png",
+        "male-historic-shop-ledger-native-3x.png"
+      ],
+      "finding": "All seven selected outdoor building appearances retain full roof, wall, entrance and footing inside the frames; no visible target-building clipping or registration seam. Existing0.75/0.85 transforms and native3x camera are retained.",
+      "severity": "observation",
+      "blocking_native_verification": false
+    },
+    {
+      "files": [
+        "male-hometown-hall-native-3x.png",
+        "male-riverfront-hall-native-3x.png"
+      ],
+      "finding": "COURIER HALL and COURIER BRANCH world labels are partly obscured behind the roofs in the actual scene.",
+      "severity": "presentation_concern",
+      "blocking_native_verification": false
+    },
+    {
+      "files": [
+        "male-hometown-courtyard-native-3x.png",
+        "male-riverfront-ledger-native-3x.png",
+        "male-historic-shop-ledger-native-3x.png"
+      ],
+      "finding": "Focused building framing crops incidental couriers/NPCs at image borders: courtyard courier legs at bottom, riverfront courier at top, and workshop keeper at bottom. Target buildings themselves are complete.",
+      "severity": "diagnostic_crop_limitation",
+      "blocking_native_verification": false
+    },
+    {
+      "files": [
+        "male-home-entry-first.png",
+        "female-home-entry-first.png",
+        "male-home-view-coat-behind-first.png",
+        "female-home-view-coat-behind-first.png"
+      ],
+      "finding": "Both couriers are visible on room entry. Behind the cupboard, the upper sprite fades and each courier remains readable while the base/feet portion stays opaque. Native records show0.45 behind and1.0 restored on both visits.",
+      "severity": "observation",
+      "blocking_native_verification": false
+    }
+  ],
+  "separate_import_diagnostics": [
+    {
+      "file": {
+        "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/home-interior-linework-2026-10-04/proof/import-stderr.log",
+        "relative_to_revision": "proof/import-stderr.log",
+        "sha256": "1fdf2d925175f8ccf617a25531c65bec00e98a32fb2d85a7fd8dee8431722025",
+        "bytes": 914,
+        "modified_utc": "2026-10-05T13:00:09.178680+00:00"
+      },
+      "empty": false,
+      "scope": "Separate headless import/editor shutdown, distinct from the three native runtime stderr logs.",
+      "contains_boot_snapshot_notice": true,
+      "contains_import_settled_notice": true,
+      "warnings": [
+        "WARNING: 1 RID of type \"CanvasItem\" was leaked.",
+        "WARNING: 3 ObjectDB instances were leaked at exit (run with `--verbose` for details)."
+      ],
+      "native_runtime_failure": false
+    },
+    {
+      "file": {
+        "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/home-interior-linework-2026-10-04/proof/final-import-stderr.log",
+        "relative_to_revision": "proof/final-import-stderr.log",
+        "sha256": "b91a18ab0f8e92a032fbabb881a2482985d1bc7f33dfe5c24f83a2ef5175e978",
+        "bytes": 913,
+        "modified_utc": "2026-10-05T13:02:26.444214+00:00"
+      },
+      "empty": false,
+      "scope": "Separate headless import/editor shutdown, distinct from the three native runtime stderr logs.",
+      "contains_boot_snapshot_notice": true,
+      "contains_import_settled_notice": true,
+      "warnings": [
+        "WARNING: 1 RID of type \"CanvasItem\" was leaked.",
+        "WARNING: 3 ObjectDB instances were leaked at exit (run with `--verbose` for details)."
+      ],
+      "native_runtime_failure": false
+    }
+  ],
+  "fixture_source_hashes": [
+    {
+      "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/sharper_home_walk.gd",
+      "sha256": "374ac0b5c3f440901886be60bbf3095e547e1cc5c2d704a6d1e9d11645ac4c94",
+      "matches_prepared_fixture": true,
+      "source_role": "Focused walk/native overview runtime fixture"
+    },
+    {
+      "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/sharper_world_overview.gd",
+      "sha256": "847c84287e0448a44d03433ddabcf9df77225ff7f8bd3c2527ef109db82333c8",
+      "matches_prepared_fixture": true,
+      "source_role": "Focused walk/native overview runtime fixture"
+    },
+    {
+      "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/hometown_home_walk.gd",
+      "sha256": "a1d04787a061fd3399277f0f8dbf83bc1513227313078f29d35de5291ad73b52",
+      "matches_prepared_fixture": true,
+      "source_role": "Preserved existing fixture"
+    },
+    {
+      "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/hometown_homes_overview.gd",
+      "sha256": "3213e2a8372830509bb42f52c3ab3ec38be72373d4d869c2a71549d06c35534a",
+      "matches_prepared_fixture": true,
+      "source_role": "Preserved existing fixture"
+    }
+  ],
+  "prepared_first_version_source_hashes": [
+    {
+      "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/home-interior-linework-2026-10-04/prepared/room_cleared_registered_source.png",
+      "relative_to_revision": "prepared/room_cleared_registered_source.png",
+      "sha256": "3232fff46305634fe509872d759e305e3e3ae4a2c76a282efb6f73d18fded95b",
+      "bytes": 30102,
+      "modified_utc": "2026-10-05T12:50:04.643496+00:00",
+      "image_size": [
+        256,
+        256
+      ],
+      "image_mode": "RGBA"
+    },
+    {
+      "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/home-interior-linework-2026-10-04/prepared/home_room.png",
+      "relative_to_revision": "prepared/home_room.png",
+      "sha256": "fa61f4d3f78b2593907327ae7c9538f72e80b1f0722ed5324d77a5fb68483b36",
+      "bytes": 24659,
+      "modified_utc": "2026-10-05T12:50:04.675438+00:00",
+      "image_size": [
+        256,
+        256
+      ],
+      "image_mode": "RGBA"
+    },
+    {
+      "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/home-interior-linework-2026-10-04/prepared/home_stove_front.png",
+      "relative_to_revision": "prepared/home_stove_front.png",
+      "sha256": "cb8d5b1e0c54ffbac67d278556ef87d120bef6ac18afc64722ce1d2f2715c1c6",
+      "bytes": 2664,
+      "modified_utc": "2026-10-05T12:50:04.661475+00:00",
+      "image_size": [
+        28,
+        69
+      ],
+      "image_mode": "RGBA"
+    },
+    {
+      "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/home-interior-linework-2026-10-04/prepared/home_coat_front.png",
+      "relative_to_revision": "prepared/home_coat_front.png",
+      "sha256": "5ab4376a1cb55597d2fc3797d6cb175f55c93373d1713c53b66d20a06258e921",
+      "bytes": 2653,
+      "modified_utc": "2026-10-05T12:50:04.666462+00:00",
+      "image_size": [
+        40,
+        64
+      ],
+      "image_mode": "RGBA"
+    },
+    {
+      "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/home-interior-linework-2026-10-04/prepared/home_threshold_front.png",
+      "relative_to_revision": "prepared/home_threshold_front.png",
+      "sha256": "47872dc776e93d784937cc60243758166390d92349e8ec12588586ee2c445ac1",
+      "bytes": 2248,
+      "modified_utc": "2026-10-05T12:50:04.672448+00:00",
+      "image_size": [
+        209,
+        26
+      ],
+      "image_mode": "RGBA"
+    }
+  ],
+  "prior_proof_artifact_count": 116,
+  "prior_proof_artifact_manifest": [
+    {
+      "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/home-interior-linework-2026-10-04/proof/female-walk-stderr.log",
+      "relative_to_revision": "proof/female-walk-stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "modified_utc": "2026-10-05T13:05:21.896221+00:00"
+    },
+    {
+      "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/home-interior-linework-2026-10-04/proof/female-walk-stdout.log",
+      "relative_to_revision": "proof/female-walk-stdout.log",
+      "sha256": "dcc8629dc0d8bc99e9e13edc663b14d29b17576fe3737565452217bbef7727d8",
+      "bytes": 701,
+      "modified_utc": "2026-10-05T13:07:10.110050+00:00"
+    },
+    {
+      "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/home-interior-linework-2026-10-04/proof/final-import-stderr.log",
+      "relative_to_revision": "proof/final-import-stderr.log",
+      "sha256": "b91a18ab0f8e92a032fbabb881a2482985d1bc7f33dfe5c24f83a2ef5175e978",
+      "bytes": 913,
+      "modified_utc": "2026-10-05T13:02:26.444214+00:00"
+    },
+    {
+      "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/home-interior-linework-2026-10-04/proof/final-import-stdout.log",
+      "relative_to_revision": "proof/final-import-stdout.log",
+      "sha256": "194e7602604c16d79b8fe260a0e51dc333f220cbaf706878ec79c1ed5b27e4d6",
+      "bytes": 4510,
+      "modified_utc": "2026-10-05T13:02:25.379481+00:00"
+    },
+    {
+      "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/home-interior-linework-2026-10-04/proof/import-stderr.log",
+      "relative_to_revision": "proof/import-stderr.log",
+      "sha256": "1fdf2d925175f8ccf617a25531c65bec00e98a32fb2d85a7fd8dee8431722025",
+      "bytes": 914,
+      "modified_utc": "2026-10-05T13:00:09.178680+00:00"
+    },
+    {
+      "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/home-interior-linework-2026-10-04/proof/import-stdout.log",
+      "relative_to_revision": "proof/import-stdout.log",
+      "sha256": "d77d39bbc4f217ef0a9ba9b1a1fbe61b2c02261018af3e9f84813b95424bf7a2",
+      "bytes": 2115,
+      "modified_utc": "2026-10-05T13:00:08.048114+00:00"
+    },
+    {
+      "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/home-interior-linework-2026-10-04/proof/male-walk-stderr.log",
+      "relative_to_revision": "proof/male-walk-stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "modified_utc": "2026-10-05T13:05:25.028790+00:00"
+    },
+    {
+      "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/home-interior-linework-2026-10-04/proof/male-walk-stdout.log",
+      "relative_to_revision": "proof/male-walk-stdout.log",
+      "sha256": "96469955b92c316a80e13b2f23beb1e448971ca69b94a308fc6ecb91019eb2f2",
+      "bytes": 699,
+      "modified_utc": "2026-10-05T13:07:12.747879+00:00"
+    },
+    {
+      "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/home-interior-linework-2026-10-04/proof/overview/male-historic-shop-ledger-native-3x.png",
+      "relative_to_revision": "proof/overview/male-historic-shop-ledger-native-3x.png",
+      "sha256": "48a78f8ead6911d167c92112b246e44760d42dfaeb8b67f498cfeb757985abe3",
+      "bytes": 100946,
+      "modified_utc": "2026-10-05T13:05:35.589467+00:00",
+      "image_size": [
+        1485,
+        534
+      ],
+      "image_mode": "RGB"
+    },
+    {
+      "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/home-interior-linework-2026-10-04/proof/overview/male-historic-street-overview-native-1x.png",
+      "relative_to_revision": "proof/overview/male-historic-street-overview-native-1x.png",
+      "sha256": "f496fd5ba35056cb951762b609a34a253ecd0cbad0d7779b0635222fad0c24bf",
+      "bytes": 438178,
+      "modified_utc": "2026-10-05T13:05:35.194101+00:00",
+      "image_size": [
+        768,
+        896
+      ],
+      "image_mode": "RGB"
+    },
+    {
+      "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/home-interior-linework-2026-10-04/proof/overview/male-home-bed-quilt-native-2x.png",
+      "relative_to_revision": "proof/overview/male-home-bed-quilt-native-2x.png",
+      "sha256": "9710d0120c2e260903f00309a7aaecbbffcb4b6b640f4275303d59d6aede2a23",
+      "bytes": 7813,
+      "modified_utc": "2026-10-05T13:05:27.489633+00:00",
+      "image_size": [
+        184,
+        152
+      ],
+      "image_mode": "RGB"
+    },
+    {
+      "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/home-interior-linework-2026-10-04/proof/overview/male-home-cupboard-coat-native-2x.png",
+      "relative_to_revision": "proof/overview/male-home-cupboard-coat-native-2x.png",
+      "sha256": "84b9324db39f64ecf647db4f6063dba219987d9f793fe7e82d42e8ec7fe1c119",
+      "bytes": 4955,
+      "modified_utc": "2026-10-05T13:05:28.227150+00:00",
+      "image_size": [
+        104,
+        168
+      ],
+      "image_mode": "RGB"
+    },
+    {
+      "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/home-interior-linework-2026-10-04/proof/overview/male-home-room-native-2x.png",
+      "relative_to_revision": "proof/overview/male-home-room-native-2x.png",
+      "sha256": "30d9959a8752a8206d819a7886a8fbd6aa05850e09f7ef1795e8045421943788",
+      "bytes": 40228,
+      "modified_utc": "2026-10-05T13:05:27.131807+00:00",
+      "image_size": [
+        512,
+        512
+      ],
+      "image_mode": "RGB"
+    },
+    {
+      "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/home-interior-linework-2026-10-04/proof/overview/male-home-shelf-worktable-native-2x.png",
+      "relative_to_revision": "proof/overview/male-home-shelf-worktable-native-2x.png",
+      "sha256": "9f26d6df4e7df3b84fdde0f9e691c81e935c8fa6a79db402abba84dfaceff552",
+      "bytes": 7804,
+      "modified_utc": "2026-10-05T13:05:28.593709+00:00",
+      "image_size": [
+        160,
+        176
+      ],
+      "image_mode": "RGB"
+    },
+    {
+      "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/home-interior-linework-2026-10-04/proof/overview/male-home-stove-woodpile-native-2x.png",
+      "relative_to_revision": "proof/overview/male-home-stove-woodpile-native-2x.png",
+      "sha256": "ab65db15873b3fe210c7864464597e34d5945976fb7514a324bb80bf5e134a00",
+      "bytes": 5134,
+      "modified_utc": "2026-10-05T13:05:27.855406+00:00",
+      "image_size": [
+        104,
+        160
+      ],
+      "image_mode": "RGB"
+    },
+    {
+      "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/home-interior-linework-2026-10-04/proof/overview/male-hometown-courtyard-native-3x.png",
+      "relative_to_revision": "proof/overview/male-hometown-courtyard-native-3x.png",
+      "sha256": "56a41f474e6116b6829d86b4ce5367d8ffa079e569174b3cb000dccc08273e4b",
+      "bytes": 35721,
+      "modified_utc": "2026-10-05T13:05:30.620101+00:00",
+      "image_size": [
+        432,
+        381
+      ],
+      "image_mode": "RGB"
+    },
+    {
+      "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/home-interior-linework-2026-10-04/proof/overview/male-hometown-hall-native-3x.png",
+      "relative_to_revision": "proof/overview/male-hometown-hall-native-3x.png",
+      "sha256": "726c4d9e06cf9da669544c1cc24c2339bc45dd5724b3efaa007dc3bdece9e26b",
+      "bytes": 26559,
+      "modified_utc": "2026-10-05T13:05:30.979452+00:00",
+      "image_size": [
+        366,
+        435
+      ],
+      "image_mode": "RGB"
+    },
+    {
+      "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/home-interior-linework-2026-10-04/proof/overview/male-hometown-overview-native-1x.png",
+      "relative_to_revision": "proof/overview/male-hometown-overview-native-1x.png",
+      "sha256": "bde7ce7d6114e71e57db5bb543d2a35f1815f4bf08a129bb583b7033421f7d41",
+      "bytes": 568526,
+      "modified_utc": "2026-10-05T13:05:30.239229+00:00",
+      "image_size": [
+        1024,
+        768
+      ],
+      "image_mode": "RGB"
+    },
+    {
+      "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/home-interior-linework-2026-10-04/proof/overview/male-overview.json",
+      "relative_to_revision": "proof/overview/male-overview.json",
+      "sha256": "fac23e3688a71c0066cdc92fbd4d616b48ae0c0157a385d48d54da1d34a3ad2b",
+      "bytes": 31007,
+      "modified_utc": "2026-10-05T13:05:35.672484+00:00"
+    },
+    {
+      "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/home-interior-linework-2026-10-04/proof/overview/male-riverfront-hall-native-3x.png",
+      "relative_to_revision": "proof/overview/male-riverfront-hall-native-3x.png",
+      "sha256": "8c595f0cb688fc32f71bec63d28db5e28307d7a395c86f4c032c507f00f10cdb",
+      "bytes": 32028,
+      "modified_utc": "2026-10-05T13:05:32.920809+00:00",
+      "image_size": [
+        366,
+        435
+      ],
+      "image_mode": "RGB"
+    },
+    {
+      "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/home-interior-linework-2026-10-04/proof/overview/male-riverfront-ledger-native-3x.png",
+      "relative_to_revision": "proof/overview/male-riverfront-ledger-native-3x.png",
+      "sha256": "e6499af2a91c145016519d0124b15db85a0551a1ed9928686ca1ef76b105734b",
+      "bytes": 35869,
+      "modified_utc": "2026-10-05T13:05:33.648138+00:00",
+      "image_size": [
+        432,
+        483
+      ],
+      "image_mode": "RGB"
+    },
+    {
+      "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/home-interior-linework-2026-10-04/proof/overview/male-riverfront-overview-native-1x.png",
+      "relative_to_revision": "proof/overview/male-riverfront-overview-native-1x.png",
+      "sha256": "d031158f9d44a7bb8d403be21238b4af0369bd0c4a7e1cc2c83552c55208219d",
+      "bytes": 487020,
+      "modified_utc": "2026-10-05T13:05:32.548741+00:00",
+      "image_size": [
+        1024,
+        768
+      ],
+      "image_mode": "RGB"
+    },
+    {
+      "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/home-interior-linework-2026-10-04/proof/overview/male-riverfront-shop-native-3x.png",
+      "relative_to_revision": "proof/overview/male-riverfront-shop-native-3x.png",
+      "sha256": "2edd85e952a0f037c365774048c8400f64c148586d655668fd0cbb596b022be8",
+      "bytes": 32784,
+      "modified_utc": "2026-10-05T13:05:33.283067+00:00",
+      "image_size": [
+        516,
+        450
+      ],
+      "image_mode": "RGB"
+    },
+    {
+      "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/home-interior-linework-2026-10-04/proof/overview-stderr.log",
+      "relative_to_revision": "proof/overview-stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "modified_utc": "2026-10-05T13:05:23.405087+00:00"
+    },
+    {
+      "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/home-interior-linework-2026-10-04/proof/overview-stdout.log",
+      "relative_to_revision": "proof/overview-stdout.log",
+      "sha256": "6303c0942fe390c06049c8d72ffd90f16e64bcd4dedc4d84cae00d0c4831f949",
+      "bytes": 465,
+      "modified_utc": "2026-10-05T13:05:35.674478+00:00"
+    },
+    {
+      "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/home-interior-linework-2026-10-04/proof/terminal-results.json",
+      "relative_to_revision": "proof/terminal-results.json",
+      "sha256": "eb0121f2927b265ec8457dcd2153bccb77656c5ea460ce5a9f4890eb3a795b3d",
+      "bytes": 485,
+      "modified_utc": "2026-10-05T13:17:10.220289+00:00"
+    },
+    {
+      "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/home-interior-linework-2026-10-04/proof/walk/female-entrance-courtyard_home-to-hometown.png",
+      "relative_to_revision": "proof/walk/female-entrance-courtyard_home-to-hometown.png",
+      "sha256": "c7cf0473cba91162f4ebaf320225b6b8eadcf578a1769bff0ed73217fea4ae82",
+      "bytes": 115851,
+      "modified_utc": "2026-10-05T13:07:09.121825+00:00",
+      "image_size": [
+        1152,
+        648
+      ],
+      "image_mode": "RGB"
+    },
+    {
+      "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/home-interior-linework-2026-10-04/proof/walk/female-entrance-hometown-to-courtyard_home.png",
+      "relative_to_revision": "proof/walk/female-entrance-hometown-to-courtyard_home.png",
+      "sha256": "6751af8ea2854ff53309e1e858a420991004305ec7b7577e2bd3590b84fa588e",
+      "bytes": 56041,
+      "modified_utc": "2026-10-05T13:06:20.321439+00:00",
+      "image_size": [
+        1152,
+        648
+      ],
+      "image_mode": "RGB"
+    },
+    {
+      "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/home-interior-linework-2026-10-04/proof/walk/female-focused-return-home.png",
+      "relative_to_revision": "proof/walk/female-focused-return-home.png",
+      "sha256": "c7cf0473cba91162f4ebaf320225b6b8eadcf578a1769bff0ed73217fea4ae82",
+      "bytes": 115851,
+      "modified_utc": "2026-10-05T13:07:10.107059+00:00",
+      "image_size": [
+        1152,
+        648
+      ],
+      "image_mode": "RGB"
+    },
+    {
+      "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/home-interior-linework-2026-10-04/proof/walk/female-home-bed-cached-return.png",
+      "relative_to_revision": "proof/walk/female-home-bed-cached-return.png",
+      "sha256": "ed18f4e77543fd4a3ae62d4f583e346e2efd6e52beeb1c8941d1221b1f388dd4",
+      "bytes": 62245,
+      "modified_utc": "2026-10-05T13:06:25.099337+00:00",
+      "image_size": [
+        1152,
+        648
+      ],
+      "image_mode": "RGB"
+    },
+    {
+      "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/home-interior-linework-2026-10-04/proof/walk/female-home-bed-first.png",
+      "relative_to_revision": "proof/walk/female-home-bed-first.png",
+      "sha256": "ed18f4e77543fd4a3ae62d4f583e346e2efd6e52beeb1c8941d1221b1f388dd4",
+      "bytes": 62245,
+      "modified_utc": "2026-10-05T13:05:34.296272+00:00",
+      "image_size": [
+        1152,
+        648
+      ],
+      "image_mode": "RGB"
+    },
+    {
+      "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/home-interior-linework-2026-10-04/proof/walk/female-home-coat-cached-return.png",
+      "relative_to_revision": "proof/walk/female-home-coat-cached-return.png",
+      "sha256": "61b2e28102b6c3c64144078de6fab0b9e7b2cc45b07b96e7abd4217a06d74203",
+      "bytes": 58486,
+      "modified_utc": "2026-10-05T13:06:29.950155+00:00",
+      "image_size": [
+        1152,
+        648
+      ],
+      "image_mode": "RGB"
+    },
+    {
+      "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/home-interior-linework-2026-10-04/proof/walk/female-home-coat-first.png",
+      "relative_to_revision": "proof/walk/female-home-coat-first.png",
+      "sha256": "61b2e28102b6c3c64144078de6fab0b9e7b2cc45b07b96e7abd4217a06d74203",
+      "bytes": 58486,
+      "modified_utc": "2026-10-05T13:05:39.182271+00:00",
+      "image_size": [
+        1152,
+        648
+      ],
+      "image_mode": "RGB"
+    },
+    {
+      "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/home-interior-linework-2026-10-04/proof/walk/female-home-collision-bed-cached-return.png",
+      "relative_to_revision": "proof/walk/female-home-collision-bed-cached-return.png",
+      "sha256": "7f1efa6cdc7a92ff9fccc51feb52603c0e4994c4d3f95cf6e875d421a53ae147",
+      "bytes": 55083,
+      "modified_utc": "2026-10-05T13:06:46.017907+00:00",
+      "image_size": [
+        1152,
+        648
+      ],
+      "image_mode": "RGB"
+    },
+    {
+      "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/home-interior-linework-2026-10-04/proof/walk/female-home-collision-bed-first.png",
+      "relative_to_revision": "proof/walk/female-home-collision-bed-first.png",
+      "sha256": "7f1efa6cdc7a92ff9fccc51feb52603c0e4994c4d3f95cf6e875d421a53ae147",
+      "bytes": 55083,
+      "modified_utc": "2026-10-05T13:05:55.266148+00:00",
+      "image_size": [
+        1152,
+        648
+      ],
+      "image_mode": "RGB"
+    },
+    {
+      "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/home-interior-linework-2026-10-04/proof/walk/female-home-collision-bedside-cached-return.png",
+      "relative_to_revision": "proof/walk/female-home-collision-bedside-cached-return.png",
+      "sha256": "a1a8aa2a9d6f4a35db6a09557488ab1b2a3ba41932a87852a74d0d066e1bd042",
+      "bytes": 55090,
+      "modified_utc": "2026-10-05T13:06:56.833380+00:00",
+      "image_size": [
+        1152,
+        648
+      ],
+      "image_mode": "RGB"
+    },
+    {
+      "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/home-interior-linework-2026-10-04/proof/walk/female-home-collision-bedside-first.png",
+      "relative_to_revision": "proof/walk/female-home-collision-bedside-first.png",
+      "sha256": "a1a8aa2a9d6f4a35db6a09557488ab1b2a3ba41932a87852a74d0d066e1bd042",
+      "bytes": 55090,
+      "modified_utc": "2026-10-05T13:06:06.084792+00:00",
+      "image_size": [
+        1152,
+        648
+      ],
+      "image_mode": "RGB"
+    },
+    {
+      "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/home-interior-linework-2026-10-04/proof/walk/female-home-collision-coat-cabinet-cached-return.png",
+      "relative_to_revision": "proof/walk/female-home-collision-coat-cabinet-cached-return.png",
+      "sha256": "1528d579f7dc0a041789769c46b8543118ca5c27d7dca23c6bc287b60245b0d9",
+      "bytes": 55550,
+      "modified_utc": "2026-10-05T13:07:00.513416+00:00",
+      "image_size": [
+        1152,
+        648
+      ],
+      "image_mode": "RGB"
+    },
+    {
+      "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/home-interior-linework-2026-10-04/proof/walk/female-home-collision-coat-cabinet-first.png",
+      "relative_to_revision": "proof/walk/female-home-collision-coat-cabinet-first.png",
+      "sha256": "1528d579f7dc0a041789769c46b8543118ca5c27d7dca23c6bc287b60245b0d9",
+      "bytes": 55550,
+      "modified_utc": "2026-10-05T13:06:09.766126+00:00",
+      "image_size": [
+        1152,
+        648
+      ],
+      "image_mode": "RGB"
+    },
+    {
+      "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/home-interior-linework-2026-10-04/proof/walk/female-home-collision-east-wall-cached-return.png",
+      "relative_to_revision": "proof/walk/female-home-collision-east-wall-cached-return.png",
+      "sha256": "552b9f06fa4963457bd8af05cd18dbaaeccfe533f3faa6fe152170b23f374fa6",
+      "bytes": 55052,
+      "modified_utc": "2026-10-05T13:06:37.966870+00:00",
+      "image_size": [
+        1152,
+        648
+      ],
+      "image_mode": "RGB"
+    },
+    {
+      "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/home-interior-linework-2026-10-04/proof/walk/female-home-collision-east-wall-first.png",
+      "relative_to_revision": "proof/walk/female-home-collision-east-wall-first.png",
+      "sha256": "552b9f06fa4963457bd8af05cd18dbaaeccfe533f3faa6fe152170b23f374fa6",
+      "bytes": 55052,
+      "modified_utc": "2026-10-05T13:05:47.214944+00:00",
+      "image_size": [
+        1152,
+        648
+      ],
+      "image_mode": "RGB"
+    },
+    {
+      "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/home-interior-linework-2026-10-04/proof/walk/female-home-collision-north-wall-cached-return.png",
+      "relative_to_revision": "proof/walk/female-home-collision-north-wall-cached-return.png",
+      "sha256": "7a46952f067502e7cbe1276e288f273acedff73ad163f278cf7d41b712c3b7d4",
+      "bytes": 55729,
+      "modified_utc": "2026-10-05T13:06:32.698009+00:00",
+      "image_size": [
+        1152,
+        648
+      ],
+      "image_mode": "RGB"
+    },
+    {
+      "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/home-interior-linework-2026-10-04/proof/walk/female-home-collision-north-wall-first.png",
+      "relative_to_revision": "proof/walk/female-home-collision-north-wall-first.png",
+      "sha256": "7a46952f067502e7cbe1276e288f273acedff73ad163f278cf7d41b712c3b7d4",
+      "bytes": 55729,
+      "modified_utc": "2026-10-05T13:05:41.929477+00:00",
+      "image_size": [
+        1152,
+        648
+      ],
+      "image_mode": "RGB"
+    },
+    {
+      "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/home-interior-linework-2026-10-04/proof/walk/female-home-collision-south-left-wall-cached-return.png",
+      "relative_to_revision": "proof/walk/female-home-collision-south-left-wall-cached-return.png",
+      "sha256": "93c03c25fdc69bc5d45c49d2e585923f3497520db1074a7a6cf2fb8028aeb370",
+      "bytes": 56289,
+      "modified_utc": "2026-10-05T13:06:40.415942+00:00",
+      "image_size": [
+        1152,
+        648
+      ],
+      "image_mode": "RGB"
+    },
+    {
+      "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/home-interior-linework-2026-10-04/proof/walk/female-home-collision-south-left-wall-first.png",
+      "relative_to_revision": "proof/walk/female-home-collision-south-left-wall-first.png",
+      "sha256": "93c03c25fdc69bc5d45c49d2e585923f3497520db1074a7a6cf2fb8028aeb370",
+      "bytes": 56289,
+      "modified_utc": "2026-10-05T13:05:49.665826+00:00",
+      "image_size": [
+        1152,
+        648
+      ],
+      "image_mode": "RGB"
+    },
+    {
+      "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/home-interior-linework-2026-10-04/proof/walk/female-home-collision-south-right-wall-cached-return.png",
+      "relative_to_revision": "proof/walk/female-home-collision-south-right-wall-cached-return.png",
+      "sha256": "13ed2e72fe39563e1532e2af973b7b2012e846805f57cd2a935dd9e8c7804b9d",
+      "bytes": 56408,
+      "modified_utc": "2026-10-05T13:06:42.813110+00:00",
+      "image_size": [
+        1152,
+        648
+      ],
+      "image_mode": "RGB"
+    },
+    {
+      "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/home-interior-linework-2026-10-04/proof/walk/female-home-collision-south-right-wall-first.png",
+      "relative_to_revision": "proof/walk/female-home-collision-south-right-wall-first.png",
+      "sha256": "13ed2e72fe39563e1532e2af973b7b2012e846805f57cd2a935dd9e8c7804b9d",
+      "bytes": 56408,
+      "modified_utc": "2026-10-05T13:05:52.064481+00:00",
+      "image_size": [
+        1152,
+        648
+      ],
+      "image_mode": "RGB"
+    },
+    {
+      "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/home-interior-linework-2026-10-04/proof/walk/female-home-collision-stool-cached-return.png",
+      "relative_to_revision": "proof/walk/female-home-collision-stool-cached-return.png",
+      "sha256": "6a04c80a72f55355ee51cd246dbc1700283626bcd66c0e7c694537b87c96a798",
+      "bytes": 54888,
+      "modified_utc": "2026-10-05T13:06:50.568881+00:00",
+      "image_size": [
+        1152,
+        648
+      ],
+      "image_mode": "RGB"
+    },
+    {
+      "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/home-interior-linework-2026-10-04/proof/walk/female-home-collision-stool-first.png",
+      "relative_to_revision": "proof/walk/female-home-collision-stool-first.png",
+      "sha256": "6a04c80a72f55355ee51cd246dbc1700283626bcd66c0e7c694537b87c96a798",
+      "bytes": 54888,
+      "modified_utc": "2026-10-05T13:05:59.817601+00:00",
+      "image_size": [
+        1152,
+        648
+      ],
+      "image_mode": "RGB"
+    },
+    {
+      "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/home-interior-linework-2026-10-04/proof/walk/female-home-collision-stove-cached-return.png",
+      "relative_to_revision": "proof/walk/female-home-collision-stove-cached-return.png",
+      "sha256": "911d38f5a166d7c3e5df7d47dbf28522b65944d34955d7c2ce669ea652720cca",
+      "bytes": 55038,
+      "modified_utc": "2026-10-05T13:06:53.150855+00:00",
+      "image_size": [
+        1152,
+        648
+      ],
+      "image_mode": "RGB"
+    },
+    {
+      "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/home-interior-linework-2026-10-04/proof/walk/female-home-collision-stove-first.png",
+      "relative_to_revision": "proof/walk/female-home-collision-stove-first.png",
+      "sha256": "911d38f5a166d7c3e5df7d47dbf28522b65944d34955d7c2ce669ea652720cca",
+      "bytes": 55038,
+      "modified_utc": "2026-10-05T13:06:02.398807+00:00",
+      "image_size": [
+        1152,
+        648
+      ],
+      "image_mode": "RGB"
+    },
+    {
+      "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/home-interior-linework-2026-10-04/proof/walk/female-home-collision-table-cached-return.png",
+      "relative_to_revision": "proof/walk/female-home-collision-table-cached-return.png",
+      "sha256": "8f67b63c2cd32078f1360f9d34dbfdaa7603a7927f1c9e9435c4a20238fc07df",
+      "bytes": 55678,
+      "modified_utc": "2026-10-05T13:06:48.285448+00:00",
+      "image_size": [
+        1152,
+        648
+      ],
+      "image_mode": "RGB"
+    },
+    {
+      "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/home-interior-linework-2026-10-04/proof/walk/female-home-collision-table-first.png",
+      "relative_to_revision": "proof/walk/female-home-collision-table-first.png",
+      "sha256": "8f67b63c2cd32078f1360f9d34dbfdaa7603a7927f1c9e9435c4a20238fc07df",
+      "bytes": 55678,
+      "modified_utc": "2026-10-05T13:05:57.531462+00:00",
+      "image_size": [
+        1152,
+        648
+      ],
+      "image_mode": "RGB"
+    },
+    {
+      "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/home-interior-linework-2026-10-04/proof/walk/female-home-collision-west-wall-cached-return.png",
+      "relative_to_revision": "proof/walk/female-home-collision-west-wall-cached-return.png",
+      "sha256": "f7b84290933e0521f2fba5342af810ae7e2d8e903ff4b4f5c3b8ec34d0f8c0ce",
+      "bytes": 55592,
+      "modified_utc": "2026-10-05T13:06:35.380025+00:00",
+      "image_size": [
+        1152,
+        648
+      ],
+      "image_mode": "RGB"
+    },
+    {
+      "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/home-interior-linework-2026-10-04/proof/walk/female-home-collision-west-wall-first.png",
+      "relative_to_revision": "proof/walk/female-home-collision-west-wall-first.png",
+      "sha256": "f7b84290933e0521f2fba5342af810ae7e2d8e903ff4b4f5c3b8ec34d0f8c0ce",
+      "bytes": 55592,
+      "modified_utc": "2026-10-05T13:05:44.632867+00:00",
+      "image_size": [
+        1152,
+        648
+      ],
+      "image_mode": "RGB"
+    },
+    {
+      "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/home-interior-linework-2026-10-04/proof/walk/female-home-collision-woodstack-cached-return.png",
+      "relative_to_revision": "proof/walk/female-home-collision-woodstack-cached-return.png",
+      "sha256": "8ce53cb9920065d0037c02c2ec592c1dd5dbdf4a16bca077cad7bef2a30cf984",
+      "bytes": 54931,
+      "modified_utc": "2026-10-05T13:06:54.831543+00:00",
+      "image_size": [
+        1152,
+        648
+      ],
+      "image_mode": "RGB"
+    },
+    {
+      "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/home-interior-linework-2026-10-04/proof/walk/female-home-collision-woodstack-first.png",
+      "relative_to_revision": "proof/walk/female-home-collision-woodstack-first.png",
+      "sha256": "8ce53cb9920065d0037c02c2ec592c1dd5dbdf4a16bca077cad7bef2a30cf984",
+      "bytes": 54931,
+      "modified_utc": "2026-10-05T13:06:04.084110+00:00",
+      "image_size": [
+        1152,
+        648
+      ],
+      "image_mode": "RGB"
+    },
+    {
+      "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/home-interior-linework-2026-10-04/proof/walk/female-home-entry-cached-return.png",
+      "relative_to_revision": "proof/walk/female-home-entry-cached-return.png",
+      "sha256": "6751af8ea2854ff53309e1e858a420991004305ec7b7577e2bd3590b84fa588e",
+      "bytes": 56041,
+      "modified_utc": "2026-10-05T13:06:20.376366+00:00",
+      "image_size": [
+        1152,
+        648
+      ],
+      "image_mode": "RGB"
+    },
+    {
+      "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/home-interior-linework-2026-10-04/proof/walk/female-home-entry-first.png",
+      "relative_to_revision": "proof/walk/female-home-entry-first.png",
+      "sha256": "6751af8ea2854ff53309e1e858a420991004305ec7b7577e2bd3590b84fa588e",
+      "bytes": 56041,
+      "modified_utc": "2026-10-05T13:05:29.567857+00:00",
+      "image_size": [
+        1152,
+        648
+      ],
+      "image_mode": "RGB"
+    },
+    {
+      "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/home-interior-linework-2026-10-04/proof/walk/female-home-exterior-cached-return.png",
+      "relative_to_revision": "proof/walk/female-home-exterior-cached-return.png",
+      "sha256": "c7cf0473cba91162f4ebaf320225b6b8eadcf578a1769bff0ed73217fea4ae82",
+      "bytes": 115851,
+      "modified_utc": "2026-10-05T13:07:10.070157+00:00",
+      "image_size": [
+        1152,
+        648
+      ],
+      "image_mode": "RGB"
+    },
+    {
+      "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/home-interior-linework-2026-10-04/proof/walk/female-home-exterior-first.png",
+      "relative_to_revision": "proof/walk/female-home-exterior-first.png",
+      "sha256": "c7cf0473cba91162f4ebaf320225b6b8eadcf578a1769bff0ed73217fea4ae82",
+      "bytes": 115851,
+      "modified_utc": "2026-10-05T13:06:19.187020+00:00",
+      "image_size": [
+        1152,
+        648
+      ],
+      "image_mode": "RGB"
+    },
+    {
+      "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/home-interior-linework-2026-10-04/proof/walk/female-home-stove-cached-return.png",
+      "relative_to_revision": "proof/walk/female-home-stove-cached-return.png",
+      "sha256": "b74c2fdf205a5c188b5f51d482cd558956862eb6e1551894b87fc636c84d5bb8",
+      "bytes": 60129,
+      "modified_utc": "2026-10-05T13:06:27.472704+00:00",
+      "image_size": [
+        1152,
+        648
+      ],
+      "image_mode": "RGB"
+    },
+    {
+      "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/home-interior-linework-2026-10-04/proof/walk/female-home-stove-first.png",
+      "relative_to_revision": "proof/walk/female-home-stove-first.png",
+      "sha256": "b74c2fdf205a5c188b5f51d482cd558956862eb6e1551894b87fc636c84d5bb8",
+      "bytes": 60129,
+      "modified_utc": "2026-10-05T13:05:36.701319+00:00",
+      "image_size": [
+        1152,
+        648
+      ],
+      "image_mode": "RGB"
+    },
+    {
+      "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/home-interior-linework-2026-10-04/proof/walk/female-home-table-cached-return.png",
+      "relative_to_revision": "proof/walk/female-home-table-cached-return.png",
+      "sha256": "928fac160f51658cbf6c762657043313b67d826130c62856374342535fd1f560",
+      "bytes": 63955,
+      "modified_utc": "2026-10-05T13:06:23.319020+00:00",
+      "image_size": [
+        1152,
+        648
+      ],
+      "image_mode": "RGB"
+    },
+    {
+      "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/home-interior-linework-2026-10-04/proof/walk/female-home-table-first.png",
+      "relative_to_revision": "proof/walk/female-home-table-first.png",
+      "sha256": "928fac160f51658cbf6c762657043313b67d826130c62856374342535fd1f560",
+      "bytes": 63955,
+      "modified_utc": "2026-10-05T13:05:32.513835+00:00",
+      "image_size": [
+        1152,
+        648
+      ],
+      "image_mode": "RGB"
+    },
+    {
+      "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/home-interior-linework-2026-10-04/proof/walk/female-home-view-coat-behind-cached-return.png",
+      "relative_to_revision": "proof/walk/female-home-view-coat-behind-cached-return.png",
+      "sha256": "1d73d152be0bd4dbd1f84c74dd1b754f9d22dcca2937c4a82ca94431f687c55d",
+      "bytes": 56486,
+      "modified_utc": "2026-10-05T13:07:06.465359+00:00",
+      "image_size": [
+        1152,
+        648
+      ],
+      "image_mode": "RGB"
+    },
+    {
+      "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/home-interior-linework-2026-10-04/proof/walk/female-home-view-coat-behind-first.png",
+      "relative_to_revision": "proof/walk/female-home-view-coat-behind-first.png",
+      "sha256": "1d73d152be0bd4dbd1f84c74dd1b754f9d22dcca2937c4a82ca94431f687c55d",
+      "bytes": 56486,
+      "modified_utc": "2026-10-05T13:06:15.576372+00:00",
+      "image_size": [
+        1152,
+        648
+      ],
+      "image_mode": "RGB"
+    },
+    {
+      "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/home-interior-linework-2026-10-04/proof/walk/female-home-view-stove-behind-cached-return.png",
+      "relative_to_revision": "proof/walk/female-home-view-stove-behind-cached-return.png",
+      "sha256": "8e8fa053db49da1727b40f5058043a9d1180d8c270b6b347b1c76b8558a4f47e",
+      "bytes": 54517,
+      "modified_utc": "2026-10-05T13:07:03.752909+00:00",
+      "image_size": [
+        1152,
+        648
+      ],
+      "image_mode": "RGB"
+    },
+    {
+      "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/home-interior-linework-2026-10-04/proof/walk/female-home-view-stove-behind-first.png",
+      "relative_to_revision": "proof/walk/female-home-view-stove-behind-first.png",
+      "sha256": "8e8fa053db49da1727b40f5058043a9d1180d8c270b6b347b1c76b8558a4f47e",
+      "bytes": 54517,
+      "modified_utc": "2026-10-05T13:06:12.980847+00:00",
+      "image_size": [
+        1152,
+        648
+      ],
+      "image_mode": "RGB"
+    },
+    {
+      "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/home-interior-linework-2026-10-04/proof/walk/female-start.png",
+      "relative_to_revision": "proof/walk/female-start.png",
+      "sha256": "802b5bee6b2710ce93033adc51e097284f9db2978b7eb8ee3ddd6ac04be38bdf",
+      "bytes": 115755,
+      "modified_utc": "2026-10-05T13:05:25.593229+00:00",
+      "image_size": [
+        1152,
+        648
+      ],
+      "image_mode": "RGB"
+    },
+    {
+      "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/home-interior-linework-2026-10-04/proof/walk/female-walkthrough.json",
+      "relative_to_revision": "proof/walk/female-walkthrough.json",
+      "sha256": "930595a4088085f8d31ec97922b90bf5a9928c2744c00f0ac54b6500649199d7",
+      "bytes": 53465,
+      "modified_utc": "2026-10-05T13:07:10.109054+00:00"
+    },
+    {
+      "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/home-interior-linework-2026-10-04/proof/walk/male-entrance-courtyard_home-to-hometown.png",
+      "relative_to_revision": "proof/walk/male-entrance-courtyard_home-to-hometown.png",
+      "sha256": "01197d7be9ddbea241e8638e7ea276b21b5d42bcd097bb6a4dfccf916ea7c0f7",
+      "bytes": 115992,
+      "modified_utc": "2026-10-05T13:07:11.741382+00:00",
+      "image_size": [
+        1152,
+        648
+      ],
+      "image_mode": "RGB"
+    },
+    {
+      "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/home-interior-linework-2026-10-04/proof/walk/male-entrance-hometown-to-courtyard_home.png",
+      "relative_to_revision": "proof/walk/male-entrance-hometown-to-courtyard_home.png",
+      "sha256": "65b8fef618ce10d9f0dc884cfc85c1e2e1842d13a6ea957f184fb33fc6c714bf",
+      "bytes": 55838,
+      "modified_utc": "2026-10-05T13:06:23.065930+00:00",
+      "image_size": [
+        1152,
+        648
+      ],
+      "image_mode": "RGB"
+    },
+    {
+      "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/home-interior-linework-2026-10-04/proof/walk/male-focused-return-home.png",
+      "relative_to_revision": "proof/walk/male-focused-return-home.png",
+      "sha256": "01197d7be9ddbea241e8638e7ea276b21b5d42bcd097bb6a4dfccf916ea7c0f7",
+      "bytes": 115992,
+      "modified_utc": "2026-10-05T13:07:12.743859+00:00",
+      "image_size": [
+        1152,
+        648
+      ],
+      "image_mode": "RGB"
+    },
+    {
+      "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/home-interior-linework-2026-10-04/proof/walk/male-home-bed-cached-return.png",
+      "relative_to_revision": "proof/walk/male-home-bed-cached-return.png",
+      "sha256": "2d766efaffa07e991b3d631ed1d2b4cf1f11de1c21d07d32eadfa0db6b7d87ba",
+      "bytes": 62041,
+      "modified_utc": "2026-10-05T13:06:27.833077+00:00",
+      "image_size": [
+        1152,
+        648
+      ],
+      "image_mode": "RGB"
+    },
+    {
+      "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/home-interior-linework-2026-10-04/proof/walk/male-home-bed-first.png",
+      "relative_to_revision": "proof/walk/male-home-bed-first.png",
+      "sha256": "2d766efaffa07e991b3d631ed1d2b4cf1f11de1c21d07d32eadfa0db6b7d87ba",
+      "bytes": 62041,
+      "modified_utc": "2026-10-05T13:05:37.085442+00:00",
+      "image_size": [
+        1152,
+        648
+      ],
+      "image_mode": "RGB"
+    },
+    {
+      "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/home-interior-linework-2026-10-04/proof/walk/male-home-coat-cached-return.png",
+      "relative_to_revision": "proof/walk/male-home-coat-cached-return.png",
+      "sha256": "4dfc393fc97e10c03e229459b3ed53122c7e4006b8595374f90fa359a43d8372",
+      "bytes": 58726,
+      "modified_utc": "2026-10-05T13:06:32.683664+00:00",
+      "image_size": [
+        1152,
+        648
+      ],
+      "image_mode": "RGB"
+    },
+    {
+      "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/home-interior-linework-2026-10-04/proof/walk/male-home-coat-first.png",
+      "relative_to_revision": "proof/walk/male-home-coat-first.png",
+      "sha256": "4dfc393fc97e10c03e229459b3ed53122c7e4006b8595374f90fa359a43d8372",
+      "bytes": 58726,
+      "modified_utc": "2026-10-05T13:05:41.932468+00:00",
+      "image_size": [
+        1152,
+        648
+      ],
+      "image_mode": "RGB"
+    },
+    {
+      "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/home-interior-linework-2026-10-04/proof/walk/male-home-collision-bed-cached-return.png",
+      "relative_to_revision": "proof/walk/male-home-collision-bed-cached-return.png",
+      "sha256": "f3a22dafd9304353508f9aa8415ccdb1bcab5f0d1d87027424557ba8af7b804c",
+      "bytes": 55067,
+      "modified_utc": "2026-10-05T13:06:48.752467+00:00",
+      "image_size": [
+        1152,
+        648
+      ],
+      "image_mode": "RGB"
+    },
+    {
+      "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/home-interior-linework-2026-10-04/proof/walk/male-home-collision-bed-first.png",
+      "relative_to_revision": "proof/walk/male-home-collision-bed-first.png",
+      "sha256": "f3a22dafd9304353508f9aa8415ccdb1bcab5f0d1d87027424557ba8af7b804c",
+      "bytes": 55067,
+      "modified_utc": "2026-10-05T13:05:58.013592+00:00",
+      "image_size": [
+        1152,
+        648
+      ],
+      "image_mode": "RGB"
+    },
+    {
+      "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/home-interior-linework-2026-10-04/proof/walk/male-home-collision-bedside-cached-return.png",
+      "relative_to_revision": "proof/walk/male-home-collision-bedside-cached-return.png",
+      "sha256": "da9deafc037d528240d3bd153ecb1dd10c43e3dbc2fed6c18cceb8dbd47726ef",
+      "bytes": 54920,
+      "modified_utc": "2026-10-05T13:06:59.568977+00:00",
+      "image_size": [
+        1152,
+        648
+      ],
+      "image_mode": "RGB"
+    },
+    {
+      "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/home-interior-linework-2026-10-04/proof/walk/male-home-collision-bedside-first.png",
+      "relative_to_revision": "proof/walk/male-home-collision-bedside-first.png",
+      "sha256": "da9deafc037d528240d3bd153ecb1dd10c43e3dbc2fed6c18cceb8dbd47726ef",
+      "bytes": 54920,
+      "modified_utc": "2026-10-05T13:06:08.831617+00:00",
+      "image_size": [
+        1152,
+        648
+      ],
+      "image_mode": "RGB"
+    },
+    {
+      "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/home-interior-linework-2026-10-04/proof/walk/male-home-collision-coat-cabinet-cached-return.png",
+      "relative_to_revision": "proof/walk/male-home-collision-coat-cabinet-cached-return.png",
+      "sha256": "8c396f5f3b13b7e94a57ed156e305e55720914cea261e4189bc9636496bfd03f",
+      "bytes": 55511,
+      "modified_utc": "2026-10-05T13:07:03.264700+00:00",
+      "image_size": [
+        1152,
+        648
+      ],
+      "image_mode": "RGB"
+    },
+    {
+      "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/home-interior-linework-2026-10-04/proof/walk/male-home-collision-coat-cabinet-first.png",
+      "relative_to_revision": "proof/walk/male-home-collision-coat-cabinet-first.png",
+      "sha256": "8c396f5f3b13b7e94a57ed156e305e55720914cea261e4189bc9636496bfd03f",
+      "bytes": 55511,
+      "modified_utc": "2026-10-05T13:06:12.514232+00:00",
+      "image_size": [
+        1152,
+        648
+      ],
+      "image_mode": "RGB"
+    },
+    {
+      "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/home-interior-linework-2026-10-04/proof/walk/male-home-collision-east-wall-cached-return.png",
+      "relative_to_revision": "proof/walk/male-home-collision-east-wall-cached-return.png",
+      "sha256": "b71ce1cb113fe0c2d8d000044bb1caf1ba1b49dceb26054a865f7edfb6c211b4",
+      "bytes": 55177,
+      "modified_utc": "2026-10-05T13:06:40.700412+00:00",
+      "image_size": [
+        1152,
+        648
+      ],
+      "image_mode": "RGB"
+    },
+    {
+      "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/home-interior-linework-2026-10-04/proof/walk/male-home-collision-east-wall-first.png",
+      "relative_to_revision": "proof/walk/male-home-collision-east-wall-first.png",
+      "sha256": "b71ce1cb113fe0c2d8d000044bb1caf1ba1b49dceb26054a865f7edfb6c211b4",
+      "bytes": 55177,
+      "modified_utc": "2026-10-05T13:05:49.965787+00:00",
+      "image_size": [
+        1152,
+        648
+      ],
+      "image_mode": "RGB"
+    },
+    {
+      "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/home-interior-linework-2026-10-04/proof/walk/male-home-collision-north-wall-cached-return.png",
+      "relative_to_revision": "proof/walk/male-home-collision-north-wall-cached-return.png",
+      "sha256": "76e28afe18aa1e2f5d0499e0daebaeebc3fb3cee66c1a25e191bde29dfb881d4",
+      "bytes": 55639,
+      "modified_utc": "2026-10-05T13:06:35.430054+00:00",
+      "image_size": [
+        1152,
+        648
+      ],
+      "image_mode": "RGB"
+    },
+    {
+      "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/home-interior-linework-2026-10-04/proof/walk/male-home-collision-north-wall-first.png",
+      "relative_to_revision": "proof/walk/male-home-collision-north-wall-first.png",
+      "sha256": "76e28afe18aa1e2f5d0499e0daebaeebc3fb3cee66c1a25e191bde29dfb881d4",
+      "bytes": 55639,
+      "modified_utc": "2026-10-05T13:05:44.700657+00:00",
+      "image_size": [
+        1152,
+        648
+      ],
+      "image_mode": "RGB"
+    },
+    {
+      "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/home-interior-linework-2026-10-04/proof/walk/male-home-collision-south-left-wall-cached-return.png",
+      "relative_to_revision": "proof/walk/male-home-collision-south-left-wall-cached-return.png",
+      "sha256": "372abfd2e48aa9def5942a183d709921bdb9430a21aee38040cef7936afdd899",
+      "bytes": 56291,
+      "modified_utc": "2026-10-05T13:06:43.146113+00:00",
+      "image_size": [
+        1152,
+        648
+      ],
+      "image_mode": "RGB"
+    },
+    {
+      "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/home-interior-linework-2026-10-04/proof/walk/male-home-collision-south-left-wall-first.png",
+      "relative_to_revision": "proof/walk/male-home-collision-south-left-wall-first.png",
+      "sha256": "372abfd2e48aa9def5942a183d709921bdb9430a21aee38040cef7936afdd899",
+      "bytes": 56291,
+      "modified_utc": "2026-10-05T13:05:52.415380+00:00",
+      "image_size": [
+        1152,
+        648
+      ],
+      "image_mode": "RGB"
+    },
+    {
+      "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/home-interior-linework-2026-10-04/proof/walk/male-home-collision-south-right-wall-cached-return.png",
+      "relative_to_revision": "proof/walk/male-home-collision-south-right-wall-cached-return.png",
+      "sha256": "be73aca6fa6e40ec4c91db44c38aa4016c0d2f116bb5c4cc4454a7d2356b61ef",
+      "bytes": 56491,
+      "modified_utc": "2026-10-05T13:06:45.548433+00:00",
+      "image_size": [
+        1152,
+        648
+      ],
+      "image_mode": "RGB"
+    },
+    {
+      "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/home-interior-linework-2026-10-04/proof/walk/male-home-collision-south-right-wall-first.png",
+      "relative_to_revision": "proof/walk/male-home-collision-south-right-wall-first.png",
+      "sha256": "be73aca6fa6e40ec4c91db44c38aa4016c0d2f116bb5c4cc4454a7d2356b61ef",
+      "bytes": 56491,
+      "modified_utc": "2026-10-05T13:05:54.815357+00:00",
+      "image_size": [
+        1152,
+        648
+      ],
+      "image_mode": "RGB"
+    },
+    {
+      "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/home-interior-linework-2026-10-04/proof/walk/male-home-collision-stool-cached-return.png",
+      "relative_to_revision": "proof/walk/male-home-collision-stool-cached-return.png",
+      "sha256": "d1df8fcbdd520f78547b99c4d0d24aa2e793ecec07fe552d3bd2a3da850f9d73",
+      "bytes": 54810,
+      "modified_utc": "2026-10-05T13:06:53.300900+00:00",
+      "image_size": [
+        1152,
+        648
+      ],
+      "image_mode": "RGB"
+    },
+    {
+      "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/home-interior-linework-2026-10-04/proof/walk/male-home-collision-stool-first.png",
+      "relative_to_revision": "proof/walk/male-home-collision-stool-first.png",
+      "sha256": "d1df8fcbdd520f78547b99c4d0d24aa2e793ecec07fe552d3bd2a3da850f9d73",
+      "bytes": 54810,
+      "modified_utc": "2026-10-05T13:06:02.568418+00:00",
+      "image_size": [
+        1152,
+        648
+      ],
+      "image_mode": "RGB"
+    },
+    {
+      "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/home-interior-linework-2026-10-04/proof/walk/male-home-collision-stove-cached-return.png",
+      "relative_to_revision": "proof/walk/male-home-collision-stove-cached-return.png",
+      "sha256": "c54a5976e3f716d256fa1cdd1e1a00d7bcb8bddc9d1bb400b3c93c6a2c3f2678",
+      "bytes": 55060,
+      "modified_utc": "2026-10-05T13:06:55.885217+00:00",
+      "image_size": [
+        1152,
+        648
+      ],
+      "image_mode": "RGB"
+    },
+    {
+      "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/home-interior-linework-2026-10-04/proof/walk/male-home-collision-stove-first.png",
+      "relative_to_revision": "proof/walk/male-home-collision-stove-first.png",
+      "sha256": "c54a5976e3f716d256fa1cdd1e1a00d7bcb8bddc9d1bb400b3c93c6a2c3f2678",
+      "bytes": 55060,
+      "modified_utc": "2026-10-05T13:06:05.151966+00:00",
+      "image_size": [
+        1152,
+        648
+      ],
+      "image_mode": "RGB"
+    },
+    {
+      "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/home-interior-linework-2026-10-04/proof/walk/male-home-collision-table-cached-return.png",
+      "relative_to_revision": "proof/walk/male-home-collision-table-cached-return.png",
+      "sha256": "b0b999cac7eff2e87cc6cef3f3d37db240c348d584ddaa4e6d7889dae3800701",
+      "bytes": 55641,
+      "modified_utc": "2026-10-05T13:06:51.026547+00:00",
+      "image_size": [
+        1152,
+        648
+      ],
+      "image_mode": "RGB"
+    },
+    {
+      "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/home-interior-linework-2026-10-04/proof/walk/male-home-collision-table-first.png",
+      "relative_to_revision": "proof/walk/male-home-collision-table-first.png",
+      "sha256": "b0b999cac7eff2e87cc6cef3f3d37db240c348d584ddaa4e6d7889dae3800701",
+      "bytes": 55641,
+      "modified_utc": "2026-10-05T13:06:00.287928+00:00",
+      "image_size": [
+        1152,
+        648
+      ],
+      "image_mode": "RGB"
+    },
+    {
+      "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/home-interior-linework-2026-10-04/proof/walk/male-home-collision-west-wall-cached-return.png",
+      "relative_to_revision": "proof/walk/male-home-collision-west-wall-cached-return.png",
+      "sha256": "fe169e7f73727b287dde1a4e2f35ad79a02675dda11d1e137c33f63755cebfe9",
+      "bytes": 55496,
+      "modified_utc": "2026-10-05T13:06:38.117318+00:00",
+      "image_size": [
+        1152,
+        648
+      ],
+      "image_mode": "RGB"
+    },
+    {
+      "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/home-interior-linework-2026-10-04/proof/walk/male-home-collision-west-wall-first.png",
+      "relative_to_revision": "proof/walk/male-home-collision-west-wall-first.png",
+      "sha256": "fe169e7f73727b287dde1a4e2f35ad79a02675dda11d1e137c33f63755cebfe9",
+      "bytes": 55496,
+      "modified_utc": "2026-10-05T13:05:47.381529+00:00",
+      "image_size": [
+        1152,
+        648
+      ],
+      "image_mode": "RGB"
+    },
+    {
+      "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/home-interior-linework-2026-10-04/proof/walk/male-home-collision-woodstack-cached-return.png",
+      "relative_to_revision": "proof/walk/male-home-collision-woodstack-cached-return.png",
+      "sha256": "b30801fff57011c237a8d36ee3f73316c4de0b5cc4cf03d39135a58998b8e0a1",
+      "bytes": 54997,
+      "modified_utc": "2026-10-05T13:06:57.572553+00:00",
+      "image_size": [
+        1152,
+        648
+      ],
+      "image_mode": "RGB"
+    },
+    {
+      "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/home-interior-linework-2026-10-04/proof/walk/male-home-collision-woodstack-first.png",
+      "relative_to_revision": "proof/walk/male-home-collision-woodstack-first.png",
+      "sha256": "b30801fff57011c237a8d36ee3f73316c4de0b5cc4cf03d39135a58998b8e0a1",
+      "bytes": 54997,
+      "modified_utc": "2026-10-05T13:06:06.832043+00:00",
+      "image_size": [
+        1152,
+        648
+      ],
+      "image_mode": "RGB"
+    },
+    {
+      "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/home-interior-linework-2026-10-04/proof/walk/male-home-entry-cached-return.png",
+      "relative_to_revision": "proof/walk/male-home-entry-cached-return.png",
+      "sha256": "65b8fef618ce10d9f0dc884cfc85c1e2e1842d13a6ea957f184fb33fc6c714bf",
+      "bytes": 55838,
+      "modified_utc": "2026-10-05T13:06:23.101835+00:00",
+      "image_size": [
+        1152,
+        648
+      ],
+      "image_mode": "RGB"
+    },
+    {
+      "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/home-interior-linework-2026-10-04/proof/walk/male-home-entry-first.png",
+      "relative_to_revision": "proof/walk/male-home-entry-first.png",
+      "sha256": "65b8fef618ce10d9f0dc884cfc85c1e2e1842d13a6ea957f184fb33fc6c714bf",
+      "bytes": 55838,
+      "modified_utc": "2026-10-05T13:05:32.318302+00:00",
+      "image_size": [
+        1152,
+        648
+      ],
+      "image_mode": "RGB"
+    },
+    {
+      "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/home-interior-linework-2026-10-04/proof/walk/male-home-exterior-cached-return.png",
+      "relative_to_revision": "proof/walk/male-home-exterior-cached-return.png",
+      "sha256": "01197d7be9ddbea241e8638e7ea276b21b5d42bcd097bb6a4dfccf916ea7c0f7",
+      "bytes": 115992,
+      "modified_utc": "2026-10-05T13:07:12.692987+00:00",
+      "image_size": [
+        1152,
+        648
+      ],
+      "image_mode": "RGB"
+    },
+    {
+      "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/home-interior-linework-2026-10-04/proof/walk/male-home-exterior-first.png",
+      "relative_to_revision": "proof/walk/male-home-exterior-first.png",
+      "sha256": "01197d7be9ddbea241e8638e7ea276b21b5d42bcd097bb6a4dfccf916ea7c0f7",
+      "bytes": 115992,
+      "modified_utc": "2026-10-05T13:06:21.939939+00:00",
+      "image_size": [
+        1152,
+        648
+      ],
+      "image_mode": "RGB"
+    },
+    {
+      "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/home-interior-linework-2026-10-04/proof/walk/male-home-stove-cached-return.png",
+      "relative_to_revision": "proof/walk/male-home-stove-cached-return.png",
+      "sha256": "e42c5f4653cb6ac94e34536b651676df5513c45c821d79a37508a33fa9584111",
+      "bytes": 60330,
+      "modified_utc": "2026-10-05T13:06:30.202730+00:00",
+      "image_size": [
+        1152,
+        648
+      ],
+      "image_mode": "RGB"
+    },
+    {
+      "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/home-interior-linework-2026-10-04/proof/walk/male-home-stove-first.png",
+      "relative_to_revision": "proof/walk/male-home-stove-first.png",
+      "sha256": "e42c5f4653cb6ac94e34536b651676df5513c45c821d79a37508a33fa9584111",
+      "bytes": 60330,
+      "modified_utc": "2026-10-05T13:05:39.450706+00:00",
+      "image_size": [
+        1152,
+        648
+      ],
+      "image_mode": "RGB"
+    },
+    {
+      "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/home-interior-linework-2026-10-04/proof/walk/male-home-table-cached-return.png",
+      "relative_to_revision": "proof/walk/male-home-table-cached-return.png",
+      "sha256": "de306ee489d6d9cf265b5ebc5f3a7987492a7df5745def7fc9b757b9a5dd4b95",
+      "bytes": 63687,
+      "modified_utc": "2026-10-05T13:06:26.046454+00:00",
+      "image_size": [
+        1152,
+        648
+      ],
+      "image_mode": "RGB"
+    },
+    {
+      "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/home-interior-linework-2026-10-04/proof/walk/male-home-table-first.png",
+      "relative_to_revision": "proof/walk/male-home-table-first.png",
+      "sha256": "de306ee489d6d9cf265b5ebc5f3a7987492a7df5745def7fc9b757b9a5dd4b95",
+      "bytes": 63687,
+      "modified_utc": "2026-10-05T13:05:35.280592+00:00",
+      "image_size": [
+        1152,
+        648
+      ],
+      "image_mode": "RGB"
+    },
+    {
+      "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/home-interior-linework-2026-10-04/proof/walk/male-home-view-coat-behind-cached-return.png",
+      "relative_to_revision": "proof/walk/male-home-view-coat-behind-cached-return.png",
+      "sha256": "29f144cc1f596544f4f95aa160ad30ac28fdf6e2bcf7122069ebde65c0d24715",
+      "bytes": 56736,
+      "modified_utc": "2026-10-05T13:07:09.064973+00:00",
+      "image_size": [
+        1152,
+        648
+      ],
+      "image_mode": "RGB"
+    },
+    {
+      "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/home-interior-linework-2026-10-04/proof/walk/male-home-view-coat-behind-first.png",
+      "relative_to_revision": "proof/walk/male-home-view-coat-behind-first.png",
+      "sha256": "29f144cc1f596544f4f95aa160ad30ac28fdf6e2bcf7122069ebde65c0d24715",
+      "bytes": 56736,
+      "modified_utc": "2026-10-05T13:06:18.313844+00:00",
+      "image_size": [
+        1152,
+        648
+      ],
+      "image_mode": "RGB"
+    },
+    {
+      "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/home-interior-linework-2026-10-04/proof/walk/male-home-view-stove-behind-cached-return.png",
+      "relative_to_revision": "proof/walk/male-home-view-stove-behind-cached-return.png",
+      "sha256": "c74cc58828cc2c99270902114c34fb72b19579f1786efdd3ce36c8e0b32a3d0e",
+      "bytes": 54537,
+      "modified_utc": "2026-10-05T13:07:06.483308+00:00",
+      "image_size": [
+        1152,
+        648
+      ],
+      "image_mode": "RGB"
+    },
+    {
+      "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/home-interior-linework-2026-10-04/proof/walk/male-home-view-stove-behind-first.png",
+      "relative_to_revision": "proof/walk/male-home-view-stove-behind-first.png",
+      "sha256": "c74cc58828cc2c99270902114c34fb72b19579f1786efdd3ce36c8e0b32a3d0e",
+      "bytes": 54537,
+      "modified_utc": "2026-10-05T13:06:15.737473+00:00",
+      "image_size": [
+        1152,
+        648
+      ],
+      "image_mode": "RGB"
+    },
+    {
+      "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/home-interior-linework-2026-10-04/proof/walk/male-start.png",
+      "relative_to_revision": "proof/walk/male-start.png",
+      "sha256": "17545475f1c6c8d89354282c587807e79213eae25e9eb07929834f750163399c",
+      "bytes": 115951,
+      "modified_utc": "2026-10-05T13:05:28.359771+00:00",
+      "image_size": [
+        1152,
+        648
+      ],
+      "image_mode": "RGB"
+    },
+    {
+      "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/home-interior-linework-2026-10-04/proof/walk/male-walkthrough.json",
+      "relative_to_revision": "proof/walk/male-walkthrough.json",
+      "sha256": "6c7b649cbddec3b221863e96a0cf06e6eba269c238d08402401a54c09ef7fdf0",
+      "bytes": 53363,
+      "modified_utc": "2026-10-05T13:07:12.745854+00:00"
+    }
+  ],
+  "preservation": {
+    "production_modified": false,
+    "native_runs_repeated": false,
+    "prior_proof_modified": false,
+    "only_new_file": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/home-interior-linework-2026-10-04/proof/native-verification.json",
+    "metadata_update": "Only this verification JSON was updated to cite the saved exit records; its exact prior bytes are preserved in archive-stage/world-linework-phase1/metadata-history/native-verification.before-terminal-records.json."
+  },
+  "terminal_completion_evidence": {
+    "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/home-interior-linework-2026-10-04/proof/terminal-results.json",
+    "relative_to_revision": "proof/terminal-results.json",
+    "sha256": "eb0121f2927b265ec8457dcd2153bccb77656c5ea460ce5a9f4890eb3a795b3d",
+    "bytes": 485,
+    "observed_records": {
+      "owned_hidden_only": true,
+      "final_import": {
+        "pid": 32528,
+        "session": 69921,
+        "exit_code": 0
+      },
+      "male_walk": {
+        "pid": 592,
+        "session": 72681,
+        "exit_code": 0
+      },
+      "female_walk": {
+        "pid": 32252,
+        "session": 50277,
+        "exit_code": 0
+      },
+      "overview": {
+        "pid": 32328,
+        "session": 53213,
+        "exit_code": 0
+      },
+      "source": "Observed terminal completion outputs in this Codex turn, not inferred from proof files."
+    }
+  }
+}

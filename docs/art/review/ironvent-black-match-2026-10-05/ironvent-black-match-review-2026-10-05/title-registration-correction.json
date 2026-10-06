@@ -1,0 +1,24 @@
+{
+  "date": "2026-10-05",
+  "issue": "Earlier versioned title selected default head region because its name/folder failed the existing official-title rule.",
+  "solution": "Matched portrait copied into a versioned subdirectory of original style_matched family, retaining original recognized basename. Battle code unchanged.",
+  "new_texture": "assets/sprites/creatures/attacks/ironvent_furnace_roar/style_matched/back_palette_2026_10_05/titlecard_official_2026_09_30.png",
+  "sha256": "0eb53284d8b311a3f221d6a8629009ae3a28c00115ee546cc9dbfa37772eaa62",
+  "old_palette_candidate_retained": true,
+  "resource": {
+    "path": "data/moves/ironvent_furnace_roar.tres",
+    "before_sha256": "57082c6d06c40264977eb1c99d0a3d9910189885e35a581c14b9125feb2f251c",
+    "after_sha256": "437bf2f4bae55589e6bbdf4a26b1cc49b19a589b137ada4164b8418bac65d764",
+    "one_texture_path_only": true
+  },
+  "battle_script_sha256": "49c1d34c2316390d198bf8a8d862325a9d0a96c19740aff54fc56aece7c0895d",
+  "expected_head_finish_bounds": [
+    0.76,
+    0.32,
+    1.0,
+    0.64
+  ],
+  "historical_proof": "proof-initial-default-region/",
+  "final_proof": "proof-registered-title/",
+  "charge": 0
+}

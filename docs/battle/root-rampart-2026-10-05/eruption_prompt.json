@@ -1,0 +1,9 @@
+{
+ "prompt": "A towering column of huge thick twisted brown tree roots and jagged pale seed-husk spikes erupting straight up out of a crater of cracked earth, tall and narrow, chunks of dirt and stone and green leaves flying off it, side view. On a plain white background.",
+ "prompt_style": "rd_pro__default",
+ "width": 64,
+ "height": 64,
+ "num_images": 2,
+ "remove_bg": true,
+ "reference_images": []
+}

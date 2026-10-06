@@ -1,0 +1,12 @@
+{
+ "prompt": "The final, largest stage of the seed-burrower creature in the first reference image, same species, same face, eyes and palette: a great guardian burrower, broad, heavy and low. Its husk armour has become thick stepped plates like an ancient seed husk, with moss growing in the seams. The seed pod on its shoulder has grown into a huge hardened husk shield over its shoulder, split open along one seam, and a thick cream-green shoot spirals up out of the split in a strong curl, like its first sprout grown mighty. Long tapered digging snout, massive forelegs, every foot ending in big cream claws, one forefoot pressing into the earth. Moss green, seed ochre, rich soil brown, cream. Calm, patient and protective. Three-quarter view facing right. Same finish as the references. No tree on its back, no flower crown, not a vegetable, no tools. Shown whole in the centre of the frame with empty space on every side. On a plain white background.",
+ "prompt_style": "rd_pro__default",
+ "width": 160,
+ "height": 160,
+ "num_images": 2,
+ "remove_bg": true,
+ "reference_images": [
+  "docs/creatures/starter-lines-rd-2026-10-05/tallowroot2_front_take2.png",
+  "docs/creatures/tallowroot-rd-2026-10-05/tallowroot_front_160.png"
+ ]
+}

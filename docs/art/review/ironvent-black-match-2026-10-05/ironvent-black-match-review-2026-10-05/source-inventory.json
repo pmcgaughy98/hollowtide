@@ -1,0 +1,44 @@
+{
+  "front": {
+    "path": "C:\\Users\\pmcga\\dev\\hollowtide\\assets\\sprites\\creatures\\ironvent.png",
+    "dimensions": [
+      100,
+      100
+    ],
+    "alpha_bbox": [
+      1,
+      16,
+      97,
+      97
+    ],
+    "sha256": "70a6346602a8a6bf7c798304b9a9153dc73232c7f42847ff312962f5c761db7c"
+  },
+  "back": {
+    "path": "C:\\Users\\pmcga\\dev\\hollowtide\\assets\\sprites\\creatures\\ironvent_back_2026_09_27.png",
+    "dimensions": [
+      100,
+      100
+    ],
+    "alpha_bbox": [
+      0,
+      14,
+      100,
+      97
+    ],
+    "sha256": "556c783f4923d9f167efbf7a4646a9c1d4a03e83042289a6a904cae0e42b8a06"
+  },
+  "title": {
+    "path": "C:\\Users\\pmcga\\dev\\hollowtide\\assets\\sprites\\creatures\\attacks\\ironvent_furnace_roar\\style_matched\\titlecard_official_2026_09_30.png",
+    "dimensions": [
+      100,
+      100
+    ],
+    "alpha_bbox": [
+      1,
+      16,
+      98,
+      97
+    ],
+    "sha256": "ba7d778e4cb2c5964d52b7ac66b89a1a5c594470bb95686df246311729151802"
+  }
+}

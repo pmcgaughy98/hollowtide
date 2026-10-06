@@ -1,0 +1,12 @@
+{
+ "prompt": "The final evolved stage of the river monster catfish in the first reference image: same species, same face, grey bony spiked head plate, cyan eyes, gaping toothy mouth, frosty barbels and four sturdy spined legs, but enormous, ancient and dominant, clearly a final-stage creature and much bigger than the reference. Its whole body is armoured in heavy stepped plates scoured smooth like old riverbank stone with silt-grey scars, a huge broad scoop jaw with rows of teeth, long thick rope-like barbels, a tall split dorsal crest of spines, heavy armoured legs with serrated spines planted wide, a long thick tail sweeping behind. Low, heavy, immovable brace, head forward. Darker river blue, slate, silt grey, cold cyan only at the edges, eyes and barbel tips. Calm, patient, dominant. Three-quarter view facing right. Same finish and outline as the references. Do not copy the reference pose exactly. Not a shark, not a crocodile, no metal armour, no glow, no bubbles, no water. Shown whole in the centre of the frame with empty space on every side. On a plain white background.",
+ "prompt_style": "rd_pro__default",
+ "width": 224,
+ "height": 224,
+ "num_images": 2,
+ "remove_bg": true,
+ "reference_images": [
+  "docs/creatures/starter-lines-rd-2026-10-05/evolutions/riftfin_v2_front_take1.png",
+  "assets/sprites/creatures/cinderhide.png"
+ ]
+}

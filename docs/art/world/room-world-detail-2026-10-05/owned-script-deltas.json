@@ -1,0 +1,157 @@
+{
+  "scripts": [
+    {
+      "path": "scripts/area_landscape.gd",
+      "captured_original_sha256": "394d13fb8a62d24f472ed5c4f02a58be8e586ac9491eb22400d29b76e73af0ab",
+      "final_sha256": "010c67c8891e92058ac543a5414aea37c17145be2a0b7933d22821b50880c671",
+      "normalized_text_matches_only_listed_substitutions": true,
+      "ordered_substitutions": [
+        {
+          "stage": "phase1",
+          "old": "res://assets/sprites/world/hometown_courtyard_2026_10_03/courtyard_home.png",
+          "new": "res://assets/sprites/world/world_linework_2026_10_04/courtyard_home.png",
+          "occurrences": 1
+        },
+        {
+          "stage": "phase1",
+          "old": "res://assets/sprites/world/route1_rd_2026_10_02/dispatch_hall_complete.png",
+          "new": "res://assets/sprites/world/world_linework_2026_10_04/dispatch_hall.png",
+          "occurrences": 1
+        },
+        {
+          "stage": "phase1",
+          "old": "res://assets/sprites/world/area_transitions_2026_10_03/brick_shop.png",
+          "new": "res://assets/sprites/world/world_linework_2026_10_04/brick_shop.png",
+          "occurrences": 1
+        },
+        {
+          "stage": "phase1",
+          "old": "res://assets/sprites/world/area_transitions_2026_10_03/ledger_house.png",
+          "new": "res://assets/sprites/world/world_linework_2026_10_04/ledger_house.png",
+          "occurrences": 1
+        },
+        {
+          "stage": "grounded_approaches",
+          "old": "const HOME_ROAD = preload(",
+          "new": "const HALL_APPROACH = preload(\"res://assets/sprites/world/world_approaches_2026_10_05/hometown_hall_approach.png\")\nconst BRANCH_APPROACH = preload(\"res://assets/sprites/world/world_approaches_2026_10_05/riverfront_branch_approach.png\")\nconst HOME_ROAD = preload(",
+          "occurrences": 1
+        },
+        {
+          "stage": "grounded_approaches",
+          "old": "func _build_home() -> void:\n",
+          "new": "func _build_home() -> void:\n    _surface(\"HallApproach\",HALL_APPROACH,Vector2(750,414),-5)\n",
+          "occurrences": 1
+        },
+        {
+          "stage": "grounded_approaches",
+          "old": "func _build_city() -> void:\n",
+          "new": "func _build_city() -> void:\n    _surface(\"BranchApproach\",BRANCH_APPROACH,Vector2(490,354),-5)\n",
+          "occurrences": 1
+        },
+        {
+          "stage": "grounded_approaches",
+          "old": "_label(\"COURIER HALL\",Vector2(728,306))",
+          "new": "_label(\"COURIER HALL\",Vector2(728,290))",
+          "occurrences": 1
+        },
+        {
+          "stage": "grounded_approaches",
+          "old": "_label(\"COURIER BRANCH\",Vector2(466,254))",
+          "new": "_label(\"COURIER BRANCH\",Vector2(466,234))",
+          "occurrences": 1
+        }
+      ]
+    },
+    {
+      "path": "scripts/historic_street.gd",
+      "captured_original_sha256": "1846df40a8d84bc47e76c9671396ffc600b417549462d4573dd703dfa185f4c4",
+      "final_sha256": "b176dd25cbb034f37a572e0791720ad13e9e3363c9a14bc5376fd9837bc34eaa",
+      "normalized_text_matches_only_listed_substitutions": true,
+      "ordered_substitutions": [
+        {
+          "stage": "phase1",
+          "old": "res://assets/sprites/world/area_transitions_2026_10_03/brick_shop.png",
+          "new": "res://assets/sprites/world/world_linework_2026_10_04/brick_shop.png",
+          "occurrences": 1
+        },
+        {
+          "stage": "phase1",
+          "old": "res://assets/sprites/world/area_transitions_2026_10_03/ledger_house.png",
+          "new": "res://assets/sprites/world/world_linework_2026_10_04/ledger_house.png",
+          "occurrences": 1
+        }
+      ]
+    },
+    {
+      "path": "scripts/courtyard_home_room.gd",
+      "captured_original_sha256": "e522cb8ce96aadd6a5668bb67e2baafdec1b0f1423c63ec5d2a8f5324c7e0c71",
+      "final_sha256": "53cb15f5168a6714fe78712062342178d69531dd2cb4aa0e0de592842d27e418",
+      "normalized_text_matches_only_listed_substitutions": true,
+      "ordered_substitutions": [
+        {
+          "stage": "phase1",
+          "old": "res://assets/sprites/world/hometown_homes_2026_10_04/home_room.png",
+          "new": "res://assets/sprites/world/courtyard_home_linework_2026_10_04/home_room.png",
+          "occurrences": 1
+        },
+        {
+          "stage": "phase1",
+          "old": "res://assets/sprites/world/hometown_homes_2026_10_04/home_stove_front.png",
+          "new": "res://assets/sprites/world/courtyard_home_linework_2026_10_04/home_stove_front.png",
+          "occurrences": 1
+        },
+        {
+          "stage": "phase1",
+          "old": "res://assets/sprites/world/hometown_homes_2026_10_04/home_coat_front.png",
+          "new": "res://assets/sprites/world/courtyard_home_linework_2026_10_04/home_coat_front.png",
+          "occurrences": 1
+        },
+        {
+          "stage": "phase1",
+          "old": "res://assets/sprites/world/hometown_homes_2026_10_04/home_threshold_front.png",
+          "new": "res://assets/sprites/world/courtyard_home_linework_2026_10_04/home_threshold_front.png",
+          "occurrences": 1
+        },
+        {
+          "stage": "phase1",
+          "old": "E  Check route table",
+          "new": "E  Inspect worktable",
+          "occurrences": 1
+        },
+        {
+          "stage": "phase1",
+          "old": "The small table holds a folded map and room for your field notes.",
+          "new": "The worktable is clear, with room to lay out your next task.",
+          "occurrences": 1
+        },
+        {
+          "stage": "phase1",
+          "old": "The route report has been filed. The folded map stays ready for the next trip.",
+          "new": "The worktable is clear. Your route report has been filed.",
+          "occurrences": 1
+        },
+        {
+          "stage": "phase1",
+          "old": "Your current route is copied beside the folded map.",
+          "new": "The worktable is clear. Your current route pouch stays with you.",
+          "occurrences": 1
+        },
+        {
+          "stage": "phase1",
+          "old": "ROUTE TABLE",
+          "new": "WORKTABLE",
+          "occurrences": 1
+        },
+        {
+          "stage": "room_detail",
+          "old": "res://assets/sprites/world/courtyard_home_linework_2026_10_04/",
+          "new": "res://assets/sprites/world/courtyard_home_detail_2026_10_05/",
+          "occurrences": 4
+        }
+      ]
+    }
+  ],
+  "all_listed_substitutions_only": true,
+  "newlines_normalized_for_text_check_only": true,
+  "runtime_copies_byte_exact": true
+}

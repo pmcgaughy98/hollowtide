@@ -1,0 +1,13 @@
+{
+ "prompt": "A redraw of the blue river shark creature in the first reference image, as the Tide starter of a monster-collecting RPG, drawn with the same finish, outline and shading as the two other starter creatures in the references. Keep its design: a small sharp-bodied river shark with a clean wedge head, watchful pale cyan eyes, swept angular pectoral fins, a notched dorsal fin, a ridge of short pale spines along its back, and a blunt forked tail, its body curving in an S as if gliding. Deep river blue, slate, cold cyan, pale highlights, a pale belly. Curious and cool-headed. Three-quarter view facing right. Not a round cartoon fish, no bubbles, no water splashes. Shown whole in the centre of the frame with empty space on every side. On a plain white background.",
+ "prompt_style": "rd_pro__default",
+ "width": 160,
+ "height": 160,
+ "num_images": 2,
+ "remove_bg": true,
+ "reference_images": [
+  "assets/sprites/creatures/rimefin.png",
+  "assets/sprites/creatures/cinderhide.png",
+  "docs/creatures/tallowroot-rd-2026-10-05/tallowroot_front_160.png"
+ ]
+}

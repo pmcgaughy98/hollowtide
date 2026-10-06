@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="CreatureData" format=3]
+
+[ext_resource type="Script" path="res://scripts/creature_data.gd" id="1_script"]
+[ext_resource type="Texture2D" path="res://assets/sprites/creatures/kithflare_line_2026_10_05/kithflare3_front.png" id="2_sprite"]
+[ext_resource type="Script" path="res://scripts/move_data.gd" id="2_xwtts"]
+[ext_resource type="Texture2D" path="res://assets/sprites/creatures/kithflare_line_2026_10_05/kithflare3_back.png" id="3_back"]
+
+[resource]
+script = ExtResource("1_script")
+id = 110
+creature_name = "Kithflare III"
+has_second_essence = true
+second_essence = 6
+sprite = ExtResource("2_sprite")
+back_sprite = ExtResource("3_back")
+description = "Provisional entry (Claude, 2026-10-05, on Preston's request): Retro Diffusion art from docs/creatures/starter-lines-rd-2026-10-05/evolutions. Default stats and no moves (Strike) until Grok sets the kit and numbers."
+body_parts = PackedStringArray()
+battle_size = 1.6600000000000001

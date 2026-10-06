@@ -1,0 +1,12 @@
+{
+ "prompt": "The evolved second stage of the blue river catfish in the first reference image: same species, same bony grey head plate, narrowed cyan eyes, whip barbels and frost-edged fins, but clearly older, longer and stronger, with a different pose. A long, powerful catfish hunter in a low gliding diagonal stance, mid-turn. Its serrated pectoral spines have grown into long blade spines that it walks on like forelimbs. Broader armoured head plate, longer whip barbels swept back, a second sharp dorsal spine, a ridge of pale cyan spines down its back, a long sweeping tail. Deep river blue, slate, cold cyan edges, pale belly. Cool-headed, hunting along current seams. Three-quarter view facing right. Same finish and outline as the references. Do not copy the reference pose, not rearing up. Not a shark. No bubbles, no water. Shown whole in the centre of the frame with empty space on every side. On a plain white background.",
+ "prompt_style": "rd_pro__default",
+ "width": 192,
+ "height": 192,
+ "num_images": 2,
+ "remove_bg": true,
+ "reference_images": [
+  "docs/creatures/starter-lines-rd-2026-10-05/starter_poses/rimefin_front_take1.png",
+  "assets/sprites/creatures/cinderhide.png"
+ ]
+}

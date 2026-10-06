@@ -1,0 +1,87 @@
+{
+  "passed": false,
+  "baseline_files": 2237,
+  "current_runtime_files": 2255,
+  "unchanged_existing": 2231,
+  "changed_existing": [
+    "data/creatures/104_wayburn.tres",
+    "data/creatures/105_coalcrest.tres",
+    "scripts/area_landscape.gd",
+    "scripts/courtyard_home_room.gd",
+    "scripts/creature_data.gd",
+    "scripts/historic_street.gd"
+  ],
+  "new_files": [
+    "assets/sprites/creatures/wayburn_back_line_2026_10_05/wayburn_front.png",
+    "assets/sprites/creatures/wayburn_back_line_2026_10_05/wayburn_front.png.import",
+    "assets/sprites/world/courtyard_home_linework_2026_10_04/home_coat_front.png",
+    "assets/sprites/world/courtyard_home_linework_2026_10_04/home_coat_front.png.import",
+    "assets/sprites/world/courtyard_home_linework_2026_10_04/home_room.png",
+    "assets/sprites/world/courtyard_home_linework_2026_10_04/home_room.png.import",
+    "assets/sprites/world/courtyard_home_linework_2026_10_04/home_stove_front.png",
+    "assets/sprites/world/courtyard_home_linework_2026_10_04/home_stove_front.png.import",
+    "assets/sprites/world/courtyard_home_linework_2026_10_04/home_threshold_front.png",
+    "assets/sprites/world/courtyard_home_linework_2026_10_04/home_threshold_front.png.import",
+    "assets/sprites/world/world_linework_2026_10_04/brick_shop.png",
+    "assets/sprites/world/world_linework_2026_10_04/brick_shop.png.import",
+    "assets/sprites/world/world_linework_2026_10_04/courtyard_home.png",
+    "assets/sprites/world/world_linework_2026_10_04/courtyard_home.png.import",
+    "assets/sprites/world/world_linework_2026_10_04/dispatch_hall.png",
+    "assets/sprites/world/world_linework_2026_10_04/dispatch_hall.png.import",
+    "assets/sprites/world/world_linework_2026_10_04/ledger_house.png",
+    "assets/sprites/world/world_linework_2026_10_04/ledger_house.png.import"
+  ],
+  "missing": [],
+  "unexpected_changed": [
+    "data/creatures/104_wayburn.tres",
+    "data/creatures/105_coalcrest.tres",
+    "scripts/creature_data.gd"
+  ],
+  "unexpected_new": [
+    "assets/sprites/creatures/wayburn_back_line_2026_10_05/wayburn_front.png",
+    "assets/sprites/creatures/wayburn_back_line_2026_10_05/wayburn_front.png.import"
+  ],
+  "normalized_scripts": {
+    "scripts/area_landscape.gd": {
+      "approved_substitutions_only": true,
+      "expected_sha256": "bfa0a77495280c973ead3631a4216d64a864aefe178793181917c2f0cf69d946",
+      "actual_sha256": "bfa0a77495280c973ead3631a4216d64a864aefe178793181917c2f0cf69d946"
+    },
+    "scripts/historic_street.gd": {
+      "approved_substitutions_only": true,
+      "expected_sha256": "b176dd25cbb034f37a572e0791720ad13e9e3363c9a14bc5376fd9837bc34eaa",
+      "actual_sha256": "b176dd25cbb034f37a572e0791720ad13e9e3363c9a14bc5376fd9837bc34eaa"
+    },
+    "scripts/courtyard_home_room.gd": {
+      "approved_substitutions_only": true,
+      "expected_sha256": "51c6621e1d6e11400f423337fc272eb55d70f6eff600624e21554bc798f5474d",
+      "actual_sha256": "51c6621e1d6e11400f423337fc272eb55d70f6eff600624e21554bc798f5474d"
+    }
+  },
+  "protected": {
+    "menu": {
+      "checked": 45,
+      "exact": true
+    },
+    "creatures_and_moves": {
+      "checked": 1046,
+      "exact": false
+    },
+    "player_and_chibi": {
+      "checked": 121,
+      "exact": true
+    },
+    "journey_and_quests": {
+      "checked": 3,
+      "exact": true
+    },
+    "all_scenes_and_data": {
+      "checked": 147,
+      "exact": false
+    },
+    "project_launch_audio": {
+      "checked": 1,
+      "exact": true
+    }
+  }
+}

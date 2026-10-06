@@ -1,0 +1,35 @@
+{
+  "date": "2026-10-05",
+  "prior_baseline_files": 2222,
+  "current_pre_install_files": 2237,
+  "concurrent_existing_changes_preserved": [
+    "assets/sprites/effects/vfx_rd_2026_10_01/furnace_roar_geyser_4x4.png",
+    "project.godot",
+    "scripts/battle_screen.gd"
+  ],
+  "concurrent_new_files_preserved": [],
+  "missing": [],
+  "three_target_scripts_still_original_exact": true,
+  "current_project_launch_and_audio_preserved_without_rewrite": true,
+  "reason": "Current AI_COLLABORATION.md documents Claude's October 5 signature hit/furnace updates. Preserve current shared state; never restore older unrelated files.",
+  "additional_pre_install_changes_preserved": [
+    "data/creatures/105_coalcrest.tres"
+  ],
+  "additional_pre_install_new_files_preserved": [
+    "assets/sprites/creatures/coalcrest_back_head_2026_10_05/coalcrest_back.png",
+    "assets/sprites/creatures/coalcrest_back_head_2026_10_05/coalcrest_back.png.import",
+    "assets/sprites/creatures/punchybun_2026_10_05/punchybun_front.png",
+    "assets/sprites/creatures/punchybun_2026_10_05/punchybun_front.png.import",
+    "assets/sprites/creatures/stone_line_2026_10_05/oathfen_back.png",
+    "assets/sprites/creatures/stone_line_2026_10_05/oathfen_back.png.import",
+    "assets/sprites/creatures/stone_line_2026_10_05/oathfen_front.png",
+    "assets/sprites/creatures/stone_line_2026_10_05/oathfen_front.png.import",
+    "assets/sprites/creatures/stone_line_2026_10_05/preostmar_back.png",
+    "assets/sprites/creatures/stone_line_2026_10_05/preostmar_back.png.import",
+    "assets/sprites/creatures/stone_line_2026_10_05/preostmar_front.png",
+    "assets/sprites/creatures/stone_line_2026_10_05/preostmar_front.png.import",
+    "data/creatures/2101_punchybun.tres",
+    "data/creatures/901_preostmar.tres",
+    "data/creatures/902_oathfen.tres"
+  ]
+}

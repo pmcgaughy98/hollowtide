@@ -2,8 +2,8 @@ extends Node2D
 ## A cached historic street with run-local address observations.
 ## It shares the original courier dialogue/notes; no new save or reward system.
 const TILESET = preload("res://assets/tilesets/route1_rd_2026_10_01/route1_ground_polished.tres")
-const SHOP = preload("res://assets/sprites/world/area_transitions_2026_10_03/brick_shop.png")
-const LEDGER = preload("res://assets/sprites/world/area_transitions_2026_10_03/ledger_house.png")
+const SHOP = preload("res://assets/sprites/world/world_linework_2026_10_04/brick_shop.png")
+const LEDGER = preload("res://assets/sprites/world/world_linework_2026_10_04/ledger_house.png")
 const STREET = preload("res://assets/sprites/world/historic_frontage_2026_10_04/street_pavers.png")
 const WORKSHOP = preload("res://assets/sprites/world/historic_frontage_2026_10_04/repair_workshop.png")
 const ROWHOMES = preload("res://assets/sprites/world/historic_frontage_2026_10_04/rear_rowhomes.png")

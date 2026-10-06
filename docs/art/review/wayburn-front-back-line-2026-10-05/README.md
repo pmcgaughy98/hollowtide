@@ -1,0 +1,3 @@
+# Wayburn front: back line over the hips (Claude, 2026-10-05)
+
+Preston: the top of Wayburn's back near the rear looked cut off. The front (`kithflare_line_rechecked_2026_10_04/wayburn_front.png`) had a 6 px vertical drop in its outline at x 94 and a flat run to x 77. `build.py` lifts the top 7 px band of each column from x 77 to 94 onto a straight slope from (95, 66) to (66, 77). Installed as `assets/sprites/creatures/wayburn_back_line_2026_10_05/wayburn_front.png` via `104_wayburn.tres`; the old file is untouched. `before_after.png` compares them; `battle_coalcrest_back_wayburn_front.png` shows it in battle beside Coalcrest's new framing.

@@ -1,0 +1,418 @@
+{
+  "date_UTC": "2026-10-05T18:09:00.272017+00:00",
+  "complete": true,
+  "file_count_excluding_manifest": 80,
+  "runtime_file_count": 8,
+  "original_package_file_count": 55,
+  "original_package_byte_exact": true,
+  "native_engine_runs_by_archiver": 0,
+  "production_writes_by_archiver": 0,
+  "paid_calls_by_archiver": 0,
+  "global_repo_equal_claim": false,
+  "concurrent_Grok_second_essence_preserved_not_native_tested": true,
+  "runtime_manifest_sha256": "b622543dd0ef98d63399d8c24c7f10862add57a474342eb0609b7c150e14f30f",
+  "corrected_native_verification_sha256": "9d282c85292f056f01b401ed29f6f61ab5516c69638bdecd3b50bd6306f18ba0",
+  "local_rebuild_proof_sha256": "d133d22bf796361c517e51a3d27d6d04012f580d54a34e0b50cad6904371f32a",
+  "files": [
+    {
+      "relative_path": "build_palette.py",
+      "bytes": 2058,
+      "sha256": "95d5241f88552344da2b9f642664354c0499041ef68c0f34840dc77235a889a6"
+    },
+    {
+      "relative_path": "context/assets/sprites/creatures/ironvent_back_2026_09_27.png",
+      "bytes": 8870,
+      "sha256": "556c783f4923d9f167efbf7a4646a9c1d4a03e83042289a6a904cae0e42b8a06"
+    },
+    {
+      "relative_path": "context/assets/sprites/creatures/ironvent_back_2026_09_27.png.import",
+      "bytes": 1002,
+      "sha256": "c8b5d76b44ae6c42108ca3e7a054b2eeaf819bbfdea33ce54fb32940841e79bf"
+    },
+    {
+      "relative_path": "context/native-tested/data/creatures/102_ironvent.tres",
+      "bytes": 1636,
+      "sha256": "80c2ac4a75f3fc94d80a333642f419ee842726bdaa6d6c02e4f1ca8a372e257d"
+    },
+    {
+      "relative_path": "context/scripts/battle_screen.gd",
+      "bytes": 145360,
+      "sha256": "49c1d34c2316390d198bf8a8d862325a9d0a96c19740aff54fc56aece7c0895d"
+    },
+    {
+      "relative_path": "context/scripts/effects/creature_sprite.gdshader",
+      "bytes": 8563,
+      "sha256": "3cfe1eccf9da29e5dbf07e59faba0d87648286d2d83ad6ba082c625a0f6cef57"
+    },
+    {
+      "relative_path": "ironvent-black-match-review-2026-10-05/back-palette-proposal.json",
+      "bytes": 4928,
+      "sha256": "d9877a68357fd57ef1ebf7bc1469cf5b517863a8d2e1728f33bdfaf6ff6f07db"
+    },
+    {
+      "relative_path": "ironvent-black-match-review-2026-10-05/before/data/creatures/102_ironvent.tres",
+      "bytes": 1598,
+      "sha256": "c5fd3ed4da4543ffd7ac0574818f7e34b424510b28109620b996a917ef371c4a"
+    },
+    {
+      "relative_path": "ironvent-black-match-review-2026-10-05/before/data/moves/ironvent_furnace_roar.tres",
+      "bytes": 8092,
+      "sha256": "35b846f1bbc9339c00e02db9c61c87a07c71f9b428d6073eb99c7354ae951bd2"
+    },
+    {
+      "relative_path": "ironvent-black-match-review-2026-10-05/before/front-original.png",
+      "bytes": 6244,
+      "sha256": "70a6346602a8a6bf7c798304b9a9153dc73232c7f42847ff312962f5c761db7c"
+    },
+    {
+      "relative_path": "ironvent-black-match-review-2026-10-05/before/title-original.png",
+      "bytes": 5923,
+      "sha256": "ba7d778e4cb2c5964d52b7ac66b89a1a5c594470bb95686df246311729151802"
+    },
+    {
+      "relative_path": "ironvent-black-match-review-2026-10-05/before/title-registration-before.tres",
+      "bytes": 8043,
+      "sha256": "57082c6d06c40264977eb1c99d0a3d9910189885e35a581c14b9125feb2f251c"
+    },
+    {
+      "relative_path": "ironvent-black-match-review-2026-10-05/build_back_palette_proposal.py",
+      "bytes": 921,
+      "sha256": "c55238149724770a14e70d50900d129092f162646cc7208d67814e3093214c96"
+    },
+    {
+      "relative_path": "ironvent-black-match-review-2026-10-05/installation.json",
+      "bytes": 2157,
+      "sha256": "b759c97be3c9189770523ef8c53c7ee800ee8140008189d63874f6330f5afa0d"
+    },
+    {
+      "relative_path": "ironvent-black-match-review-2026-10-05/ironvent-back-native-neutral-6x.png",
+      "bytes": 10828,
+      "sha256": "eca7f25503700291bf53481a6de337f1e502ff6cc97a8067304a44dda3e007e0"
+    },
+    {
+      "relative_path": "ironvent-black-match-review-2026-10-05/ironvent-cpu-head-finish-heat0-comparison-6x.png",
+      "bytes": 71853,
+      "sha256": "4c5cc4bd430022b894571f74585ca0af485b34190ed557ae2d6c6523c1f2e2cb"
+    },
+    {
+      "relative_path": "ironvent-black-match-review-2026-10-05/ironvent-front-back-title-source-comparison.png",
+      "bytes": 34249,
+      "sha256": "2b8decc9549bde25aebfdb54bbde091e47723a37ca9b8ccfae865f895d6b61db"
+    },
+    {
+      "relative_path": "ironvent-black-match-review-2026-10-05/ironvent-front-native-neutral-6x.png",
+      "bytes": 12490,
+      "sha256": "a3ad08af68460b9aa22317a3c83f85462e5104cf4f8bf730bb76afada9a8a00b"
+    },
+    {
+      "relative_path": "ironvent-black-match-review-2026-10-05/ironvent-native-palette-comparison-6x.png",
+      "bytes": 67057,
+      "sha256": "ed97d994cea386c719f4f2b45e21cf58b184f5afca085385f3c0386142b68a4c"
+    },
+    {
+      "relative_path": "ironvent-black-match-review-2026-10-05/ironvent-title-native-neutral-3x.png",
+      "bytes": 8517,
+      "sha256": "e6846514fcb7a3efd76d7aaaf47baa0118d3d60b900da277e9274b7dadf690ac"
+    },
+    {
+      "relative_path": "ironvent-black-match-review-2026-10-05/proof/front-after.png",
+      "bytes": 35052,
+      "sha256": "a323a2d19a91ddc313160b29288748601116d0e5ce222d9f4544187bbcab1269"
+    },
+    {
+      "relative_path": "ironvent-black-match-review-2026-10-05/proof/front-idle.png",
+      "bytes": 35073,
+      "sha256": "77cdfd740e62e173dd56551c9e319d7d5f82e74ccd7f0bd66b9ad39a0d209d6a"
+    },
+    {
+      "relative_path": "ironvent-black-match-review-2026-10-05/proof/front-title-held.png",
+      "bytes": 41676,
+      "sha256": "2d48ac76bc2ded34001e835b7603f35d26cf1bd1958ad20bc2f9fa401a80233d"
+    },
+    {
+      "relative_path": "ironvent-black-match-review-2026-10-05/proof/import.stderr.log",
+      "bytes": 914,
+      "sha256": "28531a6d6b0aa3d22341ea7e9a71d28f0be6d4dffcbe72da99ee9dff7145ec89"
+    },
+    {
+      "relative_path": "ironvent-black-match-review-2026-10-05/proof/import.stdout.log",
+      "bytes": 3384,
+      "sha256": "6b5db2d77bae8fe3de41bfae9f90a6633f408ba415a3bda25920a783a003171f"
+    },
+    {
+      "relative_path": "ironvent-black-match-review-2026-10-05/proof/rear-after.png",
+      "bytes": 32729,
+      "sha256": "7cf6086cac53b4bfa66800539c067f646a794a29da3146de9580e32eb9f1db08"
+    },
+    {
+      "relative_path": "ironvent-black-match-review-2026-10-05/proof/rear-idle.png",
+      "bytes": 32733,
+      "sha256": "a626a628dac76e096999eb8f93ab750578b9f313b1381ad84b56e409ae1f47ff"
+    },
+    {
+      "relative_path": "ironvent-black-match-review-2026-10-05/proof/rear-title-held.png",
+      "bytes": 44340,
+      "sha256": "35fb181cf950029e107b55e16570b61d704d269ad447d0a53916a1fed79c26b1"
+    },
+    {
+      "relative_path": "ironvent-black-match-review-2026-10-05/proof/runtime-checks.json",
+      "bytes": 1383,
+      "sha256": "40f4635d4b5efedb2407ec11f3f79cd4e6d3c05cd3141876050483a75e925587"
+    },
+    {
+      "relative_path": "ironvent-black-match-review-2026-10-05/proof/runtime.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "relative_path": "ironvent-black-match-review-2026-10-05/proof/runtime.stdout.log",
+      "bytes": 401,
+      "sha256": "e2f89be9865d9582338c44729e4cc0a0b3351415de990e80b0edb68ff6157237"
+    },
+    {
+      "relative_path": "ironvent-black-match-review-2026-10-05/proof-initial-default-region/front-after.png",
+      "bytes": 35052,
+      "sha256": "a323a2d19a91ddc313160b29288748601116d0e5ce222d9f4544187bbcab1269"
+    },
+    {
+      "relative_path": "ironvent-black-match-review-2026-10-05/proof-initial-default-region/front-idle.png",
+      "bytes": 35073,
+      "sha256": "77cdfd740e62e173dd56551c9e319d7d5f82e74ccd7f0bd66b9ad39a0d209d6a"
+    },
+    {
+      "relative_path": "ironvent-black-match-review-2026-10-05/proof-initial-default-region/front-title-held.png",
+      "bytes": 41676,
+      "sha256": "2d48ac76bc2ded34001e835b7603f35d26cf1bd1958ad20bc2f9fa401a80233d"
+    },
+    {
+      "relative_path": "ironvent-black-match-review-2026-10-05/proof-initial-default-region/import.stderr.log",
+      "bytes": 914,
+      "sha256": "28531a6d6b0aa3d22341ea7e9a71d28f0be6d4dffcbe72da99ee9dff7145ec89"
+    },
+    {
+      "relative_path": "ironvent-black-match-review-2026-10-05/proof-initial-default-region/import.stdout.log",
+      "bytes": 3384,
+      "sha256": "6b5db2d77bae8fe3de41bfae9f90a6633f408ba415a3bda25920a783a003171f"
+    },
+    {
+      "relative_path": "ironvent-black-match-review-2026-10-05/proof-initial-default-region/rear-after.png",
+      "bytes": 32729,
+      "sha256": "7cf6086cac53b4bfa66800539c067f646a794a29da3146de9580e32eb9f1db08"
+    },
+    {
+      "relative_path": "ironvent-black-match-review-2026-10-05/proof-initial-default-region/rear-idle.png",
+      "bytes": 32733,
+      "sha256": "a626a628dac76e096999eb8f93ab750578b9f313b1381ad84b56e409ae1f47ff"
+    },
+    {
+      "relative_path": "ironvent-black-match-review-2026-10-05/proof-initial-default-region/rear-title-held.png",
+      "bytes": 44340,
+      "sha256": "35fb181cf950029e107b55e16570b61d704d269ad447d0a53916a1fed79c26b1"
+    },
+    {
+      "relative_path": "ironvent-black-match-review-2026-10-05/proof-initial-default-region/runtime-checks.json",
+      "bytes": 1383,
+      "sha256": "40f4635d4b5efedb2407ec11f3f79cd4e6d3c05cd3141876050483a75e925587"
+    },
+    {
+      "relative_path": "ironvent-black-match-review-2026-10-05/proof-initial-default-region/runtime.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "relative_path": "ironvent-black-match-review-2026-10-05/proof-initial-default-region/runtime.stdout.log",
+      "bytes": 401,
+      "sha256": "e2f89be9865d9582338c44729e4cc0a0b3351415de990e80b0edb68ff6157237"
+    },
+    {
+      "relative_path": "ironvent-black-match-review-2026-10-05/proof-registered-title/final-verification.json",
+      "bytes": 14800,
+      "sha256": "9d282c85292f056f01b401ed29f6f61ab5516c69638bdecd3b50bd6306f18ba0"
+    },
+    {
+      "relative_path": "ironvent-black-match-review-2026-10-05/proof-registered-title/front-after.png",
+      "bytes": 35052,
+      "sha256": "a323a2d19a91ddc313160b29288748601116d0e5ce222d9f4544187bbcab1269"
+    },
+    {
+      "relative_path": "ironvent-black-match-review-2026-10-05/proof-registered-title/front-idle.png",
+      "bytes": 35073,
+      "sha256": "77cdfd740e62e173dd56551c9e319d7d5f82e74ccd7f0bd66b9ad39a0d209d6a"
+    },
+    {
+      "relative_path": "ironvent-black-match-review-2026-10-05/proof-registered-title/front-title-held.png",
+      "bytes": 41769,
+      "sha256": "ed8d5fcc744d33ba93e7e80afdac86b2c843efb6a7a7728062b48d7888b0212a"
+    },
+    {
+      "relative_path": "ironvent-black-match-review-2026-10-05/proof-registered-title/import.stderr.log",
+      "bytes": 914,
+      "sha256": "75f55cc82439b98f440a6112d3ff27a93e1f317541947b9fa97545bf6419b143"
+    },
+    {
+      "relative_path": "ironvent-black-match-review-2026-10-05/proof-registered-title/import.stdout.log",
+      "bytes": 2521,
+      "sha256": "63d0099a6d9720c279949302d779e735e3616d3a31dd6bc92f65f4ca866c264d"
+    },
+    {
+      "relative_path": "ironvent-black-match-review-2026-10-05/proof-registered-title/rear-after.png",
+      "bytes": 32729,
+      "sha256": "7cf6086cac53b4bfa66800539c067f646a794a29da3146de9580e32eb9f1db08"
+    },
+    {
+      "relative_path": "ironvent-black-match-review-2026-10-05/proof-registered-title/rear-idle.png",
+      "bytes": 32772,
+      "sha256": "798218d1229190be40217c3532acc5d591dd00cc01525c83d9a7c26291c7340b"
+    },
+    {
+      "relative_path": "ironvent-black-match-review-2026-10-05/proof-registered-title/rear-title-held.png",
+      "bytes": 44453,
+      "sha256": "35a08391f202d632783123eeaab12e403de2f1179c038460bc419e5d43133984"
+    },
+    {
+      "relative_path": "ironvent-black-match-review-2026-10-05/proof-registered-title/runtime-checks.json",
+      "bytes": 1787,
+      "sha256": "67046fb2a74269d7662521a730712b802f20cb7459c987d9dcb529d3db6c1f29"
+    },
+    {
+      "relative_path": "ironvent-black-match-review-2026-10-05/proof-registered-title/runtime.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "relative_path": "ironvent-black-match-review-2026-10-05/proof-registered-title/runtime.stdout.log",
+      "bytes": 401,
+      "sha256": "e2f89be9865d9582338c44729e4cc0a0b3351415de990e80b0edb68ff6157237"
+    },
+    {
+      "relative_path": "ironvent-black-match-review-2026-10-05/proof-registered-title/terminal-results.json",
+      "bytes": 624,
+      "sha256": "53b46a7b379c83dc0cfe15be41625e0f324dc134290095c072d8a7a466e2ad14"
+    },
+    {
+      "relative_path": "ironvent-black-match-review-2026-10-05/proposals/ironvent-front-back-palette-mask.png",
+      "bytes": 976,
+      "sha256": "bc8545a17c5771325168dbcd4c878fb29beb10226c07fd797c5bf13b0eb6bcb1"
+    },
+    {
+      "relative_path": "ironvent-black-match-review-2026-10-05/proposals/ironvent-front-back-palette-proposal.png",
+      "bytes": 6205,
+      "sha256": "e7e05e0c1a505b5ea035ed6dd7a72f0c5a233a7ca42301a8ef06428fefe2ba35"
+    },
+    {
+      "relative_path": "ironvent-black-match-review-2026-10-05/proposals/ironvent-title-back-palette-mask.png",
+      "bytes": 756,
+      "sha256": "97197fcd3c1828f93bd024af9e2df0ff6f786b365f6fcff78eb813b276bd0fdf"
+    },
+    {
+      "relative_path": "ironvent-black-match-review-2026-10-05/proposals/ironvent-title-back-palette-proposal.png",
+      "bytes": 5899,
+      "sha256": "0eb53284d8b311a3f221d6a8629009ae3a28c00115ee546cc9dbfa37772eaa62"
+    },
+    {
+      "relative_path": "ironvent-black-match-review-2026-10-05/source-inventory.json",
+      "bytes": 1040,
+      "sha256": "a17e73e38845a4c8cc494e656ed414edcb9b5639a38dc5be4afdac1053a0dca9"
+    },
+    {
+      "relative_path": "ironvent-black-match-review-2026-10-05/title-registration-correction.json",
+      "bytes": 1191,
+      "sha256": "558659350011118a34c24f93ffad98dd3bff629e849decb075dae1ae560a6458"
+    },
+    {
+      "relative_path": "ironvent_palette_registered_runtime.gd",
+      "bytes": 5444,
+      "sha256": "9c408c98fbd795fb8f29ab6b4717aa233311ce736334e337d93ab0ee4be2e7f5"
+    },
+    {
+      "relative_path": "ironvent_palette_runtime.gd",
+      "bytes": 4951,
+      "sha256": "c1888386b49c778214126b56dc8a6b9d45f7349f3b05637837e106531cb4a11b"
+    },
+    {
+      "relative_path": "metadata-history/README.before-concurrent-essence.md",
+      "bytes": 4513,
+      "sha256": "11fc78e9a128eda8100032de147c2de1c4e8ac2ba66f0bba6c4bf44f0b6722f0"
+    },
+    {
+      "relative_path": "metadata-history/runtime-manifest.before-concurrent-essence.json",
+      "bytes": 2871,
+      "sha256": "32df87a308af158665d4b37cdeb1d08bbc942ffe9cc83c4f7e17bbd609160574"
+    },
+    {
+      "relative_path": "owned-binding-delta-and-concurrent-preservation.json",
+      "bytes": 1524,
+      "sha256": "5461baedd4fc6309f64142314a18056f0024e379c7c0f445c9916f8f8207e922"
+    },
+    {
+      "relative_path": "README.md",
+      "bytes": 5431,
+      "sha256": "d06ff48c78ff5d1fe5611908e9adec3d5768e92af4769a9cd0bc378b6bf447f8"
+    },
+    {
+      "relative_path": "rebuild-proof/assets/sprites/creatures/attacks/ironvent_furnace_roar/style_matched/back_palette_2026_10_05/titlecard_official_2026_09_30.png",
+      "bytes": 5899,
+      "sha256": "0eb53284d8b311a3f221d6a8629009ae3a28c00115ee546cc9dbfa37772eaa62"
+    },
+    {
+      "relative_path": "rebuild-proof/assets/sprites/creatures/ironvent_black_match_2026_10_05/furnace_roar_title.png",
+      "bytes": 5899,
+      "sha256": "0eb53284d8b311a3f221d6a8629009ae3a28c00115ee546cc9dbfa37772eaa62"
+    },
+    {
+      "relative_path": "rebuild-proof/assets/sprites/creatures/ironvent_black_match_2026_10_05/ironvent_front.png",
+      "bytes": 6205,
+      "sha256": "e7e05e0c1a505b5ea035ed6dd7a72f0c5a233a7ca42301a8ef06428fefe2ba35"
+    },
+    {
+      "relative_path": "rebuild-proof/rebuild-checks.json",
+      "bytes": 1083,
+      "sha256": "d133d22bf796361c517e51a3d27d6d04012f580d54a34e0b50cad6904371f32a"
+    },
+    {
+      "relative_path": "runtime/assets/sprites/creatures/attacks/ironvent_furnace_roar/style_matched/back_palette_2026_10_05/titlecard_official_2026_09_30.png",
+      "bytes": 5899,
+      "sha256": "0eb53284d8b311a3f221d6a8629009ae3a28c00115ee546cc9dbfa37772eaa62"
+    },
+    {
+      "relative_path": "runtime/assets/sprites/creatures/attacks/ironvent_furnace_roar/style_matched/back_palette_2026_10_05/titlecard_official_2026_09_30.png.import",
+      "bytes": 1084,
+      "sha256": "7b966fc780ce5588c45099cc4d8451161e9812f04fdc5bd69b4f9d8281fb0526"
+    },
+    {
+      "relative_path": "runtime/assets/sprites/creatures/ironvent_black_match_2026_10_05/furnace_roar_title.png",
+      "bytes": 5899,
+      "sha256": "0eb53284d8b311a3f221d6a8629009ae3a28c00115ee546cc9dbfa37772eaa62"
+    },
+    {
+      "relative_path": "runtime/assets/sprites/creatures/ironvent_black_match_2026_10_05/furnace_roar_title.png.import",
+      "bytes": 1015,
+      "sha256": "ccde83490ffcfbc286eaa0a85e74a2357495f7108e51de5f734ed0797cc88d08"
+    },
+    {
+      "relative_path": "runtime/assets/sprites/creatures/ironvent_black_match_2026_10_05/ironvent_front.png",
+      "bytes": 6205,
+      "sha256": "e7e05e0c1a505b5ea035ed6dd7a72f0c5a233a7ca42301a8ef06428fefe2ba35"
+    },
+    {
+      "relative_path": "runtime/assets/sprites/creatures/ironvent_black_match_2026_10_05/ironvent_front.png.import",
+      "bytes": 1004,
+      "sha256": "38b76cdd7dcabcb33b2fc21e07ea6a085d946d1390e0e10c78dd0f6290e137e7"
+    },
+    {
+      "relative_path": "runtime/data/creatures/102_ironvent.tres",
+      "bytes": 1683,
+      "sha256": "78c54b44aefbaed3c950c6433c09edc7e0115f5486f7c9f3a0a56c0a63b7d31f"
+    },
+    {
+      "relative_path": "runtime/data/moves/ironvent_furnace_roar.tres",
+      "bytes": 8090,
+      "sha256": "437bf2f4bae55589e6bbdf4a26b1cc49b19a589b137ada4164b8418bac65d764"
+    },
+    {
+      "relative_path": "runtime-manifest.json",
+      "bytes": 3672,
+      "sha256": "b622543dd0ef98d63399d8c24c7f10862add57a474342eb0609b7c150e14f30f"
+    }
+  ]
+}

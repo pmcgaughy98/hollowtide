@@ -1,0 +1,386 @@
+{
+  "date_UTC": "2026-10-05T18:00:25.197176+00:00",
+  "scope": "Installed Ironvent final palette and registered held-title binding; eight runtime files (two resources plus three PNG/import pairs). Unique palette edits affect1012 front pixels and774 title pixels,1786 original portrait pixels total; the title PNG is retained at both the historical and correctly registered paths.",
+  "independently_verified_saved_palette_proof": true,
+  "verification_guards": {
+    "all_three_PNGs_RGBA_PNG_and_alpha_exact": true,
+    "only_two_resource_binding_changes": true,
+    "unchanged_rear_and_Atlas": true,
+    "battle_code_exact_correction_baseline": true,
+    "native_five_checks_pass": true,
+    "two_held_cards_original_region_WHITE_scale3": true,
+    "six_native_PNGs_readable_1152x648": true,
+    "corrected_exits_root_observed0_runtime_stderr_empty": true,
+    "wrong_region_historical_proof_retained_exact": true
+  },
+  "terminal_results": {
+    "corrected_import": {
+      "pid": 36492,
+      "session": 15333,
+      "exit_code": 0
+    },
+    "corrected_runtime": {
+      "pid": 7432,
+      "session": 26210,
+      "exit_code": 0
+    },
+    "historical_first_import": {
+      "pid": 24680,
+      "session": 96080,
+      "exit_code": 0
+    },
+    "historical_first_runtime": {
+      "pid": 28780,
+      "session": 9485,
+      "exit_code": 0
+    },
+    "source": "Actual terminal completion records supplied directly by /root. Corrected terminal exits were confirmed before this archive was frozen; the verifier did not launch native tests or infer exits from fixture JSON/stdout."
+  },
+  "texture_checks": [
+    {
+      "asset": "front",
+      "relative_path": "assets/sprites/creatures/ironvent_black_match_2026_10_05/ironvent_front.png",
+      "source_sha256": "70a6346602a8a6bf7c798304b9a9153dc73232c7f42847ff312962f5c761db7c",
+      "installed_sha256": "e7e05e0c1a505b5ea035ed6dd7a72f0c5a233a7ca42301a8ef06428fefe2ba35",
+      "rebuilt_sha256": "e7e05e0c1a505b5ea035ed6dd7a72f0c5a233a7ca42301a8ef06428fefe2ba35",
+      "native_size": [
+        100,
+        100
+      ],
+      "alpha_bbox": [
+        1,
+        16,
+        97,
+        97
+      ],
+      "mapped_RGB_pixels": 1012,
+      "expected_mapped_RGB_pixels": 1012,
+      "alpha_differences": 0,
+      "transparent_RGBA_differences": 0,
+      "outside_palette_mapping_RGBA_differences": 0,
+      "proposal_mask_mapping_differences": 0,
+      "rebuilt_RGBA_exact": true,
+      "rebuilt_PNG_bytes_exact": true,
+      "installed_original_proposal_bytes_exact": true,
+      "role": "live_front"
+    },
+    {
+      "asset": "title",
+      "relative_path": "assets/sprites/creatures/ironvent_black_match_2026_10_05/furnace_roar_title.png",
+      "source_sha256": "ba7d778e4cb2c5964d52b7ac66b89a1a5c594470bb95686df246311729151802",
+      "installed_sha256": "0eb53284d8b311a3f221d6a8629009ae3a28c00115ee546cc9dbfa37772eaa62",
+      "rebuilt_sha256": "0eb53284d8b311a3f221d6a8629009ae3a28c00115ee546cc9dbfa37772eaa62",
+      "native_size": [
+        100,
+        100
+      ],
+      "alpha_bbox": [
+        1,
+        16,
+        98,
+        97
+      ],
+      "mapped_RGB_pixels": 774,
+      "expected_mapped_RGB_pixels": 774,
+      "alpha_differences": 0,
+      "transparent_RGBA_differences": 0,
+      "outside_palette_mapping_RGBA_differences": 0,
+      "proposal_mask_mapping_differences": 0,
+      "rebuilt_RGBA_exact": true,
+      "rebuilt_PNG_bytes_exact": true,
+      "installed_original_proposal_bytes_exact": true,
+      "role": "retained_initial_palette_title_not_bound"
+    },
+    {
+      "asset": "title",
+      "relative_path": "assets/sprites/creatures/attacks/ironvent_furnace_roar/style_matched/back_palette_2026_10_05/titlecard_official_2026_09_30.png",
+      "source_sha256": "ba7d778e4cb2c5964d52b7ac66b89a1a5c594470bb95686df246311729151802",
+      "installed_sha256": "0eb53284d8b311a3f221d6a8629009ae3a28c00115ee546cc9dbfa37772eaa62",
+      "rebuilt_sha256": "0eb53284d8b311a3f221d6a8629009ae3a28c00115ee546cc9dbfa37772eaa62",
+      "native_size": [
+        100,
+        100
+      ],
+      "alpha_bbox": [
+        1,
+        16,
+        98,
+        97
+      ],
+      "mapped_RGB_pixels": 774,
+      "expected_mapped_RGB_pixels": 774,
+      "alpha_differences": 0,
+      "transparent_RGBA_differences": 0,
+      "outside_palette_mapping_RGBA_differences": 0,
+      "proposal_mask_mapping_differences": 0,
+      "rebuilt_RGBA_exact": true,
+      "rebuilt_PNG_bytes_exact": true,
+      "installed_original_proposal_bytes_exact": true,
+      "role": "live_registered_title"
+    }
+  ],
+  "resource_checks": [
+    {
+      "relative_path": "data/creatures/102_ironvent.tres",
+      "original_sha256": "c5fd3ed4da4543ffd7ac0574818f7e34b424510b28109620b996a917ef371c4a",
+      "current_sha256": "80c2ac4a75f3fc94d80a333642f419ee842726bdaa6d6c02e4f1ca8a372e257d",
+      "only_binding_path_and_old_title_UID_removal": true,
+      "all_other_resource_fields_exact": true,
+      "new_texture": "res://assets/sprites/creatures/ironvent_black_match_2026_10_05/ironvent_front.png",
+      "expected_sha256": "80c2ac4a75f3fc94d80a333642f419ee842726bdaa6d6c02e4f1ca8a372e257d"
+    },
+    {
+      "relative_path": "data/moves/ironvent_furnace_roar.tres",
+      "original_sha256": "35b846f1bbc9339c00e02db9c61c87a07c71f9b428d6073eb99c7354ae951bd2",
+      "current_sha256": "437bf2f4bae55589e6bbdf4a26b1cc49b19a589b137ada4164b8418bac65d764",
+      "only_binding_path_and_old_title_UID_removal": true,
+      "all_other_resource_fields_exact": true,
+      "new_texture": "res://assets/sprites/creatures/attacks/ironvent_furnace_roar/style_matched/back_palette_2026_10_05/titlecard_official_2026_09_30.png",
+      "expected_sha256": "437bf2f4bae55589e6bbdf4a26b1cc49b19a589b137ada4164b8418bac65d764"
+    }
+  ],
+  "rear_preservation": {
+    "source_sha256": "556c783f4923d9f167efbf7a4646a9c1d4a03e83042289a6a904cae0e42b8a06",
+    "original_sha256": "556c783f4923d9f167efbf7a4646a9c1d4a03e83042289a6a904cae0e42b8a06",
+    "exact_original_bytes": true,
+    "Atlas_region_100x96": true,
+    "Atlas_margin_bottom4": true,
+    "back_binding_original": true
+  },
+  "native_proof_directory": "proof-registered-title/",
+  "saved_runtime": {
+    "captures": [
+      {
+        "charcoal_head": true,
+        "frame": 308,
+        "head_region": "(0.76, 0.32, 1.0, 0.64)",
+        "modulate": "(1.0, 1.0, 1.0, 1.0)",
+        "name": "front-title-held",
+        "scale": "(3.0, 3.0)",
+        "texture": "res://assets/sprites/creatures/attacks/ironvent_furnace_roar/style_matched/back_palette_2026_10_05/titlecard_official_2026_09_30.png"
+      },
+      {
+        "charcoal_head": true,
+        "frame": 1238,
+        "head_region": "(0.76, 0.32, 1.0, 0.64)",
+        "modulate": "(1.0, 1.0, 1.0, 1.0)",
+        "name": "rear-title-held",
+        "scale": "(3.0, 3.0)",
+        "texture": "res://assets/sprites/creatures/attacks/ironvent_furnace_roar/style_matched/back_palette_2026_10_05/titlecard_official_2026_09_30.png"
+      }
+    ],
+    "checks": [
+      {
+        "front": "res://assets/sprites/creatures/ironvent_black_match_2026_10_05/ironvent_front.png",
+        "name": "bindings",
+        "passed": true,
+        "rear_region_margin_preserved": true,
+        "title": "res://assets/sprites/creatures/attacks/ironvent_furnace_roar/style_matched/back_palette_2026_10_05/titlecard_official_2026_09_30.png"
+      },
+      {
+        "head_finish_bounds": "(0.76, 0.32, 1.0, 0.64)",
+        "name": "front-portrait-region",
+        "passed": true
+      },
+      {
+        "installed_texture": true,
+        "name": "front-Furnace-Roar",
+        "passed": true,
+        "position_restored": true,
+        "reverse_released": true,
+        "scale_restored": true,
+        "settled_portrait_captured": true,
+        "texture_restored": true
+      },
+      {
+        "head_finish_bounds": "(0.76, 0.32, 1.0, 0.64)",
+        "name": "rear-portrait-region",
+        "passed": true
+      },
+      {
+        "installed_texture": true,
+        "name": "rear-Furnace-Roar",
+        "passed": true,
+        "position_restored": true,
+        "reverse_released": true,
+        "scale_restored": true,
+        "settled_portrait_captured": true,
+        "texture_restored": true
+      }
+    ],
+    "passed": true
+  },
+  "proof_manifest": [
+    {
+      "name": "front-after.png",
+      "bytes": 35052,
+      "sha256": "a323a2d19a91ddc313160b29288748601116d0e5ce222d9f4544187bbcab1269",
+      "pixel_size": [
+        1152,
+        648
+      ]
+    },
+    {
+      "name": "front-idle.png",
+      "bytes": 35073,
+      "sha256": "77cdfd740e62e173dd56551c9e319d7d5f82e74ccd7f0bd66b9ad39a0d209d6a",
+      "pixel_size": [
+        1152,
+        648
+      ]
+    },
+    {
+      "name": "front-title-held.png",
+      "bytes": 41769,
+      "sha256": "ed8d5fcc744d33ba93e7e80afdac86b2c843efb6a7a7728062b48d7888b0212a",
+      "pixel_size": [
+        1152,
+        648
+      ]
+    },
+    {
+      "name": "import.stderr.log",
+      "bytes": 914,
+      "sha256": "75f55cc82439b98f440a6112d3ff27a93e1f317541947b9fa97545bf6419b143"
+    },
+    {
+      "name": "import.stdout.log",
+      "bytes": 2521,
+      "sha256": "63d0099a6d9720c279949302d779e735e3616d3a31dd6bc92f65f4ca866c264d"
+    },
+    {
+      "name": "rear-after.png",
+      "bytes": 32729,
+      "sha256": "7cf6086cac53b4bfa66800539c067f646a794a29da3146de9580e32eb9f1db08",
+      "pixel_size": [
+        1152,
+        648
+      ]
+    },
+    {
+      "name": "rear-idle.png",
+      "bytes": 32772,
+      "sha256": "798218d1229190be40217c3532acc5d591dd00cc01525c83d9a7c26291c7340b",
+      "pixel_size": [
+        1152,
+        648
+      ]
+    },
+    {
+      "name": "rear-title-held.png",
+      "bytes": 44453,
+      "sha256": "35a08391f202d632783123eeaab12e403de2f1179c038460bc419e5d43133984",
+      "pixel_size": [
+        1152,
+        648
+      ]
+    },
+    {
+      "name": "runtime-checks.json",
+      "bytes": 1787,
+      "sha256": "67046fb2a74269d7662521a730712b802f20cb7459c987d9dcb529d3db6c1f29"
+    },
+    {
+      "name": "runtime.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "name": "runtime.stdout.log",
+      "bytes": 401,
+      "sha256": "e2f89be9865d9582338c44729e4cc0a0b3351415de990e80b0edb68ff6157237"
+    },
+    {
+      "name": "terminal-results.json",
+      "bytes": 624,
+      "sha256": "53b46a7b379c83dc0cfe15be41625e0f324dc134290095c072d8a7a466e2ad14"
+    }
+  ],
+  "battle_script_sha256": "49c1d34c2316390d198bf8a8d862325a9d0a96c19740aff54fc56aece7c0895d",
+  "shader_sha256": "3cfe1eccf9da29e5dbf07e59faba0d87648286d2d83ad6ba082c625a0f6cef57",
+  "historical_proof": {
+    "directory": "proof-initial-default-region/",
+    "status": "Explicitly historical, wrong head region. First versioned title path selected default(0.76,0.40,1.0,0.67), while its fixture queried nonexistent head_uv_box and recorded null. Not final proof; never rewritten.",
+    "byte_retention": [
+      {
+        "name": "front-after.png",
+        "preserved_byte_exact": true,
+        "sha256": "a323a2d19a91ddc313160b29288748601116d0e5ce222d9f4544187bbcab1269"
+      },
+      {
+        "name": "front-idle.png",
+        "preserved_byte_exact": true,
+        "sha256": "77cdfd740e62e173dd56551c9e319d7d5f82e74ccd7f0bd66b9ad39a0d209d6a"
+      },
+      {
+        "name": "front-title-held.png",
+        "preserved_byte_exact": true,
+        "sha256": "2d48ac76bc2ded34001e835b7603f35d26cf1bd1958ad20bc2f9fa401a80233d"
+      },
+      {
+        "name": "import.stderr.log",
+        "preserved_byte_exact": true,
+        "sha256": "28531a6d6b0aa3d22341ea7e9a71d28f0be6d4dffcbe72da99ee9dff7145ec89"
+      },
+      {
+        "name": "import.stdout.log",
+        "preserved_byte_exact": true,
+        "sha256": "6b5db2d77bae8fe3de41bfae9f90a6633f408ba415a3bda25920a783a003171f"
+      },
+      {
+        "name": "rear-after.png",
+        "preserved_byte_exact": true,
+        "sha256": "7cf6086cac53b4bfa66800539c067f646a794a29da3146de9580e32eb9f1db08"
+      },
+      {
+        "name": "rear-idle.png",
+        "preserved_byte_exact": true,
+        "sha256": "a626a628dac76e096999eb8f93ab750578b9f313b1381ad84b56e409ae1f47ff"
+      },
+      {
+        "name": "rear-title-held.png",
+        "preserved_byte_exact": true,
+        "sha256": "35fb181cf950029e107b55e16570b61d704d269ad447d0a53916a1fed79c26b1"
+      },
+      {
+        "name": "runtime-checks.json",
+        "preserved_byte_exact": true,
+        "sha256": "40f4635d4b5efedb2407ec11f3f79cd4e6d3c05cd3141876050483a75e925587"
+      },
+      {
+        "name": "runtime.stderr.log",
+        "preserved_byte_exact": true,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "name": "runtime.stdout.log",
+        "preserved_byte_exact": true,
+        "sha256": "e2f89be9865d9582338c44729e4cc0a0b3351415de990e80b0edb68ff6157237"
+      }
+    ],
+    "original_proof_directory_also_retained": "proof/"
+  },
+  "registration_resolution": "Same774-pixel palette-matched title PNG placed beneath the existing style_matched family with original official-title basename. Existing helper now selects original(0.76,0.32,1.0,0.64); battle script and shader are unchanged. Both final held cards explicitly assert actual head_finish_bounds.",
+  "import_notes": "Corrected import exit0 is root-observed. Headless import stderr includes filesystem snapshot/settled notices and shutdown RID/ObjectDB leak warnings, preserved separately. Corrected native runtime stderr is0bytes.",
+  "visual_review": {
+    "inspected_final": [
+      "proof-registered-title/front-title-held.png",
+      "proof-registered-title/rear-title-held.png"
+    ],
+    "inspected_initial": [
+      "proof/front-idle.png",
+      "proof/rear-idle.png",
+      "proof/front-title-held.png",
+      "proof/rear-title-held.png"
+    ],
+    "observations": "Final registered cards retain portrait/title alignment, charcoal head finish, and legible fire/eye/rust detail at neutral modulation. No apparent portrait/text clipping. Initial idle views and texture alpha/geometry are preserved.",
+    "limits": "Diagnostic battle test attacks with both sides; no ordinary exploration, save/party preservation or global repository equality is asserted."
+  },
+  "verifier_activity": {
+    "production_writes": 0,
+    "native_launches": 0,
+    "paid_calls": 0,
+    "uploads": 0,
+    "historical_proof_modified": false
+  }
+}

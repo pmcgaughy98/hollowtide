@@ -1,0 +1,46 @@
+{
+  "date": "2026-10-05",
+  "baseline_files": 2237,
+  "changed_existing": [
+    "scripts/area_landscape.gd",
+    "scripts/historic_street.gd",
+    "scripts/courtyard_home_room.gd"
+  ],
+  "eight_new_PNGs": 8,
+  "files": {
+    "scripts/area_landscape.gd": "bfa0a77495280c973ead3631a4216d64a864aefe178793181917c2f0cf69d946",
+    "scripts/historic_street.gd": "b176dd25cbb034f37a572e0791720ad13e9e3363c9a14bc5376fd9837bc34eaa",
+    "scripts/courtyard_home_room.gd": "51c6621e1d6e11400f423337fc272eb55d70f6eff600624e21554bc798f5474d",
+    "assets/sprites/world/courtyard_home_linework_2026_10_04/home_room.png": "fa61f4d3f78b2593907327ae7c9538f72e80b1f0722ed5324d77a5fb68483b36",
+    "assets/sprites/world/courtyard_home_linework_2026_10_04/home_stove_front.png": "cb8d5b1e0c54ffbac67d278556ef87d120bef6ac18afc64722ce1d2f2715c1c6",
+    "assets/sprites/world/courtyard_home_linework_2026_10_04/home_coat_front.png": "5ab4376a1cb55597d2fc3797d6cb175f55c93373d1713c53b66d20a06258e921",
+    "assets/sprites/world/courtyard_home_linework_2026_10_04/home_threshold_front.png": "47872dc776e93d784937cc60243758166390d92349e8ec12588586ee2c445ac1",
+    "assets/sprites/world/world_linework_2026_10_04/courtyard_home.png": "f5a4af906a064c0a1faa972847f01ddcbb2a93372350d9e0b77fbbbe1ded290c",
+    "assets/sprites/world/world_linework_2026_10_04/dispatch_hall.png": "94bdf8fe98fa9e1c13afc9f2b6394bd06cf4c5ec03019dd126c765add1c57f23",
+    "assets/sprites/world/world_linework_2026_10_04/brick_shop.png": "c72d9b86c0b4643d0f9da3c025a239c1f31efa3ff9510885bfd0736dfc6141c2",
+    "assets/sprites/world/world_linework_2026_10_04/ledger_house.png": "7392fdde7ed2e4c9f17e81b129a96bbde753d1326b8830e223901227fbcfcc23"
+  },
+  "exact_substitutions": {
+    "scripts/area_landscape.gd": {
+      "res://assets/sprites/world/hometown_courtyard_2026_10_03/courtyard_home.png": "res://assets/sprites/world/world_linework_2026_10_04/courtyard_home.png",
+      "res://assets/sprites/world/route1_rd_2026_10_02/dispatch_hall_complete.png": "res://assets/sprites/world/world_linework_2026_10_04/dispatch_hall.png",
+      "res://assets/sprites/world/area_transitions_2026_10_03/brick_shop.png": "res://assets/sprites/world/world_linework_2026_10_04/brick_shop.png",
+      "res://assets/sprites/world/area_transitions_2026_10_03/ledger_house.png": "res://assets/sprites/world/world_linework_2026_10_04/ledger_house.png"
+    },
+    "scripts/historic_street.gd": {
+      "res://assets/sprites/world/area_transitions_2026_10_03/brick_shop.png": "res://assets/sprites/world/world_linework_2026_10_04/brick_shop.png",
+      "res://assets/sprites/world/area_transitions_2026_10_03/ledger_house.png": "res://assets/sprites/world/world_linework_2026_10_04/ledger_house.png"
+    },
+    "scripts/courtyard_home_room.gd": {
+      "res://assets/sprites/world/hometown_homes_2026_10_04/home_room.png": "res://assets/sprites/world/courtyard_home_linework_2026_10_04/home_room.png",
+      "res://assets/sprites/world/hometown_homes_2026_10_04/home_stove_front.png": "res://assets/sprites/world/courtyard_home_linework_2026_10_04/home_stove_front.png",
+      "res://assets/sprites/world/hometown_homes_2026_10_04/home_coat_front.png": "res://assets/sprites/world/courtyard_home_linework_2026_10_04/home_coat_front.png",
+      "res://assets/sprites/world/hometown_homes_2026_10_04/home_threshold_front.png": "res://assets/sprites/world/courtyard_home_linework_2026_10_04/home_threshold_front.png",
+      "E  Check route table": "E  Inspect worktable",
+      "The small table holds a folded map and room for your field notes.": "The worktable is clear, with room to lay out your next task.",
+      "The route report has been filed. The folded map stays ready for the next trip.": "The worktable is clear. Your route report has been filed.",
+      "Your current route is copied beside the folded map.": "The worktable is clear. Your current route pouch stays with you.",
+      "ROUTE TABLE": "WORKTABLE"
+    }
+  }
+}

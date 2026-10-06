@@ -1,0 +1,40 @@
+[gd_resource type="Resource" script_class="CreatureData" format=3]
+
+[ext_resource type="Texture2D" path="res://assets/sprites/creatures/idle_2026_10_05/1701_tallowroot/back_f0.png" id="1_8yjd8"]
+[ext_resource type="Script" path="res://scripts/creature_data.gd" id="1_script"]
+[ext_resource type="Texture2D" path="res://assets/sprites/creatures/starter_material_detail_2026_10_05/1701_tallowroot_front_material_detail.png" id="2_sprite"]
+[ext_resource type="Texture2D" path="res://assets/sprites/creatures/idle_2026_10_05/1701_tallowroot/back_f1.png" id="2_wx57i"]
+[ext_resource type="Texture2D" path="res://assets/sprites/creatures/starter_material_detail_2026_10_05/1701_tallowroot_back_material_detail.png" id="3_back"]
+[ext_resource type="Texture2D" path="res://assets/sprites/creatures/idle_2026_10_05/1701_tallowroot/back_f2.png" id="3_l72c3"]
+[ext_resource type="Texture2D" path="res://assets/sprites/creatures/idle_2026_10_05/1701_tallowroot/f0.png" id="3_tgggm"]
+[ext_resource type="Texture2D" path="res://assets/sprites/creatures/idle_2026_10_05/1701_tallowroot/f1.png" id="4_4etmt"]
+[ext_resource type="Resource" path="res://data/creatures/1702_tallowroot2.tres" id="4_evolution"]
+[ext_resource type="Texture2D" path="res://assets/sprites/creatures/idle_2026_10_05/1701_tallowroot/back_f3.png" id="4_p6vnl"]
+[ext_resource type="Texture2D" path="res://assets/sprites/creatures/idle_2026_10_05/1701_tallowroot/back_f4.png" id="5_kmv1l"]
+[ext_resource type="Texture2D" path="res://assets/sprites/creatures/idle_2026_10_05/1701_tallowroot/f2.png" id="5_pr3oo"]
+[ext_resource type="Texture2D" path="res://assets/sprites/creatures/idle_2026_10_05/1701_tallowroot/f3.png" id="6_ca1pp"]
+[ext_resource type="Texture2D" path="res://assets/sprites/creatures/idle_2026_10_05/1701_tallowroot/back_f5.png" id="6_cklqw"]
+[ext_resource type="Texture2D" path="res://assets/sprites/creatures/idle_2026_10_05/1701_tallowroot/f4.png" id="7_akl7t"]
+[ext_resource type="Texture2D" path="res://assets/sprites/creatures/idle_2026_10_05/1701_tallowroot/back_f6.png" id="7_r3xj8"]
+[ext_resource type="Texture2D" path="res://assets/sprites/creatures/idle_2026_10_05/1701_tallowroot/back_f7.png" id="8_prn88"]
+[ext_resource type="Texture2D" path="res://assets/sprites/creatures/idle_2026_10_05/1701_tallowroot/f5.png" id="8_werxm"]
+[ext_resource type="Texture2D" path="res://assets/sprites/creatures/idle_2026_10_05/1701_tallowroot/f6.png" id="9_1oinx"]
+[ext_resource type="Texture2D" path="res://assets/sprites/creatures/idle_2026_10_05/1701_tallowroot/f7.png" id="10_patno"]
+[ext_resource type="Script" path="res://scripts/move_data.gd" id="11_8yjd8"]
+
+[resource]
+script = ExtResource("1_script")
+id = 1701
+creature_name = "Tallowroot"
+essence = 4
+has_second_essence = true
+second_essence = 2
+sprite = ExtResource("2_sprite")
+back_sprite = ExtResource("3_back")
+description = "Provisional entry (Claude, 2026-10-05, on Preston's request): Line 17 stage I, the Bloom starter, Retro Diffusion art from docs/creatures/tallowroot-rd-2026-10-05. Default stats and no moves (it fights with Strike) until Grok sets its job, numbers and kit. Later stages stay unnamed."
+evolves_into = ExtResource("4_evolution")
+body_parts = PackedStringArray()
+glow_kind = 1
+idle_frames = Array[Texture2D]([ExtResource("3_tgggm"), ExtResource("4_4etmt"), ExtResource("5_pr3oo"), ExtResource("6_ca1pp"), ExtResource("7_akl7t"), ExtResource("8_werxm"), ExtResource("9_1oinx"), ExtResource("10_patno")])
+back_idle_frames = Array[Texture2D]([ExtResource("1_8yjd8"), ExtResource("2_wx57i"), ExtResource("3_l72c3"), ExtResource("4_p6vnl"), ExtResource("5_kmv1l"), ExtResource("6_cklqw"), ExtResource("7_r3xj8"), ExtResource("8_prn88")])
+battle_size = 1.1

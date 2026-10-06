@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="CreatureData" format=3]
+
+[ext_resource type="Script" path="res://scripts/move_data.gd" id="1_mfsbx"]
+[ext_resource type="Script" path="res://scripts/creature_data.gd" id="1_script"]
+[ext_resource type="Texture2D" path="res://assets/sprites/creatures/punchybun_2026_10_05/punchybun_front.png" id="2_sprite"]
+
+[resource]
+script = ExtResource("1_script")
+id = 2101
+creature_name = "Punchybun"
+essence = 6
+sprite = ExtResource("2_sprite")
+description = "Provisional entry (Claude, 2026-10-05, on Preston's request 'add for now'): Stage I of the electric ferret line for Adrianna, made at her twin sister Gabrielle's request. Name, art (take 1) and Dex number 2101 are placeholders. Default stats, no moves (it fights with Strike), no back view and no evolution until Gabrielle answers the open questions in docs/creatures/memorial-ferret-2026-10-01/README.md and Grok designs its guard kit."
+body_parts = PackedStringArray()
+battle_size = 1.21

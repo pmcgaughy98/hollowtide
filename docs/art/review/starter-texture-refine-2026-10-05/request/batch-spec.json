@@ -1,0 +1,64 @@
+{
+  "date": "2026-10-05",
+  "status": "prepared_for_specific_user_upload_and_charge_approval",
+  "destination": "Retro Diffusion image_edit",
+  "paid_edits_submitted": 0,
+  "proposed_edit_count": 6,
+  "proposed_total_usd": 1.08,
+  "requests": [
+    {
+      "name": "kithflare1-lanterns",
+      "input_file": "request/kithflare-lantern-closeups-source.png",
+      "input_sha256": "b859003d3b829ae741db53b76c8227eca6339609cab854c0b7d9a987563606df",
+      "prompt_file": "request/kithflare-lantern-exact-prompt.txt",
+      "scope": "Original two-lantern request retained unchanged; duplicate approval must never cause a duplicate paid call",
+      "estimated_usd": 0.18
+    },
+    {
+      "name": "kithflare2-materials",
+      "input_file": "request/kithflare2-materials-source.png",
+      "input_sha256": "a5aa8739616455a930686426870dd2c04fc07ece4b13cc62faaef3d2194eeb4e",
+      "prompt_file": "request/kithflare2-materials-prompt.txt",
+      "tile_manifest": "request/kithflare2-materials-tiles.json",
+      "estimated_usd": 0.18,
+      "accepted_native_rgb_pixels": 2281
+    },
+    {
+      "name": "tallowroot1-2-husks",
+      "input_file": "request/tallowroot1-2-husks-source.png",
+      "input_sha256": "3d93ccc40c44cd17273edb22d72a0850a1de457f838c742b1b50d00bf560aca1",
+      "prompt_file": "request/tallowroot1-2-husks-prompt.txt",
+      "tile_manifest": "request/tallowroot1-2-husks-tiles.json",
+      "estimated_usd": 0.18,
+      "accepted_native_rgb_pixels": 6848
+    },
+    {
+      "name": "tallowroot3-armor-leaves",
+      "input_file": "request/tallowroot3-armor-leaves-source.png",
+      "input_sha256": "66a2b7489b083434879cad9b4784e34a8f958a3b7182a7ce7ac03743c8f44627",
+      "prompt_file": "request/tallowroot3-armor-leaves-prompt.txt",
+      "tile_manifest": "request/tallowroot3-armor-leaves-tiles.json",
+      "estimated_usd": 0.18,
+      "accepted_native_rgb_pixels": 7002
+    },
+    {
+      "name": "rimefin-riftfin-scales",
+      "input_file": "request/rimefin-riftfin-scales-source.png",
+      "input_sha256": "86d0da8eb53270e382e705e26ce1abb48c440914e145d9417bf84f8bdaebcdaa",
+      "prompt_file": "request/rimefin-riftfin-scales-prompt.txt",
+      "tile_manifest": "request/rimefin-riftfin-scales-tiles.json",
+      "estimated_usd": 0.18,
+      "accepted_native_rgb_pixels": 10351
+    },
+    {
+      "name": "scourmaw-scales-fins",
+      "input_file": "request/scourmaw-scales-fins-source.png",
+      "input_sha256": "aad16d689cfd839bbfe5001663893a3db3695d168d8c92ade42e85c2a80dec94",
+      "prompt_file": "request/scourmaw-scales-fins-prompt.txt",
+      "tile_manifest": "request/scourmaw-scales-fins-tiles.json",
+      "estimated_usd": 0.18,
+      "accepted_native_rgb_pixels": 9128
+    }
+  ],
+  "KithflareIII_source_grid_repair": "already installed separately, zero charge"
+}

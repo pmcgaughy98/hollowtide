@@ -1,0 +1,52 @@
+{
+  "front": {
+    "size": [
+      160,
+      160
+    ],
+    "alpha_bbox": [
+      38,
+      32,
+      111,
+      119
+    ],
+    "warm_bbox": [
+      38,
+      33,
+      110,
+      118
+    ],
+    "opaque_pixels": 3021,
+    "background_pixel": [
+      201,
+      200,
+      200,
+      0
+    ]
+  },
+  "back": {
+    "size": [
+      160,
+      160
+    ],
+    "alpha_bbox": [
+      44,
+      38,
+      107,
+      118
+    ],
+    "warm_bbox": [
+      44,
+      39,
+      106,
+      116
+    ],
+    "opaque_pixels": 2313,
+    "background_pixel": [
+      155,
+      155,
+      155,
+      0
+    ]
+  }
+}

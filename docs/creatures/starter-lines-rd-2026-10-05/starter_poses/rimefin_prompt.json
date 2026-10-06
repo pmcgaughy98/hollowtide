@@ -1,0 +1,13 @@
+{
+ "prompt": "A NEW POSE for the exact creature in the first reference image, same design, colours and markings, only the pose changes: the blue river catfish with a bony head plate, narrowed cyan eyes, long whip barbels, serrated spiked pectoral fins, a tall dorsal spine and frost-edged fins. It surges upward, rearing its front high on its spiked pectoral fins, body twisting, tail fin sweeping up behind it, barbels whipping out, wide mouth open in a battle cry. Bold and cool. Three-quarter view facing right. Same finish and outline as the references. Not lying flat, not crouching low. Shown whole in the centre of the frame with empty space on every side. On a plain white background.",
+ "prompt_style": "rd_pro__default",
+ "width": 160,
+ "height": 160,
+ "num_images": 2,
+ "remove_bg": true,
+ "reference_images": [
+  "docs/creatures/starter-lines-rd-2026-10-05/rimefin_front_take1.png",
+  "assets/sprites/creatures/cinderhide.png",
+  "docs/creatures/tallowroot-rd-2026-10-05/tallowroot_front_160.png"
+ ]
+}

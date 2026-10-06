@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="CreatureData" load_steps=5 format=3]
+
+[ext_resource type="Script" path="res://scripts/creature_data.gd" id="1_script"]
+[ext_resource type="Texture2D" path="res://assets/sprites/creatures/tallowroot_2026_10_05/tallowroot2_front.png" id="2_sprite"]
+[ext_resource type="Texture2D" path="res://assets/sprites/creatures/tallowroot_2026_10_05/tallowroot2_back.png" id="3_back"]
+[ext_resource type="Resource" path="res://data/creatures/1703_tallowroot3.tres" id="4_evolution"]
+
+[resource]
+script = ExtResource("1_script")
+id = 1702
+creature_name = "Tallowroot II"
+essence = 4
+has_second_essence = true
+second_essence = 2
+sprite = ExtResource("2_sprite")
+back_sprite = ExtResource("3_back")
+description = "Provisional entry (Claude, 2026-10-05, on Preston's request): Retro Diffusion art from docs/creatures/starter-lines-rd-2026-10-05/evolutions. Default stats and no moves (Strike) until Grok sets the kit and numbers."
+evolves_into = ExtResource("4_evolution")
+battle_size = 1.3

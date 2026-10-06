@@ -1,0 +1,13 @@
+{
+ "prompt": "The same river catfish monster as the first reference image, now shown from behind: a three-quarter rear view, seen from behind and to the left, the creature facing away toward the upper right, the same pose and camera angle as the second reference image. Same species and same proportions as the first reference: a low, wide, heavy body, wide flat head with its grey bony head plate and spiked crest seen from behind, thick barbels with frosty cyan tips trailing past the head, tall spiked dorsal crest down the back, bony armour plates along the flanks, long serrated pectoral spines it stands on. A thick muscular catfish tail sweeping out to the lower left and curling on the ground, ending in a broad rounded catfish tail fin with cyan edges, clearly visible. Deep river blue, slate, scarred grey, cold cyan edges. Same finish and outline as the references. Not a shark. Shown whole in the centre of the frame with empty space on every side. On a plain white background.",
+ "prompt_style": "rd_pro__default",
+ "width": 192,
+ "height": 192,
+ "num_images": 2,
+ "remove_bg": true,
+ "reference_images": [
+  "assets/sprites/creatures/starter_material_detail_2026_10_05/502_riftfin_front_material_detail.png",
+  "assets/sprites/creatures/starter_material_detail_2026_10_05/503_scourmaw_back_material_detail.png",
+  "assets/sprites/creatures/starter_material_detail_2026_10_05/001_rimefin_back_material_detail.png"
+ ]
+}

@@ -1,0 +1,17 @@
+{
+	"attacks_catching_evolution_not_exercised": true,
+	"battle_size": 1.1,
+	"creature": "001_rimefin",
+	"essence": 1,
+	"evolves_into": "res://data/creatures/502_riftfin.tres",
+	"front_path": "res://assets/sprites/creatures/rimefin_catfish_2026_10_05/rimefin_front.png",
+	"front_texture_exact": true,
+	"front_zoom": 1.0,
+	"has_second_essence": true,
+	"native_idle": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/starter-texture-review-2026-10-05/proof/001_rimefin_native_idle.png",
+	"normal_near_side_message_box_occlusion": true,
+	"rear_path": "res://assets/sprites/creatures/rimefin_catfish_2026_10_05/rimefin_back.png",
+	"rear_texture_exact": true,
+	"rear_zoom": 1.5,
+	"second_essence": 5
+}

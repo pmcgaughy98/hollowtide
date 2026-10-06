@@ -1,0 +1,566 @@
+{
+  "date": "2026-10-05",
+  "artifact_paths": 44,
+  "existing_owned_files_changed": 6,
+  "new_pngs": 19,
+  "new_png_imports": 19,
+  "files": [
+    {
+      "relative_path": "assets/sprites/creatures/attacks/ironvent_furnace_roar/style_matched/back_palette_2026_10_05/titlecard_official_2026_09_30.png",
+      "bytes": 5899,
+      "sha256": "0eb53284d8b311a3f221d6a8629009ae3a28c00115ee546cc9dbfa37772eaa62",
+      "current_project_exact": true,
+      "kind": "PNG",
+      "project_relative_path": "assets/sprites/creatures/attacks/ironvent_furnace_roar/style_matched/back_palette_2026_10_05/titlecard_official_2026_09_30.png",
+      "archive": "docs/art/review/ironvent-black-match-2026-10-05",
+      "current_observed_sha256": "0eb53284d8b311a3f221d6a8629009ae3a28c00115ee546cc9dbfa37772eaa62",
+      "current_bytes_equal_frozen": true
+    },
+    {
+      "relative_path": "assets/sprites/creatures/attacks/ironvent_furnace_roar/style_matched/back_palette_2026_10_05/titlecard_official_2026_09_30.png.import",
+      "bytes": 1084,
+      "sha256": "7b966fc780ce5588c45099cc4d8451161e9812f04fdc5bd69b4f9d8281fb0526",
+      "current_project_exact": true,
+      "kind": "import",
+      "project_relative_path": "assets/sprites/creatures/attacks/ironvent_furnace_roar/style_matched/back_palette_2026_10_05/titlecard_official_2026_09_30.png.import",
+      "archive": "docs/art/review/ironvent-black-match-2026-10-05",
+      "current_observed_sha256": "7b966fc780ce5588c45099cc4d8451161e9812f04fdc5bd69b4f9d8281fb0526",
+      "current_bytes_equal_frozen": true
+    },
+    {
+      "relative_path": "assets/sprites/creatures/ironvent_black_match_2026_10_05/furnace_roar_title.png",
+      "bytes": 5899,
+      "sha256": "0eb53284d8b311a3f221d6a8629009ae3a28c00115ee546cc9dbfa37772eaa62",
+      "current_project_exact": true,
+      "kind": "PNG",
+      "project_relative_path": "assets/sprites/creatures/ironvent_black_match_2026_10_05/furnace_roar_title.png",
+      "archive": "docs/art/review/ironvent-black-match-2026-10-05",
+      "current_observed_sha256": "0eb53284d8b311a3f221d6a8629009ae3a28c00115ee546cc9dbfa37772eaa62",
+      "current_bytes_equal_frozen": true
+    },
+    {
+      "relative_path": "assets/sprites/creatures/ironvent_black_match_2026_10_05/furnace_roar_title.png.import",
+      "bytes": 1015,
+      "sha256": "ccde83490ffcfbc286eaa0a85e74a2357495f7108e51de5f734ed0797cc88d08",
+      "current_project_exact": true,
+      "kind": "import",
+      "project_relative_path": "assets/sprites/creatures/ironvent_black_match_2026_10_05/furnace_roar_title.png.import",
+      "archive": "docs/art/review/ironvent-black-match-2026-10-05",
+      "current_observed_sha256": "ccde83490ffcfbc286eaa0a85e74a2357495f7108e51de5f734ed0797cc88d08",
+      "current_bytes_equal_frozen": true
+    },
+    {
+      "relative_path": "assets/sprites/creatures/ironvent_black_match_2026_10_05/ironvent_front.png",
+      "bytes": 6205,
+      "sha256": "e7e05e0c1a505b5ea035ed6dd7a72f0c5a233a7ca42301a8ef06428fefe2ba35",
+      "current_project_exact": true,
+      "kind": "PNG",
+      "project_relative_path": "assets/sprites/creatures/ironvent_black_match_2026_10_05/ironvent_front.png",
+      "archive": "docs/art/review/ironvent-black-match-2026-10-05",
+      "current_observed_sha256": "e7e05e0c1a505b5ea035ed6dd7a72f0c5a233a7ca42301a8ef06428fefe2ba35",
+      "current_bytes_equal_frozen": true
+    },
+    {
+      "relative_path": "assets/sprites/creatures/ironvent_black_match_2026_10_05/ironvent_front.png.import",
+      "bytes": 1004,
+      "sha256": "38b76cdd7dcabcb33b2fc21e07ea6a085d946d1390e0e10c78dd0f6290e137e7",
+      "current_project_exact": true,
+      "kind": "import",
+      "project_relative_path": "assets/sprites/creatures/ironvent_black_match_2026_10_05/ironvent_front.png.import",
+      "archive": "docs/art/review/ironvent-black-match-2026-10-05",
+      "current_observed_sha256": "38b76cdd7dcabcb33b2fc21e07ea6a085d946d1390e0e10c78dd0f6290e137e7",
+      "current_bytes_equal_frozen": true
+    },
+    {
+      "project_relative_path": "assets/sprites/creatures/starter_texture_refine_2026_10_05/kithflare3_back_source_grid.png",
+      "sha256": "1c389c1abc4e03275f8c2076cc83dc690d65d5c3d6087d404d020dfffebd8fe7",
+      "bytes": 19307,
+      "archive": "docs/art/review/starter-texture-refine-2026-10-05",
+      "current_observed_sha256": "1c389c1abc4e03275f8c2076cc83dc690d65d5c3d6087d404d020dfffebd8fe7",
+      "current_bytes_equal_frozen": true
+    },
+    {
+      "project_relative_path": "assets/sprites/creatures/starter_texture_refine_2026_10_05/kithflare3_back_source_grid.png.import",
+      "sha256": "96bbc7950cc9a03485780bb3265dffe63ad76a97b352cc67a5b24c14b5e72bdc",
+      "bytes": 1044,
+      "archive": "docs/art/review/starter-texture-refine-2026-10-05",
+      "current_observed_sha256": "96bbc7950cc9a03485780bb3265dffe63ad76a97b352cc67a5b24c14b5e72bdc",
+      "current_bytes_equal_frozen": true
+    },
+    {
+      "project_relative_path": "assets/sprites/creatures/starter_texture_refine_2026_10_05/kithflare3_front_source_grid.png",
+      "sha256": "bbeb3bebcec7d98a77ee89b247eaf83370fbd28894a77286046d22ac2aa0f998",
+      "bytes": 20793,
+      "archive": "docs/art/review/starter-texture-refine-2026-10-05",
+      "current_observed_sha256": "bbeb3bebcec7d98a77ee89b247eaf83370fbd28894a77286046d22ac2aa0f998",
+      "current_bytes_equal_frozen": true
+    },
+    {
+      "project_relative_path": "assets/sprites/creatures/starter_texture_refine_2026_10_05/kithflare3_front_source_grid.png.import",
+      "sha256": "6f82a3bb310c71e18ad88be5ef2665457ae1bb4ff86e2d843c41f8f98abeb6c2",
+      "bytes": 1047,
+      "archive": "docs/art/review/starter-texture-refine-2026-10-05",
+      "current_observed_sha256": "6f82a3bb310c71e18ad88be5ef2665457ae1bb4ff86e2d843c41f8f98abeb6c2",
+      "current_bytes_equal_frozen": true
+    },
+    {
+      "project_relative_path": "assets/sprites/world/courtyard_home_detail_2026_10_05/home_coat_front.png",
+      "archive_relative_path": "runtime/assets/sprites/world/courtyard_home_detail_2026_10_05/home_coat_front.png",
+      "sha256": "9758fbd2efbb1e1d83b00f8aa2fd34d2daaf83ebd8158abd71ece788a0427f7e",
+      "bytes": 2746,
+      "kind": "png",
+      "status": "current_world_binding_or_import",
+      "native_size": [
+        40,
+        64
+      ],
+      "archive": "docs/art/world/room-world-detail-2026-10-05",
+      "current_observed_sha256": "9758fbd2efbb1e1d83b00f8aa2fd34d2daaf83ebd8158abd71ece788a0427f7e",
+      "current_bytes_equal_frozen": true
+    },
+    {
+      "project_relative_path": "assets/sprites/world/courtyard_home_detail_2026_10_05/home_coat_front.png.import",
+      "archive_relative_path": "runtime/assets/sprites/world/courtyard_home_detail_2026_10_05/home_coat_front.png.import",
+      "sha256": "7060da59e854bde35be367af65f86995cda38fa3b41b347092784bbaa92e8797",
+      "bytes": 1003,
+      "kind": "png_import",
+      "status": "current_world_binding_or_import",
+      "archive": "docs/art/world/room-world-detail-2026-10-05",
+      "current_observed_sha256": "7060da59e854bde35be367af65f86995cda38fa3b41b347092784bbaa92e8797",
+      "current_bytes_equal_frozen": true
+    },
+    {
+      "project_relative_path": "assets/sprites/world/courtyard_home_detail_2026_10_05/home_room.png",
+      "archive_relative_path": "runtime/assets/sprites/world/courtyard_home_detail_2026_10_05/home_room.png",
+      "sha256": "18082c72038c62c53a9b7ad35bc7f4d99e2796e1fceeabd81493e0ea0f650bc3",
+      "bytes": 25372,
+      "kind": "png",
+      "status": "current_world_binding_or_import",
+      "native_size": [
+        256,
+        256
+      ],
+      "archive": "docs/art/world/room-world-detail-2026-10-05",
+      "current_observed_sha256": "18082c72038c62c53a9b7ad35bc7f4d99e2796e1fceeabd81493e0ea0f650bc3",
+      "current_bytes_equal_frozen": true
+    },
+    {
+      "project_relative_path": "assets/sprites/world/courtyard_home_detail_2026_10_05/home_room.png.import",
+      "archive_relative_path": "runtime/assets/sprites/world/courtyard_home_detail_2026_10_05/home_room.png.import",
+      "sha256": "da979cf29b86302eae8b6a380ffe1a2127367badfe0c4d9c32c0752c2bb2f46e",
+      "bytes": 986,
+      "kind": "png_import",
+      "status": "current_world_binding_or_import",
+      "archive": "docs/art/world/room-world-detail-2026-10-05",
+      "current_observed_sha256": "da979cf29b86302eae8b6a380ffe1a2127367badfe0c4d9c32c0752c2bb2f46e",
+      "current_bytes_equal_frozen": true
+    },
+    {
+      "project_relative_path": "assets/sprites/world/courtyard_home_detail_2026_10_05/home_stove_front.png",
+      "archive_relative_path": "runtime/assets/sprites/world/courtyard_home_detail_2026_10_05/home_stove_front.png",
+      "sha256": "461f5e412c4c679b85985d701e7cf54a72ae04ba8e9dd0274d24e1a4c9a22185",
+      "bytes": 2892,
+      "kind": "png",
+      "status": "current_world_binding_or_import",
+      "native_size": [
+        28,
+        69
+      ],
+      "archive": "docs/art/world/room-world-detail-2026-10-05",
+      "current_observed_sha256": "461f5e412c4c679b85985d701e7cf54a72ae04ba8e9dd0274d24e1a4c9a22185",
+      "current_bytes_equal_frozen": true
+    },
+    {
+      "project_relative_path": "assets/sprites/world/courtyard_home_detail_2026_10_05/home_stove_front.png.import",
+      "archive_relative_path": "runtime/assets/sprites/world/courtyard_home_detail_2026_10_05/home_stove_front.png.import",
+      "sha256": "ab5ec1728fb885b97f882db2214f0bc6405bdf25645f7383649146f94c2fd1fb",
+      "bytes": 1007,
+      "kind": "png_import",
+      "status": "current_world_binding_or_import",
+      "archive": "docs/art/world/room-world-detail-2026-10-05",
+      "current_observed_sha256": "ab5ec1728fb885b97f882db2214f0bc6405bdf25645f7383649146f94c2fd1fb",
+      "current_bytes_equal_frozen": true
+    },
+    {
+      "project_relative_path": "assets/sprites/world/courtyard_home_detail_2026_10_05/home_threshold_front.png",
+      "archive_relative_path": "runtime/assets/sprites/world/courtyard_home_detail_2026_10_05/home_threshold_front.png",
+      "sha256": "47872dc776e93d784937cc60243758166390d92349e8ec12588586ee2c445ac1",
+      "bytes": 2248,
+      "kind": "png",
+      "status": "current_world_binding_or_import",
+      "native_size": [
+        209,
+        26
+      ],
+      "archive": "docs/art/world/room-world-detail-2026-10-05",
+      "current_observed_sha256": "47872dc776e93d784937cc60243758166390d92349e8ec12588586ee2c445ac1",
+      "current_bytes_equal_frozen": true
+    },
+    {
+      "project_relative_path": "assets/sprites/world/courtyard_home_detail_2026_10_05/home_threshold_front.png.import",
+      "archive_relative_path": "runtime/assets/sprites/world/courtyard_home_detail_2026_10_05/home_threshold_front.png.import",
+      "sha256": "23bcf0c1e1cfb1445969f0accc63eea9d0c9481435dbe74b83c5320bf0699b64",
+      "bytes": 1019,
+      "kind": "png_import",
+      "status": "current_world_binding_or_import",
+      "archive": "docs/art/world/room-world-detail-2026-10-05",
+      "current_observed_sha256": "23bcf0c1e1cfb1445969f0accc63eea9d0c9481435dbe74b83c5320bf0699b64",
+      "current_bytes_equal_frozen": true
+    },
+    {
+      "project_relative_path": "assets/sprites/world/courtyard_home_linework_2026_10_04/home_coat_front.png",
+      "archive_relative_path": "runtime/assets/sprites/world/courtyard_home_linework_2026_10_04/home_coat_front.png",
+      "sha256": "5ab4376a1cb55597d2fc3797d6cb175f55c93373d1713c53b66d20a06258e921",
+      "bytes": 2653,
+      "kind": "png",
+      "status": "retained_prior_room_unreferenced",
+      "native_size": [
+        40,
+        64
+      ],
+      "archive": "docs/art/world/room-world-detail-2026-10-05",
+      "current_observed_sha256": "5ab4376a1cb55597d2fc3797d6cb175f55c93373d1713c53b66d20a06258e921",
+      "current_bytes_equal_frozen": true
+    },
+    {
+      "project_relative_path": "assets/sprites/world/courtyard_home_linework_2026_10_04/home_coat_front.png.import",
+      "archive_relative_path": "runtime/assets/sprites/world/courtyard_home_linework_2026_10_04/home_coat_front.png.import",
+      "sha256": "2fd65af1596ae5a28040945d0838c98f4c066aa10a47ecf6379e19e62401b42d",
+      "bytes": 1006,
+      "kind": "png_import",
+      "status": "retained_prior_room_unreferenced",
+      "archive": "docs/art/world/room-world-detail-2026-10-05",
+      "current_observed_sha256": "2fd65af1596ae5a28040945d0838c98f4c066aa10a47ecf6379e19e62401b42d",
+      "current_bytes_equal_frozen": true
+    },
+    {
+      "project_relative_path": "assets/sprites/world/courtyard_home_linework_2026_10_04/home_room.png",
+      "archive_relative_path": "runtime/assets/sprites/world/courtyard_home_linework_2026_10_04/home_room.png",
+      "sha256": "fa61f4d3f78b2593907327ae7c9538f72e80b1f0722ed5324d77a5fb68483b36",
+      "bytes": 24659,
+      "kind": "png",
+      "status": "retained_prior_room_unreferenced",
+      "native_size": [
+        256,
+        256
+      ],
+      "archive": "docs/art/world/room-world-detail-2026-10-05",
+      "current_observed_sha256": "fa61f4d3f78b2593907327ae7c9538f72e80b1f0722ed5324d77a5fb68483b36",
+      "current_bytes_equal_frozen": true
+    },
+    {
+      "project_relative_path": "assets/sprites/world/courtyard_home_linework_2026_10_04/home_room.png.import",
+      "archive_relative_path": "runtime/assets/sprites/world/courtyard_home_linework_2026_10_04/home_room.png.import",
+      "sha256": "d8bbf728511f5271a5713d90d53c8940647ef3a961b24c980b7db79f46f6d365",
+      "bytes": 988,
+      "kind": "png_import",
+      "status": "retained_prior_room_unreferenced",
+      "archive": "docs/art/world/room-world-detail-2026-10-05",
+      "current_observed_sha256": "d8bbf728511f5271a5713d90d53c8940647ef3a961b24c980b7db79f46f6d365",
+      "current_bytes_equal_frozen": true
+    },
+    {
+      "project_relative_path": "assets/sprites/world/courtyard_home_linework_2026_10_04/home_stove_front.png",
+      "archive_relative_path": "runtime/assets/sprites/world/courtyard_home_linework_2026_10_04/home_stove_front.png",
+      "sha256": "cb8d5b1e0c54ffbac67d278556ef87d120bef6ac18afc64722ce1d2f2715c1c6",
+      "bytes": 2664,
+      "kind": "png",
+      "status": "retained_prior_room_unreferenced",
+      "native_size": [
+        28,
+        69
+      ],
+      "archive": "docs/art/world/room-world-detail-2026-10-05",
+      "current_observed_sha256": "cb8d5b1e0c54ffbac67d278556ef87d120bef6ac18afc64722ce1d2f2715c1c6",
+      "current_bytes_equal_frozen": true
+    },
+    {
+      "project_relative_path": "assets/sprites/world/courtyard_home_linework_2026_10_04/home_stove_front.png.import",
+      "archive_relative_path": "runtime/assets/sprites/world/courtyard_home_linework_2026_10_04/home_stove_front.png.import",
+      "sha256": "fd57705845c8c3ca9f58e21341cc39f8eadd4c60a07052f2f7ddcedbbab5d927",
+      "bytes": 1009,
+      "kind": "png_import",
+      "status": "retained_prior_room_unreferenced",
+      "archive": "docs/art/world/room-world-detail-2026-10-05",
+      "current_observed_sha256": "fd57705845c8c3ca9f58e21341cc39f8eadd4c60a07052f2f7ddcedbbab5d927",
+      "current_bytes_equal_frozen": true
+    },
+    {
+      "project_relative_path": "assets/sprites/world/courtyard_home_linework_2026_10_04/home_threshold_front.png",
+      "archive_relative_path": "runtime/assets/sprites/world/courtyard_home_linework_2026_10_04/home_threshold_front.png",
+      "sha256": "47872dc776e93d784937cc60243758166390d92349e8ec12588586ee2c445ac1",
+      "bytes": 2248,
+      "kind": "png",
+      "status": "retained_prior_room_unreferenced",
+      "native_size": [
+        209,
+        26
+      ],
+      "archive": "docs/art/world/room-world-detail-2026-10-05",
+      "current_observed_sha256": "47872dc776e93d784937cc60243758166390d92349e8ec12588586ee2c445ac1",
+      "current_bytes_equal_frozen": true
+    },
+    {
+      "project_relative_path": "assets/sprites/world/courtyard_home_linework_2026_10_04/home_threshold_front.png.import",
+      "archive_relative_path": "runtime/assets/sprites/world/courtyard_home_linework_2026_10_04/home_threshold_front.png.import",
+      "sha256": "be44a0a10499d597fd203e7c74011ebc489c92615c9cdad010213ddd7d64e09b",
+      "bytes": 1021,
+      "kind": "png_import",
+      "status": "retained_prior_room_unreferenced",
+      "archive": "docs/art/world/room-world-detail-2026-10-05",
+      "current_observed_sha256": "be44a0a10499d597fd203e7c74011ebc489c92615c9cdad010213ddd7d64e09b",
+      "current_bytes_equal_frozen": true
+    },
+    {
+      "project_relative_path": "assets/sprites/world/world_approaches_2026_10_05/hometown_hall_approach.png",
+      "archive_relative_path": "runtime/assets/sprites/world/world_approaches_2026_10_05/hometown_hall_approach.png",
+      "sha256": "eb83303c618cbf39bcbf8fc312aa7b6e154f1021c912872547a45bd58f67acc9",
+      "bytes": 521,
+      "kind": "png",
+      "status": "current_world_binding_or_import",
+      "native_size": [
+        37,
+        44
+      ],
+      "archive": "docs/art/world/room-world-detail-2026-10-05",
+      "current_observed_sha256": "eb83303c618cbf39bcbf8fc312aa7b6e154f1021c912872547a45bd58f67acc9",
+      "current_bytes_equal_frozen": true
+    },
+    {
+      "project_relative_path": "assets/sprites/world/world_approaches_2026_10_05/hometown_hall_approach.png.import",
+      "archive_relative_path": "runtime/assets/sprites/world/world_approaches_2026_10_05/hometown_hall_approach.png.import",
+      "sha256": "3a4cf09438663eeeb24353bc390d3f0f9dccd5f08677e3d3279e1592b7bf5f89",
+      "bytes": 1019,
+      "kind": "png_import",
+      "status": "current_world_binding_or_import",
+      "archive": "docs/art/world/room-world-detail-2026-10-05",
+      "current_observed_sha256": "3a4cf09438663eeeb24353bc390d3f0f9dccd5f08677e3d3279e1592b7bf5f89",
+      "current_bytes_equal_frozen": true
+    },
+    {
+      "project_relative_path": "assets/sprites/world/world_approaches_2026_10_05/riverfront_branch_approach.png",
+      "archive_relative_path": "runtime/assets/sprites/world/world_approaches_2026_10_05/riverfront_branch_approach.png",
+      "sha256": "3abb8cd04b02ea736bbd097b35acb3136bb0d6ecaf4285a799a5590c6271ed96",
+      "bytes": 1899,
+      "kind": "png",
+      "status": "current_world_binding_or_import",
+      "native_size": [
+        45,
+        48
+      ],
+      "archive": "docs/art/world/room-world-detail-2026-10-05",
+      "current_observed_sha256": "3abb8cd04b02ea736bbd097b35acb3136bb0d6ecaf4285a799a5590c6271ed96",
+      "current_bytes_equal_frozen": true
+    },
+    {
+      "project_relative_path": "assets/sprites/world/world_approaches_2026_10_05/riverfront_branch_approach.png.import",
+      "archive_relative_path": "runtime/assets/sprites/world/world_approaches_2026_10_05/riverfront_branch_approach.png.import",
+      "sha256": "5f1f8602271e7ee50411ebb74371e82e31145a634bd7524c56ffb870acfc7edf",
+      "bytes": 1032,
+      "kind": "png_import",
+      "status": "current_world_binding_or_import",
+      "archive": "docs/art/world/room-world-detail-2026-10-05",
+      "current_observed_sha256": "5f1f8602271e7ee50411ebb74371e82e31145a634bd7524c56ffb870acfc7edf",
+      "current_bytes_equal_frozen": true
+    },
+    {
+      "project_relative_path": "assets/sprites/world/world_linework_2026_10_04/brick_shop.png",
+      "archive_relative_path": "runtime/assets/sprites/world/world_linework_2026_10_04/brick_shop.png",
+      "sha256": "c72d9b86c0b4643d0f9da3c025a239c1f31efa3ff9510885bfd0736dfc6141c2",
+      "bytes": 16338,
+      "kind": "png",
+      "status": "current_world_binding_or_import",
+      "native_size": [
+        208,
+        192
+      ],
+      "archive": "docs/art/world/room-world-detail-2026-10-05",
+      "current_observed_sha256": "c72d9b86c0b4643d0f9da3c025a239c1f31efa3ff9510885bfd0736dfc6141c2",
+      "current_bytes_equal_frozen": true
+    },
+    {
+      "project_relative_path": "assets/sprites/world/world_linework_2026_10_04/brick_shop.png.import",
+      "archive_relative_path": "runtime/assets/sprites/world/world_linework_2026_10_04/brick_shop.png.import",
+      "sha256": "85c16ec38aab83e650579f24341e38400e6ac25eb36fa3db7f20a594e8a3e117",
+      "bytes": 982,
+      "kind": "png_import",
+      "status": "current_world_binding_or_import",
+      "archive": "docs/art/world/room-world-detail-2026-10-05",
+      "current_observed_sha256": "85c16ec38aab83e650579f24341e38400e6ac25eb36fa3db7f20a594e8a3e117",
+      "current_bytes_equal_frozen": true
+    },
+    {
+      "project_relative_path": "assets/sprites/world/world_linework_2026_10_04/courtyard_home.png",
+      "archive_relative_path": "runtime/assets/sprites/world/world_linework_2026_10_04/courtyard_home.png",
+      "sha256": "f5a4af906a064c0a1faa972847f01ddcbb2a93372350d9e0b77fbbbe1ded290c",
+      "bytes": 15126,
+      "kind": "png",
+      "status": "current_world_binding_or_import",
+      "native_size": [
+        160,
+        144
+      ],
+      "archive": "docs/art/world/room-world-detail-2026-10-05",
+      "current_observed_sha256": "f5a4af906a064c0a1faa972847f01ddcbb2a93372350d9e0b77fbbbe1ded290c",
+      "current_bytes_equal_frozen": true
+    },
+    {
+      "project_relative_path": "assets/sprites/world/world_linework_2026_10_04/courtyard_home.png.import",
+      "archive_relative_path": "runtime/assets/sprites/world/world_linework_2026_10_04/courtyard_home.png.import",
+      "sha256": "a460b1306affd083df5abd4ef0a53396ba3dbe49fc023edf83c83b198a2cea17",
+      "bytes": 993,
+      "kind": "png_import",
+      "status": "current_world_binding_or_import",
+      "archive": "docs/art/world/room-world-detail-2026-10-05",
+      "current_observed_sha256": "a460b1306affd083df5abd4ef0a53396ba3dbe49fc023edf83c83b198a2cea17",
+      "current_bytes_equal_frozen": true
+    },
+    {
+      "project_relative_path": "assets/sprites/world/world_linework_2026_10_04/dispatch_hall.png",
+      "archive_relative_path": "runtime/assets/sprites/world/world_linework_2026_10_04/dispatch_hall.png",
+      "sha256": "94bdf8fe98fa9e1c13afc9f2b6394bd06cf4c5ec03019dd126c765add1c57f23",
+      "bytes": 11495,
+      "kind": "png",
+      "status": "current_world_binding_or_import",
+      "native_size": [
+        136,
+        168
+      ],
+      "archive": "docs/art/world/room-world-detail-2026-10-05",
+      "current_observed_sha256": "94bdf8fe98fa9e1c13afc9f2b6394bd06cf4c5ec03019dd126c765add1c57f23",
+      "current_bytes_equal_frozen": true
+    },
+    {
+      "project_relative_path": "assets/sprites/world/world_linework_2026_10_04/dispatch_hall.png.import",
+      "archive_relative_path": "runtime/assets/sprites/world/world_linework_2026_10_04/dispatch_hall.png.import",
+      "sha256": "41499d891e5bd0b02cf17489377ec15f680bdb2994dbe888e847d5d784ef1a0b",
+      "bytes": 991,
+      "kind": "png_import",
+      "status": "current_world_binding_or_import",
+      "archive": "docs/art/world/room-world-detail-2026-10-05",
+      "current_observed_sha256": "41499d891e5bd0b02cf17489377ec15f680bdb2994dbe888e847d5d784ef1a0b",
+      "current_bytes_equal_frozen": true
+    },
+    {
+      "project_relative_path": "assets/sprites/world/world_linework_2026_10_04/ledger_house.png",
+      "archive_relative_path": "runtime/assets/sprites/world/world_linework_2026_10_04/ledger_house.png",
+      "sha256": "7392fdde7ed2e4c9f17e81b129a96bbde753d1326b8830e223901227fbcfcc23",
+      "bytes": 17051,
+      "kind": "png",
+      "status": "current_world_binding_or_import",
+      "native_size": [
+        176,
+        192
+      ],
+      "archive": "docs/art/world/room-world-detail-2026-10-05",
+      "current_observed_sha256": "7392fdde7ed2e4c9f17e81b129a96bbde753d1326b8830e223901227fbcfcc23",
+      "current_bytes_equal_frozen": true
+    },
+    {
+      "project_relative_path": "assets/sprites/world/world_linework_2026_10_04/ledger_house.png.import",
+      "archive_relative_path": "runtime/assets/sprites/world/world_linework_2026_10_04/ledger_house.png.import",
+      "sha256": "b0701a330e8006d11211373e10ebb39860d9acde93491e8d0703342cf388f45a",
+      "bytes": 988,
+      "kind": "png_import",
+      "status": "current_world_binding_or_import",
+      "archive": "docs/art/world/room-world-detail-2026-10-05",
+      "current_observed_sha256": "b0701a330e8006d11211373e10ebb39860d9acde93491e8d0703342cf388f45a",
+      "current_bytes_equal_frozen": true
+    },
+    {
+      "relative_path": "data/creatures/102_ironvent.tres",
+      "bytes": 1683,
+      "sha256": "78c54b44aefbaed3c950c6433c09edc7e0115f5486f7c9f3a0a56c0a63b7d31f",
+      "current_project_exact": true,
+      "kind": "resource",
+      "project_relative_path": "data/creatures/102_ironvent.tres",
+      "archive": "docs/art/review/ironvent-black-match-2026-10-05",
+      "current_observed_sha256": "2fbc2d1c374071f35596252d1dbc37d803e992c8bd07eaa7bb3a58a676c07c86",
+      "current_bytes_equal_frozen": false
+    },
+    {
+      "project_relative_path": "data/creatures/110_kithflare3.tres",
+      "sha256": "999893b82ad7760d8ff02ff54c428313551bf3e3a9e1f04d253a8a99a7dcdda4",
+      "bytes": 1039,
+      "archive": "docs/art/review/starter-texture-refine-2026-10-05",
+      "current_observed_sha256": "999893b82ad7760d8ff02ff54c428313551bf3e3a9e1f04d253a8a99a7dcdda4",
+      "current_bytes_equal_frozen": true
+    },
+    {
+      "relative_path": "data/moves/ironvent_furnace_roar.tres",
+      "bytes": 8090,
+      "sha256": "437bf2f4bae55589e6bbdf4a26b1cc49b19a589b137ada4164b8418bac65d764",
+      "current_project_exact": true,
+      "kind": "resource",
+      "project_relative_path": "data/moves/ironvent_furnace_roar.tres",
+      "archive": "docs/art/review/ironvent-black-match-2026-10-05",
+      "current_observed_sha256": "437bf2f4bae55589e6bbdf4a26b1cc49b19a589b137ada4164b8418bac65d764",
+      "current_bytes_equal_frozen": true
+    },
+    {
+      "project_relative_path": "scripts/area_landscape.gd",
+      "archive_relative_path": "runtime/scripts/area_landscape.gd",
+      "sha256": "010c67c8891e92058ac543a5414aea37c17145be2a0b7933d22821b50880c671",
+      "bytes": 11611,
+      "kind": "script",
+      "status": "current_world_binding_or_import",
+      "archive": "docs/art/world/room-world-detail-2026-10-05",
+      "current_observed_sha256": "010c67c8891e92058ac543a5414aea37c17145be2a0b7933d22821b50880c671",
+      "current_bytes_equal_frozen": true
+    },
+    {
+      "project_relative_path": "scripts/courtyard_home_room.gd",
+      "archive_relative_path": "runtime/scripts/courtyard_home_room.gd",
+      "sha256": "53cb15f5168a6714fe78712062342178d69531dd2cb4aa0e0de592842d27e418",
+      "bytes": 5877,
+      "kind": "script",
+      "status": "current_world_binding_or_import",
+      "archive": "docs/art/world/room-world-detail-2026-10-05",
+      "current_observed_sha256": "53cb15f5168a6714fe78712062342178d69531dd2cb4aa0e0de592842d27e418",
+      "current_bytes_equal_frozen": true
+    },
+    {
+      "project_relative_path": "scripts/historic_street.gd",
+      "archive_relative_path": "runtime/scripts/historic_street.gd",
+      "sha256": "b176dd25cbb034f37a572e0791720ad13e9e3363c9a14bc5376fd9837bc34eaa",
+      "bytes": 13931,
+      "kind": "script",
+      "status": "current_world_binding_or_import",
+      "archive": "docs/art/world/room-world-detail-2026-10-05",
+      "current_observed_sha256": "b176dd25cbb034f37a572e0791720ad13e9e3363c9a14bc5376fd9837bc34eaa",
+      "current_bytes_equal_frozen": true
+    }
+  ],
+  "archives": [
+    {
+      "path": "docs/art/world/room-world-detail-2026-10-05",
+      "manifest_sha256": "b009e0903c29255da2a6c3ad072301723dd206d301ddb6ab5a547938fdd8f151",
+      "member_count": 536
+    },
+    {
+      "path": "docs/art/review/ironvent-black-match-2026-10-05",
+      "manifest_sha256": "79dc87b22bd477b40102b2c35256ff55c534d3ba6d32cc3efaeafc4f92ceddf0",
+      "member_count": 80
+    },
+    {
+      "path": "docs/art/review/starter-texture-refine-2026-10-05",
+      "manifest_sha256": "51c1b4ce195a5778ddcb9693a02663b4d5fa8ab6a15a0a17d3824115853ce1d4",
+      "member_count": 157
+    }
+  ],
+  "shared_resource_drift": [
+    {
+      "path": "data/creatures/102_ironvent.tres",
+      "frozen_sha256": "78c54b44aefbaed3c950c6433c09edc7e0115f5486f7c9f3a0a56c0a63b7d31f",
+      "current_observed_sha256": "2fbc2d1c374071f35596252d1dbc37d803e992c8bd07eaa7bb3a58a676c07c86",
+      "owned_art_bindings_Atlas_region_margin_filter_exact": true,
+      "new_scale_and_reserialized_fields_not_tested_by_archived_native_probe": true
+    }
+  ],
+  "historical_paid_request_total_usd": 1.98,
+  "new_starter_paid_request_total_usd": 0,
+  "prepared_starter_batch_estimated_usd": 1.08,
+  "hall_edit_deferred_pending_specific_approval": true,
+  "world_goal": "active and unachieved",
+  "no_retired_line_archive_copied": true
+}

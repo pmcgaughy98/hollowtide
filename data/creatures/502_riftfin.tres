@@ -1,0 +1,42 @@
+[gd_resource type="Resource" script_class="CreatureData" format=3]
+
+[ext_resource type="Texture2D" path="res://assets/sprites/creatures/idle_2026_10_05/502_riftfin/back_f0.png" id="1_jhm5i"]
+[ext_resource type="Script" path="res://scripts/creature_data.gd" id="1_script"]
+[ext_resource type="Texture2D" path="res://assets/sprites/creatures/idle_2026_10_05/502_riftfin/back_f1.png" id="2_7m140"]
+[ext_resource type="Texture2D" path="res://assets/sprites/creatures/starter_material_detail_2026_10_05/502_riftfin_front_material_detail.png" id="2_sprite"]
+[ext_resource type="Texture2D" path="res://assets/sprites/creatures/idle_2026_10_05/502_riftfin/f0.png" id="3_43ywl"]
+[ext_resource type="Texture2D" path="res://assets/sprites/creatures/rimefin_catfish_2026_10_05/riftfin_back.png" id="3_back"]
+[ext_resource type="Texture2D" path="res://assets/sprites/creatures/idle_2026_10_05/502_riftfin/back_f2.png" id="3_q8rps"]
+[ext_resource type="Texture2D" path="res://assets/sprites/creatures/idle_2026_10_05/502_riftfin/f1.png" id="4_1wtgn"]
+[ext_resource type="Resource" path="res://data/creatures/503_scourmaw.tres" id="4_evolution"]
+[ext_resource type="Texture2D" path="res://assets/sprites/creatures/idle_2026_10_05/502_riftfin/back_f3.png" id="4_l7ndo"]
+[ext_resource type="Texture2D" path="res://assets/sprites/creatures/idle_2026_10_05/502_riftfin/f2.png" id="5_7tx8h"]
+[ext_resource type="Texture2D" path="res://assets/sprites/creatures/idle_2026_10_05/502_riftfin/back_f4.png" id="5_54fbr"]
+[ext_resource type="Texture2D" path="res://assets/sprites/creatures/idle_2026_10_05/502_riftfin/back_f5.png" id="6_7giab"]
+[ext_resource type="Texture2D" path="res://assets/sprites/creatures/idle_2026_10_05/502_riftfin/f3.png" id="6_w141g"]
+[ext_resource type="Texture2D" path="res://assets/sprites/creatures/idle_2026_10_05/502_riftfin/f4.png" id="7_dlqi8"]
+[ext_resource type="Texture2D" path="res://assets/sprites/creatures/idle_2026_10_05/502_riftfin/back_f6.png" id="7_kfhtf"]
+[ext_resource type="Texture2D" path="res://assets/sprites/creatures/idle_2026_10_05/502_riftfin/f5.png" id="8_s1syh"]
+[ext_resource type="Texture2D" path="res://assets/sprites/creatures/idle_2026_10_05/502_riftfin/back_f7.png" id="8_t8s5e"]
+[ext_resource type="Texture2D" path="res://assets/sprites/creatures/idle_2026_10_05/502_riftfin/f6.png" id="9_5se3y"]
+[ext_resource type="Texture2D" path="res://assets/sprites/creatures/idle_2026_10_05/502_riftfin/f7.png" id="10_ypva4"]
+[ext_resource type="Script" path="res://scripts/move_data.gd" id="11_jhm5i"]
+
+[resource]
+script = ExtResource("1_script")
+id = 502
+creature_name = "Riftfin"
+essence = 1
+has_second_essence = true
+second_essence = 5
+sprite = ExtResource("2_sprite")
+back_sprite = ExtResource("3_back")
+description = "Provisional entry (Claude, 2026-10-05, on Preston's request): Retro Diffusion art from docs/creatures/starter-lines-rd-2026-10-05/evolutions. Default stats and no moves (Strike) until Grok sets the kit and numbers."
+evolves_into = ExtResource("4_evolution")
+body_parts = PackedStringArray()
+idle_breath = 0.018
+idle_period = 2.0
+idle_breath_widen = 0.006
+idle_frames = Array[Texture2D]([ExtResource("3_43ywl"), ExtResource("4_1wtgn"), ExtResource("5_7tx8h"), ExtResource("6_w141g"), ExtResource("7_dlqi8"), ExtResource("8_s1syh"), ExtResource("9_5se3y"), ExtResource("10_ypva4")])
+back_idle_frames = Array[Texture2D]([ExtResource("1_jhm5i"), ExtResource("2_7m140"), ExtResource("3_q8rps"), ExtResource("4_l7ndo"), ExtResource("5_54fbr"), ExtResource("6_7giab"), ExtResource("7_kfhtf"), ExtResource("8_t8s5e")])
+battle_size = 1.3

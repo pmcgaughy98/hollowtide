@@ -1,5 +1,15 @@
 # Hollowtide world goal checkpoint, October 3, 2026
 
+## Codex: starter material approvals resolved and pose retry (October 6, 2026)
+
+The six $1.08 starter material edits were authorized and completed; there is no pending approval for them. Kithflare I lantern detail and front/rear/eight-frame tail outlines are installed. Sparkwick's generated inpainting, Rimefin front and Riftfin rear material candidates were rejected for quality, so existing art stays deliberately. All nine current starter idles (72 actual frames), three signature titles and fourteen real move playbacks passed native checks with exit0/empty stderr. Current kits, sizes, essences, evolution and Claude's signature/idle architecture remain preserved.
+
+Stormwick/Rampartroot keep Preston's chosen poses with accepted interior material refinements ($0.36). Preston rejected the first new Scourmaw title ($0.18) as a different model; it is no longer used. The current card fits the approved Stage III source. His explicitly requested pose-only retry is running once in Retro Diffusion (task061e4b1e-2fe4-4835-83c9-765201ae0188, quoted$0.18); poll this task, do not duplicate it. Confirmed material/title spend before the retry is$1.62. [Current exact status, evidence locations and quality limits](../art/review/starter-material-status-2026-10-06/README.md).
+
+Preserve the latest Kithflare outlined rear when Claude generates animated back idles. Full world goal remains unachieved; starter feedback is current priority. No kit/rule/architecture or launch/audio changes, original-art overwrite, staging/commit/deletion or editor control.
+
+
+
 ## Objective and scope
 
 Build the game world, map levels and playable areas to a level that can compete with Nexomon and Coromon while retaining Hollowtide's own St. Joseph inspired style. The goal is active and unbudgeted. Recent direct user world/creature instructions supersede the historical menu-only and Vitrecrag-shelved handoff for the work explicitly reopened; preserve prior saved menu/art decisions and do not infer permission for unrelated creature redesigns.
@@ -7,6 +17,8 @@ Build the game world, map levels and playable areas to a level that can compete 
 Regional relationship: fictional hometown inspired by Elwood, then a separate Route 1 levee entrance, river crossing, and fictional city inspired by St. Joseph. South industrial/stockyard character, historic downtown, northern historic neighborhoods and later/newer northern commercial/residential areas remain design inputs, without literal real-world names or reductive population stereotypes. User screenshots plus saved research are geometry/context evidence. Named district canon remains open.
 
 ## Current authoritative state
+
+- October5 latest priority: refine all new starter textures, preserving Kithflare Ember/Electric, Tallowroot I-III Bloom/Stone and Rimefin catfish-line Hollow/Tide. KithflareIII's resizing fringe is repaired from literal preserved original pixels, exact219canvas/alpha/size; five game artifacts, two byte-exact rebuilds and18actual front/rear bindings in nine native idle battles pass (exit0/stderr0). Six source-crop material edits estimated$1.08 are prepared, including StageI lanterns once; automatic review requires specific private-image destination and charge approval, no new paid request. Claude owns later models and retired-line archive. [Current starter source/proof and limits](../art/review/starter-texture-refine-2026-10-05/README.md). [Completed world/Iron packages and44artifact paths with current-shared102 drift explicit](../art/review/detail-pass-2026-10-05/README.md). Historical paid total$1.98. Full world goal active/unachieved; hall/world material work deferred behind starters.
 
 - Hometown now has two distinct neighbor frontages and an enterable cached courtyard-home room through two additional real walking gates. Four read-only local interactions, art-aligned walls/furniture and conditional cupboard fade are installed. Final male/female full ordinary-input journeys pass sixteen gates/two home visits, original flow/cache/party/notes/flags and fade/restoration with exit 0 and empty runtime stderr. Direct room Play and final native overview also pass. Three existing scripts changed, seventeen additions; 2,202/2,205 baseline files exact; seven PNGs rebuild byte-exact. Three text-only requests cost $0.54; remaining balance $1.86/50 credits. Final documentation archive/handoff was explicitly approved after automatic scope rejection and is complete; no pending approval. [Twenty exact runtime files, source/rebuild/native evidence and limits](../art/world/hometown-homes-2026-10-04/README.md). Only the original opening home is enterable; the two new frontages remain closed. Room text is a prototype proposal; no heal/inventory/reward/disk-save architecture. Full world goal remains unachieved.
 

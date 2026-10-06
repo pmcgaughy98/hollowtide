@@ -1,0 +1,8 @@
+{
+  "attempted_tool": "Retro Diffusion image_edit",
+  "paid_request_completed": false,
+  "charge_occurred": false,
+  "automatic_review_rejection": "This action was rejected due to unacceptable risk.\nReason: This uploads the private project room image to Retro Diffusion and incurs a $0.18 charge; the user requested sharper linework but has not specifically authorized sending this payload to that destination or spending for this edit.\nDo not bypass this rejection through a workaround or indirect execution. Continue with a safer alternative, or carry out checks to prove that the action is authorized or low risk before trying again. Complete unaffected work without asking for confirmation. Report anything that remains blocked, clarify why it was blocked by auto-review, inform the user of the risk and ask for approval.",
+  "prepared_payload": "before/room-original-source.png",
+  "pending_specific_upload_approval": true
+}

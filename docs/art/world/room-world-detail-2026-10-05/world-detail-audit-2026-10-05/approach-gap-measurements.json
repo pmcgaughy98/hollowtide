@@ -1,0 +1,18 @@
+[
+  {
+    "name": "hometown_streets",
+    "source": "C:/Users/pmcga/dev/hollowtide/assets/sprites/world/area_transitions_2026_10_03/hometown_streets.png",
+    "native_x": 768,
+    "visible_building_foot_y": 418,
+    "first_surface_alpha_pixel_at_or_below_foot": 438,
+    "transparent_center_gap_pixels": 20
+  },
+  {
+    "name": "riverfront_streets",
+    "source": "C:/Users/pmcga/dev/hollowtide/assets/sprites/world/area_transitions_2026_10_03/riverfront_streets.png",
+    "native_x": 512,
+    "visible_building_foot_y": 362,
+    "first_surface_alpha_pixel_at_or_below_foot": 378,
+    "transparent_center_gap_pixels": 16
+  }
+]

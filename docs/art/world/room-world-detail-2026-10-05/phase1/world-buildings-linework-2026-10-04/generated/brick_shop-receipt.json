@@ -1,0 +1,21 @@
+{
+  "tool_id": "image_edit",
+  "inference_id": "inf_DJePMk93ngyWYG5YD30G5zv24l1jB0mE",
+  "balance_cost": 0.18,
+  "credit_cost": 20,
+  "charged": true,
+  "remaining_balance": 1.1400000000000026,
+  "remaining_credits": null,
+  "file": "brick_shop-rd.png",
+  "sha256": "44c651a15d4ce0be0d8cfbd07f3b609cc7790176a308d3e7ba7239d336ac1de2",
+  "size": [
+    208,
+    192
+  ],
+  "bounds": [
+    12,
+    13,
+    196,
+    183
+  ]
+}

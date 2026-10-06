@@ -1,0 +1,34 @@
+[
+  {
+    "name": "courtyard_home",
+    "tool_id": "image_edit",
+    "input_file": "before/courtyard_home.png",
+    "prompt": "Refine only this existing Hollowtide building's material definition and linework. Keep the exact same building composition, footprint, roof/chimney/eaves/stoop silhouette, positions and sizes of every doorway, window, porch, awning and blank sign panel, perspective, muted palette, native pixel dimensions and transparent padding. Create deliberate crisp charcoal/brown contour lines, firm readable roof seams, brick/stone joints, timber borders, window mullions and door frames; clarify coherent small native material clusters with restrained highlights and controlled local contrast. Preserve its aged riverside architecture and mature Hollowtide character. No blur, anti-aliasing, fuzzy doubled outlines, smooth gradients, noisy dithering, thick cartoon-black borders, candy colors or glossy redesign. No added/deleted/moved architecture, changed angle, expanded roof, text, people, props, ground slab or shadow. Keep all visible parts within the same canvas and retain clear complete eaves/base.",
+    "seed": 19042001,
+    "estimated_balance_cost": 0.18
+  },
+  {
+    "name": "dispatch_hall",
+    "tool_id": "image_edit",
+    "input_file": "before/dispatch_hall.png",
+    "prompt": "Refine only this existing Hollowtide building's material definition and linework. Keep the exact same building composition, footprint, roof/chimney/eaves/stoop silhouette, positions and sizes of every doorway, window, porch, awning and blank sign panel, perspective, muted palette, native pixel dimensions and transparent padding. Create deliberate crisp charcoal/brown contour lines, firm readable roof seams, brick/stone joints, timber borders, window mullions and door frames; clarify coherent small native material clusters with restrained highlights and controlled local contrast. Preserve its aged riverside architecture and mature Hollowtide character. No blur, anti-aliasing, fuzzy doubled outlines, smooth gradients, noisy dithering, thick cartoon-black borders, candy colors or glossy redesign. No added/deleted/moved architecture, changed angle, expanded roof, text, people, props, ground slab or shadow. Keep all visible parts within the same canvas and retain clear complete eaves/base.",
+    "seed": 19042002,
+    "estimated_balance_cost": 0.18
+  },
+  {
+    "name": "brick_shop",
+    "tool_id": "image_edit",
+    "input_file": "before/brick_shop.png",
+    "prompt": "Refine only this existing Hollowtide building's material definition and linework. Keep the exact same building composition, footprint, roof/chimney/eaves/stoop silhouette, positions and sizes of every doorway, window, porch, awning and blank sign panel, perspective, muted palette, native pixel dimensions and transparent padding. Create deliberate crisp charcoal/brown contour lines, firm readable roof seams, brick/stone joints, timber borders, window mullions and door frames; clarify coherent small native material clusters with restrained highlights and controlled local contrast. Preserve its aged riverside architecture and mature Hollowtide character. No blur, anti-aliasing, fuzzy doubled outlines, smooth gradients, noisy dithering, thick cartoon-black borders, candy colors or glossy redesign. No added/deleted/moved architecture, changed angle, expanded roof, text, people, props, ground slab or shadow. Keep all visible parts within the same canvas and retain clear complete eaves/base.",
+    "seed": 19042003,
+    "estimated_balance_cost": 0.18
+  },
+  {
+    "name": "ledger_house",
+    "tool_id": "image_edit",
+    "input_file": "before/ledger_house.png",
+    "prompt": "Refine only this existing Hollowtide building's material definition and linework. Keep the exact same building composition, footprint, roof/chimney/eaves/stoop silhouette, positions and sizes of every doorway, window, porch, awning and blank sign panel, perspective, muted palette, native pixel dimensions and transparent padding. Create deliberate crisp charcoal/brown contour lines, firm readable roof seams, brick/stone joints, timber borders, window mullions and door frames; clarify coherent small native material clusters with restrained highlights and controlled local contrast. Preserve its aged riverside architecture and mature Hollowtide character. No blur, anti-aliasing, fuzzy doubled outlines, smooth gradients, noisy dithering, thick cartoon-black borders, candy colors or glossy redesign. No added/deleted/moved architecture, changed angle, expanded roof, text, people, props, ground slab or shadow. Keep all visible parts within the same canvas and retain clear complete eaves/base.",
+    "seed": 19042004,
+    "estimated_balance_cost": 0.18
+  }
+]

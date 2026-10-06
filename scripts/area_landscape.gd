@@ -1,17 +1,19 @@
 extends Node2D
 @export_enum("hometown", "riverfront") var area_id := "hometown"
 const TILESET = preload("res://assets/tilesets/route1_rd_2026_10_01/route1_ground_polished.tres")
-const HOME = preload("res://assets/sprites/world/hometown_courtyard_2026_10_03/courtyard_home.png")
+const HOME = preload("res://assets/sprites/world/world_linework_2026_10_04/courtyard_home.png")
 const NEIGHBOR_HOME = preload("res://assets/sprites/world/hometown_homes_2026_10_04/neighbor_home.png")
 const GARDEN_HOME = preload("res://assets/sprites/world/hometown_homes_2026_10_04/garden_home.png")
 const HOME_APPROACHES = preload("res://assets/sprites/world/hometown_homes_2026_10_04/home_approaches.png")
-const HALL = preload("res://assets/sprites/world/route1_rd_2026_10_02/dispatch_hall_complete.png")
+const HALL = preload("res://assets/sprites/world/world_linework_2026_10_04/dispatch_hall.png")
 const MARK = preload("res://assets/sprites/world/route1_rd_2026_10_01/marker.png")
 const DISPATCHER = preload("res://assets/sprites/world/route1_rd_2026_10_01/dispatcher.png")
 const FEMALE = preload("res://assets/sprites/player/retro_diffusion_chibi_walking_2026_10_01/female_chibi_walk_eight_directions_native80.png")
 const FINISH = preload("res://scripts/effects/courier_finish.gdshader")
-const SHOP = preload("res://assets/sprites/world/area_transitions_2026_10_03/brick_shop.png")
-const LEDGER = preload("res://assets/sprites/world/area_transitions_2026_10_03/ledger_house.png")
+const SHOP = preload("res://assets/sprites/world/world_linework_2026_10_04/brick_shop.png")
+const LEDGER = preload("res://assets/sprites/world/world_linework_2026_10_04/ledger_house.png")
+const HALL_APPROACH = preload("res://assets/sprites/world/world_approaches_2026_10_05/hometown_hall_approach.png")
+const BRANCH_APPROACH = preload("res://assets/sprites/world/world_approaches_2026_10_05/riverfront_branch_approach.png")
 const HOME_ROAD = preload("res://assets/sprites/world/area_transitions_2026_10_03/hometown_streets.png")
 const HISTORIC_LANE = preload("res://assets/sprites/world/historic_street_2026_10_03/riverfront_north_lane.png")
 const CITY_ROAD = preload("res://assets/sprites/world/area_transitions_2026_10_03/riverfront_streets.png")
@@ -128,6 +130,7 @@ func _tree(at: Vector2, variant: int) -> void:
     _trees.append(tree)
 
 func _build_home() -> void:
+    _surface("HallApproach",HALL_APPROACH,Vector2(750,414),-5)
     _surface("HomeApproaches",HOME_APPROACHES,Vector2.ZERO,-6)
     _prop("CourtyardHome",HOME,Vector2(224,256),0.75)
     # Keep a forgiving door corridor inside the original home footprint.
@@ -140,7 +143,7 @@ func _build_home() -> void:
     _wall("GardenHomeFootprint",Vector2(288,590),Vector2(92,40))
     var hall := _prop("DispatcherHall",HALL,Vector2(768,418),0.75)
     _wall("HallFootprint",Vector2(0,-46),Vector2(106,84),hall)
-    _label("COURIER HALL",Vector2(728,306))
+    _label("COURIER HALL",Vector2(728,290))
     _prop("LeveeDirectionNotice",MARK,Vector2(944,492),0.65)
     _label("ROUTE 1 >",Vector2(902,457))
     _prop("GardenNotice",MARK,Vector2(472,594),0.6)
@@ -161,6 +164,7 @@ func _build_home() -> void:
         _prop("YardShrub%d"%int(at.x),SHRUB,at,0.8)
 
 func _build_city() -> void:
+    _surface("BranchApproach",BRANCH_APPROACH,Vector2(490,354),-5)
     _prop("HistoricStreetWaymark",MARK,Vector2(912,88),0.6)
     _label("OLD CITY ^",Vector2(866,54))
     var river := _surface("RiverSurface",WATER_MASK,Vector2.ZERO,-9)
@@ -184,7 +188,7 @@ func _build_city() -> void:
     finish.shader = FINISH
     clerk.material = finish
     _wall("ClerkFootprint",Vector2(0,-4),Vector2(16,10),clerk)
-    _label("COURIER BRANCH",Vector2(466,254))
+    _label("COURIER BRANCH",Vector2(466,234))
     var shop := _prop("ReusedBrickShop",SHOP,Vector2(768,264),0.75)
     _wall("ShopFootprint",Vector2(0,-39),Vector2(170,76),shop)
     var ledger := _prop("StreetLedgerHouse",LEDGER,Vector2(336,640),0.75)

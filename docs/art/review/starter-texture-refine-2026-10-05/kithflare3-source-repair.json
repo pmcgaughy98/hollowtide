@@ -1,0 +1,51 @@
+{
+  "method": "Literal preserved full-size source nearest-neighbor sampled at existing219x219. Current original alpha and transparent RGB restored. No AI generation or painted pixels.",
+  "stage": "110_kithflare3",
+  "paid_calls": 0,
+  "views": {
+    "front": {
+      "source_current_path": "assets/sprites/creatures/kithflare_line_2026_10_05/kithflare3_front.png",
+      "source_current_sha256": "671ee2098bf1256adb239e354bd483a91a65f8590c9aa00806b6f3e3a35d4b7f",
+      "literal_donor": "inputs/kithflare3_full_size_front.png",
+      "donor_sha256": "8f570cbdf18022d8f15a3e1e22f6ebfd38e3ddad179505426a3d8d796300ab5f",
+      "candidate_filename": "kithflare3_front_source_grid.png",
+      "candidate_sha256": "bbeb3bebcec7d98a77ee89b247eaf83370fbd28894a77286046d22ac2aa0f998",
+      "canvas": [
+        219,
+        219
+      ],
+      "bbox": [
+        25,
+        29,
+        189,
+        199
+      ],
+      "alpha_and_transparent_rgb_exact": true,
+      "changed_rgb_pixels": 1088,
+      "color_count_before": 198,
+      "color_count_after": 95
+    },
+    "back": {
+      "source_current_path": "assets/sprites/creatures/kithflare_line_2026_10_05/kithflare3_back.png",
+      "source_current_sha256": "15373b6db15b2852c1f58309d7eac6072b9685cb876aa8c322e153623df79a1d",
+      "literal_donor": "inputs/kithflare3_full_size_back.png",
+      "donor_sha256": "9d6bf34eb1173fe2bec55d86007a223d4ecda98b9383eff7efafea6b1b6c5115",
+      "candidate_filename": "kithflare3_back_source_grid.png",
+      "candidate_sha256": "1c389c1abc4e03275f8c2076cc83dc690d65d5c3d6087d404d020dfffebd8fe7",
+      "canvas": [
+        219,
+        219
+      ],
+      "bbox": [
+        40,
+        20,
+        185,
+        202
+      ],
+      "alpha_and_transparent_rgb_exact": true,
+      "changed_rgb_pixels": 1239,
+      "color_count_before": 146,
+      "color_count_after": 42
+    }
+  }
+}

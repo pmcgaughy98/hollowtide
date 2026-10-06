@@ -1,0 +1,12 @@
+{
+ "prompt": "The final evolved stage of the blue river catfish in the first reference image: same species, same grey bony head plate, narrowed cyan eyes and whip barbels, but huge, ancient and dominant, with a different body and pose. A heavy river catfish king shaped by erosion: its body ridged with worn stepped armour plates like scoured riverbank stone, an enormous broad flat head with a wide scoop jaw, long thick barbels like ropes, a split dorsal fin, heavy walking fins on spined pectorals planted on the riverbed. Long, low, heavy body in a low glide-brace, tail sweeping behind. Darker river blue, slate, silt-grey scars, cold cyan only at the fin edges and eyes. Calm, patient and dominant. Three-quarter view facing right. Same finish and outline as the references. Do not copy the reference pose. Not a shark, not a megalodon, no hammerhead, no metal armour, no glow, no bubbles, no water. Shown whole in the centre of the frame with empty space on every side. On a plain white background.",
+ "prompt_style": "rd_pro__default",
+ "width": 224,
+ "height": 224,
+ "num_images": 2,
+ "remove_bg": true,
+ "reference_images": [
+  "docs/creatures/starter-lines-rd-2026-10-05/evolutions/riftfin_front_take1.png",
+  "assets/sprites/creatures/cinderhide.png"
+ ]
+}

@@ -1,0 +1,12 @@
+{
+ "prompt": "The evolved second stage of the green seed creature in the first reference image: same species, same face, eyes, colours and cream claws, but clearly older, bigger and stronger, with a different body and a different pose. It now stands on all four sturdy legs in a strong forward guard stance, head low and forward, one forefoot stepping out with big cream claws. Broad shoulders and a deeper chest. Hard seed-husk plates have grown along its back and over its forearms like bark bracers. The seed pod on its shoulder has split open and the curled sprout has become a thick coiled green shoot rising over its shoulder with two broad leaves. Moss green, seed ochre, soil brown, cream. Patient and protective. Three-quarter view facing right. Same finish and outline as the references. Do not copy the reference pose, not sitting. No tree on its back, no flower crown. Shown whole in the centre of the frame with empty space on every side. On a plain white background.",
+ "prompt_style": "rd_pro__default",
+ "width": 192,
+ "height": 192,
+ "num_images": 2,
+ "remove_bg": true,
+ "reference_images": [
+  "docs/creatures/starter-lines-rd-2026-10-05/starter_poses/tallowroot_front_take1.png",
+  "assets/sprites/creatures/cinderhide.png"
+ ]
+}

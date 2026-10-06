@@ -1,0 +1,100 @@
+{
+  "total_maximum_new_cost_usd": 0.54,
+  "maximum_new_requests": 3,
+  "prior_table_replacement_and_room_building_charges_separate": true,
+  "room_material_acceptance_half_open_rectangles": [
+    [
+      38,
+      64,
+      98,
+      106
+    ],
+    [
+      35,
+      111,
+      59,
+      159
+    ],
+    [
+      35,
+      159,
+      59,
+      177
+    ],
+    [
+      184,
+      115,
+      220,
+      177
+    ],
+    [
+      185,
+      29,
+      221,
+      66
+    ],
+    [
+      159,
+      70,
+      191,
+      86
+    ],
+    [
+      95,
+      137,
+      161,
+      167
+    ]
+  ],
+  "coalcrest_tail_foot_masks_pending_visual_review": true,
+  "edits": [
+    {
+      "name": "room",
+      "tool_id": "image_edit",
+      "input_source": "inputs/room.png",
+      "input_sha256": "3232fff46305634fe509872d759e305e3e3ae4a2c76a282efb6f73d18fded95b",
+      "size": [
+        256,
+        256
+      ],
+      "prompt_file": "request/room-prompt.txt",
+      "estimated_cost_usd": 0.18,
+      "seed": 19045021,
+      "requests": 1,
+      "destination": "Retro Diffusion",
+      "status": "prepared_awaiting_exact_upload_and_cost_approval"
+    },
+    {
+      "name": "coalcrest_front",
+      "tool_id": "image_edit",
+      "input_source": "inputs/coalcrest_front.png",
+      "input_sha256": "6cbd82720f1c9673e51fea21cc6261fc2798bc80e4c0d3e0a433a224202f669f",
+      "size": [
+        160,
+        160
+      ],
+      "prompt_file": "request/coalcrest_front-prompt.txt",
+      "estimated_cost_usd": 0.18,
+      "seed": 19045022,
+      "requests": 1,
+      "destination": "Retro Diffusion",
+      "status": "prepared_awaiting_exact_upload_and_cost_approval"
+    },
+    {
+      "name": "coalcrest_back",
+      "tool_id": "image_edit",
+      "input_source": "inputs/coalcrest_back.png",
+      "input_sha256": "353747fb9a15dee7057a947f2a6640ede171c0c5a98ebc5b5f1152e4a03b6a9a",
+      "size": [
+        160,
+        160
+      ],
+      "prompt_file": "request/coalcrest_back-prompt.txt",
+      "estimated_cost_usd": 0.18,
+      "seed": 19045023,
+      "requests": 1,
+      "destination": "Retro Diffusion",
+      "status": "prepared_awaiting_exact_upload_and_cost_approval"
+    }
+  ]
+}

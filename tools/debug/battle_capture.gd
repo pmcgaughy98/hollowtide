@@ -1,6 +1,7 @@
 extends SceneTree
 ## Headless-free battle capture (needs a window for screenshots). Usage:
 ##   Summer.exe --path . --script res://tools/debug/battle_capture.gd -- <player> <foe> <player|foe> <move_index> <ms,ms,...> <name>
+## A move index of -1 saves only the idle shot.
 ## e.g. -- 108_vitrecrag 002_cinderhide player 0 5500,8300,12500 mg
 ## Starts a battle, has one side use one move, and saves a screenshot at each
 ## millisecond mark to user://battle_captures/<name>_<ms>.png, printing state.
@@ -27,6 +28,9 @@ func _run() -> void:
 	b.start(f)
 	await create_timer(1.5, true).timeout
 	await _snap(a[5] + "_0idle")
+	if move_i < 0:  # idle only, for creatures with no moves yet
+		quit()
+		return
 	var user: CreatureData = p if who == "player" else f
 	var mv: MoveData = user.moves[move_i]
 	print("move ", mv.move_name, " frames ", mv.attack_frames.size())

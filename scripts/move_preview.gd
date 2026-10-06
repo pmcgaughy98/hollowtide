@@ -7,8 +7,6 @@ const CREATURE_FILES = [
 	"101_clinkerhide.tres",
 	"102_ironvent.tres",
 	"103_kithflare.tres",
-	"104_wayburn.tres",
-	"105_coalcrest.tres",
 	"106_fusern.tres",
 	"107_slagglass.tres",
 	"108_vitrecrag.tres",

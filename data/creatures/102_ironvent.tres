@@ -1,12 +1,13 @@
-[gd_resource type="Resource" script_class="CreatureData" load_steps=9 format=3]
+[gd_resource type="Resource" script_class="CreatureData" format=3]
 
 [ext_resource type="Script" path="res://scripts/creature_data.gd" id="1_script"]
-[ext_resource type="Texture2D" path="res://assets/sprites/creatures/ironvent.png" id="2_sprite"]
-[ext_resource type="Texture2D" path="res://assets/sprites/creatures/ironvent_back_2026_09_27.png" id="7_back"]
+[ext_resource type="Script" path="res://scripts/move_data.gd" id="2_ggyak"]
+[ext_resource type="Texture2D" path="res://assets/sprites/creatures/ironvent_black_match_2026_10_05/ironvent_front.png" id="2_sprite"]
 [ext_resource type="Resource" path="res://data/moves/ironvent_crest_ram.tres" id="3_move"]
 [ext_resource type="Resource" path="res://data/moves/ironvent_cinder_claw.tres" id="4_move"]
 [ext_resource type="Resource" path="res://data/moves/ironvent_vent_barrage.tres" id="5_move"]
 [ext_resource type="Resource" path="res://data/moves/ironvent_furnace_roar.tres" id="6_move"]
+[ext_resource type="Texture2D" path="res://assets/sprites/creatures/ironvent_back_2026_09_27.png" id="7_back"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_back_clean"]
 atlas = ExtResource("7_back")
@@ -18,20 +19,17 @@ filter_clip = true
 script = ExtResource("1_script")
 id = 102
 creature_name = "Ironvent"
-body_parts = PackedStringArray("claw", "fusedbrow", "crest", "vent", "ventrow", "channels", "mouth", "ridge", "heavytail")
-aim_points = Dictionary[String, Vector2]({
-"crest": Vector2(34, -32),
-"channels": Vector2(22, -10)
-})
-essence = 0
+has_second_essence = true
+second_essence = 2
 sprite = ExtResource("2_sprite")
 back_sprite = SubResource("AtlasTexture_back_clean")
-moves = [ExtResource("3_move"), ExtResource("4_move"), ExtResource("5_move"), ExtResource("6_move")]
-base_hp = 60
-base_attack = 60
-base_defense = 60
-base_speed = 60
+moves = Array[ExtResource("2_ggyak")]([ExtResource("3_move"), ExtResource("4_move"), ExtResource("5_move"), ExtResource("6_move")])
+body_parts = PackedStringArray("claw", "fusedbrow", "crest", "vent", "ventrow", "channels", "mouth", "ridge", "heavytail")
 idle_breath = 0.018
 idle_period = 2.4
 idle_vent_glow = 0.35
-battle_size = 1.35
+aim_points = Dictionary[String, Vector2]({
+"channels": Vector2(22, -10),
+"crest": Vector2(34, -32)
+})
+battle_size = 1.52

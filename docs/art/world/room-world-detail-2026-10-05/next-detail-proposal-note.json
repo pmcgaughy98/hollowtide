@@ -1,0 +1,16 @@
+{
+  "goal_status": "ongoing",
+  "next_bounded_candidate": "courier hall interior registered material detail",
+  "proposal_files": [
+    "world-detail-audit-2026-10-05/request-proposal/spec.json",
+    "world-detail-audit-2026-10-05/request-proposal/courier-hall-detail-prompt.txt"
+  ],
+  "quote_reported_by_root_2026_10_05": {
+    "usd": 0.18,
+    "credits": 20,
+    "estimated_seconds": 150
+  },
+  "new_paid_request_made": false,
+  "proposal_authorized_to_charge": false,
+  "note": "Proposal retained for review; approvals and spend records cover only their specific completed requests."
+}

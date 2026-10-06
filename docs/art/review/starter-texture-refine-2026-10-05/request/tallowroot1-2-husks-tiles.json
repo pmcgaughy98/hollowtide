@@ -1,0 +1,94 @@
+[
+  {
+    "tile": 1,
+    "id": "1701_tallowroot",
+    "view": "front",
+    "source_path": "assets/sprites/creatures/tallowroot_2026_10_05/tallowroot_front.png",
+    "source_sha256": "725e9250b018d6001eb915b3f278ed14028a42777ec457e29ee569b606f3bf87",
+    "frozen_source": "1701_tallowroot_front.png",
+    "source_crop": [
+      42,
+      57,
+      106,
+      121
+    ],
+    "material": "wood",
+    "atlas_origin": [
+      0,
+      0
+    ],
+    "source_to_input_scale": 2,
+    "acceptance_mask_file": "request/tallowroot1-2-husks_tile1_acceptance.png",
+    "accepted_native_rgb_pixels": 1392,
+    "alpha_pose_edge_core_other_pixels_protected": true
+  },
+  {
+    "tile": 2,
+    "id": "1701_tallowroot",
+    "view": "back",
+    "source_path": "assets/sprites/creatures/tallowroot_2026_10_05/tallowroot_back.png",
+    "source_sha256": "93d68d182ea7f350476c9a783ea71a56a5d200ecd1a99b64f65fe4834f5b0373",
+    "frozen_source": "1701_tallowroot_back.png",
+    "source_crop": [
+      41,
+      54,
+      105,
+      118
+    ],
+    "material": "wood",
+    "atlas_origin": [
+      128,
+      0
+    ],
+    "source_to_input_scale": 2,
+    "acceptance_mask_file": "request/tallowroot1-2-husks_tile2_acceptance.png",
+    "accepted_native_rgb_pixels": 1628,
+    "alpha_pose_edge_core_other_pixels_protected": true
+  },
+  {
+    "tile": 3,
+    "id": "1702_tallowroot2",
+    "view": "front",
+    "source_path": "assets/sprites/creatures/tallowroot_2026_10_05/tallowroot2_front.png",
+    "source_sha256": "3382ac9a8280871614ca992d2b28f2767f2b303380f5f905fd2a5904a73a46fc",
+    "frozen_source": "1702_tallowroot2_front.png",
+    "source_crop": [
+      115,
+      48,
+      179,
+      112
+    ],
+    "material": "wood",
+    "atlas_origin": [
+      0,
+      128
+    ],
+    "source_to_input_scale": 2,
+    "acceptance_mask_file": "request/tallowroot1-2-husks_tile3_acceptance.png",
+    "accepted_native_rgb_pixels": 1563,
+    "alpha_pose_edge_core_other_pixels_protected": true
+  },
+  {
+    "tile": 4,
+    "id": "1702_tallowroot2",
+    "view": "back",
+    "source_path": "assets/sprites/creatures/tallowroot_2026_10_05/tallowroot2_back.png",
+    "source_sha256": "3dd1fd9a14ca54544bcf6c188925acf4a94d86873a6f3bbcfbf7d2f80f73b388",
+    "frozen_source": "1702_tallowroot2_back.png",
+    "source_crop": [
+      70,
+      65,
+      134,
+      129
+    ],
+    "material": "wood",
+    "atlas_origin": [
+      128,
+      128
+    ],
+    "source_to_input_scale": 2,
+    "acceptance_mask_file": "request/tallowroot1-2-husks_tile4_acceptance.png",
+    "accepted_native_rgb_pixels": 2265,
+    "alpha_pose_edge_core_other_pixels_protected": true
+  }
+]

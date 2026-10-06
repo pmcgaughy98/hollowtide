@@ -1,0 +1,205 @@
+{
+  "passed": true,
+  "reproduced_PNG_count": 14,
+  "artwork_generation_requests": 0,
+  "network_calls": 0,
+  "game_launches": 0,
+  "PNG_source_resampling": false,
+  "import_metadata": "Exact copied engine sidecars, not rebuilt by this artwork-only helper.",
+  "builder_runs": [
+    {
+      "builder": "phase1/build_room_linework.py",
+      "exit_code": 0,
+      "stdout": "{\"native_size\": [256, 256], \"original_alpha_exact\": true, \"transparent_RGB_original_exact\": true, \"original_bounds_retained\": [26, 25, 231, 233], \"generated_RGB_visible_pixels_retained\": 41777, \"original_visible_edge_pixels_restored\": 84, \"generated_outside_silhouette_pixels_excluded\": 143, \"changed_visible_RGB\": 8854, \"table_replacement\": {\"raw_source\": \"generated/table-replacement-rd.png\", \"accepted_mask\": \"request/table-clear-mask.png\", \"half_open_bounds\": [159, 70, 191, 86], \"mask_pixels\": 512, \"changed_pixels\": 403, \"outside_mask_RGBA_exact\": true, \"first_inpainting_rejected\": \"generated/clear_table-rd.png\", \"first_inpainting_pixels_installed\": 0}, \"full_opacity_RGBA_reconstruction_exact\": true, \"native_resampling\": false, \"foregrounds\": [{\"asset\": \"home_stove_front\", \"fixed_original_bounds\": [35, 112, 59, 177], \"native_size\": [28, 69], \"draw_origin\": [33, 110], \"y_sort_foot\": 177, \"rectangles\": [[35, 112, 59, 159], [35, 160, 59, 177]], \"source_visible_RGBA_exact\": true}, {\"asset\": \"home_coat_front\", \"fixed_original_bounds\": [184, 116, 220, 176], \"native_size\": [40, 64], \"draw_origin\": [182, 114], \"y_sort_foot\": 176, \"rectangles\": [[184, 116, 220, 166], [200, 166, 218, 176]], \"source_visible_RGBA_exact\": true}, {\"asset\": \"home_threshold_front\", \"fixed_original_bounds\": [26, 211, 231, 233], \"native_size\": [209, 26], \"draw_origin\": [24, 209], \"y_sort_foot\": 233, \"rectangles\": [[26, 211, 106, 233], [154, 211, 231, 233]], \"source_visible_RGBA_exact\": true}]}\n",
+      "stderr": ""
+    },
+    {
+      "builder": "phase1/build_building_linework.py",
+      "exit_code": 0,
+      "stdout": "{\n  \"outputs\": [\n    {\n      \"name\": \"courtyard_home\",\n      \"sha256\": \"f5a4af906a064c0a1faa972847f01ddcbb2a93372350d9e0b77fbbbe1ded290c\",\n      \"repairs\": []\n    },\n    {\n      \"name\": \"dispatch_hall\",\n      \"sha256\": \"94bdf8fe98fa9e1c13afc9f2b6394bd06cf4c5ec03019dd126c765add1c57f23\",\n      \"repairs\": [\n        {\n          \"label\": \"original plain upper-left timber panel\",\n          \"bounds_half_open\": [\n            37,\n            95,\n            52,\n            116\n          ],\n          \"changed_pixels_restored\": 232\n        },\n        {\n          \"label\": \"original plain upper-right timber panel\",\n          \"bounds_half_open\": [\n            84,\n            95,\n            99,\n            116\n          ],\n          \"changed_pixels_restored\": 227\n        },\n        {\n          \"label\": \"original plain lower-left brick panel\",\n          \"bounds_half_open\": [\n            26,\n            124,\n            46,\n            143\n          ],\n          \"changed_pixels_restored\": 328\n        }\n      ]\n    },\n    {\n      \"name\": \"brick_shop\",\n      \"sha256\": \"c72d9b86c0b4643d0f9da3c025a239c1f31efa3ff9510885bfd0736dfc6141c2\",\n      \"repairs\": [\n        {\n          \"label\": \"original open doorway and lower frame drift\",\n          \"bounds_half_open\": [\n            90,\n            137,\n            120,\n            170\n          ],\n          \"changed_pixels_restored\": 869\n        },\n        {\n          \"label\": \"original left display contents\",\n          \"bounds_half_open\": [\n            35,\n            151,\n            72,\n            167\n          ],\n          \"changed_pixels_restored\": 385\n        },\n        {\n          \"label\": \"original right display contents\",\n          \"bounds_half_open\": [\n            153,\n            151,\n            173,\n            167\n          ],\n          \"changed_pixels_restored\": 231\n        }\n      ]\n    },\n    {\n      \"name\": \"ledger_house\",\n      \"sha256\": \"7392fdde7ed2e4c9f17e81b129a96bbde753d1326b8830e223901227fbcfcc23\",\n      \"repairs\": []\n    }\n  ]\n}\n",
+      "stderr": ""
+    },
+    {
+      "builder": "build_room_material_detail.py",
+      "exit_code": 0,
+      "stdout": "{\"canvas\": [256, 256], \"original_alpha_and_transparent_RGB_exact\": true, \"outside_accepted_mask_RGBA_exact\": true, \"accepted_mask_pixels\": 10160, \"eligible_generated_pixels\": 10160, \"changed_RGB_pixels\": 1914, \"foregrounds\": [{\"asset\": \"home_stove_front\", \"bounds\": [35, 112, 59, 177], \"size\": [28, 69], \"origin\": [33, 110], \"y_sort_foot\": 177, \"exact_source_RGBA\": true}, {\"asset\": \"home_coat_front\", \"bounds\": [184, 116, 220, 176], \"size\": [40, 64], \"origin\": [182, 114], \"y_sort_foot\": 176, \"exact_source_RGBA\": true}, {\"asset\": \"home_threshold_front\", \"bounds\": [26, 211, 231, 233], \"size\": [209, 26], \"origin\": [24, 209], \"y_sort_foot\": 233, \"exact_source_RGBA\": true}], \"full_opacity_foreground_reconstruction_exact\": true, \"table_clear_mask_restricted_material\": true, \"original_pale_cloth_restored_pixels\": 501, \"native_resampling\": false}\n",
+      "stderr": ""
+    },
+    {
+      "builder": "build_world_approaches.py",
+      "exit_code": 0,
+      "stdout": "{\n  \"outputs\": [\n    {\n      \"name\": \"hometown_hall_approach\",\n      \"size\": [\n        37,\n        44\n      ],\n      \"source_crop_RGBA_exact\": true,\n      \"sha256\": \"eb83303c618cbf39bcbf8fc312aa7b6e154f1021c912872547a45bd58f67acc9\"\n    },\n    {\n      \"name\": \"riverfront_branch_approach\",\n      \"size\": [\n        45,\n        48\n      ],\n      \"source_crop_RGBA_exact\": true,\n      \"sha256\": \"3abb8cd04b02ea736bbd097b35acb3136bb0d6ecaf4285a799a5590c6271ed96\"\n    }\n  ]\n}\n",
+      "stderr": ""
+    }
+  ],
+  "outputs": [
+    {
+      "project_relative_path": "assets/sprites/world/courtyard_home_detail_2026_10_05/home_coat_front.png",
+      "rebuild_relative_path": "room-coalcrest-detail-2026-10-05/prepared/home_coat_front.png",
+      "expected_sha256": "9758fbd2efbb1e1d83b00f8aa2fd34d2daaf83ebd8158abd71ece788a0427f7e",
+      "actual_sha256": "9758fbd2efbb1e1d83b00f8aa2fd34d2daaf83ebd8158abd71ece788a0427f7e",
+      "bytes_exact": true,
+      "RGBA_pixels_exact": true,
+      "native_size": [
+        40,
+        64
+      ]
+    },
+    {
+      "project_relative_path": "assets/sprites/world/courtyard_home_detail_2026_10_05/home_room.png",
+      "rebuild_relative_path": "room-coalcrest-detail-2026-10-05/prepared/home_room.png",
+      "expected_sha256": "18082c72038c62c53a9b7ad35bc7f4d99e2796e1fceeabd81493e0ea0f650bc3",
+      "actual_sha256": "18082c72038c62c53a9b7ad35bc7f4d99e2796e1fceeabd81493e0ea0f650bc3",
+      "bytes_exact": true,
+      "RGBA_pixels_exact": true,
+      "native_size": [
+        256,
+        256
+      ]
+    },
+    {
+      "project_relative_path": "assets/sprites/world/courtyard_home_detail_2026_10_05/home_stove_front.png",
+      "rebuild_relative_path": "room-coalcrest-detail-2026-10-05/prepared/home_stove_front.png",
+      "expected_sha256": "461f5e412c4c679b85985d701e7cf54a72ae04ba8e9dd0274d24e1a4c9a22185",
+      "actual_sha256": "461f5e412c4c679b85985d701e7cf54a72ae04ba8e9dd0274d24e1a4c9a22185",
+      "bytes_exact": true,
+      "RGBA_pixels_exact": true,
+      "native_size": [
+        28,
+        69
+      ]
+    },
+    {
+      "project_relative_path": "assets/sprites/world/courtyard_home_detail_2026_10_05/home_threshold_front.png",
+      "rebuild_relative_path": "room-coalcrest-detail-2026-10-05/prepared/home_threshold_front.png",
+      "expected_sha256": "47872dc776e93d784937cc60243758166390d92349e8ec12588586ee2c445ac1",
+      "actual_sha256": "47872dc776e93d784937cc60243758166390d92349e8ec12588586ee2c445ac1",
+      "bytes_exact": true,
+      "RGBA_pixels_exact": true,
+      "native_size": [
+        209,
+        26
+      ]
+    },
+    {
+      "project_relative_path": "assets/sprites/world/courtyard_home_linework_2026_10_04/home_coat_front.png",
+      "rebuild_relative_path": "phase1/home-interior-linework-2026-10-04/prepared/home_coat_front.png",
+      "expected_sha256": "5ab4376a1cb55597d2fc3797d6cb175f55c93373d1713c53b66d20a06258e921",
+      "actual_sha256": "5ab4376a1cb55597d2fc3797d6cb175f55c93373d1713c53b66d20a06258e921",
+      "bytes_exact": true,
+      "RGBA_pixels_exact": true,
+      "native_size": [
+        40,
+        64
+      ]
+    },
+    {
+      "project_relative_path": "assets/sprites/world/courtyard_home_linework_2026_10_04/home_room.png",
+      "rebuild_relative_path": "phase1/home-interior-linework-2026-10-04/prepared/home_room.png",
+      "expected_sha256": "fa61f4d3f78b2593907327ae7c9538f72e80b1f0722ed5324d77a5fb68483b36",
+      "actual_sha256": "fa61f4d3f78b2593907327ae7c9538f72e80b1f0722ed5324d77a5fb68483b36",
+      "bytes_exact": true,
+      "RGBA_pixels_exact": true,
+      "native_size": [
+        256,
+        256
+      ]
+    },
+    {
+      "project_relative_path": "assets/sprites/world/courtyard_home_linework_2026_10_04/home_stove_front.png",
+      "rebuild_relative_path": "phase1/home-interior-linework-2026-10-04/prepared/home_stove_front.png",
+      "expected_sha256": "cb8d5b1e0c54ffbac67d278556ef87d120bef6ac18afc64722ce1d2f2715c1c6",
+      "actual_sha256": "cb8d5b1e0c54ffbac67d278556ef87d120bef6ac18afc64722ce1d2f2715c1c6",
+      "bytes_exact": true,
+      "RGBA_pixels_exact": true,
+      "native_size": [
+        28,
+        69
+      ]
+    },
+    {
+      "project_relative_path": "assets/sprites/world/courtyard_home_linework_2026_10_04/home_threshold_front.png",
+      "rebuild_relative_path": "phase1/home-interior-linework-2026-10-04/prepared/home_threshold_front.png",
+      "expected_sha256": "47872dc776e93d784937cc60243758166390d92349e8ec12588586ee2c445ac1",
+      "actual_sha256": "47872dc776e93d784937cc60243758166390d92349e8ec12588586ee2c445ac1",
+      "bytes_exact": true,
+      "RGBA_pixels_exact": true,
+      "native_size": [
+        209,
+        26
+      ]
+    },
+    {
+      "project_relative_path": "assets/sprites/world/world_approaches_2026_10_05/hometown_hall_approach.png",
+      "rebuild_relative_path": "world-detail-audit-2026-10-05/candidate-approaches/hometown_hall_approach.png",
+      "expected_sha256": "eb83303c618cbf39bcbf8fc312aa7b6e154f1021c912872547a45bd58f67acc9",
+      "actual_sha256": "eb83303c618cbf39bcbf8fc312aa7b6e154f1021c912872547a45bd58f67acc9",
+      "bytes_exact": true,
+      "RGBA_pixels_exact": true,
+      "native_size": [
+        37,
+        44
+      ]
+    },
+    {
+      "project_relative_path": "assets/sprites/world/world_approaches_2026_10_05/riverfront_branch_approach.png",
+      "rebuild_relative_path": "world-detail-audit-2026-10-05/candidate-approaches/riverfront_branch_approach.png",
+      "expected_sha256": "3abb8cd04b02ea736bbd097b35acb3136bb0d6ecaf4285a799a5590c6271ed96",
+      "actual_sha256": "3abb8cd04b02ea736bbd097b35acb3136bb0d6ecaf4285a799a5590c6271ed96",
+      "bytes_exact": true,
+      "RGBA_pixels_exact": true,
+      "native_size": [
+        45,
+        48
+      ]
+    },
+    {
+      "project_relative_path": "assets/sprites/world/world_linework_2026_10_04/brick_shop.png",
+      "rebuild_relative_path": "phase1/world-buildings-linework-2026-10-04/prepared/brick_shop.png",
+      "expected_sha256": "c72d9b86c0b4643d0f9da3c025a239c1f31efa3ff9510885bfd0736dfc6141c2",
+      "actual_sha256": "c72d9b86c0b4643d0f9da3c025a239c1f31efa3ff9510885bfd0736dfc6141c2",
+      "bytes_exact": true,
+      "RGBA_pixels_exact": true,
+      "native_size": [
+        208,
+        192
+      ]
+    },
+    {
+      "project_relative_path": "assets/sprites/world/world_linework_2026_10_04/courtyard_home.png",
+      "rebuild_relative_path": "phase1/world-buildings-linework-2026-10-04/prepared/courtyard_home.png",
+      "expected_sha256": "f5a4af906a064c0a1faa972847f01ddcbb2a93372350d9e0b77fbbbe1ded290c",
+      "actual_sha256": "f5a4af906a064c0a1faa972847f01ddcbb2a93372350d9e0b77fbbbe1ded290c",
+      "bytes_exact": true,
+      "RGBA_pixels_exact": true,
+      "native_size": [
+        160,
+        144
+      ]
+    },
+    {
+      "project_relative_path": "assets/sprites/world/world_linework_2026_10_04/dispatch_hall.png",
+      "rebuild_relative_path": "phase1/world-buildings-linework-2026-10-04/prepared/dispatch_hall.png",
+      "expected_sha256": "94bdf8fe98fa9e1c13afc9f2b6394bd06cf4c5ec03019dd126c765add1c57f23",
+      "actual_sha256": "94bdf8fe98fa9e1c13afc9f2b6394bd06cf4c5ec03019dd126c765add1c57f23",
+      "bytes_exact": true,
+      "RGBA_pixels_exact": true,
+      "native_size": [
+        136,
+        168
+      ]
+    },
+    {
+      "project_relative_path": "assets/sprites/world/world_linework_2026_10_04/ledger_house.png",
+      "rebuild_relative_path": "phase1/world-buildings-linework-2026-10-04/prepared/ledger_house.png",
+      "expected_sha256": "7392fdde7ed2e4c9f17e81b129a96bbde753d1326b8830e223901227fbcfcc23",
+      "actual_sha256": "7392fdde7ed2e4c9f17e81b129a96bbde753d1326b8830e223901227fbcfcc23",
+      "bytes_exact": true,
+      "RGBA_pixels_exact": true,
+      "native_size": [
+        176,
+        192
+      ]
+    }
+  ]
+}

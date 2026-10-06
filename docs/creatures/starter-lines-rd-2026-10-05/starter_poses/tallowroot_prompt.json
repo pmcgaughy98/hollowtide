@@ -1,0 +1,13 @@
+{
+ "prompt": "A NEW POSE for the exact creature in the first reference image, same design, colours and markings, only the pose changes: the moss-green seed-burrower with angular husk points, a tapered snout, cream claws on every foot and a husked seed pod with a curled cream sprout on its shoulder. It sits back upright on its haunches like a guardian, one clawed forefoot raised protectively across its chest and the other planted on the ground, head lifted and alert, eyes steady, the shoulder pod turned toward the viewer. Patient and protective. Three-quarter view facing right. Same finish and outline as the references. Not crouching low, not walking. Shown whole in the centre of the frame with empty space on every side. On a plain white background.",
+ "prompt_style": "rd_pro__default",
+ "width": 160,
+ "height": 160,
+ "num_images": 2,
+ "remove_bg": true,
+ "reference_images": [
+  "docs/creatures/tallowroot-rd-2026-10-05/tallowroot_front_160.png",
+  "assets/sprites/creatures/cinderhide.png",
+  "docs/creatures/starter-lines-rd-2026-10-05/rimefin_front_take1.png"
+ ]
+}

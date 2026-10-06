@@ -1,0 +1,1055 @@
+{
+	"art_or_material_overrides": 0,
+	"attempted_capture_count": 14,
+	"captures": [
+		{
+			"area": "courtyard_home",
+			"camera_zoom": "(2.0, 2.0)",
+			"core_party_local_state_art_material_and_cache_exact": true,
+			"detail_at_actual_gameplay_camera_zoom": false,
+			"label": "home-room-native-2x",
+			"passed": true,
+			"path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/overview/male-home-room-native-2x.png",
+			"pixel_size": "(512, 512)",
+			"primary_full_area_view": true,
+			"readback_error": 0,
+			"save_error": 0,
+			"saved_and_read_back": true,
+			"world_region": "[P: (0.0, 0.0), S: (256.0, 256.0)]"
+		},
+		{
+			"area": "courtyard_home",
+			"camera_zoom": "(2.0, 2.0)",
+			"core_party_local_state_art_material_and_cache_exact": true,
+			"detail_at_actual_gameplay_camera_zoom": true,
+			"label": "home-bed-quilt-native-2x",
+			"passed": true,
+			"path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/overview/male-home-bed-quilt-native-2x.png",
+			"pixel_size": "(184, 152)",
+			"primary_full_area_view": false,
+			"readback_error": 0,
+			"save_error": 0,
+			"saved_and_read_back": true,
+			"world_region": "[P: (32.0, 52.0), S: (92.0, 76.0)]"
+		},
+		{
+			"area": "courtyard_home",
+			"camera_zoom": "(2.0, 2.0)",
+			"core_party_local_state_art_material_and_cache_exact": true,
+			"detail_at_actual_gameplay_camera_zoom": true,
+			"label": "home-stove-woodpile-native-2x",
+			"passed": true,
+			"path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/overview/male-home-stove-woodpile-native-2x.png",
+			"pixel_size": "(104, 160)",
+			"primary_full_area_view": false,
+			"readback_error": 0,
+			"save_error": 0,
+			"saved_and_read_back": true,
+			"world_region": "[P: (28.0, 104.0), S: (52.0, 80.0)]"
+		},
+		{
+			"area": "courtyard_home",
+			"camera_zoom": "(2.0, 2.0)",
+			"core_party_local_state_art_material_and_cache_exact": true,
+			"detail_at_actual_gameplay_camera_zoom": true,
+			"label": "home-cupboard-coat-native-2x",
+			"passed": true,
+			"path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/overview/male-home-cupboard-coat-native-2x.png",
+			"pixel_size": "(104, 168)",
+			"primary_full_area_view": false,
+			"readback_error": 0,
+			"save_error": 0,
+			"saved_and_read_back": true,
+			"world_region": "[P: (176.0, 106.0), S: (52.0, 84.0)]"
+		},
+		{
+			"area": "courtyard_home",
+			"camera_zoom": "(2.0, 2.0)",
+			"core_party_local_state_art_material_and_cache_exact": true,
+			"detail_at_actual_gameplay_camera_zoom": true,
+			"label": "home-shelf-worktable-native-2x",
+			"passed": true,
+			"path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/overview/male-home-shelf-worktable-native-2x.png",
+			"pixel_size": "(160, 176)",
+			"primary_full_area_view": false,
+			"readback_error": 0,
+			"save_error": 0,
+			"saved_and_read_back": true,
+			"world_region": "[P: (144.0, 28.0), S: (80.0, 88.0)]"
+		},
+		{
+			"area": "hometown",
+			"camera_zoom": "(1.0, 1.0)",
+			"core_party_local_state_art_material_and_cache_exact": true,
+			"detail_at_actual_gameplay_camera_zoom": false,
+			"label": "hometown-overview-native-1x",
+			"passed": true,
+			"path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/overview/male-hometown-overview-native-1x.png",
+			"pixel_size": "(1024, 768)",
+			"primary_full_area_view": true,
+			"readback_error": 0,
+			"save_error": 0,
+			"saved_and_read_back": true,
+			"world_region": "[P: (0.0, 0.0), S: (1024.0, 768.0)]"
+		},
+		{
+			"area": "hometown",
+			"camera_zoom": "(3.0, 3.0)",
+			"core_party_local_state_art_material_and_cache_exact": true,
+			"detail_at_actual_gameplay_camera_zoom": true,
+			"label": "hometown-courtyard-native-3x",
+			"passed": true,
+			"path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/overview/male-hometown-courtyard-native-3x.png",
+			"pixel_size": "(432, 381)",
+			"primary_full_area_view": false,
+			"readback_error": 0,
+			"save_error": 0,
+			"saved_and_read_back": true,
+			"world_region": "[P: (151.0, 145.0), S: (144.0, 127.0)]"
+		},
+		{
+			"area": "hometown",
+			"camera_zoom": "(3.0, 3.0)",
+			"core_party_local_state_art_material_and_cache_exact": true,
+			"detail_at_actual_gameplay_camera_zoom": true,
+			"label": "hometown-hall-native-3x",
+			"passed": true,
+			"path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/overview/male-hometown-hall-native-3x.png",
+			"pixel_size": "(366, 435)",
+			"primary_full_area_view": false,
+			"readback_error": 0,
+			"save_error": 0,
+			"saved_and_read_back": true,
+			"world_region": "[P: (707.0, 289.0), S: (122.0, 145.0)]"
+		},
+		{
+			"area": "riverfront",
+			"camera_zoom": "(1.0, 1.0)",
+			"core_party_local_state_art_material_and_cache_exact": true,
+			"detail_at_actual_gameplay_camera_zoom": false,
+			"label": "riverfront-overview-native-1x",
+			"passed": true,
+			"path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/overview/male-riverfront-overview-native-1x.png",
+			"pixel_size": "(1024, 768)",
+			"primary_full_area_view": true,
+			"readback_error": 0,
+			"save_error": 0,
+			"saved_and_read_back": true,
+			"world_region": "[P: (0.0, 0.0), S: (1024.0, 768.0)]"
+		},
+		{
+			"area": "riverfront",
+			"camera_zoom": "(3.0, 3.0)",
+			"core_party_local_state_art_material_and_cache_exact": true,
+			"detail_at_actual_gameplay_camera_zoom": true,
+			"label": "riverfront-hall-native-3x",
+			"passed": true,
+			"path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/overview/male-riverfront-hall-native-3x.png",
+			"pixel_size": "(366, 435)",
+			"primary_full_area_view": false,
+			"readback_error": 0,
+			"save_error": 0,
+			"saved_and_read_back": true,
+			"world_region": "[P: (451.0, 233.0), S: (122.0, 145.0)]"
+		},
+		{
+			"area": "riverfront",
+			"camera_zoom": "(3.0, 3.0)",
+			"core_party_local_state_art_material_and_cache_exact": true,
+			"detail_at_actual_gameplay_camera_zoom": true,
+			"label": "riverfront-shop-native-3x",
+			"passed": true,
+			"path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/overview/male-riverfront-shop-native-3x.png",
+			"pixel_size": "(516, 450)",
+			"primary_full_area_view": false,
+			"readback_error": 0,
+			"save_error": 0,
+			"saved_and_read_back": true,
+			"world_region": "[P: (682.0, 130.0), S: (172.0, 150.0)]"
+		},
+		{
+			"area": "riverfront",
+			"camera_zoom": "(3.0, 3.0)",
+			"core_party_local_state_art_material_and_cache_exact": true,
+			"detail_at_actual_gameplay_camera_zoom": true,
+			"label": "riverfront-ledger-native-3x",
+			"passed": true,
+			"path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/overview/male-riverfront-ledger-native-3x.png",
+			"pixel_size": "(432, 483)",
+			"primary_full_area_view": false,
+			"readback_error": 0,
+			"save_error": 0,
+			"saved_and_read_back": true,
+			"world_region": "[P: (264.0, 495.0), S: (144.0, 161.0)]"
+		},
+		{
+			"area": "historic_street",
+			"camera_zoom": "(1.0, 1.0)",
+			"core_party_local_state_art_material_and_cache_exact": true,
+			"detail_at_actual_gameplay_camera_zoom": false,
+			"label": "historic-street-overview-native-1x",
+			"passed": true,
+			"path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/overview/male-historic-street-overview-native-1x.png",
+			"pixel_size": "(768, 896)",
+			"primary_full_area_view": true,
+			"readback_error": 0,
+			"save_error": 0,
+			"saved_and_read_back": true,
+			"world_region": "[P: (0.0, 0.0), S: (768.0, 896.0)]"
+		},
+		{
+			"area": "historic_street",
+			"camera_zoom": "(3.0, 3.0)",
+			"core_party_local_state_art_material_and_cache_exact": true,
+			"detail_at_actual_gameplay_camera_zoom": true,
+			"label": "historic-shop-ledger-native-3x",
+			"passed": true,
+			"path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/overview/male-historic-shop-ledger-native-3x.png",
+			"pixel_size": "(1485, 534)",
+			"primary_full_area_view": false,
+			"readback_error": 0,
+			"save_error": 0,
+			"saved_and_read_back": true,
+			"world_region": "[P: (145.0, 238.0), S: (495.0, 178.0)]"
+		}
+	],
+	"checked_target_sprite_count": 11,
+	"completed": true,
+	"completed_area_count": 4,
+	"completed_areas": [
+		"courtyard_home",
+		"hometown",
+		"riverfront",
+		"historic_street"
+	],
+	"diagnostic_cameras_only": true,
+	"expected_area_count": 4,
+	"expected_capture_count": 14,
+	"expected_capture_labels": [
+		"home-room-native-2x",
+		"home-bed-quilt-native-2x",
+		"home-stove-woodpile-native-2x",
+		"home-cupboard-coat-native-2x",
+		"home-shelf-worktable-native-2x",
+		"hometown-overview-native-1x",
+		"hometown-courtyard-native-3x",
+		"hometown-hall-native-3x",
+		"riverfront-overview-native-1x",
+		"riverfront-hall-native-3x",
+		"riverfront-shop-native-3x",
+		"riverfront-ledger-native-3x",
+		"historic-street-overview-native-1x",
+		"historic-shop-ledger-native-3x"
+	],
+	"expected_target_sprite_count": 11,
+	"external_runtime_stderr_must_be_empty": true,
+	"model": "Male",
+	"party": {
+		"active_slot": 0,
+		"id": 37413193207,
+		"members": [
+			{
+				"known": [],
+				"member": -9223371874300327262,
+				"species": -9223371944160655616
+			}
+		]
+	},
+	"passed": true,
+	"phase": "complete",
+	"pid": 9832,
+	"player_repositions": 0,
+	"quest_overrides": 0,
+	"records": [
+		{
+			"all_eleven_original_flags_false": true,
+			"area_startup": "courtyard_home",
+			"expected_zoom": "(2.0, 2.0)",
+			"native_player_camera_zoom": "(2.0, 2.0)",
+			"no_entrance_travel_in_diagnostic_startup": true,
+			"party_exact": true,
+			"passed": true
+		},
+		{
+			"key": "courtyard_home/RoomArt",
+			"state": {
+				"centered": false,
+				"filter": 1,
+				"id": 164450274065,
+				"material": {
+					"class": "",
+					"id": 0,
+					"shader_id": 0,
+					"shader_path": ""
+				},
+				"modulate": "(1.0, 1.0, 1.0, 1.0)",
+				"offset": "(0.0, 0.0)",
+				"position": "(0.0, 0.0)",
+				"scale": "(1.0, 1.0)",
+				"texture_id": -9223371978889492815,
+				"texture_path": "res://assets/sprites/world/courtyard_home_detail_2026_10_05/home_room.png",
+				"texture_size": "(256.0, 256.0)",
+				"visible": true,
+				"visible_world_bounds": "[P: (26.0, 25.0), S: (205.0, 208.0)]",
+				"z_index": -10
+			},
+			"target_contract": true
+		},
+		{
+			"key": "courtyard_home/RouteDecor/RoomStoveFront",
+			"state": {
+				"centered": false,
+				"filter": 1,
+				"id": 164467051282,
+				"material": {
+					"class": "",
+					"id": 0,
+					"shader_id": 0,
+					"shader_path": ""
+				},
+				"modulate": "(1.0, 1.0, 1.0, 1.0)",
+				"offset": "(0.0, -67.0)",
+				"position": "(33.0, 177.0)",
+				"scale": "(1.0, 1.0)",
+				"texture_id": -9223371978587502924,
+				"texture_path": "res://assets/sprites/world/courtyard_home_detail_2026_10_05/home_stove_front.png",
+				"texture_size": "(28.0, 69.0)",
+				"visible": true,
+				"visible_world_bounds": "[P: (35.0, 112.0), S: (24.0, 65.0)]",
+				"z_index": 0
+			},
+			"target_contract": true
+		},
+		{
+			"key": "courtyard_home/RouteDecor/RoomCoatFront",
+			"state": {
+				"centered": false,
+				"filter": 1,
+				"id": 164483828499,
+				"material": {
+					"canopy_opacity": 1.0,
+					"class": "ShaderMaterial",
+					"id": -9223371872354170092,
+					"shader_id": -9223371987781417438,
+					"shader_path": "res://assets/sprites/world/route1_landing_loop_2026_10_03/canopy_visibility.gdshader"
+				},
+				"modulate": "(1.0, 1.0, 1.0, 1.0)",
+				"offset": "(0.0, -62.0)",
+				"position": "(182.0, 176.0)",
+				"scale": "(1.0, 1.0)",
+				"texture_id": -9223371978285513035,
+				"texture_path": "res://assets/sprites/world/courtyard_home_detail_2026_10_05/home_coat_front.png",
+				"texture_size": "(40.0, 64.0)",
+				"visible": true,
+				"visible_world_bounds": "[P: (184.0, 116.0), S: (36.0, 60.0)]",
+				"z_index": 0
+			},
+			"target_contract": true
+		},
+		{
+			"key": "courtyard_home/RouteDecor/RoomThresholdFront",
+			"state": {
+				"centered": false,
+				"filter": 1,
+				"id": 164517382933,
+				"material": {
+					"class": "",
+					"id": 0,
+					"shader_id": 0,
+					"shader_path": ""
+				},
+				"modulate": "(1.0, 1.0, 1.0, 1.0)",
+				"offset": "(0.0, -24.0)",
+				"position": "(24.0, 233.0)",
+				"scale": "(1.0, 1.0)",
+				"texture_id": -9223371977983523146,
+				"texture_path": "res://assets/sprites/world/courtyard_home_detail_2026_10_05/home_threshold_front.png",
+				"texture_size": "(209.0, 26.0)",
+				"visible": true,
+				"visible_world_bounds": "[P: (26.0, 211.0), S: (205.0, 22.0)]",
+				"z_index": 0
+			},
+			"target_contract": true
+		},
+		{
+			"area_complete": "courtyard_home",
+			"core_flags_player_controller_notes_objective_board_party_local_state_cache_and_material_exact": true,
+			"final_core": {
+				"active_area": 164349610763,
+				"area_id": "courtyard_home",
+				"board": "ROUTE BOARD  /  Assignment open",
+				"bound_player": 164383165197,
+				"cache": {
+					"courtyard_home": {
+						"area": 164349610763,
+						"player": 164383165197
+					},
+					"route1": {
+						"area": 111199389368,
+						"player": 111786592156
+					}
+				},
+				"controller": 111199389368,
+				"flags": {
+					"city_arrival_registered": false,
+					"city_directions_read": false,
+					"delivered": false,
+					"heard_calls": false,
+					"levee_entrance_read": false,
+					"marker_restored": false,
+					"pouch_accepted": false,
+					"report_done": false,
+					"reported_calls": false,
+					"reported_water_mark": false,
+					"water_mark_observed": false
+				},
+				"journey": 111132280330,
+				"local_state": {},
+				"model": "Male",
+				"notes": "",
+				"objective": "FIRST ROUTE  /  Speak to the dispatcher",
+				"party": {
+					"active_slot": 0,
+					"id": 37413193207,
+					"members": [
+						{
+							"known": [],
+							"member": -9223371874300327262,
+							"species": -9223371944160655616
+						}
+					]
+				},
+				"physics_processing": true,
+				"player": 164383165197,
+				"position": "(128.0, 208.0)",
+				"speed": 80.0,
+				"transitioning": false,
+				"transitions": [],
+				"velocity": "(0.0, 0.0)"
+			},
+			"original_camera_and_hud_visibility_restored": true,
+			"original_core": {
+				"active_area": 164349610763,
+				"area_id": "courtyard_home",
+				"board": "ROUTE BOARD  /  Assignment open",
+				"bound_player": 164383165197,
+				"cache": {
+					"courtyard_home": {
+						"area": 164349610763,
+						"player": 164383165197
+					},
+					"route1": {
+						"area": 111199389368,
+						"player": 111786592156
+					}
+				},
+				"controller": 111199389368,
+				"flags": {
+					"city_arrival_registered": false,
+					"city_directions_read": false,
+					"delivered": false,
+					"heard_calls": false,
+					"levee_entrance_read": false,
+					"marker_restored": false,
+					"pouch_accepted": false,
+					"report_done": false,
+					"reported_calls": false,
+					"reported_water_mark": false,
+					"water_mark_observed": false
+				},
+				"journey": 111132280330,
+				"local_state": {},
+				"model": "Male",
+				"notes": "",
+				"objective": "FIRST ROUTE  /  Speak to the dispatcher",
+				"party": {
+					"active_slot": 0,
+					"id": 37413193207,
+					"members": [
+						{
+							"known": [],
+							"member": -9223371874300327262,
+							"species": -9223371944160655616
+						}
+					]
+				},
+				"physics_processing": true,
+				"player": 164383165197,
+				"position": "(128.0, 208.0)",
+				"speed": 80.0,
+				"transitioning": false,
+				"transitions": [],
+				"velocity": "(0.0, 0.0)"
+			},
+			"passed": true
+		},
+		{
+			"all_eleven_original_flags_false": true,
+			"area_startup": "hometown",
+			"expected_zoom": "(3.0, 3.0)",
+			"native_player_camera_zoom": "(3.0, 3.0)",
+			"no_entrance_travel_in_diagnostic_startup": true,
+			"party_exact": true,
+			"passed": true
+		},
+		{
+			"key": "hometown/RouteDecor/CourtyardHome",
+			"state": {
+				"centered": true,
+				"filter": 1,
+				"id": 222080010283,
+				"material": {
+					"class": "",
+					"id": 0,
+					"shader_id": 0,
+					"shader_path": ""
+				},
+				"modulate": "(1.0, 1.0, 1.0, 1.0)",
+				"offset": "(0.0, -64.0)",
+				"position": "(224.0, 256.0)",
+				"scale": "(0.75, 0.75)",
+				"texture_id": -9223371992126716383,
+				"texture_path": "res://assets/sprites/world/world_linework_2026_10_04/courtyard_home.png",
+				"texture_size": "(160.0, 144.0)",
+				"visible": true,
+				"visible_world_bounds": "[P: (167.75, 161.5), S: (111.0, 94.5)]",
+				"z_index": 0
+			},
+			"target_contract": true
+		},
+		{
+			"key": "hometown/RouteDecor/DispatcherHall",
+			"state": {
+				"centered": true,
+				"filter": 1,
+				"id": 222432332321,
+				"material": {
+					"class": "",
+					"id": 0,
+					"shader_id": 0,
+					"shader_path": ""
+				},
+				"modulate": "(1.0, 1.0, 1.0, 1.0)",
+				"offset": "(0.0, -71.0)",
+				"position": "(768.0, 418.0)",
+				"scale": "(0.75, 0.75)",
+				"texture_id": -9223371990918756721,
+				"texture_path": "res://assets/sprites/world/world_linework_2026_10_04/dispatch_hall.png",
+				"texture_size": "(136.0, 168.0)",
+				"visible": true,
+				"visible_world_bounds": "[P: (723.0, 305.5), S: (89.25, 112.5)]",
+				"z_index": 0
+			},
+			"target_contract": true
+		},
+		{
+			"area_complete": "hometown",
+			"core_flags_player_controller_notes_objective_board_party_local_state_cache_and_material_exact": true,
+			"final_core": {
+				"active_area": 221761243185,
+				"area_id": "hometown",
+				"board": "ROUTE BOARD  /  Assignment open",
+				"bound_player": 221794797631,
+				"cache": {
+					"hometown": {
+						"area": 221761243185,
+						"player": 221794797631
+					},
+					"route1": {
+						"area": 171060495890,
+						"player": 171647699654
+					}
+				},
+				"controller": 171060495890,
+				"flags": {
+					"city_arrival_registered": false,
+					"city_directions_read": false,
+					"delivered": false,
+					"heard_calls": false,
+					"levee_entrance_read": false,
+					"marker_restored": false,
+					"pouch_accepted": false,
+					"report_done": false,
+					"reported_calls": false,
+					"reported_water_mark": false,
+					"water_mark_observed": false
+				},
+				"journey": 170993387020,
+				"local_state": {
+					"garden": 221878683706,
+					"offered": false,
+					"planted": false,
+					"rows": []
+				},
+				"model": "Male",
+				"notes": "",
+				"objective": "FIRST ROUTE  /  Speak to the dispatcher",
+				"party": {
+					"active_slot": 0,
+					"id": 37413193207,
+					"members": [
+						{
+							"known": [],
+							"member": -9223371874300327262,
+							"species": -9223371944160655616
+						}
+					]
+				},
+				"physics_processing": true,
+				"player": 221794797631,
+				"position": "(224.0, 280.0)",
+				"speed": 80.0,
+				"transitioning": false,
+				"transitions": [],
+				"velocity": "(0.0, 0.0)"
+			},
+			"original_camera_and_hud_visibility_restored": true,
+			"original_core": {
+				"active_area": 221761243185,
+				"area_id": "hometown",
+				"board": "ROUTE BOARD  /  Assignment open",
+				"bound_player": 221794797631,
+				"cache": {
+					"hometown": {
+						"area": 221761243185,
+						"player": 221794797631
+					},
+					"route1": {
+						"area": 171060495890,
+						"player": 171647699654
+					}
+				},
+				"controller": 171060495890,
+				"flags": {
+					"city_arrival_registered": false,
+					"city_directions_read": false,
+					"delivered": false,
+					"heard_calls": false,
+					"levee_entrance_read": false,
+					"marker_restored": false,
+					"pouch_accepted": false,
+					"report_done": false,
+					"reported_calls": false,
+					"reported_water_mark": false,
+					"water_mark_observed": false
+				},
+				"journey": 170993387020,
+				"local_state": {
+					"garden": 221878683706,
+					"offered": false,
+					"planted": false,
+					"rows": []
+				},
+				"model": "Male",
+				"notes": "",
+				"objective": "FIRST ROUTE  /  Speak to the dispatcher",
+				"party": {
+					"active_slot": 0,
+					"id": 37413193207,
+					"members": [
+						{
+							"known": [],
+							"member": -9223371874300327262,
+							"species": -9223371944160655616
+						}
+					]
+				},
+				"physics_processing": true,
+				"player": 221794797631,
+				"position": "(224.0, 280.0)",
+				"speed": 80.0,
+				"transitioning": false,
+				"transitions": [],
+				"velocity": "(0.0, 0.0)"
+			},
+			"passed": true
+		},
+		{
+			"all_eleven_original_flags_false": true,
+			"area_startup": "riverfront",
+			"expected_zoom": "(3.0, 3.0)",
+			"native_player_camera_zoom": "(3.0, 3.0)",
+			"no_entrance_travel_in_diagnostic_startup": true,
+			"party_exact": true,
+			"passed": true
+		},
+		{
+			"key": "riverfront/RouteDecor/CityCourierBranch",
+			"state": {
+				"centered": true,
+				"filter": 1,
+				"id": 281555241624,
+				"material": {
+					"class": "",
+					"id": 0,
+					"shader_id": 0,
+					"shader_path": ""
+				},
+				"modulate": "(1.0, 1.0, 1.0, 1.0)",
+				"offset": "(0.0, -71.0)",
+				"position": "(512.0, 362.0)",
+				"scale": "(0.75, 0.75)",
+				"texture_id": -9223371990918756721,
+				"texture_path": "res://assets/sprites/world/world_linework_2026_10_04/dispatch_hall.png",
+				"texture_size": "(136.0, 168.0)",
+				"visible": true,
+				"visible_world_bounds": "[P: (467.0, 249.5), S: (89.25, 112.5)]",
+				"z_index": 0
+			},
+			"target_contract": true
+		},
+		{
+			"key": "riverfront/RouteDecor/ReusedBrickShop",
+			"state": {
+				"centered": true,
+				"filter": 1,
+				"id": 281890785178,
+				"material": {
+					"class": "",
+					"id": 0,
+					"shader_id": 0,
+					"shader_path": ""
+				},
+				"modulate": "(1.0, 1.0, 1.0, 1.0)",
+				"offset": "(0.0, -74.0)",
+				"position": "(768.0, 264.0)",
+				"scale": "(0.75, 0.75)",
+				"texture_id": -9223371989945678190,
+				"texture_path": "res://assets/sprites/world/world_linework_2026_10_04/brick_shop.png",
+				"texture_size": "(208.0, 192.0)",
+				"visible": true,
+				"visible_world_bounds": "[P: (698.25, 146.25), S: (139.5, 117.75)]",
+				"z_index": 0
+			},
+			"target_contract": true
+		},
+		{
+			"key": "riverfront/RouteDecor/StreetLedgerHouse",
+			"state": {
+				"centered": true,
+				"filter": 1,
+				"id": 281974671266,
+				"material": {
+					"class": "",
+					"id": 0,
+					"shader_id": 0,
+					"shader_path": ""
+				},
+				"modulate": "(1.0, 1.0, 1.0, 1.0)",
+				"offset": "(0.0, -84.0)",
+				"position": "(336.0, 640.0)",
+				"scale": "(0.75, 0.75)",
+				"texture_id": -9223371989643688301,
+				"texture_path": "res://assets/sprites/world/world_linework_2026_10_04/ledger_house.png",
+				"texture_size": "(176.0, 192.0)",
+				"visible": true,
+				"visible_world_bounds": "[P: (280.5, 511.75), S: (111.0, 128.25)]",
+				"z_index": 0
+			},
+			"target_contract": true
+		},
+		{
+			"area_complete": "riverfront",
+			"core_flags_player_controller_notes_objective_board_party_local_state_cache_and_material_exact": true,
+			"final_core": {
+				"active_area": 281051925116,
+				"area_id": "riverfront",
+				"board": "ROUTE BOARD  /  Assignment open",
+				"bound_player": 281085479550,
+				"cache": {
+					"riverfront": {
+						"area": 281051925116,
+						"player": 281085479550
+					},
+					"route1": {
+						"area": 230351177230,
+						"player": 230938380437
+					}
+				},
+				"controller": 230351177230,
+				"flags": {
+					"city_arrival_registered": false,
+					"city_directions_read": false,
+					"delivered": false,
+					"heard_calls": false,
+					"levee_entrance_read": false,
+					"marker_restored": false,
+					"pouch_accepted": false,
+					"report_done": false,
+					"reported_calls": false,
+					"reported_water_mark": false,
+					"water_mark_observed": false
+				},
+				"journey": 230284069535,
+				"local_state": {},
+				"model": "Male",
+				"notes": "",
+				"objective": "FIRST ROUTE  /  Speak to the dispatcher",
+				"party": {
+					"active_slot": 0,
+					"id": 37413193207,
+					"members": [
+						{
+							"known": [],
+							"member": -9223371874300327262,
+							"species": -9223371944160655616
+						}
+					]
+				},
+				"physics_processing": true,
+				"player": 281085479550,
+				"position": "(320.0, 512.0)",
+				"speed": 80.0,
+				"transitioning": false,
+				"transitions": [],
+				"velocity": "(0.0, 0.0)"
+			},
+			"original_camera_and_hud_visibility_restored": true,
+			"original_core": {
+				"active_area": 281051925116,
+				"area_id": "riverfront",
+				"board": "ROUTE BOARD  /  Assignment open",
+				"bound_player": 281085479550,
+				"cache": {
+					"riverfront": {
+						"area": 281051925116,
+						"player": 281085479550
+					},
+					"route1": {
+						"area": 230351177230,
+						"player": 230938380437
+					}
+				},
+				"controller": 230351177230,
+				"flags": {
+					"city_arrival_registered": false,
+					"city_directions_read": false,
+					"delivered": false,
+					"heard_calls": false,
+					"levee_entrance_read": false,
+					"marker_restored": false,
+					"pouch_accepted": false,
+					"report_done": false,
+					"reported_calls": false,
+					"reported_water_mark": false,
+					"water_mark_observed": false
+				},
+				"journey": 230284069535,
+				"local_state": {},
+				"model": "Male",
+				"notes": "",
+				"objective": "FIRST ROUTE  /  Speak to the dispatcher",
+				"party": {
+					"active_slot": 0,
+					"id": 37413193207,
+					"members": [
+						{
+							"known": [],
+							"member": -9223371874300327262,
+							"species": -9223371944160655616
+						}
+					]
+				},
+				"physics_processing": true,
+				"player": 281085479550,
+				"position": "(320.0, 512.0)",
+				"speed": 80.0,
+				"transitioning": false,
+				"transitions": [],
+				"velocity": "(0.0, 0.0)"
+			},
+			"passed": true
+		},
+		{
+			"all_eleven_original_flags_false": true,
+			"area_startup": "historic_street",
+			"expected_zoom": "(3.0, 3.0)",
+			"native_player_camera_zoom": "(3.0, 3.0)",
+			"no_entrance_travel_in_diagnostic_startup": true,
+			"party_exact": true,
+			"passed": true
+		},
+		{
+			"key": "historic_street/RouteDecor/RemodelledBrickShop",
+			"state": {
+				"centered": true,
+				"filter": 1,
+				"id": 340090947854,
+				"material": {
+					"class": "",
+					"id": 0,
+					"shader_id": 0,
+					"shader_path": ""
+				},
+				"modulate": "(1.0, 1.0, 1.0, 1.0)",
+				"offset": "(0.0, -74.0)",
+				"position": "(544.0, 400.0)",
+				"scale": "(0.85, 0.85)",
+				"texture_id": -9223371989945678190,
+				"texture_path": "res://assets/sprites/world/world_linework_2026_10_04/brick_shop.png",
+				"texture_size": "(208.0, 192.0)",
+				"visible": true,
+				"visible_world_bounds": "[P: (464.95, 266.55), S: (158.1, 133.45)]",
+				"z_index": 0
+			},
+			"target_contract": true
+		},
+		{
+			"key": "historic_street/RouteDecor/PublicLedgerHouse",
+			"state": {
+				"centered": true,
+				"filter": 1,
+				"id": 340174833938,
+				"material": {
+					"class": "",
+					"id": 0,
+					"shader_id": 0,
+					"shader_path": ""
+				},
+				"modulate": "(1.0, 1.0, 1.0, 1.0)",
+				"offset": "(0.0, -84.0)",
+				"position": "(224.0, 400.0)",
+				"scale": "(0.85, 0.85)",
+				"texture_id": -9223371989643688301,
+				"texture_path": "res://assets/sprites/world/world_linework_2026_10_04/ledger_house.png",
+				"texture_size": "(176.0, 192.0)",
+				"visible": true,
+				"visible_world_bounds": "[P: (161.1, 254.65), S: (125.8, 145.35)]",
+				"z_index": 0
+			},
+			"target_contract": true
+		},
+		{
+			"area_complete": "historic_street",
+			"core_flags_player_controller_notes_objective_board_party_local_state_cache_and_material_exact": true,
+			"final_core": {
+				"active_area": 339939952901,
+				"area_id": "historic_street",
+				"board": "ROUTE BOARD  /  Assignment open",
+				"bound_player": 339973507335,
+				"cache": {
+					"historic_street": {
+						"area": 339939952901,
+						"player": 339973507335
+					},
+					"route1": {
+						"area": 289239206410,
+						"player": 289826409018
+					}
+				},
+				"controller": 289239206410,
+				"flags": {
+					"city_arrival_registered": false,
+					"city_directions_read": false,
+					"delivered": false,
+					"heard_calls": false,
+					"levee_entrance_read": false,
+					"marker_restored": false,
+					"pouch_accepted": false,
+					"report_done": false,
+					"reported_calls": false,
+					"reported_water_mark": false,
+					"water_mark_observed": false
+				},
+				"journey": 289172097147,
+				"local_state": {
+					"handoff_verified": false,
+					"last_submitted_number": 0,
+					"ledger_checked": false,
+					"lintel_checked": false,
+					"started": false
+				},
+				"model": "Male",
+				"notes": "",
+				"objective": "HISTORIC STREET  /  Read the street courier board",
+				"party": {
+					"active_slot": 0,
+					"id": 37413193207,
+					"members": [
+						{
+							"known": [],
+							"member": -9223371874300327262,
+							"species": -9223371944160655616
+						}
+					]
+				},
+				"physics_processing": true,
+				"player": 339973507335,
+				"position": "(384.0, 848.0)",
+				"speed": 80.0,
+				"transitioning": false,
+				"transitions": [],
+				"velocity": "(0.0, 0.0)"
+			},
+			"original_camera_and_hud_visibility_restored": true,
+			"original_core": {
+				"active_area": 339939952901,
+				"area_id": "historic_street",
+				"board": "ROUTE BOARD  /  Assignment open",
+				"bound_player": 339973507335,
+				"cache": {
+					"historic_street": {
+						"area": 339939952901,
+						"player": 339973507335
+					},
+					"route1": {
+						"area": 289239206410,
+						"player": 289826409018
+					}
+				},
+				"controller": 289239206410,
+				"flags": {
+					"city_arrival_registered": false,
+					"city_directions_read": false,
+					"delivered": false,
+					"heard_calls": false,
+					"levee_entrance_read": false,
+					"marker_restored": false,
+					"pouch_accepted": false,
+					"report_done": false,
+					"reported_calls": false,
+					"reported_water_mark": false,
+					"water_mark_observed": false
+				},
+				"journey": 289172097147,
+				"local_state": {
+					"handoff_verified": false,
+					"last_submitted_number": 0,
+					"ledger_checked": false,
+					"lintel_checked": false,
+					"started": false
+				},
+				"model": "Male",
+				"notes": "",
+				"objective": "HISTORIC STREET  /  Read the street courier board",
+				"party": {
+					"active_slot": 0,
+					"id": 37413193207,
+					"members": [
+						{
+							"known": [],
+							"member": -9223371874300327262,
+							"species": -9223371944160655616
+						}
+					]
+				},
+				"physics_processing": true,
+				"player": 339973507335,
+				"position": "(384.0, 848.0)",
+				"speed": 80.0,
+				"transitioning": false,
+				"transitions": [],
+				"velocity": "(0.0, 0.0)"
+			},
+			"passed": true
+		},
+		{
+			"final_exact_counts": true,
+			"party_preserved_after_all_viewports_freed": true,
+			"passed": true
+		}
+	],
+	"run_id": "9832-1791208232.168",
+	"saved_capture_count": 14,
+	"separate_initial_area_views": true
+}

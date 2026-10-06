@@ -1,0 +1,29 @@
+{
+  "passed": true,
+  "PNG_files": 3,
+  "unique_edited_portraits": 2,
+  "unique_RGB_edits": 1786,
+  "files": [
+    {
+      "relative_path": "assets/sprites/creatures/ironvent_black_match_2026_10_05/ironvent_front.png",
+      "mapped_RGB_pixels": 1012,
+      "sha256": "e7e05e0c1a505b5ea035ed6dd7a72f0c5a233a7ca42301a8ef06428fefe2ba35",
+      "frozen_PNG_byte_exact": true,
+      "alpha_exact": true
+    },
+    {
+      "relative_path": "assets/sprites/creatures/ironvent_black_match_2026_10_05/furnace_roar_title.png",
+      "mapped_RGB_pixels": 774,
+      "sha256": "0eb53284d8b311a3f221d6a8629009ae3a28c00115ee546cc9dbfa37772eaa62",
+      "frozen_PNG_byte_exact": true,
+      "alpha_exact": true
+    },
+    {
+      "relative_path": "assets/sprites/creatures/attacks/ironvent_furnace_roar/style_matched/back_palette_2026_10_05/titlecard_official_2026_09_30.png",
+      "mapped_RGB_pixels": 774,
+      "sha256": "0eb53284d8b311a3f221d6a8629009ae3a28c00115ee546cc9dbfa37772eaa62",
+      "frozen_PNG_byte_exact": true,
+      "alpha_exact": true
+    }
+  ]
+}

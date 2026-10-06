@@ -1,0 +1,12 @@
+{
+  "tool_id": "image_edit",
+  "input_source": "before/room-original-source.png",
+  "width": 256,
+  "height": 256,
+  "prompt_file": "request/prompt.txt",
+  "seed": 19041014,
+  "estimated_balance_cost": 0.18,
+  "estimated_credit_cost": 20,
+  "no_private_or_personal_input": true,
+  "requested_by_user": "Room interior just needs detailed in terms of harder lines. It looks kind of blurry and needs enhanced."
+}

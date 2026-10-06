@@ -1,0 +1,99 @@
+{
+  "status": "prepared_awaiting_specific_approval",
+  "tool": "image_edit",
+  "destination": "Retro Diffusion",
+  "input": "request/coalcrest-outline-closeups-256.png",
+  "input_sha256": "b886f2723f0082720237bfc203907bc7a4fc8cef162b8e99b4c0e79c536145d0",
+  "size": [
+    256,
+    256
+  ],
+  "estimated_cost_usd": 0.18,
+  "maximum_paid_requests": 1,
+  "seed": 19045041,
+  "prompt_file": "request/coalcrest-outline-closeups-prompt.txt",
+  "panels": [
+    {
+      "name": "coalcrest_front-tail",
+      "source": "coalcrest_front",
+      "source_crop": [
+        12,
+        70,
+        59,
+        134
+      ],
+      "atlas_origin": [
+        6,
+        4
+      ],
+      "magnification": 2,
+      "native_size": [
+        47,
+        64
+      ],
+      "kind": "tail"
+    },
+    {
+      "name": "coalcrest_back-tail",
+      "source": "coalcrest_back",
+      "source_crop": [
+        22,
+        71,
+        90,
+        137
+      ],
+      "atlas_origin": [
+        114,
+        4
+      ],
+      "magnification": 2,
+      "native_size": [
+        68,
+        66
+      ],
+      "kind": "tail"
+    },
+    {
+      "name": "coalcrest_front-feet",
+      "source": "coalcrest_front",
+      "source_crop": [
+        57,
+        125,
+        121,
+        145
+      ],
+      "atlas_origin": [
+        0,
+        174
+      ],
+      "magnification": 2,
+      "native_size": [
+        64,
+        20
+      ],
+      "kind": "feet"
+    },
+    {
+      "name": "coalcrest_back-feet",
+      "source": "coalcrest_back",
+      "source_crop": [
+        82,
+        125,
+        128,
+        142
+      ],
+      "atlas_origin": [
+        146,
+        174
+      ],
+      "magnification": 2,
+      "native_size": [
+        46,
+        17
+      ],
+      "kind": "feet"
+    }
+  ],
+  "reason": "Both paid whole-sprite outputs shrank and lost original claw/contour detail; native/per-feature registration and free correction did not yield a useful change. Zero Coalcrest pixels installed.",
+  "acceptance": "Sample each2x panel back onto its exact original native region, accept reviewed original-mask RGB only; sourcealpha,head/sail/body/lantern/root/occlusion unchanged."
+}

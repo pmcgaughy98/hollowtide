@@ -1,0 +1,146 @@
+{
+  "passed": true,
+  "baseline_files": 2237,
+  "current_runtime_files": 2255,
+  "unchanged_existing": 2231,
+  "changed_existing": [
+    "data/creatures/104_wayburn.tres",
+    "data/creatures/105_coalcrest.tres",
+    "scripts/area_landscape.gd",
+    "scripts/courtyard_home_room.gd",
+    "scripts/creature_data.gd",
+    "scripts/historic_street.gd"
+  ],
+  "new_files": [
+    "assets/sprites/creatures/wayburn_back_line_2026_10_05/wayburn_front.png",
+    "assets/sprites/creatures/wayburn_back_line_2026_10_05/wayburn_front.png.import",
+    "assets/sprites/world/courtyard_home_linework_2026_10_04/home_coat_front.png",
+    "assets/sprites/world/courtyard_home_linework_2026_10_04/home_coat_front.png.import",
+    "assets/sprites/world/courtyard_home_linework_2026_10_04/home_room.png",
+    "assets/sprites/world/courtyard_home_linework_2026_10_04/home_room.png.import",
+    "assets/sprites/world/courtyard_home_linework_2026_10_04/home_stove_front.png",
+    "assets/sprites/world/courtyard_home_linework_2026_10_04/home_stove_front.png.import",
+    "assets/sprites/world/courtyard_home_linework_2026_10_04/home_threshold_front.png",
+    "assets/sprites/world/courtyard_home_linework_2026_10_04/home_threshold_front.png.import",
+    "assets/sprites/world/world_linework_2026_10_04/brick_shop.png",
+    "assets/sprites/world/world_linework_2026_10_04/brick_shop.png.import",
+    "assets/sprites/world/world_linework_2026_10_04/courtyard_home.png",
+    "assets/sprites/world/world_linework_2026_10_04/courtyard_home.png.import",
+    "assets/sprites/world/world_linework_2026_10_04/dispatch_hall.png",
+    "assets/sprites/world/world_linework_2026_10_04/dispatch_hall.png.import",
+    "assets/sprites/world/world_linework_2026_10_04/ledger_house.png",
+    "assets/sprites/world/world_linework_2026_10_04/ledger_house.png.import"
+  ],
+  "missing": [],
+  "unexpected_changed": [
+    "data/creatures/104_wayburn.tres",
+    "data/creatures/105_coalcrest.tres",
+    "scripts/creature_data.gd"
+  ],
+  "unexpected_new": [
+    "assets/sprites/creatures/wayburn_back_line_2026_10_05/wayburn_front.png",
+    "assets/sprites/creatures/wayburn_back_line_2026_10_05/wayburn_front.png.import"
+  ],
+  "normalized_scripts": {
+    "scripts/area_landscape.gd": {
+      "approved_substitutions_only": true,
+      "expected_sha256": "bfa0a77495280c973ead3631a4216d64a864aefe178793181917c2f0cf69d946",
+      "actual_sha256": "bfa0a77495280c973ead3631a4216d64a864aefe178793181917c2f0cf69d946"
+    },
+    "scripts/historic_street.gd": {
+      "approved_substitutions_only": true,
+      "expected_sha256": "b176dd25cbb034f37a572e0791720ad13e9e3363c9a14bc5376fd9837bc34eaa",
+      "actual_sha256": "b176dd25cbb034f37a572e0791720ad13e9e3363c9a14bc5376fd9837bc34eaa"
+    },
+    "scripts/courtyard_home_room.gd": {
+      "approved_substitutions_only": true,
+      "expected_sha256": "51c6621e1d6e11400f423337fc272eb55d70f6eff600624e21554bc798f5474d",
+      "actual_sha256": "51c6621e1d6e11400f423337fc272eb55d70f6eff600624e21554bc798f5474d"
+    }
+  },
+  "protected": {
+    "menu": {
+      "checked": 45,
+      "exact": true
+    },
+    "creatures_and_moves": {
+      "checked": 1046,
+      "exact": false
+    },
+    "player_and_chibi": {
+      "checked": 121,
+      "exact": true
+    },
+    "journey_and_quests": {
+      "checked": 3,
+      "exact": true
+    },
+    "all_scenes_and_data": {
+      "checked": 147,
+      "exact": false
+    },
+    "project_launch_audio": {
+      "checked": 1,
+      "exact": true
+    }
+  },
+  "full_shared_baseline_exact": false,
+  "scope_passed": true,
+  "all_recorded_art_patch_files_exact": true,
+  "other_existing_world_files_checked": 294,
+  "other_existing_world_files_exact": true,
+  "patch_changed_existing": [
+    "scripts/area_landscape.gd",
+    "scripts/courtyard_home_room.gd",
+    "scripts/historic_street.gd"
+  ],
+  "patch_new_files": [
+    "assets/sprites/world/courtyard_home_linework_2026_10_04/home_coat_front.png",
+    "assets/sprites/world/courtyard_home_linework_2026_10_04/home_coat_front.png.import",
+    "assets/sprites/world/courtyard_home_linework_2026_10_04/home_room.png",
+    "assets/sprites/world/courtyard_home_linework_2026_10_04/home_room.png.import",
+    "assets/sprites/world/courtyard_home_linework_2026_10_04/home_stove_front.png",
+    "assets/sprites/world/courtyard_home_linework_2026_10_04/home_stove_front.png.import",
+    "assets/sprites/world/courtyard_home_linework_2026_10_04/home_threshold_front.png",
+    "assets/sprites/world/courtyard_home_linework_2026_10_04/home_threshold_front.png.import",
+    "assets/sprites/world/world_linework_2026_10_04/brick_shop.png",
+    "assets/sprites/world/world_linework_2026_10_04/brick_shop.png.import",
+    "assets/sprites/world/world_linework_2026_10_04/courtyard_home.png",
+    "assets/sprites/world/world_linework_2026_10_04/courtyard_home.png.import",
+    "assets/sprites/world/world_linework_2026_10_04/dispatch_hall.png",
+    "assets/sprites/world/world_linework_2026_10_04/dispatch_hall.png.import",
+    "assets/sprites/world/world_linework_2026_10_04/ledger_house.png",
+    "assets/sprites/world/world_linework_2026_10_04/ledger_house.png.import"
+  ],
+  "concurrent_changes_preserved": {
+    "note": "Unrelated shared-project changes observed after the immediate installation baseline. This art patch writes only its recorded three scripts and eight versioned textures; external changes are retained, not restored or hidden.",
+    "existing": [
+      {
+        "path": "data/creatures/104_wayburn.tres",
+        "baseline_sha256": "bdaeed81e5fd2987aece2054afb706e89fb48c889f7bc3267dc901abc9b84cbf",
+        "current_sha256": "ffe9221c80c9f2f12e5e6fdf6d3dd7d36e9678606e9a15a5af3fe3cc9ea17343"
+      },
+      {
+        "path": "data/creatures/105_coalcrest.tres",
+        "baseline_sha256": "080395b78624378ee324b671c4ed1619a4d75630e70ad43a6294295a2b158875",
+        "current_sha256": "539972c9382b3aa6d4992c895041051ed93d0048afa7e9aad09e01e7d1a725ac"
+      },
+      {
+        "path": "scripts/creature_data.gd",
+        "baseline_sha256": "e7c0c6f4116b12a3fbb5f454d8b71225669f9d70a4ef5844305c72e19c4c5961",
+        "current_sha256": "d2e5017b9f88be49aec340f90fa465c8858d708aeaf15d68a639811a2b614fc2"
+      }
+    ],
+    "new": [
+      {
+        "path": "assets/sprites/creatures/wayburn_back_line_2026_10_05/wayburn_front.png",
+        "sha256": "49fa11771028627b902518fb1d446d08c177ec074c4cd053bcf2fa1a1cc875ad"
+      },
+      {
+        "path": "assets/sprites/creatures/wayburn_back_line_2026_10_05/wayburn_front.png.import",
+        "sha256": "597dca2d7283eea6c39fdddb4f88a53ef4d2098e68e8be637062871834c1e3f1"
+      }
+    ]
+  },
+  "audit_limit": "A strict all-project equality check failed because external creature/Wayburn work continued. Scope pass confirms exact three permitted substitutions, 16 art additions, original other world/menu/player/journey files and no missing files. It does not claim every creature or creature_data.gd remained unchanged."
+}

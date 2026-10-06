@@ -1,0 +1,14 @@
+{
+  "date": "2026-10-05",
+  "human_answer": "Approve three edits ($0.54)",
+  "destination": "Retro Diffusion",
+  "tool": "image_edit",
+  "inputs": [
+    "inputs/room.png",
+    "inputs/coalcrest_front.png",
+    "inputs/coalcrest_back.png"
+  ],
+  "maximum_paid_requests": 3,
+  "approved_additional_cost_usd": 0.54,
+  "scope": "Room material detail only, empty tabletop; Coalcrest front/rear feet and tail outlines only; preserve newer rear head and hidden leg."
+}

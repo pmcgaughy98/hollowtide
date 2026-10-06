@@ -1,32 +1,50 @@
-[gd_resource type="Resource" script_class="CreatureData" load_steps=8 format=3]
+[gd_resource type="Resource" script_class="CreatureData" format=3]
 
 [ext_resource type="Script" path="res://scripts/creature_data.gd" id="1_script"]
-[ext_resource type="Texture2D" path="res://assets/sprites/creatures/kithflare_tail_polish_2026_10_03/kithflare_front.png" id="2_sprite"]
+[ext_resource type="Texture2D" path="res://assets/sprites/creatures/idle_2026_10_05/103_kithflare/back_f0.png" id="1_v3ssj"]
+[ext_resource type="Texture2D" path="res://assets/sprites/creatures/idle_2026_10_05/103_kithflare/back_f1.png" id="2_e0b1i"]
+[ext_resource type="Script" path="res://scripts/move_data.gd" id="2_eddio"]
+[ext_resource type="Texture2D" path="res://assets/sprites/creatures/starter_material_detail_2026_10_05/kithflare_front_lantern_tail_outline.png" id="2_sprite"]
+[ext_resource type="Texture2D" path="res://assets/sprites/creatures/idle_2026_10_05/103_kithflare/back_f2.png" id="3_dhh8o"]
+[ext_resource type="Texture2D" path="res://assets/sprites/creatures/starter_material_detail_2026_10_05/kithflare_idle_tail_outline_2026_10_05/f0.png" id="3_gu48y"]
 [ext_resource type="Resource" path="res://data/moves/kithflare_signal_spark.tres" id="3_move"]
+[ext_resource type="Texture2D" path="res://assets/sprites/creatures/starter_material_detail_2026_10_05/kithflare_idle_tail_outline_2026_10_05/f1.png" id="4_4ua34"]
+[ext_resource type="Texture2D" path="res://assets/sprites/creatures/idle_2026_10_05/103_kithflare/back_f3.png" id="4_igbae"]
 [ext_resource type="Resource" path="res://data/moves/kithflare_tail_brake.tres" id="4_move"]
+[ext_resource type="Texture2D" path="res://assets/sprites/creatures/idle_2026_10_05/103_kithflare/back_f4.png" id="5_83rth"]
+[ext_resource type="Texture2D" path="res://assets/sprites/creatures/starter_material_detail_2026_10_05/kithflare_idle_tail_outline_2026_10_05/f2.png" id="5_denrs"]
 [ext_resource type="Resource" path="res://data/moves/kithflare_shoulder_kindle.tres" id="5_move"]
+[ext_resource type="Texture2D" path="res://assets/sprites/creatures/idle_2026_10_05/103_kithflare/back_f5.png" id="6_dtw1f"]
 [ext_resource type="Resource" path="res://data/moves/kithflare_handoff_dash.tres" id="6_move"]
-
-[ext_resource type="Texture2D" path="res://assets/sprites/creatures/kithflare_tail_polish_2026_10_03/kithflare_back.png" id="7_back"]
+[ext_resource type="Texture2D" path="res://assets/sprites/creatures/starter_material_detail_2026_10_05/kithflare_idle_tail_outline_2026_10_05/f3.png" id="6_y0lfj"]
+[ext_resource type="Texture2D" path="res://assets/sprites/creatures/starter_material_detail_2026_10_05/kithflare_back_lantern_tail_outline.png" id="7_back"]
+[ext_resource type="Texture2D" path="res://assets/sprites/creatures/idle_2026_10_05/103_kithflare/back_f6.png" id="7_f4cjq"]
+[ext_resource type="Texture2D" path="res://assets/sprites/creatures/starter_material_detail_2026_10_05/kithflare_idle_tail_outline_2026_10_05/f4.png" id="7_wub32"]
+[ext_resource type="Texture2D" path="res://assets/sprites/creatures/idle_2026_10_05/103_kithflare/back_f7.png" id="8_0w28w"]
+[ext_resource type="Texture2D" path="res://assets/sprites/creatures/starter_material_detail_2026_10_05/kithflare_idle_tail_outline_2026_10_05/f5.png" id="8_3ptme"]
+[ext_resource type="Texture2D" path="res://assets/sprites/creatures/starter_material_detail_2026_10_05/kithflare_idle_tail_outline_2026_10_05/f6.png" id="9_awerj"]
+[ext_resource type="Resource" path="res://data/creatures/109_kithflare2.tres" id="9_evolution"]
+[ext_resource type="Texture2D" path="res://assets/sprites/creatures/starter_material_detail_2026_10_05/kithflare_idle_tail_outline_2026_10_05/f7.png" id="10_wa5s6"]
 
 [resource]
 script = ExtResource("1_script")
 id = 103
 creature_name = "Kithflare"
-body_parts = PackedStringArray("splittail", "throat", "marking")
-aim_points = Dictionary[String, Vector2]({
-"throat": Vector2(22, -14),
-"splittail": Vector2(-21, -33),
-"marking": Vector2(14, -8)
-})
-essence = 0
+has_second_essence = true
+second_essence = 6
 sprite = ExtResource("2_sprite")
 back_sprite = ExtResource("7_back")
-moves = [ExtResource("3_move"), ExtResource("4_move"), ExtResource("5_move"), ExtResource("6_move")]
-base_hp = 60
-base_attack = 60
-base_defense = 60
-base_speed = 60
-battle_size = 0.85
-idle_breath = 0.02
-idle_period = 1.1
+moves = Array[ExtResource("2_eddio")]([ExtResource("3_move"), ExtResource("4_move"), ExtResource("5_move"), ExtResource("6_move")])
+evolves_into = ExtResource("9_evolution")
+body_parts = PackedStringArray("splittail", "throat", "marking")
+idle_breath = 0.022
+idle_period = 1.2
+idle_vent_glow = 0.2
+idle_frames = Array[Texture2D]([ExtResource("3_gu48y"), ExtResource("4_4ua34"), ExtResource("5_denrs"), ExtResource("6_y0lfj"), ExtResource("7_wub32"), ExtResource("8_3ptme"), ExtResource("9_awerj"), ExtResource("10_wa5s6")])
+back_idle_frames = Array[Texture2D]([ExtResource("1_v3ssj"), ExtResource("2_e0b1i"), ExtResource("3_dhh8o"), ExtResource("4_igbae"), ExtResource("5_83rth"), ExtResource("6_dtw1f"), ExtResource("7_f4cjq"), ExtResource("8_0w28w")])
+aim_points = Dictionary[String, Vector2]({
+"marking": Vector2(14, -8),
+"splittail": Vector2(-21, -33),
+"throat": Vector2(22, -14)
+})
+battle_size = 1.21

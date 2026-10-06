@@ -305,8 +305,8 @@ func start(wild: CreatureData) -> void:
 	_idle_time = 0.0
 	_idle_hold = false
 	_idle_on = true
-	_foe_name.text = _foe.creature_name + "   " + _foe.essence_name()
-	_player_name.text = player_creature.creature_name + "   " + player_creature.essence_name()
+	_fit_name(_foe_name, _foe.creature_name + "   " + _foe.essence_name())
+	_fit_name(_player_name, player_creature.creature_name + "   " + player_creature.essence_name())
 	_refresh_bars()
 	_refresh_move_buttons()
 
@@ -511,7 +511,7 @@ func _attack(attacker: CreatureData, by_player: bool, move: MoveData) -> void:
 	# A move hits with its own essence. Strike hits with its user's.
 	var essence: CreatureData.Essence = move.essence if move else attacker.essence
 	var power: int = move.power if move else MOVE_POWER
-	var multiplier := EssenceChart.multiplier(essence, defender.essence)
+	var multiplier := EssenceChart.against(essence, defender)
 	var raw_dealt := BattleRules.damage(attacker, defender, power, multiplier)
 	var guard_fraction := _foe_guard_fraction if by_player else _player_guard_fraction
 	var dealt := BattleRules.after_guard(raw_dealt, guard_fraction)
@@ -934,6 +934,12 @@ func _drawn_attack_animation(by_player: bool, dealt: int, multiplier: float, mov
 			# with the idle at its bottom; the sprite is centred, so without this
 			# the feet would drop by half the extra height.
 			sprite.offset.y = (original_texture.get_height() - frames[frame_index].get_height()) * 0.5
+			# A creature that leaves the scene mid-attack (Undertow's dive) takes
+			# its platform with it: an empty frame hides the oval under it.
+			if move.signature and _sig_stage.visible:
+				var under := _platform_under(sprite)
+				if under != null:
+					under.visible = not _frame_is_empty(frames[frame_index])
 		# A signature's close-up is shown on its title card before the attack.
 		if frame_index == move.attack_cut_in_frame and move.attack_cut_in != null and not move.signature:
 			_show_cut_in(by_player, move)
@@ -1164,6 +1170,25 @@ func _dress_stage(move: MoveData) -> void:
 		platform.texture = _platform_texture(used.size.x * sprite.scale.x * 1.05, floor_colour)
 		platform.scale = Vector2(3, 3)
 		platform.position = spots[i][1] + Vector2(0, 6)
+		platform.visible = true
+
+
+## The signature-stage platform nearest a battle sprite (children 5 and 6).
+func _platform_under(sprite: Sprite2D) -> Sprite2D:
+	var best: Sprite2D = null
+	for i in 2:
+		var p := _sig_stage.get_child(5 + i) as Sprite2D
+		if p != null and (best == null or absf(p.global_position.x - sprite.global_position.x) < absf(best.global_position.x - sprite.global_position.x)):
+			best = p
+	return best
+
+
+var _empty_frames := {}
+## True for an attack frame with no visible pixels. Checked once per texture.
+func _frame_is_empty(tex: Texture2D) -> bool:
+	if not _empty_frames.has(tex):
+		_empty_frames[tex] = tex.get_image().get_used_rect().size == Vector2i.ZERO
+	return _empty_frames[tex]
 
 
 ## A pixel oval of ground, drawn at 1/3 size (shown at 3x like the stage): a
@@ -2665,13 +2690,19 @@ func _apply_idle(s: Sprite2D, home: Vector2, creature: CreatureData, phase: floa
 		s.material.set_shader_parameter("charcoal_head", creature.id == 102)
 		var inhale: float = 0.5 + 0.5 * _breath_wave(_idle_time / maxf(0.2, creature.idle_period) + phase)
 		s.material.set_shader_parameter("idle_glow", creature.idle_vent_glow * inhale)
-	# A hand-drawn front loop takes precedence over procedural breathing. A real
-	# back sprite keeps the old motion until its own sheet has been drawn.
-	if not creature.idle_frames.is_empty() and (s == _foe_sprite or _back_of(creature) == null):
+	# A hand-drawn loop takes precedence over procedural breathing: the front loop
+	# on the foe's side (or wherever there is no back view), the back loop on the
+	# player's side. A back view without its own loop keeps the procedural breath.
+	var loop: Array[Texture2D] = []
+	if s == _foe_sprite or _back_of(creature) == null:
+		loop = creature.idle_frames
+	else:
+		loop = creature.back_idle_frames
+	if not loop.is_empty():
 		var duration: float = maxf(0.2, creature.idle_period)
-		var frame_count: int = creature.idle_frames.size()
+		var frame_count: int = loop.size()
 		var frame_index: int = mini(frame_count - 1, int(floor(fposmod(_idle_time, duration) / duration * frame_count)))
-		s.texture = creature.idle_frames[frame_index]
+		s.texture = loop[frame_index]
 		s.scale = Vector2.ONE * _zoom(s)
 		s.position = home
 		_set_breath(s, 0.0, 0.5)
@@ -3229,6 +3260,17 @@ func _make_creature_name() -> Label:
 	label.add_theme_color_override("font_color", Color("#F0F4F8"))
 	label.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
 	return label
+
+
+## Long names with two essences ("Tallowroot III   Bloom/Stone") would be cut
+## off, so the font steps down until the whole line fits, never below 14.
+func _fit_name(label: Label, text: String) -> void:
+	label.text = text
+	var font: Font = label.get_theme_font("font")
+	var size := 24
+	while size > 14 and font.get_string_size(text, HORIZONTAL_ALIGNMENT_LEFT, -1, size).x > label.custom_minimum_size.x:
+		size -= 1
+	label.add_theme_font_size_override("font_size", size)
 
 
 func _make_hp_number() -> Label:

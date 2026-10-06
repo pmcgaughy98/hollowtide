@@ -4,8 +4,8 @@ extends Node2D
 ## Keys 1 to 6 choose a form. The review's party belongs only to this run.
 const FORMS: Array[CreatureData] = [
 	preload("res://data/creatures/103_kithflare.tres"),
-	preload("res://data/creatures/104_wayburn.tres"),
-	preload("res://data/creatures/105_coalcrest.tres"),
+	preload("res://data/retired_creatures/104_wayburn.tres"),
+	preload("res://data/retired_creatures/105_coalcrest.tres"),
 	preload("res://data/creatures/106_fusern.tres"),
 	preload("res://data/creatures/107_slagglass.tres"),
 	preload("res://data/creatures/108_vitrecrag.tres"),

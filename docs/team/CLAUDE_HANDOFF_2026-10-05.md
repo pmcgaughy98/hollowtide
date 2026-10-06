@@ -8,9 +8,9 @@ Written at the end of a long Claude chat so a fresh chat can pick up cheaply.
 3. Only if touching creatures, moves or evolution: `docs/creatures/DESIGN_RULES.md` (Grok now owns future creature and move rules; see CLAUDE.md).
 
 ## State right now
-- Last Claude commit: `7796691` (Oct 2). Since then about 240 files changed by Codex are uncommitted (hometown, homes, garden, Coalcrest/Wayburn texture fixes). Do not commit unless Preston asks; when he does, use the usual exclusions (`docs/Codex`, `docs/archive/legacy-source-packs`, `**/__pycache__/**`, `project.godot.bak`).
-- **`scenes/main_menu.tscn` is deleted in the working tree and was deliberately left out of the last commit.** Nobody has said who deleted it. Ask Preston before committing the deletion; restore with `git checkout -- scenes/main_menu.tscn` if it was a mistake.
-- **Retro Diffusion balance: $0.78** (shared with Codex). Check `get_balance` and tell Preston the cost before any paid run.
+- Everything through Oct 5 is committed (`64b1bf3`, `f8fec8d`). Do not commit unless Preston asks; when he does, use the usual exclusions (`docs/Codex`, `docs/archive/legacy-source-packs`, `**/__pycache__/**`, `project.godot.bak`).
+- `scenes/main_menu.tscn` deletion was confirmed by Preston and committed in `f8fec8d` (Oct 5). Nothing referenced it; the project starts in `city_riverfront.tscn`.
+- **Retro Diffusion balance: about $2.50** after the starter lines, Oct 5 (shared with Codex). Check `get_balance` and tell Preston the cost before any paid run.
 
 ## What this chat built (all in git)
 - Signature camera cut: the title card covers the swap, a band sweep cuts back. Signature stages: `MoveData.signature_stage` + `signature_stage_floor_y`, painted RD scenes, platforms under both creatures (`battle_screen.gd`: `_set_stage`, `_dress_stage`, `_platform_texture`).
@@ -21,7 +21,8 @@ Written at the end of a long Claude chat so a fresh chat can pick up cheaply.
 
 ## New collaborator (Oct 5)
 - Preston now runs **Grok Build** (the terminal CLI) on this repo. It did a lot of the signature, evolution and creature-data work in the uncommitted `data/creatures` and `data/moves` changes, but left no handoff file. Ask Preston or Grok Build for one before touching creature data.
-- Coalcrest: Codex's front view is OK but needs refining; the back view could not be fixed. Not started by Claude.
+- Oct 5: Coalcrest keeps Codex's back view with the default framing. Its tail is too thin and the rear leg a stub; they only pass because the message box hides them. Do not expose them. Wayburn's front back line smoothed. Coalcrest front still needs refining.
+- Preostmar, Oathfen and Punchybun (Stage I) are in the game as provisional data (Oct 5); see the stone-line and memorial-ferret READMEs.
 
 ## Open threads, in Preston's priority as last stated
 1. **Signature VFX pass.** Molten Glass, Furnace Roar finale and Kingstone Rail hit all play in live battles. Oct 5: Kingstone's stray orange flame removed and Furnace Roar's rock mound stripped (`docs/battle/vfx-2026-10-02/README.md`). Still drawn art: the Furnace Roar field geysers and the falling jade sphere; replace only if Preston asks. Preston had not yet reacted to Molten Glass's VFX version.

@@ -1,0 +1,21 @@
+{
+  "tool_id": "image_edit",
+  "inference_id": "inf_nXNWAovexJ1p0G6Vx9DGVl43792BE6zZ",
+  "balance_cost": 0.18,
+  "credit_cost": 20,
+  "charged": true,
+  "remaining_balance": 1.5000000000000024,
+  "remaining_credits": null,
+  "file": "courtyard_home-rd.png",
+  "sha256": "eb77024db6023a46297610937c29ab2bf9a80b3b1a9084cb40ebdad57f35485a",
+  "size": [
+    160,
+    144
+  ],
+  "bounds": [
+    5,
+    10,
+    153,
+    136
+  ]
+}

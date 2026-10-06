@@ -1,0 +1,43 @@
+[gd_resource type="Resource" script_class="CreatureData" format=3]
+
+[ext_resource type="Texture2D" path="res://assets/sprites/creatures/idle_2026_10_05/1702_tallowroot2/back_f0.png" id="1_sclgx"]
+[ext_resource type="Script" path="res://scripts/creature_data.gd" id="1_script"]
+[ext_resource type="Texture2D" path="res://assets/sprites/creatures/idle_2026_10_05/1702_tallowroot2/back_f1.png" id="2_0ky4p"]
+[ext_resource type="Texture2D" path="res://assets/sprites/creatures/starter_material_detail_2026_10_05/1702_tallowroot2_front_material_detail.png" id="2_sprite"]
+[ext_resource type="Texture2D" path="res://assets/sprites/creatures/starter_material_detail_2026_10_05/1702_tallowroot2_back_material_detail.png" id="3_back"]
+[ext_resource type="Texture2D" path="res://assets/sprites/creatures/idle_2026_10_05/1702_tallowroot2/f0.png" id="3_fpmqf"]
+[ext_resource type="Texture2D" path="res://assets/sprites/creatures/idle_2026_10_05/1702_tallowroot2/back_f2.png" id="3_kvqj3"]
+[ext_resource type="Resource" path="res://data/creatures/1703_tallowroot3.tres" id="4_evolution"]
+[ext_resource type="Texture2D" path="res://assets/sprites/creatures/idle_2026_10_05/1702_tallowroot2/f1.png" id="4_y0pgq"]
+[ext_resource type="Texture2D" path="res://assets/sprites/creatures/idle_2026_10_05/1702_tallowroot2/back_f3.png" id="4_y3mo3"]
+[ext_resource type="Texture2D" path="res://assets/sprites/creatures/idle_2026_10_05/1702_tallowroot2/back_f4.png" id="5_uliu6"]
+[ext_resource type="Texture2D" path="res://assets/sprites/creatures/idle_2026_10_05/1702_tallowroot2/f2.png" id="5_x16ax"]
+[ext_resource type="Texture2D" path="res://assets/sprites/creatures/idle_2026_10_05/1702_tallowroot2/back_f5.png" id="6_ef67d"]
+[ext_resource type="Texture2D" path="res://assets/sprites/creatures/idle_2026_10_05/1702_tallowroot2/f3.png" id="6_fpud0"]
+[ext_resource type="Texture2D" path="res://assets/sprites/creatures/idle_2026_10_05/1702_tallowroot2/back_f6.png" id="7_7ty7o"]
+[ext_resource type="Texture2D" path="res://assets/sprites/creatures/idle_2026_10_05/1702_tallowroot2/f4.png" id="7_ti5nl"]
+[ext_resource type="Texture2D" path="res://assets/sprites/creatures/idle_2026_10_05/1702_tallowroot2/f5.png" id="8_p787t"]
+[ext_resource type="Texture2D" path="res://assets/sprites/creatures/idle_2026_10_05/1702_tallowroot2/back_f7.png" id="8_rospj"]
+[ext_resource type="Texture2D" path="res://assets/sprites/creatures/idle_2026_10_05/1702_tallowroot2/f6.png" id="9_82gh2"]
+[ext_resource type="Texture2D" path="res://assets/sprites/creatures/idle_2026_10_05/1702_tallowroot2/f7.png" id="10_dw5lq"]
+[ext_resource type="Script" path="res://scripts/move_data.gd" id="11_sclgx"]
+
+[resource]
+script = ExtResource("1_script")
+id = 1702
+creature_name = "Huskward"
+essence = 4
+has_second_essence = true
+second_essence = 2
+sprite = ExtResource("2_sprite")
+back_sprite = ExtResource("3_back")
+description = "Huskward: name approved by Preston 2026-10-05. Provisional entry (Claude): Retro Diffusion art from docs/creatures/starter-lines-rd-2026-10-05/evolutions. Default stats and no moves (Strike) until Grok sets the kit and numbers."
+evolves_into = ExtResource("4_evolution")
+body_parts = PackedStringArray()
+idle_breath = 0.016
+idle_period = 2.0
+glow_kind = 1
+idle_breath_widen = 0.008
+idle_frames = Array[Texture2D]([ExtResource("3_fpmqf"), ExtResource("4_y0pgq"), ExtResource("5_x16ax"), ExtResource("6_fpud0"), ExtResource("7_ti5nl"), ExtResource("8_p787t"), ExtResource("9_82gh2"), ExtResource("10_dw5lq")])
+back_idle_frames = Array[Texture2D]([ExtResource("1_sclgx"), ExtResource("2_0ky4p"), ExtResource("3_kvqj3"), ExtResource("4_y3mo3"), ExtResource("5_uliu6"), ExtResource("6_ef67d"), ExtResource("7_7ty7o"), ExtResource("8_rospj")])
+battle_size = 1.3

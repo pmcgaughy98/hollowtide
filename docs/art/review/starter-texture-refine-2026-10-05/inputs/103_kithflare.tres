@@ -1,0 +1,31 @@
+[gd_resource type="Resource" script_class="CreatureData" format=3]
+
+[ext_resource type="Script" path="res://scripts/creature_data.gd" id="1_script"]
+[ext_resource type="Script" path="res://scripts/move_data.gd" id="2_eddio"]
+[ext_resource type="Texture2D" path="res://assets/sprites/creatures/kithflare_tail_polish_2026_10_03/kithflare_front.png" id="2_sprite"]
+[ext_resource type="Resource" path="res://data/moves/kithflare_signal_spark.tres" id="3_move"]
+[ext_resource type="Resource" path="res://data/moves/kithflare_tail_brake.tres" id="4_move"]
+[ext_resource type="Resource" path="res://data/moves/kithflare_shoulder_kindle.tres" id="5_move"]
+[ext_resource type="Resource" path="res://data/moves/kithflare_handoff_dash.tres" id="6_move"]
+[ext_resource type="Texture2D" path="res://assets/sprites/creatures/kithflare_tail_polish_2026_10_03/kithflare_back.png" id="7_back"]
+
+[ext_resource type="Resource" path="res://data/creatures/109_kithflare2.tres" id="9_evolution"]
+
+[resource]
+script = ExtResource("1_script")
+id = 103
+creature_name = "Kithflare"
+has_second_essence = true
+second_essence = 6
+sprite = ExtResource("2_sprite")
+back_sprite = ExtResource("7_back")
+moves = Array[ExtResource("2_eddio")]([ExtResource("3_move"), ExtResource("4_move"), ExtResource("5_move"), ExtResource("6_move")])
+body_parts = PackedStringArray("splittail", "throat", "marking")
+idle_period = 1.1
+aim_points = Dictionary[String, Vector2]({
+"marking": Vector2(14, -8),
+"splittail": Vector2(-21, -33),
+"throat": Vector2(22, -14)
+})
+evolves_into = ExtResource("9_evolution")
+battle_size = 1.21

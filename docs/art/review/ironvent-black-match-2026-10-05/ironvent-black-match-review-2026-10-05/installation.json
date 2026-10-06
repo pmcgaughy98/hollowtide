@@ -1,0 +1,51 @@
+{
+  "date": "2026-10-05",
+  "source_reference": {
+    "path": "C:\\Users\\pmcga\\dev\\hollowtide\\assets\\sprites\\creatures\\ironvent_back_2026_09_27.png",
+    "dimensions": [
+      100,
+      100
+    ],
+    "alpha_bbox": [
+      0,
+      14,
+      100,
+      97
+    ],
+    "sha256": "556c783f4923d9f167efbf7a4646a9c1d4a03e83042289a6a904cae0e42b8a06"
+  },
+  "uploads": 0,
+  "charges": 0,
+  "existing_changes": [
+    {
+      "path": "data/creatures/102_ironvent.tres",
+      "before_sha256": "c5fd3ed4da4543ffd7ac0574818f7e34b424510b28109620b996a917ef371c4a",
+      "after_sha256": "80c2ac4a75f3fc94d80a333642f419ee842726bdaa6d6c02e4f1ca8a372e257d",
+      "old_texture": "res://assets/sprites/creatures/ironvent.png",
+      "new_texture": "res://assets/sprites/creatures/ironvent_black_match_2026_10_05/ironvent_front.png",
+      "binding_uid_removed_for_new_title": false
+    },
+    {
+      "path": "data/moves/ironvent_furnace_roar.tres",
+      "before_sha256": "35b846f1bbc9339c00e02db9c61c87a07c71f9b428d6073eb99c7354ae951bd2",
+      "after_sha256": "57082c6d06c40264977eb1c99d0a3d9910189885e35a581c14b9125feb2f251c",
+      "old_texture": "res://assets/sprites/creatures/attacks/ironvent_furnace_roar/style_matched/titlecard_official_2026_09_30.png",
+      "new_texture": "res://assets/sprites/creatures/ironvent_black_match_2026_10_05/furnace_roar_title.png",
+      "binding_uid_removed_for_new_title": true
+    }
+  ],
+  "new_assets": {
+    "assets/sprites/creatures/ironvent_black_match_2026_10_05/ironvent_front.png": {
+      "sha256": "e7e05e0c1a505b5ea035ed6dd7a72f0c5a233a7ca42301a8ef06428fefe2ba35",
+      "mapped_rgb_pixels": 1012,
+      "alpha_exact": true
+    },
+    "assets/sprites/creatures/ironvent_black_match_2026_10_05/furnace_roar_title.png": {
+      "sha256": "0eb53284d8b311a3f221d6a8629009ae3a28c00115ee546cc9dbfa37772eaa62",
+      "mapped_rgb_pixels": 774,
+      "alpha_exact": true
+    }
+  },
+  "front_title_pixel_count": 1786,
+  "unchanged": "rear texture and Atlas region/margin, all geometry/alpha/poses, fire/eye/rust/sage colors, creature/move property values and scripts"
+}

@@ -1,0 +1,122 @@
+[
+  {
+    "name": "courtyard_home",
+    "project_path": "assets/sprites/world/hometown_courtyard_2026_10_03/courtyard_home.png",
+    "size": [
+      160,
+      144
+    ],
+    "bounds": [
+      5,
+      10,
+      153,
+      136
+    ],
+    "sha256": "ab061eacf61a4fe950c37af1de2376a153916af95360f280a0df19d4df21cfcc"
+  },
+  {
+    "name": "neighbor_home",
+    "project_path": "assets/sprites/world/hometown_homes_2026_10_04/neighbor_home.png",
+    "size": [
+      178,
+      158
+    ],
+    "bounds": [
+      12,
+      12,
+      166,
+      146
+    ],
+    "sha256": "4a80b8030b1250b723a4589f2b1ed54a7bf2f3992d7b0b0c3dd6cbf1b4f3b586"
+  },
+  {
+    "name": "garden_home",
+    "project_path": "assets/sprites/world/hometown_homes_2026_10_04/garden_home.png",
+    "size": [
+      156,
+      133
+    ],
+    "bounds": [
+      12,
+      12,
+      144,
+      121
+    ],
+    "sha256": "139017e3662bf6bd19349d0600b3f0b57eebd725ad0190b3fea9ff4f66dddf9f"
+  },
+  {
+    "name": "dispatch_hall",
+    "project_path": "assets/sprites/world/route1_rd_2026_10_02/dispatch_hall_complete.png",
+    "size": [
+      136,
+      168
+    ],
+    "bounds": [
+      8,
+      5,
+      127,
+      155
+    ],
+    "sha256": "2648d93f1f5842322c9c83b5fed9cc9cf3fb9e53912b8d9c906a76802e31a8d2"
+  },
+  {
+    "name": "brick_shop",
+    "project_path": "assets/sprites/world/area_transitions_2026_10_03/brick_shop.png",
+    "size": [
+      208,
+      192
+    ],
+    "bounds": [
+      11,
+      13,
+      197,
+      170
+    ],
+    "sha256": "61346652e187f2548caf21ef51bba3cca8547f25b053fcf045c65d9206992a6b"
+  },
+  {
+    "name": "ledger_house",
+    "project_path": "assets/sprites/world/area_transitions_2026_10_03/ledger_house.png",
+    "size": [
+      176,
+      192
+    ],
+    "bounds": [
+      14,
+      9,
+      162,
+      180
+    ],
+    "sha256": "87355e862592de3c69234afc5a2fdaa0e58e4d1fda0aa9dcadaefeab41d858ce"
+  },
+  {
+    "name": "repair_workshop",
+    "project_path": "assets/sprites/world/historic_frontage_2026_10_04/repair_workshop.png",
+    "size": [
+      162,
+      209
+    ],
+    "bounds": [
+      12,
+      12,
+      150,
+      197
+    ],
+    "sha256": "78314a07d5f546c9f5549e589fda17c73e147af022a8338b69ff1f69dc7b87a9"
+  },
+  {
+    "name": "rear_rowhomes",
+    "project_path": "assets/sprites/world/historic_frontage_2026_10_04/rear_rowhomes.png",
+    "size": [
+      206,
+      207
+    ],
+    "bounds": [
+      12,
+      12,
+      194,
+      195
+    ],
+    "sha256": "297ecffda537817d929fe982fe3aff491a1f0dad5fe4d6d256d6cff5a2d52561"
+  }
+]

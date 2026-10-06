@@ -39,6 +39,12 @@ extends Node2D
 @export var ring_frames: Array[Texture2D] = []
 const RING_SECONDS: Array[float] = [0.14, 0.14, 0.2, 0.22]
 const RING_CENTRE_OFFSET := Vector2(-9, 1)  # the ring's middle sits 9 px right of its cell centre
+## Optional: a glowing crack that splits the ground from the attacker to the
+## opponent over field_seconds (Root Rampart). Transparent (the default) is off.
+@export var crack_color := Color(0, 0, 0, 0)
+## Optional: a foam wake that races across the surface from the attacker to the
+## opponent over field_seconds, two barbel lines trailing it (Undertow). Off by default.
+@export var wake_color := Color(0, 0, 0, 0)
 ## Seconds the geysers take to advance from Ironvent to the opponent.
 @export var field_seconds := 1.3
 @export var geysers := 24
@@ -121,6 +127,8 @@ func erupt(start: Vector2, end: Vector2, px: float, arrive: float, sustain: floa
 		var over: Vector2 = spots[randi() % spots.size()] if not spots.is_empty() else _end
 		_firework(Vector2(over.x + randfn(0.0, 40.0), clampf(over.y - randf_range(90.0, 200.0), 40.0, area.position.y + 40.0)),
 			randf_range(0.0, field_seconds + 0.4))
+	if crack_color.a > 0.0 or wake_color.a > 0.0:
+		_travel(source_feet, _end, field_seconds)
 	_suspense(field_seconds, arrive)
 	get_tree().create_timer(arrive).timeout.connect(_erupt_big.bind(maxf(0.8, sustain)))
 	get_tree().create_timer(arrive + maxf(0.8, sustain) + 1.6).timeout.connect(queue_free)
@@ -393,3 +401,72 @@ func _near_layer() -> Node2D:
 	get_parent().move_child(_mid, target.get_index())  # just under the opponent
 	tree_exiting.connect(_mid.queue_free)
 	return _mid
+
+
+## The crack or the wake: a path from the attacker's feet to the opponent's,
+## jagged for a crack and gently waving for a wake, revealed front first over
+## `seconds`, in whole art pixels. The crack stays and fades with the finale;
+## the wake's foam fades behind its head as it goes.
+func _travel(from: Vector2, to: Vector2, seconds: float) -> void:
+	var line := Node2D.new()
+	add_child(line)
+	move_child(line, 0)
+	var pts := PackedVector2Array()
+	var steps := 40
+	var side := Vector2(-(to - from).y, (to - from).x).normalized()
+	for i in steps + 1:
+		var k := float(i) / steps
+		var p := from.lerp(to, k)
+		if crack_color.a > 0.0:
+			p += side * randf_range(-5.0, 5.0) * _px * (1.0 - absf(k - 0.5))
+		else:
+			p += side * sin(k * TAU * 2.0) * 3.0 * _px
+		pts.append(((p / _px).round()) * _px)
+	var shown := [0.0]
+	line.draw.connect(func() -> void:
+		var n := int(shown[0] * steps)
+		if n < 1:
+			return
+		var head: Vector2 = pts[n]
+		if crack_color.a > 0.0:
+			var dark := Color(0.08, 0.06, 0.04, 0.95)
+			var w := maxf(_px, 2.0)
+			line.draw_polyline(pts.slice(0, n + 1), dark, 5.0 * w)
+			line.draw_polyline(pts.slice(0, n + 1), crack_color, 2.0 * w)
+			# Short forks split off every few steps, so it reads as the ground giving way.
+			for i in range(3, n, 5):
+				var fork_dir: Vector2 = side * (1.0 if i % 2 == 0 else -1.0) + (to - from).normalized() * 0.5
+				var tip: Vector2 = pts[i] + fork_dir * 10.0 * w
+				line.draw_line(pts[i], tip, dark, 3.0 * w)
+				line.draw_line(pts[i], tip, crack_color, w)
+		else:
+			# The wake: something big gliding under the surface. A long dark
+			# shape under the water, two lines of foam spreading back from its
+			# head, and two barbels trailing ahead of it.
+			var back: Vector2 = (pts[maxi(0, n - 6)] - head).normalized()
+			var body := PackedVector2Array()
+			var centre: Vector2 = head + back * 18.0 * _px
+			for a_step in 16:
+				var ang := a_step / 16.0 * TAU
+				body.append(centre + back * cos(ang) * 22.0 * _px + side * sin(ang) * 6.0 * _px)
+			line.draw_colored_polygon(body, Color(0.02, 0.05, 0.08, 0.55))
+			var left := PackedVector2Array()
+			var right := PackedVector2Array()
+			for k in range(n, maxi(0, n - 14), -1):
+				var spread: float = (3.0 + (n - k) * 2.2) * _px
+				left.append(pts[k] + side * spread)
+				right.append(pts[k] - side * spread)
+			if left.size() > 1:
+				line.draw_polyline(left, wake_color, 2.0 * _px)
+				line.draw_polyline(right, wake_color, 2.0 * _px)
+			for sgn: float in [-1.0, 1.0]:
+				var tip: Vector2 = head + side * sgn * 4.0 * _px
+				line.draw_line(tip, tip - back * 14.0 * _px + side * sgn * 10.0 * _px, Color(0.07, 0.12, 0.16, 0.95), 2.0 * _px)
+	)
+	var t := create_tween()
+	t.tween_method(func(v: float) -> void:
+		shown[0] = v
+		line.queue_redraw(), 0.0, 1.0, seconds)
+	if crack_color.a <= 0.0:
+		t.tween_property(line, "modulate:a", 0.0, 0.3)
+

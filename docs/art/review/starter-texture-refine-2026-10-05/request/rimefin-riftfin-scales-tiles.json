@@ -1,0 +1,94 @@
+[
+  {
+    "tile": 1,
+    "id": "001_rimefin",
+    "view": "front",
+    "source_path": "assets/sprites/creatures/rimefin_catfish_2026_10_05/rimefin_front.png",
+    "source_sha256": "383e5313d18d5a8cb9cffea7f622cdf82c9549af7952d041d78c97bd63a13786",
+    "frozen_source": "001_rimefin_front.png",
+    "source_crop": [
+      31,
+      57,
+      95,
+      121
+    ],
+    "material": "blue",
+    "atlas_origin": [
+      0,
+      0
+    ],
+    "source_to_input_scale": 2,
+    "acceptance_mask_file": "request/rimefin-riftfin-scales_tile1_acceptance.png",
+    "accepted_native_rgb_pixels": 2382,
+    "alpha_pose_edge_core_other_pixels_protected": true
+  },
+  {
+    "tile": 2,
+    "id": "001_rimefin",
+    "view": "back",
+    "source_path": "assets/sprites/creatures/rimefin_catfish_2026_10_05/rimefin_back.png",
+    "source_sha256": "e432ee21a2f310486efc0e0986ede678b20923c3b32bd094ae65e151846f1b0c",
+    "frozen_source": "001_rimefin_back.png",
+    "source_crop": [
+      36,
+      56,
+      100,
+      120
+    ],
+    "material": "blue",
+    "atlas_origin": [
+      128,
+      0
+    ],
+    "source_to_input_scale": 2,
+    "acceptance_mask_file": "request/rimefin-riftfin-scales_tile2_acceptance.png",
+    "accepted_native_rgb_pixels": 1839,
+    "alpha_pose_edge_core_other_pixels_protected": true
+  },
+  {
+    "tile": 3,
+    "id": "502_riftfin",
+    "view": "front",
+    "source_path": "assets/sprites/creatures/rimefin_catfish_2026_10_05/riftfin_front.png",
+    "source_sha256": "c03bfba41585b5979b1ecc3410e552f521c08a45006655505b51061d850c276a",
+    "frozen_source": "502_riftfin_front.png",
+    "source_crop": [
+      41,
+      95,
+      105,
+      159
+    ],
+    "material": "blue",
+    "atlas_origin": [
+      0,
+      128
+    ],
+    "source_to_input_scale": 2,
+    "acceptance_mask_file": "request/rimefin-riftfin-scales_tile3_acceptance.png",
+    "accepted_native_rgb_pixels": 3059,
+    "alpha_pose_edge_core_other_pixels_protected": true
+  },
+  {
+    "tile": 4,
+    "id": "502_riftfin",
+    "view": "back",
+    "source_path": "assets/sprites/creatures/rimefin_catfish_2026_10_05/riftfin_back.png",
+    "source_sha256": "66ec8651ab5a07991a3a172d6f19861841ac0ec21fb189de6690985ff8035cb0",
+    "frozen_source": "502_riftfin_back.png",
+    "source_crop": [
+      95,
+      79,
+      159,
+      143
+    ],
+    "material": "blue",
+    "atlas_origin": [
+      128,
+      128
+    ],
+    "source_to_input_scale": 2,
+    "acceptance_mask_file": "request/rimefin-riftfin-scales_tile4_acceptance.png",
+    "accepted_native_rgb_pixels": 3071,
+    "alpha_pose_edge_core_other_pixels_protected": true
+  }
+]

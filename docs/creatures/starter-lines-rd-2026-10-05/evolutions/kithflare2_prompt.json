@@ -1,0 +1,12 @@
+{
+ "prompt": "An EVOLVED second stage of the small fire gecko in the first reference image: same species, same face, eyes, sandstone tan hide with umber stripes, cream throat mark and amber zigzag marking, but clearly evolved into a stage-two creature, not just bigger. A lean, long-legged runner standing tall on all fours, ready to sprint. Its amber zigzag markings now run down its whole body and crackle with small electric sparks like lightning. A frill of short spark-tipped spines rises behind its head. Its long tail ends in an ember lantern grown into a caged bulb of amber light with thin glowing ribs, small sparks jumping from it. Alert, quick, confident. Sandstone tan, umber, cream, amber, with small pale yellow sparks. Three-quarter view facing right. Same finish and outline as the references. No wings, not a dragon, not a dinosaur. Shown whole in the centre of the frame with empty space on every side. On a plain white background.",
+ "prompt_style": "rd_pro__default",
+ "width": 192,
+ "height": 192,
+ "num_images": 2,
+ "remove_bg": true,
+ "reference_images": [
+  "assets/sprites/creatures/kithflare_tail_polish_2026_10_03/kithflare_front.png",
+  "docs/creatures/starter-lines-rd-2026-10-05/evolutions/tallowroot2_head_edit.png"
+ ]
+}

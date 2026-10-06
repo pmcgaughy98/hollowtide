@@ -1,0 +1,21 @@
+{
+  "tool_id": "image_edit",
+  "inference_id": "inf_R9P5LxE40jrMdGvjmk6GVoA2B76WD3pn",
+  "balance_cost": 0.18,
+  "credit_cost": 20,
+  "charged": true,
+  "remaining_balance": 1.6800000000000024,
+  "remaining_credits": null,
+  "file": "room-linework-rd.png",
+  "sha256": "39d52daf0c2628d21f19934017bd69569cb69cd10f1d7ee08b96672f340b601b",
+  "size": [
+    256,
+    256
+  ],
+  "visible_bounds": [
+    26,
+    26,
+    230,
+    233
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "owned_hidden_only": true,
+  "final_import": {
+    "pid": 32528,
+    "session": 69921,
+    "exit_code": 0
+  },
+  "male_walk": {
+    "pid": 592,
+    "session": 72681,
+    "exit_code": 0
+  },
+  "female_walk": {
+    "pid": 32252,
+    "session": 50277,
+    "exit_code": 0
+  },
+  "overview": {
+    "pid": 32328,
+    "session": 53213,
+    "exit_code": 0
+  },
+  "source": "Observed terminal completion outputs in this Codex turn, not inferred from proof files."
+}

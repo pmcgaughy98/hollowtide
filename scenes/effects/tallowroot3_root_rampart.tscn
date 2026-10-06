@@ -1,0 +1,26 @@
+[gd_scene load_steps=12 format=3]
+
+[ext_resource type="Script" path="res://scripts/effects/pressure_field.gd" id="1_script"]
+[ext_resource type="Texture2D" path="res://assets/sprites/effects/tallowroot3/root_rampart/charge.png" id="2_charge"]
+[ext_resource type="Texture2D" path="res://assets/sprites/effects/tallowroot3/root_rampart/field_roots.png" id="3_roots"]
+[ext_resource type="Texture2D" path="res://assets/sprites/effects/tallowroot3/root_rampart/dust.png" id="4_dust"]
+[ext_resource type="Texture2D" path="res://assets/sprites/effects/tallowroot3/root_rampart/leaves.png" id="5_leaves"]
+[ext_resource type="Texture2D" path="res://assets/sprites/effects/tallowroot3/root_rampart/eruption.png" id="6_erupt"]
+[ext_resource type="Texture2D" path="res://assets/sprites/effects/tallowroot3/root_rampart/eruption_alt.png" id="7_erupt_alt"]
+[ext_resource type="Texture2D" path="res://assets/sprites/effects/tallowroot3/root_rampart/ring5.png" id="r5"]
+[ext_resource type="Texture2D" path="res://assets/sprites/effects/tallowroot3/root_rampart/ring6.png" id="r6"]
+[ext_resource type="Texture2D" path="res://assets/sprites/effects/tallowroot3/root_rampart/ring7.png" id="r7"]
+[ext_resource type="Texture2D" path="res://assets/sprites/effects/tallowroot3/root_rampart/ring8.png" id="r8"]
+
+[node name="RootRampart" type="Node2D"]
+texture_filter = 1
+script = ExtResource("1_script")
+charge = ExtResource("2_charge")
+geyser = ExtResource("3_roots")
+smoke = ExtResource("4_dust")
+fireworks = ExtResource("5_leaves")
+eruption = ExtResource("6_erupt")
+eruption_alt = ExtResource("7_erupt_alt")
+ring_frames = Array[Texture2D]([ExtResource("r5"), ExtResource("r6"), ExtResource("r7"), ExtResource("r8")])
+finale_scale = 5
+crack_color = Color(0.72, 1, 0.42, 1)

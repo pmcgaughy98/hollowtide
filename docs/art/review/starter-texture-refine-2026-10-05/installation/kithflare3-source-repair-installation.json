@@ -1,0 +1,24 @@
+{
+  "date": "2026-10-05",
+  "resource": "data/creatures/110_kithflare3.tres",
+  "resource_before_sha256": "8fb6f7d4c97bf3e744d96837fa6dfcce0cdd6d90bb9b57438e78cbb86027e907",
+  "resource_after_sha256": "999893b82ad7760d8ff02ff54c428313551bf3e3a9e1f04d253a8a99a7dcdda4",
+  "only_two_texture_bindings_changed": true,
+  "current_battle_size_evolutions_essences_all_other_fields_preserved": true,
+  "native_height_changed": false,
+  "size_plan_rerun_needed": false,
+  "source_art_overwritten": false,
+  "paid_cost_usd": 0,
+  "new_pngs": [
+    {
+      "path": "assets/sprites/creatures/starter_texture_refine_2026_10_05/kithflare3_back_source_grid.png",
+      "sha256": "1c389c1abc4e03275f8c2076cc83dc690d65d5c3d6087d404d020dfffebd8fe7"
+    },
+    {
+      "path": "assets/sprites/creatures/starter_texture_refine_2026_10_05/kithflare3_front_source_grid.png",
+      "sha256": "bbeb3bebcec7d98a77ee89b247eaf83370fbd28894a77286046d22ac2aa0f998"
+    }
+  ],
+  "native_runtime_verification": "both actual views captured in current native battle; both bindings asserted; own process exit0 and stderr0",
+  "native_proof": "proof/native-verification.json"
+}

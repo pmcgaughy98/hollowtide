@@ -1,0 +1,714 @@
+{
+  "copied_source_count": 118,
+  "all_source_copies_byte_exact": true,
+  "files": [
+    {
+      "archive_relative_path": "room-coalcrest-detail-2026-10-05/proof/coalcrest-import.stderr.log",
+      "source_workspace_path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/coalcrest-import.stderr.log",
+      "sha256": "1356f037b23db7500cfc0e01089026e13611c8e1ed01a76a2151a0c85582a2a1",
+      "bytes": 913
+    },
+    {
+      "archive_relative_path": "room-coalcrest-detail-2026-10-05/proof/coalcrest-import.stdout.log",
+      "source_workspace_path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/coalcrest-import.stdout.log",
+      "sha256": "df3b86d4a918e3b850129e198a96cc3d070e1f254158db4292335149888e8626",
+      "bytes": 2946
+    },
+    {
+      "archive_relative_path": "room-coalcrest-detail-2026-10-05/proof/female-walk-stderr.log",
+      "source_workspace_path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/female-walk-stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "archive_relative_path": "room-coalcrest-detail-2026-10-05/proof/female-walk-stdout.log",
+      "source_workspace_path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/female-walk-stdout.log",
+      "sha256": "dcc8629dc0d8bc99e9e13edc663b14d29b17576fe3737565452217bbef7727d8",
+      "bytes": 701
+    },
+    {
+      "archive_relative_path": "room-coalcrest-detail-2026-10-05/proof/final-verification.json",
+      "source_workspace_path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/final-verification.json",
+      "sha256": "2b538aa44809943bc5a0031ca1d398a66df8bf27a595d666692fdbce83d52e6e",
+      "bytes": 119694
+    },
+    {
+      "archive_relative_path": "room-coalcrest-detail-2026-10-05/proof/final-verification.md",
+      "source_workspace_path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/final-verification.md",
+      "sha256": "d0f1225eeb0c5a806cb271180e63207455c6a9ef6452de17d121b7d3494280c7",
+      "bytes": 2421
+    },
+    {
+      "archive_relative_path": "room-coalcrest-detail-2026-10-05/proof/import-stderr.log",
+      "source_workspace_path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/import-stderr.log",
+      "sha256": "a28e85bd513dc91d9bd4576b9214eec251d127abbbed3dc78431b4706b99b1c7",
+      "bytes": 914
+    },
+    {
+      "archive_relative_path": "room-coalcrest-detail-2026-10-05/proof/import-stdout.log",
+      "source_workspace_path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/import-stdout.log",
+      "sha256": "06e830725a4ad016e35e7bcc744c57e8332ea4b8341b3427ed80dc66f6aa448c",
+      "bytes": 3613
+    },
+    {
+      "archive_relative_path": "room-coalcrest-detail-2026-10-05/proof/male-walk-stderr.log",
+      "source_workspace_path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/male-walk-stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "archive_relative_path": "room-coalcrest-detail-2026-10-05/proof/male-walk-stdout.log",
+      "source_workspace_path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/male-walk-stdout.log",
+      "sha256": "96469955b92c316a80e13b2f23beb1e448971ca69b94a308fc6ecb91019eb2f2",
+      "bytes": 699
+    },
+    {
+      "archive_relative_path": "room-coalcrest-detail-2026-10-05/proof/overview/male-historic-shop-ledger-native-3x.png",
+      "source_workspace_path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/overview/male-historic-shop-ledger-native-3x.png",
+      "sha256": "48a78f8ead6911d167c92112b246e44760d42dfaeb8b67f498cfeb757985abe3",
+      "bytes": 100946
+    },
+    {
+      "archive_relative_path": "room-coalcrest-detail-2026-10-05/proof/overview/male-historic-street-overview-native-1x.png",
+      "source_workspace_path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/overview/male-historic-street-overview-native-1x.png",
+      "sha256": "f496fd5ba35056cb951762b609a34a253ecd0cbad0d7779b0635222fad0c24bf",
+      "bytes": 438178
+    },
+    {
+      "archive_relative_path": "room-coalcrest-detail-2026-10-05/proof/overview/male-home-bed-quilt-native-2x.png",
+      "source_workspace_path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/overview/male-home-bed-quilt-native-2x.png",
+      "sha256": "b6e31d9a0ebfc4266770267378223d53b557a1a53220a679eb0b5ddc153b8d6d",
+      "bytes": 8308
+    },
+    {
+      "archive_relative_path": "room-coalcrest-detail-2026-10-05/proof/overview/male-home-cupboard-coat-native-2x.png",
+      "source_workspace_path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/overview/male-home-cupboard-coat-native-2x.png",
+      "sha256": "53303da218a1b77aa728a8377aa189790c142518d73d6c7002f08f1867a8b10a",
+      "bytes": 5092
+    },
+    {
+      "archive_relative_path": "room-coalcrest-detail-2026-10-05/proof/overview/male-home-room-native-2x.png",
+      "source_workspace_path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/overview/male-home-room-native-2x.png",
+      "sha256": "01bda02a1864d2202a622c9e887d3eb1afe5fd92d8351125c848b4a74acf7ad2",
+      "bytes": 41524
+    },
+    {
+      "archive_relative_path": "room-coalcrest-detail-2026-10-05/proof/overview/male-home-shelf-worktable-native-2x.png",
+      "source_workspace_path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/overview/male-home-shelf-worktable-native-2x.png",
+      "sha256": "dd8b422ce052c19755adad0b690c29b5fdf925cbd7dca8ea640e50be84e3d6de",
+      "bytes": 8069
+    },
+    {
+      "archive_relative_path": "room-coalcrest-detail-2026-10-05/proof/overview/male-home-stove-woodpile-native-2x.png",
+      "source_workspace_path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/overview/male-home-stove-woodpile-native-2x.png",
+      "sha256": "bcb2284ecc3d9c5865b1ad2af0127a9a48795fb0f392143dcc30d00b452e9be5",
+      "bytes": 5496
+    },
+    {
+      "archive_relative_path": "room-coalcrest-detail-2026-10-05/proof/overview/male-hometown-courtyard-native-3x.png",
+      "source_workspace_path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/overview/male-hometown-courtyard-native-3x.png",
+      "sha256": "56a41f474e6116b6829d86b4ce5367d8ffa079e569174b3cb000dccc08273e4b",
+      "bytes": 35721
+    },
+    {
+      "archive_relative_path": "room-coalcrest-detail-2026-10-05/proof/overview/male-hometown-hall-native-3x.png",
+      "source_workspace_path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/overview/male-hometown-hall-native-3x.png",
+      "sha256": "d4a8abe3d5a10a7c4e49e2e2347ed95f9533bd2a7cc02de66605eb566057d4d9",
+      "bytes": 26547
+    },
+    {
+      "archive_relative_path": "room-coalcrest-detail-2026-10-05/proof/overview/male-hometown-overview-native-1x.png",
+      "source_workspace_path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/overview/male-hometown-overview-native-1x.png",
+      "sha256": "36665c6a5e32f384e1edf46723445a2e443358c86518f6e491a07e208a8e4951",
+      "bytes": 568614
+    },
+    {
+      "archive_relative_path": "room-coalcrest-detail-2026-10-05/proof/overview/male-overview.json",
+      "source_workspace_path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/overview/male-overview.json",
+      "sha256": "56b233319bbe0d395e2dd38d11b0e9b752a7cb5f8f8a7b92958ae2dc9612a498",
+      "bytes": 30983
+    },
+    {
+      "archive_relative_path": "room-coalcrest-detail-2026-10-05/proof/overview/male-riverfront-hall-native-3x.png",
+      "source_workspace_path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/overview/male-riverfront-hall-native-3x.png",
+      "sha256": "a7615319585a707a3c728fe579b3fec4b9eff3f3e18a437cdbbdd482d94a8ef6",
+      "bytes": 32575
+    },
+    {
+      "archive_relative_path": "room-coalcrest-detail-2026-10-05/proof/overview/male-riverfront-ledger-native-3x.png",
+      "source_workspace_path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/overview/male-riverfront-ledger-native-3x.png",
+      "sha256": "e6499af2a91c145016519d0124b15db85a0551a1ed9928686ca1ef76b105734b",
+      "bytes": 35869
+    },
+    {
+      "archive_relative_path": "room-coalcrest-detail-2026-10-05/proof/overview/male-riverfront-overview-native-1x.png",
+      "source_workspace_path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/overview/male-riverfront-overview-native-1x.png",
+      "sha256": "c8c8b5a909056f46cc98ccfcf3585d88869c74bbc9c186660d8638c49d08150f",
+      "bytes": 487797
+    },
+    {
+      "archive_relative_path": "room-coalcrest-detail-2026-10-05/proof/overview/male-riverfront-shop-native-3x.png",
+      "source_workspace_path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/overview/male-riverfront-shop-native-3x.png",
+      "sha256": "2edd85e952a0f037c365774048c8400f64c148586d655668fd0cbb596b022be8",
+      "bytes": 32784
+    },
+    {
+      "archive_relative_path": "room-coalcrest-detail-2026-10-05/proof/overview-stderr.log",
+      "source_workspace_path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/overview-stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "archive_relative_path": "room-coalcrest-detail-2026-10-05/proof/overview-stdout.log",
+      "source_workspace_path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/overview-stdout.log",
+      "sha256": "14b152c48ed1617668f32b9d578cb0e42f4841ee533741e0d9a1a8ccd49056bb",
+      "bytes": 464
+    },
+    {
+      "archive_relative_path": "room-coalcrest-detail-2026-10-05/proof/terminal-results.json",
+      "source_workspace_path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/terminal-results.json",
+      "sha256": "22d6049610947158cb4ed843615fcadf3eba76de85aca98beaf9ac528ed48023",
+      "bytes": 643
+    },
+    {
+      "archive_relative_path": "room-coalcrest-detail-2026-10-05/proof/walk/female-entrance-courtyard_home-to-hometown.png",
+      "source_workspace_path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/female-entrance-courtyard_home-to-hometown.png",
+      "sha256": "c7cf0473cba91162f4ebaf320225b6b8eadcf578a1769bff0ed73217fea4ae82",
+      "bytes": 115851
+    },
+    {
+      "archive_relative_path": "room-coalcrest-detail-2026-10-05/proof/walk/female-entrance-hometown-to-courtyard_home.png",
+      "source_workspace_path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/female-entrance-hometown-to-courtyard_home.png",
+      "sha256": "27458b3072a2ed61cf1193e71abaf7825c0cae3f7afa024698c0cdc3a5df7deb",
+      "bytes": 57384
+    },
+    {
+      "archive_relative_path": "room-coalcrest-detail-2026-10-05/proof/walk/female-focused-return-home.png",
+      "source_workspace_path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/female-focused-return-home.png",
+      "sha256": "c7cf0473cba91162f4ebaf320225b6b8eadcf578a1769bff0ed73217fea4ae82",
+      "bytes": 115851
+    },
+    {
+      "archive_relative_path": "room-coalcrest-detail-2026-10-05/proof/walk/female-home-bed-cached-return.png",
+      "source_workspace_path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/female-home-bed-cached-return.png",
+      "sha256": "e0a3de53bda684e801e89860c5a4ab2eb862bb82f6e5be059da52b7eb4d166cb",
+      "bytes": 63653
+    },
+    {
+      "archive_relative_path": "room-coalcrest-detail-2026-10-05/proof/walk/female-home-bed-first.png",
+      "source_workspace_path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/female-home-bed-first.png",
+      "sha256": "e0a3de53bda684e801e89860c5a4ab2eb862bb82f6e5be059da52b7eb4d166cb",
+      "bytes": 63653
+    },
+    {
+      "archive_relative_path": "room-coalcrest-detail-2026-10-05/proof/walk/female-home-coat-cached-return.png",
+      "source_workspace_path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/female-home-coat-cached-return.png",
+      "sha256": "71154604a7e2219473e17e56d9bda31a28f3e583118731813fb8c1085958c878",
+      "bytes": 59764
+    },
+    {
+      "archive_relative_path": "room-coalcrest-detail-2026-10-05/proof/walk/female-home-coat-first.png",
+      "source_workspace_path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/female-home-coat-first.png",
+      "sha256": "71154604a7e2219473e17e56d9bda31a28f3e583118731813fb8c1085958c878",
+      "bytes": 59764
+    },
+    {
+      "archive_relative_path": "room-coalcrest-detail-2026-10-05/proof/walk/female-home-collision-bed-cached-return.png",
+      "source_workspace_path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/female-home-collision-bed-cached-return.png",
+      "sha256": "fb63a57d05ca1607ea85a49e6f9efdfae69aa427bca3fb1081251cbe6e4ae0bb",
+      "bytes": 56438
+    },
+    {
+      "archive_relative_path": "room-coalcrest-detail-2026-10-05/proof/walk/female-home-collision-bed-first.png",
+      "source_workspace_path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/female-home-collision-bed-first.png",
+      "sha256": "fb63a57d05ca1607ea85a49e6f9efdfae69aa427bca3fb1081251cbe6e4ae0bb",
+      "bytes": 56438
+    },
+    {
+      "archive_relative_path": "room-coalcrest-detail-2026-10-05/proof/walk/female-home-collision-bedside-cached-return.png",
+      "source_workspace_path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/female-home-collision-bedside-cached-return.png",
+      "sha256": "753023b6e425c7324fd019ea745ad05f4f235207eed59b3e01cf84d808cd6e6a",
+      "bytes": 56336
+    },
+    {
+      "archive_relative_path": "room-coalcrest-detail-2026-10-05/proof/walk/female-home-collision-bedside-first.png",
+      "source_workspace_path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/female-home-collision-bedside-first.png",
+      "sha256": "753023b6e425c7324fd019ea745ad05f4f235207eed59b3e01cf84d808cd6e6a",
+      "bytes": 56336
+    },
+    {
+      "archive_relative_path": "room-coalcrest-detail-2026-10-05/proof/walk/female-home-collision-coat-cabinet-cached-return.png",
+      "source_workspace_path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/female-home-collision-coat-cabinet-cached-return.png",
+      "sha256": "750f8f6f7f9677826c1f8a305e1bf8f4f3d3590acb25252bb1720a743cc7618c",
+      "bytes": 56870
+    },
+    {
+      "archive_relative_path": "room-coalcrest-detail-2026-10-05/proof/walk/female-home-collision-coat-cabinet-first.png",
+      "source_workspace_path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/female-home-collision-coat-cabinet-first.png",
+      "sha256": "750f8f6f7f9677826c1f8a305e1bf8f4f3d3590acb25252bb1720a743cc7618c",
+      "bytes": 56870
+    },
+    {
+      "archive_relative_path": "room-coalcrest-detail-2026-10-05/proof/walk/female-home-collision-east-wall-cached-return.png",
+      "source_workspace_path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/female-home-collision-east-wall-cached-return.png",
+      "sha256": "da917fb73e92fe1fd42371d104f1b3ca0eb4bde411308d1d4afcaf9871727266",
+      "bytes": 56363
+    },
+    {
+      "archive_relative_path": "room-coalcrest-detail-2026-10-05/proof/walk/female-home-collision-east-wall-first.png",
+      "source_workspace_path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/female-home-collision-east-wall-first.png",
+      "sha256": "da917fb73e92fe1fd42371d104f1b3ca0eb4bde411308d1d4afcaf9871727266",
+      "bytes": 56363
+    },
+    {
+      "archive_relative_path": "room-coalcrest-detail-2026-10-05/proof/walk/female-home-collision-north-wall-cached-return.png",
+      "source_workspace_path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/female-home-collision-north-wall-cached-return.png",
+      "sha256": "57ec1bef713faacb8bb3523ca12f37bb37f3d3c57718bd62ea5a08f2e82ec7cd",
+      "bytes": 57082
+    },
+    {
+      "archive_relative_path": "room-coalcrest-detail-2026-10-05/proof/walk/female-home-collision-north-wall-first.png",
+      "source_workspace_path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/female-home-collision-north-wall-first.png",
+      "sha256": "57ec1bef713faacb8bb3523ca12f37bb37f3d3c57718bd62ea5a08f2e82ec7cd",
+      "bytes": 57082
+    },
+    {
+      "archive_relative_path": "room-coalcrest-detail-2026-10-05/proof/walk/female-home-collision-south-left-wall-cached-return.png",
+      "source_workspace_path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/female-home-collision-south-left-wall-cached-return.png",
+      "sha256": "532f9257411c5e9b9df0734435c59d2e49722421fdbefbb15570898c86244640",
+      "bytes": 57560
+    },
+    {
+      "archive_relative_path": "room-coalcrest-detail-2026-10-05/proof/walk/female-home-collision-south-left-wall-first.png",
+      "source_workspace_path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/female-home-collision-south-left-wall-first.png",
+      "sha256": "532f9257411c5e9b9df0734435c59d2e49722421fdbefbb15570898c86244640",
+      "bytes": 57560
+    },
+    {
+      "archive_relative_path": "room-coalcrest-detail-2026-10-05/proof/walk/female-home-collision-south-right-wall-cached-return.png",
+      "source_workspace_path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/female-home-collision-south-right-wall-cached-return.png",
+      "sha256": "5fae2e6ea18df18ae812cd58f23b9f67839b60afb341ea58601f85bb63a3d90e",
+      "bytes": 57677
+    },
+    {
+      "archive_relative_path": "room-coalcrest-detail-2026-10-05/proof/walk/female-home-collision-south-right-wall-first.png",
+      "source_workspace_path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/female-home-collision-south-right-wall-first.png",
+      "sha256": "5fae2e6ea18df18ae812cd58f23b9f67839b60afb341ea58601f85bb63a3d90e",
+      "bytes": 57677
+    },
+    {
+      "archive_relative_path": "room-coalcrest-detail-2026-10-05/proof/walk/female-home-collision-stool-cached-return.png",
+      "source_workspace_path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/female-home-collision-stool-cached-return.png",
+      "sha256": "1aa0a569f9a1fd8de6b1fbe235f9ba3f0da297319e1b1c64edb71f19115d64a6",
+      "bytes": 56212
+    },
+    {
+      "archive_relative_path": "room-coalcrest-detail-2026-10-05/proof/walk/female-home-collision-stool-first.png",
+      "source_workspace_path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/female-home-collision-stool-first.png",
+      "sha256": "1aa0a569f9a1fd8de6b1fbe235f9ba3f0da297319e1b1c64edb71f19115d64a6",
+      "bytes": 56212
+    },
+    {
+      "archive_relative_path": "room-coalcrest-detail-2026-10-05/proof/walk/female-home-collision-stove-cached-return.png",
+      "source_workspace_path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/female-home-collision-stove-cached-return.png",
+      "sha256": "9dd25b961290c662af17e56f12a2b6b9f7d4a6dee806be52a35dd8bd829c512f",
+      "bytes": 56365
+    },
+    {
+      "archive_relative_path": "room-coalcrest-detail-2026-10-05/proof/walk/female-home-collision-stove-first.png",
+      "source_workspace_path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/female-home-collision-stove-first.png",
+      "sha256": "9dd25b961290c662af17e56f12a2b6b9f7d4a6dee806be52a35dd8bd829c512f",
+      "bytes": 56365
+    },
+    {
+      "archive_relative_path": "room-coalcrest-detail-2026-10-05/proof/walk/female-home-collision-table-cached-return.png",
+      "source_workspace_path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/female-home-collision-table-cached-return.png",
+      "sha256": "fa8792e77240972533d0e608e3f51e4974e59dfc57d8240e36e5db7570113ee5",
+      "bytes": 57000
+    },
+    {
+      "archive_relative_path": "room-coalcrest-detail-2026-10-05/proof/walk/female-home-collision-table-first.png",
+      "source_workspace_path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/female-home-collision-table-first.png",
+      "sha256": "fa8792e77240972533d0e608e3f51e4974e59dfc57d8240e36e5db7570113ee5",
+      "bytes": 57000
+    },
+    {
+      "archive_relative_path": "room-coalcrest-detail-2026-10-05/proof/walk/female-home-collision-west-wall-cached-return.png",
+      "source_workspace_path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/female-home-collision-west-wall-cached-return.png",
+      "sha256": "fac00f42127f7f57c24492d64e23bf43fcfaa0a88c0dac9bff7228e2477e722f",
+      "bytes": 56846
+    },
+    {
+      "archive_relative_path": "room-coalcrest-detail-2026-10-05/proof/walk/female-home-collision-west-wall-first.png",
+      "source_workspace_path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/female-home-collision-west-wall-first.png",
+      "sha256": "fac00f42127f7f57c24492d64e23bf43fcfaa0a88c0dac9bff7228e2477e722f",
+      "bytes": 56846
+    },
+    {
+      "archive_relative_path": "room-coalcrest-detail-2026-10-05/proof/walk/female-home-collision-woodstack-cached-return.png",
+      "source_workspace_path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/female-home-collision-woodstack-cached-return.png",
+      "sha256": "1558594bb86645c2c89893d9488a201b313ad1b7fb315ccb989923c1ad723638",
+      "bytes": 56304
+    },
+    {
+      "archive_relative_path": "room-coalcrest-detail-2026-10-05/proof/walk/female-home-collision-woodstack-first.png",
+      "source_workspace_path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/female-home-collision-woodstack-first.png",
+      "sha256": "1558594bb86645c2c89893d9488a201b313ad1b7fb315ccb989923c1ad723638",
+      "bytes": 56304
+    },
+    {
+      "archive_relative_path": "room-coalcrest-detail-2026-10-05/proof/walk/female-home-entry-cached-return.png",
+      "source_workspace_path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/female-home-entry-cached-return.png",
+      "sha256": "27458b3072a2ed61cf1193e71abaf7825c0cae3f7afa024698c0cdc3a5df7deb",
+      "bytes": 57384
+    },
+    {
+      "archive_relative_path": "room-coalcrest-detail-2026-10-05/proof/walk/female-home-entry-first.png",
+      "source_workspace_path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/female-home-entry-first.png",
+      "sha256": "27458b3072a2ed61cf1193e71abaf7825c0cae3f7afa024698c0cdc3a5df7deb",
+      "bytes": 57384
+    },
+    {
+      "archive_relative_path": "room-coalcrest-detail-2026-10-05/proof/walk/female-home-exterior-cached-return.png",
+      "source_workspace_path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/female-home-exterior-cached-return.png",
+      "sha256": "c7cf0473cba91162f4ebaf320225b6b8eadcf578a1769bff0ed73217fea4ae82",
+      "bytes": 115851
+    },
+    {
+      "archive_relative_path": "room-coalcrest-detail-2026-10-05/proof/walk/female-home-exterior-first.png",
+      "source_workspace_path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/female-home-exterior-first.png",
+      "sha256": "c7cf0473cba91162f4ebaf320225b6b8eadcf578a1769bff0ed73217fea4ae82",
+      "bytes": 115851
+    },
+    {
+      "archive_relative_path": "room-coalcrest-detail-2026-10-05/proof/walk/female-home-stove-cached-return.png",
+      "source_workspace_path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/female-home-stove-cached-return.png",
+      "sha256": "a8baaec28c328ad210ae881b1f0bab03668682c1b1169ba9cbe37e9687f7d0e6",
+      "bytes": 61375
+    },
+    {
+      "archive_relative_path": "room-coalcrest-detail-2026-10-05/proof/walk/female-home-stove-first.png",
+      "source_workspace_path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/female-home-stove-first.png",
+      "sha256": "a8baaec28c328ad210ae881b1f0bab03668682c1b1169ba9cbe37e9687f7d0e6",
+      "bytes": 61375
+    },
+    {
+      "archive_relative_path": "room-coalcrest-detail-2026-10-05/proof/walk/female-home-table-cached-return.png",
+      "source_workspace_path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/female-home-table-cached-return.png",
+      "sha256": "bb76eba8c5a2271651ec3066be701b3503707548a719917504af0be891309a48",
+      "bytes": 65251
+    },
+    {
+      "archive_relative_path": "room-coalcrest-detail-2026-10-05/proof/walk/female-home-table-first.png",
+      "source_workspace_path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/female-home-table-first.png",
+      "sha256": "bb76eba8c5a2271651ec3066be701b3503707548a719917504af0be891309a48",
+      "bytes": 65251
+    },
+    {
+      "archive_relative_path": "room-coalcrest-detail-2026-10-05/proof/walk/female-home-view-coat-behind-cached-return.png",
+      "source_workspace_path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/female-home-view-coat-behind-cached-return.png",
+      "sha256": "bcb81f5b837604f11e92ad5244cd2afacecab396fff85fc174ddccc1bd7285b7",
+      "bytes": 57528
+    },
+    {
+      "archive_relative_path": "room-coalcrest-detail-2026-10-05/proof/walk/female-home-view-coat-behind-first.png",
+      "source_workspace_path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/female-home-view-coat-behind-first.png",
+      "sha256": "bcb81f5b837604f11e92ad5244cd2afacecab396fff85fc174ddccc1bd7285b7",
+      "bytes": 57528
+    },
+    {
+      "archive_relative_path": "room-coalcrest-detail-2026-10-05/proof/walk/female-home-view-stove-behind-cached-return.png",
+      "source_workspace_path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/female-home-view-stove-behind-cached-return.png",
+      "sha256": "4a3e339a3e48c94ef18fa220e2f6908a2edc508f3b4be0397fa97a9b052d453e",
+      "bytes": 55822
+    },
+    {
+      "archive_relative_path": "room-coalcrest-detail-2026-10-05/proof/walk/female-home-view-stove-behind-first.png",
+      "source_workspace_path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/female-home-view-stove-behind-first.png",
+      "sha256": "4a3e339a3e48c94ef18fa220e2f6908a2edc508f3b4be0397fa97a9b052d453e",
+      "bytes": 55822
+    },
+    {
+      "archive_relative_path": "room-coalcrest-detail-2026-10-05/proof/walk/female-start.png",
+      "source_workspace_path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/female-start.png",
+      "sha256": "802b5bee6b2710ce93033adc51e097284f9db2978b7eb8ee3ddd6ac04be38bdf",
+      "bytes": 115755
+    },
+    {
+      "archive_relative_path": "room-coalcrest-detail-2026-10-05/proof/walk/female-walkthrough.json",
+      "source_workspace_path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/female-walkthrough.json",
+      "sha256": "794b833ff8baadd7e4125d9dc5fb66c93d7853c191428aef382c67ddce1bb60d",
+      "bytes": 53387
+    },
+    {
+      "archive_relative_path": "room-coalcrest-detail-2026-10-05/proof/walk/male-entrance-courtyard_home-to-hometown.png",
+      "source_workspace_path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/male-entrance-courtyard_home-to-hometown.png",
+      "sha256": "01197d7be9ddbea241e8638e7ea276b21b5d42bcd097bb6a4dfccf916ea7c0f7",
+      "bytes": 115992
+    },
+    {
+      "archive_relative_path": "room-coalcrest-detail-2026-10-05/proof/walk/male-entrance-hometown-to-courtyard_home.png",
+      "source_workspace_path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/male-entrance-hometown-to-courtyard_home.png",
+      "sha256": "65777fd582083d6eecf88684e56c7dda6200b70db9f2fbbb6b7d175d78feb7b5",
+      "bytes": 57185
+    },
+    {
+      "archive_relative_path": "room-coalcrest-detail-2026-10-05/proof/walk/male-focused-return-home.png",
+      "source_workspace_path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/male-focused-return-home.png",
+      "sha256": "01197d7be9ddbea241e8638e7ea276b21b5d42bcd097bb6a4dfccf916ea7c0f7",
+      "bytes": 115992
+    },
+    {
+      "archive_relative_path": "room-coalcrest-detail-2026-10-05/proof/walk/male-home-bed-cached-return.png",
+      "source_workspace_path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/male-home-bed-cached-return.png",
+      "sha256": "48adcfdcfd3c19f368c1b55f713c5f208299cc0eaa834fc064b163e0e34229b8",
+      "bytes": 63464
+    },
+    {
+      "archive_relative_path": "room-coalcrest-detail-2026-10-05/proof/walk/male-home-bed-first.png",
+      "source_workspace_path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/male-home-bed-first.png",
+      "sha256": "48adcfdcfd3c19f368c1b55f713c5f208299cc0eaa834fc064b163e0e34229b8",
+      "bytes": 63464
+    },
+    {
+      "archive_relative_path": "room-coalcrest-detail-2026-10-05/proof/walk/male-home-coat-cached-return.png",
+      "source_workspace_path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/male-home-coat-cached-return.png",
+      "sha256": "3dc4d326abc29f475f9213eca0497fddaf32c667c98c9538eeb7a698ec956014",
+      "bytes": 59921
+    },
+    {
+      "archive_relative_path": "room-coalcrest-detail-2026-10-05/proof/walk/male-home-coat-first.png",
+      "source_workspace_path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/male-home-coat-first.png",
+      "sha256": "3dc4d326abc29f475f9213eca0497fddaf32c667c98c9538eeb7a698ec956014",
+      "bytes": 59921
+    },
+    {
+      "archive_relative_path": "room-coalcrest-detail-2026-10-05/proof/walk/male-home-collision-bed-cached-return.png",
+      "source_workspace_path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/male-home-collision-bed-cached-return.png",
+      "sha256": "a49f69cba12363bb74342575f18379ff59c7912ffacf1f22f50ed4cccaea574c",
+      "bytes": 56428
+    },
+    {
+      "archive_relative_path": "room-coalcrest-detail-2026-10-05/proof/walk/male-home-collision-bed-first.png",
+      "source_workspace_path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/male-home-collision-bed-first.png",
+      "sha256": "a49f69cba12363bb74342575f18379ff59c7912ffacf1f22f50ed4cccaea574c",
+      "bytes": 56428
+    },
+    {
+      "archive_relative_path": "room-coalcrest-detail-2026-10-05/proof/walk/male-home-collision-bedside-cached-return.png",
+      "source_workspace_path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/male-home-collision-bedside-cached-return.png",
+      "sha256": "0e58c4eceb99d6e9a956b33251587e0990d08a347932bda5f4ca8b925c22f043",
+      "bytes": 56178
+    },
+    {
+      "archive_relative_path": "room-coalcrest-detail-2026-10-05/proof/walk/male-home-collision-bedside-first.png",
+      "source_workspace_path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/male-home-collision-bedside-first.png",
+      "sha256": "0e58c4eceb99d6e9a956b33251587e0990d08a347932bda5f4ca8b925c22f043",
+      "bytes": 56178
+    },
+    {
+      "archive_relative_path": "room-coalcrest-detail-2026-10-05/proof/walk/male-home-collision-coat-cabinet-cached-return.png",
+      "source_workspace_path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/male-home-collision-coat-cabinet-cached-return.png",
+      "sha256": "3bd2fcc534de0368f1024cb6a083d4008c4c4b69f3455222ca737209a6bdd660",
+      "bytes": 56841
+    },
+    {
+      "archive_relative_path": "room-coalcrest-detail-2026-10-05/proof/walk/male-home-collision-coat-cabinet-first.png",
+      "source_workspace_path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/male-home-collision-coat-cabinet-first.png",
+      "sha256": "3bd2fcc534de0368f1024cb6a083d4008c4c4b69f3455222ca737209a6bdd660",
+      "bytes": 56841
+    },
+    {
+      "archive_relative_path": "room-coalcrest-detail-2026-10-05/proof/walk/male-home-collision-east-wall-cached-return.png",
+      "source_workspace_path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/male-home-collision-east-wall-cached-return.png",
+      "sha256": "631b8a6755289fb993a0645d8017115a64b9f2c88e1c31e8b69ff0738e03f1b6",
+      "bytes": 56489
+    },
+    {
+      "archive_relative_path": "room-coalcrest-detail-2026-10-05/proof/walk/male-home-collision-east-wall-first.png",
+      "source_workspace_path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/male-home-collision-east-wall-first.png",
+      "sha256": "631b8a6755289fb993a0645d8017115a64b9f2c88e1c31e8b69ff0738e03f1b6",
+      "bytes": 56489
+    },
+    {
+      "archive_relative_path": "room-coalcrest-detail-2026-10-05/proof/walk/male-home-collision-north-wall-cached-return.png",
+      "source_workspace_path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/male-home-collision-north-wall-cached-return.png",
+      "sha256": "b80191a1e45cd825e2ae4f2ae044838d389e526876464acefbdda42b0b10758d",
+      "bytes": 56992
+    },
+    {
+      "archive_relative_path": "room-coalcrest-detail-2026-10-05/proof/walk/male-home-collision-north-wall-first.png",
+      "source_workspace_path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/male-home-collision-north-wall-first.png",
+      "sha256": "b80191a1e45cd825e2ae4f2ae044838d389e526876464acefbdda42b0b10758d",
+      "bytes": 56992
+    },
+    {
+      "archive_relative_path": "room-coalcrest-detail-2026-10-05/proof/walk/male-home-collision-south-left-wall-cached-return.png",
+      "source_workspace_path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/male-home-collision-south-left-wall-cached-return.png",
+      "sha256": "dc0102f66f2804ef5c6eaa6e91743938b807131012a2603e339b6c0455fbd6b2",
+      "bytes": 57572
+    },
+    {
+      "archive_relative_path": "room-coalcrest-detail-2026-10-05/proof/walk/male-home-collision-south-left-wall-first.png",
+      "source_workspace_path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/male-home-collision-south-left-wall-first.png",
+      "sha256": "dc0102f66f2804ef5c6eaa6e91743938b807131012a2603e339b6c0455fbd6b2",
+      "bytes": 57572
+    },
+    {
+      "archive_relative_path": "room-coalcrest-detail-2026-10-05/proof/walk/male-home-collision-south-right-wall-cached-return.png",
+      "source_workspace_path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/male-home-collision-south-right-wall-cached-return.png",
+      "sha256": "d8883c96ffa8f82ef8ff70fd79170e29c07cd89cfb1196ae0cf872da25b3a4c9",
+      "bytes": 57764
+    },
+    {
+      "archive_relative_path": "room-coalcrest-detail-2026-10-05/proof/walk/male-home-collision-south-right-wall-first.png",
+      "source_workspace_path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/male-home-collision-south-right-wall-first.png",
+      "sha256": "d8883c96ffa8f82ef8ff70fd79170e29c07cd89cfb1196ae0cf872da25b3a4c9",
+      "bytes": 57764
+    },
+    {
+      "archive_relative_path": "room-coalcrest-detail-2026-10-05/proof/walk/male-home-collision-stool-cached-return.png",
+      "source_workspace_path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/male-home-collision-stool-cached-return.png",
+      "sha256": "38f7dc8002cc8433d5f828a4ae307fb10e97304b61cb4b01319b8d06cc79e4f4",
+      "bytes": 56140
+    },
+    {
+      "archive_relative_path": "room-coalcrest-detail-2026-10-05/proof/walk/male-home-collision-stool-first.png",
+      "source_workspace_path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/male-home-collision-stool-first.png",
+      "sha256": "38f7dc8002cc8433d5f828a4ae307fb10e97304b61cb4b01319b8d06cc79e4f4",
+      "bytes": 56140
+    },
+    {
+      "archive_relative_path": "room-coalcrest-detail-2026-10-05/proof/walk/male-home-collision-stove-cached-return.png",
+      "source_workspace_path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/male-home-collision-stove-cached-return.png",
+      "sha256": "70283cfa6f3c3760255ce1ce5583ae3028089d15f1d2e8987420c9347d08873a",
+      "bytes": 56395
+    },
+    {
+      "archive_relative_path": "room-coalcrest-detail-2026-10-05/proof/walk/male-home-collision-stove-first.png",
+      "source_workspace_path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/male-home-collision-stove-first.png",
+      "sha256": "70283cfa6f3c3760255ce1ce5583ae3028089d15f1d2e8987420c9347d08873a",
+      "bytes": 56395
+    },
+    {
+      "archive_relative_path": "room-coalcrest-detail-2026-10-05/proof/walk/male-home-collision-table-cached-return.png",
+      "source_workspace_path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/male-home-collision-table-cached-return.png",
+      "sha256": "0215dd09247313fe03e15726e5fa78cd8c5f4c10225f5db3bde731d4ac3b857c",
+      "bytes": 56975
+    },
+    {
+      "archive_relative_path": "room-coalcrest-detail-2026-10-05/proof/walk/male-home-collision-table-first.png",
+      "source_workspace_path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/male-home-collision-table-first.png",
+      "sha256": "0215dd09247313fe03e15726e5fa78cd8c5f4c10225f5db3bde731d4ac3b857c",
+      "bytes": 56975
+    },
+    {
+      "archive_relative_path": "room-coalcrest-detail-2026-10-05/proof/walk/male-home-collision-west-wall-cached-return.png",
+      "source_workspace_path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/male-home-collision-west-wall-cached-return.png",
+      "sha256": "aa98c2b305ef6bc6577e60393d3b21914234ca99d172824d904bf764986a6715",
+      "bytes": 56769
+    },
+    {
+      "archive_relative_path": "room-coalcrest-detail-2026-10-05/proof/walk/male-home-collision-west-wall-first.png",
+      "source_workspace_path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/male-home-collision-west-wall-first.png",
+      "sha256": "aa98c2b305ef6bc6577e60393d3b21914234ca99d172824d904bf764986a6715",
+      "bytes": 56769
+    },
+    {
+      "archive_relative_path": "room-coalcrest-detail-2026-10-05/proof/walk/male-home-collision-woodstack-cached-return.png",
+      "source_workspace_path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/male-home-collision-woodstack-cached-return.png",
+      "sha256": "088d8ed8e613ecc89c2f75fee0622843f1a2290bbddd08698d5c2524d1ca08df",
+      "bytes": 56357
+    },
+    {
+      "archive_relative_path": "room-coalcrest-detail-2026-10-05/proof/walk/male-home-collision-woodstack-first.png",
+      "source_workspace_path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/male-home-collision-woodstack-first.png",
+      "sha256": "088d8ed8e613ecc89c2f75fee0622843f1a2290bbddd08698d5c2524d1ca08df",
+      "bytes": 56357
+    },
+    {
+      "archive_relative_path": "room-coalcrest-detail-2026-10-05/proof/walk/male-home-entry-cached-return.png",
+      "source_workspace_path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/male-home-entry-cached-return.png",
+      "sha256": "65777fd582083d6eecf88684e56c7dda6200b70db9f2fbbb6b7d175d78feb7b5",
+      "bytes": 57185
+    },
+    {
+      "archive_relative_path": "room-coalcrest-detail-2026-10-05/proof/walk/male-home-entry-first.png",
+      "source_workspace_path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/male-home-entry-first.png",
+      "sha256": "65777fd582083d6eecf88684e56c7dda6200b70db9f2fbbb6b7d175d78feb7b5",
+      "bytes": 57185
+    },
+    {
+      "archive_relative_path": "room-coalcrest-detail-2026-10-05/proof/walk/male-home-exterior-cached-return.png",
+      "source_workspace_path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/male-home-exterior-cached-return.png",
+      "sha256": "01197d7be9ddbea241e8638e7ea276b21b5d42bcd097bb6a4dfccf916ea7c0f7",
+      "bytes": 115992
+    },
+    {
+      "archive_relative_path": "room-coalcrest-detail-2026-10-05/proof/walk/male-home-exterior-first.png",
+      "source_workspace_path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/male-home-exterior-first.png",
+      "sha256": "01197d7be9ddbea241e8638e7ea276b21b5d42bcd097bb6a4dfccf916ea7c0f7",
+      "bytes": 115992
+    },
+    {
+      "archive_relative_path": "room-coalcrest-detail-2026-10-05/proof/walk/male-home-stove-cached-return.png",
+      "source_workspace_path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/male-home-stove-cached-return.png",
+      "sha256": "f7769e247c4df5f39fbe08b357c5bc349abdf61678ddb6d4008c063a88f623dc",
+      "bytes": 61595
+    },
+    {
+      "archive_relative_path": "room-coalcrest-detail-2026-10-05/proof/walk/male-home-stove-first.png",
+      "source_workspace_path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/male-home-stove-first.png",
+      "sha256": "f7769e247c4df5f39fbe08b357c5bc349abdf61678ddb6d4008c063a88f623dc",
+      "bytes": 61595
+    },
+    {
+      "archive_relative_path": "room-coalcrest-detail-2026-10-05/proof/walk/male-home-table-cached-return.png",
+      "source_workspace_path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/male-home-table-cached-return.png",
+      "sha256": "df106bfa85760fe4e5e7687941f8e3842afc3efbeaef65c27cbf186c32bb3bf4",
+      "bytes": 65002
+    },
+    {
+      "archive_relative_path": "room-coalcrest-detail-2026-10-05/proof/walk/male-home-table-first.png",
+      "source_workspace_path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/male-home-table-first.png",
+      "sha256": "df106bfa85760fe4e5e7687941f8e3842afc3efbeaef65c27cbf186c32bb3bf4",
+      "bytes": 65002
+    },
+    {
+      "archive_relative_path": "room-coalcrest-detail-2026-10-05/proof/walk/male-home-view-coat-behind-cached-return.png",
+      "source_workspace_path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/male-home-view-coat-behind-cached-return.png",
+      "sha256": "261c8bf17f063be9bff81f052ddd92604567cb54271a069d57e104679a3b2d77",
+      "bytes": 57727
+    },
+    {
+      "archive_relative_path": "room-coalcrest-detail-2026-10-05/proof/walk/male-home-view-coat-behind-first.png",
+      "source_workspace_path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/male-home-view-coat-behind-first.png",
+      "sha256": "261c8bf17f063be9bff81f052ddd92604567cb54271a069d57e104679a3b2d77",
+      "bytes": 57727
+    },
+    {
+      "archive_relative_path": "room-coalcrest-detail-2026-10-05/proof/walk/male-home-view-stove-behind-cached-return.png",
+      "source_workspace_path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/male-home-view-stove-behind-cached-return.png",
+      "sha256": "fe4a72ed67db9630934a8e23b01aaeaf47f831127bdd8cb27de4d02ce49dee22",
+      "bytes": 55848
+    },
+    {
+      "archive_relative_path": "room-coalcrest-detail-2026-10-05/proof/walk/male-home-view-stove-behind-first.png",
+      "source_workspace_path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/male-home-view-stove-behind-first.png",
+      "sha256": "fe4a72ed67db9630934a8e23b01aaeaf47f831127bdd8cb27de4d02ce49dee22",
+      "bytes": 55848
+    },
+    {
+      "archive_relative_path": "room-coalcrest-detail-2026-10-05/proof/walk/male-start.png",
+      "source_workspace_path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/male-start.png",
+      "sha256": "17545475f1c6c8d89354282c587807e79213eae25e9eb07929834f750163399c",
+      "bytes": 115951
+    },
+    {
+      "archive_relative_path": "room-coalcrest-detail-2026-10-05/proof/walk/male-walkthrough.json",
+      "source_workspace_path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/male-walkthrough.json",
+      "sha256": "09eb8b18ddaff05be49dcaa1eb3ec86abd6edfa879b5d9ee114e726c30cc329e",
+      "bytes": 53285
+    }
+  ]
+}

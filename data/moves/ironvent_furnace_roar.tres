@@ -10,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://ckvtr2poxt53l" path="res://assets/sprites/creatures/attacks/ironvent_furnace_roar/style_matched/roar.png" id="8_roar"]
 [ext_resource type="Texture2D" uid="uid://dyurc8h1i7ro8" path="res://assets/sprites/creatures/attacks/ironvent_furnace_roar/style_matched/settle.png" id="9_settle"]
 [ext_resource type="Texture2D" uid="uid://biu02gh7fw20h" path="res://assets/sprites/creatures/attacks/ironvent_furnace_roar/style_matched/cool.png" id="10_cool"]
-[ext_resource type="Texture2D" uid="uid://dityrshusb7gg" path="res://assets/sprites/creatures/attacks/ironvent_furnace_roar/style_matched/titlecard_official_2026_09_30.png" id="11_cutin"]
+[ext_resource type="Texture2D" path="res://assets/sprites/creatures/attacks/ironvent_furnace_roar/style_matched/back_palette_2026_10_05/titlecard_official_2026_09_30.png" id="11_cutin"]
 [ext_resource type="PackedScene" path="res://scenes/effects/ironvent_roar_mouth.tscn" id="12_blast"]
 [ext_resource type="PackedScene" path="res://scenes/effects/ironvent_pressure_field.tscn" id="13_fallout"]
 [ext_resource type="Texture2D" uid="uid://cgweln6ortq2n" path="res://assets/sprites/effects/ironvent/blowdown/charge.png" id="14_charge"]

@@ -1,0 +1,42 @@
+[gd_resource type="Resource" script_class="CreatureData" format=3]
+
+[ext_resource type="Texture2D" path="res://assets/sprites/creatures/idle_2026_10_05/503_scourmaw/back_f0.png" id="1_7gfbk"]
+[ext_resource type="Script" path="res://scripts/creature_data.gd" id="1_script"]
+[ext_resource type="Texture2D" path="res://assets/sprites/creatures/idle_2026_10_05/503_scourmaw/f0.png" id="2_1atyo"]
+[ext_resource type="Texture2D" path="res://assets/sprites/creatures/idle_2026_10_05/503_scourmaw/back_f1.png" id="2_a8hmp"]
+[ext_resource type="Texture2D" path="res://assets/sprites/creatures/starter_material_detail_2026_10_05/503_scourmaw_front_material_detail.png" id="2_sprite"]
+[ext_resource type="Texture2D" path="res://assets/sprites/creatures/starter_material_detail_2026_10_05/503_scourmaw_back_material_detail.png" id="3_back"]
+[ext_resource type="Texture2D" path="res://assets/sprites/creatures/idle_2026_10_05/503_scourmaw/f1.png" id="3_nr8ku"]
+[ext_resource type="Texture2D" path="res://assets/sprites/creatures/idle_2026_10_05/503_scourmaw/back_f2.png" id="3_wrfnl"]
+[ext_resource type="Texture2D" path="res://assets/sprites/creatures/idle_2026_10_05/503_scourmaw/f2.png" id="4_2rk6r"]
+[ext_resource type="Texture2D" path="res://assets/sprites/creatures/idle_2026_10_05/503_scourmaw/back_f3.png" id="4_4e8rm"]
+[ext_resource type="Texture2D" path="res://assets/sprites/creatures/idle_2026_10_05/503_scourmaw/back_f4.png" id="5_3pdul"]
+[ext_resource type="Texture2D" path="res://assets/sprites/creatures/idle_2026_10_05/503_scourmaw/f3.png" id="5_6pxfo"]
+[ext_resource type="Texture2D" path="res://assets/sprites/creatures/idle_2026_10_05/503_scourmaw/back_f5.png" id="6_1c4m8"]
+[ext_resource type="Texture2D" path="res://assets/sprites/creatures/idle_2026_10_05/503_scourmaw/f4.png" id="6_tve35"]
+[ext_resource type="Texture2D" path="res://assets/sprites/creatures/idle_2026_10_05/503_scourmaw/f5.png" id="7_1mrke"]
+[ext_resource type="Texture2D" path="res://assets/sprites/creatures/idle_2026_10_05/503_scourmaw/back_f6.png" id="7_ddamo"]
+[ext_resource type="Texture2D" path="res://assets/sprites/creatures/idle_2026_10_05/503_scourmaw/back_f7.png" id="8_5icp0"]
+[ext_resource type="Texture2D" path="res://assets/sprites/creatures/idle_2026_10_05/503_scourmaw/f6.png" id="8_pd72t"]
+[ext_resource type="Script" path="res://scripts/move_data.gd" id="9_movescript"]
+[ext_resource type="Texture2D" path="res://assets/sprites/creatures/idle_2026_10_05/503_scourmaw/f7.png" id="9_qeyh0"]
+[ext_resource type="Resource" path="res://data/moves/scourmaw_undertow.tres" id="9_undertow"]
+
+[resource]
+script = ExtResource("1_script")
+id = 503
+creature_name = "Scourmaw"
+essence = 1
+has_second_essence = true
+second_essence = 5
+sprite = ExtResource("2_sprite")
+back_sprite = ExtResource("3_back")
+description = "Provisional entry (Claude, 2026-10-05, on Preston's request): Retro Diffusion art from docs/creatures/starter-lines-rd-2026-10-05/evolutions. Default stats and no moves (Strike) until Grok sets the kit and numbers."
+moves = Array[ExtResource("9_movescript")]([ExtResource("9_undertow")])
+body_parts = PackedStringArray("dredgejaw", "barbels", "fin", "spines", "plates")
+idle_breath = 0.014
+idle_period = 2.6
+idle_breath_widen = 0.01
+idle_frames = Array[Texture2D]([ExtResource("2_1atyo"), ExtResource("3_nr8ku"), ExtResource("4_2rk6r"), ExtResource("5_6pxfo"), ExtResource("6_tve35"), ExtResource("7_1mrke"), ExtResource("8_pd72t"), ExtResource("9_qeyh0")])
+back_idle_frames = Array[Texture2D]([ExtResource("1_7gfbk"), ExtResource("2_a8hmp"), ExtResource("3_wrfnl"), ExtResource("4_4e8rm"), ExtResource("5_3pdul"), ExtResource("6_1c4m8"), ExtResource("7_ddamo"), ExtResource("8_5icp0")])
+battle_size = 1.45

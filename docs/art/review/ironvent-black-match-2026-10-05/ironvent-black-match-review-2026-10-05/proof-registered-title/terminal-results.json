@@ -1,0 +1,23 @@
+{
+  "corrected_import": {
+    "pid": 36492,
+    "session": 15333,
+    "exit_code": 0
+  },
+  "corrected_runtime": {
+    "pid": 7432,
+    "session": 26210,
+    "exit_code": 0
+  },
+  "historical_first_import": {
+    "pid": 24680,
+    "session": 96080,
+    "exit_code": 0
+  },
+  "historical_first_runtime": {
+    "pid": 28780,
+    "session": 9485,
+    "exit_code": 0
+  },
+  "source": "Actual terminal completion records supplied directly by /root. Corrected terminal exits were confirmed before this archive was frozen; the verifier did not launch native tests or infer exits from fixture JSON/stdout."
+}

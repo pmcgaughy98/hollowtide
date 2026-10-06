@@ -1,0 +1,94 @@
+[
+  {
+    "tile": 1,
+    "id": "109_kithflare2",
+    "view": "front",
+    "source_path": "assets/sprites/creatures/kithflare_line_2026_10_05/kithflare2_front.png",
+    "source_sha256": "77bc115a98434c4b69e1345dcd4c0800de6b9508c3bf488f9c71d7d429779515",
+    "frozen_source": "109_kithflare2_front.png",
+    "source_crop": [
+      36,
+      31,
+      100,
+      95
+    ],
+    "material": "amber",
+    "atlas_origin": [
+      0,
+      0
+    ],
+    "source_to_input_scale": 2,
+    "acceptance_mask_file": "request/kithflare2-materials_tile1_acceptance.png",
+    "accepted_native_rgb_pixels": 160,
+    "alpha_pose_edge_core_other_pixels_protected": true
+  },
+  {
+    "tile": 2,
+    "id": "109_kithflare2",
+    "view": "back",
+    "source_path": "assets/sprites/creatures/kithflare_line_2026_10_05/kithflare2_back.png",
+    "source_sha256": "c4e2f08965ef9c8383d686e64342d9923c3825ed5c7494e915b423f5030bbf29",
+    "frozen_source": "109_kithflare2_back.png",
+    "source_crop": [
+      46,
+      25,
+      110,
+      89
+    ],
+    "material": "amber",
+    "atlas_origin": [
+      128,
+      0
+    ],
+    "source_to_input_scale": 2,
+    "acceptance_mask_file": "request/kithflare2-materials_tile2_acceptance.png",
+    "accepted_native_rgb_pixels": 109,
+    "alpha_pose_edge_core_other_pixels_protected": true
+  },
+  {
+    "tile": 3,
+    "id": "109_kithflare2",
+    "view": "front",
+    "source_path": "assets/sprites/creatures/kithflare_line_2026_10_05/kithflare2_front.png",
+    "source_sha256": "77bc115a98434c4b69e1345dcd4c0800de6b9508c3bf488f9c71d7d429779515",
+    "frozen_source": "109_kithflare2_front.png",
+    "source_crop": [
+      98,
+      99,
+      162,
+      163
+    ],
+    "material": "warm",
+    "atlas_origin": [
+      0,
+      128
+    ],
+    "source_to_input_scale": 2,
+    "acceptance_mask_file": "request/kithflare2-materials_tile3_acceptance.png",
+    "accepted_native_rgb_pixels": 878,
+    "alpha_pose_edge_core_other_pixels_protected": true
+  },
+  {
+    "tile": 4,
+    "id": "109_kithflare2",
+    "view": "back",
+    "source_path": "assets/sprites/creatures/kithflare_line_2026_10_05/kithflare2_back.png",
+    "source_sha256": "c4e2f08965ef9c8383d686e64342d9923c3825ed5c7494e915b423f5030bbf29",
+    "frozen_source": "109_kithflare2_back.png",
+    "source_crop": [
+      100,
+      90,
+      164,
+      154
+    ],
+    "material": "warm",
+    "atlas_origin": [
+      128,
+      128
+    ],
+    "source_to_input_scale": 2,
+    "acceptance_mask_file": "request/kithflare2-materials_tile4_acceptance.png",
+    "accepted_native_rgb_pixels": 1134,
+    "alpha_pose_edge_core_other_pixels_protected": true
+  }
+]

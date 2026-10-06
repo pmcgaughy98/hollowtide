@@ -1,0 +1,21 @@
+{
+  "tool_id": "image_edit",
+  "inference_id": "inf_1KVDLl8e423ZYq34NjRQ60oa5pAgPj7N",
+  "balance_cost": 0.18,
+  "credit_cost": 20,
+  "charged": true,
+  "remaining_balance": 0.9600000000000026,
+  "remaining_credits": null,
+  "file": "ledger_house-rd.png",
+  "sha256": "c8b0144205fed192ee2f6a927167df2db49a99ad4f4614abef8bf2c8d89e432b",
+  "size": [
+    176,
+    192
+  ],
+  "bounds": [
+    14,
+    9,
+    162,
+    180
+  ]
+}

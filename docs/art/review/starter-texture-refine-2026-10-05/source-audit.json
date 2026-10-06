@@ -1,0 +1,2402 @@
+{
+  "date": "2026-10-05",
+  "status": "read-only active starter audit, no generated edits or project changes",
+  "requested_essences": {
+    "kithflare": [
+      "Ember",
+      "Electric"
+    ],
+    "tallowroot": [
+      "Bloom",
+      "Stone"
+    ],
+    "rimefin": [
+      "Hollow",
+      "Tide"
+    ]
+  },
+  "lines": {
+    "kithflare": [
+      {
+        "resource": "data/creatures/103_kithflare.tres",
+        "resource_sha256": "e76192254b07db7c76a85c4b2e9867faa380d9fa7825c5ac1df43ac726cf77d7",
+        "name": "\"Kithflare\"",
+        "essence": 0,
+        "has_second_essence": "true",
+        "second_essence": 6,
+        "battle_size": 1.21,
+        "evolves_into": "ExtResource(\"9_evolution\")",
+        "views": {
+          "front": {
+            "project_path": "assets/sprites/creatures/kithflare_tail_polish_2026_10_03/kithflare_front.png",
+            "input_filename": "103_kithflare_front.png",
+            "sha256": "9b694edbaa7726caa2d040a93e125f4ae0508837507b1066cb3e2454a1523243",
+            "canvas": [
+              160,
+              160
+            ],
+            "bbox": [
+              25,
+              21,
+              131,
+              140
+            ],
+            "clear_margins": [
+              25,
+              21,
+              29,
+              20
+            ],
+            "visible_pixels": 6797,
+            "opaque_pixels": 6797,
+            "semi_transparent_pixels": 0,
+            "visible_rgb_colors": 52,
+            "visible_exact_magenta_pixels": 0,
+            "visible_near_white_pixels": 9,
+            "bright_edge_pixels": 0,
+            "top_colors": [
+              {
+                "rgb": [
+                  211,
+                  161,
+                  96
+                ],
+                "pixels": 1675
+              },
+              {
+                "rgb": [
+                  178,
+                  146,
+                  102
+                ],
+                "pixels": 812
+              },
+              {
+                "rgb": [
+                  163,
+                  104,
+                  66
+                ],
+                "pixels": 516
+              },
+              {
+                "rgb": [
+                  157,
+                  95,
+                  52
+                ],
+                "pixels": 450
+              },
+              {
+                "rgb": [
+                  234,
+                  222,
+                  172
+                ],
+                "pixels": 333
+              },
+              {
+                "rgb": [
+                  7,
+                  1,
+                  0
+                ],
+                "pixels": 322
+              },
+              {
+                "rgb": [
+                  11,
+                  4,
+                  2
+                ],
+                "pixels": 261
+              },
+              {
+                "rgb": [
+                  155,
+                  103,
+                  69
+                ],
+                "pixels": 219
+              },
+              {
+                "rgb": [
+                  3,
+                  0,
+                  0
+                ],
+                "pixels": 141
+              },
+              {
+                "rgb": [
+                  243,
+                  177,
+                  86
+                ],
+                "pixels": 121
+              },
+              {
+                "rgb": [
+                  155,
+                  80,
+                  44
+                ],
+                "pixels": 104
+              },
+              {
+                "rgb": [
+                  226,
+                  165,
+                  92
+                ],
+                "pixels": 87
+              }
+            ]
+          },
+          "back": {
+            "project_path": "assets/sprites/creatures/kithflare_tail_polish_2026_10_03/kithflare_back.png",
+            "input_filename": "103_kithflare_back.png",
+            "sha256": "0118a9e94c080dc37c27e1770385e2bdb2d055e20950d81f2792e32e0ade14e1",
+            "canvas": [
+              160,
+              160
+            ],
+            "bbox": [
+              29,
+              19,
+              130,
+              135
+            ],
+            "clear_margins": [
+              29,
+              19,
+              30,
+              25
+            ],
+            "visible_pixels": 6404,
+            "opaque_pixels": 6404,
+            "semi_transparent_pixels": 0,
+            "visible_rgb_colors": 36,
+            "visible_exact_magenta_pixels": 0,
+            "visible_near_white_pixels": 0,
+            "bright_edge_pixels": 0,
+            "top_colors": [
+              {
+                "rgb": [
+                  211,
+                  161,
+                  96
+                ],
+                "pixels": 1322
+              },
+              {
+                "rgb": [
+                  163,
+                  104,
+                  66
+                ],
+                "pixels": 656
+              },
+              {
+                "rgb": [
+                  169,
+                  116,
+                  72
+                ],
+                "pixels": 485
+              },
+              {
+                "rgb": [
+                  157,
+                  95,
+                  52
+                ],
+                "pixels": 454
+              },
+              {
+                "rgb": [
+                  243,
+                  177,
+                  86
+                ],
+                "pixels": 331
+              },
+              {
+                "rgb": [
+                  191,
+                  161,
+                  95
+                ],
+                "pixels": 285
+              },
+              {
+                "rgb": [
+                  3,
+                  0,
+                  0
+                ],
+                "pixels": 278
+              },
+              {
+                "rgb": [
+                  178,
+                  146,
+                  102
+                ],
+                "pixels": 231
+              },
+              {
+                "rgb": [
+                  11,
+                  4,
+                  2
+                ],
+                "pixels": 218
+              },
+              {
+                "rgb": [
+                  0,
+                  0,
+                  0
+                ],
+                "pixels": 182
+              },
+              {
+                "rgb": [
+                  152,
+                  114,
+                  80
+                ],
+                "pixels": 158
+              },
+              {
+                "rgb": [
+                  198,
+                  149,
+                  95
+                ],
+                "pixels": 147
+              }
+            ]
+          }
+        }
+      },
+      {
+        "resource": "data/creatures/109_kithflare2.tres",
+        "resource_sha256": "400813c2cf8b7b8c694d75778d98a27a976924ab69218bc731a5bfac994b4512",
+        "name": "\"Kithflare II\"",
+        "essence": 0,
+        "has_second_essence": "true",
+        "second_essence": 6,
+        "battle_size": 1.7,
+        "evolves_into": "ExtResource(\"4_evolution\")",
+        "views": {
+          "front": {
+            "project_path": "assets/sprites/creatures/kithflare_line_2026_10_05/kithflare2_front.png",
+            "input_filename": "109_kithflare2_front.png",
+            "sha256": "77bc115a98434c4b69e1345dcd4c0800de6b9508c3bf488f9c71d7d429779515",
+            "canvas": [
+              224,
+              224
+            ],
+            "bbox": [
+              25,
+              38,
+              197,
+              187
+            ],
+            "clear_margins": [
+              25,
+              38,
+              27,
+              37
+            ],
+            "visible_pixels": 10810,
+            "opaque_pixels": 10810,
+            "semi_transparent_pixels": 0,
+            "visible_rgb_colors": 38,
+            "visible_exact_magenta_pixels": 0,
+            "visible_near_white_pixels": 4,
+            "bright_edge_pixels": 3,
+            "top_colors": [
+              {
+                "rgb": [
+                  207,
+                  157,
+                  92
+                ],
+                "pixels": 2814
+              },
+              {
+                "rgb": [
+                  157,
+                  98,
+                  57
+                ],
+                "pixels": 2012
+              },
+              {
+                "rgb": [
+                  175,
+                  141,
+                  96
+                ],
+                "pixels": 865
+              },
+              {
+                "rgb": [
+                  8,
+                  2,
+                  1
+                ],
+                "pixels": 702
+              },
+              {
+                "rgb": [
+                  230,
+                  216,
+                  165
+                ],
+                "pixels": 588
+              },
+              {
+                "rgb": [
+                  161,
+                  112,
+                  71
+                ],
+                "pixels": 401
+              },
+              {
+                "rgb": [
+                  110,
+                  67,
+                  44
+                ],
+                "pixels": 392
+              },
+              {
+                "rgb": [
+                  124,
+                  81,
+                  51
+                ],
+                "pixels": 331
+              },
+              {
+                "rgb": [
+                  18,
+                  8,
+                  5
+                ],
+                "pixels": 323
+              },
+              {
+                "rgb": [
+                  4,
+                  0,
+                  0
+                ],
+                "pixels": 280
+              },
+              {
+                "rgb": [
+                  239,
+                  165,
+                  66
+                ],
+                "pixels": 278
+              },
+              {
+                "rgb": [
+                  122,
+                  94,
+                  73
+                ],
+                "pixels": 149
+              }
+            ]
+          },
+          "back": {
+            "project_path": "assets/sprites/creatures/kithflare_line_2026_10_05/kithflare2_back.png",
+            "input_filename": "109_kithflare2_back.png",
+            "sha256": "c4e2f08965ef9c8383d686e64342d9923c3825ed5c7494e915b423f5030bbf29",
+            "canvas": [
+              224,
+              224
+            ],
+            "bbox": [
+              47,
+              35,
+              188,
+              190
+            ],
+            "clear_margins": [
+              47,
+              35,
+              36,
+              34
+            ],
+            "visible_pixels": 9901,
+            "opaque_pixels": 9901,
+            "semi_transparent_pixels": 0,
+            "visible_rgb_colors": 28,
+            "visible_exact_magenta_pixels": 0,
+            "visible_near_white_pixels": 29,
+            "bright_edge_pixels": 4,
+            "top_colors": [
+              {
+                "rgb": [
+                  206,
+                  157,
+                  92
+                ],
+                "pixels": 2717
+              },
+              {
+                "rgb": [
+                  156,
+                  98,
+                  57
+                ],
+                "pixels": 1727
+              },
+              {
+                "rgb": [
+                  17,
+                  8,
+                  5
+                ],
+                "pixels": 740
+              },
+              {
+                "rgb": [
+                  174,
+                  141,
+                  96
+                ],
+                "pixels": 553
+              },
+              {
+                "rgb": [
+                  160,
+                  112,
+                  71
+                ],
+                "pixels": 526
+              },
+              {
+                "rgb": [
+                  185,
+                  129,
+                  64
+                ],
+                "pixels": 424
+              },
+              {
+                "rgb": [
+                  3,
+                  0,
+                  0
+                ],
+                "pixels": 406
+              },
+              {
+                "rgb": [
+                  123,
+                  81,
+                  51
+                ],
+                "pixels": 285
+              },
+              {
+                "rgb": [
+                  230,
+                  216,
+                  165
+                ],
+                "pixels": 280
+              },
+              {
+                "rgb": [
+                  238,
+                  165,
+                  66
+                ],
+                "pixels": 260
+              },
+              {
+                "rgb": [
+                  56,
+                  37,
+                  13
+                ],
+                "pixels": 208
+              },
+              {
+                "rgb": [
+                  251,
+                  205,
+                  98
+                ],
+                "pixels": 207
+              }
+            ]
+          }
+        }
+      },
+      {
+        "resource": "data/creatures/110_kithflare3.tres",
+        "resource_sha256": "8fb6f7d4c97bf3e744d96837fa6dfcce0cdd6d90bb9b57438e78cbb86027e907",
+        "name": "\"Kithflare III\"",
+        "essence": 0,
+        "has_second_essence": "true",
+        "second_essence": 6,
+        "battle_size": 1.6600000000000001,
+        "evolves_into": "none",
+        "views": {
+          "front": {
+            "project_path": "assets/sprites/creatures/kithflare_line_2026_10_05/kithflare3_front.png",
+            "input_filename": "110_kithflare3_front.png",
+            "sha256": "671ee2098bf1256adb239e354bd483a91a65f8590c9aa00806b6f3e3a35d4b7f",
+            "canvas": [
+              219,
+              219
+            ],
+            "bbox": [
+              25,
+              29,
+              189,
+              199
+            ],
+            "clear_margins": [
+              25,
+              29,
+              30,
+              20
+            ],
+            "visible_pixels": 11435,
+            "opaque_pixels": 11435,
+            "semi_transparent_pixels": 0,
+            "visible_rgb_colors": 198,
+            "visible_exact_magenta_pixels": 0,
+            "visible_near_white_pixels": 72,
+            "bright_edge_pixels": 0,
+            "top_colors": [
+              {
+                "rgb": [
+                  73,
+                  41,
+                  35
+                ],
+                "pixels": 850
+              },
+              {
+                "rgb": [
+                  61,
+                  34,
+                  38
+                ],
+                "pixels": 707
+              },
+              {
+                "rgb": [
+                  101,
+                  51,
+                  37
+                ],
+                "pixels": 636
+              },
+              {
+                "rgb": [
+                  217,
+                  121,
+                  53
+                ],
+                "pixels": 589
+              },
+              {
+                "rgb": [
+                  176,
+                  87,
+                  46
+                ],
+                "pixels": 539
+              },
+              {
+                "rgb": [
+                  8,
+                  1,
+                  1
+                ],
+                "pixels": 514
+              },
+              {
+                "rgb": [
+                  127,
+                  64,
+                  43
+                ],
+                "pixels": 477
+              },
+              {
+                "rgb": [
+                  234,
+                  220,
+                  168
+                ],
+                "pixels": 422
+              },
+              {
+                "rgb": [
+                  161,
+                  76,
+                  39
+                ],
+                "pixels": 356
+              },
+              {
+                "rgb": [
+                  92,
+                  47,
+                  36
+                ],
+                "pixels": 346
+              },
+              {
+                "rgb": [
+                  148,
+                  75,
+                  46
+                ],
+                "pixels": 297
+              },
+              {
+                "rgb": [
+                  244,
+                  143,
+                  44
+                ],
+                "pixels": 267
+              }
+            ]
+          },
+          "back": {
+            "project_path": "assets/sprites/creatures/kithflare_line_2026_10_05/kithflare3_back.png",
+            "input_filename": "110_kithflare3_back.png",
+            "sha256": "15373b6db15b2852c1f58309d7eac6072b9685cb876aa8c322e153623df79a1d",
+            "canvas": [
+              219,
+              219
+            ],
+            "bbox": [
+              40,
+              20,
+              185,
+              202
+            ],
+            "clear_margins": [
+              40,
+              20,
+              34,
+              17
+            ],
+            "visible_pixels": 10985,
+            "opaque_pixels": 10985,
+            "semi_transparent_pixels": 0,
+            "visible_rgb_colors": 146,
+            "visible_exact_magenta_pixels": 0,
+            "visible_near_white_pixels": 252,
+            "bright_edge_pixels": 212,
+            "top_colors": [
+              {
+                "rgb": [
+                  72,
+                  41,
+                  35
+                ],
+                "pixels": 1081
+              },
+              {
+                "rgb": [
+                  175,
+                  87,
+                  45
+                ],
+                "pixels": 683
+              },
+              {
+                "rgb": [
+                  6,
+                  1,
+                  1
+                ],
+                "pixels": 577
+              },
+              {
+                "rgb": [
+                  61,
+                  34,
+                  38
+                ],
+                "pixels": 553
+              },
+              {
+                "rgb": [
+                  100,
+                  51,
+                  37
+                ],
+                "pixels": 528
+              },
+              {
+                "rgb": [
+                  126,
+                  64,
+                  43
+                ],
+                "pixels": 516
+              },
+              {
+                "rgb": [
+                  12,
+                  11,
+                  12
+                ],
+                "pixels": 504
+              },
+              {
+                "rgb": [
+                  227,
+                  135,
+                  43
+                ],
+                "pixels": 448
+              },
+              {
+                "rgb": [
+                  198,
+                  105,
+                  48
+                ],
+                "pixels": 446
+              },
+              {
+                "rgb": [
+                  216,
+                  121,
+                  53
+                ],
+                "pixels": 413
+              },
+              {
+                "rgb": [
+                  160,
+                  76,
+                  39
+                ],
+                "pixels": 375
+              },
+              {
+                "rgb": [
+                  142,
+                  105,
+                  69
+                ],
+                "pixels": 347
+              }
+            ]
+          }
+        }
+      }
+    ],
+    "tallowroot": [
+      {
+        "resource": "data/creatures/1701_tallowroot.tres",
+        "resource_sha256": "ea044c31c5c6fe73fe9a36edda148aabd92bf290848ed48b9b6476f5e09c7fad",
+        "name": "\"Tallowroot\"",
+        "essence": 4,
+        "has_second_essence": "true",
+        "second_essence": 2,
+        "battle_size": 1.1,
+        "evolves_into": "ExtResource(\"4_evolution\")",
+        "views": {
+          "front": {
+            "project_path": "assets/sprites/creatures/tallowroot_2026_10_05/tallowroot_front.png",
+            "input_filename": "1701_tallowroot_front.png",
+            "sha256": "725e9250b018d6001eb915b3f278ed14028a42777ec457e29ee569b606f3bf87",
+            "canvas": [
+              192,
+              192
+            ],
+            "bbox": [
+              24,
+              21,
+              162,
+              174
+            ],
+            "clear_margins": [
+              24,
+              21,
+              30,
+              18
+            ],
+            "visible_pixels": 13546,
+            "opaque_pixels": 13546,
+            "semi_transparent_pixels": 0,
+            "visible_rgb_colors": 50,
+            "visible_exact_magenta_pixels": 0,
+            "visible_near_white_pixels": 3,
+            "bright_edge_pixels": 0,
+            "top_colors": [
+              {
+                "rgb": [
+                  105,
+                  133,
+                  75
+                ],
+                "pixels": 3359
+              },
+              {
+                "rgb": [
+                  72,
+                  98,
+                  59
+                ],
+                "pixels": 3156
+              },
+              {
+                "rgb": [
+                  135,
+                  169,
+                  93
+                ],
+                "pixels": 1440
+              },
+              {
+                "rgb": [
+                  50,
+                  68,
+                  49
+                ],
+                "pixels": 931
+              },
+              {
+                "rgb": [
+                  156,
+                  141,
+                  77
+                ],
+                "pixels": 395
+              },
+              {
+                "rgb": [
+                  239,
+                  231,
+                  168
+                ],
+                "pixels": 339
+              },
+              {
+                "rgb": [
+                  0,
+                  2,
+                  0
+                ],
+                "pixels": 290
+              },
+              {
+                "rgb": [
+                  0,
+                  5,
+                  0
+                ],
+                "pixels": 214
+              },
+              {
+                "rgb": [
+                  3,
+                  2,
+                  0
+                ],
+                "pixels": 204
+              },
+              {
+                "rgb": [
+                  84,
+                  60,
+                  38
+                ],
+                "pixels": 202
+              },
+              {
+                "rgb": [
+                  8,
+                  7,
+                  1
+                ],
+                "pixels": 176
+              },
+              {
+                "rgb": [
+                  196,
+                  177,
+                  120
+                ],
+                "pixels": 168
+              }
+            ]
+          },
+          "back": {
+            "project_path": "assets/sprites/creatures/tallowroot_2026_10_05/tallowroot_back.png",
+            "input_filename": "1701_tallowroot_back.png",
+            "sha256": "93d68d182ea7f350476c9a783ea71a56a5d200ecd1a99b64f65fe4834f5b0373",
+            "canvas": [
+              192,
+              192
+            ],
+            "bbox": [
+              40,
+              19,
+              160,
+              174
+            ],
+            "clear_margins": [
+              40,
+              19,
+              32,
+              18
+            ],
+            "visible_pixels": 12365,
+            "opaque_pixels": 12365,
+            "semi_transparent_pixels": 0,
+            "visible_rgb_colors": 27,
+            "visible_exact_magenta_pixels": 0,
+            "visible_near_white_pixels": 0,
+            "bright_edge_pixels": 0,
+            "top_colors": [
+              {
+                "rgb": [
+                  105,
+                  133,
+                  75
+                ],
+                "pixels": 4259
+              },
+              {
+                "rgb": [
+                  135,
+                  169,
+                  93
+                ],
+                "pixels": 1548
+              },
+              {
+                "rgb": [
+                  72,
+                  98,
+                  59
+                ],
+                "pixels": 1264
+              },
+              {
+                "rgb": [
+                  155,
+                  141,
+                  77
+                ],
+                "pixels": 615
+              },
+              {
+                "rgb": [
+                  0,
+                  0,
+                  0
+                ],
+                "pixels": 592
+              },
+              {
+                "rgb": [
+                  50,
+                  68,
+                  49
+                ],
+                "pixels": 586
+              },
+              {
+                "rgb": [
+                  9,
+                  10,
+                  6
+                ],
+                "pixels": 438
+              },
+              {
+                "rgb": [
+                  0,
+                  5,
+                  0
+                ],
+                "pixels": 326
+              },
+              {
+                "rgb": [
+                  95,
+                  121,
+                  72
+                ],
+                "pixels": 286
+              },
+              {
+                "rgb": [
+                  128,
+                  112,
+                  61
+                ],
+                "pixels": 263
+              },
+              {
+                "rgb": [
+                  67,
+                  90,
+                  55
+                ],
+                "pixels": 244
+              },
+              {
+                "rgb": [
+                  122,
+                  105,
+                  57
+                ],
+                "pixels": 236
+              }
+            ]
+          }
+        }
+      },
+      {
+        "resource": "data/creatures/1702_tallowroot2.tres",
+        "resource_sha256": "86ed306110304ff11a65bb64b8fa850eee440b197f6661e7d5f5656a14c87f96",
+        "name": "\"Tallowroot II\"",
+        "essence": 4,
+        "has_second_essence": "true",
+        "second_essence": 2,
+        "battle_size": 1.3,
+        "evolves_into": "ExtResource(\"4_evolution\")",
+        "views": {
+          "front": {
+            "project_path": "assets/sprites/creatures/tallowroot_2026_10_05/tallowroot2_front.png",
+            "input_filename": "1702_tallowroot2_front.png",
+            "sha256": "3382ac9a8280871614ca992d2b28f2767f2b303380f5f905fd2a5904a73a46fc",
+            "canvas": [
+              224,
+              224
+            ],
+            "bbox": [
+              22,
+              21,
+              202,
+              204
+            ],
+            "clear_margins": [
+              22,
+              21,
+              22,
+              20
+            ],
+            "visible_pixels": 17769,
+            "opaque_pixels": 17769,
+            "semi_transparent_pixels": 0,
+            "visible_rgb_colors": 80,
+            "visible_exact_magenta_pixels": 0,
+            "visible_near_white_pixels": 0,
+            "bright_edge_pixels": 0,
+            "top_colors": [
+              {
+                "rgb": [
+                  102,
+                  127,
+                  71
+                ],
+                "pixels": 2600
+              },
+              {
+                "rgb": [
+                  71,
+                  95,
+                  59
+                ],
+                "pixels": 1449
+              },
+              {
+                "rgb": [
+                  127,
+                  161,
+                  83
+                ],
+                "pixels": 1419
+              },
+              {
+                "rgb": [
+                  100,
+                  141,
+                  62
+                ],
+                "pixels": 848
+              },
+              {
+                "rgb": [
+                  52,
+                  68,
+                  51
+                ],
+                "pixels": 674
+              },
+              {
+                "rgb": [
+                  146,
+                  117,
+                  74
+                ],
+                "pixels": 647
+              },
+              {
+                "rgb": [
+                  59,
+                  80,
+                  52
+                ],
+                "pixels": 617
+              },
+              {
+                "rgb": [
+                  76,
+                  110,
+                  52
+                ],
+                "pixels": 518
+              },
+              {
+                "rgb": [
+                  131,
+                  111,
+                  64
+                ],
+                "pixels": 513
+              },
+              {
+                "rgb": [
+                  85,
+                  64,
+                  41
+                ],
+                "pixels": 493
+              },
+              {
+                "rgb": [
+                  145,
+                  117,
+                  74
+                ],
+                "pixels": 490
+              },
+              {
+                "rgb": [
+                  109,
+                  85,
+                  54
+                ],
+                "pixels": 469
+              }
+            ]
+          },
+          "back": {
+            "project_path": "assets/sprites/creatures/tallowroot_2026_10_05/tallowroot2_back.png",
+            "input_filename": "1702_tallowroot2_back.png",
+            "sha256": "3dd1fd9a14ca54544bcf6c188925acf4a94d86873a6f3bbcfbf7d2f80f73b388",
+            "canvas": [
+              224,
+              224
+            ],
+            "bbox": [
+              29,
+              24,
+              190,
+              206
+            ],
+            "clear_margins": [
+              29,
+              24,
+              34,
+              18
+            ],
+            "visible_pixels": 15322,
+            "opaque_pixels": 15322,
+            "semi_transparent_pixels": 0,
+            "visible_rgb_colors": 38,
+            "visible_exact_magenta_pixels": 0,
+            "visible_near_white_pixels": 0,
+            "bright_edge_pixels": 0,
+            "top_colors": [
+              {
+                "rgb": [
+                  101,
+                  126,
+                  70
+                ],
+                "pixels": 2216
+              },
+              {
+                "rgb": [
+                  127,
+                  161,
+                  83
+                ],
+                "pixels": 1455
+              },
+              {
+                "rgb": [
+                  52,
+                  68,
+                  50
+                ],
+                "pixels": 1208
+              },
+              {
+                "rgb": [
+                  69,
+                  93,
+                  58
+                ],
+                "pixels": 959
+              },
+              {
+                "rgb": [
+                  128,
+                  107,
+                  64
+                ],
+                "pixels": 749
+              },
+              {
+                "rgb": [
+                  95,
+                  73,
+                  45
+                ],
+                "pixels": 746
+              },
+              {
+                "rgb": [
+                  164,
+                  146,
+                  77
+                ],
+                "pixels": 599
+              },
+              {
+                "rgb": [
+                  59,
+                  80,
+                  52
+                ],
+                "pixels": 548
+              },
+              {
+                "rgb": [
+                  66,
+                  88,
+                  56
+                ],
+                "pixels": 543
+              },
+              {
+                "rgb": [
+                  0,
+                  0,
+                  0
+                ],
+                "pixels": 505
+              },
+              {
+                "rgb": [
+                  116,
+                  148,
+                  79
+                ],
+                "pixels": 503
+              },
+              {
+                "rgb": [
+                  108,
+                  83,
+                  53
+                ],
+                "pixels": 463
+              }
+            ]
+          }
+        }
+      },
+      {
+        "resource": "data/creatures/1703_tallowroot3.tres",
+        "resource_sha256": "7cdf752a740cf703cc21b58d9bcf8ec6a25c49c6cfd71ddba395f7c0eba9dc7e",
+        "name": "\"Tallowroot III\"",
+        "essence": 4,
+        "has_second_essence": "true",
+        "second_essence": 2,
+        "battle_size": 1.45,
+        "evolves_into": "none",
+        "views": {
+          "front": {
+            "project_path": "assets/sprites/creatures/tallowroot_2026_10_05/tallowroot3_front.png",
+            "input_filename": "1703_tallowroot3_front.png",
+            "sha256": "bac9846dbafad87c6988860de71c871a80ee7d9cc9218374b16f144d4459c5c6",
+            "canvas": [
+              256,
+              256
+            ],
+            "bbox": [
+              18,
+              21,
+              237,
+              236
+            ],
+            "clear_margins": [
+              18,
+              21,
+              19,
+              20
+            ],
+            "visible_pixels": 27695,
+            "opaque_pixels": 27695,
+            "semi_transparent_pixels": 0,
+            "visible_rgb_colors": 39,
+            "visible_exact_magenta_pixels": 0,
+            "visible_near_white_pixels": 7,
+            "bright_edge_pixels": 4,
+            "top_colors": [
+              {
+                "rgb": [
+                  128,
+                  100,
+                  60
+                ],
+                "pixels": 4214
+              },
+              {
+                "rgb": [
+                  100,
+                  74,
+                  49
+                ],
+                "pixels": 2480
+              },
+              {
+                "rgb": [
+                  62,
+                  85,
+                  48
+                ],
+                "pixels": 2295
+              },
+              {
+                "rgb": [
+                  9,
+                  8,
+                  2
+                ],
+                "pixels": 2198
+              },
+              {
+                "rgb": [
+                  90,
+                  110,
+                  60
+                ],
+                "pixels": 2007
+              },
+              {
+                "rgb": [
+                  74,
+                  55,
+                  36
+                ],
+                "pixels": 1454
+              },
+              {
+                "rgb": [
+                  83,
+                  62,
+                  41
+                ],
+                "pixels": 1444
+              },
+              {
+                "rgb": [
+                  46,
+                  61,
+                  43
+                ],
+                "pixels": 1393
+              },
+              {
+                "rgb": [
+                  116,
+                  144,
+                  72
+                ],
+                "pixels": 1246
+              },
+              {
+                "rgb": [
+                  90,
+                  121,
+                  54
+                ],
+                "pixels": 1076
+              },
+              {
+                "rgb": [
+                  55,
+                  73,
+                  46
+                ],
+                "pixels": 888
+              },
+              {
+                "rgb": [
+                  5,
+                  3,
+                  1
+                ],
+                "pixels": 744
+              }
+            ]
+          },
+          "back": {
+            "project_path": "assets/sprites/creatures/tallowroot_2026_10_05/tallowroot3_back.png",
+            "input_filename": "1703_tallowroot3_back.png",
+            "sha256": "639967d316497be5a39fa8f27941534f22f80fd3398e12e8505a3f3e67858f55",
+            "canvas": [
+              256,
+              256
+            ],
+            "bbox": [
+              38,
+              22,
+              210,
+              236
+            ],
+            "clear_margins": [
+              38,
+              22,
+              46,
+              20
+            ],
+            "visible_pixels": 24012,
+            "opaque_pixels": 24012,
+            "semi_transparent_pixels": 0,
+            "visible_rgb_colors": 31,
+            "visible_exact_magenta_pixels": 0,
+            "visible_near_white_pixels": 0,
+            "bright_edge_pixels": 0,
+            "top_colors": [
+              {
+                "rgb": [
+                  127,
+                  100,
+                  60
+                ],
+                "pixels": 2431
+              },
+              {
+                "rgb": [
+                  99,
+                  74,
+                  49
+                ],
+                "pixels": 2232
+              },
+              {
+                "rgb": [
+                  8,
+                  8,
+                  2
+                ],
+                "pixels": 1988
+              },
+              {
+                "rgb": [
+                  46,
+                  61,
+                  43
+                ],
+                "pixels": 1739
+              },
+              {
+                "rgb": [
+                  90,
+                  110,
+                  60
+                ],
+                "pixels": 1500
+              },
+              {
+                "rgb": [
+                  62,
+                  85,
+                  48
+                ],
+                "pixels": 1437
+              },
+              {
+                "rgb": [
+                  90,
+                  121,
+                  54
+                ],
+                "pixels": 1313
+              },
+              {
+                "rgb": [
+                  82,
+                  62,
+                  41
+                ],
+                "pixels": 1118
+              },
+              {
+                "rgb": [
+                  116,
+                  144,
+                  72
+                ],
+                "pixels": 1066
+              },
+              {
+                "rgb": [
+                  176,
+                  134,
+                  60
+                ],
+                "pixels": 962
+              },
+              {
+                "rgb": [
+                  73,
+                  55,
+                  36
+                ],
+                "pixels": 910
+              },
+              {
+                "rgb": [
+                  55,
+                  73,
+                  46
+                ],
+                "pixels": 807
+              }
+            ]
+          }
+        }
+      }
+    ],
+    "rimefin": [
+      {
+        "resource": "data/creatures/001_rimefin.tres",
+        "resource_sha256": "b6be665e24a687da36e239741ee379f04a89ebb4d5a6e46923566b36afdb7856",
+        "name": "\"Rimefin\"",
+        "essence": 1,
+        "has_second_essence": "true",
+        "second_essence": 5,
+        "battle_size": 1.1,
+        "evolves_into": "ExtResource(\"evo\")",
+        "views": {
+          "front": {
+            "project_path": "assets/sprites/creatures/rimefin_catfish_2026_10_05/rimefin_front.png",
+            "input_filename": "001_rimefin_front.png",
+            "sha256": "383e5313d18d5a8cb9cffea7f622cdf82c9549af7952d041d78c97bd63a13786",
+            "canvas": [
+              192,
+              192
+            ],
+            "bbox": [
+              20,
+              22,
+              172,
+              167
+            ],
+            "clear_margins": [
+              20,
+              22,
+              20,
+              25
+            ],
+            "visible_pixels": 10557,
+            "opaque_pixels": 10557,
+            "semi_transparent_pixels": 0,
+            "visible_rgb_colors": 42,
+            "visible_exact_magenta_pixels": 0,
+            "visible_near_white_pixels": 8,
+            "bright_edge_pixels": 0,
+            "top_colors": [
+              {
+                "rgb": [
+                  66,
+                  136,
+                  195
+                ],
+                "pixels": 1377
+              },
+              {
+                "rgb": [
+                  45,
+                  96,
+                  145
+                ],
+                "pixels": 1094
+              },
+              {
+                "rgb": [
+                  0,
+                  6,
+                  15
+                ],
+                "pixels": 758
+              },
+              {
+                "rgb": [
+                  142,
+                  155,
+                  158
+                ],
+                "pixels": 666
+              },
+              {
+                "rgb": [
+                  130,
+                  164,
+                  195
+                ],
+                "pixels": 538
+              },
+              {
+                "rgb": [
+                  39,
+                  61,
+                  85
+                ],
+                "pixels": 537
+              },
+              {
+                "rgb": [
+                  158,
+                  230,
+                  232
+                ],
+                "pixels": 362
+              },
+              {
+                "rgb": [
+                  175,
+                  242,
+                  241
+                ],
+                "pixels": 360
+              },
+              {
+                "rgb": [
+                  0,
+                  1,
+                  3
+                ],
+                "pixels": 341
+              },
+              {
+                "rgb": [
+                  67,
+                  119,
+                  144
+                ],
+                "pixels": 291
+              },
+              {
+                "rgb": [
+                  31,
+                  48,
+                  71
+                ],
+                "pixels": 291
+              },
+              {
+                "rgb": [
+                  69,
+                  129,
+                  172
+                ],
+                "pixels": 282
+              }
+            ]
+          },
+          "back": {
+            "project_path": "assets/sprites/creatures/rimefin_catfish_2026_10_05/rimefin_back.png",
+            "input_filename": "001_rimefin_back.png",
+            "sha256": "e432ee21a2f310486efc0e0986ede678b20923c3b32bd094ae65e151846f1b0c",
+            "canvas": [
+              192,
+              192
+            ],
+            "bbox": [
+              27,
+              31,
+              173,
+              152
+            ],
+            "clear_margins": [
+              27,
+              31,
+              19,
+              40
+            ],
+            "visible_pixels": 9126,
+            "opaque_pixels": 9126,
+            "semi_transparent_pixels": 0,
+            "visible_rgb_colors": 33,
+            "visible_exact_magenta_pixels": 0,
+            "visible_near_white_pixels": 0,
+            "bright_edge_pixels": 0,
+            "top_colors": [
+              {
+                "rgb": [
+                  66,
+                  136,
+                  195
+                ],
+                "pixels": 2370
+              },
+              {
+                "rgb": [
+                  45,
+                  96,
+                  145
+                ],
+                "pixels": 1099
+              },
+              {
+                "rgb": [
+                  0,
+                  6,
+                  15
+                ],
+                "pixels": 656
+              },
+              {
+                "rgb": [
+                  38,
+                  87,
+                  125
+                ],
+                "pixels": 409
+              },
+              {
+                "rgb": [
+                  39,
+                  61,
+                  85
+                ],
+                "pixels": 387
+              },
+              {
+                "rgb": [
+                  130,
+                  164,
+                  195
+                ],
+                "pixels": 379
+              },
+              {
+                "rgb": [
+                  158,
+                  230,
+                  232
+                ],
+                "pixels": 328
+              },
+              {
+                "rgb": [
+                  2,
+                  19,
+                  31
+                ],
+                "pixels": 279
+              },
+              {
+                "rgb": [
+                  31,
+                  48,
+                  71
+                ],
+                "pixels": 274
+              },
+              {
+                "rgb": [
+                  126,
+                  221,
+                  222
+                ],
+                "pixels": 272
+              },
+              {
+                "rgb": [
+                  183,
+                  218,
+                  224
+                ],
+                "pixels": 261
+              },
+              {
+                "rgb": [
+                  142,
+                  155,
+                  158
+                ],
+                "pixels": 196
+              }
+            ]
+          }
+        }
+      },
+      {
+        "resource": "data/creatures/502_riftfin.tres",
+        "resource_sha256": "c4dc6f38650efa757e0fcb2fdfcce64b40a500eb97bece0dd95c16fbacbecb3c",
+        "name": "\"Riftfin\"",
+        "essence": 1,
+        "has_second_essence": "true",
+        "second_essence": 5,
+        "battle_size": 1.3,
+        "evolves_into": "ExtResource(\"4_evolution\")",
+        "views": {
+          "front": {
+            "project_path": "assets/sprites/creatures/rimefin_catfish_2026_10_05/riftfin_front.png",
+            "input_filename": "502_riftfin_front.png",
+            "sha256": "c03bfba41585b5979b1ecc3410e552f521c08a45006655505b51061d850c276a",
+            "canvas": [
+              224,
+              224
+            ],
+            "bbox": [
+              20,
+              34,
+              204,
+              204
+            ],
+            "clear_margins": [
+              20,
+              34,
+              20,
+              20
+            ],
+            "visible_pixels": 17946,
+            "opaque_pixels": 17946,
+            "semi_transparent_pixels": 0,
+            "visible_rgb_colors": 51,
+            "visible_exact_magenta_pixels": 0,
+            "visible_near_white_pixels": 3,
+            "bright_edge_pixels": 0,
+            "top_colors": [
+              {
+                "rgb": [
+                  0,
+                  3,
+                  9
+                ],
+                "pixels": 2081
+              },
+              {
+                "rgb": [
+                  43,
+                  82,
+                  109
+                ],
+                "pixels": 2039
+              },
+              {
+                "rgb": [
+                  22,
+                  39,
+                  62
+                ],
+                "pixels": 1565
+              },
+              {
+                "rgb": [
+                  27,
+                  48,
+                  69
+                ],
+                "pixels": 1305
+              },
+              {
+                "rgb": [
+                  86,
+                  100,
+                  106
+                ],
+                "pixels": 1011
+              },
+              {
+                "rgb": [
+                  66,
+                  124,
+                  152
+                ],
+                "pixels": 799
+              },
+              {
+                "rgb": [
+                  65,
+                  75,
+                  85
+                ],
+                "pixels": 790
+              },
+              {
+                "rgb": [
+                  151,
+                  171,
+                  171
+                ],
+                "pixels": 686
+              },
+              {
+                "rgb": [
+                  51,
+                  95,
+                  120
+                ],
+                "pixels": 602
+              },
+              {
+                "rgb": [
+                  119,
+                  139,
+                  145
+                ],
+                "pixels": 452
+              },
+              {
+                "rgb": [
+                  140,
+                  159,
+                  183
+                ],
+                "pixels": 421
+              },
+              {
+                "rgb": [
+                  137,
+                  159,
+                  159
+                ],
+                "pixels": 420
+              }
+            ]
+          },
+          "back": {
+            "project_path": "assets/sprites/creatures/rimefin_catfish_2026_10_05/riftfin_back.png",
+            "input_filename": "502_riftfin_back.png",
+            "sha256": "66ec8651ab5a07991a3a172d6f19861841ac0ec21fb189de6690985ff8035cb0",
+            "canvas": [
+              224,
+              224
+            ],
+            "bbox": [
+              40,
+              31,
+              193,
+              194
+            ],
+            "clear_margins": [
+              40,
+              31,
+              31,
+              30
+            ],
+            "visible_pixels": 13813,
+            "opaque_pixels": 13813,
+            "semi_transparent_pixels": 0,
+            "visible_rgb_colors": 33,
+            "visible_exact_magenta_pixels": 0,
+            "visible_near_white_pixels": 0,
+            "bright_edge_pixels": 0,
+            "top_colors": [
+              {
+                "rgb": [
+                  43,
+                  82,
+                  109
+                ],
+                "pixels": 1874
+              },
+              {
+                "rgb": [
+                  22,
+                  39,
+                  62
+                ],
+                "pixels": 1519
+              },
+              {
+                "rgb": [
+                  27,
+                  48,
+                  69
+                ],
+                "pixels": 1444
+              },
+              {
+                "rgb": [
+                  7,
+                  26,
+                  31
+                ],
+                "pixels": 1309
+              },
+              {
+                "rgb": [
+                  51,
+                  95,
+                  120
+                ],
+                "pixels": 862
+              },
+              {
+                "rgb": [
+                  0,
+                  3,
+                  9
+                ],
+                "pixels": 698
+              },
+              {
+                "rgb": [
+                  65,
+                  75,
+                  85
+                ],
+                "pixels": 669
+              },
+              {
+                "rgb": [
+                  86,
+                  100,
+                  106
+                ],
+                "pixels": 523
+              },
+              {
+                "rgb": [
+                  119,
+                  139,
+                  145
+                ],
+                "pixels": 436
+              },
+              {
+                "rgb": [
+                  62,
+                  108,
+                  134
+                ],
+                "pixels": 419
+              },
+              {
+                "rgb": [
+                  137,
+                  159,
+                  159
+                ],
+                "pixels": 377
+              },
+              {
+                "rgb": [
+                  151,
+                  171,
+                  171
+                ],
+                "pixels": 351
+              }
+            ]
+          }
+        }
+      },
+      {
+        "resource": "data/creatures/503_scourmaw.tres",
+        "resource_sha256": "56a4563f8a0d94c3452690d927286737d6965f7b27c30f16d10c08775c61da4e",
+        "name": "\"Scourmaw\"",
+        "essence": 1,
+        "has_second_essence": "true",
+        "second_essence": 5,
+        "battle_size": 1.45,
+        "evolves_into": "none",
+        "views": {
+          "front": {
+            "project_path": "assets/sprites/creatures/rimefin_catfish_2026_10_05/scourmaw_front.png",
+            "input_filename": "503_scourmaw_front.png",
+            "sha256": "0f5b21604e5fc2f2a7b0eb3eb4f6881733b0ebe3125ac59a6e2575bbb5ed076e",
+            "canvas": [
+              256,
+              256
+            ],
+            "bbox": [
+              19,
+              38,
+              235,
+              235
+            ],
+            "clear_margins": [
+              19,
+              38,
+              21,
+              21
+            ],
+            "visible_pixels": 25601,
+            "opaque_pixels": 25601,
+            "semi_transparent_pixels": 0,
+            "visible_rgb_colors": 46,
+            "visible_exact_magenta_pixels": 0,
+            "visible_near_white_pixels": 5,
+            "bright_edge_pixels": 2,
+            "top_colors": [
+              {
+                "rgb": [
+                  49,
+                  74,
+                  89
+                ],
+                "pixels": 3953
+              },
+              {
+                "rgb": [
+                  26,
+                  42,
+                  59
+                ],
+                "pixels": 2974
+              },
+              {
+                "rgb": [
+                  0,
+                  4,
+                  7
+                ],
+                "pixels": 1961
+              },
+              {
+                "rgb": [
+                  70,
+                  101,
+                  114
+                ],
+                "pixels": 1944
+              },
+              {
+                "rgb": [
+                  0,
+                  1,
+                  3
+                ],
+                "pixels": 1495
+              },
+              {
+                "rgb": [
+                  66,
+                  82,
+                  86
+                ],
+                "pixels": 1322
+              },
+              {
+                "rgb": [
+                  43,
+                  63,
+                  76
+                ],
+                "pixels": 1228
+              },
+              {
+                "rgb": [
+                  37,
+                  55,
+                  69
+                ],
+                "pixels": 1124
+              },
+              {
+                "rgb": [
+                  165,
+                  177,
+                  166
+                ],
+                "pixels": 1088
+              },
+              {
+                "rgb": [
+                  75,
+                  90,
+                  97
+                ],
+                "pixels": 1080
+              },
+              {
+                "rgb": [
+                  86,
+                  108,
+                  115
+                ],
+                "pixels": 793
+              },
+              {
+                "rgb": [
+                  116,
+                  128,
+                  124
+                ],
+                "pixels": 588
+              }
+            ]
+          },
+          "back": {
+            "project_path": "assets/sprites/creatures/rimefin_catfish_2026_10_05/scourmaw_back.png",
+            "input_filename": "503_scourmaw_back.png",
+            "sha256": "31f041e7c8b5d2dfcc5d6c787501d9b60aed5c855ed969214a0eb5af942f2693",
+            "canvas": [
+              256,
+              256
+            ],
+            "bbox": [
+              24,
+              39,
+              233,
+              230
+            ],
+            "clear_margins": [
+              24,
+              39,
+              23,
+              26
+            ],
+            "visible_pixels": 25760,
+            "opaque_pixels": 25760,
+            "semi_transparent_pixels": 0,
+            "visible_rgb_colors": 31,
+            "visible_exact_magenta_pixels": 0,
+            "visible_near_white_pixels": 0,
+            "bright_edge_pixels": 0,
+            "top_colors": [
+              {
+                "rgb": [
+                  26,
+                  42,
+                  59
+                ],
+                "pixels": 4091
+              },
+              {
+                "rgb": [
+                  49,
+                  74,
+                  89
+                ],
+                "pixels": 3740
+              },
+              {
+                "rgb": [
+                  0,
+                  4,
+                  7
+                ],
+                "pixels": 2005
+              },
+              {
+                "rgb": [
+                  43,
+                  63,
+                  76
+                ],
+                "pixels": 1381
+              },
+              {
+                "rgb": [
+                  37,
+                  55,
+                  69
+                ],
+                "pixels": 1189
+              },
+              {
+                "rgb": [
+                  1,
+                  11,
+                  20
+                ],
+                "pixels": 1087
+              },
+              {
+                "rgb": [
+                  66,
+                  82,
+                  86
+                ],
+                "pixels": 1077
+              },
+              {
+                "rgb": [
+                  70,
+                  101,
+                  114
+                ],
+                "pixels": 1072
+              },
+              {
+                "rgb": [
+                  86,
+                  108,
+                  115
+                ],
+                "pixels": 958
+              },
+              {
+                "rgb": [
+                  20,
+                  36,
+                  51
+                ],
+                "pixels": 951
+              },
+              {
+                "rgb": [
+                  75,
+                  90,
+                  97
+                ],
+                "pixels": 899
+              },
+              {
+                "rgb": [
+                  8,
+                  18,
+                  29
+                ],
+                "pixels": 809
+              }
+            ]
+          }
+        }
+      }
+    ]
+  }
+}

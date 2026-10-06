@@ -1,0 +1,253 @@
+{
+  "front": {
+    "original_size": [
+      256,
+      256
+    ],
+    "current_size": [
+      219,
+      219
+    ],
+    "original_sha256": "8f570cbdf18022d8f15a3e1e22f6ebfd38e3ddad179505426a3d8d796300ab5f",
+    "original_colors": 97,
+    "nearest_resized_colors": 95,
+    "original_nn_alpha_exact_current": true,
+    "visible_rgb_changed_current_vs_source": 1088,
+    "current_visible_rgb_not_original_palette": 139,
+    "current_whiteedge_original_donor_samples": []
+  },
+  "back": {
+    "original_size": [
+      256,
+      256
+    ],
+    "current_size": [
+      219,
+      219
+    ],
+    "original_sha256": "9d6bf34eb1173fe2bec55d86007a223d4ecda98b9383eff7efafea6b1b6c5115",
+    "original_colors": 42,
+    "nearest_resized_colors": 42,
+    "original_nn_alpha_exact_current": true,
+    "visible_rgb_changed_current_vs_source": 1239,
+    "current_visible_rgb_not_original_palette": 350,
+    "current_whiteedge_original_donor_samples": [
+      {
+        "xy": [
+          156,
+          21
+        ],
+        "current": [
+          255,
+          255,
+          255,
+          255
+        ],
+        "original_nn": [
+          20,
+          14,
+          18,
+          255
+        ]
+      },
+      {
+        "xy": [
+          156,
+          22
+        ],
+        "current": [
+          255,
+          255,
+          255,
+          255
+        ],
+        "original_nn": [
+          20,
+          14,
+          18,
+          255
+        ]
+      },
+      {
+        "xy": [
+          139,
+          29
+        ],
+        "current": [
+          255,
+          255,
+          255,
+          255
+        ],
+        "original_nn": [
+          12,
+          11,
+          12,
+          255
+        ]
+      },
+      {
+        "xy": [
+          139,
+          30
+        ],
+        "current": [
+          255,
+          255,
+          255,
+          255
+        ],
+        "original_nn": [
+          12,
+          11,
+          12,
+          255
+        ]
+      },
+      {
+        "xy": [
+          139,
+          31
+        ],
+        "current": [
+          255,
+          255,
+          255,
+          255
+        ],
+        "original_nn": [
+          12,
+          11,
+          12,
+          255
+        ]
+      },
+      {
+        "xy": [
+          139,
+          32
+        ],
+        "current": [
+          255,
+          255,
+          255,
+          255
+        ],
+        "original_nn": [
+          6,
+          1,
+          1,
+          255
+        ]
+      },
+      {
+        "xy": [
+          156,
+          33
+        ],
+        "current": [
+          255,
+          255,
+          255,
+          255
+        ],
+        "original_nn": [
+          20,
+          14,
+          18,
+          255
+        ]
+      },
+      {
+        "xy": [
+          156,
+          34
+        ],
+        "current": [
+          255,
+          255,
+          255,
+          255
+        ],
+        "original_nn": [
+          20,
+          14,
+          18,
+          255
+        ]
+      },
+      {
+        "xy": [
+          156,
+          35
+        ],
+        "current": [
+          255,
+          255,
+          255,
+          255
+        ],
+        "original_nn": [
+          12,
+          11,
+          12,
+          255
+        ]
+      },
+      {
+        "xy": [
+          156,
+          36
+        ],
+        "current": [
+          255,
+          255,
+          255,
+          255
+        ],
+        "original_nn": [
+          20,
+          14,
+          18,
+          255
+        ]
+      },
+      {
+        "xy": [
+          156,
+          37
+        ],
+        "current": [
+          255,
+          255,
+          255,
+          255
+        ],
+        "original_nn": [
+          36,
+          22,
+          30,
+          255
+        ]
+      },
+      {
+        "xy": [
+          130,
+          38
+        ],
+        "current": [
+          255,
+          255,
+          255,
+          255
+        ],
+        "original_nn": [
+          6,
+          1,
+          1,
+          255
+        ]
+      }
+    ]
+  }
+}

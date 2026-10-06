@@ -1,0 +1,111 @@
+{
+  "status": "REVIEW-ONLY transfer diagnostic; not accepted production art",
+  "method": "Nearest-neighbor source RGB sampling. Source alpha and transparent RGB retained exactly. Generated samples with alpha0 skipped. Tail uses bbox affine only; feet use per-feature bbox affine. Rear far foot excluded because no reliable generated toe correspondence.",
+  "features": {
+    "front": {
+      "source": "C:\\Users\\pmcga\\dev\\hollowtide\\assets\\sprites\\creatures\\coalcrest_rechecked_2026_10_04\\coalcrest_front.png",
+      "source_sha256": "6cbd82720f1c9673e51fea21cc6261fc2798bc80e4c0d3e0a433a224202f669f",
+      "regions": [
+        {
+          "feature": "tail-global-affine",
+          "target_box": [
+            13,
+            3,
+            129,
+            142
+          ],
+          "generated_box": [
+            38,
+            32,
+            111,
+            119
+          ],
+          "target_mask_pixels": 393,
+          "covered_pixels": 349
+        },
+        {
+          "feature": "foot-0",
+          "target_box": [
+            59,
+            134,
+            77,
+            142
+          ],
+          "generated_box": [
+            66,
+            114,
+            77,
+            119
+          ],
+          "target_mask_pixels": 89,
+          "covered_pixels": 77
+        },
+        {
+          "feature": "foot-1",
+          "target_box": [
+            99,
+            132,
+            119,
+            140
+          ],
+          "generated_box": [
+            91,
+            112,
+            103,
+            117
+          ],
+          "target_mask_pixels": 97,
+          "covered_pixels": 87
+        }
+      ],
+      "changed_rgb_pixels": 512,
+      "source_alpha_unchanged": true,
+      "transparent_rgb_unchanged": true,
+      "changed_outside_proposed_masks": 0
+    },
+    "back": {
+      "source": "C:\\Users\\pmcga\\dev\\hollowtide\\assets\\sprites\\creatures\\coalcrest_back_head_2026_10_05\\coalcrest_back.png",
+      "source_sha256": "353747fb9a15dee7057a947f2a6640ede171c0c5a98ebc5b5f1152e4a03b6a9a",
+      "regions": [
+        {
+          "feature": "tail-global-affine",
+          "target_box": [
+            23,
+            13,
+            125,
+            140
+          ],
+          "generated_box": [
+            44,
+            38,
+            107,
+            118
+          ],
+          "target_mask_pixels": 356,
+          "covered_pixels": 289
+        },
+        {
+          "feature": "foot-0",
+          "target_box": [
+            99,
+            132,
+            125,
+            140
+          ],
+          "generated_box": [
+            92,
+            112,
+            107,
+            118
+          ],
+          "target_mask_pixels": 157,
+          "covered_pixels": 136
+        }
+      ],
+      "changed_rgb_pixels": 425,
+      "source_alpha_unchanged": true,
+      "transparent_rgb_unchanged": true,
+      "changed_outside_proposed_masks": 0
+    }
+  }
+}

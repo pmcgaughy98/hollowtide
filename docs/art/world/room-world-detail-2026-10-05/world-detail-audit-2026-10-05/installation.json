@@ -1,0 +1,39 @@
+{
+  "date": "2026-10-05",
+  "changes": "Two existing-source native road approach sprites; existing two roof labels moved above roofs.",
+  "script": "scripts/area_landscape.gd",
+  "before_sha256": "bfa0a77495280c973ead3631a4216d64a864aefe178793181917c2f0cf69d946",
+  "after_sha256": "010c67c8891e92058ac543a5414aea37c17145be2a0b7933d22821b50880c671",
+  "exact_text_substitutions": [
+    [
+      "const HOME_ROAD = preload(",
+      "const HALL_APPROACH = preload(\"res://assets/sprites/world/world_approaches_2026_10_05/hometown_hall_approach.png\")\nconst BRANCH_APPROACH = preload(\"res://assets/sprites/world/world_approaches_2026_10_05/riverfront_branch_approach.png\")\nconst HOME_ROAD = preload("
+    ],
+    [
+      "func _build_home() -> void:\n",
+      "func _build_home() -> void:\n    _surface(\"HallApproach\",HALL_APPROACH,Vector2(750,414),-5)\n"
+    ],
+    [
+      "func _build_city() -> void:\n",
+      "func _build_city() -> void:\n    _surface(\"BranchApproach\",BRANCH_APPROACH,Vector2(490,354),-5)\n"
+    ],
+    [
+      "_label(\"COURIER HALL\",Vector2(728,306))",
+      "_label(\"COURIER HALL\",Vector2(728,290))"
+    ],
+    [
+      "_label(\"COURIER BRANCH\",Vector2(466,254))",
+      "_label(\"COURIER BRANCH\",Vector2(466,234))"
+    ]
+  ],
+  "files": {
+    "scripts/area_landscape.gd": "010c67c8891e92058ac543a5414aea37c17145be2a0b7933d22821b50880c671",
+    "assets/sprites/world/world_approaches_2026_10_05/hometown_hall_approach.png": "eb83303c618cbf39bcbf8fc312aa7b6e154f1021c912872547a45bd58f67acc9",
+    "assets/sprites/world/world_approaches_2026_10_05/riverfront_branch_approach.png": "3abb8cd04b02ea736bbd097b35acb3136bb0d6ecaf4285a799a5590c6271ed96"
+  },
+  "native_scale": 1.0,
+  "depth": -5,
+  "collisions_gates_controller_unchanged": true,
+  "uploads": 0,
+  "charges": 0
+}

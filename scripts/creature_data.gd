@@ -38,6 +38,12 @@ enum Essence {
 @export var creature_name: String = ""
 
 @export var essence: Essence = Essence.EMBER
+## A second essence for dual-essence lines (Preston 2026-10-05: Rimefin is
+## Tide/Hollow, Cinderhide Ember/Stone, Tallowroot Bloom only). Off unless
+## ticked. Each defending essence applies its own multiplier and they multiply,
+## so two weaknesses make x4 and a weakness plus a resistance cancel to x1.
+@export var has_second_essence := false
+@export var second_essence: Essence = Essence.EMBER
 
 @export var sprite: Texture2D
 
@@ -114,6 +120,9 @@ enum Essence {
 ## Optional hand-drawn loop. Every frame must share the same canvas and foot line.
 ## Battle uses these textures instead of procedural squash/stretch when present.
 @export var idle_frames: Array[Texture2D] = []
+## The same kind of loop for the back view on the player's side. Every frame
+## shares the back sprite's canvas and foot line. Empty keeps the procedural breath.
+@export var back_idle_frames: Array[Texture2D] = []
 
 @export_group("Idle Overlay")
 ## Optional moving part drawn over the front sprite while idle, such as
@@ -171,4 +180,7 @@ var dex_number: String:
 
 ## Turns the stored essence into readable text, so HOLLOW reads as "Hollow".
 func essence_name() -> String:
-	return String(Essence.keys()[essence]).capitalize()
+	var text := String(Essence.keys()[essence]).capitalize()
+	if has_second_essence:
+		text += "/" + String(Essence.keys()[second_essence]).capitalize()
+	return text

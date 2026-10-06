@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="CreatureData" format=3]
+
+[ext_resource type="Script" path="res://scripts/creature_data.gd" id="1_script"]
+[ext_resource type="Texture2D" path="res://assets/sprites/creatures/rimefin_catfish_2026_10_05/rimefin_front.png" id="2_sprite"]
+
+[ext_resource type="Texture2D" path="res://assets/sprites/creatures/rimefin_catfish_2026_10_05/rimefin_back.png" id="rd_back"]
+[ext_resource type="Resource" path="res://data/creatures/502_riftfin.tres" id="evo"]
+
+[resource]
+script = ExtResource("1_script")
+id = 1
+creature_name = "Rimefin"
+body_parts = PackedStringArray("fin", "jaw")
+essence = 1
+has_second_essence = true
+second_essence = 5
+sprite = ExtResource("2_sprite")
+back_sprite = ExtResource("rd_back")
+description = "Catfish redesign (Preston 2026-10-05: Missouri River catfish, not a shark like Coromon's starter). Retro Diffusion art in docs/creatures/starter-lines-rd-2026-10-05/starter_poses."
+base_hp = 60
+base_attack = 60
+base_defense = 60
+base_speed = 60
+idle_breath = 0.02
+idle_period = 1.7
+evolves_into = ExtResource("evo")
+battle_size = 1.1

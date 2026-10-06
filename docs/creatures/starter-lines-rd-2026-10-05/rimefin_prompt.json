@@ -1,0 +1,13 @@
+{
+ "prompt": "The Tide starter creature of a monster-collecting RPG, a young river catfish with real attitude, as cool and battle-ready as the fierce ember lizard and the sturdy seed burrower in the references, same finish, outline and shading. Same species and colours as the catfish in the first reference, but tougher: a hard bony head plate, narrowed determined cyan eyes under a heavy brow ridge, a wide jaw set in a confident grin, long whip-like barbels swept back, serrated spiked pectoral fins planted on the ground like forelimbs, a tall sharp dorsal spine and a ridge of pale cyan spines down its back, pale frost-like cyan edging on every fin. Low ready crouch, tail curled behind, poised to lunge. Deep river blue, slate, cold cyan, pale belly. Three-quarter view facing right. Not cute, not goofy, not a shark, no bubbles, no water. Shown whole in the centre of the frame with empty space on every side. On a plain white background.",
+ "prompt_style": "rd_pro__default",
+ "width": 160,
+ "height": 160,
+ "num_images": 2,
+ "remove_bg": true,
+ "reference_images": [
+  "docs/creatures/starter-lines-rd-2026-10-05/catfish_round1/rimefin_front_take2.png",
+  "assets/sprites/creatures/cinderhide.png",
+  "docs/creatures/tallowroot-rd-2026-10-05/tallowroot_front_160.png"
+ ]
+}

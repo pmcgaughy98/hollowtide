@@ -1,0 +1,13 @@
+{
+  "date": "2026-10-05",
+  "request": "Approve uploading the sharper full-room image for one replacement $0.18 edit that removes only the map and cup. This is an additional charge beyond the five approved edits.",
+  "human_answer": "Approve replacement ($0.18)",
+  "input": "prepared/room_registered_source.png",
+  "input_sha256": "3eef5ba900c015bac343fc002727e241069336b849d9bfc356f410243e1812ac",
+  "tool": "image_edit",
+  "destination": "Retro Diffusion",
+  "max_requests": 1,
+  "approved_cost_usd": 0.18,
+  "status": "completed",
+  "receipt": "generated/table-replacement-receipt.json"
+}

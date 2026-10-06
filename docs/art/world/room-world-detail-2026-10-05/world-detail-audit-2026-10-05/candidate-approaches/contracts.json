@@ -1,0 +1,115 @@
+[
+  {
+    "id": "hometown_hall_approach",
+    "source": "assets/sprites/world/area_transitions_2026_10_03/hometown_streets.png",
+    "source_rect": [
+      750,
+      438,
+      787,
+      482
+    ],
+    "world_origin": [
+      750,
+      414
+    ],
+    "visible_hall_foot": [
+      768,
+      418
+    ],
+    "preview_capture": "male-hometown-overview-native-1x.png",
+    "preview_crop": [
+      720,
+      376,
+      816,
+      468
+    ],
+    "max_canvas": [
+      37,
+      44
+    ],
+    "same_material_native_translation": [
+      0,
+      -24
+    ],
+    "door_gate": {
+      "center": [
+        768,
+        424
+      ],
+      "size": [
+        20,
+        8
+      ],
+      "target": "courier_hall"
+    },
+    "source_sha256": "7d5fb9e9a9d10d641a23579b1cb9ec628b23a9712d1cef6a49f409d62ed8e4f6",
+    "patch": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/world-detail-audit-2026-10-05/candidate-approaches/hometown_hall_approach.png",
+    "patch_sha256": "eb83303c618cbf39bcbf8fc312aa7b6e154f1021c912872547a45bd58f67acc9",
+    "patch_rgba_bytes_match_source_crop": true,
+    "world_change_bounds_exclusive": [
+      750,
+      414,
+      787,
+      458
+    ],
+    "integration_proposal": "New centered=false nearest Sprite2D at world_origin, depth -6; same native scale 1.0; under existing RouteDecor y-sorted building/actor art. No old source replacement. Gate/collision/speed/camera unchanged. Root must select unique depth versus HomeApproaches/HistoricStreetLane and verify actual native joins.",
+    "outside_world_rect_exact_by_construction": true,
+    "source_never_written": true,
+    "native_game_verified": false,
+    "preview_actor_note": null
+  },
+  {
+    "id": "riverfront_branch_approach",
+    "source": "assets/sprites/world/area_transitions_2026_10_03/riverfront_streets.png",
+    "source_rect": [
+      490,
+      378,
+      535,
+      426
+    ],
+    "world_origin": [
+      490,
+      354
+    ],
+    "visible_hall_foot": [
+      512,
+      362
+    ],
+    "preview_capture": "male-riverfront-overview-native-1x.png",
+    "preview_crop": [
+      464,
+      320,
+      560,
+      414
+    ],
+    "max_canvas": [
+      45,
+      48
+    ],
+    "same_material_native_translation": [
+      0,
+      -24
+    ],
+    "door_gate": null,
+    "actor_foot": [
+      512,
+      376
+    ],
+    "note": "Branch is an outdoor clerk interaction, not an enterable hall gate.",
+    "source_sha256": "4d77d47fb6cb958425317247d3e83c7be90838468985c1685e335ea0a1395599",
+    "patch": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/world-detail-audit-2026-10-05/candidate-approaches/riverfront_branch_approach.png",
+    "patch_sha256": "3abb8cd04b02ea736bbd097b35acb3136bb0d6ecaf4285a799a5590c6271ed96",
+    "patch_rgba_bytes_match_source_crop": true,
+    "world_change_bounds_exclusive": [
+      490,
+      354,
+      535,
+      402
+    ],
+    "integration_proposal": "New centered=false nearest Sprite2D at world_origin, depth -6; same native scale 1.0; under existing RouteDecor y-sorted building/actor art. No old source replacement. Gate/collision/speed/camera unchanged. Root must select unique depth versus HomeApproaches/HistoricStreetLane and verify actual native joins.",
+    "outside_world_rect_exact_by_construction": true,
+    "source_never_written": true,
+    "native_game_verified": false,
+    "preview_actor_note": "Saved courier pixels preserved by nearest alpha proxy plus 1px dilation; this comparison is an approximation. Native engine proof required."
+  }
+]

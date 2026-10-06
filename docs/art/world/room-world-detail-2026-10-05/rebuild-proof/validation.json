@@ -1,0 +1,14 @@
+{
+  "performed_at_utc": "2026-10-05T14:12:43.838507+00:00",
+  "bundle": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/archive-rebuild-validation/world-detail-final-kij5nvvs/bundle",
+  "exit_code": 0,
+  "passed": true,
+  "reproduced_PNGs": 14,
+  "all_14_byte_and_RGBA_exact": true,
+  "all_archive_source_members_unchanged": true,
+  "isolated_temporary_bundle_retained": true,
+  "stdout": "rebuild-proof/stdout.log",
+  "stderr": "rebuild-proof/stderr.log",
+  "detailed_results": "rebuild-proof/rebuild-results.json",
+  "no_P_writes_launches_network_or_generation": true
+}

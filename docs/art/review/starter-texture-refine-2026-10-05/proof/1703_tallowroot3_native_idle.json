@@ -1,0 +1,17 @@
+{
+	"attacks_catching_evolution_not_exercised": true,
+	"battle_size": 1.45,
+	"creature": "1703_tallowroot3",
+	"essence": 4,
+	"evolves_into": "",
+	"front_path": "res://assets/sprites/creatures/tallowroot_2026_10_05/tallowroot3_front.png",
+	"front_texture_exact": true,
+	"front_zoom": 1.0,
+	"has_second_essence": true,
+	"native_idle": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/starter-texture-review-2026-10-05/proof/1703_tallowroot3_native_idle.png",
+	"normal_near_side_message_box_occlusion": true,
+	"rear_path": "res://assets/sprites/creatures/tallowroot_2026_10_05/tallowroot3_back.png",
+	"rear_texture_exact": true,
+	"rear_zoom": 1.5,
+	"second_essence": 2
+}

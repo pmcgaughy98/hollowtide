@@ -1,0 +1,31 @@
+{
+  "date_UTC": "2026-10-05T18:09:00.192230+00:00",
+  "scope": "Owned palette texture binding deltas and a separately attributed concurrent Grok resource addition.",
+  "native_tested_creature_resource": {
+    "path": "context/native-tested/data/creatures/102_ironvent.tres",
+    "sha256": "80c2ac4a75f3fc94d80a333642f419ee842726bdaa6d6c02e4f1ca8a372e257d",
+    "owned_difference_from_original": "Only2_sprite front texture path changes to ironvent_black_match_2026_10_05/ironvent_front.png."
+  },
+  "current_creature_resource": {
+    "path": "runtime/data/creatures/102_ironvent.tres",
+    "sha256": "78c54b44aefbaed3c950c6433c09edc7e0115f5486f7c9f3a0a56c0a63b7d31f",
+    "current_without_added_essence_lines_equals_native_tested_text": true,
+    "palette_front_back_Atlas_and_other_remaining_fields_exact": true
+  },
+  "concurrent_change": {
+    "attributed_by": "Direct parent /root instruction",
+    "author": "Grok",
+    "fields_added": {
+      "has_second_essence": true,
+      "second_essence": 2
+    },
+    "root_authored": false,
+    "native_tested_in_this_palette_run": false,
+    "preserved_in_current_runtime": true
+  },
+  "owned_move_binding": "Only11_cutin changes to the correctly registered versioned official-title path; old title UID removed. Every other move field exact.",
+  "art_head_regions_and_attack_restoration_native_verified": true,
+  "current_runtime_matches_project_files": true,
+  "new_native_runs_for_concurrent_addition": 0,
+  "global_repo_equal_claim": false
+}

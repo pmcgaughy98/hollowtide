@@ -1,0 +1,15 @@
+{
+  "phase1_frozen_exact": true,
+  "runtime_files": 31,
+  "all_runtime_copies_byte_exact": true,
+  "final_native_proof_copied_and_verified": true,
+  "verification_guard_count": 10,
+  "verification_guards_all_true": true,
+  "all14PNG_isolated_rebuild_byte_and_RGBA_exact": true,
+  "goal_status": "ongoing",
+  "workspace_only": true,
+  "project_writes": 0,
+  "launches": 0,
+  "uploads": 0,
+  "charges": 0
+}

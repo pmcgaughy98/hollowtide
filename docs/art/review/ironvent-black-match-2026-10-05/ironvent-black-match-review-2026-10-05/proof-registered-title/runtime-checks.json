@@ -1,0 +1,62 @@
+{
+	"captures": [
+		{
+			"charcoal_head": true,
+			"frame": 308,
+			"head_region": "(0.76, 0.32, 1.0, 0.64)",
+			"modulate": "(1.0, 1.0, 1.0, 1.0)",
+			"name": "front-title-held",
+			"scale": "(3.0, 3.0)",
+			"texture": "res://assets/sprites/creatures/attacks/ironvent_furnace_roar/style_matched/back_palette_2026_10_05/titlecard_official_2026_09_30.png"
+		},
+		{
+			"charcoal_head": true,
+			"frame": 1238,
+			"head_region": "(0.76, 0.32, 1.0, 0.64)",
+			"modulate": "(1.0, 1.0, 1.0, 1.0)",
+			"name": "rear-title-held",
+			"scale": "(3.0, 3.0)",
+			"texture": "res://assets/sprites/creatures/attacks/ironvent_furnace_roar/style_matched/back_palette_2026_10_05/titlecard_official_2026_09_30.png"
+		}
+	],
+	"checks": [
+		{
+			"front": "res://assets/sprites/creatures/ironvent_black_match_2026_10_05/ironvent_front.png",
+			"name": "bindings",
+			"passed": true,
+			"rear_region_margin_preserved": true,
+			"title": "res://assets/sprites/creatures/attacks/ironvent_furnace_roar/style_matched/back_palette_2026_10_05/titlecard_official_2026_09_30.png"
+		},
+		{
+			"head_finish_bounds": "(0.76, 0.32, 1.0, 0.64)",
+			"name": "front-portrait-region",
+			"passed": true
+		},
+		{
+			"installed_texture": true,
+			"name": "front-Furnace-Roar",
+			"passed": true,
+			"position_restored": true,
+			"reverse_released": true,
+			"scale_restored": true,
+			"settled_portrait_captured": true,
+			"texture_restored": true
+		},
+		{
+			"head_finish_bounds": "(0.76, 0.32, 1.0, 0.64)",
+			"name": "rear-portrait-region",
+			"passed": true
+		},
+		{
+			"installed_texture": true,
+			"name": "rear-Furnace-Roar",
+			"passed": true,
+			"position_restored": true,
+			"reverse_released": true,
+			"scale_restored": true,
+			"settled_portrait_captured": true,
+			"texture_restored": true
+		}
+	],
+	"passed": true
+}

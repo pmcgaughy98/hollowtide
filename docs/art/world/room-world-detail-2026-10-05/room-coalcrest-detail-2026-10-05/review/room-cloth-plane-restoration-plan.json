@@ -1,0 +1,12 @@
+{
+  "mask": "room-original-cloth-plane-mask.png",
+  "bounding_box": [
+    193,
+    133,
+    220,
+    163
+  ],
+  "pixels": 501,
+  "original_source": "inputs/room.png",
+  "method": "Original pale cloth pixels inside [193,133,220,164] plus safe inner cloth fold strip [194,134,205,161]. Peg/header, coat silhouette, cupboard rim and boots are excluded. RGB restoration only; exact source colors, no painted pixels."
+}

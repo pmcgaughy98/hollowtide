@@ -1,0 +1,11 @@
+{
+ "prompt": "The giant armoured river catfish monster from the reference image bursting straight up out of dark river water, seen from the side: its huge armoured head and the front of its body rising vertically out of a churning splash, its enormous dredge-scoop jaw gaping wide open upward with rows of teeth, thick barbels whipping, water, silt and pebbles cascading off its stone-scoured armour plates, a ring of white foam and spray at the waterline. Same colours as the reference. On a plain white background.",
+ "prompt_style": "rd_pro__default",
+ "width": 96,
+ "height": 96,
+ "num_images": 2,
+ "remove_bg": true,
+ "reference_images": [
+  "assets/sprites/creatures/rimefin_catfish_2026_10_05/scourmaw_front.png"
+ ]
+}

@@ -1,9 +1,9 @@
 extends Node2D
 ## A cached domestic room. Existing route progress is read here, never reassigned.
-const ROOM = preload("res://assets/sprites/world/hometown_homes_2026_10_04/home_room.png")
-const STOVE_FRONT = preload("res://assets/sprites/world/hometown_homes_2026_10_04/home_stove_front.png")
-const COAT_FRONT = preload("res://assets/sprites/world/hometown_homes_2026_10_04/home_coat_front.png")
-const THRESHOLD_FRONT = preload("res://assets/sprites/world/hometown_homes_2026_10_04/home_threshold_front.png")
+const ROOM = preload("res://assets/sprites/world/courtyard_home_detail_2026_10_05/home_room.png")
+const STOVE_FRONT = preload("res://assets/sprites/world/courtyard_home_detail_2026_10_05/home_stove_front.png")
+const COAT_FRONT = preload("res://assets/sprites/world/courtyard_home_detail_2026_10_05/home_coat_front.png")
+const THRESHOLD_FRONT = preload("res://assets/sprites/world/courtyard_home_detail_2026_10_05/home_threshold_front.png")
 const VISIBILITY = preload("res://assets/sprites/world/route1_landing_loop_2026_10_03/canopy_visibility.gdshader")
 var _coat: Sprite2D
 var _coat_material: ShaderMaterial
@@ -99,7 +99,7 @@ func nearest_site() -> String:
 
 func interaction_hint() -> String:
     match nearest_site():
-        "table": return "E  Check route table"
+        "table": return "E  Inspect worktable"
         "bed": return "E  Inspect rest corner"
         "stove": return "E  Inspect home stove"
         "coat": return "E  Check travel hook"
@@ -108,12 +108,12 @@ func interaction_hint() -> String:
 func interact(controller: Node2D) -> void:
     match nearest_site():
         "table":
-            var status := "The small table holds a folded map and room for your field notes."
+            var status := "The worktable is clear, with room to lay out your next task."
             if controller.get("report_done"):
-                status = "The route report has been filed. The folded map stays ready for the next trip."
+                status = "The worktable is clear. Your route report has been filed."
             elif controller.get("pouch_accepted"):
-                status = "Your current route is copied beside the folded map."
-            controller.call("_show_message","ROUTE TABLE\n"+status+"\n\n"+controller.get("_objective").text+"\n"+controller.get("_board").text)
+                status = "The worktable is clear. Your current route pouch stays with you."
+            controller.call("_show_message","WORKTABLE\n"+status+"\n\n"+controller.get("_objective").text+"\n"+controller.get("_board").text)
         "bed":
             controller.call("_show_message","REST CORNER\nA teal quilt covers the bed. A small cabinet and woven mat keep this corner separate from the working floor.")
         "stove":

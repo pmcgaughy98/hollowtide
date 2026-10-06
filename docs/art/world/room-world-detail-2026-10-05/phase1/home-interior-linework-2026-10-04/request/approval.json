@@ -1,0 +1,12 @@
+{
+  "action": "Upload current generated 256x256 room source to Retro Diffusion image_edit",
+  "user_answer": "Approve this room edit",
+  "estimated_balance_cost": 0.18,
+  "estimated_credit_cost": 20,
+  "source": "before/room-original-source.png",
+  "prompt": "request/prompt.txt",
+  "seed": 19041014,
+  "previous_rejection_retained": "request/approval-pending.json",
+  "single_paid_attempt_running": true,
+  "pending_approval": false
+}

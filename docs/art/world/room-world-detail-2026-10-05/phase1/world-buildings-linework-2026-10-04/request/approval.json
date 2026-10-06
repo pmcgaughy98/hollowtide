@@ -1,0 +1,17 @@
+{
+  "action": "Table-only inpainting plus four individual building image edits",
+  "user_answer": "Approve five edits ($0.90)",
+  "maximum_new_requests": 5,
+  "estimated_total_usd": 0.9,
+  "table_input": "../home-interior-linework-2026-10-04/prepared/room_registered_source.png",
+  "table_mask": "../home-interior-linework-2026-10-04/request/table-clear-mask.png",
+  "building_names": [
+    "courtyard_home",
+    "dispatch_hall",
+    "brick_shop",
+    "ledger_house"
+  ],
+  "room_sharpening_separately_completed_usd": 0.18,
+  "no_more_paid_requests_authorized_by_this_record": true,
+  "pending_approval": false
+}

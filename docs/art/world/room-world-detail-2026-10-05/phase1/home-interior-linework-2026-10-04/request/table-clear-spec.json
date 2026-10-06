@@ -1,0 +1,14 @@
+{
+  "tool_id": "inpainting",
+  "input_file": "prepared/room_registered_source.png",
+  "mask_file": "request/table-clear-mask.png",
+  "mask_inclusive_rectangle": [
+    159,
+    70,
+    190,
+    85
+  ],
+  "prompt_file": "request/table-clear-prompt.txt",
+  "estimated_usd": 0.18,
+  "preserve_every_pixel_outside_mask": true
+}

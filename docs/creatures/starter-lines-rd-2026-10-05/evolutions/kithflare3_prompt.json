@@ -1,0 +1,11 @@
+{
+ "prompt": "An EVOLVED final stage of the spark-crested fire lizard in the first reference image: same species, same face and eyes, same zigzag markings and caged ember lantern on its tail, but transformed with new body features so it looks evolved, not just grown up. Its spark crest has become a tall fan of dark spines like lightning rods, with small electric arcs jumping between them. Two swept horns shaped like lightning bolts grow from its head. Its hide has darkened to burnished copper and deep umber, and the zigzag markings now glow like seams of molten amber. Its tail lantern has become a large storm lantern with a blazing ember core and crackling sparks. Powerful legs with dark claws. It rears back mid-roar on its hind legs with the lantern tail raised high behind it. Burnished copper, umber, amber, cream throat, pale yellow sparks. Three-quarter view facing right. Same finish and outline as the reference. No wings, not a dragon, not a dinosaur. Shown whole in the centre of the frame with empty space on every side. On a plain white background.",
+ "prompt_style": "rd_pro__default",
+ "width": 224,
+ "height": 224,
+ "num_images": 2,
+ "remove_bg": true,
+ "reference_images": [
+  "docs/creatures/starter-lines-rd-2026-10-05/evolutions/kithflare2_front_take1.png"
+ ]
+}

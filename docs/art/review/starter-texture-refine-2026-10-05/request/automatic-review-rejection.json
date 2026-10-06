@@ -1,0 +1,8 @@
+{
+  "date": "2026-10-05",
+  "action": "Read prepared Kithflare II crop image for Retro Diffusion cost quote",
+  "rejected_by": "automatic approval review",
+  "reason": "Although the PowerShell step is local, it prepares Kithflare II artwork for transmission to Retro Diffusion; the accompanying quote call would upload this private payload to an untrusted destination without specific user authorization for that image and destination.",
+  "no_paid_calls_submitted": true,
+  "scope": "Six prepared starter crop requests require specific image-upload and paid-edit approval. Original Kithflare III source-pixel restoration is unaffected and installed."
+}

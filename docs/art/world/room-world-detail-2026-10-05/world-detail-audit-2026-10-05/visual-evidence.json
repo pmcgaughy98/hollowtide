@@ -1,0 +1,86 @@
+[
+  {
+    "name": "hometown-hall-approach",
+    "capture": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/home-interior-linework-2026-10-04/proof/overview/male-hometown-overview-native-1x.png",
+    "capture_sha256": "bde7ce7d6114e71e57db5bb543d2a35f1815f4bf08a129bb583b7033421f7d41",
+    "native_crop_bounds_exclusive": [
+      704,
+      300,
+      827,
+      465
+    ],
+    "preview_nearest_scale": 3,
+    "output": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/world-detail-audit-2026-10-05/render/hometown-hall-approach.png",
+    "claim": "Saved native evidence, not a new launch"
+  },
+  {
+    "name": "riverfront-hall-approach",
+    "capture": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/home-interior-linework-2026-10-04/proof/overview/male-riverfront-overview-native-1x.png",
+    "capture_sha256": "d031158f9d44a7bb8d403be21238b4af0369bd0c4a7e1cc2c83552c55208219d",
+    "native_crop_bounds_exclusive": [
+      443,
+      240,
+      574,
+      433
+    ],
+    "preview_nearest_scale": 3,
+    "output": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/world-detail-audit-2026-10-05/render/riverfront-hall-approach.png",
+    "claim": "Saved native evidence, not a new launch"
+  },
+  {
+    "name": "garden-notice-notch",
+    "capture": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/home-interior-linework-2026-10-04/proof/overview/male-hometown-overview-native-1x.png",
+    "capture_sha256": "bde7ce7d6114e71e57db5bb543d2a35f1815f4bf08a129bb583b7033421f7d41",
+    "native_crop_bounds_exclusive": [
+      364,
+      506,
+      523,
+      634
+    ],
+    "preview_nearest_scale": 4,
+    "output": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/world-detail-audit-2026-10-05/render/garden-notice-notch.png",
+    "claim": "Saved native evidence, not a new launch"
+  },
+  {
+    "name": "historic-pavers",
+    "capture": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/home-interior-linework-2026-10-04/proof/overview/male-historic-street-overview-native-1x.png",
+    "capture_sha256": "f496fd5ba35056cb951762b609a34a253ecd0cbad0d7779b0635222fad0c24bf",
+    "native_crop_bounds_exclusive": [
+      168,
+      366,
+      618,
+      528
+    ],
+    "preview_nearest_scale": 3,
+    "output": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/world-detail-audit-2026-10-05/render/historic-pavers.png",
+    "claim": "Saved native evidence, not a new launch"
+  },
+  {
+    "name": "riverfront-bank",
+    "capture": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/home-interior-linework-2026-10-04/proof/overview/male-riverfront-overview-native-1x.png",
+    "capture_sha256": "d031158f9d44a7bb8d403be21238b4af0369bd0c4a7e1cc2c83552c55208219d",
+    "native_crop_bounds_exclusive": [
+      178,
+      146,
+      312,
+      384
+    ],
+    "preview_nearest_scale": 4,
+    "output": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/world-detail-audit-2026-10-05/render/riverfront-bank.png",
+    "claim": "Saved native evidence, not a new launch"
+  },
+  {
+    "name": "route1-crossing",
+    "capture": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/hometown-neighborhood-2026-10-04/render/final-route1-native.png",
+    "capture_sha256": "510bc23dcc25635fd4e22990263edfb59764be0b6e9739d1165bbc5e95e16c1e",
+    "native_crop_bounds_exclusive": [
+      1120,
+      336,
+      1465,
+      495
+    ],
+    "preview_nearest_scale": 3,
+    "output": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/world-detail-audit-2026-10-05/render/route1-crossing.png",
+    "claim": "Saved native evidence, not a new launch"
+  }
+]

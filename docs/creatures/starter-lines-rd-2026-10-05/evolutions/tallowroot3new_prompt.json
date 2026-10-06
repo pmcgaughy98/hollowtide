@@ -1,0 +1,12 @@
+{
+ "prompt": "The final evolved stage of the armoured green creature in the first reference image: same species, same green skin, same bark-like husk helmet over its brow and blunt snout, same husk plates, cream claws and coiled green shoot, but immense and ancient, a walking fortress, clearly a final-stage creature much bigger than the reference, with a new pose. Its back is covered by massive layered husk-shell armour plates like old bark, with moss and small ferns growing in the seams. Its husk helmet has grown into a heavy crowned helm with a ridge over its brow. The coiled shoot has become a thick twisted vine rising high from a split husk on its shoulder, ending in a great curl with broad leaves. Massive pillar-like legs with big cream claws, one front foot raised mid-stomp, head lowered and forward, protecting what stands behind it. Moss green, bark brown, seed ochre, cream. Three-quarter view facing right. Same finish and outline as the references. No tree on its back, no flower crown, no vine wrapped around its legs. Shown whole in the centre of the frame with empty space on every side. On a plain white background.",
+ "prompt_style": "rd_pro__default",
+ "width": 224,
+ "height": 224,
+ "num_images": 2,
+ "remove_bg": true,
+ "reference_images": [
+  "docs/creatures/starter-lines-rd-2026-10-05/evolutions/tallowroot2_head_edit.png",
+  "assets/sprites/creatures/cinderhide.png"
+ ]
+}

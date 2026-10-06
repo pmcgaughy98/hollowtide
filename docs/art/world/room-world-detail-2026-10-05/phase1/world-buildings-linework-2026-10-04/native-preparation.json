@@ -1,0 +1,242 @@
+[
+  {
+    "name": "courtyard_home",
+    "size": [
+      160,
+      144
+    ],
+    "original_alpha_and_transparent_pixels_exact": true,
+    "original_bounds": [
+      5,
+      10,
+      153,
+      136
+    ],
+    "generated_bounds": [
+      5,
+      10,
+      153,
+      136
+    ],
+    "final_bounds": [
+      5,
+      10,
+      153,
+      136
+    ],
+    "original_visible_edge_pixels_restored": 23,
+    "generated_outside_alpha_excluded": 2,
+    "changed_visible_RGB": 3274,
+    "source_restoration_rectangles": [],
+    "restorations": [],
+    "prepared_diff_outside_restoration_boxes": 0,
+    "source_sha256": "ab061eacf61a4fe950c37af1de2376a153916af95360f280a0df19d4df21cfcc",
+    "generated_sha256": "eb77024db6023a46297610937c29ab2bf9a80b3b1a9084cb40ebdad57f35485a",
+    "final_sha256": "f5a4af906a064c0a1faa972847f01ddcbb2a93372350d9e0b77fbbbe1ded290c"
+  },
+  {
+    "name": "dispatch_hall",
+    "size": [
+      136,
+      168
+    ],
+    "original_alpha_and_transparent_pixels_exact": true,
+    "original_bounds": [
+      8,
+      5,
+      127,
+      155
+    ],
+    "generated_bounds": [
+      8,
+      5,
+      127,
+      155
+    ],
+    "final_bounds": [
+      8,
+      5,
+      127,
+      155
+    ],
+    "original_visible_edge_pixels_restored": 173,
+    "generated_outside_alpha_excluded": 3,
+    "changed_visible_RGB": 662,
+    "source_restoration_rectangles": [
+      [
+        37,
+        95,
+        52,
+        116
+      ],
+      [
+        84,
+        95,
+        99,
+        116
+      ],
+      [
+        26,
+        124,
+        46,
+        143
+      ]
+    ],
+    "restorations": [
+      {
+        "label": "original plain upper-left timber panel",
+        "bounds_half_open": [
+          37,
+          95,
+          52,
+          116
+        ],
+        "changed_pixels_restored": 232
+      },
+      {
+        "label": "original plain upper-right timber panel",
+        "bounds_half_open": [
+          84,
+          95,
+          99,
+          116
+        ],
+        "changed_pixels_restored": 227
+      },
+      {
+        "label": "original plain lower-left brick panel",
+        "bounds_half_open": [
+          26,
+          124,
+          46,
+          143
+        ],
+        "changed_pixels_restored": 328
+      }
+    ],
+    "prepared_diff_outside_restoration_boxes": 0,
+    "source_sha256": "2648d93f1f5842322c9c83b5fed9cc9cf3fb9e53912b8d9c906a76802e31a8d2",
+    "generated_sha256": "19a1376e0cdd9dd53d37c2688e38e6f2d21c241603b79e9fbe52a5cc46efb6eb",
+    "final_sha256": "94bdf8fe98fa9e1c13afc9f2b6394bd06cf4c5ec03019dd126c765add1c57f23"
+  },
+  {
+    "name": "brick_shop",
+    "size": [
+      208,
+      192
+    ],
+    "original_alpha_and_transparent_pixels_exact": true,
+    "original_bounds": [
+      11,
+      13,
+      197,
+      170
+    ],
+    "generated_bounds": [
+      12,
+      13,
+      196,
+      183
+    ],
+    "final_bounds": [
+      11,
+      13,
+      197,
+      170
+    ],
+    "original_visible_edge_pixels_restored": 31,
+    "generated_outside_alpha_excluded": 2281,
+    "changed_visible_RGB": 2998,
+    "source_restoration_rectangles": [
+      [
+        90,
+        137,
+        120,
+        170
+      ],
+      [
+        35,
+        151,
+        72,
+        167
+      ],
+      [
+        153,
+        151,
+        173,
+        167
+      ]
+    ],
+    "restorations": [
+      {
+        "label": "original open doorway and lower frame drift",
+        "bounds_half_open": [
+          90,
+          137,
+          120,
+          170
+        ],
+        "changed_pixels_restored": 869
+      },
+      {
+        "label": "original left display contents",
+        "bounds_half_open": [
+          35,
+          151,
+          72,
+          167
+        ],
+        "changed_pixels_restored": 385
+      },
+      {
+        "label": "original right display contents",
+        "bounds_half_open": [
+          153,
+          151,
+          173,
+          167
+        ],
+        "changed_pixels_restored": 231
+      }
+    ],
+    "prepared_diff_outside_restoration_boxes": 0,
+    "source_sha256": "61346652e187f2548caf21ef51bba3cca8547f25b053fcf045c65d9206992a6b",
+    "generated_sha256": "44c651a15d4ce0be0d8cfbd07f3b609cc7790176a308d3e7ba7239d336ac1de2",
+    "final_sha256": "c72d9b86c0b4643d0f9da3c025a239c1f31efa3ff9510885bfd0736dfc6141c2"
+  },
+  {
+    "name": "ledger_house",
+    "size": [
+      176,
+      192
+    ],
+    "original_alpha_and_transparent_pixels_exact": true,
+    "original_bounds": [
+      14,
+      9,
+      162,
+      180
+    ],
+    "generated_bounds": [
+      14,
+      9,
+      162,
+      180
+    ],
+    "final_bounds": [
+      14,
+      9,
+      162,
+      180
+    ],
+    "original_visible_edge_pixels_restored": 2,
+    "generated_outside_alpha_excluded": 1,
+    "changed_visible_RGB": 1179,
+    "source_restoration_rectangles": [],
+    "restorations": [],
+    "prepared_diff_outside_restoration_boxes": 0,
+    "source_sha256": "87355e862592de3c69234afc5a2fdaa0e58e4d1fda0aa9dcadaefeab41d858ce",
+    "generated_sha256": "c8b0144205fed192ee2f6a927167df2db49a99ad4f4614abef8bf2c8d89e432b",
+    "final_sha256": "7392fdde7ed2e4c9f17e81b129a96bbde753d1326b8830e223901227fbcfcc23"
+  }
+]

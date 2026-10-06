@@ -1,0 +1,136 @@
+{
+  "native_size": [
+    256,
+    256
+  ],
+  "original_alpha_exact": true,
+  "transparent_RGB_original_exact": true,
+  "original_bounds_retained": [
+    26,
+    25,
+    231,
+    233
+  ],
+  "generated_RGB_visible_pixels_retained": 41777,
+  "original_visible_edge_pixels_restored": 84,
+  "generated_outside_silhouette_pixels_excluded": 143,
+  "changed_visible_RGB": 8854,
+  "table_replacement": {
+    "raw_source": "generated/table-replacement-rd.png",
+    "accepted_mask": "request/table-clear-mask.png",
+    "half_open_bounds": [
+      159,
+      70,
+      191,
+      86
+    ],
+    "mask_pixels": 512,
+    "changed_pixels": 403,
+    "outside_mask_RGBA_exact": true,
+    "first_inpainting_rejected": "generated/clear_table-rd.png",
+    "first_inpainting_pixels_installed": 0
+  },
+  "full_opacity_RGBA_reconstruction_exact": true,
+  "native_resampling": false,
+  "foregrounds": [
+    {
+      "asset": "home_stove_front",
+      "fixed_original_bounds": [
+        35,
+        112,
+        59,
+        177
+      ],
+      "native_size": [
+        28,
+        69
+      ],
+      "draw_origin": [
+        33,
+        110
+      ],
+      "y_sort_foot": 177,
+      "rectangles": [
+        [
+          35,
+          112,
+          59,
+          159
+        ],
+        [
+          35,
+          160,
+          59,
+          177
+        ]
+      ],
+      "source_visible_RGBA_exact": true
+    },
+    {
+      "asset": "home_coat_front",
+      "fixed_original_bounds": [
+        184,
+        116,
+        220,
+        176
+      ],
+      "native_size": [
+        40,
+        64
+      ],
+      "draw_origin": [
+        182,
+        114
+      ],
+      "y_sort_foot": 176,
+      "rectangles": [
+        [
+          184,
+          116,
+          220,
+          166
+        ],
+        [
+          200,
+          166,
+          218,
+          176
+        ]
+      ],
+      "source_visible_RGBA_exact": true
+    },
+    {
+      "asset": "home_threshold_front",
+      "fixed_original_bounds": [
+        26,
+        211,
+        231,
+        233
+      ],
+      "native_size": [
+        209,
+        26
+      ],
+      "draw_origin": [
+        24,
+        209
+      ],
+      "y_sort_foot": 233,
+      "rectangles": [
+        [
+          26,
+          211,
+          106,
+          233
+        ],
+        [
+          154,
+          211,
+          231,
+          233
+        ]
+      ],
+      "source_visible_RGBA_exact": true
+    }
+  ]
+}

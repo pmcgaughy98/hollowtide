@@ -1,0 +1,27 @@
+{
+  "sizes_exact": true,
+  "source_visible_bounds": [
+    26,
+    25,
+    231,
+    233
+  ],
+  "generated_visible_bounds": [
+    26,
+    26,
+    230,
+    233
+  ],
+  "source_alpha_unique": [
+    0,
+    255
+  ],
+  "generated_alpha_unique": [
+    0,
+    255
+  ],
+  "old_visible_count": 41861,
+  "new_visible_count": 41920,
+  "alpha_difference_pixels": 227,
+  "changed_visible_RGB": 8587
+}

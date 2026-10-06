@@ -1,0 +1,2696 @@
+{
+  "schema_version": 1,
+  "created_utc": "2026-10-05T17:54:34.757152+00:00",
+  "scope": "Final world checkpoint; goal ongoing",
+  "member_count": 536,
+  "bytes": 21336452,
+  "self_excluded": true,
+  "source_archives_preserved": true,
+  "current_runtime_file_count": 31,
+  "rebuild_png_count": 14,
+  "proof_guard_count": 10,
+  "project_writes_by_archivist": 0,
+  "members": [
+    {
+      "path": "README.md",
+      "sha256": "1962d81e17aaf2cb5348707f69584feb8164c9079c466b3d1116f61d326ac6b6",
+      "bytes": 5283
+    },
+    {
+      "path": "assembly-stage.json",
+      "sha256": "1be386326eb256698c5179575f1ee7dd55465b8d07ea1c0daaccac929c841367",
+      "bytes": 420
+    },
+    {
+      "path": "build_room_material_detail.py",
+      "sha256": "b1cc02f23cbc05c228c46cb46818672064567a44c329f3713ce72e6480b2d0f8",
+      "bytes": 3430
+    },
+    {
+      "path": "build_world_approaches.py",
+      "sha256": "c720a5d631e86cbd3b6b2a8db52b0684886a757e23b1c1fbd470f48c03d5e4c9",
+      "bytes": 1073
+    },
+    {
+      "path": "concurrent-project-differences.json",
+      "sha256": "baf0cb780e02e66980728be748e1969b9aca161dee74f5507c6961b659cdf514",
+      "bytes": 20238
+    },
+    {
+      "path": "historical-fixtures/detail_home_walk.gd",
+      "sha256": "4913a57a63e964bb243505561a24fc5454e1c71122d52caf73c53a588feb6486",
+      "bytes": 48540
+    },
+    {
+      "path": "historical-fixtures/detail_world_overview.gd",
+      "sha256": "a5868fc876ca927ad2f106eca6e60b20bd20513e9601a79ed91648ff2c4d0642",
+      "bytes": 21868
+    },
+    {
+      "path": "historical-fixtures/install_room_material_detail.py",
+      "sha256": "504fe28b5dda5bac29a9c7c3d9c42924f628b43a6ec33b6ae647c542daf67e7c",
+      "bytes": 2380
+    },
+    {
+      "path": "historical-fixtures/sharper_home_walk.gd",
+      "sha256": "374ac0b5c3f440901886be60bbf3095e547e1cc5c2d704a6d1e9d11645ac4c94",
+      "bytes": 47815
+    },
+    {
+      "path": "historical-fixtures/sharper_world_overview.gd",
+      "sha256": "847c84287e0448a44d03433ddabcf9df77225ff7f8bd3c2527ef109db82333c8",
+      "bytes": 21553
+    },
+    {
+      "path": "next-detail-proposal-note.json",
+      "sha256": "0aa80c2642289ffab9b50e72b326109a1c036763980266c4975c4f96c47ee65f",
+      "bytes": 606
+    },
+    {
+      "path": "owned-script-deltas.json",
+      "sha256": "4b3e5319f7b39ec21c83c545fb4ee0843fe071a52cf2b42f2d9a0620eebe4979",
+      "bytes": 6665
+    },
+    {
+      "path": "phase1/README.md",
+      "sha256": "f72638e3c0d3112615558dae4331a7092200bd29766b60ea4bd56858f710d241",
+      "bytes": 4454
+    },
+    {
+      "path": "phase1/archive-manifest.json",
+      "sha256": "8c47b2384c7f71fd74cd2661b2fbffda07b980418d915ff4113f725d39d458c5",
+      "bytes": 49519
+    },
+    {
+      "path": "phase1/build_building_linework.py",
+      "sha256": "b1bc442d62fd57a4c9db523c340fbe8bb48db98f5cc575e41610a551a3163ee9",
+      "bytes": 7777
+    },
+    {
+      "path": "phase1/build_room_linework.py",
+      "sha256": "8c625dda1144f9c5c85ad15bd46338eaa41316127b803edd66cc2b32e0d05b00",
+      "bytes": 4693
+    },
+    {
+      "path": "phase1/home-interior-linework-2026-10-04/baseline.json",
+      "sha256": "0d5464b56545d8bf36f269d79b943a1f1ebd9967661f59b4e1ccd10f41016353",
+      "bytes": 309971
+    },
+    {
+      "path": "phase1/home-interior-linework-2026-10-04/before/docs/AI_COLLABORATION.md",
+      "sha256": "4235fb6347e845d1ec491a1e5cea4044d7df6d323987ebe830ee207a6eec63fa",
+      "bytes": 282936
+    },
+    {
+      "path": "phase1/home-interior-linework-2026-10-04/before/docs/team/WORLD_GOAL_CHECKPOINT_2026-10-03.md",
+      "sha256": "1c26c83002618205e84036998286d44654aa27e4c52d0ba2435696800eae4263",
+      "bytes": 9590
+    },
+    {
+      "path": "phase1/home-interior-linework-2026-10-04/before/room-original-source.png",
+      "sha256": "a74fb9aa97f9cbf23fdf75443b2d82e85521c53c9d6904ba29b1cf9e94f42f5f",
+      "bytes": 32083
+    },
+    {
+      "path": "phase1/home-interior-linework-2026-10-04/before/scripts/courtyard_home_room.gd",
+      "sha256": "e522cb8ce96aadd6a5668bb67e2baafdec1b0f1423c63ec5d2a8f5324c7e0c71",
+      "bytes": 5864
+    },
+    {
+      "path": "phase1/home-interior-linework-2026-10-04/concurrent-preservation.json",
+      "sha256": "ca9694104171d9f8b8701dccbdfbb24d37e1db12c2d457b5986207b96c780b04",
+      "bytes": 1861
+    },
+    {
+      "path": "phase1/home-interior-linework-2026-10-04/costs.json",
+      "sha256": "ccdcb113bac91fddec7fbaf30f4746c7d0a0ff0af1a456c0b02e02c2997f6d0a",
+      "bytes": 2729
+    },
+    {
+      "path": "phase1/home-interior-linework-2026-10-04/generated/clear_table-rd.png",
+      "sha256": "3449bff2226d7b8206f0df00265fe05b220b712a260a687ad7c8edbd68c707c4",
+      "bytes": 51695
+    },
+    {
+      "path": "phase1/home-interior-linework-2026-10-04/generated/clear_table-receipt.json",
+      "sha256": "00708ed1364722db7cdc5fe37291c8e0551ce1891913981cdfaa2458e96c763a",
+      "bytes": 439
+    },
+    {
+      "path": "phase1/home-interior-linework-2026-10-04/generated/receipt.json",
+      "sha256": "4320061d8b5fdae77f1ab72945dcb2b705b69102b0787679e69610f0e84cbb91",
+      "bytes": 451
+    },
+    {
+      "path": "phase1/home-interior-linework-2026-10-04/generated/room-linework-rd.png",
+      "sha256": "39d52daf0c2628d21f19934017bd69569cb69cd10f1d7ee08b96672f340b601b",
+      "bytes": 33400
+    },
+    {
+      "path": "phase1/home-interior-linework-2026-10-04/generated/table-replacement-rd.png",
+      "sha256": "7cabb2981b08451fe239dc8d7301d018ccecf1b3d7e66cfdc9536ff56ee38a49",
+      "bytes": 33352
+    },
+    {
+      "path": "phase1/home-interior-linework-2026-10-04/generated/table-replacement-receipt.json",
+      "sha256": "b4bda8efa5ab63b20dda615b1f3a3547226995fe5153c85f47c960b67c3c5907",
+      "bytes": 231
+    },
+    {
+      "path": "phase1/home-interior-linework-2026-10-04/installation-baseline.json",
+      "sha256": "d0cefff3584bf0e4d778f386aa6985e4bc13b22da2429c36b2c1a93ac777260c",
+      "bytes": 312032
+    },
+    {
+      "path": "phase1/home-interior-linework-2026-10-04/installation.json",
+      "sha256": "da7b56c5917463e5bb6886499f319eafd3b728a459593e1a3a3ba7cc93431f09",
+      "bytes": 4001
+    },
+    {
+      "path": "phase1/home-interior-linework-2026-10-04/native-preparation.json",
+      "sha256": "6bbfe380927c11cea775828001ec7e690de1dcbd82eb6a190a2b6593b04aacc2",
+      "bytes": 2540
+    },
+    {
+      "path": "phase1/home-interior-linework-2026-10-04/prepared/home_coat_front.png",
+      "sha256": "5ab4376a1cb55597d2fc3797d6cb175f55c93373d1713c53b66d20a06258e921",
+      "bytes": 2653
+    },
+    {
+      "path": "phase1/home-interior-linework-2026-10-04/prepared/home_room.png",
+      "sha256": "fa61f4d3f78b2593907327ae7c9538f72e80b1f0722ed5324d77a5fb68483b36",
+      "bytes": 24659
+    },
+    {
+      "path": "phase1/home-interior-linework-2026-10-04/prepared/home_stove_front.png",
+      "sha256": "cb8d5b1e0c54ffbac67d278556ef87d120bef6ac18afc64722ce1d2f2715c1c6",
+      "bytes": 2664
+    },
+    {
+      "path": "phase1/home-interior-linework-2026-10-04/prepared/home_threshold_front.png",
+      "sha256": "47872dc776e93d784937cc60243758166390d92349e8ec12588586ee2c445ac1",
+      "bytes": 2248
+    },
+    {
+      "path": "phase1/home-interior-linework-2026-10-04/prepared/room_cleared_registered_source.png",
+      "sha256": "3232fff46305634fe509872d759e305e3e3ae4a2c76a282efb6f73d18fded95b",
+      "bytes": 30102
+    },
+    {
+      "path": "phase1/home-interior-linework-2026-10-04/prepared/room_registered_source.png",
+      "sha256": "3eef5ba900c015bac343fc002727e241069336b849d9bfc356f410243e1812ac",
+      "bytes": 30656
+    },
+    {
+      "path": "phase1/home-interior-linework-2026-10-04/preservation-audit-initial-shared-drift.json",
+      "sha256": "bbaf7b6153f6a70ce5a4d5ec733da37979463454dc1a9ed6b5b6177c104254eb",
+      "bytes": 3578
+    },
+    {
+      "path": "phase1/home-interior-linework-2026-10-04/preservation-audit.json",
+      "sha256": "fd59fc18eaaa34cce3c90691176ee41ccc0b06b1f35d78b33e038c69fdde96db",
+      "bytes": 7098
+    },
+    {
+      "path": "phase1/home-interior-linework-2026-10-04/proof/female-walk-stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "phase1/home-interior-linework-2026-10-04/proof/female-walk-stdout.log",
+      "sha256": "dcc8629dc0d8bc99e9e13edc663b14d29b17576fe3737565452217bbef7727d8",
+      "bytes": 701
+    },
+    {
+      "path": "phase1/home-interior-linework-2026-10-04/proof/final-import-stderr.log",
+      "sha256": "b91a18ab0f8e92a032fbabb881a2482985d1bc7f33dfe5c24f83a2ef5175e978",
+      "bytes": 913
+    },
+    {
+      "path": "phase1/home-interior-linework-2026-10-04/proof/final-import-stdout.log",
+      "sha256": "194e7602604c16d79b8fe260a0e51dc333f220cbaf706878ec79c1ed5b27e4d6",
+      "bytes": 4510
+    },
+    {
+      "path": "phase1/home-interior-linework-2026-10-04/proof/import-stderr.log",
+      "sha256": "1fdf2d925175f8ccf617a25531c65bec00e98a32fb2d85a7fd8dee8431722025",
+      "bytes": 914
+    },
+    {
+      "path": "phase1/home-interior-linework-2026-10-04/proof/import-stdout.log",
+      "sha256": "d77d39bbc4f217ef0a9ba9b1a1fbe61b2c02261018af3e9f84813b95424bf7a2",
+      "bytes": 2115
+    },
+    {
+      "path": "phase1/home-interior-linework-2026-10-04/proof/male-walk-stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "phase1/home-interior-linework-2026-10-04/proof/male-walk-stdout.log",
+      "sha256": "96469955b92c316a80e13b2f23beb1e448971ca69b94a308fc6ecb91019eb2f2",
+      "bytes": 699
+    },
+    {
+      "path": "phase1/home-interior-linework-2026-10-04/proof/native-verification.json",
+      "sha256": "0d48fe91cc584fda16514472947ea62e03c09ede4a4903d245f4bb47e4f036ed",
+      "bytes": 108202
+    },
+    {
+      "path": "phase1/home-interior-linework-2026-10-04/proof/overview-stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "phase1/home-interior-linework-2026-10-04/proof/overview-stdout.log",
+      "sha256": "6303c0942fe390c06049c8d72ffd90f16e64bcd4dedc4d84cae00d0c4831f949",
+      "bytes": 465
+    },
+    {
+      "path": "phase1/home-interior-linework-2026-10-04/proof/overview/male-historic-shop-ledger-native-3x.png",
+      "sha256": "48a78f8ead6911d167c92112b246e44760d42dfaeb8b67f498cfeb757985abe3",
+      "bytes": 100946
+    },
+    {
+      "path": "phase1/home-interior-linework-2026-10-04/proof/overview/male-historic-street-overview-native-1x.png",
+      "sha256": "f496fd5ba35056cb951762b609a34a253ecd0cbad0d7779b0635222fad0c24bf",
+      "bytes": 438178
+    },
+    {
+      "path": "phase1/home-interior-linework-2026-10-04/proof/overview/male-home-bed-quilt-native-2x.png",
+      "sha256": "9710d0120c2e260903f00309a7aaecbbffcb4b6b640f4275303d59d6aede2a23",
+      "bytes": 7813
+    },
+    {
+      "path": "phase1/home-interior-linework-2026-10-04/proof/overview/male-home-cupboard-coat-native-2x.png",
+      "sha256": "84b9324db39f64ecf647db4f6063dba219987d9f793fe7e82d42e8ec7fe1c119",
+      "bytes": 4955
+    },
+    {
+      "path": "phase1/home-interior-linework-2026-10-04/proof/overview/male-home-room-native-2x.png",
+      "sha256": "30d9959a8752a8206d819a7886a8fbd6aa05850e09f7ef1795e8045421943788",
+      "bytes": 40228
+    },
+    {
+      "path": "phase1/home-interior-linework-2026-10-04/proof/overview/male-home-shelf-worktable-native-2x.png",
+      "sha256": "9f26d6df4e7df3b84fdde0f9e691c81e935c8fa6a79db402abba84dfaceff552",
+      "bytes": 7804
+    },
+    {
+      "path": "phase1/home-interior-linework-2026-10-04/proof/overview/male-home-stove-woodpile-native-2x.png",
+      "sha256": "ab65db15873b3fe210c7864464597e34d5945976fb7514a324bb80bf5e134a00",
+      "bytes": 5134
+    },
+    {
+      "path": "phase1/home-interior-linework-2026-10-04/proof/overview/male-hometown-courtyard-native-3x.png",
+      "sha256": "56a41f474e6116b6829d86b4ce5367d8ffa079e569174b3cb000dccc08273e4b",
+      "bytes": 35721
+    },
+    {
+      "path": "phase1/home-interior-linework-2026-10-04/proof/overview/male-hometown-hall-native-3x.png",
+      "sha256": "726c4d9e06cf9da669544c1cc24c2339bc45dd5724b3efaa007dc3bdece9e26b",
+      "bytes": 26559
+    },
+    {
+      "path": "phase1/home-interior-linework-2026-10-04/proof/overview/male-hometown-overview-native-1x.png",
+      "sha256": "bde7ce7d6114e71e57db5bb543d2a35f1815f4bf08a129bb583b7033421f7d41",
+      "bytes": 568526
+    },
+    {
+      "path": "phase1/home-interior-linework-2026-10-04/proof/overview/male-overview.json",
+      "sha256": "fac23e3688a71c0066cdc92fbd4d616b48ae0c0157a385d48d54da1d34a3ad2b",
+      "bytes": 31007
+    },
+    {
+      "path": "phase1/home-interior-linework-2026-10-04/proof/overview/male-riverfront-hall-native-3x.png",
+      "sha256": "8c595f0cb688fc32f71bec63d28db5e28307d7a395c86f4c032c507f00f10cdb",
+      "bytes": 32028
+    },
+    {
+      "path": "phase1/home-interior-linework-2026-10-04/proof/overview/male-riverfront-ledger-native-3x.png",
+      "sha256": "e6499af2a91c145016519d0124b15db85a0551a1ed9928686ca1ef76b105734b",
+      "bytes": 35869
+    },
+    {
+      "path": "phase1/home-interior-linework-2026-10-04/proof/overview/male-riverfront-overview-native-1x.png",
+      "sha256": "d031158f9d44a7bb8d403be21238b4af0369bd0c4a7e1cc2c83552c55208219d",
+      "bytes": 487020
+    },
+    {
+      "path": "phase1/home-interior-linework-2026-10-04/proof/overview/male-riverfront-shop-native-3x.png",
+      "sha256": "2edd85e952a0f037c365774048c8400f64c148586d655668fd0cbb596b022be8",
+      "bytes": 32784
+    },
+    {
+      "path": "phase1/home-interior-linework-2026-10-04/proof/terminal-results.json",
+      "sha256": "eb0121f2927b265ec8457dcd2153bccb77656c5ea460ce5a9f4890eb3a795b3d",
+      "bytes": 485
+    },
+    {
+      "path": "phase1/home-interior-linework-2026-10-04/proof/walk/female-entrance-courtyard_home-to-hometown.png",
+      "sha256": "c7cf0473cba91162f4ebaf320225b6b8eadcf578a1769bff0ed73217fea4ae82",
+      "bytes": 115851
+    },
+    {
+      "path": "phase1/home-interior-linework-2026-10-04/proof/walk/female-entrance-hometown-to-courtyard_home.png",
+      "sha256": "6751af8ea2854ff53309e1e858a420991004305ec7b7577e2bd3590b84fa588e",
+      "bytes": 56041
+    },
+    {
+      "path": "phase1/home-interior-linework-2026-10-04/proof/walk/female-focused-return-home.png",
+      "sha256": "c7cf0473cba91162f4ebaf320225b6b8eadcf578a1769bff0ed73217fea4ae82",
+      "bytes": 115851
+    },
+    {
+      "path": "phase1/home-interior-linework-2026-10-04/proof/walk/female-home-bed-cached-return.png",
+      "sha256": "ed18f4e77543fd4a3ae62d4f583e346e2efd6e52beeb1c8941d1221b1f388dd4",
+      "bytes": 62245
+    },
+    {
+      "path": "phase1/home-interior-linework-2026-10-04/proof/walk/female-home-bed-first.png",
+      "sha256": "ed18f4e77543fd4a3ae62d4f583e346e2efd6e52beeb1c8941d1221b1f388dd4",
+      "bytes": 62245
+    },
+    {
+      "path": "phase1/home-interior-linework-2026-10-04/proof/walk/female-home-coat-cached-return.png",
+      "sha256": "61b2e28102b6c3c64144078de6fab0b9e7b2cc45b07b96e7abd4217a06d74203",
+      "bytes": 58486
+    },
+    {
+      "path": "phase1/home-interior-linework-2026-10-04/proof/walk/female-home-coat-first.png",
+      "sha256": "61b2e28102b6c3c64144078de6fab0b9e7b2cc45b07b96e7abd4217a06d74203",
+      "bytes": 58486
+    },
+    {
+      "path": "phase1/home-interior-linework-2026-10-04/proof/walk/female-home-collision-bed-cached-return.png",
+      "sha256": "7f1efa6cdc7a92ff9fccc51feb52603c0e4994c4d3f95cf6e875d421a53ae147",
+      "bytes": 55083
+    },
+    {
+      "path": "phase1/home-interior-linework-2026-10-04/proof/walk/female-home-collision-bed-first.png",
+      "sha256": "7f1efa6cdc7a92ff9fccc51feb52603c0e4994c4d3f95cf6e875d421a53ae147",
+      "bytes": 55083
+    },
+    {
+      "path": "phase1/home-interior-linework-2026-10-04/proof/walk/female-home-collision-bedside-cached-return.png",
+      "sha256": "a1a8aa2a9d6f4a35db6a09557488ab1b2a3ba41932a87852a74d0d066e1bd042",
+      "bytes": 55090
+    },
+    {
+      "path": "phase1/home-interior-linework-2026-10-04/proof/walk/female-home-collision-bedside-first.png",
+      "sha256": "a1a8aa2a9d6f4a35db6a09557488ab1b2a3ba41932a87852a74d0d066e1bd042",
+      "bytes": 55090
+    },
+    {
+      "path": "phase1/home-interior-linework-2026-10-04/proof/walk/female-home-collision-coat-cabinet-cached-return.png",
+      "sha256": "1528d579f7dc0a041789769c46b8543118ca5c27d7dca23c6bc287b60245b0d9",
+      "bytes": 55550
+    },
+    {
+      "path": "phase1/home-interior-linework-2026-10-04/proof/walk/female-home-collision-coat-cabinet-first.png",
+      "sha256": "1528d579f7dc0a041789769c46b8543118ca5c27d7dca23c6bc287b60245b0d9",
+      "bytes": 55550
+    },
+    {
+      "path": "phase1/home-interior-linework-2026-10-04/proof/walk/female-home-collision-east-wall-cached-return.png",
+      "sha256": "552b9f06fa4963457bd8af05cd18dbaaeccfe533f3faa6fe152170b23f374fa6",
+      "bytes": 55052
+    },
+    {
+      "path": "phase1/home-interior-linework-2026-10-04/proof/walk/female-home-collision-east-wall-first.png",
+      "sha256": "552b9f06fa4963457bd8af05cd18dbaaeccfe533f3faa6fe152170b23f374fa6",
+      "bytes": 55052
+    },
+    {
+      "path": "phase1/home-interior-linework-2026-10-04/proof/walk/female-home-collision-north-wall-cached-return.png",
+      "sha256": "7a46952f067502e7cbe1276e288f273acedff73ad163f278cf7d41b712c3b7d4",
+      "bytes": 55729
+    },
+    {
+      "path": "phase1/home-interior-linework-2026-10-04/proof/walk/female-home-collision-north-wall-first.png",
+      "sha256": "7a46952f067502e7cbe1276e288f273acedff73ad163f278cf7d41b712c3b7d4",
+      "bytes": 55729
+    },
+    {
+      "path": "phase1/home-interior-linework-2026-10-04/proof/walk/female-home-collision-south-left-wall-cached-return.png",
+      "sha256": "93c03c25fdc69bc5d45c49d2e585923f3497520db1074a7a6cf2fb8028aeb370",
+      "bytes": 56289
+    },
+    {
+      "path": "phase1/home-interior-linework-2026-10-04/proof/walk/female-home-collision-south-left-wall-first.png",
+      "sha256": "93c03c25fdc69bc5d45c49d2e585923f3497520db1074a7a6cf2fb8028aeb370",
+      "bytes": 56289
+    },
+    {
+      "path": "phase1/home-interior-linework-2026-10-04/proof/walk/female-home-collision-south-right-wall-cached-return.png",
+      "sha256": "13ed2e72fe39563e1532e2af973b7b2012e846805f57cd2a935dd9e8c7804b9d",
+      "bytes": 56408
+    },
+    {
+      "path": "phase1/home-interior-linework-2026-10-04/proof/walk/female-home-collision-south-right-wall-first.png",
+      "sha256": "13ed2e72fe39563e1532e2af973b7b2012e846805f57cd2a935dd9e8c7804b9d",
+      "bytes": 56408
+    },
+    {
+      "path": "phase1/home-interior-linework-2026-10-04/proof/walk/female-home-collision-stool-cached-return.png",
+      "sha256": "6a04c80a72f55355ee51cd246dbc1700283626bcd66c0e7c694537b87c96a798",
+      "bytes": 54888
+    },
+    {
+      "path": "phase1/home-interior-linework-2026-10-04/proof/walk/female-home-collision-stool-first.png",
+      "sha256": "6a04c80a72f55355ee51cd246dbc1700283626bcd66c0e7c694537b87c96a798",
+      "bytes": 54888
+    },
+    {
+      "path": "phase1/home-interior-linework-2026-10-04/proof/walk/female-home-collision-stove-cached-return.png",
+      "sha256": "911d38f5a166d7c3e5df7d47dbf28522b65944d34955d7c2ce669ea652720cca",
+      "bytes": 55038
+    },
+    {
+      "path": "phase1/home-interior-linework-2026-10-04/proof/walk/female-home-collision-stove-first.png",
+      "sha256": "911d38f5a166d7c3e5df7d47dbf28522b65944d34955d7c2ce669ea652720cca",
+      "bytes": 55038
+    },
+    {
+      "path": "phase1/home-interior-linework-2026-10-04/proof/walk/female-home-collision-table-cached-return.png",
+      "sha256": "8f67b63c2cd32078f1360f9d34dbfdaa7603a7927f1c9e9435c4a20238fc07df",
+      "bytes": 55678
+    },
+    {
+      "path": "phase1/home-interior-linework-2026-10-04/proof/walk/female-home-collision-table-first.png",
+      "sha256": "8f67b63c2cd32078f1360f9d34dbfdaa7603a7927f1c9e9435c4a20238fc07df",
+      "bytes": 55678
+    },
+    {
+      "path": "phase1/home-interior-linework-2026-10-04/proof/walk/female-home-collision-west-wall-cached-return.png",
+      "sha256": "f7b84290933e0521f2fba5342af810ae7e2d8e903ff4b4f5c3b8ec34d0f8c0ce",
+      "bytes": 55592
+    },
+    {
+      "path": "phase1/home-interior-linework-2026-10-04/proof/walk/female-home-collision-west-wall-first.png",
+      "sha256": "f7b84290933e0521f2fba5342af810ae7e2d8e903ff4b4f5c3b8ec34d0f8c0ce",
+      "bytes": 55592
+    },
+    {
+      "path": "phase1/home-interior-linework-2026-10-04/proof/walk/female-home-collision-woodstack-cached-return.png",
+      "sha256": "8ce53cb9920065d0037c02c2ec592c1dd5dbdf4a16bca077cad7bef2a30cf984",
+      "bytes": 54931
+    },
+    {
+      "path": "phase1/home-interior-linework-2026-10-04/proof/walk/female-home-collision-woodstack-first.png",
+      "sha256": "8ce53cb9920065d0037c02c2ec592c1dd5dbdf4a16bca077cad7bef2a30cf984",
+      "bytes": 54931
+    },
+    {
+      "path": "phase1/home-interior-linework-2026-10-04/proof/walk/female-home-entry-cached-return.png",
+      "sha256": "6751af8ea2854ff53309e1e858a420991004305ec7b7577e2bd3590b84fa588e",
+      "bytes": 56041
+    },
+    {
+      "path": "phase1/home-interior-linework-2026-10-04/proof/walk/female-home-entry-first.png",
+      "sha256": "6751af8ea2854ff53309e1e858a420991004305ec7b7577e2bd3590b84fa588e",
+      "bytes": 56041
+    },
+    {
+      "path": "phase1/home-interior-linework-2026-10-04/proof/walk/female-home-exterior-cached-return.png",
+      "sha256": "c7cf0473cba91162f4ebaf320225b6b8eadcf578a1769bff0ed73217fea4ae82",
+      "bytes": 115851
+    },
+    {
+      "path": "phase1/home-interior-linework-2026-10-04/proof/walk/female-home-exterior-first.png",
+      "sha256": "c7cf0473cba91162f4ebaf320225b6b8eadcf578a1769bff0ed73217fea4ae82",
+      "bytes": 115851
+    },
+    {
+      "path": "phase1/home-interior-linework-2026-10-04/proof/walk/female-home-stove-cached-return.png",
+      "sha256": "b74c2fdf205a5c188b5f51d482cd558956862eb6e1551894b87fc636c84d5bb8",
+      "bytes": 60129
+    },
+    {
+      "path": "phase1/home-interior-linework-2026-10-04/proof/walk/female-home-stove-first.png",
+      "sha256": "b74c2fdf205a5c188b5f51d482cd558956862eb6e1551894b87fc636c84d5bb8",
+      "bytes": 60129
+    },
+    {
+      "path": "phase1/home-interior-linework-2026-10-04/proof/walk/female-home-table-cached-return.png",
+      "sha256": "928fac160f51658cbf6c762657043313b67d826130c62856374342535fd1f560",
+      "bytes": 63955
+    },
+    {
+      "path": "phase1/home-interior-linework-2026-10-04/proof/walk/female-home-table-first.png",
+      "sha256": "928fac160f51658cbf6c762657043313b67d826130c62856374342535fd1f560",
+      "bytes": 63955
+    },
+    {
+      "path": "phase1/home-interior-linework-2026-10-04/proof/walk/female-home-view-coat-behind-cached-return.png",
+      "sha256": "1d73d152be0bd4dbd1f84c74dd1b754f9d22dcca2937c4a82ca94431f687c55d",
+      "bytes": 56486
+    },
+    {
+      "path": "phase1/home-interior-linework-2026-10-04/proof/walk/female-home-view-coat-behind-first.png",
+      "sha256": "1d73d152be0bd4dbd1f84c74dd1b754f9d22dcca2937c4a82ca94431f687c55d",
+      "bytes": 56486
+    },
+    {
+      "path": "phase1/home-interior-linework-2026-10-04/proof/walk/female-home-view-stove-behind-cached-return.png",
+      "sha256": "8e8fa053db49da1727b40f5058043a9d1180d8c270b6b347b1c76b8558a4f47e",
+      "bytes": 54517
+    },
+    {
+      "path": "phase1/home-interior-linework-2026-10-04/proof/walk/female-home-view-stove-behind-first.png",
+      "sha256": "8e8fa053db49da1727b40f5058043a9d1180d8c270b6b347b1c76b8558a4f47e",
+      "bytes": 54517
+    },
+    {
+      "path": "phase1/home-interior-linework-2026-10-04/proof/walk/female-start.png",
+      "sha256": "802b5bee6b2710ce93033adc51e097284f9db2978b7eb8ee3ddd6ac04be38bdf",
+      "bytes": 115755
+    },
+    {
+      "path": "phase1/home-interior-linework-2026-10-04/proof/walk/female-walkthrough.json",
+      "sha256": "930595a4088085f8d31ec97922b90bf5a9928c2744c00f0ac54b6500649199d7",
+      "bytes": 53465
+    },
+    {
+      "path": "phase1/home-interior-linework-2026-10-04/proof/walk/male-entrance-courtyard_home-to-hometown.png",
+      "sha256": "01197d7be9ddbea241e8638e7ea276b21b5d42bcd097bb6a4dfccf916ea7c0f7",
+      "bytes": 115992
+    },
+    {
+      "path": "phase1/home-interior-linework-2026-10-04/proof/walk/male-entrance-hometown-to-courtyard_home.png",
+      "sha256": "65b8fef618ce10d9f0dc884cfc85c1e2e1842d13a6ea957f184fb33fc6c714bf",
+      "bytes": 55838
+    },
+    {
+      "path": "phase1/home-interior-linework-2026-10-04/proof/walk/male-focused-return-home.png",
+      "sha256": "01197d7be9ddbea241e8638e7ea276b21b5d42bcd097bb6a4dfccf916ea7c0f7",
+      "bytes": 115992
+    },
+    {
+      "path": "phase1/home-interior-linework-2026-10-04/proof/walk/male-home-bed-cached-return.png",
+      "sha256": "2d766efaffa07e991b3d631ed1d2b4cf1f11de1c21d07d32eadfa0db6b7d87ba",
+      "bytes": 62041
+    },
+    {
+      "path": "phase1/home-interior-linework-2026-10-04/proof/walk/male-home-bed-first.png",
+      "sha256": "2d766efaffa07e991b3d631ed1d2b4cf1f11de1c21d07d32eadfa0db6b7d87ba",
+      "bytes": 62041
+    },
+    {
+      "path": "phase1/home-interior-linework-2026-10-04/proof/walk/male-home-coat-cached-return.png",
+      "sha256": "4dfc393fc97e10c03e229459b3ed53122c7e4006b8595374f90fa359a43d8372",
+      "bytes": 58726
+    },
+    {
+      "path": "phase1/home-interior-linework-2026-10-04/proof/walk/male-home-coat-first.png",
+      "sha256": "4dfc393fc97e10c03e229459b3ed53122c7e4006b8595374f90fa359a43d8372",
+      "bytes": 58726
+    },
+    {
+      "path": "phase1/home-interior-linework-2026-10-04/proof/walk/male-home-collision-bed-cached-return.png",
+      "sha256": "f3a22dafd9304353508f9aa8415ccdb1bcab5f0d1d87027424557ba8af7b804c",
+      "bytes": 55067
+    },
+    {
+      "path": "phase1/home-interior-linework-2026-10-04/proof/walk/male-home-collision-bed-first.png",
+      "sha256": "f3a22dafd9304353508f9aa8415ccdb1bcab5f0d1d87027424557ba8af7b804c",
+      "bytes": 55067
+    },
+    {
+      "path": "phase1/home-interior-linework-2026-10-04/proof/walk/male-home-collision-bedside-cached-return.png",
+      "sha256": "da9deafc037d528240d3bd153ecb1dd10c43e3dbc2fed6c18cceb8dbd47726ef",
+      "bytes": 54920
+    },
+    {
+      "path": "phase1/home-interior-linework-2026-10-04/proof/walk/male-home-collision-bedside-first.png",
+      "sha256": "da9deafc037d528240d3bd153ecb1dd10c43e3dbc2fed6c18cceb8dbd47726ef",
+      "bytes": 54920
+    },
+    {
+      "path": "phase1/home-interior-linework-2026-10-04/proof/walk/male-home-collision-coat-cabinet-cached-return.png",
+      "sha256": "8c396f5f3b13b7e94a57ed156e305e55720914cea261e4189bc9636496bfd03f",
+      "bytes": 55511
+    },
+    {
+      "path": "phase1/home-interior-linework-2026-10-04/proof/walk/male-home-collision-coat-cabinet-first.png",
+      "sha256": "8c396f5f3b13b7e94a57ed156e305e55720914cea261e4189bc9636496bfd03f",
+      "bytes": 55511
+    },
+    {
+      "path": "phase1/home-interior-linework-2026-10-04/proof/walk/male-home-collision-east-wall-cached-return.png",
+      "sha256": "b71ce1cb113fe0c2d8d000044bb1caf1ba1b49dceb26054a865f7edfb6c211b4",
+      "bytes": 55177
+    },
+    {
+      "path": "phase1/home-interior-linework-2026-10-04/proof/walk/male-home-collision-east-wall-first.png",
+      "sha256": "b71ce1cb113fe0c2d8d000044bb1caf1ba1b49dceb26054a865f7edfb6c211b4",
+      "bytes": 55177
+    },
+    {
+      "path": "phase1/home-interior-linework-2026-10-04/proof/walk/male-home-collision-north-wall-cached-return.png",
+      "sha256": "76e28afe18aa1e2f5d0499e0daebaeebc3fb3cee66c1a25e191bde29dfb881d4",
+      "bytes": 55639
+    },
+    {
+      "path": "phase1/home-interior-linework-2026-10-04/proof/walk/male-home-collision-north-wall-first.png",
+      "sha256": "76e28afe18aa1e2f5d0499e0daebaeebc3fb3cee66c1a25e191bde29dfb881d4",
+      "bytes": 55639
+    },
+    {
+      "path": "phase1/home-interior-linework-2026-10-04/proof/walk/male-home-collision-south-left-wall-cached-return.png",
+      "sha256": "372abfd2e48aa9def5942a183d709921bdb9430a21aee38040cef7936afdd899",
+      "bytes": 56291
+    },
+    {
+      "path": "phase1/home-interior-linework-2026-10-04/proof/walk/male-home-collision-south-left-wall-first.png",
+      "sha256": "372abfd2e48aa9def5942a183d709921bdb9430a21aee38040cef7936afdd899",
+      "bytes": 56291
+    },
+    {
+      "path": "phase1/home-interior-linework-2026-10-04/proof/walk/male-home-collision-south-right-wall-cached-return.png",
+      "sha256": "be73aca6fa6e40ec4c91db44c38aa4016c0d2f116bb5c4cc4454a7d2356b61ef",
+      "bytes": 56491
+    },
+    {
+      "path": "phase1/home-interior-linework-2026-10-04/proof/walk/male-home-collision-south-right-wall-first.png",
+      "sha256": "be73aca6fa6e40ec4c91db44c38aa4016c0d2f116bb5c4cc4454a7d2356b61ef",
+      "bytes": 56491
+    },
+    {
+      "path": "phase1/home-interior-linework-2026-10-04/proof/walk/male-home-collision-stool-cached-return.png",
+      "sha256": "d1df8fcbdd520f78547b99c4d0d24aa2e793ecec07fe552d3bd2a3da850f9d73",
+      "bytes": 54810
+    },
+    {
+      "path": "phase1/home-interior-linework-2026-10-04/proof/walk/male-home-collision-stool-first.png",
+      "sha256": "d1df8fcbdd520f78547b99c4d0d24aa2e793ecec07fe552d3bd2a3da850f9d73",
+      "bytes": 54810
+    },
+    {
+      "path": "phase1/home-interior-linework-2026-10-04/proof/walk/male-home-collision-stove-cached-return.png",
+      "sha256": "c54a5976e3f716d256fa1cdd1e1a00d7bcb8bddc9d1bb400b3c93c6a2c3f2678",
+      "bytes": 55060
+    },
+    {
+      "path": "phase1/home-interior-linework-2026-10-04/proof/walk/male-home-collision-stove-first.png",
+      "sha256": "c54a5976e3f716d256fa1cdd1e1a00d7bcb8bddc9d1bb400b3c93c6a2c3f2678",
+      "bytes": 55060
+    },
+    {
+      "path": "phase1/home-interior-linework-2026-10-04/proof/walk/male-home-collision-table-cached-return.png",
+      "sha256": "b0b999cac7eff2e87cc6cef3f3d37db240c348d584ddaa4e6d7889dae3800701",
+      "bytes": 55641
+    },
+    {
+      "path": "phase1/home-interior-linework-2026-10-04/proof/walk/male-home-collision-table-first.png",
+      "sha256": "b0b999cac7eff2e87cc6cef3f3d37db240c348d584ddaa4e6d7889dae3800701",
+      "bytes": 55641
+    },
+    {
+      "path": "phase1/home-interior-linework-2026-10-04/proof/walk/male-home-collision-west-wall-cached-return.png",
+      "sha256": "fe169e7f73727b287dde1a4e2f35ad79a02675dda11d1e137c33f63755cebfe9",
+      "bytes": 55496
+    },
+    {
+      "path": "phase1/home-interior-linework-2026-10-04/proof/walk/male-home-collision-west-wall-first.png",
+      "sha256": "fe169e7f73727b287dde1a4e2f35ad79a02675dda11d1e137c33f63755cebfe9",
+      "bytes": 55496
+    },
+    {
+      "path": "phase1/home-interior-linework-2026-10-04/proof/walk/male-home-collision-woodstack-cached-return.png",
+      "sha256": "b30801fff57011c237a8d36ee3f73316c4de0b5cc4cf03d39135a58998b8e0a1",
+      "bytes": 54997
+    },
+    {
+      "path": "phase1/home-interior-linework-2026-10-04/proof/walk/male-home-collision-woodstack-first.png",
+      "sha256": "b30801fff57011c237a8d36ee3f73316c4de0b5cc4cf03d39135a58998b8e0a1",
+      "bytes": 54997
+    },
+    {
+      "path": "phase1/home-interior-linework-2026-10-04/proof/walk/male-home-entry-cached-return.png",
+      "sha256": "65b8fef618ce10d9f0dc884cfc85c1e2e1842d13a6ea957f184fb33fc6c714bf",
+      "bytes": 55838
+    },
+    {
+      "path": "phase1/home-interior-linework-2026-10-04/proof/walk/male-home-entry-first.png",
+      "sha256": "65b8fef618ce10d9f0dc884cfc85c1e2e1842d13a6ea957f184fb33fc6c714bf",
+      "bytes": 55838
+    },
+    {
+      "path": "phase1/home-interior-linework-2026-10-04/proof/walk/male-home-exterior-cached-return.png",
+      "sha256": "01197d7be9ddbea241e8638e7ea276b21b5d42bcd097bb6a4dfccf916ea7c0f7",
+      "bytes": 115992
+    },
+    {
+      "path": "phase1/home-interior-linework-2026-10-04/proof/walk/male-home-exterior-first.png",
+      "sha256": "01197d7be9ddbea241e8638e7ea276b21b5d42bcd097bb6a4dfccf916ea7c0f7",
+      "bytes": 115992
+    },
+    {
+      "path": "phase1/home-interior-linework-2026-10-04/proof/walk/male-home-stove-cached-return.png",
+      "sha256": "e42c5f4653cb6ac94e34536b651676df5513c45c821d79a37508a33fa9584111",
+      "bytes": 60330
+    },
+    {
+      "path": "phase1/home-interior-linework-2026-10-04/proof/walk/male-home-stove-first.png",
+      "sha256": "e42c5f4653cb6ac94e34536b651676df5513c45c821d79a37508a33fa9584111",
+      "bytes": 60330
+    },
+    {
+      "path": "phase1/home-interior-linework-2026-10-04/proof/walk/male-home-table-cached-return.png",
+      "sha256": "de306ee489d6d9cf265b5ebc5f3a7987492a7df5745def7fc9b757b9a5dd4b95",
+      "bytes": 63687
+    },
+    {
+      "path": "phase1/home-interior-linework-2026-10-04/proof/walk/male-home-table-first.png",
+      "sha256": "de306ee489d6d9cf265b5ebc5f3a7987492a7df5745def7fc9b757b9a5dd4b95",
+      "bytes": 63687
+    },
+    {
+      "path": "phase1/home-interior-linework-2026-10-04/proof/walk/male-home-view-coat-behind-cached-return.png",
+      "sha256": "29f144cc1f596544f4f95aa160ad30ac28fdf6e2bcf7122069ebde65c0d24715",
+      "bytes": 56736
+    },
+    {
+      "path": "phase1/home-interior-linework-2026-10-04/proof/walk/male-home-view-coat-behind-first.png",
+      "sha256": "29f144cc1f596544f4f95aa160ad30ac28fdf6e2bcf7122069ebde65c0d24715",
+      "bytes": 56736
+    },
+    {
+      "path": "phase1/home-interior-linework-2026-10-04/proof/walk/male-home-view-stove-behind-cached-return.png",
+      "sha256": "c74cc58828cc2c99270902114c34fb72b19579f1786efdd3ce36c8e0b32a3d0e",
+      "bytes": 54537
+    },
+    {
+      "path": "phase1/home-interior-linework-2026-10-04/proof/walk/male-home-view-stove-behind-first.png",
+      "sha256": "c74cc58828cc2c99270902114c34fb72b19579f1786efdd3ce36c8e0b32a3d0e",
+      "bytes": 54537
+    },
+    {
+      "path": "phase1/home-interior-linework-2026-10-04/proof/walk/male-start.png",
+      "sha256": "17545475f1c6c8d89354282c587807e79213eae25e9eb07929834f750163399c",
+      "bytes": 115951
+    },
+    {
+      "path": "phase1/home-interior-linework-2026-10-04/proof/walk/male-walkthrough.json",
+      "sha256": "6c7b649cbddec3b221863e96a0cf06e6eba269c238d08402401a54c09ef7fdf0",
+      "bytes": 53363
+    },
+    {
+      "path": "phase1/home-interior-linework-2026-10-04/render/bed-comparison.png",
+      "sha256": "a9bf2091f14f3bdb52bb80a86f8242dd49027a5ebf717536bbdf1f422fdb973e",
+      "bytes": 7127
+    },
+    {
+      "path": "phase1/home-interior-linework-2026-10-04/render/cleared-room-recomposed-x3.png",
+      "sha256": "3f8103ae4f75104afff9dbc147c2fa36d06fa3079c5a5dafbbb6116694dbf710",
+      "bytes": 45022
+    },
+    {
+      "path": "phase1/home-interior-linework-2026-10-04/render/cleared-room-recomposed.png",
+      "sha256": "3232fff46305634fe509872d759e305e3e3ae4a2c76a282efb6f73d18fded95b",
+      "bytes": 30102
+    },
+    {
+      "path": "phase1/home-interior-linework-2026-10-04/render/comparison.json",
+      "sha256": "fdea8b2ee33f1648ef59c7701e976b4eab497a9106ca6d821fb48dab24d85c31",
+      "bytes": 410
+    },
+    {
+      "path": "phase1/home-interior-linework-2026-10-04/render/cupboard-comparison.png",
+      "sha256": "6749c9b17e0221928be0c239501ffcec0b31903738e50a645bd712f00160aee2",
+      "bytes": 9131
+    },
+    {
+      "path": "phase1/home-interior-linework-2026-10-04/render/door-comparison.png",
+      "sha256": "b81e60bec79d202e6381014cf233cc62cb6306f21b3c8393ae3de567c99349ee",
+      "bytes": 4600
+    },
+    {
+      "path": "phase1/home-interior-linework-2026-10-04/render/final-room-comparison.png",
+      "sha256": "e1b157074792e630715a4ad79c0a2cb8fe378676d3b73f7146dcfd7aaf08d89b",
+      "bytes": 63340
+    },
+    {
+      "path": "phase1/home-interior-linework-2026-10-04/render/floor-comparison.png",
+      "sha256": "d2a2ace232253a296163f14ad416ed8281fa0ef5b523b172724452353a65ea8b",
+      "bytes": 3518
+    },
+    {
+      "path": "phase1/home-interior-linework-2026-10-04/render/native-comparison.png",
+      "sha256": "6485fd87aac2beda1ac0f15a8286eb440ce8936d60e1edf06d285e6bb600dbd9",
+      "bytes": 67957
+    },
+    {
+      "path": "phase1/home-interior-linework-2026-10-04/render/sharper-room-recomposed-x2.png",
+      "sha256": "210f8fc3006657a7c26f2ecf877179ea13fec71feaf3e5f63f446126e3427fb1",
+      "bytes": 39530
+    },
+    {
+      "path": "phase1/home-interior-linework-2026-10-04/render/sharper-room-recomposed.png",
+      "sha256": "3eef5ba900c015bac343fc002727e241069336b849d9bfc356f410243e1812ac",
+      "bytes": 30656
+    },
+    {
+      "path": "phase1/home-interior-linework-2026-10-04/render/stove-comparison.png",
+      "sha256": "5ebcb806d37e852116c03df7d4746b889f5146b4a43014352cbc91580c280870",
+      "bytes": 6186
+    },
+    {
+      "path": "phase1/home-interior-linework-2026-10-04/render/table-clear-mask-preview.png",
+      "sha256": "4393dce56ee3485de319ec78bc97ab3340a91ecc3a362518ad543632d80b244a",
+      "bytes": 5749
+    },
+    {
+      "path": "phase1/home-interior-linework-2026-10-04/render/table-comparison.png",
+      "sha256": "a71c4a895ef454db95813bc7496e7853c8af0e041aff3fe059e023e79b4d5735",
+      "bytes": 5219
+    },
+    {
+      "path": "phase1/home-interior-linework-2026-10-04/render/table-replacement-review.png",
+      "sha256": "f0fc3fe27dda564af3209983a0eabc4773aff9ea9567e303fac11851d73f24e5",
+      "bytes": 4300
+    },
+    {
+      "path": "phase1/home-interior-linework-2026-10-04/render/tabletop-before-clear-x16.png",
+      "sha256": "ebcfed5f2de62d0bd5876e6fc0a57d9fe4c8f4aa977bedafdaddc1740ab82a01",
+      "bytes": 5080
+    },
+    {
+      "path": "phase1/home-interior-linework-2026-10-04/render/window-comparison.png",
+      "sha256": "a01fa944645c1b1d91ada4635a0ab7af636be0e6f594266c82767a147f519056",
+      "bytes": 2956
+    },
+    {
+      "path": "phase1/home-interior-linework-2026-10-04/request/approval-pending.json",
+      "sha256": "4852d060ee9f1ced277d1867dee594563f396de7e5e0f0b24da451f09e118209",
+      "bytes": 931
+    },
+    {
+      "path": "phase1/home-interior-linework-2026-10-04/request/approval.json",
+      "sha256": "0a5ca5689d2b93c6a164fa87208c8ba7bfffde34632812de48242aefc2a0487b",
+      "bytes": 435
+    },
+    {
+      "path": "phase1/home-interior-linework-2026-10-04/request/prompt.txt",
+      "sha256": "b63abde7316fb55f34bbafada18c45b0c20f65a7686ae097d84e611e69e3603f",
+      "bytes": 1330
+    },
+    {
+      "path": "phase1/home-interior-linework-2026-10-04/request/spec.json",
+      "sha256": "7931b6bffa40e3f97a9f2070fe52b91a83d7c7ce262f5d6a8d57dc63f3cdbe9b",
+      "bytes": 409
+    },
+    {
+      "path": "phase1/home-interior-linework-2026-10-04/request/table-clear-mask.png",
+      "sha256": "b3c3c71b32804240c1b3ab4beb11cd0d4a541e495494f4da5fd6239a680d17f4",
+      "bytes": 180
+    },
+    {
+      "path": "phase1/home-interior-linework-2026-10-04/request/table-clear-prompt.txt",
+      "sha256": "ef56f4f474d2fc62882c8c5fd2acf4164796aecd4393de1be2cf5e0b104210a0",
+      "bytes": 548
+    },
+    {
+      "path": "phase1/home-interior-linework-2026-10-04/request/table-clear-spec.json",
+      "sha256": "28f5f24bba67ef52cc08dacc3979e0aa55a19e72f11f59c87228fca371540e5e",
+      "bytes": 335
+    },
+    {
+      "path": "phase1/home-interior-linework-2026-10-04/request/table-retry-approval.json",
+      "sha256": "f0be4fcdb6877c33318054b2e20d9bea97d2e549a84bd46848a2ff9ccc7e6243",
+      "bytes": 606
+    },
+    {
+      "path": "phase1/home-interior-linework-2026-10-04/request/table-retry-prompt.txt",
+      "sha256": "7565ad72968bdd033449aa0566467d7e070907aa680b7b0f2511399bf595a1ac",
+      "bytes": 1208
+    },
+    {
+      "path": "phase1/home-interior-linework-2026-10-04/request/table-retry-spec.json",
+      "sha256": "42ab9c07372df3dc79ab5851b493603793f323889b98ad2af913aaae31e05959",
+      "bytes": 676
+    },
+    {
+      "path": "phase1/hometown_home_walk.gd",
+      "sha256": "a1d04787a061fd3399277f0f8dbf83bc1513227313078f29d35de5291ad73b52",
+      "bytes": 52320
+    },
+    {
+      "path": "phase1/hometown_homes_overview.gd",
+      "sha256": "3213e2a8372830509bb42f52c3ab3ec38be72373d4d869c2a71549d06c35534a",
+      "bytes": 3117
+    },
+    {
+      "path": "phase1/metadata-history/native-verification.before-terminal-records.json",
+      "sha256": "d2d46532edc1912539bc049029f65ef2fc731d0c3b161898e43cdbc77a667ccf",
+      "bytes": 106195
+    },
+    {
+      "path": "phase1/original-runtime/scripts/area_landscape.gd",
+      "sha256": "394d13fb8a62d24f472ed5c4f02a58be8e586ac9491eb22400d29b76e73af0ab",
+      "bytes": 11257
+    },
+    {
+      "path": "phase1/original-runtime/scripts/courtyard_home_room.gd",
+      "sha256": "e522cb8ce96aadd6a5668bb67e2baafdec1b0f1423c63ec5d2a8f5324c7e0c71",
+      "bytes": 5864
+    },
+    {
+      "path": "phase1/original-runtime/scripts/historic_street.gd",
+      "sha256": "1846df40a8d84bc47e76c9671396ffc600b417549462d4573dd703dfa185f4c4",
+      "bytes": 13935
+    },
+    {
+      "path": "phase1/runtime-manifest.json",
+      "sha256": "f2025cd45519a231a0f1c82d14dba6580b2661347e2ac81bd0df8ffe2ee59aab",
+      "bytes": 6820
+    },
+    {
+      "path": "phase1/runtime/assets/sprites/world/courtyard_home_linework_2026_10_04/home_coat_front.png",
+      "sha256": "5ab4376a1cb55597d2fc3797d6cb175f55c93373d1713c53b66d20a06258e921",
+      "bytes": 2653
+    },
+    {
+      "path": "phase1/runtime/assets/sprites/world/courtyard_home_linework_2026_10_04/home_coat_front.png.import",
+      "sha256": "2fd65af1596ae5a28040945d0838c98f4c066aa10a47ecf6379e19e62401b42d",
+      "bytes": 1006
+    },
+    {
+      "path": "phase1/runtime/assets/sprites/world/courtyard_home_linework_2026_10_04/home_room.png",
+      "sha256": "fa61f4d3f78b2593907327ae7c9538f72e80b1f0722ed5324d77a5fb68483b36",
+      "bytes": 24659
+    },
+    {
+      "path": "phase1/runtime/assets/sprites/world/courtyard_home_linework_2026_10_04/home_room.png.import",
+      "sha256": "d8bbf728511f5271a5713d90d53c8940647ef3a961b24c980b7db79f46f6d365",
+      "bytes": 988
+    },
+    {
+      "path": "phase1/runtime/assets/sprites/world/courtyard_home_linework_2026_10_04/home_stove_front.png",
+      "sha256": "cb8d5b1e0c54ffbac67d278556ef87d120bef6ac18afc64722ce1d2f2715c1c6",
+      "bytes": 2664
+    },
+    {
+      "path": "phase1/runtime/assets/sprites/world/courtyard_home_linework_2026_10_04/home_stove_front.png.import",
+      "sha256": "fd57705845c8c3ca9f58e21341cc39f8eadd4c60a07052f2f7ddcedbbab5d927",
+      "bytes": 1009
+    },
+    {
+      "path": "phase1/runtime/assets/sprites/world/courtyard_home_linework_2026_10_04/home_threshold_front.png",
+      "sha256": "47872dc776e93d784937cc60243758166390d92349e8ec12588586ee2c445ac1",
+      "bytes": 2248
+    },
+    {
+      "path": "phase1/runtime/assets/sprites/world/courtyard_home_linework_2026_10_04/home_threshold_front.png.import",
+      "sha256": "be44a0a10499d597fd203e7c74011ebc489c92615c9cdad010213ddd7d64e09b",
+      "bytes": 1021
+    },
+    {
+      "path": "phase1/runtime/assets/sprites/world/world_linework_2026_10_04/brick_shop.png",
+      "sha256": "c72d9b86c0b4643d0f9da3c025a239c1f31efa3ff9510885bfd0736dfc6141c2",
+      "bytes": 16338
+    },
+    {
+      "path": "phase1/runtime/assets/sprites/world/world_linework_2026_10_04/brick_shop.png.import",
+      "sha256": "85c16ec38aab83e650579f24341e38400e6ac25eb36fa3db7f20a594e8a3e117",
+      "bytes": 982
+    },
+    {
+      "path": "phase1/runtime/assets/sprites/world/world_linework_2026_10_04/courtyard_home.png",
+      "sha256": "f5a4af906a064c0a1faa972847f01ddcbb2a93372350d9e0b77fbbbe1ded290c",
+      "bytes": 15126
+    },
+    {
+      "path": "phase1/runtime/assets/sprites/world/world_linework_2026_10_04/courtyard_home.png.import",
+      "sha256": "a460b1306affd083df5abd4ef0a53396ba3dbe49fc023edf83c83b198a2cea17",
+      "bytes": 993
+    },
+    {
+      "path": "phase1/runtime/assets/sprites/world/world_linework_2026_10_04/dispatch_hall.png",
+      "sha256": "94bdf8fe98fa9e1c13afc9f2b6394bd06cf4c5ec03019dd126c765add1c57f23",
+      "bytes": 11495
+    },
+    {
+      "path": "phase1/runtime/assets/sprites/world/world_linework_2026_10_04/dispatch_hall.png.import",
+      "sha256": "41499d891e5bd0b02cf17489377ec15f680bdb2994dbe888e847d5d784ef1a0b",
+      "bytes": 991
+    },
+    {
+      "path": "phase1/runtime/assets/sprites/world/world_linework_2026_10_04/ledger_house.png",
+      "sha256": "7392fdde7ed2e4c9f17e81b129a96bbde753d1326b8830e223901227fbcfcc23",
+      "bytes": 17051
+    },
+    {
+      "path": "phase1/runtime/assets/sprites/world/world_linework_2026_10_04/ledger_house.png.import",
+      "sha256": "b0701a330e8006d11211373e10ebb39860d9acde93491e8d0703342cf388f45a",
+      "bytes": 988
+    },
+    {
+      "path": "phase1/runtime/scripts/area_landscape.gd",
+      "sha256": "bfa0a77495280c973ead3631a4216d64a864aefe178793181917c2f0cf69d946",
+      "bytes": 11245
+    },
+    {
+      "path": "phase1/runtime/scripts/courtyard_home_room.gd",
+      "sha256": "51c6621e1d6e11400f423337fc272eb55d70f6eff600624e21554bc798f5474d",
+      "bytes": 5885
+    },
+    {
+      "path": "phase1/runtime/scripts/historic_street.gd",
+      "sha256": "b176dd25cbb034f37a572e0791720ad13e9e3363c9a14bc5376fd9837bc34eaa",
+      "bytes": 13931
+    },
+    {
+      "path": "phase1/sharper_home_walk.gd",
+      "sha256": "374ac0b5c3f440901886be60bbf3095e547e1cc5c2d704a6d1e9d11645ac4c94",
+      "bytes": 47815
+    },
+    {
+      "path": "phase1/sharper_world_overview.gd",
+      "sha256": "847c84287e0448a44d03433ddabcf9df77225ff7f8bd3c2527ef109db82333c8",
+      "bytes": 21553
+    },
+    {
+      "path": "phase1/world-buildings-linework-2026-10-04/baseline.json",
+      "sha256": "0d5464b56545d8bf36f269d79b943a1f1ebd9967661f59b4e1ccd10f41016353",
+      "bytes": 309971
+    },
+    {
+      "path": "phase1/world-buildings-linework-2026-10-04/before/brick_shop.png",
+      "sha256": "61346652e187f2548caf21ef51bba3cca8547f25b053fcf045c65d9206992a6b",
+      "bytes": 14207
+    },
+    {
+      "path": "phase1/world-buildings-linework-2026-10-04/before/courtyard_home.png",
+      "sha256": "ab061eacf61a4fe950c37af1de2376a153916af95360f280a0df19d4df21cfcc",
+      "bytes": 15253
+    },
+    {
+      "path": "phase1/world-buildings-linework-2026-10-04/before/dispatch_hall.png",
+      "sha256": "2648d93f1f5842322c9c83b5fed9cc9cf3fb9e53912b8d9c906a76802e31a8d2",
+      "bytes": 10712
+    },
+    {
+      "path": "phase1/world-buildings-linework-2026-10-04/before/docs/AI_COLLABORATION.md",
+      "sha256": "4235fb6347e845d1ec491a1e5cea4044d7df6d323987ebe830ee207a6eec63fa",
+      "bytes": 282936
+    },
+    {
+      "path": "phase1/world-buildings-linework-2026-10-04/before/docs/team/WORLD_GOAL_CHECKPOINT_2026-10-03.md",
+      "sha256": "1c26c83002618205e84036998286d44654aa27e4c52d0ba2435696800eae4263",
+      "bytes": 9590
+    },
+    {
+      "path": "phase1/world-buildings-linework-2026-10-04/before/garden_home.png",
+      "sha256": "139017e3662bf6bd19349d0600b3f0b57eebd725ad0190b3fea9ff4f66dddf9f",
+      "bytes": 8841
+    },
+    {
+      "path": "phase1/world-buildings-linework-2026-10-04/before/ledger_house.png",
+      "sha256": "87355e862592de3c69234afc5a2fdaa0e58e4d1fda0aa9dcadaefeab41d858ce",
+      "bytes": 16006
+    },
+    {
+      "path": "phase1/world-buildings-linework-2026-10-04/before/neighbor_home.png",
+      "sha256": "4a80b8030b1250b723a4589f2b1ed54a7bf2f3992d7b0b0c3dd6cbf1b4f3b586",
+      "bytes": 8109
+    },
+    {
+      "path": "phase1/world-buildings-linework-2026-10-04/before/rear_rowhomes.png",
+      "sha256": "297ecffda537817d929fe982fe3aff491a1f0dad5fe4d6d256d6cff5a2d52561",
+      "bytes": 16382
+    },
+    {
+      "path": "phase1/world-buildings-linework-2026-10-04/before/repair_workshop.png",
+      "sha256": "78314a07d5f546c9f5549e589fda17c73e147af022a8338b69ff1f69dc7b87a9",
+      "bytes": 9535
+    },
+    {
+      "path": "phase1/world-buildings-linework-2026-10-04/before/scripts/area_landscape.gd",
+      "sha256": "394d13fb8a62d24f472ed5c4f02a58be8e586ac9491eb22400d29b76e73af0ab",
+      "bytes": 11257
+    },
+    {
+      "path": "phase1/world-buildings-linework-2026-10-04/before/scripts/courtyard_home_room.gd",
+      "sha256": "e522cb8ce96aadd6a5668bb67e2baafdec1b0f1423c63ec5d2a8f5324c7e0c71",
+      "bytes": 5864
+    },
+    {
+      "path": "phase1/world-buildings-linework-2026-10-04/before/scripts/historic_street.gd",
+      "sha256": "1846df40a8d84bc47e76c9671396ffc600b417549462d4573dd703dfa185f4c4",
+      "bytes": 13935
+    },
+    {
+      "path": "phase1/world-buildings-linework-2026-10-04/generated/brick_shop-rd.png",
+      "sha256": "44c651a15d4ce0be0d8cfbd07f3b609cc7790176a308d3e7ba7239d336ac1de2",
+      "bytes": 20075
+    },
+    {
+      "path": "phase1/world-buildings-linework-2026-10-04/generated/brick_shop-receipt.json",
+      "sha256": "03a90d0ae8351efe9ea05a96e3eafa0db6daa44ce47fb51b3b6ecb952922225d",
+      "bytes": 440
+    },
+    {
+      "path": "phase1/world-buildings-linework-2026-10-04/generated/courtyard_home-rd.png",
+      "sha256": "eb77024db6023a46297610937c29ab2bf9a80b3b1a9084cb40ebdad57f35485a",
+      "bytes": 17065
+    },
+    {
+      "path": "phase1/world-buildings-linework-2026-10-04/generated/courtyard_home-receipt.json",
+      "sha256": "0cae905ee94e4f2d7933b99987f7c132bcfa0e06524856186908d8fd26ee8edc",
+      "bytes": 443
+    },
+    {
+      "path": "phase1/world-buildings-linework-2026-10-04/generated/dispatch_hall-rd.png",
+      "sha256": "19a1376e0cdd9dd53d37c2688e38e6f2d21c241603b79e9fbe52a5cc46efb6eb",
+      "bytes": 14231
+    },
+    {
+      "path": "phase1/world-buildings-linework-2026-10-04/generated/dispatch_hall-receipt.json",
+      "sha256": "ba62e4419e6173282658b2a8950c534d63e96da75153484579d72b8e8f36abea",
+      "bytes": 441
+    },
+    {
+      "path": "phase1/world-buildings-linework-2026-10-04/generated/ledger_house-rd.png",
+      "sha256": "c8b0144205fed192ee2f6a927167df2db49a99ad4f4614abef8bf2c8d89e432b",
+      "bytes": 19485
+    },
+    {
+      "path": "phase1/world-buildings-linework-2026-10-04/generated/ledger_house-receipt.json",
+      "sha256": "261715776bda09944d429bf12afdc287839cc9d0e80ecb760ff6f34ec0e2a6cc",
+      "bytes": 441
+    },
+    {
+      "path": "phase1/world-buildings-linework-2026-10-04/native-preparation.json",
+      "sha256": "60c991ece3423515b4eddc16cf13e563a5786f82b762b2e43f581fb14afd88f2",
+      "bytes": 5362
+    },
+    {
+      "path": "phase1/world-buildings-linework-2026-10-04/prepared/brick_shop.png",
+      "sha256": "c72d9b86c0b4643d0f9da3c025a239c1f31efa3ff9510885bfd0736dfc6141c2",
+      "bytes": 16338
+    },
+    {
+      "path": "phase1/world-buildings-linework-2026-10-04/prepared/courtyard_home.png",
+      "sha256": "f5a4af906a064c0a1faa972847f01ddcbb2a93372350d9e0b77fbbbe1ded290c",
+      "bytes": 15126
+    },
+    {
+      "path": "phase1/world-buildings-linework-2026-10-04/prepared/dispatch_hall.png",
+      "sha256": "94bdf8fe98fa9e1c13afc9f2b6394bd06cf4c5ec03019dd126c765add1c57f23",
+      "bytes": 11495
+    },
+    {
+      "path": "phase1/world-buildings-linework-2026-10-04/prepared/ledger_house.png",
+      "sha256": "7392fdde7ed2e4c9f17e81b129a96bbde753d1326b8830e223901227fbcfcc23",
+      "bytes": 17051
+    },
+    {
+      "path": "phase1/world-buildings-linework-2026-10-04/render/buildings-before.png",
+      "sha256": "c961587f0d784602e98610ebe7de7848f23a155a9d7c660ecc91787daa6f165b",
+      "bytes": 141644
+    },
+    {
+      "path": "phase1/world-buildings-linework-2026-10-04/render/four-building-comparison.png",
+      "sha256": "24699996de0b61ac8b66633ec264ab2a9a8bf072679b56ad537b2a8e37ab5322",
+      "bytes": 122977
+    },
+    {
+      "path": "phase1/world-buildings-linework-2026-10-04/render/four-building-contact.png",
+      "sha256": "b538a954b0215a537523fb130ccf7bb0679a033ba2500c31a425d64cd11f10fa",
+      "bytes": 85515
+    },
+    {
+      "path": "phase1/world-buildings-linework-2026-10-04/request/approval.json",
+      "sha256": "6fd8df199e941791f1f98563abaef1bd8f573f35fec0199581d4e446e1ec21a5",
+      "bytes": 612
+    },
+    {
+      "path": "phase1/world-buildings-linework-2026-10-04/request/specs.json",
+      "sha256": "84a7651acaf6dc30f461e09b9fd566a4f332dfd67e54e869e34f24a59f02af9c",
+      "bytes": 4744
+    },
+    {
+      "path": "phase1/world-buildings-linework-2026-10-04/source-inventory.json",
+      "sha256": "38b76a8d5996a7c558df55e6a585510f1a4617fd3044031fac4be07845d675ff",
+      "bytes": 2637
+    },
+    {
+      "path": "proof-source-origins.json",
+      "sha256": "24090e754cb42e9ba4720cc86f74727446cc98359af3412b9fb49384f6458921",
+      "bytes": 51898
+    },
+    {
+      "path": "rebuild-proof/rebuild-results.json",
+      "sha256": "7165df165fec074bae2bfda3983eb80e4d51935fa10ea48880ed78b90e18b2fb",
+      "bytes": 13498
+    },
+    {
+      "path": "rebuild-proof/stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "rebuild-proof/stdout.log",
+      "sha256": "c445fb099c056c100072753dc5e252d71b3583187da429ec3077bc0f830ec618",
+      "bytes": 112
+    },
+    {
+      "path": "rebuild-proof/validation.json",
+      "sha256": "c2bfa63041f96953000ab9ff5dd7e242863e262ccd140c5858d027917f323d67",
+      "bytes": 622
+    },
+    {
+      "path": "rebuild_all_world_pngs.py",
+      "sha256": "cc4868449f9d99b839a281cb153fa8e7aef32d4d2c6683367a3e3961929c4b7c",
+      "bytes": 2661
+    },
+    {
+      "path": "room-coalcrest-detail-2026-10-05/before/courtyard_home_room.gd",
+      "sha256": "51c6621e1d6e11400f423337fc272eb55d70f6eff600624e21554bc798f5474d",
+      "bytes": 5885
+    },
+    {
+      "path": "room-coalcrest-detail-2026-10-05/build_coalcrest_closeup_native.py",
+      "sha256": "db2377a96fa78607ac72ddbb829db7e60be84cf8e7211e6500883a6f32809437",
+      "bytes": 6902
+    },
+    {
+      "path": "room-coalcrest-detail-2026-10-05/generated/coalcrest-closeups-rd.png",
+      "sha256": "aaa129bb7e8e915fe8869c3129159ceef33bf3912ef5dc90d393ec84d5169d38",
+      "bytes": 7984
+    },
+    {
+      "path": "room-coalcrest-detail-2026-10-05/generated/coalcrest-closeups-receipt.json",
+      "sha256": "c928b3e97b111f12c685f572667a5109214e3f7b9e3648e744d9831ef748ad63",
+      "bytes": 230
+    },
+    {
+      "path": "room-coalcrest-detail-2026-10-05/generated/coalcrest_back-free-correction-receipt.json",
+      "sha256": "07450580f0720a88a27109749a93286474d9490333159a36c30e02903d81a833",
+      "bytes": 233
+    },
+    {
+      "path": "room-coalcrest-detail-2026-10-05/generated/coalcrest_back-free-correction.png",
+      "sha256": "c39df0c384151f3623abdafb9200b52537fab3d93326136d892938458dcf0ed8",
+      "bytes": 10005
+    },
+    {
+      "path": "room-coalcrest-detail-2026-10-05/generated/coalcrest_back-rd.png",
+      "sha256": "44d5bd693cf002b07e9a9cc5e8b4b365b728742a3a290e8564859b9c573cf78f",
+      "bytes": 8016
+    },
+    {
+      "path": "room-coalcrest-detail-2026-10-05/generated/coalcrest_back-receipt.json",
+      "sha256": "fff0717d8c498ced28e83628d206801901a6ff22a77bc2499e4737c2b289c648",
+      "bytes": 230
+    },
+    {
+      "path": "room-coalcrest-detail-2026-10-05/generated/coalcrest_front-free-correction-receipt.json",
+      "sha256": "f6a94628f29eb80e74a3f7b4395ba261c4ed89bc1883798645841314bd1b8064",
+      "bytes": 233
+    },
+    {
+      "path": "room-coalcrest-detail-2026-10-05/generated/coalcrest_front-free-correction.png",
+      "sha256": "9d8d66221267ecc43a54c5dbdfc9f5ea87295fd4cd6eafec7afc65ad68cf9253",
+      "bytes": 11086
+    },
+    {
+      "path": "room-coalcrest-detail-2026-10-05/generated/coalcrest_front-rd.png",
+      "sha256": "5eb6b1a6773de61527932013d0b8e290bdae2f004b116aeb0b13f73d5ea2d238",
+      "bytes": 7421
+    },
+    {
+      "path": "room-coalcrest-detail-2026-10-05/generated/coalcrest_front-receipt.json",
+      "sha256": "2db88c233a6f0fa329edadf0b9e9c2551420163ad72d60a12326d3e35c6d8a41",
+      "bytes": 230
+    },
+    {
+      "path": "room-coalcrest-detail-2026-10-05/generated/room-rd.png",
+      "sha256": "5192e4e5763836a2f1b9a5a124237938f9350305ca13f95de951825eb96ba728",
+      "bytes": 34969
+    },
+    {
+      "path": "room-coalcrest-detail-2026-10-05/generated/room-receipt.json",
+      "sha256": "21c176897b28a394b3124d7044bf561cd73ce60041ba9abc1d8be833b9991643",
+      "bytes": 230
+    },
+    {
+      "path": "room-coalcrest-detail-2026-10-05/inputs/coalcrest_back.png",
+      "sha256": "353747fb9a15dee7057a947f2a6640ede171c0c5a98ebc5b5f1152e4a03b6a9a",
+      "bytes": 8792
+    },
+    {
+      "path": "room-coalcrest-detail-2026-10-05/inputs/coalcrest_back_active_v3.png",
+      "sha256": "e2cde80eb484a38d0322c225a83d8584a37fb96c1ebfc6c1db83d373966020a1",
+      "bytes": 8243
+    },
+    {
+      "path": "room-coalcrest-detail-2026-10-05/inputs/coalcrest_front.png",
+      "sha256": "6cbd82720f1c9673e51fea21cc6261fc2798bc80e4c0d3e0a433a224202f669f",
+      "bytes": 10330
+    },
+    {
+      "path": "room-coalcrest-detail-2026-10-05/inputs/room.png",
+      "sha256": "3232fff46305634fe509872d759e305e3e3ae4a2c76a282efb6f73d18fded95b",
+      "bytes": 30102
+    },
+    {
+      "path": "room-coalcrest-detail-2026-10-05/prepared/coalcrest_back_closeup_native.png",
+      "sha256": "6bb94d22b9debcd305d362cff5b48161b456ed6bf762c24e1f58c98d23ed7652",
+      "bytes": 8606
+    },
+    {
+      "path": "room-coalcrest-detail-2026-10-05/prepared/coalcrest_front_closeup_native.png",
+      "sha256": "e17acf8227e1b98d752e4d476b3e7fa9b37b426c3fb3e5c349aaee66de83184f",
+      "bytes": 10783
+    },
+    {
+      "path": "room-coalcrest-detail-2026-10-05/prepared/home_coat_front.png",
+      "sha256": "9758fbd2efbb1e1d83b00f8aa2fd34d2daaf83ebd8158abd71ece788a0427f7e",
+      "bytes": 2746
+    },
+    {
+      "path": "room-coalcrest-detail-2026-10-05/prepared/home_room.png",
+      "sha256": "18082c72038c62c53a9b7ad35bc7f4d99e2796e1fceeabd81493e0ea0f650bc3",
+      "bytes": 25372
+    },
+    {
+      "path": "room-coalcrest-detail-2026-10-05/prepared/home_stove_front.png",
+      "sha256": "461f5e412c4c679b85985d701e7cf54a72ae04ba8e9dd0274d24e1a4c9a22185",
+      "bytes": 2892
+    },
+    {
+      "path": "room-coalcrest-detail-2026-10-05/prepared/home_threshold_front.png",
+      "sha256": "47872dc776e93d784937cc60243758166390d92349e8ec12588586ee2c445ac1",
+      "bytes": 2248
+    },
+    {
+      "path": "room-coalcrest-detail-2026-10-05/prepared/room_detail_registered_source.png",
+      "sha256": "3c65fb10ea372e99b9abd84db1792a5b20cafd330c5bfaa4590e1802a3b24862",
+      "bytes": 31274
+    },
+    {
+      "path": "room-coalcrest-detail-2026-10-05/proof/coalcrest-import.stderr.log",
+      "sha256": "1356f037b23db7500cfc0e01089026e13611c8e1ed01a76a2151a0c85582a2a1",
+      "bytes": 913
+    },
+    {
+      "path": "room-coalcrest-detail-2026-10-05/proof/coalcrest-import.stdout.log",
+      "sha256": "df3b86d4a918e3b850129e198a96cc3d070e1f254158db4292335149888e8626",
+      "bytes": 2946
+    },
+    {
+      "path": "room-coalcrest-detail-2026-10-05/proof/female-walk-stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "room-coalcrest-detail-2026-10-05/proof/female-walk-stdout.log",
+      "sha256": "dcc8629dc0d8bc99e9e13edc663b14d29b17576fe3737565452217bbef7727d8",
+      "bytes": 701
+    },
+    {
+      "path": "room-coalcrest-detail-2026-10-05/proof/final-verification.json",
+      "sha256": "2b538aa44809943bc5a0031ca1d398a66df8bf27a595d666692fdbce83d52e6e",
+      "bytes": 119694
+    },
+    {
+      "path": "room-coalcrest-detail-2026-10-05/proof/final-verification.md",
+      "sha256": "d0f1225eeb0c5a806cb271180e63207455c6a9ef6452de17d121b7d3494280c7",
+      "bytes": 2421
+    },
+    {
+      "path": "room-coalcrest-detail-2026-10-05/proof/import-stderr.log",
+      "sha256": "a28e85bd513dc91d9bd4576b9214eec251d127abbbed3dc78431b4706b99b1c7",
+      "bytes": 914
+    },
+    {
+      "path": "room-coalcrest-detail-2026-10-05/proof/import-stdout.log",
+      "sha256": "06e830725a4ad016e35e7bcc744c57e8332ea4b8341b3427ed80dc66f6aa448c",
+      "bytes": 3613
+    },
+    {
+      "path": "room-coalcrest-detail-2026-10-05/proof/male-walk-stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "room-coalcrest-detail-2026-10-05/proof/male-walk-stdout.log",
+      "sha256": "96469955b92c316a80e13b2f23beb1e448971ca69b94a308fc6ecb91019eb2f2",
+      "bytes": 699
+    },
+    {
+      "path": "room-coalcrest-detail-2026-10-05/proof/overview-stderr.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "room-coalcrest-detail-2026-10-05/proof/overview-stdout.log",
+      "sha256": "14b152c48ed1617668f32b9d578cb0e42f4841ee533741e0d9a1a8ccd49056bb",
+      "bytes": 464
+    },
+    {
+      "path": "room-coalcrest-detail-2026-10-05/proof/overview/male-historic-shop-ledger-native-3x.png",
+      "sha256": "48a78f8ead6911d167c92112b246e44760d42dfaeb8b67f498cfeb757985abe3",
+      "bytes": 100946
+    },
+    {
+      "path": "room-coalcrest-detail-2026-10-05/proof/overview/male-historic-street-overview-native-1x.png",
+      "sha256": "f496fd5ba35056cb951762b609a34a253ecd0cbad0d7779b0635222fad0c24bf",
+      "bytes": 438178
+    },
+    {
+      "path": "room-coalcrest-detail-2026-10-05/proof/overview/male-home-bed-quilt-native-2x.png",
+      "sha256": "b6e31d9a0ebfc4266770267378223d53b557a1a53220a679eb0b5ddc153b8d6d",
+      "bytes": 8308
+    },
+    {
+      "path": "room-coalcrest-detail-2026-10-05/proof/overview/male-home-cupboard-coat-native-2x.png",
+      "sha256": "53303da218a1b77aa728a8377aa189790c142518d73d6c7002f08f1867a8b10a",
+      "bytes": 5092
+    },
+    {
+      "path": "room-coalcrest-detail-2026-10-05/proof/overview/male-home-room-native-2x.png",
+      "sha256": "01bda02a1864d2202a622c9e887d3eb1afe5fd92d8351125c848b4a74acf7ad2",
+      "bytes": 41524
+    },
+    {
+      "path": "room-coalcrest-detail-2026-10-05/proof/overview/male-home-shelf-worktable-native-2x.png",
+      "sha256": "dd8b422ce052c19755adad0b690c29b5fdf925cbd7dca8ea640e50be84e3d6de",
+      "bytes": 8069
+    },
+    {
+      "path": "room-coalcrest-detail-2026-10-05/proof/overview/male-home-stove-woodpile-native-2x.png",
+      "sha256": "bcb2284ecc3d9c5865b1ad2af0127a9a48795fb0f392143dcc30d00b452e9be5",
+      "bytes": 5496
+    },
+    {
+      "path": "room-coalcrest-detail-2026-10-05/proof/overview/male-hometown-courtyard-native-3x.png",
+      "sha256": "56a41f474e6116b6829d86b4ce5367d8ffa079e569174b3cb000dccc08273e4b",
+      "bytes": 35721
+    },
+    {
+      "path": "room-coalcrest-detail-2026-10-05/proof/overview/male-hometown-hall-native-3x.png",
+      "sha256": "d4a8abe3d5a10a7c4e49e2e2347ed95f9533bd2a7cc02de66605eb566057d4d9",
+      "bytes": 26547
+    },
+    {
+      "path": "room-coalcrest-detail-2026-10-05/proof/overview/male-hometown-overview-native-1x.png",
+      "sha256": "36665c6a5e32f384e1edf46723445a2e443358c86518f6e491a07e208a8e4951",
+      "bytes": 568614
+    },
+    {
+      "path": "room-coalcrest-detail-2026-10-05/proof/overview/male-overview.json",
+      "sha256": "56b233319bbe0d395e2dd38d11b0e9b752a7cb5f8f8a7b92958ae2dc9612a498",
+      "bytes": 30983
+    },
+    {
+      "path": "room-coalcrest-detail-2026-10-05/proof/overview/male-riverfront-hall-native-3x.png",
+      "sha256": "a7615319585a707a3c728fe579b3fec4b9eff3f3e18a437cdbbdd482d94a8ef6",
+      "bytes": 32575
+    },
+    {
+      "path": "room-coalcrest-detail-2026-10-05/proof/overview/male-riverfront-ledger-native-3x.png",
+      "sha256": "e6499af2a91c145016519d0124b15db85a0551a1ed9928686ca1ef76b105734b",
+      "bytes": 35869
+    },
+    {
+      "path": "room-coalcrest-detail-2026-10-05/proof/overview/male-riverfront-overview-native-1x.png",
+      "sha256": "c8c8b5a909056f46cc98ccfcf3585d88869c74bbc9c186660d8638c49d08150f",
+      "bytes": 487797
+    },
+    {
+      "path": "room-coalcrest-detail-2026-10-05/proof/overview/male-riverfront-shop-native-3x.png",
+      "sha256": "2edd85e952a0f037c365774048c8400f64c148586d655668fd0cbb596b022be8",
+      "bytes": 32784
+    },
+    {
+      "path": "room-coalcrest-detail-2026-10-05/proof/terminal-results.json",
+      "sha256": "22d6049610947158cb4ed843615fcadf3eba76de85aca98beaf9ac528ed48023",
+      "bytes": 643
+    },
+    {
+      "path": "room-coalcrest-detail-2026-10-05/proof/walk/female-entrance-courtyard_home-to-hometown.png",
+      "sha256": "c7cf0473cba91162f4ebaf320225b6b8eadcf578a1769bff0ed73217fea4ae82",
+      "bytes": 115851
+    },
+    {
+      "path": "room-coalcrest-detail-2026-10-05/proof/walk/female-entrance-hometown-to-courtyard_home.png",
+      "sha256": "27458b3072a2ed61cf1193e71abaf7825c0cae3f7afa024698c0cdc3a5df7deb",
+      "bytes": 57384
+    },
+    {
+      "path": "room-coalcrest-detail-2026-10-05/proof/walk/female-focused-return-home.png",
+      "sha256": "c7cf0473cba91162f4ebaf320225b6b8eadcf578a1769bff0ed73217fea4ae82",
+      "bytes": 115851
+    },
+    {
+      "path": "room-coalcrest-detail-2026-10-05/proof/walk/female-home-bed-cached-return.png",
+      "sha256": "e0a3de53bda684e801e89860c5a4ab2eb862bb82f6e5be059da52b7eb4d166cb",
+      "bytes": 63653
+    },
+    {
+      "path": "room-coalcrest-detail-2026-10-05/proof/walk/female-home-bed-first.png",
+      "sha256": "e0a3de53bda684e801e89860c5a4ab2eb862bb82f6e5be059da52b7eb4d166cb",
+      "bytes": 63653
+    },
+    {
+      "path": "room-coalcrest-detail-2026-10-05/proof/walk/female-home-coat-cached-return.png",
+      "sha256": "71154604a7e2219473e17e56d9bda31a28f3e583118731813fb8c1085958c878",
+      "bytes": 59764
+    },
+    {
+      "path": "room-coalcrest-detail-2026-10-05/proof/walk/female-home-coat-first.png",
+      "sha256": "71154604a7e2219473e17e56d9bda31a28f3e583118731813fb8c1085958c878",
+      "bytes": 59764
+    },
+    {
+      "path": "room-coalcrest-detail-2026-10-05/proof/walk/female-home-collision-bed-cached-return.png",
+      "sha256": "fb63a57d05ca1607ea85a49e6f9efdfae69aa427bca3fb1081251cbe6e4ae0bb",
+      "bytes": 56438
+    },
+    {
+      "path": "room-coalcrest-detail-2026-10-05/proof/walk/female-home-collision-bed-first.png",
+      "sha256": "fb63a57d05ca1607ea85a49e6f9efdfae69aa427bca3fb1081251cbe6e4ae0bb",
+      "bytes": 56438
+    },
+    {
+      "path": "room-coalcrest-detail-2026-10-05/proof/walk/female-home-collision-bedside-cached-return.png",
+      "sha256": "753023b6e425c7324fd019ea745ad05f4f235207eed59b3e01cf84d808cd6e6a",
+      "bytes": 56336
+    },
+    {
+      "path": "room-coalcrest-detail-2026-10-05/proof/walk/female-home-collision-bedside-first.png",
+      "sha256": "753023b6e425c7324fd019ea745ad05f4f235207eed59b3e01cf84d808cd6e6a",
+      "bytes": 56336
+    },
+    {
+      "path": "room-coalcrest-detail-2026-10-05/proof/walk/female-home-collision-coat-cabinet-cached-return.png",
+      "sha256": "750f8f6f7f9677826c1f8a305e1bf8f4f3d3590acb25252bb1720a743cc7618c",
+      "bytes": 56870
+    },
+    {
+      "path": "room-coalcrest-detail-2026-10-05/proof/walk/female-home-collision-coat-cabinet-first.png",
+      "sha256": "750f8f6f7f9677826c1f8a305e1bf8f4f3d3590acb25252bb1720a743cc7618c",
+      "bytes": 56870
+    },
+    {
+      "path": "room-coalcrest-detail-2026-10-05/proof/walk/female-home-collision-east-wall-cached-return.png",
+      "sha256": "da917fb73e92fe1fd42371d104f1b3ca0eb4bde411308d1d4afcaf9871727266",
+      "bytes": 56363
+    },
+    {
+      "path": "room-coalcrest-detail-2026-10-05/proof/walk/female-home-collision-east-wall-first.png",
+      "sha256": "da917fb73e92fe1fd42371d104f1b3ca0eb4bde411308d1d4afcaf9871727266",
+      "bytes": 56363
+    },
+    {
+      "path": "room-coalcrest-detail-2026-10-05/proof/walk/female-home-collision-north-wall-cached-return.png",
+      "sha256": "57ec1bef713faacb8bb3523ca12f37bb37f3d3c57718bd62ea5a08f2e82ec7cd",
+      "bytes": 57082
+    },
+    {
+      "path": "room-coalcrest-detail-2026-10-05/proof/walk/female-home-collision-north-wall-first.png",
+      "sha256": "57ec1bef713faacb8bb3523ca12f37bb37f3d3c57718bd62ea5a08f2e82ec7cd",
+      "bytes": 57082
+    },
+    {
+      "path": "room-coalcrest-detail-2026-10-05/proof/walk/female-home-collision-south-left-wall-cached-return.png",
+      "sha256": "532f9257411c5e9b9df0734435c59d2e49722421fdbefbb15570898c86244640",
+      "bytes": 57560
+    },
+    {
+      "path": "room-coalcrest-detail-2026-10-05/proof/walk/female-home-collision-south-left-wall-first.png",
+      "sha256": "532f9257411c5e9b9df0734435c59d2e49722421fdbefbb15570898c86244640",
+      "bytes": 57560
+    },
+    {
+      "path": "room-coalcrest-detail-2026-10-05/proof/walk/female-home-collision-south-right-wall-cached-return.png",
+      "sha256": "5fae2e6ea18df18ae812cd58f23b9f67839b60afb341ea58601f85bb63a3d90e",
+      "bytes": 57677
+    },
+    {
+      "path": "room-coalcrest-detail-2026-10-05/proof/walk/female-home-collision-south-right-wall-first.png",
+      "sha256": "5fae2e6ea18df18ae812cd58f23b9f67839b60afb341ea58601f85bb63a3d90e",
+      "bytes": 57677
+    },
+    {
+      "path": "room-coalcrest-detail-2026-10-05/proof/walk/female-home-collision-stool-cached-return.png",
+      "sha256": "1aa0a569f9a1fd8de6b1fbe235f9ba3f0da297319e1b1c64edb71f19115d64a6",
+      "bytes": 56212
+    },
+    {
+      "path": "room-coalcrest-detail-2026-10-05/proof/walk/female-home-collision-stool-first.png",
+      "sha256": "1aa0a569f9a1fd8de6b1fbe235f9ba3f0da297319e1b1c64edb71f19115d64a6",
+      "bytes": 56212
+    },
+    {
+      "path": "room-coalcrest-detail-2026-10-05/proof/walk/female-home-collision-stove-cached-return.png",
+      "sha256": "9dd25b961290c662af17e56f12a2b6b9f7d4a6dee806be52a35dd8bd829c512f",
+      "bytes": 56365
+    },
+    {
+      "path": "room-coalcrest-detail-2026-10-05/proof/walk/female-home-collision-stove-first.png",
+      "sha256": "9dd25b961290c662af17e56f12a2b6b9f7d4a6dee806be52a35dd8bd829c512f",
+      "bytes": 56365
+    },
+    {
+      "path": "room-coalcrest-detail-2026-10-05/proof/walk/female-home-collision-table-cached-return.png",
+      "sha256": "fa8792e77240972533d0e608e3f51e4974e59dfc57d8240e36e5db7570113ee5",
+      "bytes": 57000
+    },
+    {
+      "path": "room-coalcrest-detail-2026-10-05/proof/walk/female-home-collision-table-first.png",
+      "sha256": "fa8792e77240972533d0e608e3f51e4974e59dfc57d8240e36e5db7570113ee5",
+      "bytes": 57000
+    },
+    {
+      "path": "room-coalcrest-detail-2026-10-05/proof/walk/female-home-collision-west-wall-cached-return.png",
+      "sha256": "fac00f42127f7f57c24492d64e23bf43fcfaa0a88c0dac9bff7228e2477e722f",
+      "bytes": 56846
+    },
+    {
+      "path": "room-coalcrest-detail-2026-10-05/proof/walk/female-home-collision-west-wall-first.png",
+      "sha256": "fac00f42127f7f57c24492d64e23bf43fcfaa0a88c0dac9bff7228e2477e722f",
+      "bytes": 56846
+    },
+    {
+      "path": "room-coalcrest-detail-2026-10-05/proof/walk/female-home-collision-woodstack-cached-return.png",
+      "sha256": "1558594bb86645c2c89893d9488a201b313ad1b7fb315ccb989923c1ad723638",
+      "bytes": 56304
+    },
+    {
+      "path": "room-coalcrest-detail-2026-10-05/proof/walk/female-home-collision-woodstack-first.png",
+      "sha256": "1558594bb86645c2c89893d9488a201b313ad1b7fb315ccb989923c1ad723638",
+      "bytes": 56304
+    },
+    {
+      "path": "room-coalcrest-detail-2026-10-05/proof/walk/female-home-entry-cached-return.png",
+      "sha256": "27458b3072a2ed61cf1193e71abaf7825c0cae3f7afa024698c0cdc3a5df7deb",
+      "bytes": 57384
+    },
+    {
+      "path": "room-coalcrest-detail-2026-10-05/proof/walk/female-home-entry-first.png",
+      "sha256": "27458b3072a2ed61cf1193e71abaf7825c0cae3f7afa024698c0cdc3a5df7deb",
+      "bytes": 57384
+    },
+    {
+      "path": "room-coalcrest-detail-2026-10-05/proof/walk/female-home-exterior-cached-return.png",
+      "sha256": "c7cf0473cba91162f4ebaf320225b6b8eadcf578a1769bff0ed73217fea4ae82",
+      "bytes": 115851
+    },
+    {
+      "path": "room-coalcrest-detail-2026-10-05/proof/walk/female-home-exterior-first.png",
+      "sha256": "c7cf0473cba91162f4ebaf320225b6b8eadcf578a1769bff0ed73217fea4ae82",
+      "bytes": 115851
+    },
+    {
+      "path": "room-coalcrest-detail-2026-10-05/proof/walk/female-home-stove-cached-return.png",
+      "sha256": "a8baaec28c328ad210ae881b1f0bab03668682c1b1169ba9cbe37e9687f7d0e6",
+      "bytes": 61375
+    },
+    {
+      "path": "room-coalcrest-detail-2026-10-05/proof/walk/female-home-stove-first.png",
+      "sha256": "a8baaec28c328ad210ae881b1f0bab03668682c1b1169ba9cbe37e9687f7d0e6",
+      "bytes": 61375
+    },
+    {
+      "path": "room-coalcrest-detail-2026-10-05/proof/walk/female-home-table-cached-return.png",
+      "sha256": "bb76eba8c5a2271651ec3066be701b3503707548a719917504af0be891309a48",
+      "bytes": 65251
+    },
+    {
+      "path": "room-coalcrest-detail-2026-10-05/proof/walk/female-home-table-first.png",
+      "sha256": "bb76eba8c5a2271651ec3066be701b3503707548a719917504af0be891309a48",
+      "bytes": 65251
+    },
+    {
+      "path": "room-coalcrest-detail-2026-10-05/proof/walk/female-home-view-coat-behind-cached-return.png",
+      "sha256": "bcb81f5b837604f11e92ad5244cd2afacecab396fff85fc174ddccc1bd7285b7",
+      "bytes": 57528
+    },
+    {
+      "path": "room-coalcrest-detail-2026-10-05/proof/walk/female-home-view-coat-behind-first.png",
+      "sha256": "bcb81f5b837604f11e92ad5244cd2afacecab396fff85fc174ddccc1bd7285b7",
+      "bytes": 57528
+    },
+    {
+      "path": "room-coalcrest-detail-2026-10-05/proof/walk/female-home-view-stove-behind-cached-return.png",
+      "sha256": "4a3e339a3e48c94ef18fa220e2f6908a2edc508f3b4be0397fa97a9b052d453e",
+      "bytes": 55822
+    },
+    {
+      "path": "room-coalcrest-detail-2026-10-05/proof/walk/female-home-view-stove-behind-first.png",
+      "sha256": "4a3e339a3e48c94ef18fa220e2f6908a2edc508f3b4be0397fa97a9b052d453e",
+      "bytes": 55822
+    },
+    {
+      "path": "room-coalcrest-detail-2026-10-05/proof/walk/female-start.png",
+      "sha256": "802b5bee6b2710ce93033adc51e097284f9db2978b7eb8ee3ddd6ac04be38bdf",
+      "bytes": 115755
+    },
+    {
+      "path": "room-coalcrest-detail-2026-10-05/proof/walk/female-walkthrough.json",
+      "sha256": "794b833ff8baadd7e4125d9dc5fb66c93d7853c191428aef382c67ddce1bb60d",
+      "bytes": 53387
+    },
+    {
+      "path": "room-coalcrest-detail-2026-10-05/proof/walk/male-entrance-courtyard_home-to-hometown.png",
+      "sha256": "01197d7be9ddbea241e8638e7ea276b21b5d42bcd097bb6a4dfccf916ea7c0f7",
+      "bytes": 115992
+    },
+    {
+      "path": "room-coalcrest-detail-2026-10-05/proof/walk/male-entrance-hometown-to-courtyard_home.png",
+      "sha256": "65777fd582083d6eecf88684e56c7dda6200b70db9f2fbbb6b7d175d78feb7b5",
+      "bytes": 57185
+    },
+    {
+      "path": "room-coalcrest-detail-2026-10-05/proof/walk/male-focused-return-home.png",
+      "sha256": "01197d7be9ddbea241e8638e7ea276b21b5d42bcd097bb6a4dfccf916ea7c0f7",
+      "bytes": 115992
+    },
+    {
+      "path": "room-coalcrest-detail-2026-10-05/proof/walk/male-home-bed-cached-return.png",
+      "sha256": "48adcfdcfd3c19f368c1b55f713c5f208299cc0eaa834fc064b163e0e34229b8",
+      "bytes": 63464
+    },
+    {
+      "path": "room-coalcrest-detail-2026-10-05/proof/walk/male-home-bed-first.png",
+      "sha256": "48adcfdcfd3c19f368c1b55f713c5f208299cc0eaa834fc064b163e0e34229b8",
+      "bytes": 63464
+    },
+    {
+      "path": "room-coalcrest-detail-2026-10-05/proof/walk/male-home-coat-cached-return.png",
+      "sha256": "3dc4d326abc29f475f9213eca0497fddaf32c667c98c9538eeb7a698ec956014",
+      "bytes": 59921
+    },
+    {
+      "path": "room-coalcrest-detail-2026-10-05/proof/walk/male-home-coat-first.png",
+      "sha256": "3dc4d326abc29f475f9213eca0497fddaf32c667c98c9538eeb7a698ec956014",
+      "bytes": 59921
+    },
+    {
+      "path": "room-coalcrest-detail-2026-10-05/proof/walk/male-home-collision-bed-cached-return.png",
+      "sha256": "a49f69cba12363bb74342575f18379ff59c7912ffacf1f22f50ed4cccaea574c",
+      "bytes": 56428
+    },
+    {
+      "path": "room-coalcrest-detail-2026-10-05/proof/walk/male-home-collision-bed-first.png",
+      "sha256": "a49f69cba12363bb74342575f18379ff59c7912ffacf1f22f50ed4cccaea574c",
+      "bytes": 56428
+    },
+    {
+      "path": "room-coalcrest-detail-2026-10-05/proof/walk/male-home-collision-bedside-cached-return.png",
+      "sha256": "0e58c4eceb99d6e9a956b33251587e0990d08a347932bda5f4ca8b925c22f043",
+      "bytes": 56178
+    },
+    {
+      "path": "room-coalcrest-detail-2026-10-05/proof/walk/male-home-collision-bedside-first.png",
+      "sha256": "0e58c4eceb99d6e9a956b33251587e0990d08a347932bda5f4ca8b925c22f043",
+      "bytes": 56178
+    },
+    {
+      "path": "room-coalcrest-detail-2026-10-05/proof/walk/male-home-collision-coat-cabinet-cached-return.png",
+      "sha256": "3bd2fcc534de0368f1024cb6a083d4008c4c4b69f3455222ca737209a6bdd660",
+      "bytes": 56841
+    },
+    {
+      "path": "room-coalcrest-detail-2026-10-05/proof/walk/male-home-collision-coat-cabinet-first.png",
+      "sha256": "3bd2fcc534de0368f1024cb6a083d4008c4c4b69f3455222ca737209a6bdd660",
+      "bytes": 56841
+    },
+    {
+      "path": "room-coalcrest-detail-2026-10-05/proof/walk/male-home-collision-east-wall-cached-return.png",
+      "sha256": "631b8a6755289fb993a0645d8017115a64b9f2c88e1c31e8b69ff0738e03f1b6",
+      "bytes": 56489
+    },
+    {
+      "path": "room-coalcrest-detail-2026-10-05/proof/walk/male-home-collision-east-wall-first.png",
+      "sha256": "631b8a6755289fb993a0645d8017115a64b9f2c88e1c31e8b69ff0738e03f1b6",
+      "bytes": 56489
+    },
+    {
+      "path": "room-coalcrest-detail-2026-10-05/proof/walk/male-home-collision-north-wall-cached-return.png",
+      "sha256": "b80191a1e45cd825e2ae4f2ae044838d389e526876464acefbdda42b0b10758d",
+      "bytes": 56992
+    },
+    {
+      "path": "room-coalcrest-detail-2026-10-05/proof/walk/male-home-collision-north-wall-first.png",
+      "sha256": "b80191a1e45cd825e2ae4f2ae044838d389e526876464acefbdda42b0b10758d",
+      "bytes": 56992
+    },
+    {
+      "path": "room-coalcrest-detail-2026-10-05/proof/walk/male-home-collision-south-left-wall-cached-return.png",
+      "sha256": "dc0102f66f2804ef5c6eaa6e91743938b807131012a2603e339b6c0455fbd6b2",
+      "bytes": 57572
+    },
+    {
+      "path": "room-coalcrest-detail-2026-10-05/proof/walk/male-home-collision-south-left-wall-first.png",
+      "sha256": "dc0102f66f2804ef5c6eaa6e91743938b807131012a2603e339b6c0455fbd6b2",
+      "bytes": 57572
+    },
+    {
+      "path": "room-coalcrest-detail-2026-10-05/proof/walk/male-home-collision-south-right-wall-cached-return.png",
+      "sha256": "d8883c96ffa8f82ef8ff70fd79170e29c07cd89cfb1196ae0cf872da25b3a4c9",
+      "bytes": 57764
+    },
+    {
+      "path": "room-coalcrest-detail-2026-10-05/proof/walk/male-home-collision-south-right-wall-first.png",
+      "sha256": "d8883c96ffa8f82ef8ff70fd79170e29c07cd89cfb1196ae0cf872da25b3a4c9",
+      "bytes": 57764
+    },
+    {
+      "path": "room-coalcrest-detail-2026-10-05/proof/walk/male-home-collision-stool-cached-return.png",
+      "sha256": "38f7dc8002cc8433d5f828a4ae307fb10e97304b61cb4b01319b8d06cc79e4f4",
+      "bytes": 56140
+    },
+    {
+      "path": "room-coalcrest-detail-2026-10-05/proof/walk/male-home-collision-stool-first.png",
+      "sha256": "38f7dc8002cc8433d5f828a4ae307fb10e97304b61cb4b01319b8d06cc79e4f4",
+      "bytes": 56140
+    },
+    {
+      "path": "room-coalcrest-detail-2026-10-05/proof/walk/male-home-collision-stove-cached-return.png",
+      "sha256": "70283cfa6f3c3760255ce1ce5583ae3028089d15f1d2e8987420c9347d08873a",
+      "bytes": 56395
+    },
+    {
+      "path": "room-coalcrest-detail-2026-10-05/proof/walk/male-home-collision-stove-first.png",
+      "sha256": "70283cfa6f3c3760255ce1ce5583ae3028089d15f1d2e8987420c9347d08873a",
+      "bytes": 56395
+    },
+    {
+      "path": "room-coalcrest-detail-2026-10-05/proof/walk/male-home-collision-table-cached-return.png",
+      "sha256": "0215dd09247313fe03e15726e5fa78cd8c5f4c10225f5db3bde731d4ac3b857c",
+      "bytes": 56975
+    },
+    {
+      "path": "room-coalcrest-detail-2026-10-05/proof/walk/male-home-collision-table-first.png",
+      "sha256": "0215dd09247313fe03e15726e5fa78cd8c5f4c10225f5db3bde731d4ac3b857c",
+      "bytes": 56975
+    },
+    {
+      "path": "room-coalcrest-detail-2026-10-05/proof/walk/male-home-collision-west-wall-cached-return.png",
+      "sha256": "aa98c2b305ef6bc6577e60393d3b21914234ca99d172824d904bf764986a6715",
+      "bytes": 56769
+    },
+    {
+      "path": "room-coalcrest-detail-2026-10-05/proof/walk/male-home-collision-west-wall-first.png",
+      "sha256": "aa98c2b305ef6bc6577e60393d3b21914234ca99d172824d904bf764986a6715",
+      "bytes": 56769
+    },
+    {
+      "path": "room-coalcrest-detail-2026-10-05/proof/walk/male-home-collision-woodstack-cached-return.png",
+      "sha256": "088d8ed8e613ecc89c2f75fee0622843f1a2290bbddd08698d5c2524d1ca08df",
+      "bytes": 56357
+    },
+    {
+      "path": "room-coalcrest-detail-2026-10-05/proof/walk/male-home-collision-woodstack-first.png",
+      "sha256": "088d8ed8e613ecc89c2f75fee0622843f1a2290bbddd08698d5c2524d1ca08df",
+      "bytes": 56357
+    },
+    {
+      "path": "room-coalcrest-detail-2026-10-05/proof/walk/male-home-entry-cached-return.png",
+      "sha256": "65777fd582083d6eecf88684e56c7dda6200b70db9f2fbbb6b7d175d78feb7b5",
+      "bytes": 57185
+    },
+    {
+      "path": "room-coalcrest-detail-2026-10-05/proof/walk/male-home-entry-first.png",
+      "sha256": "65777fd582083d6eecf88684e56c7dda6200b70db9f2fbbb6b7d175d78feb7b5",
+      "bytes": 57185
+    },
+    {
+      "path": "room-coalcrest-detail-2026-10-05/proof/walk/male-home-exterior-cached-return.png",
+      "sha256": "01197d7be9ddbea241e8638e7ea276b21b5d42bcd097bb6a4dfccf916ea7c0f7",
+      "bytes": 115992
+    },
+    {
+      "path": "room-coalcrest-detail-2026-10-05/proof/walk/male-home-exterior-first.png",
+      "sha256": "01197d7be9ddbea241e8638e7ea276b21b5d42bcd097bb6a4dfccf916ea7c0f7",
+      "bytes": 115992
+    },
+    {
+      "path": "room-coalcrest-detail-2026-10-05/proof/walk/male-home-stove-cached-return.png",
+      "sha256": "f7769e247c4df5f39fbe08b357c5bc349abdf61678ddb6d4008c063a88f623dc",
+      "bytes": 61595
+    },
+    {
+      "path": "room-coalcrest-detail-2026-10-05/proof/walk/male-home-stove-first.png",
+      "sha256": "f7769e247c4df5f39fbe08b357c5bc349abdf61678ddb6d4008c063a88f623dc",
+      "bytes": 61595
+    },
+    {
+      "path": "room-coalcrest-detail-2026-10-05/proof/walk/male-home-table-cached-return.png",
+      "sha256": "df106bfa85760fe4e5e7687941f8e3842afc3efbeaef65c27cbf186c32bb3bf4",
+      "bytes": 65002
+    },
+    {
+      "path": "room-coalcrest-detail-2026-10-05/proof/walk/male-home-table-first.png",
+      "sha256": "df106bfa85760fe4e5e7687941f8e3842afc3efbeaef65c27cbf186c32bb3bf4",
+      "bytes": 65002
+    },
+    {
+      "path": "room-coalcrest-detail-2026-10-05/proof/walk/male-home-view-coat-behind-cached-return.png",
+      "sha256": "261c8bf17f063be9bff81f052ddd92604567cb54271a069d57e104679a3b2d77",
+      "bytes": 57727
+    },
+    {
+      "path": "room-coalcrest-detail-2026-10-05/proof/walk/male-home-view-coat-behind-first.png",
+      "sha256": "261c8bf17f063be9bff81f052ddd92604567cb54271a069d57e104679a3b2d77",
+      "bytes": 57727
+    },
+    {
+      "path": "room-coalcrest-detail-2026-10-05/proof/walk/male-home-view-stove-behind-cached-return.png",
+      "sha256": "fe4a72ed67db9630934a8e23b01aaeaf47f831127bdd8cb27de4d02ce49dee22",
+      "bytes": 55848
+    },
+    {
+      "path": "room-coalcrest-detail-2026-10-05/proof/walk/male-home-view-stove-behind-first.png",
+      "sha256": "fe4a72ed67db9630934a8e23b01aaeaf47f831127bdd8cb27de4d02ce49dee22",
+      "bytes": 55848
+    },
+    {
+      "path": "room-coalcrest-detail-2026-10-05/proof/walk/male-start.png",
+      "sha256": "17545475f1c6c8d89354282c587807e79213eae25e9eb07929834f750163399c",
+      "bytes": 115951
+    },
+    {
+      "path": "room-coalcrest-detail-2026-10-05/proof/walk/male-walkthrough.json",
+      "sha256": "09eb8b18ddaff05be49dcaa1eb3ec86abd6edfa879b5d9ee114e726c30cc329e",
+      "bytes": 53285
+    },
+    {
+      "path": "room-coalcrest-detail-2026-10-05/render/coalcrest-input-pair-2x.png",
+      "sha256": "dba30f37de6cc9979dc8d9b4e5cafaa8e57fcb30eca554e4d5cdd3d40f7c92f5",
+      "bytes": 27168
+    },
+    {
+      "path": "room-coalcrest-detail-2026-10-05/render/room-bed-quilt-detail-comparison.png",
+      "sha256": "f79036b60164809ff57de309acb7f92c01ba8d4d4f938593921746b629d55cf8",
+      "bytes": 13088
+    },
+    {
+      "path": "room-coalcrest-detail-2026-10-05/render/room-cupboard-coat-detail-comparison.png",
+      "sha256": "76268659390b539f8e8aeb5809f77c538ac90a746a707f0559e21000e734509d",
+      "bytes": 7840
+    },
+    {
+      "path": "room-coalcrest-detail-2026-10-05/render/room-detail-comparison.png",
+      "sha256": "33d1780e1578b051c5599071c4adfa69e4bd1cb06dfa7074000785ca27d5f438",
+      "bytes": 54817
+    },
+    {
+      "path": "room-coalcrest-detail-2026-10-05/render/room-detail-recomposed.png",
+      "sha256": "3c65fb10ea372e99b9abd84db1792a5b20cafd330c5bfaa4590e1802a3b24862",
+      "bytes": 31274
+    },
+    {
+      "path": "room-coalcrest-detail-2026-10-05/render/room-shelf-worktable-detail-comparison.png",
+      "sha256": "2774b0ee80d6f81f74670505c65c8cfecbd5b0b94faaa711072d8dcaca5a47c1",
+      "bytes": 12051
+    },
+    {
+      "path": "room-coalcrest-detail-2026-10-05/render/room-stove-woodpile-detail-comparison.png",
+      "sha256": "d2ef826769e344f1737c1bc7d37cfdb5a31ec639e78d1f7d2fc6fc1d2e5f7491",
+      "bytes": 8776
+    },
+    {
+      "path": "room-coalcrest-detail-2026-10-05/request/approval.json",
+      "sha256": "84bf251af9d90593581bff0b94b085cbb49a488291e89b388e58dbb80f9cf8c5",
+      "bytes": 476
+    },
+    {
+      "path": "room-coalcrest-detail-2026-10-05/request/coalcrest-closeups-approval.json",
+      "sha256": "93da473af523636592714e4f9291df67a8d16c5509d36e091840fa3f275f03bb",
+      "bytes": 266
+    },
+    {
+      "path": "room-coalcrest-detail-2026-10-05/request/coalcrest-outline-closeups-256.png",
+      "sha256": "b886f2723f0082720237bfc203907bc7a4fc8cef162b8e99b4c0e79c536145d0",
+      "bytes": 7195
+    },
+    {
+      "path": "room-coalcrest-detail-2026-10-05/request/coalcrest-outline-closeups-prompt.txt",
+      "sha256": "31b707b66276cc45aec33c85f2dffca94df62a86712c6563af34c5eaff841e81",
+      "bytes": 1311
+    },
+    {
+      "path": "room-coalcrest-detail-2026-10-05/request/coalcrest-outline-closeups-spec.json",
+      "sha256": "2d06f87e1f29a871594d69800a53d1cd86c422b5c2992229eebffc69cac07462",
+      "bytes": 2242
+    },
+    {
+      "path": "room-coalcrest-detail-2026-10-05/request/coalcrest_back-acceptance-mask.png",
+      "sha256": "fe457a7330a7d3497f2c923842e362c4195c0e014a8c5f2491aa2f53a794d483",
+      "bytes": 452
+    },
+    {
+      "path": "room-coalcrest-detail-2026-10-05/request/coalcrest_back-prompt.txt",
+      "sha256": "50c632d72a7b8b0bad4ecc51009b80bf489ec250fc6304785e4504b91e103306",
+      "bytes": 1109
+    },
+    {
+      "path": "room-coalcrest-detail-2026-10-05/request/coalcrest_front-acceptance-mask.png",
+      "sha256": "662d41072584291682c248b706d6c76876c9eb16caa38e61ff5492357a50667d",
+      "bytes": 469
+    },
+    {
+      "path": "room-coalcrest-detail-2026-10-05/request/coalcrest_front-prompt.txt",
+      "sha256": "47cc75b6d8b8ea9c5ed2fd8195ae331ef4e8f9648db5c5bb67e4489dfec97db0",
+      "bytes": 1128
+    },
+    {
+      "path": "room-coalcrest-detail-2026-10-05/request/outline-mask-plan.json",
+      "sha256": "c310e5a246363c7ec8ffc1c64e75a2c73f429e1cafc5890e9aa5dc0503953056",
+      "bytes": 5686
+    },
+    {
+      "path": "room-coalcrest-detail-2026-10-05/request/room-acceptance-mask.png",
+      "sha256": "58ca731b1d07b4d7eb57766e0688f0a6bb10eca7108ba08ab2702c03853e175a",
+      "bytes": 417
+    },
+    {
+      "path": "room-coalcrest-detail-2026-10-05/request/room-prompt.txt",
+      "sha256": "c40e6046dc7ae0df2dd1c3f696d6cfd603eb58028e7e66454af084bef1553443",
+      "bytes": 1234
+    },
+    {
+      "path": "room-coalcrest-detail-2026-10-05/request/specs.json",
+      "sha256": "646a7e63fb108013a80367967c10f60c4e287fa636750795bede8280448ea10d",
+      "bytes": 2259
+    },
+    {
+      "path": "room-coalcrest-detail-2026-10-05/review/back-free-correction-mask-comparison-2x.png",
+      "sha256": "6fafbb8c574768d7e52f5effa5b6cbc1d02457b80efc42c303dcf91c6737fbc5",
+      "bytes": 16711
+    },
+    {
+      "path": "room-coalcrest-detail-2026-10-05/review/back-free-correction-mask-comparison-4x.png",
+      "sha256": "9234497a6ce4ea81076efb570bb5784b89d027679107267d7bc63e2398b83ff2",
+      "bytes": 23878
+    },
+    {
+      "path": "room-coalcrest-detail-2026-10-05/review/back-generated-features-coordinate-8x.png",
+      "sha256": "8e8ba12c7633690e7254278ffe327af1b1265f7d469f5b62c4d5d0ab123b2fc9",
+      "bytes": 17239
+    },
+    {
+      "path": "room-coalcrest-detail-2026-10-05/review/back-registration-trial-comparison-2x.png",
+      "sha256": "3b7eaf129b2ee8e966294b1ed5fea752e2e15b66be1e2bd7a9db1614071f0a8f",
+      "bytes": 16482
+    },
+    {
+      "path": "room-coalcrest-detail-2026-10-05/review/back-registration-trial-comparison-4x.png",
+      "sha256": "d63776fdcfee3d4e08bf9e3f79a47aea1d1d58c27c4b79ca642d6d053bc177ea",
+      "bytes": 22071
+    },
+    {
+      "path": "room-coalcrest-detail-2026-10-05/review/back-source-vs-generated-4x.png",
+      "sha256": "65e88e41a02eb01702189dccddd05c232f5f99ac7b08582cc3f5be578362d913",
+      "bytes": 31496
+    },
+    {
+      "path": "room-coalcrest-detail-2026-10-05/review/closeups/coalcrest_back-accepted-generated-samples.png",
+      "sha256": "2b7351dc1dbc66c3750603f8dea151b23660e24892280bff2bba9afc020b5b32",
+      "bytes": 452
+    },
+    {
+      "path": "room-coalcrest-detail-2026-10-05/review/closeups/coalcrest_back-actual-rgb-diff-mask.png",
+      "sha256": "fad7a83d0180f6f35adaf08886dc8fceadcbe0c02fc8321e25f631afcbc82a28",
+      "bytes": 281
+    },
+    {
+      "path": "room-coalcrest-detail-2026-10-05/review/closeups/coalcrest_back-feet-native-corrected-registration-8x.png",
+      "sha256": "e0371c079e234aeba2fc9f32887cc1ed285289e4e387ffa4fbc5bc5682bf989a",
+      "bytes": 1702
+    },
+    {
+      "path": "room-coalcrest-detail-2026-10-05/review/closeups/coalcrest_back-feet-raw-4x-atlas.png",
+      "sha256": "6cfe25b382344a326cf1cc2701ee2b32f3a2fcefff233cab427afddaf7304811",
+      "bytes": 274
+    },
+    {
+      "path": "room-coalcrest-detail-2026-10-05/review/closeups/coalcrest_back-native-candidate-comparison-1x.png",
+      "sha256": "b1c1e61fc0a565e8686f24f38c57d2491a597ed0c9dac709b84f10d93c6f5b55",
+      "bytes": 11979
+    },
+    {
+      "path": "room-coalcrest-detail-2026-10-05/review/closeups/coalcrest_back-native-candidate-comparison-2x.png",
+      "sha256": "0af169c2729fdd2dfe6d879398cb9e0ca980c7417d024da1fb1ff9b0c3d84e7c",
+      "bytes": 15457
+    },
+    {
+      "path": "room-coalcrest-detail-2026-10-05/review/closeups/coalcrest_back-native-candidate-comparison-4x.png",
+      "sha256": "db85830d52c885150e206bf7623e5158d5696c3122551ac8911398d57866b27c",
+      "bytes": 20833
+    },
+    {
+      "path": "room-coalcrest-detail-2026-10-05/review/closeups/coalcrest_back-tail-native-corrected-registration-8x.png",
+      "sha256": "6e007418518ec3bcd128d593bd5660d2673414b3d38f72039295fe423d021d69",
+      "bytes": 9521
+    },
+    {
+      "path": "room-coalcrest-detail-2026-10-05/review/closeups/coalcrest_back-tail-raw-4x-atlas.png",
+      "sha256": "07fbb33116128d0becd4060cf35c0a9a932994c16a04b6e894bf11c82b3e5922",
+      "bytes": 4820
+    },
+    {
+      "path": "room-coalcrest-detail-2026-10-05/review/closeups/coalcrest_front-accepted-generated-samples.png",
+      "sha256": "1a498d1e3c5fd3bd36e5978edc900e783e3d559d1606245399aaf710e5e501e8",
+      "bytes": 479
+    },
+    {
+      "path": "room-coalcrest-detail-2026-10-05/review/closeups/coalcrest_front-actual-rgb-diff-mask.png",
+      "sha256": "ce9063480fc4b8fd8f3fbaff564b9e111cb734c9ce737beb80f0b4f73689e6d8",
+      "bytes": 309
+    },
+    {
+      "path": "room-coalcrest-detail-2026-10-05/review/closeups/coalcrest_front-feet-native-corrected-registration-8x.png",
+      "sha256": "3bdee6464b3415aa0319ad035d5e796296f2978c15657dbfd51fef2dc0f0a575",
+      "bytes": 2248
+    },
+    {
+      "path": "room-coalcrest-detail-2026-10-05/review/closeups/coalcrest_front-feet-raw-4x-atlas.png",
+      "sha256": "e62391ed548694d49c55db748a7399fa91d3378aae66c2353385a6d21dc51be1",
+      "bytes": 398
+    },
+    {
+      "path": "room-coalcrest-detail-2026-10-05/review/closeups/coalcrest_front-native-candidate-comparison-1x.png",
+      "sha256": "17cfddd0a61f3efd2380f7bfa464c5228d8fd8461d4fe1b91a4013cfa779348c",
+      "bytes": 14974
+    },
+    {
+      "path": "room-coalcrest-detail-2026-10-05/review/closeups/coalcrest_front-native-candidate-comparison-2x.png",
+      "sha256": "725a1ee1f3149078dc0a18c93989ed9a8fbaf56aeadd641928de51b717894720",
+      "bytes": 18395
+    },
+    {
+      "path": "room-coalcrest-detail-2026-10-05/review/closeups/coalcrest_front-native-candidate-comparison-4x.png",
+      "sha256": "3fda79661bc92cb8ca80273fe362ed8fc087ab1e236378e296dbc11a60e72ea0",
+      "bytes": 24627
+    },
+    {
+      "path": "room-coalcrest-detail-2026-10-05/review/closeups/coalcrest_front-tail-native-corrected-registration-8x.png",
+      "sha256": "cd8d2b306826b83d57f54cd8a26711e80845cc332ffc04161240cc52b4154446",
+      "bytes": 4879
+    },
+    {
+      "path": "room-coalcrest-detail-2026-10-05/review/closeups/coalcrest_front-tail-raw-4x-atlas.png",
+      "sha256": "6371a8806d9d18e578eb932bcd0dc243a3a9cb541184eedb4fc75d60fdf77428",
+      "bytes": 8092
+    },
+    {
+      "path": "room-coalcrest-detail-2026-10-05/review/closeups/native-acceptance-diagnostic.json",
+      "sha256": "6ee071d07119f6a0dc3808871fd465d363f0dbaa4afb4e388ab5ac1afe1e85d2",
+      "bytes": 9129
+    },
+    {
+      "path": "room-coalcrest-detail-2026-10-05/review/closeups/panel-registration-comparison.png",
+      "sha256": "60d0e4bb938a680f86e23adba6f65502696f42d76f68c5b2e8e6f48a0f3baf45",
+      "bytes": 38096
+    },
+    {
+      "path": "room-coalcrest-detail-2026-10-05/review/coalcrest-back-free-correction-mask-trial.png",
+      "sha256": "353747fb9a15dee7057a947f2a6640ede171c0c5a98ebc5b5f1152e4a03b6a9a",
+      "bytes": 8792
+    },
+    {
+      "path": "room-coalcrest-detail-2026-10-05/review/coalcrest-back-registration-trial-not-approved.png",
+      "sha256": "38dd16ee690467fc24e84ae49e1a26b4c127bef9b4f7e05517161ca7206fbf55",
+      "bytes": 9111
+    },
+    {
+      "path": "room-coalcrest-detail-2026-10-05/review/coalcrest-front-free-correction-mask-trial.png",
+      "sha256": "6d9188ccc54b157c753090ee940872a595c3582deb4f8394e1c140b84a347c6b",
+      "bytes": 10311
+    },
+    {
+      "path": "room-coalcrest-detail-2026-10-05/review/coalcrest-front-registration-trial-not-approved.png",
+      "sha256": "efb2c8fa6f5f7165aa2047186d996a20ba9a7957a9d40607f0590382235106bb",
+      "bytes": 10854
+    },
+    {
+      "path": "room-coalcrest-detail-2026-10-05/review/free-correction-diagnostic.json",
+      "sha256": "e36aabb65aa60af4062f8c327c89b8a6664a8e085789492c6b3c9a825ed2c7f2",
+      "bytes": 1462
+    },
+    {
+      "path": "room-coalcrest-detail-2026-10-05/review/front-free-correction-mask-comparison-2x.png",
+      "sha256": "83cc8261566ea129f7aa5863188e31d2393d790c9df6bbf8cf6db31d192b47ec",
+      "bytes": 21371
+    },
+    {
+      "path": "room-coalcrest-detail-2026-10-05/review/front-free-correction-mask-comparison-4x.png",
+      "sha256": "646975ef80ce7db0af8ddbb4f1b9099db73276b860fd7f97dd589659cae47800",
+      "bytes": 29689
+    },
+    {
+      "path": "room-coalcrest-detail-2026-10-05/review/front-generated-features-coordinate-8x.png",
+      "sha256": "13f3cc5f52cf8fce22fb7e5da56f3b55fcfc6e12216d673f3a55fd418d5ecf73",
+      "bytes": 17255
+    },
+    {
+      "path": "room-coalcrest-detail-2026-10-05/review/front-registration-trial-comparison-2x.png",
+      "sha256": "3053399add26ba51cd4c4eec1fc8dd231767480780837a8541b2e9aeb9898cdf",
+      "bytes": 18968
+    },
+    {
+      "path": "room-coalcrest-detail-2026-10-05/review/front-registration-trial-comparison-4x.png",
+      "sha256": "bd784df5e59f357bbfe67b2f60af705460e0da21419cec5d9d32ee298b14d486",
+      "bytes": 25309
+    },
+    {
+      "path": "room-coalcrest-detail-2026-10-05/review/front-source-vs-generated-4x.png",
+      "sha256": "8a474a0cc64b13ebf84fae79a27102cd211cd5829c60b9d0ae5c325b5b4591d1",
+      "bytes": 32952
+    },
+    {
+      "path": "room-coalcrest-detail-2026-10-05/review/generated-coordinate-diagnostic.json",
+      "sha256": "e9c265085ac55e895e08c57233d1dcee16a55a4047651cf96f3ebfe731f91dfe",
+      "bytes": 644
+    },
+    {
+      "path": "room-coalcrest-detail-2026-10-05/review/registration-trial-report.json",
+      "sha256": "16069102b309ceca8d6427990f3c9a1880ae54e27d9d8bd41c9b1f5af01b6492",
+      "bytes": 3025
+    },
+    {
+      "path": "room-coalcrest-detail-2026-10-05/review/room-cloth-generated-coordinates-8x.png",
+      "sha256": "ee50aa7efb6c12559a2b0c2caa4316244ce9240dd26d2caa7dca432d88267b6f",
+      "bytes": 17752
+    },
+    {
+      "path": "room-coalcrest-detail-2026-10-05/review/room-cloth-plane-mask-review-12x.png",
+      "sha256": "6152f935954ffa2fbbfffa9e17418ba9bc536fce5d63203725c5471174e5b5a3",
+      "bytes": 6159
+    },
+    {
+      "path": "room-coalcrest-detail-2026-10-05/review/room-cloth-plane-restoration-plan.json",
+      "sha256": "78c7f10a020def9917f06a4e81a7fe38fd4b378cf8e3faf294d28f7f4e785e1c",
+      "bytes": 427
+    },
+    {
+      "path": "room-coalcrest-detail-2026-10-05/review/room-cloth-source-coordinates-8x.png",
+      "sha256": "1f9df2984c54303ac2de2106501c2aa97f94096ed91d11975ab3420173fb20e3",
+      "bytes": 18039
+    },
+    {
+      "path": "room-coalcrest-detail-2026-10-05/review/room-original-cloth-plane-mask.png",
+      "sha256": "46f9abfb46597f3173a262a64a58740823d614caa189e2a58df3a8a0894e9035",
+      "bytes": 278
+    },
+    {
+      "path": "room-coalcrest-detail-2026-10-05/room-installation-baseline.json",
+      "sha256": "0a51ec98e9eb0939bffe7b90e4df5b1b220a56038fa05416e63dc6a0669ddc82",
+      "bytes": 314986
+    },
+    {
+      "path": "room-coalcrest-detail-2026-10-05/room-installation.json",
+      "sha256": "9105664fd22d918524175598093dfe21a6ce5519d921b5ea0aaf83f5278f4d45",
+      "bytes": 835
+    },
+    {
+      "path": "room-coalcrest-detail-2026-10-05/room-native-preparation.json",
+      "sha256": "41be78349335d2d1b6db61c685d1351a47a883021bee69bb6b4105ab1caacdc0",
+      "bytes": 1364
+    },
+    {
+      "path": "runtime-manifest.json",
+      "sha256": "df23f6df245ffff97b77c45de60fb5869e929e17e8583ebc6d68f310f704a897",
+      "bytes": 14214
+    },
+    {
+      "path": "runtime/assets/sprites/world/courtyard_home_detail_2026_10_05/home_coat_front.png",
+      "sha256": "9758fbd2efbb1e1d83b00f8aa2fd34d2daaf83ebd8158abd71ece788a0427f7e",
+      "bytes": 2746
+    },
+    {
+      "path": "runtime/assets/sprites/world/courtyard_home_detail_2026_10_05/home_coat_front.png.import",
+      "sha256": "7060da59e854bde35be367af65f86995cda38fa3b41b347092784bbaa92e8797",
+      "bytes": 1003
+    },
+    {
+      "path": "runtime/assets/sprites/world/courtyard_home_detail_2026_10_05/home_room.png",
+      "sha256": "18082c72038c62c53a9b7ad35bc7f4d99e2796e1fceeabd81493e0ea0f650bc3",
+      "bytes": 25372
+    },
+    {
+      "path": "runtime/assets/sprites/world/courtyard_home_detail_2026_10_05/home_room.png.import",
+      "sha256": "da979cf29b86302eae8b6a380ffe1a2127367badfe0c4d9c32c0752c2bb2f46e",
+      "bytes": 986
+    },
+    {
+      "path": "runtime/assets/sprites/world/courtyard_home_detail_2026_10_05/home_stove_front.png",
+      "sha256": "461f5e412c4c679b85985d701e7cf54a72ae04ba8e9dd0274d24e1a4c9a22185",
+      "bytes": 2892
+    },
+    {
+      "path": "runtime/assets/sprites/world/courtyard_home_detail_2026_10_05/home_stove_front.png.import",
+      "sha256": "ab5ec1728fb885b97f882db2214f0bc6405bdf25645f7383649146f94c2fd1fb",
+      "bytes": 1007
+    },
+    {
+      "path": "runtime/assets/sprites/world/courtyard_home_detail_2026_10_05/home_threshold_front.png",
+      "sha256": "47872dc776e93d784937cc60243758166390d92349e8ec12588586ee2c445ac1",
+      "bytes": 2248
+    },
+    {
+      "path": "runtime/assets/sprites/world/courtyard_home_detail_2026_10_05/home_threshold_front.png.import",
+      "sha256": "23bcf0c1e1cfb1445969f0accc63eea9d0c9481435dbe74b83c5320bf0699b64",
+      "bytes": 1019
+    },
+    {
+      "path": "runtime/assets/sprites/world/courtyard_home_linework_2026_10_04/home_coat_front.png",
+      "sha256": "5ab4376a1cb55597d2fc3797d6cb175f55c93373d1713c53b66d20a06258e921",
+      "bytes": 2653
+    },
+    {
+      "path": "runtime/assets/sprites/world/courtyard_home_linework_2026_10_04/home_coat_front.png.import",
+      "sha256": "2fd65af1596ae5a28040945d0838c98f4c066aa10a47ecf6379e19e62401b42d",
+      "bytes": 1006
+    },
+    {
+      "path": "runtime/assets/sprites/world/courtyard_home_linework_2026_10_04/home_room.png",
+      "sha256": "fa61f4d3f78b2593907327ae7c9538f72e80b1f0722ed5324d77a5fb68483b36",
+      "bytes": 24659
+    },
+    {
+      "path": "runtime/assets/sprites/world/courtyard_home_linework_2026_10_04/home_room.png.import",
+      "sha256": "d8bbf728511f5271a5713d90d53c8940647ef3a961b24c980b7db79f46f6d365",
+      "bytes": 988
+    },
+    {
+      "path": "runtime/assets/sprites/world/courtyard_home_linework_2026_10_04/home_stove_front.png",
+      "sha256": "cb8d5b1e0c54ffbac67d278556ef87d120bef6ac18afc64722ce1d2f2715c1c6",
+      "bytes": 2664
+    },
+    {
+      "path": "runtime/assets/sprites/world/courtyard_home_linework_2026_10_04/home_stove_front.png.import",
+      "sha256": "fd57705845c8c3ca9f58e21341cc39f8eadd4c60a07052f2f7ddcedbbab5d927",
+      "bytes": 1009
+    },
+    {
+      "path": "runtime/assets/sprites/world/courtyard_home_linework_2026_10_04/home_threshold_front.png",
+      "sha256": "47872dc776e93d784937cc60243758166390d92349e8ec12588586ee2c445ac1",
+      "bytes": 2248
+    },
+    {
+      "path": "runtime/assets/sprites/world/courtyard_home_linework_2026_10_04/home_threshold_front.png.import",
+      "sha256": "be44a0a10499d597fd203e7c74011ebc489c92615c9cdad010213ddd7d64e09b",
+      "bytes": 1021
+    },
+    {
+      "path": "runtime/assets/sprites/world/world_approaches_2026_10_05/hometown_hall_approach.png",
+      "sha256": "eb83303c618cbf39bcbf8fc312aa7b6e154f1021c912872547a45bd58f67acc9",
+      "bytes": 521
+    },
+    {
+      "path": "runtime/assets/sprites/world/world_approaches_2026_10_05/hometown_hall_approach.png.import",
+      "sha256": "3a4cf09438663eeeb24353bc390d3f0f9dccd5f08677e3d3279e1592b7bf5f89",
+      "bytes": 1019
+    },
+    {
+      "path": "runtime/assets/sprites/world/world_approaches_2026_10_05/riverfront_branch_approach.png",
+      "sha256": "3abb8cd04b02ea736bbd097b35acb3136bb0d6ecaf4285a799a5590c6271ed96",
+      "bytes": 1899
+    },
+    {
+      "path": "runtime/assets/sprites/world/world_approaches_2026_10_05/riverfront_branch_approach.png.import",
+      "sha256": "5f1f8602271e7ee50411ebb74371e82e31145a634bd7524c56ffb870acfc7edf",
+      "bytes": 1032
+    },
+    {
+      "path": "runtime/assets/sprites/world/world_linework_2026_10_04/brick_shop.png",
+      "sha256": "c72d9b86c0b4643d0f9da3c025a239c1f31efa3ff9510885bfd0736dfc6141c2",
+      "bytes": 16338
+    },
+    {
+      "path": "runtime/assets/sprites/world/world_linework_2026_10_04/brick_shop.png.import",
+      "sha256": "85c16ec38aab83e650579f24341e38400e6ac25eb36fa3db7f20a594e8a3e117",
+      "bytes": 982
+    },
+    {
+      "path": "runtime/assets/sprites/world/world_linework_2026_10_04/courtyard_home.png",
+      "sha256": "f5a4af906a064c0a1faa972847f01ddcbb2a93372350d9e0b77fbbbe1ded290c",
+      "bytes": 15126
+    },
+    {
+      "path": "runtime/assets/sprites/world/world_linework_2026_10_04/courtyard_home.png.import",
+      "sha256": "a460b1306affd083df5abd4ef0a53396ba3dbe49fc023edf83c83b198a2cea17",
+      "bytes": 993
+    },
+    {
+      "path": "runtime/assets/sprites/world/world_linework_2026_10_04/dispatch_hall.png",
+      "sha256": "94bdf8fe98fa9e1c13afc9f2b6394bd06cf4c5ec03019dd126c765add1c57f23",
+      "bytes": 11495
+    },
+    {
+      "path": "runtime/assets/sprites/world/world_linework_2026_10_04/dispatch_hall.png.import",
+      "sha256": "41499d891e5bd0b02cf17489377ec15f680bdb2994dbe888e847d5d784ef1a0b",
+      "bytes": 991
+    },
+    {
+      "path": "runtime/assets/sprites/world/world_linework_2026_10_04/ledger_house.png",
+      "sha256": "7392fdde7ed2e4c9f17e81b129a96bbde753d1326b8830e223901227fbcfcc23",
+      "bytes": 17051
+    },
+    {
+      "path": "runtime/assets/sprites/world/world_linework_2026_10_04/ledger_house.png.import",
+      "sha256": "b0701a330e8006d11211373e10ebb39860d9acde93491e8d0703342cf388f45a",
+      "bytes": 988
+    },
+    {
+      "path": "runtime/scripts/area_landscape.gd",
+      "sha256": "010c67c8891e92058ac543a5414aea37c17145be2a0b7933d22821b50880c671",
+      "bytes": 11611
+    },
+    {
+      "path": "runtime/scripts/courtyard_home_room.gd",
+      "sha256": "53cb15f5168a6714fe78712062342178d69531dd2cb4aa0e0de592842d27e418",
+      "bytes": 5877
+    },
+    {
+      "path": "runtime/scripts/historic_street.gd",
+      "sha256": "b176dd25cbb034f37a572e0791720ad13e9e3363c9a14bc5376fd9837bc34eaa",
+      "bytes": 13931
+    },
+    {
+      "path": "script-history/original/scripts/area_landscape.gd",
+      "sha256": "394d13fb8a62d24f472ed5c4f02a58be8e586ac9491eb22400d29b76e73af0ab",
+      "bytes": 11257
+    },
+    {
+      "path": "script-history/original/scripts/courtyard_home_room.gd",
+      "sha256": "e522cb8ce96aadd6a5668bb67e2baafdec1b0f1423c63ec5d2a8f5324c7e0c71",
+      "bytes": 5864
+    },
+    {
+      "path": "script-history/original/scripts/historic_street.gd",
+      "sha256": "1846df40a8d84bc47e76c9671396ffc600b417549462d4573dd703dfa185f4c4",
+      "bytes": 13935
+    },
+    {
+      "path": "script-history/phase1-installed/scripts/area_landscape.gd",
+      "sha256": "bfa0a77495280c973ead3631a4216d64a864aefe178793181917c2f0cf69d946",
+      "bytes": 11245
+    },
+    {
+      "path": "script-history/phase1-installed/scripts/courtyard_home_room.gd",
+      "sha256": "51c6621e1d6e11400f423337fc272eb55d70f6eff600624e21554bc798f5474d",
+      "bytes": 5885
+    },
+    {
+      "path": "script-history/phase1-installed/scripts/historic_street.gd",
+      "sha256": "b176dd25cbb034f37a572e0791720ad13e9e3363c9a14bc5376fd9837bc34eaa",
+      "bytes": 13931
+    },
+    {
+      "path": "snapshot-history/shared-state-before-coalcrest-final-install.json",
+      "sha256": "fe6b37b5e0c8796f69b93387188bf40d473e722b52f7b3fe2ea7f610c3b2ce7b",
+      "bytes": 20275
+    },
+    {
+      "path": "world-costs.json",
+      "sha256": "dd68583e382b4b5585979e950cbbbff374d687e6305bbed525fe275094a3d2f9",
+      "bytes": 516
+    },
+    {
+      "path": "world-detail-audit-2026-10-05/README.md",
+      "sha256": "447a210634875de15fa6d5ff54981668038048cadd5699781dc7d539603ea573",
+      "bytes": 6280
+    },
+    {
+      "path": "world-detail-audit-2026-10-05/active-world-inventory.csv",
+      "sha256": "d688e1e525ce95d940c1141651b9d72ca32e7b6a91dadb84f7575ad55d8512ca",
+      "bytes": 21192
+    },
+    {
+      "path": "world-detail-audit-2026-10-05/active-world-inventory.json",
+      "sha256": "c59eb3e9da74344f5e390df1d5330ca1d32843207216a9ef4cd9dc501f440160",
+      "bytes": 98753
+    },
+    {
+      "path": "world-detail-audit-2026-10-05/approach-gap-measurements.json",
+      "sha256": "d12196deb741202c1844639403b7c4c311fe75a75065f5bea9c9c9e3d3484e82",
+      "bytes": 643
+    },
+    {
+      "path": "world-detail-audit-2026-10-05/audit-end-source-check.json",
+      "sha256": "153407ae5de1867e4b413d5260ca6bec08718ad950abb76c5a4cf3b1c7f2e0b6",
+      "bytes": 218
+    },
+    {
+      "path": "world-detail-audit-2026-10-05/before/area_landscape.gd",
+      "sha256": "bfa0a77495280c973ead3631a4216d64a864aefe178793181917c2f0cf69d946",
+      "bytes": 11245
+    },
+    {
+      "path": "world-detail-audit-2026-10-05/build_approach_candidates.py",
+      "sha256": "1632f32a13105a0b32893883a29476c818ca4a2f076c816a6fdf0a90dfbfbf67",
+      "bytes": 4749
+    },
+    {
+      "path": "world-detail-audit-2026-10-05/build_world_approaches.py",
+      "sha256": "c720a5d631e86cbd3b6b2a8db52b0684886a757e23b1c1fbd470f48c03d5e4c9",
+      "bytes": 1073
+    },
+    {
+      "path": "world-detail-audit-2026-10-05/candidate-approaches/contracts.json",
+      "sha256": "94af415ca26f842f90a9bab7c5f30ae8f183313df54170afafc982cacd28bd61",
+      "bytes": 3665
+    },
+    {
+      "path": "world-detail-audit-2026-10-05/candidate-approaches/hometown_hall_approach-context-comparison.png",
+      "sha256": "46428d4b3eff8f200c22985d231c8915365f3f9a00da95d4ac501e011488973d",
+      "bytes": 17270
+    },
+    {
+      "path": "world-detail-audit-2026-10-05/candidate-approaches/hometown_hall_approach-patch-8x.png",
+      "sha256": "d5c043d85db61b0219b662040ae14c18b26a14e3f6b02b8b81b4245903b26d02",
+      "bytes": 2097
+    },
+    {
+      "path": "world-detail-audit-2026-10-05/candidate-approaches/hometown_hall_approach.png",
+      "sha256": "eb83303c618cbf39bcbf8fc312aa7b6e154f1021c912872547a45bd58f67acc9",
+      "bytes": 521
+    },
+    {
+      "path": "world-detail-audit-2026-10-05/candidate-approaches/riverfront_branch_approach-context-comparison.png",
+      "sha256": "d420dc0feb11a326c702e8ab40a854df75e1ada7311a59139b02cc8af2eea643",
+      "bytes": 20715
+    },
+    {
+      "path": "world-detail-audit-2026-10-05/candidate-approaches/riverfront_branch_approach-patch-8x.png",
+      "sha256": "0e4f4eb0a3791d49ed0ecad3d50b928a2a39188eb97694d3cd330f9315491418",
+      "bytes": 3829
+    },
+    {
+      "path": "world-detail-audit-2026-10-05/candidate-approaches/riverfront_branch_approach.png",
+      "sha256": "3abb8cd04b02ea736bbd097b35acb3136bb0d6ecaf4285a799a5590c6271ed96",
+      "bytes": 1899
+    },
+    {
+      "path": "world-detail-audit-2026-10-05/candidate-approaches/sources/hometown_streets.png",
+      "sha256": "7d5fb9e9a9d10d641a23579b1cb9ec628b23a9712d1cef6a49f409d62ed8e4f6",
+      "bytes": 33445
+    },
+    {
+      "path": "world-detail-audit-2026-10-05/candidate-approaches/sources/riverfront_streets.png",
+      "sha256": "4d77d47fb6cb958425317247d3e83c7be90838468985c1685e335ea0a1395599",
+      "bytes": 61091
+    },
+    {
+      "path": "world-detail-audit-2026-10-05/import-stderr.log",
+      "sha256": "67b81927fd0c34367484a8b927e7aca1b886d59615c4afd2946cdaf7cfff6fdd",
+      "bytes": 914
+    },
+    {
+      "path": "world-detail-audit-2026-10-05/import-stdout.log",
+      "sha256": "cfea99667268359ecbdc3a0d6d7f320007d38676ce2b4c9e043f3b28490c0fd9",
+      "bytes": 2937
+    },
+    {
+      "path": "world-detail-audit-2026-10-05/installation.json",
+      "sha256": "7aba610a577408a34c59e5591131a6f9b21876df7ef7f7136cbe0dfe1de4e396",
+      "bytes": 1843
+    },
+    {
+      "path": "world-detail-audit-2026-10-05/inventory-summary.json",
+      "sha256": "c425705b78d8c1ac143f90337ba04faff47c769cdd670a762e46c180209a1055",
+      "bytes": 1560
+    },
+    {
+      "path": "world-detail-audit-2026-10-05/ranked-findings.json",
+      "sha256": "22a449ea6d3dcf3bbf417e851756369b00bf126e485acf97fd1d7fc285a91564",
+      "bytes": 10269
+    },
+    {
+      "path": "world-detail-audit-2026-10-05/render/active-building-models.png",
+      "sha256": "88dd8cce35cbb7d8c26ec2366e4620da9e27fca25cee470d2db485fbb8a05599",
+      "bytes": 176063
+    },
+    {
+      "path": "world-detail-audit-2026-10-05/render/active-hall-and-home.png",
+      "sha256": "5d58531b66d3901cd69f161522c5661ead0289c46e33e09c91b083aac8b53faf",
+      "bytes": 68721
+    },
+    {
+      "path": "world-detail-audit-2026-10-05/render/active-props-and-foliage.png",
+      "sha256": "7c78cccabcf762b35f500099fac946924dcde0886e419d4c2f22c9224505773a",
+      "bytes": 75129
+    },
+    {
+      "path": "world-detail-audit-2026-10-05/render/active-trees.png",
+      "sha256": "c3131ae4fb941d2a3ed25d1b6cdeb9470aa284dd2cfe61553783849a61b43c03",
+      "bytes": 35508
+    },
+    {
+      "path": "world-detail-audit-2026-10-05/render/garden-notice-notch.png",
+      "sha256": "9c80aa38963ead5b6d5b6604a306dc8bc6ccaf25979622ad30ef359a1da7d48d",
+      "bytes": 19131
+    },
+    {
+      "path": "world-detail-audit-2026-10-05/render/historic-pavers.png",
+      "sha256": "a5173449c9466f00971f25cb960cfe8fa0e59de37cefde361f24a37bcf32b2c2",
+      "bytes": 47389
+    },
+    {
+      "path": "world-detail-audit-2026-10-05/render/hometown-hall-approach.png",
+      "sha256": "4410587641e43bd81947275f38f13aa7f605b6d7232ce5dd93088616a5f622d6",
+      "bytes": 25258
+    },
+    {
+      "path": "world-detail-audit-2026-10-05/render/riverfront-bank.png",
+      "sha256": "b44b97ce827afd9b6fea554e39032294132e41fd6672fdecbaf0a7bbdb541880",
+      "bytes": 38446
+    },
+    {
+      "path": "world-detail-audit-2026-10-05/render/riverfront-hall-approach.png",
+      "sha256": "18ea98165d9bb267ccb525bdc7351b749cd9743227925431d07a6c3b33377de1",
+      "bytes": 33520
+    },
+    {
+      "path": "world-detail-audit-2026-10-05/render/route1-crossing.png",
+      "sha256": "610531cfa20eb76ce9a7dfefb0a666981f9f22224e55075e83fb1040197bf330",
+      "bytes": 48023
+    },
+    {
+      "path": "world-detail-audit-2026-10-05/request-proposal/courier-hall-detail-prompt.txt",
+      "sha256": "f0ffde6a11ec4dc19241c902afcc9f6d80618d954d74bb4c2762a627845cf045",
+      "bytes": 1398
+    },
+    {
+      "path": "world-detail-audit-2026-10-05/request-proposal/spec.json",
+      "sha256": "892813a6695cbe53e1e561016f6baa76486f8341c83429ad06ed3197fdc72a22",
+      "bytes": 1573
+    },
+    {
+      "path": "world-detail-audit-2026-10-05/visual-evidence.json",
+      "sha256": "6a88dbc207cfbdf024e5e58d52bbf972e151af9e0d9f6b85658a7fb8da3d9360",
+      "bytes": 4036
+    }
+  ],
+  "nested_historical_manifests_included": true
+}

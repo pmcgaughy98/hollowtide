@@ -1,0 +1,12 @@
+{
+  "date": "2026-10-05",
+  "baseline_files": 2257,
+  "existing_room_script_texture_paths_only": true,
+  "files": {
+    "scripts/courtyard_home_room.gd": "53cb15f5168a6714fe78712062342178d69531dd2cb4aa0e0de592842d27e418",
+    "assets/sprites/world/courtyard_home_detail_2026_10_05/home_room.png": "18082c72038c62c53a9b7ad35bc7f4d99e2796e1fceeabd81493e0ea0f650bc3",
+    "assets/sprites/world/courtyard_home_detail_2026_10_05/home_stove_front.png": "461f5e412c4c679b85985d701e7cf54a72ae04ba8e9dd0274d24e1a4c9a22185",
+    "assets/sprites/world/courtyard_home_detail_2026_10_05/home_coat_front.png": "9758fbd2efbb1e1d83b00f8aa2fd34d2daaf83ebd8158abd71ece788a0427f7e",
+    "assets/sprites/world/courtyard_home_detail_2026_10_05/home_threshold_front.png": "47872dc776e93d784937cc60243758166390d92349e8ec12588586ee2c445ac1"
+  }
+}

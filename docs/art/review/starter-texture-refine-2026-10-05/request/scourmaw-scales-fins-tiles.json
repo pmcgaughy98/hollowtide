@@ -1,0 +1,94 @@
+[
+  {
+    "tile": 1,
+    "id": "503_scourmaw",
+    "view": "front",
+    "source_path": "assets/sprites/creatures/rimefin_catfish_2026_10_05/scourmaw_front.png",
+    "source_sha256": "0f5b21604e5fc2f2a7b0eb3eb4f6881733b0ebe3125ac59a6e2575bbb5ed076e",
+    "frozen_source": "503_scourmaw_front.png",
+    "source_crop": [
+      63,
+      119,
+      127,
+      183
+    ],
+    "material": "blue",
+    "atlas_origin": [
+      0,
+      0
+    ],
+    "source_to_input_scale": 2,
+    "acceptance_mask_file": "request/scourmaw-scales-fins_tile1_acceptance.png",
+    "accepted_native_rgb_pixels": 3103,
+    "alpha_pose_edge_core_other_pixels_protected": true
+  },
+  {
+    "tile": 2,
+    "id": "503_scourmaw",
+    "view": "back",
+    "source_path": "assets/sprites/creatures/rimefin_catfish_2026_10_05/scourmaw_back.png",
+    "source_sha256": "31f041e7c8b5d2dfcc5d6c787501d9b60aed5c855ed969214a0eb5af942f2693",
+    "frozen_source": "503_scourmaw_back.png",
+    "source_crop": [
+      95,
+      106,
+      159,
+      170
+    ],
+    "material": "blue",
+    "atlas_origin": [
+      128,
+      0
+    ],
+    "source_to_input_scale": 2,
+    "acceptance_mask_file": "request/scourmaw-scales-fins_tile2_acceptance.png",
+    "accepted_native_rgb_pixels": 3082,
+    "alpha_pose_edge_core_other_pixels_protected": true
+  },
+  {
+    "tile": 3,
+    "id": "503_scourmaw",
+    "view": "front",
+    "source_path": "assets/sprites/creatures/rimefin_catfish_2026_10_05/scourmaw_front.png",
+    "source_sha256": "0f5b21604e5fc2f2a7b0eb3eb4f6881733b0ebe3125ac59a6e2575bbb5ed076e",
+    "frozen_source": "503_scourmaw_front.png",
+    "source_crop": [
+      113,
+      36,
+      177,
+      100
+    ],
+    "material": "bone",
+    "atlas_origin": [
+      0,
+      128
+    ],
+    "source_to_input_scale": 2,
+    "acceptance_mask_file": "request/scourmaw-scales-fins_tile3_acceptance.png",
+    "accepted_native_rgb_pixels": 1664,
+    "alpha_pose_edge_core_other_pixels_protected": true
+  },
+  {
+    "tile": 4,
+    "id": "503_scourmaw",
+    "view": "back",
+    "source_path": "assets/sprites/creatures/rimefin_catfish_2026_10_05/scourmaw_back.png",
+    "source_sha256": "31f041e7c8b5d2dfcc5d6c787501d9b60aed5c855ed969214a0eb5af942f2693",
+    "frozen_source": "503_scourmaw_back.png",
+    "source_crop": [
+      122,
+      36,
+      186,
+      100
+    ],
+    "material": "bone",
+    "atlas_origin": [
+      128,
+      128
+    ],
+    "source_to_input_scale": 2,
+    "acceptance_mask_file": "request/scourmaw-scales-fins_tile4_acceptance.png",
+    "accepted_native_rgb_pixels": 1279,
+    "alpha_pose_edge_core_other_pixels_protected": true
+  }
+]

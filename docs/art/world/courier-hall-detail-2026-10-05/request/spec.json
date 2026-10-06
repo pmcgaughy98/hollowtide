@@ -1,0 +1,58 @@
+{
+  "status": "blocked_by_auto_review_no_upload_no_charge",
+  "date": "2026-10-05",
+  "tool": "image_edit",
+  "source_sha256": "7f40930c335f3292141b12bb6093ac852404dac821aaadee64479eb94f7b97e8",
+  "native_dimensions": [
+    256,
+    256
+  ],
+  "source": "inputs/courier_hall_native.png",
+  "foreground_source_sha256": "e298824e335d987953e8c63385318e77baaa3813ab6915719d0bed89919c04c3",
+  "hall_script_sha256": "db995b69cfe76dd39deb3aab0d631d83bff1bee9fe77e63848606d7cc712e941",
+  "prompt": "request/prompt.txt",
+  "acceptance_mask": "request/acceptance-mask.png",
+  "objects": {
+    "sorting_cubbies": [
+      166,
+      34,
+      218,
+      69
+    ],
+    "open_ledger_desk": [
+      117,
+      58,
+      156,
+      87
+    ],
+    "counter_material": [
+      105,
+      86,
+      229,
+      128
+    ],
+    "west_canvas_bags": [
+      28,
+      57,
+      59,
+      178
+    ],
+    "east_canvas_bags": [
+      195,
+      129,
+      227,
+      178
+    ]
+  },
+  "allowed": "Reviewed native RGB detail within existing object mask only; original alpha, transparent RGB and all outside pixels exact.",
+  "protected": "Single wide board, floor, walls, door/collision/foreground positions, dispatcher, original assignment and cached travel stay exact.",
+  "quote": {
+    "balance_cost": 0.18,
+    "credit_cost": 20,
+    "estimate_seconds": 150,
+    "tool": "estimate_edit_tool_cost",
+    "live_checked": "2026-10-05"
+  },
+  "authorization_basis": "User direct instruction: Do this for entire world as well the room detail looks great; requested ongoing Retro Diffusion world asset refinement. This is a new scoped hall request, not reuse of Coalcrest-specific approval.",
+  "repeat_policy": "Never repeat a paid request automatically; preserve returned receipt/output or unresolved request handle."
+}

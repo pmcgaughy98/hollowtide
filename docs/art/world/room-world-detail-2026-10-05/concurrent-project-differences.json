@@ -1,0 +1,437 @@
+{
+  "baseline_source": "phase1/home-interior-linework-2026-10-04/installation-baseline.json",
+  "captured_utc": "2026-10-05T17:54:32.625041+00:00",
+  "baseline_file_count": 2237,
+  "current_file_count": 2303,
+  "exact_baseline_files": 2225,
+  "changed_existing": [
+    {
+      "path": "data/creatures/001_rimefin.tres",
+      "baseline_sha256": "e9bcb6b3046ba9adf85f30245cd2cee2fc70584325391dec6344852d6949af10",
+      "current_sha256": "3cd22e703fb9b9894a42e5abf9cda5b601cd357f56532c5c11957d717770dcf1",
+      "scope": "other_concurrent_shared_work"
+    },
+    {
+      "path": "data/creatures/102_ironvent.tres",
+      "baseline_sha256": "c5fd3ed4da4543ffd7ac0574818f7e34b424510b28109620b996a917ef371c4a",
+      "current_sha256": "80c2ac4a75f3fc94d80a333642f419ee842726bdaa6d6c02e4f1ca8a372e257d",
+      "scope": "other_root_authorized_ironvent"
+    },
+    {
+      "path": "data/creatures/104_wayburn.tres",
+      "baseline_sha256": "bdaeed81e5fd2987aece2054afb706e89fb48c889f7bc3267dc901abc9b84cbf",
+      "current_sha256": "ffe9221c80c9f2f12e5e6fdf6d3dd7d36e9678606e9a15a5af3fe3cc9ea17343",
+      "scope": "other_concurrent_shared_work"
+    },
+    {
+      "path": "data/creatures/105_coalcrest.tres",
+      "baseline_sha256": "080395b78624378ee324b671c4ed1619a4d75630e70ad43a6294295a2b158875",
+      "current_sha256": "4046517134c5b5a8bd5285dedd48217db00b0ec4b39abba11bf60922465a89c1",
+      "scope": "other_root_authorized_coalcrest"
+    },
+    {
+      "path": "data/moves/ironvent_furnace_roar.tres",
+      "baseline_sha256": "35b846f1bbc9339c00e02db9c61c87a07c71f9b428d6073eb99c7354ae951bd2",
+      "current_sha256": "437bf2f4bae55589e6bbdf4a26b1cc49b19a589b137ada4164b8418bac65d764",
+      "scope": "other_root_authorized_ironvent"
+    },
+    {
+      "path": "scripts/area_landscape.gd",
+      "baseline_sha256": "394d13fb8a62d24f472ed5c4f02a58be8e586ac9491eb22400d29b76e73af0ab",
+      "current_sha256": "010c67c8891e92058ac543a5414aea37c17145be2a0b7933d22821b50880c671",
+      "scope": "owned_world"
+    },
+    {
+      "path": "scripts/courtyard_home_room.gd",
+      "baseline_sha256": "e522cb8ce96aadd6a5668bb67e2baafdec1b0f1423c63ec5d2a8f5324c7e0c71",
+      "current_sha256": "53cb15f5168a6714fe78712062342178d69531dd2cb4aa0e0de592842d27e418",
+      "scope": "owned_world"
+    },
+    {
+      "path": "scripts/creature_data.gd",
+      "baseline_sha256": "e7c0c6f4116b12a3fbb5f454d8b71225669f9d70a4ef5844305c72e19c4c5961",
+      "current_sha256": "d2e5017b9f88be49aec340f90fa465c8858d708aeaf15d68a639811a2b614fc2",
+      "scope": "other_concurrent_shared_work"
+    },
+    {
+      "path": "scripts/historic_street.gd",
+      "baseline_sha256": "1846df40a8d84bc47e76c9671396ffc600b417549462d4573dd703dfa185f4c4",
+      "current_sha256": "b176dd25cbb034f37a572e0791720ad13e9e3363c9a14bc5376fd9837bc34eaa",
+      "scope": "owned_world"
+    },
+    {
+      "path": "scripts/main_menu_art_preview.gd",
+      "baseline_sha256": "f3531ae3b2cef5ad312b56cebd4b510cf1150111bbf773a92489e0a646cbd910",
+      "current_sha256": "80f0fc9e44e8519313b943117de81fb44aa3302b9caf3cfb686a33ab68e2727d",
+      "scope": "other_concurrent_shared_work"
+    },
+    {
+      "path": "scripts/route1_approach.gd",
+      "baseline_sha256": "e7eb68761c382e8757188e0773f401dc915148afde729a66b063762078dfa516",
+      "current_sha256": "90dabac8d920f5197824a4cbc5fc16b623bb4bfbb20b83c54066157898163122",
+      "scope": "other_concurrent_shared_work"
+    },
+    {
+      "path": "project.godot",
+      "baseline_sha256": "6220eb57f1a35a49edf7e1330b619c096209764ad033aa6ed541a2943032fa8c",
+      "current_sha256": "8181a45681c3f76379226b90d61ec2a3921f7b5a4cf7b20722bec00d4e34f262",
+      "scope": "other_concurrent_shared_work"
+    }
+  ],
+  "new_files": [
+    {
+      "path": "assets/sprites/creatures/coalcrest_outline_detail_2026_10_05/coalcrest_back.png",
+      "sha256": "6bb94d22b9debcd305d362cff5b48161b456ed6bf762c24e1f58c98d23ed7652",
+      "scope": "other_root_authorized_coalcrest"
+    },
+    {
+      "path": "assets/sprites/creatures/coalcrest_outline_detail_2026_10_05/coalcrest_back.png.import",
+      "sha256": "d43b7fb0766234ec5ed89c91dd5cc7b35f9322ce466170ff3f4a5ef42af38627",
+      "scope": "other_root_authorized_coalcrest"
+    },
+    {
+      "path": "assets/sprites/creatures/coalcrest_outline_detail_2026_10_05/coalcrest_front.png",
+      "sha256": "e17acf8227e1b98d752e4d476b3e7fa9b37b426c3fb3e5c349aaee66de83184f",
+      "scope": "other_root_authorized_coalcrest"
+    },
+    {
+      "path": "assets/sprites/creatures/coalcrest_outline_detail_2026_10_05/coalcrest_front.png.import",
+      "sha256": "86ffaaa909689ba13ec096653e406c112d446080cacff512f61b74fcf3e18b8c",
+      "scope": "other_root_authorized_coalcrest"
+    },
+    {
+      "path": "assets/sprites/creatures/ironvent_black_match_2026_10_05/furnace_roar_title.png",
+      "sha256": "0eb53284d8b311a3f221d6a8629009ae3a28c00115ee546cc9dbfa37772eaa62",
+      "scope": "other_root_authorized_ironvent"
+    },
+    {
+      "path": "assets/sprites/creatures/ironvent_black_match_2026_10_05/furnace_roar_title.png.import",
+      "sha256": "ccde83490ffcfbc286eaa0a85e74a2357495f7108e51de5f734ed0797cc88d08",
+      "scope": "other_root_authorized_ironvent"
+    },
+    {
+      "path": "assets/sprites/creatures/ironvent_black_match_2026_10_05/ironvent_front.png",
+      "sha256": "e7e05e0c1a505b5ea035ed6dd7a72f0c5a233a7ca42301a8ef06428fefe2ba35",
+      "scope": "other_root_authorized_ironvent"
+    },
+    {
+      "path": "assets/sprites/creatures/ironvent_black_match_2026_10_05/ironvent_front.png.import",
+      "sha256": "38b76cdd7dcabcb33b2fc21e07ea6a085d946d1390e0e10c78dd0f6290e137e7",
+      "scope": "other_root_authorized_ironvent"
+    },
+    {
+      "path": "assets/sprites/creatures/rimefin_catfish_2026_10_05/riftfin_back.png",
+      "sha256": "66ec8651ab5a07991a3a172d6f19861841ac0ec21fb189de6690985ff8035cb0",
+      "scope": "other_concurrent_shared_work"
+    },
+    {
+      "path": "assets/sprites/creatures/rimefin_catfish_2026_10_05/riftfin_back.png.import",
+      "sha256": "ef16340a65b19166a0657df6b713bee11f8eb7b65794b75edb0e3b6d81e34d5a",
+      "scope": "other_concurrent_shared_work"
+    },
+    {
+      "path": "assets/sprites/creatures/rimefin_catfish_2026_10_05/riftfin_front.png",
+      "sha256": "c03bfba41585b5979b1ecc3410e552f521c08a45006655505b51061d850c276a",
+      "scope": "other_concurrent_shared_work"
+    },
+    {
+      "path": "assets/sprites/creatures/rimefin_catfish_2026_10_05/riftfin_front.png.import",
+      "sha256": "5ec1c2ebbeccbbb5c7499e729612cb6b1190b6fda95cf0ff49f80ff4cb5cd7be",
+      "scope": "other_concurrent_shared_work"
+    },
+    {
+      "path": "assets/sprites/creatures/rimefin_catfish_2026_10_05/rimefin_back.png",
+      "sha256": "e432ee21a2f310486efc0e0986ede678b20923c3b32bd094ae65e151846f1b0c",
+      "scope": "other_concurrent_shared_work"
+    },
+    {
+      "path": "assets/sprites/creatures/rimefin_catfish_2026_10_05/rimefin_back.png.import",
+      "sha256": "cd3ac86d82fce5e4d0816df6ca4cd7070d48c8010b8f1921c4725ce20462bf6f",
+      "scope": "other_concurrent_shared_work"
+    },
+    {
+      "path": "assets/sprites/creatures/rimefin_catfish_2026_10_05/rimefin_front.png",
+      "sha256": "383e5313d18d5a8cb9cffea7f622cdf82c9549af7952d041d78c97bd63a13786",
+      "scope": "other_concurrent_shared_work"
+    },
+    {
+      "path": "assets/sprites/creatures/rimefin_catfish_2026_10_05/rimefin_front.png.import",
+      "sha256": "4b58cb96108ea26eaf1ab6c24bcce21569eeaab05d18d5299c0ea6a68868feab",
+      "scope": "other_concurrent_shared_work"
+    },
+    {
+      "path": "assets/sprites/creatures/tallowroot_2026_10_05/tallowroot2_back.png",
+      "sha256": "3dd1fd9a14ca54544bcf6c188925acf4a94d86873a6f3bbcfbf7d2f80f73b388",
+      "scope": "other_concurrent_shared_work"
+    },
+    {
+      "path": "assets/sprites/creatures/tallowroot_2026_10_05/tallowroot2_back.png.import",
+      "sha256": "9f74b9d82c7ebad27754367556724791bca0bab856806811af495b463d4a6c08",
+      "scope": "other_concurrent_shared_work"
+    },
+    {
+      "path": "assets/sprites/creatures/tallowroot_2026_10_05/tallowroot2_front.png",
+      "sha256": "3382ac9a8280871614ca992d2b28f2767f2b303380f5f905fd2a5904a73a46fc",
+      "scope": "other_concurrent_shared_work"
+    },
+    {
+      "path": "assets/sprites/creatures/tallowroot_2026_10_05/tallowroot2_front.png.import",
+      "sha256": "e6c7672b3d11f2ce2ecf3741c0ce23c81de8bba70fc4205590232f0bbd09f75e",
+      "scope": "other_concurrent_shared_work"
+    },
+    {
+      "path": "assets/sprites/creatures/tallowroot_2026_10_05/tallowroot3_back.png",
+      "sha256": "b5308af1cd840976cd0ecd664a22ebec725d2fc8a584e453e2d26187996b707f",
+      "scope": "other_concurrent_shared_work"
+    },
+    {
+      "path": "assets/sprites/creatures/tallowroot_2026_10_05/tallowroot3_back.png.import",
+      "sha256": "717d8c35786ef046d8c7de9bef4c219382ef5024959637716ac92c711dfa76e8",
+      "scope": "other_concurrent_shared_work"
+    },
+    {
+      "path": "assets/sprites/creatures/tallowroot_2026_10_05/tallowroot3_front.png",
+      "sha256": "623f52f3d76d995921da695e91fd6d21460b7bc669ba9047d5ddccef8b1f8f91",
+      "scope": "other_concurrent_shared_work"
+    },
+    {
+      "path": "assets/sprites/creatures/tallowroot_2026_10_05/tallowroot3_front.png.import",
+      "sha256": "507144e6da225ec30ba47ae9b0d95e777c149ffbfe2cc2bf592a6ac58186ac76",
+      "scope": "other_concurrent_shared_work"
+    },
+    {
+      "path": "assets/sprites/creatures/tallowroot_2026_10_05/tallowroot_back.png",
+      "sha256": "93d68d182ea7f350476c9a783ea71a56a5d200ecd1a99b64f65fe4834f5b0373",
+      "scope": "other_concurrent_shared_work"
+    },
+    {
+      "path": "assets/sprites/creatures/tallowroot_2026_10_05/tallowroot_back.png.import",
+      "sha256": "2322778b22041273e48fc50037f8c56217ad88954a0f8c901cdc690404e12dbf",
+      "scope": "other_concurrent_shared_work"
+    },
+    {
+      "path": "assets/sprites/creatures/tallowroot_2026_10_05/tallowroot_front.png",
+      "sha256": "725e9250b018d6001eb915b3f278ed14028a42777ec457e29ee569b606f3bf87",
+      "scope": "other_concurrent_shared_work"
+    },
+    {
+      "path": "assets/sprites/creatures/tallowroot_2026_10_05/tallowroot_front.png.import",
+      "sha256": "4ddf8341b7b84b69a7ec1ebdd77f1670f7e100fa4fd3cee3fd219714f4d0b0c7",
+      "scope": "other_concurrent_shared_work"
+    },
+    {
+      "path": "assets/sprites/creatures/wayburn_back_line_2026_10_05/wayburn_front.png",
+      "sha256": "49fa11771028627b902518fb1d446d08c177ec074c4cd053bcf2fa1a1cc875ad",
+      "scope": "other_concurrent_shared_work"
+    },
+    {
+      "path": "assets/sprites/creatures/wayburn_back_line_2026_10_05/wayburn_front.png.import",
+      "sha256": "597dca2d7283eea6c39fdddb4f88a53ef4d2098e68e8be637062871834c1e3f1",
+      "scope": "other_concurrent_shared_work"
+    },
+    {
+      "path": "assets/sprites/creatures/attacks/ironvent_furnace_roar/style_matched/back_palette_2026_10_05/titlecard_official_2026_09_30.png",
+      "sha256": "0eb53284d8b311a3f221d6a8629009ae3a28c00115ee546cc9dbfa37772eaa62",
+      "scope": "other_concurrent_shared_work"
+    },
+    {
+      "path": "assets/sprites/creatures/attacks/ironvent_furnace_roar/style_matched/back_palette_2026_10_05/titlecard_official_2026_09_30.png.import",
+      "sha256": "7b966fc780ce5588c45099cc4d8451161e9812f04fdc5bd69b4f9d8281fb0526",
+      "scope": "other_concurrent_shared_work"
+    },
+    {
+      "path": "assets/sprites/world/courtyard_home_detail_2026_10_05/home_coat_front.png",
+      "sha256": "9758fbd2efbb1e1d83b00f8aa2fd34d2daaf83ebd8158abd71ece788a0427f7e",
+      "scope": "owned_world"
+    },
+    {
+      "path": "assets/sprites/world/courtyard_home_detail_2026_10_05/home_coat_front.png.import",
+      "sha256": "7060da59e854bde35be367af65f86995cda38fa3b41b347092784bbaa92e8797",
+      "scope": "owned_world"
+    },
+    {
+      "path": "assets/sprites/world/courtyard_home_detail_2026_10_05/home_room.png",
+      "sha256": "18082c72038c62c53a9b7ad35bc7f4d99e2796e1fceeabd81493e0ea0f650bc3",
+      "scope": "owned_world"
+    },
+    {
+      "path": "assets/sprites/world/courtyard_home_detail_2026_10_05/home_room.png.import",
+      "sha256": "da979cf29b86302eae8b6a380ffe1a2127367badfe0c4d9c32c0752c2bb2f46e",
+      "scope": "owned_world"
+    },
+    {
+      "path": "assets/sprites/world/courtyard_home_detail_2026_10_05/home_stove_front.png",
+      "sha256": "461f5e412c4c679b85985d701e7cf54a72ae04ba8e9dd0274d24e1a4c9a22185",
+      "scope": "owned_world"
+    },
+    {
+      "path": "assets/sprites/world/courtyard_home_detail_2026_10_05/home_stove_front.png.import",
+      "sha256": "ab5ec1728fb885b97f882db2214f0bc6405bdf25645f7383649146f94c2fd1fb",
+      "scope": "owned_world"
+    },
+    {
+      "path": "assets/sprites/world/courtyard_home_detail_2026_10_05/home_threshold_front.png",
+      "sha256": "47872dc776e93d784937cc60243758166390d92349e8ec12588586ee2c445ac1",
+      "scope": "owned_world"
+    },
+    {
+      "path": "assets/sprites/world/courtyard_home_detail_2026_10_05/home_threshold_front.png.import",
+      "sha256": "23bcf0c1e1cfb1445969f0accc63eea9d0c9481435dbe74b83c5320bf0699b64",
+      "scope": "owned_world"
+    },
+    {
+      "path": "assets/sprites/world/courtyard_home_linework_2026_10_04/home_coat_front.png",
+      "sha256": "5ab4376a1cb55597d2fc3797d6cb175f55c93373d1713c53b66d20a06258e921",
+      "scope": "owned_world"
+    },
+    {
+      "path": "assets/sprites/world/courtyard_home_linework_2026_10_04/home_coat_front.png.import",
+      "sha256": "2fd65af1596ae5a28040945d0838c98f4c066aa10a47ecf6379e19e62401b42d",
+      "scope": "owned_world"
+    },
+    {
+      "path": "assets/sprites/world/courtyard_home_linework_2026_10_04/home_room.png",
+      "sha256": "fa61f4d3f78b2593907327ae7c9538f72e80b1f0722ed5324d77a5fb68483b36",
+      "scope": "owned_world"
+    },
+    {
+      "path": "assets/sprites/world/courtyard_home_linework_2026_10_04/home_room.png.import",
+      "sha256": "d8bbf728511f5271a5713d90d53c8940647ef3a961b24c980b7db79f46f6d365",
+      "scope": "owned_world"
+    },
+    {
+      "path": "assets/sprites/world/courtyard_home_linework_2026_10_04/home_stove_front.png",
+      "sha256": "cb8d5b1e0c54ffbac67d278556ef87d120bef6ac18afc64722ce1d2f2715c1c6",
+      "scope": "owned_world"
+    },
+    {
+      "path": "assets/sprites/world/courtyard_home_linework_2026_10_04/home_stove_front.png.import",
+      "sha256": "fd57705845c8c3ca9f58e21341cc39f8eadd4c60a07052f2f7ddcedbbab5d927",
+      "scope": "owned_world"
+    },
+    {
+      "path": "assets/sprites/world/courtyard_home_linework_2026_10_04/home_threshold_front.png",
+      "sha256": "47872dc776e93d784937cc60243758166390d92349e8ec12588586ee2c445ac1",
+      "scope": "owned_world"
+    },
+    {
+      "path": "assets/sprites/world/courtyard_home_linework_2026_10_04/home_threshold_front.png.import",
+      "sha256": "be44a0a10499d597fd203e7c74011ebc489c92615c9cdad010213ddd7d64e09b",
+      "scope": "owned_world"
+    },
+    {
+      "path": "assets/sprites/world/route1_meadow_refine_2026_10_05/meadow_lane.png",
+      "sha256": "26adf67c2189874bdf5f955822e160b548e6f056ae82046e87a59eb3b23ed121",
+      "scope": "other_concurrent_shared_work"
+    },
+    {
+      "path": "assets/sprites/world/route1_meadow_refine_2026_10_05/meadow_lane.png.import",
+      "sha256": "c7d9f62fa5e7bd12b1c454adf11fae9b1f2a1e685abc4010bbb0b883e18023ee",
+      "scope": "other_concurrent_shared_work"
+    },
+    {
+      "path": "assets/sprites/world/world_approaches_2026_10_05/hometown_hall_approach.png",
+      "sha256": "eb83303c618cbf39bcbf8fc312aa7b6e154f1021c912872547a45bd58f67acc9",
+      "scope": "owned_world"
+    },
+    {
+      "path": "assets/sprites/world/world_approaches_2026_10_05/hometown_hall_approach.png.import",
+      "sha256": "3a4cf09438663eeeb24353bc390d3f0f9dccd5f08677e3d3279e1592b7bf5f89",
+      "scope": "owned_world"
+    },
+    {
+      "path": "assets/sprites/world/world_approaches_2026_10_05/riverfront_branch_approach.png",
+      "sha256": "3abb8cd04b02ea736bbd097b35acb3136bb0d6ecaf4285a799a5590c6271ed96",
+      "scope": "owned_world"
+    },
+    {
+      "path": "assets/sprites/world/world_approaches_2026_10_05/riverfront_branch_approach.png.import",
+      "sha256": "5f1f8602271e7ee50411ebb74371e82e31145a634bd7524c56ffb870acfc7edf",
+      "scope": "owned_world"
+    },
+    {
+      "path": "assets/sprites/world/world_linework_2026_10_04/brick_shop.png",
+      "sha256": "c72d9b86c0b4643d0f9da3c025a239c1f31efa3ff9510885bfd0736dfc6141c2",
+      "scope": "owned_world"
+    },
+    {
+      "path": "assets/sprites/world/world_linework_2026_10_04/brick_shop.png.import",
+      "sha256": "85c16ec38aab83e650579f24341e38400e6ac25eb36fa3db7f20a594e8a3e117",
+      "scope": "owned_world"
+    },
+    {
+      "path": "assets/sprites/world/world_linework_2026_10_04/courtyard_home.png",
+      "sha256": "f5a4af906a064c0a1faa972847f01ddcbb2a93372350d9e0b77fbbbe1ded290c",
+      "scope": "owned_world"
+    },
+    {
+      "path": "assets/sprites/world/world_linework_2026_10_04/courtyard_home.png.import",
+      "sha256": "a460b1306affd083df5abd4ef0a53396ba3dbe49fc023edf83c83b198a2cea17",
+      "scope": "owned_world"
+    },
+    {
+      "path": "assets/sprites/world/world_linework_2026_10_04/dispatch_hall.png",
+      "sha256": "94bdf8fe98fa9e1c13afc9f2b6394bd06cf4c5ec03019dd126c765add1c57f23",
+      "scope": "owned_world"
+    },
+    {
+      "path": "assets/sprites/world/world_linework_2026_10_04/dispatch_hall.png.import",
+      "sha256": "41499d891e5bd0b02cf17489377ec15f680bdb2994dbe888e847d5d784ef1a0b",
+      "scope": "owned_world"
+    },
+    {
+      "path": "assets/sprites/world/world_linework_2026_10_04/ledger_house.png",
+      "sha256": "7392fdde7ed2e4c9f17e81b129a96bbde753d1326b8830e223901227fbcfcc23",
+      "scope": "owned_world"
+    },
+    {
+      "path": "assets/sprites/world/world_linework_2026_10_04/ledger_house.png.import",
+      "sha256": "b0701a330e8006d11211373e10ebb39860d9acde93491e8d0703342cf388f45a",
+      "scope": "owned_world"
+    },
+    {
+      "path": "data/creatures/1701_tallowroot.tres",
+      "sha256": "49993fd996d1468ba97076c2d16dabe985f9ea67c8076244b8eb661f0411301f",
+      "scope": "other_concurrent_shared_work"
+    },
+    {
+      "path": "data/creatures/1702_tallowroot2.tres",
+      "sha256": "04a5877c0c6e3c8af2407910d60b121a012065b280338bca43df4fc511b52967",
+      "scope": "other_concurrent_shared_work"
+    },
+    {
+      "path": "data/creatures/1703_tallowroot3.tres",
+      "sha256": "aa3c851719d5bae3935a8a4729aecd881a891681c95a2efad048c8fc13d84b71",
+      "scope": "other_concurrent_shared_work"
+    },
+    {
+      "path": "data/creatures/502_riftfin.tres",
+      "sha256": "873843a9daf6d9c93e477b94a8a8c7660cabea7700dea240cf280ab690a4c7dd",
+      "scope": "other_concurrent_shared_work"
+    }
+  ],
+  "missing": [],
+  "scope_counts": {
+    "owned_world": {
+      "changed_existing": 3,
+      "new_files": 28
+    },
+    "other_root_authorized_ironvent": {
+      "changed_existing": 2,
+      "new_files": 4
+    },
+    "other_root_authorized_coalcrest": {
+      "changed_existing": 1,
+      "new_files": 4
+    },
+    "other_concurrent_shared_work": {
+      "changed_existing": 6,
+      "new_files": 30
+    }
+  },
+  "root_authorized_runtime_union_count": 42,
+  "world_runtime_count": 31,
+  "other_root_authorized_runtime_count": 11,
+  "global_project_exactness_claim": false,
+  "ownership_note": "Current Ironvent and Coalcrest bindings/assets are separate authorized root work, not world installation. Their existing resource history can include retained earlier concurrent edits; classification does not claim every historic resource byte was changed by root. Route1 meadow, Wayburn, Tallowroot, creature_data, main_menu preview and project launch changes remain concurrent. Nothing outside the world scope was restored or overwritten."
+}

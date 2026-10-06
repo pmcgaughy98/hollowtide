@@ -1,0 +1,42 @@
+[gd_resource type="Resource" script_class="CreatureData" format=3]
+
+[ext_resource type="Script" path="res://scripts/creature_data.gd" id="1_script"]
+[ext_resource type="Texture2D" path="res://assets/sprites/creatures/idle_2026_10_05/110_kithflare3/back_f0.png" id="1_uisce"]
+[ext_resource type="Texture2D" path="res://assets/sprites/creatures/idle_2026_10_05/110_kithflare3/back_f1.png" id="2_4kibr"]
+[ext_resource type="Texture2D" path="res://assets/sprites/creatures/idle_2026_10_05/110_kithflare3/f0.png" id="2_ass7b"]
+[ext_resource type="Texture2D" path="res://assets/sprites/creatures/starter_texture_refine_2026_10_05/kithflare3_front_source_grid.png" id="2_sprite"]
+[ext_resource type="Script" path="res://scripts/move_data.gd" id="2_xwtts"]
+[ext_resource type="Texture2D" path="res://assets/sprites/creatures/starter_texture_refine_2026_10_05/kithflare3_back_source_grid.png" id="3_back"]
+[ext_resource type="Texture2D" path="res://assets/sprites/creatures/idle_2026_10_05/110_kithflare3/f1.png" id="3_qyhnp"]
+[ext_resource type="Texture2D" path="res://assets/sprites/creatures/idle_2026_10_05/110_kithflare3/back_f2.png" id="3_vuldr"]
+[ext_resource type="Texture2D" path="res://assets/sprites/creatures/idle_2026_10_05/110_kithflare3/back_f3.png" id="4_8l7id"]
+[ext_resource type="Texture2D" path="res://assets/sprites/creatures/idle_2026_10_05/110_kithflare3/f2.png" id="4_p01em"]
+[ext_resource type="Texture2D" path="res://assets/sprites/creatures/idle_2026_10_05/110_kithflare3/f3.png" id="5_plpft"]
+[ext_resource type="Texture2D" path="res://assets/sprites/creatures/idle_2026_10_05/110_kithflare3/back_f4.png" id="5_vapdv"]
+[ext_resource type="Texture2D" path="res://assets/sprites/creatures/idle_2026_10_05/110_kithflare3/back_f5.png" id="6_s2xkl"]
+[ext_resource type="Texture2D" path="res://assets/sprites/creatures/idle_2026_10_05/110_kithflare3/f4.png" id="6_tir3g"]
+[ext_resource type="Texture2D" path="res://assets/sprites/creatures/idle_2026_10_05/110_kithflare3/f5.png" id="7_a878h"]
+[ext_resource type="Texture2D" path="res://assets/sprites/creatures/idle_2026_10_05/110_kithflare3/back_f6.png" id="7_jpk8y"]
+[ext_resource type="Texture2D" path="res://assets/sprites/creatures/idle_2026_10_05/110_kithflare3/f6.png" id="8_0s6j7"]
+[ext_resource type="Texture2D" path="res://assets/sprites/creatures/idle_2026_10_05/110_kithflare3/back_f7.png" id="8_euxjq"]
+[ext_resource type="Resource" path="res://data/moves/kithflare3_stormlantern.tres" id="8_storm"]
+[ext_resource type="Texture2D" path="res://assets/sprites/creatures/idle_2026_10_05/110_kithflare3/f7.png" id="9_hsd6e"]
+
+[resource]
+script = ExtResource("1_script")
+id = 110
+creature_name = "Stormwick"
+has_second_essence = true
+second_essence = 6
+sprite = ExtResource("2_sprite")
+back_sprite = ExtResource("3_back")
+description = "Stormwick: name approved by Preston 2026-10-05. Provisional entry (Claude): Retro Diffusion art from docs/creatures/starter-lines-rd-2026-10-05/evolutions. Default stats and no moves (Strike) until Grok sets the kit and numbers."
+moves = Array[ExtResource("2_xwtts")]([ExtResource("8_storm")])
+body_parts = PackedStringArray("stormlantern", "rodcrest", "throat", "marking")
+idle_breath = 0.018
+idle_period = 1.8
+idle_vent_glow = 0.35
+idle_breath_widen = 0.006
+idle_frames = Array[Texture2D]([ExtResource("2_ass7b"), ExtResource("3_qyhnp"), ExtResource("4_p01em"), ExtResource("5_plpft"), ExtResource("6_tir3g"), ExtResource("7_a878h"), ExtResource("8_0s6j7"), ExtResource("9_hsd6e")])
+back_idle_frames = Array[Texture2D]([ExtResource("1_uisce"), ExtResource("2_4kibr"), ExtResource("3_vuldr"), ExtResource("4_8l7id"), ExtResource("5_vapdv"), ExtResource("6_s2xkl"), ExtResource("7_jpk8y"), ExtResource("8_euxjq")])
+battle_size = 1.66

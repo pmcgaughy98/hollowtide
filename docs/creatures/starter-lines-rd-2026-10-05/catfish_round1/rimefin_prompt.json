@@ -1,0 +1,12 @@
+{
+ "prompt": "The Tide starter creature of a monster-collecting RPG: a young river catfish, drawn with the same finish, outline and shading as the two starter creatures in the references. Broad flat rounded head with a wide mouth and long whisker barbels, small bright cyan eyes, smooth scaleless skin, a stout body tapering to a rounded tail fin, a short sharp dorsal spine and a ridge of short pale cyan spines down its back. It props its front up on two sturdy pectoral fins on the ground, tail curled behind. Deep river blue, slate, cold cyan, pale belly. Curious and cool-headed. Three-quarter view facing right. Not a cartoon fish, no bubbles, no water splashes, no shark. Shown whole in the centre of the frame with empty space on every side. On a plain white background.",
+ "prompt_style": "rd_pro__default",
+ "width": 160,
+ "height": 160,
+ "num_images": 2,
+ "remove_bg": true,
+ "reference_images": [
+  "assets/sprites/creatures/cinderhide.png",
+  "docs/creatures/tallowroot-rd-2026-10-05/tallowroot_front_160.png"
+ ]
+}

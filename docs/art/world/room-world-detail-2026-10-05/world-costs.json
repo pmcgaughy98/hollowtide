@@ -1,0 +1,14 @@
+{
+  "phase1_actual_usd": 1.26,
+  "room_detail_actual_usd": 0.18,
+  "approach_actual_usd": 0,
+  "total_world_actual_usd": 1.44,
+  "charged_world_requests": 8,
+  "rejected_paid_table_requests": 1,
+  "rejected_table_pixels_installed": 0,
+  "room_detail_inference_id": "inf_djoBEpKMR6Xb7GeYPRaGl4AVm0gzJLP5",
+  "mixed_three_image_approval_usd": 0.54,
+  "coalcrest_request_costs_excluded_from_world_total": true,
+  "balance_is_shared_not_world_budget": true,
+  "fresh_balance_not_polled_by_archivist": true
+}

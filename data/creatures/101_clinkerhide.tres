@@ -22,6 +22,8 @@ aim_points = Dictionary[String, Vector2]({
 "heavytail": Vector2(-40, 8)
 })
 essence = 0
+has_second_essence = true
+second_essence = 2
 sprite = ExtResource("2_sprite")
 back_sprite = ExtResource("rd_back")
 moves = [ExtResource("3_move"), ExtResource("4_move"), ExtResource("5_move"), ExtResource("6_move")]

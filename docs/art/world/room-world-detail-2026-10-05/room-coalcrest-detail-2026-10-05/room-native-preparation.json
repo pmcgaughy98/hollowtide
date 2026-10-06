@@ -1,0 +1,74 @@
+{
+  "canvas": [
+    256,
+    256
+  ],
+  "original_alpha_and_transparent_RGB_exact": true,
+  "outside_accepted_mask_RGBA_exact": true,
+  "accepted_mask_pixels": 10160,
+  "eligible_generated_pixels": 10160,
+  "changed_RGB_pixels": 1914,
+  "foregrounds": [
+    {
+      "asset": "home_stove_front",
+      "bounds": [
+        35,
+        112,
+        59,
+        177
+      ],
+      "size": [
+        28,
+        69
+      ],
+      "origin": [
+        33,
+        110
+      ],
+      "y_sort_foot": 177,
+      "exact_source_RGBA": true
+    },
+    {
+      "asset": "home_coat_front",
+      "bounds": [
+        184,
+        116,
+        220,
+        176
+      ],
+      "size": [
+        40,
+        64
+      ],
+      "origin": [
+        182,
+        114
+      ],
+      "y_sort_foot": 176,
+      "exact_source_RGBA": true
+    },
+    {
+      "asset": "home_threshold_front",
+      "bounds": [
+        26,
+        211,
+        231,
+        233
+      ],
+      "size": [
+        209,
+        26
+      ],
+      "origin": [
+        24,
+        209
+      ],
+      "y_sort_foot": 233,
+      "exact_source_RGBA": true
+    }
+  ],
+  "full_opacity_foreground_reconstruction_exact": true,
+  "table_clear_mask_restricted_material": true,
+  "original_pale_cloth_restored_pixels": 501,
+  "native_resampling": false
+}

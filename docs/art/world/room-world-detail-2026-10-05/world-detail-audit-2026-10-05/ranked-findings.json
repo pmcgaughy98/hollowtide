@@ -1,0 +1,216 @@
+[
+  {
+    "rank": 1,
+    "category": "Doorway grounding and labels",
+    "type": "visible integration defect",
+    "evidence": [
+      "render/hometown-hall-approach.png",
+      "render/riverfront-hall-approach.png",
+      "approach-gap-measurements.json"
+    ],
+    "world_rectangles": {
+      "hometown_gap": [
+        750,
+        418,
+        787,
+        438
+      ],
+      "riverfront_gap": [
+        490,
+        362,
+        535,
+        378
+      ]
+    },
+    "finding": "Current courier hall and outdoor branch path caps stop 20 and 16 native pixels below building feet; labels overlap roof apex. Native source crops can extend both approaches and labels can move above roofs without new art.",
+    "next": "Root review/install exact source-material patches in candidate-approaches; move labels upward. Verify actual opacity, actor layering, original gate/collision/panels and cached returns.",
+    "paid_cost_estimate_usd": 0
+  },
+  {
+    "rank": 2,
+    "category": "Courier hall interior asset material",
+    "type": "detail consistency opportunity; geometry currently intact",
+    "evidence": [
+      "render/active-hall-and-home.png"
+    ],
+    "source": "res://assets/sprites/world/courier_hall_2026_10_03/courier_hall_native.png",
+    "native_regions": {
+      "broad_counter_surface": [
+        104,
+        63,
+        225,
+        119
+      ],
+      "sorting_shelves_and_bags": [
+        26,
+        74,
+        50,
+        198
+      ],
+      "right_shelf_and_bags": [
+        195,
+        130,
+        229,
+        198
+      ],
+      "upper_sorting_cubbies": [
+        166,
+        32,
+        219,
+        74
+      ],
+      "wide_board": [
+        43,
+        32,
+        95,
+        48
+      ]
+    },
+    "finding": "The full-room hall has defined contours already, but broader flat counter/floor planes, rounded bag folds and large shelf bins show less purposeful material detail than the sharpened bedroom. The single wide board remains correct.",
+    "next": "One registered full-room detail image_edit candidate, then restore exact alpha/layout and preserve wide board plus existing counter foreground layering. Do not paint over clerk or invent quest objects.",
+    "paid_cost_estimate_usd": 0.18,
+    "cost_assumption": "Same one image_edit $0.18 rate as recent completed project edits; not a live quote/approval/request."
+  },
+  {
+    "rank": 3,
+    "category": "Road/paver material consistency",
+    "type": "style/detail opportunity, not blur or traversal defect",
+    "evidence": [
+      "render/historic-pavers.png",
+      "render/active-building-models.png"
+    ],
+    "sources": [
+      "res://assets/sprites/world/area_transitions_2026_10_03/riverfront_streets.png",
+      "res://assets/sprites/world/historic_frontage_2026_10_04/street_pavers.png",
+      "res://assets/sprites/world/historic_street_2026_10_03/riverfront_north_lane.png"
+    ],
+    "world_regions": {
+      "historic_frontages": [
+        144,
+        388,
+        640,
+        528
+      ],
+      "riverfront_city_crossing": [
+        768,
+        472,
+        900,
+        548
+      ]
+    },
+    "finding": "Large repetitive paving slabs and uniformly dark grout read much coarser than facade brickwork; the northern tan lane overlays the old stone road without a local transition material. Source pixels are crisp; global sharpening is the wrong explanation.",
+    "next": "Design one small source-material transition and one paver-native material swatch retaining old alpha/road widths. Review at actual gameplay zoom before changing full surfaces. Keep grass/lane/door mask topology, crossings, scene gates and local activities exact.",
+    "paid_cost_estimate_usd": null
+  },
+  {
+    "rank": 4,
+    "category": "Bank and water edge detail",
+    "type": "landscape depth opportunity; preserved river geometry",
+    "evidence": [
+      "render/riverfront-bank.png",
+      "render/route1-crossing.png"
+    ],
+    "sources": [
+      "res://assets/sprites/world/area_transitions_2026_10_03/riverfront_water_mask.png",
+      "res://assets/sprites/world/route1_static_surfaces_2026_10_03/wet_bank_contours.png",
+      "res://assets/sprites/world/route1_crossing_2026_10_02/river_water_native32.png"
+    ],
+    "world_regions": {
+      "riverfront_north_bank": [
+        200,
+        96,
+        256,
+        448
+      ],
+      "route1_west_bank": [
+        408,
+        0,
+        460,
+        640
+      ]
+    },
+    "finding": "Route 1 has small roots, stones and wet margins; riverfront has a plain hard green-to-water edge. The 32px water surface is intentionally subdued and animated, rather than an empty placeholder. Current bridge rail/support silhouette is complete.",
+    "next": "Reuse existing wet bank/roots/stones material in a restricted strip on riverfront shore, preserving water collision/mask and bridge landing/gate; check actors and bank continuity. Add source-proven details sparingly, not a full river redraw.",
+    "paid_cost_estimate_usd": 0
+  },
+  {
+    "rank": 5,
+    "category": "Tree family and small foliage finish",
+    "type": "variation/material opportunity, no current canopy clipping seen",
+    "evidence": [
+      "render/active-trees.png",
+      "render/active-props-and-foliage.png"
+    ],
+    "sources": [
+      "res://assets/sprites/world/route1_rd_2026_10_02/cottonwood_north.png",
+      "res://assets/sprites/world/route1_rd_2026_10_02/bank_shrub_4.png",
+      "res://assets/sprites/world/route1_landscape_2026_10_03/meadow_tuft_1.png"
+    ],
+    "finding": "Seven cottonwoods already have irregular crown variants and native sharp leaf clusters; shared major lobe silhouettes still make large tree arrays recognizably related. This is planned tree-family variation, not current left/right cutoff. Lime shrubs/rounded gray root stones use stronger saturation/softer highlight shapes than muted trees. Some tiny reeds are intentionally low-contrast.",
+    "next": "First compare shrub4 against tree palette at native zoom, and place a few existing tufts/roots in large blank yards. Later one cottonwood detail pilot can improve branch/leaf-cluster identity without changing trunk/alpha bounds/canopy fade mask. Do not blanket-outline every tiny leaf.",
+    "paid_cost_estimate_usd": null
+  },
+  {
+    "rank": 6,
+    "category": "Garden/NPC consistency",
+    "type": "small genuine notch and repeated-detail opportunity",
+    "evidence": [
+      "render/garden-notice-notch.png",
+      "render/active-props-and-foliage.png"
+    ],
+    "sources": [
+      "res://assets/sprites/world/hometown_garden_2026_10_04/garden_lanes.png",
+      "res://assets/sprites/world/hometown_garden_2026_10_04/cuttings_row.png",
+      "res://assets/sprites/world/hometown_garden_2026_10_04/timber_bed.png",
+      "res://assets/sprites/world/hometown_garden_2026_10_04/garden_neighbor.png",
+      "res://assets/sprites/world/historic_frontage_2026_10_04/workshop_keeper.png"
+    ],
+    "world_regions": {
+      "garden_sign_notch": [
+        463,
+        601,
+        479,
+        608
+      ]
+    },
+    "finding": "A rectangular grass notch below the garden sign interrupts rounded path material; planted bed repeats the same three-leaf cluster across all rows. Timber bed has a heavy black edge compared with more subdued leaves. Keeper is detailed with hard contours; garden neighbor has softer small facial/coat clusters at courier size, which are not necessarily anatomy errors.",
+    "next": "Repair notch using exact saved soil; only add small leaf angle/material variation after confirming original planting/idempotence and native actor height remain. Native-size NPC contact sheet avoids comparing57x80 source keeper against21x34 neighbor without installed scale.",
+    "paid_cost_estimate_usd": 0
+  },
+  {
+    "rank": 7,
+    "category": "World props and bridge",
+    "type": "local readability/detail opportunity; not current cutoffs",
+    "evidence": [
+      "render/active-props-and-foliage.png",
+      "render/route1-crossing.png"
+    ],
+    "sources": [
+      "res://assets/sprites/world/route1_rd_2026_10_01/marker.png",
+      "res://assets/sprites/world/route1_rd_2026_10_01/height.png",
+      "res://assets/sprites/world/route1_rd_2026_10_02/relay_post_empty_slot.png",
+      "res://assets/sprites/world/route1_rd_2026_10_02/ferry_tieoff_full.png",
+      "res://assets/sprites/world/route1_crossing_2026_10_02/river_bridge_peg_fixed.png"
+    ],
+    "finding": "Marker sign is muddy by design at24x40 and relay/tieoff moss uses busier texture than buildings; texture hierarchy could be clearer. Current bridge native texture has complete side caps and pegs, legible plank grain, and no missing support in inspected route proof. Riverfront bridge extending through left area entrance is intentional scene continuation.",
+    "next": "A future isolated marker/relay detail edit should keep blank routing panel and geometry. Do not batch unlike props into one atlas or regenerate already approved bridge silhouette.",
+    "paid_cost_estimate_usd": null
+  },
+  {
+    "rank": 8,
+    "category": "Completed building refinements",
+    "type": "preserve; no repeat sharpening recommended",
+    "evidence": [
+      "render/active-building-models.png"
+    ],
+    "sources": [
+      "res://assets/sprites/world/world_linework_2026_10_04/courtyard_home.png",
+      "res://assets/sprites/world/world_linework_2026_10_04/dispatch_hall.png",
+      "res://assets/sprites/world/world_linework_2026_10_04/brick_shop.png",
+      "res://assets/sprites/world/world_linework_2026_10_04/ledger_house.png"
+    ],
+    "finding": "Current four buildings have crisp registered roof seams, brick joints and frame separation; new neighbor/garden homes/workshop/rowhomes are also sharp. Current whole-area sparseness and grass approaches are integration/content gaps rather than source blur.",
+    "next": "Retain the current image identities, perspective, native scale and exact bounds. Detail extra purposeful frontage props only in a later scoped world slice; do not spend another pass on all eight facades.",
+    "paid_cost_estimate_usd": 0
+  }
+]

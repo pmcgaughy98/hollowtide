@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="CreatureData" load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://scripts/creature_data.gd" id="1_script"]
+[ext_resource type="Texture2D" path="res://assets/sprites/creatures/rimefin_catfish_2026_10_05/scourmaw_front.png" id="2_sprite"]
+[ext_resource type="Texture2D" path="res://assets/sprites/creatures/rimefin_catfish_2026_10_05/scourmaw_back.png" id="3_back"]
+
+[resource]
+script = ExtResource("1_script")
+id = 503
+creature_name = "Scourmaw"
+essence = 1
+has_second_essence = true
+second_essence = 5
+sprite = ExtResource("2_sprite")
+back_sprite = ExtResource("3_back")
+description = "Provisional entry (Claude, 2026-10-05, on Preston's request): Retro Diffusion art from docs/creatures/starter-lines-rd-2026-10-05/evolutions. Default stats and no moves (Strike) until Grok sets the kit and numbers."
+battle_size = 1.45

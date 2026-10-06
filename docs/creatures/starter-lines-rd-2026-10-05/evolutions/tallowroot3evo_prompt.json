@@ -1,0 +1,12 @@
+{
+ "prompt": "An EVOLVED version of the armoured green creature in the first reference image: same species, same face, green skin, bark-like husk armour, moss and ferns in the seams, cream claws and tall coiled shoot with broad leaves, but transformed with new body features so it looks evolved, not just grown up. A broad raised collar of hard husk plates now flares up around its neck like a shield. Two thick swept-back horns of seed husk grow from its helm. Its tail has grown a heavy armoured seed-pod club at the end. Massive shoulders, a deep chest, legs like pillars with big cream claws, head held low behind the shield collar, a guarding stance. The coiled shoot still rises from a split husk on its shoulder. Moss green, bark brown, seed ochre, cream. Three-quarter view facing right. Same finish and outline as the reference. No tree on its back, no flower crown, no vines around its legs. Shown whole in the centre of the frame with empty space on every side. On a plain white background.",
+ "prompt_style": "rd_pro__default",
+ "width": 224,
+ "height": 224,
+ "num_images": 2,
+ "remove_bg": true,
+ "reference_images": [
+  "docs/creatures/starter-lines-rd-2026-10-05/evolutions/tallowroot3new_front_take1.png",
+  "assets/sprites/creatures/cinderhide.png"
+ ]
+}

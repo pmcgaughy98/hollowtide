@@ -1,0 +1,238 @@
+{
+  "status": "W-only palette proposal, not installed or engine-verified",
+  "coordinate_convention": "Half-open native pixels;100\u00d7100 canvases",
+  "reference": "BACK current authored dark material palette",
+  "mapping": [
+    {
+      "front_title_rgb": [
+        44,
+        36,
+        44
+      ],
+      "back_reference_rgb": [
+        44,
+        44,
+        44
+      ]
+    },
+    {
+      "front_title_rgb": [
+        52,
+        52,
+        52
+      ],
+      "back_reference_rgb": [
+        60,
+        60,
+        60
+      ]
+    },
+    {
+      "front_title_rgb": [
+        68,
+        68,
+        68
+      ],
+      "back_reference_rgb": [
+        76,
+        76,
+        68
+      ]
+    },
+    {
+      "front_title_rgb": [
+        76,
+        76,
+        76
+      ],
+      "back_reference_rgb": [
+        76,
+        76,
+        68
+      ]
+    },
+    {
+      "front_title_rgb": [
+        92,
+        92,
+        92
+      ],
+      "back_reference_rgb": [
+        92,
+        92,
+        84
+      ]
+    }
+  ],
+  "preserved": [
+    "alpha/transparent RGB",
+    "outline040404 and deepblack1c1c1c",
+    "rust/bronze/fire/eye/green-grey armor",
+    "allgeometry/pose/bodyparts/moves/state"
+  ],
+  "runtime_caveat": "Existingcharcoal_head shader still transforms measuredheadregions. These CPU shader previews emulate its heat0/tintWHITE color formula only, not a battle capture. Heldtitle card after.25s returnswhite; reveal flash briefly brightens2.2,2.0,1.7.",
+  "assets": {
+    "front": {
+      "source": "C:\\Users\\pmcga\\dev\\hollowtide\\assets\\sprites\\creatures\\ironvent.png",
+      "source_sha256": "70a6346602a8a6bf7c798304b9a9153dc73232c7f42847ff312962f5c761db7c",
+      "mapped_pixels": 1012,
+      "mapped_bounds": [
+        4,
+        28,
+        96,
+        97
+      ],
+      "mapping_counts": [
+        {
+          "old_rgb": [
+            44,
+            36,
+            44
+          ],
+          "new_rgb": [
+            44,
+            44,
+            44
+          ],
+          "pixels": 288
+        },
+        {
+          "old_rgb": [
+            52,
+            52,
+            52
+          ],
+          "new_rgb": [
+            60,
+            60,
+            60
+          ],
+          "pixels": 349
+        },
+        {
+          "old_rgb": [
+            68,
+            68,
+            68
+          ],
+          "new_rgb": [
+            76,
+            76,
+            68
+          ],
+          "pixels": 182
+        },
+        {
+          "old_rgb": [
+            76,
+            76,
+            76
+          ],
+          "new_rgb": [
+            76,
+            76,
+            68
+          ],
+          "pixels": 96
+        },
+        {
+          "old_rgb": [
+            92,
+            92,
+            92
+          ],
+          "new_rgb": [
+            92,
+            92,
+            84
+          ],
+          "pixels": 97
+        }
+      ],
+      "alpha_unchanged": true,
+      "transparent_rgba_unchanged": true,
+      "proposal_sha256": "e7e05e0c1a505b5ea035ed6dd7a72f0c5a233a7ca42301a8ef06428fefe2ba35"
+    },
+    "title": {
+      "source": "C:\\Users\\pmcga\\dev\\hollowtide\\assets\\sprites\\creatures\\attacks\\ironvent_furnace_roar\\style_matched\\titlecard_official_2026_09_30.png",
+      "source_sha256": "ba7d778e4cb2c5964d52b7ac66b89a1a5c594470bb95686df246311729151802",
+      "mapped_pixels": 774,
+      "mapped_bounds": [
+        4,
+        29,
+        95,
+        96
+      ],
+      "mapping_counts": [
+        {
+          "old_rgb": [
+            44,
+            36,
+            44
+          ],
+          "new_rgb": [
+            44,
+            44,
+            44
+          ],
+          "pixels": 287
+        },
+        {
+          "old_rgb": [
+            52,
+            52,
+            52
+          ],
+          "new_rgb": [
+            60,
+            60,
+            60
+          ],
+          "pixels": 321
+        },
+        {
+          "old_rgb": [
+            68,
+            68,
+            68
+          ],
+          "new_rgb": [
+            76,
+            76,
+            68
+          ],
+          "pixels": 122
+        },
+        {
+          "old_rgb": [
+            76,
+            76,
+            76
+          ],
+          "new_rgb": [
+            76,
+            76,
+            68
+          ],
+          "pixels": 0
+        },
+        {
+          "old_rgb": [
+            92,
+            92,
+            92
+          ],
+          "new_rgb": [
+            92,
+            92,
+            84
+          ],
+          "pixels": 44
+        }
+      ],
+      "alpha_unchanged": true,
+      "transparent_rgba_unchanged": true,
+      "proposal_sha256": "0eb53284d8b311a3f221d6a8629009ae3a28c00115ee546cc9dbfa37772eaa62"
+    }
+  }
+}

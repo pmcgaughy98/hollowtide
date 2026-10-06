@@ -1,0 +1,29 @@
+{
+  "files": [
+    {
+      "project_relative_path": "data/creatures/110_kithflare3.tres",
+      "sha256": "999893b82ad7760d8ff02ff54c428313551bf3e3a9e1f04d253a8a99a7dcdda4",
+      "bytes": 1039
+    },
+    {
+      "project_relative_path": "assets/sprites/creatures/starter_texture_refine_2026_10_05/kithflare3_back_source_grid.png",
+      "sha256": "1c389c1abc4e03275f8c2076cc83dc690d65d5c3d6087d404d020dfffebd8fe7",
+      "bytes": 19307
+    },
+    {
+      "project_relative_path": "assets/sprites/creatures/starter_texture_refine_2026_10_05/kithflare3_back_source_grid.png.import",
+      "sha256": "96bbc7950cc9a03485780bb3265dffe63ad76a97b352cc67a5b24c14b5e72bdc",
+      "bytes": 1044
+    },
+    {
+      "project_relative_path": "assets/sprites/creatures/starter_texture_refine_2026_10_05/kithflare3_front_source_grid.png",
+      "sha256": "bbeb3bebcec7d98a77ee89b247eaf83370fbd28894a77286046d22ac2aa0f998",
+      "bytes": 20793
+    },
+    {
+      "project_relative_path": "assets/sprites/creatures/starter_texture_refine_2026_10_05/kithflare3_front_source_grid.png.import",
+      "sha256": "6f82a3bb310c71e18ad88be5ef2665457ae1bb4ff86e2d843c41f8f98abeb6c2",
+      "bytes": 1047
+    }
+  ]
+}

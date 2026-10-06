@@ -1,0 +1,11 @@
+{
+ "prompt": "The first-stage starter creature of a monster-collecting RPG, a sturdy young seed-burrower. Low, broad, four-legged body on short stocky visible legs. A tapered pointed snout made for digging. Its forefeet end in thick rootlike claws, one claw pressed into the earth. Its back is a tough seed husk broken into angular husk points, and one large husked seed pod sits on its shoulder with a small cream sprout curling out of it. Colours: moss green, seed ochre, rich soil brown, a little cream. Small calm eyes, patient and protective. Three-quarter view facing right, braced low. Crisp dark outline, the same finish and shading as the reference creature. Not a vegetable, no flower crown, no tools. Shown whole in the centre of the frame with empty space on every side. On a plain white background.",
+ "prompt_style": "rd_pro__default",
+ "width": 160,
+ "height": 160,
+ "num_images": 2,
+ "remove_bg": true,
+ "reference_images": [
+  "assets/sprites/creatures/cinderhide.png"
+ ]
+}

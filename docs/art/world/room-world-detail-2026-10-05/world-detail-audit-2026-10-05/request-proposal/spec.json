@@ -1,0 +1,29 @@
+{
+  "status": "proposal_only_no_upload_no_generation_no_spend_no_install",
+  "highest_impact_immediate_batch": "Two free exact material approach patches + roof-label repositioning. One separate optional room detail candidate only after root review and specific upload/charge authorization.",
+  "edit_count": 1,
+  "tool": "Retro Diffusion image_edit",
+  "source": "C:/Users/pmcga/dev/hollowtide/assets/sprites/world/courier_hall_2026_10_03/courier_hall_native.png",
+  "source_sha256": "7f40930c335f3292141b12bb6093ac852404dac821aaadee64479eb94f7b97e8",
+  "native_dimensions": [
+    256,
+    256
+  ],
+  "prompt_file": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/world-detail-audit-2026-10-05/request-proposal/courier-hall-detail-prompt.txt",
+  "estimate_usd": 0.18,
+  "estimate_basis": "Assumes same $0.18 per image_edit as recently approved project requests. Must obtain current quote/balance and exact upload/charge authorization before issuing; no live quote in this audit.",
+  "protected_geometry": [
+    "Exact256 canvas/alpha",
+    "Counter crop composited exactly back to room source",
+    "Wide upper-left board remains one",
+    "Every furniture/wall/door coordinate and original collider/gate remains",
+    "No clerk generated into source",
+    "No new inventory/quest/reward/save data"
+  ],
+  "not_included": [
+    "Approved ongoing room/Coalcrest3-edits",
+    "Repeated sharpening of4completedbuildings",
+    "Broad foliage/paver redesign",
+    "New district or untouched futureworldart"
+  ]
+}

@@ -74,6 +74,16 @@ static func multiplier(attacker: CreatureData.Essence, defender: CreatureData.Es
 	return row.get(defender, NEUTRAL)
 
 
+## How hard an attack of essence `attacker` hits the creature `defender`,
+## counting both of its essences when it has two: the two multipliers multiply
+## (x4, x2, x1, x0.5 or x0.25). Battle and the balance sim both use this.
+static func against(attacker: CreatureData.Essence, defender: CreatureData) -> float:
+	var mult := multiplier(attacker, defender.essence)
+	if defender.has_second_essence:
+		mult *= multiplier(attacker, defender.second_essence)
+	return mult
+
+
 ## The line the battle prints after a hit. Empty for a neutral hit, because
 ## saying "it was averagely effective" every single turn is noise.
 static func effectiveness_text(mult: float) -> String:

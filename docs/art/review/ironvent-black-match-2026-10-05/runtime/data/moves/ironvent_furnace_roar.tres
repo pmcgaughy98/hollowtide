@@ -1,0 +1,120 @@
+[gd_resource type="Resource" script_class="MoveData" format=3 uid="uid://dv1ktxsfjpjp4"]
+
+[ext_resource type="Script" uid="uid://bhqon0w55tdjq" path="res://scripts/move_data.gd" id="1_script"]
+[ext_resource type="PackedScene" path="res://scenes/effects/ironvent_roar_impact.tscn" id="2_effect"]
+[ext_resource type="Texture2D" uid="uid://bpquxckapb7y6" path="res://assets/sprites/creatures/attacks/ironvent_furnace_roar/style_matched/rest.png" id="3_rest"]
+[ext_resource type="Texture2D" uid="uid://c7yc024xk6gid" path="res://assets/sprites/creatures/attacks/ironvent_furnace_roar/style_matched/warm.png" id="4_warm"]
+[ext_resource type="Texture2D" uid="uid://co5lbbqpslju4" path="res://assets/sprites/creatures/attacks/ironvent_furnace_roar/style_matched/pressure.png" id="5_pressure"]
+[ext_resource type="Texture2D" uid="uid://chqal5wu7w87r" path="res://assets/sprites/creatures/attacks/ironvent_furnace_roar/style_matched/rear.png" id="6_rear"]
+[ext_resource type="Texture2D" uid="uid://bdnssleohbvt8" path="res://assets/sprites/creatures/attacks/ironvent_furnace_roar/style_matched/open.png" id="7_open"]
+[ext_resource type="Texture2D" uid="uid://ckvtr2poxt53l" path="res://assets/sprites/creatures/attacks/ironvent_furnace_roar/style_matched/roar.png" id="8_roar"]
+[ext_resource type="Texture2D" uid="uid://dyurc8h1i7ro8" path="res://assets/sprites/creatures/attacks/ironvent_furnace_roar/style_matched/settle.png" id="9_settle"]
+[ext_resource type="Texture2D" uid="uid://biu02gh7fw20h" path="res://assets/sprites/creatures/attacks/ironvent_furnace_roar/style_matched/cool.png" id="10_cool"]
+[ext_resource type="Texture2D" path="res://assets/sprites/creatures/attacks/ironvent_furnace_roar/style_matched/back_palette_2026_10_05/titlecard_official_2026_09_30.png" id="11_cutin"]
+[ext_resource type="PackedScene" path="res://scenes/effects/ironvent_roar_mouth.tscn" id="12_blast"]
+[ext_resource type="PackedScene" path="res://scenes/effects/ironvent_pressure_field.tscn" id="13_fallout"]
+[ext_resource type="Texture2D" uid="uid://cgweln6ortq2n" path="res://assets/sprites/effects/ironvent/blowdown/charge.png" id="14_charge"]
+[ext_resource type="Texture2D" uid="uid://cb02u5bjmhyv8" path="res://assets/sprites/effects/ironvent/blowdown/column.png" id="15_column"]
+[ext_resource type="Texture2D" uid="uid://4nirxheu8eq4" path="res://assets/sprites/effects/ironvent/blowdown/smoke.png" id="16_smoke"]
+[ext_resource type="Texture2D" uid="uid://ddto4tcn7sjda" path="res://assets/sprites/effects/ironvent/blowdown/fan.png" id="17_fan"]
+[ext_resource type="Texture2D" uid="uid://dlvne8ycalydy" path="res://assets/sprites/effects/ironvent/vent_heat/00_charge.png" id="18_vent0"]
+[ext_resource type="Texture2D" uid="uid://dos7cvuor41yi" path="res://assets/sprites/effects/ironvent/vent_heat/01_ignite.png" id="19_vent1"]
+[ext_resource type="Texture2D" uid="uid://camek1l8yguis" path="res://assets/sprites/effects/ironvent/vent_heat/02_first_burst.png" id="20_vent2"]
+[ext_resource type="Texture2D" uid="uid://c6rcu56xr0qlj" path="res://assets/sprites/effects/ironvent/vent_heat/03_open.png" id="21_vent3"]
+[ext_resource type="Texture2D" uid="uid://cl8jqrikoef7e" path="res://assets/sprites/effects/ironvent/vent_heat/04_full.png" id="22_vent4"]
+[ext_resource type="Texture2D" uid="uid://b45ev101la0j0" path="res://assets/sprites/effects/ironvent/vent_heat/05_sustain.png" id="23_vent5"]
+[ext_resource type="Texture2D" uid="uid://bx55b44omi2e2" path="res://assets/sprites/effects/ironvent/vent_heat/06_turbulence.png" id="24_vent6"]
+[ext_resource type="Texture2D" uid="uid://ccdohu48o02i1" path="res://assets/sprites/effects/ironvent/vent_heat/07_breakup.png" id="25_vent7"]
+[ext_resource type="Texture2D" uid="uid://b8i0ekl2w1pau" path="res://assets/sprites/effects/ironvent/vent_heat/08_cool.png" id="26_vent8"]
+[ext_resource type="Script" uid="uid://dtck6dpiev4ck" path="res://scripts/camera_shot.gd" id="cam_shot"]
+[ext_resource type="Texture2D" uid="uid://c1jvp56k1crhn" path="res://assets/backgrounds/signature_stages/furnace_roar.png" id="sig_stage"]
+[ext_resource type="AudioStream" uid="uid://cikp6em365xt" path="res://assets/audio/sfx/ironvent/blowdown.wav" id="snd_blowdown"]
+[ext_resource type="AudioStream" uid="uid://d2dia2nohcn01" path="res://assets/audio/sfx/ironvent/buildup.wav" id="snd_buildup"]
+[ext_resource type="AudioStream" uid="uid://cqpaq75pran8r" path="res://assets/audio/sfx/ironvent/cool.wav" id="snd_cool"]
+[ext_resource type="AudioStream" uid="uid://o7jmeaklu1t0" path="res://assets/audio/sfx/ironvent/cry.wav" id="snd_cry"]
+[ext_resource type="AudioStream" uid="uid://c1n8q1o5qwgqs" path="res://assets/audio/sfx/ironvent/roar.wav" id="snd_roar"]
+[ext_resource type="AudioStream" uid="uid://dfu4dybt10k6b" path="res://assets/audio/sfx/ironvent/vent_hiss.wav" id="snd_vent_hiss"]
+[ext_resource type="AudioStream" uid="uid://rtapokh7mj8h" path="res://assets/audio/sfx/ironvent/vent_jet.wav" id="snd_vent_jet"]
+
+[sub_resource type="Resource" id="cam_0"]
+script = ExtResource("cam_shot")
+frame = 3
+look = 1
+lean = 0.3
+zoom = 1.15
+seconds = 0.8
+
+[sub_resource type="Resource" id="cam_1"]
+script = ExtResource("cam_shot")
+frame = 5
+zoom = 0.85
+seconds = 0.3
+hide_cards = true
+
+[sub_resource type="Resource" id="cam_2"]
+script = ExtResource("cam_shot")
+frame = 6
+look = 2
+lean = 0.35
+zoom = 1.1
+seconds = 1.0
+hide_cards = true
+
+[sub_resource type="Resource" id="cam_3"]
+script = ExtResource("cam_shot")
+frame = 7
+look = 2
+lean = 0.3
+zoom = 1.2
+seconds = 0.1
+hide_cards = true
+
+[resource]
+script = ExtResource("1_script")
+move_name = "Furnace Roar"
+required_parts = PackedStringArray("crest", "vent")
+power = 60
+max_uses = 2
+effect = ExtResource("2_effect")
+attack_frames = Array[Texture2D]([ExtResource("3_rest"), ExtResource("4_warm"), ExtResource("5_pressure"), ExtResource("6_rear"), ExtResource("7_open"), ExtResource("8_roar"), ExtResource("8_roar"), ExtResource("8_roar"), ExtResource("9_settle"), ExtResource("10_cool")])
+attack_frame_holds = Array[float]([0.08, 0.25, 0.6, 0.2, 0.7, 1.4, 1.1, 1.2, 0.4, 0.4])
+attack_lunge_px = 0.0
+attack_hit_frame = 7
+attack_brace_frame = 2
+attack_strain_frame = 6
+attack_emitter = ExtResource("12_blast")
+attack_emitter_offset = Vector2(27, -26)
+attack_emit_frames = Vector2i(5, 7)
+attack_emit_shake = 45
+vent_rest_points = PackedVector2Array(-14, -13, -2, -19, 18, -15)
+vent_points = PackedVector2Array(-17, -12, -12, -18, -6, -21, 0, -24)
+vent_directions = PackedVector2Array(-1, 0, -1, 0, -1, 0, 0, -1)
+vent_jets = Array[Texture2D]([ExtResource("17_fan"), ExtResource("17_fan"), ExtResource("17_fan"), ExtResource("15_column")])
+vent_fan_frames = Array[Texture2D]([ExtResource("18_vent0"), ExtResource("19_vent1"), ExtResource("20_vent2"), ExtResource("21_vent3"), ExtResource("22_vent4"), ExtResource("23_vent5"), ExtResource("24_vent6"), ExtResource("25_vent7"), ExtResource("26_vent8")])
+vent_behind = Array[bool]([false, false, false, true])
+vent_charge = ExtResource("14_charge")
+vent_column = ExtResource("15_column")
+vent_smoke = ExtResource("16_smoke")
+impact_flash = true
+impact_shake = 45
+attack_cut_in = ExtResource("11_cutin")
+attack_cut_in_frame = 4
+attack_cut_in_seconds = 0.4
+signature = true
+signature_light = Color(1.35, 0.92, 0.72, 1)
+signature_effect = ExtResource("13_fallout")
+signature_stage = ExtResource("sig_stage")
+signature_stage_floor_y = 187
+signature_linger = 1.6
+sound_cues = Array[AudioStream]([ExtResource("snd_buildup"), ExtResource("snd_roar"), ExtResource("snd_blowdown"), ExtResource("snd_cool")])
+sound_cue_frames = Array[int]([0, 5, 7, 8])
+sound_cue_db = Array[float]([-3.0, 0.0, 0.0, -8.0])
+card_sound = ExtResource("snd_cry")
+card_sound_db = -4.0
+vent_charge_sound = ExtResource("snd_vent_hiss")
+vent_jet_sound = ExtResource("snd_vent_jet")
+vent_sound_db = -7.0
+camera_shots = Array[ExtResource("cam_shot")]([SubResource("cam_0"), SubResource("cam_1"), SubResource("cam_2"), SubResource("cam_3")])
+attack_overheat = 1.0
+overheat_sweep = true
+overheat_seal_frame = 4

@@ -16,3 +16,7 @@ Her favourite colours and three words for her personality (to tune the palette a
 
 ## Next
 Gabrielle approves or changes Stage I, then Stage II is made from it, then Stage III, each rotated to 8 directions with Retro Diffusion.
+
+## In the game, provisionally (2026-10-05)
+
+Preston asked to add Punchybuns "for now". `data/creatures/2101_punchybun.tres` is Stage I only: take 1 art (`assets/sprites/creatures/punchybun_2026_10_05/punchybun_front.png`), Electric, default 60 stats, no moves (Strike), no back view (the battle shows the front), no evolution. Name "Punchybun" and Dex 2101 are placeholders. Stages II and III still wait for Gabrielle's answers.

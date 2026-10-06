@@ -135,7 +135,7 @@ func _choose(me: Fighter, them: Fighter, policy: String) -> MoveData:
 		if m.kind == MoveData.Kind.GUARD:
 			continue
 		var hit := BattleRules.damage(me.creature, them.creature, m.power,
-			EssenceChart.multiplier(m.essence, them.creature.essence))
+			EssenceChart.against(m.essence, them.creature))
 		if hit > best_hit:
 			best_hit = hit
 			best = m
@@ -177,7 +177,7 @@ func _act(me: Fighter, them: Fighter) -> void:
 		return
 	var power: int = m.power if m else BattleRules.STRIKE_POWER
 	var essence: CreatureData.Essence = m.essence if m else me.creature.essence
-	var multiplier := EssenceChart.multiplier(essence, them.creature.essence)
+	var multiplier := EssenceChart.against(essence, them.creature)
 	var dealt := BattleRules.after_guard(BattleRules.damage(me.creature, them.creature, power, multiplier), them.guard)
 	them.hp = maxi(FAINTED, them.hp - dealt)
 	them.guard = 1.0

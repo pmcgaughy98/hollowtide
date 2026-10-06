@@ -1,0 +1,12 @@
+{
+ "prompt": "The final evolved stage of the green guardian creature in the first reference image: same species, same face, eyes, green skin, cream claws and coiled green shoot, but much bigger, older and mightier, with a different body and a different pose. A towering guardian standing upright on thick powerful hind legs, broad chest, massive forearms with big cream claws, one forearm raised in front of it like a shield. Its back, shoulders and forearms are armoured in great stepped plates of hard seed husk like old bark, with moss in the seams. The coiled shoot has grown into a thick vine that winds around its raised forearm and rises over its shoulder ending in one huge curled sprout tip and broad leaves. Calm, patient and immovable, protecting what stands behind it. Moss green, seed ochre, bark brown, cream. Three-quarter view facing right. Same finish and outline as the references. Do not copy the reference pose, not on four legs. No tree on its back, no flower crown. Shown whole in the centre of the frame with empty space on every side. On a plain white background.",
+ "prompt_style": "rd_pro__default",
+ "width": 224,
+ "height": 224,
+ "num_images": 2,
+ "remove_bg": true,
+ "reference_images": [
+  "docs/creatures/starter-lines-rd-2026-10-05/evolutions/tallowroot2_front_take1.png",
+  "assets/sprites/creatures/cinderhide.png"
+ ]
+}

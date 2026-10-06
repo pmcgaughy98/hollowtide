@@ -1,0 +1,28 @@
+{
+  "room_import": {
+    "pid": 33536,
+    "session": 88909,
+    "exit_code": 0
+  },
+  "approach_import": {
+    "pid": 2148,
+    "session": 13888,
+    "exit_code": 0
+  },
+  "male_walk": {
+    "pid": 32928,
+    "session": 7052,
+    "exit_code": 0
+  },
+  "female_walk": {
+    "pid": 34664,
+    "session": 29746,
+    "exit_code": 0
+  },
+  "overview": {
+    "pid": 9832,
+    "session": 98045,
+    "exit_code": 0
+  },
+  "source": "Observed terminal completion records supplied directly by /root in the final phase-two verification task. The verifier saved those records; it did not launch or infer exit status from green fixture JSON or stdout."
+}

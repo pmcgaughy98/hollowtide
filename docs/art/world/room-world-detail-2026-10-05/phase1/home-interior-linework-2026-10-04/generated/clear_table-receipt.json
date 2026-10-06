@@ -1,0 +1,21 @@
+{
+  "tool_id": "inpainting",
+  "inference_id": "inf_xOWydmMa3jEPVq4D4ZEqY7JnoRe45Z2l",
+  "balance_cost": 0.18,
+  "credit_cost": 20,
+  "charged": true,
+  "remaining_balance": 0.7800000000000027,
+  "remaining_credits": null,
+  "file": "clear_table-rd.png",
+  "sha256": "3449bff2226d7b8206f0df00265fe05b220b712a260a687ad7c8edbd68c707c4",
+  "size": [
+    256,
+    256
+  ],
+  "bounds": [
+    0,
+    0,
+    256,
+    256
+  ]
+}

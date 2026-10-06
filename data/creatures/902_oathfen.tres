@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="CreatureData" format=3]
+
+[ext_resource type="Script" path="res://scripts/creature_data.gd" id="1_script"]
+[ext_resource type="Texture2D" path="res://assets/sprites/creatures/stone_line_2026_10_05/oathfen_front.png" id="2_sprite"]
+[ext_resource type="Script" path="res://scripts/move_data.gd" id="3_8jdk8"]
+[ext_resource type="Texture2D" path="res://assets/sprites/creatures/stone_line_2026_10_05/oathfen_back.png" id="3_back"]
+[ext_resource type="Resource" path="res://data/creatures/903_oxbowarchon.tres" id="4_evolution"]
+
+[resource]
+script = ExtResource("1_script")
+id = 902
+creature_name = "Oathfen"
+essence = 2
+sprite = ExtResource("2_sprite")
+back_sprite = ExtResource("3_back")
+description = "Provisional entry (Claude, 2026-10-05, on Preston's request 'add for now'): Line 9 stage II with the 2026-10-01 Retro Diffusion art. Default stats and no moves (it fights with Strike) until Grok sets its job, numbers and kit in docs/creatures/DESIGN_RULES.md."
+evolves_into = ExtResource("4_evolution")
+body_parts = PackedStringArray()
+battle_size = 1.45

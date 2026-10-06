@@ -1,0 +1,66 @@
+{
+  "date_UTC": "2026-10-05T18:03:37.762269+00:00",
+  "scope": "Exact eight current runtime files; unchanged rear and battle sources kept separately in context.",
+  "file_count": 8,
+  "files": [
+    {
+      "relative_path": "data/creatures/102_ironvent.tres",
+      "bytes": 1636,
+      "sha256": "80c2ac4a75f3fc94d80a333642f419ee842726bdaa6d6c02e4f1ca8a372e257d",
+      "current_project_exact": true,
+      "kind": "resource"
+    },
+    {
+      "relative_path": "data/moves/ironvent_furnace_roar.tres",
+      "bytes": 8090,
+      "sha256": "437bf2f4bae55589e6bbdf4a26b1cc49b19a589b137ada4164b8418bac65d764",
+      "current_project_exact": true,
+      "kind": "resource"
+    },
+    {
+      "relative_path": "assets/sprites/creatures/ironvent_black_match_2026_10_05/ironvent_front.png",
+      "bytes": 6205,
+      "sha256": "e7e05e0c1a505b5ea035ed6dd7a72f0c5a233a7ca42301a8ef06428fefe2ba35",
+      "current_project_exact": true,
+      "kind": "PNG"
+    },
+    {
+      "relative_path": "assets/sprites/creatures/ironvent_black_match_2026_10_05/ironvent_front.png.import",
+      "bytes": 1004,
+      "sha256": "38b76cdd7dcabcb33b2fc21e07ea6a085d946d1390e0e10c78dd0f6290e137e7",
+      "current_project_exact": true,
+      "kind": "import"
+    },
+    {
+      "relative_path": "assets/sprites/creatures/ironvent_black_match_2026_10_05/furnace_roar_title.png",
+      "bytes": 5899,
+      "sha256": "0eb53284d8b311a3f221d6a8629009ae3a28c00115ee546cc9dbfa37772eaa62",
+      "current_project_exact": true,
+      "kind": "PNG"
+    },
+    {
+      "relative_path": "assets/sprites/creatures/ironvent_black_match_2026_10_05/furnace_roar_title.png.import",
+      "bytes": 1015,
+      "sha256": "ccde83490ffcfbc286eaa0a85e74a2357495f7108e51de5f734ed0797cc88d08",
+      "current_project_exact": true,
+      "kind": "import"
+    },
+    {
+      "relative_path": "assets/sprites/creatures/attacks/ironvent_furnace_roar/style_matched/back_palette_2026_10_05/titlecard_official_2026_09_30.png",
+      "bytes": 5899,
+      "sha256": "0eb53284d8b311a3f221d6a8629009ae3a28c00115ee546cc9dbfa37772eaa62",
+      "current_project_exact": true,
+      "kind": "PNG"
+    },
+    {
+      "relative_path": "assets/sprites/creatures/attacks/ironvent_furnace_roar/style_matched/back_palette_2026_10_05/titlecard_official_2026_09_30.png.import",
+      "bytes": 1084,
+      "sha256": "7b966fc780ce5588c45099cc4d8451161e9812f04fdc5bd69b4f9d8281fb0526",
+      "current_project_exact": true,
+      "kind": "import"
+    }
+  ],
+  "registered_title_path": "assets/sprites/creatures/attacks/ironvent_furnace_roar/style_matched/back_palette_2026_10_05/titlecard_official_2026_09_30.png",
+  "historical_palette_title_path_retained": "assets/sprites/creatures/ironvent_black_match_2026_10_05/furnace_roar_title.png",
+  "global_repo_equal_claim": false
+}

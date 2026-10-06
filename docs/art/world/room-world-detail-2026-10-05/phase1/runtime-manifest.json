@@ -1,0 +1,131 @@
+{
+  "schema_version": 1,
+  "phase": "world-linework-phase1",
+  "frozen_at_utc": "2026-10-05T13:24:20.828204+00:00",
+  "scope": "Historical installed first sharp room/clear worktable and four sharpened buildings, before further room detail outputs.",
+  "project_root": "C:/Users/pmcga/dev/hollowtide",
+  "exact_runtime_file_count": 19,
+  "counts": {
+    "scripts": 3,
+    "pngs": 8,
+    "png_import_sidecars": 8
+  },
+  "files": [
+    {
+      "project_relative_path": "scripts/courtyard_home_room.gd",
+      "archive_relative_path": "runtime/scripts/courtyard_home_room.gd",
+      "sha256": "51c6621e1d6e11400f423337fc272eb55d70f6eff600624e21554bc798f5474d",
+      "bytes": 5885
+    },
+    {
+      "project_relative_path": "scripts/area_landscape.gd",
+      "archive_relative_path": "runtime/scripts/area_landscape.gd",
+      "sha256": "bfa0a77495280c973ead3631a4216d64a864aefe178793181917c2f0cf69d946",
+      "bytes": 11245
+    },
+    {
+      "project_relative_path": "scripts/historic_street.gd",
+      "archive_relative_path": "runtime/scripts/historic_street.gd",
+      "sha256": "b176dd25cbb034f37a572e0791720ad13e9e3363c9a14bc5376fd9837bc34eaa",
+      "bytes": 13931
+    },
+    {
+      "project_relative_path": "assets/sprites/world/courtyard_home_linework_2026_10_04/home_room.png",
+      "archive_relative_path": "runtime/assets/sprites/world/courtyard_home_linework_2026_10_04/home_room.png",
+      "sha256": "fa61f4d3f78b2593907327ae7c9538f72e80b1f0722ed5324d77a5fb68483b36",
+      "bytes": 24659
+    },
+    {
+      "project_relative_path": "assets/sprites/world/courtyard_home_linework_2026_10_04/home_stove_front.png",
+      "archive_relative_path": "runtime/assets/sprites/world/courtyard_home_linework_2026_10_04/home_stove_front.png",
+      "sha256": "cb8d5b1e0c54ffbac67d278556ef87d120bef6ac18afc64722ce1d2f2715c1c6",
+      "bytes": 2664
+    },
+    {
+      "project_relative_path": "assets/sprites/world/courtyard_home_linework_2026_10_04/home_coat_front.png",
+      "archive_relative_path": "runtime/assets/sprites/world/courtyard_home_linework_2026_10_04/home_coat_front.png",
+      "sha256": "5ab4376a1cb55597d2fc3797d6cb175f55c93373d1713c53b66d20a06258e921",
+      "bytes": 2653
+    },
+    {
+      "project_relative_path": "assets/sprites/world/courtyard_home_linework_2026_10_04/home_threshold_front.png",
+      "archive_relative_path": "runtime/assets/sprites/world/courtyard_home_linework_2026_10_04/home_threshold_front.png",
+      "sha256": "47872dc776e93d784937cc60243758166390d92349e8ec12588586ee2c445ac1",
+      "bytes": 2248
+    },
+    {
+      "project_relative_path": "assets/sprites/world/world_linework_2026_10_04/courtyard_home.png",
+      "archive_relative_path": "runtime/assets/sprites/world/world_linework_2026_10_04/courtyard_home.png",
+      "sha256": "f5a4af906a064c0a1faa972847f01ddcbb2a93372350d9e0b77fbbbe1ded290c",
+      "bytes": 15126
+    },
+    {
+      "project_relative_path": "assets/sprites/world/world_linework_2026_10_04/dispatch_hall.png",
+      "archive_relative_path": "runtime/assets/sprites/world/world_linework_2026_10_04/dispatch_hall.png",
+      "sha256": "94bdf8fe98fa9e1c13afc9f2b6394bd06cf4c5ec03019dd126c765add1c57f23",
+      "bytes": 11495
+    },
+    {
+      "project_relative_path": "assets/sprites/world/world_linework_2026_10_04/brick_shop.png",
+      "archive_relative_path": "runtime/assets/sprites/world/world_linework_2026_10_04/brick_shop.png",
+      "sha256": "c72d9b86c0b4643d0f9da3c025a239c1f31efa3ff9510885bfd0736dfc6141c2",
+      "bytes": 16338
+    },
+    {
+      "project_relative_path": "assets/sprites/world/world_linework_2026_10_04/ledger_house.png",
+      "archive_relative_path": "runtime/assets/sprites/world/world_linework_2026_10_04/ledger_house.png",
+      "sha256": "7392fdde7ed2e4c9f17e81b129a96bbde753d1326b8830e223901227fbcfcc23",
+      "bytes": 17051
+    },
+    {
+      "project_relative_path": "assets/sprites/world/courtyard_home_linework_2026_10_04/home_room.png.import",
+      "archive_relative_path": "runtime/assets/sprites/world/courtyard_home_linework_2026_10_04/home_room.png.import",
+      "sha256": "d8bbf728511f5271a5713d90d53c8940647ef3a961b24c980b7db79f46f6d365",
+      "bytes": 988
+    },
+    {
+      "project_relative_path": "assets/sprites/world/courtyard_home_linework_2026_10_04/home_stove_front.png.import",
+      "archive_relative_path": "runtime/assets/sprites/world/courtyard_home_linework_2026_10_04/home_stove_front.png.import",
+      "sha256": "fd57705845c8c3ca9f58e21341cc39f8eadd4c60a07052f2f7ddcedbbab5d927",
+      "bytes": 1009
+    },
+    {
+      "project_relative_path": "assets/sprites/world/courtyard_home_linework_2026_10_04/home_coat_front.png.import",
+      "archive_relative_path": "runtime/assets/sprites/world/courtyard_home_linework_2026_10_04/home_coat_front.png.import",
+      "sha256": "2fd65af1596ae5a28040945d0838c98f4c066aa10a47ecf6379e19e62401b42d",
+      "bytes": 1006
+    },
+    {
+      "project_relative_path": "assets/sprites/world/courtyard_home_linework_2026_10_04/home_threshold_front.png.import",
+      "archive_relative_path": "runtime/assets/sprites/world/courtyard_home_linework_2026_10_04/home_threshold_front.png.import",
+      "sha256": "be44a0a10499d597fd203e7c74011ebc489c92615c9cdad010213ddd7d64e09b",
+      "bytes": 1021
+    },
+    {
+      "project_relative_path": "assets/sprites/world/world_linework_2026_10_04/courtyard_home.png.import",
+      "archive_relative_path": "runtime/assets/sprites/world/world_linework_2026_10_04/courtyard_home.png.import",
+      "sha256": "a460b1306affd083df5abd4ef0a53396ba3dbe49fc023edf83c83b198a2cea17",
+      "bytes": 993
+    },
+    {
+      "project_relative_path": "assets/sprites/world/world_linework_2026_10_04/dispatch_hall.png.import",
+      "archive_relative_path": "runtime/assets/sprites/world/world_linework_2026_10_04/dispatch_hall.png.import",
+      "sha256": "41499d891e5bd0b02cf17489377ec15f680bdb2994dbe888e847d5d784ef1a0b",
+      "bytes": 991
+    },
+    {
+      "project_relative_path": "assets/sprites/world/world_linework_2026_10_04/brick_shop.png.import",
+      "archive_relative_path": "runtime/assets/sprites/world/world_linework_2026_10_04/brick_shop.png.import",
+      "sha256": "85c16ec38aab83e650579f24341e38400e6ac25eb36fa3db7f20a594e8a3e117",
+      "bytes": 982
+    },
+    {
+      "project_relative_path": "assets/sprites/world/world_linework_2026_10_04/ledger_house.png.import",
+      "archive_relative_path": "runtime/assets/sprites/world/world_linework_2026_10_04/ledger_house.png.import",
+      "sha256": "b0701a330e8006d11211373e10ebb39860d9acde93491e8d0703342cf388f45a",
+      "bytes": 988
+    }
+  ],
+  "all_eight_pngs_match_phase1_prepared_outputs": true,
+  "global_project_preservation_claim": "No global exactness claim: concurrent creature work is outside this phase1 runtime file scope."
+}

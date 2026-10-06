@@ -1,0 +1,2970 @@
+{
+  "verification_date_UTC": "2026-10-05T14:14:28.352292+00:00",
+  "scope": "Installed final phase-two room detail, preserved cloth and two native existing-source exterior approaches; phase-one historical archive is separate.",
+  "verifier_activity": {
+    "production_writes": 0,
+    "native_launches": 0,
+    "paid_calls": 0,
+    "uploads": 0,
+    "prior_proof_modified": false
+  },
+  "terminal_results": {
+    "room_import": {
+      "pid": 33536,
+      "session": 88909,
+      "exit_code": 0
+    },
+    "approach_import": {
+      "pid": 2148,
+      "session": 13888,
+      "exit_code": 0
+    },
+    "male_walk": {
+      "pid": 32928,
+      "session": 7052,
+      "exit_code": 0
+    },
+    "female_walk": {
+      "pid": 34664,
+      "session": 29746,
+      "exit_code": 0
+    },
+    "overview": {
+      "pid": 9832,
+      "session": 98045,
+      "exit_code": 0
+    },
+    "source": "Observed terminal completion records supplied directly by /root in the final phase-two verification task. The verifier saved those records; it did not launch or infer exit status from green fixture JSON or stdout."
+  },
+  "proof_file_manifest": [
+    {
+      "path": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\room-coalcrest-detail-2026-10-05\\proof\\walk\\male-walkthrough.json",
+      "bytes": 53285,
+      "sha256": "09eb8b18ddaff05be49dcaa1eb3ec86abd6edfa879b5d9ee114e726c30cc329e"
+    },
+    {
+      "path": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\room-coalcrest-detail-2026-10-05\\proof\\walk\\female-walkthrough.json",
+      "bytes": 53387,
+      "sha256": "794b833ff8baadd7e4125d9dc5fb66c93d7853c191428aef382c67ddce1bb60d"
+    },
+    {
+      "path": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\room-coalcrest-detail-2026-10-05\\proof\\overview\\male-overview.json",
+      "bytes": 30983,
+      "sha256": "56b233319bbe0d395e2dd38d11b0e9b752a7cb5f8f8a7b92958ae2dc9612a498"
+    },
+    {
+      "path": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\room-coalcrest-detail-2026-10-05\\proof\\terminal-results.json",
+      "bytes": 643,
+      "sha256": "22d6049610947158cb4ed843615fcadf3eba76de85aca98beaf9ac528ed48023"
+    },
+    {
+      "path": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\room-coalcrest-detail-2026-10-05\\proof\\male-walk-stdout.log",
+      "bytes": 699,
+      "sha256": "96469955b92c316a80e13b2f23beb1e448971ca69b94a308fc6ecb91019eb2f2"
+    },
+    {
+      "path": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\room-coalcrest-detail-2026-10-05\\proof\\male-walk-stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\room-coalcrest-detail-2026-10-05\\proof\\female-walk-stdout.log",
+      "bytes": 701,
+      "sha256": "dcc8629dc0d8bc99e9e13edc663b14d29b17576fe3737565452217bbef7727d8"
+    },
+    {
+      "path": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\room-coalcrest-detail-2026-10-05\\proof\\female-walk-stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\room-coalcrest-detail-2026-10-05\\proof\\overview-stdout.log",
+      "bytes": 464,
+      "sha256": "14b152c48ed1617668f32b9d578cb0e42f4841ee533741e0d9a1a8ccd49056bb"
+    },
+    {
+      "path": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\room-coalcrest-detail-2026-10-05\\proof\\overview-stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\room-coalcrest-detail-2026-10-05\\proof\\import-stdout.log",
+      "bytes": 3613,
+      "sha256": "06e830725a4ad016e35e7bcc744c57e8332ea4b8341b3427ed80dc66f6aa448c"
+    },
+    {
+      "path": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\room-coalcrest-detail-2026-10-05\\proof\\import-stderr.log",
+      "bytes": 914,
+      "sha256": "a28e85bd513dc91d9bd4576b9214eec251d127abbbed3dc78431b4706b99b1c7"
+    }
+  ],
+  "ordinary_home_walks": [
+    {
+      "model": "Male",
+      "json_sha256": "09eb8b18ddaff05be49dcaa1eb3ec86abd6edfa879b5d9ee114e726c30cc329e",
+      "passed": true,
+      "completed_walk": true,
+      "fixture_scope": "two_ordinary_home_visits",
+      "ordinary_input_only": true,
+      "quest_overrides": 0,
+      "test_teleports": 0,
+      "fixed_fps": 60,
+      "all_11_original_flags_false": true,
+      "engine_gate_count": 4,
+      "engine_entrance_arrivals": [
+        {
+          "arrival": "(128.0, 208.0)",
+          "from": "hometown",
+          "to": "courtyard_home"
+        },
+        {
+          "arrival": "(233.0, 280.0)",
+          "from": "courtyard_home",
+          "to": "hometown"
+        },
+        {
+          "arrival": "(128.0, 208.0)",
+          "from": "hometown",
+          "to": "courtyard_home"
+        },
+        {
+          "arrival": "(233.0, 280.0)",
+          "from": "courtyard_home",
+          "to": "hometown"
+        }
+      ],
+      "home_visits": 2,
+      "dialogues": 8,
+      "wall_and_furniture_contacts": 24,
+      "foreground_views": 4,
+      "views": [
+        {
+          "at": "(50.31511, 127.7059)",
+          "coat_clear_full_opacity_expected": true,
+          "coat_material": {
+            "bound": true,
+            "identity": {
+              "material_class": "ShaderMaterial",
+              "material_id": -9223371859133723645,
+              "shader_id": -9223371987949189603,
+              "shader_path": "res://assets/sprites/world/route1_landing_loop_2026_10_03/canopy_visibility.gdshader"
+            },
+            "opacity": 1.0,
+            "shader_path_correct": true
+          },
+          "coat_upper_fade_expected": false,
+          "home_foreground_view": "stove-behind",
+          "opacity_matches_position": true,
+          "original_state_native_art_and_material_identity_exact": true,
+          "passed": true,
+          "settle_frames": 22,
+          "visit": 1
+        },
+        {
+          "at": "(205.5339, 142.9248)",
+          "coat_clear_full_opacity_expected": false,
+          "coat_material": {
+            "bound": true,
+            "identity": {
+              "material_class": "ShaderMaterial",
+              "material_id": -9223371859133723645,
+              "shader_id": -9223371987949189603,
+              "shader_path": "res://assets/sprites/world/route1_landing_loop_2026_10_03/canopy_visibility.gdshader"
+            },
+            "opacity": 0.45,
+            "shader_path_correct": true
+          },
+          "coat_upper_fade_expected": true,
+          "home_foreground_view": "coat-behind",
+          "opacity_matches_position": true,
+          "original_state_native_art_and_material_identity_exact": true,
+          "passed": true,
+          "settle_frames": 22,
+          "visit": 1
+        },
+        {
+          "at": "(50.31511, 127.7059)",
+          "coat_clear_full_opacity_expected": true,
+          "coat_material": {
+            "bound": true,
+            "identity": {
+              "material_class": "ShaderMaterial",
+              "material_id": -9223371859133723645,
+              "shader_id": -9223371987949189603,
+              "shader_path": "res://assets/sprites/world/route1_landing_loop_2026_10_03/canopy_visibility.gdshader"
+            },
+            "opacity": 1.0,
+            "shader_path_correct": true
+          },
+          "coat_upper_fade_expected": false,
+          "home_foreground_view": "stove-behind",
+          "opacity_matches_position": true,
+          "original_state_native_art_and_material_identity_exact": true,
+          "passed": true,
+          "settle_frames": 22,
+          "visit": 2
+        },
+        {
+          "at": "(205.5339, 142.9248)",
+          "coat_clear_full_opacity_expected": false,
+          "coat_material": {
+            "bound": true,
+            "identity": {
+              "material_class": "ShaderMaterial",
+              "material_id": -9223371859133723645,
+              "shader_id": -9223371987949189603,
+              "shader_path": "res://assets/sprites/world/route1_landing_loop_2026_10_03/canopy_visibility.gdshader"
+            },
+            "opacity": 0.45,
+            "shader_path_correct": true
+          },
+          "coat_upper_fade_expected": true,
+          "home_foreground_view": "coat-behind",
+          "opacity_matches_position": true,
+          "original_state_native_art_and_material_identity_exact": true,
+          "passed": true,
+          "settle_frames": 22,
+          "visit": 2
+        }
+      ],
+      "home_art_contract_count": 2,
+      "all_home_native_texture_contracts_passed": true,
+      "home_loop_checks": [
+        {
+          "cached_garden_all_art_and_local_state_exact": true,
+          "cached_interior_and_player_exact": true,
+          "exact_exterior_arrival": true,
+          "expected_interior_exit_gate": "(128.0, 232.0)",
+          "home_loop_complete": 1,
+          "idle_after_return_no_bounce": true,
+          "one_live_area": true,
+          "original_flags_notes_objective_board_controller_party_and_home_player_exact": true,
+          "passed": true,
+          "two_real_home_gates": true
+        },
+        {
+          "cached_garden_all_art_and_local_state_exact": true,
+          "cached_interior_and_player_exact": true,
+          "exact_exterior_arrival": true,
+          "expected_interior_exit_gate": "(128.0, 232.0)",
+          "home_loop_complete": 2,
+          "idle_after_return_no_bounce": true,
+          "one_live_area": true,
+          "original_flags_notes_objective_board_controller_party_and_home_player_exact": true,
+          "passed": true,
+          "two_real_home_gates": true
+        }
+      ],
+      "final_core_check": [
+        {
+          "all_eleven_flags_false": true,
+          "expected_final_flags": {
+            "city_arrival_registered": false,
+            "city_directions_read": false,
+            "delivered": false,
+            "heard_calls": false,
+            "levee_entrance_read": false,
+            "marker_restored": false,
+            "pouch_accepted": false,
+            "report_done": false,
+            "reported_calls": false,
+            "reported_water_mark": false,
+            "water_mark_observed": false
+          },
+          "focused_home_final_check": true,
+          "four_interactions_twelve_contacts_and_both_views_each_visit": true,
+          "four_real_doorway_gates_and_two_home_visits": true,
+          "original_cached_areas_and_new_home_identity_exact": true,
+          "original_core_party_notes_objective_board_and_player_exact": true,
+          "original_garden_local_state_and_all_art_exact": true,
+          "passed": true
+        }
+      ],
+      "failed_steps": [],
+      "capture_events": 46,
+      "unique_PNG_files": 44,
+      "all_capture_events_saved": true,
+      "PNG_manifest": [
+        {
+          "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/male-entrance-courtyard_home-to-hometown.png",
+          "size": [
+            1152,
+            648
+          ],
+          "bytes": 115992,
+          "sha256": "01197d7be9ddbea241e8638e7ea276b21b5d42bcd097bb6a4dfccf916ea7c0f7"
+        },
+        {
+          "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/male-entrance-hometown-to-courtyard_home.png",
+          "size": [
+            1152,
+            648
+          ],
+          "bytes": 57185,
+          "sha256": "65777fd582083d6eecf88684e56c7dda6200b70db9f2fbbb6b7d175d78feb7b5"
+        },
+        {
+          "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/male-focused-return-home.png",
+          "size": [
+            1152,
+            648
+          ],
+          "bytes": 115992,
+          "sha256": "01197d7be9ddbea241e8638e7ea276b21b5d42bcd097bb6a4dfccf916ea7c0f7"
+        },
+        {
+          "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/male-home-bed-cached-return.png",
+          "size": [
+            1152,
+            648
+          ],
+          "bytes": 63464,
+          "sha256": "48adcfdcfd3c19f368c1b55f713c5f208299cc0eaa834fc064b163e0e34229b8"
+        },
+        {
+          "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/male-home-bed-first.png",
+          "size": [
+            1152,
+            648
+          ],
+          "bytes": 63464,
+          "sha256": "48adcfdcfd3c19f368c1b55f713c5f208299cc0eaa834fc064b163e0e34229b8"
+        },
+        {
+          "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/male-home-coat-cached-return.png",
+          "size": [
+            1152,
+            648
+          ],
+          "bytes": 59921,
+          "sha256": "3dc4d326abc29f475f9213eca0497fddaf32c667c98c9538eeb7a698ec956014"
+        },
+        {
+          "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/male-home-coat-first.png",
+          "size": [
+            1152,
+            648
+          ],
+          "bytes": 59921,
+          "sha256": "3dc4d326abc29f475f9213eca0497fddaf32c667c98c9538eeb7a698ec956014"
+        },
+        {
+          "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/male-home-collision-bed-cached-return.png",
+          "size": [
+            1152,
+            648
+          ],
+          "bytes": 56428,
+          "sha256": "a49f69cba12363bb74342575f18379ff59c7912ffacf1f22f50ed4cccaea574c"
+        },
+        {
+          "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/male-home-collision-bed-first.png",
+          "size": [
+            1152,
+            648
+          ],
+          "bytes": 56428,
+          "sha256": "a49f69cba12363bb74342575f18379ff59c7912ffacf1f22f50ed4cccaea574c"
+        },
+        {
+          "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/male-home-collision-bedside-cached-return.png",
+          "size": [
+            1152,
+            648
+          ],
+          "bytes": 56178,
+          "sha256": "0e58c4eceb99d6e9a956b33251587e0990d08a347932bda5f4ca8b925c22f043"
+        },
+        {
+          "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/male-home-collision-bedside-first.png",
+          "size": [
+            1152,
+            648
+          ],
+          "bytes": 56178,
+          "sha256": "0e58c4eceb99d6e9a956b33251587e0990d08a347932bda5f4ca8b925c22f043"
+        },
+        {
+          "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/male-home-collision-coat-cabinet-cached-return.png",
+          "size": [
+            1152,
+            648
+          ],
+          "bytes": 56841,
+          "sha256": "3bd2fcc534de0368f1024cb6a083d4008c4c4b69f3455222ca737209a6bdd660"
+        },
+        {
+          "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/male-home-collision-coat-cabinet-first.png",
+          "size": [
+            1152,
+            648
+          ],
+          "bytes": 56841,
+          "sha256": "3bd2fcc534de0368f1024cb6a083d4008c4c4b69f3455222ca737209a6bdd660"
+        },
+        {
+          "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/male-home-collision-east-wall-cached-return.png",
+          "size": [
+            1152,
+            648
+          ],
+          "bytes": 56489,
+          "sha256": "631b8a6755289fb993a0645d8017115a64b9f2c88e1c31e8b69ff0738e03f1b6"
+        },
+        {
+          "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/male-home-collision-east-wall-first.png",
+          "size": [
+            1152,
+            648
+          ],
+          "bytes": 56489,
+          "sha256": "631b8a6755289fb993a0645d8017115a64b9f2c88e1c31e8b69ff0738e03f1b6"
+        },
+        {
+          "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/male-home-collision-north-wall-cached-return.png",
+          "size": [
+            1152,
+            648
+          ],
+          "bytes": 56992,
+          "sha256": "b80191a1e45cd825e2ae4f2ae044838d389e526876464acefbdda42b0b10758d"
+        },
+        {
+          "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/male-home-collision-north-wall-first.png",
+          "size": [
+            1152,
+            648
+          ],
+          "bytes": 56992,
+          "sha256": "b80191a1e45cd825e2ae4f2ae044838d389e526876464acefbdda42b0b10758d"
+        },
+        {
+          "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/male-home-collision-south-left-wall-cached-return.png",
+          "size": [
+            1152,
+            648
+          ],
+          "bytes": 57572,
+          "sha256": "dc0102f66f2804ef5c6eaa6e91743938b807131012a2603e339b6c0455fbd6b2"
+        },
+        {
+          "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/male-home-collision-south-left-wall-first.png",
+          "size": [
+            1152,
+            648
+          ],
+          "bytes": 57572,
+          "sha256": "dc0102f66f2804ef5c6eaa6e91743938b807131012a2603e339b6c0455fbd6b2"
+        },
+        {
+          "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/male-home-collision-south-right-wall-cached-return.png",
+          "size": [
+            1152,
+            648
+          ],
+          "bytes": 57764,
+          "sha256": "d8883c96ffa8f82ef8ff70fd79170e29c07cd89cfb1196ae0cf872da25b3a4c9"
+        },
+        {
+          "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/male-home-collision-south-right-wall-first.png",
+          "size": [
+            1152,
+            648
+          ],
+          "bytes": 57764,
+          "sha256": "d8883c96ffa8f82ef8ff70fd79170e29c07cd89cfb1196ae0cf872da25b3a4c9"
+        },
+        {
+          "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/male-home-collision-stool-cached-return.png",
+          "size": [
+            1152,
+            648
+          ],
+          "bytes": 56140,
+          "sha256": "38f7dc8002cc8433d5f828a4ae307fb10e97304b61cb4b01319b8d06cc79e4f4"
+        },
+        {
+          "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/male-home-collision-stool-first.png",
+          "size": [
+            1152,
+            648
+          ],
+          "bytes": 56140,
+          "sha256": "38f7dc8002cc8433d5f828a4ae307fb10e97304b61cb4b01319b8d06cc79e4f4"
+        },
+        {
+          "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/male-home-collision-stove-cached-return.png",
+          "size": [
+            1152,
+            648
+          ],
+          "bytes": 56395,
+          "sha256": "70283cfa6f3c3760255ce1ce5583ae3028089d15f1d2e8987420c9347d08873a"
+        },
+        {
+          "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/male-home-collision-stove-first.png",
+          "size": [
+            1152,
+            648
+          ],
+          "bytes": 56395,
+          "sha256": "70283cfa6f3c3760255ce1ce5583ae3028089d15f1d2e8987420c9347d08873a"
+        },
+        {
+          "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/male-home-collision-table-cached-return.png",
+          "size": [
+            1152,
+            648
+          ],
+          "bytes": 56975,
+          "sha256": "0215dd09247313fe03e15726e5fa78cd8c5f4c10225f5db3bde731d4ac3b857c"
+        },
+        {
+          "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/male-home-collision-table-first.png",
+          "size": [
+            1152,
+            648
+          ],
+          "bytes": 56975,
+          "sha256": "0215dd09247313fe03e15726e5fa78cd8c5f4c10225f5db3bde731d4ac3b857c"
+        },
+        {
+          "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/male-home-collision-west-wall-cached-return.png",
+          "size": [
+            1152,
+            648
+          ],
+          "bytes": 56769,
+          "sha256": "aa98c2b305ef6bc6577e60393d3b21914234ca99d172824d904bf764986a6715"
+        },
+        {
+          "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/male-home-collision-west-wall-first.png",
+          "size": [
+            1152,
+            648
+          ],
+          "bytes": 56769,
+          "sha256": "aa98c2b305ef6bc6577e60393d3b21914234ca99d172824d904bf764986a6715"
+        },
+        {
+          "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/male-home-collision-woodstack-cached-return.png",
+          "size": [
+            1152,
+            648
+          ],
+          "bytes": 56357,
+          "sha256": "088d8ed8e613ecc89c2f75fee0622843f1a2290bbddd08698d5c2524d1ca08df"
+        },
+        {
+          "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/male-home-collision-woodstack-first.png",
+          "size": [
+            1152,
+            648
+          ],
+          "bytes": 56357,
+          "sha256": "088d8ed8e613ecc89c2f75fee0622843f1a2290bbddd08698d5c2524d1ca08df"
+        },
+        {
+          "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/male-home-entry-cached-return.png",
+          "size": [
+            1152,
+            648
+          ],
+          "bytes": 57185,
+          "sha256": "65777fd582083d6eecf88684e56c7dda6200b70db9f2fbbb6b7d175d78feb7b5"
+        },
+        {
+          "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/male-home-entry-first.png",
+          "size": [
+            1152,
+            648
+          ],
+          "bytes": 57185,
+          "sha256": "65777fd582083d6eecf88684e56c7dda6200b70db9f2fbbb6b7d175d78feb7b5"
+        },
+        {
+          "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/male-home-exterior-cached-return.png",
+          "size": [
+            1152,
+            648
+          ],
+          "bytes": 115992,
+          "sha256": "01197d7be9ddbea241e8638e7ea276b21b5d42bcd097bb6a4dfccf916ea7c0f7"
+        },
+        {
+          "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/male-home-exterior-first.png",
+          "size": [
+            1152,
+            648
+          ],
+          "bytes": 115992,
+          "sha256": "01197d7be9ddbea241e8638e7ea276b21b5d42bcd097bb6a4dfccf916ea7c0f7"
+        },
+        {
+          "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/male-home-stove-cached-return.png",
+          "size": [
+            1152,
+            648
+          ],
+          "bytes": 61595,
+          "sha256": "f7769e247c4df5f39fbe08b357c5bc349abdf61678ddb6d4008c063a88f623dc"
+        },
+        {
+          "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/male-home-stove-first.png",
+          "size": [
+            1152,
+            648
+          ],
+          "bytes": 61595,
+          "sha256": "f7769e247c4df5f39fbe08b357c5bc349abdf61678ddb6d4008c063a88f623dc"
+        },
+        {
+          "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/male-home-table-cached-return.png",
+          "size": [
+            1152,
+            648
+          ],
+          "bytes": 65002,
+          "sha256": "df106bfa85760fe4e5e7687941f8e3842afc3efbeaef65c27cbf186c32bb3bf4"
+        },
+        {
+          "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/male-home-table-first.png",
+          "size": [
+            1152,
+            648
+          ],
+          "bytes": 65002,
+          "sha256": "df106bfa85760fe4e5e7687941f8e3842afc3efbeaef65c27cbf186c32bb3bf4"
+        },
+        {
+          "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/male-home-view-coat-behind-cached-return.png",
+          "size": [
+            1152,
+            648
+          ],
+          "bytes": 57727,
+          "sha256": "261c8bf17f063be9bff81f052ddd92604567cb54271a069d57e104679a3b2d77"
+        },
+        {
+          "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/male-home-view-coat-behind-first.png",
+          "size": [
+            1152,
+            648
+          ],
+          "bytes": 57727,
+          "sha256": "261c8bf17f063be9bff81f052ddd92604567cb54271a069d57e104679a3b2d77"
+        },
+        {
+          "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/male-home-view-stove-behind-cached-return.png",
+          "size": [
+            1152,
+            648
+          ],
+          "bytes": 55848,
+          "sha256": "fe4a72ed67db9630934a8e23b01aaeaf47f831127bdd8cb27de4d02ce49dee22"
+        },
+        {
+          "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/male-home-view-stove-behind-first.png",
+          "size": [
+            1152,
+            648
+          ],
+          "bytes": 55848,
+          "sha256": "fe4a72ed67db9630934a8e23b01aaeaf47f831127bdd8cb27de4d02ce49dee22"
+        },
+        {
+          "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/male-start.png",
+          "size": [
+            1152,
+            648
+          ],
+          "bytes": 115951,
+          "sha256": "17545475f1c6c8d89354282c587807e79213eae25e9eb07929834f750163399c"
+        }
+      ],
+      "independent_per_visit_counts": [
+        {
+          "visit": 1,
+          "dialogues": 4,
+          "contacts": 12,
+          "views": 2
+        },
+        {
+          "visit": 2,
+          "dialogues": 4,
+          "contacts": 12,
+          "views": 2
+        }
+      ],
+      "all_PNGs_native_window_size_1152x648": true
+    },
+    {
+      "model": "Female",
+      "json_sha256": "794b833ff8baadd7e4125d9dc5fb66c93d7853c191428aef382c67ddce1bb60d",
+      "passed": true,
+      "completed_walk": true,
+      "fixture_scope": "two_ordinary_home_visits",
+      "ordinary_input_only": true,
+      "quest_overrides": 0,
+      "test_teleports": 0,
+      "fixed_fps": 60,
+      "all_11_original_flags_false": true,
+      "engine_gate_count": 4,
+      "engine_entrance_arrivals": [
+        {
+          "arrival": "(128.0, 208.0)",
+          "from": "hometown",
+          "to": "courtyard_home"
+        },
+        {
+          "arrival": "(233.0, 280.0)",
+          "from": "courtyard_home",
+          "to": "hometown"
+        },
+        {
+          "arrival": "(128.0, 208.0)",
+          "from": "hometown",
+          "to": "courtyard_home"
+        },
+        {
+          "arrival": "(233.0, 280.0)",
+          "from": "courtyard_home",
+          "to": "hometown"
+        }
+      ],
+      "home_visits": 2,
+      "dialogues": 8,
+      "wall_and_furniture_contacts": 24,
+      "foreground_views": 4,
+      "views": [
+        {
+          "at": "(50.31511, 127.7059)",
+          "coat_clear_full_opacity_expected": true,
+          "coat_material": {
+            "bound": true,
+            "identity": {
+              "material_class": "ShaderMaterial",
+              "material_id": -9223371858965951482,
+              "shader_id": -9223371987949189603,
+              "shader_path": "res://assets/sprites/world/route1_landing_loop_2026_10_03/canopy_visibility.gdshader"
+            },
+            "opacity": 1.0,
+            "shader_path_correct": true
+          },
+          "coat_upper_fade_expected": false,
+          "home_foreground_view": "stove-behind",
+          "opacity_matches_position": true,
+          "original_state_native_art_and_material_identity_exact": true,
+          "passed": true,
+          "settle_frames": 22,
+          "visit": 1
+        },
+        {
+          "at": "(205.5339, 142.9248)",
+          "coat_clear_full_opacity_expected": false,
+          "coat_material": {
+            "bound": true,
+            "identity": {
+              "material_class": "ShaderMaterial",
+              "material_id": -9223371858965951482,
+              "shader_id": -9223371987949189603,
+              "shader_path": "res://assets/sprites/world/route1_landing_loop_2026_10_03/canopy_visibility.gdshader"
+            },
+            "opacity": 0.45,
+            "shader_path_correct": true
+          },
+          "coat_upper_fade_expected": true,
+          "home_foreground_view": "coat-behind",
+          "opacity_matches_position": true,
+          "original_state_native_art_and_material_identity_exact": true,
+          "passed": true,
+          "settle_frames": 22,
+          "visit": 1
+        },
+        {
+          "at": "(50.31511, 127.7059)",
+          "coat_clear_full_opacity_expected": true,
+          "coat_material": {
+            "bound": true,
+            "identity": {
+              "material_class": "ShaderMaterial",
+              "material_id": -9223371858965951482,
+              "shader_id": -9223371987949189603,
+              "shader_path": "res://assets/sprites/world/route1_landing_loop_2026_10_03/canopy_visibility.gdshader"
+            },
+            "opacity": 1.0,
+            "shader_path_correct": true
+          },
+          "coat_upper_fade_expected": false,
+          "home_foreground_view": "stove-behind",
+          "opacity_matches_position": true,
+          "original_state_native_art_and_material_identity_exact": true,
+          "passed": true,
+          "settle_frames": 22,
+          "visit": 2
+        },
+        {
+          "at": "(205.5339, 142.9248)",
+          "coat_clear_full_opacity_expected": false,
+          "coat_material": {
+            "bound": true,
+            "identity": {
+              "material_class": "ShaderMaterial",
+              "material_id": -9223371858965951482,
+              "shader_id": -9223371987949189603,
+              "shader_path": "res://assets/sprites/world/route1_landing_loop_2026_10_03/canopy_visibility.gdshader"
+            },
+            "opacity": 0.45,
+            "shader_path_correct": true
+          },
+          "coat_upper_fade_expected": true,
+          "home_foreground_view": "coat-behind",
+          "opacity_matches_position": true,
+          "original_state_native_art_and_material_identity_exact": true,
+          "passed": true,
+          "settle_frames": 22,
+          "visit": 2
+        }
+      ],
+      "home_art_contract_count": 2,
+      "all_home_native_texture_contracts_passed": true,
+      "home_loop_checks": [
+        {
+          "cached_garden_all_art_and_local_state_exact": true,
+          "cached_interior_and_player_exact": true,
+          "exact_exterior_arrival": true,
+          "expected_interior_exit_gate": "(128.0, 232.0)",
+          "home_loop_complete": 1,
+          "idle_after_return_no_bounce": true,
+          "one_live_area": true,
+          "original_flags_notes_objective_board_controller_party_and_home_player_exact": true,
+          "passed": true,
+          "two_real_home_gates": true
+        },
+        {
+          "cached_garden_all_art_and_local_state_exact": true,
+          "cached_interior_and_player_exact": true,
+          "exact_exterior_arrival": true,
+          "expected_interior_exit_gate": "(128.0, 232.0)",
+          "home_loop_complete": 2,
+          "idle_after_return_no_bounce": true,
+          "one_live_area": true,
+          "original_flags_notes_objective_board_controller_party_and_home_player_exact": true,
+          "passed": true,
+          "two_real_home_gates": true
+        }
+      ],
+      "final_core_check": [
+        {
+          "all_eleven_flags_false": true,
+          "expected_final_flags": {
+            "city_arrival_registered": false,
+            "city_directions_read": false,
+            "delivered": false,
+            "heard_calls": false,
+            "levee_entrance_read": false,
+            "marker_restored": false,
+            "pouch_accepted": false,
+            "report_done": false,
+            "reported_calls": false,
+            "reported_water_mark": false,
+            "water_mark_observed": false
+          },
+          "focused_home_final_check": true,
+          "four_interactions_twelve_contacts_and_both_views_each_visit": true,
+          "four_real_doorway_gates_and_two_home_visits": true,
+          "original_cached_areas_and_new_home_identity_exact": true,
+          "original_core_party_notes_objective_board_and_player_exact": true,
+          "original_garden_local_state_and_all_art_exact": true,
+          "passed": true
+        }
+      ],
+      "failed_steps": [],
+      "capture_events": 46,
+      "unique_PNG_files": 44,
+      "all_capture_events_saved": true,
+      "PNG_manifest": [
+        {
+          "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/female-entrance-courtyard_home-to-hometown.png",
+          "size": [
+            1152,
+            648
+          ],
+          "bytes": 115851,
+          "sha256": "c7cf0473cba91162f4ebaf320225b6b8eadcf578a1769bff0ed73217fea4ae82"
+        },
+        {
+          "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/female-entrance-hometown-to-courtyard_home.png",
+          "size": [
+            1152,
+            648
+          ],
+          "bytes": 57384,
+          "sha256": "27458b3072a2ed61cf1193e71abaf7825c0cae3f7afa024698c0cdc3a5df7deb"
+        },
+        {
+          "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/female-focused-return-home.png",
+          "size": [
+            1152,
+            648
+          ],
+          "bytes": 115851,
+          "sha256": "c7cf0473cba91162f4ebaf320225b6b8eadcf578a1769bff0ed73217fea4ae82"
+        },
+        {
+          "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/female-home-bed-cached-return.png",
+          "size": [
+            1152,
+            648
+          ],
+          "bytes": 63653,
+          "sha256": "e0a3de53bda684e801e89860c5a4ab2eb862bb82f6e5be059da52b7eb4d166cb"
+        },
+        {
+          "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/female-home-bed-first.png",
+          "size": [
+            1152,
+            648
+          ],
+          "bytes": 63653,
+          "sha256": "e0a3de53bda684e801e89860c5a4ab2eb862bb82f6e5be059da52b7eb4d166cb"
+        },
+        {
+          "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/female-home-coat-cached-return.png",
+          "size": [
+            1152,
+            648
+          ],
+          "bytes": 59764,
+          "sha256": "71154604a7e2219473e17e56d9bda31a28f3e583118731813fb8c1085958c878"
+        },
+        {
+          "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/female-home-coat-first.png",
+          "size": [
+            1152,
+            648
+          ],
+          "bytes": 59764,
+          "sha256": "71154604a7e2219473e17e56d9bda31a28f3e583118731813fb8c1085958c878"
+        },
+        {
+          "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/female-home-collision-bed-cached-return.png",
+          "size": [
+            1152,
+            648
+          ],
+          "bytes": 56438,
+          "sha256": "fb63a57d05ca1607ea85a49e6f9efdfae69aa427bca3fb1081251cbe6e4ae0bb"
+        },
+        {
+          "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/female-home-collision-bed-first.png",
+          "size": [
+            1152,
+            648
+          ],
+          "bytes": 56438,
+          "sha256": "fb63a57d05ca1607ea85a49e6f9efdfae69aa427bca3fb1081251cbe6e4ae0bb"
+        },
+        {
+          "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/female-home-collision-bedside-cached-return.png",
+          "size": [
+            1152,
+            648
+          ],
+          "bytes": 56336,
+          "sha256": "753023b6e425c7324fd019ea745ad05f4f235207eed59b3e01cf84d808cd6e6a"
+        },
+        {
+          "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/female-home-collision-bedside-first.png",
+          "size": [
+            1152,
+            648
+          ],
+          "bytes": 56336,
+          "sha256": "753023b6e425c7324fd019ea745ad05f4f235207eed59b3e01cf84d808cd6e6a"
+        },
+        {
+          "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/female-home-collision-coat-cabinet-cached-return.png",
+          "size": [
+            1152,
+            648
+          ],
+          "bytes": 56870,
+          "sha256": "750f8f6f7f9677826c1f8a305e1bf8f4f3d3590acb25252bb1720a743cc7618c"
+        },
+        {
+          "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/female-home-collision-coat-cabinet-first.png",
+          "size": [
+            1152,
+            648
+          ],
+          "bytes": 56870,
+          "sha256": "750f8f6f7f9677826c1f8a305e1bf8f4f3d3590acb25252bb1720a743cc7618c"
+        },
+        {
+          "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/female-home-collision-east-wall-cached-return.png",
+          "size": [
+            1152,
+            648
+          ],
+          "bytes": 56363,
+          "sha256": "da917fb73e92fe1fd42371d104f1b3ca0eb4bde411308d1d4afcaf9871727266"
+        },
+        {
+          "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/female-home-collision-east-wall-first.png",
+          "size": [
+            1152,
+            648
+          ],
+          "bytes": 56363,
+          "sha256": "da917fb73e92fe1fd42371d104f1b3ca0eb4bde411308d1d4afcaf9871727266"
+        },
+        {
+          "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/female-home-collision-north-wall-cached-return.png",
+          "size": [
+            1152,
+            648
+          ],
+          "bytes": 57082,
+          "sha256": "57ec1bef713faacb8bb3523ca12f37bb37f3d3c57718bd62ea5a08f2e82ec7cd"
+        },
+        {
+          "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/female-home-collision-north-wall-first.png",
+          "size": [
+            1152,
+            648
+          ],
+          "bytes": 57082,
+          "sha256": "57ec1bef713faacb8bb3523ca12f37bb37f3d3c57718bd62ea5a08f2e82ec7cd"
+        },
+        {
+          "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/female-home-collision-south-left-wall-cached-return.png",
+          "size": [
+            1152,
+            648
+          ],
+          "bytes": 57560,
+          "sha256": "532f9257411c5e9b9df0734435c59d2e49722421fdbefbb15570898c86244640"
+        },
+        {
+          "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/female-home-collision-south-left-wall-first.png",
+          "size": [
+            1152,
+            648
+          ],
+          "bytes": 57560,
+          "sha256": "532f9257411c5e9b9df0734435c59d2e49722421fdbefbb15570898c86244640"
+        },
+        {
+          "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/female-home-collision-south-right-wall-cached-return.png",
+          "size": [
+            1152,
+            648
+          ],
+          "bytes": 57677,
+          "sha256": "5fae2e6ea18df18ae812cd58f23b9f67839b60afb341ea58601f85bb63a3d90e"
+        },
+        {
+          "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/female-home-collision-south-right-wall-first.png",
+          "size": [
+            1152,
+            648
+          ],
+          "bytes": 57677,
+          "sha256": "5fae2e6ea18df18ae812cd58f23b9f67839b60afb341ea58601f85bb63a3d90e"
+        },
+        {
+          "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/female-home-collision-stool-cached-return.png",
+          "size": [
+            1152,
+            648
+          ],
+          "bytes": 56212,
+          "sha256": "1aa0a569f9a1fd8de6b1fbe235f9ba3f0da297319e1b1c64edb71f19115d64a6"
+        },
+        {
+          "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/female-home-collision-stool-first.png",
+          "size": [
+            1152,
+            648
+          ],
+          "bytes": 56212,
+          "sha256": "1aa0a569f9a1fd8de6b1fbe235f9ba3f0da297319e1b1c64edb71f19115d64a6"
+        },
+        {
+          "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/female-home-collision-stove-cached-return.png",
+          "size": [
+            1152,
+            648
+          ],
+          "bytes": 56365,
+          "sha256": "9dd25b961290c662af17e56f12a2b6b9f7d4a6dee806be52a35dd8bd829c512f"
+        },
+        {
+          "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/female-home-collision-stove-first.png",
+          "size": [
+            1152,
+            648
+          ],
+          "bytes": 56365,
+          "sha256": "9dd25b961290c662af17e56f12a2b6b9f7d4a6dee806be52a35dd8bd829c512f"
+        },
+        {
+          "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/female-home-collision-table-cached-return.png",
+          "size": [
+            1152,
+            648
+          ],
+          "bytes": 57000,
+          "sha256": "fa8792e77240972533d0e608e3f51e4974e59dfc57d8240e36e5db7570113ee5"
+        },
+        {
+          "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/female-home-collision-table-first.png",
+          "size": [
+            1152,
+            648
+          ],
+          "bytes": 57000,
+          "sha256": "fa8792e77240972533d0e608e3f51e4974e59dfc57d8240e36e5db7570113ee5"
+        },
+        {
+          "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/female-home-collision-west-wall-cached-return.png",
+          "size": [
+            1152,
+            648
+          ],
+          "bytes": 56846,
+          "sha256": "fac00f42127f7f57c24492d64e23bf43fcfaa0a88c0dac9bff7228e2477e722f"
+        },
+        {
+          "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/female-home-collision-west-wall-first.png",
+          "size": [
+            1152,
+            648
+          ],
+          "bytes": 56846,
+          "sha256": "fac00f42127f7f57c24492d64e23bf43fcfaa0a88c0dac9bff7228e2477e722f"
+        },
+        {
+          "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/female-home-collision-woodstack-cached-return.png",
+          "size": [
+            1152,
+            648
+          ],
+          "bytes": 56304,
+          "sha256": "1558594bb86645c2c89893d9488a201b313ad1b7fb315ccb989923c1ad723638"
+        },
+        {
+          "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/female-home-collision-woodstack-first.png",
+          "size": [
+            1152,
+            648
+          ],
+          "bytes": 56304,
+          "sha256": "1558594bb86645c2c89893d9488a201b313ad1b7fb315ccb989923c1ad723638"
+        },
+        {
+          "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/female-home-entry-cached-return.png",
+          "size": [
+            1152,
+            648
+          ],
+          "bytes": 57384,
+          "sha256": "27458b3072a2ed61cf1193e71abaf7825c0cae3f7afa024698c0cdc3a5df7deb"
+        },
+        {
+          "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/female-home-entry-first.png",
+          "size": [
+            1152,
+            648
+          ],
+          "bytes": 57384,
+          "sha256": "27458b3072a2ed61cf1193e71abaf7825c0cae3f7afa024698c0cdc3a5df7deb"
+        },
+        {
+          "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/female-home-exterior-cached-return.png",
+          "size": [
+            1152,
+            648
+          ],
+          "bytes": 115851,
+          "sha256": "c7cf0473cba91162f4ebaf320225b6b8eadcf578a1769bff0ed73217fea4ae82"
+        },
+        {
+          "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/female-home-exterior-first.png",
+          "size": [
+            1152,
+            648
+          ],
+          "bytes": 115851,
+          "sha256": "c7cf0473cba91162f4ebaf320225b6b8eadcf578a1769bff0ed73217fea4ae82"
+        },
+        {
+          "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/female-home-stove-cached-return.png",
+          "size": [
+            1152,
+            648
+          ],
+          "bytes": 61375,
+          "sha256": "a8baaec28c328ad210ae881b1f0bab03668682c1b1169ba9cbe37e9687f7d0e6"
+        },
+        {
+          "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/female-home-stove-first.png",
+          "size": [
+            1152,
+            648
+          ],
+          "bytes": 61375,
+          "sha256": "a8baaec28c328ad210ae881b1f0bab03668682c1b1169ba9cbe37e9687f7d0e6"
+        },
+        {
+          "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/female-home-table-cached-return.png",
+          "size": [
+            1152,
+            648
+          ],
+          "bytes": 65251,
+          "sha256": "bb76eba8c5a2271651ec3066be701b3503707548a719917504af0be891309a48"
+        },
+        {
+          "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/female-home-table-first.png",
+          "size": [
+            1152,
+            648
+          ],
+          "bytes": 65251,
+          "sha256": "bb76eba8c5a2271651ec3066be701b3503707548a719917504af0be891309a48"
+        },
+        {
+          "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/female-home-view-coat-behind-cached-return.png",
+          "size": [
+            1152,
+            648
+          ],
+          "bytes": 57528,
+          "sha256": "bcb81f5b837604f11e92ad5244cd2afacecab396fff85fc174ddccc1bd7285b7"
+        },
+        {
+          "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/female-home-view-coat-behind-first.png",
+          "size": [
+            1152,
+            648
+          ],
+          "bytes": 57528,
+          "sha256": "bcb81f5b837604f11e92ad5244cd2afacecab396fff85fc174ddccc1bd7285b7"
+        },
+        {
+          "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/female-home-view-stove-behind-cached-return.png",
+          "size": [
+            1152,
+            648
+          ],
+          "bytes": 55822,
+          "sha256": "4a3e339a3e48c94ef18fa220e2f6908a2edc508f3b4be0397fa97a9b052d453e"
+        },
+        {
+          "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/female-home-view-stove-behind-first.png",
+          "size": [
+            1152,
+            648
+          ],
+          "bytes": 55822,
+          "sha256": "4a3e339a3e48c94ef18fa220e2f6908a2edc508f3b4be0397fa97a9b052d453e"
+        },
+        {
+          "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/female-start.png",
+          "size": [
+            1152,
+            648
+          ],
+          "bytes": 115755,
+          "sha256": "802b5bee6b2710ce93033adc51e097284f9db2978b7eb8ee3ddd6ac04be38bdf"
+        }
+      ],
+      "independent_per_visit_counts": [
+        {
+          "visit": 1,
+          "dialogues": 4,
+          "contacts": 12,
+          "views": 2
+        },
+        {
+          "visit": 2,
+          "dialogues": 4,
+          "contacts": 12,
+          "views": 2
+        }
+      ],
+      "all_PNGs_native_window_size_1152x648": true
+    }
+  ],
+  "overview": {
+    "art_or_material_overrides": 0,
+    "attempted_capture_count": 14,
+    "checked_target_sprite_count": 11,
+    "completed": true,
+    "completed_area_count": 4,
+    "completed_areas": [
+      "courtyard_home",
+      "hometown",
+      "riverfront",
+      "historic_street"
+    ],
+    "diagnostic_cameras_only": true,
+    "expected_area_count": 4,
+    "expected_capture_count": 14,
+    "expected_capture_labels": [
+      "home-room-native-2x",
+      "home-bed-quilt-native-2x",
+      "home-stove-woodpile-native-2x",
+      "home-cupboard-coat-native-2x",
+      "home-shelf-worktable-native-2x",
+      "hometown-overview-native-1x",
+      "hometown-courtyard-native-3x",
+      "hometown-hall-native-3x",
+      "riverfront-overview-native-1x",
+      "riverfront-hall-native-3x",
+      "riverfront-shop-native-3x",
+      "riverfront-ledger-native-3x",
+      "historic-street-overview-native-1x",
+      "historic-shop-ledger-native-3x"
+    ],
+    "expected_target_sprite_count": 11,
+    "external_runtime_stderr_must_be_empty": true,
+    "model": "Male",
+    "passed": true,
+    "phase": "complete",
+    "pid": 9832,
+    "player_repositions": 0,
+    "quest_overrides": 0,
+    "run_id": "9832-1791208232.168",
+    "saved_capture_count": 14,
+    "separate_initial_area_views": true,
+    "captures": [
+      {
+        "area": "courtyard_home",
+        "camera_zoom": "(2.0, 2.0)",
+        "core_party_local_state_art_material_and_cache_exact": true,
+        "detail_at_actual_gameplay_camera_zoom": false,
+        "label": "home-room-native-2x",
+        "passed": true,
+        "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/overview/male-home-room-native-2x.png",
+        "pixel_size": "(512, 512)",
+        "primary_full_area_view": true,
+        "readback_error": 0,
+        "save_error": 0,
+        "saved_and_read_back": true,
+        "world_region": "[P: (0.0, 0.0), S: (256.0, 256.0)]",
+        "actual_pixel_size": [
+          512,
+          512
+        ],
+        "recorded_pixel_size_exact": true,
+        "bytes": 41524,
+        "sha256": "01bda02a1864d2202a622c9e887d3eb1afe5fd92d8351125c848b4a74acf7ad2"
+      },
+      {
+        "area": "courtyard_home",
+        "camera_zoom": "(2.0, 2.0)",
+        "core_party_local_state_art_material_and_cache_exact": true,
+        "detail_at_actual_gameplay_camera_zoom": true,
+        "label": "home-bed-quilt-native-2x",
+        "passed": true,
+        "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/overview/male-home-bed-quilt-native-2x.png",
+        "pixel_size": "(184, 152)",
+        "primary_full_area_view": false,
+        "readback_error": 0,
+        "save_error": 0,
+        "saved_and_read_back": true,
+        "world_region": "[P: (32.0, 52.0), S: (92.0, 76.0)]",
+        "actual_pixel_size": [
+          184,
+          152
+        ],
+        "recorded_pixel_size_exact": true,
+        "bytes": 8308,
+        "sha256": "b6e31d9a0ebfc4266770267378223d53b557a1a53220a679eb0b5ddc153b8d6d"
+      },
+      {
+        "area": "courtyard_home",
+        "camera_zoom": "(2.0, 2.0)",
+        "core_party_local_state_art_material_and_cache_exact": true,
+        "detail_at_actual_gameplay_camera_zoom": true,
+        "label": "home-stove-woodpile-native-2x",
+        "passed": true,
+        "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/overview/male-home-stove-woodpile-native-2x.png",
+        "pixel_size": "(104, 160)",
+        "primary_full_area_view": false,
+        "readback_error": 0,
+        "save_error": 0,
+        "saved_and_read_back": true,
+        "world_region": "[P: (28.0, 104.0), S: (52.0, 80.0)]",
+        "actual_pixel_size": [
+          104,
+          160
+        ],
+        "recorded_pixel_size_exact": true,
+        "bytes": 5496,
+        "sha256": "bcb2284ecc3d9c5865b1ad2af0127a9a48795fb0f392143dcc30d00b452e9be5"
+      },
+      {
+        "area": "courtyard_home",
+        "camera_zoom": "(2.0, 2.0)",
+        "core_party_local_state_art_material_and_cache_exact": true,
+        "detail_at_actual_gameplay_camera_zoom": true,
+        "label": "home-cupboard-coat-native-2x",
+        "passed": true,
+        "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/overview/male-home-cupboard-coat-native-2x.png",
+        "pixel_size": "(104, 168)",
+        "primary_full_area_view": false,
+        "readback_error": 0,
+        "save_error": 0,
+        "saved_and_read_back": true,
+        "world_region": "[P: (176.0, 106.0), S: (52.0, 84.0)]",
+        "actual_pixel_size": [
+          104,
+          168
+        ],
+        "recorded_pixel_size_exact": true,
+        "bytes": 5092,
+        "sha256": "53303da218a1b77aa728a8377aa189790c142518d73d6c7002f08f1867a8b10a"
+      },
+      {
+        "area": "courtyard_home",
+        "camera_zoom": "(2.0, 2.0)",
+        "core_party_local_state_art_material_and_cache_exact": true,
+        "detail_at_actual_gameplay_camera_zoom": true,
+        "label": "home-shelf-worktable-native-2x",
+        "passed": true,
+        "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/overview/male-home-shelf-worktable-native-2x.png",
+        "pixel_size": "(160, 176)",
+        "primary_full_area_view": false,
+        "readback_error": 0,
+        "save_error": 0,
+        "saved_and_read_back": true,
+        "world_region": "[P: (144.0, 28.0), S: (80.0, 88.0)]",
+        "actual_pixel_size": [
+          160,
+          176
+        ],
+        "recorded_pixel_size_exact": true,
+        "bytes": 8069,
+        "sha256": "dd8b422ce052c19755adad0b690c29b5fdf925cbd7dca8ea640e50be84e3d6de"
+      },
+      {
+        "area": "hometown",
+        "camera_zoom": "(1.0, 1.0)",
+        "core_party_local_state_art_material_and_cache_exact": true,
+        "detail_at_actual_gameplay_camera_zoom": false,
+        "label": "hometown-overview-native-1x",
+        "passed": true,
+        "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/overview/male-hometown-overview-native-1x.png",
+        "pixel_size": "(1024, 768)",
+        "primary_full_area_view": true,
+        "readback_error": 0,
+        "save_error": 0,
+        "saved_and_read_back": true,
+        "world_region": "[P: (0.0, 0.0), S: (1024.0, 768.0)]",
+        "actual_pixel_size": [
+          1024,
+          768
+        ],
+        "recorded_pixel_size_exact": true,
+        "bytes": 568614,
+        "sha256": "36665c6a5e32f384e1edf46723445a2e443358c86518f6e491a07e208a8e4951"
+      },
+      {
+        "area": "hometown",
+        "camera_zoom": "(3.0, 3.0)",
+        "core_party_local_state_art_material_and_cache_exact": true,
+        "detail_at_actual_gameplay_camera_zoom": true,
+        "label": "hometown-courtyard-native-3x",
+        "passed": true,
+        "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/overview/male-hometown-courtyard-native-3x.png",
+        "pixel_size": "(432, 381)",
+        "primary_full_area_view": false,
+        "readback_error": 0,
+        "save_error": 0,
+        "saved_and_read_back": true,
+        "world_region": "[P: (151.0, 145.0), S: (144.0, 127.0)]",
+        "actual_pixel_size": [
+          432,
+          381
+        ],
+        "recorded_pixel_size_exact": true,
+        "bytes": 35721,
+        "sha256": "56a41f474e6116b6829d86b4ce5367d8ffa079e569174b3cb000dccc08273e4b"
+      },
+      {
+        "area": "hometown",
+        "camera_zoom": "(3.0, 3.0)",
+        "core_party_local_state_art_material_and_cache_exact": true,
+        "detail_at_actual_gameplay_camera_zoom": true,
+        "label": "hometown-hall-native-3x",
+        "passed": true,
+        "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/overview/male-hometown-hall-native-3x.png",
+        "pixel_size": "(366, 435)",
+        "primary_full_area_view": false,
+        "readback_error": 0,
+        "save_error": 0,
+        "saved_and_read_back": true,
+        "world_region": "[P: (707.0, 289.0), S: (122.0, 145.0)]",
+        "actual_pixel_size": [
+          366,
+          435
+        ],
+        "recorded_pixel_size_exact": true,
+        "bytes": 26547,
+        "sha256": "d4a8abe3d5a10a7c4e49e2e2347ed95f9533bd2a7cc02de66605eb566057d4d9"
+      },
+      {
+        "area": "riverfront",
+        "camera_zoom": "(1.0, 1.0)",
+        "core_party_local_state_art_material_and_cache_exact": true,
+        "detail_at_actual_gameplay_camera_zoom": false,
+        "label": "riverfront-overview-native-1x",
+        "passed": true,
+        "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/overview/male-riverfront-overview-native-1x.png",
+        "pixel_size": "(1024, 768)",
+        "primary_full_area_view": true,
+        "readback_error": 0,
+        "save_error": 0,
+        "saved_and_read_back": true,
+        "world_region": "[P: (0.0, 0.0), S: (1024.0, 768.0)]",
+        "actual_pixel_size": [
+          1024,
+          768
+        ],
+        "recorded_pixel_size_exact": true,
+        "bytes": 487797,
+        "sha256": "c8c8b5a909056f46cc98ccfcf3585d88869c74bbc9c186660d8638c49d08150f"
+      },
+      {
+        "area": "riverfront",
+        "camera_zoom": "(3.0, 3.0)",
+        "core_party_local_state_art_material_and_cache_exact": true,
+        "detail_at_actual_gameplay_camera_zoom": true,
+        "label": "riverfront-hall-native-3x",
+        "passed": true,
+        "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/overview/male-riverfront-hall-native-3x.png",
+        "pixel_size": "(366, 435)",
+        "primary_full_area_view": false,
+        "readback_error": 0,
+        "save_error": 0,
+        "saved_and_read_back": true,
+        "world_region": "[P: (451.0, 233.0), S: (122.0, 145.0)]",
+        "actual_pixel_size": [
+          366,
+          435
+        ],
+        "recorded_pixel_size_exact": true,
+        "bytes": 32575,
+        "sha256": "a7615319585a707a3c728fe579b3fec4b9eff3f3e18a437cdbbdd482d94a8ef6"
+      },
+      {
+        "area": "riverfront",
+        "camera_zoom": "(3.0, 3.0)",
+        "core_party_local_state_art_material_and_cache_exact": true,
+        "detail_at_actual_gameplay_camera_zoom": true,
+        "label": "riverfront-shop-native-3x",
+        "passed": true,
+        "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/overview/male-riverfront-shop-native-3x.png",
+        "pixel_size": "(516, 450)",
+        "primary_full_area_view": false,
+        "readback_error": 0,
+        "save_error": 0,
+        "saved_and_read_back": true,
+        "world_region": "[P: (682.0, 130.0), S: (172.0, 150.0)]",
+        "actual_pixel_size": [
+          516,
+          450
+        ],
+        "recorded_pixel_size_exact": true,
+        "bytes": 32784,
+        "sha256": "2edd85e952a0f037c365774048c8400f64c148586d655668fd0cbb596b022be8"
+      },
+      {
+        "area": "riverfront",
+        "camera_zoom": "(3.0, 3.0)",
+        "core_party_local_state_art_material_and_cache_exact": true,
+        "detail_at_actual_gameplay_camera_zoom": true,
+        "label": "riverfront-ledger-native-3x",
+        "passed": true,
+        "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/overview/male-riverfront-ledger-native-3x.png",
+        "pixel_size": "(432, 483)",
+        "primary_full_area_view": false,
+        "readback_error": 0,
+        "save_error": 0,
+        "saved_and_read_back": true,
+        "world_region": "[P: (264.0, 495.0), S: (144.0, 161.0)]",
+        "actual_pixel_size": [
+          432,
+          483
+        ],
+        "recorded_pixel_size_exact": true,
+        "bytes": 35869,
+        "sha256": "e6499af2a91c145016519d0124b15db85a0551a1ed9928686ca1ef76b105734b"
+      },
+      {
+        "area": "historic_street",
+        "camera_zoom": "(1.0, 1.0)",
+        "core_party_local_state_art_material_and_cache_exact": true,
+        "detail_at_actual_gameplay_camera_zoom": false,
+        "label": "historic-street-overview-native-1x",
+        "passed": true,
+        "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/overview/male-historic-street-overview-native-1x.png",
+        "pixel_size": "(768, 896)",
+        "primary_full_area_view": true,
+        "readback_error": 0,
+        "save_error": 0,
+        "saved_and_read_back": true,
+        "world_region": "[P: (0.0, 0.0), S: (768.0, 896.0)]",
+        "actual_pixel_size": [
+          768,
+          896
+        ],
+        "recorded_pixel_size_exact": true,
+        "bytes": 438178,
+        "sha256": "f496fd5ba35056cb951762b609a34a253ecd0cbad0d7779b0635222fad0c24bf"
+      },
+      {
+        "area": "historic_street",
+        "camera_zoom": "(3.0, 3.0)",
+        "core_party_local_state_art_material_and_cache_exact": true,
+        "detail_at_actual_gameplay_camera_zoom": true,
+        "label": "historic-shop-ledger-native-3x",
+        "passed": true,
+        "path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/overview/male-historic-shop-ledger-native-3x.png",
+        "pixel_size": "(1485, 534)",
+        "primary_full_area_view": false,
+        "readback_error": 0,
+        "save_error": 0,
+        "saved_and_read_back": true,
+        "world_region": "[P: (145.0, 238.0), S: (495.0, 178.0)]",
+        "actual_pixel_size": [
+          1485,
+          534
+        ],
+        "recorded_pixel_size_exact": true,
+        "bytes": 100946,
+        "sha256": "48a78f8ead6911d167c92112b246e44760d42dfaeb8b67f498cfeb757985abe3"
+      }
+    ],
+    "recorded_target_checks": [
+      {
+        "key": "courtyard_home/RoomArt",
+        "state": {
+          "centered": false,
+          "filter": 1,
+          "id": 164450274065,
+          "material": {
+            "class": "",
+            "id": 0,
+            "shader_id": 0,
+            "shader_path": ""
+          },
+          "modulate": "(1.0, 1.0, 1.0, 1.0)",
+          "offset": "(0.0, 0.0)",
+          "position": "(0.0, 0.0)",
+          "scale": "(1.0, 1.0)",
+          "texture_id": -9223371978889492815,
+          "texture_path": "res://assets/sprites/world/courtyard_home_detail_2026_10_05/home_room.png",
+          "texture_size": "(256.0, 256.0)",
+          "visible": true,
+          "visible_world_bounds": "[P: (26.0, 25.0), S: (205.0, 208.0)]",
+          "z_index": -10
+        },
+        "target_contract": true,
+        "current_texture_sha256": "18082c72038c62c53a9b7ad35bc7f4d99e2796e1fceeabd81493e0ea0f650bc3",
+        "current_texture_native_size": [
+          256,
+          256
+        ]
+      },
+      {
+        "key": "courtyard_home/RouteDecor/RoomStoveFront",
+        "state": {
+          "centered": false,
+          "filter": 1,
+          "id": 164467051282,
+          "material": {
+            "class": "",
+            "id": 0,
+            "shader_id": 0,
+            "shader_path": ""
+          },
+          "modulate": "(1.0, 1.0, 1.0, 1.0)",
+          "offset": "(0.0, -67.0)",
+          "position": "(33.0, 177.0)",
+          "scale": "(1.0, 1.0)",
+          "texture_id": -9223371978587502924,
+          "texture_path": "res://assets/sprites/world/courtyard_home_detail_2026_10_05/home_stove_front.png",
+          "texture_size": "(28.0, 69.0)",
+          "visible": true,
+          "visible_world_bounds": "[P: (35.0, 112.0), S: (24.0, 65.0)]",
+          "z_index": 0
+        },
+        "target_contract": true,
+        "current_texture_sha256": "461f5e412c4c679b85985d701e7cf54a72ae04ba8e9dd0274d24e1a4c9a22185",
+        "current_texture_native_size": [
+          28,
+          69
+        ]
+      },
+      {
+        "key": "courtyard_home/RouteDecor/RoomCoatFront",
+        "state": {
+          "centered": false,
+          "filter": 1,
+          "id": 164483828499,
+          "material": {
+            "canopy_opacity": 1.0,
+            "class": "ShaderMaterial",
+            "id": -9223371872354170092,
+            "shader_id": -9223371987781417438,
+            "shader_path": "res://assets/sprites/world/route1_landing_loop_2026_10_03/canopy_visibility.gdshader"
+          },
+          "modulate": "(1.0, 1.0, 1.0, 1.0)",
+          "offset": "(0.0, -62.0)",
+          "position": "(182.0, 176.0)",
+          "scale": "(1.0, 1.0)",
+          "texture_id": -9223371978285513035,
+          "texture_path": "res://assets/sprites/world/courtyard_home_detail_2026_10_05/home_coat_front.png",
+          "texture_size": "(40.0, 64.0)",
+          "visible": true,
+          "visible_world_bounds": "[P: (184.0, 116.0), S: (36.0, 60.0)]",
+          "z_index": 0
+        },
+        "target_contract": true,
+        "current_texture_sha256": "9758fbd2efbb1e1d83b00f8aa2fd34d2daaf83ebd8158abd71ece788a0427f7e",
+        "current_texture_native_size": [
+          40,
+          64
+        ]
+      },
+      {
+        "key": "courtyard_home/RouteDecor/RoomThresholdFront",
+        "state": {
+          "centered": false,
+          "filter": 1,
+          "id": 164517382933,
+          "material": {
+            "class": "",
+            "id": 0,
+            "shader_id": 0,
+            "shader_path": ""
+          },
+          "modulate": "(1.0, 1.0, 1.0, 1.0)",
+          "offset": "(0.0, -24.0)",
+          "position": "(24.0, 233.0)",
+          "scale": "(1.0, 1.0)",
+          "texture_id": -9223371977983523146,
+          "texture_path": "res://assets/sprites/world/courtyard_home_detail_2026_10_05/home_threshold_front.png",
+          "texture_size": "(209.0, 26.0)",
+          "visible": true,
+          "visible_world_bounds": "[P: (26.0, 211.0), S: (205.0, 22.0)]",
+          "z_index": 0
+        },
+        "target_contract": true,
+        "current_texture_sha256": "47872dc776e93d784937cc60243758166390d92349e8ec12588586ee2c445ac1",
+        "current_texture_native_size": [
+          209,
+          26
+        ]
+      },
+      {
+        "key": "hometown/RouteDecor/CourtyardHome",
+        "state": {
+          "centered": true,
+          "filter": 1,
+          "id": 222080010283,
+          "material": {
+            "class": "",
+            "id": 0,
+            "shader_id": 0,
+            "shader_path": ""
+          },
+          "modulate": "(1.0, 1.0, 1.0, 1.0)",
+          "offset": "(0.0, -64.0)",
+          "position": "(224.0, 256.0)",
+          "scale": "(0.75, 0.75)",
+          "texture_id": -9223371992126716383,
+          "texture_path": "res://assets/sprites/world/world_linework_2026_10_04/courtyard_home.png",
+          "texture_size": "(160.0, 144.0)",
+          "visible": true,
+          "visible_world_bounds": "[P: (167.75, 161.5), S: (111.0, 94.5)]",
+          "z_index": 0
+        },
+        "target_contract": true,
+        "current_texture_sha256": "f5a4af906a064c0a1faa972847f01ddcbb2a93372350d9e0b77fbbbe1ded290c",
+        "current_texture_native_size": [
+          160,
+          144
+        ]
+      },
+      {
+        "key": "hometown/RouteDecor/DispatcherHall",
+        "state": {
+          "centered": true,
+          "filter": 1,
+          "id": 222432332321,
+          "material": {
+            "class": "",
+            "id": 0,
+            "shader_id": 0,
+            "shader_path": ""
+          },
+          "modulate": "(1.0, 1.0, 1.0, 1.0)",
+          "offset": "(0.0, -71.0)",
+          "position": "(768.0, 418.0)",
+          "scale": "(0.75, 0.75)",
+          "texture_id": -9223371990918756721,
+          "texture_path": "res://assets/sprites/world/world_linework_2026_10_04/dispatch_hall.png",
+          "texture_size": "(136.0, 168.0)",
+          "visible": true,
+          "visible_world_bounds": "[P: (723.0, 305.5), S: (89.25, 112.5)]",
+          "z_index": 0
+        },
+        "target_contract": true,
+        "current_texture_sha256": "94bdf8fe98fa9e1c13afc9f2b6394bd06cf4c5ec03019dd126c765add1c57f23",
+        "current_texture_native_size": [
+          136,
+          168
+        ]
+      },
+      {
+        "key": "riverfront/RouteDecor/CityCourierBranch",
+        "state": {
+          "centered": true,
+          "filter": 1,
+          "id": 281555241624,
+          "material": {
+            "class": "",
+            "id": 0,
+            "shader_id": 0,
+            "shader_path": ""
+          },
+          "modulate": "(1.0, 1.0, 1.0, 1.0)",
+          "offset": "(0.0, -71.0)",
+          "position": "(512.0, 362.0)",
+          "scale": "(0.75, 0.75)",
+          "texture_id": -9223371990918756721,
+          "texture_path": "res://assets/sprites/world/world_linework_2026_10_04/dispatch_hall.png",
+          "texture_size": "(136.0, 168.0)",
+          "visible": true,
+          "visible_world_bounds": "[P: (467.0, 249.5), S: (89.25, 112.5)]",
+          "z_index": 0
+        },
+        "target_contract": true,
+        "current_texture_sha256": "94bdf8fe98fa9e1c13afc9f2b6394bd06cf4c5ec03019dd126c765add1c57f23",
+        "current_texture_native_size": [
+          136,
+          168
+        ]
+      },
+      {
+        "key": "riverfront/RouteDecor/ReusedBrickShop",
+        "state": {
+          "centered": true,
+          "filter": 1,
+          "id": 281890785178,
+          "material": {
+            "class": "",
+            "id": 0,
+            "shader_id": 0,
+            "shader_path": ""
+          },
+          "modulate": "(1.0, 1.0, 1.0, 1.0)",
+          "offset": "(0.0, -74.0)",
+          "position": "(768.0, 264.0)",
+          "scale": "(0.75, 0.75)",
+          "texture_id": -9223371989945678190,
+          "texture_path": "res://assets/sprites/world/world_linework_2026_10_04/brick_shop.png",
+          "texture_size": "(208.0, 192.0)",
+          "visible": true,
+          "visible_world_bounds": "[P: (698.25, 146.25), S: (139.5, 117.75)]",
+          "z_index": 0
+        },
+        "target_contract": true,
+        "current_texture_sha256": "c72d9b86c0b4643d0f9da3c025a239c1f31efa3ff9510885bfd0736dfc6141c2",
+        "current_texture_native_size": [
+          208,
+          192
+        ]
+      },
+      {
+        "key": "riverfront/RouteDecor/StreetLedgerHouse",
+        "state": {
+          "centered": true,
+          "filter": 1,
+          "id": 281974671266,
+          "material": {
+            "class": "",
+            "id": 0,
+            "shader_id": 0,
+            "shader_path": ""
+          },
+          "modulate": "(1.0, 1.0, 1.0, 1.0)",
+          "offset": "(0.0, -84.0)",
+          "position": "(336.0, 640.0)",
+          "scale": "(0.75, 0.75)",
+          "texture_id": -9223371989643688301,
+          "texture_path": "res://assets/sprites/world/world_linework_2026_10_04/ledger_house.png",
+          "texture_size": "(176.0, 192.0)",
+          "visible": true,
+          "visible_world_bounds": "[P: (280.5, 511.75), S: (111.0, 128.25)]",
+          "z_index": 0
+        },
+        "target_contract": true,
+        "current_texture_sha256": "7392fdde7ed2e4c9f17e81b129a96bbde753d1326b8830e223901227fbcfcc23",
+        "current_texture_native_size": [
+          176,
+          192
+        ]
+      },
+      {
+        "key": "historic_street/RouteDecor/RemodelledBrickShop",
+        "state": {
+          "centered": true,
+          "filter": 1,
+          "id": 340090947854,
+          "material": {
+            "class": "",
+            "id": 0,
+            "shader_id": 0,
+            "shader_path": ""
+          },
+          "modulate": "(1.0, 1.0, 1.0, 1.0)",
+          "offset": "(0.0, -74.0)",
+          "position": "(544.0, 400.0)",
+          "scale": "(0.85, 0.85)",
+          "texture_id": -9223371989945678190,
+          "texture_path": "res://assets/sprites/world/world_linework_2026_10_04/brick_shop.png",
+          "texture_size": "(208.0, 192.0)",
+          "visible": true,
+          "visible_world_bounds": "[P: (464.95, 266.55), S: (158.1, 133.45)]",
+          "z_index": 0
+        },
+        "target_contract": true,
+        "current_texture_sha256": "c72d9b86c0b4643d0f9da3c025a239c1f31efa3ff9510885bfd0736dfc6141c2",
+        "current_texture_native_size": [
+          208,
+          192
+        ]
+      },
+      {
+        "key": "historic_street/RouteDecor/PublicLedgerHouse",
+        "state": {
+          "centered": true,
+          "filter": 1,
+          "id": 340174833938,
+          "material": {
+            "class": "",
+            "id": 0,
+            "shader_id": 0,
+            "shader_path": ""
+          },
+          "modulate": "(1.0, 1.0, 1.0, 1.0)",
+          "offset": "(0.0, -84.0)",
+          "position": "(224.0, 400.0)",
+          "scale": "(0.85, 0.85)",
+          "texture_id": -9223371989643688301,
+          "texture_path": "res://assets/sprites/world/world_linework_2026_10_04/ledger_house.png",
+          "texture_size": "(176.0, 192.0)",
+          "visible": true,
+          "visible_world_bounds": "[P: (161.1, 254.65), S: (125.8, 145.35)]",
+          "z_index": 0
+        },
+        "target_contract": true,
+        "current_texture_sha256": "7392fdde7ed2e4c9f17e81b129a96bbde753d1326b8830e223901227fbcfcc23",
+        "current_texture_native_size": [
+          176,
+          192
+        ]
+      }
+    ],
+    "area_preservation_checks": [
+      {
+        "area_complete": "courtyard_home",
+        "core_flags_player_controller_notes_objective_board_party_local_state_cache_and_material_exact": true,
+        "final_core": {
+          "active_area": 164349610763,
+          "area_id": "courtyard_home",
+          "board": "ROUTE BOARD  /  Assignment open",
+          "bound_player": 164383165197,
+          "cache": {
+            "courtyard_home": {
+              "area": 164349610763,
+              "player": 164383165197
+            },
+            "route1": {
+              "area": 111199389368,
+              "player": 111786592156
+            }
+          },
+          "controller": 111199389368,
+          "flags": {
+            "city_arrival_registered": false,
+            "city_directions_read": false,
+            "delivered": false,
+            "heard_calls": false,
+            "levee_entrance_read": false,
+            "marker_restored": false,
+            "pouch_accepted": false,
+            "report_done": false,
+            "reported_calls": false,
+            "reported_water_mark": false,
+            "water_mark_observed": false
+          },
+          "journey": 111132280330,
+          "local_state": {},
+          "model": "Male",
+          "notes": "",
+          "objective": "FIRST ROUTE  /  Speak to the dispatcher",
+          "party": {
+            "active_slot": 0,
+            "id": 37413193207,
+            "members": [
+              {
+                "known": [],
+                "member": -9223371874300327262,
+                "species": -9223371944160655616
+              }
+            ]
+          },
+          "physics_processing": true,
+          "player": 164383165197,
+          "position": "(128.0, 208.0)",
+          "speed": 80.0,
+          "transitioning": false,
+          "transitions": [],
+          "velocity": "(0.0, 0.0)"
+        },
+        "original_camera_and_hud_visibility_restored": true,
+        "original_core": {
+          "active_area": 164349610763,
+          "area_id": "courtyard_home",
+          "board": "ROUTE BOARD  /  Assignment open",
+          "bound_player": 164383165197,
+          "cache": {
+            "courtyard_home": {
+              "area": 164349610763,
+              "player": 164383165197
+            },
+            "route1": {
+              "area": 111199389368,
+              "player": 111786592156
+            }
+          },
+          "controller": 111199389368,
+          "flags": {
+            "city_arrival_registered": false,
+            "city_directions_read": false,
+            "delivered": false,
+            "heard_calls": false,
+            "levee_entrance_read": false,
+            "marker_restored": false,
+            "pouch_accepted": false,
+            "report_done": false,
+            "reported_calls": false,
+            "reported_water_mark": false,
+            "water_mark_observed": false
+          },
+          "journey": 111132280330,
+          "local_state": {},
+          "model": "Male",
+          "notes": "",
+          "objective": "FIRST ROUTE  /  Speak to the dispatcher",
+          "party": {
+            "active_slot": 0,
+            "id": 37413193207,
+            "members": [
+              {
+                "known": [],
+                "member": -9223371874300327262,
+                "species": -9223371944160655616
+              }
+            ]
+          },
+          "physics_processing": true,
+          "player": 164383165197,
+          "position": "(128.0, 208.0)",
+          "speed": 80.0,
+          "transitioning": false,
+          "transitions": [],
+          "velocity": "(0.0, 0.0)"
+        },
+        "passed": true
+      },
+      {
+        "area_complete": "hometown",
+        "core_flags_player_controller_notes_objective_board_party_local_state_cache_and_material_exact": true,
+        "final_core": {
+          "active_area": 221761243185,
+          "area_id": "hometown",
+          "board": "ROUTE BOARD  /  Assignment open",
+          "bound_player": 221794797631,
+          "cache": {
+            "hometown": {
+              "area": 221761243185,
+              "player": 221794797631
+            },
+            "route1": {
+              "area": 171060495890,
+              "player": 171647699654
+            }
+          },
+          "controller": 171060495890,
+          "flags": {
+            "city_arrival_registered": false,
+            "city_directions_read": false,
+            "delivered": false,
+            "heard_calls": false,
+            "levee_entrance_read": false,
+            "marker_restored": false,
+            "pouch_accepted": false,
+            "report_done": false,
+            "reported_calls": false,
+            "reported_water_mark": false,
+            "water_mark_observed": false
+          },
+          "journey": 170993387020,
+          "local_state": {
+            "garden": 221878683706,
+            "offered": false,
+            "planted": false,
+            "rows": []
+          },
+          "model": "Male",
+          "notes": "",
+          "objective": "FIRST ROUTE  /  Speak to the dispatcher",
+          "party": {
+            "active_slot": 0,
+            "id": 37413193207,
+            "members": [
+              {
+                "known": [],
+                "member": -9223371874300327262,
+                "species": -9223371944160655616
+              }
+            ]
+          },
+          "physics_processing": true,
+          "player": 221794797631,
+          "position": "(224.0, 280.0)",
+          "speed": 80.0,
+          "transitioning": false,
+          "transitions": [],
+          "velocity": "(0.0, 0.0)"
+        },
+        "original_camera_and_hud_visibility_restored": true,
+        "original_core": {
+          "active_area": 221761243185,
+          "area_id": "hometown",
+          "board": "ROUTE BOARD  /  Assignment open",
+          "bound_player": 221794797631,
+          "cache": {
+            "hometown": {
+              "area": 221761243185,
+              "player": 221794797631
+            },
+            "route1": {
+              "area": 171060495890,
+              "player": 171647699654
+            }
+          },
+          "controller": 171060495890,
+          "flags": {
+            "city_arrival_registered": false,
+            "city_directions_read": false,
+            "delivered": false,
+            "heard_calls": false,
+            "levee_entrance_read": false,
+            "marker_restored": false,
+            "pouch_accepted": false,
+            "report_done": false,
+            "reported_calls": false,
+            "reported_water_mark": false,
+            "water_mark_observed": false
+          },
+          "journey": 170993387020,
+          "local_state": {
+            "garden": 221878683706,
+            "offered": false,
+            "planted": false,
+            "rows": []
+          },
+          "model": "Male",
+          "notes": "",
+          "objective": "FIRST ROUTE  /  Speak to the dispatcher",
+          "party": {
+            "active_slot": 0,
+            "id": 37413193207,
+            "members": [
+              {
+                "known": [],
+                "member": -9223371874300327262,
+                "species": -9223371944160655616
+              }
+            ]
+          },
+          "physics_processing": true,
+          "player": 221794797631,
+          "position": "(224.0, 280.0)",
+          "speed": 80.0,
+          "transitioning": false,
+          "transitions": [],
+          "velocity": "(0.0, 0.0)"
+        },
+        "passed": true
+      },
+      {
+        "area_complete": "riverfront",
+        "core_flags_player_controller_notes_objective_board_party_local_state_cache_and_material_exact": true,
+        "final_core": {
+          "active_area": 281051925116,
+          "area_id": "riverfront",
+          "board": "ROUTE BOARD  /  Assignment open",
+          "bound_player": 281085479550,
+          "cache": {
+            "riverfront": {
+              "area": 281051925116,
+              "player": 281085479550
+            },
+            "route1": {
+              "area": 230351177230,
+              "player": 230938380437
+            }
+          },
+          "controller": 230351177230,
+          "flags": {
+            "city_arrival_registered": false,
+            "city_directions_read": false,
+            "delivered": false,
+            "heard_calls": false,
+            "levee_entrance_read": false,
+            "marker_restored": false,
+            "pouch_accepted": false,
+            "report_done": false,
+            "reported_calls": false,
+            "reported_water_mark": false,
+            "water_mark_observed": false
+          },
+          "journey": 230284069535,
+          "local_state": {},
+          "model": "Male",
+          "notes": "",
+          "objective": "FIRST ROUTE  /  Speak to the dispatcher",
+          "party": {
+            "active_slot": 0,
+            "id": 37413193207,
+            "members": [
+              {
+                "known": [],
+                "member": -9223371874300327262,
+                "species": -9223371944160655616
+              }
+            ]
+          },
+          "physics_processing": true,
+          "player": 281085479550,
+          "position": "(320.0, 512.0)",
+          "speed": 80.0,
+          "transitioning": false,
+          "transitions": [],
+          "velocity": "(0.0, 0.0)"
+        },
+        "original_camera_and_hud_visibility_restored": true,
+        "original_core": {
+          "active_area": 281051925116,
+          "area_id": "riverfront",
+          "board": "ROUTE BOARD  /  Assignment open",
+          "bound_player": 281085479550,
+          "cache": {
+            "riverfront": {
+              "area": 281051925116,
+              "player": 281085479550
+            },
+            "route1": {
+              "area": 230351177230,
+              "player": 230938380437
+            }
+          },
+          "controller": 230351177230,
+          "flags": {
+            "city_arrival_registered": false,
+            "city_directions_read": false,
+            "delivered": false,
+            "heard_calls": false,
+            "levee_entrance_read": false,
+            "marker_restored": false,
+            "pouch_accepted": false,
+            "report_done": false,
+            "reported_calls": false,
+            "reported_water_mark": false,
+            "water_mark_observed": false
+          },
+          "journey": 230284069535,
+          "local_state": {},
+          "model": "Male",
+          "notes": "",
+          "objective": "FIRST ROUTE  /  Speak to the dispatcher",
+          "party": {
+            "active_slot": 0,
+            "id": 37413193207,
+            "members": [
+              {
+                "known": [],
+                "member": -9223371874300327262,
+                "species": -9223371944160655616
+              }
+            ]
+          },
+          "physics_processing": true,
+          "player": 281085479550,
+          "position": "(320.0, 512.0)",
+          "speed": 80.0,
+          "transitioning": false,
+          "transitions": [],
+          "velocity": "(0.0, 0.0)"
+        },
+        "passed": true
+      },
+      {
+        "area_complete": "historic_street",
+        "core_flags_player_controller_notes_objective_board_party_local_state_cache_and_material_exact": true,
+        "final_core": {
+          "active_area": 339939952901,
+          "area_id": "historic_street",
+          "board": "ROUTE BOARD  /  Assignment open",
+          "bound_player": 339973507335,
+          "cache": {
+            "historic_street": {
+              "area": 339939952901,
+              "player": 339973507335
+            },
+            "route1": {
+              "area": 289239206410,
+              "player": 289826409018
+            }
+          },
+          "controller": 289239206410,
+          "flags": {
+            "city_arrival_registered": false,
+            "city_directions_read": false,
+            "delivered": false,
+            "heard_calls": false,
+            "levee_entrance_read": false,
+            "marker_restored": false,
+            "pouch_accepted": false,
+            "report_done": false,
+            "reported_calls": false,
+            "reported_water_mark": false,
+            "water_mark_observed": false
+          },
+          "journey": 289172097147,
+          "local_state": {
+            "handoff_verified": false,
+            "last_submitted_number": 0,
+            "ledger_checked": false,
+            "lintel_checked": false,
+            "started": false
+          },
+          "model": "Male",
+          "notes": "",
+          "objective": "HISTORIC STREET  /  Read the street courier board",
+          "party": {
+            "active_slot": 0,
+            "id": 37413193207,
+            "members": [
+              {
+                "known": [],
+                "member": -9223371874300327262,
+                "species": -9223371944160655616
+              }
+            ]
+          },
+          "physics_processing": true,
+          "player": 339973507335,
+          "position": "(384.0, 848.0)",
+          "speed": 80.0,
+          "transitioning": false,
+          "transitions": [],
+          "velocity": "(0.0, 0.0)"
+        },
+        "original_camera_and_hud_visibility_restored": true,
+        "original_core": {
+          "active_area": 339939952901,
+          "area_id": "historic_street",
+          "board": "ROUTE BOARD  /  Assignment open",
+          "bound_player": 339973507335,
+          "cache": {
+            "historic_street": {
+              "area": 339939952901,
+              "player": 339973507335
+            },
+            "route1": {
+              "area": 289239206410,
+              "player": 289826409018
+            }
+          },
+          "controller": 289239206410,
+          "flags": {
+            "city_arrival_registered": false,
+            "city_directions_read": false,
+            "delivered": false,
+            "heard_calls": false,
+            "levee_entrance_read": false,
+            "marker_restored": false,
+            "pouch_accepted": false,
+            "report_done": false,
+            "reported_calls": false,
+            "reported_water_mark": false,
+            "water_mark_observed": false
+          },
+          "journey": 289172097147,
+          "local_state": {
+            "handoff_verified": false,
+            "last_submitted_number": 0,
+            "ledger_checked": false,
+            "lintel_checked": false,
+            "started": false
+          },
+          "model": "Male",
+          "notes": "",
+          "objective": "HISTORIC STREET  /  Read the street courier board",
+          "party": {
+            "active_slot": 0,
+            "id": 37413193207,
+            "members": [
+              {
+                "known": [],
+                "member": -9223371874300327262,
+                "species": -9223371944160655616
+              }
+            ]
+          },
+          "physics_processing": true,
+          "player": 339973507335,
+          "position": "(384.0, 848.0)",
+          "speed": 80.0,
+          "transitioning": false,
+          "transitions": [],
+          "velocity": "(0.0, 0.0)"
+        },
+        "passed": true
+      }
+    ],
+    "failed_records": []
+  },
+  "independent_pixel_checks": {
+    "original_size": [
+      256,
+      256
+    ],
+    "final_size": [
+      256,
+      256
+    ],
+    "accepted_pixels": 10160,
+    "RGB_changed_pixels": 1914,
+    "alpha_changed_pixels": 0,
+    "outside_acceptance_mask_RGBA_differences": 0,
+    "transparent_original_RGBA_differences": 0,
+    "cloth_pixels": 501,
+    "cloth_RGBA_differences": 0,
+    "cloth_mask_bounds": [
+      193,
+      133,
+      220,
+      163
+    ],
+    "foregrounds": [
+      {
+        "asset": "home_stove_front",
+        "origin": [
+          33,
+          110
+        ],
+        "size": [
+          28,
+          69
+        ],
+        "expected_native_size": [
+          28,
+          69
+        ],
+        "opaque_RGBA_source_differences": 0,
+        "current_installed_matches_prepared": true
+      },
+      {
+        "asset": "home_coat_front",
+        "origin": [
+          182,
+          114
+        ],
+        "size": [
+          40,
+          64
+        ],
+        "expected_native_size": [
+          40,
+          64
+        ],
+        "opaque_RGBA_source_differences": 0,
+        "current_installed_matches_prepared": true
+      },
+      {
+        "asset": "home_threshold_front",
+        "origin": [
+          24,
+          209
+        ],
+        "size": [
+          209,
+          26
+        ],
+        "expected_native_size": [
+          209,
+          26
+        ],
+        "opaque_RGBA_source_differences": 0,
+        "current_installed_matches_prepared": true
+      }
+    ],
+    "foreground_full_opacity_RGBA_reconstruction_differences": 0,
+    "native_2x_registration": {
+      "capture": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\room-coalcrest-detail-2026-10-05\\proof\\overview\\male-home-room-native-2x.png",
+      "pixel_size": [
+        512,
+        512
+      ],
+      "opaque_render_pixels_compared": 162324,
+      "RGB_differences": 0,
+      "excluded_original_courier_region": [
+        112,
+        176,
+        144,
+        216
+      ],
+      "cloth_render_pixels_compared": 2004,
+      "cloth_RGB_differences": 0,
+      "method": "Each opaque source pixel compared against every pixel in its exact 2x2 native-render block, excluding a courier rectangle only."
+    },
+    "prepared_source_sha256": "3c65fb10ea372e99b9abd84db1792a5b20cafd330c5bfaa4590e1802a3b24862",
+    "original_source_sha256": "3232fff46305634fe509872d759e305e3e3ae4a2c76a282efb6f73d18fded95b",
+    "cloth_mask_sha256": "46f9abfb46597f3173a262a64a58740823d614caa189e2a58df3a8a0894e9035"
+  },
+  "current_installed_scope": {
+    "files": [
+      {
+        "relative_path": "scripts/courtyard_home_room.gd",
+        "installation_sha256": "53cb15f5168a6714fe78712062342178d69531dd2cb4aa0e0de592842d27e418",
+        "current_sha256": "53cb15f5168a6714fe78712062342178d69531dd2cb4aa0e0de592842d27e418",
+        "exact_match": true
+      },
+      {
+        "relative_path": "assets/sprites/world/courtyard_home_detail_2026_10_05/home_room.png",
+        "installation_sha256": "18082c72038c62c53a9b7ad35bc7f4d99e2796e1fceeabd81493e0ea0f650bc3",
+        "current_sha256": "18082c72038c62c53a9b7ad35bc7f4d99e2796e1fceeabd81493e0ea0f650bc3",
+        "exact_match": true
+      },
+      {
+        "relative_path": "assets/sprites/world/courtyard_home_detail_2026_10_05/home_stove_front.png",
+        "installation_sha256": "461f5e412c4c679b85985d701e7cf54a72ae04ba8e9dd0274d24e1a4c9a22185",
+        "current_sha256": "461f5e412c4c679b85985d701e7cf54a72ae04ba8e9dd0274d24e1a4c9a22185",
+        "exact_match": true
+      },
+      {
+        "relative_path": "assets/sprites/world/courtyard_home_detail_2026_10_05/home_coat_front.png",
+        "installation_sha256": "9758fbd2efbb1e1d83b00f8aa2fd34d2daaf83ebd8158abd71ece788a0427f7e",
+        "current_sha256": "9758fbd2efbb1e1d83b00f8aa2fd34d2daaf83ebd8158abd71ece788a0427f7e",
+        "exact_match": true
+      },
+      {
+        "relative_path": "assets/sprites/world/courtyard_home_detail_2026_10_05/home_threshold_front.png",
+        "installation_sha256": "47872dc776e93d784937cc60243758166390d92349e8ec12588586ee2c445ac1",
+        "current_sha256": "47872dc776e93d784937cc60243758166390d92349e8ec12588586ee2c445ac1",
+        "exact_match": true
+      },
+      {
+        "relative_path": "scripts/area_landscape.gd",
+        "installation_sha256": "010c67c8891e92058ac543a5414aea37c17145be2a0b7933d22821b50880c671",
+        "current_sha256": "010c67c8891e92058ac543a5414aea37c17145be2a0b7933d22821b50880c671",
+        "exact_match": true
+      },
+      {
+        "relative_path": "assets/sprites/world/world_approaches_2026_10_05/hometown_hall_approach.png",
+        "installation_sha256": "eb83303c618cbf39bcbf8fc312aa7b6e154f1021c912872547a45bd58f67acc9",
+        "current_sha256": "eb83303c618cbf39bcbf8fc312aa7b6e154f1021c912872547a45bd58f67acc9",
+        "exact_match": true
+      },
+      {
+        "relative_path": "assets/sprites/world/world_approaches_2026_10_05/riverfront_branch_approach.png",
+        "installation_sha256": "3abb8cd04b02ea736bbd097b35acb3136bb0d6ecaf4285a799a5590c6271ed96",
+        "current_sha256": "3abb8cd04b02ea736bbd097b35acb3136bb0d6ecaf4285a799a5590c6271ed96",
+        "exact_match": true
+      }
+    ],
+    "room_script_exact_four_texture_path_substitution_only": true,
+    "area_script_exact_recorded_approach_and_roof_label_substitutions_only": true,
+    "room_native_camera_2x_retained": true,
+    "approaches": [
+      {
+        "id": "hometown_hall_approach",
+        "installed_png": "C:\\Users\\pmcga\\dev\\hollowtide\\assets\\sprites\\world\\world_approaches_2026_10_05\\hometown_hall_approach.png",
+        "sha256": "eb83303c618cbf39bcbf8fc312aa7b6e154f1021c912872547a45bd58f67acc9",
+        "source": "C:\\Users\\pmcga\\dev\\hollowtide\\assets\\sprites\\world\\area_transitions_2026_10_03\\hometown_streets.png",
+        "source_sha256": "7d5fb9e9a9d10d641a23579b1cb9ec628b23a9712d1cef6a49f409d62ed8e4f6",
+        "source_hash_matches_original": true,
+        "source_crop_RGBA_exact": true,
+        "native_size": [
+          37,
+          44
+        ],
+        "world_origin": [
+          750,
+          414
+        ],
+        "depth": -5,
+        "native_scale": 1.0,
+        "center_column_opaque_world_y_min": 414,
+        "center_column_opaque_world_y_max": 457,
+        "building_visible_foot_y": 418,
+        "foot_center_has_surface": true,
+        "door_gate": {
+          "center": [
+            768,
+            424
+          ],
+          "size": [
+            20,
+            8
+          ],
+          "target": "courier_hall"
+        },
+        "note": null
+      },
+      {
+        "id": "riverfront_branch_approach",
+        "installed_png": "C:\\Users\\pmcga\\dev\\hollowtide\\assets\\sprites\\world\\world_approaches_2026_10_05\\riverfront_branch_approach.png",
+        "sha256": "3abb8cd04b02ea736bbd097b35acb3136bb0d6ecaf4285a799a5590c6271ed96",
+        "source": "C:\\Users\\pmcga\\dev\\hollowtide\\assets\\sprites\\world\\area_transitions_2026_10_03\\riverfront_streets.png",
+        "source_sha256": "4d77d47fb6cb958425317247d3e83c7be90838468985c1685e335ea0a1395599",
+        "source_hash_matches_original": true,
+        "source_crop_RGBA_exact": true,
+        "native_size": [
+          45,
+          48
+        ],
+        "world_origin": [
+          490,
+          354
+        ],
+        "depth": -5,
+        "native_scale": 1.0,
+        "center_column_opaque_world_y_min": 354,
+        "center_column_opaque_world_y_max": 401,
+        "building_visible_foot_y": 362,
+        "foot_center_has_surface": true,
+        "door_gate": null,
+        "note": "Branch is an outdoor clerk interaction, not an enterable hall gate."
+      }
+    ],
+    "camera_source_evidence": "var camera: Camera2D = $Player/Camera2D; camera.zoom = Vector2(2,2)"
+  },
+  "shared_repository_snapshot": {
+    "baseline_path": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\room-coalcrest-detail-2026-10-05\\room-installation-baseline.json",
+    "baseline_sha256": "0a51ec98e9eb0939bffe7b90e4df5b1b220a56038fa05416e63dc6a0669ddc82",
+    "baseline_file_count": 2257,
+    "scope_roots": [
+      "assets",
+      "data",
+      "scripts",
+      "scenes",
+      "project.godot"
+    ],
+    "global_equal_claim": false,
+    "classification": "Other observed changes are outside this room/approach verification and are not attributed to this verifier; concurrent creature/battle/effect work is preserved, never restored.",
+    "current_file_count": 2282,
+    "scoped_changes": [
+      {
+        "relative_path": "assets/sprites/world/courtyard_home_detail_2026_10_05/home_coat_front.png",
+        "status": "new",
+        "before_sha256": null,
+        "current_sha256": "9758fbd2efbb1e1d83b00f8aa2fd34d2daaf83ebd8158abd71ece788a0427f7e",
+        "scope": "verified_room_or_approach_installation"
+      },
+      {
+        "relative_path": "assets/sprites/world/courtyard_home_detail_2026_10_05/home_coat_front.png.import",
+        "status": "new",
+        "before_sha256": null,
+        "current_sha256": "7060da59e854bde35be367af65f86995cda38fa3b41b347092784bbaa92e8797",
+        "scope": "verified_room_or_approach_installation"
+      },
+      {
+        "relative_path": "assets/sprites/world/courtyard_home_detail_2026_10_05/home_room.png",
+        "status": "new",
+        "before_sha256": null,
+        "current_sha256": "18082c72038c62c53a9b7ad35bc7f4d99e2796e1fceeabd81493e0ea0f650bc3",
+        "scope": "verified_room_or_approach_installation"
+      },
+      {
+        "relative_path": "assets/sprites/world/courtyard_home_detail_2026_10_05/home_room.png.import",
+        "status": "new",
+        "before_sha256": null,
+        "current_sha256": "da979cf29b86302eae8b6a380ffe1a2127367badfe0c4d9c32c0752c2bb2f46e",
+        "scope": "verified_room_or_approach_installation"
+      },
+      {
+        "relative_path": "assets/sprites/world/courtyard_home_detail_2026_10_05/home_stove_front.png",
+        "status": "new",
+        "before_sha256": null,
+        "current_sha256": "461f5e412c4c679b85985d701e7cf54a72ae04ba8e9dd0274d24e1a4c9a22185",
+        "scope": "verified_room_or_approach_installation"
+      },
+      {
+        "relative_path": "assets/sprites/world/courtyard_home_detail_2026_10_05/home_stove_front.png.import",
+        "status": "new",
+        "before_sha256": null,
+        "current_sha256": "ab5ec1728fb885b97f882db2214f0bc6405bdf25645f7383649146f94c2fd1fb",
+        "scope": "verified_room_or_approach_installation"
+      },
+      {
+        "relative_path": "assets/sprites/world/courtyard_home_detail_2026_10_05/home_threshold_front.png",
+        "status": "new",
+        "before_sha256": null,
+        "current_sha256": "47872dc776e93d784937cc60243758166390d92349e8ec12588586ee2c445ac1",
+        "scope": "verified_room_or_approach_installation"
+      },
+      {
+        "relative_path": "assets/sprites/world/courtyard_home_detail_2026_10_05/home_threshold_front.png.import",
+        "status": "new",
+        "before_sha256": null,
+        "current_sha256": "23bcf0c1e1cfb1445969f0accc63eea9d0c9481435dbe74b83c5320bf0699b64",
+        "scope": "verified_room_or_approach_installation"
+      },
+      {
+        "relative_path": "assets/sprites/world/world_approaches_2026_10_05/hometown_hall_approach.png",
+        "status": "new",
+        "before_sha256": null,
+        "current_sha256": "eb83303c618cbf39bcbf8fc312aa7b6e154f1021c912872547a45bd58f67acc9",
+        "scope": "verified_room_or_approach_installation"
+      },
+      {
+        "relative_path": "assets/sprites/world/world_approaches_2026_10_05/hometown_hall_approach.png.import",
+        "status": "new",
+        "before_sha256": null,
+        "current_sha256": "3a4cf09438663eeeb24353bc390d3f0f9dccd5f08677e3d3279e1592b7bf5f89",
+        "scope": "verified_room_or_approach_installation"
+      },
+      {
+        "relative_path": "assets/sprites/world/world_approaches_2026_10_05/riverfront_branch_approach.png",
+        "status": "new",
+        "before_sha256": null,
+        "current_sha256": "3abb8cd04b02ea736bbd097b35acb3136bb0d6ecaf4285a799a5590c6271ed96",
+        "scope": "verified_room_or_approach_installation"
+      },
+      {
+        "relative_path": "assets/sprites/world/world_approaches_2026_10_05/riverfront_branch_approach.png.import",
+        "status": "new",
+        "before_sha256": null,
+        "current_sha256": "5f1f8602271e7ee50411ebb74371e82e31145a634bd7524c56ffb870acfc7edf",
+        "scope": "verified_room_or_approach_installation"
+      },
+      {
+        "relative_path": "scripts/area_landscape.gd",
+        "status": "changed",
+        "before_sha256": "bfa0a77495280c973ead3631a4216d64a864aefe178793181917c2f0cf69d946",
+        "current_sha256": "010c67c8891e92058ac543a5414aea37c17145be2a0b7933d22821b50880c671",
+        "scope": "verified_room_or_approach_installation"
+      },
+      {
+        "relative_path": "scripts/courtyard_home_room.gd",
+        "status": "changed",
+        "before_sha256": "51c6621e1d6e11400f423337fc272eb55d70f6eff600624e21554bc798f5474d",
+        "current_sha256": "53cb15f5168a6714fe78712062342178d69531dd2cb4aa0e0de592842d27e418",
+        "scope": "verified_room_or_approach_installation"
+      }
+    ],
+    "other_shared_changes": [
+      {
+        "relative_path": "assets/sprites/creatures/coalcrest_outline_detail_2026_10_05/coalcrest_back.png",
+        "status": "new",
+        "before_sha256": null,
+        "current_sha256": "6bb94d22b9debcd305d362cff5b48161b456ed6bf762c24e1f58c98d23ed7652",
+        "scope": "other_shared_repository_change"
+      },
+      {
+        "relative_path": "assets/sprites/creatures/coalcrest_outline_detail_2026_10_05/coalcrest_back.png.import",
+        "status": "new",
+        "before_sha256": null,
+        "current_sha256": "d43b7fb0766234ec5ed89c91dd5cc7b35f9322ce466170ff3f4a5ef42af38627",
+        "scope": "other_shared_repository_change"
+      },
+      {
+        "relative_path": "assets/sprites/creatures/coalcrest_outline_detail_2026_10_05/coalcrest_front.png",
+        "status": "new",
+        "before_sha256": null,
+        "current_sha256": "e17acf8227e1b98d752e4d476b3e7fa9b37b426c3fb3e5c349aaee66de83184f",
+        "scope": "other_shared_repository_change"
+      },
+      {
+        "relative_path": "assets/sprites/creatures/coalcrest_outline_detail_2026_10_05/coalcrest_front.png.import",
+        "status": "new",
+        "before_sha256": null,
+        "current_sha256": "86ffaaa909689ba13ec096653e406c112d446080cacff512f61b74fcf3e18b8c",
+        "scope": "other_shared_repository_change"
+      },
+      {
+        "relative_path": "assets/sprites/creatures/ironvent_black_match_2026_10_05/furnace_roar_title.png",
+        "status": "new",
+        "before_sha256": null,
+        "current_sha256": "0eb53284d8b311a3f221d6a8629009ae3a28c00115ee546cc9dbfa37772eaa62",
+        "scope": "other_shared_repository_change"
+      },
+      {
+        "relative_path": "assets/sprites/creatures/ironvent_black_match_2026_10_05/furnace_roar_title.png.import",
+        "status": "new",
+        "before_sha256": null,
+        "current_sha256": "ccde83490ffcfbc286eaa0a85e74a2357495f7108e51de5f734ed0797cc88d08",
+        "scope": "other_shared_repository_change"
+      },
+      {
+        "relative_path": "assets/sprites/creatures/ironvent_black_match_2026_10_05/ironvent_front.png",
+        "status": "new",
+        "before_sha256": null,
+        "current_sha256": "e7e05e0c1a505b5ea035ed6dd7a72f0c5a233a7ca42301a8ef06428fefe2ba35",
+        "scope": "other_shared_repository_change"
+      },
+      {
+        "relative_path": "assets/sprites/creatures/ironvent_black_match_2026_10_05/ironvent_front.png.import",
+        "status": "new",
+        "before_sha256": null,
+        "current_sha256": "38b76cdd7dcabcb33b2fc21e07ea6a085d946d1390e0e10c78dd0f6290e137e7",
+        "scope": "other_shared_repository_change"
+      },
+      {
+        "relative_path": "assets/sprites/creatures/tallowroot_2026_10_05/tallowroot_back.png",
+        "status": "new",
+        "before_sha256": null,
+        "current_sha256": "2b255079f8ae0c89bd2d6ab9484e280ff72e8c8eb4ccebe9708eebfc26b4774e",
+        "scope": "other_shared_repository_change"
+      },
+      {
+        "relative_path": "assets/sprites/creatures/tallowroot_2026_10_05/tallowroot_back.png.import",
+        "status": "new",
+        "before_sha256": null,
+        "current_sha256": "2322778b22041273e48fc50037f8c56217ad88954a0f8c901cdc690404e12dbf",
+        "scope": "other_shared_repository_change"
+      },
+      {
+        "relative_path": "assets/sprites/creatures/tallowroot_2026_10_05/tallowroot_front.png",
+        "status": "new",
+        "before_sha256": null,
+        "current_sha256": "a9b9c1912ca2647f60533f88450239736f7e7787d1bf2ddec4ba2e6baf98f910",
+        "scope": "other_shared_repository_change"
+      },
+      {
+        "relative_path": "assets/sprites/creatures/tallowroot_2026_10_05/tallowroot_front.png.import",
+        "status": "new",
+        "before_sha256": null,
+        "current_sha256": "4ddf8341b7b84b69a7ec1ebdd77f1670f7e100fa4fd3cee3fd219714f4d0b0c7",
+        "scope": "other_shared_repository_change"
+      },
+      {
+        "relative_path": "data/creatures/102_ironvent.tres",
+        "status": "changed",
+        "before_sha256": "c5fd3ed4da4543ffd7ac0574818f7e34b424510b28109620b996a917ef371c4a",
+        "current_sha256": "80c2ac4a75f3fc94d80a333642f419ee842726bdaa6d6c02e4f1ca8a372e257d",
+        "scope": "other_shared_repository_change"
+      },
+      {
+        "relative_path": "data/creatures/105_coalcrest.tres",
+        "status": "changed",
+        "before_sha256": "539972c9382b3aa6d4992c895041051ed93d0048afa7e9aad09e01e7d1a725ac",
+        "current_sha256": "4046517134c5b5a8bd5285dedd48217db00b0ec4b39abba11bf60922465a89c1",
+        "scope": "other_shared_repository_change"
+      },
+      {
+        "relative_path": "data/creatures/1701_tallowroot.tres",
+        "status": "new",
+        "before_sha256": null,
+        "current_sha256": "269d2f771c56d9bc61fe58341abc7af9a2e16d370a55dfa26bce122872bc6c6f",
+        "scope": "other_shared_repository_change"
+      },
+      {
+        "relative_path": "data/moves/ironvent_furnace_roar.tres",
+        "status": "changed",
+        "before_sha256": "35b846f1bbc9339c00e02db9c61c87a07c71f9b428d6073eb99c7354ae951bd2",
+        "current_sha256": "57082c6d06c40264977eb1c99d0a3d9910189885e35a581c14b9125feb2f251c",
+        "scope": "other_shared_repository_change"
+      }
+    ],
+    "unchanged_baseline_files": 2252,
+    "missing_baseline_files": []
+  },
+  "fixture_sources": [
+    {
+      "path": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\detail_home_walk.gd",
+      "sha256": "4913a57a63e964bb243505561a24fc5454e1c71122d52caf73c53a588feb6486"
+    },
+    {
+      "path": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\detail_world_overview.gd",
+      "sha256": "a5868fc876ca927ad2f106eca6e60b20bd20513e9601a79ed91648ff2c4d0642"
+    }
+  ],
+  "visual_review": {
+    "images_inspected": [
+      "proof/overview/male-home-room-native-2x.png",
+      "proof/overview/male-home-bed-quilt-native-2x.png",
+      "proof/overview/male-home-stove-woodpile-native-2x.png",
+      "proof/overview/male-home-cupboard-coat-native-2x.png",
+      "proof/overview/male-home-shelf-worktable-native-2x.png",
+      "proof/overview/male-hometown-hall-native-3x.png",
+      "proof/overview/male-riverfront-hall-native-3x.png",
+      "proof/overview/male-hometown-overview-native-1x.png",
+      "proof/overview/male-riverfront-overview-native-1x.png",
+      "proof/walk/male-home-view-coat-behind-first.png",
+      "proof/walk/female-home-view-coat-behind-cached-return.png"
+    ],
+    "observations": [
+      "Room furniture, quilt folds/stitches, stove seams/woodpile, cupboard/coat folds and shelf items read at actual 2x without apparent clipping or foreground registration seams. Worktable remains clear.",
+      "Original pale cloth plane is visible beside the coat. The cabinet upper section fades around both courier models; its lower base remains solid and the courier is readable behind it.",
+      "COURIER HALL and COURIER BRANCH labels are clear above the roofs. Both final approaches visually meet the building front and continue into their existing roads in the full native map captures.",
+      "Focused building captures deliberately crop the surrounding approach road; full hometown/riverfront captures establish the joins."
+    ],
+    "limits": [
+      "The final ordinary-input proof covers two cached home visits per model; it does not rerun the original full delivery journey or ordinary entry to the courier hall in this phase.",
+      "The overview uses independent initial-area diagnostic cameras. Its 11 explicit target checks cover four room sprites and seven building sprites; the two new approach sprites are verified separately by current-source crop/placement checks and the saved native images.",
+      "Shared repository changes outside the verified scope are reported separately; no global unchanged-repository assertion is made."
+    ]
+  },
+  "import_notes": {
+    "runtime_stderr_empty": true,
+    "room_import_stderr": {
+      "path": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\room-coalcrest-detail-2026-10-05\\proof\\import-stderr.log",
+      "bytes": 914,
+      "sha256": "a28e85bd513dc91d9bd4576b9214eec251d127abbbed3dc78431b4706b99b1c7"
+    },
+    "approach_import_stderr": {
+      "path": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\world-detail-audit-2026-10-05\\import-stderr.log",
+      "bytes": 914,
+      "sha256": "67b81927fd0c34367484a8b927e7aca1b886d59615c4afd2946cdaf7cfff6fdd"
+    },
+    "import_warnings": "Both headless imports report boot-time filesystem snapshot and settled imports, then one CanvasItem RID and three ObjectDB exit leak warnings. These import shutdown warnings are distinct from the three empty native runtime stderr logs."
+  },
+  "independently_verified_saved_native_proof": true,
+  "verification_guards": {
+    "ordinary_walk_saved_proof": true,
+    "overview_saved_proof": true,
+    "observed_terminal_exit_records_all_zero": true,
+    "three_native_runtime_stderr_empty": true,
+    "current_installed_files_match_saved_installation": true,
+    "script_changes_exact_and_camera_preserved": true,
+    "room_source_mask_alpha_and_foreground_preserved": true,
+    "cloth_source_and_native_2x_exact": true,
+    "native_full_room_2x_registration_exact": true,
+    "approaches_native_source_and_join_contract": true
+  }
+}

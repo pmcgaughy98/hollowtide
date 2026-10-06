@@ -1,0 +1,6 @@
+Welcome to Summer Engine (c) built on the awesome work by Godot 2007-present Juan Linietsky, Ariel Manzur & Godot Contributors.
+D3D12 12_0 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce GTX 1660 SUPER
+
+[SE] AuthManager: CLI credential found; desktop session exchange required
+[godot_ai game_helper] registered mcp capture (debugger active=false, logger=true)
+STARTER_NATIVE_OK {"attacks_catching_evolution_not_exercised":true,"battle_size":1.21,"creature":"103_kithflare","essence":0,"evolves_into":"res://data/creatures/109_kithflare2.tres","front_path":"res://assets/sprites/creatures/kithflare_tail_polish_2026_10_03/kithflare_front.png","front_texture_exact":true,"front_zoom":1.5,"has_second_essence":true,"native_idle":"C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/starter-texture-review-2026-10-05/proof/103_kithflare_native_idle.png","normal_near_side_message_box_occlusion":true,"rear_path":"res://assets/sprites/creatures/kithflare_tail_polish_2026_10_03/kithflare_back.png","rear_texture_exact":true,"rear_zoom":2.0,"second_essence":6}

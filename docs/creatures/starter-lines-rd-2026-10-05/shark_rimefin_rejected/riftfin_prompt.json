@@ -1,0 +1,12 @@
+{
+ "prompt": "The second, stronger stage of the river shark creature in the first reference image, same species, same face, eyes and palette, grown into a longer, faster hunter. Longer body in a long diagonal wedge. Its pectoral fins are lengthened into angular blade fins that brace on the riverbed like forelimbs. Its dorsal fin has a doubled notch, its jaw is heavier with a visible row of teeth, its tail fork is longer, and the pale cyan spine ridge continues along its back. Deep river blue, slate, cold cyan edges, pale belly. Cool-headed, hunting along current seams. Three-quarter view facing right, mid-turn. Same finish as the references. Not a cartoon shark, not a great white copy, no bubbles, no water effects. Shown whole in the centre of the frame with empty space on every side. On a plain white background.",
+ "prompt_style": "rd_pro__default",
+ "width": 160,
+ "height": 160,
+ "num_images": 2,
+ "remove_bg": true,
+ "reference_images": [
+  "docs/creatures/starter-lines-rd-2026-10-05/rimefin_front_take1.png",
+  "assets/sprites/creatures/cinderhide.png"
+ ]
+}

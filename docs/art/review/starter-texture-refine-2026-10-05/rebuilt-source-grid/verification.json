@@ -1,0 +1,12 @@
+[
+  {
+    "view": "front",
+    "byte_exact_rebuild": true,
+    "sha256": "bbeb3bebcec7d98a77ee89b247eaf83370fbd28894a77286046d22ac2aa0f998"
+  },
+  {
+    "view": "back",
+    "byte_exact_rebuild": true,
+    "sha256": "1c389c1abc4e03275f8c2076cc83dc690d65d5c3d6087d404d020dfffebd8fe7"
+  }
+]

@@ -1,0 +1,81 @@
+[gd_resource type="Resource" script_class="MoveData" load_steps=18 format=3]
+
+[ext_resource type="Script" path="res://scripts/move_data.gd" id="1_script"]
+[ext_resource type="PackedScene" path="res://scenes/effects/tallowroot3_root_rampart.tscn" id="2_field"]
+[ext_resource type="Script" path="res://scripts/camera_shot.gd" id="cam_shot"]
+[ext_resource type="Texture2D" path="res://assets/backgrounds/signature_stages/root_rampart.png" id="sig_stage"]
+[ext_resource type="Texture2D" path="res://assets/sprites/creatures/starter_material_detail_2026_10_05/tallowroot3_root_rampart_rest_material_matched.png" id="t_rest"]
+[ext_resource type="Texture2D" path="res://assets/sprites/creatures/starter_material_detail_2026_10_05/tallowroot3_root_rampart_raise_material_matched.png" id="t_raise"]
+[ext_resource type="Texture2D" path="res://assets/sprites/creatures/starter_material_detail_2026_10_05/tallowroot3_root_rampart_slam_material_matched.png" id="t_slam"]
+[ext_resource type="Texture2D" path="res://assets/sprites/creatures/attacks/tallowroot3_root_rampart/raise_club.png" id="t_raise_club"]
+[ext_resource type="Texture2D" path="res://assets/sprites/creatures/starter_material_detail_2026_10_05/rampartroot_signature_title_material_refined.png" id="t_titlecard"]
+[ext_resource type="AudioStream" path="res://assets/audio/sfx/root_rampart/strain.wav" id="snd_strain"]
+[ext_resource type="AudioStream" path="res://assets/audio/sfx/root_rampart/slam.wav" id="snd_slam"]
+[ext_resource type="AudioStream" path="res://assets/audio/sfx/root_rampart/rootwave.wav" id="snd_rootwave"]
+[ext_resource type="AudioStream" path="res://assets/audio/sfx/root_rampart/eruption.wav" id="snd_eruption"]
+
+[sub_resource type="Resource" id="cam_0"]
+script = ExtResource("cam_shot")
+frame = 1
+look = 1
+lean = 0.3
+zoom = 1.15
+seconds = 0.8
+hide_cards = true
+
+[sub_resource type="Resource" id="cam_1"]
+script = ExtResource("cam_shot")
+frame = 4
+look = 0
+lean = 0.0
+zoom = 0.85
+seconds = 0.3
+hide_cards = true
+
+[sub_resource type="Resource" id="cam_2"]
+script = ExtResource("cam_shot")
+frame = 5
+look = 2
+lean = 0.35
+zoom = 1.1
+seconds = 1.0
+hide_cards = true
+
+[sub_resource type="Resource" id="cam_3"]
+script = ExtResource("cam_shot")
+frame = 7
+look = 2
+lean = 0.3
+zoom = 1.2
+seconds = 0.1
+hide_cards = true
+
+[resource]
+script = ExtResource("1_script")
+move_name = "Root Rampart"
+required_parts = PackedStringArray("podclub", "shoot")
+essence = 4
+power = 60
+max_uses = 2
+attack_frames = Array[Texture2D]([ExtResource("t_rest"), ExtResource("t_raise"), ExtResource("t_raise"), ExtResource("t_raise_club"), ExtResource("t_slam"), ExtResource("t_slam"), ExtResource("t_slam"), ExtResource("t_slam"), ExtResource("t_rest"), ExtResource("t_rest")])
+attack_frame_holds = Array[float]([0.1, 0.35, 0.5, 0.7, 0.2, 1.3, 1.0, 1.2, 0.4, 0.4])
+attack_lunge_px = 0.0
+attack_recoil_px = 2.0
+attack_hit_frame = 7
+attack_brace_frame = 2
+attack_strain_frame = 3
+attack_emit_frames = Vector2i(4, 7)
+attack_emit_shake = 40
+impact_flash = true
+impact_shake = 45
+attack_cut_in = ExtResource("t_titlecard")
+signature = true
+signature_light = Color(1.1, 1.2, 0.85, 1)
+signature_effect = ExtResource("2_field")
+signature_stage = ExtResource("sig_stage")
+signature_stage_floor_y = 187
+signature_linger = 1.6
+sound_cues = Array[AudioStream]([ExtResource("snd_strain"), ExtResource("snd_slam"), ExtResource("snd_rootwave"), ExtResource("snd_eruption")])
+sound_cue_frames = Array[int]([1, 4, 5, 7])
+sound_cue_db = Array[float]([4.0, 4.0, 2.0, 7.0])
+camera_shots = Array[ExtResource("cam_shot")]([SubResource("cam_0"), SubResource("cam_1"), SubResource("cam_2"), SubResource("cam_3")])

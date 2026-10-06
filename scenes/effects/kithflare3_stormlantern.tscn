@@ -1,0 +1,24 @@
+[gd_scene load_steps=8 format=3]
+
+[ext_resource type="Script" path="res://scripts/effects/stormlantern_strike.gd" id="1_script"]
+[ext_resource type="Texture2D" path="res://assets/sprites/effects/kithflare3/stormlantern/stormlantern_core.png" id="2_meteor"]
+[ext_resource type="Texture2D" path="res://assets/sprites/effects/kithflare3/stormlantern/orb1_p07.png" id="3_b0"]
+[ext_resource type="Texture2D" path="res://assets/sprites/effects/kithflare3/stormlantern/orb2_p06.png" id="4_b1"]
+[ext_resource type="Texture2D" path="res://assets/sprites/effects/kithflare3/stormlantern/orb1_p08.png" id="5_rings"]
+[ext_resource type="Texture2D" path="res://assets/sprites/effects/kithflare3/stormlantern/orb3_p10.png" id="6_core"]
+[ext_resource type="Texture2D" path="res://assets/sprites/effects/kithflare3/stormlantern/stormlantern_impact_4x4.png" id="7_vfx"]
+
+[node name="KithflareStormlantern" type="Node2D"]
+script = ExtResource("1_script")
+launch = ExtResource("2_meteor")
+meteor = ExtResource("2_meteor")
+bursts = Array[Texture2D]([ExtResource("3_b0"), ExtResource("4_b1")])
+rings = ExtResource("5_rings")
+core = ExtResource("6_core")
+impact_vfx = ExtResource("7_vfx")
+fall_seconds = 0.45
+crest_from_start = Vector2(-75, -42)
+release_after = 2.2
+meteor_scale = 1
+burst_scale = 3
+palette = Array[Color]([Color(0.55, 0.18, 0.03, 1), Color(0.95, 0.5, 0.08, 1), Color(1, 0.84, 0.35, 1), Color(1, 0.98, 0.82, 1)])

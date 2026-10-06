@@ -1,0 +1,87 @@
+[gd_resource type="Resource" script_class="MoveData" load_steps=21 format=3]
+
+[ext_resource type="Script" path="res://scripts/move_data.gd" id="1_script"]
+[ext_resource type="PackedScene" path="res://scenes/effects/kithflare3_stormlantern.tscn" id="2_strike"]
+[ext_resource type="Script" path="res://scripts/camera_shot.gd" id="11_shot"]
+[ext_resource type="Texture2D" path="res://assets/backgrounds/signature_stages/stormlantern.png" id="sig_stage"]
+[ext_resource type="Texture2D" path="res://assets/sprites/creatures/attacks/kithflare3_stormlantern/rest.png" id="t_rest"]
+[ext_resource type="Texture2D" path="res://assets/sprites/creatures/attacks/kithflare3_stormlantern/glow.png" id="t_glow"]
+[ext_resource type="Texture2D" path="res://assets/sprites/creatures/attacks/kithflare3_stormlantern/kindle.png" id="t_kindle"]
+[ext_resource type="Texture2D" path="res://assets/sprites/creatures/attacks/kithflare3_stormlantern/full.png" id="t_full"]
+[ext_resource type="Texture2D" path="res://assets/sprites/creatures/attacks/kithflare3_stormlantern/full_b.png" id="t_full_b"]
+[ext_resource type="Texture2D" path="res://assets/sprites/creatures/starter_material_detail_2026_10_05/stormwick_signature_title_material_refined.png" id="t_titlecard"]
+
+[ext_resource type="Texture2D" path="res://assets/sprites/creatures/attacks/kithflare3_stormlantern/raise.png" id="t_raise"]
+[ext_resource type="Texture2D" path="res://assets/sprites/creatures/attacks/kithflare3_stormlantern/spent.png" id="t_spent"]
+[ext_resource type="Texture2D" path="res://assets/sprites/creatures/attacks/kithflare3_stormlantern/snap.png" id="t_snap"]
+[ext_resource type="AudioStream" path="res://assets/audio/sfx/stormlantern/crack.wav" id="snd_crack"]
+[ext_resource type="AudioStream" path="res://assets/audio/sfx/stormlantern/crackle.wav" id="snd_crackle"]
+[ext_resource type="AudioStream" path="res://assets/audio/sfx/stormlantern/throw.wav" id="snd_throw"]
+[ext_resource type="AudioStream" path="res://assets/audio/sfx/stormlantern/boom.wav" id="snd_boom"]
+
+[sub_resource type="Resource" id="shot_sky"]
+script = ExtResource("11_shot")
+frame = 1
+zoom = 0.8
+lift = 140.0
+seconds = 0.45
+hide_cards = true
+
+[sub_resource type="Resource" id="shot_throw"]
+script = ExtResource("11_shot")
+frame = 5
+look = 1
+lean = 0.35
+zoom = 1.0
+seconds = 0.18
+hide_cards = true
+
+[sub_resource type="Resource" id="shot_fall"]
+script = ExtResource("11_shot")
+frame = 7
+look = 2
+lean = 0.25
+zoom = 1.05
+seconds = 0.35
+hide_cards = true
+
+[sub_resource type="Resource" id="shot_hit"]
+script = ExtResource("11_shot")
+frame = 9
+look = 2
+lean = 0.3
+zoom = 1.12
+seconds = 0.08
+hide_cards = true
+
+[resource]
+script = ExtResource("1_script")
+move_name = "Stormlantern"
+required_parts = PackedStringArray("stormlantern")
+essence = 6
+power = 60
+max_uses = 2
+attack_frames = Array[Texture2D]([ExtResource("t_rest"), ExtResource("t_raise"), ExtResource("t_glow"), ExtResource("t_kindle"), ExtResource("t_full"), ExtResource("t_snap"), ExtResource("t_spent"), ExtResource("t_spent"), ExtResource("t_spent"), ExtResource("t_spent")])
+attack_frame_holds = Array[float]([0.25, 0.35, 0.35, 0.35, 1.0, 0.15, 0.4, 0.4, 0.35, 0.45])
+attack_lunge_px = 0.0
+attack_recoil_px = 3.0
+attack_hit_frame = 9
+attack_brace_frame = 1
+attack_strain_frame = 4
+attack_strain_loop = Array[Texture2D]([ExtResource("t_full"), ExtResource("t_full_b")])
+attack_emit_frames = Vector2i(1, 6)
+attack_river_offset = Vector2(114, -25)
+impact_flash = true
+impact_shake = 45
+attack_cut_in = ExtResource("t_titlecard")
+signature = true
+signature_light = Color(1.2, 1.0, 0.75, 1)
+signature_effect = ExtResource("2_strike")
+signature_stage = ExtResource("sig_stage")
+signature_stage_floor_y = 187
+signature_linger = 1.8
+camera_shots = Array[ExtResource("11_shot")]([SubResource("shot_sky"), SubResource("shot_throw"), SubResource("shot_fall"), SubResource("shot_hit")])
+attack_overheat = 1.0
+sound_cues = Array[AudioStream]([ExtResource("snd_crack"), ExtResource("snd_crackle"), ExtResource("snd_throw"), ExtResource("snd_boom")])
+sound_cue_frames = Array[int]([1, 2, 5, 9])
+sound_cue_db = Array[float]([7.0, 0.0, 2.0, 8.0])

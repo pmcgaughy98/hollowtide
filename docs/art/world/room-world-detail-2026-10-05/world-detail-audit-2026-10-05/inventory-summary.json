@@ -1,0 +1,32 @@
+{
+  "total_resource_references": 83,
+  "active_png_count": 72,
+  "historical_not_current": [
+    {
+      "res_path": "res://assets/sprites/world/route1_rd_2026_10_01/cottonwood_complete.png",
+      "status": "scene_historical_ext_resource_unused"
+    },
+    {
+      "res_path": "res://assets/sprites/world/route1_rd_2026_10_01/reeds.png",
+      "status": "scene_historical_ext_resource_unused"
+    },
+    {
+      "res_path": "res://assets/sprites/world/route1_rd_2026_10_01/retaining_wall_polished.png",
+      "status": "scene_historical_ext_resource_unused"
+    },
+    {
+      "res_path": "res://assets/sprites/world/route1_rd_2026_10_01/shrub_polished.png",
+      "status": "scene_historical_ext_resource_unused"
+    },
+    {
+      "res_path": "res://assets/sprites/world/route1_rd_2026_10_02/dispatch_hall_complete.png",
+      "status": "hidden_old_hall_or_unused_city_builder"
+    }
+  ],
+  "sheet_paths": [
+    "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/world-detail-audit-2026-10-05/render/active-building-models.png",
+    "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/world-detail-audit-2026-10-05/render/active-hall-and-home.png",
+    "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/world-detail-audit-2026-10-05/render/active-props-and-foliage.png",
+    "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/world-detail-audit-2026-10-05/render/active-trees.png"
+  ]
+}

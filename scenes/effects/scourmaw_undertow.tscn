@@ -1,0 +1,26 @@
+[gd_scene load_steps=12 format=3]
+
+[ext_resource type="Script" path="res://scripts/effects/pressure_field.gd" id="1_script"]
+[ext_resource type="Texture2D" path="res://assets/sprites/effects/scourmaw/undertow/whirl.png" id="2_whirl"]
+[ext_resource type="Texture2D" path="res://assets/sprites/effects/scourmaw/undertow/spout.png" id="3_spout"]
+[ext_resource type="Texture2D" path="res://assets/sprites/effects/scourmaw/undertow/mist.png" id="4_mist"]
+[ext_resource type="Texture2D" path="res://assets/sprites/effects/scourmaw/undertow/spray.png" id="5_spray"]
+[ext_resource type="Texture2D" path="res://assets/sprites/effects/scourmaw/undertow/eruption.png" id="6_erupt"]
+[ext_resource type="Texture2D" path="res://assets/sprites/effects/scourmaw/undertow/eruption_alt.png" id="7_erupt_alt"]
+[ext_resource type="Texture2D" path="res://assets/sprites/effects/scourmaw/undertow/ring5.png" id="r5"]
+[ext_resource type="Texture2D" path="res://assets/sprites/effects/scourmaw/undertow/ring6.png" id="r6"]
+[ext_resource type="Texture2D" path="res://assets/sprites/effects/scourmaw/undertow/ring7.png" id="r7"]
+[ext_resource type="Texture2D" path="res://assets/sprites/effects/scourmaw/undertow/ring8.png" id="r8"]
+
+[node name="Undertow" type="Node2D"]
+texture_filter = 1
+script = ExtResource("1_script")
+charge = ExtResource("2_whirl")
+geyser = ExtResource("3_spout")
+smoke = ExtResource("4_mist")
+fireworks = ExtResource("5_spray")
+eruption = ExtResource("6_erupt")
+eruption_alt = ExtResource("7_erupt_alt")
+ring_frames = Array[Texture2D]([ExtResource("r5"), ExtResource("r6"), ExtResource("r7"), ExtResource("r8")])
+finale_scale = 3
+wake_color = Color(0.88, 1, 1, 0.95)

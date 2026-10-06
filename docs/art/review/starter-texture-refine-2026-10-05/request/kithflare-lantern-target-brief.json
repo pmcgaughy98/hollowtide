@@ -1,0 +1,98 @@
+{
+  "status": "W-only source/mask/brief; no generated or installed candidate",
+  "source_canvas": [
+    160,
+    160
+  ],
+  "resource_uses_atlas_or_region": false,
+  "allowed_task": "Only lantern black outline and local amber shell texture, front/back Stage1 Kithflare",
+  "protected": [
+    "Entire body, face, eyes, limbs, tail except accepted distal lantern pixels",
+    "Exact native160x160 canvas, pose, source alpha including transparent RGB",
+    "All source yellow core RGB (254,230,52) and its authored geometry",
+    "Two top attachment rows, existing tail stem and organic droplet identity",
+    "Current resource properties, paths, moves and stats"
+  ],
+  "sides": {
+    "front": {
+      "source_filename": "inputs/kithflare_front.png",
+      "source_sha256": "9b694edbaa7726caa2d040a93e125f4ae0508837507b1066cb3e2454a1523243",
+      "lantern_half_open_bbox": [
+        50,
+        39,
+        69,
+        59
+      ],
+      "source_lantern_pixels": 319,
+      "core_protected_pixels": 64,
+      "attachment_protected_pixels": 23,
+      "accepted_pixels": 232,
+      "outline_pixels": 84,
+      "material_pixels": 148,
+      "accepted_mask_sha256": "8fa0a4b8b5769fe52cb63d49de40040c6953380df7d001d0643f757428daefb7",
+      "tail_attachment_top_rows": [
+        39,
+        41
+      ]
+    },
+    "back": {
+      "source_filename": "inputs/kithflare_back.png",
+      "source_sha256": "0118a9e94c080dc37c27e1770385e2bdb2d055e20950d81f2792e32e0ade14e1",
+      "lantern_half_open_bbox": [
+        48,
+        51,
+        67,
+        72
+      ],
+      "source_lantern_pixels": 342,
+      "core_protected_pixels": 87,
+      "attachment_protected_pixels": 22,
+      "accepted_pixels": 233,
+      "outline_pixels": 92,
+      "material_pixels": 141,
+      "accepted_mask_sha256": "79c66b11ef25b139623218fb0903b0012882d643ee75e4f3c3fe32fc0814acdd",
+      "tail_attachment_top_rows": [
+        51,
+        53
+      ]
+    }
+  },
+  "proposed_paid_request": {
+    "count": 1,
+    "requires_root_approval": true,
+    "uploads_or_paid_calls_performed": 0,
+    "canvas": [
+      256,
+      256
+    ],
+    "display_scale": 4,
+    "panels": {
+      "front": {
+        "source_crop": [
+          44,
+          30,
+          76,
+          62
+        ],
+        "atlas_origin": [
+          0,
+          64
+        ]
+      },
+      "back": {
+        "source_crop": [
+          42,
+          42,
+          74,
+          74
+        ],
+        "atlas_origin": [
+          128,
+          64
+        ]
+      }
+    },
+    "registration": "Exact nearest4x crops. If output128x128, it is a uniform half atlas and remains2pixels per source pixel. Reject any panel rotation, displacement, changed alpha/pose/background or blurred mixed pixels.",
+    "atlas_sha256": "b859003d3b829ae741db53b76c8227eca6339609cab854c0b7d9a987563606df"
+  }
+}

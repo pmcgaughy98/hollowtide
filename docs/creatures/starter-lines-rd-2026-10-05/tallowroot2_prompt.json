@@ -1,0 +1,12 @@
+{
+ "prompt": "The second, stronger stage of the young seed-burrower creature in the first reference image, same species and same face, eyes and palette, grown bigger and heavier. Its back husk points have thickened into overlapping plates of hard seed husk like bark armour. The husked pod on its shoulder has split open and its cream sprout has grown into a short sturdy green stem with two broad leaves. Its snout is longer and tapered for digging, its four stocky legs are thicker, and every foot ends in strong cream claws. Low powerful brace, one forefoot pressing into the earth. Moss green, seed ochre, rich soil brown, cream. Patient and protective, steady eyes. Three-quarter view facing right. Drawn with the same finish as the references. Not a vegetable, no flower crown, no tree costume. Shown whole in the centre of the frame with empty space on every side. On a plain white background.",
+ "prompt_style": "rd_pro__default",
+ "width": 160,
+ "height": 160,
+ "num_images": 2,
+ "remove_bg": true,
+ "reference_images": [
+  "docs/creatures/tallowroot-rd-2026-10-05/tallowroot_front_160.png",
+  "assets/sprites/creatures/cinderhide.png"
+ ]
+}

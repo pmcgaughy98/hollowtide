@@ -1,0 +1,21 @@
+{
+  "tool_id": "image_edit",
+  "inference_id": "inf_5YrW4OzLRJKeoQdpyWNQjn96E3yVpkZm",
+  "balance_cost": 0.18,
+  "credit_cost": 20,
+  "charged": true,
+  "remaining_balance": 1.3200000000000025,
+  "remaining_credits": null,
+  "file": "dispatch_hall-rd.png",
+  "sha256": "19a1376e0cdd9dd53d37c2688e38e6f2d21c241603b79e9fbe52a5cc46efb6eb",
+  "size": [
+    136,
+    168
+  ],
+  "bounds": [
+    8,
+    5,
+    127,
+    155
+  ]
+}

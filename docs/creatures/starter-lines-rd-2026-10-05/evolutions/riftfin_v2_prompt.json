@@ -1,0 +1,12 @@
+{
+ "prompt": "The evolved second stage of the young blue river catfish in the first reference image, now becoming a true river monster: same species, same grey bony head plate, cyan eyes and frost-edged fins, but far bigger and more menacing, clearly a stage-two creature, not a larger copy. A massive wide flat head with a huge mouth open to show rows of small sharp teeth, thick heavy barbels with frosty cyan tips, the bony head plate grown into a spiked crest over the eyes, bony armour plates along its flanks, a tall spiked dorsal crest, a heavier muscular body, and long serrated pectoral spines it stands and walks on like forelimbs. Low prowling stance, head forward. Deep river blue, slate, scarred grey, cold cyan edges, pale belly. Three-quarter view facing right. Same finish and outline as the references. Not a shark, not cute, no bubbles, no water. Shown whole in the centre of the frame with empty space on every side. On a plain white background.",
+ "prompt_style": "rd_pro__default",
+ "width": 192,
+ "height": 192,
+ "num_images": 2,
+ "remove_bg": true,
+ "reference_images": [
+  "docs/creatures/starter-lines-rd-2026-10-05/starter_poses/rimefin_front_take1.png",
+  "assets/sprites/creatures/cinderhide.png"
+ ]
+}

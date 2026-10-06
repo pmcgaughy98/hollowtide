@@ -1,0 +1,15 @@
+{
+  "failed_semantic_result": "generated/clear_table-rd.png",
+  "paid_cost_usd": 0.18,
+  "reason": "Isolated angled tabletop replaces whole source instead of preserving room context. No generated pixels usable as native room edit.",
+  "installed_pixels": 0,
+  "retry_tool": "image_edit",
+  "retry_input": "prepared/room_registered_source.png",
+  "retry_scope": "Only remove folded map and cup; preserve complete room",
+  "estimated_retry_usd": 0.18,
+  "pending_additional_approval": true,
+  "status": "completed",
+  "approval": "table-retry-approval.json",
+  "receipt": "../generated/table-replacement-receipt.json",
+  "installed_pixels_from_first_result": 0
+}

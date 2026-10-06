@@ -1,0 +1,76 @@
+{
+  "requests": 7,
+  "total_actual_charged_usd": 1.26,
+  "rejected_paid_requests": 1,
+  "rejected_pixels_installed": 0,
+  "fresh_balance_usd": 5.6,
+  "fresh_credits": 50,
+  "balance_observed_after_replacement": "2026-10-05",
+  "balance_note": "Live endpoint, not inferred from previous balance; account may be used or replenished elsewhere.",
+  "receipts": [
+    {
+      "receipt": "home-interior-linework-2026-10-04/generated/receipt.json",
+      "inference_id": "inf_R9P5LxE40jrMdGvjmk6GVoA2B76WD3pn",
+      "charged": true,
+      "balance_cost": 0.18,
+      "credit_cost": 20,
+      "remaining_balance": 1.6800000000000024,
+      "remaining_credits": null
+    },
+    {
+      "receipt": "world-buildings-linework-2026-10-04/generated/brick_shop-receipt.json",
+      "inference_id": "inf_DJePMk93ngyWYG5YD30G5zv24l1jB0mE",
+      "charged": true,
+      "balance_cost": 0.18,
+      "credit_cost": 20,
+      "remaining_balance": 1.1400000000000026,
+      "remaining_credits": null
+    },
+    {
+      "receipt": "world-buildings-linework-2026-10-04/generated/courtyard_home-receipt.json",
+      "inference_id": "inf_nXNWAovexJ1p0G6Vx9DGVl43792BE6zZ",
+      "charged": true,
+      "balance_cost": 0.18,
+      "credit_cost": 20,
+      "remaining_balance": 1.5000000000000024,
+      "remaining_credits": null
+    },
+    {
+      "receipt": "world-buildings-linework-2026-10-04/generated/dispatch_hall-receipt.json",
+      "inference_id": "inf_5YrW4OzLRJKeoQdpyWNQjn96E3yVpkZm",
+      "charged": true,
+      "balance_cost": 0.18,
+      "credit_cost": 20,
+      "remaining_balance": 1.3200000000000025,
+      "remaining_credits": null
+    },
+    {
+      "receipt": "world-buildings-linework-2026-10-04/generated/ledger_house-receipt.json",
+      "inference_id": "inf_1KVDLl8e423ZYq34NjRQ60oa5pAgPj7N",
+      "charged": true,
+      "balance_cost": 0.18,
+      "credit_cost": 20,
+      "remaining_balance": 0.9600000000000026,
+      "remaining_credits": null
+    },
+    {
+      "receipt": "home-interior-linework-2026-10-04/generated/clear_table-receipt.json",
+      "inference_id": "inf_xOWydmMa3jEPVq4D4ZEqY7JnoRe45Z2l",
+      "charged": true,
+      "balance_cost": 0.18,
+      "credit_cost": 20,
+      "remaining_balance": 0.7800000000000027,
+      "remaining_credits": null
+    },
+    {
+      "receipt": "home-interior-linework-2026-10-04/generated/table-replacement-receipt.json",
+      "inference_id": "inf_R9P5LxE40jrMdGvjPmNGVoA2B76WD3pn",
+      "charged": true,
+      "balance_cost": 0.18,
+      "credit_cost": 20,
+      "remaining_balance": 5.6000000000000005,
+      "remaining_credits": null
+    }
+  ],
+  "no_automatic_repeated_paid_generation": true
+}

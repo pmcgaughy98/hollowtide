@@ -1,0 +1,348 @@
+{
+  "status": "W-only native candidate reviewed at1x/2x/4x; not installed or engine-verified",
+  "generated_dimensions": [
+    128,
+    128
+  ],
+  "approved_atlas_dimensions": [
+    256,
+    256
+  ],
+  "atlas_uniform_scale": 0.5,
+  "effective_panel_native_magnification": 1,
+  "generated_sha256": "aaa129bb7e8e915fe8869c3129159ceef33bf3912ef5dc90d393ec84d5169d38",
+  "approved_atlas_sha256": "b886f2723f0082720237bfc203907bc7a4fc8cef162b8e99b4c0e79c536145d0",
+  "method": "Exact native sampling at half approved atlas origins; no RGB resizing/averaging/painting. Only original acceptance-mask RGB copied when generated alpha is nonzero and sample is not gray backdrop. Original active-source alpha and all outside-mask pixels retained.",
+  "rear_head_preservation": "Latest active resource selects original occluded-leg v3. Uploaded rear has unused painted head; baseline restored from frozen active v3, body/tail/feet unchanged. Tail foreground, hind leg hidden, only existing tiny far-foot peek eligible.",
+  "assets": {
+    "coalcrest_front": {
+      "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\room-coalcrest-detail-2026-10-05\\inputs\\coalcrest_front.png",
+      "source_sha256": "6cbd82720f1c9673e51fea21cc6261fc2798bc80e4c0d3e0a433a224202f669f",
+      "mask": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\room-coalcrest-detail-2026-10-05\\request\\coalcrest_front-acceptance-mask.png",
+      "mask_sha256": "662d41072584291682c248b706d6c76876c9eb16caa38e61ff5492357a50667d",
+      "candidate": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\room-coalcrest-detail-2026-10-05\\prepared\\coalcrest_front_closeup_native.png",
+      "candidate_sha256": "e17acf8227e1b98d752e4d476b3e7fa9b37b426c3fb3e5c349aaee66de83184f",
+      "approved_mask_pixels": 579,
+      "eligible_generated_samples": 571,
+      "changed_rgb_pixels": 242,
+      "outside_mask_rgba_changes": 0,
+      "source_alpha_unchanged": true,
+      "transparent_rgba_unchanged": true,
+      "head_and_upper_body_unchanged": true,
+      "additional_visible_rgb_colors": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          7,
+          0,
+          0
+        ],
+        [
+          9,
+          2,
+          0
+        ],
+        [
+          29,
+          14,
+          8
+        ],
+        [
+          37,
+          20,
+          15
+        ],
+        [
+          42,
+          26,
+          21
+        ],
+        [
+          50,
+          31,
+          29
+        ],
+        [
+          52,
+          38,
+          40
+        ],
+        [
+          67,
+          42,
+          32
+        ],
+        [
+          73,
+          48,
+          40
+        ],
+        [
+          74,
+          61,
+          57
+        ],
+        [
+          87,
+          56,
+          43
+        ],
+        [
+          97,
+          65,
+          49
+        ],
+        [
+          105,
+          70,
+          50
+        ],
+        [
+          110,
+          76,
+          58
+        ],
+        [
+          111,
+          78,
+          74
+        ],
+        [
+          118,
+          82,
+          62
+        ],
+        [
+          135,
+          73,
+          38
+        ],
+        [
+          148,
+          103,
+          72
+        ],
+        [
+          155,
+          88,
+          48
+        ],
+        [
+          176,
+          120,
+          73
+        ]
+      ],
+      "panels": [
+        {
+          "name": "coalcrest_front-tail",
+          "source_crop": [
+            12,
+            70,
+            59,
+            134
+          ],
+          "actual_output_origin": [
+            3,
+            2
+          ],
+          "native_cell_factor": 1,
+          "approved_mask_pixels_in_panel": 393,
+          "gray_or_transparent_samples_rejected": 1,
+          "eligible_rgb_samples": 392
+        },
+        {
+          "name": "coalcrest_front-feet",
+          "source_crop": [
+            57,
+            125,
+            121,
+            145
+          ],
+          "actual_output_origin": [
+            0,
+            87
+          ],
+          "native_cell_factor": 1,
+          "approved_mask_pixels_in_panel": 186,
+          "gray_or_transparent_samples_rejected": 7,
+          "eligible_rgb_samples": 179
+        }
+      ]
+    },
+    "coalcrest_back": {
+      "source": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\room-coalcrest-detail-2026-10-05\\inputs\\coalcrest_back_active_v3.png",
+      "source_sha256": "e2cde80eb484a38d0322c225a83d8584a37fb96c1ebfc6c1db83d373966020a1",
+      "mask": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\room-coalcrest-detail-2026-10-05\\request\\coalcrest_back-acceptance-mask.png",
+      "mask_sha256": "fe457a7330a7d3497f2c923842e362c4195c0e014a8c5f2491aa2f53a794d483",
+      "candidate": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\room-coalcrest-detail-2026-10-05\\prepared\\coalcrest_back_closeup_native.png",
+      "candidate_sha256": "6bb94d22b9debcd305d362cff5b48161b456ed6bf762c24e1f58c98d23ed7652",
+      "approved_mask_pixels": 531,
+      "eligible_generated_samples": 524,
+      "changed_rgb_pixels": 157,
+      "outside_mask_rgba_changes": 0,
+      "source_alpha_unchanged": true,
+      "transparent_rgba_unchanged": true,
+      "head_and_upper_body_unchanged": true,
+      "additional_visible_rgb_colors": [
+        [
+          0,
+          0,
+          0
+        ],
+        [
+          7,
+          0,
+          0
+        ],
+        [
+          9,
+          2,
+          0
+        ],
+        [
+          29,
+          14,
+          8
+        ],
+        [
+          37,
+          20,
+          15
+        ],
+        [
+          42,
+          26,
+          21
+        ],
+        [
+          50,
+          31,
+          29
+        ],
+        [
+          52,
+          38,
+          40
+        ],
+        [
+          67,
+          42,
+          32
+        ],
+        [
+          73,
+          48,
+          40
+        ],
+        [
+          74,
+          61,
+          57
+        ],
+        [
+          87,
+          56,
+          43
+        ],
+        [
+          97,
+          65,
+          49
+        ],
+        [
+          105,
+          70,
+          50
+        ],
+        [
+          110,
+          76,
+          58
+        ],
+        [
+          118,
+          82,
+          62
+        ],
+        [
+          148,
+          103,
+          72
+        ],
+        [
+          155,
+          88,
+          48
+        ],
+        [
+          169,
+          99,
+          53
+        ],
+        [
+          176,
+          120,
+          73
+        ]
+      ],
+      "panels": [
+        {
+          "name": "coalcrest_back-tail",
+          "source_crop": [
+            22,
+            71,
+            90,
+            137
+          ],
+          "actual_output_origin": [
+            57,
+            2
+          ],
+          "native_cell_factor": 1,
+          "approved_mask_pixels_in_panel": 356,
+          "gray_or_transparent_samples_rejected": 0,
+          "eligible_rgb_samples": 356
+        },
+        {
+          "name": "coalcrest_back-feet",
+          "source_crop": [
+            82,
+            125,
+            128,
+            142
+          ],
+          "actual_output_origin": [
+            73,
+            87
+          ],
+          "native_cell_factor": 1,
+          "approved_mask_pixels_in_panel": 175,
+          "gray_or_transparent_samples_rejected": 7,
+          "eligible_rgb_samples": 168
+        }
+      ]
+    }
+  },
+  "uploaded_vs_active_rear": {
+    "uploaded_sha256": "353747fb9a15dee7057a947f2a6640ede171c0c5a98ebc5b5f1152e4a03b6a9a",
+    "active_sha256": "e2cde80eb484a38d0322c225a83d8584a37fb96c1ebfc6c1db83d373966020a1",
+    "changed_rgba_pixels": 482,
+    "head_difference_bbox": [
+      88,
+      20,
+      119,
+      42
+    ],
+    "body_tail_foot_changes_y70plus": 0
+  },
+  "visual_assessment": {
+    "recommendation": "Useful modest material refinement for root native battle review; strongest improvement in front toe divisions and near-foot rim. Rear foot changes subtle. Tail rim slightly more even and dark.",
+    "limitations": "Exact sourcealpha retains original tiny toe shapes and original tail geometry; rear foot is still small as intended. No complete silhouette redraw or broad material change.",
+    "protected_anatomy": "Foreground tail covers hind leg; only original tiny far-foot peek remains. Activev3 head preserved, unused painted head not promoted.",
+    "observed_rejections": "Original gray background samples retained as sourcepixels instead of copied; no gray contaminates masked sprite."
+  }
+}

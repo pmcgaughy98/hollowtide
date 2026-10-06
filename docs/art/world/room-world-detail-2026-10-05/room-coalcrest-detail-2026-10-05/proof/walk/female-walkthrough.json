@@ -1,0 +1,1900 @@
+{
+	"completed_walk": true,
+	"engine_entrance_arrivals": [
+		{
+			"arrival": "(128.0, 208.0)",
+			"from": "hometown",
+			"to": "courtyard_home"
+		},
+		{
+			"arrival": "(233.0, 280.0)",
+			"from": "courtyard_home",
+			"to": "hometown"
+		},
+		{
+			"arrival": "(128.0, 208.0)",
+			"from": "hometown",
+			"to": "courtyard_home"
+		},
+		{
+			"arrival": "(233.0, 280.0)",
+			"from": "courtyard_home",
+			"to": "hometown"
+		}
+	],
+	"fixed_fps": 60,
+	"fixture_scope": "two_ordinary_home_visits",
+	"flags": {
+		"city_arrival_registered": false,
+		"city_directions_read": false,
+		"delivered": false,
+		"heard_calls": false,
+		"levee_entrance_read": false,
+		"marker_restored": false,
+		"pouch_accepted": false,
+		"report_done": false,
+		"reported_calls": false,
+		"reported_water_mark": false,
+		"water_mark_observed": false
+	},
+	"home_contract_ready": true,
+	"home_loop_count": 2,
+	"home_walk_frames_before_exit": 0,
+	"levee_sign_to_relay_walk_frames": 0,
+	"model": "Female",
+	"ordinary_input_only": true,
+	"passed": true,
+	"quest_overrides": 0,
+	"route_approach_walk_frames": 0,
+	"startup_ms": 1166,
+	"steps": [
+		{
+			"capture": "start",
+			"path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/female-start.png",
+			"save_error": 0,
+			"saved": true
+		},
+		{
+			"area": "hometown",
+			"movement_frozen_and_resumed": true,
+			"panel": "_notes_panel"
+		},
+		{
+			"area": "hometown",
+			"movement_frozen_and_resumed": true,
+			"panel": "_party_panel"
+		},
+		{
+			"area": "hometown",
+			"frames": 0,
+			"from": "(224.0, 280.0)",
+			"walk": "(224.0, 280.0)"
+		},
+		{
+			"at": "(224.0, 280.0)",
+			"body": "HOME COURTYARD\nThe patched porch and stacked wood make this place easy to recognize from the lane. The dispatcher is taking runners inside the courier hall on the eastern street.\n\n[E] Continue",
+			"interaction": "HOME COURTYARD",
+			"passed": true
+		},
+		{
+			"area": "hometown",
+			"frames": 20,
+			"from": "(224.0, 280.0)",
+			"walk": "(196.0, 280.0)"
+		},
+		{
+			"at": "(198.6668, 266.0031)",
+			"off_door_house_facade_collision": true
+		},
+		{
+			"area": "hometown",
+			"frames": 10,
+			"from": "(198.6668, 266.0031)",
+			"walk": "(196.0, 280.0)"
+		},
+		{
+			"area": "hometown",
+			"frames": 27,
+			"from": "(196.7453, 277.258)",
+			"walk": "(233.0, 280.0)"
+		},
+		{
+			"entrance_from": "hometown",
+			"flags_preserved": true,
+			"passed": true,
+			"selected_model": "Female",
+			"to": "courtyard_home"
+		},
+		{
+			"capture": "entrance-hometown-to-courtyard_home",
+			"path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/female-entrance-hometown-to-courtyard_home.png",
+			"save_error": 0,
+			"saved": true
+		},
+		{
+			"active_player_bound": true,
+			"actual_arrival": "(128.0, 208.0)",
+			"door": "(233.0, 242.0)",
+			"expected_arrival": "(128.0, 208.0)",
+			"home_entry": 1,
+			"original_core_exact": true,
+			"passed": true
+		},
+		{
+			"home_native_art_contract": true,
+			"sprites": [
+				{
+					"coat_bound_to_existing_shader_and_full_opacity_on_entry": true,
+					"coat_material": {},
+					"expected_texture": "res://assets/sprites/world/courtyard_home_detail_2026_10_05/home_room.png",
+					"final_texture_and_native_size": true,
+					"material": {
+						"material_class": "",
+						"material_id": 0,
+						"shader_id": 0,
+						"shader_path": ""
+					},
+					"native_unresized_and_visible": true,
+					"node": "RoomArt",
+					"original_native_origin": true,
+					"state": {
+						"bounds": "[P: (26.0, 25.0), S: (205.0, 208.0)]",
+						"centered": false,
+						"global_position": "(0.0, 0.0)",
+						"id": 177838492675,
+						"offset": "(0.0, 0.0)",
+						"scale": "(1.0, 1.0)",
+						"texture_id": -9223371979057264980,
+						"texture_path": "res://assets/sprites/world/courtyard_home_detail_2026_10_05/home_room.png",
+						"texture_size": "(256.0, 256.0)",
+						"visible": true
+					},
+					"visible_pixels_inside_room": true
+				},
+				{
+					"coat_bound_to_existing_shader_and_full_opacity_on_entry": true,
+					"coat_material": {},
+					"expected_texture": "res://assets/sprites/world/courtyard_home_detail_2026_10_05/home_stove_front.png",
+					"final_texture_and_native_size": true,
+					"material": {
+						"material_class": "",
+						"material_id": 0,
+						"shader_id": 0,
+						"shader_path": ""
+					},
+					"native_unresized_and_visible": true,
+					"node": "RouteDecor/RoomStoveFront",
+					"original_native_origin": true,
+					"state": {
+						"bounds": "[P: (35.0, 112.0), S: (24.0, 65.0)]",
+						"centered": false,
+						"global_position": "(33.0, 177.0)",
+						"id": 177855269892,
+						"offset": "(0.0, -67.0)",
+						"scale": "(1.0, 1.0)",
+						"texture_id": -9223371978755275089,
+						"texture_path": "res://assets/sprites/world/courtyard_home_detail_2026_10_05/home_stove_front.png",
+						"texture_size": "(28.0, 69.0)",
+						"visible": true
+					},
+					"visible_pixels_inside_room": true
+				},
+				{
+					"coat_bound_to_existing_shader_and_full_opacity_on_entry": true,
+					"coat_material": {
+						"bound": true,
+						"identity": {
+							"material_class": "ShaderMaterial",
+							"material_id": -9223371858965951482,
+							"shader_id": -9223371987949189603,
+							"shader_path": "res://assets/sprites/world/route1_landing_loop_2026_10_03/canopy_visibility.gdshader"
+						},
+						"opacity": 1.0,
+						"shader_path_correct": true
+					},
+					"expected_texture": "res://assets/sprites/world/courtyard_home_detail_2026_10_05/home_coat_front.png",
+					"final_texture_and_native_size": true,
+					"material": {
+						"material_class": "ShaderMaterial",
+						"material_id": -9223371858965951482,
+						"shader_id": -9223371987949189603,
+						"shader_path": "res://assets/sprites/world/route1_landing_loop_2026_10_03/canopy_visibility.gdshader"
+					},
+					"native_unresized_and_visible": true,
+					"node": "RouteDecor/RoomCoatFront",
+					"original_native_origin": true,
+					"state": {
+						"bounds": "[P: (184.0, 116.0), S: (36.0, 60.0)]",
+						"centered": false,
+						"global_position": "(182.0, 176.0)",
+						"id": 177872047109,
+						"offset": "(0.0, -62.0)",
+						"scale": "(1.0, 1.0)",
+						"texture_id": -9223371978453285200,
+						"texture_path": "res://assets/sprites/world/courtyard_home_detail_2026_10_05/home_coat_front.png",
+						"texture_size": "(40.0, 64.0)",
+						"visible": true
+					},
+					"visible_pixels_inside_room": true
+				},
+				{
+					"coat_bound_to_existing_shader_and_full_opacity_on_entry": true,
+					"coat_material": {},
+					"expected_texture": "res://assets/sprites/world/courtyard_home_detail_2026_10_05/home_threshold_front.png",
+					"final_texture_and_native_size": true,
+					"material": {
+						"material_class": "",
+						"material_id": 0,
+						"shader_id": 0,
+						"shader_path": ""
+					},
+					"native_unresized_and_visible": true,
+					"node": "RouteDecor/RoomThresholdFront",
+					"original_native_origin": true,
+					"state": {
+						"bounds": "[P: (26.0, 211.0), S: (205.0, 22.0)]",
+						"centered": false,
+						"global_position": "(24.0, 233.0)",
+						"id": 177905601543,
+						"offset": "(0.0, -24.0)",
+						"scale": "(1.0, 1.0)",
+						"texture_id": -9223371978151295311,
+						"texture_path": "res://assets/sprites/world/courtyard_home_detail_2026_10_05/home_threshold_front.png",
+						"texture_size": "(209.0, 26.0)",
+						"visible": true
+					},
+					"visible_pixels_inside_room": true
+				}
+			],
+			"visit": 1
+		},
+		{
+			"capture": "home-entry-first",
+			"path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/female-home-entry-first.png",
+			"save_error": 0,
+			"saved": true
+		},
+		{
+			"area": "courtyard_home",
+			"movement_frozen_and_resumed": true,
+			"panel": "_notes_panel"
+		},
+		{
+			"area": "courtyard_home",
+			"movement_frozen_and_resumed": true,
+			"panel": "_party_panel"
+		},
+		{
+			"area": "courtyard_home",
+			"frames": 0,
+			"from": "(128.0, 208.0)",
+			"walk": "(128.0, 208.0)"
+		},
+		{
+			"area": "courtyard_home",
+			"frames": 61,
+			"from": "(128.0, 208.0)",
+			"walk": "(128.0, 126.0)"
+		},
+		{
+			"area": "courtyard_home",
+			"frames": 18,
+			"from": "(128.0, 128.0003)",
+			"walk": "(152.0, 126.0)"
+		},
+		{
+			"area": "courtyard_home",
+			"frames": 11,
+			"from": "(150.2761, 127.0575)",
+			"walk": "(152.0, 112.0)"
+		},
+		{
+			"capture": "home-table-first",
+			"path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/female-home-table-first.png",
+			"save_error": 0,
+			"saved": true
+		},
+		{
+			"active_player_bound": true,
+			"at": "(151.2189, 114.1147)",
+			"body": "WORKTABLE\nThe worktable is clear, with room to lay out your next task.\n\nFIRST ROUTE  /  Speak to the dispatcher\nROUTE BOARD  /  Assignment open\n\n[E] Continue",
+			"home_dialogue": "table",
+			"original_flags_notes_objective_board_controller_party_exact": true,
+			"panel_froze_and_resumed": true,
+			"passed": true,
+			"visit": 1,
+			"worktable_has_no_map_and_contains_existing_objective_and_board": true
+		},
+		{
+			"area": "courtyard_home",
+			"frames": 20,
+			"from": "(151.2189, 114.1147)",
+			"walk": "(128.0, 126.0)"
+		},
+		{
+			"area": "courtyard_home",
+			"frames": 18,
+			"from": "(130.5719, 125.4284)",
+			"walk": "(106.0, 126.0)"
+		},
+		{
+			"area": "courtyard_home",
+			"frames": 14,
+			"from": "(107.9052, 125.4284)",
+			"walk": "(106.0, 106.0)"
+		},
+		{
+			"capture": "home-bed-first",
+			"path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/female-home-bed-first.png",
+			"save_error": 0,
+			"saved": true
+		},
+		{
+			"active_player_bound": true,
+			"at": "(106.9623, 108.4855)",
+			"body": "REST CORNER\nA teal quilt covers the bed. A small cabinet and woven mat keep this corner separate from the working floor.\n\n[E] Continue",
+			"home_dialogue": "bed",
+			"original_flags_notes_objective_board_controller_party_exact": true,
+			"panel_froze_and_resumed": true,
+			"passed": true,
+			"visit": 1,
+			"worktable_has_no_map_and_contains_existing_objective_and_board": true
+		},
+		{
+			"area": "courtyard_home",
+			"frames": 20,
+			"from": "(106.9623, 108.4855)",
+			"walk": "(128.0, 126.0)"
+		},
+		{
+			"area": "courtyard_home",
+			"frames": 20,
+			"from": "(125.6568, 124.5133)",
+			"walk": "(128.0, 151.0)"
+		},
+		{
+			"area": "courtyard_home",
+			"frames": 35,
+			"from": "(126.5996, 149.456)",
+			"walk": "(80.0, 151.0)"
+		},
+		{
+			"area": "courtyard_home",
+			"frames": 11,
+			"from": "(81.6567, 150.3988)",
+			"walk": "(66.0, 151.0)"
+		},
+		{
+			"capture": "home-stove-first",
+			"path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/female-home-stove-first.png",
+			"save_error": 0,
+			"saved": true
+		},
+		{
+			"active_player_bound": true,
+			"at": "(68.32334, 150.3988)",
+			"body": "HOME STOVE\nAn iron stove rests beside a stack of split wood. The clear center floor leaves room to pass between it and the worktable.\n\n[E] Continue",
+			"home_dialogue": "stove",
+			"original_flags_notes_objective_board_controller_party_exact": true,
+			"panel_froze_and_resumed": true,
+			"passed": true,
+			"visit": 1,
+			"worktable_has_no_map_and_contains_existing_objective_and_board": true
+		},
+		{
+			"area": "courtyard_home",
+			"frames": 56,
+			"from": "(68.32334, 150.3988)",
+			"walk": "(128.0, 190.0)"
+		},
+		{
+			"area": "courtyard_home",
+			"frames": 36,
+			"from": "(125.6453, 189.0541)",
+			"walk": "(174.0, 190.0)"
+		},
+		{
+			"area": "courtyard_home",
+			"frames": 2,
+			"from": "(172.3118, 189.0541)",
+			"walk": "(174.0, 186.0)"
+		},
+		{
+			"capture": "home-coat-first",
+			"path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/female-home-coat-first.png",
+			"save_error": 0,
+			"saved": true
+		},
+		{
+			"active_player_bound": true,
+			"at": "(173.2546, 188.1113)",
+			"body": "TRAVEL HOOK\nA working coat and spare boots are kept beside the doorway.\n\n[E] Continue",
+			"home_dialogue": "coat",
+			"original_flags_notes_objective_board_controller_party_exact": true,
+			"panel_froze_and_resumed": true,
+			"passed": true,
+			"visit": 1,
+			"worktable_has_no_map_and_contains_existing_objective_and_board": true
+		},
+		{
+			"area": "courtyard_home",
+			"frames": 34,
+			"from": "(173.2546, 188.1113)",
+			"walk": "(128.0, 190.0)"
+		},
+		{
+			"area": "courtyard_home",
+			"frames": 66,
+			"from": "(129.6452, 189.0541)",
+			"walk": "(128.0, 100.0)"
+		},
+		{
+			"home_collision": "north-wall",
+			"original_state_exact": true,
+			"passed": true,
+			"slide_contacts": 1,
+			"start": "(128.7024, 102.7781)",
+			"stopped": "(128.7024, 85.00316)",
+			"visit": 1
+		},
+		{
+			"capture": "home-collision-north-wall-first",
+			"path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/female-home-collision-north-wall-first.png",
+			"save_error": 0,
+			"saved": true
+		},
+		{
+			"area": "courtyard_home",
+			"frames": 78,
+			"from": "(128.7024, 85.00316)",
+			"walk": "(128.0, 190.0)"
+		},
+		{
+			"area": "courtyard_home",
+			"frames": 36,
+			"from": "(128.7024, 187.7413)",
+			"walk": "(80.0, 190.0)"
+		},
+		{
+			"home_collision": "west-wall",
+			"original_state_exact": true,
+			"passed": true,
+			"slide_contacts": 1,
+			"start": "(82.42621, 188.6841)",
+			"stopped": "(42.00317, 188.6841)",
+			"visit": 1
+		},
+		{
+			"capture": "home-collision-west-wall-first",
+			"path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/female-home-collision-west-wall-first.png",
+			"save_error": 0,
+			"saved": true
+		},
+		{
+			"area": "courtyard_home",
+			"frames": 64,
+			"from": "(42.00317, 188.6841)",
+			"walk": "(128.0, 190.0)"
+		},
+		{
+			"home_collision": "east-wall",
+			"original_state_exact": true,
+			"passed": true,
+			"slide_contacts": 1,
+			"start": "(126.0749, 188.6841)",
+			"stopped": "(214.9968, 188.6841)",
+			"visit": 1
+		},
+		{
+			"capture": "home-collision-east-wall-first",
+			"path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/female-home-collision-east-wall-first.png",
+			"save_error": 0,
+			"saved": true
+		},
+		{
+			"area": "courtyard_home",
+			"frames": 101,
+			"from": "(214.9968, 188.6841)",
+			"walk": "(80.0, 190.0)"
+		},
+		{
+			"home_collision": "south-left-wall",
+			"original_state_exact": true,
+			"passed": true,
+			"slide_contacts": 1,
+			"start": "(81.59212, 188.6841)",
+			"stopped": "(81.59212, 210.9965)",
+			"visit": 1
+		},
+		{
+			"capture": "home-collision-south-left-wall-first",
+			"path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/female-home-collision-south-left-wall-first.png",
+			"save_error": 0,
+			"saved": true
+		},
+		{
+			"area": "courtyard_home",
+			"frames": 15,
+			"from": "(81.59212, 210.9965)",
+			"walk": "(80.0, 190.0)"
+		},
+		{
+			"area": "courtyard_home",
+			"frames": 35,
+			"from": "(80.61366, 192.6848)",
+			"walk": "(128.0, 190.0)"
+		},
+		{
+			"area": "courtyard_home",
+			"frames": 46,
+			"from": "(125.166, 190.7992)",
+			"walk": "(188.0, 190.0)"
+		},
+		{
+			"home_collision": "south-right-wall",
+			"original_state_exact": true,
+			"passed": true,
+			"slide_contacts": 1,
+			"start": "(185.1658, 190.7992)",
+			"stopped": "(185.1658, 210.9996)",
+			"visit": 1
+		},
+		{
+			"capture": "home-collision-south-right-wall-first",
+			"path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/female-home-collision-south-right-wall-first.png",
+			"save_error": 0,
+			"saved": true
+		},
+		{
+			"area": "courtyard_home",
+			"frames": 16,
+			"from": "(185.1658, 210.9996)",
+			"walk": "(188.0, 190.0)"
+		},
+		{
+			"area": "courtyard_home",
+			"frames": 44,
+			"from": "(187.0886, 191.7436)",
+			"walk": "(128.0, 190.0)"
+		},
+		{
+			"area": "courtyard_home",
+			"frames": 48,
+			"from": "(130.146, 190.8008)",
+			"walk": "(128.0, 126.0)"
+		},
+		{
+			"area": "courtyard_home",
+			"frames": 14,
+			"from": "(129.2032, 128.5248)",
+			"walk": "(110.0, 126.0)"
+		},
+		{
+			"area": "courtyard_home",
+			"frames": 20,
+			"from": "(112.6509, 126.6392)",
+			"walk": "(110.0, 100.0)"
+		},
+		{
+			"home_collision": "bed",
+			"original_state_exact": true,
+			"passed": true,
+			"slide_contacts": 1,
+			"start": "(110.7653, 102.0869)",
+			"stopped": "(104.0032, 102.0869)",
+			"visit": 1
+		},
+		{
+			"capture": "home-collision-bed-first",
+			"path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/female-home-collision-bed-first.png",
+			"save_error": 0,
+			"saved": true
+		},
+		{
+			"area": "courtyard_home",
+			"frames": 4,
+			"from": "(104.0032, 102.0869)",
+			"walk": "(110.0, 100.0)"
+		},
+		{
+			"area": "courtyard_home",
+			"frames": 18,
+			"from": "(107.6484, 101.1083)",
+			"walk": "(110.0, 126.0)"
+		},
+		{
+			"area": "courtyard_home",
+			"frames": 14,
+			"from": "(108.5913, 123.3845)",
+			"walk": "(128.0, 126.0)"
+		},
+		{
+			"area": "courtyard_home",
+			"frames": 48,
+			"from": "(125.1436, 125.2701)",
+			"walk": "(190.0, 126.0)"
+		},
+		{
+			"area": "courtyard_home",
+			"frames": 2,
+			"from": "(187.81, 125.2701)",
+			"walk": "(190.0, 122.0)"
+		},
+		{
+			"home_collision": "table",
+			"original_state_exact": true,
+			"passed": true,
+			"slide_contacts": 1,
+			"start": "(188.7528, 124.3273)",
+			"stopped": "(188.7528, 112.0032)",
+			"visit": 1
+		},
+		{
+			"capture": "home-collision-table-first",
+			"path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/female-home-collision-table-first.png",
+			"save_error": 0,
+			"saved": true
+		},
+		{
+			"area": "courtyard_home",
+			"frames": 10,
+			"from": "(188.7528, 112.0032)",
+			"walk": "(190.0, 126.0)"
+		},
+		{
+			"area": "courtyard_home",
+			"frames": 45,
+			"from": "(188.7528, 124.0748)",
+			"walk": "(128.0, 126.0)"
+		},
+		{
+			"area": "courtyard_home",
+			"frames": 32,
+			"from": "(130.4769, 125.0176)",
+			"walk": "(174.0, 126.0)"
+		},
+		{
+			"area": "courtyard_home",
+			"frames": 0,
+			"from": "(171.8101, 125.0176)",
+			"walk": "(174.0, 124.0)"
+		},
+		{
+			"home_collision": "stool",
+			"original_state_exact": true,
+			"passed": true,
+			"slide_contacts": 1,
+			"start": "(171.8101, 125.0176)",
+			"stopped": "(171.8101, 119.0032)",
+			"visit": 1
+		},
+		{
+			"capture": "home-collision-stool-first",
+			"path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/female-home-collision-stool-first.png",
+			"save_error": 0,
+			"saved": true
+		},
+		{
+			"area": "courtyard_home",
+			"frames": 5,
+			"from": "(171.8101, 119.0032)",
+			"walk": "(174.0, 126.0)"
+		},
+		{
+			"area": "courtyard_home",
+			"frames": 33,
+			"from": "(172.7887, 123.9818)",
+			"walk": "(128.0, 126.0)"
+		},
+		{
+			"area": "courtyard_home",
+			"frames": 19,
+			"from": "(130.5127, 124.9246)",
+			"walk": "(128.0, 151.0)"
+		},
+		{
+			"area": "courtyard_home",
+			"frames": 36,
+			"from": "(128.6271, 148.1435)",
+			"walk": "(80.0, 151.0)"
+		},
+		{
+			"area": "courtyard_home",
+			"frames": 12,
+			"from": "(82.74139, 150.0291)",
+			"walk": "(66.0, 151.0)"
+		},
+		{
+			"home_collision": "stove",
+			"original_state_exact": true,
+			"passed": true,
+			"slide_contacts": 1,
+			"start": "(68.07469, 150.0291)",
+			"stopped": "(65.00317, 150.0291)",
+			"visit": 1
+		},
+		{
+			"capture": "home-collision-stove-first",
+			"path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/female-home-collision-stove-first.png",
+			"save_error": 0,
+			"saved": true
+		},
+		{
+			"area": "courtyard_home",
+			"frames": 11,
+			"from": "(65.00317, 150.0291)",
+			"walk": "(80.0, 151.0)"
+		},
+		{
+			"area": "courtyard_home",
+			"frames": 30,
+			"from": "(78.40814, 150.0291)",
+			"walk": "(80.0, 190.0)"
+		},
+		{
+			"area": "courtyard_home",
+			"frames": 12,
+			"from": "(79.35095, 188.3051)",
+			"walk": "(80.0, 172.0)"
+		},
+		{
+			"home_collision": "woodstack",
+			"original_state_exact": true,
+			"passed": true,
+			"slide_contacts": 1,
+			"start": "(79.35095, 173.6385)",
+			"stopped": "(64.00317, 173.6385)",
+			"visit": 1
+		},
+		{
+			"capture": "home-collision-woodstack-first",
+			"path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/female-home-collision-woodstack-first.png",
+			"save_error": 0,
+			"saved": true
+		},
+		{
+			"area": "courtyard_home",
+			"frames": 12,
+			"from": "(64.00317, 173.6385)",
+			"walk": "(80.0, 172.0)"
+		},
+		{
+			"area": "courtyard_home",
+			"frames": 35,
+			"from": "(78.31514, 172.6599)",
+			"walk": "(80.0, 126.0)"
+		},
+		{
+			"area": "courtyard_home",
+			"frames": 25,
+			"from": "(79.25795, 127.7172)",
+			"walk": "(45.0, 126.0)"
+		},
+		{
+			"home_collision": "bedside",
+			"original_state_exact": true,
+			"passed": true,
+			"slide_contacts": 1,
+			"start": "(47.64846, 126.7744)",
+			"stopped": "(47.64846, 122.0032)",
+			"visit": 1
+		},
+		{
+			"capture": "home-collision-bedside-first",
+			"path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/female-home-collision-bedside-first.png",
+			"save_error": 0,
+			"saved": true
+		},
+		{
+			"area": "courtyard_home",
+			"frames": 3,
+			"from": "(47.64846, 122.0032)",
+			"walk": "(45.0, 126.0)"
+		},
+		{
+			"area": "courtyard_home",
+			"frames": 25,
+			"from": "(45.72704, 123.9246)",
+			"walk": "(80.0, 126.0)"
+		},
+		{
+			"area": "courtyard_home",
+			"frames": 37,
+			"from": "(77.33652, 124.8674)",
+			"walk": "(128.0, 126.0)"
+		},
+		{
+			"area": "courtyard_home",
+			"frames": 49,
+			"from": "(125.3366, 124.8674)",
+			"walk": "(128.0, 190.0)"
+		},
+		{
+			"area": "courtyard_home",
+			"frames": 57,
+			"from": "(127.2222, 188.0861)",
+			"walk": "(204.0, 190.0)"
+		},
+		{
+			"home_collision": "coat-cabinet",
+			"original_state_exact": true,
+			"passed": true,
+			"slide_contacts": 1,
+			"start": "(201.4981, 189.0289)",
+			"stopped": "(201.4981, 185.0032)",
+			"visit": 1
+		},
+		{
+			"capture": "home-collision-coat-cabinet-first",
+			"path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/female-home-collision-coat-cabinet-first.png",
+			"save_error": 0,
+			"saved": true
+		},
+		{
+			"area": "courtyard_home",
+			"frames": 4,
+			"from": "(201.4981, 185.0032)",
+			"walk": "(204.0, 190.0)"
+		},
+		{
+			"area": "courtyard_home",
+			"frames": 56,
+			"from": "(203.4195, 188.2579)",
+			"walk": "(128.0, 190.0)"
+		},
+		{
+			"area": "courtyard_home",
+			"frames": 47,
+			"from": "(130.477, 189.2007)",
+			"walk": "(128.0, 127.0)"
+		},
+		{
+			"area": "courtyard_home",
+			"frames": 60,
+			"from": "(128.5914, 128.6487)",
+			"walk": "(48.0, 127.0)"
+		},
+		{
+			"at": "(50.31511, 127.7059)",
+			"coat_clear_full_opacity_expected": true,
+			"coat_material": {
+				"bound": true,
+				"identity": {
+					"material_class": "ShaderMaterial",
+					"material_id": -9223371858965951482,
+					"shader_id": -9223371987949189603,
+					"shader_path": "res://assets/sprites/world/route1_landing_loop_2026_10_03/canopy_visibility.gdshader"
+				},
+				"opacity": 1.0,
+				"shader_path_correct": true
+			},
+			"coat_upper_fade_expected": false,
+			"home_foreground_view": "stove-behind",
+			"opacity_matches_position": true,
+			"original_state_native_art_and_material_identity_exact": true,
+			"passed": true,
+			"settle_frames": 22,
+			"visit": 1
+		},
+		{
+			"capture": "home-view-stove-behind-first",
+			"path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/female-home-view-stove-behind-first.png",
+			"save_error": 0,
+			"saved": true
+		},
+		{
+			"area": "courtyard_home",
+			"frames": 58,
+			"from": "(50.31511, 127.7059)",
+			"walk": "(128.0, 127.0)"
+		},
+		{
+			"area": "courtyard_home",
+			"frames": 12,
+			"from": "(126.3152, 127.7059)",
+			"walk": "(128.0, 144.0)"
+		},
+		{
+			"area": "courtyard_home",
+			"frames": 60,
+			"from": "(127.258, 141.9819)",
+			"walk": "(208.0, 144.0)"
+		},
+		{
+			"at": "(205.5339, 142.9248)",
+			"coat_clear_full_opacity_expected": false,
+			"coat_material": {
+				"bound": true,
+				"identity": {
+					"material_class": "ShaderMaterial",
+					"material_id": -9223371858965951482,
+					"shader_id": -9223371987949189603,
+					"shader_path": "res://assets/sprites/world/route1_landing_loop_2026_10_03/canopy_visibility.gdshader"
+				},
+				"opacity": 0.45,
+				"shader_path_correct": true
+			},
+			"coat_upper_fade_expected": true,
+			"home_foreground_view": "coat-behind",
+			"opacity_matches_position": true,
+			"original_state_native_art_and_material_identity_exact": true,
+			"passed": true,
+			"settle_frames": 22,
+			"visit": 1
+		},
+		{
+			"capture": "home-view-coat-behind-first",
+			"path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/female-home-view-coat-behind-first.png",
+			"save_error": 0,
+			"saved": true
+		},
+		{
+			"area": "courtyard_home",
+			"frames": 58,
+			"from": "(205.5339, 142.9248)",
+			"walk": "(128.0, 144.0)"
+		},
+		{
+			"area": "courtyard_home",
+			"frames": 48,
+			"from": "(129.5341, 142.9248)",
+			"walk": "(128.0, 208.0)"
+		},
+		{
+			"area": "courtyard_home",
+			"frames": 7,
+			"from": "(128.5913, 205.2007)",
+			"walk": "(128.0, 216.0)"
+		},
+		{
+			"entrance_from": "courtyard_home",
+			"flags_preserved": true,
+			"passed": true,
+			"selected_model": "Female",
+			"to": "hometown"
+		},
+		{
+			"capture": "entrance-courtyard_home-to-hometown",
+			"path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/female-entrance-courtyard_home-to-hometown.png",
+			"save_error": 0,
+			"saved": true
+		},
+		{
+			"cached_garden_all_art_and_local_state_exact": true,
+			"cached_interior_and_player_exact": true,
+			"exact_exterior_arrival": true,
+			"expected_interior_exit_gate": "(128.0, 232.0)",
+			"home_loop_complete": 1,
+			"idle_after_return_no_bounce": true,
+			"one_live_area": true,
+			"original_flags_notes_objective_board_controller_party_and_home_player_exact": true,
+			"passed": true,
+			"two_real_home_gates": true
+		},
+		{
+			"capture": "home-exterior-first",
+			"path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/female-home-exterior-first.png",
+			"save_error": 0,
+			"saved": true
+		},
+		{
+			"area": "hometown",
+			"frames": 0,
+			"from": "(233.0, 280.0)",
+			"walk": "(233.0, 280.0)"
+		},
+		{
+			"entrance_from": "hometown",
+			"flags_preserved": true,
+			"passed": true,
+			"selected_model": "Female",
+			"to": "courtyard_home"
+		},
+		{
+			"capture": "entrance-hometown-to-courtyard_home",
+			"path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/female-entrance-hometown-to-courtyard_home.png",
+			"save_error": 0,
+			"saved": true
+		},
+		{
+			"active_player_bound": true,
+			"actual_arrival": "(128.0, 208.0)",
+			"door": "(233.0, 242.0)",
+			"expected_arrival": "(128.0, 208.0)",
+			"home_entry": 2,
+			"original_core_exact": true,
+			"passed": true
+		},
+		{
+			"home_native_art_contract": true,
+			"sprites": [
+				{
+					"coat_bound_to_existing_shader_and_full_opacity_on_entry": true,
+					"coat_material": {},
+					"expected_texture": "res://assets/sprites/world/courtyard_home_detail_2026_10_05/home_room.png",
+					"final_texture_and_native_size": true,
+					"material": {
+						"material_class": "",
+						"material_id": 0,
+						"shader_id": 0,
+						"shader_path": ""
+					},
+					"native_unresized_and_visible": true,
+					"node": "RoomArt",
+					"original_native_origin": true,
+					"state": {
+						"bounds": "[P: (26.0, 25.0), S: (205.0, 208.0)]",
+						"centered": false,
+						"global_position": "(0.0, 0.0)",
+						"id": 177838492675,
+						"offset": "(0.0, 0.0)",
+						"scale": "(1.0, 1.0)",
+						"texture_id": -9223371979057264980,
+						"texture_path": "res://assets/sprites/world/courtyard_home_detail_2026_10_05/home_room.png",
+						"texture_size": "(256.0, 256.0)",
+						"visible": true
+					},
+					"visible_pixels_inside_room": true
+				},
+				{
+					"coat_bound_to_existing_shader_and_full_opacity_on_entry": true,
+					"coat_material": {},
+					"expected_texture": "res://assets/sprites/world/courtyard_home_detail_2026_10_05/home_stove_front.png",
+					"final_texture_and_native_size": true,
+					"material": {
+						"material_class": "",
+						"material_id": 0,
+						"shader_id": 0,
+						"shader_path": ""
+					},
+					"native_unresized_and_visible": true,
+					"node": "RouteDecor/RoomStoveFront",
+					"original_native_origin": true,
+					"state": {
+						"bounds": "[P: (35.0, 112.0), S: (24.0, 65.0)]",
+						"centered": false,
+						"global_position": "(33.0, 177.0)",
+						"id": 177855269892,
+						"offset": "(0.0, -67.0)",
+						"scale": "(1.0, 1.0)",
+						"texture_id": -9223371978755275089,
+						"texture_path": "res://assets/sprites/world/courtyard_home_detail_2026_10_05/home_stove_front.png",
+						"texture_size": "(28.0, 69.0)",
+						"visible": true
+					},
+					"visible_pixels_inside_room": true
+				},
+				{
+					"coat_bound_to_existing_shader_and_full_opacity_on_entry": true,
+					"coat_material": {
+						"bound": true,
+						"identity": {
+							"material_class": "ShaderMaterial",
+							"material_id": -9223371858965951482,
+							"shader_id": -9223371987949189603,
+							"shader_path": "res://assets/sprites/world/route1_landing_loop_2026_10_03/canopy_visibility.gdshader"
+						},
+						"opacity": 1.0,
+						"shader_path_correct": true
+					},
+					"expected_texture": "res://assets/sprites/world/courtyard_home_detail_2026_10_05/home_coat_front.png",
+					"final_texture_and_native_size": true,
+					"material": {
+						"material_class": "ShaderMaterial",
+						"material_id": -9223371858965951482,
+						"shader_id": -9223371987949189603,
+						"shader_path": "res://assets/sprites/world/route1_landing_loop_2026_10_03/canopy_visibility.gdshader"
+					},
+					"native_unresized_and_visible": true,
+					"node": "RouteDecor/RoomCoatFront",
+					"original_native_origin": true,
+					"state": {
+						"bounds": "[P: (184.0, 116.0), S: (36.0, 60.0)]",
+						"centered": false,
+						"global_position": "(182.0, 176.0)",
+						"id": 177872047109,
+						"offset": "(0.0, -62.0)",
+						"scale": "(1.0, 1.0)",
+						"texture_id": -9223371978453285200,
+						"texture_path": "res://assets/sprites/world/courtyard_home_detail_2026_10_05/home_coat_front.png",
+						"texture_size": "(40.0, 64.0)",
+						"visible": true
+					},
+					"visible_pixels_inside_room": true
+				},
+				{
+					"coat_bound_to_existing_shader_and_full_opacity_on_entry": true,
+					"coat_material": {},
+					"expected_texture": "res://assets/sprites/world/courtyard_home_detail_2026_10_05/home_threshold_front.png",
+					"final_texture_and_native_size": true,
+					"material": {
+						"material_class": "",
+						"material_id": 0,
+						"shader_id": 0,
+						"shader_path": ""
+					},
+					"native_unresized_and_visible": true,
+					"node": "RouteDecor/RoomThresholdFront",
+					"original_native_origin": true,
+					"state": {
+						"bounds": "[P: (26.0, 211.0), S: (205.0, 22.0)]",
+						"centered": false,
+						"global_position": "(24.0, 233.0)",
+						"id": 177905601543,
+						"offset": "(0.0, -24.0)",
+						"scale": "(1.0, 1.0)",
+						"texture_id": -9223371978151295311,
+						"texture_path": "res://assets/sprites/world/courtyard_home_detail_2026_10_05/home_threshold_front.png",
+						"texture_size": "(209.0, 26.0)",
+						"visible": true
+					},
+					"visible_pixels_inside_room": true
+				}
+			],
+			"visit": 2
+		},
+		{
+			"cached_home_interior_player_and_art_exact": true,
+			"visit": 2
+		},
+		{
+			"capture": "home-entry-cached-return",
+			"path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/female-home-entry-cached-return.png",
+			"save_error": 0,
+			"saved": true
+		},
+		{
+			"area": "courtyard_home",
+			"movement_frozen_and_resumed": true,
+			"panel": "_notes_panel"
+		},
+		{
+			"area": "courtyard_home",
+			"movement_frozen_and_resumed": true,
+			"panel": "_party_panel"
+		},
+		{
+			"area": "courtyard_home",
+			"frames": 0,
+			"from": "(128.0, 208.0)",
+			"walk": "(128.0, 208.0)"
+		},
+		{
+			"area": "courtyard_home",
+			"frames": 61,
+			"from": "(128.0, 208.0)",
+			"walk": "(128.0, 126.0)"
+		},
+		{
+			"area": "courtyard_home",
+			"frames": 18,
+			"from": "(128.0, 128.0003)",
+			"walk": "(152.0, 126.0)"
+		},
+		{
+			"area": "courtyard_home",
+			"frames": 11,
+			"from": "(150.2761, 127.0575)",
+			"walk": "(152.0, 112.0)"
+		},
+		{
+			"capture": "home-table-cached-return",
+			"path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/female-home-table-cached-return.png",
+			"save_error": 0,
+			"saved": true
+		},
+		{
+			"active_player_bound": true,
+			"at": "(151.2189, 114.1147)",
+			"body": "WORKTABLE\nThe worktable is clear, with room to lay out your next task.\n\nFIRST ROUTE  /  Speak to the dispatcher\nROUTE BOARD  /  Assignment open\n\n[E] Continue",
+			"home_dialogue": "table",
+			"original_flags_notes_objective_board_controller_party_exact": true,
+			"panel_froze_and_resumed": true,
+			"passed": true,
+			"visit": 2,
+			"worktable_has_no_map_and_contains_existing_objective_and_board": true
+		},
+		{
+			"area": "courtyard_home",
+			"frames": 20,
+			"from": "(151.2189, 114.1147)",
+			"walk": "(128.0, 126.0)"
+		},
+		{
+			"area": "courtyard_home",
+			"frames": 18,
+			"from": "(130.5719, 125.4284)",
+			"walk": "(106.0, 126.0)"
+		},
+		{
+			"area": "courtyard_home",
+			"frames": 14,
+			"from": "(107.9052, 125.4284)",
+			"walk": "(106.0, 106.0)"
+		},
+		{
+			"capture": "home-bed-cached-return",
+			"path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/female-home-bed-cached-return.png",
+			"save_error": 0,
+			"saved": true
+		},
+		{
+			"active_player_bound": true,
+			"at": "(106.9623, 108.4855)",
+			"body": "REST CORNER\nA teal quilt covers the bed. A small cabinet and woven mat keep this corner separate from the working floor.\n\n[E] Continue",
+			"home_dialogue": "bed",
+			"original_flags_notes_objective_board_controller_party_exact": true,
+			"panel_froze_and_resumed": true,
+			"passed": true,
+			"visit": 2,
+			"worktable_has_no_map_and_contains_existing_objective_and_board": true
+		},
+		{
+			"area": "courtyard_home",
+			"frames": 20,
+			"from": "(106.9623, 108.4855)",
+			"walk": "(128.0, 126.0)"
+		},
+		{
+			"area": "courtyard_home",
+			"frames": 20,
+			"from": "(125.6568, 124.5133)",
+			"walk": "(128.0, 151.0)"
+		},
+		{
+			"area": "courtyard_home",
+			"frames": 35,
+			"from": "(126.5996, 149.456)",
+			"walk": "(80.0, 151.0)"
+		},
+		{
+			"area": "courtyard_home",
+			"frames": 11,
+			"from": "(81.6567, 150.3988)",
+			"walk": "(66.0, 151.0)"
+		},
+		{
+			"capture": "home-stove-cached-return",
+			"path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/female-home-stove-cached-return.png",
+			"save_error": 0,
+			"saved": true
+		},
+		{
+			"active_player_bound": true,
+			"at": "(68.32334, 150.3988)",
+			"body": "HOME STOVE\nAn iron stove rests beside a stack of split wood. The clear center floor leaves room to pass between it and the worktable.\n\n[E] Continue",
+			"home_dialogue": "stove",
+			"original_flags_notes_objective_board_controller_party_exact": true,
+			"panel_froze_and_resumed": true,
+			"passed": true,
+			"visit": 2,
+			"worktable_has_no_map_and_contains_existing_objective_and_board": true
+		},
+		{
+			"area": "courtyard_home",
+			"frames": 56,
+			"from": "(68.32334, 150.3988)",
+			"walk": "(128.0, 190.0)"
+		},
+		{
+			"area": "courtyard_home",
+			"frames": 36,
+			"from": "(125.6453, 189.0541)",
+			"walk": "(174.0, 190.0)"
+		},
+		{
+			"area": "courtyard_home",
+			"frames": 2,
+			"from": "(172.3118, 189.0541)",
+			"walk": "(174.0, 186.0)"
+		},
+		{
+			"capture": "home-coat-cached-return",
+			"path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/female-home-coat-cached-return.png",
+			"save_error": 0,
+			"saved": true
+		},
+		{
+			"active_player_bound": true,
+			"at": "(173.2546, 188.1113)",
+			"body": "TRAVEL HOOK\nA working coat and spare boots are kept beside the doorway.\n\n[E] Continue",
+			"home_dialogue": "coat",
+			"original_flags_notes_objective_board_controller_party_exact": true,
+			"panel_froze_and_resumed": true,
+			"passed": true,
+			"visit": 2,
+			"worktable_has_no_map_and_contains_existing_objective_and_board": true
+		},
+		{
+			"area": "courtyard_home",
+			"frames": 34,
+			"from": "(173.2546, 188.1113)",
+			"walk": "(128.0, 190.0)"
+		},
+		{
+			"area": "courtyard_home",
+			"frames": 66,
+			"from": "(129.6452, 189.0541)",
+			"walk": "(128.0, 100.0)"
+		},
+		{
+			"home_collision": "north-wall",
+			"original_state_exact": true,
+			"passed": true,
+			"slide_contacts": 1,
+			"start": "(128.7024, 102.7781)",
+			"stopped": "(128.7024, 85.00316)",
+			"visit": 2
+		},
+		{
+			"capture": "home-collision-north-wall-cached-return",
+			"path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/female-home-collision-north-wall-cached-return.png",
+			"save_error": 0,
+			"saved": true
+		},
+		{
+			"area": "courtyard_home",
+			"frames": 78,
+			"from": "(128.7024, 85.00316)",
+			"walk": "(128.0, 190.0)"
+		},
+		{
+			"area": "courtyard_home",
+			"frames": 36,
+			"from": "(128.7024, 187.7413)",
+			"walk": "(80.0, 190.0)"
+		},
+		{
+			"home_collision": "west-wall",
+			"original_state_exact": true,
+			"passed": true,
+			"slide_contacts": 1,
+			"start": "(82.42621, 188.6841)",
+			"stopped": "(42.00317, 188.6841)",
+			"visit": 2
+		},
+		{
+			"capture": "home-collision-west-wall-cached-return",
+			"path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/female-home-collision-west-wall-cached-return.png",
+			"save_error": 0,
+			"saved": true
+		},
+		{
+			"area": "courtyard_home",
+			"frames": 64,
+			"from": "(42.00317, 188.6841)",
+			"walk": "(128.0, 190.0)"
+		},
+		{
+			"home_collision": "east-wall",
+			"original_state_exact": true,
+			"passed": true,
+			"slide_contacts": 1,
+			"start": "(126.0749, 188.6841)",
+			"stopped": "(214.9968, 188.6841)",
+			"visit": 2
+		},
+		{
+			"capture": "home-collision-east-wall-cached-return",
+			"path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/female-home-collision-east-wall-cached-return.png",
+			"save_error": 0,
+			"saved": true
+		},
+		{
+			"area": "courtyard_home",
+			"frames": 101,
+			"from": "(214.9968, 188.6841)",
+			"walk": "(80.0, 190.0)"
+		},
+		{
+			"home_collision": "south-left-wall",
+			"original_state_exact": true,
+			"passed": true,
+			"slide_contacts": 1,
+			"start": "(81.59212, 188.6841)",
+			"stopped": "(81.59212, 210.9965)",
+			"visit": 2
+		},
+		{
+			"capture": "home-collision-south-left-wall-cached-return",
+			"path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/female-home-collision-south-left-wall-cached-return.png",
+			"save_error": 0,
+			"saved": true
+		},
+		{
+			"area": "courtyard_home",
+			"frames": 15,
+			"from": "(81.59212, 210.9965)",
+			"walk": "(80.0, 190.0)"
+		},
+		{
+			"area": "courtyard_home",
+			"frames": 35,
+			"from": "(80.61366, 192.6848)",
+			"walk": "(128.0, 190.0)"
+		},
+		{
+			"area": "courtyard_home",
+			"frames": 46,
+			"from": "(125.166, 190.7992)",
+			"walk": "(188.0, 190.0)"
+		},
+		{
+			"home_collision": "south-right-wall",
+			"original_state_exact": true,
+			"passed": true,
+			"slide_contacts": 1,
+			"start": "(185.1658, 190.7992)",
+			"stopped": "(185.1658, 210.9996)",
+			"visit": 2
+		},
+		{
+			"capture": "home-collision-south-right-wall-cached-return",
+			"path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/female-home-collision-south-right-wall-cached-return.png",
+			"save_error": 0,
+			"saved": true
+		},
+		{
+			"area": "courtyard_home",
+			"frames": 16,
+			"from": "(185.1658, 210.9996)",
+			"walk": "(188.0, 190.0)"
+		},
+		{
+			"area": "courtyard_home",
+			"frames": 44,
+			"from": "(187.0886, 191.7436)",
+			"walk": "(128.0, 190.0)"
+		},
+		{
+			"area": "courtyard_home",
+			"frames": 48,
+			"from": "(130.146, 190.8008)",
+			"walk": "(128.0, 126.0)"
+		},
+		{
+			"area": "courtyard_home",
+			"frames": 14,
+			"from": "(129.2032, 128.5248)",
+			"walk": "(110.0, 126.0)"
+		},
+		{
+			"area": "courtyard_home",
+			"frames": 20,
+			"from": "(112.6509, 126.6392)",
+			"walk": "(110.0, 100.0)"
+		},
+		{
+			"home_collision": "bed",
+			"original_state_exact": true,
+			"passed": true,
+			"slide_contacts": 1,
+			"start": "(110.7653, 102.0869)",
+			"stopped": "(104.0032, 102.0869)",
+			"visit": 2
+		},
+		{
+			"capture": "home-collision-bed-cached-return",
+			"path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/female-home-collision-bed-cached-return.png",
+			"save_error": 0,
+			"saved": true
+		},
+		{
+			"area": "courtyard_home",
+			"frames": 4,
+			"from": "(104.0032, 102.0869)",
+			"walk": "(110.0, 100.0)"
+		},
+		{
+			"area": "courtyard_home",
+			"frames": 18,
+			"from": "(107.6484, 101.1083)",
+			"walk": "(110.0, 126.0)"
+		},
+		{
+			"area": "courtyard_home",
+			"frames": 14,
+			"from": "(108.5913, 123.3845)",
+			"walk": "(128.0, 126.0)"
+		},
+		{
+			"area": "courtyard_home",
+			"frames": 48,
+			"from": "(125.1436, 125.2701)",
+			"walk": "(190.0, 126.0)"
+		},
+		{
+			"area": "courtyard_home",
+			"frames": 2,
+			"from": "(187.81, 125.2701)",
+			"walk": "(190.0, 122.0)"
+		},
+		{
+			"home_collision": "table",
+			"original_state_exact": true,
+			"passed": true,
+			"slide_contacts": 1,
+			"start": "(188.7528, 124.3273)",
+			"stopped": "(188.7528, 112.0032)",
+			"visit": 2
+		},
+		{
+			"capture": "home-collision-table-cached-return",
+			"path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/female-home-collision-table-cached-return.png",
+			"save_error": 0,
+			"saved": true
+		},
+		{
+			"area": "courtyard_home",
+			"frames": 10,
+			"from": "(188.7528, 112.0032)",
+			"walk": "(190.0, 126.0)"
+		},
+		{
+			"area": "courtyard_home",
+			"frames": 45,
+			"from": "(188.7528, 124.0748)",
+			"walk": "(128.0, 126.0)"
+		},
+		{
+			"area": "courtyard_home",
+			"frames": 32,
+			"from": "(130.4769, 125.0176)",
+			"walk": "(174.0, 126.0)"
+		},
+		{
+			"area": "courtyard_home",
+			"frames": 0,
+			"from": "(171.8101, 125.0176)",
+			"walk": "(174.0, 124.0)"
+		},
+		{
+			"home_collision": "stool",
+			"original_state_exact": true,
+			"passed": true,
+			"slide_contacts": 1,
+			"start": "(171.8101, 125.0176)",
+			"stopped": "(171.8101, 119.0032)",
+			"visit": 2
+		},
+		{
+			"capture": "home-collision-stool-cached-return",
+			"path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/female-home-collision-stool-cached-return.png",
+			"save_error": 0,
+			"saved": true
+		},
+		{
+			"area": "courtyard_home",
+			"frames": 5,
+			"from": "(171.8101, 119.0032)",
+			"walk": "(174.0, 126.0)"
+		},
+		{
+			"area": "courtyard_home",
+			"frames": 33,
+			"from": "(172.7887, 123.9818)",
+			"walk": "(128.0, 126.0)"
+		},
+		{
+			"area": "courtyard_home",
+			"frames": 19,
+			"from": "(130.5127, 124.9246)",
+			"walk": "(128.0, 151.0)"
+		},
+		{
+			"area": "courtyard_home",
+			"frames": 36,
+			"from": "(128.6271, 148.1435)",
+			"walk": "(80.0, 151.0)"
+		},
+		{
+			"area": "courtyard_home",
+			"frames": 12,
+			"from": "(82.74139, 150.0291)",
+			"walk": "(66.0, 151.0)"
+		},
+		{
+			"home_collision": "stove",
+			"original_state_exact": true,
+			"passed": true,
+			"slide_contacts": 1,
+			"start": "(68.07469, 150.0291)",
+			"stopped": "(65.00317, 150.0291)",
+			"visit": 2
+		},
+		{
+			"capture": "home-collision-stove-cached-return",
+			"path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/female-home-collision-stove-cached-return.png",
+			"save_error": 0,
+			"saved": true
+		},
+		{
+			"area": "courtyard_home",
+			"frames": 11,
+			"from": "(65.00317, 150.0291)",
+			"walk": "(80.0, 151.0)"
+		},
+		{
+			"area": "courtyard_home",
+			"frames": 30,
+			"from": "(78.40814, 150.0291)",
+			"walk": "(80.0, 190.0)"
+		},
+		{
+			"area": "courtyard_home",
+			"frames": 12,
+			"from": "(79.35095, 188.3051)",
+			"walk": "(80.0, 172.0)"
+		},
+		{
+			"home_collision": "woodstack",
+			"original_state_exact": true,
+			"passed": true,
+			"slide_contacts": 1,
+			"start": "(79.35095, 173.6385)",
+			"stopped": "(64.00317, 173.6385)",
+			"visit": 2
+		},
+		{
+			"capture": "home-collision-woodstack-cached-return",
+			"path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/female-home-collision-woodstack-cached-return.png",
+			"save_error": 0,
+			"saved": true
+		},
+		{
+			"area": "courtyard_home",
+			"frames": 12,
+			"from": "(64.00317, 173.6385)",
+			"walk": "(80.0, 172.0)"
+		},
+		{
+			"area": "courtyard_home",
+			"frames": 35,
+			"from": "(78.31514, 172.6599)",
+			"walk": "(80.0, 126.0)"
+		},
+		{
+			"area": "courtyard_home",
+			"frames": 25,
+			"from": "(79.25795, 127.7172)",
+			"walk": "(45.0, 126.0)"
+		},
+		{
+			"home_collision": "bedside",
+			"original_state_exact": true,
+			"passed": true,
+			"slide_contacts": 1,
+			"start": "(47.64846, 126.7744)",
+			"stopped": "(47.64846, 122.0032)",
+			"visit": 2
+		},
+		{
+			"capture": "home-collision-bedside-cached-return",
+			"path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/female-home-collision-bedside-cached-return.png",
+			"save_error": 0,
+			"saved": true
+		},
+		{
+			"area": "courtyard_home",
+			"frames": 3,
+			"from": "(47.64846, 122.0032)",
+			"walk": "(45.0, 126.0)"
+		},
+		{
+			"area": "courtyard_home",
+			"frames": 25,
+			"from": "(45.72704, 123.9246)",
+			"walk": "(80.0, 126.0)"
+		},
+		{
+			"area": "courtyard_home",
+			"frames": 37,
+			"from": "(77.33652, 124.8674)",
+			"walk": "(128.0, 126.0)"
+		},
+		{
+			"area": "courtyard_home",
+			"frames": 49,
+			"from": "(125.3366, 124.8674)",
+			"walk": "(128.0, 190.0)"
+		},
+		{
+			"area": "courtyard_home",
+			"frames": 57,
+			"from": "(127.2222, 188.0861)",
+			"walk": "(204.0, 190.0)"
+		},
+		{
+			"home_collision": "coat-cabinet",
+			"original_state_exact": true,
+			"passed": true,
+			"slide_contacts": 1,
+			"start": "(201.4981, 189.0289)",
+			"stopped": "(201.4981, 185.0032)",
+			"visit": 2
+		},
+		{
+			"capture": "home-collision-coat-cabinet-cached-return",
+			"path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/female-home-collision-coat-cabinet-cached-return.png",
+			"save_error": 0,
+			"saved": true
+		},
+		{
+			"area": "courtyard_home",
+			"frames": 4,
+			"from": "(201.4981, 185.0032)",
+			"walk": "(204.0, 190.0)"
+		},
+		{
+			"area": "courtyard_home",
+			"frames": 56,
+			"from": "(203.4195, 188.2579)",
+			"walk": "(128.0, 190.0)"
+		},
+		{
+			"area": "courtyard_home",
+			"frames": 47,
+			"from": "(130.477, 189.2007)",
+			"walk": "(128.0, 127.0)"
+		},
+		{
+			"area": "courtyard_home",
+			"frames": 60,
+			"from": "(128.5914, 128.6487)",
+			"walk": "(48.0, 127.0)"
+		},
+		{
+			"at": "(50.31511, 127.7059)",
+			"coat_clear_full_opacity_expected": true,
+			"coat_material": {
+				"bound": true,
+				"identity": {
+					"material_class": "ShaderMaterial",
+					"material_id": -9223371858965951482,
+					"shader_id": -9223371987949189603,
+					"shader_path": "res://assets/sprites/world/route1_landing_loop_2026_10_03/canopy_visibility.gdshader"
+				},
+				"opacity": 1.0,
+				"shader_path_correct": true
+			},
+			"coat_upper_fade_expected": false,
+			"home_foreground_view": "stove-behind",
+			"opacity_matches_position": true,
+			"original_state_native_art_and_material_identity_exact": true,
+			"passed": true,
+			"settle_frames": 22,
+			"visit": 2
+		},
+		{
+			"capture": "home-view-stove-behind-cached-return",
+			"path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/female-home-view-stove-behind-cached-return.png",
+			"save_error": 0,
+			"saved": true
+		},
+		{
+			"area": "courtyard_home",
+			"frames": 58,
+			"from": "(50.31511, 127.7059)",
+			"walk": "(128.0, 127.0)"
+		},
+		{
+			"area": "courtyard_home",
+			"frames": 12,
+			"from": "(126.3152, 127.7059)",
+			"walk": "(128.0, 144.0)"
+		},
+		{
+			"area": "courtyard_home",
+			"frames": 60,
+			"from": "(127.258, 141.9819)",
+			"walk": "(208.0, 144.0)"
+		},
+		{
+			"at": "(205.5339, 142.9248)",
+			"coat_clear_full_opacity_expected": false,
+			"coat_material": {
+				"bound": true,
+				"identity": {
+					"material_class": "ShaderMaterial",
+					"material_id": -9223371858965951482,
+					"shader_id": -9223371987949189603,
+					"shader_path": "res://assets/sprites/world/route1_landing_loop_2026_10_03/canopy_visibility.gdshader"
+				},
+				"opacity": 0.45,
+				"shader_path_correct": true
+			},
+			"coat_upper_fade_expected": true,
+			"home_foreground_view": "coat-behind",
+			"opacity_matches_position": true,
+			"original_state_native_art_and_material_identity_exact": true,
+			"passed": true,
+			"settle_frames": 22,
+			"visit": 2
+		},
+		{
+			"capture": "home-view-coat-behind-cached-return",
+			"path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/female-home-view-coat-behind-cached-return.png",
+			"save_error": 0,
+			"saved": true
+		},
+		{
+			"area": "courtyard_home",
+			"frames": 58,
+			"from": "(205.5339, 142.9248)",
+			"walk": "(128.0, 144.0)"
+		},
+		{
+			"area": "courtyard_home",
+			"frames": 48,
+			"from": "(129.5341, 142.9248)",
+			"walk": "(128.0, 208.0)"
+		},
+		{
+			"area": "courtyard_home",
+			"frames": 7,
+			"from": "(128.5913, 205.2007)",
+			"walk": "(128.0, 216.0)"
+		},
+		{
+			"entrance_from": "courtyard_home",
+			"flags_preserved": true,
+			"passed": true,
+			"selected_model": "Female",
+			"to": "hometown"
+		},
+		{
+			"capture": "entrance-courtyard_home-to-hometown",
+			"path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/female-entrance-courtyard_home-to-hometown.png",
+			"save_error": 0,
+			"saved": true
+		},
+		{
+			"cached_garden_all_art_and_local_state_exact": true,
+			"cached_interior_and_player_exact": true,
+			"exact_exterior_arrival": true,
+			"expected_interior_exit_gate": "(128.0, 232.0)",
+			"home_loop_complete": 2,
+			"idle_after_return_no_bounce": true,
+			"one_live_area": true,
+			"original_flags_notes_objective_board_controller_party_and_home_player_exact": true,
+			"passed": true,
+			"two_real_home_gates": true
+		},
+		{
+			"capture": "home-exterior-cached-return",
+			"path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/female-home-exterior-cached-return.png",
+			"save_error": 0,
+			"saved": true
+		},
+		{
+			"all_eleven_flags_false": true,
+			"expected_final_flags": {
+				"city_arrival_registered": false,
+				"city_directions_read": false,
+				"delivered": false,
+				"heard_calls": false,
+				"levee_entrance_read": false,
+				"marker_restored": false,
+				"pouch_accepted": false,
+				"report_done": false,
+				"reported_calls": false,
+				"reported_water_mark": false,
+				"water_mark_observed": false
+			},
+			"focused_home_final_check": true,
+			"four_interactions_twelve_contacts_and_both_views_each_visit": true,
+			"four_real_doorway_gates_and_two_home_visits": true,
+			"original_cached_areas_and_new_home_identity_exact": true,
+			"original_core_party_notes_objective_board_and_player_exact": true,
+			"original_garden_local_state_and_all_art_exact": true,
+			"passed": true
+		},
+		{
+			"capture": "focused-return-home",
+			"path": "C:/Users/pmcga/Documents/Codex/2026-10-01/referenced-chatgpt-conversation-this-is-an/room-coalcrest-detail-2026-10-05/proof/walk/female-focused-return-home.png",
+			"save_error": 0,
+			"saved": true
+		}
+	],
+	"test_teleports": 0
+}

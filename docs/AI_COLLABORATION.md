@@ -1,6 +1,93 @@
 # Working Together on Hollowtide
 
+## Codex: starter material approvals resolved and pose retry (October 6, 2026)
+
+The six $1.08 starter material edits were authorized and completed; there is no pending approval for them. Kithflare I lantern detail and front/rear/eight-frame tail outlines are installed. Sparkwick's generated inpainting, Rimefin front and Riftfin rear material candidates were rejected for quality, so existing art stays deliberately. All nine current starter idles (72 actual frames), three signature titles and fourteen real move playbacks passed native checks with exit0/empty stderr. Current kits, sizes, essences, evolution and Claude's signature/idle architecture remain preserved.
+
+Stormwick/Rampartroot keep Preston's chosen poses with accepted interior material refinements ($0.36). Preston rejected the first new Scourmaw title ($0.18) as a different model; it is no longer used. The current card fits the approved Stage III source. His explicitly requested pose-only retry is running once in Retro Diffusion (task061e4b1e-2fe4-4835-83c9-765201ae0188, quoted$0.18); poll this task, do not duplicate it. Confirmed material/title spend before the retry is$1.62. [Current exact status, evidence locations and quality limits](art/review/starter-material-status-2026-10-06/README.md).
+
+Preserve the latest Kithflare outlined rear when Claude generates animated back idles. Full world goal remains unachieved; starter feedback is current priority. No kit/rule/architecture or launch/audio changes, original-art overwrite, staging/commit/deletion or editor control.
+
+
+
+## Codex: new starter textures and completed detail archives (October5,2026)
+
+Latest Preston direction: Kithflare's full replacement line is Ember/Electric; Tallowroot throughIII is Bloom/Stone; Rimefin's catfish line is Hollow/Tide (currently stored Tide/Hollow). All nine current resources already have these pairs, so no essence/rule edits. Claude owns the later models and Wayburn/Coalcrest retirement/archive.
+
+KithflareIII front/rear are repaired from approved full-size original pixels: its free k-centroid resize had introduced white background RGB inside preserved alpha. Literal nearest-neighbor source colors at the same219x219 canvas remove fringe and blended palette noise while retaining the exact silhouette, alpha/transparentRGB, upgraded storm lantern, pose and current scale. Only110_kithflare3.tres's two texture paths changed. NewPNG/imports under starter_texture_refine_2026_10_05; previous art stays. Two byte-exact source-only rebuilds. Nine separate current native idle battles passed18front/rear binding assertions, process exit0 and stderr0. Attacks/catching/won-battle evolution were not exercised. [Source, exact five game files, comparisons and native proof](art/review/starter-texture-refine-2026-10-05/README.md).
+
+StageI Kithflare lantern edit has NOT landed yet, correcting the earlier assumption in Claude's size handoff. It is included once in six prepared source-crop material edits, estimated$1.08 total; remaining targets are StageII copper/lanterns, Tallowroot husks/leaves/armor and catfish-line skin/scales/fin plates. Automatic review rejected new image cost-quote preparation because private art would go to RetroDiffusion without specific image/destination permission. Specific approval for those six uploads and paid edits is pending; no new paid requests. Preserve all fresh sizes/evolution links/kits and outside-mask pixels; never duplicate the earlier lantern request.
+
+The completed room/facade/approach and Ironvent review packages are now copied into docs, with source, prompts, rebuilds and engine evidence. [44owned artifact paths, immutable packages and current shared-resource limitations](art/review/detail-pass-2026-10-05/README.md). Ironvent102's newer external reserialization/battle_size1.52 is kept; palette bindings/Atlas region/margin remain exact, but the historical Ironvent native proof predates the new scale. No global shared equality claim or battle architecture changes by this archive save. RetiredCoalcrest repair proof remains W-only; Claude's archive is not duplicated. Historical paid cost$1.98; newstarter source repair$0. Hall$0.18 request is prepared/deferred and unexecuted pending specific approval.
+
+Full world goal remains active and unachieved. Starter texture work takes priority; later world detail, neighborhoods/services/districts remain. Keep Claude's current menu, Route1 lane/groves, systems and save/battle work, and Grok's creature/move rules. User runs GeminiDeepResearch; prompts only on request. No staging/commit/deletion, user-editor control or launch/audio change.
+
+
 > **Claude handoff, 2026-10-05:** start a new Claude chat from `docs/team/CLAUDE_HANDOFF_2026-10-05.md` (signature VFX pass, memorial ferret, unresolved `scenes/main_menu.tscn` deletion, RD balance $0.78).
+
+## Claude: starter-line back-view idles (October 6, 2026)
+
+The player's side now animates too: all nine starter-line forms have 8-frame RD back idles in the new `CreatureData.back_idle_frames`, and `battle_screen.gd` `_apply_idle` plays them on the near side (forms without one keep the procedural breath). Cost $1.40 including one Stormwick redo; RD balance $1.68 (another $0.18 was spent elsewhere meanwhile). Codex's Kithflare front idle is kept. Front/back comparison flags Riftfin's back as reading like a different creature from its front, Rimefin's pair as weak. [Record](creatures/starter-back-idles-2026-10-06/README.md). **Codex:** if you replace a starter back sprite, its back loop was made from the 2026-10-06 art; the README has the three-command redo. No commit.
+
+## Claude: starter-line idles and title cards (October 5, 2026)
+
+All nine starter-line forms have 8-frame RD idles (`idle_frames`) built from their current front art, plus per-form breath and glow tuning for the back views. The three new signature title cards now show the whole creature. Record `docs/creatures/starter-idles-2026-10-05/README.md`. **Codex:** if you change a starter's front art again, its idle frames were made from the version in the data files at 2026-10-05; rerun `tools/debug/rd_idle.py` for that form ($0.14). No commit.
+
+## Claude: starter signatures refined (October 5, 2026)
+
+Stormlantern release timing and a spent lantern; Root Rampart club-raised wind-up and a glowing ground crack; Undertow wake and hidden platform while submerged; sound levels rebalanced on all three. Shared code: `pressure_field.gd` gained optional `crack_color` and `wake_color` (off by default, Furnace Roar verified unchanged); `battle_screen.gd` hides a signature attacker's platform on empty frames. Before/after sheet: `docs/battle/signature_refine_2026-10-05.png`. RD balance $5.42. No commit.
+
+## Claude: Scourmaw's signature, Undertow (October 5, 2026)
+
+Undertow is playable on Scourmaw (`data/moves/scourmaw_undertow.tres`): it dives, surges unseen and erupts jaws-first under the opponent. Record `docs/battle/undertow-2026-10-05/README.md`. All three starter finals now have a signature. **Grok Build:** Tide, power 60, 2 uses and Scourmaw's body parts are provisional. RD balance $1.50. No commit.
+
+## Claude: Stormlantern second pass; Rampartroot's signature, Root Rampart (October 5, 2026)
+
+Stormlantern now opens with a pixel lightning bolt on the rod crest (`scripts/effects/stormlantern_strike.gd`), has rearing and tail-snap poses, a release camera shot and synthesized sounds. Root Rampart is playable on Rampartroot (`data/moves/tallowroot3_root_rampart.tres`, reuses Furnace Roar's field effect with root art). Records: `docs/battle/stormlantern-2026-10-05/`, `docs/battle/root-rampart-2026-10-05/`. **Grok Build:** both moves' essence, power 60, 2 uses and the new body parts are provisional. RD balance $2.04. No commit.
+
+## Claude: names and Stormwick's signature, Stormlantern (October 5, 2026)
+
+Preston approved the names Sparkwick (109), Stormwick (110), Huskward (1702), Rampartroot (1703). Stormlantern is playable on Stormwick (`data/moves/kithflare3_stormlantern.tres`), first version: record `docs/battle/stormlantern-2026-10-05/README.md`. **Grok Build:** Electric, power 60, 2 uses and Stormwick's body parts are provisional; the rest of Stormwick's kit is yours. **Codex:** Stormwick keeps your texture-refined art; the move's lantern point is measured on it. No commit.
+
+## Claude: Kithflare III; all three starter lines complete (October 5, 2026)
+
+`110_kithflare3` installed and linked. Starter lines: Kithflare -> II -> III (Ember/Electric), Tallowroot -> II -> III (Bloom/Stone), Rimefin -> Riftfin -> Scourmaw (Tide/Hollow). Stage II/III names for Kithflare and Tallowroot are placeholders. All new stages use default stats and Strike: **Grok Build** owns their kits and numbers. Record: `docs/creatures/starter-lines-rd-2026-10-05/README.md`. RD balance about $4.30. No commit.
+
+## Claude: Kithflare II and one size scale for all creatures (October 5, 2026)
+
+`109_kithflare2` installed and linked from Kithflare. `tools/debug/size_plan.gd` sets every creature's `battle_size` from its stage (I = Cinderhide's 228 px near-side height, II ~1.2x, III ~1.4x); it rewrote Ironvent, Kithflare, Fusern, Oathfen, Oxbowarchon, Punchybun. **Codex:** Preston says you updated Kithflare Stage I's outlines and texture; that change is not in this working tree yet. When it lands, keep the new sizes and essence lines in `103_kithflare.tres` (and its new evolves_into), and rerun `size_plan.gd -- apply` if the art height changed. No commit.
+
+## Claude: new starters, finals installed, Wayburn/Coalcrest retired (October 5, 2026)
+
+Preston: the starters are Kithflare (Ember/Electric), Tallowroot (Bloom/Stone) and Rimefin (Tide/Hollow); Cinderhide is not a starter (its line stays Ember/Stone). Wayburn and Coalcrest are retired: data moved to `data/retired_creatures/`, references in `move_preview.gd`, `rd_material_review.gd` and `aim_point_check.gd` updated. Installed `1703_tallowroot3` (new art) and `503_scourmaw`; full lines linked. Kithflare gets two new evolutions next. **Grok Build:** essences changed on all three starter lines; kits and numbers are yours. No commit.
+
+## Claude: dual essences (October 5, 2026)
+
+Preston: Rimefin's line is Tide/Hollow, Cinderhide's line is Ember/Stone, Tallowroot's line is Bloom only. `CreatureData.has_second_essence` + `second_essence`; `essence_name()` shows "Tide/Hollow". Preston chose the rule: both defending essences apply and multiply (`EssenceChart.against()`), used by `battle_screen.gd` and `tools/balance_sim.gd`. Set on Rimefin, Riftfin, Cinderhide, Clinkerhide, Ironvent (Scourmaw when installed). `tools/debug/dual_essence_check.gd` prints the matchups. **Grok Build, balance flag:** because everything hits Hollow x2, Tide/Hollow takes x4 from Stone and x2 from Tide, Bloom, Hollow and Electric (only Ember neutral); Ember/Stone is neutral to everything except x4 from Hollow. `DESIGN_RULES.md` still describes single essences. No commit.
+
+## Claude: Tallowroot and Rimefin evolution lines (October 5, 2026)
+
+Installed provisionally: `1702_tallowroot2`, `1703_tallowroot3` (placeholder names until Preston names them) and `502_riftfin`, with links Tallowroot -> II -> III and Rimefin -> Riftfin. Scourmaw art exists but awaits Preston's pick. All use default stats and Strike. **Grok Build:** kits, numbers and body parts for these stages are yours. Record: `docs/creatures/starter-lines-rd-2026-10-05/README.md`. RD balance about $2.50. No commit.
+
+## Claude: starter trio art; Rimefin is now a catfish (October 5, 2026)
+
+Preston set the starters as Cinderhide, Tallowroot and Rimefin, pictured together. Rimefin is redesigned as a Missouri River catfish (new front/back, `001_rimefin.tres` repointed; old shark art unused). Tallowroot has a new guardian pose. Cinderhide unchanged. **Grok Build:** Rimefin's body is now a catfish (fins with serrated pectoral spines, jaw, barbels); `body_parts` still reads fin and jaw, so check the move gate. The Riftfin/Scourmaw briefs in `creature-roster-draft.md` describe a shark line and need rewriting for a catfish. Record: `docs/creatures/starter-lines-rd-2026-10-05/README.md`. No commit.
+
+## Claude: Tallowroot, the Bloom starter (October 5, 2026)
+
+Preston asked for the Bloom starter made with Retro Diffusion. Tallowroot Stage I is in the game provisionally as `1701_tallowroot` (front and back, Bloom, Strike only, default stats). $0.46 spent; RD balance $4.60. **Grok Build:** its job, kit and numbers are yours; later stages stay unnamed until Preston names them. Record: `docs/creatures/tallowroot-rd-2026-10-05/`. No commit.
+
+## Claude: Route 1 meadow lane and groves (October 5, 2026)
+
+Preston asked Claude to refine Route 1. Only the west meadow changed (`scripts/route1_approach.gd`): one winding lane replaces the stepped lanes and the dead-end diagonal and closes the 24 px gap to the River Road; trees regrouped into groves; tufts added. Codex's lane image is kept, unused. Ordinary-input walk hometown edge to River Road: no stuck points. Record: `docs/art/world/route1-meadow-refine-2026-10-05/`. **Codex:** please build on this rather than restoring the old lane. No commit.
+
+## Claude: menu life (October 5, 2026)
+
+Courier Lookout menu gained a pixel-art HOLLOWTIDE wordmark at top centre (sunset above a moving tide line, teal water below, depth layers, shine, wave ornament), river glints, flickering window lamps, a passing flock and a rare shooting star, all in `scripts/main_menu_art_preview.gd`, all placed from the painting's own lit pixels, no new art or spend. Record: `docs/art/review/menu-life-2026-10-05/`. Note: `project.godot` main scene was changed to `move_preview.tscn` after commit 64b1bf3 by someone else; Claude did not touch it. No commit.
+
+## Claude: Coalcrest framing, Wayburn back line; stone line and Punchybun added provisionally (October 5, 2026)
+
+Preston kept Codex's Coalcrest back (`coalcrest_back_occluded_leg_v3.png`); a painted-head candidate in `docs/art/review/coalcrest-back-head-2026-10-05/` is not used. The default framing stays: the back's too-thin tail and stub rear leg sit behind the message box, which is why the back view is acceptable in play. A per-creature framing change was tried and reverted the same day; the tail would need real art work before it can show. Wayburn's front had a 6 px drop in its back line at the hips; the top band of columns 77 to 94 is lifted onto a smooth slope (`docs/art/review/wayburn-front-back-line-2026-10-05/`, new file only). On Preston's "add for now", three provisional creature files: `901_preostmar` -> `902_oathfen` -> `903_oxbowarchon` (Stone), and `2101_punchybun` (Electric, Stage I, no back view). All use default 60 stats, no moves (Strike) and empty body parts. **Grok Build:** their job, numbers and kits are yours; `DESIGN_RULES.md` still says they have no data file. Four idle battles load with no script errors (`battle_idle_new_creatures.png`). A won battle evolving Preostmar was not played. `tools/debug/battle_capture.gd` takes move index -1 for an idle-only shot; `tools/debug/roster_check.gd` lists the roster and evolution problems. No commit.
 
 ## Claude: signature hit fixes; Grok Build joins (October 5, 2026)
 
