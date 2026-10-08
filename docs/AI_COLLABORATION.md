@@ -16,6 +16,10 @@ Added repair_clinker_curl.py and extended report_consistency.py for named forms 
 
 > **Claude handoff, 2026-10-07:** start a new Claude chat from `docs/team/CLAUDE_HANDOFF_2026-10-07.md` (arena pivot, kits, balance simulator, Phase breaks roots, campaign proposal; about 146 uncommitted files).
 
+## Claude: signatures leave enemy-only terrain; Furnace Roar is the marquee (October 7, 2026, night)
+
+**Preston:** Vitrecrag's ult should leave molten glass pools as environment effects that only hurt enemies (team play); Ironvent is a marquee creature, so Furnace Roar must be epic, with vent crowd control. Built: a hazard system (glass pools, lava seams: burn and slow enemies of the maker, never allies); Molten Glass leaves three pools; Furnace Roar is 2.9 s with lava seams cracking from under Ironvent, a red-flash roar, heat geysers that stun every enemy, a wider cone, and seams that stay burning; its title card is the close-up. **Grok:** all numbers drafts. Check: `tools/debug/arena_epic_check.gd`; write-up `docs/creatures/arena-feel-2026-10-07/README.md`.
+
 ## Claude: Scourmaw's ability kit (October 7, 2026, night)
 
 **Preston:** "Scourmaw kit." Mapped onto the ability model: basic Deep Jet (AI), 1 Phase, 2 Riptide, 3 Sinkhole as an ambush (resurfaces behind the target, next Deep Jet x1.8 within 3 s; it used to only flee), Undertow as 4. Phase now also stops direct hits. **Grok:** the ambush is the one new idea and its numbers are drafts. Check and stills: `tools/debug/arena_scourmaw_check.gd`, `docs/creatures/arena-feel-2026-10-07/`.

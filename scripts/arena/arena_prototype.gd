@@ -62,7 +62,8 @@ const LINES := [
 		"signature": "Undertow", "accent": Color("#5ec8ff")},
 	# The Ironvent line (Ember/Stone), added 2026-10-07: arena art from Retro Diffusion.
 	{"forms": [["cinderhide", "res://data/creatures/002_cinderhide.tres"], ["clinkerhide", "res://data/creatures/101_clinkerhide.tres"], ["ironvent", "res://data/creatures/102_ironvent.tres"]],
-		"signature": "Furnace Roar", "accent": Color("#e8572a")},
+		"signature": "Furnace Roar", "accent": Color("#e8572a"),
+		"card": "res://assets/sprites/creatures/attacks/ironvent_furnace_roar/style_matched/back_palette_2026_10_05/titlecard_official_2026_09_30.png"},
 	# The Vitrecrag line (Ember kiln, then armour, then the cannon), added 2026-10-07.
 	{"forms": [["fusern", "res://data/creatures/106_fusern.tres"], ["slagglass", "res://data/creatures/107_slagglass.tres"], ["vitrecrag", "res://data/creatures/108_vitrecrag.tres"]],
 		"signature": "Molten Glass", "accent": Color("#ffa030")},
@@ -315,6 +316,17 @@ const ROAR_ROOT := 1.2                 # Verdant Roar roots every enemy this lon
 const VINES_SECONDS := 5.0             # and leaves a vine field that slows
 const VINES_RADIUS := 40.0
 const VINES_SLOW := 0.55
+## Signature terrain (Preston, 2026-10-07 night: "environment effects, team play, only affects
+## enemies"). Hazards burn and slow enemies of whoever made them and leave allies alone.
+const HAZARD_TICK := 0.5
+const HAZARD_BURN := 2
+const POOL_SECONDS := 6.0
+const POOL_RADIUS := 18.0
+const POOL_SLOW := 0.6
+const SEAM_SECONDS := 7.0
+const SEAM_WIDTH := 9.0
+const SEAM_SLOW := 0.75
+const GEYSER_STUN := 1.0               # Furnace Roar's vent crowd control
 const CRIPPLE_SECONDS := 2.4
 const WALL_SECONDS := 6.0
 const RAMPART_GUARD := 0.75
@@ -434,6 +446,9 @@ func _ready() -> void:
 	_sig.glass_rain.connect(_on_glass_rain)
 	_sig.root_all.connect(_on_root_all)
 	_sig.vine_field.connect(_on_vine_field)
+	_sig.glass_pools.connect(_on_glass_pools)
+	_sig.geysers.connect(_on_geysers)
+	_sig.lava_seams.connect(_on_lava_seams)
 	_sig.finished.connect(func() -> void: _sig_user = -1)
 	_world.add_child(_sig)
 	var layer := CanvasLayer.new()
@@ -754,6 +769,7 @@ func _walk(i: int, dir: Vector2, delta: float) -> void:
 			speed *= RIPTIDE_SLOW
 		if _in_vines(i):
 			speed *= VINES_SLOW
+		speed *= _hazard_slow(i)
 		var step: Vector2 = dir * speed * delta
 		var here: Vector2 = f["body"].position
 		# Root walls block the way: slide along them where possible.
@@ -1558,6 +1574,64 @@ func _pick_target(i: int) -> int:
 	return best
 
 
+## Molten Glass's rain cools into pools of glass: one under the strike and two beside it.
+func _on_glass_pools(at: Vector2) -> void:
+	var floor_rect: Rect2 = ARENAS[_arena]["floor"]
+	for off in [Vector2.ZERO, Vector2(-26, 9), Vector2(24, -8)]:
+		var p: Vector2 = (at + off).clamp(floor_rect.position, floor_rect.end)
+		_effects.append({"kind": "glass_pool", "owner": _sig_user, "pos": p, "t": 0.0, "tick": HAZARD_TICK})
+
+
+## Furnace Roar's vent crowd control: a heat geyser erupts under every enemy on the field,
+## stunning it and setting it smouldering.
+func _on_geysers() -> void:
+	var any := false
+	for j in _fighters.size():
+		var f: Dictionary = _fighters[j]
+		if _enemies(_sig_user, j) and f["hp"] > 0:
+			_effects.append({"kind": "geyser", "pos": f["body"].position, "t": 0.0})
+			if f["phase"] <= 0.0 and f["invuln"] <= 0.0:
+				f["stun"] = maxf(f["stun"], GEYSER_STUN)
+				f["smoulder"] = SMOULDER_SECONDS
+				_label(j, "Vented")
+				any = true
+	if any:
+		_hitstop = maxf(_hitstop, HITSTOP_HEAVY)
+
+
+## Furnace Roar splits the floor: lava seams along the cone that stay burning.
+func _on_lava_seams(origin: Vector2, dir: Vector2) -> void:
+	var floor_rect: Rect2 = ARENAS[_arena]["floor"]
+	for k in 3:
+		var a: Vector2 = dir.rotated((k - 1) * 0.42)
+		var pts := PackedVector2Array()
+		var p: Vector2 = origin + Vector2(0, 4)
+		pts.append(p.round())
+		for step in 7:
+			p = (p + a.rotated(sin((k + step) * 2.1) * 0.35) * 18.0).clamp(floor_rect.position, floor_rect.end)
+			pts.append(p.round())
+		_effects.append({"kind": "lava_seam", "owner": _sig_user, "pts": pts, "t": 0.0, "tick": HAZARD_TICK})
+
+
+## The slow a fighter suffers from standing in enemy terrain (1.0 when clear).
+func _hazard_slow(i: int) -> float:
+	var slow := 1.0
+	var me: Vector2 = _fighters[i]["body"].position
+	for e in _effects:
+		if e["kind"] == "glass_pool" and _enemies(e["owner"], i) and me.distance_to(e["pos"]) < POOL_RADIUS:
+			slow = minf(slow, POOL_SLOW)
+		elif e["kind"] == "lava_seam" and _enemies(e["owner"], i) and _near_seam(e["pts"], me) < SEAM_WIDTH:
+			slow = minf(slow, SEAM_SLOW)
+	return slow
+
+
+func _near_seam(pts: PackedVector2Array, p: Vector2) -> float:
+	var best := INF
+	for k in pts.size() - 1:
+		best = minf(best, Geometry2D.get_closest_point_to_segment(p, pts[k], pts[k + 1]).distance_to(p))
+	return best
+
+
 ## Verdant Roar's roar: every opponent on the field is rooted for a moment.
 func _on_root_all() -> void:
 	for j in _fighters.size():
@@ -2268,6 +2342,26 @@ func _update_effects(delta: float) -> void:
 				e["t"] += delta
 				if e["t"] > VINES_SECONDS:
 					continue
+			"geyser":
+				e["t"] += delta
+				if e["t"] > 0.7:
+					continue
+			"glass_pool", "lava_seam":
+				e["t"] += delta
+				e["tick"] -= delta
+				if e["tick"] <= 0.0:
+					e["tick"] = HAZARD_TICK
+					for j in _fighters.size():
+						var f: Dictionary = _fighters[j]
+						if not _enemies(e["owner"], j) or f["hp"] <= 0:
+							continue   # terrain only ever hurts the enemy
+						var inside: bool = f["body"].position.distance_to(e["pos"]) < POOL_RADIUS if e["kind"] == "glass_pool" else _near_seam(e["pts"], f["body"].position) < SEAM_WIDTH
+						if inside:
+							_hurt(j, maxi(1, int(round(HAZARD_BURN * _essence_mult(E.EMBER, j)))), Vector2.ZERO, e["owner"])
+							f["flash"] = 0.0
+							_effects.append({"kind": "ember", "pos": f["body"].position + Vector2(randf_range(-5, 5), -10), "vel": Vector2(randf_range(-4, 4), -14), "t": 0.0})
+				if e["t"] > (POOL_SECONDS if e["kind"] == "glass_pool" else SEAM_SECONDS):
+					continue
 		keep.append(e)
 	for r in _rocks:
 		r["marked"] = maxf(0.0, r["marked"] - delta)
@@ -2470,6 +2564,18 @@ func _draw_effects() -> void:
 			"dust":
 				var k: float = e["t"] / 0.4
 				_fx.draw_circle(e["pos"].round(), 2.0 + 3.0 * k, Color(0.85, 0.8, 0.65, 0.5 * (1.0 - k)))
+			"geyser":
+				# A column of heat bursting from the floor under an enemy: the painted vent flame
+				# over a coded column and a ring of embers.
+				var kg: float = e["t"] / 0.7
+				var hcol: float = 40.0 * minf(1.0, kg * 4.0) * (1.0 - kg * 0.5)
+				_fx.draw_rect(Rect2((e["pos"] + Vector2(-6, -hcol)).round(), Vector2(12, hcol)), Color(1.0, 0.45, 0.1, 0.7 * (1.0 - kg)))
+				_fx.draw_rect(Rect2((e["pos"] + Vector2(-2, -hcol)).round(), Vector2(4, hcol)), Color(1.0, 0.95, 0.7, 0.9 * (1.0 - kg)))
+				_draw_sheet(_fx, "vent_flame", e["pos"] + Vector2(0, 6), e["t"], false, 0.7)
+				for i in 8:
+					var a := i * TAU / 8.0
+					var d := Vector2(cos(a), sin(a) * 0.5) * (8.0 + 30.0 * kg)
+					_fx.draw_rect(Rect2((e["pos"] + d).round(), Vector2(2, 2)), Color(1.0, 0.7, 0.3, 1.0 - kg))
 			"rootrun":
 				# Roots tearing along the ground toward the target: spikes rising in a line.
 				var along: float = clampf(e["t"] / RAMPART_RUN, 0.0, 1.0)
@@ -2781,6 +2887,24 @@ func _draw_ground() -> void:
 				var flick := 1.0 if int(e["t"] * 12) % 2 == 0 else 0.7
 				on.draw_rect(Rect2((e["pos"] - Vector2(3, 2)).round(), Vector2(6, 3)), Color(1, 0.45, 0.1, 0.7 * (1.0 - k) * flick))
 				on.draw_rect(Rect2((e["pos"] - Vector2(1, 4)).round(), Vector2(2, 3)), Color(1, 0.85, 0.3, 0.8 * (1.0 - k) * flick))
+			"glass_pool":
+				# Molten glass cooling on the floor: orange and bright, then amber, then dark glass with a shine.
+				var kp: float = clampf(e["t"] / POOL_SECONDS, 0.0, 1.0)
+				var fade: float = clampf((POOL_SECONDS - e["t"]) / 0.8, 0.0, 1.0)
+				var col := Color(1.0, 0.55, 0.15).lerp(Color(0.25, 0.12, 0.08), kp)
+				on.draw_set_transform(e["pos"].round(), 0.0, Vector2(1.0, 0.5))
+				on.draw_circle(Vector2.ZERO, POOL_RADIUS, Color(col, 0.85 * fade))
+				on.draw_circle(Vector2(-4, -3), POOL_RADIUS * 0.45, Color(1.0, 0.95, 0.75).lerp(Color(0.6, 0.5, 0.45), kp) * Color(1, 1, 1, 0.7 * fade))
+				on.draw_arc(Vector2.ZERO, POOL_RADIUS, 0, TAU, 28, Color(0.5, 0.2, 0.05, 0.9 * fade), 1.0)
+				if kp < 0.5 and int(e["t"] * 8.0) % 2 == 0:
+					on.draw_circle(Vector2(5, 2), 2.0, Color(1.0, 0.95, 0.7, (0.5 - kp) * 2.0 * fade))
+				on.draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE)
+			"lava_seam":
+				# A crack in the arena floor glowing with heat, dimming as it cools.
+				var ks: float = clampf(e["t"] / SEAM_SECONDS, 0.0, 1.0)
+				var glow := Color(1.0, 0.5 + 0.3 * sin(e["t"] * 10.0), 0.1).lerp(Color(0.3, 0.1, 0.05), ks)
+				on.draw_polyline(e["pts"], Color(0.08, 0.03, 0.0, 0.9), 5.0)
+				on.draw_polyline(e["pts"], Color(glow, 1.0 - ks * 0.6), 2.0)
 			"vines":
 				# Verdant Roar's vine field: a dark green patch laced with tendrils that slows anyone in it.
 				var k: float = clampf(e["t"] / 0.3, 0.0, 1.0) * clampf((VINES_SECONDS - e["t"]) / 0.6, 0.0, 1.0)

@@ -85,6 +85,13 @@ Mapped from its existing arena moves; Preston asked for "Scourmaw kit" without s
 - **4 Undertow**, unchanged.
 - Check: `tools/debug/arena_scourmaw_check.gd`: Phase, a Riptide under the target, a Sinkhole that resurfaced 33 px behind the target with the sharpened jet, and the AI firing Deep Jet as the basic. Stills `scourmaw_*.png`.
 
+## Signature terrain, and Furnace Roar as the showpiece (Preston, 2026-10-07 night)
+**Preston:** "Vitrecrag's ult creates environment effects too from the molten glass pools. Team play; only affects enemies." and "Furnace Roar needs an upgrade, Ironvent is going to be one of the marquee creatures, epic in all aspects, maybe vent CC effects."
+- **Hazards** are terrain left by signatures. They burn (2 every 0.5 s, Ember) and slow enemies of whoever made them, and never touch allies, so a team can fight from inside its own glass. Drawn on the floor layer under the creatures.
+- **Molten Glass** now leaves **three glass pools** (6 s, slow 0.6) where the rain lands: molten orange cooling to amber and then dark glass with a shine. Check: enemy in a pool lost 8 HP in 2 s and was slowed to 0.6; the ally in a pool lost nothing.
+- **Furnace Roar, rebuilt as the marquee signature** (now 2.9 s): the arena darkens to furnace light while **lava seams crack open across the floor from under Ironvent**; the vents jet; it rears and roars with a red flash and a shock ring across the whole field; **heat geysers erupt under every enemy on the field** and stun them for 1 s, smouldering (the vent crowd control; a heavy hitstop lands with it); then the pressure wave and a wider, longer fire cone (170 px, 0.7 rad) blast the target and carry everyone else in the cone; and **three lava seams stay burning along the cone for 7 s** (slow 0.75, burn). The close-up card is now Ironvent's Furnace Roar title card (roaring, vents blazing). Check: 3 of 3 enemies stunned by the geysers, 3 seams on the floor.
+- Check: `tools/debug/arena_epic_check.gd`; stills `epic_*.png`. **Grok:** burn, slow, durations and the geyser stun are drafts.
+
 ## Not done
 - Sounds for the team fights themselves (a start horn, a knockout sting per creature) and a fire-crackle layer from the one usable Archive sample, pending Preston's download approval.
 - A rematch and line keys still exist for testing; a real menu is not built.

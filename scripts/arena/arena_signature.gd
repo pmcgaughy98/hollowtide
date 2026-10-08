@@ -19,6 +19,12 @@ signal user_moved(to: Vector2)
 signal pressure_wave(origin: Vector2, dir: Vector2)
 ## Molten Glass only: the glass rains down around the strike; the arena cuts and slows everyone inside.
 signal glass_rain(at: Vector2, radius: float, damage: int)
+## Molten Glass only: the rain cools into pools of glass on the floor that burn and slow enemies.
+signal glass_pools(at: Vector2)
+## Furnace Roar only: heat geysers erupt under every enemy (vent crowd control), and lava
+## seams split the floor along the cone and stay.
+signal geysers
+signal lava_seams(origin: Vector2, dir: Vector2)
 ## Verdant Roar only: the roar roots every opponent; the slam leaves a vine field at the target.
 signal root_all
 signal vine_field(at: Vector2)
@@ -83,7 +89,7 @@ func _process(delta: float) -> void:
 		"Furnace Roar": _roar_cues(before, e)
 		"Molten Glass": _glass_cues(before, e)
 		"Verdant Roar": _roar_green_cues(before, e)
-	if e > 2.2:
+	if e > (2.9 if _kind == "Furnace Roar" else 2.2):
 		active = false
 		finished.emit()
 	queue_redraw()
@@ -284,11 +290,17 @@ func _whirl(at: Vector2, open: float, e: float) -> void:
 # fire blasts toward the target, scorching the floor and throwing debris. The target takes
 # the damage; everyone else caught in the cone is blown back.
 
+# Preston (2026-10-07 night): Ironvent is a marquee creature, so this is the showpiece: the
+# arena darkens to furnace light and lava seams split the floor from under it; the vents jet;
+# it rears and roars (a red flash); HEAT GEYSERS erupt under every enemy on the field and stun
+# them (vent crowd control); then the pressure wave and fire cone blast the target and
+# everyone in the cone, and the seams stay burning along the cone for a while.
 const ROAR_VENTS := 0.25               # the vents start jetting
 const ROAR_REAR := 0.75                # it rears and roars
-const ROAR_HIT := 1.05                 # the wave front reaches the target
-const ROAR_CONE := 0.6                 # half-width of the cone, radians
-const ROAR_REACH := 150.0
+const ROAR_GEYSERS := 1.0              # geysers under every enemy
+const ROAR_HIT := 1.35                 # the wave front reaches the target
+const ROAR_CONE := 0.7                 # half-width of the cone, radians
+const ROAR_REACH := 170.0
 
 func _roar_cues(b: float, e: float) -> void:
 	if _cue(b, e, 0.02):
@@ -300,10 +312,16 @@ func _roar_cues(b: float, e: float) -> void:
 		_play.call("res://assets/audio/sfx/ironvent/roar.wav", 0.0)
 		_play.call("res://assets/audio/sfx/ironvent/vent_jet.wav", -4.0)
 		_shake.call(7.0)
+	if _cue(b, e, ROAR_GEYSERS):
+		geysers.emit()
+		_play.call("res://assets/audio/sfx/arena/rock_break.wav", -4.0)
+		_play.call("res://assets/audio/sfx/ironvent/vent_jet.wav", 0.0)
+		_shake.call(6.0)
 	if _cue(b, e, ROAR_HIT):
 		pressure_wave.emit(_from, (_to - _from).normalized())
+		lava_seams.emit(_from, (_to - _from).normalized())
 		_land("res://assets/audio/sfx/ironvent/blowdown.wav")
-	if _cue(b, e, 1.7):
+	if _cue(b, e, 2.2):
 		_play.call("res://assets/audio/sfx/ironvent/cool.wav", -8.0)
 
 
@@ -335,6 +353,26 @@ func _draw_roar(e: float) -> void:
 			draw_line(base.round(), (base + Vector2(0, -h)).round(), Color(1.0, 0.45, 0.1, 0.7), 3.0)
 			draw_line(base.round(), (base + Vector2(0, -h * 0.6)).round(), Color(1.0, 0.95, 0.7), 1.0)
 			draw_circle((base + Vector2(sin(e * 9.0 + v) * 2.0, -h - 3.0)).round(), 2.0, Color(0.35, 0.3, 0.3, 0.5 * jet))
+	# Lava seams crack open across the floor from under it as the heat builds.
+	if e > ROAR_VENTS:
+		var spread := clampf((e - ROAR_VENTS) / (ROAR_HIT - ROAR_VENTS), 0.0, 1.0)
+		var cool2 := clampf((2.9 - e) / 0.8, 0.0, 1.0)
+		for i in 7:
+			var a := i * TAU / 7.0 + 0.4
+			var seam := PackedVector2Array()
+			var pnt: Vector2 = _from + Vector2(0, 4)
+			seam.append(pnt.round())
+			for k in 6:
+				pnt += Vector2.RIGHT.rotated(a + sin((k + i) * 2.3) * 0.5) * (6.0 + 5.0 * _hash(i * 7 + k)) * Vector2(1.0, 0.55) * spread
+				seam.append(pnt.round())
+			draw_polyline(seam, Color(0.1, 0.03, 0.0, 0.9 * cool2), 3.0)
+			draw_polyline(seam, Color(1.0, 0.5 + 0.3 * sin(e * 12.0 + i), 0.1, 0.9 * cool2), 1.0)
+	# The roar itself: a red flash and a shock ring across the whole field.
+	if e >= ROAR_REAR and e < ROAR_REAR + 0.5:
+		var kr := (e - ROAR_REAR) / 0.5
+		if kr < 0.12:
+			draw_rect(Rect2(-40, -40, 470, 300), Color(1.0, 0.3, 0.05, 0.4))
+		draw_arc(mouth.round(), 10.0 + 330.0 * kr, 0, TAU, 72, Color(1.0, 0.45, 0.1, 0.7 * (1.0 - kr)), 4.0)
 	# Mouth glow while it rears.
 	if e > ROAR_REAR - 0.2 and e < ROAR_HIT + 0.15:
 		draw_circle(mouth.round(), 3.0 + 2.0 * sin(e * 50.0), Color(1.0, 0.95, 0.75))
@@ -394,6 +432,7 @@ func _glass_cues(b: float, e: float) -> void:
 		_shake.call(6.0)
 	if _cue(b, e, GLASS_LAND):
 		glass_rain.emit(_to, GLASS_RADIUS, DAMAGE)
+		glass_pools.emit(_to)
 		_land("res://assets/audio/sfx/ui/hit_strong.wav")
 
 
