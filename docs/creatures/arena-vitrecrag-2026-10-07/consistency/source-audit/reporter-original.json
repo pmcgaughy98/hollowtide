@@ -1,0 +1,6 @@
+{
+  "path": "tools/arena/report_consistency.py",
+  "original_sha256": "0276782dde8e3497de0686fa180f5aee8d9e6f21e841cdc03ebb4ae9044d0a85",
+  "snapshot": "original-tools/tools/arena/report_consistency.py",
+  "role": "Before enclosed-fill-aware reporter extension; immutable preservation evidence, not current executable"
+}

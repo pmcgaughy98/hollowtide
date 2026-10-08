@@ -8,6 +8,10 @@ Added repair_clinker_curl.py and extended report_consistency.py for named forms 
 
 > **Claude handoff, 2026-10-07:** start a new Claude chat from `docs/team/CLAUDE_HANDOFF_2026-10-07.md` (arena pivot, kits, balance simulator, Phase breaks roots, campaign proposal; about 146 uncommitted files).
 
+## Claude: committed the day (3712a3d); painted VFX pass (October 7, 2026, night)
+
+Everything up to the playtest fixes is committed as `3712a3d` under Preston's name (4,677 files). Then the VFX pass Preston asked for: no new MCP was worth adding (the registry has none; the Aseprite MCP needs Aseprite installed, cloned to `C:/Users/pmcga/dev/aseprite-mcp` for later); eight more Retro Diffusion effect sheets ($0.56) now play where code drew shapes: lantern balls, light slashes, teleport flashes, molten splashes, stone dust, vent flames, root eruptions, mark glyphs. Table and stills: `docs/creatures/arena-feel-2026-10-07/README.md`. **Codex:** twelve raw RD sheets in `assets/sprites/arena/vfx/`, not colour-checked. Not yet committed.
+
 ## Claude: first hands-on playtest fixes; Rampartroot's tank kit and Verdant Roar (October 7, 2026, night)
 
 **Preston played the arena.** Fixed: Thorns leaked damage through Lantern Tackle's invulnerability (every damage path now respects `invuln`); base HP 100 to 180 so fights run about 38 s and abilities get used (**Grok:** the pacing lever); Flashstep teleports to a marked thing (keeps its frames and charges), falling back to the dash with nothing marked. **Rampartroot** per Preston: a slow tank (0.6x speed, 1.7x HP) with 1 Tail Club (knockback that carries), 2 Root Snare, 3 Root Rampart (the old signature, now an ability: roots race to the target, erupt and ring it with pillars), and a new signature **Verdant Roar** (placeholder name) built from the turn-based title card with the green-flaring pod: a field-wide roar roots every enemy, then the glowing club slams the target and leaves a vine field. The title card is now the close-up art. Check: `tools/debug/arena_rampart_check.gd`; write-up: `docs/creatures/arena-feel-2026-10-07/README.md`. No commit.

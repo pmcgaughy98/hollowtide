@@ -1,0 +1,6305 @@
+{
+  "method": "Read-only Fusern shell-material comparison against preserved original art.\n\nUsage (candidate and installed roots use the same interface):\n  python audit_fusern_shell.py --before-audit /path/to/source-audit     --image-root /path/to/candidate-or-project --output /path/to/shell-review\nReads original PNGs under <before-audit>/originals and the exact form/kind/facing/\nframe/path topology in before-metrics.json. It writes JSON/CSV/Markdown proof,\nfixed original ROI masks and before/after contact sheets into --output only.\nNo redraw, recolour, resize of source files, engine process, or paid service.\n\nThe fixed diagnostic ROI is the upper52% of the ORIGINAL painted bounding box,\nexcluding its external4-neighbour silhouette edge. This is a comparable upper-\ndome ROI, NOT a semantic segmentation of the whole shell or every brick. It\nexcludes eyes/legs and most lower gray armor. Dark L<=60 pixels are measured as\njoint-or-shadow, not claimed to be an exact count of mortar topology. Contacts\nuse nearest-neighbour enlargement of the saved pixels only. Shape/alpha guards\nflag any candidate departure from the original; the ROI never adapts to a redraw.\n",
+  "original_root": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\arena-vitrecrag-consistency-2026-10-07\\source-audit\\originals",
+  "image_root": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\arena-vitrecrag-consistency-2026-10-07\\source-audit\\originals",
+  "records_evaluated": 121,
+  "source_rows_required": 49,
+  "missing_paths": [],
+  "missing_required_source_rows": [],
+  "all_full_alpha_exact": true,
+  "small_alpha_changes": [],
+  "records": [
+    {
+      "form": "fusern",
+      "kind": "base",
+      "facing": "base",
+      "frame": null,
+      "path": "docs/creatures/arena-starters-2026-10-07/forms/fusern.png",
+      "dome_bbox_original": [
+        8,
+        19,
+        88,
+        54
+      ],
+      "before": {
+        "whole_mean_brightness": 71.8589,
+        "dome_roi_pixels": 1839,
+        "dome_mean_brightness": 88.4896,
+        "warm_brick_pixels": 1443,
+        "warm_brick_mean_brightness": 93.0689,
+        "warm_brick_saturation_pct": 66.8798,
+        "bright_orange_L130_roi_pct": 7.6128,
+        "pale_orange_L165_roi_pct": 1.5769,
+        "dark_joint_or_shadow_L60_roi_pct": 19.2496,
+        "dominant_rgb": [
+          191,
+          96,
+          53
+        ],
+        "dominant_rgb_roi_pct": 15.9869,
+        "local_adjacent_luminance_difference": 16.6142,
+        "roi_colour_count": 41
+      },
+      "after": {
+        "whole_mean_brightness": 71.8589,
+        "dome_roi_pixels": 1839,
+        "dome_mean_brightness": 88.4896,
+        "warm_brick_pixels": 1443,
+        "warm_brick_mean_brightness": 93.0689,
+        "warm_brick_saturation_pct": 66.8798,
+        "bright_orange_L130_roi_pct": 7.6128,
+        "pale_orange_L165_roi_pct": 1.5769,
+        "dark_joint_or_shadow_L60_roi_pct": 19.2496,
+        "dominant_rgb": [
+          191,
+          96,
+          53
+        ],
+        "dominant_rgb_roi_pct": 15.9869,
+        "local_adjacent_luminance_difference": 16.6142,
+        "roi_colour_count": 41
+      },
+      "alpha_bytes_exact": true
+    },
+    {
+      "form": "fusern",
+      "kind": "full",
+      "facing": "s",
+      "frame": null,
+      "path": "assets/sprites/arena/fusern/s.png",
+      "dome_bbox_original": [
+        29,
+        34,
+        99,
+        69
+      ],
+      "before": {
+        "whole_mean_brightness": 71.4295,
+        "dome_roi_pixels": 1788,
+        "dome_mean_brightness": 89.8517,
+        "warm_brick_pixels": 1333,
+        "warm_brick_mean_brightness": 96.6837,
+        "warm_brick_saturation_pct": 66.6414,
+        "bright_orange_L130_roi_pct": 9.6756,
+        "pale_orange_L165_roi_pct": 1.1186,
+        "dark_joint_or_shadow_L60_roi_pct": 19.6309,
+        "dominant_rgb": [
+          190,
+          96,
+          53
+        ],
+        "dominant_rgb_roi_pct": 17.17,
+        "local_adjacent_luminance_difference": 15.5379,
+        "roi_colour_count": 28
+      },
+      "after": {
+        "whole_mean_brightness": 71.4295,
+        "dome_roi_pixels": 1788,
+        "dome_mean_brightness": 89.8517,
+        "warm_brick_pixels": 1333,
+        "warm_brick_mean_brightness": 96.6837,
+        "warm_brick_saturation_pct": 66.6414,
+        "bright_orange_L130_roi_pct": 9.6756,
+        "pale_orange_L165_roi_pct": 1.1186,
+        "dark_joint_or_shadow_L60_roi_pct": 19.6309,
+        "dominant_rgb": [
+          190,
+          96,
+          53
+        ],
+        "dominant_rgb_roi_pct": 17.17,
+        "local_adjacent_luminance_difference": 15.5379,
+        "roi_colour_count": 28
+      },
+      "alpha_bytes_exact": true
+    },
+    {
+      "form": "fusern",
+      "kind": "small",
+      "facing": "s",
+      "frame": null,
+      "path": "assets/sprites/arena/fusern/small/s.png",
+      "dome_bbox_original": [
+        10,
+        11,
+        33,
+        23
+      ],
+      "before": {
+        "whole_mean_brightness": 70.1895,
+        "dome_roi_pixels": 177,
+        "dome_mean_brightness": 89.7755,
+        "warm_brick_pixels": 131,
+        "warm_brick_mean_brightness": 96.4786,
+        "warm_brick_saturation_pct": 65.4364,
+        "bright_orange_L130_roi_pct": 5.6497,
+        "pale_orange_L165_roi_pct": 0.565,
+        "dark_joint_or_shadow_L60_roi_pct": 22.0339,
+        "dominant_rgb": [
+          190,
+          96,
+          53
+        ],
+        "dominant_rgb_roi_pct": 23.1638,
+        "local_adjacent_luminance_difference": 22.6088,
+        "roi_colour_count": 24
+      },
+      "after": {
+        "whole_mean_brightness": 70.1895,
+        "dome_roi_pixels": 177,
+        "dome_mean_brightness": 89.7755,
+        "warm_brick_pixels": 131,
+        "warm_brick_mean_brightness": 96.4786,
+        "warm_brick_saturation_pct": 65.4364,
+        "bright_orange_L130_roi_pct": 5.6497,
+        "pale_orange_L165_roi_pct": 0.565,
+        "dark_joint_or_shadow_L60_roi_pct": 22.0339,
+        "dominant_rgb": [
+          190,
+          96,
+          53
+        ],
+        "dominant_rgb_roi_pct": 23.1638,
+        "local_adjacent_luminance_difference": 22.6088,
+        "roi_colour_count": 24
+      },
+      "alpha_bytes_exact": true
+    },
+    {
+      "form": "fusern",
+      "kind": "full",
+      "facing": "se",
+      "frame": null,
+      "path": "assets/sprites/arena/fusern/se.png",
+      "dome_bbox_original": [
+        24,
+        35,
+        104,
+        70
+      ],
+      "before": {
+        "whole_mean_brightness": 71.4836,
+        "dome_roi_pixels": 1839,
+        "dome_mean_brightness": 88.2281,
+        "warm_brick_pixels": 1386,
+        "warm_brick_mean_brightness": 94.7002,
+        "warm_brick_saturation_pct": 66.6932,
+        "bright_orange_L130_roi_pct": 7.6128,
+        "pale_orange_L165_roi_pct": 1.5769,
+        "dark_joint_or_shadow_L60_roi_pct": 19.2496,
+        "dominant_rgb": [
+          190,
+          96,
+          53
+        ],
+        "dominant_rgb_roi_pct": 15.9869,
+        "local_adjacent_luminance_difference": 16.4089,
+        "roi_colour_count": 31
+      },
+      "after": {
+        "whole_mean_brightness": 71.4836,
+        "dome_roi_pixels": 1839,
+        "dome_mean_brightness": 88.2281,
+        "warm_brick_pixels": 1386,
+        "warm_brick_mean_brightness": 94.7002,
+        "warm_brick_saturation_pct": 66.6932,
+        "bright_orange_L130_roi_pct": 7.6128,
+        "pale_orange_L165_roi_pct": 1.5769,
+        "dark_joint_or_shadow_L60_roi_pct": 19.2496,
+        "dominant_rgb": [
+          190,
+          96,
+          53
+        ],
+        "dominant_rgb_roi_pct": 15.9869,
+        "local_adjacent_luminance_difference": 16.4089,
+        "roi_colour_count": 31
+      },
+      "alpha_bytes_exact": true
+    },
+    {
+      "form": "fusern",
+      "kind": "small",
+      "facing": "se",
+      "frame": null,
+      "path": "assets/sprites/arena/fusern/small/se.png",
+      "dome_bbox_original": [
+        8,
+        12,
+        35,
+        23
+      ],
+      "before": {
+        "whole_mean_brightness": 66.8961,
+        "dome_roi_pixels": 175,
+        "dome_mean_brightness": 90.6542,
+        "warm_brick_pixels": 127,
+        "warm_brick_mean_brightness": 97.5622,
+        "warm_brick_saturation_pct": 66.6727,
+        "bright_orange_L130_roi_pct": 5.1429,
+        "pale_orange_L165_roi_pct": 2.8571,
+        "dark_joint_or_shadow_L60_roi_pct": 20.5714,
+        "dominant_rgb": [
+          190,
+          96,
+          53
+        ],
+        "dominant_rgb_roi_pct": 22.8571,
+        "local_adjacent_luminance_difference": 22.3848,
+        "roi_colour_count": 24
+      },
+      "after": {
+        "whole_mean_brightness": 66.8961,
+        "dome_roi_pixels": 175,
+        "dome_mean_brightness": 90.6542,
+        "warm_brick_pixels": 127,
+        "warm_brick_mean_brightness": 97.5622,
+        "warm_brick_saturation_pct": 66.6727,
+        "bright_orange_L130_roi_pct": 5.1429,
+        "pale_orange_L165_roi_pct": 2.8571,
+        "dark_joint_or_shadow_L60_roi_pct": 20.5714,
+        "dominant_rgb": [
+          190,
+          96,
+          53
+        ],
+        "dominant_rgb_roi_pct": 22.8571,
+        "local_adjacent_luminance_difference": 22.3848,
+        "roi_colour_count": 24
+      },
+      "alpha_bytes_exact": true
+    },
+    {
+      "form": "fusern",
+      "kind": "full",
+      "facing": "e",
+      "frame": null,
+      "path": "assets/sprites/arena/fusern/e.png",
+      "dome_bbox_original": [
+        26,
+        35,
+        104,
+        70
+      ],
+      "before": {
+        "whole_mean_brightness": 95.561,
+        "dome_roi_pixels": 1890,
+        "dome_mean_brightness": 136.3313,
+        "warm_brick_pixels": 1662,
+        "warm_brick_mean_brightness": 144.7266,
+        "warm_brick_saturation_pct": 74.7544,
+        "bright_orange_L130_roi_pct": 78.3598,
+        "pale_orange_L165_roi_pct": 25.291,
+        "dark_joint_or_shadow_L60_roi_pct": 6.1376,
+        "dominant_rgb": [
+          231,
+          113,
+          39
+        ],
+        "dominant_rgb_roi_pct": 36.0847,
+        "local_adjacent_luminance_difference": 10.7836,
+        "roi_colour_count": 26
+      },
+      "after": {
+        "whole_mean_brightness": 95.561,
+        "dome_roi_pixels": 1890,
+        "dome_mean_brightness": 136.3313,
+        "warm_brick_pixels": 1662,
+        "warm_brick_mean_brightness": 144.7266,
+        "warm_brick_saturation_pct": 74.7544,
+        "bright_orange_L130_roi_pct": 78.3598,
+        "pale_orange_L165_roi_pct": 25.291,
+        "dark_joint_or_shadow_L60_roi_pct": 6.1376,
+        "dominant_rgb": [
+          231,
+          113,
+          39
+        ],
+        "dominant_rgb_roi_pct": 36.0847,
+        "local_adjacent_luminance_difference": 10.7836,
+        "roi_colour_count": 26
+      },
+      "alpha_bytes_exact": true
+    },
+    {
+      "form": "fusern",
+      "kind": "small",
+      "facing": "e",
+      "frame": null,
+      "path": "assets/sprites/arena/fusern/small/e.png",
+      "dome_bbox_original": [
+        9,
+        12,
+        35,
+        23
+      ],
+      "before": {
+        "whole_mean_brightness": 95.7693,
+        "dome_roi_pixels": 179,
+        "dome_mean_brightness": 138.869,
+        "warm_brick_pixels": 157,
+        "warm_brick_mean_brightness": 146.8797,
+        "warm_brick_saturation_pct": 75.4159,
+        "bright_orange_L130_roi_pct": 82.1229,
+        "pale_orange_L165_roi_pct": 23.4637,
+        "dark_joint_or_shadow_L60_roi_pct": 3.352,
+        "dominant_rgb": [
+          231,
+          113,
+          39
+        ],
+        "dominant_rgb_roi_pct": 39.6648,
+        "local_adjacent_luminance_difference": 13.7137,
+        "roi_colour_count": 15
+      },
+      "after": {
+        "whole_mean_brightness": 95.7693,
+        "dome_roi_pixels": 179,
+        "dome_mean_brightness": 138.869,
+        "warm_brick_pixels": 157,
+        "warm_brick_mean_brightness": 146.8797,
+        "warm_brick_saturation_pct": 75.4159,
+        "bright_orange_L130_roi_pct": 82.1229,
+        "pale_orange_L165_roi_pct": 23.4637,
+        "dark_joint_or_shadow_L60_roi_pct": 3.352,
+        "dominant_rgb": [
+          231,
+          113,
+          39
+        ],
+        "dominant_rgb_roi_pct": 39.6648,
+        "local_adjacent_luminance_difference": 13.7137,
+        "roi_colour_count": 15
+      },
+      "alpha_bytes_exact": true
+    },
+    {
+      "form": "fusern",
+      "kind": "full",
+      "facing": "ne",
+      "frame": null,
+      "path": "assets/sprites/arena/fusern/ne.png",
+      "dome_bbox_original": [
+        26,
+        36,
+        104,
+        71
+      ],
+      "before": {
+        "whole_mean_brightness": 86.5134,
+        "dome_roi_pixels": 1893,
+        "dome_mean_brightness": 120.3513,
+        "warm_brick_pixels": 1670,
+        "warm_brick_mean_brightness": 127.5025,
+        "warm_brick_saturation_pct": 71.1276,
+        "bright_orange_L130_roi_pct": 51.664,
+        "pale_orange_L165_roi_pct": 22.8209,
+        "dark_joint_or_shadow_L60_roi_pct": 8.3994,
+        "dominant_rgb": [
+          231,
+          113,
+          39
+        ],
+        "dominant_rgb_roi_pct": 23.0851,
+        "local_adjacent_luminance_difference": 12.428,
+        "roi_colour_count": 24
+      },
+      "after": {
+        "whole_mean_brightness": 86.5134,
+        "dome_roi_pixels": 1893,
+        "dome_mean_brightness": 120.3513,
+        "warm_brick_pixels": 1670,
+        "warm_brick_mean_brightness": 127.5025,
+        "warm_brick_saturation_pct": 71.1276,
+        "bright_orange_L130_roi_pct": 51.664,
+        "pale_orange_L165_roi_pct": 22.8209,
+        "dark_joint_or_shadow_L60_roi_pct": 8.3994,
+        "dominant_rgb": [
+          231,
+          113,
+          39
+        ],
+        "dominant_rgb_roi_pct": 23.0851,
+        "local_adjacent_luminance_difference": 12.428,
+        "roi_colour_count": 24
+      },
+      "alpha_bytes_exact": true
+    },
+    {
+      "form": "fusern",
+      "kind": "small",
+      "facing": "ne",
+      "frame": null,
+      "path": "assets/sprites/arena/fusern/small/ne.png",
+      "dome_bbox_original": [
+        9,
+        12,
+        35,
+        23
+      ],
+      "before": {
+        "whole_mean_brightness": 84.2768,
+        "dome_roi_pixels": 175,
+        "dome_mean_brightness": 127.0893,
+        "warm_brick_pixels": 165,
+        "warm_brick_mean_brightness": 130.608,
+        "warm_brick_saturation_pct": 71.809,
+        "bright_orange_L130_roi_pct": 58.8571,
+        "pale_orange_L165_roi_pct": 25.1429,
+        "dark_joint_or_shadow_L60_roi_pct": 4.5714,
+        "dominant_rgb": [
+          231,
+          113,
+          39
+        ],
+        "dominant_rgb_roi_pct": 29.1429,
+        "local_adjacent_luminance_difference": 19.3784,
+        "roi_colour_count": 18
+      },
+      "after": {
+        "whole_mean_brightness": 84.2768,
+        "dome_roi_pixels": 175,
+        "dome_mean_brightness": 127.0893,
+        "warm_brick_pixels": 165,
+        "warm_brick_mean_brightness": 130.608,
+        "warm_brick_saturation_pct": 71.809,
+        "bright_orange_L130_roi_pct": 58.8571,
+        "pale_orange_L165_roi_pct": 25.1429,
+        "dark_joint_or_shadow_L60_roi_pct": 4.5714,
+        "dominant_rgb": [
+          231,
+          113,
+          39
+        ],
+        "dominant_rgb_roi_pct": 29.1429,
+        "local_adjacent_luminance_difference": 19.3784,
+        "roi_colour_count": 18
+      },
+      "alpha_bytes_exact": true
+    },
+    {
+      "form": "fusern",
+      "kind": "full",
+      "facing": "n",
+      "frame": null,
+      "path": "assets/sprites/arena/fusern/n.png",
+      "dome_bbox_original": [
+        29,
+        35,
+        100,
+        70
+      ],
+      "before": {
+        "whole_mean_brightness": 91.0303,
+        "dome_roi_pixels": 1804,
+        "dome_mean_brightness": 130.4653,
+        "warm_brick_pixels": 1746,
+        "warm_brick_mean_brightness": 132.7333,
+        "warm_brick_saturation_pct": 72.2274,
+        "bright_orange_L130_roi_pct": 61.9734,
+        "pale_orange_L165_roi_pct": 26.3304,
+        "dark_joint_or_shadow_L60_roi_pct": 2.051,
+        "dominant_rgb": [
+          252,
+          161,
+          82
+        ],
+        "dominant_rgb_roi_pct": 26.3304,
+        "local_adjacent_luminance_difference": 12.4151,
+        "roi_colour_count": 20
+      },
+      "after": {
+        "whole_mean_brightness": 91.0303,
+        "dome_roi_pixels": 1804,
+        "dome_mean_brightness": 130.4653,
+        "warm_brick_pixels": 1746,
+        "warm_brick_mean_brightness": 132.7333,
+        "warm_brick_saturation_pct": 72.2274,
+        "bright_orange_L130_roi_pct": 61.9734,
+        "pale_orange_L165_roi_pct": 26.3304,
+        "dark_joint_or_shadow_L60_roi_pct": 2.051,
+        "dominant_rgb": [
+          252,
+          161,
+          82
+        ],
+        "dominant_rgb_roi_pct": 26.3304,
+        "local_adjacent_luminance_difference": 12.4151,
+        "roi_colour_count": 20
+      },
+      "alpha_bytes_exact": true
+    },
+    {
+      "form": "fusern",
+      "kind": "small",
+      "facing": "n",
+      "frame": null,
+      "path": "assets/sprites/arena/fusern/small/n.png",
+      "dome_bbox_original": [
+        10,
+        12,
+        33,
+        23
+      ],
+      "before": {
+        "whole_mean_brightness": 90.443,
+        "dome_roi_pixels": 172,
+        "dome_mean_brightness": 133.1885,
+        "warm_brick_pixels": 170,
+        "warm_brick_mean_brightness": 134.0289,
+        "warm_brick_saturation_pct": 71.0288,
+        "bright_orange_L130_roi_pct": 61.0465,
+        "pale_orange_L165_roi_pct": 33.1395,
+        "dark_joint_or_shadow_L60_roi_pct": 0.5814,
+        "dominant_rgb": [
+          252,
+          161,
+          82
+        ],
+        "dominant_rgb_roi_pct": 33.1395,
+        "local_adjacent_luminance_difference": 20.5326,
+        "roi_colour_count": 12
+      },
+      "after": {
+        "whole_mean_brightness": 90.443,
+        "dome_roi_pixels": 172,
+        "dome_mean_brightness": 133.1885,
+        "warm_brick_pixels": 170,
+        "warm_brick_mean_brightness": 134.0289,
+        "warm_brick_saturation_pct": 71.0288,
+        "bright_orange_L130_roi_pct": 61.0465,
+        "pale_orange_L165_roi_pct": 33.1395,
+        "dark_joint_or_shadow_L60_roi_pct": 0.5814,
+        "dominant_rgb": [
+          252,
+          161,
+          82
+        ],
+        "dominant_rgb_roi_pct": 33.1395,
+        "local_adjacent_luminance_difference": 20.5326,
+        "roi_colour_count": 12
+      },
+      "alpha_bytes_exact": true
+    },
+    {
+      "form": "fusern",
+      "kind": "full",
+      "facing": "nw",
+      "frame": null,
+      "path": "assets/sprites/arena/fusern/nw.png",
+      "dome_bbox_original": [
+        25,
+        35,
+        103,
+        70
+      ],
+      "before": {
+        "whole_mean_brightness": 100.6447,
+        "dome_roi_pixels": 1815,
+        "dome_mean_brightness": 148.6439,
+        "warm_brick_pixels": 1714,
+        "warm_brick_mean_brightness": 153.0103,
+        "warm_brick_saturation_pct": 73.7909,
+        "bright_orange_L130_roi_pct": 84.1322,
+        "pale_orange_L165_roi_pct": 43.3058,
+        "dark_joint_or_shadow_L60_roi_pct": 2.3691,
+        "dominant_rgb": [
+          252,
+          161,
+          82
+        ],
+        "dominant_rgb_roi_pct": 43.3058,
+        "local_adjacent_luminance_difference": 9.5362,
+        "roi_colour_count": 17
+      },
+      "after": {
+        "whole_mean_brightness": 100.6447,
+        "dome_roi_pixels": 1815,
+        "dome_mean_brightness": 148.6439,
+        "warm_brick_pixels": 1714,
+        "warm_brick_mean_brightness": 153.0103,
+        "warm_brick_saturation_pct": 73.7909,
+        "bright_orange_L130_roi_pct": 84.1322,
+        "pale_orange_L165_roi_pct": 43.3058,
+        "dark_joint_or_shadow_L60_roi_pct": 2.3691,
+        "dominant_rgb": [
+          252,
+          161,
+          82
+        ],
+        "dominant_rgb_roi_pct": 43.3058,
+        "local_adjacent_luminance_difference": 9.5362,
+        "roi_colour_count": 17
+      },
+      "alpha_bytes_exact": true
+    },
+    {
+      "form": "fusern",
+      "kind": "small",
+      "facing": "nw",
+      "frame": null,
+      "path": "assets/sprites/arena/fusern/small/nw.png",
+      "dome_bbox_original": [
+        8,
+        12,
+        34,
+        23
+      ],
+      "before": {
+        "whole_mean_brightness": 100.315,
+        "dome_roi_pixels": 173,
+        "dome_mean_brightness": 154.1764,
+        "warm_brick_pixels": 168,
+        "warm_brick_mean_brightness": 156.2093,
+        "warm_brick_saturation_pct": 73.9712,
+        "bright_orange_L130_roi_pct": 90.7514,
+        "pale_orange_L165_roi_pct": 47.9769,
+        "dark_joint_or_shadow_L60_roi_pct": 0.578,
+        "dominant_rgb": [
+          252,
+          161,
+          82
+        ],
+        "dominant_rgb_roi_pct": 47.9769,
+        "local_adjacent_luminance_difference": 9.3241,
+        "roi_colour_count": 8
+      },
+      "after": {
+        "whole_mean_brightness": 100.315,
+        "dome_roi_pixels": 173,
+        "dome_mean_brightness": 154.1764,
+        "warm_brick_pixels": 168,
+        "warm_brick_mean_brightness": 156.2093,
+        "warm_brick_saturation_pct": 73.9712,
+        "bright_orange_L130_roi_pct": 90.7514,
+        "pale_orange_L165_roi_pct": 47.9769,
+        "dark_joint_or_shadow_L60_roi_pct": 0.578,
+        "dominant_rgb": [
+          252,
+          161,
+          82
+        ],
+        "dominant_rgb_roi_pct": 47.9769,
+        "local_adjacent_luminance_difference": 9.3241,
+        "roi_colour_count": 8
+      },
+      "alpha_bytes_exact": true
+    },
+    {
+      "form": "fusern",
+      "kind": "full",
+      "facing": "w",
+      "frame": null,
+      "path": "assets/sprites/arena/fusern/w.png",
+      "dome_bbox_original": [
+        25,
+        35,
+        102,
+        70
+      ],
+      "before": {
+        "whole_mean_brightness": 65.1186,
+        "dome_roi_pixels": 1858,
+        "dome_mean_brightness": 79.9639,
+        "warm_brick_pixels": 1432,
+        "warm_brick_mean_brightness": 84.1359,
+        "warm_brick_saturation_pct": 63.0744,
+        "bright_orange_L130_roi_pct": 0.2691,
+        "pale_orange_L165_roi_pct": 0.0,
+        "dark_joint_or_shadow_L60_roi_pct": 21.5823,
+        "dominant_rgb": [
+          163,
+          74,
+          50
+        ],
+        "dominant_rgb_roi_pct": 14.6394,
+        "local_adjacent_luminance_difference": 14.271,
+        "roi_colour_count": 23
+      },
+      "after": {
+        "whole_mean_brightness": 65.1186,
+        "dome_roi_pixels": 1858,
+        "dome_mean_brightness": 79.9639,
+        "warm_brick_pixels": 1432,
+        "warm_brick_mean_brightness": 84.1359,
+        "warm_brick_saturation_pct": 63.0744,
+        "bright_orange_L130_roi_pct": 0.2691,
+        "pale_orange_L165_roi_pct": 0.0,
+        "dark_joint_or_shadow_L60_roi_pct": 21.5823,
+        "dominant_rgb": [
+          163,
+          74,
+          50
+        ],
+        "dominant_rgb_roi_pct": 14.6394,
+        "local_adjacent_luminance_difference": 14.271,
+        "roi_colour_count": 23
+      },
+      "alpha_bytes_exact": true
+    },
+    {
+      "form": "fusern",
+      "kind": "small",
+      "facing": "w",
+      "frame": null,
+      "path": "assets/sprites/arena/fusern/small/w.png",
+      "dome_bbox_original": [
+        8,
+        12,
+        34,
+        23
+      ],
+      "before": {
+        "whole_mean_brightness": 62.5551,
+        "dome_roi_pixels": 177,
+        "dome_mean_brightness": 79.0844,
+        "warm_brick_pixels": 136,
+        "warm_brick_mean_brightness": 81.9364,
+        "warm_brick_saturation_pct": 60.8843,
+        "bright_orange_L130_roi_pct": 0.0,
+        "pale_orange_L165_roi_pct": 0.0,
+        "dark_joint_or_shadow_L60_roi_pct": 25.4237,
+        "dominant_rgb": [
+          163,
+          74,
+          50
+        ],
+        "dominant_rgb_roi_pct": 15.8192,
+        "local_adjacent_luminance_difference": 20.0854,
+        "roi_colour_count": 17
+      },
+      "after": {
+        "whole_mean_brightness": 62.5551,
+        "dome_roi_pixels": 177,
+        "dome_mean_brightness": 79.0844,
+        "warm_brick_pixels": 136,
+        "warm_brick_mean_brightness": 81.9364,
+        "warm_brick_saturation_pct": 60.8843,
+        "bright_orange_L130_roi_pct": 0.0,
+        "pale_orange_L165_roi_pct": 0.0,
+        "dark_joint_or_shadow_L60_roi_pct": 25.4237,
+        "dominant_rgb": [
+          163,
+          74,
+          50
+        ],
+        "dominant_rgb_roi_pct": 15.8192,
+        "local_adjacent_luminance_difference": 20.0854,
+        "roi_colour_count": 17
+      },
+      "alpha_bytes_exact": true
+    },
+    {
+      "form": "fusern",
+      "kind": "full",
+      "facing": "sw",
+      "frame": null,
+      "path": "assets/sprites/arena/fusern/sw.png",
+      "dome_bbox_original": [
+        24,
+        35,
+        103,
+        70
+      ],
+      "before": {
+        "whole_mean_brightness": 68.9557,
+        "dome_roi_pixels": 1814,
+        "dome_mean_brightness": 84.4567,
+        "warm_brick_pixels": 1326,
+        "warm_brick_mean_brightness": 90.0317,
+        "warm_brick_saturation_pct": 64.983,
+        "bright_orange_L130_roi_pct": 2.2602,
+        "pale_orange_L165_roi_pct": 0.0,
+        "dark_joint_or_shadow_L60_roi_pct": 20.8379,
+        "dominant_rgb": [
+          190,
+          96,
+          53
+        ],
+        "dominant_rgb_roi_pct": 13.1753,
+        "local_adjacent_luminance_difference": 14.9819,
+        "roi_colour_count": 26
+      },
+      "after": {
+        "whole_mean_brightness": 68.9557,
+        "dome_roi_pixels": 1814,
+        "dome_mean_brightness": 84.4567,
+        "warm_brick_pixels": 1326,
+        "warm_brick_mean_brightness": 90.0317,
+        "warm_brick_saturation_pct": 64.983,
+        "bright_orange_L130_roi_pct": 2.2602,
+        "pale_orange_L165_roi_pct": 0.0,
+        "dark_joint_or_shadow_L60_roi_pct": 20.8379,
+        "dominant_rgb": [
+          190,
+          96,
+          53
+        ],
+        "dominant_rgb_roi_pct": 13.1753,
+        "local_adjacent_luminance_difference": 14.9819,
+        "roi_colour_count": 26
+      },
+      "alpha_bytes_exact": true
+    },
+    {
+      "form": "fusern",
+      "kind": "small",
+      "facing": "sw",
+      "frame": null,
+      "path": "assets/sprites/arena/fusern/small/sw.png",
+      "dome_bbox_original": [
+        8,
+        12,
+        34,
+        23
+      ],
+      "before": {
+        "whole_mean_brightness": 65.833,
+        "dome_roi_pixels": 172,
+        "dome_mean_brightness": 85.3442,
+        "warm_brick_pixels": 123,
+        "warm_brick_mean_brightness": 90.7503,
+        "warm_brick_saturation_pct": 64.4918,
+        "bright_orange_L130_roi_pct": 1.7442,
+        "pale_orange_L165_roi_pct": 0.0,
+        "dark_joint_or_shadow_L60_roi_pct": 22.6744,
+        "dominant_rgb": [
+          190,
+          96,
+          53
+        ],
+        "dominant_rgb_roi_pct": 17.4419,
+        "local_adjacent_luminance_difference": 21.1152,
+        "roi_colour_count": 22
+      },
+      "after": {
+        "whole_mean_brightness": 65.833,
+        "dome_roi_pixels": 172,
+        "dome_mean_brightness": 85.3442,
+        "warm_brick_pixels": 123,
+        "warm_brick_mean_brightness": 90.7503,
+        "warm_brick_saturation_pct": 64.4918,
+        "bright_orange_L130_roi_pct": 1.7442,
+        "pale_orange_L165_roi_pct": 0.0,
+        "dark_joint_or_shadow_L60_roi_pct": 22.6744,
+        "dominant_rgb": [
+          190,
+          96,
+          53
+        ],
+        "dominant_rgb_roi_pct": 17.4419,
+        "local_adjacent_luminance_difference": 21.1152,
+        "roi_colour_count": 22
+      },
+      "alpha_bytes_exact": true
+    },
+    {
+      "form": "fusern",
+      "kind": "walk_full",
+      "facing": "e",
+      "frame": 0,
+      "path": "docs/creatures/arena-starters-2026-10-07/walk/fusern_e_sheet.png",
+      "dome_bbox_original": [
+        26,
+        36,
+        104,
+        71
+      ],
+      "before": {
+        "whole_mean_brightness": 94.0149,
+        "dome_roi_pixels": 1890,
+        "dome_mean_brightness": 134.6467,
+        "warm_brick_pixels": 1662,
+        "warm_brick_mean_brightness": 142.7958,
+        "warm_brick_saturation_pct": 75.1424,
+        "bright_orange_L130_roi_pct": 78.4656,
+        "pale_orange_L165_roi_pct": 22.328,
+        "dark_joint_or_shadow_L60_roi_pct": 6.2963,
+        "dominant_rgb": [
+          230,
+          113,
+          39
+        ],
+        "dominant_rgb_roi_pct": 41.2169,
+        "local_adjacent_luminance_difference": 9.8775,
+        "roi_colour_count": 26
+      },
+      "after": {
+        "whole_mean_brightness": 94.0149,
+        "dome_roi_pixels": 1890,
+        "dome_mean_brightness": 134.6467,
+        "warm_brick_pixels": 1662,
+        "warm_brick_mean_brightness": 142.7958,
+        "warm_brick_saturation_pct": 75.1424,
+        "bright_orange_L130_roi_pct": 78.4656,
+        "pale_orange_L165_roi_pct": 22.328,
+        "dark_joint_or_shadow_L60_roi_pct": 6.2963,
+        "dominant_rgb": [
+          230,
+          113,
+          39
+        ],
+        "dominant_rgb_roi_pct": 41.2169,
+        "local_adjacent_luminance_difference": 9.8775,
+        "roi_colour_count": 26
+      },
+      "alpha_bytes_exact": true
+    },
+    {
+      "form": "fusern",
+      "kind": "walk_full",
+      "facing": "e",
+      "frame": 1,
+      "path": "docs/creatures/arena-starters-2026-10-07/walk/fusern_e_sheet.png",
+      "dome_bbox_original": [
+        26,
+        37,
+        104,
+        72
+      ],
+      "before": {
+        "whole_mean_brightness": 94.7264,
+        "dome_roi_pixels": 1890,
+        "dome_mean_brightness": 134.2878,
+        "warm_brick_pixels": 1657,
+        "warm_brick_mean_brightness": 142.8233,
+        "warm_brick_saturation_pct": 75.2272,
+        "bright_orange_L130_roi_pct": 78.6243,
+        "pale_orange_L165_roi_pct": 21.5344,
+        "dark_joint_or_shadow_L60_roi_pct": 6.5079,
+        "dominant_rgb": [
+          230,
+          113,
+          39
+        ],
+        "dominant_rgb_roi_pct": 41.0582,
+        "local_adjacent_luminance_difference": 9.8899,
+        "roi_colour_count": 26
+      },
+      "after": {
+        "whole_mean_brightness": 94.7264,
+        "dome_roi_pixels": 1890,
+        "dome_mean_brightness": 134.2878,
+        "warm_brick_pixels": 1657,
+        "warm_brick_mean_brightness": 142.8233,
+        "warm_brick_saturation_pct": 75.2272,
+        "bright_orange_L130_roi_pct": 78.6243,
+        "pale_orange_L165_roi_pct": 21.5344,
+        "dark_joint_or_shadow_L60_roi_pct": 6.5079,
+        "dominant_rgb": [
+          230,
+          113,
+          39
+        ],
+        "dominant_rgb_roi_pct": 41.0582,
+        "local_adjacent_luminance_difference": 9.8899,
+        "roi_colour_count": 26
+      },
+      "alpha_bytes_exact": true
+    },
+    {
+      "form": "fusern",
+      "kind": "walk_full",
+      "facing": "e",
+      "frame": 2,
+      "path": "docs/creatures/arena-starters-2026-10-07/walk/fusern_e_sheet.png",
+      "dome_bbox_original": [
+        26,
+        35,
+        105,
+        70
+      ],
+      "before": {
+        "whole_mean_brightness": 95.0286,
+        "dome_roi_pixels": 1881,
+        "dome_mean_brightness": 136.331,
+        "warm_brick_pixels": 1657,
+        "warm_brick_mean_brightness": 144.5049,
+        "warm_brick_saturation_pct": 74.6448,
+        "bright_orange_L130_roi_pct": 78.9474,
+        "pale_orange_L165_roi_pct": 25.3057,
+        "dark_joint_or_shadow_L60_roi_pct": 6.1138,
+        "dominant_rgb": [
+          230,
+          113,
+          39
+        ],
+        "dominant_rgb_roi_pct": 38.437,
+        "local_adjacent_luminance_difference": 10.179,
+        "roi_colour_count": 26
+      },
+      "after": {
+        "whole_mean_brightness": 95.0286,
+        "dome_roi_pixels": 1881,
+        "dome_mean_brightness": 136.331,
+        "warm_brick_pixels": 1657,
+        "warm_brick_mean_brightness": 144.5049,
+        "warm_brick_saturation_pct": 74.6448,
+        "bright_orange_L130_roi_pct": 78.9474,
+        "pale_orange_L165_roi_pct": 25.3057,
+        "dark_joint_or_shadow_L60_roi_pct": 6.1138,
+        "dominant_rgb": [
+          230,
+          113,
+          39
+        ],
+        "dominant_rgb_roi_pct": 38.437,
+        "local_adjacent_luminance_difference": 10.179,
+        "roi_colour_count": 26
+      },
+      "alpha_bytes_exact": true
+    },
+    {
+      "form": "fusern",
+      "kind": "walk_full",
+      "facing": "e",
+      "frame": 3,
+      "path": "docs/creatures/arena-starters-2026-10-07/walk/fusern_e_sheet.png",
+      "dome_bbox_original": [
+        26,
+        35,
+        106,
+        70
+      ],
+      "before": {
+        "whole_mean_brightness": 95.8414,
+        "dome_roi_pixels": 1889,
+        "dome_mean_brightness": 136.3061,
+        "warm_brick_pixels": 1662,
+        "warm_brick_mean_brightness": 144.6981,
+        "warm_brick_saturation_pct": 74.7462,
+        "bright_orange_L130_roi_pct": 78.9307,
+        "pale_orange_L165_roi_pct": 25.1985,
+        "dark_joint_or_shadow_L60_roi_pct": 6.0879,
+        "dominant_rgb": [
+          230,
+          113,
+          39
+        ],
+        "dominant_rgb_roi_pct": 38.5918,
+        "local_adjacent_luminance_difference": 10.1378,
+        "roi_colour_count": 26
+      },
+      "after": {
+        "whole_mean_brightness": 95.8414,
+        "dome_roi_pixels": 1889,
+        "dome_mean_brightness": 136.3061,
+        "warm_brick_pixels": 1662,
+        "warm_brick_mean_brightness": 144.6981,
+        "warm_brick_saturation_pct": 74.7462,
+        "bright_orange_L130_roi_pct": 78.9307,
+        "pale_orange_L165_roi_pct": 25.1985,
+        "dark_joint_or_shadow_L60_roi_pct": 6.0879,
+        "dominant_rgb": [
+          230,
+          113,
+          39
+        ],
+        "dominant_rgb_roi_pct": 38.5918,
+        "local_adjacent_luminance_difference": 10.1378,
+        "roi_colour_count": 26
+      },
+      "alpha_bytes_exact": true
+    },
+    {
+      "form": "fusern",
+      "kind": "walk_full",
+      "facing": "e",
+      "frame": 4,
+      "path": "docs/creatures/arena-starters-2026-10-07/walk/fusern_e_sheet.png",
+      "dome_bbox_original": [
+        26,
+        36,
+        108,
+        71
+      ],
+      "before": {
+        "whole_mean_brightness": 93.9493,
+        "dome_roi_pixels": 1882,
+        "dome_mean_brightness": 133.9479,
+        "warm_brick_pixels": 1648,
+        "warm_brick_mean_brightness": 142.6848,
+        "warm_brick_saturation_pct": 74.8787,
+        "bright_orange_L130_roi_pct": 78.6929,
+        "pale_orange_L165_roi_pct": 20.1382,
+        "dark_joint_or_shadow_L60_roi_pct": 6.5887,
+        "dominant_rgb": [
+          230,
+          113,
+          39
+        ],
+        "dominant_rgb_roi_pct": 36.7163,
+        "local_adjacent_luminance_difference": 9.5697,
+        "roi_colour_count": 26
+      },
+      "after": {
+        "whole_mean_brightness": 93.9493,
+        "dome_roi_pixels": 1882,
+        "dome_mean_brightness": 133.9479,
+        "warm_brick_pixels": 1648,
+        "warm_brick_mean_brightness": 142.6848,
+        "warm_brick_saturation_pct": 74.8787,
+        "bright_orange_L130_roi_pct": 78.6929,
+        "pale_orange_L165_roi_pct": 20.1382,
+        "dark_joint_or_shadow_L60_roi_pct": 6.5887,
+        "dominant_rgb": [
+          230,
+          113,
+          39
+        ],
+        "dominant_rgb_roi_pct": 36.7163,
+        "local_adjacent_luminance_difference": 9.5697,
+        "roi_colour_count": 26
+      },
+      "alpha_bytes_exact": true
+    },
+    {
+      "form": "fusern",
+      "kind": "walk_full",
+      "facing": "e",
+      "frame": 5,
+      "path": "docs/creatures/arena-starters-2026-10-07/walk/fusern_e_sheet.png",
+      "dome_bbox_original": [
+        26,
+        35,
+        105,
+        71
+      ],
+      "before": {
+        "whole_mean_brightness": 95.3979,
+        "dome_roi_pixels": 1963,
+        "dome_mean_brightness": 134.9318,
+        "warm_brick_pixels": 1707,
+        "warm_brick_mean_brightness": 144.4908,
+        "warm_brick_saturation_pct": 74.7059,
+        "bright_orange_L130_roi_pct": 77.0759,
+        "pale_orange_L165_roi_pct": 24.9618,
+        "dark_joint_or_shadow_L60_roi_pct": 7.1319,
+        "dominant_rgb": [
+          230,
+          113,
+          39
+        ],
+        "dominant_rgb_roi_pct": 37.3408,
+        "local_adjacent_luminance_difference": 10.7205,
+        "roi_colour_count": 26
+      },
+      "after": {
+        "whole_mean_brightness": 95.3979,
+        "dome_roi_pixels": 1963,
+        "dome_mean_brightness": 134.9318,
+        "warm_brick_pixels": 1707,
+        "warm_brick_mean_brightness": 144.4908,
+        "warm_brick_saturation_pct": 74.7059,
+        "bright_orange_L130_roi_pct": 77.0759,
+        "pale_orange_L165_roi_pct": 24.9618,
+        "dark_joint_or_shadow_L60_roi_pct": 7.1319,
+        "dominant_rgb": [
+          230,
+          113,
+          39
+        ],
+        "dominant_rgb_roi_pct": 37.3408,
+        "local_adjacent_luminance_difference": 10.7205,
+        "roi_colour_count": 26
+      },
+      "alpha_bytes_exact": true
+    },
+    {
+      "form": "fusern",
+      "kind": "walk_full",
+      "facing": "e",
+      "frame": 6,
+      "path": "docs/creatures/arena-starters-2026-10-07/walk/fusern_e_sheet.png",
+      "dome_bbox_original": [
+        26,
+        35,
+        104,
+        70
+      ],
+      "before": {
+        "whole_mean_brightness": 94.9085,
+        "dome_roi_pixels": 1892,
+        "dome_mean_brightness": 136.1757,
+        "warm_brick_pixels": 1664,
+        "warm_brick_mean_brightness": 144.6524,
+        "warm_brick_saturation_pct": 74.6557,
+        "bright_orange_L130_roi_pct": 78.6469,
+        "pale_orange_L165_roi_pct": 25.6342,
+        "dark_joint_or_shadow_L60_roi_pct": 6.4482,
+        "dominant_rgb": [
+          230,
+          113,
+          39
+        ],
+        "dominant_rgb_roi_pct": 37.7378,
+        "local_adjacent_luminance_difference": 10.5354,
+        "roi_colour_count": 26
+      },
+      "after": {
+        "whole_mean_brightness": 94.9085,
+        "dome_roi_pixels": 1892,
+        "dome_mean_brightness": 136.1757,
+        "warm_brick_pixels": 1664,
+        "warm_brick_mean_brightness": 144.6524,
+        "warm_brick_saturation_pct": 74.6557,
+        "bright_orange_L130_roi_pct": 78.6469,
+        "pale_orange_L165_roi_pct": 25.6342,
+        "dark_joint_or_shadow_L60_roi_pct": 6.4482,
+        "dominant_rgb": [
+          230,
+          113,
+          39
+        ],
+        "dominant_rgb_roi_pct": 37.7378,
+        "local_adjacent_luminance_difference": 10.5354,
+        "roi_colour_count": 26
+      },
+      "alpha_bytes_exact": true
+    },
+    {
+      "form": "fusern",
+      "kind": "walk_full",
+      "facing": "e",
+      "frame": 7,
+      "path": "docs/creatures/arena-starters-2026-10-07/walk/fusern_e_sheet.png",
+      "dome_bbox_original": [
+        26,
+        36,
+        104,
+        71
+      ],
+      "before": {
+        "whole_mean_brightness": 94.0259,
+        "dome_roi_pixels": 1881,
+        "dome_mean_brightness": 134.5799,
+        "warm_brick_pixels": 1653,
+        "warm_brick_mean_brightness": 142.954,
+        "warm_brick_saturation_pct": 74.9156,
+        "bright_orange_L130_roi_pct": 78.8942,
+        "pale_orange_L165_roi_pct": 20.7337,
+        "dark_joint_or_shadow_L60_roi_pct": 6.2201,
+        "dominant_rgb": [
+          230,
+          113,
+          39
+        ],
+        "dominant_rgb_roi_pct": 37.1611,
+        "local_adjacent_luminance_difference": 9.4457,
+        "roi_colour_count": 26
+      },
+      "after": {
+        "whole_mean_brightness": 94.0259,
+        "dome_roi_pixels": 1881,
+        "dome_mean_brightness": 134.5799,
+        "warm_brick_pixels": 1653,
+        "warm_brick_mean_brightness": 142.954,
+        "warm_brick_saturation_pct": 74.9156,
+        "bright_orange_L130_roi_pct": 78.8942,
+        "pale_orange_L165_roi_pct": 20.7337,
+        "dark_joint_or_shadow_L60_roi_pct": 6.2201,
+        "dominant_rgb": [
+          230,
+          113,
+          39
+        ],
+        "dominant_rgb_roi_pct": 37.1611,
+        "local_adjacent_luminance_difference": 9.4457,
+        "roi_colour_count": 26
+      },
+      "alpha_bytes_exact": true
+    },
+    {
+      "form": "fusern",
+      "kind": "walk_full",
+      "facing": "ne",
+      "frame": 0,
+      "path": "docs/creatures/arena-starters-2026-10-07/walk/fusern_ne_sheet.png",
+      "dome_bbox_original": [
+        24,
+        35,
+        104,
+        70
+      ],
+      "before": {
+        "whole_mean_brightness": 85.4701,
+        "dome_roi_pixels": 1891,
+        "dome_mean_brightness": 119.4427,
+        "warm_brick_pixels": 1636,
+        "warm_brick_mean_brightness": 127.9653,
+        "warm_brick_saturation_pct": 71.8524,
+        "bright_orange_L130_roi_pct": 52.1946,
+        "pale_orange_L165_roi_pct": 21.7345,
+        "dark_joint_or_shadow_L60_roi_pct": 10.5764,
+        "dominant_rgb": [
+          230,
+          113,
+          39
+        ],
+        "dominant_rgb_roi_pct": 26.5997,
+        "local_adjacent_luminance_difference": 11.5343,
+        "roi_colour_count": 25
+      },
+      "after": {
+        "whole_mean_brightness": 85.4701,
+        "dome_roi_pixels": 1891,
+        "dome_mean_brightness": 119.4427,
+        "warm_brick_pixels": 1636,
+        "warm_brick_mean_brightness": 127.9653,
+        "warm_brick_saturation_pct": 71.8524,
+        "bright_orange_L130_roi_pct": 52.1946,
+        "pale_orange_L165_roi_pct": 21.7345,
+        "dark_joint_or_shadow_L60_roi_pct": 10.5764,
+        "dominant_rgb": [
+          230,
+          113,
+          39
+        ],
+        "dominant_rgb_roi_pct": 26.5997,
+        "local_adjacent_luminance_difference": 11.5343,
+        "roi_colour_count": 25
+      },
+      "alpha_bytes_exact": true
+    },
+    {
+      "form": "fusern",
+      "kind": "walk_full",
+      "facing": "ne",
+      "frame": 1,
+      "path": "docs/creatures/arena-starters-2026-10-07/walk/fusern_ne_sheet.png",
+      "dome_bbox_original": [
+        25,
+        33,
+        102,
+        68
+      ],
+      "before": {
+        "whole_mean_brightness": 86.0373,
+        "dome_roi_pixels": 1836,
+        "dome_mean_brightness": 121.701,
+        "warm_brick_pixels": 1608,
+        "warm_brick_mean_brightness": 130.0442,
+        "warm_brick_saturation_pct": 71.8368,
+        "bright_orange_L130_roi_pct": 54.5207,
+        "pale_orange_L165_roi_pct": 24.2375,
+        "dark_joint_or_shadow_L60_roi_pct": 10.2397,
+        "dominant_rgb": [
+          230,
+          113,
+          39
+        ],
+        "dominant_rgb_roi_pct": 25.9804,
+        "local_adjacent_luminance_difference": 11.7128,
+        "roi_colour_count": 24
+      },
+      "after": {
+        "whole_mean_brightness": 86.0373,
+        "dome_roi_pixels": 1836,
+        "dome_mean_brightness": 121.701,
+        "warm_brick_pixels": 1608,
+        "warm_brick_mean_brightness": 130.0442,
+        "warm_brick_saturation_pct": 71.8368,
+        "bright_orange_L130_roi_pct": 54.5207,
+        "pale_orange_L165_roi_pct": 24.2375,
+        "dark_joint_or_shadow_L60_roi_pct": 10.2397,
+        "dominant_rgb": [
+          230,
+          113,
+          39
+        ],
+        "dominant_rgb_roi_pct": 25.9804,
+        "local_adjacent_luminance_difference": 11.7128,
+        "roi_colour_count": 24
+      },
+      "alpha_bytes_exact": true
+    },
+    {
+      "form": "fusern",
+      "kind": "walk_full",
+      "facing": "ne",
+      "frame": 2,
+      "path": "docs/creatures/arena-starters-2026-10-07/walk/fusern_ne_sheet.png",
+      "dome_bbox_original": [
+        27,
+        33,
+        100,
+        68
+      ],
+      "before": {
+        "whole_mean_brightness": 84.706,
+        "dome_roi_pixels": 1788,
+        "dome_mean_brightness": 121.0122,
+        "warm_brick_pixels": 1587,
+        "warm_brick_mean_brightness": 128.5246,
+        "warm_brick_saturation_pct": 71.3675,
+        "bright_orange_L130_roi_pct": 54.4183,
+        "pale_orange_L165_roi_pct": 24.4407,
+        "dark_joint_or_shadow_L60_roi_pct": 11.3535,
+        "dominant_rgb": [
+          230,
+          113,
+          39
+        ],
+        "dominant_rgb_roi_pct": 26.2864,
+        "local_adjacent_luminance_difference": 12.247,
+        "roi_colour_count": 25
+      },
+      "after": {
+        "whole_mean_brightness": 84.706,
+        "dome_roi_pixels": 1788,
+        "dome_mean_brightness": 121.0122,
+        "warm_brick_pixels": 1587,
+        "warm_brick_mean_brightness": 128.5246,
+        "warm_brick_saturation_pct": 71.3675,
+        "bright_orange_L130_roi_pct": 54.4183,
+        "pale_orange_L165_roi_pct": 24.4407,
+        "dark_joint_or_shadow_L60_roi_pct": 11.3535,
+        "dominant_rgb": [
+          230,
+          113,
+          39
+        ],
+        "dominant_rgb_roi_pct": 26.2864,
+        "local_adjacent_luminance_difference": 12.247,
+        "roi_colour_count": 25
+      },
+      "alpha_bytes_exact": true
+    },
+    {
+      "form": "fusern",
+      "kind": "walk_full",
+      "facing": "ne",
+      "frame": 3,
+      "path": "docs/creatures/arena-starters-2026-10-07/walk/fusern_ne_sheet.png",
+      "dome_bbox_original": [
+        27,
+        35,
+        100,
+        70
+      ],
+      "before": {
+        "whole_mean_brightness": 85.6056,
+        "dome_roi_pixels": 1828,
+        "dome_mean_brightness": 121.5037,
+        "warm_brick_pixels": 1636,
+        "warm_brick_mean_brightness": 128.3434,
+        "warm_brick_saturation_pct": 71.3465,
+        "bright_orange_L130_roi_pct": 54.267,
+        "pale_orange_L165_roi_pct": 23.4683,
+        "dark_joint_or_shadow_L60_roi_pct": 9.3545,
+        "dominant_rgb": [
+          230,
+          113,
+          39
+        ],
+        "dominant_rgb_roi_pct": 26.86,
+        "local_adjacent_luminance_difference": 12.4844,
+        "roi_colour_count": 25
+      },
+      "after": {
+        "whole_mean_brightness": 85.6056,
+        "dome_roi_pixels": 1828,
+        "dome_mean_brightness": 121.5037,
+        "warm_brick_pixels": 1636,
+        "warm_brick_mean_brightness": 128.3434,
+        "warm_brick_saturation_pct": 71.3465,
+        "bright_orange_L130_roi_pct": 54.267,
+        "pale_orange_L165_roi_pct": 23.4683,
+        "dark_joint_or_shadow_L60_roi_pct": 9.3545,
+        "dominant_rgb": [
+          230,
+          113,
+          39
+        ],
+        "dominant_rgb_roi_pct": 26.86,
+        "local_adjacent_luminance_difference": 12.4844,
+        "roi_colour_count": 25
+      },
+      "alpha_bytes_exact": true
+    },
+    {
+      "form": "fusern",
+      "kind": "walk_full",
+      "facing": "ne",
+      "frame": 4,
+      "path": "docs/creatures/arena-starters-2026-10-07/walk/fusern_ne_sheet.png",
+      "dome_bbox_original": [
+        26,
+        34,
+        101,
+        69
+      ],
+      "before": {
+        "whole_mean_brightness": 85.628,
+        "dome_roi_pixels": 1818,
+        "dome_mean_brightness": 121.2934,
+        "warm_brick_pixels": 1626,
+        "warm_brick_mean_brightness": 128.27,
+        "warm_brick_saturation_pct": 71.363,
+        "bright_orange_L130_roi_pct": 53.6854,
+        "pale_orange_L165_roi_pct": 23.9824,
+        "dark_joint_or_shadow_L60_roi_pct": 10.286,
+        "dominant_rgb": [
+          230,
+          113,
+          39
+        ],
+        "dominant_rgb_roi_pct": 25.7976,
+        "local_adjacent_luminance_difference": 12.5141,
+        "roi_colour_count": 25
+      },
+      "after": {
+        "whole_mean_brightness": 85.628,
+        "dome_roi_pixels": 1818,
+        "dome_mean_brightness": 121.2934,
+        "warm_brick_pixels": 1626,
+        "warm_brick_mean_brightness": 128.27,
+        "warm_brick_saturation_pct": 71.363,
+        "bright_orange_L130_roi_pct": 53.6854,
+        "pale_orange_L165_roi_pct": 23.9824,
+        "dark_joint_or_shadow_L60_roi_pct": 10.286,
+        "dominant_rgb": [
+          230,
+          113,
+          39
+        ],
+        "dominant_rgb_roi_pct": 25.7976,
+        "local_adjacent_luminance_difference": 12.5141,
+        "roi_colour_count": 25
+      },
+      "alpha_bytes_exact": true
+    },
+    {
+      "form": "fusern",
+      "kind": "walk_full",
+      "facing": "ne",
+      "frame": 5,
+      "path": "docs/creatures/arena-starters-2026-10-07/walk/fusern_ne_sheet.png",
+      "dome_bbox_original": [
+        26,
+        29,
+        101,
+        66
+      ],
+      "before": {
+        "whole_mean_brightness": 86.618,
+        "dome_roi_pixels": 1693,
+        "dome_mean_brightness": 124.6652,
+        "warm_brick_pixels": 1562,
+        "warm_brick_mean_brightness": 129.8845,
+        "warm_brick_saturation_pct": 71.3435,
+        "bright_orange_L130_roi_pct": 57.3538,
+        "pale_orange_L165_roi_pct": 26.1075,
+        "dark_joint_or_shadow_L60_roi_pct": 8.2693,
+        "dominant_rgb": [
+          230,
+          113,
+          39
+        ],
+        "dominant_rgb_roi_pct": 26.8163,
+        "local_adjacent_luminance_difference": 13.1547,
+        "roi_colour_count": 25
+      },
+      "after": {
+        "whole_mean_brightness": 86.618,
+        "dome_roi_pixels": 1693,
+        "dome_mean_brightness": 124.6652,
+        "warm_brick_pixels": 1562,
+        "warm_brick_mean_brightness": 129.8845,
+        "warm_brick_saturation_pct": 71.3435,
+        "bright_orange_L130_roi_pct": 57.3538,
+        "pale_orange_L165_roi_pct": 26.1075,
+        "dark_joint_or_shadow_L60_roi_pct": 8.2693,
+        "dominant_rgb": [
+          230,
+          113,
+          39
+        ],
+        "dominant_rgb_roi_pct": 26.8163,
+        "local_adjacent_luminance_difference": 13.1547,
+        "roi_colour_count": 25
+      },
+      "alpha_bytes_exact": true
+    },
+    {
+      "form": "fusern",
+      "kind": "walk_full",
+      "facing": "ne",
+      "frame": 6,
+      "path": "docs/creatures/arena-starters-2026-10-07/walk/fusern_ne_sheet.png",
+      "dome_bbox_original": [
+        25,
+        28,
+        102,
+        66
+      ],
+      "before": {
+        "whole_mean_brightness": 84.7239,
+        "dome_roi_pixels": 1702,
+        "dome_mean_brightness": 122.5455,
+        "warm_brick_pixels": 1569,
+        "warm_brick_mean_brightness": 127.7571,
+        "warm_brick_saturation_pct": 71.2811,
+        "bright_orange_L130_roi_pct": 55.3467,
+        "pale_orange_L165_roi_pct": 24.5593,
+        "dark_joint_or_shadow_L60_roi_pct": 9.1657,
+        "dominant_rgb": [
+          230,
+          113,
+          39
+        ],
+        "dominant_rgb_roi_pct": 26.6157,
+        "local_adjacent_luminance_difference": 13.2781,
+        "roi_colour_count": 25
+      },
+      "after": {
+        "whole_mean_brightness": 84.7239,
+        "dome_roi_pixels": 1702,
+        "dome_mean_brightness": 122.5455,
+        "warm_brick_pixels": 1569,
+        "warm_brick_mean_brightness": 127.7571,
+        "warm_brick_saturation_pct": 71.2811,
+        "bright_orange_L130_roi_pct": 55.3467,
+        "pale_orange_L165_roi_pct": 24.5593,
+        "dark_joint_or_shadow_L60_roi_pct": 9.1657,
+        "dominant_rgb": [
+          230,
+          113,
+          39
+        ],
+        "dominant_rgb_roi_pct": 26.6157,
+        "local_adjacent_luminance_difference": 13.2781,
+        "roi_colour_count": 25
+      },
+      "alpha_bytes_exact": true
+    },
+    {
+      "form": "fusern",
+      "kind": "walk_full",
+      "facing": "ne",
+      "frame": 7,
+      "path": "docs/creatures/arena-starters-2026-10-07/walk/fusern_ne_sheet.png",
+      "dome_bbox_original": [
+        24,
+        29,
+        104,
+        67
+      ],
+      "before": {
+        "whole_mean_brightness": 85.367,
+        "dome_roi_pixels": 1641,
+        "dome_mean_brightness": 124.0077,
+        "warm_brick_pixels": 1503,
+        "warm_brick_mean_brightness": 129.8457,
+        "warm_brick_saturation_pct": 71.9931,
+        "bright_orange_L130_roi_pct": 58.2572,
+        "pale_orange_L165_roi_pct": 24.4363,
+        "dark_joint_or_shadow_L60_roi_pct": 8.7142,
+        "dominant_rgb": [
+          230,
+          113,
+          39
+        ],
+        "dominant_rgb_roi_pct": 28.702,
+        "local_adjacent_luminance_difference": 12.9439,
+        "roi_colour_count": 25
+      },
+      "after": {
+        "whole_mean_brightness": 85.367,
+        "dome_roi_pixels": 1641,
+        "dome_mean_brightness": 124.0077,
+        "warm_brick_pixels": 1503,
+        "warm_brick_mean_brightness": 129.8457,
+        "warm_brick_saturation_pct": 71.9931,
+        "bright_orange_L130_roi_pct": 58.2572,
+        "pale_orange_L165_roi_pct": 24.4363,
+        "dark_joint_or_shadow_L60_roi_pct": 8.7142,
+        "dominant_rgb": [
+          230,
+          113,
+          39
+        ],
+        "dominant_rgb_roi_pct": 28.702,
+        "local_adjacent_luminance_difference": 12.9439,
+        "roi_colour_count": 25
+      },
+      "alpha_bytes_exact": true
+    },
+    {
+      "form": "fusern",
+      "kind": "walk_full",
+      "facing": "n",
+      "frame": 0,
+      "path": "docs/creatures/arena-starters-2026-10-07/walk/fusern_n_sheet.png",
+      "dome_bbox_original": [
+        28,
+        34,
+        101,
+        70
+      ],
+      "before": {
+        "whole_mean_brightness": 90.9566,
+        "dome_roi_pixels": 1857,
+        "dome_mean_brightness": 130.5399,
+        "warm_brick_pixels": 1796,
+        "warm_brick_mean_brightness": 132.9267,
+        "warm_brick_saturation_pct": 72.0286,
+        "bright_orange_L130_roi_pct": 62.3586,
+        "pale_orange_L165_roi_pct": 26.7636,
+        "dark_joint_or_shadow_L60_roi_pct": 2.4233,
+        "dominant_rgb": [
+          251,
+          161,
+          82
+        ],
+        "dominant_rgb_roi_pct": 26.7636,
+        "local_adjacent_luminance_difference": 12.6651,
+        "roi_colour_count": 20
+      },
+      "after": {
+        "whole_mean_brightness": 90.9566,
+        "dome_roi_pixels": 1857,
+        "dome_mean_brightness": 130.5399,
+        "warm_brick_pixels": 1796,
+        "warm_brick_mean_brightness": 132.9267,
+        "warm_brick_saturation_pct": 72.0286,
+        "bright_orange_L130_roi_pct": 62.3586,
+        "pale_orange_L165_roi_pct": 26.7636,
+        "dark_joint_or_shadow_L60_roi_pct": 2.4233,
+        "dominant_rgb": [
+          251,
+          161,
+          82
+        ],
+        "dominant_rgb_roi_pct": 26.7636,
+        "local_adjacent_luminance_difference": 12.6651,
+        "roi_colour_count": 20
+      },
+      "alpha_bytes_exact": true
+    },
+    {
+      "form": "fusern",
+      "kind": "walk_full",
+      "facing": "n",
+      "frame": 1,
+      "path": "docs/creatures/arena-starters-2026-10-07/walk/fusern_n_sheet.png",
+      "dome_bbox_original": [
+        26,
+        33,
+        102,
+        69
+      ],
+      "before": {
+        "whole_mean_brightness": 91.7957,
+        "dome_roi_pixels": 1877,
+        "dome_mean_brightness": 130.8144,
+        "warm_brick_pixels": 1797,
+        "warm_brick_mean_brightness": 133.8939,
+        "warm_brick_saturation_pct": 71.9983,
+        "bright_orange_L130_roi_pct": 61.5344,
+        "pale_orange_L165_roi_pct": 27.9702,
+        "dark_joint_or_shadow_L60_roi_pct": 2.7704,
+        "dominant_rgb": [
+          251,
+          161,
+          82
+        ],
+        "dominant_rgb_roi_pct": 27.9702,
+        "local_adjacent_luminance_difference": 12.8035,
+        "roi_colour_count": 19
+      },
+      "after": {
+        "whole_mean_brightness": 91.7957,
+        "dome_roi_pixels": 1877,
+        "dome_mean_brightness": 130.8144,
+        "warm_brick_pixels": 1797,
+        "warm_brick_mean_brightness": 133.8939,
+        "warm_brick_saturation_pct": 71.9983,
+        "bright_orange_L130_roi_pct": 61.5344,
+        "pale_orange_L165_roi_pct": 27.9702,
+        "dark_joint_or_shadow_L60_roi_pct": 2.7704,
+        "dominant_rgb": [
+          251,
+          161,
+          82
+        ],
+        "dominant_rgb_roi_pct": 27.9702,
+        "local_adjacent_luminance_difference": 12.8035,
+        "roi_colour_count": 19
+      },
+      "alpha_bytes_exact": true
+    },
+    {
+      "form": "fusern",
+      "kind": "walk_full",
+      "facing": "n",
+      "frame": 2,
+      "path": "docs/creatures/arena-starters-2026-10-07/walk/fusern_n_sheet.png",
+      "dome_bbox_original": [
+        27,
+        31,
+        103,
+        67
+      ],
+      "before": {
+        "whole_mean_brightness": 92.0043,
+        "dome_roi_pixels": 1875,
+        "dome_mean_brightness": 132.0292,
+        "warm_brick_pixels": 1818,
+        "warm_brick_mean_brightness": 134.409,
+        "warm_brick_saturation_pct": 72.0626,
+        "bright_orange_L130_roi_pct": 63.4133,
+        "pale_orange_L165_roi_pct": 29.2267,
+        "dark_joint_or_shadow_L60_roi_pct": 2.72,
+        "dominant_rgb": [
+          251,
+          161,
+          82
+        ],
+        "dominant_rgb_roi_pct": 29.2267,
+        "local_adjacent_luminance_difference": 13.4869,
+        "roi_colour_count": 20
+      },
+      "after": {
+        "whole_mean_brightness": 92.0043,
+        "dome_roi_pixels": 1875,
+        "dome_mean_brightness": 132.0292,
+        "warm_brick_pixels": 1818,
+        "warm_brick_mean_brightness": 134.409,
+        "warm_brick_saturation_pct": 72.0626,
+        "bright_orange_L130_roi_pct": 63.4133,
+        "pale_orange_L165_roi_pct": 29.2267,
+        "dark_joint_or_shadow_L60_roi_pct": 2.72,
+        "dominant_rgb": [
+          251,
+          161,
+          82
+        ],
+        "dominant_rgb_roi_pct": 29.2267,
+        "local_adjacent_luminance_difference": 13.4869,
+        "roi_colour_count": 20
+      },
+      "alpha_bytes_exact": true
+    },
+    {
+      "form": "fusern",
+      "kind": "walk_full",
+      "facing": "n",
+      "frame": 3,
+      "path": "docs/creatures/arena-starters-2026-10-07/walk/fusern_n_sheet.png",
+      "dome_bbox_original": [
+        29,
+        30,
+        100,
+        67
+      ],
+      "before": {
+        "whole_mean_brightness": 92.1357,
+        "dome_roi_pixels": 1959,
+        "dome_mean_brightness": 130.0638,
+        "warm_brick_pixels": 1848,
+        "warm_brick_mean_brightness": 134.6468,
+        "warm_brick_saturation_pct": 71.9012,
+        "bright_orange_L130_roi_pct": 62.2256,
+        "pale_orange_L165_roi_pct": 28.0755,
+        "dark_joint_or_shadow_L60_roi_pct": 4.39,
+        "dominant_rgb": [
+          251,
+          161,
+          82
+        ],
+        "dominant_rgb_roi_pct": 28.0755,
+        "local_adjacent_luminance_difference": 12.9902,
+        "roi_colour_count": 20
+      },
+      "after": {
+        "whole_mean_brightness": 92.1357,
+        "dome_roi_pixels": 1959,
+        "dome_mean_brightness": 130.0638,
+        "warm_brick_pixels": 1848,
+        "warm_brick_mean_brightness": 134.6468,
+        "warm_brick_saturation_pct": 71.9012,
+        "bright_orange_L130_roi_pct": 62.2256,
+        "pale_orange_L165_roi_pct": 28.0755,
+        "dark_joint_or_shadow_L60_roi_pct": 4.39,
+        "dominant_rgb": [
+          251,
+          161,
+          82
+        ],
+        "dominant_rgb_roi_pct": 28.0755,
+        "local_adjacent_luminance_difference": 12.9902,
+        "roi_colour_count": 20
+      },
+      "alpha_bytes_exact": true
+    },
+    {
+      "form": "fusern",
+      "kind": "walk_full",
+      "facing": "n",
+      "frame": 4,
+      "path": "docs/creatures/arena-starters-2026-10-07/walk/fusern_n_sheet.png",
+      "dome_bbox_original": [
+        28,
+        29,
+        100,
+        65
+      ],
+      "before": {
+        "whole_mean_brightness": 91.7885,
+        "dome_roi_pixels": 1894,
+        "dome_mean_brightness": 132.0159,
+        "warm_brick_pixels": 1827,
+        "warm_brick_mean_brightness": 135.11,
+        "warm_brick_saturation_pct": 71.8497,
+        "bright_orange_L130_roi_pct": 65.7867,
+        "pale_orange_L165_roi_pct": 28.4055,
+        "dark_joint_or_shadow_L60_roi_pct": 4.4351,
+        "dominant_rgb": [
+          251,
+          161,
+          82
+        ],
+        "dominant_rgb_roi_pct": 28.4055,
+        "local_adjacent_luminance_difference": 13.427,
+        "roi_colour_count": 20
+      },
+      "after": {
+        "whole_mean_brightness": 91.7885,
+        "dome_roi_pixels": 1894,
+        "dome_mean_brightness": 132.0159,
+        "warm_brick_pixels": 1827,
+        "warm_brick_mean_brightness": 135.11,
+        "warm_brick_saturation_pct": 71.8497,
+        "bright_orange_L130_roi_pct": 65.7867,
+        "pale_orange_L165_roi_pct": 28.4055,
+        "dark_joint_or_shadow_L60_roi_pct": 4.4351,
+        "dominant_rgb": [
+          251,
+          161,
+          82
+        ],
+        "dominant_rgb_roi_pct": 28.4055,
+        "local_adjacent_luminance_difference": 13.427,
+        "roi_colour_count": 20
+      },
+      "alpha_bytes_exact": true
+    },
+    {
+      "form": "fusern",
+      "kind": "walk_full",
+      "facing": "n",
+      "frame": 5,
+      "path": "docs/creatures/arena-starters-2026-10-07/walk/fusern_n_sheet.png",
+      "dome_bbox_original": [
+        28,
+        29,
+        100,
+        65
+      ],
+      "before": {
+        "whole_mean_brightness": 92.133,
+        "dome_roi_pixels": 1931,
+        "dome_mean_brightness": 130.4725,
+        "warm_brick_pixels": 1837,
+        "warm_brick_mean_brightness": 134.6106,
+        "warm_brick_saturation_pct": 71.9639,
+        "bright_orange_L130_roi_pct": 63.8529,
+        "pale_orange_L165_roi_pct": 28.1201,
+        "dark_joint_or_shadow_L60_roi_pct": 4.9197,
+        "dominant_rgb": [
+          251,
+          161,
+          82
+        ],
+        "dominant_rgb_roi_pct": 28.1201,
+        "local_adjacent_luminance_difference": 13.1996,
+        "roi_colour_count": 20
+      },
+      "after": {
+        "whole_mean_brightness": 92.133,
+        "dome_roi_pixels": 1931,
+        "dome_mean_brightness": 130.4725,
+        "warm_brick_pixels": 1837,
+        "warm_brick_mean_brightness": 134.6106,
+        "warm_brick_saturation_pct": 71.9639,
+        "bright_orange_L130_roi_pct": 63.8529,
+        "pale_orange_L165_roi_pct": 28.1201,
+        "dark_joint_or_shadow_L60_roi_pct": 4.9197,
+        "dominant_rgb": [
+          251,
+          161,
+          82
+        ],
+        "dominant_rgb_roi_pct": 28.1201,
+        "local_adjacent_luminance_difference": 13.1996,
+        "roi_colour_count": 20
+      },
+      "alpha_bytes_exact": true
+    },
+    {
+      "form": "fusern",
+      "kind": "walk_full",
+      "facing": "n",
+      "frame": 6,
+      "path": "docs/creatures/arena-starters-2026-10-07/walk/fusern_n_sheet.png",
+      "dome_bbox_original": [
+        29,
+        29,
+        100,
+        65
+      ],
+      "before": {
+        "whole_mean_brightness": 91.8804,
+        "dome_roi_pixels": 1925,
+        "dome_mean_brightness": 130.5307,
+        "warm_brick_pixels": 1838,
+        "warm_brick_mean_brightness": 134.3098,
+        "warm_brick_saturation_pct": 71.865,
+        "bright_orange_L130_roi_pct": 63.8961,
+        "pale_orange_L165_roi_pct": 28.2597,
+        "dark_joint_or_shadow_L60_roi_pct": 4.7792,
+        "dominant_rgb": [
+          251,
+          161,
+          82
+        ],
+        "dominant_rgb_roi_pct": 28.2597,
+        "local_adjacent_luminance_difference": 13.1143,
+        "roi_colour_count": 20
+      },
+      "after": {
+        "whole_mean_brightness": 91.8804,
+        "dome_roi_pixels": 1925,
+        "dome_mean_brightness": 130.5307,
+        "warm_brick_pixels": 1838,
+        "warm_brick_mean_brightness": 134.3098,
+        "warm_brick_saturation_pct": 71.865,
+        "bright_orange_L130_roi_pct": 63.8961,
+        "pale_orange_L165_roi_pct": 28.2597,
+        "dark_joint_or_shadow_L60_roi_pct": 4.7792,
+        "dominant_rgb": [
+          251,
+          161,
+          82
+        ],
+        "dominant_rgb_roi_pct": 28.2597,
+        "local_adjacent_luminance_difference": 13.1143,
+        "roi_colour_count": 20
+      },
+      "alpha_bytes_exact": true
+    },
+    {
+      "form": "fusern",
+      "kind": "walk_full",
+      "facing": "n",
+      "frame": 7,
+      "path": "docs/creatures/arena-starters-2026-10-07/walk/fusern_n_sheet.png",
+      "dome_bbox_original": [
+        29,
+        30,
+        100,
+        66
+      ],
+      "before": {
+        "whole_mean_brightness": 91.0347,
+        "dome_roi_pixels": 1885,
+        "dome_mean_brightness": 129.9437,
+        "warm_brick_pixels": 1801,
+        "warm_brick_mean_brightness": 133.5857,
+        "warm_brick_saturation_pct": 71.9343,
+        "bright_orange_L130_roi_pct": 62.3873,
+        "pale_orange_L165_roi_pct": 27.5862,
+        "dark_joint_or_shadow_L60_roi_pct": 3.7135,
+        "dominant_rgb": [
+          251,
+          161,
+          82
+        ],
+        "dominant_rgb_roi_pct": 27.5862,
+        "local_adjacent_luminance_difference": 13.3355,
+        "roi_colour_count": 20
+      },
+      "after": {
+        "whole_mean_brightness": 91.0347,
+        "dome_roi_pixels": 1885,
+        "dome_mean_brightness": 129.9437,
+        "warm_brick_pixels": 1801,
+        "warm_brick_mean_brightness": 133.5857,
+        "warm_brick_saturation_pct": 71.9343,
+        "bright_orange_L130_roi_pct": 62.3873,
+        "pale_orange_L165_roi_pct": 27.5862,
+        "dark_joint_or_shadow_L60_roi_pct": 3.7135,
+        "dominant_rgb": [
+          251,
+          161,
+          82
+        ],
+        "dominant_rgb_roi_pct": 27.5862,
+        "local_adjacent_luminance_difference": 13.3355,
+        "roi_colour_count": 20
+      },
+      "alpha_bytes_exact": true
+    },
+    {
+      "form": "fusern",
+      "kind": "walk_full",
+      "facing": "se",
+      "frame": 0,
+      "path": "docs/creatures/arena-starters-2026-10-07/walk/fusern_se_sheet.png",
+      "dome_bbox_original": [
+        25,
+        34,
+        105,
+        70
+      ],
+      "before": {
+        "whole_mean_brightness": 70.0247,
+        "dome_roi_pixels": 1908,
+        "dome_mean_brightness": 87.1576,
+        "warm_brick_pixels": 1409,
+        "warm_brick_mean_brightness": 93.6929,
+        "warm_brick_saturation_pct": 66.157,
+        "bright_orange_L130_roi_pct": 6.9182,
+        "pale_orange_L165_roi_pct": 1.9392,
+        "dark_joint_or_shadow_L60_roi_pct": 20.4403,
+        "dominant_rgb": [
+          189,
+          96,
+          53
+        ],
+        "dominant_rgb_roi_pct": 17.086,
+        "local_adjacent_luminance_difference": 16.1913,
+        "roi_colour_count": 27
+      },
+      "after": {
+        "whole_mean_brightness": 70.0247,
+        "dome_roi_pixels": 1908,
+        "dome_mean_brightness": 87.1576,
+        "warm_brick_pixels": 1409,
+        "warm_brick_mean_brightness": 93.6929,
+        "warm_brick_saturation_pct": 66.157,
+        "bright_orange_L130_roi_pct": 6.9182,
+        "pale_orange_L165_roi_pct": 1.9392,
+        "dark_joint_or_shadow_L60_roi_pct": 20.4403,
+        "dominant_rgb": [
+          189,
+          96,
+          53
+        ],
+        "dominant_rgb_roi_pct": 17.086,
+        "local_adjacent_luminance_difference": 16.1913,
+        "roi_colour_count": 27
+      },
+      "alpha_bytes_exact": true
+    },
+    {
+      "form": "fusern",
+      "kind": "walk_full",
+      "facing": "se",
+      "frame": 1,
+      "path": "docs/creatures/arena-starters-2026-10-07/walk/fusern_se_sheet.png",
+      "dome_bbox_original": [
+        26,
+        32,
+        106,
+        68
+      ],
+      "before": {
+        "whole_mean_brightness": 69.9842,
+        "dome_roi_pixels": 1907,
+        "dome_mean_brightness": 87.2713,
+        "warm_brick_pixels": 1419,
+        "warm_brick_mean_brightness": 93.8272,
+        "warm_brick_saturation_pct": 66.2244,
+        "bright_orange_L130_roi_pct": 6.817,
+        "pale_orange_L165_roi_pct": 1.9927,
+        "dark_joint_or_shadow_L60_roi_pct": 20.9229,
+        "dominant_rgb": [
+          189,
+          96,
+          53
+        ],
+        "dominant_rgb_roi_pct": 18.3534,
+        "local_adjacent_luminance_difference": 15.8501,
+        "roi_colour_count": 27
+      },
+      "after": {
+        "whole_mean_brightness": 69.9842,
+        "dome_roi_pixels": 1907,
+        "dome_mean_brightness": 87.2713,
+        "warm_brick_pixels": 1419,
+        "warm_brick_mean_brightness": 93.8272,
+        "warm_brick_saturation_pct": 66.2244,
+        "bright_orange_L130_roi_pct": 6.817,
+        "pale_orange_L165_roi_pct": 1.9927,
+        "dark_joint_or_shadow_L60_roi_pct": 20.9229,
+        "dominant_rgb": [
+          189,
+          96,
+          53
+        ],
+        "dominant_rgb_roi_pct": 18.3534,
+        "local_adjacent_luminance_difference": 15.8501,
+        "roi_colour_count": 27
+      },
+      "alpha_bytes_exact": true
+    },
+    {
+      "form": "fusern",
+      "kind": "walk_full",
+      "facing": "se",
+      "frame": 2,
+      "path": "docs/creatures/arena-starters-2026-10-07/walk/fusern_se_sheet.png",
+      "dome_bbox_original": [
+        27,
+        33,
+        107,
+        69
+      ],
+      "before": {
+        "whole_mean_brightness": 69.0539,
+        "dome_roi_pixels": 1908,
+        "dome_mean_brightness": 86.149,
+        "warm_brick_pixels": 1426,
+        "warm_brick_mean_brightness": 91.8999,
+        "warm_brick_saturation_pct": 66.1915,
+        "bright_orange_L130_roi_pct": 6.6038,
+        "pale_orange_L165_roi_pct": 1.9392,
+        "dark_joint_or_shadow_L60_roi_pct": 21.9078,
+        "dominant_rgb": [
+          189,
+          96,
+          53
+        ],
+        "dominant_rgb_roi_pct": 17.5052,
+        "local_adjacent_luminance_difference": 16.0023,
+        "roi_colour_count": 28
+      },
+      "after": {
+        "whole_mean_brightness": 69.0539,
+        "dome_roi_pixels": 1908,
+        "dome_mean_brightness": 86.149,
+        "warm_brick_pixels": 1426,
+        "warm_brick_mean_brightness": 91.8999,
+        "warm_brick_saturation_pct": 66.1915,
+        "bright_orange_L130_roi_pct": 6.6038,
+        "pale_orange_L165_roi_pct": 1.9392,
+        "dark_joint_or_shadow_L60_roi_pct": 21.9078,
+        "dominant_rgb": [
+          189,
+          96,
+          53
+        ],
+        "dominant_rgb_roi_pct": 17.5052,
+        "local_adjacent_luminance_difference": 16.0023,
+        "roi_colour_count": 28
+      },
+      "alpha_bytes_exact": true
+    },
+    {
+      "form": "fusern",
+      "kind": "walk_full",
+      "facing": "se",
+      "frame": 3,
+      "path": "docs/creatures/arena-starters-2026-10-07/walk/fusern_se_sheet.png",
+      "dome_bbox_original": [
+        27,
+        35,
+        107,
+        70
+      ],
+      "before": {
+        "whole_mean_brightness": 70.8226,
+        "dome_roi_pixels": 1839,
+        "dome_mean_brightness": 87.8458,
+        "warm_brick_pixels": 1384,
+        "warm_brick_mean_brightness": 93.8531,
+        "warm_brick_saturation_pct": 66.6902,
+        "bright_orange_L130_roi_pct": 7.5041,
+        "pale_orange_L165_roi_pct": 1.9576,
+        "dark_joint_or_shadow_L60_roi_pct": 20.3915,
+        "dominant_rgb": [
+          189,
+          96,
+          53
+        ],
+        "dominant_rgb_roi_pct": 17.7814,
+        "local_adjacent_luminance_difference": 16.3179,
+        "roi_colour_count": 28
+      },
+      "after": {
+        "whole_mean_brightness": 70.8226,
+        "dome_roi_pixels": 1839,
+        "dome_mean_brightness": 87.8458,
+        "warm_brick_pixels": 1384,
+        "warm_brick_mean_brightness": 93.8531,
+        "warm_brick_saturation_pct": 66.6902,
+        "bright_orange_L130_roi_pct": 7.5041,
+        "pale_orange_L165_roi_pct": 1.9576,
+        "dark_joint_or_shadow_L60_roi_pct": 20.3915,
+        "dominant_rgb": [
+          189,
+          96,
+          53
+        ],
+        "dominant_rgb_roi_pct": 17.7814,
+        "local_adjacent_luminance_difference": 16.3179,
+        "roi_colour_count": 28
+      },
+      "alpha_bytes_exact": true
+    },
+    {
+      "form": "fusern",
+      "kind": "walk_full",
+      "facing": "se",
+      "frame": 4,
+      "path": "docs/creatures/arena-starters-2026-10-07/walk/fusern_se_sheet.png",
+      "dome_bbox_original": [
+        27,
+        36,
+        105,
+        70
+      ],
+      "before": {
+        "whole_mean_brightness": 70.248,
+        "dome_roi_pixels": 1769,
+        "dome_mean_brightness": 88.1932,
+        "warm_brick_pixels": 1348,
+        "warm_brick_mean_brightness": 93.8507,
+        "warm_brick_saturation_pct": 66.6464,
+        "bright_orange_L130_roi_pct": 7.4618,
+        "pale_orange_L165_roi_pct": 2.035,
+        "dark_joint_or_shadow_L60_roi_pct": 20.407,
+        "dominant_rgb": [
+          189,
+          96,
+          53
+        ],
+        "dominant_rgb_roi_pct": 18.2589,
+        "local_adjacent_luminance_difference": 16.112,
+        "roi_colour_count": 27
+      },
+      "after": {
+        "whole_mean_brightness": 70.248,
+        "dome_roi_pixels": 1769,
+        "dome_mean_brightness": 88.1932,
+        "warm_brick_pixels": 1348,
+        "warm_brick_mean_brightness": 93.8507,
+        "warm_brick_saturation_pct": 66.6464,
+        "bright_orange_L130_roi_pct": 7.4618,
+        "pale_orange_L165_roi_pct": 2.035,
+        "dark_joint_or_shadow_L60_roi_pct": 20.407,
+        "dominant_rgb": [
+          189,
+          96,
+          53
+        ],
+        "dominant_rgb_roi_pct": 18.2589,
+        "local_adjacent_luminance_difference": 16.112,
+        "roi_colour_count": 27
+      },
+      "alpha_bytes_exact": true
+    },
+    {
+      "form": "fusern",
+      "kind": "walk_full",
+      "facing": "se",
+      "frame": 5,
+      "path": "docs/creatures/arena-starters-2026-10-07/walk/fusern_se_sheet.png",
+      "dome_bbox_original": [
+        27,
+        35,
+        103,
+        70
+      ],
+      "before": {
+        "whole_mean_brightness": 70.7562,
+        "dome_roi_pixels": 1840,
+        "dome_mean_brightness": 87.872,
+        "warm_brick_pixels": 1387,
+        "warm_brick_mean_brightness": 93.7867,
+        "warm_brick_saturation_pct": 66.5611,
+        "bright_orange_L130_roi_pct": 7.0652,
+        "pale_orange_L165_roi_pct": 1.9565,
+        "dark_joint_or_shadow_L60_roi_pct": 20.163,
+        "dominant_rgb": [
+          189,
+          96,
+          53
+        ],
+        "dominant_rgb_roi_pct": 18.3152,
+        "local_adjacent_luminance_difference": 16.1722,
+        "roi_colour_count": 27
+      },
+      "after": {
+        "whole_mean_brightness": 70.7562,
+        "dome_roi_pixels": 1840,
+        "dome_mean_brightness": 87.872,
+        "warm_brick_pixels": 1387,
+        "warm_brick_mean_brightness": 93.7867,
+        "warm_brick_saturation_pct": 66.5611,
+        "bright_orange_L130_roi_pct": 7.0652,
+        "pale_orange_L165_roi_pct": 1.9565,
+        "dark_joint_or_shadow_L60_roi_pct": 20.163,
+        "dominant_rgb": [
+          189,
+          96,
+          53
+        ],
+        "dominant_rgb_roi_pct": 18.3152,
+        "local_adjacent_luminance_difference": 16.1722,
+        "roi_colour_count": 27
+      },
+      "alpha_bytes_exact": true
+    },
+    {
+      "form": "fusern",
+      "kind": "walk_full",
+      "facing": "se",
+      "frame": 6,
+      "path": "docs/creatures/arena-starters-2026-10-07/walk/fusern_se_sheet.png",
+      "dome_bbox_original": [
+        26,
+        33,
+        102,
+        69
+      ],
+      "before": {
+        "whole_mean_brightness": 69.5543,
+        "dome_roi_pixels": 1911,
+        "dome_mean_brightness": 86.8624,
+        "warm_brick_pixels": 1452,
+        "warm_brick_mean_brightness": 92.568,
+        "warm_brick_saturation_pct": 66.2306,
+        "bright_orange_L130_roi_pct": 7.2214,
+        "pale_orange_L165_roi_pct": 1.8838,
+        "dark_joint_or_shadow_L60_roi_pct": 21.4024,
+        "dominant_rgb": [
+          189,
+          96,
+          53
+        ],
+        "dominant_rgb_roi_pct": 17.3208,
+        "local_adjacent_luminance_difference": 16.3485,
+        "roi_colour_count": 28
+      },
+      "after": {
+        "whole_mean_brightness": 69.5543,
+        "dome_roi_pixels": 1911,
+        "dome_mean_brightness": 86.8624,
+        "warm_brick_pixels": 1452,
+        "warm_brick_mean_brightness": 92.568,
+        "warm_brick_saturation_pct": 66.2306,
+        "bright_orange_L130_roi_pct": 7.2214,
+        "pale_orange_L165_roi_pct": 1.8838,
+        "dark_joint_or_shadow_L60_roi_pct": 21.4024,
+        "dominant_rgb": [
+          189,
+          96,
+          53
+        ],
+        "dominant_rgb_roi_pct": 17.3208,
+        "local_adjacent_luminance_difference": 16.3485,
+        "roi_colour_count": 28
+      },
+      "alpha_bytes_exact": true
+    },
+    {
+      "form": "fusern",
+      "kind": "walk_full",
+      "facing": "se",
+      "frame": 7,
+      "path": "docs/creatures/arena-starters-2026-10-07/walk/fusern_se_sheet.png",
+      "dome_bbox_original": [
+        25,
+        33,
+        101,
+        68
+      ],
+      "before": {
+        "whole_mean_brightness": 70.3183,
+        "dome_roi_pixels": 1842,
+        "dome_mean_brightness": 87.9045,
+        "warm_brick_pixels": 1407,
+        "warm_brick_mean_brightness": 93.5184,
+        "warm_brick_saturation_pct": 66.408,
+        "bright_orange_L130_roi_pct": 7.4919,
+        "pale_orange_L165_roi_pct": 1.9544,
+        "dark_joint_or_shadow_L60_roi_pct": 20.2497,
+        "dominant_rgb": [
+          189,
+          96,
+          53
+        ],
+        "dominant_rgb_roi_pct": 17.6439,
+        "local_adjacent_luminance_difference": 16.3451,
+        "roi_colour_count": 28
+      },
+      "after": {
+        "whole_mean_brightness": 70.3183,
+        "dome_roi_pixels": 1842,
+        "dome_mean_brightness": 87.9045,
+        "warm_brick_pixels": 1407,
+        "warm_brick_mean_brightness": 93.5184,
+        "warm_brick_saturation_pct": 66.408,
+        "bright_orange_L130_roi_pct": 7.4919,
+        "pale_orange_L165_roi_pct": 1.9544,
+        "dark_joint_or_shadow_L60_roi_pct": 20.2497,
+        "dominant_rgb": [
+          189,
+          96,
+          53
+        ],
+        "dominant_rgb_roi_pct": 17.6439,
+        "local_adjacent_luminance_difference": 16.3451,
+        "roi_colour_count": 28
+      },
+      "alpha_bytes_exact": true
+    },
+    {
+      "form": "fusern",
+      "kind": "walk_full",
+      "facing": "s",
+      "frame": 0,
+      "path": "docs/creatures/arena-starters-2026-10-07/walk/fusern_s_sheet.png",
+      "dome_bbox_original": [
+        27,
+        32,
+        101,
+        68
+      ],
+      "before": {
+        "whole_mean_brightness": 71.1068,
+        "dome_roi_pixels": 1854,
+        "dome_mean_brightness": 88.2124,
+        "warm_brick_pixels": 1344,
+        "warm_brick_mean_brightness": 95.684,
+        "warm_brick_saturation_pct": 66.4643,
+        "bright_orange_L130_roi_pct": 7.4973,
+        "pale_orange_L165_roi_pct": 0.7551,
+        "dark_joint_or_shadow_L60_roi_pct": 21.0356,
+        "dominant_rgb": [
+          189,
+          96,
+          53
+        ],
+        "dominant_rgb_roi_pct": 20.0108,
+        "local_adjacent_luminance_difference": 15.0695,
+        "roi_colour_count": 28
+      },
+      "after": {
+        "whole_mean_brightness": 71.1068,
+        "dome_roi_pixels": 1854,
+        "dome_mean_brightness": 88.2124,
+        "warm_brick_pixels": 1344,
+        "warm_brick_mean_brightness": 95.684,
+        "warm_brick_saturation_pct": 66.4643,
+        "bright_orange_L130_roi_pct": 7.4973,
+        "pale_orange_L165_roi_pct": 0.7551,
+        "dark_joint_or_shadow_L60_roi_pct": 21.0356,
+        "dominant_rgb": [
+          189,
+          96,
+          53
+        ],
+        "dominant_rgb_roi_pct": 20.0108,
+        "local_adjacent_luminance_difference": 15.0695,
+        "roi_colour_count": 28
+      },
+      "alpha_bytes_exact": true
+    },
+    {
+      "form": "fusern",
+      "kind": "walk_full",
+      "facing": "s",
+      "frame": 1,
+      "path": "docs/creatures/arena-starters-2026-10-07/walk/fusern_s_sheet.png",
+      "dome_bbox_original": [
+        26,
+        30,
+        103,
+        66
+      ],
+      "before": {
+        "whole_mean_brightness": 72.3616,
+        "dome_roi_pixels": 1854,
+        "dome_mean_brightness": 88.5581,
+        "warm_brick_pixels": 1331,
+        "warm_brick_mean_brightness": 96.7008,
+        "warm_brick_saturation_pct": 66.6704,
+        "bright_orange_L130_roi_pct": 7.4973,
+        "pale_orange_L165_roi_pct": 0.6472,
+        "dark_joint_or_shadow_L60_roi_pct": 20.7659,
+        "dominant_rgb": [
+          189,
+          96,
+          53
+        ],
+        "dominant_rgb_roi_pct": 20.5502,
+        "local_adjacent_luminance_difference": 14.6386,
+        "roi_colour_count": 28
+      },
+      "after": {
+        "whole_mean_brightness": 72.3616,
+        "dome_roi_pixels": 1854,
+        "dome_mean_brightness": 88.5581,
+        "warm_brick_pixels": 1331,
+        "warm_brick_mean_brightness": 96.7008,
+        "warm_brick_saturation_pct": 66.6704,
+        "bright_orange_L130_roi_pct": 7.4973,
+        "pale_orange_L165_roi_pct": 0.6472,
+        "dark_joint_or_shadow_L60_roi_pct": 20.7659,
+        "dominant_rgb": [
+          189,
+          96,
+          53
+        ],
+        "dominant_rgb_roi_pct": 20.5502,
+        "local_adjacent_luminance_difference": 14.6386,
+        "roi_colour_count": 28
+      },
+      "alpha_bytes_exact": true
+    },
+    {
+      "form": "fusern",
+      "kind": "walk_full",
+      "facing": "s",
+      "frame": 2,
+      "path": "docs/creatures/arena-starters-2026-10-07/walk/fusern_s_sheet.png",
+      "dome_bbox_original": [
+        27,
+        29,
+        102,
+        65
+      ],
+      "before": {
+        "whole_mean_brightness": 71.7939,
+        "dome_roi_pixels": 1854,
+        "dome_mean_brightness": 88.4878,
+        "warm_brick_pixels": 1326,
+        "warm_brick_mean_brightness": 96.4645,
+        "warm_brick_saturation_pct": 66.7224,
+        "bright_orange_L130_roi_pct": 7.2816,
+        "pale_orange_L165_roi_pct": 0.7012,
+        "dark_joint_or_shadow_L60_roi_pct": 20.8198,
+        "dominant_rgb": [
+          189,
+          96,
+          53
+        ],
+        "dominant_rgb_roi_pct": 20.7659,
+        "local_adjacent_luminance_difference": 14.6527,
+        "roi_colour_count": 28
+      },
+      "after": {
+        "whole_mean_brightness": 71.7939,
+        "dome_roi_pixels": 1854,
+        "dome_mean_brightness": 88.4878,
+        "warm_brick_pixels": 1326,
+        "warm_brick_mean_brightness": 96.4645,
+        "warm_brick_saturation_pct": 66.7224,
+        "bright_orange_L130_roi_pct": 7.2816,
+        "pale_orange_L165_roi_pct": 0.7012,
+        "dark_joint_or_shadow_L60_roi_pct": 20.8198,
+        "dominant_rgb": [
+          189,
+          96,
+          53
+        ],
+        "dominant_rgb_roi_pct": 20.7659,
+        "local_adjacent_luminance_difference": 14.6527,
+        "roi_colour_count": 28
+      },
+      "alpha_bytes_exact": true
+    },
+    {
+      "form": "fusern",
+      "kind": "walk_full",
+      "facing": "s",
+      "frame": 3,
+      "path": "docs/creatures/arena-starters-2026-10-07/walk/fusern_s_sheet.png",
+      "dome_bbox_original": [
+        28,
+        28,
+        101,
+        63
+      ],
+      "before": {
+        "whole_mean_brightness": 72.9654,
+        "dome_roi_pixels": 1786,
+        "dome_mean_brightness": 89.5767,
+        "warm_brick_pixels": 1321,
+        "warm_brick_mean_brightness": 96.7437,
+        "warm_brick_saturation_pct": 66.7304,
+        "bright_orange_L130_roi_pct": 9.0146,
+        "pale_orange_L165_roi_pct": 1.1198,
+        "dark_joint_or_shadow_L60_roi_pct": 19.7648,
+        "dominant_rgb": [
+          189,
+          96,
+          53
+        ],
+        "dominant_rgb_roi_pct": 19.2609,
+        "local_adjacent_luminance_difference": 15.4391,
+        "roi_colour_count": 28
+      },
+      "after": {
+        "whole_mean_brightness": 72.9654,
+        "dome_roi_pixels": 1786,
+        "dome_mean_brightness": 89.5767,
+        "warm_brick_pixels": 1321,
+        "warm_brick_mean_brightness": 96.7437,
+        "warm_brick_saturation_pct": 66.7304,
+        "bright_orange_L130_roi_pct": 9.0146,
+        "pale_orange_L165_roi_pct": 1.1198,
+        "dark_joint_or_shadow_L60_roi_pct": 19.7648,
+        "dominant_rgb": [
+          189,
+          96,
+          53
+        ],
+        "dominant_rgb_roi_pct": 19.2609,
+        "local_adjacent_luminance_difference": 15.4391,
+        "roi_colour_count": 28
+      },
+      "alpha_bytes_exact": true
+    },
+    {
+      "form": "fusern",
+      "kind": "walk_full",
+      "facing": "s",
+      "frame": 4,
+      "path": "docs/creatures/arena-starters-2026-10-07/walk/fusern_s_sheet.png",
+      "dome_bbox_original": [
+        29,
+        28,
+        99,
+        62
+      ],
+      "before": {
+        "whole_mean_brightness": 73.0251,
+        "dome_roi_pixels": 1719,
+        "dome_mean_brightness": 90.6693,
+        "warm_brick_pixels": 1294,
+        "warm_brick_mean_brightness": 97.4974,
+        "warm_brick_saturation_pct": 66.9734,
+        "bright_orange_L130_roi_pct": 9.2496,
+        "pale_orange_L165_roi_pct": 1.1635,
+        "dark_joint_or_shadow_L60_roi_pct": 18.7318,
+        "dominant_rgb": [
+          189,
+          96,
+          53
+        ],
+        "dominant_rgb_roi_pct": 20.0698,
+        "local_adjacent_luminance_difference": 15.4884,
+        "roi_colour_count": 28
+      },
+      "after": {
+        "whole_mean_brightness": 73.0251,
+        "dome_roi_pixels": 1719,
+        "dome_mean_brightness": 90.6693,
+        "warm_brick_pixels": 1294,
+        "warm_brick_mean_brightness": 97.4974,
+        "warm_brick_saturation_pct": 66.9734,
+        "bright_orange_L130_roi_pct": 9.2496,
+        "pale_orange_L165_roi_pct": 1.1635,
+        "dark_joint_or_shadow_L60_roi_pct": 18.7318,
+        "dominant_rgb": [
+          189,
+          96,
+          53
+        ],
+        "dominant_rgb_roi_pct": 20.0698,
+        "local_adjacent_luminance_difference": 15.4884,
+        "roi_colour_count": 28
+      },
+      "alpha_bytes_exact": true
+    },
+    {
+      "form": "fusern",
+      "kind": "walk_full",
+      "facing": "s",
+      "frame": 5,
+      "path": "docs/creatures/arena-starters-2026-10-07/walk/fusern_s_sheet.png",
+      "dome_bbox_original": [
+        29,
+        29,
+        99,
+        64
+      ],
+      "before": {
+        "whole_mean_brightness": 73.1209,
+        "dome_roi_pixels": 1786,
+        "dome_mean_brightness": 89.638,
+        "warm_brick_pixels": 1305,
+        "warm_brick_mean_brightness": 97.1699,
+        "warm_brick_saturation_pct": 66.803,
+        "bright_orange_L130_roi_pct": 7.9507,
+        "pale_orange_L165_roi_pct": 0.8399,
+        "dark_joint_or_shadow_L60_roi_pct": 20.3247,
+        "dominant_rgb": [
+          189,
+          96,
+          53
+        ],
+        "dominant_rgb_roi_pct": 21.7245,
+        "local_adjacent_luminance_difference": 14.7161,
+        "roi_colour_count": 28
+      },
+      "after": {
+        "whole_mean_brightness": 73.1209,
+        "dome_roi_pixels": 1786,
+        "dome_mean_brightness": 89.638,
+        "warm_brick_pixels": 1305,
+        "warm_brick_mean_brightness": 97.1699,
+        "warm_brick_saturation_pct": 66.803,
+        "bright_orange_L130_roi_pct": 7.9507,
+        "pale_orange_L165_roi_pct": 0.8399,
+        "dark_joint_or_shadow_L60_roi_pct": 20.3247,
+        "dominant_rgb": [
+          189,
+          96,
+          53
+        ],
+        "dominant_rgb_roi_pct": 21.7245,
+        "local_adjacent_luminance_difference": 14.7161,
+        "roi_colour_count": 28
+      },
+      "alpha_bytes_exact": true
+    },
+    {
+      "form": "fusern",
+      "kind": "walk_full",
+      "facing": "s",
+      "frame": 6,
+      "path": "docs/creatures/arena-starters-2026-10-07/walk/fusern_s_sheet.png",
+      "dome_bbox_original": [
+        29,
+        30,
+        99,
+        64
+      ],
+      "before": {
+        "whole_mean_brightness": 71.9505,
+        "dome_roi_pixels": 1718,
+        "dome_mean_brightness": 90.6126,
+        "warm_brick_pixels": 1276,
+        "warm_brick_mean_brightness": 97.9194,
+        "warm_brick_saturation_pct": 67.0865,
+        "bright_orange_L130_roi_pct": 8.0326,
+        "pale_orange_L165_roi_pct": 0.8731,
+        "dark_joint_or_shadow_L60_roi_pct": 19.2666,
+        "dominant_rgb": [
+          189,
+          96,
+          53
+        ],
+        "dominant_rgb_roi_pct": 22.2352,
+        "local_adjacent_luminance_difference": 14.8259,
+        "roi_colour_count": 28
+      },
+      "after": {
+        "whole_mean_brightness": 71.9505,
+        "dome_roi_pixels": 1718,
+        "dome_mean_brightness": 90.6126,
+        "warm_brick_pixels": 1276,
+        "warm_brick_mean_brightness": 97.9194,
+        "warm_brick_saturation_pct": 67.0865,
+        "bright_orange_L130_roi_pct": 8.0326,
+        "pale_orange_L165_roi_pct": 0.8731,
+        "dark_joint_or_shadow_L60_roi_pct": 19.2666,
+        "dominant_rgb": [
+          189,
+          96,
+          53
+        ],
+        "dominant_rgb_roi_pct": 22.2352,
+        "local_adjacent_luminance_difference": 14.8259,
+        "roi_colour_count": 28
+      },
+      "alpha_bytes_exact": true
+    },
+    {
+      "form": "fusern",
+      "kind": "walk_full",
+      "facing": "s",
+      "frame": 7,
+      "path": "docs/creatures/arena-starters-2026-10-07/walk/fusern_s_sheet.png",
+      "dome_bbox_original": [
+        29,
+        31,
+        99,
+        65
+      ],
+      "before": {
+        "whole_mean_brightness": 71.9169,
+        "dome_roi_pixels": 1720,
+        "dome_mean_brightness": 90.842,
+        "warm_brick_pixels": 1283,
+        "warm_brick_mean_brightness": 97.8705,
+        "warm_brick_saturation_pct": 67.2667,
+        "bright_orange_L130_roi_pct": 8.5465,
+        "pale_orange_L165_roi_pct": 0.6977,
+        "dark_joint_or_shadow_L60_roi_pct": 18.7791,
+        "dominant_rgb": [
+          189,
+          96,
+          53
+        ],
+        "dominant_rgb_roi_pct": 21.9767,
+        "local_adjacent_luminance_difference": 14.7978,
+        "roi_colour_count": 28
+      },
+      "after": {
+        "whole_mean_brightness": 71.9169,
+        "dome_roi_pixels": 1720,
+        "dome_mean_brightness": 90.842,
+        "warm_brick_pixels": 1283,
+        "warm_brick_mean_brightness": 97.8705,
+        "warm_brick_saturation_pct": 67.2667,
+        "bright_orange_L130_roi_pct": 8.5465,
+        "pale_orange_L165_roi_pct": 0.6977,
+        "dark_joint_or_shadow_L60_roi_pct": 18.7791,
+        "dominant_rgb": [
+          189,
+          96,
+          53
+        ],
+        "dominant_rgb_roi_pct": 21.9767,
+        "local_adjacent_luminance_difference": 14.7978,
+        "roi_colour_count": 28
+      },
+      "alpha_bytes_exact": true
+    },
+    {
+      "form": "fusern",
+      "kind": "walk_small",
+      "facing": "e",
+      "frame": 0,
+      "path": "assets/sprites/arena/fusern/small/walk_e_f0.png",
+      "dome_bbox_original": [
+        9,
+        12,
+        35,
+        23
+      ],
+      "before": {
+        "whole_mean_brightness": 91.3889,
+        "dome_roi_pixels": 175,
+        "dome_mean_brightness": 139.0214,
+        "warm_brick_pixels": 153,
+        "warm_brick_mean_brightness": 147.4739,
+        "warm_brick_saturation_pct": 76.4159,
+        "bright_orange_L130_roi_pct": 84.5714,
+        "pale_orange_L165_roi_pct": 21.7143,
+        "dark_joint_or_shadow_L60_roi_pct": 4.5714,
+        "dominant_rgb": [
+          230,
+          113,
+          39
+        ],
+        "dominant_rgb_roi_pct": 46.2857,
+        "local_adjacent_luminance_difference": 12.2601,
+        "roi_colour_count": 13
+      },
+      "after": {
+        "whole_mean_brightness": 91.3889,
+        "dome_roi_pixels": 175,
+        "dome_mean_brightness": 139.0214,
+        "warm_brick_pixels": 153,
+        "warm_brick_mean_brightness": 147.4739,
+        "warm_brick_saturation_pct": 76.4159,
+        "bright_orange_L130_roi_pct": 84.5714,
+        "pale_orange_L165_roi_pct": 21.7143,
+        "dark_joint_or_shadow_L60_roi_pct": 4.5714,
+        "dominant_rgb": [
+          230,
+          113,
+          39
+        ],
+        "dominant_rgb_roi_pct": 46.2857,
+        "local_adjacent_luminance_difference": 12.2601,
+        "roi_colour_count": 13
+      },
+      "alpha_bytes_exact": true
+    },
+    {
+      "form": "fusern",
+      "kind": "walk_small",
+      "facing": "e",
+      "frame": 1,
+      "path": "assets/sprites/arena/fusern/small/walk_e_f1.png",
+      "dome_bbox_original": [
+        9,
+        12,
+        35,
+        24
+      ],
+      "before": {
+        "whole_mean_brightness": 91.6427,
+        "dome_roi_pixels": 189,
+        "dome_mean_brightness": 135.9203,
+        "warm_brick_pixels": 166,
+        "warm_brick_mean_brightness": 144.3923,
+        "warm_brick_saturation_pct": 75.9341,
+        "bright_orange_L130_roi_pct": 80.9524,
+        "pale_orange_L165_roi_pct": 20.1058,
+        "dark_joint_or_shadow_L60_roi_pct": 5.291,
+        "dominant_rgb": [
+          230,
+          113,
+          39
+        ],
+        "dominant_rgb_roi_pct": 44.4444,
+        "local_adjacent_luminance_difference": 14.7707,
+        "roi_colour_count": 17
+      },
+      "after": {
+        "whole_mean_brightness": 91.6427,
+        "dome_roi_pixels": 189,
+        "dome_mean_brightness": 135.9203,
+        "warm_brick_pixels": 166,
+        "warm_brick_mean_brightness": 144.3923,
+        "warm_brick_saturation_pct": 75.9341,
+        "bright_orange_L130_roi_pct": 80.9524,
+        "pale_orange_L165_roi_pct": 20.1058,
+        "dark_joint_or_shadow_L60_roi_pct": 5.291,
+        "dominant_rgb": [
+          230,
+          113,
+          39
+        ],
+        "dominant_rgb_roi_pct": 44.4444,
+        "local_adjacent_luminance_difference": 14.7707,
+        "roi_colour_count": 17
+      },
+      "alpha_bytes_exact": true
+    },
+    {
+      "form": "fusern",
+      "kind": "walk_small",
+      "facing": "e",
+      "frame": 2,
+      "path": "assets/sprites/arena/fusern/small/walk_e_f2.png",
+      "dome_bbox_original": [
+        9,
+        12,
+        35,
+        23
+      ],
+      "before": {
+        "whole_mean_brightness": 92.7525,
+        "dome_roi_pixels": 178,
+        "dome_mean_brightness": 138.7015,
+        "warm_brick_pixels": 157,
+        "warm_brick_mean_brightness": 145.8072,
+        "warm_brick_saturation_pct": 75.5271,
+        "bright_orange_L130_roi_pct": 82.0225,
+        "pale_orange_L165_roi_pct": 23.0337,
+        "dark_joint_or_shadow_L60_roi_pct": 3.3708,
+        "dominant_rgb": [
+          230,
+          113,
+          39
+        ],
+        "dominant_rgb_roi_pct": 42.1348,
+        "local_adjacent_luminance_difference": 13.4729,
+        "roi_colour_count": 16
+      },
+      "after": {
+        "whole_mean_brightness": 92.7525,
+        "dome_roi_pixels": 178,
+        "dome_mean_brightness": 138.7015,
+        "warm_brick_pixels": 157,
+        "warm_brick_mean_brightness": 145.8072,
+        "warm_brick_saturation_pct": 75.5271,
+        "bright_orange_L130_roi_pct": 82.0225,
+        "pale_orange_L165_roi_pct": 23.0337,
+        "dark_joint_or_shadow_L60_roi_pct": 3.3708,
+        "dominant_rgb": [
+          230,
+          113,
+          39
+        ],
+        "dominant_rgb_roi_pct": 42.1348,
+        "local_adjacent_luminance_difference": 13.4729,
+        "roi_colour_count": 16
+      },
+      "alpha_bytes_exact": true
+    },
+    {
+      "form": "fusern",
+      "kind": "walk_small",
+      "facing": "e",
+      "frame": 3,
+      "path": "assets/sprites/arena/fusern/small/walk_e_f3.png",
+      "dome_bbox_original": [
+        9,
+        12,
+        35,
+        23
+      ],
+      "before": {
+        "whole_mean_brightness": 95.708,
+        "dome_roi_pixels": 179,
+        "dome_mean_brightness": 138.1436,
+        "warm_brick_pixels": 157,
+        "warm_brick_mean_brightness": 146.0545,
+        "warm_brick_saturation_pct": 75.8068,
+        "bright_orange_L130_roi_pct": 82.1229,
+        "pale_orange_L165_roi_pct": 22.3464,
+        "dark_joint_or_shadow_L60_roi_pct": 3.9106,
+        "dominant_rgb": [
+          230,
+          113,
+          39
+        ],
+        "dominant_rgb_roi_pct": 43.0168,
+        "local_adjacent_luminance_difference": 14.3686,
+        "roi_colour_count": 16
+      },
+      "after": {
+        "whole_mean_brightness": 95.708,
+        "dome_roi_pixels": 179,
+        "dome_mean_brightness": 138.1436,
+        "warm_brick_pixels": 157,
+        "warm_brick_mean_brightness": 146.0545,
+        "warm_brick_saturation_pct": 75.8068,
+        "bright_orange_L130_roi_pct": 82.1229,
+        "pale_orange_L165_roi_pct": 22.3464,
+        "dark_joint_or_shadow_L60_roi_pct": 3.9106,
+        "dominant_rgb": [
+          230,
+          113,
+          39
+        ],
+        "dominant_rgb_roi_pct": 43.0168,
+        "local_adjacent_luminance_difference": 14.3686,
+        "roi_colour_count": 16
+      },
+      "alpha_bytes_exact": true
+    },
+    {
+      "form": "fusern",
+      "kind": "walk_small",
+      "facing": "e",
+      "frame": 4,
+      "path": "assets/sprites/arena/fusern/small/walk_e_f4.png",
+      "dome_bbox_original": [
+        9,
+        12,
+        36,
+        24
+      ],
+      "before": {
+        "whole_mean_brightness": 90.1569,
+        "dome_roi_pixels": 197,
+        "dome_mean_brightness": 133.1944,
+        "warm_brick_pixels": 170,
+        "warm_brick_mean_brightness": 142.8303,
+        "warm_brick_saturation_pct": 75.747,
+        "bright_orange_L130_roi_pct": 79.6954,
+        "pale_orange_L165_roi_pct": 17.2589,
+        "dark_joint_or_shadow_L60_roi_pct": 7.6142,
+        "dominant_rgb": [
+          230,
+          113,
+          39
+        ],
+        "dominant_rgb_roi_pct": 38.5787,
+        "local_adjacent_luminance_difference": 13.7815,
+        "roi_colour_count": 19
+      },
+      "after": {
+        "whole_mean_brightness": 90.1569,
+        "dome_roi_pixels": 197,
+        "dome_mean_brightness": 133.1944,
+        "warm_brick_pixels": 170,
+        "warm_brick_mean_brightness": 142.8303,
+        "warm_brick_saturation_pct": 75.747,
+        "bright_orange_L130_roi_pct": 79.6954,
+        "pale_orange_L165_roi_pct": 17.2589,
+        "dark_joint_or_shadow_L60_roi_pct": 7.6142,
+        "dominant_rgb": [
+          230,
+          113,
+          39
+        ],
+        "dominant_rgb_roi_pct": 38.5787,
+        "local_adjacent_luminance_difference": 13.7815,
+        "roi_colour_count": 19
+      },
+      "alpha_bytes_exact": true
+    },
+    {
+      "form": "fusern",
+      "kind": "walk_small",
+      "facing": "e",
+      "frame": 5,
+      "path": "assets/sprites/arena/fusern/small/walk_e_f5.png",
+      "dome_bbox_original": [
+        9,
+        12,
+        35,
+        24
+      ],
+      "before": {
+        "whole_mean_brightness": 93.9427,
+        "dome_roi_pixels": 202,
+        "dome_mean_brightness": 133.7089,
+        "warm_brick_pixels": 173,
+        "warm_brick_mean_brightness": 143.7065,
+        "warm_brick_saturation_pct": 75.8329,
+        "bright_orange_L130_roi_pct": 76.7327,
+        "pale_orange_L165_roi_pct": 20.7921,
+        "dark_joint_or_shadow_L60_roi_pct": 4.9505,
+        "dominant_rgb": [
+          230,
+          113,
+          39
+        ],
+        "dominant_rgb_roi_pct": 39.604,
+        "local_adjacent_luminance_difference": 14.5126,
+        "roi_colour_count": 18
+      },
+      "after": {
+        "whole_mean_brightness": 93.9427,
+        "dome_roi_pixels": 202,
+        "dome_mean_brightness": 133.7089,
+        "warm_brick_pixels": 173,
+        "warm_brick_mean_brightness": 143.7065,
+        "warm_brick_saturation_pct": 75.8329,
+        "bright_orange_L130_roi_pct": 76.7327,
+        "pale_orange_L165_roi_pct": 20.7921,
+        "dark_joint_or_shadow_L60_roi_pct": 4.9505,
+        "dominant_rgb": [
+          230,
+          113,
+          39
+        ],
+        "dominant_rgb_roi_pct": 39.604,
+        "local_adjacent_luminance_difference": 14.5126,
+        "roi_colour_count": 18
+      },
+      "alpha_bytes_exact": true
+    },
+    {
+      "form": "fusern",
+      "kind": "walk_small",
+      "facing": "e",
+      "frame": 6,
+      "path": "assets/sprites/arena/fusern/small/walk_e_f6.png",
+      "dome_bbox_original": [
+        9,
+        12,
+        35,
+        23
+      ],
+      "before": {
+        "whole_mean_brightness": 94.1816,
+        "dome_roi_pixels": 179,
+        "dome_mean_brightness": 137.904,
+        "warm_brick_pixels": 158,
+        "warm_brick_mean_brightness": 145.3863,
+        "warm_brick_saturation_pct": 75.6179,
+        "bright_orange_L130_roi_pct": 82.1229,
+        "pale_orange_L165_roi_pct": 22.3464,
+        "dark_joint_or_shadow_L60_roi_pct": 3.352,
+        "dominant_rgb": [
+          230,
+          113,
+          39
+        ],
+        "dominant_rgb_roi_pct": 41.3408,
+        "local_adjacent_luminance_difference": 13.6262,
+        "roi_colour_count": 15
+      },
+      "after": {
+        "whole_mean_brightness": 94.1816,
+        "dome_roi_pixels": 179,
+        "dome_mean_brightness": 137.904,
+        "warm_brick_pixels": 158,
+        "warm_brick_mean_brightness": 145.3863,
+        "warm_brick_saturation_pct": 75.6179,
+        "bright_orange_L130_roi_pct": 82.1229,
+        "pale_orange_L165_roi_pct": 22.3464,
+        "dark_joint_or_shadow_L60_roi_pct": 3.352,
+        "dominant_rgb": [
+          230,
+          113,
+          39
+        ],
+        "dominant_rgb_roi_pct": 41.3408,
+        "local_adjacent_luminance_difference": 13.6262,
+        "roi_colour_count": 15
+      },
+      "alpha_bytes_exact": true
+    },
+    {
+      "form": "fusern",
+      "kind": "walk_small",
+      "facing": "e",
+      "frame": 7,
+      "path": "assets/sprites/arena/fusern/small/walk_e_f7.png",
+      "dome_bbox_original": [
+        9,
+        12,
+        35,
+        23
+      ],
+      "before": {
+        "whole_mean_brightness": 90.407,
+        "dome_roi_pixels": 174,
+        "dome_mean_brightness": 137.761,
+        "warm_brick_pixels": 155,
+        "warm_brick_mean_brightness": 144.8061,
+        "warm_brick_saturation_pct": 74.9302,
+        "bright_orange_L130_roi_pct": 84.4828,
+        "pale_orange_L165_roi_pct": 20.1149,
+        "dark_joint_or_shadow_L60_roi_pct": 5.1724,
+        "dominant_rgb": [
+          230,
+          113,
+          39
+        ],
+        "dominant_rgb_roi_pct": 36.7816,
+        "local_adjacent_luminance_difference": 13.2818,
+        "roi_colour_count": 14
+      },
+      "after": {
+        "whole_mean_brightness": 90.407,
+        "dome_roi_pixels": 174,
+        "dome_mean_brightness": 137.761,
+        "warm_brick_pixels": 155,
+        "warm_brick_mean_brightness": 144.8061,
+        "warm_brick_saturation_pct": 74.9302,
+        "bright_orange_L130_roi_pct": 84.4828,
+        "pale_orange_L165_roi_pct": 20.1149,
+        "dark_joint_or_shadow_L60_roi_pct": 5.1724,
+        "dominant_rgb": [
+          230,
+          113,
+          39
+        ],
+        "dominant_rgb_roi_pct": 36.7816,
+        "local_adjacent_luminance_difference": 13.2818,
+        "roi_colour_count": 14
+      },
+      "alpha_bytes_exact": true
+    },
+    {
+      "form": "fusern",
+      "kind": "walk_small",
+      "facing": "ne",
+      "frame": 0,
+      "path": "assets/sprites/arena/fusern/small/walk_ne_f0.png",
+      "dome_bbox_original": [
+        8,
+        12,
+        35,
+        23
+      ],
+      "before": {
+        "whole_mean_brightness": 82.5963,
+        "dome_roi_pixels": 179,
+        "dome_mean_brightness": 123.4887,
+        "warm_brick_pixels": 162,
+        "warm_brick_mean_brightness": 129.3448,
+        "warm_brick_saturation_pct": 71.9073,
+        "bright_orange_L130_roi_pct": 56.9832,
+        "pale_orange_L165_roi_pct": 22.905,
+        "dark_joint_or_shadow_L60_roi_pct": 8.9385,
+        "dominant_rgb": [
+          230,
+          113,
+          39
+        ],
+        "dominant_rgb_roi_pct": 32.4022,
+        "local_adjacent_luminance_difference": 19.003,
+        "roi_colour_count": 19
+      },
+      "after": {
+        "whole_mean_brightness": 82.5963,
+        "dome_roi_pixels": 179,
+        "dome_mean_brightness": 123.4887,
+        "warm_brick_pixels": 162,
+        "warm_brick_mean_brightness": 129.3448,
+        "warm_brick_saturation_pct": 71.9073,
+        "bright_orange_L130_roi_pct": 56.9832,
+        "pale_orange_L165_roi_pct": 22.905,
+        "dark_joint_or_shadow_L60_roi_pct": 8.9385,
+        "dominant_rgb": [
+          230,
+          113,
+          39
+        ],
+        "dominant_rgb_roi_pct": 32.4022,
+        "local_adjacent_luminance_difference": 19.003,
+        "roi_colour_count": 19
+      },
+      "alpha_bytes_exact": true
+    },
+    {
+      "form": "fusern",
+      "kind": "walk_small",
+      "facing": "ne",
+      "frame": 1,
+      "path": "assets/sprites/arena/fusern/small/walk_ne_f1.png",
+      "dome_bbox_original": [
+        8,
+        11,
+        34,
+        22
+      ],
+      "before": {
+        "whole_mean_brightness": 79.8733,
+        "dome_roi_pixels": 169,
+        "dome_mean_brightness": 126.7539,
+        "warm_brick_pixels": 154,
+        "warm_brick_mean_brightness": 132.9662,
+        "warm_brick_saturation_pct": 71.8741,
+        "bright_orange_L130_roi_pct": 58.5799,
+        "pale_orange_L165_roi_pct": 26.6272,
+        "dark_joint_or_shadow_L60_roi_pct": 8.8757,
+        "dominant_rgb": [
+          230,
+          113,
+          39
+        ],
+        "dominant_rgb_roi_pct": 27.8107,
+        "local_adjacent_luminance_difference": 19.0,
+        "roi_colour_count": 16
+      },
+      "after": {
+        "whole_mean_brightness": 79.8733,
+        "dome_roi_pixels": 169,
+        "dome_mean_brightness": 126.7539,
+        "warm_brick_pixels": 154,
+        "warm_brick_mean_brightness": 132.9662,
+        "warm_brick_saturation_pct": 71.8741,
+        "bright_orange_L130_roi_pct": 58.5799,
+        "pale_orange_L165_roi_pct": 26.6272,
+        "dark_joint_or_shadow_L60_roi_pct": 8.8757,
+        "dominant_rgb": [
+          230,
+          113,
+          39
+        ],
+        "dominant_rgb_roi_pct": 27.8107,
+        "local_adjacent_luminance_difference": 19.0,
+        "roi_colour_count": 16
+      },
+      "alpha_bytes_exact": true
+    },
+    {
+      "form": "fusern",
+      "kind": "walk_small",
+      "facing": "ne",
+      "frame": 2,
+      "path": "assets/sprites/arena/fusern/small/walk_ne_f2.png",
+      "dome_bbox_original": [
+        9,
+        11,
+        33,
+        22
+      ],
+      "before": {
+        "whole_mean_brightness": 81.8461,
+        "dome_roi_pixels": 162,
+        "dome_mean_brightness": 128.5129,
+        "warm_brick_pixels": 150,
+        "warm_brick_mean_brightness": 134.1663,
+        "warm_brick_saturation_pct": 71.934,
+        "bright_orange_L130_roi_pct": 60.4938,
+        "pale_orange_L165_roi_pct": 29.0123,
+        "dark_joint_or_shadow_L60_roi_pct": 8.0247,
+        "dominant_rgb": [
+          251,
+          161,
+          82
+        ],
+        "dominant_rgb_roi_pct": 29.0123,
+        "local_adjacent_luminance_difference": 22.6538,
+        "roi_colour_count": 16
+      },
+      "after": {
+        "whole_mean_brightness": 81.8461,
+        "dome_roi_pixels": 162,
+        "dome_mean_brightness": 128.5129,
+        "warm_brick_pixels": 150,
+        "warm_brick_mean_brightness": 134.1663,
+        "warm_brick_saturation_pct": 71.934,
+        "bright_orange_L130_roi_pct": 60.4938,
+        "pale_orange_L165_roi_pct": 29.0123,
+        "dark_joint_or_shadow_L60_roi_pct": 8.0247,
+        "dominant_rgb": [
+          251,
+          161,
+          82
+        ],
+        "dominant_rgb_roi_pct": 29.0123,
+        "local_adjacent_luminance_difference": 22.6538,
+        "roi_colour_count": 16
+      },
+      "alpha_bytes_exact": true
+    },
+    {
+      "form": "fusern",
+      "kind": "walk_small",
+      "facing": "ne",
+      "frame": 3,
+      "path": "assets/sprites/arena/fusern/small/walk_ne_f3.png",
+      "dome_bbox_original": [
+        9,
+        12,
+        33,
+        23
+      ],
+      "before": {
+        "whole_mean_brightness": 82.0668,
+        "dome_roi_pixels": 174,
+        "dome_mean_brightness": 126.5196,
+        "warm_brick_pixels": 162,
+        "warm_brick_mean_brightness": 131.1436,
+        "warm_brick_saturation_pct": 72.1663,
+        "bright_orange_L130_roi_pct": 59.7701,
+        "pale_orange_L165_roi_pct": 23.5632,
+        "dark_joint_or_shadow_L60_roi_pct": 6.8966,
+        "dominant_rgb": [
+          230,
+          113,
+          39
+        ],
+        "dominant_rgb_roi_pct": 32.7586,
+        "local_adjacent_luminance_difference": 18.7575,
+        "roi_colour_count": 15
+      },
+      "after": {
+        "whole_mean_brightness": 82.0668,
+        "dome_roi_pixels": 174,
+        "dome_mean_brightness": 126.5196,
+        "warm_brick_pixels": 162,
+        "warm_brick_mean_brightness": 131.1436,
+        "warm_brick_saturation_pct": 72.1663,
+        "bright_orange_L130_roi_pct": 59.7701,
+        "pale_orange_L165_roi_pct": 23.5632,
+        "dark_joint_or_shadow_L60_roi_pct": 6.8966,
+        "dominant_rgb": [
+          230,
+          113,
+          39
+        ],
+        "dominant_rgb_roi_pct": 32.7586,
+        "local_adjacent_luminance_difference": 18.7575,
+        "roi_colour_count": 15
+      },
+      "alpha_bytes_exact": true
+    },
+    {
+      "form": "fusern",
+      "kind": "walk_small",
+      "facing": "ne",
+      "frame": 4,
+      "path": "assets/sprites/arena/fusern/small/walk_ne_f4.png",
+      "dome_bbox_original": [
+        9,
+        11,
+        34,
+        23
+      ],
+      "before": {
+        "whole_mean_brightness": 83.3785,
+        "dome_roi_pixels": 180,
+        "dome_mean_brightness": 125.0967,
+        "warm_brick_pixels": 167,
+        "warm_brick_mean_brightness": 129.9115,
+        "warm_brick_saturation_pct": 71.1325,
+        "bright_orange_L130_roi_pct": 57.7778,
+        "pale_orange_L165_roi_pct": 24.4444,
+        "dark_joint_or_shadow_L60_roi_pct": 8.8889,
+        "dominant_rgb": [
+          230,
+          113,
+          39
+        ],
+        "dominant_rgb_roi_pct": 29.4444,
+        "local_adjacent_luminance_difference": 19.9608,
+        "roi_colour_count": 18
+      },
+      "after": {
+        "whole_mean_brightness": 83.3785,
+        "dome_roi_pixels": 180,
+        "dome_mean_brightness": 125.0967,
+        "warm_brick_pixels": 167,
+        "warm_brick_mean_brightness": 129.9115,
+        "warm_brick_saturation_pct": 71.1325,
+        "bright_orange_L130_roi_pct": 57.7778,
+        "pale_orange_L165_roi_pct": 24.4444,
+        "dark_joint_or_shadow_L60_roi_pct": 8.8889,
+        "dominant_rgb": [
+          230,
+          113,
+          39
+        ],
+        "dominant_rgb_roi_pct": 29.4444,
+        "local_adjacent_luminance_difference": 19.9608,
+        "roi_colour_count": 18
+      },
+      "alpha_bytes_exact": true
+    },
+    {
+      "form": "fusern",
+      "kind": "walk_small",
+      "facing": "ne",
+      "frame": 5,
+      "path": "assets/sprites/arena/fusern/small/walk_ne_f5.png",
+      "dome_bbox_original": [
+        9,
+        10,
+        34,
+        22
+      ],
+      "before": {
+        "whole_mean_brightness": 85.8168,
+        "dome_roi_pixels": 166,
+        "dome_mean_brightness": 129.2166,
+        "warm_brick_pixels": 158,
+        "warm_brick_mean_brightness": 131.9964,
+        "warm_brick_saturation_pct": 71.9391,
+        "bright_orange_L130_roi_pct": 62.6506,
+        "pale_orange_L165_roi_pct": 25.9036,
+        "dark_joint_or_shadow_L60_roi_pct": 6.0241,
+        "dominant_rgb": [
+          230,
+          113,
+          39
+        ],
+        "dominant_rgb_roi_pct": 33.1325,
+        "local_adjacent_luminance_difference": 20.2214,
+        "roi_colour_count": 16
+      },
+      "after": {
+        "whole_mean_brightness": 85.8168,
+        "dome_roi_pixels": 166,
+        "dome_mean_brightness": 129.2166,
+        "warm_brick_pixels": 158,
+        "warm_brick_mean_brightness": 131.9964,
+        "warm_brick_saturation_pct": 71.9391,
+        "bright_orange_L130_roi_pct": 62.6506,
+        "pale_orange_L165_roi_pct": 25.9036,
+        "dark_joint_or_shadow_L60_roi_pct": 6.0241,
+        "dominant_rgb": [
+          230,
+          113,
+          39
+        ],
+        "dominant_rgb_roi_pct": 33.1325,
+        "local_adjacent_luminance_difference": 20.2214,
+        "roi_colour_count": 16
+      },
+      "alpha_bytes_exact": true
+    },
+    {
+      "form": "fusern",
+      "kind": "walk_small",
+      "facing": "ne",
+      "frame": 6,
+      "path": "assets/sprites/arena/fusern/small/walk_ne_f6.png",
+      "dome_bbox_original": [
+        8,
+        9,
+        34,
+        22
+      ],
+      "before": {
+        "whole_mean_brightness": 81.8409,
+        "dome_roi_pixels": 170,
+        "dome_mean_brightness": 125.0968,
+        "warm_brick_pixels": 161,
+        "warm_brick_mean_brightness": 128.4964,
+        "warm_brick_saturation_pct": 71.5393,
+        "bright_orange_L130_roi_pct": 58.8235,
+        "pale_orange_L165_roi_pct": 23.5294,
+        "dark_joint_or_shadow_L60_roi_pct": 8.2353,
+        "dominant_rgb": [
+          230,
+          113,
+          39
+        ],
+        "dominant_rgb_roi_pct": 32.9412,
+        "local_adjacent_luminance_difference": 20.2405,
+        "roi_colour_count": 16
+      },
+      "after": {
+        "whole_mean_brightness": 81.8409,
+        "dome_roi_pixels": 170,
+        "dome_mean_brightness": 125.0968,
+        "warm_brick_pixels": 161,
+        "warm_brick_mean_brightness": 128.4964,
+        "warm_brick_saturation_pct": 71.5393,
+        "bright_orange_L130_roi_pct": 58.8235,
+        "pale_orange_L165_roi_pct": 23.5294,
+        "dark_joint_or_shadow_L60_roi_pct": 8.2353,
+        "dominant_rgb": [
+          230,
+          113,
+          39
+        ],
+        "dominant_rgb_roi_pct": 32.9412,
+        "local_adjacent_luminance_difference": 20.2405,
+        "roi_colour_count": 16
+      },
+      "alpha_bytes_exact": true
+    },
+    {
+      "form": "fusern",
+      "kind": "walk_small",
+      "facing": "ne",
+      "frame": 7,
+      "path": "assets/sprites/arena/fusern/small/walk_ne_f7.png",
+      "dome_bbox_original": [
+        8,
+        10,
+        35,
+        22
+      ],
+      "before": {
+        "whole_mean_brightness": 83.6879,
+        "dome_roi_pixels": 155,
+        "dome_mean_brightness": 128.2584,
+        "warm_brick_pixels": 143,
+        "warm_brick_mean_brightness": 134.1638,
+        "warm_brick_saturation_pct": 72.6847,
+        "bright_orange_L130_roi_pct": 61.9355,
+        "pale_orange_L165_roi_pct": 26.4516,
+        "dark_joint_or_shadow_L60_roi_pct": 7.7419,
+        "dominant_rgb": [
+          230,
+          113,
+          39
+        ],
+        "dominant_rgb_roi_pct": 32.9032,
+        "local_adjacent_luminance_difference": 20.2233,
+        "roi_colour_count": 15
+      },
+      "after": {
+        "whole_mean_brightness": 83.6879,
+        "dome_roi_pixels": 155,
+        "dome_mean_brightness": 128.2584,
+        "warm_brick_pixels": 143,
+        "warm_brick_mean_brightness": 134.1638,
+        "warm_brick_saturation_pct": 72.6847,
+        "bright_orange_L130_roi_pct": 61.9355,
+        "pale_orange_L165_roi_pct": 26.4516,
+        "dark_joint_or_shadow_L60_roi_pct": 7.7419,
+        "dominant_rgb": [
+          230,
+          113,
+          39
+        ],
+        "dominant_rgb_roi_pct": 32.9032,
+        "local_adjacent_luminance_difference": 20.2233,
+        "roi_colour_count": 15
+      },
+      "alpha_bytes_exact": true
+    },
+    {
+      "form": "fusern",
+      "kind": "walk_small",
+      "facing": "nw",
+      "frame": 0,
+      "path": "assets/sprites/arena/fusern/small/walk_nw_f0.png",
+      "dome_bbox_original": [
+        7,
+        12,
+        34,
+        23
+      ],
+      "before": {
+        "whole_mean_brightness": 82.5963,
+        "dome_roi_pixels": 179,
+        "dome_mean_brightness": 123.4887,
+        "warm_brick_pixels": 162,
+        "warm_brick_mean_brightness": 129.3448,
+        "warm_brick_saturation_pct": 71.9073,
+        "bright_orange_L130_roi_pct": 56.9832,
+        "pale_orange_L165_roi_pct": 22.905,
+        "dark_joint_or_shadow_L60_roi_pct": 8.9385,
+        "dominant_rgb": [
+          230,
+          113,
+          39
+        ],
+        "dominant_rgb_roi_pct": 32.4022,
+        "local_adjacent_luminance_difference": 19.003,
+        "roi_colour_count": 19
+      },
+      "after": {
+        "whole_mean_brightness": 82.5963,
+        "dome_roi_pixels": 179,
+        "dome_mean_brightness": 123.4887,
+        "warm_brick_pixels": 162,
+        "warm_brick_mean_brightness": 129.3448,
+        "warm_brick_saturation_pct": 71.9073,
+        "bright_orange_L130_roi_pct": 56.9832,
+        "pale_orange_L165_roi_pct": 22.905,
+        "dark_joint_or_shadow_L60_roi_pct": 8.9385,
+        "dominant_rgb": [
+          230,
+          113,
+          39
+        ],
+        "dominant_rgb_roi_pct": 32.4022,
+        "local_adjacent_luminance_difference": 19.003,
+        "roi_colour_count": 19
+      },
+      "alpha_bytes_exact": true
+    },
+    {
+      "form": "fusern",
+      "kind": "walk_small",
+      "facing": "nw",
+      "frame": 1,
+      "path": "assets/sprites/arena/fusern/small/walk_nw_f1.png",
+      "dome_bbox_original": [
+        8,
+        11,
+        34,
+        22
+      ],
+      "before": {
+        "whole_mean_brightness": 79.8733,
+        "dome_roi_pixels": 169,
+        "dome_mean_brightness": 126.7539,
+        "warm_brick_pixels": 154,
+        "warm_brick_mean_brightness": 132.9662,
+        "warm_brick_saturation_pct": 71.8741,
+        "bright_orange_L130_roi_pct": 58.5799,
+        "pale_orange_L165_roi_pct": 26.6272,
+        "dark_joint_or_shadow_L60_roi_pct": 8.8757,
+        "dominant_rgb": [
+          230,
+          113,
+          39
+        ],
+        "dominant_rgb_roi_pct": 27.8107,
+        "local_adjacent_luminance_difference": 19.0,
+        "roi_colour_count": 16
+      },
+      "after": {
+        "whole_mean_brightness": 79.8733,
+        "dome_roi_pixels": 169,
+        "dome_mean_brightness": 126.7539,
+        "warm_brick_pixels": 154,
+        "warm_brick_mean_brightness": 132.9662,
+        "warm_brick_saturation_pct": 71.8741,
+        "bright_orange_L130_roi_pct": 58.5799,
+        "pale_orange_L165_roi_pct": 26.6272,
+        "dark_joint_or_shadow_L60_roi_pct": 8.8757,
+        "dominant_rgb": [
+          230,
+          113,
+          39
+        ],
+        "dominant_rgb_roi_pct": 27.8107,
+        "local_adjacent_luminance_difference": 19.0,
+        "roi_colour_count": 16
+      },
+      "alpha_bytes_exact": true
+    },
+    {
+      "form": "fusern",
+      "kind": "walk_small",
+      "facing": "nw",
+      "frame": 2,
+      "path": "assets/sprites/arena/fusern/small/walk_nw_f2.png",
+      "dome_bbox_original": [
+        9,
+        11,
+        33,
+        22
+      ],
+      "before": {
+        "whole_mean_brightness": 81.8461,
+        "dome_roi_pixels": 162,
+        "dome_mean_brightness": 128.5129,
+        "warm_brick_pixels": 150,
+        "warm_brick_mean_brightness": 134.1663,
+        "warm_brick_saturation_pct": 71.934,
+        "bright_orange_L130_roi_pct": 60.4938,
+        "pale_orange_L165_roi_pct": 29.0123,
+        "dark_joint_or_shadow_L60_roi_pct": 8.0247,
+        "dominant_rgb": [
+          251,
+          161,
+          82
+        ],
+        "dominant_rgb_roi_pct": 29.0123,
+        "local_adjacent_luminance_difference": 22.6538,
+        "roi_colour_count": 16
+      },
+      "after": {
+        "whole_mean_brightness": 81.8461,
+        "dome_roi_pixels": 162,
+        "dome_mean_brightness": 128.5129,
+        "warm_brick_pixels": 150,
+        "warm_brick_mean_brightness": 134.1663,
+        "warm_brick_saturation_pct": 71.934,
+        "bright_orange_L130_roi_pct": 60.4938,
+        "pale_orange_L165_roi_pct": 29.0123,
+        "dark_joint_or_shadow_L60_roi_pct": 8.0247,
+        "dominant_rgb": [
+          251,
+          161,
+          82
+        ],
+        "dominant_rgb_roi_pct": 29.0123,
+        "local_adjacent_luminance_difference": 22.6538,
+        "roi_colour_count": 16
+      },
+      "alpha_bytes_exact": true
+    },
+    {
+      "form": "fusern",
+      "kind": "walk_small",
+      "facing": "nw",
+      "frame": 3,
+      "path": "assets/sprites/arena/fusern/small/walk_nw_f3.png",
+      "dome_bbox_original": [
+        9,
+        12,
+        33,
+        23
+      ],
+      "before": {
+        "whole_mean_brightness": 82.0668,
+        "dome_roi_pixels": 174,
+        "dome_mean_brightness": 126.5196,
+        "warm_brick_pixels": 162,
+        "warm_brick_mean_brightness": 131.1436,
+        "warm_brick_saturation_pct": 72.1663,
+        "bright_orange_L130_roi_pct": 59.7701,
+        "pale_orange_L165_roi_pct": 23.5632,
+        "dark_joint_or_shadow_L60_roi_pct": 6.8966,
+        "dominant_rgb": [
+          230,
+          113,
+          39
+        ],
+        "dominant_rgb_roi_pct": 32.7586,
+        "local_adjacent_luminance_difference": 18.7575,
+        "roi_colour_count": 15
+      },
+      "after": {
+        "whole_mean_brightness": 82.0668,
+        "dome_roi_pixels": 174,
+        "dome_mean_brightness": 126.5196,
+        "warm_brick_pixels": 162,
+        "warm_brick_mean_brightness": 131.1436,
+        "warm_brick_saturation_pct": 72.1663,
+        "bright_orange_L130_roi_pct": 59.7701,
+        "pale_orange_L165_roi_pct": 23.5632,
+        "dark_joint_or_shadow_L60_roi_pct": 6.8966,
+        "dominant_rgb": [
+          230,
+          113,
+          39
+        ],
+        "dominant_rgb_roi_pct": 32.7586,
+        "local_adjacent_luminance_difference": 18.7575,
+        "roi_colour_count": 15
+      },
+      "alpha_bytes_exact": true
+    },
+    {
+      "form": "fusern",
+      "kind": "walk_small",
+      "facing": "nw",
+      "frame": 4,
+      "path": "assets/sprites/arena/fusern/small/walk_nw_f4.png",
+      "dome_bbox_original": [
+        8,
+        11,
+        33,
+        23
+      ],
+      "before": {
+        "whole_mean_brightness": 83.3785,
+        "dome_roi_pixels": 180,
+        "dome_mean_brightness": 125.0967,
+        "warm_brick_pixels": 167,
+        "warm_brick_mean_brightness": 129.9115,
+        "warm_brick_saturation_pct": 71.1325,
+        "bright_orange_L130_roi_pct": 57.7778,
+        "pale_orange_L165_roi_pct": 24.4444,
+        "dark_joint_or_shadow_L60_roi_pct": 8.8889,
+        "dominant_rgb": [
+          230,
+          113,
+          39
+        ],
+        "dominant_rgb_roi_pct": 29.4444,
+        "local_adjacent_luminance_difference": 19.9608,
+        "roi_colour_count": 18
+      },
+      "after": {
+        "whole_mean_brightness": 83.3785,
+        "dome_roi_pixels": 180,
+        "dome_mean_brightness": 125.0967,
+        "warm_brick_pixels": 167,
+        "warm_brick_mean_brightness": 129.9115,
+        "warm_brick_saturation_pct": 71.1325,
+        "bright_orange_L130_roi_pct": 57.7778,
+        "pale_orange_L165_roi_pct": 24.4444,
+        "dark_joint_or_shadow_L60_roi_pct": 8.8889,
+        "dominant_rgb": [
+          230,
+          113,
+          39
+        ],
+        "dominant_rgb_roi_pct": 29.4444,
+        "local_adjacent_luminance_difference": 19.9608,
+        "roi_colour_count": 18
+      },
+      "alpha_bytes_exact": true
+    },
+    {
+      "form": "fusern",
+      "kind": "walk_small",
+      "facing": "nw",
+      "frame": 5,
+      "path": "assets/sprites/arena/fusern/small/walk_nw_f5.png",
+      "dome_bbox_original": [
+        8,
+        10,
+        33,
+        22
+      ],
+      "before": {
+        "whole_mean_brightness": 85.8168,
+        "dome_roi_pixels": 166,
+        "dome_mean_brightness": 129.2166,
+        "warm_brick_pixels": 158,
+        "warm_brick_mean_brightness": 131.9964,
+        "warm_brick_saturation_pct": 71.9391,
+        "bright_orange_L130_roi_pct": 62.6506,
+        "pale_orange_L165_roi_pct": 25.9036,
+        "dark_joint_or_shadow_L60_roi_pct": 6.0241,
+        "dominant_rgb": [
+          230,
+          113,
+          39
+        ],
+        "dominant_rgb_roi_pct": 33.1325,
+        "local_adjacent_luminance_difference": 20.2214,
+        "roi_colour_count": 16
+      },
+      "after": {
+        "whole_mean_brightness": 85.8168,
+        "dome_roi_pixels": 166,
+        "dome_mean_brightness": 129.2166,
+        "warm_brick_pixels": 158,
+        "warm_brick_mean_brightness": 131.9964,
+        "warm_brick_saturation_pct": 71.9391,
+        "bright_orange_L130_roi_pct": 62.6506,
+        "pale_orange_L165_roi_pct": 25.9036,
+        "dark_joint_or_shadow_L60_roi_pct": 6.0241,
+        "dominant_rgb": [
+          230,
+          113,
+          39
+        ],
+        "dominant_rgb_roi_pct": 33.1325,
+        "local_adjacent_luminance_difference": 20.2214,
+        "roi_colour_count": 16
+      },
+      "alpha_bytes_exact": true
+    },
+    {
+      "form": "fusern",
+      "kind": "walk_small",
+      "facing": "nw",
+      "frame": 6,
+      "path": "assets/sprites/arena/fusern/small/walk_nw_f6.png",
+      "dome_bbox_original": [
+        8,
+        9,
+        34,
+        22
+      ],
+      "before": {
+        "whole_mean_brightness": 81.8409,
+        "dome_roi_pixels": 170,
+        "dome_mean_brightness": 125.0968,
+        "warm_brick_pixels": 161,
+        "warm_brick_mean_brightness": 128.4964,
+        "warm_brick_saturation_pct": 71.5393,
+        "bright_orange_L130_roi_pct": 58.8235,
+        "pale_orange_L165_roi_pct": 23.5294,
+        "dark_joint_or_shadow_L60_roi_pct": 8.2353,
+        "dominant_rgb": [
+          230,
+          113,
+          39
+        ],
+        "dominant_rgb_roi_pct": 32.9412,
+        "local_adjacent_luminance_difference": 20.2405,
+        "roi_colour_count": 16
+      },
+      "after": {
+        "whole_mean_brightness": 81.8409,
+        "dome_roi_pixels": 170,
+        "dome_mean_brightness": 125.0968,
+        "warm_brick_pixels": 161,
+        "warm_brick_mean_brightness": 128.4964,
+        "warm_brick_saturation_pct": 71.5393,
+        "bright_orange_L130_roi_pct": 58.8235,
+        "pale_orange_L165_roi_pct": 23.5294,
+        "dark_joint_or_shadow_L60_roi_pct": 8.2353,
+        "dominant_rgb": [
+          230,
+          113,
+          39
+        ],
+        "dominant_rgb_roi_pct": 32.9412,
+        "local_adjacent_luminance_difference": 20.2405,
+        "roi_colour_count": 16
+      },
+      "alpha_bytes_exact": true
+    },
+    {
+      "form": "fusern",
+      "kind": "walk_small",
+      "facing": "nw",
+      "frame": 7,
+      "path": "assets/sprites/arena/fusern/small/walk_nw_f7.png",
+      "dome_bbox_original": [
+        7,
+        10,
+        34,
+        22
+      ],
+      "before": {
+        "whole_mean_brightness": 83.6879,
+        "dome_roi_pixels": 155,
+        "dome_mean_brightness": 128.2584,
+        "warm_brick_pixels": 143,
+        "warm_brick_mean_brightness": 134.1638,
+        "warm_brick_saturation_pct": 72.6847,
+        "bright_orange_L130_roi_pct": 61.9355,
+        "pale_orange_L165_roi_pct": 26.4516,
+        "dark_joint_or_shadow_L60_roi_pct": 7.7419,
+        "dominant_rgb": [
+          230,
+          113,
+          39
+        ],
+        "dominant_rgb_roi_pct": 32.9032,
+        "local_adjacent_luminance_difference": 20.2233,
+        "roi_colour_count": 15
+      },
+      "after": {
+        "whole_mean_brightness": 83.6879,
+        "dome_roi_pixels": 155,
+        "dome_mean_brightness": 128.2584,
+        "warm_brick_pixels": 143,
+        "warm_brick_mean_brightness": 134.1638,
+        "warm_brick_saturation_pct": 72.6847,
+        "bright_orange_L130_roi_pct": 61.9355,
+        "pale_orange_L165_roi_pct": 26.4516,
+        "dark_joint_or_shadow_L60_roi_pct": 7.7419,
+        "dominant_rgb": [
+          230,
+          113,
+          39
+        ],
+        "dominant_rgb_roi_pct": 32.9032,
+        "local_adjacent_luminance_difference": 20.2233,
+        "roi_colour_count": 15
+      },
+      "alpha_bytes_exact": true
+    },
+    {
+      "form": "fusern",
+      "kind": "walk_small",
+      "facing": "n",
+      "frame": 0,
+      "path": "assets/sprites/arena/fusern/small/walk_n_f0.png",
+      "dome_bbox_original": [
+        9,
+        11,
+        34,
+        23
+      ],
+      "before": {
+        "whole_mean_brightness": 88.6488,
+        "dome_roi_pixels": 179,
+        "dome_mean_brightness": 134.5401,
+        "warm_brick_pixels": 177,
+        "warm_brick_mean_brightness": 135.3207,
+        "warm_brick_saturation_pct": 70.6154,
+        "bright_orange_L130_roi_pct": 63.1285,
+        "pale_orange_L165_roi_pct": 35.1955,
+        "dark_joint_or_shadow_L60_roi_pct": 0.5587,
+        "dominant_rgb": [
+          251,
+          161,
+          82
+        ],
+        "dominant_rgb_roi_pct": 35.1955,
+        "local_adjacent_luminance_difference": 20.9901,
+        "roi_colour_count": 12
+      },
+      "after": {
+        "whole_mean_brightness": 88.6488,
+        "dome_roi_pixels": 179,
+        "dome_mean_brightness": 134.5401,
+        "warm_brick_pixels": 177,
+        "warm_brick_mean_brightness": 135.3207,
+        "warm_brick_saturation_pct": 70.6154,
+        "bright_orange_L130_roi_pct": 63.1285,
+        "pale_orange_L165_roi_pct": 35.1955,
+        "dark_joint_or_shadow_L60_roi_pct": 0.5587,
+        "dominant_rgb": [
+          251,
+          161,
+          82
+        ],
+        "dominant_rgb_roi_pct": 35.1955,
+        "local_adjacent_luminance_difference": 20.9901,
+        "roi_colour_count": 12
+      },
+      "alpha_bytes_exact": true
+    },
+    {
+      "form": "fusern",
+      "kind": "walk_small",
+      "facing": "n",
+      "frame": 1,
+      "path": "assets/sprites/arena/fusern/small/walk_n_f1.png",
+      "dome_bbox_original": [
+        9,
+        11,
+        34,
+        23
+      ],
+      "before": {
+        "whole_mean_brightness": 87.1417,
+        "dome_roi_pixels": 187,
+        "dome_mean_brightness": 127.3209,
+        "warm_brick_pixels": 181,
+        "warm_brick_mean_brightness": 129.3803,
+        "warm_brick_saturation_pct": 70.4529,
+        "bright_orange_L130_roi_pct": 55.0802,
+        "pale_orange_L165_roi_pct": 26.738,
+        "dark_joint_or_shadow_L60_roi_pct": 2.139,
+        "dominant_rgb": [
+          251,
+          161,
+          82
+        ],
+        "dominant_rgb_roi_pct": 26.738,
+        "local_adjacent_luminance_difference": 20.8078,
+        "roi_colour_count": 14
+      },
+      "after": {
+        "whole_mean_brightness": 87.1417,
+        "dome_roi_pixels": 187,
+        "dome_mean_brightness": 127.3209,
+        "warm_brick_pixels": 181,
+        "warm_brick_mean_brightness": 129.3803,
+        "warm_brick_saturation_pct": 70.4529,
+        "bright_orange_L130_roi_pct": 55.0802,
+        "pale_orange_L165_roi_pct": 26.738,
+        "dark_joint_or_shadow_L60_roi_pct": 2.139,
+        "dominant_rgb": [
+          251,
+          161,
+          82
+        ],
+        "dominant_rgb_roi_pct": 26.738,
+        "local_adjacent_luminance_difference": 20.8078,
+        "roi_colour_count": 14
+      },
+      "alpha_bytes_exact": true
+    },
+    {
+      "form": "fusern",
+      "kind": "walk_small",
+      "facing": "n",
+      "frame": 2,
+      "path": "assets/sprites/arena/fusern/small/walk_n_f2.png",
+      "dome_bbox_original": [
+        9,
+        10,
+        34,
+        22
+      ],
+      "before": {
+        "whole_mean_brightness": 88.4628,
+        "dome_roi_pixels": 179,
+        "dome_mean_brightness": 135.045,
+        "warm_brick_pixels": 178,
+        "warm_brick_mean_brightness": 135.4776,
+        "warm_brick_saturation_pct": 70.5415,
+        "bright_orange_L130_roi_pct": 64.2458,
+        "pale_orange_L165_roi_pct": 34.6369,
+        "dark_joint_or_shadow_L60_roi_pct": 1.1173,
+        "dominant_rgb": [
+          251,
+          161,
+          82
+        ],
+        "dominant_rgb_roi_pct": 34.6369,
+        "local_adjacent_luminance_difference": 21.9412,
+        "roi_colour_count": 11
+      },
+      "after": {
+        "whole_mean_brightness": 88.4628,
+        "dome_roi_pixels": 179,
+        "dome_mean_brightness": 135.045,
+        "warm_brick_pixels": 178,
+        "warm_brick_mean_brightness": 135.4776,
+        "warm_brick_saturation_pct": 70.5415,
+        "bright_orange_L130_roi_pct": 64.2458,
+        "pale_orange_L165_roi_pct": 34.6369,
+        "dark_joint_or_shadow_L60_roi_pct": 1.1173,
+        "dominant_rgb": [
+          251,
+          161,
+          82
+        ],
+        "dominant_rgb_roi_pct": 34.6369,
+        "local_adjacent_luminance_difference": 21.9412,
+        "roi_colour_count": 11
+      },
+      "alpha_bytes_exact": true
+    },
+    {
+      "form": "fusern",
+      "kind": "walk_small",
+      "facing": "n",
+      "frame": 3,
+      "path": "assets/sprites/arena/fusern/small/walk_n_f3.png",
+      "dome_bbox_original": [
+        10,
+        10,
+        33,
+        22
+      ],
+      "before": {
+        "whole_mean_brightness": 90.2228,
+        "dome_roi_pixels": 188,
+        "dome_mean_brightness": 133.2257,
+        "warm_brick_pixels": 185,
+        "warm_brick_mean_brightness": 134.3373,
+        "warm_brick_saturation_pct": 71.0812,
+        "bright_orange_L130_roi_pct": 63.2979,
+        "pale_orange_L165_roi_pct": 31.383,
+        "dark_joint_or_shadow_L60_roi_pct": 1.0638,
+        "dominant_rgb": [
+          251,
+          161,
+          82
+        ],
+        "dominant_rgb_roi_pct": 31.383,
+        "local_adjacent_luminance_difference": 22.1645,
+        "roi_colour_count": 13
+      },
+      "after": {
+        "whole_mean_brightness": 90.2228,
+        "dome_roi_pixels": 188,
+        "dome_mean_brightness": 133.2257,
+        "warm_brick_pixels": 185,
+        "warm_brick_mean_brightness": 134.3373,
+        "warm_brick_saturation_pct": 71.0812,
+        "bright_orange_L130_roi_pct": 63.2979,
+        "pale_orange_L165_roi_pct": 31.383,
+        "dark_joint_or_shadow_L60_roi_pct": 1.0638,
+        "dominant_rgb": [
+          251,
+          161,
+          82
+        ],
+        "dominant_rgb_roi_pct": 31.383,
+        "local_adjacent_luminance_difference": 22.1645,
+        "roi_colour_count": 13
+      },
+      "alpha_bytes_exact": true
+    },
+    {
+      "form": "fusern",
+      "kind": "walk_small",
+      "facing": "n",
+      "frame": 4,
+      "path": "assets/sprites/arena/fusern/small/walk_n_f4.png",
+      "dome_bbox_original": [
+        9,
+        10,
+        33,
+        22
+      ],
+      "before": {
+        "whole_mean_brightness": 88.2592,
+        "dome_roi_pixels": 196,
+        "dome_mean_brightness": 131.6846,
+        "warm_brick_pixels": 189,
+        "warm_brick_mean_brightness": 134.6406,
+        "warm_brick_saturation_pct": 71.1511,
+        "bright_orange_L130_roi_pct": 62.2449,
+        "pale_orange_L165_roi_pct": 31.1224,
+        "dark_joint_or_shadow_L60_roi_pct": 3.0612,
+        "dominant_rgb": [
+          251,
+          161,
+          82
+        ],
+        "dominant_rgb_roi_pct": 31.1224,
+        "local_adjacent_luminance_difference": 21.4844,
+        "roi_colour_count": 13
+      },
+      "after": {
+        "whole_mean_brightness": 88.2592,
+        "dome_roi_pixels": 196,
+        "dome_mean_brightness": 131.6846,
+        "warm_brick_pixels": 189,
+        "warm_brick_mean_brightness": 134.6406,
+        "warm_brick_saturation_pct": 71.1511,
+        "bright_orange_L130_roi_pct": 62.2449,
+        "pale_orange_L165_roi_pct": 31.1224,
+        "dark_joint_or_shadow_L60_roi_pct": 3.0612,
+        "dominant_rgb": [
+          251,
+          161,
+          82
+        ],
+        "dominant_rgb_roi_pct": 31.1224,
+        "local_adjacent_luminance_difference": 21.4844,
+        "roi_colour_count": 13
+      },
+      "alpha_bytes_exact": true
+    },
+    {
+      "form": "fusern",
+      "kind": "walk_small",
+      "facing": "n",
+      "frame": 5,
+      "path": "assets/sprites/arena/fusern/small/walk_n_f5.png",
+      "dome_bbox_original": [
+        9,
+        10,
+        33,
+        22
+      ],
+      "before": {
+        "whole_mean_brightness": 90.3088,
+        "dome_roi_pixels": 197,
+        "dome_mean_brightness": 128.8586,
+        "warm_brick_pixels": 189,
+        "warm_brick_mean_brightness": 131.8005,
+        "warm_brick_saturation_pct": 70.9588,
+        "bright_orange_L130_roi_pct": 58.3756,
+        "pale_orange_L165_roi_pct": 27.4112,
+        "dark_joint_or_shadow_L60_roi_pct": 2.5381,
+        "dominant_rgb": [
+          251,
+          161,
+          82
+        ],
+        "dominant_rgb_roi_pct": 27.4112,
+        "local_adjacent_luminance_difference": 19.3439,
+        "roi_colour_count": 13
+      },
+      "after": {
+        "whole_mean_brightness": 90.3088,
+        "dome_roi_pixels": 197,
+        "dome_mean_brightness": 128.8586,
+        "warm_brick_pixels": 189,
+        "warm_brick_mean_brightness": 131.8005,
+        "warm_brick_saturation_pct": 70.9588,
+        "bright_orange_L130_roi_pct": 58.3756,
+        "pale_orange_L165_roi_pct": 27.4112,
+        "dark_joint_or_shadow_L60_roi_pct": 2.5381,
+        "dominant_rgb": [
+          251,
+          161,
+          82
+        ],
+        "dominant_rgb_roi_pct": 27.4112,
+        "local_adjacent_luminance_difference": 19.3439,
+        "roi_colour_count": 13
+      },
+      "alpha_bytes_exact": true
+    },
+    {
+      "form": "fusern",
+      "kind": "walk_small",
+      "facing": "n",
+      "frame": 6,
+      "path": "assets/sprites/arena/fusern/small/walk_n_f6.png",
+      "dome_bbox_original": [
+        10,
+        10,
+        33,
+        22
+      ],
+      "before": {
+        "whole_mean_brightness": 89.0601,
+        "dome_roi_pixels": 197,
+        "dome_mean_brightness": 127.7243,
+        "warm_brick_pixels": 190,
+        "warm_brick_mean_brightness": 130.1919,
+        "warm_brick_saturation_pct": 70.8475,
+        "bright_orange_L130_roi_pct": 57.3604,
+        "pale_orange_L165_roi_pct": 26.3959,
+        "dark_joint_or_shadow_L60_roi_pct": 2.5381,
+        "dominant_rgb": [
+          251,
+          161,
+          82
+        ],
+        "dominant_rgb_roi_pct": 26.3959,
+        "local_adjacent_luminance_difference": 19.1887,
+        "roi_colour_count": 14
+      },
+      "after": {
+        "whole_mean_brightness": 89.0601,
+        "dome_roi_pixels": 197,
+        "dome_mean_brightness": 127.7243,
+        "warm_brick_pixels": 190,
+        "warm_brick_mean_brightness": 130.1919,
+        "warm_brick_saturation_pct": 70.8475,
+        "bright_orange_L130_roi_pct": 57.3604,
+        "pale_orange_L165_roi_pct": 26.3959,
+        "dark_joint_or_shadow_L60_roi_pct": 2.5381,
+        "dominant_rgb": [
+          251,
+          161,
+          82
+        ],
+        "dominant_rgb_roi_pct": 26.3959,
+        "local_adjacent_luminance_difference": 19.1887,
+        "roi_colour_count": 14
+      },
+      "alpha_bytes_exact": true
+    },
+    {
+      "form": "fusern",
+      "kind": "walk_small",
+      "facing": "n",
+      "frame": 7,
+      "path": "assets/sprites/arena/fusern/small/walk_n_f7.png",
+      "dome_bbox_original": [
+        10,
+        10,
+        33,
+        22
+      ],
+      "before": {
+        "whole_mean_brightness": 87.723,
+        "dome_roi_pixels": 188,
+        "dome_mean_brightness": 126.3833,
+        "warm_brick_pixels": 182,
+        "warm_brick_mean_brightness": 128.8458,
+        "warm_brick_saturation_pct": 70.7766,
+        "bright_orange_L130_roi_pct": 56.383,
+        "pale_orange_L165_roi_pct": 25.5319,
+        "dark_joint_or_shadow_L60_roi_pct": 2.6596,
+        "dominant_rgb": [
+          251,
+          161,
+          82
+        ],
+        "dominant_rgb_roi_pct": 25.5319,
+        "local_adjacent_luminance_difference": 20.1405,
+        "roi_colour_count": 14
+      },
+      "after": {
+        "whole_mean_brightness": 87.723,
+        "dome_roi_pixels": 188,
+        "dome_mean_brightness": 126.3833,
+        "warm_brick_pixels": 182,
+        "warm_brick_mean_brightness": 128.8458,
+        "warm_brick_saturation_pct": 70.7766,
+        "bright_orange_L130_roi_pct": 56.383,
+        "pale_orange_L165_roi_pct": 25.5319,
+        "dark_joint_or_shadow_L60_roi_pct": 2.6596,
+        "dominant_rgb": [
+          251,
+          161,
+          82
+        ],
+        "dominant_rgb_roi_pct": 25.5319,
+        "local_adjacent_luminance_difference": 20.1405,
+        "roi_colour_count": 14
+      },
+      "alpha_bytes_exact": true
+    },
+    {
+      "form": "fusern",
+      "kind": "walk_small",
+      "facing": "se",
+      "frame": 0,
+      "path": "assets/sprites/arena/fusern/small/walk_se_f0.png",
+      "dome_bbox_original": [
+        8,
+        11,
+        35,
+        23
+      ],
+      "before": {
+        "whole_mean_brightness": 64.0774,
+        "dome_roi_pixels": 183,
+        "dome_mean_brightness": 88.2214,
+        "warm_brick_pixels": 126,
+        "warm_brick_mean_brightness": 97.557,
+        "warm_brick_saturation_pct": 66.8243,
+        "bright_orange_L130_roi_pct": 6.5574,
+        "pale_orange_L165_roi_pct": 2.7322,
+        "dark_joint_or_shadow_L60_roi_pct": 21.3115,
+        "dominant_rgb": [
+          189,
+          96,
+          53
+        ],
+        "dominant_rgb_roi_pct": 22.9508,
+        "local_adjacent_luminance_difference": 23.2029,
+        "roi_colour_count": 24
+      },
+      "after": {
+        "whole_mean_brightness": 64.0774,
+        "dome_roi_pixels": 183,
+        "dome_mean_brightness": 88.2214,
+        "warm_brick_pixels": 126,
+        "warm_brick_mean_brightness": 97.557,
+        "warm_brick_saturation_pct": 66.8243,
+        "bright_orange_L130_roi_pct": 6.5574,
+        "pale_orange_L165_roi_pct": 2.7322,
+        "dark_joint_or_shadow_L60_roi_pct": 21.3115,
+        "dominant_rgb": [
+          189,
+          96,
+          53
+        ],
+        "dominant_rgb_roi_pct": 22.9508,
+        "local_adjacent_luminance_difference": 23.2029,
+        "roi_colour_count": 24
+      },
+      "alpha_bytes_exact": true
+    },
+    {
+      "form": "fusern",
+      "kind": "walk_small",
+      "facing": "se",
+      "frame": 1,
+      "path": "assets/sprites/arena/fusern/small/walk_se_f1.png",
+      "dome_bbox_original": [
+        9,
+        11,
+        35,
+        23
+      ],
+      "before": {
+        "whole_mean_brightness": 67.6256,
+        "dome_roi_pixels": 197,
+        "dome_mean_brightness": 87.2149,
+        "warm_brick_pixels": 140,
+        "warm_brick_mean_brightness": 94.1927,
+        "warm_brick_saturation_pct": 64.9112,
+        "bright_orange_L130_roi_pct": 5.5838,
+        "pale_orange_L165_roi_pct": 2.5381,
+        "dark_joint_or_shadow_L60_roi_pct": 24.8731,
+        "dominant_rgb": [
+          189,
+          96,
+          53
+        ],
+        "dominant_rgb_roi_pct": 23.3503,
+        "local_adjacent_luminance_difference": 23.5728,
+        "roi_colour_count": 22
+      },
+      "after": {
+        "whole_mean_brightness": 67.6256,
+        "dome_roi_pixels": 197,
+        "dome_mean_brightness": 87.2149,
+        "warm_brick_pixels": 140,
+        "warm_brick_mean_brightness": 94.1927,
+        "warm_brick_saturation_pct": 64.9112,
+        "bright_orange_L130_roi_pct": 5.5838,
+        "pale_orange_L165_roi_pct": 2.5381,
+        "dark_joint_or_shadow_L60_roi_pct": 24.8731,
+        "dominant_rgb": [
+          189,
+          96,
+          53
+        ],
+        "dominant_rgb_roi_pct": 23.3503,
+        "local_adjacent_luminance_difference": 23.5728,
+        "roi_colour_count": 22
+      },
+      "alpha_bytes_exact": true
+    },
+    {
+      "form": "fusern",
+      "kind": "walk_small",
+      "facing": "se",
+      "frame": 2,
+      "path": "assets/sprites/arena/fusern/small/walk_se_f2.png",
+      "dome_bbox_original": [
+        9,
+        11,
+        36,
+        23
+      ],
+      "before": {
+        "whole_mean_brightness": 63.7925,
+        "dome_roi_pixels": 190,
+        "dome_mean_brightness": 85.983,
+        "warm_brick_pixels": 141,
+        "warm_brick_mean_brightness": 90.7037,
+        "warm_brick_saturation_pct": 63.4383,
+        "bright_orange_L130_roi_pct": 5.7895,
+        "pale_orange_L165_roi_pct": 2.1053,
+        "dark_joint_or_shadow_L60_roi_pct": 24.2105,
+        "dominant_rgb": [
+          189,
+          96,
+          53
+        ],
+        "dominant_rgb_roi_pct": 22.1053,
+        "local_adjacent_luminance_difference": 23.6429,
+        "roi_colour_count": 22
+      },
+      "after": {
+        "whole_mean_brightness": 63.7925,
+        "dome_roi_pixels": 190,
+        "dome_mean_brightness": 85.983,
+        "warm_brick_pixels": 141,
+        "warm_brick_mean_brightness": 90.7037,
+        "warm_brick_saturation_pct": 63.4383,
+        "bright_orange_L130_roi_pct": 5.7895,
+        "pale_orange_L165_roi_pct": 2.1053,
+        "dark_joint_or_shadow_L60_roi_pct": 24.2105,
+        "dominant_rgb": [
+          189,
+          96,
+          53
+        ],
+        "dominant_rgb_roi_pct": 22.1053,
+        "local_adjacent_luminance_difference": 23.6429,
+        "roi_colour_count": 22
+      },
+      "alpha_bytes_exact": true
+    },
+    {
+      "form": "fusern",
+      "kind": "walk_small",
+      "facing": "se",
+      "frame": 3,
+      "path": "assets/sprites/arena/fusern/small/walk_se_f3.png",
+      "dome_bbox_original": [
+        9,
+        12,
+        36,
+        23
+      ],
+      "before": {
+        "whole_mean_brightness": 67.0014,
+        "dome_roi_pixels": 175,
+        "dome_mean_brightness": 89.8341,
+        "warm_brick_pixels": 129,
+        "warm_brick_mean_brightness": 96.4595,
+        "warm_brick_saturation_pct": 65.9076,
+        "bright_orange_L130_roi_pct": 5.7143,
+        "pale_orange_L165_roi_pct": 2.2857,
+        "dark_joint_or_shadow_L60_roi_pct": 22.2857,
+        "dominant_rgb": [
+          189,
+          96,
+          53
+        ],
+        "dominant_rgb_roi_pct": 25.1429,
+        "local_adjacent_luminance_difference": 22.6883,
+        "roi_colour_count": 23
+      },
+      "after": {
+        "whole_mean_brightness": 67.0014,
+        "dome_roi_pixels": 175,
+        "dome_mean_brightness": 89.8341,
+        "warm_brick_pixels": 129,
+        "warm_brick_mean_brightness": 96.4595,
+        "warm_brick_saturation_pct": 65.9076,
+        "bright_orange_L130_roi_pct": 5.7143,
+        "pale_orange_L165_roi_pct": 2.2857,
+        "dark_joint_or_shadow_L60_roi_pct": 22.2857,
+        "dominant_rgb": [
+          189,
+          96,
+          53
+        ],
+        "dominant_rgb_roi_pct": 25.1429,
+        "local_adjacent_luminance_difference": 22.6883,
+        "roi_colour_count": 23
+      },
+      "alpha_bytes_exact": true
+    },
+    {
+      "form": "fusern",
+      "kind": "walk_small",
+      "facing": "se",
+      "frame": 4,
+      "path": "assets/sprites/arena/fusern/small/walk_se_f4.png",
+      "dome_bbox_original": [
+        9,
+        12,
+        35,
+        23
+      ],
+      "before": {
+        "whole_mean_brightness": 64.8822,
+        "dome_roi_pixels": 168,
+        "dome_mean_brightness": 87.3362,
+        "warm_brick_pixels": 127,
+        "warm_brick_mean_brightness": 93.4275,
+        "warm_brick_saturation_pct": 64.288,
+        "bright_orange_L130_roi_pct": 6.5476,
+        "pale_orange_L165_roi_pct": 2.381,
+        "dark_joint_or_shadow_L60_roi_pct": 23.8095,
+        "dominant_rgb": [
+          189,
+          96,
+          53
+        ],
+        "dominant_rgb_roi_pct": 23.2143,
+        "local_adjacent_luminance_difference": 23.2635,
+        "roi_colour_count": 21
+      },
+      "after": {
+        "whole_mean_brightness": 64.8822,
+        "dome_roi_pixels": 168,
+        "dome_mean_brightness": 87.3362,
+        "warm_brick_pixels": 127,
+        "warm_brick_mean_brightness": 93.4275,
+        "warm_brick_saturation_pct": 64.288,
+        "bright_orange_L130_roi_pct": 6.5476,
+        "pale_orange_L165_roi_pct": 2.381,
+        "dark_joint_or_shadow_L60_roi_pct": 23.8095,
+        "dominant_rgb": [
+          189,
+          96,
+          53
+        ],
+        "dominant_rgb_roi_pct": 23.2143,
+        "local_adjacent_luminance_difference": 23.2635,
+        "roi_colour_count": 21
+      },
+      "alpha_bytes_exact": true
+    },
+    {
+      "form": "fusern",
+      "kind": "walk_small",
+      "facing": "se",
+      "frame": 5,
+      "path": "assets/sprites/arena/fusern/small/walk_se_f5.png",
+      "dome_bbox_original": [
+        9,
+        12,
+        34,
+        23
+      ],
+      "before": {
+        "whole_mean_brightness": 67.0942,
+        "dome_roi_pixels": 175,
+        "dome_mean_brightness": 90.7626,
+        "warm_brick_pixels": 132,
+        "warm_brick_mean_brightness": 96.0094,
+        "warm_brick_saturation_pct": 65.603,
+        "bright_orange_L130_roi_pct": 6.2857,
+        "pale_orange_L165_roi_pct": 2.8571,
+        "dark_joint_or_shadow_L60_roi_pct": 20.5714,
+        "dominant_rgb": [
+          189,
+          96,
+          53
+        ],
+        "dominant_rgb_roi_pct": 24.5714,
+        "local_adjacent_luminance_difference": 23.6687,
+        "roi_colour_count": 23
+      },
+      "after": {
+        "whole_mean_brightness": 67.0942,
+        "dome_roi_pixels": 175,
+        "dome_mean_brightness": 90.7626,
+        "warm_brick_pixels": 132,
+        "warm_brick_mean_brightness": 96.0094,
+        "warm_brick_saturation_pct": 65.603,
+        "bright_orange_L130_roi_pct": 6.2857,
+        "pale_orange_L165_roi_pct": 2.8571,
+        "dark_joint_or_shadow_L60_roi_pct": 20.5714,
+        "dominant_rgb": [
+          189,
+          96,
+          53
+        ],
+        "dominant_rgb_roi_pct": 24.5714,
+        "local_adjacent_luminance_difference": 23.6687,
+        "roi_colour_count": 23
+      },
+      "alpha_bytes_exact": true
+    },
+    {
+      "form": "fusern",
+      "kind": "walk_small",
+      "facing": "se",
+      "frame": 6,
+      "path": "assets/sprites/arena/fusern/small/walk_se_f6.png",
+      "dome_bbox_original": [
+        9,
+        11,
+        34,
+        23
+      ],
+      "before": {
+        "whole_mean_brightness": 63.955,
+        "dome_roi_pixels": 191,
+        "dome_mean_brightness": 86.4571,
+        "warm_brick_pixels": 144,
+        "warm_brick_mean_brightness": 92.6849,
+        "warm_brick_saturation_pct": 63.9782,
+        "bright_orange_L130_roi_pct": 6.2827,
+        "pale_orange_L165_roi_pct": 2.0942,
+        "dark_joint_or_shadow_L60_roi_pct": 24.0838,
+        "dominant_rgb": [
+          189,
+          96,
+          53
+        ],
+        "dominant_rgb_roi_pct": 23.0366,
+        "local_adjacent_luminance_difference": 23.3095,
+        "roi_colour_count": 22
+      },
+      "after": {
+        "whole_mean_brightness": 63.955,
+        "dome_roi_pixels": 191,
+        "dome_mean_brightness": 86.4571,
+        "warm_brick_pixels": 144,
+        "warm_brick_mean_brightness": 92.6849,
+        "warm_brick_saturation_pct": 63.9782,
+        "bright_orange_L130_roi_pct": 6.2827,
+        "pale_orange_L165_roi_pct": 2.0942,
+        "dark_joint_or_shadow_L60_roi_pct": 24.0838,
+        "dominant_rgb": [
+          189,
+          96,
+          53
+        ],
+        "dominant_rgb_roi_pct": 23.0366,
+        "local_adjacent_luminance_difference": 23.3095,
+        "roi_colour_count": 22
+      },
+      "alpha_bytes_exact": true
+    },
+    {
+      "form": "fusern",
+      "kind": "walk_small",
+      "facing": "se",
+      "frame": 7,
+      "path": "assets/sprites/arena/fusern/small/walk_se_f7.png",
+      "dome_bbox_original": [
+        8,
+        11,
+        34,
+        23
+      ],
+      "before": {
+        "whole_mean_brightness": 64.3903,
+        "dome_roi_pixels": 191,
+        "dome_mean_brightness": 86.4674,
+        "warm_brick_pixels": 145,
+        "warm_brick_mean_brightness": 91.6079,
+        "warm_brick_saturation_pct": 63.7361,
+        "bright_orange_L130_roi_pct": 5.7592,
+        "pale_orange_L165_roi_pct": 2.0942,
+        "dark_joint_or_shadow_L60_roi_pct": 23.0366,
+        "dominant_rgb": [
+          189,
+          96,
+          53
+        ],
+        "dominant_rgb_roi_pct": 21.9895,
+        "local_adjacent_luminance_difference": 23.6829,
+        "roi_colour_count": 22
+      },
+      "after": {
+        "whole_mean_brightness": 64.3903,
+        "dome_roi_pixels": 191,
+        "dome_mean_brightness": 86.4674,
+        "warm_brick_pixels": 145,
+        "warm_brick_mean_brightness": 91.6079,
+        "warm_brick_saturation_pct": 63.7361,
+        "bright_orange_L130_roi_pct": 5.7592,
+        "pale_orange_L165_roi_pct": 2.0942,
+        "dark_joint_or_shadow_L60_roi_pct": 23.0366,
+        "dominant_rgb": [
+          189,
+          96,
+          53
+        ],
+        "dominant_rgb_roi_pct": 21.9895,
+        "local_adjacent_luminance_difference": 23.6829,
+        "roi_colour_count": 22
+      },
+      "alpha_bytes_exact": true
+    },
+    {
+      "form": "fusern",
+      "kind": "walk_small",
+      "facing": "sw",
+      "frame": 0,
+      "path": "assets/sprites/arena/fusern/small/walk_sw_f0.png",
+      "dome_bbox_original": [
+        7,
+        11,
+        34,
+        23
+      ],
+      "before": {
+        "whole_mean_brightness": 64.0774,
+        "dome_roi_pixels": 183,
+        "dome_mean_brightness": 88.2214,
+        "warm_brick_pixels": 126,
+        "warm_brick_mean_brightness": 97.557,
+        "warm_brick_saturation_pct": 66.8243,
+        "bright_orange_L130_roi_pct": 6.5574,
+        "pale_orange_L165_roi_pct": 2.7322,
+        "dark_joint_or_shadow_L60_roi_pct": 21.3115,
+        "dominant_rgb": [
+          189,
+          96,
+          53
+        ],
+        "dominant_rgb_roi_pct": 22.9508,
+        "local_adjacent_luminance_difference": 23.2029,
+        "roi_colour_count": 24
+      },
+      "after": {
+        "whole_mean_brightness": 64.0774,
+        "dome_roi_pixels": 183,
+        "dome_mean_brightness": 88.2214,
+        "warm_brick_pixels": 126,
+        "warm_brick_mean_brightness": 97.557,
+        "warm_brick_saturation_pct": 66.8243,
+        "bright_orange_L130_roi_pct": 6.5574,
+        "pale_orange_L165_roi_pct": 2.7322,
+        "dark_joint_or_shadow_L60_roi_pct": 21.3115,
+        "dominant_rgb": [
+          189,
+          96,
+          53
+        ],
+        "dominant_rgb_roi_pct": 22.9508,
+        "local_adjacent_luminance_difference": 23.2029,
+        "roi_colour_count": 24
+      },
+      "alpha_bytes_exact": true
+    },
+    {
+      "form": "fusern",
+      "kind": "walk_small",
+      "facing": "sw",
+      "frame": 1,
+      "path": "assets/sprites/arena/fusern/small/walk_sw_f1.png",
+      "dome_bbox_original": [
+        7,
+        11,
+        33,
+        23
+      ],
+      "before": {
+        "whole_mean_brightness": 67.6256,
+        "dome_roi_pixels": 197,
+        "dome_mean_brightness": 87.2149,
+        "warm_brick_pixels": 140,
+        "warm_brick_mean_brightness": 94.1927,
+        "warm_brick_saturation_pct": 64.9112,
+        "bright_orange_L130_roi_pct": 5.5838,
+        "pale_orange_L165_roi_pct": 2.5381,
+        "dark_joint_or_shadow_L60_roi_pct": 24.8731,
+        "dominant_rgb": [
+          189,
+          96,
+          53
+        ],
+        "dominant_rgb_roi_pct": 23.3503,
+        "local_adjacent_luminance_difference": 23.5728,
+        "roi_colour_count": 22
+      },
+      "after": {
+        "whole_mean_brightness": 67.6256,
+        "dome_roi_pixels": 197,
+        "dome_mean_brightness": 87.2149,
+        "warm_brick_pixels": 140,
+        "warm_brick_mean_brightness": 94.1927,
+        "warm_brick_saturation_pct": 64.9112,
+        "bright_orange_L130_roi_pct": 5.5838,
+        "pale_orange_L165_roi_pct": 2.5381,
+        "dark_joint_or_shadow_L60_roi_pct": 24.8731,
+        "dominant_rgb": [
+          189,
+          96,
+          53
+        ],
+        "dominant_rgb_roi_pct": 23.3503,
+        "local_adjacent_luminance_difference": 23.5728,
+        "roi_colour_count": 22
+      },
+      "alpha_bytes_exact": true
+    },
+    {
+      "form": "fusern",
+      "kind": "walk_small",
+      "facing": "sw",
+      "frame": 2,
+      "path": "assets/sprites/arena/fusern/small/walk_sw_f2.png",
+      "dome_bbox_original": [
+        6,
+        11,
+        33,
+        23
+      ],
+      "before": {
+        "whole_mean_brightness": 63.7925,
+        "dome_roi_pixels": 190,
+        "dome_mean_brightness": 85.983,
+        "warm_brick_pixels": 141,
+        "warm_brick_mean_brightness": 90.7037,
+        "warm_brick_saturation_pct": 63.4383,
+        "bright_orange_L130_roi_pct": 5.7895,
+        "pale_orange_L165_roi_pct": 2.1053,
+        "dark_joint_or_shadow_L60_roi_pct": 24.2105,
+        "dominant_rgb": [
+          189,
+          96,
+          53
+        ],
+        "dominant_rgb_roi_pct": 22.1053,
+        "local_adjacent_luminance_difference": 23.6429,
+        "roi_colour_count": 22
+      },
+      "after": {
+        "whole_mean_brightness": 63.7925,
+        "dome_roi_pixels": 190,
+        "dome_mean_brightness": 85.983,
+        "warm_brick_pixels": 141,
+        "warm_brick_mean_brightness": 90.7037,
+        "warm_brick_saturation_pct": 63.4383,
+        "bright_orange_L130_roi_pct": 5.7895,
+        "pale_orange_L165_roi_pct": 2.1053,
+        "dark_joint_or_shadow_L60_roi_pct": 24.2105,
+        "dominant_rgb": [
+          189,
+          96,
+          53
+        ],
+        "dominant_rgb_roi_pct": 22.1053,
+        "local_adjacent_luminance_difference": 23.6429,
+        "roi_colour_count": 22
+      },
+      "alpha_bytes_exact": true
+    },
+    {
+      "form": "fusern",
+      "kind": "walk_small",
+      "facing": "sw",
+      "frame": 3,
+      "path": "assets/sprites/arena/fusern/small/walk_sw_f3.png",
+      "dome_bbox_original": [
+        6,
+        12,
+        33,
+        23
+      ],
+      "before": {
+        "whole_mean_brightness": 67.0014,
+        "dome_roi_pixels": 175,
+        "dome_mean_brightness": 89.8341,
+        "warm_brick_pixels": 129,
+        "warm_brick_mean_brightness": 96.4595,
+        "warm_brick_saturation_pct": 65.9076,
+        "bright_orange_L130_roi_pct": 5.7143,
+        "pale_orange_L165_roi_pct": 2.2857,
+        "dark_joint_or_shadow_L60_roi_pct": 22.2857,
+        "dominant_rgb": [
+          189,
+          96,
+          53
+        ],
+        "dominant_rgb_roi_pct": 25.1429,
+        "local_adjacent_luminance_difference": 22.6883,
+        "roi_colour_count": 23
+      },
+      "after": {
+        "whole_mean_brightness": 67.0014,
+        "dome_roi_pixels": 175,
+        "dome_mean_brightness": 89.8341,
+        "warm_brick_pixels": 129,
+        "warm_brick_mean_brightness": 96.4595,
+        "warm_brick_saturation_pct": 65.9076,
+        "bright_orange_L130_roi_pct": 5.7143,
+        "pale_orange_L165_roi_pct": 2.2857,
+        "dark_joint_or_shadow_L60_roi_pct": 22.2857,
+        "dominant_rgb": [
+          189,
+          96,
+          53
+        ],
+        "dominant_rgb_roi_pct": 25.1429,
+        "local_adjacent_luminance_difference": 22.6883,
+        "roi_colour_count": 23
+      },
+      "alpha_bytes_exact": true
+    },
+    {
+      "form": "fusern",
+      "kind": "walk_small",
+      "facing": "sw",
+      "frame": 4,
+      "path": "assets/sprites/arena/fusern/small/walk_sw_f4.png",
+      "dome_bbox_original": [
+        7,
+        12,
+        33,
+        23
+      ],
+      "before": {
+        "whole_mean_brightness": 64.8822,
+        "dome_roi_pixels": 168,
+        "dome_mean_brightness": 87.3362,
+        "warm_brick_pixels": 127,
+        "warm_brick_mean_brightness": 93.4275,
+        "warm_brick_saturation_pct": 64.288,
+        "bright_orange_L130_roi_pct": 6.5476,
+        "pale_orange_L165_roi_pct": 2.381,
+        "dark_joint_or_shadow_L60_roi_pct": 23.8095,
+        "dominant_rgb": [
+          189,
+          96,
+          53
+        ],
+        "dominant_rgb_roi_pct": 23.2143,
+        "local_adjacent_luminance_difference": 23.2635,
+        "roi_colour_count": 21
+      },
+      "after": {
+        "whole_mean_brightness": 64.8822,
+        "dome_roi_pixels": 168,
+        "dome_mean_brightness": 87.3362,
+        "warm_brick_pixels": 127,
+        "warm_brick_mean_brightness": 93.4275,
+        "warm_brick_saturation_pct": 64.288,
+        "bright_orange_L130_roi_pct": 6.5476,
+        "pale_orange_L165_roi_pct": 2.381,
+        "dark_joint_or_shadow_L60_roi_pct": 23.8095,
+        "dominant_rgb": [
+          189,
+          96,
+          53
+        ],
+        "dominant_rgb_roi_pct": 23.2143,
+        "local_adjacent_luminance_difference": 23.2635,
+        "roi_colour_count": 21
+      },
+      "alpha_bytes_exact": true
+    },
+    {
+      "form": "fusern",
+      "kind": "walk_small",
+      "facing": "sw",
+      "frame": 5,
+      "path": "assets/sprites/arena/fusern/small/walk_sw_f5.png",
+      "dome_bbox_original": [
+        8,
+        12,
+        33,
+        23
+      ],
+      "before": {
+        "whole_mean_brightness": 67.0942,
+        "dome_roi_pixels": 175,
+        "dome_mean_brightness": 90.7626,
+        "warm_brick_pixels": 132,
+        "warm_brick_mean_brightness": 96.0094,
+        "warm_brick_saturation_pct": 65.603,
+        "bright_orange_L130_roi_pct": 6.2857,
+        "pale_orange_L165_roi_pct": 2.8571,
+        "dark_joint_or_shadow_L60_roi_pct": 20.5714,
+        "dominant_rgb": [
+          189,
+          96,
+          53
+        ],
+        "dominant_rgb_roi_pct": 24.5714,
+        "local_adjacent_luminance_difference": 23.6687,
+        "roi_colour_count": 23
+      },
+      "after": {
+        "whole_mean_brightness": 67.0942,
+        "dome_roi_pixels": 175,
+        "dome_mean_brightness": 90.7626,
+        "warm_brick_pixels": 132,
+        "warm_brick_mean_brightness": 96.0094,
+        "warm_brick_saturation_pct": 65.603,
+        "bright_orange_L130_roi_pct": 6.2857,
+        "pale_orange_L165_roi_pct": 2.8571,
+        "dark_joint_or_shadow_L60_roi_pct": 20.5714,
+        "dominant_rgb": [
+          189,
+          96,
+          53
+        ],
+        "dominant_rgb_roi_pct": 24.5714,
+        "local_adjacent_luminance_difference": 23.6687,
+        "roi_colour_count": 23
+      },
+      "alpha_bytes_exact": true
+    },
+    {
+      "form": "fusern",
+      "kind": "walk_small",
+      "facing": "sw",
+      "frame": 6,
+      "path": "assets/sprites/arena/fusern/small/walk_sw_f6.png",
+      "dome_bbox_original": [
+        8,
+        11,
+        33,
+        23
+      ],
+      "before": {
+        "whole_mean_brightness": 63.955,
+        "dome_roi_pixels": 191,
+        "dome_mean_brightness": 86.4571,
+        "warm_brick_pixels": 144,
+        "warm_brick_mean_brightness": 92.6849,
+        "warm_brick_saturation_pct": 63.9782,
+        "bright_orange_L130_roi_pct": 6.2827,
+        "pale_orange_L165_roi_pct": 2.0942,
+        "dark_joint_or_shadow_L60_roi_pct": 24.0838,
+        "dominant_rgb": [
+          189,
+          96,
+          53
+        ],
+        "dominant_rgb_roi_pct": 23.0366,
+        "local_adjacent_luminance_difference": 23.3095,
+        "roi_colour_count": 22
+      },
+      "after": {
+        "whole_mean_brightness": 63.955,
+        "dome_roi_pixels": 191,
+        "dome_mean_brightness": 86.4571,
+        "warm_brick_pixels": 144,
+        "warm_brick_mean_brightness": 92.6849,
+        "warm_brick_saturation_pct": 63.9782,
+        "bright_orange_L130_roi_pct": 6.2827,
+        "pale_orange_L165_roi_pct": 2.0942,
+        "dark_joint_or_shadow_L60_roi_pct": 24.0838,
+        "dominant_rgb": [
+          189,
+          96,
+          53
+        ],
+        "dominant_rgb_roi_pct": 23.0366,
+        "local_adjacent_luminance_difference": 23.3095,
+        "roi_colour_count": 22
+      },
+      "alpha_bytes_exact": true
+    },
+    {
+      "form": "fusern",
+      "kind": "walk_small",
+      "facing": "sw",
+      "frame": 7,
+      "path": "assets/sprites/arena/fusern/small/walk_sw_f7.png",
+      "dome_bbox_original": [
+        8,
+        11,
+        34,
+        23
+      ],
+      "before": {
+        "whole_mean_brightness": 64.3903,
+        "dome_roi_pixels": 191,
+        "dome_mean_brightness": 86.4674,
+        "warm_brick_pixels": 145,
+        "warm_brick_mean_brightness": 91.6079,
+        "warm_brick_saturation_pct": 63.7361,
+        "bright_orange_L130_roi_pct": 5.7592,
+        "pale_orange_L165_roi_pct": 2.0942,
+        "dark_joint_or_shadow_L60_roi_pct": 23.0366,
+        "dominant_rgb": [
+          189,
+          96,
+          53
+        ],
+        "dominant_rgb_roi_pct": 21.9895,
+        "local_adjacent_luminance_difference": 23.6829,
+        "roi_colour_count": 22
+      },
+      "after": {
+        "whole_mean_brightness": 64.3903,
+        "dome_roi_pixels": 191,
+        "dome_mean_brightness": 86.4674,
+        "warm_brick_pixels": 145,
+        "warm_brick_mean_brightness": 91.6079,
+        "warm_brick_saturation_pct": 63.7361,
+        "bright_orange_L130_roi_pct": 5.7592,
+        "pale_orange_L165_roi_pct": 2.0942,
+        "dark_joint_or_shadow_L60_roi_pct": 23.0366,
+        "dominant_rgb": [
+          189,
+          96,
+          53
+        ],
+        "dominant_rgb_roi_pct": 21.9895,
+        "local_adjacent_luminance_difference": 23.6829,
+        "roi_colour_count": 22
+      },
+      "alpha_bytes_exact": true
+    },
+    {
+      "form": "fusern",
+      "kind": "walk_small",
+      "facing": "s",
+      "frame": 0,
+      "path": "assets/sprites/arena/fusern/small/walk_s_f0.png",
+      "dome_bbox_original": [
+        9,
+        11,
+        34,
+        23
+      ],
+      "before": {
+        "whole_mean_brightness": 68.7578,
+        "dome_roi_pixels": 191,
+        "dome_mean_brightness": 89.5619,
+        "warm_brick_pixels": 133,
+        "warm_brick_mean_brightness": 95.7588,
+        "warm_brick_saturation_pct": 66.5584,
+        "bright_orange_L130_roi_pct": 4.712,
+        "pale_orange_L165_roi_pct": 0.5236,
+        "dark_joint_or_shadow_L60_roi_pct": 18.8482,
+        "dominant_rgb": [
+          189,
+          96,
+          53
+        ],
+        "dominant_rgb_roi_pct": 25.6545,
+        "local_adjacent_luminance_difference": 22.9751,
+        "roi_colour_count": 26
+      },
+      "after": {
+        "whole_mean_brightness": 68.7578,
+        "dome_roi_pixels": 191,
+        "dome_mean_brightness": 89.5619,
+        "warm_brick_pixels": 133,
+        "warm_brick_mean_brightness": 95.7588,
+        "warm_brick_saturation_pct": 66.5584,
+        "bright_orange_L130_roi_pct": 4.712,
+        "pale_orange_L165_roi_pct": 0.5236,
+        "dark_joint_or_shadow_L60_roi_pct": 18.8482,
+        "dominant_rgb": [
+          189,
+          96,
+          53
+        ],
+        "dominant_rgb_roi_pct": 25.6545,
+        "local_adjacent_luminance_difference": 22.9751,
+        "roi_colour_count": 26
+      },
+      "alpha_bytes_exact": true
+    },
+    {
+      "form": "fusern",
+      "kind": "walk_small",
+      "facing": "s",
+      "frame": 1,
+      "path": "assets/sprites/arena/fusern/small/walk_s_f1.png",
+      "dome_bbox_original": [
+        9,
+        10,
+        34,
+        22
+      ],
+      "before": {
+        "whole_mean_brightness": 67.4278,
+        "dome_roi_pixels": 184,
+        "dome_mean_brightness": 88.6189,
+        "warm_brick_pixels": 130,
+        "warm_brick_mean_brightness": 97.409,
+        "warm_brick_saturation_pct": 65.9368,
+        "bright_orange_L130_roi_pct": 4.3478,
+        "pale_orange_L165_roi_pct": 0.5435,
+        "dark_joint_or_shadow_L60_roi_pct": 23.913,
+        "dominant_rgb": [
+          189,
+          96,
+          53
+        ],
+        "dominant_rgb_roi_pct": 28.2609,
+        "local_adjacent_luminance_difference": 21.6318,
+        "roi_colour_count": 24
+      },
+      "after": {
+        "whole_mean_brightness": 67.4278,
+        "dome_roi_pixels": 184,
+        "dome_mean_brightness": 88.6189,
+        "warm_brick_pixels": 130,
+        "warm_brick_mean_brightness": 97.409,
+        "warm_brick_saturation_pct": 65.9368,
+        "bright_orange_L130_roi_pct": 4.3478,
+        "pale_orange_L165_roi_pct": 0.5435,
+        "dark_joint_or_shadow_L60_roi_pct": 23.913,
+        "dominant_rgb": [
+          189,
+          96,
+          53
+        ],
+        "dominant_rgb_roi_pct": 28.2609,
+        "local_adjacent_luminance_difference": 21.6318,
+        "roi_colour_count": 24
+      },
+      "alpha_bytes_exact": true
+    },
+    {
+      "form": "fusern",
+      "kind": "walk_small",
+      "facing": "s",
+      "frame": 2,
+      "path": "assets/sprites/arena/fusern/small/walk_s_f2.png",
+      "dome_bbox_original": [
+        9,
+        10,
+        34,
+        22
+      ],
+      "before": {
+        "whole_mean_brightness": 69.6755,
+        "dome_roi_pixels": 191,
+        "dome_mean_brightness": 89.171,
+        "warm_brick_pixels": 130,
+        "warm_brick_mean_brightness": 95.9687,
+        "warm_brick_saturation_pct": 66.3753,
+        "bright_orange_L130_roi_pct": 4.1885,
+        "pale_orange_L165_roi_pct": 0.5236,
+        "dark_joint_or_shadow_L60_roi_pct": 19.3717,
+        "dominant_rgb": [
+          189,
+          96,
+          53
+        ],
+        "dominant_rgb_roi_pct": 25.6545,
+        "local_adjacent_luminance_difference": 21.2146,
+        "roi_colour_count": 26
+      },
+      "after": {
+        "whole_mean_brightness": 69.6755,
+        "dome_roi_pixels": 191,
+        "dome_mean_brightness": 89.171,
+        "warm_brick_pixels": 130,
+        "warm_brick_mean_brightness": 95.9687,
+        "warm_brick_saturation_pct": 66.3753,
+        "bright_orange_L130_roi_pct": 4.1885,
+        "pale_orange_L165_roi_pct": 0.5236,
+        "dark_joint_or_shadow_L60_roi_pct": 19.3717,
+        "dominant_rgb": [
+          189,
+          96,
+          53
+        ],
+        "dominant_rgb_roi_pct": 25.6545,
+        "local_adjacent_luminance_difference": 21.2146,
+        "roi_colour_count": 26
+      },
+      "alpha_bytes_exact": true
+    },
+    {
+      "form": "fusern",
+      "kind": "walk_small",
+      "facing": "s",
+      "frame": 3,
+      "path": "assets/sprites/arena/fusern/small/walk_s_f3.png",
+      "dome_bbox_original": [
+        10,
+        9,
+        33,
+        21
+      ],
+      "before": {
+        "whole_mean_brightness": 68.8553,
+        "dome_roi_pixels": 176,
+        "dome_mean_brightness": 88.8659,
+        "warm_brick_pixels": 131,
+        "warm_brick_mean_brightness": 95.3872,
+        "warm_brick_saturation_pct": 64.7795,
+        "bright_orange_L130_roi_pct": 5.1136,
+        "pale_orange_L165_roi_pct": 0.5682,
+        "dark_joint_or_shadow_L60_roi_pct": 23.2955,
+        "dominant_rgb": [
+          189,
+          96,
+          53
+        ],
+        "dominant_rgb_roi_pct": 25.5682,
+        "local_adjacent_luminance_difference": 23.4048,
+        "roi_colour_count": 24
+      },
+      "after": {
+        "whole_mean_brightness": 68.8553,
+        "dome_roi_pixels": 176,
+        "dome_mean_brightness": 88.8659,
+        "warm_brick_pixels": 131,
+        "warm_brick_mean_brightness": 95.3872,
+        "warm_brick_saturation_pct": 64.7795,
+        "bright_orange_L130_roi_pct": 5.1136,
+        "pale_orange_L165_roi_pct": 0.5682,
+        "dark_joint_or_shadow_L60_roi_pct": 23.2955,
+        "dominant_rgb": [
+          189,
+          96,
+          53
+        ],
+        "dominant_rgb_roi_pct": 25.5682,
+        "local_adjacent_luminance_difference": 23.4048,
+        "roi_colour_count": 24
+      },
+      "alpha_bytes_exact": true
+    },
+    {
+      "form": "fusern",
+      "kind": "walk_small",
+      "facing": "s",
+      "frame": 4,
+      "path": "assets/sprites/arena/fusern/small/walk_s_f4.png",
+      "dome_bbox_original": [
+        10,
+        9,
+        33,
+        20
+      ],
+      "before": {
+        "whole_mean_brightness": 69.6478,
+        "dome_roi_pixels": 156,
+        "dome_mean_brightness": 94.0771,
+        "warm_brick_pixels": 125,
+        "warm_brick_mean_brightness": 97.8992,
+        "warm_brick_saturation_pct": 65.7032,
+        "bright_orange_L130_roi_pct": 5.1282,
+        "pale_orange_L165_roi_pct": 0.641,
+        "dark_joint_or_shadow_L60_roi_pct": 18.5897,
+        "dominant_rgb": [
+          189,
+          96,
+          53
+        ],
+        "dominant_rgb_roi_pct": 30.1282,
+        "local_adjacent_luminance_difference": 22.7102,
+        "roi_colour_count": 20
+      },
+      "after": {
+        "whole_mean_brightness": 69.6478,
+        "dome_roi_pixels": 156,
+        "dome_mean_brightness": 94.0771,
+        "warm_brick_pixels": 125,
+        "warm_brick_mean_brightness": 97.8992,
+        "warm_brick_saturation_pct": 65.7032,
+        "bright_orange_L130_roi_pct": 5.1282,
+        "pale_orange_L165_roi_pct": 0.641,
+        "dark_joint_or_shadow_L60_roi_pct": 18.5897,
+        "dominant_rgb": [
+          189,
+          96,
+          53
+        ],
+        "dominant_rgb_roi_pct": 30.1282,
+        "local_adjacent_luminance_difference": 22.7102,
+        "roi_colour_count": 20
+      },
+      "alpha_bytes_exact": true
+    },
+    {
+      "form": "fusern",
+      "kind": "walk_small",
+      "facing": "s",
+      "frame": 5,
+      "path": "assets/sprites/arena/fusern/small/walk_s_f5.png",
+      "dome_bbox_original": [
+        10,
+        10,
+        33,
+        21
+      ],
+      "before": {
+        "whole_mean_brightness": 70.7991,
+        "dome_roi_pixels": 170,
+        "dome_mean_brightness": 93.3048,
+        "warm_brick_pixels": 122,
+        "warm_brick_mean_brightness": 99.596,
+        "warm_brick_saturation_pct": 67.2791,
+        "bright_orange_L130_roi_pct": 4.1176,
+        "pale_orange_L165_roi_pct": 0.5882,
+        "dark_joint_or_shadow_L60_roi_pct": 15.8824,
+        "dominant_rgb": [
+          189,
+          96,
+          53
+        ],
+        "dominant_rgb_roi_pct": 30.0,
+        "local_adjacent_luminance_difference": 19.2248,
+        "roi_colour_count": 24
+      },
+      "after": {
+        "whole_mean_brightness": 70.7991,
+        "dome_roi_pixels": 170,
+        "dome_mean_brightness": 93.3048,
+        "warm_brick_pixels": 122,
+        "warm_brick_mean_brightness": 99.596,
+        "warm_brick_saturation_pct": 67.2791,
+        "bright_orange_L130_roi_pct": 4.1176,
+        "pale_orange_L165_roi_pct": 0.5882,
+        "dark_joint_or_shadow_L60_roi_pct": 15.8824,
+        "dominant_rgb": [
+          189,
+          96,
+          53
+        ],
+        "dominant_rgb_roi_pct": 30.0,
+        "local_adjacent_luminance_difference": 19.2248,
+        "roi_colour_count": 24
+      },
+      "alpha_bytes_exact": true
+    },
+    {
+      "form": "fusern",
+      "kind": "walk_small",
+      "facing": "s",
+      "frame": 6,
+      "path": "assets/sprites/arena/fusern/small/walk_s_f6.png",
+      "dome_bbox_original": [
+        10,
+        10,
+        33,
+        21
+      ],
+      "before": {
+        "whole_mean_brightness": 66.7021,
+        "dome_roi_pixels": 163,
+        "dome_mean_brightness": 92.8879,
+        "warm_brick_pixels": 123,
+        "warm_brick_mean_brightness": 98.6609,
+        "warm_brick_saturation_pct": 66.5876,
+        "bright_orange_L130_roi_pct": 4.2945,
+        "pale_orange_L165_roi_pct": 0.6135,
+        "dark_joint_or_shadow_L60_roi_pct": 19.0184,
+        "dominant_rgb": [
+          189,
+          96,
+          53
+        ],
+        "dominant_rgb_roi_pct": 31.9018,
+        "local_adjacent_luminance_difference": 19.9012,
+        "roi_colour_count": 23
+      },
+      "after": {
+        "whole_mean_brightness": 66.7021,
+        "dome_roi_pixels": 163,
+        "dome_mean_brightness": 92.8879,
+        "warm_brick_pixels": 123,
+        "warm_brick_mean_brightness": 98.6609,
+        "warm_brick_saturation_pct": 66.5876,
+        "bright_orange_L130_roi_pct": 4.2945,
+        "pale_orange_L165_roi_pct": 0.6135,
+        "dark_joint_or_shadow_L60_roi_pct": 19.0184,
+        "dominant_rgb": [
+          189,
+          96,
+          53
+        ],
+        "dominant_rgb_roi_pct": 31.9018,
+        "local_adjacent_luminance_difference": 19.9012,
+        "roi_colour_count": 23
+      },
+      "alpha_bytes_exact": true
+    },
+    {
+      "form": "fusern",
+      "kind": "walk_small",
+      "facing": "s",
+      "frame": 7,
+      "path": "assets/sprites/arena/fusern/small/walk_s_f7.png",
+      "dome_bbox_original": [
+        10,
+        10,
+        33,
+        21
+      ],
+      "before": {
+        "whole_mean_brightness": 68.3022,
+        "dome_roi_pixels": 156,
+        "dome_mean_brightness": 94.3203,
+        "warm_brick_pixels": 122,
+        "warm_brick_mean_brightness": 99.1294,
+        "warm_brick_saturation_pct": 66.1051,
+        "bright_orange_L130_roi_pct": 4.4872,
+        "pale_orange_L165_roi_pct": 0.641,
+        "dark_joint_or_shadow_L60_roi_pct": 19.2308,
+        "dominant_rgb": [
+          189,
+          96,
+          53
+        ],
+        "dominant_rgb_roi_pct": 31.4103,
+        "local_adjacent_luminance_difference": 21.5,
+        "roi_colour_count": 21
+      },
+      "after": {
+        "whole_mean_brightness": 68.3022,
+        "dome_roi_pixels": 156,
+        "dome_mean_brightness": 94.3203,
+        "warm_brick_pixels": 122,
+        "warm_brick_mean_brightness": 99.1294,
+        "warm_brick_saturation_pct": 66.1051,
+        "bright_orange_L130_roi_pct": 4.4872,
+        "pale_orange_L165_roi_pct": 0.641,
+        "dark_joint_or_shadow_L60_roi_pct": 19.2308,
+        "dominant_rgb": [
+          189,
+          96,
+          53
+        ],
+        "dominant_rgb_roi_pct": 31.4103,
+        "local_adjacent_luminance_difference": 21.5,
+        "roi_colour_count": 21
+      },
+      "alpha_bytes_exact": true
+    },
+    {
+      "form": "fusern",
+      "kind": "walk_small",
+      "facing": "w",
+      "frame": 0,
+      "path": "assets/sprites/arena/fusern/small/walk_w_f0.png",
+      "dome_bbox_original": [
+        7,
+        12,
+        33,
+        23
+      ],
+      "before": {
+        "whole_mean_brightness": 91.3889,
+        "dome_roi_pixels": 175,
+        "dome_mean_brightness": 139.0214,
+        "warm_brick_pixels": 153,
+        "warm_brick_mean_brightness": 147.4739,
+        "warm_brick_saturation_pct": 76.4159,
+        "bright_orange_L130_roi_pct": 84.5714,
+        "pale_orange_L165_roi_pct": 21.7143,
+        "dark_joint_or_shadow_L60_roi_pct": 4.5714,
+        "dominant_rgb": [
+          230,
+          113,
+          39
+        ],
+        "dominant_rgb_roi_pct": 46.2857,
+        "local_adjacent_luminance_difference": 12.2601,
+        "roi_colour_count": 13
+      },
+      "after": {
+        "whole_mean_brightness": 91.3889,
+        "dome_roi_pixels": 175,
+        "dome_mean_brightness": 139.0214,
+        "warm_brick_pixels": 153,
+        "warm_brick_mean_brightness": 147.4739,
+        "warm_brick_saturation_pct": 76.4159,
+        "bright_orange_L130_roi_pct": 84.5714,
+        "pale_orange_L165_roi_pct": 21.7143,
+        "dark_joint_or_shadow_L60_roi_pct": 4.5714,
+        "dominant_rgb": [
+          230,
+          113,
+          39
+        ],
+        "dominant_rgb_roi_pct": 46.2857,
+        "local_adjacent_luminance_difference": 12.2601,
+        "roi_colour_count": 13
+      },
+      "alpha_bytes_exact": true
+    },
+    {
+      "form": "fusern",
+      "kind": "walk_small",
+      "facing": "w",
+      "frame": 1,
+      "path": "assets/sprites/arena/fusern/small/walk_w_f1.png",
+      "dome_bbox_original": [
+        7,
+        12,
+        33,
+        24
+      ],
+      "before": {
+        "whole_mean_brightness": 91.6427,
+        "dome_roi_pixels": 189,
+        "dome_mean_brightness": 135.9203,
+        "warm_brick_pixels": 166,
+        "warm_brick_mean_brightness": 144.3923,
+        "warm_brick_saturation_pct": 75.9341,
+        "bright_orange_L130_roi_pct": 80.9524,
+        "pale_orange_L165_roi_pct": 20.1058,
+        "dark_joint_or_shadow_L60_roi_pct": 5.291,
+        "dominant_rgb": [
+          230,
+          113,
+          39
+        ],
+        "dominant_rgb_roi_pct": 44.4444,
+        "local_adjacent_luminance_difference": 14.7707,
+        "roi_colour_count": 17
+      },
+      "after": {
+        "whole_mean_brightness": 91.6427,
+        "dome_roi_pixels": 189,
+        "dome_mean_brightness": 135.9203,
+        "warm_brick_pixels": 166,
+        "warm_brick_mean_brightness": 144.3923,
+        "warm_brick_saturation_pct": 75.9341,
+        "bright_orange_L130_roi_pct": 80.9524,
+        "pale_orange_L165_roi_pct": 20.1058,
+        "dark_joint_or_shadow_L60_roi_pct": 5.291,
+        "dominant_rgb": [
+          230,
+          113,
+          39
+        ],
+        "dominant_rgb_roi_pct": 44.4444,
+        "local_adjacent_luminance_difference": 14.7707,
+        "roi_colour_count": 17
+      },
+      "alpha_bytes_exact": true
+    },
+    {
+      "form": "fusern",
+      "kind": "walk_small",
+      "facing": "w",
+      "frame": 2,
+      "path": "assets/sprites/arena/fusern/small/walk_w_f2.png",
+      "dome_bbox_original": [
+        7,
+        12,
+        33,
+        23
+      ],
+      "before": {
+        "whole_mean_brightness": 92.7525,
+        "dome_roi_pixels": 178,
+        "dome_mean_brightness": 138.7015,
+        "warm_brick_pixels": 157,
+        "warm_brick_mean_brightness": 145.8072,
+        "warm_brick_saturation_pct": 75.5271,
+        "bright_orange_L130_roi_pct": 82.0225,
+        "pale_orange_L165_roi_pct": 23.0337,
+        "dark_joint_or_shadow_L60_roi_pct": 3.3708,
+        "dominant_rgb": [
+          230,
+          113,
+          39
+        ],
+        "dominant_rgb_roi_pct": 42.1348,
+        "local_adjacent_luminance_difference": 13.4729,
+        "roi_colour_count": 16
+      },
+      "after": {
+        "whole_mean_brightness": 92.7525,
+        "dome_roi_pixels": 178,
+        "dome_mean_brightness": 138.7015,
+        "warm_brick_pixels": 157,
+        "warm_brick_mean_brightness": 145.8072,
+        "warm_brick_saturation_pct": 75.5271,
+        "bright_orange_L130_roi_pct": 82.0225,
+        "pale_orange_L165_roi_pct": 23.0337,
+        "dark_joint_or_shadow_L60_roi_pct": 3.3708,
+        "dominant_rgb": [
+          230,
+          113,
+          39
+        ],
+        "dominant_rgb_roi_pct": 42.1348,
+        "local_adjacent_luminance_difference": 13.4729,
+        "roi_colour_count": 16
+      },
+      "alpha_bytes_exact": true
+    },
+    {
+      "form": "fusern",
+      "kind": "walk_small",
+      "facing": "w",
+      "frame": 3,
+      "path": "assets/sprites/arena/fusern/small/walk_w_f3.png",
+      "dome_bbox_original": [
+        7,
+        12,
+        33,
+        23
+      ],
+      "before": {
+        "whole_mean_brightness": 95.708,
+        "dome_roi_pixels": 179,
+        "dome_mean_brightness": 138.1436,
+        "warm_brick_pixels": 157,
+        "warm_brick_mean_brightness": 146.0545,
+        "warm_brick_saturation_pct": 75.8068,
+        "bright_orange_L130_roi_pct": 82.1229,
+        "pale_orange_L165_roi_pct": 22.3464,
+        "dark_joint_or_shadow_L60_roi_pct": 3.9106,
+        "dominant_rgb": [
+          230,
+          113,
+          39
+        ],
+        "dominant_rgb_roi_pct": 43.0168,
+        "local_adjacent_luminance_difference": 14.3686,
+        "roi_colour_count": 16
+      },
+      "after": {
+        "whole_mean_brightness": 95.708,
+        "dome_roi_pixels": 179,
+        "dome_mean_brightness": 138.1436,
+        "warm_brick_pixels": 157,
+        "warm_brick_mean_brightness": 146.0545,
+        "warm_brick_saturation_pct": 75.8068,
+        "bright_orange_L130_roi_pct": 82.1229,
+        "pale_orange_L165_roi_pct": 22.3464,
+        "dark_joint_or_shadow_L60_roi_pct": 3.9106,
+        "dominant_rgb": [
+          230,
+          113,
+          39
+        ],
+        "dominant_rgb_roi_pct": 43.0168,
+        "local_adjacent_luminance_difference": 14.3686,
+        "roi_colour_count": 16
+      },
+      "alpha_bytes_exact": true
+    },
+    {
+      "form": "fusern",
+      "kind": "walk_small",
+      "facing": "w",
+      "frame": 4,
+      "path": "assets/sprites/arena/fusern/small/walk_w_f4.png",
+      "dome_bbox_original": [
+        6,
+        12,
+        33,
+        24
+      ],
+      "before": {
+        "whole_mean_brightness": 90.1569,
+        "dome_roi_pixels": 197,
+        "dome_mean_brightness": 133.1944,
+        "warm_brick_pixels": 170,
+        "warm_brick_mean_brightness": 142.8303,
+        "warm_brick_saturation_pct": 75.747,
+        "bright_orange_L130_roi_pct": 79.6954,
+        "pale_orange_L165_roi_pct": 17.2589,
+        "dark_joint_or_shadow_L60_roi_pct": 7.6142,
+        "dominant_rgb": [
+          230,
+          113,
+          39
+        ],
+        "dominant_rgb_roi_pct": 38.5787,
+        "local_adjacent_luminance_difference": 13.7815,
+        "roi_colour_count": 19
+      },
+      "after": {
+        "whole_mean_brightness": 90.1569,
+        "dome_roi_pixels": 197,
+        "dome_mean_brightness": 133.1944,
+        "warm_brick_pixels": 170,
+        "warm_brick_mean_brightness": 142.8303,
+        "warm_brick_saturation_pct": 75.747,
+        "bright_orange_L130_roi_pct": 79.6954,
+        "pale_orange_L165_roi_pct": 17.2589,
+        "dark_joint_or_shadow_L60_roi_pct": 7.6142,
+        "dominant_rgb": [
+          230,
+          113,
+          39
+        ],
+        "dominant_rgb_roi_pct": 38.5787,
+        "local_adjacent_luminance_difference": 13.7815,
+        "roi_colour_count": 19
+      },
+      "alpha_bytes_exact": true
+    },
+    {
+      "form": "fusern",
+      "kind": "walk_small",
+      "facing": "w",
+      "frame": 5,
+      "path": "assets/sprites/arena/fusern/small/walk_w_f5.png",
+      "dome_bbox_original": [
+        7,
+        12,
+        33,
+        24
+      ],
+      "before": {
+        "whole_mean_brightness": 93.9427,
+        "dome_roi_pixels": 202,
+        "dome_mean_brightness": 133.7089,
+        "warm_brick_pixels": 173,
+        "warm_brick_mean_brightness": 143.7065,
+        "warm_brick_saturation_pct": 75.8329,
+        "bright_orange_L130_roi_pct": 76.7327,
+        "pale_orange_L165_roi_pct": 20.7921,
+        "dark_joint_or_shadow_L60_roi_pct": 4.9505,
+        "dominant_rgb": [
+          230,
+          113,
+          39
+        ],
+        "dominant_rgb_roi_pct": 39.604,
+        "local_adjacent_luminance_difference": 14.5126,
+        "roi_colour_count": 18
+      },
+      "after": {
+        "whole_mean_brightness": 93.9427,
+        "dome_roi_pixels": 202,
+        "dome_mean_brightness": 133.7089,
+        "warm_brick_pixels": 173,
+        "warm_brick_mean_brightness": 143.7065,
+        "warm_brick_saturation_pct": 75.8329,
+        "bright_orange_L130_roi_pct": 76.7327,
+        "pale_orange_L165_roi_pct": 20.7921,
+        "dark_joint_or_shadow_L60_roi_pct": 4.9505,
+        "dominant_rgb": [
+          230,
+          113,
+          39
+        ],
+        "dominant_rgb_roi_pct": 39.604,
+        "local_adjacent_luminance_difference": 14.5126,
+        "roi_colour_count": 18
+      },
+      "alpha_bytes_exact": true
+    },
+    {
+      "form": "fusern",
+      "kind": "walk_small",
+      "facing": "w",
+      "frame": 6,
+      "path": "assets/sprites/arena/fusern/small/walk_w_f6.png",
+      "dome_bbox_original": [
+        7,
+        12,
+        33,
+        23
+      ],
+      "before": {
+        "whole_mean_brightness": 94.1816,
+        "dome_roi_pixels": 179,
+        "dome_mean_brightness": 137.904,
+        "warm_brick_pixels": 158,
+        "warm_brick_mean_brightness": 145.3863,
+        "warm_brick_saturation_pct": 75.6179,
+        "bright_orange_L130_roi_pct": 82.1229,
+        "pale_orange_L165_roi_pct": 22.3464,
+        "dark_joint_or_shadow_L60_roi_pct": 3.352,
+        "dominant_rgb": [
+          230,
+          113,
+          39
+        ],
+        "dominant_rgb_roi_pct": 41.3408,
+        "local_adjacent_luminance_difference": 13.6262,
+        "roi_colour_count": 15
+      },
+      "after": {
+        "whole_mean_brightness": 94.1816,
+        "dome_roi_pixels": 179,
+        "dome_mean_brightness": 137.904,
+        "warm_brick_pixels": 158,
+        "warm_brick_mean_brightness": 145.3863,
+        "warm_brick_saturation_pct": 75.6179,
+        "bright_orange_L130_roi_pct": 82.1229,
+        "pale_orange_L165_roi_pct": 22.3464,
+        "dark_joint_or_shadow_L60_roi_pct": 3.352,
+        "dominant_rgb": [
+          230,
+          113,
+          39
+        ],
+        "dominant_rgb_roi_pct": 41.3408,
+        "local_adjacent_luminance_difference": 13.6262,
+        "roi_colour_count": 15
+      },
+      "alpha_bytes_exact": true
+    },
+    {
+      "form": "fusern",
+      "kind": "walk_small",
+      "facing": "w",
+      "frame": 7,
+      "path": "assets/sprites/arena/fusern/small/walk_w_f7.png",
+      "dome_bbox_original": [
+        7,
+        12,
+        33,
+        23
+      ],
+      "before": {
+        "whole_mean_brightness": 90.407,
+        "dome_roi_pixels": 174,
+        "dome_mean_brightness": 137.761,
+        "warm_brick_pixels": 155,
+        "warm_brick_mean_brightness": 144.8061,
+        "warm_brick_saturation_pct": 74.9302,
+        "bright_orange_L130_roi_pct": 84.4828,
+        "pale_orange_L165_roi_pct": 20.1149,
+        "dark_joint_or_shadow_L60_roi_pct": 5.1724,
+        "dominant_rgb": [
+          230,
+          113,
+          39
+        ],
+        "dominant_rgb_roi_pct": 36.7816,
+        "local_adjacent_luminance_difference": 13.2818,
+        "roi_colour_count": 14
+      },
+      "after": {
+        "whole_mean_brightness": 90.407,
+        "dome_roi_pixels": 174,
+        "dome_mean_brightness": 137.761,
+        "warm_brick_pixels": 155,
+        "warm_brick_mean_brightness": 144.8061,
+        "warm_brick_saturation_pct": 74.9302,
+        "bright_orange_L130_roi_pct": 84.4828,
+        "pale_orange_L165_roi_pct": 20.1149,
+        "dark_joint_or_shadow_L60_roi_pct": 5.1724,
+        "dominant_rgb": [
+          230,
+          113,
+          39
+        ],
+        "dominant_rgb_roi_pct": 36.7816,
+        "local_adjacent_luminance_difference": 13.2818,
+        "roi_colour_count": 14
+      },
+      "alpha_bytes_exact": true
+    }
+  ]
+}

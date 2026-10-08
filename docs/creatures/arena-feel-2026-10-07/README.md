@@ -61,6 +61,20 @@ Preston replaced the Lunge an hour after it was built and tied the kit together 
 - **New signature, Verdant Roar** (placeholder name), built from the turn-based title card where the seed pod on its tail flares green as it roars; that card is now the close-up art. The pod flares from green to white and the arena goes green; the roar sends a shockwave across the whole field and **roots every enemy where it stands** (rings of roots erupt outward); the glowing club is raised and brought down on the target in a towering slam that leaves a **vine field** (5 s, slows to 0.55 inside). Check: 3 of 3 rivals rooted, vine field down. Stills: `rampart_roar_*.png`, `rampart_rootrun.png`, `rampart_pillars.png`, `rampart_flashstep.png`.
 - Check script: `tools/debug/arena_rampart_check.gd`.
 
+## The painted VFX pass (2026-10-07 night, after the commit)
+Preston asked for an MCP to upgrade the VFX. The registry and the open MCP lists have nothing better than what is connected: Retro Diffusion's `rd_animation__vfx` style (which made the four impact bursts) and PixelLab's workbench; the Aseprite MCP would edit frames by hand but needs Aseprite installed. So the pass is eight more RD sheets ($0.56, 16 frames each, `tools/arena/rd_vfx.py` then `slice_vfx.py`, half-size so an effect is about creature size), wired where code used to draw shapes:
+| Sheet | Where it plays |
+|---|---|
+| `lantern_ball` (loops) | the head of every lantern projectile (Ember Shot, Lantern Volley, Vent Barrage, Ember Pellet, Furnace Shard), over the coded trail |
+| `light_slash` | under every claw strike: pounce, tackle hops, Cinder Claw, Glass Spur |
+| `lantern_flash` | every teleport: Flashstep, each tackle hop and the landing |
+| `glass_splash` | molten hits: Molten Cannon landing, Molten Beam contact |
+| `rock_dust` | a rock or crate shattering, and every wall or rock slam |
+| `vent_flame` | Stoke and Kiln venting, Vent Barrage's launch |
+| `root_burst` | Root Snare, Root Rampart's eruption |
+| `mark_glyph` (loops) | every lantern mark on a creature or object |
+`_draw_sheet` plays a sheet at a point, looping or once. Check: `tools/debug/arena_vfx_pass_check.gd`, stills `vfx_*.png`. Known: the first `lantern_ball` take came back as a cluster of three small balls per frame, which made a volley look like nine fireballs; it was regenerated with a single-object prompt (the cluster take is kept as `lantern_ball_cluster_take1_sheet.png`). The `glass_splash` middle frames sit the molten blob on a small pedestal; acceptable at play speed. **Codex:** these twelve sheets are raw RD output, not colour-checked.
+
 ## Not done
 - Sounds for the team fights themselves (a start horn, a knockout sting per creature) and a fire-crackle layer from the one usable Archive sample, pending Preston's download approval.
 - A rematch and line keys still exist for testing; a real menu is not built.

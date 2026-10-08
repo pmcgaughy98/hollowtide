@@ -1,0 +1,293 @@
+{
+  "fusern": {
+    "base": {
+      "count": 1,
+      "brightness": {
+        "min": 71.8589,
+        "max": 71.8589,
+        "spread": 0.0
+      },
+      "saturation": {
+        "min": 56.0061,
+        "max": 56.0061,
+        "spread": 0.0
+      },
+      "colours": {
+        "min": 42,
+        "max": 42
+      },
+      "partial_alpha_total": 0,
+      "small_components_total": 0
+    },
+    "full": {
+      "count": 8,
+      "brightness": {
+        "min": 65.1186,
+        "max": 100.6447,
+        "spread": 35.5261
+      },
+      "saturation": {
+        "min": 46.0382,
+        "max": 57.6766,
+        "spread": 11.6384
+      },
+      "colours": {
+        "min": 23,
+        "max": 31
+      },
+      "partial_alpha_total": 0,
+      "small_components_total": 0
+    },
+    "small": {
+      "count": 8,
+      "brightness": {
+        "min": 62.5551,
+        "max": 100.315,
+        "spread": 37.7599
+      },
+      "saturation": {
+        "min": 43.1394,
+        "max": 56.151,
+        "spread": 13.0116
+      },
+      "colours": {
+        "min": 22,
+        "max": 30
+      },
+      "partial_alpha_total": 0,
+      "small_components_total": 0
+    },
+    "walk_full": {
+      "count": 40,
+      "brightness": {
+        "min": 69.0539,
+        "max": 95.8414,
+        "spread": 26.7875
+      },
+      "saturation": {
+        "min": 47.2285,
+        "max": 55.074,
+        "spread": 7.8455
+      },
+      "colours": {
+        "min": 21,
+        "max": 29
+      },
+      "partial_alpha_total": 0,
+      "small_components_total": 0
+    },
+    "walk_small": {
+      "count": 64,
+      "brightness": {
+        "min": 63.7925,
+        "max": 95.708,
+        "spread": 31.9155
+      },
+      "saturation": {
+        "min": 42.541,
+        "max": 55.0353,
+        "spread": 12.4943
+      },
+      "colours": {
+        "min": 19,
+        "max": 28
+      },
+      "partial_alpha_total": 0,
+      "small_components_total": 0
+    }
+  },
+  "slagglass": {
+    "base": {
+      "count": 1,
+      "brightness": {
+        "min": 46.4613,
+        "max": 46.4613,
+        "spread": 0.0
+      },
+      "saturation": {
+        "min": 32.0895,
+        "max": 32.0895,
+        "spread": 0.0
+      },
+      "colours": {
+        "min": 34,
+        "max": 34
+      },
+      "partial_alpha_total": 0,
+      "small_components_total": 0
+    },
+    "full": {
+      "count": 8,
+      "brightness": {
+        "min": 33.1364,
+        "max": 46.6667,
+        "spread": 13.5303
+      },
+      "saturation": {
+        "min": 23.7319,
+        "max": 29.6555,
+        "spread": 5.9236
+      },
+      "colours": {
+        "min": 21,
+        "max": 28
+      },
+      "partial_alpha_total": 0,
+      "small_components_total": 0
+    },
+    "small": {
+      "count": 8,
+      "brightness": {
+        "min": 32.8952,
+        "max": 47.6423,
+        "spread": 14.7471
+      },
+      "saturation": {
+        "min": 24.2645,
+        "max": 29.8359,
+        "spread": 5.5714
+      },
+      "colours": {
+        "min": 21,
+        "max": 28
+      },
+      "partial_alpha_total": 0,
+      "small_components_total": 0
+    },
+    "walk_full": {
+      "count": 40,
+      "brightness": {
+        "min": 27.3751,
+        "max": 45.6044,
+        "spread": 18.2293
+      },
+      "saturation": {
+        "min": 19.3424,
+        "max": 31.7636,
+        "spread": 12.4212
+      },
+      "colours": {
+        "min": 14,
+        "max": 26
+      },
+      "partial_alpha_total": 0,
+      "small_components_total": 1
+    },
+    "walk_small": {
+      "count": 64,
+      "brightness": {
+        "min": 22.4283,
+        "max": 47.5067,
+        "spread": 25.0784
+      },
+      "saturation": {
+        "min": 16.8098,
+        "max": 33.0148,
+        "spread": 16.205
+      },
+      "colours": {
+        "min": 14,
+        "max": 26
+      },
+      "partial_alpha_total": 0,
+      "small_components_total": 4
+    }
+  },
+  "vitrecrag": {
+    "base": {
+      "count": 1,
+      "brightness": {
+        "min": 54.3715,
+        "max": 54.3715,
+        "spread": 0.0
+      },
+      "saturation": {
+        "min": 51.7166,
+        "max": 51.7166,
+        "spread": 0.0
+      },
+      "colours": {
+        "min": 32,
+        "max": 32
+      },
+      "partial_alpha_total": 0,
+      "small_components_total": 0
+    },
+    "full": {
+      "count": 8,
+      "brightness": {
+        "min": 52.6427,
+        "max": 56.368,
+        "spread": 3.7253
+      },
+      "saturation": {
+        "min": 45.6835,
+        "max": 50.7684,
+        "spread": 5.0849
+      },
+      "colours": {
+        "min": 20,
+        "max": 25
+      },
+      "partial_alpha_total": 0,
+      "small_components_total": 0
+    },
+    "small": {
+      "count": 8,
+      "brightness": {
+        "min": 48.5485,
+        "max": 52.0638,
+        "spread": 3.5153
+      },
+      "saturation": {
+        "min": 43.6057,
+        "max": 52.5863,
+        "spread": 8.9806
+      },
+      "colours": {
+        "min": 20,
+        "max": 24
+      },
+      "partial_alpha_total": 0,
+      "small_components_total": 0
+    },
+    "walk_full": {
+      "count": 40,
+      "brightness": {
+        "min": 44.6038,
+        "max": 76.2691,
+        "spread": 31.6653
+      },
+      "saturation": {
+        "min": 28.1263,
+        "max": 40.7645,
+        "spread": 12.6382
+      },
+      "colours": {
+        "min": 13,
+        "max": 23
+      },
+      "partial_alpha_total": 0,
+      "small_components_total": 0
+    },
+    "walk_small": {
+      "count": 64,
+      "brightness": {
+        "min": 39.0451,
+        "max": 72.3497,
+        "spread": 33.3046
+      },
+      "saturation": {
+        "min": 24.2725,
+        "max": 38.1403,
+        "spread": 13.8678
+      },
+      "colours": {
+        "min": 13,
+        "max": 21
+      },
+      "partial_alpha_total": 0,
+      "small_components_total": 0
+    }
+  }
+}

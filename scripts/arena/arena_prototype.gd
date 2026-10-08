@@ -368,7 +368,13 @@ var _rubble_bits: Array[Dictionary] = []   # fallen shards: {pos, pts, c} and cr
 var _wall_marks: Array[PackedVector2Array] = []
 ## Hand-drawn impact animations (RD effects style, 16 frames each, tools/arena/slice_vfx.py),
 ## layered under the coded flash, ring and smoke.
-const IMPACTS := ["fire_burst", "water_burst", "earth_burst", "shock_burst"]
+## Painted effect sheets (Retro Diffusion rd_animation__vfx, 16 frames each, tools/arena/rd_vfx.py
+## and slice_vfx.py). The first four are impacts; the VFX pass of 2026-10-07 added a looping
+## lantern ball for the lantern projectiles, a light slash for pounce and tackle strikes, a
+## lantern flash for teleports, a molten glass splash, stone dust, a vent flame, a root
+## eruption, and a looping lantern glyph for marks.
+const IMPACTS := ["fire_burst", "water_burst", "earth_burst", "shock_burst",
+	"lantern_ball", "light_slash", "lantern_flash", "glass_splash", "rock_dust", "vent_flame", "root_burst", "mark_glyph"]
 const IMPACT_SECONDS := 0.55
 var _impact_frames := {}
 var _shake := 0.0
@@ -1074,7 +1080,7 @@ func _do_move(i: int, m: String, t: int) -> void:
 			# A gout of heat from the back vents, arcing over the head toward the target.
 			var vent: Vector2 = f["body"].position + Vector2(0, -18 - 3 * f["stage"])
 			_effects.append({"kind": "fireball", "owner": i, "pos": vent, "vel": aim * 150.0, "life": 0.8, "trail": [], "damage": dmg})
-			_effects.append({"kind": "dust", "pos": vent, "t": 0.0})
+			_effects.append({"kind": "impact", "anim": "vent_flame", "pos": vent + Vector2(0, 6), "t": 0.0})
 			_play("res://assets/audio/sfx/ironvent/vent_jet.wav", -14.0)
 		"beam":
 			_effects.append({"kind": "beam", "owner": i, "from": mouth, "dir": aim, "len": 0.0, "life": 0.55, "damage": dmg})
@@ -1127,6 +1133,8 @@ func _do_move(i: int, m: String, t: int) -> void:
 				_effects.append({"kind": "arrow", "from": start2 + Vector2(0, -10), "to": spot + Vector2(0, -10), "t": 0.0})
 				_effects.append({"kind": "flash", "pos": start2 + Vector2(0, -10), "t": 0.2})
 				_effects.append({"kind": "flash", "pos": spot + Vector2(0, -10), "t": 0.1})
+				_effects.append({"kind": "tele", "pos": start2 + Vector2(0, -10), "t": 0.0})
+				_effects.append({"kind": "tele", "pos": spot + Vector2(0, -10), "t": 0.0})
 				f["body"].position = spot
 				f["facing"] = _facing_of(foe["body"].position - spot)
 				_play("res://assets/audio/sfx/stormlantern/throw.wav", -8.0)
@@ -1200,7 +1208,7 @@ func _do_move(i: int, m: String, t: int) -> void:
 			_fighters[j]["rooted"] = ROOT_SECONDS
 			_fighters[j]["crippled"] = CRIPPLE_SECONDS
 			_effects.append({"kind": "snare", "who": j, "t": 0.0})
-			_effects.append({"kind": "impact", "anim": "earth_burst", "pos": _fighters[j]["body"].position + Vector2(0, -4), "t": 0.0})
+			_effects.append({"kind": "impact", "anim": "root_burst", "pos": _fighters[j]["body"].position + Vector2(0, -4), "t": 0.0})
 			_hurt(j, dmg, Vector2.ZERO, i)
 			_label(j, "Rooted")
 			_play("res://assets/audio/sfx/root_rampart/rootwave.wav", -10.0)
@@ -1302,7 +1310,7 @@ func _do_move(i: int, m: String, t: int) -> void:
 	if hot:
 		# Full heat spent on that move: the vents blow it out.
 		f["heat"] = 0.0
-		_burst(f["body"].position + Vector2(0, -18 - 3 * f["stage"]), Color("#fff1c0"), Color("#ff6a1a"), 14.0, false)
+		_burst(f["body"].position + Vector2(0, -18 - 3 * f["stage"]), Color("#fff1c0"), Color("#ff6a1a"), 14.0, false, "vent_flame")
 		_label(i, "Kiln blast" if f["passive"] == "kiln" else "Vented")
 	if f["hollow"]:
 		f["solid"] = maxf(f["solid"], SURFACE_ON_ATTACK)
@@ -1434,7 +1442,7 @@ func _break_rock(k: int) -> void:
 			Vector2.RIGHT.rotated(randf() * TAU) * randf_range(rx * 1.5, rx * 3.6))
 	_breaking_crate = false
 	_rubble_bits.append({"pos": at, "rx": rx})
-	_burst(at + Vector2(0, -r["h"] * 0.4), Color("#e8e0d0"), Color("#6e665c"), rx * 1.4, false, "earth_burst")
+	_burst(at + Vector2(0, -r["h"] * 0.4), Color("#e8e0d0"), Color("#6e665c"), rx * 1.4, false, "rock_dust")
 	_rubble.queue_redraw()
 	r["node"].queue_free()
 	_rocks.remove_at(k)
@@ -1708,6 +1716,7 @@ func _update_tackle(i: int, delta: float) -> void:
 			f["facing"] = _facing_of(_fighters[j]["body"].position - f["body"].position)
 			_effects.append({"kind": "arrow", "from": was + Vector2(0, -10), "to": f["body"].position + Vector2(0, -10), "t": 0.0})
 			_effects.append({"kind": "flash", "pos": was + Vector2(0, -10), "t": 0.2})
+			_effects.append({"kind": "tele", "pos": was + Vector2(0, -10), "t": 0.0})
 			_effects.append({"kind": "claw", "pos": _fighters[j]["body"].position + Vector2(0, -8), "dir": Vector2(-tk["side"], 0), "t": 0.0})
 			_hurt(j, tk["dmg"], Vector2(-tk["side"] * 0.3, 0), i)
 			_play("res://assets/audio/sfx/stormlantern/crack.wav", -14.0)
@@ -1727,6 +1736,7 @@ func _update_tackle(i: int, delta: float) -> void:
 			spot = f["body"].position
 		_effects.append({"kind": "arrow", "from": f["body"].position + Vector2(0, -10), "to": spot + Vector2(0, -10), "t": 0.0})
 		_effects.append({"kind": "flash", "pos": spot + Vector2(0, -10), "t": 0.1})
+		_effects.append({"kind": "tele", "pos": spot + Vector2(0, -10), "t": 0.0})
 		f["body"].position = spot
 		f["tackle"] = {}
 		f["disengage"] = 0.3
@@ -1773,7 +1783,7 @@ func _update_carry(i: int, delta: float) -> void:
 			_wall_marks.append(_jagged(contact, contact - f["carry"].normalized() * 6.0 + f["carry"].normalized().orthogonal() * -5.0, 3, 2.0))
 			_rubble.queue_redraw()
 		f["body"].position = here
-		_burst(contact + Vector2(0, -6), Color("#f0e6d0"), Color("#7a6a52"), 16.0, false, "earth_burst")
+		_burst(contact + Vector2(0, -6), Color("#f0e6d0"), Color("#7a6a52"), 16.0, false, "rock_dust")
 		_hurt(i, SLAM_DAMAGE, Vector2.ZERO, f["carried_by"])
 		_hitstop = maxf(_hitstop, HITSTOP_HEAVY)
 		f["dazzle"] = maxf(f["dazzle"], SLAM_DAZE)
@@ -2110,7 +2120,7 @@ func _update_effects(delta: float) -> void:
 					e["hit"] = true
 					_hurt(hit, e["damage"], e["dir"] * e.get("push", 1.0), e["owner"])
 					if e.get("molten", false):
-						_burst(_fighters[hit]["body"].position + Vector2(0, -8), Color("#fff1b0"), Color("#ff6a1a"), 20.0, false, "fire_burst")
+						_burst(_fighters[hit]["body"].position + Vector2(0, -8), Color("#fff1b0"), Color("#ff6a1a"), 20.0, false, "glass_splash")
 					else:
 						_burst(_fighters[hit]["body"].position + Vector2(0, -8), Color("#e8fbff"), Color("#5ec8ff"), 20.0, false, "water_burst")
 				if e["life"] <= 0.0:
@@ -2119,7 +2129,7 @@ func _update_effects(delta: float) -> void:
 				e["t"] += delta / 0.5
 				if e["t"] >= 1.0:
 					if e.get("molten", false):
-						_burst(e["to"], Color("#ffe6a0"), Color("#ff6a1a"), 30.0, true, "fire_burst")
+						_burst(e["to"], Color("#ffe6a0"), Color("#ff6a1a"), 30.0, true, "glass_splash")
 					else:
 						_burst(e["to"], Color("#b7e07a"), Color("#7a5a32"), 28.0, true, "earth_burst")
 					var hit := _hit_at(e["to"], 18.0, e["owner"])
@@ -2140,6 +2150,10 @@ func _update_effects(delta: float) -> void:
 			"burst", "flash":
 				e["t"] += delta
 				if e["t"] > 0.45:
+					continue
+			"tele":
+				e["t"] += delta
+				if e["t"] > 0.4:
 					continue
 			"bolt", "claw", "streak":
 				e["t"] += delta
@@ -2223,7 +2237,7 @@ func _update_effects(delta: float) -> void:
 				e["t"] += delta
 				if e["t"] >= RAMPART_RUN:
 					# Arrival: the eruption.
-					_burst(e["to"], Color("#d8f0a0"), Color("#5a3f22"), 30.0, false, "earth_burst")
+					_burst(e["to"], Color("#d8f0a0"), Color("#5a3f22"), 30.0, false, "root_burst")
 					var hit := _hit_at(e["to"], 20.0, e["owner"])
 					if hit >= 0:
 						_hurt(hit, e["damage"], Vector2.ZERO, e["owner"])
@@ -2452,6 +2466,8 @@ func _draw_effects() -> void:
 					_fx.draw_colored_polygon(PackedVector2Array([q.round() + Vector2(-3, 0), q.round() + Vector2(3, 0), q.round() + Vector2(0, -h)]), Color("#5a3f22"))
 					_fx.draw_rect(Rect2(q.round() + Vector2(-1, -h), Vector2(2, 3)), Color("#8fd16a"))
 					_fx.draw_rect(Rect2(q.round() + Vector2(-5, 0), Vector2(10, 2)), Color(0.2, 0.14, 0.08, 0.6))
+			"tele":
+				_draw_sheet(_fx, "lantern_flash", e["pos"] + Vector2(0, 10), e["t"], false, 0.4)
 			"arrow":
 				# An arrow of light between two teleport points: a bright shaft that fades.
 				var k: float = e["t"] / 0.2
@@ -2509,7 +2525,8 @@ func _draw_effects() -> void:
 				var k: float = e["t"] / 0.7
 				_fx.draw_rect(Rect2(e["pos"].round(), Vector2(1, 1)), Color(1, 0.6 - 0.4 * k, 0.15, 1.0 - k))
 			"claw":
-				# Three raking claw marks across the target.
+				# Three raking claw marks across the target, over the painted light slash.
+				_draw_sheet(_fx, "light_slash", e["pos"] + Vector2(0, 10), e["t"], false, 0.25)
 				var k: float = e["t"] / 0.25
 				var side: Vector2 = e["dir"].orthogonal()
 				for c in 3:
@@ -2545,14 +2562,15 @@ func _draw_effects() -> void:
 				_fx.draw_circle(e["pos"].round(), 6.0 + 60.0 * k, Color(1, 0.95, 0.7, 0.45 * (1.0 - k)))
 				_fx.draw_arc(e["pos"].round(), 6.0 + 60.0 * k, 0, TAU, 40, Color(1, 0.9, 0.5, 1.0 - k), 2.0)
 			"fireball":
-				# A chain of fire blobs, smallest at the tail, wobbling a little.
+				# A chain of fire blobs, smallest at the tail, wobbling a little; the head is the
+				# painted lantern ball (looping), so every lantern projectile reads the same.
 				var n: int = e["trail"].size()
 				for k in n:
-					if k % 2 == 1:
+					if k % 3 == 2 and k < n - 2:
 						var p: Vector2 = e["trail"][k] + Vector2(0, sin(k * 1.7 + _crowd_t * 20.0))
-						_blob(p, 1.5 + 4.0 * k / maxf(1, n), 0.9)
-				_fx.draw_circle(e["pos"].round(), 11.0, Color(1, 0.55, 0.15, 0.25))
-				_blob(e["pos"], 6.5)
+						_blob(p, 0.8 + 2.2 * k / maxf(1, n), 0.6)
+				_fx.draw_circle(e["pos"].round(), 9.0, Color(1, 0.55, 0.15, 0.18))
+				_draw_sheet(_fx, "lantern_ball", e["pos"] + Vector2(0, 8), _crowd_t + e["pos"].x * 0.01, true)
 			"beam":
 				# Two streams twisting round each other, white cores with blue edges, as in the reference.
 				var tip: Vector2 = e["from"] + e["dir"] * e["len"]
@@ -2643,11 +2661,7 @@ func _draw_marks() -> void:
 
 func _draw_mark(at: Vector2, pulse: float, chosen: bool) -> void:
 	var p: Vector2 = at.round()
-	var col := Color(1.0, 0.85, 0.35, pulse)
-	_fx.draw_rect(Rect2(p + Vector2(-2, -5), Vector2(5, 7)), Color(0.25, 0.15, 0.05, pulse))
-	_fx.draw_rect(Rect2(p + Vector2(-1, -4), Vector2(3, 5)), col)
-	_fx.draw_rect(Rect2(p + Vector2(0, -7), Vector2(1, 2)), Color(0.25, 0.15, 0.05, pulse))
-	_fx.draw_circle(p + Vector2(0.5, -1.5), 5.0 + 2.0 * pulse, Color(1.0, 0.8, 0.4, 0.12))
+	_draw_sheet(_fx, "mark_glyph", p + Vector2(0, 10), _crowd_t, true, IMPACT_SECONDS, Color(1, 1, 1, 0.6 + 0.4 * pulse), 10.0)
 	if chosen:
 		_fx.draw_arc(p + Vector2(0.5, -1.5), 8.0, 0, TAU, 16, Color(1.0, 0.98, 0.85, 0.95), 1.0)
 		_fx.draw_string(_font if _font else ThemeDB.fallback_font, p + Vector2(-12, -10), "LAND", HORIZONTAL_ALIGNMENT_CENTER, 24, 6, Color(1.0, 0.98, 0.85))
@@ -2764,6 +2778,17 @@ func _draw_ground() -> void:
 					on.draw_line(Vector2.ZERO, tip, Color(0.35, 0.6, 0.2, 0.8), 2.0)
 					on.draw_circle(tip, 2.5, Color(0.56, 0.82, 0.42, 0.9))
 				on.draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE)
+
+
+## One frame of a painted sheet at a point (bottom-centred like the impacts), looping on
+## `t` at `fps` frames a second when `loop` is true, otherwise playing once over `seconds`.
+func _draw_sheet(on: CanvasItem, anim: String, at: Vector2, t: float, loop: bool, seconds: float = IMPACT_SECONDS, tint: Color = Color.WHITE, fps: float = 14.0) -> void:
+	var frames: Array = _impact_frames.get(anim, [])
+	if frames.is_empty():
+		return
+	var idx: int = int(t * fps) % frames.size() if loop else mini(frames.size() - 1, int(clampf(t / seconds, 0.0, 0.999) * frames.size()))
+	var tex: Texture2D = frames[idx]
+	on.draw_texture(tex, (at - Vector2(tex.get_width() * 0.5, tex.get_height() * 0.75)).round(), tint)
 
 
 ## A rock, drawn on its own node so it sorts with the creatures by height on screen. Flat

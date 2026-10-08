@@ -8,8 +8,10 @@ The before-audit directory contains before-manifest.json, before-metrics.json an
 originals/<project-relative PNG>. --before-manifest may point to the manifest instead.
 Writes CSV/Markdown/JSON proof, 3x nearest-neighbour game contacts and walk preview
 GIFs into --output only. It never calls generation, imports, or game code. Existing
-alpha/support/foot rows of the full art are immutable; tiny sparks, barbels and
-spikes are measured but never deleted. Saturation is mean HSV percent (0 to100).
+alpha/support/foot rows of the full art are immutable except explicit audited
+artifact removal or enclosed crater-hole filling; no general shape exemption is
+accepted. Tiny sparks, barbels and spikes are measured, never deleted implicitly.
+Saturation is mean HSV percent (0 to100).
 """
 from pathlib import Path
 import argparse, hashlib, json, csv, collections, sys
@@ -95,6 +97,9 @@ def main():
     if project==original or output==project or output==original: raise ValueError('Output and originals must be separate from project root.')
     repairs=json.loads(args.geometry_repairs.read_text(encoding='utf8')) if args.geometry_repairs else {'repairs':[]}
     repair_pixels={r['path']:{tuple(xy) for xy in r['sheet_pixels_xy']} for r in repairs['repairs']}
+    repair_operations={r['path']:r.get('operation','remove_artifact') for r in repairs['repairs']}
+    if len(repair_pixels)!=len(repairs['repairs']):raise ValueError('One exact repair declaration per source sheet is required.')
+    if any(op not in ('remove_artifact','fill_enclosed_crater') for op in repair_operations.values()):raise ValueError('Unknown geometry operation; no generic alpha exemption.')
     def alpha_valid(old,new,rel,frame=None):
         if old.shape!=new.shape:return False
         changed={(int(x),int(y)) for y,x in zip(*np.nonzero(old[:,:,3]!=new[:,:,3]))}
@@ -102,6 +107,31 @@ def main():
         if frame is not None:
             cell=old.shape[0];ox=(frame%4)*cell;oy=(frame//4)*cell
             expected={(x-ox,y-oy) for x,y in expected if ox<=x<ox+cell and oy<=y<oy+cell}
+        operation=repair_operations.get(rel,'remove_artifact')
+        if operation=='fill_enclosed_crater':
+            # Verify additions only, at the complete explicitly audited coordinate set.
+            # Independently prove each original transparent component is enclosed within
+            # its frame; this cannot exempt silhouette expansion or open background.
+            if changed!=expected or not all(old[y,x,3]==0 and new[y,x,3]==255 for x,y in expected):return False
+            # A repaired sheet still contains untouched frames. Exact empty diffs
+            # in those frames are valid; they receive no geometry exemption.
+            if not expected:return True
+            cell=old.shape[0] if frame is not None else old.shape[0]//2
+            height,width=old.shape[:2];remaining=set(expected)
+            while remaining:
+                start=next(iter(remaining));stack=[start];component=set();seen={start}
+                while stack:
+                    x,y=stack.pop();component.add((x,y))
+                    if x%cell in (0,cell-1) or y%cell in (0,cell-1):return False
+                    for dy in (-1,0,1):
+                        for dx in (-1,0,1):
+                            if dx==0 and dy==0:continue
+                            xx,yy=x+dx,y+dy
+                            if 0<=xx<width and 0<=yy<height and old[yy,xx,3]==0 and (xx,yy) not in seen:
+                                seen.add((xx,yy));stack.append((xx,yy))
+                if not component.issubset(expected):return False
+                remaining-=component
+            return geometry(old)['bbox']==geometry(new)['bbox'] and geometry(old)['foot_row']==geometry(new)['foot_row']
         return changed==expected and all(old[y,x,3]>0 and new[y,x,3]==0 for x,y in expected)
     basepal={}; bases=[]
     for n,rel in BASE_REL.items():
