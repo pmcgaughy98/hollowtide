@@ -1,0 +1,9 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+D3D12 12_0 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce GTX 1660 SUPER
+
+[godot_ai game_helper] registered mcp capture (debugger active=false, logger=true)
+Rail Shot: the enemy on the line at 80 px 351->315, the one behind it at 150 px 432->392 (far bonus), the one off the line 351->351; Oxbowarchon moved 35 px during the wind-up and recoil
+Rail Recoil: hopped 50 px away (untouchable 0.30 s); the close enemy took 11 and now stands 90 px off
+Preostmar (stage 1): 2 abilities, meter after a hit 0, signature with a full meter: refused
+Vent Blast (Clinkerhide): the target took 17, is smouldering 1.3 s and was thrown 0 px; Clinkerhide has 3 abilities and passive 'stoke'
+Match vs Ironvent: Oxbowarchon after 44 s; the AI Oxbowarchon fired 2 Rail Shots, vaulted 1 times, and stood 74 px from Ironvent on average

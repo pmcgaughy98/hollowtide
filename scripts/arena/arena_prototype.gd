@@ -67,9 +67,9 @@ const LINES := [
 	# The Vitrecrag line (Ember kiln, then armour, then the cannon), added 2026-10-07.
 	{"forms": [["fusern", "res://data/creatures/106_fusern.tres"], ["slagglass", "res://data/creatures/107_slagglass.tres"], ["vitrecrag", "res://data/creatures/108_vitrecrag.tres"]],
 		"signature": "Molten Glass", "accent": Color("#ffa030")},
-	# The Oxbowarchon line (Preston, 2026-10-08): the Bloom GEMSTONE KING, Bloom/Stone, a
+	# The Oxbowarchon line (Preston, 2026-10-08): the ELECTRIC GEMSTONE KING, Electric/Stone, a
 	# pseudo-legendary like Ironvent (no longer Preston's personal line). Its emerald is the
-	# Bloom king stone, and Kingstone Rail fires its power.
+	# Electric king stone, the charge between the rails, and Kingstone Rail fires its power.
 	{"forms": [["preostmar", "res://data/creatures/901_preostmar.tres"], ["oathfen", "res://data/creatures/902_oathfen.tres"], ["oxbowarchon", "res://data/creatures/903_oxbowarchon.tres"]],
 		"signature": "Kingstone Rail", "accent": Color("#12b76a"),
 		"card": "res://assets/sprites/creatures/attacks/oxbowarchon_kingstone_rail/style_matched/titlecard.png"},
@@ -86,34 +86,46 @@ const LINES := [
 ## Roles (Preston, 2026-10-07): melee, long range, defense piercer, tank, assassin and more;
 ## the role decides how the creature's AI moves ("profile") as well as its kit.
 const KITS := {
-	# Every stage has a kit now (Preston, 2026-10-08: "fix up the non stage 3's kits. Only
-	# final stages get signature moves"). The draft rule: a line's earlier stages carry the
-	# same role's tools, fewer of them: stage 1 the basic and two abilities, stage 2 the basic
-	# and three, stage 3 the basic, three and the signature. Passives from stage 2. Grok owns
-	# every number; placeholder move names are marked where they are new.
-	# Stormwick line (Ember/Electric skirmisher): pounce in, strike, bounce out.
-	"kithflare": {"moves": ["pounce"], "abilities": ["flashstep", "lantern_volley"], "speed": 1.2, "profile": "skirmish"},
-	"sparkwick": {"moves": ["pounce"], "abilities": ["flashstep", "lantern_volley", "lantern_tackle"], "speed": 1.3,
-		"passive": "lantern_mark", "profile": "skirmish"},
+	# Every stage has its own kit (Preston, 2026-10-08: "give every stage their own kits based
+	# off their physiology and how they should play in Hollowtide"). Each form's moves come off
+	# the parts its art shows, and each stage plays its own way, not a trimmed copy of the
+	# final. Shape: stage 1 = basic + 2, stage 2 = basic + 3 + passive, stage 3 = + signature.
+	# The table with the reasons: docs/creatures/arena-stage-kits-2026-10-08.md. Grok owns
+	# every number; placeholder names are marked there.
+	#
+	# Stormwick line (Ember, then Ember/Electric with the lantern).
+	# Kithflare: a small fire runner with claws and a hot tail, no lantern. A harasser: rakes up
+	# close, feints out through its own embers, spits ember shots from range.
+	"kithflare": {"moves": ["claw"], "abilities": ["ember_feint", "fireball"], "speed": 1.2, "profile": "skirmish"},
+	# Sparkwick: the lantern has lit on its tail. A zapper that pounces: Wick Bolt from the
+	# lantern, the volley, and Lantern Charge (running charges an overcharged bolt).
+	"sparkwick": {"moves": ["pounce"], "abilities": ["ember_feint", "wick_bolt", "lantern_volley"], "speed": 1.3,
+		"passive": "lantern_charge", "profile": "skirmish"},
 	# Stormwick (Preston, 2026-10-07): an agile melee attacker like Pikachu against Onix in the
-	# reference: its basic attack POUNCES in, strikes and bounces straight back out. Abilities:
-	# 1 Flashstep (three charges, each on its own 3 s cooldown), 2 Lantern Volley (hops back
-	# and fires the lantern balls in a spread), 3 Lantern Lunge (a dash that only lands if the
-	# target is close enough at the end). 4 Stormlantern.
-	"stormwick": {"role": "Skirmisher", "moves": ["pounce"], "abilities": ["flashstep", "lantern_volley", "lantern_tackle"], "speed": 1.4,
+	# reference: pounce in, strike, bounce out. 1 Ember Feint (replaced Flashstep 2026-10-08),
+	# 2 Lantern Volley (hops back, fires the bouncing marking balls), 3 Lantern Tackle (the zip
+	# between marks). Passive Lantern Mark. 4 Stormlantern.
+	"stormwick": {"role": "Skirmisher", "moves": ["pounce"], "abilities": ["ember_feint", "lantern_volley", "lantern_tackle"], "speed": 1.4,
 		"passive": "lantern_mark", "profile": "skirmish"},
-	# Tallowroot line (Bloom/Stone tank): seed pods, the tail club, roots.
-	"tallowroot": {"moves": ["seed"], "abilities": ["club_slam", "root_snare"], "speed": 0.8, "hp": 1.2, "profile": "press"},
-	"huskward": {"moves": ["seed"], "abilities": ["club_slam", "root_snare", "root_rampart"], "speed": 0.7, "hp": 1.4,
+	# Rampartroot line (Bloom, then Bloom/Stone).
+	# Tallowroot: a seed burrower. Spits seed pods, snares with roots, and burrows under the
+	# ground to come up behind whatever it is fighting.
+	"tallowroot": {"moves": ["seed"], "abilities": ["root_snare", "burrow"], "speed": 0.9, "hp": 1.1, "profile": "press"},
+	# Huskward: the husk has hardened and the tail club has grown. A bruiser-tank: the club, the
+	# snare, and Root Wall (a curve of roots behind a target that keeps its distance). Rampart.
+	"huskward": {"moves": ["seed"], "abilities": ["club_slam", "root_snare", "root_wall"], "speed": 0.7, "hp": 1.4,
 		"passive": "rampart", "profile": "press"},
 	# Rampartroot (Preston, 2026-10-07 night): a slow-moving tank. Basic Seed Pod; 1 Tail Club
 	# (a club swing with its tail that knocks back), 2 Root Snare, 3 Root Rampart (the old
 	# signature, shrunk to an ability). 4 Verdant Roar, the new signature (placeholder name).
 	"rampartroot": {"role": "Tank", "moves": ["seed"], "abilities": ["club_slam", "root_snare", "root_rampart"], "speed": 0.6, "hp": 1.7,
 		"passive": "rampart", "profile": "press"},
-	# Scourmaw line (Tide, then Tide/Hollow assassin): the pressure jet, then phase, riptide, sinkhole.
-	"rimefin": {"moves": ["beam"], "abilities": ["phase", "riptide"], "profile": "kite"},
-	"riftfin": {"moves": ["beam"], "abilities": ["phase", "riptide", "sinkhole"], "hp": 0.9, "speed": 1.1, "profile": "kite"},
+	# Scourmaw line (Tide, then Tide/Hollow).
+	# Rimefin: a small river fish with a pressure jet. Keeps its distance, lays a riptide, and
+	# dives under the water to come up behind.
+	"rimefin": {"moves": ["beam"], "abilities": ["riptide", "dive"], "profile": "kite"},
+	# Riftfin: faster, the jaw growing. The dive, the riptide, and Deep Jet from range.
+	"riftfin": {"moves": ["beam"], "abilities": ["riptide", "dive", "deep_jet"], "hp": 0.9, "speed": 1.1, "profile": "kite", "far_bonus": 1.15},
 	# Long-range assassin: glass cannon, hit and run, keeps its distance and phases away.
 	# Scourmaw (ability kit, 2026-10-07 night, a draft for Grok): basic Deep Jet (AI); 1 Phase
 	# (attacks pass through; breaks roots); 2 Riptide (a current under the target); 3 Sinkhole,
@@ -121,50 +133,49 @@ const KITS := {
 	# few seconds hits harder. Passive Absence (hits erode the target). 4 Undertow.
 	"scourmaw": {"role": "Assassin", "moves": ["deep_jet"], "abilities": ["phase", "riptide", "sinkhole"], "hp": 0.85, "passive": "absence", "profile": "kite",
 		"far_bonus": 1.3},
-	# The Ironvent line (Ember/Stone bruisers), from its turn-based moves (Crest Ram, Cinder
-	# Claw, Vent Barrage, Furnace Roar). Basic Cinder Claw; 1 Crest Ram (Clinkerhide up, which
-	# has the crest), 2 Vent Barrage, 3 Vent Blast (placeholder name: a gout of heat from the
-	# back vents, a short cone that throws back and smoulders). Stoke from stage 2.
-	"cinderhide": {"moves": ["cinder_claw"], "abilities": ["vent_barrage", "vent_blast"], "profile": "press"},
+	# Ironvent line (Ember/Stone bruisers), from its turn-based moves (Crest Ram, Cinder Claw,
+	# Vent Barrage, Furnace Roar).
+	# Cinderhide: a small vent reptile with claws. Rakes and pounces, with a vent barrage to open.
+	"cinderhide": {"moves": ["cinder_claw"], "abilities": ["vent_barrage", "pounce"], "profile": "press"},
+	# Clinkerhide: the crest has come in. The ram, the barrage, Vent Blast; Stoke.
 	"clinkerhide": {"moves": ["cinder_claw"], "abilities": ["crest_ram", "vent_barrage", "vent_blast"], "hp": 1.15, "speed": 0.9,
 		"passive": "stoke", "profile": "press"},
+	# Ironvent: basic Cinder Claw; 1 Crest Ram, 2 Vent Barrage, 3 Vent Blast (placeholder name:
+	# a gout of heat from the back vents, a short cone that throws back and smoulders). Stoke.
 	"ironvent": {"role": "Bruiser", "moves": ["cinder_claw"], "abilities": ["crest_ram", "vent_barrage", "vent_blast"], "speed": 0.85, "hp": 1.3,
 		"passive": "stoke", "profile": "press"},
-	# The Vitrecrag line (Ember kiln tanks). Vitrecrag (Preston, 2026-10-08) is the EMBER
-	# TANK: slow and heavy, it walks up and holds the line. Basic Plate Lunge (AI); 1 Molten
-	# Cannon, 2 Molten Beam, 3 Glass Guard (placeholder name: it plants, its shell runs molten,
-	# blows on it are halved and whoever strikes it up close is Glassed). Kiln Heat now also
-	# stokes from blows it takes. 4 Molten Glass, an eruption all round it that Glasses every
-	# enemy inside and leaves a wide field of glass. Slagglass (redesigned 2026-10-08 as the
-	# brick dome, no spurs) shoves with its shell and shoots furnace shards.
+	# Vitrecrag line (Ember kiln tanks).
+	# Fusern: a small round kiln beetle. Ember pellets, a short molten pour, and it can run its
+	# shell molten (Glass Guard) when something closes in.
 	"fusern": {"moves": ["ember_pellet"], "abilities": ["molten_beam", "glass_guard"], "hp": 1.1, "speed": 0.85, "profile": "press"},
+	# Slagglass (redesigned 2026-10-08 as the brick dome, no spurs): shoves with its shell,
+	# shoots furnace shards, pours, guards. Kiln Heat.
 	"slagglass": {"moves": ["plate_lunge"], "abilities": ["furnace_shard", "molten_beam", "glass_guard"], "hp": 1.3, "speed": 0.75,
 		"passive": "kiln", "profile": "press"},
+	# Vitrecrag (Preston, 2026-10-08) is the EMBER TANK: slow and heavy, it walks up and holds
+	# the line. Basic Plate Lunge (AI); 1 Molten Cannon, 2 Molten Beam, 3 Glass Guard. Kiln
+	# Heat also stokes from blows it takes. 4 Molten Glass, an eruption all round it.
 	"vitrecrag": {"role": "Tank", "moves": ["plate_lunge"], "abilities": ["molten_cannon", "molten_beam", "glass_guard"], "speed": 0.65, "hp": 1.6,
 		"passive": "kiln", "profile": "press"},
-	# The Oxbowarchon line (2026-10-08), drafted from the line's own move directions in
-	# docs/creatures/personal-stone-line-proposal.md (Jade Lance, Ground Spikes, Stone Cocoon,
-	# Slab Vortex); every number is Grok's to set. The early stages brawl with the slabs.
+	# Oxbowarchon line (Electric/Stone, the Electric Gemstone King), drafted from the line's own
+	# move directions in docs/creatures/personal-stone-line-proposal.md.
+	# Preostmar: a compact stone creature with a jade cluster on its shoulders. Shoulder shards
+	# (Jade Lance), spikes from the ground, and the cocoon.
 	"preostmar": {"moves": ["jade_lance"], "abilities": ["ground_spikes", "stone_cocoon"], "speed": 0.9},
+	# Oathfen: the slabs have formed and the rails lie folded. A slab brawler: spikes, the
+	# cocoon, the vortex; Bound Slabs.
 	"oathfen": {"moves": ["jade_lance"], "abilities": ["ground_spikes", "stone_cocoon", "slab_vortex"], "hp": 1.2, "speed": 0.8,
 		"passive": "bound_slabs", "profile": "press"},
-	# Oxbowarchon (Preston, 2026-10-08): "more of a backline character, playing on the railgun
-	# wherever it makes sense tactically for a railgun". ARTILLERY: it keeps its distance and
-	# everything it fires hits harder from far away. Basic Jade Lance (AI); 1 Rail Shot (the
-	# rails fire a slug down a long line that pierces everything on it); 2 Ground Spikes (jade
-	# under whatever closes in, a hold: its peel); 3 Rail Recoil (fires both rails at the
-	# floor to vault away from the nearest enemy, untouchable for the hop, and the blast
-	# throws that enemy off). Passive Bound Slabs (two jade slabs float at its hips and each
-	# swallows one blow, re-forming in time). 4 Kingstone Rail. Placeholder names: Rail Shot,
-	# Rail Recoil.
+	# Oxbowarchon (Preston, 2026-10-08): "more of a backline character, playing on the railgun".
+	# ARTILLERY: keeps its distance, everything it fires hits harder from far. Basic Jade Lance
+	# (AI); 1 Rail Shot (pierces a long line); 2 Ground Spikes (the peel); 3 Rail Recoil (fires
+	# both rails at the floor to vault away, untouchable for the hop). Bound Slabs. 4 Kingstone
+	# Rail. Placeholder names: Rail Shot, Rail Recoil.
 	"oxbowarchon": {"role": "Artillery", "moves": ["jade_lance"], "abilities": ["rail_shot", "ground_spikes", "rail_recoil"], "speed": 0.7, "hp": 1.3,
 		"passive": "bound_slabs", "profile": "kite", "far_bonus": 1.3},
-	# The Punchybuns line (Claude, 2026-10-08; Grok's numbers): a ferret who protects the
-	# people it loves. Basic Spark Jab (AI). 1 Static Dance (the ferret war dance: it charges
-	# its next jab, and every ally close by moves faster for a moment); 2 Star Guard (a pink
-	# star shield on the most hurt ally in reach, or itself); 3 Counter Jab (it dashes to the
-	# ally in the most trouble and punches the enemy on it away). Passive Guardian (allies
-	# beside it take less). Its AI escorts the most hurt ally. 4 Starshield.
+	# Punchybuns line (Electric; Claude, 2026-10-08; Grok's numbers): a ferret who protects the
+	# people it loves. Punchybun: the round kit: jabs, dances, and already puts its star on a
+	# friend. Sparkjab: the boxer: Counter Jab arrives; Guardian. Starward: Starshield.
 	"punchybun": {"moves": ["jab"], "abilities": ["static_dance", "star_guard"], "speed": 1.1, "hp": 0.95, "profile": "escort"},
 	"sparkjab": {"moves": ["jab"], "abilities": ["static_dance", "star_guard", "counter_jab"], "speed": 1.15, "hp": 1.05,
 		"passive": "guardian", "profile": "escort"},
@@ -178,10 +189,21 @@ const MOVES := {
 	"seed": {"name": "Seed Pod", "damage": 12, "cooldown": 1.2, "range": 70.0},
 	# Stormwick (Ember/Electric, all from its storm lantern)
 	"wick_bolt": {"name": "Wick Bolt", "damage": 12, "cooldown": 1.3, "range": 115.0},
+	# Flashstep is retired (Preston, 2026-10-08: with the AI walking the creature in it
+	# teleported in place, and it never fit a stage 1). The move stays defined for the old
+	# checks; no kit uses it.
 	"flashstep": {"name": "Flashstep", "damage": 3, "cooldown": 3.0, "range": 0.0, "mobility": true, "charges": 3},
+	# Ember Feint (placeholder name): the skirmisher hops back out of reach, untouchable for the
+	# hop, and leaves burning embers where it stood, so whoever chases it walks through fire.
+	# Two charges. Works at the wall: it picks the best open direction, not only straight back.
+	"ember_feint": {"name": "Ember Feint", "damage": 3, "cooldown": 5.0, "range": 0.0, "mobility": true, "charges": 2},
+	# Burrow (Bloom roots) and Dive (Tide): the Sinkhole mechanic without the Hollow: sink out
+	# of sight and come up behind the target.
+	"burrow": {"name": "Burrow", "damage": 0, "cooldown": 6.0, "range": 0.0, "mobility": true},
+	"dive": {"name": "Dive", "damage": 0, "cooldown": 6.0, "range": 0.0, "mobility": true},
 	"lantern_flash": {"name": "Lantern Flash", "damage": 0, "cooldown": 6.0, "range": 55.0},
-	"claw": {"name": "Raptor Rake", "damage": 14, "cooldown": 1.1, "range": 24.0},
-	"pounce": {"name": "Raptor Pounce", "damage": 12, "cooldown": 1.4, "range": 58.0},
+	"claw": {"name": "Rake", "damage": 14, "cooldown": 1.1, "range": 24.0},
+	"pounce": {"name": "Pounce", "damage": 12, "cooldown": 1.4, "range": 58.0},
 	"lantern_volley": {"name": "Lantern Volley", "damage": 7, "cooldown": 6.0, "range": 120.0, "mobility": true},
 	# Placeholder name (Preston: "like Volt Tackle"): teleports between marked enemies, invulnerable.
 	"lantern_tackle": {"name": "Lantern Tackle", "damage": 6, "cooldown": 7.0, "range": 999.0, "mobility": true},
@@ -250,16 +272,17 @@ const ARENA_CHART := {
 ## current, its claws and embers are the heat).
 const MOVE_ESSENCE := {
 	"fireball": E.EMBER, "beam": E.TIDE, "seed": E.BLOOM,
-	"wick_bolt": E.ELECTRIC, "claw": E.EMBER, "flashstep": E.EMBER, "smoulder": E.EMBER,
+	"wick_bolt": E.ELECTRIC, "claw": E.EMBER, "flashstep": E.EMBER, "smoulder": E.EMBER, "ember_feint": E.EMBER,
 	"pounce": E.EMBER, "lantern_volley": E.EMBER, "lantern_tackle": E.EMBER,
 	"deep_jet": E.TIDE, "root_snare": E.BLOOM, "club_slam": E.STONE,
 	"Stormlantern": E.EMBER, "Root Rampart": E.BLOOM, "Undertow": E.HOLLOW, "root_rampart": E.BLOOM, "Verdant Roar": E.BLOOM,
 	"vent_barrage": E.EMBER, "Furnace Roar": E.EMBER, "crest_ram": E.EMBER, "cinder_claw": E.EMBER,
 	"ember_pellet": E.EMBER, "glass_spur": E.EMBER, "furnace_shard": E.EMBER, "plate_lunge": E.STONE,
 	"molten_cannon": E.EMBER, "molten_beam": E.EMBER, "Molten Glass": E.EMBER,
-	# The jade is Stone; the Kingstone itself is Bloom (Preston, 2026-10-08).
-	"jade_lance": E.STONE, "ground_spikes": E.STONE, "stone_cocoon": E.STONE, "slab_vortex": E.STONE, "Kingstone Rail": E.BLOOM,
-	"rail_shot": E.BLOOM, "rail_recoil": E.STONE, "vent_blast": E.EMBER,
+	# The jade is Stone; the Kingstone itself is Electric (Preston, 2026-10-08, later: the
+	# Electric/Stone king, because a railgun runs on electromagnetism, not life).
+	"jade_lance": E.STONE, "ground_spikes": E.STONE, "stone_cocoon": E.STONE, "slab_vortex": E.STONE, "Kingstone Rail": E.ELECTRIC,
+	"rail_shot": E.ELECTRIC, "rail_recoil": E.STONE, "vent_blast": E.EMBER,
 	"jab": E.ELECTRIC, "counter_jab": E.ELECTRIC, "Starshield": E.ELECTRIC,
 }
 
@@ -436,6 +459,44 @@ const RAIL_SPLASH := 0.5               # takes this much of the damage and is fl
 const SHARDS_SECONDS := 7.0            # and the crater stays ringed with Kingstone shards that
 const SHARDS_RADIUS := 40.0            # slow enemies and shut off their movement abilities
 const SHARDS_SLOW := 0.6
+## Kit Sense (Claude, 2026-10-08): how a creature's AI chooses, after the shape of Valve's Dota
+## 2 bot layer (modes with desires, per-ability "consider" desires, the highest wins) and
+## utility scoring, rebuilt for Hollowtide. docs/research/combat-ai-references-2026-10-08.md
+## Essence combos (Claude, 2026-10-08, "combat upgrades"), after the shape of Genshin's
+## elemental reactions (an element applied becomes an aura on the target; a second element
+## reacts with it, consuming it; some reactions multiply the hit, some do their own thing):
+## our statuses are the auras. Stone SHATTERS the glass on a Glassed target (x1.5, glass
+## gone); Ember KINDLES roots away (x1.3, roots gone); Tide QUENCHES a smouldering target in
+## scalding steam (x1.3, a daze, smoulder gone); Electric CONDUCTS through a riptide to
+## everyone else standing in it; Bloom OVERGROWS a target standing in water (a short root).
+## The combo is read off the attacker's last move's essence. docs/research/combat-references-2026-10-08.md
+const SHATTER_BONUS := 1.5
+const KINDLE_BONUS := 1.3
+const QUENCH_BONUS := 1.3              # the steam scalds
+const QUENCH_DAZE := 0.5
+const CONDUCT_SHARE := 0.5
+const OVERGROW_ROOT := 0.6             # Bloom on a target standing in water: the growth takes hold
+const KO_HITSTOP := 0.3                # the KO beat: a long hitstop, a ring, the drop
+## Crowd control after League's taxonomy, knockback after Smash, the match after Unite
+## (docs/research/combat-references-2026-10-08.md, sections 3 to 5). Drafts for Grok.
+const AIRBORNE_LIFT := 14.0            # how high a launched creature is drawn
+const TENACITY := 1.4                  # Tanks shed stuns, roots and dazes this much faster
+const KNOCKBACK_GROWTH := 0.6          # a push grows by up to this much as the target's HP falls
+const MATCH_SECONDS := 120.0           # team fights end on points after this
+const CREST_RADIUS := 38.0             # the centre circle: the one objective
+const CREST_METER := 6.0               # meter a second for a final holding it alone
+const CREST_HEAL := 1                  # HP every half second for everyone holding it alone
+const DESIRE_LOW := 0.25
+const DESIRE_MODERATE := 0.5
+const DESIRE_HIGH := 0.75
+const DESIRE_VERYHIGH := 0.9
+const DESIRE_BASIC := 0.4              # the basic attack's own score: an ability needs a reason to beat it
+const CALL_SECONDS := 2.0              # a newly held enemy is its opponents' called target this long
+const CALL_REACH := 160.0              # and damage dealers this close switch to it
+const FINISH_REACH := 130.0            # a kill on the table within this is the finish mode
+const PEEL_MOVES := ["club_slam", "counter_jab", "star_guard", "ground_spikes", "root_snare", "vent_blast", "slab_vortex", "plate_lunge", "glass_guard"]
+const FEINT_HOP := 55.0                # Ember Feint: the hop back out of reach
+const FEINT_INVULN := 0.25
 const RECOIL_HOP := 70.0               # Rail Recoil: the hop away from the nearest enemy
 const RECOIL_INVULN := 0.3             # untouchable for the hop
 const RAIL_WIDTH := 13.0               # Rail Shot: how close to the line a creature must stand
@@ -685,7 +746,10 @@ func _make_fighter(line: int, stage: int, at: Vector2, facing: String, ai: bool,
 		"guard": 0.0, "glassed": 0.0, "glassed_tick": 0.0,
 		"cocoon": 0.0, "cocoon_dmg": 0, "slabs": SLAB_COUNT if passive == "bound_slabs" else 0, "slab_t": 0.0,
 		"final": stage == 2,   # only a line's final stage has the signature (Preston, 2026-10-08)
-		"shield": 0, "shield_t": 0.0, "charged": 0.0, "haste": 0.0}
+		"shield": 0, "shield_t": 0.0, "charged": 0.0, "haste": 0.0,
+		"mode": "engage", "held_was": false,
+		"anim": "", "anim_t": 0.0, "anim_len": 0.0, "anim_dir": Vector2.RIGHT, "last_move": "",
+		"airborne": 0.0, "airborne_len": 0.0, "crest_acc": 0.0}
 	return fighter
 
 
@@ -694,6 +758,10 @@ func _new_match() -> void:
 		f["body"].queue_free()
 	_fighters.clear()
 	_effects.clear()
+	_called = {0: {"target": -1, "until": 0.0}, 1: {"target": -1, "until": 0.0}}
+	ai_log.clear()
+	_crest_team = -1
+	_on_points = false
 	_labels.clear()
 	_walls.clear()
 	_winner = -1
@@ -791,6 +859,8 @@ func _unhandled_input(event: InputEvent) -> void:
 		signature(controlled)
 	elif k == KEY_V:
 		shake_on = not shake_on
+	elif k == KEY_L:
+		show_ai_log = not show_ai_log
 	elif k == KEY_RIGHT or k == KEY_LEFT or k == KEY_D or k == KEY_A:
 		_cycle_target(1 if k == KEY_RIGHT or k == KEY_D else -1)
 	elif k == KEY_UP or k == KEY_W:
@@ -870,6 +940,9 @@ func _process(delta: float) -> void:
 		for i in _fighters.size():
 			_update_windup(i, delta)
 			_use_moves(i, delta)
+		_update_crest(delta)
+		if team_size > 1 and _clock >= MATCH_SECONDS:
+			_decide_on_points()
 	for i in _fighters.size():
 		if stopped:
 			_shiver(i)
@@ -898,7 +971,7 @@ func _move_player(delta: float) -> void:
 func _walk(i: int, dir: Vector2, delta: float) -> void:
 	var f: Dictionary = _fighters[i]
 	var floor_rect: Rect2 = ARENAS[_arena]["floor"]
-	if dir.length() > 0.01 and f["stun"] <= 0.0 and f["rooted"] <= 0.0 and f["guard"] <= 0.0 and f["cocoon"] <= 0.0 and not f["hidden"] and f["hp"] > 0 and f["ram_t"] <= 0.0:
+	if dir.length() > 0.01 and f["stun"] <= 0.0 and f["rooted"] <= 0.0 and f["airborne"] <= 0.0 and f["guard"] <= 0.0 and f["cocoon"] <= 0.0 and not f["hidden"] and f["hp"] > 0 and f["ram_t"] <= 0.0:
 		dir = dir.normalized()
 		var speed: float = SPEED * f["speed"] * (0.5 if f["dazzle"] > 0.0 else 1.0) * (0.7 if f["crippled"] > 0.0 else 1.0)
 		if f["glassed"] > 0.0:
@@ -932,6 +1005,13 @@ func _walk(i: int, dir: Vector2, delta: float) -> void:
 
 ## When true, your creature is moved by the same AI as the rival (the balance simulator).
 var auto_you := false
+var _called := {0: {"target": -1, "until": 0.0}, 1: {"target": -1, "until": 0.0}}   # Kit Sense: each team's called target
+var ai_log: Array[String] = []         # the AI explaining itself; L shows it
+var show_ai_log := false
+var _conducting := false               # a Conduct hit is spreading; its own hits do not conduct again
+var _crest_team := -1                  # who holds the Crest alone this frame (-1: nobody or contested)
+var _crest_tick := 0.0
+var _on_points := false                # the match ended on the clock
 
 
 ## Every creature's footwork, yours included (a test movie steering fighter 0 is the exception).
@@ -964,7 +1044,19 @@ func _move_ai(i: int, delta: float) -> void:
 		if randf() < 0.6:
 			me["strafe"] = -me["strafe"]
 	var dir := Vector2.ZERO
-	match me["profile"]:
+	var profile: String = me["profile"]
+	if me["mode"] == "kite":
+		profile = "kite"
+	elif me["mode"] == "peel" and me["role"] == "Protector":
+		profile = "escort"
+	elif me["mode"] == "crest":
+		profile = "crest"
+	match profile:
+		"crest":
+			# To the centre circle, to hold it.
+			var to_crest: Vector2 = ARENAS[_arena]["floor"].get_center() - me["body"].position
+			if to_crest.length() > 12.0:
+				dir = to_crest.normalized()
 		"skirmish":
 			# Never still: circles at mid range, darts in when its claw is ready, then is
 			# back out (Flare Step) before it takes much in return.
@@ -1053,35 +1145,57 @@ func _use_moves(i: int, delta: float) -> void:
 		for c in timers.size():
 			timers[c] = maxf(0.0, timers[c] - delta)
 		f["cds"][m] = timers.min()
-	if f["hp"] <= 0 or f["stun"] > 0.0 or f["dazzle"] > 0.0 or f["act"] > 0.0 or f["hidden"] or _sig.active or not f["windup"].is_empty() or not f["tackle"].is_empty():
+	if f["hp"] <= 0 or f["stun"] > 0.0 or f["dazzle"] > 0.0 or f["airborne"] > 0.0 or f["act"] > 0.0 or f["hidden"] or _sig.active or not f["windup"].is_empty() or not f["tackle"].is_empty():
 		return
 	var t := _foe_of(i)
 	if t < 0:
 		return
+	# Kit Sense (2026-10-08): first the mode this think (finish, peel, kite, hold, engage), which
+	# may change who it goes for; then every ready move scored by desire, and the highest
+	# fires. The basic attack has its own score, so an ability needs a reason to beat it.
+	var mode := _mode_of(i, t)
+	f["mode"] = mode
+	if mode == "finish":
+		var k := _finish_target(i)
+		if k >= 0:
+			t = k
+			f["target"] = k
+			f["retarget"] = 1.0
+	elif mode == "peel":
+		var w := _ally_in_trouble(i)
+		var nf := _nearest_foe(w) if w >= 0 else -1
+		if nf >= 0:
+			t = nf
+			f["target"] = nf
+			f["retarget"] = 1.0
 	var foe: Dictionary = _fighters[t]
-	# Abilities are weighed before the basic attack: they are the stronger, rarer tools, and a
-	# basic that is nearly always ready would otherwise crowd them out (2026-10-08, after the
-	# tank never guarded).
-	var order: Array = f["abilities"].duplicate()
+	var best_m := ""
+	var best_d := 0.0
 	for m in f["kit"]:
-		if m not in order:
-			order.append(m)
-	for m in order:
 		if i == controlled and not auto_you and m in f["abilities"]:
 			continue   # yours to fire (1-3); your other creatures' AI fires theirs (and auto mode fires yours)
 		# Roots and riptide shut off movement abilities, except Phase: roots cannot hold
 		# what is not there (Preston, 2026-10-07), so Phase breaks free at the cost of its dodge.
 		if MOVES[m].get("mobility", false) and m != "phase" and (f["crippled"] > 0.0 or _in_riptide(i) or _in_shards(i)):
 			continue
-		if f["cds"][m] <= 0.0 and _wants(i, m, foe):
-			if TELEGRAPH.has(m):
-				# Attacks telegraph first: the shape shows on the ground, then the move fires.
-				f["windup"] = {"m": m, "kind": TELEGRAPH[m][0], "t": TELEGRAPH[m][1], "total": TELEGRAPH[m][1], "target": t}
-				f["facing"] = _facing_of(foe["body"].position - f["body"].position)
-				_play("res://assets/audio/sfx/arena/telegraph.wav", -10.0 if t == 0 or i == 0 else -16.0)   # louder when it concerns you
-			else:
-				_fire(i, m, t)
-			return
+		if f["cds"][m] > 0.0:
+			continue
+		var d := _desire(i, m, t, mode)
+		if d > best_d:
+			best_d = d
+			best_m = m
+	if best_m == "":
+		return
+	_log_ai(i, "%s: %s (%.2f) on %s" % [mode, MOVES[best_m]["name"], best_d, foe["name"]])
+	if TELEGRAPH.has(best_m):
+		# Attacks telegraph first: the shape shows on the ground, then the move fires.
+		f["windup"] = {"m": best_m, "kind": TELEGRAPH[best_m][0], "t": TELEGRAPH[best_m][1], "total": TELEGRAPH[best_m][1], "target": t}
+		f["facing"] = _facing_of(foe["body"].position - f["body"].position)
+		_anim(i, "wind", TELEGRAPH[best_m][1], (foe["body"].position - f["body"].position).normalized())
+		_play("res://assets/audio/sfx/arena/telegraph.wav", -10.0 if t == 0 or i == 0 else -16.0)   # louder when it concerns you
+	else:
+		_fire(i, best_m, t)
+	return
 
 
 ## You fire ability slot 0, 1 or 2 (keys 1-3) at your creature's target. Dodges and dashes go
@@ -1094,7 +1208,7 @@ func cast(slot: int) -> void:
 	if slot >= f["abilities"].size():
 		return
 	var m: String = f["abilities"][slot]
-	if f["hp"] <= 0 or f["stun"] > 0.0 or f["dazzle"] > 0.0 or f["hidden"] or not f["windup"].is_empty() or f["ram_t"] > 0.0 or not f["tackle"].is_empty():
+	if f["hp"] <= 0 or f["stun"] > 0.0 or f["dazzle"] > 0.0 or f["airborne"] > 0.0 or f["hidden"] or not f["windup"].is_empty() or f["ram_t"] > 0.0 or not f["tackle"].is_empty():
 		return
 	if f["cds"][m] > 0.0 or (MOVES[m].get("mobility", false) and m != "phase" and (f["crippled"] > 0.0 or _in_riptide(i) or _in_shards(i))):
 		_play("res://assets/audio/sfx/ui/cancel.wav", -12.0)
@@ -1104,6 +1218,7 @@ func cast(slot: int) -> void:
 		return
 	if TELEGRAPH.has(m):
 		f["windup"] = {"m": m, "kind": TELEGRAPH[m][0], "t": TELEGRAPH[m][1], "total": TELEGRAPH[m][1], "target": t}
+		_anim(i, "wind", TELEGRAPH[m][1], (_fighters[t]["body"].position - f["body"].position).normalized())
 		f["facing"] = _facing_of(_fighters[t]["body"].position - f["body"].position)
 		_play("res://assets/audio/sfx/arena/telegraph.wav", -10.0)
 	else:
@@ -1176,6 +1291,197 @@ func _shiver(i: int) -> void:
 
 
 ## Whether this is a good moment for move m.
+## Kit Sense: the mode a creature is in this think. Desires are the named levels; the
+## highest wins. finish: a kill is on the table. peel: an ally is in trouble and this is the
+## kind of creature that answers that. kite: a blow is coming, or it is low, and it is not a
+## tank. hold: the enemy stands in our terrain. engage: the default.
+func _mode_of(i: int, t: int) -> String:
+	var f: Dictionary = _fighters[i]
+	var foe: Dictionary = _fighters[t]
+	var dist: float = foe["body"].position.distance_to(f["body"].position)
+	var desires := {"engage": DESIRE_MODERATE, "finish": 0.0, "peel": 0.0, "kite": 0.0, "hold": 0.0, "crest": 0.0}
+	if _finish_target(i) >= 0:
+		desires["finish"] = DESIRE_VERYHIGH
+	if f["role"] in ["Protector", "Tank", "Bruiser"] and _ally_in_trouble(i) >= 0:
+		desires["peel"] = DESIRE_HIGH
+	if f["role"] not in ["Tank", "Bruiser", "Wall", "Protector"] and dist < 45.0:
+		if f["hp"] < f["max_hp"] * 0.5:
+			desires["kite"] = DESIRE_HIGH
+		elif _threat_near(i, 45.0):
+			desires["kite"] = DESIRE_MODERATE + 0.1
+	if f["role"] in ["Tank", "Bruiser"] and _hazard_slow(t) < 1.0:
+		desires["hold"] = DESIRE_MODERATE + 0.05
+	if team_size > 1 and f["final"] and f["meter"] < 100 and dist > 70.0 and not _threat_near(i, 60.0) and _crest_team != f["team"]:
+		desires["crest"] = DESIRE_MODERATE + 0.05   # nothing to fight: go charge at the Crest
+	var best := "engage"
+	for k in desires:
+		if desires[k] > desires[best]:
+			best = k
+	return best
+
+
+## The enemy within reach that this creature's ready moves could kill right now, else -1.
+func _finish_target(i: int) -> int:
+	var f: Dictionary = _fighters[i]
+	var best := -1
+	for j in _fighters.size():
+		var o: Dictionary = _fighters[j]
+		if not _enemies(i, j) or o["hp"] <= 0 or o["phase"] > 0.0 or o["invuln"] > 0.0 or o["hidden"]:
+			continue
+		if o["body"].position.distance_to(f["body"].position) > FINISH_REACH:
+			continue
+		if o["hp"] + o["shield"] <= _combo_damage(i, j) and (best < 0 or o["hp"] < _fighters[best]["hp"]):
+			best = j
+	return best
+
+
+## What every ready damaging move of fighter i would do to fighter j together.
+func _combo_damage(i: int, j: int) -> int:
+	var f: Dictionary = _fighters[i]
+	var total := 0
+	for m in f["kit"]:
+		if MOVES[m]["damage"] > 0 and f["cds"][m] <= 0.0:
+			total += _dmg(m, i, j)
+	return total
+
+
+## How long fighter j stays held (stunned, rooted, dazed or Glassed), 0 when it is free.
+func _held_for(j: int) -> float:
+	var o: Dictionary = _fighters[j]
+	return maxf(maxf(o["stun"], o["rooted"]), maxf(o["dazzle"], o["glassed"]))
+
+
+## Kit Sense: how much fighter i wants move m on fighter t in this mode, 0 to 1. The
+## existing "wants" rule is the gate (0.5 when it says yes), then the considerations.
+func _desire(i: int, m: String, t: int, mode: String) -> float:
+	var f: Dictionary = _fighters[i]
+	var foe: Dictionary = _fighters[t]
+	var ability: bool = m in f["abilities"]
+	if not _wants(i, m, foe):
+		return 0.0
+	var d: float = DESIRE_MODERATE if ability else DESIRE_BASIC
+	var hits: bool = MOVES[m]["damage"] > 0
+	if hits and foe["phase"] > 0.0:
+		return 0.0   # it would pass through
+	if hits and foe["hp"] + foe["shield"] <= _dmg(m, i, t):
+		d = maxf(d, DESIRE_VERYHIGH)   # kill-secure
+	var windup: float = TELEGRAPH[m][1] if TELEGRAPH.has(m) else 0.0
+	if hits and _held_for(t) > windup:
+		d *= 1.4   # it cannot dodge or phase this
+	var call: Dictionary = _called[f["team"]]
+	if hits and call["target"] == t and _clock < call["until"]:
+		d *= 1.2   # the team is on it
+	if hits and _combo_of(m, t) != "":
+		d *= 1.3   # a combo is on the table (shatter, kindle, quench, conduct)
+	match mode:
+		"kite":
+			d *= 1.5 if MOVES[m].get("mobility", false) else 0.7
+		"peel":
+			d *= 1.5 if m in PEEL_MOVES else 1.0
+		"finish":
+			d *= 1.2 if hits else 0.6
+	return minf(d, 1.0)
+
+
+## Airborne (after League's taxonomy): launched, it cannot move or act, its ram or tackle is
+## cancelled, ground hazards miss it, and tenacity does not shorten it.
+func _launch(j: int, seconds: float) -> void:
+	var f: Dictionary = _fighters[j]
+	if f["hp"] <= 0 or f["phase"] > 0.0 or f["invuln"] > 0.0:
+		return
+	f["airborne"] = maxf(f["airborne"], seconds)
+	f["airborne_len"] = f["airborne"]
+	f["ram_t"] = 0.0
+	f["tackle"] = {}
+	f["windup"] = {}
+	_label(j, "Launched")
+
+
+## The Crest: the centre circle. A team holding it alone charges its finals' meters and
+## mends a little; contested, nothing. Pulls fights to the middle (after Unite's objectives).
+func _update_crest(delta: float) -> void:
+	var centre: Vector2 = ARENAS[_arena]["floor"].get_center()
+	var inside := [[], []]
+	for j in _fighters.size():
+		var f: Dictionary = _fighters[j]
+		if f["hp"] > 0 and not f["hidden"] and f["body"].position.distance_to(centre) < CREST_RADIUS:
+			inside[f["team"]].append(j)
+	_crest_team = -1
+	if inside[0].is_empty() == inside[1].is_empty():
+		return   # empty or contested
+	_crest_team = 0 if not inside[0].is_empty() else 1
+	_crest_tick -= delta
+	for j in inside[_crest_team]:
+		var f: Dictionary = _fighters[j]
+		if f["final"] and f["meter"] < 100:
+			f["crest_acc"] += CREST_METER * delta   # the meter is whole numbers; bank the fractions
+			while f["crest_acc"] >= 1.0:
+				f["crest_acc"] -= 1.0
+				f["meter"] = mini(100, f["meter"] + 1)
+		if _crest_tick <= 0.0 and f["hp"] < f["max_hp"]:
+			f["hp"] = mini(f["max_hp"], f["hp"] + CREST_HEAL)
+	if _crest_tick <= 0.0:
+		_crest_tick = 0.5
+
+
+## The clock ran out: the team with more of its HP left wins on points.
+func _decide_on_points() -> void:
+	var left := [0.0, 0.0]
+	for f in _fighters:
+		left[f["team"]] += float(f["hp"]) / f["max_hp"]
+	_winner = 0 if left[0] >= left[1] else 1
+	_on_points = true
+	_cheer = 3.0
+	for j in _fighters.size():
+		if _fighters[j]["team"] == _winner and _fighters[j]["hp"] > 0:
+			_label(j, "On points")
+			break
+
+
+## Start one procedural animation on fighter i (wind, strike, flinch, land, ko).
+func _anim(i: int, kind: String, seconds: float, dir: Vector2) -> void:
+	var f: Dictionary = _fighters[i]
+	f["anim"] = kind
+	f["anim_t"] = seconds
+	f["anim_len"] = seconds
+	f["anim_dir"] = dir if dir.length() > 0.01 else Vector2.RIGHT
+
+
+## The essence combo move m would make on fighter t right now, or "".
+func _combo_of(m: String, t: int) -> String:
+	if t < 0 or not MOVE_ESSENCE.has(m):
+		return ""
+	var ess: int = MOVE_ESSENCE[m]
+	var o: Dictionary = _fighters[t]
+	if ess == E.STONE and o["glassed"] > 0.0:
+		return "shatter"
+	if ess == E.EMBER and o["rooted"] > 0.0:
+		return "kindle"
+	if ess == E.TIDE and o["smoulder"] > 0.0:
+		return "quench"
+	if ess == E.ELECTRIC and _in_riptide(t):
+		return "conduct"
+	if ess == E.BLOOM and _in_riptide(t) and o["rooted"] <= 0.0:
+		return "overgrow"
+	return ""
+
+
+## Kit Sense: an enemy that has just been held becomes its opponents' called target.
+func _call_target(j: int) -> void:
+	var team: int = 1 - _fighters[j]["team"]
+	var again: bool = _called[team]["target"] == j and _clock < _called[team]["until"]
+	_called[team] = {"target": j, "until": _clock + CALL_SECONDS}
+	if not again:
+		_log_ai(j, "held, so the other team calls it")   # a hold refreshed on the same target only extends the call
+
+
+## A line of the AI explaining itself (L shows the last few in the arena).
+func _log_ai(i: int, text: String) -> void:
+	ai_log.append("%5.1f %s: %s" % [_clock, _fighters[i]["name"], text])
+	if ai_log.size() > 60:
+		ai_log.pop_front()
+
+
 func _wants(i: int, m: String, foe: Dictionary) -> bool:
 	var f: Dictionary = _fighters[i]
 	var to_foe: Vector2 = foe["body"].position - f["body"].position
@@ -1185,7 +1491,10 @@ func _wants(i: int, m: String, foe: Dictionary) -> bool:
 			# Break free of roots; dodge an attack about to land; or read one coming (the enemy
 			# is in range with a damaging move ready: the only way to beat an instant bolt).
 			return f["rooted"] > 0.0 or _threat_near(i, 40.0) or (_foe_ready(foe, dist) and randf() < 0.05)
-		"sinkhole":
+		"ember_feint":
+			# Out through the embers when a blow is coming, or right after a strike up close.
+			return _threat_near(i, 45.0) or (dist < 24.0 and foe["windup"].is_empty() and randf() < 0.15)
+		"sinkhole", "burrow", "dive":
 			# Ambush: when the target is a long way off, or something has closed in on it.
 			return (dist > 100.0 or dist < 40.0) and foe["phase"] <= 0.0 and foe["hp"] > 0
 		"riptide":
@@ -1287,6 +1596,8 @@ func _do_move(i: int, m: String, t: int) -> void:
 	var hot: bool = f["passive"] in ["stoke", "kiln"] and f["heat"] >= 100.0 and MOVES[m]["damage"] > 0   # Stoke or Kiln Heat spent on this move
 	var dmg := _dmg(m, i, t)
 	_label(i, MOVES[m]["name"])
+	f["last_move"] = m
+	_anim(i, "strike", 0.18, aim)
 	match m:
 		"fireball":
 			_effects.append({"kind": "fireball", "owner": i, "pos": mouth, "vel": aim * 170.0, "life": 0.75, "trail": [], "damage": dmg})
@@ -1401,7 +1712,34 @@ func _do_move(i: int, m: String, t: int) -> void:
 				f["ambush"] = 0.0
 				_label(i, "Ambush")
 			_play("res://assets/audio/sfx/undertow/surge.wav", -10.0)
-		"sinkhole":
+		"ember_feint":
+			# The hop back out of reach: the best open direction away from the target (straight
+			# back, angled, or along the wall when the back is against it), untouchable for the
+			# hop, embers left burning where it stood.
+			var floor_rect: Rect2 = ARENAS[_arena]["floor"]
+			var start: Vector2 = f["body"].position
+			var best: Vector2 = start
+			var best_gain := -1.0
+			for ang in [0.0, 0.9, -0.9, 1.5708, -1.5708]:
+				var cand: Vector2 = (start + (-aim).rotated(ang) * FEINT_HOP).clamp(floor_rect.position, floor_rect.end)
+				if _blocked(cand):
+					continue
+				var gain: float = cand.distance_to(foe["body"].position) - start.distance_to(foe["body"].position)
+				if gain > best_gain:
+					best_gain = gain
+					best = cand
+			f["invuln"] = maxf(f["invuln"], FEINT_INVULN)
+			# Three patches spaced along the first half of the hop, so a chaser crosses them one at
+			# a time instead of standing in a stack (the first check stacked four for 42 damage).
+			for k in 3:
+				_effects.append({"kind": "fire_patch", "owner": i, "pos": start.lerp(best, 0.1 + k * 0.2), "t": 0.0, "tick": 0.0, "damage": dmg})
+			_effects.append({"kind": "streak", "from": start, "to": best, "t": 0.0, "tex": f["sprite"].texture, "off": f["sprite"].offset})
+			_effects.append({"kind": "dust", "pos": best, "t": 0.0})
+			f["body"].position = best
+			f["facing"] = _facing_of(foe["body"].position - best)
+			_anim(i, "land", 0.15, Vector2.ZERO)
+			_play("res://assets/audio/sfx/stormlantern/throw.wav", -12.0)
+		"sinkhole", "burrow", "dive":
 			# Sinks into its hollow and resurfaces behind the target (the far side from where it
 			# was), sharpening its next Deep Jet: the assassin's ambush.
 			var floor_rect: Rect2 = ARENAS[_arena]["floor"]
@@ -1496,6 +1834,7 @@ func _do_move(i: int, m: String, t: int) -> void:
 				if _enemies(i, j) and o["hp"] > 0 and o["body"].position.distance_to(f["body"].position) < VORTEX_RADIUS:
 					var away: Vector2 = (o["body"].position - f["body"].position).normalized()
 					_hurt(j, _dmg(m, i, j), away * 2.2, i)
+					_launch(j, 0.45)
 					_burst(o["body"].position + Vector2(0, -8), Color("#afe8b8"), Color("#31353d"), 14.0, false, "rock_dust")
 					struck = true
 			_effects.append({"kind": "vortex", "who": i, "t": 0.0})
@@ -1540,11 +1879,13 @@ func _do_move(i: int, m: String, t: int) -> void:
 				var o: Dictionary = _fighters[j]
 				if _enemies(i, j) and o["hp"] > 0 and o["body"].position.distance_to(here) < 32.0:
 					_hurt(j, _dmg(m, i, j), (o["body"].position - here).normalized() * 2.0, i)
+					_launch(j, 0.4)
 			_effects.append({"kind": "rail_beam", "from": here + Vector2(0, -22), "to": here + Vector2(0, 2), "t": 0.0})
 			_burst(here + Vector2(0, -2), Color("#afe8b8"), Color("#206349"), 18.0, false, "rock_dust")
 			_effects.append({"kind": "dust", "pos": land, "t": 0.0})
 			f["body"].position = land
 			f["invuln"] = maxf(f["invuln"], RECOIL_INVULN)
+			_anim(i, "land", 0.15, Vector2.ZERO)
 			_play("res://assets/audio/sfx/oxbowarchon/rail_impact.wav", -10.0)
 		"vent_blast":
 			# A gout of heat from the back vents, a short cone in front: thrown back and smouldering.
@@ -1606,6 +1947,7 @@ func _do_move(i: int, m: String, t: int) -> void:
 				_effects.append({"kind": "impact", "anim": "lantern_flash", "pos": f["body"].position + Vector2(0, -4), "t": 0.0})
 				f["body"].position = (wp + side * 14.0).clamp(floor_rect.position, floor_rect.end)
 				_effects.append({"kind": "impact", "anim": "lantern_flash", "pos": f["body"].position + Vector2(0, -4), "t": 0.0})
+				_anim(i, "land", 0.15, Vector2.ZERO)
 			if nf >= 0 and _fighters[nf]["hp"] > 0 and _fighters[nf]["body"].position.distance_to(f["body"].position) < 44.0:
 				var push: Vector2 = (_fighters[nf]["body"].position - f["body"].position).normalized()
 				f["facing"] = _facing_of(push)
@@ -2387,6 +2729,13 @@ func _foe_of(i: int) -> int:
 			f["target"] = player_target
 			return player_target
 		player_target = -1
+	# Kit Sense: the team's called target (an enemy someone just held) pulls everyone but the
+	# protector onto it while the hold lasts.
+	var call: Dictionary = _called[f["team"]]
+	if call["target"] >= 0 and _clock < call["until"] and _fighters[call["target"]]["hp"] > 0 and _enemies(i, call["target"]) \
+			and f["role"] != "Protector" and _fighters[call["target"]]["body"].position.distance_to(f["body"].position) < CALL_REACH:
+		f["target"] = call["target"]
+		return call["target"]
 	var t: int = f["target"]
 	if t >= 0 and _fighters[t]["hp"] > 0 and f["retarget"] > 0.0:
 		return t
@@ -2449,9 +2798,11 @@ func _update_fighter(i: int, delta: float) -> void:
 			f["facing"] = _facing_of(to_other)
 	f["flash"] = maxf(0.0, f["flash"] - delta)
 	f["phase"] = maxf(0.0, f["phase"] - delta)
-	f["stun"] = maxf(0.0, f["stun"] - delta)
-	f["dazzle"] = maxf(0.0, f["dazzle"] - delta)
-	f["rooted"] = maxf(0.0, f["rooted"] - delta)
+	var ten: float = TENACITY if f["role"] == "Tank" else 1.0   # tenacity: tanks shed holds faster
+	f["stun"] = maxf(0.0, f["stun"] - delta * ten)
+	f["dazzle"] = maxf(0.0, f["dazzle"] - delta * ten)
+	f["rooted"] = maxf(0.0, f["rooted"] - delta * ten)
+	f["airborne"] = maxf(0.0, f["airborne"] - delta)
 	f["eroded"] = maxf(0.0, f["eroded"] - delta)
 	f["crippled"] = maxf(0.0, f["crippled"] - delta)
 	f["invuln"] = maxf(0.0, f["invuln"] - delta)
@@ -2460,6 +2811,10 @@ func _update_fighter(i: int, delta: float) -> void:
 	f["guard"] = maxf(0.0, f["guard"] - delta)
 	f["charged"] = maxf(0.0, f["charged"] - delta)
 	f["haste"] = maxf(0.0, f["haste"] - delta)
+	var held_now: bool = f["hp"] > 0 and (f["stun"] > 0.0 or f["rooted"] > 0.0 or f["dazzle"] > 0.0 or f["glassed"] > 0.0)
+	if held_now and not f["held_was"]:
+		_call_target(i)
+	f["held_was"] = held_now
 	if f["shield"] > 0:
 		f["shield_t"] -= delta
 		if f["shield_t"] <= 0.0:
@@ -2565,6 +2920,39 @@ func _update_fighter(i: int, delta: float) -> void:
 		_update_hollow(f, delta)
 	if f["lantern"]:
 		_update_lantern(f, delta)
+	# Procedural animation (2026-10-08): no new art, one layer of offsets and squash on top
+	# of the still or walk frame: a lean back while a move winds up, a lunge as it strikes, a
+	# flinch when hit, a squash on landing, a drop at the KO. Scaled about the feet.
+	if f["airborne"] > 0.0:
+		# Launched: an arc up and back down, the shadow staying on the floor.
+		var ka0: float = 1.0 - f["airborne"] / maxf(0.01, f["airborne_len"])
+		sprite.position.y -= AIRBORNE_LIFT * sin(ka0 * PI)
+	if f["anim"] != "":
+		f["anim_t"] -= delta
+		var ka: float = 1.0 - clampf(f["anim_t"] / maxf(0.01, f["anim_len"]), 0.0, 1.0)
+		var da: Vector2 = f["anim_dir"]
+		match f["anim"]:
+			"wind":
+				sprite.position += (-da * 3.0 * ka).round()
+				sprite.scale = Vector2(1.0 - 0.06 * ka, 1.0 + 0.08 * ka)
+			"strike":
+				var sa: float = sin(ka * PI)
+				sprite.position += (da * 7.0 * sa).round()
+				sprite.scale = Vector2(1.0 + 0.1 * sa, 1.0 - 0.1 * sa)
+			"flinch":
+				var sf: float = 1.0 - ka
+				sprite.position += (da * 4.0 * sf).round()
+				sprite.scale = Vector2(1.0 + 0.08 * sf, 1.0 - 0.08 * sf)
+			"land":
+				var sl: float = sin(ka * PI)
+				sprite.scale = Vector2(1.0 + 0.14 * sl, 1.0 - 0.14 * sl)
+			"ko":
+				sprite.position += (da * 6.0 * (1.0 - ka)).round()
+		if f["anim_t"] <= 0.0:
+			f["anim"] = ""
+			sprite.scale = Vector2.ONE
+	else:
+		sprite.scale = Vector2.ONE
 	f["body"].z_index = int(f["body"].position.y)
 	sprite.global_position = sprite.global_position.round()
 
@@ -2901,8 +3289,8 @@ func _update_effects(delta: float) -> void:
 					e["tick"] = HAZARD_TICK
 					for j in _fighters.size():
 						var f: Dictionary = _fighters[j]
-						if not _enemies(e["owner"], j) or f["hp"] <= 0:
-							continue   # terrain only ever hurts the enemy
+						if not _enemies(e["owner"], j) or f["hp"] <= 0 or f["airborne"] > 0.0:
+							continue   # terrain only ever hurts the enemy, and never one in the air
 						var inside: bool = f["body"].position.distance_to(e["pos"]) < e.get("r", POOL_RADIUS) if e["kind"] == "glass_pool" else _near_seam(e["pts"], f["body"].position) < SEAM_WIDTH
 						if inside and e["kind"] == "glass_pool":
 							_glass(j, POOL_GLASS)   # standing in the glass keeps it molten on you
@@ -3051,6 +3439,8 @@ func _hurt(i: int, damage: int, push: Vector2, by: int, pierce := false) -> void
 		push = Vector2.ZERO
 		if not pierce:
 			damage = maxi(1, int(round(damage * COCOON_GUARD)))
+	if f["ram_t"] > 0.0:
+		push = Vector2.ZERO   # unstoppable: a creature mid-ram is not knocked off its line
 	if f["guard"] > 0.0:
 		# Glass Guard: planted and halved; molten glass splashes whoever strikes it up close.
 		push = Vector2.ZERO
@@ -3064,15 +3454,55 @@ func _hurt(i: int, damage: int, push: Vector2, by: int, pierce := false) -> void
 			_fighters[by]["heat"] = minf(100.0, _fighters[by]["heat"] + STOKE_PER_HIT)
 		if f["passive"] == "kiln":
 			f["heat"] = minf(100.0, f["heat"] + KILN_PER_HIT)   # the tank's kiln is stoked by the blow
+	if by >= 0 and by != i and not _conducting:
+		var combo := _combo_of(_fighters[by]["last_move"], i)
+		var top: Vector2 = f["body"].position + Vector2(0, -10)
+		match combo:
+			"shatter":
+				damage = int(round(damage * SHATTER_BONUS))
+				f["glassed"] = 0.0
+				_label(i, "Shattered")
+				_burst(top, Color("#ffe8c0"), Color("#7a4a2a"), 16.0, false, "glass_splash")
+			"kindle":
+				damage = int(round(damage * KINDLE_BONUS))
+				f["rooted"] = 0.0
+				_label(i, "Kindled")
+				_burst(top, Color("#ffb347"), Color("#ff5a1f"), 14.0, false, "fire_burst")
+			"quench":
+				damage = int(round(damage * QUENCH_BONUS))
+				f["smoulder"] = 0.0
+				f["dazzle"] = maxf(f["dazzle"], QUENCH_DAZE)
+				_label(i, "Quenched")
+				_burst(top, Color("#e8f6ff"), Color("#3a8ad8"), 14.0, false, "water_burst")
+			"overgrow":
+				if f["phase"] <= 0.0 and f["invuln"] <= 0.0:
+					f["rooted"] = maxf(f["rooted"], OVERGROW_ROOT)
+				_label(i, "Overgrown")
+				_effects.append({"kind": "impact", "anim": "root_burst", "pos": f["body"].position + Vector2(0, -4), "t": 0.0})
+			"conduct":
+				_label(i, "Conducted")
+				_conducting = true
+				for j in _fighters.size():
+					if j != i and _enemies(by, j) and _fighters[j]["hp"] > 0 and _in_riptide(j):
+						_effects.append({"kind": "bolt", "pts": _jagged(top, _fighters[j]["body"].position + Vector2(0, -10), 7, 5.0), "t": 0.0, "big": false})
+						_hurt(j, maxi(1, int(round(damage * CONDUCT_SHARE))), Vector2.ZERO, by)
+				_conducting = false
+		if combo != "":
+			_log_ai(by if by >= 0 else i, "%s on %s" % [combo, f["name"]])
+	var was_up: bool = f["hp"] > 0
 	f["hp"] = maxi(0, f["hp"] - damage)
 	f["flash"] = 0.3
 	_hitstop = maxf(_hitstop, HITSTOP_HEAVY if damage >= 20 else HITSTOP_LIGHT)
 	f["shiver"] = push.normalized() if push.length() > 0.01 else Vector2.RIGHT
+	_anim(i, "flinch", 0.2, f["shiver"])
 	if f["final"]:
 		f["meter"] = mini(100, f["meter"] + METER_TAKEN)
 	if by >= 0 and by != i:
 		if _fighters[by]["final"]:
 			_fighters[by]["meter"] = mini(100, _fighters[by]["meter"] + METER_DEALT)
+	# Knockback grows as the target gets hurt (after Smash): the same hit sends a creature at a
+	# quarter of its HP nearly half again as far, so slams and carries come as fights go on.
+	push *= 1.0 + KNOCKBACK_GROWTH * (1.0 - float(f["hp"]) / f["max_hp"])
 	if push.length() >= CARRY_FROM:
 		_carry(i, push, by)
 	else:
@@ -3088,6 +3518,16 @@ func _hurt(i: int, damage: int, push: Vector2, by: int, pierce := false) -> void
 		_check_winner(1 - f["team"])
 		_cheer = 3.0
 		_play("res://assets/audio/sfx/ui/faint.wav", -4.0)
+		if was_up:
+			# The KO beat: the fight hangs for a moment, a white ring, and the creature drops.
+			_hitstop = maxf(_hitstop, KO_HITSTOP)
+			_label(i, "KO")
+			var lines := []
+			for k in 10:
+				lines.append(randf() * TAU)
+			_effects.append({"kind": "ring", "pos": f["body"].position, "size": 30.0, "t": 0.0, "lines": lines, "rim": Color("#ffffff")})
+			_anim(i, "ko", 0.5, f["shiver"])
+			_shake_by(5.0)
 
 
 func _play(path: String, db: float) -> void:
@@ -3115,6 +3555,13 @@ func _draw_crowd() -> void:
 
 func _draw_effects() -> void:
 	_draw_crowd()
+	if team_size > 1:
+		# The Crest: the centre circle lit in the holder's colour, white when contested or empty.
+		var cc: Vector2 = ARENAS[_arena]["floor"].get_center()
+		var ccol: Color = (TEAM_RING[0] if _crest_team == 0 else Color("#ff4a3a")) if _crest_team >= 0 else Color(1, 1, 1, 0.35)
+		_fx.draw_set_transform(cc.round(), 0.0, Vector2(1.0, 0.55))
+		_fx.draw_arc(Vector2.ZERO, CREST_RADIUS + 1.0 + sin(_crowd_t * 3.0), 0, TAU, 40, Color(ccol, 0.8), 1.5)
+		_fx.draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE)
 	for w in _walls:
 		_draw_root_pillar(w)
 	for e in _effects:
@@ -3313,7 +3760,7 @@ func _draw_effects() -> void:
 				_fx.draw_line(e["from"].round(), tip.round(), halo, 9.0)
 				for strand in 2:
 					var pts := PackedVector2Array()
-					var steps := int(e["len"] / 4.0) + 1
+					var steps := maxi(1, int(e["len"] / 4.0) + 1)   # never fewer than two points (the sim log filled with polyline errors)
 					for k in steps + 1:
 						var along := float(k) / steps
 						var wob := sin(along * 9.0 + _crowd_t * 25.0 + strand * PI) * 2.0 * minf(1.0, along * 4.0)
@@ -3851,6 +4298,17 @@ func _draw_hud() -> void:
 			_hud.draw_string(_font, Vector2(x + 14, y - 6), "TARGET  " + tname, HORIZONTAL_ALIGNMENT_LEFT, -1, 11, Color("#ff4a3a") if player_target >= 0 else Color(1, 1, 1, 0.7))
 		if full and f["final"] and idx == controlled:
 			_hud.draw_string(_font, Vector2(x + w - 170, y + (24 if big else 15)), "K: " + String(LINES[f["line"]]["signature"]).to_upper(), HORIZONTAL_ALIGNMENT_LEFT, -1, 12 if big else 10, accent.lightened(0.3))
+	if team_size > 1:
+		var left_s: int = maxi(0, int(ceil(MATCH_SECONDS - _clock)))
+		_hud.draw_string(_font, Vector2(576 - 30, 40), "%d:%02d" % [left_s / 60, left_s % 60], HORIZONTAL_ALIGNMENT_CENTER, 60, 16, Color("#F0F4F8") if left_s > 15 else Color("#ff4a3a"))
+		if _on_points and _winner >= 0:
+			_hud.draw_string(_font, Vector2(576 - 120, 64), ("YOUR TEAM" if _winner == 0 else "THE RIVALS") + " WIN ON POINTS", HORIZONTAL_ALIGNMENT_CENTER, 240, 14, Color("#ffe066"))
+	if show_ai_log:
+		# Kit Sense's log: the last eight decisions, newest at the bottom.
+		var n: int = mini(8, ai_log.size())
+		_hud.draw_rect(Rect2(8, 40, 520, 14 * n + 10), Color(0.05, 0.06, 0.08, 0.8))
+		for k in n:
+			_hud.draw_string(_font, Vector2(14, 54 + k * 14), ai_log[ai_log.size() - n + k], HORIZONTAL_ALIGNMENT_LEFT, -1, 10, Color("#F0F4F8"))
 	_draw_ability_bar()
 	_hud.draw_string(_font, Vector2(16, 24), "TARGET LEFT/RIGHT  UP AUTO   ABILITIES 1 2 3   ULTIMATE 4   SPACE SWITCH CREATURE   (IT MOVES AND USES ITS BASIC ATTACK ON ITS OWN)   STAGE F   RIVAL T   RIVAL STAGE G   TEAM SIZE N   ROCKS B   SHAKE V   ARENA M   REMATCH R   ESC MENU", HORIZONTAL_ALIGNMENT_LEFT, -1, 11, Color(1, 1, 1, 0.75))
 	for l in _labels:

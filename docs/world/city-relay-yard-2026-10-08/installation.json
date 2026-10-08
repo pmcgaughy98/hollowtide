@@ -1,0 +1,63 @@
+{
+  "installed_utc": "2026-10-08T12:56:02.715951+00:00",
+  "files": [
+    {
+      "path": "scripts/world_journey.gd",
+      "sha256": "f744e8ccf9557c679bb9433ffe5403686e2094f981f5594985a50740d3e06827"
+    },
+    {
+      "path": "scripts/world_area.gd",
+      "sha256": "1caf3d290322a116720d0e365d347276224e48af44bf1f514515b5fd5def1cea"
+    },
+    {
+      "path": "scripts/area_landscape.gd",
+      "sha256": "eef5fddc5d6be5ba7db67a4258ad10e040f40f2ee9351a706e7df1ab8b76b882"
+    },
+    {
+      "path": "scripts/city_relay_yard.gd",
+      "sha256": "521b98c89e9050af0734b06b0fd9743b1b4746ee2b561ef14d77f667d203e5f7"
+    },
+    {
+      "path": "scripts/relay_yard_practice.gd",
+      "sha256": "7445b33b6a4b98e31e761850e83d7a4afeb4750a3aac90d3a77c6c8fe46ffa8e"
+    },
+    {
+      "path": "scenes/city_relay_yard.tscn",
+      "sha256": "80b373aca9b41d2db91f57b70bc07ff0d80e7cfe73fda6f3d7b5a2faa2ef2ef7"
+    },
+    {
+      "path": "tools/debug/relay_yard_check.gd",
+      "sha256": "187991896800d53eaa48ed485a79306de4e10d3a8af42e3787e892c35e10ebc3"
+    }
+  ],
+  "verified_image_paths": 620,
+  "backup_and_palette_manifest_paths_verified": 622,
+  "protected_before_install": {
+    "project.godot": "f6ce35ddd132684d8a70291b651e0d4597dc6c6c16bf959b7cda5d30e88f85b2",
+    "scripts/arena/arena_prototype.gd": "da015ca09ff30e7f56570a4c442758be54fc912cf84d58226120aace7b2f655d",
+    "scripts/move_preview.gd": "b79f21c592e71d59100fdee7aa616131d99606048be048fd4e6eabd12d6f88be",
+    "scripts/player.gd": "ed85fe5f58401d10e9500a1308d2595ffd0d320a3c6fe281190606479ea5e6ac",
+    "scripts/player_party.gd": "ec6553d6b534d7d53ec196665431a5a01c91743dda50486fa9b8668dfe430d8e",
+    "scripts/first_route_prototype.gd": "0519fd97fd85c43d975fde4528ca32f7c30f45790b26a0881be408283606a18d"
+  },
+  "protected_after_install": {
+    "project.godot": "f6ce35ddd132684d8a70291b651e0d4597dc6c6c16bf959b7cda5d30e88f85b2",
+    "scripts/arena/arena_prototype.gd": "da015ca09ff30e7f56570a4c442758be54fc912cf84d58226120aace7b2f655d",
+    "scripts/move_preview.gd": "b79f21c592e71d59100fdee7aa616131d99606048be048fd4e6eabd12d6f88be",
+    "scripts/player.gd": "ed85fe5f58401d10e9500a1308d2595ffd0d320a3c6fe281190606479ea5e6ac",
+    "scripts/player_party.gd": "ec6553d6b534d7d53ec196665431a5a01c91743dda50486fa9b8668dfe430d8e",
+    "scripts/first_route_prototype.gd": "0519fd97fd85c43d975fde4528ca32f7c30f45790b26a0881be408283606a18d"
+  },
+  "tested_arena_script_sha256": "86fe4d508a3ce2fd35dbe02451fa0f5cee830b20ca89e016aee058923637cdd5",
+  "live_arena_script_sha256": "da015ca09ff30e7f56570a4c442758be54fc912cf84d58226120aace7b2f655d",
+  "verification_boundary": "Native runs use the staged arena snapshot; later live combat edits are preserved and are not certified by those runs.",
+  "initial_import_diagnostics_retained": true,
+  "native_check_script_sha256": "187991896800d53eaa48ed485a79306de4e10d3a8af42e3787e892c35e10ebc3",
+  "native_check_counts": {
+    "male": 25,
+    "female": 25
+  },
+  "final_runtime_startup_diagnostics": [
+    "Sandbox cannot read Windows root certificate store"
+  ]
+}

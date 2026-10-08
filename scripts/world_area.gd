@@ -65,7 +65,9 @@ func interact(controller: Node2D) -> void:
         "garden": controller.call("_visit_shared_garden")
         "directions": controller.call("_visit_home_directions")
         "city_clerk": controller.call("_visit_city_clerk")
-        "city_directions": controller.call("_visit_city_directions")
+        "city_directions":
+            controller.set("city_directions_read",true)
+            controller.call("_show_message","CITY ROUTES\nNorth: the historic street, repaired shop and public ledger. East: the relay yard, with loading bays, a sorting run and optional partner practice. Return west over the bridge for Route 1 and the hometown.")
 
 func _open_journey() -> void:
     var connected:Node2D=load("res://scenes/world_journey.tscn").instantiate()

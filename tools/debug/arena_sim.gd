@@ -9,7 +9,8 @@ extends SceneTree
 ## numbers are per creature: damage dealt, how often it is still standing at the end, and how
 ## often it is the first to fall. Team matches get 30 more seconds per extra creature.
 
-const FORMS := [[0, 2, "Stormwick"], [1, 2, "Rampartroot"], [2, 2, "Scourmaw"]]
+# All seven finals (2026-10-08). Earlier runs covered the first three.
+const FORMS := [[0, 2, "Stormwick"], [1, 2, "Rampartroot"], [2, 2, "Scourmaw"], [3, 2, "Ironvent"], [4, 2, "Vitrecrag"], [5, 2, "Oxbowarchon"], [6, 2, "Starward"]]
 var arena: Node2D
 
 func _initialize() -> void:

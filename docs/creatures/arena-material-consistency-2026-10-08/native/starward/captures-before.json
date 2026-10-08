@@ -1,0 +1,56 @@
+﻿[
+    {
+        "relative":  "counter_jab.png",
+        "length":  145716,
+        "sha256":  "d6e0ab4d650741799b2acd915a166c3ee1300b3d148225e54faa4eff1c047e83",
+        "lastWriteUtc":  "2026-10-08T05:02:51.3271988Z"
+    },
+    {
+        "relative":  "line_stage1.png",
+        "length":  116973,
+        "sha256":  "edeb5c3d1ea20eaad7f82c8296aba033ee798640d993e2e26923f7a3c6d97cab",
+        "lastWriteUtc":  "2026-10-08T05:02:49.4726144Z"
+    },
+    {
+        "relative":  "line_stage2.png",
+        "length":  117609,
+        "sha256":  "4a0f990023360f637b8799bf9df6cb5b7c3228362dca636c89c4c0cfc35d094e",
+        "lastWriteUtc":  "2026-10-08T05:02:49.8905242Z"
+    },
+    {
+        "relative":  "line_stage3.png",
+        "length":  118330,
+        "sha256":  "a5bee353cd5dc158bbceea86f270fe4a8197004b1b7b6a29006d39ca5657e2b3",
+        "lastWriteUtc":  "2026-10-08T05:02:50.2645661Z"
+    },
+    {
+        "relative":  "match_3v3.png",
+        "length":  138567,
+        "sha256":  "437fc50bb981344a5adf7f8b52e8ac8646a543ba0d73e346b5f42e43bc35834b",
+        "lastWriteUtc":  "2026-10-08T05:02:59.4107340Z"
+    },
+    {
+        "relative":  "starshield_forming.png",
+        "length":  147744,
+        "sha256":  "fa24e3735709b4835d214c360d79423d7fc41de13d4a0317ad4ffc8595920712",
+        "lastWriteUtc":  "2026-10-08T05:02:52.3272632Z"
+    },
+    {
+        "relative":  "starshield_snap.png",
+        "length":  149212,
+        "sha256":  "b41ba937cb25a224b0de5fd7cf32824ce46c4a15be2dd8b2f782f765ff7b34a0",
+        "lastWriteUtc":  "2026-10-08T05:02:52.4598503Z"
+    },
+    {
+        "relative":  "star_field.png",
+        "length":  145667,
+        "sha256":  "cb4eb54559328317b883dd1ae3ecdcd480da1ad24501929a46c622f6fda25056",
+        "lastWriteUtc":  "2026-10-08T05:02:54.2774223Z"
+    },
+    {
+        "relative":  "star_guard.png",
+        "length":  143362,
+        "sha256":  "fd8866b4f60001f5fd3a616a319d17985917dc7e5f617c93a135e1e1356b2cc7",
+        "lastWriteUtc":  "2026-10-08T05:02:51.1790311Z"
+    }
+]

@@ -1,0 +1,50 @@
+﻿[
+    {
+        "relative":  "glass_1.80s.png",
+        "length":  152425,
+        "sha256":  "927996221af4fdcdf0c6b77691bed4ee7e07d4be25d05547144e068d28d459bf",
+        "lastWriteUtc":  "2026-10-08T12:04:01.9727653Z"
+    },
+    {
+        "relative":  "glass_2.30s.png",
+        "length":  150823,
+        "sha256":  "56be1185673a898460ac44f6635d4afe73f219d7562a8abbfd09293d8ac52a8c",
+        "lastWriteUtc":  "2026-10-08T12:04:02.2236277Z"
+    },
+    {
+        "relative":  "glass_2.70s.png",
+        "length":  151009,
+        "sha256":  "d3ef3a195d9e44620c3328d8753106d0d38bc24bf076d2b5bac99de5079b4d2c",
+        "lastWriteUtc":  "2026-10-08T12:04:02.4290531Z"
+    },
+    {
+        "relative":  "glass_3.10s.png",
+        "length":  151682,
+        "sha256":  "45b8e7fca6fdbb27ff1bf1af8cf2adbcd7931aee895f4891b17bf476251eb11d",
+        "lastWriteUtc":  "2026-10-08T12:04:02.6678303Z"
+    },
+    {
+        "relative":  "line_stage1.png",
+        "length":  118596,
+        "sha256":  "dc7eff64483f5d61dce5dec6d9e9f28789cfc4df9ff646d60d29fbd95b11b9be",
+        "lastWriteUtc":  "2026-10-08T12:03:53.2562623Z"
+    },
+    {
+        "relative":  "line_stage2.png",
+        "length":  121177,
+        "sha256":  "edcab825c5a52d4578c93078a45a04a0f7d83d008fc7f90a0e87b2208b28539f",
+        "lastWriteUtc":  "2026-10-08T12:03:55.2616352Z"
+    },
+    {
+        "relative":  "line_stage3.png",
+        "length":  121013,
+        "sha256":  "f2e33314bea90d40c2b81b3a74bb174df30acb5e0485e085eb867f9c77ca61c9",
+        "lastWriteUtc":  "2026-10-08T12:03:56.3732638Z"
+    },
+    {
+        "relative":  "match.png",
+        "length":  125628,
+        "sha256":  "c8711b6eea709ae43b6ecb021dcfefff7be1a9cb31a5492b4f94c47cf529a797",
+        "lastWriteUtc":  "2026-10-08T12:04:05.6345127Z"
+    }
+]

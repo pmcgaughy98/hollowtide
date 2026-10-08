@@ -1,0 +1,4034 @@
+[
+  {
+    "form": "slagglass",
+    "kind": "small",
+    "facing": "s",
+    "frame": null,
+    "path": "assets/sprites/arena/slagglass/small/s.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "slagglass",
+    "kind": "small",
+    "facing": "se",
+    "frame": null,
+    "path": "assets/sprites/arena/slagglass/small/se.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "slagglass",
+    "kind": "small",
+    "facing": "e",
+    "frame": null,
+    "path": "assets/sprites/arena/slagglass/small/e.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "slagglass",
+    "kind": "small",
+    "facing": "ne",
+    "frame": null,
+    "path": "assets/sprites/arena/slagglass/small/ne.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "slagglass",
+    "kind": "small",
+    "facing": "n",
+    "frame": null,
+    "path": "assets/sprites/arena/slagglass/small/n.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "slagglass",
+    "kind": "small",
+    "facing": "nw",
+    "frame": null,
+    "path": "assets/sprites/arena/slagglass/small/nw.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "slagglass",
+    "kind": "small",
+    "facing": "w",
+    "frame": null,
+    "path": "assets/sprites/arena/slagglass/small/w.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "slagglass",
+    "kind": "small",
+    "facing": "sw",
+    "frame": null,
+    "path": "assets/sprites/arena/slagglass/small/sw.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "slagglass",
+    "kind": "walk_small",
+    "facing": "e",
+    "frame": 0,
+    "path": "assets/sprites/arena/slagglass/small/walk_e_f0.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "slagglass",
+    "kind": "walk_small",
+    "facing": "e",
+    "frame": 1,
+    "path": "assets/sprites/arena/slagglass/small/walk_e_f1.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "slagglass",
+    "kind": "walk_small",
+    "facing": "e",
+    "frame": 2,
+    "path": "assets/sprites/arena/slagglass/small/walk_e_f2.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "slagglass",
+    "kind": "walk_small",
+    "facing": "e",
+    "frame": 3,
+    "path": "assets/sprites/arena/slagglass/small/walk_e_f3.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "slagglass",
+    "kind": "walk_small",
+    "facing": "e",
+    "frame": 4,
+    "path": "assets/sprites/arena/slagglass/small/walk_e_f4.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "slagglass",
+    "kind": "walk_small",
+    "facing": "e",
+    "frame": 5,
+    "path": "assets/sprites/arena/slagglass/small/walk_e_f5.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "slagglass",
+    "kind": "walk_small",
+    "facing": "e",
+    "frame": 6,
+    "path": "assets/sprites/arena/slagglass/small/walk_e_f6.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "slagglass",
+    "kind": "walk_small",
+    "facing": "e",
+    "frame": 7,
+    "path": "assets/sprites/arena/slagglass/small/walk_e_f7.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "slagglass",
+    "kind": "walk_small",
+    "facing": "ne",
+    "frame": 0,
+    "path": "assets/sprites/arena/slagglass/small/walk_ne_f0.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "slagglass",
+    "kind": "walk_small",
+    "facing": "ne",
+    "frame": 1,
+    "path": "assets/sprites/arena/slagglass/small/walk_ne_f1.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "slagglass",
+    "kind": "walk_small",
+    "facing": "ne",
+    "frame": 2,
+    "path": "assets/sprites/arena/slagglass/small/walk_ne_f2.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "slagglass",
+    "kind": "walk_small",
+    "facing": "ne",
+    "frame": 3,
+    "path": "assets/sprites/arena/slagglass/small/walk_ne_f3.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "slagglass",
+    "kind": "walk_small",
+    "facing": "ne",
+    "frame": 4,
+    "path": "assets/sprites/arena/slagglass/small/walk_ne_f4.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "slagglass",
+    "kind": "walk_small",
+    "facing": "ne",
+    "frame": 5,
+    "path": "assets/sprites/arena/slagglass/small/walk_ne_f5.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "slagglass",
+    "kind": "walk_small",
+    "facing": "ne",
+    "frame": 6,
+    "path": "assets/sprites/arena/slagglass/small/walk_ne_f6.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "slagglass",
+    "kind": "walk_small",
+    "facing": "ne",
+    "frame": 7,
+    "path": "assets/sprites/arena/slagglass/small/walk_ne_f7.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "slagglass",
+    "kind": "walk_small",
+    "facing": "nw",
+    "frame": 0,
+    "path": "assets/sprites/arena/slagglass/small/walk_nw_f0.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "slagglass",
+    "kind": "walk_small",
+    "facing": "nw",
+    "frame": 1,
+    "path": "assets/sprites/arena/slagglass/small/walk_nw_f1.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "slagglass",
+    "kind": "walk_small",
+    "facing": "nw",
+    "frame": 2,
+    "path": "assets/sprites/arena/slagglass/small/walk_nw_f2.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "slagglass",
+    "kind": "walk_small",
+    "facing": "nw",
+    "frame": 3,
+    "path": "assets/sprites/arena/slagglass/small/walk_nw_f3.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "slagglass",
+    "kind": "walk_small",
+    "facing": "nw",
+    "frame": 4,
+    "path": "assets/sprites/arena/slagglass/small/walk_nw_f4.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "slagglass",
+    "kind": "walk_small",
+    "facing": "nw",
+    "frame": 5,
+    "path": "assets/sprites/arena/slagglass/small/walk_nw_f5.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "slagglass",
+    "kind": "walk_small",
+    "facing": "nw",
+    "frame": 6,
+    "path": "assets/sprites/arena/slagglass/small/walk_nw_f6.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "slagglass",
+    "kind": "walk_small",
+    "facing": "nw",
+    "frame": 7,
+    "path": "assets/sprites/arena/slagglass/small/walk_nw_f7.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "slagglass",
+    "kind": "walk_small",
+    "facing": "n",
+    "frame": 0,
+    "path": "assets/sprites/arena/slagglass/small/walk_n_f0.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "slagglass",
+    "kind": "walk_small",
+    "facing": "n",
+    "frame": 1,
+    "path": "assets/sprites/arena/slagglass/small/walk_n_f1.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "slagglass",
+    "kind": "walk_small",
+    "facing": "n",
+    "frame": 2,
+    "path": "assets/sprites/arena/slagglass/small/walk_n_f2.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "slagglass",
+    "kind": "walk_small",
+    "facing": "n",
+    "frame": 3,
+    "path": "assets/sprites/arena/slagglass/small/walk_n_f3.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "slagglass",
+    "kind": "walk_small",
+    "facing": "n",
+    "frame": 4,
+    "path": "assets/sprites/arena/slagglass/small/walk_n_f4.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "slagglass",
+    "kind": "walk_small",
+    "facing": "n",
+    "frame": 5,
+    "path": "assets/sprites/arena/slagglass/small/walk_n_f5.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "slagglass",
+    "kind": "walk_small",
+    "facing": "n",
+    "frame": 6,
+    "path": "assets/sprites/arena/slagglass/small/walk_n_f6.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "slagglass",
+    "kind": "walk_small",
+    "facing": "n",
+    "frame": 7,
+    "path": "assets/sprites/arena/slagglass/small/walk_n_f7.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "slagglass",
+    "kind": "walk_small",
+    "facing": "se",
+    "frame": 0,
+    "path": "assets/sprites/arena/slagglass/small/walk_se_f0.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "slagglass",
+    "kind": "walk_small",
+    "facing": "se",
+    "frame": 1,
+    "path": "assets/sprites/arena/slagglass/small/walk_se_f1.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "slagglass",
+    "kind": "walk_small",
+    "facing": "se",
+    "frame": 2,
+    "path": "assets/sprites/arena/slagglass/small/walk_se_f2.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "slagglass",
+    "kind": "walk_small",
+    "facing": "se",
+    "frame": 3,
+    "path": "assets/sprites/arena/slagglass/small/walk_se_f3.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "slagglass",
+    "kind": "walk_small",
+    "facing": "se",
+    "frame": 4,
+    "path": "assets/sprites/arena/slagglass/small/walk_se_f4.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "slagglass",
+    "kind": "walk_small",
+    "facing": "se",
+    "frame": 5,
+    "path": "assets/sprites/arena/slagglass/small/walk_se_f5.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "slagglass",
+    "kind": "walk_small",
+    "facing": "se",
+    "frame": 6,
+    "path": "assets/sprites/arena/slagglass/small/walk_se_f6.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "slagglass",
+    "kind": "walk_small",
+    "facing": "se",
+    "frame": 7,
+    "path": "assets/sprites/arena/slagglass/small/walk_se_f7.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "slagglass",
+    "kind": "walk_small",
+    "facing": "sw",
+    "frame": 0,
+    "path": "assets/sprites/arena/slagglass/small/walk_sw_f0.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "slagglass",
+    "kind": "walk_small",
+    "facing": "sw",
+    "frame": 1,
+    "path": "assets/sprites/arena/slagglass/small/walk_sw_f1.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "slagglass",
+    "kind": "walk_small",
+    "facing": "sw",
+    "frame": 2,
+    "path": "assets/sprites/arena/slagglass/small/walk_sw_f2.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "slagglass",
+    "kind": "walk_small",
+    "facing": "sw",
+    "frame": 3,
+    "path": "assets/sprites/arena/slagglass/small/walk_sw_f3.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "slagglass",
+    "kind": "walk_small",
+    "facing": "sw",
+    "frame": 4,
+    "path": "assets/sprites/arena/slagglass/small/walk_sw_f4.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "slagglass",
+    "kind": "walk_small",
+    "facing": "sw",
+    "frame": 5,
+    "path": "assets/sprites/arena/slagglass/small/walk_sw_f5.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "slagglass",
+    "kind": "walk_small",
+    "facing": "sw",
+    "frame": 6,
+    "path": "assets/sprites/arena/slagglass/small/walk_sw_f6.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "slagglass",
+    "kind": "walk_small",
+    "facing": "sw",
+    "frame": 7,
+    "path": "assets/sprites/arena/slagglass/small/walk_sw_f7.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "slagglass",
+    "kind": "walk_small",
+    "facing": "s",
+    "frame": 0,
+    "path": "assets/sprites/arena/slagglass/small/walk_s_f0.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "slagglass",
+    "kind": "walk_small",
+    "facing": "s",
+    "frame": 1,
+    "path": "assets/sprites/arena/slagglass/small/walk_s_f1.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "slagglass",
+    "kind": "walk_small",
+    "facing": "s",
+    "frame": 2,
+    "path": "assets/sprites/arena/slagglass/small/walk_s_f2.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "slagglass",
+    "kind": "walk_small",
+    "facing": "s",
+    "frame": 3,
+    "path": "assets/sprites/arena/slagglass/small/walk_s_f3.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "slagglass",
+    "kind": "walk_small",
+    "facing": "s",
+    "frame": 4,
+    "path": "assets/sprites/arena/slagglass/small/walk_s_f4.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "slagglass",
+    "kind": "walk_small",
+    "facing": "s",
+    "frame": 5,
+    "path": "assets/sprites/arena/slagglass/small/walk_s_f5.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "slagglass",
+    "kind": "walk_small",
+    "facing": "s",
+    "frame": 6,
+    "path": "assets/sprites/arena/slagglass/small/walk_s_f6.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "slagglass",
+    "kind": "walk_small",
+    "facing": "s",
+    "frame": 7,
+    "path": "assets/sprites/arena/slagglass/small/walk_s_f7.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "slagglass",
+    "kind": "walk_small",
+    "facing": "w",
+    "frame": 0,
+    "path": "assets/sprites/arena/slagglass/small/walk_w_f0.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "slagglass",
+    "kind": "walk_small",
+    "facing": "w",
+    "frame": 1,
+    "path": "assets/sprites/arena/slagglass/small/walk_w_f1.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "slagglass",
+    "kind": "walk_small",
+    "facing": "w",
+    "frame": 2,
+    "path": "assets/sprites/arena/slagglass/small/walk_w_f2.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "slagglass",
+    "kind": "walk_small",
+    "facing": "w",
+    "frame": 3,
+    "path": "assets/sprites/arena/slagglass/small/walk_w_f3.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "slagglass",
+    "kind": "walk_small",
+    "facing": "w",
+    "frame": 4,
+    "path": "assets/sprites/arena/slagglass/small/walk_w_f4.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "slagglass",
+    "kind": "walk_small",
+    "facing": "w",
+    "frame": 5,
+    "path": "assets/sprites/arena/slagglass/small/walk_w_f5.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "slagglass",
+    "kind": "walk_small",
+    "facing": "w",
+    "frame": 6,
+    "path": "assets/sprites/arena/slagglass/small/walk_w_f6.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "slagglass",
+    "kind": "walk_small",
+    "facing": "w",
+    "frame": 7,
+    "path": "assets/sprites/arena/slagglass/small/walk_w_f7.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "preostmar",
+    "kind": "small",
+    "facing": "s",
+    "frame": null,
+    "path": "assets/sprites/arena/preostmar/small/s.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "preostmar",
+    "kind": "small",
+    "facing": "se",
+    "frame": null,
+    "path": "assets/sprites/arena/preostmar/small/se.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "preostmar",
+    "kind": "small",
+    "facing": "e",
+    "frame": null,
+    "path": "assets/sprites/arena/preostmar/small/e.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "preostmar",
+    "kind": "small",
+    "facing": "ne",
+    "frame": null,
+    "path": "assets/sprites/arena/preostmar/small/ne.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "preostmar",
+    "kind": "small",
+    "facing": "n",
+    "frame": null,
+    "path": "assets/sprites/arena/preostmar/small/n.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "preostmar",
+    "kind": "small",
+    "facing": "nw",
+    "frame": null,
+    "path": "assets/sprites/arena/preostmar/small/nw.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "preostmar",
+    "kind": "small",
+    "facing": "w",
+    "frame": null,
+    "path": "assets/sprites/arena/preostmar/small/w.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "preostmar",
+    "kind": "small",
+    "facing": "sw",
+    "frame": null,
+    "path": "assets/sprites/arena/preostmar/small/sw.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "preostmar",
+    "kind": "walk_small",
+    "facing": "e",
+    "frame": 0,
+    "path": "assets/sprites/arena/preostmar/small/walk_e_f0.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "preostmar",
+    "kind": "walk_small",
+    "facing": "e",
+    "frame": 1,
+    "path": "assets/sprites/arena/preostmar/small/walk_e_f1.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "preostmar",
+    "kind": "walk_small",
+    "facing": "e",
+    "frame": 2,
+    "path": "assets/sprites/arena/preostmar/small/walk_e_f2.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "preostmar",
+    "kind": "walk_small",
+    "facing": "e",
+    "frame": 3,
+    "path": "assets/sprites/arena/preostmar/small/walk_e_f3.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "preostmar",
+    "kind": "walk_small",
+    "facing": "e",
+    "frame": 4,
+    "path": "assets/sprites/arena/preostmar/small/walk_e_f4.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "preostmar",
+    "kind": "walk_small",
+    "facing": "e",
+    "frame": 5,
+    "path": "assets/sprites/arena/preostmar/small/walk_e_f5.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "preostmar",
+    "kind": "walk_small",
+    "facing": "e",
+    "frame": 6,
+    "path": "assets/sprites/arena/preostmar/small/walk_e_f6.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "preostmar",
+    "kind": "walk_small",
+    "facing": "e",
+    "frame": 7,
+    "path": "assets/sprites/arena/preostmar/small/walk_e_f7.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "preostmar",
+    "kind": "walk_small",
+    "facing": "ne",
+    "frame": 0,
+    "path": "assets/sprites/arena/preostmar/small/walk_ne_f0.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "preostmar",
+    "kind": "walk_small",
+    "facing": "ne",
+    "frame": 1,
+    "path": "assets/sprites/arena/preostmar/small/walk_ne_f1.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "preostmar",
+    "kind": "walk_small",
+    "facing": "ne",
+    "frame": 2,
+    "path": "assets/sprites/arena/preostmar/small/walk_ne_f2.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "preostmar",
+    "kind": "walk_small",
+    "facing": "ne",
+    "frame": 3,
+    "path": "assets/sprites/arena/preostmar/small/walk_ne_f3.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "preostmar",
+    "kind": "walk_small",
+    "facing": "ne",
+    "frame": 4,
+    "path": "assets/sprites/arena/preostmar/small/walk_ne_f4.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "preostmar",
+    "kind": "walk_small",
+    "facing": "ne",
+    "frame": 5,
+    "path": "assets/sprites/arena/preostmar/small/walk_ne_f5.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "preostmar",
+    "kind": "walk_small",
+    "facing": "ne",
+    "frame": 6,
+    "path": "assets/sprites/arena/preostmar/small/walk_ne_f6.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "preostmar",
+    "kind": "walk_small",
+    "facing": "ne",
+    "frame": 7,
+    "path": "assets/sprites/arena/preostmar/small/walk_ne_f7.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "preostmar",
+    "kind": "walk_small",
+    "facing": "nw",
+    "frame": 0,
+    "path": "assets/sprites/arena/preostmar/small/walk_nw_f0.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "preostmar",
+    "kind": "walk_small",
+    "facing": "nw",
+    "frame": 1,
+    "path": "assets/sprites/arena/preostmar/small/walk_nw_f1.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "preostmar",
+    "kind": "walk_small",
+    "facing": "nw",
+    "frame": 2,
+    "path": "assets/sprites/arena/preostmar/small/walk_nw_f2.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "preostmar",
+    "kind": "walk_small",
+    "facing": "nw",
+    "frame": 3,
+    "path": "assets/sprites/arena/preostmar/small/walk_nw_f3.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "preostmar",
+    "kind": "walk_small",
+    "facing": "nw",
+    "frame": 4,
+    "path": "assets/sprites/arena/preostmar/small/walk_nw_f4.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "preostmar",
+    "kind": "walk_small",
+    "facing": "nw",
+    "frame": 5,
+    "path": "assets/sprites/arena/preostmar/small/walk_nw_f5.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "preostmar",
+    "kind": "walk_small",
+    "facing": "nw",
+    "frame": 6,
+    "path": "assets/sprites/arena/preostmar/small/walk_nw_f6.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "preostmar",
+    "kind": "walk_small",
+    "facing": "nw",
+    "frame": 7,
+    "path": "assets/sprites/arena/preostmar/small/walk_nw_f7.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "preostmar",
+    "kind": "walk_small",
+    "facing": "n",
+    "frame": 0,
+    "path": "assets/sprites/arena/preostmar/small/walk_n_f0.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "preostmar",
+    "kind": "walk_small",
+    "facing": "n",
+    "frame": 1,
+    "path": "assets/sprites/arena/preostmar/small/walk_n_f1.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "preostmar",
+    "kind": "walk_small",
+    "facing": "n",
+    "frame": 2,
+    "path": "assets/sprites/arena/preostmar/small/walk_n_f2.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "preostmar",
+    "kind": "walk_small",
+    "facing": "n",
+    "frame": 3,
+    "path": "assets/sprites/arena/preostmar/small/walk_n_f3.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "preostmar",
+    "kind": "walk_small",
+    "facing": "n",
+    "frame": 4,
+    "path": "assets/sprites/arena/preostmar/small/walk_n_f4.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "preostmar",
+    "kind": "walk_small",
+    "facing": "n",
+    "frame": 5,
+    "path": "assets/sprites/arena/preostmar/small/walk_n_f5.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "preostmar",
+    "kind": "walk_small",
+    "facing": "n",
+    "frame": 6,
+    "path": "assets/sprites/arena/preostmar/small/walk_n_f6.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "preostmar",
+    "kind": "walk_small",
+    "facing": "n",
+    "frame": 7,
+    "path": "assets/sprites/arena/preostmar/small/walk_n_f7.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "preostmar",
+    "kind": "walk_small",
+    "facing": "se",
+    "frame": 0,
+    "path": "assets/sprites/arena/preostmar/small/walk_se_f0.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "preostmar",
+    "kind": "walk_small",
+    "facing": "se",
+    "frame": 1,
+    "path": "assets/sprites/arena/preostmar/small/walk_se_f1.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "preostmar",
+    "kind": "walk_small",
+    "facing": "se",
+    "frame": 2,
+    "path": "assets/sprites/arena/preostmar/small/walk_se_f2.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "preostmar",
+    "kind": "walk_small",
+    "facing": "se",
+    "frame": 3,
+    "path": "assets/sprites/arena/preostmar/small/walk_se_f3.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "preostmar",
+    "kind": "walk_small",
+    "facing": "se",
+    "frame": 4,
+    "path": "assets/sprites/arena/preostmar/small/walk_se_f4.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "preostmar",
+    "kind": "walk_small",
+    "facing": "se",
+    "frame": 5,
+    "path": "assets/sprites/arena/preostmar/small/walk_se_f5.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "preostmar",
+    "kind": "walk_small",
+    "facing": "se",
+    "frame": 6,
+    "path": "assets/sprites/arena/preostmar/small/walk_se_f6.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "preostmar",
+    "kind": "walk_small",
+    "facing": "se",
+    "frame": 7,
+    "path": "assets/sprites/arena/preostmar/small/walk_se_f7.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "preostmar",
+    "kind": "walk_small",
+    "facing": "sw",
+    "frame": 0,
+    "path": "assets/sprites/arena/preostmar/small/walk_sw_f0.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "preostmar",
+    "kind": "walk_small",
+    "facing": "sw",
+    "frame": 1,
+    "path": "assets/sprites/arena/preostmar/small/walk_sw_f1.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "preostmar",
+    "kind": "walk_small",
+    "facing": "sw",
+    "frame": 2,
+    "path": "assets/sprites/arena/preostmar/small/walk_sw_f2.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "preostmar",
+    "kind": "walk_small",
+    "facing": "sw",
+    "frame": 3,
+    "path": "assets/sprites/arena/preostmar/small/walk_sw_f3.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "preostmar",
+    "kind": "walk_small",
+    "facing": "sw",
+    "frame": 4,
+    "path": "assets/sprites/arena/preostmar/small/walk_sw_f4.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "preostmar",
+    "kind": "walk_small",
+    "facing": "sw",
+    "frame": 5,
+    "path": "assets/sprites/arena/preostmar/small/walk_sw_f5.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "preostmar",
+    "kind": "walk_small",
+    "facing": "sw",
+    "frame": 6,
+    "path": "assets/sprites/arena/preostmar/small/walk_sw_f6.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "preostmar",
+    "kind": "walk_small",
+    "facing": "sw",
+    "frame": 7,
+    "path": "assets/sprites/arena/preostmar/small/walk_sw_f7.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "preostmar",
+    "kind": "walk_small",
+    "facing": "s",
+    "frame": 0,
+    "path": "assets/sprites/arena/preostmar/small/walk_s_f0.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "preostmar",
+    "kind": "walk_small",
+    "facing": "s",
+    "frame": 1,
+    "path": "assets/sprites/arena/preostmar/small/walk_s_f1.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "preostmar",
+    "kind": "walk_small",
+    "facing": "s",
+    "frame": 2,
+    "path": "assets/sprites/arena/preostmar/small/walk_s_f2.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "preostmar",
+    "kind": "walk_small",
+    "facing": "s",
+    "frame": 3,
+    "path": "assets/sprites/arena/preostmar/small/walk_s_f3.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "preostmar",
+    "kind": "walk_small",
+    "facing": "s",
+    "frame": 4,
+    "path": "assets/sprites/arena/preostmar/small/walk_s_f4.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "preostmar",
+    "kind": "walk_small",
+    "facing": "s",
+    "frame": 5,
+    "path": "assets/sprites/arena/preostmar/small/walk_s_f5.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "preostmar",
+    "kind": "walk_small",
+    "facing": "s",
+    "frame": 6,
+    "path": "assets/sprites/arena/preostmar/small/walk_s_f6.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "preostmar",
+    "kind": "walk_small",
+    "facing": "s",
+    "frame": 7,
+    "path": "assets/sprites/arena/preostmar/small/walk_s_f7.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "preostmar",
+    "kind": "walk_small",
+    "facing": "w",
+    "frame": 0,
+    "path": "assets/sprites/arena/preostmar/small/walk_w_f0.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "preostmar",
+    "kind": "walk_small",
+    "facing": "w",
+    "frame": 1,
+    "path": "assets/sprites/arena/preostmar/small/walk_w_f1.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "preostmar",
+    "kind": "walk_small",
+    "facing": "w",
+    "frame": 2,
+    "path": "assets/sprites/arena/preostmar/small/walk_w_f2.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "preostmar",
+    "kind": "walk_small",
+    "facing": "w",
+    "frame": 3,
+    "path": "assets/sprites/arena/preostmar/small/walk_w_f3.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "preostmar",
+    "kind": "walk_small",
+    "facing": "w",
+    "frame": 4,
+    "path": "assets/sprites/arena/preostmar/small/walk_w_f4.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "preostmar",
+    "kind": "walk_small",
+    "facing": "w",
+    "frame": 5,
+    "path": "assets/sprites/arena/preostmar/small/walk_w_f5.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "preostmar",
+    "kind": "walk_small",
+    "facing": "w",
+    "frame": 6,
+    "path": "assets/sprites/arena/preostmar/small/walk_w_f6.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "preostmar",
+    "kind": "walk_small",
+    "facing": "w",
+    "frame": 7,
+    "path": "assets/sprites/arena/preostmar/small/walk_w_f7.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "oathfen",
+    "kind": "small",
+    "facing": "s",
+    "frame": null,
+    "path": "assets/sprites/arena/oathfen/small/s.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "oathfen",
+    "kind": "small",
+    "facing": "se",
+    "frame": null,
+    "path": "assets/sprites/arena/oathfen/small/se.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "oathfen",
+    "kind": "small",
+    "facing": "e",
+    "frame": null,
+    "path": "assets/sprites/arena/oathfen/small/e.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "oathfen",
+    "kind": "small",
+    "facing": "ne",
+    "frame": null,
+    "path": "assets/sprites/arena/oathfen/small/ne.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "oathfen",
+    "kind": "small",
+    "facing": "n",
+    "frame": null,
+    "path": "assets/sprites/arena/oathfen/small/n.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "oathfen",
+    "kind": "small",
+    "facing": "nw",
+    "frame": null,
+    "path": "assets/sprites/arena/oathfen/small/nw.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "oathfen",
+    "kind": "small",
+    "facing": "w",
+    "frame": null,
+    "path": "assets/sprites/arena/oathfen/small/w.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "oathfen",
+    "kind": "small",
+    "facing": "sw",
+    "frame": null,
+    "path": "assets/sprites/arena/oathfen/small/sw.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "oathfen",
+    "kind": "walk_small",
+    "facing": "e",
+    "frame": 0,
+    "path": "assets/sprites/arena/oathfen/small/walk_e_f0.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "oathfen",
+    "kind": "walk_small",
+    "facing": "e",
+    "frame": 1,
+    "path": "assets/sprites/arena/oathfen/small/walk_e_f1.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "oathfen",
+    "kind": "walk_small",
+    "facing": "e",
+    "frame": 2,
+    "path": "assets/sprites/arena/oathfen/small/walk_e_f2.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "oathfen",
+    "kind": "walk_small",
+    "facing": "e",
+    "frame": 3,
+    "path": "assets/sprites/arena/oathfen/small/walk_e_f3.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "oathfen",
+    "kind": "walk_small",
+    "facing": "e",
+    "frame": 4,
+    "path": "assets/sprites/arena/oathfen/small/walk_e_f4.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "oathfen",
+    "kind": "walk_small",
+    "facing": "e",
+    "frame": 5,
+    "path": "assets/sprites/arena/oathfen/small/walk_e_f5.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "oathfen",
+    "kind": "walk_small",
+    "facing": "e",
+    "frame": 6,
+    "path": "assets/sprites/arena/oathfen/small/walk_e_f6.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "oathfen",
+    "kind": "walk_small",
+    "facing": "e",
+    "frame": 7,
+    "path": "assets/sprites/arena/oathfen/small/walk_e_f7.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "oathfen",
+    "kind": "walk_small",
+    "facing": "ne",
+    "frame": 0,
+    "path": "assets/sprites/arena/oathfen/small/walk_ne_f0.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "oathfen",
+    "kind": "walk_small",
+    "facing": "ne",
+    "frame": 1,
+    "path": "assets/sprites/arena/oathfen/small/walk_ne_f1.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "oathfen",
+    "kind": "walk_small",
+    "facing": "ne",
+    "frame": 2,
+    "path": "assets/sprites/arena/oathfen/small/walk_ne_f2.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "oathfen",
+    "kind": "walk_small",
+    "facing": "ne",
+    "frame": 3,
+    "path": "assets/sprites/arena/oathfen/small/walk_ne_f3.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "oathfen",
+    "kind": "walk_small",
+    "facing": "ne",
+    "frame": 4,
+    "path": "assets/sprites/arena/oathfen/small/walk_ne_f4.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "oathfen",
+    "kind": "walk_small",
+    "facing": "ne",
+    "frame": 5,
+    "path": "assets/sprites/arena/oathfen/small/walk_ne_f5.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "oathfen",
+    "kind": "walk_small",
+    "facing": "ne",
+    "frame": 6,
+    "path": "assets/sprites/arena/oathfen/small/walk_ne_f6.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "oathfen",
+    "kind": "walk_small",
+    "facing": "ne",
+    "frame": 7,
+    "path": "assets/sprites/arena/oathfen/small/walk_ne_f7.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "oathfen",
+    "kind": "walk_small",
+    "facing": "nw",
+    "frame": 0,
+    "path": "assets/sprites/arena/oathfen/small/walk_nw_f0.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "oathfen",
+    "kind": "walk_small",
+    "facing": "nw",
+    "frame": 1,
+    "path": "assets/sprites/arena/oathfen/small/walk_nw_f1.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "oathfen",
+    "kind": "walk_small",
+    "facing": "nw",
+    "frame": 2,
+    "path": "assets/sprites/arena/oathfen/small/walk_nw_f2.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "oathfen",
+    "kind": "walk_small",
+    "facing": "nw",
+    "frame": 3,
+    "path": "assets/sprites/arena/oathfen/small/walk_nw_f3.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "oathfen",
+    "kind": "walk_small",
+    "facing": "nw",
+    "frame": 4,
+    "path": "assets/sprites/arena/oathfen/small/walk_nw_f4.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "oathfen",
+    "kind": "walk_small",
+    "facing": "nw",
+    "frame": 5,
+    "path": "assets/sprites/arena/oathfen/small/walk_nw_f5.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "oathfen",
+    "kind": "walk_small",
+    "facing": "nw",
+    "frame": 6,
+    "path": "assets/sprites/arena/oathfen/small/walk_nw_f6.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "oathfen",
+    "kind": "walk_small",
+    "facing": "nw",
+    "frame": 7,
+    "path": "assets/sprites/arena/oathfen/small/walk_nw_f7.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "oathfen",
+    "kind": "walk_small",
+    "facing": "n",
+    "frame": 0,
+    "path": "assets/sprites/arena/oathfen/small/walk_n_f0.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "oathfen",
+    "kind": "walk_small",
+    "facing": "n",
+    "frame": 1,
+    "path": "assets/sprites/arena/oathfen/small/walk_n_f1.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "oathfen",
+    "kind": "walk_small",
+    "facing": "n",
+    "frame": 2,
+    "path": "assets/sprites/arena/oathfen/small/walk_n_f2.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "oathfen",
+    "kind": "walk_small",
+    "facing": "n",
+    "frame": 3,
+    "path": "assets/sprites/arena/oathfen/small/walk_n_f3.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "oathfen",
+    "kind": "walk_small",
+    "facing": "n",
+    "frame": 4,
+    "path": "assets/sprites/arena/oathfen/small/walk_n_f4.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "oathfen",
+    "kind": "walk_small",
+    "facing": "n",
+    "frame": 5,
+    "path": "assets/sprites/arena/oathfen/small/walk_n_f5.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "oathfen",
+    "kind": "walk_small",
+    "facing": "n",
+    "frame": 6,
+    "path": "assets/sprites/arena/oathfen/small/walk_n_f6.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "oathfen",
+    "kind": "walk_small",
+    "facing": "n",
+    "frame": 7,
+    "path": "assets/sprites/arena/oathfen/small/walk_n_f7.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "oathfen",
+    "kind": "walk_small",
+    "facing": "se",
+    "frame": 0,
+    "path": "assets/sprites/arena/oathfen/small/walk_se_f0.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "oathfen",
+    "kind": "walk_small",
+    "facing": "se",
+    "frame": 1,
+    "path": "assets/sprites/arena/oathfen/small/walk_se_f1.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "oathfen",
+    "kind": "walk_small",
+    "facing": "se",
+    "frame": 2,
+    "path": "assets/sprites/arena/oathfen/small/walk_se_f2.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "oathfen",
+    "kind": "walk_small",
+    "facing": "se",
+    "frame": 3,
+    "path": "assets/sprites/arena/oathfen/small/walk_se_f3.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "oathfen",
+    "kind": "walk_small",
+    "facing": "se",
+    "frame": 4,
+    "path": "assets/sprites/arena/oathfen/small/walk_se_f4.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "oathfen",
+    "kind": "walk_small",
+    "facing": "se",
+    "frame": 5,
+    "path": "assets/sprites/arena/oathfen/small/walk_se_f5.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "oathfen",
+    "kind": "walk_small",
+    "facing": "se",
+    "frame": 6,
+    "path": "assets/sprites/arena/oathfen/small/walk_se_f6.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "oathfen",
+    "kind": "walk_small",
+    "facing": "se",
+    "frame": 7,
+    "path": "assets/sprites/arena/oathfen/small/walk_se_f7.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "oathfen",
+    "kind": "walk_small",
+    "facing": "sw",
+    "frame": 0,
+    "path": "assets/sprites/arena/oathfen/small/walk_sw_f0.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "oathfen",
+    "kind": "walk_small",
+    "facing": "sw",
+    "frame": 1,
+    "path": "assets/sprites/arena/oathfen/small/walk_sw_f1.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "oathfen",
+    "kind": "walk_small",
+    "facing": "sw",
+    "frame": 2,
+    "path": "assets/sprites/arena/oathfen/small/walk_sw_f2.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "oathfen",
+    "kind": "walk_small",
+    "facing": "sw",
+    "frame": 3,
+    "path": "assets/sprites/arena/oathfen/small/walk_sw_f3.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "oathfen",
+    "kind": "walk_small",
+    "facing": "sw",
+    "frame": 4,
+    "path": "assets/sprites/arena/oathfen/small/walk_sw_f4.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "oathfen",
+    "kind": "walk_small",
+    "facing": "sw",
+    "frame": 5,
+    "path": "assets/sprites/arena/oathfen/small/walk_sw_f5.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "oathfen",
+    "kind": "walk_small",
+    "facing": "sw",
+    "frame": 6,
+    "path": "assets/sprites/arena/oathfen/small/walk_sw_f6.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "oathfen",
+    "kind": "walk_small",
+    "facing": "sw",
+    "frame": 7,
+    "path": "assets/sprites/arena/oathfen/small/walk_sw_f7.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "oathfen",
+    "kind": "walk_small",
+    "facing": "s",
+    "frame": 0,
+    "path": "assets/sprites/arena/oathfen/small/walk_s_f0.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "oathfen",
+    "kind": "walk_small",
+    "facing": "s",
+    "frame": 1,
+    "path": "assets/sprites/arena/oathfen/small/walk_s_f1.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "oathfen",
+    "kind": "walk_small",
+    "facing": "s",
+    "frame": 2,
+    "path": "assets/sprites/arena/oathfen/small/walk_s_f2.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "oathfen",
+    "kind": "walk_small",
+    "facing": "s",
+    "frame": 3,
+    "path": "assets/sprites/arena/oathfen/small/walk_s_f3.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "oathfen",
+    "kind": "walk_small",
+    "facing": "s",
+    "frame": 4,
+    "path": "assets/sprites/arena/oathfen/small/walk_s_f4.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "oathfen",
+    "kind": "walk_small",
+    "facing": "s",
+    "frame": 5,
+    "path": "assets/sprites/arena/oathfen/small/walk_s_f5.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "oathfen",
+    "kind": "walk_small",
+    "facing": "s",
+    "frame": 6,
+    "path": "assets/sprites/arena/oathfen/small/walk_s_f6.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "oathfen",
+    "kind": "walk_small",
+    "facing": "s",
+    "frame": 7,
+    "path": "assets/sprites/arena/oathfen/small/walk_s_f7.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "oathfen",
+    "kind": "walk_small",
+    "facing": "w",
+    "frame": 0,
+    "path": "assets/sprites/arena/oathfen/small/walk_w_f0.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "oathfen",
+    "kind": "walk_small",
+    "facing": "w",
+    "frame": 1,
+    "path": "assets/sprites/arena/oathfen/small/walk_w_f1.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "oathfen",
+    "kind": "walk_small",
+    "facing": "w",
+    "frame": 2,
+    "path": "assets/sprites/arena/oathfen/small/walk_w_f2.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "oathfen",
+    "kind": "walk_small",
+    "facing": "w",
+    "frame": 3,
+    "path": "assets/sprites/arena/oathfen/small/walk_w_f3.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "oathfen",
+    "kind": "walk_small",
+    "facing": "w",
+    "frame": 4,
+    "path": "assets/sprites/arena/oathfen/small/walk_w_f4.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "oathfen",
+    "kind": "walk_small",
+    "facing": "w",
+    "frame": 5,
+    "path": "assets/sprites/arena/oathfen/small/walk_w_f5.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "oathfen",
+    "kind": "walk_small",
+    "facing": "w",
+    "frame": 6,
+    "path": "assets/sprites/arena/oathfen/small/walk_w_f6.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "oathfen",
+    "kind": "walk_small",
+    "facing": "w",
+    "frame": 7,
+    "path": "assets/sprites/arena/oathfen/small/walk_w_f7.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "oxbowarchon",
+    "kind": "small",
+    "facing": "s",
+    "frame": null,
+    "path": "assets/sprites/arena/oxbowarchon/small/s.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "oxbowarchon",
+    "kind": "small",
+    "facing": "se",
+    "frame": null,
+    "path": "assets/sprites/arena/oxbowarchon/small/se.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "oxbowarchon",
+    "kind": "small",
+    "facing": "e",
+    "frame": null,
+    "path": "assets/sprites/arena/oxbowarchon/small/e.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "oxbowarchon",
+    "kind": "small",
+    "facing": "ne",
+    "frame": null,
+    "path": "assets/sprites/arena/oxbowarchon/small/ne.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "oxbowarchon",
+    "kind": "small",
+    "facing": "n",
+    "frame": null,
+    "path": "assets/sprites/arena/oxbowarchon/small/n.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "oxbowarchon",
+    "kind": "small",
+    "facing": "nw",
+    "frame": null,
+    "path": "assets/sprites/arena/oxbowarchon/small/nw.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "oxbowarchon",
+    "kind": "small",
+    "facing": "w",
+    "frame": null,
+    "path": "assets/sprites/arena/oxbowarchon/small/w.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "oxbowarchon",
+    "kind": "small",
+    "facing": "sw",
+    "frame": null,
+    "path": "assets/sprites/arena/oxbowarchon/small/sw.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "oxbowarchon",
+    "kind": "walk_small",
+    "facing": "e",
+    "frame": 0,
+    "path": "assets/sprites/arena/oxbowarchon/small/walk_e_f0.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "oxbowarchon",
+    "kind": "walk_small",
+    "facing": "e",
+    "frame": 1,
+    "path": "assets/sprites/arena/oxbowarchon/small/walk_e_f1.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "oxbowarchon",
+    "kind": "walk_small",
+    "facing": "e",
+    "frame": 2,
+    "path": "assets/sprites/arena/oxbowarchon/small/walk_e_f2.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "oxbowarchon",
+    "kind": "walk_small",
+    "facing": "e",
+    "frame": 3,
+    "path": "assets/sprites/arena/oxbowarchon/small/walk_e_f3.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "oxbowarchon",
+    "kind": "walk_small",
+    "facing": "e",
+    "frame": 4,
+    "path": "assets/sprites/arena/oxbowarchon/small/walk_e_f4.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "oxbowarchon",
+    "kind": "walk_small",
+    "facing": "e",
+    "frame": 5,
+    "path": "assets/sprites/arena/oxbowarchon/small/walk_e_f5.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "oxbowarchon",
+    "kind": "walk_small",
+    "facing": "e",
+    "frame": 6,
+    "path": "assets/sprites/arena/oxbowarchon/small/walk_e_f6.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "oxbowarchon",
+    "kind": "walk_small",
+    "facing": "e",
+    "frame": 7,
+    "path": "assets/sprites/arena/oxbowarchon/small/walk_e_f7.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "oxbowarchon",
+    "kind": "walk_small",
+    "facing": "ne",
+    "frame": 0,
+    "path": "assets/sprites/arena/oxbowarchon/small/walk_ne_f0.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "oxbowarchon",
+    "kind": "walk_small",
+    "facing": "ne",
+    "frame": 1,
+    "path": "assets/sprites/arena/oxbowarchon/small/walk_ne_f1.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "oxbowarchon",
+    "kind": "walk_small",
+    "facing": "ne",
+    "frame": 2,
+    "path": "assets/sprites/arena/oxbowarchon/small/walk_ne_f2.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "oxbowarchon",
+    "kind": "walk_small",
+    "facing": "ne",
+    "frame": 3,
+    "path": "assets/sprites/arena/oxbowarchon/small/walk_ne_f3.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "oxbowarchon",
+    "kind": "walk_small",
+    "facing": "ne",
+    "frame": 4,
+    "path": "assets/sprites/arena/oxbowarchon/small/walk_ne_f4.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "oxbowarchon",
+    "kind": "walk_small",
+    "facing": "ne",
+    "frame": 5,
+    "path": "assets/sprites/arena/oxbowarchon/small/walk_ne_f5.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "oxbowarchon",
+    "kind": "walk_small",
+    "facing": "ne",
+    "frame": 6,
+    "path": "assets/sprites/arena/oxbowarchon/small/walk_ne_f6.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "oxbowarchon",
+    "kind": "walk_small",
+    "facing": "ne",
+    "frame": 7,
+    "path": "assets/sprites/arena/oxbowarchon/small/walk_ne_f7.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "oxbowarchon",
+    "kind": "walk_small",
+    "facing": "nw",
+    "frame": 0,
+    "path": "assets/sprites/arena/oxbowarchon/small/walk_nw_f0.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "oxbowarchon",
+    "kind": "walk_small",
+    "facing": "nw",
+    "frame": 1,
+    "path": "assets/sprites/arena/oxbowarchon/small/walk_nw_f1.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "oxbowarchon",
+    "kind": "walk_small",
+    "facing": "nw",
+    "frame": 2,
+    "path": "assets/sprites/arena/oxbowarchon/small/walk_nw_f2.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "oxbowarchon",
+    "kind": "walk_small",
+    "facing": "nw",
+    "frame": 3,
+    "path": "assets/sprites/arena/oxbowarchon/small/walk_nw_f3.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "oxbowarchon",
+    "kind": "walk_small",
+    "facing": "nw",
+    "frame": 4,
+    "path": "assets/sprites/arena/oxbowarchon/small/walk_nw_f4.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "oxbowarchon",
+    "kind": "walk_small",
+    "facing": "nw",
+    "frame": 5,
+    "path": "assets/sprites/arena/oxbowarchon/small/walk_nw_f5.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "oxbowarchon",
+    "kind": "walk_small",
+    "facing": "nw",
+    "frame": 6,
+    "path": "assets/sprites/arena/oxbowarchon/small/walk_nw_f6.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "oxbowarchon",
+    "kind": "walk_small",
+    "facing": "nw",
+    "frame": 7,
+    "path": "assets/sprites/arena/oxbowarchon/small/walk_nw_f7.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "oxbowarchon",
+    "kind": "walk_small",
+    "facing": "n",
+    "frame": 0,
+    "path": "assets/sprites/arena/oxbowarchon/small/walk_n_f0.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "oxbowarchon",
+    "kind": "walk_small",
+    "facing": "n",
+    "frame": 1,
+    "path": "assets/sprites/arena/oxbowarchon/small/walk_n_f1.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "oxbowarchon",
+    "kind": "walk_small",
+    "facing": "n",
+    "frame": 2,
+    "path": "assets/sprites/arena/oxbowarchon/small/walk_n_f2.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "oxbowarchon",
+    "kind": "walk_small",
+    "facing": "n",
+    "frame": 3,
+    "path": "assets/sprites/arena/oxbowarchon/small/walk_n_f3.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "oxbowarchon",
+    "kind": "walk_small",
+    "facing": "n",
+    "frame": 4,
+    "path": "assets/sprites/arena/oxbowarchon/small/walk_n_f4.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "oxbowarchon",
+    "kind": "walk_small",
+    "facing": "n",
+    "frame": 5,
+    "path": "assets/sprites/arena/oxbowarchon/small/walk_n_f5.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "oxbowarchon",
+    "kind": "walk_small",
+    "facing": "n",
+    "frame": 6,
+    "path": "assets/sprites/arena/oxbowarchon/small/walk_n_f6.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "oxbowarchon",
+    "kind": "walk_small",
+    "facing": "n",
+    "frame": 7,
+    "path": "assets/sprites/arena/oxbowarchon/small/walk_n_f7.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "oxbowarchon",
+    "kind": "walk_small",
+    "facing": "se",
+    "frame": 0,
+    "path": "assets/sprites/arena/oxbowarchon/small/walk_se_f0.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "oxbowarchon",
+    "kind": "walk_small",
+    "facing": "se",
+    "frame": 1,
+    "path": "assets/sprites/arena/oxbowarchon/small/walk_se_f1.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "oxbowarchon",
+    "kind": "walk_small",
+    "facing": "se",
+    "frame": 2,
+    "path": "assets/sprites/arena/oxbowarchon/small/walk_se_f2.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "oxbowarchon",
+    "kind": "walk_small",
+    "facing": "se",
+    "frame": 3,
+    "path": "assets/sprites/arena/oxbowarchon/small/walk_se_f3.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "oxbowarchon",
+    "kind": "walk_small",
+    "facing": "se",
+    "frame": 4,
+    "path": "assets/sprites/arena/oxbowarchon/small/walk_se_f4.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "oxbowarchon",
+    "kind": "walk_small",
+    "facing": "se",
+    "frame": 5,
+    "path": "assets/sprites/arena/oxbowarchon/small/walk_se_f5.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "oxbowarchon",
+    "kind": "walk_small",
+    "facing": "se",
+    "frame": 6,
+    "path": "assets/sprites/arena/oxbowarchon/small/walk_se_f6.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "oxbowarchon",
+    "kind": "walk_small",
+    "facing": "se",
+    "frame": 7,
+    "path": "assets/sprites/arena/oxbowarchon/small/walk_se_f7.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "oxbowarchon",
+    "kind": "walk_small",
+    "facing": "sw",
+    "frame": 0,
+    "path": "assets/sprites/arena/oxbowarchon/small/walk_sw_f0.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "oxbowarchon",
+    "kind": "walk_small",
+    "facing": "sw",
+    "frame": 1,
+    "path": "assets/sprites/arena/oxbowarchon/small/walk_sw_f1.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "oxbowarchon",
+    "kind": "walk_small",
+    "facing": "sw",
+    "frame": 2,
+    "path": "assets/sprites/arena/oxbowarchon/small/walk_sw_f2.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "oxbowarchon",
+    "kind": "walk_small",
+    "facing": "sw",
+    "frame": 3,
+    "path": "assets/sprites/arena/oxbowarchon/small/walk_sw_f3.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "oxbowarchon",
+    "kind": "walk_small",
+    "facing": "sw",
+    "frame": 4,
+    "path": "assets/sprites/arena/oxbowarchon/small/walk_sw_f4.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "oxbowarchon",
+    "kind": "walk_small",
+    "facing": "sw",
+    "frame": 5,
+    "path": "assets/sprites/arena/oxbowarchon/small/walk_sw_f5.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "oxbowarchon",
+    "kind": "walk_small",
+    "facing": "sw",
+    "frame": 6,
+    "path": "assets/sprites/arena/oxbowarchon/small/walk_sw_f6.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "oxbowarchon",
+    "kind": "walk_small",
+    "facing": "sw",
+    "frame": 7,
+    "path": "assets/sprites/arena/oxbowarchon/small/walk_sw_f7.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "oxbowarchon",
+    "kind": "walk_small",
+    "facing": "s",
+    "frame": 0,
+    "path": "assets/sprites/arena/oxbowarchon/small/walk_s_f0.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "oxbowarchon",
+    "kind": "walk_small",
+    "facing": "s",
+    "frame": 1,
+    "path": "assets/sprites/arena/oxbowarchon/small/walk_s_f1.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "oxbowarchon",
+    "kind": "walk_small",
+    "facing": "s",
+    "frame": 2,
+    "path": "assets/sprites/arena/oxbowarchon/small/walk_s_f2.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "oxbowarchon",
+    "kind": "walk_small",
+    "facing": "s",
+    "frame": 3,
+    "path": "assets/sprites/arena/oxbowarchon/small/walk_s_f3.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "oxbowarchon",
+    "kind": "walk_small",
+    "facing": "s",
+    "frame": 4,
+    "path": "assets/sprites/arena/oxbowarchon/small/walk_s_f4.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "oxbowarchon",
+    "kind": "walk_small",
+    "facing": "s",
+    "frame": 5,
+    "path": "assets/sprites/arena/oxbowarchon/small/walk_s_f5.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "oxbowarchon",
+    "kind": "walk_small",
+    "facing": "s",
+    "frame": 6,
+    "path": "assets/sprites/arena/oxbowarchon/small/walk_s_f6.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "oxbowarchon",
+    "kind": "walk_small",
+    "facing": "s",
+    "frame": 7,
+    "path": "assets/sprites/arena/oxbowarchon/small/walk_s_f7.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "oxbowarchon",
+    "kind": "walk_small",
+    "facing": "w",
+    "frame": 0,
+    "path": "assets/sprites/arena/oxbowarchon/small/walk_w_f0.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "oxbowarchon",
+    "kind": "walk_small",
+    "facing": "w",
+    "frame": 1,
+    "path": "assets/sprites/arena/oxbowarchon/small/walk_w_f1.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "oxbowarchon",
+    "kind": "walk_small",
+    "facing": "w",
+    "frame": 2,
+    "path": "assets/sprites/arena/oxbowarchon/small/walk_w_f2.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "oxbowarchon",
+    "kind": "walk_small",
+    "facing": "w",
+    "frame": 3,
+    "path": "assets/sprites/arena/oxbowarchon/small/walk_w_f3.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "oxbowarchon",
+    "kind": "walk_small",
+    "facing": "w",
+    "frame": 4,
+    "path": "assets/sprites/arena/oxbowarchon/small/walk_w_f4.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "oxbowarchon",
+    "kind": "walk_small",
+    "facing": "w",
+    "frame": 5,
+    "path": "assets/sprites/arena/oxbowarchon/small/walk_w_f5.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "oxbowarchon",
+    "kind": "walk_small",
+    "facing": "w",
+    "frame": 6,
+    "path": "assets/sprites/arena/oxbowarchon/small/walk_w_f6.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "oxbowarchon",
+    "kind": "walk_small",
+    "facing": "w",
+    "frame": 7,
+    "path": "assets/sprites/arena/oxbowarchon/small/walk_w_f7.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "punchybun",
+    "kind": "small",
+    "facing": "s",
+    "frame": null,
+    "path": "assets/sprites/arena/punchybun/small/s.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "punchybun",
+    "kind": "small",
+    "facing": "se",
+    "frame": null,
+    "path": "assets/sprites/arena/punchybun/small/se.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "punchybun",
+    "kind": "small",
+    "facing": "e",
+    "frame": null,
+    "path": "assets/sprites/arena/punchybun/small/e.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "punchybun",
+    "kind": "small",
+    "facing": "ne",
+    "frame": null,
+    "path": "assets/sprites/arena/punchybun/small/ne.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "punchybun",
+    "kind": "small",
+    "facing": "n",
+    "frame": null,
+    "path": "assets/sprites/arena/punchybun/small/n.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "punchybun",
+    "kind": "small",
+    "facing": "nw",
+    "frame": null,
+    "path": "assets/sprites/arena/punchybun/small/nw.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "punchybun",
+    "kind": "small",
+    "facing": "w",
+    "frame": null,
+    "path": "assets/sprites/arena/punchybun/small/w.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "punchybun",
+    "kind": "small",
+    "facing": "sw",
+    "frame": null,
+    "path": "assets/sprites/arena/punchybun/small/sw.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "punchybun",
+    "kind": "walk_small",
+    "facing": "e",
+    "frame": 0,
+    "path": "assets/sprites/arena/punchybun/small/walk_e_f0.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "punchybun",
+    "kind": "walk_small",
+    "facing": "e",
+    "frame": 1,
+    "path": "assets/sprites/arena/punchybun/small/walk_e_f1.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "punchybun",
+    "kind": "walk_small",
+    "facing": "e",
+    "frame": 2,
+    "path": "assets/sprites/arena/punchybun/small/walk_e_f2.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "punchybun",
+    "kind": "walk_small",
+    "facing": "e",
+    "frame": 3,
+    "path": "assets/sprites/arena/punchybun/small/walk_e_f3.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "punchybun",
+    "kind": "walk_small",
+    "facing": "e",
+    "frame": 4,
+    "path": "assets/sprites/arena/punchybun/small/walk_e_f4.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "punchybun",
+    "kind": "walk_small",
+    "facing": "e",
+    "frame": 5,
+    "path": "assets/sprites/arena/punchybun/small/walk_e_f5.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "punchybun",
+    "kind": "walk_small",
+    "facing": "e",
+    "frame": 6,
+    "path": "assets/sprites/arena/punchybun/small/walk_e_f6.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "punchybun",
+    "kind": "walk_small",
+    "facing": "e",
+    "frame": 7,
+    "path": "assets/sprites/arena/punchybun/small/walk_e_f7.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "punchybun",
+    "kind": "walk_small",
+    "facing": "ne",
+    "frame": 0,
+    "path": "assets/sprites/arena/punchybun/small/walk_ne_f0.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "punchybun",
+    "kind": "walk_small",
+    "facing": "ne",
+    "frame": 1,
+    "path": "assets/sprites/arena/punchybun/small/walk_ne_f1.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "punchybun",
+    "kind": "walk_small",
+    "facing": "ne",
+    "frame": 2,
+    "path": "assets/sprites/arena/punchybun/small/walk_ne_f2.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "punchybun",
+    "kind": "walk_small",
+    "facing": "ne",
+    "frame": 3,
+    "path": "assets/sprites/arena/punchybun/small/walk_ne_f3.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "punchybun",
+    "kind": "walk_small",
+    "facing": "ne",
+    "frame": 4,
+    "path": "assets/sprites/arena/punchybun/small/walk_ne_f4.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "punchybun",
+    "kind": "walk_small",
+    "facing": "ne",
+    "frame": 5,
+    "path": "assets/sprites/arena/punchybun/small/walk_ne_f5.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "punchybun",
+    "kind": "walk_small",
+    "facing": "ne",
+    "frame": 6,
+    "path": "assets/sprites/arena/punchybun/small/walk_ne_f6.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "punchybun",
+    "kind": "walk_small",
+    "facing": "ne",
+    "frame": 7,
+    "path": "assets/sprites/arena/punchybun/small/walk_ne_f7.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "punchybun",
+    "kind": "walk_small",
+    "facing": "nw",
+    "frame": 0,
+    "path": "assets/sprites/arena/punchybun/small/walk_nw_f0.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "punchybun",
+    "kind": "walk_small",
+    "facing": "nw",
+    "frame": 1,
+    "path": "assets/sprites/arena/punchybun/small/walk_nw_f1.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "punchybun",
+    "kind": "walk_small",
+    "facing": "nw",
+    "frame": 2,
+    "path": "assets/sprites/arena/punchybun/small/walk_nw_f2.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "punchybun",
+    "kind": "walk_small",
+    "facing": "nw",
+    "frame": 3,
+    "path": "assets/sprites/arena/punchybun/small/walk_nw_f3.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "punchybun",
+    "kind": "walk_small",
+    "facing": "nw",
+    "frame": 4,
+    "path": "assets/sprites/arena/punchybun/small/walk_nw_f4.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "punchybun",
+    "kind": "walk_small",
+    "facing": "nw",
+    "frame": 5,
+    "path": "assets/sprites/arena/punchybun/small/walk_nw_f5.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "punchybun",
+    "kind": "walk_small",
+    "facing": "nw",
+    "frame": 6,
+    "path": "assets/sprites/arena/punchybun/small/walk_nw_f6.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "punchybun",
+    "kind": "walk_small",
+    "facing": "nw",
+    "frame": 7,
+    "path": "assets/sprites/arena/punchybun/small/walk_nw_f7.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "punchybun",
+    "kind": "walk_small",
+    "facing": "n",
+    "frame": 0,
+    "path": "assets/sprites/arena/punchybun/small/walk_n_f0.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "punchybun",
+    "kind": "walk_small",
+    "facing": "n",
+    "frame": 1,
+    "path": "assets/sprites/arena/punchybun/small/walk_n_f1.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "punchybun",
+    "kind": "walk_small",
+    "facing": "n",
+    "frame": 2,
+    "path": "assets/sprites/arena/punchybun/small/walk_n_f2.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "punchybun",
+    "kind": "walk_small",
+    "facing": "n",
+    "frame": 3,
+    "path": "assets/sprites/arena/punchybun/small/walk_n_f3.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "punchybun",
+    "kind": "walk_small",
+    "facing": "n",
+    "frame": 4,
+    "path": "assets/sprites/arena/punchybun/small/walk_n_f4.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "punchybun",
+    "kind": "walk_small",
+    "facing": "n",
+    "frame": 5,
+    "path": "assets/sprites/arena/punchybun/small/walk_n_f5.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "punchybun",
+    "kind": "walk_small",
+    "facing": "n",
+    "frame": 6,
+    "path": "assets/sprites/arena/punchybun/small/walk_n_f6.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "punchybun",
+    "kind": "walk_small",
+    "facing": "n",
+    "frame": 7,
+    "path": "assets/sprites/arena/punchybun/small/walk_n_f7.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "punchybun",
+    "kind": "walk_small",
+    "facing": "se",
+    "frame": 0,
+    "path": "assets/sprites/arena/punchybun/small/walk_se_f0.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "punchybun",
+    "kind": "walk_small",
+    "facing": "se",
+    "frame": 1,
+    "path": "assets/sprites/arena/punchybun/small/walk_se_f1.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "punchybun",
+    "kind": "walk_small",
+    "facing": "se",
+    "frame": 2,
+    "path": "assets/sprites/arena/punchybun/small/walk_se_f2.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "punchybun",
+    "kind": "walk_small",
+    "facing": "se",
+    "frame": 3,
+    "path": "assets/sprites/arena/punchybun/small/walk_se_f3.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "punchybun",
+    "kind": "walk_small",
+    "facing": "se",
+    "frame": 4,
+    "path": "assets/sprites/arena/punchybun/small/walk_se_f4.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "punchybun",
+    "kind": "walk_small",
+    "facing": "se",
+    "frame": 5,
+    "path": "assets/sprites/arena/punchybun/small/walk_se_f5.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "punchybun",
+    "kind": "walk_small",
+    "facing": "se",
+    "frame": 6,
+    "path": "assets/sprites/arena/punchybun/small/walk_se_f6.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "punchybun",
+    "kind": "walk_small",
+    "facing": "se",
+    "frame": 7,
+    "path": "assets/sprites/arena/punchybun/small/walk_se_f7.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "punchybun",
+    "kind": "walk_small",
+    "facing": "sw",
+    "frame": 0,
+    "path": "assets/sprites/arena/punchybun/small/walk_sw_f0.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "punchybun",
+    "kind": "walk_small",
+    "facing": "sw",
+    "frame": 1,
+    "path": "assets/sprites/arena/punchybun/small/walk_sw_f1.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "punchybun",
+    "kind": "walk_small",
+    "facing": "sw",
+    "frame": 2,
+    "path": "assets/sprites/arena/punchybun/small/walk_sw_f2.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "punchybun",
+    "kind": "walk_small",
+    "facing": "sw",
+    "frame": 3,
+    "path": "assets/sprites/arena/punchybun/small/walk_sw_f3.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "punchybun",
+    "kind": "walk_small",
+    "facing": "sw",
+    "frame": 4,
+    "path": "assets/sprites/arena/punchybun/small/walk_sw_f4.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "punchybun",
+    "kind": "walk_small",
+    "facing": "sw",
+    "frame": 5,
+    "path": "assets/sprites/arena/punchybun/small/walk_sw_f5.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "punchybun",
+    "kind": "walk_small",
+    "facing": "sw",
+    "frame": 6,
+    "path": "assets/sprites/arena/punchybun/small/walk_sw_f6.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "punchybun",
+    "kind": "walk_small",
+    "facing": "sw",
+    "frame": 7,
+    "path": "assets/sprites/arena/punchybun/small/walk_sw_f7.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "punchybun",
+    "kind": "walk_small",
+    "facing": "s",
+    "frame": 0,
+    "path": "assets/sprites/arena/punchybun/small/walk_s_f0.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "punchybun",
+    "kind": "walk_small",
+    "facing": "s",
+    "frame": 1,
+    "path": "assets/sprites/arena/punchybun/small/walk_s_f1.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "punchybun",
+    "kind": "walk_small",
+    "facing": "s",
+    "frame": 2,
+    "path": "assets/sprites/arena/punchybun/small/walk_s_f2.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "punchybun",
+    "kind": "walk_small",
+    "facing": "s",
+    "frame": 3,
+    "path": "assets/sprites/arena/punchybun/small/walk_s_f3.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "punchybun",
+    "kind": "walk_small",
+    "facing": "s",
+    "frame": 4,
+    "path": "assets/sprites/arena/punchybun/small/walk_s_f4.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "punchybun",
+    "kind": "walk_small",
+    "facing": "s",
+    "frame": 5,
+    "path": "assets/sprites/arena/punchybun/small/walk_s_f5.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "punchybun",
+    "kind": "walk_small",
+    "facing": "s",
+    "frame": 6,
+    "path": "assets/sprites/arena/punchybun/small/walk_s_f6.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "punchybun",
+    "kind": "walk_small",
+    "facing": "s",
+    "frame": 7,
+    "path": "assets/sprites/arena/punchybun/small/walk_s_f7.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "punchybun",
+    "kind": "walk_small",
+    "facing": "w",
+    "frame": 0,
+    "path": "assets/sprites/arena/punchybun/small/walk_w_f0.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "punchybun",
+    "kind": "walk_small",
+    "facing": "w",
+    "frame": 1,
+    "path": "assets/sprites/arena/punchybun/small/walk_w_f1.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "punchybun",
+    "kind": "walk_small",
+    "facing": "w",
+    "frame": 2,
+    "path": "assets/sprites/arena/punchybun/small/walk_w_f2.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "punchybun",
+    "kind": "walk_small",
+    "facing": "w",
+    "frame": 3,
+    "path": "assets/sprites/arena/punchybun/small/walk_w_f3.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "punchybun",
+    "kind": "walk_small",
+    "facing": "w",
+    "frame": 4,
+    "path": "assets/sprites/arena/punchybun/small/walk_w_f4.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "punchybun",
+    "kind": "walk_small",
+    "facing": "w",
+    "frame": 5,
+    "path": "assets/sprites/arena/punchybun/small/walk_w_f5.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "punchybun",
+    "kind": "walk_small",
+    "facing": "w",
+    "frame": 6,
+    "path": "assets/sprites/arena/punchybun/small/walk_w_f6.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "punchybun",
+    "kind": "walk_small",
+    "facing": "w",
+    "frame": 7,
+    "path": "assets/sprites/arena/punchybun/small/walk_w_f7.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "sparkjab",
+    "kind": "small",
+    "facing": "s",
+    "frame": null,
+    "path": "assets/sprites/arena/sparkjab/small/s.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "sparkjab",
+    "kind": "small",
+    "facing": "se",
+    "frame": null,
+    "path": "assets/sprites/arena/sparkjab/small/se.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "sparkjab",
+    "kind": "small",
+    "facing": "e",
+    "frame": null,
+    "path": "assets/sprites/arena/sparkjab/small/e.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "sparkjab",
+    "kind": "small",
+    "facing": "ne",
+    "frame": null,
+    "path": "assets/sprites/arena/sparkjab/small/ne.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "sparkjab",
+    "kind": "small",
+    "facing": "n",
+    "frame": null,
+    "path": "assets/sprites/arena/sparkjab/small/n.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "sparkjab",
+    "kind": "small",
+    "facing": "nw",
+    "frame": null,
+    "path": "assets/sprites/arena/sparkjab/small/nw.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "sparkjab",
+    "kind": "small",
+    "facing": "w",
+    "frame": null,
+    "path": "assets/sprites/arena/sparkjab/small/w.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "sparkjab",
+    "kind": "small",
+    "facing": "sw",
+    "frame": null,
+    "path": "assets/sprites/arena/sparkjab/small/sw.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "sparkjab",
+    "kind": "walk_small",
+    "facing": "e",
+    "frame": 0,
+    "path": "assets/sprites/arena/sparkjab/small/walk_e_f0.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "sparkjab",
+    "kind": "walk_small",
+    "facing": "e",
+    "frame": 1,
+    "path": "assets/sprites/arena/sparkjab/small/walk_e_f1.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "sparkjab",
+    "kind": "walk_small",
+    "facing": "e",
+    "frame": 2,
+    "path": "assets/sprites/arena/sparkjab/small/walk_e_f2.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "sparkjab",
+    "kind": "walk_small",
+    "facing": "e",
+    "frame": 3,
+    "path": "assets/sprites/arena/sparkjab/small/walk_e_f3.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "sparkjab",
+    "kind": "walk_small",
+    "facing": "e",
+    "frame": 4,
+    "path": "assets/sprites/arena/sparkjab/small/walk_e_f4.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "sparkjab",
+    "kind": "walk_small",
+    "facing": "e",
+    "frame": 5,
+    "path": "assets/sprites/arena/sparkjab/small/walk_e_f5.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "sparkjab",
+    "kind": "walk_small",
+    "facing": "e",
+    "frame": 6,
+    "path": "assets/sprites/arena/sparkjab/small/walk_e_f6.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "sparkjab",
+    "kind": "walk_small",
+    "facing": "e",
+    "frame": 7,
+    "path": "assets/sprites/arena/sparkjab/small/walk_e_f7.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "sparkjab",
+    "kind": "walk_small",
+    "facing": "ne",
+    "frame": 0,
+    "path": "assets/sprites/arena/sparkjab/small/walk_ne_f0.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "sparkjab",
+    "kind": "walk_small",
+    "facing": "ne",
+    "frame": 1,
+    "path": "assets/sprites/arena/sparkjab/small/walk_ne_f1.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "sparkjab",
+    "kind": "walk_small",
+    "facing": "ne",
+    "frame": 2,
+    "path": "assets/sprites/arena/sparkjab/small/walk_ne_f2.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "sparkjab",
+    "kind": "walk_small",
+    "facing": "ne",
+    "frame": 3,
+    "path": "assets/sprites/arena/sparkjab/small/walk_ne_f3.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "sparkjab",
+    "kind": "walk_small",
+    "facing": "ne",
+    "frame": 4,
+    "path": "assets/sprites/arena/sparkjab/small/walk_ne_f4.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "sparkjab",
+    "kind": "walk_small",
+    "facing": "ne",
+    "frame": 5,
+    "path": "assets/sprites/arena/sparkjab/small/walk_ne_f5.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "sparkjab",
+    "kind": "walk_small",
+    "facing": "ne",
+    "frame": 6,
+    "path": "assets/sprites/arena/sparkjab/small/walk_ne_f6.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "sparkjab",
+    "kind": "walk_small",
+    "facing": "ne",
+    "frame": 7,
+    "path": "assets/sprites/arena/sparkjab/small/walk_ne_f7.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "sparkjab",
+    "kind": "walk_small",
+    "facing": "nw",
+    "frame": 0,
+    "path": "assets/sprites/arena/sparkjab/small/walk_nw_f0.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "sparkjab",
+    "kind": "walk_small",
+    "facing": "nw",
+    "frame": 1,
+    "path": "assets/sprites/arena/sparkjab/small/walk_nw_f1.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "sparkjab",
+    "kind": "walk_small",
+    "facing": "nw",
+    "frame": 2,
+    "path": "assets/sprites/arena/sparkjab/small/walk_nw_f2.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "sparkjab",
+    "kind": "walk_small",
+    "facing": "nw",
+    "frame": 3,
+    "path": "assets/sprites/arena/sparkjab/small/walk_nw_f3.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "sparkjab",
+    "kind": "walk_small",
+    "facing": "nw",
+    "frame": 4,
+    "path": "assets/sprites/arena/sparkjab/small/walk_nw_f4.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "sparkjab",
+    "kind": "walk_small",
+    "facing": "nw",
+    "frame": 5,
+    "path": "assets/sprites/arena/sparkjab/small/walk_nw_f5.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "sparkjab",
+    "kind": "walk_small",
+    "facing": "nw",
+    "frame": 6,
+    "path": "assets/sprites/arena/sparkjab/small/walk_nw_f6.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "sparkjab",
+    "kind": "walk_small",
+    "facing": "nw",
+    "frame": 7,
+    "path": "assets/sprites/arena/sparkjab/small/walk_nw_f7.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "sparkjab",
+    "kind": "walk_small",
+    "facing": "n",
+    "frame": 0,
+    "path": "assets/sprites/arena/sparkjab/small/walk_n_f0.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "sparkjab",
+    "kind": "walk_small",
+    "facing": "n",
+    "frame": 1,
+    "path": "assets/sprites/arena/sparkjab/small/walk_n_f1.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "sparkjab",
+    "kind": "walk_small",
+    "facing": "n",
+    "frame": 2,
+    "path": "assets/sprites/arena/sparkjab/small/walk_n_f2.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "sparkjab",
+    "kind": "walk_small",
+    "facing": "n",
+    "frame": 3,
+    "path": "assets/sprites/arena/sparkjab/small/walk_n_f3.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "sparkjab",
+    "kind": "walk_small",
+    "facing": "n",
+    "frame": 4,
+    "path": "assets/sprites/arena/sparkjab/small/walk_n_f4.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "sparkjab",
+    "kind": "walk_small",
+    "facing": "n",
+    "frame": 5,
+    "path": "assets/sprites/arena/sparkjab/small/walk_n_f5.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "sparkjab",
+    "kind": "walk_small",
+    "facing": "n",
+    "frame": 6,
+    "path": "assets/sprites/arena/sparkjab/small/walk_n_f6.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "sparkjab",
+    "kind": "walk_small",
+    "facing": "n",
+    "frame": 7,
+    "path": "assets/sprites/arena/sparkjab/small/walk_n_f7.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "sparkjab",
+    "kind": "walk_small",
+    "facing": "se",
+    "frame": 0,
+    "path": "assets/sprites/arena/sparkjab/small/walk_se_f0.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "sparkjab",
+    "kind": "walk_small",
+    "facing": "se",
+    "frame": 1,
+    "path": "assets/sprites/arena/sparkjab/small/walk_se_f1.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "sparkjab",
+    "kind": "walk_small",
+    "facing": "se",
+    "frame": 2,
+    "path": "assets/sprites/arena/sparkjab/small/walk_se_f2.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "sparkjab",
+    "kind": "walk_small",
+    "facing": "se",
+    "frame": 3,
+    "path": "assets/sprites/arena/sparkjab/small/walk_se_f3.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "sparkjab",
+    "kind": "walk_small",
+    "facing": "se",
+    "frame": 4,
+    "path": "assets/sprites/arena/sparkjab/small/walk_se_f4.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "sparkjab",
+    "kind": "walk_small",
+    "facing": "se",
+    "frame": 5,
+    "path": "assets/sprites/arena/sparkjab/small/walk_se_f5.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "sparkjab",
+    "kind": "walk_small",
+    "facing": "se",
+    "frame": 6,
+    "path": "assets/sprites/arena/sparkjab/small/walk_se_f6.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "sparkjab",
+    "kind": "walk_small",
+    "facing": "se",
+    "frame": 7,
+    "path": "assets/sprites/arena/sparkjab/small/walk_se_f7.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "sparkjab",
+    "kind": "walk_small",
+    "facing": "sw",
+    "frame": 0,
+    "path": "assets/sprites/arena/sparkjab/small/walk_sw_f0.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "sparkjab",
+    "kind": "walk_small",
+    "facing": "sw",
+    "frame": 1,
+    "path": "assets/sprites/arena/sparkjab/small/walk_sw_f1.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "sparkjab",
+    "kind": "walk_small",
+    "facing": "sw",
+    "frame": 2,
+    "path": "assets/sprites/arena/sparkjab/small/walk_sw_f2.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "sparkjab",
+    "kind": "walk_small",
+    "facing": "sw",
+    "frame": 3,
+    "path": "assets/sprites/arena/sparkjab/small/walk_sw_f3.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "sparkjab",
+    "kind": "walk_small",
+    "facing": "sw",
+    "frame": 4,
+    "path": "assets/sprites/arena/sparkjab/small/walk_sw_f4.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "sparkjab",
+    "kind": "walk_small",
+    "facing": "sw",
+    "frame": 5,
+    "path": "assets/sprites/arena/sparkjab/small/walk_sw_f5.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "sparkjab",
+    "kind": "walk_small",
+    "facing": "sw",
+    "frame": 6,
+    "path": "assets/sprites/arena/sparkjab/small/walk_sw_f6.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "sparkjab",
+    "kind": "walk_small",
+    "facing": "sw",
+    "frame": 7,
+    "path": "assets/sprites/arena/sparkjab/small/walk_sw_f7.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "sparkjab",
+    "kind": "walk_small",
+    "facing": "s",
+    "frame": 0,
+    "path": "assets/sprites/arena/sparkjab/small/walk_s_f0.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "sparkjab",
+    "kind": "walk_small",
+    "facing": "s",
+    "frame": 1,
+    "path": "assets/sprites/arena/sparkjab/small/walk_s_f1.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "sparkjab",
+    "kind": "walk_small",
+    "facing": "s",
+    "frame": 2,
+    "path": "assets/sprites/arena/sparkjab/small/walk_s_f2.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "sparkjab",
+    "kind": "walk_small",
+    "facing": "s",
+    "frame": 3,
+    "path": "assets/sprites/arena/sparkjab/small/walk_s_f3.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "sparkjab",
+    "kind": "walk_small",
+    "facing": "s",
+    "frame": 4,
+    "path": "assets/sprites/arena/sparkjab/small/walk_s_f4.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "sparkjab",
+    "kind": "walk_small",
+    "facing": "s",
+    "frame": 5,
+    "path": "assets/sprites/arena/sparkjab/small/walk_s_f5.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "sparkjab",
+    "kind": "walk_small",
+    "facing": "s",
+    "frame": 6,
+    "path": "assets/sprites/arena/sparkjab/small/walk_s_f6.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "sparkjab",
+    "kind": "walk_small",
+    "facing": "s",
+    "frame": 7,
+    "path": "assets/sprites/arena/sparkjab/small/walk_s_f7.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "sparkjab",
+    "kind": "walk_small",
+    "facing": "w",
+    "frame": 0,
+    "path": "assets/sprites/arena/sparkjab/small/walk_w_f0.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "sparkjab",
+    "kind": "walk_small",
+    "facing": "w",
+    "frame": 1,
+    "path": "assets/sprites/arena/sparkjab/small/walk_w_f1.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "sparkjab",
+    "kind": "walk_small",
+    "facing": "w",
+    "frame": 2,
+    "path": "assets/sprites/arena/sparkjab/small/walk_w_f2.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "sparkjab",
+    "kind": "walk_small",
+    "facing": "w",
+    "frame": 3,
+    "path": "assets/sprites/arena/sparkjab/small/walk_w_f3.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "sparkjab",
+    "kind": "walk_small",
+    "facing": "w",
+    "frame": 4,
+    "path": "assets/sprites/arena/sparkjab/small/walk_w_f4.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "sparkjab",
+    "kind": "walk_small",
+    "facing": "w",
+    "frame": 5,
+    "path": "assets/sprites/arena/sparkjab/small/walk_w_f5.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "sparkjab",
+    "kind": "walk_small",
+    "facing": "w",
+    "frame": 6,
+    "path": "assets/sprites/arena/sparkjab/small/walk_w_f6.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "sparkjab",
+    "kind": "walk_small",
+    "facing": "w",
+    "frame": 7,
+    "path": "assets/sprites/arena/sparkjab/small/walk_w_f7.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "starward",
+    "kind": "small",
+    "facing": "s",
+    "frame": null,
+    "path": "assets/sprites/arena/starward/small/s.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "starward",
+    "kind": "small",
+    "facing": "se",
+    "frame": null,
+    "path": "assets/sprites/arena/starward/small/se.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "starward",
+    "kind": "small",
+    "facing": "e",
+    "frame": null,
+    "path": "assets/sprites/arena/starward/small/e.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "starward",
+    "kind": "small",
+    "facing": "ne",
+    "frame": null,
+    "path": "assets/sprites/arena/starward/small/ne.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "starward",
+    "kind": "small",
+    "facing": "n",
+    "frame": null,
+    "path": "assets/sprites/arena/starward/small/n.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "starward",
+    "kind": "small",
+    "facing": "nw",
+    "frame": null,
+    "path": "assets/sprites/arena/starward/small/nw.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "starward",
+    "kind": "small",
+    "facing": "w",
+    "frame": null,
+    "path": "assets/sprites/arena/starward/small/w.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "starward",
+    "kind": "small",
+    "facing": "sw",
+    "frame": null,
+    "path": "assets/sprites/arena/starward/small/sw.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "starward",
+    "kind": "walk_small",
+    "facing": "e",
+    "frame": 0,
+    "path": "assets/sprites/arena/starward/small/walk_e_f0.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "starward",
+    "kind": "walk_small",
+    "facing": "e",
+    "frame": 1,
+    "path": "assets/sprites/arena/starward/small/walk_e_f1.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "starward",
+    "kind": "walk_small",
+    "facing": "e",
+    "frame": 2,
+    "path": "assets/sprites/arena/starward/small/walk_e_f2.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "starward",
+    "kind": "walk_small",
+    "facing": "e",
+    "frame": 3,
+    "path": "assets/sprites/arena/starward/small/walk_e_f3.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "starward",
+    "kind": "walk_small",
+    "facing": "e",
+    "frame": 4,
+    "path": "assets/sprites/arena/starward/small/walk_e_f4.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "starward",
+    "kind": "walk_small",
+    "facing": "e",
+    "frame": 5,
+    "path": "assets/sprites/arena/starward/small/walk_e_f5.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "starward",
+    "kind": "walk_small",
+    "facing": "e",
+    "frame": 6,
+    "path": "assets/sprites/arena/starward/small/walk_e_f6.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "starward",
+    "kind": "walk_small",
+    "facing": "e",
+    "frame": 7,
+    "path": "assets/sprites/arena/starward/small/walk_e_f7.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "starward",
+    "kind": "walk_small",
+    "facing": "ne",
+    "frame": 0,
+    "path": "assets/sprites/arena/starward/small/walk_ne_f0.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "starward",
+    "kind": "walk_small",
+    "facing": "ne",
+    "frame": 1,
+    "path": "assets/sprites/arena/starward/small/walk_ne_f1.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "starward",
+    "kind": "walk_small",
+    "facing": "ne",
+    "frame": 2,
+    "path": "assets/sprites/arena/starward/small/walk_ne_f2.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "starward",
+    "kind": "walk_small",
+    "facing": "ne",
+    "frame": 3,
+    "path": "assets/sprites/arena/starward/small/walk_ne_f3.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "starward",
+    "kind": "walk_small",
+    "facing": "ne",
+    "frame": 4,
+    "path": "assets/sprites/arena/starward/small/walk_ne_f4.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "starward",
+    "kind": "walk_small",
+    "facing": "ne",
+    "frame": 5,
+    "path": "assets/sprites/arena/starward/small/walk_ne_f5.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "starward",
+    "kind": "walk_small",
+    "facing": "ne",
+    "frame": 6,
+    "path": "assets/sprites/arena/starward/small/walk_ne_f6.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "starward",
+    "kind": "walk_small",
+    "facing": "ne",
+    "frame": 7,
+    "path": "assets/sprites/arena/starward/small/walk_ne_f7.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "starward",
+    "kind": "walk_small",
+    "facing": "nw",
+    "frame": 0,
+    "path": "assets/sprites/arena/starward/small/walk_nw_f0.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "starward",
+    "kind": "walk_small",
+    "facing": "nw",
+    "frame": 1,
+    "path": "assets/sprites/arena/starward/small/walk_nw_f1.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "starward",
+    "kind": "walk_small",
+    "facing": "nw",
+    "frame": 2,
+    "path": "assets/sprites/arena/starward/small/walk_nw_f2.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "starward",
+    "kind": "walk_small",
+    "facing": "nw",
+    "frame": 3,
+    "path": "assets/sprites/arena/starward/small/walk_nw_f3.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "starward",
+    "kind": "walk_small",
+    "facing": "nw",
+    "frame": 4,
+    "path": "assets/sprites/arena/starward/small/walk_nw_f4.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "starward",
+    "kind": "walk_small",
+    "facing": "nw",
+    "frame": 5,
+    "path": "assets/sprites/arena/starward/small/walk_nw_f5.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "starward",
+    "kind": "walk_small",
+    "facing": "nw",
+    "frame": 6,
+    "path": "assets/sprites/arena/starward/small/walk_nw_f6.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "starward",
+    "kind": "walk_small",
+    "facing": "nw",
+    "frame": 7,
+    "path": "assets/sprites/arena/starward/small/walk_nw_f7.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "starward",
+    "kind": "walk_small",
+    "facing": "n",
+    "frame": 0,
+    "path": "assets/sprites/arena/starward/small/walk_n_f0.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "starward",
+    "kind": "walk_small",
+    "facing": "n",
+    "frame": 1,
+    "path": "assets/sprites/arena/starward/small/walk_n_f1.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "starward",
+    "kind": "walk_small",
+    "facing": "n",
+    "frame": 2,
+    "path": "assets/sprites/arena/starward/small/walk_n_f2.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "starward",
+    "kind": "walk_small",
+    "facing": "n",
+    "frame": 3,
+    "path": "assets/sprites/arena/starward/small/walk_n_f3.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "starward",
+    "kind": "walk_small",
+    "facing": "n",
+    "frame": 4,
+    "path": "assets/sprites/arena/starward/small/walk_n_f4.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "starward",
+    "kind": "walk_small",
+    "facing": "n",
+    "frame": 5,
+    "path": "assets/sprites/arena/starward/small/walk_n_f5.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "starward",
+    "kind": "walk_small",
+    "facing": "n",
+    "frame": 6,
+    "path": "assets/sprites/arena/starward/small/walk_n_f6.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "starward",
+    "kind": "walk_small",
+    "facing": "n",
+    "frame": 7,
+    "path": "assets/sprites/arena/starward/small/walk_n_f7.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "starward",
+    "kind": "walk_small",
+    "facing": "se",
+    "frame": 0,
+    "path": "assets/sprites/arena/starward/small/walk_se_f0.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "starward",
+    "kind": "walk_small",
+    "facing": "se",
+    "frame": 1,
+    "path": "assets/sprites/arena/starward/small/walk_se_f1.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "starward",
+    "kind": "walk_small",
+    "facing": "se",
+    "frame": 2,
+    "path": "assets/sprites/arena/starward/small/walk_se_f2.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "starward",
+    "kind": "walk_small",
+    "facing": "se",
+    "frame": 3,
+    "path": "assets/sprites/arena/starward/small/walk_se_f3.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "starward",
+    "kind": "walk_small",
+    "facing": "se",
+    "frame": 4,
+    "path": "assets/sprites/arena/starward/small/walk_se_f4.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "starward",
+    "kind": "walk_small",
+    "facing": "se",
+    "frame": 5,
+    "path": "assets/sprites/arena/starward/small/walk_se_f5.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "starward",
+    "kind": "walk_small",
+    "facing": "se",
+    "frame": 6,
+    "path": "assets/sprites/arena/starward/small/walk_se_f6.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "starward",
+    "kind": "walk_small",
+    "facing": "se",
+    "frame": 7,
+    "path": "assets/sprites/arena/starward/small/walk_se_f7.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "starward",
+    "kind": "walk_small",
+    "facing": "sw",
+    "frame": 0,
+    "path": "assets/sprites/arena/starward/small/walk_sw_f0.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "starward",
+    "kind": "walk_small",
+    "facing": "sw",
+    "frame": 1,
+    "path": "assets/sprites/arena/starward/small/walk_sw_f1.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "starward",
+    "kind": "walk_small",
+    "facing": "sw",
+    "frame": 2,
+    "path": "assets/sprites/arena/starward/small/walk_sw_f2.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "starward",
+    "kind": "walk_small",
+    "facing": "sw",
+    "frame": 3,
+    "path": "assets/sprites/arena/starward/small/walk_sw_f3.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "starward",
+    "kind": "walk_small",
+    "facing": "sw",
+    "frame": 4,
+    "path": "assets/sprites/arena/starward/small/walk_sw_f4.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "starward",
+    "kind": "walk_small",
+    "facing": "sw",
+    "frame": 5,
+    "path": "assets/sprites/arena/starward/small/walk_sw_f5.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "starward",
+    "kind": "walk_small",
+    "facing": "sw",
+    "frame": 6,
+    "path": "assets/sprites/arena/starward/small/walk_sw_f6.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "starward",
+    "kind": "walk_small",
+    "facing": "sw",
+    "frame": 7,
+    "path": "assets/sprites/arena/starward/small/walk_sw_f7.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "starward",
+    "kind": "walk_small",
+    "facing": "s",
+    "frame": 0,
+    "path": "assets/sprites/arena/starward/small/walk_s_f0.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "starward",
+    "kind": "walk_small",
+    "facing": "s",
+    "frame": 1,
+    "path": "assets/sprites/arena/starward/small/walk_s_f1.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "starward",
+    "kind": "walk_small",
+    "facing": "s",
+    "frame": 2,
+    "path": "assets/sprites/arena/starward/small/walk_s_f2.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "starward",
+    "kind": "walk_small",
+    "facing": "s",
+    "frame": 3,
+    "path": "assets/sprites/arena/starward/small/walk_s_f3.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "starward",
+    "kind": "walk_small",
+    "facing": "s",
+    "frame": 4,
+    "path": "assets/sprites/arena/starward/small/walk_s_f4.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "starward",
+    "kind": "walk_small",
+    "facing": "s",
+    "frame": 5,
+    "path": "assets/sprites/arena/starward/small/walk_s_f5.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "starward",
+    "kind": "walk_small",
+    "facing": "s",
+    "frame": 6,
+    "path": "assets/sprites/arena/starward/small/walk_s_f6.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "starward",
+    "kind": "walk_small",
+    "facing": "s",
+    "frame": 7,
+    "path": "assets/sprites/arena/starward/small/walk_s_f7.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "starward",
+    "kind": "walk_small",
+    "facing": "w",
+    "frame": 0,
+    "path": "assets/sprites/arena/starward/small/walk_w_f0.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "starward",
+    "kind": "walk_small",
+    "facing": "w",
+    "frame": 1,
+    "path": "assets/sprites/arena/starward/small/walk_w_f1.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "starward",
+    "kind": "walk_small",
+    "facing": "w",
+    "frame": 2,
+    "path": "assets/sprites/arena/starward/small/walk_w_f2.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "starward",
+    "kind": "walk_small",
+    "facing": "w",
+    "frame": 3,
+    "path": "assets/sprites/arena/starward/small/walk_w_f3.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "starward",
+    "kind": "walk_small",
+    "facing": "w",
+    "frame": 4,
+    "path": "assets/sprites/arena/starward/small/walk_w_f4.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "starward",
+    "kind": "walk_small",
+    "facing": "w",
+    "frame": 5,
+    "path": "assets/sprites/arena/starward/small/walk_w_f5.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "starward",
+    "kind": "walk_small",
+    "facing": "w",
+    "frame": 6,
+    "path": "assets/sprites/arena/starward/small/walk_w_f6.png",
+    "rgba_exact_existing_pipeline": true
+  },
+  {
+    "form": "starward",
+    "kind": "walk_small",
+    "facing": "w",
+    "frame": 7,
+    "path": "assets/sprites/arena/starward/small/walk_w_f7.png",
+    "rgba_exact_existing_pipeline": true
+  }
+]

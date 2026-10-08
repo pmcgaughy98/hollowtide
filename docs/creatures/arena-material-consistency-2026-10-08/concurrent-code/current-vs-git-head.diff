@@ -1,0 +1,265 @@
+diff --git a/scripts/arena/arena_prototype.gd b/scripts/arena/arena_prototype.gd
+index f2f50421..94d26a51 100644
+--- a/scripts/arena/arena_prototype.gd
++++ b/scripts/arena/arena_prototype.gd
+@@ -67,9 +67,9 @@ const LINES := [
+ 	# The Vitrecrag line (Ember kiln, then armour, then the cannon), added 2026-10-07.
+ 	{"forms": [["fusern", "res://data/creatures/106_fusern.tres"], ["slagglass", "res://data/creatures/107_slagglass.tres"], ["vitrecrag", "res://data/creatures/108_vitrecrag.tres"]],
+ 		"signature": "Molten Glass", "accent": Color("#ffa030")},
+-	# The Oxbowarchon line (Preston, 2026-10-08): the Bloom GEMSTONE KING, Bloom/Stone, a
++	# The Oxbowarchon line (Preston, 2026-10-08): the ELECTRIC GEMSTONE KING, Electric/Stone, a
+ 	# pseudo-legendary like Ironvent (no longer Preston's personal line). Its emerald is the
+-	# Bloom king stone, and Kingstone Rail fires its power.
++	# Electric king stone, the charge between the rails, and Kingstone Rail fires its power.
+ 	{"forms": [["preostmar", "res://data/creatures/901_preostmar.tres"], ["oathfen", "res://data/creatures/902_oathfen.tres"], ["oxbowarchon", "res://data/creatures/903_oxbowarchon.tres"]],
+ 		"signature": "Kingstone Rail", "accent": Color("#12b76a"),
+ 		"card": "res://assets/sprites/creatures/attacks/oxbowarchon_kingstone_rail/style_matched/titlecard.png"},
+@@ -86,34 +86,46 @@ const LINES := [
+ ## Roles (Preston, 2026-10-07): melee, long range, defense piercer, tank, assassin and more;
+ ## the role decides how the creature's AI moves ("profile") as well as its kit.
+ const KITS := {
+-	# Every stage has a kit now (Preston, 2026-10-08: "fix up the non stage 3's kits. Only
+-	# final stages get signature moves"). The draft rule: a line's earlier stages carry the
+-	# same role's tools, fewer of them: stage 1 the basic and two abilities, stage 2 the basic
+-	# and three, stage 3 the basic, three and the signature. Passives from stage 2. Grok owns
+-	# every number; placeholder move names are marked where they are new.
+-	# Stormwick line (Ember/Electric skirmisher): pounce in, strike, bounce out.
+-	"kithflare": {"moves": ["pounce"], "abilities": ["flashstep", "lantern_volley"], "speed": 1.2, "profile": "skirmish"},
+-	"sparkwick": {"moves": ["pounce"], "abilities": ["flashstep", "lantern_volley", "lantern_tackle"], "speed": 1.3,
+-		"passive": "lantern_mark", "profile": "skirmish"},
++	# Every stage has its own kit (Preston, 2026-10-08: "give every stage their own kits based
++	# off their physiology and how they should play in Hollowtide"). Each form's moves come off
++	# the parts its art shows, and each stage plays its own way, not a trimmed copy of the
++	# final. Shape: stage 1 = basic + 2, stage 2 = basic + 3 + passive, stage 3 = + signature.
++	# The table with the reasons: docs/creatures/arena-stage-kits-2026-10-08.md. Grok owns
++	# every number; placeholder names are marked there.
++	#
++	# Stormwick line (Ember, then Ember/Electric with the lantern).
++	# Kithflare: a small fire runner with claws and a hot tail, no lantern. A harasser: rakes up
++	# close, feints out through its own embers, spits ember shots from range.
++	"kithflare": {"moves": ["claw"], "abilities": ["ember_feint", "fireball"], "speed": 1.2, "profile": "skirmish"},
++	# Sparkwick: the lantern has lit on its tail. A zapper that pounces: Wick Bolt from the
++	# lantern, the volley, and Lantern Charge (running charges an overcharged bolt).
++	"sparkwick": {"moves": ["pounce"], "abilities": ["ember_feint", "wick_bolt", "lantern_volley"], "speed": 1.3,
++		"passive": "lantern_charge", "profile": "skirmish"},
+ 	# Stormwick (Preston, 2026-10-07): an agile melee attacker like Pikachu against Onix in the
+-	# reference: its basic attack POUNCES in, strikes and bounces straight back out. Abilities:
+-	# 1 Flashstep (three charges, each on its own 3 s cooldown), 2 Lantern Volley (hops back
+-	# and fires the lantern balls in a spread), 3 Lantern Lunge (a dash that only lands if the
+-	# target is close enough at the end). 4 Stormlantern.
+-	"stormwick": {"role": "Skirmisher", "moves": ["pounce"], "abilities": ["flashstep", "lantern_volley", "lantern_tackle"], "speed": 1.4,
++	# reference: pounce in, strike, bounce out. 1 Ember Feint (replaced Flashstep 2026-10-08),
++	# 2 Lantern Volley (hops back, fires the bouncing marking balls), 3 Lantern Tackle (the zip
++	# between marks). Passive Lantern Mark. 4 Stormlantern.
++	"stormwick": {"role": "Skirmisher", "moves": ["pounce"], "abilities": ["ember_feint", "lantern_volley", "lantern_tackle"], "speed": 1.4,
+ 		"passive": "lantern_mark", "profile": "skirmish"},
+-	# Tallowroot line (Bloom/Stone tank): seed pods, the tail club, roots.
+-	"tallowroot": {"moves": ["seed"], "abilities": ["club_slam", "root_snare"], "speed": 0.8, "hp": 1.2, "profile": "press"},
+-	"huskward": {"moves": ["seed"], "abilities": ["club_slam", "root_snare", "root_rampart"], "speed": 0.7, "hp": 1.4,
++	# Rampartroot line (Bloom, then Bloom/Stone).
++	# Tallowroot: a seed burrower. Spits seed pods, snares with roots, and burrows under the
++	# ground to come up behind whatever it is fighting.
++	"tallowroot": {"moves": ["seed"], "abilities": ["root_snare", "burrow"], "speed": 0.9, "hp": 1.1, "profile": "press"},
++	# Huskward: the husk has hardened and the tail club has grown. A bruiser-tank: the club, the
++	# snare, and Root Wall (a curve of roots behind a target that keeps its distance). Rampart.
++	"huskward": {"moves": ["seed"], "abilities": ["club_slam", "root_snare", "root_wall"], "speed": 0.7, "hp": 1.4,
+ 		"passive": "rampart", "profile": "press"},
+ 	# Rampartroot (Preston, 2026-10-07 night): a slow-moving tank. Basic Seed Pod; 1 Tail Club
+ 	# (a club swing with its tail that knocks back), 2 Root Snare, 3 Root Rampart (the old
+ 	# signature, shrunk to an ability). 4 Verdant Roar, the new signature (placeholder name).
+ 	"rampartroot": {"role": "Tank", "moves": ["seed"], "abilities": ["club_slam", "root_snare", "root_rampart"], "speed": 0.6, "hp": 1.7,
+ 		"passive": "rampart", "profile": "press"},
+-	# Scourmaw line (Tide, then Tide/Hollow assassin): the pressure jet, then phase, riptide, sinkhole.
+-	"rimefin": {"moves": ["beam"], "abilities": ["phase", "riptide"], "profile": "kite"},
+-	"riftfin": {"moves": ["beam"], "abilities": ["phase", "riptide", "sinkhole"], "hp": 0.9, "speed": 1.1, "profile": "kite"},
++	# Scourmaw line (Tide, then Tide/Hollow).
++	# Rimefin: a small river fish with a pressure jet. Keeps its distance, lays a riptide, and
++	# dives under the water to come up behind.
++	"rimefin": {"moves": ["beam"], "abilities": ["riptide", "dive"], "profile": "kite"},
++	# Riftfin: faster, the jaw growing. The dive, the riptide, and Deep Jet from range.
++	"riftfin": {"moves": ["beam"], "abilities": ["riptide", "dive", "deep_jet"], "hp": 0.9, "speed": 1.1, "profile": "kite", "far_bonus": 1.15},
+ 	# Long-range assassin: glass cannon, hit and run, keeps its distance and phases away.
+ 	# Scourmaw (ability kit, 2026-10-07 night, a draft for Grok): basic Deep Jet (AI); 1 Phase
+ 	# (attacks pass through; breaks roots); 2 Riptide (a current under the target); 3 Sinkhole,
+@@ -121,50 +133,49 @@ const KITS := {
+ 	# few seconds hits harder. Passive Absence (hits erode the target). 4 Undertow.
+ 	"scourmaw": {"role": "Assassin", "moves": ["deep_jet"], "abilities": ["phase", "riptide", "sinkhole"], "hp": 0.85, "passive": "absence", "profile": "kite",
+ 		"far_bonus": 1.3},
+-	# The Ironvent line (Ember/Stone bruisers), from its turn-based moves (Crest Ram, Cinder
+-	# Claw, Vent Barrage, Furnace Roar). Basic Cinder Claw; 1 Crest Ram (Clinkerhide up, which
+-	# has the crest), 2 Vent Barrage, 3 Vent Blast (placeholder name: a gout of heat from the
+-	# back vents, a short cone that throws back and smoulders). Stoke from stage 2.
+-	"cinderhide": {"moves": ["cinder_claw"], "abilities": ["vent_barrage", "vent_blast"], "profile": "press"},
++	# Ironvent line (Ember/Stone bruisers), from its turn-based moves (Crest Ram, Cinder Claw,
++	# Vent Barrage, Furnace Roar).
++	# Cinderhide: a small vent reptile with claws. Rakes and pounces, with a vent barrage to open.
++	"cinderhide": {"moves": ["cinder_claw"], "abilities": ["vent_barrage", "pounce"], "profile": "press"},
++	# Clinkerhide: the crest has come in. The ram, the barrage, Vent Blast; Stoke.
+ 	"clinkerhide": {"moves": ["cinder_claw"], "abilities": ["crest_ram", "vent_barrage", "vent_blast"], "hp": 1.15, "speed": 0.9,
+ 		"passive": "stoke", "profile": "press"},
++	# Ironvent: basic Cinder Claw; 1 Crest Ram, 2 Vent Barrage, 3 Vent Blast (placeholder name:
++	# a gout of heat from the back vents, a short cone that throws back and smoulders). Stoke.
+ 	"ironvent": {"role": "Bruiser", "moves": ["cinder_claw"], "abilities": ["crest_ram", "vent_barrage", "vent_blast"], "speed": 0.85, "hp": 1.3,
+ 		"passive": "stoke", "profile": "press"},
+-	# The Vitrecrag line (Ember kiln tanks). Vitrecrag (Preston, 2026-10-08) is the EMBER
+-	# TANK: slow and heavy, it walks up and holds the line. Basic Plate Lunge (AI); 1 Molten
+-	# Cannon, 2 Molten Beam, 3 Glass Guard (placeholder name: it plants, its shell runs molten,
+-	# blows on it are halved and whoever strikes it up close is Glassed). Kiln Heat now also
+-	# stokes from blows it takes. 4 Molten Glass, an eruption all round it that Glasses every
+-	# enemy inside and leaves a wide field of glass. Slagglass (redesigned 2026-10-08 as the
+-	# brick dome, no spurs) shoves with its shell and shoots furnace shards.
++	# Vitrecrag line (Ember kiln tanks).
++	# Fusern: a small round kiln beetle. Ember pellets, a short molten pour, and it can run its
++	# shell molten (Glass Guard) when something closes in.
+ 	"fusern": {"moves": ["ember_pellet"], "abilities": ["molten_beam", "glass_guard"], "hp": 1.1, "speed": 0.85, "profile": "press"},
++	# Slagglass (redesigned 2026-10-08 as the brick dome, no spurs): shoves with its shell,
++	# shoots furnace shards, pours, guards. Kiln Heat.
+ 	"slagglass": {"moves": ["plate_lunge"], "abilities": ["furnace_shard", "molten_beam", "glass_guard"], "hp": 1.3, "speed": 0.75,
+ 		"passive": "kiln", "profile": "press"},
++	# Vitrecrag (Preston, 2026-10-08) is the EMBER TANK: slow and heavy, it walks up and holds
++	# the line. Basic Plate Lunge (AI); 1 Molten Cannon, 2 Molten Beam, 3 Glass Guard. Kiln
++	# Heat also stokes from blows it takes. 4 Molten Glass, an eruption all round it.
+ 	"vitrecrag": {"role": "Tank", "moves": ["plate_lunge"], "abilities": ["molten_cannon", "molten_beam", "glass_guard"], "speed": 0.65, "hp": 1.6,
+ 		"passive": "kiln", "profile": "press"},
+-	# The Oxbowarchon line (2026-10-08), drafted from the line's own move directions in
+-	# docs/creatures/personal-stone-line-proposal.md (Jade Lance, Ground Spikes, Stone Cocoon,
+-	# Slab Vortex); every number is Grok's to set. The early stages brawl with the slabs.
++	# Oxbowarchon line (Electric/Stone, the Electric Gemstone King), drafted from the line's own
++	# move directions in docs/creatures/personal-stone-line-proposal.md.
++	# Preostmar: a compact stone creature with a jade cluster on its shoulders. Shoulder shards
++	# (Jade Lance), spikes from the ground, and the cocoon.
+ 	"preostmar": {"moves": ["jade_lance"], "abilities": ["ground_spikes", "stone_cocoon"], "speed": 0.9},
++	# Oathfen: the slabs have formed and the rails lie folded. A slab brawler: spikes, the
++	# cocoon, the vortex; Bound Slabs.
+ 	"oathfen": {"moves": ["jade_lance"], "abilities": ["ground_spikes", "stone_cocoon", "slab_vortex"], "hp": 1.2, "speed": 0.8,
+ 		"passive": "bound_slabs", "profile": "press"},
+-	# Oxbowarchon (Preston, 2026-10-08): "more of a backline character, playing on the railgun
+-	# wherever it makes sense tactically for a railgun". ARTILLERY: it keeps its distance and
+-	# everything it fires hits harder from far away. Basic Jade Lance (AI); 1 Rail Shot (the
+-	# rails fire a slug down a long line that pierces everything on it); 2 Ground Spikes (jade
+-	# under whatever closes in, a hold: its peel); 3 Rail Recoil (fires both rails at the
+-	# floor to vault away from the nearest enemy, untouchable for the hop, and the blast
+-	# throws that enemy off). Passive Bound Slabs (two jade slabs float at its hips and each
+-	# swallows one blow, re-forming in time). 4 Kingstone Rail. Placeholder names: Rail Shot,
+-	# Rail Recoil.
++	# Oxbowarchon (Preston, 2026-10-08): "more of a backline character, playing on the railgun".
++	# ARTILLERY: keeps its distance, everything it fires hits harder from far. Basic Jade Lance
++	# (AI); 1 Rail Shot (pierces a long line); 2 Ground Spikes (the peel); 3 Rail Recoil (fires
++	# both rails at the floor to vault away, untouchable for the hop). Bound Slabs. 4 Kingstone
++	# Rail. Placeholder names: Rail Shot, Rail Recoil.
+ 	"oxbowarchon": {"role": "Artillery", "moves": ["jade_lance"], "abilities": ["rail_shot", "ground_spikes", "rail_recoil"], "speed": 0.7, "hp": 1.3,
+ 		"passive": "bound_slabs", "profile": "kite", "far_bonus": 1.3},
+-	# The Punchybuns line (Claude, 2026-10-08; Grok's numbers): a ferret who protects the
+-	# people it loves. Basic Spark Jab (AI). 1 Static Dance (the ferret war dance: it charges
+-	# its next jab, and every ally close by moves faster for a moment); 2 Star Guard (a pink
+-	# star shield on the most hurt ally in reach, or itself); 3 Counter Jab (it dashes to the
+-	# ally in the most trouble and punches the enemy on it away). Passive Guardian (allies
+-	# beside it take less). Its AI escorts the most hurt ally. 4 Starshield.
++	# Punchybuns line (Electric; Claude, 2026-10-08; Grok's numbers): a ferret who protects the
++	# people it loves. Punchybun: the round kit: jabs, dances, and already puts its star on a
++	# friend. Sparkjab: the boxer: Counter Jab arrives; Guardian. Starward: Starshield.
+ 	"punchybun": {"moves": ["jab"], "abilities": ["static_dance", "star_guard"], "speed": 1.1, "hp": 0.95, "profile": "escort"},
+ 	"sparkjab": {"moves": ["jab"], "abilities": ["static_dance", "star_guard", "counter_jab"], "speed": 1.15, "hp": 1.05,
+ 		"passive": "guardian", "profile": "escort"},
+@@ -178,10 +189,21 @@ const MOVES := {
+ 	"seed": {"name": "Seed Pod", "damage": 12, "cooldown": 1.2, "range": 70.0},
+ 	# Stormwick (Ember/Electric, all from its storm lantern)
+ 	"wick_bolt": {"name": "Wick Bolt", "damage": 12, "cooldown": 1.3, "range": 115.0},
++	# Flashstep is retired (Preston, 2026-10-08: with the AI walking the creature in it
++	# teleported in place, and it never fit a stage 1). The move stays defined for the old
++	# checks; no kit uses it.
+ 	"flashstep": {"name": "Flashstep", "damage": 3, "cooldown": 3.0, "range": 0.0, "mobility": true, "charges": 3},
++	# Ember Feint (placeholder name): the skirmisher hops back out of reach, untouchable for the
++	# hop, and leaves burning embers where it stood, so whoever chases it walks through fire.
++	# Two charges. Works at the wall: it picks the best open direction, not only straight back.
++	"ember_feint": {"name": "Ember Feint", "damage": 3, "cooldown": 5.0, "range": 0.0, "mobility": true, "charges": 2},
++	# Burrow (Bloom roots) and Dive (Tide): the Sinkhole mechanic without the Hollow: sink out
++	# of sight and come up behind the target.
++	"burrow": {"name": "Burrow", "damage": 0, "cooldown": 6.0, "range": 0.0, "mobility": true},
++	"dive": {"name": "Dive", "damage": 0, "cooldown": 6.0, "range": 0.0, "mobility": true},
+ 	"lantern_flash": {"name": "Lantern Flash", "damage": 0, "cooldown": 6.0, "range": 55.0},
+-	"claw": {"name": "Raptor Rake", "damage": 14, "cooldown": 1.1, "range": 24.0},
+-	"pounce": {"name": "Raptor Pounce", "damage": 12, "cooldown": 1.4, "range": 58.0},
++	"claw": {"name": "Rake", "damage": 14, "cooldown": 1.1, "range": 24.0},
++	"pounce": {"name": "Pounce", "damage": 12, "cooldown": 1.4, "range": 58.0},
+ 	"lantern_volley": {"name": "Lantern Volley", "damage": 7, "cooldown": 6.0, "range": 120.0, "mobility": true},
+ 	# Placeholder name (Preston: "like Volt Tackle"): teleports between marked enemies, invulnerable.
+ 	"lantern_tackle": {"name": "Lantern Tackle", "damage": 6, "cooldown": 7.0, "range": 999.0, "mobility": true},
+@@ -250,16 +272,17 @@ const ARENA_CHART := {
+ ## current, its claws and embers are the heat).
+ const MOVE_ESSENCE := {
+ 	"fireball": E.EMBER, "beam": E.TIDE, "seed": E.BLOOM,
+-	"wick_bolt": E.ELECTRIC, "claw": E.EMBER, "flashstep": E.EMBER, "smoulder": E.EMBER,
++	"wick_bolt": E.ELECTRIC, "claw": E.EMBER, "flashstep": E.EMBER, "smoulder": E.EMBER, "ember_feint": E.EMBER,
+ 	"pounce": E.EMBER, "lantern_volley": E.EMBER, "lantern_tackle": E.EMBER,
+ 	"deep_jet": E.TIDE, "root_snare": E.BLOOM, "club_slam": E.STONE,
+ 	"Stormlantern": E.EMBER, "Root Rampart": E.BLOOM, "Undertow": E.HOLLOW, "root_rampart": E.BLOOM, "Verdant Roar": E.BLOOM,
+ 	"vent_barrage": E.EMBER, "Furnace Roar": E.EMBER, "crest_ram": E.EMBER, "cinder_claw": E.EMBER,
+ 	"ember_pellet": E.EMBER, "glass_spur": E.EMBER, "furnace_shard": E.EMBER, "plate_lunge": E.STONE,
+ 	"molten_cannon": E.EMBER, "molten_beam": E.EMBER, "Molten Glass": E.EMBER,
+-	# The jade is Stone; the Kingstone itself is Bloom (Preston, 2026-10-08).
+-	"jade_lance": E.STONE, "ground_spikes": E.STONE, "stone_cocoon": E.STONE, "slab_vortex": E.STONE, "Kingstone Rail": E.BLOOM,
+-	"rail_shot": E.BLOOM, "rail_recoil": E.STONE, "vent_blast": E.EMBER,
++	# The jade is Stone; the Kingstone itself is Electric (Preston, 2026-10-08, later: the
++	# Electric/Stone king, because a railgun runs on electromagnetism, not life).
++	"jade_lance": E.STONE, "ground_spikes": E.STONE, "stone_cocoon": E.STONE, "slab_vortex": E.STONE, "Kingstone Rail": E.ELECTRIC,
++	"rail_shot": E.ELECTRIC, "rail_recoil": E.STONE, "vent_blast": E.EMBER,
+ 	"jab": E.ELECTRIC, "counter_jab": E.ELECTRIC, "Starshield": E.ELECTRIC,
+ }
+ 
+@@ -436,6 +459,8 @@ const RAIL_SPLASH := 0.5               # takes this much of the damage and is fl
+ const SHARDS_SECONDS := 7.0            # and the crater stays ringed with Kingstone shards that
+ const SHARDS_RADIUS := 40.0            # slow enemies and shut off their movement abilities
+ const SHARDS_SLOW := 0.6
++const FEINT_HOP := 55.0                # Ember Feint: the hop back out of reach
++const FEINT_INVULN := 0.25
+ const RECOIL_HOP := 70.0               # Rail Recoil: the hop away from the nearest enemy
+ const RECOIL_INVULN := 0.3             # untouchable for the hop
+ const RAIL_WIDTH := 13.0               # Rail Shot: how close to the line a creature must stand
+@@ -1185,7 +1210,10 @@ func _wants(i: int, m: String, foe: Dictionary) -> bool:
+ 			# Break free of roots; dodge an attack about to land; or read one coming (the enemy
+ 			# is in range with a damaging move ready: the only way to beat an instant bolt).
+ 			return f["rooted"] > 0.0 or _threat_near(i, 40.0) or (_foe_ready(foe, dist) and randf() < 0.05)
+-		"sinkhole":
++		"ember_feint":
++			# Out through the embers when a blow is coming, or right after a strike up close.
++			return _threat_near(i, 45.0) or (dist < 24.0 and foe["windup"].is_empty() and randf() < 0.15)
++		"sinkhole", "burrow", "dive":
+ 			# Ambush: when the target is a long way off, or something has closed in on it.
+ 			return (dist > 100.0 or dist < 40.0) and foe["phase"] <= 0.0 and foe["hp"] > 0
+ 		"riptide":
+@@ -1401,7 +1429,33 @@ func _do_move(i: int, m: String, t: int) -> void:
+ 				f["ambush"] = 0.0
+ 				_label(i, "Ambush")
+ 			_play("res://assets/audio/sfx/undertow/surge.wav", -10.0)
+-		"sinkhole":
++		"ember_feint":
++			# The hop back out of reach: the best open direction away from the target (straight
++			# back, angled, or along the wall when the back is against it), untouchable for the
++			# hop, embers left burning where it stood.
++			var floor_rect: Rect2 = ARENAS[_arena]["floor"]
++			var start: Vector2 = f["body"].position
++			var best: Vector2 = start
++			var best_gain := -1.0
++			for ang in [0.0, 0.9, -0.9, 1.5708, -1.5708]:
++				var cand: Vector2 = (start + (-aim).rotated(ang) * FEINT_HOP).clamp(floor_rect.position, floor_rect.end)
++				if _blocked(cand):
++					continue
++				var gain: float = cand.distance_to(foe["body"].position) - start.distance_to(foe["body"].position)
++				if gain > best_gain:
++					best_gain = gain
++					best = cand
++			f["invuln"] = maxf(f["invuln"], FEINT_INVULN)
++			# Three patches spaced along the first half of the hop, so a chaser crosses them one at
++			# a time instead of standing in a stack (the first check stacked four for 42 damage).
++			for k in 3:
++				_effects.append({"kind": "fire_patch", "owner": i, "pos": start.lerp(best, 0.1 + k * 0.2), "t": 0.0, "tick": 0.0, "damage": dmg})
++			_effects.append({"kind": "streak", "from": start, "to": best, "t": 0.0, "tex": f["sprite"].texture, "off": f["sprite"].offset})
++			_effects.append({"kind": "dust", "pos": best, "t": 0.0})
++			f["body"].position = best
++			f["facing"] = _facing_of(foe["body"].position - best)
++			_play("res://assets/audio/sfx/stormlantern/throw.wav", -12.0)
++		"sinkhole", "burrow", "dive":
+ 			# Sinks into its hollow and resurfaces behind the target (the far side from where it
+ 			# was), sharpening its next Deep Jet: the assassin's ambush.
+ 			var floor_rect: Rect2 = ARENAS[_arena]["floor"]

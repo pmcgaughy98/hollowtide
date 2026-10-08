@@ -10,7 +10,7 @@
 script = ExtResource("1_script")
 id = 902
 creature_name = "Oathfen"
-essence = 4
+essence = 6
 has_second_essence = true
 second_essence = 2
 sprite = ExtResource("2_sprite")

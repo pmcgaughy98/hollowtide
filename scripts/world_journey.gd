@@ -9,9 +9,10 @@ const AREAS = {
     "route1": preload("res://scenes/first_route_prototype.tscn"),
     "riverfront": preload("res://scenes/city_riverfront.tscn"),
     "historic_street": preload("res://scenes/historic_street.tscn"),
+    "relay_yard": preload("res://scenes/city_relay_yard.tscn"),
 }
 @export_enum("Male", "Female") var courier_model := "Male"
-@export_enum("hometown", "route1", "riverfront", "courier_hall", "historic_street", "courtyard_home") var initial_area := "hometown"
+@export_enum("hometown", "route1", "riverfront", "courier_hall", "historic_street", "courtyard_home", "relay_yard") var initial_area := "hometown"
 var active_area: Node2D
 var active_id := ""
 var cached: Dictionary = {}
@@ -41,7 +42,7 @@ func _ready() -> void:
     route.process_mode = Node.PROCESS_MODE_DISABLED
     remove_child(route)
     cached["route1"] = route
-    var arrival: Vector2 = {"courtyard_home":Vector2(128,208),"hometown":Vector2(224,280),"courier_hall":Vector2(128,208),"route1":Vector2(-720,512),"riverfront":Vector2(320,512),"historic_street":Vector2(384,848)}[initial_area]
+    var arrival: Vector2 = {"courtyard_home":Vector2(128,208),"hometown":Vector2(224,280),"courier_hall":Vector2(128,208),"route1":Vector2(-720,512),"riverfront":Vector2(320,512),"historic_street":Vector2(384,848),"relay_yard":Vector2(48,488)}[initial_area]
     _activate(initial_area, arrival, Vector2.DOWN if initial_area == "hometown" else (Vector2.UP if initial_area == "courtyard_home" else Vector2.RIGHT))
     transitioning = true
     await create_tween().tween_property(_fade, "color:a", 0.0, 0.3).finished
@@ -95,7 +96,10 @@ func _build_entrances(area: Node2D, id: String) -> void:
             _gate(entrances, "CityBridgeEntrance", Vector2(696,416), Vector2(16,32), "riverfront", Vector2(320,512), Vector2.RIGHT)
         "historic_street":
             _gate(entrances, "RiverfrontReturn", Vector2(384,888), Vector2(56,16), "riverfront", Vector2(880,48), Vector2.DOWN)
+        "relay_yard":
+            _gate(entrances, "BranchReturn", Vector2(8,488), Vector2(16,56), "riverfront", Vector2(980,512), Vector2.LEFT)
         "riverfront":
+            _gate(entrances, "RelayYardEntrance", Vector2(1016,512), Vector2(16,56), "relay_yard", Vector2(48,488), Vector2.RIGHT)
             _gate(entrances, "HistoricStreetEntrance", Vector2(880,8), Vector2(40,16), "historic_street", Vector2(384,848), Vector2.UP)
             _gate(entrances, "ReturnBridgeEntrance", Vector2(8,512), Vector2(16,32), "route1", Vector2(432,416), Vector2.LEFT)
 
@@ -141,9 +145,11 @@ func _perform_travel(destination: String, arrival: Vector2, facing: Vector2) -> 
 func _process(_delta: float) -> void:
     if active_area == null or active_id == "route1":
         return
-    route.get("_area_label").text = {"courtyard_home":"HOMETOWN / COURTYARD HOME", "hometown":"HOMETOWN / COURTYARD STREETS", "courier_hall":"HOMETOWN / COURIER HALL", "riverfront":"CITY / RIVERFRONT", "historic_street":"CITY / HISTORIC STREET"}[active_id]
+    route.get("_area_label").text = {"courtyard_home":"HOMETOWN / COURTYARD HOME", "hometown":"HOMETOWN / COURTYARD STREETS", "courier_hall":"HOMETOWN / COURIER HALL", "riverfront":"CITY / RIVERFRONT", "historic_street":"CITY / HISTORIC STREET", "relay_yard":"CITY / RELAY YARD"}[active_id]
     if active_id == "historic_street" or (active_id == "riverfront" and cached.has("historic_street") and cached["historic_street"].started and not cached["historic_street"].handoff_verified):
         route.get("_objective").text = cached["historic_street"].call("objective_text")
+    if active_id == "relay_yard":
+        route.get("_objective").text = active_area.call("objective_text")
     var hint: Label = route.get("_hint")
     if transitioning or route.get("_panel").visible:
         hint.text = ""
@@ -189,3 +195,28 @@ func _exit_tree() -> void:
     for area in cached.values():
         if is_instance_valid(area) and not area.is_inside_tree():
             area.free()
+
+func open_relay_practice() -> void:
+    # The practice picker lives in its own canvas, outside the world camera.
+    # Disabling this journey suspends its areas and input; no party or delivery state changes.
+    if active_id != "relay_yard" or has_node("RelayPractice"):
+        return
+    var layer := CanvasLayer.new()
+    layer.name = "RelayPractice"
+    # Arena HUD and signature cards use their own higher CanvasLayers.
+    layer.layer = 0
+    layer.process_mode = Node.PROCESS_MODE_ALWAYS
+    var picker := Node2D.new()
+    picker.set_script(load("res://scripts/relay_yard_practice.gd"))
+    get_node("RouteHUD").hide()
+    get_node("RouteMusic").stream_paused = true
+    process_mode = Node.PROCESS_MODE_DISABLED
+    add_child(layer)
+    layer.add_child(picker)
+    picker.return_to_yard.connect(func() -> void:
+        layer.queue_free()
+        process_mode = Node.PROCESS_MODE_INHERIT
+        get_node("RouteHUD").show()
+        get_node("RouteMusic").stream_paused = false
+        active_area.get_node("Player/Camera2D").make_current()
+    )

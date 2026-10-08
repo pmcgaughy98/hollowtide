@@ -1,0 +1,29 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+OpenGL API 3.3.0 NVIDIA 596.49 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce GTX 1660 SUPER
+
+ERROR: Failed to read the root certificate store.
+   at: get_system_ca_certificates (platform/windows/os_windows.cpp:2582)
+Walk riverfront east lane: PASS
+Real gate to relay yard: PASS
+Selected courier retained: PASS
+Inspect assignment: PASS
+Inspect works bay: PASS
+Walk upper court: PASS
+Inspect garden bay: PASS
+Clear loading court: PASS
+Inspect bridge bay: PASS
+All three clues recorded: PASS
+Return to relay board: PASS
+Wrong bay keeps handoff open: PASS
+Correct bay completes handoff: PASS
+Walk quieter loop: PASS
+Loop returns to court: PASS
+Practice opens above world: PASS
+Current arena runs from yard: PASS
+Escape returns to picker: PASS
+Escape returns to same yard: PASS
+Run flags and party preserved: PASS
+Return lane walk: PASS
+Real gate to branch: PASS
+Reenter preserved yard: PASS
+Cached clues and completion retained: PASS

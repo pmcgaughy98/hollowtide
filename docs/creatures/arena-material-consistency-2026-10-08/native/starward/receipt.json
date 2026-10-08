@@ -1,0 +1,159 @@
+﻿{
+    "mode":  "runtime",
+    "project":  "C:\\Users\\pmcga\\dev\\hollowtide",
+    "engine":  "C:\\Users\\pmcga\\Games\\Tools\\Godot_v4.7.2\\Godot_v4.7.2-stable_win64.exe",
+    "arguments":  "--path \"C:\\Users\\pmcga\\dev\\hollowtide\" --fixed-fps 30 --script res://tools/debug/arena_protector_check.gd",
+    "pid":  28144,
+    "startedUtc":  "2026-10-08T12:03:47.0332491Z",
+    "completedUtc":  "2026-10-08T12:05:15.1940399Z",
+    "timeout":  false,
+    "exitCode":  0,
+    "stdout":  "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\arena-oxbowarchon-slagglass-consistency-2026-10-08\\native-starward\\runs\\runtime_20261008_070346_d06f5764\\stdout.log",
+    "stderr":  "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\arena-oxbowarchon-slagglass-consistency-2026-10-08\\native-starward\\runs\\runtime_20261008_070346_d06f5764\\stderr.log",
+    "scriptErrors":  [
+
+                     ],
+    "generalErrors":  [
+
+                      ],
+    "warnings":  [
+
+                 ],
+    "captureRoot":  "C:\\Users\\pmcga\\dev\\hollowtide\\docs\\creatures\\arena-starward-2026-10-08",
+    "expectedCaptureNames":  [
+                                 "line_stage1.png",
+                                 "line_stage2.png",
+                                 "line_stage3.png",
+                                 "star_guard.png",
+                                 "counter_jab.png",
+                                 "starshield_forming.png",
+                                 "starshield_snap.png",
+                                 "star_field.png",
+                                 "match_3v3.png"
+                             ],
+    "copiedCaptureNames":  [
+                               "line_stage1.png",
+                               "line_stage2.png",
+                               "line_stage3.png",
+                               "star_guard.png",
+                               "counter_jab.png",
+                               "starshield_forming.png",
+                               "starshield_snap.png",
+                               "star_field.png",
+                               "match_3v3.png"
+                           ],
+    "capturesBefore":  [
+                           {
+                               "relative":  "counter_jab.png",
+                               "length":  145716,
+                               "sha256":  "d6e0ab4d650741799b2acd915a166c3ee1300b3d148225e54faa4eff1c047e83",
+                               "lastWriteUtc":  "2026-10-08T05:02:51.3271988Z"
+                           },
+                           {
+                               "relative":  "line_stage1.png",
+                               "length":  116973,
+                               "sha256":  "edeb5c3d1ea20eaad7f82c8296aba033ee798640d993e2e26923f7a3c6d97cab",
+                               "lastWriteUtc":  "2026-10-08T05:02:49.4726144Z"
+                           },
+                           {
+                               "relative":  "line_stage2.png",
+                               "length":  117609,
+                               "sha256":  "4a0f990023360f637b8799bf9df6cb5b7c3228362dca636c89c4c0cfc35d094e",
+                               "lastWriteUtc":  "2026-10-08T05:02:49.8905242Z"
+                           },
+                           {
+                               "relative":  "line_stage3.png",
+                               "length":  118330,
+                               "sha256":  "a5bee353cd5dc158bbceea86f270fe4a8197004b1b7b6a29006d39ca5657e2b3",
+                               "lastWriteUtc":  "2026-10-08T05:02:50.2645661Z"
+                           },
+                           {
+                               "relative":  "match_3v3.png",
+                               "length":  138567,
+                               "sha256":  "437fc50bb981344a5adf7f8b52e8ac8646a543ba0d73e346b5f42e43bc35834b",
+                               "lastWriteUtc":  "2026-10-08T05:02:59.4107340Z"
+                           },
+                           {
+                               "relative":  "starshield_forming.png",
+                               "length":  147744,
+                               "sha256":  "fa24e3735709b4835d214c360d79423d7fc41de13d4a0317ad4ffc8595920712",
+                               "lastWriteUtc":  "2026-10-08T05:02:52.3272632Z"
+                           },
+                           {
+                               "relative":  "starshield_snap.png",
+                               "length":  149212,
+                               "sha256":  "b41ba937cb25a224b0de5fd7cf32824ce46c4a15be2dd8b2f782f765ff7b34a0",
+                               "lastWriteUtc":  "2026-10-08T05:02:52.4598503Z"
+                           },
+                           {
+                               "relative":  "star_field.png",
+                               "length":  145667,
+                               "sha256":  "cb4eb54559328317b883dd1ae3ecdcd480da1ad24501929a46c622f6fda25056",
+                               "lastWriteUtc":  "2026-10-08T05:02:54.2774223Z"
+                           },
+                           {
+                               "relative":  "star_guard.png",
+                               "length":  143362,
+                               "sha256":  "fd8866b4f60001f5fd3a616a319d17985917dc7e5f617c93a135e1e1356b2cc7",
+                               "lastWriteUtc":  "2026-10-08T05:02:51.1790311Z"
+                           }
+                       ],
+    "capturesAfter":  [
+                          {
+                              "relative":  "counter_jab.png",
+                              "length":  145294,
+                              "sha256":  "b439fb71bad3e5ef51759e5adb63dd5683720438f0b07db01fd494c835ba5c7b",
+                              "lastWriteUtc":  "2026-10-08T12:03:55.3709922Z"
+                          },
+                          {
+                              "relative":  "line_stage1.png",
+                              "length":  116820,
+                              "sha256":  "81cb7699403ca69f1fd40d8350a5bdbccf2b59cfce8a4b7459c732ed6a9b812e",
+                              "lastWriteUtc":  "2026-10-08T12:03:52.5422269Z"
+                          },
+                          {
+                              "relative":  "line_stage2.png",
+                              "length":  117542,
+                              "sha256":  "6089656c9576a88571f0b80f3f9aad80673423e32b2f1ee6b82720833a0c3b9d",
+                              "lastWriteUtc":  "2026-10-08T12:03:52.9375878Z"
+                          },
+                          {
+                              "relative":  "line_stage3.png",
+                              "length":  118246,
+                              "sha256":  "eb08a8471ef8bf6c081b43db8d4ade49e8595930ac3650a0a081d5a93b889be6",
+                              "lastWriteUtc":  "2026-10-08T12:03:53.3230832Z"
+                          },
+                          {
+                              "relative":  "match_3v3.png",
+                              "length":  138536,
+                              "sha256":  "d0cf8718d0429859b3dd6fe9d7f0519321748aa0995a16860b62955ba4478caa",
+                              "lastWriteUtc":  "2026-10-08T12:04:04.5526014Z"
+                          },
+                          {
+                              "relative":  "starshield_forming.png",
+                              "length":  147452,
+                              "sha256":  "a6303ca974ba8c69d67121c4864515787cae3433410f9303890f569761fc5eb4",
+                              "lastWriteUtc":  "2026-10-08T12:03:56.3772535Z"
+                          },
+                          {
+                              "relative":  "starshield_snap.png",
+                              "length":  149096,
+                              "sha256":  "347b16b06c23f59311e3c7b760ab0b8f73ed97c111e2e9c11b82215a5eeaf322",
+                              "lastWriteUtc":  "2026-10-08T12:03:56.5089009Z"
+                          },
+                          {
+                              "relative":  "star_field.png",
+                              "length":  145367,
+                              "sha256":  "74182a2cc2d291a6336a7b133fa6988e476815221b2d1496c9dc67b3dc66b4f2",
+                              "lastWriteUtc":  "2026-10-08T12:03:58.3254642Z"
+                          },
+                          {
+                              "relative":  "star_guard.png",
+                              "length":  143073,
+                              "sha256":  "ded406ab78d99b98d04d6910e95c25789e27d73f8afce2add9a581434d43d544",
+                              "lastWriteUtc":  "2026-10-08T12:03:55.2297192Z"
+                          }
+                      ],
+    "runtimeCaptureFreshnessRequiresReview":  true,
+    "gameWasNotRunByPreparation":  false
+}

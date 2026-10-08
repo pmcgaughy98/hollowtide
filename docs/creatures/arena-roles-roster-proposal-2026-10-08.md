@@ -12,7 +12,7 @@ This is a proposal. Nothing here is written into a creature file, no name is new
 | Scourmaw (Tide/Hollow) | Assassin | phase, ambush, long jets |
 | Ironvent (Ember/Stone) | Bruiser | rams that carry, vents, the roar's stun and seams |
 | Vitrecrag (Ember) | Tank | Glass Guard, the glass field, Glassed |
-| Oxbowarchon (Bloom/Stone) | Artillery | a piercing line, peel, a vault, Kingstone Rail |
+| Oxbowarchon (Electric/Stone) | Artillery | a piercing line, peel, a vault, Kingstone Rail |
 | Punchybuns (Electric, reserved) | Protector | a guard ultimate (not drawn as moves yet) |
 
 Six of seven deal damage or hold a line. Nobody heals, shields an ally, cancels a wind-up, pulls, marks for the team, builds cover, or buffs. A 3v3 today is three fighters each doing their own thing; the terrain and the marks are the only team play.
@@ -57,7 +57,7 @@ Two healers were tempting (Springvault and Floodcrown); Floodcrown became the te
 - Ironvent, Quietwater Warden, Galeshear: the bruiser rams, the controller cancels the enemy's answer, the shield carries whoever gets caught.
 
 ## Essence spread after this
-Ember 3 (Stormwick, Ironvent, Vitrecrag), Bloom 4 (Rampartroot, Oxbowarchon, Gleanhorn, Combwright, Floodcrown is 5), Stone 4 (Springvault, Deepcut, Bastion, plus seconds), Tide 3 (Scourmaw, Warden, Braidwake), Gale 3 (Galeshear, Highsignal, Stormveer), Hollow 3 (Nullchorus, Tarnreach, Unspoken), Electric 1 (Punchybuns, plus Stormwick's second), Ice 0. Electric and Ice are thin; a later generation could carry them (Preston: "for future generation").
+Ember 3 (Stormwick, Ironvent, Vitrecrag), Bloom 4 (Rampartroot, Gleanhorn, Combwright, Floodcrown), Stone 4 (Springvault, Deepcut, Bastion, plus seconds), Tide 3 (Scourmaw, Warden, Braidwake), Gale 3 (Galeshear, Highsignal, Stormveer), Hollow 3 (Nullchorus, Tarnreach, Unspoken), Electric 2 (Oxbowarchon as the Electric/Stone king, Punchybuns), Ice 0. Ice is empty and the Bloom king slot is open; a later generation could carry them (Preston: "for future generation").
 
 ## What to build first, if Preston agrees
 1. **Springvault, the healer.** It needs the smallest new system (heals, ally targeting, an ally-only pool, a shield) and changes every 3v3 at once. One session for the systems with a stand-in sprite, one for the art.

@@ -1,0 +1,4227 @@
+[
+  {
+    "path": ".gdignore",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "bytes": 0
+  },
+  {
+    "path": "AI_COLLABORATION-before.md",
+    "sha256": "cacec2ace719aaad8b695e6261e273fb51a8a45525dac33e7007606a1f55ad35",
+    "bytes": 333024
+  },
+  {
+    "path": "candidate-audit.json",
+    "sha256": "8ccec4d0644e3078dfb862016920c459207340a791aa4badde17f4bff6c09943",
+    "bytes": 751569
+  },
+  {
+    "path": "final-state-check.json",
+    "sha256": "d0fb2c9835d8a429dd5918594eb4266bca25fe8a57f0a0583037db3deec4c30c",
+    "bytes": 196060
+  },
+  {
+    "path": "installed-files.json",
+    "sha256": "8500d88b5fa62507156f31ce22e01128a663d0a00609e7871e55ef68a3a16a1d",
+    "bytes": 36476
+  },
+  {
+    "path": "native-verification.json",
+    "sha256": "cf99f69b2183c7fc91f5ea119bb35168f79582e65e4c275a6350b927583aad0b",
+    "bytes": 17545
+  },
+  {
+    "path": "README.md",
+    "sha256": "5b3da6130ef8b2a1da440b1555cd640e3178dd5f486c943ec2d0c258555d11de",
+    "bytes": 5898
+  },
+  {
+    "path": "reference-checks.json",
+    "sha256": "ae4c98b1cca7019d233a0418ffedc85346642bf628620f8d1f5b376ff787c101",
+    "bytes": 2875
+  },
+  {
+    "path": "references.png",
+    "sha256": "000a304ee4730f5c9938ab98e502263fd1dc8ddeba552d7ea4bb59048b0a7529",
+    "bytes": 100207
+  },
+  {
+    "path": "concurrent-code/arena_prototype.gd",
+    "sha256": "9e965f302560c03833c258ff177f485edeba00a5533ba63eab39ccec5c3121b4",
+    "bytes": 203185
+  },
+  {
+    "path": "concurrent-code/current-vs-git-head.diff",
+    "sha256": "0f270c8b792baa4678fb8c5500d7d5b454169ce70d5fed977fe00701c0f349a6",
+    "bytes": 21346
+  },
+  {
+    "path": "palette-reference/oxbowarchon-dark-jade.png",
+    "sha256": "3dda545a846ce781b5e8deaaa8829addeff359e14e83c6978ff28c3b197ca2df",
+    "bytes": 9595
+  },
+  {
+    "path": "palette-reference/references.json",
+    "sha256": "41ae8ba46856ebe1febcd9d92826542528fda4a8e9834951372655b39b800ab4",
+    "bytes": 45
+  },
+  {
+    "path": "reproduction/finalize.py",
+    "sha256": "8157abb0e59bb5586d292ead77a657c0870e2a90d0df9777db881e445ec00076",
+    "bytes": 12712
+  },
+  {
+    "path": "reproduction/install_jade_revision.py",
+    "sha256": "dac38923cc721d37b2af98fc09857ef987ed0445236287feb4384f06e9f21e96",
+    "bytes": 1285
+  },
+  {
+    "path": "reproduction/install_reviewed.py",
+    "sha256": "258f711f94b35dd438023b0ae83137be139365d8812ca7a8d04a96ae8207d8c9",
+    "bytes": 3481
+  },
+  {
+    "path": "reproduction/launch_oxbowarchon_check.ps1",
+    "sha256": "b33e9189e3bc4ff0b88d20a28353e5028db023e91c374180263cadbe8ff4062a",
+    "bytes": 6409
+  },
+  {
+    "path": "reproduction/launch_slagglass_check.ps1",
+    "sha256": "0c3e20eae28bdefa18e7453d0f863c443a15ee43552a6ff5d36bd977e7ef1b9b",
+    "bytes": 6399
+  },
+  {
+    "path": "reproduction/launch_starward_check.ps1",
+    "sha256": "e9bf1f1e4d278b30f70f4e46d0b88a006bc954f64a4e009fcbe72476207a9a47",
+    "bytes": 6428
+  },
+  {
+    "path": "reproduction/prepare.py",
+    "sha256": "ffa57113b4686a0d0bb5124b9fbabf122dd7a577193fc0c0ae0e2b2bcd8dc008",
+    "bytes": 2492
+  },
+  {
+    "path": "reproduction/prepare_native.py",
+    "sha256": "cd51df0b0d84d548e04cfcf8895ee1fe2ac488247c05f60e0a0af27359bf8365",
+    "bytes": 2172
+  },
+  {
+    "path": "reproduction/prepare_report.py",
+    "sha256": "ed006e5e32d664df3e53fdf5a4def7d9ad87c9d044b0133513f2ad0574064914",
+    "bytes": 2810
+  },
+  {
+    "path": "reproduction/record_concurrent_update.py",
+    "sha256": "b27e3fa7e3694bd32db40bc79ea02f810ea898bcf8c6d646df9b950c9c08b806",
+    "bytes": 4195
+  },
+  {
+    "path": "reproduction/refine_arena_materials.py",
+    "sha256": "52cda533305b914381ac41ea11fe3187c781992b635af8c15b46dfb0454399a8",
+    "bytes": 6915
+  },
+  {
+    "path": "reproduction/walk_overviews.py",
+    "sha256": "155f1fa266c247b4e0decc0dfa010ec743fd04ae06a9f2887d2e241c17e652c7",
+    "bytes": 721
+  },
+  {
+    "path": "review/after-metrics.csv",
+    "sha256": "44441abfbb5ad328150bb627c0355affea2ed7dd00e78e5b123300da2f7c0837",
+    "bytes": 114124
+  },
+  {
+    "path": "review/after-metrics.json",
+    "sha256": "1328256cdfc913a9475dc9dbd81c2fd7e551aabcb060cf6bc15e4024d0950e15",
+    "bytes": 1605251
+  },
+  {
+    "path": "review/before-after-facings.csv",
+    "sha256": "e2ca3a67b8bce91435c198b2ba2314cb62cb194449a9c6212cc8dcb417fb391c",
+    "bytes": 8710
+  },
+  {
+    "path": "review/before-after-facings.md",
+    "sha256": "181235595f987d852751aa355fe64a3a1328b4c11d1a7d43a2a1f09f6195c070",
+    "bytes": 7375
+  },
+  {
+    "path": "review/before-after-spreads.csv",
+    "sha256": "c4bf0320729532b4e0c2972fffcb7173d0415d786d6c184dded2429ae9fe19b7",
+    "bytes": 996
+  },
+  {
+    "path": "review/before-after-spreads.json",
+    "sha256": "b7bd350b4ba60a4a00015b2613b09943930f78997c35c1f4498a87e3c63fb92d",
+    "bytes": 12171
+  },
+  {
+    "path": "review/before-after-spreads.md",
+    "sha256": "3c2b3fc1944626bb4c90e5b0d95cb38fa869e75c2259a66856f6cee3a25facac",
+    "bytes": 1489
+  },
+  {
+    "path": "review/before-after-walk-frames.json",
+    "sha256": "8d9497071c065a0ac6d225aa8a184c6e87cb7792dfe0bf9de1ff58069e6a1044",
+    "bytes": 497876
+  },
+  {
+    "path": "review/before-after-walk-game-frames.csv",
+    "sha256": "ab86c17f2ef10775b379c267af6de7a873de7fcc83210018757a59edf95f5b9d",
+    "bytes": 70498
+  },
+  {
+    "path": "review/before-after-walk-source-frames.csv",
+    "sha256": "d87ea36230a45f0a31059395cde297ef743d5f377a11f5a08aa61594e3a0a9f2",
+    "bytes": 50207
+  },
+  {
+    "path": "review/consistency-check-summary.json",
+    "sha256": "20fb59b176376912be55721c1dc6915f1d43e2459e987795648542a0f90db671",
+    "bytes": 35903
+  },
+  {
+    "path": "review/existing-downscale-pipeline-checks.json",
+    "sha256": "a6a9f206d7f7cfd364c200f8eda537e7f3392057de880565659f06a529adbf43",
+    "bytes": 105499
+  },
+  {
+    "path": "review/mirror-checks.json",
+    "sha256": "fb6a12036ca3bc72c49d50355ed28d1726aec3dcd698b97215c06bd71c0fa4d9",
+    "bytes": 24707
+  },
+  {
+    "path": "review/original-files-and-protected-code-checks.json",
+    "sha256": "f49cc71995f2efea3161371bd770af8c92a529ea4a227e1b4a3881850c0a3204",
+    "bytes": 609774
+  },
+  {
+    "path": "review/palette-and-alpha-checks.json",
+    "sha256": "bc80ba9588ec3514d0c954f6f3a7cdbc664e52edd2e66c15e2bf4e6373173172",
+    "bytes": 1094277
+  },
+  {
+    "path": "review/protected-other-arena-assets.json",
+    "sha256": "24b85147918ec79886f0d270066491c3b22f03e7c8152319c2c8aaefad5e3816",
+    "bytes": 332177
+  },
+  {
+    "path": "review/REPORT.md",
+    "sha256": "f29ebafbc7af516dfc529d015393da419f84395bf715d7e3072bb79ebba6ddd8",
+    "bytes": 1648
+  },
+  {
+    "path": "source-audit/audit_originals.py",
+    "sha256": "91ed7df85c269f8adc3152eee18b629233624397e82f6df60b3909beee025032",
+    "bytes": 11777
+  },
+  {
+    "path": "source-audit/before-manifest.json",
+    "sha256": "d2789617e0d7ec07f4ece30ae3a74f4f31a42bf6504e822133a1dc5de0339a9f",
+    "bytes": 468937
+  },
+  {
+    "path": "source-audit/before-metrics.csv",
+    "sha256": "7f5f5ae14eefa11c87abc7c9456186337d2c1217933094ca15af1f98d2d076ab",
+    "bytes": 115999
+  },
+  {
+    "path": "source-audit/before-metrics.json",
+    "sha256": "5a56aff888392cf137491376903af28af8d121a2a0bd9ad4ecd8cb8cac1e708c",
+    "bytes": 2978806
+  },
+  {
+    "path": "source-audit/before-summary.json",
+    "sha256": "b8a2f9d9dbede89fe8ff71671bc5170ae89b6ea03c9b00a346696ee9dd178fbd",
+    "bytes": 14135
+  },
+  {
+    "path": "native/import_20261008_065903_eb61ba17/captures-after.json",
+    "sha256": "5fb3d2c1446d951b0db7144a073d14122c356344aea00a3981d87e00b730ee77",
+    "bytes": 4592
+  },
+  {
+    "path": "native/import_20261008_065903_eb61ba17/captures-before.json",
+    "sha256": "5fb3d2c1446d951b0db7144a073d14122c356344aea00a3981d87e00b730ee77",
+    "bytes": 4592
+  },
+  {
+    "path": "native/import_20261008_065903_eb61ba17/receipt.json",
+    "sha256": "8206120a500aaae2b07b8b01044def2915346042ea0d583819386361606fdb01",
+    "bytes": 16629
+  },
+  {
+    "path": "native/import_20261008_065903_eb61ba17/stderr.log",
+    "sha256": "0e5b0648a0d58e0cd66af42368e0fc2c43e13152510dcf94ee91354fb1633b3a",
+    "bytes": 256
+  },
+  {
+    "path": "native/import_20261008_065903_eb61ba17/stdout.log",
+    "sha256": "e9ba0e41a3f7c944468d741a5fda5e6aab90031cb65a431a1c696f551940b043",
+    "bytes": 114499
+  },
+  {
+    "path": "native/import_20261008_070211_d99d7c92/captures-after.json",
+    "sha256": "5fb3d2c1446d951b0db7144a073d14122c356344aea00a3981d87e00b730ee77",
+    "bytes": 4592
+  },
+  {
+    "path": "native/import_20261008_070211_d99d7c92/captures-before.json",
+    "sha256": "5fb3d2c1446d951b0db7144a073d14122c356344aea00a3981d87e00b730ee77",
+    "bytes": 4592
+  },
+  {
+    "path": "native/import_20261008_070211_d99d7c92/receipt.json",
+    "sha256": "9907ac4dd5cd5f0d4391f84963b1c94de91ff6ca07c2873171f79e609a0bdfe3",
+    "bytes": 16405
+  },
+  {
+    "path": "native/import_20261008_070211_d99d7c92/stderr.log",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "bytes": 0
+  },
+  {
+    "path": "native/import_20261008_070211_d99d7c92/stdout.log",
+    "sha256": "81e7208dfedaa732a582ac411e560b58977a4d8f25b66fed421acf1bf8176581",
+    "bytes": 26701
+  },
+  {
+    "path": "native/oxbowarchon/captures-after.json",
+    "sha256": "6003d1450d77890968447f5241e40a83e2847b8ca5fa137b11c4a84da1d52c2b",
+    "bytes": 4592
+  },
+  {
+    "path": "native/oxbowarchon/captures-before.json",
+    "sha256": "5fb3d2c1446d951b0db7144a073d14122c356344aea00a3981d87e00b730ee77",
+    "bytes": 4592
+  },
+  {
+    "path": "native/oxbowarchon/receipt.json",
+    "sha256": "28b34d4042e32ef8be87cc543668864d1dbee7e2b688160cbc6525c20b7d741d",
+    "bytes": 16794
+  },
+  {
+    "path": "native/oxbowarchon/stderr.log",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "bytes": 0
+  },
+  {
+    "path": "native/oxbowarchon/stdout.log",
+    "sha256": "c77e9271c9014cd9c49b29d99d46794abf1b49af3ddddd08fa1bad9d8a595f66",
+    "bytes": 902
+  },
+  {
+    "path": "native/slagglass/captures-after.json",
+    "sha256": "aae79f9522468992686a79af470bb8bef5e791439064921cc0149c52eacc0116",
+    "bytes": 1834
+  },
+  {
+    "path": "native/slagglass/captures-before.json",
+    "sha256": "d779713e7d12991309152e3ad6b7f75a8c79685a64537a37ea292fda3d7daa02",
+    "bytes": 1834
+  },
+  {
+    "path": "native/slagglass/receipt.json",
+    "sha256": "e5a1b6d09c51b0aa0694b431d57ddbc95c521a0205131ec7e043ca2ad41b002c",
+    "bytes": 8364
+  },
+  {
+    "path": "native/slagglass/stderr.log",
+    "sha256": "353ce5989fb0143544e2584186c6d981d83d3c91a7b9c8c7e0b38ba57ed7359e",
+    "bytes": 250
+  },
+  {
+    "path": "native/slagglass/stdout.log",
+    "sha256": "74fc622222e009d1e46913e65acbd3d8fd38d0649f749a337514f508a7667c53",
+    "bytes": 601
+  },
+  {
+    "path": "native/starward/captures-after.json",
+    "sha256": "be7c2e7cbd4bf10b17f2d51f5fe541a073fa3e50b336aa5483694a13201b6ae9",
+    "bytes": 2076
+  },
+  {
+    "path": "native/starward/captures-before.json",
+    "sha256": "6bade06c5a3f83bd6ab51ccb2325c741fb9599282af40f44eb7c4312f8be9d12",
+    "bytes": 2076
+  },
+  {
+    "path": "native/starward/receipt.json",
+    "sha256": "7ae7a85aa0193c762c2920cffc08650d809c00b0cde3331b4e59e688698969c7",
+    "bytes": 9036
+  },
+  {
+    "path": "native/starward/stderr.log",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "bytes": 0
+  },
+  {
+    "path": "native/starward/stdout.log",
+    "sha256": "2d2bdb9edec2ef7f74d7e4ce5fcec6953ee46b5b3966d0e8b0e5ccbb507e6f73",
+    "bytes": 1121
+  },
+  {
+    "path": "native/oxbowarchon/captures-originals/backline_match.png",
+    "sha256": "3777f76e420b9c92908a027519534df62eadbb34a783a2ff5a69f4332c329dcb",
+    "bytes": 121595
+  },
+  {
+    "path": "native/oxbowarchon/captures-originals/backline_rail.png",
+    "sha256": "daeee0bf0d6abbd482227a3227988a5debbfcd85d64dcb33debb01a9ff31bd0c",
+    "bytes": 142428
+  },
+  {
+    "path": "native/oxbowarchon/captures-originals/backline_rail_telegraph.png",
+    "sha256": "95657090f3977dac0371b76b6229224335d9e52a5f7f2a37f2db4fbcf65d708f",
+    "bytes": 140517
+  },
+  {
+    "path": "native/oxbowarchon/captures-originals/backline_recoil.png",
+    "sha256": "af06062203737383e90448c2816f35fe422e7dc2a742a32724f85109106eb8bd",
+    "bytes": 144319
+  },
+  {
+    "path": "native/oxbowarchon/captures-originals/backline_stage1_bar.png",
+    "sha256": "a32957a555d7d675cd43bed065b834e9969e79b7cc8ca424dfbd8589ef986ca0",
+    "bytes": 115913
+  },
+  {
+    "path": "native/oxbowarchon/captures-originals/backline_vent_blast.png",
+    "sha256": "bfa21e56426feefd080c7cb3c18512359a9306ee637f34a1178f025a35571a86",
+    "bytes": 117737
+  },
+  {
+    "path": "native/oxbowarchon/captures-originals/cocoon.png",
+    "sha256": "8a0ccc23680855bf28be63f2b91ad69fda75b03ef55602d02e352112e66145a6",
+    "bytes": 126279
+  },
+  {
+    "path": "native/oxbowarchon/captures-originals/lance.png",
+    "sha256": "b94d153dfebd8f9547c2220c61c5c10a3235a0dbd21c10a2add58130b5c2f9c8",
+    "bytes": 119393
+  },
+  {
+    "path": "native/oxbowarchon/captures-originals/line_stage1.png",
+    "sha256": "652b1683a2df27305dea926194128d6dd24278eb65cd29e610b532f0d0059275",
+    "bytes": 115752
+  },
+  {
+    "path": "native/oxbowarchon/captures-originals/line_stage2.png",
+    "sha256": "29b20c93cbe1e4314150de2560414bf8f193f7777b921f53d8ea147803829547",
+    "bytes": 116161
+  },
+  {
+    "path": "native/oxbowarchon/captures-originals/line_stage3.png",
+    "sha256": "7c8ee32915f2e247eb75da2ce28b46d887c82c31f70b32260677b256830bd278",
+    "bytes": 118817
+  },
+  {
+    "path": "native/oxbowarchon/captures-originals/match.png",
+    "sha256": "46ce304650a4ceb849800ea00fac7b1c5b43c7fb4924f16782c207167c4479cd",
+    "bytes": 125150
+  },
+  {
+    "path": "native/oxbowarchon/captures-originals/rail_0.70s.png",
+    "sha256": "9b93e6e87802cecd1ff9019177e27f266ff06686ccf267449a6e6cbdc677aa98",
+    "bytes": 137635
+  },
+  {
+    "path": "native/oxbowarchon/captures-originals/rail_1.20s.png",
+    "sha256": "b23bac6d31c41ede6fedba2539c94606bac815b6f30e59f5361248c4f8c84472",
+    "bytes": 136157
+  },
+  {
+    "path": "native/oxbowarchon/captures-originals/rail_1.95s.png",
+    "sha256": "526d31cb09fd90bbc70aec35fb4b8befe60014062f080ca70020180ab10e9b4e",
+    "bytes": 139200
+  },
+  {
+    "path": "native/oxbowarchon/captures-originals/rail_2.12s.png",
+    "sha256": "59e0f81ff11b386cc3746d222bfbc57dbc15e7c6a844500d8c44a96530ae1404",
+    "bytes": 138576
+  },
+  {
+    "path": "native/oxbowarchon/captures-originals/rail_2.50s.png",
+    "sha256": "2243cafc97d3b30426dcc7a93447b4ccf65c129d8ce7695523516e96b264cfea",
+    "bytes": 147948
+  },
+  {
+    "path": "native/oxbowarchon/captures-originals/rail_after.png",
+    "sha256": "931795bd8b3785a4aea938b567f2e9f2d9277afbb302e766bb4b90975e4c5842",
+    "bytes": 142183
+  },
+  {
+    "path": "native/oxbowarchon/captures-originals/spikes.png",
+    "sha256": "ed74ae8b36ffd4ffe7bd29167a5330c85e53668cd0c0802eb638b750bfc42a49",
+    "bytes": 121857
+  },
+  {
+    "path": "native/oxbowarchon/captures-originals/vortex.png",
+    "sha256": "3d4daa038807ff8112e0993e1b46cdb2c71650d35879ab10e1cf3e40175d7f31",
+    "bytes": 122376
+  },
+  {
+    "path": "native/oxbowarchon/stills/backline_match.png",
+    "sha256": "818d2f9ba9fb3b39ea3e7b077ac16705ccc3755efdf789a919b6c65e06216780",
+    "bytes": 148435
+  },
+  {
+    "path": "native/oxbowarchon/stills/backline_rail.png",
+    "sha256": "a85ee9be18b989e2f0ab96d46f84526ef91f41356c910169379536c51ce1953c",
+    "bytes": 144271
+  },
+  {
+    "path": "native/oxbowarchon/stills/backline_rail_telegraph.png",
+    "sha256": "ebc8503b9960422c8a746fbce71cc1b627fb72156fe18b555908d3a3e13d8da3",
+    "bytes": 141703
+  },
+  {
+    "path": "native/oxbowarchon/stills/backline_recoil.png",
+    "sha256": "b33728e7cab24e2a74ff8f4ba406d1e18bd49fbc061b1d41bb5ca254d523c18d",
+    "bytes": 145491
+  },
+  {
+    "path": "native/oxbowarchon/stills/backline_stage1_bar.png",
+    "sha256": "e6fc345859b8ab85425f7dee7cd5e0b5f8368b3d2eec9ecaf88af9a2d0df29a3",
+    "bytes": 116804
+  },
+  {
+    "path": "native/oxbowarchon/stills/backline_vent_blast.png",
+    "sha256": "e88bf7dc781b50287d364b82a3b7260cf8b154ded7929ac1f24d6e6536ff8418",
+    "bytes": 118547
+  },
+  {
+    "path": "native/slagglass/captures-originals/glass_1.80s.png",
+    "sha256": "94a21cfea61fc281e2dc14da5b70e5d4707caaecd629e143f72d3c9f0b2faf77",
+    "bytes": 158243
+  },
+  {
+    "path": "native/slagglass/captures-originals/glass_2.30s.png",
+    "sha256": "5239171ac7ebae6fe7c6913596c6eb5b77385fa261e3164188a6bcc0617b14ca",
+    "bytes": 153546
+  },
+  {
+    "path": "native/slagglass/captures-originals/glass_2.70s.png",
+    "sha256": "31baf7a5e73f264a8b040106647dd94b665061fb703ab5e64c749d8006a90ead",
+    "bytes": 146792
+  },
+  {
+    "path": "native/slagglass/captures-originals/glass_3.10s.png",
+    "sha256": "98e15f053caef305e1196afcc9ed929792e5608f2e973636b96a97b898671eb3",
+    "bytes": 148340
+  },
+  {
+    "path": "native/slagglass/captures-originals/line_stage1.png",
+    "sha256": "0d3790adedf2579c440857defb078067dbf82141740151b241db2be0a1522a40",
+    "bytes": 119433
+  },
+  {
+    "path": "native/slagglass/captures-originals/line_stage2.png",
+    "sha256": "c866215163f02054a28e4a628afa68c1d48f0c0a181fc83d0720d29b61ecedaa",
+    "bytes": 121116
+  },
+  {
+    "path": "native/slagglass/captures-originals/line_stage3.png",
+    "sha256": "f2bbc0aa464166dd5b686dcdbfbe89b5a5deb007da40bbc604ca89bf74b96dd4",
+    "bytes": 117800
+  },
+  {
+    "path": "native/slagglass/captures-originals/match.png",
+    "sha256": "a085de7af2fb3f007aee5078fe75e57dede1fb10ab91d0d887cb75ab3931f3b9",
+    "bytes": 120449
+  },
+  {
+    "path": "native/slagglass/stills/glass_1.80s.png",
+    "sha256": "927996221af4fdcdf0c6b77691bed4ee7e07d4be25d05547144e068d28d459bf",
+    "bytes": 152425
+  },
+  {
+    "path": "native/slagglass/stills/glass_2.30s.png",
+    "sha256": "56be1185673a898460ac44f6635d4afe73f219d7562a8abbfd09293d8ac52a8c",
+    "bytes": 150823
+  },
+  {
+    "path": "native/slagglass/stills/glass_2.70s.png",
+    "sha256": "d3ef3a195d9e44620c3328d8753106d0d38bc24bf076d2b5bac99de5079b4d2c",
+    "bytes": 151009
+  },
+  {
+    "path": "native/slagglass/stills/glass_3.10s.png",
+    "sha256": "45b8e7fca6fdbb27ff1bf1af8cf2adbcd7931aee895f4891b17bf476251eb11d",
+    "bytes": 151682
+  },
+  {
+    "path": "native/slagglass/stills/line_stage1.png",
+    "sha256": "dc7eff64483f5d61dce5dec6d9e9f28789cfc4df9ff646d60d29fbd95b11b9be",
+    "bytes": 118596
+  },
+  {
+    "path": "native/slagglass/stills/line_stage2.png",
+    "sha256": "edcab825c5a52d4578c93078a45a04a0f7d83d008fc7f90a0e87b2208b28539f",
+    "bytes": 121177
+  },
+  {
+    "path": "native/slagglass/stills/line_stage3.png",
+    "sha256": "f2e33314bea90d40c2b81b3a74bb174df30acb5e0485e085eb867f9c77ca61c9",
+    "bytes": 121013
+  },
+  {
+    "path": "native/slagglass/stills/match.png",
+    "sha256": "c8711b6eea709ae43b6ecb021dcfefff7be1a9cb31a5492b4f94c47cf529a797",
+    "bytes": 125628
+  },
+  {
+    "path": "native/starward/captures-originals/counter_jab.png",
+    "sha256": "d6e0ab4d650741799b2acd915a166c3ee1300b3d148225e54faa4eff1c047e83",
+    "bytes": 145716
+  },
+  {
+    "path": "native/starward/captures-originals/line_stage1.png",
+    "sha256": "edeb5c3d1ea20eaad7f82c8296aba033ee798640d993e2e26923f7a3c6d97cab",
+    "bytes": 116973
+  },
+  {
+    "path": "native/starward/captures-originals/line_stage2.png",
+    "sha256": "4a0f990023360f637b8799bf9df6cb5b7c3228362dca636c89c4c0cfc35d094e",
+    "bytes": 117609
+  },
+  {
+    "path": "native/starward/captures-originals/line_stage3.png",
+    "sha256": "a5bee353cd5dc158bbceea86f270fe4a8197004b1b7b6a29006d39ca5657e2b3",
+    "bytes": 118330
+  },
+  {
+    "path": "native/starward/captures-originals/match_3v3.png",
+    "sha256": "437fc50bb981344a5adf7f8b52e8ac8646a543ba0d73e346b5f42e43bc35834b",
+    "bytes": 138567
+  },
+  {
+    "path": "native/starward/captures-originals/starshield_forming.png",
+    "sha256": "fa24e3735709b4835d214c360d79423d7fc41de13d4a0317ad4ffc8595920712",
+    "bytes": 147744
+  },
+  {
+    "path": "native/starward/captures-originals/starshield_snap.png",
+    "sha256": "b41ba937cb25a224b0de5fd7cf32824ce46c4a15be2dd8b2f782f765ff7b34a0",
+    "bytes": 149212
+  },
+  {
+    "path": "native/starward/captures-originals/star_field.png",
+    "sha256": "cb4eb54559328317b883dd1ae3ecdcd480da1ad24501929a46c622f6fda25056",
+    "bytes": 145667
+  },
+  {
+    "path": "native/starward/captures-originals/star_guard.png",
+    "sha256": "fd8866b4f60001f5fd3a616a319d17985917dc7e5f617c93a135e1e1356b2cc7",
+    "bytes": 143362
+  },
+  {
+    "path": "native/starward/stills/counter_jab.png",
+    "sha256": "b439fb71bad3e5ef51759e5adb63dd5683720438f0b07db01fd494c835ba5c7b",
+    "bytes": 145294
+  },
+  {
+    "path": "native/starward/stills/line_stage1.png",
+    "sha256": "81cb7699403ca69f1fd40d8350a5bdbccf2b59cfce8a4b7459c732ed6a9b812e",
+    "bytes": 116820
+  },
+  {
+    "path": "native/starward/stills/line_stage2.png",
+    "sha256": "6089656c9576a88571f0b80f3f9aad80673423e32b2f1ee6b82720833a0c3b9d",
+    "bytes": 117542
+  },
+  {
+    "path": "native/starward/stills/line_stage3.png",
+    "sha256": "eb08a8471ef8bf6c081b43db8d4ade49e8595930ac3650a0a081d5a93b889be6",
+    "bytes": 118246
+  },
+  {
+    "path": "native/starward/stills/match_3v3.png",
+    "sha256": "d0cf8718d0429859b3dd6fe9d7f0519321748aa0995a16860b62955ba4478caa",
+    "bytes": 138536
+  },
+  {
+    "path": "native/starward/stills/starshield_forming.png",
+    "sha256": "a6303ca974ba8c69d67121c4864515787cae3433410f9303890f569761fc5eb4",
+    "bytes": 147452
+  },
+  {
+    "path": "native/starward/stills/starshield_snap.png",
+    "sha256": "347b16b06c23f59311e3c7b760ab0b8f73ed97c111e2e9c11b82215a5eeaf322",
+    "bytes": 149096
+  },
+  {
+    "path": "native/starward/stills/star_field.png",
+    "sha256": "74182a2cc2d291a6336a7b133fa6988e476815221b2d1496c9dc67b3dc66b4f2",
+    "bytes": 145367
+  },
+  {
+    "path": "native/starward/stills/star_guard.png",
+    "sha256": "ded406ab78d99b98d04d6910e95c25789e27d73f8afce2add9a581434d43d544",
+    "bytes": 143073
+  },
+  {
+    "path": "references/assets/sprites/creatures/slagglass_redo_2026_10_08/slagglass_front.png",
+    "sha256": "a284d647a2fb00b54494607afa6e62b6229b99fd6f19b76162230b630fb13105",
+    "bytes": 19180
+  },
+  {
+    "path": "reproduction/candidate-tools/report_arena_materials.py",
+    "sha256": "175ee90df6e3335591ed667f5faa15fd0178e60fe8b90f600b1247a7e32e851d",
+    "bytes": 32112
+  },
+  {
+    "path": "review/contacts/oathfen-facings-before-after-game3x.png",
+    "sha256": "269fe141dd22d465c53ca5dc85985d4e7f4b6b9edb6591a34889e484157aa488",
+    "bytes": 32060
+  },
+  {
+    "path": "review/contacts/oathfen-walk-e-before-after-game3x.png",
+    "sha256": "7443e25def8700c77537c65963e027d257fa6553736360c37986ae2d180a4305",
+    "bytes": 33488
+  },
+  {
+    "path": "review/contacts/oathfen-walk-n-before-after-game3x.png",
+    "sha256": "3916340e1094481fb25f22984760bee78a778c010a10e9bba5403144e0fcbb4e",
+    "bytes": 24314
+  },
+  {
+    "path": "review/contacts/oathfen-walk-ne-before-after-game3x.png",
+    "sha256": "7daadce266281238ef1957b94711d5619e95564ac2248c4c5c9e44d3350969e5",
+    "bytes": 30678
+  },
+  {
+    "path": "review/contacts/oathfen-walk-s-before-after-game3x.png",
+    "sha256": "5cec32485f61260fe27a721310da001fdd7add7fe8389d3aa86dca0cd16b3bf6",
+    "bytes": 23946
+  },
+  {
+    "path": "review/contacts/oathfen-walk-se-before-after-game3x.png",
+    "sha256": "044f189cd5f96887b17250d48d2789b394440b2ca48aa6689c6144172dc789d4",
+    "bytes": 31252
+  },
+  {
+    "path": "review/contacts/oxbowarchon-facings-before-after-game3x.png",
+    "sha256": "8076384ef3e3432958bb33667e4db108ef6671d3f377b6556720ef3c7fbb4b17",
+    "bytes": 45782
+  },
+  {
+    "path": "review/contacts/oxbowarchon-walk-e-before-after-game3x.png",
+    "sha256": "3558230273f1c3b469aad75b912edc993422101f97e227304e0ac3fb33f6097e",
+    "bytes": 45599
+  },
+  {
+    "path": "review/contacts/oxbowarchon-walk-n-before-after-game3x.png",
+    "sha256": "e815cbfc3ed647dcc07664114f1d14b7cbfc22d64e5850b8d8b9bb3fabc8c00e",
+    "bytes": 34270
+  },
+  {
+    "path": "review/contacts/oxbowarchon-walk-ne-before-after-game3x.png",
+    "sha256": "f13b6e5daddcbbf303da641512c6f0abec7b6fd6c15305cd8fbe059cf5ab5ff7",
+    "bytes": 41408
+  },
+  {
+    "path": "review/contacts/oxbowarchon-walk-s-before-after-game3x.png",
+    "sha256": "d41d1e2b4f87b665e7865a3a7ac22c9aa78d4d55031a75efb37dc58a9b392ab9",
+    "bytes": 38973
+  },
+  {
+    "path": "review/contacts/oxbowarchon-walk-se-before-after-game3x.png",
+    "sha256": "3bdfb1ab37a37abdb9c0ac55129e1d006baf2f42f10d970b513c26b12d3ca35a",
+    "bytes": 45814
+  },
+  {
+    "path": "review/contacts/preostmar-facings-before-after-game3x.png",
+    "sha256": "4e6c643df978ca1eaf94b00c6d08996d1f2def7898dde3b880d500047898d1f7",
+    "bytes": 19533
+  },
+  {
+    "path": "review/contacts/preostmar-walk-e-before-after-game3x.png",
+    "sha256": "01c1951b40dcf468472887c81323b6176b0ace43e37fce7ff31a449a90febae6",
+    "bytes": 20391
+  },
+  {
+    "path": "review/contacts/preostmar-walk-n-before-after-game3x.png",
+    "sha256": "61c3dcee85a81a670b0b179c542a994b089fd761e427e8006601b912c1e86cb4",
+    "bytes": 15604
+  },
+  {
+    "path": "review/contacts/preostmar-walk-ne-before-after-game3x.png",
+    "sha256": "8130612236c163a096f734fa29ffdc97815ff436e67ca159d367eb39298d08a0",
+    "bytes": 18352
+  },
+  {
+    "path": "review/contacts/preostmar-walk-s-before-after-game3x.png",
+    "sha256": "3c141b3a096c5bc1aa949b0c3529fdb42266418cd69d31847fd9d8290e107cbe",
+    "bytes": 16371
+  },
+  {
+    "path": "review/contacts/preostmar-walk-se-before-after-game3x.png",
+    "sha256": "1ef62a322ceca57626e41d77880ca8287240b0a8ef1e17108753d3bffc83bb06",
+    "bytes": 19007
+  },
+  {
+    "path": "review/contacts/punchybun-facings-before-after-game3x.png",
+    "sha256": "20324196c75bcc82be753c3bec5fe633b7be25ea96cc35080b814106a37a71fa",
+    "bytes": 19364
+  },
+  {
+    "path": "review/contacts/punchybun-walk-e-before-after-game3x.png",
+    "sha256": "130c47d156770e190e4d9ea3e4639f316251c122c88bc0b4d29dcf5f838b3a61",
+    "bytes": 19608
+  },
+  {
+    "path": "review/contacts/punchybun-walk-n-before-after-game3x.png",
+    "sha256": "df57c76b98a64f2ad5bf4b37406bdd9031ed918f697458195e7ef2857962092e",
+    "bytes": 16174
+  },
+  {
+    "path": "review/contacts/punchybun-walk-ne-before-after-game3x.png",
+    "sha256": "46fc3d496b6118b3b1471fa41b22bf974ee9e5f44d8a29fffb5b4d6892af1f53",
+    "bytes": 18976
+  },
+  {
+    "path": "review/contacts/punchybun-walk-s-before-after-game3x.png",
+    "sha256": "790ba229793f4baf7a69fd1a67f75df9ccee9e6aebb7669c9dde8ba493d6933b",
+    "bytes": 20858
+  },
+  {
+    "path": "review/contacts/punchybun-walk-se-before-after-game3x.png",
+    "sha256": "facc424f4bd0cfc41ad03afd6b39eb3274d1c213985a23d04e8ea28b74889d04",
+    "bytes": 20560
+  },
+  {
+    "path": "review/contacts/selected-family-before-after-south-game3x.png",
+    "sha256": "3903abe44c9c0e5bd01061b986646461cd6c2d223981f16029b8e0fffc05f1bf",
+    "bytes": 31630
+  },
+  {
+    "path": "review/contacts/slagglass-facings-before-after-game3x.png",
+    "sha256": "7fca3ebb939a8d777b47bdd471b0ba08564dd7669ba5063127738a98e943109e",
+    "bytes": 42755
+  },
+  {
+    "path": "review/contacts/slagglass-walk-e-before-after-game3x.png",
+    "sha256": "ec9203f5d5694399efa9b3c484d07ec11b53dfdb0e24e55ffac3515e5b918349",
+    "bytes": 43341
+  },
+  {
+    "path": "review/contacts/slagglass-walk-n-before-after-game3x.png",
+    "sha256": "4b5280c947f389fd735e86e782f08f490bef9b18369a0d51bcba4db809b7778c",
+    "bytes": 40848
+  },
+  {
+    "path": "review/contacts/slagglass-walk-ne-before-after-game3x.png",
+    "sha256": "57aece926e57c3deb5f30e8ff3cdc6390aa73f810739538c4e08d0ed4575dd8a",
+    "bytes": 34431
+  },
+  {
+    "path": "review/contacts/slagglass-walk-s-before-after-game3x.png",
+    "sha256": "704bf6bdc4b4b53ca817dd54f4ff429cfd4a2ae15bb456211601807c71aad126",
+    "bytes": 39328
+  },
+  {
+    "path": "review/contacts/slagglass-walk-se-before-after-game3x.png",
+    "sha256": "f7c244fc4a30dfc1d979907844132972a82a3b8f01b3d458a07757ad734114b0",
+    "bytes": 40673
+  },
+  {
+    "path": "review/contacts/sparkjab-facings-before-after-game3x.png",
+    "sha256": "e1025191e3836b88ea55d3a1a7eeafae2e879bccbbe0bc5fe1b94724f91c5318",
+    "bytes": 19276
+  },
+  {
+    "path": "review/contacts/sparkjab-walk-e-before-after-game3x.png",
+    "sha256": "1c2b98894cd33752562d80892b9c7e595d6c0f4fa23b75cef771ffc862a583d2",
+    "bytes": 21300
+  },
+  {
+    "path": "review/contacts/sparkjab-walk-n-before-after-game3x.png",
+    "sha256": "dbec6f222f1417929cd5a1586cf2bfef3b54258e31642c3082f0cccb76220330",
+    "bytes": 16361
+  },
+  {
+    "path": "review/contacts/sparkjab-walk-ne-before-after-game3x.png",
+    "sha256": "7651c28c2064d18ef6578153a7202471b6f4a59ea2554ec9ddd8b22513702da2",
+    "bytes": 18337
+  },
+  {
+    "path": "review/contacts/sparkjab-walk-s-before-after-game3x.png",
+    "sha256": "c2b8455953b8ee7e0dbf7d0026388d37f0883e6f5358bf49d00eda239e84f0cc",
+    "bytes": 17779
+  },
+  {
+    "path": "review/contacts/sparkjab-walk-se-before-after-game3x.png",
+    "sha256": "9cb67221bc395e3c4336d6098b6b60a1e37b7808dd349a43f18a8803fcd5c33c",
+    "bytes": 21614
+  },
+  {
+    "path": "review/contacts/starward-facings-before-after-game3x.png",
+    "sha256": "e4023015eb5bd665f6c0c8bc858cd36992ca932b3ea9065a3e71971a6f1c793d",
+    "bytes": 26173
+  },
+  {
+    "path": "review/contacts/starward-walk-e-before-after-game3x.png",
+    "sha256": "5ae5b6be313aa8fe3b9275ef8c35c7c059c1b68c99a6e88a3c683ce661e454df",
+    "bytes": 26107
+  },
+  {
+    "path": "review/contacts/starward-walk-n-before-after-game3x.png",
+    "sha256": "e97f7b2723ea4cdfa5fbac2b8307a153cdfe39fe5ee884d394f83449e30f8243",
+    "bytes": 21110
+  },
+  {
+    "path": "review/contacts/starward-walk-ne-before-after-game3x.png",
+    "sha256": "fdcab929e7a62f89dd7aa1db9c70fad6e5bc8f4eade4e113031e860c9290ffa5",
+    "bytes": 21895
+  },
+  {
+    "path": "review/contacts/starward-walk-s-before-after-game3x.png",
+    "sha256": "226d102f24f44adc3fe2acebff13fc4dd92dd219beec4826190ee34fcf732575",
+    "bytes": 24514
+  },
+  {
+    "path": "review/contacts/starward-walk-se-before-after-game3x.png",
+    "sha256": "459576b3d1755d9e461b3e152a55d8e8e521d8041da97c75ae8aa5221547113f",
+    "bytes": 26996
+  },
+  {
+    "path": "review/walk-previews/oathfen-walk-e-before-after-game3x.gif",
+    "sha256": "2e75d5a137f35e77cc37db250a36bef86c16abe0832f89d68ab0bdc798217e35",
+    "bytes": 60378
+  },
+  {
+    "path": "review/walk-previews/oathfen-walk-n-before-after-game3x.gif",
+    "sha256": "a7e22d932c8bc6caf020cf1e95ed1b01456e4ec082f69820940671a1726f43ac",
+    "bytes": 47853
+  },
+  {
+    "path": "review/walk-previews/oathfen-walk-ne-before-after-game3x.gif",
+    "sha256": "e6fb669ecc7ab52c63658a7a3b01ae505e9902ad3e2bb8b5a1fa57c966da001c",
+    "bytes": 58735
+  },
+  {
+    "path": "review/walk-previews/oathfen-walk-s-before-after-game3x.gif",
+    "sha256": "e24acb215a2202b1867fce97303fed6bb6cde22085a71d58b329050b6357102d",
+    "bytes": 49433
+  },
+  {
+    "path": "review/walk-previews/oathfen-walk-se-before-after-game3x.gif",
+    "sha256": "bf3613221b2fde7497c3c9b3e881a43ad20c81d7b6a801f3a2c0970ad091c589",
+    "bytes": 57646
+  },
+  {
+    "path": "review/walk-previews/oxbowarchon-walk-e-before-after-game3x.gif",
+    "sha256": "cd6b7c0a34ec74b2ff9c1ceef1c83efee9fcea6a3d2edcf0e9d5dafaa571020a",
+    "bytes": 79847
+  },
+  {
+    "path": "review/walk-previews/oxbowarchon-walk-n-before-after-game3x.gif",
+    "sha256": "56c846ec5b8947bc86889050bb1a2271f1e415f9a5087d800b75560ef60aeaf3",
+    "bytes": 67800
+  },
+  {
+    "path": "review/walk-previews/oxbowarchon-walk-ne-before-after-game3x.gif",
+    "sha256": "942b21ade058be0e555fa1b3bcecf37afdebe97efc166dd65cf7ea406027faa9",
+    "bytes": 77418
+  },
+  {
+    "path": "review/walk-previews/oxbowarchon-walk-s-before-after-game3x.gif",
+    "sha256": "ac32231b8d39c26c64f53d188d98035ada7750d6c50980dc0bd46a090a5a9f35",
+    "bytes": 74981
+  },
+  {
+    "path": "review/walk-previews/oxbowarchon-walk-se-before-after-game3x.gif",
+    "sha256": "631ccea77391d8f3f11e8e368e4b1c5f48394f512ea248f26c757dee50018c6e",
+    "bytes": 80985
+  },
+  {
+    "path": "review/walk-previews/preostmar-walk-e-before-after-game3x.gif",
+    "sha256": "40934e2c833e7af7facde7a4329479687a3c3f028616a25e1b86ac437d313168",
+    "bytes": 41737
+  },
+  {
+    "path": "review/walk-previews/preostmar-walk-n-before-after-game3x.gif",
+    "sha256": "c160a86131c9b9db5a4dc30a7c77abb6ea2ea04951ea78dd2b8cbd7aa9df4502",
+    "bytes": 36910
+  },
+  {
+    "path": "review/walk-previews/preostmar-walk-ne-before-after-game3x.gif",
+    "sha256": "29ab57b87c6a5e7b599bc93db2f1216cfd75e1622e81d84ad520c0350925d60a",
+    "bytes": 40710
+  },
+  {
+    "path": "review/walk-previews/preostmar-walk-s-before-after-game3x.gif",
+    "sha256": "ef7999b9eada2653bf7724af54f8c8af311890575a07104a3f8d9fb463e7521a",
+    "bytes": 38776
+  },
+  {
+    "path": "review/walk-previews/preostmar-walk-se-before-after-game3x.gif",
+    "sha256": "454183b604fd42fa83eba362c982735db3d2835318b90820f22eae10acd19059",
+    "bytes": 40872
+  },
+  {
+    "path": "review/walk-previews/punchybun-walk-e-before-after-game3x.gif",
+    "sha256": "1a20cbc9acc8e040024dd153b8a551ea87a8bc997e5cd82270f4f4a579cf6da6",
+    "bytes": 36023
+  },
+  {
+    "path": "review/walk-previews/punchybun-walk-n-before-after-game3x.gif",
+    "sha256": "a9a61c62140436f65970b6a0223d25d7ac78b3dab2a254fcded16f12b33be93c",
+    "bytes": 32930
+  },
+  {
+    "path": "review/walk-previews/punchybun-walk-ne-before-after-game3x.gif",
+    "sha256": "f507d26cbc5c81e57bf83c8917d040c06ab15423bc4e0244499a0bc7302895b1",
+    "bytes": 36495
+  },
+  {
+    "path": "review/walk-previews/punchybun-walk-s-before-after-game3x.gif",
+    "sha256": "f2ee84f781b96064af50e893f9c75b68c30f08491dcbe5b451b09cd7814f4927",
+    "bytes": 39447
+  },
+  {
+    "path": "review/walk-previews/punchybun-walk-se-before-after-game3x.gif",
+    "sha256": "3d15e00edff64280fc268d316b6f102374fc0cf199ca87377a3fab484bf452fb",
+    "bytes": 40446
+  },
+  {
+    "path": "review/walk-previews/slagglass-walk-e-before-after-game3x.gif",
+    "sha256": "1b4a1c543035812d17469cdb59195d6f077788a59d3e029b2a6e100a1cf8e26b",
+    "bytes": 72168
+  },
+  {
+    "path": "review/walk-previews/slagglass-walk-n-before-after-game3x.gif",
+    "sha256": "1d3fdf300aaf6781fd42e9bc47e6f02e84d6aaca3434b06f73f762c4b0b7a483",
+    "bytes": 70784
+  },
+  {
+    "path": "review/walk-previews/slagglass-walk-ne-before-after-game3x.gif",
+    "sha256": "24be6883cd17ed7b5eabd0540875c89d6203665b89452fd653231d6ab4341ed5",
+    "bytes": 72273
+  },
+  {
+    "path": "review/walk-previews/slagglass-walk-s-before-after-game3x.gif",
+    "sha256": "c9bb9f8f593ec2311ce1f88198d41a168f33f20ff52df547defd2ca37b322029",
+    "bytes": 73650
+  },
+  {
+    "path": "review/walk-previews/slagglass-walk-se-before-after-game3x.gif",
+    "sha256": "e26d17dca0d53721d893e62a6ae798f271cd20749f96e1119ec7a2c55a6935b2",
+    "bytes": 70180
+  },
+  {
+    "path": "review/walk-previews/sparkjab-walk-e-before-after-game3x.gif",
+    "sha256": "011fef6c4f1fea4c5e015f2b1c11a46c22e7627d0493a171073bf01c5ed58e10",
+    "bytes": 36521
+  },
+  {
+    "path": "review/walk-previews/sparkjab-walk-n-before-after-game3x.gif",
+    "sha256": "ecd37b884320e071042ea8f51f00b084fcd07a4935069941c2cf8144a5ddf299",
+    "bytes": 34168
+  },
+  {
+    "path": "review/walk-previews/sparkjab-walk-ne-before-after-game3x.gif",
+    "sha256": "e93d4b221185137e267272a7567efb8a3afa4d32e2f4b9769a55ff43660c9163",
+    "bytes": 36091
+  },
+  {
+    "path": "review/walk-previews/sparkjab-walk-s-before-after-game3x.gif",
+    "sha256": "fde7e0a470a2e4beb915378c82c84845a5ec80ecc63a4010ddcca76eb5d6694b",
+    "bytes": 34872
+  },
+  {
+    "path": "review/walk-previews/sparkjab-walk-se-before-after-game3x.gif",
+    "sha256": "041ca85b3417ec57bcb2480c6d12cfdd02a432faa18b0f4f4ac7a7b4ab6ebe3c",
+    "bytes": 39657
+  },
+  {
+    "path": "review/walk-previews/starward-walk-e-before-after-game3x.gif",
+    "sha256": "c4f9c20cc16064546b35fb858782eb3eba5b237e998fc0ca4722e2a15250c953",
+    "bytes": 44843
+  },
+  {
+    "path": "review/walk-previews/starward-walk-n-before-after-game3x.gif",
+    "sha256": "a3dd82f61f5d99a64b380cd97151332a0a7b046ffeb7855381c7875274a164e5",
+    "bytes": 40727
+  },
+  {
+    "path": "review/walk-previews/starward-walk-ne-before-after-game3x.gif",
+    "sha256": "c855a8bd2cf0a801973bdfb042719f3327b6bcde46799049a1cf6ca6d5fcd6d9",
+    "bytes": 40390
+  },
+  {
+    "path": "review/walk-previews/starward-walk-s-before-after-game3x.gif",
+    "sha256": "088d37ff73bada17430bdec60232d24ca072d03172fce73ef2229119c7281b1a",
+    "bytes": 43866
+  },
+  {
+    "path": "review/walk-previews/starward-walk-se-before-after-game3x.gif",
+    "sha256": "b73e729ce1106553ce37d174e297bcb336d8a2a58e5d586e2d9aefd64e4c19a5",
+    "bytes": 46125
+  },
+  {
+    "path": "source-audit/candidate-project/tools/arena/build_small.py",
+    "sha256": "339dc19f9be878d179c202540d6765271d8533d0f4e20c7c8274bf6d8bdbc135",
+    "bytes": 3756
+  },
+  {
+    "path": "source-audit/candidate-project/tools/arena/downscale.py",
+    "sha256": "800c5bebd236199368e0d91c0aecbf8435ae121fa7a9cafc571b8d68364b3431",
+    "bytes": 2238
+  },
+  {
+    "path": "source-audit/candidate-project/tools/arena/normalize_arena_palette.py",
+    "sha256": "3ced57c9ac649e5d365d8ea42eecede882228ff7aebd638385136161889c4db2",
+    "bytes": 18028
+  },
+  {
+    "path": "source-audit/candidate-project/tools/arena/report_consistency.py",
+    "sha256": "1d808b346802daf9b378c90da579ddb988f1132f82b0411e9b9e3edb2440be9b",
+    "bytes": 31008
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/oathfen/e.png",
+    "sha256": "362d766221148dc5e2a49fbf80de0d31493d5635cebb8425f04bd08d233abd20",
+    "bytes": 7604
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/oathfen/n.png",
+    "sha256": "6773ce5f83ca108f5889669201f4f6d811816d0fb33bb198b3492f01ffe9a47b",
+    "bytes": 5004
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/oathfen/ne.png",
+    "sha256": "7ca3fbd8b8b28918e2dfb73136b8c6ee168188f5c640a637edfc8cd4f80a331f",
+    "bytes": 7016
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/oathfen/nw.png",
+    "sha256": "2bcc0b11ffa9fd4dede9a0446f885a0a1688d0a7c3d04635048ddfc1cd2fa66b",
+    "bytes": 6662
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/oathfen/s.png",
+    "sha256": "2cb0d002faaf8d5a673486d1bbe4f7756d6a2fd3192dd17cb6dd5e4d92453ae6",
+    "bytes": 5500
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/oathfen/se.png",
+    "sha256": "16559b5c32144e1469483fc5f05213cff36df6ec1ef7c0b0d2997c3c856fc578",
+    "bytes": 7573
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/oathfen/sw.png",
+    "sha256": "edd2f403446e966a4234900539be5ddc8f3d50012dde7d7bf0fc9bcc49bd9428",
+    "bytes": 6925
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/oathfen/w.png",
+    "sha256": "f5fb9b32269f35e5488c74dbf73f0ebdf449ac6bd5196778e828fd9c75c085e4",
+    "bytes": 7034
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/oxbowarchon/e.png",
+    "sha256": "13c2ccb8d68fb61d14851524fd0ec5f37547c3a1890a8b7f1b38fa91e9b245c1",
+    "bytes": 9924
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/oxbowarchon/n.png",
+    "sha256": "f48f924e6aa736710ef0d2b39740e112912c64c3f87898bc8ae1624a864767dd",
+    "bytes": 6440
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/oxbowarchon/ne.png",
+    "sha256": "d3cdfd09a6c809b3b3433cb00ea55acde3049527ebc2b67210c1953ec8a3a629",
+    "bytes": 8878
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/oxbowarchon/nw.png",
+    "sha256": "cf40250abc21fadf10dc53fb1f612ad6d369ea7d2dfbc72beddcdf5e8bd24b28",
+    "bytes": 8660
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/oxbowarchon/s.png",
+    "sha256": "9b0056cbed0e0c4cbda6e7519a90b688e3c79e41ed9f6e39b0d095c15ed1ce0b",
+    "bytes": 7517
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/oxbowarchon/se.png",
+    "sha256": "a84057fcf3d0886b20591de64968aa7b6392070d0fdfb7a3035793672548b95d",
+    "bytes": 10068
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/oxbowarchon/sw.png",
+    "sha256": "aaaf91d1595a85af615963ce80d5166954ef650020214ada470dc89d330ac6b0",
+    "bytes": 9485
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/oxbowarchon/w.png",
+    "sha256": "7d2a54d8f3a5afca07cd180743f5e93f3eeaf8b508557dae586b0d95061cbafe",
+    "bytes": 9652
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/preostmar/e.png",
+    "sha256": "725dd404396bea3f4da2787d2710a7529239ab7fe84399e4c6973556bbabc7c3",
+    "bytes": 5597
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/preostmar/n.png",
+    "sha256": "c416621faf5f4d053cb4638ed8a3dac180d62d5878043ad0b1c79f0d9fecfa7e",
+    "bytes": 3988
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/preostmar/ne.png",
+    "sha256": "3421a1e7d6e58048e3618e576414ac2a401d5c954ebd34defd131ad20c7ab23a",
+    "bytes": 4852
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/preostmar/nw.png",
+    "sha256": "fbefee51a95863a5955796a2acd8d3d3f0f94df1dfda56c440f179fe598f7849",
+    "bytes": 4096
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/preostmar/s.png",
+    "sha256": "4f516b22e39eff81cbfe2128db25d2d270924a5d92ba328e91c6992bf2b4fae1",
+    "bytes": 4682
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/preostmar/se.png",
+    "sha256": "e76eea889e023b3e6c21e34b51635ed04dc0ebd9e7ee581265d64555d65ef7ec",
+    "bytes": 5505
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/preostmar/sw.png",
+    "sha256": "f62c8789088ef550d44d604323bad492795f8cfaa7321b2f6d2182d4dea080d9",
+    "bytes": 5264
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/preostmar/w.png",
+    "sha256": "8a8424da178e010dff64a8d33c435b1a6a0e391f36f487cd875fa02f2a5f529f",
+    "bytes": 4947
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/punchybun/e.png",
+    "sha256": "f2fb1121918a5bf08b372188d83adaa624dda675f2c311a18a24afe8f1db16dc",
+    "bytes": 4222
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/punchybun/n.png",
+    "sha256": "3680b4e11cea943252483b8157bd227d00489a4a6f911bc75805248f707a3dd6",
+    "bytes": 3041
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/punchybun/ne.png",
+    "sha256": "86a2c5d8b64ac770a1382fbfbd2d98e0eff8a6ddb85c3d65cddaa588aa050d88",
+    "bytes": 3650
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/punchybun/nw.png",
+    "sha256": "4c89ad1e94021d47316740e7bcb210aee4e1e46b722dc2d8cfd99d12412fb43c",
+    "bytes": 3005
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/punchybun/s.png",
+    "sha256": "552a30a9651c29c1a1d4e0f2c563feb6e38da79229f89f4325da13c42dd376cd",
+    "bytes": 4340
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/punchybun/se.png",
+    "sha256": "7185ac6fcd2d59826752b464298681c3e9c2ff557e09c5c7b580a704d14e738a",
+    "bytes": 4110
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/punchybun/sw.png",
+    "sha256": "79d5734cf5490b7c2aa02752330a1d579daaffcccb61d734e37baa52dda19b99",
+    "bytes": 3933
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/punchybun/w.png",
+    "sha256": "0c4f6456856dd6ffac25f028ad095c7f60a81cb7cd7b2d4c0df8fd921b0d8bcb",
+    "bytes": 3804
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/slagglass/e.png",
+    "sha256": "adcfeefa959a1b91be2019271cfce35df7b8991a48d5a235fc5b25ef94e41de0",
+    "bytes": 7477
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/slagglass/n.png",
+    "sha256": "2ee14ff62b916a4f6fc3e53ff392b52ac84f248bfa8227841434e42f15aa427e",
+    "bytes": 7284
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/slagglass/ne.png",
+    "sha256": "3f05a20e7d86fdec526bd098c60e7300ea43fcdd462b13474b49ffe4c48ba6b2",
+    "bytes": 7174
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/slagglass/nw.png",
+    "sha256": "ca86fc25532ce17443b3d48a94655d4d39bf08ae1b684d3b7e7b9519f9c32ea4",
+    "bytes": 6398
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/slagglass/s.png",
+    "sha256": "9b47600f491f6222dcff176e9f17a9a060938afcf89798f76c35d807848d1193",
+    "bytes": 7777
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/slagglass/se.png",
+    "sha256": "b0a053f180454852480a79de33059c9c9ed22eb9576e825396087b7cc9860fa3",
+    "bytes": 7965
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/slagglass/sw.png",
+    "sha256": "831e37eaf71c3a181bac36978852c51f2fc66e9458404055222f6e338ccc103a",
+    "bytes": 7231
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/slagglass/w.png",
+    "sha256": "cd765cce15d6e01f88e18291c62c51914ff55fb2d9726c3c6ef5ccb9d0b61089",
+    "bytes": 7230
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/sparkjab/e.png",
+    "sha256": "df64c63217c813e253e14979860086fcb68a7f13bb4b981e63b5dda9e750ca64",
+    "bytes": 4901
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/sparkjab/n.png",
+    "sha256": "ac0616ca619214bb4d18647298d008f44a86eee1826d6accf65d7bece40a2c48",
+    "bytes": 3593
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/sparkjab/ne.png",
+    "sha256": "19450eaeedac99f5c24c6f485b6b1d0da0c89e50886d9830a18bc950adbcbc1b",
+    "bytes": 4573
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/sparkjab/nw.png",
+    "sha256": "ea64375fa7284a6e51f0530a7fcb8e7604e77915b16540e3a06b57f44e7c12cf",
+    "bytes": 4169
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/sparkjab/s.png",
+    "sha256": "0d361c530e2bb91a28b98fa29ec3986d2c0bb5fbde0756583f8c24511e6866bc",
+    "bytes": 3983
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/sparkjab/se.png",
+    "sha256": "216a937742226cbeb69e44e52da691062032d80265cd494e2549e7cb635b3422",
+    "bytes": 5074
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/sparkjab/sw.png",
+    "sha256": "0ea73bfc1fbdf55fa3a1ac2eaadfae8bf87cca2952d804cdc2f2de0a1154f1cd",
+    "bytes": 5040
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/sparkjab/w.png",
+    "sha256": "7bab75b56b45aa1bbe8feacd24501868a8d14a6df72da7ded32be2ebcd52d4f7",
+    "bytes": 4847
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/starward/e.png",
+    "sha256": "3300e1f724a8f51ae9048be7062698820f2f9a91899782c9553371ab2ddfa8f3",
+    "bytes": 7381
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/starward/n.png",
+    "sha256": "31414908e4fe0822425631cf1c2b59e8fb65b434a700adfa251af110b1b1de63",
+    "bytes": 5414
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/starward/ne.png",
+    "sha256": "250139580045d4209d930c4dcf034ee656c69d4e858bec64e90050de848aa484",
+    "bytes": 5644
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/starward/nw.png",
+    "sha256": "95f07617518b0cd11cc47992749b3ad20452fad943fe7fc03e07cd74eb6c95c6",
+    "bytes": 6042
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/starward/s.png",
+    "sha256": "eb4a3d4132b0cce6905c3babef78af02c8f91399041bf5e92e6b6ab9cef6b6b5",
+    "bytes": 6339
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/starward/se.png",
+    "sha256": "f4c43c49bca4a1307dd7b5c13bb54f30bf83f597251705314d5e735c5d6b75ab",
+    "bytes": 7636
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/starward/sw.png",
+    "sha256": "c86b3a1ec11ae7c1cb615f18a35d1d1d29f159fa9aba4ed87be52235f981a909",
+    "bytes": 6545
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/starward/w.png",
+    "sha256": "b901fba13c589d43f240df5fbf5d03cc8847bc1c784e7173347208a9fc5127a5",
+    "bytes": 7280
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/oathfen/small/e.png",
+    "sha256": "dd53c7ea3cf6e2199f369cb5db60c995274a1800c2056b7e16646f72e6c11239",
+    "bytes": 1574
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/oathfen/small/n.png",
+    "sha256": "b015ffb4e05cc67026eaffdcb98ca4cea6e3aabdcdd1e388faa53f7455309a5a",
+    "bytes": 1063
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/oathfen/small/ne.png",
+    "sha256": "d6645a8c12930b09e77f01e16914ef55070c5e72796a22b3a7fbd63eaed432a7",
+    "bytes": 1454
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/oathfen/small/nw.png",
+    "sha256": "dc446ebf172150ef3596967341c9eca9cb74cf8d8b4000a4528ca82005880e87",
+    "bytes": 1421
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/oathfen/small/s.png",
+    "sha256": "1d0193fe74e8b69b6643519ef7d8676de2b8681c45de1825194d8c4a689d89d2",
+    "bytes": 1081
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/oathfen/small/se.png",
+    "sha256": "72fa2a4393ab11ab24c31d0a0be7eecf535883312e1c6f247131be9fccc770fa",
+    "bytes": 1438
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/oathfen/small/sw.png",
+    "sha256": "226efa39106251e600c8f29191e8fd6c0709ec512e96de2f7451a91d517c45cc",
+    "bytes": 1437
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/oathfen/small/w.png",
+    "sha256": "ac10cc8f6c423867d1c56f513df4e99056e67604101dd0700b2c684435c1ea34",
+    "bytes": 1554
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/oathfen/small/walk_e_f0.png",
+    "sha256": "387f9d9685fb8893023d7996ce78e8b4e66affcc74c19d89a6a15ee5b7a977e2",
+    "bytes": 1542
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/oathfen/small/walk_e_f1.png",
+    "sha256": "c9644f11a79ff69cf0551cf1d87297f44984a853274cde2f310186f8f0991578",
+    "bytes": 1573
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/oathfen/small/walk_e_f2.png",
+    "sha256": "3cfccb1e4b02ab585a6e3558922780e994298f4d20f68a5c1983b5892ca6d3f6",
+    "bytes": 1560
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/oathfen/small/walk_e_f3.png",
+    "sha256": "f97b99f8612afd7d497cfad2ddecbcade16158068e6714d86b2a70f3c1ba987c",
+    "bytes": 1620
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/oathfen/small/walk_e_f4.png",
+    "sha256": "635df2639a060608fbb1c6de7a13f050f415dbec46f65dcbb4d1744fe8ccb994",
+    "bytes": 1471
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/oathfen/small/walk_e_f5.png",
+    "sha256": "1a38ba4c53c463d81ed6ab8cad532578587e981a8b59084ade7c6e32abe0ed67",
+    "bytes": 1464
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/oathfen/small/walk_e_f6.png",
+    "sha256": "52ac8730956ec00043719c12a0a0384ff83a99fd2f553d7e08c38f50c5328962",
+    "bytes": 1394
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/oathfen/small/walk_e_f7.png",
+    "sha256": "78c9bfffef9494817e3443e9cbbeaedf28a5380e21f71120d615ed0b8c9c2695",
+    "bytes": 1409
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/oathfen/small/walk_ne_f0.png",
+    "sha256": "722b87ce3585d76a64d004e63329df52e11fca6eb06aa994f71ee8735c5517b9",
+    "bytes": 1373
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/oathfen/small/walk_ne_f1.png",
+    "sha256": "584c13f722f4c6e01dcb2b6f5ba7c47d96289cbbdbfca459d2669bc237567001",
+    "bytes": 1429
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/oathfen/small/walk_ne_f2.png",
+    "sha256": "7b8bdd3b5aa6b903ada35a3d73f6b52124c6eee9a5dbc4178fa51f034be33a4e",
+    "bytes": 1427
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/oathfen/small/walk_ne_f3.png",
+    "sha256": "3da16279965a3105c3c3bfdc191cb1ec419849a8536f44a635f47a6f0408e17f",
+    "bytes": 1407
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/oathfen/small/walk_ne_f4.png",
+    "sha256": "83e9ba3c694caef8d632a558ac26eb687c4684ce5691edc6689d7502f4ed6838",
+    "bytes": 1366
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/oathfen/small/walk_ne_f5.png",
+    "sha256": "34dcbbedc951ce4f5c1c62ecdaee733bbc9ed4ca7e2abaa301d9e51c2ba546e3",
+    "bytes": 1386
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/oathfen/small/walk_ne_f6.png",
+    "sha256": "134749533f1f4643599bdb790944f13c0011a33d8b493ab5096d3df1a9444bf3",
+    "bytes": 1367
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/oathfen/small/walk_ne_f7.png",
+    "sha256": "2d2b0dbac404414f1d73c1152e74712412db651d944a7259b95532e63ce27323",
+    "bytes": 1392
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/oathfen/small/walk_nw_f0.png",
+    "sha256": "6720eaf758105145bce67de26a4bf639e5287da029e959396398562cc08b836e",
+    "bytes": 1365
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/oathfen/small/walk_nw_f1.png",
+    "sha256": "0526c94333708c07b080f9e9becab98e20225ede4ac8bc6cd8f174f694dfbb3e",
+    "bytes": 1379
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/oathfen/small/walk_nw_f2.png",
+    "sha256": "0d0dea8d1470ea2efca0338fec626b35396bd0ebff30bfec7eb2ca5ce5088fe3",
+    "bytes": 1441
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/oathfen/small/walk_nw_f3.png",
+    "sha256": "6ea96d16624eb6dae8f2fffc1ed000965187846e6297f5717ba6f6277dc42ac6",
+    "bytes": 1380
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/oathfen/small/walk_nw_f4.png",
+    "sha256": "d36055f01451b25e4be284a39993788b2044743baf14d48b22e5de97327e2491",
+    "bytes": 1346
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/oathfen/small/walk_nw_f5.png",
+    "sha256": "50710a581af65769aac68e9232763883b5f6a283ec9445a45a7bcd3a69424468",
+    "bytes": 1401
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/oathfen/small/walk_nw_f6.png",
+    "sha256": "b49b73311df1a63a961b6e09ea8edafc0a0aea6068a877815cda79433d1395d9",
+    "bytes": 1370
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/oathfen/small/walk_nw_f7.png",
+    "sha256": "a7fdf4064388bfd02f92645e1bafe81fcdf18bd502945e3173fd3b166850d04c",
+    "bytes": 1381
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/oathfen/small/walk_n_f0.png",
+    "sha256": "d4809684ede667679e26b2a85a45bf9b8f329c1c32a773c4ae77bfa7c476437b",
+    "bytes": 1014
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/oathfen/small/walk_n_f1.png",
+    "sha256": "252b4684d6e223ae017e7d579b7083424c1411cf9b082037e9a27b0dd972c590",
+    "bytes": 1006
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/oathfen/small/walk_n_f2.png",
+    "sha256": "be0e0a6adf8725b4bd491649c4bbf6640f6dc40387413b92e92c7f2ed2276c82",
+    "bytes": 1034
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/oathfen/small/walk_n_f3.png",
+    "sha256": "36b96d36cd32a0fe75e032dd1940e56b16862290b56a65291eb12cadd67b7d8a",
+    "bytes": 961
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/oathfen/small/walk_n_f4.png",
+    "sha256": "16bc5bc5eb1afa6b0af7a6abceb811c34504c862ffe7856d41d35a810ce9388e",
+    "bytes": 1000
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/oathfen/small/walk_n_f5.png",
+    "sha256": "969b2640be66234bb17af6486a0347d2b55e3bf8eae9b260fd9f875ab27d575e",
+    "bytes": 992
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/oathfen/small/walk_n_f6.png",
+    "sha256": "94dcc831cfaa884eab5d894e538fc7977a747fef5871460baf828c8ff99481ba",
+    "bytes": 992
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/oathfen/small/walk_n_f7.png",
+    "sha256": "cfeea31a4e582d1f6dab9b02cbad2f7ef435745dad146dbb81370360f0629cd4",
+    "bytes": 1009
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/oathfen/small/walk_se_f0.png",
+    "sha256": "405e73f140fb306f9e7fcfe7653d7caf516a732395496469eabffdfc20c12c82",
+    "bytes": 1318
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/oathfen/small/walk_se_f1.png",
+    "sha256": "f7a20402cea440fab542a6ee02cc99aebe1bf198ff1e0da385161907f38087d7",
+    "bytes": 1390
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/oathfen/small/walk_se_f2.png",
+    "sha256": "651b25123c298fc17343780f11b6a3a98d3b76e4e22b8ad0c93b5433ecc1a4c1",
+    "bytes": 1279
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/oathfen/small/walk_se_f3.png",
+    "sha256": "841fbdd0131b284ff870c0705f6b0dc68224f4c5697f947dbe5734489f027179",
+    "bytes": 1315
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/oathfen/small/walk_se_f4.png",
+    "sha256": "328d246b8b5b4eca96ba619059deb56212ebd076f7a9382c49ee9f481217c559",
+    "bytes": 1345
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/oathfen/small/walk_se_f5.png",
+    "sha256": "17bbb1b0056413aa362bf117ba6ef5545de9218722248095ddb507bbc9d9a9ad",
+    "bytes": 1303
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/oathfen/small/walk_se_f6.png",
+    "sha256": "4fb4ef81a655b460a51376188c6428840584f1475cea0b35455d5573b815bac2",
+    "bytes": 1369
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/oathfen/small/walk_se_f7.png",
+    "sha256": "867ecb57f23b3a3888ec17e37053ae567aeb5f377a07b6f8c7d083473c69fa49",
+    "bytes": 1361
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/oathfen/small/walk_sw_f0.png",
+    "sha256": "ca345521ea887d8edb40d17383b6b20299cbacc27c0a01e57b0a8c7dcaf45f0c",
+    "bytes": 1328
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/oathfen/small/walk_sw_f1.png",
+    "sha256": "56bf3956b633b64d2eed6e859bf651a97850a078169fbe50fede0504e0e2160d",
+    "bytes": 1375
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/oathfen/small/walk_sw_f2.png",
+    "sha256": "a65f8192d6fc7a9fead20b7eedfb3d6f9e4f12b07cc7acc12e25179cf3a5c877",
+    "bytes": 1305
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/oathfen/small/walk_sw_f3.png",
+    "sha256": "3ccca6c14c897361bfa4ce98e4ae9912771174ebc842ddfcf063210074d994cd",
+    "bytes": 1321
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/oathfen/small/walk_sw_f4.png",
+    "sha256": "9a02b40b08ca0f6d6b983dc9f2ef6965762f52899ec8c69751b271ad4112616f",
+    "bytes": 1359
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/oathfen/small/walk_sw_f5.png",
+    "sha256": "0291d0444fbd78804a3df15d2bbf7f28fbec5592d77cdb5c64586f1e41d10ed3",
+    "bytes": 1322
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/oathfen/small/walk_sw_f6.png",
+    "sha256": "4bf6d21fa79348392407e6e699dd184b14a95e8cbd8c1738680f451f48e17523",
+    "bytes": 1368
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/oathfen/small/walk_sw_f7.png",
+    "sha256": "1373149929df2ae68538f4cc2490bfd26e4a1822cbb848582dc530b660298274",
+    "bytes": 1363
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/oathfen/small/walk_s_f0.png",
+    "sha256": "804ee1be0463daf3e97c2245bd7078be4e6dfda4b02053ea76f96586f618e90d",
+    "bytes": 1052
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/oathfen/small/walk_s_f1.png",
+    "sha256": "5e9dfb2dedf2cd0a5a49835d0a5c7947e22afecb2b8049a72b3b01a404ef3694",
+    "bytes": 1030
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/oathfen/small/walk_s_f2.png",
+    "sha256": "5c4e1001e9c982eeb3105cacfae54ed06a09f8e3cdf729990afc8b806401f85b",
+    "bytes": 1045
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/oathfen/small/walk_s_f3.png",
+    "sha256": "3a11c2821e4c3739dcc9996b46a731b896ffc63656d8cd034f423ac516d52d62",
+    "bytes": 1080
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/oathfen/small/walk_s_f4.png",
+    "sha256": "fd95c7ab2428afac5febc570b8a1a12f2f232e6c71f6d94835ed62c0401b59a1",
+    "bytes": 1039
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/oathfen/small/walk_s_f5.png",
+    "sha256": "92c935364ef1775c4599ed096977fa6567ccabcaabca82442f6f541146142288",
+    "bytes": 1042
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/oathfen/small/walk_s_f6.png",
+    "sha256": "4f798cb259671bdd571951329395eef6b91a3d231ec2988b2e98ab1fec627469",
+    "bytes": 1014
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/oathfen/small/walk_s_f7.png",
+    "sha256": "84511be90d7910a8dbcb20b88f7f7a8916109442a4af9d92906b7ce404504a13",
+    "bytes": 1100
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/oathfen/small/walk_w_f0.png",
+    "sha256": "5862e511e52b1da5641a226b1b83859fcb51cfcc15420e6141f3e69981770238",
+    "bytes": 1538
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/oathfen/small/walk_w_f1.png",
+    "sha256": "f53c10a0cc486e55a79a121e722f46636553c8a4bfd94b587ea2624f9223e4ca",
+    "bytes": 1564
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/oathfen/small/walk_w_f2.png",
+    "sha256": "19e218d4668207578333c61498e63b18933b6b86eedecf9800893e00f4b81f14",
+    "bytes": 1542
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/oathfen/small/walk_w_f3.png",
+    "sha256": "4fa9c863cec1a9fb2680accf714eaa58f49536292cb2d6bda27d033ae01be4ce",
+    "bytes": 1612
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/oathfen/small/walk_w_f4.png",
+    "sha256": "bacbc0190537b72a9528bcb0c0187838e44a7625584b008a0246f3fb4bca7d36",
+    "bytes": 1472
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/oathfen/small/walk_w_f5.png",
+    "sha256": "daa253fe11a99e4d222842435da55a982f8fbc64e4993b548974f86443503a47",
+    "bytes": 1461
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/oathfen/small/walk_w_f6.png",
+    "sha256": "41d55994520fe925a78aea5a1f85d0125848d1a9a84627a1fe7e1fad7e493b27",
+    "bytes": 1395
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/oathfen/small/walk_w_f7.png",
+    "sha256": "5a6091311ac1b111ead8db4a9000e374ffa803beba6664459349e8a406ed4212",
+    "bytes": 1472
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/oxbowarchon/small/e.png",
+    "sha256": "b95069431099d4373a1c8a35e6ddbf438c95349dae960e7235d90639365400e1",
+    "bytes": 2353
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/oxbowarchon/small/n.png",
+    "sha256": "0e45cd347a5746daefd15f6a8bb24b0679e2ea7404283a04ed85e5f09aa17e9e",
+    "bytes": 1612
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/oxbowarchon/small/ne.png",
+    "sha256": "4bb7bb8fa0b9f78a38e777ba3470c014f6108bb86947994e70e326dc399bb561",
+    "bytes": 2118
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/oxbowarchon/small/nw.png",
+    "sha256": "29a53c01f9e747f4af318368d683bb3fd1d57b4fcf9c9b31fecef55807a4547b",
+    "bytes": 2209
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/oxbowarchon/small/s.png",
+    "sha256": "868b5ef3a2a2c85a8bedcacaedf702977b0ba702daccc7fee8e5dd9beade21a3",
+    "bytes": 1892
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/oxbowarchon/small/se.png",
+    "sha256": "55a7dba688a45726ec4e95e28229a0debf9380fc5960d38057fc3670389a9958",
+    "bytes": 2416
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/oxbowarchon/small/sw.png",
+    "sha256": "5a4aefe22adadb2a31ce845c10bdf18b0ce54cd1ad929c3ae69bb5c8a413e67c",
+    "bytes": 2341
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/oxbowarchon/small/w.png",
+    "sha256": "b948b743ed40c8836a7557e5b6b4841c75d284665c4a3d7e729331b16a314b0b",
+    "bytes": 2323
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/oxbowarchon/small/walk_e_f0.png",
+    "sha256": "72d7e392f38c63db46e44d3c4dc5b9d78c2fc71519c9508f58b79aff8ebd0a88",
+    "bytes": 2287
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/oxbowarchon/small/walk_e_f1.png",
+    "sha256": "434f9c4d536daf72270470ce57419fc2689925bbb14298178bd14b904b789a26",
+    "bytes": 2357
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/oxbowarchon/small/walk_e_f2.png",
+    "sha256": "c9664001c57a245217d43f5392e3deab0013d59afc3f08f9f2ff4c9c6905f4d0",
+    "bytes": 2358
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/oxbowarchon/small/walk_e_f3.png",
+    "sha256": "53c43ecaeb6286ee2486416c1cc90355642d9562ec4f403d020f78038718cf6e",
+    "bytes": 2332
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/oxbowarchon/small/walk_e_f4.png",
+    "sha256": "4d565e05995991fcb2050ed38040e1af8ce06ead17fe063e0d81a8911ccbb78c",
+    "bytes": 2333
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/oxbowarchon/small/walk_e_f5.png",
+    "sha256": "83b8b96a79201e605bbda50244d3df8a82b351ced688eda5cc59d2d6d80cbc4b",
+    "bytes": 2282
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/oxbowarchon/small/walk_e_f6.png",
+    "sha256": "eff216769bc90a42c2a061049de2603c584e14087419f057469c204a720f9e66",
+    "bytes": 2267
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/oxbowarchon/small/walk_e_f7.png",
+    "sha256": "ea93f3006ab7c90cab248885e6e4cf3979f875f6d0e9107935fb324dc57c585c",
+    "bytes": 2271
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/oxbowarchon/small/walk_ne_f0.png",
+    "sha256": "2829d7ca746c9c148b4ab155a5f04e2db3e28232ec3a8dbfb88fdb28dddbd9dc",
+    "bytes": 2087
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/oxbowarchon/small/walk_ne_f1.png",
+    "sha256": "ece9f820a7837cce4f90568501e7f05fe8691da01930643a47a7afdf49392ae8",
+    "bytes": 2150
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/oxbowarchon/small/walk_ne_f2.png",
+    "sha256": "2b05d2a5bc74f1a8d743a151ed4c1f5fe9b579514ec18e01a37699457daa2267",
+    "bytes": 2028
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/oxbowarchon/small/walk_ne_f3.png",
+    "sha256": "ad5ecb89b431efbbd02921afefbcbc806097b9726aee9b1974a6cb1e0e2a9281",
+    "bytes": 2053
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/oxbowarchon/small/walk_ne_f4.png",
+    "sha256": "966442908a609eee95a0bed9a3e1f6a4b7d1e05208540f154e3c38d9aab2a6fd",
+    "bytes": 2029
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/oxbowarchon/small/walk_ne_f5.png",
+    "sha256": "77e045da030a06ff407fa338db22625f8b2e5571b5ecb806d68c7fdbbb875f95",
+    "bytes": 2074
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/oxbowarchon/small/walk_ne_f6.png",
+    "sha256": "e7904a130a88214dd562e2dafcfdb41ceb3cbf3ae4def8f5bb20e61d1595f97b",
+    "bytes": 2036
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/oxbowarchon/small/walk_ne_f7.png",
+    "sha256": "f309f91b13aa8b50ff47604c7926eba03fa19ae72db4c2d2534326a81b2e0904",
+    "bytes": 2063
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/oxbowarchon/small/walk_nw_f0.png",
+    "sha256": "5779ee329263227aa82c055f99b07c18a8b6c00d8710049e369c435215b81ce6",
+    "bytes": 2042
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/oxbowarchon/small/walk_nw_f1.png",
+    "sha256": "42f4e08512fda7b36323f6195f9b28fc9974b848fc98c4333a33704bbf88d02f",
+    "bytes": 2118
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/oxbowarchon/small/walk_nw_f2.png",
+    "sha256": "4a12cac05806a6f58dafc6eadec0d4e0b7db9fbeed133de07139aa65dc42ea50",
+    "bytes": 2001
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/oxbowarchon/small/walk_nw_f3.png",
+    "sha256": "b2100368574b8ea40fb77f4ed68e949551d31b5aff4e0728153339a4d6941cd3",
+    "bytes": 2095
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/oxbowarchon/small/walk_nw_f4.png",
+    "sha256": "8ee8d56540e824c5d5a795912a07582ff356c07265daaa98ac9cea0766a2f373",
+    "bytes": 2029
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/oxbowarchon/small/walk_nw_f5.png",
+    "sha256": "f5311d5f1d0c69d12df4a7d647e3e7ea0e057f8404b475fa8dd8f27bcb70dfc6",
+    "bytes": 2035
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/oxbowarchon/small/walk_nw_f6.png",
+    "sha256": "da94551bdd2a57207d22c9e42ca37416568c798cf6a4b0eff608d86114f7052c",
+    "bytes": 2051
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/oxbowarchon/small/walk_nw_f7.png",
+    "sha256": "8963b4d6a6acfc2eec3cb7dd2c34cb7c10806bb7f9dbae498ce6c224a9a0193f",
+    "bytes": 2092
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/oxbowarchon/small/walk_n_f0.png",
+    "sha256": "2916a12dd046934165824adf937e166e1211c63e719bb621c1d3fc80b5008f8f",
+    "bytes": 1590
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/oxbowarchon/small/walk_n_f1.png",
+    "sha256": "7c9be613b7f468ebed1eec08c5bbf0da9c92f7c2e1d5547bf8473912413b2953",
+    "bytes": 1544
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/oxbowarchon/small/walk_n_f2.png",
+    "sha256": "5fbd7ce2a11780542e198a19efe4e8bf8a94fd50e1514e7ac029d46dc335b89a",
+    "bytes": 1578
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/oxbowarchon/small/walk_n_f3.png",
+    "sha256": "9a4ac5feb5a8bb22793e6591e0beccbc337214bd82af937dc969b8a3e4f82e87",
+    "bytes": 1514
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/oxbowarchon/small/walk_n_f4.png",
+    "sha256": "cc8af5d41c135fb82426a3437b746efd4db2c2450c48a2a091f3975ae982206f",
+    "bytes": 1499
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/oxbowarchon/small/walk_n_f5.png",
+    "sha256": "2be797477191f914787e27a6d497f4735b5fa92b7c0551042e4c51595a8aae38",
+    "bytes": 1499
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/oxbowarchon/small/walk_n_f6.png",
+    "sha256": "45674de1ee15cf9f95676e9cd2192491c82118522d8383f1f44346da0fa47dca",
+    "bytes": 1548
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/oxbowarchon/small/walk_n_f7.png",
+    "sha256": "27e4357634d9cd8bd0e558ddb0c26809cf0c7d0f937153b8c23e861e9bab7f5b",
+    "bytes": 1577
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/oxbowarchon/small/walk_se_f0.png",
+    "sha256": "52c2fad02df4ebb0a2f19e64081421b8b06cd96685d051c28af7a2ca4c3b19ee",
+    "bytes": 2375
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/oxbowarchon/small/walk_se_f1.png",
+    "sha256": "cf6479a54c9a37ff32f099b893cb19e02d58e1c9a1229c634c6dc41c0bb21d2b",
+    "bytes": 2361
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/oxbowarchon/small/walk_se_f2.png",
+    "sha256": "9e12b4f44c3ff810e2adca26ce864aaf4fea7e01969c1a1b8c736119c4d5cd9d",
+    "bytes": 2310
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/oxbowarchon/small/walk_se_f3.png",
+    "sha256": "f039f5c908592e36c3dec5fae8d27ac0d18d936f4226a4ad95d4054c66be5555",
+    "bytes": 2285
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/oxbowarchon/small/walk_se_f4.png",
+    "sha256": "636a2ce9ed6bb0bb5752e8c1d4fc236e05cb273e2d39dd6289ed9835111b2a04",
+    "bytes": 2252
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/oxbowarchon/small/walk_se_f5.png",
+    "sha256": "04dd18df7735f8c818a266a3820dc068929c2ae10c9c1d54af269c8b4b71e5aa",
+    "bytes": 2300
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/oxbowarchon/small/walk_se_f6.png",
+    "sha256": "27b6bda758461645b617d1399f3d25aa87f4de769a2486b2edacb6311e506e6e",
+    "bytes": 2350
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/oxbowarchon/small/walk_se_f7.png",
+    "sha256": "3daed30554e6b6ec9e8413988cc92a8a227fe797cf74f97fcf430f1c82093240",
+    "bytes": 2360
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/oxbowarchon/small/walk_sw_f0.png",
+    "sha256": "6bfcaa82985b9af80c6bc6246c6a9626a70f17fda2a8da3f41cb2d0d75d9aac8",
+    "bytes": 2372
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/oxbowarchon/small/walk_sw_f1.png",
+    "sha256": "e7169d20cfd2e9134ef34e2139bab3336a0b785b32b5b14544b3a3e4f9692b45",
+    "bytes": 2390
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/oxbowarchon/small/walk_sw_f2.png",
+    "sha256": "d3fb52bfa9203a55556ca47792396f60a0b074b74269d10a26ffdb43e89b6efd",
+    "bytes": 2325
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/oxbowarchon/small/walk_sw_f3.png",
+    "sha256": "a7544f676d0378814a55c3468e32193708cf7bb406c0325a979e42123eb6b826",
+    "bytes": 2276
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/oxbowarchon/small/walk_sw_f4.png",
+    "sha256": "ccefc33ff1102f732630b10155d617ca1d361cd72b786a736a97f295833e4829",
+    "bytes": 2263
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/oxbowarchon/small/walk_sw_f5.png",
+    "sha256": "8fc6d7f57ed5568ba7306b47a6a3e8015b83b06e2947051c4a01aae81eace3dd",
+    "bytes": 2297
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/oxbowarchon/small/walk_sw_f6.png",
+    "sha256": "7d6b5e7d1bf5e478583df37a7abeb60569d992dc32423dc89e5913f61d64b9d8",
+    "bytes": 2320
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/oxbowarchon/small/walk_sw_f7.png",
+    "sha256": "29cf1af52f59bc8ab33a3b9e5737f9722adee1326feb30bcb48c63bd51b01de4",
+    "bytes": 2378
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/oxbowarchon/small/walk_s_f0.png",
+    "sha256": "c47b20cc23f64db7ff9d0fa17251efd98445cf61ee50238fb8a985a358df4899",
+    "bytes": 1829
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/oxbowarchon/small/walk_s_f1.png",
+    "sha256": "8b1607549e690bda2e7a3be4ea1e97cd1e9ea19c611499b00e719ec877357d36",
+    "bytes": 1756
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/oxbowarchon/small/walk_s_f2.png",
+    "sha256": "c239e05aa58b179b0ee1d8a4976dd96f18cb6865cc2cd13fc45ce681f397f4f1",
+    "bytes": 1806
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/oxbowarchon/small/walk_s_f3.png",
+    "sha256": "65642d955470e906cd0f9c5adae49d253e3e3f2bdea4027879e782255250613d",
+    "bytes": 1819
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/oxbowarchon/small/walk_s_f4.png",
+    "sha256": "194a5189415c61e44598383e97e78f93863772db4af086cc1d9b5456a788eaa7",
+    "bytes": 1920
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/oxbowarchon/small/walk_s_f5.png",
+    "sha256": "05341c56bee46147c1972fcef74652f955d99775edcb5753d4f4a7ce92880fb9",
+    "bytes": 1840
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/oxbowarchon/small/walk_s_f6.png",
+    "sha256": "22b0a144e227225a4d7f7590d118550b81c8a9a6abc599a024048379a6c0f5ff",
+    "bytes": 1851
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/oxbowarchon/small/walk_s_f7.png",
+    "sha256": "69555e2715be01ce34bbbf3478c00863c7da8f3a66b1a411060cc583ef340a70",
+    "bytes": 1816
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/oxbowarchon/small/walk_w_f0.png",
+    "sha256": "74669b157e359348a207555b4ad87144873f4b5dce7d10255b3f77066ccf164f",
+    "bytes": 2327
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/oxbowarchon/small/walk_w_f1.png",
+    "sha256": "bc9bd99337368c0e94c15d0acb54faa78906d7a1fc8f9815c38a1b6d070ec59f",
+    "bytes": 2354
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/oxbowarchon/small/walk_w_f2.png",
+    "sha256": "b77c34f661d7026ec8500a1acdaa5a75a0505687b06878987bce21aedb8f561b",
+    "bytes": 2318
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/oxbowarchon/small/walk_w_f3.png",
+    "sha256": "7783f94407edd93cad3050fb04127bf9293c028f143beacc4dfd0b70b0fa2f07",
+    "bytes": 2295
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/oxbowarchon/small/walk_w_f4.png",
+    "sha256": "12533714f16df53dd5ebff08c1f3431b0d52755052e0f7a0f02b309550c3d26c",
+    "bytes": 2334
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/oxbowarchon/small/walk_w_f5.png",
+    "sha256": "e6fadeb6537990e333b14e63c32fdddb76e7164ea39321a1884f56b548f4e380",
+    "bytes": 2250
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/oxbowarchon/small/walk_w_f6.png",
+    "sha256": "9a2bf83cad98359ff98026b738a6ebe4c970dd0580163953293e207134cd427d",
+    "bytes": 2256
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/oxbowarchon/small/walk_w_f7.png",
+    "sha256": "dddadf71fe946a4aed2d031650f698b54a110b1d47d5cf9688980cb869a52154",
+    "bytes": 2245
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/preostmar/small/e.png",
+    "sha256": "802c882ae4c5473aa0cc983485b3cb10fe73a0d093932c33856b13e74e3743db",
+    "bytes": 1045
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/preostmar/small/n.png",
+    "sha256": "d3165d1ee181c8be2a495db6a4a6a866111d4f57935e538e0b4432410a35f878",
+    "bytes": 735
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/preostmar/small/ne.png",
+    "sha256": "d73c957af11479c6c71888acc92f2b5ff8b06224239a87ef1a73c2b88691bcac",
+    "bytes": 929
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/preostmar/small/nw.png",
+    "sha256": "98631826473830c9bec23bd80396d866bff413eee2ddd954a34b3125bbcdd6aa",
+    "bytes": 781
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/preostmar/small/s.png",
+    "sha256": "5b9dc8cb2f6fde4502d5e4cb20363f27ac97ac8fe2f11d58e17fb33e4a123491",
+    "bytes": 817
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/preostmar/small/se.png",
+    "sha256": "c505593bfe75945710858f4a5fc0a8c4609a794566e4c22852dd5c84301bbfc8",
+    "bytes": 968
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/preostmar/small/sw.png",
+    "sha256": "5ac168a3ca53f28785bea35871ff6bff6ecd3d66260ec4b0b9168f48829fc700",
+    "bytes": 990
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/preostmar/small/w.png",
+    "sha256": "683ae422a16a89ad3526634adda9e0533112e732be6cd829ab891bbbfea0fff8",
+    "bytes": 947
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/preostmar/small/walk_e_f0.png",
+    "sha256": "fb271ef2a2e60937f674e878601de416e998f0642f966b31a7f4d50a12d86d8c",
+    "bytes": 953
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/preostmar/small/walk_e_f1.png",
+    "sha256": "b49e89f579d205f25283dc37cdd4d9f5d56591bc4098ef38fe61ad5a913d8cfc",
+    "bytes": 920
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/preostmar/small/walk_e_f2.png",
+    "sha256": "7acc9721de58d622488202cc7a4fafa6eaed28155aa810f24e036dd49b37188e",
+    "bytes": 924
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/preostmar/small/walk_e_f3.png",
+    "sha256": "df6aceddf66ff4d2996b8235bfb96c856622f266c73b918e86dccb702fb603eb",
+    "bytes": 936
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/preostmar/small/walk_e_f4.png",
+    "sha256": "9d457286f99cc34d8bac792472cc563bc202fce1d3e4d6aa65fe227c352bec3e",
+    "bytes": 939
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/preostmar/small/walk_e_f5.png",
+    "sha256": "802268e46f6e8214f5fb42159856de9f8c8549463348d4d33084250dd6ce0a4b",
+    "bytes": 933
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/preostmar/small/walk_e_f6.png",
+    "sha256": "eb1495b63f61da91efbe864bb8ee8d76bc595a807a5cdb19693f594ae99ef6ab",
+    "bytes": 1026
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/preostmar/small/walk_e_f7.png",
+    "sha256": "6ac0e0ad36ffc73771250f3a66a452084eefc23925b8ffa7bf8100ee6dba71bf",
+    "bytes": 994
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/preostmar/small/walk_ne_f0.png",
+    "sha256": "4f6e736060b2fcb8ae058cfbd368454edb149938e6a11c0b6131d808bbb61d40",
+    "bytes": 861
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/preostmar/small/walk_ne_f1.png",
+    "sha256": "5b51711e484a0eb566783d0f82441681631d6ddb4ef85b7a267fb0b2482d5955",
+    "bytes": 870
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/preostmar/small/walk_ne_f2.png",
+    "sha256": "8f84a1204d1d7a2c1e52b1be6dc71246109901c2774e6083d34db2a6acca244a",
+    "bytes": 894
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/preostmar/small/walk_ne_f3.png",
+    "sha256": "8170884388e3dc895d12a6450eacf4615cf94e48dfc57052549a204e453014af",
+    "bytes": 868
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/preostmar/small/walk_ne_f4.png",
+    "sha256": "130d9cfa7c42617d64de897f676862e1d2c495fa139355a14822f184b4c5e9ac",
+    "bytes": 867
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/preostmar/small/walk_ne_f5.png",
+    "sha256": "c96c70f7a4df77063d40bce57ec3158888f0c673691dd4ea770a75006821d405",
+    "bytes": 898
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/preostmar/small/walk_ne_f6.png",
+    "sha256": "a595d8358eb5982814b843f342b2c4302a2c407afcfb0c2e00ccbc0cba8b71b1",
+    "bytes": 891
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/preostmar/small/walk_ne_f7.png",
+    "sha256": "ffa75710918f56cb0bd21b556f232fbe705db45cf16458e8de1aaddadc5e242d",
+    "bytes": 867
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/preostmar/small/walk_nw_f0.png",
+    "sha256": "dba4f8e5cea2f108ffd6527c1191ab9e1df3281a3672bf1f16a10ef86079ce56",
+    "bytes": 867
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/preostmar/small/walk_nw_f1.png",
+    "sha256": "d9d6ce30510ba54ef8c5a4b36d022703e88a304fe3cd68ab4282112c0ddf53ef",
+    "bytes": 866
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/preostmar/small/walk_nw_f2.png",
+    "sha256": "4c41929ad807e2d7e276cdad9256e69f8017e7be352484b0f294f819d527544b",
+    "bytes": 898
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/preostmar/small/walk_nw_f3.png",
+    "sha256": "b9a1394e88075b12212d3385d2af82d188431342846065cb31c27c31900e5a6d",
+    "bytes": 879
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/preostmar/small/walk_nw_f4.png",
+    "sha256": "77e20c0078a862f6087d185d8a8ffe134d777a4af3e134b091b45efc2febed4c",
+    "bytes": 874
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/preostmar/small/walk_nw_f5.png",
+    "sha256": "2ae0d4802d772ba62c235b061348782a58851298b8b3ba19767b8ff93af75763",
+    "bytes": 921
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/preostmar/small/walk_nw_f6.png",
+    "sha256": "e95a0e57da73919a13bf58cf5d0d3917e2d0aa5d2aeabbbef9f16d188ba7aae7",
+    "bytes": 906
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/preostmar/small/walk_nw_f7.png",
+    "sha256": "ca07bdeda686246fd4b00cb8895053f09f7d759b8abcdc130336854c2ce9d1aa",
+    "bytes": 877
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/preostmar/small/walk_n_f0.png",
+    "sha256": "2abe5f35aafe3cbcc3b7c2a81fe248c018a64886b3a491f10bd0ea3796e56527",
+    "bytes": 714
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/preostmar/small/walk_n_f1.png",
+    "sha256": "5466ac93458affa6872d1cf33372b0467f389b4bfda0c6a04ef5993f8c1a6171",
+    "bytes": 703
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/preostmar/small/walk_n_f2.png",
+    "sha256": "11f6ea69e44a2f73aad80000cc0a2330e6a8a0ff7b246d95ace7273b87f1d2f0",
+    "bytes": 702
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/preostmar/small/walk_n_f3.png",
+    "sha256": "4ca22d4033b6940c636ab1befb9c1be4fab67147dd6d99d9477fc1048fe8513e",
+    "bytes": 646
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/preostmar/small/walk_n_f4.png",
+    "sha256": "bd6a4ca776455ee608af5a9ac9b4d9733f489b239450926cd917c441f4222893",
+    "bytes": 661
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/preostmar/small/walk_n_f5.png",
+    "sha256": "051d5edbbe8d6f040d340a54ae890bff891ceff8c8c49262c4e44f344d979802",
+    "bytes": 634
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/preostmar/small/walk_n_f6.png",
+    "sha256": "7dca2049699efaade884161960123d9dfb2f463653524441d041cd443bbddf9e",
+    "bytes": 667
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/preostmar/small/walk_n_f7.png",
+    "sha256": "d49a2e0e8668c8716f9ece181ab84d9a46f903bc8297e161c9775e188b7fbecb",
+    "bytes": 658
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/preostmar/small/walk_se_f0.png",
+    "sha256": "69eb5b68e310a5d6e0537f3e6a04fc861de59193af11689203a2f4b8b294bf39",
+    "bytes": 881
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/preostmar/small/walk_se_f1.png",
+    "sha256": "46b0eebefe4d967d37bb71b00c909835cb7e921f64cf1605c925d4b9b80b85a8",
+    "bytes": 883
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/preostmar/small/walk_se_f2.png",
+    "sha256": "9583e502ee7eb2f3ccc3dec1a432fdca909a8791c03707f6375fab46bb4ad6e8",
+    "bytes": 855
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/preostmar/small/walk_se_f3.png",
+    "sha256": "08ab386e04572747721d50bf2da107bee3e0653c3cf5771553573dcb97ba02c9",
+    "bytes": 843
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/preostmar/small/walk_se_f4.png",
+    "sha256": "a539a800410576cf7f8b535245e651f65e875919e8004606479516bc9c26fd95",
+    "bytes": 879
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/preostmar/small/walk_se_f5.png",
+    "sha256": "e86154a2eec2f51c719bdba853d461472170c5a2da6ca0e3828c874af3376f62",
+    "bytes": 845
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/preostmar/small/walk_se_f6.png",
+    "sha256": "d4deed46285b5e1e718c598e3d60d8bbf102fd8a83f6d084fccf80da9e84eb7a",
+    "bytes": 895
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/preostmar/small/walk_se_f7.png",
+    "sha256": "2e5a0298891cbd43bba6ec6ea90f37627a7d915723325eba91731010da116ee8",
+    "bytes": 891
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/preostmar/small/walk_sw_f0.png",
+    "sha256": "ff0a6c22439c2c273a1acaf66bf814c2b1f2f4679bd0481ae6f7b7cac96ff1bb",
+    "bytes": 872
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/preostmar/small/walk_sw_f1.png",
+    "sha256": "f74a02c58b1addad4e60428e9757f7c1cf81bfa7d652f27b103ee4acf63aefcf",
+    "bytes": 875
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/preostmar/small/walk_sw_f2.png",
+    "sha256": "18437624b460e74da0146b25a54bdbaa8208831dce077db5c96701882abbe188",
+    "bytes": 844
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/preostmar/small/walk_sw_f3.png",
+    "sha256": "e4e33c9287a080272eeb00ad52d57e2f457b3023cd556f26641ffb9a219934c9",
+    "bytes": 828
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/preostmar/small/walk_sw_f4.png",
+    "sha256": "3066918cdd05560af7ecfb4f1822b826027ce858cfe3c813fe988a28232ada78",
+    "bytes": 856
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/preostmar/small/walk_sw_f5.png",
+    "sha256": "eec0d1de881ac6fd256e62a4e4265c4683abfb09f6843dee9aac96f10a5ea5da",
+    "bytes": 836
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/preostmar/small/walk_sw_f6.png",
+    "sha256": "c0bd6851997094f209d14262508559f278a362287d223ab41bbd95a85c55de19",
+    "bytes": 888
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/preostmar/small/walk_sw_f7.png",
+    "sha256": "a571f9353eabfa712acdbe0310eeb2989a201c332b5069ef011ac93eaa3e4037",
+    "bytes": 898
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/preostmar/small/walk_s_f0.png",
+    "sha256": "7e7d679be3a153541919071af153769a44fe6f9955e409cb8a533a8ccaf3d38a",
+    "bytes": 769
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/preostmar/small/walk_s_f1.png",
+    "sha256": "0e98ed8803557f26ab7f9f68ea6dac6669ecee373e187291d70dd2e8ea2bc623",
+    "bytes": 782
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/preostmar/small/walk_s_f2.png",
+    "sha256": "d5bef18a96dc8251f71d4b80f1d34462b7c89677717e6be4f4947f82c247158d",
+    "bytes": 758
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/preostmar/small/walk_s_f3.png",
+    "sha256": "0a3ff6929fe69c62a37c2b76af01dfaccc11ef8ffbc1172b1a69d6185c92cb87",
+    "bytes": 759
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/preostmar/small/walk_s_f4.png",
+    "sha256": "cf6e3def8d19d2d44b8df906cf270cde9bfe2e2d8de295586c9d04fa18cc603c",
+    "bytes": 783
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/preostmar/small/walk_s_f5.png",
+    "sha256": "3d8b55be64eaaf996863632e07ea1757591acf7adbd252e256d47fcb6696ed96",
+    "bytes": 785
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/preostmar/small/walk_s_f6.png",
+    "sha256": "3e06a40908afcd1068ceff05a905b2ad05b02961f29c278e81c458ed09aef22e",
+    "bytes": 768
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/preostmar/small/walk_s_f7.png",
+    "sha256": "6e79d6de8e31fd55ea25bbe7e72e20a6fec4547cd75241b63f25160c8a40442d",
+    "bytes": 809
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/preostmar/small/walk_w_f0.png",
+    "sha256": "3ec75c7e203d889e9a8f6b0d2361ed878a86772b59a8dcac7339ab87170f408a",
+    "bytes": 969
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/preostmar/small/walk_w_f1.png",
+    "sha256": "f0d30f00bdaa3954705dce39326055fbb37165877e4476d82a4a487aa3dbba02",
+    "bytes": 958
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/preostmar/small/walk_w_f2.png",
+    "sha256": "a29396a057b002082b23ab2c653614ed247c67820248a847a154bbb0eab340a3",
+    "bytes": 938
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/preostmar/small/walk_w_f3.png",
+    "sha256": "7ae7c1c7907619123e1c1d4f09fa272ffdeac4a633f503f0ec9e0e2588fbae74",
+    "bytes": 923
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/preostmar/small/walk_w_f4.png",
+    "sha256": "a691e73649d4bca2c5f1815b4e9729718f8f35eb71e6e75bbbca682929a7c318",
+    "bytes": 921
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/preostmar/small/walk_w_f5.png",
+    "sha256": "4b8443223433e9d7283b888ccdd61ccbc5ac0663fb97e69807164b1c01beea89",
+    "bytes": 929
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/preostmar/small/walk_w_f6.png",
+    "sha256": "444f2d742c4760df99c28af393497c3538256621a245c7cd8783df8348ccaf64",
+    "bytes": 1038
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/preostmar/small/walk_w_f7.png",
+    "sha256": "5106a3ad563970dd6f17ee6a8962a2be389d8bbed44d2a0aeaa5d4424c59de46",
+    "bytes": 988
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/punchybun/small/e.png",
+    "sha256": "d5b9add8111f25b88e0088bdd4ba1616d523031d90abfc7010ab990a53d4a20f",
+    "bytes": 960
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/punchybun/small/n.png",
+    "sha256": "ba6d1717c800f7b57d74f7f769c3ccb6f0e768f194391d2d4a5ddbbb42cc028e",
+    "bytes": 729
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/punchybun/small/ne.png",
+    "sha256": "5aad30605385c067b511c0b8e6e331534da29bb991235b9d2422b53c1f0b4229",
+    "bytes": 851
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/punchybun/small/nw.png",
+    "sha256": "5359e750c90ad88a18d4975366843de876b33287bca8f898c5dde3402ccae96f",
+    "bytes": 765
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/punchybun/small/s.png",
+    "sha256": "f5a6fdf27e315e7933bba13746694c84cb855e738eea58052df48c8f02f67238",
+    "bytes": 1028
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/punchybun/small/se.png",
+    "sha256": "0d6f8a9efd29092cf94484ebcec5be805ee70108a817d16e8fa95435fcd4fdec",
+    "bytes": 1032
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/punchybun/small/sw.png",
+    "sha256": "ab710b81124698b3274e0512d0357d4204de7b6d3b04fac8629ffde95625e991",
+    "bytes": 941
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/punchybun/small/w.png",
+    "sha256": "ce668e2e04595eba2c93ca0364c19d0ca291a591e8d1f0ba907c01c916f2c16d",
+    "bytes": 905
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/punchybun/small/walk_e_f0.png",
+    "sha256": "1ec954529e2463ced4ff235ef2898c443fa3ac2be087f192093d3ba6eae7911f",
+    "bytes": 1008
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/punchybun/small/walk_e_f1.png",
+    "sha256": "d241389c15fde7dd1d569ddfeddc3ebb487c3e487d9d51ca01c2707708afff85",
+    "bytes": 946
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/punchybun/small/walk_e_f2.png",
+    "sha256": "ee1463e4bce16175881eacb55b29c325762ef440027010f1d112cf39d2c2506e",
+    "bytes": 980
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/punchybun/small/walk_e_f3.png",
+    "sha256": "4fc3da3cce6bff42c6310a8de1fc1bebd38e81d0cba30dcd669245a43d8a7e2f",
+    "bytes": 959
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/punchybun/small/walk_e_f4.png",
+    "sha256": "8bc2723afef634c6cf54e226254e92006e1f72c6c9737ccf71f9d75519e31db3",
+    "bytes": 948
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/punchybun/small/walk_e_f5.png",
+    "sha256": "0658eb5b9c7f0952a13b676762355f9cfd3870dcd7f7a226b6032abc20e97798",
+    "bytes": 944
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/punchybun/small/walk_e_f6.png",
+    "sha256": "9f0e3d85561be9af2a221772b68ba3f754a930de9519eeb8ada768c4b4b212bb",
+    "bytes": 949
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/punchybun/small/walk_e_f7.png",
+    "sha256": "50e3739e49256202deea06adc0cb0f592d2f7def148d5df708b9804bb31c915b",
+    "bytes": 911
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/punchybun/small/walk_ne_f0.png",
+    "sha256": "73f0b25b5d41fe659f4da6336e05cca074fc67462864651c6ac02049af78c723",
+    "bytes": 853
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/punchybun/small/walk_ne_f1.png",
+    "sha256": "fb946346b0c16b8d621a4bb4b69f3399fd2ffa5f4664216772911510141be854",
+    "bytes": 838
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/punchybun/small/walk_ne_f2.png",
+    "sha256": "4276f9d0d35982705e12a2139fda0d4c5de7dc18d3cc702d18e2ea029ec5e93c",
+    "bytes": 857
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/punchybun/small/walk_ne_f3.png",
+    "sha256": "fa2ae9b296a7486859f58eb2b39e6edd9d63ca7b03b93e38950e53b441e737bb",
+    "bytes": 819
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/punchybun/small/walk_ne_f4.png",
+    "sha256": "836309fcb6cbadb326ce9d48d6de10842088e23e267684d603047378b9588428",
+    "bytes": 864
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/punchybun/small/walk_ne_f5.png",
+    "sha256": "314b132673e23ff5500a46e2453d85a0b63a0dcae513ded73922051932dea6ff",
+    "bytes": 845
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/punchybun/small/walk_ne_f6.png",
+    "sha256": "810fdac06ee239a7475fa333933fae0e38b14b0ffadc9746838caf64c5ce3b4c",
+    "bytes": 847
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/punchybun/small/walk_ne_f7.png",
+    "sha256": "1638ef507a37de7550a152cc9a30ee96c2d89f07e72045969b2477e824f3d38a",
+    "bytes": 866
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/punchybun/small/walk_nw_f0.png",
+    "sha256": "6a13d957eeaf61bbe10efd88ff25a91e2129990b1dc123bb57648acab2daecb0",
+    "bytes": 844
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/punchybun/small/walk_nw_f1.png",
+    "sha256": "7e9bc58b4b5f9b38c8a3a90791f1f04cf35f22cb67ee7157533557f2d7924ee5",
+    "bytes": 846
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/punchybun/small/walk_nw_f2.png",
+    "sha256": "4cb06a8c10a06981210d710750b6c42ee611d3cc9904b2197499e1ce6337debc",
+    "bytes": 849
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/punchybun/small/walk_nw_f3.png",
+    "sha256": "1853e725f7e458eca3208cd4f8bddbfb8f67212ad8681274a7729da54c93540a",
+    "bytes": 818
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/punchybun/small/walk_nw_f4.png",
+    "sha256": "6c9c416cf3306039b8d39163f483f8d5b5075a77112ffa84dba3fbf97bc20312",
+    "bytes": 846
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/punchybun/small/walk_nw_f5.png",
+    "sha256": "bacca774d7587d2bef801cabdef9664d3dfbdba6922b4e13a80d6fea43a4033e",
+    "bytes": 830
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/punchybun/small/walk_nw_f6.png",
+    "sha256": "0889768cf374e8a9dee5d40030ab515a7ba1170398884e8ae9268fe8d1d0c9bb",
+    "bytes": 841
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/punchybun/small/walk_nw_f7.png",
+    "sha256": "d243a4db06e3693d9b65e8b89c145a9f8bd874f3f5509417b6627630a38bacbd",
+    "bytes": 861
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/punchybun/small/walk_n_f0.png",
+    "sha256": "02ee3d5ca894aae977663d9f919f384fdd21dbc9a255aebe042cb74ab919c033",
+    "bytes": 715
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/punchybun/small/walk_n_f1.png",
+    "sha256": "e3dac3cf221b569b53fe994b6685ff416d937a31284395aa67ce735db594554e",
+    "bytes": 707
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/punchybun/small/walk_n_f2.png",
+    "sha256": "3a35128de06884ddd0766765d027a2c327ac9cdd5010016f46b296b3f5fc8fe7",
+    "bytes": 711
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/punchybun/small/walk_n_f3.png",
+    "sha256": "6b38257f944dd3301c47a529457c6f818dceb97eeb4591517f2f1f5d8787f18d",
+    "bytes": 699
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/punchybun/small/walk_n_f4.png",
+    "sha256": "a5badbc03d9f8c3c94ae5a0e2b18c41bc5a13d10f03c71ad31231102354a6835",
+    "bytes": 732
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/punchybun/small/walk_n_f5.png",
+    "sha256": "1c277bbec756977d5845f8c85f8dec87c6fc026c1ca808986395d75718bd58ea",
+    "bytes": 719
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/punchybun/small/walk_n_f6.png",
+    "sha256": "c7c2b424526bface2435198a13ad3304960999e767eecad455696cb766d230bc",
+    "bytes": 693
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/punchybun/small/walk_n_f7.png",
+    "sha256": "16ff64c056ea39809fc096ccaa464d12184b95ed2ded5f2d9c18c76b8a79e7d2",
+    "bytes": 699
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/punchybun/small/walk_se_f0.png",
+    "sha256": "4bed630369be4851257d9ec8d3dc9f4572ccbee11bfe75301dd8f848ebfde3b1",
+    "bytes": 1063
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/punchybun/small/walk_se_f1.png",
+    "sha256": "ecc67263aae01f5651508c72b4d6dd9bc97202c035b6ac5fcf97dc795545d5ad",
+    "bytes": 1030
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/punchybun/small/walk_se_f2.png",
+    "sha256": "92558c17b4ce380cb3eedb8b05875a787b97952b5260814b94cde1e3b28c46fc",
+    "bytes": 1039
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/punchybun/small/walk_se_f3.png",
+    "sha256": "330200bd08bdfa3c13781e1da7eb36f72155bb78eac10d8c7d9472c250d5fe38",
+    "bytes": 998
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/punchybun/small/walk_se_f4.png",
+    "sha256": "edc2b01c199b126657c44069293780f1c4731165a8e0a366f82869a9a91b5c86",
+    "bytes": 1044
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/punchybun/small/walk_se_f5.png",
+    "sha256": "eb8cc3c7f7ed89ab768bcc7be2d816c75a24df2ed5a1b6f0da5ba40c76c165ce",
+    "bytes": 1057
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/punchybun/small/walk_se_f6.png",
+    "sha256": "992acdfbb5c6290d3856e4bd176c1a16ec4ebb8b60b85602aeb2965bb46de159",
+    "bytes": 1041
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/punchybun/small/walk_se_f7.png",
+    "sha256": "8683d2e8b86c375f1066756e8851106ebf5c82fe4619e128dc1a70da70a34ba4",
+    "bytes": 1043
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/punchybun/small/walk_sw_f0.png",
+    "sha256": "7bc39fa10e653b31fec2d6763f967307f0270866ad27ec5ca72e13aa4cff9892",
+    "bytes": 1060
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/punchybun/small/walk_sw_f1.png",
+    "sha256": "4a1f530f312039272f4960e83fd04dd9e40add3a703489b84d0666529c0f302e",
+    "bytes": 1010
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/punchybun/small/walk_sw_f2.png",
+    "sha256": "0f244d2f185b5acee033d081418ab14bc7d59751973dd49047b97eb1fae075c0",
+    "bytes": 1046
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/punchybun/small/walk_sw_f3.png",
+    "sha256": "6bcf54f5e497867da45267c7450104e0b3ba5afa3cc33525c6801da3a4b743bb",
+    "bytes": 1012
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/punchybun/small/walk_sw_f4.png",
+    "sha256": "0bc03187f6dc63401c534399005cadeb26f5a0052096d8cca38dd461106887eb",
+    "bytes": 1066
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/punchybun/small/walk_sw_f5.png",
+    "sha256": "01c8a077973e33212b80e4b28c74a8fbe605b7da7f340e141b616660f6484806",
+    "bytes": 1036
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/punchybun/small/walk_sw_f6.png",
+    "sha256": "5d29e91cadc8f5e772b94db530072c64d7b455d5c5c5e11d18d98fb9a65cd035",
+    "bytes": 1036
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/punchybun/small/walk_sw_f7.png",
+    "sha256": "353597fb9eb456fa8f20892c4ab2fd1997375bbe9049a6716b7b2dd0f9ec78e6",
+    "bytes": 1023
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/punchybun/small/walk_s_f0.png",
+    "sha256": "075ff8fefa32834ff5353b832e04ee696b691b1bb8b20b0f6b0b6c53b2d792aa",
+    "bytes": 1043
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/punchybun/small/walk_s_f1.png",
+    "sha256": "8db73fadcb94ae4246a257d6a79857d42c376aed5c7c8fd1f6f36804e7f15f78",
+    "bytes": 1060
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/punchybun/small/walk_s_f2.png",
+    "sha256": "b97ce2b36b204ecaf1e29e7edf69afd4c8117dcb6050884124fb03a13ce12442",
+    "bytes": 1029
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/punchybun/small/walk_s_f3.png",
+    "sha256": "e687a462649a50da596497e73b78f8937e6842c4690092cc9defb58b2ca0c153",
+    "bytes": 1020
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/punchybun/small/walk_s_f4.png",
+    "sha256": "c70601b80471d77550159148ede9b351195a429bcad201630bb3afbd024bb4e6",
+    "bytes": 1011
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/punchybun/small/walk_s_f5.png",
+    "sha256": "99933bec4a601e978a5e596750a00cc8882e97098ba311c283ecc8a593e2867a",
+    "bytes": 993
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/punchybun/small/walk_s_f6.png",
+    "sha256": "352982a6a080337fb63cc1c3196875a44d5efcaa763357410da007bf33c06574",
+    "bytes": 1044
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/punchybun/small/walk_s_f7.png",
+    "sha256": "d6e43a5fc35a850ca59ac33f3ff638a5a97599506fd1413cc85fce973fa16c0c",
+    "bytes": 995
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/punchybun/small/walk_w_f0.png",
+    "sha256": "5f1e73d111b78f59ce7da74ff9a12663d083afa4fd8bd4391738fa38f77af929",
+    "bytes": 985
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/punchybun/small/walk_w_f1.png",
+    "sha256": "48a9208fc1833227db839bec21eedf98c415ab89ceeb44a245681f4eac2918b7",
+    "bytes": 921
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/punchybun/small/walk_w_f2.png",
+    "sha256": "e7b0c8363abe3ce57771b2bc413ddb4709f88dc65b7c3da7dac5dd82eee3731b",
+    "bytes": 933
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/punchybun/small/walk_w_f3.png",
+    "sha256": "0ca8fac42bf730cceba4b7d70bdf2812646469d6d5dff0df293f7f8343d5c277",
+    "bytes": 969
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/punchybun/small/walk_w_f4.png",
+    "sha256": "9234da1f049962f89bf4e54a8cb4ab71e14415f58a3e1af254f52d9c1d4674a8",
+    "bytes": 939
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/punchybun/small/walk_w_f5.png",
+    "sha256": "07f0574f7ac208c6ece70e0ff6c44001d7ee2657140911813116dde73ef431ca",
+    "bytes": 902
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/punchybun/small/walk_w_f6.png",
+    "sha256": "a42de397aa714776b498e8cd54ccd1e6f039975fd7b9399e847ae3bf043a01c8",
+    "bytes": 932
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/punchybun/small/walk_w_f7.png",
+    "sha256": "81abc13e3b5e1bb6fcc2db3d62f5aeb22cd5045c602a4b7e6cbc0d5541895ede",
+    "bytes": 884
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/slagglass/small/e.png",
+    "sha256": "76480c3f8f52cea54ea3dd06d202a4549ecd5acde3c40052d153148ef6512fa3",
+    "bytes": 1966
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/slagglass/small/n.png",
+    "sha256": "419224f1c4e3133ccd7d971cd6504cafe6b7818b3c972f253741347290922d5b",
+    "bytes": 1889
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/slagglass/small/ne.png",
+    "sha256": "72b9358827357505048bdfcb7645c293e111402e5523f2f5c39369f7ed8da57c",
+    "bytes": 1956
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/slagglass/small/nw.png",
+    "sha256": "0a448483d19d054852fe3ab80fd61dc9891d34c1197f7d3ad3bc2d17f09307c3",
+    "bytes": 1838
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/slagglass/small/s.png",
+    "sha256": "0fe5cd0988885bd437086542b1b2a9b89d0997e133bc68b00ffa1ea5f930cf20",
+    "bytes": 1930
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/slagglass/small/se.png",
+    "sha256": "5a33084a7299b84bec8416e473ea3874f98451da3ca9375d7872d200df548e2f",
+    "bytes": 1845
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/slagglass/small/sw.png",
+    "sha256": "e7dd7efc683653bc5449c01995a4b5f05ffb2ca24eca86dd851413938c534564",
+    "bytes": 1960
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/slagglass/small/w.png",
+    "sha256": "2bcbb21168a95e0a56f4cd28806c1b29dd780f88b41988249d6d1a64cb000087",
+    "bytes": 1976
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/slagglass/small/walk_e_f0.png",
+    "sha256": "8cdccf7d5e2a0a9d9d7fee68400bf43379b0c2b516bfdcc4f2b0dec4ba8ee6f9",
+    "bytes": 2029
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/slagglass/small/walk_e_f1.png",
+    "sha256": "31f3cde9d37070cf7102e2622528f1160661476b7d6936c81a5e5a8c6ff93075",
+    "bytes": 2167
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/slagglass/small/walk_e_f2.png",
+    "sha256": "b3741a9c9dec1fcee281389a578703b2be53ab0ddc2438d4852fcc015b49198c",
+    "bytes": 2002
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/slagglass/small/walk_e_f3.png",
+    "sha256": "15bee38bab47232a04be95755acf368e1387d1a11cbd21eb767be12807330663",
+    "bytes": 1941
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/slagglass/small/walk_e_f4.png",
+    "sha256": "425b6dd31b94c80a99052c6abc74a72fdf44efb27f174941bc47be41f21e0d1d",
+    "bytes": 1970
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/slagglass/small/walk_e_f5.png",
+    "sha256": "db5077e625c13d5f88b6791b43c26e053bd9323b7aee1c57d16ad5d6b0f74334",
+    "bytes": 1925
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/slagglass/small/walk_e_f6.png",
+    "sha256": "074171845b19fec9a1ee41b6b3f45bda4d09f6c679eb190c5c188ee176bd826f",
+    "bytes": 1992
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/slagglass/small/walk_e_f7.png",
+    "sha256": "0b06c67033dbca178d81be47aadfe5824bcd7f9e45f3d4fecaf5b6581467030c",
+    "bytes": 2033
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/slagglass/small/walk_ne_f0.png",
+    "sha256": "d8ce0a80e0535d8eeeb5d1f882cdba8bc8951151a20ebb29a00fb14b6abb98cb",
+    "bytes": 1895
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/slagglass/small/walk_ne_f1.png",
+    "sha256": "c62172e805fa25ecd481486f0b3e375c5dcfb922e27a114c838313e1d950bdcf",
+    "bytes": 1934
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/slagglass/small/walk_ne_f2.png",
+    "sha256": "ab1938d2983c8863fb06838d399440d19b059bfec43a0a99f0f11aef3bb54e9b",
+    "bytes": 1846
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/slagglass/small/walk_ne_f3.png",
+    "sha256": "32c02b1daa1aaae73fb965c855131f866566291ae8dcf975927ed055baee005b",
+    "bytes": 1990
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/slagglass/small/walk_ne_f4.png",
+    "sha256": "9c05f15dcfb580810d71150601af33e0f354464ab7b4b77ad7b72410aa4ea25b",
+    "bytes": 2001
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/slagglass/small/walk_ne_f5.png",
+    "sha256": "643c818852c439bc1de58238e9acae19aeeaf367976d5a7630e8983d9c93438e",
+    "bytes": 1982
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/slagglass/small/walk_ne_f6.png",
+    "sha256": "2395829b7ac23e1d1d6eb9331ff4384badbf98e218b17507d0a20c9406bbd589",
+    "bytes": 2006
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/slagglass/small/walk_ne_f7.png",
+    "sha256": "933ce62118405e3dce4806e922ff8815d7c2d5ce3963db25fa11b134008b4c23",
+    "bytes": 2035
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/slagglass/small/walk_nw_f0.png",
+    "sha256": "8f5b5c547270a45a82d0970557e48cd5c130adead147a107a7fd85e17fcd0f6a",
+    "bytes": 1956
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/slagglass/small/walk_nw_f1.png",
+    "sha256": "374e4ebd8d99249ec24e51434efdf0d4b0b81474843552e86b009e268d312259",
+    "bytes": 1988
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/slagglass/small/walk_nw_f2.png",
+    "sha256": "89bc813c8d48b26d2604e00665331f3309624a18f6759983634365baa5409739",
+    "bytes": 1848
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/slagglass/small/walk_nw_f3.png",
+    "sha256": "4a9650388acadd57857eae09cef8be5251b5145bd3b562d796533cbb673ea569",
+    "bytes": 1970
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/slagglass/small/walk_nw_f4.png",
+    "sha256": "7d0f1cee39adb2f332e684290725ac5d640058a9bf98143db2dd0420d9abc20b",
+    "bytes": 1966
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/slagglass/small/walk_nw_f5.png",
+    "sha256": "6183a3184c3d86e0360733c43b2478596637a6044687f9f63956e7ccd6f10a9d",
+    "bytes": 1987
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/slagglass/small/walk_nw_f6.png",
+    "sha256": "a683e5f57ee5743fec0d51fe196659fd772613f701669060df93fff82b9bea85",
+    "bytes": 2007
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/slagglass/small/walk_nw_f7.png",
+    "sha256": "ec930cb705ddb13686656cda58f6ddf4d15d6b993224ad4ed1f755cd5ad97aed",
+    "bytes": 1999
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/slagglass/small/walk_n_f0.png",
+    "sha256": "af533f607bf6ec5dc5606ab404be222fb5e6237a3bf9ef6f46643cc6eb6aa10b",
+    "bytes": 1948
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/slagglass/small/walk_n_f1.png",
+    "sha256": "ba0b291218153b29add1b2cee31ea6b6b2fd6dbef3d0e6526003bbaa96725143",
+    "bytes": 1983
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/slagglass/small/walk_n_f2.png",
+    "sha256": "b6c34a4afa8a58a3874764ae16dff765aaea207849f285fec698a4e863991eac",
+    "bytes": 2057
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/slagglass/small/walk_n_f3.png",
+    "sha256": "68f8b5e8551df1f59f8b7c9254397347253c33c5bae06e52d316bd27a9a3d1af",
+    "bytes": 2011
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/slagglass/small/walk_n_f4.png",
+    "sha256": "a361428ca6ccf2894b6b2fc35cfed2abe43ab4d9b0f50ae159ee54a63f41c270",
+    "bytes": 1699
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/slagglass/small/walk_n_f5.png",
+    "sha256": "865b73a68acd1179a4fe456b8004a926d165721fb0f37e0eee1bb3f38babac49",
+    "bytes": 1850
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/slagglass/small/walk_n_f6.png",
+    "sha256": "a913029ad9b3bfbb78e360b4a8437484e3bda14149b1808aba81e74a60db2404",
+    "bytes": 1808
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/slagglass/small/walk_n_f7.png",
+    "sha256": "0c20dab7bc54b30af608b5c22fd1aae60226d6eb509cb8376e6905bd2a7b7ecc",
+    "bytes": 2057
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/slagglass/small/walk_se_f0.png",
+    "sha256": "4ecf32cccc2c2115127c563f0eab690072c2adbb47e9e6309ca09124419b30e7",
+    "bytes": 1992
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/slagglass/small/walk_se_f1.png",
+    "sha256": "685fa5b9f84af2c7ab9f579f61f0277d9e835cd0d43915469055c1a6120ac631",
+    "bytes": 1831
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/slagglass/small/walk_se_f2.png",
+    "sha256": "faf458d60b8669674173034170998f21fd5fb2b8c599698f9077932058819c40",
+    "bytes": 1912
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/slagglass/small/walk_se_f3.png",
+    "sha256": "00cb941cd32e0e0f9f6832ad0fc519640610054cb8d735c810f066e177ecce45",
+    "bytes": 1874
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/slagglass/small/walk_se_f4.png",
+    "sha256": "4227c78f5621421f500f0a2f8f69524083982594826e3eb364886254a108cd1c",
+    "bytes": 1896
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/slagglass/small/walk_se_f5.png",
+    "sha256": "9a14bee168e043be2e23c10ad370ee2d0a780c025de9d7d4278df447bbff99d0",
+    "bytes": 1866
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/slagglass/small/walk_se_f6.png",
+    "sha256": "ece001055c7d6259fe18d943441b5233f90e66c03327cc072438850c2e93fe8f",
+    "bytes": 1876
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/slagglass/small/walk_se_f7.png",
+    "sha256": "f3890bf88e2f69794446f33ce4c1244330103b04a590f51cf55e6106d978fc22",
+    "bytes": 1836
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/slagglass/small/walk_sw_f0.png",
+    "sha256": "b7353cb74b70901e3566191099f88bb1047218e9c674eed9ce40ea36a11032a6",
+    "bytes": 1923
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/slagglass/small/walk_sw_f1.png",
+    "sha256": "356ce8a1539f8fd653d75751462d427b8f51365faeb89ab93cd2d047f63bd8f3",
+    "bytes": 1819
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/slagglass/small/walk_sw_f2.png",
+    "sha256": "fb3b94366f8b9a16a0a294380feb2089c00217b5a429661c4fed76c96bd20fa6",
+    "bytes": 1891
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/slagglass/small/walk_sw_f3.png",
+    "sha256": "e63e4570eb52c216edfab0481b94492ed3caef4d2a9ac591644f33e8945248bf",
+    "bytes": 1929
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/slagglass/small/walk_sw_f4.png",
+    "sha256": "b1c61c272fa914773fd5f6116556254e6725730b48abc3ef80e32b4617cc8be8",
+    "bytes": 1915
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/slagglass/small/walk_sw_f5.png",
+    "sha256": "67f424743bbc7e05b68039355d2f826e584497354f33750abcdb0d9bb95598c4",
+    "bytes": 1841
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/slagglass/small/walk_sw_f6.png",
+    "sha256": "f88d8e3b6a0fac99bf35cdc962d4a7a63a4586e6302959294ce65f4f756ba207",
+    "bytes": 1813
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/slagglass/small/walk_sw_f7.png",
+    "sha256": "9e0d6b1d483f72ddc891cc327dbc90e98391e42e169793a0be8f5d46438a203d",
+    "bytes": 1838
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/slagglass/small/walk_s_f0.png",
+    "sha256": "11384c7046705d2d77647efccfe8f8e1353a901d0a55cd5bb515f3d93b8c8a6f",
+    "bytes": 1979
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/slagglass/small/walk_s_f1.png",
+    "sha256": "7699999cd8a7e5025512026d9a4a0c489a22766de193d12348e307e86d4555a5",
+    "bytes": 1913
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/slagglass/small/walk_s_f2.png",
+    "sha256": "820128d903af4b27e105851cd8077b3a1299ed68c6a809573ed543dda8f0b2c2",
+    "bytes": 1941
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/slagglass/small/walk_s_f3.png",
+    "sha256": "389cdf6a683443252dbadb49d66e205fe637ff9906da3c3da4f8f0675e039fa5",
+    "bytes": 1882
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/slagglass/small/walk_s_f4.png",
+    "sha256": "768968efeb2cddb2692da8cd12c21118ee712cc634c6e2a880b517666fb19f54",
+    "bytes": 2005
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/slagglass/small/walk_s_f5.png",
+    "sha256": "d5435890ab7fbac07d19d016d3b3a2eb8b584ef04c97f1aafaa054d498ba7d50",
+    "bytes": 1939
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/slagglass/small/walk_s_f6.png",
+    "sha256": "c0d1b0375ef45705144854eec48e98b674a69fa04228104575969983f1db531c",
+    "bytes": 2048
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/slagglass/small/walk_s_f7.png",
+    "sha256": "b3d950de07f3e11efdd606411bd7830c4ef7295e018f86ca2982b52516a9cab6",
+    "bytes": 2045
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/slagglass/small/walk_w_f0.png",
+    "sha256": "7efe436f0430e95c4abf871373b5ac027c95be016a18b163ef806b8adc8f89ce",
+    "bytes": 2048
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/slagglass/small/walk_w_f1.png",
+    "sha256": "25e634e2ecedde1c1366c52ba8b1faac0737ab7f4b4252795ded1561c022efe3",
+    "bytes": 2181
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/slagglass/small/walk_w_f2.png",
+    "sha256": "99be2ce73bfe91c9687c02c762dc4053e53af886a13d7a77de6f16ba0de033d4",
+    "bytes": 1996
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/slagglass/small/walk_w_f3.png",
+    "sha256": "11465518f59ba669422080b869abff06d5eac90b6a1885f874a818545a970837",
+    "bytes": 1926
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/slagglass/small/walk_w_f4.png",
+    "sha256": "42dab3e168e4c40a5b109d52b3dee8fa49dac21963c2e9b12ef330825a668681",
+    "bytes": 1926
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/slagglass/small/walk_w_f5.png",
+    "sha256": "c77a8366f93dc7a24697d86dfdc641654349b0dc1e6466a03182b27d50a501ba",
+    "bytes": 1957
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/slagglass/small/walk_w_f6.png",
+    "sha256": "374ff9350f7998988f86ee28f2951a5291b084154107b2515e02a434ebabb173",
+    "bytes": 2038
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/slagglass/small/walk_w_f7.png",
+    "sha256": "9bef4ceb724afa14c5f1e67f9722ae8f898884b4570846526ed7544404410ab8",
+    "bytes": 2031
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/sparkjab/small/e.png",
+    "sha256": "045129c8b9defe0ae843a8b0b901d0efeee952907d41ad1c90cfa4ece27902af",
+    "bytes": 932
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/sparkjab/small/n.png",
+    "sha256": "4e5c6bd302f2bd5a01cf74d7300a241d50928b6e0a0595d2195c1b32c48eb9d1",
+    "bytes": 699
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/sparkjab/small/ne.png",
+    "sha256": "446873a18e124abfc12f641bd0374b33d2126325a0fb8f19aae5e65bd2984469",
+    "bytes": 900
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/sparkjab/small/nw.png",
+    "sha256": "17bd9717d64d3604e51606a213ed08fb273957f3cc7304438dedb66abd1ed2a2",
+    "bytes": 965
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/sparkjab/small/s.png",
+    "sha256": "03e10251e0b901d3f67f92283257acf20c73a0b641cfa66d51f8e3cee1c56e2e",
+    "bytes": 752
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/sparkjab/small/se.png",
+    "sha256": "656de706d00064e89edfb7b67604a86c392f4be2fd062bc3d9e55cb74c8522fa",
+    "bytes": 984
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/sparkjab/small/sw.png",
+    "sha256": "8a51eede22828a91c7a78da5e2812c06307a5de04be1ea62f99ac91ffeaf1d61",
+    "bytes": 961
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/sparkjab/small/w.png",
+    "sha256": "8c89a086b142a8053a76e7427bbc7f2cc3f550c5d7d8d735c4b2836e725891f5",
+    "bytes": 912
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/sparkjab/small/walk_e_f0.png",
+    "sha256": "357771b95487dbc0c841cceaef6b09ee2a79ee940648ec7e6427202f65d02884",
+    "bytes": 870
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/sparkjab/small/walk_e_f1.png",
+    "sha256": "716166cfc8005db614e3ee421256a4dd4e71d7e5ad183dbad14cd17708c3b6d9",
+    "bytes": 914
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/sparkjab/small/walk_e_f2.png",
+    "sha256": "06ec2e231aba4fa7eee77ec5ef57a87c6ba618c07d3dd36064bda4463d870eb1",
+    "bytes": 890
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/sparkjab/small/walk_e_f3.png",
+    "sha256": "b46ba763548b8870aa9d1a86d79af53570207d525f65854d9563a8321106bb98",
+    "bytes": 971
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/sparkjab/small/walk_e_f4.png",
+    "sha256": "6798da919a0b2e8def5e4fde61294fb13cadab21fc7dd2dc4f03c9afb1d0c29e",
+    "bytes": 953
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/sparkjab/small/walk_e_f5.png",
+    "sha256": "5811fa5f5c7b2e9140c590e26a87f4c4d16dfe4701dbe7331893e848d2d58e16",
+    "bytes": 863
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/sparkjab/small/walk_e_f6.png",
+    "sha256": "66f041c5d60a96c26a11bb95f8c3a69b30c987df12ac34d507a2e337dc289893",
+    "bytes": 952
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/sparkjab/small/walk_e_f7.png",
+    "sha256": "7d02aba0d2053fcaf334cb28623900c8247aea60bab5fc845af789ae569e526a",
+    "bytes": 967
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/sparkjab/small/walk_ne_f0.png",
+    "sha256": "111b215fc698b266b657fa8f557c8568433ebcd2421339680e7fe7e96767f28d",
+    "bytes": 828
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/sparkjab/small/walk_ne_f1.png",
+    "sha256": "555988bd532a34d04fb64b5de50585504bd6a43d5b9cd350cec346b5fd2535df",
+    "bytes": 785
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/sparkjab/small/walk_ne_f2.png",
+    "sha256": "8b1a51aa6c722911f0aab05a24538fdfbed5bef955547e7ee3ce844b9f84660f",
+    "bytes": 843
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/sparkjab/small/walk_ne_f3.png",
+    "sha256": "2851e60ce32adb8db6c6daf5a51284a919b5f2a0316d11d68ddce71392037bbf",
+    "bytes": 816
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/sparkjab/small/walk_ne_f4.png",
+    "sha256": "416eba39a9bbb6af3802c24f627930d8030c0e37d31b2635a012af36f71adfb8",
+    "bytes": 725
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/sparkjab/small/walk_ne_f5.png",
+    "sha256": "d470730119b1594415b732ade5ef01e5b56fb606a8266439c0906bde97e9ffcc",
+    "bytes": 771
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/sparkjab/small/walk_ne_f6.png",
+    "sha256": "c833606b18b675dad4b228911ad2243d5398b0ea8b757684c14480ccf968ae6c",
+    "bytes": 871
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/sparkjab/small/walk_ne_f7.png",
+    "sha256": "ef0cd4f6f2b53986fc3a781c2f5fdf6331bb63c0e509ca2ccf1f11c796da29fc",
+    "bytes": 801
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/sparkjab/small/walk_nw_f0.png",
+    "sha256": "502936e3fe25ff8404b0b03b9399138b2fbbea3e57430efaf46e43bbfa080a58",
+    "bytes": 830
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/sparkjab/small/walk_nw_f1.png",
+    "sha256": "7490babeaf8d8efaa29366a0ef8e348d03ec7c9d29c1d072976b00242c36e9be",
+    "bytes": 805
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/sparkjab/small/walk_nw_f2.png",
+    "sha256": "9e848a562a85bcf28f9f35080493f016bc35235e2757972b699ad5d12bf031cc",
+    "bytes": 860
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/sparkjab/small/walk_nw_f3.png",
+    "sha256": "e2238014f523a5e61ef31b22615a5daae7895249dbac5347aa8a69ab2ffc3448",
+    "bytes": 833
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/sparkjab/small/walk_nw_f4.png",
+    "sha256": "c16320543a9f0e0f17e54f5fa0f70813cb16cf3cd5ac4ff070b9d91e40d2f3ca",
+    "bytes": 739
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/sparkjab/small/walk_nw_f5.png",
+    "sha256": "d4b1c267ab6196b0fec45415a0b3d943b02dd241f8ddacf7fe4ad4322aa6108b",
+    "bytes": 744
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/sparkjab/small/walk_nw_f6.png",
+    "sha256": "b0532e90c68c046431fd9f6e0916108438980ea20392e6e7a77f99eda0e64927",
+    "bytes": 870
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/sparkjab/small/walk_nw_f7.png",
+    "sha256": "3f9d1b3c466bba9a2768976e2fb683d7799a9eb2dc30d3ddc53a2719036fa32f",
+    "bytes": 796
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/sparkjab/small/walk_n_f0.png",
+    "sha256": "975342bdb1957d4c128320b1c74cb52b2cfd7145d3ee8e64b8424e55fd34f8a3",
+    "bytes": 709
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/sparkjab/small/walk_n_f1.png",
+    "sha256": "acc044f0eb9cadc74bcf7a6d7f00bb9e4f329c1a5fddda4ad88f5dee25faaa29",
+    "bytes": 687
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/sparkjab/small/walk_n_f2.png",
+    "sha256": "3aaa365921578d00277dd04fe93a3b246a88100f0cac2ca26fae9fb23ca8b9d8",
+    "bytes": 711
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/sparkjab/small/walk_n_f3.png",
+    "sha256": "45731bd89148bc9a626f0d2b8984210407402d8c8d2fcc43ac6f606c4f68648a",
+    "bytes": 724
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/sparkjab/small/walk_n_f4.png",
+    "sha256": "9bad88ef6b25d60d04d4c66f3e16dbbc9978be18e85df810e81c3a96af1373b5",
+    "bytes": 746
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/sparkjab/small/walk_n_f5.png",
+    "sha256": "36e03cb34c1526625c2b115ca29929db3781b7dc98f59a435447c1aee1a47d53",
+    "bytes": 673
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/sparkjab/small/walk_n_f6.png",
+    "sha256": "c4167c4457dc04aa18e076fb4d8b40c1ab96ce2a2851b916a92c43cb14d7c961",
+    "bytes": 700
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/sparkjab/small/walk_n_f7.png",
+    "sha256": "fc1d64063de5f205fe1c6a82323dd69ae59586607ef199427e1614772efb0c6a",
+    "bytes": 716
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/sparkjab/small/walk_se_f0.png",
+    "sha256": "9b452c11d627a6e551f5f741c4a1f42a4d16b34780be0bcc54fef59b4ea4f521",
+    "bytes": 1049
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/sparkjab/small/walk_se_f1.png",
+    "sha256": "182dafb45f2143a611106ae77e3f1b73ecd4b827026719a2cec4c1150de123c4",
+    "bytes": 1000
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/sparkjab/small/walk_se_f2.png",
+    "sha256": "bb72f8af6693f802150da7a529d83d1ab11f6f20b7961d4f6b51c1851bb8db66",
+    "bytes": 1028
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/sparkjab/small/walk_se_f3.png",
+    "sha256": "53ebd4ce831c98f297d9360fcb8801ac25c005627817fc3a49084422242c8fc5",
+    "bytes": 950
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/sparkjab/small/walk_se_f4.png",
+    "sha256": "6d890c4049d992465f8fd814801f0b2e94f25539be522b962cac272f9fd1abf9",
+    "bytes": 1005
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/sparkjab/small/walk_se_f5.png",
+    "sha256": "ca7a2e7d86b37eea811fc886c0c7b82d7ccf7e66f2288c94b668e4c07b5386d6",
+    "bytes": 935
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/sparkjab/small/walk_se_f6.png",
+    "sha256": "605291661206993eda3496971ff1673ff50353baec34655646ab8f309c2015a8",
+    "bytes": 1035
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/sparkjab/small/walk_se_f7.png",
+    "sha256": "cfb2d649df51c86ef261586c923e8d26a586662dbf885b7fa7e5e6c8ecc21f75",
+    "bytes": 937
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/sparkjab/small/walk_sw_f0.png",
+    "sha256": "2b5f6827e15d7b7925d75b33f53d1e7de90406cfd5d4ffa721485c4c75ef0027",
+    "bytes": 1011
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/sparkjab/small/walk_sw_f1.png",
+    "sha256": "9a6b79763ba05b99f2e7fcbfcbd53693ef979a9c038a58dca6b8936c14f71323",
+    "bytes": 983
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/sparkjab/small/walk_sw_f2.png",
+    "sha256": "577280fffd4cc1d4fe0b7e8e77c6bb87f8a9c2f18db3948e28955f6d135cf9a5",
+    "bytes": 1023
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/sparkjab/small/walk_sw_f3.png",
+    "sha256": "998d143a33b4b25a9f09c9bc2938c716c58580023973a2bd61cfb2727e17eeaa",
+    "bytes": 954
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/sparkjab/small/walk_sw_f4.png",
+    "sha256": "9c93d9379711d97b11d7d4b383a53c4864ca390753fac50f3fe0638af1305689",
+    "bytes": 1003
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/sparkjab/small/walk_sw_f5.png",
+    "sha256": "5ad6429270cea63fec3ff46b7afa4bdeefcfb11ec12cb0e39986cca2b85a735a",
+    "bytes": 933
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/sparkjab/small/walk_sw_f6.png",
+    "sha256": "7838c478d38e21cd742c3cfc5a29c0e055824bcac3c3b79133ff5e4e06cb410b",
+    "bytes": 1042
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/sparkjab/small/walk_sw_f7.png",
+    "sha256": "c3dde2101cb99d22cee64bf2e85f524022b65538dd644ffc6081361fc6bb8308",
+    "bytes": 937
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/sparkjab/small/walk_s_f0.png",
+    "sha256": "42097a409baf37c914ee8ecf026fa77066a6a25b950ba679ab5ffafc4ac8d1ae",
+    "bytes": 757
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/sparkjab/small/walk_s_f1.png",
+    "sha256": "912928c8f3cb93110869e588b1523997cab95f8fd63c018bc7d717cc9fe8a22a",
+    "bytes": 755
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/sparkjab/small/walk_s_f2.png",
+    "sha256": "4d9b45b9047007ddeadf88690e3d16bec98a240e8c651657e481488c8085df7c",
+    "bytes": 802
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/sparkjab/small/walk_s_f3.png",
+    "sha256": "e743b933535dbc76c196fc4ffb2aa7165d7eea2ccabb7257ae365ea12073fcb4",
+    "bytes": 756
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/sparkjab/small/walk_s_f4.png",
+    "sha256": "e61c2a366eda6e4a3159611864a50c574a4f797f22ad86cadd40b60482ea06e0",
+    "bytes": 742
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/sparkjab/small/walk_s_f5.png",
+    "sha256": "284a5f0332e6dd476786821f18759ff9ff4f5d36da2816cbce2e7114909abf9a",
+    "bytes": 693
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/sparkjab/small/walk_s_f6.png",
+    "sha256": "ee2b956727dd4800b32c8177cb5a2e612ad8552561793dcbeb8128d24b1459a7",
+    "bytes": 761
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/sparkjab/small/walk_s_f7.png",
+    "sha256": "52f96756e1037aa2be421984abca311d315d59be89f7917c7ada9d466bbe3677",
+    "bytes": 745
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/sparkjab/small/walk_w_f0.png",
+    "sha256": "fdde806ec73b11ee19ef59d3d1db942082c6f2e9d1ba2c8972ff1c0ba47e5423",
+    "bytes": 882
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/sparkjab/small/walk_w_f1.png",
+    "sha256": "4b77138ff1ed87cbcdfa51cdc6aa62bcc6932396c3e17ea8581f17604acd434f",
+    "bytes": 896
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/sparkjab/small/walk_w_f2.png",
+    "sha256": "10e6860ce2578b5ecdb56c3b4da4d3c539049ee7b25a50b112c9071f6e57d2f5",
+    "bytes": 911
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/sparkjab/small/walk_w_f3.png",
+    "sha256": "5d18b91f80ab79e7e1495cf12386156c262153444565aa9936a3b3d5256618e2",
+    "bytes": 959
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/sparkjab/small/walk_w_f4.png",
+    "sha256": "2091b59e6b24410a3dad718e6b67d80190ff2544bd6f49486a5278901f5e6261",
+    "bytes": 917
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/sparkjab/small/walk_w_f5.png",
+    "sha256": "78de4cb233e908ee32235ba326be09a058eda593fc14fd4fb2390e798be215ac",
+    "bytes": 867
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/sparkjab/small/walk_w_f6.png",
+    "sha256": "ab9eb66fb15336b178c5d6e3173ae092a48daccd0897af60d4a03da52ab6548d",
+    "bytes": 964
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/sparkjab/small/walk_w_f7.png",
+    "sha256": "af15e5975a43294c40027964bd5ece99358e2aa1e32d2c6a63bea2f6619d3f6e",
+    "bytes": 957
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/starward/small/e.png",
+    "sha256": "fb7d29b4d88d6b685cfe28ae4aa6fc9a0a1fca4fd2740d035800ca61efd6f26d",
+    "bytes": 1311
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/starward/small/n.png",
+    "sha256": "2368286694fa5da88f113d09f8c4531e0e4401bce8bcb0721c4502e2766596c6",
+    "bytes": 1076
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/starward/small/ne.png",
+    "sha256": "8e28e593fb197687c6b2d31732eb483dd42da4753bf489be368e6acdc8e18b51",
+    "bytes": 1097
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/starward/small/nw.png",
+    "sha256": "34cf74aae8642f2780bf0fc65386d13a865a8f7ecd6a4e789204bfb7dcf8efbb",
+    "bytes": 1161
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/starward/small/s.png",
+    "sha256": "9fd1705170247f13e1ad33e778b18f8c2d5bafa634d4bf1d288e52306cfb4ef2",
+    "bytes": 1124
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/starward/small/se.png",
+    "sha256": "9e95de875bbbd2779fdad4ac455aec56ed915d3fc1b51d2572be863bb5c392a7",
+    "bytes": 1347
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/starward/small/sw.png",
+    "sha256": "e5a4aef9cec0c8120eb302dd211453c661c64aec232770855460c9200f8a5444",
+    "bytes": 1274
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/starward/small/w.png",
+    "sha256": "1089f3377aa9951d82773d07975985d8dfcc768521e209a83478de8e80f2bfcf",
+    "bytes": 1289
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/starward/small/walk_e_f0.png",
+    "sha256": "edcfd4668e6807b59ccfd3a273bac64cb06d30f4b76bc0be96ce3735ebf4bbfc",
+    "bytes": 1285
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/starward/small/walk_e_f1.png",
+    "sha256": "0d6457ae3832339fae81c0fcd74d72761ea2f1a654cd7652b07c169596623079",
+    "bytes": 1335
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/starward/small/walk_e_f2.png",
+    "sha256": "e414d9bbb5dc5a17eeb4214fc1c691a521f9815dc43003f6fbcd4ae9592a7597",
+    "bytes": 1254
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/starward/small/walk_e_f3.png",
+    "sha256": "fa7d7c9708227f5cf366bd8d4d9ebef3a334230793acb5a00b5707cc668aca83",
+    "bytes": 1248
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/starward/small/walk_e_f4.png",
+    "sha256": "ec48c0c25ed1bfc99b59acfde0acddc1b0c6d7a51c9585cd2346335c10328da9",
+    "bytes": 1278
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/starward/small/walk_e_f5.png",
+    "sha256": "d1260f75541b03202b2406529857ff97f6fafd050dc1d60722f9a7f7b15a66ce",
+    "bytes": 1242
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/starward/small/walk_e_f6.png",
+    "sha256": "d6e099cfdc982c40d545eb953864a9c879d41b44de0c0e29ee76c9cf67515c41",
+    "bytes": 1235
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/starward/small/walk_e_f7.png",
+    "sha256": "9cec4ffe3e88e0e0133ae324badfcb3d3a813d83b54fff77f4bade5ff4b088cd",
+    "bytes": 1274
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/starward/small/walk_ne_f0.png",
+    "sha256": "88fd350e3f65e151fae39e155b5e141c27eef827ca4b7aa41e969f2e4c7dce89",
+    "bytes": 1036
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/starward/small/walk_ne_f1.png",
+    "sha256": "1d4f0bcc4a2da65a9ee78fb35dc95b99c7d78d88e1bff8aee5717ddfc6a82204",
+    "bytes": 1026
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/starward/small/walk_ne_f2.png",
+    "sha256": "ddba116454ca798aea68a37451e7daa0c5c366303416489c7305c8e58e83a4e4",
+    "bytes": 962
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/starward/small/walk_ne_f3.png",
+    "sha256": "56bdfaf59699bb42ec83a517fd58133090935c6d8189ca559d4b95655aa4b1d7",
+    "bytes": 913
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/starward/small/walk_ne_f4.png",
+    "sha256": "04888ea889e4c6bfa7da0bec245c4f623e9332c7aacecd20abfac189f675d3ec",
+    "bytes": 1033
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/starward/small/walk_ne_f5.png",
+    "sha256": "b442234be6f1c6631c2d5cdae498db8330bc780800a32882154f0fdde10c9ebd",
+    "bytes": 1043
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/starward/small/walk_ne_f6.png",
+    "sha256": "d4de82ee76e837577ae62a117d9507987cd1a2b380883ecbf8aa1adad3e8bb58",
+    "bytes": 1042
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/starward/small/walk_ne_f7.png",
+    "sha256": "3ff3d82c858bfaf75adc9c4a9ea12dc1897e742bef19509d976c408c124d1d52",
+    "bytes": 901
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/starward/small/walk_nw_f0.png",
+    "sha256": "33adb7d81d4ceed7aea7232623977e8b9c98be5b28daffdbdec9d10bb12c8429",
+    "bytes": 1022
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/starward/small/walk_nw_f1.png",
+    "sha256": "ea7938578d91ff3b2ed36d763d4f67179bd58000a4cd5dde5616ffd4d290ef15",
+    "bytes": 995
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/starward/small/walk_nw_f2.png",
+    "sha256": "2dcf0b0a6ba44c280b517338a5043222be6045a09fd917029589590ace90c9de",
+    "bytes": 982
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/starward/small/walk_nw_f3.png",
+    "sha256": "cd0a0435be9afc3c9e2311ed5e9df8f1a7c9d834ef90851de63d9eb58d545d28",
+    "bytes": 898
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/starward/small/walk_nw_f4.png",
+    "sha256": "15f280cf3521ae914f904465046490804576e3fd8b7495910c0265d5c7db17a3",
+    "bytes": 1007
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/starward/small/walk_nw_f5.png",
+    "sha256": "4263a51d84309330580b07f651e16ce3e6d071e771f8e628e91ff7e2d97d4665",
+    "bytes": 1020
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/starward/small/walk_nw_f6.png",
+    "sha256": "06832795778d6947792c97b7567efb9e84b962bdb06cfa34f211fedd3894de9c",
+    "bytes": 1001
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/starward/small/walk_nw_f7.png",
+    "sha256": "d49ceae98c58aee0b5737c8656abe2e84f40f8e09da08759e836310806e191dc",
+    "bytes": 870
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/starward/small/walk_n_f0.png",
+    "sha256": "9fc2bbd277eda7cd0c383939a83e13a4ef98dd4935d2af4e323fbdf23682635a",
+    "bytes": 1054
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/starward/small/walk_n_f1.png",
+    "sha256": "4188116b78896b627d4fa404e2430f84896473fb6361477e099c38ed890b43b2",
+    "bytes": 930
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/starward/small/walk_n_f2.png",
+    "sha256": "52a81b4b14d12262e09a27c9c22e7607a05576ae76caffa81371e1a95fa3ed83",
+    "bytes": 950
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/starward/small/walk_n_f3.png",
+    "sha256": "9ab564cf1ab0ab6d0c289c44590e242d32e6976a238f2ee94b655ac6d153f4d2",
+    "bytes": 828
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/starward/small/walk_n_f4.png",
+    "sha256": "c1a6bda819f3c74081b8f5888ceed6b4418f1d97dacdf68bea8aa42cf74fa22c",
+    "bytes": 924
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/starward/small/walk_n_f5.png",
+    "sha256": "12589c5a5f86f4c70670bacf7d4822d9130a30f08aaa051c2df17ddc1807eb76",
+    "bytes": 836
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/starward/small/walk_n_f6.png",
+    "sha256": "1b6a9fe86c8740fff25978a380c32c17a78d2fc004a8ba7b8307dcd3e486cb5c",
+    "bytes": 952
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/starward/small/walk_n_f7.png",
+    "sha256": "4ea7cd37efabe7cb85de0aa27025d54986911ab29ade7f53986bdb36cf9e6b7b",
+    "bytes": 847
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/starward/small/walk_se_f0.png",
+    "sha256": "c0bf5e5d3054c72fcba1b07bc85a80c73a4cb999de01e5f877f4cd521d108ddc",
+    "bytes": 1108
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/starward/small/walk_se_f1.png",
+    "sha256": "0ec322a025b7fbe876dcc3b866d25ae08c8314b2d06248aebc77825b59835136",
+    "bytes": 1163
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/starward/small/walk_se_f2.png",
+    "sha256": "a7d5307f015f59b56cbe81939e612af53b4e9f78b705b69fa27599bbd5969fae",
+    "bytes": 1212
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/starward/small/walk_se_f3.png",
+    "sha256": "d7eafab7b7ec2d1ecaf597f77fa3fe1f1eceb792360b4180c32dff10ae485c16",
+    "bytes": 1340
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/starward/small/walk_se_f4.png",
+    "sha256": "66b75b0eb744d93b42c50c9595d9e4f18ef87c53d379a2d92927cfc893b5b89f",
+    "bytes": 1264
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/starward/small/walk_se_f5.png",
+    "sha256": "08ae2a22177f8ab8f267d35b1945a9d2ba46e169dd49dac3ef1ee1f3a78b2384",
+    "bytes": 1271
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/starward/small/walk_se_f6.png",
+    "sha256": "2a35f0fef2054ae9c828d54b4f488653f2dcaf171d253bc5a3071524beb5a07c",
+    "bytes": 1262
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/starward/small/walk_se_f7.png",
+    "sha256": "eb248b4b4b8067157d29c6d00d6e1891b1f132137728b6286e7a0107bdaddcdc",
+    "bytes": 1280
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/starward/small/walk_sw_f0.png",
+    "sha256": "66059879b61db264eca89af31d5ee0e34249300f49ff0fec873fca73df88ce82",
+    "bytes": 1117
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/starward/small/walk_sw_f1.png",
+    "sha256": "660b1b0cde2fafb9adae511d7d990296f3ff8737543b0173e590a93407fdb367",
+    "bytes": 1189
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/starward/small/walk_sw_f2.png",
+    "sha256": "552bdef398993212eb19bf9102c5cfea2f6f7f50844fbd6e1d008cf04c5dcb4a",
+    "bytes": 1226
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/starward/small/walk_sw_f3.png",
+    "sha256": "6568a31b94313b17d8b028720454a53db1c9e57283efa23c91e1d4415b502cc6",
+    "bytes": 1307
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/starward/small/walk_sw_f4.png",
+    "sha256": "d7d6ceb478e4a42474b7b8a333c7a622df810697a1c7babba24a84288f852f05",
+    "bytes": 1266
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/starward/small/walk_sw_f5.png",
+    "sha256": "edd8063019b86c0b681640831afb6521c8948f2839d8a10b3225bd71a788e10e",
+    "bytes": 1265
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/starward/small/walk_sw_f6.png",
+    "sha256": "79894c8f2bdc1d6a5922b1fbc7a3bc68b2a15565f5ed99a4d2b33546c28667be",
+    "bytes": 1279
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/starward/small/walk_sw_f7.png",
+    "sha256": "36e23e0b271103a5a1bf576bc45d0948aabc976dfa1bab0c0fd82ba981aa3f30",
+    "bytes": 1256
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/starward/small/walk_s_f0.png",
+    "sha256": "db8e21be31f31c3d3460af12662cfcb3aef79a8fc7c4e8136f34af297860ee03",
+    "bytes": 1059
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/starward/small/walk_s_f1.png",
+    "sha256": "c346c0880928adac8aea3f026fd7fa6f888e712c2180bec5e8da915c9cd2976f",
+    "bytes": 1031
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/starward/small/walk_s_f2.png",
+    "sha256": "5f5942be8c36e4acaced64408a4ab4c0b1b46095fce3ba4eab94564ec0518864",
+    "bytes": 1068
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/starward/small/walk_s_f3.png",
+    "sha256": "b2eee6d46da1b9adfa5285110682f9a0658fea8a91378e2af6ff6e775ac3f570",
+    "bytes": 1013
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/starward/small/walk_s_f4.png",
+    "sha256": "c6008cb0c337d51211d4880d28c110995112377975bfb0d4eabcc3e8f9ccf2b8",
+    "bytes": 1049
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/starward/small/walk_s_f5.png",
+    "sha256": "26dcf77019120551074ae79f76506aa806230485e0661d4689c01c8db421569f",
+    "bytes": 1102
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/starward/small/walk_s_f6.png",
+    "sha256": "baafe0f054285ee8d7c2c529b38741a71b08b0575212e994327c592efe698e80",
+    "bytes": 1086
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/starward/small/walk_s_f7.png",
+    "sha256": "98b6ba02424e4d63c29f9987b6e3616579d596a781a9d567bbdfa45815918421",
+    "bytes": 1101
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/starward/small/walk_w_f0.png",
+    "sha256": "a2c119185bbc687c82af9b3374f4afc8e0f392ea97001e57965df4b48945503b",
+    "bytes": 1276
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/starward/small/walk_w_f1.png",
+    "sha256": "f8849ac96d5b101c27d915aba24771793fee2a1276740f22bcf8b0a1989bfb96",
+    "bytes": 1248
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/starward/small/walk_w_f2.png",
+    "sha256": "e67c2d075981d9c87a0edbf3e529df0fe684bc856ff55bdbdc95b34d1ab9e830",
+    "bytes": 1270
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/starward/small/walk_w_f3.png",
+    "sha256": "04668ed37d13ae82103bfdc8d3ae74167f725a895a08865d40c5e77dc9452167",
+    "bytes": 1255
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/starward/small/walk_w_f4.png",
+    "sha256": "88dfe62a852dbd2450deecf74c3c3436ad5d7f1b2bdd60c1561aba23b7469e82",
+    "bytes": 1258
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/starward/small/walk_w_f5.png",
+    "sha256": "3ce673fa2509ad3aea4e5bad6157c216a942c94dc2293b4663e40c144a3997b2",
+    "bytes": 1204
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/starward/small/walk_w_f6.png",
+    "sha256": "950432c2181519aa2ad69a5b9fe86544199dcf5bb17be81953264c1fc57c7a86",
+    "bytes": 1233
+  },
+  {
+    "path": "source-audit/originals/assets/sprites/arena/starward/small/walk_w_f7.png",
+    "sha256": "06cea803ca9b3059582f646f3a371fe9cd540d6cc2cd34123aaf95cf1c6eba0f",
+    "bytes": 1273
+  },
+  {
+    "path": "source-audit/originals/docs/creatures/arena-starters-2026-10-07/forms/oathfen.png",
+    "sha256": "88f2a2eac9739b394d331bafd405b2a3cf210c2c979a51ed8577b19c90dddf2e",
+    "bytes": 9281
+  },
+  {
+    "path": "source-audit/originals/docs/creatures/arena-starters-2026-10-07/forms/oathfen_arena_pad.png",
+    "sha256": "46695d04bdba430f071b9044b7a06abc24e3868a980787eb6cf94e98914530c3",
+    "bytes": 8167
+  },
+  {
+    "path": "source-audit/originals/docs/creatures/arena-starters-2026-10-07/forms/oathfen_arena_rotation_3x3.png",
+    "sha256": "3bd11f34e41f10cc27c0082bf4f5e127ffee6bea26f6e1312a41a0f396ff5fc4",
+    "bytes": 58488
+  },
+  {
+    "path": "source-audit/originals/docs/creatures/arena-starters-2026-10-07/forms/oxbowarchon.png",
+    "sha256": "19f26ea6782244e879c48bf284fe2b0eed291d552ecafcd99566d0e64da22af0",
+    "bytes": 11636
+  },
+  {
+    "path": "source-audit/originals/docs/creatures/arena-starters-2026-10-07/forms/oxbowarchon_arena_pad.png",
+    "sha256": "b99b1384692b03b2af45d9dafc2b913d1ebbbc90b08ae331891bc1bfc6360430",
+    "bytes": 10285
+  },
+  {
+    "path": "source-audit/originals/docs/creatures/arena-starters-2026-10-07/forms/oxbowarchon_arena_rotation_3x3.png",
+    "sha256": "664c03fe972847682c55f928e8c9bea4cf0bbb3781a21c62ceacb0354e31fe16",
+    "bytes": 79357
+  },
+  {
+    "path": "source-audit/originals/docs/creatures/arena-starters-2026-10-07/forms/oxbowarchon_candidates.png",
+    "sha256": "39c1e249d9b9f8cd00fc58bf8a26e0a4173e854f2c6aef672e5f3624e0e56d54",
+    "bytes": 108359
+  },
+  {
+    "path": "source-audit/originals/docs/creatures/arena-starters-2026-10-07/forms/oxbowarchon_v2a.png",
+    "sha256": "19f26ea6782244e879c48bf284fe2b0eed291d552ecafcd99566d0e64da22af0",
+    "bytes": 11636
+  },
+  {
+    "path": "source-audit/originals/docs/creatures/arena-starters-2026-10-07/forms/oxbowarchon_v2b.png",
+    "sha256": "e0b38e76ff2d931f86367a919e2fa7c187b790165db209231b8db57e86aedc60",
+    "bytes": 12544
+  },
+  {
+    "path": "source-audit/originals/docs/creatures/arena-starters-2026-10-07/forms/oxbowarchon_v2c.png",
+    "sha256": "b6daffe9c3dcbbf3343afeb04874eedcc48624ea7cb7261ce1702df658173f50",
+    "bytes": 10338
+  },
+  {
+    "path": "source-audit/originals/docs/creatures/arena-starters-2026-10-07/forms/preostmar.png",
+    "sha256": "4a7ac189ee3b83c19e47e2e63c3052c2d0a61875d2b89691534e6547ebedebc8",
+    "bytes": 5942
+  },
+  {
+    "path": "source-audit/originals/docs/creatures/arena-starters-2026-10-07/forms/preostmar_arena_pad.png",
+    "sha256": "2dbb69d0de8472cffa1d37368052ef446d5ba7ab4928cd30fd3c6b8c33263b0b",
+    "bytes": 5928
+  },
+  {
+    "path": "source-audit/originals/docs/creatures/arena-starters-2026-10-07/forms/preostmar_arena_rotation_3x3.png",
+    "sha256": "f4d573b11df4e63becfd03727382e164d813642b4c6d4f028675ffa0b010d9ea",
+    "bytes": 41069
+  },
+  {
+    "path": "source-audit/originals/docs/creatures/arena-starters-2026-10-07/forms/punchybun.png",
+    "sha256": "43449074ed63fcd560aa45802261c4e7c222324bdf4bec1d1b231cb4542b5a4d",
+    "bytes": 5102
+  },
+  {
+    "path": "source-audit/originals/docs/creatures/arena-starters-2026-10-07/forms/punchybun_arena_pad.png",
+    "sha256": "2825d5a00a4064356aea67e15b58ead9a94ae7ecdf2cb569132a513b1a2c76bb",
+    "bytes": 4676
+  },
+  {
+    "path": "source-audit/originals/docs/creatures/arena-starters-2026-10-07/forms/punchybun_arena_rotation_3x3.png",
+    "sha256": "bebba79689f201b7f322b5f0ced12b1ca8708daa3ae0061ca14a127c29d40bd2",
+    "bytes": 31819
+  },
+  {
+    "path": "source-audit/originals/docs/creatures/arena-starters-2026-10-07/forms/slagglass.png",
+    "sha256": "85192dd37c383ccec03e697be3fe08d3ccd7c8c17cb6f8ddd0dcb0dc5cd15a8c",
+    "bytes": 9172
+  },
+  {
+    "path": "source-audit/originals/docs/creatures/arena-starters-2026-10-07/forms/slagglass_arena_pad.png",
+    "sha256": "fac5d128e51b0ae69a1c4632d76d4e628a2a63846a7b1e4fa3d469aeee9a8cf5",
+    "bytes": 8297
+  },
+  {
+    "path": "source-audit/originals/docs/creatures/arena-starters-2026-10-07/forms/slagglass_arena_rotation_3x3.png",
+    "sha256": "c2bd0b052291f11c95368470537e0e930e6b26830a0c8f046902b46ad7019ad7",
+    "bytes": 62128
+  },
+  {
+    "path": "source-audit/originals/docs/creatures/arena-starters-2026-10-07/forms/sparkjab.png",
+    "sha256": "13e0368c18201184e8e6b36255d4c9e5e7e7fa09bfa90ef53004ee40893e8399",
+    "bytes": 6006
+  },
+  {
+    "path": "source-audit/originals/docs/creatures/arena-starters-2026-10-07/forms/sparkjab_arena_pad.png",
+    "sha256": "d635c19e4ca31543a6411c9455a27960f2983feab34a134ac58726c52fb77276",
+    "bytes": 5344
+  },
+  {
+    "path": "source-audit/originals/docs/creatures/arena-starters-2026-10-07/forms/sparkjab_arena_rotation_3x3.png",
+    "sha256": "e95552234e08e3f887312fc256c139298cac11b822ba22b5d96b6a67144bf038",
+    "bytes": 39728
+  },
+  {
+    "path": "source-audit/originals/docs/creatures/arena-starters-2026-10-07/forms/starward.png",
+    "sha256": "a753509bea2bce772fa72bdd080a37e8000a21cba0a24a03a1e795bdf175dab7",
+    "bytes": 9302
+  },
+  {
+    "path": "source-audit/originals/docs/creatures/arena-starters-2026-10-07/forms/starward_arena_pad.png",
+    "sha256": "f9099cc4175be2fee81f5f27d05bba26f6173a9d084d4cff812d64f3fd0f577b",
+    "bytes": 8429
+  },
+  {
+    "path": "source-audit/originals/docs/creatures/arena-starters-2026-10-07/forms/starward_arena_rotation_3x3.png",
+    "sha256": "d6ef13b97a390010981ee605e403070967a29c4aedcb4d1f45aa8b9e9d867b04",
+    "bytes": 58344
+  },
+  {
+    "path": "source-audit/originals/docs/creatures/arena-starters-2026-10-07/walk/oathfen_e_sheet.png",
+    "sha256": "a881106803c5690dba5e27b0adacdfaa50518e4e2d9bf06c3e0725926b9bc131",
+    "bytes": 46713
+  },
+  {
+    "path": "source-audit/originals/docs/creatures/arena-starters-2026-10-07/walk/oathfen_ne_sheet.png",
+    "sha256": "9e3c318b356827a1c875d316a87186fb35ace37d83563ee284d8d6789a1735c4",
+    "bytes": 45564
+  },
+  {
+    "path": "source-audit/originals/docs/creatures/arena-starters-2026-10-07/walk/oathfen_n_sheet.png",
+    "sha256": "ecef3da5422557dd87a5ef88df163219b65ca35ed82e5159723c0058bf747a48",
+    "bytes": 32653
+  },
+  {
+    "path": "source-audit/originals/docs/creatures/arena-starters-2026-10-07/walk/oathfen_se_sheet.png",
+    "sha256": "905407ae6c23c3cff4ef0ae3cbe68cd17080ed65d7d07de042ea9d21c5706ceb",
+    "bytes": 52977
+  },
+  {
+    "path": "source-audit/originals/docs/creatures/arena-starters-2026-10-07/walk/oathfen_s_sheet.png",
+    "sha256": "cfd1b411b83c03eff4d3a67475bbd456f8ac939edabf67ff2f7d7d1d1c34589d",
+    "bytes": 32948
+  },
+  {
+    "path": "source-audit/originals/docs/creatures/arena-starters-2026-10-07/walk/oxbowarchon_e_sheet.png",
+    "sha256": "cebd36bad5a6469659cca6a6e3fa7ab85a69acb2a713ef2e24dc413956bf2014",
+    "bytes": 74891
+  },
+  {
+    "path": "source-audit/originals/docs/creatures/arena-starters-2026-10-07/walk/oxbowarchon_ne_sheet.png",
+    "sha256": "60ae9787a7d6f30f8e5333d9c099539fd86e3cca8a33f69491f3591c37816442",
+    "bytes": 66341
+  },
+  {
+    "path": "source-audit/originals/docs/creatures/arena-starters-2026-10-07/walk/oxbowarchon_n_sheet.png",
+    "sha256": "fea033ae048c71176958374646e48830eacaad7f4420c87c4e1caa773f1aa8aa",
+    "bytes": 47571
+  },
+  {
+    "path": "source-audit/originals/docs/creatures/arena-starters-2026-10-07/walk/oxbowarchon_se_sheet.png",
+    "sha256": "1e70fac919c5ff55ac1de03dac4ee5b5d7175cd1c4f77eb288aa91c356e64bf3",
+    "bytes": 77588
+  },
+  {
+    "path": "source-audit/originals/docs/creatures/arena-starters-2026-10-07/walk/oxbowarchon_s_sheet.png",
+    "sha256": "c6f30c6ec6bea2fe66034f988d5e32b9b35dffb20cfb5be33d60df5cc51dba97",
+    "bytes": 56898
+  },
+  {
+    "path": "source-audit/originals/docs/creatures/arena-starters-2026-10-07/walk/preostmar_e_sheet.png",
+    "sha256": "6dd8ce9476caf8ef8e87f09dc271f7fd9adabcaa57fafa04e0baf66ce3b81592",
+    "bytes": 37549
+  },
+  {
+    "path": "source-audit/originals/docs/creatures/arena-starters-2026-10-07/walk/preostmar_ne_sheet.png",
+    "sha256": "94da717420c0c9ca171df3ea90717b491926734176a8580dd2041eabdccbd648",
+    "bytes": 28254
+  },
+  {
+    "path": "source-audit/originals/docs/creatures/arena-starters-2026-10-07/walk/preostmar_n_sheet.png",
+    "sha256": "da7c11adc1d0066a338eedce93efa6e2fa2b7f0ccbe9be0bd3f314a89b7605b6",
+    "bytes": 25899
+  },
+  {
+    "path": "source-audit/originals/docs/creatures/arena-starters-2026-10-07/walk/preostmar_se_sheet.png",
+    "sha256": "d06055a928c69dad38e0ff8bcb9f47858be09f1086d7ee2a4a0fb748840f1704",
+    "bytes": 37350
+  },
+  {
+    "path": "source-audit/originals/docs/creatures/arena-starters-2026-10-07/walk/preostmar_s_sheet.png",
+    "sha256": "bd1094b980d0f4e40c7c6781a19827c8c1bee9c89a465388b7f6610d29a9bb4c",
+    "bytes": 27657
+  },
+  {
+    "path": "source-audit/originals/docs/creatures/arena-starters-2026-10-07/walk/punchybun_e_sheet.png",
+    "sha256": "a43db1120caec1feca863e48be0718418878eb2d3fb1711785e8907ef35bcf7d",
+    "bytes": 26718
+  },
+  {
+    "path": "source-audit/originals/docs/creatures/arena-starters-2026-10-07/walk/punchybun_ne_sheet.png",
+    "sha256": "99eeb373f137f32ac74485da00d005c1345ccd6ed637d69377b6a3540596690f",
+    "bytes": 24973
+  },
+  {
+    "path": "source-audit/originals/docs/creatures/arena-starters-2026-10-07/walk/punchybun_n_sheet.png",
+    "sha256": "1ec003c08fca7c9e677b53b80b9a4edfe8ae1e15f65ae47cc272fdbd9f8a2bb2",
+    "bytes": 15884
+  },
+  {
+    "path": "source-audit/originals/docs/creatures/arena-starters-2026-10-07/walk/punchybun_se_sheet.png",
+    "sha256": "104930924e7d97b91ad87a5bf80a5eeb63473ceece8d7807f0a05689a3d54d8c",
+    "bytes": 29477
+  },
+  {
+    "path": "source-audit/originals/docs/creatures/arena-starters-2026-10-07/walk/punchybun_s_sheet.png",
+    "sha256": "11e7b4eeeeede6eec57166914c5d4feb68f507bb42ffc48d518fa221849ccc8b",
+    "bytes": 27414
+  },
+  {
+    "path": "source-audit/originals/docs/creatures/arena-starters-2026-10-07/walk/slagglass_e_sheet.png",
+    "sha256": "b56be37c870f2bb1ad10d76a10525cb38a06f94acc279fb03d9878d735b93331",
+    "bytes": 56633
+  },
+  {
+    "path": "source-audit/originals/docs/creatures/arena-starters-2026-10-07/walk/slagglass_ne_sheet.png",
+    "sha256": "e73d68b277ae30beec5f2ce424551c9bd44880bc4bdc23c2af805928e7e25185",
+    "bytes": 39031
+  },
+  {
+    "path": "source-audit/originals/docs/creatures/arena-starters-2026-10-07/walk/slagglass_n_sheet.png",
+    "sha256": "440c0c3dc809f93dd8c9b66279c106d2a184ad79f57bcbc583907dc3a128b061",
+    "bytes": 45953
+  },
+  {
+    "path": "source-audit/originals/docs/creatures/arena-starters-2026-10-07/walk/slagglass_se_sheet.png",
+    "sha256": "15aa1e8d8e773ae72aebe337d624cc71e04e11715a78979f9c8a6ab80eeb231e",
+    "bytes": 49780
+  },
+  {
+    "path": "source-audit/originals/docs/creatures/arena-starters-2026-10-07/walk/slagglass_s_sheet.png",
+    "sha256": "2878a23be987404c80de93c87b9d799fcd8480209c9e2abb721d29a6598f5eb1",
+    "bytes": 47225
+  },
+  {
+    "path": "source-audit/originals/docs/creatures/arena-starters-2026-10-07/walk/sparkjab_e_sheet.png",
+    "sha256": "318546c1cec7f915dcc549b8730099ecfc848e38041357da9d335758d9d149bc",
+    "bytes": 34856
+  },
+  {
+    "path": "source-audit/originals/docs/creatures/arena-starters-2026-10-07/walk/sparkjab_ne_sheet.png",
+    "sha256": "eb6a6a6b61d66b0be8dc3858f69f5e196ae50da2913c9583c93592626c8bc834",
+    "bytes": 27897
+  },
+  {
+    "path": "source-audit/originals/docs/creatures/arena-starters-2026-10-07/walk/sparkjab_n_sheet.png",
+    "sha256": "fdcaf4623f9a2ce673d510d0a1de90e27793785cb1be11fa2505bf048192a522",
+    "bytes": 24733
+  },
+  {
+    "path": "source-audit/originals/docs/creatures/arena-starters-2026-10-07/walk/sparkjab_se_sheet.png",
+    "sha256": "59bdeaba8ee2ed67a38d220934f0fe922a23a947192f72bb4780ffca32f65960",
+    "bytes": 37188
+  },
+  {
+    "path": "source-audit/originals/docs/creatures/arena-starters-2026-10-07/walk/sparkjab_s_sheet.png",
+    "sha256": "94906fa4da88444d8f4938517783eb53e19d31c72258a5a16d27f9bf82d6e04d",
+    "bytes": 28441
+  },
+  {
+    "path": "source-audit/originals/docs/creatures/arena-starters-2026-10-07/walk/starward_e_sheet.png",
+    "sha256": "97f88c185b12b9cd702987f7cc57f32955e6ad194df66bdd987ccdb058601b44",
+    "bytes": 46744
+  },
+  {
+    "path": "source-audit/originals/docs/creatures/arena-starters-2026-10-07/walk/starward_ne_sheet.png",
+    "sha256": "34e749125222b2e9be2329a8be1a8d7e57f0f6b474e78681e4fcaa4e6ee2011b",
+    "bytes": 32046
+  },
+  {
+    "path": "source-audit/originals/docs/creatures/arena-starters-2026-10-07/walk/starward_n_sheet.png",
+    "sha256": "dcf38dfa3583cf5f94bda087bd77386f694ec10eb59d19b6b51e755a93b62d05",
+    "bytes": 30581
+  },
+  {
+    "path": "source-audit/originals/docs/creatures/arena-starters-2026-10-07/walk/starward_se_sheet.png",
+    "sha256": "708335bbdcf395d94f948f2ce4cee810257b2207e2439a04c94adcf789baf775",
+    "bytes": 53439
+  },
+  {
+    "path": "source-audit/originals/docs/creatures/arena-starters-2026-10-07/walk/starward_s_sheet.png",
+    "sha256": "7f29aca668c8bfba2fceb0db073e6d9cbac75c766666b5d7fee41f5b599eade4",
+    "bytes": 43333
+  },
+  {
+    "path": "source-audit/references/assets/sprites/creatures/oxbowarchon.png",
+    "sha256": "0638f8c032019075b66c2675637c3aebadfdd71e609b78ca75469dc475d007ea",
+    "bytes": 11343
+  },
+  {
+    "path": "source-audit/references/assets/sprites/creatures/attacks/oxbowarchon_kingstone_rail/style_matched/titlecard.png",
+    "sha256": "49ebf71ddb5228ddbb36f1c250fa84b6296db7218a2a10a82c588505889ccd45",
+    "bytes": 22991
+  },
+  {
+    "path": "source-audit/references/docs/creatures/arena-starters-2026-10-07/forms/oathfen.png",
+    "sha256": "88f2a2eac9739b394d331bafd405b2a3cf210c2c979a51ed8577b19c90dddf2e",
+    "bytes": 9281
+  },
+  {
+    "path": "source-audit/references/docs/creatures/arena-starters-2026-10-07/forms/oxbowarchon.png",
+    "sha256": "19f26ea6782244e879c48bf284fe2b0eed291d552ecafcd99566d0e64da22af0",
+    "bytes": 11636
+  },
+  {
+    "path": "source-audit/references/docs/creatures/arena-starters-2026-10-07/forms/preostmar.png",
+    "sha256": "4a7ac189ee3b83c19e47e2e63c3052c2d0a61875d2b89691534e6547ebedebc8",
+    "bytes": 5942
+  },
+  {
+    "path": "source-audit/references/docs/creatures/arena-starters-2026-10-07/forms/punchybun.png",
+    "sha256": "43449074ed63fcd560aa45802261c4e7c222324bdf4bec1d1b231cb4542b5a4d",
+    "bytes": 5102
+  },
+  {
+    "path": "source-audit/references/docs/creatures/arena-starters-2026-10-07/forms/slagglass.png",
+    "sha256": "85192dd37c383ccec03e697be3fe08d3ccd7c8c17cb6f8ddd0dcb0dc5cd15a8c",
+    "bytes": 9172
+  },
+  {
+    "path": "source-audit/references/docs/creatures/arena-starters-2026-10-07/forms/sparkjab.png",
+    "sha256": "13e0368c18201184e8e6b36255d4c9e5e7e7fa09bfa90ef53004ee40893e8399",
+    "bytes": 6006
+  },
+  {
+    "path": "source-audit/references/docs/creatures/arena-starters-2026-10-07/forms/starward.png",
+    "sha256": "a753509bea2bce772fa72bdd080a37e8000a21cba0a24a03a1e795bdf175dab7",
+    "bytes": 9302
+  }
+]

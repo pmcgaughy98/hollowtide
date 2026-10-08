@@ -69,7 +69,8 @@ func _ready() -> void:
         _wall("EastBelowEntrance",Vector2(1032,656),Vector2(16,224))
     else:
         _build_city()
-        _wall("East",Vector2(1032,384),Vector2(16,768))
+        _wall("EastAboveRelay",Vector2(1032,232),Vector2(16,464))
+        _wall("EastBelowRelay",Vector2(1032,648),Vector2(16,240))
         _wall("WestAboveBridge",Vector2(-8,248),Vector2(16,496))
         _wall("WestBelowBridge",Vector2(-8,648),Vector2(16,240))
         _wall("RiverNorth",Vector2(112,248),Vector2(224,496))
@@ -195,6 +196,7 @@ func _build_city() -> void:
     _wall("LedgerFootprint",Vector2(0,-43),Vector2(146,82),ledger)
     _prop("CityDirectionBoard",MARK,Vector2(816,492),0.75)
     _label("CITY ROUTES",Vector2(776,459))
+    _label("RELAY YARD >",Vector2(926,475))
     var points := [
         Vector2(288,112),Vector2(368,136),Vector2(464,112),Vector2(560,128),
         Vector2(640,112),Vector2(864,136),Vector2(944,168),Vector2(944,304),

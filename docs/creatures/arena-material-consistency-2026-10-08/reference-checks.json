@@ -1,0 +1,61 @@
+[
+  {
+    "path": "assets/sprites/creatures/oxbowarchon.png",
+    "unchanged": true,
+    "original_sha256": "0638f8c032019075b66c2675637c3aebadfdd71e609b78ca75469dc475d007ea",
+    "current_sha256": "0638f8c032019075b66c2675637c3aebadfdd71e609b78ca75469dc475d007ea"
+  },
+  {
+    "path": "assets/sprites/creatures/attacks/oxbowarchon_kingstone_rail/style_matched/titlecard.png",
+    "unchanged": true,
+    "original_sha256": "49ebf71ddb5228ddbb36f1c250fa84b6296db7218a2a10a82c588505889ccd45",
+    "current_sha256": "49ebf71ddb5228ddbb36f1c250fa84b6296db7218a2a10a82c588505889ccd45"
+  },
+  {
+    "path": "docs/creatures/arena-starters-2026-10-07/forms/oathfen.png",
+    "unchanged": true,
+    "original_sha256": "88f2a2eac9739b394d331bafd405b2a3cf210c2c979a51ed8577b19c90dddf2e",
+    "current_sha256": "88f2a2eac9739b394d331bafd405b2a3cf210c2c979a51ed8577b19c90dddf2e"
+  },
+  {
+    "path": "docs/creatures/arena-starters-2026-10-07/forms/oxbowarchon.png",
+    "unchanged": true,
+    "original_sha256": "19f26ea6782244e879c48bf284fe2b0eed291d552ecafcd99566d0e64da22af0",
+    "current_sha256": "19f26ea6782244e879c48bf284fe2b0eed291d552ecafcd99566d0e64da22af0"
+  },
+  {
+    "path": "docs/creatures/arena-starters-2026-10-07/forms/preostmar.png",
+    "unchanged": true,
+    "original_sha256": "4a7ac189ee3b83c19e47e2e63c3052c2d0a61875d2b89691534e6547ebedebc8",
+    "current_sha256": "4a7ac189ee3b83c19e47e2e63c3052c2d0a61875d2b89691534e6547ebedebc8"
+  },
+  {
+    "path": "docs/creatures/arena-starters-2026-10-07/forms/punchybun.png",
+    "unchanged": true,
+    "original_sha256": "43449074ed63fcd560aa45802261c4e7c222324bdf4bec1d1b231cb4542b5a4d",
+    "current_sha256": "43449074ed63fcd560aa45802261c4e7c222324bdf4bec1d1b231cb4542b5a4d"
+  },
+  {
+    "path": "docs/creatures/arena-starters-2026-10-07/forms/slagglass.png",
+    "unchanged": true,
+    "original_sha256": "85192dd37c383ccec03e697be3fe08d3ccd7c8c17cb6f8ddd0dcb0dc5cd15a8c",
+    "current_sha256": "85192dd37c383ccec03e697be3fe08d3ccd7c8c17cb6f8ddd0dcb0dc5cd15a8c"
+  },
+  {
+    "path": "docs/creatures/arena-starters-2026-10-07/forms/sparkjab.png",
+    "unchanged": true,
+    "original_sha256": "13e0368c18201184e8e6b36255d4c9e5e7e7fa09bfa90ef53004ee40893e8399",
+    "current_sha256": "13e0368c18201184e8e6b36255d4c9e5e7e7fa09bfa90ef53004ee40893e8399"
+  },
+  {
+    "path": "docs/creatures/arena-starters-2026-10-07/forms/starward.png",
+    "unchanged": true,
+    "original_sha256": "a753509bea2bce772fa72bdd080a37e8000a21cba0a24a03a1e795bdf175dab7",
+    "current_sha256": "a753509bea2bce772fa72bdd080a37e8000a21cba0a24a03a1e795bdf175dab7"
+  },
+  {
+    "path": "assets/sprites/creatures/slagglass_redo_2026_10_08/slagglass_front.png",
+    "raw_chosen_front_preserved": true,
+    "sha256": "a284d647a2fb00b54494607afa6e62b6229b99fd6f19b76162230b630fb13105"
+  }
+]

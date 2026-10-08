@@ -1,0 +1,3740 @@
+{
+  "checked_utc": "2026-10-08T12:11:07.156474+00:00",
+  "all_verified_images_unchanged": true,
+  "all_1190_other_arena_assets_unchanged": true,
+  "code_guards_unchanged": 653,
+  "concurrent_external_code_changes": [
+    {
+      "path": "scripts/arena/arena_prototype.gd",
+      "verified_sha256": "859fa4b33cc85929fbbed7b565f45e6b78afaaa5522b74f842ccb7f7df435d38",
+      "current_sha256": "9e965f302560c03833c258ff177f485edeba00a5533ba63eab39ccec5c3121b4",
+      "unchanged_since_verification": false,
+      "current_snapshot": "concurrent-code/arena_prototype.gd",
+      "current_last_write_utc": "2026-10-08T12:08:18.800678+00:00",
+      "preserved_without_codex_edit": true
+    }
+  ],
+  "native_checks_cover_verified_script_hash_not_later_change": true,
+  "images": [
+    {
+      "path": "assets/sprites/arena/oathfen/e.png",
+      "verified_sha256": "784c49dc9e58e0ab058770706e8e50ed31c75adf7f7071fc4d17aa2691818994",
+      "current_sha256": "784c49dc9e58e0ab058770706e8e50ed31c75adf7f7071fc4d17aa2691818994",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/oathfen/n.png",
+      "verified_sha256": "c405abca0edc3eb581b565f15c016843482c9372615bbc932aaafbe322741b3b",
+      "current_sha256": "c405abca0edc3eb581b565f15c016843482c9372615bbc932aaafbe322741b3b",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/oathfen/ne.png",
+      "verified_sha256": "d8aa2af0d50d7180a4818885500b250b65da66dc7046af021ac7d2a347ff5bcc",
+      "current_sha256": "d8aa2af0d50d7180a4818885500b250b65da66dc7046af021ac7d2a347ff5bcc",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/oathfen/nw.png",
+      "verified_sha256": "67063e3a1fb4a2fb3477ffdb2e9b7f4952ad78e8d4e355dc8de8d14ebea43275",
+      "current_sha256": "67063e3a1fb4a2fb3477ffdb2e9b7f4952ad78e8d4e355dc8de8d14ebea43275",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/oathfen/s.png",
+      "verified_sha256": "89db6b5c2e8b3f49718239afbe7ebace9539ad3e95e873a17eff348ddda89ff7",
+      "current_sha256": "89db6b5c2e8b3f49718239afbe7ebace9539ad3e95e873a17eff348ddda89ff7",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/oathfen/se.png",
+      "verified_sha256": "793cd2626352de0c20653b16f8f1cb7eeb0cb4f86d858ae08725269e533aec8f",
+      "current_sha256": "793cd2626352de0c20653b16f8f1cb7eeb0cb4f86d858ae08725269e533aec8f",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/oathfen/small/e.png",
+      "verified_sha256": "57693695b199c4a9dc3cd35b3efc95820c2becd458c771e3f91de4acc877361f",
+      "current_sha256": "57693695b199c4a9dc3cd35b3efc95820c2becd458c771e3f91de4acc877361f",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/oathfen/small/n.png",
+      "verified_sha256": "ed3b44217cc056e0a00fcdaaebf566fdff816f1ac3640f4a47e510c44f09c93c",
+      "current_sha256": "ed3b44217cc056e0a00fcdaaebf566fdff816f1ac3640f4a47e510c44f09c93c",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/oathfen/small/ne.png",
+      "verified_sha256": "5a73709ab853534de3e7c779172f4c356778418cef478f7e3771239a7604f4ca",
+      "current_sha256": "5a73709ab853534de3e7c779172f4c356778418cef478f7e3771239a7604f4ca",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/oathfen/small/nw.png",
+      "verified_sha256": "018c36c54c2ffb9de3367f69307ff8a1cfa1b7d9f9fd09234b1f0063e3c5a7e5",
+      "current_sha256": "018c36c54c2ffb9de3367f69307ff8a1cfa1b7d9f9fd09234b1f0063e3c5a7e5",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/oathfen/small/s.png",
+      "verified_sha256": "777b690283d22f3170fa6119c7e5f9e456e1edd946f13630efbb40f479f1e959",
+      "current_sha256": "777b690283d22f3170fa6119c7e5f9e456e1edd946f13630efbb40f479f1e959",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/oathfen/small/se.png",
+      "verified_sha256": "5a3d2df38900755eb4b0cd0889cf1f9214c7e276c8c933ce7670fde9b4c231a3",
+      "current_sha256": "5a3d2df38900755eb4b0cd0889cf1f9214c7e276c8c933ce7670fde9b4c231a3",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/oathfen/small/sw.png",
+      "verified_sha256": "0ef28daf6e0b8ece2728d8f85c8d9b6881ff1b035dcff37e557100ad815a691a",
+      "current_sha256": "0ef28daf6e0b8ece2728d8f85c8d9b6881ff1b035dcff37e557100ad815a691a",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/oathfen/small/w.png",
+      "verified_sha256": "889fedb6d5c24a89ddd961bb97e99f57914172877bf996b58daa3f85b8b2863c",
+      "current_sha256": "889fedb6d5c24a89ddd961bb97e99f57914172877bf996b58daa3f85b8b2863c",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/oathfen/small/walk_e_f0.png",
+      "verified_sha256": "2b59f376ced52b5d560174eb4aed32de90edd7dfad2d05efc2de19632bfc9558",
+      "current_sha256": "2b59f376ced52b5d560174eb4aed32de90edd7dfad2d05efc2de19632bfc9558",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/oathfen/small/walk_e_f1.png",
+      "verified_sha256": "ca913f2cb898f7e0aefd81986ab18e49ccdc5ee249005d3414cb7b9d1f8f70d9",
+      "current_sha256": "ca913f2cb898f7e0aefd81986ab18e49ccdc5ee249005d3414cb7b9d1f8f70d9",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/oathfen/small/walk_e_f2.png",
+      "verified_sha256": "274443d4e5571815ab107fea56eb7510f14af3ed878945adb52cc55f117ec47c",
+      "current_sha256": "274443d4e5571815ab107fea56eb7510f14af3ed878945adb52cc55f117ec47c",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/oathfen/small/walk_e_f3.png",
+      "verified_sha256": "4f2b1331aeb4d75e6cab9cec312beddc09b3ed7fa5e2a138f285d898ec6992c8",
+      "current_sha256": "4f2b1331aeb4d75e6cab9cec312beddc09b3ed7fa5e2a138f285d898ec6992c8",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/oathfen/small/walk_e_f4.png",
+      "verified_sha256": "7d79919b818fa2b4a210cdd3e0b556a94a400607427d24a3d4544694788cb716",
+      "current_sha256": "7d79919b818fa2b4a210cdd3e0b556a94a400607427d24a3d4544694788cb716",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/oathfen/small/walk_e_f5.png",
+      "verified_sha256": "e749065d2d8dd3e8bbaf9b613b8e7ab97af3bd73da22b4a2fa0357e92e69be52",
+      "current_sha256": "e749065d2d8dd3e8bbaf9b613b8e7ab97af3bd73da22b4a2fa0357e92e69be52",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/oathfen/small/walk_e_f6.png",
+      "verified_sha256": "ad1a70cb14310aad71ef0feae9367f5cab5cace85dfa0a4ded3923cbffaf35b7",
+      "current_sha256": "ad1a70cb14310aad71ef0feae9367f5cab5cace85dfa0a4ded3923cbffaf35b7",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/oathfen/small/walk_e_f7.png",
+      "verified_sha256": "ac311b526d2c68d0b5e099af737401d5edee8cc5aacf843c670e3cda2c4abe8b",
+      "current_sha256": "ac311b526d2c68d0b5e099af737401d5edee8cc5aacf843c670e3cda2c4abe8b",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/oathfen/small/walk_n_f0.png",
+      "verified_sha256": "fdab1055f89f8d4afdd0d5185c9e76b44b223939f0eab16142daedc62731b9d5",
+      "current_sha256": "fdab1055f89f8d4afdd0d5185c9e76b44b223939f0eab16142daedc62731b9d5",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/oathfen/small/walk_n_f1.png",
+      "verified_sha256": "6178d54ccb649c909e5379ca12797920ec5623fd1f383e878d1423d8b7869b80",
+      "current_sha256": "6178d54ccb649c909e5379ca12797920ec5623fd1f383e878d1423d8b7869b80",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/oathfen/small/walk_n_f2.png",
+      "verified_sha256": "1d32a9c1fc8f9fc08d2b84293ff5fc8df31a0a6236e7089022e0f6e8d3bcece4",
+      "current_sha256": "1d32a9c1fc8f9fc08d2b84293ff5fc8df31a0a6236e7089022e0f6e8d3bcece4",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/oathfen/small/walk_n_f3.png",
+      "verified_sha256": "f8904daa6423fa9ebb10a986244b4d7e951e487d9430d0c7fb7c4a767802b2f9",
+      "current_sha256": "f8904daa6423fa9ebb10a986244b4d7e951e487d9430d0c7fb7c4a767802b2f9",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/oathfen/small/walk_n_f4.png",
+      "verified_sha256": "294a53fcf53f6b13d8fe9b2e56928ef32e205d678d7ac68f1386010b2725f4be",
+      "current_sha256": "294a53fcf53f6b13d8fe9b2e56928ef32e205d678d7ac68f1386010b2725f4be",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/oathfen/small/walk_n_f5.png",
+      "verified_sha256": "4e70269d493efd1e13985ddb63c7c399a1c0cb5dbd1a0bc824696eda8fe595c0",
+      "current_sha256": "4e70269d493efd1e13985ddb63c7c399a1c0cb5dbd1a0bc824696eda8fe595c0",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/oathfen/small/walk_n_f6.png",
+      "verified_sha256": "12c186e7db67f573e7e75fdb34a7f83233c99957f070d604e76484f8df0ec6cb",
+      "current_sha256": "12c186e7db67f573e7e75fdb34a7f83233c99957f070d604e76484f8df0ec6cb",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/oathfen/small/walk_n_f7.png",
+      "verified_sha256": "93e38fc0238e503f5ad55cd72fd5a6829ee125e05511393337051fb9993851b1",
+      "current_sha256": "93e38fc0238e503f5ad55cd72fd5a6829ee125e05511393337051fb9993851b1",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/oathfen/small/walk_ne_f0.png",
+      "verified_sha256": "4a0ad5abda56a73c8138ddc1c807909503e29d52c62d17a761e46d8975ee1c66",
+      "current_sha256": "4a0ad5abda56a73c8138ddc1c807909503e29d52c62d17a761e46d8975ee1c66",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/oathfen/small/walk_ne_f1.png",
+      "verified_sha256": "fccf7010924d37216c11744ba91f7bb2e5f94a4d724b02a10da7ce39912da6d9",
+      "current_sha256": "fccf7010924d37216c11744ba91f7bb2e5f94a4d724b02a10da7ce39912da6d9",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/oathfen/small/walk_ne_f2.png",
+      "verified_sha256": "52883550d6c0bbaa6911cd43f9f509f4f561bc01a9e92ad1eb2a785531f988dd",
+      "current_sha256": "52883550d6c0bbaa6911cd43f9f509f4f561bc01a9e92ad1eb2a785531f988dd",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/oathfen/small/walk_ne_f3.png",
+      "verified_sha256": "af8aa6b68d8357804b2c2448414fb9a4adc1e60b4dcae3141d068ca4160a885f",
+      "current_sha256": "af8aa6b68d8357804b2c2448414fb9a4adc1e60b4dcae3141d068ca4160a885f",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/oathfen/small/walk_ne_f4.png",
+      "verified_sha256": "860956321999395920697d3c11a4543ad56348691e47807e13bc06bee1a93933",
+      "current_sha256": "860956321999395920697d3c11a4543ad56348691e47807e13bc06bee1a93933",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/oathfen/small/walk_ne_f5.png",
+      "verified_sha256": "8959c3afb857c2d0049a09b6ba3e6cd4a411183204ccf66eb2676702ca7132c0",
+      "current_sha256": "8959c3afb857c2d0049a09b6ba3e6cd4a411183204ccf66eb2676702ca7132c0",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/oathfen/small/walk_ne_f6.png",
+      "verified_sha256": "198b7dfbeaa2f961ccc91a9597b255d0a128abad2585a8ea5f61050f78cbb8b4",
+      "current_sha256": "198b7dfbeaa2f961ccc91a9597b255d0a128abad2585a8ea5f61050f78cbb8b4",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/oathfen/small/walk_ne_f7.png",
+      "verified_sha256": "de51cad04f454c094acab59ca3cd713d6f5716387a006226ff306b052745a23a",
+      "current_sha256": "de51cad04f454c094acab59ca3cd713d6f5716387a006226ff306b052745a23a",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/oathfen/small/walk_nw_f0.png",
+      "verified_sha256": "c8d6c9f30f86d3d5ddd11a16ea045eddd6cd8de83ba89ca9d1ff0a9b0d512fd0",
+      "current_sha256": "c8d6c9f30f86d3d5ddd11a16ea045eddd6cd8de83ba89ca9d1ff0a9b0d512fd0",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/oathfen/small/walk_nw_f1.png",
+      "verified_sha256": "8d5758dbc226ddfe6ac4357b0282cd49af818117109f17179babf4868e36c5e7",
+      "current_sha256": "8d5758dbc226ddfe6ac4357b0282cd49af818117109f17179babf4868e36c5e7",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/oathfen/small/walk_nw_f2.png",
+      "verified_sha256": "1d74a45fcc7426c1a3cfe794124ac4350555a30d56bbd873ff1c595f607ff891",
+      "current_sha256": "1d74a45fcc7426c1a3cfe794124ac4350555a30d56bbd873ff1c595f607ff891",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/oathfen/small/walk_nw_f3.png",
+      "verified_sha256": "b89f538849db74e3422ecaf03bd4fd7473f256dfc99573a8d56b35dd8d71178d",
+      "current_sha256": "b89f538849db74e3422ecaf03bd4fd7473f256dfc99573a8d56b35dd8d71178d",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/oathfen/small/walk_nw_f4.png",
+      "verified_sha256": "4cbf2796a963ed389a8755a6d22de9910d9a6349a7646d9a8cfea85f731dc875",
+      "current_sha256": "4cbf2796a963ed389a8755a6d22de9910d9a6349a7646d9a8cfea85f731dc875",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/oathfen/small/walk_nw_f5.png",
+      "verified_sha256": "1a75d678045a2a6c09ae73ef4b0b0238542775ac7bf8505d67811da3a49bc53c",
+      "current_sha256": "1a75d678045a2a6c09ae73ef4b0b0238542775ac7bf8505d67811da3a49bc53c",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/oathfen/small/walk_nw_f6.png",
+      "verified_sha256": "3963011edfbd4f413575a4f4fd79e59cc639c266ed3ce70cd06c6fb912bd0075",
+      "current_sha256": "3963011edfbd4f413575a4f4fd79e59cc639c266ed3ce70cd06c6fb912bd0075",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/oathfen/small/walk_nw_f7.png",
+      "verified_sha256": "e9b0661907c8874f0c9abd062ee299da0e103ae1078aeb285de7e0dbd4215e2c",
+      "current_sha256": "e9b0661907c8874f0c9abd062ee299da0e103ae1078aeb285de7e0dbd4215e2c",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/oathfen/small/walk_s_f0.png",
+      "verified_sha256": "4f21139f06a1c1035fb070d3db6970e44dd03193a1c849e7ab6bcc311625e8be",
+      "current_sha256": "4f21139f06a1c1035fb070d3db6970e44dd03193a1c849e7ab6bcc311625e8be",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/oathfen/small/walk_s_f1.png",
+      "verified_sha256": "085d9ce95bbc98fbf3a1152d43cda02779fce07d97174b4443753c0738dccd8a",
+      "current_sha256": "085d9ce95bbc98fbf3a1152d43cda02779fce07d97174b4443753c0738dccd8a",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/oathfen/small/walk_s_f2.png",
+      "verified_sha256": "42e4d8364b23614c08ab1e1319130f59c676e485db4531c6031112e6cd8bcf7b",
+      "current_sha256": "42e4d8364b23614c08ab1e1319130f59c676e485db4531c6031112e6cd8bcf7b",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/oathfen/small/walk_s_f3.png",
+      "verified_sha256": "30aee036865ac9e3a80e24af2f0a3c48dada4ea5b5b76dd546c2078d809e79b5",
+      "current_sha256": "30aee036865ac9e3a80e24af2f0a3c48dada4ea5b5b76dd546c2078d809e79b5",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/oathfen/small/walk_s_f4.png",
+      "verified_sha256": "250669aee9ad0402859d0fe6ccce69b4b660430fb547a0a51a01d3b5330c7297",
+      "current_sha256": "250669aee9ad0402859d0fe6ccce69b4b660430fb547a0a51a01d3b5330c7297",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/oathfen/small/walk_s_f5.png",
+      "verified_sha256": "a0103425779a6806a3b85b89d12c8fdddfcf041a62051d34933177a65d38febe",
+      "current_sha256": "a0103425779a6806a3b85b89d12c8fdddfcf041a62051d34933177a65d38febe",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/oathfen/small/walk_s_f6.png",
+      "verified_sha256": "cebdfa410eb0015e08d7aa74ff0daf44db8e71c92d4ba3ff30725dd317f603e4",
+      "current_sha256": "cebdfa410eb0015e08d7aa74ff0daf44db8e71c92d4ba3ff30725dd317f603e4",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/oathfen/small/walk_s_f7.png",
+      "verified_sha256": "a38fe0d3907377eff54b64fd7855cc0757d96c056281f3ffe22d168e7f5498d7",
+      "current_sha256": "a38fe0d3907377eff54b64fd7855cc0757d96c056281f3ffe22d168e7f5498d7",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/oathfen/small/walk_se_f0.png",
+      "verified_sha256": "edadaecf279c6365d61bb80ac37c73bb0b47ac83b447f0bf6055d21ac958e497",
+      "current_sha256": "edadaecf279c6365d61bb80ac37c73bb0b47ac83b447f0bf6055d21ac958e497",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/oathfen/small/walk_se_f1.png",
+      "verified_sha256": "f1db3552bc7bbd5f37327d32c61fe04b471f86e0a7fe914a98ff326220904f53",
+      "current_sha256": "f1db3552bc7bbd5f37327d32c61fe04b471f86e0a7fe914a98ff326220904f53",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/oathfen/small/walk_se_f2.png",
+      "verified_sha256": "e7d89499f54e786778f4a6442edaa6f537da66985c514ae78b6d9f2dab824c11",
+      "current_sha256": "e7d89499f54e786778f4a6442edaa6f537da66985c514ae78b6d9f2dab824c11",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/oathfen/small/walk_se_f3.png",
+      "verified_sha256": "8e7ef5de4bb6946e13578036cfbab97c4cf4dd6dbf5c1fe06ccfcf1684a73561",
+      "current_sha256": "8e7ef5de4bb6946e13578036cfbab97c4cf4dd6dbf5c1fe06ccfcf1684a73561",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/oathfen/small/walk_se_f4.png",
+      "verified_sha256": "4660c561303457a7b7652e1ba2bfda7969d5c590e24578c16cab4e1f6bdc801e",
+      "current_sha256": "4660c561303457a7b7652e1ba2bfda7969d5c590e24578c16cab4e1f6bdc801e",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/oathfen/small/walk_se_f5.png",
+      "verified_sha256": "b36449f7edb47b1a604531dc3eb43ea6daaf2de02c9ffd64288d57ca8939cc23",
+      "current_sha256": "b36449f7edb47b1a604531dc3eb43ea6daaf2de02c9ffd64288d57ca8939cc23",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/oathfen/small/walk_se_f6.png",
+      "verified_sha256": "2a1fcf50dd98d1c7c0f452f50c03682580b59a26bfeb774744e54fc4e197c5ab",
+      "current_sha256": "2a1fcf50dd98d1c7c0f452f50c03682580b59a26bfeb774744e54fc4e197c5ab",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/oathfen/small/walk_se_f7.png",
+      "verified_sha256": "b63f316234151550b5cd6b8f29e510555d321edb5a330d3e11b762fdeca48c95",
+      "current_sha256": "b63f316234151550b5cd6b8f29e510555d321edb5a330d3e11b762fdeca48c95",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/oathfen/small/walk_sw_f0.png",
+      "verified_sha256": "ff32414f43608bd4be5ac6026ee77858bdc1fe8f669944420d2c116ba4ce6fcf",
+      "current_sha256": "ff32414f43608bd4be5ac6026ee77858bdc1fe8f669944420d2c116ba4ce6fcf",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/oathfen/small/walk_sw_f1.png",
+      "verified_sha256": "abdbf9221a8f3bb2024c6b23d9dd9258efb13c0e8ea6028b6b01bdea225a4576",
+      "current_sha256": "abdbf9221a8f3bb2024c6b23d9dd9258efb13c0e8ea6028b6b01bdea225a4576",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/oathfen/small/walk_sw_f2.png",
+      "verified_sha256": "f028c5a671f09ef2e9a8ddeba7275d1658c719d80e15f670c29c8d54d4c1ba58",
+      "current_sha256": "f028c5a671f09ef2e9a8ddeba7275d1658c719d80e15f670c29c8d54d4c1ba58",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/oathfen/small/walk_sw_f3.png",
+      "verified_sha256": "c19383acf96a0700c589c3babf105b277a6389c84e92bbfa4446a2fbb7ee31d5",
+      "current_sha256": "c19383acf96a0700c589c3babf105b277a6389c84e92bbfa4446a2fbb7ee31d5",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/oathfen/small/walk_sw_f4.png",
+      "verified_sha256": "a9b4fad9cd9479c7cddbb5ceb1a9475278e9109ad0b003823e0e79a91abe5730",
+      "current_sha256": "a9b4fad9cd9479c7cddbb5ceb1a9475278e9109ad0b003823e0e79a91abe5730",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/oathfen/small/walk_sw_f5.png",
+      "verified_sha256": "2a8554d6f67f29af4b1430fe911b544a59ae4985def61e971d2b51333978015a",
+      "current_sha256": "2a8554d6f67f29af4b1430fe911b544a59ae4985def61e971d2b51333978015a",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/oathfen/small/walk_sw_f6.png",
+      "verified_sha256": "7edb7a08eea1251744d8db9f1f65dba281d20bad459f8e2414325050420cd770",
+      "current_sha256": "7edb7a08eea1251744d8db9f1f65dba281d20bad459f8e2414325050420cd770",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/oathfen/small/walk_sw_f7.png",
+      "verified_sha256": "eeebb0acf9428fe48121e25fdb22e661f37078aa4ccf828dc0f6979ce712935d",
+      "current_sha256": "eeebb0acf9428fe48121e25fdb22e661f37078aa4ccf828dc0f6979ce712935d",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/oathfen/small/walk_w_f0.png",
+      "verified_sha256": "80968b6272e661cdcaaa30bb6ca4488722ad47d0f7df828bdd91ce70e375d113",
+      "current_sha256": "80968b6272e661cdcaaa30bb6ca4488722ad47d0f7df828bdd91ce70e375d113",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/oathfen/small/walk_w_f1.png",
+      "verified_sha256": "6189002a3e6ea9e412d5493893a8b857d1f93e7957f265526430357e57be927b",
+      "current_sha256": "6189002a3e6ea9e412d5493893a8b857d1f93e7957f265526430357e57be927b",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/oathfen/small/walk_w_f2.png",
+      "verified_sha256": "fd32f68acf7139b5967d37bbdc0ec76763535cbc5691dd4c4adbfc20ad905bd9",
+      "current_sha256": "fd32f68acf7139b5967d37bbdc0ec76763535cbc5691dd4c4adbfc20ad905bd9",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/oathfen/small/walk_w_f3.png",
+      "verified_sha256": "8181dd371b3f114dc37aacd7c89aaea9ab7be84fa9cbb55fde0305f356155416",
+      "current_sha256": "8181dd371b3f114dc37aacd7c89aaea9ab7be84fa9cbb55fde0305f356155416",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/oathfen/small/walk_w_f4.png",
+      "verified_sha256": "757fb532f79d96274dfc485e1f8496bc78b7af3d2007d99614ff9b7a6c4619b2",
+      "current_sha256": "757fb532f79d96274dfc485e1f8496bc78b7af3d2007d99614ff9b7a6c4619b2",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/oathfen/small/walk_w_f5.png",
+      "verified_sha256": "fe3db12a6f115062613dc42edd9ce72b8aa45671ff79d1d3b8291130a88e45f9",
+      "current_sha256": "fe3db12a6f115062613dc42edd9ce72b8aa45671ff79d1d3b8291130a88e45f9",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/oathfen/small/walk_w_f6.png",
+      "verified_sha256": "8cd909359aef202feb35fc08fb9c9ef9bc23e6cdcbbabbcdf75cd5fda268b9d6",
+      "current_sha256": "8cd909359aef202feb35fc08fb9c9ef9bc23e6cdcbbabbcdf75cd5fda268b9d6",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/oathfen/small/walk_w_f7.png",
+      "verified_sha256": "9d1ce5a2d3234b89eca2e4049dd696a5e291cf08cee9ab2be793cb2d2dd961ca",
+      "current_sha256": "9d1ce5a2d3234b89eca2e4049dd696a5e291cf08cee9ab2be793cb2d2dd961ca",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/oathfen/sw.png",
+      "verified_sha256": "88503395772f6e63105ebf56b464de582521f7e6ae4077e5a9a7bd0fe7c85fd8",
+      "current_sha256": "88503395772f6e63105ebf56b464de582521f7e6ae4077e5a9a7bd0fe7c85fd8",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/oathfen/w.png",
+      "verified_sha256": "ee3a2f42739a4ee57c2a225a878034abcb766be5fc76b979cab42c3b988fe89e",
+      "current_sha256": "ee3a2f42739a4ee57c2a225a878034abcb766be5fc76b979cab42c3b988fe89e",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/oxbowarchon/e.png",
+      "verified_sha256": "61ac69cdb5894d2ffe04a562b5801e0c274d29f90f1ba10822a4409e7b5d92f1",
+      "current_sha256": "61ac69cdb5894d2ffe04a562b5801e0c274d29f90f1ba10822a4409e7b5d92f1",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/oxbowarchon/n.png",
+      "verified_sha256": "13ea8dc9fa13331a6d934fca89385c794c0131bd5e119d7c87c0f23a222a5f15",
+      "current_sha256": "13ea8dc9fa13331a6d934fca89385c794c0131bd5e119d7c87c0f23a222a5f15",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/oxbowarchon/ne.png",
+      "verified_sha256": "9c086ab141c99174a6a5bcb5cb99b99c86f176d132f5dba9c78356f0e73df910",
+      "current_sha256": "9c086ab141c99174a6a5bcb5cb99b99c86f176d132f5dba9c78356f0e73df910",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/oxbowarchon/nw.png",
+      "verified_sha256": "676960c6e866e1a651a4cc4a19e95adaf7baa20fa03dd1a829a22fee6cec272b",
+      "current_sha256": "676960c6e866e1a651a4cc4a19e95adaf7baa20fa03dd1a829a22fee6cec272b",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/oxbowarchon/s.png",
+      "verified_sha256": "aeecdb370a34266979ab7cdfb226970973a0d16d3530f11939c2f5e464c422c1",
+      "current_sha256": "aeecdb370a34266979ab7cdfb226970973a0d16d3530f11939c2f5e464c422c1",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/oxbowarchon/se.png",
+      "verified_sha256": "f200fbee3557e681e7c4547fa9aa9de4a85390b09ce678c23b90abeba213eb91",
+      "current_sha256": "f200fbee3557e681e7c4547fa9aa9de4a85390b09ce678c23b90abeba213eb91",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/oxbowarchon/small/e.png",
+      "verified_sha256": "c20b7760a594f8aa5706bb09e93905823257991f33febfc677c22035d71b8eb6",
+      "current_sha256": "c20b7760a594f8aa5706bb09e93905823257991f33febfc677c22035d71b8eb6",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/oxbowarchon/small/n.png",
+      "verified_sha256": "f23b89d8cc95633c9a6236e795d2fd5b995f72cd0825147cc002d0738e3ef154",
+      "current_sha256": "f23b89d8cc95633c9a6236e795d2fd5b995f72cd0825147cc002d0738e3ef154",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/oxbowarchon/small/ne.png",
+      "verified_sha256": "bb930627cd29b265e09312f8484130836d2f908b325cfa8e082a9d5380990fb6",
+      "current_sha256": "bb930627cd29b265e09312f8484130836d2f908b325cfa8e082a9d5380990fb6",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/oxbowarchon/small/nw.png",
+      "verified_sha256": "5c2ed83e0917b9287cddf3edce6c37cfba7e8d8cffe848f4fe19269fa856b0be",
+      "current_sha256": "5c2ed83e0917b9287cddf3edce6c37cfba7e8d8cffe848f4fe19269fa856b0be",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/oxbowarchon/small/s.png",
+      "verified_sha256": "9177ced44528078c36980820eeb14824deb7fcdb8df38f17d9d33677cd999061",
+      "current_sha256": "9177ced44528078c36980820eeb14824deb7fcdb8df38f17d9d33677cd999061",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/oxbowarchon/small/se.png",
+      "verified_sha256": "51ea7c320356175466d9f279e239c3f456ee60e241f18c854e9768feecab76cc",
+      "current_sha256": "51ea7c320356175466d9f279e239c3f456ee60e241f18c854e9768feecab76cc",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/oxbowarchon/small/sw.png",
+      "verified_sha256": "a30f7310c50b24326d6dbbb4bb8d516d8f1266c04e1d37d80d7af7833c59d0b5",
+      "current_sha256": "a30f7310c50b24326d6dbbb4bb8d516d8f1266c04e1d37d80d7af7833c59d0b5",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/oxbowarchon/small/w.png",
+      "verified_sha256": "f3837c56da6acb02a0fd1f623e3d10286a71cd05639c93bf0f4d898e82896fb2",
+      "current_sha256": "f3837c56da6acb02a0fd1f623e3d10286a71cd05639c93bf0f4d898e82896fb2",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/oxbowarchon/small/walk_e_f0.png",
+      "verified_sha256": "b52d1e293b93602aad6b540cb8e09f6c3dad39ec8cfd1f3e938c4c18bb4e5e79",
+      "current_sha256": "b52d1e293b93602aad6b540cb8e09f6c3dad39ec8cfd1f3e938c4c18bb4e5e79",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/oxbowarchon/small/walk_e_f1.png",
+      "verified_sha256": "5674a1262b5a73a0601ca65b068e59ded7f2346c86906aff1b5880913c62a43f",
+      "current_sha256": "5674a1262b5a73a0601ca65b068e59ded7f2346c86906aff1b5880913c62a43f",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/oxbowarchon/small/walk_e_f2.png",
+      "verified_sha256": "2950f3a747bf80955b46c3c5ac92bfdd23a92e30359a82f270df279ad27a548c",
+      "current_sha256": "2950f3a747bf80955b46c3c5ac92bfdd23a92e30359a82f270df279ad27a548c",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/oxbowarchon/small/walk_e_f3.png",
+      "verified_sha256": "38c2229963c2fc60d3c0f680151e00ca4752f6200ff3421bb021e791f3d35a47",
+      "current_sha256": "38c2229963c2fc60d3c0f680151e00ca4752f6200ff3421bb021e791f3d35a47",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/oxbowarchon/small/walk_e_f4.png",
+      "verified_sha256": "97cf31d7abee9e0a64549a8901fd425d09baf5b3bbdebf4e0085b413cb72ce18",
+      "current_sha256": "97cf31d7abee9e0a64549a8901fd425d09baf5b3bbdebf4e0085b413cb72ce18",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/oxbowarchon/small/walk_e_f5.png",
+      "verified_sha256": "a671937404eca2e0eb8cea7e41aa958bb257e199df1f7deb3d8d43814f7a0006",
+      "current_sha256": "a671937404eca2e0eb8cea7e41aa958bb257e199df1f7deb3d8d43814f7a0006",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/oxbowarchon/small/walk_e_f6.png",
+      "verified_sha256": "a8f475a4b1682c7a3e89875d83b4e97892875e12fd1914e0f92546bb39849d19",
+      "current_sha256": "a8f475a4b1682c7a3e89875d83b4e97892875e12fd1914e0f92546bb39849d19",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/oxbowarchon/small/walk_e_f7.png",
+      "verified_sha256": "53dc055c5df382c93440654dd0e7618af01cca527f05f81411182a63efd653db",
+      "current_sha256": "53dc055c5df382c93440654dd0e7618af01cca527f05f81411182a63efd653db",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/oxbowarchon/small/walk_n_f0.png",
+      "verified_sha256": "a73b73f524cd9f224b1a58254ecfdc668a6d48e5c6a2c6778a4a56082fc92d4b",
+      "current_sha256": "a73b73f524cd9f224b1a58254ecfdc668a6d48e5c6a2c6778a4a56082fc92d4b",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/oxbowarchon/small/walk_n_f1.png",
+      "verified_sha256": "1f880baea2d2f93fbbca839531dcc9a450e66831ca38e3d3f5c4788279e8fe7d",
+      "current_sha256": "1f880baea2d2f93fbbca839531dcc9a450e66831ca38e3d3f5c4788279e8fe7d",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/oxbowarchon/small/walk_n_f2.png",
+      "verified_sha256": "387a3d07030c80b871af315a3c702a14a8e3a091205ea06e3df5b4e36c872d7c",
+      "current_sha256": "387a3d07030c80b871af315a3c702a14a8e3a091205ea06e3df5b4e36c872d7c",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/oxbowarchon/small/walk_n_f3.png",
+      "verified_sha256": "7b1e1bf4630536ebc01f852b90dbd10facc852da25e70117c7a1a384739dc713",
+      "current_sha256": "7b1e1bf4630536ebc01f852b90dbd10facc852da25e70117c7a1a384739dc713",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/oxbowarchon/small/walk_n_f4.png",
+      "verified_sha256": "1890f7b9ade714bf08b64fc616ee0390fe41d2b497d3ed7342e16d2d76865354",
+      "current_sha256": "1890f7b9ade714bf08b64fc616ee0390fe41d2b497d3ed7342e16d2d76865354",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/oxbowarchon/small/walk_n_f5.png",
+      "verified_sha256": "144021b281393402d3a25f7e5c61812a48ddcb2085d4aec9c20196afa6d2a64e",
+      "current_sha256": "144021b281393402d3a25f7e5c61812a48ddcb2085d4aec9c20196afa6d2a64e",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/oxbowarchon/small/walk_n_f6.png",
+      "verified_sha256": "333fd3ef46f91aca73e11d3aff6ad583191ed6fd35cc96775cb4d16aad9b6e2a",
+      "current_sha256": "333fd3ef46f91aca73e11d3aff6ad583191ed6fd35cc96775cb4d16aad9b6e2a",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/oxbowarchon/small/walk_n_f7.png",
+      "verified_sha256": "f3ccd89eb3ee6b26469ec4c463e95583028587df4a682eb4fa0fccdf4aeb0052",
+      "current_sha256": "f3ccd89eb3ee6b26469ec4c463e95583028587df4a682eb4fa0fccdf4aeb0052",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/oxbowarchon/small/walk_ne_f0.png",
+      "verified_sha256": "4834d83f9db077182ce3016cce4318c62f38f3fe5b30361b3c7eeb94f5133d1a",
+      "current_sha256": "4834d83f9db077182ce3016cce4318c62f38f3fe5b30361b3c7eeb94f5133d1a",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/oxbowarchon/small/walk_ne_f1.png",
+      "verified_sha256": "7eb378d751482bb4e7d320520636bcc71febb544b89107b7e4dbd6b3457fa7da",
+      "current_sha256": "7eb378d751482bb4e7d320520636bcc71febb544b89107b7e4dbd6b3457fa7da",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/oxbowarchon/small/walk_ne_f2.png",
+      "verified_sha256": "aab109739b4ef76a04eed0cc6e6a3868d88f1bdc63264a847a1400381b03a189",
+      "current_sha256": "aab109739b4ef76a04eed0cc6e6a3868d88f1bdc63264a847a1400381b03a189",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/oxbowarchon/small/walk_ne_f3.png",
+      "verified_sha256": "686103556f81f213a5f62eb8de35f1fca7a74d605ec1c92b5ea0de10c726d9c7",
+      "current_sha256": "686103556f81f213a5f62eb8de35f1fca7a74d605ec1c92b5ea0de10c726d9c7",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/oxbowarchon/small/walk_ne_f4.png",
+      "verified_sha256": "9b399f930dcaf96f1c77a5aa9dd5281ca40bb97702f812f49d8a94d364c1af28",
+      "current_sha256": "9b399f930dcaf96f1c77a5aa9dd5281ca40bb97702f812f49d8a94d364c1af28",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/oxbowarchon/small/walk_ne_f5.png",
+      "verified_sha256": "18487545dac7d704637a2d2ee8292ed232206eab14723f3d6e9de56fac0b4797",
+      "current_sha256": "18487545dac7d704637a2d2ee8292ed232206eab14723f3d6e9de56fac0b4797",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/oxbowarchon/small/walk_ne_f6.png",
+      "verified_sha256": "cc804ee0d1773cd5a550b81359646da4a7e076c41509d91879ae647a8afa0726",
+      "current_sha256": "cc804ee0d1773cd5a550b81359646da4a7e076c41509d91879ae647a8afa0726",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/oxbowarchon/small/walk_ne_f7.png",
+      "verified_sha256": "5ffd44b08a7a91373164051ccbb2de363a96c89760ac3d867050d9740acbeda1",
+      "current_sha256": "5ffd44b08a7a91373164051ccbb2de363a96c89760ac3d867050d9740acbeda1",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/oxbowarchon/small/walk_nw_f0.png",
+      "verified_sha256": "bf163b4fc60e24f3c70b72a1643837edf22171140792a2318e63b44bb0a2a90b",
+      "current_sha256": "bf163b4fc60e24f3c70b72a1643837edf22171140792a2318e63b44bb0a2a90b",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/oxbowarchon/small/walk_nw_f1.png",
+      "verified_sha256": "a9ca65d8cf31a0a6f3daa7ffa5e0a0c472fc86da4e96b35949ffd26ddc67c20d",
+      "current_sha256": "a9ca65d8cf31a0a6f3daa7ffa5e0a0c472fc86da4e96b35949ffd26ddc67c20d",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/oxbowarchon/small/walk_nw_f2.png",
+      "verified_sha256": "e373f48f04c45eeeb6be71cc51c3abc9d4ad73b465f07daaa823c3566290eeb6",
+      "current_sha256": "e373f48f04c45eeeb6be71cc51c3abc9d4ad73b465f07daaa823c3566290eeb6",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/oxbowarchon/small/walk_nw_f3.png",
+      "verified_sha256": "e2880485e8cd1c4d2015a7498cc5e2b722e4d7574171b1083854e5da78a65c7d",
+      "current_sha256": "e2880485e8cd1c4d2015a7498cc5e2b722e4d7574171b1083854e5da78a65c7d",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/oxbowarchon/small/walk_nw_f4.png",
+      "verified_sha256": "8bd7e54498fad79bf59221b99e8a98852ecb42df553d1151f8cf0efa68724a40",
+      "current_sha256": "8bd7e54498fad79bf59221b99e8a98852ecb42df553d1151f8cf0efa68724a40",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/oxbowarchon/small/walk_nw_f5.png",
+      "verified_sha256": "a04cf25cc0ecd785292bac398da873fcfb96d03b44b190981784def136ec34b3",
+      "current_sha256": "a04cf25cc0ecd785292bac398da873fcfb96d03b44b190981784def136ec34b3",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/oxbowarchon/small/walk_nw_f6.png",
+      "verified_sha256": "ea9cfce3901449e6c7cd51a20539df8648092d8ef9c0c279f0d7663c6d5988ff",
+      "current_sha256": "ea9cfce3901449e6c7cd51a20539df8648092d8ef9c0c279f0d7663c6d5988ff",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/oxbowarchon/small/walk_nw_f7.png",
+      "verified_sha256": "eda4e54e463fad8e8cfabba46195b824c67363a2c952fd1263a42bb705c30fb2",
+      "current_sha256": "eda4e54e463fad8e8cfabba46195b824c67363a2c952fd1263a42bb705c30fb2",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/oxbowarchon/small/walk_s_f0.png",
+      "verified_sha256": "41084ef05845e68ded9da96c503cc4f2f0cdcc0f51f07b89bf96612e0bee533c",
+      "current_sha256": "41084ef05845e68ded9da96c503cc4f2f0cdcc0f51f07b89bf96612e0bee533c",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/oxbowarchon/small/walk_s_f1.png",
+      "verified_sha256": "f39909aadd0bdc9acb3251def48b387d62dafe5be5d04ebf90cc2a84b5eacb7d",
+      "current_sha256": "f39909aadd0bdc9acb3251def48b387d62dafe5be5d04ebf90cc2a84b5eacb7d",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/oxbowarchon/small/walk_s_f2.png",
+      "verified_sha256": "d809478a14fe74c50a17baf0af5d8546ba2886a9dfaa49a9aa18fa75130d901e",
+      "current_sha256": "d809478a14fe74c50a17baf0af5d8546ba2886a9dfaa49a9aa18fa75130d901e",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/oxbowarchon/small/walk_s_f3.png",
+      "verified_sha256": "15014c499aff05c68d06507a8780ec981bbb3841fe4b72b1e31e9546b6a4c20f",
+      "current_sha256": "15014c499aff05c68d06507a8780ec981bbb3841fe4b72b1e31e9546b6a4c20f",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/oxbowarchon/small/walk_s_f4.png",
+      "verified_sha256": "a2d5e454ad0e02de622d877dc000343da41e54695579b7e094a7cd8d7092f7fb",
+      "current_sha256": "a2d5e454ad0e02de622d877dc000343da41e54695579b7e094a7cd8d7092f7fb",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/oxbowarchon/small/walk_s_f5.png",
+      "verified_sha256": "8f56b95f448e73dcf8c24a3b08d503583897435f8ce1f44683637dd791d5a7b9",
+      "current_sha256": "8f56b95f448e73dcf8c24a3b08d503583897435f8ce1f44683637dd791d5a7b9",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/oxbowarchon/small/walk_s_f6.png",
+      "verified_sha256": "2aaa239867a80048f6bc7a02aa0cf4c5710d5a8ae344a9303bc75a49240cd226",
+      "current_sha256": "2aaa239867a80048f6bc7a02aa0cf4c5710d5a8ae344a9303bc75a49240cd226",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/oxbowarchon/small/walk_s_f7.png",
+      "verified_sha256": "54c86ab42e1b97024df0b7c4fef09e7949ad353557878d677de430fbbacf0ef9",
+      "current_sha256": "54c86ab42e1b97024df0b7c4fef09e7949ad353557878d677de430fbbacf0ef9",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/oxbowarchon/small/walk_se_f0.png",
+      "verified_sha256": "f6ea3a11e5e8b8d6960d93bc85f30d1de92c2bac8de7dbf0dacb98b92f0a64b8",
+      "current_sha256": "f6ea3a11e5e8b8d6960d93bc85f30d1de92c2bac8de7dbf0dacb98b92f0a64b8",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/oxbowarchon/small/walk_se_f1.png",
+      "verified_sha256": "affdc17e5337e70838adf27e5f5c26c0de243beaa0f826bd25001535acdc0598",
+      "current_sha256": "affdc17e5337e70838adf27e5f5c26c0de243beaa0f826bd25001535acdc0598",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/oxbowarchon/small/walk_se_f2.png",
+      "verified_sha256": "94c5a928752a87f4e2219275f5f2506a111b8310416db51340c9ae03b51476b8",
+      "current_sha256": "94c5a928752a87f4e2219275f5f2506a111b8310416db51340c9ae03b51476b8",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/oxbowarchon/small/walk_se_f3.png",
+      "verified_sha256": "b3df2363db68baaa80a1e5e3669cbd17406b50dce1d241c64a65dc2c14967b8c",
+      "current_sha256": "b3df2363db68baaa80a1e5e3669cbd17406b50dce1d241c64a65dc2c14967b8c",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/oxbowarchon/small/walk_se_f4.png",
+      "verified_sha256": "1f2547b9af82de40b186dd3f99786b453899a4ee3069580f043aa94f79122f5c",
+      "current_sha256": "1f2547b9af82de40b186dd3f99786b453899a4ee3069580f043aa94f79122f5c",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/oxbowarchon/small/walk_se_f5.png",
+      "verified_sha256": "b9282972b88873ffe840c7de8de6c8bcf6c2494a2412d590ecbb9d003e9b53e4",
+      "current_sha256": "b9282972b88873ffe840c7de8de6c8bcf6c2494a2412d590ecbb9d003e9b53e4",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/oxbowarchon/small/walk_se_f6.png",
+      "verified_sha256": "740f2f6f73bcc8501a6d46c6a3c874294cbe75e6a32300f635eb878431e8be19",
+      "current_sha256": "740f2f6f73bcc8501a6d46c6a3c874294cbe75e6a32300f635eb878431e8be19",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/oxbowarchon/small/walk_se_f7.png",
+      "verified_sha256": "09d79e31726f2dd8b5f897382f9ca9955843573aa537debf9a75bd552d417065",
+      "current_sha256": "09d79e31726f2dd8b5f897382f9ca9955843573aa537debf9a75bd552d417065",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/oxbowarchon/small/walk_sw_f0.png",
+      "verified_sha256": "c8e65af8ef4b47581668ec69f9308cc55e184f9a2e3b255bce100cd77a5b1e3e",
+      "current_sha256": "c8e65af8ef4b47581668ec69f9308cc55e184f9a2e3b255bce100cd77a5b1e3e",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/oxbowarchon/small/walk_sw_f1.png",
+      "verified_sha256": "fb7b8cbaa7a3e7b06016886717f84a9962d5a31bba7cf7cc8524710852659787",
+      "current_sha256": "fb7b8cbaa7a3e7b06016886717f84a9962d5a31bba7cf7cc8524710852659787",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/oxbowarchon/small/walk_sw_f2.png",
+      "verified_sha256": "64f6616eb6c41868e5651daf6331da77f2c1af5818f3b5631da5e914a8a35d3e",
+      "current_sha256": "64f6616eb6c41868e5651daf6331da77f2c1af5818f3b5631da5e914a8a35d3e",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/oxbowarchon/small/walk_sw_f3.png",
+      "verified_sha256": "e1c9e1bc9c823c0f73795e1a768dc3570240ada3217c14c6f38443a9d9f52f22",
+      "current_sha256": "e1c9e1bc9c823c0f73795e1a768dc3570240ada3217c14c6f38443a9d9f52f22",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/oxbowarchon/small/walk_sw_f4.png",
+      "verified_sha256": "ade23957b41c771f63b3fda5f955456cab4413b6e7f2cfa7af92d1ca79e3c52d",
+      "current_sha256": "ade23957b41c771f63b3fda5f955456cab4413b6e7f2cfa7af92d1ca79e3c52d",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/oxbowarchon/small/walk_sw_f5.png",
+      "verified_sha256": "81c0b3b379ee5a9d0811be43a192391d19eed8c9f4715f08a8049a9377b2a758",
+      "current_sha256": "81c0b3b379ee5a9d0811be43a192391d19eed8c9f4715f08a8049a9377b2a758",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/oxbowarchon/small/walk_sw_f6.png",
+      "verified_sha256": "74b41f67bb41696ba89d4e6fad0aeb52ed2c542f8ffbdff0ccc5826fb62b9efd",
+      "current_sha256": "74b41f67bb41696ba89d4e6fad0aeb52ed2c542f8ffbdff0ccc5826fb62b9efd",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/oxbowarchon/small/walk_sw_f7.png",
+      "verified_sha256": "8845defa9ad479aa00f2b3527465771c61f9db19314129b46ebe1f683fbb8c21",
+      "current_sha256": "8845defa9ad479aa00f2b3527465771c61f9db19314129b46ebe1f683fbb8c21",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/oxbowarchon/small/walk_w_f0.png",
+      "verified_sha256": "547cfd2c9a6d9f24022174da81ba4e499becb8f0028e72c5c4b61d5d262f559b",
+      "current_sha256": "547cfd2c9a6d9f24022174da81ba4e499becb8f0028e72c5c4b61d5d262f559b",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/oxbowarchon/small/walk_w_f1.png",
+      "verified_sha256": "519c00a40074411f6bf065d255fe0b5ffc76242c4753b2707687e653a86b8d94",
+      "current_sha256": "519c00a40074411f6bf065d255fe0b5ffc76242c4753b2707687e653a86b8d94",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/oxbowarchon/small/walk_w_f2.png",
+      "verified_sha256": "33a9da837003b19eade60386f4477e4883f376853f48bdf46982da2c60740d08",
+      "current_sha256": "33a9da837003b19eade60386f4477e4883f376853f48bdf46982da2c60740d08",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/oxbowarchon/small/walk_w_f3.png",
+      "verified_sha256": "ee7daf74238c1044386f24557c8ec8278b9537436e7342d0a5617c1ff8598ee1",
+      "current_sha256": "ee7daf74238c1044386f24557c8ec8278b9537436e7342d0a5617c1ff8598ee1",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/oxbowarchon/small/walk_w_f4.png",
+      "verified_sha256": "cdb6d088f750a9e7dd515d051875e677cf92b4757f123d16c4f04a7e8a04f583",
+      "current_sha256": "cdb6d088f750a9e7dd515d051875e677cf92b4757f123d16c4f04a7e8a04f583",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/oxbowarchon/small/walk_w_f5.png",
+      "verified_sha256": "bef68f83ead1afada871b8bee1bce5437cbf86f6db87e4a8a581f426c278a56b",
+      "current_sha256": "bef68f83ead1afada871b8bee1bce5437cbf86f6db87e4a8a581f426c278a56b",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/oxbowarchon/small/walk_w_f6.png",
+      "verified_sha256": "ef75e615b2f38a03bf02fb19b8edd5438c92308395a81bf5be116659ac0ff086",
+      "current_sha256": "ef75e615b2f38a03bf02fb19b8edd5438c92308395a81bf5be116659ac0ff086",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/oxbowarchon/small/walk_w_f7.png",
+      "verified_sha256": "a0f21f0ea1baec0dedc5c7d445eea331d407bdf8aab2acd63754db225c9869a9",
+      "current_sha256": "a0f21f0ea1baec0dedc5c7d445eea331d407bdf8aab2acd63754db225c9869a9",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/oxbowarchon/sw.png",
+      "verified_sha256": "eeef022671671397113f85ca5d1090f9ca09737c7f1ada0006a4dabd12fde631",
+      "current_sha256": "eeef022671671397113f85ca5d1090f9ca09737c7f1ada0006a4dabd12fde631",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/oxbowarchon/w.png",
+      "verified_sha256": "6c5bea299bbafc560cb99cc10efc687bea07aee61255f5bf4b1f4838af271e91",
+      "current_sha256": "6c5bea299bbafc560cb99cc10efc687bea07aee61255f5bf4b1f4838af271e91",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/preostmar/e.png",
+      "verified_sha256": "116e23a26403042aa71e9784fa46529f6e5812f515f3959f81137a193660ac79",
+      "current_sha256": "116e23a26403042aa71e9784fa46529f6e5812f515f3959f81137a193660ac79",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/preostmar/n.png",
+      "verified_sha256": "5ee54585482fec87b12dc73d4f149dc426c6121394fd6707f9e34ae163bbba67",
+      "current_sha256": "5ee54585482fec87b12dc73d4f149dc426c6121394fd6707f9e34ae163bbba67",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/preostmar/ne.png",
+      "verified_sha256": "b7e83394acda38eab43238c1fdac859c17326d6ff81523c6f55b2e9edea2528c",
+      "current_sha256": "b7e83394acda38eab43238c1fdac859c17326d6ff81523c6f55b2e9edea2528c",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/preostmar/nw.png",
+      "verified_sha256": "63dd158449268491e0a018b2b1cb915652f6f3b3202d95fe33f2c1e456ce0a4d",
+      "current_sha256": "63dd158449268491e0a018b2b1cb915652f6f3b3202d95fe33f2c1e456ce0a4d",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/preostmar/s.png",
+      "verified_sha256": "55dff43b74df5c766a241dcb3acf9cdb118b2869a887c511ec7d31303fc0ce87",
+      "current_sha256": "55dff43b74df5c766a241dcb3acf9cdb118b2869a887c511ec7d31303fc0ce87",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/preostmar/se.png",
+      "verified_sha256": "3835952c0e2fb4afbf5426e5fb9a00539a4f6bbf997717ca98d9fe64e8179f89",
+      "current_sha256": "3835952c0e2fb4afbf5426e5fb9a00539a4f6bbf997717ca98d9fe64e8179f89",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/preostmar/small/e.png",
+      "verified_sha256": "ced444509986ef75d3eb6696f9e17de875bbe7c76699f683516a8baca266db97",
+      "current_sha256": "ced444509986ef75d3eb6696f9e17de875bbe7c76699f683516a8baca266db97",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/preostmar/small/n.png",
+      "verified_sha256": "32a3617151cacb8f32fe740b8a7328dced32a2ac2fbf85e033ad56d674fc6b0f",
+      "current_sha256": "32a3617151cacb8f32fe740b8a7328dced32a2ac2fbf85e033ad56d674fc6b0f",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/preostmar/small/ne.png",
+      "verified_sha256": "4c737718a97aaf1f3be658c342f39f0ab7e0554852ca921b308c2b09a99c9a99",
+      "current_sha256": "4c737718a97aaf1f3be658c342f39f0ab7e0554852ca921b308c2b09a99c9a99",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/preostmar/small/nw.png",
+      "verified_sha256": "d4e0ada3e3bd384e4a63e478bcd013047bae2e5e5a1a91d8c8c2dbc31a31fcd3",
+      "current_sha256": "d4e0ada3e3bd384e4a63e478bcd013047bae2e5e5a1a91d8c8c2dbc31a31fcd3",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/preostmar/small/s.png",
+      "verified_sha256": "2937cd912dac17bb5a721f80ee04f55fd048e706c1dd1400510ab3eba66cd0d7",
+      "current_sha256": "2937cd912dac17bb5a721f80ee04f55fd048e706c1dd1400510ab3eba66cd0d7",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/preostmar/small/se.png",
+      "verified_sha256": "4c69110ce9ac7b9db61c849f571a2f2b5fb769941a0dcf113a7557f3d8fc12f5",
+      "current_sha256": "4c69110ce9ac7b9db61c849f571a2f2b5fb769941a0dcf113a7557f3d8fc12f5",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/preostmar/small/sw.png",
+      "verified_sha256": "e24f2363c00980d6889b8f972f431a79264cbba44bc66ca44ceb5a5ad66371e6",
+      "current_sha256": "e24f2363c00980d6889b8f972f431a79264cbba44bc66ca44ceb5a5ad66371e6",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/preostmar/small/w.png",
+      "verified_sha256": "248b9a0a03eda9423351ab0c1b0fc62cf4a73f9a660cf4f79b696233398804b7",
+      "current_sha256": "248b9a0a03eda9423351ab0c1b0fc62cf4a73f9a660cf4f79b696233398804b7",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/preostmar/small/walk_e_f0.png",
+      "verified_sha256": "5b9665ff9185d2d4d8f3d173c1ba22824ebfd66dd39d98d06c140133c03f6f95",
+      "current_sha256": "5b9665ff9185d2d4d8f3d173c1ba22824ebfd66dd39d98d06c140133c03f6f95",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/preostmar/small/walk_e_f1.png",
+      "verified_sha256": "75dbbfc3ffaf9c6061761a9ec21ed26960b0a88ac807e2092a09d8f7ca31857b",
+      "current_sha256": "75dbbfc3ffaf9c6061761a9ec21ed26960b0a88ac807e2092a09d8f7ca31857b",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/preostmar/small/walk_e_f2.png",
+      "verified_sha256": "688e77eb61194725629426e8b51789938a9dc16bb0c1b0086f5d20ccc5c87238",
+      "current_sha256": "688e77eb61194725629426e8b51789938a9dc16bb0c1b0086f5d20ccc5c87238",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/preostmar/small/walk_e_f3.png",
+      "verified_sha256": "b714a43000c4c357fa133373e4d823ec11ed8cde2f50a11ddd72c2c55145ba6a",
+      "current_sha256": "b714a43000c4c357fa133373e4d823ec11ed8cde2f50a11ddd72c2c55145ba6a",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/preostmar/small/walk_e_f4.png",
+      "verified_sha256": "63034244f920770ec355cd1186995ab4b4c998cb61ac44eb29a24005f57d5506",
+      "current_sha256": "63034244f920770ec355cd1186995ab4b4c998cb61ac44eb29a24005f57d5506",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/preostmar/small/walk_e_f5.png",
+      "verified_sha256": "f38dca79dab2f5bfac3d5ef2ef05a4fb3e7ccef9606f425008dd8281e74f20df",
+      "current_sha256": "f38dca79dab2f5bfac3d5ef2ef05a4fb3e7ccef9606f425008dd8281e74f20df",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/preostmar/small/walk_e_f6.png",
+      "verified_sha256": "641349e67f3531c421d9f33f7c3d42b51296033bb5d69af8fe334d18d3e66704",
+      "current_sha256": "641349e67f3531c421d9f33f7c3d42b51296033bb5d69af8fe334d18d3e66704",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/preostmar/small/walk_e_f7.png",
+      "verified_sha256": "910934e25fb3dc864f6928c254fa8bf37d2f10598c0e8369ac55441893f6522c",
+      "current_sha256": "910934e25fb3dc864f6928c254fa8bf37d2f10598c0e8369ac55441893f6522c",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/preostmar/small/walk_n_f0.png",
+      "verified_sha256": "8f5e214970e184024d35c5f73600b839aad21edfa98e28a863dcdb3c25a5c6a5",
+      "current_sha256": "8f5e214970e184024d35c5f73600b839aad21edfa98e28a863dcdb3c25a5c6a5",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/preostmar/small/walk_n_f1.png",
+      "verified_sha256": "741a627263ede747317eff0f70aaf6da0802474522ac3130adaee13c721dac27",
+      "current_sha256": "741a627263ede747317eff0f70aaf6da0802474522ac3130adaee13c721dac27",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/preostmar/small/walk_n_f2.png",
+      "verified_sha256": "45e01db42800ae039df511ce59f51283c6ecf3acbb98cbeba5e0456a77abb46b",
+      "current_sha256": "45e01db42800ae039df511ce59f51283c6ecf3acbb98cbeba5e0456a77abb46b",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/preostmar/small/walk_n_f3.png",
+      "verified_sha256": "82e46f47aff6b58b73de09adb5ec8f0904558e02376be939130e28a0fb194160",
+      "current_sha256": "82e46f47aff6b58b73de09adb5ec8f0904558e02376be939130e28a0fb194160",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/preostmar/small/walk_n_f4.png",
+      "verified_sha256": "a5c897c91a6c08f379677b6e8950df6da2bdbb1780f0aa2a0ccb327083cbd184",
+      "current_sha256": "a5c897c91a6c08f379677b6e8950df6da2bdbb1780f0aa2a0ccb327083cbd184",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/preostmar/small/walk_n_f5.png",
+      "verified_sha256": "1c666f8b3b13b5507b20242d75b16844ca7e13633d469e5dffe23d6caa7bfa5f",
+      "current_sha256": "1c666f8b3b13b5507b20242d75b16844ca7e13633d469e5dffe23d6caa7bfa5f",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/preostmar/small/walk_n_f6.png",
+      "verified_sha256": "a67840938a1bb216e0ead53c28c9796cbd1f0011141f1d75549e6b6b8c62c20e",
+      "current_sha256": "a67840938a1bb216e0ead53c28c9796cbd1f0011141f1d75549e6b6b8c62c20e",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/preostmar/small/walk_n_f7.png",
+      "verified_sha256": "fac901718cefdb53896d9ce255a050a93e94a791be9a3386d72eb878391d6794",
+      "current_sha256": "fac901718cefdb53896d9ce255a050a93e94a791be9a3386d72eb878391d6794",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/preostmar/small/walk_ne_f0.png",
+      "verified_sha256": "72a13ed69153f0904695b1ba8d9e9e24ca033e7168b46adb4950dde21ac0412e",
+      "current_sha256": "72a13ed69153f0904695b1ba8d9e9e24ca033e7168b46adb4950dde21ac0412e",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/preostmar/small/walk_ne_f1.png",
+      "verified_sha256": "324e719cca8736b3499260f717d4121867065ece0f50e62069acb2cb144a0489",
+      "current_sha256": "324e719cca8736b3499260f717d4121867065ece0f50e62069acb2cb144a0489",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/preostmar/small/walk_ne_f2.png",
+      "verified_sha256": "e816218c0fed626284ee8b4f821f56baa714b7f6194edb53713b3f344a52bfe8",
+      "current_sha256": "e816218c0fed626284ee8b4f821f56baa714b7f6194edb53713b3f344a52bfe8",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/preostmar/small/walk_ne_f3.png",
+      "verified_sha256": "0e2b05b1ea6e55b678f22a980bc624e286b3dd1a2dda5a9b2f731e9cb0ff28df",
+      "current_sha256": "0e2b05b1ea6e55b678f22a980bc624e286b3dd1a2dda5a9b2f731e9cb0ff28df",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/preostmar/small/walk_ne_f4.png",
+      "verified_sha256": "045f1aa2f61b826fd323746591823424c7a9100a52a3b87835ce866c4c91cfcc",
+      "current_sha256": "045f1aa2f61b826fd323746591823424c7a9100a52a3b87835ce866c4c91cfcc",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/preostmar/small/walk_ne_f5.png",
+      "verified_sha256": "900532e3c6f3af90745642b67a42cab61180b6a990398f3e8fb79dd19ac63a00",
+      "current_sha256": "900532e3c6f3af90745642b67a42cab61180b6a990398f3e8fb79dd19ac63a00",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/preostmar/small/walk_ne_f6.png",
+      "verified_sha256": "c325a636b81b5314cb2478ccc531f4dcb384df0b5b831017ea0eb9789acf0adb",
+      "current_sha256": "c325a636b81b5314cb2478ccc531f4dcb384df0b5b831017ea0eb9789acf0adb",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/preostmar/small/walk_ne_f7.png",
+      "verified_sha256": "a5adc365ba184940b90474d28db64933be5b2775b50195d9bc507d4d9327dc8d",
+      "current_sha256": "a5adc365ba184940b90474d28db64933be5b2775b50195d9bc507d4d9327dc8d",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/preostmar/small/walk_nw_f0.png",
+      "verified_sha256": "cbf5a0c539ce5cc8c2c115f6f40d31d2ae99fc1f3f5736ce415db5c88efb93d3",
+      "current_sha256": "cbf5a0c539ce5cc8c2c115f6f40d31d2ae99fc1f3f5736ce415db5c88efb93d3",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/preostmar/small/walk_nw_f1.png",
+      "verified_sha256": "9214b984f801fd98996e396d18fb652ecc44f77e232bbb55840af15010bfaaf0",
+      "current_sha256": "9214b984f801fd98996e396d18fb652ecc44f77e232bbb55840af15010bfaaf0",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/preostmar/small/walk_nw_f2.png",
+      "verified_sha256": "3243e0c1fb187d6b0bb3195e7fa5901a3781cfe8d2e4f5bdd7b8bc6b89479479",
+      "current_sha256": "3243e0c1fb187d6b0bb3195e7fa5901a3781cfe8d2e4f5bdd7b8bc6b89479479",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/preostmar/small/walk_nw_f3.png",
+      "verified_sha256": "fbcf91f1e1ae0228072cc5fbe51b412ed2d59d22e7b5d55505308c2fd2ea555a",
+      "current_sha256": "fbcf91f1e1ae0228072cc5fbe51b412ed2d59d22e7b5d55505308c2fd2ea555a",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/preostmar/small/walk_nw_f4.png",
+      "verified_sha256": "5eb41ae84e24b08c340f8124657e6657039b463c684fd66579715d718fb49ae5",
+      "current_sha256": "5eb41ae84e24b08c340f8124657e6657039b463c684fd66579715d718fb49ae5",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/preostmar/small/walk_nw_f5.png",
+      "verified_sha256": "9947a4f66e47707251e2f6611290d0399d2df54bcd9ffc2e6590aabe2dcd5504",
+      "current_sha256": "9947a4f66e47707251e2f6611290d0399d2df54bcd9ffc2e6590aabe2dcd5504",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/preostmar/small/walk_nw_f6.png",
+      "verified_sha256": "8336e35bc865179c557955d6a0c961aad0f2b3a9e008c2709c62c7545f597a76",
+      "current_sha256": "8336e35bc865179c557955d6a0c961aad0f2b3a9e008c2709c62c7545f597a76",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/preostmar/small/walk_nw_f7.png",
+      "verified_sha256": "d698bbb14f9387220a84fb07da2dea97bc629ab21d8d70a0a13afbf7f30e2595",
+      "current_sha256": "d698bbb14f9387220a84fb07da2dea97bc629ab21d8d70a0a13afbf7f30e2595",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/preostmar/small/walk_s_f0.png",
+      "verified_sha256": "8532b7443ea9d73377e5521e08f15fba33e780f23041ac6b5e5bef5117110286",
+      "current_sha256": "8532b7443ea9d73377e5521e08f15fba33e780f23041ac6b5e5bef5117110286",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/preostmar/small/walk_s_f1.png",
+      "verified_sha256": "315829b05648eb41b91ea4778220102ff0b13784c37b89f3be71a2852cccac5b",
+      "current_sha256": "315829b05648eb41b91ea4778220102ff0b13784c37b89f3be71a2852cccac5b",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/preostmar/small/walk_s_f2.png",
+      "verified_sha256": "4a90262b506aacda8a99e6a8eb31b1d2e4c8064588d13c0bc88d0328da566037",
+      "current_sha256": "4a90262b506aacda8a99e6a8eb31b1d2e4c8064588d13c0bc88d0328da566037",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/preostmar/small/walk_s_f3.png",
+      "verified_sha256": "f9c080b61ef61f415381638b17a1bc36eab34e3201ab7f043dd2b69a484c1845",
+      "current_sha256": "f9c080b61ef61f415381638b17a1bc36eab34e3201ab7f043dd2b69a484c1845",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/preostmar/small/walk_s_f4.png",
+      "verified_sha256": "20fc66dab7dd1d91ba7da8c005246350f00269fb41197f03d69bb4fbc7a4605d",
+      "current_sha256": "20fc66dab7dd1d91ba7da8c005246350f00269fb41197f03d69bb4fbc7a4605d",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/preostmar/small/walk_s_f5.png",
+      "verified_sha256": "7b342d75744bed684c14445f783adb4e55951abfa1a2956abf5fb71281409406",
+      "current_sha256": "7b342d75744bed684c14445f783adb4e55951abfa1a2956abf5fb71281409406",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/preostmar/small/walk_s_f6.png",
+      "verified_sha256": "59025ae66e9f21035596b81c1868107875017cdee67fd3637ac97e7effd9ce08",
+      "current_sha256": "59025ae66e9f21035596b81c1868107875017cdee67fd3637ac97e7effd9ce08",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/preostmar/small/walk_s_f7.png",
+      "verified_sha256": "9a9f15e3194b5e3cba7ce7c121bf030e007689ee86b935f743893791cd7a8b67",
+      "current_sha256": "9a9f15e3194b5e3cba7ce7c121bf030e007689ee86b935f743893791cd7a8b67",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/preostmar/small/walk_se_f0.png",
+      "verified_sha256": "16c78ccd8a8927aedfea4f0fccc5ad75e89e05d0bec5981d3c993e16b342febd",
+      "current_sha256": "16c78ccd8a8927aedfea4f0fccc5ad75e89e05d0bec5981d3c993e16b342febd",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/preostmar/small/walk_se_f1.png",
+      "verified_sha256": "bff55093e672ecf91af15a74d4f55b4268a935c6af9ff10ae488949274406efa",
+      "current_sha256": "bff55093e672ecf91af15a74d4f55b4268a935c6af9ff10ae488949274406efa",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/preostmar/small/walk_se_f2.png",
+      "verified_sha256": "91a1272c32d10fbbd09cf81747c7041d088a44df5d2ccb93a819bc6c32b63f0c",
+      "current_sha256": "91a1272c32d10fbbd09cf81747c7041d088a44df5d2ccb93a819bc6c32b63f0c",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/preostmar/small/walk_se_f3.png",
+      "verified_sha256": "afeb039d5c44228181a21a02bb0e22f6ee7356ecb34b68ab555f8174a2381b8f",
+      "current_sha256": "afeb039d5c44228181a21a02bb0e22f6ee7356ecb34b68ab555f8174a2381b8f",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/preostmar/small/walk_se_f4.png",
+      "verified_sha256": "6a9f5decafacf2f299b379b3d5adb9c615f3f8eee5b9e3fe3bd72af3e0f2ed44",
+      "current_sha256": "6a9f5decafacf2f299b379b3d5adb9c615f3f8eee5b9e3fe3bd72af3e0f2ed44",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/preostmar/small/walk_se_f5.png",
+      "verified_sha256": "fb6c1a429ee3350ef0c0b9e0edae47fc310a4b8248302d999194fcb196b40bdf",
+      "current_sha256": "fb6c1a429ee3350ef0c0b9e0edae47fc310a4b8248302d999194fcb196b40bdf",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/preostmar/small/walk_se_f6.png",
+      "verified_sha256": "497da3f0772c1a894ed851ff9cdd410baa50ed52a222c72f062d01c07fece222",
+      "current_sha256": "497da3f0772c1a894ed851ff9cdd410baa50ed52a222c72f062d01c07fece222",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/preostmar/small/walk_se_f7.png",
+      "verified_sha256": "86347626fd67eeab29dde1c423abbf1b6c21bdba0ea204b9551a6f4542acb82c",
+      "current_sha256": "86347626fd67eeab29dde1c423abbf1b6c21bdba0ea204b9551a6f4542acb82c",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/preostmar/small/walk_sw_f0.png",
+      "verified_sha256": "5a64a23d3feda0ba2fb4ea0a3c697592d37a2756e21ca279004cb6727f64a913",
+      "current_sha256": "5a64a23d3feda0ba2fb4ea0a3c697592d37a2756e21ca279004cb6727f64a913",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/preostmar/small/walk_sw_f1.png",
+      "verified_sha256": "caaef9fc41f01f04eabde78f6f5881bd8081f30cc988950837bf31979c61ff66",
+      "current_sha256": "caaef9fc41f01f04eabde78f6f5881bd8081f30cc988950837bf31979c61ff66",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/preostmar/small/walk_sw_f2.png",
+      "verified_sha256": "2573e3ff7c202f3fdc8627fac6aca567a1b9ac5053fb927af5582b233ce9a34c",
+      "current_sha256": "2573e3ff7c202f3fdc8627fac6aca567a1b9ac5053fb927af5582b233ce9a34c",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/preostmar/small/walk_sw_f3.png",
+      "verified_sha256": "69523e0026683de5a0b6947cfc2dd7d36ab3e10a1dd91b052064064dcdd2c312",
+      "current_sha256": "69523e0026683de5a0b6947cfc2dd7d36ab3e10a1dd91b052064064dcdd2c312",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/preostmar/small/walk_sw_f4.png",
+      "verified_sha256": "4136976c80af5e38c922f4565ce1d7516410798b705611166b4be232c2c7adc1",
+      "current_sha256": "4136976c80af5e38c922f4565ce1d7516410798b705611166b4be232c2c7adc1",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/preostmar/small/walk_sw_f5.png",
+      "verified_sha256": "0d6be62f4cf7fd0281502733515ef2fa8750158d6a45b5aa400feed629d7b293",
+      "current_sha256": "0d6be62f4cf7fd0281502733515ef2fa8750158d6a45b5aa400feed629d7b293",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/preostmar/small/walk_sw_f6.png",
+      "verified_sha256": "37d61b5428b9c0705f847e5d614b8ba8b9a0bf4a94eda6c847c5343b43ce09b0",
+      "current_sha256": "37d61b5428b9c0705f847e5d614b8ba8b9a0bf4a94eda6c847c5343b43ce09b0",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/preostmar/small/walk_sw_f7.png",
+      "verified_sha256": "9a43018b954f6d58afc314ab0e2b11db0c99b885358515a0fece41fca6478719",
+      "current_sha256": "9a43018b954f6d58afc314ab0e2b11db0c99b885358515a0fece41fca6478719",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/preostmar/small/walk_w_f0.png",
+      "verified_sha256": "92573451bb66e098910f5604bb720a86ca74aa1c625dff1a9b618ee779495890",
+      "current_sha256": "92573451bb66e098910f5604bb720a86ca74aa1c625dff1a9b618ee779495890",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/preostmar/small/walk_w_f1.png",
+      "verified_sha256": "05bc220890e3f0e61304a0d2e2c9209f648401c3b46f4bf9a441df060b4b5a51",
+      "current_sha256": "05bc220890e3f0e61304a0d2e2c9209f648401c3b46f4bf9a441df060b4b5a51",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/preostmar/small/walk_w_f2.png",
+      "verified_sha256": "b53671579a6f8d8b4178cba3ca0d373c6a5c295d9b394dd3e44777ad20bbc7f0",
+      "current_sha256": "b53671579a6f8d8b4178cba3ca0d373c6a5c295d9b394dd3e44777ad20bbc7f0",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/preostmar/small/walk_w_f3.png",
+      "verified_sha256": "a83aa8501c0c7d0f62c2b01bdfc03d75697f6ed848bdf46f5f434f5476a01add",
+      "current_sha256": "a83aa8501c0c7d0f62c2b01bdfc03d75697f6ed848bdf46f5f434f5476a01add",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/preostmar/small/walk_w_f4.png",
+      "verified_sha256": "37b98eebfed2df49b2de3090047f5102bde30e59534e2097483f34425f8c6a21",
+      "current_sha256": "37b98eebfed2df49b2de3090047f5102bde30e59534e2097483f34425f8c6a21",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/preostmar/small/walk_w_f5.png",
+      "verified_sha256": "063141cc29234c10d558ceb35668b2e0283d990fd592f48586afeef094c298c2",
+      "current_sha256": "063141cc29234c10d558ceb35668b2e0283d990fd592f48586afeef094c298c2",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/preostmar/small/walk_w_f6.png",
+      "verified_sha256": "ee60630be052015739322e0a4bcb55aa0a2ef30b8a49f5628558f982cf8b814f",
+      "current_sha256": "ee60630be052015739322e0a4bcb55aa0a2ef30b8a49f5628558f982cf8b814f",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/preostmar/small/walk_w_f7.png",
+      "verified_sha256": "bf35c00d15a0f55cb78e83b139657100d25e9859d985fe037040cdccc94a7bad",
+      "current_sha256": "bf35c00d15a0f55cb78e83b139657100d25e9859d985fe037040cdccc94a7bad",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/preostmar/sw.png",
+      "verified_sha256": "dacef64bf0577cba9c7212d6d88074dfcb069a0b981bd3716b08e42e56d90d6e",
+      "current_sha256": "dacef64bf0577cba9c7212d6d88074dfcb069a0b981bd3716b08e42e56d90d6e",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/preostmar/w.png",
+      "verified_sha256": "68b87ca9b1f38f8ada6410a2e0ba6acc1fc06e86f98699f78f9d5cd013f14059",
+      "current_sha256": "68b87ca9b1f38f8ada6410a2e0ba6acc1fc06e86f98699f78f9d5cd013f14059",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/punchybun/e.png",
+      "verified_sha256": "0df2e85c1efb47d405d331f7da54162e0aeb945192b3400c443d1a37e80882f3",
+      "current_sha256": "0df2e85c1efb47d405d331f7da54162e0aeb945192b3400c443d1a37e80882f3",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/punchybun/n.png",
+      "verified_sha256": "4883259539f02b3d4957f21f5378e802c7c011385d80a2dba1c54492fa027318",
+      "current_sha256": "4883259539f02b3d4957f21f5378e802c7c011385d80a2dba1c54492fa027318",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/punchybun/ne.png",
+      "verified_sha256": "62c54ca6a485f9bb13231895717c7d8bae1528544603dade0cb00f911ffd7f49",
+      "current_sha256": "62c54ca6a485f9bb13231895717c7d8bae1528544603dade0cb00f911ffd7f49",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/punchybun/nw.png",
+      "verified_sha256": "d44629a0b0720f301ffef87f5d1fe3a5764b33bf47c435e3012cb5b9a55151da",
+      "current_sha256": "d44629a0b0720f301ffef87f5d1fe3a5764b33bf47c435e3012cb5b9a55151da",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/punchybun/s.png",
+      "verified_sha256": "b823c363d4283d1eb4385bf3f1af6e52a8c7b69e3a5fa2b5a4997e5bcd76627b",
+      "current_sha256": "b823c363d4283d1eb4385bf3f1af6e52a8c7b69e3a5fa2b5a4997e5bcd76627b",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/punchybun/se.png",
+      "verified_sha256": "b552e9379fc6e4755aec66ed20f8331760c5b2e897e03afc477dccb57c691c62",
+      "current_sha256": "b552e9379fc6e4755aec66ed20f8331760c5b2e897e03afc477dccb57c691c62",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/punchybun/small/e.png",
+      "verified_sha256": "41c9c33bda24fd1524e3515546ccb592d517812464fae14f79f069ffdbcfef81",
+      "current_sha256": "41c9c33bda24fd1524e3515546ccb592d517812464fae14f79f069ffdbcfef81",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/punchybun/small/n.png",
+      "verified_sha256": "5548d8c4c93099886b333ffc745ba74ad473120aea7e97c060ce3f94293334bc",
+      "current_sha256": "5548d8c4c93099886b333ffc745ba74ad473120aea7e97c060ce3f94293334bc",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/punchybun/small/ne.png",
+      "verified_sha256": "d1c2f8df8045a2bfbfe93958f5b445a4a2b352f99ff5e3466281a2ac679573d7",
+      "current_sha256": "d1c2f8df8045a2bfbfe93958f5b445a4a2b352f99ff5e3466281a2ac679573d7",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/punchybun/small/nw.png",
+      "verified_sha256": "bc8d5713b40e9b58c8aca25ebd0bdb8a797cb134b09909c1c297b1ad5229a270",
+      "current_sha256": "bc8d5713b40e9b58c8aca25ebd0bdb8a797cb134b09909c1c297b1ad5229a270",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/punchybun/small/s.png",
+      "verified_sha256": "65ae0cef9c082389b54b05201a381803d1a0a1fd5fd97ba7791661b51ea711c3",
+      "current_sha256": "65ae0cef9c082389b54b05201a381803d1a0a1fd5fd97ba7791661b51ea711c3",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/punchybun/small/se.png",
+      "verified_sha256": "0e189f2d7d970f69191c3d195548c3a5380ab5e68325f14d1ca8a824f9c46dde",
+      "current_sha256": "0e189f2d7d970f69191c3d195548c3a5380ab5e68325f14d1ca8a824f9c46dde",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/punchybun/small/sw.png",
+      "verified_sha256": "38491cfd434eac0748c91e61f286f67b04319c3ec80744ed93099c9ae38f9a52",
+      "current_sha256": "38491cfd434eac0748c91e61f286f67b04319c3ec80744ed93099c9ae38f9a52",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/punchybun/small/w.png",
+      "verified_sha256": "9ce7d264ceeebdf58168dc5b0d950ce6fc46cb091eb1ba6776d6826794d4f89b",
+      "current_sha256": "9ce7d264ceeebdf58168dc5b0d950ce6fc46cb091eb1ba6776d6826794d4f89b",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/punchybun/small/walk_e_f0.png",
+      "verified_sha256": "4d669a97b5820da9368c1e6e05f8364e6b461b84d76fae880b72b278725037af",
+      "current_sha256": "4d669a97b5820da9368c1e6e05f8364e6b461b84d76fae880b72b278725037af",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/punchybun/small/walk_e_f1.png",
+      "verified_sha256": "fa954e4696c0350ee3da92d3b8e5335e37354a035222c845de0509588d58d3f5",
+      "current_sha256": "fa954e4696c0350ee3da92d3b8e5335e37354a035222c845de0509588d58d3f5",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/punchybun/small/walk_e_f2.png",
+      "verified_sha256": "6c9ab78e4b5c404145ea9e40e076493122a3e0f4f54f5aec8fc6d56b2b6da3d0",
+      "current_sha256": "6c9ab78e4b5c404145ea9e40e076493122a3e0f4f54f5aec8fc6d56b2b6da3d0",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/punchybun/small/walk_e_f3.png",
+      "verified_sha256": "e23876d16be0125518291fce25cf6c1e9f9792d446ae24d69b2321bff963b7b7",
+      "current_sha256": "e23876d16be0125518291fce25cf6c1e9f9792d446ae24d69b2321bff963b7b7",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/punchybun/small/walk_e_f4.png",
+      "verified_sha256": "ba0f19123e5b0f50b97c1e53e21fc23605aa3dbc984e0d3517d50040a9966377",
+      "current_sha256": "ba0f19123e5b0f50b97c1e53e21fc23605aa3dbc984e0d3517d50040a9966377",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/punchybun/small/walk_e_f5.png",
+      "verified_sha256": "ccd8384e3a0e39506f0366b49abd21436293532681d4b0fd8b45138fffd29735",
+      "current_sha256": "ccd8384e3a0e39506f0366b49abd21436293532681d4b0fd8b45138fffd29735",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/punchybun/small/walk_e_f6.png",
+      "verified_sha256": "05370ee86e453ebd32d98e44059cd8424b6810a658033b2a31d1018dae17538f",
+      "current_sha256": "05370ee86e453ebd32d98e44059cd8424b6810a658033b2a31d1018dae17538f",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/punchybun/small/walk_e_f7.png",
+      "verified_sha256": "370a338c8b5dab08d671cd9ca7406adb3df19d499967c1850c2925f32224a522",
+      "current_sha256": "370a338c8b5dab08d671cd9ca7406adb3df19d499967c1850c2925f32224a522",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/punchybun/small/walk_n_f0.png",
+      "verified_sha256": "796d11e0a3a7f89849465695513664bb8da45ca0034700741e4e0115ac97c28d",
+      "current_sha256": "796d11e0a3a7f89849465695513664bb8da45ca0034700741e4e0115ac97c28d",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/punchybun/small/walk_n_f1.png",
+      "verified_sha256": "6df3911cc65c4f7b06f82e08c3dcb855cbf48e0c27ae0de79161a10b740b1421",
+      "current_sha256": "6df3911cc65c4f7b06f82e08c3dcb855cbf48e0c27ae0de79161a10b740b1421",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/punchybun/small/walk_n_f2.png",
+      "verified_sha256": "28b9c80c377b4bd658bbd4c199120fd7f464b47cd10f68922ab7e6ea029a61ac",
+      "current_sha256": "28b9c80c377b4bd658bbd4c199120fd7f464b47cd10f68922ab7e6ea029a61ac",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/punchybun/small/walk_n_f3.png",
+      "verified_sha256": "8ab6b8323b1937bdac9cfda235dd1ca1c92961013abde4d7f15c345f418788fb",
+      "current_sha256": "8ab6b8323b1937bdac9cfda235dd1ca1c92961013abde4d7f15c345f418788fb",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/punchybun/small/walk_n_f4.png",
+      "verified_sha256": "26c1e24c6328cbd65f42d5e7af44c984d517e3fe6f8908c1546ecf4bf35a3a7a",
+      "current_sha256": "26c1e24c6328cbd65f42d5e7af44c984d517e3fe6f8908c1546ecf4bf35a3a7a",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/punchybun/small/walk_n_f5.png",
+      "verified_sha256": "f1e6c5c9cbf793d66cf2aa4f671e741d285f1162a9f6e4643d8ab7314210f375",
+      "current_sha256": "f1e6c5c9cbf793d66cf2aa4f671e741d285f1162a9f6e4643d8ab7314210f375",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/punchybun/small/walk_n_f6.png",
+      "verified_sha256": "c8a8000ea4d48246d606004bdd7ea211ed87d74286d6be8e368337898295494c",
+      "current_sha256": "c8a8000ea4d48246d606004bdd7ea211ed87d74286d6be8e368337898295494c",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/punchybun/small/walk_n_f7.png",
+      "verified_sha256": "8befd205ddd59ff9969a7ad3a97920dd5d384032bd4af5da29f88b7d2ac54a7b",
+      "current_sha256": "8befd205ddd59ff9969a7ad3a97920dd5d384032bd4af5da29f88b7d2ac54a7b",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/punchybun/small/walk_ne_f0.png",
+      "verified_sha256": "fbb55ee62f790ddd2390f60e485b92d899de349cbba943dee007f3d994b5373d",
+      "current_sha256": "fbb55ee62f790ddd2390f60e485b92d899de349cbba943dee007f3d994b5373d",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/punchybun/small/walk_ne_f1.png",
+      "verified_sha256": "252facb2eb72f0d35d29c2bc6b118d766c2692211c5c250767cbac082bc56e27",
+      "current_sha256": "252facb2eb72f0d35d29c2bc6b118d766c2692211c5c250767cbac082bc56e27",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/punchybun/small/walk_ne_f2.png",
+      "verified_sha256": "f214752ffd2ab69df452221b42ce079efbabf06942b10f1e2522ff57724192a4",
+      "current_sha256": "f214752ffd2ab69df452221b42ce079efbabf06942b10f1e2522ff57724192a4",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/punchybun/small/walk_ne_f3.png",
+      "verified_sha256": "95498578b6fb2a1bedfd7bb495f6a28d9d1ac36d9b96d9191dfc51d0807ef6c5",
+      "current_sha256": "95498578b6fb2a1bedfd7bb495f6a28d9d1ac36d9b96d9191dfc51d0807ef6c5",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/punchybun/small/walk_ne_f4.png",
+      "verified_sha256": "24ff326f9b47412fbeb47af254747b31139d4d22dbbd44c4e8e11fd71a51e010",
+      "current_sha256": "24ff326f9b47412fbeb47af254747b31139d4d22dbbd44c4e8e11fd71a51e010",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/punchybun/small/walk_ne_f5.png",
+      "verified_sha256": "855f2b51cf94b86c2f28dc1f6ecdf00a26afa3264515e64366c47ebfe001a95c",
+      "current_sha256": "855f2b51cf94b86c2f28dc1f6ecdf00a26afa3264515e64366c47ebfe001a95c",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/punchybun/small/walk_ne_f6.png",
+      "verified_sha256": "22da2949751ac2e89bc48f4ec648c9fa45fdac8c9c2c112b0c24a28e200e72ff",
+      "current_sha256": "22da2949751ac2e89bc48f4ec648c9fa45fdac8c9c2c112b0c24a28e200e72ff",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/punchybun/small/walk_ne_f7.png",
+      "verified_sha256": "1337bc7c217c61a3219dc0cc8867f7ad5203bc2f385ed011d1f3dfa2e5fc0c3b",
+      "current_sha256": "1337bc7c217c61a3219dc0cc8867f7ad5203bc2f385ed011d1f3dfa2e5fc0c3b",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/punchybun/small/walk_nw_f0.png",
+      "verified_sha256": "c8f681b7021e3492483de06a108707acb553e022414a5fe30788b9f9745b4733",
+      "current_sha256": "c8f681b7021e3492483de06a108707acb553e022414a5fe30788b9f9745b4733",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/punchybun/small/walk_nw_f1.png",
+      "verified_sha256": "cb6ca3b9c5cdfb5a17fee7f7142a06482e6de8907d77dbd6230d1564c6f8d837",
+      "current_sha256": "cb6ca3b9c5cdfb5a17fee7f7142a06482e6de8907d77dbd6230d1564c6f8d837",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/punchybun/small/walk_nw_f2.png",
+      "verified_sha256": "a86f736ecdc3beaee8349a5401d0b4fcc61ed924c1ada2ec57566810268d0ac0",
+      "current_sha256": "a86f736ecdc3beaee8349a5401d0b4fcc61ed924c1ada2ec57566810268d0ac0",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/punchybun/small/walk_nw_f3.png",
+      "verified_sha256": "fe0c53cc564428ccdb097bc677c502fea90ba7c1b09f71a46bde8b3b76a76d79",
+      "current_sha256": "fe0c53cc564428ccdb097bc677c502fea90ba7c1b09f71a46bde8b3b76a76d79",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/punchybun/small/walk_nw_f4.png",
+      "verified_sha256": "d7ec94d564cc0556ac3288613fae799f951261ba31db2bbac5ac91893c61f062",
+      "current_sha256": "d7ec94d564cc0556ac3288613fae799f951261ba31db2bbac5ac91893c61f062",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/punchybun/small/walk_nw_f5.png",
+      "verified_sha256": "1956cedcb641b6f33f52471f252c6d9b2bacf1da0001a6977b70e18f97589746",
+      "current_sha256": "1956cedcb641b6f33f52471f252c6d9b2bacf1da0001a6977b70e18f97589746",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/punchybun/small/walk_nw_f6.png",
+      "verified_sha256": "72d7b8efac32fade40b2783145eaa8cc263b5fe78ba5495eb949b9040ee2a283",
+      "current_sha256": "72d7b8efac32fade40b2783145eaa8cc263b5fe78ba5495eb949b9040ee2a283",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/punchybun/small/walk_nw_f7.png",
+      "verified_sha256": "f35da5ead3ddb726360800fa64804b204332af95ca75107b312a520a59a28486",
+      "current_sha256": "f35da5ead3ddb726360800fa64804b204332af95ca75107b312a520a59a28486",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/punchybun/small/walk_s_f0.png",
+      "verified_sha256": "06f4ab9353a239c8d4a3e2d250dd06e73d57f7ac38bc750700d6954327bdc4ee",
+      "current_sha256": "06f4ab9353a239c8d4a3e2d250dd06e73d57f7ac38bc750700d6954327bdc4ee",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/punchybun/small/walk_s_f1.png",
+      "verified_sha256": "0f6b3b418d49486f18bb22ebbf9619bbd7db7c0f7bfb84b3f8bfc027ae487589",
+      "current_sha256": "0f6b3b418d49486f18bb22ebbf9619bbd7db7c0f7bfb84b3f8bfc027ae487589",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/punchybun/small/walk_s_f2.png",
+      "verified_sha256": "7624a2b7588a1b160812cd7aa3ca21b1b78b24f144cebeb43f2965cc34f980e6",
+      "current_sha256": "7624a2b7588a1b160812cd7aa3ca21b1b78b24f144cebeb43f2965cc34f980e6",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/punchybun/small/walk_s_f3.png",
+      "verified_sha256": "ca283ab3ef17a1f4ef3b0cbf25bdd86de3c192202d2094c20df65345e1942208",
+      "current_sha256": "ca283ab3ef17a1f4ef3b0cbf25bdd86de3c192202d2094c20df65345e1942208",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/punchybun/small/walk_s_f4.png",
+      "verified_sha256": "d6d596416e5497d8cd7eea950c16a9a08cb47fa4e01a4079436d18e3cafdec89",
+      "current_sha256": "d6d596416e5497d8cd7eea950c16a9a08cb47fa4e01a4079436d18e3cafdec89",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/punchybun/small/walk_s_f5.png",
+      "verified_sha256": "7dabcf60fb706f03404073cf17ea8719952646b182b63f7a7b55ae237897ad28",
+      "current_sha256": "7dabcf60fb706f03404073cf17ea8719952646b182b63f7a7b55ae237897ad28",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/punchybun/small/walk_s_f6.png",
+      "verified_sha256": "4f16ef0622116f1d48177998fa6eaceb5ffd6dced3ebceb4ca9dbcb4548cddb9",
+      "current_sha256": "4f16ef0622116f1d48177998fa6eaceb5ffd6dced3ebceb4ca9dbcb4548cddb9",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/punchybun/small/walk_s_f7.png",
+      "verified_sha256": "28d16339977b13f50e2c4e234d2baca72015082d1a82cb1b0f20fa8cd775f63a",
+      "current_sha256": "28d16339977b13f50e2c4e234d2baca72015082d1a82cb1b0f20fa8cd775f63a",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/punchybun/small/walk_se_f0.png",
+      "verified_sha256": "c469f6485e411c99eecab341082cbada444147e92729d89865dc4bbcf7a205b4",
+      "current_sha256": "c469f6485e411c99eecab341082cbada444147e92729d89865dc4bbcf7a205b4",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/punchybun/small/walk_se_f1.png",
+      "verified_sha256": "b89b9dae737d90562de783a01580ecc36d7522e0fa4d7cf6eadfa4fb8884a929",
+      "current_sha256": "b89b9dae737d90562de783a01580ecc36d7522e0fa4d7cf6eadfa4fb8884a929",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/punchybun/small/walk_se_f2.png",
+      "verified_sha256": "628adf2291af809c98bb1d13f3d5b63d59791681a1f28f6489f1fdb0915d4ce4",
+      "current_sha256": "628adf2291af809c98bb1d13f3d5b63d59791681a1f28f6489f1fdb0915d4ce4",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/punchybun/small/walk_se_f3.png",
+      "verified_sha256": "256028c43dcb571af2fe95c1444f8d9cf44121478e7c5bc8e1f552f34c67346e",
+      "current_sha256": "256028c43dcb571af2fe95c1444f8d9cf44121478e7c5bc8e1f552f34c67346e",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/punchybun/small/walk_se_f4.png",
+      "verified_sha256": "f6b11ab6b70e94d9652c33bfd7fbd601cf203806f147e2d698e9a4425dac919d",
+      "current_sha256": "f6b11ab6b70e94d9652c33bfd7fbd601cf203806f147e2d698e9a4425dac919d",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/punchybun/small/walk_se_f5.png",
+      "verified_sha256": "c83bc540e4a3d395ec5f5f27ec4d8e21e4b0661de0e5e9651c89c9aa9844d390",
+      "current_sha256": "c83bc540e4a3d395ec5f5f27ec4d8e21e4b0661de0e5e9651c89c9aa9844d390",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/punchybun/small/walk_se_f6.png",
+      "verified_sha256": "6956140ea3ae9b896c121d960b2e44fa1a26dfc8b1b76664d50d0c051d184bc5",
+      "current_sha256": "6956140ea3ae9b896c121d960b2e44fa1a26dfc8b1b76664d50d0c051d184bc5",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/punchybun/small/walk_se_f7.png",
+      "verified_sha256": "f413bbf27492dc5b2353ac3fedab3f3d8fbe4a06ad8a0272d28930ba142c2f3f",
+      "current_sha256": "f413bbf27492dc5b2353ac3fedab3f3d8fbe4a06ad8a0272d28930ba142c2f3f",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/punchybun/small/walk_sw_f0.png",
+      "verified_sha256": "4068725ef3bb5479a9153172fee8983980a9cfd6bc4588af277250d489be6097",
+      "current_sha256": "4068725ef3bb5479a9153172fee8983980a9cfd6bc4588af277250d489be6097",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/punchybun/small/walk_sw_f1.png",
+      "verified_sha256": "e88f7637d6236217ff12b9afac9a22fc31280aa32835da567193c89faffe28fa",
+      "current_sha256": "e88f7637d6236217ff12b9afac9a22fc31280aa32835da567193c89faffe28fa",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/punchybun/small/walk_sw_f2.png",
+      "verified_sha256": "832e1a628ecb19eec80be4f599587f1ac3aca95eb8c90745361661c42433e050",
+      "current_sha256": "832e1a628ecb19eec80be4f599587f1ac3aca95eb8c90745361661c42433e050",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/punchybun/small/walk_sw_f3.png",
+      "verified_sha256": "917a5fd4548f3af539ef21b896f4c3fa008e2f1f3d51109f4960de19b05cc082",
+      "current_sha256": "917a5fd4548f3af539ef21b896f4c3fa008e2f1f3d51109f4960de19b05cc082",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/punchybun/small/walk_sw_f4.png",
+      "verified_sha256": "ea1ff63a2cbd978fd47775444097bada067cb6613bbc463627b72b63cc626a3b",
+      "current_sha256": "ea1ff63a2cbd978fd47775444097bada067cb6613bbc463627b72b63cc626a3b",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/punchybun/small/walk_sw_f5.png",
+      "verified_sha256": "2533dd4e3e73f4d84e86c8394bb631be360dba24fdd73c820e475a4c5cc3f08b",
+      "current_sha256": "2533dd4e3e73f4d84e86c8394bb631be360dba24fdd73c820e475a4c5cc3f08b",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/punchybun/small/walk_sw_f6.png",
+      "verified_sha256": "da7843f2ea6a7176ba4f8f8bb77f19a9157b6339414d16f127747f685e70191d",
+      "current_sha256": "da7843f2ea6a7176ba4f8f8bb77f19a9157b6339414d16f127747f685e70191d",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/punchybun/small/walk_sw_f7.png",
+      "verified_sha256": "27fda12fffc135aca9f35d600e0d83b4e87663a0825f5c90ff6b046150b70626",
+      "current_sha256": "27fda12fffc135aca9f35d600e0d83b4e87663a0825f5c90ff6b046150b70626",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/punchybun/small/walk_w_f0.png",
+      "verified_sha256": "ea96d98313eee353cc9eda7c8c4c67915544bb22f5cba99dd7469f21fed0cfeb",
+      "current_sha256": "ea96d98313eee353cc9eda7c8c4c67915544bb22f5cba99dd7469f21fed0cfeb",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/punchybun/small/walk_w_f1.png",
+      "verified_sha256": "81761ea3e8a10db331d7b455a61ddba7dde42f24f391e3e02b197f5cf61cd9e2",
+      "current_sha256": "81761ea3e8a10db331d7b455a61ddba7dde42f24f391e3e02b197f5cf61cd9e2",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/punchybun/small/walk_w_f2.png",
+      "verified_sha256": "eac43e3bf613a583d999ea9931ba9e0c5a0e32dcbb75a3f3fd16a8511a234ad9",
+      "current_sha256": "eac43e3bf613a583d999ea9931ba9e0c5a0e32dcbb75a3f3fd16a8511a234ad9",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/punchybun/small/walk_w_f3.png",
+      "verified_sha256": "13f343227b6dfa0a9ae781c7aedb23f26748b9aa4c4e55055d769c3c525d9af5",
+      "current_sha256": "13f343227b6dfa0a9ae781c7aedb23f26748b9aa4c4e55055d769c3c525d9af5",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/punchybun/small/walk_w_f4.png",
+      "verified_sha256": "2397243f9754ea2d288aaf2c8b6d6c1f16d95e70810ab8a290e745fc804627c7",
+      "current_sha256": "2397243f9754ea2d288aaf2c8b6d6c1f16d95e70810ab8a290e745fc804627c7",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/punchybun/small/walk_w_f5.png",
+      "verified_sha256": "c2ea5f478ec3d63264defb36f5a3d39b4c5359519a11076af3d6d23131211041",
+      "current_sha256": "c2ea5f478ec3d63264defb36f5a3d39b4c5359519a11076af3d6d23131211041",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/punchybun/small/walk_w_f6.png",
+      "verified_sha256": "6d4c44c441529bd149c8821d20f22f86f30d0feab592e8542d6a04caad8c3e26",
+      "current_sha256": "6d4c44c441529bd149c8821d20f22f86f30d0feab592e8542d6a04caad8c3e26",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/punchybun/small/walk_w_f7.png",
+      "verified_sha256": "d51e64ea39f261cd2901b7cbbc95d0649571b8f6ceb385ac2fa4f47167aa752d",
+      "current_sha256": "d51e64ea39f261cd2901b7cbbc95d0649571b8f6ceb385ac2fa4f47167aa752d",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/punchybun/sw.png",
+      "verified_sha256": "7116154338818aacce49edad56d367c48d03ce507482e679142adea4e2ce3a1e",
+      "current_sha256": "7116154338818aacce49edad56d367c48d03ce507482e679142adea4e2ce3a1e",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/punchybun/w.png",
+      "verified_sha256": "9c6ba34f7253f91507ab3f6603d830aa64874d735ab56832bb9cb977261339b8",
+      "current_sha256": "9c6ba34f7253f91507ab3f6603d830aa64874d735ab56832bb9cb977261339b8",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/slagglass/e.png",
+      "verified_sha256": "1a6fba94479642a5e4aa74d1542193edcc6e430f5ceb8fe98a6e3b92f24e465d",
+      "current_sha256": "1a6fba94479642a5e4aa74d1542193edcc6e430f5ceb8fe98a6e3b92f24e465d",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/slagglass/n.png",
+      "verified_sha256": "36d77915c10f7e3580296bed227fb428ef0f08e5c9ba238829de28de8f9e77a1",
+      "current_sha256": "36d77915c10f7e3580296bed227fb428ef0f08e5c9ba238829de28de8f9e77a1",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/slagglass/ne.png",
+      "verified_sha256": "5f7404cf4132060dad5d89a6a0ff132eeb899042432e66f6d8488335abc344af",
+      "current_sha256": "5f7404cf4132060dad5d89a6a0ff132eeb899042432e66f6d8488335abc344af",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/slagglass/nw.png",
+      "verified_sha256": "4a65ebad1b0ba926fc5bd4ec5b756b78edd94b25e9c79fcee7bf3c37d2be52ef",
+      "current_sha256": "4a65ebad1b0ba926fc5bd4ec5b756b78edd94b25e9c79fcee7bf3c37d2be52ef",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/slagglass/s.png",
+      "verified_sha256": "d8b680b42282599deae593c75db6fe94cae7159efc1d2fd640c1e8fe8afef9de",
+      "current_sha256": "d8b680b42282599deae593c75db6fe94cae7159efc1d2fd640c1e8fe8afef9de",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/slagglass/se.png",
+      "verified_sha256": "0dd54a1f05c34a7616e69e87ab0aa743afbe7997d07b619c7c4728e04fe0fa63",
+      "current_sha256": "0dd54a1f05c34a7616e69e87ab0aa743afbe7997d07b619c7c4728e04fe0fa63",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/slagglass/small/e.png",
+      "verified_sha256": "a7cbbb1565ed09239ad89be80bf9ce82ea60851a15b8fb75f6fe503ae762883f",
+      "current_sha256": "a7cbbb1565ed09239ad89be80bf9ce82ea60851a15b8fb75f6fe503ae762883f",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/slagglass/small/n.png",
+      "verified_sha256": "070ed105f2f2695a7d09f9f2ec6e20cad1d45d3d44818dd555ddc505f5c8ee0e",
+      "current_sha256": "070ed105f2f2695a7d09f9f2ec6e20cad1d45d3d44818dd555ddc505f5c8ee0e",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/slagglass/small/ne.png",
+      "verified_sha256": "5f143e052c12a6d0313b40504a7d08cd594aae530c8efac19cb6a849983f06a4",
+      "current_sha256": "5f143e052c12a6d0313b40504a7d08cd594aae530c8efac19cb6a849983f06a4",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/slagglass/small/nw.png",
+      "verified_sha256": "249e7c4bf2bd26001798ff04506b8c2889feafd655c38bf612c5c5747d4e4aba",
+      "current_sha256": "249e7c4bf2bd26001798ff04506b8c2889feafd655c38bf612c5c5747d4e4aba",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/slagglass/small/s.png",
+      "verified_sha256": "6492ea7dcccfd041bcbc1667c95ca45c6058abee54030b2d686eee57e7d887cf",
+      "current_sha256": "6492ea7dcccfd041bcbc1667c95ca45c6058abee54030b2d686eee57e7d887cf",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/slagglass/small/se.png",
+      "verified_sha256": "057359e3197a4173265c37d09d6b59c4e3a45d57559fc411faafe658534da5c6",
+      "current_sha256": "057359e3197a4173265c37d09d6b59c4e3a45d57559fc411faafe658534da5c6",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/slagglass/small/sw.png",
+      "verified_sha256": "597fd7f57b7c62cf238a7a88233b39b8da457a386117961a0109c64d09b08065",
+      "current_sha256": "597fd7f57b7c62cf238a7a88233b39b8da457a386117961a0109c64d09b08065",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/slagglass/small/w.png",
+      "verified_sha256": "17c35aefc1632a815146e7bafb764835d78c962ffa9c34ec4a529a4bd5b4c347",
+      "current_sha256": "17c35aefc1632a815146e7bafb764835d78c962ffa9c34ec4a529a4bd5b4c347",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/slagglass/small/walk_e_f0.png",
+      "verified_sha256": "b3710593b5003dc5e936bd334c5e616e9cde613c2d608974ca0ae4795b393ff1",
+      "current_sha256": "b3710593b5003dc5e936bd334c5e616e9cde613c2d608974ca0ae4795b393ff1",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/slagglass/small/walk_e_f1.png",
+      "verified_sha256": "afd9b15620efcddee17d80ba1bede08ef3fa555203aedb3917585b0cd00fbf70",
+      "current_sha256": "afd9b15620efcddee17d80ba1bede08ef3fa555203aedb3917585b0cd00fbf70",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/slagglass/small/walk_e_f2.png",
+      "verified_sha256": "72f5c8473807ac24204fc1c533c616c1d606d8e1dc4d1da6ba2ab341429d45ba",
+      "current_sha256": "72f5c8473807ac24204fc1c533c616c1d606d8e1dc4d1da6ba2ab341429d45ba",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/slagglass/small/walk_e_f3.png",
+      "verified_sha256": "d23224348741130650363adcb0b4b18843a036a21a29359f051874433e5c37ef",
+      "current_sha256": "d23224348741130650363adcb0b4b18843a036a21a29359f051874433e5c37ef",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/slagglass/small/walk_e_f4.png",
+      "verified_sha256": "8eabd6ef1cd4693abed450a681ccf6e774d955f80a580672f0afd7c4ff1e0921",
+      "current_sha256": "8eabd6ef1cd4693abed450a681ccf6e774d955f80a580672f0afd7c4ff1e0921",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/slagglass/small/walk_e_f5.png",
+      "verified_sha256": "22b00a72014ebcc62f64f10f750c691fda3bb25ceb6c22df7d26f57f08259782",
+      "current_sha256": "22b00a72014ebcc62f64f10f750c691fda3bb25ceb6c22df7d26f57f08259782",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/slagglass/small/walk_e_f6.png",
+      "verified_sha256": "965068581277eb6dc260e7371d68d4d9098ed7c03c11a014a2e809e3cc290cbe",
+      "current_sha256": "965068581277eb6dc260e7371d68d4d9098ed7c03c11a014a2e809e3cc290cbe",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/slagglass/small/walk_e_f7.png",
+      "verified_sha256": "cdffd37f896c3eaa3d6b194281356c164c29d61ab0c85dd6723735e70179b3ec",
+      "current_sha256": "cdffd37f896c3eaa3d6b194281356c164c29d61ab0c85dd6723735e70179b3ec",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/slagglass/small/walk_n_f0.png",
+      "verified_sha256": "7d8d5b258dfdb1147c4cd63280e1d38f069a4170f1eea4abb5afa2158513d1f3",
+      "current_sha256": "7d8d5b258dfdb1147c4cd63280e1d38f069a4170f1eea4abb5afa2158513d1f3",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/slagglass/small/walk_n_f1.png",
+      "verified_sha256": "74b26745d89b43a5264bb4ca40ab592ec93252a27ccb63f6ef39552df9b13d0e",
+      "current_sha256": "74b26745d89b43a5264bb4ca40ab592ec93252a27ccb63f6ef39552df9b13d0e",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/slagglass/small/walk_n_f2.png",
+      "verified_sha256": "a3aee2aa3f582fbfc18177b49ce4cee77924910af6504225bcf55bb47b486ee1",
+      "current_sha256": "a3aee2aa3f582fbfc18177b49ce4cee77924910af6504225bcf55bb47b486ee1",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/slagglass/small/walk_n_f3.png",
+      "verified_sha256": "3c7e4789601af9bae442ca38cc0fbae94430127ff3882920543fc82878951e51",
+      "current_sha256": "3c7e4789601af9bae442ca38cc0fbae94430127ff3882920543fc82878951e51",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/slagglass/small/walk_n_f4.png",
+      "verified_sha256": "15760fcc8f062c3a26bc7749e762100c6ca6d677e8488f7c209a64258ea3ad14",
+      "current_sha256": "15760fcc8f062c3a26bc7749e762100c6ca6d677e8488f7c209a64258ea3ad14",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/slagglass/small/walk_n_f5.png",
+      "verified_sha256": "61483e1e742a9e93a239b43073e5f0be26157b37ecfa68d125e3c07b3987fb3e",
+      "current_sha256": "61483e1e742a9e93a239b43073e5f0be26157b37ecfa68d125e3c07b3987fb3e",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/slagglass/small/walk_n_f6.png",
+      "verified_sha256": "bcb1de2d0d57a07b8ba00fdb86820d7462cb012c89fd2238096352a496985ea0",
+      "current_sha256": "bcb1de2d0d57a07b8ba00fdb86820d7462cb012c89fd2238096352a496985ea0",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/slagglass/small/walk_n_f7.png",
+      "verified_sha256": "061ba126e43e52334a398a8edd0c820678988836c12fb80eefd46b65958e51a7",
+      "current_sha256": "061ba126e43e52334a398a8edd0c820678988836c12fb80eefd46b65958e51a7",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/slagglass/small/walk_ne_f0.png",
+      "verified_sha256": "049bddb5898d373e8069acba57d118b228b32eb962b6c78abd5276d0e000df8d",
+      "current_sha256": "049bddb5898d373e8069acba57d118b228b32eb962b6c78abd5276d0e000df8d",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/slagglass/small/walk_ne_f1.png",
+      "verified_sha256": "174b5eab87866482cdd2b98b8ce22ac226cf2fd268a18a8dd1d9dc78cce13745",
+      "current_sha256": "174b5eab87866482cdd2b98b8ce22ac226cf2fd268a18a8dd1d9dc78cce13745",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/slagglass/small/walk_ne_f2.png",
+      "verified_sha256": "8f56e09c13c4b6ad9add2e48144afb1ef7037f88168c86282146205569b96a47",
+      "current_sha256": "8f56e09c13c4b6ad9add2e48144afb1ef7037f88168c86282146205569b96a47",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/slagglass/small/walk_ne_f3.png",
+      "verified_sha256": "e61cfb9ad502d265fe9c96092c50b1f4a95b46bb7a8aa8b042a4596c7bb20bd0",
+      "current_sha256": "e61cfb9ad502d265fe9c96092c50b1f4a95b46bb7a8aa8b042a4596c7bb20bd0",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/slagglass/small/walk_ne_f4.png",
+      "verified_sha256": "7bac8d09b98325dd0abf38ba668e3b8863efb11aa90affcffba89dfe1d77cabd",
+      "current_sha256": "7bac8d09b98325dd0abf38ba668e3b8863efb11aa90affcffba89dfe1d77cabd",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/slagglass/small/walk_ne_f5.png",
+      "verified_sha256": "737a4aacb313b1fe57214565a7513245f505cd3e1b333005a11d37202f6b6f1f",
+      "current_sha256": "737a4aacb313b1fe57214565a7513245f505cd3e1b333005a11d37202f6b6f1f",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/slagglass/small/walk_ne_f6.png",
+      "verified_sha256": "c639f932c7ae906db178d7c7fbe6ea3b0f28f6e5bde25616e7556fb22f9ea13a",
+      "current_sha256": "c639f932c7ae906db178d7c7fbe6ea3b0f28f6e5bde25616e7556fb22f9ea13a",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/slagglass/small/walk_ne_f7.png",
+      "verified_sha256": "433cb3c4ef124f7958c140500dd70957ff7420ecacef20e089f80290e2bdaef9",
+      "current_sha256": "433cb3c4ef124f7958c140500dd70957ff7420ecacef20e089f80290e2bdaef9",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/slagglass/small/walk_nw_f0.png",
+      "verified_sha256": "0974a300b6a150bce4fdd837a6f5b20c59e26b0b8c73d73f0a753c1f71830622",
+      "current_sha256": "0974a300b6a150bce4fdd837a6f5b20c59e26b0b8c73d73f0a753c1f71830622",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/slagglass/small/walk_nw_f1.png",
+      "verified_sha256": "3d43512bcd017a3606a25ef6d6863530ecc909d4637405b6ca9dd029c4a5c809",
+      "current_sha256": "3d43512bcd017a3606a25ef6d6863530ecc909d4637405b6ca9dd029c4a5c809",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/slagglass/small/walk_nw_f2.png",
+      "verified_sha256": "dfec82cc1f1abe6208c08a91cb0f350d2e13e7f32ed090b5f16fd243f6d439e1",
+      "current_sha256": "dfec82cc1f1abe6208c08a91cb0f350d2e13e7f32ed090b5f16fd243f6d439e1",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/slagglass/small/walk_nw_f3.png",
+      "verified_sha256": "1785fea3c3bbef5098794c915c5e9b5ed8f81abb523221a633a45e88f89cdc4e",
+      "current_sha256": "1785fea3c3bbef5098794c915c5e9b5ed8f81abb523221a633a45e88f89cdc4e",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/slagglass/small/walk_nw_f4.png",
+      "verified_sha256": "21336ab3e64637df6b31df684f63772b48af0af16139b070cf530a60a34b479f",
+      "current_sha256": "21336ab3e64637df6b31df684f63772b48af0af16139b070cf530a60a34b479f",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/slagglass/small/walk_nw_f5.png",
+      "verified_sha256": "5ecd6882cc679dbb79e747a21260c4d542b8493d871746a606f45545c0fb0f8f",
+      "current_sha256": "5ecd6882cc679dbb79e747a21260c4d542b8493d871746a606f45545c0fb0f8f",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/slagglass/small/walk_nw_f6.png",
+      "verified_sha256": "169f73dd25a99dd3e6cce0213bec2d9ec4f679afb0a46e0c7fa5fd1e30a12bc8",
+      "current_sha256": "169f73dd25a99dd3e6cce0213bec2d9ec4f679afb0a46e0c7fa5fd1e30a12bc8",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/slagglass/small/walk_nw_f7.png",
+      "verified_sha256": "06a2aa51263ec8a96e3625e1727137c65e20c387e2623969dc39f81f640de1a5",
+      "current_sha256": "06a2aa51263ec8a96e3625e1727137c65e20c387e2623969dc39f81f640de1a5",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/slagglass/small/walk_s_f0.png",
+      "verified_sha256": "497b33c6c23e833678bebfca9294b81c79b0bb2287239127473cae41de79e35c",
+      "current_sha256": "497b33c6c23e833678bebfca9294b81c79b0bb2287239127473cae41de79e35c",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/slagglass/small/walk_s_f1.png",
+      "verified_sha256": "146ecbf69e3529e3ea9b65d43d290f5f3f82b42cdec5ce33f6dc493e1e32a95f",
+      "current_sha256": "146ecbf69e3529e3ea9b65d43d290f5f3f82b42cdec5ce33f6dc493e1e32a95f",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/slagglass/small/walk_s_f2.png",
+      "verified_sha256": "ab69f53046a55387869fbba53f6e0e2bcee58d350250f5120d260bb932a5ef62",
+      "current_sha256": "ab69f53046a55387869fbba53f6e0e2bcee58d350250f5120d260bb932a5ef62",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/slagglass/small/walk_s_f3.png",
+      "verified_sha256": "fe5a5eb2054f1700e0bc73a98eb5bb43ef232e25d8425be4f7459daf48b3747c",
+      "current_sha256": "fe5a5eb2054f1700e0bc73a98eb5bb43ef232e25d8425be4f7459daf48b3747c",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/slagglass/small/walk_s_f4.png",
+      "verified_sha256": "2614f6450179c7b244871aad07332dd37f3b9b7f3afb3193723b3a287bb321cd",
+      "current_sha256": "2614f6450179c7b244871aad07332dd37f3b9b7f3afb3193723b3a287bb321cd",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/slagglass/small/walk_s_f5.png",
+      "verified_sha256": "66b797b643d3c5d23c917f721bb138ed6e3122facd7e998326c80263b513a7ac",
+      "current_sha256": "66b797b643d3c5d23c917f721bb138ed6e3122facd7e998326c80263b513a7ac",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/slagglass/small/walk_s_f6.png",
+      "verified_sha256": "a8484d1018ed2f688659f3ea10f18cc03b008b8f355410ecc91c4a941ac795da",
+      "current_sha256": "a8484d1018ed2f688659f3ea10f18cc03b008b8f355410ecc91c4a941ac795da",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/slagglass/small/walk_s_f7.png",
+      "verified_sha256": "ff3eaa2920d371477c0397fe5a961a27525c238e2449657c404b87c3b5d0817d",
+      "current_sha256": "ff3eaa2920d371477c0397fe5a961a27525c238e2449657c404b87c3b5d0817d",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/slagglass/small/walk_se_f0.png",
+      "verified_sha256": "0f40e74842f8737b07299390afb5556e20f2a440ad524d30066432e369973766",
+      "current_sha256": "0f40e74842f8737b07299390afb5556e20f2a440ad524d30066432e369973766",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/slagglass/small/walk_se_f1.png",
+      "verified_sha256": "92d457f43ae9c0f041b33b5c473dedfbdc4513e725beabcdb77f30731af31651",
+      "current_sha256": "92d457f43ae9c0f041b33b5c473dedfbdc4513e725beabcdb77f30731af31651",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/slagglass/small/walk_se_f2.png",
+      "verified_sha256": "c53a9e0a5de6f7b960cf21f8c5bc57a6d7b8f1f37f2f983b4749b681dc004e68",
+      "current_sha256": "c53a9e0a5de6f7b960cf21f8c5bc57a6d7b8f1f37f2f983b4749b681dc004e68",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/slagglass/small/walk_se_f3.png",
+      "verified_sha256": "ee1802a315e782492c1cc0a0ae1633e791c10590ff6cdf23da52fa9369195a75",
+      "current_sha256": "ee1802a315e782492c1cc0a0ae1633e791c10590ff6cdf23da52fa9369195a75",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/slagglass/small/walk_se_f4.png",
+      "verified_sha256": "f019bb8dbf0594e654a05a10b8b7cb38b3cab3a169fe0e4d816514feb38e3d12",
+      "current_sha256": "f019bb8dbf0594e654a05a10b8b7cb38b3cab3a169fe0e4d816514feb38e3d12",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/slagglass/small/walk_se_f5.png",
+      "verified_sha256": "07923ef962d03b831c80461b90810ed0077c3e524f810320bee52cc0ad379a15",
+      "current_sha256": "07923ef962d03b831c80461b90810ed0077c3e524f810320bee52cc0ad379a15",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/slagglass/small/walk_se_f6.png",
+      "verified_sha256": "fed4c4f2f5eed909878e3c764674231b582a016fdad4f322240b31c801b7ef78",
+      "current_sha256": "fed4c4f2f5eed909878e3c764674231b582a016fdad4f322240b31c801b7ef78",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/slagglass/small/walk_se_f7.png",
+      "verified_sha256": "3e984cc48d3a8466237e52d3c1bb0945d5c049ad63df9bde967746e580162848",
+      "current_sha256": "3e984cc48d3a8466237e52d3c1bb0945d5c049ad63df9bde967746e580162848",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/slagglass/small/walk_sw_f0.png",
+      "verified_sha256": "9e32b27cdb30279d803835f41d4c180b6b5bf52dd4a961e74b463beb7ef108d4",
+      "current_sha256": "9e32b27cdb30279d803835f41d4c180b6b5bf52dd4a961e74b463beb7ef108d4",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/slagglass/small/walk_sw_f1.png",
+      "verified_sha256": "9a4a16aa24fb10a5ec4bc37d5eb751a73c24d9374ea12a1cebdf7321964e3ff0",
+      "current_sha256": "9a4a16aa24fb10a5ec4bc37d5eb751a73c24d9374ea12a1cebdf7321964e3ff0",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/slagglass/small/walk_sw_f2.png",
+      "verified_sha256": "6b5d4781aead81efa0b0f4b8e7f64ae5ec2e40b8f1cfdcd6e590b2ebb3b9a56e",
+      "current_sha256": "6b5d4781aead81efa0b0f4b8e7f64ae5ec2e40b8f1cfdcd6e590b2ebb3b9a56e",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/slagglass/small/walk_sw_f3.png",
+      "verified_sha256": "9769dad7e9eedfff90715ca4ec041b84fc479e323fccc03489f757ba8b3c6911",
+      "current_sha256": "9769dad7e9eedfff90715ca4ec041b84fc479e323fccc03489f757ba8b3c6911",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/slagglass/small/walk_sw_f4.png",
+      "verified_sha256": "16c811d9cec3d89f9b8f7da5c234393b53c4249b1094b553ced997e4919c2d76",
+      "current_sha256": "16c811d9cec3d89f9b8f7da5c234393b53c4249b1094b553ced997e4919c2d76",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/slagglass/small/walk_sw_f5.png",
+      "verified_sha256": "4f61fd4f3b79b1a6e87278bc1f6db8e47fb4c166eea6d307154d7761585b8655",
+      "current_sha256": "4f61fd4f3b79b1a6e87278bc1f6db8e47fb4c166eea6d307154d7761585b8655",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/slagglass/small/walk_sw_f6.png",
+      "verified_sha256": "f97ea0ead65e9049e411484798129773ce6e9fdd1ed1d9376dbcdabfa547c628",
+      "current_sha256": "f97ea0ead65e9049e411484798129773ce6e9fdd1ed1d9376dbcdabfa547c628",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/slagglass/small/walk_sw_f7.png",
+      "verified_sha256": "b7c4a250ef2aaa5150a50fdca82b0de5b75ba04c888aa40774b93bbcb4e3081f",
+      "current_sha256": "b7c4a250ef2aaa5150a50fdca82b0de5b75ba04c888aa40774b93bbcb4e3081f",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/slagglass/small/walk_w_f0.png",
+      "verified_sha256": "adcd364be4f13fb9ffe0df5b830b23cc79d905dc2b8eeb730bef900be5f2e96c",
+      "current_sha256": "adcd364be4f13fb9ffe0df5b830b23cc79d905dc2b8eeb730bef900be5f2e96c",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/slagglass/small/walk_w_f1.png",
+      "verified_sha256": "6f873d65cbf5de6fe37464c07392336a84b9dd25aefe1a69ad3e67d9552b889d",
+      "current_sha256": "6f873d65cbf5de6fe37464c07392336a84b9dd25aefe1a69ad3e67d9552b889d",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/slagglass/small/walk_w_f2.png",
+      "verified_sha256": "88112a823085d1c16e68c94c4c3293a6334bf48e6ec25fed9c5df1009703dfcb",
+      "current_sha256": "88112a823085d1c16e68c94c4c3293a6334bf48e6ec25fed9c5df1009703dfcb",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/slagglass/small/walk_w_f3.png",
+      "verified_sha256": "be34782f89661ef8d9c32fd1d0a7b516352f163d26cf6875c0c0c507ab7d53e9",
+      "current_sha256": "be34782f89661ef8d9c32fd1d0a7b516352f163d26cf6875c0c0c507ab7d53e9",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/slagglass/small/walk_w_f4.png",
+      "verified_sha256": "a8a51fe2f85353b7ca06b0be9e24ce4884c1226e15dfb2f8064c68cb2dd961b1",
+      "current_sha256": "a8a51fe2f85353b7ca06b0be9e24ce4884c1226e15dfb2f8064c68cb2dd961b1",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/slagglass/small/walk_w_f5.png",
+      "verified_sha256": "ba322c023effecb3e5493506c2ea4afafd4625f5897b9263aacc3555daea9c6a",
+      "current_sha256": "ba322c023effecb3e5493506c2ea4afafd4625f5897b9263aacc3555daea9c6a",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/slagglass/small/walk_w_f6.png",
+      "verified_sha256": "c482db5c1429f29a13e6ed015f93e7d5aa0444c6940fe3033dc7beba40fbe9dd",
+      "current_sha256": "c482db5c1429f29a13e6ed015f93e7d5aa0444c6940fe3033dc7beba40fbe9dd",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/slagglass/small/walk_w_f7.png",
+      "verified_sha256": "5f62d554bf38404ebb5221d167bc93839fd3900648d47d47a1737dababba9f16",
+      "current_sha256": "5f62d554bf38404ebb5221d167bc93839fd3900648d47d47a1737dababba9f16",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/slagglass/sw.png",
+      "verified_sha256": "9814c919ef4fdddd1b6042d7a4f07dd0952ea8e1ed20abb41966dba7df50d620",
+      "current_sha256": "9814c919ef4fdddd1b6042d7a4f07dd0952ea8e1ed20abb41966dba7df50d620",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/slagglass/w.png",
+      "verified_sha256": "fa95c2cef07e2829614576a849229579a9c687edef4c7f63cd6426d75cc01ea3",
+      "current_sha256": "fa95c2cef07e2829614576a849229579a9c687edef4c7f63cd6426d75cc01ea3",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/sparkjab/e.png",
+      "verified_sha256": "86c221493f83eb580ea902b5852ecd5eebeef6da9eeefb7bcd2f35b416e42983",
+      "current_sha256": "86c221493f83eb580ea902b5852ecd5eebeef6da9eeefb7bcd2f35b416e42983",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/sparkjab/n.png",
+      "verified_sha256": "e7387d6769b540246035d2f08239eb01e0c2f62ad1a806a583103493c89ebfcb",
+      "current_sha256": "e7387d6769b540246035d2f08239eb01e0c2f62ad1a806a583103493c89ebfcb",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/sparkjab/ne.png",
+      "verified_sha256": "b584539f02b5807b15bc7e24a9547f62497990708028b411994bbabe4b1f7483",
+      "current_sha256": "b584539f02b5807b15bc7e24a9547f62497990708028b411994bbabe4b1f7483",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/sparkjab/nw.png",
+      "verified_sha256": "50a5c53ba355c032f9333d2da06e5cb870ee1c0b3fe40f02b13f8bdc7d791df0",
+      "current_sha256": "50a5c53ba355c032f9333d2da06e5cb870ee1c0b3fe40f02b13f8bdc7d791df0",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/sparkjab/s.png",
+      "verified_sha256": "f4a0ad988d79509db089019769b6df811252d32ccdc9a99733a3cc2165239efa",
+      "current_sha256": "f4a0ad988d79509db089019769b6df811252d32ccdc9a99733a3cc2165239efa",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/sparkjab/se.png",
+      "verified_sha256": "d55b6a4716ef7d800d5a51c8cb788db5d699468cbb1837426a612f2889b6b94d",
+      "current_sha256": "d55b6a4716ef7d800d5a51c8cb788db5d699468cbb1837426a612f2889b6b94d",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/sparkjab/small/e.png",
+      "verified_sha256": "33db4c8c812a05be15ea0fc7e2c4a822f29b60e0c7bf34edd52b1eaea9a40fea",
+      "current_sha256": "33db4c8c812a05be15ea0fc7e2c4a822f29b60e0c7bf34edd52b1eaea9a40fea",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/sparkjab/small/n.png",
+      "verified_sha256": "ac09db44825bcb96946f203af1e9854a12dcdc00680fb423c7e1510d91141fa3",
+      "current_sha256": "ac09db44825bcb96946f203af1e9854a12dcdc00680fb423c7e1510d91141fa3",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/sparkjab/small/ne.png",
+      "verified_sha256": "6e4816186551ff685a385c39571529a5011bb6f5328a8f397b28500aa7d7ecfa",
+      "current_sha256": "6e4816186551ff685a385c39571529a5011bb6f5328a8f397b28500aa7d7ecfa",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/sparkjab/small/nw.png",
+      "verified_sha256": "2eaa02c6aa3a377a865c42b72f32c8529292125119230ffc13b1f9d7b2d8d7e7",
+      "current_sha256": "2eaa02c6aa3a377a865c42b72f32c8529292125119230ffc13b1f9d7b2d8d7e7",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/sparkjab/small/s.png",
+      "verified_sha256": "d1b0de1fae604437ae17e168a836479f573a98b43716fec6f19bb8d54ab207a7",
+      "current_sha256": "d1b0de1fae604437ae17e168a836479f573a98b43716fec6f19bb8d54ab207a7",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/sparkjab/small/se.png",
+      "verified_sha256": "0c38ecf8daa7c507edd4bb2efdcc099c24c50388abb0445c432616b1bdf5c0c1",
+      "current_sha256": "0c38ecf8daa7c507edd4bb2efdcc099c24c50388abb0445c432616b1bdf5c0c1",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/sparkjab/small/sw.png",
+      "verified_sha256": "0c09f63217fd2b64ff1586a5fdebf8ecd8d1471385f2d1688b28b3c26789657e",
+      "current_sha256": "0c09f63217fd2b64ff1586a5fdebf8ecd8d1471385f2d1688b28b3c26789657e",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/sparkjab/small/w.png",
+      "verified_sha256": "298bf0c124d52c3e62a83da93e77c6f04f430d16211600e50a690278f0b116e5",
+      "current_sha256": "298bf0c124d52c3e62a83da93e77c6f04f430d16211600e50a690278f0b116e5",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/sparkjab/small/walk_e_f0.png",
+      "verified_sha256": "bcc33d3b0a32225f2fc48b2a15b6c29d4b480cfec145d059232cc56c09026607",
+      "current_sha256": "bcc33d3b0a32225f2fc48b2a15b6c29d4b480cfec145d059232cc56c09026607",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/sparkjab/small/walk_e_f1.png",
+      "verified_sha256": "ce069a762fbf220b218343ced0fccfbe8358875643e78376cc76f758c12e808b",
+      "current_sha256": "ce069a762fbf220b218343ced0fccfbe8358875643e78376cc76f758c12e808b",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/sparkjab/small/walk_e_f2.png",
+      "verified_sha256": "9161c9ae3082b03477842603c40f7cb1b4d2b55b4c11251f7913bbc7dd818a79",
+      "current_sha256": "9161c9ae3082b03477842603c40f7cb1b4d2b55b4c11251f7913bbc7dd818a79",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/sparkjab/small/walk_e_f3.png",
+      "verified_sha256": "600389de604872b3063b1ef5ced48043c4ac5174ab262b942ad7188d2688d577",
+      "current_sha256": "600389de604872b3063b1ef5ced48043c4ac5174ab262b942ad7188d2688d577",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/sparkjab/small/walk_e_f4.png",
+      "verified_sha256": "164ae597079366a24e273cd36cfe14ced4d53ae7ad08d48038ffc41b520b65ab",
+      "current_sha256": "164ae597079366a24e273cd36cfe14ced4d53ae7ad08d48038ffc41b520b65ab",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/sparkjab/small/walk_e_f5.png",
+      "verified_sha256": "de1c28b41de34dec6982e4cc0868f9b16a9b516043b532606c6c38c5f00ce0d4",
+      "current_sha256": "de1c28b41de34dec6982e4cc0868f9b16a9b516043b532606c6c38c5f00ce0d4",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/sparkjab/small/walk_e_f6.png",
+      "verified_sha256": "28f71a36e95279f9ffbc1afcd06903110d7ae1c2673ac1df480cb89546fae93d",
+      "current_sha256": "28f71a36e95279f9ffbc1afcd06903110d7ae1c2673ac1df480cb89546fae93d",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/sparkjab/small/walk_e_f7.png",
+      "verified_sha256": "aab01e26b4dbfdbdaad33febe89581f8a4ce4c8edda9b38fc0de25f09633484e",
+      "current_sha256": "aab01e26b4dbfdbdaad33febe89581f8a4ce4c8edda9b38fc0de25f09633484e",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/sparkjab/small/walk_n_f0.png",
+      "verified_sha256": "3e63b0e2c86f8cceff9bf9f35fdf1566a664584691b75b9bb4d18dc35a4fe06f",
+      "current_sha256": "3e63b0e2c86f8cceff9bf9f35fdf1566a664584691b75b9bb4d18dc35a4fe06f",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/sparkjab/small/walk_n_f1.png",
+      "verified_sha256": "42734b8a1573c07dc363f3c020dcb1646934c36982b9d390a8afa51bda5db2ba",
+      "current_sha256": "42734b8a1573c07dc363f3c020dcb1646934c36982b9d390a8afa51bda5db2ba",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/sparkjab/small/walk_n_f2.png",
+      "verified_sha256": "5175da18dfacafbf1fcde651af13de0ce74d0dad5d2ce0bc16290e319859a55f",
+      "current_sha256": "5175da18dfacafbf1fcde651af13de0ce74d0dad5d2ce0bc16290e319859a55f",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/sparkjab/small/walk_n_f3.png",
+      "verified_sha256": "f496279f8780bc3b97bafa92158a2cb7dc1071a83a6e4cdb482d9ef8866409b2",
+      "current_sha256": "f496279f8780bc3b97bafa92158a2cb7dc1071a83a6e4cdb482d9ef8866409b2",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/sparkjab/small/walk_n_f4.png",
+      "verified_sha256": "fd7cf5a734a593ac2fa18086d341e27d910bae7c35c2b8049e9bdbe59f2c4f0b",
+      "current_sha256": "fd7cf5a734a593ac2fa18086d341e27d910bae7c35c2b8049e9bdbe59f2c4f0b",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/sparkjab/small/walk_n_f5.png",
+      "verified_sha256": "c1ae38ae740bc45b1819d3493aeb04689a1ead37d54cf7d9a97e09be8e3d3e2e",
+      "current_sha256": "c1ae38ae740bc45b1819d3493aeb04689a1ead37d54cf7d9a97e09be8e3d3e2e",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/sparkjab/small/walk_n_f6.png",
+      "verified_sha256": "2ca80e038edd10cbacec278f0203f802934c454b6ddb259688776f9e833c4949",
+      "current_sha256": "2ca80e038edd10cbacec278f0203f802934c454b6ddb259688776f9e833c4949",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/sparkjab/small/walk_n_f7.png",
+      "verified_sha256": "6a4f620c7cab2e40eca1f45c0f95095216db9c076c900d9fd8d54281dbb710cc",
+      "current_sha256": "6a4f620c7cab2e40eca1f45c0f95095216db9c076c900d9fd8d54281dbb710cc",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/sparkjab/small/walk_ne_f0.png",
+      "verified_sha256": "5b90ba7028ed26fc5363f4de4e68c74d8899de41eb9ae7480a02835ce9459473",
+      "current_sha256": "5b90ba7028ed26fc5363f4de4e68c74d8899de41eb9ae7480a02835ce9459473",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/sparkjab/small/walk_ne_f1.png",
+      "verified_sha256": "63015baddf0a0b43b654ea834e745a336f191a6e7e2a3d7997013f59a35e35e3",
+      "current_sha256": "63015baddf0a0b43b654ea834e745a336f191a6e7e2a3d7997013f59a35e35e3",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/sparkjab/small/walk_ne_f2.png",
+      "verified_sha256": "830c3ae65ce1e1151a0cdc7d94c04c3ba6f22fd4d9d72fb98e7fa30804893290",
+      "current_sha256": "830c3ae65ce1e1151a0cdc7d94c04c3ba6f22fd4d9d72fb98e7fa30804893290",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/sparkjab/small/walk_ne_f3.png",
+      "verified_sha256": "dc30196e227f952150ada19b320931dd3082914e2a4d1ba952641a9101d987e1",
+      "current_sha256": "dc30196e227f952150ada19b320931dd3082914e2a4d1ba952641a9101d987e1",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/sparkjab/small/walk_ne_f4.png",
+      "verified_sha256": "cbb4b8a340cbd648d7e327b42b53d778e556aa9be7f0a2ff53cdf84f8b3324db",
+      "current_sha256": "cbb4b8a340cbd648d7e327b42b53d778e556aa9be7f0a2ff53cdf84f8b3324db",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/sparkjab/small/walk_ne_f5.png",
+      "verified_sha256": "955516611ad0c667d74943acad88ff496bc2b9c9af195a464778237a84309444",
+      "current_sha256": "955516611ad0c667d74943acad88ff496bc2b9c9af195a464778237a84309444",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/sparkjab/small/walk_ne_f6.png",
+      "verified_sha256": "a0cf2edf1fd3004fe15c94ed0b7356563070366f34ea889fcacc8d81ce0f11e0",
+      "current_sha256": "a0cf2edf1fd3004fe15c94ed0b7356563070366f34ea889fcacc8d81ce0f11e0",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/sparkjab/small/walk_ne_f7.png",
+      "verified_sha256": "16f232a42ca786d35e6db7e43d972af38f2e990d74a6646a4b6732b182a07937",
+      "current_sha256": "16f232a42ca786d35e6db7e43d972af38f2e990d74a6646a4b6732b182a07937",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/sparkjab/small/walk_nw_f0.png",
+      "verified_sha256": "fb48f85dded620aa2857cf272cb5241d7c3924e3c89c3d0c2be24f12d6311b11",
+      "current_sha256": "fb48f85dded620aa2857cf272cb5241d7c3924e3c89c3d0c2be24f12d6311b11",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/sparkjab/small/walk_nw_f1.png",
+      "verified_sha256": "85ea77de02ef1edd55aca76e24a7de04506adeee91970acd96742472f870a858",
+      "current_sha256": "85ea77de02ef1edd55aca76e24a7de04506adeee91970acd96742472f870a858",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/sparkjab/small/walk_nw_f2.png",
+      "verified_sha256": "0069bb359ccc84690e161247dd4cd82d9893ecb56fecd05751447a50abbe0d89",
+      "current_sha256": "0069bb359ccc84690e161247dd4cd82d9893ecb56fecd05751447a50abbe0d89",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/sparkjab/small/walk_nw_f3.png",
+      "verified_sha256": "458ed5c1f0376ae4cad9d419b06c4458bb1b5db36de496121a7ddbaf418b02d3",
+      "current_sha256": "458ed5c1f0376ae4cad9d419b06c4458bb1b5db36de496121a7ddbaf418b02d3",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/sparkjab/small/walk_nw_f4.png",
+      "verified_sha256": "4ca38b2bb3affc0ea0a5143a4e935b86db0a505401bd93c306e9f34e56a1a854",
+      "current_sha256": "4ca38b2bb3affc0ea0a5143a4e935b86db0a505401bd93c306e9f34e56a1a854",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/sparkjab/small/walk_nw_f5.png",
+      "verified_sha256": "1df6013c5843ad5634954cb54d812f19561b60d812bf555c836af690d3e18656",
+      "current_sha256": "1df6013c5843ad5634954cb54d812f19561b60d812bf555c836af690d3e18656",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/sparkjab/small/walk_nw_f6.png",
+      "verified_sha256": "9599761415e3e22506bcbd75050878a60a9e33b8def2a774ef2d09dcd7bb56a6",
+      "current_sha256": "9599761415e3e22506bcbd75050878a60a9e33b8def2a774ef2d09dcd7bb56a6",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/sparkjab/small/walk_nw_f7.png",
+      "verified_sha256": "e08747d9db434c86552555d69fb37ac6ac08643ce759f8900418df81089665e3",
+      "current_sha256": "e08747d9db434c86552555d69fb37ac6ac08643ce759f8900418df81089665e3",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/sparkjab/small/walk_s_f0.png",
+      "verified_sha256": "4b34a1cfc91c70170c2361528a80e04261d84edfd95e736810226d2937f35d40",
+      "current_sha256": "4b34a1cfc91c70170c2361528a80e04261d84edfd95e736810226d2937f35d40",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/sparkjab/small/walk_s_f1.png",
+      "verified_sha256": "bdd61a1255a99dd0f48caa75be09082d2b3b2c934187f682686d700b29e3e248",
+      "current_sha256": "bdd61a1255a99dd0f48caa75be09082d2b3b2c934187f682686d700b29e3e248",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/sparkjab/small/walk_s_f2.png",
+      "verified_sha256": "4b1d7f132090f5f1460eb9882c96ae02c0990d6f09ef0c24a6e27ea76a65d6d4",
+      "current_sha256": "4b1d7f132090f5f1460eb9882c96ae02c0990d6f09ef0c24a6e27ea76a65d6d4",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/sparkjab/small/walk_s_f3.png",
+      "verified_sha256": "688aaf730d170a9e835f52863fa69a73b6c77b88a7a82955fe98ecc7d5f30c16",
+      "current_sha256": "688aaf730d170a9e835f52863fa69a73b6c77b88a7a82955fe98ecc7d5f30c16",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/sparkjab/small/walk_s_f4.png",
+      "verified_sha256": "0b2d8e0ccf4396c5005047acecf0436ff7b46d35f185a8cab4349bce6270513a",
+      "current_sha256": "0b2d8e0ccf4396c5005047acecf0436ff7b46d35f185a8cab4349bce6270513a",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/sparkjab/small/walk_s_f5.png",
+      "verified_sha256": "88a59f08b713fd7fd0540f7804d0caee5fe965ff25fb97a0437da9656b5552e5",
+      "current_sha256": "88a59f08b713fd7fd0540f7804d0caee5fe965ff25fb97a0437da9656b5552e5",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/sparkjab/small/walk_s_f6.png",
+      "verified_sha256": "ce3346ad89699cd68b8e2b9d596b7e643d56e83faf17b1e084c213ae34c29777",
+      "current_sha256": "ce3346ad89699cd68b8e2b9d596b7e643d56e83faf17b1e084c213ae34c29777",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/sparkjab/small/walk_s_f7.png",
+      "verified_sha256": "6334290825101036bad339c1ccceeb51db435c78383f28b0b558bc0c8c101f0b",
+      "current_sha256": "6334290825101036bad339c1ccceeb51db435c78383f28b0b558bc0c8c101f0b",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/sparkjab/small/walk_se_f0.png",
+      "verified_sha256": "eddf2c6677d215c3e2081dc340476aba19c746e052b355fcb8486618473fb2ac",
+      "current_sha256": "eddf2c6677d215c3e2081dc340476aba19c746e052b355fcb8486618473fb2ac",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/sparkjab/small/walk_se_f1.png",
+      "verified_sha256": "5037d45f7e7776edc30aa6ce383d6bb063ebe2fc25af88565ee06c27e18de87f",
+      "current_sha256": "5037d45f7e7776edc30aa6ce383d6bb063ebe2fc25af88565ee06c27e18de87f",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/sparkjab/small/walk_se_f2.png",
+      "verified_sha256": "0e1555ac00bddd029344ee11eb7a886a043194dc31d51d9d1858a13b6a80288d",
+      "current_sha256": "0e1555ac00bddd029344ee11eb7a886a043194dc31d51d9d1858a13b6a80288d",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/sparkjab/small/walk_se_f3.png",
+      "verified_sha256": "653bace59a26536273c8a5fce8971e1aabac4cd7d8091b81515b62fdd31d1946",
+      "current_sha256": "653bace59a26536273c8a5fce8971e1aabac4cd7d8091b81515b62fdd31d1946",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/sparkjab/small/walk_se_f4.png",
+      "verified_sha256": "8915a304dddebc5e8cedfc372d2d9f57c0570c007e68eae58b62631728b1caea",
+      "current_sha256": "8915a304dddebc5e8cedfc372d2d9f57c0570c007e68eae58b62631728b1caea",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/sparkjab/small/walk_se_f5.png",
+      "verified_sha256": "94a8eb01a9f1c62e965fabbcc10e344817976e041ab1afd970540b7e24a15918",
+      "current_sha256": "94a8eb01a9f1c62e965fabbcc10e344817976e041ab1afd970540b7e24a15918",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/sparkjab/small/walk_se_f6.png",
+      "verified_sha256": "86400974666a93f12686a5c9584be78ec7178d8eb4fa491e0ddc2875d4a3cbe5",
+      "current_sha256": "86400974666a93f12686a5c9584be78ec7178d8eb4fa491e0ddc2875d4a3cbe5",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/sparkjab/small/walk_se_f7.png",
+      "verified_sha256": "0b684a1f6da687e467e1db28c14b6c5b96593d778e2649502247b504bdaa3a8e",
+      "current_sha256": "0b684a1f6da687e467e1db28c14b6c5b96593d778e2649502247b504bdaa3a8e",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/sparkjab/small/walk_sw_f0.png",
+      "verified_sha256": "45dea62165e6375875013fb2f1aaba9eb2c00916d9c91a26d068fd8b25abeb69",
+      "current_sha256": "45dea62165e6375875013fb2f1aaba9eb2c00916d9c91a26d068fd8b25abeb69",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/sparkjab/small/walk_sw_f1.png",
+      "verified_sha256": "aacd20e8df656a8e3217bea49060e8ba97e2adff4cda69dd48831d7ed985b8cb",
+      "current_sha256": "aacd20e8df656a8e3217bea49060e8ba97e2adff4cda69dd48831d7ed985b8cb",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/sparkjab/small/walk_sw_f2.png",
+      "verified_sha256": "86721b828c7ce0a542780a377b182e7ccab248945ac3a37241de8707b3044fd2",
+      "current_sha256": "86721b828c7ce0a542780a377b182e7ccab248945ac3a37241de8707b3044fd2",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/sparkjab/small/walk_sw_f3.png",
+      "verified_sha256": "11a1a0763a5e5689c2b8674ce2bed85c2944e4214585678e926da03f9e0e8190",
+      "current_sha256": "11a1a0763a5e5689c2b8674ce2bed85c2944e4214585678e926da03f9e0e8190",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/sparkjab/small/walk_sw_f4.png",
+      "verified_sha256": "a0bfe9262fdf361a6d6b9056533338b3c427c6f9bfa0196373323fe207245d11",
+      "current_sha256": "a0bfe9262fdf361a6d6b9056533338b3c427c6f9bfa0196373323fe207245d11",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/sparkjab/small/walk_sw_f5.png",
+      "verified_sha256": "bc0b888bfeadf11a447fb5041488d134e3f89dc80345089f0d9d9b446ef2f9c2",
+      "current_sha256": "bc0b888bfeadf11a447fb5041488d134e3f89dc80345089f0d9d9b446ef2f9c2",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/sparkjab/small/walk_sw_f6.png",
+      "verified_sha256": "060278293ce50448e25cd3e62e36084bfef14a196d1c4c718e1ba5ef2ef8d651",
+      "current_sha256": "060278293ce50448e25cd3e62e36084bfef14a196d1c4c718e1ba5ef2ef8d651",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/sparkjab/small/walk_sw_f7.png",
+      "verified_sha256": "3d2538bb803783144c15f1159c14ca7c0e210dcbae5a27613e20fc25d7c657d6",
+      "current_sha256": "3d2538bb803783144c15f1159c14ca7c0e210dcbae5a27613e20fc25d7c657d6",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/sparkjab/small/walk_w_f0.png",
+      "verified_sha256": "8d0470a706a3f9d55b720db3646d25544cdf998ff3bc4a82e805c0218115e9c1",
+      "current_sha256": "8d0470a706a3f9d55b720db3646d25544cdf998ff3bc4a82e805c0218115e9c1",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/sparkjab/small/walk_w_f1.png",
+      "verified_sha256": "f5dc8ae7f80a3f7b52f00646692b0dc7c34210b9d15a11b892ce9067de6eb6ba",
+      "current_sha256": "f5dc8ae7f80a3f7b52f00646692b0dc7c34210b9d15a11b892ce9067de6eb6ba",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/sparkjab/small/walk_w_f2.png",
+      "verified_sha256": "402cd71a98f15bbdd1d6809e1b21a3c6554adac4e9393f0724f7e32ba0b8baf2",
+      "current_sha256": "402cd71a98f15bbdd1d6809e1b21a3c6554adac4e9393f0724f7e32ba0b8baf2",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/sparkjab/small/walk_w_f3.png",
+      "verified_sha256": "c87ad0b039311abf8ef95721c89bac756cf718d819b7a876d01f4498cca6b7f5",
+      "current_sha256": "c87ad0b039311abf8ef95721c89bac756cf718d819b7a876d01f4498cca6b7f5",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/sparkjab/small/walk_w_f4.png",
+      "verified_sha256": "f99c511077ef5f52cd49e7c5039bbbbceac61183b268ae3b2ffc49ba1a8cad65",
+      "current_sha256": "f99c511077ef5f52cd49e7c5039bbbbceac61183b268ae3b2ffc49ba1a8cad65",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/sparkjab/small/walk_w_f5.png",
+      "verified_sha256": "3afa857207713b5cc66f68f1dbaa349e5ad84688b12aab232f829ab2407f164a",
+      "current_sha256": "3afa857207713b5cc66f68f1dbaa349e5ad84688b12aab232f829ab2407f164a",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/sparkjab/small/walk_w_f6.png",
+      "verified_sha256": "26d91ead467221a8283471c2125f14c5ec10e5b82a566b31efce1cf2e67593d3",
+      "current_sha256": "26d91ead467221a8283471c2125f14c5ec10e5b82a566b31efce1cf2e67593d3",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/sparkjab/small/walk_w_f7.png",
+      "verified_sha256": "f755d6adea4ece0b35b01d36dfba6b8c45a809c59e30e787df4734e7b0e481b5",
+      "current_sha256": "f755d6adea4ece0b35b01d36dfba6b8c45a809c59e30e787df4734e7b0e481b5",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/sparkjab/sw.png",
+      "verified_sha256": "97d0b6e3daf585c2d80095b2678039bf4b128c69f38356654fd02275a86afe39",
+      "current_sha256": "97d0b6e3daf585c2d80095b2678039bf4b128c69f38356654fd02275a86afe39",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/sparkjab/w.png",
+      "verified_sha256": "e0422b386906ded0714d659c1a35d7fca73d0bd0697ddda162a72db38935e7cd",
+      "current_sha256": "e0422b386906ded0714d659c1a35d7fca73d0bd0697ddda162a72db38935e7cd",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/starward/e.png",
+      "verified_sha256": "b57d99157a44f3f18c67120863b0f6df342479407bf4e513098d3ad052124592",
+      "current_sha256": "b57d99157a44f3f18c67120863b0f6df342479407bf4e513098d3ad052124592",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/starward/n.png",
+      "verified_sha256": "d2496e902818fd238754d94d73b9e021f81d015e6d80ca3749580034c6afd002",
+      "current_sha256": "d2496e902818fd238754d94d73b9e021f81d015e6d80ca3749580034c6afd002",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/starward/ne.png",
+      "verified_sha256": "882db2936363d53aadfe7554e7da7c2bf1aeb37381d7b3ce45fc0fc93bc39a59",
+      "current_sha256": "882db2936363d53aadfe7554e7da7c2bf1aeb37381d7b3ce45fc0fc93bc39a59",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/starward/nw.png",
+      "verified_sha256": "40de52490d5dbab1d6debd2e4b1c16b4f18cd978fb5f06fad0bc49817edf221b",
+      "current_sha256": "40de52490d5dbab1d6debd2e4b1c16b4f18cd978fb5f06fad0bc49817edf221b",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/starward/s.png",
+      "verified_sha256": "6d8a7167e7646ff80b1a75af747b8af16d31e2d47735f5e9d13cf4be9a3a059f",
+      "current_sha256": "6d8a7167e7646ff80b1a75af747b8af16d31e2d47735f5e9d13cf4be9a3a059f",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/starward/se.png",
+      "verified_sha256": "edd327b380690739e8e99581f0b4d16149528bdd7999069ae358447f6763e70d",
+      "current_sha256": "edd327b380690739e8e99581f0b4d16149528bdd7999069ae358447f6763e70d",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/starward/small/e.png",
+      "verified_sha256": "c698d74f9f918eb275bd44e954b01e994272c34d23d456d5aa45427a85f8ff30",
+      "current_sha256": "c698d74f9f918eb275bd44e954b01e994272c34d23d456d5aa45427a85f8ff30",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/starward/small/n.png",
+      "verified_sha256": "709d0c99b86bdba3a19511dc50adcdd852e7255235ed6d312567a0ae36a00c71",
+      "current_sha256": "709d0c99b86bdba3a19511dc50adcdd852e7255235ed6d312567a0ae36a00c71",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/starward/small/ne.png",
+      "verified_sha256": "6ad1a495c9ba165f6aaf04ec269477e361c7fce1b8980283a045427414a73c4b",
+      "current_sha256": "6ad1a495c9ba165f6aaf04ec269477e361c7fce1b8980283a045427414a73c4b",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/starward/small/nw.png",
+      "verified_sha256": "7be4d9a0531a82a18973cfb5923f7cb570c29e4337ab62c60ea464c835802041",
+      "current_sha256": "7be4d9a0531a82a18973cfb5923f7cb570c29e4337ab62c60ea464c835802041",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/starward/small/s.png",
+      "verified_sha256": "451e104172d95bac0eba5880baa62ebff903117e45c2c91fdd704ec277cadd6b",
+      "current_sha256": "451e104172d95bac0eba5880baa62ebff903117e45c2c91fdd704ec277cadd6b",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/starward/small/se.png",
+      "verified_sha256": "d830c6cb8eba6c41633bab3dc0750566b9de2ad4c0579e3b57167df969e1d1f8",
+      "current_sha256": "d830c6cb8eba6c41633bab3dc0750566b9de2ad4c0579e3b57167df969e1d1f8",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/starward/small/sw.png",
+      "verified_sha256": "5cc2db5dc27f835c41d796d4e1f03210a8148dee9861091dc5de014134ca717a",
+      "current_sha256": "5cc2db5dc27f835c41d796d4e1f03210a8148dee9861091dc5de014134ca717a",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/starward/small/w.png",
+      "verified_sha256": "110ad6aefbecf259a621800119acde05a95f40eef23c5a902e98be3162e94144",
+      "current_sha256": "110ad6aefbecf259a621800119acde05a95f40eef23c5a902e98be3162e94144",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/starward/small/walk_e_f0.png",
+      "verified_sha256": "77bc9eacb95b17ea0ab9595004be3a166016e4f4fe57350c9abc426f2da65e27",
+      "current_sha256": "77bc9eacb95b17ea0ab9595004be3a166016e4f4fe57350c9abc426f2da65e27",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/starward/small/walk_e_f1.png",
+      "verified_sha256": "6d17c904e849f0010770d05059f4dc5e26f908d17d817edbe0b02317d18f3baa",
+      "current_sha256": "6d17c904e849f0010770d05059f4dc5e26f908d17d817edbe0b02317d18f3baa",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/starward/small/walk_e_f2.png",
+      "verified_sha256": "0affb02711f3b974b81c0faaa8e6607ccba251509324c4a1e079fb1545b45a1b",
+      "current_sha256": "0affb02711f3b974b81c0faaa8e6607ccba251509324c4a1e079fb1545b45a1b",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/starward/small/walk_e_f3.png",
+      "verified_sha256": "5ee58712b2e5f66efb9923ba462b047a49da0928ccf5bd49a3d3cd04b3326411",
+      "current_sha256": "5ee58712b2e5f66efb9923ba462b047a49da0928ccf5bd49a3d3cd04b3326411",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/starward/small/walk_e_f4.png",
+      "verified_sha256": "78b03c727705223f374354b9f891b918bcb771cefcf2e7df98a77f24c347c4da",
+      "current_sha256": "78b03c727705223f374354b9f891b918bcb771cefcf2e7df98a77f24c347c4da",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/starward/small/walk_e_f5.png",
+      "verified_sha256": "935b615bffbeef2f6849c0f58ce37c952bf4fb09edf03ff83cc908623b9e710b",
+      "current_sha256": "935b615bffbeef2f6849c0f58ce37c952bf4fb09edf03ff83cc908623b9e710b",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/starward/small/walk_e_f6.png",
+      "verified_sha256": "9107d9783f4629a7f8c9cf69bf491c04e99ac92d5de44da63e440e977566531f",
+      "current_sha256": "9107d9783f4629a7f8c9cf69bf491c04e99ac92d5de44da63e440e977566531f",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/starward/small/walk_e_f7.png",
+      "verified_sha256": "0949e994b182a427b8f5f8736c855fbbc99189fcc846538a713e961dbdda0a67",
+      "current_sha256": "0949e994b182a427b8f5f8736c855fbbc99189fcc846538a713e961dbdda0a67",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/starward/small/walk_n_f0.png",
+      "verified_sha256": "a21cb047167fc632899fc3fee9de8a7cb6b4a1e764fdb4bf8a6f578545b481bf",
+      "current_sha256": "a21cb047167fc632899fc3fee9de8a7cb6b4a1e764fdb4bf8a6f578545b481bf",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/starward/small/walk_n_f1.png",
+      "verified_sha256": "b65ef148d40f40a70769016db52bb2f41fa86f3c64603d188bc967744091da1b",
+      "current_sha256": "b65ef148d40f40a70769016db52bb2f41fa86f3c64603d188bc967744091da1b",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/starward/small/walk_n_f2.png",
+      "verified_sha256": "4fc5483f3972e989194a8bc31b5a75f7ac51089cd1cbdfc50a68171d0fe9db77",
+      "current_sha256": "4fc5483f3972e989194a8bc31b5a75f7ac51089cd1cbdfc50a68171d0fe9db77",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/starward/small/walk_n_f3.png",
+      "verified_sha256": "8ce462e6b95976c13dab6591443492dfe499f8933db37d69f3408a04cef2fe60",
+      "current_sha256": "8ce462e6b95976c13dab6591443492dfe499f8933db37d69f3408a04cef2fe60",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/starward/small/walk_n_f4.png",
+      "verified_sha256": "faa46ea10b06bf7533ec14768beaa34b8059b3a83e6f9b795d2453920f67eb14",
+      "current_sha256": "faa46ea10b06bf7533ec14768beaa34b8059b3a83e6f9b795d2453920f67eb14",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/starward/small/walk_n_f5.png",
+      "verified_sha256": "3ab4e27e8bf37313d789a3e454d90c3819d6af41404198f67315dcd49d886aac",
+      "current_sha256": "3ab4e27e8bf37313d789a3e454d90c3819d6af41404198f67315dcd49d886aac",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/starward/small/walk_n_f6.png",
+      "verified_sha256": "d0a2b170d8d50b4c3d3cbe21d0e7ac832eb38264485fabe57300cfb563c0c383",
+      "current_sha256": "d0a2b170d8d50b4c3d3cbe21d0e7ac832eb38264485fabe57300cfb563c0c383",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/starward/small/walk_n_f7.png",
+      "verified_sha256": "275a1e8b16fb25ea3fc2353c3ab4442e26f4bfddf07894cf98b6fb1e6d2af59c",
+      "current_sha256": "275a1e8b16fb25ea3fc2353c3ab4442e26f4bfddf07894cf98b6fb1e6d2af59c",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/starward/small/walk_ne_f0.png",
+      "verified_sha256": "901d68b120822dc1b33b517d890a088269e70ced5e46171b66658896b6103d6b",
+      "current_sha256": "901d68b120822dc1b33b517d890a088269e70ced5e46171b66658896b6103d6b",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/starward/small/walk_ne_f1.png",
+      "verified_sha256": "46e609099a8985902fa5941aacbf9ba6fd035295789aabadd8b786ee351f933d",
+      "current_sha256": "46e609099a8985902fa5941aacbf9ba6fd035295789aabadd8b786ee351f933d",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/starward/small/walk_ne_f2.png",
+      "verified_sha256": "95653eaadd9ba893317f5ff8ae41a7a8b425914a091ddae33e5c8644b810e2a6",
+      "current_sha256": "95653eaadd9ba893317f5ff8ae41a7a8b425914a091ddae33e5c8644b810e2a6",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/starward/small/walk_ne_f3.png",
+      "verified_sha256": "c4f8cd375f928904e7c8a06d5b362a5ea837de57bde387cdb91810678b312fb4",
+      "current_sha256": "c4f8cd375f928904e7c8a06d5b362a5ea837de57bde387cdb91810678b312fb4",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/starward/small/walk_ne_f4.png",
+      "verified_sha256": "09bf9d3d85d312ee4d7383e77ed97f45b4a2517da7b1e0ea555ab92035f7a7ef",
+      "current_sha256": "09bf9d3d85d312ee4d7383e77ed97f45b4a2517da7b1e0ea555ab92035f7a7ef",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/starward/small/walk_ne_f5.png",
+      "verified_sha256": "536c148a648420afab6e0dd5698bc841cd2e4e0d58ac2a130d49744edc1f3e97",
+      "current_sha256": "536c148a648420afab6e0dd5698bc841cd2e4e0d58ac2a130d49744edc1f3e97",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/starward/small/walk_ne_f6.png",
+      "verified_sha256": "dee1bfac332b78ced26de756f0f204dab15ae6e6c45e3baea4e8e86cddbf95e5",
+      "current_sha256": "dee1bfac332b78ced26de756f0f204dab15ae6e6c45e3baea4e8e86cddbf95e5",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/starward/small/walk_ne_f7.png",
+      "verified_sha256": "b276e716e243af3213155a2886ac43d6d8f84897a5fb2f8e87e7015d24ed6611",
+      "current_sha256": "b276e716e243af3213155a2886ac43d6d8f84897a5fb2f8e87e7015d24ed6611",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/starward/small/walk_nw_f0.png",
+      "verified_sha256": "bd5c89af3c5c5129912d32de22980dde13052d3087a9f1fb88e35481e1093197",
+      "current_sha256": "bd5c89af3c5c5129912d32de22980dde13052d3087a9f1fb88e35481e1093197",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/starward/small/walk_nw_f1.png",
+      "verified_sha256": "35220862eaaa0850f085a88d17d027aa4c75905949bc380b4bb1a76488bdabb1",
+      "current_sha256": "35220862eaaa0850f085a88d17d027aa4c75905949bc380b4bb1a76488bdabb1",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/starward/small/walk_nw_f2.png",
+      "verified_sha256": "47ef8522c34a1507227b807fe2343d35d43b5b94daaeed418f782ef215c0738f",
+      "current_sha256": "47ef8522c34a1507227b807fe2343d35d43b5b94daaeed418f782ef215c0738f",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/starward/small/walk_nw_f3.png",
+      "verified_sha256": "9d3c849ef3567bc2c49c488318e088d056880138ce2392f9ef3a4fc0eca7689e",
+      "current_sha256": "9d3c849ef3567bc2c49c488318e088d056880138ce2392f9ef3a4fc0eca7689e",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/starward/small/walk_nw_f4.png",
+      "verified_sha256": "8298bff07062064841e8e66cb9dbbf3d26b523bae3b885c08e5e7e5214a6ddd3",
+      "current_sha256": "8298bff07062064841e8e66cb9dbbf3d26b523bae3b885c08e5e7e5214a6ddd3",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/starward/small/walk_nw_f5.png",
+      "verified_sha256": "5d68b93d520b9dd1be5725369907af38bb12749ef82fddd1957036f12b4e1daa",
+      "current_sha256": "5d68b93d520b9dd1be5725369907af38bb12749ef82fddd1957036f12b4e1daa",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/starward/small/walk_nw_f6.png",
+      "verified_sha256": "f231ce109b566947e63895c9175fac25ab7271045635b4570cca080a2ebb5252",
+      "current_sha256": "f231ce109b566947e63895c9175fac25ab7271045635b4570cca080a2ebb5252",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/starward/small/walk_nw_f7.png",
+      "verified_sha256": "581590e6c0d88091d2a3e03936aab288be5c16feefcf5bf11113e5b717a45f4c",
+      "current_sha256": "581590e6c0d88091d2a3e03936aab288be5c16feefcf5bf11113e5b717a45f4c",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/starward/small/walk_s_f0.png",
+      "verified_sha256": "0d92e37c3cc347ace7feb06e79edb7e335a926f4dd666ad41b3c14ae90d96e8c",
+      "current_sha256": "0d92e37c3cc347ace7feb06e79edb7e335a926f4dd666ad41b3c14ae90d96e8c",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/starward/small/walk_s_f1.png",
+      "verified_sha256": "78ba77d5a66675c52c7776d75b91ca05d3be2d154289b5c2fc7f57bae08222c9",
+      "current_sha256": "78ba77d5a66675c52c7776d75b91ca05d3be2d154289b5c2fc7f57bae08222c9",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/starward/small/walk_s_f2.png",
+      "verified_sha256": "3126471afd7c9c0d4669ef36d13d7bd828dc7af168472d7a5a83cf200e9400b9",
+      "current_sha256": "3126471afd7c9c0d4669ef36d13d7bd828dc7af168472d7a5a83cf200e9400b9",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/starward/small/walk_s_f3.png",
+      "verified_sha256": "6a588a15a2197e3f441184ffda7b6693b5183ed62b4a2a14fe9c3d3e1eff2a31",
+      "current_sha256": "6a588a15a2197e3f441184ffda7b6693b5183ed62b4a2a14fe9c3d3e1eff2a31",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/starward/small/walk_s_f4.png",
+      "verified_sha256": "a68c457b5e5df173f3ca8169fedba74b9111c10a8c42cd11dc9e9712c05ad7bb",
+      "current_sha256": "a68c457b5e5df173f3ca8169fedba74b9111c10a8c42cd11dc9e9712c05ad7bb",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/starward/small/walk_s_f5.png",
+      "verified_sha256": "fea51774414a4a25ed57cae3533e2fb05f835559a68d4c0828bceb7ca06ad260",
+      "current_sha256": "fea51774414a4a25ed57cae3533e2fb05f835559a68d4c0828bceb7ca06ad260",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/starward/small/walk_s_f6.png",
+      "verified_sha256": "533c2efe944af4b6929677b34a1395f9fb7320846059b41144adb34b1b184abf",
+      "current_sha256": "533c2efe944af4b6929677b34a1395f9fb7320846059b41144adb34b1b184abf",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/starward/small/walk_s_f7.png",
+      "verified_sha256": "a6137cfe3f4ac9a8ad5deb0a93ad50323fa189915a75f68c1df0c7acefed3cda",
+      "current_sha256": "a6137cfe3f4ac9a8ad5deb0a93ad50323fa189915a75f68c1df0c7acefed3cda",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/starward/small/walk_se_f0.png",
+      "verified_sha256": "4e5910d1969ae28fd5cd08d7f7e82ffc7df089335e52aa7d8a3cd093260e8927",
+      "current_sha256": "4e5910d1969ae28fd5cd08d7f7e82ffc7df089335e52aa7d8a3cd093260e8927",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/starward/small/walk_se_f1.png",
+      "verified_sha256": "d7d9c43940d2b08ed7c0fcb849d45ac3514b56f6160dc808d88086de5793e7bd",
+      "current_sha256": "d7d9c43940d2b08ed7c0fcb849d45ac3514b56f6160dc808d88086de5793e7bd",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/starward/small/walk_se_f2.png",
+      "verified_sha256": "2df175cc65a89754f9e93582fd8999de79e2cc3f832345b9abb38397e54830c3",
+      "current_sha256": "2df175cc65a89754f9e93582fd8999de79e2cc3f832345b9abb38397e54830c3",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/starward/small/walk_se_f3.png",
+      "verified_sha256": "975298aa7317768429656cad29c3e70c193f2fbbfa4266e15aecba55d25aee8a",
+      "current_sha256": "975298aa7317768429656cad29c3e70c193f2fbbfa4266e15aecba55d25aee8a",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/starward/small/walk_se_f4.png",
+      "verified_sha256": "0f133b61151017869d006be1dcf346bd8958e93335fe21dea3c4f23ab0b21610",
+      "current_sha256": "0f133b61151017869d006be1dcf346bd8958e93335fe21dea3c4f23ab0b21610",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/starward/small/walk_se_f5.png",
+      "verified_sha256": "9ca3dc26b2953bc5295263ba5851a327bd8201a397f889e8dfe4742c614a5ed6",
+      "current_sha256": "9ca3dc26b2953bc5295263ba5851a327bd8201a397f889e8dfe4742c614a5ed6",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/starward/small/walk_se_f6.png",
+      "verified_sha256": "73399335208f82f3aaecbe0dd97bf81094af1a441acf9104f4d1ef23648099ed",
+      "current_sha256": "73399335208f82f3aaecbe0dd97bf81094af1a441acf9104f4d1ef23648099ed",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/starward/small/walk_se_f7.png",
+      "verified_sha256": "40f21a68a80c3a4c59c12b7e70ba448eafd5ca91325ac26625e200f31f071147",
+      "current_sha256": "40f21a68a80c3a4c59c12b7e70ba448eafd5ca91325ac26625e200f31f071147",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/starward/small/walk_sw_f0.png",
+      "verified_sha256": "0595e44fc604fbd674aa917752108574821d22e69b8c250f5ed5dba38eedafd0",
+      "current_sha256": "0595e44fc604fbd674aa917752108574821d22e69b8c250f5ed5dba38eedafd0",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/starward/small/walk_sw_f1.png",
+      "verified_sha256": "53f00fbcf0d755a34433b67ecbbd64decbe71468a6ef7eb6d7276a9d296ec1a7",
+      "current_sha256": "53f00fbcf0d755a34433b67ecbbd64decbe71468a6ef7eb6d7276a9d296ec1a7",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/starward/small/walk_sw_f2.png",
+      "verified_sha256": "975b20994dee059f435bc48c323817213a9027d8af8bc65e19f08b5ff1d6a1a7",
+      "current_sha256": "975b20994dee059f435bc48c323817213a9027d8af8bc65e19f08b5ff1d6a1a7",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/starward/small/walk_sw_f3.png",
+      "verified_sha256": "c8b3bf3ae58f925ec56a38125d422c24e527e119d409a9e56c4cb3d4beb2c9ae",
+      "current_sha256": "c8b3bf3ae58f925ec56a38125d422c24e527e119d409a9e56c4cb3d4beb2c9ae",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/starward/small/walk_sw_f4.png",
+      "verified_sha256": "9b0fe5cf47cd34c409430da2e936863aea1334d15ab4cee687db3afabed67a32",
+      "current_sha256": "9b0fe5cf47cd34c409430da2e936863aea1334d15ab4cee687db3afabed67a32",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/starward/small/walk_sw_f5.png",
+      "verified_sha256": "1c5664fa4b41a569ac61356b91c2ea8c54d0853434e3134d409094b6f2b33ef7",
+      "current_sha256": "1c5664fa4b41a569ac61356b91c2ea8c54d0853434e3134d409094b6f2b33ef7",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/starward/small/walk_sw_f6.png",
+      "verified_sha256": "f935a0ce048aac6aba21032e7103148e207286417ae36db444154935b0e612b2",
+      "current_sha256": "f935a0ce048aac6aba21032e7103148e207286417ae36db444154935b0e612b2",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/starward/small/walk_sw_f7.png",
+      "verified_sha256": "c1001b5b9607e834c05b15d086ab7aad3046744a7826ded70471c503829f46a0",
+      "current_sha256": "c1001b5b9607e834c05b15d086ab7aad3046744a7826ded70471c503829f46a0",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/starward/small/walk_w_f0.png",
+      "verified_sha256": "7d4dcb15794a947356c8785ec12777be03268f57fb7f0a0a1900d6b75992c776",
+      "current_sha256": "7d4dcb15794a947356c8785ec12777be03268f57fb7f0a0a1900d6b75992c776",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/starward/small/walk_w_f1.png",
+      "verified_sha256": "71df7896a0815abb76be19af0f140471a4e8a20fcd5b4d85e3d571b2656f0e28",
+      "current_sha256": "71df7896a0815abb76be19af0f140471a4e8a20fcd5b4d85e3d571b2656f0e28",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/starward/small/walk_w_f2.png",
+      "verified_sha256": "c324407da5571754d33fce1075b75d297d1041793889de99c7566d30cc2b5859",
+      "current_sha256": "c324407da5571754d33fce1075b75d297d1041793889de99c7566d30cc2b5859",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/starward/small/walk_w_f3.png",
+      "verified_sha256": "6443910e6bee0aae9421ba4c740e8f1dfc1aa431602d36effd28dfdd1559d770",
+      "current_sha256": "6443910e6bee0aae9421ba4c740e8f1dfc1aa431602d36effd28dfdd1559d770",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/starward/small/walk_w_f4.png",
+      "verified_sha256": "7f13dee2a9628637460e393adb843986ebcc4005bc0cc2ce146dc70ed917ee48",
+      "current_sha256": "7f13dee2a9628637460e393adb843986ebcc4005bc0cc2ce146dc70ed917ee48",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/starward/small/walk_w_f5.png",
+      "verified_sha256": "56178bd7682d677eb97b5647d45ab3a5d2eceb6bbc6593b9d57b29f2fa072733",
+      "current_sha256": "56178bd7682d677eb97b5647d45ab3a5d2eceb6bbc6593b9d57b29f2fa072733",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/starward/small/walk_w_f6.png",
+      "verified_sha256": "56f40939a86f8c72b7e1fd299f4343ad6dd86c17217a380880a1842bed22775a",
+      "current_sha256": "56f40939a86f8c72b7e1fd299f4343ad6dd86c17217a380880a1842bed22775a",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/starward/small/walk_w_f7.png",
+      "verified_sha256": "2566047fd17be31e70977f78daa4ac2db6e0df41022f68467272491132b16e98",
+      "current_sha256": "2566047fd17be31e70977f78daa4ac2db6e0df41022f68467272491132b16e98",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/starward/sw.png",
+      "verified_sha256": "0807871c4ca4f066ad297713fd6cff041d2fdcdb871b5f266132c730591a6b47",
+      "current_sha256": "0807871c4ca4f066ad297713fd6cff041d2fdcdb871b5f266132c730591a6b47",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "assets/sprites/arena/starward/w.png",
+      "verified_sha256": "769fa212832877abb8230a2caed856e6d74fd278639234321dd1d7a4e0e9f5ee",
+      "current_sha256": "769fa212832877abb8230a2caed856e6d74fd278639234321dd1d7a4e0e9f5ee",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "docs/creatures/arena-starters-2026-10-07/forms/oathfen.png",
+      "verified_sha256": "88f2a2eac9739b394d331bafd405b2a3cf210c2c979a51ed8577b19c90dddf2e",
+      "current_sha256": "88f2a2eac9739b394d331bafd405b2a3cf210c2c979a51ed8577b19c90dddf2e",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "docs/creatures/arena-starters-2026-10-07/forms/oathfen_arena_pad.png",
+      "verified_sha256": "46695d04bdba430f071b9044b7a06abc24e3868a980787eb6cf94e98914530c3",
+      "current_sha256": "46695d04bdba430f071b9044b7a06abc24e3868a980787eb6cf94e98914530c3",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "docs/creatures/arena-starters-2026-10-07/forms/oathfen_arena_rotation_3x3.png",
+      "verified_sha256": "3bd11f34e41f10cc27c0082bf4f5e127ffee6bea26f6e1312a41a0f396ff5fc4",
+      "current_sha256": "3bd11f34e41f10cc27c0082bf4f5e127ffee6bea26f6e1312a41a0f396ff5fc4",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "docs/creatures/arena-starters-2026-10-07/forms/oxbowarchon.png",
+      "verified_sha256": "19f26ea6782244e879c48bf284fe2b0eed291d552ecafcd99566d0e64da22af0",
+      "current_sha256": "19f26ea6782244e879c48bf284fe2b0eed291d552ecafcd99566d0e64da22af0",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "docs/creatures/arena-starters-2026-10-07/forms/oxbowarchon_arena_pad.png",
+      "verified_sha256": "b99b1384692b03b2af45d9dafc2b913d1ebbbc90b08ae331891bc1bfc6360430",
+      "current_sha256": "b99b1384692b03b2af45d9dafc2b913d1ebbbc90b08ae331891bc1bfc6360430",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "docs/creatures/arena-starters-2026-10-07/forms/oxbowarchon_arena_rotation_3x3.png",
+      "verified_sha256": "664c03fe972847682c55f928e8c9bea4cf0bbb3781a21c62ceacb0354e31fe16",
+      "current_sha256": "664c03fe972847682c55f928e8c9bea4cf0bbb3781a21c62ceacb0354e31fe16",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "docs/creatures/arena-starters-2026-10-07/forms/oxbowarchon_candidates.png",
+      "verified_sha256": "39c1e249d9b9f8cd00fc58bf8a26e0a4173e854f2c6aef672e5f3624e0e56d54",
+      "current_sha256": "39c1e249d9b9f8cd00fc58bf8a26e0a4173e854f2c6aef672e5f3624e0e56d54",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "docs/creatures/arena-starters-2026-10-07/forms/oxbowarchon_v2a.png",
+      "verified_sha256": "19f26ea6782244e879c48bf284fe2b0eed291d552ecafcd99566d0e64da22af0",
+      "current_sha256": "19f26ea6782244e879c48bf284fe2b0eed291d552ecafcd99566d0e64da22af0",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "docs/creatures/arena-starters-2026-10-07/forms/oxbowarchon_v2b.png",
+      "verified_sha256": "e0b38e76ff2d931f86367a919e2fa7c187b790165db209231b8db57e86aedc60",
+      "current_sha256": "e0b38e76ff2d931f86367a919e2fa7c187b790165db209231b8db57e86aedc60",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "docs/creatures/arena-starters-2026-10-07/forms/oxbowarchon_v2c.png",
+      "verified_sha256": "b6daffe9c3dcbbf3343afeb04874eedcc48624ea7cb7261ce1702df658173f50",
+      "current_sha256": "b6daffe9c3dcbbf3343afeb04874eedcc48624ea7cb7261ce1702df658173f50",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "docs/creatures/arena-starters-2026-10-07/forms/preostmar.png",
+      "verified_sha256": "4a7ac189ee3b83c19e47e2e63c3052c2d0a61875d2b89691534e6547ebedebc8",
+      "current_sha256": "4a7ac189ee3b83c19e47e2e63c3052c2d0a61875d2b89691534e6547ebedebc8",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "docs/creatures/arena-starters-2026-10-07/forms/preostmar_arena_pad.png",
+      "verified_sha256": "2dbb69d0de8472cffa1d37368052ef446d5ba7ab4928cd30fd3c6b8c33263b0b",
+      "current_sha256": "2dbb69d0de8472cffa1d37368052ef446d5ba7ab4928cd30fd3c6b8c33263b0b",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "docs/creatures/arena-starters-2026-10-07/forms/preostmar_arena_rotation_3x3.png",
+      "verified_sha256": "f4d573b11df4e63becfd03727382e164d813642b4c6d4f028675ffa0b010d9ea",
+      "current_sha256": "f4d573b11df4e63becfd03727382e164d813642b4c6d4f028675ffa0b010d9ea",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "docs/creatures/arena-starters-2026-10-07/forms/punchybun.png",
+      "verified_sha256": "43449074ed63fcd560aa45802261c4e7c222324bdf4bec1d1b231cb4542b5a4d",
+      "current_sha256": "43449074ed63fcd560aa45802261c4e7c222324bdf4bec1d1b231cb4542b5a4d",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "docs/creatures/arena-starters-2026-10-07/forms/punchybun_arena_pad.png",
+      "verified_sha256": "2825d5a00a4064356aea67e15b58ead9a94ae7ecdf2cb569132a513b1a2c76bb",
+      "current_sha256": "2825d5a00a4064356aea67e15b58ead9a94ae7ecdf2cb569132a513b1a2c76bb",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "docs/creatures/arena-starters-2026-10-07/forms/punchybun_arena_rotation_3x3.png",
+      "verified_sha256": "bebba79689f201b7f322b5f0ced12b1ca8708daa3ae0061ca14a127c29d40bd2",
+      "current_sha256": "bebba79689f201b7f322b5f0ced12b1ca8708daa3ae0061ca14a127c29d40bd2",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "docs/creatures/arena-starters-2026-10-07/forms/slagglass.png",
+      "verified_sha256": "85192dd37c383ccec03e697be3fe08d3ccd7c8c17cb6f8ddd0dcb0dc5cd15a8c",
+      "current_sha256": "85192dd37c383ccec03e697be3fe08d3ccd7c8c17cb6f8ddd0dcb0dc5cd15a8c",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "docs/creatures/arena-starters-2026-10-07/forms/slagglass_arena_pad.png",
+      "verified_sha256": "fac5d128e51b0ae69a1c4632d76d4e628a2a63846a7b1e4fa3d469aeee9a8cf5",
+      "current_sha256": "fac5d128e51b0ae69a1c4632d76d4e628a2a63846a7b1e4fa3d469aeee9a8cf5",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "docs/creatures/arena-starters-2026-10-07/forms/slagglass_arena_rotation_3x3.png",
+      "verified_sha256": "c2bd0b052291f11c95368470537e0e930e6b26830a0c8f046902b46ad7019ad7",
+      "current_sha256": "c2bd0b052291f11c95368470537e0e930e6b26830a0c8f046902b46ad7019ad7",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "docs/creatures/arena-starters-2026-10-07/forms/sparkjab.png",
+      "verified_sha256": "13e0368c18201184e8e6b36255d4c9e5e7e7fa09bfa90ef53004ee40893e8399",
+      "current_sha256": "13e0368c18201184e8e6b36255d4c9e5e7e7fa09bfa90ef53004ee40893e8399",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "docs/creatures/arena-starters-2026-10-07/forms/sparkjab_arena_pad.png",
+      "verified_sha256": "d635c19e4ca31543a6411c9455a27960f2983feab34a134ac58726c52fb77276",
+      "current_sha256": "d635c19e4ca31543a6411c9455a27960f2983feab34a134ac58726c52fb77276",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "docs/creatures/arena-starters-2026-10-07/forms/sparkjab_arena_rotation_3x3.png",
+      "verified_sha256": "e95552234e08e3f887312fc256c139298cac11b822ba22b5d96b6a67144bf038",
+      "current_sha256": "e95552234e08e3f887312fc256c139298cac11b822ba22b5d96b6a67144bf038",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "docs/creatures/arena-starters-2026-10-07/forms/starward.png",
+      "verified_sha256": "a753509bea2bce772fa72bdd080a37e8000a21cba0a24a03a1e795bdf175dab7",
+      "current_sha256": "a753509bea2bce772fa72bdd080a37e8000a21cba0a24a03a1e795bdf175dab7",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "docs/creatures/arena-starters-2026-10-07/forms/starward_arena_pad.png",
+      "verified_sha256": "f9099cc4175be2fee81f5f27d05bba26f6173a9d084d4cff812d64f3fd0f577b",
+      "current_sha256": "f9099cc4175be2fee81f5f27d05bba26f6173a9d084d4cff812d64f3fd0f577b",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "docs/creatures/arena-starters-2026-10-07/forms/starward_arena_rotation_3x3.png",
+      "verified_sha256": "d6ef13b97a390010981ee605e403070967a29c4aedcb4d1f45aa8b9e9d867b04",
+      "current_sha256": "d6ef13b97a390010981ee605e403070967a29c4aedcb4d1f45aa8b9e9d867b04",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "docs/creatures/arena-starters-2026-10-07/walk/oathfen_e_sheet.png",
+      "verified_sha256": "48bc6a29918093a73f805a4fd6e2840c3b1b121686c560cb12dbffc5439e62df",
+      "current_sha256": "48bc6a29918093a73f805a4fd6e2840c3b1b121686c560cb12dbffc5439e62df",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "docs/creatures/arena-starters-2026-10-07/walk/oathfen_n_sheet.png",
+      "verified_sha256": "a2f6fe0b3dcee14899be807660a1437061d73ff51114ef93c9481847ac6d418f",
+      "current_sha256": "a2f6fe0b3dcee14899be807660a1437061d73ff51114ef93c9481847ac6d418f",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "docs/creatures/arena-starters-2026-10-07/walk/oathfen_ne_sheet.png",
+      "verified_sha256": "f7342442a8cc6aae1a59668790945bfda9c5b65a5c7c79c4e5e5d8199fefc50d",
+      "current_sha256": "f7342442a8cc6aae1a59668790945bfda9c5b65a5c7c79c4e5e5d8199fefc50d",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "docs/creatures/arena-starters-2026-10-07/walk/oathfen_s_sheet.png",
+      "verified_sha256": "4671b5a82416f1c99526af1fadd356767f0926b0d7fb26854a2a4a4bb0e432f6",
+      "current_sha256": "4671b5a82416f1c99526af1fadd356767f0926b0d7fb26854a2a4a4bb0e432f6",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "docs/creatures/arena-starters-2026-10-07/walk/oathfen_se_sheet.png",
+      "verified_sha256": "ce395fffea4d857fb12f2c6aa9f6cc0fecddcfedcd15ccb823610ad49ca16ee7",
+      "current_sha256": "ce395fffea4d857fb12f2c6aa9f6cc0fecddcfedcd15ccb823610ad49ca16ee7",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "docs/creatures/arena-starters-2026-10-07/walk/oxbowarchon_e_sheet.png",
+      "verified_sha256": "42028f45ea03f3775749ef00bbd7ff77dfd4a9be7c1623ba4fc876aea6e42edf",
+      "current_sha256": "42028f45ea03f3775749ef00bbd7ff77dfd4a9be7c1623ba4fc876aea6e42edf",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "docs/creatures/arena-starters-2026-10-07/walk/oxbowarchon_n_sheet.png",
+      "verified_sha256": "78f326f4c5e3acd4b4a958e3e1207aa5cfa52ed66aa30850aa8675786be42fc8",
+      "current_sha256": "78f326f4c5e3acd4b4a958e3e1207aa5cfa52ed66aa30850aa8675786be42fc8",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "docs/creatures/arena-starters-2026-10-07/walk/oxbowarchon_ne_sheet.png",
+      "verified_sha256": "91e7e8098016caf9dd2241387eb38c12b5e90935f631ab88682fb1e58f4b3a08",
+      "current_sha256": "91e7e8098016caf9dd2241387eb38c12b5e90935f631ab88682fb1e58f4b3a08",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "docs/creatures/arena-starters-2026-10-07/walk/oxbowarchon_s_sheet.png",
+      "verified_sha256": "5124469fe3d3feee91fc2c0846447196176fb20bf5dd5d089eb081ce160097c3",
+      "current_sha256": "5124469fe3d3feee91fc2c0846447196176fb20bf5dd5d089eb081ce160097c3",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "docs/creatures/arena-starters-2026-10-07/walk/oxbowarchon_se_sheet.png",
+      "verified_sha256": "c2a27c84cd0a935a107cc6c5c2b635d5e13663c3ec8a890dc4f8998fe3d10e4a",
+      "current_sha256": "c2a27c84cd0a935a107cc6c5c2b635d5e13663c3ec8a890dc4f8998fe3d10e4a",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "docs/creatures/arena-starters-2026-10-07/walk/preostmar_e_sheet.png",
+      "verified_sha256": "75caae74c2ff159cbcf165460cc7c8857902f3d30945ee9abc5a610b9a3553da",
+      "current_sha256": "75caae74c2ff159cbcf165460cc7c8857902f3d30945ee9abc5a610b9a3553da",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "docs/creatures/arena-starters-2026-10-07/walk/preostmar_n_sheet.png",
+      "verified_sha256": "3de19c2bc90a53eed96138b02d584854fffa4cbd6475f6b5fb14512f2a02268b",
+      "current_sha256": "3de19c2bc90a53eed96138b02d584854fffa4cbd6475f6b5fb14512f2a02268b",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "docs/creatures/arena-starters-2026-10-07/walk/preostmar_ne_sheet.png",
+      "verified_sha256": "9bff9961d103d88feef102360a27c0fe64a6b4c534e6bef47a8254bd7abbd518",
+      "current_sha256": "9bff9961d103d88feef102360a27c0fe64a6b4c534e6bef47a8254bd7abbd518",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "docs/creatures/arena-starters-2026-10-07/walk/preostmar_s_sheet.png",
+      "verified_sha256": "74b6278d3a4ff5cd5c11f8eef951615291172d7c07a948a0f354cac460063c40",
+      "current_sha256": "74b6278d3a4ff5cd5c11f8eef951615291172d7c07a948a0f354cac460063c40",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "docs/creatures/arena-starters-2026-10-07/walk/preostmar_se_sheet.png",
+      "verified_sha256": "ae382b078a3bdf944fe1731504e7d65d00d1be63246b9ead53d81315985d42e4",
+      "current_sha256": "ae382b078a3bdf944fe1731504e7d65d00d1be63246b9ead53d81315985d42e4",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "docs/creatures/arena-starters-2026-10-07/walk/punchybun_e_sheet.png",
+      "verified_sha256": "e0ae00f23540fd16383db25b89ac265454c0670c965da95458d2058b822f8950",
+      "current_sha256": "e0ae00f23540fd16383db25b89ac265454c0670c965da95458d2058b822f8950",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "docs/creatures/arena-starters-2026-10-07/walk/punchybun_n_sheet.png",
+      "verified_sha256": "b5fd3cb3b7d23db2750a69295b951c0bd29d52e951faad2803f9e83d183f9320",
+      "current_sha256": "b5fd3cb3b7d23db2750a69295b951c0bd29d52e951faad2803f9e83d183f9320",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "docs/creatures/arena-starters-2026-10-07/walk/punchybun_ne_sheet.png",
+      "verified_sha256": "179f4f0f4d89a967c405fd1e5b8a2cdfd55f6fec17054c98c0c6080800bd1824",
+      "current_sha256": "179f4f0f4d89a967c405fd1e5b8a2cdfd55f6fec17054c98c0c6080800bd1824",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "docs/creatures/arena-starters-2026-10-07/walk/punchybun_s_sheet.png",
+      "verified_sha256": "4b5416da5d89de93b8781509cd402d3f1419d633adc98f855fcfaf25b75cc8a5",
+      "current_sha256": "4b5416da5d89de93b8781509cd402d3f1419d633adc98f855fcfaf25b75cc8a5",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "docs/creatures/arena-starters-2026-10-07/walk/punchybun_se_sheet.png",
+      "verified_sha256": "d01ac39a81d8d8ff5ff91d82c9d1894aeb56c14e8b59c7071313e9668f147a88",
+      "current_sha256": "d01ac39a81d8d8ff5ff91d82c9d1894aeb56c14e8b59c7071313e9668f147a88",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "docs/creatures/arena-starters-2026-10-07/walk/slagglass_e_sheet.png",
+      "verified_sha256": "8b8bba03251025f2c9e6454e272e626fcfcc3eee4bcf94750c2ed3c07954bcfe",
+      "current_sha256": "8b8bba03251025f2c9e6454e272e626fcfcc3eee4bcf94750c2ed3c07954bcfe",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "docs/creatures/arena-starters-2026-10-07/walk/slagglass_n_sheet.png",
+      "verified_sha256": "8794ac46b5ac5cc0b72a19401f53752363852f7bd3458366bdf2d604ad47e284",
+      "current_sha256": "8794ac46b5ac5cc0b72a19401f53752363852f7bd3458366bdf2d604ad47e284",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "docs/creatures/arena-starters-2026-10-07/walk/slagglass_ne_sheet.png",
+      "verified_sha256": "b817bb18d1846ed3d9295f642519372a9be3d18a1bceb5d80f015ccd49b698ec",
+      "current_sha256": "b817bb18d1846ed3d9295f642519372a9be3d18a1bceb5d80f015ccd49b698ec",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "docs/creatures/arena-starters-2026-10-07/walk/slagglass_s_sheet.png",
+      "verified_sha256": "c02409abe63acf3285afafb6ff117c17d2ac827828cc0e74e1642df9d6fa8248",
+      "current_sha256": "c02409abe63acf3285afafb6ff117c17d2ac827828cc0e74e1642df9d6fa8248",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "docs/creatures/arena-starters-2026-10-07/walk/slagglass_se_sheet.png",
+      "verified_sha256": "a53b93b4a46f411db7599c647e98ed0bc18bac13c0cc568836ebab69b2fc016f",
+      "current_sha256": "a53b93b4a46f411db7599c647e98ed0bc18bac13c0cc568836ebab69b2fc016f",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "docs/creatures/arena-starters-2026-10-07/walk/sparkjab_e_sheet.png",
+      "verified_sha256": "51ed750a3f894232de31dd8659de9cbc713d443f8fcb722c8d71b60bf0e0d654",
+      "current_sha256": "51ed750a3f894232de31dd8659de9cbc713d443f8fcb722c8d71b60bf0e0d654",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "docs/creatures/arena-starters-2026-10-07/walk/sparkjab_n_sheet.png",
+      "verified_sha256": "cb4a0dd81804f25dcb7ea65e326a2be5f298ad7adfd5fed3ca35a8d7e427d08c",
+      "current_sha256": "cb4a0dd81804f25dcb7ea65e326a2be5f298ad7adfd5fed3ca35a8d7e427d08c",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "docs/creatures/arena-starters-2026-10-07/walk/sparkjab_ne_sheet.png",
+      "verified_sha256": "9264f359d2fa68f313d4e1301533836d9d66fe748f5887c8dc4a2994dcd0e5d0",
+      "current_sha256": "9264f359d2fa68f313d4e1301533836d9d66fe748f5887c8dc4a2994dcd0e5d0",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "docs/creatures/arena-starters-2026-10-07/walk/sparkjab_s_sheet.png",
+      "verified_sha256": "a764203ffd3bf195f8ba1a56034d8dfe7d05679df78866e311382d6141afd742",
+      "current_sha256": "a764203ffd3bf195f8ba1a56034d8dfe7d05679df78866e311382d6141afd742",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "docs/creatures/arena-starters-2026-10-07/walk/sparkjab_se_sheet.png",
+      "verified_sha256": "8e897497497bc305aee9fa41b8abba93d14f168449151ddb139b49df37d9b070",
+      "current_sha256": "8e897497497bc305aee9fa41b8abba93d14f168449151ddb139b49df37d9b070",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "docs/creatures/arena-starters-2026-10-07/walk/starward_e_sheet.png",
+      "verified_sha256": "ceeb25994ed92099c5c696495488c5ca02ed5418a739b8b111fd541a6dabbb0d",
+      "current_sha256": "ceeb25994ed92099c5c696495488c5ca02ed5418a739b8b111fd541a6dabbb0d",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "docs/creatures/arena-starters-2026-10-07/walk/starward_n_sheet.png",
+      "verified_sha256": "e2170ae52d10a0907eae4e3b3e827f275ee4fb87f0dfcd95c990bcba501273f5",
+      "current_sha256": "e2170ae52d10a0907eae4e3b3e827f275ee4fb87f0dfcd95c990bcba501273f5",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "docs/creatures/arena-starters-2026-10-07/walk/starward_ne_sheet.png",
+      "verified_sha256": "32f9ebf1f97c14abdb087580eb691e2c1dfc29ae0cc3066b78059bb65b5c356b",
+      "current_sha256": "32f9ebf1f97c14abdb087580eb691e2c1dfc29ae0cc3066b78059bb65b5c356b",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "docs/creatures/arena-starters-2026-10-07/walk/starward_s_sheet.png",
+      "verified_sha256": "ac78b62b01f0db746542274f0a1bdcfa5c7d6a876243ac6aaaf665f910eefbfb",
+      "current_sha256": "ac78b62b01f0db746542274f0a1bdcfa5c7d6a876243ac6aaaf665f910eefbfb",
+      "unchanged_since_verification": true
+    },
+    {
+      "path": "docs/creatures/arena-starters-2026-10-07/walk/starward_se_sheet.png",
+      "verified_sha256": "15d3b3480d83c8b3416ac9378f7e0c3e15bc2f185c101b170a2896bc447bd060",
+      "current_sha256": "15d3b3480d83c8b3416ac9378f7e0c3e15bc2f185c101b170a2896bc447bd060",
+      "unchanged_since_verification": true
+    }
+  ]
+}

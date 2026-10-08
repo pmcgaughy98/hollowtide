@@ -1,0 +1,280 @@
+﻿{
+    "mode":  "import",
+    "project":  "C:\\Users\\pmcga\\dev\\hollowtide",
+    "engine":  "C:\\Users\\pmcga\\Games\\Tools\\Godot_v4.7.2\\Godot_v4.7.2-stable_win64.exe",
+    "arguments":  "--headless --path \"C:\\Users\\pmcga\\dev\\hollowtide\" --import",
+    "pid":  21852,
+    "startedUtc":  "2026-10-08T12:02:11.7711947Z",
+    "completedUtc":  "2026-10-08T12:02:25.5126954Z",
+    "timeout":  false,
+    "exitCode":  0,
+    "stdout":  "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\arena-oxbowarchon-slagglass-consistency-2026-10-08\\native-oxbowarchon\\runs\\import_20261008_070211_d99d7c92\\stdout.log",
+    "stderr":  "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\arena-oxbowarchon-slagglass-consistency-2026-10-08\\native-oxbowarchon\\runs\\import_20261008_070211_d99d7c92\\stderr.log",
+    "scriptErrors":  [
+
+                     ],
+    "generalErrors":  [
+
+                      ],
+    "warnings":  [
+
+                 ],
+    "captureRoot":  "C:\\Users\\pmcga\\dev\\hollowtide\\docs\\creatures\\arena-oxbowarchon-2026-10-08",
+    "expectedCaptureNames":  [
+                                 "backline_rail_telegraph.png",
+                                 "backline_rail.png",
+                                 "backline_recoil.png",
+                                 "backline_stage1_bar.png",
+                                 "backline_vent_blast.png",
+                                 "backline_match.png"
+                             ],
+    "copiedCaptureNames":  [
+
+                           ],
+    "capturesBefore":  [
+                           {
+                               "relative":  "backline_match.png",
+                               "length":  121595,
+                               "sha256":  "3777f76e420b9c92908a027519534df62eadbb34a783a2ff5a69f4332c329dcb",
+                               "lastWriteUtc":  "2026-10-08T04:26:38.7473000Z"
+                           },
+                           {
+                               "relative":  "backline_rail.png",
+                               "length":  142428,
+                               "sha256":  "daeee0bf0d6abbd482227a3227988a5debbfcd85d64dcb33debb01a9ff31bd0c",
+                               "lastWriteUtc":  "2026-10-08T04:26:34.0954505Z"
+                           },
+                           {
+                               "relative":  "backline_rail_telegraph.png",
+                               "length":  140517,
+                               "sha256":  "95657090f3977dac0371b76b6229224335d9e52a5f7f2a37f2db4fbcf65d708f",
+                               "lastWriteUtc":  "2026-10-08T04:26:33.8274419Z"
+                           },
+                           {
+                               "relative":  "backline_recoil.png",
+                               "length":  144319,
+                               "sha256":  "af06062203737383e90448c2816f35fe422e7dc2a742a32724f85109106eb8bd",
+                               "lastWriteUtc":  "2026-10-08T04:26:34.2130628Z"
+                           },
+                           {
+                               "relative":  "backline_stage1_bar.png",
+                               "length":  115913,
+                               "sha256":  "a32957a555d7d675cd43bed065b834e9969e79b7cc8ca424dfbd8589ef986ca0",
+                               "lastWriteUtc":  "2026-10-08T04:26:34.5126455Z"
+                           },
+                           {
+                               "relative":  "backline_vent_blast.png",
+                               "length":  117737,
+                               "sha256":  "bfa21e56426feefd080c7cb3c18512359a9306ee637f34a1178f025a35571a86",
+                               "lastWriteUtc":  "2026-10-08T04:26:35.1620671Z"
+                           },
+                           {
+                               "relative":  "cocoon.png",
+                               "length":  126279,
+                               "sha256":  "8a0ccc23680855bf28be63f2b91ad69fda75b03ef55602d02e352112e66145a6",
+                               "lastWriteUtc":  "2026-10-08T04:06:38.3378796Z"
+                           },
+                           {
+                               "relative":  "lance.png",
+                               "length":  119393,
+                               "sha256":  "b94d153dfebd8f9547c2220c61c5c10a3235a0dbd21c10a2add58130b5c2f9c8",
+                               "lastWriteUtc":  "2026-10-08T04:06:40.2555683Z"
+                           },
+                           {
+                               "relative":  "line_stage1.png",
+                               "length":  115752,
+                               "sha256":  "652b1683a2df27305dea926194128d6dd24278eb65cd29e610b532f0d0059275",
+                               "lastWriteUtc":  "2026-10-08T04:06:32.3412725Z"
+                           },
+                           {
+                               "relative":  "line_stage2.png",
+                               "length":  116161,
+                               "sha256":  "29b20c93cbe1e4314150de2560414bf8f193f7777b921f53d8ea147803829547",
+                               "lastWriteUtc":  "2026-10-08T04:06:33.4050637Z"
+                           },
+                           {
+                               "relative":  "line_stage3.png",
+                               "length":  118817,
+                               "sha256":  "7c8ee32915f2e247eb75da2ce28b46d887c82c31f70b32260677b256830bd278",
+                               "lastWriteUtc":  "2026-10-08T04:06:33.8058214Z"
+                           },
+                           {
+                               "relative":  "match.png",
+                               "length":  125150,
+                               "sha256":  "46ce304650a4ceb849800ea00fac7b1c5b43c7fb4924f16782c207167c4479cd",
+                               "lastWriteUtc":  "2026-10-08T04:06:48.0044623Z"
+                           },
+                           {
+                               "relative":  "rail_0.70s.png",
+                               "length":  137635,
+                               "sha256":  "9b93e6e87802cecd1ff9019177e27f266ff06686ccf267449a6e6cbdc677aa98",
+                               "lastWriteUtc":  "2026-10-08T04:06:43.8560067Z"
+                           },
+                           {
+                               "relative":  "rail_1.20s.png",
+                               "length":  136157,
+                               "sha256":  "b23bac6d31c41ede6fedba2539c94606bac815b6f30e59f5361248c4f8c84472",
+                               "lastWriteUtc":  "2026-10-08T04:06:44.1065873Z"
+                           },
+                           {
+                               "relative":  "rail_1.95s.png",
+                               "length":  139200,
+                               "sha256":  "526d31cb09fd90bbc70aec35fb4b8befe60014062f080ca70020180ab10e9b4e",
+                               "lastWriteUtc":  "2026-10-08T04:06:44.4883587Z"
+                           },
+                           {
+                               "relative":  "rail_2.12s.png",
+                               "length":  138576,
+                               "sha256":  "59e0f81ff11b386cc3746d222bfbc57dbc15e7c6a844500d8c44a96530ae1404",
+                               "lastWriteUtc":  "2026-10-08T04:06:44.5726676Z"
+                           },
+                           {
+                               "relative":  "rail_2.50s.png",
+                               "length":  147948,
+                               "sha256":  "2243cafc97d3b30426dcc7a93447b4ccf65c129d8ce7695523516e96b264cfea",
+                               "lastWriteUtc":  "2026-10-08T04:06:44.7750709Z"
+                           },
+                           {
+                               "relative":  "rail_after.png",
+                               "length":  142183,
+                               "sha256":  "931795bd8b3785a4aea938b567f2e9f2d9277afbb302e766bb4b90975e4c5842",
+                               "lastWriteUtc":  "2026-10-08T04:06:45.3555168Z"
+                           },
+                           {
+                               "relative":  "spikes.png",
+                               "length":  121857,
+                               "sha256":  "ed74ae8b36ffd4ffe7bd29167a5330c85e53668cd0c0802eb638b750bfc42a49",
+                               "lastWriteUtc":  "2026-10-08T04:06:38.1211987Z"
+                           },
+                           {
+                               "relative":  "vortex.png",
+                               "length":  122376,
+                               "sha256":  "3d4daa038807ff8112e0993e1b46cdb2c71650d35879ab10e1cf3e40175d7f31",
+                               "lastWriteUtc":  "2026-10-08T04:06:39.4878472Z"
+                           }
+                       ],
+    "capturesAfter":  [
+                          {
+                              "relative":  "backline_match.png",
+                              "length":  121595,
+                              "sha256":  "3777f76e420b9c92908a027519534df62eadbb34a783a2ff5a69f4332c329dcb",
+                              "lastWriteUtc":  "2026-10-08T04:26:38.7473000Z"
+                          },
+                          {
+                              "relative":  "backline_rail.png",
+                              "length":  142428,
+                              "sha256":  "daeee0bf0d6abbd482227a3227988a5debbfcd85d64dcb33debb01a9ff31bd0c",
+                              "lastWriteUtc":  "2026-10-08T04:26:34.0954505Z"
+                          },
+                          {
+                              "relative":  "backline_rail_telegraph.png",
+                              "length":  140517,
+                              "sha256":  "95657090f3977dac0371b76b6229224335d9e52a5f7f2a37f2db4fbcf65d708f",
+                              "lastWriteUtc":  "2026-10-08T04:26:33.8274419Z"
+                          },
+                          {
+                              "relative":  "backline_recoil.png",
+                              "length":  144319,
+                              "sha256":  "af06062203737383e90448c2816f35fe422e7dc2a742a32724f85109106eb8bd",
+                              "lastWriteUtc":  "2026-10-08T04:26:34.2130628Z"
+                          },
+                          {
+                              "relative":  "backline_stage1_bar.png",
+                              "length":  115913,
+                              "sha256":  "a32957a555d7d675cd43bed065b834e9969e79b7cc8ca424dfbd8589ef986ca0",
+                              "lastWriteUtc":  "2026-10-08T04:26:34.5126455Z"
+                          },
+                          {
+                              "relative":  "backline_vent_blast.png",
+                              "length":  117737,
+                              "sha256":  "bfa21e56426feefd080c7cb3c18512359a9306ee637f34a1178f025a35571a86",
+                              "lastWriteUtc":  "2026-10-08T04:26:35.1620671Z"
+                          },
+                          {
+                              "relative":  "cocoon.png",
+                              "length":  126279,
+                              "sha256":  "8a0ccc23680855bf28be63f2b91ad69fda75b03ef55602d02e352112e66145a6",
+                              "lastWriteUtc":  "2026-10-08T04:06:38.3378796Z"
+                          },
+                          {
+                              "relative":  "lance.png",
+                              "length":  119393,
+                              "sha256":  "b94d153dfebd8f9547c2220c61c5c10a3235a0dbd21c10a2add58130b5c2f9c8",
+                              "lastWriteUtc":  "2026-10-08T04:06:40.2555683Z"
+                          },
+                          {
+                              "relative":  "line_stage1.png",
+                              "length":  115752,
+                              "sha256":  "652b1683a2df27305dea926194128d6dd24278eb65cd29e610b532f0d0059275",
+                              "lastWriteUtc":  "2026-10-08T04:06:32.3412725Z"
+                          },
+                          {
+                              "relative":  "line_stage2.png",
+                              "length":  116161,
+                              "sha256":  "29b20c93cbe1e4314150de2560414bf8f193f7777b921f53d8ea147803829547",
+                              "lastWriteUtc":  "2026-10-08T04:06:33.4050637Z"
+                          },
+                          {
+                              "relative":  "line_stage3.png",
+                              "length":  118817,
+                              "sha256":  "7c8ee32915f2e247eb75da2ce28b46d887c82c31f70b32260677b256830bd278",
+                              "lastWriteUtc":  "2026-10-08T04:06:33.8058214Z"
+                          },
+                          {
+                              "relative":  "match.png",
+                              "length":  125150,
+                              "sha256":  "46ce304650a4ceb849800ea00fac7b1c5b43c7fb4924f16782c207167c4479cd",
+                              "lastWriteUtc":  "2026-10-08T04:06:48.0044623Z"
+                          },
+                          {
+                              "relative":  "rail_0.70s.png",
+                              "length":  137635,
+                              "sha256":  "9b93e6e87802cecd1ff9019177e27f266ff06686ccf267449a6e6cbdc677aa98",
+                              "lastWriteUtc":  "2026-10-08T04:06:43.8560067Z"
+                          },
+                          {
+                              "relative":  "rail_1.20s.png",
+                              "length":  136157,
+                              "sha256":  "b23bac6d31c41ede6fedba2539c94606bac815b6f30e59f5361248c4f8c84472",
+                              "lastWriteUtc":  "2026-10-08T04:06:44.1065873Z"
+                          },
+                          {
+                              "relative":  "rail_1.95s.png",
+                              "length":  139200,
+                              "sha256":  "526d31cb09fd90bbc70aec35fb4b8befe60014062f080ca70020180ab10e9b4e",
+                              "lastWriteUtc":  "2026-10-08T04:06:44.4883587Z"
+                          },
+                          {
+                              "relative":  "rail_2.12s.png",
+                              "length":  138576,
+                              "sha256":  "59e0f81ff11b386cc3746d222bfbc57dbc15e7c6a844500d8c44a96530ae1404",
+                              "lastWriteUtc":  "2026-10-08T04:06:44.5726676Z"
+                          },
+                          {
+                              "relative":  "rail_2.50s.png",
+                              "length":  147948,
+                              "sha256":  "2243cafc97d3b30426dcc7a93447b4ccf65c129d8ce7695523516e96b264cfea",
+                              "lastWriteUtc":  "2026-10-08T04:06:44.7750709Z"
+                          },
+                          {
+                              "relative":  "rail_after.png",
+                              "length":  142183,
+                              "sha256":  "931795bd8b3785a4aea938b567f2e9f2d9277afbb302e766bb4b90975e4c5842",
+                              "lastWriteUtc":  "2026-10-08T04:06:45.3555168Z"
+                          },
+                          {
+                              "relative":  "spikes.png",
+                              "length":  121857,
+                              "sha256":  "ed74ae8b36ffd4ffe7bd29167a5330c85e53668cd0c0802eb638b750bfc42a49",
+                              "lastWriteUtc":  "2026-10-08T04:06:38.1211987Z"
+                          },
+                          {
+                              "relative":  "vortex.png",
+                              "length":  122376,
+                              "sha256":  "3d4daa038807ff8112e0993e1b46cdb2c71650d35879ab10e1cf3e40175d7f31",
+                              "lastWriteUtc":  "2026-10-08T04:06:39.4878472Z"
+                          }
+                      ],
+    "runtimeCaptureFreshnessRequiresReview":  true,
+    "gameWasNotRunByPreparation":  false
+}

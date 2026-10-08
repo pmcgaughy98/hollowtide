@@ -1,6 +1,6 @@
 # Preston's personal Stone line — design proposal
 
-> **Superseded in part, 2026-10-08 (Preston):** this is no longer his personal line. Oxbowarchon is one of the **Gemstone Kings**, one pseudo-legendary per essence, each with Stone as its second essence. Oxbowarchon is the **Bloom** king (Bloom/Stone); its emerald is the Bloom king stone and Kingstone Rail is its power. The art direction and move directions below still stand. Arena kit and signature: `arena-oxbowarchon-2026-10-08/README.md`.
+> **Superseded in part, 2026-10-08 (Preston):** this is no longer his personal line. Oxbowarchon is one of the **Gemstone Kings**, one pseudo-legendary per essence, each with Stone as its second essence. Oxbowarchon is the **Electric** king (Electric/Stone, changed from Bloom the same day: a railgun runs on charge, not life); its emerald is the Electric king stone and Kingstone Rail is its power. The art direction and move directions below still stand. Arena kit and signature: `arena-oxbowarchon-2026-10-08/README.md`.
 
 **2026-09-29, Preston:** this line moves to **Stone** and replaces the former Stone starter (Marlward line) as
 Line 9. The essence formerly called Nature is **Bloom** again, and Bloom's original starter (Tallowroot) returns

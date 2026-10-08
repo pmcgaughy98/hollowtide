@@ -1,0 +1,47 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+OpenGL API 3.3.0 NVIDIA 596.49 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce GTX 1660 SUPER
+
+ERROR: Unrecognized UID: "uid://blm6ps3r8bf7l".
+   at: get_id_path (core/io/resource_uid.cpp:214)
+ERROR: Failed to read the root certificate store.
+   at: get_system_ca_certificates (platform/windows/os_windows.cpp:2582)
+Walk riverfront east lane: PASS
+Real gate to relay yard: PASS
+Selected courier retained: PASS
+Inspect assignment: PASS
+Inspect works bay: PASS
+Walk upper court: PASS
+Inspect garden bay: PASS
+Clear loading court: PASS
+Inspect bridge bay: PASS
+All three clues recorded: PASS
+Return to relay board: PASS
+Wrong bay keeps handoff open: PASS
+Correct bay completes handoff: PASS
+Walk quieter loop: PASS
+Loop returns to court: PASS
+ERROR: Node not found: "RouteHUD" (relative to "FirstRoutePrototype").
+   at: get_node (scene/main/node.cpp:1975)
+   GDScript backtrace (most recent call first):
+       [0] open_relay_practice (res://scripts/world_journey.gd:210)
+       [1] _start_practice (res://scripts/city_relay_yard.gd:223)
+SCRIPT ERROR: Attempt to call function 'hide' in base 'null instance' on a null instance.
+   at: open_relay_practice (res://scripts/world_journey.gd:210)
+   GDScript backtrace (most recent call first):
+       [0] open_relay_practice (res://scripts/world_journey.gd:210)
+       [1] _start_practice (res://scripts/city_relay_yard.gd:223)
+Practice opens above world: FAIL
+Run flags and party preserved: PASS
+BLOCKED at (207.0185, 469.9968) for (208.0, 488.0)
+Return lane walk: FAIL
+Real gate to branch: PASS
+Reenter preserved yard: PASS
+Cached clues and completion retained: PASS
+WARNING: 1 RID of type "Canvas" was leaked.
+   at: _free_rids (servers/rendering/renderer_canvas_cull.cpp:2733)
+WARNING: 1 RID of type "CanvasItem" was leaked.
+   at: _free_rids (servers/rendering/renderer_canvas_cull.cpp:2733)
+WARNING: 5 ObjectDB instances were leaked at exit (run with `--verbose` for details).
+   at: cleanup (core/object/object.cpp:2536)
+ERROR: 2 resources still in use at exit (run with --verbose for details).
+   at: clear (core/io/resource.cpp:822)

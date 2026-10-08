@@ -1,5 +1,7 @@
 # The Oxbowarchon line in the arena (Claude, 2026-10-08)
 
+> **Essence changed later the same day (Preston):** the line is the **Electric/Stone** Gemstone King, not Bloom/Stone. "Life energy" is not railgun energy; the Kingstone is the charge between the rails. Data files, Kingstone Rail and Rail Shot are Electric now; the jade moves stay Stone. The Bloom king is still to come. Bloom references below are historical.
+
 Preostmar, Oathfen, Oxbowarchon. **Preston, 2026-10-08:** no longer his personal line; Oxbowarchon is one of the **Gemstone Kings**, a pseudo-legendary like Ironvent. There is one king per essence and every king has Stone as its second essence. Oxbowarchon is the **Bloom** king (Bloom/Stone); the emerald on its back is the Bloom king stone, and Kingstone Rail fires its power. The three data files now carry Bloom first and Stone second, and the Kingstone Rail move is Bloom (`data/creatures/901..903`, `data/moves/oxbowarchon_kingstone_rail.tres`). **Grok:** those are Preston's words; the rest of the line's turn-based data (stats, kits) is still yours.
 
 ## Art

@@ -36,3 +36,15 @@ Takes in `assets/audio/sfx/starward/takes/`; build in `tools/build_starward_soun
 
 Used by Star Guard and at Starshield's snap. Measured, not heard.
 
+### Vitrecrag, replaced (2026-10-08, same flow and model)
+Preston: "update Vitrecrag's sounds, the horn stuff doesn't sound great." The 2026-09-29 mixes (`build_vitrecrag_sounds.py`, brass-and-locomotive voice over glass layers) are kept as `old_mix_*.wav`; the new ones are straight takes built by `tools/build_vitrecrag_takes.py`. Takes in `assets/audio/sfx/vitrecrag/takes2/`.
+
+| File | Prompt | Credits | Chosen |
+|---|---|---|---|
+| cry_a/b | The cry of a huge armoured kiln creature with a core of molten glass: a deep rumbling roar that comes from inside a thick stone shell, like a furnace drawing breath, with hot glass creaking and pinging under the strain and a hiss of steam from the seams at the end. Heavy, low, organic. No horn, no brass, no trumpet, no machinery, no music. 1.5 seconds. | 33 | a (2 s: swells from 0.2 s, peaks 0.45 to 0.65, decays by 1.8), 0.05 to 1.9 s |
+| buildup_a/b | A molten glass core heating up inside an armoured shell over two seconds: thick molten glass bubbling and glugging, hot glass pinging and crackling under heat stress, a rising pressure hiss and a low furnace rumble that builds steadily louder and brighter until it is about to burst. Builds to the end, no climax yet. No horn, no brass, no machinery, no music. 2 seconds. | 33 | neither (quiet, mostly silence) |
+| buildup_c/d | The same, asked for "loud and continuous for the full two seconds". | 33 | **d** (3 s), 0 to 2 s; c came back at 0.48 s |
+| rupture_a/b | A thick glass and stone shell ruptures: a sharp cracking split, then a heavy burst as a column of molten glass erupts upward with a deep whoomp and a roaring hiss, followed by molten glass splattering and sizzling as it rains down and glass shards tinkling. Huge, punchy, short tail. No horn, no brass, no music. 1.5 seconds. | 33 | **b** (7 s, its real burst at 1.45 s), 1.4 to 3.2 s; a is a 1 s version |
+
+About 133 credits. Measured, not heard; Preston's ears decide.
+
