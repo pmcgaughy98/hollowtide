@@ -1,10 +1,6 @@
-[gd_scene load_steps=3 format=3]
+[gd_scene load_steps=2 format=3 uid="uid://move_preview_matchups"]
 
 [ext_resource type="Script" path="res://scripts/move_preview.gd" id="1_preview"]
-[ext_resource type="Script" path="res://scripts/battle_screen.gd" id="2_battle"]
 
 [node name="MovePreview" type="Node2D"]
 script = ExtResource("1_preview")
-
-[node name="BattleScreen" type="CanvasLayer" parent="."]
-script = ExtResource("2_battle")

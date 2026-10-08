@@ -1,0 +1,2639 @@
+{
+  "active_png_count": 351,
+  "active_pngs": [
+    {
+      "path": "assets/sprites/arena/huskward/e.png",
+      "kind": "changed active PNG",
+      "before_sha256": "5079ab86f8b1c8251381cd5226db54c7d730d0300efa4a963d9832e8a7cdf560",
+      "after_sha256": "22d2502f716123cb949a7f52c628f9ffb3de8cebfe1ae50bc707e3fb47875b12"
+    },
+    {
+      "path": "assets/sprites/arena/huskward/n.png",
+      "kind": "changed active PNG",
+      "before_sha256": "69a1063f646c2834ac3dce1570578f8b7d7e0ab6ea00d0c5a1ca0e024e3a4e86",
+      "after_sha256": "dea4cdbe05ecd1170a7b150598bb29a27f2f4534b345f51038d1a9c8d319a783"
+    },
+    {
+      "path": "assets/sprites/arena/huskward/ne.png",
+      "kind": "changed active PNG",
+      "before_sha256": "5bf7ad98013b9e37f582d40be15eae6a29aa679fac996efa97f3d3858d517688",
+      "after_sha256": "703cad0bcf17bd91b41779501bca3e5d6c88fca29d05dfb1ad7d947c2b6b574a"
+    },
+    {
+      "path": "assets/sprites/arena/huskward/nw.png",
+      "kind": "changed active PNG",
+      "before_sha256": "106e939437c60f9678b931718f840f84bd89b4c317bb3dff89d282dd573cf239",
+      "after_sha256": "3ae7b553acf0f6fce69ced454ed2366a93d11d8fb842c45c4f63b198f07d463f"
+    },
+    {
+      "path": "assets/sprites/arena/huskward/s.png",
+      "kind": "changed active PNG",
+      "before_sha256": "34f3f43daac95b9d400e3c2845b7d931225229e1ea080b1f67b099232192cfe5",
+      "after_sha256": "b612a67f13590f2267a8567f9abf12a4a8ef2510734acd3496adc9c1347e7121"
+    },
+    {
+      "path": "assets/sprites/arena/huskward/se.png",
+      "kind": "changed active PNG",
+      "before_sha256": "ce3c861d36d9d3168aeda09ea0dcbee0bba79f3074c4f130a05323156b4d8ac8",
+      "after_sha256": "db18337d8f67b80f50953340d028dd80ba3969fbf9a1fa3ac3538b62c21f4269"
+    },
+    {
+      "path": "assets/sprites/arena/huskward/small/e.png",
+      "kind": "changed active PNG",
+      "before_sha256": "b3b3d0c77d4c677dc2401fa591a787388d0ea857d0729aaff78911d7028d8ac0",
+      "after_sha256": "5033cf49307b89bc04d429b3f8ea5973ecce51c06428bee45e637129d98e54a1"
+    },
+    {
+      "path": "assets/sprites/arena/huskward/small/n.png",
+      "kind": "changed active PNG",
+      "before_sha256": "3950660e9750b5d166a7c7146a73317698d85e02be9de8b58da1e8acac655a89",
+      "after_sha256": "1b289b45541a3c0708bfdd81e4a9c381b94d54831f4b59ec9c278419ab2595e3"
+    },
+    {
+      "path": "assets/sprites/arena/huskward/small/ne.png",
+      "kind": "changed active PNG",
+      "before_sha256": "02ce53fa2b096b72f413552b04465f66f09fd11451ce8e569e35368b72f8a0c5",
+      "after_sha256": "98d4851e575516cfd92c95c7e50f897cee18f678884ea92303a3e6fe8e15a46c"
+    },
+    {
+      "path": "assets/sprites/arena/huskward/small/nw.png",
+      "kind": "changed active PNG",
+      "before_sha256": "8923fd1df995a3dab33ecfd0867d3931b95c9798581ae2e090515c88b437d3fa",
+      "after_sha256": "c6c17e8ff7be09a0c4fff144bf3b78414380ddfdf810fe365867ba392bb4de1c"
+    },
+    {
+      "path": "assets/sprites/arena/huskward/small/s.png",
+      "kind": "changed active PNG",
+      "before_sha256": "aaae3c68b168e05a68a3e11481ef9a912b30ca4c7b4e89ee90c25ff401570194",
+      "after_sha256": "de54206bd7d2b388767db20d58adc13d6e34251f85493c41a674bffc118d77a2"
+    },
+    {
+      "path": "assets/sprites/arena/huskward/small/se.png",
+      "kind": "changed active PNG",
+      "before_sha256": "f7a397cdf40ba05bd975738b26ce66139f22c4e3ae2808a4c27d509db880905c",
+      "after_sha256": "54cf1f0d4cd15837e7627d54a9f09cc6c263468e4ce9c95a147a7ab279f18ee8"
+    },
+    {
+      "path": "assets/sprites/arena/huskward/small/sw.png",
+      "kind": "changed active PNG",
+      "before_sha256": "8f74e1ba02493c7774d852b6141d8bd3623e1c47fb58418433331bde2f9401c7",
+      "after_sha256": "46158615f2e30f4bc091496232fc10fc6b3c23093fe98faf74f557e99dccde84"
+    },
+    {
+      "path": "assets/sprites/arena/huskward/small/w.png",
+      "kind": "changed active PNG",
+      "before_sha256": "300c00fdfbabdd1c8937c5f6fa88741ecd791a72c578ec519f3f952fe4d111d2",
+      "after_sha256": "038b2367eee69542deeacdf5ed550c502afd46ea388016309ca30c3174ba145c"
+    },
+    {
+      "path": "assets/sprites/arena/huskward/sw.png",
+      "kind": "changed active PNG",
+      "before_sha256": "97b52a03e16c031c548bca0702d61f9da46baf4f2163bb8ec9d3fc54c514dab3",
+      "after_sha256": "b317f285afa4d3cece23da9052b1dc089b5a2f154091ff199871b82e2f404d27"
+    },
+    {
+      "path": "assets/sprites/arena/huskward/w.png",
+      "kind": "changed active PNG",
+      "before_sha256": "2dd1cec6d41acb23df01ede4b5b41a739d04a4e6b696d0308fc2113ac1b3d2ab",
+      "after_sha256": "6422163adb38de01fa9edbe8c05b3e753cf6609d02959a346d218bf6305a5182"
+    },
+    {
+      "path": "assets/sprites/arena/kithflare/e.png",
+      "kind": "changed active PNG",
+      "before_sha256": "8f63617e65904325d0e219c90f4b6d9f1f150189f2c217cbadfb55f90b3e2888",
+      "after_sha256": "76739e1fab5f24ea211d892d231c28f6e4786703635ad603c21c80bbc83b086a"
+    },
+    {
+      "path": "assets/sprites/arena/kithflare/n.png",
+      "kind": "changed active PNG",
+      "before_sha256": "d4d503ae5053f7f69a6ec42f8f94ed31954ec47b5c79e10d016a833470f2efd6",
+      "after_sha256": "a831c5660ce2cf42bccdc256eb2c2db1a58efea40a1e80d42a325d7423ee0c35"
+    },
+    {
+      "path": "assets/sprites/arena/kithflare/ne.png",
+      "kind": "changed active PNG",
+      "before_sha256": "96c923bdfbdfca823ccf43262870859a94f03ccaf3c52e8508aac30881151945",
+      "after_sha256": "dba7444fd6720425c766f85a2c8d35f94fb37ba8fecce0deac8ac5c3e5553378"
+    },
+    {
+      "path": "assets/sprites/arena/kithflare/nw.png",
+      "kind": "changed active PNG",
+      "before_sha256": "2be89568b7ead994abb7464e479b0864eb0a3b9ea87bf8214d13bfaa59abcd5b",
+      "after_sha256": "6422b15c62ecea61932c2601e80f721f0b7dd5d6b06bd29611f2c9182fe4e719"
+    },
+    {
+      "path": "assets/sprites/arena/kithflare/s.png",
+      "kind": "changed active PNG",
+      "before_sha256": "f654f5041e6f4574e423439ff4aa9322a94117037acc39d668de428609b3b7b8",
+      "after_sha256": "48c291f216e475937f18c1884ae199d02146a8f0e8e37cd913c35b44634a77c7"
+    },
+    {
+      "path": "assets/sprites/arena/kithflare/se.png",
+      "kind": "changed active PNG",
+      "before_sha256": "9fe1e7fbbd14beac49e0bfdd0351c743cc261e6ae4503dedafede85dd237f983",
+      "after_sha256": "c527ab6c2b8ec71947a3f0f89627017d90b21bbb9dad4c6cc02f6fd6b533f908"
+    },
+    {
+      "path": "assets/sprites/arena/kithflare/small/e.png",
+      "kind": "changed active PNG",
+      "before_sha256": "54d3f3a800b6e7fc29e9ace0fd4831ee507c49413b857d43fa37f252f87b04c6",
+      "after_sha256": "036a0f6bf30ed7aa999c830170485a5fe32ae217c517e8b20b79ef309da2cf77"
+    },
+    {
+      "path": "assets/sprites/arena/kithflare/small/n.png",
+      "kind": "changed active PNG",
+      "before_sha256": "f5ae1bc99b2db4216c87626bfedb4f247fa998a8d16b3f717b903f7b3516948b",
+      "after_sha256": "e7464f4c7edad981ecd5816f5f785aae1e3f8cb55ae592d857190eec3d356234"
+    },
+    {
+      "path": "assets/sprites/arena/kithflare/small/ne.png",
+      "kind": "changed active PNG",
+      "before_sha256": "bc11ca6e6f808dcd2cf1afb70fd15173a75ad89e341c3ee45bed5e3889496d6b",
+      "after_sha256": "073b17395816529bc16ec3de25a5595afe180235fa3767c82ec3d21626f664b5"
+    },
+    {
+      "path": "assets/sprites/arena/kithflare/small/nw.png",
+      "kind": "changed active PNG",
+      "before_sha256": "6ba90d43cafcba3eb4a828a584ff45633df25fb34facffc331646ee3396fc34c",
+      "after_sha256": "812e9c4ad2f3bb52e50703ad323167011c7a9e120c9881d76c3aaa50930c09fd"
+    },
+    {
+      "path": "assets/sprites/arena/kithflare/small/s.png",
+      "kind": "changed active PNG",
+      "before_sha256": "fc34b61fdca13ca52c65510cf49a72a636d174076bb1c6a9f6c2723790185e4d",
+      "after_sha256": "cf878cc429a5d5dfc4d10572f15c7df3d71b06333bdd43f27798eb3ad83140a4"
+    },
+    {
+      "path": "assets/sprites/arena/kithflare/small/se.png",
+      "kind": "changed active PNG",
+      "before_sha256": "93759eca05075fa786590cac2ab554cefd42833c888a5769aee866cd4abece21",
+      "after_sha256": "af87597b340a0b641e76eeead73329a713d4d4b16e3fe18dd07b4fcba5cd81c4"
+    },
+    {
+      "path": "assets/sprites/arena/kithflare/small/sw.png",
+      "kind": "changed active PNG",
+      "before_sha256": "8cb70cd63117e120e028081282084f40c1560f46a46f92e9090ce74c211e99f4",
+      "after_sha256": "00f33c871c2cdfcd294112a502da5edf55f0ea5febd229b5a79bbb9b81c1956e"
+    },
+    {
+      "path": "assets/sprites/arena/kithflare/small/w.png",
+      "kind": "changed active PNG",
+      "before_sha256": "10680564e604b230cc04ab5d8e1cc3d1ac5977db13f18193220c40691b298bdd",
+      "after_sha256": "9a6203c13ace3e99cd4d21ccf27a68cb57f3f3bfc587abf2eb26882dd9bbea72"
+    },
+    {
+      "path": "assets/sprites/arena/kithflare/small/walk_e_f0.png",
+      "kind": "changed active PNG",
+      "before_sha256": "28b73555490f7568772311a50af1f17d3a127988ec5f03e451fb894c535ea775",
+      "after_sha256": "e7c3a9d8cff14428eb62f85e89e23f879041bc8801571dd275c8aa374722a0d6"
+    },
+    {
+      "path": "assets/sprites/arena/kithflare/small/walk_e_f1.png",
+      "kind": "changed active PNG",
+      "before_sha256": "873723b318c36da8069b32e361215528732873ea55afdbb99ff31a1934a96d16",
+      "after_sha256": "51f3de0a6bd12d7d694bdf241f15dac3cc3ed4fdf8e81eb0bd91b92e0063138d"
+    },
+    {
+      "path": "assets/sprites/arena/kithflare/small/walk_e_f2.png",
+      "kind": "changed active PNG",
+      "before_sha256": "87b0cebc697b25fdaee57063f6ab45128a9204f6f9953f6cd705a06c59ece3a1",
+      "after_sha256": "0f6adbcdebf6f14b494e50c46048e823d617dd4b50e044042fe35546bd0ea69c"
+    },
+    {
+      "path": "assets/sprites/arena/kithflare/small/walk_e_f3.png",
+      "kind": "changed active PNG",
+      "before_sha256": "c1d5fb5653ef6ed5e0c4a6d9ec2ea37effade187355aadc23f9dd7db133558a6",
+      "after_sha256": "8886e814799e26780ca311782ff652c9182662e57fc492e1ef201f7c40f69795"
+    },
+    {
+      "path": "assets/sprites/arena/kithflare/small/walk_e_f4.png",
+      "kind": "changed active PNG",
+      "before_sha256": "2a5764e4545e8817bb664f804426db96dffde649241cf87d8eb0798ccc574df4",
+      "after_sha256": "dd2134861c381025d85a64c33530b7c8bc7304742f3e692418d332c4b2704a75"
+    },
+    {
+      "path": "assets/sprites/arena/kithflare/small/walk_e_f5.png",
+      "kind": "changed active PNG",
+      "before_sha256": "6754f9e94fa593494f725e67ff0b2e1a4e9136da763165275347543b002ce541",
+      "after_sha256": "a5b81f85fb76963a8403e000ec5be225a4100b4ded4baad9cb0815129af5c5e8"
+    },
+    {
+      "path": "assets/sprites/arena/kithflare/small/walk_e_f6.png",
+      "kind": "changed active PNG",
+      "before_sha256": "73c808e1df58970564e5e36afdcb6814dbe9a43d2dd276b5fd0fece32a0dd14a",
+      "after_sha256": "dd12aaa9a67bd2ba7c1eab49cc148cf7089fe4e8c950078ad4c8e12a922649f7"
+    },
+    {
+      "path": "assets/sprites/arena/kithflare/small/walk_e_f7.png",
+      "kind": "changed active PNG",
+      "before_sha256": "c698b93a2b3085af1f97598e8d7aefa75e231232ed5fc22e75197947755a7d02",
+      "after_sha256": "e7214feb1bfe25e3f8555f534502ec83cc6deac072ddbacb3f8f0bfbff1501d3"
+    },
+    {
+      "path": "assets/sprites/arena/kithflare/small/walk_n_f0.png",
+      "kind": "changed active PNG",
+      "before_sha256": "669b914a674507562488cbff318b17a87f67525b6a344b1fc046420a77e13d81",
+      "after_sha256": "a31b9c6818fc3ffae413d5cff67479b5b04a10d4237da97c014ef7871b6452fe"
+    },
+    {
+      "path": "assets/sprites/arena/kithflare/small/walk_n_f1.png",
+      "kind": "changed active PNG",
+      "before_sha256": "d13dd7e0402c7806657df1e6955c6a4a33f3aeeee4ec0af110b99f55da3add0e",
+      "after_sha256": "88c2b37a7a69e048bcb984a365f51df7d03e9e61830ea7694c70c73891b26768"
+    },
+    {
+      "path": "assets/sprites/arena/kithflare/small/walk_n_f2.png",
+      "kind": "changed active PNG",
+      "before_sha256": "1be6d979a94c381ad04d0213ef4a7d1f98d139dc6f111e5e63f6f0a037680354",
+      "after_sha256": "b14d8ffe0a27f03383885a76e45098c11769ea446e4e107ad1ba858f253c0622"
+    },
+    {
+      "path": "assets/sprites/arena/kithflare/small/walk_n_f3.png",
+      "kind": "changed active PNG",
+      "before_sha256": "069eae0519f1dc41b872efb053284ad0cf5a359b58d3573351f08706cacfdc3a",
+      "after_sha256": "8ddc49bb52c37f153f5787b7947a250d6bf2c3ee2b96845a5ccd4f88c5e12bd9"
+    },
+    {
+      "path": "assets/sprites/arena/kithflare/small/walk_n_f4.png",
+      "kind": "changed active PNG",
+      "before_sha256": "9fa7fc2984fbb3fdab8bd9ece57637d8628b00a765bdfe60fcda5e23d422b729",
+      "after_sha256": "75fa9a28e06ef8935356b38b84a8e48114e2000461e4b2291db50d1beceb8986"
+    },
+    {
+      "path": "assets/sprites/arena/kithflare/small/walk_n_f5.png",
+      "kind": "changed active PNG",
+      "before_sha256": "69975a815ca3e5dfcdcd02f8f5edc34220feee957a13a83498dd8428ff011834",
+      "after_sha256": "3480d02621c22afd8b3f3eb10ea545b332fbeae315eeee51349578cf0b156505"
+    },
+    {
+      "path": "assets/sprites/arena/kithflare/small/walk_n_f6.png",
+      "kind": "changed active PNG",
+      "before_sha256": "acc67c74feea4387917561dcb9b589dc355e892e48c38e333dfb4cffdc50363b",
+      "after_sha256": "b157f2e14d576c7656890a1ea5c28a883b0e2729be2455a093750cb7e186d8a9"
+    },
+    {
+      "path": "assets/sprites/arena/kithflare/small/walk_n_f7.png",
+      "kind": "changed active PNG",
+      "before_sha256": "f7f4c61acfd2ba30d82abbcf5a5706eeabab2b541270582d7bc70f071bc283d4",
+      "after_sha256": "6f106a6b8379de624cc4b7c54e644e2ddcaf4400fa3a9f335b51ba16346277a8"
+    },
+    {
+      "path": "assets/sprites/arena/kithflare/small/walk_ne_f0.png",
+      "kind": "changed active PNG",
+      "before_sha256": "2deaffe49544088909a7c9e9a281c48b2a31a1b58b45e12e9cc8a2f33a3547a3",
+      "after_sha256": "74a9f72e6a128d3256f5485b7a8e1c9b14698478c8510d97215d849d3aaec2bb"
+    },
+    {
+      "path": "assets/sprites/arena/kithflare/small/walk_ne_f1.png",
+      "kind": "changed active PNG",
+      "before_sha256": "27ed359130f38e157dc38d8c7e29bbc19d85e603f6be04c55d058479b4318802",
+      "after_sha256": "5aa78970c07f99ef091b5a08c7d4cfc5f0b1f615a9167ab0bb93a8c56b65bc7b"
+    },
+    {
+      "path": "assets/sprites/arena/kithflare/small/walk_ne_f2.png",
+      "kind": "changed active PNG",
+      "before_sha256": "7af8e5dd8065115a23c0247d9f0d9308c2f2623c85d8ff9f5312506b9f610bec",
+      "after_sha256": "f5637fd3f33280aa3c1a65d2b3fcbfb73af4afb7ec9b50f3ce40a3e4a9717ac7"
+    },
+    {
+      "path": "assets/sprites/arena/kithflare/small/walk_ne_f3.png",
+      "kind": "changed active PNG",
+      "before_sha256": "6eb1aaa56d1aebab76ddd8a7cc38b3c40ad99d7890e108dac8428ea3cb52c553",
+      "after_sha256": "7a50241063d500e3e238527e2799d7afebd513f94649bed5e2fcb9aba1877455"
+    },
+    {
+      "path": "assets/sprites/arena/kithflare/small/walk_ne_f4.png",
+      "kind": "changed active PNG",
+      "before_sha256": "8ca5f6c0e5456b49b2d806a0947298c26349b2ae8b98656f53c6be8e6441a658",
+      "after_sha256": "4a44ceed082465434b7bf9501d7a5747030b5c0bfa165b4c0ed76358b1144637"
+    },
+    {
+      "path": "assets/sprites/arena/kithflare/small/walk_ne_f5.png",
+      "kind": "changed active PNG",
+      "before_sha256": "b6c644124c5ff4c532391da26642c31ea3f4039c3dccc883487deea96035af94",
+      "after_sha256": "788d8c97b715429c2f8e71a4b8f646a21f25f70e2b0fab867c2bf86880dcb914"
+    },
+    {
+      "path": "assets/sprites/arena/kithflare/small/walk_ne_f6.png",
+      "kind": "changed active PNG",
+      "before_sha256": "465c424c26d2f2fcdc367b3a73718957a16fbfcf33fdf999fff9ea58af0ec89a",
+      "after_sha256": "8ed3437b41a32b43bdc678c34783dd3eb138288f7055223a319de390fa5deab2"
+    },
+    {
+      "path": "assets/sprites/arena/kithflare/small/walk_ne_f7.png",
+      "kind": "changed active PNG",
+      "before_sha256": "00903d1836ab12a21f94c05e2f3f778fcb2ca766a36efacfdf48cf849ec6eea8",
+      "after_sha256": "3a634e615fa8b96b1443c04e42f540165b195a61748a09834105b8042761603f"
+    },
+    {
+      "path": "assets/sprites/arena/kithflare/small/walk_nw_f0.png",
+      "kind": "changed active PNG",
+      "before_sha256": "7a72e8d8ff6ec0cf3583539ffa8a1fe7da7a08cef12efda9431081e4851e2608",
+      "after_sha256": "312f21fd045822eed0f798098dc8692700d5915d296017f9a8ef70c05b2be72c"
+    },
+    {
+      "path": "assets/sprites/arena/kithflare/small/walk_nw_f1.png",
+      "kind": "changed active PNG",
+      "before_sha256": "ba84ca27229019e46f062e2dff0e04280171e234a11a72b37a5f38dda74e5c7e",
+      "after_sha256": "c40a7024fd427a29356b3ca1ed4918ecb2bed9fd826b7d9d6cdc9c0ca3e84cf9"
+    },
+    {
+      "path": "assets/sprites/arena/kithflare/small/walk_nw_f2.png",
+      "kind": "changed active PNG",
+      "before_sha256": "d51f876a325e320f3e078844f9baca692ca86f2d13965a0e0c3262542a8535bb",
+      "after_sha256": "7ae86551d6b1e05b36bc9632f67805857f2f7e7064b4df46b0011a9e75f621c8"
+    },
+    {
+      "path": "assets/sprites/arena/kithflare/small/walk_nw_f3.png",
+      "kind": "changed active PNG",
+      "before_sha256": "34cd2560ab25888a629826720f550d097ef4f7e49a9f3b3a52a6aa1dddc5c71f",
+      "after_sha256": "3385fe109e380689759991bb9cc57bb072cf855b402e3d95d3447f7d691e67fe"
+    },
+    {
+      "path": "assets/sprites/arena/kithflare/small/walk_nw_f4.png",
+      "kind": "changed active PNG",
+      "before_sha256": "f7ad47928ca94caff358dcdbe7afaa0cc2f40f385e8ead3a0699c8b345059fb3",
+      "after_sha256": "17d8d0b46a37a0e314f5aa4f962c0e55076bf1dfc2f0f44b815bec7c65dfc4e4"
+    },
+    {
+      "path": "assets/sprites/arena/kithflare/small/walk_nw_f5.png",
+      "kind": "changed active PNG",
+      "before_sha256": "0d053b360162806d6ea54c35baf63285c14d2d874668e049ec552e265ec58397",
+      "after_sha256": "1ba9d4fa951a5bfb428f59592dcb1ff2c5b23bd0ef6f078d2e85438dbad35c43"
+    },
+    {
+      "path": "assets/sprites/arena/kithflare/small/walk_nw_f6.png",
+      "kind": "changed active PNG",
+      "before_sha256": "75ef1a111fbe658a03bf4000281dae610de20509047ba937c8740347559d5885",
+      "after_sha256": "a83a5e8e6ab7cb3ee6a53e5352e47f87b0b541b7410fa68e47b5ac3aaca91c0d"
+    },
+    {
+      "path": "assets/sprites/arena/kithflare/small/walk_nw_f7.png",
+      "kind": "changed active PNG",
+      "before_sha256": "c16567c3c0b6b88c2930be8fde9ecf25f27796ad065586de3c8fc048a1cf3a5e",
+      "after_sha256": "45ca84cc003c98de456de4d5e650aead4f10ffeb28b3300d8988962a81338e4f"
+    },
+    {
+      "path": "assets/sprites/arena/kithflare/small/walk_s_f0.png",
+      "kind": "changed active PNG",
+      "before_sha256": "30846342800a7a4475991b82fb4a6869642a47bade985ee3bacfcfcdaab13628",
+      "after_sha256": "dd422614699e1426dbb4fd96fae12f1afb523dbad1d9cfb8ea165aef1cf5624d"
+    },
+    {
+      "path": "assets/sprites/arena/kithflare/small/walk_s_f1.png",
+      "kind": "changed active PNG",
+      "before_sha256": "861eb6cc0d7df982e62556fde8440d4e129ef66778d4556324bf79cf1939662b",
+      "after_sha256": "daee184558333cf33b5102e87ef475dff7151db9536a4791591465609cbf2b99"
+    },
+    {
+      "path": "assets/sprites/arena/kithflare/small/walk_s_f2.png",
+      "kind": "changed active PNG",
+      "before_sha256": "a8d5a542cd509a0f59be2bc7055062e1f3ea41bd584d9e1b23be100f24e4ff04",
+      "after_sha256": "f9af4d4151861dc550e65ddb22e2f21021457a125fed351ca7fb245e75c4b9ff"
+    },
+    {
+      "path": "assets/sprites/arena/kithflare/small/walk_s_f3.png",
+      "kind": "changed active PNG",
+      "before_sha256": "f038c6a42039205c81cc87171e3ecfeb5e31c90b714e626ad266e4843abd7344",
+      "after_sha256": "2e7b477bf065585a67a8bd47e00afcbdc90bd5357354530ab962778f53c3d892"
+    },
+    {
+      "path": "assets/sprites/arena/kithflare/small/walk_s_f4.png",
+      "kind": "changed active PNG",
+      "before_sha256": "8ad35aca6e6cee96de5179032dad40e0a15669a055e7e9e49485c639f8242f00",
+      "after_sha256": "178a5f20c365e178081d51e8a977d23311dcebf5bc774a09b83b43375312311e"
+    },
+    {
+      "path": "assets/sprites/arena/kithflare/small/walk_s_f5.png",
+      "kind": "changed active PNG",
+      "before_sha256": "e8a28da2b6acdc54f72827d3b0a36280c1623e8040138bafcb95540bcf318ee6",
+      "after_sha256": "11010d473c20d5fbaf96c151c08f6b669cdb2835c3b33c487d81a447ee53d60f"
+    },
+    {
+      "path": "assets/sprites/arena/kithflare/small/walk_s_f6.png",
+      "kind": "changed active PNG",
+      "before_sha256": "124857888b1b0d503efaca100829b0d328e178509b01af5ad802263e08496908",
+      "after_sha256": "49247638374208eb422e689b60ba4c95ae6b6ed0325573462358c65194630172"
+    },
+    {
+      "path": "assets/sprites/arena/kithflare/small/walk_s_f7.png",
+      "kind": "changed active PNG",
+      "before_sha256": "aadf93f11e7ddd37162b178880c55fb365754af304ba5bd3ef8c6b9a8b826081",
+      "after_sha256": "1b36eb9bc0cb0e6aa6b4df4cbce9380be46c5d52172b5d878a732b2bece252d5"
+    },
+    {
+      "path": "assets/sprites/arena/kithflare/small/walk_se_f0.png",
+      "kind": "changed active PNG",
+      "before_sha256": "b77e394df6761c6035a0880234d41d8c6d300069fcbdb6fd8988c420f5e4a0e2",
+      "after_sha256": "b76672708a555fa5a05385a3b5a89852ba684d04c8c9b38418c98bed042fb1d4"
+    },
+    {
+      "path": "assets/sprites/arena/kithflare/small/walk_se_f1.png",
+      "kind": "changed active PNG",
+      "before_sha256": "8423fc49f60da23f7d021d05bef5ebc3b11d6ea14d732c77cea7435ba6c01f94",
+      "after_sha256": "b61ac8443ada25dbfd3bae12240e71d756bc7b5e356aa1af6a2a340c04fef15c"
+    },
+    {
+      "path": "assets/sprites/arena/kithflare/small/walk_se_f2.png",
+      "kind": "changed active PNG",
+      "before_sha256": "9b125129ac148b8b263d2674ad690b96bdb98af8c1318c0e9a34915b688d1ff2",
+      "after_sha256": "bf94e1474bdfcb59b04435caab3707cabaf28814ac6d753d09e6e408334bece2"
+    },
+    {
+      "path": "assets/sprites/arena/kithflare/small/walk_se_f3.png",
+      "kind": "changed active PNG",
+      "before_sha256": "424e4dfd13fe7f8e2ac5e993c6c789a77b86268af893ac29639039d8b775bf14",
+      "after_sha256": "770a64dbf72a1d03d20d0e5bce4e4468f7088f213a374a984a210fc150327c41"
+    },
+    {
+      "path": "assets/sprites/arena/kithflare/small/walk_se_f4.png",
+      "kind": "changed active PNG",
+      "before_sha256": "a6f0c61bc1083337ab38de75b3d6dfa7c89946953d5d90245a69d212a233517b",
+      "after_sha256": "d0f14e7056b5c5385503278459956d92c35f1695085ec8b6962b8fab8a860f45"
+    },
+    {
+      "path": "assets/sprites/arena/kithflare/small/walk_se_f5.png",
+      "kind": "changed active PNG",
+      "before_sha256": "69e400941fd49619551ca557c9590b52d7c335575a6f6b7e36b5090b0559718c",
+      "after_sha256": "909625c1bd13bfa921d63421af4ccee6373d58dfc962932c6617c84dee34d566"
+    },
+    {
+      "path": "assets/sprites/arena/kithflare/small/walk_se_f6.png",
+      "kind": "changed active PNG",
+      "before_sha256": "f2268e555561834cdc2a03cc9d8cf94e804cdf1e5c93890f65b0293722cd3850",
+      "after_sha256": "07a0d25dd9d02bace9361608a1716a3e8229cbdd9f789b9aca55c9b9a8b10002"
+    },
+    {
+      "path": "assets/sprites/arena/kithflare/small/walk_se_f7.png",
+      "kind": "changed active PNG",
+      "before_sha256": "a1db2e7de366d620e4b3cde3692894a503a4157c83a93b483989a89aa72a7ef2",
+      "after_sha256": "6fbf910fb40987e3472213bace2e910084c950c086fb22e759f85e24aa6769b9"
+    },
+    {
+      "path": "assets/sprites/arena/kithflare/small/walk_sw_f0.png",
+      "kind": "changed active PNG",
+      "before_sha256": "2ee849a19c8b3cc2e4bc10ed0245808e10c5ab56f56419a8f5d6b763020abb0c",
+      "after_sha256": "51914254fe601b7928f608f063729485eb18128aba68c239cd6793c5e3349232"
+    },
+    {
+      "path": "assets/sprites/arena/kithflare/small/walk_sw_f1.png",
+      "kind": "changed active PNG",
+      "before_sha256": "b57da47cd1c1423d1e5e0c1258a66cdcf138ed08f3a6f043a56210c86f6a3f9f",
+      "after_sha256": "f9e2c61edfaa95f336c77dbd57384fc9f41da7b8fb6cb65e26af674d583307d7"
+    },
+    {
+      "path": "assets/sprites/arena/kithflare/small/walk_sw_f2.png",
+      "kind": "changed active PNG",
+      "before_sha256": "138ac567ff856536721f64a366972d362bb18759ee473ee78037333914ee99dd",
+      "after_sha256": "bc0ed769920fec90a9d36cac28b41fc14023d07c5c8cdf2ae5b3e67bac2d22d2"
+    },
+    {
+      "path": "assets/sprites/arena/kithflare/small/walk_sw_f3.png",
+      "kind": "changed active PNG",
+      "before_sha256": "eab6fd4d9b61944a762f9628fa6e02605323abd7f3fd3dbe7e849d6e02acb361",
+      "after_sha256": "e084bb0ad8cd388ed508c92b4e42a8b85a957ec10df34f4065fd3e39e05d934f"
+    },
+    {
+      "path": "assets/sprites/arena/kithflare/small/walk_sw_f4.png",
+      "kind": "changed active PNG",
+      "before_sha256": "80532eb64cf3fccfe9da1c6de38251ad1948840619aad3c2e2bf6c890d4f61a4",
+      "after_sha256": "b65d68f6eec877855ed17c7f6b620e6d0dcf293a87ddf53d64ea7bb9c6ad623b"
+    },
+    {
+      "path": "assets/sprites/arena/kithflare/small/walk_sw_f5.png",
+      "kind": "changed active PNG",
+      "before_sha256": "85e85542a86fc015e0f4f3f3e58d84442f8d2c98ab85d099dc3d5c65954d88ca",
+      "after_sha256": "8a0ad942c3df7f67dfba4c63cd13451762535b444b003398aa824fdad5c4c8bc"
+    },
+    {
+      "path": "assets/sprites/arena/kithflare/small/walk_sw_f6.png",
+      "kind": "changed active PNG",
+      "before_sha256": "b3ef18bb204b95cf29fca77a04020d0dc5f606878f1da6eca9ff62bec3580a65",
+      "after_sha256": "662c4a7d05ef8cf72f00567221b845e6b5d72e292b6ab58e0dd89d0cc4cf38c0"
+    },
+    {
+      "path": "assets/sprites/arena/kithflare/small/walk_sw_f7.png",
+      "kind": "changed active PNG",
+      "before_sha256": "031fa0c1f7d1e646a44f18f5ce9fb4a12bce798b767823759b38b0ed29b8ca07",
+      "after_sha256": "da001a373cbb55c695a6ea220d43060e634a1238f969ca23f4fe3134bd71b780"
+    },
+    {
+      "path": "assets/sprites/arena/kithflare/small/walk_w_f0.png",
+      "kind": "changed active PNG",
+      "before_sha256": "79ea19e2e8bebad0d59395dcb35b8f51a9b13ae618e376e791bc9fe8c99f33ff",
+      "after_sha256": "1534c1f36177cf188081656eb8627dceddd196b87c5450d66259827ad319f2ec"
+    },
+    {
+      "path": "assets/sprites/arena/kithflare/small/walk_w_f1.png",
+      "kind": "changed active PNG",
+      "before_sha256": "7a3073e0de8a8b72974210fc874bf2119ca8913142fee7807c006061a3383240",
+      "after_sha256": "24f816ab767d32b2d53297c255d0ad53aba1e3a42380cce94bedd0ea0df6d1dc"
+    },
+    {
+      "path": "assets/sprites/arena/kithflare/small/walk_w_f2.png",
+      "kind": "changed active PNG",
+      "before_sha256": "52fce95242efbc2387f2afac8ef6ae7c016876153781e49a276e93d70b5a7983",
+      "after_sha256": "bea41b57b927b73dea5515194c41f720c3cf0bbb25f9014ce96c82b218a71e39"
+    },
+    {
+      "path": "assets/sprites/arena/kithflare/small/walk_w_f3.png",
+      "kind": "changed active PNG",
+      "before_sha256": "b222acbc415811e42444bce0e0dc34778628426ad450c6d86155454acf67d6d0",
+      "after_sha256": "35ae8298f9f142feec8fe9ec51f866d8f4779a6e4a632f3c40ef0600261b570a"
+    },
+    {
+      "path": "assets/sprites/arena/kithflare/small/walk_w_f4.png",
+      "kind": "changed active PNG",
+      "before_sha256": "9307858af6dc8b079c02f67f0d93617a5492b239d911a72415c96209825ad91d",
+      "after_sha256": "f891f6a92c22244aaae9f1c0a5917b608356a7f3d628cf6512ec888b8ed6fc24"
+    },
+    {
+      "path": "assets/sprites/arena/kithflare/small/walk_w_f5.png",
+      "kind": "changed active PNG",
+      "before_sha256": "1706466d2e730224a49a4a7c3ddd7742ea051aa5f3a05b916e6abe9b6088e796",
+      "after_sha256": "567192f689cf557dcab529d38bdceb2de0ab556da1e279ed658e09c19e3b21c8"
+    },
+    {
+      "path": "assets/sprites/arena/kithflare/small/walk_w_f6.png",
+      "kind": "changed active PNG",
+      "before_sha256": "35c0e663bcaafb930b504de78f7468e4dc181f64fd8a3c19c58bed8497f85981",
+      "after_sha256": "c61b9afb3dc9af69eeecb6f0852c5dda02fd3d3138218a2fb311a7906194d798"
+    },
+    {
+      "path": "assets/sprites/arena/kithflare/small/walk_w_f7.png",
+      "kind": "changed active PNG",
+      "before_sha256": "d620d97a9400111c94f4673d449e2b5c92148d6016650bea8338aa151e8f05eb",
+      "after_sha256": "5e0027b4f8818d8766e5c64b642da73fd6a1597514b7272abf6519f8c2e7806f"
+    },
+    {
+      "path": "assets/sprites/arena/kithflare/sw.png",
+      "kind": "changed active PNG",
+      "before_sha256": "2940081522905035a2ad229357d82dd6750b5f356c17e3b78ec5e067bef26e40",
+      "after_sha256": "19c5eb50b8bf996db3a694d97af47b816c0f6738c43d689db096e49a87274ab9"
+    },
+    {
+      "path": "assets/sprites/arena/kithflare/w.png",
+      "kind": "changed active PNG",
+      "before_sha256": "8bc4993b15c98e5c00096567fa4ee6a04529d642952704a0fd75d0ae72f9eee5",
+      "after_sha256": "b3ae148760f705dee0e6552171ef5cd29c55b25580fcfecb6c6fb403b0e69c3c"
+    },
+    {
+      "path": "assets/sprites/arena/rampartroot/e.png",
+      "kind": "changed active PNG",
+      "before_sha256": "002fe909b523ab75b2b5e29bab36aeb54be1740024c26706aac937e2079945d6",
+      "after_sha256": "12e567f3b25cf8a458e9146dd64b7214ab05d2ec6c29382b0d04935cd833bf63"
+    },
+    {
+      "path": "assets/sprites/arena/rampartroot/n.png",
+      "kind": "changed active PNG",
+      "before_sha256": "391a6affa2fc159063148f12dcd7182dde2be12b0bd123eb6f592ac02af0031c",
+      "after_sha256": "73bc3d61411aa0d28b97e8bdfb45f3314b77e63a164eead8db523cf2b73b3053"
+    },
+    {
+      "path": "assets/sprites/arena/rampartroot/ne.png",
+      "kind": "changed active PNG",
+      "before_sha256": "dd2010cf265c9adbe33fd8927b5268ed94f79afe6f3d28662a25600747dfda4f",
+      "after_sha256": "bb55c2c3e2195823b2cf6910a9416c3bd69e930b849309b68c1afbd8088a07b6"
+    },
+    {
+      "path": "assets/sprites/arena/rampartroot/nw.png",
+      "kind": "changed active PNG",
+      "before_sha256": "5aed54c691394c0eb7903b013613d6398abeaf3aa4e1165344d82188ed200a9e",
+      "after_sha256": "2a78a459c1dca0a2254885f3f60d8cae7595d520fbed1d442b415df205b3d6b2"
+    },
+    {
+      "path": "assets/sprites/arena/rampartroot/s.png",
+      "kind": "changed active PNG",
+      "before_sha256": "d7bb4320a93c5548e2f53646a4b88c6d8632d47a05e74425872631403e4396ae",
+      "after_sha256": "9150dba8ae704279ca02bb8e695c9b4f2fc5b65bbe6cbac04b196fd652a84479"
+    },
+    {
+      "path": "assets/sprites/arena/rampartroot/se.png",
+      "kind": "changed active PNG",
+      "before_sha256": "b1473c332bd3226ac8a293c33c7402dddb7af11dde346c0990053ca3c65fd9ff",
+      "after_sha256": "dc3defdce1e7f15f4448bdb229072bd3b27b2c57e1d249c304d3454121d8f87f"
+    },
+    {
+      "path": "assets/sprites/arena/rampartroot/small/e.png",
+      "kind": "changed active PNG",
+      "before_sha256": "65261918aad3dc2131bf3369e287a26241e502d185b35cc4f7f09ec2daac02f4",
+      "after_sha256": "afdf0955e6605a423e31da5bf991afe16e16c6f53e1cfde9fb3ef596e22d126d"
+    },
+    {
+      "path": "assets/sprites/arena/rampartroot/small/n.png",
+      "kind": "changed active PNG",
+      "before_sha256": "d2b98e900b7521cc06e74c08ad71763a44cc2e88c00cb51a0eb09bcd14160995",
+      "after_sha256": "d8c12ebd008264cc2378bebfdca58110c25ae8dc2e33fc0e298873820740df00"
+    },
+    {
+      "path": "assets/sprites/arena/rampartroot/small/ne.png",
+      "kind": "changed active PNG",
+      "before_sha256": "938f0ccad6c25c0ad300c6b62286b03382c71f5b0e24379bf4e394d26257a22b",
+      "after_sha256": "0090922942f7f71609bd61c8bf471903a4721062f5ddee9bdb6037c4d23dd61b"
+    },
+    {
+      "path": "assets/sprites/arena/rampartroot/small/nw.png",
+      "kind": "changed active PNG",
+      "before_sha256": "14227cd7dd0624c3a6cafec92ee288e40cb77fb0e582b6ca41b4564c25ef0e0c",
+      "after_sha256": "71b4f54e38d0244629d5e13924620ab0ae1440f810f2b8669c1ae615595dfe6c"
+    },
+    {
+      "path": "assets/sprites/arena/rampartroot/small/s.png",
+      "kind": "changed active PNG",
+      "before_sha256": "3354639caf9244f7a356225d5714e9d70b7674636d2a5c3c221d662d5fc6fb89",
+      "after_sha256": "789772be86af5cb7bd270a33d526674ab320df3f5b21b0f713128302bc7f98a5"
+    },
+    {
+      "path": "assets/sprites/arena/rampartroot/small/se.png",
+      "kind": "changed active PNG",
+      "before_sha256": "88a0b2a98610f94b958dd9a23a45fca8844862e16c6944da55816ff5b25cd418",
+      "after_sha256": "f9c0e6c7e2f125a93ea50e227c12444ec9f49e8244a7ad22977b733607a4764b"
+    },
+    {
+      "path": "assets/sprites/arena/rampartroot/small/sw.png",
+      "kind": "changed active PNG",
+      "before_sha256": "aa288b8a76c7d9501fd310f175e281d4728e77f00ee22a6fd4166ad5af8cdfc0",
+      "after_sha256": "b0e07442032a5cc40e995201c8429bba8c8b4af236a0ed7f9872e3186c95222b"
+    },
+    {
+      "path": "assets/sprites/arena/rampartroot/small/w.png",
+      "kind": "changed active PNG",
+      "before_sha256": "25e8ddbe1b964c39ea15cb62d15655b8d37efbb37a32d09ea92c579cb138f4f6",
+      "after_sha256": "5d9f4d07d5b988c4f2ec3ec4f64fdb82f589d2361a49b03a82561ae6547ca64a"
+    },
+    {
+      "path": "assets/sprites/arena/rampartroot/sw.png",
+      "kind": "changed active PNG",
+      "before_sha256": "c8a38c44c27dcfa8e838bc3f62e211154049529f877eafebe131b39ca137fbe2",
+      "after_sha256": "0e0d40d1bec6f4621b70ea59451a0b4138aad33e2767bc31791180f02115a14c"
+    },
+    {
+      "path": "assets/sprites/arena/rampartroot/w.png",
+      "kind": "changed active PNG",
+      "before_sha256": "41e9ec6f5c311a55946344b9b87c45b0084da4b043c0b3473bb75621b6d30f67",
+      "after_sha256": "a0d7fe686854734abb747945dba8ae71dfc065443f2cfe9f63a78b51cae2d8a2"
+    },
+    {
+      "path": "assets/sprites/arena/riftfin/e.png",
+      "kind": "changed active PNG",
+      "before_sha256": "7d71c562e0b12c693b1de0cdf22a5369e9a7085779dc541b7dd2c73fe7ee7795",
+      "after_sha256": "76d9f57b9bd508e8d96c80109de6add33e086ec5f54dfe44df9271275109be11"
+    },
+    {
+      "path": "assets/sprites/arena/riftfin/n.png",
+      "kind": "changed active PNG",
+      "before_sha256": "6ca067814835bac3f1dfd406a10888d8e7160b1ed528cb5f0ac9c75300d36460",
+      "after_sha256": "58b145f3adc19a069b95f5915f4529680b666e1dd9b250210fbd6b368e12b787"
+    },
+    {
+      "path": "assets/sprites/arena/riftfin/ne.png",
+      "kind": "changed active PNG",
+      "before_sha256": "d3c1fb774625221a9a2f97554bef5eeacbc1c8b30c0a7fc6be6e8ef144355da4",
+      "after_sha256": "3efae256432da6fad96ad706da6e554fd8c056dcb7a68f5e057b513888cb221b"
+    },
+    {
+      "path": "assets/sprites/arena/riftfin/nw.png",
+      "kind": "changed active PNG",
+      "before_sha256": "96572c2ed7cef1ed892a029aeff4761eb53d86518ac62f608784f4bb7ce8f976",
+      "after_sha256": "80425c57ee563970e783d5c36586c2ae201286e646b42c4a3f1c7ae770c77e60"
+    },
+    {
+      "path": "assets/sprites/arena/riftfin/s.png",
+      "kind": "changed active PNG",
+      "before_sha256": "85bb8a569e26eb249d258ed401be644a5e6dae5017d5a6421ef47857657d0069",
+      "after_sha256": "1fa654174f83838e4085cd875c1bf806c6aaeff4704aeee82bb0f81265eed0a2"
+    },
+    {
+      "path": "assets/sprites/arena/riftfin/se.png",
+      "kind": "changed active PNG",
+      "before_sha256": "836a368e3ca634f9e862aa6afc9b41355ba0de586fe90b61cc6b4abdf30b5663",
+      "after_sha256": "4bda572d09564a03c0cb305199e96478fb819a100ca915aaa3b6fbc4d17efe65"
+    },
+    {
+      "path": "assets/sprites/arena/riftfin/small/e.png",
+      "kind": "changed active PNG",
+      "before_sha256": "2e2448e5eb1cbdd93faa6a2cedf2593c980ce743b80e3f1a9c68450e1109ab23",
+      "after_sha256": "d325631c2278c44065dc629333bdb1697557b571d410d754fedf594af0350ac4"
+    },
+    {
+      "path": "assets/sprites/arena/riftfin/small/n.png",
+      "kind": "changed active PNG",
+      "before_sha256": "ae58997f40ecde1951a1695bc25b79e5a45f43ad67dde81e75f19cf71cf1aec1",
+      "after_sha256": "53b505ca6ffeae2ade3f2b5d9fe13809539d7c055624cfbdbb73b5ea85c2af1a"
+    },
+    {
+      "path": "assets/sprites/arena/riftfin/small/ne.png",
+      "kind": "changed active PNG",
+      "before_sha256": "8ba94a43e9a71ed97e5f723675e5d2d3d2f57bc06c10af7246dbce9d268cdf17",
+      "after_sha256": "78a526c1b26fa6f5d19c084e8492adc6d6a462cb23960b8b13d8120744cba1ca"
+    },
+    {
+      "path": "assets/sprites/arena/riftfin/small/nw.png",
+      "kind": "changed active PNG",
+      "before_sha256": "afb6e8c3a59c477f4760163e455516ee0bc1771c1c46f5eb8d45c69aca1de48b",
+      "after_sha256": "9bfbf2b48779e6bfda7989ebe5a03e5d8231536afbbbfc8506db334b6cddc0c6"
+    },
+    {
+      "path": "assets/sprites/arena/riftfin/small/s.png",
+      "kind": "changed active PNG",
+      "before_sha256": "a2cf09f6ab16f2f865d5f62de1473163a885b69f8ddf3d41b36cd6a9e5528484",
+      "after_sha256": "28b45ee2d0245cb2e0f133a176f6fb7cb097bb4fc9b039a204834bfa2b40abec"
+    },
+    {
+      "path": "assets/sprites/arena/riftfin/small/se.png",
+      "kind": "changed active PNG",
+      "before_sha256": "2d4894c7caa79d3796542ae7edb52605a5f4469ba91374b79b3317778d29432f",
+      "after_sha256": "a5b358ba1d80e9a9eef519474de3b97b8003a1ff461191f967e75bf56c348fb5"
+    },
+    {
+      "path": "assets/sprites/arena/riftfin/small/sw.png",
+      "kind": "changed active PNG",
+      "before_sha256": "7572b235ffae62b0d8c61726cbff441d349b1ca7af3f78f18be853310c4a8ad3",
+      "after_sha256": "158ed7a5388e5bceadafd000c53591d35a2f28f608edaa5d80a3e8281e6ae214"
+    },
+    {
+      "path": "assets/sprites/arena/riftfin/small/w.png",
+      "kind": "changed active PNG",
+      "before_sha256": "af8e1faa4e823399934008930f1883743b72fc320c6c86bd9137a5900027a42c",
+      "after_sha256": "1b32fdbea6ba6ce871ca75e92131e226564d01c1e40491eb333a51d87beae127"
+    },
+    {
+      "path": "assets/sprites/arena/riftfin/sw.png",
+      "kind": "changed active PNG",
+      "before_sha256": "77587c4b53aafaeab221132caa2fc5225ade6d427280e1a7cd24352a0695cadc",
+      "after_sha256": "697d6a41671c8e712cd102b2532ae40c73429ce8c6f98c70eeb72f61c2446a82"
+    },
+    {
+      "path": "assets/sprites/arena/riftfin/w.png",
+      "kind": "changed active PNG",
+      "before_sha256": "0abaaf5cfcdaca4047b2bc1e5ec770156b4b34f3cae696c02712e69e320b4cf3",
+      "after_sha256": "e8bacfd7944e4a4779e5aa3063838531d0bd46bffc25e5f37f843005c89db902"
+    },
+    {
+      "path": "assets/sprites/arena/rimefin/e.png",
+      "kind": "changed active PNG",
+      "before_sha256": "7478236ee29431c83bd0fdb866ecc358f6838ce735f4433b7dd49255269a0f21",
+      "after_sha256": "8d27723a2ecefce4b390814ba1286a896a7aa4c9513932b767ff8d68e642c4d4"
+    },
+    {
+      "path": "assets/sprites/arena/rimefin/n.png",
+      "kind": "changed active PNG",
+      "before_sha256": "e7e46345393c8b64e19c98e766e6bd5aa0b307d645b9000d8f0b38580b722dee",
+      "after_sha256": "9342841fa381d2436f7119e3591a4529914e415a195266f2b8aad449d33241f6"
+    },
+    {
+      "path": "assets/sprites/arena/rimefin/ne.png",
+      "kind": "changed active PNG",
+      "before_sha256": "5a8af1bf89dc86033f8a258b3aa384d00b39f8cf29cf7d4b1024de14f2ba0656",
+      "after_sha256": "8842e98cd4396adf917e8abfbecfc0bfd8e1092ae5c08560de39b837151957b0"
+    },
+    {
+      "path": "assets/sprites/arena/rimefin/nw.png",
+      "kind": "changed active PNG",
+      "before_sha256": "d760add32f5cb13fe20357513ec30e00dcdff5c4ef1f55f2cd295f1f1494874b",
+      "after_sha256": "f772f82cc3dcd78c00dca6aa701ea6e01b4458b6ba7c46b027ee2e2ec4574257"
+    },
+    {
+      "path": "assets/sprites/arena/rimefin/s.png",
+      "kind": "changed active PNG",
+      "before_sha256": "850a7352f4686463726bd516f10d16031ef389f2b3d57d4f0b130d6f15cbfdfa",
+      "after_sha256": "53336c4f5ec62131007a28067fce9add864657b4148e0c54685c9d2e48c9f6d0"
+    },
+    {
+      "path": "assets/sprites/arena/rimefin/se.png",
+      "kind": "changed active PNG",
+      "before_sha256": "1d8fe76b46bfaed4b52369e9ed48c6b24e1f52a228a41ee18b964fac32717485",
+      "after_sha256": "5cbf6de8908522484dcc876588c77918b9498871679297a0b4f4c8a2085f1aa5"
+    },
+    {
+      "path": "assets/sprites/arena/rimefin/small/e.png",
+      "kind": "changed active PNG",
+      "before_sha256": "a17362b03af6ff9459bfee6d9e227309cc26d2b377e451b65ce937da0e37bbf8",
+      "after_sha256": "92d467dedb8cf958d078e3dc95e149266bfb387b7f7ce59684647954e66e934c"
+    },
+    {
+      "path": "assets/sprites/arena/rimefin/small/n.png",
+      "kind": "changed active PNG",
+      "before_sha256": "d67c1c8c8cc604732ff72ed295b34c5dc7ec686fc371af9500b7206a2adf7254",
+      "after_sha256": "132fe820a6f42fa3c166fb4bcc15c3bbb78b096b11425b50bb5cbb89a7d3228f"
+    },
+    {
+      "path": "assets/sprites/arena/rimefin/small/ne.png",
+      "kind": "changed active PNG",
+      "before_sha256": "1797f633533b14f8f544999f5138f6f363fc5267bccef03b49734a620521482b",
+      "after_sha256": "c8b0cd282e7e47ba07d29f5c803593b3f6efe3786f718b09e5df0222936814f6"
+    },
+    {
+      "path": "assets/sprites/arena/rimefin/small/nw.png",
+      "kind": "changed active PNG",
+      "before_sha256": "8bc8295b5838a44afce4d4e14a5684f08da54b59a959786f4a0d9024c27d95ca",
+      "after_sha256": "58be6494fa9c8ef4f685f48e7f4886f0e2225e12a8ab623f185e4cbc8f5ef98e"
+    },
+    {
+      "path": "assets/sprites/arena/rimefin/small/s.png",
+      "kind": "changed active PNG",
+      "before_sha256": "a3571238fd0756a5ff00159553b880207e5abc06d909b9162ee0c7e921a9a0b6",
+      "after_sha256": "810a578a578e7e2ef3959d2dbbcbfbac03fe7fe1887b71abefdb53f9d5fb6197"
+    },
+    {
+      "path": "assets/sprites/arena/rimefin/small/se.png",
+      "kind": "changed active PNG",
+      "before_sha256": "8742fabdabaa607ea2e8f796bd66cc1ffe82fa2f0b29e43163c97b0b6d575677",
+      "after_sha256": "8248d498b068561e6f2bfd4ea18caba9865970853fefb8555d85eb823468d2d2"
+    },
+    {
+      "path": "assets/sprites/arena/rimefin/small/sw.png",
+      "kind": "changed active PNG",
+      "before_sha256": "42d715b0b997631ca7f7056804d3230ee3b15c1a36a96e8515cd7a0e65a02657",
+      "after_sha256": "1a224b17ec3b8b286e0709637cc94309518d78bb247ca3a64121d3ece1f65c9c"
+    },
+    {
+      "path": "assets/sprites/arena/rimefin/small/w.png",
+      "kind": "changed active PNG",
+      "before_sha256": "33487a90e53e2b6a292432acfd2ffc456504ddcc4b7cd4d809a74d0d66851c3f",
+      "after_sha256": "ba1052ae4506aaeb851ed4138f67412bc0d99ca3c6e996d3570eaff6b711b0ac"
+    },
+    {
+      "path": "assets/sprites/arena/rimefin/small/walk_e_f0.png",
+      "kind": "changed active PNG",
+      "before_sha256": "d1e944f8e15aac56081d183d8c4c658c27d908e27cd790782b026634cdac436b",
+      "after_sha256": "2a03640f3ab814ea2b66a98e363733b6254022bc12011318863b5ec93b4dc515"
+    },
+    {
+      "path": "assets/sprites/arena/rimefin/small/walk_e_f1.png",
+      "kind": "changed active PNG",
+      "before_sha256": "908bd65f32830697d5a86712bcd8a17ba4da8a870bfef5df2b219382fb1f48c0",
+      "after_sha256": "902970f78dc31bf14a9c2cb3e5e37622c5c0186f6f2ea8a5adb53c79bcd8094d"
+    },
+    {
+      "path": "assets/sprites/arena/rimefin/small/walk_e_f2.png",
+      "kind": "changed active PNG",
+      "before_sha256": "1dec494a9e94a0d3e17673cdbccad3110e83dd4ed3d2f8d2a383573900c6059e",
+      "after_sha256": "7df7dda5c60faadb22721c7affa9fe14c56ddccf5d694241ca479dcf1fc08f3b"
+    },
+    {
+      "path": "assets/sprites/arena/rimefin/small/walk_e_f3.png",
+      "kind": "changed active PNG",
+      "before_sha256": "1d374e90e84266abc13cd4258b719e58cacd1f6475c99707ed1ba3fe93cbfb2a",
+      "after_sha256": "ee86bc60c8abcb167ad8166c6b3eda150f858c9c0b47c14041d5e1c7de9a529c"
+    },
+    {
+      "path": "assets/sprites/arena/rimefin/small/walk_e_f4.png",
+      "kind": "changed active PNG",
+      "before_sha256": "0d044b4b9ff1a5e0a6f73264d5888841111c2a42ccefa2404e31e496dce2f47e",
+      "after_sha256": "7655077caa9cc0d43a15764859357049e534551c16036008cd56013264697db4"
+    },
+    {
+      "path": "assets/sprites/arena/rimefin/small/walk_e_f5.png",
+      "kind": "changed active PNG",
+      "before_sha256": "c2802fda4161694d1ac3325c8b57e4e9c261306a61368f2352398e82b0289185",
+      "after_sha256": "0c71eb99ccfc9b23ba5af48f332ae8c66c220de5b9f2610b1388ec6628bc103d"
+    },
+    {
+      "path": "assets/sprites/arena/rimefin/small/walk_e_f6.png",
+      "kind": "changed active PNG",
+      "before_sha256": "8df54b53ed52c009c206dd8cc075296b9ae1042325f04ba1176a8391cb58cd1c",
+      "after_sha256": "8201739039b112ea1d96bcec08c0c2c8b725c145fded49d8ebde6e9d26d8e8b8"
+    },
+    {
+      "path": "assets/sprites/arena/rimefin/small/walk_e_f7.png",
+      "kind": "changed active PNG",
+      "before_sha256": "d9b4d4f3a964bc0752202f51bf29ba2bfddcd0ef84ddb9ea099289f6fcd34d9f",
+      "after_sha256": "f940bd03650013192cfca475be0fe18f1d018ce628ff0201157d6426659504c3"
+    },
+    {
+      "path": "assets/sprites/arena/rimefin/small/walk_n_f0.png",
+      "kind": "changed active PNG",
+      "before_sha256": "e0a85804101c8d62e75fc97007c184b4f05dd5ca8272fe0fb0b308369ae6d018",
+      "after_sha256": "f27c1b1067f6bb5051286eeebf1868893ae7df20759cd483cf78d91225109f32"
+    },
+    {
+      "path": "assets/sprites/arena/rimefin/small/walk_n_f1.png",
+      "kind": "changed active PNG",
+      "before_sha256": "bd7c6d82d690844d1f8616f59f1c763345c9f385a8e0cb75077fc23c63a8e302",
+      "after_sha256": "7f54f4e5f3340dce657e6e3df42a4b46b30337ed85482bea5d434cf03f13eeba"
+    },
+    {
+      "path": "assets/sprites/arena/rimefin/small/walk_n_f2.png",
+      "kind": "changed active PNG",
+      "before_sha256": "db111ec30861ee4f6244b1be695dd30be3c02d3394746c8fd3e889e9e9dca9ea",
+      "after_sha256": "144a75489cdc9c9bb48064348155b6ec9b248c096b56cd77211415d85fd5b11c"
+    },
+    {
+      "path": "assets/sprites/arena/rimefin/small/walk_n_f3.png",
+      "kind": "changed active PNG",
+      "before_sha256": "0dde64fadf34bf89961f8c2614e2836c894f268078d6111f6aeb07a203373de8",
+      "after_sha256": "78b0654ae2cb79ca827fe2586f2e928b429f969fab82747405c487151f27b68a"
+    },
+    {
+      "path": "assets/sprites/arena/rimefin/small/walk_n_f4.png",
+      "kind": "changed active PNG",
+      "before_sha256": "0f3b094aa9f6d7ab98841486a05135a4b37987339fec235c04e70b9705e0c3d2",
+      "after_sha256": "ef3a10207635208d37aa0642672e54bf3cd707de6ca5651f8ab711f80d824b5d"
+    },
+    {
+      "path": "assets/sprites/arena/rimefin/small/walk_n_f5.png",
+      "kind": "changed active PNG",
+      "before_sha256": "7d44b56131a466769a700425087a137cb018259c5a320096fc6d1e97ee58965a",
+      "after_sha256": "138239527ae93bd5c101c432553a9e1dcdb7e4a7a23eb91b63402c21a133307a"
+    },
+    {
+      "path": "assets/sprites/arena/rimefin/small/walk_n_f6.png",
+      "kind": "changed active PNG",
+      "before_sha256": "fd7854ba9eea67461685684061480c12ca388a01a2ce6e08d19d1f50d8ca9b4c",
+      "after_sha256": "b215fe4e9ab3ca989857df4070d351dc4212674b1b52cfc6d4572f85710c616f"
+    },
+    {
+      "path": "assets/sprites/arena/rimefin/small/walk_n_f7.png",
+      "kind": "changed active PNG",
+      "before_sha256": "85845af33a6e1bbd2a9cdcc4ce6d34aa441bebcb744805343848178edbe5a6a2",
+      "after_sha256": "611b125f860de6f37f24085870ccb3a81b572763e9b5c98424a48f256bf593d4"
+    },
+    {
+      "path": "assets/sprites/arena/rimefin/small/walk_ne_f0.png",
+      "kind": "changed active PNG",
+      "before_sha256": "4eb9257aaddd5199fe00df5ce3f335b314c38ef299f1d5123da7828c0f81eab0",
+      "after_sha256": "78eeb872c67ce324fc18cdc6914b4b8860a6dc04fc1e9971005f252ab863b4bb"
+    },
+    {
+      "path": "assets/sprites/arena/rimefin/small/walk_ne_f1.png",
+      "kind": "changed active PNG",
+      "before_sha256": "53d35e48906bf0e52987c57f7f9177e5614fc323a804d22bba96a5efb9da34f5",
+      "after_sha256": "2c62fb2132e2079552a59d99637321af983ab5cbe60e9186b7e9e8a2165a1ae4"
+    },
+    {
+      "path": "assets/sprites/arena/rimefin/small/walk_ne_f2.png",
+      "kind": "changed active PNG",
+      "before_sha256": "01cd7145ab3405d53b85275821f0bec1f32f1cc49f2dff509fefb127707a8df6",
+      "after_sha256": "42a7f95a8ccedef854cb4565e01538ba93d3b02ae3d05718110eef5cee5e4d1f"
+    },
+    {
+      "path": "assets/sprites/arena/rimefin/small/walk_ne_f3.png",
+      "kind": "changed active PNG",
+      "before_sha256": "e4fa55af798083967793169ada58059a10baab6cdf26eb88ebb7caea16ebac8a",
+      "after_sha256": "a6c1afa887fd77bf80b7556412e2ef45219493775812d04ae383db3a4c4ec3bd"
+    },
+    {
+      "path": "assets/sprites/arena/rimefin/small/walk_ne_f4.png",
+      "kind": "changed active PNG",
+      "before_sha256": "39d762162778d53efe27b632aa86bd007e8ad0b4725f9fe5a23933f3618a5e13",
+      "after_sha256": "a042bb5182927a0480bc684099c82fa8e3056e03f3f23544882d161a061420cb"
+    },
+    {
+      "path": "assets/sprites/arena/rimefin/small/walk_ne_f5.png",
+      "kind": "changed active PNG",
+      "before_sha256": "6231ea1cb5931ca1f60181e48d1e42b58f122a6e407885929d72957feca07b63",
+      "after_sha256": "601873fcb4c27a82e58f98490cb82afe099453879ab2db0c0892f3add9a29677"
+    },
+    {
+      "path": "assets/sprites/arena/rimefin/small/walk_ne_f6.png",
+      "kind": "changed active PNG",
+      "before_sha256": "d9120308fe7204b2b4fb037fc3dc7474529950dadf8bea7b7b45302ded52a3c7",
+      "after_sha256": "e94ccea33168e467fc12fdf22035ca8464f0f3d9b017bfac63a8c2878275c86e"
+    },
+    {
+      "path": "assets/sprites/arena/rimefin/small/walk_ne_f7.png",
+      "kind": "changed active PNG",
+      "before_sha256": "490aa7da0b6056e306f9a5da34386922e0afaebd4ee663bed7c6b0b0dc7a693b",
+      "after_sha256": "486c299d91f45505a44306159e4b374eb75f07c7a01bc9dd08c3499606639850"
+    },
+    {
+      "path": "assets/sprites/arena/rimefin/small/walk_nw_f0.png",
+      "kind": "changed active PNG",
+      "before_sha256": "edea0833cd91e2ce57fb07c5460761551ab22e62c4e25183bef98f2ed5f9bdf7",
+      "after_sha256": "3a2743db9637ca87b0e9351d0b6475650bada0b78df2ac490abc2d8bfd87cbcc"
+    },
+    {
+      "path": "assets/sprites/arena/rimefin/small/walk_nw_f1.png",
+      "kind": "changed active PNG",
+      "before_sha256": "8261e10c17bf0c0a210bb5d19b82949f38a6a1bf6e959f9d5b170bcd5553efde",
+      "after_sha256": "6ffd653da4a269d17cf1cc956424dae7863bad4a117bdc0d42afbd72caf436ed"
+    },
+    {
+      "path": "assets/sprites/arena/rimefin/small/walk_nw_f2.png",
+      "kind": "changed active PNG",
+      "before_sha256": "ddf2cc8fca9b2839ea06d78d9e00bc073396427ff5854707b7ac1eb4a14840dd",
+      "after_sha256": "c36ca3836a665d10b5a4439a66b215faf261c067da83d24533a0325cc48f7097"
+    },
+    {
+      "path": "assets/sprites/arena/rimefin/small/walk_nw_f3.png",
+      "kind": "changed active PNG",
+      "before_sha256": "5b4405c21722c227f008f64132bae0113156032adfe9ef7ffd6944859e31e2bc",
+      "after_sha256": "386843a9dc6aa2f698cfa68f0e316b61ea94c406efb9e00e204957e7359b8a9e"
+    },
+    {
+      "path": "assets/sprites/arena/rimefin/small/walk_nw_f4.png",
+      "kind": "changed active PNG",
+      "before_sha256": "27d2c524cd7a590478d1b7894db9e5d3106f9ad04a6b0e3dcad3bbda12d90d5d",
+      "after_sha256": "70c86e414c9159b1bd6429944e3d152aca12d6f3d09f684afe07ea630342a8f6"
+    },
+    {
+      "path": "assets/sprites/arena/rimefin/small/walk_nw_f5.png",
+      "kind": "changed active PNG",
+      "before_sha256": "f10335b3a40732f897324ba80be8edf938205e694a5bd5ac7913327f0805225d",
+      "after_sha256": "6ff0b5d1407783d9aa7c6deb41bed7a0927a1d0a0a2b6ae70884e1098fcdd407"
+    },
+    {
+      "path": "assets/sprites/arena/rimefin/small/walk_nw_f6.png",
+      "kind": "changed active PNG",
+      "before_sha256": "7a15add17dfec63d2c1dfe5a1d4f7801129ad60a59f1e32e68569b09b1d0cb13",
+      "after_sha256": "89f5e5a7a59139b4566d3ad8a0fb7ad3dc7478081d0a1b649a099ce39cabc523"
+    },
+    {
+      "path": "assets/sprites/arena/rimefin/small/walk_nw_f7.png",
+      "kind": "changed active PNG",
+      "before_sha256": "7cb6359557cccb613ac0441050adc2ea4ca1c61eefac07f68fb202c433cc2386",
+      "after_sha256": "d3009b2ecd05cb7a97be7e78d5edafd152e3801a3eed0dd68449ed86a2b2660d"
+    },
+    {
+      "path": "assets/sprites/arena/rimefin/small/walk_s_f0.png",
+      "kind": "changed active PNG",
+      "before_sha256": "f8dd01bd9fc6e24be934e07e149d334c7c4c72aa668843df82d7ee79eea764eb",
+      "after_sha256": "5b17ee0acb0a840b622f355e4a6015b71df5fd02558054ed95c6d55ac6b93ccb"
+    },
+    {
+      "path": "assets/sprites/arena/rimefin/small/walk_s_f1.png",
+      "kind": "changed active PNG",
+      "before_sha256": "81a68c9d15947cbd3f60f8d07b6c7550dc8a38db46a6e20a91b82c4ab47902f0",
+      "after_sha256": "1d2d72890ed35841a8ac140c45ef42916027b05714d8b021fb2f91ecdddcc558"
+    },
+    {
+      "path": "assets/sprites/arena/rimefin/small/walk_s_f2.png",
+      "kind": "changed active PNG",
+      "before_sha256": "12db03193e9e76a22651d1bc6f674418ec7937cfc3026da7dfdb6eb755117917",
+      "after_sha256": "a00362e9702153642455a9a3cd97055df4aa7e9f67c12d0f68e99822c9d020ff"
+    },
+    {
+      "path": "assets/sprites/arena/rimefin/small/walk_s_f3.png",
+      "kind": "changed active PNG",
+      "before_sha256": "b13d3c041c0f33b6119dc0755dfbea9fb81f0fd6dea53b63c7dbe3bcc2932039",
+      "after_sha256": "9221744f4ac068d98fb5e56e8e6a44c065d10e6f541c2fa3bc903c49d9272b37"
+    },
+    {
+      "path": "assets/sprites/arena/rimefin/small/walk_s_f4.png",
+      "kind": "changed active PNG",
+      "before_sha256": "b96e3f4734d59513d5a68466da1cbdf714a0bf9c30fa643743eaac2f6d108fef",
+      "after_sha256": "38619192395d940c565a9ac50c35e04a6a5b296d91a19003137b4cd14f8688ca"
+    },
+    {
+      "path": "assets/sprites/arena/rimefin/small/walk_s_f5.png",
+      "kind": "changed active PNG",
+      "before_sha256": "f85c13834803f6c60e2c6778f8f116ee0cd78985a2ea9afec989495d36fd2bec",
+      "after_sha256": "59635d5cf6630d0ab6b560122b6d33d69dc38837a3d54f6055641f9ee399ae7c"
+    },
+    {
+      "path": "assets/sprites/arena/rimefin/small/walk_s_f6.png",
+      "kind": "changed active PNG",
+      "before_sha256": "f0c44cef567efad966c34f6da172095e9fec25d0c6581ee16c27e459e74df056",
+      "after_sha256": "722f993809963b937c2f6771393f77fc2ecfbdb0ef2ac846932b91a579b178d0"
+    },
+    {
+      "path": "assets/sprites/arena/rimefin/small/walk_s_f7.png",
+      "kind": "changed active PNG",
+      "before_sha256": "f8bdbd8d7e7f0bfec4d1d949a7151b1a5489cdd8982e3fede57b5d345d67b33a",
+      "after_sha256": "2f29b0c0cc15ce178c44143755cebb471d3c482e4c34dfb79c0547bbd2975256"
+    },
+    {
+      "path": "assets/sprites/arena/rimefin/small/walk_se_f0.png",
+      "kind": "changed active PNG",
+      "before_sha256": "6ec06d476a068f5541eba8f9cebeefde0d24d097b56fabc3f2ad22ef413b5cd3",
+      "after_sha256": "2478f066e6715b98d13dabf5b30932f339168c8cfdcdcea1e3ef7af12905f256"
+    },
+    {
+      "path": "assets/sprites/arena/rimefin/small/walk_se_f1.png",
+      "kind": "changed active PNG",
+      "before_sha256": "ff59e8b3d8323a9b939c97067456578daaf8b09a123fd9532589196262432189",
+      "after_sha256": "da9cb762fe3052949bb04964bd3a32d1e3f63e6971c57e02e00f2adbf64348c4"
+    },
+    {
+      "path": "assets/sprites/arena/rimefin/small/walk_se_f2.png",
+      "kind": "changed active PNG",
+      "before_sha256": "da82e054b92ca6daa2f2925d6ba76f91402f075f81c33bd5a77cf469cf313dd2",
+      "after_sha256": "255a537acda6fa61c063ef4c2add21c6159d9911b5d676b1900479ff447bd015"
+    },
+    {
+      "path": "assets/sprites/arena/rimefin/small/walk_se_f3.png",
+      "kind": "changed active PNG",
+      "before_sha256": "2f322c2b238dd2034363d096efd2fbc2df464d9cba4e1e3322532f250945f4d6",
+      "after_sha256": "0ff0f2c212bb3748f83f6d992f00770826ee84f413ba870d1f0d380446bdd634"
+    },
+    {
+      "path": "assets/sprites/arena/rimefin/small/walk_se_f4.png",
+      "kind": "changed active PNG",
+      "before_sha256": "822ef4deb32661e16c38a6c1aef0e0d9b4e030969d85e6db827294806aad746f",
+      "after_sha256": "5885ace297f4dbf8ccb750c1b2c6182ae89d34d6dcd8bd48ffe7123abba13516"
+    },
+    {
+      "path": "assets/sprites/arena/rimefin/small/walk_se_f5.png",
+      "kind": "changed active PNG",
+      "before_sha256": "f603e81bbdf0662654ddc349c748b702d03cd26ca0cdee872a2d075c24048765",
+      "after_sha256": "67d1f7e2a6a3710016d0da2d59a1a8489bc1a6e9a319c625b4c6fe1fe17ba57e"
+    },
+    {
+      "path": "assets/sprites/arena/rimefin/small/walk_se_f6.png",
+      "kind": "changed active PNG",
+      "before_sha256": "49262742bfd2f5ea698d7e430a5565792b03e740fdc1d10d3fcb42e47ce5114e",
+      "after_sha256": "5194a5636d4e6cc091361ac6876d3bbbadbcd12f88e1443d312effaf74af90e0"
+    },
+    {
+      "path": "assets/sprites/arena/rimefin/small/walk_se_f7.png",
+      "kind": "changed active PNG",
+      "before_sha256": "4ffdcf4c2f93a08e1d2150c5596533401fea9b74eef8f80759ea6f2b88de32f2",
+      "after_sha256": "3c231232be3a93c9b02a11685aa0580ddbf8bfe36682a5a5e519c35ddc901d95"
+    },
+    {
+      "path": "assets/sprites/arena/rimefin/small/walk_sw_f0.png",
+      "kind": "changed active PNG",
+      "before_sha256": "f4615ec5feb123c346f7baa7845e2379957fba3ef94803530430b44fc8d2ee31",
+      "after_sha256": "575c02a299da6e0e6331b3fad5025cec9227d11c1cd7e8ecf5b908d780f07152"
+    },
+    {
+      "path": "assets/sprites/arena/rimefin/small/walk_sw_f1.png",
+      "kind": "changed active PNG",
+      "before_sha256": "c5cd693f1ac7b7b01bdaac097633730c9f98c05ea618a2a192b15d113ab0a2d5",
+      "after_sha256": "063a6cba9c31eebfa07fc368e2b3efa9c1d9e68d9225be88c5311f6a5f873920"
+    },
+    {
+      "path": "assets/sprites/arena/rimefin/small/walk_sw_f2.png",
+      "kind": "changed active PNG",
+      "before_sha256": "969a6e32ee97b2fa58bca798a2ce32b3adb2ccd18e5fac703f80a0218b025737",
+      "after_sha256": "e2535fb5733b01520a4eb258e21d1886fc41f6cd631750e351bd9b430d15eaff"
+    },
+    {
+      "path": "assets/sprites/arena/rimefin/small/walk_sw_f3.png",
+      "kind": "changed active PNG",
+      "before_sha256": "e03fe089309f2246563a938d6e31a681d5945cfc42d436c4f77bba7bdd9483d1",
+      "after_sha256": "b85d5353f0068c196c9ffb4172678374d32dbd0f22cd836d1e79874d0cf63e98"
+    },
+    {
+      "path": "assets/sprites/arena/rimefin/small/walk_sw_f4.png",
+      "kind": "changed active PNG",
+      "before_sha256": "38e0c160c190b39761a16dd5f6778cb4d44bde371183ccffc141762fd8351bc1",
+      "after_sha256": "d09df0ba1fa3e59cd7d35817bf65b9f6a91e1a1f297f153d02f19f94832e7487"
+    },
+    {
+      "path": "assets/sprites/arena/rimefin/small/walk_sw_f5.png",
+      "kind": "changed active PNG",
+      "before_sha256": "369b7d2bd329bc61b37f5fb22e2157d66791d05361d04c7ef7e98179cf9b7399",
+      "after_sha256": "3fe6c289ac84a53fa963c20a351393e1c6eac252bfbb1f110b0ac55848ddc6db"
+    },
+    {
+      "path": "assets/sprites/arena/rimefin/small/walk_sw_f6.png",
+      "kind": "changed active PNG",
+      "before_sha256": "9a8044b30aeb76bdcba7e23bcef2cd06a21489e69256d4dc9d5d64b6bce49ea9",
+      "after_sha256": "be773049a11b667ba5761e456895ce046ecdef7c49457d8cbb02f0ebd1415539"
+    },
+    {
+      "path": "assets/sprites/arena/rimefin/small/walk_sw_f7.png",
+      "kind": "changed active PNG",
+      "before_sha256": "f41e601442b7fc72c516d872b82f1efe384f57513310422ef3e19020c43b42cb",
+      "after_sha256": "1da01122ea122559937f20569ed266f7edfb50047716347683322f80175855cd"
+    },
+    {
+      "path": "assets/sprites/arena/rimefin/small/walk_w_f0.png",
+      "kind": "changed active PNG",
+      "before_sha256": "bb2978af25af9ce3172f0cf9000210e4a95a4e68aba94d454728f3615fcbabd1",
+      "after_sha256": "47eb072dc3b7331ec9427f22e3661c18c71c5690136ef8d658c682be6ddbf114"
+    },
+    {
+      "path": "assets/sprites/arena/rimefin/small/walk_w_f1.png",
+      "kind": "changed active PNG",
+      "before_sha256": "38b3961bb0a8a0575f2da3c9e9f7b0ec6ccbb42bd3247f719c6ccf641041ff8d",
+      "after_sha256": "3e50998f9f74d5d99b057036290ebb7b1e0c782e87fafc68ab9641e5dec08f6e"
+    },
+    {
+      "path": "assets/sprites/arena/rimefin/small/walk_w_f2.png",
+      "kind": "changed active PNG",
+      "before_sha256": "9933acc9197effbfb1c0920664085e6f6748b5a7341ed670512e63cc62c88b18",
+      "after_sha256": "2f5d7ccb2985d6340844037ccf0237451e1a40395fd100976d0723a4e8b3c31f"
+    },
+    {
+      "path": "assets/sprites/arena/rimefin/small/walk_w_f3.png",
+      "kind": "changed active PNG",
+      "before_sha256": "9910f997923f1ffed9f9e955e48c9b3dc1ce046cecd80170082d23ea5cf0f898",
+      "after_sha256": "2a7210606b261e24b20fc5883c0ddc87711cad141ba3e0d11380a84f431ac473"
+    },
+    {
+      "path": "assets/sprites/arena/rimefin/small/walk_w_f4.png",
+      "kind": "changed active PNG",
+      "before_sha256": "afc35913b6ec5355b612606914249eb5e2ee0c2a5364ffdff098595bcf03e864",
+      "after_sha256": "cbac54e0fc0285c8ad30f9bab06cae328163f1ed6447c9ed4173aa9b483c2b12"
+    },
+    {
+      "path": "assets/sprites/arena/rimefin/small/walk_w_f5.png",
+      "kind": "changed active PNG",
+      "before_sha256": "938d9c1de1533f3686555d0165362da19ea8cf3492d5dbec9fec68938f278617",
+      "after_sha256": "99673eeb6cffb21ff8921ce3885d04104b06e07ebf33663874f90eaf75c653db"
+    },
+    {
+      "path": "assets/sprites/arena/rimefin/small/walk_w_f6.png",
+      "kind": "changed active PNG",
+      "before_sha256": "9937eb41120aecd5d8697a5094ecb6c78d307fd250c182f5e1247c6ce0f7d9c6",
+      "after_sha256": "5bdc37d8ca66c9f0da0d32f8bcbc38e9463b2b5b5a053b91525a195201c51d55"
+    },
+    {
+      "path": "assets/sprites/arena/rimefin/small/walk_w_f7.png",
+      "kind": "changed active PNG",
+      "before_sha256": "039436db413487c01008c70a5ff7cc3efd7d6d5ca4fb3ee875a428b2e7be7e61",
+      "after_sha256": "522e756ff90e4c085a0830405e35fd4e2e5d8878982ec924353e4168a18557af"
+    },
+    {
+      "path": "assets/sprites/arena/rimefin/sw.png",
+      "kind": "changed active PNG",
+      "before_sha256": "118dd15f25ee69a6f9e47e6ac9f4ac9c5937672ffdafff3604e8c93cf8533ef1",
+      "after_sha256": "87181d2d5f0692b00450ca3116dc12706730d45ee3389dace04399451970ec88"
+    },
+    {
+      "path": "assets/sprites/arena/rimefin/w.png",
+      "kind": "changed active PNG",
+      "before_sha256": "678546b69c5b69b8dec57b0e1955d02ede78b1eb49a9cf12a10627934e5bfa39",
+      "after_sha256": "8a126a5c1ac744b49e78b7fc34ace8a82e0bf8c58f9dff4a5c44d0a7259972f8"
+    },
+    {
+      "path": "assets/sprites/arena/scourmaw/e.png",
+      "kind": "changed active PNG",
+      "before_sha256": "1f7f80138d78cdfcb296fbf914693729b8d606894273b398c204da41708599a2",
+      "after_sha256": "8f33d4af520bd935fe238343d0a757d86e9109ce36f849d48da00d97a852a1c0"
+    },
+    {
+      "path": "assets/sprites/arena/scourmaw/n.png",
+      "kind": "changed active PNG",
+      "before_sha256": "1bd1eb4c7a5d65d7c5acab69dd7ed6f296a32cf6ba195a6c54be6ce90da7908b",
+      "after_sha256": "c01443da532ef49168667c022026030d424bfa7b481bbff554f17c7bd10453d4"
+    },
+    {
+      "path": "assets/sprites/arena/scourmaw/ne.png",
+      "kind": "changed active PNG",
+      "before_sha256": "669a9515a7a84806645f27521e21b87dc8fd7761637d2ddae29e073b14bda752",
+      "after_sha256": "49b136efaf72700dcd2540ce3bd7d897ec5c885deea08f851fcf0bfb7e1e2d78"
+    },
+    {
+      "path": "assets/sprites/arena/scourmaw/nw.png",
+      "kind": "changed active PNG",
+      "before_sha256": "5875087d586e119bdff117abf3de2a7b5752512818232ea3be4c381948319ce1",
+      "after_sha256": "aaa9cef3bcb1bca43a84008cf53c06b59c113f868802802826bf398116b3f4ff"
+    },
+    {
+      "path": "assets/sprites/arena/scourmaw/s.png",
+      "kind": "changed active PNG",
+      "before_sha256": "21a9845eb875750fe9328ebf815595649a321a96b5a48f9ed4cafc6a95ef940f",
+      "after_sha256": "fe249982392a253602b63a628adcc8c9729e0376ce0b42976568fcf00de1c9db"
+    },
+    {
+      "path": "assets/sprites/arena/scourmaw/se.png",
+      "kind": "changed active PNG",
+      "before_sha256": "331d47a74d2db92c5736d12b57dcfcd6e1b1839d299968abaed5aba82fee37c1",
+      "after_sha256": "53dc885e668cddb8f012c78044cf6ed10d4e64412cafd0b2d96d167eda2e4586"
+    },
+    {
+      "path": "assets/sprites/arena/scourmaw/small/e.png",
+      "kind": "changed active PNG",
+      "before_sha256": "70676f79378fa6f5316831baa4c6cdcc5918e648d4ec2c456a4988f8f236aa1f",
+      "after_sha256": "d73dcb3850690696cae385781f8a87fa7a829a4ea03fb23aec01b243941da95e"
+    },
+    {
+      "path": "assets/sprites/arena/scourmaw/small/n.png",
+      "kind": "changed active PNG",
+      "before_sha256": "b03022b70b964a98f9ae1be711bfba565c19db116b5fb74d0822b612ec1702c3",
+      "after_sha256": "aa80ff3eeb48bfcb4e5c8342d8bd508f7b9b4a142ed6a5bb357dea788987b7eb"
+    },
+    {
+      "path": "assets/sprites/arena/scourmaw/small/ne.png",
+      "kind": "changed active PNG",
+      "before_sha256": "c20d5463b808fcb77930fcd1bda16b81c7deb49ed94f531bff809a36edfa07a4",
+      "after_sha256": "d03523a3358af3a4297597fc8af41735b9b70e862e947f08de0f239c4b0ad00f"
+    },
+    {
+      "path": "assets/sprites/arena/scourmaw/small/nw.png",
+      "kind": "changed active PNG",
+      "before_sha256": "5272dab4e02b5c7445e7e5178320b2cfbe5e8e3d5f2843915332455a0824b05e",
+      "after_sha256": "4527dbd004f157bf2121fec805fdd58973038f166cc3bc3cd525b51786f004b2"
+    },
+    {
+      "path": "assets/sprites/arena/scourmaw/small/s.png",
+      "kind": "changed active PNG",
+      "before_sha256": "4f7a701007b12e762627f9293fc3be1b36734a1e8be91e4c40f8bdc84bcaf223",
+      "after_sha256": "09220383bd726faf131f36e908685fc3b8cc45caa31f19ca78d72e93e69be6d0"
+    },
+    {
+      "path": "assets/sprites/arena/scourmaw/small/se.png",
+      "kind": "changed active PNG",
+      "before_sha256": "b80c6fa1782364db0cb2c2f8e8f78e9cc5a035abbe61698922d30ff9b0ee3a26",
+      "after_sha256": "8404a6a891e0e665bcfb94d667d462df5c25be02e0ccb1968c9c95dedf288edd"
+    },
+    {
+      "path": "assets/sprites/arena/scourmaw/small/sw.png",
+      "kind": "changed active PNG",
+      "before_sha256": "24af7c5f51a0e379d9b03589c5fa2423ef7f834feaa1cda9c3c2ed5961f7d6b4",
+      "after_sha256": "b25c6931876868b4cc0eb54621a954c7b88636b40e874f5d7fcbae7da173605a"
+    },
+    {
+      "path": "assets/sprites/arena/scourmaw/small/w.png",
+      "kind": "changed active PNG",
+      "before_sha256": "569eec15d92ba2a832a35fa5a2dd43e49c418b4f5dabb16e7dff604f2d895bdf",
+      "after_sha256": "25587ec872db0de61f610dabe1de232a7ae05bf0d188aa3d37c168932e6e82b6"
+    },
+    {
+      "path": "assets/sprites/arena/scourmaw/sw.png",
+      "kind": "changed active PNG",
+      "before_sha256": "e78e805d8f2947b143a7d5a6ec6a71405f5612b21c66a9325aa0bdbf975c1414",
+      "after_sha256": "a1ba47440db9cb63d4fba986e1f99f9ef71bcd3d2f93dddf7cf570a86cbd5b8f"
+    },
+    {
+      "path": "assets/sprites/arena/scourmaw/w.png",
+      "kind": "changed active PNG",
+      "before_sha256": "be2c8917ad967cb9a88c0cc6a890d413f9c705bec121a55954fb369da0f6b8bb",
+      "after_sha256": "a3702df2edea7ff87589697a71703496881e984869defe7ab53a0ab8439cc2c5"
+    },
+    {
+      "path": "assets/sprites/arena/sparkwick/e.png",
+      "kind": "changed active PNG",
+      "before_sha256": "195525e55b94381da8366c4cc8a5db05605b90dc442ab091d96adcde138f8531",
+      "after_sha256": "89b70e013435000aebe244d86b1ba6e259e8797fff899257410f858fd81a719c"
+    },
+    {
+      "path": "assets/sprites/arena/sparkwick/n.png",
+      "kind": "changed active PNG",
+      "before_sha256": "34fdf130795b79de37a1cd3786529fc9cf0513ad0a5527f3d1f002969fdc3ff4",
+      "after_sha256": "195097b25d5b0ef28e69718f75364334fe23bb72fd20b3414760c3372c6b0502"
+    },
+    {
+      "path": "assets/sprites/arena/sparkwick/ne.png",
+      "kind": "changed active PNG",
+      "before_sha256": "60924d0762b42e6f4ea80a57c1f387e6901035a48e682c03f6b2891658a6cb7d",
+      "after_sha256": "1f4245f4dded9fdc7364cd043889da357fbb5d20143902648a86a91f3873e9ea"
+    },
+    {
+      "path": "assets/sprites/arena/sparkwick/nw.png",
+      "kind": "changed active PNG",
+      "before_sha256": "c2a7fc4049ae52ea86ad3f02c115c63b687a5f13801bdefd0cb0fbe2a2f3d338",
+      "after_sha256": "68c64bb5bf9eb8f41c4a668f33ce84b43b26f23f0e57e42378ff8baae14bf0c0"
+    },
+    {
+      "path": "assets/sprites/arena/sparkwick/s.png",
+      "kind": "changed active PNG",
+      "before_sha256": "3dcc2d5a7e1902b14090ccaf17d6536f7f76515e7cdb1aa92d6ac3a6514a61f5",
+      "after_sha256": "39140a8fe87c431d9dcdde4e17bed2fbda6ea25b8677363ab42b185e0e49a77b"
+    },
+    {
+      "path": "assets/sprites/arena/sparkwick/se.png",
+      "kind": "changed active PNG",
+      "before_sha256": "97aa9ea16b5b17841ecfdf2001c93cd184d47555780f693bafe2b77e6b2a9db6",
+      "after_sha256": "b967cb1fe44c770f9640024145b6d62171f8cca02219d65ddb856142c52d8943"
+    },
+    {
+      "path": "assets/sprites/arena/sparkwick/small/e.png",
+      "kind": "changed active PNG",
+      "before_sha256": "8f9f8892892d5d86e83086e3d5ef49e5581b75d15fd93c0a1149f94cb0c12c58",
+      "after_sha256": "a7d4d612496e083517a13ebe392e6b2126f9a23eceec1922405c2c472cdd5f5a"
+    },
+    {
+      "path": "assets/sprites/arena/sparkwick/small/n.png",
+      "kind": "changed active PNG",
+      "before_sha256": "1dc43205594d658025e80fb4bcb5c0176034b0c1b3af5880bd33e0fdf7b3a538",
+      "after_sha256": "5b83fdd984e0b08a3b353eb2ec1407b9b2b83197b239bf6dda60aa067a06cdd2"
+    },
+    {
+      "path": "assets/sprites/arena/sparkwick/small/ne.png",
+      "kind": "changed active PNG",
+      "before_sha256": "8de01ca3f239fa0ce99250360761e2af20bd6ef4e506852a41a681c4a1d88ac3",
+      "after_sha256": "9485a475b43566dcb9126df6491f85befef1dcf7983640f23f2787f2c90a1ae6"
+    },
+    {
+      "path": "assets/sprites/arena/sparkwick/small/nw.png",
+      "kind": "changed active PNG",
+      "before_sha256": "3a4bcb5b1d9e644dff548378937fbb661e23335085a9171df0ec72f75fd51d25",
+      "after_sha256": "8fda673d3dd9e486bf0303b6bca94fc71073f7ffd3d947bb12972c4445149e41"
+    },
+    {
+      "path": "assets/sprites/arena/sparkwick/small/s.png",
+      "kind": "changed active PNG",
+      "before_sha256": "e58e72fcc9ea6d565c96152f82d9f20a839384f143eb21e94793da2109e58864",
+      "after_sha256": "4f1778653a8ae6b9951332326875e6e48c05b111999a7c21b455f29bc3bdbff2"
+    },
+    {
+      "path": "assets/sprites/arena/sparkwick/small/se.png",
+      "kind": "changed active PNG",
+      "before_sha256": "ddb2401392de06a02581a49e559159add2d4cb3fe863fedd138da9349dea5679",
+      "after_sha256": "0ecfc85b64cbf0b92c1d9b5aabc9fdd20b12b74c0b771a5cddf15bc246b7ea89"
+    },
+    {
+      "path": "assets/sprites/arena/sparkwick/small/sw.png",
+      "kind": "changed active PNG",
+      "before_sha256": "4b5465d12d64e261c4c649c31ac3b43f9aa344b5688e4c03ac2504b8c2e6ea66",
+      "after_sha256": "1802c9e35cf1321d1815db4c9e047e0e4dec480bbd9f1b29d8f63cbe1e330cf2"
+    },
+    {
+      "path": "assets/sprites/arena/sparkwick/small/w.png",
+      "kind": "changed active PNG",
+      "before_sha256": "425521959bfea4b9084f48b7c0d8571a5aefb4b734f3d7624609211db200c844",
+      "after_sha256": "db767bc78174b938288484c563e683696801208eb6f9886c1663f6904e0e6e77"
+    },
+    {
+      "path": "assets/sprites/arena/sparkwick/sw.png",
+      "kind": "changed active PNG",
+      "before_sha256": "cf6475fd623668258d21333987872bc6116e05286e94b4fb5856b078788b1d31",
+      "after_sha256": "a3421a2322d0e3cd058a333a99af5f29e60d5f4ea67a3438b0e64eb49d780c96"
+    },
+    {
+      "path": "assets/sprites/arena/sparkwick/w.png",
+      "kind": "changed active PNG",
+      "before_sha256": "bb04e37f7b8ee5df998cc3186d3f7f44ed0c39cf1a8f71c501dfaa0e13198f58",
+      "after_sha256": "f5d49967d0b8762bce1b5c7f2eb338d4530ae73d01eec11a7be2552e365c7efc"
+    },
+    {
+      "path": "assets/sprites/arena/stormwick/e.png",
+      "kind": "changed active PNG",
+      "before_sha256": "89e88441102fdb0aa0d457c449af989260ab2d698ce6ddd02de7fadee7695df6",
+      "after_sha256": "4b57248df7b76a8cc74711e7d9da5d865ba13526e858fabf6f1cd88235f4be4f"
+    },
+    {
+      "path": "assets/sprites/arena/stormwick/n.png",
+      "kind": "changed active PNG",
+      "before_sha256": "cff4a5d7a0bb5bb08823c8b0f04c88adc7bf30503399c57476489d96adfb114d",
+      "after_sha256": "324023d7b9f15382a9ab35c6dd342efb2644e42842f2e281e094c99acdb087cf"
+    },
+    {
+      "path": "assets/sprites/arena/stormwick/ne.png",
+      "kind": "changed active PNG",
+      "before_sha256": "3d5d3c8792222cf0196b8f7e0ba2278821d888eaa3fbb41d4197deb9ba9c7f91",
+      "after_sha256": "e7b8b55bfa28aa87217a8baa33ae0795b3ff4be40446ae2779b6061a81f5efae"
+    },
+    {
+      "path": "assets/sprites/arena/stormwick/nw.png",
+      "kind": "changed active PNG",
+      "before_sha256": "898e8379bdf5ff3f187c65a30f25a131c6a108f6850e85fa87ad58f778d120cd",
+      "after_sha256": "28cce57f5a68ffd085e7f9c7144447d3e6bc6815b8a9685775b582eeb1090734"
+    },
+    {
+      "path": "assets/sprites/arena/stormwick/s.png",
+      "kind": "changed active PNG",
+      "before_sha256": "428467ff9a9f9fd58f7735d4cf3db1f86f2725d0c0390f44287b338f88df3e07",
+      "after_sha256": "863cae982527f671b919f0e957a668b05d056279bb5733b441d55f24fcd9f708"
+    },
+    {
+      "path": "assets/sprites/arena/stormwick/se.png",
+      "kind": "changed active PNG",
+      "before_sha256": "6cf8983dab6b663f99ca2353dc4dff0bc4dd29b4b2cba3d5629caf3ffbb09f05",
+      "after_sha256": "686e042a8ae003867e6b9ee8d59c16094c2cb371e85a1e5c9e8f04b684ec0c92"
+    },
+    {
+      "path": "assets/sprites/arena/stormwick/small/e.png",
+      "kind": "changed active PNG",
+      "before_sha256": "fcafeb024fc8ba09b049923fcb6078b2e6b684f97ab08c9d29f8f32b12d8b17d",
+      "after_sha256": "58f538b610982985ff4bf8951c1cf4ebac99757f4f20afe159565f234d975a67"
+    },
+    {
+      "path": "assets/sprites/arena/stormwick/small/n.png",
+      "kind": "changed active PNG",
+      "before_sha256": "e38ae73e6810950448ea17599d7c6f8bf74b6040e8cc314a9abe59d433a94c8b",
+      "after_sha256": "c97e97796461e2548096d141727bbb6edaa29193719c511e880d932ae4e0fa32"
+    },
+    {
+      "path": "assets/sprites/arena/stormwick/small/ne.png",
+      "kind": "changed active PNG",
+      "before_sha256": "8d6f2701fafbd1b82324aaaa52626d3627a568de5aefda10a0cf6f1d538e1914",
+      "after_sha256": "928fc75d873aa42a07b221d689ff2d22b6294eeddb40b5c20e8cc853843b98c3"
+    },
+    {
+      "path": "assets/sprites/arena/stormwick/small/nw.png",
+      "kind": "changed active PNG",
+      "before_sha256": "8f691929f5d55e9fddc960a3c4dfa70264876f2704f06a1c77548997c9c5d732",
+      "after_sha256": "6b3293153b8b630794f2cb9358020aef6556b5ea7f3ae3e5a759c34d51bfd41b"
+    },
+    {
+      "path": "assets/sprites/arena/stormwick/small/s.png",
+      "kind": "changed active PNG",
+      "before_sha256": "3d60079e14953ec9a00f28736e1b6ef64c754306af099782bdc1c92312888452",
+      "after_sha256": "52ea402bcbaa70a4266804e7683cbda1da81310329da1a2c290f4c0bd2a49463"
+    },
+    {
+      "path": "assets/sprites/arena/stormwick/small/se.png",
+      "kind": "changed active PNG",
+      "before_sha256": "726bc72afb5ff41ce0e4874df8d6b9ba3bb023b28a3a47932fa0a19104e6a06f",
+      "after_sha256": "7cdc4f9feb269328aa00b77f370e7e8e808011e872729105e58b27e74851b93f"
+    },
+    {
+      "path": "assets/sprites/arena/stormwick/small/sw.png",
+      "kind": "changed active PNG",
+      "before_sha256": "e8fa5d74c9d649e697924691585b62e73c6dc8da1ad96878de990f58ef102e9b",
+      "after_sha256": "ec5e0740f20d50c2d48b97d3279fc2fbef36f09ff1dd8968815ffbf916e62a65"
+    },
+    {
+      "path": "assets/sprites/arena/stormwick/small/w.png",
+      "kind": "changed active PNG",
+      "before_sha256": "46cafc342889be6760ebda5c803b77367540e75d95de3e035a685e0e791330d0",
+      "after_sha256": "193d2770ef0327e38c04151f284efe01839c3d696d9c0a5a7c459651d917242e"
+    },
+    {
+      "path": "assets/sprites/arena/stormwick/sw.png",
+      "kind": "changed active PNG",
+      "before_sha256": "cb9a6f6ea980b6fa2769420a6fa0cc2b1a7e36587436f43291b648a29382957b",
+      "after_sha256": "75f0515c4960dde3c97c7b0bc5e1665618ff70a0f94a84a75e0b6b34f2288d98"
+    },
+    {
+      "path": "assets/sprites/arena/stormwick/w.png",
+      "kind": "changed active PNG",
+      "before_sha256": "28de8669df3f8617f085929cce730543892fc0130ff6e1cdb2c358c6c238e8ad",
+      "after_sha256": "18c95174fdd68a95b7b2a56f8a7bf396799b41132d15f9408133b18451ab8b91"
+    },
+    {
+      "path": "assets/sprites/arena/tallowroot/e.png",
+      "kind": "changed active PNG",
+      "before_sha256": "8c57b6aa999bf36bed349700153f7e56e9272f65cafcf0cea03525ce5ae82753",
+      "after_sha256": "1c6cd19aa4fa8cbc6d6678614f23aa18ce70967a5fc7bcef1dd23361a96e0f2d"
+    },
+    {
+      "path": "assets/sprites/arena/tallowroot/n.png",
+      "kind": "changed active PNG",
+      "before_sha256": "7f81bfd95dfaffde961e41480db4656dcd2afc0c561aefeaab12177bd0ca72df",
+      "after_sha256": "1e3ffdc0dd63da02e04340f67f66da6d5be0482280fcbfa9d90c232e7fc59253"
+    },
+    {
+      "path": "assets/sprites/arena/tallowroot/ne.png",
+      "kind": "changed active PNG",
+      "before_sha256": "c28e7d8f97cbf334c3a8bde8e333f124159c695f167c8b42eca22d0e2aa42ef1",
+      "after_sha256": "9770e22eca0728b7e1d2109de747d96556c43eb23fdc1b1cd9ef3e2a316f2a9e"
+    },
+    {
+      "path": "assets/sprites/arena/tallowroot/nw.png",
+      "kind": "changed active PNG",
+      "before_sha256": "a25b9a159009d702985a967d78c1ccb2161a6481f9c25f2492f294a126a3a369",
+      "after_sha256": "2a545b90e7b8c88817a9ae906b860442f0c0b3cfb84ad884704f9b75db3d5838"
+    },
+    {
+      "path": "assets/sprites/arena/tallowroot/s.png",
+      "kind": "changed active PNG",
+      "before_sha256": "3f7c0907cec6af15222d7e9736678ce0df9908490e227762920b8f6957ff70a9",
+      "after_sha256": "248cd0be979a86f15729ca5b9ec7ffc0b68a87da8ba8a540d894caa8030f6e74"
+    },
+    {
+      "path": "assets/sprites/arena/tallowroot/se.png",
+      "kind": "changed active PNG",
+      "before_sha256": "589f83f863f7d174a395330ccebc00c7fb3e2c519ebfc4980f41fead3dd222d3",
+      "after_sha256": "3f3d72013e832dbe0c2b03c45ba4724d881c052e35725fcdf3a587422faa0ad4"
+    },
+    {
+      "path": "assets/sprites/arena/tallowroot/small/e.png",
+      "kind": "changed active PNG",
+      "before_sha256": "0d73313da6e1223d212a84d0af15e625fd3ffa12f5fc51a97bcf41e61b1d4378",
+      "after_sha256": "2739ff18274e8b0199e12433729da0da08693f5134b9880af64eee7e61bf5f79"
+    },
+    {
+      "path": "assets/sprites/arena/tallowroot/small/n.png",
+      "kind": "changed active PNG",
+      "before_sha256": "5e6f95c2c3ff4488a2525e48ab44cf9aed723ea833dd1d5a5207a9078260b80f",
+      "after_sha256": "41f3b87d83ba662cff2253f548df1800b272e992181fed3c40ca7b133fd4c700"
+    },
+    {
+      "path": "assets/sprites/arena/tallowroot/small/ne.png",
+      "kind": "changed active PNG",
+      "before_sha256": "614c1f77bc70ac687814721ff6eb14751c08cb1d2be7ab44f22e33d3f500e2c7",
+      "after_sha256": "8ef4a6b97832670a89b9e868a507ed65bd52eedce7b6a6f9efe66e7a28e32e81"
+    },
+    {
+      "path": "assets/sprites/arena/tallowroot/small/nw.png",
+      "kind": "changed active PNG",
+      "before_sha256": "0c512616bf939ddc44f3512744559650201cf955ffb9a73e777cb22934c0db7f",
+      "after_sha256": "9725d01ff2a64abf954b4341c7bddd8b3d2bc6ad0d236b551c42ddc018c82e5f"
+    },
+    {
+      "path": "assets/sprites/arena/tallowroot/small/s.png",
+      "kind": "changed active PNG",
+      "before_sha256": "9c99a86e429208dab0f9d1f6a94d5ea4b3b1f89afa9221cb79dc54fc7a36e340",
+      "after_sha256": "f31418a5f4c60e6f33db2fe00302263ef9b2e0d7778bdb0f0f342e5495fd0757"
+    },
+    {
+      "path": "assets/sprites/arena/tallowroot/small/se.png",
+      "kind": "changed active PNG",
+      "before_sha256": "3f7aa7893d68edb478613dad443681808be081c57552cd8a88e59f189bc45e32",
+      "after_sha256": "81e61fc8aa4358f500f97587c6dcebcb52a55d32d094bbca619ffc8051236b03"
+    },
+    {
+      "path": "assets/sprites/arena/tallowroot/small/sw.png",
+      "kind": "changed active PNG",
+      "before_sha256": "37ec5e3a77ef9cd2b8f6fab63e9530a799895161a9478f70cb72262f42770ddc",
+      "after_sha256": "7ec517bd11cb16448beb0b487640a7aedf3351da5a9669ca592cdbc73ade59a1"
+    },
+    {
+      "path": "assets/sprites/arena/tallowroot/small/w.png",
+      "kind": "changed active PNG",
+      "before_sha256": "95f32f86b25584f500e258ac0637f994ce886afd70c29526b8b1f93b8c4afc27",
+      "after_sha256": "da16680b9f90dc1a47bba556f23e8dc901187e9949f0e93a72394cc9c5d77029"
+    },
+    {
+      "path": "assets/sprites/arena/tallowroot/small/walk_e_f0.png",
+      "kind": "changed active PNG",
+      "before_sha256": "9626783f71caf000d861fd2541aa2cc581869e9b4573651feeadff4c0013a7f1",
+      "after_sha256": "2e00520727481f90550899b6b73bef465774e78935070a1f396b8d1a17d689ef"
+    },
+    {
+      "path": "assets/sprites/arena/tallowroot/small/walk_e_f1.png",
+      "kind": "changed active PNG",
+      "before_sha256": "2867e93fa0da6cbddbc00c2c34b1456a9000c003a74491ac9a53eb46ccda20b5",
+      "after_sha256": "65875ffe2f2a0b77af4a24a325e961eb64aee5e0a4031e7bc14d15ca7be2d8cb"
+    },
+    {
+      "path": "assets/sprites/arena/tallowroot/small/walk_e_f2.png",
+      "kind": "changed active PNG",
+      "before_sha256": "c0def8c1b5b293219dc3415859eb83b6d90088507eaba3e9ee3bebdb54d536d4",
+      "after_sha256": "b7e8ac24756ee7ebc594de52ee5dca8f0766707cc695262d64d39fb86eb4aac5"
+    },
+    {
+      "path": "assets/sprites/arena/tallowroot/small/walk_e_f3.png",
+      "kind": "changed active PNG",
+      "before_sha256": "02da3dd5f7dc1a8bde9f73398b51c0089dc647481b46c7dd7ab838d650186475",
+      "after_sha256": "9621fafa61fa957c8d4aec4437b9ea8fed755ae1f140c9c8733ce9e4affd5ea8"
+    },
+    {
+      "path": "assets/sprites/arena/tallowroot/small/walk_e_f4.png",
+      "kind": "changed active PNG",
+      "before_sha256": "c9f9f3e98a38bf2be6551c030d90f2f6912829ae36ec4bdda3b5a35e4b3edc27",
+      "after_sha256": "2a6fa0c33fb7790c90c2465559f1078d8be2d494d3c401a0a0b21cb7c295de38"
+    },
+    {
+      "path": "assets/sprites/arena/tallowroot/small/walk_e_f5.png",
+      "kind": "changed active PNG",
+      "before_sha256": "ee24b18348ca16f94d8beb035ba25191f16d279fb57b94b0c007d9322d269c1c",
+      "after_sha256": "9dfbf269d394bdd228c0f316c68deeb1721680c912ac1b605b5dda192a4ac776"
+    },
+    {
+      "path": "assets/sprites/arena/tallowroot/small/walk_e_f6.png",
+      "kind": "changed active PNG",
+      "before_sha256": "3462d92daefed9bf5ddf02d8b65a9d0809d236574e175a2f04b990aee324ca08",
+      "after_sha256": "976796f3d7de8c018c8cdf231f22bd9ed44f4755b1dcba49a9227c86798c0838"
+    },
+    {
+      "path": "assets/sprites/arena/tallowroot/small/walk_e_f7.png",
+      "kind": "changed active PNG",
+      "before_sha256": "dc083e8ef5d454ff086271c511b1899d027917220920c7e0c5e1dd0b9d29b97b",
+      "after_sha256": "a5a9a45fa8361b42298dc8ab68a52c90effc8c0bf26b8f48004293d9fae95f2a"
+    },
+    {
+      "path": "assets/sprites/arena/tallowroot/small/walk_n_f0.png",
+      "kind": "changed active PNG",
+      "before_sha256": "341e4e986436d391d3b24c0d794527c692aaba0ff72367bce4054c5991f5a71f",
+      "after_sha256": "0135c6bda45b78c137c502549ee31686f0f51cff2b65665f8508206ed4b696f3"
+    },
+    {
+      "path": "assets/sprites/arena/tallowroot/small/walk_n_f1.png",
+      "kind": "changed active PNG",
+      "before_sha256": "5e25caffaf56d4d607d97740044e352484a07b693dce5c94721d3f658ae525df",
+      "after_sha256": "0682204321012b91f00dc970b5fce7ccc04a1849bbe2285d2a74e275aac7226d"
+    },
+    {
+      "path": "assets/sprites/arena/tallowroot/small/walk_n_f2.png",
+      "kind": "changed active PNG",
+      "before_sha256": "6f37c1301ae8e0c7a5eeb3884594670080a90d2f406dfc02d5bca6c969b5e02a",
+      "after_sha256": "cb32fac7ec7cbe28c1b4b43e45d6f8c0756216cc565518c1407eb980259822fb"
+    },
+    {
+      "path": "assets/sprites/arena/tallowroot/small/walk_n_f3.png",
+      "kind": "changed active PNG",
+      "before_sha256": "67040593b51f5f3f57c6ed502e473652ce7010484364b1f24ccbe91adad9d7c8",
+      "after_sha256": "89989d2c1c839c60769f3aa1f75f33cd614e5fa53b07816ff4a68cbf83c4ba9e"
+    },
+    {
+      "path": "assets/sprites/arena/tallowroot/small/walk_n_f4.png",
+      "kind": "changed active PNG",
+      "before_sha256": "1ff203346086947a2ba761deb32cc3972467c71e20fc0cdeac5cfc6c269ac190",
+      "after_sha256": "6d4d310969c6633148457e42989ae95ee8609a86cc4698ef4f5df7d4b942f55e"
+    },
+    {
+      "path": "assets/sprites/arena/tallowroot/small/walk_n_f5.png",
+      "kind": "changed active PNG",
+      "before_sha256": "7e784e9b96606b9ff3b130e6b68481c6728d783fda9bdcafac126dea8bf68f44",
+      "after_sha256": "720da546f66f6dbde3d5b14d462cfe0d43d1c1123d207e8ee7b805695275f450"
+    },
+    {
+      "path": "assets/sprites/arena/tallowroot/small/walk_n_f6.png",
+      "kind": "changed active PNG",
+      "before_sha256": "d657119d50f84e9df3ce8bb843c97015b871c6313871e4ceadd5baa38a293b4b",
+      "after_sha256": "59663a116e3c8696a3e18261374b0a0d618ffb242817e28815c8820e5b10afb2"
+    },
+    {
+      "path": "assets/sprites/arena/tallowroot/small/walk_n_f7.png",
+      "kind": "changed active PNG",
+      "before_sha256": "e8754f59fbc7c9cdf13625b8784a15cfffa021812b5fb4ccf92c1d2943138a00",
+      "after_sha256": "b18f8219f9570fdcc988d5db3e5f287cc7f97a3d757f5873039af8ec131d8cce"
+    },
+    {
+      "path": "assets/sprites/arena/tallowroot/small/walk_ne_f0.png",
+      "kind": "changed active PNG",
+      "before_sha256": "b6e0b64df7f9213c772413eb1baa95308070860c6ff326b1e2eddf8364b20bda",
+      "after_sha256": "a697bddddd405fd1848ae31ce39cf3cab3a803dc351d1efe96b6ad8ceb00d991"
+    },
+    {
+      "path": "assets/sprites/arena/tallowroot/small/walk_ne_f1.png",
+      "kind": "changed active PNG",
+      "before_sha256": "7cf8861079363924cdea702ac63e94f3036a9a77360ea1fe2a24b3d83859c93d",
+      "after_sha256": "e70dfe58382ec139c6a7d107df957b338d9919ea7849f5ce26cbd744c40fbffc"
+    },
+    {
+      "path": "assets/sprites/arena/tallowroot/small/walk_ne_f2.png",
+      "kind": "changed active PNG",
+      "before_sha256": "d4a508bbca1142d1c9e478c5549cc1ec0f8a630211c288f2a46085f30f903479",
+      "after_sha256": "21a12262accf52f53ba8fcf94d6a5aefaa02b365a17a811a91948a4ac5a72b8f"
+    },
+    {
+      "path": "assets/sprites/arena/tallowroot/small/walk_ne_f3.png",
+      "kind": "changed active PNG",
+      "before_sha256": "75fb8d9e5cc15157a17dc5e7a905ae65dbe82b01b686104aa025c4db4eb7d8af",
+      "after_sha256": "74fbd1ffc051005f6dddac72a2f63fbb8838596a478ff145d82e1b7cc47184fc"
+    },
+    {
+      "path": "assets/sprites/arena/tallowroot/small/walk_ne_f4.png",
+      "kind": "changed active PNG",
+      "before_sha256": "279aebae41c184df12ffd6d5235cc01db4b977fb1686e637deca1f072852e28f",
+      "after_sha256": "61ea37893fdac839e3a89a054f6874d10ef497a1909102345b1459310fb1c0dd"
+    },
+    {
+      "path": "assets/sprites/arena/tallowroot/small/walk_ne_f5.png",
+      "kind": "changed active PNG",
+      "before_sha256": "afcebea7a36ca61b131f87ea58f21949e1c29d4f0199d55b36d108a08c85bc5b",
+      "after_sha256": "1865c6c52bad419e847f9822b8b20b11df594beb001db35e07d2e4d58f0102f8"
+    },
+    {
+      "path": "assets/sprites/arena/tallowroot/small/walk_ne_f6.png",
+      "kind": "changed active PNG",
+      "before_sha256": "5b0ce8051923cb056c4eff336a208d9870fa290d3c31e3cbccd6d34b2743b71c",
+      "after_sha256": "7e2aa9f8102e56d443593fc05a266c49e75fcfbd623da5b0d7e35e7f311362ff"
+    },
+    {
+      "path": "assets/sprites/arena/tallowroot/small/walk_ne_f7.png",
+      "kind": "changed active PNG",
+      "before_sha256": "f6ed23ac54f5eb5fb4bdc77d91992d9c0e4f586562724de17d3a7d112904f676",
+      "after_sha256": "2ebb6a63f770f5ab1bb53556fb618c79910d2bf861576d968411e8309012767d"
+    },
+    {
+      "path": "assets/sprites/arena/tallowroot/small/walk_nw_f0.png",
+      "kind": "changed active PNG",
+      "before_sha256": "1a9f8aa9f16ab4198ba6a596d2e6fb59d316e38eab3c4e4747cf7c90e0ccaf64",
+      "after_sha256": "8b93d246928877911f9f6e2d5077aef1478edac692e0ad257d498f8b6785dd35"
+    },
+    {
+      "path": "assets/sprites/arena/tallowroot/small/walk_nw_f1.png",
+      "kind": "changed active PNG",
+      "before_sha256": "3897a89ce271ea7bf129e1c37e853416976b179cd53f6d26dd67d4c6decac55e",
+      "after_sha256": "ecf33b3cf096db305dd18c0f71bc05d8d01a199fdaa921dd08d34c01d2da59e2"
+    },
+    {
+      "path": "assets/sprites/arena/tallowroot/small/walk_nw_f2.png",
+      "kind": "changed active PNG",
+      "before_sha256": "36f388d09ef4966f65aec7e55c9bc5a276b613c0c46104b0c0503be4ad2789eb",
+      "after_sha256": "f95f46571a23073af48a6b3446be186f59aa59a017d657dff224d5e82d715f2b"
+    },
+    {
+      "path": "assets/sprites/arena/tallowroot/small/walk_nw_f3.png",
+      "kind": "changed active PNG",
+      "before_sha256": "286b6216eb379731dff166224998ca77fcff8ce12113f248fdd1f8c997cdafdc",
+      "after_sha256": "e8a6fe514e62558492530aa3474616769c94343c1d580d25ae96c9b9325ce2a7"
+    },
+    {
+      "path": "assets/sprites/arena/tallowroot/small/walk_nw_f4.png",
+      "kind": "changed active PNG",
+      "before_sha256": "cbd1e833d1d17d935eb413baa9a2e83ac7f26f3fcfc8d51f412fed8c56b631a7",
+      "after_sha256": "12ce552b53a57eb3eeff4991983937b0c73c2148bdc75a706aa18fef807015b1"
+    },
+    {
+      "path": "assets/sprites/arena/tallowroot/small/walk_nw_f5.png",
+      "kind": "changed active PNG",
+      "before_sha256": "abe0ab2db7fecd1bd08c158ecd1f3b9f90b1dcb23796a4be8a78e373ffc779ee",
+      "after_sha256": "10ca3c5fb9c87539d4d70f20ed8eacc66b7dd2d2ff768b8b23a921af03dedbcf"
+    },
+    {
+      "path": "assets/sprites/arena/tallowroot/small/walk_nw_f6.png",
+      "kind": "changed active PNG",
+      "before_sha256": "247298b1df7006f7e81ea67ed6377b9b09863100a12c101aa37cdecc3b00adfe",
+      "after_sha256": "12dd9b3d6f702a3edc24d99710d064dc5fca09cec60c80bb4b6d7e4d863ac994"
+    },
+    {
+      "path": "assets/sprites/arena/tallowroot/small/walk_nw_f7.png",
+      "kind": "changed active PNG",
+      "before_sha256": "e2d609d7bd99b9a0513b14004c6ab73a10a1cd7b4d08f275aadb59827f31ce04",
+      "after_sha256": "497d08ac5fd1517480e35576ac5462a595c149a24c42e54b5e6cc30c12e6b274"
+    },
+    {
+      "path": "assets/sprites/arena/tallowroot/small/walk_s_f0.png",
+      "kind": "changed active PNG",
+      "before_sha256": "85fff78b6f6c0301f777dbccc3ff4bd8cceaae3d4ed9d59d29d0b0576ad193ad",
+      "after_sha256": "b7c8c3b5a3dd77d03cf9b1a50b69f2d9b7940c21e28c21685a7eedbbe7ca6713"
+    },
+    {
+      "path": "assets/sprites/arena/tallowroot/small/walk_s_f1.png",
+      "kind": "changed active PNG",
+      "before_sha256": "f421e7233d1f141d6b95db6eb9ffd5dc70b5ccf3787fd6ec2898f606eef0f4de",
+      "after_sha256": "102d3cb44ba827e92fba53d37ee2729897aacfd4d40dcd0fcc0431b5382b9be7"
+    },
+    {
+      "path": "assets/sprites/arena/tallowroot/small/walk_s_f2.png",
+      "kind": "changed active PNG",
+      "before_sha256": "f388dc290c63244828353e2bef846debb1b2e96a7e8942c7ab357596fe758dfd",
+      "after_sha256": "710182f40da075a77c9117f8cc9755567c9e9ff87bc47ad6c40c985367e9643e"
+    },
+    {
+      "path": "assets/sprites/arena/tallowroot/small/walk_s_f3.png",
+      "kind": "changed active PNG",
+      "before_sha256": "db1844cabfb1fccd870152b2ce7bf139e2d574ab1cee3b8d2d40606532eb5ce4",
+      "after_sha256": "2f8f7132854e9c7727362de22e807141cecd870f5c30546f28a52112e8ca35fc"
+    },
+    {
+      "path": "assets/sprites/arena/tallowroot/small/walk_s_f4.png",
+      "kind": "changed active PNG",
+      "before_sha256": "0cd6ff2494807a68fa33f08a8628478cf2286c9b6090f9aa432fa1538100fd4b",
+      "after_sha256": "1883a7ab154c57c590ee8c0e36d5a80e8b1ccc5221f217e5ee1e45ad85109bda"
+    },
+    {
+      "path": "assets/sprites/arena/tallowroot/small/walk_s_f5.png",
+      "kind": "changed active PNG",
+      "before_sha256": "8ad219baddec3d1ab264c9063f9a18ebfecaff8fa0947201b5a53d5858e4d598",
+      "after_sha256": "f47199840131e59de5d62f98604f90620c8e3afc91837582b93bb5bff4f631bb"
+    },
+    {
+      "path": "assets/sprites/arena/tallowroot/small/walk_s_f6.png",
+      "kind": "changed active PNG",
+      "before_sha256": "863f9ce7a488b86d5629e425704b88a352569c87c7db18e2e5914adc4bd1cb6c",
+      "after_sha256": "e5fa66422267d2a83bcee2498cdaac7c26ee05a8dba4b650eece7db9ed726d68"
+    },
+    {
+      "path": "assets/sprites/arena/tallowroot/small/walk_s_f7.png",
+      "kind": "changed active PNG",
+      "before_sha256": "cb74e362cfd8d8638b7483ba3074891f3d03fb264b045c6b67e1599138bd2495",
+      "after_sha256": "88f3b0cdc13db0f799a9319f56694ec0a94034219008bba8bf7b4769463289b5"
+    },
+    {
+      "path": "assets/sprites/arena/tallowroot/small/walk_se_f0.png",
+      "kind": "changed active PNG",
+      "before_sha256": "ca88a6a87b24d361cdd124a84f22df7756740d41a163a196fdd366b5ffb26c74",
+      "after_sha256": "b56374bbc02f6f945add978f30f019de6b4dd544dd65720bae130619f6fdd9a5"
+    },
+    {
+      "path": "assets/sprites/arena/tallowroot/small/walk_se_f1.png",
+      "kind": "changed active PNG",
+      "before_sha256": "ca7c77bd17147210fed1001e75f1cd4375ea7a41ab2da6054d246f3c32772bff",
+      "after_sha256": "7d9e2b970b2d74965a5dccf5321b8e80c37c4f42ee6312e4443b332a79af319d"
+    },
+    {
+      "path": "assets/sprites/arena/tallowroot/small/walk_se_f2.png",
+      "kind": "changed active PNG",
+      "before_sha256": "9f8c1083115fae67b5685187f397b899f4b8b9a7849617dc28d108abf4d7caea",
+      "after_sha256": "e4b6713ee0076ebc1b45944581b8ed01777f1625484f2b94fdaca25eb7a183c7"
+    },
+    {
+      "path": "assets/sprites/arena/tallowroot/small/walk_se_f3.png",
+      "kind": "changed active PNG",
+      "before_sha256": "7f62d56e0c67701634fee205a21620a9ff3b51abdcaa7477c4e10580973412e9",
+      "after_sha256": "e4c2e79fb5100e17fb88cf3949a383dc84abbd118d85eb4a33ac54a6792c6f55"
+    },
+    {
+      "path": "assets/sprites/arena/tallowroot/small/walk_se_f4.png",
+      "kind": "changed active PNG",
+      "before_sha256": "6bb66f8f04cacef77f21c31419ba9b4221cb874d7b59a9d0fb60b81dd830589c",
+      "after_sha256": "5c3127c8cd391e5225c60618e6e14885f30073375038c34769107d1f09959b4f"
+    },
+    {
+      "path": "assets/sprites/arena/tallowroot/small/walk_se_f5.png",
+      "kind": "changed active PNG",
+      "before_sha256": "6e62b0a262be9e884073cc0501fe5a41796a42c45ba0fc0861dcbde24fee7086",
+      "after_sha256": "24b69708b273d0b0e964c113542f2b05976e10a5f317c1c4fac31148228ec50c"
+    },
+    {
+      "path": "assets/sprites/arena/tallowroot/small/walk_se_f6.png",
+      "kind": "changed active PNG",
+      "before_sha256": "2458e7d3eb099ef6e625e7f7347679bffad8b9035f74887a7b85c6338470c2d7",
+      "after_sha256": "db4ff4f5951ca4fb93c78021cdc428c253da15b2d088c10dc46682b4e96826b7"
+    },
+    {
+      "path": "assets/sprites/arena/tallowroot/small/walk_se_f7.png",
+      "kind": "changed active PNG",
+      "before_sha256": "3088781fb40d405a9170df312551a56b67030172f23d549107df041a215c171a",
+      "after_sha256": "69eb94c3f932ef91959cd0059fa13b2586e3eba7d4a0dc4d3599b5040e907800"
+    },
+    {
+      "path": "assets/sprites/arena/tallowroot/small/walk_sw_f0.png",
+      "kind": "changed active PNG",
+      "before_sha256": "1081779360c816e3c86fdcda7c0f4bf85c6b89cc7ca1f7ed8a6689d166000fc8",
+      "after_sha256": "4aebf710ac5c42c1c57e6ea5508f3799610e98ace20f00e9a1bde2c03c4eb610"
+    },
+    {
+      "path": "assets/sprites/arena/tallowroot/small/walk_sw_f1.png",
+      "kind": "changed active PNG",
+      "before_sha256": "29819364dc74c3aa1cfd558720e2fa867e63f6d7e207489dde459700b1ef8ee4",
+      "after_sha256": "12408b08b9adaeca316ff66641b43b878dcf87f6d395e28189e17a53aacb70bb"
+    },
+    {
+      "path": "assets/sprites/arena/tallowroot/small/walk_sw_f2.png",
+      "kind": "changed active PNG",
+      "before_sha256": "ba950260eedfca399d329c03307bf683cfcd21d35aec59c035d6dd5b6e0b0545",
+      "after_sha256": "2f7dd9a6da9e01bdc99a719a0a92e4574e622803eac04712997d2ff25f335dee"
+    },
+    {
+      "path": "assets/sprites/arena/tallowroot/small/walk_sw_f3.png",
+      "kind": "changed active PNG",
+      "before_sha256": "efec3d270cda83eca7e294f1bddb507bbc760ccfc0ce112faff1f17faff06246",
+      "after_sha256": "316ba8ce7ba349b3ee2f0ab3561fb26a9c23355d622cb347b8fd326a71dcce15"
+    },
+    {
+      "path": "assets/sprites/arena/tallowroot/small/walk_sw_f4.png",
+      "kind": "changed active PNG",
+      "before_sha256": "cf06d1a1f288b4d6b4c74feb884e48cf52ae0a5050de1ee3ceb362558a1eb7bf",
+      "after_sha256": "25be5a54a90749176254bdd14d19f8df99e9a4d4b3052e2a06e18069aa9875a7"
+    },
+    {
+      "path": "assets/sprites/arena/tallowroot/small/walk_sw_f5.png",
+      "kind": "changed active PNG",
+      "before_sha256": "ceb575eb5ba350738db9568d672f3b198e95c15e667c2bb8d424733e6e4fab68",
+      "after_sha256": "375465305e33b07c2a6910180a20201c123c0ffe3430377062f1555fc3d1d614"
+    },
+    {
+      "path": "assets/sprites/arena/tallowroot/small/walk_sw_f6.png",
+      "kind": "changed active PNG",
+      "before_sha256": "62507352626621c900a0814bd567f3f24794e78bcf4bb17248475564e115ab74",
+      "after_sha256": "9f9fa79f1a0f2ac5d85c4317d64af3696da33f25458a2721d0764738c9971513"
+    },
+    {
+      "path": "assets/sprites/arena/tallowroot/small/walk_sw_f7.png",
+      "kind": "changed active PNG",
+      "before_sha256": "0f8280c60867bd68bdddf16639769e2c28b98917905c97dcde0b306ad31ae7a3",
+      "after_sha256": "eaf00eb31c66241e4e5d4cc893b74480dec8975d51616672d180a4394bbf2949"
+    },
+    {
+      "path": "assets/sprites/arena/tallowroot/small/walk_w_f0.png",
+      "kind": "changed active PNG",
+      "before_sha256": "b1bf95d6cc8dc8d85cc79591e66b58db48fbe59ac9fe57372b3e790ed7d312cd",
+      "after_sha256": "8dfbfe00264bcb82d489703d00db393ab291626fd0389eb67bd3a74fe29efb97"
+    },
+    {
+      "path": "assets/sprites/arena/tallowroot/small/walk_w_f1.png",
+      "kind": "changed active PNG",
+      "before_sha256": "965b3f94e894a2ac232e19e0648aae6e508939d9b30f621362b7f11af8aa3359",
+      "after_sha256": "3ace28d33552d5ea3afe82824c0824f27b969ea8029bc2205eca0d2f1cac67b3"
+    },
+    {
+      "path": "assets/sprites/arena/tallowroot/small/walk_w_f2.png",
+      "kind": "changed active PNG",
+      "before_sha256": "144bf80b9f6ddb0c41d886be838e39c973659948d46eb32876ac3c1f39d925cd",
+      "after_sha256": "84c25641f88e8c111541974679933f0e9b6f2ca69dd442c0d447633fa16a7a40"
+    },
+    {
+      "path": "assets/sprites/arena/tallowroot/small/walk_w_f3.png",
+      "kind": "changed active PNG",
+      "before_sha256": "63b1f032ecaf21a8b04f163ab891c636245b23dd1907d8438cd0abfb6cbe8005",
+      "after_sha256": "c9606107651ac7f6285d63f43f606fa6651dc9fbaba1062dd3ade16b5362bee6"
+    },
+    {
+      "path": "assets/sprites/arena/tallowroot/small/walk_w_f4.png",
+      "kind": "changed active PNG",
+      "before_sha256": "ea0ac65b903a69f6f6591fd00f575eb0aeff27259830e78f4c0a0a05f0e8897d",
+      "after_sha256": "de94670d49699500b3aa480537881c250471d03298ac3bb5e73236cbf9299706"
+    },
+    {
+      "path": "assets/sprites/arena/tallowroot/small/walk_w_f5.png",
+      "kind": "changed active PNG",
+      "before_sha256": "6c1cface8d7f4bf291612734fefd06f82c262a57861040709599984bc5fb72ee",
+      "after_sha256": "5bf4b240d3a360a59eff22cf586c123ce3c21a22dfe2a4347eb85dc83cbd0cc1"
+    },
+    {
+      "path": "assets/sprites/arena/tallowroot/small/walk_w_f6.png",
+      "kind": "changed active PNG",
+      "before_sha256": "6082b50953ca3b5e27a662cd998c56328a5b405cf9a7e8a38a7e31e4e490a70b",
+      "after_sha256": "8fa186be7ad4e14bdaf960f40ec62834aef26844cf9bd196c6f6b6fcce018465"
+    },
+    {
+      "path": "assets/sprites/arena/tallowroot/small/walk_w_f7.png",
+      "kind": "changed active PNG",
+      "before_sha256": "50fda0839cca553b5812f6bf7b7df1e2ef0dc15c8396f2f382737a39d0b38d34",
+      "after_sha256": "51f90154705c0666c2f2e8558f522e3ffe9c1aaa717c47b87988ff5225b561c9"
+    },
+    {
+      "path": "assets/sprites/arena/tallowroot/sw.png",
+      "kind": "changed active PNG",
+      "before_sha256": "a40df0f567d6a21dfb1dd45771ce1e58fa16fb32c973c78502c5598905dd3495",
+      "after_sha256": "c5353ae866a778ea2f8a1474a92494473c8c42df0ea06f997745078d86e1039e"
+    },
+    {
+      "path": "assets/sprites/arena/tallowroot/w.png",
+      "kind": "changed active PNG",
+      "before_sha256": "09d0b24221a57f91e41f0fe909b6b5caac462aa13d54be4b6520f0adcc99499b",
+      "after_sha256": "8dc45123440daf185cd44eaf6151f3147cc6939b2b50bfe1b720163b8140922d"
+    },
+    {
+      "path": "docs/creatures/arena-starters-2026-10-07/walk/kithflare_n_sheet.png",
+      "kind": "changed active PNG",
+      "before_sha256": "49581ea3c31c8fa2cef13d3f2b43b7f699af0f31b653399626d90bc19e09c756",
+      "after_sha256": "f693fe6bf82c38378e52a47e61f5984664295df0af51b4363f261afd74776420"
+    },
+    {
+      "path": "docs/creatures/arena-starters-2026-10-07/walk/kithflare_nw_sheet.png",
+      "kind": "changed active PNG",
+      "before_sha256": "902bc1f2bc7cc802a24ef80be7455ebf46ef9639d8edf979d6c0930d74dd38a1",
+      "after_sha256": "84fae421d839720bce726d14ec10341f6dba7dc13a26c3787a63a1a7fced35ca"
+    },
+    {
+      "path": "docs/creatures/arena-starters-2026-10-07/walk/kithflare_s_sheet.png",
+      "kind": "changed active PNG",
+      "before_sha256": "ae07977d734dda754843a5bb057793775d6fbc4b9c050f26c952e940127eb10d",
+      "after_sha256": "1e68766ef3a4522eb49979218becfd2c2eb03a18624c864153375b845752e50c"
+    },
+    {
+      "path": "docs/creatures/arena-starters-2026-10-07/walk/kithflare_sw_sheet.png",
+      "kind": "changed active PNG",
+      "before_sha256": "bb9b0906800e1e1e233275177805a444cbce4f37d407aaaf148920637f430139",
+      "after_sha256": "1b58a4182fe05193eb246ea8e0940ca0aa82721fcdd91f88b5c70f00246ee7c9"
+    },
+    {
+      "path": "docs/creatures/arena-starters-2026-10-07/walk/kithflare_w_sheet.png",
+      "kind": "changed active PNG",
+      "before_sha256": "44a69aab284d62359625e034cd9b3ad1c1806998e0404427f94b722481229e85",
+      "after_sha256": "d855f4aec8688fec4293be1da16bf8e423490fb52382a22fb887a4b444e25909"
+    },
+    {
+      "path": "docs/creatures/arena-starters-2026-10-07/walk/rimefin_n_sheet.png",
+      "kind": "changed active PNG",
+      "before_sha256": "7b7e23567ea0880a8a6d3a6e1802dca221f6b79b8b486d96db7a0643a38e5f74",
+      "after_sha256": "538165484cef8c31dd7e752a4721ee90d15111a2323d317006a08dc04d90de88"
+    },
+    {
+      "path": "docs/creatures/arena-starters-2026-10-07/walk/rimefin_nw_sheet.png",
+      "kind": "changed active PNG",
+      "before_sha256": "7d39a3f38e610c4a0815c4778fd0ff877d57a6a056c9a2ec19f8a21727dc32c3",
+      "after_sha256": "2cfd705c369261e52e68c77f117190f8b220d7814e000866b7c4e07174d99233"
+    },
+    {
+      "path": "docs/creatures/arena-starters-2026-10-07/walk/rimefin_s_sheet.png",
+      "kind": "changed active PNG",
+      "before_sha256": "0c0f06b24360d1cfd1efd52ffd7ee5cb011f205b3c28599dc0f3836a24dbacbc",
+      "after_sha256": "5691219fa27344c5cd0fbfc1a5e3956e5c84d17ae6a6892705b444d854a1b8db"
+    },
+    {
+      "path": "docs/creatures/arena-starters-2026-10-07/walk/rimefin_sw_sheet.png",
+      "kind": "changed active PNG",
+      "before_sha256": "fc13f671ef354bba38b0a6edd4825d62429a521f994b193c535f339415b078dc",
+      "after_sha256": "2ce0db5355d7b472d95b1203ef8fa08481fade3f2e5aa5bec3f58b4f1343e457"
+    },
+    {
+      "path": "docs/creatures/arena-starters-2026-10-07/walk/rimefin_w_sheet.png",
+      "kind": "changed active PNG",
+      "before_sha256": "419625d7f2f7e43d49e784e77bc481c5fecbeadcee62983a017b818ea6fa0518",
+      "after_sha256": "47c8c2ec878311e4d1775094a771b61862cb7bfacfe66dd3f30c9299e16be6a5"
+    },
+    {
+      "path": "docs/creatures/arena-starters-2026-10-07/walk/tallowroot_e_sheet.png",
+      "kind": "changed active PNG",
+      "before_sha256": "4dcb9603b0e80fb0224c61f9b170b53d46b13af7466c69fec36342c2b5de2fd4",
+      "after_sha256": "0f90de425dba1486769937f2d264be136aa0251ac78a0018a7dd0755b9eac9be"
+    },
+    {
+      "path": "docs/creatures/arena-starters-2026-10-07/walk/tallowroot_n_sheet.png",
+      "kind": "changed active PNG",
+      "before_sha256": "c113b5fab080663ccfe67e1d3b68f1647af41b16fa334bc94fdcdbda8f030ff8",
+      "after_sha256": "1ea2bc5d1c80abfb08b0130a49d4ecf1c48fbe710731dc5cb5ce87940e7a06a9"
+    },
+    {
+      "path": "docs/creatures/arena-starters-2026-10-07/walk/tallowroot_ne_sheet.png",
+      "kind": "changed active PNG",
+      "before_sha256": "9e643448d6148c870da57b3d3824105adb9da944ffea990a871a62ab73c95da8",
+      "after_sha256": "4877afa681b2d513631d67b731f0bd9ceb67f0003da69ea23f558e9f917b6212"
+    },
+    {
+      "path": "docs/creatures/arena-starters-2026-10-07/walk/tallowroot_s_sheet.png",
+      "kind": "changed active PNG",
+      "before_sha256": "d5ba3be22271ba4b63a320b0acdb11e5010813a1b1ada9e471b42c5fcfd316af",
+      "after_sha256": "36de33dbe210959e11e8be147e2c3edcc9d4f84a83c0a9fee7dca5043d4b5160"
+    },
+    {
+      "path": "docs/creatures/arena-starters-2026-10-07/walk/tallowroot_se_sheet.png",
+      "kind": "changed active PNG",
+      "before_sha256": "25677be532ed4fc5b4714632e6f9ab46373435483643d13e941273a23076c869",
+      "after_sha256": "7a0fb69b562ffb5c9c6631c4b79fbba379fe18bf78f0601bc4443a5f021d3d30"
+    }
+  ],
+  "python_tools": [
+    {
+      "path": "tools/arena/normalize_arena_palette.py",
+      "after_sha256": "3ced57c9ac649e5d365d8ea42eecede882228ff7aebd638385136161889c4db2"
+    },
+    {
+      "path": "tools/arena/report_consistency.py",
+      "after_sha256": "a3e2fe203f18828e479616477103a435852d18a77ec520f80b82ca64f887e92f"
+    },
+    {
+      "path": "tools/arena/build_small.py",
+      "after_sha256": "55a99d4ca55cbc26171e5c4c51f824fd5aa6b4fa5ef64981358890d20767d72a"
+    }
+  ],
+  "shared_guide": {
+    "path": "docs/AI_COLLABORATION.md",
+    "before_sha256": "949f3a9382f197fad62403696d04c7c849776a739469e591a12cd1fcd2c860b9",
+    "after_sha256": "88a79599012ceaca0ee3264d242f2bf974253f3fca5626eb12fc3e3472300d37",
+    "historical_body_preserved_exact": true
+  },
+  "archive_paths": [
+    "docs/creatures/arena-starters-2026-10-07/consistency/candidate-audit.json",
+    "docs/creatures/arena-starters-2026-10-07/consistency/candidate-invariants.json",
+    "docs/creatures/arena-starters-2026-10-07/consistency/final-active-hash-guard.json",
+    "docs/creatures/arena-starters-2026-10-07/consistency/installation-receipt.json",
+    "docs/creatures/arena-starters-2026-10-07/consistency/installed-proof/after-metrics.csv",
+    "docs/creatures/arena-starters-2026-10-07/consistency/installed-proof/after-metrics.json",
+    "docs/creatures/arena-starters-2026-10-07/consistency/installed-proof/arena-native-stills.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/installed-proof/before-after-facings.csv",
+    "docs/creatures/arena-starters-2026-10-07/consistency/installed-proof/before-after-facings.md",
+    "docs/creatures/arena-starters-2026-10-07/consistency/installed-proof/before-after-spreads.csv",
+    "docs/creatures/arena-starters-2026-10-07/consistency/installed-proof/before-after-spreads.json",
+    "docs/creatures/arena-starters-2026-10-07/consistency/installed-proof/before-after-spreads.md",
+    "docs/creatures/arena-starters-2026-10-07/consistency/installed-proof/before-after-walk-frames.json",
+    "docs/creatures/arena-starters-2026-10-07/consistency/installed-proof/before-after-walk-game-frames.csv",
+    "docs/creatures/arena-starters-2026-10-07/consistency/installed-proof/before-after-walk-source-frames.csv",
+    "docs/creatures/arena-starters-2026-10-07/consistency/installed-proof/consistency-check-summary.json",
+    "docs/creatures/arena-starters-2026-10-07/consistency/installed-proof/contacts/all-nine-family-before-after-south-game3x.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/installed-proof/contacts/huskward-facings-before-after-game3x.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/installed-proof/contacts/kithflare-facings-before-after-game3x.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/installed-proof/contacts/kithflare-walk-n-before-after-game3x.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/installed-proof/contacts/kithflare-walk-nw-before-after-game3x.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/installed-proof/contacts/kithflare-walk-s-before-after-game3x.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/installed-proof/contacts/kithflare-walk-sw-before-after-game3x.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/installed-proof/contacts/kithflare-walk-w-before-after-game3x.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/installed-proof/contacts/rampartroot-facings-before-after-game3x.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/installed-proof/contacts/riftfin-facings-before-after-game3x.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/installed-proof/contacts/rimefin-facings-before-after-game3x.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/installed-proof/contacts/rimefin-walk-n-before-after-game3x.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/installed-proof/contacts/rimefin-walk-nw-before-after-game3x.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/installed-proof/contacts/rimefin-walk-s-before-after-game3x.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/installed-proof/contacts/rimefin-walk-sw-before-after-game3x.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/installed-proof/contacts/rimefin-walk-w-before-after-game3x.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/installed-proof/contacts/scourmaw-facings-before-after-game3x.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/installed-proof/contacts/sparkwick-facings-before-after-game3x.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/installed-proof/contacts/stormwick-facings-before-after-game3x.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/installed-proof/contacts/tallowroot-facings-before-after-game3x.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/installed-proof/contacts/tallowroot-walk-e-before-after-game3x.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/installed-proof/contacts/tallowroot-walk-n-before-after-game3x.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/installed-proof/contacts/tallowroot-walk-ne-before-after-game3x.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/installed-proof/contacts/tallowroot-walk-s-before-after-game3x.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/installed-proof/contacts/tallowroot-walk-se-before-after-game3x.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/installed-proof/mirror-checks.json",
+    "docs/creatures/arena-starters-2026-10-07/consistency/installed-proof/original-files-and-protected-code-checks.json",
+    "docs/creatures/arena-starters-2026-10-07/consistency/installed-proof/palette-and-alpha-checks.json",
+    "docs/creatures/arena-starters-2026-10-07/consistency/installed-proof/REPORT.md",
+    "docs/creatures/arena-starters-2026-10-07/consistency/installed-proof/sparkwick-facings-4-5.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/installed-proof/walk-previews/kithflare-walk-n-before-after-game3x.gif",
+    "docs/creatures/arena-starters-2026-10-07/consistency/installed-proof/walk-previews/kithflare-walk-nw-before-after-game3x.gif",
+    "docs/creatures/arena-starters-2026-10-07/consistency/installed-proof/walk-previews/kithflare-walk-s-before-after-game3x.gif",
+    "docs/creatures/arena-starters-2026-10-07/consistency/installed-proof/walk-previews/kithflare-walk-sw-before-after-game3x.gif",
+    "docs/creatures/arena-starters-2026-10-07/consistency/installed-proof/walk-previews/kithflare-walk-w-before-after-game3x.gif",
+    "docs/creatures/arena-starters-2026-10-07/consistency/installed-proof/walk-previews/rimefin-walk-n-before-after-game3x.gif",
+    "docs/creatures/arena-starters-2026-10-07/consistency/installed-proof/walk-previews/rimefin-walk-nw-before-after-game3x.gif",
+    "docs/creatures/arena-starters-2026-10-07/consistency/installed-proof/walk-previews/rimefin-walk-s-before-after-game3x.gif",
+    "docs/creatures/arena-starters-2026-10-07/consistency/installed-proof/walk-previews/rimefin-walk-sw-before-after-game3x.gif",
+    "docs/creatures/arena-starters-2026-10-07/consistency/installed-proof/walk-previews/rimefin-walk-w-before-after-game3x.gif",
+    "docs/creatures/arena-starters-2026-10-07/consistency/installed-proof/walk-previews/tallowroot-walk-e-before-after-game3x.gif",
+    "docs/creatures/arena-starters-2026-10-07/consistency/installed-proof/walk-previews/tallowroot-walk-n-before-after-game3x.gif",
+    "docs/creatures/arena-starters-2026-10-07/consistency/installed-proof/walk-previews/tallowroot-walk-ne-before-after-game3x.gif",
+    "docs/creatures/arena-starters-2026-10-07/consistency/installed-proof/walk-previews/tallowroot-walk-s-before-after-game3x.gif",
+    "docs/creatures/arena-starters-2026-10-07/consistency/installed-proof/walk-previews/tallowroot-walk-se-before-after-game3x.gif",
+    "docs/creatures/arena-starters-2026-10-07/consistency/native/import/captures-after.json",
+    "docs/creatures/arena-starters-2026-10-07/consistency/native/import/captures-before.json",
+    "docs/creatures/arena-starters-2026-10-07/consistency/native/import/receipt.json",
+    "docs/creatures/arena-starters-2026-10-07/consistency/native/import/stderr.log",
+    "docs/creatures/arena-starters-2026-10-07/consistency/native/import/stdout.log",
+    "docs/creatures/arena-starters-2026-10-07/consistency/native/runtime/captures-after.json",
+    "docs/creatures/arena-starters-2026-10-07/consistency/native/runtime/captures-before.json",
+    "docs/creatures/arena-starters-2026-10-07/consistency/native/runtime/captures-originals/1_start.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/native/runtime/captures-originals/2_walk.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/native/runtime/captures-originals/3_fireball.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/native/runtime/captures-originals/4_fire_hit.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/native/runtime/captures-originals/5_beam.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/native/runtime/captures-originals/6_seed.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/native/runtime/captures-originals/7_seed_burst.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/native/runtime/captures-originals/8_stone_arena.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/native/runtime/captures-originals/east.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/native/runtime/captures-originals/huskward_vs_riftfin.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/native/runtime/captures-originals/north.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/native/runtime/captures-originals/northwest.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/native/runtime/captures-originals/riftfin_vs_rampartroot.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/native/runtime/captures-originals/scourmaw_vs_sparkwick.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/native/runtime/captures-originals/southeast.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/native/runtime/captures-originals/start.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/native/runtime/captures-originals/stormwick_card.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/native/runtime/captures-originals/stormwick_strike.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/native/runtime/captures-originals/stormwick_vs_rampartroot.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/native/runtime/receipt.json",
+    "docs/creatures/arena-starters-2026-10-07/consistency/native/runtime/stderr.log",
+    "docs/creatures/arena-starters-2026-10-07/consistency/native/runtime/stdout.log",
+    "docs/creatures/arena-starters-2026-10-07/consistency/native/runtime/stills/huskward_vs_riftfin.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/native/runtime/stills/riftfin_vs_rampartroot.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/native/runtime/stills/scourmaw_vs_sparkwick.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/native/runtime/stills/stormwick_card.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/native/runtime/stills/stormwick_strike.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/native/runtime/stills/stormwick_vs_rampartroot.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/native-capture-freshness.json",
+    "docs/creatures/arena-starters-2026-10-07/consistency/README.md",
+    "docs/creatures/arena-starters-2026-10-07/consistency/review/sparkwick_ne_n_contrast_comparison5x.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/analyze_palette_drift.py",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/audit_originals.py",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/before-manifest.json",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/before-metrics.csv",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/before-metrics.json",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/before-summary.json",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/contacts/huskward-facings-before-game3x.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/contacts/huskward-source-and-facings-original1x.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/contacts/kithflare-facings-before-game3x.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/contacts/kithflare-source-and-facings-original1x.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/contacts/kithflare-walks-before-game3x.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/contacts/rampartroot-facings-before-game3x.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/contacts/rampartroot-source-and-facings-original1x.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/contacts/riftfin-facings-before-game3x.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/contacts/riftfin-source-and-facings-original1x.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/contacts/rimefin-facings-before-game3x.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/contacts/rimefin-source-and-facings-original1x.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/contacts/rimefin-walks-before-game3x.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/contacts/scourmaw-facings-before-game3x.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/contacts/scourmaw-source-and-facings-original1x.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/contacts/sparkwick-facings-before-game3x.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/contacts/sparkwick-source-and-facings-original1x.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/contacts/stormwick-facings-before-game3x.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/contacts/stormwick-source-and-facings-original1x.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/contacts/tallowroot-facings-before-game3x.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/contacts/tallowroot-source-and-facings-original1x.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/contacts/tallowroot-walks-before-game3x.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/findings.md",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/mirror-checks-original.json",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/original-docs/docs/AI_COLLABORATION.md",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/original-tools/tools/arena/build_small.py",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/huskward/e.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/huskward/n.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/huskward/ne.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/huskward/nw.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/huskward/s.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/huskward/se.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/huskward/small/e.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/huskward/small/n.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/huskward/small/ne.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/huskward/small/nw.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/huskward/small/s.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/huskward/small/se.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/huskward/small/sw.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/huskward/small/w.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/huskward/sw.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/huskward/w.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/kithflare/e.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/kithflare/n.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/kithflare/ne.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/kithflare/nw.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/kithflare/s.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/kithflare/se.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/kithflare/small/e.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/kithflare/small/n.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/kithflare/small/ne.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/kithflare/small/nw.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/kithflare/small/s.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/kithflare/small/se.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/kithflare/small/sw.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/kithflare/small/w.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/kithflare/small/walk_e_f0.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/kithflare/small/walk_e_f1.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/kithflare/small/walk_e_f2.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/kithflare/small/walk_e_f3.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/kithflare/small/walk_e_f4.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/kithflare/small/walk_e_f5.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/kithflare/small/walk_e_f6.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/kithflare/small/walk_e_f7.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/kithflare/small/walk_n_f0.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/kithflare/small/walk_n_f1.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/kithflare/small/walk_n_f2.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/kithflare/small/walk_n_f3.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/kithflare/small/walk_n_f4.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/kithflare/small/walk_n_f5.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/kithflare/small/walk_n_f6.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/kithflare/small/walk_n_f7.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/kithflare/small/walk_ne_f0.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/kithflare/small/walk_ne_f1.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/kithflare/small/walk_ne_f2.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/kithflare/small/walk_ne_f3.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/kithflare/small/walk_ne_f4.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/kithflare/small/walk_ne_f5.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/kithflare/small/walk_ne_f6.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/kithflare/small/walk_ne_f7.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/kithflare/small/walk_nw_f0.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/kithflare/small/walk_nw_f1.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/kithflare/small/walk_nw_f2.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/kithflare/small/walk_nw_f3.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/kithflare/small/walk_nw_f4.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/kithflare/small/walk_nw_f5.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/kithflare/small/walk_nw_f6.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/kithflare/small/walk_nw_f7.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/kithflare/small/walk_s_f0.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/kithflare/small/walk_s_f1.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/kithflare/small/walk_s_f2.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/kithflare/small/walk_s_f3.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/kithflare/small/walk_s_f4.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/kithflare/small/walk_s_f5.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/kithflare/small/walk_s_f6.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/kithflare/small/walk_s_f7.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/kithflare/small/walk_se_f0.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/kithflare/small/walk_se_f1.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/kithflare/small/walk_se_f2.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/kithflare/small/walk_se_f3.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/kithflare/small/walk_se_f4.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/kithflare/small/walk_se_f5.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/kithflare/small/walk_se_f6.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/kithflare/small/walk_se_f7.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/kithflare/small/walk_sw_f0.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/kithflare/small/walk_sw_f1.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/kithflare/small/walk_sw_f2.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/kithflare/small/walk_sw_f3.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/kithflare/small/walk_sw_f4.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/kithflare/small/walk_sw_f5.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/kithflare/small/walk_sw_f6.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/kithflare/small/walk_sw_f7.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/kithflare/small/walk_w_f0.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/kithflare/small/walk_w_f1.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/kithflare/small/walk_w_f2.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/kithflare/small/walk_w_f3.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/kithflare/small/walk_w_f4.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/kithflare/small/walk_w_f5.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/kithflare/small/walk_w_f6.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/kithflare/small/walk_w_f7.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/kithflare/sw.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/kithflare/w.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/rampartroot/e.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/rampartroot/n.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/rampartroot/ne.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/rampartroot/nw.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/rampartroot/s.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/rampartroot/se.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/rampartroot/small/e.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/rampartroot/small/n.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/rampartroot/small/ne.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/rampartroot/small/nw.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/rampartroot/small/s.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/rampartroot/small/se.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/rampartroot/small/sw.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/rampartroot/small/w.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/rampartroot/sw.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/rampartroot/w.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/riftfin/e.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/riftfin/n.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/riftfin/ne.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/riftfin/nw.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/riftfin/s.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/riftfin/se.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/riftfin/small/e.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/riftfin/small/n.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/riftfin/small/ne.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/riftfin/small/nw.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/riftfin/small/s.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/riftfin/small/se.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/riftfin/small/sw.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/riftfin/small/w.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/riftfin/sw.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/riftfin/w.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/rimefin/e.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/rimefin/n.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/rimefin/ne.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/rimefin/nw.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/rimefin/s.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/rimefin/se.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/rimefin/small/e.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/rimefin/small/n.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/rimefin/small/ne.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/rimefin/small/nw.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/rimefin/small/s.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/rimefin/small/se.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/rimefin/small/sw.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/rimefin/small/w.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/rimefin/small/walk_e_f0.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/rimefin/small/walk_e_f1.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/rimefin/small/walk_e_f2.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/rimefin/small/walk_e_f3.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/rimefin/small/walk_e_f4.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/rimefin/small/walk_e_f5.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/rimefin/small/walk_e_f6.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/rimefin/small/walk_e_f7.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/rimefin/small/walk_n_f0.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/rimefin/small/walk_n_f1.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/rimefin/small/walk_n_f2.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/rimefin/small/walk_n_f3.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/rimefin/small/walk_n_f4.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/rimefin/small/walk_n_f5.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/rimefin/small/walk_n_f6.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/rimefin/small/walk_n_f7.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/rimefin/small/walk_ne_f0.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/rimefin/small/walk_ne_f1.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/rimefin/small/walk_ne_f2.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/rimefin/small/walk_ne_f3.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/rimefin/small/walk_ne_f4.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/rimefin/small/walk_ne_f5.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/rimefin/small/walk_ne_f6.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/rimefin/small/walk_ne_f7.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/rimefin/small/walk_nw_f0.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/rimefin/small/walk_nw_f1.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/rimefin/small/walk_nw_f2.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/rimefin/small/walk_nw_f3.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/rimefin/small/walk_nw_f4.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/rimefin/small/walk_nw_f5.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/rimefin/small/walk_nw_f6.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/rimefin/small/walk_nw_f7.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/rimefin/small/walk_s_f0.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/rimefin/small/walk_s_f1.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/rimefin/small/walk_s_f2.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/rimefin/small/walk_s_f3.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/rimefin/small/walk_s_f4.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/rimefin/small/walk_s_f5.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/rimefin/small/walk_s_f6.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/rimefin/small/walk_s_f7.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/rimefin/small/walk_se_f0.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/rimefin/small/walk_se_f1.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/rimefin/small/walk_se_f2.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/rimefin/small/walk_se_f3.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/rimefin/small/walk_se_f4.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/rimefin/small/walk_se_f5.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/rimefin/small/walk_se_f6.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/rimefin/small/walk_se_f7.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/rimefin/small/walk_sw_f0.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/rimefin/small/walk_sw_f1.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/rimefin/small/walk_sw_f2.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/rimefin/small/walk_sw_f3.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/rimefin/small/walk_sw_f4.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/rimefin/small/walk_sw_f5.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/rimefin/small/walk_sw_f6.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/rimefin/small/walk_sw_f7.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/rimefin/small/walk_w_f0.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/rimefin/small/walk_w_f1.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/rimefin/small/walk_w_f2.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/rimefin/small/walk_w_f3.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/rimefin/small/walk_w_f4.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/rimefin/small/walk_w_f5.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/rimefin/small/walk_w_f6.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/rimefin/small/walk_w_f7.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/rimefin/sw.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/rimefin/w.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/scourmaw/e.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/scourmaw/n.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/scourmaw/ne.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/scourmaw/nw.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/scourmaw/s.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/scourmaw/se.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/scourmaw/small/e.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/scourmaw/small/n.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/scourmaw/small/ne.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/scourmaw/small/nw.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/scourmaw/small/s.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/scourmaw/small/se.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/scourmaw/small/sw.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/scourmaw/small/w.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/scourmaw/sw.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/scourmaw/w.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/sparkwick/e.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/sparkwick/n.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/sparkwick/ne.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/sparkwick/nw.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/sparkwick/s.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/sparkwick/se.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/sparkwick/small/e.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/sparkwick/small/n.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/sparkwick/small/ne.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/sparkwick/small/nw.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/sparkwick/small/s.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/sparkwick/small/se.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/sparkwick/small/sw.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/sparkwick/small/w.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/sparkwick/sw.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/sparkwick/w.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/stormwick/e.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/stormwick/n.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/stormwick/ne.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/stormwick/nw.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/stormwick/s.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/stormwick/se.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/stormwick/small/e.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/stormwick/small/n.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/stormwick/small/ne.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/stormwick/small/nw.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/stormwick/small/s.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/stormwick/small/se.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/stormwick/small/sw.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/stormwick/small/w.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/stormwick/sw.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/stormwick/w.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/tallowroot/e.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/tallowroot/n.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/tallowroot/ne.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/tallowroot/nw.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/tallowroot/s.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/tallowroot/se.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/tallowroot/small/e.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/tallowroot/small/n.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/tallowroot/small/ne.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/tallowroot/small/nw.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/tallowroot/small/s.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/tallowroot/small/se.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/tallowroot/small/sw.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/tallowroot/small/w.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/tallowroot/small/walk_e_f0.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/tallowroot/small/walk_e_f1.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/tallowroot/small/walk_e_f2.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/tallowroot/small/walk_e_f3.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/tallowroot/small/walk_e_f4.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/tallowroot/small/walk_e_f5.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/tallowroot/small/walk_e_f6.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/tallowroot/small/walk_e_f7.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/tallowroot/small/walk_n_f0.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/tallowroot/small/walk_n_f1.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/tallowroot/small/walk_n_f2.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/tallowroot/small/walk_n_f3.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/tallowroot/small/walk_n_f4.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/tallowroot/small/walk_n_f5.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/tallowroot/small/walk_n_f6.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/tallowroot/small/walk_n_f7.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/tallowroot/small/walk_ne_f0.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/tallowroot/small/walk_ne_f1.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/tallowroot/small/walk_ne_f2.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/tallowroot/small/walk_ne_f3.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/tallowroot/small/walk_ne_f4.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/tallowroot/small/walk_ne_f5.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/tallowroot/small/walk_ne_f6.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/tallowroot/small/walk_ne_f7.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/tallowroot/small/walk_nw_f0.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/tallowroot/small/walk_nw_f1.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/tallowroot/small/walk_nw_f2.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/tallowroot/small/walk_nw_f3.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/tallowroot/small/walk_nw_f4.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/tallowroot/small/walk_nw_f5.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/tallowroot/small/walk_nw_f6.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/tallowroot/small/walk_nw_f7.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/tallowroot/small/walk_s_f0.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/tallowroot/small/walk_s_f1.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/tallowroot/small/walk_s_f2.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/tallowroot/small/walk_s_f3.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/tallowroot/small/walk_s_f4.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/tallowroot/small/walk_s_f5.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/tallowroot/small/walk_s_f6.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/tallowroot/small/walk_s_f7.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/tallowroot/small/walk_se_f0.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/tallowroot/small/walk_se_f1.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/tallowroot/small/walk_se_f2.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/tallowroot/small/walk_se_f3.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/tallowroot/small/walk_se_f4.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/tallowroot/small/walk_se_f5.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/tallowroot/small/walk_se_f6.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/tallowroot/small/walk_se_f7.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/tallowroot/small/walk_sw_f0.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/tallowroot/small/walk_sw_f1.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/tallowroot/small/walk_sw_f2.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/tallowroot/small/walk_sw_f3.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/tallowroot/small/walk_sw_f4.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/tallowroot/small/walk_sw_f5.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/tallowroot/small/walk_sw_f6.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/tallowroot/small/walk_sw_f7.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/tallowroot/small/walk_w_f0.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/tallowroot/small/walk_w_f1.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/tallowroot/small/walk_w_f2.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/tallowroot/small/walk_w_f3.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/tallowroot/small/walk_w_f4.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/tallowroot/small/walk_w_f5.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/tallowroot/small/walk_w_f6.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/tallowroot/small/walk_w_f7.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/tallowroot/sw.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/assets/sprites/arena/tallowroot/w.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/docs/creatures/arena-starters-2026-10-07/forms/huskward.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/docs/creatures/arena-starters-2026-10-07/forms/huskward_arena_rotation_3x3.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/docs/creatures/arena-starters-2026-10-07/forms/rampartroot.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/docs/creatures/arena-starters-2026-10-07/forms/rampartroot_arena_rotation_3x3.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/docs/creatures/arena-starters-2026-10-07/forms/riftfin.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/docs/creatures/arena-starters-2026-10-07/forms/riftfin_arena_rotation_3x3.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/docs/creatures/arena-starters-2026-10-07/forms/scourmaw.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/docs/creatures/arena-starters-2026-10-07/forms/scourmaw_arena_rotation_3x3.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/docs/creatures/arena-starters-2026-10-07/forms/sparkwick.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/docs/creatures/arena-starters-2026-10-07/forms/sparkwick_arena_rotation_3x3.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/docs/creatures/arena-starters-2026-10-07/forms/stormwick.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/docs/creatures/arena-starters-2026-10-07/forms/stormwick_arena_rotation_3x3.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/docs/creatures/arena-starters-2026-10-07/kithflare_arena_front_take2_clear.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/docs/creatures/arena-starters-2026-10-07/kithflare_arena_rotation_3x3.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/docs/creatures/arena-starters-2026-10-07/rimefin_arena_front_take2_clear.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/docs/creatures/arena-starters-2026-10-07/rimefin_arena_rotation_3x3.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/docs/creatures/arena-starters-2026-10-07/tallowroot_arena_front_take2_clear.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/docs/creatures/arena-starters-2026-10-07/tallowroot_arena_rotation_3x3.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/docs/creatures/arena-starters-2026-10-07/walk/kithflare_n_sheet.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/docs/creatures/arena-starters-2026-10-07/walk/kithflare_nw_sheet.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/docs/creatures/arena-starters-2026-10-07/walk/kithflare_s_sheet.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/docs/creatures/arena-starters-2026-10-07/walk/kithflare_sw_sheet.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/docs/creatures/arena-starters-2026-10-07/walk/kithflare_w_sheet.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/docs/creatures/arena-starters-2026-10-07/walk/rimefin_n_sheet.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/docs/creatures/arena-starters-2026-10-07/walk/rimefin_nw_sheet.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/docs/creatures/arena-starters-2026-10-07/walk/rimefin_s_sheet.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/docs/creatures/arena-starters-2026-10-07/walk/rimefin_sw_sheet.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/docs/creatures/arena-starters-2026-10-07/walk/rimefin_w_sheet.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/docs/creatures/arena-starters-2026-10-07/walk/tallowroot_e_sheet.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/docs/creatures/arena-starters-2026-10-07/walk/tallowroot_n_sheet.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/docs/creatures/arena-starters-2026-10-07/walk/tallowroot_ne_sheet.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/docs/creatures/arena-starters-2026-10-07/walk/tallowroot_s_sheet.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/originals/docs/creatures/arena-starters-2026-10-07/walk/tallowroot_se_sheet.png",
+    "docs/creatures/arena-starters-2026-10-07/consistency/source-audit/palette-drift-and-magenta.json",
+    "docs/creatures/arena-starters-2026-10-07/consistency/changed-files.json"
+  ],
+  "normal_Godot_import_metadata_in_archive": [],
+  "normal_engine_cache_changes": ".godot import/cache outputs excluded from hand-authored-file list",
+  "gd_tscn_changes": [],
+  "paid_calls": 0,
+  "commit": null
+}

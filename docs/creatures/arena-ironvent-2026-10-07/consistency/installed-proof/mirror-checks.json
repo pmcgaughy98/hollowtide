@@ -1,0 +1,578 @@
+[
+  {
+    "form": "cinderhide",
+    "kind": "walk_small",
+    "facing": "nw",
+    "mirrors": "ne",
+    "frame": 0,
+    "rgba_exact": true
+  },
+  {
+    "form": "cinderhide",
+    "kind": "walk_small",
+    "facing": "nw",
+    "mirrors": "ne",
+    "frame": 1,
+    "rgba_exact": true
+  },
+  {
+    "form": "cinderhide",
+    "kind": "walk_small",
+    "facing": "nw",
+    "mirrors": "ne",
+    "frame": 2,
+    "rgba_exact": true
+  },
+  {
+    "form": "cinderhide",
+    "kind": "walk_small",
+    "facing": "nw",
+    "mirrors": "ne",
+    "frame": 3,
+    "rgba_exact": true
+  },
+  {
+    "form": "cinderhide",
+    "kind": "walk_small",
+    "facing": "nw",
+    "mirrors": "ne",
+    "frame": 4,
+    "rgba_exact": true
+  },
+  {
+    "form": "cinderhide",
+    "kind": "walk_small",
+    "facing": "nw",
+    "mirrors": "ne",
+    "frame": 5,
+    "rgba_exact": true
+  },
+  {
+    "form": "cinderhide",
+    "kind": "walk_small",
+    "facing": "nw",
+    "mirrors": "ne",
+    "frame": 6,
+    "rgba_exact": true
+  },
+  {
+    "form": "cinderhide",
+    "kind": "walk_small",
+    "facing": "nw",
+    "mirrors": "ne",
+    "frame": 7,
+    "rgba_exact": true
+  },
+  {
+    "form": "cinderhide",
+    "kind": "walk_small",
+    "facing": "w",
+    "mirrors": "e",
+    "frame": 0,
+    "rgba_exact": true
+  },
+  {
+    "form": "cinderhide",
+    "kind": "walk_small",
+    "facing": "w",
+    "mirrors": "e",
+    "frame": 1,
+    "rgba_exact": true
+  },
+  {
+    "form": "cinderhide",
+    "kind": "walk_small",
+    "facing": "w",
+    "mirrors": "e",
+    "frame": 2,
+    "rgba_exact": true
+  },
+  {
+    "form": "cinderhide",
+    "kind": "walk_small",
+    "facing": "w",
+    "mirrors": "e",
+    "frame": 3,
+    "rgba_exact": true
+  },
+  {
+    "form": "cinderhide",
+    "kind": "walk_small",
+    "facing": "w",
+    "mirrors": "e",
+    "frame": 4,
+    "rgba_exact": true
+  },
+  {
+    "form": "cinderhide",
+    "kind": "walk_small",
+    "facing": "w",
+    "mirrors": "e",
+    "frame": 5,
+    "rgba_exact": true
+  },
+  {
+    "form": "cinderhide",
+    "kind": "walk_small",
+    "facing": "w",
+    "mirrors": "e",
+    "frame": 6,
+    "rgba_exact": true
+  },
+  {
+    "form": "cinderhide",
+    "kind": "walk_small",
+    "facing": "w",
+    "mirrors": "e",
+    "frame": 7,
+    "rgba_exact": true
+  },
+  {
+    "form": "cinderhide",
+    "kind": "walk_small",
+    "facing": "sw",
+    "mirrors": "se",
+    "frame": 0,
+    "rgba_exact": true
+  },
+  {
+    "form": "cinderhide",
+    "kind": "walk_small",
+    "facing": "sw",
+    "mirrors": "se",
+    "frame": 1,
+    "rgba_exact": true
+  },
+  {
+    "form": "cinderhide",
+    "kind": "walk_small",
+    "facing": "sw",
+    "mirrors": "se",
+    "frame": 2,
+    "rgba_exact": true
+  },
+  {
+    "form": "cinderhide",
+    "kind": "walk_small",
+    "facing": "sw",
+    "mirrors": "se",
+    "frame": 3,
+    "rgba_exact": true
+  },
+  {
+    "form": "cinderhide",
+    "kind": "walk_small",
+    "facing": "sw",
+    "mirrors": "se",
+    "frame": 4,
+    "rgba_exact": true
+  },
+  {
+    "form": "cinderhide",
+    "kind": "walk_small",
+    "facing": "sw",
+    "mirrors": "se",
+    "frame": 5,
+    "rgba_exact": true
+  },
+  {
+    "form": "cinderhide",
+    "kind": "walk_small",
+    "facing": "sw",
+    "mirrors": "se",
+    "frame": 6,
+    "rgba_exact": true
+  },
+  {
+    "form": "cinderhide",
+    "kind": "walk_small",
+    "facing": "sw",
+    "mirrors": "se",
+    "frame": 7,
+    "rgba_exact": true
+  },
+  {
+    "form": "clinkerhide",
+    "kind": "walk_small",
+    "facing": "nw",
+    "mirrors": "ne",
+    "frame": 0,
+    "rgba_exact": true
+  },
+  {
+    "form": "clinkerhide",
+    "kind": "walk_small",
+    "facing": "nw",
+    "mirrors": "ne",
+    "frame": 1,
+    "rgba_exact": true
+  },
+  {
+    "form": "clinkerhide",
+    "kind": "walk_small",
+    "facing": "nw",
+    "mirrors": "ne",
+    "frame": 2,
+    "rgba_exact": true
+  },
+  {
+    "form": "clinkerhide",
+    "kind": "walk_small",
+    "facing": "nw",
+    "mirrors": "ne",
+    "frame": 3,
+    "rgba_exact": true
+  },
+  {
+    "form": "clinkerhide",
+    "kind": "walk_small",
+    "facing": "nw",
+    "mirrors": "ne",
+    "frame": 4,
+    "rgba_exact": true
+  },
+  {
+    "form": "clinkerhide",
+    "kind": "walk_small",
+    "facing": "nw",
+    "mirrors": "ne",
+    "frame": 5,
+    "rgba_exact": true
+  },
+  {
+    "form": "clinkerhide",
+    "kind": "walk_small",
+    "facing": "nw",
+    "mirrors": "ne",
+    "frame": 6,
+    "rgba_exact": true
+  },
+  {
+    "form": "clinkerhide",
+    "kind": "walk_small",
+    "facing": "nw",
+    "mirrors": "ne",
+    "frame": 7,
+    "rgba_exact": true
+  },
+  {
+    "form": "clinkerhide",
+    "kind": "walk_small",
+    "facing": "w",
+    "mirrors": "e",
+    "frame": 0,
+    "rgba_exact": true
+  },
+  {
+    "form": "clinkerhide",
+    "kind": "walk_small",
+    "facing": "w",
+    "mirrors": "e",
+    "frame": 1,
+    "rgba_exact": true
+  },
+  {
+    "form": "clinkerhide",
+    "kind": "walk_small",
+    "facing": "w",
+    "mirrors": "e",
+    "frame": 2,
+    "rgba_exact": true
+  },
+  {
+    "form": "clinkerhide",
+    "kind": "walk_small",
+    "facing": "w",
+    "mirrors": "e",
+    "frame": 3,
+    "rgba_exact": true
+  },
+  {
+    "form": "clinkerhide",
+    "kind": "walk_small",
+    "facing": "w",
+    "mirrors": "e",
+    "frame": 4,
+    "rgba_exact": true
+  },
+  {
+    "form": "clinkerhide",
+    "kind": "walk_small",
+    "facing": "w",
+    "mirrors": "e",
+    "frame": 5,
+    "rgba_exact": true
+  },
+  {
+    "form": "clinkerhide",
+    "kind": "walk_small",
+    "facing": "w",
+    "mirrors": "e",
+    "frame": 6,
+    "rgba_exact": true
+  },
+  {
+    "form": "clinkerhide",
+    "kind": "walk_small",
+    "facing": "w",
+    "mirrors": "e",
+    "frame": 7,
+    "rgba_exact": true
+  },
+  {
+    "form": "clinkerhide",
+    "kind": "walk_small",
+    "facing": "sw",
+    "mirrors": "se",
+    "frame": 0,
+    "rgba_exact": true
+  },
+  {
+    "form": "clinkerhide",
+    "kind": "walk_small",
+    "facing": "sw",
+    "mirrors": "se",
+    "frame": 1,
+    "rgba_exact": true
+  },
+  {
+    "form": "clinkerhide",
+    "kind": "walk_small",
+    "facing": "sw",
+    "mirrors": "se",
+    "frame": 2,
+    "rgba_exact": true
+  },
+  {
+    "form": "clinkerhide",
+    "kind": "walk_small",
+    "facing": "sw",
+    "mirrors": "se",
+    "frame": 3,
+    "rgba_exact": true
+  },
+  {
+    "form": "clinkerhide",
+    "kind": "walk_small",
+    "facing": "sw",
+    "mirrors": "se",
+    "frame": 4,
+    "rgba_exact": true
+  },
+  {
+    "form": "clinkerhide",
+    "kind": "walk_small",
+    "facing": "sw",
+    "mirrors": "se",
+    "frame": 5,
+    "rgba_exact": true
+  },
+  {
+    "form": "clinkerhide",
+    "kind": "walk_small",
+    "facing": "sw",
+    "mirrors": "se",
+    "frame": 6,
+    "rgba_exact": true
+  },
+  {
+    "form": "clinkerhide",
+    "kind": "walk_small",
+    "facing": "sw",
+    "mirrors": "se",
+    "frame": 7,
+    "rgba_exact": true
+  },
+  {
+    "form": "ironvent",
+    "kind": "walk_small",
+    "facing": "nw",
+    "mirrors": "ne",
+    "frame": 0,
+    "rgba_exact": true
+  },
+  {
+    "form": "ironvent",
+    "kind": "walk_small",
+    "facing": "nw",
+    "mirrors": "ne",
+    "frame": 1,
+    "rgba_exact": true
+  },
+  {
+    "form": "ironvent",
+    "kind": "walk_small",
+    "facing": "nw",
+    "mirrors": "ne",
+    "frame": 2,
+    "rgba_exact": true
+  },
+  {
+    "form": "ironvent",
+    "kind": "walk_small",
+    "facing": "nw",
+    "mirrors": "ne",
+    "frame": 3,
+    "rgba_exact": true
+  },
+  {
+    "form": "ironvent",
+    "kind": "walk_small",
+    "facing": "nw",
+    "mirrors": "ne",
+    "frame": 4,
+    "rgba_exact": true
+  },
+  {
+    "form": "ironvent",
+    "kind": "walk_small",
+    "facing": "nw",
+    "mirrors": "ne",
+    "frame": 5,
+    "rgba_exact": true
+  },
+  {
+    "form": "ironvent",
+    "kind": "walk_small",
+    "facing": "nw",
+    "mirrors": "ne",
+    "frame": 6,
+    "rgba_exact": true
+  },
+  {
+    "form": "ironvent",
+    "kind": "walk_small",
+    "facing": "nw",
+    "mirrors": "ne",
+    "frame": 7,
+    "rgba_exact": true
+  },
+  {
+    "form": "ironvent",
+    "kind": "walk_small",
+    "facing": "w",
+    "mirrors": "e",
+    "frame": 0,
+    "rgba_exact": true
+  },
+  {
+    "form": "ironvent",
+    "kind": "walk_small",
+    "facing": "w",
+    "mirrors": "e",
+    "frame": 1,
+    "rgba_exact": true
+  },
+  {
+    "form": "ironvent",
+    "kind": "walk_small",
+    "facing": "w",
+    "mirrors": "e",
+    "frame": 2,
+    "rgba_exact": true
+  },
+  {
+    "form": "ironvent",
+    "kind": "walk_small",
+    "facing": "w",
+    "mirrors": "e",
+    "frame": 3,
+    "rgba_exact": true
+  },
+  {
+    "form": "ironvent",
+    "kind": "walk_small",
+    "facing": "w",
+    "mirrors": "e",
+    "frame": 4,
+    "rgba_exact": true
+  },
+  {
+    "form": "ironvent",
+    "kind": "walk_small",
+    "facing": "w",
+    "mirrors": "e",
+    "frame": 5,
+    "rgba_exact": true
+  },
+  {
+    "form": "ironvent",
+    "kind": "walk_small",
+    "facing": "w",
+    "mirrors": "e",
+    "frame": 6,
+    "rgba_exact": true
+  },
+  {
+    "form": "ironvent",
+    "kind": "walk_small",
+    "facing": "w",
+    "mirrors": "e",
+    "frame": 7,
+    "rgba_exact": true
+  },
+  {
+    "form": "ironvent",
+    "kind": "walk_small",
+    "facing": "sw",
+    "mirrors": "se",
+    "frame": 0,
+    "rgba_exact": true
+  },
+  {
+    "form": "ironvent",
+    "kind": "walk_small",
+    "facing": "sw",
+    "mirrors": "se",
+    "frame": 1,
+    "rgba_exact": true
+  },
+  {
+    "form": "ironvent",
+    "kind": "walk_small",
+    "facing": "sw",
+    "mirrors": "se",
+    "frame": 2,
+    "rgba_exact": true
+  },
+  {
+    "form": "ironvent",
+    "kind": "walk_small",
+    "facing": "sw",
+    "mirrors": "se",
+    "frame": 3,
+    "rgba_exact": true
+  },
+  {
+    "form": "ironvent",
+    "kind": "walk_small",
+    "facing": "sw",
+    "mirrors": "se",
+    "frame": 4,
+    "rgba_exact": true
+  },
+  {
+    "form": "ironvent",
+    "kind": "walk_small",
+    "facing": "sw",
+    "mirrors": "se",
+    "frame": 5,
+    "rgba_exact": true
+  },
+  {
+    "form": "ironvent",
+    "kind": "walk_small",
+    "facing": "sw",
+    "mirrors": "se",
+    "frame": 6,
+    "rgba_exact": true
+  },
+  {
+    "form": "ironvent",
+    "kind": "walk_small",
+    "facing": "sw",
+    "mirrors": "se",
+    "frame": 7,
+    "rgba_exact": true
+  }
+]

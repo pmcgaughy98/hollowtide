@@ -1,0 +1,134 @@
+{
+  "cinderhide": {
+    "base": {
+      "canvas": [
+        96,
+        96
+      ],
+      "bbox": [
+        2,
+        7,
+        88,
+        83
+      ],
+      "foot_row": 82,
+      "mean_brightness": 37.8173,
+      "mean_saturation": 26.861,
+      "colour_count": 34,
+      "dark_edge_share_pct": 97.312,
+      "dark_edge_rgb_median": [
+        1,
+        1,
+        2
+      ],
+      "interior_lone_colour_pct": 22.0198
+    },
+    "facing_canvases": [
+      [
+        128,
+        128
+      ]
+    ],
+    "walk_canvases": [
+      [
+        128,
+        128
+      ]
+    ],
+    "small_canvases": [
+      [
+        42,
+        42
+      ]
+    ],
+    "source_edge_contacts": []
+  },
+  "clinkerhide": {
+    "base": {
+      "canvas": [
+        112,
+        112
+      ],
+      "bbox": [
+        5,
+        12,
+        109,
+        111
+      ],
+      "foot_row": 110,
+      "mean_brightness": 44.8438,
+      "mean_saturation": 22.3626,
+      "colour_count": 35,
+      "dark_edge_share_pct": 93.264,
+      "dark_edge_rgb_median": [
+        4,
+        4,
+        3
+      ],
+      "interior_lone_colour_pct": 26.986
+    },
+    "facing_canvases": [
+      [
+        144,
+        144
+      ]
+    ],
+    "walk_canvases": [
+      [
+        144,
+        144
+      ]
+    ],
+    "small_canvases": [
+      [
+        48,
+        48
+      ]
+    ],
+    "source_edge_contacts": []
+  },
+  "ironvent": {
+    "base": {
+      "canvas": [
+        128,
+        128
+      ],
+      "bbox": [
+        4,
+        10,
+        124,
+        124
+      ],
+      "foot_row": 123,
+      "mean_brightness": 45.3415,
+      "mean_saturation": 35.1248,
+      "colour_count": 40,
+      "dark_edge_share_pct": 95.701,
+      "dark_edge_rgb_median": [
+        5,
+        1,
+        1
+      ],
+      "interior_lone_colour_pct": 27.6343
+    },
+    "facing_canvases": [
+      [
+        160,
+        160
+      ]
+    ],
+    "walk_canvases": [
+      [
+        160,
+        160
+      ]
+    ],
+    "small_canvases": [
+      [
+        53,
+        53
+      ]
+    ],
+    "source_edge_contacts": []
+  }
+}

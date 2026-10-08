@@ -1,0 +1,32 @@
+[
+  {
+    "form": "kithflare",
+    "facing": "e",
+    "mirrors": "w",
+    "full_rgba_exact": true
+  },
+  {
+    "form": "rimefin",
+    "facing": "e",
+    "mirrors": "w",
+    "full_rgba_exact": true
+  },
+  {
+    "form": "sparkwick",
+    "facing": "e",
+    "mirrors": "w",
+    "full_rgba_exact": true
+  },
+  {
+    "form": "riftfin",
+    "facing": "nw",
+    "mirrors": "ne",
+    "full_rgba_exact": true
+  },
+  {
+    "form": "scourmaw",
+    "facing": "sw",
+    "mirrors": "se",
+    "full_rgba_exact": true
+  }
+]

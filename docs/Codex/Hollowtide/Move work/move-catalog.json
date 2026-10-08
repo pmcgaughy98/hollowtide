@@ -1,0 +1,356 @@
+{
+  "status": "provisional move names and numbers; source effects supplied by Preston",
+  "catalog": [
+    {
+      "creature": "cinderhide",
+      "essence": "Ember",
+      "sprite_ready": true,
+      "moves": [
+        {
+          "name": "Ember Flick",
+          "projectile": "clinker_ember",
+          "impact": "cinder_burst",
+          "brief": "A small controlled spark from an ember vent.",
+          "power": 32,
+          "max_uses": 0
+        },
+        {
+          "name": "Vent Rake",
+          "projectile": "cinder_arc",
+          "impact": "cinder_burst",
+          "brief": "A close foreclaw sweep that opens a brief line of heat.",
+          "power": 40,
+          "max_uses": 6
+        },
+        {
+          "name": "Coal Spit",
+          "projectile": "clinker_orb",
+          "impact": "clinker_star",
+          "brief": "A compact coal launched from the chest vents.",
+          "power": 50,
+          "max_uses": 4
+        },
+        {
+          "name": "Spineflare",
+          "projectile": "cinder_arc",
+          "impact": "clinker_burst",
+          "brief": "A warning flare along the broken spine.",
+          "power": 60,
+          "max_uses": 2
+        }
+      ]
+    },
+    {
+      "creature": "clinkerhide",
+      "essence": "Ember",
+      "sprite_ready": true,
+      "moves": [
+        {
+          "name": "Brow Shear",
+          "projectile": "clinker_arc",
+          "impact": "clinker_star",
+          "brief": "The swept brow shield cuts a hot arc.",
+          "power": 32,
+          "max_uses": 0
+        },
+        {
+          "name": "Clinker Toss",
+          "projectile": "clinker_rock",
+          "impact": "clinker_star",
+          "brief": "A heavy clinker knocked from the tail.",
+          "power": 40,
+          "max_uses": 6
+        },
+        {
+          "name": "Vent Row",
+          "projectile": "clinker_blade",
+          "impact": "clinker_burst",
+          "brief": "Paired vents fire in sequence along the spine.",
+          "power": 50,
+          "max_uses": 4
+        },
+        {
+          "name": "Slagburst",
+          "projectile": "clinker_orb",
+          "impact": "clinker_burst",
+          "brief": "Stored heat breaks through the shoulder crust.",
+          "power": 60,
+          "max_uses": 2
+        }
+      ]
+    },
+    {
+      "creature": "ironvent",
+      "essence": "Ember",
+      "sprite_ready": true,
+      "moves": [
+        {
+          "name": "Crest Ram",
+          "projectile": "iron_lance",
+          "impact": "iron_burst",
+          "brief": "The ram crest drives through a narrow opening.",
+          "power": 32,
+          "max_uses": 0
+        },
+        {
+          "name": "Club Cinder",
+          "projectile": "clinker_rock",
+          "impact": "iron_star",
+          "brief": "A tail club throws a clinker at the target.",
+          "power": 40,
+          "max_uses": 6
+        },
+        {
+          "name": "Vent Barrage",
+          "projectile": "iron_ember",
+          "impact": "iron_burst",
+          "brief": "The stepped ridge answers with repeated bursts.",
+          "power": 50,
+          "max_uses": 4
+        },
+        {
+          "name": "Furnace Roar",
+          "projectile": "iron_lance",
+          "impact": "iron_star",
+          "brief": "A full warning vent becomes a crushing blast.",
+          "power": 60,
+          "max_uses": 2
+        }
+      ]
+    },
+    {
+      "creature": "kithflare",
+      "essence": "Ember",
+      "sprite_ready": true,
+      "moves": [
+        {
+          "name": "Signal Spark",
+          "projectile": "clinker_ember",
+          "impact": "kith_burst",
+          "brief": "A quick spark that marks the route ahead.",
+          "power": 32,
+          "max_uses": 0
+        },
+        {
+          "name": "Tail Brake",
+          "projectile": "kith_arc",
+          "impact": "kith_burst",
+          "brief": "The forked tail snaps during a sudden stop.",
+          "power": 40,
+          "max_uses": 6
+        },
+        {
+          "name": "Shoulder Kindle",
+          "projectile": "kith_arc",
+          "impact": "way_burst",
+          "brief": "Paired shoulder sacs flash as it changes pace.",
+          "power": 50,
+          "max_uses": 4
+        },
+        {
+          "name": "Handoff Dash",
+          "projectile": "way_arc",
+          "impact": "kith_burst",
+          "brief": "A fast handoff step carries an ember through the target.",
+          "power": 60,
+          "max_uses": 2
+        }
+      ]
+    },
+    {
+      "creature": "wayburn",
+      "essence": "Ember",
+      "sprite_ready": true,
+      "moves": [
+        {
+          "name": "Relay Arc",
+          "projectile": "way_arc",
+          "impact": "way_burst",
+          "brief": "A sweeping heat signal from the forward shoulder.",
+          "power": 32,
+          "max_uses": 0
+        },
+        {
+          "name": "Shoulder Drive",
+          "projectile": "way_lance",
+          "impact": "way_star",
+          "brief": "The layered shoulder chambers propel a direct rush.",
+          "power": 40,
+          "max_uses": 6
+        },
+        {
+          "name": "Tail Shutter",
+          "projectile": "kith_arc",
+          "impact": "way_star",
+          "brief": "The tail shutter opens just long enough to flash.",
+          "power": 50,
+          "max_uses": 4
+        },
+        {
+          "name": "Wayflare",
+          "projectile": "way_lance",
+          "impact": "way_burst",
+          "brief": "A long run ends in a focused fireburst.",
+          "power": 60,
+          "max_uses": 2
+        }
+      ]
+    },
+    {
+      "creature": "coalcrest",
+      "essence": "Ember",
+      "sprite_ready": true,
+      "moves": [
+        {
+          "name": "Crest Signal",
+          "projectile": "coal_spark",
+          "impact": "coal_burst",
+          "brief": "The split crest sends a distant fire signal.",
+          "power": 32,
+          "max_uses": 0
+        },
+        {
+          "name": "Furnace Bolt",
+          "projectile": "coal_core",
+          "impact": "coal_burst",
+          "brief": "The shielded chest furnace fires a compact bolt.",
+          "power": 40,
+          "max_uses": 6
+        },
+        {
+          "name": "Plate Rake",
+          "projectile": "coal_claw",
+          "impact": "coal_ultimate",
+          "brief": "Plated haunches anchor a clawing strike.",
+          "power": 50,
+          "max_uses": 4
+        },
+        {
+          "name": "Longfire Burst",
+          "projectile": "coal_spark",
+          "impact": "coal_burst",
+          "brief": "The runner releases heat saved over a long distance.",
+          "power": 60,
+          "max_uses": 2
+        }
+      ]
+    },
+    {
+      "creature": "fusern",
+      "essence": "Ember",
+      "sprite_ready": true,
+      "moves": [
+        {
+          "name": "Seam Spark",
+          "projectile": "fusern_spark",
+          "impact": "fusern_burst",
+          "brief": "A thin spark escapes the furnace seam.",
+          "power": 32,
+          "max_uses": 0
+        },
+        {
+          "name": "Hex Cut",
+          "projectile": "fusern_wedge",
+          "impact": "fusern_burst",
+          "brief": "The faceted shell strikes along an angular edge.",
+          "power": 40,
+          "max_uses": 6
+        },
+        {
+          "name": "Ember Pellet",
+          "projectile": "fusern_ember",
+          "impact": "fusern_burst",
+          "brief": "A small heat pellet rolls from under the shell.",
+          "power": 50,
+          "max_uses": 4
+        },
+        {
+          "name": "Kilnburst",
+          "projectile": "fusern_coal",
+          "impact": "fusern_burst",
+          "brief": "The tucked chamber opens in a short blast.",
+          "power": 60,
+          "max_uses": 2
+        }
+      ]
+    },
+    {
+      "creature": "slagglass",
+      "essence": "Ember",
+      "sprite_ready": true,
+      "moves": [
+        {
+          "name": "Glass Spur",
+          "projectile": "slag_spur",
+          "impact": "slag_burst",
+          "brief": "An opened glass plate throws a sharp hot spur.",
+          "power": 32,
+          "max_uses": 0
+        },
+        {
+          "name": "Shield Flare",
+          "projectile": "slag_glass",
+          "impact": "slag_star",
+          "brief": "The raised shield reflects a narrow heat flash.",
+          "power": 40,
+          "max_uses": 6
+        },
+        {
+          "name": "Furnace Shard",
+          "projectile": "fusern_coal",
+          "impact": "slag_star",
+          "brief": "A fractured plate carries heat from the protected chamber.",
+          "power": 50,
+          "max_uses": 4
+        },
+        {
+          "name": "Glassburst",
+          "projectile": "slag_spur",
+          "impact": "slag_burst",
+          "brief": "The opened shell releases a broad asymmetric burst.",
+          "power": 60,
+          "max_uses": 2
+        }
+      ]
+    },
+    {
+      "creature": "vitrecrag",
+      "essence": "Ember",
+      "sprite_ready": true,
+      "moves": [
+        {
+          "name": "Fracture Dart",
+          "projectile": "vit_chip",
+          "impact": "vit_burst",
+          "brief": "A small hot shard breaks from a glass shelf.",
+          "power": 32,
+          "max_uses": 0
+        },
+        {
+          "name": "Window Flare",
+          "projectile": "vit_flame",
+          "impact": "vit_burst",
+          "brief": "Heat escapes through fractured chamber windows.",
+          "power": 40,
+          "max_uses": 6
+        },
+        {
+          "name": "Plate Lunge",
+          "projectile": "vit_lance",
+          "impact": "vit_burst",
+          "brief": "A shielding front plate becomes a piercing strike.",
+          "power": 50,
+          "max_uses": 4
+        },
+        {
+          "name": "Kiln Star",
+          "projectile": "vit_rock",
+          "impact": "vit_burst",
+          "brief": "The guarded heat chamber releases a wide burst.",
+          "power": 60,
+          "max_uses": 2
+        }
+      ]
+    }
+  ]
+}

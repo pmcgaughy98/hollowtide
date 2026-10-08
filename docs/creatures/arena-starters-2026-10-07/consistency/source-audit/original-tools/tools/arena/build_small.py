@@ -1,0 +1,49 @@
+"""Arena-size sprites for the starters (Claude, 2026-10-07).
+  python tools/arena/build_small.py
+Shrinks every facing still and walk frame to a third (tools/arena/downscale.py), so a
+creature's pixels match the arena maps' (both shown at 3x). Walk cycles were generated for
+five facings per creature; the other three are mirrored. Writes
+assets/sprites/arena/<name>/small/<facing>.png and .../small/walk_<facing>_f0..f7.png."""
+import sys
+from pathlib import Path
+from PIL import Image, ImageOps
+
+sys.path.insert(0, str(Path(__file__).parent))
+from downscale import shrink  # noqa: E402
+
+ART = Path("assets/sprites/arena")
+WALK = Path("docs/creatures/arena-starters-2026-10-07/walk")
+FACINGS = ["s", "se", "e", "ne", "n", "nw", "w", "sw"]
+MIRROR = {"e": "w", "se": "sw", "ne": "nw", "w": "e", "sw": "se", "nw": "ne"}
+
+
+def walk_frames(name, facing):
+    sheet = WALK / f"{name}_{facing}_sheet.png"
+    if not sheet.exists():
+        return None
+    im = Image.open(sheet).convert("RGBA")
+    cw = im.height // 2  # 4 x 2 grid of 8 frames
+    return [im.crop((c * cw, r * cw, (c + 1) * cw, (r + 1) * cw)) for r in range(2) for c in range(4)]
+
+
+for name in ("kithflare", "tallowroot", "rimefin", "sparkwick", "stormwick", "huskward", "rampartroot", "riftfin", "scourmaw"):
+    out = ART / name / "small"
+    out.mkdir(parents=True, exist_ok=True)
+    for f in FACINGS:
+        shrink(Image.open(ART / name / f"{f}.png"), 3).save(out / f"{f}.png")
+    made = []
+    for f in FACINGS:
+        frames = walk_frames(name, f)
+        flip = False
+        if frames is None and f in MIRROR:
+            frames, flip = walk_frames(name, MIRROR[f]), True
+        if frames is None:
+            continue
+        for i, fr in enumerate(frames):
+            cell = Image.open(ART / name / f"{f}.png").size
+            if fr.size != cell:
+                fr = fr.resize(cell, Image.NEAREST)
+            small = shrink(fr, 3)
+            (ImageOps.mirror(small) if flip else small).save(out / f"walk_{f}_f{i}.png")
+        made.append(f + ("(mirrored)" if flip else ""))
+    print(name, "walks:", ", ".join(made) or "none yet")

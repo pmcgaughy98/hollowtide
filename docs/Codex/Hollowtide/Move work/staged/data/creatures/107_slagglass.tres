@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="CreatureData" load_steps=8 format=3]
+
+[ext_resource type="Script" path="res://scripts/creature_data.gd" id="1_script"]
+[ext_resource type="Texture2D" path="res://assets/sprites/creatures/slagglass.png" id="2_sprite"]
+[ext_resource type="Resource" path="res://data/moves/slagglass_glass_spur.tres" id="3_move"]
+[ext_resource type="Resource" path="res://data/moves/slagglass_shield_flare.tres" id="4_move"]
+[ext_resource type="Resource" path="res://data/moves/slagglass_furnace_shard.tres" id="5_move"]
+[ext_resource type="Resource" path="res://data/moves/slagglass_glassburst.tres" id="6_move"]
+
+[ext_resource type="Texture2D" path="res://assets/sprites/creatures/slagglass_back.png" id="7_back"]
+
+[resource]
+script = ExtResource("1_script")
+id = 107
+creature_name = "Slagglass"
+essence = 0
+sprite = ExtResource("2_sprite")
+back_sprite = ExtResource("7_back")
+moves = [ExtResource("3_move"), ExtResource("4_move"), ExtResource("5_move"), ExtResource("6_move")]
+base_hp = 60
+base_attack = 60
+base_defense = 60
+base_speed = 60

@@ -1,0 +1,68 @@
+[
+  {
+    "relative": "line_stage1.png",
+    "length": 119302,
+    "sha256": "5e3eab6c5a20d605e46382202b7b9332f6d964fdd87732a2acef2f552c292d0a",
+    "lastWriteUtc": "2026-10-07T22:48:07.8260145Z"
+  },
+  {
+    "relative": "line_stage2.png",
+    "length": 119171,
+    "sha256": "79e04379b34f176533618d1bc97c5aca1c2c065123359e30e5513c3728daab73",
+    "lastWriteUtc": "2026-10-07T22:48:08.9450019Z"
+  },
+  {
+    "relative": "line_stage3.png",
+    "length": 119803,
+    "sha256": "302388258368fa0feb505578e51abe35de00869bfdab95be4bad6bfb0d32c3bc",
+    "lastWriteUtc": "2026-10-07T22:48:10.0301989Z"
+  },
+  {
+    "relative": "roar_1.75s.png",
+    "length": 148128,
+    "sha256": "389cd36db798299446ef8a43c68072f1f0732d373bb699a3257d67adc8b03bd6",
+    "lastWriteUtc": "2026-10-07T22:48:12.2814908Z"
+  },
+  {
+    "relative": "roar_2.15s.png",
+    "length": 138901,
+    "sha256": "15de6d2ac4b7595d9972e8892d7f89d95034ede3badc02d2f09ca5942754f36f",
+    "lastWriteUtc": "2026-10-07T22:48:12.4820694Z"
+  },
+  {
+    "relative": "roar_2.40s.png",
+    "length": 141605,
+    "sha256": "428315ecae0622a04968b01f2567f5bfe8cd21a70f810ff60c5f642247a39615",
+    "lastWriteUtc": "2026-10-07T22:48:12.5979467Z"
+  },
+  {
+    "relative": "roar_2.90s.png",
+    "length": 139090,
+    "sha256": "a94ab77446edcecd75e9f41d457e8112977d28f0f3addc51f6359ca47681bd39",
+    "lastWriteUtc": "2026-10-07T22:48:12.8644623Z"
+  },
+  {
+    "relative": "rock_cracked.png",
+    "length": 121305,
+    "sha256": "5cdfd7b106b0f5975db64208e848a89cab04a2d6dd4dd50ce529e1eeb526d3cd",
+    "lastWriteUtc": "2026-10-07T22:48:14.1800243Z"
+  },
+  {
+    "relative": "rock_rubble.png",
+    "length": 117869,
+    "sha256": "7c33dd15b707b0973df77cf3ad6935d5233e2697ab11da37ad166202c80c3684",
+    "lastWriteUtc": "2026-10-07T22:48:15.1143034Z"
+  },
+  {
+    "relative": "rock_slam.png",
+    "length": 119326,
+    "sha256": "654af9c2919ca544aa1ff4b0dd7c60e09ef526bf2c0aa3d62c6a5861849d1a04",
+    "lastWriteUtc": "2026-10-07T22:48:13.9140563Z"
+  },
+  {
+    "relative": "wall_slam.png",
+    "length": 114336,
+    "sha256": "f39c77b5dcfc0fdf71b2f5ce77441702e6419ec5e03e2c15eea5d66ca15f681b",
+    "lastWriteUtc": "2026-10-07T22:48:13.6806580Z"
+  }
+]

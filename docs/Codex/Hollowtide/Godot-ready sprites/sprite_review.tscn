@@ -1,0 +1,164 @@
+[gd_scene load_steps=9 format=3]
+
+[ext_resource type="Texture2D" path="res://assets/sprites/creatures/cinderhide.png" id="1_sprite"]
+[ext_resource type="Texture2D" path="res://assets/sprites/creatures/clinkerhide.png" id="2_sprite"]
+[ext_resource type="Texture2D" path="res://assets/sprites/creatures/ironvent.png" id="3_sprite"]
+[ext_resource type="Texture2D" path="res://assets/sprites/creatures/kithflare.png" id="4_sprite"]
+[ext_resource type="Texture2D" path="res://assets/sprites/creatures/wayburn.png" id="5_sprite"]
+[ext_resource type="Texture2D" path="res://assets/sprites/creatures/coalcrest.png" id="6_sprite"]
+[ext_resource type="Texture2D" path="res://assets/sprites/creatures/fusern.png" id="7_sprite"]
+[ext_resource type="Texture2D" path="res://assets/sprites/creatures/slagglass.png" id="8_sprite"]
+
+[node name="SpriteReview" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.085, 0.102, 0.117, 1)
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 18.0
+offset_right = 800.0
+offset_bottom = 58.0
+theme_override_font_sizes/font_size = 24
+text = "HOLLOWTIDE | SPRITE REVIEW"
+
+[node name="Cinderhide" type="Sprite2D" parent="."]
+position = Vector2(142, 174)
+scale = Vector2(1.8, 1.8)
+texture_filter = 1
+texture = ExtResource("1_sprite")
+
+[node name="CinderhideLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 37.0
+offset_top = 275.0
+offset_right = 247.0
+offset_bottom = 311.0
+horizontal_alignment = 1
+theme_override_font_sizes/font_size = 16
+text = "Cinderhide"
+
+[node name="Clinkerhide" type="Sprite2D" parent="."]
+position = Vector2(422, 174)
+scale = Vector2(1.8, 1.8)
+texture_filter = 1
+texture = ExtResource("2_sprite")
+
+[node name="ClinkerhideLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 317.0
+offset_top = 275.0
+offset_right = 527.0
+offset_bottom = 311.0
+horizontal_alignment = 1
+theme_override_font_sizes/font_size = 16
+text = "Clinkerhide"
+
+[node name="Ironvent" type="Sprite2D" parent="."]
+position = Vector2(702, 174)
+scale = Vector2(1.8, 1.8)
+texture_filter = 1
+texture = ExtResource("3_sprite")
+
+[node name="IronventLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 597.0
+offset_top = 275.0
+offset_right = 807.0
+offset_bottom = 311.0
+horizontal_alignment = 1
+theme_override_font_sizes/font_size = 16
+text = "Ironvent"
+
+[node name="Kithflare" type="Sprite2D" parent="."]
+position = Vector2(982, 174)
+scale = Vector2(1.8, 1.8)
+texture_filter = 1
+texture = ExtResource("4_sprite")
+
+[node name="KithflareLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 877.0
+offset_top = 275.0
+offset_right = 1087.0
+offset_bottom = 311.0
+horizontal_alignment = 1
+theme_override_font_sizes/font_size = 16
+text = "Kithflare"
+
+[node name="Wayburn" type="Sprite2D" parent="."]
+position = Vector2(142, 452)
+scale = Vector2(1.8, 1.8)
+texture_filter = 1
+texture = ExtResource("5_sprite")
+
+[node name="WayburnLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 37.0
+offset_top = 553.0
+offset_right = 247.0
+offset_bottom = 589.0
+horizontal_alignment = 1
+theme_override_font_sizes/font_size = 16
+text = "Wayburn"
+
+[node name="Coalcrest" type="Sprite2D" parent="."]
+position = Vector2(422, 452)
+scale = Vector2(1.8, 1.8)
+texture_filter = 1
+texture = ExtResource("6_sprite")
+
+[node name="CoalcrestLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 317.0
+offset_top = 553.0
+offset_right = 527.0
+offset_bottom = 589.0
+horizontal_alignment = 1
+theme_override_font_sizes/font_size = 16
+text = "Coalcrest"
+
+[node name="Fusern" type="Sprite2D" parent="."]
+position = Vector2(702, 452)
+scale = Vector2(1.8, 1.8)
+texture_filter = 1
+texture = ExtResource("7_sprite")
+
+[node name="FusernLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 597.0
+offset_top = 553.0
+offset_right = 807.0
+offset_bottom = 589.0
+horizontal_alignment = 1
+theme_override_font_sizes/font_size = 16
+text = "Fusern"
+
+[node name="Slagglass" type="Sprite2D" parent="."]
+position = Vector2(982, 452)
+scale = Vector2(1.8, 1.8)
+texture_filter = 1
+texture = ExtResource("8_sprite")
+
+[node name="SlagglassLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 877.0
+offset_top = 553.0
+offset_right = 1087.0
+offset_bottom = 589.0
+horizontal_alignment = 1
+theme_override_font_sizes/font_size = 16
+text = "Slagglass"

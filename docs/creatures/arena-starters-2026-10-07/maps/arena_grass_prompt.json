@@ -1,0 +1,9 @@
+{
+ "prompt": "Top-down pixel art arena for a creature battle game seen from above: a mown grass pitch with light and dark stripes, white chalk boundary lines, a centre line and centre circle, a few wooden crates near the edges, and a row of stadium stands packed with a tiny pixel crowd along the top edge. Bright, clean, readable game background with no characters on the pitch.",
+ "prompt_style": "rd_pro__default",
+ "width": 384,
+ "height": 384,
+ "num_images": 1,
+ "remove_bg": true,
+ "reference_images": []
+}

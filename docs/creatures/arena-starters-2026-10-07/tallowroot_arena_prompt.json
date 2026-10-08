@@ -1,0 +1,11 @@
+{
+ "prompt": "Top-down action game sprite of the same creature as the reference image, a stocky green plant creature carrying a big seed pod with a curled sprout on its back, seen from above at a three-quarter overhead angle, the camera about 45 degrees above, like a sprite in a top-down arena battle game, facing down and to the right toward the camera, standing ready to fight. A small, readable game sprite: chunky clear shapes, a crisp dark outline, the same colours, markings and signature features as the reference image, slightly chibi proportions. Whole creature centred with empty space on every side. On a plain white background.",
+ "prompt_style": "rd_pro__default",
+ "width": 96,
+ "height": 96,
+ "num_images": 2,
+ "remove_bg": true,
+ "reference_images": [
+  "assets/sprites/creatures/starter_material_detail_2026_10_05/1701_tallowroot_front_material_detail.png"
+ ]
+}

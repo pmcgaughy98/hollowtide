@@ -1,0 +1,58 @@
+[
+  {
+    "original": "C:\\Users\\pmcga\\Downloads\\images.jfif",
+    "current": "C:\\Users\\pmcga\\Documents\\Codex\\Hollowtide\\Reference Images\\Overworld\\overworld-reference-dark.jfif",
+    "sha256": "A18C1C1A4CB6EBEE649E5B635C6030EF916CF1B4A6BFE9EE550ADD7A939B5C6C",
+    "bytes": 11105,
+    "status": "reference or unapproved candidate"
+  },
+  {
+    "original": "C:\\Users\\pmcga\\Downloads\\images (1).jfif",
+    "current": "C:\\Users\\pmcga\\Documents\\Codex\\Hollowtide\\Reference Images\\Overworld\\overworld-reference-farm.jfif",
+    "sha256": "DC34CAFE1CC931B34B1BE05C50D2B008E8F25DC446A3C6D8D99280D21F23955A",
+    "bytes": 61819,
+    "status": "reference or unapproved candidate"
+  },
+  {
+    "original": "C:\\Users\\pmcga\\Downloads\\Image.png",
+    "current": "C:\\Users\\pmcga\\Documents\\Codex\\Hollowtide\\Incoming\\Needs Review\\Stone candidates\\stone-candidate-a.png",
+    "sha256": "9BFE538EA7CD7B86C82A5A597162267B53506677C404E44FC267853B4135624A",
+    "bytes": 2022311,
+    "status": "reference or unapproved candidate"
+  },
+  {
+    "original": "C:\\Users\\pmcga\\Downloads\\Image (1).png",
+    "current": "C:\\Users\\pmcga\\Documents\\Codex\\Hollowtide\\Incoming\\Needs Review\\Stone candidates\\stone-candidate-b.png",
+    "sha256": "7D36A14E070EE254E32368B352C30E2193E22E599C7BB81B237C6E64F7AC236E",
+    "bytes": 1871827,
+    "status": "reference or unapproved candidate"
+  },
+  {
+    "original": "C:\\Users\\pmcga\\Downloads\\St. Joseph Creaturedex Design.docx",
+    "current": "C:\\Users\\pmcga\\Documents\\Codex\\Hollowtide\\Research Originals\\St. Joseph Creaturedex Design - downloaded 2026-09-27.docx",
+    "sha256": "42882CBE8122011EAA35F9084DFD73208C8E95F3841C33E01336331DE19C17B8",
+    "bytes": 3041710,
+    "status": "reference or unapproved candidate"
+  },
+  {
+    "original": "C:\\Users\\pmcga\\Downloads\\Images\\2026-H2\\Emberville.webp",
+    "current": "C:\\Users\\pmcga\\Documents\\Codex\\Hollowtide\\Reference Images\\Overworld\\emberville-external-reference.webp",
+    "sha256": "90D5331DB9745329CBB57A377A15ADF3EEF5F385C61DEA5FB6AE62B4292AA8E4",
+    "bytes": 372870,
+    "status": "external-game reference only"
+  },
+  {
+    "original": "C:\\Users\\pmcga\\Downloads\\Images\\2026-H2\\shark_zoom.png",
+    "current": "C:\\Users\\pmcga\\Documents\\Codex\\Hollowtide\\Reference Images\\Historical Creatures\\legacy-shark-rimefin-reference.png",
+    "sha256": "31461C422AE0807449D3751AF663A9B8AA09144008311538ABA13C7ED70C4CCD",
+    "bytes": 10261,
+    "status": "historical Rimefin reference only"
+  },
+  {
+    "original": "C:\\Users\\pmcga\\Downloads\\Images\\2026-H2\\image-1789150103075.png",
+    "current": "C:\\Users\\pmcga\\Documents\\Codex\\Hollowtide\\Incoming\\Potential Duplicates\\legacy-shark-exact-duplicate.png",
+    "sha256": "31461C422AE0807449D3751AF663A9B8AA09144008311538ABA13C7ED70C4CCD",
+    "bytes": 10261,
+    "status": "exact duplicate of legacy-shark-rimefin-reference.png; retained for review"
+  }
+]

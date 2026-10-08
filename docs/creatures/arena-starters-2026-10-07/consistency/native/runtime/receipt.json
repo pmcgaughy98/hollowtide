@@ -1,0 +1,271 @@
+{
+  "mode": "runtime",
+  "project": "C:\\Users\\pmcga\\dev\\hollowtide",
+  "engine": "C:\\Users\\pmcga\\Games\\Tools\\Godot_v4.7.2\\Godot_v4.7.2-stable_win64.exe",
+  "arguments": "--path \"C:\\Users\\pmcga\\dev\\hollowtide\" --fixed-fps 30 --script res://tools/debug/arena_stages.gd",
+  "pid": 26644,
+  "startedUtc": "2026-10-07T14:57:43.9879192Z",
+  "completedUtc": "2026-10-07T14:57:52.8984626Z",
+  "timeout": false,
+  "exitCode": 0,
+  "stdout": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\arena-consistency-review-2026-10-07\\pipeline-audit\\runs\\runtime_20261007_095743_6bd7544b\\stdout.log",
+  "stderr": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\arena-consistency-review-2026-10-07\\pipeline-audit\\runs\\runtime_20261007_095743_6bd7544b\\stderr.log",
+  "scriptErrors": [],
+  "generalErrors": [
+    "ERROR: 3 resources still in use at exit (run with --verbose for details)."
+  ],
+  "warnings": [
+    "WARNING: 9 ObjectDB instances were leaked at exit (run with `--verbose` for details)."
+  ],
+  "captureRoot": "C:\\Users\\pmcga\\AppData\\Roaming\\Godot\\app_userdata\\Hollowtide\\arena_captures",
+  "expectedCaptureNames": [
+    "stormwick_vs_rampartroot.png",
+    "scourmaw_vs_sparkwick.png",
+    "huskward_vs_riftfin.png",
+    "riftfin_vs_rampartroot.png",
+    "stormwick_card.png",
+    "stormwick_strike.png"
+  ],
+  "copiedCaptureNames": [
+    "stormwick_vs_rampartroot.png",
+    "scourmaw_vs_sparkwick.png",
+    "huskward_vs_riftfin.png",
+    "riftfin_vs_rampartroot.png",
+    "stormwick_card.png",
+    "stormwick_strike.png"
+  ],
+  "capturesBefore": [
+    {
+      "relative": "1_start.png",
+      "length": 115120,
+      "sha256": "fc1fe7a358f787fe2018c3d6d79af670c510de20ed3dc777ffa8f17bc2e6e61f",
+      "lastWriteUtc": "2026-10-07T12:35:15.0408105Z"
+    },
+    {
+      "relative": "2_walk.png",
+      "length": 115198,
+      "sha256": "dd73f3ed64e0bc5c6ad595f26d43e79c70bdfa754a4025270a3393d77e0b0906",
+      "lastWriteUtc": "2026-10-07T12:35:15.2776596Z"
+    },
+    {
+      "relative": "3_fireball.png",
+      "length": 115492,
+      "sha256": "0cb3417612597a8b0ae5ee545c3fd76d2a55a1af6a0a2b64a66fdfe12a08316c",
+      "lastWriteUtc": "2026-10-07T12:35:15.4109123Z"
+    },
+    {
+      "relative": "4_fire_hit.png",
+      "length": 115599,
+      "sha256": "dc2bfbd1efcb164caa55e636b7f5b0f33fbb4ab796ab1cd04bb677abbb0548e4",
+      "lastWriteUtc": "2026-10-07T12:35:15.7592263Z"
+    },
+    {
+      "relative": "5_beam.png",
+      "length": 115727,
+      "sha256": "f0fd3ba1acb0466950723e7f7a70d2cd9287c59791b622d3c65fd155abd4db5c",
+      "lastWriteUtc": "2026-10-07T12:35:16.6450159Z"
+    },
+    {
+      "relative": "6_seed.png",
+      "length": 115926,
+      "sha256": "2d1d49542723c990e4162da09dff8e29b339ba0d720a68637a3a61c02d880d03",
+      "lastWriteUtc": "2026-10-07T12:35:17.6181244Z"
+    },
+    {
+      "relative": "7_seed_burst.png",
+      "length": 118055,
+      "sha256": "4bacab618a2c1aeafdc74182260fc6981fc14c17b828bb5730d8e5e7e85d9767",
+      "lastWriteUtc": "2026-10-07T12:35:17.9280343Z"
+    },
+    {
+      "relative": "8_stone_arena.png",
+      "length": 128942,
+      "sha256": "5c6b246f99bf9f5eced25fd9942263c3dccf99902e39e7a14d75572672d25956",
+      "lastWriteUtc": "2026-10-07T12:35:18.2279639Z"
+    },
+    {
+      "relative": "east.png",
+      "length": 35135,
+      "sha256": "12ccb203cff439030c28d8511e22d82ab920e95bdc3bbbdc3cc7afffd44103f0",
+      "lastWriteUtc": "2026-10-07T12:27:04.8816760Z"
+    },
+    {
+      "relative": "huskward_vs_riftfin.png",
+      "length": 121946,
+      "sha256": "174084389adf35bdbbb6a3206ad73cd6f42e500185784b17d322f8d1d96e1d7c",
+      "lastWriteUtc": "2026-10-07T13:08:34.7057813Z"
+    },
+    {
+      "relative": "north.png",
+      "length": 31737,
+      "sha256": "4ce7d0f25ea261fa187b167f8320ec749efd45d9534be1c323d01867131877b0",
+      "lastWriteUtc": "2026-10-07T12:27:05.8868641Z"
+    },
+    {
+      "relative": "northwest.png",
+      "length": 33591,
+      "sha256": "9fe285ba3fa7336ce588a7a6dc20c7df10d5631521da3ab4e7e53b87aab6e723",
+      "lastWriteUtc": "2026-10-07T12:27:06.4063413Z"
+    },
+    {
+      "relative": "riftfin_vs_rampartroot.png",
+      "length": 120591,
+      "sha256": "ce6acb3a0be82c3d3f66ebe0c4cdb2fd331d33acf0cd7365e6292ef80642eac2",
+      "lastWriteUtc": "2026-10-07T13:08:35.5075424Z"
+    },
+    {
+      "relative": "scourmaw_vs_sparkwick.png",
+      "length": 115087,
+      "sha256": "73801648ae346adfbb1d2b6e00af68c517f0940a5993a2db57719c04a2795348",
+      "lastWriteUtc": "2026-10-07T13:08:33.8324362Z"
+    },
+    {
+      "relative": "southeast.png",
+      "length": 34762,
+      "sha256": "01e9d169a1aa2cf7d70d00f699ffbec58b4bc3e55e39b6f1bab959d754e6d036",
+      "lastWriteUtc": "2026-10-07T12:27:05.3826403Z"
+    },
+    {
+      "relative": "start.png",
+      "length": 34940,
+      "sha256": "569cc5a3ca7b9770845c30cb47af649893588a03b8adb3e4b6bee54dba192916",
+      "lastWriteUtc": "2026-10-07T12:27:04.3711226Z"
+    },
+    {
+      "relative": "stormwick_card.png",
+      "length": 140063,
+      "sha256": "b5bfdee4c2fca1b46bf7b52d31b47e159f71982b28246bb1656e77325183aa49",
+      "lastWriteUtc": "2026-10-07T13:08:35.9784895Z"
+    },
+    {
+      "relative": "stormwick_strike.png",
+      "length": 109480,
+      "sha256": "4b61445098d4a21ce7b2fc4a172e1f791dc89fbbeed384ca528d2cd4c80e7925",
+      "lastWriteUtc": "2026-10-07T13:08:36.8909755Z"
+    },
+    {
+      "relative": "stormwick_vs_rampartroot.png",
+      "length": 112548,
+      "sha256": "b793be46e640539ce832b29d88e2e944124b5ce1eceeba191f3eabade7d44c15",
+      "lastWriteUtc": "2026-10-07T13:08:33.0254205Z"
+    }
+  ],
+  "capturesAfter": [
+    {
+      "relative": "1_start.png",
+      "length": 115120,
+      "sha256": "fc1fe7a358f787fe2018c3d6d79af670c510de20ed3dc777ffa8f17bc2e6e61f",
+      "lastWriteUtc": "2026-10-07T12:35:15.0408105Z"
+    },
+    {
+      "relative": "2_walk.png",
+      "length": 115198,
+      "sha256": "dd73f3ed64e0bc5c6ad595f26d43e79c70bdfa754a4025270a3393d77e0b0906",
+      "lastWriteUtc": "2026-10-07T12:35:15.2776596Z"
+    },
+    {
+      "relative": "3_fireball.png",
+      "length": 115492,
+      "sha256": "0cb3417612597a8b0ae5ee545c3fd76d2a55a1af6a0a2b64a66fdfe12a08316c",
+      "lastWriteUtc": "2026-10-07T12:35:15.4109123Z"
+    },
+    {
+      "relative": "4_fire_hit.png",
+      "length": 115599,
+      "sha256": "dc2bfbd1efcb164caa55e636b7f5b0f33fbb4ab796ab1cd04bb677abbb0548e4",
+      "lastWriteUtc": "2026-10-07T12:35:15.7592263Z"
+    },
+    {
+      "relative": "5_beam.png",
+      "length": 115727,
+      "sha256": "f0fd3ba1acb0466950723e7f7a70d2cd9287c59791b622d3c65fd155abd4db5c",
+      "lastWriteUtc": "2026-10-07T12:35:16.6450159Z"
+    },
+    {
+      "relative": "6_seed.png",
+      "length": 115926,
+      "sha256": "2d1d49542723c990e4162da09dff8e29b339ba0d720a68637a3a61c02d880d03",
+      "lastWriteUtc": "2026-10-07T12:35:17.6181244Z"
+    },
+    {
+      "relative": "7_seed_burst.png",
+      "length": 118055,
+      "sha256": "4bacab618a2c1aeafdc74182260fc6981fc14c17b828bb5730d8e5e7e85d9767",
+      "lastWriteUtc": "2026-10-07T12:35:17.9280343Z"
+    },
+    {
+      "relative": "8_stone_arena.png",
+      "length": 128942,
+      "sha256": "5c6b246f99bf9f5eced25fd9942263c3dccf99902e39e7a14d75572672d25956",
+      "lastWriteUtc": "2026-10-07T12:35:18.2279639Z"
+    },
+    {
+      "relative": "east.png",
+      "length": 35135,
+      "sha256": "12ccb203cff439030c28d8511e22d82ab920e95bdc3bbbdc3cc7afffd44103f0",
+      "lastWriteUtc": "2026-10-07T12:27:04.8816760Z"
+    },
+    {
+      "relative": "huskward_vs_riftfin.png",
+      "length": 116883,
+      "sha256": "3c9751b675f5b654c3804c5b937ff716c570571571b6de4cd2a45f6f1f1efb98",
+      "lastWriteUtc": "2026-10-07T14:57:50.4386632Z"
+    },
+    {
+      "relative": "north.png",
+      "length": 31737,
+      "sha256": "4ce7d0f25ea261fa187b167f8320ec749efd45d9534be1c323d01867131877b0",
+      "lastWriteUtc": "2026-10-07T12:27:05.8868641Z"
+    },
+    {
+      "relative": "northwest.png",
+      "length": 33591,
+      "sha256": "9fe285ba3fa7336ce588a7a6dc20c7df10d5631521da3ab4e7e53b87aab6e723",
+      "lastWriteUtc": "2026-10-07T12:27:06.4063413Z"
+    },
+    {
+      "relative": "riftfin_vs_rampartroot.png",
+      "length": 123287,
+      "sha256": "86b7b014ff3d6176077c72998848911f84a77a4728d8805bb1e5b228a2c97642",
+      "lastWriteUtc": "2026-10-07T14:57:51.2396050Z"
+    },
+    {
+      "relative": "scourmaw_vs_sparkwick.png",
+      "length": 112599,
+      "sha256": "a63dc167aa7f9c76f04113b3f911c3c8aa6f84e52ff55bda047c0f33a228dc9e",
+      "lastWriteUtc": "2026-10-07T14:57:49.5078084Z"
+    },
+    {
+      "relative": "southeast.png",
+      "length": 34762,
+      "sha256": "01e9d169a1aa2cf7d70d00f699ffbec58b4bc3e55e39b6f1bab959d754e6d036",
+      "lastWriteUtc": "2026-10-07T12:27:05.3826403Z"
+    },
+    {
+      "relative": "start.png",
+      "length": 34940,
+      "sha256": "569cc5a3ca7b9770845c30cb47af649893588a03b8adb3e4b6bee54dba192916",
+      "lastWriteUtc": "2026-10-07T12:27:04.3711226Z"
+    },
+    {
+      "relative": "stormwick_card.png",
+      "length": 140085,
+      "sha256": "fb7f1499ce2739c0d4719e88da8318b8b61415e7eb8b5bbae213e3f8640c16c8",
+      "lastWriteUtc": "2026-10-07T14:57:51.7122981Z"
+    },
+    {
+      "relative": "stormwick_strike.png",
+      "length": 109751,
+      "sha256": "2eb1552a10d697e435f68d0b2c1ec6a1ddcf317f25d70dff7eaaf0dac5c4671d",
+      "lastWriteUtc": "2026-10-07T14:57:52.6246168Z"
+    },
+    {
+      "relative": "stormwick_vs_rampartroot.png",
+      "length": 110737,
+      "sha256": "b0551f67e1f00949a7958d4f60ea1245e489df9fc1ef0da2d5202969bd7dac73",
+      "lastWriteUtc": "2026-10-07T14:57:48.5109468Z"
+    }
+  ],
+  "runtimeCaptureFreshnessRequiresReview": true,
+  "gameWasNotRunByPreparation": false
+}

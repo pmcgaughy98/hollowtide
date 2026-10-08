@@ -1,0 +1,956 @@
+{
+  "forms": {
+    "kithflare": {
+      "full_spread_before": 5.7176000000000045,
+      "full_spread_after": 0.9782999999999902,
+      "small_spread_before": 12.743799999999993,
+      "small_spread_after": 7.498999999999995,
+      "magenta_repaired": 0
+    },
+    "sparkwick": {
+      "full_spread_before": 26.876199999999997,
+      "full_spread_after": 4.1299999999999955,
+      "small_spread_before": 20.26310000000001,
+      "small_spread_after": 12.249899999999997,
+      "magenta_repaired": 0
+    },
+    "stormwick": {
+      "full_spread_before": 15.1691,
+      "full_spread_after": 1.131699999999995,
+      "small_spread_before": 17.1211,
+      "small_spread_after": 5.925700000000006,
+      "magenta_repaired": 0
+    },
+    "tallowroot": {
+      "full_spread_before": 6.067999999999998,
+      "full_spread_after": 1.1133000000000095,
+      "small_spread_before": 4.712400000000002,
+      "small_spread_after": 2.6269000000000062,
+      "magenta_repaired": 23
+    },
+    "huskward": {
+      "full_spread_before": 5.980699999999999,
+      "full_spread_after": 2.5304,
+      "small_spread_before": 7.285800000000009,
+      "small_spread_after": 4.183000000000007,
+      "magenta_repaired": 0
+    },
+    "rampartroot": {
+      "full_spread_before": 10.037300000000002,
+      "full_spread_after": 0.6584000000000003,
+      "small_spread_before": 14.597700000000003,
+      "small_spread_after": 4.298699999999997,
+      "magenta_repaired": 0
+    },
+    "rimefin": {
+      "full_spread_before": 11.006199999999993,
+      "full_spread_after": 1.2347000000000037,
+      "small_spread_before": 13.274500000000003,
+      "small_spread_after": 6.385599999999997,
+      "magenta_repaired": 0
+    },
+    "riftfin": {
+      "full_spread_before": 8.98830000000001,
+      "full_spread_after": 0.2798999999999978,
+      "small_spread_before": 11.017299999999992,
+      "small_spread_after": 5.815700000000007,
+      "magenta_repaired": 0
+    },
+    "scourmaw": {
+      "full_spread_before": 9.513799999999996,
+      "full_spread_after": 1.0195000000000078,
+      "small_spread_before": 11.4037,
+      "small_spread_after": 3.6753,
+      "magenta_repaired": 0
+    }
+  },
+  "source_geometry_count": 87,
+  "walk_frame_count": 120,
+  "changed_transparent_rgba": 0,
+  "source_guards_current": true,
+  "all_exact_own_palette": true,
+  "all_same_alpha": true,
+  "all_same_support": true,
+  "all_same_foot": true,
+  "all_same_canvas": true,
+  "sources": [
+    {
+      "path": "assets/sprites/arena/kithflare/s.png",
+      "original_sha": "f654f5041e6f4574e423439ff4aa9322a94117037acc39d668de428609b3b7b8",
+      "fixed_sha": "48c291f216e475937f18c1884ae199d02146a8f0e8e37cd913c35b44634a77c7",
+      "same_canvas": true,
+      "same_alpha": true,
+      "same_support": true,
+      "exact_own_palette": true,
+      "transparent_rgba_equal": true
+    },
+    {
+      "path": "assets/sprites/arena/kithflare/se.png",
+      "original_sha": "9fe1e7fbbd14beac49e0bfdd0351c743cc261e6ae4503dedafede85dd237f983",
+      "fixed_sha": "c527ab6c2b8ec71947a3f0f89627017d90b21bbb9dad4c6cc02f6fd6b533f908",
+      "same_canvas": true,
+      "same_alpha": true,
+      "same_support": true,
+      "exact_own_palette": true,
+      "transparent_rgba_equal": true
+    },
+    {
+      "path": "assets/sprites/arena/kithflare/e.png",
+      "original_sha": "8f63617e65904325d0e219c90f4b6d9f1f150189f2c217cbadfb55f90b3e2888",
+      "fixed_sha": "76739e1fab5f24ea211d892d231c28f6e4786703635ad603c21c80bbc83b086a",
+      "same_canvas": true,
+      "same_alpha": true,
+      "same_support": true,
+      "exact_own_palette": true,
+      "transparent_rgba_equal": true
+    },
+    {
+      "path": "assets/sprites/arena/kithflare/ne.png",
+      "original_sha": "96c923bdfbdfca823ccf43262870859a94f03ccaf3c52e8508aac30881151945",
+      "fixed_sha": "dba7444fd6720425c766f85a2c8d35f94fb37ba8fecce0deac8ac5c3e5553378",
+      "same_canvas": true,
+      "same_alpha": true,
+      "same_support": true,
+      "exact_own_palette": true,
+      "transparent_rgba_equal": true
+    },
+    {
+      "path": "assets/sprites/arena/kithflare/n.png",
+      "original_sha": "d4d503ae5053f7f69a6ec42f8f94ed31954ec47b5c79e10d016a833470f2efd6",
+      "fixed_sha": "a831c5660ce2cf42bccdc256eb2c2db1a58efea40a1e80d42a325d7423ee0c35",
+      "same_canvas": true,
+      "same_alpha": true,
+      "same_support": true,
+      "exact_own_palette": true,
+      "transparent_rgba_equal": true
+    },
+    {
+      "path": "assets/sprites/arena/kithflare/nw.png",
+      "original_sha": "2be89568b7ead994abb7464e479b0864eb0a3b9ea87bf8214d13bfaa59abcd5b",
+      "fixed_sha": "6422b15c62ecea61932c2601e80f721f0b7dd5d6b06bd29611f2c9182fe4e719",
+      "same_canvas": true,
+      "same_alpha": true,
+      "same_support": true,
+      "exact_own_palette": true,
+      "transparent_rgba_equal": true
+    },
+    {
+      "path": "assets/sprites/arena/kithflare/w.png",
+      "original_sha": "8bc4993b15c98e5c00096567fa4ee6a04529d642952704a0fd75d0ae72f9eee5",
+      "fixed_sha": "b3ae148760f705dee0e6552171ef5cd29c55b25580fcfecb6c6fb403b0e69c3c",
+      "same_canvas": true,
+      "same_alpha": true,
+      "same_support": true,
+      "exact_own_palette": true,
+      "transparent_rgba_equal": true
+    },
+    {
+      "path": "assets/sprites/arena/kithflare/sw.png",
+      "original_sha": "2940081522905035a2ad229357d82dd6750b5f356c17e3b78ec5e067bef26e40",
+      "fixed_sha": "19c5eb50b8bf996db3a694d97af47b816c0f6738c43d689db096e49a87274ab9",
+      "same_canvas": true,
+      "same_alpha": true,
+      "same_support": true,
+      "exact_own_palette": true,
+      "transparent_rgba_equal": true
+    },
+    {
+      "path": "docs/creatures/arena-starters-2026-10-07/walk/kithflare_n_sheet.png",
+      "original_sha": "49581ea3c31c8fa2cef13d3f2b43b7f699af0f31b653399626d90bc19e09c756",
+      "fixed_sha": "f693fe6bf82c38378e52a47e61f5984664295df0af51b4363f261afd74776420",
+      "same_canvas": true,
+      "same_alpha": true,
+      "same_support": true,
+      "exact_own_palette": true,
+      "transparent_rgba_equal": true
+    },
+    {
+      "path": "docs/creatures/arena-starters-2026-10-07/walk/kithflare_nw_sheet.png",
+      "original_sha": "902bc1f2bc7cc802a24ef80be7455ebf46ef9639d8edf979d6c0930d74dd38a1",
+      "fixed_sha": "84fae421d839720bce726d14ec10341f6dba7dc13a26c3787a63a1a7fced35ca",
+      "same_canvas": true,
+      "same_alpha": true,
+      "same_support": true,
+      "exact_own_palette": true,
+      "transparent_rgba_equal": true
+    },
+    {
+      "path": "docs/creatures/arena-starters-2026-10-07/walk/kithflare_s_sheet.png",
+      "original_sha": "ae07977d734dda754843a5bb057793775d6fbc4b9c050f26c952e940127eb10d",
+      "fixed_sha": "1e68766ef3a4522eb49979218becfd2c2eb03a18624c864153375b845752e50c",
+      "same_canvas": true,
+      "same_alpha": true,
+      "same_support": true,
+      "exact_own_palette": true,
+      "transparent_rgba_equal": true
+    },
+    {
+      "path": "docs/creatures/arena-starters-2026-10-07/walk/kithflare_sw_sheet.png",
+      "original_sha": "bb9b0906800e1e1e233275177805a444cbce4f37d407aaaf148920637f430139",
+      "fixed_sha": "1b58a4182fe05193eb246ea8e0940ca0aa82721fcdd91f88b5c70f00246ee7c9",
+      "same_canvas": true,
+      "same_alpha": true,
+      "same_support": true,
+      "exact_own_palette": true,
+      "transparent_rgba_equal": true
+    },
+    {
+      "path": "docs/creatures/arena-starters-2026-10-07/walk/kithflare_w_sheet.png",
+      "original_sha": "44a69aab284d62359625e034cd9b3ad1c1806998e0404427f94b722481229e85",
+      "fixed_sha": "d855f4aec8688fec4293be1da16bf8e423490fb52382a22fb887a4b444e25909",
+      "same_canvas": true,
+      "same_alpha": true,
+      "same_support": true,
+      "exact_own_palette": true,
+      "transparent_rgba_equal": true
+    },
+    {
+      "path": "assets/sprites/arena/sparkwick/s.png",
+      "original_sha": "3dcc2d5a7e1902b14090ccaf17d6536f7f76515e7cdb1aa92d6ac3a6514a61f5",
+      "fixed_sha": "39140a8fe87c431d9dcdde4e17bed2fbda6ea25b8677363ab42b185e0e49a77b",
+      "same_canvas": true,
+      "same_alpha": true,
+      "same_support": true,
+      "exact_own_palette": true,
+      "transparent_rgba_equal": true
+    },
+    {
+      "path": "assets/sprites/arena/sparkwick/se.png",
+      "original_sha": "97aa9ea16b5b17841ecfdf2001c93cd184d47555780f693bafe2b77e6b2a9db6",
+      "fixed_sha": "b967cb1fe44c770f9640024145b6d62171f8cca02219d65ddb856142c52d8943",
+      "same_canvas": true,
+      "same_alpha": true,
+      "same_support": true,
+      "exact_own_palette": true,
+      "transparent_rgba_equal": true
+    },
+    {
+      "path": "assets/sprites/arena/sparkwick/e.png",
+      "original_sha": "195525e55b94381da8366c4cc8a5db05605b90dc442ab091d96adcde138f8531",
+      "fixed_sha": "89b70e013435000aebe244d86b1ba6e259e8797fff899257410f858fd81a719c",
+      "same_canvas": true,
+      "same_alpha": true,
+      "same_support": true,
+      "exact_own_palette": true,
+      "transparent_rgba_equal": true
+    },
+    {
+      "path": "assets/sprites/arena/sparkwick/ne.png",
+      "original_sha": "60924d0762b42e6f4ea80a57c1f387e6901035a48e682c03f6b2891658a6cb7d",
+      "fixed_sha": "1f4245f4dded9fdc7364cd043889da357fbb5d20143902648a86a91f3873e9ea",
+      "same_canvas": true,
+      "same_alpha": true,
+      "same_support": true,
+      "exact_own_palette": true,
+      "transparent_rgba_equal": true
+    },
+    {
+      "path": "assets/sprites/arena/sparkwick/n.png",
+      "original_sha": "34fdf130795b79de37a1cd3786529fc9cf0513ad0a5527f3d1f002969fdc3ff4",
+      "fixed_sha": "195097b25d5b0ef28e69718f75364334fe23bb72fd20b3414760c3372c6b0502",
+      "same_canvas": true,
+      "same_alpha": true,
+      "same_support": true,
+      "exact_own_palette": true,
+      "transparent_rgba_equal": true
+    },
+    {
+      "path": "assets/sprites/arena/sparkwick/nw.png",
+      "original_sha": "c2a7fc4049ae52ea86ad3f02c115c63b687a5f13801bdefd0cb0fbe2a2f3d338",
+      "fixed_sha": "68c64bb5bf9eb8f41c4a668f33ce84b43b26f23f0e57e42378ff8baae14bf0c0",
+      "same_canvas": true,
+      "same_alpha": true,
+      "same_support": true,
+      "exact_own_palette": true,
+      "transparent_rgba_equal": true
+    },
+    {
+      "path": "assets/sprites/arena/sparkwick/w.png",
+      "original_sha": "bb04e37f7b8ee5df998cc3186d3f7f44ed0c39cf1a8f71c501dfaa0e13198f58",
+      "fixed_sha": "f5d49967d0b8762bce1b5c7f2eb338d4530ae73d01eec11a7be2552e365c7efc",
+      "same_canvas": true,
+      "same_alpha": true,
+      "same_support": true,
+      "exact_own_palette": true,
+      "transparent_rgba_equal": true
+    },
+    {
+      "path": "assets/sprites/arena/sparkwick/sw.png",
+      "original_sha": "cf6475fd623668258d21333987872bc6116e05286e94b4fb5856b078788b1d31",
+      "fixed_sha": "a3421a2322d0e3cd058a333a99af5f29e60d5f4ea67a3438b0e64eb49d780c96",
+      "same_canvas": true,
+      "same_alpha": true,
+      "same_support": true,
+      "exact_own_palette": true,
+      "transparent_rgba_equal": true
+    },
+    {
+      "path": "assets/sprites/arena/stormwick/s.png",
+      "original_sha": "428467ff9a9f9fd58f7735d4cf3db1f86f2725d0c0390f44287b338f88df3e07",
+      "fixed_sha": "863cae982527f671b919f0e957a668b05d056279bb5733b441d55f24fcd9f708",
+      "same_canvas": true,
+      "same_alpha": true,
+      "same_support": true,
+      "exact_own_palette": true,
+      "transparent_rgba_equal": true
+    },
+    {
+      "path": "assets/sprites/arena/stormwick/se.png",
+      "original_sha": "6cf8983dab6b663f99ca2353dc4dff0bc4dd29b4b2cba3d5629caf3ffbb09f05",
+      "fixed_sha": "686e042a8ae003867e6b9ee8d59c16094c2cb371e85a1e5c9e8f04b684ec0c92",
+      "same_canvas": true,
+      "same_alpha": true,
+      "same_support": true,
+      "exact_own_palette": true,
+      "transparent_rgba_equal": true
+    },
+    {
+      "path": "assets/sprites/arena/stormwick/e.png",
+      "original_sha": "89e88441102fdb0aa0d457c449af989260ab2d698ce6ddd02de7fadee7695df6",
+      "fixed_sha": "4b57248df7b76a8cc74711e7d9da5d865ba13526e858fabf6f1cd88235f4be4f",
+      "same_canvas": true,
+      "same_alpha": true,
+      "same_support": true,
+      "exact_own_palette": true,
+      "transparent_rgba_equal": true
+    },
+    {
+      "path": "assets/sprites/arena/stormwick/ne.png",
+      "original_sha": "3d5d3c8792222cf0196b8f7e0ba2278821d888eaa3fbb41d4197deb9ba9c7f91",
+      "fixed_sha": "e7b8b55bfa28aa87217a8baa33ae0795b3ff4be40446ae2779b6061a81f5efae",
+      "same_canvas": true,
+      "same_alpha": true,
+      "same_support": true,
+      "exact_own_palette": true,
+      "transparent_rgba_equal": true
+    },
+    {
+      "path": "assets/sprites/arena/stormwick/n.png",
+      "original_sha": "cff4a5d7a0bb5bb08823c8b0f04c88adc7bf30503399c57476489d96adfb114d",
+      "fixed_sha": "324023d7b9f15382a9ab35c6dd342efb2644e42842f2e281e094c99acdb087cf",
+      "same_canvas": true,
+      "same_alpha": true,
+      "same_support": true,
+      "exact_own_palette": true,
+      "transparent_rgba_equal": true
+    },
+    {
+      "path": "assets/sprites/arena/stormwick/nw.png",
+      "original_sha": "898e8379bdf5ff3f187c65a30f25a131c6a108f6850e85fa87ad58f778d120cd",
+      "fixed_sha": "28cce57f5a68ffd085e7f9c7144447d3e6bc6815b8a9685775b582eeb1090734",
+      "same_canvas": true,
+      "same_alpha": true,
+      "same_support": true,
+      "exact_own_palette": true,
+      "transparent_rgba_equal": true
+    },
+    {
+      "path": "assets/sprites/arena/stormwick/w.png",
+      "original_sha": "28de8669df3f8617f085929cce730543892fc0130ff6e1cdb2c358c6c238e8ad",
+      "fixed_sha": "18c95174fdd68a95b7b2a56f8a7bf396799b41132d15f9408133b18451ab8b91",
+      "same_canvas": true,
+      "same_alpha": true,
+      "same_support": true,
+      "exact_own_palette": true,
+      "transparent_rgba_equal": true
+    },
+    {
+      "path": "assets/sprites/arena/stormwick/sw.png",
+      "original_sha": "cb9a6f6ea980b6fa2769420a6fa0cc2b1a7e36587436f43291b648a29382957b",
+      "fixed_sha": "75f0515c4960dde3c97c7b0bc5e1665618ff70a0f94a84a75e0b6b34f2288d98",
+      "same_canvas": true,
+      "same_alpha": true,
+      "same_support": true,
+      "exact_own_palette": true,
+      "transparent_rgba_equal": true
+    },
+    {
+      "path": "assets/sprites/arena/tallowroot/s.png",
+      "original_sha": "3f7c0907cec6af15222d7e9736678ce0df9908490e227762920b8f6957ff70a9",
+      "fixed_sha": "248cd0be979a86f15729ca5b9ec7ffc0b68a87da8ba8a540d894caa8030f6e74",
+      "same_canvas": true,
+      "same_alpha": true,
+      "same_support": true,
+      "exact_own_palette": true,
+      "transparent_rgba_equal": true
+    },
+    {
+      "path": "assets/sprites/arena/tallowroot/se.png",
+      "original_sha": "589f83f863f7d174a395330ccebc00c7fb3e2c519ebfc4980f41fead3dd222d3",
+      "fixed_sha": "3f3d72013e832dbe0c2b03c45ba4724d881c052e35725fcdf3a587422faa0ad4",
+      "same_canvas": true,
+      "same_alpha": true,
+      "same_support": true,
+      "exact_own_palette": true,
+      "transparent_rgba_equal": true
+    },
+    {
+      "path": "assets/sprites/arena/tallowroot/e.png",
+      "original_sha": "8c57b6aa999bf36bed349700153f7e56e9272f65cafcf0cea03525ce5ae82753",
+      "fixed_sha": "1c6cd19aa4fa8cbc6d6678614f23aa18ce70967a5fc7bcef1dd23361a96e0f2d",
+      "same_canvas": true,
+      "same_alpha": true,
+      "same_support": true,
+      "exact_own_palette": true,
+      "transparent_rgba_equal": true
+    },
+    {
+      "path": "assets/sprites/arena/tallowroot/ne.png",
+      "original_sha": "c28e7d8f97cbf334c3a8bde8e333f124159c695f167c8b42eca22d0e2aa42ef1",
+      "fixed_sha": "9770e22eca0728b7e1d2109de747d96556c43eb23fdc1b1cd9ef3e2a316f2a9e",
+      "same_canvas": true,
+      "same_alpha": true,
+      "same_support": true,
+      "exact_own_palette": true,
+      "transparent_rgba_equal": true
+    },
+    {
+      "path": "assets/sprites/arena/tallowroot/n.png",
+      "original_sha": "7f81bfd95dfaffde961e41480db4656dcd2afc0c561aefeaab12177bd0ca72df",
+      "fixed_sha": "1e3ffdc0dd63da02e04340f67f66da6d5be0482280fcbfa9d90c232e7fc59253",
+      "same_canvas": true,
+      "same_alpha": true,
+      "same_support": true,
+      "exact_own_palette": true,
+      "transparent_rgba_equal": true
+    },
+    {
+      "path": "assets/sprites/arena/tallowroot/nw.png",
+      "original_sha": "a25b9a159009d702985a967d78c1ccb2161a6481f9c25f2492f294a126a3a369",
+      "fixed_sha": "2a545b90e7b8c88817a9ae906b860442f0c0b3cfb84ad884704f9b75db3d5838",
+      "same_canvas": true,
+      "same_alpha": true,
+      "same_support": true,
+      "exact_own_palette": true,
+      "transparent_rgba_equal": true
+    },
+    {
+      "path": "assets/sprites/arena/tallowroot/w.png",
+      "original_sha": "09d0b24221a57f91e41f0fe909b6b5caac462aa13d54be4b6520f0adcc99499b",
+      "fixed_sha": "8dc45123440daf185cd44eaf6151f3147cc6939b2b50bfe1b720163b8140922d",
+      "same_canvas": true,
+      "same_alpha": true,
+      "same_support": true,
+      "exact_own_palette": true,
+      "transparent_rgba_equal": true
+    },
+    {
+      "path": "assets/sprites/arena/tallowroot/sw.png",
+      "original_sha": "a40df0f567d6a21dfb1dd45771ce1e58fa16fb32c973c78502c5598905dd3495",
+      "fixed_sha": "c5353ae866a778ea2f8a1474a92494473c8c42df0ea06f997745078d86e1039e",
+      "same_canvas": true,
+      "same_alpha": true,
+      "same_support": true,
+      "exact_own_palette": true,
+      "transparent_rgba_equal": true
+    },
+    {
+      "path": "docs/creatures/arena-starters-2026-10-07/walk/tallowroot_e_sheet.png",
+      "original_sha": "4dcb9603b0e80fb0224c61f9b170b53d46b13af7466c69fec36342c2b5de2fd4",
+      "fixed_sha": "0f90de425dba1486769937f2d264be136aa0251ac78a0018a7dd0755b9eac9be",
+      "same_canvas": true,
+      "same_alpha": true,
+      "same_support": true,
+      "exact_own_palette": true,
+      "transparent_rgba_equal": true
+    },
+    {
+      "path": "docs/creatures/arena-starters-2026-10-07/walk/tallowroot_n_sheet.png",
+      "original_sha": "c113b5fab080663ccfe67e1d3b68f1647af41b16fa334bc94fdcdbda8f030ff8",
+      "fixed_sha": "1ea2bc5d1c80abfb08b0130a49d4ecf1c48fbe710731dc5cb5ce87940e7a06a9",
+      "same_canvas": true,
+      "same_alpha": true,
+      "same_support": true,
+      "exact_own_palette": true,
+      "transparent_rgba_equal": true
+    },
+    {
+      "path": "docs/creatures/arena-starters-2026-10-07/walk/tallowroot_ne_sheet.png",
+      "original_sha": "9e643448d6148c870da57b3d3824105adb9da944ffea990a871a62ab73c95da8",
+      "fixed_sha": "4877afa681b2d513631d67b731f0bd9ceb67f0003da69ea23f558e9f917b6212",
+      "same_canvas": true,
+      "same_alpha": true,
+      "same_support": true,
+      "exact_own_palette": true,
+      "transparent_rgba_equal": true
+    },
+    {
+      "path": "docs/creatures/arena-starters-2026-10-07/walk/tallowroot_s_sheet.png",
+      "original_sha": "d5ba3be22271ba4b63a320b0acdb11e5010813a1b1ada9e471b42c5fcfd316af",
+      "fixed_sha": "36de33dbe210959e11e8be147e2c3edcc9d4f84a83c0a9fee7dca5043d4b5160",
+      "same_canvas": true,
+      "same_alpha": true,
+      "same_support": true,
+      "exact_own_palette": true,
+      "transparent_rgba_equal": true
+    },
+    {
+      "path": "docs/creatures/arena-starters-2026-10-07/walk/tallowroot_se_sheet.png",
+      "original_sha": "25677be532ed4fc5b4714632e6f9ab46373435483643d13e941273a23076c869",
+      "fixed_sha": "7a0fb69b562ffb5c9c6631c4b79fbba379fe18bf78f0601bc4443a5f021d3d30",
+      "same_canvas": true,
+      "same_alpha": true,
+      "same_support": true,
+      "exact_own_palette": true,
+      "transparent_rgba_equal": true
+    },
+    {
+      "path": "assets/sprites/arena/huskward/s.png",
+      "original_sha": "34f3f43daac95b9d400e3c2845b7d931225229e1ea080b1f67b099232192cfe5",
+      "fixed_sha": "b612a67f13590f2267a8567f9abf12a4a8ef2510734acd3496adc9c1347e7121",
+      "same_canvas": true,
+      "same_alpha": true,
+      "same_support": true,
+      "exact_own_palette": true,
+      "transparent_rgba_equal": true
+    },
+    {
+      "path": "assets/sprites/arena/huskward/se.png",
+      "original_sha": "ce3c861d36d9d3168aeda09ea0dcbee0bba79f3074c4f130a05323156b4d8ac8",
+      "fixed_sha": "db18337d8f67b80f50953340d028dd80ba3969fbf9a1fa3ac3538b62c21f4269",
+      "same_canvas": true,
+      "same_alpha": true,
+      "same_support": true,
+      "exact_own_palette": true,
+      "transparent_rgba_equal": true
+    },
+    {
+      "path": "assets/sprites/arena/huskward/e.png",
+      "original_sha": "5079ab86f8b1c8251381cd5226db54c7d730d0300efa4a963d9832e8a7cdf560",
+      "fixed_sha": "22d2502f716123cb949a7f52c628f9ffb3de8cebfe1ae50bc707e3fb47875b12",
+      "same_canvas": true,
+      "same_alpha": true,
+      "same_support": true,
+      "exact_own_palette": true,
+      "transparent_rgba_equal": true
+    },
+    {
+      "path": "assets/sprites/arena/huskward/ne.png",
+      "original_sha": "5bf7ad98013b9e37f582d40be15eae6a29aa679fac996efa97f3d3858d517688",
+      "fixed_sha": "703cad0bcf17bd91b41779501bca3e5d6c88fca29d05dfb1ad7d947c2b6b574a",
+      "same_canvas": true,
+      "same_alpha": true,
+      "same_support": true,
+      "exact_own_palette": true,
+      "transparent_rgba_equal": true
+    },
+    {
+      "path": "assets/sprites/arena/huskward/n.png",
+      "original_sha": "69a1063f646c2834ac3dce1570578f8b7d7e0ab6ea00d0c5a1ca0e024e3a4e86",
+      "fixed_sha": "dea4cdbe05ecd1170a7b150598bb29a27f2f4534b345f51038d1a9c8d319a783",
+      "same_canvas": true,
+      "same_alpha": true,
+      "same_support": true,
+      "exact_own_palette": true,
+      "transparent_rgba_equal": true
+    },
+    {
+      "path": "assets/sprites/arena/huskward/nw.png",
+      "original_sha": "106e939437c60f9678b931718f840f84bd89b4c317bb3dff89d282dd573cf239",
+      "fixed_sha": "3ae7b553acf0f6fce69ced454ed2366a93d11d8fb842c45c4f63b198f07d463f",
+      "same_canvas": true,
+      "same_alpha": true,
+      "same_support": true,
+      "exact_own_palette": true,
+      "transparent_rgba_equal": true
+    },
+    {
+      "path": "assets/sprites/arena/huskward/w.png",
+      "original_sha": "2dd1cec6d41acb23df01ede4b5b41a739d04a4e6b696d0308fc2113ac1b3d2ab",
+      "fixed_sha": "6422163adb38de01fa9edbe8c05b3e753cf6609d02959a346d218bf6305a5182",
+      "same_canvas": true,
+      "same_alpha": true,
+      "same_support": true,
+      "exact_own_palette": true,
+      "transparent_rgba_equal": true
+    },
+    {
+      "path": "assets/sprites/arena/huskward/sw.png",
+      "original_sha": "97b52a03e16c031c548bca0702d61f9da46baf4f2163bb8ec9d3fc54c514dab3",
+      "fixed_sha": "b317f285afa4d3cece23da9052b1dc089b5a2f154091ff199871b82e2f404d27",
+      "same_canvas": true,
+      "same_alpha": true,
+      "same_support": true,
+      "exact_own_palette": true,
+      "transparent_rgba_equal": true
+    },
+    {
+      "path": "assets/sprites/arena/rampartroot/s.png",
+      "original_sha": "d7bb4320a93c5548e2f53646a4b88c6d8632d47a05e74425872631403e4396ae",
+      "fixed_sha": "9150dba8ae704279ca02bb8e695c9b4f2fc5b65bbe6cbac04b196fd652a84479",
+      "same_canvas": true,
+      "same_alpha": true,
+      "same_support": true,
+      "exact_own_palette": true,
+      "transparent_rgba_equal": true
+    },
+    {
+      "path": "assets/sprites/arena/rampartroot/se.png",
+      "original_sha": "b1473c332bd3226ac8a293c33c7402dddb7af11dde346c0990053ca3c65fd9ff",
+      "fixed_sha": "dc3defdce1e7f15f4448bdb229072bd3b27b2c57e1d249c304d3454121d8f87f",
+      "same_canvas": true,
+      "same_alpha": true,
+      "same_support": true,
+      "exact_own_palette": true,
+      "transparent_rgba_equal": true
+    },
+    {
+      "path": "assets/sprites/arena/rampartroot/e.png",
+      "original_sha": "002fe909b523ab75b2b5e29bab36aeb54be1740024c26706aac937e2079945d6",
+      "fixed_sha": "12e567f3b25cf8a458e9146dd64b7214ab05d2ec6c29382b0d04935cd833bf63",
+      "same_canvas": true,
+      "same_alpha": true,
+      "same_support": true,
+      "exact_own_palette": true,
+      "transparent_rgba_equal": true
+    },
+    {
+      "path": "assets/sprites/arena/rampartroot/ne.png",
+      "original_sha": "dd2010cf265c9adbe33fd8927b5268ed94f79afe6f3d28662a25600747dfda4f",
+      "fixed_sha": "bb55c2c3e2195823b2cf6910a9416c3bd69e930b849309b68c1afbd8088a07b6",
+      "same_canvas": true,
+      "same_alpha": true,
+      "same_support": true,
+      "exact_own_palette": true,
+      "transparent_rgba_equal": true
+    },
+    {
+      "path": "assets/sprites/arena/rampartroot/n.png",
+      "original_sha": "391a6affa2fc159063148f12dcd7182dde2be12b0bd123eb6f592ac02af0031c",
+      "fixed_sha": "73bc3d61411aa0d28b97e8bdfb45f3314b77e63a164eead8db523cf2b73b3053",
+      "same_canvas": true,
+      "same_alpha": true,
+      "same_support": true,
+      "exact_own_palette": true,
+      "transparent_rgba_equal": true
+    },
+    {
+      "path": "assets/sprites/arena/rampartroot/nw.png",
+      "original_sha": "5aed54c691394c0eb7903b013613d6398abeaf3aa4e1165344d82188ed200a9e",
+      "fixed_sha": "2a78a459c1dca0a2254885f3f60d8cae7595d520fbed1d442b415df205b3d6b2",
+      "same_canvas": true,
+      "same_alpha": true,
+      "same_support": true,
+      "exact_own_palette": true,
+      "transparent_rgba_equal": true
+    },
+    {
+      "path": "assets/sprites/arena/rampartroot/w.png",
+      "original_sha": "41e9ec6f5c311a55946344b9b87c45b0084da4b043c0b3473bb75621b6d30f67",
+      "fixed_sha": "a0d7fe686854734abb747945dba8ae71dfc065443f2cfe9f63a78b51cae2d8a2",
+      "same_canvas": true,
+      "same_alpha": true,
+      "same_support": true,
+      "exact_own_palette": true,
+      "transparent_rgba_equal": true
+    },
+    {
+      "path": "assets/sprites/arena/rampartroot/sw.png",
+      "original_sha": "c8a38c44c27dcfa8e838bc3f62e211154049529f877eafebe131b39ca137fbe2",
+      "fixed_sha": "0e0d40d1bec6f4621b70ea59451a0b4138aad33e2767bc31791180f02115a14c",
+      "same_canvas": true,
+      "same_alpha": true,
+      "same_support": true,
+      "exact_own_palette": true,
+      "transparent_rgba_equal": true
+    },
+    {
+      "path": "assets/sprites/arena/rimefin/s.png",
+      "original_sha": "850a7352f4686463726bd516f10d16031ef389f2b3d57d4f0b130d6f15cbfdfa",
+      "fixed_sha": "53336c4f5ec62131007a28067fce9add864657b4148e0c54685c9d2e48c9f6d0",
+      "same_canvas": true,
+      "same_alpha": true,
+      "same_support": true,
+      "exact_own_palette": true,
+      "transparent_rgba_equal": true
+    },
+    {
+      "path": "assets/sprites/arena/rimefin/se.png",
+      "original_sha": "1d8fe76b46bfaed4b52369e9ed48c6b24e1f52a228a41ee18b964fac32717485",
+      "fixed_sha": "5cbf6de8908522484dcc876588c77918b9498871679297a0b4f4c8a2085f1aa5",
+      "same_canvas": true,
+      "same_alpha": true,
+      "same_support": true,
+      "exact_own_palette": true,
+      "transparent_rgba_equal": true
+    },
+    {
+      "path": "assets/sprites/arena/rimefin/e.png",
+      "original_sha": "7478236ee29431c83bd0fdb866ecc358f6838ce735f4433b7dd49255269a0f21",
+      "fixed_sha": "8d27723a2ecefce4b390814ba1286a896a7aa4c9513932b767ff8d68e642c4d4",
+      "same_canvas": true,
+      "same_alpha": true,
+      "same_support": true,
+      "exact_own_palette": true,
+      "transparent_rgba_equal": true
+    },
+    {
+      "path": "assets/sprites/arena/rimefin/ne.png",
+      "original_sha": "5a8af1bf89dc86033f8a258b3aa384d00b39f8cf29cf7d4b1024de14f2ba0656",
+      "fixed_sha": "8842e98cd4396adf917e8abfbecfc0bfd8e1092ae5c08560de39b837151957b0",
+      "same_canvas": true,
+      "same_alpha": true,
+      "same_support": true,
+      "exact_own_palette": true,
+      "transparent_rgba_equal": true
+    },
+    {
+      "path": "assets/sprites/arena/rimefin/n.png",
+      "original_sha": "e7e46345393c8b64e19c98e766e6bd5aa0b307d645b9000d8f0b38580b722dee",
+      "fixed_sha": "9342841fa381d2436f7119e3591a4529914e415a195266f2b8aad449d33241f6",
+      "same_canvas": true,
+      "same_alpha": true,
+      "same_support": true,
+      "exact_own_palette": true,
+      "transparent_rgba_equal": true
+    },
+    {
+      "path": "assets/sprites/arena/rimefin/nw.png",
+      "original_sha": "d760add32f5cb13fe20357513ec30e00dcdff5c4ef1f55f2cd295f1f1494874b",
+      "fixed_sha": "f772f82cc3dcd78c00dca6aa701ea6e01b4458b6ba7c46b027ee2e2ec4574257",
+      "same_canvas": true,
+      "same_alpha": true,
+      "same_support": true,
+      "exact_own_palette": true,
+      "transparent_rgba_equal": true
+    },
+    {
+      "path": "assets/sprites/arena/rimefin/w.png",
+      "original_sha": "678546b69c5b69b8dec57b0e1955d02ede78b1eb49a9cf12a10627934e5bfa39",
+      "fixed_sha": "8a126a5c1ac744b49e78b7fc34ace8a82e0bf8c58f9dff4a5c44d0a7259972f8",
+      "same_canvas": true,
+      "same_alpha": true,
+      "same_support": true,
+      "exact_own_palette": true,
+      "transparent_rgba_equal": true
+    },
+    {
+      "path": "assets/sprites/arena/rimefin/sw.png",
+      "original_sha": "118dd15f25ee69a6f9e47e6ac9f4ac9c5937672ffdafff3604e8c93cf8533ef1",
+      "fixed_sha": "87181d2d5f0692b00450ca3116dc12706730d45ee3389dace04399451970ec88",
+      "same_canvas": true,
+      "same_alpha": true,
+      "same_support": true,
+      "exact_own_palette": true,
+      "transparent_rgba_equal": true
+    },
+    {
+      "path": "docs/creatures/arena-starters-2026-10-07/walk/rimefin_n_sheet.png",
+      "original_sha": "7b7e23567ea0880a8a6d3a6e1802dca221f6b79b8b486d96db7a0643a38e5f74",
+      "fixed_sha": "538165484cef8c31dd7e752a4721ee90d15111a2323d317006a08dc04d90de88",
+      "same_canvas": true,
+      "same_alpha": true,
+      "same_support": true,
+      "exact_own_palette": true,
+      "transparent_rgba_equal": true
+    },
+    {
+      "path": "docs/creatures/arena-starters-2026-10-07/walk/rimefin_nw_sheet.png",
+      "original_sha": "7d39a3f38e610c4a0815c4778fd0ff877d57a6a056c9a2ec19f8a21727dc32c3",
+      "fixed_sha": "2cfd705c369261e52e68c77f117190f8b220d7814e000866b7c4e07174d99233",
+      "same_canvas": true,
+      "same_alpha": true,
+      "same_support": true,
+      "exact_own_palette": true,
+      "transparent_rgba_equal": true
+    },
+    {
+      "path": "docs/creatures/arena-starters-2026-10-07/walk/rimefin_s_sheet.png",
+      "original_sha": "0c0f06b24360d1cfd1efd52ffd7ee5cb011f205b3c28599dc0f3836a24dbacbc",
+      "fixed_sha": "5691219fa27344c5cd0fbfc1a5e3956e5c84d17ae6a6892705b444d854a1b8db",
+      "same_canvas": true,
+      "same_alpha": true,
+      "same_support": true,
+      "exact_own_palette": true,
+      "transparent_rgba_equal": true
+    },
+    {
+      "path": "docs/creatures/arena-starters-2026-10-07/walk/rimefin_sw_sheet.png",
+      "original_sha": "fc13f671ef354bba38b0a6edd4825d62429a521f994b193c535f339415b078dc",
+      "fixed_sha": "2ce0db5355d7b472d95b1203ef8fa08481fade3f2e5aa5bec3f58b4f1343e457",
+      "same_canvas": true,
+      "same_alpha": true,
+      "same_support": true,
+      "exact_own_palette": true,
+      "transparent_rgba_equal": true
+    },
+    {
+      "path": "docs/creatures/arena-starters-2026-10-07/walk/rimefin_w_sheet.png",
+      "original_sha": "419625d7f2f7e43d49e784e77bc481c5fecbeadcee62983a017b818ea6fa0518",
+      "fixed_sha": "47c8c2ec878311e4d1775094a771b61862cb7bfacfe66dd3f30c9299e16be6a5",
+      "same_canvas": true,
+      "same_alpha": true,
+      "same_support": true,
+      "exact_own_palette": true,
+      "transparent_rgba_equal": true
+    },
+    {
+      "path": "assets/sprites/arena/riftfin/s.png",
+      "original_sha": "85bb8a569e26eb249d258ed401be644a5e6dae5017d5a6421ef47857657d0069",
+      "fixed_sha": "1fa654174f83838e4085cd875c1bf806c6aaeff4704aeee82bb0f81265eed0a2",
+      "same_canvas": true,
+      "same_alpha": true,
+      "same_support": true,
+      "exact_own_palette": true,
+      "transparent_rgba_equal": true
+    },
+    {
+      "path": "assets/sprites/arena/riftfin/se.png",
+      "original_sha": "836a368e3ca634f9e862aa6afc9b41355ba0de586fe90b61cc6b4abdf30b5663",
+      "fixed_sha": "4bda572d09564a03c0cb305199e96478fb819a100ca915aaa3b6fbc4d17efe65",
+      "same_canvas": true,
+      "same_alpha": true,
+      "same_support": true,
+      "exact_own_palette": true,
+      "transparent_rgba_equal": true
+    },
+    {
+      "path": "assets/sprites/arena/riftfin/e.png",
+      "original_sha": "7d71c562e0b12c693b1de0cdf22a5369e9a7085779dc541b7dd2c73fe7ee7795",
+      "fixed_sha": "76d9f57b9bd508e8d96c80109de6add33e086ec5f54dfe44df9271275109be11",
+      "same_canvas": true,
+      "same_alpha": true,
+      "same_support": true,
+      "exact_own_palette": true,
+      "transparent_rgba_equal": true
+    },
+    {
+      "path": "assets/sprites/arena/riftfin/ne.png",
+      "original_sha": "d3c1fb774625221a9a2f97554bef5eeacbc1c8b30c0a7fc6be6e8ef144355da4",
+      "fixed_sha": "3efae256432da6fad96ad706da6e554fd8c056dcb7a68f5e057b513888cb221b",
+      "same_canvas": true,
+      "same_alpha": true,
+      "same_support": true,
+      "exact_own_palette": true,
+      "transparent_rgba_equal": true
+    },
+    {
+      "path": "assets/sprites/arena/riftfin/n.png",
+      "original_sha": "6ca067814835bac3f1dfd406a10888d8e7160b1ed528cb5f0ac9c75300d36460",
+      "fixed_sha": "58b145f3adc19a069b95f5915f4529680b666e1dd9b250210fbd6b368e12b787",
+      "same_canvas": true,
+      "same_alpha": true,
+      "same_support": true,
+      "exact_own_palette": true,
+      "transparent_rgba_equal": true
+    },
+    {
+      "path": "assets/sprites/arena/riftfin/nw.png",
+      "original_sha": "96572c2ed7cef1ed892a029aeff4761eb53d86518ac62f608784f4bb7ce8f976",
+      "fixed_sha": "80425c57ee563970e783d5c36586c2ae201286e646b42c4a3f1c7ae770c77e60",
+      "same_canvas": true,
+      "same_alpha": true,
+      "same_support": true,
+      "exact_own_palette": true,
+      "transparent_rgba_equal": true
+    },
+    {
+      "path": "assets/sprites/arena/riftfin/w.png",
+      "original_sha": "0abaaf5cfcdaca4047b2bc1e5ec770156b4b34f3cae696c02712e69e320b4cf3",
+      "fixed_sha": "e8bacfd7944e4a4779e5aa3063838531d0bd46bffc25e5f37f843005c89db902",
+      "same_canvas": true,
+      "same_alpha": true,
+      "same_support": true,
+      "exact_own_palette": true,
+      "transparent_rgba_equal": true
+    },
+    {
+      "path": "assets/sprites/arena/riftfin/sw.png",
+      "original_sha": "77587c4b53aafaeab221132caa2fc5225ade6d427280e1a7cd24352a0695cadc",
+      "fixed_sha": "697d6a41671c8e712cd102b2532ae40c73429ce8c6f98c70eeb72f61c2446a82",
+      "same_canvas": true,
+      "same_alpha": true,
+      "same_support": true,
+      "exact_own_palette": true,
+      "transparent_rgba_equal": true
+    },
+    {
+      "path": "assets/sprites/arena/scourmaw/s.png",
+      "original_sha": "21a9845eb875750fe9328ebf815595649a321a96b5a48f9ed4cafc6a95ef940f",
+      "fixed_sha": "fe249982392a253602b63a628adcc8c9729e0376ce0b42976568fcf00de1c9db",
+      "same_canvas": true,
+      "same_alpha": true,
+      "same_support": true,
+      "exact_own_palette": true,
+      "transparent_rgba_equal": true
+    },
+    {
+      "path": "assets/sprites/arena/scourmaw/se.png",
+      "original_sha": "331d47a74d2db92c5736d12b57dcfcd6e1b1839d299968abaed5aba82fee37c1",
+      "fixed_sha": "53dc885e668cddb8f012c78044cf6ed10d4e64412cafd0b2d96d167eda2e4586",
+      "same_canvas": true,
+      "same_alpha": true,
+      "same_support": true,
+      "exact_own_palette": true,
+      "transparent_rgba_equal": true
+    },
+    {
+      "path": "assets/sprites/arena/scourmaw/e.png",
+      "original_sha": "1f7f80138d78cdfcb296fbf914693729b8d606894273b398c204da41708599a2",
+      "fixed_sha": "8f33d4af520bd935fe238343d0a757d86e9109ce36f849d48da00d97a852a1c0",
+      "same_canvas": true,
+      "same_alpha": true,
+      "same_support": true,
+      "exact_own_palette": true,
+      "transparent_rgba_equal": true
+    },
+    {
+      "path": "assets/sprites/arena/scourmaw/ne.png",
+      "original_sha": "669a9515a7a84806645f27521e21b87dc8fd7761637d2ddae29e073b14bda752",
+      "fixed_sha": "49b136efaf72700dcd2540ce3bd7d897ec5c885deea08f851fcf0bfb7e1e2d78",
+      "same_canvas": true,
+      "same_alpha": true,
+      "same_support": true,
+      "exact_own_palette": true,
+      "transparent_rgba_equal": true
+    },
+    {
+      "path": "assets/sprites/arena/scourmaw/n.png",
+      "original_sha": "1bd1eb4c7a5d65d7c5acab69dd7ed6f296a32cf6ba195a6c54be6ce90da7908b",
+      "fixed_sha": "c01443da532ef49168667c022026030d424bfa7b481bbff554f17c7bd10453d4",
+      "same_canvas": true,
+      "same_alpha": true,
+      "same_support": true,
+      "exact_own_palette": true,
+      "transparent_rgba_equal": true
+    },
+    {
+      "path": "assets/sprites/arena/scourmaw/nw.png",
+      "original_sha": "5875087d586e119bdff117abf3de2a7b5752512818232ea3be4c381948319ce1",
+      "fixed_sha": "aaa9cef3bcb1bca43a84008cf53c06b59c113f868802802826bf398116b3f4ff",
+      "same_canvas": true,
+      "same_alpha": true,
+      "same_support": true,
+      "exact_own_palette": true,
+      "transparent_rgba_equal": true
+    },
+    {
+      "path": "assets/sprites/arena/scourmaw/w.png",
+      "original_sha": "be2c8917ad967cb9a88c0cc6a890d413f9c705bec121a55954fb369da0f6b8bb",
+      "fixed_sha": "a3702df2edea7ff87589697a71703496881e984869defe7ab53a0ab8439cc2c5",
+      "same_canvas": true,
+      "same_alpha": true,
+      "same_support": true,
+      "exact_own_palette": true,
+      "transparent_rgba_equal": true
+    },
+    {
+      "path": "assets/sprites/arena/scourmaw/sw.png",
+      "original_sha": "e78e805d8f2947b143a7d5a6ec6a71405f5612b21c66a9325aa0bdbf975c1414",
+      "fixed_sha": "a1ba47440db9cb63d4fba986e1f99f9ef71bcd3d2f93dddf7cf570a86cbd5b8f",
+      "same_canvas": true,
+      "same_alpha": true,
+      "same_support": true,
+      "exact_own_palette": true,
+      "transparent_rgba_equal": true
+    }
+  ],
+  "sparkwick_other_six_byte_exact": {
+    "s": true,
+    "se": true,
+    "e": true,
+    "nw": true,
+    "w": true,
+    "sw": true
+  }
+}

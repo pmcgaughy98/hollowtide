@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="CreatureData" load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://scripts/creature_data.gd" id="1_script"]
+[ext_resource type="Texture2D" uid="uid://dd6bj36igftpp" path="res://assets/sprites/creatures/cinderhide.png" id="2_sprite"]
+[ext_resource type="Resource" path="res://data/moves/fire_move.tres" id="3_move"]
+
+[resource]
+script = ExtResource("1_script")
+id = 2
+creature_name = "Cinderhide"
+essence = 0
+sprite = ExtResource("2_sprite")
+description = ""
+move = ExtResource("3_move")
+base_hp = 60
+base_attack = 60
+base_defense = 60
+base_speed = 60

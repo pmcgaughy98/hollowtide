@@ -1,0 +1,56 @@
+[
+  {
+    "name": "stormwick_vs_rampartroot.png",
+    "fresh": true,
+    "size": [
+      1152,
+      648
+    ],
+    "sha256": "b0551f67e1f00949a7958d4f60ea1245e489df9fc1ef0da2d5202969bd7dac73"
+  },
+  {
+    "name": "scourmaw_vs_sparkwick.png",
+    "fresh": true,
+    "size": [
+      1152,
+      648
+    ],
+    "sha256": "a63dc167aa7f9c76f04113b3f911c3c8aa6f84e52ff55bda047c0f33a228dc9e"
+  },
+  {
+    "name": "huskward_vs_riftfin.png",
+    "fresh": true,
+    "size": [
+      1152,
+      648
+    ],
+    "sha256": "3c9751b675f5b654c3804c5b937ff716c570571571b6de4cd2a45f6f1f1efb98"
+  },
+  {
+    "name": "riftfin_vs_rampartroot.png",
+    "fresh": true,
+    "size": [
+      1152,
+      648
+    ],
+    "sha256": "86b7b014ff3d6176077c72998848911f84a77a4728d8805bb1e5b228a2c97642"
+  },
+  {
+    "name": "stormwick_card.png",
+    "fresh": true,
+    "size": [
+      1152,
+      648
+    ],
+    "sha256": "fb7f1499ce2739c0d4719e88da8318b8b61415e7eb8b5bbae213e3f8640c16c8"
+  },
+  {
+    "name": "stormwick_strike.png",
+    "fresh": true,
+    "size": [
+      1152,
+      648
+    ],
+    "sha256": "2eb1552a10d697e435f68d0b2c1ec6a1ddcf317f25d70dff7eaaf0dac5c4671d"
+  }
+]

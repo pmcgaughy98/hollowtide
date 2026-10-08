@@ -1,0 +1,16 @@
+{
+  "source": "C:/Users/pmcga/Documents/Codex/Hollowtide/Move work/staged",
+  "files": [
+    "scripts/move_preview.gd",
+    "scripts/creature_data.gd",
+    "scripts/battle_screen.gd",
+    "docs/ember-move-set.md",
+    "data/creatures/002_cinderhide.tres",
+    "data/creatures/101_clinkerhide.tres",
+    "data/creatures/103_kithflare.tres",
+    "data/creatures/104_wayburn.tres",
+    "data/creatures/105_coalcrest.tres",
+    "data/creatures/106_fusern.tres",
+    "data/creatures/107_slagglass.tres"
+  ]
+}

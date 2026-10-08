@@ -32,6 +32,11 @@ ROOT = Path(__file__).resolve().parent.parent
 DIR = ROOT / "assets/audio/sfx/ui"
 SR = 44100
 
+# Concert pitch. Preston, 2026-10-06: the whole game is tuned to A = 432 Hz (the
+# music was retuned with tools/retune_432.sh), so these notes are too, to stay in
+# tune with it. The 440 set is in docs/audio/ui-sounds-440-2026-10-06/.
+A4 = 432.0
+
 # The scale, by name. Octave 4 starts at middle C.
 SEMITONE = {"C": 0, "D": 2, "E": 4, "F#": 6, "G": 7, "A": 9, "B": 11}
 
@@ -39,7 +44,7 @@ SEMITONE = {"C": 0, "D": 2, "E": 4, "F#": 6, "G": 7, "A": 9, "B": 11}
 def hz(note: str) -> float:
     """'E5' -> 659.26."""
     name, octave = note[:-1], int(note[-1])
-    return 440.0 * 2 ** ((SEMITONE[name] - 9) / 12 + (octave - 4))
+    return A4 * 2 ** ((SEMITONE[name] - 9) / 12 + (octave - 4))
 
 
 def t(seconds: float) -> np.ndarray:
@@ -158,25 +163,42 @@ def note(name: str, seconds: float, rate: float = 5.0, voice=pluck, **kw) -> np.
 
 # ------------------------------------------------------------------ the sounds
 
+## Preston, 2026-10-06: the button sounds were "too 8-bit and harsh, it would get
+## tiring fast". The four menu sounds below are now soft and warm: no chip pulse,
+## an octave lower, a gentle rise instead of a click, and the top rolled off. They
+## play hundreds of times a session, so they sit quietly under everything. The
+## battle feedback sounds (hits, catching) keep the blended retro voice.
+## The previous set is in docs/audio/ui-sounds-before-2026-10-06/.
+
+def soft(freq, seconds: float) -> np.ndarray:
+    """The menu voice: a mellow mallet (barely any bright bend) with the top
+    rolled off, like a felt-tipped marimba."""
+    return lowpass(mallet(freq, seconds, 0.35, 2.0), 1800.0)
+
+
+def soft_note(name: str, seconds: float, rate: float = 6.0) -> np.ndarray:
+    return decay(soft(hz(name), seconds), rate, attack=0.012)
+
+
 def cursor() -> np.ndarray:
-    """Moving between menu choices: one small soft tap."""
-    return mix(note("E5", 0.06, 6.0, bright=0.8), decay(puff(0.02, 1500, 6000), 8.0) * 0.25)
+    """Moving between menu choices: one low, soft wooden tap."""
+    return soft_note("E4", 0.09, 7.0)
 
 
 def confirm() -> np.ndarray:
-    """Choosing: two quick mallet notes up."""
-    return seq([note("B5", 0.06, 3.0), note("E6", 0.2, 6.0)])
+    """Choosing: two soft notes up, close together."""
+    return seq([soft_note("B4", 0.07, 4.0), soft_note("E5", 0.22, 6.0)])
 
 
 def cancel() -> np.ndarray:
-    """Backing out or fleeing: two notes down, rounder and lower."""
-    return seq([note("E5", 0.06, 3.0, bright=0.7), note("B4", 0.2, 6.0, bright=0.7)])
+    """Backing out or fleeing: two soft notes down."""
+    return seq([soft_note("E4", 0.07, 4.0), soft_note("B3", 0.22, 6.0)])
 
 
 def text() -> np.ndarray:
-    """One letter-tick of the message typing out: a tiny soft pip. The game
+    """One letter-tick of the message typing out: a tiny muted pip. The game
     nudges its pitch a little each time, so a line of them reads as a voice."""
-    return note("G5", 0.03, 5.0, bright=0.5)
+    return soft_note("G4", 0.035, 6.0)
 
 
 def hit() -> np.ndarray:
@@ -242,7 +264,7 @@ def encounter() -> np.ndarray:
 
 
 SOUNDS = {
-    "cursor": (cursor, -6), "confirm": (confirm, -4), "cancel": (cancel, -4), "text": (text, -10),
+    "cursor": (cursor, -9), "confirm": (confirm, -7), "cancel": (cancel, -7), "text": (text, -13),
     "hit": (hit, -3), "hit_strong": (hit_strong, -2), "hit_weak": (hit_weak, -4), "hp_drain": (hp_drain, -8),
     "faint": (faint, -4), "catch_reach": (catch_reach, -5), "catch_success": (catch_success, -3),
     "catch_fail": (catch_fail, -4), "encounter": (encounter, -4),

@@ -1,0 +1,530 @@
+[
+  {
+    "form": "kithflare",
+    "kind": "base",
+    "before": {
+      "brightness_spread": 0.0,
+      "saturation_spread": 0.0,
+      "colour_min": 44,
+      "colour_max": 44
+    },
+    "after": {
+      "brightness_spread": 0.0,
+      "saturation_spread": 0.0,
+      "colour_min": 44,
+      "colour_max": 44
+    }
+  },
+  {
+    "form": "kithflare",
+    "kind": "full",
+    "before": {
+      "brightness_spread": 5.7176,
+      "saturation_spread": 8.4308,
+      "colour_min": 20,
+      "colour_max": 30
+    },
+    "after": {
+      "brightness_spread": 0.9783,
+      "saturation_spread": 0.6436,
+      "colour_min": 18,
+      "colour_max": 24
+    }
+  },
+  {
+    "form": "kithflare",
+    "kind": "small",
+    "before": {
+      "brightness_spread": 12.7438,
+      "saturation_spread": 9.5962,
+      "colour_min": 19,
+      "colour_max": 29
+    },
+    "after": {
+      "brightness_spread": 7.499,
+      "saturation_spread": 2.5825,
+      "colour_min": 15,
+      "colour_max": 20
+    }
+  },
+  {
+    "form": "kithflare",
+    "kind": "walk_full",
+    "before": {
+      "brightness_spread": 9.6737,
+      "saturation_spread": 8.1123,
+      "colour_min": 20,
+      "colour_max": 29
+    },
+    "after": {
+      "brightness_spread": 3.5016,
+      "saturation_spread": 1.3224,
+      "colour_min": 17,
+      "colour_max": 26
+    }
+  },
+  {
+    "form": "kithflare",
+    "kind": "walk_small",
+    "before": {
+      "brightness_spread": 15.6457,
+      "saturation_spread": 10.657,
+      "colour_min": 17,
+      "colour_max": 28
+    },
+    "after": {
+      "brightness_spread": 14.3912,
+      "saturation_spread": 3.9162,
+      "colour_min": 14,
+      "colour_max": 24
+    }
+  },
+  {
+    "form": "sparkwick",
+    "kind": "base",
+    "before": {
+      "brightness_spread": 0.0,
+      "saturation_spread": 0.0,
+      "colour_min": 40,
+      "colour_max": 40
+    },
+    "after": {
+      "brightness_spread": 0.0,
+      "saturation_spread": 0.0,
+      "colour_min": 40,
+      "colour_max": 40
+    }
+  },
+  {
+    "form": "sparkwick",
+    "kind": "full",
+    "before": {
+      "brightness_spread": 26.8762,
+      "saturation_spread": 4.4341,
+      "colour_min": 20,
+      "colour_max": 28
+    },
+    "after": {
+      "brightness_spread": 4.13,
+      "saturation_spread": 2.6729,
+      "colour_min": 20,
+      "colour_max": 28
+    }
+  },
+  {
+    "form": "sparkwick",
+    "kind": "small",
+    "before": {
+      "brightness_spread": 20.2631,
+      "saturation_spread": 6.0761,
+      "colour_min": 17,
+      "colour_max": 26
+    },
+    "after": {
+      "brightness_spread": 12.2499,
+      "saturation_spread": 3.3371,
+      "colour_min": 17,
+      "colour_max": 23
+    }
+  },
+  {
+    "form": "stormwick",
+    "kind": "base",
+    "before": {
+      "brightness_spread": 0.0,
+      "saturation_spread": 0.0,
+      "colour_min": 55,
+      "colour_max": 55
+    },
+    "after": {
+      "brightness_spread": 0.0,
+      "saturation_spread": 0.0,
+      "colour_min": 55,
+      "colour_max": 55
+    }
+  },
+  {
+    "form": "stormwick",
+    "kind": "full",
+    "before": {
+      "brightness_spread": 15.1691,
+      "saturation_spread": 2.3191,
+      "colour_min": 26,
+      "colour_max": 42
+    },
+    "after": {
+      "brightness_spread": 1.1317,
+      "saturation_spread": 0.9719,
+      "colour_min": 24,
+      "colour_max": 37
+    }
+  },
+  {
+    "form": "stormwick",
+    "kind": "small",
+    "before": {
+      "brightness_spread": 17.1211,
+      "saturation_spread": 3.3231,
+      "colour_min": 26,
+      "colour_max": 42
+    },
+    "after": {
+      "brightness_spread": 5.9257,
+      "saturation_spread": 2.0361,
+      "colour_min": 24,
+      "colour_max": 36
+    }
+  },
+  {
+    "form": "tallowroot",
+    "kind": "base",
+    "before": {
+      "brightness_spread": 0.0,
+      "saturation_spread": 0.0,
+      "colour_min": 38,
+      "colour_max": 38
+    },
+    "after": {
+      "brightness_spread": 0.0,
+      "saturation_spread": 0.0,
+      "colour_min": 38,
+      "colour_max": 38
+    }
+  },
+  {
+    "form": "tallowroot",
+    "kind": "full",
+    "before": {
+      "brightness_spread": 6.068,
+      "saturation_spread": 2.708,
+      "colour_min": 20,
+      "colour_max": 29
+    },
+    "after": {
+      "brightness_spread": 1.1133,
+      "saturation_spread": 2.0806,
+      "colour_min": 19,
+      "colour_max": 27
+    }
+  },
+  {
+    "form": "tallowroot",
+    "kind": "small",
+    "before": {
+      "brightness_spread": 4.7124,
+      "saturation_spread": 3.5614,
+      "colour_min": 19,
+      "colour_max": 26
+    },
+    "after": {
+      "brightness_spread": 2.6269,
+      "saturation_spread": 3.4772,
+      "colour_min": 17,
+      "colour_max": 23
+    }
+  },
+  {
+    "form": "tallowroot",
+    "kind": "walk_full",
+    "before": {
+      "brightness_spread": 11.5702,
+      "saturation_spread": 5.5414,
+      "colour_min": 19,
+      "colour_max": 28
+    },
+    "after": {
+      "brightness_spread": 2.0371,
+      "saturation_spread": 2.6673,
+      "colour_min": 16,
+      "colour_max": 24
+    }
+  },
+  {
+    "form": "tallowroot",
+    "kind": "walk_small",
+    "before": {
+      "brightness_spread": 16.2059,
+      "saturation_spread": 7.1371,
+      "colour_min": 17,
+      "colour_max": 27
+    },
+    "after": {
+      "brightness_spread": 10.6419,
+      "saturation_spread": 5.4348,
+      "colour_min": 13,
+      "colour_max": 22
+    }
+  },
+  {
+    "form": "huskward",
+    "kind": "base",
+    "before": {
+      "brightness_spread": 0.0,
+      "saturation_spread": 0.0,
+      "colour_min": 30,
+      "colour_max": 30
+    },
+    "after": {
+      "brightness_spread": 0.0,
+      "saturation_spread": 0.0,
+      "colour_min": 30,
+      "colour_max": 30
+    }
+  },
+  {
+    "form": "huskward",
+    "kind": "full",
+    "before": {
+      "brightness_spread": 5.9807,
+      "saturation_spread": 3.0714,
+      "colour_min": 22,
+      "colour_max": 27
+    },
+    "after": {
+      "brightness_spread": 2.5304,
+      "saturation_spread": 0.989,
+      "colour_min": 19,
+      "colour_max": 25
+    }
+  },
+  {
+    "form": "huskward",
+    "kind": "small",
+    "before": {
+      "brightness_spread": 7.2858,
+      "saturation_spread": 3.3518,
+      "colour_min": 22,
+      "colour_max": 25
+    },
+    "after": {
+      "brightness_spread": 4.183,
+      "saturation_spread": 1.9902,
+      "colour_min": 19,
+      "colour_max": 24
+    }
+  },
+  {
+    "form": "rampartroot",
+    "kind": "base",
+    "before": {
+      "brightness_spread": 0.0,
+      "saturation_spread": 0.0,
+      "colour_min": 34,
+      "colour_max": 34
+    },
+    "after": {
+      "brightness_spread": 0.0,
+      "saturation_spread": 0.0,
+      "colour_min": 34,
+      "colour_max": 34
+    }
+  },
+  {
+    "form": "rampartroot",
+    "kind": "full",
+    "before": {
+      "brightness_spread": 10.0373,
+      "saturation_spread": 2.4385,
+      "colour_min": 22,
+      "colour_max": 31
+    },
+    "after": {
+      "brightness_spread": 0.6584,
+      "saturation_spread": 0.7425,
+      "colour_min": 18,
+      "colour_max": 30
+    }
+  },
+  {
+    "form": "rampartroot",
+    "kind": "small",
+    "before": {
+      "brightness_spread": 14.5977,
+      "saturation_spread": 3.9771,
+      "colour_min": 22,
+      "colour_max": 28
+    },
+    "after": {
+      "brightness_spread": 4.2987,
+      "saturation_spread": 1.9979,
+      "colour_min": 18,
+      "colour_max": 27
+    }
+  },
+  {
+    "form": "rimefin",
+    "kind": "base",
+    "before": {
+      "brightness_spread": 0.0,
+      "saturation_spread": 0.0,
+      "colour_min": 42,
+      "colour_max": 42
+    },
+    "after": {
+      "brightness_spread": 0.0,
+      "saturation_spread": 0.0,
+      "colour_min": 42,
+      "colour_max": 42
+    }
+  },
+  {
+    "form": "rimefin",
+    "kind": "full",
+    "before": {
+      "brightness_spread": 11.0062,
+      "saturation_spread": 5.7543,
+      "colour_min": 25,
+      "colour_max": 31
+    },
+    "after": {
+      "brightness_spread": 1.2347,
+      "saturation_spread": 1.8179,
+      "colour_min": 20,
+      "colour_max": 27
+    }
+  },
+  {
+    "form": "rimefin",
+    "kind": "small",
+    "before": {
+      "brightness_spread": 13.2745,
+      "saturation_spread": 8.246,
+      "colour_min": 24,
+      "colour_max": 29
+    },
+    "after": {
+      "brightness_spread": 6.3856,
+      "saturation_spread": 1.7843,
+      "colour_min": 19,
+      "colour_max": 26
+    }
+  },
+  {
+    "form": "rimefin",
+    "kind": "walk_full",
+    "before": {
+      "brightness_spread": 14.6415,
+      "saturation_spread": 6.9978,
+      "colour_min": 25,
+      "colour_max": 33
+    },
+    "after": {
+      "brightness_spread": 4.7819,
+      "saturation_spread": 2.6329,
+      "colour_min": 19,
+      "colour_max": 30
+    }
+  },
+  {
+    "form": "rimefin",
+    "kind": "walk_small",
+    "before": {
+      "brightness_spread": 21.3947,
+      "saturation_spread": 7.5221,
+      "colour_min": 21,
+      "colour_max": 32
+    },
+    "after": {
+      "brightness_spread": 12.7438,
+      "saturation_spread": 4.8411,
+      "colour_min": 15,
+      "colour_max": 29
+    }
+  },
+  {
+    "form": "riftfin",
+    "kind": "base",
+    "before": {
+      "brightness_spread": 0.0,
+      "saturation_spread": 0.0,
+      "colour_min": 43,
+      "colour_max": 43
+    },
+    "after": {
+      "brightness_spread": 0.0,
+      "saturation_spread": 0.0,
+      "colour_min": 43,
+      "colour_max": 43
+    }
+  },
+  {
+    "form": "riftfin",
+    "kind": "full",
+    "before": {
+      "brightness_spread": 8.9883,
+      "saturation_spread": 1.4692,
+      "colour_min": 25,
+      "colour_max": 34
+    },
+    "after": {
+      "brightness_spread": 0.2799,
+      "saturation_spread": 0.6131,
+      "colour_min": 22,
+      "colour_max": 33
+    }
+  },
+  {
+    "form": "riftfin",
+    "kind": "small",
+    "before": {
+      "brightness_spread": 11.0173,
+      "saturation_spread": 3.631,
+      "colour_min": 22,
+      "colour_max": 33
+    },
+    "after": {
+      "brightness_spread": 5.8157,
+      "saturation_spread": 2.612,
+      "colour_min": 20,
+      "colour_max": 32
+    }
+  },
+  {
+    "form": "scourmaw",
+    "kind": "base",
+    "before": {
+      "brightness_spread": 0.0,
+      "saturation_spread": 0.0,
+      "colour_min": 38,
+      "colour_max": 38
+    },
+    "after": {
+      "brightness_spread": 0.0,
+      "saturation_spread": 0.0,
+      "colour_min": 38,
+      "colour_max": 38
+    }
+  },
+  {
+    "form": "scourmaw",
+    "kind": "full",
+    "before": {
+      "brightness_spread": 9.5138,
+      "saturation_spread": 5.6813,
+      "colour_min": 25,
+      "colour_max": 33
+    },
+    "after": {
+      "brightness_spread": 1.0195,
+      "saturation_spread": 1.515,
+      "colour_min": 21,
+      "colour_max": 31
+    }
+  },
+  {
+    "form": "scourmaw",
+    "kind": "small",
+    "before": {
+      "brightness_spread": 11.4037,
+      "saturation_spread": 5.9255,
+      "colour_min": 25,
+      "colour_max": 32
+    },
+    "after": {
+      "brightness_spread": 3.6753,
+      "saturation_spread": 2.1982,
+      "colour_min": 21,
+      "colour_max": 29
+    }
+  }
+]

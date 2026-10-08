@@ -1,0 +1,172 @@
+{
+  "mode": "import",
+  "project": "C:\\Users\\pmcga\\dev\\hollowtide",
+  "engine": "C:\\Users\\pmcga\\Games\\Tools\\Godot_v4.7.2\\Godot_v4.7.2-stable_win64.exe",
+  "arguments": "--headless --path \"C:\\Users\\pmcga\\dev\\hollowtide\" --import",
+  "pid": 14928,
+  "startedUtc": "2026-10-07T22:46:59.5618090Z",
+  "completedUtc": "2026-10-07T22:47:16.1331576Z",
+  "timeout": false,
+  "exitCode": 0,
+  "stdout": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\arena-ironvent-consistency-2026-10-07\\runs\\import_20261007_174659_187146bd\\stdout.log",
+  "stderr": "C:\\Users\\pmcga\\Documents\\Codex\\2026-10-01\\referenced-chatgpt-conversation-this-is-an\\arena-ironvent-consistency-2026-10-07\\runs\\import_20261007_174659_187146bd\\stderr.log",
+  "scriptErrors": [],
+  "generalErrors": [
+    "ERROR: Unrecognized UID: \"uid://blm6ps3r8bf7l\".",
+    "ERROR: Can't save resource to empty path. Provide non-empty path or a Resource with non-empty resource_path."
+  ],
+  "warnings": [],
+  "captureRoot": "C:\\Users\\pmcga\\dev\\hollowtide\\docs\\creatures\\arena-ironvent-2026-10-07",
+  "expectedCaptureNames": [
+    "line_stage1.png",
+    "line_stage2.png",
+    "line_stage3.png",
+    "roar_1.75s.png",
+    "roar_2.15s.png",
+    "roar_2.40s.png",
+    "roar_2.90s.png",
+    "wall_slam.png",
+    "rock_slam.png",
+    "rock_cracked.png",
+    "rock_rubble.png"
+  ],
+  "copiedCaptureNames": [],
+  "capturesBefore": [
+    {
+      "relative": "line_stage1.png",
+      "length": 119112,
+      "sha256": "ac6a85ff12ace7297f61b5743af8e4bb18f86530e8cd6c3fee96cf6e1ab23f94",
+      "lastWriteUtc": "2026-10-07T22:32:45.5234983Z"
+    },
+    {
+      "relative": "line_stage2.png",
+      "length": 119127,
+      "sha256": "6e1598c82f63d1e714a40ad60286a6af4298f08af88bc2fe8823c2ba56759160",
+      "lastWriteUtc": "2026-10-07T22:32:46.7269024Z"
+    },
+    {
+      "relative": "line_stage3.png",
+      "length": 119842,
+      "sha256": "6733b067b1d2b8ffe70249ca6522eef1d37bfaa13f32e91cffcd58b93af054da",
+      "lastWriteUtc": "2026-10-07T22:32:47.9116144Z"
+    },
+    {
+      "relative": "roar_1.75s.png",
+      "length": 148199,
+      "sha256": "1e47be3c0bd65fdda0e507724c72c4c6a198a05d13ecd29a78041a5ccb7297d5",
+      "lastWriteUtc": "2026-10-07T22:32:50.1612869Z"
+    },
+    {
+      "relative": "roar_2.15s.png",
+      "length": 138943,
+      "sha256": "473c4aaa2e827c0420656026456f28f25ae0bd1331a5974b98698a3760f07e11",
+      "lastWriteUtc": "2026-10-07T22:32:50.3604731Z"
+    },
+    {
+      "relative": "roar_2.40s.png",
+      "length": 141634,
+      "sha256": "2073e6e3daf1b2e7790061e3d226cc41d58561e90660323e165d2ecf543e12dd",
+      "lastWriteUtc": "2026-10-07T22:32:50.4786693Z"
+    },
+    {
+      "relative": "roar_2.90s.png",
+      "length": 139131,
+      "sha256": "18f49ebccb2742089ea5cd89ba2eb0949fdf00bdf11adc32b00d033a8a993927",
+      "lastWriteUtc": "2026-10-07T22:32:50.7442896Z"
+    },
+    {
+      "relative": "rock_cracked.png",
+      "length": 121305,
+      "sha256": "5cdfd7b106b0f5975db64208e848a89cab04a2d6dd4dd50ce529e1eeb526d3cd",
+      "lastWriteUtc": "2026-10-07T22:32:52.1765886Z"
+    },
+    {
+      "relative": "rock_rubble.png",
+      "length": 117821,
+      "sha256": "e62a7763f4a5081a8cbc1f701696980c3b5155286a72c6c41958cd4e66fee891",
+      "lastWriteUtc": "2026-10-07T22:32:53.1104291Z"
+    },
+    {
+      "relative": "rock_slam.png",
+      "length": 119250,
+      "sha256": "4c3dcef4440e1c700e2e5c25a05c8c5404bc330debdd431e0777f032c7d99bc2",
+      "lastWriteUtc": "2026-10-07T22:32:51.9107916Z"
+    },
+    {
+      "relative": "wall_slam.png",
+      "length": 114336,
+      "sha256": "f39c77b5dcfc0fdf71b2f5ce77441702e6419ec5e03e2c15eea5d66ca15f681b",
+      "lastWriteUtc": "2026-10-07T22:32:51.6801596Z"
+    }
+  ],
+  "capturesAfter": [
+    {
+      "relative": "line_stage1.png",
+      "length": 119112,
+      "sha256": "ac6a85ff12ace7297f61b5743af8e4bb18f86530e8cd6c3fee96cf6e1ab23f94",
+      "lastWriteUtc": "2026-10-07T22:32:45.5234983Z"
+    },
+    {
+      "relative": "line_stage2.png",
+      "length": 119127,
+      "sha256": "6e1598c82f63d1e714a40ad60286a6af4298f08af88bc2fe8823c2ba56759160",
+      "lastWriteUtc": "2026-10-07T22:32:46.7269024Z"
+    },
+    {
+      "relative": "line_stage3.png",
+      "length": 119842,
+      "sha256": "6733b067b1d2b8ffe70249ca6522eef1d37bfaa13f32e91cffcd58b93af054da",
+      "lastWriteUtc": "2026-10-07T22:32:47.9116144Z"
+    },
+    {
+      "relative": "roar_1.75s.png",
+      "length": 148199,
+      "sha256": "1e47be3c0bd65fdda0e507724c72c4c6a198a05d13ecd29a78041a5ccb7297d5",
+      "lastWriteUtc": "2026-10-07T22:32:50.1612869Z"
+    },
+    {
+      "relative": "roar_2.15s.png",
+      "length": 138943,
+      "sha256": "473c4aaa2e827c0420656026456f28f25ae0bd1331a5974b98698a3760f07e11",
+      "lastWriteUtc": "2026-10-07T22:32:50.3604731Z"
+    },
+    {
+      "relative": "roar_2.40s.png",
+      "length": 141634,
+      "sha256": "2073e6e3daf1b2e7790061e3d226cc41d58561e90660323e165d2ecf543e12dd",
+      "lastWriteUtc": "2026-10-07T22:32:50.4786693Z"
+    },
+    {
+      "relative": "roar_2.90s.png",
+      "length": 139131,
+      "sha256": "18f49ebccb2742089ea5cd89ba2eb0949fdf00bdf11adc32b00d033a8a993927",
+      "lastWriteUtc": "2026-10-07T22:32:50.7442896Z"
+    },
+    {
+      "relative": "rock_cracked.png",
+      "length": 121305,
+      "sha256": "5cdfd7b106b0f5975db64208e848a89cab04a2d6dd4dd50ce529e1eeb526d3cd",
+      "lastWriteUtc": "2026-10-07T22:32:52.1765886Z"
+    },
+    {
+      "relative": "rock_rubble.png",
+      "length": 117821,
+      "sha256": "e62a7763f4a5081a8cbc1f701696980c3b5155286a72c6c41958cd4e66fee891",
+      "lastWriteUtc": "2026-10-07T22:32:53.1104291Z"
+    },
+    {
+      "relative": "rock_slam.png",
+      "length": 119250,
+      "sha256": "4c3dcef4440e1c700e2e5c25a05c8c5404bc330debdd431e0777f032c7d99bc2",
+      "lastWriteUtc": "2026-10-07T22:32:51.9107916Z"
+    },
+    {
+      "relative": "wall_slam.png",
+      "length": 114336,
+      "sha256": "f39c77b5dcfc0fdf71b2f5ce77441702e6419ec5e03e2c15eea5d66ca15f681b",
+      "lastWriteUtc": "2026-10-07T22:32:51.6801596Z"
+    }
+  ],
+  "runtimeCaptureFreshnessRequiresReview": true,
+  "gameWasNotRunByPreparation": false
+}

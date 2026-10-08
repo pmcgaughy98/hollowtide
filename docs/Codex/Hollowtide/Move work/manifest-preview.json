@@ -1,0 +1,8 @@
+{
+  "source": "C:/Users/pmcga/Documents/Codex/Hollowtide/Move work/staged",
+  "files": [
+    "scripts/move_preview.gd",
+    "scenes/move_preview.tscn",
+    "docs/ember-move-set.md"
+  ]
+}

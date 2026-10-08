@@ -1,0 +1,242 @@
+[
+  {
+    "form": "cinderhide",
+    "kind": "base",
+    "before": {
+      "brightness_spread": 0.0,
+      "saturation_spread": 0.0,
+      "colour_min": 34,
+      "colour_max": 34
+    },
+    "after": {
+      "brightness_spread": 0.0,
+      "saturation_spread": 0.0,
+      "colour_min": 34,
+      "colour_max": 34
+    }
+  },
+  {
+    "form": "cinderhide",
+    "kind": "full",
+    "before": {
+      "brightness_spread": 5.8049,
+      "saturation_spread": 6.4194,
+      "colour_min": 18,
+      "colour_max": 24
+    },
+    "after": {
+      "brightness_spread": 1.6568,
+      "saturation_spread": 6.6891,
+      "colour_min": 15,
+      "colour_max": 22
+    }
+  },
+  {
+    "form": "cinderhide",
+    "kind": "small",
+    "before": {
+      "brightness_spread": 6.9482,
+      "saturation_spread": 6.071,
+      "colour_min": 16,
+      "colour_max": 23
+    },
+    "after": {
+      "brightness_spread": 3.0854,
+      "saturation_spread": 7.4156,
+      "colour_min": 14,
+      "colour_max": 21
+    }
+  },
+  {
+    "form": "cinderhide",
+    "kind": "walk_full",
+    "before": {
+      "brightness_spread": 7.2177,
+      "saturation_spread": 6.9941,
+      "colour_min": 16,
+      "colour_max": 23
+    },
+    "after": {
+      "brightness_spread": 2.6717,
+      "saturation_spread": 6.7924,
+      "colour_min": 13,
+      "colour_max": 21
+    }
+  },
+  {
+    "form": "cinderhide",
+    "kind": "walk_small",
+    "before": {
+      "brightness_spread": 8.4465,
+      "saturation_spread": 6.4101,
+      "colour_min": 14,
+      "colour_max": 22
+    },
+    "after": {
+      "brightness_spread": 5.2502,
+      "saturation_spread": 8.4554,
+      "colour_min": 11,
+      "colour_max": 21
+    }
+  },
+  {
+    "form": "clinkerhide",
+    "kind": "base",
+    "before": {
+      "brightness_spread": 0.0,
+      "saturation_spread": 0.0,
+      "colour_min": 35,
+      "colour_max": 35
+    },
+    "after": {
+      "brightness_spread": 0.0,
+      "saturation_spread": 0.0,
+      "colour_min": 35,
+      "colour_max": 35
+    }
+  },
+  {
+    "form": "clinkerhide",
+    "kind": "full",
+    "before": {
+      "brightness_spread": 4.2635,
+      "saturation_spread": 2.9203,
+      "colour_min": 21,
+      "colour_max": 27
+    },
+    "after": {
+      "brightness_spread": 0.9766,
+      "saturation_spread": 1.1768,
+      "colour_min": 16,
+      "colour_max": 24
+    }
+  },
+  {
+    "form": "clinkerhide",
+    "kind": "small",
+    "before": {
+      "brightness_spread": 6.5148,
+      "saturation_spread": 3.4427,
+      "colour_min": 20,
+      "colour_max": 26
+    },
+    "after": {
+      "brightness_spread": 1.4522,
+      "saturation_spread": 1.908,
+      "colour_min": 15,
+      "colour_max": 24
+    }
+  },
+  {
+    "form": "clinkerhide",
+    "kind": "walk_full",
+    "before": {
+      "brightness_spread": 8.4777,
+      "saturation_spread": 5.0833,
+      "colour_min": 17,
+      "colour_max": 25
+    },
+    "after": {
+      "brightness_spread": 1.1423,
+      "saturation_spread": 1.4531,
+      "colour_min": 14,
+      "colour_max": 22
+    }
+  },
+  {
+    "form": "clinkerhide",
+    "kind": "walk_small",
+    "before": {
+      "brightness_spread": 12.1657,
+      "saturation_spread": 6.8543,
+      "colour_min": 17,
+      "colour_max": 25
+    },
+    "after": {
+      "brightness_spread": 7.4697,
+      "saturation_spread": 2.2793,
+      "colour_min": 14,
+      "colour_max": 22
+    }
+  },
+  {
+    "form": "ironvent",
+    "kind": "base",
+    "before": {
+      "brightness_spread": 0.0,
+      "saturation_spread": 0.0,
+      "colour_min": 40,
+      "colour_max": 40
+    },
+    "after": {
+      "brightness_spread": 0.0,
+      "saturation_spread": 0.0,
+      "colour_min": 40,
+      "colour_max": 40
+    }
+  },
+  {
+    "form": "ironvent",
+    "kind": "full",
+    "before": {
+      "brightness_spread": 8.1468,
+      "saturation_spread": 3.5979,
+      "colour_min": 22,
+      "colour_max": 29
+    },
+    "after": {
+      "brightness_spread": 1.0813,
+      "saturation_spread": 1.5111,
+      "colour_min": 18,
+      "colour_max": 25
+    }
+  },
+  {
+    "form": "ironvent",
+    "kind": "small",
+    "before": {
+      "brightness_spread": 6.697,
+      "saturation_spread": 4.5959,
+      "colour_min": 21,
+      "colour_max": 27
+    },
+    "after": {
+      "brightness_spread": 2.7889,
+      "saturation_spread": 4.2994,
+      "colour_min": 18,
+      "colour_max": 24
+    }
+  },
+  {
+    "form": "ironvent",
+    "kind": "walk_full",
+    "before": {
+      "brightness_spread": 8.7558,
+      "saturation_spread": 6.43,
+      "colour_min": 17,
+      "colour_max": 26
+    },
+    "after": {
+      "brightness_spread": 2.6769,
+      "saturation_spread": 6.567,
+      "colour_min": 16,
+      "colour_max": 24
+    }
+  },
+  {
+    "form": "ironvent",
+    "kind": "walk_small",
+    "before": {
+      "brightness_spread": 10.4894,
+      "saturation_spread": 8.7149,
+      "colour_min": 15,
+      "colour_max": 26
+    },
+    "after": {
+      "brightness_spread": 7.5539,
+      "saturation_spread": 13.3465,
+      "colour_min": 14,
+      "colour_max": 24
+    }
+  }
+]

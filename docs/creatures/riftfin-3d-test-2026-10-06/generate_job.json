@@ -1,0 +1,25 @@
+{
+ "status": "succeeded",
+ "task_id": "36b76bed-e016-5765-ab35-d85ab1be652d",
+ "operation": "generate",
+ "asset_id": "207d2308-7c6e-4397-a330-ab266967a4b3",
+ "result": {
+  "asset_id": "207d2308-7c6e-4397-a330-ab266967a4b3",
+  "status": "ready",
+  "prompt": "Riftfin, a squat river catfish monster on four legs: wide flat head, huge toothy mouth, long barbels, grey bony head plate, spiked cyan dorsal crest, armour plates, thick catfish tail with broad fin. Deep blue, slate, cyan.",
+  "style": "rd_lowpoly__detailed",
+  "size": 128,
+  "error": null,
+  "active_task_id": null,
+  "versions": [
+   {
+    "number": 1,
+    "kind": "generate",
+    "prompt": "Riftfin, a squat river catfish monster on four legs: wide flat head, huge toothy mouth, long barbels, grey bony head plate, spiked cyan dorsal crest, armour plates, thick catfish tail with broad fin. Deep blue, slate, cyan.",
+    "render_url": "https://da8ztllw6by0f.cloudfront.net/lowpoly/v1/users/174875/render/186d9906bfe547cd43657af0a552041f9fbc3f5eafe8a48b5586ca9b844b6695.png",
+    "turntable_url": "https://da8ztllw6by0f.cloudfront.net/lowpoly/v1/users/174875/turntable/56942c4392b892d935eb1f41ed4ac45446dea743a4b5aa34eaa4a0fc9d0027c7.png",
+    "animations": []
+   }
+  ]
+ }
+}
