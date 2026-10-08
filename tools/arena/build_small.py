@@ -10,7 +10,7 @@ from pathlib import Path
 from PIL import Image, ImageOps
 
 sys.path.insert(0, str(Path(__file__).parent))
-from downscale import shrink  # noqa: E402
+from downscale import resample, shrink  # noqa: E402
 
 ART = Path("assets/sprites/arena")
 WALK = Path("docs/creatures/arena-starters-2026-10-07/walk")
@@ -33,14 +33,34 @@ def walk_frames(name, facing):
     return [im.crop((c * cw, r * cw, (c + 1) * cw, (r + 1) * cw)) for r in range(2) for c in range(4)]
 
 
+# Size against the rest of the roster (Preston, 2026-10-08: "the ferret is way bigger than
+# Ironvent and Rampartroot; Vitrecrag is a little smaller than I'd like; they are big boi
+# creatures"). 1.0 is the plain third (shrink); anything else resamples by 3/scale with the
+# source palette locked. Finals of the heavy lines stand about 42 to 44 px tall, the
+# guardian ferret about 34.
+SCALE = {
+    "clinkerhide": 1.1, "ironvent": 1.15,
+    "huskward": 1.1, "rampartroot": 1.15,
+    "slagglass": 1.15, "vitrecrag": 1.2,
+    "oathfen": 1.05, "oxbowarchon": 1.1,
+    "punchybun": 0.9, "sparkjab": 0.85, "starward": 0.8,
+}
+
+
+def small_of(im, name):
+    k = SCALE.get(name, 1.0)
+    return shrink(im, 3) if k == 1.0 else resample(im, 3.0 / k)
+
+
 NAMES = ("kithflare", "tallowroot", "rimefin", "sparkwick", "stormwick", "huskward", "rampartroot", "riftfin", "scourmaw",
-         "cinderhide", "clinkerhide", "ironvent", "fusern", "slagglass", "vitrecrag")
+         "cinderhide", "clinkerhide", "ironvent", "fusern", "slagglass", "vitrecrag",
+         "preostmar", "oathfen", "oxbowarchon", "punchybun", "sparkjab", "starward")
 # Pass names to rebuild only those creatures (a bare run redoes all of them).
 for name in (sys.argv[1:] or NAMES):
     out = ART / name / "small"
     out.mkdir(parents=True, exist_ok=True)
     for f in FACINGS:
-        shrink(Image.open(ART / name / f"{f}.png"), 3).save(out / f"{f}.png")
+        small_of(Image.open(ART / name / f"{f}.png"), name).save(out / f"{f}.png")
     for facing, source in STILL_MIRRORS.get(name, {}).items():
         ImageOps.mirror(Image.open(out / f"{source}.png").convert("RGBA")).save(out / f"{facing}.png")
     made = []
@@ -55,7 +75,7 @@ for name in (sys.argv[1:] or NAMES):
             cell = Image.open(ART / name / f"{f}.png").size
             if fr.size != cell:
                 fr = fr.resize(cell, Image.NEAREST)
-            small = shrink(fr, 3)
+            small = small_of(fr, name)
             (ImageOps.mirror(small) if flip else small).save(out / f"walk_{f}_f{i}.png")
         made.append(f + ("(mirrored)" if flip else ""))
     print(name, "walks:", ", ".join(made) or "none yet")

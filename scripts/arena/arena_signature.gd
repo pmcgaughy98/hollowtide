@@ -28,10 +28,19 @@ signal lava_seams(origin: Vector2, dir: Vector2)
 ## Verdant Roar only: the roar roots every opponent; the slam leaves a vine field at the target.
 signal root_all
 signal vine_field(at: Vector2)
+## Kingstone Rail only: the meteor has landed at `at`; the arena floors everyone else near it
+## and leaves the crater ringed with Kingstone shards.
+signal rail_impact(at: Vector2)
+## Starshield only: the star has formed over the team at `at`; the arena shields and cleanses
+## every ally and throws every enemy inside `radius` out; then the star settles into a field.
+signal star_shield(at: Vector2, radius: float)
+signal star_field(at: Vector2)
 signal finished
 
 const CARD_SECONDS := 1.3
 const DAMAGE := 30
+## How long each signature's effect runs after the card (2.2 s unless listed).
+const END := {"Furnace Roar": 2.9, "Kingstone Rail": 3.1, "Starshield": 2.4}
 
 var active := false
 var _kind := ""
@@ -89,7 +98,9 @@ func _process(delta: float) -> void:
 		"Furnace Roar": _roar_cues(before, e)
 		"Molten Glass": _glass_cues(before, e)
 		"Verdant Roar": _roar_green_cues(before, e)
-	if e > (2.9 if _kind == "Furnace Roar" else 2.2):
+		"Kingstone Rail": _rail_cues(before, e)
+		"Starshield": _star_cues(before, e)
+	if e > END.get(_kind, 2.2):
 		active = false
 		finished.emit()
 	queue_redraw()
@@ -413,14 +424,15 @@ func _hash(i: int) -> float:
 
 # ---------------------------------------------------------------- Molten Glass
 # (Claude draft, 2026-10-07, from the turn-based ultimate: the molten-glass core "going
-# haywire", a buildup, then the shell ruptures.) The crater brightens white, steam jets from
-# every seam of the shell, then it ruptures: a column of molten glass bursts up and arcs onto
-# the target, and glass rains down all round it. The target takes the damage; everyone else in
-# the rain is cut and slowed.
+# haywire", a buildup, then the shell ruptures. Preston, 2026-10-08: Vitrecrag is the Ember
+# tank, so the eruption is "more AoE around it".) The crater brightens white, steam jets from
+# every seam of the shell, then it ruptures: a column of molten glass bursts up and fountains
+# out on every side, raining down in a wide ring round Vitrecrag itself. Every enemy in the
+# ring takes the damage and is Glassed, and the glass cools into a field of pools.
 
 const GLASS_RUPTURE := 0.9
 const GLASS_LAND := 1.35
-const GLASS_RADIUS := 46.0
+const GLASS_RADIUS := 64.0             # the ring round Vitrecrag (drawn squashed to 0.6 tall)
 
 func _glass_cues(b: float, e: float) -> void:
 	if _cue(b, e, 0.02):
@@ -431,9 +443,12 @@ func _glass_cues(b: float, e: float) -> void:
 		_play.call("res://assets/audio/sfx/vitrecrag/rupture.wav", 0.0)
 		_shake.call(6.0)
 	if _cue(b, e, GLASS_LAND):
-		glass_rain.emit(_to, GLASS_RADIUS, DAMAGE)
-		glass_pools.emit(_to)
-		_land("res://assets/audio/sfx/ui/hit_strong.wav")
+		# No single landing: the arena hurts everyone in the ring itself.
+		glass_rain.emit(_from, GLASS_RADIUS, DAMAGE)
+		glass_pools.emit(_from)
+		_landed = true
+		_play.call("res://assets/audio/sfx/ui/hit_strong.wav", 2.0)
+		_shake.call(9.0)
 
 
 func _draw_glass(e: float) -> void:
@@ -453,36 +468,41 @@ func _draw_glass(e: float) -> void:
 			var base := _from + Vector2(cos(a) * 14.0, -10.0 + sin(a) * 6.0)
 			var h := (4.0 + 10.0 * k) * (0.7 + 0.3 * sin(e * 25.0 + j))
 			draw_line(base.round(), (base + Vector2(sin(e * 7.0 + j) * 2.0, -h)).round(), Color(0.9, 0.9, 0.95, 0.5 * k), 2.0)
-	# Rupture: a column of molten glass up, then an arc of it onto the target.
+	# Rupture: a column of molten glass up, then it fountains out on every side and arcs
+	# down onto the ring round Vitrecrag.
 	if e >= GLASS_RUPTURE and e < GLASS_LAND + 0.1:
 		var k := clampf((e - GLASS_RUPTURE) / (GLASS_LAND - GLASS_RUPTURE), 0.0, 1.0)
 		var up := clampf(k * 3.0, 0.0, 1.0)
-		draw_rect(Rect2((crater + Vector2(-6, -70.0 * up)).round(), Vector2(12, 70.0 * up)), Color(1.0, 0.6, 0.2, 0.8 * (1.0 - k)))
-		draw_rect(Rect2((crater + Vector2(-2, -70.0 * up)).round(), Vector2(4, 70.0 * up)), Color(1.0, 0.95, 0.75, 0.9 * (1.0 - k)))
-		var p: Vector2 = crater.lerp(_to + Vector2(0, -6), k) + Vector2(0, -sin(k * PI) * 85.0)
-		for j in 7:
-			var kk := maxf(0.0, k - j * 0.035)
-			var qq: Vector2 = crater.lerp(_to + Vector2(0, -6), kk) + Vector2(0, -sin(kk * PI) * 85.0)
-			draw_circle(qq.round(), 9.0 - j, Color(1.0, 0.55, 0.15, 0.3))
-		draw_circle(p.round(), 10.0, Color("#ff7a1a"))
-		draw_circle(p.round(), 6.0, Color("#fff3c0"))
-		# Shards of glass thrown out of the column, falling wide.
-		for j in 12:
+		draw_rect(Rect2((crater + Vector2(-7, -80.0 * up)).round(), Vector2(14, 80.0 * up)), Color(1.0, 0.6, 0.2, 0.8 * (1.0 - k)))
+		draw_rect(Rect2((crater + Vector2(-2, -80.0 * up)).round(), Vector2(4, 80.0 * up)), Color(1.0, 0.95, 0.75, 0.9 * (1.0 - k)))
+		for j in 10:
+			var a := j * TAU / 10.0 + 0.2
+			var land: Vector2 = _from + Vector2(cos(a), sin(a) * 0.6) * GLASS_RADIUS * (0.7 + 0.3 * _hash(j + 3))
+			var kk := clampf(k * 1.15 - _hash(j) * 0.15, 0.0, 1.0)
+			for s in 4:
+				var ks := maxf(0.0, kk - s * 0.05)
+				var q: Vector2 = crater.lerp(land + Vector2(0, -4), ks) + Vector2(0, -sin(ks * PI) * 60.0)
+				draw_circle(q.round(), 6.0 - s, Color(1.0, 0.55, 0.15, 0.3))
+			var p: Vector2 = crater.lerp(land + Vector2(0, -4), kk) + Vector2(0, -sin(kk * PI) * 60.0)
+			draw_circle(p.round(), 7.0, Color("#ff7a1a"))
+			draw_circle(p.round(), 4.0, Color("#fff3c0"))
+		# Shards of glass thrown out of the column, falling all over the ring.
+		for j in 18:
 			var fall := clampf(k * 1.4 - _hash(j) * 0.4, 0.0, 1.0)
-			var sx: Vector2 = _to + Vector2((_hash(j + 7) - 0.5) * GLASS_RADIUS * 2.0, (_hash(j + 19) - 0.5) * GLASS_RADIUS * 0.9)
+			var sx: Vector2 = _from + Vector2((_hash(j + 7) - 0.5) * GLASS_RADIUS * 2.0, (_hash(j + 19) - 0.5) * GLASS_RADIUS * 1.2)
 			var sp: Vector2 = sx + Vector2(0, -90.0 * (1.0 - fall))
 			draw_rect(Rect2(sp.round(), Vector2(2, 3)), Color(1.0, 0.85, 0.6, 0.9))
 	if e >= GLASS_LAND:
 		var k := clampf((e - GLASS_LAND) / 0.6, 0.0, 1.0)
-		# The rain lands: a ring of glass glitter on the floor, cooling from orange to clear.
-		draw_set_transform(_to.round() + Vector2(0, 2), 0.0, Vector2(1.0, 0.45))
-		draw_circle(Vector2.ZERO, GLASS_RADIUS * (0.6 + 0.4 * k), Color(1.0, 0.6, 0.25, 0.25 * (1.0 - k)))
-		draw_arc(Vector2.ZERO, GLASS_RADIUS, 0, TAU, 40, Color(1.0, 0.9, 0.7, 0.8 * (1.0 - k)), 1.0)
+		# The rain lands all round it: a wide ring of glass glitter cooling from orange to clear.
+		draw_set_transform(_from.round() + Vector2(0, 2), 0.0, Vector2(1.0, 0.6))
+		draw_circle(Vector2.ZERO, GLASS_RADIUS * (0.6 + 0.4 * k), Color(1.0, 0.6, 0.25, 0.3 * (1.0 - k)))
+		draw_arc(Vector2.ZERO, GLASS_RADIUS, 0, TAU, 48, Color(1.0, 0.9, 0.7, 0.8 * (1.0 - k)), 1.5)
 		draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE)
-		for j in 24:
-			var gp: Vector2 = _to + Vector2.RIGHT.rotated(_hash(j + 31) * TAU) * GLASS_RADIUS * sqrt(_hash(j + 53)) * Vector2(1.0, 0.45)
+		for j in 40:
+			var gp: Vector2 = _from + Vector2.RIGHT.rotated(_hash(j + 31) * TAU) * GLASS_RADIUS * sqrt(_hash(j + 53)) * Vector2(1.0, 0.6)
 			draw_rect(Rect2(gp.round(), Vector2(2, 1)), Color(1.0, 0.95, 0.85, 0.9 - 0.5 * k))
-		_blast(e - GLASS_LAND, Color("#fff3c0"), Color("#ff6a1a"), 42.0)
+		_blast_at(_from, e - GLASS_LAND, Color("#fff3c0"), Color("#ff6a1a"), 56.0)
 
 
 # ---------------------------------------------------------------- Verdant Roar
@@ -565,15 +585,224 @@ func _draw_roar_green(e: float) -> void:
 
 # ---------------------------------------------------------------- shared
 
+# ---------------------------------------------------------------- Starshield
+# (The Punchybuns line's guard, 2026-10-08. DESIGN_RULES: "its ultimate is a star-shaped
+# electric shield that protects. That is a guard.") The arena goes rose; the star-gem on its
+# chest flares; a great pink five-point star draws itself over the team, turning, with sparks
+# running its edges; it snaps bright: every ally is shielded and cleansed, every enemy inside
+# it is thrown out and held; then the star sinks into the floor as a field where allies mend.
+
+const STAR_FORM := 0.8
+const STAR_SETTLE := 1.6
+const STAR_RADIUS := 70.0
+
+func _star_cues(b: float, e: float) -> void:
+	if _cue(b, e, 0.02):
+		_play.call("res://assets/audio/sfx/stormlantern/crackle.wav", -4.0)
+	if _cue(b, e, STAR_FORM):
+		_play.call("res://assets/audio/sfx/starward/star_guard.wav", 2.0)
+		_shake.call(5.0)
+		_landed = true
+		star_shield.emit(_from, STAR_RADIUS)
+	if _cue(b, e, STAR_SETTLE):
+		star_field.emit(_from)
+
+
+func _star_pts(c: Vector2, r_out: float, r_in: float, rot: float, close := false) -> PackedVector2Array:
+	var pts := PackedVector2Array()
+	for k in 10:
+		var r: float = r_out if k % 2 == 0 else r_in
+		pts.append(c + Vector2.RIGHT.rotated(rot - PI / 2.0 + k * TAU / 10.0) * r)
+	if close:
+		pts.append(pts[0])
+	return pts
+
+
+func _draw_star(e: float) -> void:
+	# The arena goes rose.
+	draw_rect(Rect2(-40, -40, 470, 300), Color(0.25, 0.04, 0.14, clampf(e * 1.5, 0.0, 0.35) * clampf((2.4 - e) / 0.4, 0.0, 1.0)))
+	var gem: Vector2 = _from + Vector2(2, -18)
+	# The chest gem flares.
+	var kg := clampf(e / STAR_FORM, 0.0, 1.0)
+	draw_circle(gem.round(), 3.0 + 4.0 * kg + sin(e * 30.0) * kg, Color(1.0, 0.6, 0.86, 0.95))
+	draw_circle(gem.round(), 8.0 + 14.0 * kg, Color(1.0, 0.48, 0.82, 0.2))
+	# The star draws itself over the team, turning, sparks on its edges.
+	if e < STAR_SETTLE + 0.3:
+		var kf := clampf(e / STAR_FORM, 0.0, 1.0)
+		var grow := 1.0 - pow(1.0 - kf, 2.0)
+		var ks := clampf((e - STAR_SETTLE) / 0.3, 0.0, 1.0)   # sinking into the floor
+		var squash := lerpf(0.8, 0.5, ks)
+		var lift: float = lerpf(-14.0, 2.0, ks)
+		draw_set_transform(_from.round() + Vector2(0, lift), 0.0, Vector2(1.0, squash))
+		var r := STAR_RADIUS * grow
+		var pts := _star_pts(Vector2.ZERO, r, r * 0.45, e * 0.6)
+		var closed := _star_pts(Vector2.ZERO, r, r * 0.45, e * 0.6, true)
+		var snap := clampf(1.0 - absf(e - STAR_FORM) / 0.15, 0.0, 1.0)
+		draw_colored_polygon(pts, Color(1.0, 0.48, 0.82, 0.18 + 0.5 * snap))
+		draw_polyline(closed, Color(1.0, 0.84, 0.94, 0.95), 2.5)
+		draw_polyline(closed, Color(1.0, 1.0, 1.0, 0.6 + 0.4 * snap), 1.0)
+		for j in 14:
+			var along := fmod(_hash(j) + e * (0.3 + 0.2 * _hash(j + 5)), 1.0) * 10.0
+			var seg := int(along)
+			var p: Vector2 = closed[seg].lerp(closed[seg + 1], along - seg)
+			draw_rect(Rect2(p.round(), Vector2(2, 2)), Color(1.0, 0.95, 0.75, 0.9))
+		draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE)
+	# The snap: a white-rose flash and two rings out from the star.
+	if e >= STAR_FORM and e < STAR_FORM + 0.5:
+		var kk := (e - STAR_FORM) / 0.5
+		if kk < 0.2:
+			draw_rect(Rect2(-40, -40, 470, 300), Color(1.0, 0.85, 0.94, 0.5 * (1.0 - kk / 0.2)))
+		draw_set_transform(_from.round(), 0.0, Vector2(1.0, 0.5))
+		draw_arc(Vector2.ZERO, STAR_RADIUS * (1.0 + kk * 1.2), 0, TAU, 48, Color(1.0, 0.84, 0.94, 0.8 * (1.0 - kk)), 3.0)
+		draw_arc(Vector2.ZERO, STAR_RADIUS * (0.8 + kk * 1.2), 0, TAU, 48, Color(1.0, 0.48, 0.82, 0.6 * (1.0 - kk)), 1.5)
+		draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE)
+
+
+# ---------------------------------------------------------------- Kingstone Rail
+# (Preston, 2026-09-29 and 2026-10-08: Oxbowarchon is the Bloom Gemstone King; the emerald on
+# its back is the Bloom king stone and the rails fire its power. From the turn-based
+# signature: the rails swing up to point at the sky, a sphere of the Kingstone's green pull
+# builds between them, it fires straight up, a jade shadow spreads under the target, and the
+# sphere comes down on it as a meteor: flash, light column, starburst, rings, debris.) The
+# arena floors everyone else near the impact and ringes the crater with Kingstone shards.
+# Painted pieces are Preston's Kingstone Rail projectile sheets (assets/sprites/effects/
+# oxbowarchon/kingstone_rail/).
+
+const RAIL_RAISE := 0.35
+const RAIL_FIRE := 1.15
+const RAIL_OMEN := 1.3
+const RAIL_FALL := 1.75
+const RAIL_HIT := 2.05
+const RAIL_METEOR := preload("res://assets/sprites/effects/oxbowarchon/kingstone_rail/orb4_p09.png")
+const RAIL_BURST := preload("res://assets/sprites/effects/oxbowarchon/kingstone_rail/orb1_p07.png")
+const RAIL_BLOOM := preload("res://assets/sprites/effects/oxbowarchon/kingstone_rail/orb2_p06.png")
+const RAIL_RING := preload("res://assets/sprites/effects/oxbowarchon/kingstone_rail/orb1_p08.png")
+const RAIL_CORE := preload("res://assets/sprites/effects/oxbowarchon/kingstone_rail/orb3_p10.png")
+
+func _rail_cues(b: float, e: float) -> void:
+	if _cue(b, e, 0.02):
+		_play.call("res://assets/audio/sfx/oxbowarchon/rail_charge.wav", 0.0)
+	if _cue(b, e, 0.9):
+		_shake.call(2.0)
+	if _cue(b, e, RAIL_FIRE):
+		_shake.call(5.0)
+	if _cue(b, e, RAIL_HIT):
+		_land("res://assets/audio/sfx/oxbowarchon/rail_impact.wav")
+		rail_impact.emit(_to)
+
+
+## Where each rail's base and tip are at effect time e (they swing up over RAIL_RAISE).
+func _rail(e: float, side: float) -> Array:
+	var kr := 1.0 - pow(1.0 - clampf(e / RAIL_RAISE, 0.0, 1.0), 2.0)
+	var base: Vector2 = _from + Vector2(side * 7.0, -26.0)
+	var dir: Vector2 = Vector2(side * 0.9, -0.45).normalized().lerp(Vector2(side * 0.12, -1.0).normalized(), kr).normalized()
+	return [base, base + dir * 34.0]
+
+
+func _draw_rail(e: float) -> void:
+	# The arena dims to the Kingstone's green.
+	draw_rect(Rect2(-40, -40, 470, 300), Color(0.02, 0.08, 0.04, clampf(e * 1.5, 0.0, 0.4) * clampf((3.1 - e) / 0.4, 0.0, 1.0)))
+	# The omen: a jade shadow spreads under the target and a thread of light finds it from the sky.
+	if e >= RAIL_OMEN and e < RAIL_HIT:
+		var ko := (e - RAIL_OMEN) / (RAIL_HIT - RAIL_OMEN)
+		draw_set_transform(_to.round() + Vector2(0, 3), 0.0, Vector2(1.0, 0.45))
+		draw_circle(Vector2.ZERO, 6.0 + 22.0 * ko, Color(0.07, 0.42, 0.25, 0.35 + 0.35 * ko))
+		draw_arc(Vector2.ZERO, 6.0 + 22.0 * ko, 0, TAU, 32, Color(0.49, 0.96, 0.72, 0.6 + 0.4 * sin(e * 30.0)), 1.0)
+		draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE)
+		draw_line(Vector2(_to.x, -60.0), _to + Vector2(0, -6), Color(0.75, 1.0, 0.85, 0.15 + 0.3 * ko), 1.0)
+	# The rails swing up and the sphere builds between their tips.
+	var tips := []
+	for side in [-1.0, 1.0]:
+		var r: Array = _rail(e, side)
+		tips.append(r[1])
+		draw_line(r[0].round(), r[1].round(), Color("#31353d"), 6.0)
+		draw_line(r[0].round(), r[1].round(), Color("#53986e"), 4.0)
+		draw_line(r[0].round(), r[1].round(), Color("#afe8b8"), 1.0)
+		draw_circle(r[1].round(), 2.0, Color("#7cf5b8"))
+	var sphere: Vector2 = (tips[0] + tips[1]) * 0.5 + Vector2(0, -6)
+	if e >= RAIL_RAISE and e < RAIL_FIRE + 0.05:
+		var kc := clampf((e - RAIL_RAISE) / (RAIL_FIRE - RAIL_RAISE), 0.0, 1.0)
+		var rad := 2.0 + 8.0 * kc + sin(e * 40.0) * kc
+		draw_circle(sphere.round(), rad * 2.2, Color(0.07, 0.72, 0.42, 0.18 + 0.1 * kc))
+		draw_circle(sphere.round(), rad, Color(0.07, 0.72, 0.42, 0.95))
+		draw_circle(sphere.round(), rad * 0.55, Color(0.49 + 0.5 * kc, 0.96, 0.72, 1.0))
+		# The pull: jagged threads from each tip into the sphere, flickering.
+		for side in 2:
+			var tip: Vector2 = tips[side]
+			var pts := PackedVector2Array([tip.round()])
+			for k in 3:
+				var along := (k + 1) / 4.0
+				pts.append((tip.lerp(sphere, along) + Vector2((_hash(int(e * 20.0) + k + side * 7) - 0.5) * 6.0, (_hash(int(e * 20.0) + k + 3) - 0.5) * 4.0)).round())
+			pts.append(sphere.round())
+			draw_polyline(pts, Color(0.49, 0.96, 0.72, 0.5 + 0.5 * kc), 1.0)
+	# It fires: the sphere streaks straight up off the top of the arena.
+	if e >= RAIL_FIRE and e < RAIL_FIRE + 0.22:
+		var kf := (e - RAIL_FIRE) / 0.22
+		var top: Vector2 = sphere + Vector2(0, -320.0 * kf)
+		draw_line(sphere.round(), top.round(), Color(0.49, 0.96, 0.72, 0.8 * (1.0 - kf)), 7.0)
+		draw_line(sphere.round(), top.round(), Color(1.0, 1.0, 1.0, 0.9 * (1.0 - kf)), 3.0)
+		if kf < 0.3:
+			draw_rect(Rect2(-40, -40, 470, 300), Color(0.75, 1.0, 0.85, 0.45 * (1.0 - kf / 0.3)))
+	# The meteor: the sphere comes back down onto the target, trailing afterimages.
+	if e >= RAIL_FALL and e < RAIL_HIT:
+		var kd := (e - RAIL_FALL) / (RAIL_HIT - RAIL_FALL)
+		for ghost in [0.16, 0.08, 0.0]:
+			var kk := clampf(kd - ghost, 0.0, 1.0)
+			var pos: Vector2 = _to + Vector2(0, -6.0 - 170.0 * (1.0 - pow(kk, 1.6)))
+			var alpha := 1.0 if ghost == 0.0 else (0.35 if ghost == 0.08 else 0.2)
+			draw_texture_rect(RAIL_METEOR, Rect2((pos - Vector2(23, 90)).round(), Vector2(46, 94)), false, Color(1, 1, 1, alpha))
+	if e >= RAIL_HIT:
+		var kh := e - RAIL_HIT
+		# A full-screen white-green flash in three steps.
+		if kh < 0.18:
+			draw_rect(Rect2(-40, -40, 470, 300), Color(0.85, 1.0, 0.9, 0.9 * (floor((1.0 - kh / 0.18) * 3.0) / 3.0)))
+		# A column of light from the sky, narrowing.
+		if kh < 0.5:
+			var kcol := kh / 0.5
+			var w := 40.0 * (1.0 - kcol)
+			draw_rect(Rect2(Vector2(_to.x - w * 0.5, -60.0).round(), Vector2(w, _to.y + 54.0)), Color(0.75, 1.0, 0.85, 0.7 * (1.0 - kcol)))
+			draw_rect(Rect2(Vector2(_to.x - w * 0.2, -60.0).round(), Vector2(w * 0.4, _to.y + 54.0)), Color(1.0, 1.0, 1.0, 0.8 * (1.0 - kcol)))
+		# Shockwave rings flattened onto the ground, two of them.
+		for ring in 2:
+			var kr := (kh - ring * 0.1) / 0.6
+			if kr > 0.0 and kr < 1.0:
+				var w := 63.0 + 130.0 * kr
+				draw_texture_rect(RAIL_RING, Rect2((_to - Vector2(w * 0.5, w * 0.28)).round(), Vector2(w, w * 0.56)), false, Color(1, 1, 1, 1.0 - kr))
+		# The starburst, then the bloom swelling.
+		if kh < 0.25:
+			var w := 63.0 * (1.0 + kh * 2.0)
+			draw_texture_rect(RAIL_BURST, Rect2((_to - Vector2(w * 0.5, w * 0.6)).round(), Vector2(w, w * 0.89)), false)
+		if kh >= 0.1 and kh < 0.6:
+			var kb := (kh - 0.1) / 0.5
+			var w := 40.0 * (1.0 + 1.5 * kb)
+			draw_texture_rect(RAIL_BLOOM, Rect2((_to - Vector2(w * 0.5, w * 0.7)).round(), Vector2(w, w)), false, Color(1, 1, 1, 1.0 - kb * kb))
+		# Stone and jade debris thrown up, falling back.
+		if kh < 0.9:
+			for j in 18:
+				var vx := (_hash(j + 101) - 0.5) * 140.0
+				var vy := 60.0 + _hash(j + 211) * 110.0
+				var p: Vector2 = _to + Vector2(vx * kh, -vy * kh + 160.0 * kh * kh)
+				if p.y < _to.y + 4.0:
+					draw_rect(Rect2(p.round(), Vector2(3, 3) if j % 3 == 0 else Vector2(2, 2)), Color("#53986e") if j % 2 == 0 else Color("#4e5a5e"))
+		# The burning core left where it hit, fading last.
+		if kh >= 0.1:
+			var kcore := clampf((kh - 0.1) / 0.95, 0.0, 1.0)
+			draw_texture_rect(RAIL_CORE, Rect2((_to - Vector2(15, 24)).round(), Vector2(31, 30)), false, Color(1, 1, 1, 1.0 - kcore))
+
+
 func _blast(age: float, core: Color, rim: Color, size: float) -> void:
+	_blast_at(_to, age, core, rim, size)
+
+
+func _blast_at(at: Vector2, age: float, core: Color, rim: Color, size: float) -> void:
 	var k := clampf(age / 0.6, 0.0, 1.0)
 	if k >= 1.0:
 		return
-	draw_circle(_to.round(), size * (0.5 + k) * 0.6, Color(core, 0.6 * (1.0 - k)))
-	draw_arc(_to.round(), size * (0.4 + k), 0, TAU, 36, Color(rim, 1.0 - k), 4.0)
+	draw_circle(at.round(), size * (0.5 + k) * 0.6, Color(core, 0.6 * (1.0 - k)))
+	draw_arc(at.round(), size * (0.4 + k), 0, TAU, 36, Color(rim, 1.0 - k), 4.0)
 	for i in 16:
 		var d := Vector2.RIGHT.rotated(i * TAU / 16.0 + 0.3) * size * 1.4 * k
-		draw_rect(Rect2((_to + d).round(), Vector2(3, 3)), Color(rim, 1.0 - k))
+		draw_rect(Rect2((at + d).round(), Vector2(3, 3)), Color(rim, 1.0 - k))
 
 
 func _draw() -> void:
@@ -589,6 +818,8 @@ func _draw() -> void:
 		"Furnace Roar": _draw_roar(e)
 		"Molten Glass": _draw_glass(e)
 		"Verdant Roar": _draw_roar_green(e)
+		"Kingstone Rail": _draw_rail(e)
+		"Starshield": _draw_star(e)
 
 
 ## The giant close-up card, drawn by the arena on its screen layer while the card runs.

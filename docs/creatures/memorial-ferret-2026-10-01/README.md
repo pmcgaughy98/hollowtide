@@ -20,3 +20,17 @@ Gabrielle approves or changes Stage I, then Stage II is made from it, then Stage
 ## In the game, provisionally (2026-10-05)
 
 Preston asked to add Punchybuns "for now". `data/creatures/2101_punchybun.tres` is Stage I only: take 1 art (`assets/sprites/creatures/punchybun_2026_10_05/punchybun_front.png`), Electric, default 60 stats, no moves (Strike), no back view (the battle shows the front), no evolution. Name "Punchybun" and Dex 2101 are placeholders. Stages II and III still wait for Gabrielle's answers.
+
+## Stage II and III candidates (2026-10-08)
+
+Preston asked directly: "make Punchybun stage 2 and 3." Gabrielle's open questions above are still open, so these are candidates built from the stage descriptions in this note, names still hers to give. Retro Diffusion `rd_pro__default` with the stage 1 front as the reference, three takes each: `stage2_front_take1..3.png` (144 px, the longer boxer: upright stance, fists up, glowing paw pads, the star crackling down its back) and `stage3_front_take1..3.png` (160 px, the guardian: the S-curve body, the pink star-gem on the chest, the big crackling tail). $1.08 together; strip `stage2_3_candidates.png`. Preston picks one of each; then rotations and back views follow the usual method, and the data files get `evolves_into` links.
+
+**Preston chose take a for both (2026-10-08).** Installed as `assets/sprites/creatures/punchybun_2026_10_05/punchybun_stage2_front.png` and `punchybun_stage3_front.png`, with data files `data/creatures/2102_punchybun2.tres` and `2103_punchybun3.tres` (placeholder names "Punchybun II" and "Punchybun III", Electric, default stats, no moves) and the evolution chain 2101 to 2102 to 2103 (`CreatureRoster.validate_evolutions` passes, 21 creatures). Back views by the back-view method: an RD image edit of each front ("turn this exact same creature around", $0.36 together), then `tools/unity_port/finish_back.py` locked each to its front's colours, outline and canvas (`stage2_back_edit.png` raw, `stage2_back_finished.png` installed; same for stage 3; review strip `backs_review.png`). Stage I still has no back view. Not in the arena: the arena forms (take, rotation, walks, about $3) and the Protector kit with the star-shield guard are a later slice, after Grok's kit. Names remain Gabrielle's.
+
+## Taken over (Preston, 2026-10-08, later)
+
+"Gabrielle isn't interested anymore, so we're taking over. You make the names, then do what we need to get Punchybuns' line ready and into the arena." So the open questions above are closed by Preston and Claude:
+- **Names (Claude's):** Punchybun (kept: Adrianna's handle), **Sparkjab** (the boxer whose jabs spark), **Starward** (the guardian; "ward" says what it does). Data files renamed `2102_sparkjab.tres`, `2103_starward.tres`; the chain still validates.
+- **Arena:** the line is the seventh picker column and the roster's **Protector**, the first support: Spark Jab, Static Dance, Star Guard, Counter Jab, passive Guardian, signature **Starshield**. Write-up: `docs/creatures/arena-starward-2026-10-08/README.md`.
+- The memorial framing stays: the pink, the star, protecting the people it loves.
+

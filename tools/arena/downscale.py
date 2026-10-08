@@ -23,3 +23,26 @@ def shrink(im: Image.Image, f: int) -> Image.Image:
             best = min((c for c, n in counts.items() if n == top), key=lambda c: int(c[0]) + int(c[1]) + int(c[2]))
             out[y, x] = best
     return Image.fromarray(out)
+
+
+def resample(im: Image.Image, f: float) -> Image.Image:
+    """Shrink by any factor (Claude, 2026-10-08, for Preston's size fix): a smooth resize to
+    the target size, then every pixel is snapped back to the nearest colour the source
+    already uses and the alpha is hardened, so the palette and the hard edges survive."""
+    im = im.convert("RGBA")
+    src = np.array(im)
+    solid = src[src[:, :, 3] > 0][:, :3]
+    palette = np.unique(solid, axis=0).astype(int)
+    tw, th = max(1, round(im.width / f)), max(1, round(im.height / f))
+    small = np.array(im.resize((tw, th), Image.LANCZOS)).astype(int)
+    out = np.zeros((th, tw, 4), np.uint8)
+    mask = small[:, :, 3] >= 128
+    rgb = small[:, :, :3][mask]
+    if len(rgb):
+        # nearest palette colour, weighted a little toward red (the "redmean" distance)
+        d = ((rgb[:, None, :] - palette[None, :, :]) ** 2)
+        d = d[:, :, 0] * 2 + d[:, :, 1] * 4 + d[:, :, 2] * 3
+        out[mask, :3] = palette[d.argmin(axis=1)]
+        out[mask, 3] = 255
+    return Image.fromarray(out)
+

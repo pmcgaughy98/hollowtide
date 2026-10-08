@@ -1,0 +1,11 @@
+{
+ "prompt": "The second stage of the reference creature, for a monster-collecting RPG: a longer, springier young ferret, leaner and taller than the round reference, standing upright on its hind legs in a boxer's stance with both front paws raised as little fists. The same soft cream-white fur, pastel pink ferret mask across the eyes, pink inner ears; its paw pads now glow with pale-gold electric charge, and the pink forehead star has spread into a crackle of tiny pink stars down its back. A long fluffy bottle-brush tail crackling with pale-gold sparks. Big friendly dark eyes, spunky and determined. Three-quarter view facing right. Crisp dark outline, clean clustered pixel shading. Not a mouse, not a rabbit, not a cat, not yellow, no red cheeks, no clothing. Exactly one creature on a plain white background.",
+ "prompt_style": "rd_pro__default",
+ "width": 144,
+ "height": 144,
+ "num_images": 3,
+ "remove_bg": true,
+ "reference_images": [
+  "assets/sprites/creatures/punchybun_2026_10_05/punchybun_front.png"
+ ]
+}

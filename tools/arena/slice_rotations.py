@@ -32,8 +32,16 @@ CELLS = {
     "fusern": TALLOW,
     "slagglass": TALLOW,
     "vitrecrag": TALLOW,
+    # The Oxbowarchon line (2026-10-08): Tallowroot's layout again (read by eye: e at r0c0, s at r0c2, w at r2c2).
+    "preostmar": TALLOW,
+    "oathfen": TALLOW,
+    "oxbowarchon": TALLOW,
+    # The Punchybuns line (2026-10-08): Tallowroot's layout (e at r0c0, s at r0c2, w at r2c2).
+    "punchybun": TALLOW,
+    "sparkjab": TALLOW,
+    "starward": TALLOW,
 }
-FORMS = {"sparkwick", "stormwick", "huskward", "rampartroot", "riftfin", "scourmaw", "cinderhide", "clinkerhide", "ironvent", "fusern", "slagglass", "vitrecrag"}
+FORMS = {"sparkwick", "stormwick", "huskward", "rampartroot", "riftfin", "scourmaw", "cinderhide", "clinkerhide", "ironvent", "fusern", "slagglass", "vitrecrag", "preostmar", "oathfen", "oxbowarchon", "punchybun", "sparkjab", "starward"}
 
 for name, cells in CELLS.items():
     if len(sys.argv) > 1 and name not in sys.argv[1:]:

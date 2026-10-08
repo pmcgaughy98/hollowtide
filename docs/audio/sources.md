@@ -15,3 +15,24 @@ Flow: https://elevenlabs.io/app/flows/RMxmaDwxIdMvCZBpMxiw. Model `eleven_text_t
 | match_start_a/b | A stadium crowd roaring as a creature battle begins, with a short deep horn blast announcing the start. Open-air arena, energetic, ends cleanly. 1.5 seconds. | 33 | b, whole |
 
 Total this batch: about 333 credits. Picks were made by measurement (onset, decay, brightness), not by ear; Preston decides.
+
+### Kingstone Rail (2026-10-08, same flow and model)
+Takes in `assets/audio/sfx/oxbowarchon/takes/`; trims in `tools/build_oxbowarchon_sounds.py`.
+
+| File | Prompt | Credits | Chosen |
+|---|---|---|---|
+| rail_charge_a/b | A giant crystal railgun charging: a deep resonant hum rising in pitch over two seconds, glassy crystalline chimes and electric crackles gathering into a sphere of energy, a tense building whine, then a sudden sharp release blast and a brief whoosh as it fires upward. Clean, dry, no music. 2.5 seconds. | 33 | b (6 s: hum, release at 5.55 s), cut 4.42 to 6.0 s so the release lands 1.15 s in, where the arena's rails fire; take a is a 2 s blast with no build |
+| rail_impact_a/b | A meteor of green crystal energy slams into a stone arena floor: a brief falling whistle, then a colossal impact boom with a deep sub thump, stone cracking and shattering, a crystalline shattering ring-out, and heavy rock debris raining down and settling. Open-air stadium, huge, punchy. 2 seconds. | 33 | a (louder boom, cleaner decay), 0.4 to 1.6 s |
+
+About 67 credits. Measured, not heard.
+
+### Starshield (2026-10-08, same flow and model)
+Takes in `assets/audio/sfx/starward/takes/`; build in `tools/build_starward_sounds.py`.
+
+| File | Prompt | Credits | Chosen |
+|---|---|---|---|
+| star_guard_a/b | A protective magical star shield forming around a friend: a warm rising crystalline chime, a soft electric hum swelling into a bright shimmering pulse as the shield snaps into place, then a gentle sparkling tail. Clean, warm, hopeful, no music. 1.5 seconds. | 33 | a (1.0 s; b is 0.48 s, too short to carry the star forming), whole |
+| star_guard_c/d | The same, asked for as two full seconds (Preston: "you can regenerate that ElevenLabs sound"). | 33 | **d** (3.0 s, a real swell then the pulse and a tail), 0 to 2.2 s; c came back at 1.0 s again |
+
+Used by Star Guard and at Starshield's snap. Measured, not heard.
+

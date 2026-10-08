@@ -10,7 +10,9 @@
 script = ExtResource("1_script")
 id = 902
 creature_name = "Oathfen"
-essence = 2
+essence = 4
+has_second_essence = true
+second_essence = 2
 sprite = ExtResource("2_sprite")
 back_sprite = ExtResource("3_back")
 description = "Provisional entry (Claude, 2026-10-05, on Preston's request 'add for now'): Line 9 stage II with the 2026-10-01 Retro Diffusion art. Default stats and no moves (it fights with Strike) until Grok sets its job, numbers and kit in docs/creatures/DESIGN_RULES.md."

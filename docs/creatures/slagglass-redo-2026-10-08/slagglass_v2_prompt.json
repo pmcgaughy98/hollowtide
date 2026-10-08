@@ -1,0 +1,12 @@
+{
+ "prompt": "Original fantasy creature, second stage of a three-stage Ember kiln line, invented for this world. It is the FIRST reference creature grown up: the same round lava-brick beetle, now much bigger and heavier, built like a tank. Its shell of dark rust-red and charcoal stone bricks has risen into a tall rough dome, and at the very top of the dome the first cracks are opening into a small glowing kiln crater with molten orange light spilling from the cracks; thick molten orange seams run between the bricks. The same small round head with one glowing orange kiln-window eye at the front, low under the shell. Six short thick armoured stump legs with blunt feet, wide low stance. The second reference shows what it will become; keep the beetle head and brick shell of the first. Dark charcoal and rust-brown bricks, molten orange and yellow the only bright colour, dark outline, clean clustered pixel shading. Three-quarter front view facing down and to the right like the references. Whole creature centred with empty space on every side, on a plain white background. No claws, no pincers, no long legs, no turtle head, no neck, no spines, no text.",
+ "prompt_style": "rd_pro__default",
+ "width": 192,
+ "height": 192,
+ "num_images": 3,
+ "remove_bg": true,
+ "reference_images": [
+  "assets/sprites/creatures/rd_material_match_2026_10_01/fusern_front.png",
+  "assets/sprites/creatures/rd_material_match_2026_10_01/vitrecrag_front.png"
+ ]
+}

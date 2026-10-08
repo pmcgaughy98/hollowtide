@@ -10,7 +10,9 @@
 script = ExtResource("1_script")
 id = 903
 creature_name = "Oxbowarchon"
-essence = 2
+essence = 4
+has_second_essence = true
+second_essence = 2
 sprite = ExtResource("3_sprite")
 back_sprite = ExtResource("4_back")
 description = "Provisional entry (2026-09-29) so Kingstone Rail can be previewed: Dex number 903 (Line 9, stage III), default stats and a one-move kit are placeholders for Preston to set."

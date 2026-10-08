@@ -67,6 +67,17 @@ const LINES := [
 	# The Vitrecrag line (Ember kiln, then armour, then the cannon), added 2026-10-07.
 	{"forms": [["fusern", "res://data/creatures/106_fusern.tres"], ["slagglass", "res://data/creatures/107_slagglass.tres"], ["vitrecrag", "res://data/creatures/108_vitrecrag.tres"]],
 		"signature": "Molten Glass", "accent": Color("#ffa030")},
+	# The Oxbowarchon line (Preston, 2026-10-08): the Bloom GEMSTONE KING, Bloom/Stone, a
+	# pseudo-legendary like Ironvent (no longer Preston's personal line). Its emerald is the
+	# Bloom king stone, and Kingstone Rail fires its power.
+	{"forms": [["preostmar", "res://data/creatures/901_preostmar.tres"], ["oathfen", "res://data/creatures/902_oathfen.tres"], ["oxbowarchon", "res://data/creatures/903_oxbowarchon.tres"]],
+		"signature": "Kingstone Rail", "accent": Color("#12b76a"),
+		"card": "res://assets/sprites/creatures/attacks/oxbowarchon_kingstone_rail/style_matched/titlecard.png"},
+	# The Punchybuns line (Electric), Adrianna's ferret, taken over by Preston and Claude on
+	# 2026-10-08 (Gabrielle is no longer involved); Claude named Sparkjab and Starward. The
+	# PROTECTOR: the one line whose signature is a guard.
+	{"forms": [["punchybun", "res://data/creatures/2101_punchybun.tres"], ["sparkjab", "res://data/creatures/2102_sparkjab.tres"], ["starward", "res://data/creatures/2103_starward.tres"]],
+		"signature": "Starshield", "accent": Color("#ff7ad0")},
 ]
 
 ## Every form's kit: its moves in the order its AI considers them, its walking speed and
@@ -75,8 +86,15 @@ const LINES := [
 ## Roles (Preston, 2026-10-07): melee, long range, defense piercer, tank, assassin and more;
 ## the role decides how the creature's AI moves ("profile") as well as its kit.
 const KITS := {
-	"kithflare": {"moves": ["fireball"]},
-	"sparkwick": {"moves": ["fireball"]},
+	# Every stage has a kit now (Preston, 2026-10-08: "fix up the non stage 3's kits. Only
+	# final stages get signature moves"). The draft rule: a line's earlier stages carry the
+	# same role's tools, fewer of them: stage 1 the basic and two abilities, stage 2 the basic
+	# and three, stage 3 the basic, three and the signature. Passives from stage 2. Grok owns
+	# every number; placeholder move names are marked where they are new.
+	# Stormwick line (Ember/Electric skirmisher): pounce in, strike, bounce out.
+	"kithflare": {"moves": ["pounce"], "abilities": ["flashstep", "lantern_volley"], "speed": 1.2, "profile": "skirmish"},
+	"sparkwick": {"moves": ["pounce"], "abilities": ["flashstep", "lantern_volley", "lantern_tackle"], "speed": 1.3,
+		"passive": "lantern_mark", "profile": "skirmish"},
 	# Stormwick (Preston, 2026-10-07): an agile melee attacker like Pikachu against Onix in the
 	# reference: its basic attack POUNCES in, strikes and bounces straight back out. Abilities:
 	# 1 Flashstep (three charges, each on its own 3 s cooldown), 2 Lantern Volley (hops back
@@ -84,16 +102,18 @@ const KITS := {
 	# target is close enough at the end). 4 Stormlantern.
 	"stormwick": {"role": "Skirmisher", "moves": ["pounce"], "abilities": ["flashstep", "lantern_volley", "lantern_tackle"], "speed": 1.4,
 		"passive": "lantern_mark", "profile": "skirmish"},
-	"tallowroot": {"moves": ["seed"]},
-	"huskward": {"moves": ["seed"]},
-	# Tank: holds ground, builds root structures, cripples movement abilities.
+	# Tallowroot line (Bloom/Stone tank): seed pods, the tail club, roots.
+	"tallowroot": {"moves": ["seed"], "abilities": ["club_slam", "root_snare"], "speed": 0.8, "hp": 1.2, "profile": "press"},
+	"huskward": {"moves": ["seed"], "abilities": ["club_slam", "root_snare", "root_rampart"], "speed": 0.7, "hp": 1.4,
+		"passive": "rampart", "profile": "press"},
 	# Rampartroot (Preston, 2026-10-07 night): a slow-moving tank. Basic Seed Pod; 1 Tail Club
 	# (a club swing with its tail that knocks back), 2 Root Snare, 3 Root Rampart (the old
 	# signature, shrunk to an ability). 4 Verdant Roar, the new signature (placeholder name).
 	"rampartroot": {"role": "Tank", "moves": ["seed"], "abilities": ["club_slam", "root_snare", "root_rampart"], "speed": 0.6, "hp": 1.7,
 		"passive": "rampart", "profile": "press"},
-	"rimefin": {"moves": ["beam"]},
-	"riftfin": {"moves": ["beam"]},
+	# Scourmaw line (Tide, then Tide/Hollow assassin): the pressure jet, then phase, riptide, sinkhole.
+	"rimefin": {"moves": ["beam"], "abilities": ["phase", "riptide"], "profile": "kite"},
+	"riftfin": {"moves": ["beam"], "abilities": ["phase", "riptide", "sinkhole"], "hp": 0.9, "speed": 1.1, "profile": "kite"},
 	# Long-range assassin: glass cannon, hit and run, keeps its distance and phases away.
 	# Scourmaw (ability kit, 2026-10-07 night, a draft for Grok): basic Deep Jet (AI); 1 Phase
 	# (attacks pass through; breaks roots); 2 Riptide (a current under the target); 3 Sinkhole,
@@ -101,20 +121,55 @@ const KITS := {
 	# few seconds hits harder. Passive Absence (hits erode the target). 4 Undertow.
 	"scourmaw": {"role": "Assassin", "moves": ["deep_jet"], "abilities": ["phase", "riptide", "sinkhole"], "hp": 0.85, "passive": "absence", "profile": "kite",
 		"far_bonus": 1.3},
-	# The Ironvent line (Ember/Stone), built from its turn-based moves (Crest Ram, Cinder Claw,
-	# Vent Barrage, Furnace Roar) and its design-rule roles: Cinderhide the starter, Clinkerhide
-	# "bulky mid", Ironvent the "line closer". Ironvent is a melee BRUISER (draft for Grok):
-	# slow and heavy, trades hits, and its Crest Ram carries the target into walls and rocks.
-	"cinderhide": {"moves": ["vent_barrage"]},
-	"clinkerhide": {"moves": ["cinder_claw", "vent_barrage"], "hp": 1.15, "speed": 0.9},
-	"ironvent": {"role": "Bruiser", "moves": ["crest_ram", "cinder_claw", "vent_barrage"], "speed": 0.85, "hp": 1.3,
+	# The Ironvent line (Ember/Stone bruisers), from its turn-based moves (Crest Ram, Cinder
+	# Claw, Vent Barrage, Furnace Roar). Basic Cinder Claw; 1 Crest Ram (Clinkerhide up, which
+	# has the crest), 2 Vent Barrage, 3 Vent Blast (placeholder name: a gout of heat from the
+	# back vents, a short cone that throws back and smoulders). Stoke from stage 2.
+	"cinderhide": {"moves": ["cinder_claw"], "abilities": ["vent_barrage", "vent_blast"], "profile": "press"},
+	"clinkerhide": {"moves": ["cinder_claw"], "abilities": ["crest_ram", "vent_barrage", "vent_blast"], "hp": 1.15, "speed": 0.9,
 		"passive": "stoke", "profile": "press"},
-	# The Vitrecrag line, from its turn-based moves (draft for Grok). Vitrecrag is the
-	# ARTILLERY piece ("the cannon"): slow, armoured, strongest when it plants its feet.
-	"fusern": {"moves": ["ember_pellet"]},
-	"slagglass": {"moves": ["glass_spur", "furnace_shard"], "hp": 1.1, "speed": 0.9},
-	"vitrecrag": {"role": "Artillery", "moves": ["plate_lunge", "molten_cannon", "molten_beam"], "speed": 0.7, "hp": 1.25,
-		"passive": "kiln", "profile": "kite_near"},
+	"ironvent": {"role": "Bruiser", "moves": ["cinder_claw"], "abilities": ["crest_ram", "vent_barrage", "vent_blast"], "speed": 0.85, "hp": 1.3,
+		"passive": "stoke", "profile": "press"},
+	# The Vitrecrag line (Ember kiln tanks). Vitrecrag (Preston, 2026-10-08) is the EMBER
+	# TANK: slow and heavy, it walks up and holds the line. Basic Plate Lunge (AI); 1 Molten
+	# Cannon, 2 Molten Beam, 3 Glass Guard (placeholder name: it plants, its shell runs molten,
+	# blows on it are halved and whoever strikes it up close is Glassed). Kiln Heat now also
+	# stokes from blows it takes. 4 Molten Glass, an eruption all round it that Glasses every
+	# enemy inside and leaves a wide field of glass. Slagglass (redesigned 2026-10-08 as the
+	# brick dome, no spurs) shoves with its shell and shoots furnace shards.
+	"fusern": {"moves": ["ember_pellet"], "abilities": ["molten_beam", "glass_guard"], "hp": 1.1, "speed": 0.85, "profile": "press"},
+	"slagglass": {"moves": ["plate_lunge"], "abilities": ["furnace_shard", "molten_beam", "glass_guard"], "hp": 1.3, "speed": 0.75,
+		"passive": "kiln", "profile": "press"},
+	"vitrecrag": {"role": "Tank", "moves": ["plate_lunge"], "abilities": ["molten_cannon", "molten_beam", "glass_guard"], "speed": 0.65, "hp": 1.6,
+		"passive": "kiln", "profile": "press"},
+	# The Oxbowarchon line (2026-10-08), drafted from the line's own move directions in
+	# docs/creatures/personal-stone-line-proposal.md (Jade Lance, Ground Spikes, Stone Cocoon,
+	# Slab Vortex); every number is Grok's to set. The early stages brawl with the slabs.
+	"preostmar": {"moves": ["jade_lance"], "abilities": ["ground_spikes", "stone_cocoon"], "speed": 0.9},
+	"oathfen": {"moves": ["jade_lance"], "abilities": ["ground_spikes", "stone_cocoon", "slab_vortex"], "hp": 1.2, "speed": 0.8,
+		"passive": "bound_slabs", "profile": "press"},
+	# Oxbowarchon (Preston, 2026-10-08): "more of a backline character, playing on the railgun
+	# wherever it makes sense tactically for a railgun". ARTILLERY: it keeps its distance and
+	# everything it fires hits harder from far away. Basic Jade Lance (AI); 1 Rail Shot (the
+	# rails fire a slug down a long line that pierces everything on it); 2 Ground Spikes (jade
+	# under whatever closes in, a hold: its peel); 3 Rail Recoil (fires both rails at the
+	# floor to vault away from the nearest enemy, untouchable for the hop, and the blast
+	# throws that enemy off). Passive Bound Slabs (two jade slabs float at its hips and each
+	# swallows one blow, re-forming in time). 4 Kingstone Rail. Placeholder names: Rail Shot,
+	# Rail Recoil.
+	"oxbowarchon": {"role": "Artillery", "moves": ["jade_lance"], "abilities": ["rail_shot", "ground_spikes", "rail_recoil"], "speed": 0.7, "hp": 1.3,
+		"passive": "bound_slabs", "profile": "kite", "far_bonus": 1.3},
+	# The Punchybuns line (Claude, 2026-10-08; Grok's numbers): a ferret who protects the
+	# people it loves. Basic Spark Jab (AI). 1 Static Dance (the ferret war dance: it charges
+	# its next jab, and every ally close by moves faster for a moment); 2 Star Guard (a pink
+	# star shield on the most hurt ally in reach, or itself); 3 Counter Jab (it dashes to the
+	# ally in the most trouble and punches the enemy on it away). Passive Guardian (allies
+	# beside it take less). Its AI escorts the most hurt ally. 4 Starshield.
+	"punchybun": {"moves": ["jab"], "abilities": ["static_dance", "star_guard"], "speed": 1.1, "hp": 0.95, "profile": "escort"},
+	"sparkjab": {"moves": ["jab"], "abilities": ["static_dance", "star_guard", "counter_jab"], "speed": 1.15, "hp": 1.05,
+		"passive": "guardian", "profile": "escort"},
+	"starward": {"role": "Protector", "moves": ["jab"], "abilities": ["static_dance", "star_guard", "counter_jab"], "speed": 1.1, "hp": 1.25,
+		"passive": "guardian", "profile": "escort"},
 }
 ## Moves. "range" is how close the target must be; "cooldown" is per move.
 const MOVES := {
@@ -153,6 +208,23 @@ const MOVES := {
 	"plate_lunge": {"name": "Plate Lunge", "damage": 14, "cooldown": 2.0, "range": 28.0},
 	"molten_cannon": {"name": "Molten Cannon", "damage": 16, "cooldown": 3.5, "range": 150.0},
 	"molten_beam": {"name": "Molten Beam", "damage": 12, "cooldown": 1.8, "range": 120.0},
+	# Placeholder name: the tank plants and runs its shell molten for a few seconds.
+	"glass_guard": {"name": "Glass Guard", "damage": 0, "cooldown": 9.0, "range": 0.0},
+	# Oxbowarchon line (Bloom/Stone): moves come off the bound jade slabs and the rails.
+	"jade_lance": {"name": "Jade Lance", "damage": 13, "cooldown": 1.5, "range": 110.0},
+	"ground_spikes": {"name": "Ground Spikes", "damage": 14, "cooldown": 6.0, "range": 120.0},
+	"stone_cocoon": {"name": "Stone Cocoon", "damage": 12, "cooldown": 10.0, "range": 0.0},
+	"slab_vortex": {"name": "Slab Vortex", "damage": 15, "cooldown": 7.0, "range": 40.0},
+	# Oxbowarchon as a backline railgun (Preston, 2026-10-08). Placeholder names.
+	"rail_shot": {"name": "Rail Shot", "damage": 22, "cooldown": 6.0, "range": 220.0},
+	"rail_recoil": {"name": "Rail Recoil", "damage": 8, "cooldown": 8.0, "range": 0.0, "mobility": true},
+	# Ironvent line: a gout of heat from the back vents, a short cone that throws back and smoulders.
+	"vent_blast": {"name": "Vent Blast", "damage": 11, "cooldown": 5.0, "range": 44.0},
+	# Punchybuns line (Electric, the protector).
+	"jab": {"name": "Spark Jab", "damage": 10, "cooldown": 0.9, "range": 26.0},
+	"static_dance": {"name": "Static Dance", "damage": 0, "cooldown": 7.0, "range": 0.0},
+	"star_guard": {"name": "Star Guard", "damage": 0, "cooldown": 8.0, "range": 120.0},
+	"counter_jab": {"name": "Counter Jab", "damage": 12, "cooldown": 6.0, "range": 140.0, "mobility": true},
 }
 ## The arena's essence chart (Preston, 2026-10-07). A three-way main cycle: Tide beats Ember,
 ## Bloom beats Tide, Ember beats Bloom. Second essences soften it, each a step weaker:
@@ -185,6 +257,10 @@ const MOVE_ESSENCE := {
 	"vent_barrage": E.EMBER, "Furnace Roar": E.EMBER, "crest_ram": E.EMBER, "cinder_claw": E.EMBER,
 	"ember_pellet": E.EMBER, "glass_spur": E.EMBER, "furnace_shard": E.EMBER, "plate_lunge": E.STONE,
 	"molten_cannon": E.EMBER, "molten_beam": E.EMBER, "Molten Glass": E.EMBER,
+	# The jade is Stone; the Kingstone itself is Bloom (Preston, 2026-10-08).
+	"jade_lance": E.STONE, "ground_spikes": E.STONE, "stone_cocoon": E.STONE, "slab_vortex": E.STONE, "Kingstone Rail": E.BLOOM,
+	"rail_shot": E.BLOOM, "rail_recoil": E.STONE, "vent_blast": E.EMBER,
+	"jab": E.ELECTRIC, "counter_jab": E.ELECTRIC, "Starshield": E.ELECTRIC,
 }
 
 const FACINGS := ["e", "se", "s", "sw", "w", "nw", "n", "ne"]  # clockwise from east, 45 degrees apart
@@ -216,6 +292,9 @@ const TELEGRAPH := {
 	"crest_ram": ["charge", 0.45],
 	"ember_pellet": ["line", 0.3], "furnace_shard": ["line", 0.3], "glass_spur": ["melee", 0.25], "plate_lunge": ["melee", 0.35],
 	"molten_cannon": ["area", 0.5], "molten_beam": ["line", 0.35],
+	"jade_lance": ["line", 0.3], "ground_spikes": ["area", 0.45], "slab_vortex": ["melee", 0.35],
+	"rail_shot": ["rail", 0.7], "vent_blast": ["melee", 0.3],
+	"jab": ["melee", 0.2],
 }
 const AI_SLOWER := 1.3                 # the rival's cooldowns are this much longer
 
@@ -327,6 +406,56 @@ const SEAM_SECONDS := 7.0
 const SEAM_WIDTH := 9.0
 const SEAM_SLOW := 0.75
 const GEYSER_STUN := 1.0               # Furnace Roar's vent crowd control
+## Molten glass as a status (Preston, 2026-10-08: "some sort of molten glass status effect on
+## enemies"). Glassed: molten glass clings to the creature, burning it and slowing it wherever
+## it goes, and when it wears off the glass SETS hard for a moment, holding it still.
+const GLASSED_SECONDS := 4.0
+const GLASSED_SLOW := 0.65
+const GLASSED_TICK := 0.5
+const GLASSED_BURN := 2
+const GLASSED_SET := 0.5
+const POOL_GLASS := 1.5                # standing in a glass pool keeps you Glassed this long after
+## Glass Guard (Vitrecrag's third ability): planted, damage halved, melee attackers Glassed.
+const GUARD_SECONDS := 2.5
+const GUARD_REDUCTION := 0.5
+const KILN_PER_HIT := 12.0             # the tank's kiln is stoked by every blow it takes
+## Molten Glass's field: pools laid round Vitrecrag itself, [offset, radius] each.
+const GLASS_FIELD := [[Vector2(0, 2), 30.0], [Vector2(-40, -8), 18.0], [Vector2(40, -6), 18.0], [Vector2(-24, 20), 17.0],
+	[Vector2(26, 22), 17.0], [Vector2(2, -26), 16.0], [Vector2(-50, 12), 14.0], [Vector2(50, 14), 14.0]]
+## The Oxbowarchon line (2026-10-08). Drafts for Grok.
+const SPIKE_ROOT := 0.8                # Ground Spikes hold the target a moment
+const COCOON_SECONDS := 1.2            # Stone Cocoon: the slabs pull tight, then burst outward
+const COCOON_GUARD := 0.4
+const COCOON_RADIUS := 44.0
+const VORTEX_RADIUS := 36.0
+const SLAB_COUNT := 2                  # Bound Slabs: blows swallowed before the slabs must re-form
+const SLAB_REFORM := 7.0
+const SLAB_MIN_HIT := 6                # chip damage passes the slabs
+const RAIL_RADIUS := 48.0              # Kingstone Rail: everyone else this close to the impact
+const RAIL_SPLASH := 0.5               # takes this much of the damage and is floored
+const SHARDS_SECONDS := 7.0            # and the crater stays ringed with Kingstone shards that
+const SHARDS_RADIUS := 40.0            # slow enemies and shut off their movement abilities
+const SHARDS_SLOW := 0.6
+const RECOIL_HOP := 70.0               # Rail Recoil: the hop away from the nearest enemy
+const RECOIL_INVULN := 0.3             # untouchable for the hop
+const RAIL_WIDTH := 13.0               # Rail Shot: how close to the line a creature must stand
+## The Punchybuns line (2026-10-08). Drafts for Grok.
+const GUARD_SHIELD := 25               # Star Guard: damage the star shield absorbs
+const GUARD_SHIELD_SECONDS := 4.0
+const DANCE_WINDOW := 6.0              # Static Dance: the charged jab must land inside this
+const DANCE_HASTE := 3.0               # and allies close by move faster this long
+const HASTE_SPEED := 1.3
+const CHARGED_JAB := 1.5               # the charged jab's damage, and it stuns
+const CHARGED_STUN := 0.4
+const GUARDIAN_RADIUS := 40.0          # Guardian: allies this close take less
+const GUARDIAN_CUT := 0.85
+const STARSHIELD_SHIELD := 40          # Starshield: every ally's shield
+const STARSHIELD_SECONDS := 6.0
+const STARSHIELD_RADIUS := 70.0        # enemies inside are thrown out and held
+const STARSHIELD_STUN := 0.6
+const STAR_FIELD_SECONDS := 6.0        # the star field left behind: allies inside mend
+const STAR_FIELD_RADIUS := 60.0
+const STAR_FIELD_HEAL := 2
 const CRIPPLE_SECONDS := 2.4
 const WALL_SECONDS := 6.0
 const RAMPART_GUARD := 0.75
@@ -447,6 +576,9 @@ func _ready() -> void:
 	_sig.root_all.connect(_on_root_all)
 	_sig.vine_field.connect(_on_vine_field)
 	_sig.glass_pools.connect(_on_glass_pools)
+	_sig.rail_impact.connect(_on_rail_impact)
+	_sig.star_shield.connect(_on_star_shield)
+	_sig.star_field.connect(_on_star_field)
 	_sig.geysers.connect(_on_geysers)
 	_sig.lava_seams.connect(_on_lava_seams)
 	_sig.finished.connect(func() -> void: _sig_user = -1)
@@ -549,7 +681,11 @@ func _make_fighter(line: int, stage: int, at: Vector2, facing: String, ai: bool,
 		"heat": 0.0, "ram_t": 0.0, "ram_dir": Vector2.ZERO, "ram_dmg": 0,
 		"windup": {}, "shiver": Vector2.ZERO,
 		"ram_return": false, "ram_end_hit": false, "after": "", "after_aim": Vector2.ZERO,
-		"invuln": 0.0, "marked": 0.0, "tackle": {}, "ring": ring, "ambush": 0.0}
+		"invuln": 0.0, "marked": 0.0, "tackle": {}, "ring": ring, "ambush": 0.0,
+		"guard": 0.0, "glassed": 0.0, "glassed_tick": 0.0,
+		"cocoon": 0.0, "cocoon_dmg": 0, "slabs": SLAB_COUNT if passive == "bound_slabs" else 0, "slab_t": 0.0,
+		"final": stage == 2,   # only a line's final stage has the signature (Preston, 2026-10-08)
+		"shield": 0, "shield_t": 0.0, "charged": 0.0, "haste": 0.0}
 	return fighter
 
 
@@ -762,9 +898,13 @@ func _move_player(delta: float) -> void:
 func _walk(i: int, dir: Vector2, delta: float) -> void:
 	var f: Dictionary = _fighters[i]
 	var floor_rect: Rect2 = ARENAS[_arena]["floor"]
-	if dir.length() > 0.01 and f["stun"] <= 0.0 and f["rooted"] <= 0.0 and not f["hidden"] and f["hp"] > 0 and f["ram_t"] <= 0.0:
+	if dir.length() > 0.01 and f["stun"] <= 0.0 and f["rooted"] <= 0.0 and f["guard"] <= 0.0 and f["cocoon"] <= 0.0 and not f["hidden"] and f["hp"] > 0 and f["ram_t"] <= 0.0:
 		dir = dir.normalized()
 		var speed: float = SPEED * f["speed"] * (0.5 if f["dazzle"] > 0.0 else 1.0) * (0.7 if f["crippled"] > 0.0 else 1.0)
+		if f["glassed"] > 0.0:
+			speed *= GLASSED_SLOW
+		if f["haste"] > 0.0:
+			speed *= HASTE_SPEED
 		if _in_riptide(i):
 			speed *= RIPTIDE_SLOW
 		if _in_vines(i):
@@ -853,6 +993,21 @@ func _move_ai(i: int, delta: float) -> void:
 			# Walks straight at you and stays in your face.
 			if dist > 20.0:
 				dir = to_you.normalized()
+		"escort":
+			# A protector: stands beside the most hurt ally, between it and the nearest enemy,
+			# and only presses the enemy itself when nobody needs guarding.
+			var ward := _most_hurt_ally(i)
+			if ward >= 0 and ward != i:
+				var wp: Vector2 = _fighters[ward]["body"].position
+				var nf := _nearest_foe(ward)
+				var post: Vector2 = wp + ((_fighters[nf]["body"].position - wp).normalized() * 18.0 if nf >= 0 else Vector2.ZERO)
+				var to_post: Vector2 = post - me["body"].position
+				if to_post.length() > 12.0:
+					dir = to_post.normalized()
+				elif dist > 24.0 and dist < 40.0:
+					dir = to_you.normalized() * 0.5
+			elif dist > 20.0:
+				dir = to_you.normalized()
 		"kite_near":
 			# Artillery: holds about 100 px, backs off from anything close, and otherwise
 			# stands still so its kiln heats.
@@ -876,7 +1031,8 @@ func _move_ai(i: int, delta: float) -> void:
 				dir += off.normalized() * (22.0 - off.length()) / 22.0 * 1.2
 	_walk(i, dir, delta * 0.85)
 	# The ultimate is the player's to fire on their own creature (the simulator excepted).
-	if me["meter"] >= 100 and dist < 150.0 and (i != controlled or auto_you):
+	# Molten Glass erupts round Vitrecrag itself, so its AI waits for an enemy close by.
+	if me["final"] and me["meter"] >= 100 and dist < (60.0 if LINES[me["line"]]["signature"] == "Molten Glass" else 150.0) and (i != controlled or auto_you):
 		signature(i)
 
 
@@ -903,12 +1059,19 @@ func _use_moves(i: int, delta: float) -> void:
 	if t < 0:
 		return
 	var foe: Dictionary = _fighters[t]
+	# Abilities are weighed before the basic attack: they are the stronger, rarer tools, and a
+	# basic that is nearly always ready would otherwise crowd them out (2026-10-08, after the
+	# tank never guarded).
+	var order: Array = f["abilities"].duplicate()
 	for m in f["kit"]:
-		if i == controlled and m in f["abilities"]:
-			continue   # yours to fire (1-3); your other creatures' AI fires theirs
+		if m not in order:
+			order.append(m)
+	for m in order:
+		if i == controlled and not auto_you and m in f["abilities"]:
+			continue   # yours to fire (1-3); your other creatures' AI fires theirs (and auto mode fires yours)
 		# Roots and riptide shut off movement abilities, except Phase: roots cannot hold
 		# what is not there (Preston, 2026-10-07), so Phase breaks free at the cost of its dodge.
-		if MOVES[m].get("mobility", false) and m != "phase" and (f["crippled"] > 0.0 or _in_riptide(i)):
+		if MOVES[m].get("mobility", false) and m != "phase" and (f["crippled"] > 0.0 or _in_riptide(i) or _in_shards(i)):
 			continue
 		if f["cds"][m] <= 0.0 and _wants(i, m, foe):
 			if TELEGRAPH.has(m):
@@ -933,7 +1096,7 @@ func cast(slot: int) -> void:
 	var m: String = f["abilities"][slot]
 	if f["hp"] <= 0 or f["stun"] > 0.0 or f["dazzle"] > 0.0 or f["hidden"] or not f["windup"].is_empty() or f["ram_t"] > 0.0 or not f["tackle"].is_empty():
 		return
-	if f["cds"][m] > 0.0 or (MOVES[m].get("mobility", false) and m != "phase" and (f["crippled"] > 0.0 or _in_riptide(i))):
+	if f["cds"][m] > 0.0 or (MOVES[m].get("mobility", false) and m != "phase" and (f["crippled"] > 0.0 or _in_riptide(i) or _in_shards(i))):
 		_play("res://assets/audio/sfx/ui/cancel.wav", -12.0)
 		return
 	var t := _foe_of(i)
@@ -1055,6 +1218,36 @@ func _wants(i: int, m: String, foe: Dictionary) -> bool:
 		"lantern_flash":
 			# Blind a close enemy that is about to act, or one charging its signature.
 			return dist < MOVES[m]["range"] and (foe["act"] <= 0.0 or foe["meter"] >= 80) and foe["phase"] <= 0.0
+		"ground_spikes":
+			return dist > 30.0 and dist < MOVES[m]["range"] and foe["phase"] <= 0.0 and foe["rooted"] <= 0.0
+		"rail_shot":
+			# The long shot: from range, never at something that will phase through it.
+			return dist > 50.0 and dist < MOVES[m]["range"] and foe["phase"] <= 0.0
+		"rail_recoil":
+			# Fire the rails at the floor to vault away from whatever has closed in.
+			var nf := _nearest_foe(i)
+			return nf >= 0 and _fighters[nf]["body"].position.distance_to(f["body"].position) < 45.0
+		"vent_blast":
+			return dist < MOVES[m]["range"] and foe["phase"] <= 0.0
+		"static_dance":
+			# Dance when a jab is coming and nothing is charged yet.
+			return f["charged"] <= 0.0 and dist < 60.0
+		"star_guard":
+			# Shield whoever is hurt or about to be hit, itself included.
+			var w := _guard_target(i)
+			return w >= 0 and _fighters[w]["shield"] <= 0 and (_fighters[w]["hp"] < _fighters[w]["max_hp"] * 0.7 or _threat_near(w, 45.0))
+		"counter_jab":
+			# Dash to the ally in trouble when an enemy is on it.
+			var w := _ally_in_trouble(i)
+			return w >= 0 and w != i
+		"stone_cocoon":
+			# Pull tight when it is hurt and pressed, or a blow is about to land.
+			return f["cocoon"] <= 0.0 and dist < 50.0 and (f["hp"] < f["max_hp"] * 0.6 or _threat_near(i, 45.0))
+		"slab_vortex":
+			return dist < MOVES[m]["range"] * 0.8 and foe["phase"] <= 0.0
+		"glass_guard":
+			# Plant when the fight is on it: something close and either hurt or about to be hit.
+			return f["guard"] <= 0.0 and dist < 40.0 and (f["hp"] < f["max_hp"] * 0.7 or _threat_near(i, 45.0))
 		"molten_cannon":
 			# The big lob: from range, and not at something that will just phase through it.
 			return dist > 40.0 and dist < MOVES[m]["range"] and foe["phase"] <= 0.0
@@ -1275,6 +1468,157 @@ func _do_move(i: int, m: String, t: int) -> void:
 			_effects.append({"kind": "claw", "pos": foe["body"].position + Vector2(0, -8), "dir": aim, "t": 0.0})
 			_hurt(t, dmg, aim * 0.8, i)
 			_play("res://assets/audio/sfx/ui/hit_weak.wav", -6.0)
+		"jade_lance":
+			# A jade spike breaks free of its hip and pierces straight at the target.
+			_effects.append({"kind": "fireball", "owner": i, "pos": f["body"].position + Vector2(0, -8) + aim * 10.0, "vel": aim * 190.0, "life": 0.7, "trail": [], "damage": dmg, "jade": true})
+			_play("res://assets/audio/sfx/arena/rock_crack.wav", -12.0)
+		"ground_spikes":
+			# Jade erupts from the ground under the target: a hit and a short hold.
+			_effects.append({"kind": "spikes", "pos": foe["body"].position, "t": 0.0})
+			_burst(foe["body"].position + Vector2(0, -6), Color("#7cf5b8"), Color("#206349"), 18.0, false, "earth_burst")
+			_hurt(t, dmg, Vector2.ZERO, i)
+			if foe["hp"] > 0 and foe["phase"] <= 0.0 and foe["invuln"] <= 0.0:
+				foe["rooted"] = maxf(foe["rooted"], SPIKE_ROOT)
+				_label(t, "Spiked")
+			_play("res://assets/audio/sfx/arena/rock_break.wav", -10.0)
+		"stone_cocoon":
+			# The slabs pull tight round it; in a moment they burst outward as shrapnel.
+			f["cocoon"] = COCOON_SECONDS
+			f["cocoon_dmg"] = dmg
+			f["walk"] = 0.0
+			_label(i, "Cocoon")
+			_play("res://assets/audio/sfx/arena/rock_crack.wav", -8.0)
+		"slab_vortex":
+			# It rears and spins its plates: everything close is struck and thrown back.
+			var struck := false
+			for j in _fighters.size():
+				var o: Dictionary = _fighters[j]
+				if _enemies(i, j) and o["hp"] > 0 and o["body"].position.distance_to(f["body"].position) < VORTEX_RADIUS:
+					var away: Vector2 = (o["body"].position - f["body"].position).normalized()
+					_hurt(j, _dmg(m, i, j), away * 2.2, i)
+					_burst(o["body"].position + Vector2(0, -8), Color("#afe8b8"), Color("#31353d"), 14.0, false, "rock_dust")
+					struck = true
+			_effects.append({"kind": "vortex", "who": i, "t": 0.0})
+			_play("res://assets/audio/sfx/arena/wall_slam.wav" if struck else "res://assets/audio/sfx/arena/rock_crack.wav", -8.0)
+		"rail_shot":
+			# The rails fire a jade slug down the line: it pierces everything on it out to the
+			# end of its range, and Oxbowarchon recoils a step. Everything it fires hits harder
+			# from far away (the kit's far bonus, in _dmg).
+			var a: Vector2 = f["body"].position + aim * 6.0
+			var b: Vector2 = a + aim * MOVES[m]["range"]
+			var struck := 0
+			for j in _fighters.size():
+				var o: Dictionary = _fighters[j]
+				if not _enemies(i, j) or o["hp"] <= 0 or o["phase"] > 0.0 or o["invuln"] > 0.0:
+					continue
+				var c: Vector2 = o["body"].position + Vector2(0, -6)
+				if Geometry2D.get_closest_point_to_segment(c, a, b).distance_to(c) < RAIL_WIDTH:
+					_hurt(j, _dmg(m, i, j), aim * 1.4, i)
+					_burst(c, Color("#7cf5b8"), Color("#206349"), 14.0, false, "")
+					struck += 1
+			_effects.append({"kind": "rail_beam", "from": f["body"].position + Vector2(0, -22), "to": b + Vector2(0, -6), "t": 0.0})
+			_effects.append({"kind": "dust", "pos": f["body"].position, "t": 0.0})
+			var floor_rect: Rect2 = ARENAS[_arena]["floor"]
+			f["body"].position = (f["body"].position - aim * 5.0).clamp(floor_rect.position, floor_rect.end)
+			_shake_by(3.0 + struck)
+			_play("res://assets/audio/sfx/oxbowarchon/rail_impact.wav", -6.0 if struck > 0 else -14.0)
+		"rail_recoil":
+			# Both rails fire at the ground: the recoil throws it back away from the nearest
+			# enemy (a short hop, untouchable for a moment) and the blast throws that enemy off.
+			var nf := _nearest_foe(i)
+			var away: Vector2 = -aim if nf < 0 else (f["body"].position - _fighters[nf]["body"].position).normalized()
+			if away.length() < 0.01:
+				away = -aim
+			var floor_rect: Rect2 = ARENAS[_arena]["floor"]
+			var here: Vector2 = f["body"].position
+			var land: Vector2 = (here + away * RECOIL_HOP).clamp(floor_rect.position, floor_rect.end)
+			for tries in 5:
+				if not _blocked(land):
+					break
+				land = (here + away.rotated((tries + 1) * 0.5 * (1.0 if tries % 2 == 0 else -1.0)) * RECOIL_HOP).clamp(floor_rect.position, floor_rect.end)
+			for j in _fighters.size():
+				var o: Dictionary = _fighters[j]
+				if _enemies(i, j) and o["hp"] > 0 and o["body"].position.distance_to(here) < 32.0:
+					_hurt(j, _dmg(m, i, j), (o["body"].position - here).normalized() * 2.0, i)
+			_effects.append({"kind": "rail_beam", "from": here + Vector2(0, -22), "to": here + Vector2(0, 2), "t": 0.0})
+			_burst(here + Vector2(0, -2), Color("#afe8b8"), Color("#206349"), 18.0, false, "rock_dust")
+			_effects.append({"kind": "dust", "pos": land, "t": 0.0})
+			f["body"].position = land
+			f["invuln"] = maxf(f["invuln"], RECOIL_INVULN)
+			_play("res://assets/audio/sfx/oxbowarchon/rail_impact.wav", -10.0)
+		"vent_blast":
+			# A gout of heat from the back vents, a short cone in front: thrown back and smouldering.
+			for j in _fighters.size():
+				var o: Dictionary = _fighters[j]
+				if not _enemies(i, j) or o["hp"] <= 0:
+					continue
+				var to_o: Vector2 = o["body"].position - f["body"].position
+				if to_o.length() < MOVES[m]["range"] and to_o.normalized().dot(aim) > 0.5:
+					_hurt(j, _dmg(m, i, j), to_o.normalized() * 1.6, i)
+					if o["phase"] <= 0.0 and o["invuln"] <= 0.0:
+						o["smoulder"] = SMOULDER_SECONDS
+			for k in 3:
+				_effects.append({"kind": "impact", "anim": "vent_flame", "pos": f["body"].position + aim * (14.0 + k * 12.0) + Vector2(0, -6), "t": 0.0})
+			_play("res://assets/audio/sfx/ironvent/vent_jet.wav", -8.0)
+		"jab":
+			# A quick electric punch; charged by the dance, it hits harder and stuns.
+			var jab_dmg := dmg
+			if f["charged"] > 0.0:
+				jab_dmg = int(round(dmg * CHARGED_JAB))
+				f["charged"] = 0.0
+				if foe["phase"] <= 0.0 and foe["invuln"] <= 0.0:
+					foe["stun"] = maxf(foe["stun"], CHARGED_STUN)
+				_label(i, "Charged Jab")
+			_effects.append({"kind": "impact", "anim": "shock_burst", "pos": foe["body"].position + Vector2(0, -8), "t": 0.0})
+			_effects.append({"kind": "impact", "anim": "light_slash", "pos": foe["body"].position + Vector2(0, -2), "t": 0.0})
+			_hurt(t, jab_dmg, aim * 0.9, i)
+			_play("res://assets/audio/sfx/stormlantern/crack.wav", -12.0)
+		"static_dance":
+			# The ferret war dance: static builds for its next jab, and every ally close by is
+			# carried along a moment faster.
+			f["charged"] = DANCE_WINDOW
+			for j in _fighters.size():
+				var o: Dictionary = _fighters[j]
+				if o["team"] == f["team"] and o["hp"] > 0 and o["body"].position.distance_to(f["body"].position) < 50.0:
+					o["haste"] = maxf(o["haste"], DANCE_HASTE)
+					if j != i:
+						_label(j, "Hasted")
+			for k in 6:
+				_effects.append({"kind": "burst", "pos": f["body"].position + Vector2.RIGHT.rotated(k * TAU / 6.0) * 10.0 + Vector2(0, -8), "core": Color("#fffbe0"), "rim": Color("#ffd23a"), "size": 5.0, "t": -k * 0.05, "bits": [Vector2(12, -12), Vector2(-12, -12)]})
+			_play("res://assets/audio/sfx/stormlantern/crackle.wav", -10.0)
+		"star_guard":
+			# A pink star shield on the most hurt ally in reach (itself if nobody else needs it).
+			var w := _guard_target(i)
+			if w >= 0:
+				_shield(w, GUARD_SHIELD, GUARD_SHIELD_SECONDS)
+				_effects.append({"kind": "impact", "anim": "lantern_flash", "pos": _fighters[w]["body"].position + Vector2(0, -4), "t": 0.0})
+			_play("res://assets/audio/sfx/starward/star_guard.wav", -8.0)
+		"counter_jab":
+			# It dashes to the ally in the most trouble and punches the enemy on it away.
+			var w := _ally_in_trouble(i)
+			if w < 0:
+				w = _most_hurt_ally(i)
+			var nf := _nearest_foe(w) if w >= 0 else t
+			if w >= 0 and w != i:
+				var floor_rect: Rect2 = ARENAS[_arena]["floor"]
+				var wp: Vector2 = _fighters[w]["body"].position
+				var side: Vector2 = (_fighters[nf]["body"].position - wp).normalized() if nf >= 0 else aim
+				_effects.append({"kind": "impact", "anim": "lantern_flash", "pos": f["body"].position + Vector2(0, -4), "t": 0.0})
+				f["body"].position = (wp + side * 14.0).clamp(floor_rect.position, floor_rect.end)
+				_effects.append({"kind": "impact", "anim": "lantern_flash", "pos": f["body"].position + Vector2(0, -4), "t": 0.0})
+			if nf >= 0 and _fighters[nf]["hp"] > 0 and _fighters[nf]["body"].position.distance_to(f["body"].position) < 44.0:
+				var push: Vector2 = (_fighters[nf]["body"].position - f["body"].position).normalized()
+				f["facing"] = _facing_of(push)
+				_effects.append({"kind": "impact", "anim": "shock_burst", "pos": _fighters[nf]["body"].position + Vector2(0, -8), "t": 0.0})
+				_hurt(nf, _dmg(m, i, nf), push * 2.2, i)
+			_play("res://assets/audio/sfx/stormlantern/crack.wav", -8.0)
+		"glass_guard":
+			# Plants and runs its shell molten: a glass guard round it for a few seconds.
+			f["guard"] = GUARD_SECONDS
+			f["walk"] = 0.0
+			_effects.append({"kind": "guard", "who": i, "t": 0.0})
+			_label(i, "Guard")
+			_play("res://assets/audio/sfx/vitrecrag/buildup.wav", -10.0)
 		"plate_lunge":
 			# The shell shoves forward: a heavy shove that carries the target.
 			_burst(foe["body"].position + Vector2(0, -6), Color("#f0d8b0"), Color("#6a4a3a"), 16.0, false, "earth_burst")
@@ -1354,6 +1698,90 @@ func _foe_ready(foe: Dictionary, dist: float) -> bool:
 
 
 ## Whether fighter i stands in an enemy's vine field (Verdant Roar).
+## The ally (itself included) with the smallest share of its HP left; -1 with nobody alive.
+func _most_hurt_ally(i: int) -> int:
+	var best := -1
+	for j in _fighters.size():
+		var o: Dictionary = _fighters[j]
+		if o["team"] == _fighters[i]["team"] and o["hp"] > 0 and (best < 0 or float(o["hp"]) / o["max_hp"] < float(_fighters[best]["hp"]) / _fighters[best]["max_hp"]):
+			best = j
+	return best
+
+
+## Who Star Guard goes on: the most hurt ally within reach, itself if that is nobody else.
+func _guard_target(i: int) -> int:
+	var best := -1
+	for j in _fighters.size():
+		var o: Dictionary = _fighters[j]
+		if o["team"] == _fighters[i]["team"] and o["hp"] > 0 and o["body"].position.distance_to(_fighters[i]["body"].position) < MOVES["star_guard"]["range"]:
+			if best < 0 or float(o["hp"]) / o["max_hp"] < float(_fighters[best]["hp"]) / _fighters[best]["max_hp"]:
+				best = j
+	return best
+
+
+## The ally (not itself) with an enemy right on it, the most hurt first; -1 when none.
+func _ally_in_trouble(i: int) -> int:
+	var best := -1
+	for j in _fighters.size():
+		var o: Dictionary = _fighters[j]
+		if j == i or o["team"] != _fighters[i]["team"] or o["hp"] <= 0 or o["body"].position.distance_to(_fighters[i]["body"].position) > MOVES["counter_jab"]["range"]:
+			continue
+		var nf := _nearest_foe(j)
+		if nf >= 0 and _fighters[nf]["body"].position.distance_to(o["body"].position) < 40.0:
+			if best < 0 or float(o["hp"]) / o["max_hp"] < float(_fighters[best]["hp"]) / _fighters[best]["max_hp"]:
+				best = j
+	return best
+
+
+## A star shield on fighter j: absorbs `amount` before HP, for `seconds`.
+func _shield(j: int, amount: int, seconds: float) -> void:
+	var f: Dictionary = _fighters[j]
+	if f["hp"] <= 0:
+		return
+	f["shield"] = maxi(f["shield"], amount)
+	f["shield_t"] = maxf(f["shield_t"], seconds)
+	_label(j, "Shielded")
+
+
+## Starshield: every ally is shielded and cleansed; every enemy inside the star is thrown
+## out of it and held a moment.
+func _on_star_shield(at: Vector2, radius: float) -> void:
+	for j in _fighters.size():
+		var f: Dictionary = _fighters[j]
+		if f["hp"] <= 0:
+			continue
+		if f["team"] == _fighters[_sig_user]["team"]:
+			_shield(j, STARSHIELD_SHIELD, STARSHIELD_SECONDS)
+			f["glassed"] = 0.0
+			f["rooted"] = 0.0
+			f["crippled"] = 0.0
+			f["smoulder"] = 0.0
+			f["dazzle"] = 0.0
+			f["stun"] = 0.0
+		else:
+			var d: Vector2 = f["body"].position - at
+			if d.length() < radius:
+				var out: Vector2 = d.normalized() if d.length() > 0.01 else Vector2.RIGHT
+				_hurt(j, 1, out * 3.0, _sig_user)
+				if f["phase"] <= 0.0 and f["invuln"] <= 0.0:
+					f["stun"] = maxf(f["stun"], STARSHIELD_STUN)
+					_label(j, "Repelled")
+	_hitstop = maxf(_hitstop, HITSTOP_HEAVY)
+
+
+## Starshield's star field: allies standing in it mend (the first ally-only terrain).
+func _on_star_field(at: Vector2) -> void:
+	_effects.append({"kind": "star_field", "owner": _sig_user, "pos": at, "t": 0.0, "tick": HAZARD_TICK})
+
+
+## Whether fighter i stands among an enemy's Kingstone shards (Kingstone Rail's crater).
+func _in_shards(i: int) -> bool:
+	for e in _effects:
+		if e["kind"] == "shards" and _enemies(e["owner"], i) and _fighters[i]["body"].position.distance_to(e["pos"]) < SHARDS_RADIUS:
+			return true
+	return false
+
+
 func _in_vines(i: int) -> bool:
 	for e in _effects:
 		if e["kind"] == "vines" and _enemies(e["owner"], i) and _fighters[i]["body"].position.distance_to(e["pos"]) < VINES_RADIUS:
@@ -1550,7 +1978,7 @@ func _spend_charge(f: Dictionary) -> void:
 ## Fighter i's signature, once its meter is full. You choose when; the rival's AI fires its own.
 func signature(i: int) -> void:
 	var f: Dictionary = _fighters[i]
-	if f["meter"] < 100 or f["hp"] <= 0 or f["stun"] > 0.0 or _winner >= 0 or _sig.active:
+	if not f["final"] or f["meter"] < 100 or f["hp"] <= 0 or f["stun"] > 0.0 or _winner >= 0 or _sig.active:
 		return
 	f["meter"] = 0
 	_sig_user = i
@@ -1574,12 +2002,44 @@ func _pick_target(i: int) -> int:
 	return best
 
 
-## Molten Glass's rain cools into pools of glass: one under the strike and two beside it.
+## Molten Glass's rain cools into a wide field of glass pools round Vitrecrag itself
+## (Preston, 2026-10-08: "more AoE around it, so the pool effect is wider"; team play, since
+## only enemies are hurt by it and its own team can fight from inside).
 func _on_glass_pools(at: Vector2) -> void:
 	var floor_rect: Rect2 = ARENAS[_arena]["floor"]
-	for off in [Vector2.ZERO, Vector2(-26, 9), Vector2(24, -8)]:
-		var p: Vector2 = (at + off).clamp(floor_rect.position, floor_rect.end)
-		_effects.append({"kind": "glass_pool", "owner": _sig_user, "pos": p, "t": 0.0, "tick": HAZARD_TICK})
+	for pool in GLASS_FIELD:
+		var p: Vector2 = (at + pool[0]).clamp(floor_rect.position, floor_rect.end)
+		_effects.append({"kind": "glass_pool", "owner": _sig_user, "pos": p, "r": pool[1], "t": 0.0, "tick": HAZARD_TICK})
+
+
+## Kingstone Rail's impact: everyone else near where the meteor lands takes part of the
+## damage, is floored and thrown back, and the crater stays ringed with Kingstone shards
+## that slow enemies and shut off their movement abilities (enemy-only terrain).
+func _on_rail_impact(at: Vector2) -> void:
+	var dmg: float = _sig.DAMAGE * _fighters[_sig_user]["power"] * RAIL_SPLASH
+	for j in _fighters.size():
+		var f: Dictionary = _fighters[j]
+		if not _enemies(_sig_user, j) or f["hp"] <= 0 or j == _sig._target:
+			continue
+		var d: Vector2 = f["body"].position - at
+		if d.length() < RAIL_RADIUS:
+			_hurt(j, maxi(1, int(round(dmg * _essence_mult(E.BLOOM, j)))), d.normalized() * 2.5, _sig_user)
+			f["dazzle"] = maxf(f["dazzle"], 1.0)
+			_label(j, "Floored")
+	_effects.append({"kind": "shards", "owner": _sig_user, "pos": at, "t": 0.0})
+	_hitstop = maxf(_hitstop, HITSTOP_HEAVY)
+
+
+## Molten glass clings to fighter j: Glassed (see GLASSED_*). Phased or invulnerable
+## creatures shed it.
+func _glass(j: int, seconds: float) -> void:
+	var f: Dictionary = _fighters[j]
+	if f["hp"] <= 0 or f["phase"] > 0.0 or f["invuln"] > 0.0:
+		return
+	if f["glassed"] <= 0.0:
+		f["glassed_tick"] = GLASSED_TICK
+		_label(j, "Glassed")
+	f["glassed"] = maxf(f["glassed"], seconds)
 
 
 ## Furnace Roar's vent crowd control: a heat geyser erupts under every enemy on the field,
@@ -1618,10 +2078,12 @@ func _hazard_slow(i: int) -> float:
 	var slow := 1.0
 	var me: Vector2 = _fighters[i]["body"].position
 	for e in _effects:
-		if e["kind"] == "glass_pool" and _enemies(e["owner"], i) and me.distance_to(e["pos"]) < POOL_RADIUS:
+		if e["kind"] == "glass_pool" and _enemies(e["owner"], i) and me.distance_to(e["pos"]) < e.get("r", POOL_RADIUS):
 			slow = minf(slow, POOL_SLOW)
 		elif e["kind"] == "lava_seam" and _enemies(e["owner"], i) and _near_seam(e["pts"], me) < SEAM_WIDTH:
 			slow = minf(slow, SEAM_SLOW)
+		elif e["kind"] == "shards" and _enemies(e["owner"], i) and me.distance_to(e["pos"]) < SHARDS_RADIUS:
+			slow = minf(slow, SHARDS_SLOW)
 	return slow
 
 
@@ -1646,17 +2108,17 @@ func _on_vine_field(at: Vector2) -> void:
 	_effects.append({"kind": "vines", "owner": _sig_user, "pos": at, "t": 0.0})
 
 
-## Molten Glass's rain: every other opponent within `radius` of the strike is cut by falling
-## glass (a third of the signature damage) and slowed in it for a moment.
+## Molten Glass's eruption: every opponent inside the ring round Vitrecrag takes the
+## signature damage and is Glassed (the ring is drawn squashed, so the test is too).
 func _on_glass_rain(at: Vector2, radius: float, damage: int) -> void:
 	for j in _fighters.size():
 		var f: Dictionary = _fighters[j]
-		if not _enemies(_sig_user, j) or f["hp"] <= 0 or j == _sig._target:
+		if not _enemies(_sig_user, j) or f["hp"] <= 0:
 			continue
-		if f["body"].position.distance_to(at) < radius:
-			_hurt(j, maxi(1, int(round(damage * _fighters[_sig_user]["power"] * _essence_mult(E.EMBER, j) / 3.0))), Vector2.ZERO, _sig_user)
-			f["dazzle"] = maxf(f["dazzle"], 1.0)
-			_label(j, "Glassed")
+		var d: Vector2 = f["body"].position - at
+		if Vector2(d.x, d.y / 0.6).length() < radius:
+			_hurt(j, maxi(1, int(round(damage * _fighters[_sig_user]["power"] * _essence_mult(E.EMBER, j)))), Vector2.ZERO, _sig_user)
+			_glass(j, GLASSED_SECONDS)
 
 
 ## Furnace Roar's wave: every opponent in the cone (other than the target, which takes the
@@ -1682,7 +2144,7 @@ func _update_ram(i: int, delta: float) -> void:
 		return
 	f["ram_t"] -= delta
 	var floor_rect: Rect2 = ARENAS[_arena]["floor"]
-	var speed: float = RAM_SPEED if f["form"] == "ironvent" else POUNCE_SPEED
+	var speed: float = RAM_SPEED if f["form"] in ["ironvent", "clinkerhide"] else POUNCE_SPEED
 	var next: Vector2 = f["body"].position + f["ram_dir"] * speed * delta
 	var hit := -1 if (f["ram_dmg"] <= 0 or f["ram_end_hit"]) else _hit_at(next + Vector2(0, -6), 14.0, i)
 	if hit >= 0:
@@ -1833,7 +2295,7 @@ func _update_tackle(i: int, delta: float) -> void:
 ## A big hit carries fighter i along `push` for a moment (see _update_carry).
 func _carry(i: int, push: Vector2, by: int) -> void:
 	var f: Dictionary = _fighters[i]
-	if f["passive"] == "rampart" or f["hp"] <= 0:
+	if f["passive"] == "rampart" or f["guard"] > 0.0 or f["cocoon"] > 0.0 or f["hp"] <= 0:
 		return
 	f["carry"] = push.normalized() * push.length() * CARRY_PER_PUSH / CARRY_SECONDS
 	f["carry_t"] = CARRY_SECONDS
@@ -1995,6 +2457,34 @@ func _update_fighter(i: int, delta: float) -> void:
 	f["invuln"] = maxf(0.0, f["invuln"] - delta)
 	f["marked"] = maxf(0.0, f["marked"] - delta)
 	f["ambush"] = maxf(0.0, f["ambush"] - delta)
+	f["guard"] = maxf(0.0, f["guard"] - delta)
+	f["charged"] = maxf(0.0, f["charged"] - delta)
+	f["haste"] = maxf(0.0, f["haste"] - delta)
+	if f["shield"] > 0:
+		f["shield_t"] -= delta
+		if f["shield_t"] <= 0.0:
+			f["shield"] = 0
+	if f["cocoon"] > 0.0 and not _sig.active:
+		f["cocoon"] -= delta
+		if f["cocoon"] <= 0.0 and f["hp"] > 0:
+			# The cocoon bursts: the slabs fly outward as shrapnel into everyone round it.
+			for j in _fighters.size():
+				var o: Dictionary = _fighters[j]
+				if _enemies(i, j) and o["hp"] > 0 and o["body"].position.distance_to(f["body"].position) < COCOON_RADIUS:
+					var away: Vector2 = (o["body"].position - f["body"].position).normalized()
+					_hurt(j, f["cocoon_dmg"], away * 1.5, i)
+					_burst(o["body"].position + Vector2(0, -8), Color("#afe8b8"), Color("#206349"), 12.0, false, "rock_dust")
+			_effects.append({"kind": "shrapnel", "pos": f["body"].position, "t": 0.0})
+			_label(i, "Burst")
+			_play("res://assets/audio/sfx/arena/rock_break.wav", -8.0)
+			_shake_by(4.0)
+	if f["passive"] == "bound_slabs" and f["slabs"] < SLAB_COUNT and f["hp"] > 0:
+		f["slab_t"] -= delta
+		if f["slab_t"] <= 0.0:
+			# The Kingstone's pull gathers a new slab to the hip.
+			f["slabs"] += 1
+			f["slab_t"] = SLAB_REFORM
+			_effects.append({"kind": "burst", "pos": f["body"].position + Vector2(0, -12), "core": Color("#7cf5b8"), "rim": Color("#206349"), "size": 8.0, "t": 0.0, "bits": [Vector2(14, -14), Vector2(-14, -14)]})
 	if f["ring"] != null and f["team"] == 0:
 		f["ring"].default_color = YOU_RING if i == controlled else TEAM_RING[0]
 	if not (_sig.active and _sig.effect_time() < 0.0):
@@ -2003,7 +2493,7 @@ func _update_fighter(i: int, delta: float) -> void:
 		_update_tackle(i, delta)
 	if f["passive"] == "kiln" and f["hp"] > 0:
 		# Kiln Heat: the crater heats while it stands, and cools a little while it walks.
-		f["heat"] = clampf(f["heat"] + (KILN_PER_SECOND if f["walk"] == 0.0 else -KILN_PER_SECOND * 0.5) * delta, 0.0, 100.0)
+		f["heat"] = clampf(f["heat"] + (KILN_PER_SECOND * (2.0 if f["guard"] > 0.0 else 1.0) if f["walk"] == 0.0 else -KILN_PER_SECOND * 0.5) * delta, 0.0, 100.0)
 	if f["passive"] in ["stoke", "kiln"] and f["hp"] > 0 and f["heat"] >= 50.0 and randf() < (0.08 if f["heat"] < 100.0 else 0.25):
 		# Hot vents shed embers; at full heat they stream.
 		_effects.append({"kind": "ember", "pos": f["body"].position + Vector2(randf_range(-6, 6), -20 - 3 * f["stage"]), "vel": Vector2(randf_range(-3, 3), -14), "t": 0.0})
@@ -2021,6 +2511,19 @@ func _update_fighter(i: int, delta: float) -> void:
 			_hurt(i, maxi(1, int(round(SMOULDER_DAMAGE * _essence_mult(MOVE_ESSENCE["smoulder"], i)))), Vector2.ZERO, -1)
 			f["flash"] = 0.0
 			_effects.append({"kind": "ember", "pos": f["body"].position + Vector2(randf_range(-5, 5), -12), "vel": Vector2(randf_range(-4, 4), -12), "t": 0.0})
+	if f["glassed"] > 0.0 and f["hp"] > 0 and not _sig.active:
+		# Glassed: the molten glass burns while it clings, then sets hard for a moment.
+		f["glassed"] -= delta
+		f["glassed_tick"] -= delta
+		if f["glassed_tick"] <= 0.0:
+			f["glassed_tick"] = GLASSED_TICK
+			_hurt(i, maxi(1, int(round(GLASSED_BURN * _essence_mult(E.EMBER, i)))), Vector2.ZERO, -1)
+			f["flash"] = 0.0
+			_effects.append({"kind": "ember", "pos": f["body"].position + Vector2(randf_range(-6, 6), -10), "vel": Vector2(randf_range(-3, 3), -10), "t": 0.0})
+		if f["glassed"] <= 0.0 and f["hp"] > 0:
+			f["stun"] = maxf(f["stun"], GLASSED_SET)
+			_label(i, "Set")
+			_burst(f["body"].position + Vector2(0, -8), Color("#ffe8c0"), Color("#7a4a2a"), 10.0, false, "glass_splash")
 	f["sprite"].visible = not f["hidden"]
 	var sprite: Sprite2D = f["sprite"]
 	var frames: Array = f["art"]["walk"][f["facing"]]
@@ -2044,8 +2547,18 @@ func _update_fighter(i: int, delta: float) -> void:
 			sprite.modulate = Color(3, 3, 3)
 		elif f["stun"] > 0.0:
 			# Paralysed: flickers electric blue-white and trembles.
-			sprite.modulate = Color(1.6, 1.6, 2.2) if int(f["stun"] * 20) % 2 == 0 else Color(0.8, 0.85, 1.2)
+			# (Toned down 2026-10-08: the old 1.6x washed pale creatures like Starward to pure white.)
+			sprite.modulate = Color(1.25, 1.25, 1.7) if int(f["stun"] * 20) % 2 == 0 else Color(0.8, 0.85, 1.2)
 			sprite.position.x = float(int(f["stun"] * 40) % 2)
+		elif f["glassed"] > 0.0:
+			# Glassed: amber molten glass over it, with a passing shine.
+			sprite.modulate = Color(1.6, 1.3, 0.9) if int(f["glassed"] * 6) % 3 == 0 else Color(1.3, 0.85, 0.55)
+		elif f["cocoon"] > 0.0:
+			# Cocooned: dim behind the pulled-tight slabs.
+			sprite.modulate = Color(0.75, 0.9, 0.82)
+		elif f["guard"] > 0.0:
+			# Guarding: the shell runs molten.
+			sprite.modulate = Color(1.3, 1.05, 0.85) if int(f["guard"] * 10) % 2 == 0 else Color(1.15, 0.95, 0.8)
 		else:
 			sprite.modulate = Color.WHITE
 	if f["hollow"]:
@@ -2180,7 +2693,10 @@ func _update_effects(delta: float) -> void:
 				elif rock >= 0:
 					_hit_rock(rock, e["damage"])   # rocks take shots meant for whoever hides behind them
 				if hit >= 0 or wall >= 0 or rock >= 0 or e["life"] <= 0.0 or not floor_rect.grow(20).has_point(e["pos"]):
-					_burst(e["pos"], Color("#ffb347"), Color("#ff5a1f"), 26.0, true, "fire_burst")
+					if e.get("jade", false):
+						_burst(e["pos"], Color("#afe8b8"), Color("#206349"), 20.0, false, "rock_dust")
+					else:
+						_burst(e["pos"], Color("#ffb347"), Color("#ff5a1f"), 26.0, true, "fire_burst")
 					if hit >= 0:
 						_hurt(hit, e["damage"], e["vel"].normalized(), e["owner"])
 					continue
@@ -2346,6 +2862,38 @@ func _update_effects(delta: float) -> void:
 				e["t"] += delta
 				if e["t"] > 0.7:
 					continue
+			"guard":
+				e["t"] += delta
+				if _fighters[e["who"]]["guard"] <= 0.0 or _fighters[e["who"]]["hp"] <= 0:
+					continue
+			"spikes":
+				e["t"] += delta
+				if e["t"] > 0.8:
+					continue
+			"vortex", "shrapnel":
+				e["t"] += delta
+				if e["t"] > 0.5:
+					continue
+			"rail_beam":
+				e["t"] += delta
+				if e["t"] > 0.3:
+					continue
+			"shards":
+				e["t"] += delta
+				if e["t"] > SHARDS_SECONDS:
+					continue
+			"star_field":
+				e["t"] += delta
+				e["tick"] -= delta
+				if e["tick"] <= 0.0:
+					e["tick"] = HAZARD_TICK
+					for j in _fighters.size():
+						var f: Dictionary = _fighters[j]
+						if f["team"] == _fighters[e["owner"]]["team"] and f["hp"] > 0 and f["hp"] < f["max_hp"] and f["body"].position.distance_to(e["pos"]) < STAR_FIELD_RADIUS:
+							f["hp"] = mini(f["max_hp"], f["hp"] + STAR_FIELD_HEAL)
+							_effects.append({"kind": "burst", "pos": f["body"].position + Vector2(randf_range(-6, 6), -14), "core": Color("#ffd6ef"), "rim": Color("#ff7ad0"), "size": 3.0, "t": 0.0, "bits": [Vector2(0, -16)]})
+				if e["t"] > STAR_FIELD_SECONDS:
+					continue
 			"glass_pool", "lava_seam":
 				e["t"] += delta
 				e["tick"] -= delta
@@ -2355,8 +2903,10 @@ func _update_effects(delta: float) -> void:
 						var f: Dictionary = _fighters[j]
 						if not _enemies(e["owner"], j) or f["hp"] <= 0:
 							continue   # terrain only ever hurts the enemy
-						var inside: bool = f["body"].position.distance_to(e["pos"]) < POOL_RADIUS if e["kind"] == "glass_pool" else _near_seam(e["pts"], f["body"].position) < SEAM_WIDTH
-						if inside:
+						var inside: bool = f["body"].position.distance_to(e["pos"]) < e.get("r", POOL_RADIUS) if e["kind"] == "glass_pool" else _near_seam(e["pts"], f["body"].position) < SEAM_WIDTH
+						if inside and e["kind"] == "glass_pool":
+							_glass(j, POOL_GLASS)   # standing in the glass keeps it molten on you
+						elif inside:
 							_hurt(j, maxi(1, int(round(HAZARD_BURN * _essence_mult(E.EMBER, j)))), Vector2.ZERO, e["owner"])
 							f["flash"] = 0.0
 							_effects.append({"kind": "ember", "pos": f["body"].position + Vector2(randf_range(-5, 5), -10), "vel": Vector2(randf_range(-4, 4), -14), "t": 0.0})
@@ -2448,6 +2998,17 @@ func _hurt(i: int, damage: int, push: Vector2, by: int, pierce := false) -> void
 	var f: Dictionary = _fighters[i]
 	if f["hp"] <= 0 or damage <= 0 or f["hidden"] or f["invuln"] > 0.0 or (f["phase"] > 0.0 and not pierce):
 		return   # absent, hidden or invulnerable: nothing lands (Undertow's jaws from below still do)
+	if f["slabs"] > 0 and by >= 0 and by != i and not pierce and damage >= SLAB_MIN_HIT:
+		# Bound Slabs: a floating jade slab takes the blow and shatters; it re-forms in time.
+		f["slabs"] -= 1
+		if f["slab_t"] <= 0.0:
+			f["slab_t"] = SLAB_REFORM
+		f["flash"] = 0.15
+		_label(i, "Slab")
+		_burst(f["body"].position + Vector2(0, -12), Color("#afe8b8"), Color("#206349"), 14.0, false, "rock_dust")
+		_play("res://assets/audio/sfx/arena/rock_crack.wav", -8.0)
+		_hitstop = maxf(_hitstop, HITSTOP_LIGHT)
+		return
 	if f["eroded"] > 0.0:
 		damage = int(round(damage * ERODE_EXTRA))
 		pierce = true   # eroded: its damage reduction is gone
@@ -2467,17 +3028,51 @@ func _hurt(i: int, damage: int, push: Vector2, by: int, pierce := false) -> void
 			if att["hp"] <= 0:
 				att["down_at"] = _clock
 				_check_winner(f["team"])
+	if f["shield"] > 0:
+		# A star shield takes the blow before anything else does.
+		var absorbed: int = mini(damage, f["shield"])
+		f["shield"] -= absorbed
+		damage -= absorbed
+		f["flash"] = 0.15
+		if f["shield"] <= 0:
+			_label(i, "Shield broke")
+			_burst(f["body"].position + Vector2(0, -10), Color("#ffd6ef"), Color("#ff7ad0"), 12.0, false, "")
+		if damage <= 0:
+			return
+	if by >= 0 and by != i and f["passive"] != "guardian":
+		# Guardian: an ally beside a protector takes less.
+		for j in _fighters.size():
+			var gfr: Dictionary = _fighters[j]
+			if j != i and gfr["team"] == f["team"] and gfr["hp"] > 0 and gfr["passive"] == "guardian" and gfr["body"].position.distance_to(f["body"].position) < GUARDIAN_RADIUS:
+				damage = maxi(1, int(round(damage * GUARDIAN_CUT)))
+				break
+	if f["cocoon"] > 0.0:
+		# Stone Cocoon: the slabs pulled tight take most of it, and nothing moves it.
+		push = Vector2.ZERO
+		if not pierce:
+			damage = maxi(1, int(round(damage * COCOON_GUARD)))
+	if f["guard"] > 0.0:
+		# Glass Guard: planted and halved; molten glass splashes whoever strikes it up close.
+		push = Vector2.ZERO
+		if not pierce:
+			damage = maxi(1, int(round(damage * GUARD_REDUCTION)))
+		if by >= 0 and by != i and not _sig.active and _fighters[by]["hp"] > 0 and _fighters[by]["body"].position.distance_to(f["body"].position) < 32.0:
+			_glass(by, GLASSED_SECONDS * 0.5)
 	if by >= 0 and by != i:
 		_fighters[by]["dealt"] += mini(damage, f["hp"])
 		if _fighters[by]["passive"] == "stoke":
 			_fighters[by]["heat"] = minf(100.0, _fighters[by]["heat"] + STOKE_PER_HIT)
+		if f["passive"] == "kiln":
+			f["heat"] = minf(100.0, f["heat"] + KILN_PER_HIT)   # the tank's kiln is stoked by the blow
 	f["hp"] = maxi(0, f["hp"] - damage)
 	f["flash"] = 0.3
 	_hitstop = maxf(_hitstop, HITSTOP_HEAVY if damage >= 20 else HITSTOP_LIGHT)
 	f["shiver"] = push.normalized() if push.length() > 0.01 else Vector2.RIGHT
-	f["meter"] = mini(100, f["meter"] + METER_TAKEN)
+	if f["final"]:
+		f["meter"] = mini(100, f["meter"] + METER_TAKEN)
 	if by >= 0 and by != i:
-		_fighters[by]["meter"] = mini(100, _fighters[by]["meter"] + METER_DEALT)
+		if _fighters[by]["final"]:
+			_fighters[by]["meter"] = mini(100, _fighters[by]["meter"] + METER_DEALT)
 	if push.length() >= CARRY_FROM:
 		_carry(i, push, by)
 	else:
@@ -2538,6 +3133,10 @@ func _draw_effects() -> void:
 			_draw_scour(f["body"].position)
 		if f["lantern"]:
 			_draw_lantern_light(f)
+		if f["passive"] == "bound_slabs":
+			_draw_slabs(f)
+		if f["shield"] > 0:
+			_draw_star_shield(f)
 	for i in _fighters.size():
 		if not _fighters[i]["windup"].is_empty() and _fighters[i]["hp"] > 0:
 			_draw_telegraph(i)
@@ -2682,15 +3281,25 @@ func _draw_effects() -> void:
 				_fx.draw_circle(e["pos"].round(), 6.0 + 60.0 * k, Color(1, 0.95, 0.7, 0.45 * (1.0 - k)))
 				_fx.draw_arc(e["pos"].round(), 6.0 + 60.0 * k, 0, TAU, 40, Color(1, 0.9, 0.5, 1.0 - k), 2.0)
 			"fireball":
-				# A chain of fire blobs, smallest at the tail, wobbling a little; the head is the
-				# painted lantern ball (looping), so every lantern projectile reads the same.
-				var n: int = e["trail"].size()
-				for k in n:
-					if k % 3 == 2 and k < n - 2:
-						var p: Vector2 = e["trail"][k] + Vector2(0, sin(k * 1.7 + _crowd_t * 20.0))
-						_blob(p, 0.8 + 2.2 * k / maxf(1, n), 0.6)
-				_fx.draw_circle(e["pos"].round(), 9.0, Color(1, 0.55, 0.15, 0.18))
-				_draw_sheet(_fx, "lantern_ball", e["pos"] + Vector2(0, 8), _crowd_t + e["pos"].x * 0.01, true)
+				if e.get("jade", false):
+					# A jade spike in flight: a long faceted sliver pointing along its path, trailing emerald light.
+					var dir: Vector2 = e["vel"].normalized()
+					for k in range(0, e["trail"].size(), 3):
+						_fx.draw_circle(e["trail"][k].round(), 1.5, Color(0.48, 0.96, 0.72, 0.25))
+					_fx.draw_set_transform(e["pos"].round(), dir.angle(), Vector2.ONE)
+					_fx.draw_colored_polygon(PackedVector2Array([Vector2(9, 0), Vector2(-7, -3), Vector2(-9, 0), Vector2(-7, 3)]), Color("#53986e"))
+					_fx.draw_colored_polygon(PackedVector2Array([Vector2(8, 0), Vector2(-6, -1), Vector2(-6, 1)]), Color("#afe8b8"))
+					_fx.draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE)
+				else:
+					# A chain of fire blobs, smallest at the tail, wobbling a little; the head is the
+					# painted lantern ball (looping), so every lantern projectile reads the same.
+					var n: int = e["trail"].size()
+					for k in n:
+						if k % 3 == 2 and k < n - 2:
+							var p: Vector2 = e["trail"][k] + Vector2(0, sin(k * 1.7 + _crowd_t * 20.0))
+							_blob(p, 0.8 + 2.2 * k / maxf(1, n), 0.6)
+					_fx.draw_circle(e["pos"].round(), 9.0, Color(1, 0.55, 0.15, 0.18))
+					_draw_sheet(_fx, "lantern_ball", e["pos"] + Vector2(0, 8), _crowd_t + e["pos"].x * 0.01, true)
 			"beam":
 				# Two streams twisting round each other, white cores with blue edges, as in the reference.
 				var tip: Vector2 = e["from"] + e["dir"] * e["len"]
@@ -2738,6 +3347,45 @@ func _draw_effects() -> void:
 				var tex: Texture2D = frames[mini(frames.size() - 1, int(k * frames.size()))]
 				var at: Vector2 = (e["pos"] - Vector2(tex.get_width() * 0.5, tex.get_height() * 0.75)).round()
 				_fx.draw_texture(tex, at, Color(1, 1, 1, clampf((1.0 - k) / 0.25, 0.0, 1.0)))
+			"rail_beam":
+				# Rail Shot: a bright jade streak down the whole line with a white core, and a
+				# flash at the muzzle, gone in a third of a second.
+				var k: float = e["t"] / 0.3
+				_fx.draw_line(e["from"].round(), e["to"].round(), Color(0.07, 0.72, 0.42, 0.35 * (1.0 - k)), 9.0)
+				_fx.draw_line(e["from"].round(), e["to"].round(), Color(0.49, 0.96, 0.72, 0.9 * (1.0 - k)), 4.0)
+				_fx.draw_line(e["from"].round(), e["to"].round(), Color(1.0, 1.0, 1.0, 0.9 * (1.0 - k)), 1.5)
+				_fx.draw_circle(e["from"].round(), 7.0 * (1.0 - k), Color(0.49, 0.96, 0.72, 0.9))
+			"spikes":
+				# Ground Spikes: jade erupts in a ring round the target's feet, then crumbles.
+				var k: float = clampf(e["t"] / 0.2, 0.0, 1.0)
+				var fade: float = clampf((0.8 - e["t"]) / 0.3, 0.0, 1.0)
+				for sp in 6:
+					var a: float = sp * TAU / 6.0 + 0.4
+					var base: Vector2 = e["pos"] + Vector2(cos(a) * 11.0, sin(a) * 5.0 + 2.0)
+					var h: float = (10.0 + 5.0 * absf(sin(sp * 2.3))) * k
+					_fx.draw_colored_polygon(PackedVector2Array([base.round() + Vector2(-3, 0), base.round() + Vector2(3, 0), base.round() + Vector2(0, -h)]), Color(0.33, 0.6, 0.43, fade))
+					_fx.draw_line(base.round() + Vector2(0, -h), base.round() + Vector2(0, -h * 0.4), Color(0.69, 0.91, 0.72, fade), 1.0)
+			"vortex":
+				# Slab Vortex: the plates whirl round it twice, with a shock ring on the ground.
+				var k: float = e["t"] / 0.5
+				var c: Vector2 = _fighters[e["who"]]["body"].position + Vector2(0, -10)
+				for sp in 4:
+					var a: float = k * TAU * 2.0 + sp * TAU / 4.0
+					var p: Vector2 = c + Vector2(cos(a) * 24.0, sin(a) * 10.0)
+					_fx.draw_colored_polygon(PackedVector2Array([p.round() + Vector2(0, -6), p.round() + Vector2(4, 0), p.round() + Vector2(0, 6), p.round() + Vector2(-4, 0)]), Color(0.33, 0.6, 0.43, 1.0 - k * 0.5))
+				_fx.draw_set_transform(c.round() + Vector2(0, 10), 0.0, Vector2(1.0, 0.45))
+				_fx.draw_arc(Vector2.ZERO, 26.0 + 12.0 * k, 0, TAU, 32, Color(0.49, 0.96, 0.72, 0.8 * (1.0 - k)), 2.0)
+				_fx.draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE)
+			"shrapnel":
+				# Stone Cocoon bursting: jade bits fly out in a ring.
+				var k: float = e["t"] / 0.5
+				for sp in 14:
+					var a: float = sp * TAU / 14.0 + 0.2
+					var p: Vector2 = e["pos"] + Vector2(cos(a), sin(a) * 0.6) * COCOON_RADIUS * k + Vector2(0, -10.0 + 10.0 * k * k)
+					_fx.draw_rect(Rect2(p.round(), Vector2(3, 2)), Color(0.69, 0.91, 0.72, 1.0 - k))
+				_fx.draw_set_transform(e["pos"].round(), 0.0, Vector2(1.0, 0.5))
+				_fx.draw_arc(Vector2.ZERO, COCOON_RADIUS * k, 0, TAU, 40, Color(0.49, 0.96, 0.72, 0.8 * (1.0 - k)), 2.0)
+				_fx.draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE)
 			"burst":
 				var k: float = e["t"] / 0.45
 				if k < 0.3:
@@ -2806,9 +3454,9 @@ func _draw_telegraph(i: int) -> void:
 			_ring(me, MOVES[w["m"]]["range"], col, k, blink)
 		"area":
 			_ring(at, 16.0, col, k, blink)
-		"line", "charge":
+		"line", "charge", "rail":
 			var dir: Vector2 = (at - me).normalized()
-			var end: Vector2 = at if w["kind"] == "line" else me + dir * RAM_SPEED * RAM_SECONDS
+			var end: Vector2 = at if w["kind"] == "line" else (me + dir * MOVES[w["m"]]["range"] if w["kind"] == "rail" else me + dir * RAM_SPEED * RAM_SECONDS)
 			var side: Vector2 = dir.orthogonal() * (3.0 if w["kind"] == "line" else 8.0)
 			var box := PackedVector2Array([(me + side).round(), (end + side).round(), (end - side).round(), (me - side).round()])
 			_fx.draw_colored_polygon(box, Color(col, 0.12 + 0.18 * k))
@@ -2891,13 +3539,46 @@ func _draw_ground() -> void:
 				# Molten glass cooling on the floor: orange and bright, then amber, then dark glass with a shine.
 				var kp: float = clampf(e["t"] / POOL_SECONDS, 0.0, 1.0)
 				var fade: float = clampf((POOL_SECONDS - e["t"]) / 0.8, 0.0, 1.0)
+				var pr: float = e.get("r", POOL_RADIUS)
 				var col := Color(1.0, 0.55, 0.15).lerp(Color(0.25, 0.12, 0.08), kp)
 				on.draw_set_transform(e["pos"].round(), 0.0, Vector2(1.0, 0.5))
-				on.draw_circle(Vector2.ZERO, POOL_RADIUS, Color(col, 0.85 * fade))
-				on.draw_circle(Vector2(-4, -3), POOL_RADIUS * 0.45, Color(1.0, 0.95, 0.75).lerp(Color(0.6, 0.5, 0.45), kp) * Color(1, 1, 1, 0.7 * fade))
-				on.draw_arc(Vector2.ZERO, POOL_RADIUS, 0, TAU, 28, Color(0.5, 0.2, 0.05, 0.9 * fade), 1.0)
+				on.draw_circle(Vector2.ZERO, pr, Color(col, 0.85 * fade))
+				on.draw_circle(Vector2(-4, -3) * pr / 18.0, pr * 0.45, Color(1.0, 0.95, 0.75).lerp(Color(0.6, 0.5, 0.45), kp) * Color(1, 1, 1, 0.7 * fade))
+				on.draw_arc(Vector2.ZERO, pr, 0, TAU, 28, Color(0.5, 0.2, 0.05, 0.9 * fade), 1.0)
 				if kp < 0.5 and int(e["t"] * 8.0) % 2 == 0:
-					on.draw_circle(Vector2(5, 2), 2.0, Color(1.0, 0.95, 0.7, (0.5 - kp) * 2.0 * fade))
+					on.draw_circle(Vector2(5, 2) * pr / 18.0, 2.0, Color(1.0, 0.95, 0.7, (0.5 - kp) * 2.0 * fade))
+				on.draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE)
+			"star_field":
+				# Starshield's star field: a soft pink five-point star on the floor, turning slowly,
+				# where allies mend.
+				var kf: float = clampf(e["t"] / 0.3, 0.0, 1.0) * clampf((STAR_FIELD_SECONDS - e["t"]) / 0.6, 0.0, 1.0)
+				on.draw_set_transform(e["pos"].round() + Vector2(0, 2), 0.0, Vector2(1.0, 0.5))
+				on.draw_colored_polygon(_star_points(Vector2.ZERO, STAR_FIELD_RADIUS * kf, STAR_FIELD_RADIUS * 0.45 * kf, e["t"] * 0.3), Color(1.0, 0.48, 0.82, 0.22))
+				on.draw_polyline(_star_points(Vector2.ZERO, STAR_FIELD_RADIUS * kf, STAR_FIELD_RADIUS * 0.45 * kf, e["t"] * 0.3, true), Color(1.0, 0.84, 0.94, 0.8), 1.5)
+				on.draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE)
+			"shards":
+				# Kingstone Rail's crater: scorched ground ringed with jade shards, pulsing emerald,
+				# fading as the Kingstone's pull lets go of them.
+				var ks: float = clampf((SHARDS_SECONDS - e["t"]) / 0.8, 0.0, 1.0) * clampf(e["t"] / 0.2, 0.0, 1.0)
+				on.draw_set_transform(e["pos"].round() + Vector2(0, 2), 0.0, Vector2(1.0, 0.5))
+				on.draw_circle(Vector2.ZERO, SHARDS_RADIUS, Color(0.12, 0.1, 0.09, 0.6 * ks))
+				on.draw_arc(Vector2.ZERO, SHARDS_RADIUS, 0, TAU, 40, Color(0.2, 0.39, 0.29, 0.9 * ks), 1.5)
+				on.draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE)
+				var pulse: float = 0.5 + 0.5 * sin(e["t"] * 5.0)
+				for sp in 12:
+					var a: float = sp * TAU / 12.0 + 0.25
+					var base: Vector2 = e["pos"] + Vector2(cos(a) * SHARDS_RADIUS * 0.9, sin(a) * SHARDS_RADIUS * 0.45 + 2.0)
+					var h: float = 7.0 + 4.0 * absf(sin(sp * 1.9))
+					on.draw_colored_polygon(PackedVector2Array([base.round() + Vector2(-3, 0), base.round() + Vector2(3, 0), base.round() + Vector2(0, -h)]), Color(0.33, 0.6, 0.43, ks))
+					on.draw_rect(Rect2(base.round() + Vector2(-1, -h), Vector2(2, 2)), Color(0.49, 0.96, 0.72, (0.5 + 0.5 * pulse) * ks))
+			"guard":
+				# Glass Guard: a molten ring round the planted tank, pulsing with its kiln.
+				var gf: Dictionary = _fighters[e["who"]]
+				var pulse: float = 0.5 + 0.5 * sin(e["t"] * 9.0)
+				on.draw_set_transform(gf["body"].position.round() + Vector2(0, 2), 0.0, Vector2(1.0, 0.5))
+				on.draw_circle(Vector2.ZERO, 20.0, Color(1.0, 0.5, 0.15, 0.18 + 0.1 * pulse))
+				on.draw_arc(Vector2.ZERO, 20.0 + pulse, 0, TAU, 32, Color(1.0, 0.8, 0.4, 0.9), 2.0)
+				on.draw_arc(Vector2.ZERO, 16.0, 0, TAU, 24, Color(1.0, 0.95, 0.75, 0.5 + 0.4 * pulse), 1.0)
 				on.draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE)
 			"lava_seam":
 				# A crack in the arena floor glowing with heat, dimming as it cools.
@@ -3050,6 +3731,47 @@ func _draw_smoke() -> void:
 
 ## The lantern's warm pool of light on the ground, brighter as it charges, and a halo round
 ## the lantern itself that pulses white at full charge.
+## A five-point star as a polygon (closed when `close`), for the shields and the star field.
+func _star_points(c: Vector2, r_out: float, r_in: float, rot: float, close := false) -> PackedVector2Array:
+	var pts := PackedVector2Array()
+	for k in 10:
+		var r: float = r_out if k % 2 == 0 else r_in
+		pts.append(c + Vector2.RIGHT.rotated(rot - PI / 2.0 + k * TAU / 10.0) * r)
+	if close:
+		pts.append(pts[0])
+	return pts
+
+
+## A star shield round a fighter: a turning pink star with a brighter rim, shrinking as it
+## wears thin.
+func _draw_star_shield(f: Dictionary) -> void:
+	var at: Vector2 = f["body"].position + Vector2(0, -12)
+	var k: float = clampf(float(f["shield"]) / STARSHIELD_SHIELD, 0.4, 1.0)
+	var r: float = 15.0 + 6.0 * k
+	_fx.draw_colored_polygon(_star_points(at.round(), r, r * 0.5, _crowd_t * 0.8), Color(1.0, 0.48, 0.82, 0.16))
+	_fx.draw_polyline(_star_points(at.round(), r, r * 0.5, _crowd_t * 0.8, true), Color(1.0, 0.84, 0.94, 0.9), 1.5)
+	_fx.draw_polyline(_star_points(at.round(), r - 2.0, (r - 2.0) * 0.5, -_crowd_t * 0.5, true), Color(1.0, 0.48, 0.82, 0.6), 1.0)
+
+
+## Bound Slabs: Oxbowarchon's jade slabs float at its hips, each bound to it by a seam of
+## emerald light; while it cocoons they are pulled tight into a shell round it.
+func _draw_slabs(f: Dictionary) -> void:
+	var at: Vector2 = f["body"].position
+	if f["cocoon"] > 0.0:
+		var kc: float = clampf(f["cocoon"] / COCOON_SECONDS, 0.0, 1.0)
+		_fx.draw_set_transform(at.round() + Vector2(0, -10), 0.0, Vector2(1.0, 0.8))
+		_fx.draw_arc(Vector2.ZERO, 16.0, 0, TAU, 24, Color(0.33, 0.6, 0.43, 0.9), 3.0)
+		_fx.draw_arc(Vector2.ZERO, 16.0 + sin(_crowd_t * 30.0), 0, TAU, 24, Color(0.49, 0.96, 0.72, 0.5 + 0.4 * (1.0 - kc)), 1.0)
+		_fx.draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE)
+		return
+	for sl in f["slabs"]:
+		var side: float = -1.0 if sl == 0 else 1.0
+		var p: Vector2 = (at + Vector2(side * 16.0, -12.0 + sin(_crowd_t * 3.0 + sl) * 1.5)).round()
+		_fx.draw_line(at.round() + Vector2(side * 8.0, -12.0), p, Color(0.49, 0.96, 0.72, 0.5), 1.0)
+		_fx.draw_colored_polygon(PackedVector2Array([p + Vector2(0, -6), p + Vector2(3, 0), p + Vector2(0, 6), p + Vector2(-3, 0)]), Color("#53986e"))
+		_fx.draw_line(p + Vector2(0, -5), p + Vector2(0, 5), Color("#afe8b8"), 1.0)
+
+
 func _draw_lantern_light(f: Dictionary) -> void:
 	var lamp := _lantern_point(f)
 	var c: float = f["charge"] / 100.0
@@ -3113,7 +3835,8 @@ func _draw_hud() -> void:
 		var m_k: float = f["meter"] / 100.0
 		_hud.draw_rect(Rect2(x + 14, y + 52 * u, bw, 8 * u), Color("#0e1316"))
 		var full: bool = f["meter"] >= 100
-		_hud.draw_rect(Rect2(x + 16, y + 53 * u, (bw - 4) * m_k, 6 * u), accent.lightened(0.4) if full and int(_crowd_t * 8) % 2 == 0 else accent)
+		if f["final"]:   # earlier stages have no signature, so no meter
+			_hud.draw_rect(Rect2(x + 16, y + 53 * u, (bw - 4) * m_k, 6 * u), accent.lightened(0.4) if full and int(_crowd_t * 8) % 2 == 0 else accent)
 		if f["passive"] == "lantern_charge":
 			_hud.draw_rect(Rect2(x + 14, y + 63 * u, bw * f["charge"] / 100.0, maxf(2.0, 3 * u)), Color(1, 0.9, 0.4) if f["charge"] >= 100.0 else Color(1, 0.6, 0.2))
 		elif f["passive"] in ["stoke", "kiln"]:
@@ -3126,7 +3849,7 @@ func _draw_hud() -> void:
 			var tg: int = f["target"]
 			var tname: String = ("AUTO" if player_target < 0 else "") if tg < 0 else String(_fighters[tg]["name"]).to_upper() + ("" if player_target >= 0 else "  (AUTO)")
 			_hud.draw_string(_font, Vector2(x + 14, y - 6), "TARGET  " + tname, HORIZONTAL_ALIGNMENT_LEFT, -1, 11, Color("#ff4a3a") if player_target >= 0 else Color(1, 1, 1, 0.7))
-		if full and idx == controlled:
+		if full and f["final"] and idx == controlled:
 			_hud.draw_string(_font, Vector2(x + w - 170, y + (24 if big else 15)), "K: " + String(LINES[f["line"]]["signature"]).to_upper(), HORIZONTAL_ALIGNMENT_LEFT, -1, 12 if big else 10, accent.lightened(0.3))
 	_draw_ability_bar()
 	_hud.draw_string(_font, Vector2(16, 24), "TARGET LEFT/RIGHT  UP AUTO   ABILITIES 1 2 3   ULTIMATE 4   SPACE SWITCH CREATURE   (IT MOVES AND USES ITS BASIC ATTACK ON ITS OWN)   STAGE F   RIVAL T   RIVAL STAGE G   TEAM SIZE N   ROCKS B   SHAKE V   ARENA M   REMATCH R   ESC MENU", HORIZONTAL_ALIGNMENT_LEFT, -1, 11, Color(1, 1, 1, 0.75))
@@ -3178,6 +3901,8 @@ func _draw_ability_bar() -> void:
 				ready = f["cds"][m] <= 0.0
 				fill = 1.0 - clampf(f["cds"][m] / MOVES[m]["cooldown"], 0.0, 1.0)
 		else:
+			if not f["final"]:
+				continue   # no signature before the final stage
 			name = String(LINES[f["line"]]["signature"]).split(" ")[-1].to_upper()
 			ready = f["meter"] >= 100
 			fill = f["meter"] / 100.0

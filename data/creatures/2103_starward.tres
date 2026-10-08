@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="CreatureData" load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://scripts/creature_data.gd" id="1_script"]
+[ext_resource type="Texture2D" path="res://assets/sprites/creatures/punchybun_2026_10_05/punchybun_stage3_front.png" id="2_sprite"]
+[ext_resource type="Texture2D" path="res://assets/sprites/creatures/punchybun_2026_10_05/punchybun_stage3_back.png" id="3_back"]
+
+[resource]
+script = ExtResource("1_script")
+id = 2103
+creature_name = "Starward"
+essence = 6
+sprite = ExtResource("2_sprite")
+back_sprite = ExtResource("3_back")
+description = "Provisional entry (Claude, 2026-10-08, Preston: make Punchybun stage 2 and 3): Stage III of the electric ferret line for Adrianna, take a of 2026-10-08 (the guardian with the star-gem). Named Starward by Claude on 2026-10-08 (Preston: Gabrielle is no longer involved; we take the line over). Default stats, no moves; its signature, a star-shaped electric shield that protects, is Grok's to design."
+body_parts = PackedStringArray()
+battle_size = 1.35
