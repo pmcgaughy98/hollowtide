@@ -4,6 +4,8 @@
 
 Each kit grows out of the form's body, its essences and the job it already had in the turn-based design. Stage 1s get 1 to 2 moves, stage 2s 2, stage 3s 3, plus a passive from stage 2 (Kithflare and Tallowroot get a small one now, so every line's identity shows from the start).
 
+> **Scourmaw ability kit, 2026-10-07 night (Claude draft):** basic Deep Jet; 1 Phase; 2 Riptide; 3 Sinkhole as an ambush (resurface behind the target, next Deep Jet x1.8); Undertow. The Scourmaw row below is historical. Details: `arena-feel-2026-10-07/README.md`.
+
 > **Playtest night, 2026-10-07, Preston:** base HP 180 (fights were too short); Flashstep teleports to a mark; **Rampartroot** is a slow tank with 1 Tail Club (knockback), 2 Root Snare, 3 Root Rampart (the old signature as an ability) and the new signature **Verdant Roar** (placeholder: the green-pod roar from the title card; roots every enemy, then a club slam that leaves a vine field). The Rampartroot row below is historical. Details: `arena-feel-2026-10-07/README.md`.
 
 > **Stormwick, second kit the same night, Preston:** Flashstep with invulnerability frames; Lantern Volley's balls bounce and mark; passive Lantern Mark (teleport to marks); 3 is Lantern Tackle (invulnerable zip between marked enemies, chosen landing); crates in the arena; SPACE switches your controlled creature. Placeholder names. Details: `arena-feel-2026-10-07/README.md`.

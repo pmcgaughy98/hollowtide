@@ -1,0 +1,50 @@
+[
+  {
+    "relative": "glass_1.80s.png",
+    "length": 149898,
+    "sha256": "f172dda30344edeed8a375a33bb9c001687b2fc318cd9e112cb8c4db6216d9b7",
+    "lastWriteUtc": "2026-10-08T01:22:04.2009920Z"
+  },
+  {
+    "relative": "glass_2.30s.png",
+    "length": 139114,
+    "sha256": "e234090990954d3493d6943382a38405e0b10055335d3594f337f5a20047a3e7",
+    "lastWriteUtc": "2026-10-08T01:22:04.4484606Z"
+  },
+  {
+    "relative": "glass_2.70s.png",
+    "length": 135622,
+    "sha256": "9620dfb2de5735baeb1b78a40b7e7fa5f67d2b27454923fa28921b2de6b41c88",
+    "lastWriteUtc": "2026-10-08T01:22:04.6516397Z"
+  },
+  {
+    "relative": "glass_3.10s.png",
+    "length": 140818,
+    "sha256": "c28c77f75e1976d653f22567da604a7da04f93c911e2664f141b7e411aa97375",
+    "lastWriteUtc": "2026-10-08T01:22:04.8652568Z"
+  },
+  {
+    "relative": "line_stage1.png",
+    "length": 118038,
+    "sha256": "f7584ff80a71577ad1a5b58bcd5ec492712948e4f433fd8acca2920873273cd6",
+    "lastWriteUtc": "2026-10-08T01:21:58.5460432Z"
+  },
+  {
+    "relative": "line_stage2.png",
+    "length": 120096,
+    "sha256": "7c1b74a554bf87175fa1be243a9dd7dcf7bd12e13fa084de5e44c159e2e3bc9d",
+    "lastWriteUtc": "2026-10-08T01:21:59.5629765Z"
+  },
+  {
+    "relative": "line_stage3.png",
+    "length": 116447,
+    "sha256": "4c13cfbf7e9a847d550fcf56dc11989408ff5b642f675abbb525a749c156e74b",
+    "lastWriteUtc": "2026-10-08T01:22:00.6175897Z"
+  },
+  {
+    "relative": "match.png",
+    "length": 119390,
+    "sha256": "ee3be828d14d880f519d8362f8ccb413792c52beaaf7fc9797298e5787c7e995",
+    "lastWriteUtc": "2026-10-08T01:22:07.8131950Z"
+  }
+]

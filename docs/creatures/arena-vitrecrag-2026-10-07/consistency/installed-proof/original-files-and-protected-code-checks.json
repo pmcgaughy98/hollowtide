@@ -7260,11 +7260,11 @@
     },
     {
       "path": "scripts/arena/arena_prototype.gd",
-      "before_sha256": "9ad797dc5eed11c472e1ce6c70e0dff1942907d2bca213ee62d8b24c6efa73aa",
-      "after_sha256": "ca416dabc74603c57436cac05b84bc6dd12e15c9fcd54045f43e699c4f65f1e2",
-      "changed": true,
+      "before_sha256": "11ab5c4aa55a20854405cb2a836687de29fc1f7212c7bbb6dff9be974cd3a197",
+      "after_sha256": "11ab5c4aa55a20854405cb2a836687de29fc1f7212c7bbb6dff9be974cd3a197",
+      "changed": false,
       "authorized_exception": false,
-      "guard_pass": false
+      "guard_pass": true
     },
     {
       "path": "scripts/arena/arena_signature.gd",
@@ -7789,7 +7789,7 @@
     {
       "path": "tools/arena/report_consistency.py",
       "before_sha256": "0276782dde8e3497de0686fa180f5aee8d9e6f21e841cdc03ebb4ae9044d0a85",
-      "after_sha256": "a9fe18640b01ff786794a64c66ebba1c72ff35482e8854b63ea7eee7cebf26df",
+      "after_sha256": "1d808b346802daf9b378c90da579ddb988f1132f82b0411e9b9e3edb2440be9b",
       "changed": true,
       "authorized_exception": true,
       "guard_pass": true
@@ -8206,6 +8206,14 @@
       "path": "tools/debug/arena_vfx_check.gd",
       "before_sha256": "03e13cc0816d1ea410722e8452f4f46f77385039950c9a9e35a462043a1323c0",
       "after_sha256": "03e13cc0816d1ea410722e8452f4f46f77385039950c9a9e35a462043a1323c0",
+      "changed": false,
+      "authorized_exception": false,
+      "guard_pass": true
+    },
+    {
+      "path": "tools/debug/arena_vfx_pass_check.gd",
+      "before_sha256": "f0e5ba64d5e3c161d45132fa240653d732865047fbf8d943b6db634c0add0e7d",
+      "after_sha256": "f0e5ba64d5e3c161d45132fa240653d732865047fbf8d943b6db634c0add0e7d",
       "changed": false,
       "authorized_exception": false,
       "guard_pass": true

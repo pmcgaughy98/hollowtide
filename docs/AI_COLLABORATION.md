@@ -1,5 +1,13 @@
 # Working Together on Hollowtide
 
+## Codex: Vitrecrag line arena brick and crater consistency installed (October 7, 2026)
+
+Preston asked to fix the newly introduced Fusern/Slagglass/Vitrecrag arena line, especially Fusern's pale-orange shell views and lost brick texture. Fusern E/NE/N/NW now use the approved dark burnt-brick faces and mortar; E/NE/N walks receive the same material repair. Restored NW interior brick courses from the accepted dark W facing inside an audited 548-pixel island (349 RGB pixels changed); existing exterior courses, eyes, lower band and legs remain exact. Slagglass keeps its dark glass plates. Vitrecrag walks keep copper shell seams and a consistent approved rust-to-gold crater material, removing frame-to-frame white-hot seam and crater color drift. All output colors belong to each form's own approved base.
+
+Installed 255 active PNG changes, rebuilt only these three forms through the unchanged named-form small-sprite pipeline. Canvases, poses, outer silhouettes, foot rows and facing assignments stay exact. Filled exactly 2,886 transparent crater pixels in 11 fully enclosed components in Vitrecrag's S/SE/E source walks; original alpha is exact everywhere else. The reporter explicitly validates that bounded exception and retains its previous artifact-removal behavior. Preserved 264 original art PNGs and 8 initial captures. All 72 derived walk mirrors and 216 exact game-pipeline checks pass; 1020 previous-twelve arena assets and all reviewed code/settings guards except the explicitly extended reporter stay byte-identical. No paid calls, game-code edits or commit. Claude's concurrent ability/control updates were read and preserved; the current picker, keys 1–4 abilities and SPACE team switching remain current.
+
+Godot 4.7.2 import and runtime checks exited 0 with zero script errors and eight fresh verified stills. Actual import/runtime diagnostics are retained in the report; this art pass does not resolve unrelated audio/import/shutdown issues. Whole-form brightness spread and fixed upper-dome texture measures are reported honestly, including Fusern's remaining spread above 8 because dark mortar contrast is preserved. Original generated pose/anatomy variations remain. [Exact changed files, originals, accepted masks/scripts, contacts/GIFs, material tables and native evidence](creatures/arena-vitrecrag-2026-10-07/consistency/README.md).
+
 ## Codex: Cinderhide line arena material cleanup installed (October 7, 2026)
 
 Preston asked to fix the new Cinderhide/Clinkerhide/Ironvent arena line. Installed 24 full facings and 15 source walk sheets locked to each approved base palette; 216 game PNGs rebuilt with the unchanged named-form pipeline. Charcoal bodies, gray stone armor and orange vents stay distinct; Ironvent keeps its approved gray armored head. All three full/game brightness spreads are <8. Removed only 270 audited generated curl pixels above Clinkerhide's crest in six south-walk frames; true crest/body/feet/canvases stay preserved. Exact-alpha checks honestly record that bounded exception. All 72 walk mirrors and 216 exact-pipeline checks pass; 765 current old-nine assets stay byte-identical. Originals 265 PNG plus 11 initial captures preserved. No paid calls or commit.
@@ -7,6 +15,10 @@ Preston asked to fix the new Cinderhide/Clinkerhide/Ironvent arena line. Install
 Added repair_clinker_curl.py and extended report_consistency.py for named forms and audited geometry. No .gd/.tscn/settings/base/rotation/builder/shrink/slicer/finish_back edits by Codex. Claude's concurrent boulder updates were detected before install, read and preserved. Godot 4.7.2 import/runtime exit 0, zero script errors, 11 fresh captures; existing audio UID/empty-save import errors and shutdown leaks remain logged. Original RD anatomy/fine-grain plate noise remains; this is a material/artifact pass, not a topology redraw. [Exact files, contacts/GIFs, originals, masks, metrics, native evidence and reproduction](creatures/arena-ironvent-2026-10-07/consistency/README.md).
 
 > **Claude handoff, 2026-10-07:** start a new Claude chat from `docs/team/CLAUDE_HANDOFF_2026-10-07.md` (arena pivot, kits, balance simulator, Phase breaks roots, campaign proposal; about 146 uncommitted files).
+
+## Claude: Scourmaw's ability kit (October 7, 2026, night)
+
+**Preston:** "Scourmaw kit." Mapped onto the ability model: basic Deep Jet (AI), 1 Phase, 2 Riptide, 3 Sinkhole as an ambush (resurfaces behind the target, next Deep Jet x1.8 within 3 s; it used to only flee), Undertow as 4. Phase now also stops direct hits. **Grok:** the ambush is the one new idea and its numbers are drafts. Check and stills: `tools/debug/arena_scourmaw_check.gd`, `docs/creatures/arena-feel-2026-10-07/`.
 
 ## Claude: committed the day (3712a3d); painted VFX pass (October 7, 2026, night)
 

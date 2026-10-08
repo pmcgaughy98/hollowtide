@@ -1,0 +1,35 @@
+{
+  "byte_exact_repeat_run": true,
+  "source_count": 7,
+  "hashes": {
+    "assets/sprites/arena/fusern/e.png": "99259f35bb3e962ece8ee0f9f53fe4f29dbe790084d7cb99acc19c5b55669fa2",
+    "assets/sprites/arena/fusern/ne.png": "ea468a052255d8442be09eeb974858533feb11d09c99b071466582ccd396d1da",
+    "assets/sprites/arena/fusern/n.png": "92a2f8c0518ee2ffe4b045dfd82723235b5228885a499f388d8b0d23ce382660",
+    "assets/sprites/arena/fusern/nw.png": "825b05c85b147deaf3822f57af39d5867a4bd257611340e37a8862299083c43b",
+    "docs/creatures/arena-starters-2026-10-07/walk/fusern_e_sheet.png": "8d592100e872906faf9a4f63ebaa18cd3a514fabedafdec59e2bc291e32928a5",
+    "docs/creatures/arena-starters-2026-10-07/walk/fusern_ne_sheet.png": "9022a2f0bd92ed6f9ef50b4e35e8950cea71be03645b7e5543d6c3e04575ff04",
+    "docs/creatures/arena-starters-2026-10-07/walk/fusern_n_sheet.png": "25fc4b86789fde2ce1669c250008077e171c70975e80b48775bb6454e1fb73c6"
+  },
+  "approved_dark_facings": {
+    "s": {
+      "candidate_before": "6b36f2cb16e0cf7176f78b5ea4c9e37a8b43cb427d64d9486d71987ac309eef2",
+      "candidate_after": "6b36f2cb16e0cf7176f78b5ea4c9e37a8b43cb427d64d9486d71987ac309eef2",
+      "byte_exact": true
+    },
+    "se": {
+      "candidate_before": "833ac57a0228d83fa6d097f1c750cf15818395b34f11c9d678f08c8b6e9c61bf",
+      "candidate_after": "833ac57a0228d83fa6d097f1c750cf15818395b34f11c9d678f08c8b6e9c61bf",
+      "byte_exact": true
+    },
+    "w": {
+      "candidate_before": "ed40e8384a974020cc07f32c3d0d127049c3095ba2314ad129156021adc618af",
+      "candidate_after": "ed40e8384a974020cc07f32c3d0d127049c3095ba2314ad129156021adc618af",
+      "byte_exact": true
+    },
+    "sw": {
+      "candidate_before": "b3d1ab3b8f715cc08e60ede26a47a6ae71d92dcc4e7522ced4cc0b607a2b6423",
+      "candidate_after": "b3d1ab3b8f715cc08e60ede26a47a6ae71d92dcc4e7522ced4cc0b607a2b6423",
+      "byte_exact": true
+    }
+  }
+}

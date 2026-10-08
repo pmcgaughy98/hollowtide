@@ -1,0 +1,86 @@
+{
+  "review_only": true,
+  "rule": "largest 8-connected component of exact three warm RGB classes; bright252 binary opening separates thin/red from broad/cyan",
+  "records": [
+    {
+      "facing": "e",
+      "sha256": "d27a234ce99ee34b786adaea4ab32ccc73cde40de4faf463421aa0ae1368bbc1",
+      "shell": 1494,
+      "bright": 478,
+      "opening": {
+        "3": {
+          "thin_count": 250,
+          "broad_count": 228
+        },
+        "5": {
+          "thin_count": 259,
+          "broad_count": 219
+        },
+        "7": {
+          "thin_count": 264,
+          "broad_count": 214
+        }
+      }
+    },
+    {
+      "facing": "ne",
+      "sha256": "159fcc89ca278dc6095438089042aee7ebb7a5094b2785f2b0256f832df8bba3",
+      "shell": 978,
+      "bright": 432,
+      "opening": {
+        "3": {
+          "thin_count": 187,
+          "broad_count": 245
+        },
+        "5": {
+          "thin_count": 194,
+          "broad_count": 238
+        },
+        "7": {
+          "thin_count": 194,
+          "broad_count": 238
+        }
+      }
+    },
+    {
+      "facing": "n",
+      "sha256": "0e69bde4b711dfae3a9d510a5afaf3634870e879151b302f7f084cc4f80d2a2b",
+      "shell": 1097,
+      "bright": 475,
+      "opening": {
+        "3": {
+          "thin_count": 252,
+          "broad_count": 223
+        },
+        "5": {
+          "thin_count": 272,
+          "broad_count": 203
+        },
+        "7": {
+          "thin_count": 391,
+          "broad_count": 84
+        }
+      }
+    },
+    {
+      "facing": "nw",
+      "sha256": "97bf2ca4fe051c42bd717c59c2f9a50b0b8748267a66e37fe9a5bd3e43df4c2a",
+      "shell": 1536,
+      "bright": 786,
+      "opening": {
+        "3": {
+          "thin_count": 238,
+          "broad_count": 548
+        },
+        "5": {
+          "thin_count": 296,
+          "broad_count": 490
+        },
+        "7": {
+          "thin_count": 308,
+          "broad_count": 478
+        }
+      }
+    }
+  ]
+}

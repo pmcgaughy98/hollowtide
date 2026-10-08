@@ -1,0 +1,533 @@
+{
+  "note": "Review-only RGB class identification; ROI is not an approved application mask. Geometry/support untouched.",
+  "frames": {
+    "e": {
+      "path": "assets/sprites/arena/fusern/e.png",
+      "sha256": "d27a234ce99ee34b786adaea4ab32ccc73cde40de4faf463421aa0ae1368bbc1",
+      "shell_roi_review_only_xyxy": [
+        26,
+        24,
+        103,
+        66
+      ],
+      "dominant_roi_rgb_counts": [
+        {
+          "rgb": [
+            231,
+            113,
+            39
+          ],
+          "count": 559
+        },
+        {
+          "rgb": [
+            252,
+            161,
+            82
+          ],
+          "count": 465
+        },
+        {
+          "rgb": [
+            218,
+            116,
+            60
+          ],
+          "count": 307
+        },
+        {
+          "rgb": [
+            114,
+            93,
+            80
+          ],
+          "count": 93
+        },
+        {
+          "rgb": [
+            8,
+            6,
+            5
+          ],
+          "count": 45
+        },
+        {
+          "rgb": [
+            42,
+            10,
+            0
+          ],
+          "count": 26
+        },
+        {
+          "rgb": [
+            0,
+            0,
+            0
+          ],
+          "count": 23
+        },
+        {
+          "rgb": [
+            163,
+            74,
+            50
+          ],
+          "count": 18
+        },
+        {
+          "rgb": [
+            51,
+            49,
+            47
+          ],
+          "count": 18
+        },
+        {
+          "rgb": [
+            51,
+            37,
+            32
+          ],
+          "count": 14
+        },
+        {
+          "rgb": [
+            21,
+            10,
+            6
+          ],
+          "count": 13
+        },
+        {
+          "rgb": [
+            230,
+            146,
+            60
+          ],
+          "count": 13
+        },
+        {
+          "rgb": [
+            85,
+            45,
+            40
+          ],
+          "count": 12
+        },
+        {
+          "rgb": [
+            45,
+            44,
+            43
+          ],
+          "count": 10
+        },
+        {
+          "rgb": [
+            76,
+            69,
+            64
+          ],
+          "count": 10
+        }
+      ]
+    },
+    "ne": {
+      "path": "assets/sprites/arena/fusern/ne.png",
+      "sha256": "159fcc89ca278dc6095438089042aee7ebb7a5094b2785f2b0256f832df8bba3",
+      "shell_roi_review_only_xyxy": [
+        26,
+        24,
+        103,
+        66
+      ],
+      "dominant_roi_rgb_counts": [
+        {
+          "rgb": [
+            252,
+            161,
+            82
+          ],
+          "count": 425
+        },
+        {
+          "rgb": [
+            231,
+            113,
+            39
+          ],
+          "count": 351
+        },
+        {
+          "rgb": [
+            163,
+            74,
+            50
+          ],
+          "count": 133
+        },
+        {
+          "rgb": [
+            190,
+            96,
+            53
+          ],
+          "count": 114
+        },
+        {
+          "rgb": [
+            218,
+            116,
+            60
+          ],
+          "count": 107
+        },
+        {
+          "rgb": [
+            131,
+            59,
+            43
+          ],
+          "count": 72
+        },
+        {
+          "rgb": [
+            103,
+            51,
+            43
+          ],
+          "count": 62
+        },
+        {
+          "rgb": [
+            118,
+            53,
+            43
+          ],
+          "count": 57
+        },
+        {
+          "rgb": [
+            0,
+            0,
+            0
+          ],
+          "count": 52
+        },
+        {
+          "rgb": [
+            51,
+            37,
+            32
+          ],
+          "count": 36
+        },
+        {
+          "rgb": [
+            8,
+            6,
+            5
+          ],
+          "count": 34
+        },
+        {
+          "rgb": [
+            152,
+            56,
+            28
+          ],
+          "count": 31
+        },
+        {
+          "rgb": [
+            70,
+            64,
+            61
+          ],
+          "count": 26
+        },
+        {
+          "rgb": [
+            64,
+            44,
+            41
+          ],
+          "count": 18
+        },
+        {
+          "rgb": [
+            94,
+            49,
+            42
+          ],
+          "count": 17
+        }
+      ]
+    },
+    "n": {
+      "path": "assets/sprites/arena/fusern/n.png",
+      "sha256": "0e69bde4b711dfae3a9d510a5afaf3634870e879151b302f7f084cc4f80d2a2b",
+      "shell_roi_review_only_xyxy": [
+        26,
+        24,
+        103,
+        66
+      ],
+      "dominant_roi_rgb_counts": [
+        {
+          "rgb": [
+            252,
+            161,
+            82
+          ],
+          "count": 471
+        },
+        {
+          "rgb": [
+            231,
+            113,
+            39
+          ],
+          "count": 334
+        },
+        {
+          "rgb": [
+            218,
+            116,
+            60
+          ],
+          "count": 277
+        },
+        {
+          "rgb": [
+            163,
+            74,
+            50
+          ],
+          "count": 177
+        },
+        {
+          "rgb": [
+            131,
+            59,
+            43
+          ],
+          "count": 80
+        },
+        {
+          "rgb": [
+            152,
+            56,
+            28
+          ],
+          "count": 62
+        },
+        {
+          "rgb": [
+            190,
+            96,
+            53
+          ],
+          "count": 58
+        },
+        {
+          "rgb": [
+            21,
+            10,
+            6
+          ],
+          "count": 48
+        },
+        {
+          "rgb": [
+            148,
+            81,
+            57
+          ],
+          "count": 26
+        },
+        {
+          "rgb": [
+            3,
+            0,
+            0
+          ],
+          "count": 23
+        },
+        {
+          "rgb": [
+            85,
+            45,
+            40
+          ],
+          "count": 20
+        },
+        {
+          "rgb": [
+            118,
+            53,
+            43
+          ],
+          "count": 15
+        },
+        {
+          "rgb": [
+            230,
+            146,
+            60
+          ],
+          "count": 14
+        },
+        {
+          "rgb": [
+            179,
+            91,
+            56
+          ],
+          "count": 5
+        },
+        {
+          "rgb": [
+            51,
+            37,
+            32
+          ],
+          "count": 3
+        }
+      ]
+    },
+    "nw": {
+      "path": "assets/sprites/arena/fusern/nw.png",
+      "sha256": "97bf2ca4fe051c42bd717c59c2f9a50b0b8748267a66e37fe9a5bd3e43df4c2a",
+      "shell_roi_review_only_xyxy": [
+        26,
+        24,
+        103,
+        66
+      ],
+      "dominant_roi_rgb_counts": [
+        {
+          "rgb": [
+            252,
+            161,
+            82
+          ],
+          "count": 774
+        },
+        {
+          "rgb": [
+            231,
+            113,
+            39
+          ],
+          "count": 563
+        },
+        {
+          "rgb": [
+            218,
+            116,
+            60
+          ],
+          "count": 59
+        },
+        {
+          "rgb": [
+            163,
+            74,
+            50
+          ],
+          "count": 55
+        },
+        {
+          "rgb": [
+            21,
+            10,
+            6
+          ],
+          "count": 52
+        },
+        {
+          "rgb": [
+            3,
+            0,
+            0
+          ],
+          "count": 22
+        },
+        {
+          "rgb": [
+            114,
+            93,
+            80
+          ],
+          "count": 20
+        },
+        {
+          "rgb": [
+            230,
+            146,
+            60
+          ],
+          "count": 13
+        },
+        {
+          "rgb": [
+            70,
+            64,
+            61
+          ],
+          "count": 13
+        },
+        {
+          "rgb": [
+            8,
+            6,
+            5
+          ],
+          "count": 10
+        },
+        {
+          "rgb": [
+            179,
+            91,
+            56
+          ],
+          "count": 9
+        },
+        {
+          "rgb": [
+            131,
+            59,
+            43
+          ],
+          "count": 8
+        },
+        {
+          "rgb": [
+            51,
+            37,
+            32
+          ],
+          "count": 6
+        },
+        {
+          "rgb": [
+            0,
+            0,
+            0
+          ],
+          "count": 4
+        },
+        {
+          "rgb": [
+            91,
+            40,
+            18
+          ],
+          "count": 4
+        }
+      ]
+    }
+  }
+}

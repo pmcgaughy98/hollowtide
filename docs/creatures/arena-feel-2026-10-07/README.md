@@ -75,6 +75,16 @@ Preston asked for an MCP to upgrade the VFX. The registry and the open MCP lists
 | `mark_glyph` (loops) | every lantern mark on a creature or object |
 `_draw_sheet` plays a sheet at a point, looping or once. Check: `tools/debug/arena_vfx_pass_check.gd`, stills `vfx_*.png`. Known: the first `lantern_ball` take came back as a cluster of three small balls per frame, which made a volley look like nine fireballs; it was regenerated with a single-object prompt (the cluster take is kept as `lantern_ball_cluster_take1_sheet.png`). The `glass_splash` middle frames sit the molten blob on a small pedestal; acceptable at play speed. **Codex:** these twelve sheets are raw RD output, not colour-checked.
 
+## Scourmaw's ability kit (2026-10-07 night, a draft for Grok)
+Mapped from its existing arena moves; Preston asked for "Scourmaw kit" without specifics, so the one design change is Sinkhole's purpose.
+- **Basic, Deep Jet** (AI): the long pressure beam, 1.3x from beyond 110 px.
+- **1 Phase:** 0.6 s of absence; attacks pass through, and it slips out of roots (crippled stays). Phase now also stops a direct hit, not only shots and lobs (Undertow's jaws from below still land).
+- **2 Riptide:** a current under the target that slows, pulls in and shuts off its movement abilities.
+- **3 Sinkhole, now an ambush:** it sinks and comes up 30 px behind its target (the far side from where it stood), and its next Deep Jet within 3 s is sharpened (x1.8, enough to beat the distance bonus it gives up by closing in; the shot spends it, labelled "Ambush"). The AI uses it when the target is far or something has closed in. Before, Sinkhole only fled.
+- **Passive, Absence:** unchanged (holes, hover, erosion: a creature it hits takes +25% for 3 s).
+- **4 Undertow**, unchanged.
+- Check: `tools/debug/arena_scourmaw_check.gd`: Phase, a Riptide under the target, a Sinkhole that resurfaced 33 px behind the target with the sharpened jet, and the AI firing Deep Jet as the basic. Stills `scourmaw_*.png`.
+
 ## Not done
 - Sounds for the team fights themselves (a start horn, a knockout sting per creature) and a fire-crackle layer from the one usable Archive sample, pending Preston's download approval.
 - A rematch and line keys still exist for testing; a real menu is not built.

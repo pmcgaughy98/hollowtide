@@ -94,7 +94,11 @@ const KITS := {
 	"rimefin": {"moves": ["beam"]},
 	"riftfin": {"moves": ["beam"]},
 	# Long-range assassin: glass cannon, hit and run, keeps its distance and phases away.
-	"scourmaw": {"role": "Assassin", "moves": ["phase", "sinkhole", "riptide", "deep_jet"], "hp": 0.85, "passive": "absence", "profile": "kite",
+	# Scourmaw (ability kit, 2026-10-07 night, a draft for Grok): basic Deep Jet (AI); 1 Phase
+	# (attacks pass through; breaks roots); 2 Riptide (a current under the target); 3 Sinkhole,
+	# now an ambush: it sinks and comes up behind its target, and its next Deep Jet within a
+	# few seconds hits harder. Passive Absence (hits erode the target). 4 Undertow.
+	"scourmaw": {"role": "Assassin", "moves": ["deep_jet"], "abilities": ["phase", "riptide", "sinkhole"], "hp": 0.85, "passive": "absence", "profile": "kite",
 		"far_bonus": 1.3},
 	# The Ironvent line (Ember/Stone), built from its turn-based moves (Crest Ram, Cinder Claw,
 	# Vent Barrage, Furnace Roar) and its design-rule roles: Cinderhide the starter, Clinkerhide
@@ -324,6 +328,8 @@ const ERODE_EXTRA := 1.25
 ## it, pulls it in and shuts off its movement abilities while it stays inside.
 const SINK_SECONDS := 0.5
 const SINK_DISTANCE := 110.0
+const AMBUSH_SECONDS := 3.0            # after a Sinkhole, the next Deep Jet inside this window is sharpened
+const AMBUSH_BONUS := 1.8              # enough to beat the distance bonus it gives up by closing in
 const RIPTIDE_SECONDS := 2.5
 const RIPTIDE_RADIUS := 20.0
 const RIPTIDE_SLOW := 0.45
@@ -528,7 +534,7 @@ func _make_fighter(line: int, stage: int, at: Vector2, facing: String, ai: bool,
 		"heat": 0.0, "ram_t": 0.0, "ram_dir": Vector2.ZERO, "ram_dmg": 0,
 		"windup": {}, "shiver": Vector2.ZERO,
 		"ram_return": false, "ram_end_hit": false, "after": "", "after_aim": Vector2.ZERO,
-		"invuln": 0.0, "marked": 0.0, "tackle": {}, "ring": ring}
+		"invuln": 0.0, "marked": 0.0, "tackle": {}, "ring": ring, "ambush": 0.0}
 	return fighter
 
 
@@ -1001,8 +1007,8 @@ func _wants(i: int, m: String, foe: Dictionary) -> bool:
 			# is in range with a damaging move ready: the only way to beat an instant bolt).
 			return f["rooted"] > 0.0 or _threat_near(i, 40.0) or (_foe_ready(foe, dist) and randf() < 0.05)
 		"sinkhole":
-			# Hit and run: when something closes in, vanish and come up far away.
-			return dist < 50.0
+			# Ambush: when the target is a long way off, or something has closed in on it.
+			return (dist > 100.0 or dist < 40.0) and foe["phase"] <= 0.0 and foe["hp"] > 0
 		"riptide":
 			# Catch something quick or slippery in a current, or slow something closing in.
 			return dist < MOVES[m]["range"] and foe["phase"] <= 0.0 and (_has_mobility(foe) or dist < 80.0)
@@ -1179,18 +1185,23 @@ func _do_move(i: int, m: String, t: int) -> void:
 			f["disengage"] = 0.6
 			_play("res://assets/audio/sfx/ui/hit_weak.wav", -6.0)
 		"deep_jet":
-			# Scourmaw's long-range jet: a narrow, very long pressure beam.
+			# Scourmaw's long-range jet: a narrow, very long pressure beam. After a Sinkhole it is
+			# the sharpened ambush shot, and spends the ambush.
 			_effects.append({"kind": "beam", "owner": i, "from": mouth, "dir": aim, "len": 0.0, "life": 0.6, "damage": dmg, "reach": 160.0, "push": 1.6})
+			if f["ambush"] > 0.0:
+				f["ambush"] = 0.0
+				_label(i, "Ambush")
 			_play("res://assets/audio/sfx/undertow/surge.wav", -10.0)
 		"sinkhole":
-			# Sinks into its hollow and resurfaces far from the threat.
-			var away := -aim
+			# Sinks into its hollow and resurfaces behind the target (the far side from where it
+			# was), sharpening its next Deep Jet: the assassin's ambush.
 			var floor_rect: Rect2 = ARENAS[_arena]["floor"]
-			var best: Vector2 = f["body"].position
-			for tries in 8:
-				var cand: Vector2 = (f["body"].position + away.rotated(randf_range(-1.2, 1.2)) * SINK_DISTANCE).clamp(floor_rect.position, floor_rect.end)
-				if not _blocked(cand) and cand.distance_to(foe["body"].position) > best.distance_to(foe["body"].position):
-					best = cand
+			var best: Vector2 = (foe["body"].position + aim * 30.0).clamp(floor_rect.position, floor_rect.end)
+			for tries in 6:
+				if not _blocked(best):
+					break
+				best = (foe["body"].position + aim.rotated(tries * 0.6) * 30.0).clamp(floor_rect.position, floor_rect.end)
+			f["ambush"] = AMBUSH_SECONDS + SINK_SECONDS
 			_effects.append({"kind": "whirl", "pos": f["body"].position, "t": 0.0})
 			_effects.append({"kind": "whirl", "pos": best, "t": -SINK_SECONDS * 0.6})
 			f["hidden"] = true
@@ -1498,6 +1509,8 @@ func _dmg(m: String, i: int, t: int) -> int:
 	# Assassins strike harder from a distance.
 	if f["far_bonus"] > 1.0 and f["body"].position.distance_to(_fighters[t]["body"].position) > 110.0:
 		d *= f["far_bonus"]
+	if m == "deep_jet" and f["ambush"] > 0.0:
+		d *= AMBUSH_BONUS
 	if f["passive"] == "stoke" and f["heat"] >= 100.0:
 		d *= STOKE_BONUS
 	if f["passive"] == "kiln" and f["heat"] >= 100.0:
@@ -1907,6 +1920,7 @@ func _update_fighter(i: int, delta: float) -> void:
 	f["crippled"] = maxf(0.0, f["crippled"] - delta)
 	f["invuln"] = maxf(0.0, f["invuln"] - delta)
 	f["marked"] = maxf(0.0, f["marked"] - delta)
+	f["ambush"] = maxf(0.0, f["ambush"] - delta)
 	if f["ring"] != null and f["team"] == 0:
 		f["ring"].default_color = YOU_RING if i == controlled else TEAM_RING[0]
 	if not (_sig.active and _sig.effect_time() < 0.0):
@@ -2338,8 +2352,8 @@ func _hit_along(a: Vector2, b: Vector2, radius: float, owner: int) -> int:
 
 func _hurt(i: int, damage: int, push: Vector2, by: int, pierce := false) -> void:
 	var f: Dictionary = _fighters[i]
-	if f["hp"] <= 0 or damage <= 0 or f["hidden"] or f["invuln"] > 0.0:
-		return
+	if f["hp"] <= 0 or damage <= 0 or f["hidden"] or f["invuln"] > 0.0 or (f["phase"] > 0.0 and not pierce):
+		return   # absent, hidden or invulnerable: nothing lands (Undertow's jaws from below still do)
 	if f["eroded"] > 0.0:
 		damage = int(round(damage * ERODE_EXTRA))
 		pierce = true   # eroded: its damage reduction is gone

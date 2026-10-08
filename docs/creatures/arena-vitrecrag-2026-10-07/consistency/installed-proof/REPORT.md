@@ -1,13 +1,13 @@
 # Installed arena consistency report
 
-One or more structural/palette checks failed; inspect the JSON proof before accepting this output.
+Structural/palette checks passed.
 
 | Check | Result |
 | --- | --- |
 | original_pngs | 264 |
 | metric_records | 363 |
-| protected_code_and_tools | 628 |
-| existing_code_guard_pass | False |
+| protected_code_and_tools | 629 |
+| existing_code_guard_pass | True |
 | approved_bases_unchanged | True |
 | full_and_walk_frame_geometry_exact | False |
 | full_facing_and_whole_walk_sheet_alpha_exact | False |

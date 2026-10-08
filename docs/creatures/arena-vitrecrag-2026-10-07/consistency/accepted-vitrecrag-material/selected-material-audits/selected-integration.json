@@ -1,0 +1,61 @@
+{
+  "selected": "root-approved enclosed-core tree",
+  "project_changes": 0,
+  "candidate_source_walks": 5,
+  "tools": [
+    "candidate-tools\\repair_vitrecrag_seams.py",
+    "candidate-tools\\repair_vitrecrag_core.py",
+    "candidate-tools\\fill_vitrecrag_core_voids.py"
+  ],
+  "geometry_exception": {
+    "operation": "fill_enclosed_crater",
+    "added_full_pixels": 2886,
+    "original_alpha_exact": false,
+    "outer_silhouette_canvas_bbox_feet_exact": true
+  },
+  "final_hashes": [
+    {
+      "path": "docs/creatures/arena-starters-2026-10-07/walk/vitrecrag_s_sheet.png",
+      "output_sha256": "2f13c575f0f4c5fe7d11dfa5469155360d75501ee4a2f5d34f3aa92ee53f34de",
+      "added_pixels": 558
+    },
+    {
+      "path": "docs/creatures/arena-starters-2026-10-07/walk/vitrecrag_se_sheet.png",
+      "output_sha256": "6e32d08fc0b7adac20d764e8596320e52831e81f8cd498f31d2d980f5402d0f8",
+      "added_pixels": 1298
+    },
+    {
+      "path": "docs/creatures/arena-starters-2026-10-07/walk/vitrecrag_e_sheet.png",
+      "output_sha256": "9cad281a75c0df340080708d6d5888d84e0ed8b3a955e65bd046b30e566202f0",
+      "added_pixels": 1030
+    },
+    {
+      "path": "docs/creatures/arena-starters-2026-10-07/walk/vitrecrag_ne_sheet.png",
+      "output_sha256": "6d5a957fa7ba6b3f8578c319a9e9af5e38f2ad07463e494ffb4a648d99066987",
+      "added_pixels": 0
+    },
+    {
+      "path": "docs/creatures/arena-starters-2026-10-07/walk/vitrecrag_n_sheet.png",
+      "output_sha256": "cb507850a5620dcb19ad7396240fdc1266694d0826b2d6b452fd07a93a61131c",
+      "added_pixels": 0
+    }
+  ],
+  "top_level_selected_audits": [
+    {
+      "path": "vitrecrag-seam-audit.json",
+      "sha256": "f319460f9f7cc19617a87fbd6038864e681574d8d5d3c0bd7796313589c49371"
+    },
+    {
+      "path": "vitrecrag-core-audit.json",
+      "sha256": "dcdab90a1e8763dd136f00dca70eb65124ed0a304c4aa13637dcc9028f991d30"
+    },
+    {
+      "path": "vitrecrag-enclosed-core-report.json",
+      "sha256": "79df85aa3e3b42fa3fc05455790bbfdabd72d9ce0f9621a90d9b4b5f1ac7e7c4"
+    },
+    {
+      "path": "vitrecrag-crater-repairs.json",
+      "sha256": "00880f1dbc0aa179762281ffea1365e309ab18e590b80788419929bd43bbd957"
+    }
+  ]
+}

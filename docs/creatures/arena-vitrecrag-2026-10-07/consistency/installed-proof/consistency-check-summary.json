@@ -1,8 +1,8 @@
 {
   "metric_records": 363,
   "original_pngs": 264,
-  "protected_code_and_tools": 628,
-  "existing_code_guard_pass": false,
+  "protected_code_and_tools": 629,
+  "existing_code_guard_pass": true,
   "approved_bases_unchanged": true,
   "original_snapshot_hashes_pass": true,
   "immutable_source_pngs_pass": true,
@@ -1077,7 +1077,7 @@
   "gif_preview_frame_ms": 140,
   "game_pngs_exact_existing_pipeline": true,
   "game_pngs_pipeline_checked": 216,
-  "full_and_walk_frame_geometry_valid": false,
+  "full_and_walk_frame_geometry_valid": true,
   "full_facing_and_whole_walk_sheet_alpha_valid": true,
   "audited_geometry_repairs": {
     "repairs": [
@@ -12647,5 +12647,5 @@
   },
   "other_arena_assets_unchanged": true,
   "other_arena_assets_checked": 1020,
-  "structural_and_palette_pass": false
+  "structural_and_palette_pass": true
 }
