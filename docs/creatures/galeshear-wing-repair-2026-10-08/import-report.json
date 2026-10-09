@@ -1,0 +1,569 @@
+{
+  "cell_size": 192,
+  "feet_baseline": 176,
+  "frames": [
+    {
+      "bounds": [
+        28,
+        48,
+        135,
+        128
+      ],
+      "canvas": [
+        192,
+        192
+      ],
+      "facing": "s",
+      "frame": 0
+    },
+    {
+      "bounds": [
+        28,
+        51,
+        136,
+        125
+      ],
+      "canvas": [
+        192,
+        192
+      ],
+      "facing": "s",
+      "frame": 1
+    },
+    {
+      "bounds": [
+        28,
+        52,
+        136,
+        124
+      ],
+      "canvas": [
+        192,
+        192
+      ],
+      "facing": "s",
+      "frame": 2
+    },
+    {
+      "bounds": [
+        29,
+        51,
+        134,
+        125
+      ],
+      "canvas": [
+        192,
+        192
+      ],
+      "facing": "s",
+      "frame": 3
+    },
+    {
+      "bounds": [
+        29,
+        54,
+        134,
+        122
+      ],
+      "canvas": [
+        192,
+        192
+      ],
+      "facing": "s",
+      "frame": 4
+    },
+    {
+      "bounds": [
+        27,
+        49,
+        137,
+        127
+      ],
+      "canvas": [
+        192,
+        192
+      ],
+      "facing": "s",
+      "frame": 5
+    },
+    {
+      "bounds": [
+        27,
+        50,
+        138,
+        126
+      ],
+      "canvas": [
+        192,
+        192
+      ],
+      "facing": "s",
+      "frame": 6
+    },
+    {
+      "bounds": [
+        27,
+        49,
+        137,
+        127
+      ],
+      "canvas": [
+        192,
+        192
+      ],
+      "facing": "s",
+      "frame": 7
+    },
+    {
+      "bounds": [
+        17,
+        48,
+        158,
+        128
+      ],
+      "canvas": [
+        192,
+        192
+      ],
+      "facing": "se",
+      "frame": 0
+    },
+    {
+      "bounds": [
+        19,
+        51,
+        153,
+        125
+      ],
+      "canvas": [
+        192,
+        192
+      ],
+      "facing": "se",
+      "frame": 1
+    },
+    {
+      "bounds": [
+        15,
+        51,
+        161,
+        125
+      ],
+      "canvas": [
+        192,
+        192
+      ],
+      "facing": "se",
+      "frame": 2
+    },
+    {
+      "bounds": [
+        24,
+        56,
+        144,
+        120
+      ],
+      "canvas": [
+        192,
+        192
+      ],
+      "facing": "se",
+      "frame": 3
+    },
+    {
+      "bounds": [
+        15,
+        55,
+        162,
+        121
+      ],
+      "canvas": [
+        192,
+        192
+      ],
+      "facing": "se",
+      "frame": 4
+    },
+    {
+      "bounds": [
+        19,
+        51,
+        154,
+        125
+      ],
+      "canvas": [
+        192,
+        192
+      ],
+      "facing": "se",
+      "frame": 5
+    },
+    {
+      "bounds": [
+        16,
+        54,
+        159,
+        122
+      ],
+      "canvas": [
+        192,
+        192
+      ],
+      "facing": "se",
+      "frame": 6
+    },
+    {
+      "bounds": [
+        25,
+        54,
+        142,
+        122
+      ],
+      "canvas": [
+        192,
+        192
+      ],
+      "facing": "se",
+      "frame": 7
+    },
+    {
+      "bounds": [
+        26,
+        48,
+        140,
+        128
+      ],
+      "canvas": [
+        192,
+        192
+      ],
+      "facing": "e",
+      "frame": 0
+    },
+    {
+      "bounds": [
+        29,
+        48,
+        133,
+        128
+      ],
+      "canvas": [
+        192,
+        192
+      ],
+      "facing": "e",
+      "frame": 1
+    },
+    {
+      "bounds": [
+        29,
+        48,
+        133,
+        128
+      ],
+      "canvas": [
+        192,
+        192
+      ],
+      "facing": "e",
+      "frame": 2
+    },
+    {
+      "bounds": [
+        31,
+        49,
+        130,
+        127
+      ],
+      "canvas": [
+        192,
+        192
+      ],
+      "facing": "e",
+      "frame": 3
+    },
+    {
+      "bounds": [
+        27,
+        52,
+        137,
+        124
+      ],
+      "canvas": [
+        192,
+        192
+      ],
+      "facing": "e",
+      "frame": 4
+    },
+    {
+      "bounds": [
+        30,
+        56,
+        132,
+        120
+      ],
+      "canvas": [
+        192,
+        192
+      ],
+      "facing": "e",
+      "frame": 5
+    },
+    {
+      "bounds": [
+        31,
+        52,
+        129,
+        124
+      ],
+      "canvas": [
+        192,
+        192
+      ],
+      "facing": "e",
+      "frame": 6
+    },
+    {
+      "bounds": [
+        31,
+        56,
+        129,
+        120
+      ],
+      "canvas": [
+        192,
+        192
+      ],
+      "facing": "e",
+      "frame": 7
+    },
+    {
+      "bounds": [
+        27,
+        48,
+        137,
+        128
+      ],
+      "canvas": [
+        192,
+        192
+      ],
+      "facing": "ne",
+      "frame": 0
+    },
+    {
+      "bounds": [
+        31,
+        48,
+        130,
+        128
+      ],
+      "canvas": [
+        192,
+        192
+      ],
+      "facing": "ne",
+      "frame": 1
+    },
+    {
+      "bounds": [
+        31,
+        48,
+        130,
+        128
+      ],
+      "canvas": [
+        192,
+        192
+      ],
+      "facing": "ne",
+      "frame": 2
+    },
+    {
+      "bounds": [
+        30,
+        50,
+        132,
+        126
+      ],
+      "canvas": [
+        192,
+        192
+      ],
+      "facing": "ne",
+      "frame": 3
+    },
+    {
+      "bounds": [
+        29,
+        52,
+        134,
+        124
+      ],
+      "canvas": [
+        192,
+        192
+      ],
+      "facing": "ne",
+      "frame": 4
+    },
+    {
+      "bounds": [
+        34,
+        53,
+        124,
+        123
+      ],
+      "canvas": [
+        192,
+        192
+      ],
+      "facing": "ne",
+      "frame": 5
+    },
+    {
+      "bounds": [
+        31,
+        53,
+        130,
+        123
+      ],
+      "canvas": [
+        192,
+        192
+      ],
+      "facing": "ne",
+      "frame": 6
+    },
+    {
+      "bounds": [
+        29,
+        52,
+        133,
+        124
+      ],
+      "canvas": [
+        192,
+        192
+      ],
+      "facing": "ne",
+      "frame": 7
+    },
+    {
+      "bounds": [
+        19,
+        51,
+        154,
+        125
+      ],
+      "canvas": [
+        192,
+        192
+      ],
+      "facing": "n",
+      "frame": 0
+    },
+    {
+      "bounds": [
+        21,
+        48,
+        149,
+        128
+      ],
+      "canvas": [
+        192,
+        192
+      ],
+      "facing": "n",
+      "frame": 1
+    },
+    {
+      "bounds": [
+        22,
+        48,
+        148,
+        128
+      ],
+      "canvas": [
+        192,
+        192
+      ],
+      "facing": "n",
+      "frame": 2
+    },
+    {
+      "bounds": [
+        24,
+        51,
+        144,
+        125
+      ],
+      "canvas": [
+        192,
+        192
+      ],
+      "facing": "n",
+      "frame": 3
+    },
+    {
+      "bounds": [
+        21,
+        59,
+        150,
+        117
+      ],
+      "canvas": [
+        192,
+        192
+      ],
+      "facing": "n",
+      "frame": 4
+    },
+    {
+      "bounds": [
+        20,
+        59,
+        152,
+        117
+      ],
+      "canvas": [
+        192,
+        192
+      ],
+      "facing": "n",
+      "frame": 5
+    },
+    {
+      "bounds": [
+        21,
+        57,
+        150,
+        119
+      ],
+      "canvas": [
+        192,
+        192
+      ],
+      "facing": "n",
+      "frame": 6
+    },
+    {
+      "bounds": [
+        23,
+        56,
+        145,
+        120
+      ],
+      "canvas": [
+        192,
+        192
+      ],
+      "facing": "n",
+      "frame": 7
+    }
+  ],
+  "palette_colors": 23,
+  "source": "Imagegen repair; alpha components registered before palette-locked native import",
+  "still_rule": "Eight original facing assignments retained; reverse-side walking frames mirrored by the existing builder"
+}

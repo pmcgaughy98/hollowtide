@@ -1,0 +1,167 @@
+{
+  "installed_utc": "2026-10-08T13:35:04.882287+00:00",
+  "files": [
+    {
+      "path": "scenes/main_menu_art_preview.tscn",
+      "sha256": "b7122a60ed20c1f55162e04f7f4703a13abbbce3e4e77df03934134bae415f01"
+    },
+    {
+      "path": "scripts/opening_flow.gd",
+      "sha256": "6557923dbf6c2cbe3d2455e515c3f16f8b2dcc549b36e08efa3997b159b7eb2d"
+    },
+    {
+      "path": "scenes/opening_flow.tscn",
+      "sha256": "123d8d0ff2e2f18aa8d23176f8dfb39740a1d2073b8d151be790aa7038adc55f"
+    },
+    {
+      "path": "scripts/creature_portrait.gd",
+      "sha256": "5a9a050d22fbc4bde77c7396c655a2da9da78d806c6e53ce61fb5af49ec70f69"
+    },
+    {
+      "path": "scripts/first_partner_arrival.gd",
+      "sha256": "378016be9b0b67e4ca5360fb40dfd15f4531a0b978b6880cddd8b009a713925d"
+    },
+    {
+      "path": "data/portraits/kithflare_front_idle.tres",
+      "sha256": "f88b6d78213e06854d85dd8bd6463fccf4d4e8cacf6cad749f35a1c17a14292a"
+    },
+    {
+      "path": "data/portraits/tallowroot_front_idle.tres",
+      "sha256": "9f42fe57bffa0a8845e73f47cb11086b5d5ab2a9ed4a427212a66ad34bed2156"
+    },
+    {
+      "path": "data/portraits/rimefin_front_idle.tres",
+      "sha256": "62f29aabe0b0883341110adde9aea4e089f137a2c7d1c8304f8bc004219c642a"
+    },
+    {
+      "path": "tools/debug/opening_flow_check.gd",
+      "sha256": "c00b60038babef4226c59862912cde551e6197aea01df7512c85d28ffa72be5e"
+    },
+    {
+      "path": "tools/debug/opening_launch_check.gd",
+      "sha256": "5fd5904e0ef7003b346622564750fa8409a81fb77abf3299db5f0217f023a8c6"
+    },
+    {
+      "path": "tools/debug/starter_portrait_preview.gd",
+      "sha256": "4905995d9407247c72124fa85f69bf9dfa96af6665cc90b5ad4846f947a5fa0a"
+    },
+    {
+      "path": "project.godot",
+      "sha256": "b4a995cd57700ef6dd417db2e4e16b039da9ee3487530e2e053a9f5f3bb4d43d",
+      "change": "run/main_scene only"
+    }
+  ],
+  "scene_uid_preserved": "uid://crlinvq0dr6o4",
+  "project_settings_unchanged_during_install": false,
+  "project_setting_change": "run/main_scene only; concurrent arena launch inspected and restored to requested menu",
+  "protected_before_install": {
+    "project.godot": "f6ce35ddd132684d8a70291b651e0d4597dc6c6c16bf959b7cda5d30e88f85b2",
+    "scripts/main_menu.gd": "6e42c74d2d309838a53ddc54ed04cd7874b0b02c7536c3ee305a28954a8b8eb8",
+    "scripts/main_menu_art_preview.gd": "80f0fc9e44e8519313b943117de81fb44aa3302b9caf3cfb686a33ab68e2727d",
+    "scripts/arena/arena_prototype.gd": "2b2d49f0d973adffb0808da5739d579ea9c9043f322110d68a0deaedf7d798aa",
+    "scripts/move_preview.gd": "b79f21c592e71d59100fdee7aa616131d99606048be048fd4e6eabd12d6f88be",
+    "scripts/player.gd": "ed85fe5f58401d10e9500a1308d2595ffd0d320a3c6fe281190606479ea5e6ac",
+    "scripts/player_party.gd": "ec6553d6b534d7d53ec196665431a5a01c91743dda50486fa9b8668dfe430d8e",
+    "scripts/world_journey.gd": "f744e8ccf9557c679bb9433ffe5403686e2094f981f5594985a50740d3e06827",
+    "scripts/first_route_prototype.gd": "0519fd97fd85c43d975fde4528ca32f7c30f45790b26a0881be408283606a18d",
+    "scripts/area_landscape.gd": "eef5fddc5d6be5ba7db67a4258ad10e040f40f2ee9351a706e7df1ab8b76b882",
+    "scripts/world_area.gd": "1caf3d290322a116720d0e365d347276224e48af44bf1f514515b5fd5def1cea"
+  },
+  "protected_after_install": {
+    "project.godot": "b4a995cd57700ef6dd417db2e4e16b039da9ee3487530e2e053a9f5f3bb4d43d",
+    "scripts/main_menu.gd": "6e42c74d2d309838a53ddc54ed04cd7874b0b02c7536c3ee305a28954a8b8eb8",
+    "scripts/main_menu_art_preview.gd": "80f0fc9e44e8519313b943117de81fb44aa3302b9caf3cfb686a33ab68e2727d",
+    "scripts/arena/arena_prototype.gd": "2b2d49f0d973adffb0808da5739d579ea9c9043f322110d68a0deaedf7d798aa",
+    "scripts/move_preview.gd": "b79f21c592e71d59100fdee7aa616131d99606048be048fd4e6eabd12d6f88be",
+    "scripts/player.gd": "ed85fe5f58401d10e9500a1308d2595ffd0d320a3c6fe281190606479ea5e6ac",
+    "scripts/player_party.gd": "ec6553d6b534d7d53ec196665431a5a01c91743dda50486fa9b8668dfe430d8e",
+    "scripts/world_journey.gd": "f744e8ccf9557c679bb9433ffe5403686e2094f981f5594985a50740d3e06827",
+    "scripts/first_route_prototype.gd": "0519fd97fd85c43d975fde4528ca32f7c30f45790b26a0881be408283606a18d",
+    "scripts/area_landscape.gd": "eef5fddc5d6be5ba7db67a4258ad10e040f40f2ee9351a706e7df1ab8b76b882",
+    "scripts/world_area.gd": "1caf3d290322a116720d0e365d347276224e48af44bf1f514515b5fd5def1cea"
+  },
+  "verified_arena_image_paths": 620,
+  "verified_original_palette_manifest_entries": 622,
+  "front_idle_sha256": {
+    "assets/sprites/creatures/starter_material_detail_2026_10_05/kithflare_idle_tail_outline_2026_10_05/f0.png": "542c36040b8c16a3e3c5be70e9cb02d6f6a6b336318a3bc05607fa5af4c51bb2",
+    "assets/sprites/creatures/starter_material_detail_2026_10_05/kithflare_idle_tail_outline_2026_10_05/f1.png": "68d0ded5ab1bfdf7865012af79aa73a9130735e5268b5654e222389761c63c03",
+    "assets/sprites/creatures/starter_material_detail_2026_10_05/kithflare_idle_tail_outline_2026_10_05/f2.png": "d231f2e9d753a02d4b40c5a759abf792516032307560092a80d0834a9b1e066c",
+    "assets/sprites/creatures/starter_material_detail_2026_10_05/kithflare_idle_tail_outline_2026_10_05/f3.png": "6ddd8a97ebf8cd94553fd7bbbe2e4735b6ff176a32ee57801aa4967fc5d744fd",
+    "assets/sprites/creatures/starter_material_detail_2026_10_05/kithflare_idle_tail_outline_2026_10_05/f4.png": "5d48e4cdb396ee1043cdd31b966a4afc7fce27af1b83f25e639a2857f38a94b0",
+    "assets/sprites/creatures/starter_material_detail_2026_10_05/kithflare_idle_tail_outline_2026_10_05/f5.png": "be66766b5038c2f143c1c37db060c6d239238308497411d3a871503aff93edfd",
+    "assets/sprites/creatures/starter_material_detail_2026_10_05/kithflare_idle_tail_outline_2026_10_05/f6.png": "704e81beada67316a505c0e53f250316c9a1097b511c3cf9a162494108b0ae11",
+    "assets/sprites/creatures/starter_material_detail_2026_10_05/kithflare_idle_tail_outline_2026_10_05/f7.png": "3a2f5859a786120e0c5ee9d69b37eb4c3533f9380309d64fbf29e547f6258b38",
+    "assets/sprites/creatures/idle_2026_10_05/1701_tallowroot/f0.png": "421a5fbb50b19ecf62f8ab9ce03ffd95ca3ea4254a5bf69b116592931b6d77fa",
+    "assets/sprites/creatures/idle_2026_10_05/1701_tallowroot/f1.png": "0e1a72bc805e8cd98bd813660e703557fadb25b97c063bfb0f9f85555dd9691b",
+    "assets/sprites/creatures/idle_2026_10_05/1701_tallowroot/f2.png": "839cc80b5e5b5efae5816b0a44272070536e9b15a5c1dcbe1f271105fccdc1b5",
+    "assets/sprites/creatures/idle_2026_10_05/1701_tallowroot/f3.png": "b8e2bab25b707086f61bd63c5f83e0f3a38a3c07f02a968be1bd6bccd01b22cc",
+    "assets/sprites/creatures/idle_2026_10_05/1701_tallowroot/f4.png": "2e7d3b15fb84cdcfddeced559572c49ef26ee3b8b3555df1d4f19eb39a161400",
+    "assets/sprites/creatures/idle_2026_10_05/1701_tallowroot/f5.png": "3d9b3a26a174d82d3a982cb655f83748d39fa07a4cb15411f73806862ee8ba0f",
+    "assets/sprites/creatures/idle_2026_10_05/1701_tallowroot/f6.png": "7f7d0c38adb93d9c6c8add7b610a74d4afa0823092e8b9693ac67b0e63bb1314",
+    "assets/sprites/creatures/idle_2026_10_05/1701_tallowroot/f7.png": "4e2382a5f1870e174bb1a3d215f6403d9acc8d73432fa66ceef01521b7526207",
+    "assets/sprites/creatures/idle_2026_10_05/001_rimefin/f0.png": "6060a21e41cc1a9d5529f7b4513c6ae188e5f1e1825247d7c914b59d0c1d69fd",
+    "assets/sprites/creatures/idle_2026_10_05/001_rimefin/f1.png": "155d99a851c79987469a2f8e0c1f5c05bb665cfd14dc290271ebd80a70169b96",
+    "assets/sprites/creatures/idle_2026_10_05/001_rimefin/f2.png": "3c2529a73c801ade43a8544695d4f456478eb4bd8a8053d8be9886c1fd693fed",
+    "assets/sprites/creatures/idle_2026_10_05/001_rimefin/f3.png": "a5053a0f232464e7224383bcf100d98230e84e2fdcbab65e0785e9910fb38be4",
+    "assets/sprites/creatures/idle_2026_10_05/001_rimefin/f4.png": "b0eeac48584bfe201c88585a3ea94210dc3973ef97de5a8394265230c938016b",
+    "assets/sprites/creatures/idle_2026_10_05/001_rimefin/f5.png": "6fa7f7bc161bd4e7d4c38d7d7b4eb634af9def61047a8f992e517f16cd013d30",
+    "assets/sprites/creatures/idle_2026_10_05/001_rimefin/f6.png": "262679454e799e2e4b52f723a81d730a7eacd264b845c2c6ce0844bd6e663fbd",
+    "assets/sprites/creatures/idle_2026_10_05/001_rimefin/f7.png": "7d6d13653be07fbac4ed78452189ec189f9db51fd707495b2c17c2bedd24ea3b"
+  },
+  "flow_cases": [
+    {
+      "model": "Female",
+      "starter": 0,
+      "mode": "pad",
+      "assertions": 27
+    },
+    {
+      "model": "Female",
+      "starter": 1,
+      "mode": "keyboard",
+      "assertions": 27
+    },
+    {
+      "model": "Female",
+      "starter": 2,
+      "mode": "mouse",
+      "assertions": 27
+    },
+    {
+      "model": "Female",
+      "starter": 2,
+      "mode": "reduced",
+      "assertions": 29
+    },
+    {
+      "model": "Male",
+      "starter": 0,
+      "mode": "keyboard",
+      "assertions": 27
+    },
+    {
+      "model": "Male",
+      "starter": 1,
+      "mode": "mouse",
+      "assertions": 27
+    },
+    {
+      "model": "Male",
+      "starter": 2,
+      "mode": "pad",
+      "assertions": 27
+    }
+  ],
+  "flow_assertions": 191,
+  "automatic_launch_assertions": 8,
+  "native_check_script_sha256": "c00b60038babef4226c59862912cde551e6197aea01df7512c85d28ffa72be5e",
+  "tested_arena_script_sha256": "da015ca09ff30e7f56570a4c442758be54fc912cf84d58226120aace7b2f655d",
+  "live_arena_script_sha256": "2b2d49f0d973adffb0808da5739d579ea9c9043f322110d68a0deaedf7d798aa",
+  "verification_boundary": "Native checks use the staged snapshot. Later concurrent combat edits are preserved, not certified by these UI checks.",
+  "diagnostics": [
+    "Windows root certificate store inaccessible in sandbox",
+    "Import audio UID/empty resource path diagnostics",
+    "84/85 ObjectDB instances leaked at shutdown; original approved menu/world also reports 85"
+  ],
+  "progress_save": "Run-local ownership only; no disk progress save"
+}

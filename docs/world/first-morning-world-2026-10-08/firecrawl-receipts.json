@@ -1,0 +1,30 @@
+[
+  {
+    "url": "https://coromon.com/wiki/games/coromon/map/",
+    "title": "Coromon Interactive Map — Velua Locations & Items",
+    "status": 200,
+    "scrapeId": "01a11bbf-34bf-77f0-a1a8-599e4c7e5032",
+    "credits": 1
+  },
+  {
+    "url": "https://coromon.com/wiki/games/coromon/quests/",
+    "title": "Quests | Coromon Database",
+    "status": 200,
+    "scrapeId": "01a11bbf-4749-77ee-b8df-ff320d5a8b82",
+    "credits": 1
+  },
+  {
+    "url": "https://www.team17.com/games/monster-sanctuary",
+    "title": "Monster Sanctuary | Monster Sanctuary Online | Team17",
+    "status": 200,
+    "scrapeId": "01a11bbf-5fb0-722c-91a4-4b54781c0895",
+    "credits": 1
+  },
+  {
+    "url": "https://wiki.cassettebeasts.com/wiki/Harbourtown",
+    "title": "Harbourtown - Cassette Beasts",
+    "status": 200,
+    "scrapeId": "01a11bbf-7c60-72ef-b93e-8afe831e2f34",
+    "credits": 1
+  }
+]

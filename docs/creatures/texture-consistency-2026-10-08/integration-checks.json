@@ -1,0 +1,8 @@
+{
+  "checks": [
+    "six fighters moving and effects",
+    "Hollow allies and wild spawns",
+    "zero alpha includes contour"
+  ],
+  "failures": []
+}

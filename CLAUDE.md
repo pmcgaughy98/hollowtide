@@ -1,5 +1,7 @@
 # How to work on this project
 
+> **Mystery-dungeon pivot, 2026-10-09:** Preston pivoted Hollowtide to a turn-based mystery dungeon (Explorers of Sky is his favorite game); the arena stays as a separate mode. Read `docs/design/mystery-dungeon-pivot-2026-10-09.md` before choosing work. The first floor is `scenes/dungeon.tscn`. Disassemblies he links (pret/pokered, pmd-sky, pokeplatinum) are for structure only, never code or data.
+
 > **Preston's role order, 2026-09-27:** Read `docs/team/agent-role-charter-2026-09-27.md` and the latest `docs/AI_COLLABORATION.md` before choosing work. Preston directs Claude to lead complex Godot systems and battle animation architecture, while Codex leads precise asset preparation and integration, Gemini research, Grok balance and non-creature concepts, and Opal the scoped art Forges. This is a default assignment; Preston's later direct request overrides it.
 
 > **Creatures and moves, 2026-10-02:** Preston put Grok in charge of future creature and attack rules. Before changing evolution, learnsets, body parts, or battle jobs, read the top section of `docs/AI_COLLABORATION.md`, then `docs/creatures/DESIGN_RULES.md` and `docs/creatures/evolution-and-signatures.md`. The win trigger and the body gate are in the scripts. Proposed stats and kit swaps are not. Do not rename the `signature` flag. Do not edit Route 1. Claude still owns battle presentation and the save/state model. The WHERE THINGS STAND list below is the 2026-09-22 snapshot. Evolution is no longer the unbuilt step.

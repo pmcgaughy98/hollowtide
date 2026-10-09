@@ -1,0 +1,557 @@
+{
+  "checks": [
+    {
+      "check": "s.png clear borders",
+      "passed": true
+    },
+    {
+      "check": "se.png clear borders",
+      "passed": true
+    },
+    {
+      "check": "e.png clear borders",
+      "passed": true
+    },
+    {
+      "check": "ne.png clear borders",
+      "passed": true
+    },
+    {
+      "check": "n.png clear borders",
+      "passed": true
+    },
+    {
+      "check": "nw.png clear borders",
+      "passed": true
+    },
+    {
+      "check": "w.png clear borders",
+      "passed": true
+    },
+    {
+      "check": "sw.png clear borders",
+      "passed": true
+    },
+    {
+      "check": "walk_s_f0.png clear borders",
+      "passed": true
+    },
+    {
+      "check": "walk_se_f0.png clear borders",
+      "passed": true
+    },
+    {
+      "check": "walk_e_f0.png clear borders",
+      "passed": true
+    },
+    {
+      "check": "walk_ne_f0.png clear borders",
+      "passed": true
+    },
+    {
+      "check": "walk_n_f0.png clear borders",
+      "passed": true
+    },
+    {
+      "check": "walk_nw_f0.png clear borders",
+      "passed": true
+    },
+    {
+      "check": "walk_w_f0.png clear borders",
+      "passed": true
+    },
+    {
+      "check": "walk_sw_f0.png clear borders",
+      "passed": true
+    },
+    {
+      "check": "walk_s_f1.png clear borders",
+      "passed": true
+    },
+    {
+      "check": "walk_se_f1.png clear borders",
+      "passed": true
+    },
+    {
+      "check": "walk_e_f1.png clear borders",
+      "passed": true
+    },
+    {
+      "check": "walk_ne_f1.png clear borders",
+      "passed": true
+    },
+    {
+      "check": "walk_n_f1.png clear borders",
+      "passed": true
+    },
+    {
+      "check": "walk_nw_f1.png clear borders",
+      "passed": true
+    },
+    {
+      "check": "walk_w_f1.png clear borders",
+      "passed": true
+    },
+    {
+      "check": "walk_sw_f1.png clear borders",
+      "passed": true
+    },
+    {
+      "check": "walk_s_f2.png clear borders",
+      "passed": true
+    },
+    {
+      "check": "walk_se_f2.png clear borders",
+      "passed": true
+    },
+    {
+      "check": "walk_e_f2.png clear borders",
+      "passed": true
+    },
+    {
+      "check": "walk_ne_f2.png clear borders",
+      "passed": true
+    },
+    {
+      "check": "walk_n_f2.png clear borders",
+      "passed": true
+    },
+    {
+      "check": "walk_nw_f2.png clear borders",
+      "passed": true
+    },
+    {
+      "check": "walk_w_f2.png clear borders",
+      "passed": true
+    },
+    {
+      "check": "walk_sw_f2.png clear borders",
+      "passed": true
+    },
+    {
+      "check": "walk_s_f3.png clear borders",
+      "passed": true
+    },
+    {
+      "check": "walk_se_f3.png clear borders",
+      "passed": true
+    },
+    {
+      "check": "walk_e_f3.png clear borders",
+      "passed": true
+    },
+    {
+      "check": "walk_ne_f3.png clear borders",
+      "passed": true
+    },
+    {
+      "check": "walk_n_f3.png clear borders",
+      "passed": true
+    },
+    {
+      "check": "walk_nw_f3.png clear borders",
+      "passed": true
+    },
+    {
+      "check": "walk_w_f3.png clear borders",
+      "passed": true
+    },
+    {
+      "check": "walk_sw_f3.png clear borders",
+      "passed": true
+    },
+    {
+      "check": "walk_s_f4.png clear borders",
+      "passed": true
+    },
+    {
+      "check": "walk_se_f4.png clear borders",
+      "passed": true
+    },
+    {
+      "check": "walk_e_f4.png clear borders",
+      "passed": true
+    },
+    {
+      "check": "walk_ne_f4.png clear borders",
+      "passed": true
+    },
+    {
+      "check": "walk_n_f4.png clear borders",
+      "passed": true
+    },
+    {
+      "check": "walk_nw_f4.png clear borders",
+      "passed": true
+    },
+    {
+      "check": "walk_w_f4.png clear borders",
+      "passed": true
+    },
+    {
+      "check": "walk_sw_f4.png clear borders",
+      "passed": true
+    },
+    {
+      "check": "walk_s_f5.png clear borders",
+      "passed": true
+    },
+    {
+      "check": "walk_se_f5.png clear borders",
+      "passed": true
+    },
+    {
+      "check": "walk_e_f5.png clear borders",
+      "passed": true
+    },
+    {
+      "check": "walk_ne_f5.png clear borders",
+      "passed": true
+    },
+    {
+      "check": "walk_n_f5.png clear borders",
+      "passed": true
+    },
+    {
+      "check": "walk_nw_f5.png clear borders",
+      "passed": true
+    },
+    {
+      "check": "walk_w_f5.png clear borders",
+      "passed": true
+    },
+    {
+      "check": "walk_sw_f5.png clear borders",
+      "passed": true
+    },
+    {
+      "check": "walk_s_f6.png clear borders",
+      "passed": true
+    },
+    {
+      "check": "walk_se_f6.png clear borders",
+      "passed": true
+    },
+    {
+      "check": "walk_e_f6.png clear borders",
+      "passed": true
+    },
+    {
+      "check": "walk_ne_f6.png clear borders",
+      "passed": true
+    },
+    {
+      "check": "walk_n_f6.png clear borders",
+      "passed": true
+    },
+    {
+      "check": "walk_nw_f6.png clear borders",
+      "passed": true
+    },
+    {
+      "check": "walk_w_f6.png clear borders",
+      "passed": true
+    },
+    {
+      "check": "walk_sw_f6.png clear borders",
+      "passed": true
+    },
+    {
+      "check": "walk_s_f7.png clear borders",
+      "passed": true
+    },
+    {
+      "check": "walk_se_f7.png clear borders",
+      "passed": true
+    },
+    {
+      "check": "walk_e_f7.png clear borders",
+      "passed": true
+    },
+    {
+      "check": "walk_ne_f7.png clear borders",
+      "passed": true
+    },
+    {
+      "check": "walk_n_f7.png clear borders",
+      "passed": true
+    },
+    {
+      "check": "walk_nw_f7.png clear borders",
+      "passed": true
+    },
+    {
+      "check": "walk_w_f7.png clear borders",
+      "passed": true
+    },
+    {
+      "check": "walk_sw_f7.png clear borders",
+      "passed": true
+    },
+    {
+      "check": "Latest arena loads Galeshear",
+      "passed": true
+    },
+    {
+      "check": "Runtime walk s0",
+      "passed": true
+    },
+    {
+      "check": "Runtime walk s1",
+      "passed": true
+    },
+    {
+      "check": "Runtime walk s2",
+      "passed": true
+    },
+    {
+      "check": "Runtime walk s3",
+      "passed": true
+    },
+    {
+      "check": "Runtime walk s4",
+      "passed": true
+    },
+    {
+      "check": "Runtime walk s5",
+      "passed": true
+    },
+    {
+      "check": "Runtime walk s6",
+      "passed": true
+    },
+    {
+      "check": "Runtime walk s7",
+      "passed": true
+    },
+    {
+      "check": "Runtime walk se0",
+      "passed": true
+    },
+    {
+      "check": "Runtime walk se1",
+      "passed": true
+    },
+    {
+      "check": "Runtime walk se2",
+      "passed": true
+    },
+    {
+      "check": "Runtime walk se3",
+      "passed": true
+    },
+    {
+      "check": "Runtime walk se4",
+      "passed": true
+    },
+    {
+      "check": "Runtime walk se5",
+      "passed": true
+    },
+    {
+      "check": "Runtime walk se6",
+      "passed": true
+    },
+    {
+      "check": "Runtime walk se7",
+      "passed": true
+    },
+    {
+      "check": "Runtime walk e0",
+      "passed": true
+    },
+    {
+      "check": "Runtime walk e1",
+      "passed": true
+    },
+    {
+      "check": "Runtime walk e2",
+      "passed": true
+    },
+    {
+      "check": "Runtime walk e3",
+      "passed": true
+    },
+    {
+      "check": "Runtime walk e4",
+      "passed": true
+    },
+    {
+      "check": "Runtime walk e5",
+      "passed": true
+    },
+    {
+      "check": "Runtime walk e6",
+      "passed": true
+    },
+    {
+      "check": "Runtime walk e7",
+      "passed": true
+    },
+    {
+      "check": "Runtime walk ne0",
+      "passed": true
+    },
+    {
+      "check": "Runtime walk ne1",
+      "passed": true
+    },
+    {
+      "check": "Runtime walk ne2",
+      "passed": true
+    },
+    {
+      "check": "Runtime walk ne3",
+      "passed": true
+    },
+    {
+      "check": "Runtime walk ne4",
+      "passed": true
+    },
+    {
+      "check": "Runtime walk ne5",
+      "passed": true
+    },
+    {
+      "check": "Runtime walk ne6",
+      "passed": true
+    },
+    {
+      "check": "Runtime walk ne7",
+      "passed": true
+    },
+    {
+      "check": "Runtime walk n0",
+      "passed": true
+    },
+    {
+      "check": "Runtime walk n1",
+      "passed": true
+    },
+    {
+      "check": "Runtime walk n2",
+      "passed": true
+    },
+    {
+      "check": "Runtime walk n3",
+      "passed": true
+    },
+    {
+      "check": "Runtime walk n4",
+      "passed": true
+    },
+    {
+      "check": "Runtime walk n5",
+      "passed": true
+    },
+    {
+      "check": "Runtime walk n6",
+      "passed": true
+    },
+    {
+      "check": "Runtime walk n7",
+      "passed": true
+    },
+    {
+      "check": "Runtime walk nw0",
+      "passed": true
+    },
+    {
+      "check": "Runtime walk nw1",
+      "passed": true
+    },
+    {
+      "check": "Runtime walk nw2",
+      "passed": true
+    },
+    {
+      "check": "Runtime walk nw3",
+      "passed": true
+    },
+    {
+      "check": "Runtime walk nw4",
+      "passed": true
+    },
+    {
+      "check": "Runtime walk nw5",
+      "passed": true
+    },
+    {
+      "check": "Runtime walk nw6",
+      "passed": true
+    },
+    {
+      "check": "Runtime walk nw7",
+      "passed": true
+    },
+    {
+      "check": "Runtime walk w0",
+      "passed": true
+    },
+    {
+      "check": "Runtime walk w1",
+      "passed": true
+    },
+    {
+      "check": "Runtime walk w2",
+      "passed": true
+    },
+    {
+      "check": "Runtime walk w3",
+      "passed": true
+    },
+    {
+      "check": "Runtime walk w4",
+      "passed": true
+    },
+    {
+      "check": "Runtime walk w5",
+      "passed": true
+    },
+    {
+      "check": "Runtime walk w6",
+      "passed": true
+    },
+    {
+      "check": "Runtime walk w7",
+      "passed": true
+    },
+    {
+      "check": "Runtime walk sw0",
+      "passed": true
+    },
+    {
+      "check": "Runtime walk sw1",
+      "passed": true
+    },
+    {
+      "check": "Runtime walk sw2",
+      "passed": true
+    },
+    {
+      "check": "Runtime walk sw3",
+      "passed": true
+    },
+    {
+      "check": "Runtime walk sw4",
+      "passed": true
+    },
+    {
+      "check": "Runtime walk sw5",
+      "passed": true
+    },
+    {
+      "check": "Runtime walk sw6",
+      "passed": true
+    },
+    {
+      "check": "Runtime walk sw7",
+      "passed": true
+    },
+    {
+      "check": "Current signature runs with repaired art",
+      "passed": true
+    }
+  ],
+  "failures": []
+}

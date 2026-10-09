@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="CreatureData" format=3]
+
+[ext_resource type="Script" path="res://scripts/creature_data.gd" id="1_script"]
+[ext_resource type="Texture2D" path="res://assets/sprites/arena/highsignal/s.png" id="2_sprite"]
+
+[resource]
+script = ExtResource("1_script")
+id = 1403
+creature_name = "Highsignal"
+essence = 3
+sprite = ExtResource("2_sprite")
+description = "Provisional entry (Claude, 2026-10-09): Stage III of the bluff whistler line, a sentinel with a tall folded membrane crest, a resonant throat with an ivory signal mark and a forked tail vane; vigilant and loyal, its whistle carries across the whole field. Working name pending Preston's approval. Arena sprite standing in for a front; no back view, default stats, no turn-based moves (Grok). Arena signature: High Signal."
+body_parts = PackedStringArray()
+battle_size = 1.3

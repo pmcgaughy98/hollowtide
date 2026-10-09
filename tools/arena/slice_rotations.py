@@ -22,8 +22,8 @@ CELLS = {
     "stormwick": TALLOW,
     "huskward": TALLOW,
     "rampartroot": TALLOW,
-    "riftfin": {"e": (0, 0), "se": (0, 1), "s": (0, 2), "ne": (1, 0), "sw": (1, 2), "n": (2, 1), "w": (2, 2), "nw": "mirror:ne"},
-    "scourmaw": {"e": (0, 0), "se": (0, 1), "s": (0, 2), "ne": (1, 0), "w": (1, 2), "n": (2, 1), "nw": (2, 2), "sw": "mirror:se"},
+    "riftfin": TALLOW,   # remade 2026-10-09 (the ambusher); the old blade-fin sheet is riftfin_bladefin_rotation_3x3.png
+    "scourmaw": TALLOW,   # remade 2026-10-09 (epic take 1); the serpent sheet is scourmaw_serpent_rotation_3x3.png
     # The Ironvent line (2026-10-07): all three sheets came back in Tallowroot's layout.
     "cinderhide": TALLOW,
     "clinkerhide": TALLOW,
@@ -40,8 +40,20 @@ CELLS = {
     "punchybun": TALLOW,
     "sparkjab": TALLOW,
     "starward": TALLOW,
+    # The River Listener line (2026-10-08): layout read by eye after the rotation.
+    "listener": TALLOW,
+    "caller": TALLOW,
+    "warden": TALLOW,
+    # The Canvaswing line (2026-10-08): layout read by eye after the rotation.
+    "canvaswing": TALLOW,
+    "windcut": TALLOW,
+    "galeshear": TALLOW,
+    # The Dustkite line (2026-10-09): layout read by eye after the rotation.
+    "dustkite": TALLOW,
+    "waywhistle": TALLOW,
+    "highsignal": TALLOW,
 }
-FORMS = {"sparkwick", "stormwick", "huskward", "rampartroot", "riftfin", "scourmaw", "cinderhide", "clinkerhide", "ironvent", "fusern", "slagglass", "vitrecrag", "preostmar", "oathfen", "oxbowarchon", "punchybun", "sparkjab", "starward"}
+FORMS = {"sparkwick", "stormwick", "huskward", "rampartroot", "riftfin", "scourmaw", "cinderhide", "clinkerhide", "ironvent", "fusern", "slagglass", "vitrecrag", "preostmar", "oathfen", "oxbowarchon", "punchybun", "sparkjab", "starward", "listener", "caller", "warden", "canvaswing", "windcut", "galeshear", "dustkite", "waywhistle", "highsignal"}
 
 for name, cells in CELLS.items():
     if len(sys.argv) > 1 and name not in sys.argv[1:]:

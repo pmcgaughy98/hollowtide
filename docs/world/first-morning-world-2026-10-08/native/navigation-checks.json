@@ -1,0 +1,81 @@
+{
+  "checks": [
+    {
+      "check": "Early departure is blocked through actual gate",
+      "passed": true
+    },
+    {
+      "check": "Early gate explains hall and preserves empty party",
+      "passed": true
+    },
+    {
+      "check": "Map cannot interrupt gate dialogue",
+      "passed": true
+    },
+    {
+      "check": "Closing gate message restores control",
+      "passed": true
+    },
+    {
+      "check": "Map in courtyard_home",
+      "passed": true
+    },
+    {
+      "check": "Return guidance in courtyard_home",
+      "passed": true
+    },
+    {
+      "check": "Map in courier_hall",
+      "passed": true
+    },
+    {
+      "check": "Return guidance in courier_hall",
+      "passed": true
+    },
+    {
+      "check": "Map in route1",
+      "passed": true
+    },
+    {
+      "check": "Return guidance in route1",
+      "passed": true
+    },
+    {
+      "check": "Map in riverfront",
+      "passed": true
+    },
+    {
+      "check": "Return guidance in riverfront",
+      "passed": true
+    },
+    {
+      "check": "Map in historic_street",
+      "passed": true
+    },
+    {
+      "check": "Return guidance in historic_street",
+      "passed": true
+    },
+    {
+      "check": "Map in relay_yard",
+      "passed": true
+    },
+    {
+      "check": "Return guidance in relay_yard",
+      "passed": true
+    },
+    {
+      "check": "All seven places visited once",
+      "passed": true
+    },
+    {
+      "check": "Distant pin starts with adjacent riverfront",
+      "passed": true
+    },
+    {
+      "check": "Navigation preserves active member",
+      "passed": true
+    }
+  ],
+  "failures": []
+}

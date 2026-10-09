@@ -1,0 +1,189 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+OpenGL API 3.3.0 NVIDIA 596.49 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce GTX 1660 SUPER
+
+ERROR: Failed to read the root certificate store.
+   at: get_system_ca_certificates (platform/windows/os_windows.cpp:2582)
+ERROR: Resource file not found: res://assets/sprites/arena/caller/s.png (expected type: Texture2D)
+   at: _load (core/io/resource_loader.cpp:325)
+   GDScript backtrace (most recent call first):
+       [0] load_all (res://scripts/creature_roster.gd:27)
+       [1] _refresh (res://scripts/debug/dex_overlay.gd:63)
+       [2] _ready (res://scripts/debug/dex_overlay.gd:47)
+       [3] _ready (res://scripts/world_journey.gd:39)
+       [4] _run (res://tools/debug/world_refinement_check.gd:10)
+ERROR: Resource file not found: res://assets/sprites/arena/warden/s.png (expected type: Texture2D)
+   at: _load (core/io/resource_loader.cpp:325)
+   GDScript backtrace (most recent call first):
+       [0] load_all (res://scripts/creature_roster.gd:27)
+       [1] _refresh (res://scripts/debug/dex_overlay.gd:63)
+       [2] _ready (res://scripts/debug/dex_overlay.gd:47)
+       [3] _ready (res://scripts/world_journey.gd:39)
+       [4] _run (res://tools/debug/world_refinement_check.gd:10)
+ERROR: res://data/creatures/603_warden.tres:13 - Parse Error: [ext_resource] referenced non-existent resource at: res://assets/sprites/arena/warden/s.png.
+   at: _printerr (scene/resources/resource_format_text.cpp:41)
+   GDScript backtrace (most recent call first):
+       [0] load_all (res://scripts/creature_roster.gd:27)
+       [1] _refresh (res://scripts/debug/dex_overlay.gd:63)
+       [2] _ready (res://scripts/debug/dex_overlay.gd:47)
+       [3] _ready (res://scripts/world_journey.gd:39)
+       [4] _run (res://tools/debug/world_refinement_check.gd:10)
+ERROR: res://data/creatures/603_warden.tres:13 - Parse Error: [ext_resource] referenced non-existent resource at: res://assets/sprites/arena/warden/s.png.
+   at: _printerr (scene/resources/resource_format_text.cpp:41)
+   GDScript backtrace (most recent call first):
+       [0] load_all (res://scripts/creature_roster.gd:27)
+       [1] _refresh (res://scripts/debug/dex_overlay.gd:63)
+       [2] _ready (res://scripts/debug/dex_overlay.gd:47)
+       [3] _ready (res://scripts/world_journey.gd:39)
+       [4] _run (res://tools/debug/world_refinement_check.gd:10)
+ERROR: Failed loading resource: res://data/creatures/603_warden.tres.
+   at: _load (core/io/resource_loader.cpp:317)
+   GDScript backtrace (most recent call first):
+       [0] load_all (res://scripts/creature_roster.gd:27)
+       [1] _refresh (res://scripts/debug/dex_overlay.gd:63)
+       [2] _ready (res://scripts/debug/dex_overlay.gd:47)
+       [3] _ready (res://scripts/world_journey.gd:39)
+       [4] _run (res://tools/debug/world_refinement_check.gd:10)
+ERROR: res://data/creatures/602_caller.tres:12 - Parse Error: [ext_resource] referenced non-existent resource at: res://assets/sprites/arena/caller/s.png.
+   at: _printerr (scene/resources/resource_format_text.cpp:41)
+   GDScript backtrace (most recent call first):
+       [0] load_all (res://scripts/creature_roster.gd:27)
+       [1] _refresh (res://scripts/debug/dex_overlay.gd:63)
+       [2] _ready (res://scripts/debug/dex_overlay.gd:47)
+       [3] _ready (res://scripts/world_journey.gd:39)
+       [4] _run (res://tools/debug/world_refinement_check.gd:10)
+ERROR: res://data/creatures/602_caller.tres:12 - Parse Error: [ext_resource] referenced non-existent resource at: res://assets/sprites/arena/caller/s.png.
+   at: _printerr (scene/resources/resource_format_text.cpp:41)
+   GDScript backtrace (most recent call first):
+       [0] load_all (res://scripts/creature_roster.gd:27)
+       [1] _refresh (res://scripts/debug/dex_overlay.gd:63)
+       [2] _ready (res://scripts/debug/dex_overlay.gd:47)
+       [3] _ready (res://scripts/world_journey.gd:39)
+       [4] _run (res://tools/debug/world_refinement_check.gd:10)
+ERROR: Failed loading resource: res://data/creatures/602_caller.tres.
+   at: _load (core/io/resource_loader.cpp:317)
+   GDScript backtrace (most recent call first):
+       [0] load_all (res://scripts/creature_roster.gd:27)
+       [1] _refresh (res://scripts/debug/dex_overlay.gd:63)
+       [2] _ready (res://scripts/debug/dex_overlay.gd:47)
+       [3] _ready (res://scripts/world_journey.gd:39)
+       [4] _run (res://tools/debug/world_refinement_check.gd:10)
+ERROR: res://data/creatures/601_listener.tres:14 - Parse Error: [ext_resource] referenced non-existent resource at: res://data/creatures/602_caller.tres.
+   at: _printerr (scene/resources/resource_format_text.cpp:41)
+   GDScript backtrace (most recent call first):
+       [0] load_all (res://scripts/creature_roster.gd:27)
+       [1] _refresh (res://scripts/debug/dex_overlay.gd:63)
+       [2] _ready (res://scripts/debug/dex_overlay.gd:47)
+       [3] _ready (res://scripts/world_journey.gd:39)
+       [4] _run (res://tools/debug/world_refinement_check.gd:10)
+ERROR: res://data/creatures/601_listener.tres:14 - Parse Error: [ext_resource] referenced non-existent resource at: res://data/creatures/602_caller.tres.
+   at: _printerr (scene/resources/resource_format_text.cpp:41)
+   GDScript backtrace (most recent call first):
+       [0] load_all (res://scripts/creature_roster.gd:27)
+       [1] _refresh (res://scripts/debug/dex_overlay.gd:63)
+       [2] _ready (res://scripts/debug/dex_overlay.gd:47)
+       [3] _ready (res://scripts/world_journey.gd:39)
+       [4] _run (res://tools/debug/world_refinement_check.gd:10)
+ERROR: Failed loading resource: res://data/creatures/601_listener.tres.
+   at: _load (core/io/resource_loader.cpp:317)
+   GDScript backtrace (most recent call first):
+       [0] load_all (res://scripts/creature_roster.gd:27)
+       [1] _refresh (res://scripts/debug/dex_overlay.gd:63)
+       [2] _ready (res://scripts/debug/dex_overlay.gd:47)
+       [3] _ready (res://scripts/world_journey.gd:39)
+       [4] _run (res://tools/debug/world_refinement_check.gd:10)
+ERROR: Resource file not found: res://assets/sprites/arena/caller/s.png (expected type: Texture2D)
+   at: _load (core/io/resource_loader.cpp:325)
+   GDScript backtrace (most recent call first):
+       [0] load_all (res://scripts/creature_roster.gd:27)
+       [1] _refresh (res://scripts/debug/dex_overlay.gd:63)
+       [2] _ready (res://scripts/debug/dex_overlay.gd:47)
+       [3] _ready (res://scripts/world_journey.gd:39)
+       [4] _run (res://tools/debug/world_refinement_check.gd:10)
+ERROR: Resource file not found: res://assets/sprites/arena/warden/s.png (expected type: Texture2D)
+   at: _load (core/io/resource_loader.cpp:325)
+   GDScript backtrace (most recent call first):
+       [0] load_all (res://scripts/creature_roster.gd:27)
+       [1] _refresh (res://scripts/debug/dex_overlay.gd:63)
+       [2] _ready (res://scripts/debug/dex_overlay.gd:47)
+       [3] _ready (res://scripts/world_journey.gd:39)
+       [4] _run (res://tools/debug/world_refinement_check.gd:10)
+ERROR: res://data/creatures/603_warden.tres:13 - Parse Error: [ext_resource] referenced non-existent resource at: res://assets/sprites/arena/warden/s.png.
+   at: _printerr (scene/resources/resource_format_text.cpp:41)
+   GDScript backtrace (most recent call first):
+       [0] load_all (res://scripts/creature_roster.gd:27)
+       [1] _refresh (res://scripts/debug/dex_overlay.gd:63)
+       [2] _ready (res://scripts/debug/dex_overlay.gd:47)
+       [3] _ready (res://scripts/world_journey.gd:39)
+       [4] _run (res://tools/debug/world_refinement_check.gd:10)
+ERROR: res://data/creatures/603_warden.tres:13 - Parse Error: [ext_resource] referenced non-existent resource at: res://assets/sprites/arena/warden/s.png.
+   at: _printerr (scene/resources/resource_format_text.cpp:41)
+   GDScript backtrace (most recent call first):
+       [0] load_all (res://scripts/creature_roster.gd:27)
+       [1] _refresh (res://scripts/debug/dex_overlay.gd:63)
+       [2] _ready (res://scripts/debug/dex_overlay.gd:47)
+       [3] _ready (res://scripts/world_journey.gd:39)
+       [4] _run (res://tools/debug/world_refinement_check.gd:10)
+ERROR: Failed loading resource: res://data/creatures/603_warden.tres.
+   at: _load (core/io/resource_loader.cpp:317)
+   GDScript backtrace (most recent call first):
+       [0] load_all (res://scripts/creature_roster.gd:27)
+       [1] _refresh (res://scripts/debug/dex_overlay.gd:63)
+       [2] _ready (res://scripts/debug/dex_overlay.gd:47)
+       [3] _ready (res://scripts/world_journey.gd:39)
+       [4] _run (res://tools/debug/world_refinement_check.gd:10)
+ERROR: res://data/creatures/602_caller.tres:12 - Parse Error: [ext_resource] referenced non-existent resource at: res://assets/sprites/arena/caller/s.png.
+   at: _printerr (scene/resources/resource_format_text.cpp:41)
+   GDScript backtrace (most recent call first):
+       [0] load_all (res://scripts/creature_roster.gd:27)
+       [1] _refresh (res://scripts/debug/dex_overlay.gd:63)
+       [2] _ready (res://scripts/debug/dex_overlay.gd:47)
+       [3] _ready (res://scripts/world_journey.gd:39)
+       [4] _run (res://tools/debug/world_refinement_check.gd:10)
+ERROR: res://data/creatures/602_caller.tres:12 - Parse Error: [ext_resource] referenced non-existent resource at: res://assets/sprites/arena/caller/s.png.
+   at: _printerr (scene/resources/resource_format_text.cpp:41)
+   GDScript backtrace (most recent call first):
+       [0] load_all (res://scripts/creature_roster.gd:27)
+       [1] _refresh (res://scripts/debug/dex_overlay.gd:63)
+       [2] _ready (res://scripts/debug/dex_overlay.gd:47)
+       [3] _ready (res://scripts/world_journey.gd:39)
+       [4] _run (res://tools/debug/world_refinement_check.gd:10)
+ERROR: Failed loading resource: res://data/creatures/602_caller.tres.
+   at: _load (core/io/resource_loader.cpp:317)
+   GDScript backtrace (most recent call first):
+       [0] load_all (res://scripts/creature_roster.gd:27)
+       [1] _refresh (res://scripts/debug/dex_overlay.gd:63)
+       [2] _ready (res://scripts/debug/dex_overlay.gd:47)
+       [3] _ready (res://scripts/world_journey.gd:39)
+       [4] _run (res://tools/debug/world_refinement_check.gd:10)
+ERROR: Resource file not found: res://assets/sprites/arena/warden/s.png (expected type: Texture2D)
+   at: _load (core/io/resource_loader.cpp:325)
+   GDScript backtrace (most recent call first):
+       [0] load_all (res://scripts/creature_roster.gd:27)
+       [1] _refresh (res://scripts/debug/dex_overlay.gd:63)
+       [2] _ready (res://scripts/debug/dex_overlay.gd:47)
+       [3] _ready (res://scripts/world_journey.gd:39)
+       [4] _run (res://tools/debug/world_refinement_check.gd:10)
+ERROR: res://data/creatures/603_warden.tres:13 - Parse Error: [ext_resource] referenced non-existent resource at: res://assets/sprites/arena/warden/s.png.
+   at: _printerr (scene/resources/resource_format_text.cpp:41)
+   GDScript backtrace (most recent call first):
+       [0] load_all (res://scripts/creature_roster.gd:27)
+       [1] _refresh (res://scripts/debug/dex_overlay.gd:63)
+       [2] _ready (res://scripts/debug/dex_overlay.gd:47)
+       [3] _ready (res://scripts/world_journey.gd:39)
+       [4] _run (res://tools/debug/world_refinement_check.gd:10)
+ERROR: res://data/creatures/603_warden.tres:13 - Parse Error: [ext_resource] referenced non-existent resource at: res://assets/sprites/arena/warden/s.png.
+   at: _printerr (scene/resources/resource_format_text.cpp:41)
+   GDScript backtrace (most recent call first):
+       [0] load_all (res://scripts/creature_roster.gd:27)
+       [1] _refresh (res://scripts/debug/dex_overlay.gd:63)
+       [2] _ready (res://scripts/debug/dex_overlay.gd:47)
+       [3] _ready (res://scripts/world_journey.gd:39)
+       [4] _run (res://tools/debug/world_refinement_check.gd:10)
+ERROR: Failed loading resource: res://data/creatures/603_warden.tres.
+   at: _load (core/io/resource_loader.cpp:317)
+   GDScript backtrace (most recent call first):
+       [0] load_all (res://scripts/creature_roster.gd:27)
+       [1] _refresh (res://scripts/debug/dex_overlay.gd:63)
+       [2] _ready (res://scripts/debug/dex_overlay.gd:47)
+       [3] _ready (res://scripts/world_journey.gd:39)
+       [4] _run (res://tools/debug/world_refinement_check.gd:10)

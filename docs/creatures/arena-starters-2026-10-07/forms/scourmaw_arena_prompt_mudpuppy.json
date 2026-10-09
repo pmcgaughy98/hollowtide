@@ -1,0 +1,12 @@
+{
+ "prompt": "Top-down action game sprite of a heavy low river predator, the final stage of the catfish in the reference images: a long low heavy body ridged with worn stepped stone-like plates shaped by erosion, the pectoral fins grown into thick heavy walking fins planted on the riverbed like forelimbs and a second pair behind, a broad flat head with a wide scoop jaw and short barbels, a split dorsal ridge, a thick tail lying flat on the ground. Standing low and braced on its fins, all of it touching the ground, calm, patient and dominant. Darker river blue, slate, silt-grey scars, cold cyan only at the fin edges and eyes. Not a shark, not a snake, not a serpent, not coiled, not floating, no glow, no rage face, no water effects. Seen from above at a three-quarter overhead angle like a sprite in a top-down arena battle game, facing down and to the right toward the camera. A readable game sprite: chunky clear shapes, a crisp dark outline. Whole creature centred with empty space on every side, nothing touching the edges. On a plain white background.",
+ "prompt_style": "rd_pro__default",
+ "width": 160,
+ "height": 160,
+ "num_images": 2,
+ "remove_bg": true,
+ "reference_images": [
+  "C:\\Users\\pmcga\\dev\\hollowtide\\assets\\sprites\\creatures\\rimefin_catfish_2026_10_05\\rimefin_front.png",
+  "C:\\Users\\pmcga\\dev\\hollowtide\\docs\\creatures\\arena-starters-2026-10-07\\forms\\riftfin.png"
+ ]
+}

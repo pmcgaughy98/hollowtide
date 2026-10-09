@@ -1,0 +1,118 @@
+{
+  "checks": [
+    {
+      "check": "Walk riverfront east lane",
+      "passed": true
+    },
+    {
+      "check": "Real gate to relay yard",
+      "passed": true
+    },
+    {
+      "check": "Selected courier retained",
+      "passed": true
+    },
+    {
+      "check": "Inspect assignment",
+      "passed": true
+    },
+    {
+      "check": "Inspect works bay",
+      "passed": true
+    },
+    {
+      "check": "Walk upper court",
+      "passed": true
+    },
+    {
+      "check": "Inspect garden bay",
+      "passed": true
+    },
+    {
+      "check": "Clear loading court",
+      "passed": true
+    },
+    {
+      "check": "Inspect bridge bay",
+      "passed": true
+    },
+    {
+      "check": "All three clues recorded",
+      "passed": true
+    },
+    {
+      "check": "Return to relay board",
+      "passed": true
+    },
+    {
+      "check": "Wrong bay keeps handoff open",
+      "passed": true
+    },
+    {
+      "check": "Correct bay completes handoff",
+      "passed": true
+    },
+    {
+      "check": "Walk quieter loop",
+      "passed": true
+    },
+    {
+      "check": "Loop returns to court",
+      "passed": true
+    },
+    {
+      "check": "Practice opens above world",
+      "passed": true
+    },
+    {
+      "check": "Atlas hidden during practice",
+      "passed": true
+    },
+    {
+      "check": "Atlas cannot open over practice",
+      "passed": true
+    },
+    {
+      "check": "Current arena runs from yard",
+      "passed": true
+    },
+    {
+      "check": "Arena HUD draws above the practice map",
+      "passed": true
+    },
+    {
+      "check": "Escape returns to picker",
+      "passed": true
+    },
+    {
+      "check": "Escape returns to same yard",
+      "passed": true
+    },
+    {
+      "check": "Run flags and party preserved",
+      "passed": true
+    },
+    {
+      "check": "Return lane walk",
+      "passed": true
+    },
+    {
+      "check": "Real gate to branch",
+      "passed": true
+    },
+    {
+      "check": "Reenter preserved yard",
+      "passed": true
+    },
+    {
+      "check": "Atlas restored after practice and travel",
+      "passed": true
+    },
+    {
+      "check": "Cached clues and completion retained",
+      "passed": true
+    }
+  ],
+  "failures": [],
+  "model": "Male"
+}

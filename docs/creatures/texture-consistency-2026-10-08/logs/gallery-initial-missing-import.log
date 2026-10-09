@@ -1,0 +1,21 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+OpenGL API 3.3.0 NVIDIA 596.49 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce GTX 1660 SUPER
+
+ERROR: Failed to read the root certificate store.
+   at: get_system_ca_certificates (platform/windows/os_windows.cpp:2582)
+ERROR: Unable to open file: res://.godot/imported/se.png-70f5e45a0e0cf312b26ee2a9e6675ac1.ctex.
+   at: _load_data (scene/resources/compressed_texture.cpp:45)
+   GDScript backtrace (most recent call first):
+       [0] capture (res://tools/debug/texture_gallery.gd:31)
+ERROR: Failed loading resource: res://.godot/imported/se.png-70f5e45a0e0cf312b26ee2a9e6675ac1.ctex.
+   at: _load (core/io/resource_loader.cpp:317)
+   GDScript backtrace (most recent call first):
+       [0] capture (res://tools/debug/texture_gallery.gd:31)
+ERROR: Failed loading resource: res://assets/sprites/arena/dustkite/small/se.png.
+   at: _load (core/io/resource_loader.cpp:317)
+   GDScript backtrace (most recent call first):
+       [0] capture (res://tools/debug/texture_gallery.gd:31)
+SCRIPT ERROR: Cannot call method 'get_image' on a null value.
+   at: capture (res://tools/debug/texture_gallery.gd:33)
+   GDScript backtrace (most recent call first):
+       [0] capture (res://tools/debug/texture_gallery.gd:33)

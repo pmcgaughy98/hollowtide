@@ -1,0 +1,29 @@
+{
+  "installed_utc": "2026-10-09T02:39:31.829036+00:00",
+  "files": [
+    {
+      "path": "scripts/arena/arena_prototype.gd",
+      "sha256": "88093cb6f5e08013e817dae84af112f06ce0bfc0e220628d1e041628ede4e25b"
+    },
+    {
+      "path": "scripts/arena/creature_finish.gd",
+      "sha256": "3de3b9d586821500752822a84398964cf4e1fee9a15dbf056695b3d50f56df86"
+    },
+    {
+      "path": "scripts/arena/creature_finish.gdshader",
+      "sha256": "8f80459f0ec5f4b38f00ef00fe441b257d8917b2c3ed90e396df1c27b876f60b"
+    }
+  ],
+  "forms": 30,
+  "rendered_textures": 2160,
+  "anchored_texture_swaps": 2160,
+  "source_pixels_checked": 1267624,
+  "weak_interior_shade_pixels_grouped": 17148,
+  "unrelated_existing_files_guarded": 4763,
+  "concurrent_changes_during_install": [],
+  "source_pngs_written": 0,
+  "generation_calls": 0,
+  "original_arena_sha256": "4e28bd9675cd8e6048365bddc2cf7f11e3fb85a6df8d8a496c2ac6739ac1616b",
+  "project_settings_sha256": "f6ce35ddd132684d8a70291b651e0d4597dc6c6c16bf959b7cda5d30e88f85b2",
+  "relay_assertions": 25
+}

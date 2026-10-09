@@ -1,0 +1,12 @@
+{
+ "prompt": "Top-down action game sprite of the final stage of the gliding lizard in the reference images, the same animal grown powerful: still on all four legs with the front of the body raised in a watchful rearing stance, the chest and forelimbs heavy and muscular, the neck thick with a huge swollen whistle throat lit ivory, the flank membranes grown into two tall ribbed sails with bone spar tips held half raised along its back, a long tail ending in a forked vane braced on the ground, a bluff wedge head with the mouth open mid-call, eyes fierce. Storm-blue membranes with mineral-grey spars, dust-tan body, an ivory signal mark on the throat. Powerful, vigilant and loyal, a sentinel of the bluffs. Not a man-shaped lizard, not standing like a person, not a bat, not a dragon, not a bird, no feathers. Seen from above at a three-quarter overhead angle like a sprite in a top-down arena battle game, facing down and to the right toward the camera. A readable game sprite: chunky clear shapes, a crisp dark outline. Whole creature centred with empty space on every side, nothing touching the edges. On a plain white background.",
+ "prompt_style": "rd_pro__default",
+ "width": 160,
+ "height": 160,
+ "num_images": 2,
+ "remove_bg": true,
+ "reference_images": [
+  "C:\\Users\\pmcga\\dev\\hollowtide\\docs\\creatures\\arena-starters-2026-10-07\\forms\\dustkite_arena_front_take1.png",
+  "C:\\Users\\pmcga\\dev\\hollowtide\\docs\\creatures\\arena-starters-2026-10-07\\forms\\waywhistle_arena_front_take1.png"
+ ]
+}

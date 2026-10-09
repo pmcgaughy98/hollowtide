@@ -1,0 +1,12 @@
+{
+ "prompt": "Top-down action game sprite of the final stage of the long low catfish predator in the first reference image, grown epic and apex: an enormous long armoured body pressed to the riverbed on four massive clawed fin-limbs, the head raised and roaring with a vast jaw of needle teeth, a crest of eroded stone plates and tall cold-cyan spines running the whole spine, long whip barbels, cold cyan light along every fin edge, old scars across the plates, a huge flat tail sweeping behind on the ground. Keep the face, the eyes, the whiskers and the colours of the catfish in the second reference image: deep river blue, slate, a pale belly, cold cyan edges and eyes. Dramatic, dominant, terrifying, a river leviathan. Every part of it rests on the ground: no floating, no coiling, not a snake, not a serpent, not a shark, not a dragon, no wings, no water effects. Seen from above at a three-quarter overhead angle like a sprite in a top-down arena battle game, facing down and to the right toward the camera. A readable game sprite with strong character: chunky clear shapes, a crisp dark outline. Whole creature centred with empty space on every side, nothing touching the edges. On a plain white background.",
+ "prompt_style": "rd_pro__default",
+ "width": 160,
+ "height": 160,
+ "num_images": 2,
+ "remove_bg": true,
+ "reference_images": [
+  "C:\\Users\\pmcga\\dev\\hollowtide\\docs\\creatures\\arena-starters-2026-10-07\\forms\\scourmaw_ambusher_front_take1.png",
+  "C:\\Users\\pmcga\\dev\\hollowtide\\assets\\sprites\\creatures\\rimefin_catfish_2026_10_05\\rimefin_front.png"
+ ]
+}

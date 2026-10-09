@@ -1,0 +1,116 @@
+{
+  "checks": [
+    {
+      "check": "Previous run has one owned partner",
+      "passed": true
+    },
+    {
+      "check": "Launch prelude blocks menu input",
+      "passed": true
+    },
+    {
+      "check": "Skip reveals menu without starting New Game",
+      "passed": true
+    },
+    {
+      "check": "Approved artwork menu fits canvas",
+      "passed": true
+    },
+    {
+      "check": "Options retain inherited controls",
+      "passed": true
+    },
+    {
+      "check": "Options return to menu",
+      "passed": true
+    },
+    {
+      "check": "New Game opens courier selection",
+      "passed": true
+    },
+    {
+      "check": "Courier choice uses selected model",
+      "passed": true
+    },
+    {
+      "check": "Continue opens three starter choices",
+      "passed": true
+    },
+    {
+      "check": "Starter screen fits canvas",
+      "passed": true
+    },
+    {
+      "check": "Arrow focus previews intended partner",
+      "passed": true
+    },
+    {
+      "check": "Selected partner is explicit",
+      "passed": true
+    },
+    {
+      "check": "Partner choice opens confirmation",
+      "passed": true
+    },
+    {
+      "check": "Confirmation fits canvas",
+      "passed": true
+    },
+    {
+      "check": "Cancel returns to selected partner",
+      "passed": true
+    },
+    {
+      "check": "Preview and cancellation preserve previous party",
+      "passed": true
+    },
+    {
+      "check": "Starter Back returns to courier",
+      "passed": true
+    },
+    {
+      "check": "Revisit retains intended partner",
+      "passed": true
+    },
+    {
+      "check": "Unavailable journey keeps confirmation recoverable",
+      "passed": true
+    },
+    {
+      "check": "Unavailable journey preserves previous party",
+      "passed": true
+    },
+    {
+      "check": "Recovery message fits confirmation screen",
+      "passed": true
+    },
+    {
+      "check": "Confirmation enters connected hometown and frees menu",
+      "passed": true
+    },
+    {
+      "check": "Chosen starter becomes the only partner",
+      "passed": true
+    },
+    {
+      "check": "Courier reaches world without changing model",
+      "passed": true
+    },
+    {
+      "check": "Matching portrait uses eight original front idle frames",
+      "passed": true
+    },
+    {
+      "check": "Partner welcome fits canvas",
+      "passed": true
+    },
+    {
+      "check": "Chosen partner is visible in world party panel",
+      "passed": true
+    }
+  ],
+  "failures": [],
+  "mode": "mouse",
+  "model": "Female",
+  "starter": 2
+}

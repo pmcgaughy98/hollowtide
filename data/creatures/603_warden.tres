@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="CreatureData" format=3]
+
+[ext_resource type="Script" path="res://scripts/creature_data.gd" id="1_script"]
+[ext_resource type="Texture2D" path="res://assets/sprites/arena/warden/s.png" id="2_sprite"]
+
+[resource]
+script = ExtResource("1_script")
+id = 603
+creature_name = "Quietwater Warden"
+essence = 1
+has_second_essence = true
+second_essence = 5
+sprite = ExtResource("2_sprite")
+description = "Provisional entry (Claude, 2026-10-08): Stage III of the River Listener line, the long river guardian with layered dorsal ridges, dark glass gill chambers and broad asymmetric sensory vanes; Tide/Hollow because it can tell a living call from an old echo. Working name pending Preston's approval. Arena sprite standing in for a front; no back view, default stats, no turn-based moves (Grok). Arena signature: Hush."
+body_parts = PackedStringArray()
+battle_size = 1.3

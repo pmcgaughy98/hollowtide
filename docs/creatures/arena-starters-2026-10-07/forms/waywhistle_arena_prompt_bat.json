@@ -1,0 +1,11 @@
+{
+ "prompt": "Top-down action game sprite of the adolescent middle stage of a glider line, grown from the small folded-membrane glider in the reference image and its own shape, lean and lanky like a teenager: a longer throat chamber swelling at the neck, extended thin forelimbs reaching forward, the side membranes ribbed with split trailing edges held half open, broader than the reference but light, the diamond chest kept, landing with one membrane raised. Same storm blue-grey membranes, dust-tan body, ivory throat. Communicative and exacting. Seen from above at a three-quarter overhead angle like a sprite in a top-down arena battle game, facing down and to the right toward the camera. A readable game sprite: chunky clear shapes, a crisp dark outline. Not a bird, no feathers, no clothing, not a bat, not a dragon. Whole creature centred with empty space on every side, nothing touching the edges. On a plain white background.",
+ "prompt_style": "rd_pro__default",
+ "width": 112,
+ "height": 112,
+ "num_images": 1,
+ "remove_bg": true,
+ "reference_images": [
+  "docs/creatures/arena-starters-2026-10-07/forms/dustkite_arena_front_take1.png"
+ ]
+}

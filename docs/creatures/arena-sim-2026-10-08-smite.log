@@ -1,0 +1,43 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+[godot_ai game_helper] registered mcp capture (debugger active=false, logger=true)
+Stormwick vs Rampartroot: Stormwick 0 - 40 Rampartroot (draws 10), avg 41 s, HP left 9% / 47%
+Stormwick vs Scourmaw: Stormwick 6 - 44 Scourmaw (draws 0), avg 23 s, HP left 3% / 36%
+Stormwick vs Ironvent: Stormwick 14 - 24 Ironvent (draws 12), avg 43 s, HP left 34% / 42%
+Stormwick vs Vitrecrag: Stormwick 0 - 46 Vitrecrag (draws 4), avg 33 s, HP left 5% / 48%
+Stormwick vs Oxbowarchon: Stormwick 0 - 0 Oxbowarchon (draws 50), avg 90 s, HP left 84% / 88%
+Stormwick vs Starward: Stormwick 29 - 0 Starward (draws 21), avg 63 s, HP left 86% / 35%
+Stormwick vs Quietwater Warden: Stormwick 6 - 0 Quietwater Warden (draws 44), avg 87 s, HP left 74% / 72%
+Stormwick vs Galeshear: Stormwick 28 - 0 Galeshear (draws 22), avg 55 s, HP left 97% / 43%
+Rampartroot vs Scourmaw: Rampartroot 50 - 0 Scourmaw (draws 0), avg 18 s, HP left 79% / 0%
+Rampartroot vs Ironvent: Rampartroot 34 - 16 Ironvent (draws 0), avg 31 s, HP left 37% / 11%
+Rampartroot vs Vitrecrag: Rampartroot 2 - 48 Vitrecrag (draws 0), avg 36 s, HP left 0% / 14%
+Rampartroot vs Oxbowarchon: Rampartroot 50 - 0 Oxbowarchon (draws 0), avg 35 s, HP left 57% / 0%
+Rampartroot vs Starward: Rampartroot 50 - 0 Starward (draws 0), avg 33 s, HP left 63% / 0%
+Rampartroot vs Quietwater Warden: Rampartroot 50 - 0 Quietwater Warden (draws 0), avg 25 s, HP left 88% / 0%
+Rampartroot vs Galeshear: Rampartroot 49 - 0 Galeshear (draws 1), avg 26 s, HP left 84% / 1%
+Scourmaw vs Ironvent: Scourmaw 43 - 7 Ironvent (draws 0), avg 18 s, HP left 52% / 8%
+Scourmaw vs Vitrecrag: Scourmaw 11 - 39 Vitrecrag (draws 0), avg 25 s, HP left 4% / 20%
+Scourmaw vs Oxbowarchon: Scourmaw 0 - 50 Oxbowarchon (draws 0), avg 24 s, HP left 0% / 74%
+Scourmaw vs Starward: Scourmaw 47 - 3 Starward (draws 0), avg 42 s, HP left 60% / 0%
+Scourmaw vs Quietwater Warden: Scourmaw 32 - 18 Quietwater Warden (draws 0), avg 40 s, HP left 32% / 9%
+Scourmaw vs Galeshear: Scourmaw 50 - 0 Galeshear (draws 0), avg 29 s, HP left 87% / 0%
+Ironvent vs Vitrecrag: Ironvent 16 - 34 Vitrecrag (draws 0), avg 33 s, HP left 14% / 35%
+Ironvent vs Oxbowarchon: Ironvent 5 - 43 Oxbowarchon (draws 2), avg 60 s, HP left 8% / 90%
+Ironvent vs Starward: Ironvent 21 - 0 Starward (draws 29), avg 65 s, HP left 75% / 30%
+Ironvent vs Quietwater Warden: Ironvent 36 - 14 Quietwater Warden (draws 0), avg 34 s, HP left 53% / 18%
+Ironvent vs Galeshear: Ironvent 41 - 0 Galeshear (draws 9), avg 40 s, HP left 80% / 6%
+Vitrecrag vs Oxbowarchon: Vitrecrag 49 - 1 Oxbowarchon (draws 0), avg 33 s, HP left 44% / 0%
+Vitrecrag vs Starward: Vitrecrag 50 - 0 Starward (draws 0), avg 34 s, HP left 58% / 0%
+Vitrecrag vs Quietwater Warden: Vitrecrag 50 - 0 Quietwater Warden (draws 0), avg 37 s, HP left 54% / 0%
+Vitrecrag vs Galeshear: Vitrecrag 50 - 0 Galeshear (draws 0), avg 25 s, HP left 81% / 0%
+Oxbowarchon vs Starward: Oxbowarchon 23 - 2 Starward (draws 25), avg 80 s, HP left 83% / 22%
+Oxbowarchon vs Quietwater Warden: Oxbowarchon 33 - 0 Quietwater Warden (draws 17), avg 78 s, HP left 99% / 7%
+Oxbowarchon vs Galeshear: Oxbowarchon 27 - 0 Galeshear (draws 23), avg 72 s, HP left 99% / 20%
+Starward vs Quietwater Warden: Starward 1 - 0 Quietwater Warden (draws 49), avg 89 s, HP left 100% / 98%
+Starward vs Galeshear: Starward 5 - 0 Galeshear (draws 45), avg 85 s, HP left 100% / 90%
+Quietwater Warden vs Galeshear: Quietwater Warden 0 - 0 Galeshear (draws 50), avg 90 s, HP left 100% / 99%
+WARNING: 12 ObjectDB instances were leaked at exit (run with `--verbose` for details).
+   at: cleanup (core/object/object.cpp:2536)
+ERROR: 5 resources still in use at exit (run with --verbose for details).
+   at: clear (core/io/resource.cpp:822)

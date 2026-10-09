@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="CreatureData" format=3]
+
+[ext_resource type="Script" path="res://scripts/creature_data.gd" id="1_script"]
+[ext_resource type="Texture2D" path="res://assets/sprites/arena/dustkite/s.png" id="2_sprite"]
+[ext_resource type="Resource" path="res://data/creatures/1402_waywhistle.tres" id="4_evolution"]
+
+[resource]
+script = ExtResource("1_script")
+id = 1401
+creature_name = "Dustkite"
+essence = 3
+sprite = ExtResource("2_sprite")
+description = "Provisional entry (Claude, 2026-10-09, Preston: Dustkite's turn): Stage I of the bluff whistler line, a small diamond-bodied glider with side membranes folded along its flanks, a whistle throat and hooked gripping feet; watchful and noise-shy. Working name from docs/creatures/creature-roster-draft.md (line 14), pending Preston's approval. The sprite is the arena's south facing standing in for a front view; no back view, default stats, no turn-based moves (Grok). Arena kit: Whistle Dart, Signal Mark, Decoy Call."
+evolves_into = ExtResource("4_evolution")
+body_parts = PackedStringArray()
+battle_size = 1.0

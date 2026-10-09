@@ -1,0 +1,23 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+OpenGL API 3.3.0 NVIDIA 596.49 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce GTX 1660 SUPER
+
+ERROR: Failed to read the root certificate store.
+   at: get_system_ca_certificates (platform/windows/os_windows.cpp:2582)
+Riverfront attaches quay and preserves courier: PASS
+Reach quay board from real bridge arrival: PASS
+Board introduces optional round without changing main objective: PASS
+Map cannot interrupt quay dialogue: PASS
+Dialogue blocks movement: PASS
+Close dialogue restores walking: PASS
+ERROR: Node not found: "CollisionShape2D" (relative to "/root/WorldJourney/CityRiverfront/Landscape/RiverfrontQuay/GardenGateFeet").
+   at: get_node (scene/main/node.cpp:1975)
+   GDScript backtrace (most recent call first):
+       [0] _run (res://tools/debug/riverfront_quay_check.gd:46)
+       [1] key (res://tools/debug/first_morning_check.gd:55)
+       [2] frames (res://tools/debug/first_morning_check.gd:12)
+SCRIPT ERROR: Invalid access to property or key 'disabled' on a base object of type 'null instance'.
+   at: _run (res://tools/debug/riverfront_quay_check.gd:46)
+   GDScript backtrace (most recent call first):
+       [0] _run (res://tools/debug/riverfront_quay_check.gd:46)
+       [1] key (res://tools/debug/first_morning_check.gd:55)
+       [2] frames (res://tools/debug/first_morning_check.gd:12)

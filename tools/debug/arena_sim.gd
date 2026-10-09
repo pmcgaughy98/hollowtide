@@ -10,7 +10,7 @@ extends SceneTree
 ## often it is the first to fall. Team matches get 30 more seconds per extra creature.
 
 # All seven finals (2026-10-08). Earlier runs covered the first three.
-const FORMS := [[0, 2, "Stormwick"], [1, 2, "Rampartroot"], [2, 2, "Scourmaw"], [3, 2, "Ironvent"], [4, 2, "Vitrecrag"], [5, 2, "Oxbowarchon"], [6, 2, "Starward"]]
+const FORMS := [[0, 2, "Stormwick"], [1, 2, "Rampartroot"], [2, 2, "Scourmaw"], [3, 2, "Ironvent"], [4, 2, "Vitrecrag"], [5, 2, "Oxbowarchon"], [6, 2, "Starward"], [7, 2, "Quietwater Warden"], [8, 2, "Galeshear"], [9, 2, "Highsignal"]]
 var arena: Node2D
 
 func _initialize() -> void:

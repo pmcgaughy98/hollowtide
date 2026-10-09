@@ -1,0 +1,9 @@
+{
+ "prompt": "Top-down action game sprite of a small floodplain glider creature crouched flat on bare ground with nothing under it: a narrow slim body, two angular membrane sails folded tight against its sides like a closed kite so the folded spars make sharp angles, the membranes stretched between bone-white spars with branching rust-coloured veins, hooked toes gripping the ground, a small narrow head with calm eyes looking up, a thin tail. Faded slate blue membranes, brown-grey body. Calm and alert, sails closed, low to the ground. Seen from above at a three-quarter overhead angle like a sprite in a top-down arena battle game, facing down and to the right toward the camera. A small, readable game sprite: chunky clear shapes, a crisp dark outline. No branch, no perch, no rock, no ground drawn, only the creature. Not a bat, not a bird, no feathers, not a dragon, not cloth, not paper, wings closed not spread. Whole creature centred with empty space on every side. On a plain white background.",
+ "prompt_style": "rd_pro__default",
+ "width": 96,
+ "height": 96,
+ "num_images": 1,
+ "remove_bg": true,
+ "reference_images": []
+}

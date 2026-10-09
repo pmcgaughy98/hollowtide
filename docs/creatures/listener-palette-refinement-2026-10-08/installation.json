@@ -1,0 +1,1047 @@
+{
+  "installed_utc": "2026-10-08T18:17:18.606226+00:00",
+  "files": [
+    {
+      "path": "assets/sprites/arena/listener/s.png",
+      "sha256": "a5084ae91b4a97387f134f3bf84a27e89b6747c1af7e553e8b2d9f1ff3e07a79"
+    },
+    {
+      "path": "assets/sprites/arena/listener/se.png",
+      "sha256": "8c4f89887b406fccd1e69feb7660c7d57e07f22fc811fdf6c9975f58e67a967a"
+    },
+    {
+      "path": "assets/sprites/arena/listener/e.png",
+      "sha256": "bc09101262f0fcc4c31c9e72308400c849f36192a4f5dbf3fea09a752e17785d"
+    },
+    {
+      "path": "assets/sprites/arena/listener/ne.png",
+      "sha256": "b50637e3f8b21b374c9f5b09a49744afd78b9036c47d21a4f1deb4fd47c0a272"
+    },
+    {
+      "path": "assets/sprites/arena/listener/n.png",
+      "sha256": "32e7608561111e686a3079f6fe4977034a897c7c36d719f88d498cc2269a8298"
+    },
+    {
+      "path": "assets/sprites/arena/listener/nw.png",
+      "sha256": "55326ab033ea21510ee6b6fdbaf659290fda80f1b58a3af438547d00ccfb12b5"
+    },
+    {
+      "path": "assets/sprites/arena/listener/w.png",
+      "sha256": "7fbebc251e26e327ca0a43ab9de59d79e121ee54e4770a211c951910f5dd10e5"
+    },
+    {
+      "path": "assets/sprites/arena/listener/sw.png",
+      "sha256": "5a5988a4df9bb598a83072ccba6d5f1b56813cc31d278e2beaaa85a9f28f82d4"
+    },
+    {
+      "path": "docs/creatures/arena-starters-2026-10-07/walk/listener_e_sheet.png",
+      "sha256": "4e9dd436f97865db1ccec9e691dad039aec4f5f8c5b397dd0da72be2a2457151"
+    },
+    {
+      "path": "docs/creatures/arena-starters-2026-10-07/walk/listener_n_sheet.png",
+      "sha256": "8c16c282a28de8154fd93fcb198de356ce9b2fbc6c9a26c93cfe85d234eb96bb"
+    },
+    {
+      "path": "docs/creatures/arena-starters-2026-10-07/walk/listener_ne_sheet.png",
+      "sha256": "2dd989a40bcbed6222b7d76dd4159ebdd1867e12d0a79fd44ac0f692bf461872"
+    },
+    {
+      "path": "docs/creatures/arena-starters-2026-10-07/walk/listener_s_sheet.png",
+      "sha256": "a75187f38172f014ac83967c757ab089d6bc387a3e31077f04b4ac56a295ff55"
+    },
+    {
+      "path": "docs/creatures/arena-starters-2026-10-07/walk/listener_se_sheet.png",
+      "sha256": "d526a767f5a931e81e259fb01902191e0fd3a42197d76311869595aa79d30313"
+    },
+    {
+      "path": "assets/sprites/arena/caller/s.png",
+      "sha256": "ae54489824584b11b9ce73e8814842709d521b07b092b24af7b15f7a9182fb43"
+    },
+    {
+      "path": "assets/sprites/arena/caller/se.png",
+      "sha256": "d4ece28fb7c6a767695416ec4e13147bb32805cd7e13ace3711ae7e350de90f3"
+    },
+    {
+      "path": "assets/sprites/arena/caller/e.png",
+      "sha256": "d4ba434ea3be6f5e3aa2dea169456b292af54f0fe04d916190c0bd2ca0bd1ae0"
+    },
+    {
+      "path": "assets/sprites/arena/caller/ne.png",
+      "sha256": "69e62a51afceaea16bf637fcaae008b15beceb4a59962e1d95696e652d9efffb"
+    },
+    {
+      "path": "assets/sprites/arena/caller/n.png",
+      "sha256": "a01f6a18a35ad0b1b15f57cc25cc48e0e49b174b12c5b1555e453852a1533dec"
+    },
+    {
+      "path": "assets/sprites/arena/caller/nw.png",
+      "sha256": "f84390f53e9b564b1bf9b81021cec49bf6b6b86f50459b59176ab3b93b6c6a4d"
+    },
+    {
+      "path": "assets/sprites/arena/caller/w.png",
+      "sha256": "7a578833ed314cbdec1abd7cf0663c156661dcc73371405c13035d9c19906397"
+    },
+    {
+      "path": "assets/sprites/arena/caller/sw.png",
+      "sha256": "55ebd2a993ebbb9670595fda7e701c49897b3c84655bfe396cc0eb2757946401"
+    },
+    {
+      "path": "docs/creatures/arena-starters-2026-10-07/walk/caller_e_sheet.png",
+      "sha256": "6f6ea18b4b929148b08c9b00c4b9f01731f6c6fc28b4c48173d1d5baef5793ef"
+    },
+    {
+      "path": "docs/creatures/arena-starters-2026-10-07/walk/caller_n_sheet.png",
+      "sha256": "11bfd004d18f5cd48c4ed9e7f87235553bdc214e269adeb7afe2d94e5c585595"
+    },
+    {
+      "path": "docs/creatures/arena-starters-2026-10-07/walk/caller_ne_sheet.png",
+      "sha256": "27a7b518e50b3b9adbdb88e1a5cb1380fb54628368a0af7779533cc64d7e9c0c"
+    },
+    {
+      "path": "docs/creatures/arena-starters-2026-10-07/walk/caller_s_sheet.png",
+      "sha256": "512877e9b8f2413a94f559a3658ec18b8b19b5cbf1c7d33ad6e93eda5dad4eec"
+    },
+    {
+      "path": "docs/creatures/arena-starters-2026-10-07/walk/caller_se_sheet.png",
+      "sha256": "ccc0cc7d0813293a941f186368658940fff352029d5d48b7bd8569a561c8bed1"
+    },
+    {
+      "path": "assets/sprites/arena/warden/s.png",
+      "sha256": "631736109df32a9d297a2c14ddaf66580cc4ac26d3169aca1ae0186c1231d335"
+    },
+    {
+      "path": "assets/sprites/arena/warden/se.png",
+      "sha256": "da8027d53f448d4cf503394ec46601df0e680b3d9960617b7e35c11b443ae8ef"
+    },
+    {
+      "path": "assets/sprites/arena/warden/e.png",
+      "sha256": "03db02f18c814ec76c6b678a4bbe083f0b0644216a2fbafd00070a0a800f9681"
+    },
+    {
+      "path": "assets/sprites/arena/warden/ne.png",
+      "sha256": "5481cb4b39732a24a5e3bc3d4c6e2b21ccf68b986627fd8f180b0d15a438f8b6"
+    },
+    {
+      "path": "assets/sprites/arena/warden/n.png",
+      "sha256": "85c42306d87620976ae80dfb5f56e19ab4c33ceb8ca3e395462dc3452f79eed7"
+    },
+    {
+      "path": "assets/sprites/arena/warden/nw.png",
+      "sha256": "72b8dd8f0afee483aaa69cc63fd6b892c31179aafa555cc011636f825eb78419"
+    },
+    {
+      "path": "assets/sprites/arena/warden/w.png",
+      "sha256": "2ced98bd08a4fde20018a30cebff58a11ea4c246c6720ea1e490a9a1ae8075c4"
+    },
+    {
+      "path": "assets/sprites/arena/warden/sw.png",
+      "sha256": "e4554c18c0d95dea23b2dfd1f5b8a025bdf32cf318da6edab03ef1b18092c2e5"
+    },
+    {
+      "path": "docs/creatures/arena-starters-2026-10-07/walk/warden_e_sheet.png",
+      "sha256": "1169b581f8e241aefaf8f8a107a43a37d2f79b9896083217d161cfbf8a295bf9"
+    },
+    {
+      "path": "docs/creatures/arena-starters-2026-10-07/walk/warden_n_sheet.png",
+      "sha256": "bce70b15d9bce8cd4e141907f9472fdf7f648872286adcac660e80a9e66955fa"
+    },
+    {
+      "path": "docs/creatures/arena-starters-2026-10-07/walk/warden_ne_sheet.png",
+      "sha256": "f5cd20837cd176cbd0236e8befd0b7d127b85590dcce5ca483c3610fe5453132"
+    },
+    {
+      "path": "docs/creatures/arena-starters-2026-10-07/walk/warden_s_sheet.png",
+      "sha256": "3e3f9815e34329ae9b6c58c667ef79be707468bbca636d22625359c9991c429a"
+    },
+    {
+      "path": "docs/creatures/arena-starters-2026-10-07/walk/warden_se_sheet.png",
+      "sha256": "db4d7d4dd4eafc8b91ff4a328575711b9c24537ca1f4d3d2c2e2667027cf0e21"
+    },
+    {
+      "path": "assets/sprites/arena/listener/small/e.png",
+      "sha256": "4a38893229840f801aa3b079dbd1d7b48ba5855ba1364d984c02b3c548fe458e"
+    },
+    {
+      "path": "assets/sprites/arena/listener/small/n.png",
+      "sha256": "2031ea06e947589fc035b0d19a52649ca82caf9e73893347201362347626bd53"
+    },
+    {
+      "path": "assets/sprites/arena/listener/small/ne.png",
+      "sha256": "0bf2bb10fb83e2a170db1e7da107e9122957721b0f4a6af3b205b189a266fd0f"
+    },
+    {
+      "path": "assets/sprites/arena/listener/small/nw.png",
+      "sha256": "35682b5f78c8e1a7fde42e8f8e3d2434ff2c66f13c8a0b2d172d5d16cdaf06dd"
+    },
+    {
+      "path": "assets/sprites/arena/listener/small/s.png",
+      "sha256": "e2a69cc54f4257b82625e32540afd49e2a29ede652eb85c07042e8d5c12279b8"
+    },
+    {
+      "path": "assets/sprites/arena/listener/small/se.png",
+      "sha256": "2bda3f14183f820e9c906e59f137e030440d282db93620117123f967d060ddd4"
+    },
+    {
+      "path": "assets/sprites/arena/listener/small/sw.png",
+      "sha256": "a4cc3fc64e010b91b396d134f6465dab1b1c5ccf04ab31de6b8bfb8aff822a7a"
+    },
+    {
+      "path": "assets/sprites/arena/listener/small/w.png",
+      "sha256": "f035141f6e63f9a11c84ebf3e83bf37f216b7144fe37cbd09e641afa259c7e22"
+    },
+    {
+      "path": "assets/sprites/arena/listener/small/walk_e_f0.png",
+      "sha256": "7779e1dcf6143ddc1506b8ddf736ecf22b4feb2ba70e8116832b9152306f51da"
+    },
+    {
+      "path": "assets/sprites/arena/listener/small/walk_e_f1.png",
+      "sha256": "cae341c0473a32e478a5cec2f8f6f179de1417caf1dce883aba1b2dd070026ca"
+    },
+    {
+      "path": "assets/sprites/arena/listener/small/walk_e_f2.png",
+      "sha256": "fc155770d2a533e8875372636b5e865675b00f78f0e656b136ad5de5b98d448b"
+    },
+    {
+      "path": "assets/sprites/arena/listener/small/walk_e_f3.png",
+      "sha256": "fbbd1080ce40eeeb95d0d55a1ebbbf628c75855dd6563df9624794c7e6c1f0c7"
+    },
+    {
+      "path": "assets/sprites/arena/listener/small/walk_e_f4.png",
+      "sha256": "c5430da4d0af98d343915d2f938943288c8979d3612177176ee3a1dfb721a200"
+    },
+    {
+      "path": "assets/sprites/arena/listener/small/walk_e_f5.png",
+      "sha256": "5795d37d68b517137549c17a2399d838356d4f7affd7599dfe0f275d87ab1a74"
+    },
+    {
+      "path": "assets/sprites/arena/listener/small/walk_e_f6.png",
+      "sha256": "d6238ec761cffb56a840308a62b17fcfe5310a5380f9bf44a6b01e099a751a2b"
+    },
+    {
+      "path": "assets/sprites/arena/listener/small/walk_e_f7.png",
+      "sha256": "8a0067544abeda31549e24553f4cf746120c2096d4ce19fc0ff12a86407066ba"
+    },
+    {
+      "path": "assets/sprites/arena/listener/small/walk_n_f0.png",
+      "sha256": "ef0dd3fa6c42a85eb57fde501bc777c95ba2499034ec601a8348b18403d4bc81"
+    },
+    {
+      "path": "assets/sprites/arena/listener/small/walk_n_f1.png",
+      "sha256": "b7743b9b60cc8142d659ad0e3a025faba9de192bf64f4d1f64315de272de359f"
+    },
+    {
+      "path": "assets/sprites/arena/listener/small/walk_n_f2.png",
+      "sha256": "8f1077dc7e1746028ddc86f2363e00a1580db30acfdc01d41a6cf553569d4a2f"
+    },
+    {
+      "path": "assets/sprites/arena/listener/small/walk_n_f3.png",
+      "sha256": "29c0e8aa4cd11204774d06d4ffc037227a2f5a8d5ee5c781b28d14b54c27758f"
+    },
+    {
+      "path": "assets/sprites/arena/listener/small/walk_n_f4.png",
+      "sha256": "2046878de4dc3bf911a7d55c49e9e1baccdfd6d0080d23868ddec81fa10ddbba"
+    },
+    {
+      "path": "assets/sprites/arena/listener/small/walk_n_f5.png",
+      "sha256": "4abfafbe356e0f82e1fb6b4d079bc9f634a993944b3519fcc645659d584900c6"
+    },
+    {
+      "path": "assets/sprites/arena/listener/small/walk_n_f6.png",
+      "sha256": "bef96666faddc2bb18d8fdd28f65a6774a0f781a812baae2924fe5ac4bbe77e8"
+    },
+    {
+      "path": "assets/sprites/arena/listener/small/walk_n_f7.png",
+      "sha256": "6b50f74d6f448470f0baae48b8f20455285fa635fe3a61c9ed7e4d1fc7777078"
+    },
+    {
+      "path": "assets/sprites/arena/listener/small/walk_ne_f0.png",
+      "sha256": "695c08047436c813611d4a7ff501c730b9020f1b4977162b951d5173cee3edbe"
+    },
+    {
+      "path": "assets/sprites/arena/listener/small/walk_ne_f1.png",
+      "sha256": "2243d7366de829f7ee5b969e7a30421db56d6ef5140fb53a216d0950791a2865"
+    },
+    {
+      "path": "assets/sprites/arena/listener/small/walk_ne_f2.png",
+      "sha256": "d066d6c0daa0cf75615e9a613b96ee24bf86d85a933e819606c745e46e1cce91"
+    },
+    {
+      "path": "assets/sprites/arena/listener/small/walk_ne_f3.png",
+      "sha256": "103427096e9d3d00a9b9a511cff8a2d4ac85558a7d2150c57c7016fc2cee2e35"
+    },
+    {
+      "path": "assets/sprites/arena/listener/small/walk_ne_f4.png",
+      "sha256": "0d11c11387285cb6090edc12b2ccdf8b1c29656c952ea30e2bd66099abefbbc8"
+    },
+    {
+      "path": "assets/sprites/arena/listener/small/walk_ne_f5.png",
+      "sha256": "5d3855a89a24b3f52e1dbbbe60e234d50e0dcc04d6618aa0aa81234dfd938be2"
+    },
+    {
+      "path": "assets/sprites/arena/listener/small/walk_ne_f6.png",
+      "sha256": "4477c57ffcf9a45932e851401927641f274398634b8894326e834d1da6ef1a65"
+    },
+    {
+      "path": "assets/sprites/arena/listener/small/walk_ne_f7.png",
+      "sha256": "3f4d13d0b8ac203732c7dbca1a1408bcec1f8ff6fb4e70b611359ea3c7a4c39e"
+    },
+    {
+      "path": "assets/sprites/arena/listener/small/walk_nw_f0.png",
+      "sha256": "79b489cf1442e1a416dbdb82be46638d0d6bd8d6de1ed647eaeb6859604ed9a8"
+    },
+    {
+      "path": "assets/sprites/arena/listener/small/walk_nw_f1.png",
+      "sha256": "efb441caf9d3c147c0d7a350188dbf55fff07c3e8561bb44f71dd1f2ead205aa"
+    },
+    {
+      "path": "assets/sprites/arena/listener/small/walk_nw_f2.png",
+      "sha256": "8025bd9e27117f4f4f1abb3e93efaa457b3c98841cff962067c9a83de62c5c57"
+    },
+    {
+      "path": "assets/sprites/arena/listener/small/walk_nw_f3.png",
+      "sha256": "889b757a0aa80fb77564f6d5dda81c27bf6dff30cb4db5c827ecca2b1495eec2"
+    },
+    {
+      "path": "assets/sprites/arena/listener/small/walk_nw_f4.png",
+      "sha256": "98356be3af99a87c807d4679f0f771ff8fe1a46de059173659c55f5a9bd47eb5"
+    },
+    {
+      "path": "assets/sprites/arena/listener/small/walk_nw_f5.png",
+      "sha256": "1fdc56641a1a6cb37aa2a98eb95ba4cda8f47f1bbc9414ab71eb8ff38c9f0528"
+    },
+    {
+      "path": "assets/sprites/arena/listener/small/walk_nw_f6.png",
+      "sha256": "f4f67ea948b7584625da7acfe43ceb37aec806e9a174cc69c1ab7a9369a929b6"
+    },
+    {
+      "path": "assets/sprites/arena/listener/small/walk_nw_f7.png",
+      "sha256": "bf4097c5f69a90cbf86230d0d73401a36bba57666465161345827c9f389165af"
+    },
+    {
+      "path": "assets/sprites/arena/listener/small/walk_s_f0.png",
+      "sha256": "f98b235d919eeeb17857e2301b0412fa349d926f414e24e2621637b213c8c9b0"
+    },
+    {
+      "path": "assets/sprites/arena/listener/small/walk_s_f1.png",
+      "sha256": "d3b44819a834fd657f5d386e310fbd35e877a75acde1ea8ec8b2077953d51070"
+    },
+    {
+      "path": "assets/sprites/arena/listener/small/walk_s_f2.png",
+      "sha256": "11b2bcc758723c39bc4a7d5eb0e2478c45367219263f9ed0e51c2654b0de65fb"
+    },
+    {
+      "path": "assets/sprites/arena/listener/small/walk_s_f3.png",
+      "sha256": "9a1d65c29be052df6b042522d7f1f917d9b731f7cd663cafc1385209bd46c921"
+    },
+    {
+      "path": "assets/sprites/arena/listener/small/walk_s_f4.png",
+      "sha256": "46d46e5334ce4e8461361a8f502a6685951e8ae4a1907745fc9dd3bb59341a62"
+    },
+    {
+      "path": "assets/sprites/arena/listener/small/walk_s_f5.png",
+      "sha256": "487837efa57ff939fd8538a33d74c084381f9e6ef686121de22adebed4b6cbba"
+    },
+    {
+      "path": "assets/sprites/arena/listener/small/walk_s_f6.png",
+      "sha256": "2ef99e3cfc0c394490cb341476ec28b7c9d3cec6c9c1d4d7270f3438c8cc1146"
+    },
+    {
+      "path": "assets/sprites/arena/listener/small/walk_s_f7.png",
+      "sha256": "87120f4d3651feeb9500561d2cdbda8a3074f257f26f5fdadf805def0c09fa34"
+    },
+    {
+      "path": "assets/sprites/arena/listener/small/walk_se_f0.png",
+      "sha256": "b6cad4e1c0133d9896bfbab972d62c477b31d8df64b1de27a44549841d45c376"
+    },
+    {
+      "path": "assets/sprites/arena/listener/small/walk_se_f1.png",
+      "sha256": "d1ad2f9ae610473f03d5bda151bcb459315ca5b8a5359cdd23b68bd2423b5469"
+    },
+    {
+      "path": "assets/sprites/arena/listener/small/walk_se_f2.png",
+      "sha256": "79a14923c3a5e27e76f6d26765f42e04fecfb762328de935cc21d0978bc6b828"
+    },
+    {
+      "path": "assets/sprites/arena/listener/small/walk_se_f3.png",
+      "sha256": "9b34aa2db523404cbc87878f342017c807c3b8ed4083461f885f62048275e6a5"
+    },
+    {
+      "path": "assets/sprites/arena/listener/small/walk_se_f4.png",
+      "sha256": "d67e4379a51391f5551443b9d5490be9a47e6a4f5c8e15585196dc6a6c344931"
+    },
+    {
+      "path": "assets/sprites/arena/listener/small/walk_se_f5.png",
+      "sha256": "7007accff9522829fa9e30bef3a47b06e63eaef6e84bdfac49a3f0c364b67283"
+    },
+    {
+      "path": "assets/sprites/arena/listener/small/walk_se_f6.png",
+      "sha256": "6ac49c2a8fa63fbe7cf7322b83f7fa3a4f3b0032dc53f8e1d6a23fff0f076f16"
+    },
+    {
+      "path": "assets/sprites/arena/listener/small/walk_se_f7.png",
+      "sha256": "d216425a92f4a30e22ada42ddd8a48b4ed59bb7e0ffe3c4a2e50af9cf6b30150"
+    },
+    {
+      "path": "assets/sprites/arena/listener/small/walk_sw_f0.png",
+      "sha256": "b1f43ddfb36423bbc0f8248d2c0d9a3f6e2c314269d6676e9ad24f778b8957aa"
+    },
+    {
+      "path": "assets/sprites/arena/listener/small/walk_sw_f1.png",
+      "sha256": "e708c52d16f86cf70eb31f7891a76a0ba64f950dc1e59fbb200803cca42e2c06"
+    },
+    {
+      "path": "assets/sprites/arena/listener/small/walk_sw_f2.png",
+      "sha256": "da3122037b5b44e70af1fd426ccba333a4540a3f646b72dc5602a8d54c5a1b17"
+    },
+    {
+      "path": "assets/sprites/arena/listener/small/walk_sw_f3.png",
+      "sha256": "25110e6545f054bc89e8805bd4d874aba2c7db8ca3cc3a83bcdab1418bf7acc5"
+    },
+    {
+      "path": "assets/sprites/arena/listener/small/walk_sw_f4.png",
+      "sha256": "d1238472d29467270ac099bbe3ce642f35b1d6d840bc705ee7c29fe1c2722075"
+    },
+    {
+      "path": "assets/sprites/arena/listener/small/walk_sw_f5.png",
+      "sha256": "0c4e7edd8481d6d9f7720fbd72073d1710feb8e4691e530ad7d6b9f0f88744be"
+    },
+    {
+      "path": "assets/sprites/arena/listener/small/walk_sw_f6.png",
+      "sha256": "e2810d64f5a333c2886971b8fd94c464a9dc385d22159d843c7c917c96c5efd6"
+    },
+    {
+      "path": "assets/sprites/arena/listener/small/walk_sw_f7.png",
+      "sha256": "d5ed2579b17aa50e6a9719a1e2cb42951e0aaffcb82e041742c3a892fde34f53"
+    },
+    {
+      "path": "assets/sprites/arena/listener/small/walk_w_f0.png",
+      "sha256": "05aea16c387454bc0d3cdae12beddcfe71ce6ac09359b49e817c51f56c38c223"
+    },
+    {
+      "path": "assets/sprites/arena/listener/small/walk_w_f1.png",
+      "sha256": "da8344ce7a80cbcde9d26cd1d36c1e4cc1402a389599920c2a3f137c127af91d"
+    },
+    {
+      "path": "assets/sprites/arena/listener/small/walk_w_f2.png",
+      "sha256": "01c6536579856318ab418310008d2bdf34eaef3a85e10860073d2264b24f613a"
+    },
+    {
+      "path": "assets/sprites/arena/listener/small/walk_w_f3.png",
+      "sha256": "36a715fc4a1d8f73002f7c483d618b3abba96b1a8c2fb90f469b03f9e53fa731"
+    },
+    {
+      "path": "assets/sprites/arena/listener/small/walk_w_f4.png",
+      "sha256": "fd9ee4a0a30387a5e22393303a6add4614e85fc06458737033e7f63124bb2b23"
+    },
+    {
+      "path": "assets/sprites/arena/listener/small/walk_w_f5.png",
+      "sha256": "0fadb44970c93d1eedc1a6073592106833aa610bf69eec860746f5faaa39e393"
+    },
+    {
+      "path": "assets/sprites/arena/listener/small/walk_w_f6.png",
+      "sha256": "39ef7cbcdaf8a8141e96dd1d30da0ade4a704291a63ece52cfc6521ed41d7f74"
+    },
+    {
+      "path": "assets/sprites/arena/listener/small/walk_w_f7.png",
+      "sha256": "21482ea5a9095fe79a764c4ec0774927e25e1e195cedf3039c3ef6afdb63dc62"
+    },
+    {
+      "path": "assets/sprites/arena/caller/small/e.png",
+      "sha256": "d095817aa5cf4d256090d692f505d8d74914c9d2c7d18da9be351b4f36837cf6"
+    },
+    {
+      "path": "assets/sprites/arena/caller/small/n.png",
+      "sha256": "640f16fcb711996763ac2a7b6a7e5814e0b6f04495d393e0ec7ae995dd286b5c"
+    },
+    {
+      "path": "assets/sprites/arena/caller/small/ne.png",
+      "sha256": "2cd0c7581d09350ecc233f2fa956e5b2d8a0bc8afa5ed9c654d9982bef0949c5"
+    },
+    {
+      "path": "assets/sprites/arena/caller/small/nw.png",
+      "sha256": "025f66fbd155eb075b1dedab95c7d7d09d2bf785b4752f9a89b6f7fcc5145e9a"
+    },
+    {
+      "path": "assets/sprites/arena/caller/small/s.png",
+      "sha256": "d5e1cd61880e9f8d0ea6ab9e88fe14598bd5daa5caeb9e21de2c68a1b6c55385"
+    },
+    {
+      "path": "assets/sprites/arena/caller/small/se.png",
+      "sha256": "3085b37e568085870255c09e406c22ea5f262d1759d2c8ca79f466dc2b5a86ef"
+    },
+    {
+      "path": "assets/sprites/arena/caller/small/sw.png",
+      "sha256": "a53ce8cd67bf2340a3ded87593c913a4a2ae492ce5a1c1df4a00de7483194627"
+    },
+    {
+      "path": "assets/sprites/arena/caller/small/w.png",
+      "sha256": "f0add73c1f92e4902fdd03e45684a2e7ad6ef2f0d224dadf08e31e613daac6f2"
+    },
+    {
+      "path": "assets/sprites/arena/caller/small/walk_e_f0.png",
+      "sha256": "b2ab5e02c73f5df6b02994e10b98b5dd531014bf0e4cad1d51f41a28348995d9"
+    },
+    {
+      "path": "assets/sprites/arena/caller/small/walk_e_f1.png",
+      "sha256": "b61c3b30bfcaabe1fe6658556f97d2246b719f49a90c3e55bbbffc0983dae141"
+    },
+    {
+      "path": "assets/sprites/arena/caller/small/walk_e_f2.png",
+      "sha256": "9236685115667fa43dcfd07c52366d5c8c259dc6d9e3b0790533ab0167a2fb0d"
+    },
+    {
+      "path": "assets/sprites/arena/caller/small/walk_e_f3.png",
+      "sha256": "73c6790219c53a60a0871c387d0a7264b222ec5be23fbbfd0182383e2d8c3fd3"
+    },
+    {
+      "path": "assets/sprites/arena/caller/small/walk_e_f4.png",
+      "sha256": "156122ff2dfff286e380fa6d399253c71957da487dbae69d4b890265267d4c95"
+    },
+    {
+      "path": "assets/sprites/arena/caller/small/walk_e_f5.png",
+      "sha256": "217101c8b2d3824d9ab5ebfde4ac87c578245b499e5e1203bda9bbc5ef466d2e"
+    },
+    {
+      "path": "assets/sprites/arena/caller/small/walk_e_f6.png",
+      "sha256": "d59caebf7a7d12a72c28910afd18e4bb6e2b971651afde2dec065c5c9dce1196"
+    },
+    {
+      "path": "assets/sprites/arena/caller/small/walk_e_f7.png",
+      "sha256": "452151e41da033840a5cdaa2337e099da73e9e93c250f496b83328c057b33b70"
+    },
+    {
+      "path": "assets/sprites/arena/caller/small/walk_n_f0.png",
+      "sha256": "c5efce0135be35c27daa57db91e93911bf9d2eab66714ea9353f6279b296fdf1"
+    },
+    {
+      "path": "assets/sprites/arena/caller/small/walk_n_f1.png",
+      "sha256": "8a5674f953c83ab471955472d841463094d756093e3a7753949f3333b6ad2c01"
+    },
+    {
+      "path": "assets/sprites/arena/caller/small/walk_n_f2.png",
+      "sha256": "c1e7093393a4f6a7ee10a2b2fef4c9f273c975e9922cc73e64471e8f97f59c4b"
+    },
+    {
+      "path": "assets/sprites/arena/caller/small/walk_n_f3.png",
+      "sha256": "d4b01a7a7d19185ba9aae39f00f1881de40b500d558055088ccf5e2730dd32cf"
+    },
+    {
+      "path": "assets/sprites/arena/caller/small/walk_n_f4.png",
+      "sha256": "819c46455183e37e36aa550bf6516d721febbdb8c4b2f0f272c9d28bb95c0c4a"
+    },
+    {
+      "path": "assets/sprites/arena/caller/small/walk_n_f5.png",
+      "sha256": "4dd551d7f190d123edfb9c9e8090b7653bce985f88ea55b7f6ab98addfaacea6"
+    },
+    {
+      "path": "assets/sprites/arena/caller/small/walk_n_f6.png",
+      "sha256": "b552cdc073a214f6448d9e608ddc3c2036b62b0a92a48cedc4c398b1c69085ec"
+    },
+    {
+      "path": "assets/sprites/arena/caller/small/walk_n_f7.png",
+      "sha256": "76c86aa565790caed3a7e505ba87f3947966700296a0cf58319bbcf9b7f219b6"
+    },
+    {
+      "path": "assets/sprites/arena/caller/small/walk_ne_f0.png",
+      "sha256": "ebe0362f7f43354dce974fcea07d854481a94ddfafe2fd6cd49ec89097fc6918"
+    },
+    {
+      "path": "assets/sprites/arena/caller/small/walk_ne_f1.png",
+      "sha256": "e6df0258fce7abcbefb4f8e3ba42c0e29bf4b28998578c8bb15e7e1895d09761"
+    },
+    {
+      "path": "assets/sprites/arena/caller/small/walk_ne_f2.png",
+      "sha256": "922f9b8a651d5f9fdac5e3a90ba0ab30b0e9fd403a8eecc4434df4b2da7e47e1"
+    },
+    {
+      "path": "assets/sprites/arena/caller/small/walk_ne_f3.png",
+      "sha256": "f27b81a6a3c442511ad35bb3b0a8e37bc0f5b28dca778b059ba4ba157e7450dc"
+    },
+    {
+      "path": "assets/sprites/arena/caller/small/walk_ne_f4.png",
+      "sha256": "5a80d7af8ba640503a6d48c3c4f651bb408def12007980731f5e316031607442"
+    },
+    {
+      "path": "assets/sprites/arena/caller/small/walk_ne_f5.png",
+      "sha256": "7388b945f84c828ace4752d51a8b1364324ccc6a12c5c7e706a1fcde42467923"
+    },
+    {
+      "path": "assets/sprites/arena/caller/small/walk_ne_f6.png",
+      "sha256": "6f6cd0d7de851e06666091982c25d78ec926327fc2cc40328a5839e76628a886"
+    },
+    {
+      "path": "assets/sprites/arena/caller/small/walk_ne_f7.png",
+      "sha256": "769b3f0c43a425dfe2783ed41030b13b4e3ed7873a713f035354b343475dd1f3"
+    },
+    {
+      "path": "assets/sprites/arena/caller/small/walk_nw_f0.png",
+      "sha256": "4177bf42874118755646bf09daed1cf29af88e3d3592fa4079f9c4d647956d27"
+    },
+    {
+      "path": "assets/sprites/arena/caller/small/walk_nw_f1.png",
+      "sha256": "7ed35ebf8612f3b8ff6bfc30780b1f78577e3aac38ef1f3b32d3c89d99abbce3"
+    },
+    {
+      "path": "assets/sprites/arena/caller/small/walk_nw_f2.png",
+      "sha256": "678947aade334a1c0569c38bb0c0c286978986bf8b3dc53cd6318ead6ba1b447"
+    },
+    {
+      "path": "assets/sprites/arena/caller/small/walk_nw_f3.png",
+      "sha256": "589d31cac2809ba9ca1dcf0eaa5f46942374666794fda17ea6e9377212204adc"
+    },
+    {
+      "path": "assets/sprites/arena/caller/small/walk_nw_f4.png",
+      "sha256": "b95342ca4139f7f6604536c9bdc823b0d58164ca078bdbb38de942b28abd2ccc"
+    },
+    {
+      "path": "assets/sprites/arena/caller/small/walk_nw_f5.png",
+      "sha256": "75ceea0717c2dd81bb2df3c4087b54518335f6a3a45661f50bf82da789182a37"
+    },
+    {
+      "path": "assets/sprites/arena/caller/small/walk_nw_f6.png",
+      "sha256": "1e331e063e62cbdf48446a0db62a2f7afe931f5d1c50bbe11f026562a0dcba56"
+    },
+    {
+      "path": "assets/sprites/arena/caller/small/walk_nw_f7.png",
+      "sha256": "7c4e0c538df2ae3e1d29cf2ef453de20b290fe3ae996de393ea900f5135cdf44"
+    },
+    {
+      "path": "assets/sprites/arena/caller/small/walk_s_f0.png",
+      "sha256": "32811f20cf4203bb8ae145420dab47df12c1f40deb862537bf84888352aad54f"
+    },
+    {
+      "path": "assets/sprites/arena/caller/small/walk_s_f1.png",
+      "sha256": "7638730487324d803673554c6bfcab1e7590186681226a91e02dbfd4d319d17d"
+    },
+    {
+      "path": "assets/sprites/arena/caller/small/walk_s_f2.png",
+      "sha256": "b007d647ccb3dc02f8f3cafadc6136fbc80c9937ddf16d44b5ae310b1ee73b4a"
+    },
+    {
+      "path": "assets/sprites/arena/caller/small/walk_s_f3.png",
+      "sha256": "d2de613600d37fbcad7cbb829362ba0caa70342035ed2e47bbba50e4e1d665ef"
+    },
+    {
+      "path": "assets/sprites/arena/caller/small/walk_s_f4.png",
+      "sha256": "92c7147b1ae14f3819c8a8bde7634498b514c0b9a8bd03a4417367472bc149bb"
+    },
+    {
+      "path": "assets/sprites/arena/caller/small/walk_s_f5.png",
+      "sha256": "ec610c17f36f3757b6bee428359efbffa722daddadc3be78e9037b7643dcc8ae"
+    },
+    {
+      "path": "assets/sprites/arena/caller/small/walk_s_f6.png",
+      "sha256": "f6573919a279f3b2a567ae7530b2ff95460ec788588164c483257feb39dccb30"
+    },
+    {
+      "path": "assets/sprites/arena/caller/small/walk_s_f7.png",
+      "sha256": "75081103a5e3572a689292405d3d709534ded1aee56336e61023fcacd6a20fd1"
+    },
+    {
+      "path": "assets/sprites/arena/caller/small/walk_se_f0.png",
+      "sha256": "4ce7339fa20222203e20825224bf4bc60f3d621b7282302ba6018900c82a38d8"
+    },
+    {
+      "path": "assets/sprites/arena/caller/small/walk_se_f1.png",
+      "sha256": "8ae4f7acda2d72c97814fee6eaaf284eefc29ee9c7614a043f376f14dfdd5540"
+    },
+    {
+      "path": "assets/sprites/arena/caller/small/walk_se_f2.png",
+      "sha256": "c9008f6f5e74f886277067a75b71efa99172d9b32addedcd849c8f39f938631c"
+    },
+    {
+      "path": "assets/sprites/arena/caller/small/walk_se_f3.png",
+      "sha256": "7a636d91f4c3a5bcb23a61d4fd9aa22c553506ee16f154f7fe6478aa52ec8bda"
+    },
+    {
+      "path": "assets/sprites/arena/caller/small/walk_se_f4.png",
+      "sha256": "85fbdc6cdd1046ac9ff99ad4df2339a71684d3f07078c7bf7ecf3d4e3e61d398"
+    },
+    {
+      "path": "assets/sprites/arena/caller/small/walk_se_f5.png",
+      "sha256": "fadb891d142eb7d8735845a46ad6cae4d4191ab8e09c9961b90fff8bf05faf02"
+    },
+    {
+      "path": "assets/sprites/arena/caller/small/walk_se_f6.png",
+      "sha256": "42dc303c4d61372e8782753040e53fedab6937657a036e6945ac83c65b282766"
+    },
+    {
+      "path": "assets/sprites/arena/caller/small/walk_se_f7.png",
+      "sha256": "0526eef29900aeb30fc9ba35285fc36f0667da86526f9adc0d5004c413a9ebb6"
+    },
+    {
+      "path": "assets/sprites/arena/caller/small/walk_sw_f0.png",
+      "sha256": "ffc04fcd5e08273e7c21ec6b49a62186f26910954cfa68619287fb33a809aef1"
+    },
+    {
+      "path": "assets/sprites/arena/caller/small/walk_sw_f1.png",
+      "sha256": "a02912937c2e3c9c4b801e41f3d43b3c4e574ac9ecbd53fb7098c2d2456eb921"
+    },
+    {
+      "path": "assets/sprites/arena/caller/small/walk_sw_f2.png",
+      "sha256": "ae8b699fb568dc76d92af9606aa945b645490969aefe43d0e6a43daae91aa2be"
+    },
+    {
+      "path": "assets/sprites/arena/caller/small/walk_sw_f3.png",
+      "sha256": "64b1b495dc0f1525cf5aa116b28d2f3ffb28cd851c02c0c20149d9701bb904c4"
+    },
+    {
+      "path": "assets/sprites/arena/caller/small/walk_sw_f4.png",
+      "sha256": "79d476a719082e03e069199ead6eb6b93d851bef30545776b811f37b9eb7cb77"
+    },
+    {
+      "path": "assets/sprites/arena/caller/small/walk_sw_f5.png",
+      "sha256": "246df7f822b0d186e1334d29495c9ab63d4b6f93ccf9fe3a92f432d57f01c038"
+    },
+    {
+      "path": "assets/sprites/arena/caller/small/walk_sw_f6.png",
+      "sha256": "accabadc54efefc8eaeb2838cc28d0b684bdf3e491303d478528d8b6280a656f"
+    },
+    {
+      "path": "assets/sprites/arena/caller/small/walk_sw_f7.png",
+      "sha256": "a581804a446f6e9daf32ed2c820623da20d435c460a2f4d818287546c9a2b97f"
+    },
+    {
+      "path": "assets/sprites/arena/caller/small/walk_w_f0.png",
+      "sha256": "dc8bc051ad86a94b36acbdefd0066e7a507f5d26c6b82b54d27bf5958ae538a4"
+    },
+    {
+      "path": "assets/sprites/arena/caller/small/walk_w_f1.png",
+      "sha256": "e2643629eee5d9852b2fff827cfbaf0840016dd49c0de9437d943747edd5cefb"
+    },
+    {
+      "path": "assets/sprites/arena/caller/small/walk_w_f2.png",
+      "sha256": "57f8618ac4570c45f3f426f379d6cca6a1f0a86a1385e89912f69c89fc7d55d6"
+    },
+    {
+      "path": "assets/sprites/arena/caller/small/walk_w_f3.png",
+      "sha256": "6ccf56e838426fb6f0c33ce4dcab85008c3a4db6301d235335915b17a3600b22"
+    },
+    {
+      "path": "assets/sprites/arena/caller/small/walk_w_f4.png",
+      "sha256": "84a9339b6987ded403b4c2f03d05448d013516f3832a032057a30ae13d3c77c4"
+    },
+    {
+      "path": "assets/sprites/arena/caller/small/walk_w_f5.png",
+      "sha256": "4199bc9d614c1f0f7211c0fa6112eb7320a09bd59b168810387c4c3ddabfde6d"
+    },
+    {
+      "path": "assets/sprites/arena/caller/small/walk_w_f6.png",
+      "sha256": "7b7063615a8ebf822b55e419bba2143a74ffeed2c8ab926db4a96d60b0400cc9"
+    },
+    {
+      "path": "assets/sprites/arena/caller/small/walk_w_f7.png",
+      "sha256": "2c115c04de97b2123649bd50268a8b59d4c6be1a2ea3b5f238d98be594a52fe3"
+    },
+    {
+      "path": "assets/sprites/arena/warden/small/e.png",
+      "sha256": "7544aad20fae132ed9c6fe911e062095de2975502d3cb2ce4d718bdeff7c16b8"
+    },
+    {
+      "path": "assets/sprites/arena/warden/small/n.png",
+      "sha256": "25c93c96473a6bda2325cec4c432e2678b4aed3086881ba21ac02ee02d12c57c"
+    },
+    {
+      "path": "assets/sprites/arena/warden/small/ne.png",
+      "sha256": "c40689176affcfce8ef857ef842de03b9fa744eefca716b39da7158a6da96a82"
+    },
+    {
+      "path": "assets/sprites/arena/warden/small/nw.png",
+      "sha256": "1d6c2b3312a7ab651f181f27338368d8966ab0262be2820f5751e19802d8cd05"
+    },
+    {
+      "path": "assets/sprites/arena/warden/small/s.png",
+      "sha256": "e6efb6b25550475b17d1b1917f9a2ea57d8e133a00c03a1f44095086198602b0"
+    },
+    {
+      "path": "assets/sprites/arena/warden/small/se.png",
+      "sha256": "f2a6fce8b3a5adcdd6c4bccfd3212b4eb3f83e2b580323431575f598268309e5"
+    },
+    {
+      "path": "assets/sprites/arena/warden/small/sw.png",
+      "sha256": "ded9196d5bd9689952cfa5e572c919e65f95709707edced52a43ccf818348158"
+    },
+    {
+      "path": "assets/sprites/arena/warden/small/w.png",
+      "sha256": "376b187f4c870513f26ee2605a298f740a83400ce30f8edd0287df4003c48a0e"
+    },
+    {
+      "path": "assets/sprites/arena/warden/small/walk_e_f0.png",
+      "sha256": "2d9a68252b38df7adbadd905865264b8ab933f673a956bca25f113c203dd2186"
+    },
+    {
+      "path": "assets/sprites/arena/warden/small/walk_e_f1.png",
+      "sha256": "18a917c3103b5dd29fd0236e9574fbf3d199a7665d9160d242ae66ae0052dc62"
+    },
+    {
+      "path": "assets/sprites/arena/warden/small/walk_e_f2.png",
+      "sha256": "e915727fd5bf923b1f95ad28a34d6e7133525a4c97790363e7a7ace75747fe54"
+    },
+    {
+      "path": "assets/sprites/arena/warden/small/walk_e_f3.png",
+      "sha256": "9a85fdeff195f2345e99ce5e92202d1b84f60b28c43d458f6451293213637c23"
+    },
+    {
+      "path": "assets/sprites/arena/warden/small/walk_e_f4.png",
+      "sha256": "cc00648ae62e46d971e133afa7d0933562b0ab64e5f642376694f7e5054eafe2"
+    },
+    {
+      "path": "assets/sprites/arena/warden/small/walk_e_f5.png",
+      "sha256": "8ba579534ea8103b01ba7275e4bd5a55d6ae5e294872563ca363b2fad864727c"
+    },
+    {
+      "path": "assets/sprites/arena/warden/small/walk_e_f6.png",
+      "sha256": "cf4a43e594825981fae620dcc1128047f2df4dda3f748ab9e0e4a3932991fba3"
+    },
+    {
+      "path": "assets/sprites/arena/warden/small/walk_e_f7.png",
+      "sha256": "bedddbcd116b57bf96e91a2f7be5407c85e7d01fb14e6bded5509ad0b2a48e27"
+    },
+    {
+      "path": "assets/sprites/arena/warden/small/walk_n_f0.png",
+      "sha256": "c0c4233079aaabf2496bc547e30780e9a0809930467bc199a28de44f94bf45b6"
+    },
+    {
+      "path": "assets/sprites/arena/warden/small/walk_n_f1.png",
+      "sha256": "84884936dbc0981fce89cb59b1ad385f0e2f6e24730b47212110d25db343e213"
+    },
+    {
+      "path": "assets/sprites/arena/warden/small/walk_n_f2.png",
+      "sha256": "5a77078191d72b09624bdee68a8d1808e26b2515505344d872d43bf9b3bf1b30"
+    },
+    {
+      "path": "assets/sprites/arena/warden/small/walk_n_f3.png",
+      "sha256": "f353a4df6519e6425cb8179146c5ec0da3b4f003f8adb5284d4ae05ff28d0b04"
+    },
+    {
+      "path": "assets/sprites/arena/warden/small/walk_n_f4.png",
+      "sha256": "4a89ed7150e9fbd8133fd45447caa7508a182e15fd22358a814a8727823ed8d5"
+    },
+    {
+      "path": "assets/sprites/arena/warden/small/walk_n_f5.png",
+      "sha256": "82c91f890b4bada51f7109b8ee36df797dbe1bd9fb5b46a613053194d7136f2f"
+    },
+    {
+      "path": "assets/sprites/arena/warden/small/walk_n_f6.png",
+      "sha256": "c2083204688f1cc1725b632d9f5dc780c59057f9888992735a919704a9dbf9d0"
+    },
+    {
+      "path": "assets/sprites/arena/warden/small/walk_n_f7.png",
+      "sha256": "e9399e61a18fd101290ff6cb170857409eec5a24976beb60bb6ad87a0d9f605a"
+    },
+    {
+      "path": "assets/sprites/arena/warden/small/walk_ne_f0.png",
+      "sha256": "da790cd67062605ecf22d67eb7fe260902d056e131bacdab3a9b17fd1e7060bd"
+    },
+    {
+      "path": "assets/sprites/arena/warden/small/walk_ne_f1.png",
+      "sha256": "3ff5895152c4aefa328d553298f4f4baa6ccabce45ffdfeb51572471fc76b9ec"
+    },
+    {
+      "path": "assets/sprites/arena/warden/small/walk_ne_f2.png",
+      "sha256": "417988f282179366635e38aec4cf4f893ac48c70f4ea7bafeaa2d6b848c600b8"
+    },
+    {
+      "path": "assets/sprites/arena/warden/small/walk_ne_f3.png",
+      "sha256": "d06286b3d70b84b3f3bb026e1f0a07b87075c194899aa12968b128e0ac63f6a9"
+    },
+    {
+      "path": "assets/sprites/arena/warden/small/walk_ne_f4.png",
+      "sha256": "66c63ff05a79fe923da1ed11fe51e06658d2b9ba3899b4b1eabe6c456da96ec4"
+    },
+    {
+      "path": "assets/sprites/arena/warden/small/walk_ne_f5.png",
+      "sha256": "76eeab5fd96f6172b4bd74d9d11bb202b9b8ae054cacf73816895594098cfeaa"
+    },
+    {
+      "path": "assets/sprites/arena/warden/small/walk_ne_f6.png",
+      "sha256": "3e05dc859707483eab5e2548fe8941e21f036ce8d3c7deda1c9d42d740fb3e98"
+    },
+    {
+      "path": "assets/sprites/arena/warden/small/walk_ne_f7.png",
+      "sha256": "9ac4b0a6fda3d1cd8cf0f934b12832ed0a83127f47a2835a5917c7ac8a06b8ad"
+    },
+    {
+      "path": "assets/sprites/arena/warden/small/walk_nw_f0.png",
+      "sha256": "e71cc435e8405ba393c3a091b8ad023bbd262c439c8bfeef1439da6faa24d8a2"
+    },
+    {
+      "path": "assets/sprites/arena/warden/small/walk_nw_f1.png",
+      "sha256": "8e511977beade3011fef5ebbcd1a430fe730da49bc4eff28e1a35c96a26cf89d"
+    },
+    {
+      "path": "assets/sprites/arena/warden/small/walk_nw_f2.png",
+      "sha256": "a2a197baf7a66949b21172f74301fd9845d3cd99732605c27de07c9f84bca2f2"
+    },
+    {
+      "path": "assets/sprites/arena/warden/small/walk_nw_f3.png",
+      "sha256": "ef973b4a56755b42f56dfc220a9c8aa42fbfa26a8445746adc9028371746e323"
+    },
+    {
+      "path": "assets/sprites/arena/warden/small/walk_nw_f4.png",
+      "sha256": "a43c8aa73a9801aab87a43e3bb8d450f90c8c1dc02306998c13bb529346fb30a"
+    },
+    {
+      "path": "assets/sprites/arena/warden/small/walk_nw_f5.png",
+      "sha256": "04dc94a0ea9d4254a38be0e4b2b8cb58020bfc64c632e6054729655cf55e83c0"
+    },
+    {
+      "path": "assets/sprites/arena/warden/small/walk_nw_f6.png",
+      "sha256": "c718d3fbd394c0c027e284c800f33625cefbfc6ce9ee4a55992533882db2a019"
+    },
+    {
+      "path": "assets/sprites/arena/warden/small/walk_nw_f7.png",
+      "sha256": "7ca1cfcd6cb838722b1fd6a947e32c3edb8da27807a15dfd66b945b882cd79c3"
+    },
+    {
+      "path": "assets/sprites/arena/warden/small/walk_s_f0.png",
+      "sha256": "5ee7e64ffbb385a1b2aebc919cb7ee3f8752f3306ca77f723f89ef6e63e96bd8"
+    },
+    {
+      "path": "assets/sprites/arena/warden/small/walk_s_f1.png",
+      "sha256": "3b2cffa1903ce56be5a8aa830953e136aa8b7e85d73cfb840e3da9497d493daa"
+    },
+    {
+      "path": "assets/sprites/arena/warden/small/walk_s_f2.png",
+      "sha256": "c9e5c6bffb3cf010a533284af626de1f5b09e0f0e3d9ec0691843af9641f5f48"
+    },
+    {
+      "path": "assets/sprites/arena/warden/small/walk_s_f3.png",
+      "sha256": "f3ef631c9b45661ed55c160affcb22c0865fa1d93583254b31995c64535269bd"
+    },
+    {
+      "path": "assets/sprites/arena/warden/small/walk_s_f4.png",
+      "sha256": "3d73431357b6a983fcdfb524d3885fa2baaf3cd4af72e6bbdae030545f18fefa"
+    },
+    {
+      "path": "assets/sprites/arena/warden/small/walk_s_f5.png",
+      "sha256": "ada62701d0e68d6c8bf28c87d61cb41ecefb4bb7601b95fbaafca27122e930f9"
+    },
+    {
+      "path": "assets/sprites/arena/warden/small/walk_s_f6.png",
+      "sha256": "df41ce5837d4cc3cd69a1662b845f3a7fdeeefa03bb43fb92ec59215f1742bad"
+    },
+    {
+      "path": "assets/sprites/arena/warden/small/walk_s_f7.png",
+      "sha256": "91a5f7f4e6d9fdd1e99e119ffc7c0bdba994173fb2a8682452d0d4f4b07165e2"
+    },
+    {
+      "path": "assets/sprites/arena/warden/small/walk_se_f0.png",
+      "sha256": "055c74ea24e3442b1e928b6edb5a70fbfcba1713fa92707a8534234db69f800c"
+    },
+    {
+      "path": "assets/sprites/arena/warden/small/walk_se_f1.png",
+      "sha256": "7336f61aa1d9f2544905f6a803d6407004ed0aeb4e2176a2d86b294a601ac734"
+    },
+    {
+      "path": "assets/sprites/arena/warden/small/walk_se_f2.png",
+      "sha256": "b2e32d5049054cc5c31088a7cf378cbac4808a60bbafe67308a1580fdd82dad0"
+    },
+    {
+      "path": "assets/sprites/arena/warden/small/walk_se_f3.png",
+      "sha256": "69ce1afc46f0c369d5bae206acb79798628d6ad2c83e3c15cf2dbd14792ba6dc"
+    },
+    {
+      "path": "assets/sprites/arena/warden/small/walk_se_f4.png",
+      "sha256": "eb17612332dd94397da3c082b78a55edf5ee95f83cad2cb76a7d606ff2d6405c"
+    },
+    {
+      "path": "assets/sprites/arena/warden/small/walk_se_f5.png",
+      "sha256": "d74b751bbcc7be5ad9f193a62f20ffe1b9b4675c69cd8c27bd9b1574bcbab615"
+    },
+    {
+      "path": "assets/sprites/arena/warden/small/walk_se_f6.png",
+      "sha256": "18d6f9daff8b37200b9386e6d41daeb502672cd298a4c4dbcf2153b3b818ac1d"
+    },
+    {
+      "path": "assets/sprites/arena/warden/small/walk_se_f7.png",
+      "sha256": "534789d7854b437f599c782d8ff3429d10d8e2f20f1091cccf40b7337b385ccb"
+    },
+    {
+      "path": "assets/sprites/arena/warden/small/walk_sw_f0.png",
+      "sha256": "cd4fb2a395e2e08c1e80cd77ecb77689621849529c4339c9b6603b60b5df5442"
+    },
+    {
+      "path": "assets/sprites/arena/warden/small/walk_sw_f1.png",
+      "sha256": "d444926c4dce02b5ce50da3e7df3e85c9c2c561dd465a120231764f6c07c9f8b"
+    },
+    {
+      "path": "assets/sprites/arena/warden/small/walk_sw_f2.png",
+      "sha256": "540dec2b9b4a3801f042680f88ded8b7d819836c014921129b2fb43e08c37203"
+    },
+    {
+      "path": "assets/sprites/arena/warden/small/walk_sw_f3.png",
+      "sha256": "4c1aef5f176d185555e0c977076f3fdd4c227000181e35ee78faaf9a6528dd67"
+    },
+    {
+      "path": "assets/sprites/arena/warden/small/walk_sw_f4.png",
+      "sha256": "7148a0522434880c898ca00d84dd15d6a77a34f19dfaec291071aac453c3ee75"
+    },
+    {
+      "path": "assets/sprites/arena/warden/small/walk_sw_f5.png",
+      "sha256": "c6a6b339f96fdc38faa87721a20c3a0fffae5d7b320a63cc2d1d193f0dfaddbc"
+    },
+    {
+      "path": "assets/sprites/arena/warden/small/walk_sw_f6.png",
+      "sha256": "73d7e79dcfbbcccce6a0791fea96f9d048e40dbe1a25afb4c2a91d6017545d9d"
+    },
+    {
+      "path": "assets/sprites/arena/warden/small/walk_sw_f7.png",
+      "sha256": "7764c54f5fe23fc66a762188758ffb57c8e98f24e5c9d8c140f80aa70ce138da"
+    },
+    {
+      "path": "assets/sprites/arena/warden/small/walk_w_f0.png",
+      "sha256": "b424ec09c6d08e19072e1c61ef4c5060efda104e4e9e916559ef639390f54565"
+    },
+    {
+      "path": "assets/sprites/arena/warden/small/walk_w_f1.png",
+      "sha256": "390d00f95d779d41db3419593bcca3543f30a9ab943226b7a03de42a47b2d175"
+    },
+    {
+      "path": "assets/sprites/arena/warden/small/walk_w_f2.png",
+      "sha256": "78577c485a63c0811efc3672259d15fe62a92db55e89313901c2c4d2a07f856b"
+    },
+    {
+      "path": "assets/sprites/arena/warden/small/walk_w_f3.png",
+      "sha256": "18ab0abce58fa27615172b7df43f3f5d098ac91178cd109b6021b6f30adc795d"
+    },
+    {
+      "path": "assets/sprites/arena/warden/small/walk_w_f4.png",
+      "sha256": "f33673b9ab45ec11e9499bd032a2836f4723c37d8a4815b9cfc2f3a2a798b95a"
+    },
+    {
+      "path": "assets/sprites/arena/warden/small/walk_w_f5.png",
+      "sha256": "1aa5c6a304208aae45c6bda5e7b579a2c3d7e4a19de85a8f7a19792a3a0194c0"
+    },
+    {
+      "path": "assets/sprites/arena/warden/small/walk_w_f6.png",
+      "sha256": "20e9543ca97071623371c312f5b2434ae2c5b9f76646d3fbca326ff5a0f3d752"
+    },
+    {
+      "path": "assets/sprites/arena/warden/small/walk_w_f7.png",
+      "sha256": "253d52955b24764f35a2cef9f29f6e64c1922faa8150009bc46c84ab486a85f6"
+    },
+    {
+      "path": "tools/arena/refine_listener_palette.py",
+      "sha256": "41d441b08c3bb4c9e518923dd656e48dd27e01b434fb8df1a2c5e768920a6d42"
+    },
+    {
+      "path": "tools/debug/listener_palette_check.gd",
+      "sha256": "027e0609afdd0ed17979d6e14f5f6801e832873247e1f541b6d6dfac35698453"
+    }
+  ],
+  "originals_preserved": 261,
+  "native_assertions": 436,
+  "pipeline_comparisons": 216,
+  "reproduction_matches": 255,
+  "unrelated_files_compared": 4246,
+  "unrelated_concurrent_changes_during_install": [],
+  "protected_seven_form_images": 620,
+  "protected_original_palette_entries": 622,
+  "protected_galeshear_images": 86,
+  "tested_arena_sha256": "c908b2e11a8576e4a9275e80ec779fd89530177025a224fa287c919392102ade",
+  "live_arena_sha256": "c908b2e11a8576e4a9275e80ec779fd89530177025a224fa287c919392102ade",
+  "later_concurrent_code_changes": [],
+  "settings_unchanged": true,
+  "pre_final_check_arena_sha256": "50253499b15415a70ed839b3d02c0fdcec98a24087f961aa12683207a8bea747"
+}

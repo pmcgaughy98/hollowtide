@@ -1,0 +1,1603 @@
+{
+  "images": [
+    {
+      "path": "assets/sprites/arena/listener/s.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 383
+    },
+    {
+      "path": "assets/sprites/arena/listener/se.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 409
+    },
+    {
+      "path": "assets/sprites/arena/listener/e.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 864
+    },
+    {
+      "path": "assets/sprites/arena/listener/ne.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 936
+    },
+    {
+      "path": "assets/sprites/arena/listener/n.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 895
+    },
+    {
+      "path": "assets/sprites/arena/listener/nw.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 855
+    },
+    {
+      "path": "assets/sprites/arena/listener/w.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 1391
+    },
+    {
+      "path": "assets/sprites/arena/listener/sw.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 608
+    },
+    {
+      "path": "docs/creatures/arena-starters-2026-10-07/walk/listener_e_sheet.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 4673
+    },
+    {
+      "path": "docs/creatures/arena-starters-2026-10-07/walk/listener_n_sheet.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 6912
+    },
+    {
+      "path": "docs/creatures/arena-starters-2026-10-07/walk/listener_ne_sheet.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 7390
+    },
+    {
+      "path": "docs/creatures/arena-starters-2026-10-07/walk/listener_s_sheet.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 3694
+    },
+    {
+      "path": "docs/creatures/arena-starters-2026-10-07/walk/listener_se_sheet.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 6213
+    },
+    {
+      "path": "assets/sprites/arena/caller/s.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 1385
+    },
+    {
+      "path": "assets/sprites/arena/caller/se.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 936
+    },
+    {
+      "path": "assets/sprites/arena/caller/e.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 1108
+    },
+    {
+      "path": "assets/sprites/arena/caller/ne.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 2069
+    },
+    {
+      "path": "assets/sprites/arena/caller/n.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 1035
+    },
+    {
+      "path": "assets/sprites/arena/caller/nw.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 2034
+    },
+    {
+      "path": "assets/sprites/arena/caller/w.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 785
+    },
+    {
+      "path": "assets/sprites/arena/caller/sw.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 603
+    },
+    {
+      "path": "docs/creatures/arena-starters-2026-10-07/walk/caller_e_sheet.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 11134
+    },
+    {
+      "path": "docs/creatures/arena-starters-2026-10-07/walk/caller_n_sheet.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 7773
+    },
+    {
+      "path": "docs/creatures/arena-starters-2026-10-07/walk/caller_ne_sheet.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 16960
+    },
+    {
+      "path": "docs/creatures/arena-starters-2026-10-07/walk/caller_s_sheet.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 7168
+    },
+    {
+      "path": "docs/creatures/arena-starters-2026-10-07/walk/caller_se_sheet.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 6427
+    },
+    {
+      "path": "assets/sprites/arena/warden/s.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 1671
+    },
+    {
+      "path": "assets/sprites/arena/warden/se.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 1027
+    },
+    {
+      "path": "assets/sprites/arena/warden/e.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 814
+    },
+    {
+      "path": "assets/sprites/arena/warden/ne.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 782
+    },
+    {
+      "path": "assets/sprites/arena/warden/n.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 613
+    },
+    {
+      "path": "assets/sprites/arena/warden/nw.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 1884
+    },
+    {
+      "path": "assets/sprites/arena/warden/w.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 816
+    },
+    {
+      "path": "assets/sprites/arena/warden/sw.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 919
+    },
+    {
+      "path": "docs/creatures/arena-starters-2026-10-07/walk/warden_e_sheet.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 11614
+    },
+    {
+      "path": "docs/creatures/arena-starters-2026-10-07/walk/warden_n_sheet.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 8031
+    },
+    {
+      "path": "docs/creatures/arena-starters-2026-10-07/walk/warden_ne_sheet.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 15221
+    },
+    {
+      "path": "docs/creatures/arena-starters-2026-10-07/walk/warden_s_sheet.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 6939
+    },
+    {
+      "path": "docs/creatures/arena-starters-2026-10-07/walk/warden_se_sheet.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 7544
+    },
+    {
+      "path": "assets/sprites/arena/listener/small/e.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 79
+    },
+    {
+      "path": "assets/sprites/arena/listener/small/n.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 85
+    },
+    {
+      "path": "assets/sprites/arena/listener/small/ne.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 67
+    },
+    {
+      "path": "assets/sprites/arena/listener/small/nw.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 74
+    },
+    {
+      "path": "assets/sprites/arena/listener/small/s.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 38
+    },
+    {
+      "path": "assets/sprites/arena/listener/small/se.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 33
+    },
+    {
+      "path": "assets/sprites/arena/listener/small/sw.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 42
+    },
+    {
+      "path": "assets/sprites/arena/listener/small/w.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 127
+    },
+    {
+      "path": "assets/sprites/arena/listener/small/walk_e_f0.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 54
+    },
+    {
+      "path": "assets/sprites/arena/listener/small/walk_e_f1.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 76
+    },
+    {
+      "path": "assets/sprites/arena/listener/small/walk_e_f2.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 88
+    },
+    {
+      "path": "assets/sprites/arena/listener/small/walk_e_f3.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 47
+    },
+    {
+      "path": "assets/sprites/arena/listener/small/walk_e_f4.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 54
+    },
+    {
+      "path": "assets/sprites/arena/listener/small/walk_e_f5.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 24
+    },
+    {
+      "path": "assets/sprites/arena/listener/small/walk_e_f6.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 82
+    },
+    {
+      "path": "assets/sprites/arena/listener/small/walk_e_f7.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 71
+    },
+    {
+      "path": "assets/sprites/arena/listener/small/walk_n_f0.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 71
+    },
+    {
+      "path": "assets/sprites/arena/listener/small/walk_n_f1.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 90
+    },
+    {
+      "path": "assets/sprites/arena/listener/small/walk_n_f2.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 69
+    },
+    {
+      "path": "assets/sprites/arena/listener/small/walk_n_f3.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 68
+    },
+    {
+      "path": "assets/sprites/arena/listener/small/walk_n_f4.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 76
+    },
+    {
+      "path": "assets/sprites/arena/listener/small/walk_n_f5.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 79
+    },
+    {
+      "path": "assets/sprites/arena/listener/small/walk_n_f6.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 81
+    },
+    {
+      "path": "assets/sprites/arena/listener/small/walk_n_f7.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 92
+    },
+    {
+      "path": "assets/sprites/arena/listener/small/walk_ne_f0.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 69
+    },
+    {
+      "path": "assets/sprites/arena/listener/small/walk_ne_f1.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 82
+    },
+    {
+      "path": "assets/sprites/arena/listener/small/walk_ne_f2.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 65
+    },
+    {
+      "path": "assets/sprites/arena/listener/small/walk_ne_f3.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 63
+    },
+    {
+      "path": "assets/sprites/arena/listener/small/walk_ne_f4.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 67
+    },
+    {
+      "path": "assets/sprites/arena/listener/small/walk_ne_f5.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 92
+    },
+    {
+      "path": "assets/sprites/arena/listener/small/walk_ne_f6.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 69
+    },
+    {
+      "path": "assets/sprites/arena/listener/small/walk_ne_f7.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 72
+    },
+    {
+      "path": "assets/sprites/arena/listener/small/walk_nw_f0.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 69
+    },
+    {
+      "path": "assets/sprites/arena/listener/small/walk_nw_f1.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 82
+    },
+    {
+      "path": "assets/sprites/arena/listener/small/walk_nw_f2.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 65
+    },
+    {
+      "path": "assets/sprites/arena/listener/small/walk_nw_f3.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 63
+    },
+    {
+      "path": "assets/sprites/arena/listener/small/walk_nw_f4.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 67
+    },
+    {
+      "path": "assets/sprites/arena/listener/small/walk_nw_f5.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 92
+    },
+    {
+      "path": "assets/sprites/arena/listener/small/walk_nw_f6.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 69
+    },
+    {
+      "path": "assets/sprites/arena/listener/small/walk_nw_f7.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 72
+    },
+    {
+      "path": "assets/sprites/arena/listener/small/walk_s_f0.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 87
+    },
+    {
+      "path": "assets/sprites/arena/listener/small/walk_s_f1.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 45
+    },
+    {
+      "path": "assets/sprites/arena/listener/small/walk_s_f2.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 27
+    },
+    {
+      "path": "assets/sprites/arena/listener/small/walk_s_f3.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 46
+    },
+    {
+      "path": "assets/sprites/arena/listener/small/walk_s_f4.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 49
+    },
+    {
+      "path": "assets/sprites/arena/listener/small/walk_s_f5.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 34
+    },
+    {
+      "path": "assets/sprites/arena/listener/small/walk_s_f6.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 28
+    },
+    {
+      "path": "assets/sprites/arena/listener/small/walk_s_f7.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 28
+    },
+    {
+      "path": "assets/sprites/arena/listener/small/walk_se_f0.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 82
+    },
+    {
+      "path": "assets/sprites/arena/listener/small/walk_se_f1.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 45
+    },
+    {
+      "path": "assets/sprites/arena/listener/small/walk_se_f2.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 71
+    },
+    {
+      "path": "assets/sprites/arena/listener/small/walk_se_f3.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 42
+    },
+    {
+      "path": "assets/sprites/arena/listener/small/walk_se_f4.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 77
+    },
+    {
+      "path": "assets/sprites/arena/listener/small/walk_se_f5.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 65
+    },
+    {
+      "path": "assets/sprites/arena/listener/small/walk_se_f6.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 84
+    },
+    {
+      "path": "assets/sprites/arena/listener/small/walk_se_f7.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 51
+    },
+    {
+      "path": "assets/sprites/arena/listener/small/walk_sw_f0.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 82
+    },
+    {
+      "path": "assets/sprites/arena/listener/small/walk_sw_f1.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 45
+    },
+    {
+      "path": "assets/sprites/arena/listener/small/walk_sw_f2.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 71
+    },
+    {
+      "path": "assets/sprites/arena/listener/small/walk_sw_f3.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 42
+    },
+    {
+      "path": "assets/sprites/arena/listener/small/walk_sw_f4.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 77
+    },
+    {
+      "path": "assets/sprites/arena/listener/small/walk_sw_f5.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 65
+    },
+    {
+      "path": "assets/sprites/arena/listener/small/walk_sw_f6.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 84
+    },
+    {
+      "path": "assets/sprites/arena/listener/small/walk_sw_f7.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 51
+    },
+    {
+      "path": "assets/sprites/arena/listener/small/walk_w_f0.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 54
+    },
+    {
+      "path": "assets/sprites/arena/listener/small/walk_w_f1.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 76
+    },
+    {
+      "path": "assets/sprites/arena/listener/small/walk_w_f2.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 88
+    },
+    {
+      "path": "assets/sprites/arena/listener/small/walk_w_f3.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 47
+    },
+    {
+      "path": "assets/sprites/arena/listener/small/walk_w_f4.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 54
+    },
+    {
+      "path": "assets/sprites/arena/listener/small/walk_w_f5.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 24
+    },
+    {
+      "path": "assets/sprites/arena/listener/small/walk_w_f6.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 82
+    },
+    {
+      "path": "assets/sprites/arena/listener/small/walk_w_f7.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 71
+    },
+    {
+      "path": "assets/sprites/arena/caller/small/e.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 143
+    },
+    {
+      "path": "assets/sprites/arena/caller/small/n.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 138
+    },
+    {
+      "path": "assets/sprites/arena/caller/small/ne.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 228
+    },
+    {
+      "path": "assets/sprites/arena/caller/small/nw.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 230
+    },
+    {
+      "path": "assets/sprites/arena/caller/small/s.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 148
+    },
+    {
+      "path": "assets/sprites/arena/caller/small/se.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 115
+    },
+    {
+      "path": "assets/sprites/arena/caller/small/sw.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 84
+    },
+    {
+      "path": "assets/sprites/arena/caller/small/w.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 102
+    },
+    {
+      "path": "assets/sprites/arena/caller/small/walk_e_f0.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 123
+    },
+    {
+      "path": "assets/sprites/arena/caller/small/walk_e_f1.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 91
+    },
+    {
+      "path": "assets/sprites/arena/caller/small/walk_e_f2.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 205
+    },
+    {
+      "path": "assets/sprites/arena/caller/small/walk_e_f3.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 167
+    },
+    {
+      "path": "assets/sprites/arena/caller/small/walk_e_f4.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 212
+    },
+    {
+      "path": "assets/sprites/arena/caller/small/walk_e_f5.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 146
+    },
+    {
+      "path": "assets/sprites/arena/caller/small/walk_e_f6.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 180
+    },
+    {
+      "path": "assets/sprites/arena/caller/small/walk_e_f7.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 99
+    },
+    {
+      "path": "assets/sprites/arena/caller/small/walk_n_f0.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 141
+    },
+    {
+      "path": "assets/sprites/arena/caller/small/walk_n_f1.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 133
+    },
+    {
+      "path": "assets/sprites/arena/caller/small/walk_n_f2.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 144
+    },
+    {
+      "path": "assets/sprites/arena/caller/small/walk_n_f3.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 115
+    },
+    {
+      "path": "assets/sprites/arena/caller/small/walk_n_f4.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 127
+    },
+    {
+      "path": "assets/sprites/arena/caller/small/walk_n_f5.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 132
+    },
+    {
+      "path": "assets/sprites/arena/caller/small/walk_n_f6.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 99
+    },
+    {
+      "path": "assets/sprites/arena/caller/small/walk_n_f7.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 138
+    },
+    {
+      "path": "assets/sprites/arena/caller/small/walk_ne_f0.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 256
+    },
+    {
+      "path": "assets/sprites/arena/caller/small/walk_ne_f1.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 228
+    },
+    {
+      "path": "assets/sprites/arena/caller/small/walk_ne_f2.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 221
+    },
+    {
+      "path": "assets/sprites/arena/caller/small/walk_ne_f3.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 249
+    },
+    {
+      "path": "assets/sprites/arena/caller/small/walk_ne_f4.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 234
+    },
+    {
+      "path": "assets/sprites/arena/caller/small/walk_ne_f5.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 265
+    },
+    {
+      "path": "assets/sprites/arena/caller/small/walk_ne_f6.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 258
+    },
+    {
+      "path": "assets/sprites/arena/caller/small/walk_ne_f7.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 227
+    },
+    {
+      "path": "assets/sprites/arena/caller/small/walk_nw_f0.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 256
+    },
+    {
+      "path": "assets/sprites/arena/caller/small/walk_nw_f1.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 228
+    },
+    {
+      "path": "assets/sprites/arena/caller/small/walk_nw_f2.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 221
+    },
+    {
+      "path": "assets/sprites/arena/caller/small/walk_nw_f3.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 249
+    },
+    {
+      "path": "assets/sprites/arena/caller/small/walk_nw_f4.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 234
+    },
+    {
+      "path": "assets/sprites/arena/caller/small/walk_nw_f5.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 265
+    },
+    {
+      "path": "assets/sprites/arena/caller/small/walk_nw_f6.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 258
+    },
+    {
+      "path": "assets/sprites/arena/caller/small/walk_nw_f7.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 227
+    },
+    {
+      "path": "assets/sprites/arena/caller/small/walk_s_f0.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 186
+    },
+    {
+      "path": "assets/sprites/arena/caller/small/walk_s_f1.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 168
+    },
+    {
+      "path": "assets/sprites/arena/caller/small/walk_s_f2.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 107
+    },
+    {
+      "path": "assets/sprites/arena/caller/small/walk_s_f3.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 33
+    },
+    {
+      "path": "assets/sprites/arena/caller/small/walk_s_f4.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 74
+    },
+    {
+      "path": "assets/sprites/arena/caller/small/walk_s_f5.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 31
+    },
+    {
+      "path": "assets/sprites/arena/caller/small/walk_s_f6.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 80
+    },
+    {
+      "path": "assets/sprites/arena/caller/small/walk_s_f7.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 84
+    },
+    {
+      "path": "assets/sprites/arena/caller/small/walk_se_f0.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 159
+    },
+    {
+      "path": "assets/sprites/arena/caller/small/walk_se_f1.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 75
+    },
+    {
+      "path": "assets/sprites/arena/caller/small/walk_se_f2.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 87
+    },
+    {
+      "path": "assets/sprites/arena/caller/small/walk_se_f3.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 23
+    },
+    {
+      "path": "assets/sprites/arena/caller/small/walk_se_f4.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 120
+    },
+    {
+      "path": "assets/sprites/arena/caller/small/walk_se_f5.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 56
+    },
+    {
+      "path": "assets/sprites/arena/caller/small/walk_se_f6.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 162
+    },
+    {
+      "path": "assets/sprites/arena/caller/small/walk_se_f7.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 78
+    },
+    {
+      "path": "assets/sprites/arena/caller/small/walk_sw_f0.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 159
+    },
+    {
+      "path": "assets/sprites/arena/caller/small/walk_sw_f1.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 75
+    },
+    {
+      "path": "assets/sprites/arena/caller/small/walk_sw_f2.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 87
+    },
+    {
+      "path": "assets/sprites/arena/caller/small/walk_sw_f3.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 23
+    },
+    {
+      "path": "assets/sprites/arena/caller/small/walk_sw_f4.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 120
+    },
+    {
+      "path": "assets/sprites/arena/caller/small/walk_sw_f5.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 56
+    },
+    {
+      "path": "assets/sprites/arena/caller/small/walk_sw_f6.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 162
+    },
+    {
+      "path": "assets/sprites/arena/caller/small/walk_sw_f7.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 78
+    },
+    {
+      "path": "assets/sprites/arena/caller/small/walk_w_f0.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 123
+    },
+    {
+      "path": "assets/sprites/arena/caller/small/walk_w_f1.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 91
+    },
+    {
+      "path": "assets/sprites/arena/caller/small/walk_w_f2.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 205
+    },
+    {
+      "path": "assets/sprites/arena/caller/small/walk_w_f3.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 167
+    },
+    {
+      "path": "assets/sprites/arena/caller/small/walk_w_f4.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 212
+    },
+    {
+      "path": "assets/sprites/arena/caller/small/walk_w_f5.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 146
+    },
+    {
+      "path": "assets/sprites/arena/caller/small/walk_w_f6.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 180
+    },
+    {
+      "path": "assets/sprites/arena/caller/small/walk_w_f7.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 99
+    },
+    {
+      "path": "assets/sprites/arena/warden/small/e.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 187
+    },
+    {
+      "path": "assets/sprites/arena/warden/small/n.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 125
+    },
+    {
+      "path": "assets/sprites/arena/warden/small/ne.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 234
+    },
+    {
+      "path": "assets/sprites/arena/warden/small/nw.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 274
+    },
+    {
+      "path": "assets/sprites/arena/warden/small/s.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 304
+    },
+    {
+      "path": "assets/sprites/arena/warden/small/se.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 187
+    },
+    {
+      "path": "assets/sprites/arena/warden/small/sw.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 204
+    },
+    {
+      "path": "assets/sprites/arena/warden/small/w.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 166
+    },
+    {
+      "path": "assets/sprites/arena/warden/small/walk_e_f0.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 282
+    },
+    {
+      "path": "assets/sprites/arena/warden/small/walk_e_f1.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 262
+    },
+    {
+      "path": "assets/sprites/arena/warden/small/walk_e_f2.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 131
+    },
+    {
+      "path": "assets/sprites/arena/warden/small/walk_e_f3.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 276
+    },
+    {
+      "path": "assets/sprites/arena/warden/small/walk_e_f4.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 123
+    },
+    {
+      "path": "assets/sprites/arena/warden/small/walk_e_f5.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 272
+    },
+    {
+      "path": "assets/sprites/arena/warden/small/walk_e_f6.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 242
+    },
+    {
+      "path": "assets/sprites/arena/warden/small/walk_e_f7.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 272
+    },
+    {
+      "path": "assets/sprites/arena/warden/small/walk_n_f0.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 249
+    },
+    {
+      "path": "assets/sprites/arena/warden/small/walk_n_f1.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 277
+    },
+    {
+      "path": "assets/sprites/arena/warden/small/walk_n_f2.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 286
+    },
+    {
+      "path": "assets/sprites/arena/warden/small/walk_n_f3.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 264
+    },
+    {
+      "path": "assets/sprites/arena/warden/small/walk_n_f4.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 251
+    },
+    {
+      "path": "assets/sprites/arena/warden/small/walk_n_f5.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 121
+    },
+    {
+      "path": "assets/sprites/arena/warden/small/walk_n_f6.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 113
+    },
+    {
+      "path": "assets/sprites/arena/warden/small/walk_n_f7.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 34
+    },
+    {
+      "path": "assets/sprites/arena/warden/small/walk_ne_f0.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 293
+    },
+    {
+      "path": "assets/sprites/arena/warden/small/walk_ne_f1.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 281
+    },
+    {
+      "path": "assets/sprites/arena/warden/small/walk_ne_f2.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 300
+    },
+    {
+      "path": "assets/sprites/arena/warden/small/walk_ne_f3.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 295
+    },
+    {
+      "path": "assets/sprites/arena/warden/small/walk_ne_f4.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 289
+    },
+    {
+      "path": "assets/sprites/arena/warden/small/walk_ne_f5.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 312
+    },
+    {
+      "path": "assets/sprites/arena/warden/small/walk_ne_f6.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 270
+    },
+    {
+      "path": "assets/sprites/arena/warden/small/walk_ne_f7.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 285
+    },
+    {
+      "path": "assets/sprites/arena/warden/small/walk_nw_f0.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 293
+    },
+    {
+      "path": "assets/sprites/arena/warden/small/walk_nw_f1.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 281
+    },
+    {
+      "path": "assets/sprites/arena/warden/small/walk_nw_f2.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 300
+    },
+    {
+      "path": "assets/sprites/arena/warden/small/walk_nw_f3.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 295
+    },
+    {
+      "path": "assets/sprites/arena/warden/small/walk_nw_f4.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 289
+    },
+    {
+      "path": "assets/sprites/arena/warden/small/walk_nw_f5.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 312
+    },
+    {
+      "path": "assets/sprites/arena/warden/small/walk_nw_f6.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 270
+    },
+    {
+      "path": "assets/sprites/arena/warden/small/walk_nw_f7.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 285
+    },
+    {
+      "path": "assets/sprites/arena/warden/small/walk_s_f0.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 276
+    },
+    {
+      "path": "assets/sprites/arena/warden/small/walk_s_f1.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 146
+    },
+    {
+      "path": "assets/sprites/arena/warden/small/walk_s_f2.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 297
+    },
+    {
+      "path": "assets/sprites/arena/warden/small/walk_s_f3.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 130
+    },
+    {
+      "path": "assets/sprites/arena/warden/small/walk_s_f4.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 169
+    },
+    {
+      "path": "assets/sprites/arena/warden/small/walk_s_f5.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 142
+    },
+    {
+      "path": "assets/sprites/arena/warden/small/walk_s_f6.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 113
+    },
+    {
+      "path": "assets/sprites/arena/warden/small/walk_s_f7.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 131
+    },
+    {
+      "path": "assets/sprites/arena/warden/small/walk_se_f0.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 179
+    },
+    {
+      "path": "assets/sprites/arena/warden/small/walk_se_f1.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 162
+    },
+    {
+      "path": "assets/sprites/arena/warden/small/walk_se_f2.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 157
+    },
+    {
+      "path": "assets/sprites/arena/warden/small/walk_se_f3.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 281
+    },
+    {
+      "path": "assets/sprites/arena/warden/small/walk_se_f4.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 111
+    },
+    {
+      "path": "assets/sprites/arena/warden/small/walk_se_f5.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 165
+    },
+    {
+      "path": "assets/sprites/arena/warden/small/walk_se_f6.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 149
+    },
+    {
+      "path": "assets/sprites/arena/warden/small/walk_se_f7.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 174
+    },
+    {
+      "path": "assets/sprites/arena/warden/small/walk_sw_f0.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 179
+    },
+    {
+      "path": "assets/sprites/arena/warden/small/walk_sw_f1.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 162
+    },
+    {
+      "path": "assets/sprites/arena/warden/small/walk_sw_f2.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 157
+    },
+    {
+      "path": "assets/sprites/arena/warden/small/walk_sw_f3.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 281
+    },
+    {
+      "path": "assets/sprites/arena/warden/small/walk_sw_f4.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 111
+    },
+    {
+      "path": "assets/sprites/arena/warden/small/walk_sw_f5.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 165
+    },
+    {
+      "path": "assets/sprites/arena/warden/small/walk_sw_f6.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 149
+    },
+    {
+      "path": "assets/sprites/arena/warden/small/walk_sw_f7.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 174
+    },
+    {
+      "path": "assets/sprites/arena/warden/small/walk_w_f0.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 282
+    },
+    {
+      "path": "assets/sprites/arena/warden/small/walk_w_f1.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 262
+    },
+    {
+      "path": "assets/sprites/arena/warden/small/walk_w_f2.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 131
+    },
+    {
+      "path": "assets/sprites/arena/warden/small/walk_w_f3.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 276
+    },
+    {
+      "path": "assets/sprites/arena/warden/small/walk_w_f4.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 123
+    },
+    {
+      "path": "assets/sprites/arena/warden/small/walk_w_f5.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 272
+    },
+    {
+      "path": "assets/sprites/arena/warden/small/walk_w_f6.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 242
+    },
+    {
+      "path": "assets/sprites/arena/warden/small/walk_w_f7.png",
+      "same_alpha_canvas": true,
+      "own_palette_only": true,
+      "changed_rgb_pixels": 272
+    }
+  ],
+  "forms": {
+    "listener": {
+      "distinct_walk_frames": {
+        "s": 8,
+        "se": 8,
+        "e": 8,
+        "ne": 8,
+        "n": 8
+      },
+      "game_walk_brightness": {
+        "before": {
+          "min": 64.8506,
+          "max": 74.5407,
+          "std": 2.1475361630249674
+        },
+        "after": {
+          "min": 69.3199,
+          "max": 73.0555,
+          "std": 0.883422665814614
+        }
+      },
+      "palette_colors": 29
+    },
+    "caller": {
+      "distinct_walk_frames": {
+        "s": 8,
+        "se": 8,
+        "e": 8,
+        "ne": 8,
+        "n": 8
+      },
+      "game_walk_brightness": {
+        "before": {
+          "min": 51.9804,
+          "max": 68.0501,
+          "std": 3.4113150092156537
+        },
+        "after": {
+          "min": 56.7089,
+          "max": 71.1516,
+          "std": 2.7678851111893623
+        }
+      },
+      "palette_colors": 28
+    },
+    "warden": {
+      "distinct_walk_frames": {
+        "s": 8,
+        "se": 8,
+        "e": 8,
+        "ne": 8,
+        "n": 8
+      },
+      "game_walk_brightness": {
+        "before": {
+          "min": 63.9639,
+          "max": 70.9987,
+          "std": 1.8699733088987525
+        },
+        "after": {
+          "min": 65.4981,
+          "max": 68.3885,
+          "std": 0.8446292763544251
+        }
+      },
+      "palette_colors": 30
+    }
+  },
+  "pipeline_comparisons": 216
+}

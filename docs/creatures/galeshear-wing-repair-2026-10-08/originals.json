@@ -1,0 +1,346 @@
+[
+  {
+    "path": "assets/sprites/arena/galeshear/e.png",
+    "sha256": "5332e87d1f532e41c6b5f1d359295448862fb5dc14fb2115bfc9ee5052e6e092"
+  },
+  {
+    "path": "assets/sprites/arena/galeshear/n.png",
+    "sha256": "6acf2c174dabca2d14e67b073832b914083762dbf7fe9e0b262bef0f30c90dce"
+  },
+  {
+    "path": "assets/sprites/arena/galeshear/ne.png",
+    "sha256": "254d301c97a2fb1fef8c17d4ef240dcbd818f0475539ec3516eb2eb4c749420b"
+  },
+  {
+    "path": "assets/sprites/arena/galeshear/nw.png",
+    "sha256": "f6777299caff6f1c2fc687c66ba98dae9082119ff565104927ffa228b0c883ff"
+  },
+  {
+    "path": "assets/sprites/arena/galeshear/s.png",
+    "sha256": "5481671a89274874d6a28441c6999f2dfe364c482ae676675d9e89922de266d3"
+  },
+  {
+    "path": "assets/sprites/arena/galeshear/se.png",
+    "sha256": "e2423be0dd2f19a56936e66226a1a5b40b0660f4a30baee1b89741da5088e90d"
+  },
+  {
+    "path": "assets/sprites/arena/galeshear/sw.png",
+    "sha256": "20db86eb2cd8b3218a9041f1458d412fbffef740b227baaae3ef0bada35a0c31"
+  },
+  {
+    "path": "assets/sprites/arena/galeshear/w.png",
+    "sha256": "158d9c2df29ea233b7ae88dc4f9c74c19c8bb3bfa7c0fc6f2088477d837eaed7"
+  },
+  {
+    "path": "assets/sprites/arena/galeshear/small/e.png",
+    "sha256": "2f20892b4ab422b428b07f5368713b66671870770f9a706adbf8bd95cf695830"
+  },
+  {
+    "path": "assets/sprites/arena/galeshear/small/n.png",
+    "sha256": "23ec51a79def7737fdf099cb4c6be56d84858360dac1f645009eb7a7910318fc"
+  },
+  {
+    "path": "assets/sprites/arena/galeshear/small/ne.png",
+    "sha256": "0e0517b7a643f0692bdd8387d026b8b8cfcdf82939c27157e356ac9d0ebbbf10"
+  },
+  {
+    "path": "assets/sprites/arena/galeshear/small/nw.png",
+    "sha256": "1ce25f9530471f12c7e30f0cd3aff2e44b52cd79e8a2585f5f30799ee4e1e376"
+  },
+  {
+    "path": "assets/sprites/arena/galeshear/small/s.png",
+    "sha256": "0ddead4208b70ac0b21a1bef13ba9f6e31fb44ee1f8cf529e1d018b5efb117b1"
+  },
+  {
+    "path": "assets/sprites/arena/galeshear/small/se.png",
+    "sha256": "ebdd0f30688115801d2686e8ebfb568fcd6df8dd0916595f7ff1f9c84073288b"
+  },
+  {
+    "path": "assets/sprites/arena/galeshear/small/sw.png",
+    "sha256": "6b5f327c33bb5b634da4e5dd3d85eba445708c7f471adff7f7b19e92de24eb1a"
+  },
+  {
+    "path": "assets/sprites/arena/galeshear/small/w.png",
+    "sha256": "318f8c93cca03799634a1bd63e824d5074959875eaeaf1e79a1070617fe6e26f"
+  },
+  {
+    "path": "assets/sprites/arena/galeshear/small/walk_e_f0.png",
+    "sha256": "2bf419c2cc00290089c0c7cc16fd16fb36f1399b620e05e61cec044ec2279717"
+  },
+  {
+    "path": "assets/sprites/arena/galeshear/small/walk_e_f1.png",
+    "sha256": "2c6eb4c599b62ff7d27f53af611c4660cc05ac1c5d8b1c0cb4c0f4a365c8fb8a"
+  },
+  {
+    "path": "assets/sprites/arena/galeshear/small/walk_e_f2.png",
+    "sha256": "cbd302c5b6d323d644202092c53c22b2ea856acc3728d58b4afe2736535ba0a5"
+  },
+  {
+    "path": "assets/sprites/arena/galeshear/small/walk_e_f3.png",
+    "sha256": "ceace5593f33cf2f9cecce361ff77b62fdaa79817b5b8588bafdc1c3fab42784"
+  },
+  {
+    "path": "assets/sprites/arena/galeshear/small/walk_e_f4.png",
+    "sha256": "9de12bacb0739de4e34f9282502c50a7323e36c9fefcebcce79ba4ac80539b81"
+  },
+  {
+    "path": "assets/sprites/arena/galeshear/small/walk_e_f5.png",
+    "sha256": "32c9fce41f24a5ff2b7240dee982f960260dc7f51a4dec611c9290032b913754"
+  },
+  {
+    "path": "assets/sprites/arena/galeshear/small/walk_e_f6.png",
+    "sha256": "690d1692bbade880bf8151c7d13422171263e8abdaf8d4effbe82019c0878a1a"
+  },
+  {
+    "path": "assets/sprites/arena/galeshear/small/walk_e_f7.png",
+    "sha256": "080f85f45936c56ddbff8329c2d29f923ef64af86da1b750f88fcd7b2fa98cdf"
+  },
+  {
+    "path": "assets/sprites/arena/galeshear/small/walk_ne_f0.png",
+    "sha256": "e3f5dab99a6454162e2c2245665c05f544e2650ceda6ad60e70d32fe7e3fe23f"
+  },
+  {
+    "path": "assets/sprites/arena/galeshear/small/walk_ne_f1.png",
+    "sha256": "7c7fa353f89f28339779978121461c4d5fd03a0b10d02e5f71a3d9c2d92f00b0"
+  },
+  {
+    "path": "assets/sprites/arena/galeshear/small/walk_ne_f2.png",
+    "sha256": "98f2c34d8a5949349addf69bf9f4ffe89f634abe8ccd0070dff06602747e7030"
+  },
+  {
+    "path": "assets/sprites/arena/galeshear/small/walk_ne_f3.png",
+    "sha256": "830bf8620927eb1e50b7aeae2f77fb035185a3e8441757e2dba2bd0e6ee192b2"
+  },
+  {
+    "path": "assets/sprites/arena/galeshear/small/walk_ne_f4.png",
+    "sha256": "6a976e999f5c957ce4440ea6fdf98a3845b0d7bdf5c25b439343f63f6a347025"
+  },
+  {
+    "path": "assets/sprites/arena/galeshear/small/walk_ne_f5.png",
+    "sha256": "29f6504290a25be40b7bf78bd70e92c9d7fb0a9eb508fd896ce3ccba13965563"
+  },
+  {
+    "path": "assets/sprites/arena/galeshear/small/walk_ne_f6.png",
+    "sha256": "c251b630a6707cfef462dff70e8490ec7f0a5166b7416b9e8a8e3f918d0ec474"
+  },
+  {
+    "path": "assets/sprites/arena/galeshear/small/walk_ne_f7.png",
+    "sha256": "4fc151228b6c109876d8099ff0411d44a6f483cd97cb8ed3c3acf2d455eb2664"
+  },
+  {
+    "path": "assets/sprites/arena/galeshear/small/walk_nw_f0.png",
+    "sha256": "6a89675d71ed3ac8e58037c12633dfe11d05c2f89f58b11d891156193ce25d2c"
+  },
+  {
+    "path": "assets/sprites/arena/galeshear/small/walk_nw_f1.png",
+    "sha256": "71134e0aa47ccfc69939855d83114f2fd44c0330245de75f9d1df2ce4819cda9"
+  },
+  {
+    "path": "assets/sprites/arena/galeshear/small/walk_nw_f2.png",
+    "sha256": "7a0f5ff491b60a1cf79089d29ea9f148941e5f025f7180f4704914d611cbae90"
+  },
+  {
+    "path": "assets/sprites/arena/galeshear/small/walk_nw_f3.png",
+    "sha256": "d98fff758b50db9bdd9d951d84c08b31f626166b015669e76714c75c23a1ab24"
+  },
+  {
+    "path": "assets/sprites/arena/galeshear/small/walk_nw_f4.png",
+    "sha256": "40cb159415bee6196f9c87f3d99db7b2318ab5c4c40d33ce7b8c34c44f69d5fe"
+  },
+  {
+    "path": "assets/sprites/arena/galeshear/small/walk_nw_f5.png",
+    "sha256": "51334a3f8213ac459bb8c5c93cbed79f6d753bfaf6ec6bdf26c3fe4f7cb05f54"
+  },
+  {
+    "path": "assets/sprites/arena/galeshear/small/walk_nw_f6.png",
+    "sha256": "af8e5e5e040e136a3f51e5123ab8ec4b7872b87c1c6c0f6882a4a5753b40b03f"
+  },
+  {
+    "path": "assets/sprites/arena/galeshear/small/walk_nw_f7.png",
+    "sha256": "af7a8cfd5608ca637fa19837386b7cc18dedd6c5f9e10aac1929b135ecf48281"
+  },
+  {
+    "path": "assets/sprites/arena/galeshear/small/walk_n_f0.png",
+    "sha256": "fcc0647d19a72b620e6bd7855a582168fe7135953172137779be734eb451f4f7"
+  },
+  {
+    "path": "assets/sprites/arena/galeshear/small/walk_n_f1.png",
+    "sha256": "9908acb141266c6665c684f9733be6ab53bc1e9e9759e41f1dc6ad537e1352e8"
+  },
+  {
+    "path": "assets/sprites/arena/galeshear/small/walk_n_f2.png",
+    "sha256": "76d19933bb74263681ff39942fee467bcb82ee1bd46efdfba0d3adf47157a54c"
+  },
+  {
+    "path": "assets/sprites/arena/galeshear/small/walk_n_f3.png",
+    "sha256": "5d4bc616319fa61f07818375d666e19c712d6c7c8a377713c53f7bb12467e5ca"
+  },
+  {
+    "path": "assets/sprites/arena/galeshear/small/walk_n_f4.png",
+    "sha256": "02a7a42607abeb8e104cb2073ef96aa56d12784c1d709ceeefa4f68f4f69ecad"
+  },
+  {
+    "path": "assets/sprites/arena/galeshear/small/walk_n_f5.png",
+    "sha256": "0c27d920cc5c3b99ed186176642bc7e4211c397a4dfdc7abc1b979d05478d1fe"
+  },
+  {
+    "path": "assets/sprites/arena/galeshear/small/walk_n_f6.png",
+    "sha256": "aa51b8761bf43f10a4b13fc8659f74d73d337f58acd9af932a6ca9a7662b0a08"
+  },
+  {
+    "path": "assets/sprites/arena/galeshear/small/walk_n_f7.png",
+    "sha256": "e3b6f0f0a3f0adc1e3667ba07ca6e8380ab4c3c7a948fd9f0e375591b501a3d0"
+  },
+  {
+    "path": "assets/sprites/arena/galeshear/small/walk_se_f0.png",
+    "sha256": "d095a6ac5198f4f0cd0f14b5e217637df6c954595b2f0b28e2bcaaeaeb0a4e7c"
+  },
+  {
+    "path": "assets/sprites/arena/galeshear/small/walk_se_f1.png",
+    "sha256": "3c4145d10238b88ff9781cc673f657ce91e26281b5e5fad294ab6d05832a3bf6"
+  },
+  {
+    "path": "assets/sprites/arena/galeshear/small/walk_se_f2.png",
+    "sha256": "14b1f45fd10bfd49810f50e271d4d9c4b587231d6e37f35ab8fe2b4f056743a2"
+  },
+  {
+    "path": "assets/sprites/arena/galeshear/small/walk_se_f3.png",
+    "sha256": "363b8b342ddc13a72ca7ec68969c80293c86c7b492c261c4bd88cfbf9222cc49"
+  },
+  {
+    "path": "assets/sprites/arena/galeshear/small/walk_se_f4.png",
+    "sha256": "d32174ff2da9053423d2d0418c7d5667fc807ec925e1f2d5bb002002694c142c"
+  },
+  {
+    "path": "assets/sprites/arena/galeshear/small/walk_se_f5.png",
+    "sha256": "28f22ffc680b887e54cfc008bef38ce18a3fcdf55b2d5c67da9ebbe5c8f5f314"
+  },
+  {
+    "path": "assets/sprites/arena/galeshear/small/walk_se_f6.png",
+    "sha256": "65556ee18508749047ab29477dca0b6ba31cd054a5ad0c3d69782d46e8073daf"
+  },
+  {
+    "path": "assets/sprites/arena/galeshear/small/walk_se_f7.png",
+    "sha256": "8a944853c2078a759d400fc9ca7a52a796ea0a80f9f9c86c217a7ae53ec9dd1a"
+  },
+  {
+    "path": "assets/sprites/arena/galeshear/small/walk_sw_f0.png",
+    "sha256": "58ff657a95a749f9a585213f55d1cc3e9582dbb142a5eba50a94e3030ebe45fc"
+  },
+  {
+    "path": "assets/sprites/arena/galeshear/small/walk_sw_f1.png",
+    "sha256": "e49e70efc21599011a84aa8beb62fabe4c916780569b2a2f0df56fa5177ec768"
+  },
+  {
+    "path": "assets/sprites/arena/galeshear/small/walk_sw_f2.png",
+    "sha256": "b40f47e6d6248341c4ff829b48c9402d94bf4ce90d3dde602d3170214166eff1"
+  },
+  {
+    "path": "assets/sprites/arena/galeshear/small/walk_sw_f3.png",
+    "sha256": "a4fff61117ad60971b65794c16cc331087f658559c5d45c3e2d4ebd86749e319"
+  },
+  {
+    "path": "assets/sprites/arena/galeshear/small/walk_sw_f4.png",
+    "sha256": "b5658cac0ea19e89e36623d02bc013c7477c82ee3300e30940aaa2bcb1caf39d"
+  },
+  {
+    "path": "assets/sprites/arena/galeshear/small/walk_sw_f5.png",
+    "sha256": "1686a9848e565f2b0a0d5058075b3c39b9f614e5f4476d504e7757afc5ed32d0"
+  },
+  {
+    "path": "assets/sprites/arena/galeshear/small/walk_sw_f6.png",
+    "sha256": "ca63f7ad9d2bed7e8b1281254a7f5376b6afe215ba8f0d1e2ad54473f3cc5b25"
+  },
+  {
+    "path": "assets/sprites/arena/galeshear/small/walk_sw_f7.png",
+    "sha256": "3218c9d4ef16fa777e757d953c16915cb295fd4705e94802415147d21315d0f8"
+  },
+  {
+    "path": "assets/sprites/arena/galeshear/small/walk_s_f0.png",
+    "sha256": "2f11cc7a7a0202a2886cbc94d241f530be8531fb4fb09735d85fe0ee8dbb66fc"
+  },
+  {
+    "path": "assets/sprites/arena/galeshear/small/walk_s_f1.png",
+    "sha256": "196b58689ebe1132bd21859b612f2059be3398722b352aa2572595ffb6687f76"
+  },
+  {
+    "path": "assets/sprites/arena/galeshear/small/walk_s_f2.png",
+    "sha256": "7a3c248bbcf4c471db06f9ae6bd1c93b65c52c7b68a9d3218b2f5e302acc4aec"
+  },
+  {
+    "path": "assets/sprites/arena/galeshear/small/walk_s_f3.png",
+    "sha256": "796c11f42d15d9bd76641cdf2921ae76343cfbf163afc6114116ae424d6c7ffe"
+  },
+  {
+    "path": "assets/sprites/arena/galeshear/small/walk_s_f4.png",
+    "sha256": "5383d0da7d5b756f013c8609cb08ad4fe36f6add6b28ab5c8d8506f64dcc0de8"
+  },
+  {
+    "path": "assets/sprites/arena/galeshear/small/walk_s_f5.png",
+    "sha256": "532aa8bc674d8adf6e9a2d3f6f3103a43ae266bf51045f7bf514cc239bf0c7ac"
+  },
+  {
+    "path": "assets/sprites/arena/galeshear/small/walk_s_f6.png",
+    "sha256": "1b2dcd8d8105d2508ba6cd57fa892bcd3c3c93a20f06346a810b1845ba9eff78"
+  },
+  {
+    "path": "assets/sprites/arena/galeshear/small/walk_s_f7.png",
+    "sha256": "8fb9973c0450caa2f7630c23ade8bb682deae56df4caf5f0fc62008c87e6d0ae"
+  },
+  {
+    "path": "assets/sprites/arena/galeshear/small/walk_w_f0.png",
+    "sha256": "d153b48bcaf9d81e53ef95785533a7021afd1ce3e603f7573f068fba7bb94e11"
+  },
+  {
+    "path": "assets/sprites/arena/galeshear/small/walk_w_f1.png",
+    "sha256": "3520b10c24549104697ee88c5293acd716fa97f5768bdcb61ab9bbb4e50e3ea3"
+  },
+  {
+    "path": "assets/sprites/arena/galeshear/small/walk_w_f2.png",
+    "sha256": "ebd34b63f7bf1e0d8f5397b46189450c067b0b29c01be813bd583848def06275"
+  },
+  {
+    "path": "assets/sprites/arena/galeshear/small/walk_w_f3.png",
+    "sha256": "71503d9835f05ddd94817ce94dd8e3431d1c5317ab43340a81ab453b5eaffc58"
+  },
+  {
+    "path": "assets/sprites/arena/galeshear/small/walk_w_f4.png",
+    "sha256": "1768980188adff97d574c69c5071ce8698ac6e7fe4eee2cc24dda13d3153196e"
+  },
+  {
+    "path": "assets/sprites/arena/galeshear/small/walk_w_f5.png",
+    "sha256": "b24ec96543eaeb90502edb7b50fb4591b22377f81dd87ea68c8b1e4b0af53a1d"
+  },
+  {
+    "path": "assets/sprites/arena/galeshear/small/walk_w_f6.png",
+    "sha256": "d5293bcd9d09e4fa536189338e6f07c4555b7306411aa0896f44f672ac2be164"
+  },
+  {
+    "path": "assets/sprites/arena/galeshear/small/walk_w_f7.png",
+    "sha256": "4e0d3f0655eff587758bf4b413d47d72c20fd1c85a84cc5a112c2892429a64b6"
+  },
+  {
+    "path": "docs/creatures/arena-starters-2026-10-07/walk/galeshear_e_sheet.png",
+    "sha256": "bd2c15a3c2bd6dd11cf53b6142fba2e4c5a0d9a0730623ccffb745f17bd79cbb"
+  },
+  {
+    "path": "docs/creatures/arena-starters-2026-10-07/walk/galeshear_ne_sheet.png",
+    "sha256": "312c3516ea9b1fa90f73ecd4af91b1af29b7f137999f75d936fbd73b5cdb8d3e"
+  },
+  {
+    "path": "docs/creatures/arena-starters-2026-10-07/walk/galeshear_n_sheet.png",
+    "sha256": "433c768fab6eb048b71fd3f5d2bf304359aa8841cc7fa96a802cfcf859300235"
+  },
+  {
+    "path": "docs/creatures/arena-starters-2026-10-07/walk/galeshear_se_sheet.png",
+    "sha256": "836b44a65edc468c26ce8c29006b42e6d3ab9649020ff1d198719aa9f6a3ba10"
+  },
+  {
+    "path": "docs/creatures/arena-starters-2026-10-07/walk/galeshear_s_sheet.png",
+    "sha256": "4f80f7e94a2eaad1f8bb1cc05270797a9a106bbf86b2f42ee975ac795ecebd58"
+  },
+  {
+    "path": "docs/creatures/arena-starters-2026-10-07/forms/galeshear_arena_rotation_3x3.png",
+    "sha256": "c1182a272227e240d6628661d16c72fc10e61e97e8620774dbe4d9f2e78b4d58"
+  }
+]

@@ -1,0 +1,11 @@
+{
+ "prompt": "Top-down action game sprite of the final stage of a glider line, grown from the small folded-membrane glider in the reference image into a bluff sentinel: a tall wing arc of reinforced ribbed membranes raised over a narrow body, a resonant swollen throat, a forked tail vane, four hooked feet planted in a landing guard pose, vigilant and loyal. Deep storm-blue membranes, mineral-grey ribs, dust-tan body, an ivory signal mark on the throat. Powerful and alert, the whole creature inside the frame with empty space on every side, nothing touching the edges. Seen from above at a three-quarter overhead angle like a sprite in a top-down arena battle game, facing down and to the right toward the camera. A readable game sprite: chunky clear shapes, a crisp dark outline. Not a bird, no feathers, no angel wings, no halo, not a flag, not a dragon, not a bat. On a plain white background.",
+ "prompt_style": "rd_pro__default",
+ "width": 128,
+ "height": 128,
+ "num_images": 1,
+ "remove_bg": true,
+ "reference_images": [
+  "docs/creatures/arena-starters-2026-10-07/forms/dustkite_arena_front_take1.png"
+ ]
+}

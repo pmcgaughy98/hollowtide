@@ -1,0 +1,181 @@
+{
+  "checks": [
+    {
+      "check": "Riverfront attaches quay and preserves courier",
+      "passed": true
+    },
+    {
+      "check": "Reach quay board from real bridge arrival",
+      "passed": true
+    },
+    {
+      "check": "Board introduces optional round without changing main objective",
+      "passed": true
+    },
+    {
+      "check": "Map cannot interrupt quay dialogue",
+      "passed": true
+    },
+    {
+      "check": "Dialogue blocks movement",
+      "passed": true
+    },
+    {
+      "check": "Close dialogue restores walking",
+      "passed": true
+    },
+    {
+      "check": "Incomplete round does not open gate",
+      "passed": true
+    },
+    {
+      "check": "Reach branch gate approach",
+      "passed": true
+    },
+    {
+      "check": "Gate notice explains open side paths",
+      "passed": true
+    },
+    {
+      "check": "Closed gate physically blocks shortcut",
+      "passed": true
+    },
+    {
+      "check": "Reach garden through western side path",
+      "passed": true
+    },
+    {
+      "check": "Garden can be first observation",
+      "passed": true
+    },
+    {
+      "check": "Repeated observations are idempotent",
+      "passed": true
+    },
+    {
+      "check": "Garden west loop connects lower promenade",
+      "passed": true
+    },
+    {
+      "check": "Promenade reaches actual landing deck",
+      "passed": true
+    },
+    {
+      "check": "Landing records gauge observation",
+      "passed": true
+    },
+    {
+      "check": "Landing north rail blocks entry into water",
+      "passed": true
+    },
+    {
+      "check": "Landing remains traversable behind rail",
+      "passed": true
+    },
+    {
+      "check": "Landing end blocks west water",
+      "passed": true
+    },
+    {
+      "check": "Return from end of landing",
+      "passed": true
+    },
+    {
+      "check": "Landing south rail blocks water",
+      "passed": true
+    },
+    {
+      "check": "Promenade continues above landing",
+      "passed": true
+    },
+    {
+      "check": "Bank outside landing remains solid",
+      "passed": true
+    },
+    {
+      "check": "Court connects landing and goods shop",
+      "passed": true
+    },
+    {
+      "check": "Goods observation completes three distinct stops",
+      "passed": true
+    },
+    {
+      "check": "Return to board through branch court",
+      "passed": true
+    },
+    {
+      "check": "Returning three observations opens visible and physical gate",
+      "passed": true
+    },
+    {
+      "check": "Opened shortcut is really walkable",
+      "passed": true
+    },
+    {
+      "check": "Garden east opening and relay road remain clear",
+      "passed": true
+    },
+    {
+      "check": "Actual east exit reaches relay yard",
+      "passed": true
+    },
+    {
+      "check": "Actual yard return reaches riverfront",
+      "passed": true
+    },
+    {
+      "check": "Cached quay retains completed observations and open gate",
+      "passed": true
+    },
+    {
+      "check": "Old city approach remains clear",
+      "passed": true
+    },
+    {
+      "check": "Actual north exit reaches historic street",
+      "passed": true
+    },
+    {
+      "check": "Actual historic return reaches riverfront",
+      "passed": true
+    },
+    {
+      "check": "Westbound bridge road remains clear",
+      "passed": true
+    },
+    {
+      "check": "Actual west exit reaches levee",
+      "passed": true
+    },
+    {
+      "check": "Levee bridge returns to riverfront",
+      "passed": true
+    },
+    {
+      "check": "Side round preserves party and main delivery flags",
+      "passed": true
+    },
+    {
+      "check": "Region map still opens after all new interactions",
+      "passed": true
+    },
+    {
+      "check": "Region map restores control",
+      "passed": true
+    },
+    {
+      "check": "Reduced motion stops ambient walker",
+      "passed": true
+    },
+    {
+      "check": "Ambient walker uses its lane",
+      "passed": true
+    },
+    {
+      "check": "Ambient animation resumes",
+      "passed": true
+    }
+  ],
+  "failures": []
+}

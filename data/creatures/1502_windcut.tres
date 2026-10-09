@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="CreatureData" format=3]
+
+[ext_resource type="Script" path="res://scripts/creature_data.gd" id="1_script"]
+[ext_resource type="Texture2D" path="res://assets/sprites/arena/windcut/s.png" id="2_sprite"]
+[ext_resource type="Resource" path="res://data/creatures/1503_galeshear.tres" id="4_evolution"]
+
+[resource]
+script = ExtResource("1_script")
+id = 1502
+creature_name = "Windcut"
+essence = 3
+sprite = ExtResource("2_sprite")
+description = "Provisional entry (Claude, 2026-10-08): Stage II of the floodplain glider line, a longer torso, reinforced shoulder spars and notched membranes that split gusts; decisive and protective in rough weather. Working name pending Preston's approval. Arena sprite standing in for a front; no back view, default stats, no turn-based moves (Grok). Arena kit adds Lift and the Windbreak passive."
+evolves_into = ExtResource("4_evolution")
+body_parts = PackedStringArray()
+battle_size = 1.15

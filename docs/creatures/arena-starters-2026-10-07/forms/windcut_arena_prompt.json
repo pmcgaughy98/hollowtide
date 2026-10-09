@@ -1,0 +1,9 @@
+{
+ "prompt": "Top-down action game sprite of the middle stage of a floodplain glider line in a dive-brake: a lean long-bodied glider banking hard just above the ground, its body stretched out on a strong diagonal, one membrane sail raised high and the other swept low, the sails stretched flat between long bone-white spars that run along their leading edges only, the trailing edges deeply notched in a sawtooth that splits the wind, rust-coloured veins branching through faded slate-blue membranes with storm-grey edges, a brown-grey body with a longer torso and reinforced shoulders, a narrow head with sharp eyes, hooked toes tucked, a long tapering tail trailing behind to finish the diagonal. Decisive and quick. No horns, no antlers, no spars rising from the head or shoulders, nothing above the head. Seen from above at a three-quarter overhead angle like a sprite in a top-down arena battle game, facing down and to the right toward the camera. A readable game sprite: chunky clear shapes, a crisp dark outline. Not a bat, not a bird, no feathers, not a dragon, not paper, not cloth. Whole creature centred with empty space on every side, nothing touching the edges. On a plain white background.",
+ "prompt_style": "rd_pro__default",
+ "width": 112,
+ "height": 112,
+ "num_images": 1,
+ "remove_bg": true,
+ "reference_images": []
+}

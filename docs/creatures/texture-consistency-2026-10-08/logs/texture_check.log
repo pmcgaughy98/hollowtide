@@ -1,0 +1,36 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+OpenGL API 3.3.0 NVIDIA 596.49 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce GTX 1660 SUPER
+
+ERROR: Failed to read the root certificate store.
+   at: get_system_ca_certificates (platform/windows/os_windows.cpp:2582)
+{"beyond_one_pixel":0,"cluster_pixels":72,"erased_pixels":0,"form":"kithflare","outline_pixels_added":4530,"source_pixels":22111,"textures":72}
+{"beyond_one_pixel":0,"cluster_pixels":50,"erased_pixels":0,"form":"sparkwick","outline_pixels_added":5659,"source_pixels":22512,"textures":72}
+{"beyond_one_pixel":0,"cluster_pixels":37,"erased_pixels":0,"form":"stormwick","outline_pixels_added":5602,"source_pixels":27828,"textures":72}
+{"beyond_one_pixel":0,"cluster_pixels":106,"erased_pixels":0,"form":"tallowroot","outline_pixels_added":3937,"source_pixels":27493,"textures":72}
+{"beyond_one_pixel":0,"cluster_pixels":508,"erased_pixels":0,"form":"huskward","outline_pixels_added":9440,"source_pixels":44798,"textures":72}
+{"beyond_one_pixel":0,"cluster_pixels":596,"erased_pixels":0,"form":"rampartroot","outline_pixels_added":11119,"source_pixels":63216,"textures":72}
+{"beyond_one_pixel":0,"cluster_pixels":31,"erased_pixels":0,"form":"rimefin","outline_pixels_added":3875,"source_pixels":26000,"textures":72}
+{"beyond_one_pixel":0,"cluster_pixels":1674,"erased_pixels":0,"form":"riftfin","outline_pixels_added":10044,"source_pixels":53292,"textures":72}
+{"beyond_one_pixel":0,"cluster_pixels":2609,"erased_pixels":0,"form":"scourmaw","outline_pixels_added":11002,"source_pixels":96572,"textures":72}
+{"beyond_one_pixel":0,"cluster_pixels":12,"erased_pixels":0,"form":"cinderhide","outline_pixels_added":513,"source_pixels":31016,"textures":72}
+{"beyond_one_pixel":0,"cluster_pixels":315,"erased_pixels":0,"form":"clinkerhide","outline_pixels_added":1156,"source_pixels":58128,"textures":72}
+{"beyond_one_pixel":0,"cluster_pixels":407,"erased_pixels":0,"form":"ironvent","outline_pixels_added":1372,"source_pixels":76624,"textures":72}
+{"beyond_one_pixel":0,"cluster_pixels":247,"erased_pixels":0,"form":"fusern","outline_pixels_added":1631,"source_pixels":28615,"textures":72}
+{"beyond_one_pixel":0,"cluster_pixels":351,"erased_pixels":0,"form":"slagglass","outline_pixels_added":1587,"source_pixels":54708,"textures":72}
+{"beyond_one_pixel":0,"cluster_pixels":1558,"erased_pixels":0,"form":"vitrecrag","outline_pixels_added":232,"source_pixels":89044,"textures":72}
+{"beyond_one_pixel":0,"cluster_pixels":153,"erased_pixels":0,"form":"preostmar","outline_pixels_added":1827,"source_pixels":22063,"textures":72}
+{"beyond_one_pixel":0,"cluster_pixels":203,"erased_pixels":0,"form":"oathfen","outline_pixels_added":1404,"source_pixels":35270,"textures":72}
+{"beyond_one_pixel":0,"cluster_pixels":606,"erased_pixels":0,"form":"oxbowarchon","outline_pixels_added":6010,"source_pixels":68082,"textures":72}
+{"beyond_one_pixel":0,"cluster_pixels":255,"erased_pixels":0,"form":"punchybun","outline_pixels_added":5970,"source_pixels":22378,"textures":72}
+{"beyond_one_pixel":0,"cluster_pixels":227,"erased_pixels":0,"form":"sparkjab","outline_pixels_added":7719,"source_pixels":26160,"textures":72}
+{"beyond_one_pixel":0,"cluster_pixels":475,"erased_pixels":0,"form":"starward","outline_pixels_added":8719,"source_pixels":35886,"textures":72}
+{"beyond_one_pixel":0,"cluster_pixels":331,"erased_pixels":0,"form":"listener","outline_pixels_added":1878,"source_pixels":17124,"textures":72}
+{"beyond_one_pixel":0,"cluster_pixels":69,"erased_pixels":0,"form":"caller","outline_pixels_added":2992,"source_pixels":23052,"textures":72}
+{"beyond_one_pixel":0,"cluster_pixels":2478,"erased_pixels":0,"form":"warden","outline_pixels_added":2740,"source_pixels":67318,"textures":72}
+{"beyond_one_pixel":0,"cluster_pixels":112,"erased_pixels":0,"form":"canvaswing","outline_pixels_added":5483,"source_pixels":20940,"textures":72}
+{"beyond_one_pixel":0,"cluster_pixels":43,"erased_pixels":0,"form":"windcut","outline_pixels_added":6129,"source_pixels":32443,"textures":72}
+{"beyond_one_pixel":0,"cluster_pixels":2788,"erased_pixels":0,"form":"galeshear","outline_pixels_added":6947,"source_pixels":81323,"textures":72}
+{"beyond_one_pixel":0,"cluster_pixels":146,"erased_pixels":0,"form":"dustkite","outline_pixels_added":5419,"source_pixels":13685,"textures":72}
+{"beyond_one_pixel":0,"cluster_pixels":43,"erased_pixels":0,"form":"waywhistle","outline_pixels_added":5480,"source_pixels":22366,"textures":72}
+{"beyond_one_pixel":0,"cluster_pixels":646,"erased_pixels":0,"form":"highsignal","outline_pixels_added":9606,"source_pixels":57577,"textures":72}
+RESULT 30 forms / 2160 frame swaps / 0 failures

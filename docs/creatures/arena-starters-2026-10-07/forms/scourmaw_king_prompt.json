@@ -1,0 +1,12 @@
+{
+ "prompt": "Top-down action game sprite of the final stage of the catfish in the reference image grown into a river king: the chest raised high on two heavy armoured front fins, a crown of tall cold-cyan dorsal spines down the neck, broad eroded stone plates on the shoulders, a heavy jaw with barbels hanging like a beard, a long thick tail resting on the ground behind. Regal, patient, dominant. Keep the face, the eyes, the whiskers and the colours of the catfish in the reference image: deep river blue, slate, a pale belly, cold cyan on the fin edges and eyes. Every part of it rests on the ground: no floating, no coiling, not a snake, not a serpent, not a shark, no water effects, no glow. Seen from above at a three-quarter overhead angle like a sprite in a top-down arena battle game, facing down and to the right toward the camera. A readable game sprite with strong character: chunky clear shapes, a crisp dark outline. Whole creature centred with empty space on every side, nothing touching the edges. On a plain white background.",
+ "prompt_style": "rd_pro__default",
+ "width": 160,
+ "height": 160,
+ "num_images": 1,
+ "remove_bg": true,
+ "reference_images": [
+  "C:\\Users\\pmcga\\dev\\hollowtide\\assets\\sprites\\creatures\\rimefin_catfish_2026_10_05\\rimefin_front.png",
+  "C:\\Users\\pmcga\\dev\\hollowtide\\docs\\creatures\\arena-starters-2026-10-07\\forms\\riftfin.png"
+ ]
+}

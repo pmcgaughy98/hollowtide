@@ -19,8 +19,8 @@ MIRROR = {"e": "w", "se": "sw", "ne": "nw", "w": "e", "sw": "se", "nw": "ne"}
 # These five assignments match slice_rotations.CELLS; importing that script reslices art.
 STILL_MIRRORS = {
     "kithflare": {"e": "w"}, "rimefin": {"e": "w"},
-    "sparkwick": {"e": "w"}, "riftfin": {"nw": "ne"},
-    "scourmaw": {"sw": "se"},
+    "sparkwick": {"e": "w"},
+    # riftfin and scourmaw lost their mirrors on 2026-10-09: their new rotation sheets have every facing.
 }
 
 
@@ -44,6 +44,10 @@ SCALE = {
     "slagglass": 1.15, "vitrecrag": 1.2,
     "oathfen": 1.05, "oxbowarchon": 1.1,
     "punchybun": 0.9, "sparkjab": 0.85, "starward": 0.8,
+    "listener": 0.95, "caller": 1.0, "warden": 1.1,
+    "canvaswing": 0.95, "windcut": 1.0, "galeshear": 1.1,
+    "dustkite": 0.9, "waywhistle": 1.0, "highsignal": 1.1,
+    "riftfin": 1.05, "scourmaw": 1.35,   # the remade line (2026-10-09): Preston, "make stage 3 bigger than stage 2"
 }
 
 
@@ -54,7 +58,7 @@ def small_of(im, name):
 
 NAMES = ("kithflare", "tallowroot", "rimefin", "sparkwick", "stormwick", "huskward", "rampartroot", "riftfin", "scourmaw",
          "cinderhide", "clinkerhide", "ironvent", "fusern", "slagglass", "vitrecrag",
-         "preostmar", "oathfen", "oxbowarchon", "punchybun", "sparkjab", "starward")
+         "preostmar", "oathfen", "oxbowarchon", "punchybun", "sparkjab", "starward", "listener", "caller", "warden", "canvaswing", "windcut", "galeshear", "dustkite", "waywhistle", "highsignal")
 # Pass names to rebuild only those creatures (a bare run redoes all of them).
 for name in (sys.argv[1:] or NAMES):
     out = ART / name / "small"
@@ -79,3 +83,12 @@ for name in (sys.argv[1:] or NAMES):
             (ImageOps.mirror(small) if flip else small).save(out / f"walk_{f}_f{i}.png")
         made.append(f + ("(mirrored)" if flip else ""))
     print(name, "walks:", ", ".join(made) or "none yet")
+
+# Flat creatures (2026-10-09): their seven turned facings and walks come from the south view
+# (tools/arena/flat_facings.py), so a rebuild of these names re-runs that pass after building.
+FLAT = ()   # emptied 2026-10-09: Preston saw the flat pass and said change it back
+import subprocess as _sp, sys as _sys
+_flat = [n for n in (_sys.argv[1:] or NAMES) if n in FLAT]
+if _flat:
+    _sp.run([_sys.executable, "tools/arena/flat_facings.py"] + _flat, check=False)
+

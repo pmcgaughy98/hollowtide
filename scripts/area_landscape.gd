@@ -73,7 +73,10 @@ func _ready() -> void:
         _wall("EastBelowRelay",Vector2(1032,648),Vector2(16,240))
         _wall("WestAboveBridge",Vector2(-8,248),Vector2(16,496))
         _wall("WestBelowBridge",Vector2(-8,648),Vector2(16,240))
-        _wall("RiverNorth",Vector2(112,248),Vector2(224,496))
+        # Only the new landing deck opens into the water; the rest remains solid.
+        _wall("RiverNorth",Vector2(112,150),Vector2(224,300))
+        _wall("RiverBehindLanding",Vector2(64,332),Vector2(128,64))
+        _wall("RiverBelowLanding",Vector2(112,430),Vector2(224,132))
         _wall("RiverSouth",Vector2(112,648),Vector2(224,240))
 
 func _surface(label: String, texture: Texture2D, at: Vector2, depth: int) -> Sprite2D:
@@ -163,6 +166,7 @@ func _build_home() -> void:
         _tree(points[i],i)
     for at in [Vector2(336,240),Vector2(656,368),Vector2(336,464),Vector2(816,592),Vector2(592,720)]:
         _prop("YardShrub%d"%int(at.x),SHRUB,at,0.8)
+    add_child(preload("res://scripts/hometown_commons.gd").new())
 
 func _build_city() -> void:
     _surface("BranchApproach",BRANCH_APPROACH,Vector2(490,354),-5)
@@ -201,13 +205,15 @@ func _build_city() -> void:
         Vector2(288,112),Vector2(368,136),Vector2(464,112),Vector2(560,128),
         Vector2(640,112),Vector2(864,136),Vector2(944,168),Vector2(944,304),
         Vector2(304,304),Vector2(336,384),Vector2(896,400),
-        Vector2(640,624),Vector2(720,664),Vector2(944,608),Vector2(944,712),
-        Vector2(448,736),Vector2(544,712),Vector2(832,736),
+        Vector2(904,624),Vector2(944,712),Vector2(848,752),
+        Vector2(400,744),Vector2(576,760),
     ]
     for i in points.size():
         _tree(points[i],i)
     for at in [Vector2(288,192),Vector2(288,456),Vector2(608,552),Vector2(896,552),Vector2(448,672)]:
-        _prop("CityShrub%d"%int(at.x),SHRUB,at,0.8)
+        if at != Vector2(608,552) and at != Vector2(448,672):
+            _prop("CityShrub%d"%int(at.x),SHRUB,at,0.8)
+    add_child(preload("res://scripts/riverfront_quay.gd").new())
 
 func _process(delta: float) -> void:
     _clock = fmod(_clock+delta,320.0)

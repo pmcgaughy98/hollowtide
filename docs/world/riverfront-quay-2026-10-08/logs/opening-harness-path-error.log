@@ -1,0 +1,7 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+OpenGL API 3.3.0 NVIDIA 596.49 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce GTX 1660 SUPER
+
+SCRIPT ERROR: Parse Error: Invalid escape in string.
+   at: GDScript::reload (res://tools/debug/quay_opening_regression.gd:2)
+ERROR: Failed to load script "res://tools/debug/quay_opening_regression.gd" with error "Parse error".
+   at: load (modules/gdscript/gdscript_resource_format.cpp:46)

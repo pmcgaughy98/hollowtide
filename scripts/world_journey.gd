@@ -20,11 +20,30 @@ var route: Node2D
 var transitioning := false
 var transitions: Array[Dictionary] = []
 var _fade: ColorRect
+var visited_areas: Dictionary = {}
+var first_morning := false
+var first_fight: Node = null
+var reduced_motion := false
+var partner_story: Node
+var atlas: CanvasLayer
+
+func begin_first_morning(reduce_motion: bool) -> void:
+    first_morning = true
+    reduced_motion = reduce_motion
+    initial_area = "hometown"
 
 func set_courier_model(model: String) -> void:
     courier_model = model
 
 func _ready() -> void:
+    var backdrop := CanvasLayer.new()
+    backdrop.layer = -20
+    add_child(backdrop)
+    var ink := ColorRect.new()
+    ink.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+    ink.color = Color("#142429")
+    ink.mouse_filter = Control.MOUSE_FILTER_IGNORE
+    backdrop.add_child(ink)
     var layer := CanvasLayer.new()
     layer.layer = 100
     add_child(layer)
@@ -36,14 +55,29 @@ func _ready() -> void:
     # Keep the original quest controller and its HUD, rather than copying flags.
     route = AREAS["route1"].instantiate()
     route.get_node("Player").chibi_model = courier_model
+    # Direct scene previews still receive their original fallback. A new game
+    # deliberately has no starter until the hall story commits one.
+    var fallback: CreatureData = route.get_node("BattleScreen").player_creature
+    if first_morning: route.get_node("BattleScreen").player_creature = null
     add_child(route)
+    route.get_node("BattleScreen").player_creature = fallback
     route.get_node("RouteHUD").reparent(self)
     route.get_node("RouteMusic").reparent(self)
     route.process_mode = Node.PROCESS_MODE_DISABLED
     remove_child(route)
     cached["route1"] = route
+    if first_morning:
+        partner_story = preload("res://scripts/courier_partner_story.gd").new()
+        partner_story.reduce_motion = reduced_motion
+        add_child(partner_story)
+        # The first fight on the levee runs in the arena with the chosen partner (Claude, 2026-10-09).
+        first_fight = preload("res://scripts/first_fight.gd").new()
+        add_child(first_fight)
     var arrival: Vector2 = {"courtyard_home":Vector2(128,208),"hometown":Vector2(224,280),"courier_hall":Vector2(128,208),"route1":Vector2(-720,512),"riverfront":Vector2(320,512),"historic_street":Vector2(384,848),"relay_yard":Vector2(48,488)}[initial_area]
     _activate(initial_area, arrival, Vector2.DOWN if initial_area == "hometown" else (Vector2.UP if initial_area == "courtyard_home" else Vector2.RIGHT))
+    atlas = preload("res://scripts/world_atlas.gd").new()
+    add_child(atlas)
+    if first_morning: atlas.pinned = "courier_hall"
     transitioning = true
     await create_tween().tween_property(_fade, "color:a", 0.0, 0.3).finished
     transitioning = false
@@ -59,6 +93,7 @@ func _activate(id: String, arrival: Vector2, facing: Vector2) -> void:
         cached[id] = area
     active_area = area
     active_id = id
+    visited_areas[id] = true
     area.process_mode = Node.PROCESS_MODE_INHERIT
     add_child(area)
     var courier: CharacterBody2D = area.get_node("Player")
@@ -77,6 +112,8 @@ func _activate(id: String, arrival: Vector2, facing: Vector2) -> void:
     route.call("_refresh_objective")
     if not area.has_node("AreaEntrances"):
         _build_entrances(area, id)
+    if partner_story != null: partner_story.enter_area(id,area)
+    if first_fight != null: first_fight.enter_area(id,area)
 
 func _build_entrances(area: Node2D, id: String) -> void:
     var entrances := Node2D.new()
@@ -123,6 +160,10 @@ func _gate(parent: Node, label: String, at: Vector2, size: Vector2, destination:
 func travel(destination: String, arrival: Vector2, facing: Vector2) -> void:
     if transitioning or not AREAS.has(destination):
         return
+    if atlas != null and atlas.opened: return
+    if partner_story != null and not partner_story.completed and destination == "route1":
+        route._show_message("BEFORE THE LEVEE\nThe dispatcher is waiting at the courier hall. Meet your first partner before setting out along the river. Follow the main street west, then take the hall's front path north.")
+        return
     transitioning = true
     active_area.get_node("Player").set_physics_process(false)
     call_deferred("_perform_travel", destination, arrival, facing)
@@ -150,6 +191,9 @@ func _process(_delta: float) -> void:
         route.get("_objective").text = cached["historic_street"].call("objective_text")
     if active_id == "relay_yard":
         route.get("_objective").text = active_area.call("objective_text")
+    if partner_story != null and not partner_story.completed:
+        route.get("_objective").text = partner_story.objective()
+        route.get("_board").text = "COURIER HALL  /  Your first morning on the road"
     var hint: Label = route.get("_hint")
     if transitioning or route.get("_panel").visible:
         hint.text = ""
@@ -159,9 +203,10 @@ func _process(_delta: float) -> void:
         hint.text = "P / E  Close party"
     else:
         hint.text = active_area.call("interaction_hint") + "    J  Notes    P  Party"
+        if partner_story != null and partner_story.hint() != "": hint.text = partner_story.hint()+"    J  Notes    P  Party"
 
 func _unhandled_input(event: InputEvent) -> void:
-    if active_id == "route1" or transitioning or active_area == null:
+    if active_id == "route1" or transitioning or active_area == null or (atlas != null and atlas.opened):
         return
     if event is InputEventKey and event.pressed and not event.echo:
         var code: int = event.physical_keycode if event.physical_keycode else event.keycode
@@ -185,6 +230,9 @@ func _unhandled_input(event: InputEvent) -> void:
         route.get("_panel").hide()
         active_area.get_node("Player").set_physics_process(true)
     else:
+        if partner_story != null and partner_story.interact():
+            get_viewport().set_input_as_handled()
+            return
         var site: String = active_area.call("nearest_site")
         active_area.call("interact", route)
         if active_id == "riverfront" and site == "city_clerk" and cached.has("historic_street"):

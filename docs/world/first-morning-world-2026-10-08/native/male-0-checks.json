@@ -1,0 +1,187 @@
+{
+  "checks": [
+    {
+      "check": "Boot reaches approved menu",
+      "passed": true
+    },
+    {
+      "check": "New Game selects appearance only",
+      "passed": true
+    },
+    {
+      "check": "World destination finished loading",
+      "passed": true
+    },
+    {
+      "check": "Cancel keeps existing party",
+      "passed": true
+    },
+    {
+      "check": "New Game enters hometown before partner selection",
+      "passed": true
+    },
+    {
+      "check": "No fallback or old party before meeting",
+      "passed": true
+    },
+    {
+      "check": "Courier appearance retained",
+      "passed": true
+    },
+    {
+      "check": "Map opens and suspends walking",
+      "passed": true
+    },
+    {
+      "check": "Held movement does not move under map",
+      "passed": true
+    },
+    {
+      "check": "Map blocks underlying party and dialogue",
+      "passed": true
+    },
+    {
+      "check": "Discovery excludes instantiated but unvisited Route 1",
+      "passed": true
+    },
+    {
+      "check": "Map reveals adjacent roads without revealing the city",
+      "passed": true
+    },
+    {
+      "check": "Pin points to real hall connection",
+      "passed": true
+    },
+    {
+      "check": "Closing map restores walking",
+      "passed": true
+    },
+    {
+      "check": "Walk home lane",
+      "passed": true
+    },
+    {
+      "check": "Walk across hometown",
+      "passed": true
+    },
+    {
+      "check": "Walk into courier square",
+      "passed": true
+    },
+    {
+      "check": "Physical map board opens atlas",
+      "passed": true
+    },
+    {
+      "check": "Cross planted square",
+      "passed": true
+    },
+    {
+      "check": "Hall approach remains clear",
+      "passed": true
+    },
+    {
+      "check": "Walk through real hall door",
+      "passed": true
+    },
+    {
+      "check": "Hall adds three original front idles",
+      "passed": true
+    },
+    {
+      "check": "Meet dispatcher in person",
+      "passed": true
+    },
+    {
+      "check": "No assignment before partnership",
+      "passed": true
+    },
+    {
+      "check": "Collect straps from shelves",
+      "passed": true
+    },
+    {
+      "check": "Reach western aisle",
+      "passed": true
+    },
+    {
+      "check": "Meet Kithflare by western shelves",
+      "passed": true
+    },
+    {
+      "check": "Meet Tallowroot by mail bags",
+      "passed": true
+    },
+    {
+      "check": "Reach Rimefin by outgoing mail",
+      "passed": true
+    },
+    {
+      "check": "All three met before final invitation",
+      "passed": true
+    },
+    {
+      "check": "Keep looking is reversible",
+      "passed": true
+    },
+    {
+      "check": "Return to chosen partner",
+      "passed": true
+    },
+    {
+      "check": "Map cannot cover partner invitation",
+      "passed": true
+    },
+    {
+      "check": "Invitation adds exactly chosen partner",
+      "passed": true
+    },
+    {
+      "check": "Collect existing first delivery",
+      "passed": true
+    },
+    {
+      "check": "Party panel shows story partner",
+      "passed": true
+    },
+    {
+      "check": "Leave hall floor",
+      "passed": true
+    },
+    {
+      "check": "Hall exit returns to hometown",
+      "passed": true
+    },
+    {
+      "check": "Story and discovery persist on return",
+      "passed": true
+    },
+    {
+      "check": "Return to main street",
+      "passed": true
+    },
+    {
+      "check": "Clear east departure",
+      "passed": true
+    },
+    {
+      "check": "Partner unlocks real levee entrance",
+      "passed": true
+    },
+    {
+      "check": "Route 1 supports same atlas",
+      "passed": true
+    },
+    {
+      "check": "Route guidance names bridge",
+      "passed": true
+    },
+    {
+      "check": "Map preserves first delivery and chosen ownership",
+      "passed": true
+    }
+  ],
+  "choice": 0,
+  "failures": [],
+  "model": "Male"
+}

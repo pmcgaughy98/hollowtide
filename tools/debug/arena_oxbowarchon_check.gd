@@ -24,7 +24,7 @@ func _initialize() -> void:
 		await _frames(8)
 		_save("line_stage%d" % (stage + 1))
 	# 1. Abilities, 1v1 against a held Ironvent.
-	arena._you_stage = 2
+	arena._you_stage = 1   # Oathfen: Ground Spikes moved here when the final gained Kingstone Lift (2026-10-08 night)
 	arena._new_match()
 	await _frames(3)
 	var me: Dictionary = arena._fighters[0]

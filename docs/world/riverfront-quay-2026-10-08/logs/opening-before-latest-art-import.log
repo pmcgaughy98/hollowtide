@@ -1,0 +1,305 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+OpenGL API 3.3.0 NVIDIA 596.49 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce GTX 1660 SUPER
+
+ERROR: Failed to read the root certificate store.
+   at: get_system_ca_certificates (platform/windows/os_windows.cpp:2582)
+Boot reaches approved menu: PASS
+New Game selects appearance only: PASS
+World destination finished loading: PASS
+Cancel keeps existing party: PASS
+ERROR: Unable to open file: res://.godot/imported/s.png-220e3e6adcae7952299ae7dd1dfccdc6.ctex.
+   at: _load_data (scene/resources/compressed_texture.cpp:45)
+   GDScript backtrace (most recent call first):
+       [0] load_all (res://scripts/creature_roster.gd:27)
+       [1] _refresh (res://scripts/debug/dex_overlay.gd:63)
+       [2] _ready (res://scripts/debug/dex_overlay.gd:47)
+       [3] _ready (res://scripts/world_journey.gd:62)
+ERROR: Failed loading resource: res://.godot/imported/s.png-220e3e6adcae7952299ae7dd1dfccdc6.ctex.
+   at: _load (core/io/resource_loader.cpp:317)
+   GDScript backtrace (most recent call first):
+       [0] load_all (res://scripts/creature_roster.gd:27)
+       [1] _refresh (res://scripts/debug/dex_overlay.gd:63)
+       [2] _ready (res://scripts/debug/dex_overlay.gd:47)
+       [3] _ready (res://scripts/world_journey.gd:62)
+ERROR: Failed loading resource: res://assets/sprites/arena/dustkite/s.png.
+   at: _load (core/io/resource_loader.cpp:317)
+   GDScript backtrace (most recent call first):
+       [0] load_all (res://scripts/creature_roster.gd:27)
+       [1] _refresh (res://scripts/debug/dex_overlay.gd:63)
+       [2] _ready (res://scripts/debug/dex_overlay.gd:47)
+       [3] _ready (res://scripts/world_journey.gd:62)
+ERROR: Unable to open file: res://.godot/imported/s.png-6fac7bb7dafa727b5ec60bca647c35de.ctex.
+   at: _load_data (scene/resources/compressed_texture.cpp:45)
+   GDScript backtrace (most recent call first):
+       [0] load_all (res://scripts/creature_roster.gd:27)
+       [1] _refresh (res://scripts/debug/dex_overlay.gd:63)
+       [2] _ready (res://scripts/debug/dex_overlay.gd:47)
+       [3] _ready (res://scripts/world_journey.gd:62)
+ERROR: Failed loading resource: res://.godot/imported/s.png-6fac7bb7dafa727b5ec60bca647c35de.ctex.
+   at: _load (core/io/resource_loader.cpp:317)
+   GDScript backtrace (most recent call first):
+       [0] load_all (res://scripts/creature_roster.gd:27)
+       [1] _refresh (res://scripts/debug/dex_overlay.gd:63)
+       [2] _ready (res://scripts/debug/dex_overlay.gd:47)
+       [3] _ready (res://scripts/world_journey.gd:62)
+ERROR: Failed loading resource: res://assets/sprites/arena/waywhistle/s.png.
+   at: _load (core/io/resource_loader.cpp:317)
+   GDScript backtrace (most recent call first):
+       [0] load_all (res://scripts/creature_roster.gd:27)
+       [1] _refresh (res://scripts/debug/dex_overlay.gd:63)
+       [2] _ready (res://scripts/debug/dex_overlay.gd:47)
+       [3] _ready (res://scripts/world_journey.gd:62)
+ERROR: Unable to open file: res://.godot/imported/s.png-22e89183f81c97409b1f0f929d9ef1e3.ctex.
+   at: _load_data (scene/resources/compressed_texture.cpp:45)
+   GDScript backtrace (most recent call first):
+       [0] load_all (res://scripts/creature_roster.gd:27)
+       [1] _refresh (res://scripts/debug/dex_overlay.gd:63)
+       [2] _ready (res://scripts/debug/dex_overlay.gd:47)
+       [3] _ready (res://scripts/world_journey.gd:62)
+ERROR: Failed loading resource: res://.godot/imported/s.png-22e89183f81c97409b1f0f929d9ef1e3.ctex.
+   at: _load (core/io/resource_loader.cpp:317)
+   GDScript backtrace (most recent call first):
+       [0] load_all (res://scripts/creature_roster.gd:27)
+       [1] _refresh (res://scripts/debug/dex_overlay.gd:63)
+       [2] _ready (res://scripts/debug/dex_overlay.gd:47)
+       [3] _ready (res://scripts/world_journey.gd:62)
+ERROR: Failed loading resource: res://assets/sprites/arena/highsignal/s.png.
+   at: _load (core/io/resource_loader.cpp:317)
+   GDScript backtrace (most recent call first):
+       [0] load_all (res://scripts/creature_roster.gd:27)
+       [1] _refresh (res://scripts/debug/dex_overlay.gd:63)
+       [2] _ready (res://scripts/debug/dex_overlay.gd:47)
+       [3] _ready (res://scripts/world_journey.gd:62)
+ERROR: res://data/creatures/1403_highsignal.tres:11 - Parse Error: [ext_resource] referenced non-existent resource at: res://assets/sprites/arena/highsignal/s.png.
+   at: _printerr (scene/resources/resource_format_text.cpp:41)
+   GDScript backtrace (most recent call first):
+       [0] load_all (res://scripts/creature_roster.gd:27)
+       [1] _refresh (res://scripts/debug/dex_overlay.gd:63)
+       [2] _ready (res://scripts/debug/dex_overlay.gd:47)
+       [3] _ready (res://scripts/world_journey.gd:62)
+ERROR: res://data/creatures/1403_highsignal.tres:11 - Parse Error: [ext_resource] referenced non-existent resource at: res://assets/sprites/arena/highsignal/s.png.
+   at: _printerr (scene/resources/resource_format_text.cpp:41)
+   GDScript backtrace (most recent call first):
+       [0] load_all (res://scripts/creature_roster.gd:27)
+       [1] _refresh (res://scripts/debug/dex_overlay.gd:63)
+       [2] _ready (res://scripts/debug/dex_overlay.gd:47)
+       [3] _ready (res://scripts/world_journey.gd:62)
+ERROR: Failed loading resource: res://data/creatures/1403_highsignal.tres.
+   at: _load (core/io/resource_loader.cpp:317)
+   GDScript backtrace (most recent call first):
+       [0] load_all (res://scripts/creature_roster.gd:27)
+       [1] _refresh (res://scripts/debug/dex_overlay.gd:63)
+       [2] _ready (res://scripts/debug/dex_overlay.gd:47)
+       [3] _ready (res://scripts/world_journey.gd:62)
+ERROR: res://data/creatures/1402_waywhistle.tres:12 - Parse Error: [ext_resource] referenced non-existent resource at: res://assets/sprites/arena/waywhistle/s.png.
+   at: _printerr (scene/resources/resource_format_text.cpp:41)
+   GDScript backtrace (most recent call first):
+       [0] load_all (res://scripts/creature_roster.gd:27)
+       [1] _refresh (res://scripts/debug/dex_overlay.gd:63)
+       [2] _ready (res://scripts/debug/dex_overlay.gd:47)
+       [3] _ready (res://scripts/world_journey.gd:62)
+ERROR: res://data/creatures/1402_waywhistle.tres:12 - Parse Error: [ext_resource] referenced non-existent resource at: res://assets/sprites/arena/waywhistle/s.png.
+   at: _printerr (scene/resources/resource_format_text.cpp:41)
+   GDScript backtrace (most recent call first):
+       [0] load_all (res://scripts/creature_roster.gd:27)
+       [1] _refresh (res://scripts/debug/dex_overlay.gd:63)
+       [2] _ready (res://scripts/debug/dex_overlay.gd:47)
+       [3] _ready (res://scripts/world_journey.gd:62)
+ERROR: Failed loading resource: res://data/creatures/1402_waywhistle.tres.
+   at: _load (core/io/resource_loader.cpp:317)
+   GDScript backtrace (most recent call first):
+       [0] load_all (res://scripts/creature_roster.gd:27)
+       [1] _refresh (res://scripts/debug/dex_overlay.gd:63)
+       [2] _ready (res://scripts/debug/dex_overlay.gd:47)
+       [3] _ready (res://scripts/world_journey.gd:62)
+ERROR: res://data/creatures/1401_dustkite.tres:12 - Parse Error: [ext_resource] referenced non-existent resource at: res://assets/sprites/arena/dustkite/s.png.
+   at: _printerr (scene/resources/resource_format_text.cpp:41)
+   GDScript backtrace (most recent call first):
+       [0] load_all (res://scripts/creature_roster.gd:27)
+       [1] _refresh (res://scripts/debug/dex_overlay.gd:63)
+       [2] _ready (res://scripts/debug/dex_overlay.gd:47)
+       [3] _ready (res://scripts/world_journey.gd:62)
+ERROR: res://data/creatures/1401_dustkite.tres:12 - Parse Error: [ext_resource] referenced non-existent resource at: res://assets/sprites/arena/dustkite/s.png.
+   at: _printerr (scene/resources/resource_format_text.cpp:41)
+   GDScript backtrace (most recent call first):
+       [0] load_all (res://scripts/creature_roster.gd:27)
+       [1] _refresh (res://scripts/debug/dex_overlay.gd:63)
+       [2] _ready (res://scripts/debug/dex_overlay.gd:47)
+       [3] _ready (res://scripts/world_journey.gd:62)
+ERROR: Failed loading resource: res://data/creatures/1401_dustkite.tres.
+   at: _load (core/io/resource_loader.cpp:317)
+   GDScript backtrace (most recent call first):
+       [0] load_all (res://scripts/creature_roster.gd:27)
+       [1] _refresh (res://scripts/debug/dex_overlay.gd:63)
+       [2] _ready (res://scripts/debug/dex_overlay.gd:47)
+       [3] _ready (res://scripts/world_journey.gd:62)
+ERROR: Unable to open file: res://.godot/imported/s.png-6fac7bb7dafa727b5ec60bca647c35de.ctex.
+   at: _load_data (scene/resources/compressed_texture.cpp:45)
+   GDScript backtrace (most recent call first):
+       [0] load_all (res://scripts/creature_roster.gd:27)
+       [1] _refresh (res://scripts/debug/dex_overlay.gd:63)
+       [2] _ready (res://scripts/debug/dex_overlay.gd:47)
+       [3] _ready (res://scripts/world_journey.gd:62)
+ERROR: Failed loading resource: res://.godot/imported/s.png-6fac7bb7dafa727b5ec60bca647c35de.ctex.
+   at: _load (core/io/resource_loader.cpp:317)
+   GDScript backtrace (most recent call first):
+       [0] load_all (res://scripts/creature_roster.gd:27)
+       [1] _refresh (res://scripts/debug/dex_overlay.gd:63)
+       [2] _ready (res://scripts/debug/dex_overlay.gd:47)
+       [3] _ready (res://scripts/world_journey.gd:62)
+ERROR: Failed loading resource: res://assets/sprites/arena/waywhistle/s.png.
+   at: _load (core/io/resource_loader.cpp:317)
+   GDScript backtrace (most recent call first):
+       [0] load_all (res://scripts/creature_roster.gd:27)
+       [1] _refresh (res://scripts/debug/dex_overlay.gd:63)
+       [2] _ready (res://scripts/debug/dex_overlay.gd:47)
+       [3] _ready (res://scripts/world_journey.gd:62)
+ERROR: Unable to open file: res://.godot/imported/s.png-22e89183f81c97409b1f0f929d9ef1e3.ctex.
+   at: _load_data (scene/resources/compressed_texture.cpp:45)
+   GDScript backtrace (most recent call first):
+       [0] load_all (res://scripts/creature_roster.gd:27)
+       [1] _refresh (res://scripts/debug/dex_overlay.gd:63)
+       [2] _ready (res://scripts/debug/dex_overlay.gd:47)
+       [3] _ready (res://scripts/world_journey.gd:62)
+ERROR: Failed loading resource: res://.godot/imported/s.png-22e89183f81c97409b1f0f929d9ef1e3.ctex.
+   at: _load (core/io/resource_loader.cpp:317)
+   GDScript backtrace (most recent call first):
+       [0] load_all (res://scripts/creature_roster.gd:27)
+       [1] _refresh (res://scripts/debug/dex_overlay.gd:63)
+       [2] _ready (res://scripts/debug/dex_overlay.gd:47)
+       [3] _ready (res://scripts/world_journey.gd:62)
+ERROR: Failed loading resource: res://assets/sprites/arena/highsignal/s.png.
+   at: _load (core/io/resource_loader.cpp:317)
+   GDScript backtrace (most recent call first):
+       [0] load_all (res://scripts/creature_roster.gd:27)
+       [1] _refresh (res://scripts/debug/dex_overlay.gd:63)
+       [2] _ready (res://scripts/debug/dex_overlay.gd:47)
+       [3] _ready (res://scripts/world_journey.gd:62)
+ERROR: res://data/creatures/1403_highsignal.tres:11 - Parse Error: [ext_resource] referenced non-existent resource at: res://assets/sprites/arena/highsignal/s.png.
+   at: _printerr (scene/resources/resource_format_text.cpp:41)
+   GDScript backtrace (most recent call first):
+       [0] load_all (res://scripts/creature_roster.gd:27)
+       [1] _refresh (res://scripts/debug/dex_overlay.gd:63)
+       [2] _ready (res://scripts/debug/dex_overlay.gd:47)
+       [3] _ready (res://scripts/world_journey.gd:62)
+ERROR: res://data/creatures/1403_highsignal.tres:11 - Parse Error: [ext_resource] referenced non-existent resource at: res://assets/sprites/arena/highsignal/s.png.
+   at: _printerr (scene/resources/resource_format_text.cpp:41)
+   GDScript backtrace (most recent call first):
+       [0] load_all (res://scripts/creature_roster.gd:27)
+       [1] _refresh (res://scripts/debug/dex_overlay.gd:63)
+       [2] _ready (res://scripts/debug/dex_overlay.gd:47)
+       [3] _ready (res://scripts/world_journey.gd:62)
+ERROR: Failed loading resource: res://data/creatures/1403_highsignal.tres.
+   at: _load (core/io/resource_loader.cpp:317)
+   GDScript backtrace (most recent call first):
+       [0] load_all (res://scripts/creature_roster.gd:27)
+       [1] _refresh (res://scripts/debug/dex_overlay.gd:63)
+       [2] _ready (res://scripts/debug/dex_overlay.gd:47)
+       [3] _ready (res://scripts/world_journey.gd:62)
+ERROR: res://data/creatures/1402_waywhistle.tres:12 - Parse Error: [ext_resource] referenced non-existent resource at: res://assets/sprites/arena/waywhistle/s.png.
+   at: _printerr (scene/resources/resource_format_text.cpp:41)
+   GDScript backtrace (most recent call first):
+       [0] load_all (res://scripts/creature_roster.gd:27)
+       [1] _refresh (res://scripts/debug/dex_overlay.gd:63)
+       [2] _ready (res://scripts/debug/dex_overlay.gd:47)
+       [3] _ready (res://scripts/world_journey.gd:62)
+ERROR: res://data/creatures/1402_waywhistle.tres:12 - Parse Error: [ext_resource] referenced non-existent resource at: res://assets/sprites/arena/waywhistle/s.png.
+   at: _printerr (scene/resources/resource_format_text.cpp:41)
+   GDScript backtrace (most recent call first):
+       [0] load_all (res://scripts/creature_roster.gd:27)
+       [1] _refresh (res://scripts/debug/dex_overlay.gd:63)
+       [2] _ready (res://scripts/debug/dex_overlay.gd:47)
+       [3] _ready (res://scripts/world_journey.gd:62)
+ERROR: Failed loading resource: res://data/creatures/1402_waywhistle.tres.
+   at: _load (core/io/resource_loader.cpp:317)
+   GDScript backtrace (most recent call first):
+       [0] load_all (res://scripts/creature_roster.gd:27)
+       [1] _refresh (res://scripts/debug/dex_overlay.gd:63)
+       [2] _ready (res://scripts/debug/dex_overlay.gd:47)
+       [3] _ready (res://scripts/world_journey.gd:62)
+ERROR: Unable to open file: res://.godot/imported/s.png-22e89183f81c97409b1f0f929d9ef1e3.ctex.
+   at: _load_data (scene/resources/compressed_texture.cpp:45)
+   GDScript backtrace (most recent call first):
+       [0] load_all (res://scripts/creature_roster.gd:27)
+       [1] _refresh (res://scripts/debug/dex_overlay.gd:63)
+       [2] _ready (res://scripts/debug/dex_overlay.gd:47)
+       [3] _ready (res://scripts/world_journey.gd:62)
+ERROR: Failed loading resource: res://.godot/imported/s.png-22e89183f81c97409b1f0f929d9ef1e3.ctex.
+   at: _load (core/io/resource_loader.cpp:317)
+   GDScript backtrace (most recent call first):
+       [0] load_all (res://scripts/creature_roster.gd:27)
+       [1] _refresh (res://scripts/debug/dex_overlay.gd:63)
+       [2] _ready (res://scripts/debug/dex_overlay.gd:47)
+       [3] _ready (res://scripts/world_journey.gd:62)
+ERROR: Failed loading resource: res://assets/sprites/arena/highsignal/s.png.
+   at: _load (core/io/resource_loader.cpp:317)
+   GDScript backtrace (most recent call first):
+       [0] load_all (res://scripts/creature_roster.gd:27)
+       [1] _refresh (res://scripts/debug/dex_overlay.gd:63)
+       [2] _ready (res://scripts/debug/dex_overlay.gd:47)
+       [3] _ready (res://scripts/world_journey.gd:62)
+ERROR: res://data/creatures/1403_highsignal.tres:11 - Parse Error: [ext_resource] referenced non-existent resource at: res://assets/sprites/arena/highsignal/s.png.
+   at: _printerr (scene/resources/resource_format_text.cpp:41)
+   GDScript backtrace (most recent call first):
+       [0] load_all (res://scripts/creature_roster.gd:27)
+       [1] _refresh (res://scripts/debug/dex_overlay.gd:63)
+       [2] _ready (res://scripts/debug/dex_overlay.gd:47)
+       [3] _ready (res://scripts/world_journey.gd:62)
+ERROR: res://data/creatures/1403_highsignal.tres:11 - Parse Error: [ext_resource] referenced non-existent resource at: res://assets/sprites/arena/highsignal/s.png.
+   at: _printerr (scene/resources/resource_format_text.cpp:41)
+   GDScript backtrace (most recent call first):
+       [0] load_all (res://scripts/creature_roster.gd:27)
+       [1] _refresh (res://scripts/debug/dex_overlay.gd:63)
+       [2] _ready (res://scripts/debug/dex_overlay.gd:47)
+       [3] _ready (res://scripts/world_journey.gd:62)
+ERROR: Failed loading resource: res://data/creatures/1403_highsignal.tres.
+   at: _load (core/io/resource_loader.cpp:317)
+   GDScript backtrace (most recent call first):
+       [0] load_all (res://scripts/creature_roster.gd:27)
+       [1] _refresh (res://scripts/debug/dex_overlay.gd:63)
+       [2] _ready (res://scripts/debug/dex_overlay.gd:47)
+       [3] _ready (res://scripts/world_journey.gd:62)
+New Game enters hometown before partner selection: PASS
+No fallback or old party before meeting: PASS
+Courier appearance retained: PASS
+Map opens and suspends walking: PASS
+Held movement does not move under map: PASS
+Map blocks underlying party and dialogue: PASS
+Discovery excludes instantiated but unvisited Route 1: PASS
+Map reveals adjacent roads without revealing the city: PASS
+Pin points to real hall connection: PASS
+Closing map restores walking: PASS
+Walk home lane: PASS
+Walk across hometown: PASS
+Walk into courier square: PASS
+Physical map board opens atlas: PASS
+Cross planted square: PASS
+Hall approach remains clear: PASS
+Walk through real hall door: PASS
+Hall adds three original front idles: PASS
+Meet dispatcher in person: PASS
+No assignment before partnership: PASS
+Collect straps from shelves: PASS
+Reach western aisle: PASS
+Meet Kithflare by western shelves: PASS
+Meet Tallowroot by mail bags: PASS
+Reach Rimefin by outgoing mail: PASS
+All three met before final invitation: PASS
+Keep looking is reversible: PASS
+Return to chosen partner: PASS
+Map cannot cover partner invitation: PASS
+Invitation adds exactly chosen partner: PASS
+Collect existing first delivery: PASS
+Party panel shows story partner: PASS
+Leave hall floor: PASS
+Hall exit returns to hometown: PASS
+Story and discovery persist on return: PASS
+Return to main street: PASS
+Clear east departure: PASS
+Partner unlocks real levee entrance: PASS
+Route 1 supports same atlas: PASS
+Route guidance names bridge: PASS
+Map preserves first delivery and chosen ownership: PASS
+RESULT 45 checks / 0 failures
+WARNING: 101 ObjectDB instances were leaked at exit (run with `--verbose` for details).
+   at: cleanup (core/object/object.cpp:2536)

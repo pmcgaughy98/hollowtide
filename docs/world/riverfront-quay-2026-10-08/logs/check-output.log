@@ -1,0 +1,50 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+OpenGL API 3.3.0 NVIDIA 596.49 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce GTX 1660 SUPER
+
+ERROR: Failed to read the root certificate store.
+   at: get_system_ca_certificates (platform/windows/os_windows.cpp:2582)
+Riverfront attaches quay and preserves courier: PASS
+Reach quay board from real bridge arrival: PASS
+Board introduces optional round without changing main objective: PASS
+Map cannot interrupt quay dialogue: PASS
+Dialogue blocks movement: PASS
+Close dialogue restores walking: PASS
+Incomplete round does not open gate: PASS
+Reach branch gate approach: PASS
+Gate notice explains open side paths: PASS
+Closed gate physically blocks shortcut: PASS
+Reach garden through western side path: PASS
+Garden can be first observation: PASS
+Repeated observations are idempotent: PASS
+Garden west loop connects lower promenade: PASS
+Promenade reaches actual landing deck: PASS
+Landing records gauge observation: PASS
+Landing north rail blocks entry into water: PASS
+Landing remains traversable behind rail: PASS
+Landing end blocks west water: PASS
+Return from end of landing: PASS
+Landing south rail blocks water: PASS
+Promenade continues above landing: PASS
+Bank outside landing remains solid: PASS
+Court connects landing and goods shop: PASS
+Goods observation completes three distinct stops: PASS
+Return to board through branch court: PASS
+Returning three observations opens visible and physical gate: PASS
+Opened shortcut is really walkable: PASS
+Garden east opening and relay road remain clear: PASS
+Actual east exit reaches relay yard: PASS
+Actual yard return reaches riverfront: PASS
+Cached quay retains completed observations and open gate: PASS
+Old city approach remains clear: PASS
+Actual north exit reaches historic street: PASS
+Actual historic return reaches riverfront: PASS
+Westbound bridge road remains clear: PASS
+Actual west exit reaches levee: PASS
+Levee bridge returns to riverfront: PASS
+Side round preserves party and main delivery flags: PASS
+Region map still opens after all new interactions: PASS
+Region map restores control: PASS
+Reduced motion stops ambient walker: PASS
+Ambient walker uses its lane: PASS
+Ambient animation resumes: PASS
+RESULT 44 checks / 0 failures

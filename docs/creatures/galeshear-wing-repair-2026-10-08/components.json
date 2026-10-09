@@ -1,0 +1,536 @@
+{
+  "rotation": {
+    "path": "D:/dev/hollowtide-galeshear-wings-20261008/generated/rotation.png",
+    "dimensions": [
+      1254,
+      1254
+    ],
+    "components": [
+      {
+        "bounds": [
+          30,
+          39,
+          346,
+          345
+        ],
+        "pixels": 58308,
+        "touches_edge": false
+      },
+      {
+        "bounds": [
+          435,
+          34,
+          391,
+          350
+        ],
+        "pixels": 75761,
+        "touches_edge": false
+      },
+      {
+        "bounds": [
+          890,
+          43,
+          348,
+          342
+        ],
+        "pixels": 60269,
+        "touches_edge": false
+      },
+      {
+        "bounds": [
+          24,
+          458,
+          349,
+          337
+        ],
+        "pixels": 55252,
+        "touches_edge": false
+      },
+      {
+        "bounds": [
+          890,
+          456,
+          348,
+          343
+        ],
+        "pixels": 50647,
+        "touches_edge": false
+      },
+      {
+        "bounds": [
+          26,
+          870,
+          375,
+          346
+        ],
+        "pixels": 64307,
+        "touches_edge": false
+      },
+      {
+        "bounds": [
+          448,
+          875,
+          378,
+          325
+        ],
+        "pixels": 67732,
+        "touches_edge": false
+      },
+      {
+        "bounds": [
+          899,
+          871,
+          339,
+          333
+        ],
+        "pixels": 55296,
+        "touches_edge": false
+      }
+    ]
+  },
+  "se": {
+    "path": "D:/dev/hollowtide-galeshear-wings-20261008/generated/se.png",
+    "dimensions": [
+      1774,
+      887
+    ],
+    "components": [
+      {
+        "bounds": [
+          13,
+          51,
+          432,
+          351
+        ],
+        "pixels": 79613,
+        "touches_edge": false
+      },
+      {
+        "bounds": [
+          470,
+          52,
+          420,
+          343
+        ],
+        "pixels": 75866,
+        "touches_edge": false
+      },
+      {
+        "bounds": [
+          919,
+          54,
+          442,
+          342
+        ],
+        "pixels": 79580,
+        "touches_edge": false
+      },
+      {
+        "bounds": [
+          1376,
+          65,
+          395,
+          330
+        ],
+        "pixels": 67758,
+        "touches_edge": false
+      },
+      {
+        "bounds": [
+          12,
+          476,
+          444,
+          332
+        ],
+        "pixels": 74761,
+        "touches_edge": false
+      },
+      {
+        "bounds": [
+          479,
+          476,
+          421,
+          342
+        ],
+        "pixels": 67697,
+        "touches_edge": false
+      },
+      {
+        "bounds": [
+          924,
+          483,
+          436,
+          335
+        ],
+        "pixels": 70484,
+        "touches_edge": false
+      },
+      {
+        "bounds": [
+          1382,
+          484,
+          389,
+          334
+        ],
+        "pixels": 66800,
+        "touches_edge": false
+      }
+    ]
+  },
+  "n": {
+    "path": "D:/dev/hollowtide-galeshear-wings-20261008/generated/n.png",
+    "dimensions": [
+      1774,
+      887
+    ],
+    "components": [
+      {
+        "bounds": [
+          21,
+          52,
+          433,
+          350
+        ],
+        "pixels": 75294,
+        "touches_edge": false
+      },
+      {
+        "bounds": [
+          482,
+          56,
+          419,
+          359
+        ],
+        "pixels": 71739,
+        "touches_edge": false
+      },
+      {
+        "bounds": [
+          924,
+          58,
+          415,
+          359
+        ],
+        "pixels": 68975,
+        "touches_edge": false
+      },
+      {
+        "bounds": [
+          1362,
+          62,
+          403,
+          350
+        ],
+        "pixels": 68468,
+        "touches_edge": false
+      },
+      {
+        "bounds": [
+          17,
+          472,
+          420,
+          329
+        ],
+        "pixels": 70815,
+        "touches_edge": false
+      },
+      {
+        "bounds": [
+          468,
+          470,
+          426,
+          329
+        ],
+        "pixels": 70870,
+        "touches_edge": false
+      },
+      {
+        "bounds": [
+          917,
+          465,
+          420,
+          334
+        ],
+        "pixels": 70779,
+        "touches_edge": false
+      },
+      {
+        "bounds": [
+          1363,
+          466,
+          408,
+          337
+        ],
+        "pixels": 68583,
+        "touches_edge": false
+      }
+    ]
+  },
+  "s": {
+    "path": "D:/dev/hollowtide-galeshear-wings-20261008/generated/s.png",
+    "dimensions": [
+      1774,
+      887
+    ],
+    "components": [
+      {
+        "bounds": [
+          39,
+          48,
+          378,
+          358
+        ],
+        "pixels": 71236,
+        "touches_edge": false
+      },
+      {
+        "bounds": [
+          486,
+          50,
+          380,
+          351
+        ],
+        "pixels": 69489,
+        "touches_edge": false
+      },
+      {
+        "bounds": [
+          929,
+          50,
+          380,
+          348
+        ],
+        "pixels": 70019,
+        "touches_edge": false
+      },
+      {
+        "bounds": [
+          1376,
+          48,
+          376,
+          350
+        ],
+        "pixels": 69409,
+        "touches_edge": false
+      },
+      {
+        "bounds": [
+          38,
+          488,
+          375,
+          340
+        ],
+        "pixels": 67715,
+        "touches_edge": false
+      },
+      {
+        "bounds": [
+          480,
+          484,
+          384,
+          355
+        ],
+        "pixels": 68230,
+        "touches_edge": false
+      },
+      {
+        "bounds": [
+          921,
+          487,
+          385,
+          353
+        ],
+        "pixels": 63789,
+        "touches_edge": false
+      },
+      {
+        "bounds": [
+          1367,
+          486,
+          383,
+          355
+        ],
+        "pixels": 67745,
+        "touches_edge": false
+      }
+    ]
+  },
+  "e": {
+    "path": "D:/dev/hollowtide-galeshear-wings-20261008/generated/e.png",
+    "dimensions": [
+      1774,
+      887
+    ],
+    "components": [
+      {
+        "bounds": [
+          26,
+          61,
+          384,
+          351
+        ],
+        "pixels": 63981,
+        "touches_edge": false
+      },
+      {
+        "bounds": [
+          487,
+          61,
+          364,
+          351
+        ],
+        "pixels": 63018,
+        "touches_edge": false
+      },
+      {
+        "bounds": [
+          931,
+          61,
+          364,
+          351
+        ],
+        "pixels": 64177,
+        "touches_edge": false
+      },
+      {
+        "bounds": [
+          1381,
+          61,
+          356,
+          349
+        ],
+        "pixels": 64574,
+        "touches_edge": false
+      },
+      {
+        "bounds": [
+          35,
+          493,
+          376,
+          339
+        ],
+        "pixels": 64525,
+        "touches_edge": false
+      },
+      {
+        "bounds": [
+          499,
+          494,
+          363,
+          329
+        ],
+        "pixels": 62327,
+        "touches_edge": false
+      },
+      {
+        "bounds": [
+          944,
+          493,
+          354,
+          341
+        ],
+        "pixels": 62947,
+        "touches_edge": false
+      },
+      {
+        "bounds": [
+          1388,
+          494,
+          355,
+          330
+        ],
+        "pixels": 63507,
+        "touches_edge": false
+      }
+    ]
+  },
+  "ne": {
+    "path": "D:/dev/hollowtide-galeshear-wings-20261008/generated/ne.png",
+    "dimensions": [
+      1774,
+      887
+    ],
+    "components": [
+      {
+        "bounds": [
+          29,
+          50,
+          385,
+          361
+        ],
+        "pixels": 58239,
+        "touches_edge": false
+      },
+      {
+        "bounds": [
+          489,
+          50,
+          368,
+          361
+        ],
+        "pixels": 56232,
+        "touches_edge": false
+      },
+      {
+        "bounds": [
+          932,
+          51,
+          368,
+          361
+        ],
+        "pixels": 55862,
+        "touches_edge": false
+      },
+      {
+        "bounds": [
+          1374,
+          57,
+          373,
+          355
+        ],
+        "pixels": 55194,
+        "touches_edge": false
+      },
+      {
+        "bounds": [
+          35,
+          487,
+          379,
+          351
+        ],
+        "pixels": 55771,
+        "touches_edge": false
+      },
+      {
+        "bounds": [
+          507,
+          486,
+          349,
+          347
+        ],
+        "pixels": 53416,
+        "touches_edge": false
+      },
+      {
+        "bounds": [
+          933,
+          487,
+          367,
+          346
+        ],
+        "pixels": 53660,
+        "touches_edge": false
+      },
+      {
+        "bounds": [
+          1371,
+          483,
+          376,
+          350
+        ],
+        "pixels": 54829,
+        "touches_edge": false
+      }
+    ]
+  }
+}

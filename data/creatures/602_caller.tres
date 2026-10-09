@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="CreatureData" format=3]
+
+[ext_resource type="Script" path="res://scripts/creature_data.gd" id="1_script"]
+[ext_resource type="Texture2D" path="res://assets/sprites/arena/caller/s.png" id="2_sprite"]
+[ext_resource type="Resource" path="res://data/creatures/603_warden.tres" id="4_evolution"]
+
+[resource]
+script = ExtResource("1_script")
+id = 602
+creature_name = "Bend Caller"
+essence = 1
+sprite = ExtResource("2_sprite")
+description = "Provisional entry (Claude, 2026-10-08): Stage II of the River Listener line, the trunk lengthened, the gill fans widened into backward-swept plates, a second brow ridge forming a resonance chamber; it can send a call round a bend but cannot tell a living reply from an echo. Working name pending Preston's approval. Arena sprite standing in for a front; no back view, default stats, no turn-based moves (Grok). Arena kit adds Still Water and the Listening passive."
+evolves_into = ExtResource("4_evolution")
+body_parts = PackedStringArray()
+battle_size = 1.15

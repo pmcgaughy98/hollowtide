@@ -1,4 +1,6 @@
 # THE CONCEPT
+
+> **2026-10-09, Preston:** the game is now a turn-based mystery dungeon; the arena is kept as a separate mode. How it plays is in `docs/design/mystery-dungeon-pivot-2026-10-09.md`. The creatures, essences, naming and art direction below are unchanged.
 Monster collector. Godot 4.x, GDScript. Pixel art.
 Revised September 2026. Supersedes Crystal Creatures and the combination draft.
 

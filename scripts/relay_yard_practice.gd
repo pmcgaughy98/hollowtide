@@ -2,14 +2,8 @@ extends "res://scripts/move_preview.gd"
 ## Use the existing picker and arena without changing either one's combat rules.
 signal return_to_yard
 
-func _grid() -> void:
-    super._grid()
-    # Fit all current lines into this practice screen, including the seventh column.
-    for child in _ui.get_children():
-        if child is GridContainer:
-            var width := floorf((get_viewport_rect().size.x-96.0-12.0*(child.columns-1))/child.columns)
-            for button in child.get_children():
-                button.custom_minimum_size.x = minf(150.0,width)
+# The picker rebuilt on 2026-10-09 lays its grid out to fit every line itself, so the
+# column-fitting override that used to live here (it called a _grid() the picker no longer has) is gone.
 
 func _unhandled_input(event: InputEvent) -> void:
     if event is InputEventKey and event.pressed and not event.echo:

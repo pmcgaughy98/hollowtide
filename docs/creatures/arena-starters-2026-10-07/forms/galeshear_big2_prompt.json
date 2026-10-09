@@ -1,0 +1,11 @@
+{
+ "prompt": "Top-down action game sprite of a storm-born giant glider, the final stage of a floodplain glider line, STANDING UPRIGHT on the ground on two thick powerful legs with huge hooked talons, its body vertical like a standing figure, chest broad and forward, head raised in a fierce roar, the membrane sails raised up and spread wide on either side like a wall of storm, layered in stepped overlapping rows like torn storm fronts, long forked shoulder spars rising above the head like a crown of bone, rust veins branching through the membranes, a long heavy rudder tail resting on the ground behind. The whole creature small in the middle of the image with a wide empty margin on every side, nothing touching the edges. Dominant and imposing. Faded slate-blue membranes with storm-grey edges, brown-grey body, bone-white spars, rust veins. Seen from a three-quarter overhead angle like a sprite in a top-down arena battle game, facing down and to the right toward the camera, feet at the bottom. A readable game sprite: chunky clear shapes, a crisp dark outline. Not a bat, not a bird, no feathers, not a dragon, not paper, not cloth, not flying, not seen from directly above. On a plain white background.",
+ "prompt_style": "rd_pro__default",
+ "width": 160,
+ "height": 160,
+ "num_images": 1,
+ "remove_bg": true,
+ "reference_images": [
+  "docs/creatures/arena-starters-2026-10-07/forms/galeshear_arena_front_take2_clipped.png"
+ ]
+}

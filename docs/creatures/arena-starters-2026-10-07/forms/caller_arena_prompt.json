@@ -1,0 +1,12 @@
+{
+ "prompt": "Top-down action game sprite of the adolescent middle stage of a river amphibian line: the small squat frog kit in the second reference image grows into this, and this later grows into the heavy ridged river guardian in the first reference image. Like a teenager it is its own shape, not a copy of either: lean and lanky, standing tall and alert on long thin legs, a narrow body held off the ground, a long neck, the head raised in a calling stance with the mouth open. Its signature features are oversized for its body: three big rigid backward-swept gill plates on each side of the neck flared out like a young crest, and the split shovel-shaped brow doubled into two ridges with a hollow resonance chamber between them. Only a hint of the guardian to come: a faint line of small bumps starting down the spine, a short stub of tail. Smooth amphibian skin, webbed feet, deep teal body, river-blue back, muted silver belly and throat, the gill plates a darker teal with silver edges. Seen from above at a three-quarter overhead angle like a sprite in a top-down arena battle game, facing down and to the right toward the camera. A readable game sprite: chunky clear shapes, a crisp dark outline. Not an elephant, no trunk, not a lizard, not a crocodile, not a fish, not a bird. Whole creature centred with empty space on every side. On a plain white background.",
+ "prompt_style": "rd_pro__default",
+ "width": 112,
+ "height": 112,
+ "num_images": 1,
+ "remove_bg": true,
+ "reference_images": [
+  "docs/creatures/arena-starters-2026-10-07/forms/warden_arena_front_take1.png",
+  "docs/creatures/arena-starters-2026-10-07/forms/listener_arena_front_take1.png"
+ ]
+}

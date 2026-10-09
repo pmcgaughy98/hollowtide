@@ -1,0 +1,32 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+OpenGL API 3.3.0 NVIDIA 596.49 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce GTX 1660 SUPER
+
+ERROR: Failed to read the root certificate store.
+   at: get_system_ca_certificates (platform/windows/os_windows.cpp:2582)
+Previous run has one owned partner: PASS
+Launch prelude blocks menu input: PASS
+Skip reveals menu without starting New Game: PASS
+Approved artwork menu fits canvas: PASS
+Options retain inherited controls: PASS
+Options return to menu: PASS
+New Game opens courier selection: PASS
+Courier choice uses selected model: PASS
+Continue opens three starter choices: PASS
+Starter screen fits canvas: PASS
+Arrow focus previews intended partner: PASS
+Selected partner is explicit: PASS
+Partner choice opens confirmation: PASS
+Confirmation fits canvas: PASS
+Cancel returns to selected partner: PASS
+Preview and cancellation preserve previous party: PASS
+Starter Back returns to courier: PASS
+Revisit retains intended partner: PASS
+Unavailable journey keeps confirmation recoverable: PASS
+Unavailable journey preserves previous party: PASS
+Recovery message fits confirmation screen: PASS
+Confirmation enters connected hometown and frees menu: PASS
+Chosen starter becomes the only partner: PASS
+Courier reaches world without changing model: PASS
+Matching portrait uses eight original front idle frames: PASS
+Partner welcome fits canvas: PASS
+Chosen partner is visible in world party panel: PASS

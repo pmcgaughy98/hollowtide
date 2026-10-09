@@ -35,12 +35,18 @@ signal rail_impact(at: Vector2)
 ## every ally and throws every enemy inside `radius` out; then the star settles into a field.
 signal star_shield(at: Vector2, radius: float)
 signal star_field(at: Vector2)
+## Hush only: the river has gone still at `at`; the arena cancels, dazes and locks the enemy team.
+signal hush(at: Vector2)
+## Gale Shear only: the sweep has crossed the floor from `from`; the arena carries every enemy to the edge.
+signal gale_sweep(from: Vector2)
+## High Signal only: the whistle has carried; the arena marks every enemy and doubles the team's next ability on each.
+signal high_signal(at: Vector2)
 signal finished
 
 const CARD_SECONDS := 1.3
 const DAMAGE := 30
 ## How long each signature's effect runs after the card (2.2 s unless listed).
-const END := {"Furnace Roar": 2.9, "Kingstone Rail": 3.1, "Starshield": 2.4}
+const END := {"Furnace Roar": 2.9, "Kingstone Rail": 3.1, "Starshield": 2.4, "Hush": 3.0, "Gale Shear": 2.6, "High Signal": 2.5}
 
 var active := false
 var _kind := ""
@@ -100,6 +106,9 @@ func _process(delta: float) -> void:
 		"Verdant Roar": _roar_green_cues(before, e)
 		"Kingstone Rail": _rail_cues(before, e)
 		"Starshield": _star_cues(before, e)
+		"Hush": _hush_cues(before, e)
+		"Gale Shear": _gale_cues(before, e)
+		"High Signal": _signal_cues(before, e)
 	if e > END.get(_kind, 2.2):
 		active = false
 		finished.emit()
@@ -658,6 +667,149 @@ func _draw_star(e: float) -> void:
 		draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE)
 
 
+# ---------------------------------------------------------------- Hush
+# (The River Listener line's signature, 2026-10-08. Hollow is absence: the Warden takes the
+# sound out of the river.) Rings of silence spread from the Warden across the floor; when the
+# last one reaches the edge the arena drops dark and still, every enemy wind-up dies in the
+# quiet, and the stillness lies on the water for the rest of the effect.
+
+const HUSH_FALL := 1.2
+const HUSH_REACH := 240.0
+
+func _hush_cues(b: float, e: float) -> void:
+	if _cue(b, e, 0.02):
+		_play.call("res://assets/audio/sfx/listener/hush.wav", 0.0)
+	if _cue(b, e, HUSH_FALL):
+		_shake.call(3.0)
+		_landed = true
+		hush.emit(_from)
+
+
+func _draw_hush(e: float) -> void:
+	var kf := clampf(e / HUSH_FALL, 0.0, 1.0)
+	# The light drains as the rings go out; after the fall the arena sits dim and teal-black.
+	var dim: float = 0.25 * kf if e < HUSH_FALL else 0.45 * clampf((3.0 - e) / 0.6, 0.0, 1.0)
+	draw_rect(Rect2(-40, -40, 470, 300), Color(0.02, 0.08, 0.1, dim))
+	draw_set_transform(_from.round(), 0.0, Vector2(1.0, 0.5))
+	if e < HUSH_FALL + 0.3:
+		# Three rings of silence, each a little behind the last, thinning as they spread.
+		for q in 3:
+			var kr: float = clampf((e - q * 0.18) / HUSH_FALL, 0.0, 1.0)
+			var r: float = HUSH_REACH * (1.0 - pow(1.0 - kr, 2.0))
+			if kr > 0.0 and kr < 1.0:
+				draw_arc(Vector2.ZERO, r, 0, TAU, 64, Color(0.75, 0.95, 0.93, 0.8 * (1.0 - kr * 0.6)), 2.0 - kr)
+	else:
+		# The stillness: a wide dark disc of flat water, faint rings sinking inward toward the Warden.
+		var ks := clampf((3.0 - e) / 0.6, 0.0, 1.0)
+		draw_circle(Vector2.ZERO, HUSH_REACH, Color(0.05, 0.2, 0.22, 0.3 * ks))
+		for q in 4:
+			var kr: float = 1.0 - fmod((e - HUSH_FALL) * 0.35 + q / 4.0, 1.0)
+			draw_arc(Vector2.ZERO, HUSH_REACH * kr, 0, TAU, 48, Color(0.62, 0.9, 0.88, 0.3 * ks * kr), 1.0)
+	draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE)
+	if e >= HUSH_FALL and e < HUSH_FALL + 0.25:
+		# The fall: one dark flash, the opposite of a burst.
+		draw_rect(Rect2(-40, -40, 470, 300), Color(0.0, 0.03, 0.05, 0.6 * (1.0 - (e - HUSH_FALL) / 0.25)))
+	# The Warden's brow vanes glow cold while it listens.
+	var brow: Vector2 = _from + Vector2(6, -22)
+	draw_circle(brow.round(), 2.0 + 2.0 * kf, Color(0.75, 0.95, 0.93, 0.9))
+	draw_circle(brow.round(), 6.0 + 8.0 * kf, Color(0.4, 0.8, 0.78, 0.2))
+
+
+# ---------------------------------------------------------------- High Signal
+# (The Dustkite line's signature, 2026-10-09: the bluff sentinel's whistle.) The spotter rears
+# with its wing arc raised and its throat lit ivory; a rising whistle sends three rings of
+# sound across the floor; at the carry every enemy is marked and tethers of light run to them.
+
+const SIGNAL_CARRY := 1.0
+const SIGNAL_REACH := 260.0
+
+func _signal_cues(b: float, e: float) -> void:
+	if _cue(b, e, 0.02):
+		_play.call("res://assets/audio/sfx/dustkite/high_signal.wav", -2.0)
+	if _cue(b, e, SIGNAL_CARRY):
+		_shake.call(2.0)
+		_landed = true
+		high_signal.emit(_from)
+
+
+func _draw_signal(e: float) -> void:
+	var kc := clampf(e / SIGNAL_CARRY, 0.0, 1.0)
+	draw_rect(Rect2(-40, -40, 470, 300), Color(0.9, 0.9, 0.85, 0.08 * kc * clampf((2.5 - e) / 0.5, 0.0, 1.0)))
+	draw_set_transform(_from.round(), 0.0, Vector2(1.0, 0.55))
+	for q in 3:
+		var kr: float = clampf((e - q * 0.15) / 1.2, 0.0, 1.0)
+		if kr > 0.0 and kr < 1.0:
+			draw_arc(Vector2.ZERO, SIGNAL_REACH * (1.0 - pow(1.0 - kr, 2.0)), 0, TAU, 64, Color(0.92, 0.9, 0.82, 0.7 * (1.0 - kr)), 1.5)
+	draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE)
+	# The throat lit, and a "!" of light over the spotter.
+	var throat: Vector2 = _from + Vector2(0, -16)
+	draw_circle(throat.round(), 2.0 + 2.0 * kc + sin(e * 24.0), Color(0.95, 0.93, 0.85, 0.95))
+	draw_circle(throat.round(), 7.0 + 6.0 * kc, Color(0.9, 0.88, 0.75, 0.2))
+	if e > SIGNAL_CARRY and e < SIGNAL_CARRY + 1.2:
+		var top: Vector2 = _from.round() + Vector2(0, -40)
+		draw_rect(Rect2(top + Vector2(-2, 0), Vector2(4, 10)), Color(0.95, 0.93, 0.85, 0.95))
+		draw_rect(Rect2(top + Vector2(-2, 13), Vector2(4, 4)), Color(0.95, 0.93, 0.85, 0.95))
+
+
+# ---------------------------------------------------------------- Gale Shear
+# (The Canvaswing line's signature, 2026-10-08: the Gale shelter's one wing sweep.) The light
+# goes storm-grey; the glider's sails open wide and the wind gathers behind it as streaks
+# bending toward it; then one sweep: a wall of wind leaves it and crosses the whole floor,
+# streaks and torn-off leaves racing ahead of it, and every enemy is carried to the edge.
+
+const GALE_SWEEP := 1.3
+const GALE_REACH := 300.0
+
+func _gale_cues(b: float, e: float) -> void:
+	if _cue(b, e, 0.02):
+		_play.call("res://assets/audio/sfx/canvaswing/gale.wav", -2.0)
+	if _cue(b, e, GALE_SWEEP):
+		_play.call("res://assets/audio/sfx/canvaswing/shear.wav", 0.0)
+		_shake.call(6.0)
+		_landed = true
+		gale_sweep.emit(_from)
+
+
+func _draw_gale(e: float) -> void:
+	var kg := clampf(e / GALE_SWEEP, 0.0, 1.0)
+	# Storm light.
+	var dim: float = 0.22 * kg if e < GALE_SWEEP else 0.3 * clampf((2.6 - e) / 0.5, 0.0, 1.0)
+	draw_rect(Rect2(-40, -40, 470, 300), Color(0.35, 0.4, 0.5, dim))
+	if e < GALE_SWEEP:
+		# The wind gathers: streaks from all round bend in toward the glider, faster as the moment nears.
+		for j in 26:
+			var a: float = _hash(j) * TAU
+			var d0: float = 60.0 + 120.0 * _hash(j + 9)
+			var k: float = fmod(_hash(j + 3) + e * (0.6 + 0.9 * kg), 1.0)
+			var p0: Vector2 = _from + Vector2.RIGHT.rotated(a) * d0 * (1.0 - k)
+			var p1: Vector2 = _from + Vector2.RIGHT.rotated(a) * d0 * (1.0 - k) * 0.85
+			draw_line(p0.round(), p1.round(), Color(0.85, 0.9, 0.95, 0.5 * kg), 1.0)
+	else:
+		# The sweep: a wall of wind racing out from the glider, streaks and leaves ahead of it.
+		var ks := clampf((e - GALE_SWEEP) / 1.0, 0.0, 1.0)
+		var r: float = GALE_REACH * (1.0 - pow(1.0 - ks, 2.0))
+		draw_set_transform(_from.round(), 0.0, Vector2(1.0, 0.55))
+		draw_arc(Vector2.ZERO, r, 0, TAU, 72, Color(0.92, 0.95, 1.0, 0.9 * (1.0 - ks)), 3.0)
+		draw_arc(Vector2.ZERO, r * 0.9, 0, TAU, 72, Color(0.8, 0.86, 0.95, 0.5 * (1.0 - ks)), 1.5)
+		draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE)
+		for j in 40:
+			var a: float = _hash(j) * TAU
+			var dj: float = r * (0.5 + 0.55 * _hash(j + 7))
+			var p: Vector2 = _from + Vector2(cos(a) * dj, sin(a) * dj * 0.55)
+			var tail: Vector2 = p - Vector2(cos(a), sin(a) * 0.55) * (8.0 + 10.0 * _hash(j + 2))
+			draw_line(p.round(), tail.round(), Color(0.9, 0.94, 1.0, 0.8 * (1.0 - ks)), 1.0)
+			if j % 4 == 0:
+				draw_rect(Rect2(p.round() + Vector2(0, -2.0 - 6.0 * _hash(j + 5)), Vector2(2, 2)), Color(0.55, 0.62, 0.45, 0.8 * (1.0 - ks)))
+	# The sails: two pale wedges open wide behind the glider while it works.
+	var spread: float = 1.0 - pow(1.0 - kg, 2.0)
+	for side in [-1.0, 1.0]:
+		var root: Vector2 = _from + Vector2(side * 4.0, -16.0)
+		var tip: Vector2 = root + Vector2(side * 34.0 * spread, -14.0 * spread)
+		var low: Vector2 = root + Vector2(side * 28.0 * spread, 4.0 * spread)
+		draw_colored_polygon(PackedVector2Array([root.round(), tip.round(), low.round()]), Color(0.62, 0.7, 0.8, 0.75))
+		draw_line(root.round(), tip.round(), Color(0.93, 0.9, 0.84, 0.95), 1.0)
+
+
 # ---------------------------------------------------------------- Kingstone Rail
 # (Preston, 2026-09-29 and 2026-10-08: Oxbowarchon is the Bloom Gemstone King; the emerald on
 # its back is the Bloom king stone and the rails fire its power. From the turn-based
@@ -820,6 +972,9 @@ func _draw() -> void:
 		"Verdant Roar": _draw_roar_green(e)
 		"Kingstone Rail": _draw_rail(e)
 		"Starshield": _draw_star(e)
+		"Hush": _draw_hush(e)
+		"Gale Shear": _draw_gale(e)
+		"High Signal": _draw_signal(e)
 
 
 ## The giant close-up card, drawn by the arena on its screen layer while the card runs.
