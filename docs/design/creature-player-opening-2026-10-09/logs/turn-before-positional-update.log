@@ -1,0 +1,13 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+OpenGL API 3.3.0 NVIDIA 596.49 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce GTX 1660 SUPER
+
+ERROR: Failed to read the root certificate store.
+   at: get_system_ca_certificates (platform/windows/os_windows.cpp:2582)
+Floor: 56x30 tiles, 8 rooms; on it ["you:Kithflare", "you:Tallowroot", "wild:Dustkite(asleep)", "wild:Dustkite(asleep)", "wild:Rimefin(asleep)"]; the leader on the start: true; HP 36
+Finish: 5 of 5 creatures on the floor wear Codex's outline finish
+A step (1, 0): the leader moved (1, 0), turns 0 -> 1
+Wall corner: a diagonal past a wall corner is refused
+Bump: walking into Dustkite attacked it with Rake: 16 damage, the leader stayed put: true
+Ember Feint (dash 1): with nobody in reach it was refused, no turn spent; with Dustkite in reach it hit for 9 and cools down 4 turns
+Autopilot: still on B1F (WRONG) after 1035 turns (240 s on screen), 0 faints on the way; overlaps 0, creatures in walls 0
+B2F: team ["Kithflare 36/36", "Tallowroot 40/40", "Rimefin 29/29"]; 0 wild creatures asleep; the log ends: ["The lantern is out. Only what is close can be seen.", "The lantern is out. Only what is close can be seen.", "The lantern is out. Only what is close can be seen.", "The lantern is out. Only what is close can be seen."]

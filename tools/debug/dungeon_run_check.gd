@@ -24,7 +24,7 @@ func _run() -> void:
 	var lead: Dictionary = dg.ents[0]
 	var kinds := []
 	for it in dg.floor_items:
-		kinds.append(dg.ITEMS[it["kind"]]["name"])
+		kinds.append(dg.item_info(it["kind"])["name"])   # scrolls are named from their move (2026-10-09)
 	var all_floor := true
 	for it in dg.floor_items:
 		all_floor = all_floor and dg._floor_at(it["pos"])

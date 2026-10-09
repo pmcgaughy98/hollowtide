@@ -1,82 +1,158 @@
-# Grok Build: handoff for October 10, 2026 (the dungeon first, then the arena)
+# Grok Build: handoff (rewritten by Claude late on October 9, 2026)
 
-## The game pivoted on October 9: read this part first
-Preston: "We're pivoting to more mystery dungeon, we can keep arena mode for maybe some other usage but even the combat turns etc." Hollowtide is now a **turn-based mystery dungeon** after Explorers of Sky. The arena is a separate side mode. Your lane is unchanged, you own the creature and move numbers and rules, but where they matter has moved.
+## Start here (previous Grok session closing to save usage)
 
-**Read first (required):**
-1. `docs/design/mystery-dungeon-pivot-2026-10-09.md`
-2. `docs/design/dungeon-slice-2026-10-09/README.md`
+`docs/team/GROK_BUILD_RESULT_2026-10-10.md` does not exist. Do job 1 only, then stop and write that result. Do not commit.
 
-**The dungeon jobs, in order. These come before every arena job below.**
-1. **A numbers pass on the dungeon.** In `scripts/dungeon/dungeon.gd`:
-   - `HP_SCALE` 0.2 and `DMG_SCALE` 0.6: arena HP and damage to dungeon values.
-   - `WILD_HP` 0.8 and `WILD_DMG` 0.7: early-floor wild creatures.
-   - `SIGHT` 6 and `REGEN_EVERY` 4.
-   - `RECIPE`: room density, extra halls, wild count 3, the spawn list.
+Required reading is this file plus the three files under "Read first". Nothing else is required.
 
-   Target: an early floor where a stage 1 pair wins every fight but feels each one, about 3 to 5 hits to down a wild creature, and a floor cleared in 100 to 200 turns. Measure with `tools/debug/dungeon_check.gd`; it prints turns, faints and the log.
-2. **How each move reaches on the grid.** `move_reach()` turns a move's arena telegraph and range into a reach: front tile, dash, line or burst, with a tile count. Review the mapping line by line and propose a reach for any move that reads wrong. Write the proposals as a table of move, current reach and proposed reach, with a reason for each.
-3. **The non-damaging abilities on a grid (your design lane).** Marks, shields, dives, perches, terrain, Phase-like moves and signatures are not in the dungeon yet, so some creatures show fewer than four moves. Propose a turn-based rule for each, with turns, tiles and numbers. Do not change their names or the `signature` flag. Claude builds them after Preston approves.
-4. **Floor recipes for the first dungeon:** three floors, with which wild creatures appear on each.
-5. **The run loop's numbers** (added late on October 9 when it was built). In `scripts/dungeon/dungeon.gd`:
-   - `LIGHT_DRAIN_EVERY` 3, `LIGHT_ON_KO` 12, and how the lantern sets `light_radius()`.
-   - The `ITEMS` effects: Reedberry 15, Lamp Oil 40, River Stone 8.
-   - The `TRAPS` effects: Snare 2 turns, Silt Pit 6 damage and 15 light.
-   - `RECIPE` items 5, traps 4, monster_house 0.3, and `MONSTER_HOUSE_WILD` 4.
+The game has pivoted more than once. A week of usage limits kept Grok out, so do not resume an older lane.
 
-   Since the run loop went in, both autopilot checks faint once before reaching B2F; decide whether that is the right difficulty. Measure with `tools/debug/dungeon_run_check.gd`.
+- **Current game:** a turn-based mystery dungeon after Explorers of Sky. First floor is `scenes/dungeon.tscn`. Rules are `scripts/dungeon/dungeon.gd`. The dungeon reads arena `KITS` and `MOVES`, not the `.tres` stats.
+- **Side mode:** the real-time arena. It was the main fight, then it was switched off the same night (`real_time_battles = false`). Balance work on it waits until jobs 1 to 5.
+- **Between dungeons:** Codex's hometown, courier hall and river. Route 1 is still Codex's. Do not edit it.
+- **Older battle presentation** (contact lunges, aim points, VFX sheets, the `.tres` learn gate) is still in the tree. It is not what the dungeon plays. Leave it unless a job names it.
 
-**Do not commit, revert or stash. Numbers and proposals only.** Write your results to `docs/team/GROK_BUILD_RESULT_2026-10-10.md`, dungeon first, and add two lines at the top of `docs/AI_COLLABORATION.md`.
+Disassemblies and scrapes are for structure only. No code, data, maps, sprites, text or music from them goes into the repo. The list, and what each one is for, is `docs/design/mystery-dungeon-pivot-2026-10-09.md` under "References for synthesis". Notes already taken: `docs/research/pmd-sky-references-2026-10-09.md` and `docs/research/pmd-video-notes-2026-10-09.md`. The useful ones for your lane are `pret/pmd-sky` (dungeons, run loop, team, job board), `PikalaxALT/pmd-red` (rescue mail, recruitment), and Emerald's Battle Pyramid inside `pret/pokeemerald` (dark floors, a bag that lasts one run). `pret/ds_disassembly_tools` and `PikalaxALT/gba_bios` have nothing for Hollowtide. Do not trust the Gemini learnset report's anatomy.
 
----
+Parked from the last Grok session. Do not undo these, and do not spend the session on them:
 
-> **Late on October 9:** a real-time fight version was built and then turned off the same night. Preston: "keep the dungeon combat turn-based"; the arena is its own mode. So your dungeon jobs come first, the grid reaches (job 2) matter fully, and the arena jobs below stay lower priority. Recruit rates (`RECRUIT_RATE`) are new drafts.
+- Molten Beam stays equipped on Vitrecrag. It has the chamber and the mouth. Job 1's Beam failures are Fusern and Slagglass, which lack those parts. Do not unequip Vitrecrag to clear them.
+- Coalcrest's Plate Rake stays equipped. The old battle hides it. Do not delete the equip to silence a check.
+- Oxbowarchon's sphere still has orange and gold pixels on the end of the green aura, on `assets/sprites/creatures/oxbowarchon.png`, the back sprite, and the style-matched Kingstone frames. A recolor was previewed and was not written. This handoff forbids art edits. Leave the sprites.
+- Do not spend Retro Diffusion, rename the `signature` flag, or copy proposal stats into `.tres`.
 
-## The arena jobs (lower priority since the pivot; do them only after the dungeon jobs)
+You are Grok Build, the Grok CLI Preston runs from PowerShell in `C:\Users\pmcga\dev\hollowtide`. This file replaces every earlier version of it. **Everything you need is here or in the three required files below.**
 
-Written by Claude on October 9 for Grok Build, the Grok CLI Preston runs from PowerShell. Preston owns names and art; Claude owns presentation and the save model; **you own the creature and move numbers.** Today's work left a pile of numbers that were set to make things work, not to make them right. Every one of them is labelled a draft and waits for you.
+## The game today, in five lines
+1. **Hollowtide is a turn-based mystery dungeon** after Pokemon Mystery Dungeon: Explorers of Sky, Preston's favorite game. The first floor is `scenes/dungeon.tscn`, and its rules are in `scripts/dungeon/dungeon.gd`.
+2. **Fights are turn-based too.** A real-time version was built and switched off the same night (`real_time_battles = false`). The arena (`scripts/arena/arena_prototype.gd`) is a separate side mode now.
+3. **Your lane is unchanged.** You own creature and move numbers and rules. Preston owns names and art approval. Claude owns battle presentation, the dungeon's code and the save model. Codex owns the launch flow, world and art preparation.
+4. **The dungeon reads the arena's creature data.** `KITS` (each form's moves) and `MOVES` (damage, cooldown, range) in `arena_prototype.gd` feed it, scaled by `HP_SCALE` and `DMG_SCALE`. The `.tres` stats do not drive either mode.
+5. **Preston's newest direction is move tables.** He wants Pokemon-style signature moves: "rather than each pokemon having their own unique moves only they can use... it has to make sense for another pokemon to be able to use their move that was made with them in mind, like Leaf Blade for Sceptile." That is your 2026-10-02 rule, so your first job is there.
 
-## Read first (required, in this order, nothing else before you start)
-1. `docs/creatures/arena-balance-2026-10-08.md`, only its last two sections ("After the AI dash fix" and "Next"). The clean ten-final duel table and what it says.
-2. `docs/creatures/arena-combo-2026-10-09/README.md`. The follow-up rule you are tuning, and why the AI rarely lands one.
-3. `docs/creatures/arena-dustkite-2026-10-09/README.md`, the "Spotter" section only. The newest line's kit.
+## Read first (required, in this order)
+1. `docs/design/move-tables-2026-10-09/README.md`: what was built from your rule, and what waits on you.
+2. `docs/creatures/move-table-2026-10-09.md`: the generated table, including shared signatures, line moves, and the five kit moves that fail the gate.
+3. `docs/creatures/DESIGN_RULES.md`: your own rules, still the authority.
 
-Everything else you need is in this file.
+**Background, only if a job needs it:**
+- `docs/design/dungeon-position-2026-10-09/README.md`: ambush, pincer, shove and slam.
+- `docs/design/dungeon-tactics-2026-10-09/README.md`: team orders and stage sizes.
+- `docs/design/mystery-dungeon-pivot-2026-10-09.md`: the pivot.
 
-**Preston's rekit comes first.** He said on October 9 that he will propose a rekit for every creature to balance the gameplay. If a file of his about it exists when you start (look in `docs/creatures/` for anything named rekit or kits dated October 9 or 10, and in the top of `docs/AI_COLLABORATION.md`), read it before the jobs below and work your numbers to his kits, not to the current ones. If it does not exist yet, do the jobs below as written and say in your result which numbers his rekit would change; expect some of your work to be redone when it lands. His kit decisions outrank anything in this file; your numbers serve them.
+A Gemini deep-research report, "Hollowtide Move Learnset Research" (Preston's Google Drive), proposed the same split. **Do not trust its creature-by-creature claims.** It invented anatomy (Tallowroot "burrowing claws", Kithflare "predatory muzzle") and misnumbered lines. Parts come from the approved art only.
 
-## Where the numbers live
-All in `scripts/arena/arena_prototype.gd`, which is one big file. Search for the name; each is a `const` or a dictionary entry near the top.
-- `KITS`: per form, `hp`, `speed`, `far_bonus`, and which moves it carries. `MOVES`: per move, `damage`, `cooldown`, `range`.
-- Follow-ups: `FOLLOW_WINDOW` (0.9), `FOLLOW_MORE` (1.3), `FOLLOW_REFUND` (0.5), and the AI's preference `d *= 1.4` inside `_desire` (search "a follow-up").
-- The Spotter line: `MARK_BONUS` (1.15), `SPOTTER_RANGE` (120), `SPOTTER_AGAIN` (10), `SIGNAL_DOUBLE` (2.0), `VANTAGE_REACH` (90), `PERCH_SECONDS` (6), `PERCH_WORTH` (160), and the `whistle_dart`, `signal_mark`, `decoy_call`, `vantage` entries in `MOVES`.
-- Charms: `THORNS_BACK` (0.4), `BLINK_DISTANCE` (90). Dodge step: the chance is a line inside `_ai_dodge` (`var chance: float = 0.8 ... 0.3 ... 0.55`, listeners, bruisers, everyone else) and `DODGE_COOLDOWN` (4.0).
-- Kingstone Rail and Oxbowarchon: `TELEGRAPH["rail_shot"]` and the rail entries in `MOVES`.
+## What changed on October 9 (so nothing surprises you)
+All of these are in `scripts/dungeon/dungeon.gd` unless noted, and every number is a draft for you.
+
+- **Move table.** `scripts/moves/move_body.gd` holds:
+  - `PARTS` for all 30 forms, each marked G (from your move-body-gate.md) or A (Claude's read of the current approved art);
+  - `NEEDS` for every arena move;
+  - `can_learn`, `missing`, `learners` and `shared`.
+
+  A move whose parts cross lines is a shared signature. One whose parts only one line has stays with that line by anatomy. Ultimates (the arena's line `signature`) are never taught.
+- **Move scrolls** (working name; Preston names it).
+  - `SCROLL_SHARE` 0.25 of floor items is a scroll holding a damaging shared signature: today Rake, Pounce or Cinder Claw.
+  - A teammate whose body passes learns it; at `MOVES_MAX` 4 it forgets one of the player's choice. No turn is spent.
+  - Taught moves persist through `taught`.
+- **Position is power.**
+  - `AMBUSH` 1.5: a hit on a sleeping creature.
+  - `PINCER` 1.5: a teammate stands on the tile behind the target.
+  - Dash moves shove the target one tile. A shove into a wall or a body is a SLAM: `SLAM_SHARE` 0.15 of max HP, `SLAM_STAGGER` 1 lost turn, and any wind-up broken.
+- **Team tactics.**
+  - T cycles FOLLOW ME, GO AFTER FOES and GUARD ME.
+  - `TACTIC_LEASH` {follow 4, go 99, guard 2}.
+  - Partners walk up to `FLANK_REACH` 2 tiles to a foe's far side while it has more than `FLANK_WORTH` 0.4 of its health.
+- **Recruiting.** `RECRUIT_RATE` {stage 1: 0.3, stage 2: 0.15, stage 3: 0.06}; `TEAM_MAX` 4.
+- **Enemy warnings.** A wild creature's dash, line or burst ability spends a turn gathering and marks its tiles (`WARN_KINDS`).
+- **Run loop.**
+  - `LIGHT_DRAIN_EVERY` 3 and `LIGHT_ON_KO` 12.
+  - `ITEMS`: Reedberry 15, Lamp Oil 40, River Stone 8.
+  - `TRAPS`: Snare 2 turns, Silt Pit 6 damage and 15 light.
+  - `RECIPE`: items 5, traps 4, monster_house 0.3; `MONSTER_HOUSE_WILD` 4.
+- **Sizes and a pacing fix (no numbers for you).**
+  - Dungeon sprites are sized by stage (`tools/arena/build_dungeon_set.py`).
+  - A hallway back-and-forth bug was fixed (`tools/debug/dungeon_pace_check.gd`).
 
 ## Your jobs, in order. Stop after each and write what you did.
-1. **Oxbowarchon** is the outlier of the clean table: 252 wins of 270, 30-0 over Scourmaw and Vitrecrag. Only Ironvent closes on it (14-16). Bring it to the pack without touching its identity (backline artillery). Levers: the rail's telegraph length, its damage, its cooldown, `far_bonus`. Target: no pairing worse than 24-6 either way.
-2. **Supports that stall.** The Warden, Galeshear, Highsignal and Starward draw 30 of 30 against each other and 24 to 28 against Vitrecrag. They are supports and should lose duels, but a draw is nothing. Decide one of: a 1v1 clock with a points decision (then say so; Claude builds it, you set the clock), or enough chip in their basics that two supports resolve inside 90 s. Do not give supports a signature guard; DESIGN_RULES keeps that for the Protector.
-3. **Follow-ups.** Two finals that dodge and kite opened 5 windows and landed 0 follow-ups in 60 s; stage 1 forms landed 2 in 20 s. If the rhythm should matter for the AI, lengthen `FOLLOW_WINDOW` or raise the AI's preference, and say what the player's version should be. Keep the basic's follow-up bonus at or under 1.3 unless the table says otherwise.
-4. **The Spotter's trade.** Highsignal dealt 15 in a 37 s duel: the perch and the kite profile keep it alive without scoring. Set `whistle_dart` damage and `MARK_BONUS` so a spotter alone loses slowly but visibly hurts, and so a marked enemy in a 3v3 feels the mark.
-5. Only if 1 to 4 are done: Thorns at 0.4 was proposed for a cut on the tainted table and then the clean table said it was fine. Leave it unless job 1 or 2 moves it.
 
-## How to test anything you change
-One Godot at a time. Each run writes its own file; read the numbers, not the stills.
+### 1. The move table (Preston's current focus)
+1. **Confirm or correct every A part** in `move_body.gd` `PARTS` against the approved art. The sprites are in `assets/sprites/arena/<form>/` (the `se.png` front three-quarter view is the clearest), and you can view the PNGs.
+   - Check most carefully: `springlegs` on Cinderhide and the ferrets, `crest` on Clinkerhide, `buttress` on Slagglass, `jade`/`slab`/`kingstone` on the stone line, `sail` on the Dustkite line, and `claw` on the Kithflare line.
+   - Add a part the art clearly shows that a move could use. Never add one the art does not show.
+   - **Keep your vocabulary.** Reuse an existing part name before inventing one.
+2. **Rule on the five kit moves that fail the gate:**
+   - Vent Barrage on Cinderhide and Clinkerhide (needs `channels`);
+   - Molten Beam on Fusern and Slagglass (needs `chamber`, `mouth`);
+   - Furnace Shard on Slagglass (needs `shelf`; Slagglass was redesigned as a brick dome on 2026-10-08).
+
+   For each, either change the kit in `KITS` or change the move's `NEEDS`, and say why. Do not rename moves.
+3. **Learnsets by stage, Pokemon style.** For each of the 10 lines, a table showing:
+   - the moves each stage starts with (today that is its `KITS` entry);
+   - which shared signatures each stage can learn from a scroll;
+   - which line moves a later stage gains (the way a Pokemon learns its signature on evolving).
+
+   Proposals only, in your result file. Keep each kit at 4 moves at most, and keep stage 1 = basic + 2.
+4. **Scroll numbers.** Judge `SCROLL_SHARE` 0.25 and `MOVES_MAX` 4, and say whether the basic attack should ever be forgettable (today it is not).
+5. **Move growth (optional proposal).** In Rescue Team DX, moves grow stronger with use (`docs/research/pmd-video-notes-2026-10-09.md`). Say whether Hollowtide should have it, and with what numbers. Proposal only; nothing like it exists in the code yet.
+
+After any change to `PARTS`, `NEEDS` or `KITS`, run `move_table_check.gd`. It regenerates the table and tests a scroll in the dungeon.
+
+### 2. A numbers pass on the dungeon
+- **Turn every draft above into your number:** `HP_SCALE` 0.2, `DMG_SCALE` 0.6, `WILD_HP` 0.8, `WILD_DMG` 0.7, `SIGHT` 6, `REGEN_EVERY` 4, `RECIPE` (wild count 3), the position, tactics, recruit and run-loop numbers.
+- **Target:** an early floor where a stage 1 pair wins every fight but feels each one: about 3 to 5 hits to down a wild creature, and a floor cleared in 100 to 200 turns.
+- **Decide on the faint:** both autopilot run checks faint about once before B2F. Is that the right difficulty?
+
+### 3. How each move reaches on the grid
+`move_reach()` turns a move's arena telegraph and range into a reach: front tile, dash, line or burst, with a tile count (24 px per tile). Write a table: move, current reach, proposed reach, reason. Dash moves shove, so choosing dash or front now changes the move's role.
+
+### 4. The non-damaging abilities on a grid
+Marks, shields and guards, dives, perches, terrain and the Sail Cover / Vantage signatures are not in the dungeon yet, so some creatures show fewer than four moves. Propose a turn-based rule for each, with turns, tiles and numbers. Do not change their names or the `signature` flag. Claude builds them after Preston approves.
+
+### 5. Floor recipes for the first dungeon
+Three floors, and which wild creatures appear on each.
+
+### 6. The arena (only after 1 to 5)
+The arena is a side mode now, so these are lower priority. All the numbers are in `scripts/arena/arena_prototype.gd`.
+1. **Oxbowarchon** is the outlier of the clean duel table (252 wins of 270). Bring it to the pack without touching its identity as backline artillery. Levers: the rail's telegraph length, damage, cooldown, `far_bonus`. Target: no pairing worse than 24-6.
+2. **Supports that stall.** Warden, Galeshear, Highsignal and Starward draw 30 of 30 against each other.
+   - Option one: a 1v1 clock with a points decision (you set the clock, Claude builds it).
+   - Option two: enough chip in their basics to resolve inside 90 s.
+   - Either way, no signature guard for supports.
+3. **Follow-ups** (`FOLLOW_WINDOW` 0.9, `FOLLOW_MORE` 1.3, `FOLLOW_REFUND` 0.5, the AI's `d *= 1.4` in `_desire`). Finals landed 0 follow-ups in 60 s.
+4. **The Spotter's trade.** `whistle_dart` damage and `MARK_BONUS` 1.15: a lone spotter should lose slowly but visibly hurt.
+
+Tools for the arena:
+- the duel table, about 15 minutes: `tools/debug/arena_sim.gd -- 15 1`;
+- line checks: `arena_spotter_check.gd`, `arena_combo_check.gd`, `arena_oxbowarchon_check.gd`, `arena_charms_check.gd`, `arena_canvaswing_check.gd`, `arena_listener_check.gd`.
+
+## How to test
+**One Godot at a time.** Read the printed numbers, not the stills. A line that says `(WRONG)` or `SCRIPT ERROR` is a failure; fix it or put your change back.
+
+Run each check like this, from the repo root:
 ```bash
-"C:/Users/pmcga/Games/Tools/Godot_v4.7.2/Godot_v4.7.2-stable_win64.exe" --headless --path . --fixed-fps 30 --script res://tools/debug/arena_sim.gd -- 15 1 > docs/creatures/arena-sim-2026-10-10-grok.log 2>&1
+"C:/Users/pmcga/Games/Tools/Godot_v4.7.2/Godot_v4.7.2-stable_win64.exe" --path . --fixed-fps 30 --script res://tools/debug/move_table_check.gd
 ```
-That is the duel table, 30 matches a pairing, ten finals, about 15 minutes. The lines read `A vs B: A wins - B wins (draws)`. For one line's kit after a change, run its check and read the printed lines (every check ends with an AI fight):
-```bash
-"C:/Users/pmcga/Games/Tools/Godot_v4.7.2/Godot_v4.7.2-stable_win64.exe" --path . --fixed-fps 30 --script res://tools/debug/arena_spotter_check.gd
-```
-Other checks: `arena_combo_check.gd`, `arena_oxbowarchon_check.gd`, `arena_charms_check.gd`, `arena_canvaswing_check.gd`, `arena_listener_check.gd`. A check that prints `(WRONG)` is a failure; fix or revert.
 
-## Rules for the day
-- **Do not commit, do not revert, do not stash.** The tree holds about 410 uncommitted files from Claude, Codex and you; Preston commits.
-- Change numbers and `KITS` entries only. Do not rename moves, forms or the `signature` flag; do not touch art, sounds, the picker (`scripts/move_preview.gd`), or any `_draw_` function.
-- The arena is a 2D arena fighter now, not the turn-based battle. Stats in `data/creatures/*.tres` do not drive the arena; `KITS` and `MOVES` do.
-- Show the math for every change (a before-and-after line from the sim or a check) and label each number with the job it serves.
-- Write your results to `docs/team/GROK_BUILD_RESULT_2026-10-10.md`: what you changed, the before-and-after numbers, what you left alone and why, and anything you could not test. Add two lines at the top of `docs/AI_COLLABORATION.md` under "Working Together on Hollowtide" so Claude and Codex see it.
+| Check | What it measures |
+|---|---|
+| `move_table_check.gd` | regenerates the move table; tests a scroll (refusal, learning, forgetting, keeping a move across floors, the hit) |
+| `dungeon_check.gd` | a whole floor on autopilot: turns, faints, overlaps |
+| `dungeon_run_check.gd` | items, traps, the lantern |
+| `dungeon_warn_check.gd` | wind-ups |
+| `dungeon_recruit_check.gd` | recruiting |
+| `dungeon_position_check.gd` | ambush, pincer, shove, slam |
+| `dungeon_tactics_check.gd` | orders and flanking |
+| `dungeon_pace_check.gd` | the hallway pacing baseline, about 5 to 15 cases over four runs |
 
-## What Claude did today, so nothing surprises you
-The Dustkite line (line 9, the Spotter); a fix for an AI bug that froze every AI creature on its first dash, which is why the October 8 table was wrong; left click as a basic attack; and five feel items for the steered creature (attack on press with a buffer, cast feedback, mouse aim with right-click lock, a reach ring and telegraph ghosts, follow-ups). None of it changed a creature's numbers on purpose; where a number was needed it was set as a draft and listed above.
+## Rules
+- **Do not commit, revert or stash.** The tree holds uncommitted work from Claude, Codex and you, and Preston commits.
+- **What you may edit:**
+  - numbers in `scripts/dungeon/dungeon.gd` constants;
+  - `PARTS` and `NEEDS` in `scripts/moves/move_body.gd`;
+  - `KITS` and `MOVES` numbers in `scripts/arena/arena_prototype.gd`.
+- **What you may not:** rename moves, forms or the `signature` flag; touch art, sounds, any `_draw_` function, the picker (`scripts/move_preview.gd`), or Codex's world and launch files.
+- **No inventing:** no new creatures, names or lore. New moves are proposals in your result file, not code.
+- **Show the math for every change:** a before-and-after line from a check, labelled with the job it serves.
+- **Results go to `docs/team/GROK_BUILD_RESULT_2026-10-10.md`, move table first.** Say what you changed, the before-and-after numbers, what you left alone and why, and anything you could not test. Then add two lines at the top of `docs/AI_COLLABORATION.md` so Claude and Codex see it.

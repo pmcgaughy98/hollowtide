@@ -1,7 +1,48 @@
 # Working Together on Hollowtide
 
+## Codex: creature-village title menu (October 9, 2026)
+
+Preston said the river-town menu no longer fit the creature/Mystery Dungeon direction and authorized Retro. Installed one original Retro Diffusion `rd_pro__fantasy` 256x144 village backdrop ($0.18): root/clay burrows, moss roofs, stone guild entrance, stream, bridges and lanterns. No baked characters or UI. It replaces the title-screen town composition, not the playable hometown. Architecture is a visual proposal. The old sunset artwork is preserved.
+
+The existing wordmark is smaller over the canopy; the main choices move to the lower-left bank with earth/moss panels and parchment focus. Two existing finished creature sprites stand at village scale with their existing arrival walk; a few fireflies animate, Reduce Motion freezes them. Music, settings, inputs and quit confirmation remain. New Game keeps the awakening/identity/companion flow and passes the selected party into the existing turn-based dungeon.
+
+32 native flow/terrain assertions and 7 real mouse/keyboard checks pass (39 total); native title/options/prologue/dungeon screenshots inspected. No final script/resource errors. Existing certificate diagnostic and 102 opening shutdown ObjectDB instances remain. This does not claim a full dungeon clear or validate Claude's new combat mechanics; prior autoplay limitation remains in the previous slice.
+
+Runtime edits: only `scripts/creature_opening.gd`, plus `assets/sprites/menu/creature_village_2026_10_09.png`. No creature PNGs, shared controller, gameplay code, stats or project settings edited. Original menu script, source/prompt/cost receipt, native previews, checks and exact preservation manifest: [creature village menu](design/creature-village-menu-2026-10-09/README.md). No commit.
+
+
+## Codex: creature-player opening and first Hollow terrain pass (October 9, 2026)
+
+Preston directly revised the protagonist to a creature and asked to rethink launch, then upgrade the dungeon. F5 now opens `scenes/creature_opening.tscn`: the approved sunset menu with two finished creature sprites, New Game into an awakening, identity choice among Kithflare/Tallowroot/Rimefin, a different survivor as companion, then the existing Hollow with the chosen leader and party. Identity is selected inside the opening, not on the title menu. New story text and "The First Voice" are proposals. The old opening/world scenes remain intact. No persistent identity, save rewrite, creature guild or return loop is claimed.
+
+Original generated 24px terrain atlas: silt/grass/clay ground, bank tops and cliff faces, neighbour edges/corner caps, root variants, shadow and stairs. `floor_painter.gd` delegates to the new painter at 24px and keeps the original procedural fallback. An editor TileSet exposes all sixteen cells; water art is present but not active terrain. One built-in imagegen call; Firecrawl read SkyTemple's dungeon tileset structure only. No borrowed art/code/maps/text.
+
+Current native verification: 30 opening/terrain plus 7 real mouse/keyboard assertions pass. The broader turn-based regression, before Claude's positional-combat update, stayed on B1F after 1,035 turns despite clearing the enemies; zero overlaps, wall occupants or faints. Its final printed 'B2F' label is unconditional and does not mean the stairs were reached. This autoplay limitation needs follow-up with Claude. The optional hybrid bridge was explicitly enabled only in a separate paired old/new-art probe; both registered damage and shared the floor image. Earlier hybrid autoplay evidence and its arranged encounter frame-cap limitation are historical evidence. Final scoped logs have no script/resource errors; the existing certificate diagnostic and opening shutdown ObjectDB leak remain recorded.
+
+Concurrent changes inspected and brought into the review copy: Claude's turn-based default, Dustkite dust cleanup, Hollow path commitment/body-width sight fix and the newer ambush/pincer/shove mechanics. The opening/input checks were repeated against that newer dungeon; the earlier combat probes do not validate his new mechanics. Those files and all creature PNGs are untouched by installation. Original seven-form palettes, dark-jade Oxbowarchon, Listener finish, Galeshear repair and prior backups remain exact. Changed existing runtime files: only the floor painter and main-scene setting; new launch scripts/scenes and terrain resources are separate. No commit. Originals, source prompt/Firecrawl receipts, native screenshots, tests and exact installation manifest: [creature-player opening](design/creature-player-opening-2026-10-09/README.md).
+
+Next with Claude: creature guild/dispatch/return and persistent player identity. Palette locks and emotion portraits from the handoff remain separate jobs.
+
+
 > **The game pivoted on October 9, 2026:** Hollowtide is now a turn-based mystery dungeon; the arena is a separate mode. Read `docs/design/mystery-dungeon-pivot-2026-10-09.md` first.
 > **Codex, start here:** `docs/team/CODEX_HANDOFF_2026-10-10.md`. **Grok Build, start here:** `docs/team/GROK_BUILD_HANDOFF_2026-10-10.md` (the dungeon jobs come first now).
+
+## Claude: Grok handoff rewritten; PMD gameplay videos sampled (October 9, 2026, late night)
+- `docs/team/GROK_BUILD_HANDOFF_2026-10-10.md` is one clean file now: move table first, then dungeon numbers, grid reaches, non-damage abilities, floor recipes, arena last.
+- Preston's Explorers of Sky and Rescue Team DX playlists sampled (structure only): `docs/research/pmd-video-notes-2026-10-09.md`. Built from it: the move's name pops over its user (`_callout`).
+
+## Claude: move tables, shared signatures by body parts (October 9, 2026, late night)
+- Grok's 2026-10-02 rule (a move needs body parts; essence is not permission; ultimates never taught) carried to the arena and dungeon moves: `scripts/moves/move_body.gd`, generated table `docs/creatures/move-table-2026-10-09.md`. Five shared signatures today (Rake, Cinder Claw, Pounce, Sail Cover, Vantage).
+- Dungeon move scrolls (working name) teach them to a teammate whose body passes. Five current arena kit moves fail the gate; listed for Grok, nothing changed. Details: `docs/design/move-tables-2026-10-09/README.md`.
+
+## Claude: team tactics; one creature size per stage in the dungeon (October 9, 2026, late night)
+- T switches partners between FOLLOW ME, GO AFTER FOES and GUARD ME (no turn). Partners walk up to 2 tiles to a healthy foe's far side for PINCER hits. Drafts for Grok: `TACTIC_LEASH`, `FLANK_REACH`, `FLANK_WORTH`.
+- New dungeon sprite set `assets/sprites/arena/<name>/dungeon/` (`tools/arena/build_dungeon_set.py`): every creature resampled to its stage's size (stage 1 fits a tile, stage 3 stands over it). The arena's small set is unchanged. Codex: palette locks and new art should be rebuilt into both sets.
+- Details: `docs/design/dungeon-tactics-2026-10-09/README.md`.
+
+## Claude: dungeon combat, position is power; hallway back-and-forth fixed (October 9, 2026, late night)
+- Turn combat gains AMBUSH (sleeping, x1.5), PINCER (teammate behind the target, x1.5), and charges that shove; a shove into a wall or body is a SLAM (15% max HP, loses its next turn, breaks a wind-up). Numbers are drafts for Grok. The five-pillar plan and the check are in `docs/design/dungeon-position-2026-10-09/README.md`.
+- The leader swapped with the partner behind it in hallways and the pair traded tiles forever; `_step_toward(..., through_team)` fixes it. New check `tools/debug/dungeon_pace_check.gd`.
 
 ## Claude: dungeon fights stay turn-based; Dustkite dust removed (October 9, 2026, late night)
 - Preston: "keep arena style for another mode, keep the dungeon combat turn-based." `real_time_battles` defaults to false in `dungeon.gd`; the hybrid code is kept but off. Codex and Grok handoffs updated.

@@ -1,5 +1,8 @@
 # THE CONCEPT
 
+> **2026-10-09, Preston: creature protagonist.** The player is now a creature, in the Mystery Dungeon direction. New Game opens an awakening and companion encounter before entering a Hollow. The current playable opening is `scenes/creature_opening.tscn`; its new prose is a proposal. Dungeon combat stays turn-based under Claude's latest update. The former human courier opening and hometown remain available while the creature guild and return loop are future work.
+
+
 > **2026-10-09, Preston:** the game is now a turn-based mystery dungeon; the arena is kept as a separate mode. How it plays is in `docs/design/mystery-dungeon-pivot-2026-10-09.md`. The creatures, essences, naming and art direction below are unchanged.
 Monster collector. Godot 4.x, GDScript. Pixel art.
 Revised September 2026. Supersedes Crystal Creatures and the combination draft.

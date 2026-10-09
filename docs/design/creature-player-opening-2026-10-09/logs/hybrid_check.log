@@ -1,0 +1,9 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+OpenGL API 3.3.0 NVIDIA 596.49 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce GTX 1660 SUPER
+
+ERROR: Failed to read the root certificate store.
+   at: get_system_ca_certificates (platform/windows/os_windows.cpp:2582)
+Battle start: true; fighters ["you:Sparkwick", "you:Huskward", "wild:Rimefin"]; each where its tile is: true; each with its health share: true; the dungeon screen hidden: true
+Battle end after 90 s: A battle! 1 wild creature.; Rimefin HP 32; team ["Sparkwick 35/45", "Huskward 63/63"]; back on the grid: on open floor true, no two on a tile true; turns 0 -> 1; lantern 100 -> 100
+Flee: the battle ended after 3.0 s of distance; log 'You got away.'; the wild Rimefin still standing: true
+Autopilot floor: reached B2F after 134 s, 3 battles, 0 faints, team ["Sparkwick 45/45", "Huskward 63/63", "Dustkite 31/31", "Rimefin 36/36"]

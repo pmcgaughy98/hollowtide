@@ -1,0 +1,19 @@
+{
+  "failures": [],
+  "results": [
+    {
+      "battle_started": true,
+      "enemy_hp_after_300_frames": 73,
+      "enemy_hp_before": 160,
+      "new_art": false,
+      "same_floor_picture": true
+    },
+    {
+      "battle_started": true,
+      "enemy_hp_after_300_frames": 68,
+      "enemy_hp_before": 160,
+      "new_art": true,
+      "same_floor_picture": true
+    }
+  ]
+}

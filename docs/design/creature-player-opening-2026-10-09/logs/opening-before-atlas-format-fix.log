@@ -1,0 +1,36 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+OpenGL API 3.3.0 NVIDIA 596.49 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce GTX 1660 SUPER
+
+ERROR: Failed to read the root certificate store.
+   at: get_system_ca_certificates (platform/windows/os_windows.cpp:2582)
+Boot shown: true
+Boot reaches title: true
+Two finished creatures replace human menu actor: true
+Options still open: true
+New Game opens awakening: true
+Hero 0 can be selected: true
+Companion differs from hero 0: true
+Pair 0/1 confirmation: true
+Pair 0/2 confirmation: true
+Can revise creature identity: true
+Hero 1 can be selected: true
+Companion differs from hero 1: true
+Pair 1/0 confirmation: true
+Pair 1/2 confirmation: true
+Can revise creature identity: true
+Hero 2 can be selected: true
+Companion differs from hero 2: true
+Pair 2/0 confirmation: true
+Pair 2/1 confirmation: true
+Can revise creature identity: true
+Chosen creature leads dungeon: true
+Hybrid combat retained: true
+Party sprites carry finish: true
+Terrain render deterministic: true
+Terrain leaves gameplay topology exact: true
+Native 24px floor size: true
+Visible floor upgrade: true
+16px procedural fallback retained: true
+RESULT 28 checks / 0 failures
+WARNING: 102 ObjectDB instances were leaked at exit (run with `--verbose` for details).
+   at: cleanup (core/object/object.cpp:2536)

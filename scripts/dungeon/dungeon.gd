@@ -19,6 +19,7 @@ extends Node2D
 const Arena := preload("res://scripts/arena/arena_prototype.gd")
 const Gen := preload("res://scripts/hollow/hollow_gen.gd")
 const Painter := preload("res://scripts/dungeon/floor_painter.gd")
+const MoveBody := preload("res://scripts/moves/move_body.gd")
 const FONT := preload("res://assets/fonts/Silkscreen-Bold.ttf")
 
 const T := 24                           # tile size in the low-resolution view
@@ -53,10 +54,29 @@ const TRAPS := {
 	"warp": {"name": "Warp Eddy", "what": "carried to another room"},
 }
 const MONSTER_HOUSE_WILD := 4
+# Move scrolls (Claude, 2026-10-09; working name, Preston names it): a found item that teaches a
+# shared signature to a teammate whose body has every part it needs (scripts/moves/move_body.gd,
+# Grok's gate). Bag kinds are "scroll:<move>". Drafts for Grok.
+const SCROLL_SHARE := 0.25              # share of floor items that are scrolls
+const MOVES_MAX := 4
 ## Enemy warnings (slice 4): the arena's telegraph as a turn rule.
 const WARN_KINDS := ["dash", "line", "burst"]
 ## Recruiting (slice 5): the chance a beaten wild creature asks to join, by its stage, and the team's size.
 const RECRUIT_RATE := {0: 0.3, 1: 0.15, 2: 0.06}
+# Position is power (Claude, 2026-10-09; structure from Into the Breach's pushes, Hoplite's
+# approach and Explorers of Sky's sleeping rooms; the numbers are drafts for Grok).
+const AMBUSH := 1.5                     # a hit on a sleeping creature
+const PINCER := 1.5                     # a hit on a foe with one of the attacker's team on its far side
+const SLAM_SHARE := 0.15                # a shoved creature that hits a wall or a body loses this share of its max HP
+const SLAM_STAGGER := 1                 # and loses this many turns (and whatever it was gathering)
+# Team tactics (Claude, 2026-10-09; structure from Rescue Team DX's team orders and the arena's
+# Kit Sense modes). T cycles them and costs no turn. TACTIC_LEASH is how far from the leader a
+# partner will go after a foe; guard also keeps it beside the leader.
+const TACTICS := ["follow", "go", "guard"]
+const TACTIC_NAMES := {"follow": "FOLLOW ME", "go": "GO AFTER FOES", "guard": "GUARD ME"}
+const TACTIC_LEASH := {"follow": 4, "go": 99, "guard": 2}
+const FLANK_REACH := 2                  # a partner walks this many tiles round to a foe's far side
+const FLANK_WORTH := 0.4                # but only while the foe has more than this share of its health
 const TEAM_MAX := 4
 ## The hybrid (2026-10-09): exploring is turn-based; a fight is played in real time with the
 ## arena engine on this same floor. An awake wild creature this close and in sight starts one;
@@ -95,6 +115,12 @@ var dodged := 0                           # wind-ups that landed on nobody (for 
 var recruit_override := -1.0              # the checks force the chance (0..1); below zero uses RECRUIT_RATE
 var asking := -1                          # the creature waiting for your answer, or -1
 var roster: Array = []                    # creatures waiting at the courier hall, [line, stage]
+var tactic := "follow"                    # the partners' order (T cycles it)
+var pincers := 0                          # hits your partners landed from a pincer (for the checks)
+var taught := {}                          # "line:stage" -> the moves a teammate knows after a scroll
+var teach_kind := ""                      # the scroll being read, or "" when the teach panel is shut
+var teach_sel := 0
+var teach_learner := -1                   # chosen learner (ents index) while choosing a move to forget
 var _party_at_start: Array = []           # the team the run began with (a faint returns to it)
 var real_time_battles := false            # Preston, 2026-10-09: dungeon fights stay turn-based; the arena is its own mode. On: fights hand over to the arena engine (kept, built that night)
 var in_battle := false
@@ -235,7 +261,12 @@ func _stock_floor(rng: RandomNumberGenerator) -> void:
 		if taken.has(p) or not _floor_at(p):
 			continue
 		taken[p] = true
-		floor_items.append({"pos": p, "kind": kinds[rng.randi_range(0, kinds.size() - 1)]})
+		var kind: String = kinds[rng.randi_range(0, kinds.size() - 1)]
+		if rng.randf() < SCROLL_SHARE:
+			var pool := scroll_pool()
+			if not pool.is_empty():
+				kind = "scroll:" + pool[rng.randi_range(0, pool.size() - 1)]
+		floor_items.append({"pos": p, "kind": kind})
 	var trap_kinds: Array = TRAPS.keys()
 	var tries := 0
 	while traps.size() < RECIPE["traps"] and tries < 400:
@@ -293,7 +324,11 @@ func _cheb(a: Vector2i, b: Vector2i) -> int:
 
 
 ## One step toward `goal` around the walls, not onto anyone; ZERO when there is none.
-func _step_toward(i: int, goal: Vector2i) -> Vector2i:
+## The step for creature i that brings it closest to goal, or ZERO. With through_team, a tile held
+## by its own team counts as open (the leader swaps places with a partner in the way, never one
+## behind it: swapping with whoever came first made the pair trade tiles forever in a hallway,
+## Preston, 2026-10-09).
+func _step_toward(i: int, goal: Vector2i, through_team := false) -> Vector2i:
 	var from: Vector2i = ents[i]["pos"]
 	if not _floor_at(goal) or not _floor_at(from):
 		return Vector2i.ZERO   # no path to or from a tile that is not open floor
@@ -313,7 +348,8 @@ func _step_toward(i: int, goal: Vector2i) -> Vector2i:
 			continue
 		var q: Vector2i = from + d
 		var dq: int = field[q.y * data["w"] + q.x]
-		if dq < 0 or dq >= best_d or _occupant(q) >= 0:
+		var o := _occupant(q)
+		if dq < 0 or dq >= best_d or (o >= 0 and not (through_team and ents[o]["team"] == ents[i]["team"])):
 			continue
 		best = d
 		best_d = dq
@@ -349,6 +385,11 @@ func _make(line: int, stage: int, team: int, pos: Vector2i) -> Dictionary:
 	# Codex's Hollowtide Sprite finish (2026-10-08): the near-black outline and edge repair every
 	# creature wears in the arena, worn in the dungeon too (Preston, 2026-10-09).
 	preload("res://scripts/arena/creature_finish.gd").apply(sprite)
+	var key := "%d:%d" % [line, stage]
+	if team == 0 and taught.has(key):
+		moves.clear()
+		for m in taught[key]:
+			moves.append(m)   # what a scroll taught it stays across floors
 	var cds := {}
 	for m in moves:
 		cds[m] = 0
@@ -358,15 +399,18 @@ func _make(line: int, stage: int, team: int, pos: Vector2i) -> Dictionary:
 
 
 func _load_art(folder: String) -> Dictionary:
+	# The dungeon set: one size per stage (tools/arena/build_dungeon_set.py, Preston 2026-10-09);
+	# the arena's tuned small set when a creature has none yet.
+	var set := "dungeon" if ResourceLoader.exists("res://assets/sprites/arena/%s/dungeon/s.png" % folder) else "small"
 	var still := {}
 	var walk := {}
 	var foot := {}
 	for f in Arena.FACINGS:
-		still[f] = load("res://assets/sprites/arena/%s/small/%s.png" % [folder, f])
+		still[f] = load("res://assets/sprites/arena/%s/%s/%s.png" % [folder, set, f])
 		foot[still[f]] = _foot_row(still[f])
 		var frames: Array[Texture2D] = []
 		for i in 8:
-			var p := "res://assets/sprites/arena/%s/small/walk_%s_f%d.png" % [folder, f, i]
+			var p := "res://assets/sprites/arena/%s/%s/walk_%s_f%d.png" % [folder, set, f, i]
 			if ResourceLoader.exists(p):
 				frames.append(load(p))
 		var rows: Array[float] = []
@@ -571,6 +615,7 @@ func use_move(i: int, m: String, d: Vector2i) -> bool:
 	_set_tex(e, e["art"]["still"][e["facing"]])
 	e["cds"][m] = _turns_of(m, i)
 	_say("%s used %s!" % [e["name"], Arena.MOVES[m]["name"]])
+	_callout(e, m)
 	var r := move_reach(m)
 	if r["kind"] == "dash" and res["end"] != e["pos"]:
 		e["pos"] = res["end"]
@@ -593,6 +638,8 @@ func use_move(i: int, m: String, d: Vector2i) -> bool:
 	for j in res["hits"]:
 		_hit(i, j, m)
 	await tw2.finished
+	if r["kind"] == "dash" and not res["hits"].is_empty():
+		await _shove(i, res["hits"][0], d)
 	return true
 
 
@@ -609,6 +656,7 @@ func _fire_windup(i: int) -> void:
 	var kind: String = move_reach(m)["kind"]
 	var hits: Array = []
 	_say("%s used %s!" % [e["name"], Arena.MOVES[m]["name"]])
+	_callout(e, m)
 	if kind == "dash":
 		var end: Vector2i = e["pos"]
 		for t in tiles:
@@ -644,18 +692,95 @@ func _fire_windup(i: int) -> void:
 	for j in hits:
 		_hit(i, j, m)
 	await tw.finished
+	if kind == "dash" and not hits.is_empty():
+		await _shove(i, hits[0], d)
 
 
 func _hit(i: int, j: int, m: String) -> void:
 	var o: Dictionary = ents[j]
-	var dmg := damage(i, j, m)
+	var tags := position_tags(i, j)
+	var bonus := 1.0
+	for t in tags:
+		bonus *= AMBUSH if t == "AMBUSH" else PINCER
+	var dmg := maxi(1, int(round(damage(i, j, m) * bonus)))
 	var mult := _mult(i, j, m)
+	for k in tags.size():
+		_pops.append({"pos": o["node"].position + Vector2(0, -38 - 9 * k), "text": tags[k] + "!", "t": 0.0, "col": Color(1, 0.6, 0.35)})
+	if "PINCER" in tags and ents[i]["team"] == 0 and i != 0:
+		pincers += 1
+	var why := ""
+	if "AMBUSH" in tags:
+		why += " An ambush!"
+	if "PINCER" in tags:
+		why += " Caught in a pincer!"
+	_say("%s took %d damage.%s%s" % [o["name"], dmg, " It's super effective!" if mult > 1.0 else (" It's not very effective." if mult < 1.0 else ""), why])
+	_play("res://assets/audio/sfx/ui/hit_strong.wav" if mult > 1.0 or not tags.is_empty() else "res://assets/audio/sfx/ui/hit_weak.wav", -6.0)
+	_wound(i, j, dmg, Color(1, 0.95, 0.6) if mult > 1.0 else (Color(0.7, 0.75, 0.8) if mult < 1.0 else Color(1, 1, 1)))
+
+
+## The move's name over the creature using it, as Rescue Team DX shows it (structure only), so a
+## player reads who did what without the log. The basic attack stays quiet.
+func _callout(e: Dictionary, m: String) -> void:
+	if m == e["moves"][0]:
+		return
+	_pops.append({"pos": e["node"].position + Vector2(-float(Arena.MOVES[m]["name"].length()) * 2.5, -44), "text": Arena.MOVES[m]["name"] + "!", "t": 0.0, "col": Color(1, 1, 1) if e["team"] == 0 else Color(1, 0.75, 0.6)})
+
+
+## Where the attacker stands decides the bonus: AMBUSH on a creature still asleep, PINCER when
+## one of the attacker's team stands on the tile right behind the target, seen from the attacker.
+## Both work against your team too.
+func position_tags(i: int, j: int) -> Array[String]:
+	var tags: Array[String] = []
+	var o: Dictionary = ents[j]
+	if o["team"] == 1 and not o["awake"]:
+		tags.append("AMBUSH")
+	var away: Vector2i = o["pos"] - ents[i]["pos"]
+	var behind: Vector2i = o["pos"] + Vector2i(signi(away.x), signi(away.y))
+	var k := _occupant(behind)
+	if k >= 0 and k != i and ents[k]["team"] == ents[i]["team"]:
+		tags.append("PINCER")
+	return tags
+
+
+## A charge shoves the creature it hits one tile further along. Open floor: it slides there. A wall
+## or another creature: it SLAMS, losing a share of its health and its next turn, and anything it
+## was gathering is broken; a creature it slams into takes the same knock.
+func _shove(i: int, j: int, d: Vector2i) -> void:
+	var o: Dictionary = ents[j]
+	if o["hp"] <= 0 or j == asking:
+		return
+	var to: Vector2i = o["pos"] + d
+	var into := _occupant(to)
+	if can_step(o["pos"], d) and into < 0:
+		o["pos"] = to
+		_say("%s was knocked back!" % o["name"])
+		await _slide(o, _tile_px(to)).finished
+		o["node"].z_index = int(o["node"].position.y)
+		return
+	var at: Vector2 = _tile_px(o["pos"])
+	var tw := _slide(o, at + Vector2(d) * 5.0)
+	tw.tween_property(o["node"], "position", at, HIT_TIME * 0.5)
+	_pops.append({"pos": o["node"].position + Vector2(0, -38), "text": "SLAM!", "t": 0.0, "col": Color(1, 0.45, 0.3)})
+	_say("%s slammed into %s!" % [o["name"], ents[into]["name"] if into >= 0 else "the wall"])
+	_play("res://assets/audio/sfx/ui/hit_strong.wav", -3.0)
+	if o.has("windup"):
+		_say("Its %s was broken!" % Arena.MOVES[o["windup"]["m"]]["name"])
+		o.erase("windup")
+	o["stagger"] = SLAM_STAGGER
+	_wound(i, j, maxi(2, int(round(o["max_hp"] * SLAM_SHARE))), Color(1, 0.55, 0.4))
+	if into >= 0 and into != i:
+		_wound(i, into, maxi(2, int(round(ents[into]["max_hp"] * SLAM_SHARE))), Color(1, 0.55, 0.4))
+	await tw.finished
+
+
+## Creature j loses dmg health to creature i: the number, the flash, waking, fainting and the
+## chance a beaten wild creature asks to join.
+func _wound(i: int, j: int, dmg: int, col: Color) -> void:
+	var o: Dictionary = ents[j]
 	o["hp"] = maxi(0, o["hp"] - dmg)
 	o["flash"] = 0.25
 	o["awake"] = true
-	_pops.append({"pos": o["node"].position + Vector2(0, -26), "text": str(dmg), "t": 0.0, "col": Color(1, 0.95, 0.6) if mult > 1.0 else (Color(0.7, 0.75, 0.8) if mult < 1.0 else Color(1, 1, 1))})
-	_say("%s took %d damage.%s" % [o["name"], dmg, " It's super effective!" if mult > 1.0 else (" It's not very effective." if mult < 1.0 else "")])
-	_play("res://assets/audio/sfx/ui/hit_strong.wav" if mult > 1.0 else "res://assets/audio/sfx/ui/hit_weak.wav", -6.0)
+	_pops.append({"pos": o["node"].position + Vector2(0, -26), "text": str(dmg), "t": 0.0, "col": col})
 	if o["hp"] <= 0:
 		o.erase("windup")
 		_say("%s fainted!" % o["name"])
@@ -703,6 +828,9 @@ func act_move(d: Vector2i) -> void:
 	if busy or asking >= 0 or d == Vector2i.ZERO or ents.is_empty() or ents[0]["hp"] <= 0:
 		return
 	var lead: Dictionary = ents[0]
+	if lead.get("stagger", 0) > 0:
+		await _player_turn(func() -> bool: return true)   # _player_turn spends the turn reeling
+		return
 	if lead.get("snared", 0) > 0:
 		_say("%s struggles in the snare." % lead["name"])
 		await _player_turn(func() -> bool: return true)
@@ -964,6 +1092,12 @@ func act_recruit(accept: bool) -> void:
 
 func _player_turn(action: Callable) -> void:
 	busy = true
+	if ents[0].get("stagger", 0) > 0:
+		ents[0]["stagger"] -= 1
+		_say("%s is still reeling from the slam!" % ents[0]["name"])
+		await _world_turn([])
+		busy = false
+		return
 	var ok: bool = await action.call()
 	if ok:
 		await _world_turn([])
@@ -983,6 +1117,9 @@ func _world_turn(lead_tweens: Array) -> void:
 			continue
 		if e.get("snared", 0) > 0:
 			e.erase("windup")   # held fast, it loses the move it was gathering
+			continue
+		if e.get("stagger", 0) > 0:
+			e["stagger"] -= 1   # slammed: it spends this turn getting its footing back
 			continue
 		if e.has("windup"):
 			if not tweens.is_empty():
@@ -1030,19 +1167,40 @@ func _decide(i: int) -> Dictionary:
 			var hits: Array = move_hits(i, m, d)["hits"]
 			var score := 0.0
 			for j in hits:
-				score += Arena.MOVES[m]["damage"] * _mult(i, j, m)
+				var bonus := 1.0
+				for tag in position_tags(i, j):
+					bonus *= AMBUSH if tag == "AMBUSH" else PINCER
+				score += Arena.MOVES[m]["damage"] * _mult(i, j, m) * bonus
 			if m != e["moves"][0]:
 				score *= 1.15   # a move over the basic when both reach (Kit Sense's lean, kept)
 			if score > best_score:
 				best_score = score
-				best = {"kind": "attack", "m": m, "d": d}
+				best = {"kind": "attack", "m": m, "d": d, "j": hits[0]}
+		if not best.is_empty() and e["team"] == 0 and not "PINCER" in position_tags(i, best["j"]):
+			# A short walk round to a healthy foe's far side beats ordinary hits: every hit after is a PINCER.
+			var q := pincer_tile(i, best["j"])
+			var foe: Dictionary = ents[best["j"]]
+			if q != Vector2i(-1, -1) and q != e["pos"] and _cheb(e["pos"], q) <= FLANK_REACH and foe["hp"] > foe["max_hp"] * FLANK_WORTH:
+				var st := _step_toward(i, q)
+				if st != Vector2i.ZERO:
+					return {"kind": "move", "d": st}
 		if not best.is_empty():
 			if e["team"] == 1 and best["m"] != e["moves"][0] and move_reach(best["m"])["kind"] in WARN_KINDS:
 				best["kind"] = "windup"   # a wild creature's strong move warns first
 			return best
-		var step := _step_toward(i, ents[t]["pos"])
+		var step := Vector2i.ZERO
+		if e["team"] == 0:
+			var flank := pincer_tile(i, t)
+			if flank != e["pos"] and flank != Vector2i(-1, -1):
+				step = _step_toward(i, flank)   # round to the far side of the foe
+		if step == Vector2i.ZERO:
+			step = _step_toward(i, ents[t]["pos"])
 		if step != Vector2i.ZERO:
 			return {"kind": "move", "d": step}
+	if e["team"] == 0 and tactic == "guard" and _cheb(e["pos"], ents[0]["pos"]) > 1:
+		var back := _step_toward(i, ents[0]["pos"])
+		if back != Vector2i.ZERO:
+			return {"kind": "move", "d": back}
 	if e["team"] == 0:
 		# A partner follows the one ahead of it in the chain.
 		var ahead: int = 0
@@ -1057,7 +1215,110 @@ func _decide(i: int) -> Dictionary:
 	return {"kind": "wait"}
 
 
-## The enemy creature i goes for: the nearest one it can see (a partner only chases what is near the leader).
+## The tile on the far side of foe t from one of i's teammates already beside it: standing there
+## makes every hit a PINCER. (-1, -1) when there is none open; i's own tile when it is already there.
+func pincer_tile(i: int, t: int) -> Vector2i:
+	var best := Vector2i(-1, -1)
+	var tp: Vector2i = ents[t]["pos"]
+	for k in ents.size():
+		if k == i or ents[k]["hp"] <= 0 or ents[k]["team"] != ents[i]["team"] or _cheb(ents[k]["pos"], tp) != 1:
+			continue
+		var away: Vector2i = tp - ents[k]["pos"]
+		var q: Vector2i = tp + Vector2i(signi(away.x), signi(away.y))
+		if q == ents[i]["pos"]:
+			return q
+		if not _floor_at(q) or _occupant(q) >= 0:
+			continue
+		if best == Vector2i(-1, -1) or _cheb(ents[i]["pos"], q) < _cheb(ents[i]["pos"], best):
+			best = q
+	return best
+
+
+## An item's name, colour and line: the fixed ITEMS, or a scroll made from its move.
+func item_info(kind: String) -> Dictionary:
+	if kind.begins_with("scroll:"):
+		var m := kind.substr(7)
+		return {"name": "%s Scroll" % Arena.MOVES[m]["name"], "what": "teaches it to a body with %s" % " and ".join(MoveBody.NEEDS.get(m, [])), "col": Color("#d8c08a")}
+	return ITEMS[kind]
+
+
+## The shared signatures a scroll can hold: moves more than one line's bodies can use, that
+## deal damage (the dungeon's moves are attacks for now).
+func scroll_pool() -> Array:
+	var out: Array = []
+	for m in MoveBody.shared(Arena.LINES):
+		if Arena.MOVES.has(m) and Arena.MOVES[m]["damage"] > 0:
+			out.append(m)
+	return out
+
+
+## The teach panel's rows: first every teammate and whether it can learn the scroll's move,
+## then (once one is chosen and its moves are full) the moves it could forget.
+func teach_rows() -> Array:
+	var m := teach_kind.substr(7)
+	var rows: Array = []
+	if teach_learner < 0:
+		for i in ents.size():
+			var e: Dictionary = ents[i]
+			if e["team"] != 0 or e["hp"] <= 0:
+				continue
+			var why := ""
+			if m in e["moves"]:
+				why = "ALREADY KNOWS IT"
+			elif not MoveBody.can_learn(e["form"], m):
+				why = "NO %s" % " OR ".join(MoveBody.missing(e["form"], m)).to_upper()
+			rows.append({"i": i, "text": "%s   %s" % [String(e["name"]).to_upper(), why if why != "" else "CAN LEARN"], "ok": why == ""})
+	else:
+		var e: Dictionary = ents[teach_learner]
+		for slot in range(1, e["moves"].size()):   # the basic attack is never forgotten
+			rows.append({"slot": slot, "text": "FORGET %s" % String(Arena.MOVES[e["moves"][slot]]["name"]).to_upper(), "ok": true})
+	return rows
+
+
+## Teach the open scroll's move to teammate i. With four moves already, it needs the slot to
+## forget (1 to 3); without one, the panel asks. Costs no turn. Returns what happened.
+func act_teach(i: int, forget := -1) -> String:
+	var m := teach_kind.substr(7)
+	var e: Dictionary = ents[i]
+	if m in e["moves"]:
+		_say("%s already knows %s." % [e["name"], Arena.MOVES[m]["name"]])
+		return "knows"
+	if not MoveBody.can_learn(e["form"], m):
+		_say("%s can't learn %s: it has no %s." % [e["name"], Arena.MOVES[m]["name"], " or ".join(MoveBody.missing(e["form"], m))])
+		_play("res://assets/audio/sfx/ui/cancel.wav", -12.0)
+		return "body"
+	if e["moves"].size() >= MOVES_MAX:
+		if forget < 1 or forget >= e["moves"].size():
+			teach_learner = i
+			teach_sel = 0
+			_say("%s knows four moves. Which should it forget?" % e["name"])
+			return "full"
+		var old: String = e["moves"][forget]
+		e["cds"].erase(old)
+		e["moves"][forget] = m
+		_say("%s forgot %s and learned %s!" % [e["name"], Arena.MOVES[old]["name"], Arena.MOVES[m]["name"]])
+	else:
+		e["moves"].append(m)
+		_say("%s learned %s!" % [e["name"], Arena.MOVES[m]["name"]])
+	e["cds"][m] = 0
+	taught["%d:%d" % [e["line"], e["stage"]]] = e["moves"].duplicate()
+	_take(teach_kind)
+	teach_kind = ""
+	teach_learner = -1
+	_pops.append({"pos": e["node"].position + Vector2(0, -38), "text": "NEW MOVE!", "t": 0.0, "col": Color(0.85, 0.95, 0.6)})
+	_play("res://assets/audio/sfx/ui/confirm.wav", -6.0)
+	return "learned"
+
+
+## Cycle the partners' order: follow me, go after foes, guard me. Costs no turn.
+func act_tactic() -> void:
+	tactic = TACTICS[(TACTICS.find(tactic) + 1) % TACTICS.size()]
+	_say("Team: %s." % String(TACTIC_NAMES[tactic]).capitalize())
+	_play("res://assets/audio/sfx/ui/confirm.wav", -10.0)
+
+
+## The enemy creature i goes for: the nearest one it can see (a partner only chases what is within
+## its order's reach of the leader: 4 tiles following, any distance going after foes, 2 guarding).
 func _target(i: int) -> int:
 	var e: Dictionary = ents[i]
 	var best := -1
@@ -1066,7 +1327,7 @@ func _target(i: int) -> int:
 			continue
 		if not _sees(e["pos"], ents[j]["pos"]):
 			continue
-		if e["team"] == 0 and _cheb(ents[j]["pos"], ents[0]["pos"]) > 4:
+		if e["team"] == 0 and _cheb(ents[j]["pos"], ents[0]["pos"]) > TACTIC_LEASH[tactic]:
 			continue
 		if best < 0 or _cheb(e["pos"], ents[j]["pos"]) < _cheb(e["pos"], ents[best]["pos"]):
 			best = j
@@ -1172,11 +1433,11 @@ func _pick_up() -> void:
 		if it["pos"] != lead["pos"]:
 			continue
 		if not bag.has(it["kind"]) and bag.size() >= BAG_KINDS:
-			_say("The bag is full; the %s stays on the floor." % ITEMS[it["kind"]]["name"])
+			_say("The bag is full; the %s stays on the floor." % item_info(it["kind"])["name"])
 			continue
 		bag[it["kind"]] = bag.get(it["kind"], 0) + 1
 		floor_items.remove_at(k)
-		_say("Picked up a %s." % ITEMS[it["kind"]]["name"])
+		_say("Picked up a %s." % item_info(it["kind"])["name"])
 		_play("res://assets/audio/sfx/ui/confirm.wav", -12.0)
 
 
@@ -1248,6 +1509,11 @@ func act_use_item(kind: String) -> void:
 	if busy or not bag.has(kind) or ents[0]["hp"] <= 0:
 		return
 	var lead: Dictionary = ents[0]
+	if kind.begins_with("scroll:"):
+		teach_kind = kind   # reading a scroll costs no turn; the panel chooses who learns
+		teach_sel = 0
+		teach_learner = -1
+		return
 	match kind:
 		"reedberry":
 			_take(kind)
@@ -1361,6 +1627,20 @@ func _poll(delta: float) -> void:
 		elif _tapped(KEY_N) or _tapped(KEY_ESCAPE):
 			act_recruit(false)
 		return
+	if teach_kind != "":
+		var rows := teach_rows()
+		if _tapped(KEY_W) or _tapped(KEY_UP):
+			teach_sel = maxi(0, teach_sel - 1)
+		elif _tapped(KEY_S) or _tapped(KEY_DOWN):
+			teach_sel = mini(rows.size() - 1, teach_sel + 1)
+		elif (_tapped(KEY_J) or _tapped(KEY_ENTER)) and not rows.is_empty():
+			if teach_learner < 0:
+				act_teach(rows[teach_sel]["i"])
+			else:
+				act_teach(teach_learner, rows[teach_sel]["slot"])
+		elif _tapped(KEY_ESCAPE) or _tapped(KEY_I):
+			teach_kind = ""
+		return
 	if bag_open:
 		# The bag: W and S choose, J or Enter uses, I or Escape closes.
 		var kinds: Array = bag.keys()
@@ -1401,6 +1681,8 @@ func _poll(delta: float) -> void:
 		act_rest()
 	elif _tapped(KEY_E):
 		act_stairs()
+	elif _tapped(KEY_T):
+		act_tactic()
 	elif _tapped(KEY_TAB):
 		autopilot = not autopilot
 		_say("Autopilot %s." % ("on" if autopilot else "off"))
@@ -1465,12 +1747,7 @@ func _autopilot() -> void:
 			if lead["cds"][m] == 0 and aim(0, m) != Vector2i.ZERO:
 				act_attack(slot)
 				return
-		var d := _step_toward(0, ents[t]["pos"])
-		if d == Vector2i.ZERO:
-			for dd in DIRS:
-				if can_step(lead["pos"], dd) and _occupant(lead["pos"] + dd) >= 0 and ents[_occupant(lead["pos"] + dd)]["team"] == 0:
-					d = dd   # swap past a partner in a hallway
-					break
+		var d := _step_toward(0, ents[t]["pos"], true)
 		if d != Vector2i.ZERO:
 			act_move(d)
 		else:
@@ -1480,12 +1757,7 @@ func _autopilot() -> void:
 	for it in floor_items:
 		if explored[it["pos"].y * data["w"] + it["pos"].x] == 1 and (goal == data["stairs"] or _cheb(lead["pos"], it["pos"]) < _cheb(lead["pos"], goal)):
 			goal = it["pos"]   # pick up what it has seen before the stairs
-	var d2 := _step_toward(0, goal)
-	if d2 == Vector2i.ZERO:
-		for dd in DIRS:
-			if can_step(lead["pos"], dd) and _occupant(lead["pos"] + dd) >= 0:
-				d2 = dd
-				break
+	var d2 := _step_toward(0, goal, true)
 	if d2 != Vector2i.ZERO:
 		act_move(d2)
 	else:
@@ -1512,7 +1784,7 @@ func _draw_fx() -> void:
 	for it in floor_items:
 		var c: Vector2 = (Vector2(it["pos"]) * T + Vector2(T, T) * 0.5).round()
 		_fx.draw_circle(c + Vector2(0, 2), 5.0, Color(0, 0, 0, 0.3))
-		_fx.draw_circle(c, 4.0, ITEMS[it["kind"]]["col"])
+		_fx.draw_circle(c, 4.0, item_info(it["kind"])["col"])
 		_fx.draw_circle(c + Vector2(-1, -1), 1.5, Color(1, 1, 1, 0.6))
 	for tr in traps:
 		if tr["seen"]:
@@ -1548,7 +1820,7 @@ func _draw_hud() -> void:
 	if ents.is_empty():
 		return
 	var h := _hud
-	h.draw_string(FONT, Vector2(16, 24), "WASD MOVE (TWO KEYS FOR DIAGONALS)   SHIFT TURN   J / CLICK ATTACK   1 2 3 MOVES   I BAG   Z REST   E STAIRS   TAB AUTO", HORIZONTAL_ALIGNMENT_LEFT, -1, 11, Color(1, 1, 1, 0.75))
+	h.draw_string(FONT, Vector2(16, 24), "WASD MOVE (TWO KEYS FOR DIAGONALS)   SHIFT TURN   J / CLICK ATTACK   1 2 3 MOVES   I BAG   T TEAM   Z REST   E STAIRS   TAB AUTO", HORIZONTAL_ALIGNMENT_LEFT, -1, 11, Color(1, 1, 1, 0.75))
 	# The team: floor, names and health.
 	h.draw_string(FONT, Vector2(16, 56), "B%dF" % floor_n, HORIZONTAL_ALIGNMENT_LEFT, -1, 20, Color("#F0F4F8"))
 	var y := 70.0
@@ -1574,6 +1846,7 @@ func _draw_hud() -> void:
 	for k in bag:
 		bag_n += bag[k]
 	h.draw_string(FONT, Vector2(16, y + 44), "BAG  %d ITEMS (I)" % bag_n, HORIZONTAL_ALIGNMENT_LEFT, -1, 11, Color(1, 1, 1, 0.8))
+	h.draw_string(FONT, Vector2(16, y + 60), "TEAM  %s (T)" % TACTIC_NAMES[tactic], HORIZONTAL_ALIGNMENT_LEFT, -1, 11, Color(0.6, 0.9, 1.0, 0.9))
 	if bag_open:
 		var kinds: Array = bag.keys()
 		var box := Rect2(360, 140, 432, 40 + 26 * maxi(1, kinds.size()))
@@ -1583,12 +1856,25 @@ func _draw_hud() -> void:
 		if kinds.is_empty():
 			h.draw_string(FONT, box.position + Vector2(14, 52), "EMPTY", HORIZONTAL_ALIGNMENT_LEFT, -1, 11, Color(1, 1, 1, 0.6))
 		for k in kinds.size():
-			var it: Dictionary = ITEMS[kinds[k]]
+			var it: Dictionary = item_info(kinds[k])
 			var yy: float = box.position.y + 52 + k * 26
 			if k == bag_sel:
 				h.draw_rect(Rect2(box.position.x + 6, yy - 16, box.size.x - 12, 22), Color(1, 1, 1, 0.12))
 			h.draw_circle(Vector2(box.position.x + 22, yy - 5), 6.0, it["col"])
 			h.draw_string(FONT, Vector2(box.position.x + 36, yy), "%s  x%d   %s" % [String(it["name"]).to_upper(), bag[kinds[k]], String(it["what"]).to_upper()], HORIZONTAL_ALIGNMENT_LEFT, box.size.x - 44, 10, Color(1, 1, 1, 0.9))
+	if teach_kind != "":
+		var rows := teach_rows()
+		var tbox := Rect2(360, 140, 432, 64 + 26 * maxi(1, rows.size()))
+		h.draw_rect(tbox, Color(0.05, 0.07, 0.1, 0.94))
+		h.draw_rect(tbox, Color("#d8c08a"), false, 2.0)
+		var title: String = item_info(teach_kind)["name"]
+		h.draw_string(FONT, tbox.position + Vector2(14, 24), title.to_upper() + ("   WHO LEARNS IT?" if teach_learner < 0 else "   FORGET WHICH?"), HORIZONTAL_ALIGNMENT_LEFT, 404, 11, Color("#d8c08a"))
+		h.draw_string(FONT, tbox.position + Vector2(14, 42), "W/S CHOOSE   J TEACH   ESC CLOSE", HORIZONTAL_ALIGNMENT_LEFT, 404, 9, Color(1, 1, 1, 0.6))
+		for k in rows.size():
+			var yy: float = tbox.position.y + 70 + k * 26
+			if k == teach_sel:
+				h.draw_rect(Rect2(tbox.position.x + 6, yy - 16, tbox.size.x - 12, 22), Color(1, 1, 1, 0.12))
+			h.draw_string(FONT, Vector2(tbox.position.x + 18, yy), rows[k]["text"], HORIZONTAL_ALIGNMENT_LEFT, 396, 10, Color(1, 1, 1, 0.95) if rows[k]["ok"] else Color(1, 0.55, 0.45, 0.85))
 	# The leader's moves.
 	var lead: Dictionary = ents[0]
 	for s in lead["moves"].size():
@@ -1615,7 +1901,7 @@ func _draw_hud() -> void:
 				h.draw_rect(Rect2(mm + Vector2(tx, ty) * 3, Vector2(3, 3)), Color(0.55, 0.7, 0.85, 0.55))
 	for it in floor_items:
 		if explored[it["pos"].y * data["w"] + it["pos"].x] == 1:
-			h.draw_rect(Rect2(mm + Vector2(it["pos"]) * 3, Vector2(3, 3)), ITEMS[it["kind"]]["col"])
+			h.draw_rect(Rect2(mm + Vector2(it["pos"]) * 3, Vector2(3, 3)), item_info(it["kind"])["col"])
 	var st: Vector2i = data["stairs"]
 	if explored[st.y * data["w"] + st.x] == 1:
 		h.draw_rect(Rect2(mm + Vector2(st) * 3 - Vector2(1, 1), Vector2(5, 5)), Color(1, 0.85, 0.3))

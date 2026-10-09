@@ -1,0 +1,47 @@
+{
+  "prompt": "Original Hollowtide creature-village title-screen landscape, wide 16:9 pixel-art illustration, no text or UI. A welcoming settlement built by small animal-like creatures in the roots of a huge old willow and the ochre terraces of a riverbank: rounded burrow doors of different sizes, stone-and-root guild entrance with a hanging blank wooden emblem, mossy turf roofs, timber footbridges, hanging warm lanterns, clay stairs, bundles and a little notice board, a stream winding toward a shadowed cave beyond town. No humans, no human silhouettes, no modern buildings, no castles. Elevated three-quarter storybook camera, a coherent continuous landscape, chunky intentional dark-edged pixel clusters and restrained material detail, substantial readable shapes, warm ochre and moss green with cool teal shadows, rose dusk. Adventure and a safe home before descending into dangerous Hollows. Main guild and clustered burrows in the central and right half, quiet dark sky in top quarter for a separately composited game logo. Lower left is a simple shaded moss-and-silt path for menu UI, lower middle has an open flat path to place two separately composited creature sprites. Village is the clear main subject, not a distant skyline. No characters baked into the painting, no lettering, no watermark, no copied game imagery, no isometric diamond, no photorealism.",
+  "estimate": {
+    "created_at": 1791552990,
+    "credit_cost": 0,
+    "balance_cost": 0.18,
+    "output_images": [],
+    "base64_images": [],
+    "output_urls": [],
+    "model": "check_cost",
+    "remaining_credits": 0,
+    "remaining_balance": 6.399999999999994,
+    "resolved_prompt_style": "rd_pro__fantasy",
+    "used_input_image": false,
+    "reference_images_count": 0,
+    "used_extra_input_image": false,
+    "used_input_palette": false,
+    "used_strength": false,
+    "effective_timeout_seconds": 180
+  },
+  "result": {
+    "created_at": 1791553034,
+    "model": "rd_pro",
+    "balance_cost": 0.18,
+    "remaining_balance": 6.22,
+    "remaining_credits": 0,
+    "output_urls": [
+      "https://retrodiffusionstack-retrodiffusionapioutputstorere-rg4v98h7gwoa.s3.amazonaws.com/api-activity/11b6f2af-393c-4553-88a4-794a27b68811/0-387fea141ff04d09979048c16e6fa124.png?AWSAccessKeyId=AKIA55GSYAHSEKN47UW6&Signature=9R7Phk79N98A3bfvGilQGwHtBJQ%3D&Expires=1791553936"
+    ],
+    "output_images_count": 0,
+    "base64_images_count": 1,
+    "downloadable_data": null,
+    "request_id": "11b6f2af-393c-4553-88a4-794a27b68811",
+    "outputs_retained_until": 1791639407,
+    "output_url_expires_at": 1791553936,
+    "warnings": null,
+    "delivery_status": "url",
+    "requested_images_count": 1,
+    "resolved_prompt_style": "rd_pro__fantasy",
+    "used_input_image": false,
+    "reference_images_count": 0,
+    "used_extra_input_image": false,
+    "used_input_palette": false,
+    "used_strength": false,
+    "effective_timeout_seconds": 180
+  }
+}

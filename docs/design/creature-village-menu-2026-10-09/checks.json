@@ -1,0 +1,133 @@
+{
+  "checks": [
+    {
+      "check": "Boot shown",
+      "passed": true
+    },
+    {
+      "check": "Boot reaches title",
+      "passed": true
+    },
+    {
+      "check": "Two finished creatures replace human menu actor",
+      "passed": true
+    },
+    {
+      "check": "Options still open",
+      "passed": true
+    },
+    {
+      "check": "Retro village backdrop installed",
+      "passed": true
+    },
+    {
+      "check": "Menu fits the village composition",
+      "passed": true
+    },
+    {
+      "check": "New Game opens awakening",
+      "passed": true
+    },
+    {
+      "check": "Hero 0 can be selected",
+      "passed": true
+    },
+    {
+      "check": "Companion differs from hero 0",
+      "passed": true
+    },
+    {
+      "check": "Pair 0/1 confirmation",
+      "passed": true
+    },
+    {
+      "check": "Pair 0/2 confirmation",
+      "passed": true
+    },
+    {
+      "check": "Can revise creature identity",
+      "passed": true
+    },
+    {
+      "check": "Hero 1 can be selected",
+      "passed": true
+    },
+    {
+      "check": "Companion differs from hero 1",
+      "passed": true
+    },
+    {
+      "check": "Pair 1/0 confirmation",
+      "passed": true
+    },
+    {
+      "check": "Pair 1/2 confirmation",
+      "passed": true
+    },
+    {
+      "check": "Can revise creature identity",
+      "passed": true
+    },
+    {
+      "check": "Hero 2 can be selected",
+      "passed": true
+    },
+    {
+      "check": "Companion differs from hero 2",
+      "passed": true
+    },
+    {
+      "check": "Pair 2/0 confirmation",
+      "passed": true
+    },
+    {
+      "check": "Pair 2/1 confirmation",
+      "passed": true
+    },
+    {
+      "check": "Can revise creature identity",
+      "passed": true
+    },
+    {
+      "check": "Chosen creature leads dungeon",
+      "passed": true
+    },
+    {
+      "check": "Claude's current turn-based combat retained",
+      "passed": true
+    },
+    {
+      "check": "Party sprites carry finish",
+      "passed": true
+    },
+    {
+      "check": "16 nonblank opaque native tiles",
+      "passed": true
+    },
+    {
+      "check": "Editor tileset exposes 16 native cells",
+      "passed": true
+    },
+    {
+      "check": "Terrain render deterministic",
+      "passed": true
+    },
+    {
+      "check": "Terrain leaves gameplay topology exact",
+      "passed": true
+    },
+    {
+      "check": "Native 24px floor size",
+      "passed": true
+    },
+    {
+      "check": "Visible floor upgrade",
+      "passed": true
+    },
+    {
+      "check": "16px procedural fallback retained",
+      "passed": true
+    }
+  ],
+  "failures": []
+}

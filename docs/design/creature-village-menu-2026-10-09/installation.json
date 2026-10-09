@@ -1,0 +1,31 @@
+{
+  "runtime_script": "scripts/creature_opening.gd",
+  "new_asset": "assets/sprites/menu/creature_village_2026_10_09.png",
+  "hashes": {
+    "scripts/creature_opening.gd": "a83e71aae2603139e1e8ded764aef4f5620c4f0c262365c5c8d563dc3d223fcb",
+    "assets/sprites/menu/creature_village_2026_10_09.png": "f6a9ca44abe87744988460faf3cdcb442a9ab681e7bdbc8013fe1dbae412215d",
+    "docs/AI_COLLABORATION.md": "1a7a16416a35b9d37f3f107e2bbc05f452c0d6ae0a9ba5a906a8fb3eeaada43b"
+  },
+  "protected_files": 10229,
+  "unexpected_changes": [],
+  "settings_unchanged": true,
+  "checks": {
+    "checks.json": 32,
+    "input-checks.json": 7
+  },
+  "generation_cost": 0.18,
+  "generation_calls": 1,
+  "creature_pngs_modified": 0,
+  "concurrent_unowned_changes": {
+    "scripts/dungeon/dungeon.gd": "8d2878e60825904e3b436d7eb820c6c3d3088307cc75f4c52b8b7a788cbf25e8",
+    "tools/debug/_pace_probe.gd": null
+  },
+  "menu_dependencies": {
+    "scripts/main_menu.gd": "6e42c74d2d309838a53ddc54ed04cd7874b0b02c7536c3ee305a28954a8b8eb8",
+    "scripts/main_menu_art_preview.gd": "80f0fc9e44e8519313b943117de81fb44aa3302b9caf3cfb686a33ab68e2727d",
+    "scripts/opening_flow.gd": "e32e0783d279899549728529c006e30bf842bd5c5d0f93381efd163a102fbd35",
+    "scripts/creature_prologue.gd": "dbb77baaf388bf8a1468c15455357d04726d4dedd8ba24821a4954b00edcea02",
+    "scripts/arena/creature_finish.gd": "3de3b9d586821500752822a84398964cf4e1fee9a15dbf056695b3d50f56df86",
+    "scripts/arena/creature_finish.gdshader": "8f80459f0ec5f4b38f00ef00fe441b257d8917b2c3ed90e396df1c27b876f60b"
+  }
+}

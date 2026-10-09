@@ -11,6 +11,11 @@ const GRASS_FLOOR := Rect2(30, 60, 340, 150)
 
 
 static func paint(data: Dictionary, t: int, seed_value: int) -> Image:
+	if t == 24 and ResourceLoader.exists(preload("res://scripts/dungeon/hollow_bank_painter.gd").ATLAS):
+		return preload("res://scripts/dungeon/hollow_bank_painter.gd").paint(data,t,seed_value)
+	return paint_procedural(data,t,seed_value)
+
+static func paint_procedural(data: Dictionary, t: int, seed_value: int) -> Image:
 	var w: int = data["w"]
 	var h: int = data["h"]
 	var tiles: PackedByteArray = data["tiles"]

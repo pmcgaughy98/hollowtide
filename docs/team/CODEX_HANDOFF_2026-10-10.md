@@ -79,6 +79,8 @@ Preston is dropping Pokémon disassemblies one at a time "for synthesis". **The 
 | `pret/colosseum-mb` * | Colosseum's link-cable program (GBA) | Only the idea of carrying a team between modes. |
 | `pret/ds_disassembly_tools` *, `PikalaxALT/gba_bios` * | Tools, firmware | Nothing for Hollowtide. |
 
+Gameplay videos Preston linked (October 9): Explorers of Sky and Rescue Team DX no-commentary playthroughs. Notes on HUD, map, portraits and the town are in `docs/research/pmd-video-notes-2026-10-09.md`; useful for your hall and portrait jobs.
+
 The non-repo references used so far:
 - Rescue Team DX (Switch), from Serebii's mechanics page: Auto Mode, the Awakened state, Linked Moves, Rare Qualities.
 - Into the Breach and Hoplite: telegraphs and pushes, and movement as attack.
