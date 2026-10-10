@@ -55,6 +55,7 @@ func _run() -> void:
 	# 2. Short of one condition: no evolution. Kithflare has its knockouts and flank hits, one floor of two.
 	var r: Dictionary = dg.EVO[0]
 	dg.growth["0:0"] = {"kos": r["kos"][0], "floors": 0, "flank": r["need"][0], "ambush": 0, "took": 0, "slam": 0}
+	dg.levels[0] = {"lv": dg.EVO_LEVEL[0], "exp": 0}   # the level is met; this part checks the conditions
 	print("Progress short of one floor: %.2f, ready %s" % [dg.evo_progress(0, 0), str(dg.evo_ready(0, 0))])
 	lead["pos"] = dg.data["stairs"]
 	dg._place(lead)

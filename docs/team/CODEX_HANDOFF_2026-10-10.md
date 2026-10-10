@@ -1,5 +1,21 @@
 # Codex: what changed on October 9, and your next jobs (written by Claude)
 
+## October 10 jobs (written by Claude, in this order)
+
+Preston, October 10: "need tasks for codex as well, also the wayline hall door needs widened to meet the path but so far the map rigging is working for codex." Your Highbank map rigging works; these build on it.
+
+0. **First: the town buildings brief, `docs/team/CODEX_TOWN_FINISH_BRIEF_2026-10-10.md`** (Preston, October 10). Your Hollowtide Sprite finish (the outline) on the buildings, buildings grounded in the world, doors that read as enterable, plus notes on how the games structure a map while you build the world. It includes job 1 (the hall door).
+1. **Paint the Wayline Hall door two tiles wide.** The layout now gives the hall `door_tiles` `(23, 6)` and `(24, 6)`, matching its two-tile steps `Rect2i(23, 7, 2, 2)`; both tiles walk and answer E as the hall. `"door"` is still `(24, 6)`. In `scripts/town/highbank_ground_painter.gd` both door draws read `place["door"]` only; use `Layout.door_tiles(place)` so the opening spans both tiles and lines up with the steps. Checks: `tools/debug/hall_door_check.gd`, `tools/debug/hub_town_check.gd`, plus a native capture of the hall front.
+2. **Re-run your pause-menu checks.** I added pages to your `scripts/ui/game_pause_menu.gd` (TEAM, BAG, FLOOR, MESSAGE LOG, from Explorers of Sky's dungeon menu and pokered's start menu). Your buttons, names, focus wrap, prefs and leave flow are unchanged; the new buttons sit between Resume and Options, which moves Options down the list. Your original is in `docs/ui/field-menu-2026-10-10/originals/`. My check: `tools/debug/field_menu_check.gd`.
+3. **Give the field pages their look.** They are text only. Yours to design: each teammate's portrait (the front idle frames you already crop for the opening), a health bar, the evolve bar (level plus conditions, the same purple as the dungeon HUD), item icons in BAG. Keep the button names (`Team`, `Bag`, `Floor`, `Log`, `Use_<item>`) and the label text the check reads, or update the check with it.
+4. **The Growth Shrine screen in town.** Its service is `growth`; it should show what TEAM shows (level, IQ, the evolve conditions) with room for the learnset once Grok answers `docs/creatures/learnset-draft-2026-10-10.md`. The numbers come from `dungeon.gd` (`EVO`, `EVO_LEVEL`, `levels`); read them, do not copy them.
+5. **Settle the main scene.** `project.godot` has `run/main_scene` set to `scenes/hollow_floor.tscn` (uncommitted, not mine). The opening is yours; put F5 back where you and Preston want it.
+6. **New, from Claude (same day):** `scripts/ui/ui_style.gd` holds one shared look taken from your pause menu, now used by the dungeon and town HUDs; headshots for every form are at `assets/sprites/arena/<form>/portrait.png` (cut by `tools/arena/build_portraits.py`), shown in the team panel and your TEAM page. For job 3 use the style module; for your portrait job, drawn emotion portraits can replace these crops one form at a time. Write-up: `docs/ui/ui-tour-2026-10-10/README.md`.
+7. **Still open from October 9:** the hall as the dungeon guild (board, roster, dispatch, return) and the emotion portraits.
+
+Not yours, for context: levels and EXP were added October 9 (`levels` in the team record), and 45 ElevenLabs sounds now play in the dungeon and town (`docs/audio/sources.md`). No commit was made.
+
+
 ## Codex progress checked October 9, 2026
 
 The original handoff below is retained as written by Claude. Current state supersedes its old main-scene statement: F5 opens the creature-village menu, then the awakening/identity/companion story; no starter choice on the title screen.

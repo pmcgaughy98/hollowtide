@@ -1,0 +1,20 @@
+[
+  {
+    "path": "scripts/creature_opening.gd",
+    "before": "c685de973ec60e716160667118a74e96736465a76cd64bbe48e8460786b0708e",
+    "source": "D:\\dev\\hollowtide-title-refinement-20261010\\candidate\\scripts\\creature_opening.gd",
+    "after": "a94413ca99fc47afee58fcebf260529026a16449a436433b6d17cfcd5c297a88"
+  },
+  {
+    "path": "scripts/ui/title_panel_trim.gd",
+    "before": null,
+    "source": "D:\\dev\\hollowtide-title-refinement-20261010\\candidate\\scripts\\ui\\title_panel_trim.gd",
+    "after": "af4b9cc66f5ff39971f8919fd34ba7329c316eae1c607849fdbfb71d1ec4160c"
+  },
+  {
+    "path": "docs/AI_COLLABORATION.md",
+    "before": "1ff4d811b195de246591b10fb44e7ca2b0d3e9c22e08e9a4aae08102e7b008bd",
+    "source": "D:\\dev\\hollowtide-title-refinement-20261010\\candidate\\docs\\AI_COLLABORATION.md",
+    "after": "c238f640e922d322a02649e7ac9171b6c5274b1bf509f9a755cfee98fa3a681d"
+  }
+]

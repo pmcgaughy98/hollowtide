@@ -4,3 +4,8 @@
 
 # Summer Engine local-only state (SummerGit, caches, locks)
 .summer/local/
+
+# Local audio backups and scratch (Claude, 2026-10-10): 440 Hz originals kept by tools/audio/retune_432.py,
+# and working WAVs from the scrapped music remix. Regenerable or held elsewhere; too large for git.
+assets/audio/_440hz_originals/
+docs/audio/sections/_work/

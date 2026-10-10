@@ -1,0 +1,20 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+OpenGL API 3.3.0 NVIDIA 596.49 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce GTX 1660 SUPER
+
+ERROR: Failed to read the root certificate store.
+   at: get_system_ca_certificates (platform/windows/os_windows.cpp:2582)
+[godot_ai game_helper] registered mcp capture (debugger active=false, logger=true)
+town at home: highbank
+by the Hall: wayline_hall
+at the ferry landing: ferry_landing
+B1F: hollow
+B1F, lantern low: deep_hollow
+a Monster House springs: monster_house
+B3F (before the boss): deep_hollow
+a rest floor: rest_floor
+the boss floor, its scene: boss_scene
+the boss fight: guardian
+the boss falls: track '', jingle victory
+a recruit joins: jingle recruit
+an evolution: jingle evolution
+a faint: jingle fainted

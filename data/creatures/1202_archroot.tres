@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="CreatureData" format=3]
+
+[ext_resource type="Script" path="res://scripts/creature_data.gd" id="1_script"]
+[ext_resource type="Texture2D" path="res://assets/sprites/arena/archroot/s.png" id="2_sprite"]
+[ext_resource type="Resource" path="res://data/creatures/1203_springvault.tres" id="4_evolution"]
+
+[resource]
+script = ExtResource("1_script")
+id = 1202
+creature_name = "Archroot"
+essence = 2
+has_second_essence = true
+second_essence = 1
+sprite = ExtResource("2_sprite")
+description = "Provisional entry (Claude, 2026-10-10, Preston: \"Lets make new line\", then Springvault, the healer): Stage II, taller arches with living root braces and wide gill flanges; the roots lift when it walks and plant to heal. Working name from docs/creatures/creature-roster-draft.md (line 12), pending Preston's approval. Stone with Tide second (the roles proposal). The sprite is the arena's south facing standing in for a front view; default stats (Grok)."
+evolves_into = ExtResource("4_evolution")
+body_parts = PackedStringArray()
+battle_size = 1.0

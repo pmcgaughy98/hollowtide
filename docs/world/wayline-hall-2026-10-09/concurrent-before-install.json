@@ -1,0 +1,10 @@
+{
+  "scripts/dungeon/dungeon.gd": {
+    "before": "5955c3d871c2058fa75cc6f7d051bc2ac0308a94909f7812a936464d7d50476f",
+    "now": "5d3ecfced3cf0c6a0165a6b216eab4268b79ee33aca90beb191ae94c1ff3b92d"
+  },
+  "docs/AI_COLLABORATION.md": {
+    "before": "bfa735a730117bd4d9a17b642c0152fdb6e782527cc0291d7d5fef9379b5da75",
+    "now": "bdd3ed063db768a900bc250091856c5e6ecf7bfc4398536ddaeb37fb1f683d12"
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "date": "2026-10-10",
+  "runtime_files_verified": {
+    "scripts/creature_opening.gd": true,
+    "scripts/ui/title_panel_trim.gd": true,
+    "docs/AI_COLLABORATION.md": true
+  },
+  "unowned_existing_files_byte_exact": 8445,
+  "unexpected_unowned_changes": {},
+  "concurrent_initial_to_preinstall_changes_retained": {
+    "docs/AI_COLLABORATION.md": {
+      "initial": "064bf6c7a7cf8d36878eb97b37cdeec2e40f3ab576f895bba8b0f4b6ad25e946",
+      "preinstall": "1ff4d811b195de246591b10fb44e7ca2b0d3e9c22e08e9a4aae08102e7b008bd"
+    }
+  },
+  "latest_collaboration_tail_preserved": true,
+  "installed_title_checks": {
+    "passed": 26,
+    "failed": 0
+  },
+  "installed_launch_menu_checks": {
+    "passed": 51,
+    "failed": 0
+  },
+  "native_title_quit": "confirmation closes engine",
+  "preferences": "isolated APPDATA",
+  "village_wordmark_creatures_audio_originals": "unchanged",
+  "generation_calls": 0,
+  "git": "no commit/reset/revert/stash"
+}

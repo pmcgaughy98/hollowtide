@@ -1,0 +1,30 @@
+{
+  "source_dimensions": [
+    1620,
+    971
+  ],
+  "source_visible_alpha_bounds": [
+    0,
+    89,
+    1620,
+    841
+  ],
+  "native_dimensions": [
+    240,
+    144
+  ],
+  "preparation": "Trim nearly transparent padding using alpha > 1 bounds (all alpha inside kept); nearest-neighbor preparation to layout 240x144. Source PNGs untouched.",
+  "native_door_tile": [
+    120,
+    120,
+    24,
+    24
+  ],
+  "door_center_sample": [
+    164,
+    120,
+    79,
+    253
+  ],
+  "painted_pixels": 29172
+}

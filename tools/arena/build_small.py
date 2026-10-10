@@ -47,6 +47,7 @@ SCALE = {
     "listener": 0.95, "caller": 1.0, "warden": 1.1,
     "canvaswing": 0.95, "windcut": 1.0, "galeshear": 1.1,
     "dustkite": 0.9, "waywhistle": 1.0, "highsignal": 1.1,
+    "troughspine": 0.9, "archroot": 1.05, "springvault": 1.2,   # the healer line (2026-10-10): a small crawler, a tall final
     "riftfin": 1.05, "scourmaw": 1.35,   # the remade line (2026-10-09): Preston, "make stage 3 bigger than stage 2"
 }
 
@@ -58,7 +59,7 @@ def small_of(im, name):
 
 NAMES = ("kithflare", "tallowroot", "rimefin", "sparkwick", "stormwick", "huskward", "rampartroot", "riftfin", "scourmaw",
          "cinderhide", "clinkerhide", "ironvent", "fusern", "slagglass", "vitrecrag",
-         "preostmar", "oathfen", "oxbowarchon", "punchybun", "sparkjab", "starward", "listener", "caller", "warden", "canvaswing", "windcut", "galeshear", "dustkite", "waywhistle", "highsignal")
+         "preostmar", "oathfen", "oxbowarchon", "punchybun", "sparkjab", "starward", "listener", "caller", "warden", "canvaswing", "windcut", "galeshear", "dustkite", "waywhistle", "highsignal", "troughspine", "archroot", "springvault")
 # Pass names to rebuild only those creatures (a bare run redoes all of them).
 for name in (sys.argv[1:] or NAMES):
     out = ART / name / "small"

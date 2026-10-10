@@ -1,6 +1,6 @@
 extends Node2D
-## Playable opening proposal: awakening, another survivor, then the first Hollow.
-## Identity and party are passed into the existing dungeon; no save/state rewrite.
+## Playable opening proposal: awakening, another survivor, then Highbank.
+## Identity and party are passed into the existing town; no save/state rewrite.
 const Painter=preload("res://scripts/dungeon/floor_painter.gd")
 const Gen=preload("res://scripts/hollow/hollow_gen.gd")
 const Finish=preload("res://scripts/arena/creature_finish.gd")
@@ -154,8 +154,8 @@ func refresh() -> void:
 		back.text="Back"
 	else:
 		title.text="You will find a way through together."
-		prose.text=NAMES[partner]+" waits beside you. A worn stair leads deeper beneath the bank.\nTake one step at a time. Watch each other as you go."
-		confirm.text="Enter the Hollow together"
+		prose.text=NAMES[partner]+" waits beside you. A break in the clay opens onto the path to Highbank.\nFollow the village lights. Watch each other as you go."
+		confirm.text="Reach Highbank together"
 		back.text="Choose another companion"
 	if phase<2:
 		for i in 3:
@@ -206,7 +206,7 @@ func advance() -> void:
 	if error!=OK:
 		dungeon.free();leaving=false;confirm.disabled=false;back.disabled=false
 		veil.color.a=0;veil.mouse_filter=Control.MOUSE_FILTER_IGNORE
-		prose.text="The Hollow could not open. Your choices are still here."
+		prose.text="Highbank could not open. Your choices are still here."
 
 func _unhandled_input(event:InputEvent) -> void:
 	if event.is_action_pressed("ui_cancel"):

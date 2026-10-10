@@ -18,7 +18,7 @@
 | 20 | Berry Sense | eats a Reedberry from the bag below 30% health |
 | 25 | Fall Back | below 25% health with no berry, stops fighting and stays by the leader |
 
-The thresholds and gains are drafts for Grok. Every skill once unlocked is always on. A switch to turn skills off, as Explorers of Sky has, is a later step.
+Grok, 2026-10-10: the gains stay 1 and the thresholds stay 3, 6, 10, 15, 20, 25. Every skill once unlocked is always on. A switch to turn skills off, as Explorers of Sky has, is a later step.
 
 ## Health between floors
 - **The old behaviour was a bug:** the stairs called `_build_floor(floor_n != 1)`, which read backwards, so every floor fully healed the team.

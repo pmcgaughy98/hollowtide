@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Hollowtide"
-run/main_scene="uid://crlinvq0dr6o4"
+run/main_scene="res://scenes/hollow_floor.tscn"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://icon.svg"
 

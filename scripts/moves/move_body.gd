@@ -68,6 +68,11 @@ const PARTS := {
 	"dustkite": ["sail", "springlegs", "whistle"],
 	"waywhistle": ["sail", "springlegs", "whistle"],
 	"highsignal": ["sail", "springlegs", "whistle"],
+	# Springvault line (Claude, 2026-10-10, draft for Grok): the stone muzzle, the gill frills,
+	# the rib arches; the roots grow from stage II.
+	"troughspine": ["muzzle", "gills", "arches"],
+	"archroot": ["muzzle", "gills", "arches", "roots"],
+	"springvault": ["muzzle", "gills", "arches", "roots"],
 }
 
 ## What each arena move needs. G where Grok already ruled on the same move.
@@ -103,6 +108,7 @@ const NEEDS := {
 	"shear": ["wing"], "downdraft": ["wing"], "lift": ["wing"],
 	"sail_cover": ["sail"], "vantage": ["sail"],
 	"whistle_dart": ["whistle"], "signal_mark": ["whistle"], "decoy_call": ["whistle"],
+	"spring_spit": ["muzzle"], "seep": ["gills"],
 }
 
 

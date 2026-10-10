@@ -1,0 +1,6 @@
+{
+  "scripts/dungeon/dungeon.gd": {
+    "initial": "b73b1bd8f217777117d0137b6af9e14a99bf7755b8d985a04af49ab72c5fbb7f",
+    "preinstall": "1e28bd8a6054fc4fb694c19858cde8a1e48b0d8e0ed5126f1eab01e1368caa55"
+  }
+}

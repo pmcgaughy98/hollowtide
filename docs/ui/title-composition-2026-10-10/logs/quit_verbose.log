@@ -1,0 +1,113 @@
+WorkerThreadPool: 12 threads, 3 max low-priority.
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+TextServer: Added interface "Dummy"
+TextServer: Added interface "ICU / HarfBuzz / Graphite (Built-in)"
+Accessibility: AccessKit driver loaded.
+Native OpenGL API detected: 3.3: NVIDIA - NVIDIA GeForce GTX 1660 SUPER
+NVAPI: Init OK!
+NVAPI: Profile not found, creating...
+NVAPI: Application not found in profile, creating...
+NVAPI: Error creating application: NVAPI_EXECUTABLE_ALREADY_IN_USE(code -167)
+Accessibility: window 0 adapter created.
+SDL: Init OK!
+Using "winink" pen tablet driver...
+Shader 'CanvasSdfShaderGLES3' SHA256: b6003887510b7d08b9c56bb10bce8d41f5abe14d0901c42496fa9d4cf4429153
+Shader 'SkeletonShaderGLES3' SHA256: 8cf81ec9f52ad34ff8d18d6641860e5c999487e6b90a7f024e26bdef814137b0
+Shader 'ParticlesShaderGLES3' SHA256: 73f6f88ae6657356bf963dcd87d7dcdf069ff7bc357fd15d6f2a328850cb3c5b
+Shader 'ParticlesCopyShaderGLES3' SHA256: fc30ebbaae84f60be8a550752994fdbf16928239e0ad2d710444d4bd071f6050
+Shader 'CopyShaderGLES3' SHA256: 4704dab31bfc8eee962869e00acb15432e08a2efad500e9cb99229625b1bf4d8
+Shader 'CubemapFilterShaderGLES3' SHA256: 0aa93819d1bad4e70fb3b09b7fc3a496151c68184c816b765bb46f0fb79d1b4e
+Shader 'GlowShaderGLES3' SHA256: 4c1ec106ae0893be2445af806099117a8691fb6a8e4fff6f300110677339ad7d
+Shader 'PostShaderGLES3' SHA256: 56e849d6dd267bbb4059229e22d9c931689d1cfe649f8f0179c188fabd2d2c36
+Shader 'FeedShaderGLES3' SHA256: afcf2322b77b6f8ccbf9395536a4232b01c620a653a0fd7b17068749104ea5ee
+Shader 'CanvasShaderGLES3' SHA256: 18956abde9d275e91de2e046cf78b7246e97ecf7cea5d211a6ee62ab63c94376
+Shader 'CanvasOcclusionShaderGLES3' SHA256: a6c6ccde71c5746d80b8e24a758db6c9d991bcf6a9d0ee0f57bfd7725dfed1c7
+Shader 'SceneShaderGLES3' SHA256: a32adcf6986cf5567368d3c44596d44503be45e57a1be57b64140b8c41538492
+Shader 'SkyShaderGLES3' SHA256: 960a42fb7d8f4eec8a2555650fbe7c8f801bc1e545d69c979b6d6931d68f02e8
+Shader 'TexBlitShaderGLES3' SHA256: 99bbaf087caef682a6123e28c2bc54e471da1a19c39a99feee263bc2e7b2ca73
+OpenGL API 3.3.0 NVIDIA 596.49 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce GTX 1660 SUPER
+WASAPI: Activated output_device using IAudioClient3 interface
+WASAPI: wFormatTag = 65534
+WASAPI: nChannels = 2
+WASAPI: nSamplesPerSec = 48000
+WASAPI: nAvgBytesPerSec = 384000
+WASAPI: nBlockAlign = 8
+WASAPI: wBitsPerSample = 32
+WASAPI: cbSize = 22
+WASAPI: mix_rate = 48000
+WASAPI: fundamental_period_frames = 480
+WASAPI: min_period_frames = 480
+WASAPI: max_period_frames = 480
+WASAPI: selected a period frame size of 480
+WASAPI: detected 2 channels
+WASAPI: audio buffer frames: 480 calculated latency: 10ms
+
+TextServer: Primary interface set to: "ICU / HarfBuzz / Graphite (Built-in)".
+Loading resource: res://default_bus_layout.tres remapped: res://default_bus_layout.tres
+Completed load for: 'res://default_bus_layout.tres' remapped 'res://default_bus_layout.tres' at thread -1
+CORE API HASH: 2004498165
+EDITOR API HASH: 1696660745
+Loading resource: D:/dev/hollowtide-title-composition-20261010/quit_title.gd remapped: D:/dev/hollowtide-title-composition-20261010/quit_title.gd
+Completed load for: 'D:/dev/hollowtide-title-composition-20261010/quit_title.gd' remapped 'D:/dev/hollowtide-title-composition-20261010/quit_title.gd' at thread -1
+SceneTreeFTI: traversal method DEFAULT
+Loading resource: res://scripts/player_party.gd remapped: res://scripts/player_party.gd
+Completed load for: 'res://scripts/player_party.gd' remapped 'res://scripts/player_party.gd' at thread -1
+Loading resource: res://addons/godot_ai/runtime/game_helper.gd remapped: res://addons/godot_ai/runtime/game_helper.gd
+Completed load for: 'res://addons/godot_ai/runtime/game_helper.gd' remapped 'res://addons/godot_ai/runtime/game_helper.gd' at thread -1
+ERROR: Failed to read the root certificate store.
+   at: get_system_ca_certificates (platform/windows/os_windows.cpp:2582)
+Loaded builtin CA certificates
+[godot_ai game_helper] registered mcp capture (debugger active=false, logger=true)
+Loading resource: res://scenes/creature_opening.tscn remapped: res://scenes/creature_opening.tscn
+Loading resource: res://scripts/creature_opening.gd remapped: res://scripts/creature_opening.gd
+Loading resource: res://scripts/effects/creature_sprite.gdshader remapped: res://scripts/effects/creature_sprite.gdshader
+Completed load for: 'res://scripts/effects/creature_sprite.gdshader' remapped 'res://scripts/effects/creature_sprite.gdshader' at thread -1
+Loading resource: res://scripts/effects/pixel_rain.gdshader remapped: res://scripts/effects/pixel_rain.gdshader
+Completed load for: 'res://scripts/effects/pixel_rain.gdshader' remapped 'res://scripts/effects/pixel_rain.gdshader' at thread -1
+Loading resource: res://assets/fonts/AlegreyaSansSC-Bold.ttf remapped: res://assets/fonts/AlegreyaSansSC-Bold.ttf
+Loading resource: res://.godot/imported/AlegreyaSansSC-Bold.ttf-daa69cc198ac3094928145a2f5cc767e.fontdata remapped: res://.godot/imported/AlegreyaSansSC-Bold.ttf-daa69cc198ac3094928145a2f5cc767e.fontdata
+Completed load for: 'res://assets/fonts/AlegreyaSansSC-Bold.ttf' remapped 'res://assets/fonts/AlegreyaSansSC-Bold.ttf' at thread -1
+Loading resource: res://assets/fonts/Silkscreen-Regular.ttf remapped: res://assets/fonts/Silkscreen-Regular.ttf
+Loading resource: res://.godot/imported/Silkscreen-Regular.ttf-0088f200f2f1c02c371962cb8d277333.fontdata remapped: res://.godot/imported/Silkscreen-Regular.ttf-0088f200f2f1c02c371962cb8d277333.fontdata
+Completed load for: 'res://assets/fonts/Silkscreen-Regular.ttf' remapped 'res://assets/fonts/Silkscreen-Regular.ttf' at thread -1
+Loading resource: res://assets/audio/music/main_menu_pixel_rain.mp3 remapped: res://assets/audio/music/main_menu_pixel_rain.mp3
+Loading resource: res://.godot/imported/main_menu_pixel_rain.mp3-3dc8af6bafc020f44b97c51dddd277c0.mp3str remapped: res://.godot/imported/main_menu_pixel_rain.mp3-3dc8af6bafc020f44b97c51dddd277c0.mp3str
+Completed load for: 'res://assets/audio/music/main_menu_pixel_rain.mp3' remapped 'res://assets/audio/music/main_menu_pixel_rain.mp3' at thread -1
+Loading resource: res://assets/audio/sfx/ui/confirm.wav remapped: res://assets/audio/sfx/ui/confirm.wav
+Loading resource: res://.godot/imported/confirm.wav-447f95c9d2259fdec8824499a732b240.sample remapped: res://.godot/imported/confirm.wav-447f95c9d2259fdec8824499a732b240.sample
+Completed load for: 'res://assets/audio/sfx/ui/confirm.wav' remapped 'res://assets/audio/sfx/ui/confirm.wav' at thread -1
+Loading resource: res://assets/audio/sfx/ui/cursor.wav remapped: res://assets/audio/sfx/ui/cursor.wav
+Loading resource: res://.godot/imported/cursor.wav-f9d43327ffe5d754f3c43f5fcaf51ed7.sample remapped: res://.godot/imported/cursor.wav-f9d43327ffe5d754f3c43f5fcaf51ed7.sample
+Completed load for: 'res://assets/audio/sfx/ui/cursor.wav' remapped 'res://assets/audio/sfx/ui/cursor.wav' at thread -1
+Loading resource: res://assets/audio/sfx/ui/cancel.wav remapped: res://assets/audio/sfx/ui/cancel.wav
+Loading resource: res://.godot/imported/cancel.wav-33332b9d9ab2f05525bb0f33a8b9bdea.sample remapped: res://.godot/imported/cancel.wav-33332b9d9ab2f05525bb0f33a8b9bdea.sample
+Completed load for: 'res://assets/audio/sfx/ui/cancel.wav' remapped 'res://assets/audio/sfx/ui/cancel.wav' at thread -1
+Loading resource: res://scenes/creature_prologue.tscn remapped: res://scenes/creature_prologue.tscn
+Loading resource: res://scripts/creature_prologue.gd remapped: res://scripts/creature_prologue.gd
+Loading resource: res://scripts/arena/creature_finish.gdshader remapped: res://scripts/arena/creature_finish.gdshader
+Completed load for: 'res://scripts/arena/creature_finish.gdshader' remapped 'res://scripts/arena/creature_finish.gdshader' at thread -1
+Completed load for: 'res://scripts/creature_prologue.gd' remapped 'res://scripts/creature_prologue.gd' at thread -1
+Completed load for: 'res://scenes/creature_prologue.tscn' remapped 'res://scenes/creature_prologue.tscn' at thread -1
+Loading resource: res://assets/sprites/menu/creature_village_2026_10_09.png remapped: res://assets/sprites/menu/creature_village_2026_10_09.png
+Loading resource: res://.godot/imported/creature_village_2026_10_09.png-65798e4a844e56a3e894515053d6ea80.ctex remapped: res://.godot/imported/creature_village_2026_10_09.png-65798e4a844e56a3e894515053d6ea80.ctex
+Completed load for: 'res://assets/sprites/menu/creature_village_2026_10_09.png' remapped 'res://assets/sprites/menu/creature_village_2026_10_09.png' at thread -1
+Loading resource: res://assets/fonts/Vollkorn-Variable.ttf remapped: res://assets/fonts/Vollkorn-Variable.ttf
+Loading resource: res://.godot/imported/Vollkorn-Variable.ttf-e1b9cfdb1c3dd6184741d1892f9858c0.fontdata remapped: res://.godot/imported/Vollkorn-Variable.ttf-e1b9cfdb1c3dd6184741d1892f9858c0.fontdata
+Completed load for: 'res://assets/fonts/Vollkorn-Variable.ttf' remapped 'res://assets/fonts/Vollkorn-Variable.ttf' at thread -1
+Loading resource: res://assets/fonts/AlegreyaSansSC-Regular.ttf remapped: res://assets/fonts/AlegreyaSansSC-Regular.ttf
+Loading resource: res://.godot/imported/AlegreyaSansSC-Regular.ttf-8064a2c1d9ba8de3e773afab89f30e6e.fontdata remapped: res://.godot/imported/AlegreyaSansSC-Regular.ttf-8064a2c1d9ba8de3e773afab89f30e6e.fontdata
+Completed load for: 'res://assets/fonts/AlegreyaSansSC-Regular.ttf' remapped 'res://assets/fonts/AlegreyaSansSC-Regular.ttf' at thread -1
+Loading resource: res://scripts/ui/title_legibility.gdshader remapped: res://scripts/ui/title_legibility.gdshader
+Completed load for: 'res://scripts/ui/title_legibility.gdshader' remapped 'res://scripts/ui/title_legibility.gdshader' at thread -1
+Loading resource: res://scripts/effects/courier_finish.gdshader remapped: res://scripts/effects/courier_finish.gdshader
+Completed load for: 'res://scripts/effects/courier_finish.gdshader' remapped 'res://scripts/effects/courier_finish.gdshader' at thread -1
+Completed load for: 'res://scripts/creature_opening.gd' remapped 'res://scripts/creature_opening.gd' at thread -1
+Completed load for: 'res://scenes/creature_opening.tscn' remapped 'res://scenes/creature_opening.tscn' at thread -1
+Loading resource: res://assets/audio/music/title.mp3 remapped: res://assets/audio/music/title.mp3
+Loading resource: res://.godot/imported/title.mp3-12fdd3e8dd8122229ae3eb6228febd6b.mp3str remapped: res://.godot/imported/title.mp3-12fdd3e8dd8122229ae3eb6228febd6b.mp3str
+Completed load for: 'res://assets/audio/music/title.mp3' remapped 'res://assets/audio/music/title.mp3' at thread -1
+TITLE QUIT CONFIRMATION REACHED; sending real mouse confirmation
+XR: Clearing primary interface
+XR: Removed interface "Native mobile"
+XR: Removed interface "OpenXR"
+Accessibility: window 0 adapter destroyed.

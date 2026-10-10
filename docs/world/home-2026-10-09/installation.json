@@ -1,0 +1,24 @@
+{
+  "installed_verified": true,
+  "native_assertions": 13,
+  "absent_painter_fallback_exact": true,
+  "live_asset_import": true,
+  "live_map_matches_review_byte_exact": true,
+  "generation_calls": 1,
+  "retro_calls": 0,
+  "existing_asset_files_written": 0,
+  "new_asset": "assets/sprites/world/home_2026_10_09/home_native.png",
+  "runtime_scope": [
+    "scripts/town/highbank_ground_painter.gd",
+    "scripts/town/home_painter.gd"
+  ],
+  "protected_baseline_files": 7378,
+  "concurrent_preserved": {},
+  "changes_since_packaging": {},
+  "installed_hashes": {
+    "docs/AI_COLLABORATION.md": "00c39686ff30cbe8ad781a449b2720f97b5a95a2e6eaf791567dc25b7d65f6c4",
+    "assets/sprites/world/home_2026_10_09/home_native.png": "7683db47661351f7fef3ae34003d51c39976dbff138f3caa3d8359515866267d",
+    "scripts/town/home_painter.gd": "00e92b59e1c3418da732637028cc416b326619252ddc6743c3b121b3950a0427",
+    "scripts/town/highbank_ground_painter.gd": "e1a8e7b178f354b8e12160660ef441a5d15556eac52b9789766247b010563f74"
+  }
+}

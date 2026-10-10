@@ -1,0 +1,9 @@
+{
+ "prompt": "Top-down action game sprite of a small spring salamander creature crawling low on four short legs: a long low body like a cave salamander, a flat broad stone muzzle, a pair of feathery gill frills on each side of the neck, and three thin arched stone ribs standing up over its back like small hoops with open gaps you can see through, a short flat tail. Wet slate-grey skin, pale limestone ribs and muzzle, mineral green gill frills and spots, small calm eyes. Quiet and gentle, head lifted. Seen from above at a three-quarter overhead angle like a sprite in a top-down arena battle game, facing down and to the right toward the camera. A readable game sprite: chunky clear shapes, a crisp dark outline. Not a turtle, no shell, not a lizard with spikes, no bridge, no pipes, no water effects. Whole creature centred with empty space on every side, nothing touching the edges. On a plain white background.",
+ "prompt_style": "rd_pro__default",
+ "width": 96,
+ "height": 96,
+ "num_images": 1,
+ "remove_bg": true,
+ "reference_images": []
+}

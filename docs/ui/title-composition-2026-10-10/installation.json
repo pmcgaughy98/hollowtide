@@ -1,0 +1,58 @@
+{
+  "date": "2026-10-10",
+  "runtime_files_verified": {
+    "scripts/creature_opening.gd": true,
+    "scripts/ui/title_legibility.gdshader": true,
+    "docs/AI_COLLABORATION.md": true
+  },
+  "unowned_existing_files_byte_exact": 8879,
+  "unexpected_unowned_changes": {},
+  "concurrent_initial_to_preinstall_changes_retained": {
+    "scripts/dungeon/dungeon.gd": {
+      "initial": "b73b1bd8f217777117d0137b6af9e14a99bf7755b8d985a04af49ab72c5fbb7f",
+      "preinstall": "1e28bd8a6054fc4fb694c19858cde8a1e48b0d8e0ed5126f1eab01e1368caa55"
+    }
+  },
+  "latest_collaboration_tail_preserved": true,
+  "installed_title_checks": {
+    "passed": 29,
+    "failed": 0
+  },
+  "installed_launch_menu_checks": {
+    "passed": 51,
+    "failed": 0
+  },
+  "native_title_quit": "confirmation closes engine",
+  "preferences": "isolated APPDATA",
+  "village_wordmark_creatures_audio_fonts_originals": "unchanged",
+  "generation_calls": 0,
+  "git": "no commit/reset/revert/stash",
+  "post_install_collaboration_append": {
+    "bytes": 665,
+    "installed_prefix_byte_exact": true,
+    "current_sha256": "bbac3a6e3b1447b2d18c43c79521b91c6cdf86a8c2e584c0ac21159f4f5c9eb6",
+    "description": "Claude appended Troughspine/Archroot/Springvault/Seep handoff; preserved unchanged"
+  },
+  "concurrent_unowned_code_edits_retained": {
+    "scripts/dungeon/dungeon.gd": {
+      "before": "1e28bd8a6054fc4fb694c19858cde8a1e48b0d8e0ed5126f1eab01e1368caa55",
+      "after": "70d91d497e5f77d89315f05f3d1c7d0f3a86beccb3eff266cdcdf9147f116ef8"
+    },
+    "scripts/town/hub_town.gd": {
+      "before": "b2c27de6ffb148d065ea59d17bc3d82f79b2184ba41e8b15d6d4e233c8f946c6",
+      "after": "2ced273d2401adfaf01d1e10066bf522d5e1c16ade4d1ee42b31ae5032c26e1d"
+    }
+  },
+  "new_claude_shared_ui_style": {
+    "path": "scripts/ui/ui_style.gd",
+    "current_sha256": "698483c7e1407a1c6d835f27910e8dcc3c7f893ddd853339e8bdf9c4fe0bbe51",
+    "written_by_this_install": false
+  },
+  "quit_shutdown_diagnostic": {
+    "fixed_frame_fixture": "exit 0 with 8 ObjectDB instances and 3 resources at exit",
+    "verbose_repeat": "clean exit 0",
+    "standard_fixed_frame_repeat": "shutdown diagnostic recurred",
+    "final_fixture": "waits for actual boot completion plus settled frames; clean exit 0",
+    "production_cleanup_changes": "none; runtime memory-lifecycle fix not claimed"
+  }
+}

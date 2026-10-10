@@ -1,0 +1,181 @@
+{
+  "checks": [
+    {
+      "check": "Boot skip does not activate New Game",
+      "passed": true
+    },
+    {
+      "check": "Title starts with focused New Game",
+      "passed": true
+    },
+    {
+      "check": "Mouse opens title Options",
+      "passed": true
+    },
+    {
+      "check": "Keyboard adjusts title Master volume",
+      "passed": true
+    },
+    {
+      "check": "Title Options cancel restores its button focus",
+      "passed": true
+    },
+    {
+      "check": "Title Quit requires confirmation",
+      "passed": true
+    },
+    {
+      "check": "Title Quit cancel keeps title",
+      "passed": true
+    },
+    {
+      "check": "Real mouse New Game enters creature story",
+      "passed": true
+    },
+    {
+      "check": "Identity choice uses Rimefin",
+      "passed": true
+    },
+    {
+      "check": "Identity confirm advances to survivor story",
+      "passed": true
+    },
+    {
+      "check": "Story Back retains identity",
+      "passed": true
+    },
+    {
+      "check": "Companion chosen in story, with truthful Highbank destination",
+      "passed": true
+    },
+    {
+      "check": "Final confirmation reaches Highbank with selected team",
+      "passed": true
+    },
+    {
+      "check": "Claude town track actually plays on Music bus",
+      "passed": true
+    },
+    {
+      "check": "Esc opens town pause with Resume focus",
+      "passed": true
+    },
+    {
+      "check": "Town movement freezes while paused",
+      "passed": true
+    },
+    {
+      "check": "Pause keyboard focus wraps to Quit",
+      "passed": true
+    },
+    {
+      "check": "Pause keyboard focus wraps to Resume",
+      "passed": true
+    },
+    {
+      "check": "Pause Options reads title settings",
+      "passed": true
+    },
+    {
+      "check": "Pause Options persists audio and motion without removing legacy keys",
+      "passed": true
+    },
+    {
+      "check": "Music bus follows pause slider",
+      "passed": true
+    },
+    {
+      "check": "Gameplay music keeps playing while paused",
+      "passed": true
+    },
+    {
+      "check": "Controls page stays inside viewport",
+      "passed": true
+    },
+    {
+      "check": "Return title confirmation defaults to safe cancel",
+      "passed": true
+    },
+    {
+      "check": "Both leave confirmations cancel without losing town",
+      "passed": true
+    },
+    {
+      "check": "Resume releases pause without opening a town service",
+      "passed": true
+    },
+    {
+      "check": "Controller Start opens pause",
+      "passed": true
+    },
+    {
+      "check": "Controller D-pad and A open Options",
+      "passed": true
+    },
+    {
+      "check": "Controller B returns to main pause",
+      "passed": true
+    },
+    {
+      "check": "Controller A resumes without changing town",
+      "passed": true
+    },
+    {
+      "check": "Esc still closes existing town dialogue",
+      "passed": true
+    },
+    {
+      "check": "Visible Menu button opens pause",
+      "passed": true
+    },
+    {
+      "check": "Confirmed return opens title and unpauses tree",
+      "passed": true
+    },
+    {
+      "check": "Returned title loads shared settings and preserves Claude theme",
+      "passed": true
+    },
+    {
+      "check": "Shared gameplay music fades away at title",
+      "passed": true
+    },
+    {
+      "check": "Dungeon pause freezes turns, lantern, monsters and autopilot",
+      "passed": true
+    },
+    {
+      "check": "Music remains available in paused Options",
+      "passed": true
+    },
+    {
+      "check": "Keyboard Resume spends no dungeon turn",
+      "passed": true
+    },
+    {
+      "check": "Existing I opens bag",
+      "passed": true
+    },
+    {
+      "check": "Pausing over bag preserves bag and does not consume its item",
+      "passed": true
+    },
+    {
+      "check": "Esc closes bag without opening pause",
+      "passed": true
+    },
+    {
+      "check": "Existing real-time fight starts",
+      "passed": true
+    },
+    {
+      "check": "Pause freezes the existing real-time fight too",
+      "passed": true
+    },
+    {
+      "check": "Returning from a paused fight restores title",
+      "passed": true
+    }
+  ],
+  "failures": []
+}

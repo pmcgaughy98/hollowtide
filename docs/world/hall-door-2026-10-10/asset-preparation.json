@@ -1,0 +1,26 @@
+{
+  "source_size": [
+    1619,
+    971
+  ],
+  "alpha_bounds": [
+    13,
+    20,
+    1605,
+    928
+  ],
+  "native_size": [
+    240,
+    144
+  ],
+  "method": "whole sprite alpha-padding crop/nearest fit; no inserted/copy-pasted section",
+  "scope_world_rect": [
+    456,
+    24,
+    240,
+    144
+  ],
+  "original_png": "preserved untouched; fallback",
+  "generation_calls": 3,
+  "rejected": "localized insert rejected by Preston; offcentre whole redraw not installed"
+}

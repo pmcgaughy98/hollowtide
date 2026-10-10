@@ -1,0 +1,30 @@
+{
+  "installed_verified": true,
+  "native_assertions": 13,
+  "absent_painter_fallback_exact": true,
+  "live_asset_import": true,
+  "live_map_matches_review_byte_exact": true,
+  "generation_calls": 2,
+  "retro_calls": 0,
+  "existing_asset_files_written": 0,
+  "new_asset": "assets/sprites/world/wayline_hall_2026_10_09/wayline_hall_native.png",
+  "runtime_scope": [
+    "scripts/town/highbank_ground_painter.gd",
+    "scripts/town/wayline_hall_painter.gd"
+  ],
+  "protected_baseline_files": 7187,
+  "concurrent_preserved": {
+    "scripts/dungeon/dungeon.gd": {
+      "baseline": "5955c3d871c2058fa75cc6f7d051bc2ac0308a94909f7812a936464d7d50476f",
+      "current": "5d3ecfced3cf0c6a0165a6b216eab4268b79ee33aca90beb191ae94c1ff3b92d",
+      "already_concurrent_before_install": true
+    }
+  },
+  "changes_since_packaging": {},
+  "installed_hashes": {
+    "docs/AI_COLLABORATION.md": "046ba36b9d0846c557c3652864a4a7140e26927269fea90d2c70df7337aea9ae",
+    "assets/sprites/world/wayline_hall_2026_10_09/wayline_hall_native.png": "744aaf44a785d33eba967681056ddd6de5cd21e1775a870b5190d7edc55525d8",
+    "scripts/town/wayline_hall_painter.gd": "96ba5cb8d8eca08db650903e557722ce2a3d7fe43530a3117b0dcb843aef4a05",
+    "scripts/town/highbank_ground_painter.gd": "5e423419affbd79906b8981a9321e264dcf9a177dba76a3a00a964ca54ee90dc"
+  }
+}

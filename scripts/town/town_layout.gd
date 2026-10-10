@@ -40,7 +40,10 @@ const PATHS := [
 # Buildings: solid footprints; the door is the one walkable tile of the footprint, on its street
 # side. Areas: open walkable spaces with a spot to stand on. Every place has a service the rules use.
 const PLACES := [
-	{"id": "hall", "name": "Wayline Hall", "kind": "building", "rect": Rect2i(19, 1, 10, 6), "door": Vector2i(24, 6),
+	# The hall's door is two tiles wide, to meet its two-tile steps (Preston, 2026-10-10: "the
+	# wayline hall door needs widened to meet the path"). "door" stays the main tile; "door_tiles"
+	# lists every walkable door tile of a place that has more than one.
+	{"id": "hall", "name": "Wayline Hall", "kind": "building", "rect": Rect2i(19, 1, 10, 6), "door": Vector2i(24, 6), "door_tiles": [Vector2i(23, 6), Vector2i(24, 6)],
 		"service": "guild", "what": "The Wayline Compact's hall: jobs, the team roster, reports. The guild of this game."},
 	{"id": "board", "name": "Job Board", "kind": "spot", "rect": Rect2i(26, 7, 2, 1), "door": Vector2i(26, 8),
 		"service": "jobs", "what": "Requests to take into the Hollows. Pick one, then go down to the ferry."},
@@ -90,8 +93,14 @@ static func grid() -> PackedByteArray:
 			for y in range(r.position.y, r.end.y):
 				for x in range(r.position.x, r.end.x):
 					g[y * W + x] = WALL
-		g[p["door"].y * W + p["door"].x] = OPEN
+		for d in door_tiles(p):
+			g[d.y * W + d.x] = OPEN
 	return g
+
+
+## Every walkable door tile of a place: its "door", or all of "door_tiles" when it has them.
+static func door_tiles(p: Dictionary) -> Array:
+	return p.get("door_tiles", [p["door"]])
 
 
 static func band_of(y: int) -> String:
@@ -103,6 +112,6 @@ static func band_of(y: int) -> String:
 
 static func place_at(t: Vector2i) -> Dictionary:
 	for p in PLACES:
-		if p["door"] == t:
+		if t in door_tiles(p):
 			return p
 	return {}

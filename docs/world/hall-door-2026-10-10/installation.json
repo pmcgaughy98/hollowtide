@@ -1,0 +1,30 @@
+{
+  "date": "2026-10-10",
+  "runtime_files_verified": {
+    "project.godot": true,
+    "assets/sprites/world/wayline_hall_2026_10_10/wayline_hall_native.png": true,
+    "scripts/town/highbank_ground_painter.gd": true,
+    "scripts/town/wayline_hall_painter.gd": true,
+    "scripts/ui/game_pause_menu.gd": true,
+    "docs/AI_COLLABORATION.md": true
+  },
+  "unowned_existing_files_byte_exact": 8417,
+  "unexpected_unowned_changes": {},
+  "original_hall_png_unchanged": true,
+  "initial_to_preinstall_concurrent_changes_retained": {},
+  "installed_entrance_checks": {
+    "passed": 14,
+    "failed": 0
+  },
+  "installed_launch_menu_checks": {
+    "passed": 51,
+    "failed": 0
+  },
+  "claude_field_hall_hub_checks": "pass",
+  "native_quit_confirmations": "both close engines",
+  "preferences": "isolated APPDATA",
+  "generation": "three built-in imagegen edits, zero Retro",
+  "production_combat": "turn based, unchanged",
+  "full_natural_dungeon_completion": "not claimed",
+  "git": "no commit/reset/revert/stash"
+}

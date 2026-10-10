@@ -1,5 +1,77 @@
 # Working Together on Hollowtide
 
+## Codex: authored title composition pass (October 10, 2026)
+
+Preston asked for a further visual upgrade so the title looks like an authored game menu. Replaced the large main frame/header/copy card with four serif text choices, stationary pixel pointer, warm focus underline and small control footer. Existing Vollkorn/Silkscreen/regular body fonts establish typography hierarchy. A code-only lower-left forest wash provides contrast over the original village; bitmap and wordmark pixels are untouched. Options/Help have restrained frames, serif headings/actions and lighter text. Kept 16:9 window composition, raised Help to fit the type, footer hidden on subpages. No new generated art or imagegen/Retro calls.
+
+29 actual-input native title checks and 51 full launch/menu checks pass, including wide-window rendered aspect, guide/footer/Back behavior, both New Game routes, selected team arrival and existing preferences/pause flow. Real title Quit closes its engine. Runtime scope: creature_opening.gd and title_legibility.gdshader; original script archived. Claude state/levels/learnsets/combat/audio, field pages, maps/Hall, all creature art/finishes/palettes and previous backups preserved. Isolated test profiles; no save/Continue or natural dungeon-clear claim; no commit. [Native previews, original snapshots, checks and preservation audit](ui/title-composition-2026-10-10/README.md).
+
+Visual direction remains a proposal for Preston's review. Preserve all title routes during further art work. Field pages/Growth Shrine remain later handoff work, rules/state with Claude.
+
+
+## Codex: title-first visual and control refinement (October 10, 2026)
+
+Preston requested main-menu hookup/refinement, clarified "Title screen first" and "visual wise too." Refined creature_opening with forest/gold launch card, framed four-choice menu (New Game, Options, How to play, Quit), selected-action descriptions and keyboard/mouse/controller hints. Added original code-drawn inset joinery, warm Options slider/focus styling, and Journey/Controls guide tabs with real Start New Game/Back actions. Both New Game routes open the existing creature story; identity/companion choices remain there. Quit confirms with Back to title focused; visible/focus order agrees, safe boot skip retained. Village, carved wordmark and removed title actors are preserved; no generated assets.
+
+26 native title checks plus 51 full launch/menu checks pass with actual InputEvents; real title Quit closes its engine. Checked panel bounds, guide topics/focus, story return, Reduce Motion carry and current shared preferences. Runtime scope: creature_opening.gd plus title_panel_trim.gd; parent menu/boot/prologue, Claude's latest rules/learnsets/state/audio, field pages, Hall/layout and all creature art/backups preserved. Isolated test profiles; no disk-save/Continue, natural dungeon-clear claim or commit. [Native previews, original snapshots, checks and installation audit](ui/title-refinement-2026-10-10/README.md).
+
+Title-first preference supersedes the immediate field-page visual order for this slice. Next handoff remains field-page portraits/health/evolve/item presentation, then Growth Shrine using existing rule constants. Read current notes/Claude changes first.
+
+
+## Codex: coherent Hall doorway and launch regression (October 10, 2026)
+
+Preston clarified that the doorway already met the lane; the pasted drawing was the defect. Rejected the localized insert and installed one coherent complete Hall PNG with a centered wide arch/gable and intact side windows. Original October 9 Hall PNG stays untouched as fallback. Both Claude doorway tiles (23,6)/(24,6) and authored two-tile steps remain the contract. Ground painting reads door_tiles; removed the now-obsolete third paving strip. No Layout/controller/service logic changes.
+
+Restored F5 from standalone hollow_floor to creature_opening. Retained Claude's new Team/Bag/Floor/Log pages and default turn-based dungeon; compressed the nine-button pause main page to fit the viewport and corrected Controls copy. No state/combat/levels/evolution/audio/creature edits. 14 native entrance and 51 actual-input launch/menu checks pass; both Quit confirmations close engines. Claude's field-menu, Hall door and hub checks pass. Isolated test profiles preserve user preferences; no natural dungeon-clear or disk-save claim. Three built-in imagegen edits, zero Retro calls, original sources/prompts/rejected proposal archived. All unowned protected files audited; no commit.
+
+[Native previews, original snapshots, provenance, checks and install audit](world/hall-door-2026-10-10/README.md). Next: style Claude's existing field pages, then Growth Shrine using existing rules; retain current handoff ownership.
+
+
+## Codex: title/New Game and in-game menu hookup (October 9, 2026)
+
+Preston clarified “hook the menu up” as both title/New Game and in-game controls. Installed scripts/ui/game_pause_menu.gd with one attach call each in town/dungeon _ready. P/controller Start/clickable Menu pauses town, Hollow exploration and hybrid fights; Esc retains existing bag/dialogue/recruit/teaching handling. Resume, Options, Controls, Return to title and Quit are functional. Leave actions confirm session loss with Keep exploring focused. No disk-save/Continue implementation, state rewrite or combat/turn rule edit.
+
+Title retains village/wordmark, absent actors, Claude title.mp3 and Music bus. New Game fades local audio; returning title fades shared music. Existing awakening/survivor choices deliver the selected team to Highbank; corrected misleading “Enter the Hollow” final prompt to Highbank, narrative remains proposal. Shared existing volume/motion preferences preserve legacy fields. Paused music stays audible and restores processing mode on Resume.
+
+44 native actual-input checks pass, including controller routing, settings persistence, bag/dialogue preservation, no resume turn/item leakage and frozen turns/lantern/monsters/autopilot/forced real-time fight. Both real Quit confirmations close isolated engines. Existing town loop and music route checks pass; forced clear/faint/fight checks do not claim natural dungeon completion. Read two Gemini Drive menu/UI reports as references; superseded human-courier/art/rules proposals not adopted. Live assets, layout, original backups and Claude state/combat/music script preserved, no generated art or commit. [Previews, research ledger, original sources, tests and preservation manifest](design/menu-hookup-2026-10-09/README.md). Next exterior remains Storage.
+
+
+## Codex: title creatures removed, Item Shop exterior, wider Hall approach (October 9, 2026)
+
+Preston requested removal of title creatures and continuation after Home, then flagged Hall/approach alignment. Removed foreground Punchybun/Cinderhide and their shadows from `scripts/creature_opening.gd`; preserved original animation assets/lighting script, village, wordmark and New Game prologue. Installed Item Shop exterior at exact (744,72) 144x120, unchanged door (33,7). One built-in imagegen call, source/prompt archived; zero Retro calls.
+
+Hall paving is now visually three tiles wide, x23..25 y7..8, centred at x588 on door (24,6). The added strip was already open grass. Claude: this is cosmetic paving only; `town_layout.gd`, `PATHS`, collisions and controller are unchanged. Original Hall PNG and painted exterior remain byte-exact. Joined street seam may change within the bounded 72x50 apron/seam rectangle (552,168).
+
+13 Shop plus six Hall native assertions pass; real movement/native E still reach both service descriptions. Title smoke confirms no foreground actors/shadows, ready title and New Game button opening the prologue. Outside Shop and Hall apron/seam every pixel compares exact. Physically absent Shop painter preserves the corrected ground/Home/Hall baseline. No rule/state/dungeon/camera/settings change or full-clear claim, original art/backups preserved, no commit. Shop architecture remains a visual proposal; economy and disk saves are later. Next: Storage, then Scroll Keeper. [Previews, original source/prompt, backups, checks and preservation manifest](world/item-shop-2026-10-09/README.md).
+
+
+## Codex: Highbank Home exterior (October 9, 2026)
+
+Preston's “go” advanced the hub handoff to Home. Installed a cozy moss-roofed root/stone exterior at Claude's exact (72,72) 120x120 footprint, door tile (5,7). One built-in imagegen call, transparent source archived untouched, padding crop/nearest native preparation; zero Retro calls or original asset replacement.
+
+Runtime scope: one new PNG, `scripts/town/home_painter.gd`, and small capture/optional hook in the existing ground painter. 13 native assertions pass including real movement and native E input to Home, opaque/dark door centre, immutable layout and every pixel outside Home byte-exact (Hall included). Physically absent Home painter returns the exact installed ground/Hall picture. Native overview and actual service captures inspected. No controller/camera/state/dungeon/menu/creature/settings edit, full-dungeon-clear claim or commit.
+
+Exterior is implemented as a proposal for visual review. The Home panel remains Claude's description; sleep and disk saves are later work. Next: Item Shop, then Storage and Scroll Keeper. [Native previews, original source/prompt, backups, checks and preservation manifest](world/home-2026-10-09/README.md).
+
+
+## Codex: Wayline Hall exterior (October 9, 2026)
+
+Preston's “go” advanced the hub handoff to its second art slice. Installed one original moss-roofed stone/root Hall exterior at Claude's exact (456,24) 240x144 footprint. Door tile (24,6) is untouched; native walking and E still reach the existing guild service. Two built-in imagegen calls (new exterior, entrance correction), then conservative padding crop/nearest native preparation. No Retro charge or old asset overwrite.
+
+Runtime scope: new `scripts/town/wayline_hall_painter.gd`, one PNG, and a short optional hook/ground capture in the installed ground painter. The actual native ground continues under transparent corners. All pixels outside the Hall's footprint compare byte-exact to the installed ground. 13 native assertions pass; physically absent-painter fallback returns the previous picture exactly. Native source/prepared/map/approach/service/overview reviewed; no final script/resource errors, existing root-certificate diagnostic remains. No dungeon-clear claim, controller/state/rules/menu/settings edit or commit.
+
+Architecture is implemented as a proposal awaiting Preston's visual review. The service panel is still Claude's description; jobs/roster/disk saves remain later. Next: Home at its fixed 120x120 footprint. [Native previews, untouched generated sources, prompts, original painter, checks and preservation manifest](world/wayline-hall-2026-10-09/README.md).
+
+
+## Codex: Highbank ground and Market Street (October 9, 2026)
+
+Preston supplied Claude's hub-layout handoff while the guild slice was being inspected. Adopted the new town contract and existing prologue/town/Hollow/return wiring; no competing hall/session wrapper was built. Installed the first art slice: native moss ground, warm stone paving, clay cliff edges, quiet terraces/river and stair treads on the existing two cliff crossings. Only runtime edit to Claude's controller is paint delegation; original complete blockout stays as fallback. New painter in `scripts/town/highbank_ground_painter.gd`.
+
+13 native ground assertions pass; existing hub check reports all doors/ferry reachable, all 12 services answer, movement/following and Mouth dispatch intact. Existing town-loop check confirms real scene changes and record carry on forced clear/faint; no organically completed dungeon claimed. Physically absent-painter fallback returns exact original pixels. Native previews inspected, no script/resource errors; existing root-certificate diagnostic remains. Exact layout, buildings/spot pixels, menu, creature art, prior backups and Claude's state/dungeon changes preserved. No generation, PNG changes, settings edit or commit.
+
+Initial ground art is implemented and native-reviewed, not visually approved by Preston. Buildings remain blockout; next is Wayline Hall at its fixed 240x144 footprint and door. Services/disk saves stay with Claude. [Previews, original controller, tests and preservation manifest](world/highbank-ground-2026-10-09/README.md).
+
+
 ## Claude: dungeon move effects; teammate IQ and health between floors; the hub town layout for Codex (October 9, 2026, late night)
 - Move effects from the arena's 35 painted sheets (`MOVE_FX`): projectiles, hit and area effects, shake, hit-stop, a super-effective flash, dash afterimages, a wind-up glow. `docs/design/dungeon-vfx-2026-10-09/README.md`.
 - Teammate IQ (six skills on thresholds) and health carried between floors. `docs/design/dungeon-iq-2026-10-09/README.md`.
@@ -51,8 +123,8 @@ The preview exposed varying resource-preload errors from the unused background r
 Village painting, menu controls, creature art, prior wordmark and Claude/Grok gameplay changes are preserved. No gameplay/data edits or commit. [Native previews, originals, diagnostics and installation](design/village-wordmark-2026-10-09/README.md).
 
 
-Grok, 2026-10-10: jobs 1 to 6 are done. Evolution numbers, the boss, the Monster House and the warp cap are kept. Result: `docs/team/GROK_BUILD_RESULT_2026-10-10.md`. No commit.
-Teammate IQ is still a proposal. The boss check: 1 clear, 1 faint at the fight, 1 run never arrived. `BOSS_HP` stays 3.0.
+Grok, 2026-10-10: jobs 1 to 6 are done. Evolution, the boss, the Monster House, the warp cap, and the IQ gains and thresholds are kept. Result: `docs/team/GROK_BUILD_RESULT_2026-10-10.md`. No commit.
+Teammate IQ thresholds stay 3, 6, 10, 15, 20, 25. Gains stay 1. The IQ check switched each skill on at its number. Health carry was not retuned.
 
 ## Codex: creature-village title menu (October 9, 2026)
 
@@ -1957,3 +2029,9 @@ Pixel preparation and static visual inspection only; no new image generation or 
 - **Claude, 2026-10-01: stages grounded** (Preston: creatures were not standing on the ground). New `MoveData.signature_stage_floor_y` = the painting row (stage pixels) where the far creature stands; the painting shifts so that row meets `FOE_FOOT_Y`. Set by eye on each stage at the far spot's column (stage x about 305): Molten Glass 172, Furnace Roar 187, Kingstone Rail 187. Each creature on a stage also stands on a Pokemon-style platform: a pixel oval drawn at 3x in the stage's sampled floor colour, darkened, with a rim and outline (`_platform_texture`). Any new stage needs its floor row set.
 - **Claude, 2026-10-01:** Preostmar and Oathfen redone with RD to read as Oxbowarchon's earlier stages: `docs/creatures/stone-line-rd-2026-10-01/`. Candidates only; no creature data exists for them yet.
 - **Claude, 2026-10-01: VFX lead now (Preston).** New `scripts/effects/vfx_sprite.gd` (`VfxSprite`) plays any RD VFX sheet (rd_animation__vfx, 96px, 16 frames as 4x4, $0.07) looping or once; `_stop_emitter` now lets a VFX play out its last frames. Molten Glass: the old crater burst (GlassPour particles + crown sprite) is replaced by `scenes/effects/vitrecrag_eruption_vfx.tscn`, a volcano eruption plume at the crater (offset 0,-50, 2x on top of the creature's zoom); the meltdown's static explosion and drawn crown are replaced by an animated molten-glass explosion (`GlassMeltdown.impact_vfx`). Rock bases the VFX model drew were stripped (grey pixels; dark plate under the impact). Sheets in `assets/sprites/effects/vfx_rd_2026_10_01/`, raw outputs and prompts in `docs/battle/vfx-2026-10-01/`. Furnace Roar and Kingstone Rail not done yet.
+
+Claude, 2026-10-10. Preston: "use the synthesis to upgrade and refine Codex's work on the menu, then make the grok draft." **Codex:** `scripts/ui/game_pause_menu.gd` gained field pages, structured on Explorers of Sky's dungeon menu and pokered's start menu (nothing copied): TEAM (level, IQ, health, moves, what is left to evolve), BAG (in the Hollow, choosing an item closes the menu and uses it as a normal turn through `act_use_item`), FLOOR (floor, turn, lantern, underfoot, the partners' order, boss and Monster House) and MESSAGE LOG; town shows TEAM and BAG from the carried record. Your pages, button names, focus wrap, prefs and leave flow are unchanged; the new buttons sit between Resume and Options. Your original is in `docs/ui/field-menu-2026-10-10/originals/`. Check `tools/debug/field_menu_check.gd` passes. Also built yesterday: levels (EXP, `EVO_LEVEL` gate, `levels` in `team_state.gd`) and 18 more ElevenLabs sounds. **Grok:** the learnset draft is `docs/creatures/learnset-draft-2026-10-10.md` (one list per form, a move on evolving, open questions); levels and EXP numbers in `dungeon.gd` are drafts for you. **Everyone:** `project.godot` currently has `run/main_scene` set to `scenes/hollow_floor.tscn` (uncommitted, not Claude's); the last commit had `scenes/creature_opening.tscn`. Whoever changed it, please say whether F5 should go back to the opening.
+
+Claude, 2026-10-10 (later). **Grok:** your learnset decisions are wired exactly (`LEARN`, `WAITING` copied into `dungeon.gd`; starters now begin Lv 1 with two moves; level moves and evolve moves go through the scroll panel with a DON'T LEARN row; evolved bodies keep what `can_learn` allows; wild creatures and recruits by floor). `tools/debug/dungeon_learn_check.gd` passes and the move-table, evolve, effects, IQ, tactics, boss and town checks still pass; the move-table check now starts Kithflare at Lv 3 so two scrolls fill it. **New line, Preston's pick: Springvault the healer** (line 12, Stone/Tide): fronts, rotations and walks in `docs/creatures/arena-starters-2026-10-07/forms/` and `walk/`, write-up `docs/creatures/arena-springvault-2026-10-10/README.md`. Preston chose take A. The root braces are proposed to lift while walking and plant to heal (a rooted healer); Grok, that rule and every number are yours. **Codex:** palette lock for Troughspine, Archroot and Springvault when you reach it.
+
+Claude, 2026-10-10 (the healer in the game). Line 10, Troughspine / Archroot / Springvault, is in `Arena.LINES`, the dungeon and its wild B2F table; Troughspine has attack, hurt and sleep. New dungeon system: **Seep**, a rooted heal (`_seep`, `_springs`, `_heal_plan` in `dungeon.gd`); a heal move is any `Arena.MOVES` entry with `heal`. **Grok:** drafts for you are listed in `docs/creatures/arena-springvault-2026-10-10/README.md` (Spring Spit, Seep, `EVO[10]` with the new way "healed", its learnset rows, the B2F spawn, body parts). **Codex:** palette lock for the three; the pause menu's TEAM page names the new way. Check `tools/debug/springvault_check.gd`.

@@ -1,0 +1,292 @@
+{
+  "installed_verified": true,
+  "runtime_files_written": [
+    "scripts/town/hub_town.gd",
+    "scripts/town/highbank_ground_painter.gd"
+  ],
+  "note_written": "docs/AI_COLLABORATION.md",
+  "ground_assertions": 13,
+  "fallback_exact": true,
+  "existing_hub_check": "all 13 places reachable, 12/12 services, Mouth dispatch",
+  "existing_loop_check": "real scene changes, forced clear/faint record transfer; no organic full clear claimed",
+  "generation_calls": 0,
+  "asset_files_written": 0,
+  "protected_baseline_files": 7186,
+  "concurrent_preserved": {
+    "assets/sprites/arena/sparkwick/n.png": {
+      "original": "73705951dd6aef7874f86d2427b29abff337ce6d1d80781d05b4c3afafb1cf36",
+      "current": "874c6f1dab2d6cb3a6bbbe1c3ddf125a1b59df1d5088e5f1b8d731bd20438214",
+      "already_concurrent_before_install": true
+    },
+    "assets/sprites/arena/sparkwick/nw.png": {
+      "original": "8f1c6cf5fe58e773d246b8f17ad3788ca135680660d97fc0b3750ac11c04684a",
+      "current": "439deab51629e72f8aeb18614146eb8c95f0b6d9b0c0e3698c7fbe62dcd20d7b",
+      "already_concurrent_before_install": true
+    },
+    "assets/sprites/arena/sparkwick/dungeon/n.png": {
+      "original": "ca9bc1099b7d6a0f0c5b555d34e4d35608fc2a469b660d39fed2fb6b4a922b3c",
+      "current": "6f2f45df16cba53e605373010475eb777572ca6b7a6369384d34d18d93357fdb",
+      "already_concurrent_before_install": true
+    },
+    "assets/sprites/arena/sparkwick/dungeon/nw.png": {
+      "original": "dc2df7ab36d921088ccfd2345fd9a0c3a038c0485dc55b086d9f5f561079e2f8",
+      "current": "9191ecc051e26cbb040b3904d75c94ec3cf05eb68d5ccb8e31a11970c1e26db9",
+      "already_concurrent_before_install": true
+    },
+    "assets/sprites/arena/sparkwick/dungeon/walk_ne_f0.png": {
+      "original": "d984da0e248857c044063ff01a2a0b4507ef17298d1afe154ec74031b62b6da2",
+      "current": "5ce8b383b8537df1833c9cc7a3ce4039d6fdfeb832bc11f4e951aaebe6dbe683",
+      "already_concurrent_before_install": true
+    },
+    "assets/sprites/arena/sparkwick/dungeon/walk_ne_f1.png": {
+      "original": "e98008719c26cd97865258f926f45a0b5ce280340e1ae2e4f0e07c8839738278",
+      "current": "27940d81408da5c3c1a8df0248d2795c4d7f541aa1b4e3a19429733be9012c66",
+      "already_concurrent_before_install": true
+    },
+    "assets/sprites/arena/sparkwick/dungeon/walk_ne_f2.png": {
+      "original": "4e0900ee3a8b3020f117c5f02ec7cef9dff9ca1c8d15c21b21aa7b9b318b5254",
+      "current": "86d09dcd3721e62f171dca66b4cde3dbc609f58bcaa7d29a24b938f8eff2cea3",
+      "already_concurrent_before_install": true
+    },
+    "assets/sprites/arena/sparkwick/dungeon/walk_ne_f3.png": {
+      "original": "c320bfa49429e9cb82a093e1baab120197471ae98e1fb7187c7b0e744bacc772",
+      "current": "e8f697da189dafe01e92ef60e616a2893a9c003736bb3efddbc68c953cf4bd93",
+      "already_concurrent_before_install": true
+    },
+    "assets/sprites/arena/sparkwick/dungeon/walk_ne_f4.png": {
+      "original": "20e088786a24e31009367f1bf0c0fd59b012463b5ce127ada23f70712c76166d",
+      "current": "4265b43561152a33b0b7dccfbc6ab5b1feb30c6660700936d0b52fd08d9df143",
+      "already_concurrent_before_install": true
+    },
+    "assets/sprites/arena/sparkwick/dungeon/walk_ne_f5.png": {
+      "original": "7e124503fb0f8d283d8f4ca441b90cf896187151d6ba39da0111e8939dc0578d",
+      "current": "41f36e8ccdc2389b584c6b0b9fe9f92993e38f2377f37e531876e2e441ded375",
+      "already_concurrent_before_install": true
+    },
+    "assets/sprites/arena/sparkwick/dungeon/walk_ne_f6.png": {
+      "original": "c258d67a2315562161e98664702c9eb1b0c54153520263e1ecf1e9ac27403895",
+      "current": "3ffb7c215e77cda54c51fdaf26d700a3151faaf6448b64c962b5c261b205ed5e",
+      "already_concurrent_before_install": true
+    },
+    "assets/sprites/arena/sparkwick/dungeon/walk_ne_f7.png": {
+      "original": "d5083df67a370cbee9c5caed1483044c82a18072628f59d09e39dbcadb0f636b",
+      "current": "fe66b044ab39758f1b8ecd068e1710f74aa4afe9453ab9f0981cb17afd282fed",
+      "already_concurrent_before_install": true
+    },
+    "assets/sprites/arena/sparkwick/dungeon/walk_nw_f0.png": {
+      "original": "ed634dc1b0c4b9fe0748bab6f49475c9337007ef8dba98f901e526f292663460",
+      "current": "194641edddf41c843ba9600b98405ed56ba0d1b711a180e03a246968158ba658",
+      "already_concurrent_before_install": true
+    },
+    "assets/sprites/arena/sparkwick/dungeon/walk_nw_f1.png": {
+      "original": "c2c4ae2e1bcec5325eede63c6ea7be13a7d83649ee747ec28304112651641902",
+      "current": "aadcd666166fa7226207437df1e4000b636ddb307eb4578dda14973d8e4da40e",
+      "already_concurrent_before_install": true
+    },
+    "assets/sprites/arena/sparkwick/dungeon/walk_nw_f2.png": {
+      "original": "9515be44c275c1d2eba4e9fd9200ca23483340999cdcf9779f967b804ce326d3",
+      "current": "36da3898110306c4e3c5ad84fd80a9d88079d481e5e07347ecf73df0984e7c38",
+      "already_concurrent_before_install": true
+    },
+    "assets/sprites/arena/sparkwick/dungeon/walk_nw_f3.png": {
+      "original": "4af808cbc76ed69eecf130e61ab2f6e61e1f2f35b61735da3e73687a8dfd8e29",
+      "current": "17091cec7e5b48a67dbc21ee44793215923573fe17c9219e338b9832d662dfd1",
+      "already_concurrent_before_install": true
+    },
+    "assets/sprites/arena/sparkwick/dungeon/walk_nw_f4.png": {
+      "original": "6df76f58475ce11f05a40b5f8e644f1d87e807410bb8b8257dd83b7afe0c1664",
+      "current": "d615f70af0d9c0556487702379482d2cbee60d015c6173e09920989b3b09c150",
+      "already_concurrent_before_install": true
+    },
+    "assets/sprites/arena/sparkwick/dungeon/walk_nw_f5.png": {
+      "original": "f2d1edbe633ff46edbad25d52bb901b054c1ffe94e302c2aee5786c05aea2d6e",
+      "current": "57daf1aa12657a37734382bc5111bacbdd61c142c030b99f17ec934fe6e4ba51",
+      "already_concurrent_before_install": true
+    },
+    "assets/sprites/arena/sparkwick/dungeon/walk_nw_f6.png": {
+      "original": "27262a9a106459002e0d03c094442ae51026e3969737403216dbda525432770c",
+      "current": "9afad44a766c4ab9c109e54befaac6b12b03e49837447bdd9c01d60aca32f267",
+      "already_concurrent_before_install": true
+    },
+    "assets/sprites/arena/sparkwick/dungeon/walk_nw_f7.png": {
+      "original": "99f13781ec5f3179504c8f44ed5d6f6d4bacd7e76b5a46303802ed1d1ac3cbef",
+      "current": "b5563bb291d1a5ae51984024a984ab459e393311c784283b1f96097af6ac8386",
+      "already_concurrent_before_install": true
+    },
+    "assets/sprites/arena/sparkwick/dungeon/walk_n_f0.png": {
+      "original": "5c2bf2f9b9e4645efee19ed53bdfe116ef6b176c821b5dfa3d8623cc314e199c",
+      "current": "86ca8ddb18ba41b169d7979a46f66b7fc8e9cb1b875f76ee8bcc365e37a48275",
+      "already_concurrent_before_install": true
+    },
+    "assets/sprites/arena/sparkwick/dungeon/walk_n_f1.png": {
+      "original": "c703a1175136a90b98fe69b1e61b7c169246352470c8ef37d0e9bd3bd20f79b5",
+      "current": "4892b688bec10be625ff8d6c1eff70a2187e1084f2075e2712eb7ec616d7332e",
+      "already_concurrent_before_install": true
+    },
+    "assets/sprites/arena/sparkwick/dungeon/walk_n_f2.png": {
+      "original": "dbea413955a2d09dd5cc583e92b787e122692c0e75202ac753080124b0eaaba4",
+      "current": "88912cdfce2dbadc4655ee32a4a58eff7360a0008c7c2e6652ad7554810ccafc",
+      "already_concurrent_before_install": true
+    },
+    "assets/sprites/arena/sparkwick/dungeon/walk_n_f3.png": {
+      "original": "3f6dc1dd15ca18158cc685c4255d24773137f026ef97165c44e658fbbc3c785d",
+      "current": "03346a1302ccc4645dac17c6d1ce16d1497a11203621396a133b1c067ab585a1",
+      "already_concurrent_before_install": true
+    },
+    "assets/sprites/arena/sparkwick/dungeon/walk_n_f4.png": {
+      "original": "520ecea457755fc80cc8545a9a19237a231628008f9aa4c6696177fb1833b185",
+      "current": "f79754e86139c1ed822a3c2843a61016ba740c756e034897fcefef080c3a4b94",
+      "already_concurrent_before_install": true
+    },
+    "assets/sprites/arena/sparkwick/dungeon/walk_n_f5.png": {
+      "original": "4cf6ba7beda7a9602b349c7c9b2e56b136c32b4b108423ba37916c4f129d7431",
+      "current": "08d37be52bf0b3fe8a28ccb270faefce2c905f11c5f7059cc8a345ccf8f1f926",
+      "already_concurrent_before_install": true
+    },
+    "assets/sprites/arena/sparkwick/dungeon/walk_n_f6.png": {
+      "original": "9fb1b95c09f317bdc78bb05e1d614ba032a2ea4629279f3e0552b85701d1c2a6",
+      "current": "4f7fc65d3b99842a505a605f195cf1d563bbf2f39a41181ecb2293d0ec13b25e",
+      "already_concurrent_before_install": true
+    },
+    "assets/sprites/arena/sparkwick/dungeon/walk_n_f7.png": {
+      "original": "5aa56fc93fdd4f70c532b998a167aa9aef0048734efc836191f83f7b55939f71",
+      "current": "602db05cff975347f1f568afd15cc173fff6642df17bbdc0884dee03ffb94181",
+      "already_concurrent_before_install": true
+    },
+    "assets/sprites/arena/sparkwick/small/n.png": {
+      "original": "5b83fdd984e0b08a3b353eb2ec1407b9b2b83197b239bf6dda60aa067a06cdd2",
+      "current": "dd1601fe3653fcb1ca7b335c1833a5a1f82f6a1327092c1a9503441cd827f348",
+      "already_concurrent_before_install": true
+    },
+    "assets/sprites/arena/sparkwick/small/nw.png": {
+      "original": "8fda673d3dd9e486bf0303b6bca94fc71073f7ffd3d947bb12972c4445149e41",
+      "current": "27de5c0f81e142a342d46a5374e8191c0987ca5fb6d8fb7342f9e223967bbeeb",
+      "already_concurrent_before_install": true
+    },
+    "assets/sprites/arena/sparkwick/small/walk_ne_f0.png": {
+      "original": "50a0b75190cada1b96dcfb5c46df8935e6f83aedb296ea3a6c9c3f4d69da8f81",
+      "current": "f31d523b034991e4d905ea70534d688401ead92a5913360d49379a4301b9381c",
+      "already_concurrent_before_install": true
+    },
+    "assets/sprites/arena/sparkwick/small/walk_ne_f1.png": {
+      "original": "8d12a7b06b3fd30df9688ad1f95b3532b4d3d6401df8ce35e40e717b2ae364a8",
+      "current": "4944f4e0ada9ddd08cdba6b19f6cbd273873459a318afe96223dceebea0f3567",
+      "already_concurrent_before_install": true
+    },
+    "assets/sprites/arena/sparkwick/small/walk_ne_f2.png": {
+      "original": "ad4e4c0fc3e4c4dc35ae7e5c52f27883096c0740c94770f019ac281246213de7",
+      "current": "4ed199456d4b4decb07d1a37cc039a33fa5fcce71fb1d7d20d81102df94cebbe",
+      "already_concurrent_before_install": true
+    },
+    "assets/sprites/arena/sparkwick/small/walk_ne_f3.png": {
+      "original": "38d632cf60a512d07e6f0ac9948e883c4dcd7e94f01f7bf8b83d3b6d36053e25",
+      "current": "9719e139cc59d84d9ea9b14f1bab9ef82ab90341ff4ac7cd21be8e80562feeba",
+      "already_concurrent_before_install": true
+    },
+    "assets/sprites/arena/sparkwick/small/walk_ne_f4.png": {
+      "original": "2aa7f28f650e568f4652a37f1b0cdb95f7f0c93c20ce96e9feb15d4dd7872f07",
+      "current": "1bb10eed31c6ce4e12835663d793b35bfc64539d1e99a65e54ef8f9464f476b9",
+      "already_concurrent_before_install": true
+    },
+    "assets/sprites/arena/sparkwick/small/walk_ne_f5.png": {
+      "original": "23cff43a8c9df23501600926ec2cb9d80b36322b0851f768042c51f896c6fec3",
+      "current": "6cb847371f5898028ac217ba039d76f21f10ddb0b674c82f47b6229d9f81cda4",
+      "already_concurrent_before_install": true
+    },
+    "assets/sprites/arena/sparkwick/small/walk_ne_f6.png": {
+      "original": "357be46981419c8d0cce2a12b49f56b51825dbef3aeccce2c83d8c442ae87411",
+      "current": "0df15aa2b4617751e79cdbd38d3dc6d4c6cfe3eaccc5acc81d450756c64c91e0",
+      "already_concurrent_before_install": true
+    },
+    "assets/sprites/arena/sparkwick/small/walk_ne_f7.png": {
+      "original": "9bf34ca669e581e999c93ba8cc6fc9692873a4211ec2722ed62ea2bdbda2e5d7",
+      "current": "5e648d12400deb89150af3d4e847d53a27aea7dc6a9f57ee860c2228584991b6",
+      "already_concurrent_before_install": true
+    },
+    "assets/sprites/arena/sparkwick/small/walk_nw_f0.png": {
+      "original": "0e36dfd0de0b45f02ab5535efa0859597a4ae5c48b50d3e514509b40744af098",
+      "current": "8eab1faa672d604a79755846117b10fe298308bb11d4ee8444ceaee029a6f4c3",
+      "already_concurrent_before_install": true
+    },
+    "assets/sprites/arena/sparkwick/small/walk_nw_f1.png": {
+      "original": "fcbd4302dc0e20b5c2bb35ea9478593416a42eb4751229faeb934df07dc28cd0",
+      "current": "212640dda4ec9b7c9c1effc472e1f76e4b7d182579c7e0d1a93faef5dcfcab55",
+      "already_concurrent_before_install": true
+    },
+    "assets/sprites/arena/sparkwick/small/walk_nw_f2.png": {
+      "original": "7e8e37451bc9fa823a70267f59ea79c2b4da138e72c671b07ce7f252f251fd86",
+      "current": "0bc7d93ed6e836ede3a84a945e0e8e8866e44dab3ee28a579e39892d8030044f",
+      "already_concurrent_before_install": true
+    },
+    "assets/sprites/arena/sparkwick/small/walk_nw_f3.png": {
+      "original": "0a32b0ea1f32c32eac39d526393291f898b9075809bd592887ade31961d4e370",
+      "current": "0bb0a1862b8077ed7f4a14b2c3b709cc81ba32c8b9478eabac31b573aac42b44",
+      "already_concurrent_before_install": true
+    },
+    "assets/sprites/arena/sparkwick/small/walk_nw_f4.png": {
+      "original": "a65196b74f2185d400193c030055b4172b89fdaf17ad15bd85c2d37274396f75",
+      "current": "d9ddcb2afddf1fd3f3544c46173e5d3d95d68eafb4b08596369a6e153ad0e022",
+      "already_concurrent_before_install": true
+    },
+    "assets/sprites/arena/sparkwick/small/walk_nw_f5.png": {
+      "original": "9e31b40fdb4da09778b6fa2699a09368b5dfbf1796f073f6b2ee57d2334ba85a",
+      "current": "000fe38c742634d5ad06fe2384574e1779443f92962bfed67a1a12d3c0045301",
+      "already_concurrent_before_install": true
+    },
+    "assets/sprites/arena/sparkwick/small/walk_nw_f6.png": {
+      "original": "db70db82887437584edb0d50e59173adab6fe6e5e8385c6ef91628a41fef583e",
+      "current": "8d38ea4de278dffce592e953f707d7ef2ef5677a1dccd7621c25aa957dbdf589",
+      "already_concurrent_before_install": true
+    },
+    "assets/sprites/arena/sparkwick/small/walk_nw_f7.png": {
+      "original": "0508deb65c8a90773ecfeb45af5b6e2ae01acb0adbc4af00bb5fb55eac07ee31",
+      "current": "c925f4248d74985f3b0ccbdcffee8d1af0a6583857e436eb41363d317806a6a8",
+      "already_concurrent_before_install": true
+    },
+    "assets/sprites/arena/sparkwick/small/walk_n_f0.png": {
+      "original": "7587096b470ca000751a5c87be5330967622aab61694b529b2dc1f467a0b060e",
+      "current": "3c52cae6e93556eeb7abb1729fa904ffae089cfffa2e27aba3fba4c546719b96",
+      "already_concurrent_before_install": true
+    },
+    "assets/sprites/arena/sparkwick/small/walk_n_f1.png": {
+      "original": "d04081e8eb6669fddc5a75ba6dc75de576a222e2cee59661a0c3d48b4a5cb982",
+      "current": "e1d8aa4cf20b132e7da10788412bdf9ce63621a986e1c115eaa67e0699e6f98d",
+      "already_concurrent_before_install": true
+    },
+    "assets/sprites/arena/sparkwick/small/walk_n_f2.png": {
+      "original": "ce2393f4deb75f6c3c5b80e93e725ba481c27f25efb7aaf4eb3e785e3d3fb57c",
+      "current": "b7005ebff6743f3474c88974df835f423b5f20a7bfdcc930299216f29fc95e43",
+      "already_concurrent_before_install": true
+    },
+    "assets/sprites/arena/sparkwick/small/walk_n_f3.png": {
+      "original": "f625b953a1f1bbfd267cb2c8a53b63f0376e27e22d80bac59fa1b9d66ac96958",
+      "current": "40debf3e681224bd40c61776ff28bc68c01ac63191fa8fadcf9feb438f0e5622",
+      "already_concurrent_before_install": true
+    },
+    "assets/sprites/arena/sparkwick/small/walk_n_f4.png": {
+      "original": "37e0183dd710a1da7db1140ac225851d2c583eb024a0963b5e276d0636cd2fb6",
+      "current": "603de51c961c0b41e938c60761b83c926775c992361a362bf02c44b7ce90e003",
+      "already_concurrent_before_install": true
+    },
+    "assets/sprites/arena/sparkwick/small/walk_n_f5.png": {
+      "original": "3eb5ec43f98dc07cef7be85dd762305946c14db9db34c30ec6061efe662de68f",
+      "current": "aa14d1b3f7217cc62d142e0c8f761ed8a7d03f7ae9e3bfc5a7866c7ddad2151e",
+      "already_concurrent_before_install": true
+    },
+    "assets/sprites/arena/sparkwick/small/walk_n_f6.png": {
+      "original": "33088f66ae793b0ab2d2df18b04f4b00f0738be820a013e08af1e7cd3268460b",
+      "current": "fc317dafa18f235e3a83efd563ad67c943417d2bf6c275896ca2f15ec918b8d5",
+      "already_concurrent_before_install": true
+    },
+    "assets/sprites/arena/sparkwick/small/walk_n_f7.png": {
+      "original": "a95d918f71b1ad67c4c45776646dd83f405698894a7bd5308d93e97341012b9d",
+      "current": "87c86feda96a13f372ce1148e68df48808ccaf8da04ac66e77fd9f0ce7d40505",
+      "already_concurrent_before_install": true
+    }
+  },
+  "installed_hashes": {
+    "docs/AI_COLLABORATION.md": "bfa735a730117bd4d9a17b642c0152fdb6e782527cc0291d7d5fef9379b5da75",
+    "scripts/town/hub_town.gd": "55645c8040485484da292d8aa5b6be8373cec0c1d8835604ed3705ae5ab603bc",
+    "scripts/town/highbank_ground_painter.gd": "be7817369c97d5c941fb18b252685963e4db5885a02b9356905bee198e14992f"
+  }
+}

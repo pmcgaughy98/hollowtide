@@ -1,0 +1,25 @@
+{
+  "source": "C:\\Users\\pmcga\\.codex\\generated_images\\01a11b73-6d5a-78a3-819c-fd3b9ced7188\\exec-25157e1c-a0ca-48d7-9fa3-7d088194a0f9.png",
+  "original_size": [
+    1374,
+    1145
+  ],
+  "padding_bounds_alpha_gt_1": [
+    17,
+    64,
+    1357,
+    1075
+  ],
+  "native_size": [
+    144,
+    120
+  ],
+  "resize": "nearest",
+  "alpha_inside_crop": "preserved",
+  "door_center": [
+    28,
+    18,
+    18,
+    253
+  ]
+}

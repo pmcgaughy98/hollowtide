@@ -1,6 +1,6 @@
 # Grok Build result, 2026-10-10
 
-Jobs 1 to 6 are done. The move-table check still reports 0 kit failures, down from 5. No commit. Job 4 is a proposal. Job 5 sets the three floor spawn tables. Job 6 tunes the arena. The 24-6 target is not met. The evolution drafts in `EVO` are kept. The trigger is conditions, not a win. The boss, Monster House and warp drafts are kept.
+Jobs 1 to 6 are done. The move-table check still reports 0 kit failures, down from 5. No commit. Job 4 is a proposal. Job 5 sets the three floor spawn tables. Job 6 tunes the arena. The 24-6 target is not met. The evolution drafts in `EVO` are kept. The trigger is conditions, not a win. The boss, Monster House and warp drafts are kept. The IQ gains and thresholds are kept.
 
 The check script still writes the sentence "nothing was changed" above an empty failure table. That sentence is the generator's old line. The kits below did change.
 
@@ -723,4 +723,46 @@ The room is 8 by 6, 48 tiles. `48 / 12` is 4, which is the minimum drop, and 4 d
 Of the three autopilot runs, one cleared, one fainted after 12 s of the fight, and one never reached the boss in the 600 s cap and did not faint. The miss is the autopilot wandering, not the boss's health. The clear had a recruited Rimefin. The faint was the stage-1 pair. That matches the bite math: the pair is on the edge, and a third body gets the boss down in the same 12 s. `BOSS_HP` stays 3.0. `BOSS_DMG` stays 0.9. The two Rimefin stay.
 
 `TRAP_WARP_MAX` stays 1. This check does not count warps. The earlier trap pass already kept them to one a floor, in rooms only. The rest floor was only forced on for the check. The first dungeon still has `rest_floor` 0. No commit.
+
+## Teammate IQ thresholds
+
+Claude built six skills on one IQ score. The earlier list in this file was a different shape, one skill per growth counter, and it was not what got built. This pass rules on the built numbers. Gains stay `IQ_PER_FLOOR` 1 and `IQ_PER_KO` 1. Thresholds stay 3, 6, 10, 15, 20, 25. No skill was added to `IQ_SKILLS`.
+
+The check (`tools/debug/dungeon_iq_check.gd`, exit 0, no `(WRONG)`, no `SCRIPT ERROR`):
+
+`IQ: 3; Step Aside before false, after true; the log says 'Tallowroot learned an IQ skill: Step Aside (steps out of a tile a wind-up has marked).'`
+
+`Step Aside: without attack; with a move onto a tile that is not marked`
+
+`Finisher: without it goes for the one 1 away (30 HP); with it, the one with 4 HP`
+
+`Quiet Steps: the sleeper woke without it true, with it false`
+
+`Ambusher: target without -1, with the sleeper; plan attack`
+
+`Berry Sense: plan without attack, with eat; the rest turn healed it 8 -> 23, berries left 0`
+
+`Fall Back (no berry): plan without attack, with a step back toward the leader`
+
+`Down the stairs: leader 10/36 (was 10), partner IQ kept 26`
+
+The 26 is the check's last set value, 25, plus the stair. `IQ_PER_FLOOR` is 1, and 25 + 1 = 26. The leader's 10 carried. That carry was not retuned here.
+
+Why these numbers stay. A partner gains 1 for each stair it walks down while standing, and 1 for each foe it downs. The leader's knockouts do not count. The first dungeon has three stairs before the boss floor, so a partner with no knockouts arrives there at IQ 3. Step Aside is 3, so the wind-up step is on for that fight anyway.
+
+The floor holds 3 wild, and three floors hold 9, plus the boss and two Rimefin is 12 bodies. That 12 is a ceiling. The partner only gets the ones it lands.
+
+Finisher at 6 is those 3 stairs plus 3 partner knockouts. Three is one floor's wild count if the partner takes all of them. It stays the second skill.
+
+Quiet Steps at 10 is 3 stairs plus 7 partner knockouts. Seven is most of the 9 wild before the boss, so it can arrive late in the first dungeon. Earlier than that would turn off the wake puzzle before the player has used it.
+
+Ambusher at 15 is 3 stairs plus 12 knockouts. Twelve is every body in the dungeon, and the leader takes some, so this waits for a second trip. The ambush bonus stays the player's tool on the first trip.
+
+Berry Sense at 20 and Fall Back at 25 sit past one clear. The bag starts with one Reedberry. The check took the partner from 8 to 23, which is the flat 15 heal: 20% of Tallowroot's 40 is 8, and 8 + 15 = 23. That 15 is also 15 of the leader's 36. The leader already drinks the berry under 40% health. An earlier Berry Sense would spend the only berry on the partner during the first dungeon. Both stay late for that reason.
+
+Fall Back is the number to move if a later health pass shows the stage-1 pair fainting before IQ 25. It was not moved. The behaviors, the names, and the health-carry code were left alone.
+
+Two skills that fit the same shape, not built. Seen Trap at 4: if the step it wants lands on a trap it has seen, it takes another open step. Hidden traps stay hidden. Stone Line at 12: if none of its moves reach and a foe is on a straight line, it throws a River Stone, and the damage stays 8. Neither was added to the list.
+
+Not run: `dungeon_check.gd`, `dungeon_run_check.gd`, `dungeon_boss_check.gd`, and `town_loop_check.gd`. The first three are the health-carry remeasure, which is the next job and was not started. No commit.
 

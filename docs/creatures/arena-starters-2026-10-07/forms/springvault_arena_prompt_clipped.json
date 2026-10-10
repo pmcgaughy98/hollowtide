@@ -1,0 +1,12 @@
+{
+ "prompt": "Top-down action game sprite of the final stage of the spring salamander in the reference images, bigger and far more powerful than the middle stage: a massive heavy salamander body with the front raised high on thick pillar-like forelegs in a proud guarding stance, head lifted with a broad pale stone muzzle, and over its back four huge stone rib arches standing taller than its body, a high row of open vaults with clear open space through the middle of each, pale mineral streaks running down every arch, thick root braces anchoring each arch to the ground, the gill frills grown into wide fan flanges framing the head like a mane, calm watchful eyes, a heavy tail. Wet slate-grey skin, pale limestone arches and muzzle, mineral green gill flanges, root brown braces, yellow-green lichen. A towering spring guardian. Seen from above at a three-quarter overhead angle like a sprite in a top-down arena battle game, facing down and to the right toward the camera. A readable game sprite: chunky clear shapes, a crisp dark outline. Not a turtle, no shell, no bridge, no church or building, no tree, no water effects. Whole creature centred with empty space on every side, nothing touching the edges. On a plain white background.",
+ "prompt_style": "rd_pro__default",
+ "width": 160,
+ "height": 160,
+ "num_images": 1,
+ "remove_bg": true,
+ "reference_images": [
+  "docs/creatures/arena-starters-2026-10-07/forms/troughspine_arena_front_take1.png",
+  "docs/creatures/arena-starters-2026-10-07/forms/archroot_arena_front_take1.png"
+ ]
+}

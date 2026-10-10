@@ -1,0 +1,15 @@
+from pathlib import Path
+W=Path(__file__).parent;old=Path('D:/dev/hollowtide-wayline-hall-20261009')
+s=(old/'hall_check.gd').read_text().replace('hollowtide-wayline-hall-20261009','hollowtide-home-20261009').replace('hall_ground_before','home_ground_before').replace('wayline_hall_2026_10_09/wayline_hall_native','home_2026_10_09/home_native')
+s=s.replace('hall','home').replace('HALL','HOME').replace('guild service','home service')
+s=s.replace('Rect2i(456,24,240,144)','Rect2i(72,72,120,120)').replace('240x144','120x120')
+s=s.replace('Rect2i(0,0,1152,24),Rect2i(0,168,1152,600),Rect2i(0,24,456,144),Rect2i(696,24,456,144)','Rect2i(0,0,1152,72),Rect2i(0,192,1152,576),Rect2i(0,72,72,120),Rect2i(192,72,960,120)')
+s=s.replace('get_pixel(132,126)','get_pixel(60,108)').replace('Rect2i(384,0,384,216)','Rect2i(0,24,384,216)')
+s=s.replace('Vector2i(24,8)','Vector2i(5,9)').replace('Vector2i(23,8)','Vector2i(4,9)').replace('Vector2i(24,7)','Vector2i(5,8)').replace('Vector2i(24,6)','Vector2i(5,7)').replace('Vector2i(23,6)','Vector2i(4,7)').replace('Vector2i(25,6)','Vector2i(6,7)').replace('Vector2(-384,0)','Vector2(0,-24)')
+(W/'home_check.gd').write_text(s)
+s=(old/'fallback_check.gd').read_text().replace('hall_ground_before','home_ground_before').replace('HALL','HOME')
+(W/'fallback_check.gd').write_text(s)
+for f in ['live_smoke.gd','live_smoke.py','verify.py','install.ps1']:
+    s=(old/f).read_text().replace('hollowtide-wayline-hall-20261009','hollowtide-home-20261009').replace('wayline-hall-2026-10-09','home-2026-10-09').replace('wayline_hall_2026_10_09/wayline_hall_native','home_2026_10_09/home_native').replace('wayline_hall_painter','home_painter').replace('Hall','Home').replace('HALL','HOME').replace('Vector2i(240,144)','Vector2i(120,120)').replace("'generation_calls':2","'generation_calls':1")
+    (W/f).write_text(s)
+print('Prepared native movement, interaction, pixel preservation and fallback checks')

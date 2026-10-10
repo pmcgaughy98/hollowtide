@@ -1,0 +1,10 @@
+{
+  "scripts/dungeon/dungeon.gd": {
+    "initial": "6b06e758d2320e2cbbc3fd85610291f9ffd86437a0cceb193487a4bf935816b8",
+    "preinstall": "013823ada359c2a407d57aa724d441f48820e518c959dd26cd8b3b1e6d88d08d"
+  },
+  "scripts/town/hub_town.gd": {
+    "initial": "243f3990ef011007e6a4151b35c659ab61d502bf60f25d848a7b79260277155e",
+    "preinstall": "d5d080a8f91775cefa9ed3f76d0a0d720d3cfa454d46dc3540b976c4dc5bad07"
+  }
+}

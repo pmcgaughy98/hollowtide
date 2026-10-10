@@ -8,8 +8,10 @@ extends Node2D
 const Layout := preload("res://scripts/town/town_layout.gd")
 const Arena := preload("res://scripts/arena/arena_prototype.gd")
 const TeamState := preload("res://scripts/town/team_state.gd")
+const Music := preload("res://scripts/audio/music.gd")
 const RETURN_SPOT := Vector2i(24, 8)   # back from a run: on the Hall's steps (the guild, as in Explorers of Sky)
 const FONT := preload("res://assets/fonts/Silkscreen-Bold.ttf")
+const UI := preload("res://scripts/ui/ui_style.gd")   # the shared look (Claude, 2026-10-10)
 const T := Layout.T
 const VIEW := Vector2i(384, 216)
 const SCALE := 3.0
@@ -68,6 +70,8 @@ func _ready() -> void:
 		if not open_at(pos):
 			pos = at
 		team.append(_make(party[k][0], party[k][1], pos))
+	_music_update()
+	preload("res://scripts/ui/game_pause_menu.gd").attach(self)
 	if news == "cleared":
 		panel = {"name": "Back in Highbank", "what": "The Hollow is cleared. The bag and the new partners came home. (Cleared %d.)" % cleared, "service": "news"}
 	elif news == "fainted":
@@ -77,6 +81,13 @@ func _ready() -> void:
 ## The stand-in picture: terrain bands, cliffs, the river, lanes, then each place as a block. Codex
 ## replaces this with art drawn to the same rects.
 static func paint() -> Image:
+	var blockout := paint_blockout()
+	if ResourceLoader.exists("res://scripts/town/highbank_ground_painter.gd"):
+		return load("res://scripts/town/highbank_ground_painter.gd").paint(blockout)
+	return blockout
+
+
+static func paint_blockout() -> Image:
 	var img := Image.create(Layout.W * T, Layout.H * T, false, Image.FORMAT_RGBA8)
 	for y in Layout.H:
 		var kind: String = Layout.band_of(y)
@@ -162,6 +173,7 @@ func act_move(d: Vector2i) -> void:
 	for e in team:
 		_place(e)
 	busy = false
+	_music_update()
 	if Layout.place_at(lead["pos"]).get("service", "") == "dungeon":
 		act_use()
 
@@ -181,7 +193,43 @@ func act_use() -> Dictionary:
 		enter_hollow()
 		return p
 	panel = p
+	if p["service"] == "jobs":
+		_sfx("board_paper")
+	elif p["service"] in DOOR_SERVICES:
+		_sfx("door")
 	return p
+
+
+## Places with a door (Claude, 2026-10-09): opening one plays the door; the job board rustles paper.
+## Lookouts, the waymark and the landing are open air and stay quiet.
+const DOOR_SERVICES := ["guild", "home", "shop", "storage", "scrolls", "arena", "growth"]
+var last_sfx := ""
+
+
+func _sfx(name: String) -> void:
+	last_sfx = name
+	var p := AudioStreamPlayer.new()
+	p.stream = load("res://assets/audio/sfx/dungeon/%s.wav" % name)
+	p.volume_db = -4.0
+	add_child(p)
+	p.play()
+	p.finished.connect(p.queue_free)
+
+
+## The town's track by where the leader is: Highbank's theme on the bluff, the Hall's march around
+## Wayline Hall, the ferry landing's quiet theme on the terraces below the cliff.
+func music_track() -> String:
+	var p: Vector2i = team[0]["pos"]
+	if p.y >= 19:
+		return "ferry_landing"
+	if Rect2i(17, 0, 14, 9).has_point(p):
+		return "wayline_hall"
+	return "highbank"
+
+
+func _music_update() -> void:
+	if not team.is_empty():
+		Music.play(get_tree(), music_track())
 
 
 func enter_hollow() -> void:
@@ -235,15 +283,30 @@ func _draw_labels() -> void:
 	for p in Layout.PLACES:
 		var r: Rect2i = p["rect"]
 		var at := Vector2(r.position.x * T, r.position.y * T + (r.size.y * T) * 0.5)
-		_labels.draw_string(FONT, at.round() + Vector2(2, 0), String(p["name"]).to_upper(), HORIZONTAL_ALIGNMENT_CENTER, r.size.x * T - 4, 8, Color(1, 1, 1, 0.9))
+		# A small signboard: a dark plaque with a brass rim behind the name, so it reads on any ground.
+		var name := String(p["name"]).to_upper()
+		var w: float = FONT.get_string_size(name, HORIZONTAL_ALIGNMENT_LEFT, -1, 8).x + 10.0
+		var mid: float = at.x + r.size.x * T * 0.5
+		var plaque := Rect2(Vector2(mid - w * 0.5, at.y - 9).round(), Vector2(w, 13).round())
+		_labels.draw_rect(plaque, Color(UI.PANEL, 0.82))
+		_labels.draw_rect(plaque, Color(UI.EDGE, 0.9), false, 1.0)
+		_labels.draw_string(FONT, Vector2(plaque.position.x, at.y).round(), name, HORIZONTAL_ALIGNMENT_CENTER, plaque.size.x, 8, UI.TEXT)
 
 
 func _draw_hud() -> void:
-	_hud.draw_string(FONT, Vector2(16, 24), "HIGHBANK (BLOCKOUT)   WASD WALK   E USE   THE MOUTH OF THE HOLLOW STARTS A RUN", HORIZONTAL_ALIGNMENT_LEFT, -1, 11, Color(1, 1, 1, 0.8))
+	# The shared look (scripts/ui/ui_style.gd), as in the Hollow: where you are at the top left, the
+	# keys short at the bottom right, a place's sign in a panel at the bottom. Claude, 2026-10-10.
+	var h := _hud
+	UI.panel(h, Rect2(12, 10, 300, 46))
+	UI.text(h, Vector2(26, 43), "Highbank", 26, UI.EDGE_LIGHT)
+	var here: Dictionary = Layout.place_at(team[0]["pos"]) if not team.is_empty() else {}
+	if not here.is_empty():
+		UI.text(h, Vector2(26, 43), String(here["name"]), 16, UI.TEXT, 272, HORIZONTAL_ALIGNMENT_RIGHT)
+	UI.text(h, Vector2(946, 562), "WASD walk   E use", 14, Color(UI.MUTED, 0.85), 194, HORIZONTAL_ALIGNMENT_RIGHT)
+	UI.text(h, Vector2(946, 580), "The Hollow's mouth starts a run", 14, Color(UI.MUTED, 0.85), 194, HORIZONTAL_ALIGNMENT_RIGHT)
 	if not panel.is_empty():
-		var box := Rect2(196, 470, 760, 110)
-		_hud.draw_rect(box, Color(0.05, 0.07, 0.1, 0.94))
-		_hud.draw_rect(box, Color(1, 0.85, 0.4), false, 2.0)
-		_hud.draw_string(FONT, box.position + Vector2(18, 28), String(panel["name"]).to_upper(), HORIZONTAL_ALIGNMENT_LEFT, 724, 13, Color(1, 0.85, 0.4))
-		_hud.draw_string(FONT, box.position + Vector2(18, 56), panel["what"], HORIZONTAL_ALIGNMENT_LEFT, 724, 11, Color(1, 1, 1))
-		_hud.draw_string(FONT, box.position + Vector2(18, 90), "(BLOCKOUT: CODEX DRAWS THIS PLACE; ITS SERVICE IS \"%s\")   E CLOSE" % String(panel["service"]).to_upper(), HORIZONTAL_ALIGNMENT_LEFT, 724, 9, Color(1, 1, 1, 0.5))
+		var box := Rect2(196, 452, 760, 128)
+		UI.panel(h, box, 0.95)
+		UI.text(h, box.position + Vector2(22, 34), String(panel["name"]), 23, UI.EDGE_LIGHT, 716)
+		h.draw_multiline_string(UI.HEAD, box.position + Vector2(22, 64), String(panel["what"]), HORIZONTAL_ALIGNMENT_LEFT, 716, 18, 2, UI.TEXT)
+		UI.text(h, box.position + Vector2(22, 116), "E  close", 15, UI.MUTED, 716, HORIZONTAL_ALIGNMENT_RIGHT)

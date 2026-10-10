@@ -1,0 +1,38 @@
+[
+  {
+    "path": "project.godot",
+    "before": "7bc3c7d80de565f52cf7d8059817c219a05697e755b0f93a1c2b5d06b46cce7b",
+    "source": "D:\\dev\\hollowtide-hall-door-20261010\\candidate\\project.godot",
+    "after": "33bc92d7d62645391eec79e6d33922b4ce9a57c3eae31f46439c60c44f3aa84d"
+  },
+  {
+    "path": "assets/sprites/world/wayline_hall_2026_10_10/wayline_hall_native.png",
+    "before": null,
+    "source": "D:\\dev\\hollowtide-hall-door-20261010\\candidate\\assets\\sprites\\world\\wayline_hall_2026_10_10\\wayline_hall_native.png",
+    "after": "251a9ad1bcb8cd9020b0281917ea77ad981602abe6735f1957bbef0ff3f7327a"
+  },
+  {
+    "path": "scripts/town/highbank_ground_painter.gd",
+    "before": "a4bc8fa3c7b6147f84724e4a16f52cc537817831a3458b754b1e3ff2861b21a4",
+    "source": "D:\\dev\\hollowtide-hall-door-20261010\\candidate\\scripts\\town\\highbank_ground_painter.gd",
+    "after": "79b1d4446b0be6dcb00c9a2fb55aea93bba4be53d8759e5587aa39095d688631"
+  },
+  {
+    "path": "scripts/town/wayline_hall_painter.gd",
+    "before": "96ba5cb8d8eca08db650903e557722ce2a3d7fe43530a3117b0dcb843aef4a05",
+    "source": "D:\\dev\\hollowtide-hall-door-20261010\\candidate\\scripts\\town\\wayline_hall_painter.gd",
+    "after": "512748492b880dad3f94d87d3ec48408ad481a261e261d0d244c5c80ce276501"
+  },
+  {
+    "path": "scripts/ui/game_pause_menu.gd",
+    "before": "8e63f5e194751801dc48bcb56b0966addda726cd2fe12aa19b87b0e954a14b91",
+    "source": "D:\\dev\\hollowtide-hall-door-20261010\\candidate\\scripts\\ui\\game_pause_menu.gd",
+    "after": "ba1047de55e5a7ada1fc08593ab6c1ba9f32d7ddca44a9cdb1101c2ff5dd2662"
+  },
+  {
+    "path": "docs/AI_COLLABORATION.md",
+    "before": "6db09090bedf978f8ce3a76bff5f7df2c70ad4a6569f53febc1a12d4446089ad",
+    "source": "D:\\dev\\hollowtide-hall-door-20261010\\candidate\\docs\\AI_COLLABORATION.md",
+    "after": "064bf6c7a7cf8d36878eb97b37cdeec2e40f3ab576f895bba8b0f4b6ad25e946"
+  }
+]

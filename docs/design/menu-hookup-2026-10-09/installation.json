@@ -1,0 +1,61 @@
+{
+  "runtime_files": [
+    {
+      "path": "scripts/creature_opening.gd",
+      "before": "f722e909ca05b3732b42251a01dce59b9b84873ee4830356f8a94a048d7280ad",
+      "source": "D:\\dev\\hollowtide-menu-hookup-20261009\\candidate\\scripts\\creature_opening.gd",
+      "after": "c685de973ec60e716160667118a74e96736465a76cd64bbe48e8460786b0708e"
+    },
+    {
+      "path": "scripts/creature_prologue.gd",
+      "before": "e253de3d10f1c76eb3c49187837cdf838b9a5b04959edfa44d6a53b002b45ceb",
+      "source": "D:\\dev\\hollowtide-menu-hookup-20261009\\candidate\\scripts\\creature_prologue.gd",
+      "after": "34c4f3ae3a1a3c12fd5ab24f260a737cbe1c4634d71f89390042f5a6f93563b5"
+    },
+    {
+      "path": "scripts/dungeon/dungeon.gd",
+      "before": "013823ada359c2a407d57aa724d441f48820e518c959dd26cd8b3b1e6d88d08d",
+      "source": "D:\\dev\\hollowtide-menu-hookup-20261009\\candidate\\scripts\\dungeon\\dungeon.gd",
+      "after": "cb147d9967791b19ff635e9d1856f48d1ed6fd821b807f3142ac0e79945d7497"
+    },
+    {
+      "path": "scripts/town/hub_town.gd",
+      "before": "d5d080a8f91775cefa9ed3f76d0a0d720d3cfa454d46dc3540b976c4dc5bad07",
+      "source": "D:\\dev\\hollowtide-menu-hookup-20261009\\candidate\\scripts\\town\\hub_town.gd",
+      "after": "b2c27de6ffb148d065ea59d17bc3d82f79b2184ba41e8b15d6d4e233c8f946c6"
+    },
+    {
+      "path": "scripts/ui/game_pause_menu.gd",
+      "before": null,
+      "source": "D:\\dev\\hollowtide-menu-hookup-20261009\\candidate\\scripts\\ui\\game_pause_menu.gd",
+      "after": "ecaf321736c52f2c8b3d6f207be2028a6531e7178e2a7fed7c668151e87ea865"
+    },
+    {
+      "path": "docs/AI_COLLABORATION.md",
+      "before": "5d73d37d0b960f9e27e113c4542c364a467be7de8dac282056197401585be363",
+      "source": "D:\\dev\\hollowtide-menu-hookup-20261009\\candidate\\docs\\AI_COLLABORATION.md",
+      "after": "cc237f5a5b0ea7bb4b695f8d2cbe6218ddb71563756ad3eaf7a04a5ce237dc99"
+    }
+  ],
+  "protected_files_checked": 8335,
+  "protected_changes_after_install": [],
+  "concurrent_changes_preserved": {
+    "scripts/dungeon/dungeon.gd": {
+      "initial": "6b06e758d2320e2cbbc3fd85610291f9ffd86437a0cceb193487a4bf935816b8",
+      "preinstall": "013823ada359c2a407d57aa724d441f48820e518c959dd26cd8b3b1e6d88d08d"
+    },
+    "scripts/town/hub_town.gd": {
+      "initial": "243f3990ef011007e6a4151b35c659ab61d502bf60f25d848a7b79260277155e",
+      "preinstall": "d5d080a8f91775cefa9ed3f76d0a0d720d3cfa454d46dc3540b976c4dc5bad07"
+    }
+  },
+  "live_native_checks": 44,
+  "failures": [],
+  "quit_title": "native click confirmation exits 0",
+  "quit_pause": "native click confirmation exits 0",
+  "town_loop": "real scenes, forced clear/faint, record retained",
+  "music": "existing routes/jingles, actual title/town playback checks",
+  "scope": "menu only; no disk saves, map/rules/audio/creature asset rewrite",
+  "engine": "Godot 4.7.2 native compatibility; isolated APPDATA",
+  "known_diagnostic": "Pre-existing Windows root certificate store message only"
+}

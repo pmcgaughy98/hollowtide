@@ -90,6 +90,11 @@ const LINES := [
 	# Claude, 2026-10-09). Working names.
 	{"forms": [["dustkite", "res://data/creatures/1401_dustkite.tres"], ["waywhistle", "res://data/creatures/1402_waywhistle.tres"], ["highsignal", "res://data/creatures/1403_highsignal.tres"]],
 		"signature": "High Signal", "accent": Color("#e8e2cf")},
+	# The Springvault line (Stone / Tide; roster draft line 12, the Healer row of the roles
+	# proposal; Claude, 2026-10-10, Preston chose it). Working names. In the arena it has only its
+	# basic for now: the heals (Seep and the rest) are built in the dungeon first.
+	{"forms": [["troughspine", "res://data/creatures/1201_troughspine.tres"], ["archroot", "res://data/creatures/1202_archroot.tres"], ["springvault", "res://data/creatures/1203_springvault.tres"]],
+		"signature": "Headspring", "accent": Color("#9fd3b8")},
 ]
 
 ## Every form's kit: its moves in the order its AI considers them, its walking speed and
@@ -216,6 +221,10 @@ const KITS := {
 	# runner, never the interrupt (DESIGN_RULES). Dustkite darts, marks and bluffs; Waywhistle
 	# perches and spots; Highsignal: High Signal.
 	"dustkite": {"moves": ["whistle_dart"], "abilities": ["signal_mark", "decoy_call"], "speed": 1.25, "hp": 0.85, "profile": "kite", "far_bonus": 1.15},
+	# The Springvault line (2026-10-10): drafts for Grok. Arena abilities wait for the arena heals.
+	"troughspine": {"moves": ["spring_spit"], "abilities": [], "speed": 0.95, "hp": 1.0, "profile": "escort"},
+	"archroot": {"moves": ["spring_spit"], "abilities": [], "speed": 0.9, "hp": 1.15, "profile": "escort"},
+	"springvault": {"moves": ["spring_spit"], "abilities": [], "speed": 0.85, "hp": 1.3, "profile": "escort"},
 	"waywhistle": {"moves": ["whistle_dart"], "abilities": ["signal_mark", "decoy_call", "vantage"], "speed": 1.2, "hp": 1.0,
 		"passive": "spotter", "profile": "kite", "far_bonus": 1.15},
 	"highsignal": {"role": "Spotter", "moves": ["whistle_dart"], "abilities": ["signal_mark", "decoy_call", "vantage"], "speed": 1.15, "hp": 1.15,
@@ -304,6 +313,10 @@ const MOVES := {
 	"kingstone_lift": {"name": "Kingstone Lift", "damage": 10, "cooldown": 11.0, "range": 150.0},
 	# Dustkite line: a whistling dart, a mark, a bluff, a perch.
 	"whistle_dart": {"name": "Whistle Dart", "damage": 9, "cooldown": 1.0, "range": 130.0},
+	# The Springvault line (Claude, 2026-10-10; drafts for Grok). Seep heals ("heal" a turn) and
+	# deals nothing; only the dungeon plays it so far.
+	"spring_spit": {"name": "Spring Spit", "damage": 10, "cooldown": 1.0, "range": 110.0},
+	"seep": {"name": "Seep", "damage": 0, "cooldown": 9.0, "range": 0.0, "heal": 6},
 	"signal_mark": {"name": "Signal Mark", "damage": 0, "cooldown": 7.0, "range": 160.0},
 	"decoy_call": {"name": "Decoy Call", "damage": 0, "cooldown": 9.0, "range": 160.0},
 	"vantage": {"name": "Vantage", "damage": 0, "cooldown": 10.0, "range": 0.0, "mobility": true},
@@ -347,6 +360,7 @@ const MOVE_ESSENCE := {
 	"echo_tap": E.TIDE, "interrupt_call": E.TIDE, "Hush": E.HOLLOW,
 	"shear": E.GALE, "Gale Shear": E.GALE, "kingstone_lift": E.ELECTRIC,
 	"whistle_dart": E.GALE, "High Signal": E.GALE,
+	"spring_spit": E.TIDE, "seep": E.TIDE, "Headspring": E.TIDE,
 }
 
 const FACINGS := ["e", "se", "s", "sw", "w", "nw", "n", "ne"]  # clockwise from east, 45 degrees apart
@@ -459,6 +473,7 @@ const TELEGRAPH := {
 	"echo_tap": ["line", 0.25], "still_water": ["area", 0.4],   # Interrupt Call and Deep Brace go at once
 	"shear": ["melee", 0.22], "downdraft": ["area", 0.3],      # Sail Cover and Lift go at once
 	"kingstone_lift": ["area", 0.5],
+	"spring_spit": ["line", 0.2],
 	"whistle_dart": ["line", 0.22],   # Signal Mark, Decoy Call and Vantage go at once
 	"needle_bite": ["melee", 0.2], "lunge": ["charge", 0.3],
 }
@@ -636,7 +651,7 @@ const RECOVERY := {"melee": 0.2, "line": 0.3, "area": 0.4, "charge": 0.45, "rail
 const RECOVERY_OF := {"jab": 0.15, "claw": 0.2, "pounce": 0.25, "club_slam": 0.45, "plate_lunge": 0.45, "slab_vortex": 0.4,
 	"molten_cannon": 0.55, "ground_spikes": 0.45, "root_rampart": 0.5, "rail_shot": 0.6, "vent_blast": 0.35, "counter_jab": 0.2,
 	"echo_tap": 0.2, "interrupt_call": 0.3, "still_water": 0.4, "shear": 0.2, "downdraft": 0.35, "lift": 0.25, "kingstone_lift": 0.5,
-	"whistle_dart": 0.2, "signal_mark": 0.2, "decoy_call": 0.1, "vantage": 0.25, "needle_bite": 0.2, "lunge": 0.35}
+	"whistle_dart": 0.2, "signal_mark": 0.2, "decoy_call": 0.1, "vantage": 0.25, "needle_bite": 0.2, "lunge": 0.35, "spring_spit": 0.2, "seep": 0.3}
 const AMBUSH_MULT := 1.3               # the Ambush passive: the first bite out of the silt, or on an enemy not watching it
 ## The Dustkite line (Claude, 2026-10-09). Drafts for Grok.
 const MARK_BONUS := 1.15               # the team's hits on a marked enemy land this much harder
@@ -962,6 +977,8 @@ func _ready() -> void:
 			_impact_frames[name] = frames
 	_set_arena(start_arena)
 	_new_match()
+	if not ("battle_mode" in self):   # the arena side mode (the town's Training Yard), not the dungeon's battle floor
+		preload("res://scripts/audio/music.gd").play(get_tree(), "training_yard")
 
 
 # ---------------------------------------------------------------- setup
@@ -3086,6 +3103,10 @@ func _do_move(i: int, m: String, t: int) -> void:
 				_effects.append({"kind": "impact", "anim": "gust_lift", "pos": to + Vector2(0, -4), "t": 0.0})
 				_label(w, "Lifted")
 			_play("res://assets/audio/sfx/canvaswing/shear.wav", -10.0)
+		"spring_spit":
+			# A spat stream of spring water: a short quick shot down the line.
+			_effects.append({"kind": "fireball", "owner": i, "pos": mouth, "vel": aim * 190.0, "life": 0.6, "trail": [], "damage": dmg, "dart": true})
+			_play("res://assets/audio/sfx/undertow/surge.wav", -16.0)
 		"whistle_dart":
 			# A whistling dart: a thin fast shot down the line.
 			_effects.append({"kind": "fireball", "owner": i, "pos": mouth, "vel": aim * 230.0, "life": 0.7, "trail": [], "damage": dmg, "dart": true})

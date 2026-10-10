@@ -30,6 +30,9 @@ SOURCE = {
     "sleep": {f: ("s", False) for f in FACINGS},
 }
 TARGET = {0: 15.5, 1: 21.0, 2: 30.0}   # keep in step with build_dungeon_set.py
+# The lighter plan (front, side and back attacks; front and side hurts) leaves facings ungenerated;
+# each uses the nearest that exists. Mirrored facings (w, sw, nw) mirror what their source used.
+FALLBACK = {"se": ["e", "s"], "ne": ["e", "n"], "e": ["s"], "n": ["e", "s"]}
 
 
 def stage_of(name: str) -> int:
@@ -57,7 +60,7 @@ def frames_of(sheet: Path, side: int, n: int) -> list:
     return out
 
 
-for name in (sys.argv[1:] or ["kithflare", "tallowroot", "rimefin"]):
+for name in (sys.argv[1:] or ["kithflare", "tallowroot", "rimefin", "cinderhide", "fusern", "preostmar", "punchybun", "listener", "canvaswing", "dustkite"]):
     side = Image.open(ART / name / "s.png").size[0]
     f = factor(name)
     made = []
@@ -66,8 +69,10 @@ for name in (sys.argv[1:] or ["kithflare", "tallowroot", "rimefin"]):
         for shown in FACINGS:
             gen, flip = SOURCE[action][shown]
             sheet = SHEETS / f"{name}_{action}_{gen}_sheet.png"
-            if not sheet.exists() and action == "hurt":
-                gen, sheet = "e", SHEETS / f"{name}_{action}_e_sheet.png"   # a failed take falls back to the side view
+            for alt in FALLBACK.get(gen, []):
+                if sheet.exists():
+                    break
+                gen, sheet = alt, SHEETS / f"{name}_{action}_{alt}_sheet.png"   # a facing not generated uses the nearest one that was
             if not sheet.exists():
                 continue
             if gen not in cache:

@@ -77,6 +77,7 @@ func _run() -> void:
 	dg.floor_seed = 4242
 	dg.poll_input = false
 	dg.party = [[0, 0], [1, 0]]   # Kithflare (claws) and Tallowroot (no claws)
+	dg.levels = {0: {"lv": 3, "exp": 0}}   # Lv 3: Kithflare knows its three level moves, so two scrolls fill it
 	root.add_child(dg)
 	for k in 4:
 		await process_frame

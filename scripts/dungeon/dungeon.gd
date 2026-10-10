@@ -21,8 +21,10 @@ const Gen := preload("res://scripts/hollow/hollow_gen.gd")
 const Painter := preload("res://scripts/dungeon/floor_painter.gd")
 const MoveBody := preload("res://scripts/moves/move_body.gd")
 const TeamState := preload("res://scripts/town/team_state.gd")
+const Music := preload("res://scripts/audio/music.gd")
 const TOWN_SCENE := "res://scenes/hub_town.tscn"
 const FONT := preload("res://assets/fonts/Silkscreen-Bold.ttf")
+const UI := preload("res://scripts/ui/ui_style.gd")   # the shared look (Claude, 2026-10-10)
 
 const T := 24                           # tile size in the low-resolution view
 const VIEW := Vector2i(384, 216)
@@ -126,11 +128,82 @@ const EVO := {
 	7: {"way": "flank", "kos": [2, 5], "floors": [2, 4], "need": [3, 7]},    # Listener line: the controller
 	8: {"way": "took", "kos": [2, 5], "floors": [2, 4], "need": [50, 120]},  # Canvaswing line: the shelter
 	9: {"way": "flank", "kos": [3, 6], "floors": [2, 4], "need": [4, 8]},    # Dustkite line: the spotter
+	10: {"way": "healed", "kos": [2, 5], "floors": [2, 4], "need": [40, 100]}, # Springvault line: the healer (Claude's draft for Grok, 2026-10-10)
 }
+# Levels (Claude, 2026-10-09; Preston: "still want to keep the evolve by leveling on top of our
+# evolution rules", and chose "level, then conditions", the Digimon World way). Every foe the team
+# downs gives each teammate EXP, as in Explorers of Sky; a level adds health; and a teammate
+# evolves only once it has reached its stage's level AND met the EVO conditions above. A level
+# belongs to the line, like IQ, so it carries through evolution. A recruit joins at the floor's
+# number. DRAFT NUMBERS FOR GROK: the evolve levels, the EXP, the curve and the health a level adds.
+const EVO_LEVEL := [5, 10]       # stage 1 to 2, stage 2 to 3
+const LEVEL_MAX := 50
+const EXP_PER_KO := 12           # for each foe downed, plus EXP_PER_STAGE for each stage it had grown
+const EXP_PER_STAGE := 6
+const EXP_BOSS := 60             # added for the boss
+const LEVEL_HP := 0.03           # max health grows 3% a level above 1
+# Learnsets (Grok, 2026-10-10: docs/creatures/learnset-draft-2026-10-10.md, its rules and tables
+# exactly). One list per form: [level, move], or ["evolve", move] for the move taught on evolving
+# into that form. A raised creature keeps every move its new body can still perform; slot 0 is
+# the form's basic and is never forgotten; four moves at most, and a full set asks which to forget
+# (the scroll panel) or lets the move go. Wild creatures and recruits use the floor as their level
+# and know the list up to it. WAITING holds the moves that do nothing in the dungeon yet; they
+# are not taught until the dungeon plays their real effect.
+const LEARN := {
+	"kithflare": [[1, "claw"], [1, "ember_feint"], [3, "fireball"]],
+	"sparkwick": [["evolve", "pounce"], [6, "wick_bolt"], [8, "lantern_volley"]],
+	"stormwick": [["evolve", "lantern_tackle"]],
+	"tallowroot": [[1, "seed"], [1, "root_snare"]],
+	"huskward": [["evolve", "club_slam"]],
+	"rampartroot": [["evolve", "root_rampart"]],
+	"rimefin": [[1, "needle_bite"], [1, "lunge"]],
+	"riftfin": [],
+	"scourmaw": [],
+	"cinderhide": [[1, "cinder_claw"], [1, "vent_blast"], [3, "claw"]],
+	"clinkerhide": [["evolve", "crest_ram"]],
+	"ironvent": [["evolve", "vent_barrage"]],
+	"fusern": [[1, "ember_pellet"]],
+	"slagglass": [["evolve", "plate_lunge"]],
+	"vitrecrag": [["evolve", "molten_cannon"], [12, "molten_beam"]],
+	"preostmar": [[1, "jade_lance"], [1, "ground_spikes"], [3, "stone_cocoon"]],
+	"oathfen": [["evolve", "slab_vortex"]],
+	"oxbowarchon": [["evolve", "rail_shot"], [12, "kingstone_lift"], [14, "rail_recoil"]],
+	"punchybun": [[1, "jab"]],
+	"sparkjab": [["evolve", "counter_jab"]],
+	"starward": [],
+	"listener": [[1, "echo_tap"], [1, "interrupt_call"]],
+	"caller": [],
+	"warden": [],
+	"canvaswing": [[1, "shear"]],
+	"windcut": [],
+	"galeshear": [],
+	"dustkite": [[1, "whistle_dart"]],
+	"waywhistle": [],
+	"highsignal": [],
+	# The Springvault line: Claude's draft for Grok (2026-10-10). Archroot's evolve move will be
+	# Mineral Brace and Springvault's Vault Arch once the dungeon can play them.
+	"troughspine": [[1, "spring_spit"], [1, "seep"]],
+	"archroot": [],
+	"springvault": []}
+
+const WAITING := {
+	"tallowroot": [[3, "burrow"]],
+	"huskward": [[6, "root_wall"]],
+	"rimefin": [[3, "sinkhole"]],
+	"riftfin": [["evolve", "riptide"]],
+	"fusern": [[1, "glass_guard"]],
+	"punchybun": [[1, "static_dance"], [3, "star_guard"]],
+	"listener": [[3, "deep_brace"]],
+	"caller": [["evolve", "still_water"]],
+	"canvaswing": [[1, "sail_cover"], [3, "downdraft"]],
+	"windcut": [["evolve", "lift"]],
+	"dustkite": [[1, "signal_mark"], [3, "decoy_call"]],
+	"waywhistle": [["evolve", "vantage"]]}
 # Teammate IQ (Claude, 2026-10-09; Preston: "our system should have the teammate IQ system", then
 # "do teammate iq task"). Structure from Explorers of Sky: a partner's IQ grows, and skills that
-# change how it acts switch on at thresholds. Skill names are working names (Preston names them);
-# thresholds and gains are drafts for Grok. IQ belongs to the line, so it carries through evolution.
+# change how it acts switch on at thresholds. Skill names are working names (Preston names them).
+# Grok, 2026-10-10: gains stay 1, and the thresholds stay 3, 6, 10, 15, 20, 25.
+# IQ belongs to the line, so it carries through evolution.
 const IQ_PER_FLOOR := 1
 const IQ_PER_KO := 1
 const IQ_SKILLS := [
@@ -167,6 +240,10 @@ const ESSENCE_COL := {"EMBER": Color(1, 0.55, 0.25), "TIDE": Color(0.35, 0.75, 1
 	"BLOOM": Color(0.5, 0.9, 0.4), "HOLLOW": Color(0.65, 0.5, 0.9), "ELECTRIC": Color(1, 0.95, 0.4), "ICE": Color(0.75, 0.95, 1)}
 # Per move: "proj" travels down the line to the target, "hit" plays on each target, "area" plays
 # where a burst lands. A move not listed uses its essence's burst. Chosen by what the body does.
+# The impact layered under a hit, by the move's essence (Claude, 2026-10-09). Hollow has none on
+# purpose: its hits are the hush, only the body's thump. Ice borrows water until it has its own.
+const ESSENCE_SFX := {"EMBER": "impact_fire", "TIDE": "impact_water", "STONE": "impact_earth", "GALE": "impact_wind",
+	"BLOOM": "impact_root", "ELECTRIC": "impact_shock", "ICE": "impact_water"}
 const MOVE_FX := {
 	"claw": {"hit": "light_slash"}, "cinder_claw": {"hit": "light_slash"}, "pounce": {"hit": "light_slash"},
 	"ember_feint": {"hit": "fire_burst"}, "fireball": {"proj": "lantern_ball", "hit": "fire_burst"},
@@ -180,6 +257,7 @@ const MOVE_FX := {
 	"jade_lance": {"proj": "jade_burst", "hit": "jade_burst"}, "ground_spikes": {"area": "jade_spikes"}, "slab_vortex": {"area": "slab_vortex"},
 	"rail_shot": {"hit": "jade_burst"}, "jab": {"hit": "shock_burst"}, "counter_jab": {"hit": "shock_burst"},
 	"static_dance": {"area": "spark_bolt"}, "echo_tap": {"hit": "sonar_ring"}, "interrupt_call": {"area": "sonar_ring"},
+	"spring_spit": {"hit": "water_burst"},
 	"shear": {"hit": "sail_slash"}, "downdraft": {"area": "downdraft_column"}, "whistle_dart": {"proj": "spark_bolt", "hit": "sonar_ring"},
 }
 const RECIPE := {"cols": 3, "rows": 2, "cell_w": 14, "cell_h": 10, "room_density": 0.7, "extra_halls": 0.15,
@@ -189,7 +267,7 @@ const RECIPE := {"cols": 3, "rows": 2, "cell_w": 14, "cell_h": 10, "room_density
 ## stay the party. The map, the wild count, the items, the traps and the house rate stay on RECIPE.
 const FLOOR_SPAWNS := {
 	1: [[9, 0], [8, 0], [7, 0]],         # Dustkite, Canvaswing, Listener
-	2: [[2, 0], [6, 0], [7, 0], [9, 0]], # Rimefin, Punchybun, Listener, Dustkite
+	2: [[2, 0], [6, 0], [7, 0], [9, 0], [10, 0]], # Rimefin, Punchybun, Listener, Dustkite, Troughspine (Claude's draft for Grok, 2026-10-10)
 	3: [[3, 0], [4, 0], [5, 0], [2, 0]], # Cinderhide, Fusern, Preostmar, Rimefin
 }
 const DIRS := [Vector2i(1, 0), Vector2i(1, 1), Vector2i(0, 1), Vector2i(-1, 1), Vector2i(-1, 0), Vector2i(-1, -1), Vector2i(0, -1), Vector2i(1, -1)]
@@ -205,6 +283,7 @@ var cleared := 0
 var faints := 0
 var light := LIGHT_MAX
 var bag := {"reedberry": 1}
+var last_sfx := {}   # sound name -> the turn it last played (read by tools/debug/dungeon_sfx_check.gd)
 var bag_open := false
 var bag_sel := 0
 var floor_items: Array[Dictionary] = []   # {pos, kind}
@@ -229,6 +308,8 @@ var pincers := 0                          # hits your partners landed from a pin
 var taught := {}                          # "line:stage" -> the moves a teammate knows after a scroll
 var growth := {}                          # "line:stage" -> {kos, floors, flank, ambush, took, slam}: what it has done toward evolving
 var iq := {}                              # line -> IQ points (a partner's line keeps them through evolution)
+var levels := {}                          # line -> {"lv": level, "exp": EXP toward the next}
+var learn_queue: Array = []               # [ents index, move]: moves a teammate is offered, one at a time
 var evolved_log: Array = []               # [old name, new name] for each evolution (for the checks)
 var teach_kind := ""                      # the scroll being read, or "" when the teach panel is shut
 var teach_sel := 0
@@ -371,8 +452,11 @@ func _build_floor(fresh_team: bool) -> void:
 	_stock_floor(rng)
 	_reveal()
 	_say("B%dF" % floor_n)
+	_sfx("floor_arrive", -4.0)
 	if not evolving.is_empty():
 		_evolve.call_deferred(evolving)
+	_music_update()
+	preload("res://scripts/ui/game_pause_menu.gd").attach(self)
 	if floor_kind() == "rest":
 		for e in ents:
 			if e["team"] == 0:
@@ -526,10 +610,9 @@ func _make(line: int, stage: int, team: int, pos: Vector2i) -> Dictionary:
 	var form: Array = Arena.LINES[line]["forms"][stage]
 	var cdata: CreatureData = load(form[1])
 	var kit: Dictionary = Arena.KITS[form[0]]
-	var moves: Array[String] = [kit["moves"][0]]
-	for m in kit.get("abilities", []):
-		if Arena.MOVES[m]["damage"] > 0 and moves.size() < 4:
-			moves.append(m)
+	var moves: Array[String] = []
+	for m in moves_for(line, stage, level_of(line) if team == 0 else clampi(floor_n, 1, LEVEL_MAX)):
+		moves.append(m)
 	var hp := maxi(10, int(round(Arena.MAX_HP * (1.0 + Arena.STAGE_HP * stage) * kit.get("hp", 1.0) * HP_SCALE)))
 	var essences: Array = [cdata.essence]
 	if cdata.has_second_essence:
@@ -558,9 +641,12 @@ func _make(line: int, stage: int, team: int, pos: Vector2i) -> Dictionary:
 	for m in moves:
 		cds[m] = 0
 	if team == 0 and not growth.has(key):
-		growth[key] = {"kos": 0, "floors": 0, "flank": 0, "ambush": 0, "took": 0, "slam": 0}
+		growth[key] = {"kos": 0, "floors": 0, "flank": 0, "ambush": 0, "took": 0, "slam": 0, "healed": 0}
+	var base_hp := hp
+	if team == 0:
+		hp = _hp_at_level(base_hp, level_of(line))
 	return {"line": line, "stage": stage, "form": form[0], "name": cdata.creature_name, "team": team, "pos": pos,
-		"facing": "s", "hp": hp, "max_hp": hp, "moves": moves, "cds": cds, "essences": essences, "awake": true,
+		"facing": "s", "hp": hp, "max_hp": hp, "base_hp": base_hp, "moves": moves, "cds": cds, "essences": essences, "awake": true,
 		"node": node, "sprite": sprite, "art": _load_art(form[0]), "walk_t": 0.0, "flash": 0.0, "warn": ""}
 
 
@@ -794,6 +880,8 @@ func _turns_of(m: String, i: int) -> int:
 ## Creature i takes move m toward d. Plays out on screen; returns false when nothing happened.
 func use_move(i: int, m: String, d: Vector2i) -> bool:
 	var e: Dictionary = ents[i]
+	if Arena.MOVES[m].get("heal", 0) > 0:
+		return await _seep(i, m)
 	var res := move_hits(i, m, d)
 	e["facing"] = _facing_of(d)
 	_set_tex(e, e["art"]["still"][e["facing"]])
@@ -801,6 +889,7 @@ func use_move(i: int, m: String, d: Vector2i) -> bool:
 	_say("%s used %s!" % [e["name"], Arena.MOVES[m]["name"]])
 	_callout(e, m)
 	_play_act(e, "attack")
+	_sfx("swing", -4.0)
 	var r := move_reach(m)
 	if r["kind"] == "dash" and res["end"] != e["pos"]:
 		_trail(e, e["node"].position, _tile_px(res["end"]))
@@ -820,7 +909,7 @@ func use_move(i: int, m: String, d: Vector2i) -> bool:
 	await get_tree().create_timer(HIT_TIME * 0.5).timeout
 	if res["hits"].is_empty():
 		_say("It missed.")
-		_play("res://assets/audio/sfx/ui/cursor.wav", -12.0)
+		_sfx("miss", -4.0)
 	for j in res["hits"]:
 		_hit(i, j, m)
 	if _heavy:
@@ -848,6 +937,7 @@ func _fire_windup(i: int) -> void:
 	_say("%s used %s!" % [e["name"], Arena.MOVES[m]["name"]])
 	_callout(e, m)
 	_play_act(e, "attack")
+	_sfx("swing", -4.0)
 	if kind == "dash":
 		var end: Vector2i = e["pos"]
 		for t in tiles:
@@ -880,7 +970,7 @@ func _fire_windup(i: int) -> void:
 	if hits.is_empty():
 		dodged += 1
 		_say("It missed: nobody was where it struck.")
-		_play("res://assets/audio/sfx/ui/cursor.wav", -12.0)
+		_sfx("miss", -4.0)
 	for j in hits:
 		_hit(i, j, m)
 	if _heavy:
@@ -914,7 +1004,10 @@ func _hit(i: int, j: int, m: String) -> void:
 	if "PINCER" in tags:
 		why += " Caught in a pincer!"
 	_say("%s took %d damage.%s%s" % [o["name"], dmg, " It's super effective!" if mult > 1.0 else (" It's not very effective." if mult < 1.0 else ""), why])
-	_play("res://assets/audio/sfx/ui/hit_strong.wav" if mult > 1.0 or not tags.is_empty() else "res://assets/audio/sfx/ui/hit_weak.wav", -6.0)
+	_sfx("hit_super" if mult > 1.0 else ("hit_heavy" if not tags.is_empty() else "hit_light"), -4.0)
+	var ess_sfx: String = ESSENCE_SFX.get(_ess_name(m, ents[i]), "")
+	if ess_sfx != "" and MOVE_FX.get(m, {}).get("hit", "") != "light_slash":   # a plain claw or pounce is only the body's thump
+		_sfx(ess_sfx, -8.0)
 	_wound(i, j, dmg, Color(1, 0.95, 0.6) if mult > 1.0 else (Color(0.7, 0.75, 0.8) if mult < 1.0 else Color(1, 1, 1)))
 	var fx: String = MOVE_FX.get(m, {}).get("hit", "")
 	if fx == "" and not MOVE_FX.get(m, {}).has("area"):
@@ -1007,20 +1100,27 @@ func _shove(i: int, j: int, d: Vector2i) -> void:
 	var o: Dictionary = ents[j]
 	if o["hp"] <= 0 or j == asking:
 		return
+	if o.has("seep"):
+		_say("%s is rooted to its spring and doesn't budge!" % o["name"])
+		_sfx("denied", -4.0)
+		return
 	if o.get("boss", false):
 		# A boss does not budge, but a charge into it while it gathers still breaks the move.
 		if o.has("windup"):
 			_say("Its %s was broken!" % Arena.MOVES[o["windup"]["m"]]["name"])
+			_sfx("part_break", -3.0)
 			_pops.append({"pos": o["node"].position + Vector2(0, -50), "text": "BROKEN!", "t": 0.0, "col": Color(1, 0.8, 0.3)})
 			o.erase("windup")
 		else:
 			_say("%s doesn't budge!" % o["name"])
+			_sfx("denied", -4.0)
 		return
 	var to: Vector2i = o["pos"] + d
 	var into := _occupant(to)
 	if can_step(o["pos"], d) and into < 0:
 		o["pos"] = to
 		_say("%s was knocked back!" % o["name"])
+		_sfx("shove", -4.0)
 		await _slide(o, _tile_px(to)).finished
 		o["node"].z_index = int(o["node"].position.y)
 		return
@@ -1032,9 +1132,10 @@ func _shove(i: int, j: int, d: Vector2i) -> void:
 	_vfx_at("slam_shock", o["node"].position + Vector2(d) * 8.0)
 	_vfx_at("rock_dust", o["node"].position + Vector2(d) * 10.0 + Vector2(0, 4))
 	_shake = maxf(_shake, 3.5)
-	_play("res://assets/audio/sfx/ui/hit_strong.wav", -3.0)
+	_sfx("slam", -1.0)
 	if o.has("windup"):
 		_say("Its %s was broken!" % Arena.MOVES[o["windup"]["m"]]["name"])
+		_sfx("part_break", -3.0)
 		o.erase("windup")
 	o["stagger"] = SLAM_STAGGER
 	if ents[i]["team"] == 0:
@@ -1055,19 +1156,25 @@ func _wound(i: int, j: int, dmg: int, col: Color) -> void:
 	o["flash"] = 0.25
 	if o["hp"] > 0:
 		_play_act(o, "hurt")
+	if o["team"] == 1 and not o["awake"] and o["hp"] > 0:
+		_sfx("wake", -4.0)
 	o["awake"] = true
 	_pops.append({"pos": o["node"].position + Vector2(0, -26), "text": str(dmg), "t": 0.0, "col": col})
 	if o["hp"] <= 0:
 		o.erase("windup")
 		_say("%s fainted!" % o["name"])
+		_sfx("faint", -4.0)
 		if o.get("boss", false):
 			_banner_show("VICTORY!", "%s is beaten" % o["name"], Color(1, 0.9, 0.4))
+			Music.play(get_tree(), "")
+			Music.jingle(get_tree(), "victory")
 			_fade.color = Color(1, 1, 1, 0.85)   # the white flash as it falls (Rescue Team DX's boss finish)
 			var flash := create_tween()
 			flash.tween_property(_fade, "color:a", 0.0, 0.6)
 			flash.tween_callback(func() -> void: _fade.color = Color(0, 0, 0, 0))
 			_finish_after_boss.call_deferred()
 		if o["team"] == 1:
+			_gain_exp(EXP_PER_KO + EXP_PER_STAGE * int(o["stage"]) + (EXP_BOSS if o.get("boss", false) else 0))
 			if ents[i]["team"] == 0:
 				_grow(ents[i], "kos", 1)
 				_gain_iq(ents[i], IQ_PER_KO)
@@ -1080,6 +1187,7 @@ func _wound(i: int, j: int, dmg: int, col: Color) -> void:
 				o["flash"] = 0.0
 				_pops.append({"pos": o["node"].position + Vector2(0, -30), "text": "?", "t": 0.0, "col": Color(1, 0.9, 0.5)})
 				_say("%s got back up! It wants to come with you. (Y join / N leave)" % o["name"])
+				_sfx("recruit_rise", -4.0)
 				_play("res://assets/audio/sfx/ui/confirm.wav", -8.0)
 				return
 		var tw := create_tween()
@@ -1119,6 +1227,7 @@ func act_move(d: Vector2i) -> void:
 		return
 	if lead.get("snared", 0) > 0:
 		_say("%s struggles in the snare." % lead["name"])
+		_sfx("snare_struggle", -4.0)
 		await _player_turn(func() -> bool: return true)
 		return
 	if not can_step(lead["pos"], d):
@@ -1158,15 +1267,17 @@ func act_attack(slot: int) -> void:
 	var m: String = lead["moves"][slot]
 	if lead["cds"][m] > 0:
 		_say("%s needs %d more turn%s." % [Arena.MOVES[m]["name"], lead["cds"][m], "" if lead["cds"][m] == 1 else "s"])
-		_play("res://assets/audio/sfx/ui/cancel.wav", -12.0)
+		_sfx("denied", -4.0)
 		return
 	var d := aim(0, m)
+	if Arena.MOVES[m].get("heal", 0) > 0:
+		d = _dir_of(lead["facing"])   # a heal needs no target
 	if d == Vector2i.ZERO:
 		if slot == 0:
 			d = _dir_of(lead["facing"])   # a basic swing into the air still takes the turn, like a swing
 		else:
 			_say("Nothing in reach for %s." % Arena.MOVES[m]["name"])
-			_play("res://assets/audio/sfx/ui/cancel.wav", -12.0)
+			_sfx("denied", -4.0)
 			return
 	await _player_turn(func() -> bool: return await use_move(0, m, d))
 
@@ -1182,10 +1293,10 @@ func act_stairs() -> void:
 		return
 	if boss_alive():
 		_say("The stairs are sealed while %s stands." % ents[boss]["name"])
-		_play("res://assets/audio/sfx/ui/cancel.wav", -12.0)
+		_sfx("denied", -4.0)
 		return
 	busy = true
-	_play("res://assets/audio/sfx/ui/confirm.wav", -6.0)
+	_sfx("stairs", -2.0)
 	var tw := create_tween()
 	tw.tween_property(_fade, "color:a", 1.0, 0.3)
 	await tw.finished
@@ -1304,6 +1415,7 @@ func _end_battle(winner: int) -> void:
 		_say("%s is down." % ents[0]["name"])
 	else:
 		_say("You got away.")
+		_sfx("escape", -4.0)
 	# A beaten wild creature may get up and ask to join.
 	if winner == 0 and asking < 0:
 		for k in downed:
@@ -1313,6 +1425,7 @@ func _end_battle(winner: int) -> void:
 				ents[k]["awake"] = false
 				ents[k]["node"].modulate.a = 1.0
 				_say("%s got back up! It wants to come with you. (Y join / N leave)" % ents[k]["name"])
+				_sfx("recruit_rise", -4.0)
 				break
 	if ents[0]["hp"] <= 0:
 		_end_turn()   # the faint rules
@@ -1360,6 +1473,7 @@ func act_recruit(accept: bool) -> void:
 	if not accept:
 		o["hp"] = 0
 		_say("%s goes back into the hollow." % o["name"])
+		_sfx("hollow_fade", -4.0)
 		create_tween().tween_property(o["node"], "modulate:a", 0.0, 0.35)
 		return
 	var team_now := 0
@@ -1380,7 +1494,19 @@ func act_recruit(accept: bool) -> void:
 		for m in o["cds"]:
 			o["cds"][m] = 0
 		party.append([o["line"], o["stage"]])
+		if not levels.has(o["line"]):
+			levels[o["line"]] = {"lv": clampi(floor_n, 1, LEVEL_MAX), "exp": 0}
+		var rkey := "%d:%d" % [o["line"], o["stage"]]
+		if taught.has(rkey):
+			o["moves"].clear()
+			o["cds"].clear()
+			for m in taught[rkey]:
+				o["moves"].append(m)
+				o["cds"][m] = 0
+		else:
+			_store_moves(o)
 		_say("%s joined the team!" % o["name"])
+		Music.jingle(get_tree(), "recruit")
 	_play("res://assets/audio/sfx/ui/confirm.wav", -4.0)
 
 
@@ -1389,6 +1515,7 @@ func _player_turn(action: Callable) -> void:
 	if ents[0].get("stagger", 0) > 0:
 		ents[0]["stagger"] -= 1
 		_say("%s is still reeling from the slam!" % ents[0]["name"])
+		_sfx("dizzy", -4.0)
 		await _world_turn([])
 		busy = false
 		return
@@ -1430,13 +1557,14 @@ func _world_turn(lead_tweens: Array) -> void:
 			e["windup"] = {"m": plan["m"], "d": plan["d"], "tiles": move_tiles(i, plan["m"], plan["d"])}
 			e["cds"][plan["m"]] = _turns_of(plan["m"], i) + 1
 			_say("%s is gathering itself for %s!" % [e["name"], Arena.MOVES[plan["m"]]["name"]])
-			_play("res://assets/audio/sfx/arena/telegraph.wav", -10.0)
+			_sfx("windup", -6.0)
 			continue
 		if plan["kind"] == "eat":
 			_take("reedberry")
 			var heal: int = mini(15, e["max_hp"] - e["hp"])
 			e["hp"] += heal
 			_say("%s ate a Reedberry from the bag: %d back. (Berry Sense)" % [e["name"], heal])
+			_sfx("eat", -4.0)
 			_pops.append({"pos": e["node"].position + Vector2(0, -26), "text": "+%d" % heal, "t": 0.0, "col": Color(0.5, 1, 0.5)})
 			continue
 		if plan["kind"] == "move":
@@ -1466,6 +1594,9 @@ func _decide(i: int) -> Dictionary:
 		var smart := _iq_plan(i)
 		if not smart.is_empty():
 			return smart
+	var heal_plan := _heal_plan(i)
+	if not heal_plan.is_empty():
+		return heal_plan
 	var t := _target(i)
 	if t >= 0:
 		var best := {}
@@ -1610,6 +1741,27 @@ func _go_to_town(news: String) -> void:
 		set_meta("went_to_town", news)   # the checks read this instead of leaving the scene
 
 
+## The floor's track (the music brief, docs/audio/music-brief-2026-10-09.md): the Hollow's theme; the
+## deep one on the floor before the boss or when the lantern runs low; a rest floor's calm; the
+## Monster House while one is sprung; on the boss floor the scene's dread, then the Guardian.
+func music_track() -> String:
+	if floor_kind() == "boss":
+		return "" if boss >= 0 and boss_met and not boss_alive() else ("guardian" if boss_met else "boss_scene")
+	if floor_kind() == "rest":
+		return "rest_floor"
+	if monster_sprung and not house_cleared:
+		return "monster_house"
+	if floor_n == FLOORS or light < 25.0:
+		return "deep_hollow"
+	return "hollow"
+
+
+func _music_update() -> void:
+	if ents.is_empty() or ents[0]["hp"] <= 0:
+		return
+	Music.play(get_tree(), music_track())
+
+
 ## Show the next line of the scene; when the last one is read, the fight starts.
 func act_talk() -> void:
 	if talk.is_empty():
@@ -1621,11 +1773,13 @@ func act_talk() -> void:
 
 func _meet_boss() -> void:
 	boss_met = true
+	Music.play(get_tree(), "guardian")
 	for e in ents:
 		if e["team"] == 1 and (e.get("boss", false) or e.get("minion", false)):
 			e["awake"] = true
 	_banner_show(String(ents[boss]["name"]).to_upper(), "BOSS", Color(1, 0.35, 0.35))
 	_play("res://assets/audio/sfx/ui/hit_strong.wav", -2.0)
+	_sfx("boss_appear", -2.0)
 
 
 ## The boss and its helpers at the top of the arena, before the sealed stairs.
@@ -1715,6 +1869,7 @@ func _gain_iq(e: Dictionary, n: int) -> void:
 	for sk in IQ_SKILLS:
 		if was < sk["at"] and iq[e["line"]] >= sk["at"]:
 			_say("%s learned an IQ skill: %s (%s)." % [e["name"], sk["name"], sk["what"]])
+			_sfx("iq_learn", -6.0)
 			_pops.append({"pos": e["node"].position + Vector2(0, -46), "text": "IQ: %s!" % sk["name"], "t": 0.0, "col": Color(0.55, 0.85, 1.0)})
 
 
@@ -1749,20 +1904,143 @@ func _grow(e: Dictionary, what: String, n: int) -> void:
 	if not growth.has(key) or e["stage"] >= 2:
 		return
 	var was := evo_ready(e["line"], e["stage"])
-	growth[key][what] += n
+	growth[key][what] = growth[key].get(what, 0) + n
+	_tell_ready(e, was)
+
+
+## Say so when a teammate has just become ready to evolve (`was`: whether it was ready before).
+func _tell_ready(e: Dictionary, was: bool) -> void:
 	if not was and evo_ready(e["line"], e["stage"]):
 		_say("%s is ready to evolve. It will on the next floor." % e["name"])
+		_sfx("evolve_ready", -4.0)
 		_pops.append({"pos": e["node"].position + Vector2(0, -40), "text": "READY!", "t": 0.0, "col": Color(0.8, 0.6, 1.0)})
 
 
-## How far line's stage is toward evolving, 0 to 1 (the slowest of its three conditions).
+func level_of(line: int) -> int:
+	return int(levels.get(line, {}).get("lv", 1))
+
+
+## EXP a line needs to go from level lv to the next (draft for Grok).
+func exp_to_next(lv: int) -> int:
+	return 10 * lv + 10
+
+
+## The form folder of line's stage, and its basic (slot 0, never forgotten).
+func form_of(line: int, stage: int) -> String:
+	return Arena.LINES[line]["forms"][stage][0]
+
+
+func basic_of(form: String) -> String:
+	return Arena.KITS[form]["moves"][0]
+
+
+## What a creature of line's stage knows at level lv when nobody chose for it (a wild creature, a
+## recruit, a teammate with nothing stored): every LEARN move from its first form through this
+## one up to lv, each evolve move on the way, minus what this body cannot perform; the basic first,
+## then the most recent three (Grok's rule 12).
+func moves_for(line: int, stage: int, lv: int) -> Array:
+	var known: Array = []
+	for st in stage + 1:
+		for entry in LEARN.get(form_of(line, st), []):
+			var due: bool = (st > 0) if entry[0] is String else int(entry[0]) <= lv
+			if due and not entry[1] in known:
+				known.append(entry[1])
+	var form := form_of(line, stage)
+	var basic := basic_of(form)
+	var rest: Array = known.filter(func(m: String) -> bool: return m != basic and MoveBody.can_learn(form, m))
+	return [basic] + rest.slice(maxi(0, rest.size() - (MOVES_MAX - 1)))
+
+
+func _store_moves(e: Dictionary) -> void:
+	taught["%d:%d" % [e["line"], e["stage"]]] = e["moves"].duplicate()
+
+
+## Offer move m to teammate i. With room it learns at once; with four it asks at the teach panel
+## which to forget, or lets the move go. Offers wait their turn in learn_queue. On autopilot the
+## oldest move after the basic makes room, so a run is never stuck on a question.
+func _offer(i: int, m: String) -> void:
+	learn_queue.append([i, m])
+	if teach_kind == "":
+		_next_offer()
+
+
+func _next_offer() -> void:
+	while not learn_queue.is_empty():
+		var item: Array = learn_queue.pop_front()
+		var i: int = item[0]
+		var m: String = item[1]
+		if i < 0 or i >= ents.size() or ents[i]["team"] != 0 or m in ents[i]["moves"] or not MoveBody.can_learn(ents[i]["form"], m):
+			continue
+		var e: Dictionary = ents[i]
+		if e["moves"].size() < MOVES_MAX:
+			e["moves"].append(m)
+			e["cds"][m] = 0
+			_store_moves(e)
+			_say("%s learned %s!" % [e["name"], Arena.MOVES[m]["name"]])
+			_pops.append({"pos": e["node"].position + Vector2(0, -38), "text": "NEW MOVE!", "t": 0.0, "col": Color(0.85, 0.95, 0.6)})
+			_sfx("scroll", -4.0)
+			continue
+		teach_kind = "learn:" + m
+		teach_learner = i
+		teach_sel = 0
+		_say("%s wants to learn %s, but it knows four moves." % [e["name"], Arena.MOVES[m]["name"]])
+		if autopilot:
+			act_teach(i, 1)
+		return
+
+
+func _hp_at_level(base_hp: int, lv: int) -> int:
+	return int(round(base_hp * (1.0 + LEVEL_HP * (lv - 1))))
+
+
+## Every teammate still standing gets n EXP (once per line: two of a species share a level).
+## A level up adds health to the max and to what it has now, the way a level does in Explorers.
+func _gain_exp(n: int) -> void:
+	var done := {}
+	for e in ents:
+		if e["team"] != 0 or e["hp"] <= 0 or done.has(e["line"]):
+			continue
+		done[e["line"]] = true
+		var rec: Dictionary = levels.get(e["line"], {"lv": 1, "exp": 0})
+		levels[e["line"]] = rec
+		if rec["lv"] >= LEVEL_MAX:
+			continue
+		var was := evo_ready(e["line"], e["stage"])
+		var old_lv: int = rec["lv"]
+		rec["exp"] += n
+		var grew := false
+		while rec["lv"] < LEVEL_MAX and rec["exp"] >= exp_to_next(rec["lv"]):
+			rec["exp"] -= exp_to_next(rec["lv"])
+			rec["lv"] += 1
+			grew = true
+		if not grew:
+			continue
+		for t in ents:
+			if t["team"] == 0 and t["line"] == e["line"]:
+				var new_max := _hp_at_level(int(t.get("base_hp", t["max_hp"])), rec["lv"])
+				if t["hp"] > 0:
+					t["hp"] += new_max - t["max_hp"]
+				t["max_hp"] = new_max
+		_say("%s grew to Lv. %d!" % [e["name"], rec["lv"]])
+		_sfx("room_clear", -4.0)
+		_pops.append({"pos": e["node"].position + Vector2(0, -34), "text": "LV %d" % rec["lv"], "t": 0.0, "col": Color(0.6, 0.9, 1.0)})
+		_tell_ready(e, was)
+		for k in ents.size():
+			if ents[k]["team"] == 0 and ents[k]["line"] == e["line"] and ents[k]["hp"] > 0:
+				for entry in LEARN.get(ents[k]["form"], []):
+					if entry[0] is int and entry[0] > old_lv and entry[0] <= rec["lv"]:
+						_offer(k, entry[1])
+
+
+## How far line's stage is toward evolving, 0 to 1 (the slowest of its three conditions and its level).
 func evo_progress(line: int, stage: int) -> float:
 	var key := "%d:%d" % [line, stage]
 	if stage >= 2 or not EVO.has(line) or not growth.has(key):
 		return 0.0
 	var r: Dictionary = EVO[line]
 	var g: Dictionary = growth[key]
-	return minf(minf(float(g["kos"]) / r["kos"][stage], float(g["floors"]) / r["floors"][stage]), float(g[r["way"]]) / r["need"][stage])
+	var conditions := minf(minf(float(g["kos"]) / r["kos"][stage], float(g["floors"]) / r["floors"][stage]), float(g.get(r["way"], 0)) / r["need"][stage])
+	return minf(conditions, float(level_of(line)) / EVO_LEVEL[stage])
 
 
 func evo_ready(line: int, stage: int) -> bool:
@@ -1800,9 +2078,132 @@ func _evolve(list: Array) -> void:
 		flash.tween_property(_fade, "color:a", 0.0, 0.7)
 		flash.tween_callback(func() -> void: _fade.color = Color(0, 0, 0, 0))
 		_say("%s evolved into %s!" % [old_name, e["name"]])
+		_moves_on_evolving(e)
 		_banner_show("%s EVOLVED!" % old_name.to_upper(), "into %s" % e["name"], Color(0.8, 0.6, 1.0))
+		Music.jingle(get_tree(), "evolution")
 		_play("res://assets/audio/sfx/ui/confirm.wav", -2.0)
 		await get_tree().create_timer(1.6).timeout
+
+
+## Grok's rules 5, 7 and 8: the evolved body keeps every earlier move it can still perform (the
+## game says which part a lost one needed), its basic takes slot 0, a set over four asks which to
+## forget, then the evolve move and any level moves already due are offered in list order.
+func _moves_on_evolving(e: Dictionary) -> void:
+	var old: Array = taught.get("%d:%d" % [e["line"], e["stage"] - 1], moves_for(e["line"], e["stage"] - 1, level_of(e["line"])))
+	var basic := basic_of(e["form"])
+	var kept: Array = [basic]
+	for m in old:
+		if m in kept:
+			continue
+		if MoveBody.can_learn(e["form"], m):
+			kept.append(m)
+		else:
+			_say("%s can't use %s any more: it has no %s." % [e["name"], Arena.MOVES[m]["name"], " or ".join(MoveBody.missing(e["form"], m))])
+	e["moves"].clear()
+	e["cds"].clear()
+	for m in kept.slice(0, MOVES_MAX):
+		e["moves"].append(m)
+		e["cds"][m] = 0
+	_store_moves(e)
+	var i := ents.find(e)
+	for m in kept.slice(MOVES_MAX):
+		_offer(i, m)
+	for entry in LEARN.get(e["form"], []):
+		if entry[0] is String:
+			_offer(i, entry[1])
+	for entry in LEARN.get(e["form"], []):
+		if entry[0] is int and entry[0] <= level_of(e["line"]):
+			_offer(i, entry[1])
+
+
+## Seep (Claude, 2026-10-10; Preston chose the healer line and asked how its arches and roots
+## work): the healer plants its roots and a spring wells up under it. It heals itself and every
+## teammate beside it at once and again at the end of each turn it stays on that tile, for
+## SEEP_TURNS turns; while it seeps it cannot be knocked back; moving pulls the roots up and the
+## spring sinks. Numbers are drafts for Grok ("heal" on the move, SEEP_TURNS).
+const SEEP_TURNS := 3
+
+
+func _seep(i: int, m: String) -> bool:
+	var e: Dictionary = ents[i]
+	e["cds"][m] = _turns_of(m, i)
+	_say("%s used %s! A spring wells up under it." % [e["name"], Arena.MOVES[m]["name"]])
+	_callout(e, m)
+	_sfx("revive", -6.0)
+	var pool := Polygon2D.new()
+	var pts := PackedVector2Array()
+	for k in 16:
+		pts.append(Vector2(cos(k * TAU / 16.0) * 18.0, sin(k * TAU / 16.0) * 7.0))
+	pool.polygon = pts
+	pool.color = Color(0.45, 0.8, 0.85, 0.45)
+	pool.position = _tile_px(e["pos"]) + Vector2(0, 2)
+	pool.z_index = -1
+	_world.add_child(pool)
+	if e.has("seep") and is_instance_valid(e["seep"]["node"]):
+		e["seep"]["node"].queue_free()
+	e["seep"] = {"turns": SEEP_TURNS, "pos": e["pos"], "heal": int(Arena.MOVES[m]["heal"]), "node": pool}
+	_heal_around(i)
+	await get_tree().create_timer(HIT_TIME).timeout
+	return true
+
+
+## The spring heals the healer and every teammate beside it (8 tiles round).
+func _heal_around(i: int) -> void:
+	var e: Dictionary = ents[i]
+	var total := 0
+	for o in ents:
+		if o["team"] != e["team"] or o["hp"] <= 0 or o["hp"] >= o["max_hp"] or _cheb(o["pos"], e["pos"]) > 1:
+			continue
+		var n: int = mini(e["seep"]["heal"], o["max_hp"] - o["hp"])
+		o["hp"] += n
+		total += n
+		_pops.append({"pos": o["node"].position + Vector2(0, -26), "text": "+%d" % n, "t": 0.0, "col": Color(0.55, 0.95, 0.85)})
+	if total > 0 and e["team"] == 0:
+		_grow(e, "healed", total)
+
+
+## End of a turn: each spring heals again, or sinks when its healer moved, fainted or ran dry.
+func _springs() -> void:
+	for k in ents.size():
+		var e: Dictionary = ents[k]
+		if not e.has("seep"):
+			continue
+		var s: Dictionary = e["seep"]
+		if e["hp"] <= 0 or e["pos"] != s["pos"]:
+			if e["hp"] > 0:
+				_say("%s pulled its roots up; the spring sinks." % e["name"])
+			_end_seep(e)
+			continue
+		_heal_around(k)
+		s["turns"] -= 1
+		if s["turns"] <= 0:
+			_end_seep(e)
+
+
+func _end_seep(e: Dictionary) -> void:
+	if is_instance_valid(e["seep"]["node"]):
+		e["seep"]["node"].queue_free()
+	e.erase("seep")
+
+
+## A healer's choice (any creature that knows a heal, wild or yours): seep when it and the
+## teammates beside it are missing at least one full heal between them (the spring keeps
+## healing for SEEP_TURNS more), and it is not already on a spring.
+func _heal_plan(i: int) -> Dictionary:
+	var e: Dictionary = ents[i]
+	if e.has("seep"):
+		return {}
+	for m in e["moves"]:
+		var heal: int = Arena.MOVES[m].get("heal", 0)
+		if heal <= 0 or e["cds"][m] > 0:
+			continue
+		var missing := 0
+		for o in ents:
+			if o["team"] == e["team"] and o["hp"] > 0 and _cheb(o["pos"], e["pos"]) <= 1:
+				missing += mini(heal, o["max_hp"] - o["hp"])
+		if missing >= heal:
+			return {"kind": "attack", "m": m, "d": _dir_of(e["facing"])}
+	return {}
 
 
 ## An item's name, colour and line: the fixed ITEMS, or a scroll made from its move.
@@ -1826,7 +2227,7 @@ func scroll_pool() -> Array:
 ## The teach panel's rows: first every teammate and whether it can learn the scroll's move,
 ## then (once one is chosen and its moves are full) the moves it could forget.
 func teach_rows() -> Array:
-	var m := teach_kind.substr(7)
+	var m := teach_kind.get_slice(":", 1)
 	var rows: Array = []
 	if teach_learner < 0:
 		for i in ents.size():
@@ -1843,20 +2244,29 @@ func teach_rows() -> Array:
 		var e: Dictionary = ents[teach_learner]
 		for slot in range(1, e["moves"].size()):   # the basic attack is never forgotten
 			rows.append({"slot": slot, "text": "FORGET %s" % String(Arena.MOVES[e["moves"][slot]]["name"]).to_upper(), "ok": true})
+		if teach_kind.begins_with("learn:"):
+			rows.append({"slot": -2, "text": "DON'T LEARN %s" % String(Arena.MOVES[m]["name"]).to_upper(), "ok": true})
 	return rows
 
 
 ## Teach the open scroll's move to teammate i. With four moves already, it needs the slot to
 ## forget (1 to 3); without one, the panel asks. Costs no turn. Returns what happened.
 func act_teach(i: int, forget := -1) -> String:
-	var m := teach_kind.substr(7)
+	var m := teach_kind.get_slice(":", 1)
 	var e: Dictionary = ents[i]
+	var level_learn := teach_kind.begins_with("learn:")   # offered by a level or an evolution, not a scroll
+	if level_learn and forget == -2:
+		_say("%s did not learn %s." % [e["name"], Arena.MOVES[m]["name"]])
+		teach_kind = ""
+		teach_learner = -1
+		_next_offer()
+		return "refused"
 	if m in e["moves"]:
 		_say("%s already knows %s." % [e["name"], Arena.MOVES[m]["name"]])
 		return "knows"
 	if not MoveBody.can_learn(e["form"], m):
 		_say("%s can't learn %s: it has no %s." % [e["name"], Arena.MOVES[m]["name"], " or ".join(MoveBody.missing(e["form"], m))])
-		_play("res://assets/audio/sfx/ui/cancel.wav", -12.0)
+		_sfx("denied", -4.0)
 		return "body"
 	if e["moves"].size() >= MOVES_MAX:
 		if forget < 1 or forget >= e["moves"].size():
@@ -1872,12 +2282,15 @@ func act_teach(i: int, forget := -1) -> String:
 		e["moves"].append(m)
 		_say("%s learned %s!" % [e["name"], Arena.MOVES[m]["name"]])
 	e["cds"][m] = 0
-	taught["%d:%d" % [e["line"], e["stage"]]] = e["moves"].duplicate()
-	_take(teach_kind)
+	_store_moves(e)
+	if not level_learn:
+		_take(teach_kind)
 	teach_kind = ""
 	teach_learner = -1
 	_pops.append({"pos": e["node"].position + Vector2(0, -38), "text": "NEW MOVE!", "t": 0.0, "col": Color(0.85, 0.95, 0.6)})
-	_play("res://assets/audio/sfx/ui/confirm.wav", -6.0)
+	_sfx("scroll", -4.0)
+	if level_learn:
+		_next_offer()
 	return "learned"
 
 
@@ -1914,6 +2327,7 @@ func _target(i: int) -> int:
 
 
 func _end_turn() -> void:
+	_springs()
 	for e in ents:
 		for m in e["cds"]:
 			e["cds"][m] = maxi(0, e["cds"][m] - 1)
@@ -1921,7 +2335,14 @@ func _end_turn() -> void:
 			e["hp"] = mini(e["max_hp"], e["hp"] + 1)
 		e["snared"] = maxi(0, e.get("snared", 0) - 1)
 	if turn % LIGHT_DRAIN_EVERY == 0:
+		var was_light := light
 		light = maxf(0.0, light - 1.0)
+		if was_light >= 25.0 and light < 25.0:
+			_sfx("lantern_low", -4.0)
+		if was_light > 0.0 and light == 0.0:
+			_sfx("lantern_out", -4.0)
+		if light < 25.0 and music_track() == "deep_hollow":
+			_music_update()
 		if light == 0.0 and turn % (LIGHT_DRAIN_EVERY * 10) == 0:
 			_say("The lantern is out. Only what is close can be seen.")
 	_pick_up()
@@ -1931,7 +2352,9 @@ func _end_turn() -> void:
 		house_cleared = true
 		light = minf(LIGHT_MAX, light + MONSTER_HOUSE_LIGHT)
 		_say("The Monster House is cleared! The lantern burns brighter.")
+		_sfx("room_clear", -3.0)
 		_banner_show("CLEARED!", "the Monster House", Color(0.6, 1, 0.6))
+	_music_update()   # back to the floor's track, or to the deep one when the lantern runs low
 	for e in ents:
 		e["moved"] = false
 	# Wild creatures wake when one of yours comes into sight.
@@ -1951,6 +2374,7 @@ func _end_turn() -> void:
 		ents[0]["hp"] = ents[0]["max_hp"] / 2
 		ents[0]["node"].modulate.a = 1.0
 		_say("The Rally Seed! %s gets back up." % ents[0]["name"])
+		_sfx("revive", -3.0)
 	if ents[0]["hp"] <= 0:
 		faints += 1
 		bag = {"reedberry": 1}   # fainting loses the bag (Explorers of Sky); a fresh run starts with one berry
@@ -1959,6 +2383,8 @@ func _end_turn() -> void:
 		asking = -1
 		light = LIGHT_MAX
 		_say("%s fainted! The team is carried back to the entrance." % ents[0]["name"])
+		Music.play(get_tree(), "")
+		Music.jingle(get_tree(), "fainted")
 		floor_n = 1
 		floor_seed = randi()
 		if return_to_town:
@@ -2023,11 +2449,12 @@ func _pick_up() -> void:
 			continue
 		if not bag.has(it["kind"]) and bag.size() >= BAG_KINDS:
 			_say("The bag is full; the %s stays on the floor." % item_info(it["kind"])["name"])
+			_sfx("denied", -6.0)
 			continue
 		bag[it["kind"]] = bag.get(it["kind"], 0) + 1
 		floor_items.remove_at(k)
 		_say("Picked up a %s." % item_info(it["kind"])["name"])
-		_play("res://assets/audio/sfx/ui/confirm.wav", -12.0)
+		_sfx("pickup", -6.0)
 
 
 func _spring_traps() -> void:
@@ -2039,7 +2466,7 @@ func _spring_traps() -> void:
 				continue
 			tr["seen"] = true
 			_say("%s stepped on a %s!" % [e["name"], TRAPS[tr["kind"]]["name"]])
-			_play("res://assets/audio/sfx/ui/cancel.wav", -8.0)
+			_sfx("trap_" + String(tr["kind"]), -3.0)
 			match tr["kind"]:
 				"snare":
 					e["snared"] = 3   # this turn's tick takes one, so it holds for 2 turns
@@ -2065,8 +2492,9 @@ func _monster_house() -> void:
 		return
 	monster_sprung = true
 	_say("It's a Monster House!")
+	Music.play(get_tree(), "monster_house")
 	_banner_show("MONSTER HOUSE!", "", Color(1, 0.45, 0.3))
-	_play("res://assets/audio/sfx/ui/hit_strong.wav", -4.0)
+	_sfx("monster_ambush", -2.0)
 	var area := 0
 	for y in range(monster_room.position.y, monster_room.end.y):
 		for x in range(monster_room.position.x, monster_room.end.x):
@@ -2126,12 +2554,14 @@ func act_use_item(kind: String) -> void:
 				var heal: int = mini(15, lead["max_hp"] - lead["hp"])
 				lead["hp"] += heal
 				_say("%s ate a Reedberry: %d back." % [lead["name"], heal])
+				_sfx("eat", -4.0)
 				return true)
 		"lamp_oil":
 			_take(kind)
 			await _player_turn(func() -> bool:
 				light = minf(LIGHT_MAX, light + 40.0)
 				_say("The lantern burns brighter.")
+				_sfx("lantern_up", -4.0)
 				_reveal()
 				return true)
 		"river_stone":
@@ -2142,7 +2572,7 @@ func act_use_item(kind: String) -> void:
 					break
 			if d == Vector2i.ZERO:
 				_say("Nothing in a line to throw the stone at.")
-				_play("res://assets/audio/sfx/ui/cancel.wav", -12.0)
+				_sfx("denied", -4.0)
 				return
 			_take(kind)
 			await _player_turn(func() -> bool:
@@ -2155,6 +2585,7 @@ func act_use_item(kind: String) -> void:
 				ents[j]["awake"] = true
 				_pops.append({"pos": ents[j]["node"].position + Vector2(0, -26), "text": "8", "t": 0.0, "col": Color(1, 1, 1)})
 				_say("%s threw a River Stone: %s took 8 damage." % [lead["name"], ents[j]["name"]])
+				_sfx("throw", -4.0)
 				if ents[j]["hp"] <= 0:
 					_say("%s fainted!" % ents[j]["name"])
 					light = minf(LIGHT_MAX, light + LIGHT_ON_KO)
@@ -2276,7 +2707,11 @@ func _poll(delta: float) -> void:
 			else:
 				act_teach(teach_learner, rows[teach_sel]["slot"])
 		elif _tapped(KEY_ESCAPE) or _tapped(KEY_I):
-			teach_kind = ""
+			if teach_kind.begins_with("learn:"):
+				act_teach(teach_learner, -2)   # letting a level's move go
+			else:
+				teach_kind = ""
+				teach_learner = -1
 		return
 	if bag_open:
 		# The bag: W and S choose, J or Enter uses, I or Escape closes.
@@ -2290,6 +2725,7 @@ func _poll(delta: float) -> void:
 			act_use_item(kinds[clampi(bag_sel, 0, kinds.size() - 1)])
 		elif _tapped(KEY_I) or _tapped(KEY_ESCAPE):
 			bag_open = false
+			_sfx("menu_close", -4.0)
 		return
 	var d := Vector2i(int(_key(KEY_D) or _key(KEY_RIGHT)) - int(_key(KEY_A) or _key(KEY_LEFT)), int(_key(KEY_S) or _key(KEY_DOWN)) - int(_key(KEY_W) or _key(KEY_UP)))
 	if d == Vector2i.ZERO:
@@ -2313,6 +2749,7 @@ func _poll(delta: float) -> void:
 	if _tapped(KEY_I):
 		bag_open = not bag_open
 		bag_sel = 0
+		_sfx("menu_open", -4.0)
 		return
 	if _tapped(KEY_Z) or _tapped(KEY_PERIOD):
 		act_rest()
@@ -2481,7 +2918,21 @@ func _draw_fx() -> void:
 		_fx.draw_string(FONT, (p["pos"] + Vector2(-6, -14.0 * p["t"])).round(), p["text"], HORIZONTAL_ALIGNMENT_LEFT, -1, 8, Color(p["col"], a))
 
 
+var _portraits := {}
+
+
+## A creature's small square portrait, or null when its form has none yet.
+func portrait_of(form: String) -> Texture2D:
+	if not _portraits.has(form):
+		var path := "res://assets/sprites/arena/%s/portrait.png" % form
+		_portraits[form] = load(path) if ResourceLoader.exists(path) else null
+	return _portraits[form]
+
+
 func _draw_hud() -> void:
+	# One look for every screen (scripts/ui/ui_style.gd, Codex's title and pause menu colours), laid
+	# out the way Explorers of Sky lays its dungeon out: the floor and the team at the top left, the
+	# message box at the bottom with names in colour, the map at the top right. Claude, 2026-10-10.
 	if ents.is_empty():
 		return
 	var h := _hud
@@ -2490,101 +2941,128 @@ func _draw_hud() -> void:
 	var since: float = (Time.get_ticks_msec() - int(_banner["at"])) / 1000.0
 	if since < 2.2 and _banner["text"] != "":
 		var a: float = clampf(minf(since / 0.15, (2.2 - since) / 0.4), 0.0, 1.0)
-		h.draw_rect(Rect2(0, 230, 1152, 92), Color(0, 0, 0, 0.55 * a))
-		h.draw_string(FONT, Vector2(0, 286), _banner["text"], HORIZONTAL_ALIGNMENT_CENTER, 1152, 40, Color(_banner["col"], a))
+		h.draw_rect(Rect2(0, 226, 1152, 100), Color(UI.PANEL, 0.78 * a))
+		h.draw_rect(Rect2(0, 226, 1152, 2), Color(UI.EDGE, a))
+		h.draw_rect(Rect2(0, 324, 1152, 2), Color(UI.EDGE, a))
+		UI.text(h, Vector2(0, 288), _banner["text"], 46, Color(_banner["col"], a), 1152, HORIZONTAL_ALIGNMENT_CENTER)
 		if _banner["sub"] != "":
-			h.draw_string(FONT, Vector2(0, 312), String(_banner["sub"]).to_upper(), HORIZONTAL_ALIGNMENT_CENTER, 1152, 12, Color(1, 1, 1, 0.8 * a))
-	if not talk.is_empty():
-		var box := Rect2(196, 470, 760, 92)
-		h.draw_rect(box, Color(0.05, 0.07, 0.1, 0.94))
-		h.draw_rect(box, Color(0.75, 0.85, 1.0), false, 2.0)
-		h.draw_string(FONT, box.position + Vector2(18, 26), String(talk[0][0]).to_upper(), HORIZONTAL_ALIGNMENT_LEFT, 724, 12, Color(1, 0.85, 0.4))
-		h.draw_string(FONT, box.position + Vector2(18, 54), talk[0][1], HORIZONTAL_ALIGNMENT_LEFT, 724, 12, Color(1, 1, 1))
-		h.draw_string(FONT, box.position + Vector2(18, 80), "J  NEXT", HORIZONTAL_ALIGNMENT_LEFT, 724, 9, Color(1, 1, 1, 0.5))
-	if boss_alive() and boss_met:
-		var bb: Dictionary = ents[boss]
-		h.draw_string(FONT, Vector2(376, 64), String(bb["name"]).to_upper(), HORIZONTAL_ALIGNMENT_CENTER, 400, 12, Color(1, 0.6, 0.55))
-		h.draw_rect(Rect2(376, 72, 400, 8), Color(0, 0, 0, 0.6))
-		h.draw_rect(Rect2(376, 72, 400.0 * bb["hp"] / bb["max_hp"], 8), Color(0.9, 0.25, 0.25))
-	h.draw_string(FONT, Vector2(16, 24), "WASD MOVE (TWO KEYS FOR DIAGONALS)   SHIFT TURN   J / CLICK ATTACK   1 2 3 MOVES   I BAG   T TEAM   Z REST   E STAIRS   TAB AUTO", HORIZONTAL_ALIGNMENT_LEFT, -1, 11, Color(1, 1, 1, 0.75))
-	# The team: floor, names and health.
-	h.draw_string(FONT, Vector2(16, 56), "B%dF" % floor_n, HORIZONTAL_ALIGNMENT_LEFT, -1, 20, Color("#F0F4F8"))
+			UI.text(h, Vector2(0, 314), String(_banner["sub"]), 20, Color(UI.TEXT, 0.85 * a), 1152, HORIZONTAL_ALIGNMENT_CENTER)
+	# The floor and the lantern.
+	UI.panel(h, Rect2(12, 10, 330, 46))
+	UI.text(h, Vector2(26, 44), "B%dF" % floor_n, 28, UI.EDGE_LIGHT)
+	UI.text(h, Vector2(104, 29), "Lantern", 15, UI.MUTED)
+	UI.bar(h, Rect2(104, 36, 170, 9), light / LIGHT_MAX, UI.LIGHT)
+	UI.text(h, Vector2(282, 46), "%d" % int(light), 17, UI.LIGHT)
+	# The team: name, level, health, and a sliver of the way to evolving.
+	var team: Array = ents.filter(func(e: Dictionary) -> bool: return e["team"] == 0)
+	UI.panel(h, Rect2(12, 62, 330, 40 + 50 * team.size()))
 	var y := 70.0
-	for e in ents:
-		if e["team"] != 0:
-			continue
+	for e in team:
 		var k: float = float(e["hp"]) / e["max_hp"]
-		h.draw_string(FONT, Vector2(16, y + 12), "%s  %d/%d%s" % [e["name"].to_upper(), e["hp"], e["max_hp"], "" if e == ents[0] else "  IQ %d" % iq_of(e)], HORIZONTAL_ALIGNMENT_LEFT, -1, 11, Color("#F0F4F8") if e["hp"] > 0 else Color(1, 0.4, 0.3))
-		h.draw_rect(Rect2(16, y + 16, 160, 6), Color(0.1, 0.1, 0.12, 0.8))
-		h.draw_rect(Rect2(16, y + 16, 160 * k, 6), Color("#5fd17a") if k > 0.5 else (Color("#e8c547") if k > 0.25 else Color("#e8574a")))
+		var down: bool = e["hp"] <= 0
+		# Its portrait (tools/arena/build_portraits.py: a 48 px square cut from its own front sprite).
+		var face := portrait_of(e["form"])
+		h.draw_rect(Rect2(20, y + 1, 48, 48), Color(UI.PORTRAIT_BG, 0.55) if down else UI.PORTRAIT_BG)
+		if face != null:
+			h.draw_texture(face, Vector2(20, y + 1), Color(0.45, 0.45, 0.45, 0.8) if down else Color.WHITE)
+		h.draw_rect(Rect2(20, y + 1, 48, 48), UI.EDGE_LIGHT if e == ents[0] else UI.EDGE, false, 1.0)
+		UI.text(h, Vector2(76, y + 20), String(e["name"]), 19, UI.HP_LOW if down else (UI.EDGE_LIGHT if e == ents[0] else UI.TEXT))
+		var tag := "Lv %d" % level_of(e["line"]) + ("" if e == ents[0] else "   IQ %d" % iq_of(e))
+		UI.text(h, Vector2(76, y + 20), tag, 15, UI.MUTED, 254, HORIZONTAL_ALIGNMENT_RIGHT)
+		UI.bar(h, Rect2(76, y + 27, 178, 9), k, UI.hp_col(k))
+		UI.text(h, Vector2(262, y + 37), "%d/%d" % [e["hp"], e["max_hp"]], 15, UI.TEXT)
 		if e["stage"] < 2:
 			var g: float = evo_progress(e["line"], e["stage"])
-			h.draw_rect(Rect2(16, y + 23, 160, 2), Color(0.1, 0.1, 0.12, 0.8))
-			h.draw_rect(Rect2(16, y + 23, 160 * g, 2), Color(0.8, 0.6, 1.0) if g < 1.0 else Color(1, 0.9, 1.0))
-		y += 28.0
-	if asking >= 0 and asking < ents.size():
-		var ask_box := Rect2(360, 200, 432, 70)
-		h.draw_rect(ask_box, Color(0.05, 0.07, 0.1, 0.92))
-		h.draw_rect(ask_box, Color(1, 0.85, 0.4), false, 2.0)
-		h.draw_string(FONT, ask_box.position + Vector2(14, 28), "%s WANTS TO JOIN YOUR TEAM" % String(ents[asking]["name"]).to_upper(), HORIZONTAL_ALIGNMENT_LEFT, 404, 12, Color(1, 0.85, 0.4))
-		h.draw_string(FONT, ask_box.position + Vector2(14, 52), "Y  WELCOME IT       N  LET IT GO", HORIZONTAL_ALIGNMENT_LEFT, 404, 11, Color(1, 1, 1, 0.9))
-	# The lantern.
-	h.draw_string(FONT, Vector2(16, y + 12), "LANTERN  %d" % int(light), HORIZONTAL_ALIGNMENT_LEFT, -1, 11, Color("#f2c14e"))
-	h.draw_rect(Rect2(16, y + 16, 160, 6), Color(0.1, 0.1, 0.12, 0.8))
-	h.draw_rect(Rect2(16, y + 16, 160 * light / LIGHT_MAX, 6), Color("#f2c14e"))
+			h.draw_rect(Rect2(76, y + 40, 178, 3), Color(0, 0, 0, 0.5))
+			h.draw_rect(Rect2(76, y + 40, 178 * g, 3), UI.EVO if g < 1.0 else UI.TEXT)
+		y += 50.0
 	var bag_n := 0
-	for k in bag:
-		bag_n += bag[k]
-	h.draw_string(FONT, Vector2(16, y + 44), "BAG  %d ITEMS (I)" % bag_n, HORIZONTAL_ALIGNMENT_LEFT, -1, 11, Color(1, 1, 1, 0.8))
-	h.draw_string(FONT, Vector2(16, y + 60), "TEAM  %s (T)" % TACTIC_NAMES[tactic], HORIZONTAL_ALIGNMENT_LEFT, -1, 11, Color(0.6, 0.9, 1.0, 0.9))
-	if bag_open:
-		var kinds: Array = bag.keys()
-		var box := Rect2(360, 140, 432, 40 + 26 * maxi(1, kinds.size()))
-		h.draw_rect(box, Color(0.05, 0.07, 0.1, 0.92))
-		h.draw_rect(box, Color(1, 0.85, 0.4), false, 2.0)
-		h.draw_string(FONT, box.position + Vector2(14, 24), "BAG   W/S CHOOSE   J USE   I CLOSE", HORIZONTAL_ALIGNMENT_LEFT, -1, 11, Color(1, 0.85, 0.4))
-		if kinds.is_empty():
-			h.draw_string(FONT, box.position + Vector2(14, 52), "EMPTY", HORIZONTAL_ALIGNMENT_LEFT, -1, 11, Color(1, 1, 1, 0.6))
-		for k in kinds.size():
-			var it: Dictionary = item_info(kinds[k])
-			var yy: float = box.position.y + 52 + k * 26
-			if k == bag_sel:
-				h.draw_rect(Rect2(box.position.x + 6, yy - 16, box.size.x - 12, 22), Color(1, 1, 1, 0.12))
-			h.draw_circle(Vector2(box.position.x + 22, yy - 5), 6.0, it["col"])
-			h.draw_string(FONT, Vector2(box.position.x + 36, yy), "%s  x%d   %s" % [String(it["name"]).to_upper(), bag[kinds[k]], String(it["what"]).to_upper()], HORIZONTAL_ALIGNMENT_LEFT, box.size.x - 44, 10, Color(1, 1, 1, 0.9))
-	if teach_kind != "":
-		var rows := teach_rows()
-		var tbox := Rect2(360, 140, 432, 64 + 26 * maxi(1, rows.size()))
-		h.draw_rect(tbox, Color(0.05, 0.07, 0.1, 0.94))
-		h.draw_rect(tbox, Color("#d8c08a"), false, 2.0)
-		var title: String = item_info(teach_kind)["name"]
-		h.draw_string(FONT, tbox.position + Vector2(14, 24), title.to_upper() + ("   WHO LEARNS IT?" if teach_learner < 0 else "   FORGET WHICH?"), HORIZONTAL_ALIGNMENT_LEFT, 404, 11, Color("#d8c08a"))
-		h.draw_string(FONT, tbox.position + Vector2(14, 42), "W/S CHOOSE   J TEACH   ESC CLOSE", HORIZONTAL_ALIGNMENT_LEFT, 404, 9, Color(1, 1, 1, 0.6))
-		for k in rows.size():
-			var yy: float = tbox.position.y + 70 + k * 26
-			if k == teach_sel:
-				h.draw_rect(Rect2(tbox.position.x + 6, yy - 16, tbox.size.x - 12, 22), Color(1, 1, 1, 0.12))
-			h.draw_string(FONT, Vector2(tbox.position.x + 18, yy), rows[k]["text"], HORIZONTAL_ALIGNMENT_LEFT, 396, 10, Color(1, 1, 1, 0.95) if rows[k]["ok"] else Color(1, 0.55, 0.45, 0.85))
-	# The leader's moves.
+	for kk in bag:
+		bag_n += bag[kk]
+	UI.text(h, Vector2(24, y + 20), "Bag %d    Orders: %s" % [bag_n, String(TACTIC_NAMES[tactic]).capitalize()], 15, UI.MUTED)
+	if boss_alive() and boss_met:
+		var bb: Dictionary = ents[boss]
+		UI.panel(h, Rect2(396, 10, 360, 46))
+		UI.text(h, Vector2(396, 32), String(bb["name"]), 19, UI.FOE, 360, HORIZONTAL_ALIGNMENT_CENTER)
+		UI.bar(h, Rect2(412, 40, 328, 9), float(bb["hp"]) / bb["max_hp"], UI.HP_LOW)
+	# The leader's moves, two by two at the bottom left.
 	var lead: Dictionary = ents[0]
 	for s in lead["moves"].size():
 		var m: String = lead["moves"][s]
-		var box := Rect2(16 + s * 136, 560, 128, 40)
-		var ready: bool = lead["cds"][m] == 0
-		h.draw_rect(box, Color(0.07, 0.09, 0.11, 0.85))
-		h.draw_rect(box, Color(1, 0.85, 0.4) if ready else Color("#75604D"), false, 2.0)
-		h.draw_string(FONT, box.position + Vector2(6, 16), ("J" if s == 0 else str(s)) + "  " + String(Arena.MOVES[m]["name"]).to_upper(), HORIZONTAL_ALIGNMENT_LEFT, 120, 9, Color(1, 1, 1, 0.95 if ready else 0.5))
+		var box := Rect2(12 + (s % 2) * 162, 530 + (s / 2) * 54, 156, 48)
+		var ready: bool = lead["cds"].get(m, 0) == 0
+		UI.panel(h, box, 0.9 if ready else 0.7)
+		if not ready:
+			h.draw_rect(box.grow(-2.0), Color(0, 0, 0, 0.35))
+		h.draw_rect(Rect2(box.position + Vector2(6, 7), Vector2(22, 22)), Color(UI.EDGE_LIGHT if ready else UI.EDGE, 0.9 if ready else 0.4), false, 1.0)
+		UI.text(h, box.position + Vector2(6, 25), "J" if s == 0 else str(s), 16, UI.EDGE_LIGHT if ready else UI.MUTED, 22, HORIZONTAL_ALIGNMENT_CENTER)
+		UI.text(h, box.position + Vector2(34, 23), String(Arena.MOVES[m]["name"]), 17, Color(UI.TEXT, 1.0 if ready else 0.55), 118)
 		var r := move_reach(m)
-		h.draw_string(FONT, box.position + Vector2(6, 32), ("%s %d" % [r["kind"].to_upper(), r["n"]]) + ("" if ready else "   %d TURNS" % lead["cds"][m]), HORIZONTAL_ALIGNMENT_LEFT, 120, 8, Color(1, 1, 1, 0.6))
-	# The message log, Explorers of Sky style (hidden while a scene's dialogue is showing).
-	var ly := 470.0
+		var sub: String = ("%s %d" % [String(r["kind"]).capitalize(), r["n"]]) if ready else ("%d turn%s" % [lead["cds"][m], "" if lead["cds"][m] == 1 else "s"])
+		if Arena.MOVES[m].get("heal", 0) > 0 and ready:
+			sub = "Heal"
+		UI.text(h, box.position + Vector2(34, 41), sub, 14, UI.MUTED if ready else UI.HP_MID, 118)
+	# The message box (hidden while a scene's dialogue is showing), names in colour.
 	if talk.is_empty():
-		h.draw_rect(Rect2(600, ly - 16, 536, 92), Color(0.05, 0.07, 0.1, 0.75))
-	var shown: Array = log_lines.slice(maxi(0, log_lines.size() - 5)) if talk.is_empty() else []
-	for k in shown.size():
-		h.draw_string(FONT, Vector2(612, ly + k * 17), shown[k], HORIZONTAL_ALIGNMENT_LEFT, 516, 10, Color(1, 1, 1, 0.55 + 0.45 * float(k + 1) / shown.size()))
+		var lb := Rect2(342, 530, 596, 102)
+		UI.panel(h, lb, 0.86)
+		var marks := {}
+		for e in ents:
+			if not marks.has(e["name"]):
+				marks[e["name"]] = UI.ALLY if e["team"] == 0 else UI.FOE
+		var shown: Array = log_lines.slice(maxi(0, log_lines.size() - 4))
+		for k in shown.size():
+			UI.rich(h, lb.position + Vector2(14, 25 + k * 22), shown[k], 16, marks, 0.6 + 0.4 * float(k + 1) / shown.size(), 568)
+	# The keys, short; the full list is under the menu's Controls.
+	for k in 3:
+		UI.text(h, Vector2(946, 546 + k * 17), ["J attack   1 2 3 moves", "I bag   T orders   Z rest", "E stairs   Tab autopilot"][k], 14, Color(UI.MUTED, 0.85), 194, HORIZONTAL_ALIGNMENT_RIGHT)
+	# A scene's dialogue.
+	if not talk.is_empty():
+		var box := Rect2(196, 424, 760, 100)
+		UI.panel(h, box, 0.95)
+		UI.text(h, box.position + Vector2(20, 30), String(talk[0][0]), 21, UI.EDGE_LIGHT)
+		UI.text(h, box.position + Vector2(20, 60), talk[0][1], 19, UI.TEXT, 720)
+		UI.text(h, box.position + Vector2(20, 88), "J  next", 15, UI.MUTED, 720, HORIZONTAL_ALIGNMENT_RIGHT)
+	# A beaten creature asking to join.
+	if asking >= 0 and asking < ents.size():
+		var ask_box := Rect2(336, 196, 480, 88)
+		UI.panel(h, ask_box, 0.96)
+		UI.text(h, ask_box.position + Vector2(20, 34), "%s wants to join your team" % String(ents[asking]["name"]), 21, UI.EDGE_LIGHT, 440)
+		UI.text(h, ask_box.position + Vector2(20, 66), "Y  welcome it          N  let it go", 18, UI.TEXT, 440)
+	if bag_open:
+		var kinds: Array = bag.keys()
+		var box := Rect2(336, 120, 480, 62 + 34 * maxi(1, kinds.size()))
+		UI.panel(h, box, 0.96)
+		UI.text(h, box.position + Vector2(20, 32), "Bag", 22, UI.EDGE_LIGHT)
+		UI.text(h, box.position + Vector2(20, 32), "W/S choose   J use   I close", 14, UI.MUTED, 440, HORIZONTAL_ALIGNMENT_RIGHT)
+		if kinds.is_empty():
+			UI.text(h, box.position + Vector2(20, 70), "Empty", 18, UI.MUTED)
+		for k in kinds.size():
+			var it: Dictionary = item_info(kinds[k])
+			var yy: float = box.position.y + 70 + k * 34
+			if k == bag_sel:
+				h.draw_rect(Rect2(box.position.x + 8, yy - 22, box.size.x - 16, 30), UI.FOCUS)
+				h.draw_rect(Rect2(box.position.x + 8, yy - 22, box.size.x - 16, 30), UI.EDGE_LIGHT, false, 1.0)
+			h.draw_circle(Vector2(box.position.x + 28, yy - 7), 7.0, it["col"])
+			UI.text(h, Vector2(box.position.x + 44, yy), "%s  x%d" % [String(it["name"]), bag[kinds[k]]], 18, UI.TEXT, 200)
+			UI.text(h, Vector2(box.position.x + 244, yy), String(it["what"]), 14, UI.MUTED, 220)
+	if teach_kind != "":
+		var rows := teach_rows()
+		var tbox := Rect2(336, 120, 480, 84 + 32 * maxi(1, rows.size()))
+		UI.panel(h, tbox, 0.96)
+		var title: String = ("%s: %s" % [ents[teach_learner]["name"], Arena.MOVES[teach_kind.get_slice(":", 1)]["name"]]) if teach_kind.begins_with("learn:") else item_info(teach_kind)["name"]
+		UI.text(h, tbox.position + Vector2(20, 32), title, 21, UI.EDGE_LIGHT, 440)
+		UI.text(h, tbox.position + Vector2(20, 56), "Who learns it?" if teach_learner < 0 else "It knows four moves. Forget one?", 16, UI.TEXT, 300)
+		UI.text(h, tbox.position + Vector2(20, 56), "W/S choose   J pick   Esc close", 14, UI.MUTED, 440, HORIZONTAL_ALIGNMENT_RIGHT)
+		for k in rows.size():
+			var yy: float = tbox.position.y + 92 + k * 32
+			if k == teach_sel:
+				h.draw_rect(Rect2(tbox.position.x + 8, yy - 21, tbox.size.x - 16, 28), UI.FOCUS)
+				h.draw_rect(Rect2(tbox.position.x + 8, yy - 21, tbox.size.x - 16, 28), UI.EDGE_LIGHT, false, 1.0)
+			UI.text(h, Vector2(tbox.position.x + 24, yy), String(rows[k]["text"]).capitalize(), 17, UI.TEXT if rows[k]["ok"] else UI.FOE, 430)
 	# The minimap: explored floor, the stairs once seen, your team, the wild creatures in sight.
 	var mm := Vector2(1136 - data["w"] * 3, 44)
+	UI.panel(h, Rect2(mm - Vector2(8, 8), Vector2(data["w"] * 3, data["h"] * 3) + Vector2(16, 16)), 0.55)
 	for ty in data["h"]:
 		for tx in data["w"]:
 			var k2: int = ty * data["w"] + tx
@@ -2608,6 +3086,14 @@ func _say(text: String) -> void:
 	log_lines.append(text)
 	if log_lines.size() > 40:
 		log_lines.pop_front()
+
+
+## Play one of the dungeon's ElevenLabs sounds (assets/audio/sfx/dungeon/<name>.wav, built at
+## 432 Hz by tools/audio/build_dungeon_sfx.py). The last sound of each name is kept in last_sfx so
+## the checks can see what played.
+func _sfx(name: String, db: float) -> void:
+	last_sfx[name] = turn
+	_play("res://assets/audio/sfx/dungeon/%s.wav" % name, db)
 
 
 func _play(path: String, db: float) -> void:

@@ -1,0 +1,51 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+OpenGL API 3.3.0 NVIDIA 596.49 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce GTX 1660 SUPER
+
+ERROR: Failed to read the root certificate store.
+   at: get_system_ca_certificates (platform/windows/os_windows.cpp:2582)
+[godot_ai game_helper] registered mcp capture (debugger active=false, logger=true)
+Boot skip does not activate New Game: true
+Title starts with focused New Game: true
+Mouse opens title Options: true
+Keyboard adjusts title Master volume: true
+Title Options cancel restores its button focus: true
+Title Quit requires confirmation: true
+Title Quit cancel keeps title: true
+Real mouse New Game enters creature story: true
+Identity choice uses Rimefin: true
+Identity confirm advances to survivor story: true
+Story Back retains identity: true
+Companion chosen in story, with truthful Highbank destination: true
+Final confirmation reaches Highbank with selected team: true
+Claude town track actually plays on Music bus: true
+Esc opens town pause with Resume focus: true
+Town movement freezes while paused: true
+Pause keyboard focus wraps to Quit: true
+Pause keyboard focus wraps to Resume: true
+Pause Options reads title settings: true
+Pause Options persists audio and motion without removing legacy keys: true
+Music bus follows pause slider: true
+Gameplay music keeps playing while paused: true
+Controls page stays inside viewport: true
+Return title confirmation defaults to safe cancel: true
+Both leave confirmations cancel without losing town: true
+Resume releases pause without opening a town service: true
+Controller Start opens pause: true
+Controller D-pad and A open Options: true
+Controller B returns to main pause: true
+Controller A resumes without changing town: true
+Esc still closes existing town dialogue: true
+Visible Menu button opens pause: true
+Confirmed return opens title and unpauses tree: true
+Returned title loads shared settings and preserves Claude theme: true
+Shared gameplay music fades away at title: true
+Dungeon pause freezes turns, lantern, monsters and autopilot: true
+Music remains available in paused Options: true
+Keyboard Resume spends no dungeon turn: true
+Existing I opens bag: true
+Pausing over bag preserves bag and does not consume its item: true
+Esc closes bag without opening pause: true
+Existing real-time fight starts: true
+Pause freezes the existing real-time fight too: true
+Returning from a paused fight restores title: true
+CHECKS 44 FAILURES 0
