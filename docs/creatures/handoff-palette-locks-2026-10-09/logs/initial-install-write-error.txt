@@ -1,0 +1,1 @@
+Initial installer: OSError [Errno 22] Invalid argument opening docs/AI_COLLABORATION.md for writing; all sprite writes completed, both original notes intact. Recovery checked all 785 installed PNGs against tested candidates and guarded both prepared note writes by their original hashes.

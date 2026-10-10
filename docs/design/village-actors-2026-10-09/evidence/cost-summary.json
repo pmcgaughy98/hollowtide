@@ -1,0 +1,13 @@
+{
+  "returned_receipt_balance_cost_total": 1.36,
+  "still_generations": 4,
+  "animation_generations": 3,
+  "initial_account_balance": 6.22,
+  "last_observed_account_balance": 4.1599999999999975,
+  "attribution": "Global account balance may include concurrent usage and is not an attributable task cost.",
+  "accepted_animation_jobs": [
+    "09a3fe3e-16ad-473e-8d2d-3da1db8f1fae",
+    "f831f579-1c0f-42f3-bfdd-a8cde4a293ad"
+  ],
+  "rejected_animation_job": "51510183-45d8-4edf-a1ab-b6d05cd2f142"
+}

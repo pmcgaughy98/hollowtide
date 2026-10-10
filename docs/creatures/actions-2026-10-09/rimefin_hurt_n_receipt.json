@@ -1,0 +1,1 @@
+{"status": "failed", "task_id": "76947246-670d-4d00-9e9d-9157608c3705", "created_at": 1791578853, "updated_at": 1791578853, "error": {"status_code": 502, "code": "inference_failed", "message": "Unable to run inference.", "request_id": "76947246-670d-4d00-9e9d-9157608c3705"}}

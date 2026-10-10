@@ -1,0 +1,29 @@
+{
+  "prompt": "Animate the EXACT input Cinderhide in a fixed left-facing three-quarter view. Eight-frame seamless quiet village-menu idle: a restrained breath in chest and shoulders, a small attentive head glance then settling, the existing orange ember seams brighten slightly and return. All feet and tail tip stay planted at the same pixels. Preserve charcoal angular armour, orange dorsal spikes, head horns, thick plated tail, anatomy, proportions, crisp dark outlines and pixel clusters. Whole creature remains inside the 80x80 transparent canvas, stationary camera. No stepping, hopping, turning, whole-body bobbing, new horns, weapons, flames outside its body or background.",
+  "estimate": {
+    "created_at": 1791576123,
+    "credit_cost": 0,
+    "balance_cost": 0.14,
+    "output_images": [],
+    "base64_images": [],
+    "output_urls": [],
+    "model": "check_cost",
+    "remaining_credits": 0,
+    "remaining_balance": 5.499999999999996,
+    "resolved_prompt_style": "rd_advanced_animation__idle",
+    "used_input_image": true,
+    "reference_images_count": 0,
+    "used_extra_input_image": false,
+    "used_input_palette": false,
+    "used_strength": false,
+    "effective_timeout_seconds": 180
+  },
+  "job": {
+    "status": "accepted",
+    "task_id": "09a3fe3e-16ad-473e-8d2d-3da1db8f1fae",
+    "request_id": "09a3fe3e-16ad-473e-8d2d-3da1db8f1fae",
+    "message": "Inference accepted. Poll GET /v2/inferences/tasks/{task_id} for status."
+  },
+  "input": "cinderhide-input80.png",
+  "disposition": "Pending frame review"
+}

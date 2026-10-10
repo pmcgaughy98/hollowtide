@@ -14,13 +14,14 @@ extends RefCounted
 ##   and is never taught.
 ##
 ## Sources, per creature: G = Grok's move-body-gate.md (2026-10-02). A = Claude's read of the
-## current approved arena art (2026-10-09), a proposal until Preston or Grok confirms it.
-## Grok's vocabulary is kept; new parts are marked. Everything here is a draft for Grok.
+## current approved arena art (2026-10-09). Grok confirmed the A parts on 2026-10-10 against
+## assets/sprites/arena/<form>/se.png. Corrections: no springlegs on Cinderhide or Punchybun;
+## Slagglass's glowing brick joints are a seam. Vocabulary unchanged. No new part names.
 
 const PARTS := {
-	# Kithflare line (A): the arena remade it as a clawed fire runner; Grok's old Kithflare
-	# (marking, splittail) was the signal line, since renamed. claw, springlegs, hottail and
-	# lantern are new or re-checked here.
+	# Kithflare line (A, confirmed 2026-10-10): clawed hands and feet, digitigrade leaping legs,
+	# heat along the tail, a snout that spits. The lantern is on the tail from Sparkwick on.
+	# The old signal body (marking, splittail) is not this art.
 	"kithflare": ["claw", "springlegs", "hottail", "throat"],
 	"sparkwick": ["claw", "springlegs", "hottail", "throat", "lantern"],
 	"stormwick": ["claw", "springlegs", "hottail", "throat", "lantern"],
@@ -32,23 +33,26 @@ const PARTS := {
 	"rimefin": ["fin", "jaw"],
 	"riftfin": ["fin", "jaw"],
 	"scourmaw": ["fin", "jaw"],
-	# Cinderhide line (G). A: springlegs on the small Cinderhide (its arena kit pounces), and
-	# the crest on Clinkerhide (the arena kit: "the crest has come in"; G listed no crest).
-	"cinderhide": ["claw", "brow", "vent", "mouth", "ridge", "springlegs"],
+	# Cinderhide line (G). Confirmed 2026-10-10: Cinderhide's legs are short and planted, so the
+	# proposed springlegs is off. Its orange back breaks stay `vent`, not a vent row and not
+	# channels. Clinkerhide's raised orange crest is real; it still has no channels.
+	"cinderhide": ["claw", "brow", "vent", "mouth", "ridge"],
 	"clinkerhide": ["claw", "fusedbrow", "vent", "ventrow", "heavytail", "crest"],
 	"ironvent": ["claw", "fusedbrow", "crest", "vent", "ventrow", "channels", "mouth", "ridge", "heavytail"],
-	# Fusern line (G). A: Slagglass was redesigned on 2026-10-08 as the brick dome on legs, so
-	# it has the buttress and no longer the lifting shelf G listed.
+	# Fusern line (G, confirmed 2026-10-10). Slagglass is the brick dome on buttress legs: no
+	# shelf, no chamber, no mouth. The glowing joints between the bricks are a seam. Fusern's
+	# legs are thin, not buttresses. Vitrecrag keeps the open chamber and the pour mouth.
 	"fusern": ["shell", "hexedge", "seam"],
-	"slagglass": ["shell", "buttress"],
+	"slagglass": ["shell", "buttress", "seam"],
 	"vitrecrag": ["shell", "buttress", "chamber", "mouth"],
 	# Preostmar line (G: rail on Oxbowarchon; A: the jade, the slabs, the Kingstone). G said slab
 	# is not a part until the approved sprite is checked; it is checked here (A).
 	"preostmar": ["jade"],
 	"oathfen": ["jade", "slab"],
 	"oxbowarchon": ["jade", "slab", "rail", "kingstone"],
-	# Punchybun line (G: fist, tail, star). A: springlegs, a ferret's spring.
-	"punchybun": ["fist", "tail", "star", "springlegs"],
+	# Punchybun line (G: fist, tail, star). Springlegs confirmed 2026-10-10 on Sparkjab and
+	# Starward (digitigrade, up on the toes). Punchybun is the round kit: short legs, no spring.
+	"punchybun": ["fist", "tail", "star"],
 	"sparkjab": ["fist", "tail", "star", "springlegs"],
 	"starward": ["fist", "tail", "star", "springlegs"],
 	# River Listener line (DESIGN_RULES: "paddles and gill plates, so calls and braces, not bites").
@@ -81,12 +85,13 @@ const NEEDS := {
 	"cinder_claw": ["claw"],                 # G
 	"vent_barrage": ["channels"],            # G: the coordinated channels, Ironvent's alone
 	"crest_ram": ["crest"],                  # G
-	"vent_blast": ["ventrow"],
+	"vent_blast": ["vent"],                  # a short gout from the back vents; the vent row is not required
 	"ember_pellet": ["seam"],                # G
 	"molten_beam": ["chamber", "mouth"],     # G
 	"glass_guard": ["shell"],
 	"plate_lunge": ["shell", "buttress"],    # G
-	"furnace_shard": ["shelf"],              # G
+	"furnace_shard": ["shelf"],              # G. The shelf was designed off the roster; no body has one.
+	"glass_spur": ["shelf"],                 # G. Same shelf. Not in any current kit.
 	"molten_cannon": ["chamber", "mouth"],   # G
 	"jade_lance": ["jade"], "ground_spikes": ["jade"], "stone_cocoon": ["jade"],
 	"slab_vortex": ["slab"],

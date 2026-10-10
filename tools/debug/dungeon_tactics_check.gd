@@ -29,6 +29,7 @@ func _run() -> void:
 			break
 	dg.traps.clear()
 	dg.floor_items.clear()
+	dg.monster_room = Rect2i()   # a Monster House springing in the test room spoils the staging (Grok's 2026-10-10 spawn tables put one here)
 	for e in dg.ents:
 		if e["team"] == 1:
 			e["hp"] = 0

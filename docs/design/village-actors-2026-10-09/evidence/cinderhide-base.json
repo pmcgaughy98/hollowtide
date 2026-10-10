@@ -1,0 +1,48 @@
+{
+  "prompt": "Dedicated 80x80 native pixel-art title-menu sprite of the EXACT approved Hollowtide creature in the reference. Preserve its species, proportions, anatomical features, markings and palette, and match the dark outlines and substantial hand-clustered sprite texture. Full body with all ears, feet and tail inside a comfortable transparent border; character about 54 pixels tall on the 80px canvas, fixed slightly elevated three-quarter view suitable for a creature village clearing. Quiet friendly rest pose, feet at roughly row 70, warm ochre reflected light, cool moss-grey shadows, clean readable pixel clusters, no noise or dithering, no ground, no backdrop, no props, no text, no other creature. Cinderhide: compact charcoal armoured reptile with the exact orange dorsal spikes and hot ember seams, horned head and thick plated tail. Face left, restful confident stance, no new fire horns or anatomical changes, no held object. Preserve the reference's grounded armoured body and angular plates.",
+  "estimate": {
+    "created_at": 1791575763,
+    "credit_cost": 0,
+    "balance_cost": 0.18,
+    "output_images": [],
+    "base64_images": [],
+    "output_urls": [],
+    "model": "check_cost",
+    "remaining_credits": 0,
+    "remaining_balance": 6.219999999999994,
+    "resolved_prompt_style": "rd_pro__fantasy",
+    "used_input_image": false,
+    "reference_images_count": 1,
+    "used_extra_input_image": false,
+    "used_input_palette": false,
+    "used_strength": false,
+    "effective_timeout_seconds": 180
+  },
+  "result": {
+    "created_at": 1791575864,
+    "model": "rd_pro",
+    "balance_cost": 0.18,
+    "remaining_balance": 5.86,
+    "remaining_credits": 0,
+    "output_urls": [
+      "https://retrodiffusionstack-retrodiffusionapioutputstorere-rg4v98h7gwoa.s3.amazonaws.com/api-activity/88a11c2c-4ab4-4177-9042-fb69c6ea7263/0-81d35866a9df405a8a9e9ca6237e9055.png?AWSAccessKeyId=AKIA55GSYAHSEKN47UW6&Signature=QjZ94k%2FrMLWJ48Xk0WO%2B8m2jw%2B0%3D&Expires=1791576766"
+    ],
+    "output_images_count": 0,
+    "base64_images_count": 1,
+    "downloadable_data": null,
+    "request_id": "88a11c2c-4ab4-4177-9042-fb69c6ea7263",
+    "outputs_retained_until": 1791662225,
+    "output_url_expires_at": 1791576766,
+    "warnings": null,
+    "delivery_status": "url",
+    "requested_images_count": 1,
+    "resolved_prompt_style": "rd_pro__fantasy",
+    "used_input_image": false,
+    "reference_images_count": 1,
+    "used_extra_input_image": false,
+    "used_input_palette": false,
+    "used_strength": false,
+    "effective_timeout_seconds": 180
+  },
+  "reference": "assets/sprites/arena/cinderhide/se.png"
+}

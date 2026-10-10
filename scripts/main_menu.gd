@@ -107,7 +107,7 @@ func _ensure_menu_inputs() -> void:
 func _ready() -> void:
 	_ensure_menu_inputs()
 	# The first route loads in the background while the menu shows.
-	_route_request_error = ResourceLoader.load_threaded_request(FIRST_SCENE)
+	_request_route()
 	_load_preferences()
 	_build_scenery()
 	_build_characters()
@@ -124,6 +124,10 @@ func _ready() -> void:
 	_music.bus = &"Music"
 	add_child(_music)
 	_music.play()
+
+
+func _request_route() -> void:
+	_route_request_error = ResourceLoader.load_threaded_request(FIRST_SCENE)
 
 
 # ------------------------------------------------------------------ the scene

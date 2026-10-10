@@ -1,5 +1,59 @@
 # Working Together on Hollowtide
 
+## Claude: dungeon move effects; teammate IQ and health between floors; the hub town layout for Codex (October 9, 2026, late night)
+- Move effects from the arena's 35 painted sheets (`MOVE_FX`): projectiles, hit and area effects, shake, hit-stop, a super-effective flash, dash afterimages, a wind-up glow. `docs/design/dungeon-vfx-2026-10-09/README.md`.
+- Teammate IQ (six skills on thresholds) and health carried between floors. `docs/design/dungeon-iq-2026-10-09/README.md`.
+- **Codex:** the hub town (Highbank) is laid out from the synthesis for you to fill: `docs/world/hub-layout-2026-10-09/README.md`, `scripts/town/town_layout.gd`, `scenes/hub_town.tscn`.
+
+## Codex: October 10 handoff palette locks and relay check (October 9, 2026)
+
+Resumed the handoff after inspecting installed terrain/menu and current Claude/Grok work. Locked Dustkite/Waywhistle/Highsignal and the remade Riftfin/Scourmaw to each approved front take using the existing deterministic normalizer; rebuilt ONLY these five arena and dungeon sets with the unchanged builders. 784 PNG RGB updates, all 785 source/derived canvases, alpha bytes and transparent RGBA exact. All painted colors are from the approved form palette. No old blade-fin/serpent art, cleaned Dustkite silhouette, seven-form refinements, dark-jade Oxbowarchon, Listener finish, Galeshear repair or prior backup overwritten.
+
+Native art verification uses both actual constructors and finish materials, all 720 facing/walk texture swaps with planted anchors, fresh controlled native render/loop. The requested relay regression passes 25 checks for each appearance (50): real yard walking, clue/choice flow, Cinderhide/Fusern practice fight, escape through picker to the cached world, party/route state and exit/reentry preserved. No script/resource errors; existing certificate diagnostic remains. This does not certify a full dungeon clear or rebalance combat. No runtime code, data, settings or menu edit; no paid calls or commit. Detailed remaining walking variation and originals: [handoff palette archive](creatures/handoff-palette-locks-2026-10-09/README.md).
+
+Next handoff job: creature guild/job-board presentation, dispatch and return with Claude's dungeon/save contract. Emotional portraits stay later.
+
+
+## Codex: village lighting on menu creatures (October 9, 2026)
+
+Preston asked to blend the new Punchybun/Cinderhide actors into the town like the old sunset Cinderhide. Inspected that original dusk integration, then adapted its warm highlights, colored shade/contour and contact footprint to this amber/moss village. A menu-only RGB shader runs after the shared creature finish across all sixteen existing frames; no original PNG, alpha, anatomy, timing or feet anchor changes. Outer ground shade added to the existing footprints. No generation charge.
+
+Only runtime edits: `scripts/ui/village_menu_actor.gd` and `scripts/creature_opening.gd`. Nine native animation assertions plus seven real mouse/keyboard assertions pass, with native still/loop captures inspected; final logs retain only the existing certificate diagnostic. New Game/awakening, Reduce Motion and menu controls remain. No dungeon regression claimed; Claude/Grok code, creature originals and prior backups remain untouched. No settings edit or commit. [Preview, originals, logs and installation](design/village-light-2026-10-09/README.md).
+
+
+## Claude: starter action animations, evolution by conditions, the stuck-teammate fix (October 9, 2026, late night)
+- Attack, hurt and sleep for Kithflare, Tallowroot and Rimefin: 25 Retro Diffusion takes (`tools/arena/rd_action.py`, sheets in `docs/creatures/actions-2026-10-09/`), built to dungeon size by `tools/arena/build_actions.py`, played by `dungeon.gd` (attack on a move, hurt when hit, a sleep loop until a wild creature wakes). Check `tools/debug/dungeon_action_check.gd`. Rimefin's up-facing hurt failed at RD and uses the side view. The RD balance is now $0.01.
+- Evolution by conditions (Preston chose Digimon option A, one path kept): knockouts, floors, and a line "way" (flank, took, ambush, slam); `EVO` drafts for Grok. `docs/design/dungeon-evolution-2026-10-09/README.md`, check `dungeon_evolve_check.gd`.
+- Teammates stuck after a fight: a recruit joining in a hallway blocked a partner and partners could not pass teammates. Partners now swap past teammates (never the leader). Check `dungeon_chain_check.gd`.
+- Grok's handoff has three new jobs: evolution numbers, a teammate IQ skill list (design), and health between floors (today every floor heals fully).
+
+## Codex: dedicated village menu creature animations (October 9, 2026)
+
+Preston requested dedicated menu sprites like the original Cinderhide animation. Installed two eight-frame Retro Diffusion loops: Punchybun's occasional gentle hop and Cinderhide's quiet breathing/head glance. Preston rejected a Punchybun redraw; the installed hop uses the approved original front PNG directly as input, with short rounded ears, fluffy tail and pink glove paws. Rejected variants are archived only. No original creature PNG is replaced.
+
+Only existing runtime edit: `scripts/creature_opening.gd`. Added `scripts/ui/village_menu_actor.gd` and sixteen separate transparent frames plus metadata in `assets/sprites/menu/village_actors_2026_10_09/`. Fixed ground canvas, integer 2x nearest sampling, shared creature finish and Reduce Motion. Existing town, carved wordmark, controls, awakening/identity/partner story and gameplay remain. Nine native animation assertions and seven real mouse/keyboard assertions pass; actual town loop captured. This is menu verification, not a dungeon regression. No commit or project-setting change; Claude/Grok files and earlier creature refinements/backups preserved. Returned generation receipts total $1.36 (four stills, three animations including rejected trials); shared account balance is not attributed to this task.
+
+[Native loop, originals, frame reviews, receipts and installation manifest](design/village-actors-2026-10-09/README.md).
+
+
+## Claude: floor plan, boss floor, Monster Houses, trap fix (October 9, 2026, night)
+- Floor plan after Explorers of Sky (SkyTemple: bosses live in fixed rooms that are the whole floor): FLOORS generated floors, an optional rest floor, then the boss's fixed floor (one arena, only the boss and helpers, a dialogue scene first, the stairs sealed, the dungeon cleared when it falls). Monster Houses got bait, a size-scaled drop-in, a banner and a lantern reward. Details: `docs/design/dungeon-boss-2026-10-09/README.md`.
+- Preston: too many warps, in hallways; partners left behind. Traps now spawn only in rooms, never in front of a hallway opening, at most one warp a floor, and only the leader sets one off (as in the Mystery Dungeon games). `tools/debug/dungeon_trap_check.gd`: 0 in hallways over 40 floors, partners never more than 4 tiles behind.
+- Fixed on the way: a recruit could make a fifth teammate; a creature asking to join could be hit again and revived under another creature. Tests staged in a room Grok's spawn tables turned into a Monster House now switch it off.
+- Grok: the boss and Monster House numbers are drafts for you (BOSS_HP 3.0, BOSS_DMG 0.9, MONSTER_HOUSE_*, TRAP_WARP_MAX 1). With your 2026-10-10 numbers, 2 of 3 autopilot runs with a two-creature team faint before or at the boss.
+
+## Codex: carved Hollowtide village wordmark (October 9, 2026)
+
+Preston asked to redo the title text, then finish after the usage interruption. Installed exact code-native Hollowtide lettering: parchment/ochre serif faces, wood depth, moss tips, root branches and a small Hollow doorway. Existing OFL Vollkorn, native 384x84 transparent canvas at exact 2x; still lettering in both menu and prelude. New `scripts/ui/hollowtide_wordmark.gd`, integrated only into the creature opening. No generation charge or creature/background image edit.
+
+The preview exposed varying resource-preload errors from the unused background request for the human world. `main_menu.gd` now delegates that one request through `_request_route()`: old menus retain it, the creature opening skips it. Final native title/prelude/options previews and seven real mouse/keyboard checks pass without script/resource errors; existing Windows certificate diagnostic remains. F5 had moved back to the old menu-art preview UID, so only the main-scene key was restored to `scenes/creature_opening.tscn`.
+
+Village painting, menu controls, creature art, prior wordmark and Claude/Grok gameplay changes are preserved. No gameplay/data edits or commit. [Native previews, originals, diagnostics and installation](design/village-wordmark-2026-10-09/README.md).
+
+
+Grok, 2026-10-10: jobs 1 to 6 are done. Evolution numbers, the boss, the Monster House and the warp cap are kept. Result: `docs/team/GROK_BUILD_RESULT_2026-10-10.md`. No commit.
+Teammate IQ is still a proposal. The boss check: 1 clear, 1 faint at the fight, 1 run never arrived. `BOSS_HP` stays 3.0.
+
 ## Codex: creature-village title menu (October 9, 2026)
 
 Preston said the river-town menu no longer fit the creature/Mystery Dungeon direction and authorized Retro. Installed one original Retro Diffusion `rd_pro__fantasy` 256x144 village backdrop ($0.18): root/clay burrows, moss roofs, stone guild entrance, stream, bridges and lanterns. No baked characters or UI. It replaces the title-screen town composition, not the playable hometown. Architecture is a visual proposal. The old sunset artwork is preserved.

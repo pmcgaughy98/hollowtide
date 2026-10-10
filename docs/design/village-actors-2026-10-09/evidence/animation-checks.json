@@ -1,0 +1,41 @@
+{
+  "checks": [
+    {
+      "check": "Dedicated Punchybun and Cinderhide actors",
+      "passed": true
+    },
+    {
+      "check": "Both wear shared creature finish",
+      "passed": true
+    },
+    {
+      "check": "PunchybunVillageAnimation loads eight menu frames",
+      "passed": true
+    },
+    {
+      "check": "CinderhideVillageAnimation loads eight menu frames",
+      "passed": true
+    },
+    {
+      "check": "Both real loops reach all eight frames",
+      "passed": true
+    },
+    {
+      "check": "Shared canvas anchors do not drift",
+      "passed": true
+    },
+    {
+      "check": "Reduce Motion freezes both actors and clock",
+      "passed": true
+    },
+    {
+      "check": "Animation resumes",
+      "passed": true
+    },
+    {
+      "check": "New Game still enters the awakening",
+      "passed": true
+    }
+  ],
+  "failures": []
+}

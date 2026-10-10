@@ -145,26 +145,29 @@ const KITS := {
 	"scourmaw": {"role": "Ambusher", "moves": ["needle_bite"], "abilities": ["lunge", "sinkhole", "riptide"], "hp": 1.15, "speed": 1.0, "passive": "ambush", "profile": "skirmish"},
 	# Ironvent line (Ember/Stone bruisers), from its turn-based moves (Crest Ram, Cinder Claw,
 	# Vent Barrage, Furnace Roar).
-	# Cinderhide: a small vent reptile with claws. Rakes and pounces, with a vent barrage to open.
-	"cinderhide": {"moves": ["cinder_claw"], "abilities": ["vent_barrage", "pounce"], "profile": "press"},
-	# Clinkerhide: the crest has come in. The ram, the barrage, Vent Blast; Stoke.
-	"clinkerhide": {"moves": ["cinder_claw"], "abilities": ["crest_ram", "vent_barrage", "vent_blast"], "hp": 1.15, "speed": 0.9,
+	# Cinderhide: claws and small back vents. No spring in the legs, no channels.
+	# Vent Blast is the short gout. Rake is the only other legal move, so it holds the third slot.
+	# Vent Barrage waits for Ironvent.
+	"cinderhide": {"moves": ["cinder_claw"], "abilities": ["vent_blast", "claw"], "profile": "press"},
+	# Clinkerhide: the crest has come in. The ram and Vent Blast. No channels, so no barrage. Stoke.
+	"clinkerhide": {"moves": ["cinder_claw"], "abilities": ["crest_ram", "vent_blast"], "hp": 1.15, "speed": 0.9,
 		"passive": "stoke", "profile": "press"},
 	# Ironvent: basic Cinder Claw; 1 Crest Ram, 2 Vent Barrage, 3 Vent Blast (placeholder name:
 	# a gout of heat from the back vents, a short cone that throws back and smoulders). Stoke.
 	"ironvent": {"role": "Bruiser", "moves": ["cinder_claw"], "abilities": ["crest_ram", "vent_barrage", "vent_blast"], "speed": 0.85, "hp": 1.3,
 		"passive": "stoke", "profile": "press"},
 	# Vitrecrag line (Ember kiln tanks).
-	# Fusern: a small round kiln beetle. Ember pellets, a short molten pour, and it can run its
-	# shell molten (Glass Guard) when something closes in.
-	"fusern": {"moves": ["ember_pellet"], "abilities": ["molten_beam", "glass_guard"], "hp": 1.1, "speed": 0.85, "profile": "press"},
-	# Slagglass (redesigned 2026-10-08 as the brick dome, no spurs): shoves with its shell,
-	# shoots furnace shards, pours, guards. Kiln Heat.
-	"slagglass": {"moves": ["plate_lunge"], "abilities": ["furnace_shard", "molten_beam", "glass_guard"], "hp": 1.3, "speed": 0.75,
+	# Fusern: a round kiln beetle. Pellets from the seam, and Glass Guard. No chamber and no
+	# mouth, so no Molten Beam. The hex edge has no move yet, so this kit is short of basic + 2.
+	"fusern": {"moves": ["ember_pellet"], "abilities": ["glass_guard"], "hp": 1.1, "speed": 0.85, "profile": "press"},
+	# Slagglass (brick dome): shoves on buttress legs, leaks pellets through the brick seams,
+	# guards. No shelf, so no Furnace Shard. No chamber or mouth, so no Molten Beam. Kiln Heat.
+	"slagglass": {"moves": ["plate_lunge"], "abilities": ["ember_pellet", "glass_guard"], "hp": 1.3, "speed": 0.75,
 		"passive": "kiln", "profile": "press"},
 	# Vitrecrag (Preston, 2026-10-08) is the EMBER TANK: slow and heavy, it walks up and holds
-	# the line. Basic Plate Lunge (AI); 1 Molten Cannon, 2 Molten Beam, 3 Glass Guard. Kiln
-	# Heat also stokes from blows it takes. 4 Molten Glass, an eruption all round it.
+	# the line. Basic Plate Lunge (AI); 1 Molten Cannon, 2 Molten Beam, 3 Glass Guard. Beam
+	# stays: this body has the chamber and the mouth. Kiln Heat also stokes from blows it
+	# takes. 4 Molten Glass, an eruption all round it.
 	"vitrecrag": {"role": "Tank", "moves": ["plate_lunge"], "abilities": ["molten_cannon", "molten_beam", "glass_guard"], "speed": 0.65, "hp": 1.6,
 		"passive": "kiln", "profile": "press"},
 	# Oxbowarchon line (Electric/Stone, the Electric Gemstone King), drafted from the line's own
@@ -182,7 +185,7 @@ const KITS := {
 	# both rails at the floor to vault away, untouchable for the hop). Bound Slabs. 4 Kingstone
 	# Rail. Placeholder names: Rail Shot, Rail Recoil.
 	"oxbowarchon": {"role": "Artillery", "moves": ["jade_lance"], "abilities": ["rail_shot", "kingstone_lift", "rail_recoil"], "speed": 0.7, "hp": 1.3,
-		"passive": "bound_slabs", "profile": "kite", "far_bonus": 1.3},
+		"passive": "bound_slabs", "profile": "kite", "far_bonus": 1.15},   # Grok, 2026-10-10: was 1.3. Far hits stay harder. The rail was winning 10-0.
 	# Punchybuns line (Electric; Claude, 2026-10-08; Grok's numbers): a ferret who protects the
 	# people it loves. Punchybun: the round kit: jabs, dances, and already puts its star on a
 	# friend. Sparkjab: the boxer: Counter Jab arrives; Guardian. Starward: Starshield.
@@ -277,7 +280,7 @@ const MOVES := {
 	"stone_cocoon": {"name": "Stone Cocoon", "damage": 12, "cooldown": 10.0, "range": 0.0},
 	"slab_vortex": {"name": "Slab Vortex", "damage": 15, "cooldown": 7.0, "range": 40.0},
 	# Oxbowarchon as a backline railgun (Preston, 2026-10-08). Placeholder names.
-	"rail_shot": {"name": "Rail Shot", "damage": 22, "cooldown": 6.0, "range": 220.0},
+	"rail_shot": {"name": "Rail Shot", "damage": 18, "cooldown": 8.0, "range": 220.0},   # Grok, 2026-10-10: was 22 damage, 6 s. Still the long shot.
 	"rail_recoil": {"name": "Rail Recoil", "damage": 8, "cooldown": 8.0, "range": 0.0, "mobility": true},
 	# Ironvent line: a gout of heat from the back vents, a short cone that throws back and smoulders.
 	"vent_blast": {"name": "Vent Blast", "damage": 11, "cooldown": 5.0, "range": 44.0},
@@ -451,7 +454,7 @@ const TELEGRAPH := {
 	"ember_pellet": ["line", 0.3], "furnace_shard": ["line", 0.3], "glass_spur": ["melee", 0.25], "plate_lunge": ["melee", 0.35],
 	"molten_cannon": ["area", 0.5], "molten_beam": ["line", 0.35],
 	"jade_lance": ["line", 0.3], "ground_spikes": ["area", 0.45], "slab_vortex": ["melee", 0.35],
-	"rail_shot": ["rail", 0.7], "vent_blast": ["melee", 0.3],
+	"rail_shot": ["rail", 1.6], "vent_blast": ["melee", 0.3],   # Grok, 2026-10-10: was 0.7 s. A committed shot, so a closer can step in.
 	"jab": ["melee", 0.2],
 	"echo_tap": ["line", 0.25], "still_water": ["area", 0.4],   # Interrupt Call and Deep Brace go at once
 	"shear": ["melee", 0.22], "downdraft": ["area", 0.3],      # Sail Cover and Lift go at once
@@ -623,6 +626,7 @@ const AIRBORNE_LIFT := 14.0            # how high a launched creature is drawn
 const TENACITY := 1.4                  # Tanks shed stuns, roots and dazes this much faster
 const KNOCKBACK_GROWTH := 0.6          # a push grows by up to this much as the target's HP falls
 const MATCH_SECONDS := 120.0           # team fights end on points after this
+const DUEL_SECONDS := 60.0             # Grok, 2026-10-10: a 1v1 that is still going ends on the same points rule. Hitstop pauses this clock, so 2700 sim frames reached 69 s. 60 lands inside that.
 const CREST_RADIUS := 38.0             # the centre circle: the one objective
 const CREST_METER := 6.0               # meter a second for a final holding it alone
 const CREST_HEAL := 1                  # HP every half second for everyone holding it alone
@@ -807,7 +811,7 @@ const RANGE_HINT_SECONDS := 0.6
 const AREA_SPOT := 16.0                # the landing spot drawn for lobs and area moves
 ## Follow-ups (item 5, Claude 2026-10-09; drafts for Grok): an ability that lands opens a window;
 ## a basic that lands inside it hits harder and refunds some of that ability's cooldown.
-const FOLLOW_WINDOW := 0.9             # an ability's recovery plus the basic's telegraph is about 0.5 s, so 0.4 could never be met
+const FOLLOW_WINDOW := 1.6             # Grok, 2026-10-10: was 0.9. Recovery, the basic's wind-up and a short dash have to fit.
 const FOLLOW_MORE := 1.3
 const FOLLOW_REFUND := 0.5
 ## Cast feedback (Preston, 2026-10-09: "I don't feel when I use my moves"): per card, how long
@@ -1573,7 +1577,7 @@ func _process(delta: float) -> void:
 			_update_windup(i, delta)
 			_use_moves(i, delta)
 		_update_crest(delta)
-		if team_size > 1 and _clock >= MATCH_SECONDS:
+		if _clock >= (DUEL_SECONDS if team_size <= 1 else MATCH_SECONDS):
 			_decide_on_points()
 	for i in _fighters.size():
 		if stopped:
@@ -2367,7 +2371,7 @@ func _desire(i: int, m: String, t: int, mode: String) -> float:
 	if hits and _combo_of(m, t) != "":
 		d *= 1.3   # a combo is on the table (shatter, kindle, quench, conduct)
 	if hits and not ability and f["follow_t"] > 0.0:
-		d *= 1.4   # a follow-up: its ability just landed, the basic now hits harder and refunds it
+		d *= 2.0   # a follow-up: its ability just landed, so the basic beats the next ability (was 1.4)
 	if hits and not foe["windup"].is_empty() and not _armoured(t) and windup < foe["windup"]["t"]:
 		d *= 1.25   # a counter hit: this lands inside its wind-up
 	elif hits and foe["act"] > 0.0 and foe["recovering"] != "" and windup < foe["act"]:
@@ -4271,7 +4275,9 @@ func _update_fighter(i: int, delta: float) -> void:
 	f["aegis"] = maxf(0.0, f["aegis"] - delta)
 	f["cc_immune"] = maxf(0.0, f["cc_immune"] - delta)
 	f["pinned"] = maxf(0.0, f["pinned"] - delta)
-	f["follow_t"] = maxf(0.0, f["follow_t"] - delta)
+	# Time to land the basic. A signature freeze already stops the clock and the attacks, so it does not eat the window.
+	if not (_sig.active and _sig.effect_time() < 0.0):
+		f["follow_t"] = maxf(0.0, f["follow_t"] - delta)
 	if f["passive"] == "spotter" and f["hp"] > 0:
 		# The first enemy to come into range is marked (each enemy again only after a while).
 		for key in f["spot_cd"].keys():

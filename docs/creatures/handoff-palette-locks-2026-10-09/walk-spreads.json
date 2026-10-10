@@ -1,0 +1,112 @@
+{
+  "dustkite": {
+    "small": {
+      "before": {
+        "brightness_spread": 14.028800000000004,
+        "saturation_spread": 3.9787
+      },
+      "after": {
+        "brightness_spread": 6.1377000000000095,
+        "saturation_spread": 4.207099999999997
+      }
+    },
+    "dungeon": {
+      "before": {
+        "brightness_spread": 13.613699999999994,
+        "saturation_spread": 3.4816000000000003
+      },
+      "after": {
+        "brightness_spread": 5.0978000000000065,
+        "saturation_spread": 3.915899999999997
+      }
+    }
+  },
+  "waywhistle": {
+    "small": {
+      "before": {
+        "brightness_spread": 24.536,
+        "saturation_spread": 9.511799999999997
+      },
+      "after": {
+        "brightness_spread": 13.2834,
+        "saturation_spread": 3.575700000000001
+      }
+    },
+    "dungeon": {
+      "before": {
+        "brightness_spread": 19.647800000000004,
+        "saturation_spread": 7.150199999999998
+      },
+      "after": {
+        "brightness_spread": 11.008800000000008,
+        "saturation_spread": 6.981499999999997
+      }
+    }
+  },
+  "highsignal": {
+    "small": {
+      "before": {
+        "brightness_spread": 15.741799999999998,
+        "saturation_spread": 3.1789000000000023
+      },
+      "after": {
+        "brightness_spread": 2.5648000000000053,
+        "saturation_spread": 3.854800000000001
+      }
+    },
+    "dungeon": {
+      "before": {
+        "brightness_spread": 15.578199999999995,
+        "saturation_spread": 3.003200000000003
+      },
+      "after": {
+        "brightness_spread": 2.2479000000000013,
+        "saturation_spread": 3.843799999999998
+      }
+    }
+  },
+  "riftfin": {
+    "small": {
+      "before": {
+        "brightness_spread": 10.5745,
+        "saturation_spread": 4.784299999999995
+      },
+      "after": {
+        "brightness_spread": 2.5020999999999987,
+        "saturation_spread": 4.0379000000000005
+      }
+    },
+    "dungeon": {
+      "before": {
+        "brightness_spread": 10.538399999999996,
+        "saturation_spread": 5.119199999999999
+      },
+      "after": {
+        "brightness_spread": 3.142799999999994,
+        "saturation_spread": 3.825800000000001
+      }
+    }
+  },
+  "scourmaw": {
+    "small": {
+      "before": {
+        "brightness_spread": 23.361599999999996,
+        "saturation_spread": 7.0678999999999945
+      },
+      "after": {
+        "brightness_spread": 1.9634999999999962,
+        "saturation_spread": 3.647999999999996
+      }
+    },
+    "dungeon": {
+      "before": {
+        "brightness_spread": 23.75569999999999,
+        "saturation_spread": 7.660499999999999
+      },
+      "after": {
+        "brightness_spread": 2.377999999999986,
+        "saturation_spread": 3.5630000000000024
+      }
+    }
+  }
+}

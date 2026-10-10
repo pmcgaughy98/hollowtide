@@ -1,0 +1,22 @@
+{
+  "status": "succeeded",
+  "task_id": "09a3fe3e-16ad-473e-8d2d-3da1db8f1fae",
+  "created_at": 1791576133,
+  "updated_at": 1791576245,
+  "result": {
+    "created_at": 1791576245,
+    "credit_cost": 1,
+    "balance_cost": 0.14,
+    "output_urls": [
+      "https://retrodiffusionstack-retrodiffusionapioutputstorere-rg4v98h7gwoa.s3.amazonaws.com/api-activity/09a3fe3e-16ad-473e-8d2d-3da1db8f1fae/0-d5e0acc448d344cb9767470cb626a11f.gif?AWSAccessKeyId=AKIA55GSYAHSEKN47UW6&Signature=CYCNIvBsoPJR72Au%2FvcIOAmNJOk%3D&Expires=1791577148"
+    ],
+    "model": "rd_fast",
+    "remaining_credits": 0,
+    "remaining_balance": 5.11,
+    "request_id": "09a3fe3e-16ad-473e-8d2d-3da1db8f1fae",
+    "outputs_retained_until": 1791662533,
+    "output_url_expires_at": 1791577148,
+    "base64_images_count": 1,
+    "output_images_count": 0
+  }
+}

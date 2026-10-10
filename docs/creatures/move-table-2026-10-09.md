@@ -6,8 +6,8 @@ Draft for Grok, from `scripts/moves/move_body.gd`. Grok's rule (DESIGN_RULES.md,
 
 | Move | Needs | Its own users | Other bodies that can learn it |
 |---|---|---|---|
-| Rake | claw | Kithflare | Sparkwick, Stormwick, Cinderhide, Clinkerhide, Ironvent |
-| Pounce | springlegs | Sparkwick, Stormwick, Cinderhide | Kithflare, Punchybun, Sparkjab, Starward, Dustkite, Waywhistle, Highsignal |
+| Rake | claw | Kithflare, Cinderhide | Sparkwick, Stormwick, Clinkerhide, Ironvent |
+| Pounce | springlegs | Sparkwick, Stormwick | Kithflare, Sparkjab, Starward, Dustkite, Waywhistle, Highsignal |
 | Cinder Claw | claw | Cinderhide, Clinkerhide, Ironvent | Kithflare, Sparkwick, Stormwick |
 | Sail Cover | sail | Canvaswing, Windcut, Galeshear | Dustkite, Waywhistle, Highsignal |
 | Vantage | sail | Waywhistle, Highsignal | Canvaswing, Windcut, Galeshear, Dustkite |
@@ -33,12 +33,13 @@ Draft for Grok, from `scripts/moves/move_body.gd`. Grok's rule (DESIGN_RULES.md,
 | Riptide | fin | Rimefin line |
 | Vent Barrage | channels | Cinderhide line |
 | Crest Ram | crest | Cinderhide line |
-| Vent Blast | ventrow | Cinderhide line |
+| Vent Blast | vent | Cinderhide line |
 | Ember Pellet | seam | Fusern line |
 | Molten Beam | chamber, mouth | Fusern line |
 | Glass Guard | shell | Fusern line |
 | Plate Lunge | shell, buttress | Fusern line |
 | Furnace Shard | shelf | nobody (check) |
+| Glass Spur | shelf | nobody (check) |
 | Molten Cannon | chamber, mouth | Fusern line |
 | Jade Lance | jade | Preostmar line |
 | Ground Spikes | jade | Preostmar line |
@@ -81,8 +82,3 @@ These kits were written for the arena before this table. Changing a kit is Grok'
 
 | Creature | Move | Missing |
 |---|---|---|
-| Cinderhide | Vent Barrage | channels |
-| Clinkerhide | Vent Barrage | channels |
-| Fusern | Molten Beam | chamber, mouth |
-| Slagglass | Furnace Shard | shelf |
-| Slagglass | Molten Beam | chamber, mouth |

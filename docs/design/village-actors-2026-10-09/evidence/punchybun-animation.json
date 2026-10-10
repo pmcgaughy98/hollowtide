@@ -1,0 +1,29 @@
+{
+  "prompt": "Animate the EXACT input Punchybun sprite in a fixed right-facing three-quarter view. Eight-frame seamless playful menu action: tiny anticipatory crouch, ONE gentle low vertical hop of about 4 native pixels, ears and fluffy tail follow naturally, soft landing on the same spot, settle paws and return precisely to the input rest pose. Preserve cream fur, pink glove-like forepaws, face markings, long ears and tail, body proportions, dark outlines and palette. Keep the complete silhouette inside the 80x80 transparent canvas and camera stationary. No walking across the frame, no turning, no extra ears, arms, objects or effects, no background. Character feet return to the same pixels at the loop end.",
+  "estimate": {
+    "created_at": 1791576123,
+    "credit_cost": 0,
+    "balance_cost": 0.25,
+    "output_images": [],
+    "base64_images": [],
+    "output_urls": [],
+    "model": "check_cost",
+    "remaining_credits": 0,
+    "remaining_balance": 5.499999999999996,
+    "resolved_prompt_style": "rd_advanced_animation__custom_action",
+    "used_input_image": true,
+    "reference_images_count": 0,
+    "used_extra_input_image": false,
+    "used_input_palette": false,
+    "used_strength": false,
+    "effective_timeout_seconds": 180
+  },
+  "job": {
+    "status": "accepted",
+    "task_id": "51510183-45d8-4edf-a1ab-b6d05cd2f142",
+    "request_id": "51510183-45d8-4edf-a1ab-b6d05cd2f142",
+    "message": "Inference accepted. Poll GET /v2/inferences/tasks/{task_id} for status."
+  },
+  "input": "punchybun-input80.png",
+  "disposition": "Rejected base by Preston; do not install output"
+}

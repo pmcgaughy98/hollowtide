@@ -1,0 +1,23 @@
+{
+  "changed_existing": [
+    "docs/AI_COLLABORATION.md",
+    "project.godot",
+    "scripts/creature_opening.gd",
+    "scripts/main_menu.gd"
+  ],
+  "new_script": "scripts/ui/hollowtide_wordmark.gd",
+  "hashes": {
+    "scripts/creature_opening.gd": "c3701f570fd44d1f9d6e713c5001d56d7955927fae0f3675381430797f77275f",
+    "scripts/main_menu.gd": "9c606ff6d1d6e27fea9e758d5c188a6393b8df346b536baffadf35cbb3176392",
+    "project.godot": "20595541df1da4f6498b511a520ef85c7db70645cc81f0f3ec23c5f4d1b1d694",
+    "docs/AI_COLLABORATION.md": "7fd21cedc134a383538874ff0dd5574c7d6438989d935bdb5eb8be7c1fdb9e37",
+    "scripts/ui/hollowtide_wordmark.gd": "dbb72d86b0d93d45852d084b3f22299e91f5d8b038f4be97bf8b99c825fec578"
+  },
+  "old_main": "uid://crlinvq0dr6o4",
+  "new_main": "res://scenes/creature_opening.tscn",
+  "input_checks": 7,
+  "protected_files": 12397,
+  "unexpected_changes": [],
+  "generation_calls": 0,
+  "creature_pngs_modified": 0
+}

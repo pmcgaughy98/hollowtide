@@ -1,0 +1,55 @@
+{
+  "checks": [
+    {
+      "check": "dustkite wears finish in both constructors",
+      "passed": true
+    },
+    {
+      "check": "dustkite loads actual dungeon set",
+      "passed": true
+    },
+    {
+      "check": "waywhistle wears finish in both constructors",
+      "passed": true
+    },
+    {
+      "check": "waywhistle loads actual dungeon set",
+      "passed": true
+    },
+    {
+      "check": "highsignal wears finish in both constructors",
+      "passed": true
+    },
+    {
+      "check": "highsignal loads actual dungeon set",
+      "passed": true
+    },
+    {
+      "check": "riftfin wears finish in both constructors",
+      "passed": true
+    },
+    {
+      "check": "riftfin loads actual dungeon set",
+      "passed": true
+    },
+    {
+      "check": "scourmaw wears finish in both constructors",
+      "passed": true
+    },
+    {
+      "check": "scourmaw loads actual dungeon set",
+      "passed": true
+    },
+    {
+      "check": "Both loaders provide all 720 facing/walk textures",
+      "passed": true
+    },
+    {
+      "check": "Every texture swap retains the planted feet row",
+      "passed": true
+    }
+  ],
+  "failures": [],
+  "textures": 720,
+  "worst_anchor_error": 0.0
+}

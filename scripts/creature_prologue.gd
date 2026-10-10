@@ -197,10 +197,11 @@ func advance() -> void:
 	back.disabled=true
 	veil.mouse_filter=Control.MOUSE_FILTER_STOP
 	await create_tween().tween_property(veil,"color:a",1.0,0.15 if reduce_motion else 0.5).finished
-	var dungeon:Node2D=load("res://scenes/dungeon.tscn").instantiate()
-	dungeon.party=[[hero,0],[partner,0]]
-	dungeon.set_meta("creature_player",FORMS[hero])
-	dungeon.set_meta("opening_companion",FORMS[partner])
+	# Claude, 2026-10-09 (Preston: "prologue to town to hollow and back"): the day starts in Highbank,
+	# and the Mouth of the Hollow there starts the run. The team record carries the choice.
+	preload("res://scripts/town/team_state.gd").start([[hero,0],[partner,0]],{"creature_player":FORMS[hero],"opening_companion":FORMS[partner]})
+	var dungeon:Node2D=load("res://scenes/hub_town.tscn").instantiate()
+	preload("res://scripts/town/team_state.gd").give_to(dungeon)
 	var error:=get_tree().change_scene_to_node(dungeon)
 	if error!=OK:
 		dungeon.free();leaving=false;confirm.disabled=false;back.disabled=false

@@ -1,0 +1,48 @@
+{
+  "prompt": "Full-body pixel-art sprite of the exact reference Punchybun, facing right in a calm, curious rest pose, for a creature-village title menu. Preserve cream fur, pink boxing-glove forepaws, pink face markings, upright long ears and fluffy tail. Entire ears, tail, paws and feet fully visible. Transparent background. Centre the creature within a 128x128 canvas with a generous EMPTY TRANSPARENT MARGIN on ALL FOUR SIDES, including above the ears and left of the tail. Native crisp dark outlines, warm ochre light, soft moss shadows, substantial clean clusters, no scenery, no objects, no text. Complete uncropped anatomy is mandatory.",
+  "estimate": {
+    "created_at": 1791575943,
+    "credit_cost": 0,
+    "balance_cost": 0.18,
+    "output_images": [],
+    "base64_images": [],
+    "output_urls": [],
+    "model": "check_cost",
+    "remaining_credits": 0,
+    "remaining_balance": 5.859999999999995,
+    "resolved_prompt_style": "rd_pro__fantasy",
+    "used_input_image": false,
+    "reference_images_count": 1,
+    "used_extra_input_image": false,
+    "used_input_palette": false,
+    "used_strength": false,
+    "effective_timeout_seconds": 180
+  },
+  "result": {
+    "created_at": 1791576015,
+    "model": "rd_pro",
+    "balance_cost": 0.18,
+    "remaining_balance": 5.68,
+    "remaining_credits": 0,
+    "output_urls": [
+      "https://retrodiffusionstack-retrodiffusionapioutputstorere-rg4v98h7gwoa.s3.amazonaws.com/api-activity/f041da20-051d-451d-80d9-b9434f3bfeeb/0-c3a547189e2a48deb7456276b3b828ea.png?AWSAccessKeyId=AKIA55GSYAHSEKN47UW6&Signature=u5gARGe1Oh7D76zDTZ36TJsS4MI%3D&Expires=1791576916"
+    ],
+    "output_images_count": 0,
+    "base64_images_count": 1,
+    "downloadable_data": null,
+    "request_id": "f041da20-051d-451d-80d9-b9434f3bfeeb",
+    "outputs_retained_until": 1791662351,
+    "output_url_expires_at": 1791576916,
+    "warnings": null,
+    "delivery_status": "url",
+    "requested_images_count": 1,
+    "resolved_prompt_style": "rd_pro__fantasy",
+    "used_input_image": false,
+    "reference_images_count": 1,
+    "used_extra_input_image": false,
+    "used_input_palette": false,
+    "used_strength": false,
+    "effective_timeout_seconds": 180
+  },
+  "reference": "assets/sprites/arena/punchybun/se.png"
+}

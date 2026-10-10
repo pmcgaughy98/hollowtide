@@ -1,0 +1,12 @@
+{
+  "scripts/ui/village_menu_actor.gd": "51263e20526d768302510957082d2a76fad15c4e2678b472687bb37303169d97",
+  "scripts/creature_opening.gd": "b1ac21b3e7042e9ff9c4f7c687c61ff09125d45141d56a3c84fd8b3f76cd3d51",
+  "scripts/main_menu.gd": "9c606ff6d1d6e27fea9e758d5c188a6393b8df346b536baffadf35cbb3176392",
+  "scripts/opening_flow.gd": "e32e0783d279899549728529c006e30bf842bd5c5d0f93381efd163a102fbd35",
+  "scripts/main_menu_art_preview.gd": "80f0fc9e44e8519313b943117de81fb44aa3302b9caf3cfb686a33ab68e2727d",
+  "scripts/creature_prologue.gd": "dbb77baaf388bf8a1468c15455357d04726d4dedd8ba24821a4954b00edcea02",
+  "scripts/ui/hollowtide_wordmark.gd": "dbb72d86b0d93d45852d084b3f22299e91f5d8b038f4be97bf8b99c825fec578",
+  "scripts/arena/creature_finish.gd": "3de3b9d586821500752822a84398964cf4e1fee9a15dbf056695b3d50f56df86",
+  "scripts/arena/creature_finish.gdshader": "8f80459f0ec5f4b38f00ef00fe441b257d8917b2c3ed90e396df1c27b876f60b",
+  "project.godot": "20595541df1da4f6498b511a520ef85c7db70645cc81f0f3ec23c5f4d1b1d694"
+}

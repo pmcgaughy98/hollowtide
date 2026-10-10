@@ -1,0 +1,30 @@
+{
+  "prompt": "Animate the EXACT original input Punchybun model, fixed right-facing three-quarter view. Eight-frame seamless title-menu action: a tiny crouch, ONE gentle vertical hop about 4 pixels, soft landing at the same spot, then settle back to precisely the starting pose. Preserve its short ROUNDED ears, oversized fluffy cream tail with pink edging, rounded cream body, small pink boxing-glove forepaws, pink face and foot markings and exact facial expression. No tall rabbit ears, no lengthened muzzle, no changed gloves, limbs, anatomy, palette or proportions. All body parts remain fully inside the 80x80 canvas, stationary camera and transparent background. No walking, turning, props, text, effects or other characters. Return to original feet pixels and input pose at the end.",
+  "estimate": {
+    "created_at": 1791576246,
+    "credit_cost": 0,
+    "balance_cost": 0.25,
+    "output_images": [],
+    "base64_images": [],
+    "output_urls": [],
+    "model": "check_cost",
+    "remaining_credits": 0,
+    "remaining_balance": 4.969999999999996,
+    "resolved_prompt_style": "rd_advanced_animation__custom_action",
+    "used_input_image": true,
+    "reference_images_count": 0,
+    "used_extra_input_image": false,
+    "used_input_palette": false,
+    "used_strength": false,
+    "effective_timeout_seconds": 180
+  },
+  "job": {
+    "status": "accepted",
+    "task_id": "f831f579-1c0f-42f3-bfdd-a8cde4a293ad",
+    "request_id": "f831f579-1c0f-42f3-bfdd-a8cde4a293ad",
+    "message": "Inference accepted. Poll GET /v2/inferences/tasks/{task_id} for status."
+  },
+  "input": "punchybun-approved-input80.png",
+  "source": "assets/sprites/creatures/punchybun_2026_10_05/punchybun_front.png",
+  "approval": "Preston: that fixed it continue; use approved original model"
+}

@@ -30,6 +30,7 @@ func _run() -> void:
 			break
 	dg.traps.clear()
 	dg.floor_items.clear()
+	dg.monster_room = Rect2i()   # a Monster House springing in the test room spoils the staging (Grok's 2026-10-10 spawn tables put one here)
 	for k in dg.ents.size():
 		if dg.ents[k]["team"] == 1:
 			dg.ents[k]["hp"] = 0   # every generated wild creature out of the way

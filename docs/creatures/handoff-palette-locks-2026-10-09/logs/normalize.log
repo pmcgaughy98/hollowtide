@@ -1,0 +1,76 @@
+dustkite s.png done
+dustkite se.png done
+dustkite e.png done
+dustkite ne.png done
+dustkite n.png done
+dustkite nw.png done
+dustkite w.png done
+dustkite sw.png done
+dustkite dustkite_s_sheet.png done
+dustkite dustkite_se_sheet.png done
+dustkite dustkite_e_sheet.png done
+dustkite dustkite_ne_sheet.png done
+dustkite dustkite_n_sheet.png done
+waywhistle s.png done
+waywhistle se.png done
+waywhistle e.png done
+waywhistle ne.png done
+waywhistle n.png done
+waywhistle nw.png done
+waywhistle w.png done
+waywhistle sw.png done
+waywhistle waywhistle_s_sheet.png done
+waywhistle waywhistle_se_sheet.png done
+waywhistle waywhistle_e_sheet.png done
+waywhistle waywhistle_ne_sheet.png done
+waywhistle waywhistle_n_sheet.png done
+highsignal s.png done
+highsignal se.png done
+highsignal e.png done
+highsignal ne.png done
+highsignal n.png done
+highsignal nw.png done
+highsignal w.png done
+highsignal sw.png done
+highsignal highsignal_s_sheet.png done
+highsignal highsignal_se_sheet.png done
+highsignal highsignal_e_sheet.png done
+highsignal highsignal_ne_sheet.png done
+highsignal highsignal_n_sheet.png done
+riftfin s.png done
+riftfin se.png done
+riftfin e.png done
+riftfin ne.png done
+riftfin n.png done
+riftfin nw.png done
+riftfin w.png done
+riftfin sw.png done
+riftfin riftfin_s_sheet.png done
+riftfin riftfin_se_sheet.png done
+riftfin riftfin_e_sheet.png done
+riftfin riftfin_ne_sheet.png done
+riftfin riftfin_n_sheet.png done
+scourmaw s.png done
+scourmaw se.png done
+scourmaw e.png done
+scourmaw ne.png done
+scourmaw n.png done
+scourmaw nw.png done
+scourmaw w.png done
+scourmaw sw.png done
+scourmaw scourmaw_s_sheet.png done
+scourmaw scourmaw_se_sheet.png done
+scourmaw scourmaw_e_sheet.png done
+scourmaw scourmaw_ne_sheet.png done
+scourmaw scourmaw_n_sheet.png done
+dustkite walks: s, se, e, ne, n, nw(mirrored), w(mirrored), sw(mirrored)
+waywhistle walks: s, se, e, ne, n, nw(mirrored), w(mirrored), sw(mirrored)
+highsignal walks: s, se, e, ne, n, nw(mirrored), w(mirrored), sw(mirrored)
+riftfin walks: s, se, e, ne, n, nw(mirrored), w(mirrored), sw(mirrored)
+scourmaw walks: s, se, e, ne, n, nw(mirrored), w(mirrored), sw(mirrored)
+dustkite     stage 1: shrunk by 2.94, size 15.4 (target 15.5), walks 8
+waywhistle   stage 2: shrunk by 2.52, size 21.0 (target 21.0), walks 8
+highsignal   stage 3: shrunk by 2.52, size 29.8 (target 30.0), walks 8
+riftfin      stage 2: shrunk by 3.71, size 21.0 (target 21.0), walks 8
+scourmaw     stage 3: shrunk by 2.65, size 29.8 (target 30.0), walks 8
+Both sprite sets rebuilt; sources remain exact in originals

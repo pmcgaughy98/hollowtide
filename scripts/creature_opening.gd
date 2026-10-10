@@ -45,10 +45,30 @@ func _update_life(_delta:float) -> void:
 	_update_shine()
 
 func _build_wordmark() -> void:
-	super._build_wordmark()
-	_wordmark.size=Vector2(528,134.4)
-	_wordmark.position=Vector2(312,8)
+	_title.hide()
+	var vp:=SubViewport.new()
+	vp.name="WordmarkCanvas"
+	vp.size=Vector2i(384,84)
+	vp.transparent_bg=true
+	vp.render_target_update_mode=SubViewport.UPDATE_ALWAYS
+	vp.canvas_item_default_texture_filter=Viewport.DEFAULT_CANVAS_ITEM_TEXTURE_FILTER_NEAREST
+	_ui.add_child(vp)
+	var lettering:=Node2D.new()
+	lettering.set_script(preload("res://scripts/ui/hollowtide_wordmark.gd"))
+	vp.add_child(lettering)
+	_wordmark=TextureRect.new()
+	_wordmark.name="Wordmark"
+	_wordmark.texture=vp.get_texture()
+	_wordmark.texture_filter=CanvasItem.TEXTURE_FILTER_NEAREST
+	_wordmark.expand_mode=TextureRect.EXPAND_IGNORE_SIZE
+	_wordmark.stretch_mode=TextureRect.STRETCH_SCALE
+	_wordmark.size=Vector2(768,168)
+	_wordmark.position=Vector2(192,0)
+	_wordmark.mouse_filter=Control.MOUSE_FILTER_IGNORE
+	_ui.add_child(_wordmark)
 	_wordmark_home=_wordmark.position
+
+func _update_shine() -> void:pass # Carved lettering stays still and legible.
 
 func _build_boot() -> void:
 	super._build_boot()
@@ -95,28 +115,23 @@ func _build_menu() -> void:
 	_cursor.color=Color("#e4ca8e")
 
 func _build_characters() -> void:
-	for i in 2:
-		var actor := Sprite2D.new()
-		var form := "kithflare" if i==0 else "tallowroot"
-		actor.name = "CreatureLookout"+str(i)
-		actor.texture=load("res://assets/sprites/arena/%s/small/se.png" % form)
-		actor.texture_filter=CanvasItem.TEXTURE_FILTER_NEAREST
-		actor.scale=Vector2.ONE*2.5
-		var used:=actor.texture.get_image().get_used_rect()
-		actor.offset.y=actor.texture.get_height()*0.5-used.end.y
-		actor.set_meta("feet",Vector2(580+118*i,408+14*i))
-		actor.set_meta("rest",actor.texture)
-		actor.set_meta("rest_offset",actor.offset)
-		var frames:Array[Texture2D]=[]
-		var planted:=0.0
-		for k in 8:
-			var frame:Texture2D=load("res://assets/sprites/arena/%s/small/walk_se_f%d.png"%[form,k])
-			frames.append(frame)
-			planted=maxf(planted,frame.get_image().get_used_rect().end.y)
-		actor.set_meta("walk",frames)
-		actor.set_meta("planted",planted)
-		actor.position=actor.get_meta("feet")
-		Finish.apply(actor)
+	var meta:Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://assets/sprites/menu/village_actors_2026_10_09/animations.json"))
+	for spec in [["punchybun",Vector2(566,428)],["cinderhide",Vector2(712,436)]]:
+		var feet:Vector2=spec[1]
+		var shadow:=Polygon2D.new()
+		shadow.name=spec[0].capitalize()+"VillageShadow"
+		shadow.polygon=PackedVector2Array([Vector2(-31,-3),Vector2(-22,-8),Vector2(20,-8),Vector2(32,-3),Vector2(20,3),Vector2(-21,3)])
+		shadow.color=Color(0.16,0.12,0.08,0.22)
+		shadow.position=feet
+		var soft:=Polygon2D.new()
+		soft.name="GroundShade"
+		soft.polygon=PackedVector2Array([Vector2(-38,-4),Vector2(-26,-11),Vector2(23,-11),Vector2(40,-4),Vector2(25,6),Vector2(-25,6)])
+		soft.color=Color(0.22,0.19,0.10,0.10)
+		shadow.add_child(soft)
+		add_child(shadow)
+		var actor:=Sprite2D.new()
+		actor.set_script(preload("res://scripts/ui/village_menu_actor.gd"))
+		actor.setup(spec[0],feet,meta[spec[0]])
 		add_child(actor)
 		companions.append(actor)
 
@@ -130,6 +145,8 @@ func _build_journey_panel() -> void:
 	list.add_child(_journey_status)
 
 func _poll_route() -> void:pass
+
+func _request_route() -> void:pass # This menu uses the preloaded creature prologue.
 
 func _on_new_game() -> void:
 	if _boot_done and not _leaving:_begin_journey()
@@ -155,12 +172,4 @@ func _begin_journey() -> void:
 func _process(delta:float) -> void:
 	super._process(delta)
 	for actor in companions:
-		var feet:Vector2=actor.get_meta("feet")
-		actor.position=feet
-		if not _reduce_motion and _boot_done and _time<2:
-			actor.position.x-=roundf(48.0*maxf(0.0,1.0-_time/2.0))
-			actor.texture=actor.get_meta("walk")[int(_time*8)%8]
-			actor.offset.y=actor.texture.get_height()*0.5-float(actor.get_meta("planted"))
-		else:
-			actor.texture=actor.get_meta("rest")
-			actor.offset=actor.get_meta("rest_offset")
+		actor.pose(_time,_reduce_motion or not _boot_done or _leaving)

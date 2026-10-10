@@ -1,0 +1,52 @@
+{
+  "punchybun": {
+    "source_size": [
+      128,
+      128
+    ],
+    "source_used": [
+      21,
+      15,
+      102,
+      113
+    ],
+    "prepared_size": [
+      46,
+      56
+    ],
+    "prepared_at": [
+      17,
+      14
+    ],
+    "native_canvas": [
+      80,
+      80
+    ],
+    "nearest_only": true
+  },
+  "cinderhide": {
+    "source_size": [
+      128,
+      128
+    ],
+    "source_used": [
+      2,
+      13,
+      126,
+      123
+    ],
+    "prepared_size": [
+      58,
+      51
+    ],
+    "prepared_at": [
+      11,
+      19
+    ],
+    "native_canvas": [
+      80,
+      80
+    ],
+    "nearest_only": true
+  }
+}

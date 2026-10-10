@@ -1,0 +1,69 @@
+{
+  "changed_existing": [
+    "docs/AI_COLLABORATION.md",
+    "scripts/creature_opening.gd"
+  ],
+  "new_runtime": [
+    "scripts/ui/village_menu_actor.gd",
+    "assets/sprites/menu/village_actors_2026_10_09/animations.json",
+    "assets/sprites/menu/village_actors_2026_10_09/punchybun/frame_00.png",
+    "assets/sprites/menu/village_actors_2026_10_09/punchybun/frame_01.png",
+    "assets/sprites/menu/village_actors_2026_10_09/punchybun/frame_02.png",
+    "assets/sprites/menu/village_actors_2026_10_09/punchybun/frame_03.png",
+    "assets/sprites/menu/village_actors_2026_10_09/punchybun/frame_04.png",
+    "assets/sprites/menu/village_actors_2026_10_09/punchybun/frame_05.png",
+    "assets/sprites/menu/village_actors_2026_10_09/punchybun/frame_06.png",
+    "assets/sprites/menu/village_actors_2026_10_09/punchybun/frame_07.png",
+    "assets/sprites/menu/village_actors_2026_10_09/cinderhide/frame_00.png",
+    "assets/sprites/menu/village_actors_2026_10_09/cinderhide/frame_01.png",
+    "assets/sprites/menu/village_actors_2026_10_09/cinderhide/frame_02.png",
+    "assets/sprites/menu/village_actors_2026_10_09/cinderhide/frame_03.png",
+    "assets/sprites/menu/village_actors_2026_10_09/cinderhide/frame_04.png",
+    "assets/sprites/menu/village_actors_2026_10_09/cinderhide/frame_05.png",
+    "assets/sprites/menu/village_actors_2026_10_09/cinderhide/frame_06.png",
+    "assets/sprites/menu/village_actors_2026_10_09/cinderhide/frame_07.png"
+  ],
+  "hashes": {
+    "scripts/creature_opening.gd": "b1ac21b3e7042e9ff9c4f7c687c61ff09125d45141d56a3c84fd8b3f76cd3d51",
+    "docs/AI_COLLABORATION.md": "8aa8255a93ebc4519ce4adc3188da6d280697bfc8ddb273651a0c49b856e90b0",
+    "scripts/ui/village_menu_actor.gd": "51263e20526d768302510957082d2a76fad15c4e2678b472687bb37303169d97",
+    "assets/sprites/menu/village_actors_2026_10_09/animations.json": "6a06dd2f5c4cf560dad7c44528a24bd3e9663aee56a8b6a6ac12f1819cfce01a",
+    "assets/sprites/menu/village_actors_2026_10_09/punchybun/frame_00.png": "13b9724ebbdeb28c57abdf7ff2d4a88a41fb984d1a3cc75b7c94a370133681bd",
+    "assets/sprites/menu/village_actors_2026_10_09/punchybun/frame_01.png": "a9acea08a2ef030f7e77230b79f0efc4e6c971bd46ca218e4f6297da3f2b979a",
+    "assets/sprites/menu/village_actors_2026_10_09/punchybun/frame_02.png": "75892a91662628fe4905153cff9ba63ed0e219c3c78d563afd2f973386e2571b",
+    "assets/sprites/menu/village_actors_2026_10_09/punchybun/frame_03.png": "16eb443064fcbc4046b3b7f6f9e591ead4b555d94498b8b7cd0874e20b381638",
+    "assets/sprites/menu/village_actors_2026_10_09/punchybun/frame_04.png": "ea974acad72b990b5e44e046f5d257ebe2aa2651b41f6c5f67221fdf04ecdb36",
+    "assets/sprites/menu/village_actors_2026_10_09/punchybun/frame_05.png": "6dc7ece6921b5334880adf5f7c27ee70583a9cd9992b3ad6236f2f7be7a9910b",
+    "assets/sprites/menu/village_actors_2026_10_09/punchybun/frame_06.png": "c1738dae4b5aadfcb5c91808cf031671af14c55c9858cd7c28a36cf31cd01584",
+    "assets/sprites/menu/village_actors_2026_10_09/punchybun/frame_07.png": "3a61c7f55b2d5d424e0b38b6326aab8651df5ab05d64d825400990061c787fc1",
+    "assets/sprites/menu/village_actors_2026_10_09/cinderhide/frame_00.png": "eee82f7e99fae0e722ecbdf41046a1708daafbc6d82ccefb37685332cfe8955b",
+    "assets/sprites/menu/village_actors_2026_10_09/cinderhide/frame_01.png": "487659d72d47f5a20d4dedfd0f832aee6dbc310577babf707a49d0f058dce547",
+    "assets/sprites/menu/village_actors_2026_10_09/cinderhide/frame_02.png": "e809820024a6f4532fba70091f9edd7cb1430a84158b440dad853e0a978ac9da",
+    "assets/sprites/menu/village_actors_2026_10_09/cinderhide/frame_03.png": "78dc9e431afc8517e684aac2fbfe4f104ab7dceb0df099cc2bfd0709beb5d9bc",
+    "assets/sprites/menu/village_actors_2026_10_09/cinderhide/frame_04.png": "1ed0bd3e1079a399d54962cf3cf688498dc6223aafce10c74ae4f829da0a4576",
+    "assets/sprites/menu/village_actors_2026_10_09/cinderhide/frame_05.png": "2d5e1b01c1850e13bae97ede456416e8a877a36611b28d880fb5b243c1d69325",
+    "assets/sprites/menu/village_actors_2026_10_09/cinderhide/frame_06.png": "1feffda300b643e4146f61b0ff212051ec03f2d8b84a492a0448f7763ddf9bdb",
+    "assets/sprites/menu/village_actors_2026_10_09/cinderhide/frame_07.png": "531e16951b560d846d39bdb67ef469e5112d496b6b3f3ff7f34d6e7334a56a4b"
+  },
+  "protected_files": 12416,
+  "unexpected_changes": [],
+  "concurrent_since_review_start": [
+    "scripts/dungeon/dungeon.gd",
+    "tools/debug/dungeon_position_check.gd",
+    "tools/debug/dungeon_recruit_check.gd",
+    "tools/debug/dungeon_tactics_check.gd"
+  ],
+  "checks": 16,
+  "creature_originals_modified": 0,
+  "generation_receipt_total": 1.36,
+  "initial_protection_audit_changes": [
+    "scripts/dungeon/dungeon.gd"
+  ],
+  "concurrent_during_install": {
+    "scripts/dungeon/dungeon.gd": {
+      "before": "409db1040db7dff179646528b6b720963df9ef96e5fa6d5e8d1e627d76ef32a7",
+      "after": "03775da62de58acc3a2f4aab699b49b6175c3b588b96160f1ba731210260877b"
+    }
+  },
+  "post_install_verification": "post-install-verification.json"
+}

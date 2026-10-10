@@ -120,7 +120,10 @@ func _run() -> void:
 				continue
 			if seen.has(e["pos"]):
 				overlaps += 1
-			seen[e["pos"]] = true
+				if overlaps == 1:
+					var o: Dictionary = seen[e["pos"]]
+					print("   first overlap, turn %d: %s (team %d, hp %d, awake %s, house %s) and %s (team %d, hp %d, awake %s, house %s) on %s; asking %d; log %s" % [dg.turn, e["name"], e["team"], e["hp"], str(e["awake"]), str(e.get("house", false)), o["name"], o["team"], o["hp"], str(o["awake"]), str(o.get("house", false)), str(e["pos"]), dg.asking, str(dg.log_lines.slice(-14))])
+			seen[e["pos"]] = e
 			if not dg._floor_at(e["pos"]):
 				in_wall += 1
 		if not shot:

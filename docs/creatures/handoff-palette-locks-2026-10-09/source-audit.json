@@ -1,0 +1,972 @@
+{
+  "dustkite": {
+    "reference": "docs/creatures/arena-starters-2026-10-07/forms/dustkite_arena_front_take1.png",
+    "facings": {
+      "s": {
+        "brightness": 105.5601,
+        "saturation_pct": 20.2803,
+        "colours": 18,
+        "contrast_std": 57.0865,
+        "alpha_partial": 0,
+        "painted_pixels": 1719,
+        "bbox": [
+          32,
+          33,
+          91,
+          98
+        ],
+        "foot_row": 97,
+        "canvas": [
+          128,
+          128
+        ],
+        "dark_edge_pixels": 233,
+        "lone_interior_pct": 14.6358
+      },
+      "se": {
+        "brightness": 108.6259,
+        "saturation_pct": 18.1302,
+        "colours": 20,
+        "contrast_std": 53.3904,
+        "alpha_partial": 0,
+        "painted_pixels": 1941,
+        "bbox": [
+          30,
+          35,
+          101,
+          101
+        ],
+        "foot_row": 100,
+        "canvas": [
+          128,
+          128
+        ],
+        "dark_edge_pixels": 252,
+        "lone_interior_pct": 8.1049
+      },
+      "e": {
+        "brightness": 114.6372,
+        "saturation_pct": 21.3839,
+        "colours": 18,
+        "contrast_std": 53.6091,
+        "alpha_partial": 0,
+        "painted_pixels": 2191,
+        "bbox": [
+          12,
+          47,
+          110,
+          95
+        ],
+        "foot_row": 94,
+        "canvas": [
+          128,
+          128
+        ],
+        "dark_edge_pixels": 257,
+        "lone_interior_pct": 13.8365
+      },
+      "ne": {
+        "brightness": 114.1113,
+        "saturation_pct": 21.4782,
+        "colours": 20,
+        "contrast_std": 51.855,
+        "alpha_partial": 0,
+        "painted_pixels": 2203,
+        "bbox": [
+          12,
+          35,
+          104,
+          97
+        ],
+        "foot_row": 96,
+        "canvas": [
+          128,
+          128
+        ],
+        "dark_edge_pixels": 243,
+        "lone_interior_pct": 11.5767
+      },
+      "n": {
+        "brightness": 113.046,
+        "saturation_pct": 20.3682,
+        "colours": 16,
+        "contrast_std": 47.6543,
+        "alpha_partial": 0,
+        "painted_pixels": 2131,
+        "bbox": [
+          36,
+          24,
+          93,
+          104
+        ],
+        "foot_row": 103,
+        "canvas": [
+          128,
+          128
+        ],
+        "dark_edge_pixels": 201,
+        "lone_interior_pct": 13.1383
+      },
+      "nw": {
+        "brightness": 112.6323,
+        "saturation_pct": 20.362,
+        "colours": 14,
+        "contrast_std": 51.7038,
+        "alpha_partial": 0,
+        "painted_pixels": 2247,
+        "bbox": [
+          28,
+          30,
+          105,
+          96
+        ],
+        "foot_row": 95,
+        "canvas": [
+          128,
+          128
+        ],
+        "dark_edge_pixels": 265,
+        "lone_interior_pct": 9.7499
+      },
+      "w": {
+        "brightness": 115.3999,
+        "saturation_pct": 20.212,
+        "colours": 18,
+        "contrast_std": 52.1837,
+        "alpha_partial": 0,
+        "painted_pixels": 2254,
+        "bbox": [
+          18,
+          42,
+          119,
+          96
+        ],
+        "foot_row": 95,
+        "canvas": [
+          128,
+          128
+        ],
+        "dark_edge_pixels": 239,
+        "lone_interior_pct": 14.4529
+      },
+      "sw": {
+        "brightness": 111.8009,
+        "saturation_pct": 20.3381,
+        "colours": 21,
+        "contrast_std": 55.3667,
+        "alpha_partial": 0,
+        "painted_pixels": 1998,
+        "bbox": [
+          24,
+          50,
+          116,
+          100
+        ],
+        "foot_row": 99,
+        "canvas": [
+          128,
+          128
+        ],
+        "dark_edge_pixels": 258,
+        "lone_interior_pct": 10.474
+      }
+    },
+    "reference_metrics": {
+      "brightness": 112.4932,
+      "saturation_pct": 23.3594,
+      "colours": 26,
+      "contrast_std": 53.9717,
+      "alpha_partial": 0,
+      "painted_pixels": 2090,
+      "bbox": [
+        14,
+        19,
+        85,
+        86
+      ],
+      "foot_row": 85,
+      "canvas": [
+        96,
+        96
+      ],
+      "dark_edge_pixels": 255,
+      "lone_interior_pct": 9.2
+    }
+  },
+  "waywhistle": {
+    "reference": "docs/creatures/arena-starters-2026-10-07/forms/waywhistle_arena_front_take1.png",
+    "facings": {
+      "s": {
+        "brightness": 110.5797,
+        "saturation_pct": 24.3546,
+        "colours": 17,
+        "contrast_std": 72.1223,
+        "alpha_partial": 0,
+        "painted_pixels": 2148,
+        "bbox": [
+          30,
+          36,
+          98,
+          119
+        ],
+        "foot_row": 118,
+        "canvas": [
+          144,
+          144
+        ],
+        "dark_edge_pixels": 349,
+        "lone_interior_pct": 19.8087
+      },
+      "se": {
+        "brightness": 116.1564,
+        "saturation_pct": 26.3484,
+        "colours": 25,
+        "contrast_std": 66.7265,
+        "alpha_partial": 0,
+        "painted_pixels": 2914,
+        "bbox": [
+          26,
+          33,
+          117,
+          119
+        ],
+        "foot_row": 118,
+        "canvas": [
+          144,
+          144
+        ],
+        "dark_edge_pixels": 459,
+        "lone_interior_pct": 14.1906
+      },
+      "e": {
+        "brightness": 115.9707,
+        "saturation_pct": 26.5867,
+        "colours": 21,
+        "contrast_std": 63.5137,
+        "alpha_partial": 0,
+        "painted_pixels": 3080,
+        "bbox": [
+          16,
+          25,
+          118,
+          118
+        ],
+        "foot_row": 117,
+        "canvas": [
+          144,
+          144
+        ],
+        "dark_edge_pixels": 429,
+        "lone_interior_pct": 16.3587
+      },
+      "ne": {
+        "brightness": 116.8153,
+        "saturation_pct": 29.2999,
+        "colours": 20,
+        "contrast_std": 61.9291,
+        "alpha_partial": 0,
+        "painted_pixels": 3055,
+        "bbox": [
+          20,
+          17,
+          117,
+          123
+        ],
+        "foot_row": 122,
+        "canvas": [
+          144,
+          144
+        ],
+        "dark_edge_pixels": 425,
+        "lone_interior_pct": 14.6693
+      },
+      "n": {
+        "brightness": 105.8797,
+        "saturation_pct": 27.1497,
+        "colours": 18,
+        "contrast_std": 58.861,
+        "alpha_partial": 0,
+        "painted_pixels": 2293,
+        "bbox": [
+          46,
+          13,
+          104,
+          115
+        ],
+        "foot_row": 114,
+        "canvas": [
+          144,
+          144
+        ],
+        "dark_edge_pixels": 303,
+        "lone_interior_pct": 17.3891
+      },
+      "nw": {
+        "brightness": 116.2969,
+        "saturation_pct": 29.147,
+        "colours": 18,
+        "contrast_std": 61.6281,
+        "alpha_partial": 0,
+        "painted_pixels": 2929,
+        "bbox": [
+          33,
+          17,
+          120,
+          122
+        ],
+        "foot_row": 121,
+        "canvas": [
+          144,
+          144
+        ],
+        "dark_edge_pixels": 413,
+        "lone_interior_pct": 16.2912
+      },
+      "w": {
+        "brightness": 119.3023,
+        "saturation_pct": 27.2814,
+        "colours": 17,
+        "contrast_std": 62.0664,
+        "alpha_partial": 0,
+        "painted_pixels": 3022,
+        "bbox": [
+          27,
+          24,
+          128,
+          118
+        ],
+        "foot_row": 117,
+        "canvas": [
+          144,
+          144
+        ],
+        "dark_edge_pixels": 389,
+        "lone_interior_pct": 14.3422
+      },
+      "sw": {
+        "brightness": 117.6641,
+        "saturation_pct": 26.3536,
+        "colours": 21,
+        "contrast_std": 66.1272,
+        "alpha_partial": 0,
+        "painted_pixels": 3115,
+        "bbox": [
+          24,
+          31,
+          124,
+          119
+        ],
+        "foot_row": 118,
+        "canvas": [
+          144,
+          144
+        ],
+        "dark_edge_pixels": 480,
+        "lone_interior_pct": 14.7547
+      }
+    },
+    "reference_metrics": {
+      "brightness": 114.7244,
+      "saturation_pct": 35.8535,
+      "colours": 35,
+      "contrast_std": 66.5185,
+      "alpha_partial": 0,
+      "painted_pixels": 2971,
+      "bbox": [
+        10,
+        17,
+        101,
+        103
+      ],
+      "foot_row": 102,
+      "canvas": [
+        112,
+        112
+      ],
+      "dark_edge_pixels": 494,
+      "lone_interior_pct": 17.6019
+    }
+  },
+  "highsignal": {
+    "reference": "docs/creatures/arena-starters-2026-10-07/forms/highsignal_arena_front_take1.png",
+    "facings": {
+      "s": {
+        "brightness": 107.1019,
+        "saturation_pct": 31.0371,
+        "colours": 24,
+        "contrast_std": 60.147,
+        "alpha_partial": 0,
+        "painted_pixels": 4053,
+        "bbox": [
+          22,
+          19,
+          121,
+          132
+        ],
+        "foot_row": 131,
+        "canvas": [
+          160,
+          160
+        ],
+        "dark_edge_pixels": 491,
+        "lone_interior_pct": 31.0
+      },
+      "se": {
+        "brightness": 111.7858,
+        "saturation_pct": 29.9083,
+        "colours": 27,
+        "contrast_std": 51.8307,
+        "alpha_partial": 0,
+        "painted_pixels": 6496,
+        "bbox": [
+          24,
+          21,
+          134,
+          139
+        ],
+        "foot_row": 138,
+        "canvas": [
+          160,
+          160
+        ],
+        "dark_edge_pixels": 512,
+        "lone_interior_pct": 37.1384
+      },
+      "e": {
+        "brightness": 109.1553,
+        "saturation_pct": 30.7269,
+        "colours": 22,
+        "contrast_std": 50.9558,
+        "alpha_partial": 0,
+        "painted_pixels": 6809,
+        "bbox": [
+          28,
+          20,
+          140,
+          139
+        ],
+        "foot_row": 138,
+        "canvas": [
+          160,
+          160
+        ],
+        "dark_edge_pixels": 626,
+        "lone_interior_pct": 25.3408
+      },
+      "ne": {
+        "brightness": 105.5495,
+        "saturation_pct": 31.1158,
+        "colours": 23,
+        "contrast_std": 49.7678,
+        "alpha_partial": 0,
+        "painted_pixels": 6489,
+        "bbox": [
+          29,
+          24,
+          129,
+          137
+        ],
+        "foot_row": 136,
+        "canvas": [
+          160,
+          160
+        ],
+        "dark_edge_pixels": 606,
+        "lone_interior_pct": 23.8382
+      },
+      "n": {
+        "brightness": 100.1853,
+        "saturation_pct": 31.288,
+        "colours": 23,
+        "contrast_std": 48.3412,
+        "alpha_partial": 0,
+        "painted_pixels": 4890,
+        "bbox": [
+          28,
+          24,
+          139,
+          133
+        ],
+        "foot_row": 132,
+        "canvas": [
+          160,
+          160
+        ],
+        "dark_edge_pixels": 486,
+        "lone_interior_pct": 19.9678
+      },
+      "nw": {
+        "brightness": 101.7265,
+        "saturation_pct": 31.0458,
+        "colours": 23,
+        "contrast_std": 49.6855,
+        "alpha_partial": 0,
+        "painted_pixels": 5256,
+        "bbox": [
+          34,
+          26,
+          135,
+          124
+        ],
+        "foot_row": 123,
+        "canvas": [
+          160,
+          160
+        ],
+        "dark_edge_pixels": 524,
+        "lone_interior_pct": 25.4873
+      },
+      "w": {
+        "brightness": 106.7956,
+        "saturation_pct": 30.7337,
+        "colours": 24,
+        "contrast_std": 52.494,
+        "alpha_partial": 0,
+        "painted_pixels": 5985,
+        "bbox": [
+          21,
+          20,
+          135,
+          126
+        ],
+        "foot_row": 125,
+        "canvas": [
+          160,
+          160
+        ],
+        "dark_edge_pixels": 488,
+        "lone_interior_pct": 23.2323
+      },
+      "sw": {
+        "brightness": 111.2267,
+        "saturation_pct": 30.073,
+        "colours": 25,
+        "contrast_std": 54.1696,
+        "alpha_partial": 0,
+        "painted_pixels": 6058,
+        "bbox": [
+          23,
+          20,
+          130,
+          130
+        ],
+        "foot_row": 129,
+        "canvas": [
+          160,
+          160
+        ],
+        "dark_edge_pixels": 535,
+        "lone_interior_pct": 33.0968
+      }
+    },
+    "reference_metrics": {
+      "brightness": 111.3733,
+      "saturation_pct": 31.253,
+      "colours": 33,
+      "contrast_std": 51.7413,
+      "alpha_partial": 0,
+      "painted_pixels": 6521,
+      "bbox": [
+        8,
+        5,
+        118,
+        123
+      ],
+      "foot_row": 122,
+      "canvas": [
+        128,
+        128
+      ],
+      "dark_edge_pixels": 537,
+      "lone_interior_pct": 38.3302
+    }
+  },
+  "riftfin": {
+    "reference": "docs/creatures/arena-starters-2026-10-07/forms/riftfin_arena_front_take1.png",
+    "facings": {
+      "s": {
+        "brightness": 79.8476,
+        "saturation_pct": 48.2658,
+        "colours": 30,
+        "contrast_std": 45.4293,
+        "alpha_partial": 0,
+        "painted_pixels": 5583,
+        "bbox": [
+          19,
+          32,
+          142,
+          132
+        ],
+        "foot_row": 131,
+        "canvas": [
+          160,
+          160
+        ],
+        "dark_edge_pixels": 469,
+        "lone_interior_pct": 24.8484
+      },
+      "se": {
+        "brightness": 85.0662,
+        "saturation_pct": 45.7948,
+        "colours": 32,
+        "contrast_std": 45.8822,
+        "alpha_partial": 0,
+        "painted_pixels": 6930,
+        "bbox": [
+          22,
+          28,
+          138,
+          132
+        ],
+        "foot_row": 131,
+        "canvas": [
+          160,
+          160
+        ],
+        "dark_edge_pixels": 394,
+        "lone_interior_pct": 37.1474
+      },
+      "e": {
+        "brightness": 88.1017,
+        "saturation_pct": 47.1534,
+        "colours": 29,
+        "contrast_std": 48.2325,
+        "alpha_partial": 0,
+        "painted_pixels": 6796,
+        "bbox": [
+          22,
+          29,
+          144,
+          133
+        ],
+        "foot_row": 132,
+        "canvas": [
+          160,
+          160
+        ],
+        "dark_edge_pixels": 369,
+        "lone_interior_pct": 25.9259
+      },
+      "ne": {
+        "brightness": 85.4422,
+        "saturation_pct": 47.5223,
+        "colours": 26,
+        "contrast_std": 49.9002,
+        "alpha_partial": 0,
+        "painted_pixels": 5967,
+        "bbox": [
+          18,
+          35,
+          144,
+          125
+        ],
+        "foot_row": 124,
+        "canvas": [
+          160,
+          160
+        ],
+        "dark_edge_pixels": 401,
+        "lone_interior_pct": 27.7299
+      },
+      "n": {
+        "brightness": 81.2139,
+        "saturation_pct": 48.7044,
+        "colours": 24,
+        "contrast_std": 47.0997,
+        "alpha_partial": 0,
+        "painted_pixels": 5554,
+        "bbox": [
+          17,
+          35,
+          137,
+          127
+        ],
+        "foot_row": 126,
+        "canvas": [
+          160,
+          160
+        ],
+        "dark_edge_pixels": 428,
+        "lone_interior_pct": 23.5577
+      },
+      "nw": {
+        "brightness": 80.431,
+        "saturation_pct": 48.6661,
+        "colours": 29,
+        "contrast_std": 45.9664,
+        "alpha_partial": 0,
+        "painted_pixels": 6087,
+        "bbox": [
+          21,
+          26,
+          134,
+          124
+        ],
+        "foot_row": 123,
+        "canvas": [
+          160,
+          160
+        ],
+        "dark_edge_pixels": 453,
+        "lone_interior_pct": 26.9328
+      },
+      "w": {
+        "brightness": 84.8647,
+        "saturation_pct": 48.8011,
+        "colours": 30,
+        "contrast_std": 48.9761,
+        "alpha_partial": 0,
+        "painted_pixels": 6088,
+        "bbox": [
+          21,
+          38,
+          139,
+          124
+        ],
+        "foot_row": 123,
+        "canvas": [
+          160,
+          160
+        ],
+        "dark_edge_pixels": 346,
+        "lone_interior_pct": 23.4778
+      },
+      "sw": {
+        "brightness": 85.1103,
+        "saturation_pct": 47.2405,
+        "colours": 31,
+        "contrast_std": 50.9288,
+        "alpha_partial": 0,
+        "painted_pixels": 5733,
+        "bbox": [
+          15,
+          40,
+          142,
+          114
+        ],
+        "foot_row": 113,
+        "canvas": [
+          160,
+          160
+        ],
+        "dark_edge_pixels": 413,
+        "lone_interior_pct": 29.784
+      }
+    },
+    "reference_metrics": {
+      "brightness": 84.6311,
+      "saturation_pct": 47.829,
+      "colours": 39,
+      "contrast_std": 46.1013,
+      "alpha_partial": 0,
+      "painted_pixels": 6966,
+      "bbox": [
+        6,
+        12,
+        122,
+        116
+      ],
+      "foot_row": 115,
+      "canvas": [
+        128,
+        128
+      ],
+      "dark_edge_pixels": 428,
+      "lone_interior_pct": 37.9063
+    }
+  },
+  "scourmaw": {
+    "reference": "docs/creatures/arena-starters-2026-10-07/forms/scourmaw_arena_front_take1.png",
+    "facings": {
+      "s": {
+        "brightness": 77.0856,
+        "saturation_pct": 50.1239,
+        "colours": 28,
+        "contrast_std": 43.5892,
+        "alpha_partial": 0,
+        "painted_pixels": 5331,
+        "bbox": [
+          37,
+          30,
+          138,
+          136
+        ],
+        "foot_row": 135,
+        "canvas": [
+          160,
+          160
+        ],
+        "dark_edge_pixels": 294,
+        "lone_interior_pct": 31.0856
+      },
+      "se": {
+        "brightness": 87.0573,
+        "saturation_pct": 46.937,
+        "colours": 35,
+        "contrast_std": 47.3811,
+        "alpha_partial": 0,
+        "painted_pixels": 8673,
+        "bbox": [
+          17,
+          26,
+          144,
+          133
+        ],
+        "foot_row": 132,
+        "canvas": [
+          160,
+          160
+        ],
+        "dark_edge_pixels": 351,
+        "lone_interior_pct": 41.0189
+      },
+      "e": {
+        "brightness": 90.7345,
+        "saturation_pct": 46.2565,
+        "colours": 30,
+        "contrast_std": 46.8669,
+        "alpha_partial": 0,
+        "painted_pixels": 7972,
+        "bbox": [
+          13,
+          26,
+          144,
+          132
+        ],
+        "foot_row": 131,
+        "canvas": [
+          160,
+          160
+        ],
+        "dark_edge_pixels": 359,
+        "lone_interior_pct": 28.8438
+      },
+      "ne": {
+        "brightness": 90.9937,
+        "saturation_pct": 46.8486,
+        "colours": 29,
+        "contrast_std": 50.517,
+        "alpha_partial": 0,
+        "painted_pixels": 6125,
+        "bbox": [
+          24,
+          30,
+          137,
+          129
+        ],
+        "foot_row": 128,
+        "canvas": [
+          160,
+          160
+        ],
+        "dark_edge_pixels": 338,
+        "lone_interior_pct": 33.7139
+      },
+      "n": {
+        "brightness": 82.0375,
+        "saturation_pct": 52.2287,
+        "colours": 23,
+        "contrast_std": 47.7091,
+        "alpha_partial": 0,
+        "painted_pixels": 4754,
+        "bbox": [
+          24,
+          42,
+          126,
+          130
+        ],
+        "foot_row": 129,
+        "canvas": [
+          160,
+          160
+        ],
+        "dark_edge_pixels": 211,
+        "lone_interior_pct": 25.7246
+      },
+      "nw": {
+        "brightness": 86.8935,
+        "saturation_pct": 50.1825,
+        "colours": 29,
+        "contrast_std": 50.8251,
+        "alpha_partial": 0,
+        "painted_pixels": 6387,
+        "bbox": [
+          24,
+          46,
+          146,
+          126
+        ],
+        "foot_row": 125,
+        "canvas": [
+          160,
+          160
+        ],
+        "dark_edge_pixels": 269,
+        "lone_interior_pct": 26.7731
+      },
+      "w": {
+        "brightness": 89.261,
+        "saturation_pct": 46.9042,
+        "colours": 29,
+        "contrast_std": 49.3584,
+        "alpha_partial": 0,
+        "painted_pixels": 6314,
+        "bbox": [
+          15,
+          47,
+          144,
+          129
+        ],
+        "foot_row": 128,
+        "canvas": [
+          160,
+          160
+        ],
+        "dark_edge_pixels": 314,
+        "lone_interior_pct": 26.8998
+      },
+      "sw": {
+        "brightness": 87.7091,
+        "saturation_pct": 46.6107,
+        "colours": 33,
+        "contrast_std": 51.7851,
+        "alpha_partial": 0,
+        "painted_pixels": 5518,
+        "bbox": [
+          20,
+          30,
+          129,
+          132
+        ],
+        "foot_row": 131,
+        "canvas": [
+          160,
+          160
+        ],
+        "dark_edge_pixels": 405,
+        "lone_interior_pct": 38.7497
+      }
+    },
+    "reference_metrics": {
+      "brightness": 86.9097,
+      "saturation_pct": 47.0752,
+      "colours": 38,
+      "contrast_std": 47.441,
+      "alpha_partial": 0,
+      "painted_pixels": 8690,
+      "bbox": [
+        1,
+        10,
+        128,
+        117
+      ],
+      "foot_row": 116,
+      "canvas": [
+        128,
+        128
+      ],
+      "dark_edge_pixels": 366,
+      "lone_interior_pct": 41.2022
+    }
+  }
+}

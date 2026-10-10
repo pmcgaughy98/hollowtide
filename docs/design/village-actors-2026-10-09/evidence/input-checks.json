@@ -1,0 +1,33 @@
+{
+  "checks": [
+    {
+      "check": "Skip input does not also trigger New Game",
+      "passed": true
+    },
+    {
+      "check": "Reduce motion holds the dedicated creature rest pose",
+      "passed": true
+    },
+    {
+      "check": "Mouse New Game reaches creature opening",
+      "passed": true
+    },
+    {
+      "check": "Mouse chooses Rimefin",
+      "passed": true
+    },
+    {
+      "check": "Keyboard confirms identity",
+      "passed": true
+    },
+    {
+      "check": "Escape returns to identity without starting run",
+      "passed": true
+    },
+    {
+      "check": "Escape from awakening returns to title scene",
+      "passed": true
+    }
+  ],
+  "failures": []
+}

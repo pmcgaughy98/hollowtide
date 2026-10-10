@@ -1,0 +1,18 @@
+{
+  "changed_existing": [
+    "scripts/ui/village_menu_actor.gd",
+    "scripts/creature_opening.gd",
+    "docs/AI_COLLABORATION.md"
+  ],
+  "hashes": {
+    "scripts/ui/village_menu_actor.gd": "e78fe0d23e657d72af324be73b88361fa6678781a301fa31dd0a851aba84af5b",
+    "scripts/creature_opening.gd": "fac6248be9c7f0b7026bc43f344c49009c928adff1217538366fbee04b03c51b",
+    "docs/AI_COLLABORATION.md": "5b6492ba0adcdebcf8c2c4a57a671489049bf0539e87b2e19bc3336ad0de9a7d"
+  },
+  "checks": 16,
+  "protected_files": 12858,
+  "concurrent_protected_changes": {},
+  "creature_pngs_written": 0,
+  "generation_calls": 0,
+  "settings_unchanged": true
+}

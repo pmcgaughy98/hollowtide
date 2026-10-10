@@ -1,0 +1,75 @@
+{
+  "changed_pngs": 784,
+  "checked_pngs": 785,
+  "native_checks": {
+    "checks": [
+      {
+        "check": "dustkite wears finish in both constructors",
+        "passed": true
+      },
+      {
+        "check": "dustkite loads actual dungeon set",
+        "passed": true
+      },
+      {
+        "check": "waywhistle wears finish in both constructors",
+        "passed": true
+      },
+      {
+        "check": "waywhistle loads actual dungeon set",
+        "passed": true
+      },
+      {
+        "check": "highsignal wears finish in both constructors",
+        "passed": true
+      },
+      {
+        "check": "highsignal loads actual dungeon set",
+        "passed": true
+      },
+      {
+        "check": "riftfin wears finish in both constructors",
+        "passed": true
+      },
+      {
+        "check": "riftfin loads actual dungeon set",
+        "passed": true
+      },
+      {
+        "check": "scourmaw wears finish in both constructors",
+        "passed": true
+      },
+      {
+        "check": "scourmaw loads actual dungeon set",
+        "passed": true
+      },
+      {
+        "check": "Both loaders provide all 720 facing/walk textures",
+        "passed": true
+      },
+      {
+        "check": "Every texture swap retains the planted feet row",
+        "passed": true
+      }
+    ],
+    "failures": [],
+    "textures": 720,
+    "worst_anchor_error": 0.0
+  },
+  "relay_checks": 50,
+  "protected_files": 12076,
+  "concurrent_protected_changes": {
+    "tools/debug/dungeon_boss_check.gd": {
+      "before": "c69d169d8f6e891b320e8c8e8c1a6bc972c658543f513555e5cdbb1879523b7f",
+      "after": "fa434cf9b9572a10234fa6d1bfeab5b6afdfb7e33efd88e22632cc7eabd4c5d3"
+    }
+  },
+  "changed_notes": [
+    "docs/AI_COLLABORATION.md",
+    "docs/team/CODEX_HANDOFF_2026-10-10.md"
+  ],
+  "runtime_code_written": 0,
+  "generation_calls": 0,
+  "note_write_recovery": "Initial Path.write_bytes on AI_COLLABORATION.md raised EINVAL before changing the file. Guarded .NET write completed the prepared notes.",
+  "initial_installer_log": "logs/initial-install-write-error.txt"
+}

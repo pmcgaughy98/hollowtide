@@ -55,12 +55,21 @@ func _run() -> void:
 	var extra: Dictionary = dg._make(5, 0, 0, lead["pos"] + _free(dg, lead["pos"]))
 	dg.ents.append(extra)
 	dg._place(extra)
+	# Stage it in the open: in a hallway the team can fill every side of the leader.
+	for room in dg.data["rooms"]:
+		var c: Vector2i = room.get_center()
+		if room.size.x >= 4 and room.size.y >= 4 and dg._occupant(c) < 0:
+			lead["pos"] = c
+			dg._place(lead)
+			break
 	var w3 := _wild(dg)
 	if not w3.is_empty():
 		_place_next(dg, w3)
 		w3["hp"] = 1
 		await dg.act_attack(0)
+		var asked_full: bool = dg.asking >= 0
 		dg.act_recruit(true)
+		print("   (the full-team recruit: %s at %s from the leader, hp %d after the attack, asked %s)" % [w3["name"], str(w3["pos"] - lead["pos"]), w3["hp"], str(asked_full)])
 		print("Full team (4): %s went to the hall roster: %s; roster %s" % [w3["name"], str(not dg.roster.is_empty()), str(dg.roster)])
 	# 5. Down the stairs: the recruit comes along.
 	var before: int = dg.party.size()
@@ -100,8 +109,8 @@ func _wild(dg: Node2D) -> Dictionary:
 
 func _place_next(dg: Node2D, w: Dictionary) -> Vector2i:
 	var lead: Dictionary = dg.ents[0]
-	for dd in [Vector2i(1, 0), Vector2i(-1, 0), Vector2i(0, 1), Vector2i(0, -1)]:
-		if dg._floor_at(lead["pos"] + dd) and dg._occupant(lead["pos"] + dd) < 0:
+	for dd in [Vector2i(1, 0), Vector2i(-1, 0), Vector2i(0, 1), Vector2i(0, -1)] + dg.DIRS:   # diagonals too: a full team can fill the four sides
+		if dg.can_step(lead["pos"], dd) and dg._occupant(lead["pos"] + dd) < 0:
 			w["pos"] = lead["pos"] + dd
 			w["awake"] = true
 			dg._place(w)

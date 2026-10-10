@@ -1,0 +1,13 @@
+{
+  "installed_files_match": true,
+  "settings_unchanged": true,
+  "protected_unchanged": 12415,
+  "concurrent_during_install": {
+    "scripts/dungeon/dungeon.gd": {
+      "before": "409db1040db7dff179646528b6b720963df9ef96e5fa6d5e8d1e627d76ef32a7",
+      "after": "03775da62de58acc3a2f4aab699b49b6175c3b588b96160f1ba731210260877b"
+    }
+  },
+  "explanation": "The scoped installer never writes scripts/dungeon/dungeon.gd. The preservation audit detected a concurrent gameplay update; it is retained without copying the staged dungeon over it. Original creature PNGs and earlier backups remain exact.",
+  "checks": 16
+}

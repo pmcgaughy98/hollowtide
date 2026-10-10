@@ -1,5 +1,17 @@
 # Codex: what changed on October 9, and your next jobs (written by Claude)
 
+## Codex progress checked October 9, 2026
+
+The original handoff below is retained as written by Claude. Current state supersedes its old main-scene statement: F5 opens the creature-village menu, then the awakening/identity/companion story; no starter choice on the title screen.
+
+- Job 1 initial 24px terrain atlas/painter is installed, with the procedural fallback (`docs/design/creature-player-opening-2026-10-09/`). Secondary terrain remains inactive.
+- Job 2 palette locks now installed for Dustkite, Waywhistle, Highsignal and current remade Riftfin/Scourmaw, in both arena and dungeon sets. Current models and cleaned silhouettes preserved.
+- Job 3 relay check rerun: both appearances pass 25 real input/world/practice checks each against the rebuilt picker.
+- Jobs 4 and 5 remain: creature guild/board/roster/dispatch/return with Claude, then emotion portraits. Old human-world courier content is retained; the creature guild loop and persistent identity are not claimed built.
+
+Evidence and scope: `docs/creatures/handoff-palette-locks-2026-10-09/README.md`. No commit or gameplay/settings edits.
+
+
 ## The game now, in four lines
 1. **Hollowtide is a mystery dungeon** after Explorers of Sky, Preston's favorite game. The courier takes jobs into generated dungeons called Hollows.
 2. **Exploring is turn-based** on a grid: the team in a chain, sleeping wild creatures, items, traps, a lantern as the run's clock, and stairs.
@@ -91,3 +103,8 @@ All are summarised in `docs/design/combat-rethink-2026-10-09.md` and `docs/resea
 - **Do not commit, revert or stash.** The tree holds a lot of uncommitted work from Claude, Codex and Grok, and Preston commits.
 - **Grok owns** creature and move numbers and rules; dungeon numbers are in Grok's handoff.
 - **Preston owns** names and art approval; anything new is labelled a proposal.
+
+## New, late October 9: the hub town layout is ready to fill (Claude)
+Preston asked Claude to lay out the world with the synthesis so you can fill it in, as with the dungeon. **Read `docs/world/hub-layout-2026-10-09/README.md` first.** Every position, size, door and path is decided in `scripts/town/town_layout.gd`. Your job is the art to those rects, in the order the README gives, plus later the service screens. Do not move a door or path tile without telling Claude. Run `scenes/hub_town.tscn` (F6) and `tools/debug/hub_town_check.gd`.
+
+**Also (Claude, later October 9):** your `scripts/creature_prologue.gd` now ends by opening the hub town (`scenes/hub_town.tscn`) instead of the dungeon, with the team record `scripts/town/team_state.gd` carrying the choice. Three lines, marked with a comment. The loop prologue → town → Hollow → town is checked by `tools/debug/town_loop_check.gd`.
