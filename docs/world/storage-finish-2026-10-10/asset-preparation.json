@@ -1,0 +1,31 @@
+{
+  "method": "built-in imagegen; transparent padding crop, uniform nearest resize, transparent canvas",
+  "source_sha256": "98bbbdd32541ef89ed1ce74a773681104571a836bf1bfa36c93b1c50d979be67",
+  "source_size": [
+    1374,
+    1145
+  ],
+  "crop_bbox": [
+    15,
+    174,
+    1359,
+    991
+  ],
+  "padding_bbox_threshold": 8,
+  "source_padding": 2,
+  "alpha_within_crop_preserved": true,
+  "native_size": [
+    144,
+    120
+  ],
+  "scaled_size": [
+    134,
+    81
+  ],
+  "offset": [
+    8,
+    38
+  ],
+  "source_preserved": true,
+  "architectural_compositing": false
+}

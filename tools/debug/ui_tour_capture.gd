@@ -91,6 +91,20 @@ func _run() -> void:
 	menu.show_page("team")
 	await _frames(6)
 	await _snap("09_pause_team")
+	var party: Control = menu.overlay.get_node("PartyScreen")
+	party.page = 1
+	party.move_sel = 2
+	party.picking = true
+	await _frames(6)
+	await _snap("10_pause_moves")
+	party.picking = false
+	party.page = 0
+	party.sel = 2
+	await _frames(6)
+	await _snap("11_pause_team_healer")
+	party.sel = 1
+	await _frames(6)
+	await _snap("12_pause_team_tallowroot")
 	menu.resume()
 	await _frames(20)
 	print("done")

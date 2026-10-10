@@ -1,0 +1,9 @@
+{
+ "prompt": "Top-down action game sprite of a small fuzzy mosquito creature the size of a fist, hovering low over the ground: a round fuzzy dusty grey-brown body, a long thin needle nose, big round glossy amber-red compound eyes, two pairs of small clear buzzing wings, six long thin dangling legs, a striped abdomen with faint sickly green bands. Whiny, twitchy and sulky, a pouting look. Seen from above at a three-quarter overhead angle like a sprite in a top-down arena battle game, facing down and to the right toward the camera. A readable game sprite: chunky clear shapes, a crisp dark outline. Not a fly, not a bee, not a wasp, no stinger at the tail, no shadow blob. Whole creature centred with empty space on every side, nothing touching the edges. On a plain white background.",
+ "prompt_style": "rd_pro__default",
+ "width": 96,
+ "height": 96,
+ "num_images": 2,
+ "remove_bg": true,
+ "reference_images": []
+}

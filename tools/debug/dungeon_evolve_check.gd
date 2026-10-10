@@ -63,31 +63,19 @@ func _run() -> void:
 	await _frames(3)
 	print("After one floor: %s on B%dF, party %s, evolutions %d" % [dg.ents[0]["name"], dg.floor_n, str(dg.party), dg.evolved_log.size()])
 
-	# 3. The next floor meets the last condition: it evolves on arrival.
+	# 3. The next floor meets the last condition: it becomes ready, and stays itself in the Hollow
+	# (evolving happens at the Growth Shrine in Highbank since 2026-10-10; tools/debug/evolution_check.gd).
 	lead = dg.ents[0]
-	lead["hp"] = 20
-	var hp_before: int = lead["hp"]
-	var max_before: int = lead["max_hp"]
 	lead["pos"] = dg.data["stairs"]
 	dg._place(lead)
 	await dg.act_stairs()
 	await _frames(20)
-	var ev: Dictionary = dg.ents[0]
-	var kit: Dictionary = dg.Arena.KITS[ev["form"]]
-	await _frames(2)
-	# Headless has no viewport texture. The numbers below are the check. The still is only for a windowed run.
-	if DisplayServer.get_name() == "headless":
-		print("Still skipped: headless viewport has no texture")
-	else:
-		root.get_texture().get_image().save_png(ProjectSettings.globalize_path(OUT + "evolved.png"))
-	print("Evolved: log %s; leader now %s (stage %d), moves %s (Sparkwick's kit starts %s); HP %d/%d before, %d/%d after; banner '%s' / '%s'" % [str(dg.evolved_log), ev["name"], ev["stage"] + 1, str(ev["moves"]), str(kit["moves"]), hp_before, max_before, ev["hp"], ev["max_hp"], dg._banner["text"], dg._banner["sub"]])
-	print("Tallowroot did not evolve: %s (progress %.2f)" % [str(dg.party[1] == [1, 0]), dg.evo_progress(1, 0)])
-
-	# 4. A faint does not undo it.
-	ev["hp"] = 0
-	dg._end_turn()
-	await _frames(3)
-	print("After a faint: party %s, leader %s" % [str(dg.party), dg.ents[0]["name"]])
+	var told: bool = dg.log_lines.any(func(l: String) -> bool: return l.contains("Growth Shrine"))
+	var still_kith: bool = dg.ents[0]["form"] == "kithflare" and dg.party[0] == [0, 0]
+	print("Ready, not evolved: ready %s, still Kithflare %s, told to visit the Growth Shrine %s -> %s" % [str(dg.evo_ready(0, 0)), str(still_kith), str(told), "ok" if dg.evo_ready(0, 0) and still_kith and told else "WRONG"])
+	if DisplayServer.get_name() != "headless":
+		root.get_texture().get_image().save_png(ProjectSettings.globalize_path(OUT + "ready.png"))
+	print("Tallowroot not ready: %s (progress %.2f)" % [str(not dg.evo_ready(1, 0)), dg.evo_progress(1, 0)])
 
 	# 5. A final never evolves.
 	dg.growth["0:2"] = {"kos": 99, "floors": 99, "flank": 99, "ambush": 99, "took": 999, "slam": 99}

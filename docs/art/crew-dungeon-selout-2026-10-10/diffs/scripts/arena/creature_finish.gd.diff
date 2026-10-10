@@ -1,0 +1,20 @@
+--- current-live/scripts/arena/creature_finish.gd
++++ finish/scripts/arena/creature_finish.gd
+@@ -13,9 +13,17 @@
+ 	var refresh := func() -> void:
+ 		var path := sprite.texture.resource_path if sprite.texture != null else ""
+ 		finish.set_shader_parameter("sparkwick_palette", is_sparkwick(path))
++		finish.set_shader_parameter("detail_ink", 1.0 if details else crew_detail(path))
+ 	sprite.texture_changed.connect(refresh)
+ 	refresh.call()
+ 
+ 
+ static func is_sparkwick(path: String) -> bool:
+ 	return "/arena/sparkwick/" in path or "/sparkwick_palette_locked/" in path or "/sparkwick_idle_texture_" in path or "/109_kithflare2/" in path or path.ends_with("/kithflare2_front.png") or path.ends_with("/kithflare2_back.png")
++
++
++static func crew_detail(path: String) -> float:
++	for form in ["mirekit", "whinet"]:
++		if ("/arena/" + form + "/") in path or path.ends_with("/dialogue/" + form + ".png"):
++			return 0.65
++	return 0.0

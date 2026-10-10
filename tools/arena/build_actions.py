@@ -35,7 +35,12 @@ TARGET = {0: 15.5, 1: 21.0, 2: 30.0}   # keep in step with build_dungeon_set.py
 FALLBACK = {"se": ["e", "s"], "ne": ["e", "n"], "e": ["s"], "n": ["e", "s"]}
 
 
+DUNGEON_ONLY = {"mirekit": 0, "whinet": 0}   # the rival crew (dungeon.gd CREW_LINES), not in the arena's LINES
+
+
 def stage_of(name: str) -> int:
+    if name in DUNGEON_ONLY:
+        return DUNGEON_ONLY[name]
     import re
     src = open("scripts/arena/arena_prototype.gd", encoding="utf-8").read()
     for m in re.finditer(r'"forms": \[\["([a-z]+)", "[^"]*"\], \["([a-z]+)", "[^"]*"\], \["([a-z]+)"', src):
@@ -46,7 +51,7 @@ def stage_of(name: str) -> int:
 
 def factor(name: str) -> float:
     v = [np.sqrt((np.array(Image.open(ART / name / f"{f}.png").convert("RGBA"))[..., 3] > 0).sum()) for f in FACINGS]
-    return float(np.mean(v)) / TARGET[stage_of(name)]
+    return float(np.mean(v)) / (TARGET[stage_of(name)] * SIZE)
 
 
 def frames_of(sheet: Path, side: int, n: int) -> list:
@@ -60,7 +65,10 @@ def frames_of(sheet: Path, side: int, n: int) -> list:
     return out
 
 
-for name in (sys.argv[1:] or ["kithflare", "tallowroot", "rimefin", "cinderhide", "fusern", "preostmar", "punchybun", "listener", "canvaswing", "dustkite"]):
+OPTS = dict(a[2:].split("=", 1) for a in sys.argv[1:] if a.startswith("--"))
+SET = OPTS.get("set", "dungeon")   # --set=escort --scale=1.35: the bigger set a boss's escort wears
+SIZE = float(OPTS.get("scale", "1"))
+for name in ([a for a in sys.argv[1:] if not a.startswith("--")] or ["kithflare", "tallowroot", "rimefin", "cinderhide", "fusern", "preostmar", "punchybun", "listener", "canvaswing", "dustkite"]):
     side = Image.open(ART / name / "s.png").size[0]
     f = factor(name)
     made = []
@@ -81,6 +89,6 @@ for name in (sys.argv[1:] or ["kithflare", "tallowroot", "rimefin", "cinderhide"
                     frames = frames[n // 2:]   # the take lies down over its first half; the loop is the asleep half
                 cache[gen] = [resample(fr, f) for fr in frames]
             for i, fr in enumerate(cache[gen]):
-                (ImageOps.mirror(fr) if flip else fr).save(ART / name / "dungeon" / f"{action}_{shown}_f{i}.png")
+                (ImageOps.mirror(fr) if flip else fr).save(ART / name / SET / f"{action}_{shown}_f{i}.png")
             made.append(f"{action}:{shown}")
     print(name, "x%.2f" % f, ", ".join(made) or "no sheets yet")

@@ -1,0 +1,9 @@
+{
+  "protected_exact_since_preinstall": 9559,
+  "original_art_and_creatures_unchanged": true,
+  "concurrent_before_install_retained": {},
+  "concurrent_after_preinstall_retained": {},
+  "problems": [],
+  "archive_mismatch": [],
+  "owned_runtime_exact": true
+}

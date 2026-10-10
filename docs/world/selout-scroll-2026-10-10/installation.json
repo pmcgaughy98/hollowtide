@@ -1,0 +1,40 @@
+{
+  "protected_exact_since_preinstall": 9265,
+  "original_art_and_creatures_unchanged": true,
+  "concurrent_before_install_retained": {
+    "scripts/dungeon/dungeon.gd": {
+      "before": "b706699b656a08dcfd136233932c37877a660c07ce72c24640162a9f91f90334",
+      "now": "743579e015532eec5361ac933555e4334583db3a8bd81a67194a0c57bd4a6d45"
+    },
+    "scripts/town/hub_town.gd": {
+      "before": "56ee1424fa5b9a2949e2e3fdf25f6ba874e6f63229c287189afb34cc0ab8e45a",
+      "now": "693f25c846b1e92dfa858093691e34e0cb9d6ffa83b5b00f8ba57af77757e1f9"
+    },
+    "scripts/ui/creature_idle.gd": {
+      "before": "585729b1fb95221aaa1ecc14dbbde86d5c5afce0bd88460216e2b68ebec2c110",
+      "now": "b556c3dab53b4553cd2655c0b1cc4a5d33eb60ffbd2a11b8be2c5a867d393c8d"
+    },
+    "tools/arena/build_actions.py": {
+      "before": "3a9ec07ec9909a3e3f01438a3bfb5cdec5feda4ee28a5cbbc376a39bc79141d0",
+      "now": "6c9f81e91970d0cc425c9a8349e71a6d0b9f639de219a8a812c68354618ea182"
+    },
+    "tools/arena/build_dungeon_set.py": {
+      "before": "7ad444053e03ed2a5c09cc0c5f7684531d51e927732c1c4018c9fb11e4be72d0",
+      "now": "3e8c2e5ea09875313abf0295e2b3efcbee7d1c38f9cfc57e8541246794c2539f"
+    },
+    "tools/trailer/record_trailer.gd": {
+      "before": "14d02a8416268551d35b05c72a22ebace0fabc65ceaa945d37ca7738d3d18fba",
+      "now": "05ac713fc0bcdfc4b63f5ec86728ed905961ffee9d9678748a9dc5caee6601dd"
+    }
+  },
+  "concurrent_after_preinstall_retained": {
+    "scripts/dungeon/dungeon.gd": {
+      "before": "743579e015532eec5361ac933555e4334583db3a8bd81a67194a0c57bd4a6d45",
+      "now": "dc062864b5ccf25efeea84a3c49a1221c3aa3ce277a160fc69ad7942e3cb87ce",
+      "reason": "Inspected boss/escort sizing and updated full-body ground shadow; preserved Claude edit after preinstall."
+    }
+  },
+  "problems": [],
+  "archive_mismatch": [],
+  "owned_runtime_exact": true
+}

@@ -2,6 +2,9 @@ extends "res://scripts/opening_flow.gd"
 ## Creature-player launch from an original Retro Diffusion village painting.
 ## Village architecture is a visual proposal; the awakening and dungeon flow remain.
 const PROLOGUE = preload("res://scenes/creature_prologue.tscn")
+# New Game opens the soul prologue first (Claude, 2026-10-10; Preston: the soul arrives in Hollowtide
+# and chooses its creature), which then hands over to PROLOGUE with the starter chosen.
+const SOUL = preload("res://scenes/soul_prologue.tscn")
 const VILLAGE = preload("res://assets/sprites/menu/creature_village_2026_10_09.png")
 const FRAME_TRIM = preload("res://scripts/ui/title_panel_trim.gd")
 const MENU_FACE = preload("res://assets/fonts/Vollkorn-Variable.ttf")
@@ -417,7 +420,7 @@ func _begin_journey() -> void:
 	fade.tween_property(_fade,"color:a",1.0,seconds)
 	if _music != null: fade.tween_property(_music,"volume_db",-80.0,seconds)
 	await fade.finished
-	var scene:=PROLOGUE.instantiate()
+	var scene:=SOUL.instantiate()
 	scene.reduce_motion=_reduce_motion
 	var error:=get_tree().change_scene_to_node(scene)
 	if error!=OK:

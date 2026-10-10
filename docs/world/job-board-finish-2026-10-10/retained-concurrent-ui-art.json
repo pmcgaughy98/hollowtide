@@ -1,0 +1,18 @@
+{
+  "assets/sprites/ui/frame/panel.png": {
+    "sha256": "638fe62afa512f09fe7712a2cf6362e89bacea20771dfd74d9db0bb6f53866dc",
+    "reason": "Inspected concurrent Claude UI 9-slice replacement, 28px source / seam correction; preserved exactly. Not changed by Board install."
+  },
+  "assets/sprites/ui/frame/panel_dim.png": {
+    "sha256": "537ab9dce113a8393f001ef254a91ceb8515cc04640ea331851f1bdf1737c503",
+    "reason": "Inspected concurrent Claude UI 9-slice replacement, 28px source / seam correction; preserved exactly. Not changed by Board install."
+  },
+  "assets/sprites/ui/frame/panel_focus.png": {
+    "sha256": "1abc386a06a2c910c14b00d5432ac68ddace408933623a42794c13fad4c13e77",
+    "reason": "Inspected concurrent Claude UI 9-slice replacement, 28px source / seam correction; preserved exactly. Not changed by Board install."
+  },
+  "assets/sprites/ui/frame/nameplate.png": {
+    "sha256": "9a0325cec7c676ff9793a3148e2280e04db0db82d72678f88dc9d49713923644",
+    "reason": "Inspected concurrent Claude UI padding / textured party frame / flat brass nameplate refinement; unchanged by Board install."
+  }
+}

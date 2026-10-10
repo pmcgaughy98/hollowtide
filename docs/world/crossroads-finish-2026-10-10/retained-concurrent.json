@@ -1,0 +1,27 @@
+[
+  {
+    "path": "scripts/dungeon/dungeon.gd",
+    "sha256": "4bff4b7537da7758e125875bfd390ae5e34e25255e7ea432d01f2b0f9664d98a",
+    "new_since_baseline": false
+  },
+  {
+    "path": "scripts/town/hub_town.gd",
+    "sha256": "852ab43b255ebd354c84c5c3e12ee1433f2f03ed186010a2234746ef36a61c48",
+    "new_since_baseline": false
+  },
+  {
+    "path": "scripts/town/jobs.gd",
+    "sha256": "184f9409ef0172b916fcdb0512beb48003522c9c9eb514946d9b01fbeea7e553",
+    "new_since_baseline": true
+  },
+  {
+    "path": "scripts/town/team_state.gd",
+    "sha256": "8c9d9c15ea57a5b2360bcdcd9a0ceab04cf4c133c246d0f0be5b1c2db585147d",
+    "new_since_baseline": false
+  },
+  {
+    "path": "tools/debug/job_board_check.gd",
+    "sha256": "0eb2e062b939c93a991577a787b0d14a57e2a4935f8d14d5efa50bebabae87cd",
+    "new_since_baseline": true
+  }
+]

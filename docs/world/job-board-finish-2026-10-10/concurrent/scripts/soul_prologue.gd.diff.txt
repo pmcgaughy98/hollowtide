@@ -1,0 +1,71 @@
+diff --git "a/D:\\dev\\hollowtide-world-refinement-20261008\\project\\scripts\\soul_prologue.gd" "b/C:\\Users\\pmcga\\dev\\hollowtide\\scripts\\soul_prologue.gd"
+index b004a10..75d3f8d 100644
+--- "a/D:\\dev\\hollowtide-world-refinement-20261008\\project\\scripts\\soul_prologue.gd"
++++ "b/C:\\Users\\pmcga\\dev\\hollowtide\\scripts\\soul_prologue.gd"
+@@ -220,7 +220,7 @@ func _input(event: InputEvent) -> void:
+ 
+ 
+ func _card_rect(k: int) -> Rect2:
+-	return Rect2(66 + k * 348, 180 - (12 if k == pick else 0), 324, 300)
++	return Rect2(66 + k * 348, 176 - (12 if k == pick else 0), 324, 312)
+ 
+ 
+ func _on_click(event: InputEvent) -> void:
+@@ -298,13 +298,16 @@ func _draw_ui() -> void:
+ 			_draw_card(k)
+ 	if stage in ["talk", "after", "choose"]:
+ 		var box := Rect2(140, 498, 872, 122)
+-		UI.panel(c, box, 0.9)
+-		UI.text(c, box.position + Vector2(24, 34), "???", 19, Color(1.0, 0.9, 0.7))
++		# The presence has no face: a name tab and no portrait, the way an unseen voice speaks in
++		# Explorers of Sky.
++		UI.panel(c, box, 0.95)
++		UI.nameplate(c, box.position + Vector2(24, -22), "???", 26)
+ 		var text := _text().substr(0, int(shown)) if stage != "choose" else _text()
+-		c.draw_multiline_string(UI.HEAD, box.position + Vector2(24, 64), text, HORIZONTAL_ALIGNMENT_LEFT, box.size.x - 48, 21, 3, UI.TEXT)
+-		var hint := "A / D  choose      J  this shape" if stage == "choose" else ("J" if shown >= _text().length() else "")
+-		if hint != "":
+-			UI.text(c, box.position + Vector2(0, 112), hint, 15, Color(UI.MUTED, 0.6 + 0.4 * sin(_t * 4.0)), box.size.x - 20, HORIZONTAL_ALIGNMENT_RIGHT)
++		c.draw_multiline_string(UI.HEAD, box.position + Vector2(30, 50), text, HORIZONTAL_ALIGNMENT_LEFT, box.size.x - 80, 21, 3, UI.TEXT)
++		if stage == "choose":
++			UI.text(c, box.position + Vector2(0, 108), "A / D  choose      J  this shape", 15, Color(UI.MUTED, 0.6 + 0.4 * sin(_t * 4.0)), box.size.x - 30, HORIZONTAL_ALIGNMENT_RIGHT)
++		elif shown >= _text().length():
++			UI.next_arrow(c, box.end - Vector2(48, 36), _t)
+ 
+ 
+ func _draw_card(k: int) -> void:
+@@ -312,25 +315,24 @@ func _draw_card(k: int) -> void:
+ 	var r := _card_rect(k)
+ 	var on := k == pick and stage == "choose" or k == chosen
+ 	var fade := 1.0 if stage == "choose" or k == chosen else 0.35
+-	c.draw_rect(r, Color(UI.PANEL, 0.82 * fade))
+-	c.draw_rect(r, (UI.EDGE_LIGHT if on else UI.EDGE) * Color(1, 1, 1, fade), false, 3.0 if on else 1.0)
+-	var stage_r := Rect2(r.position + Vector2(12, 12), Vector2(r.size.x - 24, 190))
+-	c.draw_rect(stage_r, Color(UI.PORTRAIT_BG, 0.9 * fade))
++	UI.panel(c, r, 0.95 if fade >= 1.0 else 0.7, on)
++	var stage_r := Rect2(r.position + Vector2(22, 22), Vector2(r.size.x - 44, 180))
++	c.draw_style_box(UI.frame("portrait"), stage_r)
+ 	var frames := CreatureIdle.frames(FORMS[k])
+ 	if not frames.is_empty():
+ 		var box := CreatureIdle.box(frames)
+-		var s := floorf(clampf(minf(176.0 / box.size.y, 288.0 / box.size.x), 0.5, 2.0) * 2.0) / 2.0
++		var s := floorf(clampf(minf(146.0 / box.size.y, 246.0 / box.size.x), 0.5, 2.0) * 2.0) / 2.0
+ 		var size := Vector2(box.size) * s
+-		var dest := Rect2(stage_r.position + Vector2((stage_r.size.x - size.x) * 0.5, stage_r.size.y - size.y - 6), size)
++		var dest := Rect2(stage_r.position + Vector2((stage_r.size.x - size.x) * 0.5, stage_r.size.y - size.y - 18), size)
+ 		var tex: Texture2D = CreatureIdle.frame_at(frames, _t if on else 0.0)
+ 		c.draw_set_transform(Vector2(dest.position.x + dest.size.x, dest.position.y), 0.0, Vector2(-1, 1))   # turned to its right
+ 		c.draw_texture_rect_region(tex, Rect2(Vector2.ZERO, dest.size), Rect2(box), Color(1, 1, 1, fade))
+ 		c.draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE)
+-	UI.text(c, r.position + Vector2(16, 232), NAMES[k], 24, (UI.EDGE_LIGHT if on else UI.TEXT) * Color(1, 1, 1, fade))
+-	var ix: float = r.position.x + r.size.x - 16 - 30 * ESSENCES[k].size()
++	UI.text(c, r.position + Vector2(28, 238), NAMES[k], 24, (UI.EDGE_LIGHT if on else UI.TEXT) * Color(1, 1, 1, fade))
++	var ix: float = r.position.x + r.size.x - 28 - 30 * ESSENCES[k].size()
+ 	for es in ESSENCES[k]:   # the main essence first, as on the party screen
+ 		var icon := UI.essence_icon(es)
+ 		if icon != null:
+-			c.draw_texture_rect(icon, Rect2(ix, r.position.y + 210, 28, 28), false, Color(1, 1, 1, fade))
++			c.draw_texture_rect(icon, Rect2(ix, r.position.y + 214, 28, 28), false, Color(1, 1, 1, fade))
+ 		ix += 30
+-	c.draw_multiline_string(UI.HEAD, r.position + Vector2(16, 258), FEEL[k], HORIZONTAL_ALIGNMENT_LEFT, r.size.x - 32, 15, 2, UI.MUTED * Color(1, 1, 1, fade))
++	c.draw_multiline_string(UI.HEAD, r.position + Vector2(28, 262), FEEL[k], HORIZONTAL_ALIGNMENT_LEFT, r.size.x - 56, 15, 2, UI.MUTED * Color(1, 1, 1, fade))

@@ -88,6 +88,7 @@ func _run() -> void:
 
 	# ---- 3. The boss floor
 	await _fresh(4242)
+	dg.boss_intro = false   # the bosses' scenes have their own captures; this checks the fight and the finish
 	dg.recruit_override = 1.0   # every beaten creature would ask, so a boss that does not is measured
 	dg.floor_n = dg.FLOORS + 1
 	dg._build_floor(true)

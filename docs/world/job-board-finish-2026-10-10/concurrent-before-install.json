@@ -1,0 +1,34 @@
+{
+  "scripts/soul_prologue.gd": {
+    "before": "236f73404f3951e51b8ec198edb5395d100d2d6d9315e5a862198b72c73c8360",
+    "now": "b21119721f398e806d9cc263d8795d8554a9f73eb49bdb8ec3329293b8fcced6"
+  },
+  "scripts/dungeon/dungeon.gd": {
+    "before": "dc062864b5ccf25efeea84a3c49a1221c3aa3ce277a160fc69ad7942e3cb87ce",
+    "now": "fb340cfacce96017b706c585eda847510f94ba7414ceb09e8cbe9bbc57d8c94e"
+  },
+  "scripts/ui/game_pause_menu.gd": {
+    "before": "fb84d579ac3d8d1200c4f7f7237fc68bc47487bd08c48fb7e661ae7c4ed4d102",
+    "now": "30d48613b8014c4765ae84c1fed4e56ed1f28b243b5161dd8e624e8a7199534c"
+  },
+  "scripts/ui/ui_style.gd": {
+    "before": "2db596437d439eb3280f54e014ee7554451d3bdf13aceea79f9269fabdab4557",
+    "now": "120fe804e7ed4e934aed1779405fc20d05484a2b6a2b8863ed29eaf681140f1d"
+  },
+  "assets/sprites/ui/frame/panel.png": {
+    "before": "c2ed2f9a955fdf8922539559ce11f5640ff6848092f419bab505bf0f93d53401",
+    "now": "638fe62afa512f09fe7712a2cf6362e89bacea20771dfd74d9db0bb6f53866dc"
+  },
+  "assets/sprites/ui/frame/panel_dim.png": {
+    "before": "d198c2ad6bf577e7b32179763c6fee7d9a686196bd7ba995b876639fbc983c6e",
+    "now": "537ab9dce113a8393f001ef254a91ceb8515cc04640ea331851f1bdf1737c503"
+  },
+  "assets/sprites/ui/frame/panel_focus.png": {
+    "before": "57c9e1689eba3736dfd0b67264141afb1510be362fa410ce2d62b0533faa6d2a",
+    "now": "1abc386a06a2c910c14b00d5432ac68ddace408933623a42794c13fad4c13e77"
+  },
+  "tools/ui/build_frames.py": {
+    "before": "0373015630b9da3a73cb965c84da7689f2b1e94e7b19aa5a178f2b77e90d33d3",
+    "now": "534cae51c742861274d34a48c7518787e2b9f9ea75c56d00229bef62fe2dab04"
+  }
+}

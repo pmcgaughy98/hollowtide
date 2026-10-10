@@ -48,14 +48,19 @@ func _run() -> void:
 	bad += _check("Level 3", dg.level_of(0) == 3 and kith["moves"] == ["claw", "ember_feint", "fireball"] and dg.taught.get("0:0", []) == kith["moves"],
 		"Lv %d, moves %s, stored %s" % [dg.level_of(0), _names(dg, kith["moves"]), str(dg.taught.get("0:0", []))])
 
-	# Evolution: Kithflare meets everything at Lv 5 and becomes Sparkwick on the next floor.
+	# Evolution (at the Growth Shrine since 2026-10-10, scripts/town/evolution.gd): Kithflare meets
+	# everything at Lv 5, evolves on the team record, and the next floor brings Sparkwick.
 	dg._gain_exp(dg.exp_to_next(3) + dg.exp_to_next(4))
 	var r: Dictionary = dg.EVO[0]
 	dg.growth["0:0"] = {"kos": r["kos"][0], "floors": r["floors"][0], "flank": r["need"][0], "ambush": 0, "took": 0, "slam": 0}
+	var Evolution = load("res://scripts/town/evolution.gd")
+	var rec := {"party": dg.party.duplicate(true), "taught": dg.taught, "levels": dg.levels, "growth": dg.growth}
+	var evo: Dictionary = Evolution.evolve(rec, 0)
+	dg.party = rec["party"]
 	kith["pos"] = dg.data["stairs"]
 	dg._place(kith)
 	await dg.act_stairs()
-	await _frames(70)
+	await _frames(20)
 	var sp: Dictionary = dg.ents[0]
 	bad += _check("Evolved", sp["form"] == "sparkwick" and sp["moves"] == ["pounce", "claw", "ember_feint", "fireball"] and dg.teach_kind == "",
 		"%s knows %s (Pounce on evolving, the three earlier moves kept)" % [sp["name"], _names(dg, sp["moves"])])
@@ -76,15 +81,11 @@ func _run() -> void:
 		"asked %s, %s, moves %s" % [str(asked2), res2, _names(dg, sp["moves"])])
 
 	# The body rule on evolving: a Slagglass becoming Vitrecrag loses Ember Pellet (no seam) and says so.
-	dg.taught["4:1"] = ["plate_lunge", "ember_pellet"]
-	dg.levels[4] = {"lv": 12, "exp": 0}
-	var v: Dictionary = dg._make(4, 2, 0, sp["pos"])
-	dg.ents.append(v)
-	dg._place(v)
-	dg._moves_on_evolving(v)
-	var said: bool = dg.log_lines.any(func(l: String) -> bool: return l.contains("Ember Pellet any more"))
-	bad += _check("Vitrecrag", not "ember_pellet" in v["moves"] and v["moves"][0] == "plate_lunge" and v["moves"].has("molten_cannon") and v["moves"].has("molten_beam") and said,
-		"moves %s, told the player %s" % [_names(dg, v["moves"]), str(said)])
+	var vrec := {"party": [[4, 1]], "taught": {"4:1": ["plate_lunge", "ember_pellet"]}, "levels": {4: {"lv": 12, "exp": 0}}, "growth": {}}
+	var vres: Dictionary = Evolution.evolve(vrec, 0)
+	var vm: Array = vres["moves"]
+	bad += _check("Vitrecrag", not "ember_pellet" in vm and vm[0] == "plate_lunge" and vm.has("molten_cannon") and vm.has("molten_beam") and vres["lost"] == ["ember_pellet"],
+		"moves %s, lost %s" % [_names(dg, vm), str(vres["lost"])])
 
 	# Autopilot: a full set is resolved without a question.
 	dg.autopilot = true

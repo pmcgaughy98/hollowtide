@@ -8,7 +8,10 @@ and wide bodies alike), averaged over the eight facings. Every creature of a sta
 from its full-size art to that stage's TARGET with the palette locked (downscale.resample), the
 same method as the arena's sized creatures, so the look survives.
   python tools/arena/build_dungeon_set.py [name ...]
-Writes assets/sprites/arena/<name>/dungeon/<facing>.png and walk_<facing>_f0..f7.png."""
+Writes assets/sprites/arena/<name>/dungeon/<facing>.png and walk_<facing>_f0..f7.png.
+  python tools/arena/build_dungeon_set.py warden --set=boss --scale=1.9
+      a larger set for a boss (Preston, 2026-10-10: bosses bigger than normal, as in Mystery
+      Dungeon), written to <name>/boss/; --set=escort --scale=1.35 for its escort."""
 import re, sys
 from pathlib import Path
 import numpy as np
@@ -29,6 +32,8 @@ STAGE = {}
 for m in re.finditer(r'"forms": \[\["([a-z]+)", "[^"]*"\], \["([a-z]+)", "[^"]*"\], \["([a-z]+)"', src):
     for k, n in enumerate(m.groups()):
         STAGE[n] = k
+# Dungeon-only lines (dungeon.gd CREW_LINES, the rival crew, 2026-10-10): not in the arena's LINES.
+STAGE.update({"mirekit": 0, "whinet": 0})
 
 
 def mass(name):
@@ -45,12 +50,17 @@ def walk_frames(name, facing):
     return [im.crop((c * cw, r * cw, (c + 1) * cw, (r + 1) * cw)) for r in range(2) for c in range(4)]
 
 
-for name in (sys.argv[1:] or sorted(STAGE)):
+OPTS = dict(a[2:].split("=", 1) for a in sys.argv[1:] if a.startswith("--"))
+SET = OPTS.get("set", "dungeon")
+SIZE = float(OPTS.get("scale", "1"))
+NAMES = [a for a in sys.argv[1:] if not a.startswith("--")]
+
+for name in (NAMES or sorted(STAGE)):
     if not (ART / name / "s.png").exists():
         print(name, "has no art yet")
         continue
-    f = mass(name) / TARGET[STAGE[name]]
-    out = ART / name / "dungeon"
+    f = mass(name) / (TARGET[STAGE[name]] * SIZE)
+    out = ART / name / SET
     out.mkdir(parents=True, exist_ok=True)
     for fc in FACINGS:
         resample(Image.open(ART / name / f"{fc}.png"), f).save(out / f"{fc}.png")
@@ -71,4 +81,4 @@ for name in (sys.argv[1:] or sorted(STAGE)):
             (ImageOps.mirror(small) if flip else small).save(out / f"walk_{fc}_f{i}.png")
         walks += 1
     got = float(np.mean([np.sqrt((np.array(Image.open(out / f"{fc}.png"))[..., 3] > 0).sum()) for fc in FACINGS]))
-    print(f"{name:12s} stage {STAGE[name] + 1}: shrunk by {f:.2f}, size {got:.1f} (target {TARGET[STAGE[name]]}), walks {walks}")
+    print(f"{name:12s} stage {STAGE[name] + 1}: shrunk by {f:.2f}, size {got:.1f} (target {TARGET[STAGE[name]] * SIZE:.1f}, set {SET}), walks {walks}")

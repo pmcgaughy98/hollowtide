@@ -1,0 +1,14 @@
+{
+  "protected_exact_since_preinstall": 9562,
+  "original_art_and_creatures_unchanged": true,
+  "concurrent_before_install_retained": {
+    "scripts/soul_prologue.gd": {
+      "before": "f3f6158eb43e38fc1a83d548265fb590f78d3a77d7193cd3c6097932aec8eebe",
+      "now": "236f73404f3951e51b8ec198edb5395d100d2d6d9315e5a862198b72c73c8360"
+    }
+  },
+  "concurrent_after_preinstall_retained": {},
+  "problems": [],
+  "archive_mismatch": [],
+  "owned_runtime_exact": true
+}

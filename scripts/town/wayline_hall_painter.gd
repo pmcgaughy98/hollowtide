@@ -16,6 +16,10 @@ static func apply(img: Image, ground: Image) -> Image:
 	if art.get_size() != px.size:
 		push_warning("Wayline Hall art does not match the layout; keeping the blockout.")
 		return img
+	if ResourceLoader.exists("res://scripts/town/building_exteriors.gd"):
+		var view = load("res://scripts/town/building_exteriors.gd")
+		if view.available("hall"):
+			return view.ground_apply(img, ground, hall)
 	# This replaces the old opaque rectangle only inside its own footprint.
 	# Restore the actual native ground under transparent corners, without repainting neighbours.
 	img.blit_rect(ground, Rect2i(Vector2i.ZERO, px.size), px.position)

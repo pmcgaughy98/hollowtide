@@ -1,0 +1,160 @@
+diff --git "a/D:\\dev\\hollowtide-world-refinement-20261008\\project\\scripts\\town\\hub_town.gd" "b/C:\\Users\\pmcga\\dev\\hollowtide\\scripts\\town\\hub_town.gd"
+index be1a526..e615185 100644
+--- "a/D:\\dev\\hollowtide-world-refinement-20261008\\project\\scripts\\town\\hub_town.gd"
++++ "b/C:\\Users\\pmcga\\dev\\hollowtide\\scripts\\town\\hub_town.gd"
+@@ -9,6 +9,7 @@ const Layout := preload("res://scripts/town/town_layout.gd")
+ const Arena := preload("res://scripts/arena/arena_prototype.gd")
+ const TeamState := preload("res://scripts/town/team_state.gd")
+ const Evolution := preload("res://scripts/town/evolution.gd")
++const Jobs := preload("res://scripts/town/jobs.gd")
+ const Music := preload("res://scripts/audio/music.gd")
+ const RETURN_SPOT := Vector2i(24, 8)   # back from a run: on the Hall's steps (the guild, as in Explorers of Sky)
+ const FONT := preload("res://assets/fonts/Silkscreen-Bold.ttf")
+@@ -202,6 +203,9 @@ func act_use() -> Dictionary:
+ 	if panel.get("service", "") == "evolve_ask":
+ 		evolve_at_shrine(int(panel["k"]))
+ 		return {}
++	if panel.get("service", "") == "board":
++		act_board_pick()
++		return {}
+ 	if not panel.is_empty():
+ 		panel = {}
+ 		return {}
+@@ -218,6 +222,7 @@ func act_use() -> Dictionary:
+ 	if p["service"] == "growth":
+ 		panel = _shrine_panel(p)
+ 	if p["service"] == "jobs":
++		panel = _board_panel(p)
+ 		_sfx("board_paper")
+ 	elif p["service"] in DOOR_SERVICES:
+ 		_sfx("door")
+@@ -270,6 +275,57 @@ func _record() -> Dictionary:
+ 	return TeamState.data
+ 
+ 
++## The Job Board (scripts/town/jobs.gd): finished jobs are paid first, then the board lists the jobs
++## the team carries and the open requests. W/S choose, E takes or puts back, Esc closes.
++func _board_panel(p: Dictionary) -> Dictionary:
++	var rec := _record()
++	Jobs.refresh(rec)
++	var paid := Jobs.pay(rec)
++	return {"name": p["name"], "service": "board", "sel": 0, "paid": paid, "said": ""}
++
++
++var _faces := {}
++
++
++## A creature's 48 px headshot (tools/arena/build_portraits.py), loaded once.
++func _face(form: String) -> Texture2D:
++	if not _faces.has(form):
++		var path := "res://assets/sprites/arena/%s/portrait.png" % form
++		_faces[form] = load(path) if ResourceLoader.exists(path) else null
++	return _faces[form]
++
++
++func board_rows() -> Array:
++	return Jobs.rows(_record())
++
++
++func act_board_pick() -> void:
++	var rows := board_rows()
++	if rows.is_empty():
++		return
++	var k: int = clampi(int(panel.get("sel", 0)), 0, rows.size() - 1)
++	panel["said"] = Jobs.toggle(_record(), rows[k])
++	panel["paid"] = []
++	_ui_sfx("confirm")
++
++
++func act_board_move(dy: int) -> void:
++	var n := board_rows().size()
++	if n > 0:
++		panel["sel"] = posmod(int(panel.get("sel", 0)) + dy, n)
++		_ui_sfx("cursor")
++
++
++func _ui_sfx(name: String) -> void:
++	last_sfx = name
++	var p := AudioStreamPlayer.new()
++	p.stream = load("res://assets/audio/sfx/ui/%s.wav" % name)
++	p.volume_db = -8.0
++	add_child(p)
++	p.play()
++	p.finished.connect(p.queue_free)
++
++
+ func _shrine_panel(p: Dictionary) -> Dictionary:
+ 	var ready := Evolution.ready_list(_record())
+ 	if ready.is_empty():
+@@ -357,6 +413,11 @@ func _tapped(k: int) -> bool:
+ 
+ 
+ func _poll() -> void:
++	if panel.get("service", "") == "board":
++		if _tapped(KEY_W) or _tapped(KEY_UP):
++			act_board_move(-1)
++		if _tapped(KEY_S) or _tapped(KEY_DOWN):
++			act_board_move(1)
+ 	if _tapped(KEY_E) or _tapped(KEY_J) or _tapped(KEY_ENTER):
+ 		act_use()
+ 		return
+@@ -394,10 +455,58 @@ func _draw_hud() -> void:
+ 		UI.text(h, Vector2(28, 43), String(here["name"]), 16, UI.TEXT, 282, HORIZONTAL_ALIGNMENT_RIGHT)
+ 	UI.text(h, Vector2(946, 562), "WASD walk   E use", 14, Color(UI.MUTED, 0.85), 194, HORIZONTAL_ALIGNMENT_RIGHT)
+ 	UI.text(h, Vector2(946, 580), "The Hollow's mouth starts a run", 14, Color(UI.MUTED, 0.85), 194, HORIZONTAL_ALIGNMENT_RIGHT)
+-	if not panel.is_empty():
++	if panel.get("service", "") == "board":
++		_draw_board(h)
++	elif not panel.is_empty():
+ 		var box := Rect2(196, 452, 760, 128)
+ 		UI.panel(h, box, 0.95)
+ 		UI.text(h, box.position + Vector2(22, 34), String(panel["name"]), 23, UI.EDGE_LIGHT, 716)
+ 		h.draw_multiline_string(UI.HEAD, box.position + Vector2(22, 64), String(panel["what"]), HORIZONTAL_ALIGNMENT_LEFT, 716, 18, 2, UI.TEXT)
+ 		var hint := "E  evolve     Esc  not now" if panel.get("service", "") == "evolve_ask" else "E  close"
+ 		UI.text(h, box.position + Vector2(22, 116), hint, 15, UI.MUTED, 716, HORIZONTAL_ALIGNMENT_RIGHT)
++
++
++## The board, drawn the Explorers of Sky way: the rank at the top, one row per request with the
++## client's headshot, where to go and what it pays; a brass TAKEN tab on the ones in the satchel.
++func _draw_board(h: CanvasItem) -> void:
++	var rec := _record()
++	var rows := board_rows()
++	var box := Rect2(166, 64, 820, 132 + 70 * maxi(1, rows.size()))
++	UI.panel(h, box, 0.96)
++	UI.nameplate(h, box.position + Vector2(28, -22), String(panel["name"]), 22)
++	var rk: Array = Jobs.rank_of(int(rec.get("rank", 0)))
++	var rank_s := "Courier Rank %d    %d points" % [rk[0], int(rec.get("rank", 0))] + ("" if rk[1] < 0 else "  (%d for the next)" % rk[1])
++	UI.text(h, box.position + Vector2(30, 46), rank_s, 18, UI.EDGE_LIGHT)
++	var carried: int = rec.get("jobs", []).size()
++	UI.text(h, box.position + Vector2(30, 46), "Taken %d / %d" % [carried, Jobs.TAKE_MAX], 16, UI.MUTED, box.size.x - 60, HORIZONTAL_ALIGNMENT_RIGHT)
++	var note := ""
++	if not panel.get("paid", []).is_empty():
++		note = "Paid: " + "   ".join(panel["paid"])
++	elif String(panel.get("said", "")) != "":
++		note = String(panel["said"])
++	UI.text(h, box.position + Vector2(30, 74), note if note != "" else "Take a request, then go down to the Hollow. Reach the client on its floor.", 16, UI.TEXT if note != "" else UI.MUTED, box.size.x - 60)
++	if rows.is_empty():
++		UI.text(h, box.position + Vector2(30, 124), "No requests today.", 18, UI.MUTED)
++	for k in rows.size():
++		var j: Dictionary = rows[k]
++		var r := Rect2(box.position + Vector2(24, 94 + k * 70), Vector2(box.size.x - 48, 62))
++		var on: bool = k == int(panel.get("sel", 0))
++		if on:
++			h.draw_rect(r, UI.FOCUS)
++			h.draw_rect(r, UI.EDGE_LIGHT, false, 2.0)
++		var face_r := Rect2(r.position + Vector2(8, 7), Vector2(48, 48))
++		h.draw_rect(face_r, UI.PORTRAIT_BG)
++		var face := _face(Jobs.client_form(j))
++		if face != null:
++			h.draw_texture_rect(face, face_r, false)
++		h.draw_rect(face_r, UI.EDGE, false, 1.0)
++		var done: bool = j.get("done", false)
++		UI.text(h, r.position + Vector2(70, 27), Jobs.title(j), 20, UI.EDGE_LIGHT if on else UI.TEXT, 340)
++		UI.text(h, r.position + Vector2(70, 51), "B%dF   %s" % [int(j["floor"]), "done, paid on return" if done else ("lost there" if j["kind"] == "rescue" else "dropped there")], 15, UI.MUTED, 300)
++		var icon := UI.item_icon(String(j["reward"]))
++		if icon != null:
++			h.draw_texture(icon, r.position + Vector2(420, 15))
++		UI.text(h, r.position + Vector2(458, 37), "%s x%d   +%d" % [Jobs.item_name(j["reward"]), int(j["count"]), int(j["pts"])], 16, UI.TEXT, 180)
++		if Jobs.is_taken(rec, j):
++			UI.nameplate(h, r.position + Vector2(r.size.x - 112, 13), "Taken", 18)
++	UI.text(h, box.end + Vector2(-box.size.x + 30, -22), "W/S choose     E take or put back     Esc close", 15, UI.MUTED, box.size.x - 60, HORIZONTAL_ALIGNMENT_RIGHT)

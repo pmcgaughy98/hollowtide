@@ -1,0 +1,34 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+OpenGL API 3.3.0 NVIDIA 596.49 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce GTX 1660 SUPER
+
+ERROR: Failed to read the root certificate store.
+   at: get_system_ca_certificates (platform/windows/os_windows.cpp:2582)
+[godot_ai game_helper] registered mcp capture (debugger active=false, logger=true)
+PASS all 13 existing town places have a finished exterior view
+PASS original Board artwork displayed at twice its previous width and height
+PASS Board's actual opaque foot row stays precisely grounded
+PASS Board remains centred on its original stand
+PASS larger stand stays clear of the two-tile Hall doorway, steps and guild sign
+PASS all three original reading-pad feedback drawings exact
+FAIL real E at the unchanged reading spot opens Claude's four requests
+FAIL the original reading corners respond when the Board opens
+PASS real Escape closes the Board and restores dormant corners
+PASS lookout keeps its exact place and remains below creatures
+PASS lookout uses the same detailed exterior finish and contact shadow
+PASS lookout details preserve broad original open floor
+PASS lookout original activation tile has a clear standing position
+PASS lookout original service still answers E
+PASS landing keeps its exact place and remains below creatures
+PASS landing uses the same detailed exterior finish and contact shadow
+PASS landing details preserve broad original open floor
+PASS landing original activation tile has a clear standing position
+PASS Landing details do not cover the Hollow Mouth or its approach
+PASS landing original service still answers E
+PASS dock keeps its exact place and remains below creatures
+PASS dock uses the same detailed exterior finish and contact shadow
+PASS dock details preserve broad original open floor
+PASS dock original activation tile has a clear standing position
+PASS dock original service still answers E
+PASS all five foundations/signs and fifteen door/hatch drawings exact
+PASS ground beyond the old Board contact-shadow patch remains exact
+RESULT 25/27 structure checks pass

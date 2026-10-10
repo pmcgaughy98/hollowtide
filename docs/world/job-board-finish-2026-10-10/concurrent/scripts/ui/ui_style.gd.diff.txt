@@ -1,0 +1,91 @@
+diff --git "a/D:\\dev\\hollowtide-world-refinement-20261008\\project\\scripts\\ui\\ui_style.gd" "b/C:\\Users\\pmcga\\dev\\hollowtide\\scripts\\ui\\ui_style.gd"
+index 75b8f22..8535ea2 100644
+--- "a/D:\\dev\\hollowtide-world-refinement-20261008\\project\\scripts\\ui\\ui_style.gd"
++++ "b/C:\\Users\\pmcga\\dev\\hollowtide\\scripts\\ui\\ui_style.gd"
+@@ -24,11 +24,81 @@ const FOE := Color("#ff9a7a")        # wild creatures' names
+ const PORTRAIT_BG := Color("#efe6d2")  # the pale square behind a headshot, as Mystery Dungeon's portraits sit on white
+ 
+ 
+-## A panel: the moss fill, the brass edge, a faint inner line.
+-static func panel(c: CanvasItem, r: Rect2, alpha := 0.92) -> void:
+-	c.draw_rect(r, Color(PANEL, alpha))
+-	c.draw_rect(r, EDGE, false, 2.0)
+-	c.draw_rect(r.grow(-4.0), Color(EDGE, 0.22), false, 1.0)
++## The pixel frames (tools/ui/build_frames.py): drawn by hand at 1x and saved at the world's 3x, so a
++## UI pixel is a world pixel. Godot stretches them as 9-slices: the corners stay put, the edges and
++## the woven fill repeat. Margins are the frame's border in screen pixels.
++const FRAME := "res://assets/sprites/ui/frame/"
++const FRAME_MARGIN := {"panel": 24, "panel_focus": 24, "panel_dim": 24, "nameplate": 12, "portrait": 21}
++static var _boxes := {}
++
++
++static func frame(name: String) -> StyleBoxTexture:
++	if not _boxes.has(name):
++		var sb := StyleBoxTexture.new()
++		sb.texture = load(FRAME + name + ".png")
++		var m: int = FRAME_MARGIN.get(name, 24)
++		sb.set_texture_margin_all(m)
++		sb.set_content_margin_all(m)
++		sb.axis_stretch_horizontal = StyleBoxTexture.AXIS_STRETCH_MODE_TILE
++		sb.axis_stretch_vertical = StyleBoxTexture.AXIS_STRETCH_MODE_TILE
++		_boxes[name] = sb
++	return _boxes[name]
++
++
++## A panel: moss weave inside a bevelled brass frame with corner studs. `alpha` under 0.9 uses the
++## see-through variant; `focus` brightens the brass (a chosen button). Panels shorter than the two
++## frame borders are grown to fit them rather than squashed.
++static func panel(c: CanvasItem, r: Rect2, alpha := 0.92, focus := false) -> void:
++	var name := "panel_focus" if focus else ("panel" if alpha >= 0.9 else "panel_dim")
++	var need: float = 2.0 * float(FRAME_MARGIN[name])
++	r = r.grow_individual(maxf(0.0, need - r.size.x) * 0.5, maxf(0.0, need - r.size.y) * 0.5, maxf(0.0, need - r.size.x) * 0.5, maxf(0.0, need - r.size.y) * 0.5)
++	c.draw_style_box(frame(name), r)
++
++
++## The speaker's brass name tab, sized to the name, its text in dark ink. Returns its rect.
++static func nameplate(c: CanvasItem, pos: Vector2, s: String, size := 20) -> Rect2:
++	var r := Rect2(pos, Vector2(maxf(96.0, width_of(s, size) + 40.0), 36.0))
++	c.draw_style_box(frame("nameplate"), r)
++	c.draw_string(HEAD, pos + Vector2(0, 25), s, HORIZONTAL_ALIGNMENT_CENTER, r.size.x, size, Color("#2a1f14"))
++	return r
++
++
++## A portrait in its frame: `r` is where the 40x40 portrait shows (120x120 at 3x); the frame sits
++## 15 pixels outside it, on the parchment well.
++static func portrait(c: CanvasItem, r: Rect2, tex: Texture2D, flip := false) -> void:
++	c.draw_style_box(frame("portrait"), r.grow(15.0))
++	if tex != null:
++		var dst := r
++		if flip:
++			dst = Rect2(r.position + Vector2(r.size.x, 0), Vector2(-r.size.x, r.size.y))
++		c.draw_texture_rect(tex, dst, false)
++
++
++## A dialogue portrait by form ("kithflare", "warden"); null when that creature has none yet.
++static func dialogue_portrait(form: String) -> Texture2D:
++	return icon("dialogue/" + form)
++
++
++## The "next" arrow, bobbing a pixel-step every half second. `t` is any running clock in seconds.
++static func next_arrow(c: CanvasItem, pos: Vector2, t: float) -> void:
++	var tex: Texture2D = icon("frame/arrow")
++	if tex != null:
++		c.draw_texture(tex, pos + Vector2(0, 3.0 * float(int(t * 2.0) % 2)))
++
++
++## A whole scene line the Explorers of Sky way: the portrait framed above the box's left corner, the
++## name on a brass tab, the line in parchment, the arrow when there is more. `portrait_tex` may be null
++## (an unseen speaker), and then no portrait shows.
++static func dialogue(c: CanvasItem, box: Rect2, speaker: String, line: String, portrait_tex: Texture2D, t: float, size := 20) -> void:
++	if portrait_tex != null:
++		portrait(c, Rect2(box.position + Vector2(18, -150), Vector2(120, 120)), portrait_tex)
++	panel(c, box, 0.95)
++	var lift := 0.0
++	if speaker != "":
++		nameplate(c, box.position + Vector2(160 if portrait_tex != null else 24, -22), speaker)
++		lift = 10.0
++	c.draw_multiline_string(HEAD, box.position + Vector2(30, 40 + lift), line, HORIZONTAL_ALIGNMENT_LEFT, box.size.x - 70, size, -1, TEXT)
++	next_arrow(c, box.end - Vector2(48, 36), t)
+ 
+ 
+ static func text(c: CanvasItem, pos: Vector2, s: String, size := 18, col := TEXT, width := -1.0, align := HORIZONTAL_ALIGNMENT_LEFT) -> void:

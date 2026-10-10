@@ -1,0 +1,42 @@
+[
+  {
+    "path": "scripts/arena/creature_finish.gd",
+    "expected": "a28743fa3c433fb0ff4d4427f17c8dd18df2807a1819f2c24f8421b839cfea50",
+    "candidate": "1c12c53f4948025745629fd8251b30e668919fec58595347a760cc12be99d734"
+  },
+  {
+    "path": "scripts/arena/sel_out.gdshaderinc",
+    "expected": "4114f586f6e6cd66e3ad1ea1347b034a2383a63eaa34be21817bbba1d23c7de3",
+    "candidate": "318523a842c38ff1469e55815c6b9a3ba7fc3a65ca87d93694f70b3d6ba63def"
+  },
+  {
+    "path": "scripts/dungeon/dungeon.gd",
+    "expected": "b26a38ac281e6d3776e04fe8213f3a768d7f64ba7d3c14405e78ba6217996882",
+    "candidate": "4d4a6b1ec1ae4e98e3cb273270e23ecef105855aa67a50e749d22ccf976064de"
+  },
+  {
+    "path": "scripts/dungeon/dungeon_finish.gd",
+    "expected": null,
+    "candidate": "0d22a57748c012dbe46528c79964fb67618a7e71be99320669ffeb50d8dd8977"
+  },
+  {
+    "path": "scripts/dungeon/dungeon_finish.gdshader",
+    "expected": null,
+    "candidate": "014f0cd163d3b07573ea2313154d5e3550d510306dc28b182dab7b34c0bbc4d8"
+  },
+  {
+    "path": "scripts/ui/crew_portrait_canvas.gd",
+    "expected": null,
+    "candidate": "1ed718881c94a237fd5cc0aee847feade06d97298b09c26a2783b2dd6f252ddc"
+  },
+  {
+    "path": "scripts/ui/ui_style.gd",
+    "expected": "5a7e50b7188dc76e2f79b7cd378de4c539f71fbe5ff5f7dae01ef7ac9e4ab02d",
+    "candidate": "5ac61b2f69a278ee084fe6ed2efbc5f7fca783ad319e5962ab497c69506acfbb"
+  },
+  {
+    "path": "docs/AI_COLLABORATION.md",
+    "expected": "7c734dfc5671e60e9bb1baba9ee406134948980dcf0935e7c6e684f6503bba22",
+    "candidate": "ec7c9089725e193c3b905fa6631818027a5f639bf60f01ecd51cb5d3a5172553"
+  }
+]

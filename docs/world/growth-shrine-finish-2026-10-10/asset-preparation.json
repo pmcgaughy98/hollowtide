@@ -1,0 +1,26 @@
+{
+  "source_sha256": "a9238a168eb705e96644b961a50542f6f63ecb258da5120851ded325163338d8",
+  "source_size": [
+    1374,
+    1145
+  ],
+  "crop": [
+    10,
+    8,
+    1361,
+    1133
+  ],
+  "scaled_size": [
+    136,
+    113
+  ],
+  "offset": [
+    4,
+    3
+  ],
+  "native_size": [
+    144,
+    120
+  ],
+  "method": "built-in imagegen; transparent safety padding crop and uniform nearest resize only; source and retained alpha unchanged"
+}

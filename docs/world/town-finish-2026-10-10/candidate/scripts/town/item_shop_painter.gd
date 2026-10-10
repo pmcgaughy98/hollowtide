@@ -1,0 +1,25 @@
+extends RefCounted
+## Exterior proposal only. Claude's exact shop footprint and door remain the contract.
+const Layout = preload("res://scripts/town/town_layout.gd")
+const ART = "res://assets/sprites/world/item_shop_2026_10_09/item_shop_native.png"
+
+static func apply(img: Image, ground: Image) -> Image:
+	if not ResourceLoader.exists(ART):
+		return img
+	var art: Image = load(ART).get_image()
+	var shop: Dictionary = Layout.PLACES.filter(func(p: Dictionary) -> bool: return p["id"] == "shop")[0]
+	var rect: Rect2i = shop["rect"]
+	var px = Rect2i(rect.position * Layout.T, rect.size * Layout.T)
+	if art.get_size() != px.size:
+		push_warning("Item Shop art does not match the layout; keeping the blockout.")
+		return img
+	# Separate sprites receive the shared finish; absent module retains the original blit.
+	if ResourceLoader.exists("res://scripts/town/building_exteriors.gd"):
+		var view = load("res://scripts/town/building_exteriors.gd")
+		if view.available("shop"):
+			return view.ground_apply(img, ground, shop)
+	# This replaces the old opaque rectangle only inside its own footprint.
+	# Restore the actual native ground under transparent corners, without repainting neighbours.
+	img.blit_rect(ground, Rect2i(Vector2i.ZERO, px.size), px.position)
+	img.blend_rect(art, Rect2i(Vector2i.ZERO, art.get_size()), px.position)
+	return img

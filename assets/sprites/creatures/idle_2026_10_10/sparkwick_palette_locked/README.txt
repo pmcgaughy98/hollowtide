@@ -1,0 +1,1 @@
+Sparkwick's front idle (Claude, 2026-10-10): the first-batch idle idle_2026_10_05/109_kithflare2, every frame snapped to frame 0's 28 colours. Source frames 3, 6 and 7 are smeared and faded (Preston), so they are replaced by holds of their clean neighbours: order f0 f1 f1 f3 f4 f4 f7 f7.

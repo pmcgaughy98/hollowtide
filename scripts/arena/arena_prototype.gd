@@ -225,6 +225,9 @@ const KITS := {
 	"troughspine": {"moves": ["spring_spit"], "abilities": [], "speed": 0.95, "hp": 1.0, "profile": "escort"},
 	"archroot": {"moves": ["spring_spit"], "abilities": [], "speed": 0.9, "hp": 1.15, "profile": "escort"},
 	"springvault": {"moves": ["spring_spit"], "abilities": [], "speed": 0.85, "hp": 1.3, "profile": "escort"},
+	# The rival crew (dungeon only for now; not in LINES, so the arena never picks them).
+	"mirekit": {"moves": ["grub_bite"], "abilities": ["rot_spit", "play_dead"], "speed": 1.05, "hp": 0.9, "profile": "skirmish"},
+	"whinet": {"moves": ["needle_jab"], "abilities": ["drain_bite", "buzz_dart"], "speed": 1.2, "hp": 0.8, "profile": "skirmish"},
 	"waywhistle": {"moves": ["whistle_dart"], "abilities": ["signal_mark", "decoy_call", "vantage"], "speed": 1.2, "hp": 1.0,
 		"passive": "spotter", "profile": "kite", "far_bonus": 1.15},
 	"highsignal": {"role": "Spotter", "moves": ["whistle_dart"], "abilities": ["signal_mark", "decoy_call", "vantage"], "speed": 1.15, "hp": 1.15,
@@ -320,6 +323,15 @@ const MOVES := {
 	"signal_mark": {"name": "Signal Mark", "damage": 0, "cooldown": 7.0, "range": 160.0},
 	"decoy_call": {"name": "Decoy Call", "damage": 0, "cooldown": 9.0, "range": 160.0},
 	"vantage": {"name": "Vantage", "damage": 0, "cooldown": 10.0, "range": 0.0, "mobility": true},
+	# The rival crew's stage 1s (Claude, 2026-10-10; Preston: "you pick moves, use the synthesis";
+	# docs/creatures/antagonist-crew-proposal-2026-10-10.md). Numbers are drafts for Grok. Rot Spit
+	# Blights (healing halved for "blight" turns); Drain Bite heals the biter "drain" of the damage.
+	"grub_bite": {"name": "Grub Bite", "damage": 10, "cooldown": 1.0, "range": 30.0},
+	"rot_spit": {"name": "Rot Spit", "damage": 7, "cooldown": 4.0, "range": 72.0, "blight": 3},
+	"play_dead": {"name": "Play Dead", "damage": 0, "cooldown": 12.0, "range": 0.0},
+	"needle_jab": {"name": "Needle Jab", "damage": 9, "cooldown": 1.0, "range": 30.0},
+	"drain_bite": {"name": "Drain Bite", "damage": 8, "cooldown": 3.0, "range": 30.0, "drain": 0.5},
+	"buzz_dart": {"name": "Buzz Dart", "damage": 8, "cooldown": 5.0, "range": 72.0, "mobility": true},
 }
 ## The arena's essence chart (Preston, 2026-10-07). A three-way main cycle: Tide beats Ember,
 ## Bloom beats Tide, Ember beats Bloom. Second essences soften it, each a step weaker:
@@ -344,7 +356,7 @@ const ARENA_CHART := {
 ## Each damaging move's essence (Stormwick's moves follow its lightbulb: Wick Bolt is the
 ## current, its claws and embers are the heat).
 const MOVE_ESSENCE := {
-	"fireball": E.EMBER, "beam": E.TIDE, "seed": E.BLOOM, "needle_bite": E.TIDE, "lunge": E.TIDE,
+	"fireball": E.EMBER, "beam": E.TIDE, "seed": E.BLOOM, "needle_bite": E.MURK, "lunge": E.MURK,
 	"wick_bolt": E.ELECTRIC, "claw": E.EMBER, "flashstep": E.EMBER, "smoulder": E.EMBER, "ember_feint": E.EMBER,
 	"pounce": E.EMBER, "lantern_volley": E.EMBER, "lantern_tackle": E.EMBER,
 	"deep_jet": E.TIDE, "root_snare": E.BLOOM, "club_slam": E.STONE,
@@ -356,11 +368,14 @@ const MOVE_ESSENCE := {
 	# Electric/Stone king, because a railgun runs on electromagnetism, not life).
 	"jade_lance": E.STONE, "ground_spikes": E.STONE, "stone_cocoon": E.STONE, "slab_vortex": E.STONE, "Kingstone Rail": E.ELECTRIC,
 	"rail_shot": E.ELECTRIC, "rail_recoil": E.STONE, "vent_blast": E.EMBER,
-	"jab": E.ELECTRIC, "counter_jab": E.ELECTRIC, "Starshield": E.ELECTRIC,
+	"jab": E.SINEW, "counter_jab": E.SINEW, "Starshield": E.ELECTRIC,
 	"echo_tap": E.TIDE, "interrupt_call": E.TIDE, "Hush": E.HOLLOW,
 	"shear": E.GALE, "Gale Shear": E.GALE, "kingstone_lift": E.ELECTRIC,
 	"whistle_dart": E.GALE, "High Signal": E.GALE,
 	"spring_spit": E.TIDE, "seep": E.TIDE, "Headspring": E.TIDE,
+	"grub_bite": E.BLIGHT, "rot_spit": E.BLIGHT, "play_dead": E.BLIGHT, "needle_jab": E.GALE, "drain_bite": E.BLIGHT, "buzz_dart": E.GALE,
+	# 2026-10-10: the new essences take their moves (essence-expansion-proposal-2026-10-10.md).
+	"burrow": E.LOAM,
 }
 
 const FACINGS := ["e", "se", "s", "sw", "w", "nw", "n", "ne"]  # clockwise from east, 45 degrees apart
@@ -461,6 +476,7 @@ const SHAKE_MAX := 6.0
 ## Telegraphs: the shape drawn while a move winds up, and how long the wind-up is. Moves not
 ## listed are instant and silent (dodges, dashes, walls, the flash).
 const TELEGRAPH := {
+	"grub_bite": ["melee", 0.2], "needle_jab": ["melee", 0.18], "drain_bite": ["melee", 0.25], "rot_spit": ["line", 0.3], "buzz_dart": ["charge", 0.25],
 	"claw": ["melee", 0.25], "pounce": ["melee", 0.22], "cinder_claw": ["melee", 0.25], "club_slam": ["melee", 0.35],
 	"fireball": ["line", 0.3], "beam": ["line", 0.3], "deep_jet": ["line", 0.35], "wick_bolt": ["line", 0.3], "vent_barrage": ["line", 0.3],
 	"seed": ["area", 0.35], "root_snare": ["area", 0.4], "riptide": ["area", 0.4], "root_rampart": ["area", 0.45],

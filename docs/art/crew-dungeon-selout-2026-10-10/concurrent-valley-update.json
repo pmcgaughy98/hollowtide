@@ -1,0 +1,10 @@
+{
+  "tools/debug/dungeons_check.gd": {
+    "before": "1d3900950567ce541b497702be0953a99f4fa468d9bbf84caddf9d93f713c745",
+    "current": "8e9976183b396c88ccc075605f2840318a4430af2abbfb5b45b3c9e0e92fdd94"
+  },
+  "tools/ui/rd_expressions.py": {
+    "before": "aae213a348421c73c6e6e52188b73a9b48efe0160ed4133411f899a2020aa286",
+    "current": "3e0eebcdd36d1e9b0fdc3b4349ce851d9694e948baf119e36c7deec2c67a7fa5"
+  }
+}

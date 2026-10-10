@@ -1,0 +1,20 @@
+[
+  {
+    "path": "docs/AI_COLLABORATION.md",
+    "before": "4877504a1f6f82f1f3e6f08188316c645b51e7e7eaa30ce6f8a52b265a494b3c",
+    "after": "6f0bf996869f64b67bf0a73177adcd9430e93e87122027bdc74a9c416c441b71",
+    "source": "D:\\dev\\hollowtide-scroll-cellar-20261010\\candidate\\docs\\AI_COLLABORATION.md"
+  },
+  {
+    "path": "assets/sprites/world/scroll_cellar_2026_10_10/scroll_native.png",
+    "before": null,
+    "after": "bbd67cc474429463810e23a24fc98c02a0e79f0c37ddcf5848837fb9fd8c1f87",
+    "source": "D:\\dev\\hollowtide-scroll-cellar-20261010\\candidate\\assets\\sprites\\world\\scroll_cellar_2026_10_10\\scroll_native.png"
+  },
+  {
+    "path": "scripts/town/building_exteriors.gd",
+    "before": "76785ec1976f57f9df69fc5574e276883f3c0958febfec48b541fc585553b8e6",
+    "after": "626a2d0b66abe46200f87485481986fc26b56181252f2afa424b21f5d744d9bb",
+    "source": "D:\\dev\\hollowtide-scroll-cellar-20261010\\candidate\\scripts\\town\\building_exteriors.gd"
+  }
+]

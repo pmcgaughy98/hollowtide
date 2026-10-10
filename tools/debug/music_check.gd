@@ -66,6 +66,7 @@ func _run() -> void:
 	await _frames(2)
 	lines.append("a rest floor: %s" % _now())
 	dg.floor_n = dg.FLOORS + 1
+	dg.boss_intro = false   # the Warden's entrance has its own check (boss_intro_capture.gd); this one reads the plain hand-over
 	dg._build_floor(true)
 	await _frames(2)
 	lines.append("the boss floor, its scene: %s" % _now())
@@ -93,8 +94,11 @@ func _run() -> void:
 	d2.act_recruit(true)
 	await _frames(2)
 	lines.append("a recruit joins: jingle %s" % Music._inst.last_jingle)
-	d2._evolve([[0, "kithflare"]])
-	await _frames(2)
+	# Evolving happens at the Growth Shrine now (2026-10-10): its scene plays the jingle.
+	var evo: CanvasLayer = load("res://scripts/ui/evolution_scene.gd").new()
+	root.add_child(evo)
+	await evo.run("kithflare", "sparkwick", "Kithflare", "Sparkwick", true)
+	evo.queue_free()
 	lines.append("an evolution: jingle %s" % Music._inst.last_jingle)
 	d2.ents[0]["hp"] = 0
 	d2._end_turn()

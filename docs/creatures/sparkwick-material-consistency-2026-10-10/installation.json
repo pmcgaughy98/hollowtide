@@ -1,0 +1,23 @@
+{
+  "protected_exact": 24241,
+  "source_sprites_and_original_backups_exact": true,
+  "sprite_and_backup_files_checked": 11505,
+  "owned_runtime_exact": true,
+  "concurrent_before_install_retained": {
+    "docs/world/hollow-mouth-finish-2026-10-10/audit.py": {
+      "before": "a1212dd72ded994631055cddef6f939198c38b24f728da94a3944590e3b63223",
+      "now": "3925206b3aa992b8c84a737a240e817afa328f29f342c13dd1dd12705f534d48"
+    },
+    "docs/world/hollow-mouth-finish-2026-10-10/README.md": {
+      "before": "775bd49e57afa5e160ffe46490083eb0e6fb2c41ea93d840ec06541e51e476c7",
+      "now": "74577f5f031ef97e5e16f4c2b68a6b872e53aa81c28f18bba890ad17b5e062b9"
+    },
+    "docs/world/hollow-mouth-finish-2026-10-10/review/dungeon_arrival.png": {
+      "before": "de1b1ee2d10ef6f890ea13fb6d5909e44dbe9d1408f90219d8ac840d9ee6b8ec",
+      "now": "668c6e2b1c34a123b27ae5be1f6a6674c1ee3d83c7b8b781e2f8ad4c0c915177"
+    }
+  },
+  "changes_since_preinstall": {},
+  "owned_mismatches": [],
+  "art_mismatches": []
+}

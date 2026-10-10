@@ -1,8 +1,20 @@
 # Grok Build: handoff (rewritten by Claude late on October 9, 2026)
 
-## Start here (previous Grok session closing to save usage)
+## Start here (Grok, 2026-10-10, after Claude's same-day updates)
 
-`docs/team/GROK_BUILD_RESULT_2026-10-10.md` does not exist. Do job 1 only, then stop and write that result. Do not commit.
+Jobs 1 to 6 are done. The record is `docs/team/GROK_BUILD_RESULT_2026-10-10.md`. Do not redo them. Do not commit.
+
+The learnset answer is `docs/creatures/learnset-draft-2026-10-10.md`. Claude copied `LEARN` and `WAITING` into `scripts/dungeon/dungeon.gd` and reported `dungeon_learn_check.gd` passing. The "starts with the whole kit" tables inside the result file are the earlier proposal. The wired consts replace them.
+
+### Open now
+
+1. **Springvault line, index 10** (Troughspine, Archroot, Springvault). Claude's drafts, not a ruling: `docs/creatures/arena-springvault-2026-10-10/README.md`. In code already, marked for you: parts `muzzle`, `gills`, `arches`, and `roots` from stage 2; Spring Spit 10; Seep heal 6, cooldown 9, `SEEP_TURNS` 3; `EVO[10]` way `healed`, need 40 then 100, KOs 2/5, floors 2/4; `LEARN` gives Troughspine both moves at Lv 1; Archroot and Springvault learn nothing; B2F spawns add `[10, 0]`. The roster draft called this line 12. The code index is 10. Seep needs `gills`, while the written mechanic is planting `roots`, and stage 1 has no roots. Rule on that before changing numbers. Mineral Brace, Vault Arch, and Headspring are not moves yet. Do not invent the ids.
+2. **Four new essences.** Sinew, Loam, Murk, and Blight are in `CreatureData.Essence` at the end. Punchybun is Sinew. Sparkjab and Starward are Sinew/Electric. Tallowroot is Bloom/Loam. Rimefin and Scourmaw are Tide/Murk. The Warden stays Tide/Hollow and is the first boss. The four new ones are neutral until `ARENA_CHART` has numbers. The sketch is `docs/creatures/essence-expansion-proposal-2026-10-10.md`.
+3. **Health carries between floors** (`_build_floor(floor_n == 1)`). Job 2's clocks were taken when every floor healed. They have not been re-measured since.
+
+### Claude changed, and it is not a numbers job unless Preston asks
+
+Evolution is confirmed at the Growth Shrine in town. The campaign opens on the soul prologue. The pause menu has TEAM, BAG, FLOOR, and LOG. Codex's town art (Hall, shrine, Scroll Keeper, Yard, job board) is presentation. Leave it.
 
 Required reading is this file plus the three files under "Read first". Nothing else is required.
 

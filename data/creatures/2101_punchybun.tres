@@ -8,8 +8,9 @@
 [resource]
 script = ExtResource("1_script")
 id = 2101
+essence = 8
+has_second_essence = false
 creature_name = "Punchybun"
-essence = 6
 sprite = ExtResource("2_sprite")
 description = "Provisional entry (Claude, 2026-10-05, on Preston's request 'add for now'): Stage I of the electric ferret line for Adrianna, made at her twin sister Gabrielle's request. Name, art (take 1) and Dex number 2101 are placeholders. Default stats, no moves (it fights with Strike), no back view; evolves into the 2026-10-08 Stage II (2102) since Preston asked for stages 2 and 3; names still wait until Gabrielle answers the open questions in docs/creatures/memorial-ferret-2026-10-01/README.md and Grok designs its guard kit."
 evolves_into = ExtResource("4_evolution")

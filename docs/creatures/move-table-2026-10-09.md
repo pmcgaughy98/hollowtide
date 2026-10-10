@@ -8,6 +8,10 @@ Draft for Grok, from `scripts/moves/move_body.gd`. Grok's rule (DESIGN_RULES.md,
 |---|---|---|---|
 | Rake | claw | Kithflare, Cinderhide | Sparkwick, Stormwick, Clinkerhide, Ironvent |
 | Pounce | springlegs | Sparkwick, Stormwick | Kithflare, Sparkjab, Starward, Dustkite, Waywhistle, Highsignal |
+| Root Snare | roots | Tallowroot, Huskward, Rampartroot | Archroot, Springvault |
+| Burrow | roots | Tallowroot | Huskward, Rampartroot, Archroot, Springvault |
+| Root Wall | roots | Huskward | Tallowroot, Rampartroot, Archroot, Springvault |
+| Root Rampart | roots | Rampartroot | Tallowroot, Huskward, Archroot, Springvault |
 | Cinder Claw | claw | Cinderhide, Clinkerhide, Ironvent | Kithflare, Sparkwick, Stormwick |
 | Sail Cover | sail | Canvaswing, Windcut, Galeshear | Dustkite, Waywhistle, Highsignal |
 | Vantage | sail | Waywhistle, Highsignal | Canvaswing, Windcut, Galeshear, Dustkite |
@@ -22,10 +26,6 @@ Draft for Grok, from `scripts/moves/move_body.gd`. Grok's rule (DESIGN_RULES.md,
 | Lantern Volley | lantern | Kithflare line |
 | Lantern Tackle | lantern | Kithflare line |
 | Seed Pod | seedpod | Tallowroot line |
-| Root Snare | roots | Tallowroot line |
-| Burrow | roots | Tallowroot line |
-| Root Wall | roots | Tallowroot line |
-| Root Rampart | roots | Tallowroot line |
 | Tail Club | clubtail | Tallowroot line |
 | Needle Bite | jaw | Rimefin line |
 | Lunge | jaw | Rimefin line |
@@ -62,6 +62,8 @@ Draft for Grok, from `scripts/moves/move_body.gd`. Grok's rule (DESIGN_RULES.md,
 | Whistle Dart | whistle | Dustkite line |
 | Signal Mark | whistle | Dustkite line |
 | Decoy Call | whistle | Dustkite line |
+| Spring Spit | muzzle | Troughspine line |
+| Seep | gills | Troughspine line |
 
 ## Ultimates (final stage only, never taught)
 
@@ -75,6 +77,7 @@ Draft for Grok, from `scripts/moves/move_body.gd`. Grok's rule (DESIGN_RULES.md,
 - Warden: Hush
 - Galeshear: Gale Shear
 - Highsignal: High Signal
+- Springvault: Headspring
 
 ## Current kits that fail the gate
 

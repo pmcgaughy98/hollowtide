@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="CreatureData" format=3]
+
+[ext_resource type="Script" path="res://scripts/creature_data.gd" id="1_script"]
+[ext_resource type="Texture2D" path="res://assets/sprites/arena/whinet/s.png" id="2_sprite"]
+
+[resource]
+script = ExtResource("1_script")
+id = 2301
+creature_name = "Whinet"
+essence = 3
+has_second_essence = false
+second_essence = 0
+sprite = ExtResource("2_sprite")
+description = "Provisional entry (Claude, 2026-10-10; names approved by Preston): Stage I of the rival crew's mosquito line: a fist-sized fuzzy biter with amber eyes, a needle nose and a green-banded body. Gale (Gale/Blight from stage II). It drains with Drain Bite and darts in and out. Kits: docs/creatures/antagonist-crew-proposal-2026-10-10.md; numbers are drafts for Grok."
+body_parts = PackedStringArray()
+battle_size = 1.0

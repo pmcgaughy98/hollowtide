@@ -1,0 +1,38 @@
+[
+  {
+    "path": "assets/sprites/world/growth_shrine_2026_10_10/shrine_native.png",
+    "before": null,
+    "after": "dfeb2cc8333069b7be25f9661079cc29c75019b68647e545104884a9e683fb1f",
+    "source": "D:\\dev\\hollowtide-shrine-finish-20261010\\candidate\\assets\\sprites\\world\\growth_shrine_2026_10_10\\shrine_native.png"
+  },
+  {
+    "path": "scripts/town/building_exteriors.gd",
+    "before": "87a00ae0f440b41bb19c3d76510af48bef939d4835d58aa257f0e2164fab872b",
+    "after": "e32494aa30b9672c8cecb73e9feeff32c3081bf484fdbc6e16a19dff56498dde",
+    "source": "D:\\dev\\hollowtide-shrine-finish-20261010\\candidate\\scripts\\town\\building_exteriors.gd"
+  },
+  {
+    "path": "scripts/town/growth_shrine_painter.gd",
+    "before": null,
+    "after": "b4ac725b1eb84da19dca749bc0263e7afce88b4cb7d629f16b98fff46df1fbc6",
+    "source": "D:\\dev\\hollowtide-shrine-finish-20261010\\candidate\\scripts\\town\\growth_shrine_painter.gd"
+  },
+  {
+    "path": "scripts/town/highbank_ground_painter.gd",
+    "before": "a8fbae8161a059de2da2d544c66bb771f89e2116b66fd63c067d7d44686fae73",
+    "after": "8e7c0b735d0949b107bff9482e88d4d59c9a3b3c2be8965d4efc6cf1bfc70c51",
+    "source": "D:\\dev\\hollowtide-shrine-finish-20261010\\candidate\\scripts\\town\\highbank_ground_painter.gd"
+  },
+  {
+    "path": "scripts/town/hub_town.gd",
+    "before": "5af34708967be5f01e794d6a931f51f01c675b988589a0946456734ec2d4bf9f",
+    "after": "56ee1424fa5b9a2949e2e3fdf25f6ba874e6f63229c287189afb34cc0ab8e45a",
+    "source": "D:\\dev\\hollowtide-shrine-finish-20261010\\candidate\\scripts\\town\\hub_town.gd"
+  },
+  {
+    "path": "docs/AI_COLLABORATION.md",
+    "before": "6596c5e4f2531bffa5276d35d728dd014912bdfeffc781b84a71cd2cb9bdf8d8",
+    "after": "ec7ede486e8a559bf41c1548875ea903b224e649f41f2603f2fe0981f05bfe34",
+    "source": "D:\\dev\\hollowtide-shrine-finish-20261010\\candidate\\docs\\AI_COLLABORATION.md"
+  }
+]

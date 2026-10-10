@@ -1,0 +1,31 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+OpenGL API 3.3.0 NVIDIA 596.49 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce GTX 1660 SUPER
+
+[godot_ai game_helper] registered mcp capture (debugger active=false, logger=true)
+PASS all ground outside Scroll Keeper / shadow / apron exact
+PASS home foundation / sign textures exact
+PASS home three door textures exact
+PASS shop foundation / sign textures exact
+PASS shop three door textures exact
+PASS hall foundation / sign textures exact
+PASS hall three door textures exact
+PASS storage foundation / sign textures exact
+PASS storage three door textures exact
+PASS Scroll Keeper joins Home / shop / Hall
+PASS original Scroll Keeper footprint / position
+PASS installed interior / silhouette house finish
+PASS closed hatch covers the source recess
+PASS open hatch exposes original middle stair treads
+PASS lid folds behind the stairwell toward the roof
+Door mask extent 10..20; source centre 61.0
+PASS original complete facade places its door on the existing tile
+PASS closed / lifting / folded-back hatch drawings
+PASS transparent corners show the actual ground
+PASS native render adds near-black internal structure outlines
+PASS walk onto unchanged Scroll Keeper doorway
+PASS native E keeps service and door sound
+PASS door passes through ajar
+PASS hatch folds back to reveal descending source steps
+PASS Esc closes service and animated door
+PASS native E from the worn approach
+RESULT 25 checks, 0 failures

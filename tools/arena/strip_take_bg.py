@@ -1,5 +1,5 @@
 """Strip the white background a Retro Diffusion take sometimes keeps (Claude, 2026-10-10).
-  python tools/arena/strip_take_bg.py <take.png> [...]
+  python tools/arena/strip_take_bg.py [--strict] <take.png> [...]
 Keeps the original as <take>_raw.png. Clears near-white pixels joined to the border (the background),
 then any enclosed near-white patch of 6 or more pixels (background seen through a gap, like the space
 under Troughspine's rib arches); smaller white specks stay, since they are eye shines and highlights."""
@@ -28,7 +28,10 @@ def label(mask):
                             q.append((ny, nx))
     return lab, n
 
-for f in sys.argv[1:]:
+# --strict clears only near-pure white (the background is 254 grey): for white-furred creatures like
+# Mirekit, whose face fur would pass the looser test.
+STRICT = "--strict" in sys.argv
+for f in [x for x in sys.argv[1:] if not x.startswith("--")]:
     p = Path(f)
     raw = p.with_name(p.stem + "_raw.png")
     src = raw if raw.exists() else p
@@ -36,7 +39,8 @@ for f in sys.argv[1:]:
     if not raw.exists():
         Image.fromarray(a).save(raw)
     rgb = a[..., :3].astype(int)
-    white = (rgb.min(2) > 225) & (rgb.max(2) - rgb.min(2) < 18) & (a[..., 3] > 0)
+    lo, spread = (248, 6) if STRICT else (225, 18)
+    white = (rgb.min(2) > lo) & (rgb.max(2) - rgb.min(2) < spread) & (a[..., 3] > 0)
     lab, n = label(white)
     edge = set(np.unique(np.concatenate([lab[0], lab[-1], lab[:, 0], lab[:, -1]]))) - {0}
     sizes = [int((lab == k).sum()) for k in range(1, n + 1)]

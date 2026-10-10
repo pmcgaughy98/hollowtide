@@ -1,0 +1,57 @@
+diff --git "a/D:\\dev\\hollowtide-world-refinement-20261008\\project\\scripts\\dungeon\\dungeon.gd" "b/D:\\dev\\hollowtide-selout-scroll-20261010\\concurrent\\scripts\\dungeon\\dungeon.gd"
+index 43af574..a88f364 100644
+--- "a/D:\\dev\\hollowtide-world-refinement-20261008\\project\\scripts\\dungeon\\dungeon.gd"
++++ "b/D:\\dev\\hollowtide-selout-scroll-20261010\\concurrent\\scripts\\dungeon\\dungeon.gd"
+@@ -661,10 +661,11 @@ func _make(line: int, stage: int, team: int, pos: Vector2i) -> Dictionary:
+ 		"node": node, "sprite": sprite, "art": _load_art(form[0]), "walk_t": 0.0, "flash": 0.0, "warn": ""}
+ 
+ 
+-func _load_art(folder: String) -> Dictionary:
++func _load_art(folder: String, want := "dungeon") -> Dictionary:
+ 	# The dungeon set: one size per stage (tools/arena/build_dungeon_set.py, Preston 2026-10-09);
+-	# the arena's tuned small set when a creature has none yet.
+-	var set := "dungeon" if ResourceLoader.exists("res://assets/sprites/arena/%s/dungeon/s.png" % folder) else "small"
++	# the arena's tuned small set when a creature has none yet. `want` asks for a bigger set: "boss"
++	# for the boss, "escort" for its escort (Preston, 2026-10-10: bosses tower, as in Mystery Dungeon).
++	var set := want if ResourceLoader.exists("res://assets/sprites/arena/%s/%s/s.png" % [folder, want]) else ("dungeon" if ResourceLoader.exists("res://assets/sprites/arena/%s/dungeon/s.png" % folder) else "small")
+ 	var still := {}
+ 	var walk := {}
+ 	var foot := {}
+@@ -1838,6 +1839,7 @@ func _place_boss() -> void:
+ 	b["awake"] = false
+ 	b["boss"] = true
+ 	b["facing"] = "s"
++	_size_up(b, "boss", 1.9)
+ 	ents.append(b)
+ 	boss = ents.size() - 1
+ 	for k in BOSS_MINIONS.size():
+@@ -1847,9 +1849,29 @@ func _place_boss() -> void:
+ 		m["awake"] = false
+ 		m["minion"] = true
+ 		m["facing"] = "s"
++		_size_up(m, "escort", 1.35)
+ 		ents.append(m)
+ 
+ 
++## A boss or its escort wears its bigger set (built from the full-size art, so the pixels stay
++## square) and a shadow to match.
++func _size_up(e: Dictionary, set_name: String, k: float) -> void:
++	e["art"] = _load_art(e["form"], set_name)
++	# Its shadow covers the body's whole footprint (Preston, 2026-10-10: the Warden looked as if it
++	# floated, its back half hanging, on tiptoe). Its front view is drawn nearly from above, frog-flat,
++	# so the ground under it is the whole body, front toes to back legs, not a spot at the toes.
++	var body: Texture2D = e["art"]["still"]["s"]
++	var used: Rect2i = body.get_image().get_used_rect()
++	var foot: float = e["art"]["foot"].get(body, float(body.get_height()))
++	var body_h: float = foot - used.position.y        # from the top of the drawn body down to its feet
++	var rx: float = used.size.x * 0.5
++	var ry: float = body_h * 0.36
++	var shadow: Node2D = e["node"].get_child(0)
++	shadow.scale = Vector2(maxf(k, rx / 8.0), ry / 3.0)   # the plain shadow is an 8 by 3 oval
++	shadow.position.y = -ry + 3.0                          # the toes rest just inside its near rim
++	_place(e)
++
++
+ ## After the boss falls: the banner stays a moment, then the dungeon is cleared and the team
+ ## goes home (back to the first floor until the courier hall exists).
+ func _finish_after_boss() -> void:

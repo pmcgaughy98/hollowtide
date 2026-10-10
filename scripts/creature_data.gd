@@ -24,6 +24,12 @@ enum Essence {
 	HOLLOW,
 	ELECTRIC,
 	ICE,
+	# Added 2026-10-10 (Preston approved docs/creatures/essence-expansion-proposal-2026-10-10.md),
+	# at the end so every saved essence number stays the same.
+	SINEW,   # the body as the weapon: muscle, impact, grapples
+	LOAM,    # the ground that moves: soil, burrowing, tremors
+	MURK,    # the deep and the dark: ambush, predators below the surface
+	BLIGHT,  # rot, venom, spores
 }
 
 ## Dex number.

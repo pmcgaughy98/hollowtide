@@ -1,0 +1,21 @@
+{
+  "crop": [
+    0,
+    0,
+    1240,
+    1254
+  ],
+  "scaled_size": [
+    45,
+    46
+  ],
+  "offset": [
+    1,
+    2
+  ],
+  "canvas": [
+    48,
+    48
+  ],
+  "method": "transparent padding crop and uniform nearest scaling only; generated alpha retained"
+}

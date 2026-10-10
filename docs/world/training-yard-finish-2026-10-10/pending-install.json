@@ -1,0 +1,32 @@
+[
+  {
+    "path": "assets/sprites/world/training_yard_2026_10_10/yard_native.png",
+    "before": null,
+    "after": "0a925ca8da358845bad65d22bc8360d1171c3f573e9691fa2483b44ef8c238ea",
+    "source": "D:\\dev\\hollowtide-training-yard-20261010\\candidate\\assets\\sprites\\world\\training_yard_2026_10_10\\yard_native.png"
+  },
+  {
+    "path": "scripts/town/building_exteriors.gd",
+    "before": "626a2d0b66abe46200f87485481986fc26b56181252f2afa424b21f5d744d9bb",
+    "after": "b9087061aa65b3ab6fc6a5eb9d50f2e8468b4fe73d8b63fa53ed7f277cff70fc",
+    "source": "D:\\dev\\hollowtide-training-yard-20261010\\candidate\\scripts\\town\\building_exteriors.gd"
+  },
+  {
+    "path": "scripts/town/highbank_ground_painter.gd",
+    "before": "3a746822b2e800fe77109f45b5cd7340570a16c6187a8d93a8e9f99d477d334f",
+    "after": "70f1fe3dc9b0c16bc19f2bad27716357d4f2349fcffb9067509825d1317afdb8",
+    "source": "D:\\dev\\hollowtide-training-yard-20261010\\candidate\\scripts\\town\\highbank_ground_painter.gd"
+  },
+  {
+    "path": "scripts/town/training_yard_painter.gd",
+    "before": null,
+    "after": "24d94641c5e430941f3d725c240efadfcc3c0bc6cde60ffafba7290fa28f649e",
+    "source": "D:\\dev\\hollowtide-training-yard-20261010\\candidate\\scripts\\town\\training_yard_painter.gd"
+  },
+  {
+    "path": "docs/AI_COLLABORATION.md",
+    "before": "37c9e7920ade0f0864c709bf0bbf28aad6750a8091800d41808cab0a0e7c9980",
+    "after": "391de4d4783020e354dcbc35b3050c31211fbf4eed4f044bc65c9b3ff2d11411",
+    "source": "D:\\dev\\hollowtide-training-yard-20261010\\candidate\\docs\\AI_COLLABORATION.md"
+  }
+]

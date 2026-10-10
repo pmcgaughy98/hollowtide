@@ -1,0 +1,22 @@
+{
+  "protected_exact_since_preinstall": 24062,
+  "original_art_and_creatures_unchanged": true,
+  "concurrent_before_install_retained": {
+    "scripts/dungeon/dungeon.gd": {
+      "before": "fb340cfacce96017b706c585eda847510f94ba7414ceb09e8cbe9bbc57d8c94e",
+      "now": "4bff4b7537da7758e125875bfd390ae5e34e25255e7ea432d01f2b0f9664d98a"
+    },
+    "scripts/town/hub_town.gd": {
+      "before": "902d1c7b952205926c13cee20ac45308baae168b70ac4a33058a34633c81eeef",
+      "now": "852ab43b255ebd354c84c5c3e12ee1433f2f03ed186010a2234746ef36a61c48"
+    },
+    "scripts/town/team_state.gd": {
+      "before": "4e65c405b9f0a715fd2a05caee748a6c211abf6b5f5e8233e9b176f188d22161",
+      "now": "8c9d9c15ea57a5b2360bcdcd9a0ceab04cf4c133c246d0f0be5b1c2db585147d"
+    }
+  },
+  "concurrent_after_preinstall_retained": {},
+  "owned_runtime_exact": true,
+  "problems": [],
+  "archive_mismatch": []
+}

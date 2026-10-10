@@ -1,0 +1,10 @@
+{
+  "scripts/ui/party_screen.gd": {
+    "before": "8801022a94a324cd66d9b33a1f31b5b3435bad600b17446ee4abef873ce7853f",
+    "now": "5a05c8dcf7288aef999e637fb38276a898407548852dd43ce43e49ab78c17c63"
+  },
+  "tools/debug/ui_tour_capture.gd": {
+    "before": "bed86722b1e2d213626d12ee6e848ae6731f42acfcc7ff3ae9e2e202887429ca",
+    "now": "316da2ae88a1b26d841c95c5af17d114b51400eaabcb02d2936f45a13d8d7700"
+  }
+}

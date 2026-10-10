@@ -1,0 +1,47 @@
+diff --git "a/D:\\dev\\hollowtide-world-refinement-20261008\\project\\scripts\\ui\\party_screen.gd" "b/D:\\dev\\hollowtide-job-board-20261010\\archive\\concurrent\\scripts\\ui\\party_screen.gd"
+index f8530c9..873fc22 100644
+--- "a/D:\\dev\\hollowtide-world-refinement-20261008\\project\\scripts\\ui\\party_screen.gd"
++++ "b/D:\\dev\\hollowtide-job-board-20261010\\archive\\concurrent\\scripts\\ui\\party_screen.gd"
+@@ -152,11 +152,11 @@ func _gui_input(event: InputEvent) -> void:
+ 
+ 
+ func _tab_rect(k: int) -> Rect2:
+-	return Rect2(LEFT.position.x + 14 + k * 58, LEFT.position.y + 14 - (4 if k == sel else 0), 50, 50)
++	return Rect2(LEFT.position.x + 26 + k * 58, LEFT.position.y + 24 - (4 if k == sel else 0), 50, 50)
+ 
+ 
+ func _page_rect(k: int) -> Rect2:
+-	return Rect2(RIGHT.position.x + k * 132, RIGHT.position.y - 38, 126, 40)
++	return Rect2(RIGHT.position.x + 12 + k * 132, RIGHT.position.y - 34, 126, 36)
+ 
+ 
+ func _move_rect(k: int) -> Rect2:
+@@ -182,9 +182,13 @@ func _draw() -> void:
+ 	for k in PAGES.size():
+ 		var r := _page_rect(k)
+ 		var on := k == page
+-		draw_rect(r, UI.PANEL if on else Color(0, 0, 0, 0.35))
+-		draw_rect(r, UI.EDGE_LIGHT if on else Color(UI.EDGE, 0.5), false, 2.0 if on else 1.0)
+-		UI.text(self, r.position + Vector2(0, 28), PAGES[k], 19, UI.EDGE_LIGHT if on else UI.MUTED, r.size.x, HORIZONTAL_ALIGNMENT_CENTER)
++		# The open page is a brass tab with dark ink, as a speaker's name plate; the other is a dark slot.
++		if on:
++			draw_style_box(UI.frame("nameplate"), r)
++		else:
++			draw_rect(r.grow(-3.0), Color(0, 0, 0, 0.45))
++			draw_rect(r.grow(-3.0), Color(UI.EDGE, 0.5), false, 3.0)
++		UI.text(self, r.position + Vector2(0, 26), PAGES[k], 19, Color("#2a1f14") if on else UI.MUTED, r.size.x, HORIZONTAL_ALIGNMENT_CENTER)
+ 	UI.panel(self, RIGHT, 0.85)
+ 	if page == 0:
+ 		_draw_status(c)
+@@ -202,9 +206,8 @@ func _draw_left(c: Dictionary) -> void:
+ 			draw_texture_rect(cards[k]["face"], r.grow(-1.0), false, Color.WHITE if k == sel else Color(1, 1, 1, 0.55))
+ 		draw_rect(r, UI.EDGE_LIGHT if k == sel else UI.EDGE, false, 2.0 if k == sel else 1.0)
+ 	# The stage: parchment, a soft floor shadow, the creature turned to its right, breathing.
+-	var stage := Rect2(LEFT.position + Vector2(14, 78), Vector2(332, 270))
+-	draw_rect(stage, Color(UI.PORTRAIT_BG, 0.92))
+-	draw_rect(stage, UI.EDGE, false, 1.0)
++	var stage := Rect2(LEFT.position + Vector2(22, 84), Vector2(316, 266))
++	draw_style_box(UI.frame("portrait"), stage)
+ 	var idle: Array = c["idle"]
+ 	if not idle.is_empty():
+ 		# The detailed front idle, playing, turned to its right like the headshots (mirrored).

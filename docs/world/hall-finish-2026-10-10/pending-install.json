@@ -1,0 +1,20 @@
+[
+  {
+    "path": "scripts/town/building_exteriors.gd",
+    "before": "9deb4395f8310eb13fea8e939e5d6f634568ff664e9e6b905a99b4ea39fd2c79",
+    "after": "56a2085252592e7bae6115e776f0ac3b92e108df85dfbf55dc62b5e30ebd69f9",
+    "source": "D:\\dev\\hollowtide-hall-finish-20261010\\candidate\\scripts\\town\\building_exteriors.gd"
+  },
+  {
+    "path": "scripts/town/wayline_hall_painter.gd",
+    "before": "512748492b880dad3f94d87d3ec48408ad481a261e261d0d244c5c80ce276501",
+    "after": "34fe7aa0632a17df8671f831186572aa032cbdcac6689f4decaa63e2e10cf6ed",
+    "source": "D:\\dev\\hollowtide-hall-finish-20261010\\candidate\\scripts\\town\\wayline_hall_painter.gd"
+  },
+  {
+    "path": "docs/AI_COLLABORATION.md",
+    "before": "e46c0324c573c8fffde1318e56a03c936b3bcaea435de57747c18a078bafc104",
+    "after": "baca79a057bc9376fab7fa9343ffc52c8f84691c0b6946cd993d6715a252756c",
+    "source": "D:\\dev\\hollowtide-hall-finish-20261010\\candidate\\docs\\AI_COLLABORATION.md"
+  }
+]

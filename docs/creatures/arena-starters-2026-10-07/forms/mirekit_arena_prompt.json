@@ -1,0 +1,9 @@
+{
+ "prompt": "Top-down action game sprite of a small young opossum creature, a scruffy scavenger kit standing on all fours: a long pointed pale snout with a pink nose, round dark beady eyes, small round bare pink ears, a long bare pink tail curling up behind it, scruffy grey-white fur stained with marsh mud and a few sickly green rot blotches, a too-big leather courier strap slung across its chest holding a small brown stolen parcel on its back. Cheeky, mouthy and shifty, a sly grin showing small teeth. Seen from above at a three-quarter overhead angle like a sprite in a top-down arena battle game, facing down and to the right toward the camera. A readable game sprite: chunky clear shapes, a crisp dark outline. Not a rat, not a mouse, not a raccoon, no mask markings, no clothes other than the strap. Whole creature centred with empty space on every side, nothing touching the edges. On a plain white background.",
+ "prompt_style": "rd_pro__default",
+ "width": 96,
+ "height": 96,
+ "num_images": 2,
+ "remove_bg": true,
+ "reference_images": []
+}

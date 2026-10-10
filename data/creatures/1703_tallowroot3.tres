@@ -25,10 +25,10 @@
 [resource]
 script = ExtResource("1_script")
 id = 1703
-creature_name = "Rampartroot"
 essence = 4
 has_second_essence = true
-second_essence = 2
+second_essence = 9
+creature_name = "Rampartroot"
 sprite = ExtResource("2_sprite")
 back_sprite = ExtResource("3_back")
 description = "Rampartroot: name approved by Preston 2026-10-05. Provisional entry (Claude): Retro Diffusion art from docs/creatures/starter-lines-rd-2026-10-05/evolutions. Default stats and no moves (Strike) until Grok sets the kit and numbers."

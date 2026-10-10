@@ -1,0 +1,45 @@
+{
+  "installed_exact": [
+    "scripts/art/selout.gd",
+    "scripts/art/selout_rim.gdshaderinc",
+    "scripts/town/exterior_finish.gd",
+    "scripts/town/exterior_finish.gdshader",
+    "scripts/arena/sel_out.gdshaderinc",
+    "scripts/town/building_exteriors.gd",
+    "scripts/town/growth_shrine_painter.gd",
+    "scripts/town/hollow_mouth_painter.gd",
+    "scripts/town/job_board_painter.gd",
+    "scripts/town/training_yard_painter.gd",
+    "docs/AI_COLLABORATION.md"
+  ],
+  "guarded_baseline_files": 10265,
+  "protected_exact": 10254,
+  "concurrent_changes_preserved": [
+    {
+      "path": "scripts/dungeon/boss_intro.gd",
+      "before": "0b0465d6d14ca168401947f8e2f854d84d4e5b592d12466d63254fc191b812d0",
+      "current": "81eb5135cc09c1b573ef969f33214ae32f6ac4973832f9b2ecc24b33319db3bd",
+      "preserved": "No task write targets this path; current concurrent version retained."
+    },
+    {
+      "path": "scripts/dungeon/dungeon.gd",
+      "before": "4d4a6b1ec1ae4e98e3cb273270e23ecef105855aa67a50e749d22ccf976064de",
+      "current": "3e1639efe7dab02bde0007b7c9571db38aa1fefe8ddd4afbb2c8fd41a0aca4dd",
+      "preserved": "No task write targets this path; current concurrent version retained."
+    },
+    {
+      "path": "scripts/town/room_painter.gd",
+      "before": "7f61025a0ac7d4d5daf44dc87f786ed6a9eb734bb0a9f784b5b5e88491018010",
+      "current": "4af5e7eaeb4f9f591c6c0de95072f8261676c184986ec412d787ce992a6e7c36",
+      "preserved": "No task write targets this path; current concurrent version retained."
+    },
+    {
+      "path": "tools/debug/faces_grid_capture.gd",
+      "before": "92261d33280926bf9f2fd2b3d6e27884064016fc9a812e0338e9911e4e3afe9a",
+      "current": "cafb0c090f3f71cb4bdaca5440cd94d6b5411c83e4d250816aee159ddc74178f",
+      "preserved": "No task write targets this path; current concurrent version retained."
+    }
+  ],
+  "original_asset_files_exact": 9718,
+  "prior_collaboration_body_exact": true
+}

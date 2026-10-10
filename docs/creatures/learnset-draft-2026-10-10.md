@@ -4,6 +4,8 @@ Preston, 2026-10-09: keep evolve-by-level on top of the evolution conditions, an
 
 **Wired by Claude, 2026-10-10:** `LEARN` and `WAITING` are copied exactly into `scripts/dungeon/dungeon.gd`; rules 5, 7, 8 and 12 are `moves_for`, `_offer` / `_next_offer` (the scroll panel with a DON'T LEARN row), `_moves_on_evolving` and the recruit join. On autopilot a full set forgets slot 1 rather than stopping the run. Check: `tools/debug/dungeon_learn_check.gd`. `WAITING` is not read by anything yet.
 
+**After that copy, Claude added the Springvault line (code index 10).** Those three `LEARN` rows are Claude's draft, not this ruling: Troughspine learns Spring Spit and Seep at Lv 1; Archroot and Springvault are empty until Mineral Brace and Vault Arch exist. Seep is live (heal 6, 3 turns), so it belongs in `LEARN` under rule 9. The new part names are `muzzle`, `gills`, and `arches`. `roots` already means Tallowroot's roots, and Seep is gated on `gills` while stage 1 has no roots. Open, in `docs/creatures/arena-springvault-2026-10-10/README.md`. The Grok handoff and the top of the result file point at it. Sinew, Loam, Murk, and Blight are also in the game and still neutral.
+
 Claude drafted the first table on 2026-10-10 from `Arena.KITS`. The decisions below replace that draft. The old level pattern (3, 4 / 7, 8, 9 / 12, 14, 16) and the old "kit drop means the move is gone" column are withdrawn.
 
 ## Decisions

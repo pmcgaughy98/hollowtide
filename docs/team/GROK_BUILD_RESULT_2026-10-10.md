@@ -1,5 +1,21 @@
 # Grok Build result, 2026-10-10
 
+## Later the same day: learnsets, then Claude's updates
+
+The learnset rules are in `docs/creatures/learnset-draft-2026-10-10.md`. Claude wired that `LEARN` and `WAITING` into `dungeon.gd`. The scroll panel has a don't-learn row. On autopilot a full set forgets slot 1. `WAITING` is not read by anything yet. Claude reported `dungeon_learn_check.gd` passing along with the move-table, evolve, effects, IQ, tactics, boss, and town checks. This session did not re-run them.
+
+The learnset tables below, under "Learnsets", are the earlier proposal (each stage starts holding its whole kit). They are not the live lists. Live lists are the consts. Level bands are 1 and 3, then on evolving plus 6 and 8, then on evolving plus 12 and 14. A move stays when the new body passes `can_learn`. Ember Pellet is the only forced loss. Damage-0 moves with no dungeon effect stay in `WAITING`. Five finals learn nothing.
+
+Claude then added three things that are still drafts:
+
+| Draft | Where it sits | Status |
+|---|---|---|
+| Springvault line, code index 10 | `arena-springvault-2026-10-10/README.md`, `EVO[10]`, `LEARN` rows for the three forms, B2F spawn `[10, 0]` | Not ruled. Seep is in `LEARN` because the dungeon plays it. Mineral Brace and Vault Arch are not moves. |
+| Sinew, Loam, Murk, Blight | `essence-expansion-proposal-2026-10-10.md`, enum at the end | In the data. Neutral in `ARENA_CHART` until a numbers pass. |
+| Health between floors | `_build_floor(floor_n == 1)` | Built. Job 2's 100-to-200-turn clocks were measured when floors healed. Not re-measured. |
+
+No commit. No Springvault number was changed in this pass.
+
 Jobs 1 to 6 are done. The move-table check still reports 0 kit failures, down from 5. No commit. Job 4 is a proposal. Job 5 sets the three floor spawn tables. Job 6 tunes the arena. The 24-6 target is not met. The evolution drafts in `EVO` are kept. The trigger is conditions, not a win. The boss, Monster House and warp drafts are kept. The IQ gains and thresholds are kept.
 
 The check script still writes the sentence "nothing was changed" above an empty failure table. That sentence is the generator's old line. The kits below did change.
@@ -91,6 +107,8 @@ Rake and Cinder Claw are almost the same hit (14 at range 24 against 15 at range
 Fusern is the one live kit that is short of basic plus 2. The only damaging move its body can use is Ember Pellet. The hex edge has no move. I did not retune Furnace Shard onto that edge, and I did not invent a move id.
 
 ## Learnsets
+
+Superseded the same day. The live lists are `LEARN` and `WAITING` in `dungeon.gd`, copied from `docs/creatures/learnset-draft-2026-10-10.md`. The tables under this heading are the earlier "starts with the whole kit" proposal. Kept so the job 1 record stays readable.
 
 Proposals. A scroll can teach a damaging shared signature: Rake, Pounce, or Cinder Claw. Sail Cover and Vantage are shared and are not in the scroll pool, because their damage is 0. An ultimate is never taught. Each birth kit is 4 moves at most.
 

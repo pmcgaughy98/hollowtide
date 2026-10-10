@@ -86,6 +86,20 @@ PICKS = {
     "menu_close": ("menu_close_1", 0.30, 0.75, 0.003, 0.10, -10.0, HP, 0),
     "snare_struggle": ("snare_struggle_1", 0.00, 1.00, 0.02, 0.20, -8.0, f"{HP},{SOFT}", 0),
     "evolve_ready": ("evolve_ready_0", 0.00, 1.60, 0.10, 0.50, -6.0, HP, -1),
+    # the Warden's entrance (Claude, 2026-10-10; Preston: "eleven labs synthesis it up too"): 12 sounds,
+    # two takes each, 16.7 credits a take, flow lgucGp7YVZlGnAPBhJ26; picked by measurement
+    "pond_ambience": ("pond_ambience_0", 0.50, 12.50, 1.00, 2.00, -3.0, f"{HP},lowpass=f=4500", 0),
+    "ripple": ("ripple_0", 0.14, 1.60, 0.005, 0.40, -8.0, f"{HP},{SOFT}", 0),
+    "emote_alert": ("emote_alert_1", 0.00, 0.60, 0.002, 0.15, -8.0, "lowpass=f=6000", 0),
+    "presence_swell": ("presence_swell_0", 0.00, 2.00, 0.30, 0.60, -4.0, HP, -1),
+    "pond_rumble": ("pond_rumble_0", 0.00, 1.00, 0.10, 0.25, -3.0, HP, 0),
+    "pond_burst": ("pond_burst_0", 0.00, 2.00, 0.002, 0.60, -1.0, f"{HP},{SOFT}", 0),
+    "water_rain": ("water_rain_0", 0.00, 1.00, 0.05, 0.40, -9.0, f"{HP},lowpass=f=5000", 0),
+    "fall_whoosh": ("fall_whoosh_0", 0.00, 1.70, 0.20, 0.08, -3.0, HP, -1),
+    "heavy_land": ("heavy_land_0", 0.00, 1.00, 0.002, 0.40, -1.0, HP, 0),
+    "hop_splash": ("hop_splash_0", 0.00, 0.80, 0.002, 0.20, -8.0, f"{HP},lowpass=f=5000", 0),
+    "warden_croak": ("warden_croak_0", 0.00, 2.00, 0.01, 0.50, -2.0, HP, 0),
+    "battle_wipe": ("battle_wipe_1", 0.90, 2.40, 0.05, 0.30, -3.0, HP, 0),
 }
 # Not used: step (both takes were a steady hiss with no footfall; the dungeon stays quiet underfoot,
 # as Explorers of Sky does).

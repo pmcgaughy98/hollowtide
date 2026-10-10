@@ -73,6 +73,10 @@ const PARTS := {
 	"troughspine": ["muzzle", "gills", "arches"],
 	"archroot": ["muzzle", "gills", "arches", "roots"],
 	"springvault": ["muzzle", "gills", "arches", "roots"],
+	# The rival crew (Claude, 2026-10-10, draft for Grok): the opossum's claws, jaw and hooking tail;
+	# the mosquito's needle, wings and six legs.
+	"mirekit": ["claw", "jaw", "hooktail"],
+	"whinet": ["needle", "wing", "sixlegs"],
 }
 
 ## What each arena move needs. G where Grok already ruled on the same move.
@@ -109,6 +113,8 @@ const NEEDS := {
 	"sail_cover": ["sail"], "vantage": ["sail"],
 	"whistle_dart": ["whistle"], "signal_mark": ["whistle"], "decoy_call": ["whistle"],
 	"spring_spit": ["muzzle"], "seep": ["gills"],
+	"grub_bite": ["jaw"], "rot_spit": ["jaw"], "play_dead": ["hooktail"],
+	"needle_jab": ["needle"], "drain_bite": ["needle"], "buzz_dart": ["wing"],
 }
 
 

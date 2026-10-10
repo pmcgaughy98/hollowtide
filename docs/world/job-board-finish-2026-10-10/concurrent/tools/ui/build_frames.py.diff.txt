@@ -1,0 +1,25 @@
+diff --git "a/D:\\dev\\hollowtide-world-refinement-20261008\\project\\tools\\ui\\build_frames.py" "b/C:\\Users\\pmcga\\dev\\hollowtide\\tools\\ui\\build_frames.py"
+index 7295cba..04e1824 100644
+--- "a/D:\\dev\\hollowtide-world-refinement-20261008\\project\\tools\\ui\\build_frames.py"
++++ "b/C:\\Users\\pmcga\\dev\\hollowtide\\tools\\ui\\build_frames.py"
+@@ -90,8 +90,8 @@ def stud(im, cx, cy):
+                 px(im, cx - 3 + x, cy - 3 + y, c)
+ 
+ 
+-def panel(size=24, focus=False, alpha=236):
+-    """A panel 9-slice (margin 8): moss weave, a 4-pixel bevelled brass band, an inner shadow under
++def panel(size=28, focus=False, alpha=236):
++    """A panel 9-slice (margin 8, a 12-pixel centre so the weave tiles without a seam): moss weave, a 4-pixel bevelled brass band, an inner shadow under
+     the top and left edges so the fill sits inside the frame, and a stud on every corner."""
+     im = Image.new("RGBA", (size, size), (0, 0, 0, 0))
+     moss_fill(im, 4, 4, size - 4, size - 4, alpha)
+@@ -113,7 +113,8 @@ def nameplate():
+     for y in range(h):
+         for x in range(w):
+             d = min(x, y, w - 1 - x, h - 1 - y)
+-            px(im, x, y, INK if d == 0 else (BRASS_HI if d == 1 and (y == 1 or x == 1) else (BRASS_LO if d == 1 else (BRASS if (x + y) % 5 else BRASS_HI))))
++            # Flat brass with one light line under the top rim: it stretches to any name without hatching.
++            px(im, x, y, INK if d == 0 else (BRASS_HI if d == 1 and (y == 1 or x == 1) else (BRASS_LO if d == 1 else ((214, 182, 122, 255) if y == 2 else BRASS))))
+     for cx, cy in [(0, 0), (w - 1, 0), (0, h - 1), (w - 1, h - 1)]:
+         px(im, cx, cy, (0, 0, 0, 0))
+     return im

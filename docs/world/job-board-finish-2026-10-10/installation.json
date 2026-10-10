@@ -1,0 +1,92 @@
+{
+  "protected_exact_since_preinstall": 9565,
+  "original_art_except_inspected_claude_ui_frames_unchanged": true,
+  "original_creature_art_unchanged": true,
+  "retained_concurrent_ui_frames": {
+    "assets/sprites/ui/frame/panel.png": {
+      "sha256": "638fe62afa512f09fe7712a2cf6362e89bacea20771dfd74d9db0bb6f53866dc",
+      "reason": "Inspected concurrent Claude UI 9-slice replacement, 28px source / seam correction; preserved exactly. Not changed by Board install."
+    },
+    "assets/sprites/ui/frame/panel_dim.png": {
+      "sha256": "537ab9dce113a8393f001ef254a91ceb8515cc04640ea331851f1bdf1737c503",
+      "reason": "Inspected concurrent Claude UI 9-slice replacement, 28px source / seam correction; preserved exactly. Not changed by Board install."
+    },
+    "assets/sprites/ui/frame/panel_focus.png": {
+      "sha256": "1abc386a06a2c910c14b00d5432ac68ddace408933623a42794c13fad4c13e77",
+      "reason": "Inspected concurrent Claude UI 9-slice replacement, 28px source / seam correction; preserved exactly. Not changed by Board install."
+    },
+    "assets/sprites/ui/frame/nameplate.png": {
+      "sha256": "9a0325cec7c676ff9793a3148e2280e04db0db82d72678f88dc9d49713923644",
+      "reason": "Inspected concurrent Claude UI padding / textured party frame / flat brass nameplate refinement; unchanged by Board install."
+    }
+  },
+  "concurrent_before_install_retained": {
+    "scripts/soul_prologue.gd": {
+      "before": "236f73404f3951e51b8ec198edb5395d100d2d6d9315e5a862198b72c73c8360",
+      "now": "b21119721f398e806d9cc263d8795d8554a9f73eb49bdb8ec3329293b8fcced6"
+    },
+    "scripts/dungeon/dungeon.gd": {
+      "before": "dc062864b5ccf25efeea84a3c49a1221c3aa3ce277a160fc69ad7942e3cb87ce",
+      "now": "fb340cfacce96017b706c585eda847510f94ba7414ceb09e8cbe9bbc57d8c94e"
+    },
+    "scripts/ui/game_pause_menu.gd": {
+      "before": "fb84d579ac3d8d1200c4f7f7237fc68bc47487bd08c48fb7e661ae7c4ed4d102",
+      "now": "30d48613b8014c4765ae84c1fed4e56ed1f28b243b5161dd8e624e8a7199534c"
+    },
+    "scripts/ui/ui_style.gd": {
+      "before": "2db596437d439eb3280f54e014ee7554451d3bdf13aceea79f9269fabdab4557",
+      "now": "120fe804e7ed4e934aed1779405fc20d05484a2b6a2b8863ed29eaf681140f1d"
+    },
+    "assets/sprites/ui/frame/panel.png": {
+      "before": "c2ed2f9a955fdf8922539559ce11f5640ff6848092f419bab505bf0f93d53401",
+      "now": "638fe62afa512f09fe7712a2cf6362e89bacea20771dfd74d9db0bb6f53866dc"
+    },
+    "assets/sprites/ui/frame/panel_dim.png": {
+      "before": "d198c2ad6bf577e7b32179763c6fee7d9a686196bd7ba995b876639fbc983c6e",
+      "now": "537ab9dce113a8393f001ef254a91ceb8515cc04640ea331851f1bdf1737c503"
+    },
+    "assets/sprites/ui/frame/panel_focus.png": {
+      "before": "57c9e1689eba3736dfd0b67264141afb1510be362fa410ce2d62b0533faa6d2a",
+      "now": "1abc386a06a2c910c14b00d5432ac68ddace408933623a42794c13fad4c13e77"
+    },
+    "tools/ui/build_frames.py": {
+      "before": "0373015630b9da3a73cb965c84da7689f2b1e94e7b19aa5a178f2b77e90d33d3",
+      "now": "534cae51c742861274d34a48c7518787e2b9f9ea75c56d00229bef62fe2dab04"
+    }
+  },
+  "concurrent_after_preinstall_retained": {
+    "scripts/soul_prologue.gd": {
+      "before": "b21119721f398e806d9cc263d8795d8554a9f73eb49bdb8ec3329293b8fcced6",
+      "now": "46159597ca812bbc27e8834417ed637111468c9db8dadaf26f4d9df9400adf55",
+      "reason": "Concurrent Claude UI/dialogue refinement retained; exact snapshot/diff archived and inspected before final audit."
+    },
+    "scripts/town/hub_town.gd": {
+      "before": "693f25c846b1e92dfa858093691e34e0cb9d6ffa83b5b00f8ba57af77757e1f9",
+      "now": "902d1c7b952205926c13cee20ac45308baae168b70ac4a33058a34633c81eeef",
+      "reason": "Inspected concurrent Claude UI padding / textured party frame / flat brass nameplate refinement; unchanged by Board install."
+    },
+    "scripts/ui/game_pause_menu.gd": {
+      "before": "30d48613b8014c4765ae84c1fed4e56ed1f28b243b5161dd8e624e8a7199534c",
+      "now": "7b65a3e4036c9913156f25d853ed5dd333a700f111b3ea622185fa3abce0e6d0",
+      "reason": "Concurrent Claude UI/dialogue refinement retained; exact snapshot/diff archived and inspected before final audit."
+    },
+    "scripts/ui/party_screen.gd": {
+      "before": "5a05c8dcf7288aef999e637fb38276a898407548852dd43ce43e49ab78c17c63",
+      "now": "956ac01cef09f5f6fd5a50c8bd0d6b4a8ea5027f2a96b2324fee37407e3ce76c",
+      "reason": "Inspected concurrent Claude UI padding / textured party frame / flat brass nameplate refinement; unchanged by Board install."
+    },
+    "assets/sprites/ui/frame/nameplate.png": {
+      "before": "493783f8766407e9ee16f760d75b2f6cef73c0c046e32f281e77e73bdaaf79b3",
+      "now": "9a0325cec7c676ff9793a3148e2280e04db0db82d72678f88dc9d49713923644",
+      "reason": "Inspected concurrent Claude UI padding / textured party frame / flat brass nameplate refinement; unchanged by Board install."
+    },
+    "tools/ui/build_frames.py": {
+      "before": "534cae51c742861274d34a48c7518787e2b9f9ea75c56d00229bef62fe2dab04",
+      "now": "e575daee04f3b9efd2d82bcf16d131f4ce1ec240ccee880babcd947693d3fe8b",
+      "reason": "Concurrent Claude UI/dialogue refinement retained; exact snapshot/diff archived and inspected before final audit."
+    }
+  },
+  "problems": [],
+  "archive_mismatch": [],
+  "owned_runtime_exact": true
+}

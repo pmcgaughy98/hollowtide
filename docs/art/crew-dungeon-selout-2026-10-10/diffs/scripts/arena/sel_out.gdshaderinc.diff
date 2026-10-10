@@ -1,0 +1,24 @@
+--- current-live/scripts/arena/sel_out.gdshaderinc
++++ finish/scripts/arena/sel_out.gdshaderinc
+@@ -9,9 +9,11 @@
+ 
+ void vertex() {
+ 	tint = COLOR;
++	#ifndef SEL_OUT_MASKED_MAP
+ 	// One texel of room for pale edge repairs, including art close to its canvas edge.
+ 	VERTEX += (UV * 2.0 - 1.0);
+ 	UV = (UV * (1.0 / TEXTURE_PIXEL_SIZE + 2.0) - 1.0) * TEXTURE_PIXEL_SIZE;
++	#endif
+ }
+ 
+ vec4 sample_art(sampler2D tex, vec2 uv) {
+@@ -75,5 +77,9 @@
+ 		float carved_seam = smoothstep(0.055, 0.13, across-lum) * (1.0-smoothstep(0.72, 0.86, lum));
+ 		c.rgb = mix(c.rgb, outline.rgb, detail_ink * max(max(boundary, dark_joint), carved_seam));
+ 	}
++	#ifdef SEL_OUT_MASKED_MAP
++	// Map floors retain the original painter exactly; ink only the supplied geometry mask.
++	c = mix(sample_art(TEXTURE, UV), c, texture(detail_mask, UV).r);
++	#endif
+ 	COLOR = c * tint;
+ }

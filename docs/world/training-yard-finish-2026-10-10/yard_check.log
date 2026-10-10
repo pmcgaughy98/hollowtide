@@ -1,0 +1,35 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+OpenGL API 3.3.0 NVIDIA 596.49 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce GTX 1660 SUPER
+
+ERROR: Failed to read the root certificate store.
+   at: get_system_ca_certificates (platform/windows/os_windows.cpp:2582)
+[godot_ai game_helper] registered mcp capture (debugger active=false, logger=true)
+PASS ground changes are visible and confined to Yard / north approach
+PASS home foundation / sign exact
+PASS home all three entrance frames exact
+PASS shop foundation / sign exact
+PASS shop all three entrance frames exact
+PASS hall foundation / sign exact
+PASS hall all three entrance frames exact
+PASS storage foundation / sign exact
+PASS storage all three entrance frames exact
+PASS scrolls foundation / sign exact
+PASS scrolls all three entrance frames exact
+PASS Yard joins all six finished services
+PASS original Yard position and 168x120 footprint
+PASS open-air ring remains under creatures
+PASS purposeful shared sel-out detail preset
+PASS all 35 original Yard tiles stay walkable
+PASS target sign sits beside the north activation tile
+PASS transparent corners show real town ground
+PASS target sign has three distinct response states
+PASS native render adds black internal stone / root / ring detail
+Native detail ink pixels [823, 2599]
+PASS walk reaches unchanged north Yard activation tile
+PASS native E retains arena description / service sound
+PASS target sign transitions through its middle state
+PASS target sign brightens with open service
+PASS Esc closes service and settles target sign
+PASS native E works from the north approach
+PASS leader actually walks across the practice ring
+RESULT 27 checks, 0 failures

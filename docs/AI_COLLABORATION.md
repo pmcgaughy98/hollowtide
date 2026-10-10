@@ -1,5 +1,150 @@
 # Working Together on Hollowtide
 
+## Codex: remaining town exterior structures and larger Job Board (October 10, 2026)
+
+Preston redirected the next task to finishing exteriors/town structures and said the Board was too small. All 13 existing places now have finished views. Added code-native Lookout masonry/bench, Ferry Landing moorings/gear/river marker and Dock edge beams/posts/rope/entrance treads on top of Claude's ground. Same black internal detail, material outer rim and 2px contact shadow; unchanged spots/paths/collision/services. Optional module, no imagegen or PNG edits. Preserve Claude's new interiors and ongoing code.
+
+Job Board uses its exact original 48x24 art at integer 2x (96x48 display), centred on its original stand and anchored to the original actual opaque foot row. Visual offset is (-24, -source_used_rect.end.y); logical rect (26,7) 2x1 and reading (26,8) are unchanged. Real Hall door/steps and guild sign stay clear. Reading-pad drawings and animated response retained. Ground changes only remove the old small baked Board shadow; the larger shadow draws over final Highbank ground. No layout or town controller edit.
+
+27 native checks pass, including actual E/Escape Board input/response, all five foundations/signs and fifteen door/hatch drawings exact, clear new service activation spots and Hollow Mouth, bounded ground changes. Hub 12 services/gate, walking, both Hall door tiles and Claude's complete Board rescue/recovery/payout loop pass. [Originals, native before/after, scope and audit](world/town-structures-finish-2026-10-10/README.md). Launch pixel frames were deferred for Preston's exterior priority; menu/story/source art/shared finish/creature A/B choice unchanged. No commit/settings edit. Visual direction remains proposal for Preston.
+
+## Codex: job 11 town outer rims, painter helper and creature A/Bs (October 10, 2026)
+
+Read Claude's updated handoff and latest Highbank ground first. Nine service exteriors now opt into material-coloured outer rims with top-left lighting; Preston's near-black internal windows, doors, carvings and joints stay pixel-exact. Door/default creature shaders, foundations/signs/feedback, original PNGs, palettes, layouts and contact ground are unchanged. HighbankPainter, crew/dungeon finish and Claude's current code preserved.
+
+Job 11(b): scripts/art/selout.gd returns a new Image for a filled Image mask, Rect2i or transparent silhouette; example/native before-after on the actual Lookout wall is archived. Claude can wire the helper into his painters. No painter rewired in this pass. Job 11(c): Cinderhide, Oxbowarchon and Whinet native A/B previews only; shipped creature finish remains current until Preston chooses.
+
+21 native comparisons pass: nine alpha/thickness and all interior pixels exact; all 35 installed creature south views and four dungeon looks byte-exact; helper input/interior/outside mask exact and lit rim verified. Hub's 12 services, walking, two Hall door tiles and Claude's dungeons_check pass. Original sources, native town views, A/Bs, code and preservation audit: [town sel-out handoff](world/town-selout-2026-10-10/README.md). No source art generation, PNG edit, settings edit or commit. Visual direction remains proposal for Preston. Next open launch/UI job: handoff 8, pixel frames for launch boxes; the title painting and wordmark stay.
+
+## Codex: rival crew and both dungeon scenery sel-out (October 10, 2026)
+
+Preston requested Mirekit/Whinet and dungeon 1/2, explicitly including scenery. Added bounded internal contour ink through the existing Hollowtide Sprite finish for the two installed stage 1 sets and their dialogue portraits. Shared map finish is masked to exposed wall faces/edges and stairs; walking surfaces remain original. Preserved Claude's concurrent Rootbank Warren name/new meadow-and-hills ValleyPainter, crew dialogue/expressions/moves and second-boss Warden pond; no roster/stat/controller/terrain-source changes.
+
+22 native checks pass: 544 textures, alpha/silhouette/bright pale highlights exact; 33 other forms and town detail preset byte-exact; all unmasked pixels exact across riverbank/valley/ruin/bank; actual dungeon/crew portraits/emotion marks/closing/Warden scene. Current Claude dungeons_check all ok, including Rot Spit/Drain Bite and town dispatch choice. No source PNG edits, generation, settings edit or commit. Preserve seven-form/Oxbowarchon jade, Sparkwick correction and all original backups. [Native previews, scope, originals and audit](art/crew-dungeon-selout-2026-10-10/README.md). Implemented and reviewed; Preston's visual approval and natural dungeon clear not claimed.
+
+
+## Codex: Sparkwick body-palette consistency (October 10, 2026)
+
+Preston flagged brown patches in both the walking sprites and large animated preview. Inspected existing generations/locks/back fixes first. Added a Sparkwick-only display swatch correction using its approved arena-front gold/tan/copper body ramp, removing desaturated brown paint colours while retaining intentional stripe shapes, pale belly and bright lantern core. Shared sel-out follows texture changes; party art/headshot use a creature-only draw layer; evolution corrects colour before its existing whitening. Claude's moving front-idle source/order and 5 FPS stay exact. No generated redraw or PNG/source/walk/portrait/backup edits, no creature data/rules/size/foot/controller edits.
+
+168 native rendered textures: 19,506 dull material pixels -> 0; rendered alpha/silhouette and bright lamp core exact. Other forms' native south-view finishes byte-exact, including Oxbowarchon jade. Actual town movement, dungeon, summary animation/switching and evolution checks pass. Current active field/arena/party/evolution scope; inactive legacy battle-screen renderer remains separate. [Previews, precise scope, originals, checks and audit](creatures/sparkwick-material-consistency-2026-10-10/README.md). Preserve seven-form refinements and Claude/Grok concurrent code/notes. No commit/settings edit. Material consistency implemented/reviewed, Preston's visual approval not claimed.
+
+
+## Grok: two antagonist lines need kits; the Warden becomes the second boss (October 10, 2026)
+
+Preston: the Quietwater Warden is now the **second** boss; the first is the antagonist crew's two grunts, easy on purpose (as Mystery Dungeon's first boss is). He chose an opossum line (Blight, then Blight/Murk; its final form leads the crew) and a mosquito line (Gale, then Gale/Blight), as a rival courier crew. Proposal with working names, bodies, and the first-boss gimmicks (Play Dead, Drain Bite) and suggested numbers: `docs/creatures/antagonist-crew-proposal-2026-10-10.md`. **For Grok:** kits, stage numbers and evolution for lines 11 and 12. Names and looks wait on Preston.
+
+## Codex: Mouth of the Hollow entrance finish (October 10, 2026)
+
+Next ferry-district slice after Crossroads. Original low broken scour recess with dark cleft, chipped limestone/clay, roots/moss and a pale south-west foothold replaces the yellow block. Same shared sel-out detail preset; terrace-coloured contact band and short worn west approach join the existing ferry lane. Exact (792,648), 48x48, activation (33,28), all four tiles walkable, ground-level sprite. No layout/paths/collision/camera/rules changes; all existing road pixels and ground outside bounded entrance/apron exact.
+
+Built-in imagegen one call using our own Shrine as style reference, zero Retro. Original output/exact prompt and crop/uniform-nearest preparation archived. 27 native checks pass including previous five foundation/sign textures and fifteen entrance drawings exact, actual shader ink/foothold, real walking/E and scene change into dungeon with party/return flag/carried jobs/rank intact. Missing PNG or painter restores exact prior ground, nine finished views and entry. Hub/Hall checks pass. Landing's temporary label moves beside its own interaction spot only when finished Mouth exists, clearing the entrance; fallback retains its old position. [Native previews, source/prompt, originals and audit](world/hollow-mouth-finish-2026-10-10/README.md).
+
+Installed scope: four town presentation scripts, one new PNG and this note. hub_town.gd changes only four lines of label presentation; every input/controller/jobs/evolution/state method retained. Preserve all creature refinements/Oxbowarchon jade/palettes/backups/source art, installed town views/shader/title and Claude's concurrent code. No commit or settings edit. Remaining ferry landing/dock/switchback art next; visual direction remains proposal for Preston. Entry verified, natural dungeon clear not claimed.
+
+
+## Codex: Crossroads plaza finish (October 10, 2026)
+
+Next town-finish slice after Job Board. Original native packed-earth/limestone clearing, staggered chipped paving and grass-edge clusters replace the blockout rectangle. Native carved three-route floor tile extends Hall's own symbol, with the shared purposeful sel-out detail preset and three quiet response drawings tied to the existing waymark panel. Floating plaque suppressed via the finished-view hook. Code-native art only; no imagegen/Retro, external artwork or source PNG edits.
+
+Exact (432,264) 288x144 plaza, activation (24,14), 24x24 inlay below creatures, all 72 tiles open. Full underlying authored ferry-lane paving remains exact; old blockout border crossing strokes cleared. Every ground pixel outside plaza unchanged. Existing E/quiet description/close remain; no navigation/travel/state feature added. 31 native checks pass including real walking/input, rendered interior ink, original five signs/foundations and fifteen entrance frames exact, plus Claude's new Board panel/input/feedback. Missing painter restores exact previous ground and eight finished services with Crossroads interaction. Hub/Hall checks pass. [Native previews, original scripts, checks and preservation audit](world/crossroads-finish-2026-10-10/README.md).
+
+Only four town presentation scripts and this note installed. Board feedback additionally reads Claude's new board service signal (no place id in its panel); art/sign/frames unchanged. Preserved new jobs.gd, town/dungeon job flow and team-state keys, with retained snapshots/diffs. Preserve all creature refinements, Oxbowarchon's jade, palettes/sources/backups, shared finish, Shrine/hatch/Yard/Board, title/Hall/layout/controller/state and Claude's concurrent guild/prologue/UI work. No commit or settings edit. Remaining areas/service spots before decoration; visual direction remains proposal for Preston.
+
+
+## Claude: the Job Board works; pixel frames everywhere (October 10, 2026)
+
+- **Job Board (pivot slice 6):** E at Highbank's board posts four requests (find a lost client, or recover an item a client dropped) on a floor; take up to four; reach it on that floor and the job is done; the board pays on return (items plus Courier Rank points). `scripts/town/jobs.gd`, write-up `docs/design/job-board-2026-10-10/README.md`, check `tools/debug/job_board_check.gd` (passes).
+- **For Grok:** the rewards, points per floor and rank steps in `jobs.gd` are Claude's placeholders. **For Preston:** rank names and the client's thank-you line.
+- **UI:** every panel, button and text box outside the launch flow is now a hand-placed pixel 9-slice at the world's 3x (`tools/ui/build_frames.py`, `UI.frame` / `UI.panel` / `UI.dialogue`). Dialogue portraits for Kithflare, Tallowroot, Rimefin and the Warden (`tools/ui/build_dialogue_portraits.py`) show in the boss scene. Codex job 8 moves the launch flow's boxes onto the same frames.
+
+## Grok: learnsets are decided; Springvault and the new chart are not (October 10, 2026)
+
+Claude wired `LEARN` and `WAITING` from `docs/creatures/learnset-draft-2026-10-10.md` into `dungeon.gd`. That check was Claude's (`dungeon_learn_check.gd`); this pass did not re-run it. Still open for Grok, and not ruled here: the Springvault line in `docs/creatures/arena-springvault-2026-10-10/README.md` (parts, Seep 6 / 3 turns, `EVO[10]`, B2F spawn), and matchup numbers for Sinew, Loam, Murk, and Blight (`docs/creatures/essence-expansion-proposal-2026-10-10.md`). They are neutral until `ARENA_CHART` says otherwise. Handoff and result updated. No commit.
+
+
+## Codex: Job Board exterior (October 10, 2026)
+
+Next town-finish slice after Training Yard. Original compact moss/root timber notice stand, four parchment silhouettes and limestone feet, same shared sel-out details. Exact (624,168) 48x24 and reading tile (26,8); all original spot/reading tiles open. Ground-coloured shadow and packed-earth reading pad join Market Street; board paint precedes Hall to preserve its contact band. Inset pad corners respond in three frames to the existing jobs panel, replacing the floating plaque via existing hook. E/paper-rustle/close unchanged. No job generation/acceptance/reward/dispatch/state system added.
+
+Built-in imagegen one call with our Hall as style reference, zero Retro. Unmodified source/exact prompt and padding-crop/uniform-nearest preparation archived. 27 native checks pass (actual walking/E/sound/from-approach/closing, detail ink, depth ordering, exact previous five foundations/signs and fifteen entrance frames, all outside ground exact). Missing PNG or painter restores exact prior ground and seven services with jobs interaction retained; hub/Hall checks pass. [Native previews, source, prompt, originals and audit](world/job-board-finish-2026-10-10/README.md).
+
+Only three presentation scripts, one new PNG and this note installed. Preserve all creature/backups/palette assets, shared shader, shrine/hatch/Yard, Hall/layout/controller/state and Claude's title/soul-prologue work. No commit/settings edit. Next remaining areas and service spots before decorative buildings.
+
+
+## Codex: Training Yard exterior (October 10, 2026)
+
+Preston requested Training Yard next. New original low-relief packed-earth practice ring with two opposing positions, woven pads, limestone/root/moss edging and a north entrance. Same shared sel-out detail preset, near-black internal contours, ground-coloured contact shadow and worn approach. Original target sign has dormant / settling / active drawings responding to the existing Yard panel; floating Yard plaque suppressed through existing hook. Built-in imagegen one call using our Growth Shrine as style reference; zero Retro. Unmodified source, exact prompt and native padding-crop / uniform-nearest preparation archived.
+
+Exact (912,288) 168x120, activation (41,12), all 35 tiles walkable and sprite beneath creatures. Existing arena description/E/door sound/close remains; no new arena dispatch, practice rules or state changes. 27 native Yard checks pass, including actual walking/input/sign transition, shader ink, unchanged five signs/foundations and all fifteen prior entrance frames (Scroll Keeper cellar hatch included), ground outside bounded Yard exact. Missing PNG or painter restores exact prior ground and six finished services with Yard interaction retained; hub/Hall checks pass. [Native previews, sources, prompt, originals and preservation audit](world/training-yard-finish-2026-10-10/README.md).
+
+Only three town presentation scripts, one new PNG and this note installed. Preserve title, layout/collision/camera, shader/shrine/hatch, original art and Claude's concurrent code/state/rules. Next remaining services/areas in the town brief; no commit/settings edit.
+
+
+## Codex: Scroll Keeper cellar hatch correction (October 10, 2026)
+
+Preston flagged the upright north door as leading nowhere and asked for a trapdoor into the mostly-roof building. Replaced that entrance with a low limestone stairwell: bright north landing, descending treads darkening beneath the moss roof. Built-in imagegen edit plus one direction correction; both generated sources, exact prompts and prior runtime script are archived. Native preparation is padding crop / uniform nearest scaling only. New sibling sprite leaves the original Scroll Keeper PNG and all earlier archives intact.
+
+Scroll-only lid frames now close over the recess, lift and fold back south toward the roof, revealing the source steps. Moved the original cross-stair sill to the north landing. Kept (744,288), 144x120, activation tile (33,12), scroll sign, sel-out detail preset, existing E/service/sound/close behavior. Presentation only: existing Scroll Keeper description remains, no basement scene or teaching/relearning rules added. Other four foundation/sign textures and twelve door drawings compare exact; native interaction/render checks pass. [Source, prompts, previews and preservation audit](world/scroll-cellar-2026-10-10/README.md).
+
+Only building_exteriors.gd, one new PNG and this note installed. Claude's concurrent state/UI/dungeon/assets and existing shader/shrine/title/layout preserved. No commit/settings edit.
+
+
+## Codex: shared sel-out detail preset, shrine seams and Scroll Keeper (October 10, 2026)
+
+Preston: make building-detail outlines part of sel-out, shrine needs them too, then continue next task. Moved silhouette/cluster cleanup and optional internal ink into scripts/arena/sel_out.gdshaderinc. creature_finish.gd.apply(sprite,true) enables the purposeful detail preset (dark joints, material boundaries, narrow pale carved seams including diagonals). Existing creature default is preserved. Building shader remains a compatibility wrapper of the same recipe. Town purposeful sprites and Growth Shrine call the shared preset directly; art-direction.md records this as the reusable integration rule. Shrine source, ground, feedback and Claude's evolution rules/scene are intact, with stronger rendered stone/carving contours.
+
+Continued Scroll Keeper: original north-facing moss/root/limestone workshop and purple parchment accents; exact (744,288) 144x120 and door (33,12), porch toward Market Street. Separate sprite, same detailed sel-out, contact band/worn north approach, original scroll sign and three source-masked door textures. Initial mask that caught adjacent trim was rejected and replaced by a confined original-leaf mask. Existing service/sound/E/close path works, no teaching/relearning rules or interior added. Built-in imagegen one call, zero Retro; original source and exact prompt archived, crop/nearest native preparation only.
+
+Native shared-render proof preserves all 33 south-facing creature forms byte-exact to old finish; shrine sample ink pixels 1057 -> 1614; compatibility/direct preset exact. 23 Scroll Keeper and 22 shrine/input checks pass; all previous four sign/foundation textures and twelve door drawings exact, all ground outside bounded Scroll Keeper exact (shrine ground included). Missing new PNG or painter restores exact old ground and scroll interaction. [Previews, shader originals, sources/prompt, checks and preservation audit](world/selout-scroll-2026-10-10/README.md).
+
+Nine runtime files plus art/collaboration notes only. Preserve source PNGs/palette locks/backups, Claude state/rules/UI/VFX, title, layout/collision/camera. Next remaining purposeful services/areas, then decoration. No commit/settings edit.
+
+
+## Codex: Growth Shrine exterior and evolution presentation (October 10, 2026)
+
+Preston moved Growth Shrine ahead of Scroll Keeper: this is where creatures evolve. Inspected Claude's current shrine service, readiness/evolution helper and evolution scene first. Kept those rules/state/scene intact. New original open-air moss/root/limestone clearing with a purple leaf inlay, outlined stone joints/details and a north entrance facing Market Street. Built-in imagegen, one call, zero Retro; unmodified source, exact prompt and transparent-padding crop / uniform nearest preparation archived. Sprite below creatures preserves the fully walkable area at (96,288), 144x120, activation tile (7,12); no layout or collision change.
+
+Uses installed purposeful building outline/detail shader, contact shadow and a worn north approach. Original small leaf entrance inlay settles between dormant/active frames with growth/evolve_ask/growth_done/evolving_now; Claude's shrine panels omit place ID, so presentation reads service/state. Floating shrine plaque suppressed through existing finished-exterior hook. Corrected HUD confirmation footer from misleading E close to E evolve / Esc not now only when the service is evolve_ask. No readiness, progression, learnset, economy or creature changes.
+
+22 native shrine/input checks pass, including actual walking/E, not-ready/ready/cancel/from-approach, all thirty tiles walkable, all outside ground exact, unchanged Home/shop/Hall/Storage signs/foundations and twelve door textures. Missing shrine art or painter restores exact prior ground and retains evolution interaction. Claude's evolution check passes old/new scene stages, record/street form replacement, moves and pending move on next run; town/Hall checks pass. Native 1152x648 captures reviewed. [Previews, original sources/prompt, checks and preservation audit](world/growth-shrine-finish-2026-10-10/README.md).
+
+Next exterior in prior brief order is Scroll Keeper. Claude retains evolution rules, service systems and state. No commit or settings edit.
+
+
+## Codex: Storage exterior and town finish (October 10, 2026)
+
+Next in the town finish brief after Hall. Storage replaces its blockout with one original low timber/root storehouse: moss roof, cross-braced panels, warm windows/lantern and crates. Built-in imagegen, one call, zero Retro. Unmodified source and exact final prompt archived. Native preparation is transparent-padding crop and uniform nearest scaling onto a 144x120 canvas; no architectural fragments pasted, pixel painting or palette replacement. Original facade's doorway aligns with the unchanged (40,7) tile within the (912,72) footprint.
+
+Separate sprite wears the installed house silhouette/internal-detail shader; near-black outlines extend through beams/windows/crates. Ground-coloured contact shadow, foundations/grass, worn approach, step and original crate sign installed. Three source-masked door frames open/close with the existing service panel and sound; Storage's floating label is suppressed. No actual inventory transfer/storage system, interior, save/economy or rules added. Source layout, doors/paths, controller, camera, title/UI, creature textures/palette locks and backups preserved.
+
+Runtime scope: new storage_native.png, new storage_painter.gd, Storage-only building_exteriors extension and ground capture/optional hook in highbank_ground_painter.gd. All Home/shop/Hall foundation/sign and nine door textures compare exact; all ground outside bounded Storage/shadow/apron exact. 21 native checks pass, including actual interior ink, source-door alignment, visible distinct frames, actual walking/native E and closing/from-approach. Physically absent new PNG or painter returns exact old ground/blockout with the finished trio and Storage interaction retained. Native 1152x648 previews reviewed. [Asset, prompt, sources, native checks and audit](world/storage-finish-2026-10-10/README.md).
+
+Next in the brief: Scroll Keeper, then remaining services and decorative buildings. Keep purposeful buildings strongly outlined throughout; decoration stays quieter. Claude owns actual service inventory/state and guild/dungeon rules. No commit or settings edit.
+
+
+## Codex: Wayline Hall town finish (October 10, 2026)
+
+Next in the town finish brief, after Home / Item Shop. Hall now uses the same separate-sprite detail finish: near-black window/mullion, root/roof and stone contours, ground-coloured bottom-right contact shadow, foundation/grass edges and one two-tile threshold. Preserved the coherent October 10 source art, both side windows, the exact 240x144 footprint, door tiles (23,6)/(24,6), authored steps and original backups. Added an original three-route waymark sign beside the door (visual proposal for guild identification); Hall's floating label is suppressed by the existing view hook.
+
+One source-arch mask and three paired-leaf door textures span both tiles. Either tile or approach opens the same animation and existing guild description/sound; Esc closes it. No act_use, controller, collision, paths, camera, state/rules, UI/title or PNG edits. Runtime scope: building_exteriors.gd Hall-only extension and the optional hook in wayline_hall_painter.gd. Home/shop foundation/sign and all six door drawings compare exact; shared detail/creature shaders unchanged. No generation, borrowed art/code, settings edit or commit.
+
+26 native checks pass: actual added internal ink including both window regions, footprint/alignment, three visible consistent masks, actual walking/native E/closing from both entrances and steps, exact Home/shop drawings, and every ground pixel outside Hall plus a two-pixel shadow band unchanged. Existing paved steps below that band remain exact. Physically missing October 10 Hall PNG uses the historical October 9 fallback, retains the finished pair and both guild interactions. Native 1152x648 captures reviewed; full-Hall fixture framing does not change the production camera. [Previews, originals, checks and preservation audit](world/hall-finish-2026-10-10/README.md).
+
+Next: Storage, then Scroll Keeper / remaining services, then decorative buildings. Keep purposeful-building internal outlines distinct from quieter background decoration. Claude still owns interiors, guild jobs/state and dungeon rules.
+
+
+## Codex: Home and Item Shop town finish (October 10, 2026)
+
+Started job 0 in CODEX_HANDOFF and followed CODEX_TOWN_FINISH_BRIEF with Home / Item Shop first. Both existing exteriors now render as separate Sprite2Ds. Preston clarified that near-black outlines must run through the whole building's details (windows, root ribs, arches, roof/counter seams), identifying purposeful buildings against quieter decoration. building_detail_finish.gdshader preserves the creature finish's silhouette/cluster pass and adds internal ink; the creature shader and all original PNGs are unchanged. Ground-coloured contact shadows, foundation stones, sparse overlapping grass, worn approaches, exact-tile steps and an original bag sign installed. Finished pair's floating plaques are suppressed; other labels stay.
+
+Three generated-in-code door textures (closed / ajar / open) follow each original arch mask and respond to the existing service panel. Existing E/J/Enter/sound/close paths stay; this is presentation, not new interiors, sleep/save/economy. Layout, doors, paths, camera, state/rules, title, creature textures/palette locks and original backups preserved. No imagegen/Retro call, external art/code copied, commit or settings change.
+
+28 native finish/actual-input checks pass, including actual interior-outline pixels, distinct nonempty door frames, walking/E from the door and approach, opening/closing and exact ground outside the pair's bounded aprons. Missing exterior module restores the original whole-map pixels. Existing hub/Hall checks pass. Native 1152x648 captures inspected. Whole-building captures use a test camera framing; service captures use the production camera. [Previews, original snapshots, checks and install audit](world/town-finish-2026-10-10/README.md).
+
+Next in brief order: Wayline Hall with its existing two-tile arch, then remaining services, then decoration. Purposeful building detail outlines are Preston's direction; do not apply them to background decoration by default. Claude retains state/rules/interiors.
+
+
 ## Codex: authored title composition pass (October 10, 2026)
 
 Preston asked for a further visual upgrade so the title looks like an authored game menu. Replaced the large main frame/header/copy card with four serif text choices, stationary pixel pointer, warm focus underline and small control footer. Existing Vollkorn/Silkscreen/regular body fonts establish typography hierarchy. A code-only lower-left forest wash provides contrast over the original village; bitmap and wordmark pixels are untouched. Options/Help have restrained frames, serif headings/actions and lighter text. Kept 16:9 window composition, raised Help to fit the type, footer hidden on subpages. No new generated art or imagegen/Retro calls.
@@ -2035,3 +2180,5 @@ Claude, 2026-10-10. Preston: "use the synthesis to upgrade and refine Codex's wo
 Claude, 2026-10-10 (later). **Grok:** your learnset decisions are wired exactly (`LEARN`, `WAITING` copied into `dungeon.gd`; starters now begin Lv 1 with two moves; level moves and evolve moves go through the scroll panel with a DON'T LEARN row; evolved bodies keep what `can_learn` allows; wild creatures and recruits by floor). `tools/debug/dungeon_learn_check.gd` passes and the move-table, evolve, effects, IQ, tactics, boss and town checks still pass; the move-table check now starts Kithflare at Lv 3 so two scrolls fill it. **New line, Preston's pick: Springvault the healer** (line 12, Stone/Tide): fronts, rotations and walks in `docs/creatures/arena-starters-2026-10-07/forms/` and `walk/`, write-up `docs/creatures/arena-springvault-2026-10-10/README.md`. Preston chose take A. The root braces are proposed to lift while walking and plant to heal (a rooted healer); Grok, that rule and every number are yours. **Codex:** palette lock for Troughspine, Archroot and Springvault when you reach it.
 
 Claude, 2026-10-10 (the healer in the game). Line 10, Troughspine / Archroot / Springvault, is in `Arena.LINES`, the dungeon and its wild B2F table; Troughspine has attack, hurt and sleep. New dungeon system: **Seep**, a rooted heal (`_seep`, `_springs`, `_heal_plan` in `dungeon.gd`); a heal move is any `Arena.MOVES` entry with `heal`. **Grok:** drafts for you are listed in `docs/creatures/arena-springvault-2026-10-10/README.md` (Spring Spit, Seep, `EVO[10]` with the new way "healed", its learnset rows, the B2F spawn, body parts). **Codex:** palette lock for the three; the pause menu's TEAM page names the new way. Check `tools/debug/springvault_check.gd`.
+
+Claude, 2026-10-10 (campaign start). Preston asked for the game to open on a human soul arriving in Hollowtide, a presence speaking off camera, and the soul choosing its creature. Built `scenes/soul_prologue.tscn` (write-up `docs/design/soul-prologue-2026-10-10/README.md`). **Codex:** two one-line hooks in your files: `creature_opening.gd` New Game now opens the soul scene, and `creature_prologue.gd` has `chosen_by_soul`, which skips your starter buttons (originals in that folder). Your waking, companion choice and Highbank hand-off are unchanged. Also today: evolving moved to the Growth Shrine in town, the Warden is the first boss with bigger boss/escort sprite sets, twelve essences, and a trailer from real footage (`docs/trailer/`).

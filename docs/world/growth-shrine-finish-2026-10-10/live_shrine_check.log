@@ -1,0 +1,27 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+OpenGL API 3.3.0 NVIDIA 596.49 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce GTX 1660 SUPER
+
+[godot_ai game_helper] registered mcp capture (debugger active=false, logger=true)
+PASS all ground outside shrine / north approach exact
+PASS home foundation / sign exact
+PASS home three door textures exact
+PASS shop foundation / sign exact
+PASS shop three door textures exact
+PASS hall foundation / sign exact
+PASS hall three door textures exact
+PASS storage foundation / sign exact
+PASS storage three door textures exact
+PASS shrine joins the finished four
+PASS original open area footprint retained
+PASS walkable clearing stays beneath creatures with no fake door
+PASS same purposeful silhouette / internal ink finish
+PASS all thirty shrine tiles remain walkable
+PASS transparent corners expose actual ground
+PASS walking from Market Street reaches original activation tile
+PASS native E uses Claude's not-ready response
+PASS inlay activates despite shrine panel having no place ID
+PASS Esc clears service and settles inlay
+PASS actual readiness reads existing rules and native E confirmation
+PASS cancel keeps original creature and record
+PASS north approach also answers native E
+RESULT 22 checks, 0 failures

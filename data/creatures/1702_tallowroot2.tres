@@ -25,10 +25,10 @@
 [resource]
 script = ExtResource("1_script")
 id = 1702
-creature_name = "Huskward"
 essence = 4
 has_second_essence = true
-second_essence = 2
+second_essence = 9
+creature_name = "Huskward"
 sprite = ExtResource("2_sprite")
 back_sprite = ExtResource("3_back")
 description = "Huskward: name approved by Preston 2026-10-05. Provisional entry (Claude): Retro Diffusion art from docs/creatures/starter-lines-rd-2026-10-05/evolutions. Default stats and no moves (Strike) until Grok sets the kit and numbers."

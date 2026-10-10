@@ -1,0 +1,37 @@
+--- current-live/scripts/dungeon/dungeon.gd
++++ finish/scripts/dungeon/dungeon.gd
+@@ -21,6 +21,8 @@
+ const Painter := preload("res://scripts/dungeon/floor_painter.gd")
+ const RuinPainter := preload("res://scripts/dungeon/ruin_painter.gd")
+ const BankPainter := preload("res://scripts/dungeon/riverbank_painter.gd")
++const DungeonFinish := preload("res://scripts/dungeon/dungeon_finish.gd")
++const CrewPortraitCanvas := preload("res://scripts/ui/crew_portrait_canvas.gd")
+ const ValleyPainter := preload("res://scripts/dungeon/valley_painter.gd")
+ const MoveBody := preload("res://scripts/moves/move_body.gd")
+ const TeamState := preload("res://scripts/town/team_state.gd")
+@@ -453,6 +455,9 @@
+ 	_hud = Node2D.new()
+ 	_hud.draw.connect(_draw_hud)
+ 	layer.add_child(_hud)
++	var crew_portraits := CrewPortraitCanvas.new()
++	crew_portraits.name = "CrewPortraitFinish"
++	_hud.add_child(crew_portraits)
+ 	_fade = ColorRect.new()
+ 	_fade.color = Color(0, 0, 0, 0)
+ 	_fade.size = Vector2(1152, 648)
+@@ -488,6 +493,7 @@
+ 	var look: String = DUNGEONS[dungeon]["looks"].get(floor_n, "bank")
+ 	var painter: Variant = {"ruin": RuinPainter, "riverbank": BankPainter, "valley": ValleyPainter}.get(look, Painter)
+ 	_map.texture = ImageTexture.create_from_image(painter.paint(data, T, floor_seed))
++	DungeonFinish.apply(_map, data, T, look)
+ 	explored = PackedByteArray()
+ 	explored.resize(data["w"] * data["h"])
+ 	# Your team round the start, the leader on it.
+@@ -3418,6 +3424,7 @@
+ 
+ 
+ func _draw_hud() -> void:
++	_hud.get_node("CrewPortraitFinish").clear()
+ 	# One look for every screen (scripts/ui/ui_style.gd, Codex's title and pause menu colours), laid
+ 	# out the way Explorers of Sky lays its dungeon out: the floor and the team at the top left, the
+ 	# message box at the bottom with names in colour, the map at the top right. Claude, 2026-10-10.

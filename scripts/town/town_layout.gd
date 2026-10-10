@@ -60,7 +60,7 @@ const PLACES := [
 	{"id": "yard", "name": "Training Yard", "kind": "area", "rect": Rect2i(38, 12, 7, 5), "door": Vector2i(41, 12),
 		"service": "arena", "what": "The arena side mode as the town's dojo: real-time spars and practice."},
 	{"id": "shrine", "name": "Growth Shrine", "kind": "area", "rect": Rect2i(4, 12, 6, 5), "door": Vector2i(7, 12),
-		"service": "growth", "what": "Shows each creature's growth toward evolving, and its IQ skills."},
+		"service": "growth", "what": "Where a creature that is ready evolves (Preston, 2026-10-10: evolving happens here, not in the Hollow)."},
 	{"id": "plaza", "name": "Crossroads", "kind": "area", "rect": Rect2i(18, 11, 12, 6), "door": Vector2i(24, 14),
 		"service": "waymark", "what": "The town's centre: the waymark points to every place."},
 	{"id": "landing", "name": "Old Ferry Landing", "kind": "area", "rect": Rect2i(26, 26, 12, 4), "door": Vector2i(28, 27),

@@ -109,10 +109,29 @@ static func paint(blockout: Image) -> Image:
 	var hall_ground: Image
 	var home_ground: Image
 	var shop_ground: Image
+	var storage_ground: Image
+	var scroll_ground: Image
+	var shrine_ground: Image
+	var yard_ground: Image
+	var board_ground: Image
+	var reading_ground: Image
+	var plaza_ground: Image
+	var gate_ground: Image
 	# Flat areas become walkable ground, with their full layout rectangles still readable.
 	for place in Layout.PLACES:
 		var r: Rect2i = place["rect"]
 		var px = Rect2i(r.position * T, r.size * T)
+		if place["id"] == "gate":
+			gate_ground = img.get_region(px)
+		if place["id"] == "plaza":
+			plaza_ground = img.get_region(px)
+		if place["id"] == "board":
+			board_ground = img.get_region(px)
+			reading_ground = img.get_region(Rect2i(place["door"] * T, Vector2i(T, T)))
+		if place["id"] == "yard":
+			yard_ground = img.get_region(px)
+		if place["id"] == "shrine":
+			shrine_ground = img.get_region(px)
 		if place["kind"] == "area":
 			var col = Color("#92956a") if place["id"] in ["lookout", "shrine", "yard"] else Color("#b2a17c")
 			for edge in [Rect2i(px.position, Vector2i(px.size.x, 1)), Rect2i(px.position + Vector2i(0, px.size.y - 1), Vector2i(px.size.x, 1)), Rect2i(px.position, Vector2i(1, px.size.y)), Rect2i(px.position + Vector2i(px.size.x - 1, 0), Vector2i(1, px.size.y))]:
@@ -127,6 +146,10 @@ static func paint(blockout: Image) -> Image:
 				home_ground = img.get_region(px)
 			if place["id"] == "shop":
 				shop_ground = img.get_region(px)
+			if place["id"] == "scrolls":
+				scroll_ground = img.get_region(px)
+			if place["id"] == "storage":
+				storage_ground = img.get_region(px)
 			# Building and service-spot art is a later slice. Preserve the original exact pixels.
 			img.blit_rect(blockout, px, px.position)
 			for door in Layout.door_tiles(place):
@@ -145,10 +168,25 @@ static func paint(blockout: Image) -> Image:
 		for x in range(4, Layout.W * T - 25, 29):
 			var offset = _hash(x, y, 51) % 12
 			img.fill_rect(Rect2i(x + offset, y, 8 + offset / 2, 1), Color("#64867b"))
+	# Paint the board first so the existing Hall contact band remains above its north edge.
+	if ResourceLoader.exists("res://scripts/town/job_board_painter.gd"):
+		img = load("res://scripts/town/job_board_painter.gd").apply(img, board_ground, reading_ground)
 	if ResourceLoader.exists("res://scripts/town/wayline_hall_painter.gd"):
 		img = load("res://scripts/town/wayline_hall_painter.gd").apply(img, hall_ground)
 	if ResourceLoader.exists("res://scripts/town/home_painter.gd"):
 		img = load("res://scripts/town/home_painter.gd").apply(img, home_ground)
 	if ResourceLoader.exists("res://scripts/town/item_shop_painter.gd"):
 		img = load("res://scripts/town/item_shop_painter.gd").apply(img, shop_ground)
+	if ResourceLoader.exists("res://scripts/town/storage_painter.gd"):
+		img = load("res://scripts/town/storage_painter.gd").apply(img, storage_ground)
+	if ResourceLoader.exists("res://scripts/town/growth_shrine_painter.gd"):
+		img = load("res://scripts/town/growth_shrine_painter.gd").apply(img, shrine_ground)
+	if ResourceLoader.exists("res://scripts/town/scroll_keeper_painter.gd"):
+		img = load("res://scripts/town/scroll_keeper_painter.gd").apply(img, scroll_ground)
+	if ResourceLoader.exists("res://scripts/town/training_yard_painter.gd"):
+		img = load("res://scripts/town/training_yard_painter.gd").apply(img, yard_ground)
+	if ResourceLoader.exists("res://scripts/town/crossroads_painter.gd"):
+		img = load("res://scripts/town/crossroads_painter.gd").apply(img, plaza_ground)
+	if ResourceLoader.exists("res://scripts/town/hollow_mouth_painter.gd"):
+		img = load("res://scripts/town/hollow_mouth_painter.gd").apply(img, gate_ground)
 	return img

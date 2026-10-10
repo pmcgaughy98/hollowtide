@@ -1,0 +1,23 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+OpenGL API 3.3.0 NVIDIA 596.49 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce GTX 1660 SUPER
+
+ERROR: Failed to read the root certificate store.
+   at: get_system_ca_certificates (platform/windows/os_windows.cpp:2582)
+[godot_ai game_helper] registered mcp capture (debugger active=false, logger=true)
+PASS 168 actual game/large idle frames rendered, including all eight walking directions
+PASS palette follows each texture change, including delayed town/dungeon assignments
+PASS rendered alpha/silhouette exact to existing finish on all 168 frames
+PASS desaturated brown material swatches removed in actual GPU renders
+PASS bright lantern core pixels exact to existing finish
+Frames 168 changed pixels 172056 dull material 19506 -> 0
+PASS all other creature forms retain byte-exact prior native finish, including jade Oxbowarchon
+PASS actual town corrects Sparkwick only
+PASS real town movement keeps the correction while frames advance
+PASS Claude's moving eight-frame front idle and 5 FPS retained
+PASS actual summary corrects only Sparkwick headshot and animated art, not its UI
+PASS actual summary advances frames while palette remains active
+PASS switching teammates leaves Tallowroot on its existing draw path
+PASS actual dungeon loads Sparkwick with the same material ramp
+PASS evolution colour correction is limited to Sparkwick; Stormwick unchanged
+PASS evolution whitening remains available
+RESULT 15 checks, 0 failures

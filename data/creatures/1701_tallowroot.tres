@@ -25,10 +25,10 @@
 [resource]
 script = ExtResource("1_script")
 id = 1701
-creature_name = "Tallowroot"
 essence = 4
 has_second_essence = true
-second_essence = 2
+second_essence = 9
+creature_name = "Tallowroot"
 sprite = ExtResource("2_sprite")
 back_sprite = ExtResource("3_back")
 description = "Provisional entry (Claude, 2026-10-05, on Preston's request): Line 17 stage I, the Bloom starter, Retro Diffusion art from docs/creatures/tallowroot-rd-2026-10-05. Default stats and no moves (it fights with Strike) until Grok sets its job, numbers and kit. Later stages stay unnamed."

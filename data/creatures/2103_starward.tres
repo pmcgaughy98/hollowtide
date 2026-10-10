@@ -7,8 +7,10 @@
 [resource]
 script = ExtResource("1_script")
 id = 2103
+essence = 8
+has_second_essence = true
+second_essence = 6
 creature_name = "Starward"
-essence = 6
 sprite = ExtResource("2_sprite")
 back_sprite = ExtResource("3_back")
 description = "Provisional entry (Claude, 2026-10-08, Preston: make Punchybun stage 2 and 3): Stage III of the electric ferret line for Adrianna, take a of 2026-10-08 (the guardian with the star-gem). Named Starward by Claude on 2026-10-08 (Preston: Gabrielle is no longer involved; we take the line over). Default stats, no moves; its signature, a star-shaped electric shield that protects, is Grok's to design."

@@ -8,6 +8,7 @@ extends CanvasLayer
 ## FLOOR is the Ground page (floor, turn, lantern, underfoot, the orders); LOG is the last lines.
 ## Codex's pages and buttons are unchanged; the original is in docs/ui/field-menu-2026-10-10.
 const FONT = preload("res://assets/fonts/AlegreyaSansSC-Bold.ttf")
+const UI = preload("res://scripts/ui/ui_style.gd")
 const DUNGEON = "res://scripts/dungeon/dungeon.gd"   # loaded, not preloaded: dungeon.gd preloads this file
 const ArenaData = preload("res://scripts/arena/arena_prototype.gd")
 const TeamRecord = preload("res://scripts/town/team_state.gd")
@@ -38,9 +39,9 @@ func _ready() -> void:
     process_mode = Node.PROCESS_MODE_ALWAYS
     hint = _button("Menu  [P]")
     hint.name = "OpenMenu"
-    hint.position = Vector2(988,598)
-    hint.size = Vector2(150,36)
-    hint.custom_minimum_size.y = 36
+    hint.position = Vector2(984,586)
+    hint.size = Vector2(160,52)
+    hint.custom_minimum_size.y = 52
     hint.focus_mode = Control.FOCUS_NONE
     hint.pressed.connect(open)
     add_child(hint)
@@ -58,11 +59,9 @@ func _ready() -> void:
     panel.name = "PausePanel"
     panel.position = Vector2(316,58)
     panel.custom_minimum_size = Vector2(520,0)
-    var box = StyleBoxFlat.new()
-    box.bg_color = Color("#242b25")
-    box.border_color = Color("#b69b6d")
-    box.set_border_width_all(3)
-    box.set_content_margin_all(22)
+    # The pixel frame every Hollowtide panel uses (scripts/ui/ui_style.gd, tools/ui/build_frames.py).
+    var box = UI.frame("panel").duplicate()
+    box.set_content_margin_all(34)
     panel.add_theme_stylebox_override("panel",box)
     overlay.add_child(panel)
     content = VBoxContainer.new()
@@ -73,18 +72,20 @@ func _ready() -> void:
 func _button(text: String) -> Button:
     var b = Button.new()
     b.text = text
-    b.custom_minimum_size = Vector2(0,44)
+    b.custom_minimum_size = Vector2(0,54)
     b.add_theme_font_override("font",FONT)
     b.add_theme_font_size_override("font_size",24)
     b.add_theme_color_override("font_color",Color("#fff4e8"))
-    var box = StyleBoxFlat.new()
-    box.bg_color = Color("#242b25")
-    box.set_content_margin_all(8)
+    b.add_theme_color_override("font_focus_color",Color("#ffe9b0"))
+    b.add_theme_color_override("font_hover_color",Color("#ffe9b0"))
+    # Buttons wear the same brass frame; the chosen one's brass brightens.
+    var box = UI.frame("panel").duplicate()
+    box.content_margin_top = 8
+    box.content_margin_bottom = 8
     b.add_theme_stylebox_override("normal",box)
-    var focused = box.duplicate() as StyleBoxFlat
-    focused.bg_color = Color("#3f5140")
-    focused.border_color = Color("#e4ca8e")
-    focused.set_border_width_all(2)
+    var focused = UI.frame("panel_focus").duplicate()
+    focused.content_margin_top = 8
+    focused.content_margin_bottom = 8
     for state in ["focus","hover","pressed"]: b.add_theme_stylebox_override(state,focused)
     return b
 
@@ -172,6 +173,12 @@ func show_page(next: String) -> void:
         n.queue_free()
     _label(HEADINGS.get(page,"PAUSED"),32)
     var in_hollow = "ents" in get_parent()
+    # The party screen (Claude, 2026-10-10) takes the whole overlay; the usual panel steps aside.
+    var old_party = overlay.get_node_or_null("PartyScreen")
+    if old_party != null:
+        overlay.remove_child(old_party)
+        old_party.queue_free()
+    overlay.get_node("PausePanel").visible = page != "team"
     match page:
         "main":
             _action("Resume","Resume",resume)
@@ -198,8 +205,17 @@ func show_page(next: String) -> void:
             _label("P / controller Start pauses anywhere. Esc pauses when no dialogue or bag is open. Arrows / D-pad navigate menus; Enter / A chooses; Esc / B goes back.",20)
             _action("Back","Back",show_page.bind("main"))
         "team":
-            _team_page()
-            _action("Back","Back",show_page.bind("main"))
+            var party = load("res://scripts/ui/party_screen.gd").new()
+            party.name = "PartyScreen"
+            party.setup(get_parent())
+            overlay.add_child(party)
+            var back = _button("Back")
+            back.name = "Back"
+            back.position = Vector2(950,566)
+            back.size = Vector2(130,36)
+            back.pressed.connect(show_page.bind("main"))
+            party.add_child(back)
+            controls.append(back)
         "bag":
             _bag_page()
             _action("Back","Back",show_page.bind("main"))

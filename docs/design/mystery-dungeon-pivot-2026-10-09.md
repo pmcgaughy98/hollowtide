@@ -33,7 +33,7 @@ A turn-based mystery dungeon. You lead a small team through generated floors of 
 5. **Recruiting (built 2026-10-09, `docs/design/dungeon-recruiting-2026-10-09/README.md`):** a beaten wild creature asks to join; a team of up to four.
 
 **Combat changed on 2026-10-09 (Preston's call):** exploring stays turn-based; a fight is played in real time with the arena engine on the same floor, then everyone snaps back to the grid. See `docs/design/combat-rethink-2026-10-09.md` and `docs/design/dungeon-hybrid-2026-10-09/README.md`. The turn-for-turn fighting (bump attacks, enemy warnings) is kept as an option.
-6. **The courier hall's job board:** world to dungeon and back; Courier Rank; rewards.
+6. **The courier hall's job board (board built 2026-10-10, `docs/design/job-board-2026-10-10/README.md`):** world to dungeon and back; Courier Rank; rewards. The Wayline Hall as the guild is Codex's.
 7. **Growth:** levels or the win-trigger evolution in the dungeon.
 8. **Bosses and fixed rooms; dialogue with emotion portraits.**
 

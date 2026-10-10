@@ -1,0 +1,126 @@
+diff --git "a/D:\\dev\\hollowtide-world-refinement-20261008\\project\\scripts\\dungeon\\dungeon.gd" "b/C:\\Users\\pmcga\\dev\\hollowtide\\scripts\\dungeon\\dungeon.gd"
+index a88f364..2878188 100644
+--- "a/D:\\dev\\hollowtide-world-refinement-20261008\\project\\scripts\\dungeon\\dungeon.gd"
++++ "b/C:\\Users\\pmcga\\dev\\hollowtide\\scripts\\dungeon\\dungeon.gd"
+@@ -476,9 +476,12 @@ func _build_floor(fresh_team: bool) -> void:
+ 		_say("A quiet floor. The team rests, and the lantern is refilled.")
+ 		_banner_show("REST", "B%dF" % floor_n, Color(0.6, 0.9, 1.0))
+ 	elif floor_kind() == "boss" and boss >= 0:
+-		var partner: String = ents[1]["name"] if ents.size() > 1 and ents[1]["team"] == 0 else ents[0]["name"]
++		var pe: Dictionary = ents[1] if ents.size() > 1 and ents[1]["team"] == 0 else ents[0]
++		var partner: String = pe["name"]
+ 		for line in BOSS_TALK:
+-			talk.append([String(line[0]).replace("{partner}", partner).replace("{boss}", ents[boss]["name"]), line[1]])
++			# The third field is whose dialogue portrait shows (assets/sprites/ui/dialogue/<form>.png).
++			var form: String = String(pe["form"]) if line[0] == "{partner}" else String(ents[boss]["form"])
++			talk.append([String(line[0]).replace("{partner}", partner).replace("{boss}", ents[boss]["name"]), line[1], form])
+ 
+ 
+ ## Items in the rooms, hidden traps on the floor, and sometimes a Monster House.
+@@ -3102,38 +3105,38 @@ func _draw_hud() -> void:
+ 		if _banner["sub"] != "":
+ 			UI.text(h, Vector2(0, 314), String(_banner["sub"]), 20, Color(UI.TEXT, 0.85 * a), 1152, HORIZONTAL_ALIGNMENT_CENTER)
+ 	# The floor and the lantern.
+-	UI.panel(h, Rect2(12, 10, 330, 46))
+-	UI.text(h, Vector2(26, 44), "B%dF" % floor_n, 28, UI.EDGE_LIGHT)
++	UI.panel(h, Rect2(6, 6, 346, 54))
++	UI.text(h, Vector2(28, 44), "B%dF" % floor_n, 28, UI.EDGE_LIGHT)
+ 	UI.text(h, Vector2(104, 29), "Lantern", 15, UI.MUTED)
+ 	UI.bar(h, Rect2(104, 36, 170, 9), light / LIGHT_MAX, UI.LIGHT)
+ 	UI.text(h, Vector2(282, 46), "%d" % int(light), 17, UI.LIGHT)
+ 	# The team: name, level, health, and a sliver of the way to evolving.
+ 	var team: Array = ents.filter(func(e: Dictionary) -> bool: return e["team"] == 0)
+-	UI.panel(h, Rect2(12, 62, 330, 40 + 50 * team.size()))
+-	var y := 70.0
++	UI.panel(h, Rect2(6, 62, 346, 56 + 50 * team.size()))
++	var y := 76.0
+ 	for e in team:
+ 		var k: float = float(e["hp"]) / e["max_hp"]
+ 		var down: bool = e["hp"] <= 0
+ 		# Its portrait (tools/arena/build_portraits.py: a 48 px square cut from its own front sprite).
+ 		var face := portrait_of(e["form"])
+-		h.draw_rect(Rect2(20, y + 1, 48, 48), Color(UI.PORTRAIT_BG, 0.55) if down else UI.PORTRAIT_BG)
++		h.draw_rect(Rect2(28, y + 1, 48, 48), Color(UI.PORTRAIT_BG, 0.55) if down else UI.PORTRAIT_BG)
+ 		if face != null:
+-			h.draw_texture(face, Vector2(20, y + 1), Color(0.45, 0.45, 0.45, 0.8) if down else Color.WHITE)
+-		h.draw_rect(Rect2(20, y + 1, 48, 48), UI.EDGE_LIGHT if e == ents[0] else UI.EDGE, false, 1.0)
+-		UI.text(h, Vector2(76, y + 20), String(e["name"]), 19, UI.HP_LOW if down else (UI.EDGE_LIGHT if e == ents[0] else UI.TEXT))
++			h.draw_texture(face, Vector2(28, y + 1), Color(0.45, 0.45, 0.45, 0.8) if down else Color.WHITE)
++		h.draw_rect(Rect2(28, y + 1, 48, 48), UI.EDGE_LIGHT if e == ents[0] else UI.EDGE, false, 1.0)
++		UI.text(h, Vector2(84, y + 20), String(e["name"]), 19, UI.HP_LOW if down else (UI.EDGE_LIGHT if e == ents[0] else UI.TEXT))
+ 		var tag := "Lv %d" % level_of(e["line"]) + ("" if e == ents[0] else "   IQ %d" % iq_of(e))
+-		UI.text(h, Vector2(76, y + 20), tag, 15, UI.MUTED, 254, HORIZONTAL_ALIGNMENT_RIGHT)
+-		UI.bar(h, Rect2(76, y + 27, 178, 9), k, UI.hp_col(k))
++		UI.text(h, Vector2(84, y + 20), tag, 15, UI.MUTED, 246, HORIZONTAL_ALIGNMENT_RIGHT)
++		UI.bar(h, Rect2(84, y + 27, 170, 9), k, UI.hp_col(k))
+ 		UI.text(h, Vector2(262, y + 37), "%d/%d" % [e["hp"], e["max_hp"]], 15, UI.TEXT)
+ 		if e["stage"] < 2:
+ 			var g: float = evo_progress(e["line"], e["stage"])
+-			h.draw_rect(Rect2(76, y + 40, 178, 3), Color(0, 0, 0, 0.5))
+-			h.draw_rect(Rect2(76, y + 40, 178 * g, 3), UI.EVO if g < 1.0 else UI.TEXT)
++			h.draw_rect(Rect2(84, y + 40, 170, 3), Color(0, 0, 0, 0.5))
++			h.draw_rect(Rect2(84, y + 40, 170 * g, 3), UI.EVO if g < 1.0 else UI.TEXT)
+ 		y += 50.0
+ 	var bag_n := 0
+ 	for kk in bag:
+ 		bag_n += bag[kk]
+-	UI.text(h, Vector2(24, y + 20), "Bag %d    Orders: %s" % [bag_n, String(TACTIC_NAMES[tactic]).capitalize()], 15, UI.MUTED)
++	UI.text(h, Vector2(30, y + 20), "Bag %d    Orders: %s" % [bag_n, String(TACTIC_NAMES[tactic]).capitalize()], 15, UI.MUTED)
+ 	if boss_alive() and boss_met:
+ 		var bb: Dictionary = ents[boss]
+ 		UI.panel(h, Rect2(396, 10, 360, 46))
+@@ -3143,25 +3146,25 @@ func _draw_hud() -> void:
+ 	var lead: Dictionary = ents[0]
+ 	for s in lead["moves"].size():
+ 		var m: String = lead["moves"][s]
+-		var box := Rect2(12 + (s % 2) * 162, 530 + (s / 2) * 54, 156, 48)
++		var box := Rect2(8 + (s % 2) * 164, 528 + (s / 2) * 58, 160, 54)
+ 		var ready: bool = lead["cds"].get(m, 0) == 0
+ 		UI.panel(h, box, 0.9 if ready else 0.7)
+ 		if not ready:
+-			h.draw_rect(box.grow(-2.0), Color(0, 0, 0, 0.35))
++			h.draw_rect(box.grow(-12.0), Color(0, 0, 0, 0.35))
+ 		# The move's essence, in Hollowtide's own icon (tools/ui/build_icons.py), and its key.
+ 		var ess_icon := UI.essence_icon(_ess_name(m, lead))
+ 		if ess_icon != null:
+-			h.draw_texture(ess_icon, box.position + Vector2(6, 8), Color(1, 1, 1, 1.0 if ready else 0.4))
+-		UI.text(h, box.position + Vector2(0, 19), "J" if s == 0 else str(s), 14, UI.EDGE_LIGHT if ready else UI.MUTED, 150, HORIZONTAL_ALIGNMENT_RIGHT)
+-		UI.text(h, box.position + Vector2(44, 23), String(Arena.MOVES[m]["name"]), 17, Color(UI.TEXT, 1.0 if ready else 0.55), 96)
++			h.draw_texture(ess_icon, box.position + Vector2(14, 11), Color(1, 1, 1, 1.0 if ready else 0.4))
++		UI.text(h, box.position + Vector2(0, 19), "J" if s == 0 else str(s), 14, UI.EDGE_LIGHT if ready else UI.MUTED, 144, HORIZONTAL_ALIGNMENT_RIGHT)
++		UI.text(h, box.position + Vector2(50, 25), String(Arena.MOVES[m]["name"]), 17, Color(UI.TEXT, 1.0 if ready else 0.55), 96)
+ 		var r := move_reach(m)
+ 		var sub: String = ("%s %d" % [String(r["kind"]).capitalize(), r["n"]]) if ready else ("%d turn%s" % [lead["cds"][m], "" if lead["cds"][m] == 1 else "s"])
+ 		if Arena.MOVES[m].get("heal", 0) > 0 and ready:
+ 			sub = "Heal"
+-		UI.text(h, box.position + Vector2(44, 41), sub, 14, UI.MUTED if ready else UI.HP_MID, 108)
++		UI.text(h, box.position + Vector2(50, 42), sub, 14, UI.MUTED if ready else UI.HP_MID, 108)
+ 	# The message box (hidden while a scene's dialogue is showing), names in colour.
+ 	if talk.is_empty():
+-		var lb := Rect2(342, 530, 596, 102)
++		var lb := Rect2(342, 526, 600, 108)
+ 		UI.panel(h, lb, 0.86)
+ 		var marks := {}
+ 		for e in ents:
+@@ -3169,17 +3172,15 @@ func _draw_hud() -> void:
+ 				marks[e["name"]] = UI.ALLY if e["team"] == 0 else UI.FOE
+ 		var shown: Array = log_lines.slice(maxi(0, log_lines.size() - 4))
+ 		for k in shown.size():
+-			UI.rich(h, lb.position + Vector2(14, 25 + k * 22), shown[k], 16, marks, 0.6 + 0.4 * float(k + 1) / shown.size(), 568)
++			UI.rich(h, lb.position + Vector2(24, 32 + k * 21), shown[k], 16, marks, 0.6 + 0.4 * float(k + 1) / shown.size(), 568)
+ 	# The keys, short; the full list is under the menu's Controls.
+ 	for k in 3:
+ 		UI.text(h, Vector2(946, 546 + k * 17), ["J attack   1 2 3 moves", "I bag   T orders   Z rest", "E stairs   Tab autopilot"][k], 14, Color(UI.MUTED, 0.85), 194, HORIZONTAL_ALIGNMENT_RIGHT)
+ 	# A scene's dialogue.
+ 	if not talk.is_empty():
+-		var box := Rect2(196, 424, 760, 100)
+-		UI.panel(h, box, 0.95)
+-		UI.text(h, box.position + Vector2(20, 30), String(talk[0][0]), 21, UI.EDGE_LIGHT)
+-		UI.text(h, box.position + Vector2(20, 60), talk[0][1], 19, UI.TEXT, 720)
+-		UI.text(h, box.position + Vector2(20, 88), "J  next", 15, UI.MUTED, 720, HORIZONTAL_ALIGNMENT_RIGHT)
++		var box := Rect2(196, 412, 760, 116)
++		var face: Texture2D = UI.dialogue_portrait(String(talk[0][2])) if talk[0].size() > 2 else null
++		UI.dialogue(h, box, String(talk[0][0]), String(talk[0][1]), face, Time.get_ticks_msec() / 1000.0)
+ 	# A beaten creature asking to join.
+ 	if asking >= 0 and asking < ents.size():
+ 		var ask_box := Rect2(336, 196, 480, 88)

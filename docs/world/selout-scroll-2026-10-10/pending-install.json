@@ -1,0 +1,68 @@
+[
+  {
+    "path": "assets/sprites/world/scroll_keeper_2026_10_10/scroll_native.png",
+    "before": null,
+    "after": "72ce74a7c551699a4a13930a94ab5ccd537fedfe96ec1270a86630604c1b11a3",
+    "source": "D:\\dev\\hollowtide-selout-scroll-20261010\\candidate\\assets\\sprites\\world\\scroll_keeper_2026_10_10\\scroll_native.png"
+  },
+  {
+    "path": "docs/art/art-direction.md",
+    "before": "5832343515cbbbcf9f8a4a74c19efcf89df8351c5ae7b6a001bb427a5f5b28f1",
+    "after": "653726c0bd82d21839e6696972dee4f9861e4997add07a2dca079c93089ca32d",
+    "source": "D:\\dev\\hollowtide-selout-scroll-20261010\\candidate\\docs\\art\\art-direction.md"
+  },
+  {
+    "path": "scripts/arena/creature_finish.gd",
+    "before": "3de3b9d586821500752822a84398964cf4e1fee9a15dbf056695b3d50f56df86",
+    "after": "c95c3e869a52765de1b1e3cfa9e77b659aac2058a02494dd920b07acc63daa88",
+    "source": "D:\\dev\\hollowtide-selout-scroll-20261010\\candidate\\scripts\\arena\\creature_finish.gd"
+  },
+  {
+    "path": "scripts/arena/creature_finish.gdshader",
+    "before": "8f80459f0ec5f4b38f00ef00fe441b257d8917b2c3ed90e396df1c27b876f60b",
+    "after": "651a7ce7f6a5a2ec9bc797d6daaa19cd304c8ad3c2059361f635af6b7726a189",
+    "source": "D:\\dev\\hollowtide-selout-scroll-20261010\\candidate\\scripts\\arena\\creature_finish.gdshader"
+  },
+  {
+    "path": "scripts/arena/sel_out.gdshaderinc",
+    "before": null,
+    "after": "25bc7a822b2af183ed100efd7288992afc11eed5ae0e4a49f395061a531f21c2",
+    "source": "D:\\dev\\hollowtide-selout-scroll-20261010\\candidate\\scripts\\arena\\sel_out.gdshaderinc"
+  },
+  {
+    "path": "scripts/town/building_detail_finish.gdshader",
+    "before": "c410c5ba97447475380710782c80c963a936d1b6ab45821dbf07a3d581bc3eb7",
+    "after": "6e12e3f5f02b13faae1b8bc506801e901637f55e025324195a04814aff28ab2c",
+    "source": "D:\\dev\\hollowtide-selout-scroll-20261010\\candidate\\scripts\\town\\building_detail_finish.gdshader"
+  },
+  {
+    "path": "scripts/town/building_exteriors.gd",
+    "before": "e32494aa30b9672c8cecb73e9feeff32c3081bf484fdbc6e16a19dff56498dde",
+    "after": "76785ec1976f57f9df69fc5574e276883f3c0958febfec48b541fc585553b8e6",
+    "source": "D:\\dev\\hollowtide-selout-scroll-20261010\\candidate\\scripts\\town\\building_exteriors.gd"
+  },
+  {
+    "path": "scripts/town/growth_shrine_painter.gd",
+    "before": "b4ac725b1eb84da19dca749bc0263e7afce88b4cb7d629f16b98fff46df1fbc6",
+    "after": "79b97bbbfbd41d03b939ecaf1dc30fb24e9e77917180ab14eab06e9d087a0e28",
+    "source": "D:\\dev\\hollowtide-selout-scroll-20261010\\candidate\\scripts\\town\\growth_shrine_painter.gd"
+  },
+  {
+    "path": "scripts/town/highbank_ground_painter.gd",
+    "before": "8e7c0b735d0949b107bff9482e88d4d59c9a3b3c2be8965d4efc6cf1bfc70c51",
+    "after": "3a746822b2e800fe77109f45b5cd7340570a16c6187a8d93a8e9f99d477d334f",
+    "source": "D:\\dev\\hollowtide-selout-scroll-20261010\\candidate\\scripts\\town\\highbank_ground_painter.gd"
+  },
+  {
+    "path": "scripts/town/scroll_keeper_painter.gd",
+    "before": null,
+    "after": "b555072a77d5298611a76575434430aef68001ab2e1bf17c325f150e0e59f5bd",
+    "source": "D:\\dev\\hollowtide-selout-scroll-20261010\\candidate\\scripts\\town\\scroll_keeper_painter.gd"
+  },
+  {
+    "path": "docs/AI_COLLABORATION.md",
+    "before": "ec7ede486e8a559bf41c1548875ea903b224e649f41f2603f2fe0981f05bfe34",
+    "after": "4877504a1f6f82f1f3e6f08188316c645b51e7e7eaa30ce6f8a52b265a494b3c",
+    "source": "D:\\dev\\hollowtide-selout-scroll-20261010\\candidate\\docs\\AI_COLLABORATION.md"
+  }
+]

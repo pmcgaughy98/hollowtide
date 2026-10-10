@@ -10,6 +10,7 @@ const FORMS=["kithflare","tallowroot","rimefin"]
 const NAMES=["Kithflare","Tallowroot","Rimefin"]
 const SENSES=["A warm spark at the end of your tail.","Roots curl against the damp clay.","Cool water runs along your fins."]
 var reduce_motion:=false
+var chosen_by_soul:=false # the soul prologue already chose the starter (Claude, 2026-10-10)
 var phase:=0
 var hero:=0
 var partner:=1
@@ -157,7 +158,7 @@ func refresh() -> void:
 		prose.text=NAMES[partner]+" waits beside you. A break in the clay opens onto the path to Highbank.\nFollow the village lights. Watch each other as you go."
 		confirm.text="Reach Highbank together"
 		back.text="Choose another companion"
-	if phase<2:
+	if phase<2 and not (phase==0 and chosen_by_soul):
 		for i in 3:
 			if phase==1 and i==hero:continue
 			var b:=button(NAMES[i])

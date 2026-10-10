@@ -1,0 +1,39 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+OpenGL API 3.3.0 NVIDIA 596.49 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce GTX 1660 SUPER
+
+ERROR: Failed to read the root certificate store.
+   at: get_system_ca_certificates (platform/windows/os_windows.cpp:2582)
+[godot_ai game_helper] registered mcp capture (debugger active=false, logger=true)
+PASS ground changes are visible and confined to Crossroads footprint
+PASS home foundation / sign exact
+PASS home all three entrance frames exact
+PASS shop foundation / sign exact
+PASS shop all three entrance frames exact
+PASS hall foundation / sign exact
+PASS hall all three entrance frames exact
+PASS storage foundation / sign exact
+PASS storage all three entrance frames exact
+PASS scrolls foundation / sign exact
+PASS scrolls all three entrance frames exact
+PASS all 6912 authored ferry-lane ground pixels exact, including street / south joins
+PASS Crossroads joins all eight previous finished services
+PASS waymark on exact activation tile (24,14), native 24x24
+PASS flat floor inlay stays below creatures, no false upright door
+PASS shared purposeful sel-out detail preset
+PASS all 72 plaza tiles remain walkable
+PASS inlay transparent corners show authored lane
+PASS three distinct quiet carved-inlay response states
+PASS actual native sel-out strengthens interior limestone joints
+Native detail ink pixels [56, 62]
+PASS native walk reaches exact Crossroads activation tile
+PASS native E opens original Crossroads waymark description
+PASS waymark retains original quiet service, no added door sound
+PASS carved inlay transitions through middle state
+PASS carved glyph brightens with existing open waymark panel
+PASS Esc closes service and settles carved waymark
+PASS native E works facing waymark from north approach
+PASS leader crosses unchanged two-tile ferry lane
+PASS current working jobs panel retains paper sound and controller
+PASS Board reading feedback responds to Claude's panel without place id
+PASS current jobs panel closes and previous Board feedback settles
+RESULT 31 checks, 0 failures

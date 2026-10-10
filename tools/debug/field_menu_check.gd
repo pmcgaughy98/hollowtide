@@ -16,6 +16,9 @@ func _frames(n: int) -> void:
 func _texts(menu: CanvasLayer) -> String:
 	var out: Array[String] = []
 	_collect(menu.content, out)
+	var party: Node = menu.overlay.get_node_or_null("PartyScreen")
+	if party != null:
+		out.append_array(party.lines)
 	return " | ".join(out)
 
 
@@ -48,7 +51,7 @@ func _run() -> void:
 		menu.show_page(pg)
 		await _frames(2)
 		var t := _texts(menu)
-		var want: bool = {"team": t.contains("KITHFLARE   Lv 3") and t.contains("To evolve: Lv 3/5") and t.contains("Moves:"),
+		var want: bool = {"team": t.contains("KITHFLARE   Lv 3") and t.contains("To evolve: Level 3/5") and t.contains("Moves:"),
 			"bag": t.contains("Reedberry x1"), "floor": t.contains("B1F") and t.contains("Lantern"),
 			"log": t.contains("B1F")}[pg]
 		print("%s: %s -> %s" % [pg, t, "ok" if want else "WRONG"])

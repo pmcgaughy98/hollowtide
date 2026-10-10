@@ -25,10 +25,10 @@
 [resource]
 script = ExtResource("1_script")
 id = 502
-creature_name = "Riftfin"
 essence = 1
 has_second_essence = true
-second_essence = 5
+second_essence = 10
+creature_name = "Riftfin"
 sprite = ExtResource("2_sprite")
 back_sprite = ExtResource("3_back")
 description = "Provisional entry (Claude, 2026-10-05, on Preston's request): Retro Diffusion art from docs/creatures/starter-lines-rd-2026-10-05/evolutions. Default stats and no moves (Strike) until Grok sets the kit and numbers."

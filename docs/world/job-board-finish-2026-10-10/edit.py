@@ -1,0 +1,15 @@
+from pathlib import Path
+W=Path(__file__).parent
+p=W/'candidate/scripts/town/building_exteriors.gd';t=p.read_text()
+t=t.replace('static func available(id: String) -> bool:\n','static func available(id: String) -> bool:\n\tif id == "board":\n\t\treturn ResourceLoader.exists("res://scripts/town/job_board_painter.gd") and load("res://scripts/town/job_board_painter.gd").available()\n')
+t=t.replace('\t\tif id == "yard":\n\t\t\tbuildings', '\t\tif id == "board":\n\t\t\tbuildings[id] = load("res://scripts/town/job_board_painter.gd").attach(self, town)\n\t\t\tcontinue\n\t\tif id == "yard":\n\t\t\tbuildings')
+t=t.replace('\t\tif id == "yard":\n\t\t\tload(', '\t\tif id == "board":\n\t\t\tload("res://scripts/town/job_board_painter.gd").update(b, town, delta)\n\t\t\tcontinue\n\t\tif id == "yard":\n\t\t\tload(')
+p.write_text(t)
+p=W/'candidate/scripts/town/highbank_ground_painter.gd';t=p.read_text().replace('\tvar yard_ground: Image','\tvar yard_ground: Image\n\tvar board_ground: Image\n\tvar reading_ground: Image')
+t=t.replace('\t\tif place["id"] == "yard":','\t\tif place["id"] == "board":\n\t\t\tboard_ground = img.get_region(px)\n\t\t\treading_ground = img.get_region(Rect2i(place["door"] * T, Vector2i(T, T)))\n\t\tif place["id"] == "yard":')
+t=t.replace('\tif ResourceLoader.exists("res://scripts/town/wayline_hall_painter.gd"):', '\t# Paint the board first so the existing Hall contact band remains above its north edge.\n\tif ResourceLoader.exists("res://scripts/town/job_board_painter.gd"):\n\t\timg = load("res://scripts/town/job_board_painter.gd").apply(img, board_ground, reading_ground)\n\tif ResourceLoader.exists("res://scripts/town/wayline_hall_painter.gd"):')
+p.write_text(t)
+text=(W/'originals/scripts/town/hub_town.gd').read_text().replace('res://scripts/town/highbank_ground_painter.gd',(W/'originals/scripts/town/highbank_ground_painter.gd').as_posix())
+(W/'baseline_hub.gd').write_text(text)
+p=W/'run.py';p.write_text(p.read_text().replace('training_yard_2026_10_10/yard_native.png','job_board_2026_10_10/board_native.png').replace('training_yard_painter.gd','job_board_painter.gd'))
+print('Board-only view/ground hooks ready; Hall contact band preserved')

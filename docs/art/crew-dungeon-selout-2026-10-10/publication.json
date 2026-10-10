@@ -1,0 +1,477 @@
+{
+  "files": 118,
+  "entries": [
+    {
+      "path": "after_capture.gd",
+      "sha256": "6f9f1216f38d9f6b7e119ed7bb0cfb97560b22db6b453e5ed05eeedfe473e688"
+    },
+    {
+      "path": "after_capture.log",
+      "sha256": "9d6fc8211512a538011da58f843949b2b9314457659152a8f5db2c96defce13e"
+    },
+    {
+      "path": "audit.json",
+      "sha256": "b29cf20c15203edb2fed7ca46a6ee4bfcd05754ddb7aed2cc6e1dbd5b9248836"
+    },
+    {
+      "path": "audit.py",
+      "sha256": "1e125b814fab096dcf5ce8608ee36091e06754b2f6472f0567aacf88c80c2366"
+    },
+    {
+      "path": "baseline.json",
+      "sha256": "5e014792cb5566284d7c62f2cbcd5f12c2302fedc9d6b4d2ab5caf76e24ee1a6"
+    },
+    {
+      "path": "before_capture.gd",
+      "sha256": "eefb572f012fff928d42028c8f661daaecec1db354b250d7a9b864859f086e9b"
+    },
+    {
+      "path": "before_capture.log",
+      "sha256": "2d5ae529087659ddb0a016b11c227c5e6c42fe94db7e52e68f970f964ad42a6d"
+    },
+    {
+      "path": "capture-before-cleanup.log",
+      "sha256": "adcec83ac86d31bb0e8a91817479ab24c31b40f120ed8b881f8ebd433c1d9bb8"
+    },
+    {
+      "path": "concurrent-valley-update.json",
+      "sha256": "b127ed6ba8c0ccf4384f0b3aa017671fea37c2c42ba98754929ef477c33c849d"
+    },
+    {
+      "path": "dungeons_check.gd",
+      "sha256": "8e9976183b396c88ccc075605f2840318a4430af2abbfb5b45b3c9e0e92fdd94"
+    },
+    {
+      "path": "dungeons_check.log",
+      "sha256": "cca61bac4989abcfc72ba22fde85b873a0544cb2ba70c85c440baf9b9f9c063c"
+    },
+    {
+      "path": "edit.py",
+      "sha256": "383c651a6aa6b3f82e719d50fa6d61a1acaaf7e940d281d9bdb06b2b18880049"
+    },
+    {
+      "path": "import.log",
+      "sha256": "9148c3ea13390a34ed78787b93d880f7d45644aeebde54bb43227ef40e5817d8"
+    },
+    {
+      "path": "initial-cache-failure.log",
+      "sha256": "154f84260b6160f27d2f199aaf7d259a2faa79f0fb3d56c07ab8a9dc02dae6b0"
+    },
+    {
+      "path": "install.ps1",
+      "sha256": "641df7e33f59364aad2043a1ffeef8bf84dab41be38baeaa53306c166169ad2a"
+    },
+    {
+      "path": "installed-files.json",
+      "sha256": "7e73515485fdaa4a70dd425ccb9d3eb4c6cdc5a4afa7dee6c092409331feeea4"
+    },
+    {
+      "path": "live_check.py",
+      "sha256": "1d50204568b670ba33731f5d0ce686a99ff6a90175f31f3b901bd53de7272675"
+    },
+    {
+      "path": "live_dungeons_check.gd",
+      "sha256": "05b77b1d2f8a126f42e7444612bfd8a14b0c33e69727b04f1667c31f0a745b8e"
+    },
+    {
+      "path": "live_dungeons_check.log",
+      "sha256": "bf4eedf6983b2939694fa1453ab7e07fc97411a07c4166dfa0799459689a21cf"
+    },
+    {
+      "path": "live_selout_check.gd",
+      "sha256": "78434e85bb8dc9466fc196ff2c832151ca292fd5b99ccbee0a7c52bd7346b8ac"
+    },
+    {
+      "path": "live_selout_check.log",
+      "sha256": "eb0bde2279cfddb2e3ef8bfbc80eabc59caf60baa412c95ef4a9b585c3e7f4d5"
+    },
+    {
+      "path": "package.py",
+      "sha256": "0b41bdd35a5c3137cca73e2f6c6303182e83ce36063ccfdfd19bc12dfd136b26"
+    },
+    {
+      "path": "pending-install.json",
+      "sha256": "7e73515485fdaa4a70dd425ccb9d3eb4c6cdc5a4afa7dee6c092409331feeea4"
+    },
+    {
+      "path": "portrait_detail_source.gd",
+      "sha256": "1ed718881c94a237fd5cc0aee847feade06d97298b09c26a2783b2dd6f252ddc"
+    },
+    {
+      "path": "pre-rebase-dungeons-check.log",
+      "sha256": "49eade0002b606420ca2de489799093d9a709d7b2cf480f3906b937e7c6859eb"
+    },
+    {
+      "path": "pre-valley-selout-check.log",
+      "sha256": "850a60091aea646c863de5c9f946cd7b2041df8e42b31362e77b77342b0faf32"
+    },
+    {
+      "path": "publish.py",
+      "sha256": "3c237f5cd82c6d97ff7cfdce72c605e66228766f15c3647ceff19816e543277b"
+    },
+    {
+      "path": "README.md",
+      "sha256": "4728de1062a6c0615ca22ef9bf7f6a53767a633dd3ff147f20a2b7ac12939e2f"
+    },
+    {
+      "path": "rebase.py",
+      "sha256": "959b57a41ecfcb6d2d7f8793f7986815ee96e0f226ee2bdbb04c0c8a24cb3f02"
+    },
+    {
+      "path": "review-import-crash.log",
+      "sha256": "9148c3ea13390a34ed78787b93d880f7d45644aeebde54bb43227ef40e5817d8"
+    },
+    {
+      "path": "run.py",
+      "sha256": "58e8e0d21b4543b3a7b1410268db80d48ea35a4206402164579917fb4890ae4c"
+    },
+    {
+      "path": "selout_check.gd",
+      "sha256": "abc683d231b02552a0440c93b5eaaee250ae0c945402f39ba1c2463240ef732e"
+    },
+    {
+      "path": "selout_check.log",
+      "sha256": "20906252626022fdad7b6aee372b995b55827af3b3f6b1fc1b45ab367c7594d5"
+    },
+    {
+      "path": "setup.py",
+      "sha256": "3f402354ad9171fbd45dbec32d2ed2a999f5749c698ca27f6e56896c499f5324"
+    },
+    {
+      "path": "setup_fast.py",
+      "sha256": "6057dd575b2b0a4ac791054d6ea475d71395ae6148b49722a196de4ee6d1d971"
+    },
+    {
+      "path": "sync_imports.py",
+      "sha256": "9330b2998967b2a737fd84f7b7a71b06abfd8bc63d6304973494332401d0fd07"
+    },
+    {
+      "path": "review/bank-map-before-after.png",
+      "sha256": "06feb795e74f94cce8c1a917ebe125bf6dd3b0c1fae58d53eb1309d1be0dc055"
+    },
+    {
+      "path": "review/dungeon-1-bank.png",
+      "sha256": "f803034a5e1cd583b9af58f69adf1de36c030cb2a8615e1317757536f22b0065"
+    },
+    {
+      "path": "review/dungeon-1-crew.png",
+      "sha256": "e0af221e2d7a6247552c9a684de6edf568402bedea02a3e5111ab50789eaa896"
+    },
+    {
+      "path": "review/dungeon-2-stone.png",
+      "sha256": "44cc37e2acda085987a8a9e9bba949d652f416dafd7cf22fe9b7e3616688c483"
+    },
+    {
+      "path": "review/dungeon-2-valley.png",
+      "sha256": "5f526e504c42d3527564a170292019455fc44b6ebe2d374c6a8d9d22626a11c3"
+    },
+    {
+      "path": "review/dungeon-2-warden.png",
+      "sha256": "cb399d35ba59f7d03fa5821bea93b594f374dfb9904df4d472e25528f993681e"
+    },
+    {
+      "path": "review/mirekit-angry-dialogue.png",
+      "sha256": "806c67bc249831fe5610abe05df6584417b5ec03eb12c7566a23834bdc2794d0"
+    },
+    {
+      "path": "review/mirekit-dialogue.png",
+      "sha256": "29ff51b539e92907366814cc1e6a0ae0a5d9fbe851ec29cf560fc7d0401e9d44"
+    },
+    {
+      "path": "review/mirekit-native-before-after.png",
+      "sha256": "4fab54a45925ff6dff53dfa6b5b5dc840eb6db1f98567f7f30f92ff89f2cf0b8"
+    },
+    {
+      "path": "review/mirekit-worried-dialogue.png",
+      "sha256": "b636b01231359b416108ac785d5cc7e8d21c238edcdc145c5f6185b2ef136f41"
+    },
+    {
+      "path": "review/riverbank-map-before-after.png",
+      "sha256": "e35c4f7ea3fd545b7effae9a1f528b24a8778edbce4cc26b92c9f4664b896a67"
+    },
+    {
+      "path": "review/ruin-map-before-after.png",
+      "sha256": "f4f79d0c0ae843d0c5f9dcab75191c982e3b66e0d675d2f32419f0bfa2658659"
+    },
+    {
+      "path": "review/valley-map-before-after.png",
+      "sha256": "39b1373cf1a859dbf7461bd3933a49a4d891164bd4ae9927c0634b4d96817cc6"
+    },
+    {
+      "path": "review/whinet-angry-dialogue.png",
+      "sha256": "4dee92d5f295c5967c34701fe35bc49bf228a116f9e6ae6c17efc0ac52818cd3"
+    },
+    {
+      "path": "review/whinet-dialogue.png",
+      "sha256": "adb64dd3177f270bf38221cc9d6b4eefbaa6f31b5d36b3a2c17a712ebc2d1012"
+    },
+    {
+      "path": "review/whinet-native-before-after.png",
+      "sha256": "fa79c78b9f0b22149bb4646c1289df71d9d430fec5c73b64fb187bdf2b4c2a2e"
+    },
+    {
+      "path": "review/whinet-worried-dialogue.png",
+      "sha256": "5443c54985dab961c4274bcb6745df870ba8b392e8047e44e76a3e841a67d8fa"
+    },
+    {
+      "path": "candidate/docs/AI_COLLABORATION.md",
+      "sha256": "ec7c9089725e193c3b905fa6631818027a5f639bf60f01ecd51cb5d3a5172553"
+    },
+    {
+      "path": "candidate/scripts/arena/creature_finish.gd",
+      "sha256": "1c12c53f4948025745629fd8251b30e668919fec58595347a760cc12be99d734"
+    },
+    {
+      "path": "candidate/scripts/arena/sel_out.gdshaderinc",
+      "sha256": "318523a842c38ff1469e55815c6b9a3ba7fc3a65ca87d93694f70b3d6ba63def"
+    },
+    {
+      "path": "candidate/scripts/dungeon/dungeon.gd",
+      "sha256": "4d4a6b1ec1ae4e98e3cb273270e23ecef105855aa67a50e749d22ccf976064de"
+    },
+    {
+      "path": "candidate/scripts/dungeon/dungeon_finish.gd",
+      "sha256": "0d22a57748c012dbe46528c79964fb67618a7e71be99320669ffeb50d8dd8977"
+    },
+    {
+      "path": "candidate/scripts/dungeon/dungeon_finish.gdshader",
+      "sha256": "014f0cd163d3b07573ea2313154d5e3550d510306dc28b182dab7b34c0bbc4d8"
+    },
+    {
+      "path": "candidate/scripts/ui/crew_portrait_canvas.gd",
+      "sha256": "1ed718881c94a237fd5cc0aee847feade06d97298b09c26a2783b2dd6f252ddc"
+    },
+    {
+      "path": "candidate/scripts/ui/ui_style.gd",
+      "sha256": "5ac61b2f69a278ee084fe6ed2efbc5f7fca783ad319e5962ab497c69506acfbb"
+    },
+    {
+      "path": "concurrent-code/tools/debug/dungeons_check.gd",
+      "sha256": "8e9976183b396c88ccc075605f2840318a4430af2abbfb5b45b3c9e0e92fdd94"
+    },
+    {
+      "path": "concurrent-code/tools/ui/rd_expressions.py",
+      "sha256": "3e0eebcdd36d1e9b0fdc3b4349ce851d9694e948baf119e36c7deec2c67a7fa5"
+    },
+    {
+      "path": "concurrent-final/assets/sprites/ui/dialogue/kithflare_angry.png",
+      "sha256": "d7be7233a9e5e37f8ca7e80de9b189f5a6e4b808726487d2b273534461206b94"
+    },
+    {
+      "path": "concurrent-final/assets/sprites/ui/dialogue/kithflare_determined.png",
+      "sha256": "5f6b3dc89a8665cf691933fd95f94e843498df999a682835ae6fa0d2af1526ba"
+    },
+    {
+      "path": "concurrent-final/assets/sprites/ui/dialogue/kithflare_joyous.png",
+      "sha256": "86bf12d42efa1c18fd23a27f19c2e3e2f5fbb21072d43a3fde7da253d6186879"
+    },
+    {
+      "path": "concurrent-final/assets/sprites/ui/dialogue/kithflare_sad.png",
+      "sha256": "99c9c1d20edaa65c242fdad60927b337b4135361e527652ca90add6dba65e56a"
+    },
+    {
+      "path": "concurrent-final/assets/sprites/ui/dialogue/kithflare_surprised.png",
+      "sha256": "9d847acb466953e5acb7936a6e4cb32653cf5534bccbc3927cb0a65d8b5ebbed"
+    },
+    {
+      "path": "concurrent-final/assets/sprites/ui/dialogue/kithflare_worried.png",
+      "sha256": "dbb0599161f81c2186cd6de72ae7e0a64aac478fadbcfb55686b5446fc8b1052"
+    },
+    {
+      "path": "concurrent-final/scripts/town/hub_town.gd",
+      "sha256": "4de6facd2f9aed46236432332ad1ff404769aca04b1daed611a01f1f024da083"
+    },
+    {
+      "path": "concurrent-final/tools/debug/dungeons_check.gd",
+      "sha256": "8e9976183b396c88ccc075605f2840318a4430af2abbfb5b45b3c9e0e92fdd94"
+    },
+    {
+      "path": "concurrent-final/tools/ui/rd_expressions.py",
+      "sha256": "6bb5e4022a9532f2493c77c79d2f7e8ed74188a1999baf520d7592e0d815c1ef"
+    },
+    {
+      "path": "diffs/scripts/arena/creature_finish.gd.diff",
+      "sha256": "9915c2d1fdbe65715ec69b1bf891e1b8a901cb93d526954c152b7d9f0e8e33e1"
+    },
+    {
+      "path": "diffs/scripts/arena/sel_out.gdshaderinc.diff",
+      "sha256": "5e9377611ad36a3827b4797b9363723d01095876e5e18858fc8156be6cd4e58d"
+    },
+    {
+      "path": "diffs/scripts/dungeon/dungeon.gd.diff",
+      "sha256": "a09913047acf81bfdf32753db1d7aa7fc7b9de965fbe12e5425be955f721a83b"
+    },
+    {
+      "path": "diffs/scripts/ui/ui_style.gd.diff",
+      "sha256": "5e9a5fd803a2c9f76f4a13b1686774b33bcb3e40cfd455233f34f76d42a50a21"
+    },
+    {
+      "path": "initial-originals/scripts/arena/creature_finish.gd",
+      "sha256": "a28743fa3c433fb0ff4d4427f17c8dd18df2807a1819f2c24f8421b839cfea50"
+    },
+    {
+      "path": "initial-originals/scripts/arena/sel_out.gdshaderinc",
+      "sha256": "4114f586f6e6cd66e3ad1ea1347b034a2383a63eaa34be21817bbba1d23c7de3"
+    },
+    {
+      "path": "initial-originals/scripts/dungeon/dungeon.gd",
+      "sha256": "dd079dbfeaf01b49e401d3b5006d5f16070a79318784af3a09b002a4046f9878"
+    },
+    {
+      "path": "initial-originals/scripts/ui/ui_style.gd",
+      "sha256": "38a7cc8480e670f1b55d170cadc183cd47a80316c70289c88b3db84eaf620e8f"
+    },
+    {
+      "path": "originals/docs/AI_COLLABORATION.md",
+      "sha256": "7c734dfc5671e60e9bb1baba9ee406134948980dcf0935e7c6e684f6503bba22"
+    },
+    {
+      "path": "originals/scripts/arena/creature_finish.gd",
+      "sha256": "a28743fa3c433fb0ff4d4427f17c8dd18df2807a1819f2c24f8421b839cfea50"
+    },
+    {
+      "path": "originals/scripts/arena/sel_out.gdshaderinc",
+      "sha256": "4114f586f6e6cd66e3ad1ea1347b034a2383a63eaa34be21817bbba1d23c7de3"
+    },
+    {
+      "path": "originals/scripts/dungeon/dungeon.gd",
+      "sha256": "b26a38ac281e6d3776e04fe8213f3a768d7f64ba7d3c14405e78ba6217996882"
+    },
+    {
+      "path": "originals/scripts/ui/ui_style.gd",
+      "sha256": "5a7e50b7188dc76e2f79b7cd378de4c539f71fbe5ff5f7dae01ef7ac9e4ab02d"
+    },
+    {
+      "path": "review/after/blighted.png",
+      "sha256": "ac8a6cf7462e01a5934a02993aec85e46a751e5813c2513e8740be42995b11ab"
+    },
+    {
+      "path": "review/after/buzz_dart.png",
+      "sha256": "60b1b07e41e6840fa75105eacac171107c79086ba5852081f432fe674e6f1ea0"
+    },
+    {
+      "path": "review/after/crew_boss.png",
+      "sha256": "c9f7c927ef3f98acac272d7f1ed7c6e0c632fa12a282b56193a777e43b827665"
+    },
+    {
+      "path": "review/after/crew_mirekit_dialogue.png",
+      "sha256": "e1dc6f793ab5dd8beff64d075fee504b8835f76b876c7e439b95a935a149c739"
+    },
+    {
+      "path": "review/after/crew_whinet_dialogue.png",
+      "sha256": "eeb0f36b0231eb74505f53aa82a3ae3328734982125089efd20c4607d3619312"
+    },
+    {
+      "path": "review/after/drain_bite.png",
+      "sha256": "1985547c5fd7c24bbcd98f4ade6fd2aad4a8da386feff49df1bca97719e39e8c"
+    },
+    {
+      "path": "review/after/hollow_stone.png",
+      "sha256": "05337df84d0ddf9192b5bb09e1dcc5dac39ed203f04fb2a32cf03fc3ca3af5a8"
+    },
+    {
+      "path": "review/after/hollow_valley.png",
+      "sha256": "9fd1bbeb8a13bd57c5108ee67bdd0bd7be91074c6f7d4139a7da91aa952a4c11"
+    },
+    {
+      "path": "review/after/rot_spit.png",
+      "sha256": "850653d69948eda835675818fe7a90ab76b4e048dd7b7bc590f7a7019aa53f54"
+    },
+    {
+      "path": "review/before/blighted.png",
+      "sha256": "409c22bdb11232ca1cd97937d4ebf8abd415adbbb68a4b0145b3d4711a718940"
+    },
+    {
+      "path": "review/before/buzz_dart.png",
+      "sha256": "1596cb97902dfdd5032e846e5e2c550da3a6be8c7cf0a4cd18d486a290ce5a21"
+    },
+    {
+      "path": "review/before/crew_boss.png",
+      "sha256": "f61a32c416498e1c8b86845ceff360236843e83581d63755eb01e28e0061e4ba"
+    },
+    {
+      "path": "review/before/drain_bite.png",
+      "sha256": "bc54e73d078cf21b67598efa4196d3bfc050ee8136a5c62fd9b7f9ff8607882b"
+    },
+    {
+      "path": "review/before/hollow_stone.png",
+      "sha256": "08117f04f0dd4eda5dbc2de51d893b993699fe3995440ef9114ce938b40cf5a3"
+    },
+    {
+      "path": "review/before/hollow_valley.png",
+      "sha256": "2dcbbdece9669136a481fafeb5c56f705b62f5bb86847ab7b0338d5b32efc901"
+    },
+    {
+      "path": "review/before/rot_spit.png",
+      "sha256": "26b4513a64907f5b15fd52c6a93aa1f864c4136ae6d72412037c3b521df7489b"
+    },
+    {
+      "path": "review/live/bank-map-before-after.png",
+      "sha256": "06feb795e74f94cce8c1a917ebe125bf6dd3b0c1fae58d53eb1309d1be0dc055"
+    },
+    {
+      "path": "review/live/dungeon-1-bank.png",
+      "sha256": "f803034a5e1cd583b9af58f69adf1de36c030cb2a8615e1317757536f22b0065"
+    },
+    {
+      "path": "review/live/dungeon-1-crew.png",
+      "sha256": "179228de86ea00e4d5bc0e519ee720ee77425c38d3445c7d09830dbadd29f419"
+    },
+    {
+      "path": "review/live/dungeon-2-stone.png",
+      "sha256": "44cc37e2acda085987a8a9e9bba949d652f416dafd7cf22fe9b7e3616688c483"
+    },
+    {
+      "path": "review/live/dungeon-2-valley.png",
+      "sha256": "5f526e504c42d3527564a170292019455fc44b6ebe2d374c6a8d9d22626a11c3"
+    },
+    {
+      "path": "review/live/dungeon-2-warden.png",
+      "sha256": "d66db953dbddca46a342d4d768606c6693f5038406a4b635a1e5bbe66947e2e0"
+    },
+    {
+      "path": "review/live/mirekit-angry-dialogue.png",
+      "sha256": "73397aa3f5e8baa278cab52a5ef39a643b28e33c44ac69379d10abd6b7812cb8"
+    },
+    {
+      "path": "review/live/mirekit-dialogue.png",
+      "sha256": "359a5e184ebb575f8906b0f98e09068142268d7db3ee4880ecfa4bf34e9f50f8"
+    },
+    {
+      "path": "review/live/mirekit-native-before-after.png",
+      "sha256": "4fab54a45925ff6dff53dfa6b5b5dc840eb6db1f98567f7f30f92ff89f2cf0b8"
+    },
+    {
+      "path": "review/live/mirekit-worried-dialogue.png",
+      "sha256": "f193857074815a26802b6bc7926639d1360cace197183d9f98772cc05cb6af57"
+    },
+    {
+      "path": "review/live/riverbank-map-before-after.png",
+      "sha256": "e35c4f7ea3fd545b7effae9a1f528b24a8778edbce4cc26b92c9f4664b896a67"
+    },
+    {
+      "path": "review/live/ruin-map-before-after.png",
+      "sha256": "f4f79d0c0ae843d0c5f9dcab75191c982e3b66e0d675d2f32419f0bfa2658659"
+    },
+    {
+      "path": "review/live/valley-map-before-after.png",
+      "sha256": "39b1373cf1a859dbf7461bd3933a49a4d891164bd4ae9927c0634b4d96817cc6"
+    },
+    {
+      "path": "review/live/whinet-angry-dialogue.png",
+      "sha256": "2a554f5fa0b7278674c7953c9cc25551f2b13272c5ea04c908db4831bbdf90fe"
+    },
+    {
+      "path": "review/live/whinet-dialogue.png",
+      "sha256": "adb64dd3177f270bf38221cc9d6b4eefbaa6f31b5d36b3a2c17a712ebc2d1012"
+    },
+    {
+      "path": "review/live/whinet-native-before-after.png",
+      "sha256": "fa79c78b9f0b22149bb4646c1289df71d9d430fec5c73b64fb187bdf2b4c2a2e"
+    },
+    {
+      "path": "review/live/whinet-worried-dialogue.png",
+      "sha256": "cd771303ebeecd539a7ca1dc0f6c56e415ac357ed415e316609bc6bf7c5c721c"
+    }
+  ]
+}

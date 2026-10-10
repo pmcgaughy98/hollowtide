@@ -1,0 +1,8 @@
+SEG title 149 329
+SEG town 341 449
+SEG explore 471 891
+SEG fight 931 1063
+SEG party 1071 1221
+SEG evolution 1239 1462
+SEG boss 1484 1974
+RECORDED 1974 frames

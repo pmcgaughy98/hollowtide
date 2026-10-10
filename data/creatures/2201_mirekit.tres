@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="CreatureData" format=3]
+
+[ext_resource type="Script" path="res://scripts/creature_data.gd" id="1_script"]
+[ext_resource type="Texture2D" path="res://assets/sprites/arena/mirekit/s.png" id="2_sprite"]
+
+[resource]
+script = ExtResource("1_script")
+id = 2201
+creature_name = "Mirekit"
+essence = 11
+has_second_essence = false
+second_essence = 0
+sprite = ExtResource("2_sprite")
+description = "Provisional entry (Claude, 2026-10-10; names approved by Preston): Stage I of the rival crew's opossum line: a scruffy scavenger kit with a bald pink tail, mud-and-rot fur and a stolen courier parcel strapped on. Blight. Its tricks are Rot Spit (healing halved) and, in the boss slice, Play Dead. Kits: docs/creatures/antagonist-crew-proposal-2026-10-10.md; numbers are drafts for Grok."
+body_parts = PackedStringArray()
+battle_size = 1.0

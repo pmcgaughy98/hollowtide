@@ -51,13 +51,18 @@ CELLS = {
     # The Dustkite line (2026-10-09): layout read by eye after the rotation.
     "dustkite": TALLOW,
     "waywhistle": TALLOW,
-    "highsignal": TALLOW,
+    "highsignal": TALLOW,
+
     # The Springvault line (2026-10-10): all three in Tallowroot's layout, read by eye.
     "troughspine": TALLOW,
     "archroot": TALLOW,
     "springvault": TALLOW,
+    # The rival crew (2026-10-10), read by eye: Mirekit's sheet has two back views and no clean
+    # south-west, so (2,1) is unused and south-west mirrors south-east.
+    "mirekit": {"s": (0, 2), "se": (0, 1), "e": (0, 0), "ne": (1, 0), "n": (2, 0), "nw": (2, 2), "w": (1, 2), "sw": "mirror:se"},
+    "whinet": TALLOW,
 }
-FORMS = {"sparkwick", "stormwick", "huskward", "rampartroot", "riftfin", "scourmaw", "cinderhide", "clinkerhide", "ironvent", "fusern", "slagglass", "vitrecrag", "preostmar", "oathfen", "oxbowarchon", "punchybun", "sparkjab", "starward", "listener", "caller", "warden", "canvaswing", "windcut", "galeshear", "dustkite", "waywhistle", "highsignal", "troughspine", "archroot", "springvault"}
+FORMS = {"sparkwick", "stormwick", "huskward", "rampartroot", "riftfin", "scourmaw", "cinderhide", "clinkerhide", "ironvent", "fusern", "slagglass", "vitrecrag", "preostmar", "oathfen", "oxbowarchon", "punchybun", "sparkjab", "starward", "listener", "caller", "warden", "canvaswing", "windcut", "galeshear", "dustkite", "waywhistle", "highsignal", "troughspine", "archroot", "springvault", "mirekit", "whinet"}
 
 for name, cells in CELLS.items():
     if len(sys.argv) > 1 and name not in sys.argv[1:]:

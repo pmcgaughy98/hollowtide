@@ -111,3 +111,45 @@ Preston: "do another elevenlabs gen from synthesis". The list of moments came fr
 | evolve_ready | a creature is ready to evolve | evolve_ready_0, one octave up |
 
 Measured, not heard: the brightest is escape (paws on dirt, lowered to 4.5 kHz and -9 dB). The revive and evolve hum sat near 100 Hz, below what a laptop speaker plays, so they went up an octave.
+
+## The Warden's entrance (Claude, 2026-10-10)
+
+Preston: "eleven labs synthesis it up too." 12 sounds for `scripts/dungeon/boss_intro.gd`, two takes each,
+`eleven_text_to_sound_v2`, prompt influence 0.3, flow `lgucGp7YVZlGnAPBhJ26`, 16.7 credits a take
+(24 takes, about 400 credits). Takes in `assets/audio/sfx/dungeon/takes/<name>_<0|1>.mp3`; picks, trims and
+filters in `tools/audio/build_dungeon_sfx.py` (PICKS, the block after evolve_ready). Picked by measurement
+(onset, low end, share of 2 to 6 kHz); Preston's ears overrule.
+
+| Sound | Prompt (short) | Pick |
+|---|---|---|
+| pond_ambience | peaceful pond at dusk, lapping, reeds, faint crickets | 0 (16 s; looped as the garden's bed, low-passed 4.5 kHz) |
+| ripple | a single drop into a still pond | 0 |
+| emote_alert | two soft rising marimba notes, the "!" | 1 |
+| presence_swell | low ominous drone, an unseen presence | 0 (one octave up for laptop speakers) |
+| pond_rumble | underwater rumble and rising bubbles | 0 |
+| pond_burst | huge creature bursting out of a pond | 0 |
+| water_rain | spray raining back down on grass and water | 0 (less hiss) |
+| fall_whoosh | something heavy falling from high above | 0 (one octave up; peaks at the landing) |
+| heavy_land | giant creature landing, deep thud | 0 (layered with slam) |
+| hop_splash | small frog leaping out of a pond | 0 |
+| warden_croak | giant ancient frog croak, cavern echo | 0 |
+| battle_wipe | fast whoosh sweep into an impact, battle start | 1 (almost nothing in 2 to 6 kHz) |
+
+## New songs from ElevenLabs music (Claude, 2026-10-10)
+
+`eleven_music_v2_5`, flow `lgucGp7YVZlGnAPBhJ26`, one version each (Preston chose one at a time), 900
+credits each. The 440 Hz originals are in `assets/audio/_440hz_originals/music/`; the game's copies are
+pitched to 432 by resampling (asetrate 432/440, then atempo back, so the length is kept) and listed
+in `retuned.txt`. Rubberband was tried first: it left the drum hits at 440, so resampling is used, which
+moves every part. Checked: Monster House's strongest bass note went from 130.0 to 127.6 Hz (x 432/440).
+
+- **pond_garden.mp3**: the Warden's garden, the opening of the boss scene. Preston found the rest-floor
+  song there "too medieval". Prompt: a hidden pond garden that looks like a safe place to rest; soft
+  synth pads, electric piano, music box and harp arpeggios, glassy chimes, a faint uneasy undertone,
+  72 bpm, no folk instruments. Preston: "perfect, a little loud"; lowered 5 dB to about -21 LUFS (the
+  dungeon songs sit near -16, the rest floor at -24).
+- **monster_house.mp3** (replaced): Preston, "you can make monster house with it next". Prompt: a room
+  suddenly full of wild creatures, same modern synth sound but urgent: driving synth bass, fast glassy
+  arpeggios, punchy electronic drums, alarm-like stabs, dark minor key, 150 bpm, a drop then crashing
+  back in, no folk instruments. Levelled to the old track's loudness (about -16.5 LUFS). The old song is
+  kept at `docs/audio/replaced/monster_house_before_2026-10-10.mp3`.

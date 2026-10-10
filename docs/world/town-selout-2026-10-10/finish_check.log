@@ -1,0 +1,29 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+OpenGL API 3.3.0 NVIDIA 596.49 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce GTX 1660 SUPER
+
+ERROR: Failed to read the root certificate store.
+   at: get_system_ca_certificates (platform/windows/os_windows.cpp:2582)
+[godot_ai game_helper] registered mcp capture (debugger active=false, logger=true)
+PASS scrolls has material-coloured exterior rim
+PASS storage has material-coloured exterior rim
+PASS hall has material-coloured exterior rim
+PASS home has material-coloured exterior rim
+PASS shop has material-coloured exterior rim
+PASS shrine has material-coloured exterior rim
+PASS yard has material-coloured exterior rim
+PASS board has material-coloured exterior rim
+PASS gate has material-coloured exterior rim
+PASS nine exteriors retain exact rendered alpha and contour thickness
+PASS every internal window, door, carving and seam pixel exact to black-detail finish
+Outer-rim pixel changes: 3804
+PASS all installed south-view creature finishes byte-exact, including jade, rivals and Sparkwick
+PASS door finish still uses original shared shader
+PASS riverbank dungeon finish byte-exact to installed ink/mask
+PASS ruin dungeon finish byte-exact to installed ink/mask
+PASS bank dungeon finish byte-exact to installed ink/mask
+PASS valley dungeon finish byte-exact to installed ink/mask
+PASS helper does not mutate the painter image
+PASS Rect2i helper changes only the Lookout wall rim, preserving paving and interior blocks
+PASS helper lights top-left rim above bottom-right rim
+PASS filled shape mask and rectangle select the same wall
+RESULT 21/21 checks pass; 35 current creature finishes compared

@@ -1,0 +1,26 @@
+{
+  "scripts/dungeon/dungeon.gd": {
+    "before": "4bff4b7537da7758e125875bfd390ae5e34e25255e7ea432d01f2b0f9664d98a",
+    "now": "a03e9226f26524e3ed4f603cc27d76064e0b3778377bde260fceab4b1e808b29"
+  },
+  "assets/audio/_440hz_originals/retuned.txt": {
+    "before": "8b652781010dc331798d23aeeda9d427ff7fff1189f2ed7d343c1185fd955975",
+    "now": "dcc507d7756953a0016a94a40427cc1001447e212de504c21d6ab73ae9304621"
+  },
+  "tools/audio/build_dungeon_sfx.py": {
+    "before": "c298f529b2d8c0ca99735fd3dde7c4fc21ef215cd031f99c770a402f4b75c98b",
+    "now": "e22b788fd43219e4f4e970400fed463af28f23fe6d6373d5b8107a510e70e1dd"
+  },
+  "tools/debug/dialogue_capture.gd": {
+    "before": "63d6a02119f8dd54a4e6fe4144853fbd50107c760c1ce430a027756755fe762d",
+    "now": "b3831d1363eacd1ba4fa6c03bc033ded0ba997e6b810333ec6cc3e353b5c1f60"
+  },
+  "tools/debug/music_check.gd": {
+    "before": "34c4088461ae5f114fe9560a9bed7757fd295c5f510771c991ba98435ca5e8b6",
+    "now": "7ee142fa2e78a67f78e2dc6b73588a55d4b5d1bf7f7bb1df63fec7ea5e8b4c5c"
+  },
+  ".gitignore": {
+    "before": "ac5772b589c4c3f78ff2476a930b9fde20e2acc9f60e736aaed9137e3f6f2b09",
+    "now": "3dd4696086be44fc8f10860a8312840e35c19d089f66bf9486d29c1a501c37f7"
+  }
+}

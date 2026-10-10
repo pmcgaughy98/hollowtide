@@ -1,0 +1,44 @@
+{
+  "installed_exact": [
+    "scripts/town/landmark_exteriors.gd",
+    "scripts/town/building_exteriors.gd",
+    "scripts/town/job_board_painter.gd",
+    "docs/AI_COLLABORATION.md"
+  ],
+  "guarded_baseline_files": 10265,
+  "protected_exact": 10257,
+  "concurrent_changes_preserved": [
+    {
+      "path": "scripts/dungeon/dungeon.gd",
+      "before": "3e1639efe7dab02bde0007b7c9571db38aa1fefe8ddd4afbb2c8fd41a0aca4dd",
+      "current": "ac692ca0901a53c8bb05646538ef7f14d00e1279f91563233293e83c802b710e",
+      "preserved": "No task write targets this path; current concurrent version retained."
+    },
+    {
+      "path": "assets/sprites/ui/dialogue/whinet_angry.png",
+      "before": "03733d18a44052d174c02407320e5deca7b76be36cde27392fa865439827bf39",
+      "current": "461ec65bb53fe4bac2655b932a955035d9ae34049bfa58ac5e28d3d4c10e0c89",
+      "preserved": "No task write targets this path; current concurrent version retained."
+    },
+    {
+      "path": "assets/sprites/ui/dialogue/whinet_determined.png",
+      "before": "823b23776b94436b8999e17f6d27b31988cd1a4c92f126e04bf7313a20819584",
+      "current": "8094c869668876494bb30abdb4b28854c3393c478b465a95ec86b1eddbac3e09",
+      "preserved": "No task write targets this path; current concurrent version retained."
+    },
+    {
+      "path": "assets/sprites/ui/dialogue/whinet_sad.png",
+      "before": "d9574e6739759b9ca4f8cd1447271eedfb31329c3d105993b55440a2b24bccce",
+      "current": "ca72db75bed64662fe15270381245fa7a2d9bce5c2d1e4595c1457e7fe169ed6",
+      "preserved": "No task write targets this path; current concurrent version retained."
+    },
+    {
+      "path": "tools/ui/fix_whinet_legs.py",
+      "before": "058264e8fe481eebeace2a37f065e8c6dcaef0ede7a611ea18dea2896067be53",
+      "current": "3c186ee0b378f8399e158419ba0367b206bc1e3e949031f1b19d748c0e8ef319",
+      "preserved": "No task write targets this path; current concurrent version retained."
+    }
+  ],
+  "original_asset_files_exact": 9710,
+  "prior_collaboration_body_exact": true
+}

@@ -4,7 +4,7 @@ extends RefCounted
 ## prologue starts it, the town hands it to a run, the run hands it back on a clear or a faint.
 ## Saving it to disk is the save system's job, later.
 
-const KEYS := ["party", "roster", "bag", "taught", "growth", "iq", "levels", "cleared", "faints", "tactic"]
+const KEYS := ["party", "roster", "bag", "taught", "growth", "iq", "levels", "pending_learn", "cleared", "faints", "tactic", "jobs", "rank", "beaten"]
 
 static var data := {}
 

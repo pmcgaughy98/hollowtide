@@ -1,0 +1,32 @@
+[
+  {
+    "path": "assets/sprites/world/job_board_2026_10_10/board_native.png",
+    "before": null,
+    "after": "106af66b7082c172cb347dd296855064fa63e5ca89b3bfb3c40e8452b416440c",
+    "source": "D:\\dev\\hollowtide-job-board-20261010\\candidate\\assets\\sprites\\world\\job_board_2026_10_10\\board_native.png"
+  },
+  {
+    "path": "scripts/town/building_exteriors.gd",
+    "before": "b9087061aa65b3ab6fc6a5eb9d50f2e8468b4fe73d8b63fa53ed7f277cff70fc",
+    "after": "b354c69d647d4de103f1fe4b7476b220636d05371b74c389e25c6554b9df1f4a",
+    "source": "D:\\dev\\hollowtide-job-board-20261010\\candidate\\scripts\\town\\building_exteriors.gd"
+  },
+  {
+    "path": "scripts/town/highbank_ground_painter.gd",
+    "before": "70f1fe3dc9b0c16bc19f2bad27716357d4f2349fcffb9067509825d1317afdb8",
+    "after": "763206906fb60fba772f238de15f856771fe6a3f0ec875c5781ff3dc393de209",
+    "source": "D:\\dev\\hollowtide-job-board-20261010\\candidate\\scripts\\town\\highbank_ground_painter.gd"
+  },
+  {
+    "path": "scripts/town/job_board_painter.gd",
+    "before": null,
+    "after": "c69b0743daa657ffcc99a2bfe014b82f4ac01d4c5f264360d132b8eec7bf7ee9",
+    "source": "D:\\dev\\hollowtide-job-board-20261010\\candidate\\scripts\\town\\job_board_painter.gd"
+  },
+  {
+    "path": "docs/AI_COLLABORATION.md",
+    "before": "391de4d4783020e354dcbc35b3050c31211fbf4eed4f044bc65c9b3ff2d11411",
+    "after": "6f1d3f96f74e7af2990f356e48eb726a42a0ad44da49004b24e6f5c042b9a35d",
+    "source": "D:\\dev\\hollowtide-job-board-20261010\\candidate\\docs\\AI_COLLABORATION.md"
+  }
+]

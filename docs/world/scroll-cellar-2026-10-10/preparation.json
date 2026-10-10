@@ -1,0 +1,21 @@
+{
+  "crop": [
+    0,
+    8,
+    1342,
+    1145
+  ],
+  "native_size": [
+    132,
+    112
+  ],
+  "offset": [
+    4,
+    0
+  ],
+  "canvas": [
+    144,
+    120
+  ],
+  "method": "transparent padding crop, uniform nearest resize only"
+}

@@ -1,0 +1,39 @@
+{
+  "installed_files": [
+    {
+      "path": "scripts/town/building_exteriors.gd",
+      "before": "9deb4395f8310eb13fea8e939e5d6f634568ff664e9e6b905a99b4ea39fd2c79",
+      "after": "56a2085252592e7bae6115e776f0ac3b92e108df85dfbf55dc62b5e30ebd69f9",
+      "source": "D:\\dev\\hollowtide-hall-finish-20261010\\candidate\\scripts\\town\\building_exteriors.gd"
+    },
+    {
+      "path": "scripts/town/wayline_hall_painter.gd",
+      "before": "512748492b880dad3f94d87d3ec48408ad481a261e261d0d244c5c80ce276501",
+      "after": "34fe7aa0632a17df8671f831186572aa032cbdcac6689f4decaa63e2e10cf6ed",
+      "source": "D:\\dev\\hollowtide-hall-finish-20261010\\candidate\\scripts\\town\\wayline_hall_painter.gd"
+    },
+    {
+      "path": "docs/AI_COLLABORATION.md",
+      "before": "e46c0324c573c8fffde1318e56a03c936b3bcaea435de57747c18a078bafc104",
+      "after": "baca79a057bc9376fab7fa9343ffc52c8f84691c0b6946cd993d6715a252756c",
+      "source": "D:\\dev\\hollowtide-hall-finish-20261010\\candidate\\docs\\AI_COLLABORATION.md"
+    }
+  ],
+  "protected_exact_since_preinstall": 9256,
+  "concurrent_edits_retained": {},
+  "concurrent_before_install_retained": {
+    "scripts/ui/party_screen.gd": {
+      "before": "8801022a94a324cd66d9b33a1f31b5b3435bad600b17446ee4abef873ce7853f",
+      "now": "5a05c8dcf7288aef999e637fb38276a898407548852dd43ce43e49ab78c17c63"
+    },
+    "tools/debug/ui_tour_capture.gd": {
+      "before": "bed86722b1e2d213626d12ee6e848ae6731f42acfcc7ff3ae9e2e202887429ca",
+      "now": "316da2ae88a1b26d841c95c5af17d114b51400eaabcb02d2936f45a13d8d7700"
+    }
+  },
+  "new_unowned_files_retained": [
+    "scripts/ui/creature_idle.gd"
+  ],
+  "problems": [],
+  "original_art_and_creatures_unchanged": true
+}

@@ -56,6 +56,8 @@ These are enforced, not just written down. `CreatureRoster.validate_evolutions()
 
 ## THE SIX ESSENCES
 
+> **2026-10-10, Preston:** four more essences, for twelve: Sinew, Loam, Murk and Blight (`docs/creatures/essence-expansion-proposal-2026-10-10.md`). The Tallowroot line is Bloom/Loam (Rampartroot leaves Stone), the Rimefin line Tide/Murk (Scourmaw leaves Hollow), the Punchybun line Sinew (Sinew/Electric from stage II). The Quietwater Warden, Tide/Hollow, is the first boss. Their matchups are Grok's; until he sets them the four are neutral.
+
 > **2026-10-01, Preston:** Electric and Ice are added as essences seven and eight. They are in the game's essence list; their matchups are a proposal in `docs/creatures/electric-ice-essences-2026-10-01.md` until he approves them.
 
 Type count research: ten to eighteen is the workable range. Fewer is boring, twenty-five-plus becomes opaque. Six primaries with dual-typing on later stages lands inside that.
@@ -67,7 +69,11 @@ Type count research: ten to eighteen is the workable range. Fewer is boring, twe
 | **Stone** | mass, endurance, structure |
 | **Gale** | speed, dispersal, evasion |
 | **Bloom** | growth, recovery, spread |
-| **Hollow** | absence, decay, entropy |
+| **Hollow** | absence, entropy (decay moved to Blight, 2026-10-10) |
+| **Sinew** | the body as the weapon: muscle, impact, grapples (added 2026-10-10) |
+| **Loam** | the ground that moves: soil, burrowing, tremors (added 2026-10-10) |
+| **Murk** | the deep and the dark: ambush, predators below the surface (added 2026-10-10) |
+| **Blight** | rot, venom, spores (added 2026-10-10) |
 
 **Three or four lines per essence in the current 20-line draft.** Ember, Tide, Gale, and Hollow have three each; Stone and Bloom have four each.
 

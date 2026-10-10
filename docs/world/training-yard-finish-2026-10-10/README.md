@@ -1,0 +1,15 @@
+# Training Yard finish
+
+Preston requested Training Yard next. Original proposal: an open-air packed-earth sparring ring with two practice positions, woven pads, low limestone/root/moss edging and a north entrance. Uses the existing town art family and shared selective-outline detail preset, including black stone/root/ring contours. A small original target sign brightens in three states with the current Yard service, replacing its floating name plaque through the existing finished-exterior hook.
+
+Exact layout preserved: (912,288), 168x120, activation tile (41,12). All 35 area tiles remain open. The yard is a low-relief sprite below creatures, with ground-coloured contact shadow and a worn north approach. Existing arena description, E/J/Enter and door sound stay in the town controller. This is visual presentation; the town's Yard still shows its description rather than launching a new arena flow.
+
+One built-in imagegen generation with the original Growth Shrine as style reference, zero Retro calls. sources/yard_original.png is the unmodified generated source. Exact prompt: prompts/exact-built-in-prompt.txt. Padding crop and uniform nearest scaling only, recorded in preparation.json; no pixel painting, palette replacement or assembled architectural fragments. Final runtime image: assets/sprites/world/training_yard_2026_10_10/yard_native.png.
+
+27 native Yard checks pass: real movement/input, original footprint and entry, all tiles open, source transparency, exact five prior foundation/sign drawings and all fifteen entrance frames, all ground outside Yard/north approach exact, three response states and actual shader ink (823 -> 2599 dark interior pixels). Native 1152x648 captures in review/ show exterior, sign and existing service. External capture framing does not change the production camera.
+
+Physically missing new PNG or painter restores exact old ground and retains six finished exteriors plus the Yard interaction. Required hub_town_check and hall_door_check pass. Review Godot retains the pre-existing root-certificate diagnostic; headless editor import retains the stale audio UID / empty-resource-path diagnostics. No production lifecycle or service-system fixes claimed.
+
+Runtime scope: new PNG, new training_yard_painter.gd, optional Yard-only hooks in building_exteriors.gd and highbank_ground_painter.gd. Layout, controller, state, title, shader, shrine, Scroll Keeper hatch, creature source art/palette locks/backups and Claude's concurrent code preserved. No settings edit or commit. Original snapshots, exact prompts, checks/logs, guarded installation manifest and installation.json preservation audit are archived here.
+
+Installed live result: all 27 native checks passed with no runtime errors or warnings. Godot import completed, retaining the known editor diagnostics above. Preservation audit records 9,562 unowned files exact to the preinstall snapshot, all original asset hashes exact, five installed files matching their guarded manifest, and Claude's concurrent soul_prologue.gd float type annotation retained.

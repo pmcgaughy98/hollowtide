@@ -1,0 +1,57 @@
+[
+  {
+    "path": "scripts/art/selout.gd",
+    "before": null,
+    "after": "ffa21a48d8629493248c98e2b4f2a130bd28bd9d0a97f849b2e8eff9e6919208"
+  },
+  {
+    "path": "scripts/art/selout_rim.gdshaderinc",
+    "before": null,
+    "after": "db78d4726a3c259abb683658e508a2ab1ff8c50012350db29083cd8fe6d74017"
+  },
+  {
+    "path": "scripts/town/exterior_finish.gd",
+    "before": null,
+    "after": "e1ff102fab1604b30badb30edb1a4e36693faa6807de2455b201bfddd68f1629"
+  },
+  {
+    "path": "scripts/town/exterior_finish.gdshader",
+    "before": null,
+    "after": "91521e1cf908af31a25191ed26005d0ed72766fdaa47361bbf11a684582ef491"
+  },
+  {
+    "path": "scripts/arena/sel_out.gdshaderinc",
+    "before": "318523a842c38ff1469e55815c6b9a3ba7fc3a65ca87d93694f70b3d6ba63def",
+    "after": "2959d4cfc2b32db588c56b3701aabb2556b1c01789a423490bb33d8967a3a781"
+  },
+  {
+    "path": "scripts/town/building_exteriors.gd",
+    "before": "45f495cc7df5f4237ba913bc49bdce202d96c65c6d12991276ad1f0cd354df76",
+    "after": "0198d30d2a0c862f49cab4395ac834396c5f7437fcf06bd01e571c7e1e3f7189"
+  },
+  {
+    "path": "scripts/town/growth_shrine_painter.gd",
+    "before": "79b97bbbfbd41d03b939ecaf1dc30fb24e9e77917180ab14eab06e9d087a0e28",
+    "after": "49f75f2a2ff054126af5978d0b13b149044bbe12a18ced9cf2857786c2cf5da9"
+  },
+  {
+    "path": "scripts/town/hollow_mouth_painter.gd",
+    "before": "259cfb9d61f8236d9f8ce019646300f8de594bd0268e9869febf157f4511cfd4",
+    "after": "052ff89ec5927537e3438337222660181fe8e82a5f9ff69634a329188dcc4943"
+  },
+  {
+    "path": "scripts/town/job_board_painter.gd",
+    "before": "81ee2f9c0f7486489ed75326e53c62ce41380b7cfe196324b3dacc44c6712b67",
+    "after": "2dc4c77e76b7cfdfb606aa0ff5a7fdf2256144fd7d35344b9cb25ebe55948b64"
+  },
+  {
+    "path": "scripts/town/training_yard_painter.gd",
+    "before": "24d94641c5e430941f3d725c240efadfcc3c0bc6cde60ffafba7290fa28f649e",
+    "after": "2751649fe8cf8d22f99a0f43a43e58e4e1c79c5889c269841d935d1575d73db3"
+  },
+  {
+    "path": "docs/AI_COLLABORATION.md",
+    "before": "ec7c9089725e193c3b905fa6631818027a5f639bf60f01ecd51cb5d3a5172553",
+    "after": "4f6525a482d03f5b40c3062f3db55d7bbcb3e63b328974d1193dd0d5f67ce463"
+  }
+]

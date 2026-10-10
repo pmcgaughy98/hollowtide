@@ -1,0 +1,38 @@
+[
+  {
+    "path": "assets/sprites/world/hollow_mouth_2026_10_10/mouth_native.png",
+    "before": null,
+    "after": "54ac3c1515526703433c1eb16d0446f96c6dba3deb21a60bdcd151514ea17fd2",
+    "source": "D:\\dev\\hollowtide-hollow-mouth-20261010\\candidate\\assets\\sprites\\world\\hollow_mouth_2026_10_10\\mouth_native.png"
+  },
+  {
+    "path": "scripts/town/building_exteriors.gd",
+    "before": "a30ea6df5e6f02960c6944b8965970da36b0c6abb8c7cd3d055a0d5b78f9e5f9",
+    "after": "45f495cc7df5f4237ba913bc49bdce202d96c65c6d12991276ad1f0cd354df76",
+    "source": "D:\\dev\\hollowtide-hollow-mouth-20261010\\candidate\\scripts\\town\\building_exteriors.gd"
+  },
+  {
+    "path": "scripts/town/highbank_ground_painter.gd",
+    "before": "ec8945a53f8ec8e77d371356add2925b59bf97c6147975af48f4d8c56c54b937",
+    "after": "85f24a20fc1a5d0b0e4b3d4211b150de2be0cb0fcf8a68288d232dfcd5780082",
+    "source": "D:\\dev\\hollowtide-hollow-mouth-20261010\\candidate\\scripts\\town\\highbank_ground_painter.gd"
+  },
+  {
+    "path": "scripts/town/hollow_mouth_painter.gd",
+    "before": null,
+    "after": "259cfb9d61f8236d9f8ce019646300f8de594bd0268e9869febf157f4511cfd4",
+    "source": "D:\\dev\\hollowtide-hollow-mouth-20261010\\candidate\\scripts\\town\\hollow_mouth_painter.gd"
+  },
+  {
+    "path": "scripts/town/hub_town.gd",
+    "before": "852ab43b255ebd354c84c5c3e12ee1433f2f03ed186010a2234746ef36a61c48",
+    "after": "ae987238d43b2046e66b14a791c73632552f34d31d0cdb46442529c95b5ce7e6",
+    "source": "D:\\dev\\hollowtide-hollow-mouth-20261010\\candidate\\scripts\\town\\hub_town.gd"
+  },
+  {
+    "path": "docs/AI_COLLABORATION.md",
+    "before": "4589ccd6fca96f5cc3287394f417728ff46121f6ce6be8c69a2f66b4d0270de1",
+    "after": "a68f17aa96de899bed88c34b92ea1ace52ea21f20ea7051bd4d7c35e50d73738",
+    "source": "D:\\dev\\hollowtide-hollow-mouth-20261010\\candidate\\docs\\AI_COLLABORATION.md"
+  }
+]

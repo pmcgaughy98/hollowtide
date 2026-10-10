@@ -1,0 +1,106 @@
+{
+  "installed_files": [
+    {
+      "path": "assets/sprites/world/storage_2026_10_10/storage_native.png",
+      "before": null,
+      "after": "97eeca898543528fdacf7e04349ea3b5ffd83b4c609aaf63bd65076b526a071e",
+      "source": "D:\\dev\\hollowtide-storage-finish-20261010\\candidate\\assets\\sprites\\world\\storage_2026_10_10\\storage_native.png"
+    },
+    {
+      "path": "scripts/town/building_exteriors.gd",
+      "before": "56a2085252592e7bae6115e776f0ac3b92e108df85dfbf55dc62b5e30ebd69f9",
+      "after": "87a00ae0f440b41bb19c3d76510af48bef939d4835d58aa257f0e2164fab872b",
+      "source": "D:\\dev\\hollowtide-storage-finish-20261010\\candidate\\scripts\\town\\building_exteriors.gd"
+    },
+    {
+      "path": "scripts/town/highbank_ground_painter.gd",
+      "before": "79b1d4446b0be6dcb00c9a2fb55aea93bba4be53d8759e5587aa39095d688631",
+      "after": "a8fbae8161a059de2da2d544c66bb771f89e2116b66fd63c067d7d44686fae73",
+      "source": "D:\\dev\\hollowtide-storage-finish-20261010\\candidate\\scripts\\town\\highbank_ground_painter.gd"
+    },
+    {
+      "path": "scripts/town/storage_painter.gd",
+      "before": null,
+      "after": "7ab337ac30ac19184e63e7d7f2ecbeb700d28d70ba4da96af60577a342272ddd",
+      "source": "D:\\dev\\hollowtide-storage-finish-20261010\\candidate\\scripts\\town\\storage_painter.gd"
+    },
+    {
+      "path": "docs/AI_COLLABORATION.md",
+      "before": "baca79a057bc9376fab7fa9343ffc52c8f84691c0b6946cd993d6715a252756c",
+      "after": "6596c5e4f2531bffa5276d35d728dd014912bdfeffc781b84a71cd2cb9bdf8d8",
+      "source": "D:\\dev\\hollowtide-storage-finish-20261010\\candidate\\docs\\AI_COLLABORATION.md"
+    }
+  ],
+  "protected_exact_since_preinstall": 9257,
+  "concurrent_edits_retained": {},
+  "concurrent_before_install_retained": {
+    "scripts/creature_data.gd": {
+      "before": "6fb0a1ff160403213c17120315513b316d61528b5e51445ff4724d14f440818e",
+      "now": "cc1cfed6ab6bb457637fb7f6d24c3c77aca77a0f7bdafa15f0e120650c112b29"
+    },
+    "scripts/arena/arena_prototype.gd": {
+      "before": "4c9d9081610addce4b517eb337b9aeb3ab7c1c0ad89337168690aa08eba9264f",
+      "now": "b1f6b09272a9ad0edb8e2e589668cf73ef23456ce68e206cde14a9907bc80f58"
+    },
+    "scripts/dungeon/dungeon.gd": {
+      "before": "74cb9cd26397d0cf530359c5e018339f1b88d2f3e8dee194ef60ba26af79460c",
+      "now": "2289f893cabc28163c547203043f90724c27efe64ecd98a0ddef560760a2d3f6"
+    },
+    "scripts/ui/creature_idle.gd": {
+      "before": "155f18a9b911e104471f4758e93c710498fe145ba2953683df9d848906d689e0",
+      "now": "585729b1fb95221aaa1ecc14dbbde86d5c5afce0bd88460216e2b68ebec2c110"
+    },
+    "data/creatures/001_rimefin.tres": {
+      "before": "5464724583e9b0044f4078b10c83c3db5865003899097795cfcd4d91cc41b3cc",
+      "now": "4cd057f654a598578398b3a37d8aeb8ecf9943bc7322b9bf6e11a4eb79bbe1b4"
+    },
+    "data/creatures/1701_tallowroot.tres": {
+      "before": "6e50a2a4248150a03b85991c429ab2caa4d223be7ec7a89726197ab270f57205",
+      "now": "8bdbd200a61d61e9ea27d8571730e71ecc8587544b91426e804e568b86b114b4"
+    },
+    "data/creatures/1702_tallowroot2.tres": {
+      "before": "1234e707f39bc7a6ecc96d9b1b5b5232cbc788c7ed4d7afb45a2b5c542ae5516",
+      "now": "9b3c0bda68c54b591af56462034bdb1318c3369670de1b5fffe5f259494e472e"
+    },
+    "data/creatures/1703_tallowroot3.tres": {
+      "before": "50e902b4ee3758f35363956955a6e02dcae337d8598ac788d569b7a8b4f14e46",
+      "now": "4c12485b697b61d5b06d3be37fd520e15a2a024f9b981bfd339b7c43f5ac4348"
+    },
+    "data/creatures/2101_punchybun.tres": {
+      "before": "53c4c9591903e0330482ff1f643609912f9e61d47774f96e3fbd748e82681982",
+      "now": "7951a86ae6325c10fb2fa691ffc7ce3b882d56d2a01f759c3572a1cee582a758"
+    },
+    "data/creatures/2102_sparkjab.tres": {
+      "before": "e7ee904f03a5b013268a42ed950047a220fde38091948530679110528b3dca5b",
+      "now": "b7232dc41f8e6588baead3340f52f56ed1eca99854d0db3c57e3f08334c0ddc3"
+    },
+    "data/creatures/2103_starward.tres": {
+      "before": "16c868b097312ff4bf6567955445c0a47c6b2ea6eced6900f1e1e4be09f61d91",
+      "now": "9da8521b2cffe3b7016ddcea1d562c6b3b45d1adff88043e54780858653746e0"
+    },
+    "data/creatures/502_riftfin.tres": {
+      "before": "5a90f6c9e9bd76ed6d9f798c299a97b6217c163453253c11d08bb6b6062a7bcb",
+      "now": "a6de2b46a14e26143e416d70f6a11134ad5692b0d013f9cee09b4ae2259a9a8c"
+    },
+    "data/creatures/503_scourmaw.tres": {
+      "before": "6184699872680afdb6ee415b28b4a4f57b4fef15e7cc1bc0bb8d00074190aa82",
+      "now": "8e9d75b781bf5ad0c10f0dc9d2082e63040582700332dcd768d8c55b50f60284"
+    },
+    "tools/debug/ui_tour_capture.gd": {
+      "before": "316da2ae88a1b26d841c95c5af17d114b51400eaabcb02d2936f45a13d8d7700",
+      "now": "78d7fe26849c843c4710d9d2d9d307e513f1f76b4074dfe20a56bcb6a3717ad5"
+    },
+    "tools/ui/build_icons.py": {
+      "before": "f5c3ac6203910c0b5198bf911942109c98442f1d1356c5186db618cfec637842",
+      "now": "41a824f748836eac9ce4dc4b08151efea959018c697a81ec54a400c3a4797350"
+    }
+  },
+  "new_unowned_files_retained": [
+    "assets/sprites/ui/essence/blight.png",
+    "assets/sprites/ui/essence/loam.png",
+    "assets/sprites/ui/essence/murk.png",
+    "assets/sprites/ui/essence/sinew.png"
+  ],
+  "problems": [],
+  "original_art_and_creatures_unchanged": true
+}

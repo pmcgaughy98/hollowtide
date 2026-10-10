@@ -1,0 +1,45 @@
+{
+  "protected_exact": 11212,
+  "original_art_source_exact": 10685,
+  "owned_installed_exact": 8,
+  "concurrent_preserved": {
+    "scripts/town/hub_town.gd": {
+      "baseline": "74b7ba5b5a6fdea045287842d04c63e23b5179d7f56a5380a311fee661cebf9a",
+      "current": "4de6facd2f9aed46236432332ad1ff404769aca04b1daed611a01f1f024da083"
+    },
+    "assets/sprites/ui/dialogue/kithflare_angry.png": {
+      "baseline": "0acdd1abaceaa9d4ce40208c870ef0889715f9660df7ca5df99b765928c7326f",
+      "current": "d7be7233a9e5e37f8ca7e80de9b189f5a6e4b808726487d2b273534461206b94"
+    },
+    "assets/sprites/ui/dialogue/kithflare_determined.png": {
+      "baseline": "43f248c6dd67c4be2423680711d59b4cd48abce9219b319ef9d8f954355a0811",
+      "current": "5f6b3dc89a8665cf691933fd95f94e843498df999a682835ae6fa0d2af1526ba"
+    },
+    "assets/sprites/ui/dialogue/kithflare_joyous.png": {
+      "baseline": "8ec0a3a045fd3ac0a27ee708d85724518a0014f35c3a4a5016b7a7e277884373",
+      "current": "86bf12d42efa1c18fd23a27f19c2e3e2f5fbb21072d43a3fde7da253d6186879"
+    },
+    "assets/sprites/ui/dialogue/kithflare_sad.png": {
+      "baseline": "3d77a893c3cc1672533090db4edb60fc22dde01481e70e8c58ba62f9b06817f1",
+      "current": "99c9c1d20edaa65c242fdad60927b337b4135361e527652ca90add6dba65e56a"
+    },
+    "assets/sprites/ui/dialogue/kithflare_surprised.png": {
+      "baseline": "e695de95d0b61f1fe2621acb1f7bb335edc26b60f1b6b45407f6e8640c1a2244",
+      "current": "9d847acb466953e5acb7936a6e4cb32653cf5534bccbc3927cb0a65d8b5ebbed"
+    },
+    "assets/sprites/ui/dialogue/kithflare_worried.png": {
+      "baseline": "de5be427ed3946b5e10252899ee5415718a9d58889a1d69e2e7e87b3572c86db",
+      "current": "dbb0599161f81c2186cd6de72ae7e0a64aac478fadbcfb55686b5446fc8b1052"
+    },
+    "tools/debug/dungeons_check.gd": {
+      "baseline": "1d3900950567ce541b497702be0953a99f4fa468d9bbf84caddf9d93f713c745",
+      "current": "8e9976183b396c88ccc075605f2840318a4430af2abbfb5b45b3c9e0e92fdd94"
+    },
+    "tools/ui/rd_expressions.py": {
+      "baseline": "aae213a348421c73c6e6e52188b73a9b48efe0160ed4133411f899a2020aa286",
+      "current": "6bb5e4022a9532f2493c77c79d2f7e8ed74188a1999baf520d7592e0d815c1ef"
+    }
+  },
+  "source_png_changes_by_this_task": 0,
+  "note_prior_content_retained": true
+}

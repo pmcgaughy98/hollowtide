@@ -1,0 +1,22 @@
+--- current-live/scripts/ui/ui_style.gd
++++ finish/scripts/ui/ui_style.gd
+@@ -71,12 +71,17 @@
+ 	c.draw_style_box(frame("portrait"), r.grow(15.0))
+ 	if face != "":
+ 		_face_bg(c, r, face)
++	var crew_layer := c.get_node_or_null("CrewPortraitFinish")
++	var crew_finished := tex != null and crew_layer != null and preload("res://scripts/arena/creature_finish.gd").crew_detail(tex.resource_path) > 0.0
+ 	if tex != null:
+ 		var dst := r
+ 		if flip:
+ 			dst = Rect2(r.position + Vector2(r.size.x, 0), Vector2(-r.size.x, r.size.y))
+-		c.draw_texture_rect(tex, dst, false)
+-	if face != "":
++		if crew_finished:
++			crew_layer.paint(tex, dst, face, r)
++		else:
++			c.draw_texture_rect(tex, dst, false)
++	if face != "" and not crew_finished:
+ 		_face_mark(c, r, face)
+ 
+ 

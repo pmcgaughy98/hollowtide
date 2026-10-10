@@ -1,0 +1,151 @@
+diff --git "a/D:\\dev\\hollowtide-world-refinement-20261008\\project\\scripts\\dungeon\\dungeon.gd" "b/C:\\Users\\pmcga\\dev\\hollowtide\\scripts\\dungeon\\dungeon.gd"
+index 2878188..e92e8a8 100644
+--- "a/D:\\dev\\hollowtide-world-refinement-20261008\\project\\scripts\\dungeon\\dungeon.gd"
++++ "b/C:\\Users\\pmcga\\dev\\hollowtide\\scripts\\dungeon\\dungeon.gd"
+@@ -21,6 +21,7 @@ const Gen := preload("res://scripts/hollow/hollow_gen.gd")
+ const Painter := preload("res://scripts/dungeon/floor_painter.gd")
+ const MoveBody := preload("res://scripts/moves/move_body.gd")
+ const TeamState := preload("res://scripts/town/team_state.gd")
++const Jobs := preload("res://scripts/town/jobs.gd")
+ const Music := preload("res://scripts/audio/music.gd")
+ const TOWN_SCENE := "res://scenes/hub_town.tscn"
+ const FONT := preload("res://assets/fonts/Silkscreen-Bold.ttf")
+@@ -303,6 +304,9 @@ var boss_met := false
+ var _banner := {"text": "", "sub": "", "at": -100000, "col": Color.WHITE}
+ var rest_floor := 0                       # a quiet fixed floor partway through a long dungeon; 0 = none
+ var talk: Array = []                      # dialogue lines still to show, [speaker, text]
++var jobs: Array = []                      # the Job Board requests the team carries (scripts/town/jobs.gd)
++var rank := 0                             # Courier Rank points; only the board changes them, the run carries them
++var clients: Array = []                   # this floor's job clients waiting in a room: {id, pos, node}
+ var _finishing := false
+ var visible_tiles := {}                   # tiles the leader can see this turn
+ var dodged := 0                           # wind-ups that landed on nobody (for the checks)
+@@ -543,6 +547,91 @@ func _stock_floor(rng: RandomNumberGenerator) -> void:
+ 			taken[q] = true
+ 			floor_items.append({"pos": q, "kind": kinds[rng.randi_range(0, kinds.size() - 1)]})
+ 			bait += 1
++	_place_jobs(rng, taken)
++
++
++## The Job Board's requests for this floor (scripts/town/jobs.gd): a lost client waits in a room away
++## from the start, or the item a client lost lies there. Reaching it finishes the job.
++func _place_jobs(rng: RandomNumberGenerator, taken: Dictionary) -> void:
++	for c in clients:
++		c["node"].queue_free()
++	clients.clear()
++	if floor_kind() != "normal":
++		return
++	var rooms: Array = data["rooms"]
++	for j in jobs:
++		if j.get("done", false) or int(j["floor"]) != floor_n:
++			continue
++		for tries in 80:
++			var room: Rect2i = rooms[rng.randi_range(0, rooms.size() - 1)]
++			if rooms.size() > 1 and room.grow(1).has_point(data["start"]):
++				continue
++			if monster_room.has_point(room.position):
++				continue
++			var p := Vector2i(rng.randi_range(room.position.x, room.end.x - 1), rng.randi_range(room.position.y, room.end.y - 1))
++			if taken.has(p) or not _floor_at(p) or _occupant(p) >= 0 or _by_opening(p, room):
++				continue
++			taken[p] = true
++			if j["kind"] == "lost_item":
++				floor_items.append({"pos": p, "kind": j["item"], "job": j["id"]})
++			else:
++				clients.append({"id": j["id"], "pos": p, "node": _client_node(j, p)})
++			break
++
++
++## A waiting client: its dungeon sprite with the creature finish and a shadow, facing the camera.
++func _client_node(j: Dictionary, p: Vector2i) -> Node2D:
++	var node := Node2D.new()
++	_world.add_child(node)
++	var shadow := Polygon2D.new()
++	var pts := PackedVector2Array()
++	for k in 12:
++		pts.append(Vector2(cos(k * TAU / 12.0) * 8.0, sin(k * TAU / 12.0) * 3.0))
++	shadow.polygon = pts
++	shadow.color = Color(0, 0, 0, 0.3)
++	node.add_child(shadow)
++	var sprite := Sprite2D.new()
++	sprite.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
++	node.add_child(sprite)
++	preload("res://scripts/arena/creature_finish.gd").apply(sprite)
++	var art := _load_art(Jobs.client_form(j))
++	var tex: Texture2D = art["still"]["s"]
++	sprite.texture = tex
++	sprite.offset = Vector2(0, tex.get_height() * 0.5 - art["foot"].get(tex, float(tex.get_height())))
++	node.position = _tile_px(p)
++	node.z_index = int(node.position.y)
++	return node
++
++
++func _client_at(p: Vector2i) -> int:
++	for k in clients.size():
++		if clients[k]["pos"] == p:
++			return k
++	return -1
++
++
++func _job(id: String) -> Dictionary:
++	for j in jobs:
++		if j["id"] == id:
++			return j
++	return {}
++
++
++## Walking into a waiting client: it thanks the team (the scene box, with its portrait when it has
++## one) and goes home to Highbank; the job is done and is paid at the board.
++func _meet_client(k: int) -> void:
++	var c: Dictionary = clients[k]
++	var j := _job(c["id"])
++	j["done"] = true
++	clients.remove_at(k)
++	var who := Jobs.client_name(j)
++	_say("Found %s! Job done; the reward waits at the Job Board." % who)
++	_sfx("recruit_rise", -4.0)
++	talk.append([who, "You came all this way for me? Thank you. I can find the way up to Highbank from here.", Jobs.client_form(j)])
++	var tw := create_tween()
++	tw.tween_interval(0.2)
++	tw.tween_property(c["node"], "modulate:a", 0.0, 0.6)
++	tw.tween_callback(c["node"].queue_free)
+ 
+ 
+ func _floor_at(p: Vector2i) -> bool:
+@@ -559,7 +648,7 @@ func _occupant(p: Vector2i) -> int:
+ ## A step from `from` in `d` is possible: open floor, and a diagonal may not cut a wall corner.
+ func can_step(from: Vector2i, d: Vector2i) -> bool:
+ 	var to := from + d
+-	if not _floor_at(to):
++	if not _floor_at(to) or _client_at(to) >= 0:
+ 		return false
+ 	if d.x != 0 and d.y != 0 and (not _floor_at(from + Vector2i(d.x, 0)) or not _floor_at(from + Vector2i(0, d.y))):
+ 		return false
+@@ -1256,6 +1345,12 @@ func act_move(d: Vector2i) -> void:
+ 		_sfx("snare_struggle", -4.0)
+ 		await _player_turn(func() -> bool: return true)
+ 		return
++	var ci := _client_at(lead["pos"] + d)
++	if ci >= 0:
++		lead["facing"] = _facing_of(d)
++		_set_tex(lead, lead["art"]["still"][lead["facing"]])
++		_meet_client(ci)
++		return
+ 	if not can_step(lead["pos"], d):
+ 		lead["facing"] = _facing_of(d)
+ 		_set_tex(lead, lead["art"]["still"][lead["facing"]])
+@@ -2557,6 +2652,14 @@ func _pick_up() -> void:
+ 		var it: Dictionary = floor_items[k]
+ 		if it["pos"] != lead["pos"]:
+ 			continue
++		if it.has("job"):
++			var j := _job(String(it["job"]))
++			floor_items.remove_at(k)
++			if not j.is_empty():
++				j["done"] = true
++				_say("Recovered %s's %s! Job done; the reward waits at the Job Board." % [Jobs.client_name(j), item_info(it["kind"])["name"]])
++			_sfx("pickup", -6.0)
++			continue
+ 		if not bag.has(it["kind"]) and bag.size() >= BAG_KINDS:
+ 			_say("The bag is full; the %s stays on the floor." % item_info(it["kind"])["name"])
+ 			_sfx("denied", -6.0)

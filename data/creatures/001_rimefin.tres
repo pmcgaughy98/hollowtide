@@ -25,10 +25,10 @@
 [resource]
 script = ExtResource("1_script")
 id = 1
-creature_name = "Rimefin"
 essence = 1
 has_second_essence = true
-second_essence = 5
+second_essence = 10
+creature_name = "Rimefin"
 sprite = ExtResource("2_sprite")
 back_sprite = ExtResource("rd_back")
 description = "Catfish redesign (Preston 2026-10-05: Missouri River catfish, not a shark like Coromon's starter). Retro Diffusion art in docs/creatures/starter-lines-rd-2026-10-05/starter_poses."

@@ -1,0 +1,26 @@
+{
+  "scripts/soul_prologue.gd": {
+    "sha256": "46159597ca812bbc27e8834417ed637111468c9db8dadaf26f4d9df9400adf55",
+    "reason": "Concurrent Claude UI/dialogue refinement retained; exact snapshot/diff archived and inspected before final audit."
+  },
+  "scripts/ui/game_pause_menu.gd": {
+    "sha256": "7b65a3e4036c9913156f25d853ed5dd333a700f111b3ea622185fa3abce0e6d0",
+    "reason": "Concurrent Claude UI/dialogue refinement retained; exact snapshot/diff archived and inspected before final audit."
+  },
+  "tools/ui/build_frames.py": {
+    "sha256": "e575daee04f3b9efd2d82bcf16d131f4ce1ec240ccee880babcd947693d3fe8b",
+    "reason": "Concurrent Claude UI/dialogue refinement retained; exact snapshot/diff archived and inspected before final audit."
+  },
+  "scripts/town/hub_town.gd": {
+    "sha256": "902d1c7b952205926c13cee20ac45308baae168b70ac4a33058a34633c81eeef",
+    "reason": "Inspected concurrent Claude UI padding / textured party frame / flat brass nameplate refinement; unchanged by Board install."
+  },
+  "scripts/ui/party_screen.gd": {
+    "sha256": "956ac01cef09f5f6fd5a50c8bd0d6b4a8ea5027f2a96b2324fee37407e3ce76c",
+    "reason": "Inspected concurrent Claude UI padding / textured party frame / flat brass nameplate refinement; unchanged by Board install."
+  },
+  "assets/sprites/ui/frame/nameplate.png": {
+    "sha256": "9a0325cec7c676ff9793a3148e2280e04db0db82d72678f88dc9d49713923644",
+    "reason": "Inspected concurrent Claude UI padding / textured party frame / flat brass nameplate refinement; unchanged by Board install."
+  }
+}

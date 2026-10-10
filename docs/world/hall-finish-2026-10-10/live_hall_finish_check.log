@@ -1,0 +1,31 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+OpenGL API 3.3.0 NVIDIA 596.49 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce GTX 1660 SUPER
+
+[godot_ai game_helper] registered mcp capture (debugger active=false, logger=true)
+PASS all ground outside Hall plus two-pixel contact band unchanged
+PASS existing two-tile steps retain their pixels below the contact band
+PASS home foundation / sign textures exact
+PASS home all three door drawings exact
+PASS shop foundation / sign textures exact
+PASS shop all three door drawings exact
+PASS Hall joins the finished Home and shop
+PASS original Hall position / footprint
+PASS one centered mask spans both door tiles
+PASS three nonempty frames keep the same source arch mask
+PASS closed / ajar / open are distinct drawings
+PASS native interior ink increases in [P: (8, 8), S: (224, 128)]
+PASS native interior ink increases in [P: (33, 89), S: (38, 31)]
+PASS native interior ink increases in [P: (169, 89), S: (38, 31)]
+PASS walk through Hall tile 23
+PASS native E / guild / sound on tile 23
+PASS paired leaves pass through ajar from tile 23
+PASS both tiles open the same complete door
+PASS Esc closes the Hall and paired leaves
+PASS native E from step 23
+PASS walk through Hall tile 24
+PASS native E / guild / sound on tile 24
+PASS paired leaves pass through ajar from tile 24
+PASS both tiles open the same complete door
+PASS Esc closes the Hall and paired leaves
+PASS native E from step 24
+RESULT 26 checks, 0 failures

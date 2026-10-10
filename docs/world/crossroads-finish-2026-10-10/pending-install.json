@@ -1,0 +1,32 @@
+[
+  {
+    "path": "scripts/town/building_exteriors.gd",
+    "before": "b354c69d647d4de103f1fe4b7476b220636d05371b74c389e25c6554b9df1f4a",
+    "after": "a30ea6df5e6f02960c6944b8965970da36b0c6abb8c7cd3d055a0d5b78f9e5f9",
+    "source": "D:\\dev\\hollowtide-crossroads-20261010\\candidate\\scripts\\town\\building_exteriors.gd"
+  },
+  {
+    "path": "scripts/town/crossroads_painter.gd",
+    "before": null,
+    "after": "1f584f7516f73ea30816941c1451122f52aeb59dfc2e3c0fec91f9649eeab4a0",
+    "source": "D:\\dev\\hollowtide-crossroads-20261010\\candidate\\scripts\\town\\crossroads_painter.gd"
+  },
+  {
+    "path": "scripts/town/highbank_ground_painter.gd",
+    "before": "763206906fb60fba772f238de15f856771fe6a3f0ec875c5781ff3dc393de209",
+    "after": "ec8945a53f8ec8e77d371356add2925b59bf97c6147975af48f4d8c56c54b937",
+    "source": "D:\\dev\\hollowtide-crossroads-20261010\\candidate\\scripts\\town\\highbank_ground_painter.gd"
+  },
+  {
+    "path": "scripts/town/job_board_painter.gd",
+    "before": "c69b0743daa657ffcc99a2bfe014b82f4ac01d4c5f264360d132b8eec7bf7ee9",
+    "after": "81ee2f9c0f7486489ed75326e53c62ce41380b7cfe196324b3dacc44c6712b67",
+    "source": "D:\\dev\\hollowtide-crossroads-20261010\\candidate\\scripts\\town\\job_board_painter.gd"
+  },
+  {
+    "path": "docs/AI_COLLABORATION.md",
+    "before": "6b1fd0b06356727c0b4f360fc9df8e8a0e92f6445a39cef2ab323c30e4214ea2",
+    "after": "4589ccd6fca96f5cc3287394f417728ff46121f6ce6be8c69a2f66b4d0270de1",
+    "source": "D:\\dev\\hollowtide-crossroads-20261010\\candidate\\docs\\AI_COLLABORATION.md"
+  }
+]

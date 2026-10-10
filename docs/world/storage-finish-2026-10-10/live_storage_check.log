@@ -1,0 +1,313 @@
+WorkerThreadPool: 12 threads, 3 max low-priority.
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+TextServer: Added interface "Dummy"
+TextServer: Added interface "ICU / HarfBuzz / Graphite (Built-in)"
+Accessibility: AccessKit driver loaded.
+Native OpenGL API detected: 3.3: NVIDIA - NVIDIA GeForce GTX 1660 SUPER
+NVAPI: Init OK!
+NVAPI: Profile not found, creating...
+NVAPI: Application not found in profile, creating...
+NVAPI: Error creating application: NVAPI_EXECUTABLE_ALREADY_IN_USE(code -167)
+Accessibility: window 0 adapter created.
+SDL: Init OK!
+Using "winink" pen tablet driver...
+Shader 'CanvasSdfShaderGLES3' SHA256: b6003887510b7d08b9c56bb10bce8d41f5abe14d0901c42496fa9d4cf4429153
+Shader 'SkeletonShaderGLES3' SHA256: 8cf81ec9f52ad34ff8d18d6641860e5c999487e6b90a7f024e26bdef814137b0
+Shader 'ParticlesShaderGLES3' SHA256: 73f6f88ae6657356bf963dcd87d7dcdf069ff7bc357fd15d6f2a328850cb3c5b
+Shader 'ParticlesCopyShaderGLES3' SHA256: fc30ebbaae84f60be8a550752994fdbf16928239e0ad2d710444d4bd071f6050
+Shader 'CopyShaderGLES3' SHA256: 4704dab31bfc8eee962869e00acb15432e08a2efad500e9cb99229625b1bf4d8
+Shader 'CubemapFilterShaderGLES3' SHA256: 0aa93819d1bad4e70fb3b09b7fc3a496151c68184c816b765bb46f0fb79d1b4e
+Shader 'GlowShaderGLES3' SHA256: 4c1ec106ae0893be2445af806099117a8691fb6a8e4fff6f300110677339ad7d
+Shader 'PostShaderGLES3' SHA256: 56e849d6dd267bbb4059229e22d9c931689d1cfe649f8f0179c188fabd2d2c36
+Shader 'FeedShaderGLES3' SHA256: afcf2322b77b6f8ccbf9395536a4232b01c620a653a0fd7b17068749104ea5ee
+Shader 'CanvasShaderGLES3' SHA256: 18956abde9d275e91de2e046cf78b7246e97ecf7cea5d211a6ee62ab63c94376
+Shader 'CanvasOcclusionShaderGLES3' SHA256: a6c6ccde71c5746d80b8e24a758db6c9d991bcf6a9d0ee0f57bfd7725dfed1c7
+Shader 'SceneShaderGLES3' SHA256: a32adcf6986cf5567368d3c44596d44503be45e57a1be57b64140b8c41538492
+Shader 'SkyShaderGLES3' SHA256: 960a42fb7d8f4eec8a2555650fbe7c8f801bc1e545d69c979b6d6931d68f02e8
+Shader 'TexBlitShaderGLES3' SHA256: 99bbaf087caef682a6123e28c2bc54e471da1a19c39a99feee263bc2e7b2ca73
+OpenGL API 3.3.0 NVIDIA 596.49 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce GTX 1660 SUPER
+WASAPI: Activated output_device using IAudioClient3 interface
+WASAPI: wFormatTag = 65534
+WASAPI: nChannels = 2
+WASAPI: nSamplesPerSec = 48000
+WASAPI: nAvgBytesPerSec = 384000
+WASAPI: nBlockAlign = 8
+WASAPI: wBitsPerSample = 32
+WASAPI: cbSize = 22
+WASAPI: mix_rate = 48000
+WASAPI: fundamental_period_frames = 480
+WASAPI: min_period_frames = 480
+WASAPI: max_period_frames = 480
+WASAPI: selected a period frame size of 480
+WASAPI: detected 2 channels
+WASAPI: audio buffer frames: 480 calculated latency: 10ms
+
+TextServer: Primary interface set to: "ICU / HarfBuzz / Graphite (Built-in)".
+Loading resource: res://default_bus_layout.tres remapped: res://default_bus_layout.tres
+Completed load for: 'res://default_bus_layout.tres' remapped 'res://default_bus_layout.tres' at thread -1
+CORE API HASH: 2004498165
+EDITOR API HASH: 1696660745
+Loading resource: D:/dev/hollowtide-storage-finish-20261010/live_storage_check.gd remapped: D:/dev/hollowtide-storage-finish-20261010/live_storage_check.gd
+Loading resource: res://scripts/town/building_detail_finish.gdshader remapped: res://scripts/town/building_detail_finish.gdshader
+Completed load for: 'res://scripts/town/building_detail_finish.gdshader' remapped 'res://scripts/town/building_detail_finish.gdshader' at thread -1
+Loading resource: res://scripts/arena/creature_finish.gdshader remapped: res://scripts/arena/creature_finish.gdshader
+Completed load for: 'res://scripts/arena/creature_finish.gdshader' remapped 'res://scripts/arena/creature_finish.gdshader' at thread -1
+Completed load for: 'D:/dev/hollowtide-storage-finish-20261010/live_storage_check.gd' remapped 'D:/dev/hollowtide-storage-finish-20261010/live_storage_check.gd' at thread -1
+SceneTreeFTI: traversal method DEFAULT
+Loading resource: res://scripts/player_party.gd remapped: res://scripts/player_party.gd
+Completed load for: 'res://scripts/player_party.gd' remapped 'res://scripts/player_party.gd' at thread -1
+Loading resource: res://addons/godot_ai/runtime/game_helper.gd remapped: res://addons/godot_ai/runtime/game_helper.gd
+Completed load for: 'res://addons/godot_ai/runtime/game_helper.gd' remapped 'res://addons/godot_ai/runtime/game_helper.gd' at thread -1
+Loaded system CA certificates
+[godot_ai game_helper] registered mcp capture (debugger active=false, logger=true)
+Loading resource: D:/dev/hollowtide-storage-finish-20261010/baseline_hub.gd remapped: D:/dev/hollowtide-storage-finish-20261010/baseline_hub.gd
+Loading resource: res://assets/fonts/Silkscreen-Bold.ttf remapped: res://assets/fonts/Silkscreen-Bold.ttf
+Loading resource: res://.godot/imported/Silkscreen-Bold.ttf-c5bfe206a7f26b7a826f144afbfe2747.fontdata remapped: res://.godot/imported/Silkscreen-Bold.ttf-c5bfe206a7f26b7a826f144afbfe2747.fontdata
+Completed load for: 'res://assets/fonts/Silkscreen-Bold.ttf' remapped 'res://assets/fonts/Silkscreen-Bold.ttf' at thread -1
+Loading resource: res://assets/fonts/AlegreyaSansSC-Bold.ttf remapped: res://assets/fonts/AlegreyaSansSC-Bold.ttf
+Loading resource: res://.godot/imported/AlegreyaSansSC-Bold.ttf-daa69cc198ac3094928145a2f5cc767e.fontdata remapped: res://.godot/imported/AlegreyaSansSC-Bold.ttf-daa69cc198ac3094928145a2f5cc767e.fontdata
+Completed load for: 'res://assets/fonts/AlegreyaSansSC-Bold.ttf' remapped 'res://assets/fonts/AlegreyaSansSC-Bold.ttf' at thread -1
+Loading resource: res://scripts/arena/hollow.gdshader remapped: res://scripts/arena/hollow.gdshader
+Completed load for: 'res://scripts/arena/hollow.gdshader' remapped 'res://scripts/arena/hollow.gdshader' at thread -1
+Loading resource: res://assets/sprites/effects/oxbowarchon/kingstone_rail/orb4_p09.png remapped: res://assets/sprites/effects/oxbowarchon/kingstone_rail/orb4_p09.png
+Loading resource: res://.godot/imported/orb4_p09.png-92446a7ec72070defd7073712b357cad.ctex remapped: res://.godot/imported/orb4_p09.png-92446a7ec72070defd7073712b357cad.ctex
+Completed load for: 'res://assets/sprites/effects/oxbowarchon/kingstone_rail/orb4_p09.png' remapped 'res://assets/sprites/effects/oxbowarchon/kingstone_rail/orb4_p09.png' at thread -1
+Loading resource: res://assets/sprites/effects/oxbowarchon/kingstone_rail/orb1_p07.png remapped: res://assets/sprites/effects/oxbowarchon/kingstone_rail/orb1_p07.png
+Loading resource: res://.godot/imported/orb1_p07.png-813c9c8a470fb9ab448eb436edecbf70.ctex remapped: res://.godot/imported/orb1_p07.png-813c9c8a470fb9ab448eb436edecbf70.ctex
+Completed load for: 'res://assets/sprites/effects/oxbowarchon/kingstone_rail/orb1_p07.png' remapped 'res://assets/sprites/effects/oxbowarchon/kingstone_rail/orb1_p07.png' at thread -1
+Loading resource: res://assets/sprites/effects/oxbowarchon/kingstone_rail/orb2_p06.png remapped: res://assets/sprites/effects/oxbowarchon/kingstone_rail/orb2_p06.png
+Loading resource: res://.godot/imported/orb2_p06.png-bec5f7dbab91adb3466abafce845028d.ctex remapped: res://.godot/imported/orb2_p06.png-bec5f7dbab91adb3466abafce845028d.ctex
+Completed load for: 'res://assets/sprites/effects/oxbowarchon/kingstone_rail/orb2_p06.png' remapped 'res://assets/sprites/effects/oxbowarchon/kingstone_rail/orb2_p06.png' at thread -1
+Loading resource: res://assets/sprites/effects/oxbowarchon/kingstone_rail/orb1_p08.png remapped: res://assets/sprites/effects/oxbowarchon/kingstone_rail/orb1_p08.png
+Loading resource: res://.godot/imported/orb1_p08.png-968f7f023b39332320f64a0dbf26aae0.ctex remapped: res://.godot/imported/orb1_p08.png-968f7f023b39332320f64a0dbf26aae0.ctex
+Completed load for: 'res://assets/sprites/effects/oxbowarchon/kingstone_rail/orb1_p08.png' remapped 'res://assets/sprites/effects/oxbowarchon/kingstone_rail/orb1_p08.png' at thread -1
+Loading resource: res://assets/sprites/effects/oxbowarchon/kingstone_rail/orb3_p10.png remapped: res://assets/sprites/effects/oxbowarchon/kingstone_rail/orb3_p10.png
+Loading resource: res://.godot/imported/orb3_p10.png-d87e880f227fa822670cb8ff92a2bc70.ctex remapped: res://.godot/imported/orb3_p10.png-d87e880f227fa822670cb8ff92a2bc70.ctex
+Completed load for: 'res://assets/sprites/effects/oxbowarchon/kingstone_rail/orb3_p10.png' remapped 'res://assets/sprites/effects/oxbowarchon/kingstone_rail/orb3_p10.png' at thread -1
+Completed load for: 'D:/dev/hollowtide-storage-finish-20261010/baseline_hub.gd' remapped 'D:/dev/hollowtide-storage-finish-20261010/baseline_hub.gd' at thread -1
+Loading resource: D:/dev/hollowtide-storage-finish-20261010/originals/scripts/town/highbank_ground_painter.gd remapped: D:/dev/hollowtide-storage-finish-20261010/originals/scripts/town/highbank_ground_painter.gd
+Completed load for: 'D:/dev/hollowtide-storage-finish-20261010/originals/scripts/town/highbank_ground_painter.gd' remapped 'D:/dev/hollowtide-storage-finish-20261010/originals/scripts/town/highbank_ground_painter.gd' at thread -1
+Loading resource: res://scripts/town/wayline_hall_painter.gd remapped: res://scripts/town/wayline_hall_painter.gd
+Completed load for: 'res://scripts/town/wayline_hall_painter.gd' remapped 'res://scripts/town/wayline_hall_painter.gd' at thread -1
+Loading resource: res://assets/sprites/world/wayline_hall_2026_10_10/wayline_hall_native.png remapped: res://assets/sprites/world/wayline_hall_2026_10_10/wayline_hall_native.png
+Loading resource: res://.godot/imported/wayline_hall_native.png-7be102a38a8667b9f34ce380e9255f4f.ctex remapped: res://.godot/imported/wayline_hall_native.png-7be102a38a8667b9f34ce380e9255f4f.ctex
+Completed load for: 'res://assets/sprites/world/wayline_hall_2026_10_10/wayline_hall_native.png' remapped 'res://assets/sprites/world/wayline_hall_2026_10_10/wayline_hall_native.png' at thread -1
+Loading resource: res://scripts/town/building_exteriors.gd remapped: res://scripts/town/building_exteriors.gd
+Completed load for: 'res://scripts/town/building_exteriors.gd' remapped 'res://scripts/town/building_exteriors.gd' at thread -1
+Loading resource: res://assets/sprites/world/wayline_hall_2026_10_10/wayline_hall_native.png remapped: res://assets/sprites/world/wayline_hall_2026_10_10/wayline_hall_native.png
+Loading resource: res://.godot/imported/wayline_hall_native.png-7be102a38a8667b9f34ce380e9255f4f.ctex remapped: res://.godot/imported/wayline_hall_native.png-7be102a38a8667b9f34ce380e9255f4f.ctex
+Completed load for: 'res://assets/sprites/world/wayline_hall_2026_10_10/wayline_hall_native.png' remapped 'res://assets/sprites/world/wayline_hall_2026_10_10/wayline_hall_native.png' at thread -1
+Loading resource: res://assets/sprites/world/wayline_hall_2026_10_10/wayline_hall_native.png remapped: res://assets/sprites/world/wayline_hall_2026_10_10/wayline_hall_native.png
+Loading resource: res://.godot/imported/wayline_hall_native.png-7be102a38a8667b9f34ce380e9255f4f.ctex remapped: res://.godot/imported/wayline_hall_native.png-7be102a38a8667b9f34ce380e9255f4f.ctex
+Completed load for: 'res://assets/sprites/world/wayline_hall_2026_10_10/wayline_hall_native.png' remapped 'res://assets/sprites/world/wayline_hall_2026_10_10/wayline_hall_native.png' at thread -1
+Loading resource: res://scripts/town/home_painter.gd remapped: res://scripts/town/home_painter.gd
+Completed load for: 'res://scripts/town/home_painter.gd' remapped 'res://scripts/town/home_painter.gd' at thread -1
+Loading resource: res://assets/sprites/world/home_2026_10_09/home_native.png remapped: res://assets/sprites/world/home_2026_10_09/home_native.png
+Loading resource: res://.godot/imported/home_native.png-81ed6de2c03eb4e53d0015e03c3d1869.ctex remapped: res://.godot/imported/home_native.png-81ed6de2c03eb4e53d0015e03c3d1869.ctex
+Completed load for: 'res://assets/sprites/world/home_2026_10_09/home_native.png' remapped 'res://assets/sprites/world/home_2026_10_09/home_native.png' at thread -1
+Loading resource: res://assets/sprites/world/home_2026_10_09/home_native.png remapped: res://assets/sprites/world/home_2026_10_09/home_native.png
+Loading resource: res://.godot/imported/home_native.png-81ed6de2c03eb4e53d0015e03c3d1869.ctex remapped: res://.godot/imported/home_native.png-81ed6de2c03eb4e53d0015e03c3d1869.ctex
+Completed load for: 'res://assets/sprites/world/home_2026_10_09/home_native.png' remapped 'res://assets/sprites/world/home_2026_10_09/home_native.png' at thread -1
+Loading resource: res://assets/sprites/world/home_2026_10_09/home_native.png remapped: res://assets/sprites/world/home_2026_10_09/home_native.png
+Loading resource: res://.godot/imported/home_native.png-81ed6de2c03eb4e53d0015e03c3d1869.ctex remapped: res://.godot/imported/home_native.png-81ed6de2c03eb4e53d0015e03c3d1869.ctex
+Completed load for: 'res://assets/sprites/world/home_2026_10_09/home_native.png' remapped 'res://assets/sprites/world/home_2026_10_09/home_native.png' at thread -1
+Loading resource: res://scripts/town/item_shop_painter.gd remapped: res://scripts/town/item_shop_painter.gd
+Completed load for: 'res://scripts/town/item_shop_painter.gd' remapped 'res://scripts/town/item_shop_painter.gd' at thread -1
+Loading resource: res://assets/sprites/world/item_shop_2026_10_09/item_shop_native.png remapped: res://assets/sprites/world/item_shop_2026_10_09/item_shop_native.png
+Loading resource: res://.godot/imported/item_shop_native.png-71a84a35b0c8a592b8b164a1c20f2019.ctex remapped: res://.godot/imported/item_shop_native.png-71a84a35b0c8a592b8b164a1c20f2019.ctex
+Completed load for: 'res://assets/sprites/world/item_shop_2026_10_09/item_shop_native.png' remapped 'res://assets/sprites/world/item_shop_2026_10_09/item_shop_native.png' at thread -1
+Loading resource: res://assets/sprites/world/item_shop_2026_10_09/item_shop_native.png remapped: res://assets/sprites/world/item_shop_2026_10_09/item_shop_native.png
+Loading resource: res://.godot/imported/item_shop_native.png-71a84a35b0c8a592b8b164a1c20f2019.ctex remapped: res://.godot/imported/item_shop_native.png-71a84a35b0c8a592b8b164a1c20f2019.ctex
+Completed load for: 'res://assets/sprites/world/item_shop_2026_10_09/item_shop_native.png' remapped 'res://assets/sprites/world/item_shop_2026_10_09/item_shop_native.png' at thread -1
+Loading resource: res://assets/sprites/world/item_shop_2026_10_09/item_shop_native.png remapped: res://assets/sprites/world/item_shop_2026_10_09/item_shop_native.png
+Loading resource: res://.godot/imported/item_shop_native.png-71a84a35b0c8a592b8b164a1c20f2019.ctex remapped: res://.godot/imported/item_shop_native.png-71a84a35b0c8a592b8b164a1c20f2019.ctex
+Completed load for: 'res://assets/sprites/world/item_shop_2026_10_09/item_shop_native.png' remapped 'res://assets/sprites/world/item_shop_2026_10_09/item_shop_native.png' at thread -1
+Loading resource: res://scripts/town/hub_town.gd remapped: res://scripts/town/hub_town.gd
+Completed load for: 'res://scripts/town/hub_town.gd' remapped 'res://scripts/town/hub_town.gd' at thread -1
+Loading resource: res://scripts/town/highbank_ground_painter.gd remapped: res://scripts/town/highbank_ground_painter.gd
+Completed load for: 'res://scripts/town/highbank_ground_painter.gd' remapped 'res://scripts/town/highbank_ground_painter.gd' at thread -1
+Loading resource: res://assets/sprites/world/wayline_hall_2026_10_10/wayline_hall_native.png remapped: res://assets/sprites/world/wayline_hall_2026_10_10/wayline_hall_native.png
+Loading resource: res://.godot/imported/wayline_hall_native.png-7be102a38a8667b9f34ce380e9255f4f.ctex remapped: res://.godot/imported/wayline_hall_native.png-7be102a38a8667b9f34ce380e9255f4f.ctex
+Completed load for: 'res://assets/sprites/world/wayline_hall_2026_10_10/wayline_hall_native.png' remapped 'res://assets/sprites/world/wayline_hall_2026_10_10/wayline_hall_native.png' at thread -1
+Loading resource: res://assets/sprites/world/wayline_hall_2026_10_10/wayline_hall_native.png remapped: res://assets/sprites/world/wayline_hall_2026_10_10/wayline_hall_native.png
+Loading resource: res://.godot/imported/wayline_hall_native.png-7be102a38a8667b9f34ce380e9255f4f.ctex remapped: res://.godot/imported/wayline_hall_native.png-7be102a38a8667b9f34ce380e9255f4f.ctex
+Completed load for: 'res://assets/sprites/world/wayline_hall_2026_10_10/wayline_hall_native.png' remapped 'res://assets/sprites/world/wayline_hall_2026_10_10/wayline_hall_native.png' at thread -1
+Loading resource: res://assets/sprites/world/wayline_hall_2026_10_10/wayline_hall_native.png remapped: res://assets/sprites/world/wayline_hall_2026_10_10/wayline_hall_native.png
+Loading resource: res://.godot/imported/wayline_hall_native.png-7be102a38a8667b9f34ce380e9255f4f.ctex remapped: res://.godot/imported/wayline_hall_native.png-7be102a38a8667b9f34ce380e9255f4f.ctex
+Completed load for: 'res://assets/sprites/world/wayline_hall_2026_10_10/wayline_hall_native.png' remapped 'res://assets/sprites/world/wayline_hall_2026_10_10/wayline_hall_native.png' at thread -1
+Loading resource: res://assets/sprites/world/home_2026_10_09/home_native.png remapped: res://assets/sprites/world/home_2026_10_09/home_native.png
+Loading resource: res://.godot/imported/home_native.png-81ed6de2c03eb4e53d0015e03c3d1869.ctex remapped: res://.godot/imported/home_native.png-81ed6de2c03eb4e53d0015e03c3d1869.ctex
+Completed load for: 'res://assets/sprites/world/home_2026_10_09/home_native.png' remapped 'res://assets/sprites/world/home_2026_10_09/home_native.png' at thread -1
+Loading resource: res://assets/sprites/world/home_2026_10_09/home_native.png remapped: res://assets/sprites/world/home_2026_10_09/home_native.png
+Loading resource: res://.godot/imported/home_native.png-81ed6de2c03eb4e53d0015e03c3d1869.ctex remapped: res://.godot/imported/home_native.png-81ed6de2c03eb4e53d0015e03c3d1869.ctex
+Completed load for: 'res://assets/sprites/world/home_2026_10_09/home_native.png' remapped 'res://assets/sprites/world/home_2026_10_09/home_native.png' at thread -1
+Loading resource: res://assets/sprites/world/home_2026_10_09/home_native.png remapped: res://assets/sprites/world/home_2026_10_09/home_native.png
+Loading resource: res://.godot/imported/home_native.png-81ed6de2c03eb4e53d0015e03c3d1869.ctex remapped: res://.godot/imported/home_native.png-81ed6de2c03eb4e53d0015e03c3d1869.ctex
+Completed load for: 'res://assets/sprites/world/home_2026_10_09/home_native.png' remapped 'res://assets/sprites/world/home_2026_10_09/home_native.png' at thread -1
+Loading resource: res://assets/sprites/world/item_shop_2026_10_09/item_shop_native.png remapped: res://assets/sprites/world/item_shop_2026_10_09/item_shop_native.png
+Loading resource: res://.godot/imported/item_shop_native.png-71a84a35b0c8a592b8b164a1c20f2019.ctex remapped: res://.godot/imported/item_shop_native.png-71a84a35b0c8a592b8b164a1c20f2019.ctex
+Completed load for: 'res://assets/sprites/world/item_shop_2026_10_09/item_shop_native.png' remapped 'res://assets/sprites/world/item_shop_2026_10_09/item_shop_native.png' at thread -1
+Loading resource: res://assets/sprites/world/item_shop_2026_10_09/item_shop_native.png remapped: res://assets/sprites/world/item_shop_2026_10_09/item_shop_native.png
+Loading resource: res://.godot/imported/item_shop_native.png-71a84a35b0c8a592b8b164a1c20f2019.ctex remapped: res://.godot/imported/item_shop_native.png-71a84a35b0c8a592b8b164a1c20f2019.ctex
+Completed load for: 'res://assets/sprites/world/item_shop_2026_10_09/item_shop_native.png' remapped 'res://assets/sprites/world/item_shop_2026_10_09/item_shop_native.png' at thread -1
+Loading resource: res://assets/sprites/world/item_shop_2026_10_09/item_shop_native.png remapped: res://assets/sprites/world/item_shop_2026_10_09/item_shop_native.png
+Loading resource: res://.godot/imported/item_shop_native.png-71a84a35b0c8a592b8b164a1c20f2019.ctex remapped: res://.godot/imported/item_shop_native.png-71a84a35b0c8a592b8b164a1c20f2019.ctex
+Completed load for: 'res://assets/sprites/world/item_shop_2026_10_09/item_shop_native.png' remapped 'res://assets/sprites/world/item_shop_2026_10_09/item_shop_native.png' at thread -1
+Loading resource: res://scripts/town/storage_painter.gd remapped: res://scripts/town/storage_painter.gd
+Completed load for: 'res://scripts/town/storage_painter.gd' remapped 'res://scripts/town/storage_painter.gd' at thread -1
+Loading resource: res://assets/sprites/world/storage_2026_10_10/storage_native.png remapped: res://assets/sprites/world/storage_2026_10_10/storage_native.png
+Loading resource: res://.godot/imported/storage_native.png-139181a9af6596c88a87a613c3fa80d0.ctex remapped: res://.godot/imported/storage_native.png-139181a9af6596c88a87a613c3fa80d0.ctex
+Completed load for: 'res://assets/sprites/world/storage_2026_10_10/storage_native.png' remapped 'res://assets/sprites/world/storage_2026_10_10/storage_native.png' at thread -1
+Loading resource: res://assets/sprites/world/storage_2026_10_10/storage_native.png remapped: res://assets/sprites/world/storage_2026_10_10/storage_native.png
+Loading resource: res://.godot/imported/storage_native.png-139181a9af6596c88a87a613c3fa80d0.ctex remapped: res://.godot/imported/storage_native.png-139181a9af6596c88a87a613c3fa80d0.ctex
+Completed load for: 'res://assets/sprites/world/storage_2026_10_10/storage_native.png' remapped 'res://assets/sprites/world/storage_2026_10_10/storage_native.png' at thread -1
+PASS all ground outside Storage / shadow / apron exact
+Loading resource: D:/dev/hollowtide-storage-finish-20261010/originals/scripts/town/building_exteriors.gd remapped: D:/dev/hollowtide-storage-finish-20261010/originals/scripts/town/building_exteriors.gd
+Completed load for: 'D:/dev/hollowtide-storage-finish-20261010/originals/scripts/town/building_exteriors.gd' remapped 'D:/dev/hollowtide-storage-finish-20261010/originals/scripts/town/building_exteriors.gd' at thread -1
+PASS home foundation / sign textures exact
+Loading resource: res://assets/sprites/world/home_2026_10_09/home_native.png remapped: res://assets/sprites/world/home_2026_10_09/home_native.png
+Loading resource: res://.godot/imported/home_native.png-81ed6de2c03eb4e53d0015e03c3d1869.ctex remapped: res://.godot/imported/home_native.png-81ed6de2c03eb4e53d0015e03c3d1869.ctex
+Completed load for: 'res://assets/sprites/world/home_2026_10_09/home_native.png' remapped 'res://assets/sprites/world/home_2026_10_09/home_native.png' at thread -1
+PASS home three door textures exact
+PASS shop foundation / sign textures exact
+Loading resource: res://assets/sprites/world/item_shop_2026_10_09/item_shop_native.png remapped: res://assets/sprites/world/item_shop_2026_10_09/item_shop_native.png
+Loading resource: res://.godot/imported/item_shop_native.png-71a84a35b0c8a592b8b164a1c20f2019.ctex remapped: res://.godot/imported/item_shop_native.png-71a84a35b0c8a592b8b164a1c20f2019.ctex
+Completed load for: 'res://assets/sprites/world/item_shop_2026_10_09/item_shop_native.png' remapped 'res://assets/sprites/world/item_shop_2026_10_09/item_shop_native.png' at thread -1
+PASS shop three door textures exact
+PASS hall foundation / sign textures exact
+Loading resource: res://assets/sprites/world/wayline_hall_2026_10_10/wayline_hall_native.png remapped: res://assets/sprites/world/wayline_hall_2026_10_10/wayline_hall_native.png
+Loading resource: res://.godot/imported/wayline_hall_native.png-7be102a38a8667b9f34ce380e9255f4f.ctex remapped: res://.godot/imported/wayline_hall_native.png-7be102a38a8667b9f34ce380e9255f4f.ctex
+Completed load for: 'res://assets/sprites/world/wayline_hall_2026_10_10/wayline_hall_native.png' remapped 'res://assets/sprites/world/wayline_hall_2026_10_10/wayline_hall_native.png' at thread -1
+PASS hall three door textures exact
+Loading resource: res://scenes/hub_town.tscn remapped: res://scenes/hub_town.tscn
+Completed load for: 'res://scenes/hub_town.tscn' remapped 'res://scenes/hub_town.tscn' at thread -1
+Loading resource: res://assets/sprites/world/wayline_hall_2026_10_10/wayline_hall_native.png remapped: res://assets/sprites/world/wayline_hall_2026_10_10/wayline_hall_native.png
+Loading resource: res://.godot/imported/wayline_hall_native.png-7be102a38a8667b9f34ce380e9255f4f.ctex remapped: res://.godot/imported/wayline_hall_native.png-7be102a38a8667b9f34ce380e9255f4f.ctex
+Completed load for: 'res://assets/sprites/world/wayline_hall_2026_10_10/wayline_hall_native.png' remapped 'res://assets/sprites/world/wayline_hall_2026_10_10/wayline_hall_native.png' at thread -1
+Loading resource: res://assets/sprites/world/wayline_hall_2026_10_10/wayline_hall_native.png remapped: res://assets/sprites/world/wayline_hall_2026_10_10/wayline_hall_native.png
+Loading resource: res://.godot/imported/wayline_hall_native.png-7be102a38a8667b9f34ce380e9255f4f.ctex remapped: res://.godot/imported/wayline_hall_native.png-7be102a38a8667b9f34ce380e9255f4f.ctex
+Completed load for: 'res://assets/sprites/world/wayline_hall_2026_10_10/wayline_hall_native.png' remapped 'res://assets/sprites/world/wayline_hall_2026_10_10/wayline_hall_native.png' at thread -1
+Loading resource: res://assets/sprites/world/wayline_hall_2026_10_10/wayline_hall_native.png remapped: res://assets/sprites/world/wayline_hall_2026_10_10/wayline_hall_native.png
+Loading resource: res://.godot/imported/wayline_hall_native.png-7be102a38a8667b9f34ce380e9255f4f.ctex remapped: res://.godot/imported/wayline_hall_native.png-7be102a38a8667b9f34ce380e9255f4f.ctex
+Completed load for: 'res://assets/sprites/world/wayline_hall_2026_10_10/wayline_hall_native.png' remapped 'res://assets/sprites/world/wayline_hall_2026_10_10/wayline_hall_native.png' at thread -1
+Loading resource: res://assets/sprites/world/home_2026_10_09/home_native.png remapped: res://assets/sprites/world/home_2026_10_09/home_native.png
+Loading resource: res://.godot/imported/home_native.png-81ed6de2c03eb4e53d0015e03c3d1869.ctex remapped: res://.godot/imported/home_native.png-81ed6de2c03eb4e53d0015e03c3d1869.ctex
+Completed load for: 'res://assets/sprites/world/home_2026_10_09/home_native.png' remapped 'res://assets/sprites/world/home_2026_10_09/home_native.png' at thread -1
+Loading resource: res://assets/sprites/world/home_2026_10_09/home_native.png remapped: res://assets/sprites/world/home_2026_10_09/home_native.png
+Loading resource: res://.godot/imported/home_native.png-81ed6de2c03eb4e53d0015e03c3d1869.ctex remapped: res://.godot/imported/home_native.png-81ed6de2c03eb4e53d0015e03c3d1869.ctex
+Completed load for: 'res://assets/sprites/world/home_2026_10_09/home_native.png' remapped 'res://assets/sprites/world/home_2026_10_09/home_native.png' at thread -1
+Loading resource: res://assets/sprites/world/home_2026_10_09/home_native.png remapped: res://assets/sprites/world/home_2026_10_09/home_native.png
+Loading resource: res://.godot/imported/home_native.png-81ed6de2c03eb4e53d0015e03c3d1869.ctex remapped: res://.godot/imported/home_native.png-81ed6de2c03eb4e53d0015e03c3d1869.ctex
+Completed load for: 'res://assets/sprites/world/home_2026_10_09/home_native.png' remapped 'res://assets/sprites/world/home_2026_10_09/home_native.png' at thread -1
+Loading resource: res://assets/sprites/world/item_shop_2026_10_09/item_shop_native.png remapped: res://assets/sprites/world/item_shop_2026_10_09/item_shop_native.png
+Loading resource: res://.godot/imported/item_shop_native.png-71a84a35b0c8a592b8b164a1c20f2019.ctex remapped: res://.godot/imported/item_shop_native.png-71a84a35b0c8a592b8b164a1c20f2019.ctex
+Completed load for: 'res://assets/sprites/world/item_shop_2026_10_09/item_shop_native.png' remapped 'res://assets/sprites/world/item_shop_2026_10_09/item_shop_native.png' at thread -1
+Loading resource: res://assets/sprites/world/item_shop_2026_10_09/item_shop_native.png remapped: res://assets/sprites/world/item_shop_2026_10_09/item_shop_native.png
+Loading resource: res://.godot/imported/item_shop_native.png-71a84a35b0c8a592b8b164a1c20f2019.ctex remapped: res://.godot/imported/item_shop_native.png-71a84a35b0c8a592b8b164a1c20f2019.ctex
+Completed load for: 'res://assets/sprites/world/item_shop_2026_10_09/item_shop_native.png' remapped 'res://assets/sprites/world/item_shop_2026_10_09/item_shop_native.png' at thread -1
+Loading resource: res://assets/sprites/world/item_shop_2026_10_09/item_shop_native.png remapped: res://assets/sprites/world/item_shop_2026_10_09/item_shop_native.png
+Loading resource: res://.godot/imported/item_shop_native.png-71a84a35b0c8a592b8b164a1c20f2019.ctex remapped: res://.godot/imported/item_shop_native.png-71a84a35b0c8a592b8b164a1c20f2019.ctex
+Completed load for: 'res://assets/sprites/world/item_shop_2026_10_09/item_shop_native.png' remapped 'res://assets/sprites/world/item_shop_2026_10_09/item_shop_native.png' at thread -1
+Loading resource: res://assets/sprites/world/storage_2026_10_10/storage_native.png remapped: res://assets/sprites/world/storage_2026_10_10/storage_native.png
+Loading resource: res://.godot/imported/storage_native.png-139181a9af6596c88a87a613c3fa80d0.ctex remapped: res://.godot/imported/storage_native.png-139181a9af6596c88a87a613c3fa80d0.ctex
+Completed load for: 'res://assets/sprites/world/storage_2026_10_10/storage_native.png' remapped 'res://assets/sprites/world/storage_2026_10_10/storage_native.png' at thread -1
+Loading resource: res://assets/sprites/world/storage_2026_10_10/storage_native.png remapped: res://assets/sprites/world/storage_2026_10_10/storage_native.png
+Loading resource: res://.godot/imported/storage_native.png-139181a9af6596c88a87a613c3fa80d0.ctex remapped: res://.godot/imported/storage_native.png-139181a9af6596c88a87a613c3fa80d0.ctex
+Completed load for: 'res://assets/sprites/world/storage_2026_10_10/storage_native.png' remapped 'res://assets/sprites/world/storage_2026_10_10/storage_native.png' at thread -1
+Loading resource: res://assets/sprites/world/wayline_hall_2026_10_10/wayline_hall_native.png remapped: res://assets/sprites/world/wayline_hall_2026_10_10/wayline_hall_native.png
+Loading resource: res://.godot/imported/wayline_hall_native.png-7be102a38a8667b9f34ce380e9255f4f.ctex remapped: res://.godot/imported/wayline_hall_native.png-7be102a38a8667b9f34ce380e9255f4f.ctex
+Completed load for: 'res://assets/sprites/world/wayline_hall_2026_10_10/wayline_hall_native.png' remapped 'res://assets/sprites/world/wayline_hall_2026_10_10/wayline_hall_native.png' at thread -1
+Loading resource: res://assets/sprites/world/wayline_hall_2026_10_10/wayline_hall_native.png remapped: res://assets/sprites/world/wayline_hall_2026_10_10/wayline_hall_native.png
+Loading resource: res://.godot/imported/wayline_hall_native.png-7be102a38a8667b9f34ce380e9255f4f.ctex remapped: res://.godot/imported/wayline_hall_native.png-7be102a38a8667b9f34ce380e9255f4f.ctex
+Completed load for: 'res://assets/sprites/world/wayline_hall_2026_10_10/wayline_hall_native.png' remapped 'res://assets/sprites/world/wayline_hall_2026_10_10/wayline_hall_native.png' at thread -1
+Loading resource: res://assets/sprites/world/home_2026_10_09/home_native.png remapped: res://assets/sprites/world/home_2026_10_09/home_native.png
+Loading resource: res://.godot/imported/home_native.png-81ed6de2c03eb4e53d0015e03c3d1869.ctex remapped: res://.godot/imported/home_native.png-81ed6de2c03eb4e53d0015e03c3d1869.ctex
+Completed load for: 'res://assets/sprites/world/home_2026_10_09/home_native.png' remapped 'res://assets/sprites/world/home_2026_10_09/home_native.png' at thread -1
+Loading resource: res://assets/sprites/world/home_2026_10_09/home_native.png remapped: res://assets/sprites/world/home_2026_10_09/home_native.png
+Loading resource: res://.godot/imported/home_native.png-81ed6de2c03eb4e53d0015e03c3d1869.ctex remapped: res://.godot/imported/home_native.png-81ed6de2c03eb4e53d0015e03c3d1869.ctex
+Completed load for: 'res://assets/sprites/world/home_2026_10_09/home_native.png' remapped 'res://assets/sprites/world/home_2026_10_09/home_native.png' at thread -1
+Loading resource: res://assets/sprites/world/item_shop_2026_10_09/item_shop_native.png remapped: res://assets/sprites/world/item_shop_2026_10_09/item_shop_native.png
+Loading resource: res://.godot/imported/item_shop_native.png-71a84a35b0c8a592b8b164a1c20f2019.ctex remapped: res://.godot/imported/item_shop_native.png-71a84a35b0c8a592b8b164a1c20f2019.ctex
+Completed load for: 'res://assets/sprites/world/item_shop_2026_10_09/item_shop_native.png' remapped 'res://assets/sprites/world/item_shop_2026_10_09/item_shop_native.png' at thread -1
+Loading resource: res://assets/sprites/world/item_shop_2026_10_09/item_shop_native.png remapped: res://assets/sprites/world/item_shop_2026_10_09/item_shop_native.png
+Loading resource: res://.godot/imported/item_shop_native.png-71a84a35b0c8a592b8b164a1c20f2019.ctex remapped: res://.godot/imported/item_shop_native.png-71a84a35b0c8a592b8b164a1c20f2019.ctex
+Completed load for: 'res://assets/sprites/world/item_shop_2026_10_09/item_shop_native.png' remapped 'res://assets/sprites/world/item_shop_2026_10_09/item_shop_native.png' at thread -1
+Loading resource: res://assets/sprites/world/storage_2026_10_10/storage_native.png remapped: res://assets/sprites/world/storage_2026_10_10/storage_native.png
+Loading resource: res://.godot/imported/storage_native.png-139181a9af6596c88a87a613c3fa80d0.ctex remapped: res://.godot/imported/storage_native.png-139181a9af6596c88a87a613c3fa80d0.ctex
+Completed load for: 'res://assets/sprites/world/storage_2026_10_10/storage_native.png' remapped 'res://assets/sprites/world/storage_2026_10_10/storage_native.png' at thread -1
+Loading resource: res://assets/sprites/world/storage_2026_10_10/storage_native.png remapped: res://assets/sprites/world/storage_2026_10_10/storage_native.png
+Loading resource: res://.godot/imported/storage_native.png-139181a9af6596c88a87a613c3fa80d0.ctex remapped: res://.godot/imported/storage_native.png-139181a9af6596c88a87a613c3fa80d0.ctex
+Completed load for: 'res://assets/sprites/world/storage_2026_10_10/storage_native.png' remapped 'res://assets/sprites/world/storage_2026_10_10/storage_native.png' at thread -1
+Loading resource: res://assets/sprites/arena/kithflare/dungeon/e.png remapped: res://assets/sprites/arena/kithflare/dungeon/e.png
+Loading resource: res://.godot/imported/e.png-3cb6c908d7fd2d9ca8fc4d81d38fe58b.ctex remapped: res://.godot/imported/e.png-3cb6c908d7fd2d9ca8fc4d81d38fe58b.ctex
+Completed load for: 'res://assets/sprites/arena/kithflare/dungeon/e.png' remapped 'res://assets/sprites/arena/kithflare/dungeon/e.png' at thread -1
+Loading resource: res://assets/sprites/arena/kithflare/dungeon/se.png remapped: res://assets/sprites/arena/kithflare/dungeon/se.png
+Loading resource: res://.godot/imported/se.png-8d7d982eb3f89577c77be710a3fc7f3d.ctex remapped: res://.godot/imported/se.png-8d7d982eb3f89577c77be710a3fc7f3d.ctex
+Completed load for: 'res://assets/sprites/arena/kithflare/dungeon/se.png' remapped 'res://assets/sprites/arena/kithflare/dungeon/se.png' at thread -1
+Loading resource: res://assets/sprites/arena/kithflare/dungeon/s.png remapped: res://assets/sprites/arena/kithflare/dungeon/s.png
+Loading resource: res://.godot/imported/s.png-93c9909b5f16fd8885ee936699d429c3.ctex remapped: res://.godot/imported/s.png-93c9909b5f16fd8885ee936699d429c3.ctex
+Completed load for: 'res://assets/sprites/arena/kithflare/dungeon/s.png' remapped 'res://assets/sprites/arena/kithflare/dungeon/s.png' at thread -1
+Loading resource: res://assets/sprites/arena/kithflare/dungeon/sw.png remapped: res://assets/sprites/arena/kithflare/dungeon/sw.png
+Loading resource: res://.godot/imported/sw.png-78c647728ee542e77f72c9e25bf4efbb.ctex remapped: res://.godot/imported/sw.png-78c647728ee542e77f72c9e25bf4efbb.ctex
+Completed load for: 'res://assets/sprites/arena/kithflare/dungeon/sw.png' remapped 'res://assets/sprites/arena/kithflare/dungeon/sw.png' at thread -1
+Loading resource: res://assets/sprites/arena/kithflare/dungeon/w.png remapped: res://assets/sprites/arena/kithflare/dungeon/w.png
+Loading resource: res://.godot/imported/w.png-a773cb5a23a7e3f93c61f8be6c5e94dd.ctex remapped: res://.godot/imported/w.png-a773cb5a23a7e3f93c61f8be6c5e94dd.ctex
+Completed load for: 'res://assets/sprites/arena/kithflare/dungeon/w.png' remapped 'res://assets/sprites/arena/kithflare/dungeon/w.png' at thread -1
+Loading resource: res://assets/sprites/arena/kithflare/dungeon/nw.png remapped: res://assets/sprites/arena/kithflare/dungeon/nw.png
+Loading resource: res://.godot/imported/nw.png-141e6aa6b5738bbe65810c43ee98ce85.ctex remapped: res://.godot/imported/nw.png-141e6aa6b5738bbe65810c43ee98ce85.ctex
+Completed load for: 'res://assets/sprites/arena/kithflare/dungeon/nw.png' remapped 'res://assets/sprites/arena/kithflare/dungeon/nw.png' at thread -1
+Loading resource: res://assets/sprites/arena/kithflare/dungeon/n.png remapped: res://assets/sprites/arena/kithflare/dungeon/n.png
+Loading resource: res://.godot/imported/n.png-7803769a9e23039ea0e59320abe286e0.ctex remapped: res://.godot/imported/n.png-7803769a9e23039ea0e59320abe286e0.ctex
+Completed load for: 'res://assets/sprites/arena/kithflare/dungeon/n.png' remapped 'res://assets/sprites/arena/kithflare/dungeon/n.png' at thread -1
+Loading resource: res://assets/sprites/arena/kithflare/dungeon/ne.png remapped: res://assets/sprites/arena/kithflare/dungeon/ne.png
+Loading resource: res://.godot/imported/ne.png-000a954bcef9ea06d92f742dec9ce2a3.ctex remapped: res://.godot/imported/ne.png-000a954bcef9ea06d92f742dec9ce2a3.ctex
+Completed load for: 'res://assets/sprites/arena/kithflare/dungeon/ne.png' remapped 'res://assets/sprites/arena/kithflare/dungeon/ne.png' at thread -1
+Loading resource: res://assets/sprites/arena/tallowroot/dungeon/e.png remapped: res://assets/sprites/arena/tallowroot/dungeon/e.png
+Loading resource: res://.godot/imported/e.png-7e8bf846924d912a81dfb015e2ea4c2e.ctex remapped: res://.godot/imported/e.png-7e8bf846924d912a81dfb015e2ea4c2e.ctex
+Completed load for: 'res://assets/sprites/arena/tallowroot/dungeon/e.png' remapped 'res://assets/sprites/arena/tallowroot/dungeon/e.png' at thread -1
+Loading resource: res://assets/sprites/arena/tallowroot/dungeon/se.png remapped: res://assets/sprites/arena/tallowroot/dungeon/se.png
+Loading resource: res://.godot/imported/se.png-e6a0c77c300fddd7c78f2300f60de21d.ctex remapped: res://.godot/imported/se.png-e6a0c77c300fddd7c78f2300f60de21d.ctex
+Completed load for: 'res://assets/sprites/arena/tallowroot/dungeon/se.png' remapped 'res://assets/sprites/arena/tallowroot/dungeon/se.png' at thread -1
+Loading resource: res://assets/sprites/arena/tallowroot/dungeon/s.png remapped: res://assets/sprites/arena/tallowroot/dungeon/s.png
+Loading resource: res://.godot/imported/s.png-1f2d569158f1131e329d43094941265c.ctex remapped: res://.godot/imported/s.png-1f2d569158f1131e329d43094941265c.ctex
+Completed load for: 'res://assets/sprites/arena/tallowroot/dungeon/s.png' remapped 'res://assets/sprites/arena/tallowroot/dungeon/s.png' at thread -1
+Loading resource: res://assets/sprites/arena/tallowroot/dungeon/sw.png remapped: res://assets/sprites/arena/tallowroot/dungeon/sw.png
+Loading resource: res://.godot/imported/sw.png-bbc8ff926af81570a832b95d1c371fc8.ctex remapped: res://.godot/imported/sw.png-bbc8ff926af81570a832b95d1c371fc8.ctex
+Completed load for: 'res://assets/sprites/arena/tallowroot/dungeon/sw.png' remapped 'res://assets/sprites/arena/tallowroot/dungeon/sw.png' at thread -1
+Loading resource: res://assets/sprites/arena/tallowroot/dungeon/w.png remapped: res://assets/sprites/arena/tallowroot/dungeon/w.png
+Loading resource: res://.godot/imported/w.png-5ea3186104aef6a84824eb797fdfa9c4.ctex remapped: res://.godot/imported/w.png-5ea3186104aef6a84824eb797fdfa9c4.ctex
+Completed load for: 'res://assets/sprites/arena/tallowroot/dungeon/w.png' remapped 'res://assets/sprites/arena/tallowroot/dungeon/w.png' at thread -1
+Loading resource: res://assets/sprites/arena/tallowroot/dungeon/nw.png remapped: res://assets/sprites/arena/tallowroot/dungeon/nw.png
+Loading resource: res://.godot/imported/nw.png-dcbfb6abd7160e2591d676d8a5982ae4.ctex remapped: res://.godot/imported/nw.png-dcbfb6abd7160e2591d676d8a5982ae4.ctex
+Completed load for: 'res://assets/sprites/arena/tallowroot/dungeon/nw.png' remapped 'res://assets/sprites/arena/tallowroot/dungeon/nw.png' at thread -1
+Loading resource: res://assets/sprites/arena/tallowroot/dungeon/n.png remapped: res://assets/sprites/arena/tallowroot/dungeon/n.png
+Loading resource: res://.godot/imported/n.png-86181e56e0d7c18fa498e0768b3d80e3.ctex remapped: res://.godot/imported/n.png-86181e56e0d7c18fa498e0768b3d80e3.ctex
+Completed load for: 'res://assets/sprites/arena/tallowroot/dungeon/n.png' remapped 'res://assets/sprites/arena/tallowroot/dungeon/n.png' at thread -1
+Loading resource: res://assets/sprites/arena/tallowroot/dungeon/ne.png remapped: res://assets/sprites/arena/tallowroot/dungeon/ne.png
+Loading resource: res://.godot/imported/ne.png-4436052be4c9ac2c1feabaf128586bae.ctex remapped: res://.godot/imported/ne.png-4436052be4c9ac2c1feabaf128586bae.ctex
+Completed load for: 'res://assets/sprites/arena/tallowroot/dungeon/ne.png' remapped 'res://assets/sprites/arena/tallowroot/dungeon/ne.png' at thread -1
+Loading resource: res://assets/audio/music/highbank.mp3 remapped: res://assets/audio/music/highbank.mp3
+Loading resource: res://.godot/imported/highbank.mp3-936c29fa9def8226bf9448ec63bcbc75.mp3str remapped: res://.godot/imported/highbank.mp3-936c29fa9def8226bf9448ec63bcbc75.mp3str
+Completed load for: 'res://assets/audio/music/highbank.mp3' remapped 'res://assets/audio/music/highbank.mp3' at thread -1
+PASS Storage joins Home / shop / Hall
+PASS original Storage footprint / position
+PASS installed interior / silhouette house finish
+PASS door mask has actual visible opening pixels
+PASS original complete facade places its door on the existing tile
+PASS three distinct source-masked door drawings
+PASS transparent corners show the actual ground
+PASS native render adds near-black internal structure outlines
+PASS walk onto unchanged Storage doorway
+Loading resource: res://assets/audio/sfx/dungeon/door.wav remapped: res://assets/audio/sfx/dungeon/door.wav
+Loading resource: res://.godot/imported/door.wav-fc9072ea56cf052f93545896385172cb.sample remapped: res://.godot/imported/door.wav-fc9072ea56cf052f93545896385172cb.sample
+Completed load for: 'res://assets/audio/sfx/dungeon/door.wav' remapped 'res://assets/audio/sfx/dungeon/door.wav' at thread -1
+PASS native E keeps service and door sound
+PASS door passes through ajar
+PASS door opens to warm interior
+PASS Esc closes service and animated door
+PASS native E from the worn approach
+RESULT 21 checks, 0 failures
+XR: Clearing primary interface
+XR: Removed interface "Native mobile"
+XR: Removed interface "OpenXR"
+Accessibility: window 0 adapter destroyed.

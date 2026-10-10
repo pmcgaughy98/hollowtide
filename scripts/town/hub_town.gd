@@ -8,10 +8,13 @@ extends Node2D
 const Layout := preload("res://scripts/town/town_layout.gd")
 const Arena := preload("res://scripts/arena/arena_prototype.gd")
 const TeamState := preload("res://scripts/town/team_state.gd")
+const Evolution := preload("res://scripts/town/evolution.gd")
+const Jobs := preload("res://scripts/town/jobs.gd")
 const Music := preload("res://scripts/audio/music.gd")
 const RETURN_SPOT := Vector2i(24, 8)   # back from a run: on the Hall's steps (the guild, as in Explorers of Sky)
 const FONT := preload("res://assets/fonts/Silkscreen-Bold.ttf")
 const UI := preload("res://scripts/ui/ui_style.gd")   # the shared look (Claude, 2026-10-10)
+const WALK_FPS := 12.0   # walk frames a second in town
 const T := Layout.T
 const VIEW := Vector2i(384, 216)
 const SCALE := 3.0
@@ -33,6 +36,7 @@ var _world: Node2D
 var _labels: Node2D
 var _hud: Node2D
 var _keys_was := {}
+var _building_exteriors: Node2D
 
 
 func _ready() -> void:
@@ -53,6 +57,8 @@ func _ready() -> void:
 	map.centered = false
 	map.texture = ImageTexture.create_from_image(paint())
 	_world.add_child(map)
+	if ResourceLoader.exists("res://scripts/town/building_exteriors.gd"):
+		_building_exteriors = load("res://scripts/town/building_exteriors.gd").attach(_world, self)
 	_labels = Node2D.new()
 	_labels.z_index = 2000
 	_labels.draw.connect(_draw_labels)
@@ -65,6 +71,12 @@ func _ready() -> void:
 	var news: String = TeamState.data.get("news", "")
 	TeamState.data.erase("news")
 	var at: Vector2i = RETURN_SPOT if news != "" else Layout.SPAWN
+	# Back out of a building's room: standing on its door, below it (Claude, 2026-10-10).
+	var back: String = TeamState.data.get("arrive_at", "")
+	TeamState.data.erase("arrive_at")
+	for p in Layout.PLACES:
+		if p["id"] == back:
+			at = p["door"] + Vector2i(0, 1)
 	for k in party.size():
 		var pos: Vector2i = at + Vector2i(0, k) if news != "" else (at + Vector2i(-k, 0) if k < 2 else at + Vector2i(1, 0))
 		if not open_at(pos):
@@ -82,9 +94,13 @@ func _ready() -> void:
 ## replaces this with art drawn to the same rects.
 static func paint() -> Image:
 	var blockout := paint_blockout()
+	var ground := blockout
 	if ResourceLoader.exists("res://scripts/town/highbank_ground_painter.gd"):
-		return load("res://scripts/town/highbank_ground_painter.gd").paint(blockout)
-	return blockout
+		ground = load("res://scripts/town/highbank_ground_painter.gd").paint(blockout)
+	# The dungeons' treatment over Codex's ground, leaving Codex's places as they are (Claude, 2026-10-10).
+	if ResourceLoader.exists("res://scripts/town/highbank_painter.gd"):
+		ground = load("res://scripts/town/highbank_painter.gd").paint(ground)
+	return ground
 
 
 static func paint_blockout() -> Image:
@@ -123,9 +139,17 @@ func _make(line: int, stage: int, pos: Vector2i) -> Dictionary:
 	preload("res://scripts/arena/creature_finish.gd").apply(sprite)
 	var set := "dungeon" if ResourceLoader.exists("res://assets/sprites/arena/%s/dungeon/s.png" % form) else "small"
 	var still := {}
+	var walk := {}   # facing -> the walk cycle (the dungeon set's 8 frames), so the team walks, not slides
 	for f in Arena.FACINGS:
 		still[f] = load("res://assets/sprites/arena/%s/%s/%s.png" % [form, set, f])
-	var e := {"line": line, "stage": stage, "form": form, "pos": pos, "node": node, "sprite": sprite, "still": still, "facing": "s"}
+		var frames: Array = []
+		for k in 8:
+			var path := "res://assets/sprites/arena/%s/%s/walk_%s_f%d.png" % [form, set, f, k]
+			if ResourceLoader.exists(path):
+				frames.append(load(path))
+		walk[f] = frames
+	var e := {"line": line, "stage": stage, "form": form, "pos": pos, "node": node, "sprite": sprite, "still": still, "walk": walk,
+		"facing": "s", "walk_t": 0.0, "walk_clock": 0.0}
 	_place(e)
 	return e
 
@@ -136,7 +160,8 @@ func _px(t: Vector2i) -> Vector2:
 
 func _place(e: Dictionary) -> void:
 	e["node"].position = _px(e["pos"])
-	e["sprite"].texture = e["still"][e["facing"]]
+	if e.get("walk_t", 0.0) <= 0.0:
+		e["sprite"].texture = e["still"][e["facing"]]   # mid-walk it keeps the walk frame
 	e["sprite"].position = Vector2(0, -e["sprite"].texture.get_size().y * 0.5 + 4)
 	e["node"].z_index = int(e["node"].position.y)
 
@@ -167,7 +192,10 @@ func act_move(d: Vector2i) -> void:
 			team[k]["facing"] = _facing_of((trail[k - 1] - team[k]["pos"]).clamp(Vector2i(-1, -1), Vector2i(1, 1)))
 			team[k]["pos"] = trail[k - 1]
 	for e in team:
-		e["sprite"].texture = e["still"][e["facing"]]
+		if _px(e["pos"]) != e["node"].position:
+			e["walk_t"] = STEP_TIME + 0.06   # walk while it moves (a held key keeps the cycle going)
+		else:
+			e["sprite"].texture = e["still"][e["facing"]]
 		create_tween().tween_property(e["node"], "position", _px(e["pos"]), STEP_TIME)
 	await get_tree().create_timer(STEP_TIME).timeout
 	for e in team:
@@ -180,6 +208,14 @@ func act_move(d: Vector2i) -> void:
 
 ## Use the place the leader stands on or faces: show what it is; the Mouth of the Hollow starts a run.
 func act_use() -> Dictionary:
+	if evolving_now:
+		return {}
+	if panel.get("service", "") == "evolve_ask":
+		evolve_at_shrine(int(panel["k"]))
+		return {}
+	if panel.get("service", "") == "board":
+		act_board_pick()
+		return {}
 	if not panel.is_empty():
 		panel = {}
 		return {}
@@ -192,8 +228,14 @@ func act_use() -> Dictionary:
 	if p["service"] == "dungeon":
 		enter_hollow()
 		return p
+	if p["service"] in ["home", "guild"]:
+		enter_room("home" if p["service"] == "home" else "hall")
+		return p
 	panel = p
+	if p["service"] == "growth":
+		panel = _shrine_panel(p)
 	if p["service"] == "jobs":
+		panel = _board_panel(p)
 		_sfx("board_paper")
 	elif p["service"] in DOOR_SERVICES:
 		_sfx("door")
@@ -232,12 +274,133 @@ func _music_update() -> void:
 		Music.play(get_tree(), music_track())
 
 
+## The Growth Shrine (Claude, 2026-10-10; Preston: evolving happens "outside dungeon at a specific
+## location"): it names who is ready and asks before anything changes; yes plays the evolution scene
+## (scripts/ui/evolution_scene.gd) and applies it to the carried record (scripts/town/evolution.gd).
+var evolving_now := false
+var evolved_log: Array = []   # [old name, new name], for the checks
+
+
+func _record() -> Dictionary:
+	if TeamState.data.is_empty():
+		TeamState.start(party)
+	TeamState.data["party"] = party.duplicate(true)
+	return TeamState.data
+
+
+## The Job Board (scripts/town/jobs.gd): finished jobs are paid first, then the board lists the jobs
+## the team carries and the open requests. W/S choose, E takes or puts back, Esc closes.
+func _board_panel(p: Dictionary) -> Dictionary:
+	var rec := _record()
+	Jobs.refresh(rec)
+	var paid := Jobs.pay(rec)
+	return {"name": p["name"], "service": "board", "sel": 0, "paid": paid, "said": ""}
+
+
+var _faces := {}
+
+
+## A creature's 48 px headshot (tools/arena/build_portraits.py), loaded once.
+func _face(form: String) -> Texture2D:
+	if not _faces.has(form):
+		var path := "res://assets/sprites/arena/%s/portrait.png" % form
+		_faces[form] = load(path) if ResourceLoader.exists(path) else null
+	return _faces[form]
+
+
+func board_rows() -> Array:
+	return Jobs.rows(_record())
+
+
+func act_board_pick() -> void:
+	var rows := board_rows()
+	if rows.is_empty():
+		return
+	var k: int = clampi(int(panel.get("sel", 0)), 0, rows.size() - 1)
+	panel["said"] = Jobs.toggle(_record(), rows[k])
+	panel["paid"] = []
+	_ui_sfx("confirm")
+
+
+func act_board_move(dy: int) -> void:
+	var n := board_rows().size()
+	if n > 0:
+		panel["sel"] = posmod(int(panel.get("sel", 0)) + dy, n)
+		_ui_sfx("cursor")
+
+
+func _ui_sfx(name: String) -> void:
+	last_sfx = name
+	var p := AudioStreamPlayer.new()
+	p.stream = load("res://assets/audio/sfx/ui/%s.wav" % name)
+	p.volume_db = -8.0
+	add_child(p)
+	p.play()
+	p.finished.connect(p.queue_free)
+
+
+func _shrine_panel(p: Dictionary) -> Dictionary:
+	var ready := Evolution.ready_list(_record())
+	if ready.is_empty():
+		return {"name": p["name"], "what": "No one is ready to evolve yet. The Team page (P) shows what each creature still needs.", "service": "growth"}
+	var k: int = ready[0]
+	var name: String = load(Arena.LINES[party[k][0]]["forms"][party[k][1]][1]).creature_name
+	return {"name": p["name"], "what": "%s is ready to evolve. Let it evolve here?      E  yes      Esc  not now" % name, "service": "evolve_ask", "k": k}
+
+
+func evolve_at_shrine(k: int) -> void:
+	evolving_now = true
+	panel = {}
+	var rec := _record()
+	var ln: int = party[k][0]
+	var st: int = party[k][1]
+	var scene: CanvasLayer = load("res://scripts/ui/evolution_scene.gd").new()
+	add_child(scene)
+	await scene.run(Arena.LINES[ln]["forms"][st][0], Arena.LINES[ln]["forms"][st + 1][0],
+		load(Arena.LINES[ln]["forms"][st][1]).creature_name, load(Arena.LINES[ln]["forms"][st + 1][1]).creature_name, not poll_input)
+	scene.queue_free()
+	var res := Evolution.evolve(rec, k)
+	party = rec["party"].duplicate(true)
+	evolved_log.append([res["old_name"], res["new_name"]])
+	# Its sprite on the street becomes the new form.
+	var old_e: Dictionary = team[k]
+	team[k] = _make(ln, st + 1, old_e["pos"])
+	team[k]["facing"] = old_e["facing"]
+	_place(team[k])
+	old_e["node"].queue_free()
+	var notes: Array = []
+	if not res["learned"].is_empty():
+		notes.append("It learned %s." % ", ".join(res["learned"].map(func(m: String) -> String: return Arena.MOVES[m]["name"])))
+	if not res["lost"].is_empty():
+		notes.append("Its new body can't use %s." % ", ".join(res["lost"].map(func(m: String) -> String: return Arena.MOVES[m]["name"])))
+	if not res["waiting"].is_empty():
+		notes.append("%s will be offered on the next run." % ", ".join(res["waiting"].map(func(m: String) -> String: return Arena.MOVES[m]["name"])))
+	panel = {"name": "Growth Shrine", "what": "%s evolved into %s! %s" % [res["old_name"], res["new_name"], " ".join(notes)], "service": "growth_done"}
+	evolving_now = false
+
+
+## Step inside the Home or the Wayline Hall: a room at the town's scale (scripts/town/town_room.gd).
+func enter_room(id: String) -> void:
+	_sfx("door")
+	TeamState.data["party"] = party.duplicate(true)
+	if is_inside_tree() and get_tree().current_scene == self:
+		var room: Node = load("res://scenes/town_room.tscn").instantiate()
+		room.room_id = id
+		get_tree().change_scene_to_node(room)
+	else:
+		set_meta("entered_room", id)   # the checks read this instead of leaving the scene
+
+
 func enter_hollow() -> void:
 	var dg: Node2D = load("res://scenes/dungeon.tscn").instantiate()
 	if TeamState.data.is_empty():
 		TeamState.start(party)
 	TeamState.data["party"] = party.duplicate(true)
 	TeamState.give_to(dg)
+	# The next dungeon whose boss is not beaten (the town has one way down for now; Codex's layout
+	# can give each its own entrance later).
+	var beaten: Array = TeamState.data.get("beaten", [])
+	dg.dungeon = "hollow" if "first" in beaten else "first"
 	dg.return_to_town = true
 	if is_inside_tree() and get_tree().current_scene == self:
 		get_tree().change_scene_to_node(dg)
@@ -247,8 +410,18 @@ func enter_hollow() -> void:
 
 
 func _process(_delta: float) -> void:
-	if poll_input and not busy:
+	if poll_input and not busy and not evolving_now:
 		_poll()
+	# The walk cycle (Claude, 2026-10-10; Preston: "they just hopped without animation").
+	for e in team:
+		if e["walk_t"] > 0.0:
+			e["walk_t"] -= _delta
+			e["walk_clock"] += _delta
+			var frames: Array = e["walk"].get(e["facing"], [])
+			if not frames.is_empty():
+				e["sprite"].texture = frames[int(e["walk_clock"] * WALK_FPS) % frames.size()]
+			if e["walk_t"] <= 0.0:
+				e["sprite"].texture = e["still"][e["facing"]]
 	if not team.is_empty():
 		var half := Vector2(VIEW) * 0.5
 		var focus: Vector2 = (team[0]["node"].position + Vector2(0, -12)).clamp(half, Vector2(Layout.W, Layout.H) * T - half)
@@ -269,6 +442,11 @@ func _tapped(k: int) -> bool:
 
 
 func _poll() -> void:
+	if panel.get("service", "") == "board":
+		if _tapped(KEY_W) or _tapped(KEY_UP):
+			act_board_move(-1)
+		if _tapped(KEY_S) or _tapped(KEY_DOWN):
+			act_board_move(1)
 	if _tapped(KEY_E) or _tapped(KEY_J) or _tapped(KEY_ENTER):
 		act_use()
 		return
@@ -281,12 +459,18 @@ func _poll() -> void:
 
 func _draw_labels() -> void:
 	for p in Layout.PLACES:
+		if is_instance_valid(_building_exteriors) and _building_exteriors.buildings.has(p["id"]):
+			continue   # Finished entrances have their own sign / lantern; other plaques stay.
 		var r: Rect2i = p["rect"]
 		var at := Vector2(r.position.x * T, r.position.y * T + (r.size.y * T) * 0.5)
 		# A small signboard: a dark plaque with a brass rim behind the name, so it reads on any ground.
 		var name := String(p["name"]).to_upper()
 		var w: float = FONT.get_string_size(name, HORIZONTAL_ALIGNMENT_LEFT, -1, 8).x + 10.0
 		var mid: float = at.x + r.size.x * T * 0.5
+		# Landing overlaps the finished Mouth; keep its temporary plaque at its own spot.
+		if p["id"] == "landing" and is_instance_valid(_building_exteriors) and _building_exteriors.buildings.has("gate"):
+			mid = p["door"].x * T + T * 0.5
+			at.y = p["door"].y * T + 6
 		var plaque := Rect2(Vector2(mid - w * 0.5, at.y - 9).round(), Vector2(w, 13).round())
 		_labels.draw_rect(plaque, Color(UI.PANEL, 0.82))
 		_labels.draw_rect(plaque, Color(UI.EDGE, 0.9), false, 1.0)
@@ -297,16 +481,65 @@ func _draw_hud() -> void:
 	# The shared look (scripts/ui/ui_style.gd), as in the Hollow: where you are at the top left, the
 	# keys short at the bottom right, a place's sign in a panel at the bottom. Claude, 2026-10-10.
 	var h := _hud
-	UI.panel(h, Rect2(12, 10, 300, 46))
-	UI.text(h, Vector2(26, 43), "Highbank", 26, UI.EDGE_LIGHT)
+	UI.panel(h, Rect2(6, 6, 330, 54))
+	UI.text(h, Vector2(28, 43), "Highbank", 26, UI.EDGE_LIGHT)
 	var here: Dictionary = Layout.place_at(team[0]["pos"]) if not team.is_empty() else {}
 	if not here.is_empty():
-		UI.text(h, Vector2(26, 43), String(here["name"]), 16, UI.TEXT, 272, HORIZONTAL_ALIGNMENT_RIGHT)
+		UI.text(h, Vector2(28, 43), String(here["name"]), 16, UI.TEXT, 282, HORIZONTAL_ALIGNMENT_RIGHT)
 	UI.text(h, Vector2(946, 562), "WASD walk   E use", 14, Color(UI.MUTED, 0.85), 194, HORIZONTAL_ALIGNMENT_RIGHT)
 	UI.text(h, Vector2(946, 580), "The Hollow's mouth starts a run", 14, Color(UI.MUTED, 0.85), 194, HORIZONTAL_ALIGNMENT_RIGHT)
-	if not panel.is_empty():
+	if panel.get("service", "") == "board":
+		_draw_board(h)
+	elif not panel.is_empty():
 		var box := Rect2(196, 452, 760, 128)
 		UI.panel(h, box, 0.95)
 		UI.text(h, box.position + Vector2(22, 34), String(panel["name"]), 23, UI.EDGE_LIGHT, 716)
 		h.draw_multiline_string(UI.HEAD, box.position + Vector2(22, 64), String(panel["what"]), HORIZONTAL_ALIGNMENT_LEFT, 716, 18, 2, UI.TEXT)
-		UI.text(h, box.position + Vector2(22, 116), "E  close", 15, UI.MUTED, 716, HORIZONTAL_ALIGNMENT_RIGHT)
+		var hint := "E  evolve     Esc  not now" if panel.get("service", "") == "evolve_ask" else "E  close"
+		UI.text(h, box.position + Vector2(22, 116), hint, 15, UI.MUTED, 716, HORIZONTAL_ALIGNMENT_RIGHT)
+
+
+## The board, drawn the Explorers of Sky way: the rank at the top, one row per request with the
+## client's headshot, where to go and what it pays; a brass TAKEN tab on the ones in the satchel.
+func _draw_board(h: CanvasItem) -> void:
+	var rec := _record()
+	var rows := board_rows()
+	var box := Rect2(166, 64, 820, 132 + 70 * maxi(1, rows.size()))
+	UI.panel(h, box, 0.96)
+	UI.nameplate(h, box.position + Vector2(28, -22), String(panel["name"]), 22)
+	var rk: Array = Jobs.rank_of(int(rec.get("rank", 0)))
+	var rank_s := "Courier Rank %d    %d points" % [rk[0], int(rec.get("rank", 0))] + ("" if rk[1] < 0 else "  (%d for the next)" % rk[1])
+	UI.text(h, box.position + Vector2(30, 46), rank_s, 18, UI.EDGE_LIGHT)
+	var carried: int = rec.get("jobs", []).size()
+	UI.text(h, box.position + Vector2(30, 46), "Taken %d / %d" % [carried, Jobs.TAKE_MAX], 16, UI.MUTED, box.size.x - 60, HORIZONTAL_ALIGNMENT_RIGHT)
+	var note := ""
+	if not panel.get("paid", []).is_empty():
+		note = "Paid: " + "   ".join(panel["paid"])
+	elif String(panel.get("said", "")) != "":
+		note = String(panel["said"])
+	UI.text(h, box.position + Vector2(30, 74), note if note != "" else "Take a request, then go down to the Hollow. Reach the client on its floor.", 16, UI.TEXT if note != "" else UI.MUTED, box.size.x - 60)
+	if rows.is_empty():
+		UI.text(h, box.position + Vector2(30, 124), "No requests today.", 18, UI.MUTED)
+	for k in rows.size():
+		var j: Dictionary = rows[k]
+		var r := Rect2(box.position + Vector2(24, 94 + k * 70), Vector2(box.size.x - 48, 62))
+		var on: bool = k == int(panel.get("sel", 0))
+		if on:
+			h.draw_rect(r, UI.FOCUS)
+			h.draw_rect(r, UI.EDGE_LIGHT, false, 2.0)
+		var face_r := Rect2(r.position + Vector2(8, 7), Vector2(48, 48))
+		h.draw_rect(face_r, UI.PORTRAIT_BG)
+		var face := _face(Jobs.client_form(j))
+		if face != null:
+			h.draw_texture_rect(face, face_r, false)
+		h.draw_rect(face_r, UI.EDGE, false, 1.0)
+		var done: bool = j.get("done", false)
+		UI.text(h, r.position + Vector2(70, 27), Jobs.title(j), 20, UI.EDGE_LIGHT if on else UI.TEXT, 340)
+		UI.text(h, r.position + Vector2(70, 51), "B%dF   %s" % [int(j["floor"]), "done, paid on return" if done else ("lost there" if j["kind"] == "rescue" else "dropped there")], 15, UI.MUTED, 300)
+		var icon := UI.item_icon(String(j["reward"]))
+		if icon != null:
+			h.draw_texture(icon, r.position + Vector2(420, 15))
+		UI.text(h, r.position + Vector2(458, 37), "%s x%d   +%d" % [Jobs.item_name(j["reward"]), int(j["count"]), int(j["pts"])], 16, UI.TEXT, 180)
+		if Jobs.is_taken(rec, j):
+			UI.nameplate(h, r.position + Vector2(r.size.x - 112, 13), "Taken", 18)
+	UI.text(h, box.end + Vector2(-box.size.x + 30, -22), "W/S choose     E take or put back     Esc close", 15, UI.MUTED, box.size.x - 60, HORIZONTAL_ALIGNMENT_RIGHT)

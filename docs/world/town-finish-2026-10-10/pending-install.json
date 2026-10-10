@@ -1,0 +1,38 @@
+[
+  {
+    "path": "scripts/town/building_detail_finish.gdshader",
+    "before": null,
+    "after": "c410c5ba97447475380710782c80c963a936d1b6ab45821dbf07a3d581bc3eb7",
+    "source": "D:\\dev\\hollowtide-town-finish-20261010\\candidate\\scripts\\town\\building_detail_finish.gdshader"
+  },
+  {
+    "path": "scripts/town/building_exteriors.gd",
+    "before": null,
+    "after": "9deb4395f8310eb13fea8e939e5d6f634568ff664e9e6b905a99b4ea39fd2c79",
+    "source": "D:\\dev\\hollowtide-town-finish-20261010\\candidate\\scripts\\town\\building_exteriors.gd"
+  },
+  {
+    "path": "scripts/town/home_painter.gd",
+    "before": "00e92b59e1c3418da732637028cc416b326619252ddc6743c3b121b3950a0427",
+    "after": "e9ace3690967791322fb837692c2e9c4b24790b0f99d6d304d86193a7c657124",
+    "source": "D:\\dev\\hollowtide-town-finish-20261010\\candidate\\scripts\\town\\home_painter.gd"
+  },
+  {
+    "path": "scripts/town/hub_town.gd",
+    "before": "2ced273d2401adfaf01d1e10066bf522d5e1c16ade4d1ee42b31ae5032c26e1d",
+    "after": "9397a8277045d1d15d2256f91e3e1e933fcfb1c576d1f85a25d2d0cd9df9092c",
+    "source": "D:\\dev\\hollowtide-town-finish-20261010\\candidate\\scripts\\town\\hub_town.gd"
+  },
+  {
+    "path": "scripts/town/item_shop_painter.gd",
+    "before": "b0f04616c4585d340f4a5e4e53cb9cce63fab8702046447ceaa020b47a50b6e0",
+    "after": "edc3210394f6a899531badb3696c291233238ce8f01b80d1dd3a416a54cf6fe1",
+    "source": "D:\\dev\\hollowtide-town-finish-20261010\\candidate\\scripts\\town\\item_shop_painter.gd"
+  },
+  {
+    "path": "docs/AI_COLLABORATION.md",
+    "before": "bbac3a6e3b1447b2d18c43c79521b91c6cdf86a8c2e584c0ac21159f4f5c9eb6",
+    "after": "e46c0324c573c8fffde1318e56a03c936b3bcaea435de57747c18a078bafc104",
+    "source": "D:\\dev\\hollowtide-town-finish-20261010\\candidate\\docs\\AI_COLLABORATION.md"
+  }
+]

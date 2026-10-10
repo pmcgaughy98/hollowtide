@@ -1,0 +1,6 @@
+{
+  "scripts/dungeon/dungeon.gd": {
+    "sha256": "dc062864b5ccf25efeea84a3c49a1221c3aa3ce277a160fc69ad7942e3cb87ce",
+    "reason": "Inspected boss/escort sizing and updated full-body ground shadow; preserved Claude edit after preinstall."
+  }
+}

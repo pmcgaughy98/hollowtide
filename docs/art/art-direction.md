@@ -1,5 +1,9 @@
 # How the art actually gets made
 
+## Shared sel-out finish (Preston, October 10, 2026)
+
+The purposeful-building outline treatment is part of Hollowtide sel-out. `scripts/arena/sel_out.gdshaderinc` owns the shared silhouette repair, native colour-cluster cleanup and internal contour recipe. `creature_finish.gd.apply(sprite, true)` opts into dark joints/material boundaries plus thin pale carved seams; purposeful service buildings and Growth Shrine use it. Default creature application preserves its approved display finish and all source textures/palette locks. Decorative scenery remains quieter. The legacy building shader is a compatibility entry point into the same recipe, not a second finish to maintain. New purposeful sprites should call the shared detailed preset, with grounding and entrance alignment handled by their painter.
+
 **Current-state note, 2026-09-26.** Hollowtide's roster target is 20 three-stage lines and 60 forms across six essences. Older 24-line, 44-form, 64x64, PixelLab, and Pixelorama directions below are historical research. [THE_CONCEPT.md](../../THE_CONCEPT.md) and the [current roster](../creatures/creature-roster-draft.md) govern the game and its art briefs.
 
 ## Current decision: two Opal creature Forges

@@ -1,0 +1,111 @@
+{
+  "protected_exact_since_preinstall": 24172,
+  "original_art_and_creatures_unchanged": true,
+  "concurrent_before_install_retained": {
+    "scripts/dungeon/dungeon.gd": {
+      "before": "4bff4b7537da7758e125875bfd390ae5e34e25255e7ea432d01f2b0f9664d98a",
+      "now": "a03e9226f26524e3ed4f603cc27d76064e0b3778377bde260fceab4b1e808b29"
+    },
+    "assets/audio/_440hz_originals/retuned.txt": {
+      "before": "8b652781010dc331798d23aeeda9d427ff7fff1189f2ed7d343c1185fd955975",
+      "now": "dcc507d7756953a0016a94a40427cc1001447e212de504c21d6ab73ae9304621"
+    },
+    "tools/audio/build_dungeon_sfx.py": {
+      "before": "c298f529b2d8c0ca99735fd3dde7c4fc21ef215cd031f99c770a402f4b75c98b",
+      "now": "e22b788fd43219e4f4e970400fed463af28f23fe6d6373d5b8107a510e70e1dd"
+    },
+    "tools/debug/dialogue_capture.gd": {
+      "before": "63d6a02119f8dd54a4e6fe4144853fbd50107c760c1ce430a027756755fe762d",
+      "now": "b3831d1363eacd1ba4fa6c03bc033ded0ba997e6b810333ec6cc3e353b5c1f60"
+    },
+    "tools/debug/music_check.gd": {
+      "before": "34c4088461ae5f114fe9560a9bed7757fd295c5f510771c991ba98435ca5e8b6",
+      "now": "7ee142fa2e78a67f78e2dc6b73588a55d4b5d1bf7f7bb1df63fec7ea5e8b4c5c"
+    },
+    ".gitignore": {
+      "before": "ac5772b589c4c3f78ff2476a930b9fde20e2acc9f60e736aaed9137e3f6f2b09",
+      "now": "3dd4696086be44fc8f10860a8312840e35c19d089f66bf9486d29c1a501c37f7"
+    }
+  },
+  "concurrent_after_preinstall_retained": {
+    "assets/audio/music/monster_house.mp3": {
+      "sha256": "cddf8fe0aa188c90cbebfdc81e7281b5b15e0dd9ee371831a32bbb252f858cb8",
+      "reason": "Claude concurrent Warden pond-garden scene/music refresh; current source/docs inspected, retained without writes."
+    },
+    "scripts/dungeon/boss_intro.gd": {
+      "sha256": "42c871fd0c54a1974b4cc72ebe19c7aa21f4231dc4bdce1aff168fe440b39f83",
+      "reason": "Claude concurrent Warden pond-garden scene/music refresh; current source/docs inspected, retained without writes."
+    },
+    "assets/audio/music/pond_garden.mp3": {
+      "sha256": "16836dfa6b8c5d0ccdd03dff5bdbd266b43bda1a4970ec89fb1d7d001acf92c5",
+      "reason": "Claude concurrent Warden pond-garden scene/music refresh; current source/docs inspected, retained without writes."
+    },
+    "docs/audio/sources.md": {
+      "sha256": "68ee003165f2df0d9d1372ee897750e34b4fd12a93ed9b3dcad7c8d3b3222424",
+      "reason": "Claude concurrent Warden pond-garden scene/music refresh; current source/docs inspected, retained without writes."
+    },
+    "docs/design/boss-intro-2026-10-10/00_garden.png": {
+      "sha256": "a0b8a5e69f3878afe2d6fac73334c2e981b6a931049ec9d9759cbae1ce5af156",
+      "reason": "Claude concurrent Warden pond-garden scene/music refresh; current source/docs inspected, retained without writes."
+    },
+    "docs/design/boss-intro-2026-10-10/01b_notice.png": {
+      "sha256": "3eebf9500d862794aece74ec93d3fc27e9ee7b19e517d1aeacf8a6853d7bcec7",
+      "reason": "Claude concurrent Warden pond-garden scene/music refresh; current source/docs inspected, retained without writes."
+    },
+    "docs/design/boss-intro-2026-10-10/01_walk_in.png": {
+      "sha256": "dda75aa488efd0f64012068be6cd892a023382a8f27f5f6042a6ff074cb2c422",
+      "reason": "Claude concurrent Warden pond-garden scene/music refresh; current source/docs inspected, retained without writes."
+    },
+    "docs/design/boss-intro-2026-10-10/02_voice.png": {
+      "sha256": "ebe6b2ab69c6babd539d2ebc6a3fb48b5e00d780477c6bee61a339c9d1e30915",
+      "reason": "Claude concurrent Warden pond-garden scene/music refresh; current source/docs inspected, retained without writes."
+    },
+    "docs/design/boss-intro-2026-10-10/03_shadow_in_pond.png": {
+      "sha256": "71122cd46afe4f0a93bc0136f62f1c102ef16dc2e91eacb38db78ee597e141c4",
+      "reason": "Claude concurrent Warden pond-garden scene/music refresh; current source/docs inspected, retained without writes."
+    },
+    "docs/design/boss-intro-2026-10-10/04_burst.png": {
+      "sha256": "0bc122e5d5bd87d7739ba55be0939f81c79923d0a41cc939231359ebe0f6a8ea",
+      "reason": "Claude concurrent Warden pond-garden scene/music refresh; current source/docs inspected, retained without writes."
+    },
+    "docs/design/boss-intro-2026-10-10/06_getting_up_dazed.png": {
+      "sha256": "ce599975850b6c157fe85890f7cd41abc5ca1886244a12d9f4d150e0bb38f917",
+      "reason": "Claude concurrent Warden pond-garden scene/music refresh; current source/docs inspected, retained without writes."
+    },
+    "docs/design/boss-intro-2026-10-10/07_shadow_on_ground.png": {
+      "sha256": "3e753fc6904aff52e4ec85c4a4c61282aa7af2e8f2cbb2e09e8e557451375484",
+      "reason": "Claude concurrent Warden pond-garden scene/music refresh; current source/docs inspected, retained without writes."
+    },
+    "docs/design/boss-intro-2026-10-10/08_slam.png": {
+      "sha256": "1139aa571ee64876b0c1982df774b96cf9c43354ec51bd8c7442d963519e8de5",
+      "reason": "Claude concurrent Warden pond-garden scene/music refresh; current source/docs inspected, retained without writes."
+    },
+    "docs/design/boss-intro-2026-10-10/09b_wipe.png": {
+      "sha256": "94e471dc317b41a67589d25d6fb20a9c51f8466a85156541961f37966130cc3f",
+      "reason": "Claude concurrent Warden pond-garden scene/music refresh; current source/docs inspected, retained without writes."
+    },
+    "docs/design/boss-intro-2026-10-10/09_warden_talks.png": {
+      "sha256": "951c995d7ed36debd317158837ef7dd5639834f909418c0f1139bf4beac0a230",
+      "reason": "Claude concurrent Warden pond-garden scene/music refresh; current source/docs inspected, retained without writes."
+    },
+    "docs/design/boss-intro-2026-10-10/10_fight.png": {
+      "sha256": "28eb54d32963275a3f614384b2573ac2005e05c433846421ae18189086f515e2",
+      "reason": "Claude concurrent Warden pond-garden scene/music refresh; current source/docs inspected, retained without writes."
+    },
+    "docs/design/boss-intro-2026-10-10/README.md": {
+      "sha256": "7f867477ea927b679e8cfb3051bbf97723bf7b711e04210699ef9a8bb5f473f0",
+      "reason": "Claude concurrent Warden pond-garden scene/music refresh; current source/docs inspected, retained without writes."
+    },
+    "docs/design/boss-intro-2026-10-10/warden_entrance.mp4": {
+      "sha256": "d83eafce0cee6ecb3cbc130e815d6dde204b4b73db61a2c83b6c2dc3cca46bed",
+      "reason": "Claude concurrent Warden pond-garden scene/music refresh; current source/docs inspected, retained without writes."
+    },
+    "docs/AI_COLLABORATION.md": {
+      "sha256": "ba0a7d36b303ba4898afa1fc4349086419343c1bb64485d9a8e99a200207ac25",
+      "reason": "Grok prepended the antagonist/boss handoff; exact installed Mouth entry verified retained, all current note bytes preserved."
+    }
+  },
+  "owned_runtime_exact": true,
+  "problems": [],
+  "archive_mismatch": []
+}

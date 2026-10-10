@@ -1,0 +1,19 @@
+diff --git "a/D:\\dev\\hollowtide-world-refinement-20261008\\project\\scripts\\town\\hub_town.gd" "b/D:\\dev\\hollowtide-job-board-20261010\\archive\\concurrent\\scripts\\town\\hub_town.gd"
+index a88fdd7..be1a526 100644
+--- "a/D:\\dev\\hollowtide-world-refinement-20261008\\project\\scripts\\town\\hub_town.gd"
++++ "b/D:\\dev\\hollowtide-job-board-20261010\\archive\\concurrent\\scripts\\town\\hub_town.gd"
+@@ -387,11 +387,11 @@ func _draw_hud() -> void:
+ 	# The shared look (scripts/ui/ui_style.gd), as in the Hollow: where you are at the top left, the
+ 	# keys short at the bottom right, a place's sign in a panel at the bottom. Claude, 2026-10-10.
+ 	var h := _hud
+-	UI.panel(h, Rect2(12, 10, 300, 46))
+-	UI.text(h, Vector2(26, 43), "Highbank", 26, UI.EDGE_LIGHT)
++	UI.panel(h, Rect2(6, 6, 330, 54))
++	UI.text(h, Vector2(28, 43), "Highbank", 26, UI.EDGE_LIGHT)
+ 	var here: Dictionary = Layout.place_at(team[0]["pos"]) if not team.is_empty() else {}
+ 	if not here.is_empty():
+-		UI.text(h, Vector2(26, 43), String(here["name"]), 16, UI.TEXT, 272, HORIZONTAL_ALIGNMENT_RIGHT)
++		UI.text(h, Vector2(28, 43), String(here["name"]), 16, UI.TEXT, 282, HORIZONTAL_ALIGNMENT_RIGHT)
+ 	UI.text(h, Vector2(946, 562), "WASD walk   E use", 14, Color(UI.MUTED, 0.85), 194, HORIZONTAL_ALIGNMENT_RIGHT)
+ 	UI.text(h, Vector2(946, 580), "The Hollow's mouth starts a run", 14, Color(UI.MUTED, 0.85), 194, HORIZONTAL_ALIGNMENT_RIGHT)
+ 	if not panel.is_empty():

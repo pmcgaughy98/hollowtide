@@ -1,0 +1,79 @@
+{
+  "installed_files": [
+    {
+      "path": "scripts/town/building_detail_finish.gdshader",
+      "before": null,
+      "after": "c410c5ba97447475380710782c80c963a936d1b6ab45821dbf07a3d581bc3eb7",
+      "source": "D:\\dev\\hollowtide-town-finish-20261010\\candidate\\scripts\\town\\building_detail_finish.gdshader"
+    },
+    {
+      "path": "scripts/town/building_exteriors.gd",
+      "before": null,
+      "after": "9deb4395f8310eb13fea8e939e5d6f634568ff664e9e6b905a99b4ea39fd2c79",
+      "source": "D:\\dev\\hollowtide-town-finish-20261010\\candidate\\scripts\\town\\building_exteriors.gd"
+    },
+    {
+      "path": "scripts/town/home_painter.gd",
+      "before": "00e92b59e1c3418da732637028cc416b326619252ddc6743c3b121b3950a0427",
+      "after": "e9ace3690967791322fb837692c2e9c4b24790b0f99d6d304d86193a7c657124",
+      "source": "D:\\dev\\hollowtide-town-finish-20261010\\candidate\\scripts\\town\\home_painter.gd"
+    },
+    {
+      "path": "scripts/town/hub_town.gd",
+      "before": "2ced273d2401adfaf01d1e10066bf522d5e1c16ade4d1ee42b31ae5032c26e1d",
+      "after": "9397a8277045d1d15d2256f91e3e1e933fcfb1c576d1f85a25d2d0cd9df9092c",
+      "source": "D:\\dev\\hollowtide-town-finish-20261010\\candidate\\scripts\\town\\hub_town.gd"
+    },
+    {
+      "path": "scripts/town/item_shop_painter.gd",
+      "before": "b0f04616c4585d340f4a5e4e53cb9cce63fab8702046447ceaa020b47a50b6e0",
+      "after": "edc3210394f6a899531badb3696c291233238ce8f01b80d1dd3a416a54cf6fe1",
+      "source": "D:\\dev\\hollowtide-town-finish-20261010\\candidate\\scripts\\town\\item_shop_painter.gd"
+    },
+    {
+      "path": "docs/AI_COLLABORATION.md",
+      "before": "bbac3a6e3b1447b2d18c43c79521b91c6cdf86a8c2e584c0ac21159f4f5c9eb6",
+      "after": "e46c0324c573c8fffde1318e56a03c936b3bcaea435de57747c18a078bafc104",
+      "source": "D:\\dev\\hollowtide-town-finish-20261010\\candidate\\docs\\AI_COLLABORATION.md"
+    }
+  ],
+  "protected_exact_since_preinstall": 9238,
+  "concurrent_edits_retained": {},
+  "concurrent_before_install_retained": {
+    "scripts/dungeon/dungeon.gd": {
+      "before": "9fd6b7f00ecd94fede79efc24e3661a52a53d92c11aeebb136be439bb87e94db",
+      "now": "ab4c2efe81801409962e0534e9466f613f2dc8a845a8e2e767e93e9cb70ff232"
+    },
+    "scripts/ui/game_pause_menu.gd": {
+      "before": "79d13d987b6f3816d741a24b8e9e0ed01e5d171b37efed4d9ef9c5df6cd464ff",
+      "now": "fb84d579ac3d8d1200c4f7f7237fc68bc47487bd08c48fb7e661ae7c4ed4d102"
+    },
+    "scripts/ui/ui_style.gd": {
+      "before": "fcc2ca5fdf1dc6aa7d855e76a41b2cc59f712aa33727cfa358d34f95452f1737",
+      "now": "2db596437d439eb3280f54e014ee7554451d3bdf13aceea79f9269fabdab4557"
+    },
+    "tools/debug/field_menu_check.gd": {
+      "before": "fdb47a39019ccd6afa4232a83f7ed6fb985dd0c2ed6b141db9425f3933979aaf",
+      "now": "54be6feffa6072a55ee35bb98439014818597f09b2106a98d716586fd931a849"
+    }
+  },
+  "new_unowned_files_retained": [
+    "scripts/ui/party_screen.gd",
+    "assets/sprites/ui/essence/bloom.png",
+    "assets/sprites/ui/essence/electric.png",
+    "assets/sprites/ui/essence/ember.png",
+    "assets/sprites/ui/essence/gale.png",
+    "assets/sprites/ui/essence/hollow.png",
+    "assets/sprites/ui/essence/ice.png",
+    "assets/sprites/ui/essence/stone.png",
+    "assets/sprites/ui/essence/tide.png",
+    "assets/sprites/ui/item/lamp_oil.png",
+    "assets/sprites/ui/item/rally_seed.png",
+    "assets/sprites/ui/item/reedberry.png",
+    "assets/sprites/ui/item/river_stone.png",
+    "assets/sprites/ui/item/scroll.png",
+    "tools/ui/build_icons.py"
+  ],
+  "problems": [],
+  "original_art_and_creatures_unchanged": true
+}
