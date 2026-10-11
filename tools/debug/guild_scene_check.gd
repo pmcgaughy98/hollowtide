@@ -9,6 +9,8 @@ extends SceneTree
 
 const TeamState := preload("res://scripts/town/team_state.gd")
 const OUT := "res://docs/design/guild-morning-2026-10-10/"
+const REC_PACE := 3   # with HT_RECORD set (video takes), each line stays this many times longer
+var _pace := REC_PACE if OS.get_environment("HT_RECORD") != "" else 1
 var fails := 0
 var shot := {}
 
@@ -57,7 +59,7 @@ func _run() -> void:
 		if not room.talk.is_empty():
 			await _snap("%02d_%s" % [n, String(room.talk[0][0]).to_lower()])
 			read += 1
-			if read >= 45:
+			if read >= 45 * _pace:
 				read = 0
 				n += 1
 				room.talk.pop_front()
@@ -76,7 +78,9 @@ func _run() -> void:
 	root.add_child(again)
 	for k in 6:
 		await process_frame
-	_ok("Next visit: no scene (%s)" % str(again.cutscene), not again.cutscene and again.npcs.is_empty())
+	# Since 2026-10-11 the crew stand at their posts once the trial is set (scripts/town/guild_crew.gd); no guild scene.
+	var forms: Array = again.npcs.map(func(e: Dictionary) -> String: return e["form"])
+	_ok("Next visit: no scene (%s), only the crew at their posts %s" % [str(again.cutscene), str(forms)], not again.cutscene and not forms.has("starward"))
 	again.queue_free()
 	for k in 2:
 		await process_frame
@@ -95,7 +99,7 @@ func _run() -> void:
 	while back.cutscene and guard < 30 * 60:
 		await process_frame
 		guard += 1
-		if not back.talk.is_empty() and guard % 20 == 0:
+		if not back.talk.is_empty() and guard % (20 * _pace) == 0:
 			if said == 4:
 				await _snap("30_named")
 			back.talk.pop_front()

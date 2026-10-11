@@ -8,9 +8,7 @@ The learnset answer is `docs/creatures/learnset-draft-2026-10-10.md`. Claude cop
 
 ### Open now
 
-1. **Springvault line, index 10** (Troughspine, Archroot, Springvault). Claude's drafts, not a ruling: `docs/creatures/arena-springvault-2026-10-10/README.md`. In code already, marked for you: parts `muzzle`, `gills`, `arches`, and `roots` from stage 2; Spring Spit 10; Seep heal 6, cooldown 9, `SEEP_TURNS` 3; `EVO[10]` way `healed`, need 40 then 100, KOs 2/5, floors 2/4; `LEARN` gives Troughspine both moves at Lv 1; Archroot and Springvault learn nothing; B2F spawns add `[10, 0]`. The roster draft called this line 12. The code index is 10. Seep needs `gills`, while the written mechanic is planting `roots`, and stage 1 has no roots. Rule on that before changing numbers. Mineral Brace, Vault Arch, and Headspring are not moves yet. Do not invent the ids.
-2. **Four new essences.** Sinew, Loam, Murk, and Blight are in `CreatureData.Essence` at the end. Punchybun is Sinew. Sparkjab and Starward are Sinew/Electric. Tallowroot is Bloom/Loam. Rimefin and Scourmaw are Tide/Murk. The Warden stays Tide/Hollow and is the first boss. The four new ones are neutral until `ARENA_CHART` has numbers. The sketch is `docs/creatures/essence-expansion-proposal-2026-10-10.md`.
-3. **Health carries between floors** (`_build_floor(floor_n == 1)`). Job 2's clocks were taken when every floor healed. They have not been re-measured since.
+The live list is `docs/team/GROK_TASKS_2026-10-11.md`. The result is `docs/team/GROK_BUILD_RESULT_2026-10-11.md`. The Tasks section below is the October 10 list. Do not start it. Springvault is answered there as a proposal and is not applied. The essence chart and the health-carry re-measure were not in the October 11 list.
 
 ### Claude changed, and it is not a numbers job unless Preston asks
 
@@ -21,7 +19,7 @@ Required reading is this file plus the three files under "Read first". Nothing e
 The game has pivoted more than once. A week of usage limits kept Grok out, so do not resume an older lane.
 
 - **Current game:** a turn-based mystery dungeon after Explorers of Sky. First floor is `scenes/dungeon.tscn`. Rules are `scripts/dungeon/dungeon.gd`. The dungeon reads arena `KITS` and `MOVES`, not the `.tres` stats.
-- **Side mode:** the real-time arena. It was the main fight, then it was switched off the same night (`real_time_battles = false`). Balance work on it waits until jobs 1 to 5.
+- **Side mode:** the real-time arena. It was the main fight, then it was switched off the same night (`real_time_battles = false`). Arena balance is parked. The open tasks are the healer line, the new essence chart, and a re-measure now that health carries.
 - **Between dungeons:** Codex's hometown, courier hall and river. Route 1 is still Codex's. Do not edit it.
 - **Older battle presentation** (contact lunges, aim points, VFX sheets, the `.tres` learn gate) is still in the tree. It is not what the dungeon plays. Leave it unless a job names it.
 
@@ -41,12 +39,16 @@ You are Grok Build, the Grok CLI Preston runs from PowerShell in `C:\Users\pmcga
 2. **Fights are turn-based too.** A real-time version was built and switched off the same night (`real_time_battles = false`). The arena (`scripts/arena/arena_prototype.gd`) is a separate side mode now.
 3. **Your lane is unchanged.** You own creature and move numbers and rules. Preston owns names and art approval. Claude owns battle presentation, the dungeon's code and the save model. Codex owns the launch flow, world and art preparation.
 4. **The dungeon reads the arena's creature data.** `KITS` (each form's moves) and `MOVES` (damage, cooldown, range) in `arena_prototype.gd` feed it, scaled by `HP_SCALE` and `DMG_SCALE`. The `.tres` stats do not drive either mode.
-5. **Preston's newest direction is move tables.** He wants Pokemon-style signature moves: "rather than each pokemon having their own unique moves only they can use... it has to make sense for another pokemon to be able to use their move that was made with them in mind, like Leaf Blade for Sceptile." That is your 2026-10-02 rule, so your first job is there.
+5. **Move tables are in.** The 2026-10-02 rule is live in `move_body.gd`. The open work is the Tasks section above the old October 9 notes.
 
 ## Read first (required, in this order)
-1. `docs/design/move-tables-2026-10-09/README.md`: what was built from your rule, and what waits on you.
-2. `docs/creatures/move-table-2026-10-09.md`: the generated table, including shared signatures, line moves, and the five kit moves that fail the gate.
-3. `docs/creatures/DESIGN_RULES.md`: your own rules, still the authority.
+1. The Tasks section in this file.
+2. `docs/creatures/arena-springvault-2026-10-10/README.md`: the healer line Claude built, every number still a draft.
+3. `docs/creatures/essence-expansion-proposal-2026-10-10.md`: the four new essences and the chart sketch.
+4. `docs/creatures/learnset-draft-2026-10-10.md`: decided and wired. Do not redo it.
+5. `docs/creatures/DESIGN_RULES.md`: still the authority on parts and ultimates.
+
+The October 9 move-table files are the finished job. Read them only if a task names them.
 
 **Background, only if a job needs it:**
 - `docs/design/dungeon-position-2026-10-09/README.md`: ambush, pincer, shove and slam.
@@ -56,7 +58,7 @@ You are Grok Build, the Grok CLI Preston runs from PowerShell in `C:\Users\pmcga
 A Gemini deep-research report, "Hollowtide Move Learnset Research" (Preston's Google Drive), proposed the same split. **Do not trust its creature-by-creature claims.** It invented anatomy (Tallowroot "burrowing claws", Kithflare "predatory muzzle") and misnumbered lines. Parts come from the approved art only.
 
 ## What changed on October 9 (so nothing surprises you)
-All of these are in `scripts/dungeon/dungeon.gd` unless noted, and every number is a draft for you.
+History. The Tasks section is the work. Several numbers below were changed in the result (`SCROLL_SHARE` is 0.10, `RECRUIT_RATE` is 0.12 / 0.08 / 0.04, the floor is 3 by 2). Do not put the old drafts back.
 
 - **Move table.** `scripts/moves/move_body.gd` holds:
   - `PARTS` for all 30 forms, each marked G (from your move-body-gate.md) or A (Claude's read of the current approved art);
@@ -87,57 +89,46 @@ All of these are in `scripts/dungeon/dungeon.gd` unless noted, and every number 
   - Dungeon sprites are sized by stage (`tools/arena/build_dungeon_set.py`).
   - A hallway back-and-forth bug was fixed (`tools/debug/dungeon_pace_check.gd`).
 
-## Your jobs, in order. Stop after each and write what you did.
+## Tasks (2026-10-10). Superseded by GROK_TASKS_2026-10-11.md. Do not do this list.
 
-### 1. The move table (Preston's current focus)
-1. **Confirm or correct every A part** in `move_body.gd` `PARTS` against the approved art. The sprites are in `assets/sprites/arena/<form>/` (the `se.png` front three-quarter view is the clearest), and you can view the PNGs.
-   - Check most carefully: `springlegs` on Cinderhide and the ferrets, `crest` on Clinkerhide, `buttress` on Slagglass, `jade`/`slab`/`kingstone` on the stone line, `sail` on the Dustkite line, and `claw` on the Kithflare line.
-   - Add a part the art clearly shows that a move could use. Never add one the art does not show.
-   - **Keep your vocabulary.** Reuse an existing part name before inventing one.
-2. **Rule on the five kit moves that fail the gate:**
-   - Vent Barrage on Cinderhide and Clinkerhide (needs `channels`);
-   - Molten Beam on Fusern and Slagglass (needs `chamber`, `mouth`);
-   - Furnace Shard on Slagglass (needs `shelf`; Slagglass was redesigned as a brick dome on 2026-10-08).
+The October 9 jobs under "Done" are finished. Do not redo them.
 
-   For each, either change the kit in `KITS` or change the move's `NEEDS`, and say why. Do not rename moves.
-3. **Learnsets by stage, Pokemon style.** For each of the 10 lines, a table showing:
-   - the moves each stage starts with (today that is its `KITS` entry);
-   - which shared signatures each stage can learn from a scroll;
-   - which line moves a later stage gains (the way a Pokemon learns its signature on evolving).
+### 1. Springvault, the healer (code index 10)
+Claude built the line. The numbers and the body gate are not ruled. Read the art in `assets/sprites/arena/troughspine/`, `archroot/`, and `springvault/` (`se.png` first) before keeping a part.
 
-   Proposals only, in your result file. Keep each kit at 4 moves at most, and keep stage 1 = basic + 2.
-4. **Scroll numbers.** Judge `SCROLL_SHARE` 0.25 and `MOVES_MAX` 4, and say whether the basic attack should ever be forgettable (today it is not).
-5. **Move growth (optional proposal).** In Rescue Team DX, moves grow stronger with use (`docs/research/pmd-video-notes-2026-10-09.md`). Say whether Hollowtide should have it, and with what numbers. Proposal only; nothing like it exists in the code yet.
+- Reuse a part name that already exists. `roots` is Tallowroot's. Listener's frills are `gillplate`. `muzzle`, `gills`, and `arches` are new. Keep a new name only when no old name is the same part.
+- Seep is gated on `gills`. The written mechanic is planting roots, and stage 1 has no roots. Decide which is true. If the heal is the plant, Troughspine does not learn Seep. Archroot does, on evolving.
+- Drafts already in code, to keep or change with the math: Spring Spit damage 10, cooldown 1.0, range 110. Seep heal 6, cooldown 9, `SEEP_TURNS` 3. `EVO[10]` way `healed`, need 40 then 100, KOs 2 then 5, floors 2 then 4. B2F spawn `[10, 0]`.
+- `LEARN` may change only to match that gate. Mineral Brace, Vault Arch, and Headspring are not moves. Do not invent the ids.
+- The roster draft called this line 12. Edit index 10.
+- After a parts or needs change, run `springvault_check.gd`, then `move_table_check.gd`.
 
-After any change to `PARTS`, `NEEDS` or `KITS`, run `move_table_check.gd`. It regenerates the table and tests a scroll in the dungeon.
+### 2. Chart numbers for Sinew, Loam, Murk, and Blight
+They are in the essence list and neutral in `ARENA_CHART`. The sketch (two strengths and two weaknesses each) is the essence proposal. Set the cells, or say why a cell is wrong. Use the chart's existing steps: main 1.5 and 0.75, second 1.25 and 0.9. Do not rename an essence. Punchybun is Sinew. Sparkjab and Starward are Sinew/Electric. Tallowroot is Bloom/Loam. Rimefin and Scourmaw are Tide/Murk. The Warden stays Tide/Hollow.
 
-### 2. A numbers pass on the dungeon
-- **Turn every draft above into your number:** `HP_SCALE` 0.2, `DMG_SCALE` 0.6, `WILD_HP` 0.8, `WILD_DMG` 0.7, `SIGHT` 6, `REGEN_EVERY` 4, `RECIPE` (wild count 3), the position, tactics, recruit and run-loop numbers.
-- **Target:** an early floor where a stage 1 pair wins every fight but feels each one: about 3 to 5 hits to down a wild creature, and a floor cleared in 100 to 200 turns.
-- **Decide on the faint:** both autopilot run checks faint about once before B2F. Is that the right difficulty?
+Show one hit before and after for a matchup the new cells change. One Godot at a time.
 
-### 3. How each move reaches on the grid
-`move_reach()` turns a move's arena telegraph and range into a reach: front tile, dash, line or burst, with a tile count (24 px per tile). Write a table: move, current reach, proposed reach, reason. Dash moves shove, so choosing dash or front now changes the move's role.
+### 3. Re-measure the first dungeon now that health carries
+`_build_floor(floor_n == 1)` is the only full heal. Job 2's 100-to-200-turn clocks were taken when every floor healed. Run `dungeon_check.gd`, `dungeon_run_check.gd`, and `dungeon_boss_check.gd`. The boss is the Quietwater Warden. A stage 1 pair should still finish the first dungeon with care. Retune only if they cannot. Tell Preston before a long run.
 
-### 4. The non-damaging abilities on a grid
-Marks, shields and guards, dives, perches, terrain and the Sail Cover / Vantage signatures are not in the dungeon yet, so some creatures show fewer than four moves. Propose a turn-based rule for each, with turns, tiles and numbers. Do not change their names or the `signature` flag. Claude builds them after Preston approves.
+### Parked
+Written already. Not the next session unless Preston asks.
 
-### 5. Floor recipes for the first dungeon
-Three floors, and which wild creatures appear on each.
+- Grid reaches (old job 3). `move_reach()` was not changed.
+- Non-damage moves on the grid (old job 4). They sit in `WAITING`. Claude builds them after Preston approves.
+- Arena pack target. Oxbowarchon did not reach 24-6. The arena is the side mode.
+- Move growth. Not for this game yet. The proposal is +1 at 10 uses and +1 at 25, cap +2, if it is ever wanted.
 
-### 6. The arena (only after 1 to 5)
-The arena is a side mode now, so these are lower priority. All the numbers are in `scripts/arena/arena_prototype.gd`.
-1. **Oxbowarchon** is the outlier of the clean duel table (252 wins of 270). Bring it to the pack without touching its identity as backline artillery. Levers: the rail's telegraph length, damage, cooldown, `far_bonus`. Target: no pairing worse than 24-6.
-2. **Supports that stall.** Warden, Galeshear, Highsignal and Starward draw 30 of 30 against each other.
-   - Option one: a 1v1 clock with a points decision (you set the clock, Claude builds it).
-   - Option two: enough chip in their basics to resolve inside 90 s.
-   - Either way, no signature guard for supports.
-3. **Follow-ups** (`FOLLOW_WINDOW` 0.9, `FOLLOW_MORE` 1.3, `FOLLOW_REFUND` 0.5, the AI's `d *= 1.4` in `_desire`). Finals landed 0 follow-ups in 60 s.
-4. **The Spotter's trade.** `whistle_dart` damage and `MARK_BONUS` 1.15: a lone spotter should lose slowly but visibly hurt.
+## Done (do not redo)
 
-Tools for the arena:
-- the duel table, about 15 minutes: `tools/debug/arena_sim.gd -- 15 1`;
-- line checks: `arena_spotter_check.gd`, `arena_combo_check.gd`, `arena_oxbowarchon_check.gd`, `arena_charms_check.gd`, `arena_canvaswing_check.gd`, `arena_listener_check.gd`.
+Record: `docs/team/GROK_BUILD_RESULT_2026-10-10.md`.
+
+- Jobs 1 to 6: move table (0 kit failures), dungeon numbers (`SCROLL_SHARE` 0.10, `RECRUIT_RATE` 0.12 / 0.08 / 0.04, floor 3x2), reach proposals, non-damage proposals, floor spawns, arena tunes.
+- Learnsets, wired by Claude from `learnset-draft-2026-10-10.md`.
+- Evolution conditions kept. IQ gains stay 1. Thresholds stay 3, 6, 10, 15, 20, 25.
+- Boss, Monster House, and warp cap kept. Health carry is what task 3 measures. It was not retuned.
+
+The old job text is not repeated here. It is the result file.
 
 ## How to test
 **One Godot at a time.** Read the printed numbers, not the stills. A line that says `(WRONG)` or `SCRIPT ERROR` is a failure; fix it or put your change back.
@@ -157,6 +148,11 @@ Run each check like this, from the repo root:
 | `dungeon_position_check.gd` | ambush, pincer, shove, slam |
 | `dungeon_tactics_check.gd` | orders and flanking |
 | `dungeon_pace_check.gd` | the hallway pacing baseline, about 5 to 15 cases over four runs |
+| `dungeon_learn_check.gd` | level-up and evolve learns |
+| `dungeon_boss_check.gd` | the Warden floor |
+| `springvault_check.gd` | the healer line |
+| `dungeon_evolve_check.gd` | evolution conditions |
+| `dungeon_iq_check.gd` | IQ thresholds |
 
 ## Rules
 - **Do not commit, revert or stash.** The tree holds uncommitted work from Claude, Codex and you, and Preston commits.
@@ -169,10 +165,6 @@ Run each check like this, from the repo root:
 - **Show the math for every change:** a before-and-after line from a check, labelled with the job it serves.
 - **Results go to `docs/team/GROK_BUILD_RESULT_2026-10-10.md`, move table first.** Say what you changed, the before-and-after numbers, what you left alone and why, and anything you could not test. Then add two lines at the top of `docs/AI_COLLABORATION.md` so Claude and Codex see it.
 
-## Added after your 2026-10-10 result (Claude)
-New drafts for you, all in `scripts/dungeon/dungeon.gd`: the boss floor (`BOSS_HP` 3.0, `BOSS_DMG` 0.9, `BOSS_MINIONS`), Monster Houses (`MONSTER_HOUSE_MAX` 7, `MONSTER_HOUSE_PER_TILES` 12, `MONSTER_HOUSE_ITEMS` 3, `MONSTER_HOUSE_LIGHT` 30) and traps (`TRAP_WARP_MAX` 1). With your numbers, `dungeon_boss_check.gd` shows 2 of 3 autopilot runs with a two-creature team faint before or at the boss, about 9 to 10 s of boss fighting when they reach it. Decide whether that is right for the first dungeon. Run one check at a time, and tell Preston before a long run so Claude does not start Godot at the same time.
+## Closed notes (Claude, late October 9)
 
-## Next jobs from Preston, late October 9 (Claude)
-1. **Evolution conditions** (Preston chose option A: Digimon-style conditions inside the one-path rule). The system is built; the numbers are yours: `EVO` in `scripts/dungeon/dungeon.gd` (knockouts, floors, and each line's "way": flank, took, ambush or slam). Read `docs/design/dungeon-evolution-2026-10-09/README.md`, and update `docs/creatures/evolution-and-signatures.md`: the trigger is conditions now, not any win. Measure with `tools/debug/dungeon_evolve_check.gd`.
-2. **Teammate IQ: built by Claude on Preston's word ("do teammate iq task").** Six skills on IQ thresholds (`IQ_SKILLS`, `IQ_PER_FLOOR`, `IQ_PER_KO`). Read `docs/design/dungeon-iq-2026-10-09/README.md`. Your job: the thresholds and gains, and propose more skills in the same shape (one behaviour a turn-based partner can do with existing systems; structure only, no copied names). Measure with `tools/debug/dungeon_iq_check.gd`.
-3. **Health now carries between floors** (Preston decided). Every floor used to heal fully. Re-measure your floor numbers and the boss with `dungeon_check.gd`, `dungeon_run_check.gd` and `dungeon_boss_check.gd`, and retune so a stage 1 pair can finish the first dungeon with care.
+These were the follow-up jobs. Evolution conditions and the IQ thresholds were kept. The boss, Monster House, and warp numbers were kept. Health between floors is task 3 in the list above, not a separate job. One Godot at a time. Tell Preston before a long run.

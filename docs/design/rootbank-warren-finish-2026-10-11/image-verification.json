@@ -1,0 +1,58 @@
+[
+  {
+    "floor": 1,
+    "layout_exact": true,
+    "raw": {
+      "changed_wall_pixels": 17812,
+      "changed_floor_pixels": 0,
+      "opaque": true
+    },
+    "native": {
+      "changed_wall_pixels": 18887,
+      "changed_floor_pixels": 0,
+      "opaque": true
+    }
+  },
+  {
+    "floor": 2,
+    "layout_exact": true,
+    "raw": {
+      "changed_wall_pixels": 17812,
+      "changed_floor_pixels": 0,
+      "opaque": true
+    },
+    "native": {
+      "changed_wall_pixels": 18887,
+      "changed_floor_pixels": 0,
+      "opaque": true
+    }
+  },
+  {
+    "floor": 3,
+    "layout_exact": true,
+    "raw": {
+      "changed_wall_pixels": 17812,
+      "changed_floor_pixels": 0,
+      "opaque": true
+    },
+    "native": {
+      "changed_wall_pixels": 18887,
+      "changed_floor_pixels": 0,
+      "opaque": true
+    }
+  },
+  {
+    "floor": 4,
+    "layout_exact": true,
+    "raw": {
+      "changed_wall_pixels": 16484,
+      "changed_floor_pixels": 0,
+      "opaque": true
+    },
+    "native": {
+      "changed_wall_pixels": 16724,
+      "changed_floor_pixels": 0,
+      "opaque": true
+    }
+  }
+]

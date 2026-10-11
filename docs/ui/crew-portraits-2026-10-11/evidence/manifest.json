@@ -1,0 +1,218 @@
+[
+  {
+    "form": "grubbit",
+    "source": "docs/creatures/arena-starters-2026-10-07/forms/grubbit_arena_front_chosen.png",
+    "source_sha256": "9c89375af76d5c5764b6df568dd50c8277146c5d3648d77202e7cdf5fc18d607",
+    "source_size": [
+      96,
+      96
+    ],
+    "crop": [
+      22,
+      4,
+      76,
+      58
+    ],
+    "output": "assets/sprites/ui/dialogue/grubbit.png",
+    "output_sha256": "5aee4c62fc59ecd930a070a227781d13f8d9646f415a4f302fa1342bdd1bc59c",
+    "size": [
+      40,
+      40
+    ],
+    "bbox": [
+      0,
+      3,
+      40,
+      40
+    ],
+    "line_colour": [
+      0,
+      0,
+      0
+    ],
+    "outline_pixels": 50,
+    "source_recolour_scheme": "grubbit",
+    "alpha_exact_after_outline": true,
+    "outside_transparency_edge_exact": true
+  },
+  {
+    "form": "stillwade",
+    "source": "docs/creatures/arena-starters-2026-10-07/forms/stillwade_arena_front_chosen.png",
+    "source_sha256": "ee8a1f70e174bf7711c6a3fd77b6abffa94f102c66a9a6aade8457dd8fbc74fb",
+    "source_size": [
+      112,
+      112
+    ],
+    "crop": [
+      44,
+      9,
+      102,
+      67
+    ],
+    "output": "assets/sprites/ui/dialogue/stillwade.png",
+    "output_sha256": "f431b0ef43d4bcf7876b5892ed171998bfc2975ca93a3e0a7069373b61e67499",
+    "size": [
+      40,
+      40
+    ],
+    "bbox": [
+      0,
+      4,
+      36,
+      40
+    ],
+    "line_colour": [
+      0,
+      0,
+      0
+    ],
+    "outline_pixels": 95,
+    "source_recolour_scheme": "stillwade",
+    "alpha_exact_after_outline": true,
+    "outside_transparency_edge_exact": true
+  },
+  {
+    "form": "wickglow",
+    "source": "docs/creatures/arena-starters-2026-10-07/forms/wickglow_arena_front_chosen.png",
+    "source_sha256": "cdc9cc8332c5b0f072b3fc9beb47c69a3f1b6cc976c2c0ef799a904d09856a4b",
+    "source_size": [
+      112,
+      112
+    ],
+    "crop": [
+      20,
+      32,
+      78,
+      90
+    ],
+    "output": "assets/sprites/ui/dialogue/wickglow.png",
+    "output_sha256": "25a7f96790b7449f287a4037fe50f6580612e3229b7c041f2529fbcd07a28ba4",
+    "size": [
+      40,
+      40
+    ],
+    "bbox": [
+      0,
+      0,
+      40,
+      40
+    ],
+    "line_colour": [
+      0,
+      0,
+      0
+    ],
+    "outline_pixels": 62,
+    "source_recolour_scheme": "wickglow",
+    "alpha_exact_after_outline": true,
+    "outside_transparency_edge_exact": true
+  },
+  {
+    "form": "muskin",
+    "source": "docs/creatures/arena-starters-2026-10-07/forms/muskin_arena_front_chosen.png",
+    "source_sha256": "6dd73e7411b5fb99974596d320c6deca44ada72936662806b3369416bedb322c",
+    "source_size": [
+      96,
+      96
+    ],
+    "crop": [
+      32,
+      6,
+      80,
+      54
+    ],
+    "output": "assets/sprites/ui/dialogue/muskin.png",
+    "output_sha256": "b963af5f03a1608f99f87586126a78916024f96ab6e9ad4c3baabbc95e84860f",
+    "size": [
+      40,
+      40
+    ],
+    "bbox": [
+      0,
+      3,
+      38,
+      40
+    ],
+    "line_colour": [
+      0,
+      0,
+      0
+    ],
+    "outline_pixels": 44,
+    "source_recolour_scheme": "muskin",
+    "alpha_exact_after_outline": true,
+    "outside_transparency_edge_exact": true
+  },
+  {
+    "form": "slipjaw",
+    "source": "docs/creatures/arena-starters-2026-10-07/forms/slipjaw_arena_front_chosen.png",
+    "source_sha256": "8d3293571af9e3a2d1938d40cf58ef43156093312d725af5fb7f1036c6a3eea7",
+    "source_size": [
+      96,
+      96
+    ],
+    "crop": [
+      28,
+      8,
+      76,
+      56
+    ],
+    "output": "assets/sprites/ui/dialogue/slipjaw.png",
+    "output_sha256": "206ed23190b44faa2ff95cf813ef8153c47a227591c42e9ca8a72eca1fb29038",
+    "size": [
+      40,
+      40
+    ],
+    "bbox": [
+      0,
+      5,
+      37,
+      40
+    ],
+    "line_colour": [
+      0,
+      0,
+      0
+    ],
+    "outline_pixels": 51,
+    "source_recolour_scheme": "slipjaw",
+    "alpha_exact_after_outline": true,
+    "outside_transparency_edge_exact": true
+  },
+  {
+    "form": "rinsepaw",
+    "source": "docs/creatures/arena-starters-2026-10-07/forms/rinsepaw_arena_front_chosen.png",
+    "source_sha256": "0a197999c32dc4ea970fd4b85813bba1a4798e26b69a58460eacf4a2e36f8451",
+    "source_size": [
+      112,
+      112
+    ],
+    "crop": [
+      30,
+      6,
+      84,
+      60
+    ],
+    "output": "assets/sprites/ui/dialogue/rinsepaw.png",
+    "output_sha256": "6b6a44bc22842e5e0ae07f7b2fb40a3cd927b2bf7df4bc085d9353f35a7c642a",
+    "size": [
+      40,
+      40
+    ],
+    "bbox": [
+      3,
+      4,
+      40,
+      40
+    ],
+    "line_colour": [
+      0,
+      0,
+      0
+    ],
+    "outline_pixels": 55,
+    "source_recolour_scheme": "rinsepaw",
+    "alpha_exact_after_outline": true,
+    "outside_transparency_edge_exact": true
+  }
+]

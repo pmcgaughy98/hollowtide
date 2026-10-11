@@ -1,0 +1,125 @@
+{
+  "automatic_storm": true,
+  "checks": [
+    {
+      "check": "Valid starter/partner arguments",
+      "passed": true
+    },
+    {
+      "check": "Explicit campaign title reveals",
+      "passed": true
+    },
+    {
+      "check": "Title respects Reduce Motion",
+      "passed": true
+    },
+    {
+      "check": "Title is current creature campaign",
+      "passed": true
+    },
+    {
+      "check": "Capture 1-title",
+      "passed": true
+    },
+    {
+      "check": "New Game enters storm via real title button",
+      "passed": true
+    },
+    {
+      "check": "Storm receives Reduce Motion",
+      "passed": true
+    },
+    {
+      "check": "Capture 2-storm",
+      "passed": true
+    },
+    {
+      "check": "Storm time freezes and greys",
+      "passed": true
+    },
+    {
+      "check": "Capture 3-frozen",
+      "passed": true
+    },
+    {
+      "check": "Storm enters actual soul scene",
+      "passed": true
+    },
+    {
+      "check": "Soul receives Reduce Motion",
+      "passed": true
+    },
+    {
+      "check": "Soul dialogue reaches three starter cards",
+      "passed": true
+    },
+    {
+      "check": "Keyboard selects requested creature",
+      "passed": true
+    },
+    {
+      "check": "Capture 4-choice",
+      "passed": true
+    },
+    {
+      "check": "Soul confirms selected starter",
+      "passed": true
+    },
+    {
+      "check": "Soul hands off to real flood scene",
+      "passed": true
+    },
+    {
+      "check": "Dialogue Manager supplies flood narration",
+      "passed": true
+    },
+    {
+      "check": "Chosen hero survives handoff without another starter choice",
+      "passed": true
+    },
+    {
+      "check": "Flood begins as unnamed narration",
+      "passed": true
+    },
+    {
+      "check": "Capture 5-flood",
+      "passed": true
+    },
+    {
+      "check": "Partner choice offers exactly the other two starters",
+      "passed": true
+    },
+    {
+      "check": "Keyboard selects requested partner response",
+      "passed": true
+    },
+    {
+      "check": "Capture 6-partner-choice",
+      "passed": true
+    },
+    {
+      "check": "Chosen partner appears and speaks",
+      "passed": true
+    },
+    {
+      "check": "Flood ends on actual playable riverbank",
+      "passed": true
+    },
+    {
+      "check": "Team record contains exactly chosen hero and partner",
+      "passed": true
+    },
+    {
+      "check": "F5 development scene setting preserved",
+      "passed": true
+    },
+    {
+      "check": "Capture 7-riverbank",
+      "passed": true
+    }
+  ],
+  "failures": [],
+  "hero": 2,
+  "partner_choice": 0,
+  "reduced": false
+}

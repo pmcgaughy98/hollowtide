@@ -1,5 +1,9 @@
 extends RefCounted
+const RootbankDetail := preload("res://scripts/dungeon/rootbank_detail.gd")
 const TileArt := preload("res://scripts/dungeon/dungeon_tile_art.gd")
+# Codex's flat 24px tile sheets (2026-10-10) are switched off: Preston, 2026-10-11, wants the hand-painted,
+# textured stones and grass back, the look that matches the boss room. Set true to use the sheets again.
+const USE_TILE_ART := false
 ## The first dungeon's look (Claude, 2026-10-10; Preston: "do what you did for dungeon 1", after the
 ## Hollow's stone). Tunnels cut through a river bank, drawn in code pixel by pixel like the Hollow and
 ## the pond, no generated art: packed clay floors with pebbles, sand washed into rippled patches,
@@ -28,7 +32,7 @@ const BANDS := [Color("#8f6a48"), Color("#a78560"), Color("#6f5540"), Color("#9c
 
 
 static func paint(data: Dictionary, t: int, seed_value: int) -> Image:
-	if t == 24: return TileArt.paint(data,t,seed_value,"riverbank")
+	if USE_TILE_ART and t == 24: return TileArt.paint(data,t,seed_value,"riverbank")
 	var w: int = data["w"]
 	var h: int = data["h"]
 	var tiles: PackedByteArray = data["tiles"]
@@ -49,7 +53,7 @@ static func paint(data: Dictionary, t: int, seed_value: int) -> Image:
 	img.fill_rect(Rect2i(p, Vector2i(20, 16)), Color(0.05, 0.04, 0.03))
 	for k in 3:
 		img.fill_rect(Rect2i(p + Vector2i(2 + k * 2, 2 + k * 5), Vector2i(16 - k * 4, 2)), CLAY[2].lightened(0.15 - k * 0.05))
-	return img
+	return RootbankDetail.finish(img, data, t, seed_value)
 
 
 static func _floor(tiles: PackedByteArray, w: int, h: int, x: int, y: int) -> bool:

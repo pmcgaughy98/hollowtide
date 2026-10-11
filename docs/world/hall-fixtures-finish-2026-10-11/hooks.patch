@@ -1,0 +1,29 @@
+--- before/scripts/town/room_painter.gd
++++ after/scripts/town/room_painter.gd
+@@ -29,6 +29,7 @@
+ 	if id in ["hall", "hall_low", "chamber", "runners"]:
+ 		img = preload("res://scripts/town/hall_floors_art.gd").paint(id, img)
+ 		_fixtures(id, img)
++		img = preload("res://scripts/town/hall_fixtures_art.gd").paint(id, img)
+ 	return img
+ 
+ 
+--- before/scripts/town/hall_floors_art.gd
++++ after/scripts/town/hall_floors_art.gd
+@@ -100,7 +100,7 @@
+ 			for x in r.size.x:
+ 				if prop.get_pixel(x,y).a > 0.5: img.set_pixelv(r.position+Vector2i(x,y),Color.WHITE)
+ 	if id == "chamber": img.fill_rect(Rect2i(165,240,78,24),Color.BLACK)
+-	return img
++	return preload("res://scripts/town/hall_fixtures_art.gd").add_mask(id, img)
+ 
+ static func finish(sprite: Sprite2D, id: String) -> void:
+ 	if not available(id) or Vector2i(sprite.texture.get_size()) != SIZES[id]: return
+@@ -112,6 +112,7 @@
+ 		if existing == null: return
+ 		var detail := existing.get_image().duplicate() as Image
+ 		detail.fill_rect(Rect2i(336,240,48,48),Color.WHITE)
++		detail = preload("res://scripts/town/hall_fixtures_art.gd").add_mask(id, detail)
+ 		material.set_shader_parameter("detail_mask",ImageTexture.create_from_image(detail))
+ 	else:
+ 		material = ShaderMaterial.new()

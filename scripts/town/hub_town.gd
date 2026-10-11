@@ -5,6 +5,7 @@ extends Node2D
 ## tile by tile at the dungeon's scale, E or J uses the place in front of or under the leader, and
 ## the Mouth of the Hollow starts a dungeon run with the same team.
 
+const Objective := preload("res://scripts/town/objective.gd")
 const Layout := preload("res://scripts/town/town_layout.gd")
 const Lines := preload("res://scripts/creatures/lines.gd")
 const Arena := preload("res://scripts/arena/arena_prototype.gd")
@@ -68,6 +69,7 @@ func _ready() -> void:
 	var map := Sprite2D.new()
 	map.centered = false
 	map.texture = ImageTexture.create_from_image(paint())
+	preload("res://scripts/town/world_finish.gd").apply(map)
 	_world.add_child(map)
 	if ResourceLoader.exists("res://scripts/town/building_exteriors.gd"):
 		_building_exteriors = load("res://scripts/town/building_exteriors.gd").attach(_world, self)
@@ -99,10 +101,16 @@ func _ready() -> void:
 		team.append(_make(party[k][0], party[k][1], pos))
 	_music_update()
 	preload("res://scripts/ui/game_pause_menu.gd").attach(self)
+	preload("res://scripts/ui/shrine_info.gd").attach(self)
 	if BoardScene.pending(self):
 		BoardScene.place_crew(self)   # the Shortcut Crew at the board until the team has met them
 	if news == "cleared":
 		panel = {"name": "Back in Highbank", "what": "The Hollow is cleared. The bag and the new partners came home. (Cleared %d.)" % cleared, "service": "news"}
+		var parcel := String(_record().get("story", {}).get("parcel", ""))
+		if parcel == "saved":
+			panel = {"name": "Highbank", "what": "Out of the Hollow, up the far bank, and into a town above the flood. %s still has the parcel, dry. Couriers post their work on the Job Board." % _partner_name(), "service": "news"}
+		elif parcel == "recovered":
+			panel = {"name": "Back in Highbank", "what": "Rootbank Warren is behind you and the parcel is back. Starward will want to see it in the Wayline Hall.", "service": "news"}
 		if stone_state() == "carried":
 			panel["what"] = "Home from the Hollow with the %s from the Warden's pond. It hums near the Growth Shrine's empty socket." % StoneScene.STONE_NAME
 	elif news == "fainted":
@@ -252,6 +260,9 @@ func act_use() -> Dictionary:
 	if panel.get("service", "") == "board":
 		act_board_pick()
 		return {}
+	if panel.get("service", "") == "way_pick":
+		start_replay(String(REPLAYS[int(panel["sel"])][0]))
+		return {}
 	if not panel.is_empty():
 		panel = {}
 		return {}
@@ -276,6 +287,26 @@ func act_use() -> Dictionary:
 	elif p["service"] in DOOR_SERVICES:
 		_sfx("door")
 	return p
+
+
+## After the pilot the way down offers every dungeon again. A replay has no boss floor (dungeon.gd `replay`),
+## so the crew and the Warden's scenes don't play twice; the last stairs clear it.
+const REPLAYS := [["mouth", "Hollow Mouth"], ["first", "Rootbank Warren"], ["hollow", "The Hollow"]]
+
+
+func start_replay(id: String) -> void:
+	panel = {}
+	var dg: Node2D = load("res://scenes/dungeon.tscn").instantiate()
+	TeamState.data["party"] = party.duplicate(true)
+	TeamState.give_to(dg)
+	dg.dungeon = id
+	dg.replay = true
+	dg.return_to_town = true
+	if is_inside_tree() and get_tree().current_scene == self:
+		get_tree().change_scene_to_node(dg)
+	else:
+		set_meta("entered", id)   # the checks read this instead of leaving the scene
+		dg.free()
 
 
 ## Places with a door (Claude, 2026-10-09): opening one plays the door; the job board rustles paper.
@@ -388,6 +419,28 @@ func _shrine_panel(p: Dictionary) -> Dictionary:
 	var k: int = ready[0]
 	var name: String = load(Lines.of(party[k][0])["forms"][party[k][1]][1]).creature_name
 	return {"name": p["name"], "what": "%s is ready to evolve. Let it evolve here?      E  yes      Esc  not now" % name, "service": "evolve_ask", "k": k}
+
+
+## The pilot's order (docs/design/pilot-story-2026-10-10.md): Rootbank Warren waits until the guild sends
+## the team after the stolen parcel, and The Hollow waits until Starward has the parcel back. A record
+## with no parcel story (an older save, a check) is not held back. Returns why not, or "".
+func story_gate(dungeon_id: String) -> String:
+	var story: Dictionary = _record().get("story", {})
+	var parcel := String(story.get("parcel", ""))
+	if dungeon_id == "first":
+		if parcel == "saved":
+			return "%s hugs the parcel. \"This is Wayline mail. The guild ought to see it before we go anywhere.\" The Job Board is right there." % _partner_name()
+		if parcel == "stolen" and not story.get("guild_trial", false):
+			return "%s stops you. \"We can't go chasing them by ourselves. We gotta tell the Hall first.\"" % _partner_name()
+	elif dungeon_id == "hollow" and parcel == "recovered":
+		return "%s holds up the parcel. \"Starward's gonna want to see this first.\" The Wayline Hall is up the street." % _partner_name()
+	return ""
+
+
+func _partner_name() -> String:
+	if party.size() < 2:
+		return "Your partner"
+	return load(Lines.of(party[1][0])["forms"][party[1][1]][1]).creature_name
 
 
 ## The pilot's story state carried in the team record: the pond stone is "", "carried" or "installed".
@@ -506,8 +559,18 @@ func enter_hollow() -> void:
 	# The next dungeon whose boss is not beaten (the town has one way down for now; Codex's layout
 	# can give each its own entrance later).
 	var beaten: Array = TeamState.data.get("beaten", [])
+	if "hollow" in beaten:   # the pilot is done: any dungeon can be run again (Preston, 2026-10-11)
+		dg.free()
+		panel = {"name": "The way down", "what": "Where to?", "service": "way_pick", "sel": 0}
+		return
 	dg.dungeon = "hollow" if "first" in beaten else "first"
 	dg.return_to_town = true
+	var not_yet := story_gate(dg.dungeon)
+	if not_yet != "":
+		dg.free()
+		panel = {"name": "The way down", "what": not_yet, "service": "news"}
+		set_meta("gated", not_yet)
+		return
 	if is_inside_tree() and get_tree().current_scene == self:
 		if dg.dungeon == "hollow":
 			# The Hollow is reached on foot: the riverbank, the walkway node, then its entrance
@@ -566,6 +629,8 @@ func _tapped(k: int) -> bool:
 
 
 func _poll() -> void:
+	if get_node("ShrineInfo").poll():
+		return
 	if cutscene:   # a scene plays itself; E reads its lines
 		if not talk.is_empty() and (_tapped(KEY_E) or _tapped(KEY_J) or _tapped(KEY_ENTER) or _tapped(KEY_SPACE)):
 			if UI.line_done(String(talk[0][1])):
@@ -578,6 +643,10 @@ func _poll() -> void:
 			act_board_move(-1)
 		if _tapped(KEY_S) or _tapped(KEY_DOWN):
 			act_board_move(1)
+	if panel.get("service", "") == "way_pick":
+		var dy := int(_tapped(KEY_S) or _tapped(KEY_DOWN)) - int(_tapped(KEY_W) or _tapped(KEY_UP))
+		if dy != 0:
+			panel["sel"] = posmod(int(panel["sel"]) + dy, REPLAYS.size())
 	if _tapped(KEY_E) or _tapped(KEY_J) or _tapped(KEY_ENTER):
 		act_use()
 		return
@@ -622,11 +691,17 @@ func _draw_hud() -> void:
 			var sf: String = String(sl[2]) if sl.size() > 2 else ""
 			UI.dialogue(h, Rect2(196, 452, 760, 116), String(sl[0]), String(sl[1]), UI.dialogue_portrait(sf) if sf != "" else null, Time.get_ticks_msec() / 1000.0, 20, sf.get_slice(":", 1) if ":" in sf else "normal")
 		return
+	if panel.get("service", "") in ["growth", "stone_ask", "evolve_ask"]:
+		return # The browsable ShrineInfo panel owns this presentation.
 	UI.panel(h, Rect2(6, 6, 330, 54))
 	UI.text(h, Vector2(28, 43), "Highbank", 26, UI.EDGE_LIGHT)
 	var here: Dictionary = Layout.place_at(team[0]["pos"]) if not team.is_empty() else {}
 	if not here.is_empty():
 		UI.text(h, Vector2(28, 43), String(here["name"]), 16, UI.TEXT, 282, HORIZONTAL_ALIGNMENT_RIGHT)
+	# What to do next, always on screen (Preston, 2026-10-11: "objective tab so players know where to go").
+	var goal: Dictionary = Objective.current(TeamState.data.get("story", {}), TeamState.data.get("beaten", []))
+	UI.panel(h, Rect2(6, 64, 600, 34), 0.9)
+	UI.text(h, Vector2(26, 87), "Next:  " + String(goal["short"]), 16, UI.TEXT, 570)
 	UI.text(h, Vector2(946, 562), "WASD walk   E use", 14, Color(UI.MUTED, 0.85), 194, HORIZONTAL_ALIGNMENT_RIGHT)
 	UI.text(h, Vector2(946, 580), "The Hollow's mouth starts a run", 14, Color(UI.MUTED, 0.85), 194, HORIZONTAL_ALIGNMENT_RIGHT)
 	if not talk.is_empty():
@@ -636,6 +711,17 @@ func _draw_hud() -> void:
 		UI.dialogue(h, Rect2(196, 452, 760, 116), String(line[0]), String(line[1]), UI.dialogue_portrait(form) if form != "" else null, Time.get_ticks_msec() / 1000.0, 20, face)
 	elif panel.get("service", "") == "board":
 		_draw_board(h)
+	elif panel.get("service", "") == "way_pick":
+		var box := Rect2(196, 452 - 34 * REPLAYS.size(), 760, 92 + 34 * REPLAYS.size())
+		UI.panel(h, box, 0.95)
+		UI.text(h, box.position + Vector2(22, 34), String(panel["name"]), 23, UI.EDGE_LIGHT, 716)
+		for i in REPLAYS.size():
+			var at := box.position + Vector2(48, 72 + 34 * i)
+			var on: bool = i == int(panel["sel"])
+			if on:
+				UI.text(h, at - Vector2(24, 0), ">", 20, UI.EDGE_LIGHT)
+			UI.text(h, at, String(REPLAYS[i][1]), 20, UI.EDGE_LIGHT if on else UI.TEXT)
+		UI.text(h, box.end - Vector2(738, 14), "W/S  choose     E  go     Esc  not now", 15, UI.MUTED, 716, HORIZONTAL_ALIGNMENT_RIGHT)
 	elif not panel.is_empty():
 		var box := Rect2(196, 452, 760, 128)
 		UI.panel(h, box, 0.95)

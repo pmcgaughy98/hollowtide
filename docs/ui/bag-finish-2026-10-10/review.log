@@ -1,0 +1,34 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+OpenGL API 3.3.0 NVIDIA 596.49 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce GTX 1660 SUPER
+
+[godot_ai game_helper] registered mcp capture (debugger active=false, logger=true)
+PASS Bag panel fits viewport
+PASS first item selected
+PASS detail icon at native 3x
+PASS effect comes from live rules
+PASS four items and Back retain focus controls
+PASS D-pad up wraps to Back
+PASS D-pad down wraps to first item
+PASS keyboard changes item detail
+PASS mouse hover changes detail
+PASS browsing consumes no items or turns
+PASS actual mouse use closes pause menu
+PASS one berry used and leader healed
+PASS mouse use spends exactly one turn
+PASS focus scrolls long inventory into view
+PASS last item is fully visible
+PASS long inventory stays within viewport
+PASS focus scrolling preserves inventory
+PASS all move-scroll names fit the detail panel
+PASS all scroll effects clear the action hint
+PASS scroll opens existing learning panel
+PASS reading scroll preserves its existing free preview rule
+PASS town scroll gets proper move name
+PASS town explains use location
+PASS town click is read only
+PASS empty Bag focuses Back
+PASS empty state has no false item
+PASS empty contents stay inside outer frame
+PASS missing metadata and icon stay safe
+PASS Back restores original menu width
+RESULT 29/29 passed

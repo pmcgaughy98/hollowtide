@@ -1,0 +1,9 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+OpenGL API 3.3.0 NVIDIA 596.49 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce GTX 1660 SUPER
+
+[godot_ai game_helper] registered mcp capture (debugger active=false, logger=true)
+First visit: Starward and Wayling in the Hall (2) -> ok
+After: 12 lines, trial true, parcel stolen (handed over false), Starward back behind the counter true, scene over true -> ok
+Next visit: no scene (false) -> ok
+Back with the parcel: the scene plays (true), 7 lines, runners true, parcel delivered -> ok
+GUILD SCENE: all ok

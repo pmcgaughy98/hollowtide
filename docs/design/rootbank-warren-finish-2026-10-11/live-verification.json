@@ -1,0 +1,33 @@
+{
+  "native_floors": [
+    {
+      "floor": 1,
+      "layout_exact": true,
+      "raw_exact": true,
+      "native_shader_exact": true
+    },
+    {
+      "floor": 2,
+      "layout_exact": true,
+      "raw_exact": true,
+      "native_shader_exact": true
+    },
+    {
+      "floor": 3,
+      "layout_exact": true,
+      "raw_exact": true,
+      "native_shader_exact": true
+    },
+    {
+      "floor": 4,
+      "layout_exact": true,
+      "raw_exact": true,
+      "native_shader_exact": true
+    }
+  ],
+  "protected_existing_source_count": 794,
+  "changed_existing_sources": [
+    "scripts/dungeon/riverbank_painter.gd"
+  ],
+  "installed_candidates_exact": true
+}

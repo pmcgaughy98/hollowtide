@@ -1,0 +1,21 @@
+{
+  "scripts/soul_prologue.gd": {
+    "original_sha256": "46159597ca812bbc27e8834417ed637111468c9db8dadaf26f4d9df9400adf55",
+    "concurrent_sha256": "1f761be585a900fa1d709a4e25b2edf63bb657098119b8dac5918fdff591daa6",
+    "staging_matches_original_hash": false,
+    "patch": "concurrent\\soul_prologue.gd.patch"
+  },
+  "scripts/town/guild_crew.gd": {
+    "original_sha256": "7d07b0ce7c4eb43522cdead9cc29fff0913eeb09c97d571386eb1913e3d60ed0",
+    "concurrent_sha256": "8c7fc8c3dfbfad96afb2bf66bea2f68cd8eea4c1857ec48c04a163ea67dd92e1",
+    "staging_matches_original_hash": true,
+    "patch": "concurrent\\guild_crew.gd.patch",
+    "install_sha256": "5b19661e778d3e73a3852ae2090d51c8425788a2c0aa10f344bbc38dd5e230f4"
+  },
+  "scripts/town/town_room.gd": {
+    "original_sha256": "8fa5baf5a1291015513847fabe93ff8e06c581213a6d0bf596bc02ee8dffec89",
+    "concurrent_sha256": "d59a759261cce4b185e6d81c733d0ce1b069e0e63826472f70c0787d3a2e13e3",
+    "staging_matches_original_hash": true,
+    "patch": "concurrent\\town_room.gd.patch"
+  }
+}

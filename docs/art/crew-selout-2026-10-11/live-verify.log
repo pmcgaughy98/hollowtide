@@ -1,0 +1,42 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+OpenGL API 3.3.0 NVIDIA 596.49 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce GTX 1660 SUPER
+
+[godot_ai game_helper] registered mcp capture (debugger active=false, logger=true)
+PASS grubbit: all 152 imported textures match current prepared opaque RGB/alpha/dimensions
+PASS muskin: all 152 imported textures match current prepared opaque RGB/alpha/dimensions
+PASS slipjaw: all 152 imported textures match current prepared opaque RGB/alpha/dimensions
+PASS stillwade: all 152 imported textures match current prepared opaque RGB/alpha/dimensions
+PASS wickglow: all 152 imported textures match current prepared opaque RGB/alpha/dimensions
+PASS rinsepaw: all 152 imported textures match current prepared opaque RGB/alpha/dimensions
+PASS cairnshell: all 152 imported textures match current prepared opaque RGB/alpha/dimensions
+PASS crawdukes: all 152 imported textures match current prepared opaque RGB/alpha/dimensions
+PASS all 1216 runtime textures checked through ResourceLoader
+PASS grubbit town: all native finished frames render inside padded cells
+PASS grubbit dungeon: all native finished frames render inside padded cells
+PASS grubbit full: all native finished frames render inside padded cells
+PASS muskin town: all native finished frames render inside padded cells
+PASS muskin dungeon: all native finished frames render inside padded cells
+PASS muskin full: all native finished frames render inside padded cells
+PASS slipjaw town: all native finished frames render inside padded cells
+PASS slipjaw dungeon: all native finished frames render inside padded cells
+PASS slipjaw full: all native finished frames render inside padded cells
+PASS stillwade town: all native finished frames render inside padded cells
+PASS stillwade dungeon: all native finished frames render inside padded cells
+PASS stillwade full: all native finished frames render inside padded cells
+PASS wickglow town: all native finished frames render inside padded cells
+PASS wickglow dungeon: all native finished frames render inside padded cells
+PASS wickglow full: all native finished frames render inside padded cells
+PASS rinsepaw town: all native finished frames render inside padded cells
+PASS rinsepaw dungeon: all native finished frames render inside padded cells
+PASS rinsepaw full: all native finished frames render inside padded cells
+PASS cairnshell town: all native finished frames render inside padded cells
+PASS cairnshell dungeon: all native finished frames render inside padded cells
+PASS cairnshell full: all native finished frames render inside padded cells
+PASS crawdukes town: all native finished frames render inside padded cells
+PASS crawdukes dungeon: all native finished frames render inside padded cells
+PASS crawdukes full: all native finished frames render inside padded cells
+PASS hall: real crew posts/facings remain intact
+PASS hall: room animation selects all eight frames/facings without moving sprite anchors
+PASS hall_low: real crew posts/facings remain intact
+PASS hall_low: room animation selects all eight frames/facings without moving sprite anchors
+CREW SELOUT 37/37 PASS

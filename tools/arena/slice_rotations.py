@@ -73,9 +73,16 @@ CELLS = {
     "inkhoot": TALLOW,
     "cairnshell": TALLOW,
     "crawdukes": TALLOW,
+    # The Wayline Hall's crew (2026-10-11), cut from their walk fronts (no held objects), read by eye.
+    "grubbit": TALLOW,
+    "stillwade": TALLOW,
+    "muskin": TALLOW,
+    "slipjaw": TALLOW,
+    "rinsepaw": TALLOW,   # the guild cook (2026-10-11), from its walk front; read by eye after slicing
+    "wickglow": {"s": (0, 0), "sw": (0, 1), "w": (0, 2), "se": (1, 0), "nw": (1, 2), "e": (2, 0), "ne": (2, 1), "n": (2, 2)},
     "gruntle": {"s": (0, 1), "se": (0, 1), "e": (0, 0), "ne": (1, 0), "n": (2, 1), "nw": (2, 2), "w": (1, 2), "sw": (0, 2)},
 }
-FORMS = {"sparkwick", "stormwick", "huskward", "rampartroot", "riftfin", "scourmaw", "cinderhide", "clinkerhide", "ironvent", "fusern", "slagglass", "vitrecrag", "preostmar", "oathfen", "oxbowarchon", "punchybun", "sparkjab", "starward", "listener", "caller", "warden", "canvaswing", "windcut", "galeshear", "dustkite", "waywhistle", "highsignal", "troughspine", "archroot", "springvault", "mirekit", "whinet", "gruntle", "skimlet", "ozbender", "valvekin", "wayling", "swaphoard", "pouchbill", "inkhoot", "cairnshell", "crawdukes"}
+FORMS = {"sparkwick", "stormwick", "huskward", "rampartroot", "riftfin", "scourmaw", "cinderhide", "clinkerhide", "ironvent", "fusern", "slagglass", "vitrecrag", "preostmar", "oathfen", "oxbowarchon", "punchybun", "sparkjab", "starward", "listener", "caller", "warden", "canvaswing", "windcut", "galeshear", "dustkite", "waywhistle", "highsignal", "troughspine", "archroot", "springvault", "mirekit", "whinet", "gruntle", "skimlet", "ozbender", "valvekin", "wayling", "swaphoard", "pouchbill", "inkhoot", "cairnshell", "crawdukes", "grubbit", "stillwade", "muskin", "slipjaw", "wickglow", "rinsepaw"}
 
 for name, cells in CELLS.items():
     if len(sys.argv) > 1 and name not in sys.argv[1:]:

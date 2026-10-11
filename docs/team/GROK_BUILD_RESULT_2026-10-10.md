@@ -14,7 +14,7 @@ Claude then added three things that are still drafts:
 | Sinew, Loam, Murk, Blight | `essence-expansion-proposal-2026-10-10.md`, enum at the end | In the data. Neutral in `ARENA_CHART` until a numbers pass. |
 | Health between floors | `_build_floor(floor_n == 1)` | Built. Job 2's 100-to-200-turn clocks were measured when floors healed. Not re-measured. |
 
-No commit. No Springvault number was changed in this pass.
+No commit. No Springvault number was changed in this pass. The open work is the Tasks section of `docs/team/GROK_BUILD_HANDOFF_2026-10-10.md`: Springvault, the four new essence matchups, then the health-carry re-measure.
 
 Jobs 1 to 6 are done. The move-table check still reports 0 kit failures, down from 5. No commit. Job 4 is a proposal. Job 5 sets the three floor spawn tables. Job 6 tunes the arena. The 24-6 target is not met. The evolution drafts in `EVO` are kept. The trigger is conditions, not a win. The boss, Monster House and warp drafts are kept. The IQ gains and thresholds are kept.
 

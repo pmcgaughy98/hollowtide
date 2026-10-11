@@ -93,3 +93,6 @@ Preston: reincarnate during the flood, the partner is there, it is dire so the t
 7. Dungeon 2, Rootbank Warren: the first boss, the rival crew; the parcel comes back, the two become runners.
 8. Later, The Hollow again by teleport from town (`scripts/town/hollow_approach.gd` "teleport"), deeper: the Warden twist, the pond stone, the Growth Shrine.
 Checks: `tools/debug/flood_opening_check.gd` (steps 2 and 3, the rise, the road, the no-boss clear).
+
+## The Wayline Hall on two floors (2026-10-10 late)
+Preston chose two floors, like Sky's guild. Upstairs is the work floor, where the guild scenes still play. Stairs lead down to the lower floor: the roll-call floor, crew and runners' rooms (not yet enterable), the mess hall, and the door to Starward's chamber. Once the trial is set, Starward waits in the chamber and speaks by story state. Claude's drafts for Preston: the room names and lines. Next: move the morning roll call and the runners naming onto the lower floor, and open the runners' room once the team are runners.

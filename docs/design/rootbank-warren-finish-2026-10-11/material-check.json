@@ -1,0 +1,24 @@
+{
+  "checks": 21,
+  "failures": 0,
+  "seeds": [
+    {
+      "changed_floor_pixels": 0,
+      "changed_wall_pixels": 4772,
+      "seed": 7,
+      "transparent_pixels": 0
+    },
+    {
+      "changed_floor_pixels": 0,
+      "changed_wall_pixels": 16556,
+      "seed": 983,
+      "transparent_pixels": 0
+    },
+    {
+      "changed_floor_pixels": 0,
+      "changed_wall_pixels": 11609,
+      "seed": 19031,
+      "transparent_pixels": 0
+    }
+  ]
+}

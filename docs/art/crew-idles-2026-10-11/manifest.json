@@ -1,0 +1,182 @@
+[
+  {
+    "form": "grubbit",
+    "source": "docs/creatures/arena-starters-2026-10-07/forms/grubbit_arena_front_chosen.png",
+    "source_sha": "9c89375af76d5c5764b6df568dd50c8277146c5d3648d77202e7cdf5fc18d607",
+    "output": "assets/sprites/arena/grubbit/town/idle_s.png",
+    "output_sha": "dbf016c0623355edbfa6fc88acc03271bb7f71b634233eb067059e128775079c",
+    "size": [
+      53,
+      53
+    ],
+    "scale_factor": 2.4150943396226414,
+    "translation": [
+      8,
+      5
+    ],
+    "idle_bbox": [
+      12,
+      8,
+      41,
+      42
+    ],
+    "town_s_bbox": [
+      13,
+      10,
+      37,
+      42
+    ],
+    "baseline": 41,
+    "object_rule": "parcel; no tag"
+  },
+  {
+    "form": "muskin",
+    "source": "docs/creatures/arena-starters-2026-10-07/forms/muskin_arena_front_chosen.png",
+    "source_sha": "6dd73e7411b5fb99974596d320c6deca44ada72936662806b3369416bedb322c",
+    "output": "assets/sprites/arena/muskin/town/idle_s.png",
+    "output_sha": "d5b5cf66b00ead23be7e62732f84a4cc705a6479a4205a41f66800a474aa2406",
+    "size": [
+      55,
+      55
+    ],
+    "scale_factor": 2.327272727272727,
+    "translation": [
+      9,
+      7
+    ],
+    "idle_bbox": [
+      13,
+      11,
+      42,
+      44
+    ],
+    "town_s_bbox": [
+      14,
+      12,
+      38,
+      44
+    ],
+    "baseline": 43,
+    "object_rule": "worn satchel"
+  },
+  {
+    "form": "slipjaw",
+    "source": "docs/creatures/arena-starters-2026-10-07/forms/slipjaw_arena_front_chosen.png",
+    "source_sha": "8d3293571af9e3a2d1938d40cf58ef43156093312d725af5fb7f1036c6a3eea7",
+    "output": "assets/sprites/arena/slipjaw/town/idle_s.png",
+    "output_sha": "dc4c096f8b85c6f28c428a22134df8ba213980adc3a732556baa36321f158d23",
+    "size": [
+      72,
+      72
+    ],
+    "scale_factor": 1.7777777777777777,
+    "translation": [
+      12,
+      8
+    ],
+    "idle_bbox": [
+      23,
+      16,
+      50,
+      52
+    ],
+    "town_s_bbox": [
+      26,
+      17,
+      47,
+      52
+    ],
+    "baseline": 51,
+    "object_rule": "worn bandana"
+  },
+  {
+    "form": "stillwade",
+    "source": "docs/creatures/arena-starters-2026-10-07/forms/stillwade_arena_front_chosen.png",
+    "source_sha": "ee8a1f70e174bf7711c6a3fd77b6abffa94f102c66a9a6aade8457dd8fbc74fb",
+    "output": "assets/sprites/arena/stillwade/town/idle_s.png",
+    "output_sha": "2858ed7fdc23a46f6e81e7c9628b636bfab02769073243173b2448586398a517",
+    "size": [
+      89,
+      89
+    ],
+    "scale_factor": 1.6179775280898876,
+    "translation": [
+      10,
+      8
+    ],
+    "idle_bbox": [
+      21,
+      17,
+      69,
+      74
+    ],
+    "town_s_bbox": [
+      30,
+      19,
+      56,
+      74
+    ],
+    "baseline": 73,
+    "object_rule": "bell; no gauge stick or rocks"
+  },
+  {
+    "form": "wickglow",
+    "source": "docs/creatures/arena-starters-2026-10-07/forms/wickglow_arena_front_chosen.png",
+    "source_sha": "cdc9cc8332c5b0f072b3fc9beb47c69a3f1b6cc976c2c0ef799a904d09856a4b",
+    "output": "assets/sprites/arena/wickglow/town/idle_s.png",
+    "output_sha": "3af97fc4452689524ddeb2eff56bfc25abd531c948170b257ebb2676f195a434",
+    "size": [
+      70,
+      70
+    ],
+    "scale_factor": 2.057142857142857,
+    "translation": [
+      9,
+      6
+    ],
+    "idle_bbox": [
+      12,
+      9,
+      58,
+      52
+    ],
+    "town_s_bbox": [
+      16,
+      7,
+      56,
+      52
+    ],
+    "baseline": 51,
+    "object_rule": "lamplighter pole"
+  },
+  {
+    "form": "rinsepaw",
+    "source": "docs/creatures/arena-starters-2026-10-07/forms/rinsepaw_arena_front_chosen.png",
+    "source_sha": "0a197999c32dc4ea970fd4b85813bba1a4798e26b69a58460eacf4a2e36f8451",
+    "output": "assets/sprites/arena/rinsepaw/town/idle_s.png",
+    "output_sha": "7dfa4ccc59c49abead30f184c744d3f2b23582d559090a2e54641cd22e978ee2",
+    "size": [
+      72,
+      72
+    ],
+    "scale_factor": 2.0,
+    "translation": [
+      8,
+      8
+    ],
+    "idle_bbox": [
+      11,
+      14,
+      61,
+      60
+    ],
+    "town_s_bbox": [
+      22,
+      14,
+      49,
+      60
+    ],
+    "baseline": 59,
+    "object_rule": "ladle, greens, pot"
+  }
+]

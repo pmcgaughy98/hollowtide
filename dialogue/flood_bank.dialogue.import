@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=18
+type="Resource"
+uid="uid://b5gifr22w783m"
+path="res://.godot/imported/flood_bank.dialogue-1cc5db362af5ea47904f6f6aedf577a5.tres"
+
+[deps]
+
+source_file="res://dialogue/flood_bank.dialogue"
+dest_files=["res://.godot/imported/flood_bank.dialogue-1cc5db362af5ea47904f6f6aedf577a5.tres"]
+
+[params]
+
+defaults=true

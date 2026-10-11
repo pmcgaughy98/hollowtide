@@ -1,0 +1,29 @@
+--- original/docs/team/CODEX_START_HERE_2026-10-11.md
++++ installed/docs/team/CODEX_START_HERE_2026-10-11.md
+@@ -2,7 +2,7 @@
+ 
+ Live project: **C:/Users/pmcga/dev/hollowtide**. Codex's writable workspace is **D:/dev**. The old Documents/Hollowtide/2026-10-08 handoff is historical; use this current live project.
+ 
+-Preston's latest completed request: task 6, current opening checks. Native 83/83 staging and installed live, with the old first-morning entry explicitly retired and inherited helpers preserved. Evidence: `docs/design/opening-checks-2026-10-11/README.md`. **Latest completed request: Rootbank Warren designs**, installed on the restored textured painter; evidence: `docs/design/rootbank-warren-finish-2026-10-11/README.md`. The six-task master queue is complete except Claude's production task 2 idle swap.
++Preston's latest completed request: task 6, current opening checks. Native 83/83 staging and installed live, with the old first-morning entry explicitly retired and inherited helpers preserved. Evidence: `docs/design/opening-checks-2026-10-11/README.md`. **Latest completed request: Rootbank Warren designs**, installed on the restored textured painter; evidence: `docs/design/rootbank-warren-finish-2026-10-11/README.md`. The six-task master queue and Wayling follow-up are complete on Codex's side. Claude's production task 2 idle swap remains pending.
+ 
+ ## Read before work
+ 
+@@ -11,6 +11,8 @@
+ 3. `docs/ui/crew-portraits-2026-10-11/README.md`, `docs/world/hall-fixtures-finish-2026-10-11/README.md` and `docs/world/world-selout-2026-10-11/README.md` for current scope/evidence. Older Hall-floor snapshots predate Claude's corrected fixtures.
+ 
+ ## Latest completed work
++
++**Wayling source margin:** Wayling chosen-front source margin completed: 96x96 to 96x104, eight transparent rows below the feet; every original RGBA pixel/coordinate and the existing portrait crop exact. All 165 protected Wayling game sprites/imports, portraits and related tools/scripts exact. Source-only mechanical canvas preparation; no generation, gameplay change or commit. Evidence: docs/art/wayling-source-margin-2026-10-11/README.md. All currently assigned Codex work is complete; Claude's production crew-idle swap remains pending.
+ 
+ **Rootbank Warren:** Rootbank Warren finish is installed on Claude's restored textured painter: varied exposed roots/clover, raised clay side reveals and a rooted Shortcut Crew den. USE_TILE_ART remains false in all three painters. New artwork is clipped to WALL tiles; walking floors/stairs and topology exact in raw/native shader output. Native material 21/21 across three seeds; all four installed floor captures match staging; existing dungeon checks5/5 staging/live; final live crew scene passes fight/flop/escape/parcel/beaten. Only riverbank_painter plus new rootbank_detail change runtime. 794 existing source files checked: only the owned painter changed. No rule/save/actor/cinematic/audio/settings/raster edits, image generation, paid calls or commit. Visual proposal for Preston. Originals, exact diff, captures, private drivers and receipts: docs/design/rootbank-warren-finish-2026-10-11/README.md. Claude's task 2 standing idle wiring remains pending.
+ 
+@@ -56,7 +58,7 @@
+ 5. **DONE: AI asset inventory for the pitch:** `docs/pitch/ai-asset-inventory.md`, with evidence-backed shipped asset groups, tools and AI-generated/AI-assisted/hand-edited/hand-made provenance. Do not invent unknown provenance or describe generated art as hand-drawn.
+ 6. **DONE: Update or retire pre-pivot checks:** `first_morning_check.gd` and `opening_flow_check.gd`, following the current title/storm/soul/flood-talk/riverbank flow. Do not restore obsolete `_boot_done` flow to make old tests pass.
+ 
+-Small follow-up from the master list: Wayling's chosen front touches its bottom canvas edge; game facings are fine. Preserve those facings.
++**Small follow-up DONE:** Wayling chosen-front source margin completed: 96x96 to 96x104, eight transparent rows below the feet; every original RGBA pixel/coordinate and the existing portrait crop exact. All 165 protected Wayling game sprites/imports, portraits and related tools/scripts exact. Source-only mechanical canvas preparation; no generation, gameplay change or commit. Evidence: docs/art/wayling-source-margin-2026-10-11/README.md. All currently assigned Codex work is complete; Claude's production crew-idle swap remains pending.
+ 
+ Finished before this queue: Growth Shrine information/exterior/evolution, Bag, world/terrain/sel-out, the earlier Hall art and launch frames. Claude's `party_screen.gd` already handles TEAM presentation. The newly requested fixture work refines Claude's current corrected layout, rather than reinstalling the earlier Hall snapshot. Older guild-roster/F5 requests are background; the master list sets current priority. F5 remains Claude's current dungeon development scene unless Preston directs a change.
+ 

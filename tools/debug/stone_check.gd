@@ -8,6 +8,8 @@ extends SceneTree
 
 const TeamState := preload("res://scripts/town/team_state.gd")
 const OUT := "res://docs/design/pond-stone-2026-10-10/"
+const REC_PACE := 3   # with HT_RECORD set (video takes), each line stays this many times longer
+var _pace := REC_PACE if OS.get_environment("HT_RECORD") != "" else 1
 var fails := 0
 var shot := {}
 
@@ -111,7 +113,7 @@ func _run() -> void:
 			await _snap("04_stone_taken")
 		if not dg.talk.is_empty():
 			read += 1
-			if read >= 45:
+			if read >= 45 * _pace:
 				read = 0
 				dg.act_talk()
 	_ok("The Warden beaten: the stone is %s; the Hollow beaten %s" % [dg.story.get("stone", ""), str("hollow" in dg.beaten)], dg.story.get("stone", "") == "carried" and "hollow" in dg.beaten)

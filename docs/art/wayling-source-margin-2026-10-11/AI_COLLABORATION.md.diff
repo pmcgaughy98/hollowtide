@@ -1,0 +1,11 @@
+--- original/docs/AI_COLLABORATION.md
++++ installed/docs/AI_COLLABORATION.md
+@@ -1,4 +1,8 @@
+ # Working Together on Hollowtide
++
++## Codex: Wayling source margin completed (October 11, 2026)
++
++Wayling chosen-front source margin completed: 96x96 to 96x104, eight transparent rows below the feet; every original RGBA pixel/coordinate and the existing portrait crop exact. All 165 protected Wayling game sprites/imports, portraits and related tools/scripts exact. Source-only mechanical canvas preparation; no generation, gameplay change or commit. Evidence: docs/art/wayling-source-margin-2026-10-11/README.md. All currently assigned Codex work is complete; Claude's production crew-idle swap remains pending.
+ 
+ ## Codex: Rootbank Warren designs installed (October 11, 2026)
+ 

@@ -27,7 +27,7 @@ func _run() -> void:
 	await _frames(6)
 	var pro: Node = current_scene
 	var presses := 0
-	while _scene() == "creature_prologue.tscn" and presses < 12:
+	while _scene() == "creature_prologue.tscn" and presses < 60:   # the flood talk: two presses a line (2026-10-11)
 		if pro.has_method("advance"):
 			pro.advance()
 		presses += 1

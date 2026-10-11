@@ -1,0 +1,82 @@
+{
+  "grubbit": {
+    "line_colour": [
+      0,
+      0,
+      0
+    ],
+    "images": 153,
+    "changed_images": 153,
+    "changed_pixels": 9766
+  },
+  "muskin": {
+    "line_colour": [
+      0,
+      0,
+      0
+    ],
+    "images": 153,
+    "changed_images": 153,
+    "changed_pixels": 11731
+  },
+  "slipjaw": {
+    "line_colour": [
+      0,
+      0,
+      0
+    ],
+    "images": 153,
+    "changed_images": 153,
+    "changed_pixels": 11753
+  },
+  "stillwade": {
+    "line_colour": [
+      0,
+      0,
+      0
+    ],
+    "images": 153,
+    "changed_images": 153,
+    "changed_pixels": 16252
+  },
+  "wickglow": {
+    "line_colour": [
+      0,
+      0,
+      0
+    ],
+    "images": 153,
+    "changed_images": 153,
+    "changed_pixels": 16175
+  },
+  "rinsepaw": {
+    "line_colour": [
+      0,
+      0,
+      0
+    ],
+    "images": 153,
+    "changed_images": 153,
+    "changed_pixels": 14221
+  },
+  "cairnshell": {
+    "line_colour": [
+      0,
+      0,
+      0
+    ],
+    "images": 153,
+    "changed_images": 153,
+    "changed_pixels": 24236
+  },
+  "crawdukes": {
+    "line_colour": [
+      7,
+      0,
+      0
+    ],
+    "images": 153,
+    "changed_images": 153,
+    "changed_pixels": 35518
+  }
+}

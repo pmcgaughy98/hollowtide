@@ -1,0 +1,39 @@
+{
+  "protected_files": 30715,
+  "exact_protected_files": 30712,
+  "changed": [
+    "scripts/creature_prologue.gd",
+    "scripts/town/guild_crew.gd",
+    "scripts/town/guild_scene.gd"
+  ],
+  "concurrent_changes_preserved": {
+    "scripts/creature_prologue.gd": {
+      "before_sha256": "5e34f9ecc500de427e08ec8bbd6b1c8da4cfc7058abe350011ea750449531de2",
+      "after_sha256": "76c61187dcdcfd01774b9e22deb3a825031f4a2aed1bb7d6f664463a4ee23ad6",
+      "patch": "concurrent\\creature_prologue.gd.patch"
+    },
+    "scripts/town/guild_crew.gd": {
+      "before_sha256": "3785d95fc9ca8790e62c897e504e222a8666c20c30cda8b990922e0d08215440",
+      "after_sha256": "156ebc3c28daec3e585dbe7aaca30840c0c35c7bd8b0af21e7f58388d374aa7e",
+      "patch": "concurrent\\guild_crew.gd.patch"
+    },
+    "scripts/town/guild_scene.gd": {
+      "before_sha256": "d90359dac9da5360ad4d609ba79259efd1cc93b9a9b061de8525a409f874b916",
+      "after_sha256": "19470f9903cfe5942706657176d0089a6f748f5345c0057738f505f91c03dc72",
+      "patch": "concurrent\\guild_scene.gd.patch"
+    }
+  },
+  "missing": [],
+  "owned_sources": {
+    "scripts/town/room_painter.gd": {
+      "original_sha256": "45bb75eabdb8b66960ee8fc2a96ceac6143b9bb7187b707ef947364c213c3415",
+      "installed_sha256": "0b932cdafbff3d5a905ecd9fadd9c085899ab00bb481f6913b72cb41bfa36bd3"
+    },
+    "scripts/town/hall_floors_art.gd": {
+      "original_sha256": "a419c861aba35e77918e91c16dd3b08fd92c2c5a046657b30c804d8446d1e1d5",
+      "installed_sha256": "538c7967c71e1aaa865b2e20f23cc643076cb5b7ebdc603b3a724d23e29bff3d"
+    }
+  },
+  "new_helper_sha256": "9768c821b3db69348993dbd2a2567260f5be8f800d749c8abba3a43051000d3b",
+  "town_room_sha256": "8fa5baf5a1291015513847fabe93ff8e06c581213a6d0bf596bc02ee8dffec89"
+}

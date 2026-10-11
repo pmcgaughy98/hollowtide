@@ -1,5 +1,8 @@
 extends RefCounted
 const TileArt := preload("res://scripts/dungeon/dungeon_tile_art.gd")
+# Codex's flat 24px tile sheets (2026-10-10) are switched off: Preston, 2026-10-11, wants the hand-painted,
+# textured stones and grass back, the look that matches the boss room. Set true to use the sheets again.
+const USE_TILE_ART := false
 ## The Hollow's look (Claude, 2026-10-10; Preston: the Hollow is a structure that "rose from the river with
 ## a stone pathway to it", and "the pond looks amazing, I wish the rest looked that good"). Drawn in code
 ## pixel by pixel like the Warden's pond, no generated art: river-washed flagstones with moss in the
@@ -117,7 +120,7 @@ static func _floor_set(t: int) -> Array:
 
 
 static func paint(data: Dictionary, t: int, seed_value: int) -> Image:
-	if t == 24: return TileArt.paint(data,t,seed_value,"ruin")
+	if USE_TILE_ART and t == 24: return TileArt.paint(data,t,seed_value,"ruin")
 	var w: int = data["w"]
 	var h: int = data["h"]
 	var tiles: PackedByteArray = data["tiles"]

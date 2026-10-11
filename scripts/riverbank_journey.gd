@@ -74,6 +74,9 @@ func _ready()->void:
 	# Claude, 2026-10-10 (Preston: the ruin and its stone path should rise out of the river, so the team is
 	# the first to explore it): the first time, during the flood, it rises before the team can move.
 	if not entrance and not from_entrance and not returning and not "mouth" in TeamState.data.get("beaten",[]):
+		# Still the flood night: the storm's rain keeps falling while the ruin comes up (Preston, 2026-10-11).
+		var rain:=preload("res://scripts/effects/storm_rain.gd").new();rain.reduce_motion=reduce_motion
+		view.add_child(rain)
 		_rise()
 
 func _rise()->void:

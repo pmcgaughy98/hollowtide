@@ -100,7 +100,7 @@ static func paint(base: Image) -> Image:
 				_dock(img, p["rect"])
 	Tiles.aprons(img)
 	Tiles.clearings(img)
-	return Detail.river(img)
+	return preload("res://scripts/town/world_finish.gd").paint(Detail.river(img))
 
 
 const PLAIN_GRASS := [Color("#637849"), Color("#677c4c"), Color("#6b804f"), Color("#6f8352")]   # Codex's grass tones

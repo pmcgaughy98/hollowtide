@@ -91,7 +91,7 @@ const BOSS_MINIONS := [[7, 0], [7, 0]]
 const BOSS_HP := 3.0                     # times a wild creature's health
 const BOSS_DMG := 0.9                    # in place of WILD_DMG
 const FIXED_RECIPE := {"spawns": [], "items": 0, "traps": 0, "monster_house": 0.0}   # no wild, items or traps on a fixed floor
-const BOSS_ARENA := Vector2i(19, 14)     # the boss floor: one fixed room, in floor tiles (wider for the Warden's pond garden, 2026-10-10)
+const BOSS_ARENA := Vector2i(25, 18)     # the boss floor: one fixed room, in floor tiles (the Warden's pond garden; grown 2026-10-11, Preston: "it should feel large")
 const REST_ROOM := Vector2i(9, 7)
 # Placeholder lines (Preston writes the real scene). {partner} and {boss} are filled in.
 const BOSS_TALK := [["{partner}", "The air is heavy down here... something is waiting for us."], ["{boss}", "Graaah!"], ["{partner}", "Here it comes!"]]
@@ -149,9 +149,9 @@ const EVO := {
 # number. DRAFT NUMBERS FOR GROK: the evolve levels, the EXP, the curve and the health a level adds.
 const EVO_LEVEL := [5, 10]       # stage 1 to 2, stage 2 to 3
 const LEVEL_MAX := 50
-const EXP_PER_KO := 12           # for each foe downed, plus EXP_PER_STAGE for each stage it had grown
+const EXP_PER_KO := 8            # for each foe downed, plus EXP_PER_STAGE for each stage it had grown
 const EXP_PER_STAGE := 6
-const EXP_BOSS := 60             # added for the boss
+const EXP_BOSS := 110            # added for the boss. The Warden's payout is what reaches level 5.
 const LEVEL_HP := 0.03           # max health grows 3% a level above 1
 # Learnsets (Grok, 2026-10-10: docs/creatures/learnset-draft-2026-10-10.md, its rules and tables
 # exactly). One list per form: [level, move], or ["evolve", move] for the move taught on evolving
@@ -314,9 +314,10 @@ const DUNGEONS := {
 	# with no boss). The outer Hollow the team runs into from the riverbank; two short floors that teach the
 	# moves, the partner, items and the stairs. "Hollow Mouth" is a working name. "boss" empty: the last
 	# stairs clear it (act_stairs).
-	"mouth": {"name": "Hollow Mouth", "floors": 2,
-		"spawns": {1: [[7, 0], [103, 0]], 2: [[7, 0], [10, 0], [103, 0]]},   # Listener and Skimlet; + Troughspine
-		"looks": {1: "ruin", 2: "ruin"},
+	# Four floors (Preston, 2026-10-11: "a couple more dungeon floors to go through before escaping").
+	"mouth": {"name": "Hollow Mouth", "floors": 4,
+		"spawns": {1: [[7, 0], [103, 0]], 2: [[7, 0], [103, 0]], 3: [[7, 0], [10, 0], [103, 0]], 4: [[7, 0], [10, 0], [103, 0]]},   # Listener and Skimlet; + Troughspine
+		"looks": {1: "ruin", 2: "ruin", 3: "ruin", 4: "ruin"},
 		"boss": {}},
 	# The first dungeon's name is Claude's pick (Preston, 2026-10-10: "you choose name for dungeon 1"):
 	# tunnels dug through a river bank, roots in the walls, where the crew holes up.
@@ -376,7 +377,7 @@ func floors() -> int:
 
 
 func boss_cfg() -> Dictionary:
-	return DUNGEONS[dungeon]["boss"]
+	return {} if replay else DUNGEONS[dungeon]["boss"]
 
 
 ## The boss floor plays the Warden's entrance only in a dungeon whose boss has one.
@@ -408,6 +409,7 @@ var teach_sel := 0
 var teach_learner := -1                   # chosen learner (ents index) while choosing a move to forget
 var _party_at_start: Array = []           # the team the run began with (a faint returns to it)
 var return_to_town := false              # set by the town: a clear or a faint goes back to Highbank (off when the dungeon runs alone)
+var replay := false                       # a run back into a dungeon after the pilot: no boss floor, so no story scene replays; its last stairs clear it (Preston, 2026-10-11)
 var real_time_battles := false            # Preston, 2026-10-09: dungeon fights stay turn-based; the arena is its own mode. On: fights hand over to the arena engine (kept, built that night)
 var in_battle := false
 var battles := 0
@@ -1684,9 +1686,10 @@ func _mouth_exit() -> void:
 	var f := String(mate["form"])
 	talk = [
 		["", "Far below, something shifts. The whole ruin hums, then goes still."],
-		[who, "...Did you feel that? Let's not find out what that was.", f + ":worried"],
-		[who, "But look! I kept one dry. A sealed Wayline parcel, all through the flood.", f + ":joyous"],
-		[who, "If we deliver this, the Hall can't turn me away again. To Highbank!", f + ":determined"],
+		[who, "...Okay, you felt that too, right? I'm not crazy?", f + ":worried"],
+		[who, "Let's not stick around and find out what that was.", f + ":worried"],
+		[who, "Oh! Look at this. Still dry. All that water and not one drop got on it.", f + ":joyous"],
+		[who, "If I walk this into the Hall myself, they can't tell me no again. Come on, Highbank's up this way.", f + ":determined"],
 	]
 	cutscene = true
 	while not talk.is_empty() and is_inside_tree():
@@ -2123,7 +2126,14 @@ func boss_alive() -> bool:
 
 ## Back to Highbank, carrying the team's record (TeamState).
 func _go_to_town(news: String) -> void:
+	# The first time out of the Mouth: the dawn scene and the walk up to Highbank first (scripts/mouth_escape.gd).
+	var road_talk: bool = dungeon == "mouth" and not replay and news == "cleared" and not story.get("road_talk", false)
+	if road_talk:
+		story["road_talk"] = true
 	TeamState.take_from(self, news)
+	if road_talk and is_inside_tree() and get_tree().current_scene == self:
+		get_tree().change_scene_to_file("res://scenes/mouth_escape.tscn")
+		return
 	if is_inside_tree() and get_tree().current_scene == self:
 		var town: Node = load(TOWN_SCENE).instantiate()
 		TeamState.give_to(town)
@@ -2140,8 +2150,8 @@ func music_track() -> String:
 		return "" if boss >= 0 and boss_met and not boss_alive() else ("guardian" if boss_met else "boss_scene")
 	if floor_kind() == "rest":
 		return "rest_floor"
-	if monster_sprung and not house_cleared:
-		return "monster_house"
+	# A sprung Monster House keeps the floor's own music for now (Preston, 2026-10-11: "just remove monster house
+	# sound for now, we'll get back to it"). The takes are in docs/audio/takes-2026-10-11/.
 	if floor_n == floors() or light < 25.0:
 		return "deep_hollow"
 	return "hollow"
@@ -2185,7 +2195,7 @@ func _place_boss() -> void:
 	var spots: Array[Vector2i] = []
 	var where := [Vector2i(0, 3), Vector2i(-2, 3), Vector2i(2, 3)]
 	if intro_here():   # the entrance lands the Warden in front of its pond, the Listeners to its sides
-		where = [Vector2i(0, BossIntro.LAND_ROW), Vector2i(-3, BossIntro.LAND_ROW), Vector2i(3, BossIntro.LAND_ROW)]
+		where = [Vector2i(0, BossIntro.LAND_ROW), Vector2i(-2, BossIntro.LAND_ROW + 1), Vector2i(2, BossIntro.LAND_ROW + 1)]   # close at its flanks (Preston, 2026-10-11)
 	for d in where:
 		var q: Vector2i = data["stairs"] + d
 		if _floor_at(q) and _occupant(q) < 0:
@@ -2440,7 +2450,12 @@ func level_of(line: int) -> int:
 
 ## EXP a line needs to go from level lv to the next (draft for Grok).
 static func exp_to_next(lv: int) -> int:
-	return 10 * lv + 10
+	# Grok, 2026-10-11. The first four steps are 40, 80, 120, 160 (400 EXP to level 5).
+	# A pilot that beats the placed wilds and both bosses crosses 400 on the Warden, not before.
+	# From level 5 the slope eases to 20 lv + 20 so the levels after the shrine are not frozen.
+	if lv < 5:
+		return 40 * lv
+	return 20 * lv + 20
 
 
 ## The form folder of line's stage, and its basic (slot 0, never forgotten).
@@ -3038,7 +3053,6 @@ func _monster_house() -> void:
 		return
 	monster_sprung = true
 	_say("It's a Monster House!")
-	Music.play(get_tree(), "monster_house")
 	_banner_show("MONSTER HOUSE!", "", Color(1, 0.45, 0.3))
 	_sfx("monster_ambush", -2.0)
 	var area := 0

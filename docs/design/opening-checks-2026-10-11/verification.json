@@ -1,0 +1,18 @@
+{
+  "stage": {
+    "current-kithflare": 27,
+    "current-tallowroot": 27,
+    "rimefin-natural": 29
+  },
+  "live": {
+    "kithflare-live": 27,
+    "tallowroot-live": 27,
+    "rimefin-live": 29
+  },
+  "retired_expected_exit": 2,
+  "helper_inheritors": "parser checks only, not legacy gameplay",
+  "uids": {
+    "tools/debug/first_morning_check.gd.uid": "1291a87ca7c54a6ac750ff87b3b36f06d8985320947f143d6bf6cbf430a3de47",
+    "tools/debug/opening_flow_check.gd.uid": "565dff613ee20386e1c096536987a8c62fc0c9d4b493280f7464eceb114760f8"
+  }
+}

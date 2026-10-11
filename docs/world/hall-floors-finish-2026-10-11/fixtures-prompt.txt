@@ -1,0 +1,24 @@
+Use-case: stylized-concept game SPRITE ATLAS, 16 isolated environment sprites on true transparent alpha.
+Image 1 is the approved Hollowtide Hall STYLE reference. Image 2 is the original two-floor LOWER layout geometry. Image 3 is the original CHAMBER layout geometry. Design the fixtures as the same top-down / 3/4 shallow-relief, crisp pixel art style as Image1: carved/rooted timber, warm limestone, deep teal cloth, worn brass, dense controlled details, top-left light, dark near-black material-selective outer and internal outlines. Handheld RPG sprites, no realistic gradients, no blur.
+One atlas in EXACTLY 4 columns x4 rows of equal cells. Every object isolated and fully inside its own cell with generous transparent padding; no overlap, no cast shadow outside the object except a tiny dark contact edge. No labels, text, numbers, grid lines or background.
+ROW1 left to right:
+1) front-facing tall double walnut/limestone chamber door, two panels and brass FOUR-POINT compass/star fitting a native60x46 wide rectangle;
+2) two-pane river window with wooden sill and cross mullions, pale blue glass and restrained rain streaks, native44x32;
+3) one narrow teal hanging Wayline banner with brass FOUR-POINT mark and pointed hem, native16x38;
+4) framed timber duty notice board, three parchment sheets with abstract ink marks, native52x28.
+ROW2:
+5) narrow side-wall crew-room wooden door, near-flat 3/4 shallow side relief, brass handle, native18x52;
+6) open kitchen serving hatch with timber ledge, a small simmering pot and dim warm light in the opening, native24x48;
+7) very wide mess table with benches, SIX individual bowls of greens/river stew and mugs, worn table slats, native144x50, silhouette broad and short 2.88:1;
+8) very tall narrow supply shelf containing a rope coil, oil bottle, folded satchel and red reedberry jar, native20x82.
+ROW3:
+9) very tall narrow keepsakes shelf: old satchel, cracked lantern, brass star medal, native20x82;
+10) very tall narrow ledger shelf with orderly cream/teal/umber book spines, native20x82;
+11) wide wall parchment map of the river from springs to sea, mostly blank, thin blue river and a FEW tiny red pins, NO text, native96x32;
+12) low wooden Guildmaster dais with worn rust-red oval cushion, brass edge and carved feet, native72x52. NO creature on it.
+ROW4:
+13) square limestone STAIRWELL DOWN, five treads descending northward into dark depth, bright south lip and side walls, native48x48;
+14) square limestone STAIRS UP, five steps ascending northward with lit far landing and lower south tread, native48x48;
+15) flat horizontal teal stone roll-call OVAL with brass ring and small FOUR-POINT Wayline mark at its heart, native153x93. No raised pedestal. Flat walkable inlay.
+16) wider three-pane river window in the same style as row1 window, native68x32.
+Preserve explicit row/column order. Match each object's aspect ratio; don't enlarge a narrow shelf into a cabinet or bend the stairs in perspective. The visible sprite bodies themselves must fit these ratios (transparent padding may vary). Full sheet, evenly arranged, all 16 visible, no additional furniture/characters/UI. Transparent background is critical for precise on-grid placement later.

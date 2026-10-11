@@ -30,6 +30,11 @@ static func ready(rec: Dictionary, k: int) -> bool:
 	var c := _consts()
 	if st >= 2 or not c["EVO"].has(ln):
 		return false
+	# The pilot's payoff (Preston, 2026-10-11: "yes they can evolve"): once the Warden's stone is set in the
+	# shrine, the leader and the partner are ready for their first evolution whatever their numbers. Everyone
+	# else, and every later stage, still earns it (replaying the dungeons).
+	if st == 0 and k <= 1 and String(rec.get("story", {}).get("stone", "")) == "installed":
+		return true
 	var r: Dictionary = c["EVO"][ln]
 	var g: Dictionary = rec.get("growth", {}).get("%d:%d" % [ln, st], {})
 	var lv := int(rec.get("levels", {}).get(ln, {}).get("lv", 1))

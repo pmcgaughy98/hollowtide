@@ -1,0 +1,36 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+OpenGL API 3.3.0 NVIDIA 596.49 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce GTX 1660 SUPER
+
+ERROR: Failed to read the root certificate store.
+   at: get_system_ca_certificates (platform/windows/os_windows.cpp:2582)
+[godot_ai game_helper] registered mcp capture (debugger active=false, logger=true)
+still 00_arguing
+still in_00_mirekit
+still in_01_mirekit
+still in_02_whinet
+still in_03_whinet
+still in_04_mirekit
+still in_05_mirekit
+still in_06_tallowroot
+still in_07_tallowroot
+still in_08_mirekit
+still in_09_mirekit
+still in_10_whinet
+still in_11_whinet
+still in_12_tallowroot
+still in_13_tallowroot
+still 01_fight
+still 02_flop
+still out_00_tallowroot
+still out_01_whinet
+still out_02_whinet
+still out_03_mirekit
+still out_04_mirekit
+still out_05_mirekit
+still out_06_mirekit
+still out_07_whinet
+still out_08_whinet
+still out_09_tallowroot
+still out_10_tallowroot
+fight started: true, flopped on screen: true, parcel taken: true, beaten: true
+CREW SCENE: ok

@@ -68,6 +68,10 @@ static func spawn(host, form: String, tile: Vector2i, facing := "s") -> Dictiona
 			if ResourceLoader.exists(dir + "walk_%s_f%d.png" % [f, k]):
 				frames.append(load(dir + "walk_%s_f%d.png" % [f, k]))
 		walk[f] = frames
+	# Standing facing south, a crew member keeps its job object (Codex's town/idle_s.png, task 2); walking
+	# uses the walk frames, which drop it (Preston, 2026-10-11).
+	if ResourceLoader.exists(dir + "idle_s.png"):
+		still["s"] = load(dir + "idle_s.png")
 	var e := {"form": form, "pos": tile, "node": node, "sprite": sprite, "still": still, "walk": walk,
 		"facing": facing, "walk_t": 0.0, "walk_clock": 0.0, "npc": true}
 	host._place(e)

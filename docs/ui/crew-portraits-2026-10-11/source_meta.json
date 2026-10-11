@@ -1,0 +1,86 @@
+[
+  {
+    "form": "grubbit",
+    "size": [
+      96,
+      96
+    ],
+    "bbox": [
+      10,
+      8,
+      79,
+      89
+    ],
+    "source_sha256": "9c89375af76d5c5764b6df568dd50c8277146c5d3648d77202e7cdf5fc18d607"
+  },
+  {
+    "form": "stillwade",
+    "size": [
+      112,
+      112
+    ],
+    "bbox": [
+      18,
+      15,
+      96,
+      107
+    ],
+    "source_sha256": "ee8a1f70e174bf7711c6a3fd77b6abffa94f102c66a9a6aade8457dd8fbc74fb"
+  },
+  {
+    "form": "wickglow",
+    "size": [
+      112,
+      112
+    ],
+    "bbox": [
+      6,
+      7,
+      101,
+      96
+    ],
+    "source_sha256": "cdc9cc8332c5b0f072b3fc9beb47c69a3f1b6cc976c2c0ef799a904d09856a4b"
+  },
+  {
+    "form": "muskin",
+    "size": [
+      96,
+      96
+    ],
+    "bbox": [
+      9,
+      10,
+      78,
+      87
+    ],
+    "source_sha256": "6dd73e7411b5fb99974596d320c6deca44ada72936662806b3369416bedb322c"
+  },
+  {
+    "form": "slipjaw",
+    "size": [
+      96,
+      96
+    ],
+    "bbox": [
+      20,
+      14,
+      73,
+      79
+    ],
+    "source_sha256": "8d3293571af9e3a2d1938d40cf58ef43156093312d725af5fb7f1036c6a3eea7"
+  },
+  {
+    "form": "rinsepaw",
+    "size": [
+      112,
+      112
+    ],
+    "bbox": [
+      7,
+      12,
+      107,
+      104
+    ],
+    "source_sha256": "0a197999c32dc4ea970fd4b85813bba1a4798e26b69a58460eacf4a2e36f8451"
+  }
+]

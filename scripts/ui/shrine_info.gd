@@ -1,0 +1,321 @@
+extends CanvasLayer
+## Read-only creature information. The town still owns the stone and evolution actions.
+const UI := preload("res://scripts/ui/ui_style.gd")
+const Lines := preload("res://scripts/creatures/lines.gd")
+const Evolution := preload("res://scripts/town/evolution.gd")
+const Arena := preload("res://scripts/arena/arena_prototype.gd")
+const Finish := preload("res://scripts/arena/creature_finish.gd")
+const WAY_NAMES := {"flank": "Pincer hits", "ambush": "Hits on sleepers", "took": "Damage taken", "slam": "Slams", "healed": "Health restored"}
+const SERVICES := ["growth", "stone_ask", "evolve_ask"]
+var town: Node2D
+var screen: PanelContainer
+var members: VBoxContainer
+var details: VBoxContainer
+var detail_scroll: ScrollContainer
+var status: Label
+var action: Button
+var selected := 0
+var tab := "growth"
+var shown := false
+var snapshot: Dictionary = {}
+var panel_key := ""
+var tabs: HBoxContainer
+
+static func attach(owner: Node2D) -> void:
+	var view = load("res://scripts/ui/shrine_info.gd").new()
+	view.name = "ShrineInfo"
+	view.town = owner
+	owner.add_child(view)
+
+static func member(rec: Dictionary, k: int) -> Dictionary:
+	var party: Array = rec.get("party", [])
+	if k < 0 or k >= party.size(): return {}
+	var ln := int(party[k][0])
+	var st := int(party[k][1])
+	var forms: Array = Lines.of(ln)["forms"]
+	var form: String = forms[st][0]
+	var level := int(rec.get("levels", {}).get(ln, {}).get("lv", 1))
+	var dungeon: GDScript = load(Evolution.DUNGEON)
+	var c := dungeon.get_script_constant_map()
+	var data := {"name": String(load(forms[st][1]).creature_name), "form": form, "level": level,
+		"final": st >= 2, "iq": int(rec.get("iq", {}).get(ln, 0)), "ready": Evolution.ready(rec, k), "conditions": [],
+		"next": String(load(forms[st + 1][1]).creature_name) if st + 1 < forms.size() else "",
+		"moves": rec.get("taught", {}).get("%d:%d" % [ln, st], dungeon.moves_for(ln, st, level)).duplicate(),
+		"learn": c["LEARN"].get(form, []).duplicate(true), "waiting": c["WAITING"].get(form, []).duplicate(true),
+		"next_learn": [], "next_waiting": [], "pending": []}
+	if st < 2 and c["EVO"].has(ln):
+		var r: Dictionary = c["EVO"][ln]
+		var g: Dictionary = rec.get("growth", {}).get("%d:%d" % [ln, st], {})
+		data["conditions"] = [["Level", level, c["EVO_LEVEL"][st]], ["Knockouts", int(g.get("kos", 0)), r["kos"][st]],
+			["Floors cleared", int(g.get("floors", 0)), r["floors"][st]], [WAY_NAMES.get(r["way"], r["way"]), int(g.get(r["way"], 0)), r["need"][st]]]
+	if st + 1 < forms.size():
+		data["next_learn"] = c["LEARN"].get(forms[st + 1][0], []).duplicate(true)
+		data["next_waiting"] = c["WAITING"].get(forms[st + 1][0], []).duplicate(true)
+	for entry in rec.get("pending_learn", []):
+		if int(entry[0]) == ln and int(entry[1]) == st: data["pending"].append(entry[2])
+	return data
+
+func _label(text: String, role := "body", color := UI.TEXT) -> Label:
+	var label := Label.new()
+	label.text = text
+	label.add_theme_font_override("font", UI.font(role))
+	label.add_theme_font_size_override("font_size", UI.type_size(role))
+	label.add_theme_color_override("font_color", color)
+	label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	label.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	return label
+
+func _button(text: String, callback: Callable) -> Button:
+	var button := Button.new()
+	button.text = text
+	button.focus_mode = Control.FOCUS_NONE # Raw town polling owns Enter; avoid a second activation.
+	button.custom_minimum_size.y = 52
+	for state in ["normal", "hover", "pressed", "disabled"]:
+		var frame := UI.frame("panel_focus" if state == "hover" else "panel_dim").duplicate()
+		frame.content_margin_top = 12
+		frame.content_margin_bottom = 12
+		button.add_theme_stylebox_override(state, frame)
+	UI.style_button(button)
+	button.pressed.connect(callback)
+	return button
+
+func _scroll() -> ScrollContainer:
+	var scroll := ScrollContainer.new()
+	scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
+	scroll.size_flags_vertical = Control.SIZE_EXPAND_FILL
+	scroll.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	var bar := scroll.get_v_scroll_bar()
+	bar.custom_minimum_size.x = 12
+	for state in ["scroll", "grabber", "grabber_highlight", "grabber_pressed"]:
+		var style := StyleBoxFlat.new()
+		style.bg_color = UI.PANEL if state == "scroll" else UI.EDGE
+		bar.add_theme_stylebox_override(state, style)
+	return scroll
+
+func _ready() -> void:
+	layer = 60
+	screen = PanelContainer.new()
+	screen.position = Vector2(48, 42)
+	screen.size = Vector2(1056, 540)
+	screen.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
+	screen.add_theme_stylebox_override("panel", UI.frame("panel").duplicate())
+	add_child(screen)
+	var column := VBoxContainer.new()
+	column.add_theme_constant_override("separation", 8)
+	screen.add_child(column)
+	column.add_child(_label("Growth Shrine", "name", UI.EDGE_LIGHT))
+	status = _label("", "body", UI.MUTED)
+	status.custom_minimum_size.y = 30
+	column.add_child(status)
+	var body := HBoxContainer.new()
+	body.add_theme_constant_override("separation", 18)
+	body.size_flags_vertical = Control.SIZE_EXPAND_FILL
+	column.add_child(body)
+	var list_scroll := _scroll()
+	list_scroll.custom_minimum_size.x = 258
+	list_scroll.size_flags_horizontal = Control.SIZE_FILL
+	body.add_child(list_scroll)
+	members = VBoxContainer.new()
+	members.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	members.add_theme_constant_override("separation", 8)
+	list_scroll.add_child(members)
+	var right := VBoxContainer.new()
+	right.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	body.add_child(right)
+	tabs = HBoxContainer.new()
+	right.add_child(tabs)
+	for kind in ["growth", "moves"]:
+		var button := _button(kind.to_upper(), _set_tab.bind(kind))
+		button.name = kind.capitalize() + "Tab"
+		button.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+		tabs.add_child(button)
+	detail_scroll = _scroll()
+	detail_scroll.name = "DetailScroll"
+	right.add_child(detail_scroll)
+	details = VBoxContainer.new()
+	details.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	details.add_theme_constant_override("separation", 7)
+	detail_scroll.add_child(details)
+	var footer := HBoxContainer.new()
+	footer.add_theme_constant_override("separation", 12)
+	column.add_child(footer)
+	var hint := _label("W/S team   A/D page   PgUp/PgDn scroll", "label", UI.MUTED)
+	hint.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	hint.size_flags_vertical = Control.SIZE_SHRINK_CENTER
+	footer.add_child(hint)
+	action = _button("Close", town.act_use)
+	action.name = "ShrineAction"
+	action.custom_minimum_size.x = 210
+	footer.add_child(action)
+	footer.add_child(_button("Esc close", _close))
+	screen.hide()
+
+func _process(_delta: float) -> void:
+	var active: bool = town.panel.get("service", "") in SERVICES and not town.cutscene and town.talk.is_empty() and not town.evolving_now
+	if active and (not shown or panel_key != _panel_key()):
+		selected = int(town.panel.get("k", 0))
+		tab = "growth"
+		_rebuild()
+	shown = active
+	screen.visible = active
+
+func _panel_key() -> String:
+	return "%s:%d:%s:%s" % [town.panel.get("service", ""), int(town.panel.get("k", 0)), town.stone_state(), str(town.party)]
+
+func _clear(node: Node) -> void:
+	for child in node.get_children():
+		node.remove_child(child)
+		child.queue_free()
+
+func _rebuild() -> void:
+	snapshot = town._record().duplicate(true)
+	panel_key = _panel_key()
+	_clear(members)
+	for k in snapshot.get("party", []).size():
+		var data := member(snapshot, k)
+		var role := UI.fit(data["name"], "name", 206)
+		var button := _button(data["name"], select.bind(k))
+		button.name = "Member%d" % k
+		button.custom_minimum_size.y = 76
+		button.add_theme_font_override("font", UI.font(role))
+		button.add_theme_font_size_override("font_size", UI.type_size(role))
+		var frame := UI.frame("panel_focus" if k == selected else "panel_dim").duplicate()
+		frame.content_margin_top = 12
+		frame.content_margin_bottom = 12
+		button.add_theme_stylebox_override("normal", frame)
+		members.add_child(button)
+	if snapshot.get("party", []).is_empty(): members.add_child(_label("No team yet."))
+	status.text = "Shrine dormant: the socket is empty. You can still read your team's growth." if town.stone_state() == "" else ("The pond stone is carried. Set it in to wake the shrine." if town.stone_state() == "carried" else "Shrine awake. All four conditions must be met to evolve.")
+	action.text = "E set stone" if town.panel.get("service", "") == "stone_ask" else ("E evolve" if town.panel.get("service", "") == "evolve_ask" else "E close")
+	_render_detail()
+
+func select(k: int) -> void:
+	var count: int = town._record().get("party", []).size()
+	if count == 0: return
+	selected = posmod(k, count)
+	# Selection offers the same confirmation for this creature; no rule or record changes.
+	if town.stone_state() == "installed":
+		if Evolution.ready(town._record(), selected):
+			town.panel["service"] = "evolve_ask"
+			town.panel["k"] = selected
+			town.panel["what"] = "%s is ready to evolve. Let it evolve here?" % member(town._record(), selected)["name"]
+		else:
+			town.panel["service"] = "growth"
+			town.panel.erase("k")
+	_rebuild()
+	_reveal_selected.call_deferred()
+
+func _reveal_selected() -> void:
+	if selected < members.get_child_count():
+		members.get_parent().ensure_control_visible(members.get_child(selected))
+
+func _set_tab(kind: String) -> void:
+	tab = kind
+	_render_detail()
+
+func _portrait(form: String) -> Control:
+	var frame := PanelContainer.new()
+	frame.add_theme_stylebox_override("panel", UI.frame("portrait").duplicate())
+	var well := Control.new()
+	well.custom_minimum_size = Vector2(72, 72)
+	well.clip_contents = true
+	frame.add_child(well)
+	var background := ColorRect.new()
+	background.color = UI.PORTRAIT_BG
+	background.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	well.add_child(background)
+	var tex: Texture2D = town._face(form)
+	if tex == null: tex = UI.dialogue_portrait(form)
+	if tex != null:
+		var sprite := Sprite2D.new()
+		sprite.centered = false
+		sprite.texture = tex
+		sprite.scale = Vector2(72, 72) / tex.get_size()
+		Finish.apply(sprite, false, form)
+		well.add_child(sprite)
+	return frame
+
+func _render_detail() -> void:
+	_clear(details)
+	detail_scroll.scroll_vertical = 0
+	for button in tabs.get_children():
+		button.add_theme_color_override("font_color", UI.EDGE_LIGHT if button.name == tab.capitalize() + "Tab" else UI.TEXT)
+	var data := member(snapshot, selected)
+	if data.is_empty():
+		details.add_child(_label("Your travelling team will appear here."))
+		return
+	var head := HBoxContainer.new()
+	head.add_theme_constant_override("separation", 18)
+	details.add_child(head)
+	head.add_child(_portrait(data["form"]))
+	var title := VBoxContainer.new()
+	title.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	head.add_child(title)
+	title.add_child(_label(data["name"], "name", UI.EDGE_LIGHT))
+	title.add_child(_label("Lv %d    IQ %d" % [data["level"], data["iq"]], "number"))
+	title.add_child(_label("Final stage" if data["final"] else ("Later forms not defined" if data["next"] == "" else "Next form: " + data["next"]), "body", UI.MUTED))
+	if tab == "growth":
+		for condition in data["conditions"]:
+			var row := HBoxContainer.new()
+			row.custom_minimum_size.y = 26
+			details.add_child(row)
+			var label := _label(condition[0], "body")
+			label.custom_minimum_size.x = 180
+			row.add_child(label)
+			var bar := ProgressBar.new()
+			bar.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+			bar.size_flags_vertical = Control.SIZE_SHRINK_CENTER
+			bar.custom_minimum_size.y = 9
+			bar.max_value = maxf(1, condition[2])
+			bar.value = condition[1]
+			bar.show_percentage = false
+			for state in ["background", "fill"]:
+				var style := StyleBoxFlat.new()
+				style.bg_color = UI.PANEL.darkened(0.35) if state == "background" else UI.EVO
+				bar.add_theme_stylebox_override(state, style)
+			row.add_child(bar)
+			var count := _label("%d / %d" % [condition[1], condition[2]], "number", UI.EVO)
+			count.custom_minimum_size.x = 122
+			count.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
+			row.add_child(count)
+		var message: String = "This is its final form." if data["final"] else (("All conditions met. This creature can evolve here." if town.stone_state() == "installed" else "All conditions met. Ready here once the shrine is awake.") if data["ready"] else "Keep exploring to meet the remaining conditions.")
+		if not data["final"] and data["conditions"].is_empty(): message = "No evolution conditions are defined for this line yet."
+		details.add_child(_label(message, "body", UI.EVO if data["ready"] else UI.MUTED))
+	else:
+		details.add_child(_label("Known moves", "label", UI.EDGE_LIGHT))
+		for move in data["moves"]: details.add_child(_label(_move_name(move)))
+		_learn_rows("This form's learnset", data["learn"], false)
+		_learn_rows("After evolving into " + data["next"], data["next_learn"], false)
+		_learn_rows("This form: unavailable in the dungeon", data["waiting"], true)
+		_learn_rows("Next form: unavailable in the dungeon", data["next_waiting"], true)
+		if not data["pending"].is_empty():
+			details.add_child(_label("Waiting for the next run's move choice", "label", UI.EDGE_LIGHT))
+			for move in data["pending"]: details.add_child(_label(_move_name(move)))
+		details.add_child(_label("Four move slots. The next run offers moves that did not fit after evolution.", "body", UI.MUTED))
+
+func _move_name(id: String) -> String:
+	return String(Arena.MOVES.get(id, {}).get("name", id))
+
+func _learn_rows(heading: String, entries: Array, waiting: bool) -> void:
+	if entries.is_empty(): return
+	details.add_child(_label(heading, "label", UI.MUTED if waiting else UI.EDGE_LIGHT))
+	for entry in entries:
+		var when: String = "On evolution" if entry[0] is String else "Lv %d" % int(entry[0])
+		details.add_child(_label("%s   %s%s" % [when, _move_name(entry[1]), " (not taught yet)" if waiting else ""]))
+
+func _close() -> void:
+	town.panel = {}
+	screen.hide()
+
+func poll() -> bool:
+	if town.cutscene or not town.talk.is_empty() or town.evolving_now: return false
+	if town.panel.get("service", "") not in SERVICES: return false
+	if town._tapped(KEY_W) or town._tapped(KEY_UP): select(selected - 1)
+	if town._tapped(KEY_S) or town._tapped(KEY_DOWN): select(selected + 1)
+	if town._tapped(KEY_A) or town._tapped(KEY_LEFT): _set_tab("growth")
+	if town._tapped(KEY_D) or town._tapped(KEY_RIGHT): _set_tab("moves")
+	if town._tapped(KEY_PAGEUP): detail_scroll.scroll_vertical -= 120
+	if town._tapped(KEY_PAGEDOWN): detail_scroll.scroll_vertical += 120
+	if town._tapped(KEY_E) or town._tapped(KEY_J) or town._tapped(KEY_ENTER): town.act_use()
+	if town._tapped(KEY_ESCAPE): _close()
+	return true

@@ -1,0 +1,133 @@
+extends RefCounted
+## Rootbank's exposed bank and the Shortcut Crew's rooted den.
+## Presentation only: every painted pixel stays on a WALL tile. The original
+## clay, pools, grass, pebbles, stair footprint and navigation remain untouched.
+const Gen := preload("res://scripts/hollow/hollow_gen.gd")
+const ClayNoise := preload("res://scripts/dungeon/ruin_painter.gd")
+const BARK := Color("#3f2a19")
+const BARK_MID := Color("#6f4c30")
+const BARK_LIT := Color("#8a6440")
+const BARK_EDGE := Color("#251d17")
+const TURF := Color("#33402a")
+const LEAF := Color("#57783a")
+const LEAF_LIT := Color("#6f8f4e")
+const CLAY := Color("#8f6a48")
+const CLAY_LIT := Color("#a78560")
+
+static func finish(img: Image, data: Dictionary, t: int, seed_value: int) -> Image:
+	if t != 24: return img
+	_edges(img, data, t)
+	# Roots originate in connected banks rather than repeating once per tile.
+	for y in data.h:
+		var x := 0
+		while x < data.w:
+			if not _back(data, x, y):
+				x += 1
+				continue
+			var first := x
+			while x < data.w and _back(data, x, y): x += 1
+			_bank(img, data, t, first, x, y, seed_value)
+	# Fixed crew arena: two old roots brace the dug-out ceiling and side banks.
+	# Recognise its existing geometry; no dungeon/controller or save dependency.
+	if data.rooms.size() == 1:
+		var room: Rect2i = data.rooms[0]
+		if room.size == Vector2i(13, 10): _den(img, data, t, room)
+	return img
+
+static func _wall(data: Dictionary, x: int, y: int) -> bool:
+	return x >= 0 and y >= 0 and x < data.w and y < data.h and data.tiles[y * data.w + x] == Gen.WALL
+
+static func _back(data: Dictionary, x: int, y: int) -> bool:
+	return _wall(data, x, y) and y + 1 < data.h and not _wall(data, x, y + 1)
+
+static func _pixel(img: Image, data: Dictionary, t: int, p: Vector2i, c: Color) -> void:
+	if p.x < 0 or p.y < 0 or p.x >= img.get_width() or p.y >= img.get_height(): return
+	if _wall(data, p.x / t, p.y / t): img.set_pixelv(p, c)
+
+static func _disc(img: Image, data: Dictionary, t: int, p: Vector2i, radius: int, c: Color) -> void:
+	for dy in range(-radius, radius + 1):
+		for dx in range(-radius, radius + 1):
+			if dx * dx + dy * dy <= radius * radius + 1: _pixel(img, data, t, p + Vector2i(dx, dy), c)
+
+static func _root(img: Image, data: Dictionary, t: int, a: Vector2, b: Vector2, c: Vector2, d: Vector2, width: int) -> void:
+	var steps := maxi(12, int(a.distance_to(b) + b.distance_to(c) + c.distance_to(d)) * 2)
+	var points: Array[Vector2i] = []
+	for k in steps + 1:
+		var q := a.bezier_interpolate(b, c, d, float(k) / steps)
+		points.append(Vector2i(q.round()))
+	# One continuous outline, bark body and upper-left ridge; no dark internal
+	# dots scattered on walking ground. Thin twigs retain a one-pixel body.
+	for p in points: _disc(img, data, t, p + Vector2i(1, 1), width + 1, BARK_EDGE)
+	for p in points: _disc(img, data, t, p, width, BARK)
+	if width > 1:
+		for p in points: _disc(img, data, t, p + Vector2i(-1, -1), width - 1, BARK_MID)
+	for k in points.size():
+		if k % 9 < 6: _pixel(img, data, t, points[k] + Vector2i(-width, -1), BARK_LIT)
+
+static func _edges(img: Image, data: Dictionary, t: int) -> void:
+	# The old painter has a full clay face only on south-facing walls. Narrow
+	# clay reveals on east/west faces make the banks read as raised ground too.
+	for y in data.h:
+		for x in data.w:
+			if not _wall(data, x, y): continue
+			for side in [-1, 1]:
+				if x + side < 0 or x + side >= data.w or _wall(data, x + side, y): continue
+				for py in t:
+					var gx: int = x * t + (0 if side < 0 else t - 1)
+					var gy: int = y * t + py
+					_pixel(img, data, t, Vector2i(gx, gy), BARK_EDGE)
+					_pixel(img, data, t, Vector2i(gx - side, gy), CLAY if py % 7 < 4 else CLAY_LIT)
+					_pixel(img, data, t, Vector2i(gx - side * 2, gy), TURF)
+
+static func _leaves(img: Image, data: Dictionary, t: int, p: Vector2i) -> void:
+	# Small overlapping clover silhouettes at the roots' origin, never confetti.
+	for off in [Vector2i(-4, -2), Vector2i(0, -5), Vector2i(4, -2), Vector2i(1, 0)]:
+		_disc(img, data, t, p + off + Vector2i(0, 1), 3, TURF)
+		_disc(img, data, t, p + off, 2, LEAF)
+		_pixel(img, data, t, p + off + Vector2i(-1, -1), LEAF_LIT)
+
+static func _bank(img: Image, data: Dictionary, t: int, first: int, end: int, y: int, seed_value: int) -> void:
+	var length := (end - first) * t
+	var start := first * t
+	var foot := (y + 1) * t - 1
+	var lip := foot - 14
+	# A root mat follows the bank above its stratified sediment, with occasional
+	# forks reaching down to its foot. Global runs avoid tile-border seams.
+	var k := 12
+	while k < length:
+		var phase := seed_value % 977 + 80
+		var bend := ClayNoise._h(start + k, y, phase)
+		var px := start + k
+		var reach := mini(20 + int(bend * 24), start + length - px - 2)
+		var a := Vector2(px, lip - 4 - int(bend * 7))
+		_root(img, data, t, a, a + Vector2(-3 - bend * 7, 5), Vector2(px + bend * 14, lip + 6), Vector2(px + 2, foot - 1), 1)
+		if reach > 8:
+			_root(img, data, t, a, a + Vector2(7, -2), Vector2(px + reach - 9, lip + 5 - bend * 12), Vector2(px + reach, lip + 4 + bend * 7), 1)
+			_root(img, data, t, Vector2(px + reach / 2, lip + 1), Vector2(px + reach / 2 - 5, lip + 4), Vector2(px + reach / 2 - 3, foot - 5), Vector2(px + reach / 2 - 9, foot), 0)
+		if bend > 0.45: _leaves(img, data, t, Vector2i(px - 5, int(a.y) - 2))
+		k += 49 + int(ClayNoise._h(px, y, phase + 1) * 41)
+
+static func _den(img: Image, data: Dictionary, t: int, room: Rect2i) -> void:
+	var left := float(room.position.x * t - 9)
+	var right := float(room.end.x * t + 8)
+	var top := float(room.position.y * t - 13)
+	var mid := (left + right) * 0.5
+	var bottom := float(room.end.y * t - 19)
+	# The arch lives behind the room: bulky root shoulders settle into the
+	# side banks, with a woven crown over the existing back face and stairs.
+	_root(img, data, t, Vector2(left, bottom), Vector2(left - 18, top + 75), Vector2(left - 15, top - 33), Vector2(mid + 35, top - 25), 4)
+	_root(img, data, t, Vector2(right, bottom - 45), Vector2(right + 16, top + 43), Vector2(right + 10, top - 30), Vector2(mid - 28, top - 15), 4)
+	_root(img, data, t, Vector2(left - 6, top + 80), Vector2(left - 29, top + 32), Vector2(left + 15, top - 44), Vector2(mid - 35, top - 36), 2)
+	_root(img, data, t, Vector2(right + 5, top + 98), Vector2(right + 29, top + 8), Vector2(right - 9, top - 43), Vector2(mid + 38, top - 35), 2)
+	_root(img, data, t, Vector2(mid - 48, top - 35), Vector2(mid - 18, top - 39), Vector2(mid + 9, top - 12), Vector2(mid + 43, top - 25), 1)
+	_root(img, data, t, Vector2(mid + 48, top - 35), Vector2(mid + 22, top - 37), Vector2(mid + 5, top - 42), Vector2(mid - 16, top - 29), 1)
+	for side in [-1, 1]:
+		var shoulder := left if side < 0 else right
+		for k in [0, 1, 2]:
+			var y: float = top + 40 + k * 55
+			_root(img, data, t, Vector2(shoulder, y), Vector2(shoulder + side * 21, y - 7), Vector2(shoulder + side * 23, y + 20), Vector2(shoulder + side * 30, y + 25), 1)
+			_leaves(img, data, t, Vector2i(int(shoulder + side * 13), int(y + 11)))
+	for k in [0, 1, 2, 3, 4]:
+		var x: float = left + 28 + k * 62
+		_root(img, data, t, Vector2(x, top - 16), Vector2(x + 15, top - 12), Vector2(x + 1, top + 5), Vector2(x + 10, top + 11), 1)
+		_leaves(img, data, t, Vector2i(int(x + 9), int(top - 20)))

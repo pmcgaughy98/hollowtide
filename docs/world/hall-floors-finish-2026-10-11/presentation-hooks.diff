@@ -1,0 +1,22 @@
+--- before/scripts/town/room_painter.gd
++++ after/scripts/town/room_painter.gd
+@@ -26,6 +26,8 @@
+ 	elif id == "hall":
+ 		img = preload("res://scripts/town/hall_room_art.gd").paint(img)
+ 		_stairs(img, Rect2i(14 * T, 10 * T, 2 * T, 2 * T), true)   # down to the Hall floor (town_room STAIRS_DOWN)
++	if id in ["hall", "hall_low", "chamber", "runners"]:
++		img = preload("res://scripts/town/hall_floors_art.gd").paint(id, img)
+ 	return img
+ 
+ 
+--- before/scripts/town/town_room.gd
++++ after/scripts/town/town_room.gd
+@@ -164,6 +164,8 @@
+ 	_world.add_child(map)
+ 	if room_id == "hall":
+ 		_guild_desk(map)
++	if room_id in ["hall", "hall_low", "chamber", "runners"]:
++		preload("res://scripts/town/hall_floors_art.gd").finish(map, room_id)
+ 	var layer := CanvasLayer.new()
+ 	add_child(layer)
+ 	_hud = Node2D.new()

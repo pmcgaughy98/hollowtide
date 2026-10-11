@@ -1,0 +1,58 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+OpenGL API 3.3.0 NVIDIA 596.49 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce GTX 1660 SUPER
+
+WARNING: res://addons/dialogue_manager/test_scene.tscn:3 - ext_resource, invalid UID: uid://c8e16qdgu40wo - using text path instead: res://addons/dialogue_manager/test_scene.gd
+   at: load (scene/resources/resource_format_text.cpp:501)
+ERROR: Failed to read the root certificate store.
+   at: get_system_ca_certificates (platform/windows/os_windows.cpp:2582)
+[godot_ai game_helper] registered mcp capture (debugger active=false, logger=true)
+PASS grubbit: normal portrait resolves at townsfolk 40px size
+PASS grubbit: native import RGBA byte-exact
+PASS grubbit: outline changes only the transparency rim; hard alpha and interiors exact
+PASS grubbit: unbuilt expression faces fall back to normal
+PASS stillwade: normal portrait resolves at townsfolk 40px size
+PASS stillwade: native import RGBA byte-exact
+PASS stillwade: outline changes only the transparency rim; hard alpha and interiors exact
+PASS stillwade: unbuilt expression faces fall back to normal
+PASS wickglow: normal portrait resolves at townsfolk 40px size
+PASS wickglow: native import RGBA byte-exact
+PASS wickglow: outline changes only the transparency rim; hard alpha and interiors exact
+PASS wickglow: unbuilt expression faces fall back to normal
+PASS muskin: normal portrait resolves at townsfolk 40px size
+PASS muskin: native import RGBA byte-exact
+PASS muskin: outline changes only the transparency rim; hard alpha and interiors exact
+PASS muskin: unbuilt expression faces fall back to normal
+PASS slipjaw: normal portrait resolves at townsfolk 40px size
+PASS slipjaw: native import RGBA byte-exact
+PASS slipjaw: outline changes only the transparency rim; hard alpha and interiors exact
+PASS slipjaw: unbuilt expression faces fall back to normal
+PASS rinsepaw: normal portrait resolves at townsfolk 40px size
+PASS rinsepaw: native import RGBA byte-exact
+PASS rinsepaw: outline changes only the transparency rim; hard alpha and interiors exact
+PASS rinsepaw: unbuilt expression faces fall back to normal
+PASS grubbit: shared portrait frame renders the opaque pixels at exact nearest 3x
+PASS stillwade: shared portrait frame renders the opaque pixels at exact nearest 3x
+PASS wickglow: shared portrait frame renders the opaque pixels at exact nearest 3x
+PASS muskin: shared portrait frame renders the opaque pixels at exact nearest 3x
+PASS slipjaw: shared portrait frame renders the opaque pixels at exact nearest 3x
+PASS rinsepaw: shared portrait frame renders the opaque pixels at exact nearest 3x
+PASS grubbit: actual NPC post interaction opens its portrait through SceneKit
+PASS grubbit: real room dialogue paints the correct portrait inside its frame
+PASS grubbit: conversation exits normally
+PASS stillwade: actual NPC post interaction opens its portrait through SceneKit
+PASS stillwade: real room dialogue paints the correct portrait inside its frame
+PASS stillwade: conversation exits normally
+PASS wickglow: actual NPC post interaction opens its portrait through SceneKit
+PASS wickglow: real room dialogue paints the correct portrait inside its frame
+PASS wickglow: conversation exits normally
+PASS muskin: actual NPC post interaction opens its portrait through SceneKit
+PASS muskin: real room dialogue paints the correct portrait inside its frame
+PASS muskin: conversation exits normally
+PASS slipjaw: actual NPC post interaction opens its portrait through SceneKit
+PASS slipjaw: real room dialogue paints the correct portrait inside its frame
+PASS slipjaw: conversation exits normally
+PASS rinsepaw: actual NPC post interaction opens its portrait through SceneKit
+PASS rinsepaw: real room dialogue paints the correct portrait inside its frame
+PASS rinsepaw: conversation exits normally
+PASS Unknown speaker retains the existing null-portrait behavior
+CREW PORTRAITS 49/49 PASS; 357 black rim pixels

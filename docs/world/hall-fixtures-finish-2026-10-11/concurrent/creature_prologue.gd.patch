@@ -1,0 +1,18 @@
+--- before/scripts/creature_prologue.gd
++++ after/scripts/creature_prologue.gd
+@@ -6,6 +6,7 @@
+ ## choices sit in a small list over the text box, the way the rooms' talk does (Claude, 2026-10-11).
+ const Finish=preload("res://scripts/arena/creature_finish.gd")
+ const UI=preload("res://scripts/ui/ui_style.gd")
++const Music=preload("res://scripts/audio/music.gd")
+ const TALK=preload("res://dialogue/flood_bank.dialogue")
+ const FORMS=["kithflare","tallowroot","rimefin"]
+ const NAMES=["Kithflare","Tallowroot","Rimefin"]
+@@ -83,6 +84,7 @@
+ 	veil.mouse_filter=Control.MOUSE_FILTER_IGNORE
+ 	ui.add_child(veil)
+ 	partner=_others()[0]
++	Music.play(get_tree(),"rising_water")   # the flood's theme (ElevenLabs, 2026-10-11); carries on through the riverbank
+ 	line=await DialogueManager.get_next_dialogue_line(TALK,"start",[self])
+ 
+ func actor(parent:Node,at:Vector2) -> Sprite2D:

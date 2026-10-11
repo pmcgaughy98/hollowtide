@@ -1,0 +1,15 @@
+{
+  "scripts/ui/party_screen.gd": "56c1e3d68fe11d2b673009e0df38029332a45efa5b02a4d3ca81702b85e4de74",
+  "scripts/ui/ui_style.gd": "18b960987570b62c6746c304b457ec18ccd18cf91a77ad6d5e3246cd433a0ea0",
+  "scripts/dungeon/dungeon.gd": "7357a343bfa53d3e1781dfcfd5c35135d52ca380cdc0872331cdf4d7c187cef1",
+  "scripts/town/team_state.gd": "514a9b6f9eccd03efe2a4605ee4b70345bca517226fa6bc0c4fe1e060e5012e5",
+  "scripts/town/hub_town.gd": "7d851a26c4112672fa47556fcdeed9c15e2ad5ac3aaeaf2acbb42fa039bf8181",
+  "scripts/creature_prologue.gd": "7f274a082c2ca2c234d386ca6d09d93e235e957dbda7b85a5b51cdc1f90ead9d",
+  "scripts/ui/opening_dialogue.gd": "2a2907f47eb084774b11dea45fcbb7cb87517de00709f53d5b6e19e402e16e9d",
+  "assets/sprites/world/waking_bank_2026_10_10/waking_native.png": "014d93d3ec9d2fa06e65aad31fbeaeb24e2b12eaf8760f018710302150bef5b7",
+  "assets/sprites/ui/item/lamp_oil.png": "13c8d15b92604427028178bfe8da3d31c49416d777d510d1b7c3ab39327d1602",
+  "assets/sprites/ui/item/rally_seed.png": "08aef5de5b5139d8c33596b94c7d34cfc60c6e9737213b9f07d28481bee3f795",
+  "assets/sprites/ui/item/reedberry.png": "66a7417c338cceaf45d1e2e30ba1da1d765490b9f03ac2cfbc5b0b9691ea7e1b",
+  "assets/sprites/ui/item/river_stone.png": "7cfff83ad860c24e1f2fc920b11a19933f6436628b245eb9e4b550de8b822965",
+  "assets/sprites/ui/item/scroll.png": "da4fc799a64063e32506dfa69c0d18057f04b698f8ba4f7c3b44f06f12f0a517"
+}

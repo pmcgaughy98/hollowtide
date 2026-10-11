@@ -62,7 +62,7 @@ func _run() -> void:
 	var turn0: int = dg.turn
 	menu.show_page("bag")
 	await _frames(2)
-	(menu.content.get_node("Use_reedberry") as Button).pressed.emit()
+	(menu.content.find_child("Use_reedberry",true,false) as Button).pressed.emit()
 	await _frames(40)
 	ok = not paused and lead["hp"] > 10 and not dg.bag.has("reedberry") and dg.turn > turn0
 	print("Use from the bag: paused %s, leader 10 -> %d, berries left %d, turn %d -> %d -> %s" % [str(paused), lead["hp"], dg.bag.get("reedberry", 0), turn0, dg.turn, "ok" if ok else "WRONG"])

@@ -1,0 +1,28 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+OpenGL API 3.3.0 NVIDIA 596.49 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce GTX 1660 SUPER
+
+ERROR: Failed to read the root certificate store.
+   at: get_system_ca_certificates (platform/windows/os_windows.cpp:2582)
+[godot_ai game_helper] registered mcp capture (debugger active=false, logger=true)
+Seed 7 dimensions: ok
+Seed 7 deterministic: ok
+Seed 7 data untouched: ok
+Seed 7 floor and stairs exact: ok
+Seed 7 opaque: ok
+Seed 7 visible wall finish: ok
+Seed 7 old tile-size fallback exact: ok
+Seed 983 dimensions: ok
+Seed 983 deterministic: ok
+Seed 983 data untouched: ok
+Seed 983 floor and stairs exact: ok
+Seed 983 opaque: ok
+Seed 983 visible wall finish: ok
+Seed 983 old tile-size fallback exact: ok
+Seed 19031 dimensions: ok
+Seed 19031 deterministic: ok
+Seed 19031 data untouched: ok
+Seed 19031 floor and stairs exact: ok
+Seed 19031 opaque: ok
+Seed 19031 visible wall finish: ok
+Seed 19031 old tile-size fallback exact: ok
+ROOTBANK MATERIAL: 21/21

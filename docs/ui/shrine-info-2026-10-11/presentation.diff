@@ -1,0 +1,28 @@
+--- live-before/scripts/town/hub_town.gd
++++ installed/scripts/town/hub_town.gd
+@@ -100,6 +100,7 @@
+ 		team.append(_make(party[k][0], party[k][1], pos))
+ 	_music_update()
+ 	preload("res://scripts/ui/game_pause_menu.gd").attach(self)
++	preload("res://scripts/ui/shrine_info.gd").attach(self)
+ 	if BoardScene.pending(self):
+ 		BoardScene.place_crew(self)   # the Shortcut Crew at the board until the team has met them
+ 	if news == "cleared":
+@@ -567,6 +568,8 @@
+ 
+ 
+ func _poll() -> void:
++	if get_node("ShrineInfo").poll():
++		return
+ 	if cutscene:   # a scene plays itself; E reads its lines
+ 		if not talk.is_empty() and (_tapped(KEY_E) or _tapped(KEY_J) or _tapped(KEY_ENTER) or _tapped(KEY_SPACE)):
+ 			if UI.line_done(String(talk[0][1])):
+@@ -623,6 +626,8 @@
+ 			var sf: String = String(sl[2]) if sl.size() > 2 else ""
+ 			UI.dialogue(h, Rect2(196, 452, 760, 116), String(sl[0]), String(sl[1]), UI.dialogue_portrait(sf) if sf != "" else null, Time.get_ticks_msec() / 1000.0, 20, sf.get_slice(":", 1) if ":" in sf else "normal")
+ 		return
++	if panel.get("service", "") in ["growth", "stone_ask", "evolve_ask"]:
++		return # The browsable ShrineInfo panel owns this presentation.
+ 	UI.panel(h, Rect2(6, 6, 330, 54))
+ 	UI.text(h, Vector2(28, 43), "Highbank", 26, UI.EDGE_LIGHT)
+ 	var here: Dictionary = Layout.place_at(team[0]["pos"]) if not team.is_empty() else {}

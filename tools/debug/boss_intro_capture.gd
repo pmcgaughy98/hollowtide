@@ -5,6 +5,8 @@ extends SceneTree
 ## With --write-movie docs/design/boss-intro-2026-10-10/raw.avi it also records the scene.
 
 const OUT := "res://docs/design/boss-intro-2026-10-10/"
+const REC_PACE := 3   # with HT_RECORD set (video takes), each line stays this many times longer
+var _pace := REC_PACE if OS.get_environment("HT_RECORD") != "" else 1
 var dg: Node2D
 var shot := {}
 
@@ -54,12 +56,14 @@ func _run() -> void:
 			await _snap("09b_wipe")
 		if not dg.talk.is_empty():
 			var who: String = String(dg.talk[0][0])
+			if String(dg.talk[0][1]).begins_with("Ha. Look at us"):
+				await _snap("01c_reflection")
 			if who == "???":
 				await _snap("02_voice")
 			elif dg.ents[dg.boss]["node"].visible and who == String(dg.ents[dg.boss]["name"]):
 				await _snap("09_warden_talks")
 			read_wait += 1
-			if read_wait >= 50:   # a beat to read each line
+			if read_wait >= 50 * _pace:   # a beat to read each line
 				read_wait = 0
 				dg.act_talk()
 			continue

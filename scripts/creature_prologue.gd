@@ -1,33 +1,49 @@
 extends Node2D
-## Opening dialogue proposal: meet the trainee mid-flood, retreat into the Hollow, then Highbank.
+## Opening dialogue: meet the trainee mid-flood, retreat into the Hollow, then Highbank.
 ## Identity and party are passed into the existing town; no save/state rewrite.
+## The lines live in dialogue/flood_bank.dialogue (Godot Dialogue Manager, Preston 2026-10-11: "it just needs a
+## bit of refining"). Narration has no name and no portrait, the partner speaks with its own face, and the
+## choices sit in a small list over the text box, the way the rooms' talk does (Claude, 2026-10-11).
 const Finish=preload("res://scripts/arena/creature_finish.gd")
 const UI=preload("res://scripts/ui/ui_style.gd")
-const TITLE=preload("res://assets/fonts/AlegreyaSansSC-Bold.ttf")
-const FONT=preload("res://assets/fonts/Silkscreen-Regular.ttf")
+const Music=preload("res://scripts/audio/music.gd")
+const TALK=preload("res://dialogue/flood_bank.dialogue")
 const FORMS=["kithflare","tallowroot","rimefin"]
 const NAMES=["Kithflare","Tallowroot","Rimefin"]
 const SENSES=["A warm spark at the end of your tail.","Roots curl against the damp clay.","Cool water runs along your fins."]
+const BOX:=Rect2(196,452,760,116)   # the same text box as the town rooms
 var reduce_motion:=false
 var chosen_by_soul:=false # the soul prologue already chose the starter (Claude, 2026-10-10)
-var phase:=0
 var hero:=0
 var partner:=1
-var selected:=0
 var leaving:=false
-var panel:PanelContainer
-var title:Label
-var prose:Label
-var choices:HBoxContainer
-var confirm:Button
-var back:Button
-var cards:Array[Button]=[]
 var leader_sprite:Sprite2D
 var partner_sprite:Sprite2D
 var veil:ColorRect
-var dialogue:Node2D
 var bank:Node2D
 var flood_cover:Node2D
+var line:DialogueLine   # the line on screen; null when the talk is over
+var choice:=0           # the highlighted choice, when the line has some
+var first:=true         # Esc on the opening line goes back to the title
+var _box:Node2D
+var _clock:=0.0
+var _keys_was:={}
+
+# Read by the dialogue file ({{...}}).
+var sense:String:
+	get: return SENSES[hero]
+var partner_name:String:
+	get: return NAMES[partner]
+var name_a:String:
+	get: return NAMES[_others()[0]]
+var name_b:String:
+	get: return NAMES[_others()[1]]
+var starter_0:String:
+	get: return NAMES[0]
+var starter_1:String:
+	get: return NAMES[1]
+var starter_2:String:
+	get: return NAMES[2]
 
 func _ready() -> void:
 	get_tree().root.content_scale_size=Vector2i(1152,648)
@@ -55,52 +71,26 @@ func _ready() -> void:
 	leader_sprite=actor(vp,Vector2(168,83))
 	partner_sprite=actor(vp,Vector2(222,84))
 	partner_sprite.hide()
+	bank.companion_visible=false
+	set_form(leader_sprite,hero)
 	var ui:=CanvasLayer.new()
 	add_child(ui)
-	var banner:=label("HOLLOWTIDE   /   RISING WATER",20)
-	banner.position=Vector2(48,24)
-	ui.add_child(banner)
-	panel=PanelContainer.new()
-	panel.position=Vector2(102,468)
-	panel.custom_minimum_size=Vector2(948,160)
-	var style:=UI.frame("panel_dim").duplicate()
-	style.set_content_margin_all(24)
-	panel.add_theme_stylebox_override("panel",style)
-	ui.add_child(panel)
-	var list:=VBoxContainer.new()
-	list.add_theme_constant_override("separation",8)
-	panel.add_child(list)
-	title=label("",30)
-	title.position=Vector2(270,256)
-	ui.add_child(title)
-	prose=label("",22)
-	prose.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART
-	prose.custom_minimum_size=Vector2(900,58)
-	prose.hide() # Remains the story text model; the shared dialogue draws it.
-	ui.add_child(prose)
-	dialogue=preload("res://scripts/ui/opening_dialogue.gd").new()
-	dialogue.source=self
-	ui.add_child(dialogue)
-	choices=HBoxContainer.new()
-	choices.add_theme_constant_override("separation",12)
-	list.add_child(choices)
-	var actions:=HBoxContainer.new()
-	actions.add_theme_constant_override("separation",16)
-	list.add_child(actions)
-	confirm=button("")
-	confirm.custom_minimum_size=Vector2(648,52)
-	confirm.pressed.connect(advance)
-	actions.add_child(confirm)
-	back=button("Back")
-	back.custom_minimum_size=Vector2(236,52)
-	back.pressed.connect(previous)
-	actions.add_child(back)
+	_box=Node2D.new()
+	_box.draw.connect(_draw_talk)
+	ui.add_child(_box)
 	veil=ColorRect.new()
 	veil.size=Vector2(1152,648)
 	veil.color=Color(0,0,0,0)
 	veil.mouse_filter=Control.MOUSE_FILTER_IGNORE
 	ui.add_child(veil)
-	refresh()
+	partner=_others()[0]
+	# No music on the bank for now, only the storm (Preston, 2026-10-11: the music "would kill that ambience").
+	# Rising Water stays installed for later. An empty name fades out whatever the soul scene was playing.
+	Music.play(get_tree(),"")
+	var rain:=preload("res://scripts/effects/storm_rain.gd").new()
+	rain.reduce_motion=reduce_motion
+	vp.add_child(rain)
+	line=await DialogueManager.get_next_dialogue_line(TALK,"start",[self])
 
 func actor(parent:Node,at:Vector2) -> Sprite2D:
 	var s:=Sprite2D.new()
@@ -116,116 +106,103 @@ func set_form(s:Sprite2D,index:int) -> void:
 	var used:=s.texture.get_image().get_used_rect()
 	s.offset.y=s.texture.get_height()*0.5-used.end.y
 
-func label(text:String,size:int) -> Label:
-	var l:=Label.new()
-	l.text=text
-	var role:="name" if size>=30 else "label"
-	l.add_theme_font_override("font",UI.font(role))
-	l.add_theme_font_size_override("font_size",UI.type_size(role))
-	l.add_theme_color_override("font_color",Color("#fff4e8"))
-	return l
+## The two starters the soul did not take.
+func _others() -> Array:
+	return [0,1,2].filter(func(i:int) -> bool: return i!=hero)
 
-func button(text:String) -> Button:
-	var b:=Button.new()
-	b.text=text
-	b.add_theme_font_override("font",TITLE)
-	b.add_theme_font_size_override("font_size",24)
-	b.custom_minimum_size.y=52
-	var style:=UI.frame("panel").duplicate()
-	style.content_margin_top=8
-	style.content_margin_bottom=8
-	b.add_theme_stylebox_override("normal",style)
-	var focus:=UI.frame("panel_focus").duplicate()
-	focus.content_margin_top=8
-	focus.content_margin_bottom=8
-	b.add_theme_stylebox_override("focus",focus)
-	b.add_theme_stylebox_override("hover",focus)
-	UI.style_button(b)
-	return b
-
-func refresh() -> void:
-	for child in choices.get_children():choices.remove_child(child);child.queue_free()
-	cards.clear()
-	partner_sprite.visible=phase>0
-	bank.companion_visible=phase>0
-	bank.queue_redraw()
+## Called from the dialogue file.
+func pick_hero(i:int) -> void:
+	hero=i
 	set_form(leader_sprite,hero)
+	partner=_others()[0]
+
+func pick_partner(k:int) -> void:
+	partner=_others()[k]
 	set_form(partner_sprite,partner)
-	# Dialogue proposals for the approved pilot outline; final wording remains Preston's.
-	if phase==0:
-		title.text="You wake beneath the riverbank."
-		prose.text="The bank gives way. River water climbs the clay around you.\nYou remember being human. "+SENSES[hero]
-		confirm.text="This is me"
-		back.text="Return to title"
-	elif phase==1:
-		title.text="Someone reaches you through the flood."
-		prose.text='"I’m a Wayline trainee. The river tore the mail loose. Something told me to come here tonight."\nThe water is still rising. Whose voice do you answer?'
-		confirm.text="Travel with "+NAMES[partner]
-		back.text="Back"
-	else:
-		title.text="You will find a way through together."
-		prose.text=NAMES[partner]+' says, "Highbank’s road is flooded. No one runs a route alone. Stay with me."\nYou need a guide. The trainee needs a partner. Together, you look for higher ground.'
-		confirm.text="Find higher ground"
-		back.text="Change partner"
-	if phase<2 and not (phase==0 and chosen_by_soul):
-		for i in 3:
-			if phase==1 and i==hero:continue
-			var b:=button(NAMES[i])
-			b.custom_minimum_size=Vector2(290 if phase==0 else 444,52)
-			b.pressed.connect(choose.bind(i))
-			choices.add_child(b)
-			cards.append(b)
-			if i==(hero if phase==0 else partner):b.text="• "+NAMES[i]
-	var controls:Array[Control]=[]
-	for b in cards:controls.append(b)
-	controls.append(confirm);controls.append(back)
-	for i in controls.size():
-		controls[i].focus_neighbor_left=controls[posmod(i-1,controls.size())].get_path()
-		controls[i].focus_neighbor_right=controls[(i+1)%controls.size()].get_path()
-		controls[i].focus_neighbor_top=controls[i].focus_neighbor_left
-		controls[i].focus_neighbor_bottom=controls[i].focus_neighbor_right
-	dialogue.queue_redraw()
-	confirm.grab_focus.call_deferred()
+	partner_sprite.show()
+	bank.companion_visible=true
+	bank.queue_redraw()
 
-func choose(i:int) -> void:
-	if leaving:return
-	if phase==0:
-		hero=i
-		if partner==hero:partner=(hero+1)%3
-	else:partner=i
-	refresh()
+func _process(delta:float) -> void:
+	if not reduce_motion:_clock+=delta
+	if not leaving and line!=null:_poll()
+	_box.queue_redraw()
 
-func previous() -> void:
-	if leaving:return
-	if phase==0:get_tree().change_scene_to_file("res://scenes/creature_opening.tscn")
-	else:phase-=1;refresh()
+func _tapped(k:int) -> bool:
+	var now:=Input.is_key_pressed(k)
+	var was:bool=_keys_was.get(k,false)
+	_keys_was[k]=now
+	return now and not was
 
+func _poll() -> void:
+	if _tapped(KEY_E) or _tapped(KEY_J) or _tapped(KEY_ENTER) or _tapped(KEY_SPACE):
+		advance()
+	elif _tapped(KEY_ESCAPE) and first:
+		get_tree().change_scene_to_file("res://scenes/creature_opening.tscn")
+	elif not line.responses.is_empty() and UI.line_done(line.text):
+		var d:=int(_tapped(KEY_S) or _tapped(KEY_DOWN))-int(_tapped(KEY_W) or _tapped(KEY_UP))
+		if d!=0:
+			choice=posmod(choice+d,line.responses.size())
+			_sfx("cursor")
+
+## E: show the rest of the line, then the next line (or the chosen answer's branch).
 func advance() -> void:
-	if leaving:return
-	# Complete every typed page before leaving the current beat; otherwise later rows were skipped.
-	if not UI.line_done(prose.text):
+	if leaving or line==null:return
+	if not UI.line_done(line.text):
 		UI.finish_line()
-		dialogue.queue_redraw()
 		return
-	if phase<2:phase+=1;refresh();return
+	var next:=line.next_id
+	if not line.responses.is_empty():
+		next=line.responses[choice].next_id
+		_sfx("confirm")
+	first=false
+	choice=0
+	line=await DialogueManager.get_next_dialogue_line(TALK,next,[self])
+	if line==null:
+		_leave()
+
+func _sfx(name:String) -> void:
+	var path:="res://assets/audio/sfx/ui/%s.wav"%name
+	if not ResourceLoader.exists(path):return
+	var p:=AudioStreamPlayer.new()
+	p.stream=load(path)
+	add_child(p)
+	p.play()
+	p.finished.connect(p.queue_free)
+
+## The text box: narration with no name; a speaker with its portrait and face; choices in a small list
+## above the box's right end once the line has typed out.
+func _draw_talk() -> void:
+	if line==null or leaving:return
+	var form:=""
+	var face:=line.tags[0] if not line.tags.is_empty() else "normal"
+	if line.character!="":
+		var i:=NAMES.find(line.character)
+		if i>=0:form=FORMS[i]+(":"+face if face!="normal" else "")
+	var tex:Texture2D=UI.dialogue_portrait(form) if form!="" else null
+	UI.dialogue(_box,BOX,line.character,line.text,tex,_clock,20,face)
+	if line.responses.is_empty() or not UI.line_done(line.text):return
+	var rows:=line.responses.size()
+	var r:=Rect2(BOX.end.x-260,BOX.position.y-34-rows*34,260,24+rows*34)
+	UI.panel(_box,r,0.95)
+	for k in rows:
+		var at:=r.position+Vector2(44,34+k*34)
+		if k==choice:
+			UI.say(_box,at-Vector2(26,0),">","label",UI.EDGE_LIGHT)
+		UI.say(_box,at,String(line.responses[k].text),"label",UI.EDGE_LIGHT if k==choice else UI.MUTED)
+
+func _leave() -> void:
 	leaving=true
-	confirm.disabled=true
-	back.disabled=true
+	_box.queue_redraw()
 	veil.mouse_filter=Control.MOUSE_FILTER_STOP
 	await create_tween().tween_property(veil,"color:a",1.0,0.15 if reduce_motion else 0.5).finished
 	# Preston, 2026-10-10: explore this bank and its close-up entrance immediately after choice.
-	# The flood blocks Highbank; Claude’s existing riverbank hooks open the boss-free Hollow Mouth.
+	# The flood blocks Highbank; Claude's riverbank hooks open the boss-free Hollow Mouth.
 	preload("res://scripts/town/team_state.gd").start([[hero,0],[partner,0]],{"creature_player":FORMS[hero],"opening_companion":FORMS[partner]})
 	var dungeon:Node2D=load("res://scenes/waking_riverbank.tscn").instantiate()
 	dungeon.reduce_motion=reduce_motion
 	preload("res://scripts/town/team_state.gd").give_to(dungeon)
 	var error:=get_tree().change_scene_to_node(dungeon)
 	if error!=OK:
-		dungeon.free();leaving=false;confirm.disabled=false;back.disabled=false
+		dungeon.free();leaving=false
 		veil.color.a=0;veil.mouse_filter=Control.MOUSE_FILTER_IGNORE
-		prose.text="Riverbank could not open. Your choices are still here."
-
-func _unhandled_input(event:InputEvent) -> void:
-	if event.is_action_pressed("ui_cancel"):
-		get_viewport().set_input_as_handled()
-		previous()

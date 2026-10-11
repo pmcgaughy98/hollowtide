@@ -1,0 +1,46 @@
+# Out of the Hollow Mouth at dawn, then the walk up the south trail to Highbank (scripts/mouth_escape.gd).
+# Claude's draft lines for Preston, 2026-10-11 (Preston: the partner should explain the courier side, that it
+# wants into the Wayline and needs a partner, so the theft at the Job Board makes sense). Proposals, edit freely.
+# Same rules as flood_bank.dialogue: "Name: line" is spoken, a bare line is narration, [#face] picks the
+# portrait, "- " lines are choices. "do walk_on()" moves the two of you a stretch further up the trail.
+# How we write: docs/design/dialogue-voice-guide.md.
+
+~ start
+You come up out of the dark into gray morning light. The rain has quit.
+{{partner_name}}: [#surprised] ...Huh. Would you look at that. The sun actually came up.
+{{partner_name}}: [#joyous] We made it! We actually made it out of there!
+Behind you the ruin sits high and dry on its stones, like it's been there forever. The river has gone down to a sulk.
+{{partner_name}}: [#worried] That thing was not there yesterday. I've walked this bank my whole life.
+- What was that place?
+	{{partner_name}}: [#worried] A Hollow. Folks call 'em that, the holes that open up in the river. Nobody's real sure where they come from.
+	{{partner_name}}: [#worried] Things live down there. Things that don't much care for company. You saw.
+- Is the parcel okay?
+	{{partner_name}}: [#joyous] Dry as a bone. Don't ask me how, but I'm not complaining.
+{{partner_name}}: [#determined] C'mon. Highbank's up the south trail. Walk with me, I'll fill you in on the way.
+do walk_on()
+{{partner_name}}: [#happy] So. Highbank sits way up on the bluff, so the water never gets it. Every town on this river leans on it.
+{{partner_name}}: Down here the roads wash out every spring. Only way anything gets anywhere is if somebody carries it.
+{{partner_name}}: [#joyous] That's the Wayline. Couriers. Runners, we call 'em. Mail, medicine, seed, whatever needs going, a runner takes it. Through a Hollow if they have to.
+do walk_on()
+{{partner_name}}: [#happy] The Wayline Hall's right in the middle of town. Starward runs it. The Guildmaster.
+- You want to be a runner.
+	{{partner_name}}: [#sad] ...Is it that obvious? Yeah. Since I was little.
+- So you're a runner?
+	{{partner_name}}: [#sad] Not yet. Trainee. Been one a good while, too.
+{{partner_name}}: [#worried] Starward's got one rule that won't budge. Nobody runs a route alone. You run with a partner or you don't run.
+{{partner_name}}: [#sad] And every runner's already paired up. Nobody wants the trainee who's never carried a thing.
+do walk_on()
+{{partner_name}}: [#determined] But this right here is Wayline mail I pulled out of a flood. If I walk it through that door myself, they gotta take me serious.
+{{partner_name}}: [#worried] ...Only I'd need a partner standing next to me when I do it.
+{{partner_name}} goes quiet for a few steps.
+{{partner_name}}: [#happy] I mean. You did follow me through a whole Hollow without running off. That's more than most.
+- I'll be your partner.
+	{{partner_name}}: [#joyous] For real? You're not just saying that? ...Okay. Okay! Partners!
+- Let's see how it goes.
+	{{partner_name}}: [#happy] That's fair. That's fair. I'll grow on you.
+do walk_on()
+{{partner_name}}: [#worried] One thing, though. Up there, keep an eye on this parcel. Not everybody who carries mail carries it honest.
+{{partner_name}}: [#angry] There's a bunch that call themselves the Shortcut Crew. They'll take a job right out of your hands and sell it back to you.
+{{partner_name}}: [#happy] But hey. What are the odds, right?
+The trail climbs. Up ahead, Highbank's roofs catch the first of the sun.
+=> END

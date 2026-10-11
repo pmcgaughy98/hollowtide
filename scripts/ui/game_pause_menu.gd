@@ -14,7 +14,7 @@ const DUNGEON = "res://scripts/dungeon/dungeon.gd"   # loaded, not preloaded: du
 const ArenaData = preload("res://scripts/arena/arena_prototype.gd")
 const TeamRecord = preload("res://scripts/town/team_state.gd")
 const WAY_NAMES = {"flank": "pincer hits", "ambush": "hits on sleepers", "took": "damage taken", "slam": "slams", "healed": "health restored"}
-const HEADINGS = {"team": "TEAM", "bag": "BAG", "floor": "FLOOR", "log": "MESSAGE LOG"}
+const HEADINGS = {"goal": "OBJECTIVE", "team": "TEAM", "bag": "BAG", "floor": "FLOOR", "log": "MESSAGE LOG"}
 const PREFS = "user://menu_preferences.cfg"
 const TITLE = "res://scenes/creature_opening.tscn"
 var overlay: Control
@@ -185,10 +185,15 @@ func show_page(next: String) -> void:
     if old_party != null:
         overlay.remove_child(old_party)
         old_party.queue_free()
-    overlay.get_node("PausePanel").visible = page != "team"
+    var panel = overlay.get_node("PausePanel") as PanelContainer
+    panel.visible = page != "team"
+    panel.position = Vector2(96,42) if page == "bag" else Vector2(316,58)
+    panel.custom_minimum_size = Vector2(960,0) if page == "bag" else Vector2(520,0)
+    panel.size = Vector2.ZERO
     match page:
         "main":
             _action("Resume","Resume",resume)
+            _action("Objective","Objective",show_page.bind("goal"))
             _action("Team","Team",show_page.bind("team"))
             _action("Bag","Bag",show_page.bind("bag"))
             if in_hollow:
@@ -223,6 +228,15 @@ func show_page(next: String) -> void:
             back.pressed.connect(show_page.bind("main"))
             party.add_child(back)
             controls.append(back)
+        "goal":
+            # What to do next and where (Claude, 2026-10-11; Preston: "objective tab so players know where to go").
+            var src = get_parent()
+            var story: Dictionary = src.story if "ents" in src else TeamRecord.data.get("story",{})
+            var beaten: Array = src.beaten if "ents" in src else TeamRecord.data.get("beaten",[])
+            var goal: Dictionary = load("res://scripts/town/objective.gd").current(story,beaten)
+            _label(String(goal["short"]),26)
+            _label(String(goal["long"]),20)
+            _action("Back","Back",show_page.bind("main"))
         "bag":
             _bag_page()
             _action("Back","Back",show_page.bind("main"))
@@ -254,7 +268,13 @@ func show_page(next: String) -> void:
         b.focus_next = b.focus_neighbor_bottom
         b.focus_neighbor_left = b.get_path()
         b.focus_neighbor_right = b.get_path()
-    if not controls.is_empty(): controls[0].grab_focus.call_deferred()
+    panel.reset_size.call_deferred()
+    _focus_first.call_deferred()
+
+func _focus_first() -> void:
+    # A page can be replaced before its deferred focus runs (open followed by Bag).
+    if overlay.visible and not controls.is_empty() and controls[0].is_inside_tree():
+        controls[0].grab_focus()
 
 # The team record: the live run in the Hollow, the carried record in town.
 func _record() -> Dictionary:
@@ -316,20 +336,23 @@ func _team_page() -> void:
     if party.is_empty(): _label("No team yet.",18)
 
 func _bag_page() -> void:
-    var s = get_parent()
+    var scene = get_parent()
     var bag: Dictionary = _record().get("bag",{})
-    var items: Dictionary = load(DUNGEON).get_script_constant_map()["ITEMS"]
-    for kind in bag:
-        var info: Dictionary = s.item_info(kind) if s.has_method("item_info") else items.get(kind,{"name": kind, "what": ""})
-        var text = "%s x%d   %s" % [info["name"],bag[kind],info["what"]]
-        if s.has_method("act_use_item"):
-            var b = _action(text,"Use_" + String(kind).replace(":","_"),_use_item.bind(kind))
-            b.add_theme_font_override("font",UI.font("body"))   # an item row reads as prose
-            b.add_theme_font_size_override("font_size",UI.type_size("body"))
-        else:
-            _label(text,18)
-    if bag.is_empty(): _label("The bag is empty.",18)
-    elif not s.has_method("act_use_item"): _label("Items are used in the Hollow.",16)
+    var dungeon = load(DUNGEON)
+    var items: Dictionary = dungeon.get_script_constant_map()["ITEMS"]
+    # Town reads the same metadata, including scroll body requirements, without starting a run.
+    var info_source = scene if scene.has_method("item_info") else dungeon.new()
+    var entries: Array = []
+    for key in bag:
+        var kind = String(key)
+        var known = items.has(kind) or (kind.begins_with("scroll:") and ArenaData.MOVES.has(kind.substr(7)))
+        var info: Dictionary = info_source.item_info(kind) if known else {"name":kind,"what":"No description available."}
+        entries.append({"kind":kind,"count":bag[key],"name":info["name"],"what":info["what"]})
+    if info_source != scene: info_source.free()
+    var bag_view = load("res://scripts/ui/bag_page.gd").new()
+    content.add_child(bag_view)
+    bag_view.setup(entries,scene.has_method("act_use_item"),self)
+    _label("Esc / B: back" if bag.is_empty() else "Choose an item to read its effect." if not scene.has_method("act_use_item") else "Arrows / D-pad: browse    Enter / A: choose    Esc / B: back",16)
 
 # Choosing an item closes the menu and uses it the way the bag key does: it spends the turn.
 func _use_item(kind: String) -> void:

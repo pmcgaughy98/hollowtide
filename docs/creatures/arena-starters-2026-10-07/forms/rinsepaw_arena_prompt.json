@@ -1,0 +1,11 @@
+{
+ "prompt": "Top-down action game sprite of a raccoon creature, the guild cook standing upright: grey-brown fur, a black bandit mask, a ringed bushy tail, nimble black hands holding a wooden ladle and a bunch of wet river greens, a stained cook's apron, a small steaming cooking pot at its feet. Warm, fussy, motherly. Stage two of its line: a little odd, river water drips from its hands and soft moss grows in its tail rings. Not a thief, not a cartoon raccoon. Seen from above at a three-quarter overhead angle like a sprite in a top-down arena battle game, facing down and to the right toward the camera. A readable game sprite: chunky clear shapes, a crisp dark outline. Whole creature centred with empty space on every side, nothing touching the edges. On a plain white background.",
+ "prompt_style": "rd_pro__default",
+ "width": 112,
+ "height": 112,
+ "num_images": 2,
+ "remove_bg": true,
+ "reference_images": [
+  "docs/creatures/arena-starters-2026-10-07/forms/mirekit_arena_front_take1.png"
+ ]
+}

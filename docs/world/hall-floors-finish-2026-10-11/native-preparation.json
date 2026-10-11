@@ -1,0 +1,624 @@
+{
+  "north_door": {
+    "region": [
+      0,
+      0,
+      360,
+      290
+    ],
+    "alpha_bounds_in_region": [
+      57,
+      36,
+      318,
+      271
+    ],
+    "native": [
+      60,
+      46
+    ]
+  },
+  "window": {
+    "region": [
+      365,
+      0,
+      715,
+      290
+    ],
+    "alpha_bounds_in_region": [
+      56,
+      106,
+      306,
+      272
+    ],
+    "native": [
+      44,
+      32
+    ]
+  },
+  "banner": {
+    "region": [
+      730,
+      0,
+      1015,
+      290
+    ],
+    "alpha_bounds_in_region": [
+      78,
+      71,
+      223,
+      281
+    ],
+    "native": [
+      16,
+      38
+    ]
+  },
+  "duty": {
+    "region": [
+      1020,
+      0,
+      1402,
+      280
+    ],
+    "alpha_bounds_in_region": [
+      34,
+      104,
+      326,
+      266
+    ],
+    "native": [
+      52,
+      28
+    ]
+  },
+  "side_door": {
+    "region": [
+      0,
+      290,
+      250,
+      600
+    ],
+    "alpha_bounds_in_region": [
+      69,
+      30,
+      178,
+      280
+    ],
+    "native": [
+      18,
+      52
+    ]
+  },
+  "kitchen": {
+    "region": [
+      250,
+      290,
+      540,
+      595
+    ],
+    "alpha_bounds_in_region": [
+      46,
+      60,
+      246,
+      260
+    ],
+    "native": [
+      24,
+      48
+    ]
+  },
+  "mess": {
+    "region": [
+      540,
+      290,
+      1190,
+      595
+    ],
+    "alpha_bounds_in_region": [
+      24,
+      58,
+      622,
+      287
+    ],
+    "native": [
+      144,
+      50
+    ]
+  },
+  "supply": {
+    "region": [
+      1195,
+      280,
+      1402,
+      606
+    ],
+    "alpha_bounds_in_region": [
+      43,
+      12,
+      144,
+      317
+    ],
+    "native": [
+      20,
+      82
+    ]
+  },
+  "keepsakes": {
+    "region": [
+      0,
+      602,
+      250,
+      867
+    ],
+    "alpha_bounds_in_region": [
+      83,
+      8,
+      184,
+      260
+    ],
+    "native": [
+      20,
+      82
+    ]
+  },
+  "ledgers": {
+    "region": [
+      250,
+      602,
+      455,
+      867
+    ],
+    "alpha_bounds_in_region": [
+      40,
+      8,
+      141,
+      260
+    ],
+    "native": [
+      20,
+      82
+    ]
+  },
+  "river_map": {
+    "region": [
+      457,
+      600,
+      930,
+      851
+    ],
+    "alpha_bounds_in_region": [
+      22,
+      64,
+      451,
+      216
+    ],
+    "native": [
+      96,
+      32
+    ]
+  },
+  "dais": {
+    "region": [
+      940,
+      606,
+      1402,
+      867
+    ],
+    "alpha_bounds_in_region": [
+      54,
+      50,
+      400,
+      222
+    ],
+    "native": [
+      72,
+      52
+    ]
+  },
+  "stairs_down": {
+    "region": [
+      0,
+      875,
+      272,
+      1122
+    ],
+    "alpha_bounds_in_region": [
+      48,
+      11,
+      251,
+      199
+    ],
+    "native": [
+      48,
+      48
+    ]
+  },
+  "stairs_up": {
+    "region": [
+      280,
+      875,
+      528,
+      1122
+    ],
+    "alpha_bounds_in_region": [
+      28,
+      11,
+      224,
+      199
+    ],
+    "native": [
+      48,
+      48
+    ]
+  },
+  "rollcall": {
+    "region": [
+      550,
+      861,
+      1000,
+      1122
+    ],
+    "alpha_bounds_in_region": [
+      13,
+      4,
+      428,
+      221
+    ],
+    "native": [
+      153,
+      93
+    ]
+  },
+  "window_wide": {
+    "region": [
+      1030,
+      878,
+      1402,
+      1122
+    ],
+    "alpha_bounds_in_region": [
+      30,
+      46,
+      323,
+      182
+    ],
+    "native": [
+      68,
+      32
+    ]
+  },
+  "bunk_ochre": {
+    "region": [
+      0,
+      70,
+      340,
+      520
+    ],
+    "alpha_bounds_in_region": [
+      48,
+      56,
+      293,
+      402
+    ],
+    "native": [
+      48,
+      52
+    ]
+  },
+  "bunk_slate": {
+    "region": [
+      360,
+      70,
+      700,
+      520
+    ],
+    "alpha_bounds_in_region": [
+      56,
+      56,
+      293,
+      402
+    ],
+    "native": [
+      48,
+      52
+    ]
+  },
+  "chest": {
+    "region": [
+      735,
+      220,
+      1150,
+      510
+    ],
+    "alpha_bounds_in_region": [
+      22,
+      47,
+      364,
+      235
+    ],
+    "native": [
+      48,
+      22
+    ]
+  },
+  "pegs": {
+    "source": "exec-7a0bcb96-4e72-403c-bc8b-95acf884d848.png",
+    "alpha_bounds": [
+      91,
+      171,
+      520,
+      1577
+    ],
+    "native": [
+      16,
+      48
+    ]
+  },
+  "lamp": {
+    "region": [
+      0,
+      700,
+      180,
+      960
+    ],
+    "alpha_bounds_in_region": [
+      71,
+      54,
+      136,
+      193
+    ],
+    "native": [
+      10,
+      18
+    ]
+  },
+  "runner": {
+    "region": [
+      190,
+      530,
+      370,
+      1080
+    ],
+    "alpha_bounds_in_region": [
+      21,
+      28,
+      153,
+      500
+    ],
+    "native": [
+      36,
+      128
+    ]
+  },
+  "teal_rug": {
+    "region": [
+      385,
+      580,
+      1010,
+      1000
+    ],
+    "alpha_bounds_in_region": [
+      17,
+      55,
+      609,
+      380
+    ],
+    "native": [
+      192,
+      120
+    ]
+  },
+  "rust_rug": {
+    "region": [
+      1020,
+      720,
+      1402,
+      980
+    ],
+    "alpha_bounds_in_region": [
+      16,
+      34,
+      346,
+      202
+    ],
+    "native": [
+      96,
+      48
+    ]
+  },
+  "lower_floor": {
+    "source": "exec-8c75c1f6-3334-4e44-a94c-95c7ab381397.png",
+    "region": [
+      58,
+      144,
+      1562,
+      892
+    ],
+    "native": [
+      672,
+      360
+    ]
+  },
+  "lower_north": {
+    "source": "exec-8c75c1f6-3334-4e44-a94c-95c7ab381397.png",
+    "region": [
+      0,
+      0,
+      1619,
+      144
+    ],
+    "native": [
+      720,
+      48
+    ]
+  },
+  "lower_south": {
+    "source": "exec-8c75c1f6-3334-4e44-a94c-95c7ab381397.png",
+    "region": [
+      0,
+      892,
+      1619,
+      971
+    ],
+    "native": [
+      720,
+      24
+    ]
+  },
+  "lower_west": {
+    "source": "exec-8c75c1f6-3334-4e44-a94c-95c7ab381397.png",
+    "region": [
+      0,
+      144,
+      58,
+      892
+    ],
+    "native": [
+      24,
+      360
+    ]
+  },
+  "lower_east": {
+    "source": "exec-8c75c1f6-3334-4e44-a94c-95c7ab381397.png",
+    "region": [
+      1562,
+      144,
+      1619,
+      892
+    ],
+    "native": [
+      24,
+      360
+    ]
+  },
+  "chamber_floor": {
+    "source": "exec-7f9b1266-a857-4905-9865-a7429001bcb2.png",
+    "region": [
+      68,
+      183,
+      1446,
+      942
+    ],
+    "native": [
+      360,
+      192
+    ]
+  },
+  "chamber_north": {
+    "source": "exec-7f9b1266-a857-4905-9865-a7429001bcb2.png",
+    "region": [
+      0,
+      0,
+      1512,
+      183
+    ],
+    "native": [
+      408,
+      48
+    ]
+  },
+  "chamber_south": {
+    "source": "exec-7f9b1266-a857-4905-9865-a7429001bcb2.png",
+    "region": [
+      0,
+      942,
+      1512,
+      1040
+    ],
+    "native": [
+      408,
+      24
+    ]
+  },
+  "chamber_west": {
+    "source": "exec-7f9b1266-a857-4905-9865-a7429001bcb2.png",
+    "region": [
+      0,
+      183,
+      68,
+      942
+    ],
+    "native": [
+      24,
+      192
+    ]
+  },
+  "chamber_east": {
+    "source": "exec-7f9b1266-a857-4905-9865-a7429001bcb2.png",
+    "region": [
+      1446,
+      183,
+      1512,
+      942
+    ],
+    "native": [
+      24,
+      192
+    ]
+  },
+  "runners_floor": {
+    "source": "exec-7f9b1266-a857-4905-9865-a7429001bcb2.png",
+    "region": [
+      68,
+      183,
+      1446,
+      942
+    ],
+    "native": [
+      288,
+      168
+    ]
+  },
+  "runners_north": {
+    "source": "exec-7f9b1266-a857-4905-9865-a7429001bcb2.png",
+    "region": [
+      0,
+      0,
+      1512,
+      183
+    ],
+    "native": [
+      336,
+      48
+    ]
+  },
+  "runners_south": {
+    "source": "exec-7f9b1266-a857-4905-9865-a7429001bcb2.png",
+    "region": [
+      0,
+      942,
+      1512,
+      1040
+    ],
+    "native": [
+      336,
+      24
+    ]
+  },
+  "runners_west": {
+    "source": "exec-7f9b1266-a857-4905-9865-a7429001bcb2.png",
+    "region": [
+      0,
+      183,
+      68,
+      942
+    ],
+    "native": [
+      24,
+      168
+    ]
+  },
+  "runners_east": {
+    "source": "exec-7f9b1266-a857-4905-9865-a7429001bcb2.png",
+    "region": [
+      1446,
+      183,
+      1512,
+      942
+    ],
+    "native": [
+      24,
+      168
+    ]
+  }
+}

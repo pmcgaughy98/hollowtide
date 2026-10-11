@@ -8,6 +8,8 @@ extends SceneTree
 
 const TeamState := preload("res://scripts/town/team_state.gd")
 const OUT := "res://docs/design/board-scene-2026-10-10/"
+const REC_PACE := 3   # with HT_RECORD set (video takes), each line stays this many times longer
+var _pace := REC_PACE if OS.get_environment("HT_RECORD") != "" else 1
 var fails := 0
 var shot := {}
 
@@ -67,7 +69,7 @@ func _run() -> void:
 		if not town.talk.is_empty():
 			await _snap("%02d_%s" % [10 + n, String(town.talk[0][0]).to_lower()])
 			read += 1
-			if read >= 45:
+			if read >= 45 * _pace:
 				read = 0
 				n += 1
 				town.talk.pop_front()

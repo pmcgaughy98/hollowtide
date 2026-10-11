@@ -1,0 +1,25 @@
+{
+  "command": [
+    "C:/Users/pmcga/Games/Tools/Godot_v4.7.2/Godot_v4.7.2-stable_win64.exe",
+    "--path",
+    "C:\\Users\\pmcga\\dev\\hollowtide",
+    "--rendering-method",
+    "gl_compatibility",
+    "--audio-driver",
+    "Dummy",
+    "--fixed-fps",
+    "30",
+    "--script",
+    "res://tools/debug/opening_flow_check.gd",
+    "--",
+    "hero=1",
+    "partner=1",
+    "reduced"
+  ],
+  "exit": 0,
+  "expected_exit": 0,
+  "seconds": 10.73,
+  "results": [
+    "D:\\dev\\hollowtide-opening-checks-20261011\\review\\live\\tallowroot-live\\profile\\Godot\\app_userdata\\Hollowtide\\opening-flow-check\\checks.json"
+  ]
+}

@@ -101,7 +101,7 @@ func _run() -> void:
 	await _walk(hall, Vector2i(11, 9))
 	await _frames(4)
 	await _snap("hall_middle")
-	await _walk(hall, Vector2i(11, 4))
+	await _walk(hall, Vector2i(11, 5))   # the desk is solid on rows 3 and 4 since 2026-10-10
 	hall.team[0]["facing"] = "n"
 	hall.act_use()
 	await _frames(6)

@@ -1,0 +1,28 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+OpenGL API 3.3.0 NVIDIA 596.49 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce GTX 1660 SUPER
+
+WARNING: res://addons/dialogue_manager/test_scene.tscn:3 - ext_resource, invalid UID: uid://c8e16qdgu40wo - using text path instead: res://addons/dialogue_manager/test_scene.gd
+   at: load (scene/resources/resource_format_text.cpp:501)
+[godot_ai game_helper] registered mcp capture (debugger active=false, logger=true)
+Native map dimensions and opacity exact -> ok
+Material rim changes confined to terrain mask (7753 pixels) -> ok
+Quiet unselected terrain exact in real GPU output -> ok
+Actual selected detail shader renders (26520 pixels) -> ok
+hall: art, shadows and approaches pixel-exact -> ok
+board: art, shadows and approaches pixel-exact -> ok
+lookout: art, shadows and approaches pixel-exact -> ok
+home: art, shadows and approaches pixel-exact -> ok
+shop: art, shadows and approaches pixel-exact -> ok
+storage: art, shadows and approaches pixel-exact -> ok
+scrolls: art, shadows and approaches pixel-exact -> ok
+yard: art, shadows and approaches pixel-exact -> ok
+shrine: art, shadows and approaches pixel-exact -> ok
+plaza: art, shadows and approaches pixel-exact -> ok
+landing: art, shadows and approaches pixel-exact -> ok
+gate: art, shadows and approaches pixel-exact -> ok
+dock: art, shadows and approaches pixel-exact -> ok
+River bank, water and glints pixel-exact -> ok
+Other-sized worlds retain exact fallback -> ok
+Real town applies the masked finish once -> ok
+Actual walking grid unchanged -> ok
+WORLD SEL-OUT: 21/21 passed

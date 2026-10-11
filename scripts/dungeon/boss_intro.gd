@@ -17,26 +17,30 @@ const Music := preload("res://scripts/audio/music.gd")
 # The Warden's temper, proposed: old, patient, possessive of its garden, scornful of noise. Creatures
 # that rest by its water stay (the Hollow is absence: they are never seen again). It is not cruel; it
 # keeps what comes to it. "{partner}", "{leader}" and "{boss}" are filled in.
+# Lines rewritten 2026-10-11 in the house voice (docs/design/dialogue-voice-guide.md). Claude's drafts.
 const OPEN := [
-	["{partner}", "Look at this place... water, flowers, fireflies. All the way down here?", "joyous"],
-	["{partner}", "Let's rest by the pond for a moment. It feels safe.", "happy"],
+	["{partner}", "Would you look at this. Flowers? Clear down here?", "joyous"],
+	["{partner}", "C'mon, let's go sit by the water a minute. My feet are killing me.", "happy"],
 ]
-const NOTICE := [["{partner}", "...Huh? Did the water just move?", "surprised"]]
+# At the water's edge, looking at their reflections (Preston, 2026-10-11).
+const REFLECT := [["{partner}", "Ha. Look at us. We look like we got drug through the creek backwards.", "happy"]]
+const NOTICE := [["{partner}", "...Hang on. Did the water just move?", "surprised"]]
 const VOICE := [
 	["???", "Safe. Everything that wanders down here says so."],
 	["???", "They drink. They sleep by the water. They forget to leave."],
-	["{partner}", "Who said that? Show yourself!", "surprised"],
+	["{partner}", "Okay, who said that? That's not funny.", "surprised"],
 	["???", "You are standing in my garden. Mind your noise."],
 ]
 const AFTER := [
 	["{boss}", "This water is mine. Every reed, every ripple, every creature that rests here.", "determined"],
 	["{boss}", "Listeners. Hold them where they stand.", "determined"],
-	["{partner}", "{leader}... this was never a resting place. Together!", "angry"],
+	["{partner}", "{leader}... yeah, no. We are not resting here. Come on!", "angry"],
 	["{boss}", "Rest, then. The pond will keep you.", "happy"],
 ]
 const WALK_STEPS := 3          # tiles the team walks in before the voice starts (it stops just below the meadow)
-const POND := Vector2i(9, 3)   # the pond in tiles, centred one row below the stairs
-const LAND_ROW := 7            # the Warden lands this many tiles below the stairs, clear of the shore: its back reaches about three tiles up (Preston: its rear touched the water)
+const POND := Vector2i(13, 4)   # the pond in tiles, centred one row below the stairs (grown 2026-10-11)
+const LAND_ROW := 9            # the Warden lands this many tiles below the stairs, clear of the shore: its back reaches about three tiles up (Preston: its rear touched the water; 2026-10-11 the pond grew, and he wants it and its Listeners to land on dry ground)
+const KNOCK_ROWS := 6          # the burst throws the team this far back from the shore, past where the Warden lands
 const FIREFLIES := 14
 
 
@@ -56,9 +60,27 @@ static func pond_rect(stairs: Vector2i) -> Rect2i:
 	return Rect2i(stairs + Vector2i(-POND.x / 2, 1), POND)
 
 
-## The meadow round it: decoration only, it walks like any floor.
+## The garden: the whole room (Preston, 2026-10-11: the Warden calls it a garden, but the meadow was a small
+## patch and the scene showed mostly stone). Decoration only, it walks like any floor.
 static func garden_rect(dg) -> Rect2i:
-	return Rect2i(dg.pond.position - Vector2i(3, 1), dg.pond.size + Vector2i(6, 3))
+	return dg.data["rooms"][0] if dg.data.has("rooms") and not dg.data["rooms"].is_empty() else Rect2i(dg.pond.position - Vector2i(3, 1), dg.pond.size + Vector2i(6, 3))
+
+
+## The stepping stones from where the team walks in up to the pond's near shore, in garden pixels.
+static func _path(dg) -> PackedVector2Array:
+	var g := garden_rect(dg)
+	var start: Vector2i = dg.data.get("start", Vector2i(g.position.x + g.size.x / 2, g.end.y - 2))
+	var x := float((start.x - g.position.x) * dg.T + dg.T / 2)
+	var y0 := float((dg.pond.end.y - g.position.y) * dg.T + 6)
+	var y1 := float((start.y - g.position.y) * dg.T + dg.T)
+	var pts := PackedVector2Array()
+	var y := y1
+	var k := 0
+	while y > y0:
+		pts.append(Vector2(x + sin(k * 1.7) * 5.0, y))
+		y -= 15.0
+		k += 1
+	return pts
 
 
 static func pond_center(dg) -> Vector2:
@@ -152,6 +174,43 @@ static func _look_around(dg) -> void:
 		await _wait(dg, 0.7)
 
 
+## Walk one teammate tile by tile to `to` (across, then up), facing the way it goes.
+static func _walk_to(dg, e: Dictionary, to: Vector2i) -> void:
+	e["walking"] = true
+	var guard := 0
+	while _alive(dg) and e["pos"] != to and guard < 40:
+		guard += 1
+		var d: Vector2i = Vector2i(signi(to.x - e["pos"].x), 0) if e["pos"].x != to.x else Vector2i(0, signi(to.y - e["pos"].y))
+		var nxt: Vector2i = e["pos"] + d
+		var who: int = dg._occupant(nxt)
+		# The Warden and its Listeners wait hidden on their landing tiles; the team walks through them.
+		if dg._floor_at(nxt) and (who < 0 or dg.ents[who].get("hidden", false)):
+			e["pos"] = nxt
+			e["facing"] = dg._facing_of(d)
+			e["walk_t"] = dg.STEP_TIME * 2.0
+			dg._slide(e, dg._tile_px(nxt))
+		await _wait(dg, 0.3)
+	e["walking"] = false
+
+
+## The burst throws the whole team back from the water, `rows` tiles, skidding to a stop.
+static func _knock_back(dg, rows: int) -> void:
+	for e in _team(dg):
+		var to: Vector2i = e["pos"]
+		for k in rows:
+			var nxt: Vector2i = to + Vector2i(0, 1)
+			var who: int = dg._occupant(nxt)
+			if not dg._floor_at(nxt) or (who >= 0 and not dg.ents[who].get("hidden", false)):
+				break
+			to = nxt
+		e["pos"] = to
+		if e.get("tw") is Tween and e["tw"].is_valid():
+			e["tw"].kill()
+		var tw: Tween = dg.create_tween()
+		tw.tween_property(e["node"], "position", dg._tile_px(to), 0.42).set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
+		e["tw"] = tw
+
+
 static func _team(dg) -> Array:
 	return dg.ents.filter(func(e: Dictionary) -> bool: return e["team"] == 0 and e["hp"] > 0)
 
@@ -205,7 +264,30 @@ static func run(dg) -> void:
 	await _lines(dg, OPEN)
 	if not _alive(dg):
 		return
-	# 2. A ripple spreads over the still water; a "!" over the partner, who noticed.
+	# 2. Down to the water's edge, side by side, and a look at themselves in it (their reflections are
+	# drawn in the pond, draw_floor).
+	var shore: int = dg.pond.end.y
+	var cx: int = dg.pond.position.x + dg.pond.size.x / 2
+	var team := _team(dg)
+	var spots := [Vector2i(cx, shore), Vector2i(cx + 1, shore), Vector2i(cx - 1, shore)]
+	_pan(dg, Vector2((cx + 0.5) * dg.T, shore * dg.T + 2), 2.2)   # the team just above the text box, the pond filling the frame above them
+	for k in team.size():
+		_walk_to(dg, team[k], spots[mini(k, spots.size() - 1)])
+	var guard := 0
+	while _alive(dg) and team.any(func(e: Dictionary) -> bool: return e.get("walking", false)) and guard < 80:
+		await _wait(dg, 0.1)
+		guard += 1
+	if not _alive(dg):
+		return
+	for e in team:
+		e["facing"] = "n"
+		dg._set_tex(e, e["art"]["still"]["n"])
+	await _wait(dg, 1.0)
+	await _lines(dg, REFLECT)
+	if not _alive(dg):
+		return
+	await _wait(dg, 0.6)
+	# 3. A ripple breaks the reflections; a "!" over the partner, who noticed.
 	dg.intro["ripple_at"] = Time.get_ticks_msec()
 	dg._sfx("ripple", -4.0)
 	await _wait(dg, 0.5)
@@ -260,6 +342,7 @@ static func run(dg) -> void:
 	dg._ring(pc, Color("#cfe9f5"), 90.0, 0.6)
 	for e in _team(dg):
 		e["down"] = true
+	_knock_back(dg, KNOCK_ROWS)
 	dg.intro["dazed"] = true
 	await _wait(dg, 0.5)
 	if not _alive(dg):
@@ -323,6 +406,9 @@ static func run(dg) -> void:
 		e["node"].position = from
 		e.erase("hidden")
 		e["awake"] = true
+		# Each faces the way it hops, so the two mirror each other (Preston, 2026-10-11).
+		e["facing"] = "sw" if to.x < pc.x else "se"
+		dg._set_tex(e, e["art"]["still"][e["facing"]])
 		e["node"].visible = true
 		dg._burst(from, Color("#cfe9f5"), 12, 70.0, 0.6, 200.0, 1.0)
 		dg._sfx("hop_splash", -3.0)
@@ -332,12 +418,16 @@ static func run(dg) -> void:
 		if not _alive(dg):
 			return
 		dg._place(e)
+		# Landed: it turns to face the team, ready to fight (Preston: not looking away from the enemy).
+		var lead: Vector2i = _team(dg)[0]["pos"] if not _team(dg).is_empty() else e["pos"] + Vector2i(0, 1)
+		e["facing"] = dg._facing_of((lead - e["pos"]).clamp(Vector2i(-1, -1), Vector2i(1, 1)))
+		dg._set_tex(e, e["art"]["still"][e["facing"]])
 		await _wait(dg, 0.15)
 	await _wait(dg, 0.4)
 	if not _alive(dg):
 		return
 	# 9. The talk, then the fight. The camera holds on the Warden; the team stands under the box.
-	_pan(dg, land + Vector2(0, -14), 0.5)
+	_pan(dg, land + Vector2(0, -2), 0.5)   # the Listeners at its flanks stay above the text box
 	dg._sfx("warden_croak", -1.0)   # its cry before it speaks, as a boss cries on screen in Explorers of Sky
 	dg._shake = 2.5
 	await _wait(dg, 1.1)
@@ -372,50 +462,124 @@ static func _h(x: int, y: int, k: int = 0) -> float:
 
 
 ## Inside a soft blob filling `size`: 0 at the centre, 1 at the edge, above 1 outside.
-static func _blob(x: int, y: int, size: Vector2i, wob: float) -> float:
+static func _blob(x: int, y: int, size: Vector2i, wob: float, power := 2.2) -> float:
 	var dx := (x + 0.5 - size.x * 0.5) / (size.x * 0.5 - 1.0)
 	var dy := (y + 0.5 - size.y * 0.5) / (size.y * 0.5 - 1.0)
 	var w := wob * (sin(x * 0.21 + y * 0.05) + 0.7 * sin(y * 0.33 + x * 0.09) + 0.5 * sin(x * 0.53))
-	return pow(absf(dx), 2.2) + pow(absf(dy), 2.2) + w
+	return pow(absf(dx), power) + pow(absf(dy), power) + w
 
 
-## The meadow round the pond: soft grass with darker tufts, flowers in four colours, mossy stones.
-static func _meadow(size: Vector2i) -> Texture2D:
-	var key := "meadow%s" % size
+## The garden floor: grass in broad light and dark patches, tall grass clumps, flower beds, round bushes
+## along the walls, a few mossy stones, and stepping stones up to the pond. Its edge breaks up into the
+## room's stone only at the walls.
+static func _meadow(size: Vector2i, path: PackedVector2Array = PackedVector2Array()) -> Texture2D:
+	var key := "meadow%s%d" % [size, path.size()]
 	if _tex.has(key):
 		return _tex[key]
 	var img := Image.create(size.x, size.y, false, Image.FORMAT_RGBA8)
 	var greens := [Color("#4d6b34"), Color("#57783a"), Color("#628543"), Color("#3f5a2c")]
-	var flowers := [Color("#f2a7c3"), Color("#fff4e8"), Color("#f2d16b"), Color("#b9a3e8")]
+	var flowers := [Color("#f2a7c3"), Color("#fff4e8"), Color("#f2d16b"), Color("#b9a3e8"), Color("#e8735a")]
 	for y in size.y:
 		for x in size.x:
-			var d := _blob(x, y, size, 0.05)
+			var d := _blob(x, y, size, 0.02, 5.0)
 			if d > 1.0:
 				continue
 			var n := _h(x / 2, y / 2)
 			var c: Color = greens[int(n * 3.0)]
+			var patch := sin(x * 0.045 + y * 0.02) + sin(y * 0.06 - x * 0.015) * 0.8   # broad light and shade
+			if patch > 1.1:
+				c = c.lightened(0.07)
+			elif patch < -1.1:
+				c = c.darkened(0.1)
 			if _h(x, y, 1) > 0.93:
 				c = greens[3]   # a dark tuft
-			var a := 1.0 if d < 0.8 else clampf((1.0 - d) / 0.2, 0.0, 1.0)
+			var a := 1.0 if d < 0.9 else clampf((1.0 - d) / 0.1, 0.0, 1.0)
 			if a < 1.0 and _h(x, y, 2) > a:
 				continue   # the edge breaks up into the floor instead of fading
 			img.set_pixel(x, y, c)
-	# Flowers: a centre pixel and four petals, scattered.
-	for k in int(size.x * size.y / 260):
+	var inside := func(x: int, y: int, lim: float) -> bool:
+		return x >= 2 and y >= 2 and x < size.x - 2 and y < size.y - 2 and _blob(x, y, size, 0.02, 5.0) < lim
+	# Stepping stones up to the pond.
+	for q in path:
+		var cx := int(q.x)
+		var cy := int(q.y)
+		for yy in range(-3, 4):
+			for xx in range(-6, 7):
+				if xx * xx + yy * yy * 4 <= 36 and inside.call(cx + xx, cy + yy, 1.0):
+					var edge := xx * xx + yy * yy * 4 > 24
+					img.set_pixel(cx + xx, cy + yy, Color("#4a473e") if edge else (Color("#9a968a") if yy < 0 else Color("#7d7a6c")))
+		img.set_pixel(cx - 3, cy - 2, Color("#6f8f4e"))
+		img.set_pixel(cx + 2, cy + 2, Color("#6f8f4e"))
+	var on_path := func(x: int, y: int) -> bool:
+		for q in path:
+			if absf(q.x - x) < 12 and absf(q.y - y) < 9:
+				return true
+		return false
+	# Tall grass clumps: a fan of blades, dark at the root, light at the tips.
+	for k in int(size.x * size.y / 900):
+		var x := int(_h(k, 21, 7) * (size.x - 10)) + 5
+		var y := int(_h(k, 23, 8) * (size.y - 12)) + 8
+		if not inside.call(x, y, 0.9) or on_path.call(x, y):
+			continue
+		for b in 5:
+			var bx := x - 4 + b * 2
+			var tall := 5 + int(_h(k, b, 9) * 4)
+			for t in tall:
+				var lean := int(float(t) / tall * (b - 2) * 0.8)
+				img.set_pixel(bx + lean, y - t, Color("#3f5a2c") if t < tall / 2 else Color("#7da04f"))
+	# Flower beds: clusters of one or two colours.
+	for k in int(size.x * size.y / 6000) + 4:
+		var cx := int(_h(k, 31, 10) * (size.x - 40)) + 20
+		var cy := int(_h(k, 37, 11) * (size.y - 40)) + 20
+		if not inside.call(cx, cy, 0.8) or on_path.call(cx, cy):
+			continue
+		var c1: Color = flowers[k % flowers.size()]
+		var c2: Color = flowers[(k + 2) % flowers.size()]
+		for f in 14:
+			var x := cx + int((_h(k, f, 12) - 0.5) * 22)
+			var y := cy + int((_h(f, k, 13) - 0.5) * 14)
+			if not inside.call(x, y, 0.9):
+				continue
+			var col := c1 if f % 3 != 0 else c2
+			img.set_pixel(x, y + 2, Color("#2f4a24"))   # its stem
+			for o in [Vector2i(-1, 0), Vector2i(1, 0), Vector2i(0, -1), Vector2i(0, 1)]:
+				img.set_pixel(x + o.x, y + o.y, col)
+			img.set_pixel(x, y, Color("#e8b84a") if col != flowers[2] else Color("#c9772e"))
+	# Single flowers scattered between the beds.
+	for k in int(size.x * size.y / 500):
 		var x := int(_h(k, 3, 3) * (size.x - 6)) + 3
 		var y := int(_h(k, 7, 4) * (size.y - 6)) + 3
-		if _blob(x, y, size, 0.05) > 0.85:
+		if not inside.call(x, y, 0.85) or on_path.call(x, y):
 			continue
 		var col: Color = flowers[k % flowers.size()]
 		for o in [Vector2i(-1, 0), Vector2i(1, 0), Vector2i(0, -1), Vector2i(0, 1)]:
 			img.set_pixel(x + o.x, y + o.y, col)
-		img.set_pixel(x, y, Color("#e8b84a") if col != flowers[2] else Color("#c9772e"))
-		img.set_pixel(x, y + 2, Color("#2f4a24"))   # its stem
+		img.set_pixel(x, y, Color("#e8b84a"))
+	# Round bushes along the walls, some in blossom.
+	for k in 14:
+		var ang := _h(k, 41, 14) * TAU
+		var cx := int(size.x * 0.5 + cos(ang) * size.x * 0.42)
+		var cy := int(size.y * 0.5 + sin(ang) * size.y * 0.40)
+		if not inside.call(cx, cy, 0.97) or on_path.call(cx, cy):
+			continue
+		var r := 7 + int(_h(k, 43, 15) * 4)
+		for yy in range(-r, r + 1):
+			for xx in range(-r - 2, r + 3):
+				var dd := float(xx * xx) / float((r + 2) * (r + 2)) + float(yy * yy) / float(r * r)
+				if dd > 1.0 or not inside.call(cx + xx, cy + yy, 1.0):
+					continue
+				var col := Color("#2c4220") if dd > 0.78 else (Color("#6f9a45") if xx + yy < -r * 0.6 else Color("#4e7332"))
+				if dd <= 0.78 and _h(cx + xx, cy + yy, 16) > 0.9:
+					col = Color("#3f5a2c")
+				img.set_pixel(cx + xx, cy + yy, col)
+		if k % 3 == 0:
+			for f in 5:
+				img.set_pixel(cx + int((_h(k, f, 17) - 0.5) * r * 1.6), cy + int((_h(f, k, 18) - 0.6) * r * 1.2), Color("#f2a7c3"))
 	# Mossy stones.
-	for k in 7:
+	for k in 4:
 		var x := int(_h(k, 11, 5) * (size.x - 12)) + 6
 		var y := int(_h(k, 13, 6) * (size.y - 10)) + 5
-		if _blob(x, y, size, 0.05) > 0.8:
+		if not inside.call(x, y, 0.8) or on_path.call(x, y):
 			continue
 		for yy in range(-2, 3):
 			for xx in range(-3, 4):
@@ -507,12 +671,26 @@ static func _pond(size: Vector2i) -> Texture2D:
 static func draw_floor(dg, c: CanvasItem) -> void:
 	var g := garden_rect(dg)
 	var gr := Rect2(Vector2(g.position * dg.T), Vector2(g.size * dg.T))
-	c.draw_texture(_meadow(Vector2i(gr.size)), gr.position)
+	c.draw_texture(_meadow(Vector2i(gr.size), _path(dg)), gr.position)
 	var r := Rect2(Vector2(dg.pond.position * dg.T), Vector2(dg.pond.size * dg.T))
 	c.draw_texture(_pond(Vector2i(r.size)), r.position)
 	var now := Time.get_ticks_msec() / 1000.0
 	var pc := r.get_center()
 	var fled: bool = dg.intro.get("pond_shadow", 0.0) > 0.2 or dg.intro.has("burst_at")
+	# Reflections: a teammate standing at the water's edge shows in it upside down, faces toward you
+	# (Preston, 2026-10-11: they walk up and look at their reflection). A ripple breaks them up.
+	if not fled:
+		var stir: float = clampf(1.0 - (Time.get_ticks_msec() - int(dg.intro.get("ripple_at", -100000))) / 1600.0, 0.0, 1.0)
+		for e in _team(dg):
+			if e["pos"].y != dg.pond.end.y or e["pos"].x < dg.pond.position.x + 1 or e["pos"].x >= dg.pond.end.x - 1:
+				continue
+			var spr: Sprite2D = e["sprite"]
+			var tex: Texture2D = e["art"]["still"].get("s", spr.texture) if e["facing"] == "n" else spr.texture
+			var foot: float = e["art"]["foot"].get(tex, float(tex.get_height()))
+			var at := Vector2(e["node"].position.x + sin(now * 2.0 + e["pos"].x) * (0.6 + 4.0 * stir), r.end.y - 3)
+			c.draw_set_transform(at, 0.0, Vector2(-spr.scale.x, spr.scale.y * (0.85 - 0.15 * stir)))   # looking down into it: the face, mirrored, rising from the near shore
+			c.draw_texture(tex, Vector2(-tex.get_width() * 0.5, -foot), Color(0.62, 0.8, 0.95, 0.42 * (1.0 - 0.6 * stir)))
+			c.draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE)
 	# Fish: three dark shapes on slow loops, until something bigger moves below them.
 	if not fled:
 		for k in 3:

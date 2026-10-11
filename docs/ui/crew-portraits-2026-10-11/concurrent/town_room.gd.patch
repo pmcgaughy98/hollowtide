@@ -1,0 +1,38 @@
+--- before/scripts/town/town_room.gd
++++ after/scripts/town/town_room.gd
+@@ -51,7 +51,7 @@
+ 	# The Hall floor, below the work floor (Claude, 2026-10-10; Preston chose two floors, like Sky's guild:
+ 	# public work upstairs, the Guildmaster's chamber, the morning roll call, crew rooms and the mess hall
+ 	# below). Taken from Sky as structure only. Names and lines are Claude's drafts for Preston.
+-	"hall_low": {"name": "Wayline Hall, lower floor", "w": 30, "h": 18, "door": Vector2i(-1, -1), "hint": "Stairs up, bottom right",
++	"hall_low": {"name": "Wayline Hall, lower floor", "w": 30, "h": 18, "door": Vector2i(-1, -1), "landing": Vector2i(24, 14), "hint": "Stairs up, bottom right",
+ 		"solid": [Rect2i(9, 5, 1, 1), Rect2i(20, 5, 1, 1), Rect2i(9, 12, 1, 1), Rect2i(20, 12, 1, 1), Rect2i(3, 12, 6, 2),
+ 			Rect2i(12, 2, 1, 1), Rect2i(17, 2, 1, 1), Rect2i(27, 2, 1, 1), Rect2i(1, 8, 1, 2)],
+ 		"spots": [
+@@ -70,7 +70,7 @@
+ 			{"rect": Rect2i(29, 5, 1, 2), "to": "runners", "at": Vector2i(1, 5), "facing": "e", "sfx": "door", "needs": "runner"}]},
+ 	# The runners' room, off the lower floor's east side: the team's own bunks once Starward names them
+ 	# runners (Preston, 2026-10-10: "definitely want runners room"). Sky gives its hero a room in the guild.
+-	"runners": {"name": "Runners' Room", "w": 14, "h": 10, "door": Vector2i(-1, -1), "hint": "The door leads back to the Hall",
++	"runners": {"name": "Runners' Room", "w": 14, "h": 10, "door": Vector2i(-1, -1), "landing": Vector2i(1, 5), "hint": "The door leads back to the Hall",
+ 		"solid": [Rect2i(3, 2, 2, 2), Rect2i(8, 2, 2, 2), Rect2i(11, 7, 2, 1), Rect2i(12, 4, 1, 2)],
+ 		"spots": [
+ 			{"id": "bed", "rect": Rect2i(3, 2, 2, 2), "name": "Your Bunk", "what": "Moss and a wool blanket. Rest here and the day ends: the team wakes up whole. (Saving comes with the save system.)"},
+@@ -81,7 +81,7 @@
+ 			{"id": "pegs", "rect": Rect2i(12, 4, 1, 2), "name": "Coat Pegs", "what": "Two empty pegs, waiting for satchels."}],
+ 		"links": [{"rect": Rect2i(0, 5, 1, 2), "to": "hall_low", "at": Vector2i(28, 6), "facing": "w", "sfx": "door"}]},
+ 	# Starward's chamber, behind the door at the back of the lower floor.
+-	"chamber": {"name": "Guildmaster's Chamber", "w": 17, "h": 11, "door": Vector2i(-1, -1), "hint": "The door leads back down",
++	"chamber": {"name": "Guildmaster's Chamber", "w": 17, "h": 11, "door": Vector2i(-1, -1), "landing": Vector2i(8, 8), "hint": "The door leads back down",
+ 		"solid": [Rect2i(7, 3, 3, 2), Rect2i(1, 2, 1, 1), Rect2i(15, 2, 1, 1)],   # 17 wide: tile 8 is the middle
+ 		"spots": [
+ 			{"id": "dais", "rect": Rect2i(7, 3, 3, 2), "name": "The Dais", "what": "Starward's cushion, worn flat in the middle."},
+@@ -175,6 +175,8 @@
+ 	# The team stands just inside the door, in a short line.
+ 	var party: Array = TeamState.data.get("party", [[0, 0], [1, 0]])
+ 	var d: Vector2i = r["door"]
++	if d.x < 0 and arrive.x < 0:
++		arrive = r.get("landing", Vector2i(r["w"] / 2, r["h"] - 3))   # a room with no town door: its landing, never off the map
+ 	for k in party.size():
+ 		var at := d + Vector2i(0, -1 - k)
+ 		if k > 0 and not _open(at):

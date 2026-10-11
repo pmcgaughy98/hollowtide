@@ -9,6 +9,7 @@ extends RefCounted
 ## Gruntle's town sprite is its dungeon set once that is built; until then a stand-in cut from its chosen
 ## front art (it faces one way). The scene runs inside hub_town.gd (talk, npcs, cam_focus, cutscene).
 
+const SceneKit := preload("res://scripts/town/scene_kit.gd")
 const Layout := preload("res://scripts/town/town_layout.gd")
 const Lines := preload("res://scripts/creatures/lines.gd")
 const Arena := preload("res://scripts/arena/arena_prototype.gd")
@@ -160,6 +161,84 @@ static func _step(town, e: Dictionary, d: Vector2i, time := 0.22) -> void:
 		town._place(e)
 
 
+## After the crew are gone the partner walks over to stand beside the leader: the same row, one tile of
+## ground between them, facing each other (Preston, 2026-10-11: they overlapped after the shove).
+static func _beside(town, lead: Dictionary, partner: Dictionary) -> void:
+	if partner == lead:
+		return
+	var side := 1 if partner["pos"].x >= lead["pos"].x else -1
+	var to: Vector2i = lead["pos"]
+	for c in [Vector2i(2 * side, 0), Vector2i(-2 * side, 0), Vector2i(side, 0), Vector2i(-side, 0)]:
+		if town.open_at(lead["pos"] + c):
+			to = lead["pos"] + c
+			break
+	var guard := 0
+	while _alive(town) and partner["pos"] != to and guard < 8:
+		guard += 1
+		var d: Vector2i = (to - partner["pos"]).clamp(Vector2i(-1, -1), Vector2i(1, 1))
+		if partner["pos"] + d == lead["pos"]:
+			d = Vector2i(d.x, 0) if d.y != 0 else Vector2i(0, 1)   # step round the leader
+		if not town.open_at(partner["pos"] + d):
+			d = Vector2i(d.x, 0) if d.x != 0 and town.open_at(partner["pos"] + Vector2i(d.x, 0)) else Vector2i(0, d.y)
+			if d == Vector2i.ZERO or not town.open_at(partner["pos"] + d):
+				break
+		await _step(town, partner, d, 0.22)
+	if not _alive(town):
+		return
+	_face(town, partner, "w" if lead["pos"].x < partner["pos"].x else "e")
+	_face(town, lead, "e" if lead["pos"].x < partner["pos"].x else "w")
+
+
+const RUN_STEP := 0.12   # seconds a tile: a run, about twice the team's walk
+
+
+## The crew's exit: Gruntle's path through the streets to the Mouth of the Hollow, the other two on his heels,
+## Mirekit holding the parcel up. The camera follows them down; at the gate they drop out of sight.
+static func _run_for_the_way_down(town, crew: Array, carrier: Dictionary) -> void:
+	var gate: Dictionary = Layout.PLACES.filter(func(p: Dictionary) -> bool: return p["id"] == "gate")[0]
+	var route: Array = SceneKit.path(town, crew[0], gate["door"])
+	if route.is_empty():   # no way through: the old stroll off the screen
+		route = [crew[0]["pos"] + Vector2i(-7, 2)]
+	var lag := 0
+	for e in crew:
+		_run_along(town, e, route, lag * 0.18)
+		lag += 1
+	var total: float = route.size() * RUN_STEP + 0.18 * crew.size() + 0.3
+	var t := 0.0
+	while t < total and _alive(town):
+		await town.get_tree().process_frame
+		var dt: float = town.get_process_delta_time()
+		t += dt
+		if not carrier.is_empty() and is_instance_valid(carrier["node"]):
+			town.scene_fx["parcel"] = carrier["node"].position + Vector2(0, -34)
+		var lead_node: Node2D = crew[0]["node"]
+		if is_instance_valid(lead_node):
+			var from: Vector2 = town.cam_focus if town.cam_focus != null else lead_node.position
+			town.cam_focus = from.lerp(lead_node.position + Vector2(0, -10), minf(1.0, dt * 4.0))
+	if _alive(town):
+		await _wait(town, 0.5)   # a beat on the empty gate
+
+
+## One crew member along the route, a tile at a time with its walk frames, fading out on the last tiles.
+static func _run_along(town, e: Dictionary, route: Array, delay: float) -> void:
+	if delay > 0.0:
+		await _wait(town, delay)
+	var prev: Vector2i = e["pos"]
+	for k in route.size():
+		if not _alive(town) or not is_instance_valid(e["node"]):
+			return
+		var to: Vector2i = route[k]
+		e["facing"] = town._facing_of((to - prev).clamp(Vector2i(-1, -1), Vector2i(1, 1)))
+		e["walk_t"] = RUN_STEP + 0.06
+		var tw: Tween = town.create_tween()
+		tw.tween_property(e["node"], "position", town._px(to), RUN_STEP)
+		if k >= route.size() - 3:
+			town.create_tween().tween_property(e["node"], "modulate:a", 0.0, RUN_STEP * 3.0)
+		prev = to
+		await _wait(town, RUN_STEP)
+	e["pos"] = prev
+
+
 static func run(town) -> void:
 	if not _alive(town):
 		return
@@ -265,18 +344,10 @@ static func run(town) -> void:
 		await _lines(town, SNATCH)
 		if not _alive(town):
 			return
-	# 4. The crew stroll off down the street and out of sight.
+	# 4. The crew run for the way down, the Mouth of the Hollow, and the camera follows them so the player sees
+	# where they went (Preston, 2026-10-11: "make the rival crew run towards it after stealing parcel").
 	town._sfx("hog_trot")
-	for e in [g, mk, wh]:
-		var go: Tween = town.create_tween().set_parallel(true)
-		go.tween_property(e["node"], "position", e["node"].position + Vector2(-T() * 7, T() * 2), 1.6)
-		go.tween_property(e["node"], "modulate:a", 0.0, 0.5).set_delay(1.1)
-		e["facing"] = "sw"
-		e["walk_t"] = 1.6
-	if saved:   # the parcel goes with Mirekit
-		var carry: Tween = town.create_tween()
-		carry.tween_method(func(p: Vector2) -> void: town.scene_fx["parcel"] = p, town.scene_fx.get("parcel", mk["node"].position), mk["node"].position + Vector2(-T() * 7, T() * 2 - 34), 1.6)
-	await _wait(town, 1.7)
+	await _run_for_the_way_down(town, [g, mk, wh], mk if saved else {})
 	town.scene_fx.erase("parcel")
 	if not _alive(town):
 		return
@@ -288,8 +359,9 @@ static func run(town) -> void:
 	partner["down"] = false
 	town._place(partner)
 	town._sfx("dizzy")
-	_face(town, partner, town._facing_of((lead["pos"] - partner["pos"]).clamp(Vector2i(-1, -1), Vector2i(1, 1))))
-	await _wait(town, 0.5)
+	await _wait(town, 0.4)
+	await _beside(town, lead, partner)
+	await _wait(town, 0.3)
 	await _lines(town, GET_UP_STOLEN if saved else GET_UP)
 	if not _alive(town):
 		return

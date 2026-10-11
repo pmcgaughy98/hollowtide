@@ -1,0 +1,29 @@
+{
+  "before_size": [
+    96,
+    96
+  ],
+  "after_size": [
+    96,
+    104
+  ],
+  "original_rgba_exact": true,
+  "original_coordinates_exact": true,
+  "portrait_source_crop_exact": true,
+  "added_rows": 8,
+  "added_rows_fully_transparent": true,
+  "original_alpha_bounds": [
+    8,
+    8,
+    75,
+    96
+  ],
+  "padded_alpha_bounds": [
+    8,
+    8,
+    75,
+    96
+  ],
+  "protected_files_exact": 165,
+  "changed_protected_files": []
+}

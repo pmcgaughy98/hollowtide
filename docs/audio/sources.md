@@ -187,3 +187,30 @@ Preston asked for our own sounds made from Explorers of Sky's. Its files were no
 - Ours: `ui/cursor.wav` (C6 square tick), `ui/cancel.wav` (D5 then A4 square), `ui/confirm.wav` (A5 to D6 pulse, echo), `dungeon/menu_open.wav` (D5 A5 D6 up), `dungeon/menu_close.wav` (down).
 - Events, built in the same family without a clean reference to measure (the effects videos are unlabelled; gameplay has music over them): `dungeon/stairs.wav`, `dungeon/pickup.wav`, `dungeon/level_up.wav` (new; the level-up used room_clear before), `dungeon/faint.wav`.
 The files replaced are kept in `docs/audio/replaced-2026-10-10/`.
+
+## New songs and the Monster House remake (Claude, 2026-10-11)
+ElevenLabs `eleven_music_v2_5` / `eleven_text_to_sound_v2`, flow `lgucGp7YVZlGnAPBhJ26`. Every song costs 900 credits,
+even a 12 s jingle (a minimum). All retuned to A = 432 by resampling and levelled; takes in `docs/audio/takes-2026-10-11/`,
+listening copies in `docs/audio/listen-2026-10-11/`.
+- **Monster House**, three tries. (1) "Dire" (tremolo strings, distortion, cinematic): Preston, "sounds like a scary
+  movie now"; not used. (2) Synthesis: Explorers of Sky's Monster House is in trouble but still game music, catchy, fast
+  and melodic; Hollowtide's river band in a panic. Prompt: video game battle music for a handheld adventure game ... a
+  hard-driving bluegrass breakdown in a minor key, a catchy hummable fiddle hook, rolling banjo, slapping upright bass,
+  pushing snare, harmonica stabs, a soft synth-string pad, 172 bpm, 40 s. Takes A and B wait for Preston's pick; the
+  current `monster_house.mp3` stays until then.
+- **rising_water.mp3** (-21 LUFS): waking in the flood and the flood talk (`creature_prologue.gd`), carries on through
+  the riverbank. Low cello like rain, distant timpani, a lone fiddle melody that stops one note short (the Hush motif),
+  harmonica answering, a small hopeful turn. 60 s.
+- **runners_named.mp3** (jingle, -18 LUFS): Starward names the team runners (`guild_scene.gd`). A rising three-note
+  figure on harmonica and fiddle (the Wayline motif), then the band answers. 12 s.
+- **sfx/dungeon/cheer.wav**: the crew's "Wayline!" at the roll call (`guild_crew.gd`); take 1 of 2.
+- **monster_house.mp3, final (Preston's edit):** "take A, which is good up to about 24 s before it changes style,
+  and take C up to 13 s ... then synthesize them." Take C is Preston's own prompt ("Fast-paced panic dungeon theme,
+  urgent alarm synths, chaotic brass stabs, high tension, fast arpeggios, danger music, instrumental only").
+  Built: C's first 12.55 s (its alarm opening, cut on a beat), then take A's first 24 s sped from about 158 to
+  176.5 bpm with no pitch change so both halves share one tempo, joined on a beat with a 40 ms blend. 33.8 s;
+  the loop returns to C's alarm. -16.5 LUFS, A = 432. Previous track in `docs/audio/replaced/monster_house_before_2026-10-11.mp3`.
+- **Monster House removed for now** (Preston, 2026-10-11: "nah it don't work, just remove monster house sound for now,
+  we'll get back to it"). A sprung Monster House keeps the floor's music (`dungeon.gd`). `monster_house.mp3` is the
+  earlier track again, unused. Tried and kept for later: the dire take, game-style takes A and B, Preston's take C,
+  C-into-A, and A and C layered (`docs/audio/takes-2026-10-11/`, `docs/audio/listen-2026-10-11/`).

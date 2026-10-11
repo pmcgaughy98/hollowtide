@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=18
+type="Resource"
+uid="uid://viipqtqc5efc"
+path="res://.godot/imported/road_to_highbank.dialogue-c1103a5c7898bb50b5eab5f2f8acffcd.tres"
+
+[deps]
+
+source_file="res://dialogue/road_to_highbank.dialogue"
+dest_files=["res://.godot/imported/road_to_highbank.dialogue-c1103a5c7898bb50b5eab5f2f8acffcd.tres"]
+
+[params]
+
+defaults=true

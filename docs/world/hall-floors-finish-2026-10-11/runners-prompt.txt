@@ -1,0 +1,15 @@
+Use-case: stylized-concept game SPRITE ATLAS, exactly8 isolated pixel-art fixtures on true alpha.
+Image1 = our approved Hall material/style reference. Image2 = our approved Home style reference. Image3 = new lower Hall fixture style reference, particularly outlines/carving.
+Match these Hollowtide sprites: warm rooted wood, moss green, dull brass, teal or rust woven cloth, crisp handheld-RPG top-down3/4 relief, top-left lighting, dark material-selective outline around every silhouette and detail. Draw compact deliberate pixel clusters, no blur/no random speckle.
+One sheet, 4 columns and2 rows, generous TRANSPARENT gutters. Each object's silhouette fully visible; no labels, words, numbers, background, scene, characters, OSUI.
+TOP ROW left to right:
+1) a single low wooden runner's bunk, moss mattress, ochre wool cover and cream pillow, no canopy, native48x52; block fills this near-square footprint.
+2) matching bunk with slate-blue wool cover; a single tiny red reedberry resting on its cream pillow, native48x52.
+3) low wide wooden personal chest with brass latch and plain carved rim, native48x22, wide shallow silhouette.
+4) a narrow wall board holding TWO coat pegs, one above the other; an empty satchel hangs from a peg, native16x48, thin vertical silhouette.
+BOTTOM ROW:
+5) tiny warm brass wall lantern with crisp frame and simple yellow glass, native10x18; NO outward glow halo or cast light, alpha outside the metal frame.
+6) a long narrow quiet dark-teal runner with fine brass stitched edging, native36x128, flat cloth viewed from above with no perspective, no figure/text.
+7) wide teal rectangular Guildmaster rug with brass woven border and small FOUR-POINT compass/star at centre, native192x120, flat top-down rectangle; restrained weave inside so creatures stand out.
+8) rust-red rectangular runner's-room rug, quiet woven cloth and simple brass border, native96x48, flat top-down rectangle with no star, no letters.
+Maintain exact row/column order, transparent padding and given object aspect ratios. Same drawing/detail quality as the supplied finished interior references.

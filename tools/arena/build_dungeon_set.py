@@ -34,7 +34,8 @@ for m in re.finditer(r'"forms": \[\["([a-z]+)", "[^"]*"\], \["([a-z]+)", "[^"]*"
         STAGE[n] = k
 # Dungeon-only lines (dungeon.gd CREW_LINES, the rival crew, 2026-10-10): not in the arena's LINES.
 STAGE.update({"mirekit": 0, "whinet": 0, "gruntle": 0})
-STAGE.update({"skimlet": 0, "ozbender": 0, "valvekin": 0, "wayling": 0, "swaphoard": 1, "pouchbill": 1, "inkhoot": 2, "cairnshell": 2, "crawdukes": 2})   # the Hollow's new wilds and the townsfolk (one form each so far)
+STAGE.update({"skimlet": 0, "ozbender": 0, "valvekin": 0, "wayling": 0, "swaphoard": 1, "pouchbill": 1, "inkhoot": 2, "cairnshell": 2, "crawdukes": 2,
+              "grubbit": 0, "muskin": 0, "slipjaw": 0, "stillwade": 1, "wickglow": 1, "rinsepaw": 1})   # the Wayline Hall crew (2026-10-11)   # the Hollow's new wilds and the townsfolk (one form each so far)
 
 
 def mass(name):

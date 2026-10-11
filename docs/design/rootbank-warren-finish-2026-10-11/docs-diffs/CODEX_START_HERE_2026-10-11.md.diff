@@ -1,0 +1,22 @@
+--- original/docs/team/CODEX_START_HERE_2026-10-11.md
++++ installed/docs/team/CODEX_START_HERE_2026-10-11.md
+@@ -2,7 +2,7 @@
+ 
+ Live project: **C:/Users/pmcga/dev/hollowtide**. Codex's writable workspace is **D:/dev**. The old Documents/Hollowtide/2026-10-08 handoff is historical; use this current live project.
+ 
+-Preston's latest completed request: task 6, current opening checks. Native 83/83 staging and installed live, with the old first-morning entry explicitly retired and inherited helpers preserved. Evidence: `docs/design/opening-checks-2026-10-11/README.md`. **Latest active request: finish Rootbank Warren dungeon presentation**, using current Claude wiring/layouts and preserving rules. The six-task master queue is complete except Claude's production task 2 idle swap.
++Preston's latest completed request: task 6, current opening checks. Native 83/83 staging and installed live, with the old first-morning entry explicitly retired and inherited helpers preserved. Evidence: `docs/design/opening-checks-2026-10-11/README.md`. **Latest completed request: Rootbank Warren designs**, installed on the restored textured painter; evidence: `docs/design/rootbank-warren-finish-2026-10-11/README.md`. The six-task master queue is complete except Claude's production task 2 idle swap.
+ 
+ ## Read before work
+ 
+@@ -12,7 +12,9 @@
+ 
+ ## Latest completed work
+ 
+-**Opening checks:** task 6 complete. New real campaign-flow check; retired human-courier first-morning run returns 2, helpers retained. Native 83/83 staging/live; old helper inheritors parse. `docs/design/opening-checks-2026-10-11/README.md`. Rootbank Warren presentation is now the user's active additional request.
++**Rootbank Warren:** Rootbank Warren finish is installed on Claude's restored textured painter: varied exposed roots/clover, raised clay side reveals and a rooted Shortcut Crew den. USE_TILE_ART remains false in all three painters. New artwork is clipped to WALL tiles; walking floors/stairs and topology exact in raw/native shader output. Native material 21/21 across three seeds; all four installed floor captures match staging; existing dungeon checks5/5 staging/live; final live crew scene passes fight/flop/escape/parcel/beaten. Only riverbank_painter plus new rootbank_detail change runtime. 794 existing source files checked: only the owned painter changed. No rule/save/actor/cinematic/audio/settings/raster edits, image generation, paid calls or commit. Visual proposal for Preston. Originals, exact diff, captures, private drivers and receipts: docs/design/rootbank-warren-finish-2026-10-11/README.md. Claude's task 2 standing idle wiring remains pending.
++
++**Opening checks:** task 6 complete. New real campaign-flow check; retired human-courier first-morning run returns 2, helpers retained. Native 83/83 staging/live; old helper inheritors parse. `docs/design/opening-checks-2026-10-11/README.md`. Rootbank Warren presentation subsequently completed; see above.
+ 
+ **AI asset inventory:** task 5 complete. `docs/pitch/ai-asset-inventory.md` records all six player-facing groups/tools, current audio replacements, unknown older sources and a pitch/store disclosure draft. The dated evidence folder contains the 176-group static census, reference index and 70-link validation. Documentation only; final export inclusion and account/output rights remain to reconcile. Task 6 is next.
+ 

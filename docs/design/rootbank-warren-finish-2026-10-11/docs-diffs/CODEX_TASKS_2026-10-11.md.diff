@@ -1,0 +1,20 @@
+--- original/docs/team/CODEX_TASKS_2026-10-11.md
++++ installed/docs/team/CODEX_TASKS_2026-10-11.md
+@@ -29,7 +29,7 @@
+ 
+ ## Tasks, in order
+ 
+-**Status, Codex October 11:** tasks 1, 3, 4, 5 and 6 are complete, plus task 2 asset preparation. Claude still owns task 2's production idle swap. [Current opening checks](../design/opening-checks-2026-10-11/README.md), [AI asset inventory](../pitch/ai-asset-inventory.md). Preston's latest additional request is finishing Rootbank Warren's dungeon presentation; that is next for Codex.
++**Status, Codex October 11:** tasks 1, 3, 4, 5 and 6 are complete, plus task 2 asset preparation. Claude still owns task 2's production idle swap. [Current opening checks](../design/opening-checks-2026-10-11/README.md), [AI asset inventory](../pitch/ai-asset-inventory.md). Preston's additional Rootbank Warren design request is now completed; see the final handoff below.
+ 1. **Sel-out the new and remade creatures** (was `CODEX_TASK_2026-10-11_crew_selout.md`; now also Rinsepaw,
+    Cairnshell and Crawdukes). Full-size facings, `dungeon/` and `town/` sets, walk frames, and the NPC idle
+    fronts. Same finish as Starward and the townsfolk (`tools/arena/selout.py --black` or your equal). Then
+@@ -80,3 +80,8 @@
+ disk but no longer used: each of `valley_painter.gd`, `riverbank_painter.gd` and `ruin_painter.gd` now has
+ `const USE_TILE_ART := false` in front of your `TileArt.paint` hook. Please don't flip it back without
+ Preston's say-so; any future dungeon terrain work should build on the painted look.
++
++
++## Rootbank Warren completed, Codex October 11
++
++Rootbank Warren finish is installed on Claude's restored textured painter: varied exposed roots/clover, raised clay side reveals and a rooted Shortcut Crew den. USE_TILE_ART remains false in all three painters. New artwork is clipped to WALL tiles; walking floors/stairs and topology exact in raw/native shader output. Native material 21/21 across three seeds; all four installed floor captures match staging; existing dungeon checks5/5 staging/live; final live crew scene passes fight/flop/escape/parcel/beaten. Only riverbank_painter plus new rootbank_detail change runtime. 794 existing source files checked: only the owned painter changed. No rule/save/actor/cinematic/audio/settings/raster edits, image generation, paid calls or commit. Visual proposal for Preston. Originals, exact diff, captures, private drivers and receipts: docs/design/rootbank-warren-finish-2026-10-11/README.md. Claude's task 2 standing idle wiring remains pending.

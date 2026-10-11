@@ -1,0 +1,17 @@
+{
+  "project.godot": "4a9830a330d319657b78ee270032fa3b09253502daf148b9dd79fc5db9509df7",
+  "scripts/dungeon/dungeon.gd": "8753027a7f8f66f066e6b52fa3577de58d63d1f82540ea026abbd721ea0560a9",
+  "scripts/dungeon/boss_intro.gd": "c9c7788f2fcdebeecb1553ebb5ebd41b2a21de52d3e0f3c46a9cd7615114eb25",
+  "scripts/town/evolution.gd": "9941c4bbbd48e527144ff79f5934798cbac6dd4b9a412962b16772288ec2a4f5",
+  "scripts/town/team_state.gd": "514a9b6f9eccd03efe2a4605ee4b70345bca517226fa6bc0c4fe1e060e5012e5",
+  "scripts/town/town_layout.gd": "ca6f5fff6be9ab8603b9dc284cfa09b04b33e55a32f4de425a4662bdb0687bb9",
+  "scripts/town/highbank_painter.gd": "0a70843b684dc45554474e17c191aa440105a2f92cb6dc4a7d4d64ded12e9979",
+  "scripts/town/room_painter.gd": "45bb75eabdb8b66960ee8fc2a96ceac6143b9bb7187b707ef947364c213c3415",
+  "scripts/town/town_room.gd": "5e82fcf3e7704c055edec1a27f8a73d26191a2ead38037656dfc4a287fd2d357",
+  "scripts/ui/game_pause_menu.gd": "8aeb6b2ce16e164556cb1197dc160b8a06d6078bf141cf635409f9f21c034eb8",
+  "scripts/ui/evolution_scene.gd": "bee0506f257c2270ab67174986357747387c7f64540e162cff44c425565bb3b8",
+  "scripts/arena/creature_finish.gd": "9e7a7b2c91ac81b3f7a4618626a36c143f17cf9b2c70575202e737cfdae227b2",
+  "scripts/arena/creature_finish.gdshader": "651a7ce7f6a5a2ec9bc797d6daaa19cd304c8ad3c2059361f635af6b7726a189",
+  "scripts/ui/ui_style.gd": "18b960987570b62c6746c304b457ec18ccd18cf91a77ad6d5e3246cd433a0ea0",
+  "assets/sprites/world/growth_shrine_2026_10_10/shrine_native.png": "dfeb2cc8333069b7be25f9661079cc29c75019b68647e545104884a9e683fb1f"
+}

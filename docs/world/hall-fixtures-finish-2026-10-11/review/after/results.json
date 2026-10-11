@@ -1,0 +1,42 @@
+{
+	"checks": 36,
+	"passed": 36,
+	"rooms": {
+		"chamber": {
+			"fixture_ink_pixels": 1586,
+			"gpu_outside_sampling_halo": 0,
+			"outside_mask": 0,
+			"outside_paint": 0,
+			"painted_pixels": 144,
+			"reachable_services": 5,
+			"unselected_gpu": 0
+		},
+		"hall": {
+			"fixture_ink_pixels": 1278,
+			"gpu_outside_sampling_halo": 0,
+			"outside_mask": 0,
+			"outside_paint": 0,
+			"painted_pixels": 2304,
+			"reachable_services": 9,
+			"unselected_gpu": 0
+		},
+		"hall_low": {
+			"fixture_ink_pixels": 4215,
+			"gpu_outside_sampling_halo": 0,
+			"outside_mask": 0,
+			"outside_paint": 0,
+			"painted_pixels": 5630,
+			"reachable_services": 10,
+			"unselected_gpu": 0
+		},
+		"runners": {
+			"fixture_ink_pixels": 1119,
+			"gpu_outside_sampling_halo": 0,
+			"outside_mask": 0,
+			"outside_paint": 0,
+			"painted_pixels": 1448,
+			"reachable_services": 6,
+			"unselected_gpu": 0
+		}
+	}
+}

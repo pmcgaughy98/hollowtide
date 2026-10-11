@@ -1,0 +1,19 @@
+--- original/docs/AI_COLLABORATION.md
++++ installed/docs/AI_COLLABORATION.md
+@@ -1,10 +1,14 @@
+ # Working Together on Hollowtide
+ 
+-## Codex: current opening checks complete; Rootbank Warren next (October 11, 2026)
++## Codex: Rootbank Warren designs installed (October 11, 2026)
++
++Rootbank Warren finish is installed on Claude's restored textured painter: varied exposed roots/clover, raised clay side reveals and a rooted Shortcut Crew den. USE_TILE_ART remains false in all three painters. New artwork is clipped to WALL tiles; walking floors/stairs and topology exact in raw/native shader output. Native material 21/21 across three seeds; all four installed floor captures match staging; existing dungeon checks5/5 staging/live; final live crew scene passes fight/flop/escape/parcel/beaten. Only riverbank_painter plus new rootbank_detail change runtime. 794 existing source files checked: only the owned painter changed. No rule/save/actor/cinematic/audio/settings/raster edits, image generation, paid calls or commit. Visual proposal for Preston. Originals, exact diff, captures, private drivers and receipts: docs/design/rootbank-warren-finish-2026-10-11/README.md. Claude's task 2 standing idle wiring remains pending.
++
++## Codex: current opening checks complete (October 11, 2026)
+ 
+ Task 6 complete: explicit creature-campaign title, real New Game/storm/soul/flood/riverbank scene changes, actual mouse/keyboard choices and exact team handoff. Native 83/83 staging and 83/83 installed live across three starters, both partner positions, Reduce Motion, skipped/natural storm. Final live logs clean. Old first-morning entry explicitly retired with exit 2 and no gameplay assertions; shared helpers retained and both legacy inheritors parse. Isolated user:// output; old D: path removed. Game scripts/settings/art/audio/rules/UIDs and concurrent work untouched. [Originals, diff, captures and test receipts](design/opening-checks-2026-10-11/README.md). No generation or commit.
+ 
+-**Preston additionally asked to finish Rootbank Warren designs.** This is now the active Codex request, using the existing clay/root dungeon, current floor topology and Shortcut Crew boss wiring. Inspect native current floors before choosing the art slice. Claude's task 2 idle wiring remains his pending integration.
++Preston's additional Rootbank Warren design request subsequently completed; see the latest entry above. Claude's task 2 idle wiring remains his pending integration.
+ 
+ ## Codex: AI asset inventory and disclosure draft complete (October 11, 2026)
+ 

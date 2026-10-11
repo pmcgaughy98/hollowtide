@@ -1,0 +1,6 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+[godot_ai game_helper] registered mcp capture (debugger active=false, logger=true)
+RETIRED: first_morning_check tested the pre-pivot human-courier opening; no gameplay assertions ran.
+Use res://tools/debug/opening_flow_check.gd for title -> storm -> soul -> flood talk -> riverbank.
+For later campaign handoffs use flood_talk_check.gd or pilot_chain_check.gd.

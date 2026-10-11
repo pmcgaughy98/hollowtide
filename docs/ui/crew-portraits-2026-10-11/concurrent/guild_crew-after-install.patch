@@ -1,0 +1,23 @@
+--- at-install/scripts/town/guild_crew.gd
++++ after/scripts/town/guild_crew.gd
+@@ -59,8 +59,10 @@
+ const STAND := {"grubbit": Vector2i(12, 8), "stillwade": Vector2i(17, 8), "wickglow": Vector2i(17, 10),
+ 	"slipjaw": Vector2i(12, 10), "rinsepaw": Vector2i(17, 9)}
+ const LATE_DOOR := Vector2i(1, 6)                # Muskin comes in late, from the crew room
+-# The leader front and centre, the partner closing the ring on the right (Preston, 2026-10-11), recruits between.
+-const TEAM_SPOTS := [Vector2i(14, 10), Vector2i(16, 10), Vector2i(15, 10), Vector2i(15, 11)]
++# The leader front and centre, the partner beside Wickglow (Preston, 2026-10-11), recruits behind.
++# LEADER_NUDGE eases the leader a little down and toward the partner, off Muskin's shoulder once Muskin arrives late.
++const LEADER_NUDGE := Vector2(10, 6)
++const TEAM_SPOTS := [Vector2i(14, 10), Vector2i(16, 10), Vector2i(15, 11), Vector2i(17, 11)]
+ const STARWARD_AT := Vector2i(15, 5)
+ 
+ 
+@@ -112,6 +114,7 @@
+ 	for k in room.team.size():
+ 		moves.append([room.team[k], TEAM_SPOTS[mini(k, TEAM_SPOTS.size() - 1)]])
+ 	await SceneKit.walk_all(room, moves, 0.2)
++	room.create_tween().tween_property(room.team[0]["node"], "position", room._px(TEAM_SPOTS[0]) + LEADER_NUDGE, 0.15)
+ 	for e in room.team:
+ 		SceneKit.face(room, e, way)
+ 	for form in crew:

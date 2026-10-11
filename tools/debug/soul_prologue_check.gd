@@ -42,8 +42,16 @@ func _run() -> void:
 	for k in 30:
 		await process_frame
 	await _snap("wake")
-	var buttons: int = next.cards.size()
-	var ok_wake: bool = String(next.title.text).contains("You wake beneath the riverbank") and buttons == 0 and String(next.prose.text).contains("Roots")
-	print("Waking: '%s' / '%s', starter buttons %d -> %s" % [next.title.text, next.prose.text.replace("\n", " "), buttons, "ok" if ok_wake else "WRONG"])
+	# Since 2026-10-11 the waking is the flood talk (dialogue/flood_bank.dialogue): narration first, no starter
+	# choice when the soul has chosen, and the chosen creature's own sense on the next line.
+	var first_line: String = next.line.text if next.line != null else ""
+	var no_choice: bool = next.line != null and next.line.responses.is_empty() and next.line.character == ""
+	preload("res://scripts/ui/ui_style.gd").finish_line()
+	next.advance()
+	for k in 6:
+		await process_frame
+	var second: String = next.line.text if next.line != null else ""
+	var ok_wake: bool = no_choice and second.contains("Roots")
+	print("Waking: '%s' / '%s', no starter choice %s -> %s" % [first_line, second, no_choice, "ok" if ok_wake else "WRONG"])
 	print("RESULT: %s" % ("the soul prologue works" if ok_hand and ok_wake else "problems"))
 	quit()

@@ -1,0 +1,10 @@
+--- before/scripts/town/guild_crew.gd
++++ after/scripts/town/guild_crew.gd
+@@ -140,6 +140,7 @@
+ 	await SceneKit.say(room, _word_of_the_day(story))
+ 	if not SceneKit._alive(room):
+ 		return
++	room._sfx("cheer")   # the whole crew (ElevenLabs, 2026-10-11)
+ 	await SceneKit.say(room, [["Wayling", "You heard the Guildmaster. Wayline!"], ["Muskin", "Wayline!"], ["Wickglow", "Wayline!"]])
+ 	if not SceneKit._alive(room):
+ 		return

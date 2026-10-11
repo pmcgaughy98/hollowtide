@@ -1,0 +1,26 @@
+--- before/scripts/town/guild_crew.gd
++++ after/scripts/town/guild_crew.gd
+@@ -59,7 +59,8 @@
+ const STAND := {"grubbit": Vector2i(12, 8), "stillwade": Vector2i(17, 8), "wickglow": Vector2i(17, 10),
+ 	"slipjaw": Vector2i(12, 10), "rinsepaw": Vector2i(17, 9)}
+ const LATE_DOOR := Vector2i(1, 6)                # Muskin comes in late, from the crew room
+-const TEAM_SPOTS := [Vector2i(14, 11), Vector2i(15, 11), Vector2i(13, 11)]
++# The leader front and centre, the partner closing the ring on the right (Preston, 2026-10-11), recruits between.
++const TEAM_SPOTS := [Vector2i(14, 10), Vector2i(16, 10), Vector2i(15, 10), Vector2i(15, 11)]
+ const STARWARD_AT := Vector2i(15, 5)
+ 
+ 
+@@ -178,8 +179,11 @@
+ 		if not SceneKit._alive(room):
+ 			return
+ 		var who: Dictionary = cast.get(String(l[0]), {})
+-		if not who.is_empty() and is_instance_valid(who["node"]):
+-			SceneKit.pan(room, who["node"].position + Vector2(0, -17), 0.35)
++		if String(l[0]) == "Starward" and not who.is_empty() and is_instance_valid(who["node"]):
++			SceneKit.pan(room, who["node"].position + Vector2(0, -17), 0.35)   # the tall Guildmaster gets the frame to itself
++		else:
++			# Everyone else: the whole roll in one frame, Wayling at the top, the team just above the text box.
++			SceneKit.pan(room, room._px(Vector2i(14, 10)) + Vector2(12, -32), 0.35)
+ 		await SceneKit.say(room, [l])
+ 
+ 

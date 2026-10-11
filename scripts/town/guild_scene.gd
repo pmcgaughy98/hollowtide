@@ -223,6 +223,7 @@ static func _runners(room) -> void:
 	await hop.finished
 	if room.has_method("_sfx"):
 		room._sfx("pickup")
+	Music.jingle(room.get_tree(), "runners_named")   # the runners' fanfare (ElevenLabs, 2026-10-11)
 	await SceneKit.say(room, NAMED)
 	if not SceneKit._alive(room):
 		return

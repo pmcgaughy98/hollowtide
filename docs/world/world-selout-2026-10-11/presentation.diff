@@ -1,0 +1,21 @@
+--- before/scripts/town/highbank_painter.gd
++++ after/scripts/town/highbank_painter.gd
+@@ -100,7 +100,7 @@
+ 				_dock(img, p["rect"])
+ 	Tiles.aprons(img)
+ 	Tiles.clearings(img)
+-	return Detail.river(img)
++	return preload("res://scripts/town/world_finish.gd").paint(Detail.river(img))
+ 
+ 
+ const PLAIN_GRASS := [Color("#637849"), Color("#677c4c"), Color("#6b804f"), Color("#6f8352")]   # Codex's grass tones
+--- before/scripts/town/hub_town.gd
++++ after/scripts/town/hub_town.gd
+@@ -68,6 +68,7 @@
+ 	var map := Sprite2D.new()
+ 	map.centered = false
+ 	map.texture = ImageTexture.create_from_image(paint())
++	preload("res://scripts/town/world_finish.gd").apply(map)
+ 	_world.add_child(map)
+ 	if ResourceLoader.exists("res://scripts/town/building_exteriors.gd"):
+ 		_building_exteriors = load("res://scripts/town/building_exteriors.gd").attach(_world, self)

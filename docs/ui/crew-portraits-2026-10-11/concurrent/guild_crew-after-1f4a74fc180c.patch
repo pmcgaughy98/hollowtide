@@ -1,0 +1,11 @@
+--- at-install/scripts/town/guild_crew.gd
++++ after/scripts/town/guild_crew.gd
+@@ -61,7 +61,7 @@
+ const LATE_DOOR := Vector2i(1, 6)                # Muskin comes in late, from the crew room
+ # The leader front and centre, the partner beside Wickglow (Preston, 2026-10-11), recruits behind.
+ # LEADER_NUDGE eases the leader a little down and toward the partner, off Muskin's shoulder once Muskin arrives late.
+-const LEADER_NUDGE := Vector2(10, 6)
++const LEADER_NUDGE := Vector2(15, 8)
+ const TEAM_SPOTS := [Vector2i(14, 10), Vector2i(16, 10), Vector2i(15, 11), Vector2i(17, 11)]
+ const STARWARD_AT := Vector2i(15, 5)
+ 

@@ -310,6 +310,23 @@ func _draw_ui() -> void:
 			UI.next_arrow(c, box.end - Vector2(48, 36), _t)
 
 
+var _shared_scale := 0.0
+
+## The largest half-step scale at which every starter fits its card, shared by all three.
+func _card_scale() -> float:
+	if _shared_scale > 0.0:
+		return _shared_scale
+	var fit := 2.0
+	for form in FORMS:
+		var frames := CreatureIdle.frames(form)
+		if frames.is_empty():
+			continue
+		var box := CreatureIdle.box(frames)
+		fit = minf(fit, minf(146.0 / box.size.y, 246.0 / box.size.x))
+	_shared_scale = floorf(clampf(fit, 0.5, 2.0) * 2.0) / 2.0
+	return _shared_scale
+
+
 func _draw_card(k: int) -> void:
 	var c := _ui
 	var r := _card_rect(k)
@@ -321,7 +338,7 @@ func _draw_card(k: int) -> void:
 	var frames := CreatureIdle.frames(FORMS[k])
 	if not frames.is_empty():
 		var box := CreatureIdle.box(frames)
-		var s := floorf(clampf(minf(146.0 / box.size.y, 246.0 / box.size.x), 0.5, 2.0) * 2.0) / 2.0
+		var s := _card_scale()   # one scale for all three, so they keep their true sizes (Preston, 2026-10-11: Kithflare looked bigger)
 		var size := Vector2(box.size) * s
 		var dest := Rect2(stage_r.position + Vector2((stage_r.size.x - size.x) * 0.5, stage_r.size.y - size.y - 18), size)
 		var tex: Texture2D = CreatureIdle.frame_at(frames, _t if on else 0.0)
