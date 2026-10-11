@@ -1,0 +1,11 @@
+{
+ "prompt": "Top-down action game sprite of a packrat creature, a shrewd trader shopkeeper standing upright on its hind legs: soft grey-brown fur, huge round ears, long whiskers, big dark eyes, a long furry tail, cheek pouches stuffed full, a patchwork apron of stitched scraps with pockets bulging with trinkets, buttons, a bottle cap and a shiny pebble, holding out a small trinket in its paws as if offering a trade. Friendly, sly, a merchant's grin. Stage two of its line: a little odd, a few river shells grown into the fur of its tail. Not a mouse, not a cute hamster. Seen from above at a three-quarter overhead angle like a sprite in a top-down arena battle game, facing down and to the right toward the camera. A readable game sprite: chunky clear shapes, a crisp dark outline. Whole creature centred with empty space on every side, nothing touching the edges. On a plain white background.",
+ "prompt_style": "rd_pro__default",
+ "width": 112,
+ "height": 112,
+ "num_images": 2,
+ "remove_bg": true,
+ "reference_images": [
+  "docs/creatures/arena-starters-2026-10-07/forms/mirekit_arena_front_take1.png"
+ ]
+}

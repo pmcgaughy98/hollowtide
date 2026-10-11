@@ -1,0 +1,33 @@
+--- scripts/creature_prologue.gd original
++++ scripts/creature_prologue.gd candidate
+@@ -154,7 +154,7 @@
+ 	else:
+ 		title.text="You will find a way through together."
+ 		prose.text=NAMES[partner]+' says, "No one runs a route alone. They keep turning me away without a partner."\nYou need a guide. They need a partner. Together, you head for Highbank.'
+-		confirm.text="Reach Highbank together"
++		confirm.text="Step onto the riverbank"
+ 		back.text="Change partner"
+ 	if phase<2 and not (phase==0 and chosen_by_soul):
+ 		for i in 3:
+@@ -197,16 +197,17 @@
+ 	back.disabled=true
+ 	veil.mouse_filter=Control.MOUSE_FILTER_STOP
+ 	await create_tween().tween_property(veil,"color:a",1.0,0.15 if reduce_motion else 0.5).finished
+-	# Claude, 2026-10-09 (Preston: "prologue to town to hollow and back"): the day starts in Highbank,
+-	# and the Mouth of the Hollow there starts the run. The team record carries the choice.
++	# Preston, 2026-10-10: explore this bank and its close-up entrance immediately after choice.
++	# Highbank remains the next story stop; the existing team record carries the choice.
+ 	preload("res://scripts/town/team_state.gd").start([[hero,0],[partner,0]],{"creature_player":FORMS[hero],"opening_companion":FORMS[partner]})
+-	var dungeon:Node2D=load("res://scenes/hub_town.tscn").instantiate()
++	var dungeon:Node2D=load("res://scenes/waking_riverbank.tscn").instantiate()
++	dungeon.reduce_motion=reduce_motion
+ 	preload("res://scripts/town/team_state.gd").give_to(dungeon)
+ 	var error:=get_tree().change_scene_to_node(dungeon)
+ 	if error!=OK:
+ 		dungeon.free();leaving=false;confirm.disabled=false;back.disabled=false
+ 		veil.color.a=0;veil.mouse_filter=Control.MOUSE_FILTER_IGNORE
+-		prose.text="Highbank could not open. Your choices are still here."
++		prose.text="Riverbank could not open. Your choices are still here."
+ 
+ func _unhandled_input(event:InputEvent) -> void:
+ 	if event.is_action_pressed("ui_cancel"):

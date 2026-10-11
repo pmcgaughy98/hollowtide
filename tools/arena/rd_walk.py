@@ -2,7 +2,7 @@
   python tools/arena/rd_walk.py <creature> <facing> [hint]
 Runs rd_advanced_animation__walking ($0.14, 8 frames) on assets/sprites/arena/<creature>/<facing>.png at its own size
 and saves docs/creatures/arena-starters-2026-10-07/walk/<creature>_<facing>_sheet.png plus a receipt.
-Retries "busy" failures (not charged); never re-sends a job that ran."""
+Retries only "busy" failures (not charged), five minutes apart; any other failure stops."""
 import base64, json, sys, time, urllib.request
 from pathlib import Path
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "debug"))
@@ -29,4 +29,8 @@ for attempt in range(5):
     if urls:
         urllib.request.urlretrieve(urls[0], out / f"{name}_{facing}_sheet.png")
         print(name, facing, "ok", (d.get("result") or {}).get("balance_cost"), flush=True); break
-    print(name, facing, "failed", (d.get("error") or {}).get("code"), flush=True); time.sleep(120)
+    code = str((d.get("error") or {}).get("code"))
+    print(name, facing, "failed", code, flush=True)
+    if "busy" not in code:
+        break   # only "busy" is free to retry; other failures can be charged (rd_action.py, 2026-10-09)
+    time.sleep(300)

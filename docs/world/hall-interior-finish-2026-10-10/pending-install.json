@@ -1,0 +1,57 @@
+[
+  {
+    "path": "assets/sprites/world/hall_interior_2026_10_10/bench.png",
+    "before": null,
+    "after": "103048752d3945849375e9bf40ae4624e8cd958862f02ccaf9956f1db6f3e510"
+  },
+  {
+    "path": "assets/sprites/world/hall_interior_2026_10_10/chart.png",
+    "before": null,
+    "after": "8fde49cfa73931eb824f8d7a4ad354304e06acca1c6b8c866dcbe9adf4487115"
+  },
+  {
+    "path": "assets/sprites/world/hall_interior_2026_10_10/fern.png",
+    "before": null,
+    "after": "bb4f3cd98f2f0ff16d587852bc399135d98b80eac4b83e292213f4a15a1febd9"
+  },
+  {
+    "path": "assets/sprites/world/hall_interior_2026_10_10/hall_native.png",
+    "before": null,
+    "after": "503f4eef6416487171dee731bc5e19cd4492ff56dd414869e453e4638a605647"
+  },
+  {
+    "path": "assets/sprites/world/hall_interior_2026_10_10/parcels.png",
+    "before": null,
+    "after": "bcb804c110b2cbf48128a2a73d41d909766c48c0437bf948f49980bcbe7d933f"
+  },
+  {
+    "path": "assets/sprites/world/hall_interior_2026_10_10/pillar.png",
+    "before": null,
+    "after": "130fc1820bd5df3abb5d53bfc7f902c3dcdb58ea0eec724c8e7c422dc3c6bcc6"
+  },
+  {
+    "path": "assets/sprites/world/hall_interior_2026_10_10/reports.png",
+    "before": null,
+    "after": "2bd817d3003959d1020d33329bf5462a63c8a4dd7ee2f57fc1cc1fc439fe8bf6"
+  },
+  {
+    "path": "scripts/town/hall_room_art.gd",
+    "before": null,
+    "after": "722621043d8ff0ecef7b28da26ef7c3bd255dc6801ed1ae9b5a2927d24008e66"
+  },
+  {
+    "path": "scripts/town/room_painter.gd",
+    "before": "3ccc49f70e9630e800d675723ec72c4ae58686abacda805c507051640175fabf",
+    "after": "337808d6003f3f4c544cbf03acfd3ed81f8f721d9f7ceaf2d8552f16724b5dad"
+  },
+  {
+    "path": "scripts/town/town_room.gd",
+    "before": "85aa5f9f83c92196199fc3c4b3aa906855d4e14aec4d638e2213ddc256ed9737",
+    "after": "0b0e1f5be809a08f09aab75fe86ab25370384050819d57f6913b1406acef45e5"
+  },
+  {
+    "path": "docs/AI_COLLABORATION.md",
+    "before": "ef4f0a4fe6c137424161533924b5104e9138c7f0f1b0e97a8581a73b534eb210",
+    "after": "8b9d8f36d60fadfc0778899380fad20ca65d80ea0646f5dcb8f582bf9b76211a"
+  }
+]

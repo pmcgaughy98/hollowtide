@@ -1,0 +1,11 @@
+{
+ "prompt": "Top-down action game sprite of a fat, bulky young feral hog creature, the bully boss of a gang of river scavengers, standing on all fours: a huge round barrel body that fills the frame, short thick stumpy legs, a coarse bristly dark brown-grey hide caked with dried grey marsh mud and a few sickly green rot blotches, a stiff ridge of black bristles down its spine, a broad flat snout with flaring nostrils, two short chipped yellow tusks jutting up from its lower jaw, small mean squinting eyes under a heavy brow, floppy torn ears, a stolen courier cap far too small perched crooked on its head. Smug, mean and bullying, a sneer, chin raised, chest puffed out. Seen from above at a three-quarter overhead angle like a sprite in a top-down arena battle game, facing down and to the right toward the camera. A readable game sprite: chunky clear shapes, a crisp dark outline. Not a cute pink pig, not a boar with huge tusks, no clothes other than the cap. Whole creature centred with empty space on every side, nothing touching the edges. On a plain white background.",
+ "prompt_style": "rd_pro__default",
+ "width": 96,
+ "height": 96,
+ "num_images": 2,
+ "remove_bg": true,
+ "reference_images": [
+  "docs/creatures/arena-starters-2026-10-07/forms/mirekit_arena_front_take1.png"
+ ]
+}

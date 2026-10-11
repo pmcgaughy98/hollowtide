@@ -1,0 +1,11 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+OpenGL API 3.3.0 NVIDIA 596.49 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce GTX 1660 SUPER
+
+[godot_ai game_helper] registered mcp capture (debugger active=false, logger=true)
+Prologue: after 3 presses the scene is hub_town.tscn; the record's party [[0, 0], [1, 0]]
+Town: spawned at (5, 8) with ["kithflare", "tallowroot"]
+The Mouth of the Hollow: the scene is dungeon.tscn, back to town after true, party [[0, 0], [1, 0]]
+After a clear: the scene is hub_town.tscn; the leader at (24, 8) (the Hall's steps (24, 8)); news 'The Hollow is cleared. The bag and the new partners came home. (Cleared 1.)'; the record's bag { "reedberry": 1, "lamp_oil": 2 }, IQ { 1: 7 }, cleared 1
+Second run: bag { "reedberry": 1, "lamp_oil": 2 }, taught for 0:0 true, IQ { 1: 7 }
+After a faint: the scene is hub_town.tscn; news 'The team was carried back from the Hollow. The bag was lost; the partners are resting.'; the record's bag { "reedberry": 1 }
+TOWN LOOP PASS

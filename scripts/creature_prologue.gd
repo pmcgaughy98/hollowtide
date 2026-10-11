@@ -1,9 +1,8 @@
 extends Node2D
-## Playable opening proposal: awakening, another survivor, then Highbank.
+## Opening dialogue proposal: meet the trainee mid-flood, retreat into the Hollow, then Highbank.
 ## Identity and party are passed into the existing town; no save/state rewrite.
-const Painter=preload("res://scripts/dungeon/floor_painter.gd")
-const Gen=preload("res://scripts/hollow/hollow_gen.gd")
 const Finish=preload("res://scripts/arena/creature_finish.gd")
+const UI=preload("res://scripts/ui/ui_style.gd")
 const TITLE=preload("res://assets/fonts/AlegreyaSansSC-Bold.ttf")
 const FONT=preload("res://assets/fonts/Silkscreen-Regular.ttf")
 const FORMS=["kithflare","tallowroot","rimefin"]
@@ -26,6 +25,9 @@ var cards:Array[Button]=[]
 var leader_sprite:Sprite2D
 var partner_sprite:Sprite2D
 var veil:ColorRect
+var dialogue:Node2D
+var bank:Node2D
+var flood_cover:Node2D
 
 func _ready() -> void:
 	get_tree().root.content_scale_size=Vector2i(1152,648)
@@ -40,44 +42,45 @@ func _ready() -> void:
 	display.scale=Vector2.ONE*3
 	display.texture_filter=CanvasItem.TEXTURE_FILTER_NEAREST
 	add_child(display)
-	var tiles:=PackedByteArray()
-	tiles.resize(16*9)
-	tiles.fill(Gen.WALL)
-	for y in range(1,8):
-		for x in range(2,14):tiles[y*16+x]=Gen.FLOOR
-	var d:Dictionary={"w":16,"h":9,"tiles":tiles,"stairs":Vector2i(12,2)}
-	var map:=Sprite2D.new()
-	map.centered=false
-	map.texture=ImageTexture.create_from_image(Painter.paint(d,24,19))
-	map.texture_filter=CanvasItem.TEXTURE_FILTER_NEAREST
-	vp.add_child(map)
-	leader_sprite=actor(vp,Vector2(168,100))
-	partner_sprite=actor(vp,Vector2(222,101))
+	bank=preload("res://scripts/ui/waking_bank.gd").new()
+	bank.reduce_motion=reduce_motion
+	vp.add_child(bank)
+	# Keep the ruin/path submerged through partner choice. Claude's journey owns the actual rise.
+	flood_cover=preload("res://scripts/ui/hollow_rise.gd").new()
+	flood_cover.source=bank.background.texture.get_image()
+	flood_cover.finish=bank.background.material
+	flood_cover.reduce_motion=reduce_motion
+	vp.add_child(flood_cover)
+	flood_cover.set_process(false)
+	leader_sprite=actor(vp,Vector2(168,83))
+	partner_sprite=actor(vp,Vector2(222,84))
 	partner_sprite.hide()
 	var ui:=CanvasLayer.new()
 	add_child(ui)
-	var banner:=label("HOLLOWTIDE   /   THE FIRST VOICE",20)
+	var banner:=label("HOLLOWTIDE   /   RISING WATER",20)
 	banner.position=Vector2(48,24)
 	ui.add_child(banner)
 	panel=PanelContainer.new()
-	panel.position=Vector2(102,338)
-	panel.custom_minimum_size=Vector2(948,286)
-	var style:=StyleBoxFlat.new()
-	style.bg_color=Color("#1f1b36")
-	style.border_color=Color("#8e6fb4")
-	style.set_border_width_all(3)
-	style.set_content_margin_all(18)
+	panel.position=Vector2(102,468)
+	panel.custom_minimum_size=Vector2(948,160)
+	var style:=UI.frame("panel_dim").duplicate()
+	style.set_content_margin_all(24)
 	panel.add_theme_stylebox_override("panel",style)
 	ui.add_child(panel)
 	var list:=VBoxContainer.new()
 	list.add_theme_constant_override("separation",8)
 	panel.add_child(list)
 	title=label("",30)
-	list.add_child(title)
+	title.position=Vector2(270,256)
+	ui.add_child(title)
 	prose=label("",22)
 	prose.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART
 	prose.custom_minimum_size=Vector2(900,58)
-	list.add_child(prose)
+	prose.hide() # Remains the story text model; the shared dialogue draws it.
+	ui.add_child(prose)
+	dialogue=preload("res://scripts/ui/opening_dialogue.gd").new()
+	dialogue.source=self
+	ui.add_child(dialogue)
 	choices=HBoxContainer.new()
 	choices.add_theme_constant_override("separation",12)
 	list.add_child(choices)
@@ -85,11 +88,11 @@ func _ready() -> void:
 	actions.add_theme_constant_override("separation",16)
 	list.add_child(actions)
 	confirm=button("")
-	confirm.custom_minimum_size=Vector2(652,44)
+	confirm.custom_minimum_size=Vector2(648,52)
 	confirm.pressed.connect(advance)
 	actions.add_child(confirm)
 	back=button("Back")
-	back.custom_minimum_size=Vector2(236,44)
+	back.custom_minimum_size=Vector2(236,52)
 	back.pressed.connect(previous)
 	actions.add_child(back)
 	veil=ColorRect.new()
@@ -103,6 +106,7 @@ func actor(parent:Node,at:Vector2) -> Sprite2D:
 	var s:=Sprite2D.new()
 	s.texture_filter=CanvasItem.TEXTURE_FILTER_NEAREST
 	s.position=at
+	s.z_index=int(at.y)
 	Finish.apply(s)
 	parent.add_child(s)
 	return s
@@ -115,8 +119,9 @@ func set_form(s:Sprite2D,index:int) -> void:
 func label(text:String,size:int) -> Label:
 	var l:=Label.new()
 	l.text=text
-	l.add_theme_font_override("font",TITLE)
-	l.add_theme_font_size_override("font_size",size)
+	var role:="name" if size>=30 else "label"
+	l.add_theme_font_override("font",UI.font(role))
+	l.add_theme_font_size_override("font_size",UI.type_size(role))
 	l.add_theme_color_override("font_color",Color("#fff4e8"))
 	return l
 
@@ -125,44 +130,48 @@ func button(text:String) -> Button:
 	b.text=text
 	b.add_theme_font_override("font",TITLE)
 	b.add_theme_font_size_override("font_size",24)
-	var style:=StyleBoxFlat.new()
-	style.bg_color=Color("#332d4c")
-	style.border_color=Color("#8e6fb4")
-	style.set_border_width_all(2)
+	b.custom_minimum_size.y=52
+	var style:=UI.frame("panel").duplicate()
+	style.content_margin_top=8
+	style.content_margin_bottom=8
 	b.add_theme_stylebox_override("normal",style)
-	var focus:=style.duplicate()
-	focus.border_color=Color("#7fe3d0")
-	focus.set_border_width_all(3)
+	var focus:=UI.frame("panel_focus").duplicate()
+	focus.content_margin_top=8
+	focus.content_margin_bottom=8
 	b.add_theme_stylebox_override("focus",focus)
 	b.add_theme_stylebox_override("hover",focus)
+	UI.style_button(b)
 	return b
 
 func refresh() -> void:
 	for child in choices.get_children():choices.remove_child(child);child.queue_free()
 	cards.clear()
 	partner_sprite.visible=phase>0
+	bank.companion_visible=phase>0
+	bank.queue_redraw()
 	set_form(leader_sprite,hero)
 	set_form(partner_sprite,partner)
+	# Dialogue proposals for the approved pilot outline; final wording remains Preston's.
 	if phase==0:
 		title.text="You wake beneath the riverbank."
-		prose.text="The river has gone quiet. You press against the clay and feel...\n"+SENSES[hero]
+		prose.text="The bank gives way. River water climbs the clay around you.\nYou remember being human. "+SENSES[hero]
 		confirm.text="This is me"
 		back.text="Return to title"
 	elif phase==1:
-		title.text="A voice answers in the dark."
-		prose.text='"You heard the bank give way too? Stay close. There must be a way out."\nWhich survivor do you call back to?'
+		title.text="Someone reaches you through the flood."
+		prose.text='"I’m a Wayline trainee. The river tore the mail loose. Something told me to come here tonight."\nThe water is still rising. Whose voice do you answer?'
 		confirm.text="Travel with "+NAMES[partner]
 		back.text="Back"
 	else:
 		title.text="You will find a way through together."
-		prose.text=NAMES[partner]+" waits beside you. A break in the clay opens onto the path to Highbank.\nFollow the village lights. Watch each other as you go."
-		confirm.text="Reach Highbank together"
-		back.text="Choose another companion"
+		prose.text=NAMES[partner]+' says, "Highbank’s road is flooded. No one runs a route alone. Stay with me."\nYou need a guide. The trainee needs a partner. Together, you look for higher ground.'
+		confirm.text="Find higher ground"
+		back.text="Change partner"
 	if phase<2 and not (phase==0 and chosen_by_soul):
 		for i in 3:
 			if phase==1 and i==hero:continue
 			var b:=button(NAMES[i])
-			b.custom_minimum_size=Vector2(290 if phase==0 else 444,46)
+			b.custom_minimum_size=Vector2(290 if phase==0 else 444,52)
 			b.pressed.connect(choose.bind(i))
 			choices.add_child(b)
 			cards.append(b)
@@ -175,6 +184,7 @@ func refresh() -> void:
 		controls[i].focus_neighbor_right=controls[(i+1)%controls.size()].get_path()
 		controls[i].focus_neighbor_top=controls[i].focus_neighbor_left
 		controls[i].focus_neighbor_bottom=controls[i].focus_neighbor_right
+	dialogue.queue_redraw()
 	confirm.grab_focus.call_deferred()
 
 func choose(i:int) -> void:
@@ -192,22 +202,28 @@ func previous() -> void:
 
 func advance() -> void:
 	if leaving:return
+	# Complete every typed page before leaving the current beat; otherwise later rows were skipped.
+	if not UI.line_done(prose.text):
+		UI.finish_line()
+		dialogue.queue_redraw()
+		return
 	if phase<2:phase+=1;refresh();return
 	leaving=true
 	confirm.disabled=true
 	back.disabled=true
 	veil.mouse_filter=Control.MOUSE_FILTER_STOP
 	await create_tween().tween_property(veil,"color:a",1.0,0.15 if reduce_motion else 0.5).finished
-	# Claude, 2026-10-09 (Preston: "prologue to town to hollow and back"): the day starts in Highbank,
-	# and the Mouth of the Hollow there starts the run. The team record carries the choice.
+	# Preston, 2026-10-10: explore this bank and its close-up entrance immediately after choice.
+	# The flood blocks Highbank; Claude’s existing riverbank hooks open the boss-free Hollow Mouth.
 	preload("res://scripts/town/team_state.gd").start([[hero,0],[partner,0]],{"creature_player":FORMS[hero],"opening_companion":FORMS[partner]})
-	var dungeon:Node2D=load("res://scenes/hub_town.tscn").instantiate()
+	var dungeon:Node2D=load("res://scenes/waking_riverbank.tscn").instantiate()
+	dungeon.reduce_motion=reduce_motion
 	preload("res://scripts/town/team_state.gd").give_to(dungeon)
 	var error:=get_tree().change_scene_to_node(dungeon)
 	if error!=OK:
 		dungeon.free();leaving=false;confirm.disabled=false;back.disabled=false
 		veil.color.a=0;veil.mouse_filter=Control.MOUSE_FILTER_IGNORE
-		prose.text="Highbank could not open. Your choices are still here."
+		prose.text="Riverbank could not open. Your choices are still here."
 
 func _unhandled_input(event:InputEvent) -> void:
 	if event.is_action_pressed("ui_cancel"):

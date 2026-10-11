@@ -29,6 +29,7 @@ const TeamState := preload("res://scripts/town/team_state.gd")
 const Jobs := preload("res://scripts/town/jobs.gd")
 const BossIntro := preload("res://scripts/dungeon/boss_intro.gd")
 const CrewScene := preload("res://scripts/dungeon/crew_scene.gd")
+const StoneScene := preload("res://scripts/dungeon/stone_scene.gd")
 const Music := preload("res://scripts/audio/music.gd")
 const TOWN_SCENE := "res://scenes/hub_town.tscn"
 const FONT := preload("res://assets/fonts/Silkscreen-Bold.ttf")
@@ -196,6 +197,11 @@ const LEARN := {
 	# The rival crew (Claude, 2026-10-10): Play Dead waits for the boss slice.
 	"mirekit": [[1, "grub_bite"], [1, "rot_spit"]],
 	"whinet": [[1, "needle_jab"], [1, "drain_bite"], [3, "buzz_dart"]],
+	"gruntle": [[1, "grub_bite"]],
+	# The Hollow's new wilds (2026-10-10): existing moves their bodies allow, placeholders until Grok sets kits.
+	"skimlet": [[1, "needle_bite"], [3, "lunge"]],
+	"ozbender": [[1, "needle_bite"], [4, "lunge"]],
+	"valvekin": [[1, "glass_guard"]],   # a placeholder bite until Grok sets its kit (drafts in the crew proposal)
 	"archroot": [],
 	"springvault": []}
 
@@ -279,14 +285,19 @@ const MOVE_FX := {
 	"shear": {"hit": "sail_slash"}, "downdraft": {"area": "downdraft_column"}, "whistle_dart": {"proj": "spark_bolt", "hit": "sonar_ring"},
 }
 const RECIPE := {"cols": 3, "rows": 2, "cell_w": 14, "cell_h": 10, "room_density": 0.7, "extra_halls": 0.15,
-	"dead_ends": false, "hall_width": 1, "wild": 3, "spawns": [[9, 0], [8, 0], [7, 0]],
+	"dead_ends": false, "hall_width": 1, "wild": 3, "spawns": [[9, 0], [8, 0]],
 	"items": 5, "traps": 4, "monster_house": 0.3}   # Grok, 2026-10-10: half the floor (42x20). Wild count stays 3.
 ## Which stage-0 wild creatures each floor rolls (Grok, 2026-10-10). Kithflare and Tallowroot
 ## stay the party. The map, the wild count, the items, the traps and the house rate stay on RECIPE.
+## Rootbank Warren's wilds (Preston, 2026-10-10: starters are not recruited yet; the recruitable lines are
+## Preostmar, Cinderhide, Fusern, Listener, Canvaswing, Dustkite, Troughspine and the new Hollow lines).
+## Stocked the Explorers of Sky way, by what lives in a dry clay riverbank: the Gale nesters in the sunny
+## burrows near the top, the burrowing Ember lizard below, kiln-hard clay and buried stone at the bottom.
+## Listener lives at the Warden's pond (The Hollow); plan: docs/design/pilot-story-2026-10-10.md.
 const FLOOR_SPAWNS := {
-	1: [[9, 0], [8, 0], [7, 0]],         # Dustkite, Canvaswing, Listener
-	2: [[2, 0], [6, 0], [7, 0], [9, 0], [10, 0]], # Rimefin, Punchybun, Listener, Dustkite, Troughspine (Claude's draft for Grok, 2026-10-10)
-	3: [[3, 0], [4, 0], [5, 0], [2, 0]], # Cinderhide, Fusern, Preostmar, Rimefin
+	1: [[9, 0], [8, 0]],                 # Dustkite, Canvaswing
+	2: [[9, 0], [8, 0], [3, 0]],         # + Cinderhide
+	3: [[3, 0], [4, 0], [5, 0]],         # Cinderhide, Fusern, Preostmar
 }
 ## The dungeons (Claude, 2026-10-10; Preston: the Warden is the second boss; the first is the rival crew's
 ## two grunts, easy on purpose). Each has its floors, its wild creatures by floor, the look of each floor
@@ -299,14 +310,26 @@ const CREW_TALK := [["{partner}", "There they are! Give back that parcel!", "ang
 	["Whinet", "Yeah! Keepers! Get 'em, Mirekit!", "mischievous"],
 	["{partner}", "We'll take it back ourselves, then!", "angry"]]
 const DUNGEONS := {
+	# The opening's dungeon (Preston, 2026-10-10: wake in the flood, retreat into the Hollow, a first dungeon
+	# with no boss). The outer Hollow the team runs into from the riverbank; two short floors that teach the
+	# moves, the partner, items and the stairs. "Hollow Mouth" is a working name. "boss" empty: the last
+	# stairs clear it (act_stairs).
+	"mouth": {"name": "Hollow Mouth", "floors": 2,
+		"spawns": {1: [[7, 0], [103, 0]], 2: [[7, 0], [10, 0], [103, 0]]},   # Listener and Skimlet; + Troughspine
+		"looks": {1: "ruin", 2: "ruin"},
+		"boss": {}},
 	# The first dungeon's name is Claude's pick (Preston, 2026-10-10: "you choose name for dungeon 1"):
 	# tunnels dug through a river bank, roots in the walls, where the crew holes up.
 	"first": {"name": "Rootbank Warren", "floors": FLOORS, "spawns": FLOOR_SPAWNS, "looks": {1: "riverbank", 2: "riverbank", 3: "riverbank", 4: "riverbank"},
 		"boss": {"line": [100, 0], "minions": [[101, 0]], "hp": 1.5, "intro": false, "scene": "crew", "arena": Vector2i(13, 10), "talk": CREW_TALK}},
 	"hollow": {"name": "The Hollow", "floors": 2,
-		"spawns": {1: [[7, 0], [2, 0], [9, 0]], 2: [[7, 0], [10, 0], [2, 0], [8, 0]]},
+		# The Warden's dungeon leans Tide, stocked the Explorers of Sky way: the place's essence plus what
+		# lives at the water (Preston, 2026-10-10: Troughspine belongs here). Listener and Troughspine;
+		# the Gale fliers moved out; Rimefin too (a starter's line is not met here, Preston, same day).
+		# The three water-edge lines (docs/creatures/hollow-wilds-2026-10-10.md): Skimlet in the valley, Ozbender and Valvekin in the ruin.
+		"spawns": {1: [[7, 0], [10, 0], [103, 0]], 2: [[7, 0], [10, 0], [104, 0], [105, 0]]},   # + Skimlet; + Ozbender, Valvekin
 		"looks": {1: "valley", 2: "ruin", 3: "ruin"},
-		"boss": {"line": BOSS, "minions": BOSS_MINIONS, "hp": BOSS_HP, "intro": true, "arena": BOSS_ARENA, "talk": BOSS_TALK}},
+		"boss": {"line": BOSS, "minions": BOSS_MINIONS, "hp": BOSS_HP, "intro": true, "arena": BOSS_ARENA, "talk": BOSS_TALK, "stone": true}},
 }
 const DIRS := [Vector2i(1, 0), Vector2i(1, 1), Vector2i(0, 1), Vector2i(-1, 1), Vector2i(-1, 0), Vector2i(-1, -1), Vector2i(0, -1), Vector2i(1, -1)]
 
@@ -345,6 +368,7 @@ var cam_focus: Variant = null             # a scene points the camera here inste
 var pond := Rect2i()                      # the boss room's pond (no walking on it), or empty
 var dungeon := "first"                    # which of DUNGEONS this run is in (the town sets it)
 var beaten: Array = []                    # dungeons whose boss the team has beaten (carried by TeamState)
+var story := {}                           # the pilot's story state: "stone" is "", "carried" or "installed" (docs/design/pilot-story-2026-10-10.md)
 
 
 func floors() -> int:
@@ -415,6 +439,8 @@ var _stop := 0.08                        # how long that hit-stop is (longer for
 var _parts: Array = []                   # {pos, vel, t, life, col, size, grav}
 var _rings: Array = []                   # {pos, t, life, r, col}
 var _hold := 0.0                        # a first key press waits this long so two keys can make a diagonal
+var turn_mode := false                  # Shift is held: the leader turns in place and the arrows show
+var _shift_turned := false              # a direction was pressed during this Shift hold (so it was no tap)
 var _was_dir := Vector2i.ZERO
 var _keys_was := {}
 
@@ -455,6 +481,7 @@ func _ready() -> void:
 	_fx.z_index = 4000
 	_fx.draw.connect(_draw_fx)
 	_world.add_child(_fx)
+	_world.add_child(preload("res://scripts/dungeon/dungeon_visibility_canvas.gd").new(self))
 	var layer := CanvasLayer.new()
 	add_child(layer)
 	_hud_layer = layer
@@ -845,10 +872,8 @@ func _make(line: int, stage: int, team: int, pos: Vector2i) -> Dictionary:
 ## ground. "form/set" -> {facing: the row its feet stand on}; walk and action frames move with it.
 ## Lines that fight only in the dungeon (Claude, 2026-10-10): the rival crew, numbered from 100 so the
 ## arena's LINES (and everything that loops over it) never meets them. Later stages join with their art.
-const CREW_LINES := {
-	100: {"forms": [["mirekit", "res://data/creatures/2201_mirekit.tres"]]},
-	101: {"forms": [["whinet", "res://data/creatures/2301_whinet.tres"]]},
-}
+const Lines := preload("res://scripts/creatures/lines.gd")
+const CREW_LINES := Lines.EXTRA   # the lines made for the dungeon and the story (scripts/creatures/lines.gd)
 
 
 static func line_data(line: int) -> Dictionary:
@@ -1077,16 +1102,55 @@ func move_tiles(i: int, m: String, d: Vector2i) -> Array[Vector2i]:
 	return out
 
 
-## The best direction for move m from creature i: the first facing that hits someone, preferring
-## the current facing (this is the aiming help: a move turns to the one enemy it can reach).
+## The best direction for move m from creature i (the aiming help: a move turns to an enemy it can reach).
+## Ranked, not first-found (Claude, 2026-10-10; Preston: "fix aiming system using synthesis"). Structure
+## from Rescue Team DX (a move turns to the nearest foe) and Explorers of Sky (your facing is your aim):
+##   1. the current facing, when it hits someone: Shift-turning to a foe always wins;
+##   2. the foe this creature last hit, while it is still in reach (no flipping between two foes);
+##   3. the nearest foe, then the facing that hits more of them, then the smallest turn from now.
 func aim(i: int, m: String) -> Vector2i:
 	var cur := _dir_of(ents[i]["facing"])
 	if not move_hits(i, m, cur)["hits"].is_empty():
 		return cur
+	var mark := _marked(i)
+	var best := Vector2i.ZERO
+	var best_score := INF
 	for d in DIRS:
-		if not move_hits(i, m, d)["hits"].is_empty():
-			return d
-	return Vector2i.ZERO
+		var hits: Array = move_hits(i, m, d)["hits"]
+		if hits.is_empty():
+			continue
+		var score := _cheb(ents[i]["pos"], ents[hits[0]]["pos"]) * 10.0 - hits.size() * 3.0
+		score += absf(angle_difference(Vector2(cur).angle(), Vector2(d).angle()))
+		if mark >= 0 and hits.has(mark):
+			score -= 1000.0
+		if score < best_score:
+			best_score = score
+			best = d
+	return best
+
+
+## The foe creature i last hit, as an index into ents (-1 when none, or it is gone or down).
+## Kept by node, not index: the list changes as creatures join and fall.
+func _marked(i: int) -> int:
+	var node: Variant = ents[i].get("target_node")
+	if node == null or not is_instance_valid(node):
+		return -1
+	for j in ents.size():
+		if ents[j]["node"] == node and ents[j]["hp"] > 0 and _foes(i, j):
+			return j
+	return -1
+
+
+## Who the leader's basic attack would hit right now, with the aiming help (-1 when nobody).
+func aim_target() -> int:
+	if ents.is_empty() or ents[0]["hp"] <= 0:
+		return -1
+	var m: String = ents[0]["moves"][0]
+	var d := aim(0, m)
+	if d == Vector2i.ZERO:
+		return -1
+	var hits: Array = move_hits(0, m, d)["hits"]
+	return -1 if hits.is_empty() else int(hits[0])
 
 
 func damage(i: int, j: int, m: String) -> int:
@@ -1121,6 +1185,8 @@ func use_move(i: int, m: String, d: Vector2i) -> bool:
 	if Arena.MOVES[m].get("heal", 0) > 0:
 		return await _seep(i, m)
 	var res := move_hits(i, m, d)
+	if not res["hits"].is_empty():
+		e["target_node"] = ents[res["hits"][0]]["node"]   # aim() keeps to this foe while it is in reach
 	e["facing"] = _facing_of(d)
 	_set_tex(e, e["art"]["still"][e["facing"]])
 	e["cds"][m] = _turns_of(m, i)
@@ -1415,9 +1481,10 @@ func _wound(i: int, j: int, dmg: int, col: Color) -> void:
 		_say("%s fainted!" % o["name"])
 		_sfx("faint", -4.0)
 		if o.get("boss", false):
-			_banner_show("VICTORY!", "%s is beaten" % o["name"], Color(1, 0.9, 0.4))
-			Music.play(get_tree(), "")
-			Music.jingle(get_tree(), "victory")
+			if not (boss_intro and boss_cfg().get("stone", false)):   # the Warden is not beaten: the stand-off (stone_scene.gd)
+				_banner_show("VICTORY!", "%s is beaten" % o["name"], Color(1, 0.9, 0.4))
+				Music.play(get_tree(), "")
+				Music.jingle(get_tree(), "victory")
 			_fade.color = Color(1, 1, 1, 0.85)   # the white flash as it falls (Rescue Team DX's boss finish)
 			var flash := create_tween()
 			flash.tween_property(_fade, "color:a", 0.0, 0.6)
@@ -1425,6 +1492,9 @@ func _wound(i: int, j: int, dmg: int, col: Color) -> void:
 			if crew_scene_here():
 				cutscene = true   # now, so no one takes another turn before the scene starts
 				(func() -> void: CrewScene.after(self)).call_deferred()
+			elif boss_intro and boss_cfg().get("stone", false):
+				cutscene = true   # the stone rises from the Warden's pond (scripts/dungeon/stone_scene.gd)
+				(func() -> void: StoneScene.after(self)).call_deferred()
 			else:
 				_finish_after_boss.call_deferred()
 		if o["team"] == 1:
@@ -1444,8 +1514,8 @@ func _wound(i: int, j: int, dmg: int, col: Color) -> void:
 				_sfx("recruit_rise", -4.0)
 				_play("res://assets/audio/sfx/ui/confirm.wav", -8.0)
 				return
-		if o.get("boss", false) and crew_scene_here():
-			return   # Mirekit only plays dead: it stays on screen for its scene
+		if o.get("boss", false) and (crew_scene_here() or (boss_intro and boss_cfg().get("stone", false))):
+			return   # Mirekit only plays dead, and the Warden only seems beaten: each stays on screen for its scene
 		var tw := create_tween()
 		tw.tween_property(o["node"], "modulate:a", 0.0, 0.35)
 
@@ -1520,6 +1590,19 @@ func act_face(d: Vector2i) -> void:
 	_set_tex(ents[0], ents[0]["art"]["still"][ents[0]["facing"]])
 
 
+## Turn the leader to the nearest foe it can see (a tap of Shift). Free, like any turn in place.
+func act_face_nearest() -> void:
+	if busy or ents.is_empty() or ents[0]["hp"] <= 0:
+		return
+	var p: Vector2i = ents[0]["pos"]
+	var best := -1
+	for j in ents.size():
+		if _foes(0, j) and ents[j]["hp"] > 0 and visible_tiles.has(ents[j]["pos"]) and (best < 0 or _cheb(p, ents[j]["pos"]) < _cheb(p, ents[best]["pos"])):
+			best = j
+	if best >= 0:
+		act_face(_dir_of(_facing_of(ents[best]["pos"] - p)))
+
+
 ## Slot 0 is the basic attack, 1 to 3 the moves. A move with nobody in reach is refused and
 ## costs nothing; a move that can reach one enemy turns to it.
 func act_attack(slot: int) -> void:
@@ -1557,6 +1640,8 @@ func act_stairs() -> void:
 		_say("The stairs are sealed while %s stands." % ents[boss]["name"])
 		_sfx("denied", -4.0)
 		return
+	if dungeon == "mouth" and floor_n == floors() and String(story.get("parcel", "")) == "":
+		await _mouth_exit()
 	busy = true
 	_sfx("stairs", -2.0)
 	var tw := create_tween()
@@ -1567,6 +1652,12 @@ func act_stairs() -> void:
 		if e["team"] == 0 and e["hp"] > 0:
 			_grow(e, "floors", 1)
 			_gain_iq(e, IQ_PER_FLOOR)
+	if boss_cfg().is_empty() and floor_n > floors():
+		# A dungeon with no boss (the Hollow Mouth): its last stairs are the way out, a clear like a boss's.
+		floor_n = floors()
+		busy = false
+		_finish_after_boss()
+		return
 	if floor_n > floors() + 1:
 		cleared += 1
 		floor_n = 1
@@ -1580,6 +1671,27 @@ func act_stairs() -> void:
 	tw.tween_property(_fade, "color:a", 0.0, 0.3)
 	await tw.finished
 	busy = false
+
+
+## The Hollow Mouth's way out (Preston, 2026-10-10: the partner shows the parcel after the first dungeon;
+## a presence below foreshadows the Warden). The lines are Claude's drafts for Preston.
+func _mouth_exit() -> void:
+	story["parcel"] = "saved"   # the board scene in Highbank is where it is stolen (board_scene.gd)
+	_shake = 6.0
+	_sfx("pond_rumble", -4.0)
+	var mate: Dictionary = ents[1] if ents.size() > 1 and ents[1]["team"] == 0 and ents[1]["hp"] > 0 else ents[0]
+	var who := String(mate["name"])
+	var f := String(mate["form"])
+	talk = [
+		["", "Far below, something shifts. The whole ruin hums, then goes still."],
+		[who, "...Did you feel that? Let's not find out what that was.", f + ":worried"],
+		[who, "But look! I kept one dry. A sealed Wayline parcel, all through the flood.", f + ":joyous"],
+		[who, "If we deliver this, the Hall can't turn me away again. To Highbank!", f + ":determined"],
+	]
+	cutscene = true
+	while not talk.is_empty() and is_inside_tree():
+		await get_tree().process_frame
+	cutscene = false
 
 
 ## Hand the fight to the arena engine: your whole team, and every wild creature awake within
@@ -2045,6 +2157,9 @@ func _music_update() -> void:
 func act_talk() -> void:
 	if talk.is_empty():
 		return
+	if not UI.line_done(String(talk[0][1])):
+		UI.finish_line()   # the first press shows the rest of the typed line, the next moves on
+		return
 	talk.pop_front()
 	if talk.is_empty() and boss >= 0 and not boss_met and not cutscene:
 		_meet_boss()
@@ -2132,6 +2247,8 @@ func _finish_after_boss() -> void:
 	cleared += 1
 	if not dungeon in beaten:
 		beaten.append(dungeon)   # the town sends the next run on to the next dungeon
+	if boss_cfg().get("stone", false) and story.get("stone", "") == "":
+		story["stone"] = "carried"   # the team brings the pond stone home for the Growth Shrine
 	floor_n = 1
 	light = LIGHT_MAX
 	_party_at_start = party.duplicate(true)   # the run's recruits are yours now
@@ -2308,7 +2425,10 @@ func _grow(e: Dictionary, what: String, n: int) -> void:
 ## Say so when a teammate has just become ready to evolve (`was`: whether it was ready before).
 func _tell_ready(e: Dictionary, was: bool) -> void:
 	if not was and evo_ready(e["line"], e["stage"]):
-		_say("%s is ready to evolve! Take it to the Growth Shrine in Highbank." % e["name"])
+		if story.get("stone", "") == "installed":
+			_say("%s is ready to evolve! Take it to the Growth Shrine in Highbank." % e["name"])
+		else:
+			_say("%s feels ready to change... but nothing in Highbank can help it yet." % e["name"])
 		_sfx("evolve_ready", -4.0)
 		_pops.append({"pos": e["node"].position + Vector2(0, -40), "text": "READY!", "t": 0.0, "col": Color(0.8, 0.6, 1.0)})
 		_rise(e["node"].position, Color(0.8, 0.6, 1.0), 16)
@@ -2420,7 +2540,7 @@ func _gain_exp(n: int) -> void:
 					t["hp"] += new_max - t["max_hp"]
 				t["max_hp"] = new_max
 		_say("%s grew to Lv. %d!" % [e["name"], rec["lv"]])
-		_sfx("room_clear", -4.0)
+		_sfx("level_up", -3.0)   # its own fanfare (tools/audio/make_ui_sounds.py)
 		_pops.append({"pos": e["node"].position + Vector2(0, -34), "text": "LV %d" % rec["lv"], "t": 0.0, "col": Color(0.6, 0.9, 1.0)})
 		_rise(e["node"].position, Color(1, 0.85, 0.4), 14)
 		_ring(e["node"].position + Vector2(0, 2), Color(1, 0.85, 0.4), 18.0, 0.5)
@@ -3188,10 +3308,18 @@ func _poll(delta: float) -> void:
 				return   # a moment for the second key of a diagonal
 		_was_dir = d
 		if Input.is_key_pressed(KEY_SHIFT):
+			_shift_turned = true
 			act_face(d)
 		else:
 			act_move(d)
 		return
+	# Shift held is turn mode (arrows show round the leader); a tap of Shift alone faces the nearest foe.
+	var shift := Input.is_key_pressed(KEY_SHIFT)
+	if shift and not turn_mode:
+		_shift_turned = false
+	elif not shift and turn_mode and not _shift_turned:
+		act_face_nearest()
+	turn_mode = shift
 	for pair in [[KEY_J, 0], [KEY_SPACE, 0], [KEY_1, 1], [KEY_2, 2], [KEY_3, 3]]:
 		if _tapped(pair[0]):
 			act_attack(pair[1])
@@ -3309,6 +3437,7 @@ func _draw_floor_fx() -> void:
 		_floor_fx.draw_rect(sr, Color(0.04, 0.04, 0.07, 0.85))
 		_floor_fx.draw_line(sr.position + Vector2(4, 4), sr.end - Vector2(4, 4), Color(1, 0.35, 0.35, 0.8), 2.0)
 		_floor_fx.draw_line(Vector2(sr.end.x - 4, sr.position.y + 4), Vector2(sr.position.x + 4, sr.end.y - 4), Color(1, 0.35, 0.35, 0.8), 2.0)
+	_draw_aim(k)
 	for e in ents:
 		if e["hp"] <= 0 or not e.has("windup"):
 			continue
@@ -3325,10 +3454,54 @@ func _draw_floor_fx() -> void:
 		_floor_fx.draw_arc(c, 10.0 + 2.0 * k, 0, TAU, 20, Color(glow, 0.7), 1.0)
 
 
+## The aim, shown before you commit (Into the Breach's rule: never guess what a button will hit):
+## pale corner brackets on the foe the basic attack would hit now; while Shift is held, eight arrows
+## round the leader (Explorers of Sky's turn mode), the faced one bright, and its front tile outlined.
+func _draw_aim(k: float) -> void:
+	if cutscene or busy or ents.is_empty() or ents[0]["hp"] <= 0:
+		return
+	var who := aim_target()
+	if who >= 0:
+		var r := Rect2(Vector2(ents[who]["pos"]) * T, Vector2(T, T))
+		var c := Color(1.0, 0.93, 0.62, 0.65 + 0.3 * k)
+		var l := 5.0
+		for corner in [r.position, Vector2(r.end.x, r.position.y), r.end, Vector2(r.position.x, r.end.y)]:
+			var sx := 1.0 if corner.x == r.position.x else -1.0
+			var sy := 1.0 if corner.y == r.position.y else -1.0
+			_floor_fx.draw_line(corner, corner + Vector2(l * sx, 0), c, 1.0)
+			_floor_fx.draw_line(corner, corner + Vector2(0, l * sy), c, 1.0)
+	if not turn_mode:
+		return
+	var p: Vector2i = ents[0]["pos"]
+	var front := Rect2(Vector2(p + _dir_of(ents[0]["facing"])) * T + Vector2(1, 1), Vector2(T - 2, T - 2))
+	_floor_fx.draw_rect(front, Color(1.0, 0.95, 0.7, 0.5 + 0.3 * k), false, 1.0)
+
+
+## Turn mode's eight arrows, over the creatures so none hides them: dark-edged, the faced one gold and larger.
+func _draw_turn_arrows() -> void:
+	if not turn_mode or cutscene or busy or ents.is_empty() or ents[0]["hp"] <= 0:
+		return
+	var mid := Vector2(ents[0]["pos"]) * T + Vector2(T, T) * 0.5
+	var faced := _dir_of(ents[0]["facing"])
+	for d in DIRS:
+		var on: bool = d == faced
+		var v := Vector2(d).normalized()
+		var size := 7.0 if on else 5.0
+		var tip := mid + v * (T * 0.5 + 8.0)
+		var side := Vector2(-v.y, v.x) * size * 0.6
+		var tri := PackedVector2Array([tip, tip - v * size + side, tip - v * size - side])
+		_fx.draw_colored_polygon(tri, Color(1.0, 0.86, 0.42) if on else Color(0.92, 0.94, 0.96, 0.8))
+		tri.append(tip)
+		_fx.draw_polyline(tri, Color(0.10, 0.08, 0.06, 0.9), 1.0)
+
+
 func _draw_fx() -> void:
+	_draw_turn_arrows()
 	if not intro.is_empty():
 		BossIntro.draw_over(self, _fx)
 		CrewScene.draw(self, _fx, true)
+		StoneScene.draw_over(self, _fx)
+		StoneScene.draw_standoff(self, _fx)
 	# Rot bubbles rising off a Blighted creature while the Blight lasts.
 	var tb := Time.get_ticks_msec() / 1000.0
 	for e in ents:
@@ -3351,13 +3524,7 @@ func _draw_fx() -> void:
 			var c2: Vector2 = (Vector2(tr["pos"]) * T + Vector2(T, T) * 0.5).round()
 			_fx.draw_line(c2 + Vector2(-5, -5), c2 + Vector2(5, 5), Color(0.75, 0.2, 0.2), 2.0)
 			_fx.draw_line(c2 + Vector2(-5, 5), c2 + Vector2(5, -5), Color(0.75, 0.2, 0.2), 2.0)
-	# The dark: every tile in view the lantern does not reach.
-	var origin: Vector2 = -_world.position
-	var t0 := Vector2i(floori(origin.x / T) - 1, floori(origin.y / T) - 1)
-	for ty in range(t0.y, t0.y + VIEW.y / T + 3):
-		for tx in range(t0.x, t0.x + VIEW.x / T + 3):
-			if not visible_tiles.has(Vector2i(tx, ty)):
-				_fx.draw_rect(Rect2(Vector2(tx, ty) * T, Vector2(T, T)), Color(0.02, 0.02, 0.04, 0.82))
+
 	# Sleeping wild creatures breathe a "z".
 	for e in ents:
 		if e["team"] == 1 and e["hp"] > 0 and not e["awake"] and visible_tiles.has(e["pos"]) and not e.get("hidden", false) and not cutscene:
@@ -3400,7 +3567,7 @@ func _draw_fx() -> void:
 		var a: float = clampf((0.9 - p["t"]) / 0.3, 0.0, 1.0)
 		var lift: float = 16.0 * (1.0 - pow(1.0 - minf(p["t"] / 0.25, 1.0), 3.0)) - 3.0 * sin(minf(p["t"] / 0.25, 1.0) * PI)
 		var big: bool = p["col"] == Color(1, 0.95, 0.6)
-		var size := 12 if big else 9
+		var size := 8   # Silkscreen's own pixel size: on the art's grid (9 and 12 were off it)
 		var txt: String = String(p["text"]) + ("!" if big and String(p["text"]).is_valid_int() else "")
 		var col: Color = Color(1, 0.7, 0.3) if big else p["col"]
 		var at3: Vector2 = (p["pos"] + Vector2(-6, -lift)).round()
@@ -3482,12 +3649,12 @@ func _draw_hud() -> void:
 		h.draw_rect(Rect2(0, 226, 1152, 100), Color(UI.PANEL, 0.78 * a))
 		h.draw_rect(Rect2(0, 226, 1152, 2), Color(UI.EDGE, a))
 		h.draw_rect(Rect2(0, 324, 1152, 2), Color(UI.EDGE, a))
-		UI.text(h, Vector2(0, 288), _banner["text"], 46, Color(_banner["col"], a), 1152, HORIZONTAL_ALIGNMENT_CENTER)
+		UI.say(h, Vector2(0, 292), _banner["text"], "title", Color(_banner["col"], a), 1152, HORIZONTAL_ALIGNMENT_CENTER)   # place names: the title face
 		if _banner["sub"] != "":
-			UI.text(h, Vector2(0, 314), String(_banner["sub"]), 20, Color(UI.TEXT, 0.85 * a), 1152, HORIZONTAL_ALIGNMENT_CENTER)
+			UI.say(h, Vector2(0, 316), String(_banner["sub"]), "label", Color(UI.TEXT, 0.85 * a), 1152, HORIZONTAL_ALIGNMENT_CENTER)
 	# The floor and the lantern.
 	UI.panel(h, Rect2(6, 6, 346, 54))
-	UI.text(h, Vector2(28, 44), "B%dF" % floor_n, 28, UI.EDGE_LIGHT)
+	UI.say(h, Vector2(28, 44), "B%dF" % floor_n, "button", UI.EDGE_LIGHT)
 	UI.text(h, Vector2(104, 29), "Lantern", 15, UI.MUTED)
 	UI.bar(h, Rect2(104, 36, 170, 9), light / LIGHT_MAX, UI.LIGHT)
 	UI.text(h, Vector2(282, 46), "%d" % int(light), 17, UI.LIGHT)
@@ -3506,9 +3673,9 @@ func _draw_hud() -> void:
 		h.draw_rect(Rect2(28, y + 1, 48, 48), UI.EDGE_LIGHT if e == ents[0] else UI.EDGE, false, 1.0)
 		UI.text(h, Vector2(84, y + 20), String(e["name"]), 19, UI.HP_LOW if down else (UI.EDGE_LIGHT if e == ents[0] else UI.TEXT))
 		var tag := "Lv %d" % level_of(e["line"]) + ("" if e == ents[0] else "   IQ %d" % iq_of(e))
-		UI.text(h, Vector2(84, y + 20), tag, 15, UI.MUTED, 246, HORIZONTAL_ALIGNMENT_RIGHT)
+		UI.say(h, Vector2(84, y + 20), tag, "label", UI.MUTED, 246, HORIZONTAL_ALIGNMENT_RIGHT)
 		UI.bar(h, Rect2(84, y + 27, 170, 9), k, UI.hp_col(k))
-		UI.text(h, Vector2(262, y + 37), "%d/%d" % [e["hp"], e["max_hp"]], 15, UI.TEXT)
+		UI.say(h, Vector2(262, y + 38), "%d/%d" % [e["hp"], e["max_hp"]], "number", UI.TEXT)
 		if e["stage"] < 2:
 			var g: float = evo_progress(e["line"], e["stage"])
 			h.draw_rect(Rect2(84, y + 40, 170, 3), Color(0, 0, 0, 0.5))

@@ -12,6 +12,7 @@ extends RefCounted
 
 const DUNGEON := "res://scripts/dungeon/dungeon.gd"   # loaded, not preloaded: dungeon.gd is large and preloads the UI
 const ArenaData := preload("res://scripts/arena/arena_prototype.gd")
+const Lines := preload("res://scripts/creatures/lines.gd")
 const MoveBody := preload("res://scripts/moves/move_body.gd")
 const MOVES_MAX := 4
 
@@ -92,6 +93,6 @@ static func evolve(rec: Dictionary, k: int) -> Dictionary:
 		rec["pending_learn"].append([ln, st + 1, m])
 	rec["party"][k] = [ln, st + 1]
 	return {"line": ln, "old_form": old_form, "new_form": new_form,
-		"old_name": load(ArenaData.LINES[ln]["forms"][st][1]).creature_name,
-		"new_name": load(ArenaData.LINES[ln]["forms"][st + 1][1]).creature_name,
+		"old_name": load(Lines.of(ln)["forms"][st][1]).creature_name,
+		"new_name": load(Lines.of(ln)["forms"][st + 1][1]).creature_name,
 		"moves": kept, "learned": learned, "lost": lost, "waiting": waiting}

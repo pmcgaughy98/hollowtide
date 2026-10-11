@@ -1,5 +1,6 @@
 extends CanvasLayer
 ## A short non-blocking welcome showing the partner actually added to the run.
+const UI := preload("res://scripts/ui/ui_style.gd")
 var creature: CreatureData
 var portrait_frames: SpriteFrames
 var accent := Color.WHITE
@@ -13,14 +14,11 @@ func _ready() -> void:
 	layer = 30
 	_card = PanelContainer.new()
 	_card.name = "WelcomeCard"
-	_card.position = Vector2(752, 478)
-	_card.custom_minimum_size = Vector2(352, 118)
+	_card.position = Vector2(710, 464)
+	_card.custom_minimum_size = Vector2(394, 148)
 	_card.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	var box := StyleBoxFlat.new()
-	box.bg_color = Color("#1f1b36")
-	box.border_color = accent
-	box.set_border_width_all(2)
-	box.set_content_margin_all(14)
+	var box := UI.frame("panel").duplicate()
+	box.set_content_margin_all(24)
 	_card.add_theme_stylebox_override("panel", box)
 	add_child(_card)
 	var row := HBoxContainer.new()

@@ -1,0 +1,18 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+OpenGL API 3.3.0 NVIDIA 596.49 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce GTX 1660 SUPER
+
+ERROR: Failed to read the root certificate store.
+   at: get_system_ca_certificates (platform/windows/os_windows.cpp:2582)
+[godot_ai game_helper] registered mcp capture (debugger active=false, logger=true)
+Rendered new town/root textures: 3808
+PASS all new town sets and Gruntle rotations rendered at native grid without clipping
+PASS every existing form's town finish remains byte-exact, including jade Oxbowarchon and Sparkwick
+PASS Gruntle gains detail ink with identical finished alpha and bright highlights
+PASS Gruntle's texture-less NPC fallback keeps its finish
+PASS texture switch clears rival ink and preserves Sparkwick correction
+PASS all installed crew and Starward normal/expression portraits select the proper finish
+PASS actual GPU frame outside portrait window and emotion marks stay exact; no creature crosses the border
+PASS portrait pool reuses one sprite across expressions
+PASS closing dialogue clears the finished portrait without a ghost
+Portraits rendered: 27
+SELOUT 9/9 PASS

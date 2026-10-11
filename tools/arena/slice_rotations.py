@@ -61,8 +61,21 @@ CELLS = {
     # south-west, so (2,1) is unused and south-west mirrors south-east.
     "mirekit": {"s": (0, 2), "se": (0, 1), "e": (0, 0), "ne": (1, 0), "n": (2, 0), "nw": (2, 2), "w": (1, 2), "sw": "mirror:se"},
     "whinet": TALLOW,
+    # The crew's boss (2026-10-10), read by eye: no straight front view, so south uses the three-quarter
+    # front (as se); two back views, (2,1) is north and (2,0) is unused.
+    # Highbank's townsfolk and the Hollow's new wilds (2026-10-10), all in the usual layout, read by eye.
+    "skimlet": TALLOW,
+    "ozbender": TALLOW,
+    "valvekin": TALLOW,
+    "wayling": TALLOW,
+    "swaphoard": TALLOW,
+    "pouchbill": TALLOW,
+    "inkhoot": TALLOW,
+    "cairnshell": TALLOW,
+    "crawdukes": TALLOW,
+    "gruntle": {"s": (0, 1), "se": (0, 1), "e": (0, 0), "ne": (1, 0), "n": (2, 1), "nw": (2, 2), "w": (1, 2), "sw": (0, 2)},
 }
-FORMS = {"sparkwick", "stormwick", "huskward", "rampartroot", "riftfin", "scourmaw", "cinderhide", "clinkerhide", "ironvent", "fusern", "slagglass", "vitrecrag", "preostmar", "oathfen", "oxbowarchon", "punchybun", "sparkjab", "starward", "listener", "caller", "warden", "canvaswing", "windcut", "galeshear", "dustkite", "waywhistle", "highsignal", "troughspine", "archroot", "springvault", "mirekit", "whinet"}
+FORMS = {"sparkwick", "stormwick", "huskward", "rampartroot", "riftfin", "scourmaw", "cinderhide", "clinkerhide", "ironvent", "fusern", "slagglass", "vitrecrag", "preostmar", "oathfen", "oxbowarchon", "punchybun", "sparkjab", "starward", "listener", "caller", "warden", "canvaswing", "windcut", "galeshear", "dustkite", "waywhistle", "highsignal", "troughspine", "archroot", "springvault", "mirekit", "whinet", "gruntle", "skimlet", "ozbender", "valvekin", "wayling", "swaphoard", "pouchbill", "inkhoot", "cairnshell", "crawdukes"}
 
 for name, cells in CELLS.items():
     if len(sys.argv) > 1 and name not in sys.argv[1:]:

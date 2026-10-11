@@ -1,0 +1,11 @@
+{
+ "prompt": "Top-down action game sprite of a big white pelican creature that keeps things for others: bright white plumage with black wing tips, a long orange bill with a huge stretchy throat pouch bulging with stored bundles, parcels and a rolled map visible through the pouch, short sturdy orange legs, a calm patient half-lidded look. Stage two of its line: a little odd, a tag on a string around its neck and a ring of river-stone bands on one leg. Kindly and unhurried. Seen from above at a three-quarter overhead angle like a sprite in a top-down arena battle game, facing down and to the right toward the camera. A readable game sprite: chunky clear shapes, a crisp dark outline. Whole creature centred with empty space on every side, nothing touching the edges. On a plain white background.",
+ "prompt_style": "rd_pro__default",
+ "width": 112,
+ "height": 112,
+ "num_images": 2,
+ "remove_bg": true,
+ "reference_images": [
+  "docs/creatures/arena-starters-2026-10-07/forms/mirekit_arena_front_take1.png"
+ ]
+}

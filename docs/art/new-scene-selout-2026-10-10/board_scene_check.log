@@ -1,0 +1,47 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+OpenGL API 3.3.0 NVIDIA 596.49 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce GTX 1660 SUPER
+
+ERROR: Failed to read the root certificate store.
+   at: get_system_ca_certificates (platform/windows/os_windows.cpp:2582)
+[godot_ai game_helper] registered mcp capture (debugger active=false, logger=true)
+First visit: the crew at the board (3) -> ok
+ERROR: Resource file not found: res://assets/audio/sfx/dungeon/paper_tear.wav (expected type: unknown)
+   at: _load (core/io/resource_loader.cpp:325)
+   GDScript backtrace (most recent call first):
+       [0] _sfx (res://scripts/town/hub_town.gd:289)
+       [1] run (res://scripts/town/board_scene.gd:164)
+       [2] act_move (res://scripts/town/hub_town.gd:235)
+Walking up: the scene started after 3 steps -> ok
+ERROR: Resource file not found: res://assets/audio/sfx/dungeon/paper_tear.wav (expected type: unknown)
+   at: _load (core/io/resource_loader.cpp:325)
+   GDScript backtrace (most recent call first):
+       [0] _sfx (res://scripts/town/hub_town.gd:289)
+       [1] run (res://scripts/town/board_scene.gd:164)
+       [2] _wait (res://scripts/town/board_scene.gd:108)
+ERROR: Resource file not found: res://assets/audio/sfx/dungeon/hog_grunt.wav (expected type: unknown)
+   at: _load (core/io/resource_loader.cpp:325)
+   GDScript backtrace (most recent call first):
+       [0] _sfx (res://scripts/town/hub_town.gd:289)
+       [1] run (res://scripts/town/board_scene.gd:189)
+       [2] _lines (res://scripts/town/board_scene.gd:124)
+ERROR: Resource file not found: res://assets/audio/sfx/dungeon/hog_grunt.wav (expected type: unknown)
+   at: _load (core/io/resource_loader.cpp:325)
+   GDScript backtrace (most recent call first):
+       [0] _sfx (res://scripts/town/hub_town.gd:289)
+       [1] run (res://scripts/town/board_scene.gd:204)
+       [2] _lines (res://scripts/town/board_scene.gd:124)
+ERROR: Resource file not found: res://assets/audio/sfx/dungeon/body_shove.wav (expected type: unknown)
+   at: _load (core/io/resource_loader.cpp:325)
+   GDScript backtrace (most recent call first):
+       [0] _sfx (res://scripts/town/hub_town.gd:289)
+       [1] run (res://scripts/town/board_scene.gd:205)
+       [2] _lines (res://scripts/town/board_scene.gd:124)
+ERROR: Resource file not found: res://assets/audio/sfx/dungeon/hog_trot.wav (expected type: unknown)
+   at: _load (core/io/resource_loader.cpp:325)
+   GDScript backtrace (most recent call first):
+       [0] _sfx (res://scripts/town/hub_town.gd:289)
+       [1] run (res://scripts/town/board_scene.gd:231)
+       [2] _lines (res://scripts/town/board_scene.gd:124)
+After: met true, partner knocked down true and up again true, crew gone true, scene over true -> ok
+Next visit: no crew at the board (0) -> ok
+BOARD SCENE: all ok

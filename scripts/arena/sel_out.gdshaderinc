@@ -4,6 +4,8 @@ uniform vec4 outline : source_color = vec4(0.045, 0.055, 0.065, 1.0);
 uniform float cluster_threshold = 0.12;
 // Detail contour mode belongs to shared sel-out. Approved creature appearance stays the default.
 uniform float detail_ink = SEL_OUT_DETAIL_DEFAULT;
+// Skimlet-only pale pinpoints on thin leg edges; its eyes/body highlights stay intact.
+uniform bool skimlet_leg_fix = false;
 varying vec4 tint;
 #include "res://scripts/arena/sparkwick_palette.gdshaderinc"
 
@@ -59,6 +61,17 @@ void fragment() {
 			}
 		}
 		c.rgb = chosen;
+	}
+
+	if (skimlet_leg_fix && c.a > 0.5) {
+		vec3 rgb = floor(c.rgb * 255.0 + 0.5);
+		bool pale_dot = all(equal(rgb, vec3(255.0))) || all(equal(rgb, vec3(225.0, 241.0, 247.0)));
+		if (pale_dot) {
+			float support = n.a+s.a+e.a+w.a;
+			support += sample_art(TEXTURE, UV+TEXTURE_PIXEL_SIZE).a + sample_art(TEXTURE, UV-TEXTURE_PIXEL_SIZE).a;
+			support += sample_art(TEXTURE, UV+TEXTURE_PIXEL_SIZE*vec2(1.0,-1.0)).a + sample_art(TEXTURE, UV+TEXTURE_PIXEL_SIZE*vec2(-1.0,1.0)).a;
+			if (support < 6.5) c.rgb = vec3(72.0, 54.0, 37.0) / 255.0;
+		}
 	}
 
 	// Internal selective outlines: existing dark joints plus narrow pale carved seams.

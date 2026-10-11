@@ -25,6 +25,7 @@ func _run() -> void:
 	dg.floor_seed = 4242
 	dg.poll_input = false
 	dg.party = [[0, 0], [1, 0]]
+	dg.story = {"stone": "installed"}   # the shrine is awake, so the run points the way to it (stone_check.gd covers before)
 	root.add_child(dg)
 	await _frames(4)
 	dg.traps.clear()

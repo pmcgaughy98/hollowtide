@@ -1,4 +1,5 @@
 extends RefCounted
+const TileArt := preload("res://scripts/dungeon/dungeon_tile_art.gd")
 ## The first dungeon's look (Claude, 2026-10-10; Preston: "do what you did for dungeon 1", after the
 ## Hollow's stone). Tunnels cut through a river bank, drawn in code pixel by pixel like the Hollow and
 ## the pond, no generated art: packed clay floors with pebbles, sand washed into rippled patches,
@@ -27,6 +28,7 @@ const BANDS := [Color("#8f6a48"), Color("#a78560"), Color("#6f5540"), Color("#9c
 
 
 static func paint(data: Dictionary, t: int, seed_value: int) -> Image:
+	if t == 24: return TileArt.paint(data,t,seed_value,"riverbank")
 	var w: int = data["w"]
 	var h: int = data["h"]
 	var tiles: PackedByteArray = data["tiles"]

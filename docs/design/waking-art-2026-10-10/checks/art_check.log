@@ -1,0 +1,16 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+OpenGL API 3.3.0 NVIDIA 596.49 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce GTX 1660 SUPER
+
+[godot_ai game_helper] registered mcp capture (debugger active=false, logger=true)
+PASS detailed art has exact 384x216 native canvas
+PASS background fully opaque with no keying
+PASS absent art selects the original code fallback
+PASS wrong-size art selects the original code fallback
+PASS original fallback pixels exact
+PASS actual waking viewport displays the selected material rim
+PASS background uses the shared masked house detail finish
+PASS native art retains nearest-neighbour pixels
+PASS approved actor anchors and sizes unchanged
+PASS Reduce Motion still freezes the composition
+PASS water detection admits river and excludes standing bank
+ART 11/11 PASS

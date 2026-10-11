@@ -1,0 +1,47 @@
+{
+  "installed_exact": [
+    "assets/sprites/world/home_interior_2026_10_10/home_native.png",
+    "assets/sprites/world/job_board_selout_2026_10_10/board_native.png",
+    "scripts/town/home_room_art.gd",
+    "scripts/town/job_board_painter.gd",
+    "scripts/town/room_painter.gd",
+    "scripts/town/town_room.gd",
+    "docs/AI_COLLABORATION.md"
+  ],
+  "guarded_baseline_files": 10270,
+  "protected_exact": 10261,
+  "concurrent_changes_preserved": [
+    {
+      "path": "scripts/dungeon/dungeon.gd",
+      "before": "641c29e001ab057566c1c78d938a28d64f464e213dc690cbd2e36cb57b3762da",
+      "current": "4f35dfd3ba41481ca2eb1a92e036a26e8ecb6edd49c0ca0cf0c7054d7a75ef77",
+      "preserved": "No task write targets this path; current concurrent version retained."
+    },
+    {
+      "path": "scripts/town/hub_town.gd",
+      "before": "605e723f472be73d955243c01f0dcb048a3e7bf69b6b47ad446e7693f8ab673e",
+      "current": "4c62d2bede9b37c49e63bca42b22b5bdab94cf33cfae96bde4ab9bfc34107a4b",
+      "preserved": "No task write targets this path; current concurrent version retained."
+    },
+    {
+      "path": "scripts/town/team_state.gd",
+      "before": "6a669d51198b09b16f5043e51509825b0a8f36991832941a27adad7b5202e0c3",
+      "current": "514a9b6f9eccd03efe2a4605ee4b70345bca517226fa6bc0c4fe1e060e5012e5",
+      "preserved": "No task write targets this path; current concurrent version retained."
+    },
+    {
+      "path": "tools/debug/evolution_check.gd",
+      "before": "074cb5bc79595c5e9410be9dae45a30d09c5ff9b5f7ef9c25e6c17e2f4a84362",
+      "current": "e1137fa59578800b4121bcc8c78579b132a9c39af849eeb38ecacf70980450c3",
+      "preserved": "No task write targets this path; current concurrent version retained."
+    },
+    {
+      "path": "docs/team/CODEX_HANDOFF_2026-10-10.md",
+      "before": "965d05a2d9a94a7f9f1e6aaebecc790018c3aef52c8a6813b35be0ecb7c291a0",
+      "current": "c770fe057e1e895b3b443d30de7545c63794c2b77eb032218ca892925109052a",
+      "preserved": "No task write targets this path; current concurrent version retained."
+    }
+  ],
+  "original_asset_files_exact": 9715,
+  "prior_collaboration_body_exact": true
+}

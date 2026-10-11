@@ -1,0 +1,22 @@
+{
+  "files": {
+    "scripts/creature_prologue.gd": {
+      "before": "32149cda3a1ed62a93a30261444cb165e92cc423b67916b9ea9b41e63a59a679",
+      "candidate": "7f274a082c2ca2c234d386ca6d09d93e235e957dbda7b85a5b51cdc1f90ead9d"
+    },
+    "scripts/ui/opening_dialogue.gd": {
+      "before": "6c72ba20e3255be253cbdbad527c4f6e327459508aecef2cadbde05c583f775c",
+      "candidate": "2a2907f47eb084774b11dea45fcbb7cb87517de00709f53d5b6e19e402e16e9d"
+    }
+  },
+  "protected": {
+    "scripts/ui/hollow_rise.gd": "7de9716f857103c42256bf41778f263a361c13039f30bb198d196ffa5e88adff",
+    "scripts/riverbank_journey.gd": "6ba9aa0fde4d136f7bdfdf133d2c850d82443e3920b6eb4d588fdbeae6dc707d",
+    "scripts/town/hollow_approach.gd": "c8cdb83b1e2f83d32bc38d49f4ad91d522f6c49024d467c916978213c017884b",
+    "scripts/dungeon/dungeon.gd": "2dae8d00b9dec869c306e3a0da98039bc8ec45f10a886b98d9e844825f59d358",
+    "scripts/town/team_state.gd": "514a9b6f9eccd03efe2a4605ee4b70345bca517226fa6bc0c4fe1e060e5012e5",
+    "scripts/ui/ui_style.gd": "18b960987570b62c6746c304b457ec18ccd18cf91a77ad6d5e3246cd433a0ea0",
+    "project.godot": "ddaa60116df55f59b8e1021c8a8d3769c3c77acd307ef605231eee07ca5eb39a"
+  },
+  "scope": "Only two opening presentation files. No asset/source PNG, game rule, team record, route, dungeon, rise animation, main-scene setting or commit edit."
+}

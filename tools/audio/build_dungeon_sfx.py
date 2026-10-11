@@ -100,6 +100,20 @@ PICKS = {
     "hop_splash": ("hop_splash_0", 0.00, 0.80, 0.002, 0.20, -8.0, f"{HP},lowpass=f=5000", 0),
     "warden_croak": ("warden_croak_0", 0.00, 2.00, 0.01, 0.50, -2.0, HP, 0),
     "battle_wipe": ("battle_wipe_1", 0.90, 2.40, 0.05, 0.30, -3.0, HP, 0),
+    # The Job Board meeting with the Shortcut Crew (2026-10-10; Preston: "eleven lab it up as well"), take 1 of
+    # each by measurement (quick onset, least 2 to 6 kHz): the posting torn down, Gruntle's snort, the shove, the
+    # crew trotting off.
+    "paper_tear": ("paper_tear_1", 0.00, 1.20, 0.003, 0.25, -10.0, f"{HP},lowpass=f=5000", 0),
+    "hog_grunt": ("hog_grunt_1", 0.00, 1.30, 0.003, 0.25, -3.0, HP, 0),
+    "body_shove": ("body_shove_1", 0.00, 0.95, 0.002, 0.25, -2.0, HP, 0),
+    "hog_trot": ("hog_trot_1", 0.00, 1.75, 0.01, 0.60, -6.0, f"{HP},{SOFT}", 0),
+    # The Warden stand-off and the Guildmaster's punch (2026-10-10; Preston: "eleven labs it up too"). Measured picks:
+    # the rise take with body above the sub-bass; the punch is 95% under 150 Hz, so it goes up an octave.
+    "warden_rise": ("warden_rise_1", 0.00, 1.45, 0.01, 0.30, -1.0, HP, 0),
+    "dash_zip": ("dash_zip_0", 0.00, 0.90, 0.003, 0.25, -6.0, f"{HP},lowpass=f=5500", 0),
+    "mega_punch": ("mega_punch_0", 0.00, 0.85, 0.002, 0.30, -1.0, HP, -1),
+    "body_splash": ("body_splash_0", 0.00, 1.55, 0.005, 0.40, -2.0, f"{HP},{SOFT}", 0),
+    "spent_pant": ("spent_pant_0", 0.00, 1.50, 0.02, 0.30, -7.0, HP, 0),
 }
 # Not used: step (both takes were a steady hiss with no footfall; the dungeon stays quiet underfoot,
 # as Explorers of Sky does).

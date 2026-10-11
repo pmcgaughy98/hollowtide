@@ -11,6 +11,7 @@ extends RefCounted
 
 const DUNGEON := "res://scripts/dungeon/dungeon.gd"   # loaded, not preloaded: dungeon.gd uses this file
 const Arena := preload("res://scripts/arena/arena_prototype.gd")
+const Lines := preload("res://scripts/creatures/lines.gd")
 const POSTED := 4          # requests on the board at once
 const TAKE_MAX := 4        # jobs the team can carry into a run
 const KINDS := {           # proposals
@@ -43,11 +44,11 @@ static func post(seed: int) -> Array:
 
 
 static func client_form(job: Dictionary) -> String:
-	return Arena.LINES[int(job["line"])]["forms"][int(job["stage"])][0]
+	return Lines.of(int(job["line"]))["forms"][int(job["stage"])][0]
 
 
 static func client_name(job: Dictionary) -> String:
-	return load(Arena.LINES[int(job["line"])]["forms"][int(job["stage"])][1]).creature_name
+	return load(Lines.of(int(job["line"]))["forms"][int(job["stage"])][1]).creature_name
 
 
 static func item_name(kind: String) -> String:

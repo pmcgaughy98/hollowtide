@@ -1,0 +1,142 @@
+--- scripts/dungeon/dungeon.gd (original)
++++ scripts/dungeon/dungeon.gd (installed)
+@@ -481,6 +481,7 @@
+ 	_fx.z_index = 4000
+ 	_fx.draw.connect(_draw_fx)
+ 	_world.add_child(_fx)
++	_world.add_child(preload("res://scripts/dungeon/dungeon_visibility_canvas.gd").new(self))
+ 	var layer := CanvasLayer.new()
+ 	add_child(layer)
+ 	_hud_layer = layer
+@@ -3500,13 +3501,7 @@
+ 			var c2: Vector2 = (Vector2(tr["pos"]) * T + Vector2(T, T) * 0.5).round()
+ 			_fx.draw_line(c2 + Vector2(-5, -5), c2 + Vector2(5, 5), Color(0.75, 0.2, 0.2), 2.0)
+ 			_fx.draw_line(c2 + Vector2(-5, 5), c2 + Vector2(5, -5), Color(0.75, 0.2, 0.2), 2.0)
+-	# The dark: every tile in view the lantern does not reach.
+-	var origin: Vector2 = -_world.position
+-	var t0 := Vector2i(floori(origin.x / T) - 1, floori(origin.y / T) - 1)
+-	for ty in range(t0.y, t0.y + VIEW.y / T + 3):
+-		for tx in range(t0.x, t0.x + VIEW.x / T + 3):
+-			if not visible_tiles.has(Vector2i(tx, ty)):
+-				_fx.draw_rect(Rect2(Vector2(tx, ty) * T, Vector2(T, T)), Color(0.02, 0.02, 0.04, 0.82))
++
+ 	# Sleeping wild creatures breathe a "z".
+ 	for e in ents:
+ 		if e["team"] == 1 and e["hp"] > 0 and not e["awake"] and visible_tiles.has(e["pos"]) and not e.get("hidden", false) and not cutscene:
+--- scripts/dungeon/riverbank_painter.gd (original)
++++ scripts/dungeon/riverbank_painter.gd (installed)
+@@ -1,4 +1,5 @@
+ extends RefCounted
++const TileArt := preload("res://scripts/dungeon/dungeon_tile_art.gd")
+ ## The first dungeon's look (Claude, 2026-10-10; Preston: "do what you did for dungeon 1", after the
+ ## Hollow's stone). Tunnels cut through a river bank, drawn in code pixel by pixel like the Hollow and
+ ## the pond, no generated art: packed clay floors with pebbles, sand washed into rippled patches,
+@@ -27,6 +28,7 @@
+ 
+ 
+ static func paint(data: Dictionary, t: int, seed_value: int) -> Image:
++	if t == 24: return TileArt.paint(data,t,seed_value,"riverbank")
+ 	var w: int = data["w"]
+ 	var h: int = data["h"]
+ 	var tiles: PackedByteArray = data["tiles"]
+--- scripts/dungeon/ruin_painter.gd (original)
++++ scripts/dungeon/ruin_painter.gd (installed)
+@@ -1,4 +1,5 @@
+ extends RefCounted
++const TileArt := preload("res://scripts/dungeon/dungeon_tile_art.gd")
+ ## The Hollow's look (Claude, 2026-10-10; Preston: the Hollow is a structure that "rose from the river with
+ ## a stone pathway to it", and "the pond looks amazing, I wish the rest looked that good"). Drawn in code
+ ## pixel by pixel like the Warden's pond, no generated art: river-washed flagstones with moss in the
+@@ -116,6 +117,7 @@
+ 
+ 
+ static func paint(data: Dictionary, t: int, seed_value: int) -> Image:
++	if t == 24: return TileArt.paint(data,t,seed_value,"ruin")
+ 	var w: int = data["w"]
+ 	var h: int = data["h"]
+ 	var tiles: PackedByteArray = data["tiles"]
+--- scripts/dungeon/valley_painter.gd (original)
++++ scripts/dungeon/valley_painter.gd (installed)
+@@ -1,4 +1,5 @@
+ extends RefCounted
++const TileArt := preload("res://scripts/dungeon/dungeon_tile_art.gd")
+ ## The Hollow's first floor, the valley (Claude, 2026-10-10; Preston: the Hollow is "a small, sheltered
+ ## valley or dip between hills", and the structure rose from the river "with a stone pathway to it").
+ ## Drawn in code like the pond and the stone, no generated art: the open ground is meadow, deep green
+@@ -24,6 +25,7 @@
+ 
+ 
+ static func paint(data: Dictionary, t: int, seed_value: int) -> Image:
++	if t == 24: return TileArt.paint(data,t,seed_value,"valley")
+ 	var w: int = data["w"]
+ 	var h: int = data["h"]
+ 	var tiles: PackedByteArray = data["tiles"]
+--- scripts/dungeon/dungeon_finish.gd (original)
++++ scripts/dungeon/dungeon_finish.gd (installed)
+@@ -10,18 +10,21 @@
+ static func mask(data: Dictionary, t: int, look: String) -> Image:
+ 	var image := Image.create(data.w * t, data.h * t, false, Image.FORMAT_RGBA8)
+ 	image.fill(Color.BLACK)
++	var native_tiles := t == 24 and look in ["riverbank","valley","ruin"]
++	var side := 4 if native_tiles else 2
+ 	var face_h := int(t * (0.62 if look == "riverbank" else (0.45 if look == "valley" else 0.6)))
++	if native_tiles: face_h = 16
+ 	for y in data.h:
+ 		for x in data.w:
+ 			if data.tiles[y * data.w + x] != Gen.WALL:
+ 				continue
+ 			var p := Vector2i(x * t, y * t)
+ 			if floor_at(data, x - 1, y):
+-				image.fill_rect(Rect2i(p, Vector2i(2, t)), Color.WHITE)
++				image.fill_rect(Rect2i(p, Vector2i(side, t)), Color.WHITE)
+ 			if floor_at(data, x + 1, y):
+-				image.fill_rect(Rect2i(p + Vector2i(t - 2, 0), Vector2i(2, t)), Color.WHITE)
++				image.fill_rect(Rect2i(p + Vector2i(t - side, 0), Vector2i(side, t)), Color.WHITE)
+ 			if floor_at(data, x, y - 1):
+-				image.fill_rect(Rect2i(p, Vector2i(t, 2)), Color.WHITE)
++				image.fill_rect(Rect2i(p, Vector2i(t, side)), Color.WHITE)
+ 			if floor_at(data, x, y + 1):
+ 				image.fill_rect(Rect2i(p + Vector2i(0, t - face_h), Vector2i(t, face_h)), Color.WHITE)
+ 	# Both code painters have the same 24x20 stair surround. The atlas uses the whole tile.
+@@ -34,4 +37,5 @@
+ 	var finish := ShaderMaterial.new()
+ 	finish.shader = SHADER
+ 	finish.set_shader_parameter("detail_mask", ImageTexture.create_from_image(mask(data, t, look)))
++	if t == 24 and look in ["riverbank","valley","ruin"]: finish.set_shader_parameter("detail_ink",0.55)
+ 	sprite.material = finish
+--- scripts/town/town_room.gd (original)
++++ scripts/town/town_room.gd (installed)
+@@ -193,12 +193,12 @@
+ ## tiles (rows 3 and 4; Preston: "he still goes through it, make it a real obstacle") and row 2 behind it is
+ ## open floor. Creatures sort by their feet (z = y): the desk draws over row 2 (feet 66) and under row 5 (138).
+ const DESK_AT := Vector2i(168, 70)
+-const DESK := "res://assets/sprites/world/guild_desk/desk.png"
++const DESK := "res://assets/sprites/world/guild_desk/desk_detail_2026_10_10.png"
+ const OLD_COUNTER := Rect2i(160, 46, 208, 54)
+ 
+ 
+ func _guild_desk(map: Sprite2D) -> void:
+-	if not ResourceLoader.exists(DESK):
++	if not FileAccess.file_exists(DESK):
+ 		return
+ 	var img: Image = map.texture.get_image()
+ 	var carpet := Vector2i(226, 302)   # the carpet's columns; stone is taken from beside it there
+@@ -214,7 +214,17 @@
+ 		mat.set_shader_parameter("detail_mask", ImageTexture.create_from_image(mask))
+ 	var desk := Sprite2D.new()
+ 	desk.centered = false
+-	desk.texture = load(DESK)
++	var desk_image := Image.load_from_file(ProjectSettings.globalize_path(DESK))
++	desk_image.convert(Image.FORMAT_RGBA8)
++	desk.texture = ImageTexture.create_from_image(preload("res://scripts/art/selout.gd").selout(desk_image))
++	desk.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
++	var desk_mask := Image.create(desk_image.get_width(),desk_image.get_height(),false,Image.FORMAT_RGBA8)
++	desk_mask.fill(Color.WHITE)
++	var desk_finish := ShaderMaterial.new()
++	desk_finish.shader = preload("res://scripts/dungeon/dungeon_finish.gdshader")
++	desk_finish.set_shader_parameter("detail_mask",ImageTexture.create_from_image(desk_mask))
++	desk_finish.set_shader_parameter("detail_ink",0.55)
++	desk.material = desk_finish
+ 	desk.position = Vector2(DESK_AT)
+ 	desk.z_index = DESK_AT.y + 46   # its front's foot
+ 	_world.add_child(desk)

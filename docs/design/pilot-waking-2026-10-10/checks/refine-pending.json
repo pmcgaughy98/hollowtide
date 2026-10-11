@@ -1,0 +1,14 @@
+[
+  {
+    "target": "C:\\Users\\pmcga\\dev\\hollowtide\\scripts\\creature_prologue.gd",
+    "source": "D:\\dev\\hollowtide-pilot-waking-20261010\\candidate\\scripts\\creature_prologue.gd",
+    "before": "fcb291c0213b95d0732b695de959ca7e0695e8d6e7f0f83720d69519a097f2df",
+    "after": "1812ec53c2866bf4f3b7770baac1e7e87cce2fe5452a57a9b7a5602aba5429c8"
+  },
+  {
+    "target": "C:\\Users\\pmcga\\dev\\hollowtide\\docs\\AI_COLLABORATION.md",
+    "source": "D:\\dev\\hollowtide-pilot-waking-20261010\\candidate\\docs\\AI_COLLABORATION.md",
+    "before": "850f7177152f8193831164c3935a344f538f77785575c897d8c90879961daa9e",
+    "after": "799836c9822bee72a18ab9c2ff447971b945b3ece4a395c961ca539dd0ab40f9"
+  }
+]

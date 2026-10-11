@@ -8,6 +8,7 @@ extends CanvasLayer
 ## FLOOR is the Ground page (floor, turn, lantern, underfoot, the orders); LOG is the last lines.
 ## Codex's pages and buttons are unchanged; the original is in docs/ui/field-menu-2026-10-10.
 const FONT = preload("res://assets/fonts/AlegreyaSansSC-Bold.ttf")
+const Lines := preload("res://scripts/creatures/lines.gd")
 const UI = preload("res://scripts/ui/ui_style.gd")
 const DUNGEON = "res://scripts/dungeon/dungeon.gd"   # loaded, not preloaded: dungeon.gd preloads this file
 const ArenaData = preload("res://scripts/arena/arena_prototype.gd")
@@ -87,14 +88,20 @@ func _button(text: String) -> Button:
     focused.content_margin_top = 8
     focused.content_margin_bottom = 8
     for state in ["focus","hover","pressed"]: b.add_theme_stylebox_override(state,focused)
+    UI.style_button(b)   # the button face: capitals, gold when chosen, sinks when pressed (Claude, 2026-10-10)
     return b
 
 func _label(text: String, size: int = 22) -> Label:
     var l = Label.new()
     l.text = text
-    l.add_theme_font_override("font",FONT)
-    l.add_theme_font_size_override("font_size",size)
+    # Headings in the title face, prose in the body face, small notes as labels (ui_style.gd TYPE).
+    var role = "title" if size >= 30 else UI.role_for(size)
+    l.add_theme_font_override("font",UI.font(role))
+    l.add_theme_font_size_override("font_size",UI.type_size(role))
     l.add_theme_color_override("font_color",Color("#fff4e8"))
+    l.add_theme_color_override("font_shadow_color",UI.SHADOW)
+    l.add_theme_constant_override("shadow_offset_x",int(UI.TYPE[role]["px"]))
+    l.add_theme_constant_override("shadow_offset_y",int(UI.TYPE[role]["px"]))
     l.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
     l.custom_minimum_size.x = 470
     content.add_child(l)
@@ -271,7 +278,7 @@ func _team_page() -> void:
     for k in party.size():
         var ln = int(party[k][0])
         var st = int(party[k][1])
-        var form = ArenaData.LINES[ln]["forms"][st]
+        var form = Lines.of(ln)["forms"][st]
         var lv = int(rec.get("levels",{}).get(ln,{}).get("lv",1))
         var head = "%s   Lv %d   IQ %d" % [String(load(form[1]).creature_name).to_upper(),lv,int(rec.get("iq",{}).get(ln,0))]
         var e: Dictionary = live[k] if k < live.size() else {}
@@ -286,7 +293,7 @@ func _team_page() -> void:
             face.custom_minimum_size = Vector2(48,48)
             var frame = PanelContainer.new()
             var fbox = StyleBoxFlat.new()
-            fbox.bg_color = Color("#efe6d2")
+            fbox.bg_color = Color("#63a9a6")   # the normal face's blue, as ui_style.gd PORTRAIT_BG (Preston, 2026-10-10: not white)
             fbox.border_color = Color("#b69b6d")
             fbox.set_border_width_all(1)
             frame.add_theme_stylebox_override("panel",fbox)
@@ -317,7 +324,8 @@ func _bag_page() -> void:
         var text = "%s x%d   %s" % [info["name"],bag[kind],info["what"]]
         if s.has_method("act_use_item"):
             var b = _action(text,"Use_" + String(kind).replace(":","_"),_use_item.bind(kind))
-            b.add_theme_font_size_override("font_size",18)
+            b.add_theme_font_override("font",UI.font("body"))   # an item row reads as prose
+            b.add_theme_font_size_override("font_size",UI.type_size("body"))
         else:
             _label(text,18)
     if bag.is_empty(): _label("The bag is empty.",18)

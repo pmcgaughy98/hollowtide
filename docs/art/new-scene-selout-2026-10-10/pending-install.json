@@ -1,0 +1,32 @@
+[
+  {
+    "path": "scripts/arena/creature_finish.gd",
+    "before": "1c12c53f4948025745629fd8251b30e668919fec58595347a760cc12be99d734",
+    "after": "1326b1ed17b377ef40121475e3bc532a296a5b93d2a8587c800d395ee3f44dbb"
+  },
+  {
+    "path": "scripts/town/board_scene.gd",
+    "before": "55eb61202230f1439ee04a3ed1b7af1061216c190d617ac04a5c6006b7e6eaca",
+    "after": "22ab614805fe07dea076acc58deeccb2c4b42ccd662b3cd80bf3b6e776526851"
+  },
+  {
+    "path": "scripts/town/hub_town.gd",
+    "before": "3186de893d39ff018c082b9230c10e752e8c49f86bfc7b299c71fbc7590dcb8b",
+    "after": "bc7a197ad15ddfd7c7cc25f3d4fd3a387f32260cc5ed31e3854ea060c44601dd"
+  },
+  {
+    "path": "scripts/ui/crew_portrait_canvas.gd",
+    "before": "1ed718881c94a237fd5cc0aee847feade06d97298b09c26a2783b2dd6f252ddc",
+    "after": "f27c952045731449a9aa92605dfcb8137311cc503c0556341303bb4398ccd6ca"
+  },
+  {
+    "path": "scripts/ui/ui_style.gd",
+    "before": "e8cd44c4a9364f7a4c70bb3b859be60fa7976dd14751b4f8dbe4fd52fcc57bcf",
+    "after": "8c86acff43406a7c3b1a3fca1951f02493e241f9de7e9000f5dbd61853cd3f5f"
+  },
+  {
+    "path": "docs/AI_COLLABORATION.md",
+    "before": "018b90b7f70d4e1c4827ee3ce09c7c9884bf6b6a6f54dd53253b5327516db17b",
+    "after": "22fe7d99d42f627ff110ce8e861bbb000d48f40693e3abc6443b3b699056c99c"
+  }
+]

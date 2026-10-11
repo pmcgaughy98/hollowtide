@@ -15,6 +15,10 @@ static func paint(id: String, r: Dictionary) -> Image:
 		_hall(img, r)
 	else:
 		_home(img, r)
+	if id == "home":
+		img = preload("res://scripts/town/home_room_art.gd").paint(img)
+	elif id == "hall":
+		img = preload("res://scripts/town/hall_room_art.gd").paint(img)
 	return img
 
 

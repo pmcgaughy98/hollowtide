@@ -1,6 +1,7 @@
 extends RefCounted
 ## Highbank's remaining open-air services. Presentation only; original paths/services stay.
 const Layout := preload("res://scripts/town/town_layout.gd")
+const Detail := preload("res://scripts/town/town_detail_art.gd")
 const Finish := preload("res://scripts/town/exterior_finish.gd")
 const INK := Color("#0b0e11")
 const STONE := Color("#9b927b")
@@ -41,6 +42,10 @@ static func _wave_mark(img: Image,p: Vector2i) -> void:
 			img.set_pixelv(at+Vector2i(0,1),INK)
 			img.set_pixelv(at,Color("#9bb8b1"))
 static func paint(id: String) -> Image:
+	var art:=Detail.image(id)
+	return art if art!=null else paint_fallback(id)
+
+static func paint_fallback(id: String) -> Image:
 	var size: Vector2i=place(id)["rect"].size*Layout.T
 	if id=="dock":size.y+=Layout.T # Claude's existing planks already extend a tile over water.
 	var img := Image.create(size.x,size.y,false,Image.FORMAT_RGBA8)

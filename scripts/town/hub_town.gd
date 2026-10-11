@@ -6,6 +6,7 @@ extends Node2D
 ## the Mouth of the Hollow starts a dungeon run with the same team.
 
 const Layout := preload("res://scripts/town/town_layout.gd")
+const Lines := preload("res://scripts/creatures/lines.gd")
 const Arena := preload("res://scripts/arena/arena_prototype.gd")
 const TeamState := preload("res://scripts/town/team_state.gd")
 const Evolution := preload("res://scripts/town/evolution.gd")
@@ -15,6 +16,8 @@ const RETURN_SPOT := Vector2i(24, 8)   # back from a run: on the Hall's steps (t
 const FONT := preload("res://assets/fonts/Silkscreen-Bold.ttf")
 const UI := preload("res://scripts/ui/ui_style.gd")   # the shared look (Claude, 2026-10-10)
 const WALK_FPS := 12.0   # walk frames a second in town
+const StoneScene := preload("res://scripts/dungeon/stone_scene.gd")
+const BoardScene := preload("res://scripts/town/board_scene.gd")
 const T := Layout.T
 const VIEW := Vector2i(384, 216)
 const SCALE := 3.0
@@ -37,6 +40,15 @@ var _labels: Node2D
 var _hud: Node2D
 var _keys_was := {}
 var _building_exteriors: Node2D
+# Town scenes (Claude, 2026-10-10): the Job Board meeting with the Shortcut Crew (scripts/town/board_scene.gd).
+var talk: Array = []          # [speaker, line, "form:face"] shown one at a time; E reads on
+var cutscene := false         # a scene plays: no walking, E reads the lines
+var cam_focus: Variant = null # where the camera looks during a scene
+var npcs: Array = []          # creatures in town that are not the team
+var board_fx := {}            # the scene's marks: a "!", torn paper, dust
+var shake := 0.0
+var force_scenes := false     # the checks set poll_input off; this lets a scene still start in one
+var scene_fx := {}            # bubbles and props for scenes built on scripts/town/scene_kit.gd
 
 
 func _ready() -> void:
@@ -68,6 +80,9 @@ func _ready() -> void:
 	_hud = Node2D.new()
 	_hud.draw.connect(_draw_hud)
 	layer.add_child(_hud)
+	var crew_portraits := preload("res://scripts/ui/crew_portrait_canvas.gd").new()
+	crew_portraits.name = "CrewPortraitFinish"
+	_hud.add_child(crew_portraits)
 	var news: String = TeamState.data.get("news", "")
 	TeamState.data.erase("news")
 	var at: Vector2i = RETURN_SPOT if news != "" else Layout.SPAWN
@@ -84,8 +99,12 @@ func _ready() -> void:
 		team.append(_make(party[k][0], party[k][1], pos))
 	_music_update()
 	preload("res://scripts/ui/game_pause_menu.gd").attach(self)
+	if BoardScene.pending(self):
+		BoardScene.place_crew(self)   # the Shortcut Crew at the board until the team has met them
 	if news == "cleared":
 		panel = {"name": "Back in Highbank", "what": "The Hollow is cleared. The bag and the new partners came home. (Cleared %d.)" % cleared, "service": "news"}
+		if stone_state() == "carried":
+			panel["what"] = "Home from the Hollow with the %s from the Warden's pond. It hums near the Growth Shrine's empty socket." % StoneScene.STONE_NAME
 	elif news == "fainted":
 		panel = {"name": "Back in Highbank", "what": "The team was carried back from the Hollow. The bag was lost; the partners are resting.", "service": "news"}
 
@@ -130,14 +149,16 @@ static func paint_blockout() -> Image:
 
 
 func _make(line: int, stage: int, pos: Vector2i) -> Dictionary:
-	var form: String = Arena.LINES[line]["forms"][stage][0]
+	var form: String = Lines.of(line)["forms"][stage][0]
 	var node := Node2D.new()
 	_world.add_child(node)
 	var sprite := Sprite2D.new()
 	sprite.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
 	node.add_child(sprite)
 	preload("res://scripts/arena/creature_finish.gd").apply(sprite)
-	var set := "dungeon" if ResourceLoader.exists("res://assets/sprites/arena/%s/dungeon/s.png" % form) else "small"
+	# The town set: every creature half again its dungeon size, so the world reads bigger than a dungeon
+	# floor (Preston, 2026-10-10: "they look too small"; built by build_dungeon_set.py --set=town --scale=1.5).
+	var set := "town" if ResourceLoader.exists("res://assets/sprites/arena/%s/town/s.png" % form) else ("dungeon" if ResourceLoader.exists("res://assets/sprites/arena/%s/dungeon/s.png" % form) else "small")
 	var still := {}
 	var walk := {}   # facing -> the walk cycle (the dungeon set's 8 frames), so the team walks, not slides
 	for f in Arena.FACINGS:
@@ -152,6 +173,15 @@ func _make(line: int, stage: int, pos: Vector2i) -> Dictionary:
 		"facing": "s", "walk_t": 0.0, "walk_clock": 0.0}
 	_place(e)
 	return e
+
+
+## Knocked flat: its lying-down sleep pose (the action frames), from the town set if built.
+func _down_tex(e: Dictionary) -> Texture2D:
+	for set in ["town", "dungeon"]:
+		var path := "res://assets/sprites/arena/%s/%s/sleep_s_f0.png" % [e["form"], set]
+		if ResourceLoader.exists(path):
+			return load(path)
+	return e["still"][e["facing"]]
 
 
 func _px(t: Vector2i) -> Vector2:
@@ -176,7 +206,7 @@ func _facing_of(d: Vector2i) -> String:
 
 ## One step for the leader; the partners follow in a chain, each to where the one ahead stood.
 func act_move(d: Vector2i) -> void:
-	if busy or not panel.is_empty():
+	if busy or cutscene or not panel.is_empty():
 		return
 	var lead: Dictionary = team[0]
 	lead["facing"] = _facing_of(d)
@@ -202,6 +232,9 @@ func act_move(d: Vector2i) -> void:
 		_place(e)
 	busy = false
 	_music_update()
+	if not npcs.is_empty() and not cutscene and (poll_input or force_scenes) and lead["pos"].distance_to(BoardScene.board_door()) <= BoardScene.TRIGGER:
+		BoardScene.run(self)
+		return
 	if Layout.place_at(lead["pos"]).get("service", "") == "dungeon":
 		act_use()
 
@@ -212,6 +245,9 @@ func act_use() -> Dictionary:
 		return {}
 	if panel.get("service", "") == "evolve_ask":
 		evolve_at_shrine(int(panel["k"]))
+		return {}
+	if panel.get("service", "") == "stone_ask":
+		install_stone()
 		return {}
 	if panel.get("service", "") == "board":
 		act_board_pick()
@@ -340,12 +376,82 @@ func _ui_sfx(name: String) -> void:
 
 
 func _shrine_panel(p: Dictionary) -> Dictionary:
+	# The shrine sleeps until the pond stone is set in it (the pilot's payoff, docs/design/pilot-story-2026-10-10.md).
+	match stone_state():
+		"":
+			return {"name": p["name"], "what": "The shrine is dark. At its heart is a round socket, empty, worn smooth, as if something sat there once.", "service": "growth"}
+		"carried":
+			return {"name": p["name"], "what": "The %s grows warm as you near the empty socket. Set it in?" % StoneScene.STONE_NAME, "service": "stone_ask"}
 	var ready := Evolution.ready_list(_record())
 	if ready.is_empty():
 		return {"name": p["name"], "what": "No one is ready to evolve yet. The Team page (P) shows what each creature still needs.", "service": "growth"}
 	var k: int = ready[0]
-	var name: String = load(Arena.LINES[party[k][0]]["forms"][party[k][1]][1]).creature_name
+	var name: String = load(Lines.of(party[k][0])["forms"][party[k][1]][1]).creature_name
 	return {"name": p["name"], "what": "%s is ready to evolve. Let it evolve here?      E  yes      Esc  not now" % name, "service": "evolve_ask", "k": k}
+
+
+## The pilot's story state carried in the team record: the pond stone is "", "carried" or "installed".
+func stone_state() -> String:
+	return String(_record().get("story", {}).get("stone", ""))
+
+
+var stone_fx := {}   # the stone on its way into the socket, and the wave of light when the shrine wakes
+var shrine_view := false   # the camera looks at the shrine, above the text box, while the stone goes in
+
+
+## The socket: the emblem at the heart of Codex's shrine art (assets/sprites/world/growth_shrine_2026_10_10).
+func _socket_px() -> Vector2:
+	var shrine: Dictionary = Layout.PLACES.filter(func(p: Dictionary) -> bool: return p["id"] == "shrine")[0]
+	return Vector2(shrine["rect"].position * T) + Vector2(72, 64)
+
+
+## The stone leaves the leader, settles into the socket, and the shrine wakes in a ring of light.
+func install_stone() -> void:
+	evolving_now = true   # holds input like the evolution scene
+	panel = {}
+	shrine_view = true
+	var from: Vector2 = team[0]["node"].position + Vector2(0, -30)
+	var to := _socket_px()
+	_sfx("presence_swell")
+	var tw := create_tween()
+	tw.tween_method(func(t: float) -> void: stone_fx["at"] = from.lerp(to, t) + Vector2(0, -24.0 * sin(t * PI)), 0.0, 1.0, 1.4).set_trans(Tween.TRANS_SINE)
+	await tw.finished
+	stone_fx.erase("at")
+	_record()["story"] = _record().get("story", {})
+	_record()["story"]["stone"] = "installed"
+	_sfx("evolve_ready")
+	stone_fx["wake_at"] = Time.get_ticks_msec()
+	await get_tree().create_timer(1.6).timeout
+	stone_fx.erase("wake_at")
+	panel = {"name": "Growth Shrine", "what": "The stone settles into the socket, and the shrine wakes: light runs through its old stones. A creature that is ready can evolve here now.", "service": "growth_done"}
+	evolving_now = false
+
+
+## Over the town: the stone in its socket once set (a slow pulse, motes rising), the dark socket before,
+## the stone in flight, and the ring of light as the shrine wakes.
+func _draw_stone() -> void:
+	var c := _labels
+	var t := Time.get_ticks_msec() / 1000.0
+	var sock := _socket_px()
+	if stone_state() == "installed" and not stone_fx.has("at"):
+		for k in 4:   # motes drifting up off it
+			var ph := fmod(t * 0.5 + k / 4.0, 1.0)
+			var p := (sock + Vector2(sin(k * 2.3 + t) * 6.0, -6.0 - ph * 26.0)).round()
+			c.draw_rect(Rect2(p, Vector2(1, 1)), Color(0.75, 0.97, 0.94, 1.0 - ph))
+		StoneScene.draw_stone(c, sock + Vector2(0, -4), t, 1.0)
+	else:
+		c.draw_set_transform(sock, 0.0, Vector2(1.0, 0.5))
+		c.draw_circle(Vector2.ZERO, 6.0, Color("#2a2420"))
+		c.draw_circle(Vector2(0, 1), 4.0, Color("#15110e"))
+		c.draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE)
+	if stone_fx.has("at"):
+		StoneScene.draw_stone(c, stone_fx["at"], t, 1.0)
+	if stone_fx.has("wake_at"):
+		var a: float = (Time.get_ticks_msec() - int(stone_fx["wake_at"])) / 1600.0
+		c.draw_set_transform(sock, 0.0, Vector2(1.0, 0.55))
+		c.draw_arc(Vector2.ZERO, 8.0 + a * 70.0, 0, TAU, 48, Color(0.75, 0.97, 0.94, 1.0 - a), 2.0)
+		c.draw_arc(Vector2.ZERO, 4.0 + a * 46.0, 0, TAU, 40, Color(1, 1, 1, (1.0 - a) * 0.6), 1.0)
+		c.draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE)
 
 
 func evolve_at_shrine(k: int) -> void:
@@ -356,8 +462,8 @@ func evolve_at_shrine(k: int) -> void:
 	var st: int = party[k][1]
 	var scene: CanvasLayer = load("res://scripts/ui/evolution_scene.gd").new()
 	add_child(scene)
-	await scene.run(Arena.LINES[ln]["forms"][st][0], Arena.LINES[ln]["forms"][st + 1][0],
-		load(Arena.LINES[ln]["forms"][st][1]).creature_name, load(Arena.LINES[ln]["forms"][st + 1][1]).creature_name, not poll_input)
+	await scene.run(Lines.of(ln)["forms"][st][0], Lines.of(ln)["forms"][st + 1][0],
+		load(Lines.of(ln)["forms"][st][1]).creature_name, load(Lines.of(ln)["forms"][st + 1][1]).creature_name, not poll_input)
 	scene.queue_free()
 	var res := Evolution.evolve(rec, k)
 	party = rec["party"].duplicate(true)
@@ -403,6 +509,12 @@ func enter_hollow() -> void:
 	dg.dungeon = "hollow" if "first" in beaten else "first"
 	dg.return_to_town = true
 	if is_inside_tree() and get_tree().current_scene == self:
+		if dg.dungeon == "hollow":
+			# The Hollow is reached on foot: the riverbank, the walkway node, then its entrance
+			# (Preston, 2026-10-10). hollow_approach.gd starts the run itself.
+			dg.free()
+			get_tree().change_scene_to_file("res://scenes/hollow_approach.tscn")
+			return
 		get_tree().change_scene_to_node(dg)
 	else:
 		set_meta("entered", true)   # the checks read this instead of leaving the scene
@@ -413,7 +525,13 @@ func _process(_delta: float) -> void:
 	if poll_input and not busy and not evolving_now:
 		_poll()
 	# The walk cycle (Claude, 2026-10-10; Preston: "they just hopped without animation").
-	for e in team:
+	var movers: Array = []
+	movers.append_array(team)
+	movers.append_array(npcs)
+	for e in movers:
+		if e.get("down", false):
+			e["sprite"].texture = _down_tex(e)   # knocked flat in a scene
+			continue
 		if e["walk_t"] > 0.0:
 			e["walk_t"] -= _delta
 			e["walk_clock"] += _delta
@@ -424,8 +542,14 @@ func _process(_delta: float) -> void:
 				e["sprite"].texture = e["still"][e["facing"]]
 	if not team.is_empty():
 		var half := Vector2(VIEW) * 0.5
-		var focus: Vector2 = (team[0]["node"].position + Vector2(0, -12)).clamp(half, Vector2(Layout.W, Layout.H) * T - half)
-		_world.position = (half - focus).round()
+		if shrine_view and not evolving_now and panel.is_empty():
+			shrine_view = false   # back to following the leader once the shrine's line is closed
+		var look: Vector2 = (_socket_px() + Vector2(0, 22)) if shrine_view else (team[0]["node"].position + Vector2(0, -12))
+		if cam_focus != null:
+			look = cam_focus
+		var focus: Vector2 = look.clamp(half, Vector2(Layout.W, Layout.H) * T - half)
+		shake = maxf(0.0, shake - _delta * 12.0)
+		_world.position = (half - focus + Vector2(randf_range(-1, 1), randf_range(-1, 1)) * shake).round()
 	_labels.queue_redraw()
 	_hud.queue_redraw()
 
@@ -442,6 +566,13 @@ func _tapped(k: int) -> bool:
 
 
 func _poll() -> void:
+	if cutscene:   # a scene plays itself; E reads its lines
+		if not talk.is_empty() and (_tapped(KEY_E) or _tapped(KEY_J) or _tapped(KEY_ENTER) or _tapped(KEY_SPACE)):
+			if UI.line_done(String(talk[0][1])):
+				talk.pop_front()
+			else:
+				UI.finish_line()   # the first press shows the rest of the line, the next moves on
+		return
 	if panel.get("service", "") == "board":
 		if _tapped(KEY_W) or _tapped(KEY_UP):
 			act_board_move(-1)
@@ -458,6 +589,9 @@ func _poll() -> void:
 
 
 func _draw_labels() -> void:
+	_draw_stone()
+	BoardScene.draw(self, _labels)
+	preload("res://scripts/town/scene_kit.gd").draw(self, _labels)
 	for p in Layout.PLACES:
 		if is_instance_valid(_building_exteriors) and _building_exteriors.buildings.has(p["id"]):
 			continue   # Finished entrances have their own sign / lantern; other plaques stay.
@@ -478,9 +612,16 @@ func _draw_labels() -> void:
 
 
 func _draw_hud() -> void:
+	_hud.get_node("CrewPortraitFinish").clear()
 	# The shared look (scripts/ui/ui_style.gd), as in the Hollow: where you are at the top left, the
 	# keys short at the bottom right, a place's sign in a panel at the bottom. Claude, 2026-10-10.
 	var h := _hud
+	if cutscene:   # a scene: only its lines (Explorers of Sky clears the HUD for a cutscene)
+		if not talk.is_empty():
+			var sl: Array = talk[0]
+			var sf: String = String(sl[2]) if sl.size() > 2 else ""
+			UI.dialogue(h, Rect2(196, 452, 760, 116), String(sl[0]), String(sl[1]), UI.dialogue_portrait(sf) if sf != "" else null, Time.get_ticks_msec() / 1000.0, 20, sf.get_slice(":", 1) if ":" in sf else "normal")
+		return
 	UI.panel(h, Rect2(6, 6, 330, 54))
 	UI.text(h, Vector2(28, 43), "Highbank", 26, UI.EDGE_LIGHT)
 	var here: Dictionary = Layout.place_at(team[0]["pos"]) if not team.is_empty() else {}
@@ -488,14 +629,19 @@ func _draw_hud() -> void:
 		UI.text(h, Vector2(28, 43), String(here["name"]), 16, UI.TEXT, 282, HORIZONTAL_ALIGNMENT_RIGHT)
 	UI.text(h, Vector2(946, 562), "WASD walk   E use", 14, Color(UI.MUTED, 0.85), 194, HORIZONTAL_ALIGNMENT_RIGHT)
 	UI.text(h, Vector2(946, 580), "The Hollow's mouth starts a run", 14, Color(UI.MUTED, 0.85), 194, HORIZONTAL_ALIGNMENT_RIGHT)
-	if panel.get("service", "") == "board":
+	if not talk.is_empty():
+		var line: Array = talk[0]
+		var form: String = String(line[2]) if line.size() > 2 else ""
+		var face: String = form.get_slice(":", 1) if ":" in form else "normal"
+		UI.dialogue(h, Rect2(196, 452, 760, 116), String(line[0]), String(line[1]), UI.dialogue_portrait(form) if form != "" else null, Time.get_ticks_msec() / 1000.0, 20, face)
+	elif panel.get("service", "") == "board":
 		_draw_board(h)
 	elif not panel.is_empty():
 		var box := Rect2(196, 452, 760, 128)
 		UI.panel(h, box, 0.95)
 		UI.text(h, box.position + Vector2(22, 34), String(panel["name"]), 23, UI.EDGE_LIGHT, 716)
 		h.draw_multiline_string(UI.HEAD, box.position + Vector2(22, 64), String(panel["what"]), HORIZONTAL_ALIGNMENT_LEFT, 716, 18, 2, UI.TEXT)
-		var hint := "E  evolve     Esc  not now" if panel.get("service", "") == "evolve_ask" else "E  close"
+		var hint := "E  evolve     Esc  not now" if panel.get("service", "") == "evolve_ask" else ("E  set it in     Esc  not now" if panel.get("service", "") == "stone_ask" else "E  close")
 		UI.text(h, box.position + Vector2(22, 116), hint, 15, UI.MUTED, 716, HORIZONTAL_ALIGNMENT_RIGHT)
 
 

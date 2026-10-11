@@ -1,0 +1,37 @@
+[
+  {
+    "path": "assets/sprites/world/home_interior_2026_10_10/home_native.png",
+    "before": null,
+    "after": "fa31436c579aa0befe090ae3fb9445bbbc3553b90f8086cf586632e5b8dcc796"
+  },
+  {
+    "path": "assets/sprites/world/job_board_selout_2026_10_10/board_native.png",
+    "before": null,
+    "after": "bc2dddca2d89b1c907a86cb7f1aa578cabb21f1226117bae66456ed6aea52901"
+  },
+  {
+    "path": "scripts/town/home_room_art.gd",
+    "before": null,
+    "after": "14e8b9b1b1bf90687f38381c3d08896659540d28e5b604271eb59bc707922d31"
+  },
+  {
+    "path": "scripts/town/job_board_painter.gd",
+    "before": "c3f7a91fc4818dd8075503b7e4053a2241519a6777aeb51cb73744aec8b540e2",
+    "after": "417cf44b317c85b27b79704bc4adb6cb25b716aa3fcc2c518fb19f8b46575c5d"
+  },
+  {
+    "path": "scripts/town/room_painter.gd",
+    "before": "4af5e7eaeb4f9f591c6c0de95072f8261676c184986ec412d787ce992a6e7c36",
+    "after": "3ccc49f70e9630e800d675723ec72c4ae58686abacda805c507051640175fabf"
+  },
+  {
+    "path": "scripts/town/town_room.gd",
+    "before": "5f676c0e3122a385e6da4c925cf365eb40bea95f92e1b5f71364026e31208f9a",
+    "after": "85aa5f9f83c92196199fc3c4b3aa906855d4e14aec4d638e2213ddc256ed9737"
+  },
+  {
+    "path": "docs/AI_COLLABORATION.md",
+    "before": "2677b8cceb1d0149853276ef86847e4d8dde70936abc0c7b35845e530b64d317",
+    "after": "ef4f0a4fe6c137424161533924b5104e9138c7f0f1b0e97a8581a73b534eb210"
+  }
+]

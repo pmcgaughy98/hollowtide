@@ -1,0 +1,27 @@
+[
+  {
+    "path": "scripts/ui/creature_detail_canvas.gd",
+    "before": null,
+    "after": "d7c22f181166efe9e0bef9572133a34b666e7f9bbfe7ab107614a31507277a7a"
+  },
+  {
+    "path": "scripts/arena/creature_finish.gd",
+    "before": "1326b1ed17b377ef40121475e3bc532a296a5b93d2a8587c800d395ee3f44dbb",
+    "after": "3cfb71eb2ed95300cca9807a23e54533cd005b052b7fef9fa638f0284173e7f1"
+  },
+  {
+    "path": "scripts/arena/sel_out.gdshaderinc",
+    "before": "2959d4cfc2b32db588c56b3701aabb2556b1c01789a423490bb33d8967a3a781",
+    "after": "ac9e1d7684c35f7136a3f06b9deadffd127b24fa1b507d064ee5dd6073546d48"
+  },
+  {
+    "path": "scripts/ui/party_screen.gd",
+    "before": "502a8bcbc3675dba52a98ded44864322f0188c49b06c233b320e5a932a0a6018",
+    "after": "56c1e3d68fe11d2b673009e0df38029332a45efa5b02a4d3ca81702b85e4de74"
+  },
+  {
+    "path": "docs/AI_COLLABORATION.md",
+    "before": "22fe7d99d42f627ff110ce8e861bbb000d48f40693e3abc6443b3b699056c99c",
+    "after": "d3507432ebea0bc8c5d0f3e569ed83c9618efd723717962f09b11ba949e07945"
+  }
+]

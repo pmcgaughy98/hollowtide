@@ -3,6 +3,7 @@ extends RefCounted
 const Layout = preload("res://scripts/town/town_layout.gd")
 const Finish = preload("res://scripts/town/exterior_finish.gd")
 const ART := "res://assets/sprites/world/job_board_2026_10_10/board_native.png"
+const DISPLAY_ART := "res://assets/sprites/world/job_board_selout_2026_10_10/board_native.png"
 
 static func _place() -> Dictionary:
 	return Layout.PLACES.filter(func(p: Dictionary) -> bool: return p["id"] == "board")[0]
@@ -26,10 +27,23 @@ static func apply(img: Image, ground: Image, reading_ground: Image) -> Image:
 	# The larger stand casts its contact shadow as a separate sprite on the final ground.
 	return img
 
-static func _visual_offset() -> Vector2:
-	var used: Rect2i = load(ART).get_image().get_used_rect()
-	# Keep the original centre and actual opaque foot row, including the source padding.
-	return Vector2(-Layout.T, -used.end.y)
+static func _display_texture() -> Texture2D:
+	# The original 48x24 stand is retained as the exact fallback.
+	if FileAccess.file_exists(DISPLAY_ART):
+		var image := Image.load_from_file(ProjectSettings.globalize_path(DISPLAY_ART))
+		if image != null and image.get_size()==Vector2i(96,48):
+			return ImageTexture.create_from_image(image)
+	return load(ART)
+
+static func _visual_scale(texture: Texture2D) -> Vector2:
+	return Vector2.ONE if texture.get_size()==Vector2(96,48) else Vector2(2,2)
+
+static func _visual_offset(texture: Texture2D = null) -> Vector2:
+	if texture == null: texture = _display_texture()
+	var original: Rect2i = load(ART).get_image().get_used_rect()
+	var used: Rect2i = texture.get_image().get_used_rect()
+	# Same canvas centre and opaque foot row for native art and the original 2x fallback.
+	return Vector2(-Layout.T, original.end.y-used.end.y*_visual_scale(texture).y)
 
 static func attach(parent: Node2D, _host: Node2D) -> Dictionary:
 	var place := _place()
@@ -39,23 +53,26 @@ static func attach(parent: Node2D, _host: Node2D) -> Dictionary:
 	# Sort at the board's foot row. The south reading tile remains in front of it.
 	base.z_index = place["rect"].end.y * Layout.T - 1
 	parent.add_child(base)
-	# An integer native-pixel enlargement of Preston's original stand, with aligned feet.
+	# Refined 96x48 native art keeps the enlarged stand's centre and contact row.
+	var art := _display_texture()
+	var visual_scale := _visual_scale(art)
+	var offset := _visual_offset(art)
 	var shadow := Sprite2D.new()
 	shadow.name = "ContactShadow"
 	shadow.centered = false
-	shadow.position = _visual_offset() + Vector2(2, 2)
-	shadow.scale = Vector2(2, 2)
-	shadow.texture = load(ART)
+	shadow.position = offset + Vector2(2, 2)
+	shadow.scale = visual_scale
+	shadow.texture = art
 	shadow.modulate = Color(0, 0, 0, 0.22)
 	shadow.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
 	base.add_child(shadow)
 	var sprite := Sprite2D.new()
 	sprite.name = "NoticeStand"
-	sprite.scale = Vector2(2, 2)
-	sprite.position = _visual_offset()
+	sprite.scale = visual_scale
+	sprite.position = offset
 	sprite.centered = false
 	sprite.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
-	sprite.texture = load(ART)
+	sprite.texture = art
 	Finish.apply(sprite, true)
 	base.add_child(sprite)
 	# Reading-pad feedback is ground-level, so a creature always draws above it.

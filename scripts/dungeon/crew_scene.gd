@@ -26,6 +26,7 @@ const FLEE := [
 	["Whinet", "Yeah! The boss'll hear about this!", "angry"],
 ]
 const GOT_IT := [["{partner}", "Our parcel! A little chewed, but it's all here.", "joyous"]]
+# After GOT_IT the story records it (Preston, 2026-10-10: getting it back makes the two runners).
 const WALK_STEPS := 2
 const PARCEL_TILE := Vector2i(-1, 3)   # from the stairs: between the two, where they fight over it
 
@@ -88,7 +89,7 @@ static func run(dg) -> void:
 	if not BossIntro._alive(dg):
 		return
 	var b: Dictionary = dg.ents[dg.boss]
-	Music.play(dg.get_tree(), "boss_scene")
+	Music.play(dg.get_tree(), "crew_theme")   # the Shortcut Crew's own theme (ElevenLabs, 2026-10-10)
 	# 1. Fade in on the two bent over the parcel, arguing, their backs to the stairs' approach.
 	dg.cam_focus = dg._tile_px(b["pos"]) + Vector2(-8, 18)
 	dg._fade.color.a = 1.0
@@ -253,6 +254,7 @@ static func after(dg) -> void:
 	dg._burst(p1, Color("#ffe9a8"), 14, 50.0, 0.6, -20.0, 1.0)
 	Music.jingle(dg.get_tree(), "victory")
 	await _lines(dg, GOT_IT)   # held up over the leader's head while the partner speaks
+	dg.story["parcel"] = "recovered"   # the guild's trial is done when they bring it home
 	if not BossIntro._alive(dg):
 		return
 	dg.intro.erase("parcel")

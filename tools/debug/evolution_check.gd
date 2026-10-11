@@ -35,6 +35,7 @@ func _ready_record(taught: Array) -> void:
 	var c: Dictionary = load("res://scripts/dungeon/dungeon.gd").get_script_constant_map()
 	var r: Dictionary = c["EVO"][0]
 	TeamState.start([[0, 0], [1, 0]])
+	TeamState.data["story"] = {"stone": "installed"}   # the shrine is awake (stone_check.gd covers the dark shrine)
 	TeamState.data["levels"] = {0: {"lv": c["EVO_LEVEL"][0], "exp": 0}}
 	TeamState.data["growth"] = {"0:0": {"kos": r["kos"][0], "floors": r["floors"][0], "flank": r["need"][0], "ambush": 0, "took": 0, "slam": 0}}
 	TeamState.data["taught"] = {"0:0": taught}

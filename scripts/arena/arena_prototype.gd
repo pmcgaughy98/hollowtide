@@ -227,6 +227,11 @@ const KITS := {
 	"springvault": {"moves": ["spring_spit"], "abilities": [], "speed": 0.85, "hp": 1.3, "profile": "escort"},
 	# The rival crew (dungeon only for now; not in LINES, so the arena never picks them).
 	"mirekit": {"moves": ["grub_bite"], "abilities": ["rot_spit", "play_dead"], "speed": 1.05, "hp": 0.9, "profile": "skirmish"},
+	# The Hollow's new wilds (Claude, 2026-10-10): placeholder kits from existing moves their bodies allow, for Grok.
+	"skimlet": {"moves": ["needle_bite"], "abilities": ["lunge"], "speed": 1.15, "hp": 0.8, "profile": "skirmish"},
+	"ozbender": {"moves": ["needle_bite"], "abilities": ["lunge"], "speed": 0.9, "hp": 1.15, "profile": "press"},
+	"valvekin": {"moves": ["glass_guard"], "abilities": [], "speed": 0.85, "hp": 1.2, "profile": "kite"},
+	"gruntle": {"moves": ["grub_bite"], "abilities": [], "speed": 0.9, "hp": 1.3, "profile": "press"},   # the crew's boss, placeholder for Grok
 	"whinet": {"moves": ["needle_jab"], "abilities": ["drain_bite", "buzz_dart"], "speed": 1.2, "hp": 0.8, "profile": "skirmish"},
 	"waywhistle": {"moves": ["whistle_dart"], "abilities": ["signal_mark", "decoy_call", "vantage"], "speed": 1.2, "hp": 1.0,
 		"passive": "spotter", "profile": "kite", "far_bonus": 1.15},

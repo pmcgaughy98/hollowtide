@@ -32,10 +32,10 @@ SOURCE = {
 TARGET = {0: 15.5, 1: 21.0, 2: 30.0}   # keep in step with build_dungeon_set.py
 # The lighter plan (front, side and back attacks; front and side hurts) leaves facings ungenerated;
 # each uses the nearest that exists. Mirrored facings (w, sw, nw) mirror what their source used.
-FALLBACK = {"se": ["e", "s"], "ne": ["e", "n"], "e": ["s"], "n": ["e", "s"]}
+FALLBACK = {"se": ["e", "s"], "ne": ["e", "n"], "e": ["s"], "n": ["e", "s"], "s": ["e"]}   # s -> e: a rejected south take (Skimlet hurt, 2026-10-10) falls back to the side
 
 
-DUNGEON_ONLY = {"mirekit": 0, "whinet": 0}   # the rival crew (dungeon.gd CREW_LINES), not in the arena's LINES
+DUNGEON_ONLY = {"mirekit": 0, "whinet": 0, "gruntle": 0, "skimlet": 0, "ozbender": 0, "valvekin": 0}   # the rival crew (dungeon.gd CREW_LINES), not in the arena's LINES
 
 
 def stage_of(name: str) -> int:
@@ -51,7 +51,7 @@ def stage_of(name: str) -> int:
 
 def factor(name: str) -> float:
     v = [np.sqrt((np.array(Image.open(ART / name / f"{f}.png").convert("RGBA"))[..., 3] > 0).sum()) for f in FACINGS]
-    return float(np.mean(v)) / (TARGET[stage_of(name)] * SIZE)
+    return float(np.mean(v)) / (TARGET[stage_of(name)] * SIZE * BOOST.get(name, 1.0))
 
 
 def frames_of(sheet: Path, side: int, n: int) -> list:
@@ -68,6 +68,9 @@ def frames_of(sheet: Path, side: int, n: int) -> list:
 OPTS = dict(a[2:].split("=", 1) for a in sys.argv[1:] if a.startswith("--"))
 SET = OPTS.get("set", "dungeon")   # --set=escort --scale=1.35: the bigger set a boss's escort wears
 SIZE = float(OPTS.get("scale", "1"))
+# Creatures drawn bigger than their stage in every set (Preston, 2026-10-10: Gruntle, the crew's boss, is a
+# stage 1 that looks fat and bulky; about 1.25x the crew, "a tad" under the first stand-in).
+BOOST = {"gruntle": 1.25}
 for name in ([a for a in sys.argv[1:] if not a.startswith("--")] or ["kithflare", "tallowroot", "rimefin", "cinderhide", "fusern", "preostmar", "punchybun", "listener", "canvaswing", "dustkite"]):
     side = Image.open(ART / name / "s.png").size[0]
     f = factor(name)

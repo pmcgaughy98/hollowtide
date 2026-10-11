@@ -76,6 +76,11 @@ const PARTS := {
 	# The rival crew (Claude, 2026-10-10, draft for Grok): the opossum's claws, jaw and hooking tail;
 	# the mosquito's needle, wings and six legs.
 	"mirekit": ["claw", "jaw", "hooktail"],
+	"gruntle": ["jaw", "ridge"],
+	# The Hollow's new wilds (2026-10-10), existing vocabulary: the strider's piercing mouthparts are a jaw.
+	"skimlet": ["sixlegs", "jaw"],
+	"ozbender": ["jaw", "tail"],
+	"valvekin": ["shell"],   # its bristle ridge; tusks and hooves are not in the vocabulary yet (for Grok)
 	"whinet": ["needle", "wing", "sixlegs"],
 }
 

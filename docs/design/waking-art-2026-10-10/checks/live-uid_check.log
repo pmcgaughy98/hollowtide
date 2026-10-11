@@ -1,0 +1,19 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+id_to_text
+text_to_id
+create_id
+create_id_for_path
+has_id
+add_id
+set_id
+get_id_path
+remove_id
+uid_to_path
+path_to_uid
+ensure_path
+_validate_property
+get_instance_id
+Audio layout path: res://default_bus_layout.tres
+Audio UID present: true
+[godot_ai game_helper] registered mcp capture (debugger active=false, logger=true)

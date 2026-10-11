@@ -52,6 +52,9 @@ def base(form: str) -> Path:
     return p
 
 
+BASE_SHAPE = {"starward"}   # cream-furred: shaped by the plain portrait, not the background flood (2026-10-10)
+
+
 def palette_of(form: str) -> np.ndarray:
     a = np.array(Image.open(OUT / f"{form}.png").convert("RGBA"))
     return np.unique(a[a[..., 3] > 0][:, :3], axis=0).astype(int)
@@ -89,7 +92,17 @@ def finish(form: str, edited: Path, face: str) -> Path:
     idx = ((flat[:, None, :] - pal[None, :, :]) ** 2).sum(2).argmin(1)
     a[..., :3] = pal[idx].reshape(a.shape[:2] + (3,))
     a[..., 3] = 255
-    a = clear_bg(a.astype(np.uint8))
+    if form in BASE_SHAPE:
+        # Cream creatures: the background flood would eat their fur where it meets the crop's edge, so
+        # the face takes the plain portrait's outline (the pose does not change between faces).
+        # Both shapes together: the plain outline keeps the fur, the edit's own keeps an open jaw that
+        # reaches past it (Preston: joyous, surprised and angry had their mouths cut off).
+        own = clear_bg(a.astype(np.uint8).copy())[..., 3]
+        base = np.array(Image.open(OUT / f"{form}.png").convert("RGBA"))[..., 3]
+        a[..., 3] = np.maximum(own, base)
+        a = a.astype(np.uint8)
+    else:
+        a = clear_bg(a.astype(np.uint8))
     out = OUT / f"{form}_{face}.png"
     Image.fromarray(a).save(out)
     return out

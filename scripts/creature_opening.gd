@@ -4,7 +4,7 @@ extends "res://scripts/opening_flow.gd"
 const PROLOGUE = preload("res://scenes/creature_prologue.tscn")
 # New Game opens the soul prologue first (Claude, 2026-10-10; Preston: the soul arrives in Hollowtide
 # and chooses its creature), which then hands over to PROLOGUE with the starter chosen.
-const SOUL = preload("res://scenes/soul_prologue.tscn")
+const SOUL = preload("res://scenes/storm_open.tscn")   # Claude, 2026-10-10: the storm cold open plays first, then the soul prologue (Preston)
 const VILLAGE = preload("res://assets/sprites/menu/creature_village_2026_10_09.png")
 const FRAME_TRIM = preload("res://scripts/ui/title_panel_trim.gd")
 const MENU_FACE = preload("res://assets/fonts/Vollkorn-Variable.ttf")
@@ -132,32 +132,27 @@ func _label(text:String,size:int=24) -> Label:
 
 func _panel(node_name:String,at:Vector2,width:float) -> PanelContainer:
 	var panel:=super._panel(node_name,at,width)
-	var box:=StyleBoxFlat.new()
-	box.bg_color=Color("#202920")
-	box.border_color=Color("#8e805c")
-	box.set_border_width_all(1)
-	box.set_content_margin_all(20)
-	box.shadow_color=Color(0.04,0.06,0.05,0.7)
-	box.shadow_size=0
-	box.shadow_offset=Vector2(7,7)
+	var box:=UI.frame("panel").duplicate()
+	box.set_content_margin_all(24)
 	panel.add_theme_stylebox_override("panel",box)
 	var trim := FRAME_TRIM.new()
 	trim.name="FrameJoinery"
 	panel.add_child(trim)
+	trim.hide() # Shared frame supplies its own corner studs and joinery.
 	return panel
 
 func _button(text:String) -> Button:
 	var b:=super._button(text)
 	b.add_theme_font_override("font",MENU_FACE)
 	b.add_theme_font_size_override("font_size",25)
-	var plain:=StyleBoxFlat.new()
-	plain.bg_color=Color("#202920")
-	plain.set_content_margin_all(8)
+	var plain:=UI.frame("panel").duplicate()
+	plain.content_margin_top=8
+	plain.content_margin_bottom=8
 	plain.content_margin_left=40
-	var active:=plain.duplicate() as StyleBoxFlat
-	active.bg_color=Color("#344333")
-	active.border_color=Color("#e4ca8e")
-	active.set_border_width_all(1)
+	var active:=UI.frame("panel_focus").duplicate()
+	active.content_margin_top=8
+	active.content_margin_bottom=8
+	active.content_margin_left=40
 	b.add_theme_stylebox_override("normal",plain)
 	for state in ["focus","hover","pressed"]:b.add_theme_stylebox_override(state,active)
 	return b
@@ -229,7 +224,7 @@ func _build_menu() -> void:
 	_cursor.color=Color("#e4ca8e")
 	_cursor.polygon=PackedVector2Array([Vector2(0,0),Vector2(3,0),Vector2(3,2),Vector2(5,2),Vector2(5,4),Vector2(3,4),Vector2(3,6),Vector2(0,6)])
 	# Panels share the village palette and stay clear of the wordmark.
-	_options_panel.position=Vector2(666,222)
+	_options_panel.position=Vector2(666,180)
 	_options_panel.custom_minimum_size.x=442
 	_quit_panel.position=Vector2(666,312)
 	_quit_panel.custom_minimum_size.x=442
@@ -237,20 +232,13 @@ func _build_menu() -> void:
 	_options_panel.get_node("Choices").add_theme_constant_override("separation",12)
 	for c in _options_controls:
 		if c is HSlider:
-			var track := StyleBoxFlat.new()
-			track.bg_color=Color("#52614b")
-			track.content_margin_top=4
-			track.content_margin_bottom=4
-			var fill := track.duplicate() as StyleBoxFlat
-			fill.bg_color=Color("#d3b780")
+			var track := UI.frame("panel_dim").duplicate()
+			var fill := UI.frame("panel_focus").duplicate()
 			c.add_theme_stylebox_override("slider",track)
 			c.add_theme_stylebox_override("grabber_area",fill)
 			c.add_theme_stylebox_override("grabber_area_highlight",fill)
 			var ring := c.get_node("FocusRing") as Panel
-			var edge := StyleBoxFlat.new()
-			edge.bg_color=Color.TRANSPARENT
-			edge.border_color=Color("#e4ca8e")
-			edge.set_border_width_all(2)
+			var edge := UI.frame("panel_focus").duplicate()
 			ring.add_theme_stylebox_override("panel",edge)
 			var caption_label := _options_panel.get_node("Choices/"+String(c.name).replace("Volume","Value")) as Label
 			c.focus_entered.connect(func():caption_label.add_theme_color_override("font_color",Color("#e4ca8e")))
@@ -313,11 +301,9 @@ func _build_help_panel() -> void:
 		b.size_flags_horizontal=Control.SIZE_EXPAND_FILL
 		b.pressed.connect(entry[2])
 		if entry[0]=="StartNewGame":
-			var primary := StyleBoxFlat.new()
-			primary.bg_color=Color("#354333")
-			primary.border_color=Color("#a38e60")
-			primary.set_border_width_all(1)
-			primary.set_content_margin_all(8)
+			var primary := UI.frame("panel_focus").duplicate()
+			primary.content_margin_top=8
+			primary.content_margin_bottom=8
 			primary.content_margin_left=40
 			b.add_theme_stylebox_override("normal",primary)
 		actions.add_child(b)

@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="CreatureData" format=3]
+
+[ext_resource type="Script" path="res://scripts/creature_data.gd" id="1_script"]
+[ext_resource type="Texture2D" path="res://assets/sprites/arena/skimlet/s.png" id="2_sprite"]
+
+[resource]
+script = ExtResource("1_script")
+id = 2501
+creature_name = "Skimlet"
+essence = 3
+has_second_essence = true
+second_essence = 1
+sprite = ExtResource("2_sprite")
+description = "Provisional entry (Claude, 2026-10-10; Preston picked the take): A water strider, a pond skater: quick, twitchy and curious. Gale/Tide. Stage I of a line whose later forms are not made yet; one of The Hollow's wilds. Name, look and essences are proposals; kits and numbers go to Grok. docs/creatures/hollow-wilds-2026-10-10.md."
+body_parts = PackedStringArray()
+battle_size = 1.0

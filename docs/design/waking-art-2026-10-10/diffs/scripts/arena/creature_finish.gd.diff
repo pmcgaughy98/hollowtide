@@ -1,0 +1,24 @@
+--- scripts/arena/creature_finish.gd original
++++ scripts/arena/creature_finish.gd candidate
+@@ -2,6 +2,7 @@
+ ## Shared display finish, following the saved Hollowtide Sprite Forge house style.
+ ## Source art and palettes are never rebuilt. No time-dependent grain or dither.
+ const SHADER = preload("res://scripts/arena/creature_finish.gdshader")
++const STARWARD_SHADER = preload("res://scripts/arena/starward_finish.gdshader")
+ 
+ static func apply(sprite: Sprite2D, details: bool = false, form: String = "") -> void:
+ 	var finish := ShaderMaterial.new()
+@@ -12,9 +13,12 @@
+ 	# Follow the active texture, so only this form receives its material correction.
+ 	var refresh := func() -> void:
+ 		var path := sprite.texture.resource_path if sprite.texture != null else ""
++		# Follow every facing/action and every emotion; pooled portraits restore the normal shader.
++		var starward := "/arena/starward/" in path or dialogue_form(path, "starward") or (path.is_empty() and form == "starward")
++		finish.shader = STARWARD_SHADER if starward else SHADER
+ 		finish.set_shader_parameter("sparkwick_palette", is_sparkwick(path))
+ 		finish.set_shader_parameter("skimlet_leg_fix", "/arena/skimlet/" in path or dialogue_form(path, "skimlet") or (path.is_empty() and form == "skimlet"))
+-		finish.set_shader_parameter("detail_ink", 1.0 if details else crew_detail(path, form))
++		finish.set_shader_parameter("detail_ink", 0.55 if starward else (1.0 if details else crew_detail(path, form)))
+ 	sprite.texture_changed.connect(refresh)
+ 	refresh.call()
+ 

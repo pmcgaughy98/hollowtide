@@ -1,0 +1,25 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+OpenGL API 3.3.0 NVIDIA 596.49 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce GTX 1660 SUPER
+
+[godot_ai game_helper] registered mcp capture (debugger active=false, logger=true)
+PASS lookout detailed native bounds and complete fringe
+PASS lookout original fallback byte exact
+PASS landing detailed native bounds and complete fringe
+PASS landing original fallback byte exact
+PASS dock detailed native bounds and complete fringe
+PASS dock original fallback byte exact
+PASS missing asset preserves code fallback
+PASS approved interior stone material reused exactly
+PASS lookout service approach remains clear
+PASS landing reading/interaction tile remains clear
+PASS landing art stays clear of separate Hollow Mouth
+PASS map detail changes only selected platforms and shoreline: 110582 changed, 0 outside
+PASS river compositing leaves world fully opaque
+PASS shore overlay preserves all platform and entrance floor pixels
+PASS lookout original placement and native scale retained
+PASS lookout shared material rim/detail finish
+PASS landing original placement and native scale retained
+PASS landing shared material rim/detail finish
+PASS dock original placement and native scale retained
+PASS dock shared material rim/detail finish
+TOWN DETAIL 20/20 PASS

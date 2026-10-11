@@ -1,0 +1,14 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+OpenGL API 3.3.0 NVIDIA 596.49 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce GTX 1660 SUPER
+
+[godot_ai game_helper] registered mcp capture (debugger active=false, logger=true)
+PASS all 329 Starward sprites, action frames and portraits receive finish
+PASS refined material rim and internal seams: 108164 rim, 34323 interior pixels
+PASS approved silhouette alpha stays exact against original finish
+PASS bright cream highlights stay exact
+PASS jade Oxbowarchon, Sparkwick, Gruntle, Skimlet and other portraits remain exact
+PASS portrait head/neck fringe receives refined rim and seam detail: 117 pixels
+PASS emotion portrait activates same Starward preset
+PASS pooled portrait restores Gruntle preset
+PASS other shader wrappers survive non-Starward texture changes
+STARWARD 9/9 PASS

@@ -1,0 +1,30 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+[godot_ai game_helper] registered mcp capture (debugger active=false, logger=true)
+PASS grass native bounds
+PASS grass fully opaque material
+PASS grass world phase is continuous across adjacent 24px tiles and source wrap
+PASS earth native bounds
+PASS earth fully opaque material
+PASS earth world phase is continuous across adjacent 24px tiles and source wrap
+PASS lane native bounds
+PASS lane fully opaque material
+PASS lane world phase is continuous across adjacent 24px tiles and source wrap
+PASS cliff native bounds
+PASS cliff fully opaque material
+PASS cliff world phase is continuous across adjacent 24px tiles and source wrap
+PASS cliff_b native bounds
+PASS cliff_b fully opaque material
+PASS cliff_b world phase is continuous across adjacent 24px tiles and source wrap
+PASS unknown material retains fallback
+PASS world canvas and native scale exact
+PASS all missing materials restore the entire original painter byte exact
+PASS substantial terrain detail installed: 680569 changed pixels
+PASS service/foundation/door/contact pixels preserved: 0 outside ground masks
+PASS full world opacity preserved
+PASS lookout finished platform/entrance floor exact
+PASS landing finished platform/entrance floor exact
+PASS gate finished platform/entrance floor exact
+PASS dock finished platform/entrance floor exact
+PASS approved river and dock extension exact
+WORLD MATERIALS 26/26 PASS

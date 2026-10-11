@@ -7,9 +7,12 @@ extends Node2D
 ##   var room = load("res://scenes/town_room.tscn").instantiate(); room.room_id = "home"
 
 const Arena := preload("res://scripts/arena/arena_prototype.gd")
+const Lines := preload("res://scripts/creatures/lines.gd")
 const TeamState := preload("res://scripts/town/team_state.gd")
 const Painter := preload("res://scripts/town/room_painter.gd")
 const UI := preload("res://scripts/ui/ui_style.gd")
+const SceneKit := preload("res://scripts/town/scene_kit.gd")
+const GuildScene := preload("res://scripts/town/guild_scene.gd")
 const T := 24
 const VIEW := Vector2i(384, 216)
 const SCALE := 3.0
@@ -29,11 +32,11 @@ const ROOMS := {
 			{"id": "shelf", "rect": Rect2i(1, 7, 2, 2), "name": "Shelf", "what": "Jars of reedberries and a stack of old Wayline reports."},
 			{"id": "plants", "rect": Rect2i(11, 6, 2, 2), "name": "Planters", "what": "Clover and a stubborn fern. Someone waters them."}]},
 	"hall": {"name": "Wayline Hall", "w": 22, "h": 14, "door": Vector2i(11, 13), "town_door": "hall",
-		"solid": [Rect2i(7, 3, 8, 1), Rect2i(2, 2, 2, 1), Rect2i(18, 2, 2, 1), Rect2i(3, 6, 1, 1), Rect2i(18, 6, 1, 1), Rect2i(3, 10, 1, 1), Rect2i(18, 10, 1, 1),
+		"solid": [Rect2i(7, 3, 8, 2), Rect2i(2, 2, 2, 1), Rect2i(18, 2, 2, 1), Rect2i(3, 6, 1, 1), Rect2i(18, 6, 1, 1), Rect2i(3, 10, 1, 1), Rect2i(18, 10, 1, 1),
 			Rect2i(1, 8, 1, 3), Rect2i(20, 8, 1, 3), Rect2i(5, 7, 2, 2), Rect2i(15, 7, 2, 2), Rect2i(2, 12, 2, 1), Rect2i(18, 12, 2, 1),
 			Rect2i(4, 6, 1, 1), Rect2i(17, 6, 1, 1)],
 		"spots": [
-			{"id": "counter", "rect": Rect2i(7, 3, 8, 1), "name": "Dispatch Counter", "what": "The dispatcher hands out the board's requests and takes reports. (The Job Board outside lists them.)", "service": "jobs"},
+			{"id": "counter", "rect": Rect2i(7, 3, 8, 2), "name": "Dispatch Counter", "what": "The dispatcher hands out the board's requests and takes reports. (The Job Board outside lists them.)", "service": "jobs"},
 			{"id": "notices", "rect": Rect2i(2, 2, 2, 1), "name": "Notice Wall", "what": "Sightings, closures, a warning about a crew poaching deliveries."},
 			{"id": "roster", "rect": Rect2i(18, 2, 2, 1), "name": "Roster Board", "what": "Every team on the Wayline, by rank. Yours is near the bottom, for now."},
 			{"id": "benches", "rect": Rect2i(1, 8, 1, 3), "name": "Bench", "what": "Where couriers wait for the river to settle."},
@@ -54,6 +57,14 @@ var _world: Node2D
 var _hud: Node2D
 var _keys_was := {}
 var used_log: Array = []   # spots used, for the checks
+# Scenes in rooms (Claude, 2026-10-10): the hooks scripts/town/scene_kit.gd uses, as in hub_town.gd.
+var talk: Array = []          # [speaker, line, "form:face"]; E reads on
+var cutscene := false
+var cam_focus: Variant = null
+var npcs: Array = []          # creatures in the room that are not the team
+var scene_fx := {}            # a scene's bubbles and props
+var force_scenes := false     # the checks set poll_input off; this still lets a scene play
+var _labels: Node2D
 
 
 func room() -> Dictionary:
@@ -92,7 +103,13 @@ func _ready() -> void:
 	var map := Sprite2D.new()
 	map.centered = false
 	map.texture = ImageTexture.create_from_image(Painter.paint(room_id, r))
+	if room_id == "home":
+		preload("res://scripts/town/home_room_art.gd").finish(map)
+	elif room_id == "hall":
+		preload("res://scripts/town/hall_room_art.gd").finish(map)
 	_world.add_child(map)
+	if room_id == "hall":
+		_guild_desk(map)
 	var layer := CanvasLayer.new()
 	add_child(layer)
 	_hud = Node2D.new()
@@ -110,6 +127,33 @@ func _ready() -> void:
 		_place(e)
 		team.append(e)
 	preload("res://scripts/ui/game_pause_menu.gd").attach(self)
+	_labels = Node2D.new()
+	_labels.z_index = 2000
+	_labels.draw.connect(func() -> void: SceneKit.draw(self, _labels))
+	_world.add_child(_labels)
+	if GuildScene.pending(self):
+		GuildScene.place(self)
+		if poll_input or force_scenes:
+			(func() -> void: GuildScene.run(self)).call_deferred()
+
+
+## The team record the town carries (scripts/town/team_state.gd).
+func _record() -> Dictionary:
+	if TeamState.data.is_empty():
+		TeamState.start([[0, 0], [1, 0]])
+	return TeamState.data
+
+
+func _sfx(name: String) -> void:
+	var path := "res://assets/audio/sfx/dungeon/%s.wav" % name
+	if not ResourceLoader.exists(path):
+		return
+	var p := AudioStreamPlayer.new()
+	p.stream = load(path)
+	p.volume_db = -4.0
+	add_child(p)
+	p.play()
+	p.finished.connect(p.queue_free)
 
 
 func _open(t: Vector2i) -> bool:
@@ -118,14 +162,16 @@ func _open(t: Vector2i) -> bool:
 
 
 func _make(line: int, stage: int, pos: Vector2i) -> Dictionary:
-	var form: String = Arena.LINES[line]["forms"][stage][0]
+	var form: String = Lines.of(line)["forms"][stage][0]
 	var node := Node2D.new()
 	_world.add_child(node)
 	var sprite := Sprite2D.new()
 	sprite.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
 	node.add_child(sprite)
 	preload("res://scripts/arena/creature_finish.gd").apply(sprite)
-	var set := "dungeon" if ResourceLoader.exists("res://assets/sprites/arena/%s/dungeon/s.png" % form) else "small"
+	# The town set: every creature half again its dungeon size, so the world reads bigger than a dungeon
+	# floor (Preston, 2026-10-10: "they look too small"; built by build_dungeon_set.py --set=town --scale=1.5).
+	var set := "town" if ResourceLoader.exists("res://assets/sprites/arena/%s/town/s.png" % form) else ("dungeon" if ResourceLoader.exists("res://assets/sprites/arena/%s/dungeon/s.png" % form) else "small")
 	var still := {}
 	var walk := {}
 	for f in Arena.FACINGS:
@@ -138,6 +184,50 @@ func _make(line: int, stage: int, pos: Vector2i) -> Dictionary:
 		walk[f] = frames
 	return {"line": line, "stage": stage, "form": form, "pos": pos, "node": node, "sprite": sprite, "still": still, "walk": walk,
 		"facing": "s", "walk_t": 0.0, "walk_clock": 0.0}
+
+
+## The Guildmaster's desk (Preston, 2026-10-10: replace the painted counter, "it doesn't look right", with an
+## asset made for the Guildmaster and the scene). The counter is painted out of the Hall picture as floor,
+## copied from the stone two tiles below (and from beside the carpet where the carpet ran), and the hand-drawn
+## desk (tools/art/guild_desk.py) stands in its place, a row lower, so the picture sits exactly on its solid
+## tiles (rows 3 and 4; Preston: "he still goes through it, make it a real obstacle") and row 2 behind it is
+## open floor. Creatures sort by their feet (z = y): the desk draws over row 2 (feet 66) and under row 5 (138).
+const DESK_AT := Vector2i(168, 70)
+const DESK := "res://assets/sprites/world/guild_desk/desk_detail_2026_10_10.png"
+const OLD_COUNTER := Rect2i(160, 46, 208, 54)
+
+
+func _guild_desk(map: Sprite2D) -> void:
+	if not FileAccess.file_exists(DESK):
+		return
+	var img: Image = map.texture.get_image()
+	var carpet := Vector2i(226, 302)   # the carpet's columns; stone is taken from beside it there
+	for y in range(OLD_COUNTER.position.y, OLD_COUNTER.end.y):
+		for x in range(OLD_COUNTER.position.x, OLD_COUNTER.end.x):
+			var sx := x - 76 if x >= carpet.x and x < carpet.y else x
+			img.set_pixel(x, y, img.get_pixel(sx, y + 52))
+	map.texture = ImageTexture.create_from_image(img)
+	var mat := map.material as ShaderMaterial
+	if mat != null:   # the painted counter's ink outline goes with it
+		var mask: Image = preload("res://scripts/town/hall_room_art.gd").mask()
+		mask.fill_rect(OLD_COUNTER, Color.BLACK)
+		mat.set_shader_parameter("detail_mask", ImageTexture.create_from_image(mask))
+	var desk := Sprite2D.new()
+	desk.centered = false
+	var desk_image := Image.load_from_file(ProjectSettings.globalize_path(DESK))
+	desk_image.convert(Image.FORMAT_RGBA8)
+	desk.texture = ImageTexture.create_from_image(preload("res://scripts/art/selout.gd").selout(desk_image))
+	desk.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
+	var desk_mask := Image.create(desk_image.get_width(),desk_image.get_height(),false,Image.FORMAT_RGBA8)
+	desk_mask.fill(Color.WHITE)
+	var desk_finish := ShaderMaterial.new()
+	desk_finish.shader = preload("res://scripts/dungeon/dungeon_finish.gdshader")
+	desk_finish.set_shader_parameter("detail_mask",ImageTexture.create_from_image(desk_mask))
+	desk_finish.set_shader_parameter("detail_ink",0.55)
+	desk.material = desk_finish
+	desk.position = Vector2(DESK_AT)
+	desk.z_index = DESK_AT.y + 46   # its front's foot
+	_world.add_child(desk)
 
 
 func _px(t: Vector2i) -> Vector2:
@@ -158,7 +248,7 @@ func _facing_of(d: Vector2i) -> String:
 
 ## One step for the leader; the others follow in a chain. Stepping onto the door leaves the room.
 func act_move(d: Vector2i) -> void:
-	if busy or not panel.is_empty():
+	if busy or cutscene or not panel.is_empty():
 		return
 	var lead: Dictionary = team[0]
 	lead["facing"] = _facing_of(d)
@@ -187,6 +277,8 @@ func act_move(d: Vector2i) -> void:
 
 ## Use what the leader faces: a spot shows its panel; a second press closes it.
 func act_use() -> Dictionary:
+	if cutscene:
+		return {}
 	if not panel.is_empty():
 		panel = {}
 		return {}
@@ -218,7 +310,10 @@ func leave() -> void:
 func _process(delta: float) -> void:
 	if poll_input and not busy:
 		_poll()
-	for e in team:
+	var movers: Array = []
+	movers.append_array(team)
+	movers.append_array(npcs)
+	for e in movers:
 		if e["walk_t"] > 0.0:
 			e["walk_t"] -= delta
 			e["walk_clock"] += delta
@@ -231,11 +326,12 @@ func _process(delta: float) -> void:
 		var r := room()
 		var half := Vector2(VIEW) * 0.5
 		var size := Vector2(r["w"], r["h"]) * T
-		var focus: Vector2 = team[0]["node"].position + Vector2(0, -12)
+		var focus: Vector2 = (cam_focus if cam_focus != null else team[0]["node"].position + Vector2(0, -12))
 		focus = Vector2(size.x * 0.5 if size.x <= VIEW.x else clampf(focus.x, half.x, size.x - half.x),
 			size.y * 0.5 if size.y <= VIEW.y else clampf(focus.y, half.y, size.y - half.y))
 		_world.position = (half - focus).round()
 	_hud.queue_redraw()
+	_labels.queue_redraw()
 
 
 func _tapped(k: int) -> bool:
@@ -246,6 +342,13 @@ func _tapped(k: int) -> bool:
 
 
 func _poll() -> void:
+	if cutscene:   # a scene plays itself; E reads its lines
+		if not talk.is_empty() and (_tapped(KEY_E) or _tapped(KEY_J) or _tapped(KEY_ENTER) or _tapped(KEY_SPACE)):
+			if UI.line_done(String(talk[0][1])):
+				talk.pop_front()
+			else:
+				UI.finish_line()   # the first press shows the rest of the line, the next moves on
+		return
 	if _tapped(KEY_E) or _tapped(KEY_J) or _tapped(KEY_ENTER):
 		act_use()
 		return
@@ -259,6 +362,12 @@ func _poll() -> void:
 
 func _draw_hud() -> void:
 	var h := _hud
+	if cutscene:   # a scene: only its lines
+		if not talk.is_empty():
+			var sl: Array = talk[0]
+			var sf: String = String(sl[2]) if sl.size() > 2 else ""
+			UI.dialogue(h, Rect2(196, 452, 760, 116), String(sl[0]), String(sl[1]), UI.dialogue_portrait(sf) if sf != "" else null, Time.get_ticks_msec() / 1000.0, 20, sf.get_slice(":", 1) if ":" in sf else "normal")
+		return
 	UI.panel(h, Rect2(6, 6, 330, 54))
 	UI.text(h, Vector2(28, 43), String(room()["name"]), 26, UI.EDGE_LIGHT)
 	UI.text(h, Vector2(946, 562), "WASD walk   E use", 14, Color(UI.MUTED, 0.85), 194, HORIZONTAL_ALIGNMENT_RIGHT)

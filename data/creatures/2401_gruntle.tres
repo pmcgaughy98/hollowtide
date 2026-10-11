@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="CreatureData" format=3]
+
+[ext_resource type="Script" path="res://scripts/creature_data.gd" id="1_script"]
+[ext_resource type="Texture2D" path="res://assets/sprites/arena/gruntle/s.png" id="2_sprite"]
+
+[resource]
+script = ExtResource("1_script")
+id = 2401
+creature_name = "Gruntle"
+essence = 11
+has_second_essence = false
+second_essence = 0
+sprite = ExtResource("2_sprite")
+description = "Provisional entry (Claude, 2026-10-10; Preston chose a feral hog, take 2, no cap): Stage I, the Shortcut Crew's boss. A fat, bulky young feral hog with mud-caked bristly hide, rot blotches, a black bristle ridge and chipped tusks; smug and bullying. Blight. The name is a working label for Preston to change. Kit drafts for Grok: docs/creatures/antagonist-crew-proposal-2026-10-10.md."
+body_parts = PackedStringArray()
+battle_size = 1.0

@@ -1,0 +1,21 @@
+{
+  "installed_exact": [
+    "scripts/ui/creature_detail_canvas.gd",
+    "scripts/arena/creature_finish.gd",
+    "scripts/arena/sel_out.gdshaderinc",
+    "scripts/ui/party_screen.gd",
+    "docs/AI_COLLABORATION.md"
+  ],
+  "baseline_files": 16318,
+  "protected_exact": 16313,
+  "original_assets_exact": 15314,
+  "concurrent_changes_preserved": [
+    {
+      "path": "scripts/arena/arena_prototype.gd",
+      "before": "ae6d43ea3e0aa3db9a9f92b3a9556030372fc93300ec367732eecfe50fd830ff",
+      "current": "8cb904231ed4adc2558bb4b6211d816658a8fc20b2186487397fd3f376b3a256",
+      "preserved": "Task did not write this path; concurrent version retained."
+    }
+  ],
+  "prior_collaboration_body_exact": true
+}

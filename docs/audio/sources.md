@@ -153,3 +153,37 @@ moves every part. Checked: Monster House's strongest bass note went from 130.0 t
   arpeggios, punchy electronic drums, alarm-like stabs, dark minor key, 150 bpm, a drop then crashing
   back in, no folk instruments. Levelled to the old track's loudness (about -16.5 LUFS). The old song is
   kept at `docs/audio/replaced/monster_house_before_2026-10-10.mp3`.
+
+## Job Board scene sounds (Claude, 2026-10-10; Preston: "eleven lab it up as well")
+ElevenLabs `eleven_text_to_sound_v2`, flow `lgucGp7YVZlGnAPBhJ26`, two takes each at 16.7 credits (about 133 in all).
+Takes in `assets/audio/sfx/dungeon/takes/`; take 1 of each chosen by measurement (quick onset, least energy in
+2 to 6 kHz); trimmed and lowered to A = 432 by `tools/audio/build_dungeon_sfx.py`. Played by `scripts/town/board_scene.gd`.
+- `paper_tear`: "A paper notice ripped off a wooden board, one quick tearing rip of thick paper and a pin popping out, close up, dry, no music" (low-passed at 5 kHz; paper is bright).
+- `hog_grunt`: "A big fat wild hog gives one short smug grunting snort through its snout, low and mean, a bully's sneer, close up, no music"
+- `body_shove`: "A heavy body shove: a meaty thump of a big shoulder slamming into a small creature, then a small body tumbling and skidding onto packed dirt, cartoon game impact, no voice, no music"
+- `hog_trot`: "A heavy hog trotting away on cobblestones, slow clopping trotters and a little scurrying of small feet beside it, fading into the distance, no voice, no music"
+
+## The Shortcut Crew's theme (Claude, 2026-10-10; Preston: "use synthesis then make rival crew dialogue song")
+`assets/audio/music/crew_theme.mp3`, ElevenLabs `eleven_music_v2_5`, flow `lgucGp7YVZlGnAPBhJ26`, 900 credits, 60 s.
+Synthesis: handheld dungeon-crawler rival-gang themes are comic villains (swaggering bass, sly brass, staccato phrases with
+pauses, a loop that sits under dialogue); Hollowtide's crew are Missouri river-bottom pests, so a muddy swamp jug-band colour.
+Prompt: "Instrumental only, no vocals. A sneaky, comic villain theme for a gang of scruffy river-bottom bullies ... oompah tuba
+and a plucked upright bass walking chromatically, a sly muted trumpet and a clarinet ... banjo plucks and washboard scrapes ...
+cheeky woodblock hits and a sneaky bassoon on the off-beats ... loops cleanly. 60 seconds."
+Retuned to A = 432 by resampling (asetrate 432/440, aresample, atempo 440/432) and levelled to -21 LUFS like `pond_garden`;
+the 440 original is in `assets/audio/_440hz_originals/music/`. A spectrum match confirms the shift (best fit at 0.9818).
+Plays in `board_scene.gd` (the Job Board meeting) and `crew_scene.gd` (Rootbank Warren's boss floor). Preston to approve.
+
+## Storm cold open (Claude, 2026-10-10; ElevenLabs flow lgucGp7YVZlGnAPBhJ26, eleven_text_to_sound_v2, 2 takes each, 8 x 16.7 credits)
+All retuned to 432 Hz (asetrate/aresample/atempo). Files in `assets/audio/sfx/story/`, used by `scripts/storm_open.gd`.
+- `storm_rain.wav`: replaced the same day (Preston: "a lot of repeating sounds") by a 32 s synthesised loop, `tools/audio/make_storm_rain.py` (hiss, random drops, wind; no generated audio). The two 1 s rain takes are unused.
+- `thunder.wav`: take B (4 s, crack then rolling rumble).
+- `time_stop.wav`: take A (2 s, reversed whoosh into a ringing silence).
+- `soul_descend.wav`: take B (3 s, soft shimmer; take A hit a concurrency limit), raised to -6 dB peak.
+
+## Menu and event sounds, synthesised (Claude, 2026-10-10; `tools/audio/make_ui_sounds.py`)
+Preston asked for our own sounds made from Explorers of Sky's. Its files were not used: Sky's menu effects were measured from a recording (YouTube "Pokemon Mystery Dungeon Explorers Sound Effects - Part 3"), and only the measurements guide the synth. Every sample is generated; the jingles use our own notes on A = 432.
+- Measured: cursor tick about 40 ms at 1047 Hz and cancel tick 29 ms at 587 Hz, both pure square waves (overtones 1, 0.35, 0.20 at 1x, 3x, 5x); confirm (two notes, about 174 ms) and menu-open (three notes rising, about 214 ms) are 25% pulse waves (overtone 4 absent) with a quiet echo.
+- Ours: `ui/cursor.wav` (C6 square tick), `ui/cancel.wav` (D5 then A4 square), `ui/confirm.wav` (A5 to D6 pulse, echo), `dungeon/menu_open.wav` (D5 A5 D6 up), `dungeon/menu_close.wav` (down).
+- Events, built in the same family without a clean reference to measure (the effects videos are unlabelled; gameplay has music over them): `dungeon/stairs.wav`, `dungeon/pickup.wav`, `dungeon/level_up.wav` (new; the level-up used room_clear before), `dungeon/faint.wav`.
+The files replaced are kept in `docs/audio/replaced-2026-10-10/`.

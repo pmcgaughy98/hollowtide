@@ -66,6 +66,15 @@ func _run() -> void:
 	town._place(town.team[0])
 	await town.act_move(Vector2i(1, 0))
 	await _frames(8)
+	if _scene() == "hollow_approach.tscn":
+		# The Hollow is reached through its entrance scene (hollow_approach.gd, 2026-10-10): confirm it.
+		print("The Hollow's entrance scene opens first")
+		while not current_scene.ready_to_cross:
+			await _frames(1)
+		current_scene.confirm()
+		while _scene() == "hollow_approach.tscn":
+			await _frames(1)
+		await _frames(4)
 	dg = current_scene
 	print("Second run: bag %s, taught for %s %s, IQ %s" % [str(dg.bag), key, str(dg.taught.has(key)), str(dg.iq)])
 

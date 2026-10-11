@@ -1,0 +1,65 @@
+{
+  "files": {
+    "scripts/ui/waking_bank_finish.gd": {
+      "before": null,
+      "candidate": "fec04c1d45930a99088b370f0f5bb7cdb80fee821e478039d6e9b6d289d8c724"
+    },
+    "scripts/ui/hollow_entrance_finish.gd": {
+      "before": null,
+      "candidate": "a362c54bf5789eb9fb256cff79fabe9c438aaad6c95b8a0dee43bfe206365429"
+    },
+    "scripts/ui/journey_shadows.gd": {
+      "before": null,
+      "candidate": "3441bad84dff1769d6453926477866eb2fd21fdac6fc30083d51b739a05ed62d"
+    },
+    "scripts/riverbank_journey.gd": {
+      "before": null,
+      "candidate": "acc293bddd21683f80faa8079d016e57aed818e1229066ec48e067d316dbc047"
+    },
+    "scripts/arena/starward_finish.gdshader": {
+      "before": null,
+      "candidate": "5ab28e49f751505abf0acef236da18ac0be8e74e81fcc46942ed9c6266571cbe"
+    },
+    "scenes/waking_riverbank.tscn": {
+      "before": null,
+      "candidate": "0367726e192c5b10fbe472a7c93b2c876f93bbe157fbbd0a92abbda22ed944a6"
+    },
+    "scenes/hollow_entrance.tscn": {
+      "before": null,
+      "candidate": "6447cf48b510b6bef05ad9fdef604dedeed10c54e33dfdac41278f5e32b397df"
+    },
+    "assets/sprites/world/waking_bank_2026_10_10/waking_native.png": {
+      "before": null,
+      "candidate": "527255653af0b114c4f7b8198d4541247be91c62c8d14748ae6abe8b7034c0ce"
+    },
+    "assets/sprites/world/waking_bank_2026_10_10/entrance_native.png": {
+      "before": null,
+      "candidate": "b21cfe115d8431ff9230bfcf4b808e70b2e5089f7cc0e81370ba8160f1bc34bd"
+    },
+    "scripts/ui/waking_bank.gd": {
+      "before": "6500045c8854b7e6e9ab70c1b495dc29b0b407f983c8317744c58b686443f0a0",
+      "candidate": "2c5f1561f9a81c10bfa7fa1d93de5155f19f5239d050086bd8633eb7d38d40ad"
+    },
+    "scripts/arena/creature_finish.gd": {
+      "before": "3cfb71eb2ed95300cca9807a23e54533cd005b052b7fef9fa638f0284173e7f1",
+      "candidate": "9e7a7b2c91ac81b3f7a4618626a36c143f17cf9b2c70575202e737cfdae227b2"
+    },
+    "scripts/town/hollow_approach.gd": {
+      "before": "96ae8ef35bd6d3a2f2bbfa11bc297191df1cecd9ad94c2cce4741fc6419ee872",
+      "candidate": "5c63a783b5cde750ccb033919e9b6308526d1e3a86da511e5de4b9c15d3bb4b5"
+    },
+    "scripts/creature_prologue.gd": {
+      "before": "1812ec53c2866bf4f3b7770baac1e7e87cce2fe5452a57a9b7a5602aba5429c8",
+      "candidate": "32149cda3a1ed62a93a30261444cb165e92cc423b67916b9ea9b41e63a59a679"
+    },
+    "docs/AI_COLLABORATION.md": {
+      "before": "799836c9822bee72a18ab9c2ff447971b945b3ece4a395c961ca539dd0ab40f9",
+      "candidate": "6d1892aac752bfd01160207e1f1f51c0cdc2ccd62ad9b6c58f4c07488c8b27a9"
+    }
+  },
+  "source_images": {
+    "entrance-source.png": "17c061e3cafcbfdb079aba531f32623f864e3f3dccd0a1f0e6368e96295ceb47",
+    "waking-source.png": "2292710af074491b18596c5aa4f39cde7a286975734c7c4e119cbd75ea80cc44"
+  },
+  "preserved_claude_town": "723152e34ff9eff5677ce09c792971625ece7f5a85904fe4ce4389bc85bd22e7"
+}

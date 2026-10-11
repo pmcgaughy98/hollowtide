@@ -1,0 +1,37 @@
+--- original/scripts/town/highbank_painter.gd
++++ candidate/scripts/town/highbank_painter.gd
+@@ -12,6 +12,7 @@
+ ## wall, the Old Ferry Landing's worn stones and mooring posts, the Ferry Dock's planks.
+ 
+ const Layout := preload("res://scripts/town/town_layout.gd")
++const Detail := preload("res://scripts/town/town_detail_art.gd")
+ const R := preload("res://scripts/dungeon/ruin_painter.gd")      # hash and noise
+ const V := preload("res://scripts/dungeon/valley_painter.gd")    # the meadow
+ const T := Layout.T
+@@ -93,7 +94,7 @@
+ 				_landing(img, p["rect"])
+ 			"dock":
+ 				_dock(img, p["rect"])
+-	return img
++	return Detail.river(img)
+ 
+ 
+ const PLAIN_GRASS := [Color("#637849"), Color("#677c4c"), Color("#6b804f"), Color("#6f8352")]   # Codex's grass tones
+@@ -251,6 +252,8 @@
+ ## The Bluff Lookout: a flagstone overlook with a low stone wall along its far edge.
+ static func _lookout(img: Image, r: Rect2i) -> void:
+ 	_slabs(img, r, FLAG, 1)
++	if Detail.available("floor"):Detail.floor_material(img,r)
++	if Detail.available("lookout"):return # new low wall replaces the old underpaint
+ 	var y0 := r.position.y * T
+ 	for x in range(r.position.x * T, r.end.x * T):
+ 		for k in 7:
+@@ -266,6 +269,8 @@
+ ## The Old Ferry Landing: worn stones with gravel between, and mooring posts along the water side.
+ static func _landing(img: Image, r: Rect2i) -> void:
+ 	_slabs(img, r, [Color("#a8987a"), Color("#b5a585"), Color("#9c8c70")], 2)
++	if Detail.available("floor"):Detail.floor_material(img,r)
++	if Detail.available("landing"):return # avoid duplicate old mooring posts below the new art
+ 	var y1 := r.end.y * T - 6
+ 	for k in range(r.position.x * T + 10, r.end.x * T - 6, 36):
+ 		for dy in 9:

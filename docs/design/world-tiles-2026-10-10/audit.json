@@ -1,0 +1,42 @@
+{
+  "installed": {
+    "scripts/town/highbank_painter.gd": "326583b71cf5df8ee9392d7b893a4f92d3de66ce595feb3e83fac36e57f5b288",
+    "scripts/town/world_tile_art.gd": "d2f7f0294d3947513752e614cce50c4743c430edae136af627c8e01ededf35ad",
+    "assets/sprites/world/world_tiles_2026_10_10/grass_native.png": "24040359399d9d5cec38e057648a04898a26897e1782174a4ea251f448148aba",
+    "assets/sprites/world/world_tiles_2026_10_10/earth_native.png": "5e2f703da32c71915ae43f245b1babdf23800c27dca9b90d63263ef292b43709",
+    "assets/sprites/world/world_tiles_2026_10_10/lane_native.png": "4bc2ba95777b990e7dbd86e094e3e72baca12c2a7f829f005414c71edb48d201",
+    "assets/sprites/world/world_tiles_2026_10_10/cliff_native.png": "0839b43df447b8190cb9ee0d3f4990f872bd6fa61bbaf4ff24c945da838e39c1",
+    "assets/sprites/world/world_tiles_2026_10_10/cliff_b_native.png": "4147cbecad749e0cf904664b24751dbfed71e2cec25945eafac222a621c29ed4",
+    "docs/AI_COLLABORATION.md": "91cc9b0fecf571284f370bba046afe02b795ec8b2ec362ad224b1e102be564ff"
+  },
+  "originals": {
+    "scripts/town/highbank_painter.gd": "7eed424072454f14e89f6176cd4aa07515e9e7fe2fafd91b553300a898434d9d",
+    "docs/AI_COLLABORATION.md": "aad219d7cfad735710381b3f3bbd4ce01d6f07e301cebc7938f863c2d59ae224"
+  },
+  "preserved": {
+    "scripts/town/highbank_ground_painter.gd": "85f24a20fc1a5d0b0e4b3d4211b150de2be0cb0fcf8a68288d232dfcd5780082",
+    "scripts/town/town_layout.gd": "ca6f5fff6be9ab8603b9dc284cfa09b04b33e55a32f4de425a4662bdb0687bb9",
+    "scripts/town/landmark_exteriors.gd": "839a46c4d54592ff4bca3281198ca1c7cd59d9c6c688d59246d72aacda6bcc47",
+    "scripts/town/town_detail_art.gd": "aa24a84fdd78be3d2aba8c4678fc2c198e70cf8d04b5ccf4d1540a7e13dc8066",
+    "scripts/town/hub_town.gd": "7d851a26c4112672fa47556fcdeed9c15e2ad5ac3aaeaf2acbb42fa039bf8181",
+    "scripts/town/building_exteriors.gd": "12dc273007f18feeaa0a5adffc46508e4ec6d923d1c8605a73e9da1e1d7d5820",
+    "project.godot": "ddaa60116df55f59b8e1021c8a8d3769c3c77acd307ef605231eee07ca5eb39a",
+    "scripts/town/crossroads_painter.gd": "1f584f7516f73ea30816941c1451122f52aeb59dfc2e3c0fec91f9649eeab4a0",
+    "scripts/town/job_board_painter.gd": "417cf44b317c85b27b79704bc4adb6cb25b716aa3fcc2c518fb19f8b46575c5d"
+  },
+  "concurrent_retained": {},
+  "prior_finish": {
+    "scripts/town/landmark_exteriors.gd": "839a46c4d54592ff4bca3281198ca1c7cd59d9c6c688d59246d72aacda6bcc47",
+    "scripts/town/town_detail_art.gd": "aa24a84fdd78be3d2aba8c4678fc2c198e70cf8d04b5ccf4d1540a7e13dc8066",
+    "assets/sprites/world/town_detail_2026_10_10/lookout_native.png": "b3d80f2c136d434e6fba0c7ef4284e0bbc43e03641cba431d73df1f6aab08a9f",
+    "assets/sprites/world/town_detail_2026_10_10/landing_native.png": "7688909b44ac5c20bf3c251846383ef8e00b7598bf72cdac56811450d273f346",
+    "assets/sprites/world/town_detail_2026_10_10/dock_native.png": "2064d37830067a598f08d9ea37d6b4c538be621f1c80b1d03cd665d2e526f159",
+    "assets/sprites/world/town_detail_2026_10_10/river_native.png": "a72991225cd9bbadb7c9d8154153bea12c688deb0088c7d051b390f00e40c8f4",
+    "assets/sprites/world/town_detail_2026_10_10/floor_native.png": "012c336dd07d69dc04b67c4d76e52017b13375973030226a066d0a6cc7f2820e",
+    "scripts/arena/creature_finish.gd": "9e7a7b2c91ac81b3f7a4618626a36c143f17cf9b2c70575202e737cfdae227b2",
+    "scripts/arena/starward_finish.gdshader": "5ab28e49f751505abf0acef236da18ac0be8e74e81fcc46942ed9c6266571cbe",
+    "scripts/ui/hollow_entrance_finish.gd": "a362c54bf5789eb9fb256cff79fabe9c438aaad6c95b8a0dee43bfe206365429",
+    "scripts/ui/waking_bank_finish.gd": "fec04c1d45930a99088b370f0f5bb7cdb80fee821e478039d6e9b6d289d8c724"
+  },
+  "generated_original": "760f68006e5c4d96e1c7caacc4cd6a0529720c0fe20210e25e137bd0e83a6d14"
+}

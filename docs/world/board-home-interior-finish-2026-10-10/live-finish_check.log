@@ -1,0 +1,16 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+OpenGL API 3.3.0 NVIDIA 596.49 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce GTX 1660 SUPER
+
+[godot_ai game_helper] registered mcp capture (debugger active=false, logger=true)
+PASS refined Board retains native 96x48 art and original alpha before shared finish
+PASS original 48x24 source retained and all three reading-pad drawings exact
+PASS Claude's entire Hall interior remains pixel-exact
+PASS finished Home fits the original 14x10 room at the same 24px grid
+PASS original south doorway and daylight drawing exact
+PASS native shared outline changes furniture/walls while walking floor/rug/exit stay exact
+PASS Board keeps enlarged canvas, original centre/opaque foot with native one-pixel detail
+PASS Board uses material sel-out with full purposeful-building internal ink
+PASS Board remains clear of Hall door and guild sign
+PASS real E opens four requests and activates original reading corners
+PASS real Escape closes Board and restores dormant feedback
+FINISH 11/11 PASS

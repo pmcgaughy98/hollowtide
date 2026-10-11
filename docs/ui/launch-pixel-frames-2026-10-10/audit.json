@@ -1,0 +1,46 @@
+{
+  "installed_exact": [
+    "scripts/ui/opening_dialogue.gd",
+    "scripts/creature_opening.gd",
+    "scripts/creature_prologue.gd",
+    "scripts/first_partner_arrival.gd",
+    "scripts/main_menu.gd",
+    "docs/AI_COLLABORATION.md"
+  ],
+  "guarded_baseline_files": 10285,
+  "protected_exact": 10275,
+  "concurrent_changes_preserved": [
+    {
+      "path": "scripts/town/hub_town.gd",
+      "before": "4c62d2bede9b37c49e63bca42b22b5bdab94cf33cfae96bde4ab9bfc34107a4b",
+      "current": "27a95558a4c11ba88802e85d7c9bee6594f41cd6f9e62f711a9104963a4bcfb1",
+      "preserved": "No task write targets this path; concurrent version retained."
+    },
+    {
+      "path": "tools/arena/build_actions.py",
+      "before": "9649f70c3412ac180059bb90026181d69fdfbaa85c3d12b1196f193dbff6fceb",
+      "current": "f5614b386cfcc4bfb7f2afccc380008ae8f192b6937eadd5382d1e08b98ba279",
+      "preserved": "No task write targets this path; concurrent version retained."
+    },
+    {
+      "path": "tools/arena/build_dungeon_set.py",
+      "before": "4829c6f45233be441e0055106ef0ed49ff7c36121a94921cd9ffd8819ffafe65",
+      "current": "f4318d3ddbbc7547f5830a6c2bbce26d605a5347721a96b3b410a815c35c205d",
+      "preserved": "No task write targets this path; concurrent version retained."
+    },
+    {
+      "path": "tools/arena/rd_walk.py",
+      "before": "eee5be81c84f6b7ff17b53c926f2e4d2eb3ff5d55edf42f8f1e9404bd26695c9",
+      "current": "4e2370d303c9feb6f94398b1b4dd20c54a26c52e181ad7474b6032181955dd9d",
+      "preserved": "No task write targets this path; concurrent version retained."
+    },
+    {
+      "path": "tools/arena/slice_rotations.py",
+      "before": "677d34df7310b1e71cd7da48d59317f325b191446209ed5d4312cae4f7ba42e2",
+      "current": "11a8b982270cf2c7a8413c615a18b1fb8f4b982e9309b9cbb12be7d7d9b44922",
+      "preserved": "No task write targets this path; concurrent version retained."
+    }
+  ],
+  "original_asset_files_exact": 9725,
+  "prior_collaboration_body_exact": true
+}

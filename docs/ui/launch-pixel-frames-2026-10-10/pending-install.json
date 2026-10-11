@@ -1,0 +1,32 @@
+[
+  {
+    "path": "scripts/ui/opening_dialogue.gd",
+    "before": null,
+    "after": "6c72ba20e3255be253cbdbad527c4f6e327459508aecef2cadbde05c583f775c"
+  },
+  {
+    "path": "scripts/creature_opening.gd",
+    "before": "d5cd2fdc31ff5067481f4e4f8afa87e46fe7822b5b8b76bd9fcd13b8c3f9e86d",
+    "after": "8997f82fd6b61637957f576fff99b3e5b7bcf92a857636691a67e41c4a7aac2b"
+  },
+  {
+    "path": "scripts/creature_prologue.gd",
+    "before": "956b2ba42bf8c93e018ed11b3bd0d4e8b2bb21a0d9b2630ff642d25751ec15c4",
+    "after": "96f3d3a03c2dff67d9a1abb16bab9729646e0aab974bd4fc8567e5a2218b592c"
+  },
+  {
+    "path": "scripts/first_partner_arrival.gd",
+    "before": "378016be9b0b67e4ca5360fb40dfd15f4531a0b978b6880cddd8b009a713925d",
+    "after": "393b2141307a2d777426d64fde6738aca991bdb19c460d0a1d39ebca4b5c7450"
+  },
+  {
+    "path": "scripts/main_menu.gd",
+    "before": "9c606ff6d1d6e27fea9e758d5c188a6393b8df346b536baffadf35cbb3176392",
+    "after": "62b2c5693640ced63eb3e2f151defce62b1626cec24f87287661d9cbc41470f7"
+  },
+  {
+    "path": "docs/AI_COLLABORATION.md",
+    "before": "8b9d8f36d60fadfc0778899380fad20ca65d80ea0646f5dcb8f582bf9b76211a",
+    "after": "018b90b7f70d4e1c4827ee3ce09c7c9884bf6b6a6f54dd53253b5327516db17b"
+  }
+]

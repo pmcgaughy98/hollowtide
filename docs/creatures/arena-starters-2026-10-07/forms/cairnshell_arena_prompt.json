@@ -1,0 +1,11 @@
+{
+ "prompt": "Top-down action game sprite of an ancient box-turtle monster, the keeper of a growth shrine, a final evolved form that is clearly a monster and not a real turtle: a massive domed shell grown into a tiny shrine, three standing stones rising from the top of the shell with moss and small flowers between them, faint teal glowing growth rings carved around the shell, a wrinkled old head with a long mossy beard and kind slow golden eyes, stumpy elephant-thick legs with three toes, lichen on its skin. Gentle, ancient and patient. Seen from above at a three-quarter overhead angle like a sprite in a top-down arena battle game, facing down and to the right toward the camera. A readable game sprite: chunky clear shapes, a crisp dark outline. Whole creature centred with empty space on every side, nothing touching the edges. On a plain white background.",
+ "prompt_style": "rd_pro__default",
+ "width": 128,
+ "height": 128,
+ "num_images": 2,
+ "remove_bg": true,
+ "reference_images": [
+  "docs/creatures/arena-starters-2026-10-07/forms/starward.png"
+ ]
+}

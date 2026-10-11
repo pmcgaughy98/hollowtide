@@ -3,7 +3,8 @@ extends RefCounted
 ## treatment for highbank. The town buildings look great, just the map could use some love, and we can
 ## just fill in the outline if needed").
 ##
-## It paints over Codex's ground (highbank_ground_painter.gd), pixel by pixel in code, no generated art,
+## It paints over Codex's ground (highbank_ground_painter.gd); versioned native terrain materials
+## opt in through world_tile_art.gd, with these original code functions retained as exact fallbacks,
 ## and leaves Codex's pixels alone wherever Codex drew a place (the buildings, the plaza, the gate, the
 ## board, the yard, the shrine) and one tile round each, so their contact shadows and door paths stay.
 ## Everywhere else: grass with clover, flowers and tufts on the bluff; cobbled lanes; packed earth on
@@ -12,6 +13,8 @@ extends RefCounted
 ## wall, the Old Ferry Landing's worn stones and mooring posts, the Ferry Dock's planks.
 
 const Layout := preload("res://scripts/town/town_layout.gd")
+const Detail := preload("res://scripts/town/town_detail_art.gd")
+const Tiles := preload("res://scripts/town/world_tile_art.gd")
 const R := preload("res://scripts/dungeon/ruin_painter.gd")      # hash and noise
 const V := preload("res://scripts/dungeon/valley_painter.gd")    # the meadow
 const T := Layout.T
@@ -56,7 +59,7 @@ static func paint(base: Image) -> Image:
 				_cobbles(img, tx, ty)   # one street everywhere, through Codex's places too
 				continue
 			if kb == "grass":
-				V._meadow_tile(fresh, tx, ty, T, 17)
+				_grass(fresh, tx, ty)
 			elif kb == "terrace":
 				_earth(fresh, tx, ty)
 			else:
@@ -76,12 +79,14 @@ static func paint(base: Image) -> Image:
 			if band == "cliff":
 				if not path:
 					_cliff(img, tx, ty)
+				else:
+					Tiles.steps(img,tx,ty)
 			elif band == "water":
 				_river(img, tx, ty)
 			elif path:
 				_cobbles(img, tx, ty)
 			elif band == "grass":
-				V._meadow_tile(img, tx, ty, T, 17)
+				_grass(img, tx, ty)
 			else:
 				_earth(img, tx, ty)
 	_reeds(img)
@@ -93,7 +98,9 @@ static func paint(base: Image) -> Image:
 				_landing(img, p["rect"])
 			"dock":
 				_dock(img, p["rect"])
-	return img
+	Tiles.aprons(img)
+	Tiles.clearings(img)
+	return Detail.river(img)
 
 
 const PLAIN_GRASS := [Color("#637849"), Color("#677c4c"), Color("#6b804f"), Color("#6f8352")]   # Codex's grass tones
@@ -103,6 +110,9 @@ const PLAIN_EARTH := [Color("#8b7c5b"), Color("#8f805e"), Color("#948461"), Colo
 ## Whether a pixel of Codex's ground is its plain ground for this band (grass on the bluff, earth on the
 ## terraces), and so can take the new ground. The plaza's sand on the bluff is not, and stays.
 static func _plain(c: Color, band: String) -> bool:
+	if Tiles.image("grass" if band=="grass" else "earth")!=null:
+		for ground in ([Color("#53673e"),Color("#88965e"),Color("#819059")] if band=="grass" else [Color("#a69776"),Color("#73674d")]):
+			if c.to_rgba32()==ground.to_rgba32():return true
 	for p in (PLAIN_GRASS if band == "grass" else PLAIN_EARTH):
 		if absf(c.r - p.r) + absf(c.g - p.g) + absf(c.b - p.b) < 0.09:
 			return true
@@ -118,6 +128,7 @@ static func _path(x: int, y: int) -> bool:
 
 ## Cobbles: rounded stones in offset rows, sandy mortar, grass creeping in at a lane's edge.
 static func _cobbles(img: Image, tx: int, ty: int) -> void:
+	if Tiles.lane(img,tx,ty):return
 	var edge := not _path(tx, ty - 1) or not _path(tx, ty + 1) or not _path(tx - 1, ty) or not _path(tx + 1, ty)
 	for py in T:
 		for px in T:
@@ -144,6 +155,7 @@ static func _cobbles(img: Image, tx: int, ty: int) -> void:
 
 ## The terraces: packed earth with gravel, the odd pebble and a few tufts.
 static func _earth(img: Image, tx: int, ty: int) -> void:
+	if Tiles.tile(img,"earth",tx,ty):return
 	for py in T:
 		for px in T:
 			var x := tx * T + px
@@ -161,6 +173,7 @@ static func _earth(img: Image, tx: int, ty: int) -> void:
 
 ## A cliff tile: a turf lip, then bands of river sediment with stones set in, roots hanging, a dark foot.
 static func _cliff(img: Image, tx: int, ty: int) -> void:
+	if Tiles.tile(img,"cliff" if ty==18 else "cliff_b",tx,ty):return
 	for px in T:
 		var x := tx * T + px
 		var lip := 2 + int(R._h(x, ty, 109) * 2.5)
@@ -251,6 +264,8 @@ static func _slabs(img: Image, r: Rect2i, cols: Array, salt: int) -> void:
 ## The Bluff Lookout: a flagstone overlook with a low stone wall along its far edge.
 static func _lookout(img: Image, r: Rect2i) -> void:
 	_slabs(img, r, FLAG, 1)
+	if Detail.available("floor"):Detail.floor_material(img,r)
+	if Detail.available("lookout"):return # new low wall replaces the old underpaint
 	var y0 := r.position.y * T
 	for x in range(r.position.x * T, r.end.x * T):
 		for k in 7:
@@ -266,6 +281,8 @@ static func _lookout(img: Image, r: Rect2i) -> void:
 ## The Old Ferry Landing: worn stones with gravel between, and mooring posts along the water side.
 static func _landing(img: Image, r: Rect2i) -> void:
 	_slabs(img, r, [Color("#a8987a"), Color("#b5a585"), Color("#9c8c70")], 2)
+	if Detail.available("floor"):Detail.floor_material(img,r)
+	if Detail.available("landing"):return # avoid duplicate old mooring posts below the new art
 	var y1 := r.end.y * T - 6
 	for k in range(r.position.x * T + 10, r.end.x * T - 6, 36):
 		for dy in 9:
@@ -289,3 +306,8 @@ static func _dock(img: Image, r: Rect2i) -> void:
 			elif (x + board * 13) % 37 == 0:
 				c = Color("#5e4129")   # a nail line
 			img.set_pixel(x, y, c)
+
+
+static func _grass(img:Image,tx:int,ty:int)->void:
+	if not Tiles.tile(img,"grass",tx,ty):V._meadow_tile(img,tx,ty,T,17)
+

@@ -1,0 +1,9 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+OpenGL API 3.3.0 NVIDIA 596.49 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce GTX 1660 SUPER
+
+[godot_ai game_helper] registered mcp capture (debugger active=false, logger=true)
+kithflare: frames attack 6, hurt 6, sleep 4 (facings with attack 8)
+tallowroot: frames attack 6, hurt 6, sleep 4 (facings with attack 8)
+rimefin: frames attack 6, hurt 6, sleep 4 (facings with attack 8)
+Attack: the leader showed 7 different pictures, the Rimefin 7; back to the still after: true / true
+Sleep: 3 pictures over 2 s asleep; awake again shows the still: true

@@ -1,0 +1,33 @@
+{
+  "installed_exact": [
+    "assets/sprites/world/hall_interior_2026_10_10/bench.png",
+    "assets/sprites/world/hall_interior_2026_10_10/chart.png",
+    "assets/sprites/world/hall_interior_2026_10_10/fern.png",
+    "assets/sprites/world/hall_interior_2026_10_10/hall_native.png",
+    "assets/sprites/world/hall_interior_2026_10_10/parcels.png",
+    "assets/sprites/world/hall_interior_2026_10_10/pillar.png",
+    "assets/sprites/world/hall_interior_2026_10_10/reports.png",
+    "scripts/town/hall_room_art.gd",
+    "scripts/town/room_painter.gd",
+    "scripts/town/town_room.gd",
+    "docs/AI_COLLABORATION.md"
+  ],
+  "guarded_baseline_files": 10275,
+  "protected_exact": 10270,
+  "concurrent_changes_preserved": [
+    {
+      "path": "scripts/dungeon/dungeon.gd",
+      "before": "4f35dfd3ba41481ca2eb1a92e036a26e8ecb6edd49c0ca0cf0c7054d7a75ef77",
+      "current": "a2612b93b73e6348ad96cd32f3c1cb0b7450a8eb9dad8de57f609b2fc8eb419c",
+      "preserved": "No task write targets this path; concurrent version retained."
+    },
+    {
+      "path": "tools/debug/dungeon_evolve_check.gd",
+      "before": "ad27940fdf5871e238ddedf31fc2b830282392f3f4d5176a5ad82cff126baa77",
+      "current": "587275f24383beb1854e572f6dac27799472e6b788cadd12f23ddfdb200f4ac8",
+      "preserved": "No task write targets this path; concurrent version retained."
+    }
+  ],
+  "original_asset_files_exact": 9717,
+  "prior_collaboration_body_exact": true
+}

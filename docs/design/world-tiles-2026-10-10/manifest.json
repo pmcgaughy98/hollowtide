@@ -1,0 +1,34 @@
+{
+  "scripts/town/highbank_painter.gd": {
+    "before": "7eed424072454f14e89f6176cd4aa07515e9e7fe2fafd91b553300a898434d9d",
+    "candidate": "326583b71cf5df8ee9392d7b893a4f92d3de66ce595feb3e83fac36e57f5b288"
+  },
+  "scripts/town/world_tile_art.gd": {
+    "before": null,
+    "candidate": "d2f7f0294d3947513752e614cce50c4743c430edae136af627c8e01ededf35ad"
+  },
+  "assets/sprites/world/world_tiles_2026_10_10/grass_native.png": {
+    "before": null,
+    "candidate": "24040359399d9d5cec38e057648a04898a26897e1782174a4ea251f448148aba"
+  },
+  "assets/sprites/world/world_tiles_2026_10_10/earth_native.png": {
+    "before": null,
+    "candidate": "5e2f703da32c71915ae43f245b1babdf23800c27dca9b90d63263ef292b43709"
+  },
+  "assets/sprites/world/world_tiles_2026_10_10/lane_native.png": {
+    "before": null,
+    "candidate": "4bc2ba95777b990e7dbd86e094e3e72baca12c2a7f829f005414c71edb48d201"
+  },
+  "assets/sprites/world/world_tiles_2026_10_10/cliff_native.png": {
+    "before": null,
+    "candidate": "0839b43df447b8190cb9ee0d3f4990f872bd6fa61bbaf4ff24c945da838e39c1"
+  },
+  "assets/sprites/world/world_tiles_2026_10_10/cliff_b_native.png": {
+    "before": null,
+    "candidate": "4147cbecad749e0cf904664b24751dbfed71e2cec25945eafac222a621c29ed4"
+  },
+  "docs/AI_COLLABORATION.md": {
+    "before": "aad219d7cfad735710381b3f3bbd4ce01d6f07e301cebc7938f863c2d59ae224",
+    "candidate": "91cc9b0fecf571284f370bba046afe02b795ec8b2ec362ad224b1e102be564ff"
+  }
+}

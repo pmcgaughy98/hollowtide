@@ -347,14 +347,13 @@ func _build_menu() -> void:
 	set_deferred("_quiet_focus", false)
 
 
+const UI := preload("res://scripts/ui/ui_style.gd")
+
 func _panel(node_name: String, at: Vector2, width: float) -> PanelContainer:
 	var panel := PanelContainer.new()
 	panel.name = node_name
-	var box := StyleBoxFlat.new()
-	box.bg_color = SLATE
-	box.border_color = SILT
-	box.set_border_width_all(4)
-	box.set_content_margin_all(18)
+	var box := UI.frame("panel").duplicate()
+	box.set_content_margin_all(24)
 	panel.add_theme_stylebox_override("panel", box)
 	panel.position = at
 	panel.custom_minimum_size = Vector2(width, 0)
@@ -472,14 +471,10 @@ func _volume_control(list: VBoxContainer, caption: String, bus: String, initial:
 	slider.max_value = 100
 	slider.step = 5
 	slider.value = initial
-	slider.custom_minimum_size = Vector2(0, 32)
+	slider.custom_minimum_size = Vector2(0, 52)
 	slider.focus_mode = Control.FOCUS_ALL
-	var track := StyleBoxFlat.new()
-	track.bg_color = SILT.darkened(0.4)
-	track.content_margin_top = 4
-	track.content_margin_bottom = 4
-	var fill := track.duplicate() as StyleBoxFlat
-	fill.bg_color = EMBER.darkened(0.15)
+	var track := UI.frame("panel_dim").duplicate()
+	var fill := UI.frame("panel_focus").duplicate()
 	slider.add_theme_stylebox_override("slider", track)
 	slider.add_theme_stylebox_override("grabber_area", fill)
 	slider.add_theme_stylebox_override("grabber_area_highlight", fill)
@@ -501,10 +496,9 @@ func _volume_control(list: VBoxContainer, caption: String, bus: String, initial:
 	ring.offset_top = -2
 	ring.offset_right = 6
 	ring.offset_bottom = 2
-	var outline := StyleBoxFlat.new()
-	outline.bg_color = Color.TRANSPARENT
-	outline.border_color = EMBER
-	outline.set_border_width_all(2)
+	var outline := UI.frame("panel_focus").duplicate()
+	# The focus frame sits behind the slider, keeping its grabber visible.
+	ring.show_behind_parent = true
 	ring.add_theme_stylebox_override("panel", outline)
 	ring.visible = false
 	slider.add_child(ring)
@@ -600,20 +594,20 @@ func _place_cursor() -> void:
 func _button(text: String) -> Button:
 	var b := Button.new()
 	b.text = text
-	b.custom_minimum_size = Vector2(0, 44)
+	b.custom_minimum_size = Vector2(0, 52)
 	b.alignment = HORIZONTAL_ALIGNMENT_LEFT
 	b.add_theme_font_override("font", TITLE_FONT)
 	b.add_theme_font_size_override("font_size", 26)
 	for state in ["font_color", "font_hover_color", "font_focus_color", "font_pressed_color"]:
 		b.add_theme_color_override(state, TEXT)
-	var plain := StyleBoxFlat.new()
-	plain.bg_color = SLATE
-	plain.set_content_margin_all(8)
+	var plain := UI.frame("panel").duplicate()
+	plain.content_margin_top = 8
+	plain.content_margin_bottom = 8
 	plain.content_margin_left = 40
-	var focus := plain.duplicate() as StyleBoxFlat
-	focus.bg_color = SLATE.lightened(0.08)
-	focus.border_color = EMBER
-	focus.set_border_width_all(2)
+	var focus := UI.frame("panel_focus").duplicate()
+	focus.content_margin_top = 8
+	focus.content_margin_bottom = 8
+	focus.content_margin_left = 40
 	b.add_theme_stylebox_override("normal", plain)
 	b.add_theme_stylebox_override("pressed", focus)
 	b.add_theme_stylebox_override("hover", focus)

@@ -33,7 +33,8 @@ for m in re.finditer(r'"forms": \[\["([a-z]+)", "[^"]*"\], \["([a-z]+)", "[^"]*"
     for k, n in enumerate(m.groups()):
         STAGE[n] = k
 # Dungeon-only lines (dungeon.gd CREW_LINES, the rival crew, 2026-10-10): not in the arena's LINES.
-STAGE.update({"mirekit": 0, "whinet": 0})
+STAGE.update({"mirekit": 0, "whinet": 0, "gruntle": 0})
+STAGE.update({"skimlet": 0, "ozbender": 0, "valvekin": 0, "wayling": 0, "swaphoard": 1, "pouchbill": 1, "inkhoot": 2, "cairnshell": 2, "crawdukes": 2})   # the Hollow's new wilds and the townsfolk (one form each so far)
 
 
 def mass(name):
@@ -53,13 +54,22 @@ def walk_frames(name, facing):
 OPTS = dict(a[2:].split("=", 1) for a in sys.argv[1:] if a.startswith("--"))
 SET = OPTS.get("set", "dungeon")
 SIZE = float(OPTS.get("scale", "1"))
+# Creatures drawn bigger than their stage in every set (Preston, 2026-10-10: Gruntle, the crew's boss, is a
+# stage 1 that looks fat and bulky; about 1.25x the crew, "a tad" under the first stand-in).
+BOOST = {"gruntle": 1.25, "starward": 0.85}   # Starward: "a bit too big" next to the townsfolk (Preston, 2026-10-10)
+# Shrink fixed by hand where the stills no longer measure the creature fairly (Wayling, 2026-10-10: its
+# stills became folded-wing walk frames, which have less area, so measuring them would draw the bird bigger;
+# 2.13 is the size Preston saw and kept with the wings up).
+SHRINK = {"wayling": 2.13}
 NAMES = [a for a in sys.argv[1:] if not a.startswith("--")]
 
 for name in (NAMES or sorted(STAGE)):
     if not (ART / name / "s.png").exists():
         print(name, "has no art yet")
         continue
-    f = mass(name) / (TARGET[STAGE[name]] * SIZE)
+    f = mass(name) / (TARGET[STAGE[name]] * SIZE * BOOST.get(name, 1.0))
+    if name in SHRINK:
+        f = SHRINK[name] * (TARGET[STAGE[name]] * 1.5) / (TARGET[STAGE[name]] * SIZE * BOOST.get(name, 1.0))
     out = ART / name / SET
     out.mkdir(parents=True, exist_ok=True)
     for fc in FACINGS:

@@ -16,6 +16,7 @@ extends Control
 ## In the Hollow it reads the live run; in town, the carried record. `lines` keeps the facts as text.
 
 const UI := preload("res://scripts/ui/ui_style.gd")
+const Lines := preload("res://scripts/creatures/lines.gd")
 const ArenaData := preload("res://scripts/arena/arena_prototype.gd")
 const TeamRecord := preload("res://scripts/town/team_state.gd")
 const MoveBody := preload("res://scripts/moves/move_body.gd")
@@ -27,6 +28,21 @@ const LEFT := Rect2(64, 92, 360, 504)
 const RIGHT := Rect2(440, 128, 648, 420)
 
 var cards: Array = []
+# A scene behind the creature by its first essence (Preston, 2026-10-10: "a scene behind them like we did
+# for the old signature moves... each ember gets same scene"): the signature stages from the original
+# battle screen (assets/backgrounds/signature_stages). An essence without one keeps the plain parchment.
+const ESSENCE_STAGE := {
+	"EMBER": "furnace_roar", "TIDE": "undertow", "BLOOM": "root_rampart",
+	"ELECTRIC": "stormlantern", "STONE": "kingstone_rail", "GALE": "gale_bluff",
+}
+var _stages := {}
+
+
+func _stage_tex(ess: String) -> Texture2D:
+	if not _stages.has(ess):
+		var path := "res://assets/backgrounds/signature_stages/%s.png" % ESSENCE_STAGE.get(ess, "")
+		_stages[ess] = load(path) if ESSENCE_STAGE.has(ess) and ResourceLoader.exists(path) else null
+	return _stages[ess]
 var lines: Array[String] = []
 var sel := 0          # which teammate is shown
 var page := 0         # 0 Status, 1 Moves
@@ -37,6 +53,7 @@ var _iq_skills: Array = []
 var _D: GDScript
 var _sound: AudioStreamPlayer
 var _sparkwick_art: Node2D
+var _new_creature_art: Node2D
 
 
 func setup(scene: Node) -> void:
@@ -50,6 +67,8 @@ func setup(scene: Node) -> void:
 	add_child(_sound)
 	_sparkwick_art = preload("res://scripts/ui/sparkwick_canvas.gd").new()
 	add_child(_sparkwick_art)
+	_new_creature_art = preload("res://scripts/ui/creature_detail_canvas.gd").new()
+	add_child(_new_creature_art)
 	_D = load(DUNGEON)
 	var c: Dictionary = _D.get_script_constant_map()
 	_iq_skills = c["IQ_SKILLS"]
@@ -64,7 +83,7 @@ func setup(scene: Node) -> void:
 	for k in party.size():
 		var ln := int(party[k][0])
 		var st := int(party[k][1])
-		var form: Array = ArenaData.LINES[ln]["forms"][st]
+		var form: Array = Lines.of(ln)["forms"][st]
 		var data: CreatureData = load(form[1])
 		var lv_rec: Dictionary = rec.get("levels", {}).get(ln, {"lv": 1, "exp": 0})
 		var lv := int(lv_rec.get("lv", 1))
@@ -87,7 +106,7 @@ func setup(scene: Node) -> void:
 		card["idle"] = CreatureIdle.frames(form[0])   # the big front idle, when the form has one
 		card["idle_box"] = CreatureIdle.box(card["idle"])
 		var face := "res://assets/sprites/arena/%s/portrait.png" % form[0]
-		card["face"] = load(face) if ResourceLoader.exists(face) else null
+		card["face"] = load(face) if ResourceLoader.exists(face) else (UI.dialogue_portrait(String(form[0])) if preload("res://scripts/arena/creature_finish.gd").new_creature(String(form[0])) else null)
 		cards.append(card)
 		lines.append("%s   Lv %d   IQ %d" % [String(data.creature_name).to_upper(), lv, card["iq"]] + ("   HP %d/%d" % [card["hp"], card["max_hp"]] if card["hp"] >= 0 else ""))
 		if card.has("evo"):
@@ -172,6 +191,7 @@ func _ess_of_move(m: String, c: Dictionary) -> String:
 
 
 func _draw() -> void:
+	_new_creature_art.clear()
 	var frame := Rect2(40, 28, 1072, 592)
 	UI.panel(self, frame, 0.97)
 	UI.text(self, Vector2(64, 70), "Team", 30, UI.EDGE_LIGHT)
@@ -211,12 +231,22 @@ func _draw_left(c: Dictionary) -> void:
 			var tint := Color.WHITE if k == sel else Color(1, 1, 1, 0.55)
 			if cards[k]["form"] == "sparkwick":
 				_sparkwick_art.draws.append({"at": Vector2.ZERO, "scale": Vector2.ONE, "tex": cards[k]["face"], "dest": r.grow(-1.0), "region": Rect2(Vector2.ZERO, cards[k]["face"].get_size()), "colour": tint})
+			elif preload("res://scripts/arena/creature_finish.gd").new_creature(String(cards[k]["form"])):
+				_new_creature_art.paint(cards[k]["face"], r.grow(-2.0), Rect2(Vector2.ZERO, cards[k]["face"].get_size()), tint)
 			else:
 				draw_texture_rect(cards[k]["face"], r.grow(-1.0), false, tint)
 		draw_rect(r, UI.EDGE_LIGHT if k == sel else UI.EDGE, false, 2.0 if k == sel else 1.0)
 	# The stage: parchment, a soft floor shadow, the creature turned to its right, breathing.
 	var stage := Rect2(LEFT.position + Vector2(22, 84), Vector2(316, 266))
 	draw_style_box(UI.frame("portrait"), stage)
+	var scene: Texture2D = _stage_tex(String(c["ess"][0])) if not c["ess"].is_empty() else null
+	if scene != null:
+		# Fill the frame's inside, cropped from the scene's middle at its own height (its floor at the bottom).
+		var inner := stage.grow(-9.0)
+		var ks := inner.size.y / scene.get_height()
+		var src := Rect2((scene.get_width() - inner.size.x / ks) * 0.5, 0, inner.size.x / ks, scene.get_height())
+		draw_texture_rect_region(scene, inner, src, Color(0.86, 0.86, 0.86) if c["hp"] != 0 else Color(0.5, 0.5, 0.5))
+		draw_rect(inner, UI.EDGE, false, 1.0)
 	var idle: Array = c["idle"]
 	if not idle.is_empty():
 		# The detailed front idle, playing, turned to its right like the headshots (mirrored).
@@ -245,7 +275,10 @@ func _draw_left(c: Dictionary) -> void:
 		draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE)
 		var breathe := roundf(sin(_t * 2.2) * 1.5)
 		var dest := Rect2(foot.x - (used.size.x * 0.5) * k, foot.y - used.size.y * k + breathe, used.size.x * k, used.size.y * k)
-		draw_texture_rect_region(tex, dest, Rect2(used), Color(0.6, 0.6, 0.6) if c["hp"] == 0 else Color.WHITE)
+		if preload("res://scripts/arena/creature_finish.gd").new_creature(String(c["form"])):
+			_new_creature_art.paint(tex, dest, Rect2(used), Color(0.6, 0.6, 0.6) if c["hp"] == 0 else Color.WHITE)
+		else:
+			draw_texture_rect_region(tex, dest, Rect2(used), Color(0.6, 0.6, 0.6) if c["hp"] == 0 else Color.WHITE)
 	# Name, essences, level.
 	var y := stage.end.y + 36
 	UI.text(self, Vector2(LEFT.position.x + 18, y), String(c["name"]), 26, UI.EDGE_LIGHT if c["lead"] else UI.TEXT)

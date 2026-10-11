@@ -1,0 +1,38 @@
+{
+  "scripts/town/landmark_exteriors.gd": {
+    "before": "27bfdf99cf740d3095cfa803913a8ab558a6f0963d4fc7d3c979fd42054a70f0",
+    "candidate": "839a46c4d54592ff4bca3281198ca1c7cd59d9c6c688d59246d72aacda6bcc47"
+  },
+  "scripts/town/highbank_painter.gd": {
+    "before": "b4afc337d700b7e97094aa291c676f13732c9ebbfba65acffe2dbb8216d8a85c",
+    "candidate": "7eed424072454f14e89f6176cd4aa07515e9e7fe2fafd91b553300a898434d9d"
+  },
+  "scripts/town/town_detail_art.gd": {
+    "before": null,
+    "candidate": "aa24a84fdd78be3d2aba8c4678fc2c198e70cf8d04b5ccf4d1540a7e13dc8066"
+  },
+  "assets/sprites/world/town_detail_2026_10_10/lookout_native.png": {
+    "before": null,
+    "candidate": "b3d80f2c136d434e6fba0c7ef4284e0bbc43e03641cba431d73df1f6aab08a9f"
+  },
+  "assets/sprites/world/town_detail_2026_10_10/landing_native.png": {
+    "before": null,
+    "candidate": "7688909b44ac5c20bf3c251846383ef8e00b7598bf72cdac56811450d273f346"
+  },
+  "assets/sprites/world/town_detail_2026_10_10/dock_native.png": {
+    "before": null,
+    "candidate": "2064d37830067a598f08d9ea37d6b4c538be621f1c80b1d03cd665d2e526f159"
+  },
+  "assets/sprites/world/town_detail_2026_10_10/river_native.png": {
+    "before": null,
+    "candidate": "a72991225cd9bbadb7c9d8154153bea12c688deb0088c7d051b390f00e40c8f4"
+  },
+  "assets/sprites/world/town_detail_2026_10_10/floor_native.png": {
+    "before": null,
+    "candidate": "012c336dd07d69dc04b67c4d76e52017b13375973030226a066d0a6cc7f2820e"
+  },
+  "docs/AI_COLLABORATION.md": {
+    "before": "6d1892aac752bfd01160207e1f1f51c0cdc2ccd62ad9b6c58f4c07488c8b27a9",
+    "candidate": "aad219d7cfad735710381b3f3bbd4ce01d6f07e301cebc7938f863c2d59ae224"
+  }
+}

@@ -1,4 +1,5 @@
 extends RefCounted
+const TileArt := preload("res://scripts/dungeon/dungeon_tile_art.gd")
 ## The Hollow's first floor, the valley (Claude, 2026-10-10; Preston: the Hollow is "a small, sheltered
 ## valley or dip between hills", and the structure rose from the river "with a stone pathway to it").
 ## Drawn in code like the pond and the stone, no generated art: the open ground is meadow, deep green
@@ -24,6 +25,7 @@ const EARTH := [Color("#6b5238"), Color("#7d6142"), Color("#5a4430")]
 
 
 static func paint(data: Dictionary, t: int, seed_value: int) -> Image:
+	if t == 24: return TileArt.paint(data,t,seed_value,"valley")
 	var w: int = data["w"]
 	var h: int = data["h"]
 	var tiles: PackedByteArray = data["tiles"]

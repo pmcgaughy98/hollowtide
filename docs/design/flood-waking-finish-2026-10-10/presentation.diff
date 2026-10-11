@@ -1,0 +1,137 @@
+--- scripts/creature_prologue.gd (original)
++++ scripts/creature_prologue.gd (installed)
+@@ -1,5 +1,5 @@
+ extends Node2D
+-## Playable opening proposal: pilot riverbank collapse, a Wayline trainee, then Highbank.
++## Opening dialogue proposal: meet the trainee mid-flood, retreat into the Hollow, then Highbank.
+ ## Identity and party are passed into the existing town; no save/state rewrite.
+ const Finish=preload("res://scripts/arena/creature_finish.gd")
+ const UI=preload("res://scripts/ui/ui_style.gd")
+@@ -27,6 +27,7 @@
+ var veil:ColorRect
+ var dialogue:Node2D
+ var bank:Node2D
++var flood_cover:Node2D
+ 
+ func _ready() -> void:
+ 	get_tree().root.content_scale_size=Vector2i(1152,648)
+@@ -44,12 +45,19 @@
+ 	bank=preload("res://scripts/ui/waking_bank.gd").new()
+ 	bank.reduce_motion=reduce_motion
+ 	vp.add_child(bank)
++	# Keep the ruin/path submerged through partner choice. Claude's journey owns the actual rise.
++	flood_cover=preload("res://scripts/ui/hollow_rise.gd").new()
++	flood_cover.source=bank.background.texture.get_image()
++	flood_cover.finish=bank.background.material
++	flood_cover.reduce_motion=reduce_motion
++	vp.add_child(flood_cover)
++	flood_cover.set_process(false)
+ 	leader_sprite=actor(vp,Vector2(168,83))
+ 	partner_sprite=actor(vp,Vector2(222,84))
+ 	partner_sprite.hide()
+ 	var ui:=CanvasLayer.new()
+ 	add_child(ui)
+-	var banner:=label("HOLLOWTIDE   /   THE FIRST VOICE",20)
++	var banner:=label("HOLLOWTIDE   /   RISING WATER",20)
+ 	banner.position=Vector2(48,24)
+ 	ui.add_child(banner)
+ 	panel=PanelContainer.new()
+@@ -63,7 +71,7 @@
+ 	list.add_theme_constant_override("separation",8)
+ 	panel.add_child(list)
+ 	title=label("",30)
+-	title.position=Vector2(270,268)
++	title.position=Vector2(270,256)
+ 	ui.add_child(title)
+ 	prose=label("",22)
+ 	prose.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART
+@@ -98,6 +106,7 @@
+ 	var s:=Sprite2D.new()
+ 	s.texture_filter=CanvasItem.TEXTURE_FILTER_NEAREST
+ 	s.position=at
++	s.z_index=int(at.y)
+ 	Finish.apply(s)
+ 	parent.add_child(s)
+ 	return s
+@@ -110,8 +119,9 @@
+ func label(text:String,size:int) -> Label:
+ 	var l:=Label.new()
+ 	l.text=text
+-	l.add_theme_font_override("font",TITLE)
+-	l.add_theme_font_size_override("font_size",size)
++	var role:="name" if size>=30 else "label"
++	l.add_theme_font_override("font",UI.font(role))
++	l.add_theme_font_size_override("font_size",UI.type_size(role))
+ 	l.add_theme_color_override("font_color",Color("#fff4e8"))
+ 	return l
+ 
+@@ -130,6 +140,7 @@
+ 	focus.content_margin_bottom=8
+ 	b.add_theme_stylebox_override("focus",focus)
+ 	b.add_theme_stylebox_override("hover",focus)
++	UI.style_button(b)
+ 	return b
+ 
+ func refresh() -> void:
+@@ -143,18 +154,18 @@
+ 	# Dialogue proposals for the approved pilot outline; final wording remains Preston's.
+ 	if phase==0:
+ 		title.text="You wake beneath the riverbank."
+-		prose.text="The bank collapses. Across the river, pale light spills from the rising Hollow.\nYou remember being human. "+SENSES[hero]
++		prose.text="The bank gives way. River water climbs the clay around you.\nYou remember being human. "+SENSES[hero]
+ 		confirm.text="This is me"
+ 		back.text="Return to title"
+ 	elif phase==1:
+-		title.text="A voice answers in the dark."
+-		prose.text='"I’m a Wayline trainee, sent to gather mail the river tore loose. Something told me to come down here tonight."\nWhose voice do you answer?'
++		title.text="Someone reaches you through the flood."
++		prose.text='"Iâ€™m a Wayline trainee. The river tore the mail loose. Something told me to come here tonight."\nThe water is still rising. Whose voice do you answer?'
+ 		confirm.text="Travel with "+NAMES[partner]
+ 		back.text="Back"
+ 	else:
+ 		title.text="You will find a way through together."
+-		prose.text=NAMES[partner]+' says, "No one runs a route alone. They keep turning me away without a partner."\nYou need a guide. They need a partner. Together, you head for Highbank.'
+-		confirm.text="Step onto the riverbank"
++		prose.text=NAMES[partner]+' says, "Highbankâ€™s road is flooded. No one runs a route alone. Stay with me."\nYou need a guide. The trainee needs a partner. Together, you look for higher ground.'
++		confirm.text="Find higher ground"
+ 		back.text="Change partner"
+ 	if phase<2 and not (phase==0 and chosen_by_soul):
+ 		for i in 3:
+@@ -164,7 +175,7 @@
+ 			b.pressed.connect(choose.bind(i))
+ 			choices.add_child(b)
+ 			cards.append(b)
+-			if i==(hero if phase==0 else partner):b.text="• "+NAMES[i]
++			if i==(hero if phase==0 else partner):b.text="â€¢ "+NAMES[i]
+ 	var controls:Array[Control]=[]
+ 	for b in cards:controls.append(b)
+ 	controls.append(confirm);controls.append(back)
+@@ -191,6 +202,11 @@
+ 
+ func advance() -> void:
+ 	if leaving:return
++	# Complete every typed page before leaving the current beat; otherwise later rows were skipped.
++	if not UI.line_done(prose.text):
++		UI.finish_line()
++		dialogue.queue_redraw()
++		return
+ 	if phase<2:phase+=1;refresh();return
+ 	leaving=true
+ 	confirm.disabled=true
+@@ -198,7 +214,7 @@
+ 	veil.mouse_filter=Control.MOUSE_FILTER_STOP
+ 	await create_tween().tween_property(veil,"color:a",1.0,0.15 if reduce_motion else 0.5).finished
+ 	# Preston, 2026-10-10: explore this bank and its close-up entrance immediately after choice.
+-	# Highbank remains the next story stop; the existing team record carries the choice.
++	# The flood blocks Highbank; Claudeâ€™s existing riverbank hooks open the boss-free Hollow Mouth.
+ 	preload("res://scripts/town/team_state.gd").start([[hero,0],[partner,0]],{"creature_player":FORMS[hero],"opening_companion":FORMS[partner]})
+ 	var dungeon:Node2D=load("res://scenes/waking_riverbank.tscn").instantiate()
+ 	dungeon.reduce_motion=reduce_motion
+--- scripts/ui/opening_dialogue.gd (original)
++++ scripts/ui/opening_dialogue.gd (installed)
+@@ -41,4 +41,4 @@
+ 	var speaker: String=source.NAMES[index]
+ 	# A transparent well reserves the shared portrait/name-tab layout. The creature itself
+ 	# draws on its own finished sprite layer, as required on every creature screen.
+-	UI.dialogue(self,Rect2(102,324,948,128),speaker,_wrapped(source.prose.text,878),well if UI.dialogue_portrait(source.FORMS[index])!=null else null,clock,22)
++	UI.dialogue(self,Rect2(102,324,948,128),speaker,source.prose.text,well if UI.dialogue_portrait(source.FORMS[index])!=null else null,clock,22)

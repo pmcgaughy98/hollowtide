@@ -1,0 +1,34 @@
+--- scripts/town/hollow_approach.gd original
++++ scripts/town/hollow_approach.gd candidate
+@@ -15,7 +15,8 @@
+ const UI := preload("res://scripts/ui/ui_style.gd")
+ const Lines := preload("res://scripts/creatures/lines.gd")
+ const TeamState := preload("res://scripts/town/team_state.gd")
+-const ENTRANCE := "res://assets/backgrounds/hollow_entrance.png"
++const ENTRANCE := "res://assets/sprites/world/waking_bank_2026_10_10/entrance_native.png"
++const EntranceFinish := preload("res://scripts/ui/hollow_entrance_finish.gd")
+ const NODE_AT := Vector2(244, 79)          # the bank end of the stone walkway in waking_bank.gd
+ const DOOR_AT := Vector2(192, 110)         # the doorway's foot in the entrance painting, at 384x216
+ const WALK_FPS := 10.0
+@@ -66,7 +67,7 @@
+ 	entrance.centered = false
+ 	entrance.hide()
+ 	entrance.texture = _entrance_texture()
+-	entrance.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
++	entrance.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
+ 	entrance.scale = Vector2(384, 216) / entrance.texture.get_size()
+ 	vp.add_child(entrance)
+ 	fx = Node2D.new()                      # shadows under the team, the node, the door's light
+@@ -104,8 +105,10 @@
+ 
+ 
+ func _entrance_texture() -> Texture2D:
+-	if ResourceLoader.exists(ENTRANCE):
+-		return load(ENTRANCE)
++	var img := preload("res://scripts/ui/waking_bank.gd").detailed_image(ENTRANCE)
++	if img != null:
++		EntranceFinish.apply(entrance, img)
++		return ImageTexture.create_from_image(EntranceFinish.finished_image(img))
+ 	return ImageTexture.create_from_image(_stand_in())
+ 
+ 

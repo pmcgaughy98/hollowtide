@@ -1,0 +1,31 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+OpenGL API 3.3.0 NVIDIA 596.49 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce GTX 1660 SUPER
+
+[godot_ai game_helper] registered mcp capture (debugger active=false, logger=true)
+Grass covers 47 canonical edge/corner cases -> ok
+riverbank atlas uses locked palette -> ok
+riverbank terrain is opaque/native -> ok
+riverbank quiet interior has only close floor values -> ok
+riverbank grid stays on final row/column -> ok
+riverbank details never enter central walking square -> ok
+riverbank south wall has top, lip, shadow, face and foot -> ok
+valley atlas uses locked palette -> ok
+valley terrain is opaque/native -> ok
+valley quiet interior has only close floor values -> ok
+valley grid stays on final row/column -> ok
+valley details never enter central walking square -> ok
+valley south wall has top, lip, shadow, face and foot -> ok
+ruin atlas uses locked palette -> ok
+ruin terrain is opaque/native -> ok
+ruin quiet interior has only close floor values -> ok
+ruin grid stays on final row/column -> ok
+ruin details never enter central walking square -> ok
+ruin south wall has top, lip, shadow, face and foot -> ok
+Joined grass has no clay break at east/west seam -> ok
+Missing diagonal cuts an actual concave corner -> ok
+Hollow floors share identical palette -> ok
+Rendering never changes floor data -> ok
+Fixed seed renders deterministically -> ok
+Unseen cells remain exact opaque dark above world effects -> ok
+Reveal restores visible world pixels -> ok
+NATIVE TILE CHECKS 26/26

@@ -1,0 +1,26 @@
+[
+  {
+    "path": "scripts/ui/waking_bank.gd",
+    "before": null,
+    "after": "6500045c8854b7e6e9ab70c1b495dc29b0b407f983c8317744c58b686443f0a0",
+    "source": "D:\\dev\\hollowtide-pilot-waking-20261010\\candidate\\scripts\\ui\\waking_bank.gd",
+    "target": "C:\\Users\\pmcga\\dev\\hollowtide\\scripts\\ui\\waking_bank.gd",
+    "archive": "C:\\Users\\pmcga\\dev\\hollowtide\\docs\\design\\pilot-waking-2026-10-10\\originals\\scripts\\ui\\waking_bank.gd"
+  },
+  {
+    "path": "scripts/creature_prologue.gd",
+    "before": "96f3d3a03c2dff67d9a1abb16bab9729646e0aab974bd4fc8567e5a2218b592c",
+    "after": "1812ec53c2866bf4f3b7770baac1e7e87cce2fe5452a57a9b7a5602aba5429c8",
+    "source": "D:\\dev\\hollowtide-pilot-waking-20261010\\candidate\\scripts\\creature_prologue.gd",
+    "target": "C:\\Users\\pmcga\\dev\\hollowtide\\scripts\\creature_prologue.gd",
+    "archive": "C:\\Users\\pmcga\\dev\\hollowtide\\docs\\design\\pilot-waking-2026-10-10\\originals\\scripts\\creature_prologue.gd"
+  },
+  {
+    "path": "docs/AI_COLLABORATION.md",
+    "before": "d3507432ebea0bc8c5d0f3e569ed83c9618efd723717962f09b11ba949e07945",
+    "after": "799836c9822bee72a18ab9c2ff447971b945b3ece4a395c961ca539dd0ab40f9",
+    "source": "D:\\dev\\hollowtide-pilot-waking-20261010\\candidate\\docs\\AI_COLLABORATION.md",
+    "target": "C:\\Users\\pmcga\\dev\\hollowtide\\docs\\AI_COLLABORATION.md",
+    "archive": "C:\\Users\\pmcga\\dev\\hollowtide\\docs\\design\\pilot-waking-2026-10-10\\originals\\docs\\AI_COLLABORATION.md"
+  }
+]

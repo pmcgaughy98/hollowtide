@@ -1,0 +1,41 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+OpenGL API 3.3.0 NVIDIA 596.49 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce GTX 1660 SUPER
+
+ERROR: Failed to read the root certificate store.
+   at: get_system_ca_certificates (platform/windows/os_windows.cpp:2582)
+[godot_ai game_helper] registered mcp capture (debugger active=false, logger=true)
+PASS creature launch scene remains available; current development F5 preserved
+PASS boot skip lands on title
+PASS title text composition preserved
+PASS four title choices stay within screen
+PASS original village artwork retained
+PASS pixel Options fits screen
+PASS framed slider adjusts volume by keyboard
+PASS Options Back restores focus
+PASS pixel Journey guide fits screen
+PASS Controls guide fits screen
+PASS pixel Quit confirms with safe Back focus
+PASS Help Start New Game retains soul-story route
+PASS real New Game still opens Claude's soul story
+PASS waking phase 0 choice panel fits
+PASS waking phase 0 actions have intact pixel corners
+PASS phase 0 choice • Kithflare fits
+PASS phase 0 choice Tallowroot fits
+PASS phase 0 choice Rimefin fits
+PASS phase 0 dialogue fits its text box
+PASS phase 0 portrait uses existing creature finish
+PASS identity mouse choice retains existing model
+PASS waking phase 1 choice panel fits
+PASS waking phase 1 actions have intact pixel corners
+PASS phase 1 choice Kithflare fits
+PASS phase 1 choice • Tallowroot fits
+PASS phase 1 dialogue fits its text box
+PASS phase 1 portrait uses existing creature finish
+PASS companion mouse choice retains existing model
+PASS waking phase 2 choice panel fits
+PASS waking phase 2 actions have intact pixel corners
+PASS phase 2 dialogue fits its text box
+PASS phase 2 portrait uses existing creature finish
+PASS framed final confirmation reaches town with selected team
+PASS legacy partner welcome pixel card fits screen
+FRAMES 34/34 PASS

@@ -1,0 +1,12 @@
+[
+  {
+    "path": "scripts/ui/crew_portrait_canvas.gd",
+    "before": "5c340c16e72ecbc8eda2388c5fba07c035a250b1962bfc7b9227f486ebe0acc3",
+    "after": "f27c952045731449a9aa92605dfcb8137311cc503c0556341303bb4398ccd6ca"
+  },
+  {
+    "path": "docs/AI_COLLABORATION.md",
+    "before": "d3808e467fa2276ea447a9d018defd64b1d764b92246deeca3700317170839bd",
+    "after": "22fe7d99d42f627ff110ce8e861bbb000d48f40693e3abc6443b3b699056c99c"
+  }
+]
