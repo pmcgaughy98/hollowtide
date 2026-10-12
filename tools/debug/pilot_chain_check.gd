@@ -57,6 +57,8 @@ func _tick() -> void:
 	if file == "mouth_escape.tscn" and s.line != null and Engine.get_process_frames() % 4 == 0:
 		UI.finish_line()   # the dawn walk up to Highbank, read like the flood talk
 		s.advance()
+	if file == "faint_screen.tscn" and Engine.get_process_frames() % 8 == 0:
+		s.advance()   # the faint screen (2026-10-12): the partner's word, the defeat panel, then home or back to the bank
 	if file == "hub_town.tscn" and s.panel is Dictionary and s.panel.get("service", "") == "news":
 		s.panel = {}
 
@@ -72,7 +74,10 @@ func _until(done: Callable, frames: int) -> bool:
 
 ## A dungeon, played to the end (back in town); a faint retries it, as a player would.
 func _dungeon(name: String, start: Callable) -> bool:
-	for attempt in 3:
+	# Five tries, not three (2026-10-12): a short Hollow Mouth seed sent the team into Rootbank Warren at level 2
+	# and the crew beat it three times running while its levels climbed a step a try; a player keeps going, and
+	# the game has no dead end there (every try keeps levels). Grok has the balance note (GROK_TASKS_2026-10-12.md).
+	for attempt in 5:
 		var before_cleared := int(TeamState.data.get("cleared", 0))
 		start.call()
 		await _until(func() -> bool: return _scene() == "dungeon.tscn", 30 * 20)
@@ -154,7 +159,7 @@ func _run() -> void:
 	await _until(func() -> bool: return low.cutscene, 30 * 3)
 	var played: bool = low.cutscene
 	await _until(func() -> bool: return not low.cutscene, 30 * 120)
-	_ok("The roll call plays on the lower floor (%s), crew at posts %d" % [played, low.npcs.size()], played and low.npcs.size() >= 4)
+	_ok("The mail call plays on the lower floor (%s), crew at posts %d" % [played, low.npcs.size()], played and low.npcs.size() >= 4)
 	low.go_room({"to": "hall", "at": Vector2i(13, 10), "facing": "w", "sfx": "stairs"})
 	await _until(func() -> bool: return _scene() == "town_room.tscn" and current_scene != low, 30 * 5)
 	current_scene.leave()
@@ -188,10 +193,14 @@ func _run() -> void:
 		if offer == "evolve_ask":
 			var before: Array = TeamState.data.get("party", []).duplicate(true)
 			town.act_use()
-			await _until(func() -> bool: return not town.evolving_now, 30 * 30)
-			_ok("Evolved: party %s -> %s" % [str(before), str(TeamState.data.get("party", []))], TeamState.data.get("party", []) != before)
+			# The growth scene starts a frame or two later; wait for it to begin, then to end (2026-10-12: the check
+			# read the party too early, then walked to the way down while the scene still owned the town).
+			await _until(func() -> bool: return town.evolving_now, 30 * 3)
+			await _until(func() -> bool: return not town.evolving_now, 30 * 90)   # the whole growth scene, with room to spare
+			_ok("Grown: party %s -> %s" % [str(before), str(TeamState.data.get("party", []))], TeamState.data.get("party", []) != before)
 		# 10. After the pilot the way down offers every dungeon again; a replay has no boss (Preston, 2026-10-11).
 		town = _town()
+		await _until(func() -> bool: return not town.evolving_now and not town.cutscene and town.talk.is_empty(), 30 * 10)
 		town.panel = {}
 		town.enter_hollow()
 		var pick: String = town.panel.get("service", "")

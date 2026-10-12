@@ -15,8 +15,8 @@ const CALL := [
 ]
 const EMPTY := [
 	["Wayling", "...Oh. It's only you two. Again."],
-	["{partner}", "Wayling, please. We need to see the Guildmaster.", "determined"],
-	["Wayling", "Every runner is out checking the routes since the bank gave way. The Guildmaster is very busy."],
+	["{partner}", "Wayling, please. We need to see the Postmaster.", "determined"],
+	["Wayling", "Every runner is out checking the routes since the bank gave way. The Postmaster is very busy."],
 ]
 const STARWARD_IN := [
 	["Starward", "I heard 'please'. Out with it, little one.", "happy"],
@@ -35,8 +35,8 @@ const HAND_OVER := [
 # When the crew have the parcel the partner saved (story "parcel" = "stolen"; Preston, 2026-10-10).
 const EMPTY_STOLEN := [
 	["Wayling", "...Oh. It's only you two. Again."],
-	["{partner}", "Wayling, please! Gruntle's crew stole a Wayline parcel. We need the Guildmaster!", "determined"],
-	["Wayling", "Every runner is out checking the routes since the bank gave way. The Guildmaster is very busy."],
+	["{partner}", "Wayling, please! Gruntle's crew stole a Wayline parcel. We need the Postmaster!", "determined"],
+	["Wayling", "Every runner is out checking the routes since the bank gave way. The Postmaster is very busy."],
 ]
 const STARWARD_IN_STOLEN := [
 	["Starward", "Gruntle again. I heard. Out with it, little one.", "angry"],

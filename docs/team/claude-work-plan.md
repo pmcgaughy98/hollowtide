@@ -70,3 +70,91 @@ research (Gemini). Claude reviews and integrates when asked.
 - 2026-09-28: fixed duplicate class names breaking battles; reviewed Cinder Claw contact both sides;
   built Molten Glass head-retract pour with brace, gush, eruption, surges and a volley that reaches the
   target. Details in `docs/AI_COLLABORATION.md`.
+- 2026-10-12: the crew's standing-south job-object stills (Codex task 2) were already wired in scene_kit.spawn on
+  2026-10-11; added the roll-call check assertion that proves it, which caught Rinsepaw placed at her post one step
+  early on a walk frame. SceneKit.walk_all now waits until every walker has settled. Roll call, guild scene and
+  board scene checks pass. The phase tables above are the September battle-feel plan and are stale since the
+  mystery-dungeon pivot; the live state is the top of docs/AI_COLLABORATION.md and docs/design/pilot-story-2026-10-10.md.
+- 2026-10-12, later: the faint flow and the defeat screen (Preston: a wipe must bring the team home like Mystery
+  Dungeon, with a defeat information screen). scenes/faint_screen.tscn: the partner's word, then the panel (where,
+  what beat you, turns, downed, lost, kept), E home to Highbank or back to the bank in the Mouth. Checks:
+  faint_check (both routes), town_loop_check and pilot_chain_check press through it. Verified headless and windowed.
+- 2026-10-12, later still: the genre synthesis (docs/design/genre-synthesis-2026-10-12.md) and R1, the words: Sense,
+  a nest, Second Wind, went down, carried back, Postmaster (a title proposal). Player-facing strings only; ids,
+  story flags and item keys unchanged. Checks pass: faint, IQ, roll call, guild scene, board scene, mouth escape,
+  dungeon run. Next from the plan: R2 Orders in a courier's words.
+- 2026-10-12, evening: growth wording (Preston: "so and so has grown into") in every player-facing line, and R2,
+  Orders in a runner's words (STAY CLOSE, PUSH ON, HOLD; ids follow/go/guard unchanged). Checks pass: evolution
+  (the new wording), field menu, tactics. Pre-existing failures found by comparing against the last commit, not
+  caused today: evolution_check "No one else" (Tallowroot is also ready in that setup since the Oct 11 growth
+  pace) and stone_check headless (the stone scene's line reader touches a freed dungeon). Next: R3, mail call.
+- 2026-10-12, night: the full-pass stock-take (pitch kit, creature art matrix: every pilot creature has facings,
+  walks, actions and a dialogue portrait). Spent the Retro balance on the six Hall crew's expression faces, two
+  each (tools/ui/rd_crew_expressions.py, $2.16, $0.29 left), all within the silhouette and debris limits, wired
+  into their lines and the roll call. Roll call and rooms checks pass. Next toward the pitch: the save system
+  (the pitch kit's biggest hole), R3 mail call, the two-minute capture.
+- 2026-10-12, late: found that the pilot chain had never passed The Hollow (Oct 11's log fails there too). Probe:
+  one seed dies on B1F to Troughspine, one wears the Warden to 8 of 168 and loses the leader, one clears. Built the
+  Warden yield rule (a fallen leader against a Warden under 35% starts the stand-off, not a faint) with its check;
+  the B1F lethality is handed to Grok (GROK_TASKS_2026-10-12.md). The pilot chain is being re-run.
+- 2026-10-12, end of day: PILOT CHAIN all ok in 720 s, the first pass ever (the check's growth wait lengthened to
+  cover the whole scene). Two faints along the way, both retried. Grok has the B1F numbers task. Next for the
+  pitch: the save system, R3 mail call, the two-minute capture, and posting the build for outside feedback.
+- 2026-10-12, last: Preston: "make the climax unlosable". STANDOFF_AT is 1.0: once the Warden is awake, a fallen
+  leader always starts the stand-off; before it wakes, a faint as anywhere. warden_yield_check covers all three.
+- 2026-10-12, after that: the save. scripts/town/team_state.gd writes the team record to user://team.save
+  (store_var, so int keys and Vector2i survive) when Highbank is reached, left for a run, or quit from; the
+  title lists Continue first when a save exists (main_menu.gd, Codex's file, the smallest change: entries by
+  name, Help placed by the last button's index). A check never writes or sees the real save unless it names
+  its own file. tools/debug/save_check.gd all ok (round trip, arrival save, Continue to Highbank, no save no
+  Continue); Codex's opening_flow_check 21/21 after the menu change; a real headless run wrote the real file,
+  then deleted it. Next: the suspend save for a quit mid-run, R3 mail call, the two-minute capture.
+- 2026-10-12, then the suspend save: a quit mid-run (pause menu, Return to title or Quit Game) writes the record as
+  the run stands plus the run itself (dungeon.suspend_record: dungeon, floor, seed, lantern, turn, the team's HP,
+  the run's start team); Continue opens the dungeon at the top of that floor with the same seed, once, then the
+  record drops the run and saves again (no replaying a run from the file). The pause menu's leave text says what
+  is kept. save_check 14 steps all ok; faint, Warden yield and field menu checks ok. Next: R3 mail call, the
+  two-minute capture, and the sprites-in-3D test if Preston calls it.
+- 2026-10-12, R3 mail call: the lower-floor morning scene is parcel sorting now (guild_crew.gd). Wayling calls
+  routes, not names (the bend, levee row, Highbank windows, the grocer's slip, the ford), the crew claim them,
+  Muskin is late and gets the Warren road, the runners' route comes from the Postmaster's morning note, and there
+  is no cheer: the crew peel off to work. Ids unchanged (rollcall_runs, the room id). The place is the Sorting
+  Floor. roll_call_check (its file keeps its name) now also asserts every crew member claims a route.
+- 2026-10-12, R4 deliveries: a third Job Board kind, "Deliver to X" (jobs.gd). Taking one puts a Parcel in the
+  bag (dungeon.gd ITEMS; it cannot be used); the client waits on its floor; the condition is judged at the
+  client's feet (lit: lantern > 0; quick: turn <= N; careful: no trap sprung, a new traps_sprung counter) and the
+  board pays by it (met: reward x2, +15 rank; missed: plain). A faint loses the bag and its parcels, those
+  deliveries drop, and the faint screen names them. The board rows show the ask and the result. job_board_check
+  has eight delivery steps; faint, field menu, board scene, save checks pass. Numbers to Grok (GROK_TASKS).
+- 2026-10-12, R5 rising water: The Hollow's valley floor (B1F) floods a row at a time from the lowest floor row
+  every WATER_EVERY turns (10), capped below the stairs and the start so the floor is never cut off; each rise is
+  the current: creatures standing in the water and items lying in it go a tile downstream (east), Tide creatures
+  swim; the leader's wet feet cost WET_LIGHT (0.5) a turn; a banner and lines at the first rise; a translucent
+  band with a water line drawn in _draw_floor_fx; the Floor page says how high it is. The push comes only on a
+  rise, so the autopilot can always walk out of it. water_check all ok headless and windowed; faint, Warden, save,
+  field menu checks pass; pilot chain re-run. Numbers to Grok.
+- 2026-10-12, R6 the Storage: a route's reward, not a purchase. Shut with a note until "first" (Rootbank Warren)
+  is in beaten; then a panel at its door (E puts one in, R takes one out, W/S choose) over the record's new
+  "stored" dict beside "bag". Parcels refused; the bag's kinds cap honoured on the way out; the faint screen's
+  Kept row names the Storage; the save carries it (no KEYS change: the dungeon never touches it). The return
+  from the Warren says the road is clear. storage_check all ok headless and windowed; job board, faint, save
+  checks pass; pilot chain re-run.
+- 2026-10-12, the sprites-in-3D workshop (Preston: do with a Hollowtide creature what the mech session does with
+  its machine). Corrected my earlier reading: the mech work is render-to-pixel (3D model, eight pixel views), not
+  billboards. Built tools/blender/render_creature_views.py (eight views, facing argument, FRAMES mode; compass
+  proved by numbers on the mech ape), tools/art/measure_views.py and tools/art/pixelize_views.py. Spent $0.18
+  of Retro's $0.29 on a Detailed Lite model and its walk. Findings in docs/design/sprite3d-workshop-2026-10-12.md:
+  the pipeline works; the $0.10 model is the wrong creature (my prompt, not the references); a pitched camera and
+  a lumpy model measure less consistent than the drawn set (height spread 7 vs 2 px; mirror IoU 0.43 vs 0.60 on
+  the diagonals). Next is Preston's call: Meshy image-to-3D from the real sprite at 38 credits, a hand-built
+  model, or keep the drawn set and use 3D for animation only.
+- 2026-10-12, R7 the dialogue frame: UI.dialogue draws the portrait set into the box's left end (its frame
+  straddling the top edge), the name tab beside it and the line to its right, with the wrap width reduced by
+  the inset so paging and line_done agree with the drawing. Every dialogue box goes through that one function.
+  Mail call windowed all ok; stills in docs/design/dialogue-frame-2026-10-12/; pilot chain re-run. R8 (a
+  lawyer's read) is Preston's to arrange; Claude can draft the questions.
+- 2026-10-12, R8 the lawyer's brief: docs/pitch/lawyer-brief-2026-10-12.md, nine questions in order (title,
+  genre label and comps, names, the recruit rule and patents, look and feel as a sum, AI-made content, AI-written
+  code, licences, business basics) with attachments: every name in the game's data, the mechanics one line each
+  for a patent scan, the tools and licences, the store text drafts. Preston sends it; the plan R1 to R8 is now
+  all in his hands or done.

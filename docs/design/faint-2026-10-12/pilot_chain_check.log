@@ -1,0 +1,24 @@
+﻿Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+[godot_ai game_helper] registered mcp capture (debugger active=false, logger=true)
+Flood talk -> the riverbank (waking_riverbank.tscn), team [[0, 0], [1, 0]] -> ok
+  Hollow Mouth, try 1: back in town true, news '', cleared 1, party [[0, 0], [1, 0], [7, 0], [10, 0]], levels { 0: { "lv": 3, "exp": 8 }, 1: { "lv": 3, "exp": 8 }, 7: { "lv": 2, "exp": 40 }, 10: { "lv": 3, "exp": 24 } }, growth { "0:0": { "kos": 6, "floors": 4, "flank": 0, "ambush": 0, "took": 171, "slam": 1, "healed": 0 }, "1:0": { "kos": 9, "floors": 4, "flank": 1, "ambush": 0, "took": 16, "slam": 0, "healed": 0 }, "7:0": { "kos": 0, "floors": 3, "flank": 0, "ambush": 0, "took": 0, "slam": 0, "healed": 0 }, "10:0": { "kos": 1, "floors": 1, "flank": 0, "ambush": 0, "took": 0, "slam": 0, "healed": 20 } }
+Hollow Mouth cleared, no boss; parcel 'saved', beaten ["mouth"] -> ok
+Highbank: the way down is held before the Job Board (true) -> ok
+Job Board: the parcel is stolen (stolen) -> ok
+Wayline Hall: the trial is set (true) -> ok
+  Rootbank Warren, try 1: back in town true, news '', cleared 2, party [[0, 0], [1, 0], [7, 0], [10, 0]], levels { 0: { "lv": 4, "exp": 86 }, 1: { "lv": 4, "exp": 86 }, 7: { "lv": 4, "exp": 38 }, 10: { "lv": 4, "exp": 102 } }, growth { "0:0": { "kos": 14, "floors": 7, "flank": 0, "ambush": 0, "took": 249, "slam": 1, "healed": 0 }, "1:0": { "kos": 11, "floors": 7, "flank": 2, "ambush": 1, "took": 32, "slam": 0, "healed": 0 }, "7:0": { "kos": 1, "floors": 6, "flank": 0, "ambush": 0, "took": 16, "slam": 0, "healed": 0 }, "10:0": { "kos": 1, "floors": 4, "flank": 0, "ambush": 0, "took": 0, "slam": 0, "healed": 47 } }
+Rootbank Warren cleared; parcel 'recovered', beaten ["mouth", "first"] -> ok
+Back in Highbank: The Hollow is held until Starward has the parcel (true) -> ok
+Starward names them runners (true, parcel 'delivered') -> ok
+The roll call plays on the lower floor (true), crew at posts 5 -> ok
+  The Hollow, try 1: back in town true, news '', cleared 2, party [[0, 0], [1, 0], [7, 0], [10, 0]], levels { 0: { "lv": 5, "exp": 14 }, 1: { "lv": 5, "exp": 14 }, 7: { "lv": 4, "exp": 126 }, 10: { "lv": 5, "exp": 30 } }, growth { "0:0": { "kos": 20, "floors": 9, "flank": 0, "ambush": 0, "took": 699, "slam": 1, "healed": 0 }, "1:0": { "kos": 16, "floors": 9, "flank": 2, "ambush": 1, "took": 32, "slam": 0, "healed": 0 }, "7:0": { "kos": 1, "floors": 8, "flank": 0, "ambush": 0, "took": 19, "slam": 0, "healed": 0 }, "10:0": { "kos": 1, "floors": 6, "flank": 0, "ambush": 0, "took": 0, "slam": 0, "healed": 85 } }
+  The Hollow, try 2: back in town true, news '', cleared 2, party [[0, 0], [1, 0], [7, 0], [10, 0]], levels { 0: { "lv": 5, "exp": 46 }, 1: { "lv": 5, "exp": 46 }, 7: { "lv": 4, "exp": 158 }, 10: { "lv": 5, "exp": 62 } }, growth { "0:0": { "kos": 24, "floors": 10, "flank": 0, "ambush": 0, "took": 822, "slam": 1, "healed": 0 }, "1:0": { "kos": 16, "floors": 10, "flank": 2, "ambush": 1, "took": 32, "slam": 0, "healed": 0 }, "7:0": { "kos": 1, "floors": 9, "flank": 0, "ambush": 0, "took": 19, "slam": 0, "healed": 0 }, "10:0": { "kos": 1, "floors": 7, "flank": 0, "ambush": 0, "took": 0, "slam": 0, "healed": 115 } }
+  The Hollow, try 3: back in town true, news '', cleared 2, party [[0, 0], [1, 0], [7, 0], [10, 0]], levels { 0: { "lv": 5, "exp": 78 }, 1: { "lv": 5, "exp": 78 }, 7: { "lv": 5, "exp": 30 }, 10: { "lv": 5, "exp": 94 } }, growth { "0:0": { "kos": 27, "floors": 11, "flank": 0, "ambush": 0, "took": 932, "slam": 1, "healed": 0 }, "1:0": { "kos": 17, "floors": 11, "flank": 2, "ambush": 1, "took": 32, "slam": 0, "healed": 0 }, "7:0": { "kos": 1, "floors": 10, "flank": 0, "ambush": 0, "took": 19, "slam": 0, "healed": 0 }, "10:0": { "kos": 1, "floors": 8, "flank": 0, "ambush": 0, "took": 0, "slam": 0, "healed": 126 } }
+The Hollow cleared, the Warden beaten; the stone is '' -> FAIL
+The stone is set in the Growth Shrine (asked 'growth', now ) -> FAIL
+  At the shrine: 0 ready to evolve; levels { 0: { "lv": 5, "exp": 78 }, 1: { "lv": 5, "exp": 78 }, 7: { "lv": 5, "exp": 30 }, 10: { "lv": 5, "exp": 94 } }; growth { "0:0": { "kos": 27, "floors": 11, "flank": 0, "ambush": 0, "took": 932, "slam": 1, "healed": 0 }, "1:0": { "kos": 17, "floors": 11, "flank": 2, "ambush": 1, "took": 32, "slam": 0, "healed": 0 }, "7:0": { "kos": 1, "floors": 10, "flank": 0, "ambush": 0, "took": 19, "slam": 0, "healed": 0 }, "10:0": { "kos": 1, "floors": 8, "flank": 0, "ambush": 0, "took": 0, "slam": 0, "healed": 126 } }
+The shrine offers an evolution after the pilot's three dungeons (growth, 0 ready) -> FAIL
+After the pilot the way down asks where to go () -> FAIL
+Faints along the way: 3
+PILOT CHAIN: 4 FAILED in 556 s

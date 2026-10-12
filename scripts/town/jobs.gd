@@ -17,7 +17,22 @@ const TAKE_MAX := 4        # jobs the team can carry into a run
 const KINDS := {           # proposals
 	"rescue": {"title": "Find %s", "reward": "rally_seed", "count": 1, "pts": 30},
 	"lost_item": {"title": "Recover %s's %s", "reward": "reedberry", "count": 2, "pts": 20},
+	"delivery": {"title": "Deliver to %s", "reward": "lamp_oil", "count": 1, "pts": 25},   # R4, 2026-10-12
 }
+## Deliveries (R4 of docs/design/genre-synthesis-2026-10-12.md, 2026-10-12: deliveries, not explorations). A taken
+## delivery puts a parcel in the bag; the client waits on its floor; the condition is judged at the client's
+## feet, and the pay follows it: met, the reward is MET_COUNT times and MET_PTS more rank; missed, the plain pay.
+## A faint loses the bag, parcels with it, and those deliveries are off the slate. "Dry" waits for the water
+## floors (R5). Every number is a proposal for Grok.
+const CONDITIONS := {
+	"lit": {"ask": "before the lantern goes out", "met": "the lantern still lit", "missed": "the lantern was out"},
+	"quick": {"ask": "within %d turns", "met": "in good time", "missed": "late"},
+	"careful": {"ask": "without springing a trap", "met": "not a trap sprung", "missed": "a trap went off on the way"},
+}
+const MET_COUNT := 2
+const MET_PTS := 15
+const QUICK_TURNS_PER_FLOOR := 70
+const PARCEL := "parcel"   # the bag item a taken delivery adds (dungeon.gd ITEMS)
 const FLOOR_PTS := 10      # each floor deeper adds this many rank points (proposal)
 const LOST_ITEMS := ["river_stone", "lamp_oil", "reedberry"]
 const RANK_STEPS := [0, 60, 150, 300, 500]   # points to reach Courier Rank 1..5 (proposal; rank names are Preston's)
@@ -39,8 +54,64 @@ static func post(seed: int) -> Array:
 			"reward": KINDS[kind]["reward"], "count": KINDS[kind]["count"], "pts": KINDS[kind]["pts"] + FLOOR_PTS * (fl - 1)}
 		if kind == "lost_item":
 			job["item"] = LOST_ITEMS[rng.randi_range(0, LOST_ITEMS.size() - 1)]
+		elif kind == "delivery":
+			job["cond"] = CONDITIONS.keys()[rng.randi_range(0, CONDITIONS.size() - 1)]
+			if job["cond"] == "quick":
+				job["turns"] = QUICK_TURNS_PER_FLOOR * fl
 		out.append(job)
 	return out
+
+
+## The condition as the board asks it: "before the lantern goes out".
+static func cond_text(job: Dictionary) -> String:
+	var c: Dictionary = CONDITIONS.get(String(job.get("cond", "")), {})
+	if c.is_empty():
+		return ""
+	var ask := String(c["ask"])
+	return ask % int(job.get("turns", 0)) if ask.contains("%d") else ask
+
+
+## Judged at the client's feet, from the run as it stands.
+static func judge(job: Dictionary, run: Node) -> bool:
+	match String(job.get("cond", "")):
+		"lit":
+			return float(run.get("light")) > 0.0
+		"quick":
+			return int(run.get("turn")) <= int(job.get("turns", 0))
+		"careful":
+			return int(run.get("traps_sprung")) == 0
+	return true
+
+
+## How it went, once judged: "the lantern still lit" or "the lantern was out".
+static func result_text(job: Dictionary) -> String:
+	var c: Dictionary = CONDITIONS.get(String(job.get("cond", "")), {})
+	if c.is_empty():
+		return ""
+	return String(c["met"] if job.get("met", false) else c["missed"])
+
+
+## A faint loses the bag and the parcels in it: the deliveries not yet made come off the slate.
+## Returns [the jobs that stay, the names of the clients whose parcels were lost].
+static func drop_parcels(jobs: Array) -> Array:
+	var keep: Array = []
+	var lost: Array = []
+	for j in jobs:
+		if j["kind"] == "delivery" and not j.get("done", false):
+			lost.append(client_name(j))
+		else:
+			keep.append(j)
+	return [keep, lost]
+
+
+static func _add_parcel(data: Dictionary, n: int) -> void:
+	var bag: Dictionary = data.get("bag", {"reedberry": 1})   # a team that has not run yet starts with the dungeon's one berry
+	var c: int = int(bag.get(PARCEL, 0)) + n
+	if c > 0:
+		bag[PARCEL] = c
+	else:
+		bag.erase(PARCEL)
+	data["bag"] = bag
 
 
 static func client_form(job: Dictionary) -> String:
@@ -106,10 +177,15 @@ static func toggle(data: Dictionary, job: Dictionary) -> String:
 		data["jobs"] = []
 	if is_taken(data, job):
 		data["jobs"] = data["jobs"].filter(func(j: Dictionary) -> bool: return j["id"] != job["id"])
+		if job["kind"] == "delivery":
+			_add_parcel(data, -1)
 		return "Put back: %s." % title(job)
 	if data["jobs"].size() >= TAKE_MAX:
 		return "The satchel holds %d jobs. Put one back first." % TAKE_MAX
 	data["jobs"].append(job.duplicate(true))
+	if job["kind"] == "delivery":
+		_add_parcel(data, 1)
+		return "Taken: %s. B%dF, %s. The parcel is in the bag." % [title(job), int(job["floor"]), cond_text(job)]
 	return "Taken: %s. B%dF." % [title(job), int(job["floor"])]
 
 
@@ -121,12 +197,20 @@ static func pay(data: Dictionary) -> Array:
 		if not j.get("done", false):
 			keep.append(j)
 			continue
+		var count: int = int(j["count"])
+		var pts: int = int(j["pts"])
+		var note := ""
+		if j["kind"] == "delivery":   # pay by the condition at arrival (R4)
+			if j.get("met", false):
+				count *= MET_COUNT
+				pts += MET_PTS
+			note = " (%s)" % result_text(j)
 		var bag: Dictionary = data.get("bag", {})
-		bag[j["reward"]] = int(bag.get(j["reward"], 0)) + int(j["count"])
+		bag[j["reward"]] = int(bag.get(j["reward"], 0)) + count
 		data["bag"] = bag
 		var before: int = rank_of(int(data.get("rank", 0)))[0]
-		data["rank"] = int(data.get("rank", 0)) + int(j["pts"])
-		var line := "%s: %s x%d, +%d rank" % [title(j), item_name(j["reward"]), int(j["count"]), int(j["pts"])]
+		data["rank"] = int(data.get("rank", 0)) + pts
+		var line := "%s%s: %s x%d, +%d rank" % [title(j), note, item_name(j["reward"]), count, pts]
 		if rank_of(int(data["rank"]))[0] > before:
 			line += ". Courier Rank %d!" % rank_of(int(data["rank"]))[0]
 		said.append(line)

@@ -19,7 +19,7 @@ static func current(story: Dictionary, beaten: Array) -> Dictionary:
 			"Your partner wants Highbank to see the parcel it saved. The Job Board stands beside the Wayline Hall's steps, at the top middle of town.")
 	if parcel == "stolen" and not story.get("guild_trial", false):
 		return _goal("Tell Starward at the Wayline Hall",
-			"The Shortcut Crew took the parcel. The Wayline Hall is at the top middle of town; Starward, the Guildmaster, is in the chamber at the back.")
+			"The Shortcut Crew took the parcel. The Wayline Hall is at the top middle of town; Starward, the Postmaster, is in the chamber at the back.")
 	if parcel == "stolen":
 		return _goal("Get the parcel back in Rootbank Warren",
 			"The crew went to ground in Rootbank Warren. The way down is the Mouth of the Hollow, by the Old Ferry Landing at the south-east edge of town.")
@@ -32,8 +32,8 @@ static func current(story: Dictionary, beaten: Array) -> Dictionary:
 	if stone == "carried":
 		return _goal("Set the Warden's stone in the Growth Shrine",
 			"The Warden let you take its stone. The Growth Shrine is on the west side of town; its socket is waiting.")
-	return _goal("Evolve at the Growth Shrine, or run a dungeon again",
-		"The shrine is awake. A creature that is ready evolves there. The way down, by the Old Ferry Landing, takes you back into any dungeon to grow the rest of the team.")
+	return _goal("Grow at the Growth Shrine, or run a dungeon again",
+		"The shrine is awake. A creature that is ready grows there. The way down, by the Old Ferry Landing, takes you back into any dungeon to grow the rest of the team.")
 
 
 static func _goal(short: String, long: String) -> Dictionary:

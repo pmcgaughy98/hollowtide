@@ -23,7 +23,7 @@ const OBJECT := [["{partner}", "Hey! Those are Wayline jobs. You can't just tear
 const MOCK := [
 	["Gruntle", "Well, well. The little runt the Hall keeps turning away.", "mischievous"],
 	["Whinet", "No partner, no route! Hee hee!", "mischievous"],
-	["{partner}", "I have a partner now. We're seeing the Guildmaster today.", "determined"],
+	["{partner}", "I have a partner now. We're seeing the Postmaster today.", "determined"],
 ]
 const AFTER_SHOVE := [
 	["Gruntle", "You? On a route? You'd lose a parcel in a puddle.", "angry"],
@@ -40,7 +40,7 @@ const SNATCH := [
 const GET_UP_STOLEN := [
 	["{partner}", "...They took it. The one parcel I kept dry through the whole flood.", "sad"],
 	["{partner}", "That was Gruntle's crew. They take jobs and never deliver them.", "angry"],
-	["{partner}", "The Guildmaster has to hear about this. The Hall's right there. Come on!", "determined"],
+	["{partner}", "The Postmaster has to hear about this. The Hall's right there. Come on!", "determined"],
 ]
 const GET_UP := [
 	["{partner}", "...That was Gruntle. His crew takes jobs and never delivers them.", "sad"],

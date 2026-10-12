@@ -51,7 +51,7 @@ func _run() -> void:
 		menu.show_page(pg)
 		await _frames(2)
 		var t := _texts(menu)
-		var want: bool = {"team": t.contains("KITHFLARE   Lv 3") and t.contains("To evolve: Level 3/5") and t.contains("Moves:"),
+		var want: bool = {"team": t.contains("KITHFLARE   Lv 3") and t.contains("To grow: Level 3/5") and t.contains("Moves:"),
 			"bag": t.contains("Reedberry x1"), "floor": t.contains("B1F") and t.contains("Lantern"),
 			"log": t.contains("B1F")}[pg]
 		print("%s: %s -> %s" % [pg, t, "ok" if want else "WRONG"])

@@ -35,7 +35,7 @@ Built from how real indie games get taken seriously (sources at the bottom), not
 | **AI-made art, sound and text** | Steam requires disclosure of AI-made player-facing content (about 1 in 5 new releases now disclose). Hidden AI use draws backlash; games have had to pull it. Many developers are openly against generative AI. Some art communities ban AI posts. | Be upfront in every post and pitch: "prototype art made with AI tools; we are looking for an artist." Budget human art for the real game. Never call it hand-drawn. |
 | **Looks like Pokémon Mystery Dungeon** | Familiar is good for a hook, too close is a legal and reputational risk (Nintendo and The Pokémon Company defend their IP hard, including a 2024 patent suit against Palworld's makers). | Keep our own creatures, names, world (the Wayline, the Hollow, Missouri rivers). Say "inspired by" in pitches, never copy UI, music or creature shapes. |
 | **No outside playtests yet** | Every game feels clear to its makers. | Watch three people play the pilot without helping. Write down where they get stuck. |
-| **No save system** | A slice people can't come back to feels unfinished. | **[LATER]** Claude can build it. |
+| **Save and Continue** (built 2026-10-12) | A slice people can't come back to feels unfinished. | Done: Highbank saves on every arrival, departure and quit; a quit mid-run keeps the run, and Continue picks it up at the top of that floor, once; the title shows Continue when a save exists (`tools/debug/save_check.gd`). |
 | **Music and sound** | Mostly generated takes and synth. | Fine for a pilot; budget a composer for real. |
 | **Balance and numbers** | Grok owns them; untested by players. | Playtests first, then tune. |
 | **Controller, settings, accessibility** | Expected on Steam. | **[LATER]** |
@@ -65,10 +65,19 @@ Pick one to lead with: **[YOU]**
 Audience: **[YOU]** (who are you making it for? fans of Explorers of Sky who wanted more? cozy players?)
 
 ### The vertical slice (our pilot)
-Status: wired start to finish and checked by `tools/debug/pilot_chain_check.gd` (see its log for the
-latest run). Story: `docs/design/pilot-story-2026-10-10.md`.
-To make it pitch-ready: a title screen to pilot end with no dead ends, outside playtests, a save, the guild
-crew's portraits, Codex's finishing pass on art, and a two-minute capture of the best moments.
+Status: plays start to the first growth and a replay in a checked run, `tools/debug/pilot_chain_check.gd`, all ok in
+720 s on 2026-10-12 (`docs/design/faint-2026-10-12/pilot_chain_check3.log`); before that day the check had never
+passed The Hollow. Story: `docs/design/pilot-story-2026-10-10.md`.
+To make it pitch-ready: a title screen to pilot end with no dead ends, outside playtests, Codex's finishing pass
+on art, and a two-minute capture of the best moments. Done since: the guild crew's portraits and their expression
+faces (2026-10-12); a faint sends the team home with a defeat screen instead of a restart; the game's own words
+(Sense, Orders, nests, growth) after the genre synthesis in `docs/design/genre-synthesis-2026-10-12.md`; the climax
+is unlosable (once the Warden is awake, a fallen leader starts the stand-off); and the save: Highbank saves on
+arrival, departure and quit, a quit mid-run keeps the run for one resume at the top of its floor, and the title's
+Continue brings the team back (`docs/design/save-2026-10-12/`); the mail call (routes, not names), deliveries
+with conditions on the Job Board, rising water on The Hollow's valley floor, the Storage that opens once the
+river road past the Warren is clear, and our own dialogue frame (R3 to R7 of the genre synthesis; R8, a lawyer's
+read, is yours to arrange).
 
 ### Pitch deck (10 to 15 slides) [YOU, with Claude's help]
 1. Title and one-line pitch. 2. The hook. 3. Gameplay GIF. 4. The core loop (town, job, dungeon, home,
@@ -80,7 +89,10 @@ slice). 9. Roadmap. 10. Budget and timeline. 11. Team, and who you need. 12. The
 - Who you need and roughly what they cost: an artist (biggest), a composer, maybe a programmer. **[LATER, Claude can research rates]**
 - How long: **[YOU]**
 
-### Legal and housekeeping [LATER]
+### Legal and housekeeping [YOU: send the brief]
+- `docs/pitch/lawyer-brief-2026-10-12.md` holds the questions and attachments for a games lawyer (R8): the title,
+  the genre label, every name, the recruit rule and patents, look and feel as a sum, AI-made content and code,
+  licences, business basics, and the store text drafts.
 - Asset licences: fonts are OFL; check ElevenLabs and Retro Diffusion commercial terms before any sale.
 - A business entity before money changes hands.
 - Steam AI disclosure wording (keep it specific: what was AI-made, what was edited).

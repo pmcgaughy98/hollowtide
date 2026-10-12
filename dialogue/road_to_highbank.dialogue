@@ -22,7 +22,7 @@ do walk_on()
 {{partner_name}}: Down here the roads wash out every spring. Only way anything gets anywhere is if somebody carries it.
 {{partner_name}}: [#joyous] That's the Wayline. Couriers. Runners, we call 'em. Mail, medicine, seed, whatever needs going, a runner takes it. Through a Hollow if they have to.
 do walk_on()
-{{partner_name}}: [#happy] The Wayline Hall's right in the middle of town. Starward runs it. The Guildmaster.
+{{partner_name}}: [#happy] The Wayline Hall's right in the middle of town. Starward runs it. The Postmaster.
 - You want to be a runner.
 	{{partner_name}}: [#sad] ...Is it that obvious? Yeah. Since I was little.
 - So you're a runner?

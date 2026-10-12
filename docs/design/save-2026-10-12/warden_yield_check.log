@@ -1,0 +1,45 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+[godot_ai game_helper] registered mcp capture (debugger active=false, logger=true)
+ERROR: Condition "!actions.custom_samplers.has(function->arguments[j].tex_builtin)" is true. Continuing.
+   at: _dump_node_code (servers/rendering/shader_compiler.cpp:1329)
+   GDScript backtrace (most recent call first):
+       [0] apply (res://scripts/dungeon/dungeon_finish.gd:38)
+       [1] _build_floor (res://scripts/dungeon/dungeon.gd:586)
+       [2] _ready (res://scripts/dungeon/dungeon.gd:508)
+       [3] _room (res://tools/debug/warden_yield_check.gd:39)
+       [4] _run (res://tools/debug/warden_yield_check.gd:55)
+ERROR: Condition "!actions.custom_samplers.has(function->arguments[j].tex_builtin)" is true. Continuing.
+   at: _dump_node_code (servers/rendering/shader_compiler.cpp:1329)
+   GDScript backtrace (most recent call first):
+       [0] apply (res://scripts/arena/creature_finish.gd:9)
+       [1] _make (res://scripts/dungeon/dungeon.gd:906)
+       [2] _build_floor (res://scripts/dungeon/dungeon.gd:596)
+       [3] _ready (res://scripts/dungeon/dungeon.gd:508)
+       [4] _room (res://tools/debug/warden_yield_check.gd:39)
+       [5] _run (res://tools/debug/warden_yield_check.gd:55)
+The Warden at 8 of 168, the leader Lv 4
+No faint: faints 0, the scene on (true), the Warden at 1 -> ok
+ERROR: Condition "!actions.custom_samplers.has(function->arguments[j].tex_builtin)" is true. Continuing.
+   at: _dump_node_code (servers/rendering/shader_compiler.cpp:1329)
+   GDScript backtrace (most recent call first):
+       [0] <anonymous lambda> (res://scripts/arena/creature_finish.gd:18)
+       [1] _set_tex (res://scripts/dungeon/dungeon.gd:1030)
+       [2] _standoff (res://scripts/dungeon/stone_scene.gd:308)
+       [3] _say (res://scripts/dungeon/stone_scene.gd:208)
+ERROR: Condition "!actions.custom_samplers.has(function->arguments[j].tex_builtin)" is true. Continuing.
+   at: _dump_node_code (servers/rendering/shader_compiler.cpp:1329)
+   GDScript backtrace (most recent call first):
+       [0] <anonymous lambda> (res://scripts/arena/creature_finish.gd:18)
+       [1] _set_tex (res://scripts/dungeon/dungeon.gd:1030)
+       [2] _standoff (res://scripts/dungeon/stone_scene.gd:308)
+       [3] _say (res://scripts/dungeon/stone_scene.gd:208)
+The stand-off and the stone play out: went 'cleared' after 746 frames, cleared 1, stone 'carried' -> ok
+The leader stands at the shrine gate: Lv 6, HP 3 -> ok
+With the Warden at 1 of 168 it is still the stand-off (faints 0, scene on true) -> ok
+Before the Warden wakes it is a faint (faints 1, went 'fainted') -> ok
+WARDEN YIELD: all ok
+WARNING: 14 ObjectDB instances were leaked at exit (run with `--verbose` for details).
+   at: cleanup (core/object/object.cpp:2536)
+ERROR: 5 resources still in use at exit (run with --verbose for details).
+   at: clear (core/io/resource.cpp:822)

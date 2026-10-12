@@ -251,7 +251,7 @@ func show_page(next: String) -> void:
             _action("Back","Back",show_page.bind("main"))
         "title", "quit":
             _label("Return to the title?" if page == "title" else "Quit Hollowtide?",26)
-            _label("Progress is not saved to disk yet. Leaving ends this session. Resume keeps your current team and floor.")
+            _label("The run is kept. Continue on the title picks it up at the top of this floor, with the team as it stands." if in_hollow else "Highbank is saved. Continue on the title brings you back here.")
             _action("Keep exploring","CancelLeave",show_page.bind("main"))
             _action("Return to title" if page == "title" else "Quit Game","ConfirmLeave",leave)
     # Field pages added more rows; keep the dungeon main menu inside the fixed viewport.
@@ -300,7 +300,7 @@ func _team_page() -> void:
         var st = int(party[k][1])
         var form = Lines.of(ln)["forms"][st]
         var lv = int(rec.get("levels",{}).get(ln,{}).get("lv",1))
-        var head = "%s   Lv %d   IQ %d" % [String(load(form[1]).creature_name).to_upper(),lv,int(rec.get("iq",{}).get(ln,0))]
+        var head = "%s   Lv %d   Sense %d" % [String(load(form[1]).creature_name).to_upper(),lv,int(rec.get("iq",{}).get(ln,0))]
         var e: Dictionary = live[k] if k < live.size() else {}
         if not e.is_empty(): head += "   HP %d/%d" % [e["hp"],e["max_hp"]]
         var row = HBoxContainer.new()
@@ -330,7 +330,7 @@ func _team_page() -> void:
         elif consts["EVO"].has(ln):
             var r: Dictionary = consts["EVO"][ln]
             var g: Dictionary = rec.get("growth",{}).get("%d:%d" % [ln,st],{})
-            _label("    To evolve: Lv %d/%d, KOs %d/%d, floors %d/%d, %s %d/%d" % [lv,consts["EVO_LEVEL"][st],g.get("kos",0),r["kos"][st],g.get("floors",0),r["floors"][st],WAY_NAMES.get(r["way"],r["way"]),g.get(r["way"],0),r["need"][st]],16)
+            _label("    To grow: Lv %d/%d, KOs %d/%d, floors %d/%d, %s %d/%d" % [lv,consts["EVO_LEVEL"][st],g.get("kos",0),r["kos"][st],g.get("floors",0),r["floors"][st],WAY_NAMES.get(r["way"],r["way"]),g.get(r["way"],0),r["need"][st]],16)
         var moves: Array = e["moves"] if not e.is_empty() else rec.get("taught",{}).get("%d:%d" % [ln,st],[])
         if not moves.is_empty(): _label("    Moves: " + ", ".join(moves.map(_move_name)),16)
     if party.is_empty(): _label("No team yet.",18)
@@ -369,10 +369,12 @@ func _floor_page() -> void:
     if lead["pos"] == s.data["stairs"]: under = "the stairs (E goes down)"
     for t in s.traps:
         if t["pos"] == lead["pos"] and t["seen"]: under = "a %s trap" % t["kind"]
+    if "water_rows" in s and s.wet(lead["pos"]): under = "water (the lantern's getting wet)"
     _label("Underfoot: " + under,20)
+    if "water_rows" in s and s.water_rows > 0: _label("Water: %d rows up from the low end, rising" % s.water_rows if s.water_rows < s.water_max else "Water: %d rows up from the low end, as high as it gets" % s.water_rows,20)
     _label("Partners' order: " + s.TACTIC_NAMES[s.tactic] + " (T changes it)",20)
     if s.boss_alive(): _label("%s guards this floor. The stairs are sealed." % s.ents[s.boss]["name"],20)
-    if s.monster_sprung: _label("Monster House: " + ("cleared" if s.house_cleared else "still fighting"),20)
+    if s.monster_sprung: _label("The nest: " + ("cleared" if s.house_cleared else "still fighting"),20)
 
 func toggle_motion() -> void:
     motion = not motion
@@ -398,6 +400,15 @@ func resume() -> void:
 func leave() -> void:
     if transition: return
     transition = true
+    # Leaving from Highbank keeps what the town changed since the last arrival (jobs, story), the same save
+    # Continue reads (Claude, 2026-10-12). Leaving a run keeps the run: Continue resumes it at the top of
+    # its floor, once (dungeon.suspend()).
+    var host = get_parent()
+    if host != null and host.has_method("enter_hollow"):
+        host._record()
+        preload("res://scripts/town/team_state.gd").autosave()
+    elif host != null and host.has_method("suspend"):
+        host.suspend()
     if page == "quit":
         get_tree().quit()
         return

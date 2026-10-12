@@ -1,0 +1,32 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+[godot_ai game_helper] registered mcp capture (debugger active=false, logger=true)
+ERROR: Condition "!actions.custom_samplers.has(function->arguments[j].tex_builtin)" is true. Continuing.
+   at: _dump_node_code (servers/rendering/shader_compiler.cpp:1329)
+   GDScript backtrace (most recent call first):
+       [0] apply (res://scripts/dungeon/dungeon_finish.gd:38)
+       [1] _build_floor (res://scripts/dungeon/dungeon.gd:687)
+       [2] _ready (res://scripts/dungeon/dungeon.gd:510)
+       [3] _dungeon (res://tools/debug/water_check.gd:46)
+       [4] _run (res://tools/debug/water_check.gd:69)
+ERROR: Condition "!actions.custom_samplers.has(function->arguments[j].tex_builtin)" is true. Continuing.
+   at: _dump_node_code (servers/rendering/shader_compiler.cpp:1329)
+   GDScript backtrace (most recent call first):
+       [0] apply (res://scripts/arena/creature_finish.gd:9)
+       [1] _make (res://scripts/dungeon/dungeon.gd:1018)
+       [2] _build_floor (res://scripts/dungeon/dungeon.gd:698)
+       [3] _ready (res://scripts/dungeon/dungeon.gd:510)
+       [4] _dungeon (res://tools/debug/water_check.gd:46)
+       [5] _run (res://tools/debug/water_check.gd:69)
+  seed 1: water here true, base row 19, can climb 3, bottom spots 3 (start y 4, stairs y 15)
+A valley floor with water in it: seed 1, the water can climb 3 rows (lowest floor row 18, start y 4, stairs y 15) -> ok
+Dry to begin with: rows 0, the stairs dry true -> ok
+At turn 10 one row floods: rows 1, a bottom tile wet true, the stairs dry true, the start dry true -> ok
+On the rise the current carries the leader (31, 18) -> (32, 18) and the stone (33, 18) -> (34, 18); Troughspine (Tide true) stays at (35, 18); wet feet cost light 100.0 -> 99.5 -> ok
+Off the clock nothing rises (2); after 40 more rises the water sits at its ceiling 3 of 3, the stairs dry true, the start dry true -> ok
+Rootbank Warren B1F has no water: here false, rows 0 -> ok
+WATER: all ok
+WARNING: 4 ObjectDB instances were leaked at exit (run with `--verbose` for details).
+   at: cleanup (core/object/object.cpp:2536)
+ERROR: 2 resources still in use at exit (run with --verbose for details).
+   at: clear (core/io/resource.cpp:822)

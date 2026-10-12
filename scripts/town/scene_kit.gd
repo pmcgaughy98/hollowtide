@@ -129,13 +129,19 @@ static func walk_to(host, e: Dictionary, goal: Vector2i, step := 0.24) -> void:
 		host._place(e)
 
 
-## Several walkers at once; returns when the last arrives.
+## Several walkers at once; returns when the last has arrived and settled on its still. Each walker recomputes
+## its path as it starts and may detour round the others, so the estimate alone can return a step early: after
+## the roll call Rinsepaw was placed at her post with 0.02 s of her last step left, on a walk frame (2026-10-12).
 static func walk_all(host, moves: Array, step := 0.24) -> void:
 	var longest := 0
 	for m in moves:
 		longest = maxi(longest, path(host, m[0], m[1]).size())
 		walk_to(host, m[0], m[1], step)
 	await wait(host, longest * step + 0.05)
+	var guard := 0
+	while _alive(host) and guard < int((longest * step + 2.0) * 60) and moves.any(func(m: Array) -> bool: return m[0]["walk_t"] > 0.0):
+		await host.get_tree().process_frame
+		guard += 1
 
 
 ## Turn toward a tile or another creature.

@@ -1,0 +1,74 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+[godot_ai game_helper] registered mcp capture (debugger active=false, logger=true)
+ERROR: Condition "!actions.custom_samplers.has(function->arguments[j].tex_builtin)" is true. Continuing.
+   at: _dump_node_code (servers/rendering/shader_compiler.cpp:1329)
+   GDScript backtrace (most recent call first):
+       [0] apply (res://scripts/ui/waking_bank_finish.gd:58)
+       [1] _ready (res://scripts/ui/waking_bank.gd:23)
+       [2] _ready (res://scripts/creature_prologue.gd:63)
+       [3] _run (res://tools/debug/pilot_chain_check.gd:100)
+ERROR: Condition "!actions.custom_samplers.has(function->arguments[j].tex_builtin)" is true. Continuing.
+   at: _dump_node_code (servers/rendering/shader_compiler.cpp:1329)
+   GDScript backtrace (most recent call first):
+       [0] apply (res://scripts/arena/creature_finish.gd:9)
+       [1] actor (res://scripts/creature_prologue.gd:100)
+       [2] _ready (res://scripts/creature_prologue.gd:71)
+       [3] _run (res://tools/debug/pilot_chain_check.gd:100)
+Flood talk -> the riverbank (waking_riverbank.tscn), team [[0, 0], [1, 0]] -> ok
+ERROR: Condition "!actions.custom_samplers.has(function->arguments[j].tex_builtin)" is true. Continuing.
+   at: _dump_node_code (servers/rendering/shader_compiler.cpp:1329)
+   GDScript backtrace (most recent call first):
+       [0] apply (res://scripts/town/exterior_finish.gd:8)
+       [1] _ready (res://scripts/town/building_exteriors.gd:122)
+       [2] attach (res://scripts/town/building_exteriors.gd:84)
+       [3] _ready (res://scripts/town/hub_town.gd:76)
+ERROR: Condition "!actions.custom_samplers.has(function->arguments[j].tex_builtin)" is true. Continuing.
+   at: _dump_node_code (servers/rendering/shader_compiler.cpp:1329)
+   GDScript backtrace (most recent call first):
+       [0] apply (res://scripts/town/exterior_finish.gd:8)
+       [1] _ready (res://scripts/town/building_exteriors.gd:122)
+       [2] attach (res://scripts/town/building_exteriors.gd:84)
+       [3] _ready (res://scripts/town/hub_town.gd:76)
+  Hollow Mouth, try 1: back in town true, news '', cleared 1, party [[0, 0], [1, 0], [7, 0], [103, 0]], levels { 0: { "lv": 2, "exp": 56 }, 1: { "lv": 2, "exp": 56 }, 7: { "lv": 2, "exp": 32 }, 103: { "lv": 2, "exp": 64 } }, growth { "0:0": { "kos": 6, "floors": 4, "flank": 0, "ambush": 0, "took": 189, "slam": 0, "healed": 0 }, "1:0": { "kos": 5, "floors": 4, "flank": 0, "ambush": 0, "took": 0, "slam": 0, "healed": 0 }, "7:0": { "kos": 1, "floors": 3, "flank": 0, "ambush": 0, "took": 0, "slam": 0, "healed": 0 }, "103:0": { "kos": 0, "floors": 2, "flank": 0, "ambush": 0, "took": 5, "slam": 0, "healed": 0 } }
+Hollow Mouth cleared, no boss; parcel 'saved', beaten ["mouth"] -> ok
+Highbank: the way down is held before the Job Board (true) -> ok
+Job Board: the parcel is stolen (stolen) -> ok
+ERROR: Condition "!actions.custom_samplers.has(function->arguments[j].tex_builtin)" is true. Continuing.
+   at: _dump_node_code (servers/rendering/shader_compiler.cpp:1329)
+   GDScript backtrace (most recent call first):
+       [0] <anonymous lambda> (res://scripts/arena/creature_finish.gd:18)
+       [1] _place (res://scripts/town/town_room.gd:315)
+       [2] spawn (res://scripts/town/scene_kit.gd:77)
+       [3] place (res://scripts/town/guild_scene.gd:85)
+       [4] _ready (res://scripts/town/town_room.gd:206)
+ERROR: Condition "!actions.custom_samplers.has(function->arguments[j].tex_builtin)" is true. Continuing.
+   at: _dump_node_code (servers/rendering/shader_compiler.cpp:1329)
+   GDScript backtrace (most recent call first):
+       [0] <anonymous lambda> (res://scripts/arena/creature_finish.gd:18)
+       [1] _place (res://scripts/town/town_room.gd:315)
+       [2] spawn (res://scripts/town/scene_kit.gd:77)
+       [3] place (res://scripts/town/guild_scene.gd:85)
+       [4] _ready (res://scripts/town/town_room.gd:206)
+Wayline Hall: the trial is set (true) -> ok
+  Rootbank Warren, try 1: back in town true, news '', cleared 1, party [[0, 0], [1, 0], [7, 0], [103, 0]], levels { 0: { "lv": 3, "exp": 32 }, 1: { "lv": 3, "exp": 32 }, 7: { "lv": 3, "exp": 8 }, 103: { "lv": 3, "exp": 40 } }, growth { "0:0": { "kos": 11, "floors": 5, "flank": 0, "ambush": 0, "took": 308, "slam": 0, "healed": 0 }, "1:0": { "kos": 7, "floors": 5, "flank": 0, "ambush": 0, "took": 0, "slam": 0, "healed": 0 }, "7:0": { "kos": 1, "floors": 4, "flank": 0, "ambush": 0, "took": 0, "slam": 0, "healed": 0 }, "103:0": { "kos": 0, "floors": 3, "flank": 0, "ambush": 0, "took": 5, "slam": 0, "healed": 0 } }
+  Rootbank Warren, try 2: back in town true, news '', cleared 1, party [[0, 0], [1, 0], [7, 0], [103, 0]], levels { 0: { "lv": 3, "exp": 88 }, 1: { "lv": 3, "exp": 88 }, 7: { "lv": 3, "exp": 64 }, 103: { "lv": 3, "exp": 96 } }, growth { "0:0": { "kos": 15, "floors": 7, "flank": 0, "ambush": 0, "took": 451, "slam": 0, "healed": 0 }, "1:0": { "kos": 10, "floors": 7, "flank": 1, "ambush": 0, "took": 0, "slam": 0, "healed": 0 }, "7:0": { "kos": 1, "floors": 6, "flank": 0, "ambush": 0, "took": 0, "slam": 0, "healed": 0 }, "103:0": { "kos": 0, "floors": 5, "flank": 0, "ambush": 0, "took": 5, "slam": 0, "healed": 0 } }
+  Rootbank Warren, try 3: back in town true, news '', cleared 1, party [[0, 0], [1, 0], [7, 0], [103, 0]], levels { 0: { "lv": 4, "exp": 32 }, 1: { "lv": 4, "exp": 32 }, 7: { "lv": 4, "exp": 8 }, 103: { "lv": 4, "exp": 40 } }, growth { "0:0": { "kos": 19, "floors": 9, "flank": 0, "ambush": 0, "took": 608, "slam": 0, "healed": 0 }, "1:0": { "kos": 14, "floors": 9, "flank": 1, "ambush": 0, "took": 45, "slam": 0, "healed": 0 }, "7:0": { "kos": 1, "floors": 8, "flank": 0, "ambush": 0, "took": 3, "slam": 0, "healed": 0 }, "103:0": { "kos": 0, "floors": 7, "flank": 0, "ambush": 0, "took": 5, "slam": 0, "healed": 0 } }
+Rootbank Warren cleared; parcel 'stolen', beaten ["mouth"] -> FAIL
+Back in Highbank: The Hollow is held until Starward has the parcel (false) -> FAIL
+ERROR: Playback can only happen when a node is inside the scene tree
+   at: play_basic (scene/audio/audio_stream_player_internal.cpp:145)
+   GDScript backtrace (most recent call first):
+       [0] _sfx (res://scripts/town/hub_town.gd:394)
+       [1] enter_room (res://scripts/town/hub_town.gd:613)
+       [2] _run (res://tools/debug/pilot_chain_check.gd:148)
+       [3] _dungeon (res://tools/debug/pilot_chain_check.gd:87)
+       [4] _until (res://tools/debug/pilot_chain_check.gd:70)
+       [5] _tick (res://tools/debug/pilot_chain_check.gd:63)
+Starward names them runners (false, parcel 'stolen') -> FAIL
+SCRIPT ERROR: Invalid call. Nonexistent function 'go_room' in base 'Node2D (hub_town.gd)'.
+   at: _run (res://tools/debug/pilot_chain_check.gd:153)
+   GDScript backtrace (most recent call first):
+       [0] _run (res://tools/debug/pilot_chain_check.gd:153)
+       [1] _until (res://tools/debug/pilot_chain_check.gd:72)
+       [2] _tick (res://tools/debug/pilot_chain_check.gd:62)

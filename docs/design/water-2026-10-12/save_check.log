@@ -1,0 +1,51 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+[godot_ai game_helper] registered mcp capture (debugger active=false, logger=true)
+A check leaves the real save alone (autosave returned false, last_save_at 0) -> ok
+No save to begin with -> ok
+Saved to user://check_team.save -> ok
+The save is seen -> ok
+Loaded back the same record, news dropped -> ok
+  levels keys [0, 1], job spot (3, 4), iq { 1: 7 }
+Summary: party [[0, 1], [1, 0]], cleared 2, beaten ["mouth", "first"] -> ok
+ERROR: Condition "!actions.custom_samplers.has(function->arguments[j].tex_builtin)" is true. Continuing.
+   at: _dump_node_code (servers/rendering/shader_compiler.cpp:1329)
+   GDScript backtrace (most recent call first):
+       [0] apply (res://scripts/town/world_finish.gd:67)
+       [1] _ready (res://scripts/town/hub_town.gd:72)
+ERROR: Condition "!actions.custom_samplers.has(function->arguments[j].tex_builtin)" is true. Continuing.
+   at: _dump_node_code (servers/rendering/shader_compiler.cpp:1329)
+   GDScript backtrace (most recent call first):
+       [0] apply (res://scripts/arena/creature_finish.gd:9)
+       [1] apply (res://scripts/town/exterior_finish.gd:7)
+       [2] _ready (res://scripts/town/building_exteriors.gd:122)
+       [3] attach (res://scripts/town/building_exteriors.gd:84)
+       [4] _ready (res://scripts/town/hub_town.gd:75)
+ERROR: Condition "!actions.custom_samplers.has(function->arguments[j].tex_builtin)" is true. Continuing.
+   at: _dump_node_code (servers/rendering/shader_compiler.cpp:1329)
+   GDScript backtrace (most recent call first):
+       [0] apply (res://scripts/town/exterior_finish.gd:8)
+       [1] _ready (res://scripts/town/building_exteriors.gd:122)
+       [2] attach (res://scripts/town/building_exteriors.gd:84)
+       [3] _ready (res://scripts/town/hub_town.gd:75)
+ERROR: Condition "!actions.custom_samplers.has(function->arguments[j].tex_builtin)" is true. Continuing.
+   at: _dump_node_code (servers/rendering/shader_compiler.cpp:1329)
+   GDScript backtrace (most recent call first):
+       [0] apply (res://scripts/town/exterior_finish.gd:8)
+       [1] _ready (res://scripts/town/building_exteriors.gd:122)
+       [2] attach (res://scripts/town/building_exteriors.gd:84)
+       [3] _ready (res://scripts/town/hub_town.gd:75)
+Highbank opens with the saved team (party [[0, 1], [1, 0]], cleared 2) and saves on arrival (at 1791834184) -> ok
+Return to title from Highbank saves first (rank on disk 99, scene now creature_opening.tscn) -> ok
+The title lists Continue first (buttons ["Continue", "NewGame", "Options", "Quit", "HowToPlay"]) -> ok
+  the title's boot done after 60 frames
+Continue opens Highbank with the saved team after 27 frames: scene hub_town.tscn, party [[0, 1], [1, 0]] -> ok
+Without a save the title has no Continue (buttons ["NewGame", "Options", "Quit", "HowToPlay"]) -> ok
+Quit mid-run keeps the run on disk: B2F seed 11 light 40.0 hp [5, 42], the scene now creature_opening.tscn -> ok
+Continue resumes the run at the top of B2F: seed 11, light 40.0, turn 57, leader HP 5, lamp oil 3, in hollow -> ok
+The run is consumed: the file holds no run now, so the next Continue goes to Highbank -> ok
+SAVE: all ok
+WARNING: 6 ObjectDB instances were leaked at exit (run with `--verbose` for details).
+   at: cleanup (core/object/object.cpp:2536)
+ERROR: 3 resources still in use at exit (run with --verbose for details).
+   at: clear (core/io/resource.cpp:822)

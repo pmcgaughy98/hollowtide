@@ -56,8 +56,8 @@ const ROOMS := {
 		"solid": [Rect2i(9, 5, 1, 1), Rect2i(20, 5, 1, 1), Rect2i(9, 12, 1, 1), Rect2i(20, 12, 1, 1), Rect2i(3, 12, 6, 2),
 			Rect2i(12, 2, 1, 1), Rect2i(17, 2, 1, 1), Rect2i(27, 2, 1, 1), Rect2i(1, 8, 1, 2)],
 		"spots": [
-			{"id": "chamber_door", "rect": Rect2i(14, 1, 2, 1), "name": "Guildmaster's Chamber", "what": "Starward's door."},
-			{"id": "rollcall", "rect": Rect2i(12, 7, 6, 4), "name": "Roll-Call Floor", "what": "The Wayline's mark, set in brass. Every morning the crew lines up round it for the day's word."},
+			{"id": "chamber_door", "rect": Rect2i(14, 1, 2, 1), "name": "Postmaster's Chamber", "what": "Starward's door."},
+			{"id": "rollcall", "rect": Rect2i(12, 7, 6, 4), "name": "Sorting Floor", "what": "The Wayline's mark, set in brass. Every morning the mail is sorted round it and the routes go out."},
 			{"id": "duty", "rect": Rect2i(9, 1, 2, 1), "name": "Duty Board", "what": "Today's duties: the door watch, the kitchen, the sweeping. Your names aren't on it yet."},
 			{"id": "window_w", "rect": Rect2i(3, 1, 2, 1), "name": "River Window", "what": "The Hall is cut into the bank. Through the glass the river runs a long way down."},
 			{"id": "window_e", "rect": Rect2i(25, 1, 2, 1), "name": "River Window", "what": "Rain on the glass, and the far bank green after the flood."},
@@ -82,7 +82,7 @@ const ROOMS := {
 			{"id": "pegs", "rect": Rect2i(12, 4, 1, 2), "name": "Coat Pegs", "what": "Two empty pegs, waiting for satchels."}],
 		"links": [{"rect": Rect2i(0, 5, 1, 2), "to": "hall_low", "at": Vector2i(28, 6), "facing": "w", "sfx": "door"}]},
 	# Starward's chamber, behind the door at the back of the lower floor.
-	"chamber": {"name": "Guildmaster's Chamber", "w": 17, "h": 11, "door": Vector2i(-1, -1), "landing": Vector2i(8, 8), "hint": "The door leads back down",
+	"chamber": {"name": "Postmaster's Chamber", "w": 17, "h": 11, "door": Vector2i(-1, -1), "landing": Vector2i(8, 8), "hint": "The door leads back down",
 		"solid": [Rect2i(7, 3, 3, 2), Rect2i(1, 2, 1, 1), Rect2i(15, 2, 1, 1)],   # 17 wide: tile 8 is the middle
 		"spots": [
 			{"id": "dais", "rect": Rect2i(7, 3, 3, 2), "name": "The Dais", "what": "Starward's cushion, worn flat in the middle."},
@@ -207,7 +207,7 @@ func _ready() -> void:
 		if poll_input or force_scenes:
 			(func() -> void: GuildScene.run(self)).call_deferred()
 	elif GuildCrew.pending(self) and (poll_input or force_scenes):
-		(func() -> void: GuildCrew.run(self)).call_deferred()   # the morning roll call
+		(func() -> void: GuildCrew.run(self)).call_deferred()   # the morning mail call (R3, 2026-10-12)
 	else:
 		GuildCrew.place(self)   # the crew at their posts
 

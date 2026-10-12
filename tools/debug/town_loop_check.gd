@@ -81,9 +81,15 @@ func _run() -> void:
 	# 5. A faint comes home with the bag lost.
 	dg.ents[0]["hp"] = 0
 	dg._end_turn()
-	await _frames(20)
+	await create_timer(0.9).timeout   # the fade to the faint screen (2026-10-12)
+	var faint: Node = current_scene
+	print("After a faint: the faint screen first (%s), page %d: '%s'" % [_scene(), faint.page, faint._word()])
+	faint.advance()   # the partner's word finishes
+	faint.advance()   # the defeat panel
+	faint.advance()   # home
+	await _frames(6)
 	town = current_scene
-	print("After a faint: the scene is %s; news '%s'; the record's bag %s" % [_scene(), town.panel.get("what", ""), str(TeamState.data.get("bag", {}))])
+	print("Then home: the scene is %s; news '%s'; the record's bag %s" % [_scene(), town.panel.get("what", ""), str(TeamState.data.get("bag", {}))])
 	quit()
 
 

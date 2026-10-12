@@ -176,8 +176,9 @@ func _build_menu() -> void:
 	_help_button.name="HowToPlay"
 	_help_button.pressed.connect(_open_help)
 	choices.add_child(_help_button)
-	# Keep the original NewGame/Options/Quit identities; display Quit last.
-	choices.move_child(_help_button,3)
+	# Keep the original NewGame/Options/Quit identities; display Quit last. By the last button's index, not a
+	# fixed one, since Continue is listed first when a save exists (Claude, 2026-10-12).
+	choices.move_child(_help_button,_buttons[_buttons.size()-1].get_index())
 	_buttons.append(_help_button)
 	for b in _buttons:
 		b.custom_minimum_size.y=54
@@ -353,7 +354,10 @@ func _show_page(next: String, first: Control) -> void:
 	if _input_hint != null:_input_hint.visible=next=="main"
 	if next=="help":_focus_controls.assign(_help_controls)
 	elif next=="main" and _help_button != null:
-		_focus_controls.assign([_buttons[0],_buttons[1],_help_button,_buttons[2]])
+		# The buttons in their listed order with Help just above Quit (Continue may be first; Claude, 2026-10-12).
+		var order:Array=_buttons.filter(func(b:Button)->bool:return b!=_help_button)
+		order.insert(order.size()-1,_help_button)
+		_focus_controls.assign(order)
 	for i in _focus_controls.size():
 		var c := _focus_controls[i]
 		c.focus_neighbor_top=_focus_controls[posmod(i-1,_focus_controls.size())].get_path()

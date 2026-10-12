@@ -6,11 +6,11 @@ Wayline Hall: the trial is set (true) -> ok
 Rootbank Warren cleared; parcel 'recovered', beaten ["mouth", "first"] -> ok
 Back in Highbank: The Hollow is held until Starward has the parcel (true) -> ok
 Starward names them runners (true, parcel 'delivered') -> ok
-The roll call plays on the lower floor (true), crew at posts 5 -> ok
+The mail call plays on the lower floor (true), crew at posts 5 -> ok
 The Hollow cleared, the Warden beaten; the stone is 'carried' -> ok
 The stone is set in the Growth Shrine (asked 'stone_ask', now installed) -> ok
 The shrine offers an evolution after the pilot's three dungeons (evolve_ask, 2 ready) -> ok
-Evolved: party [[0, 0], [1, 0], [103, 0], [7, 0]] -> [[0, 1], [1, 0], [103, 0], [7, 0]] -> ok
+Grown: party [[0, 0], [1, 0], [103, 0], [9, 0]] -> [[0, 1], [1, 0], [103, 0], [9, 0]] -> ok
 After the pilot the way down asks where to go (way_pick) -> ok
 A Warren replay clears with no boss and comes home (story parcel 'delivered') -> ok
-Faints along the way: 2
+Faints along the way: 0

@@ -72,7 +72,7 @@ func _run() -> void:
 				await _snap("13_evolution_" + scene.stage)
 	bad += _check("The scene", seen.has("intro") and seen.has("whiten") and seen.has("trade") and seen.has("reveal"), "stages %s" % str(seen.keys()))
 	var rec: Dictionary = TeamState.data
-	bad += _check("Evolved", rec["party"][0] == [0, 1] and town.party[0] == [0, 1] and town.team[0]["form"] == "sparkwick" and rec["taught"].get("0:1", []) == ["pounce", "claw", "ember_feint", "fireball"] and String(town.panel.get("what", "")).contains("evolved into Sparkwick"),
+	bad += _check("Evolved", rec["party"][0] == [0, 1] and town.party[0] == [0, 1] and town.team[0]["form"] == "sparkwick" and rec["taught"].get("0:1", []) == ["pounce", "claw", "ember_feint", "fireball"] and String(town.panel.get("what", "")).contains("grown into Sparkwick"),
 		"party %s, on the street %s, moves %s, '%s'" % [str(rec["party"]), town.team[0]["form"], str(rec["taught"].get("0:1", [])), town.panel.get("what", "")])
 	town.panel = {}
 	town.act_use()

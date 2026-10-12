@@ -136,7 +136,7 @@ func run(old_form: String, new_form: String, old_name: String, new_name: String,
 	Music.jingle(get_tree(), "evolution")
 	var r := create_tween()
 	r.tween_method(func(v: float) -> void: _white(_new, v), 1.0, 0.0, 0.7)
-	_text = "%s evolved into %s!" % [old_name, new_name]
+	_text = "%s has grown into %s!" % [old_name, new_name]
 	_sub = "" if auto else "J  continue"
 	await _wait(0.8)
 	if auto:

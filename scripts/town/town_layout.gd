@@ -44,7 +44,7 @@ const PLACES := [
 	# wayline hall door needs widened to meet the path"). "door" stays the main tile; "door_tiles"
 	# lists every walkable door tile of a place that has more than one.
 	{"id": "hall", "name": "Wayline Hall", "kind": "building", "rect": Rect2i(19, 1, 10, 6), "door": Vector2i(24, 6), "door_tiles": [Vector2i(23, 6), Vector2i(24, 6)],
-		"service": "guild", "what": "The Wayline Compact's hall: jobs, the team roster, reports. The guild of this game."},
+		"service": "guild", "what": "The Wayline Compact's hall: jobs, the team roster, reports. The courier company's house."},
 	{"id": "board", "name": "Job Board", "kind": "spot", "rect": Rect2i(26, 7, 2, 1), "door": Vector2i(26, 8),
 		"service": "jobs", "what": "Requests to take into the Hollows. Pick one, then go down to the ferry."},
 	{"id": "lookout", "name": "Bluff Lookout", "kind": "area", "rect": Rect2i(10, 2, 6, 4), "door": Vector2i(13, 5),
@@ -60,7 +60,7 @@ const PLACES := [
 	{"id": "yard", "name": "Training Yard", "kind": "area", "rect": Rect2i(38, 12, 7, 5), "door": Vector2i(41, 12),
 		"service": "arena", "what": "The arena side mode as the town's dojo: real-time spars and practice."},
 	{"id": "shrine", "name": "Growth Shrine", "kind": "area", "rect": Rect2i(4, 12, 6, 5), "door": Vector2i(7, 12),
-		"service": "growth", "what": "Where a creature that is ready evolves (Preston, 2026-10-10: evolving happens here, not in the Hollow)."},
+		"service": "growth", "what": "Where a creature that is ready grows into its next form (Preston, 2026-10-10: it happens here, not in the Hollow)."},
 	{"id": "plaza", "name": "Crossroads", "kind": "area", "rect": Rect2i(18, 11, 12, 6), "door": Vector2i(24, 14),
 		"service": "waymark", "what": "The town's centre: the waymark points to every place."},
 	{"id": "landing", "name": "Old Ferry Landing", "kind": "area", "rect": Rect2i(26, 26, 12, 4), "door": Vector2i(28, 27),

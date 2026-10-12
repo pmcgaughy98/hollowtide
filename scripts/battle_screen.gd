@@ -566,7 +566,7 @@ func _attack(attacker: CreatureData, by_player: bool, move: MoveData) -> void:
 	await get_tree().create_timer(BEAT).timeout
 
 	if _foe_hp == 0:
-		_message.text = "The wild %s fainted." % _foe.creature_name
+		_message.text = "The wild %s went down." % _foe.creature_name
 		_ui(&"faint")
 		await get_tree().create_timer(BEAT).timeout
 		# Leaves the message alone if nothing evolved, so _finish below just
@@ -575,7 +575,7 @@ func _attack(attacker: CreatureData, by_player: bool, move: MoveData) -> void:
 		await _finish(_message.text)
 	elif _player_hp == 0:
 		_ui(&"faint")
-		await _finish("%s fainted." % player_creature.creature_name)
+		await _finish("%s went down." % player_creature.creature_name)
 
 
 ## The chance the next capture attempt succeeds, 0 to 1. Split out from the
@@ -2438,7 +2438,7 @@ func _try_evolve() -> void:
 	_player_name.text = next.creature_name
 	_refresh_bars()
 
-	_message.text = "%s evolved into %s!" % [before, next.creature_name]
+	_message.text = "%s has grown into %s!" % [before, next.creature_name]
 	await get_tree().create_timer(BEAT * 1.5).timeout
 
 

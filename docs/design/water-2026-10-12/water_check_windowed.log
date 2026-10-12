@@ -1,0 +1,13 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+D3D12 12_0 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce GTX 1660 SUPER
+
+[godot_ai game_helper] registered mcp capture (debugger active=false, logger=true)
+  seed 1: water here true, base row 19, can climb 3, bottom spots 3 (start y 4, stairs y 15)
+A valley floor with water in it: seed 1, the water can climb 3 rows (lowest floor row 18, start y 4, stairs y 15) -> ok
+Dry to begin with: rows 0, the stairs dry true -> ok
+At turn 10 one row floods: rows 1, a bottom tile wet true, the stairs dry true, the start dry true -> ok
+On the rise the current carries the leader (31, 18) -> (32, 18) and the stone (33, 18) -> (34, 18); Troughspine (Tide true) stays at (35, 18); wet feet cost light 100.0 -> 99.5 -> ok
+Off the clock nothing rises (2); after 40 more rises the water sits at its ceiling 3 of 3, the stairs dry true, the start dry true -> ok
+  still: the leader at (19, 15), the water line at row 16
+Rootbank Warren B1F has no water: here false, rows 0 -> ok
+WATER: all ok

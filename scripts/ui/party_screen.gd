@@ -108,9 +108,9 @@ func setup(scene: Node) -> void:
 		var face := "res://assets/sprites/arena/%s/portrait.png" % form[0]
 		card["face"] = load(face) if ResourceLoader.exists(face) else (UI.dialogue_portrait(String(form[0])) if preload("res://scripts/arena/creature_finish.gd").new_creature(String(form[0])) else null)
 		cards.append(card)
-		lines.append("%s   Lv %d   IQ %d" % [String(data.creature_name).to_upper(), lv, card["iq"]] + ("   HP %d/%d" % [card["hp"], card["max_hp"]] if card["hp"] >= 0 else ""))
+		lines.append("%s   Lv %d   Sense %d" % [String(data.creature_name).to_upper(), lv, card["iq"]] + ("   HP %d/%d" % [card["hp"], card["max_hp"]] if card["hp"] >= 0 else ""))
 		if card.has("evo"):
-			lines.append("To evolve: " + ", ".join(card["evo"].map(func(b: Array) -> String: return "%s %d/%d" % b)))
+			lines.append("To grow: " + ", ".join(card["evo"].map(func(b: Array) -> String: return "%s %d/%d" % b)))
 		lines.append("Moves: " + ", ".join(moves.map(func(m: String) -> String: return ArenaData.MOVES[m]["name"] if ArenaData.MOVES.has(m) else m)))
 	set_process(true)
 	queue_redraw()
@@ -315,7 +315,7 @@ func _draw_status(c: Dictionary) -> void:
 	UI.text(self, Vector2(x + 424, y + 65), "%d more to Lv %d" % [c["next"] - c["exp"], c["lv"] + 1], 16, UI.TEXT)
 	y += 104
 	if c.has("evo"):
-		_section(Vector2(x, y), "Evolving waits on", UI.EVO)
+		_section(Vector2(x, y), "Growing waits on", UI.EVO)
 		for b in c["evo"].size():
 			var row: Array = c["evo"][b]
 			var yy: float = y + 30 + b * 26
@@ -327,7 +327,7 @@ func _draw_status(c: Dictionary) -> void:
 		_section(Vector2(x, y), "Final stage", UI.EDGE_LIGHT)
 		UI.text(self, Vector2(x, y + 34), "This line has nowhere further to grow.", 16, UI.MUTED)
 	y += 146
-	_section(Vector2(x, y), "IQ %d" % c["iq"])
+	_section(Vector2(x, y), "Sense %d" % c["iq"])
 	var shown := 0
 	for sk in _iq_skills:
 		if c["iq"] >= sk["at"] and shown < 3:
@@ -336,7 +336,7 @@ func _draw_status(c: Dictionary) -> void:
 			shown += 1
 	for sk in _iq_skills:
 		if c["iq"] < sk["at"]:
-			UI.text(self, Vector2(x, y + 30 + shown * 24), "At IQ %d: %s" % [sk["at"], sk["name"]], 15, Color(UI.MUTED, 0.75), 600)
+			UI.text(self, Vector2(x, y + 30 + shown * 24), "At Sense %d: %s" % [sk["at"], sk["name"]], 15, Color(UI.MUTED, 0.75), 600)
 			break
 
 

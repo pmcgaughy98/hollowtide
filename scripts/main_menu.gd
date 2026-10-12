@@ -60,6 +60,7 @@ var _reduce_motion := false
 var _music: AudioStreamPlayer
 var _fade: ColorRect
 var _buttons: Array[Button] = []
+var _continue_button: Button   # only when a save exists (Claude, 2026-10-12)
 var _motion_button: Button
 var _leaving := false
 var _quiet_focus := false
@@ -311,17 +312,23 @@ func _build_menu() -> void:
 
 	_main_panel = _panel("MainChoices", Vector2(820, 410), 290)
 	var list := _list(_main_panel)
-	# Continue belongs to the progress-save system when it is available.
-	var entries: Array = [
+	# Continue is listed first when the team has a save (Claude, 2026-10-12, scripts/town/team_state.gd);
+	# New Game stays as it was and only overwrites the save when the new team first reaches Highbank.
+	var entries: Array = []
+	if TeamState.has_save():
+		entries.append(["Continue", "Continue", _on_continue])
+	entries.append_array([
 		["NewGame", "New Game", _on_new_game],
 		["Options", "Options", _on_options],
-		["Quit", "Quit", _on_quit]]
+		["Quit", "Quit", _on_quit]])
 	for entry in entries:
 		var b := _button(entry[1])
 		b.name = entry[0]
 		b.pressed.connect(entry[2])
 		list.add_child(b)
 		_buttons.append(b)
+		if entry[0] == "Continue":
+			_continue_button = b
 
 	_build_journey_panel()
 	_build_options_panel()
@@ -348,6 +355,7 @@ func _build_menu() -> void:
 
 
 const UI := preload("res://scripts/ui/ui_style.gd")
+const TeamState := preload("res://scripts/town/team_state.gd")   # the save behind Continue (Claude, 2026-10-12)
 
 func _panel(node_name: String, at: Vector2, width: float) -> PanelContainer:
 	var panel := PanelContainer.new()
@@ -640,6 +648,56 @@ func _on_new_game() -> void:
 	_show_page("journey", _courier_buttons[0] if _selected_courier == "Male" else _courier_buttons[1])
 
 
+## Continue (Claude, 2026-10-12): read the team's save and open Highbank with it, the same fade out as
+## the journey. The save is written by the town (hub_town.gd) when the team arrives or sets out.
+func _on_continue() -> void:
+	if _leaving or ("_boot_done" in self and not get("_boot_done")):
+		return
+	if not TeamState.load_save():
+		_sound(CANCEL_SOUND)
+		if _continue_button != null:
+			_continue_button.disabled = true
+		return
+	# A run kept by a quit mid-dungeon resumes at the top of its floor; otherwise Highbank.
+	var town: Node
+	if TeamState.has_suspended():
+		var run: Dictionary = TeamState.take_suspended()
+		town = load("res://scenes/dungeon.tscn").instantiate()
+		TeamState.give_to(town)
+		town.set("dungeon", String(run.get("dungeon", "first")))
+		town.set("floor_n", int(run.get("floor_n", 1)))
+		town.set("floor_seed", int(run.get("floor_seed", 0)))
+		town.set("replay", bool(run.get("replay", false)))
+		town.set("return_to_town", true)
+		town.set("resume", run)
+	else:
+		town = load("res://scenes/hub_town.tscn").instantiate()
+		TeamState.give_to(town)
+	_save_preferences()
+	_leaving = true
+	_sound(CONFIRM_SOUND)
+	_fade.mouse_filter = Control.MOUSE_FILTER_STOP
+	_cursor.visible = false
+	for control in _focus_controls:
+		control.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		control.focus_mode = Control.FOCUS_NONE
+	var tween := create_tween().set_parallel()
+	tween.tween_property(_fade, "color:a", 1.0, 0.25 if _reduce_motion else 0.7)
+	tween.tween_property(_music, "volume_db", -80.0, 0.25 if _reduce_motion else 0.85)
+	await tween.finished
+	var error := get_tree().change_scene_to_node(town)
+	if error != OK:
+		town.free()
+		_leaving = false
+		_fade.color.a = 0.0
+		_fade.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		_music.volume_db = music_db
+		for control in _focus_controls:
+			control.mouse_filter = Control.MOUSE_FILTER_STOP
+			control.focus_mode = Control.FOCUS_ALL
+		_show_page("main", _buttons[0])
+
+
 func _select_courier(model: String) -> void:
 	if _leaving or model == _selected_courier:
 		_update_courier_selection()
@@ -678,14 +736,15 @@ func _on_quit() -> void:
 func _close_panel() -> void:
 	if _leaving:
 		return
-	var return_to := 0
-	if _page == "options":
-		return_to = 1
-	elif _page == "quit":
-		return_to = 2
+	# Back to the button that opened the page, by name: Continue may sit first (Claude, 2026-10-12).
+	var back_to := "Options" if _page == "options" else ("Quit" if _page == "quit" else "NewGame")
+	var return_to: Control = _buttons[0]
+	for b in _buttons:
+		if b.name == back_to:
+			return_to = b
 	_save_preferences()
 	_sound(CANCEL_SOUND)
-	_show_page("main", _buttons[return_to])
+	_show_page("main", return_to)
 
 
 func _confirm_quit() -> void:

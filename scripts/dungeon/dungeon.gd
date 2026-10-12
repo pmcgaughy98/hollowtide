@@ -59,7 +59,8 @@ const ITEMS := {
 	"reedberry": {"name": "Reedberry", "what": "heals the leader 15", "col": Color("#c84a5a")},
 	"lamp_oil": {"name": "Lamp Oil", "what": "40 light back", "col": Color("#f2c14e")},
 	"river_stone": {"name": "River Stone", "what": "thrown down a line, 8 damage", "col": Color("#9aa4ae")},
-	"rally_seed": {"name": "Rally Seed", "what": "the leader gets up once when it faints", "col": Color("#7fd16a")},
+	"rally_seed": {"name": "Second Wind", "what": "the leader gets up once when it goes down", "col": Color("#7fd16a")},
+	"parcel": {"name": "Parcel", "what": "for a client below; it goes with the bag if the team goes down", "col": Color("#c9a86a")},   # a taken delivery (jobs.gd, R4)
 }
 const TRAPS := {
 	"snare": {"name": "Snare", "what": "held for 2 turns"},
@@ -114,7 +115,7 @@ const SLAM_STAGGER := 1                 # and loses this many turns (and whateve
 # Kit Sense modes). T cycles them and costs no turn. TACTIC_LEASH is how far from the leader a
 # partner will go after a foe; guard also keeps it beside the leader.
 const TACTICS := ["follow", "go", "guard"]
-const TACTIC_NAMES := {"follow": "FOLLOW ME", "go": "GO AFTER FOES", "guard": "GUARD ME"}
+const TACTIC_NAMES := {"follow": "STAY CLOSE", "go": "PUSH ON", "guard": "HOLD"}   # a runner's words (R2, 2026-10-12)
 const TACTIC_LEASH := {"follow": 4, "go": 99, "guard": 2}
 const FLANK_REACH := 2                  # a partner walks this many tiles round to a foe's far side
 const FLANK_WORTH := 0.4                # but only while the foe has more than this share of its health
@@ -191,9 +192,9 @@ const LEARN := {
 	"dustkite": [[1, "whistle_dart"]],
 	"waywhistle": [],
 	"highsignal": [],
-	# The Springvault line: Claude's draft for Grok (2026-10-10). Archroot's evolve move will be
-	# Mineral Brace and Springvault's Vault Arch once the dungeon can play them.
-	"troughspine": [[1, "spring_spit"], [1, "seep"]],
+	# Grok, 2026-10-12. Seep plants roots, so Troughspine does not learn it. Archroot learns it
+	# on growing. Heal 6 and SEEP_TURNS 3 stay. No Mineral Brace, Vault Arch, or Headspring.
+	"troughspine": [[1, "spring_spit"]],
 	# The rival crew (Claude, 2026-10-10): Play Dead waits for the boss slice.
 	"mirekit": [[1, "grub_bite"], [1, "rot_spit"]],
 	"whinet": [[1, "needle_jab"], [1, "drain_bite"], [3, "buzz_dart"]],
@@ -202,7 +203,7 @@ const LEARN := {
 	"skimlet": [[1, "needle_bite"], [3, "lunge"]],
 	"ozbender": [[1, "needle_bite"], [4, "lunge"]],
 	"valvekin": [[1, "glass_guard"]],   # a placeholder bite until Grok sets its kit (drafts in the crew proposal)
-	"archroot": [],
+	"archroot": [["evolve", "seep"]],
 	"springvault": []}
 
 const WAITING := {
@@ -328,7 +329,11 @@ const DUNGEONS := {
 		# lives at the water (Preston, 2026-10-10: Troughspine belongs here). Listener and Troughspine;
 		# the Gale fliers moved out; Rimefin too (a starter's line is not met here, Preston, same day).
 		# The three water-edge lines (docs/creatures/hollow-wilds-2026-10-10.md): Skimlet in the valley, Ozbender and Valvekin in the ruin.
-		"spawns": {1: [[7, 0], [10, 0], [103, 0]], 2: [[7, 0], [10, 0], [104, 0], [105, 0]]},   # + Skimlet; + Ozbender, Valvekin
+		# Grok, 2026-10-12. B1F is Listener and Skimlet. Troughspine is off B1F: Spring Spit is a 5-tile
+		# Tide line (about 6 into the Ember leader's 40 HP) and Seep was healing that hit back. Seed 99
+		# lost the leader there with one wild downed. B2F is Ozbender, Valvekin and Troughspine, without
+		# Listener, so the floor before the Warden is not two Tide shots at once.
+		"spawns": {1: [[7, 0], [103, 0]], 2: [[104, 0], [105, 0], [10, 0]]},
 		"looks": {1: "valley", 2: "ruin", 3: "ruin"},
 		"boss": {"line": BOSS, "minions": BOSS_MINIONS, "hp": BOSS_HP, "intro": true, "arena": BOSS_ARENA, "talk": BOSS_TALK, "stone": true}},
 }
@@ -343,6 +348,9 @@ var turn := 0
 var busy := false
 var cleared := 0
 var faints := 0
+var fell_to := ""                         # who landed the last hit on the leader (the faint screen names it)
+var downed := 0                           # wild creatures downed this run (the faint screen's tally)
+var last_faint := {}                      # the last faint's record (what the faint screen was told), for the checks and for crew reactions
 var light := LIGHT_MAX
 var bag := {"reedberry": 1}
 var last_sfx := {}   # sound name -> the turn it last played (read by tools/debug/dungeon_sfx_check.gd)
@@ -362,6 +370,7 @@ var talk: Array = []                      # dialogue lines still to show, [speak
 var jobs: Array = []                      # the Job Board requests the team carries (scripts/town/jobs.gd)
 var rank := 0                             # Courier Rank points; only the board changes them, the run carries them
 var clients: Array = []                   # this floor's job clients waiting in a room: {id, pos, node}
+var traps_sprung := 0                     # this run; a delivery's "careful" condition reads it (jobs.gd, R4)
 var boss_intro := true                    # play the Warden's entrance (scripts/dungeon/boss_intro.gd); off = straight to its talk
 var cutscene := false                     # a scene is playing: no turns, J only reads the lines
 var intro := {}                           # the entrance's state for drawing (pond shadow, ground shadow, daze)
@@ -499,6 +508,153 @@ func _ready() -> void:
 	_fade.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	layer.add_child(_fade)
 	_build_floor(true)
+	if not resume.is_empty():
+		_apply_resume()
+
+
+# ---------------------------------------------------------------- the suspend save
+
+## A quit mid-run keeps the run (Claude, 2026-10-12; the genre's suspend save). What it takes to stand at the
+## top of this floor as the run stood: the floor's seed, the lantern, the turn, the team's health, and the
+## run's start team (a faint after a resume still returns the recruits made before it). The title's Continue
+## opens the run once, then the record drops it, so a run cannot be replayed from the same file.
+var resume := {}
+
+
+func suspend_record() -> Dictionary:
+	var hp: Array = []
+	for e in ents:
+		if e["team"] == 0:
+			hp.append(int(e["hp"]))
+	return {"dungeon": dungeon, "floor_n": floor_n, "floor_seed": floor_seed, "replay": replay, "light": light, "turn": turn, "hp": hp,
+		"downed": downed, "traps_sprung": traps_sprung, "water_rows": water_rows, "party_at_start": _party_at_start.duplicate(true), "roster_at_start": _roster_at_start.duplicate(true)}
+
+
+## The pause menu's leave: the record as the run stands, plus the run, in one save.
+func suspend() -> bool:
+	TeamState.take_from(self, "suspended")
+	TeamState.data["suspend"] = suspend_record()
+	return TeamState.autosave()
+
+
+func _apply_resume() -> void:
+	light = resume.get("light", light)
+	turn = int(resume.get("turn", turn))
+	downed = int(resume.get("downed", downed))
+	traps_sprung = int(resume.get("traps_sprung", traps_sprung))
+	var resume_rows: int = int(resume.get("water_rows", 0))
+	if resume.get("party_at_start", []) is Array and not resume["party_at_start"].is_empty():
+		_party_at_start = resume["party_at_start"].duplicate(true)
+		_roster_at_start = resume.get("roster_at_start", []).duplicate(true)
+	var hp: Array = resume.get("hp", [])
+	var k := 0
+	for e in ents:
+		if e["team"] != 0:
+			continue
+		if k < hp.size():
+			e["hp"] = mini(int(hp[k]), e["max_hp"])
+			if e["hp"] <= 0:
+				e["node"].modulate.a = 0.0   # a partner that was down stays down
+		k += 1
+	resume = {}
+	water_rows = mini(int(resume_rows), water_max)
+	_say("The run goes on from the top of B%dF." % floor_n)
+
+
+# ---------------------------------------------------------------- rising water (R5)
+
+## The river as the clock and the terrain (docs/design/genre-synthesis-2026-10-12.md, R5; Claude, 2026-10-12).
+## On a Tide floor the water comes up from the low end a row at a time, every WATER_EVERY turns, and never
+## past the stairs or the start. Each time it rises, the current carries whoever stands in it a tile
+## downstream (east), and whatever lies in it; Tide creatures swim and stay. Standing in water wets the
+## lantern: WET_LIGHT a turn. The autopilot is never trapped by it: the push comes only on a rise, so a walk
+## against the current always gains. Every number is a proposal for Grok.
+const WATER_FLOORS := {"hollow": [1]}      # the valley floor
+const WATER_EVERY := 10
+const WET_LIGHT := 0.5
+const DOWNSTREAM := Vector2i(1, 0)
+var water_rows := 0                        # rows flooded, counted up from the lowest floor row
+var water_max := 0                         # as far as it can rise on this floor
+var water_base := 0                        # one below the lowest floor row (the map's bottom rows are wall)
+
+
+func water_here() -> bool:
+	return floor_kind() == "normal" and floor_n in WATER_FLOORS.get(dungeon, [])
+
+
+func wet(p: Vector2i) -> bool:
+	return water_rows > 0 and p.y >= water_base - water_rows and _floor_at(p)
+
+
+func _water_reset() -> void:
+	water_rows = 0
+	water_max = 0
+	water_base = 0
+	if not water_here():
+		return
+	for y in range(data["h"] - 1, -1, -1):
+		var any_floor := false
+		for x in data["w"]:
+			if _floor_at(Vector2i(x, y)):
+				any_floor = true
+				break
+		if any_floor:
+			water_base = y + 1
+			break
+	water_max = maxi(0, water_base - 1 - maxi(data["start"].y, data["stairs"].y))
+
+
+func _water_tick() -> void:
+	if not water_here():
+		return
+	if ents[0]["hp"] > 0 and wet(ents[0]["pos"]):
+		light = maxf(0.0, light - WET_LIGHT)
+	if turn % WATER_EVERY != 0 or water_rows >= water_max:
+		return
+	water_rows += 1
+	if water_rows == 1:
+		_banner_show("THE WATER RISES", "B%dF" % floor_n, Color(0.45, 0.75, 1.0))
+		_say("Water's coming up from the low end of the valley.")
+	elif water_rows % 3 == 0:
+		_say("The water's rising.")
+	# The current: a tile downstream for whoever stands in it (Tide creatures swim), and for what lies in it.
+	for e in ents:
+		if e["hp"] <= 0 or not wet(e["pos"]) or CreatureData.Essence.TIDE in e["essences"]:
+			continue
+		var q: Vector2i = e["pos"] + DOWNSTREAM
+		if _floor_at(q) and _occupant(q) < 0 and _client_at(q) < 0:
+			e["pos"] = q
+			_place(e)
+			_pops.append({"pos": e["node"].position + Vector2(0, -26), "text": "~", "t": 0.0, "col": Color(0.6, 0.85, 1.0)})
+			if e["team"] == 0:
+				_say("The current carries %s downstream." % e["name"])
+	for it in floor_items:
+		if not wet(it["pos"]):
+			continue
+		var q: Vector2i = it["pos"] + DOWNSTREAM
+		if _floor_at(q) and not floor_items.any(func(o: Dictionary) -> bool: return o["pos"] == q):
+			it["pos"] = q
+			if it.has("node") and is_instance_valid(it["node"]):
+				it["node"].position = _tile_px(q)
+
+
+func _draw_water() -> void:
+	if water_rows <= 0:
+		return
+	var tick := int(Time.get_ticks_msec() / 400)
+	var top: int = water_base - water_rows
+	for y in range(top, water_base):
+		for x in data["w"]:
+			var p := Vector2i(x, y)
+			if not _floor_at(p) or not (visible_tiles.has(p) or explored[y * data["w"] + x] != 0):
+				continue
+			var r := Rect2(Vector2(p) * T, Vector2(T, T))
+			var deep: float = float(y - top + 1) / float(water_rows)
+			_floor_fx.draw_rect(r, Color(0.25, 0.5, 0.85, 0.3 + 0.2 * deep))
+			if (x + y + tick) % 3 == 0:
+				_floor_fx.draw_line(r.position + Vector2(4, T * 0.5), r.position + Vector2(T - 4, T * 0.5), Color(0.8, 0.95, 1.0, 0.35), 1.0)
+			if y == top:
+				_floor_fx.draw_line(r.position + Vector2(0, 1), r.position + Vector2(T, 1), Color(0.85, 0.97, 1.0, 0.7), 1.0)
 
 
 # ---------------------------------------------------------------- the floor
@@ -531,6 +687,7 @@ func _build_floor(fresh_team: bool) -> void:
 	DungeonFinish.apply(_map, data, T, look)
 	explored = PackedByteArray()
 	explored.resize(data["w"] * data["h"])
+	_water_reset()
 	# Your team round the start, the leader on it.
 	var start: Vector2i = data["start"]
 	var spots: Array[Vector2i] = [start]
@@ -739,9 +896,19 @@ func _meet_client(k: int) -> void:
 	j["done"] = true
 	clients.remove_at(k)
 	var who := Jobs.client_name(j)
-	_say("Found %s! Job done; the reward waits at the Job Board." % who)
-	_sfx("recruit_rise", -4.0)
-	talk.append([who, "You came all this way for me? Thank you. I can find the way up to Highbank from here.", Jobs.client_form(j)])
+	if j["kind"] == "delivery":
+		# A delivery (R4): judged here, at the client's feet; the parcel leaves the bag; the board pays by the result.
+		var met: bool = Jobs.judge(j, self)
+		j["met"] = met
+		if bag.has(Jobs.PARCEL):
+			_take(Jobs.PARCEL)
+		_say("Delivered to %s, %s. %s pay waits at the Job Board." % [who, Jobs.result_text(j), "Full" if met else "Plain"])
+		_sfx("recruit_rise", -4.0)
+		talk.append([who, "My parcel! You came all this way down here with it. Thank you." if met else "My parcel! A bit the worse for the trip, but it's here. Thank you.", Jobs.client_form(j)])
+	else:
+		_say("Found %s! Job done; the reward waits at the Job Board." % who)
+		_sfx("recruit_rise", -4.0)
+		talk.append([who, "You came all this way for me? Thank you. I can find the way up to Highbank from here.", Jobs.client_form(j)])
 	var tw := create_tween()
 	tw.tween_interval(0.2)
 	tw.tween_property(c["node"], "modulate:a", 0.0, 0.6)
@@ -1469,6 +1636,8 @@ func _wound(i: int, j: int, dmg: int, col: Color) -> void:
 		_grow(o, "took", mini(dmg, o["hp"]))
 	o["hp"] = maxi(0, o["hp"] - dmg)
 	o["flash"] = 0.25
+	if j == 0 and i >= 0 and i < ents.size() and dmg > 0:
+		fell_to = ents[i]["name"]
 	if o["hp"] > 0:
 		_play_act(o, "hurt")
 	if o["team"] == 1 and not o["awake"] and o["hp"] > 0:
@@ -1480,8 +1649,10 @@ func _wound(i: int, j: int, dmg: int, col: Color) -> void:
 	if o["hp"] <= 0:
 		_burst(o["node"].position + Vector2(0, -4), Color(0.75, 0.72, 0.66), 12, 28.0, 0.6, -20.0, 1.0)   # a puff of dust
 		o.erase("windup")
-		_say("%s fainted!" % o["name"])
+		_say("%s went down!" % o["name"])
 		_sfx("faint", -4.0)
+		if o["team"] == 1:
+			downed += 1
 		if o.get("boss", false):
 			if not (boss_intro and boss_cfg().get("stone", false)):   # the Warden is not beaten: the stand-off (stone_scene.gd)
 				_banner_show("VICTORY!", "%s is beaten" % o["name"], Color(1, 0.9, 0.4))
@@ -2124,6 +2295,69 @@ func boss_alive() -> bool:
 	return boss >= 0 and boss < ents.size() and ents[boss]["hp"] > 0
 
 
+## The pilot's climax is unlosable (Preston, 2026-10-12: "go with the story-side fix, make the climax unlosable").
+## Once the Warden is awake, the leader going down in its room starts the stand-off instead of a faint, at any Warden
+## health: the scene already has both sides spent, the Warden holding back and the team knocked flat, so the story
+## reads the same whether the team wore it down or not. STANDOFF_AT is the share of the Warden's health under which
+## the rule applies; 1.0 is always. The probe that found the pilot's team losing the leader with the Warden at 8 of
+## 168 is tools/debug/warden_probe.gd.
+const STANDOFF_AT := 1.0
+
+
+func _warden_yields() -> bool:
+	if not (boss_intro and boss_cfg().get("stone", false) and boss_alive() and ents[boss]["awake"]):
+		return false
+	var w: Dictionary = ents[boss]
+	if w["hp"] > w["max_hp"] * STANDOFF_AT:
+		return false
+	ents[0]["hp"] = 1
+	ents[0]["node"].modulate.a = 1.0
+	_say("%s staggers up. The Warden has stopped." % ents[0]["name"])
+	_wound(0, boss, int(w["hp"]), Color(0.8, 0.95, 1.0))   # its last point of health: the fall, then the stand-off
+	return true
+
+
+## What the faint screen (scripts/ui/faint_screen.gd) tells: where the leader fell, what beat it, the run's tally,
+## what is lost and where E takes the team. Before the road to Highbank is open (the Mouth, the first time), a
+## faint goes back to the bank, not to a town the story has not reached (Preston, 2026-10-12).
+func _faint_info() -> Dictionary:
+	var partner_form := ""
+	var partner_name := ""
+	if party.size() > 1:
+		var f: Array = line_data(party[1][0])["forms"][party[1][1]]
+		partner_form = String(f[0])
+		partner_name = load(f[1]).creature_name
+	var lost_items := 0
+	for k in bag:
+		lost_items += int(bag[k])
+	var lost_recruits: Array = []
+	for k in range(_party_at_start.size(), party.size()):
+		var f: Array = line_data(party[k][0])["forms"][party[k][1]]
+		lost_recruits.append(load(f[1]).creature_name)
+	var to_town: bool = return_to_town and not (dungeon == "mouth" and not replay and not story.get("road_talk", false))
+	var lost_parcels: Array = Jobs.drop_parcels(jobs)[1]
+	return {"leader": ents[0]["name"], "partner": partner_name, "partner_form": partner_form,
+		"dungeon": DUNGEONS[dungeon]["name"], "dungeon_id": dungeon, "floor": "B%dF" % floor_n, "floors": floors(),
+		"fell_to": fell_to if fell_to != "" else "the dark", "turns": turn, "downed": downed,
+		"lost_items": lost_items, "lost_recruits": lost_recruits, "lost_parcels": lost_parcels, "to_town": to_town,
+		"return_to_town": return_to_town, "replay": replay, "boss_intro": boss_intro}
+
+
+## Fade to black, take the record, and hand over to the faint screen.
+func _faint_screen(info: Dictionary) -> void:
+	cutscene = true
+	_fade.color = Color(0, 0, 0, _fade.color.a)
+	var tw := create_tween()
+	tw.tween_property(_fade, "color:a", 1.0, 0.6)
+	await tw.finished
+	if not is_inside_tree() or get_tree().current_scene != self:
+		return
+	TeamState.take_from(self, "fainted")
+	var screen: Control = load("res://scenes/faint_screen.tscn").instantiate()
+	screen.info = info
+	get_tree().change_scene_to_node(screen)
+
+
 ## Back to Highbank, carrying the team's record (TeamState).
 func _go_to_town(news: String) -> void:
 	# The first time out of the Mouth: the dawn scene and the walk up to Highbank first (scripts/mouth_escape.gd).
@@ -2303,9 +2537,9 @@ func _gain_iq(e: Dictionary, n: int) -> void:
 	iq[e["line"]] = was + n
 	for sk in IQ_SKILLS:
 		if was < sk["at"] and iq[e["line"]] >= sk["at"]:
-			_say("%s learned an IQ skill: %s (%s)." % [e["name"], sk["name"], sk["what"]])
+			_say("%s picked up a Sense: %s (%s)." % [e["name"], sk["name"], sk["what"]])
 			_sfx("iq_learn", -6.0)
-			_pops.append({"pos": e["node"].position + Vector2(0, -46), "text": "IQ: %s!" % sk["name"], "t": 0.0, "col": Color(0.55, 0.85, 1.0)})
+			_pops.append({"pos": e["node"].position + Vector2(0, -46), "text": "Sense: %s!" % sk["name"], "t": 0.0, "col": Color(0.55, 0.85, 1.0)})
 
 
 ## Roughly what move m from i does to j, without the dice (for the Finisher).
@@ -2436,7 +2670,7 @@ func _grow(e: Dictionary, what: String, n: int) -> void:
 func _tell_ready(e: Dictionary, was: bool) -> void:
 	if not was and evo_ready(e["line"], e["stage"]):
 		if story.get("stone", "") == "installed":
-			_say("%s is ready to evolve! Take it to the Growth Shrine in Highbank." % e["name"])
+			_say("%s is ready to grow! Take it to the Growth Shrine in Highbank." % e["name"])
 		else:
 			_say("%s feels ready to change... but nothing in Highbank can help it yet." % e["name"])
 		_sfx("evolve_ready", -4.0)
@@ -2843,7 +3077,7 @@ func act_teach(i: int, forget := -1) -> String:
 ## Cycle the partners' order: follow me, go after foes, guard me. Costs no turn.
 func act_tactic() -> void:
 	tactic = TACTICS[(TACTICS.find(tactic) + 1) % TACTICS.size()]
-	_say("Team: %s." % String(TACTIC_NAMES[tactic]).capitalize())
+	_say("Orders: %s." % String(TACTIC_NAMES[tactic]).capitalize())
 	_play("res://assets/audio/sfx/ui/confirm.wav", -10.0)
 
 
@@ -2898,15 +3132,16 @@ func _end_turn() -> void:
 			_music_update()
 		if light == 0.0 and turn % (LIGHT_DRAIN_EVERY * 10) == 0:
 			_say("The lantern is out. Only what is close can be seen.")
+	_water_tick()
 	_pick_up()
 	_spring_traps()
 	_monster_house()
 	if monster_sprung and not house_cleared and ents.any(func(e: Dictionary) -> bool: return e.get("house", false)) and ents.filter(func(e: Dictionary) -> bool: return e.get("house", false) and e["hp"] > 0).is_empty():
 		house_cleared = true
 		light = minf(LIGHT_MAX, light + MONSTER_HOUSE_LIGHT)
-		_say("The Monster House is cleared! The lantern burns brighter.")
+		_say("The nest is cleared! The lantern burns brighter.")
 		_sfx("room_clear", -3.0)
-		_banner_show("CLEARED!", "the Monster House", Color(0.6, 1, 0.6))
+		_banner_show("CLEARED!", "the nest", Color(0.6, 1, 0.6))
 	_music_update()   # back to the floor's track, or to the deep one when the lantern runs low
 	for e in ents:
 		e["moved"] = false
@@ -2926,22 +3161,32 @@ func _end_turn() -> void:
 		_take("rally_seed")
 		ents[0]["hp"] = ents[0]["max_hp"] / 2
 		ents[0]["node"].modulate.a = 1.0
-		_say("The Rally Seed! %s gets back up." % ents[0]["name"])
+		_say("Second Wind! %s gets back up." % ents[0]["name"])
 		_sfx("revive", -3.0)
-	if ents[0]["hp"] <= 0:
+	if ents[0]["hp"] <= 0 and _warden_yields():
+		pass   # the stand-off has taken over (stone_scene.gd); the pilot's climax is never a dead end
+	elif ents[0]["hp"] <= 0:
 		faints += 1
+		var info := _faint_info()   # before the losses below, so the faint screen can say what went
+		last_faint = info
 		bag = {"reedberry": 1}   # fainting loses the bag (Explorers of Sky); a fresh run starts with one berry
+		jobs = Jobs.drop_parcels(jobs)[0]   # the parcels went with it: those deliveries are off the slate (R4)
+		traps_sprung = 0
 		party = _party_at_start.duplicate(true)   # and the run's recruits: they never reached the hall
 		roster = _roster_at_start.duplicate(true)
 		asking = -1
 		light = LIGHT_MAX
-		_say("%s fainted! The team is carried back to the entrance." % ents[0]["name"])
+		_say("%s went down! The team is carried back." % ents[0]["name"])
 		Music.play(get_tree(), "")
 		Music.jingle(get_tree(), "fainted")
 		floor_n = 1
 		floor_seed = randi()
-		if return_to_town:
-			call_deferred("_go_to_town", "fainted")
+		fell_to = ""
+		downed = 0
+		if is_inside_tree() and get_tree().current_scene == self:
+			call_deferred("_faint_screen", info)   # the player's view: the faint screen, then home (2026-10-12)
+		elif return_to_town:
+			call_deferred("_go_to_town", "fainted")   # the checks: straight on, as before
 		else:
 			call_deferred("_build_floor", true)
 	elif ents[0]["pos"] == data["stairs"]:
@@ -3026,6 +3271,7 @@ func _spring_traps() -> void:
 			if tr["pos"] != e["pos"]:
 				continue
 			tr["seen"] = true
+			traps_sprung += 1
 			_say("%s stepped on a %s!" % [e["name"], TRAPS[tr["kind"]]["name"]])
 			_sfx("trap_" + String(tr["kind"]), -3.0)
 			match tr["kind"]:
@@ -3052,7 +3298,7 @@ func _monster_house() -> void:
 	if monster_sprung or monster_room.size == Vector2i.ZERO or not monster_room.has_point(ents[0]["pos"]):
 		return
 	monster_sprung = true
-	_say("It's a Monster House!")
+	_say("A nest! They're all awake.")
 	_banner_show("MONSTER HOUSE!", "", Color(1, 0.45, 0.3))
 	_sfx("monster_ambush", -2.0)
 	var area := 0
@@ -3107,6 +3353,10 @@ func act_use_item(kind: String) -> void:
 		teach_sel = 0
 		teach_learner = -1
 		return
+	if kind == Jobs.PARCEL:
+		_say("The parcel stays sealed. It's for someone below.")
+		_sfx("denied", -4.0)
+		return
 	match kind:
 		"reedberry":
 			_take(kind)
@@ -3147,12 +3397,13 @@ func act_use_item(kind: String) -> void:
 				_say("%s threw a River Stone: %s took 8 damage." % [lead["name"], ents[j]["name"]])
 				_sfx("throw", -4.0)
 				if ents[j]["hp"] <= 0:
-					_say("%s fainted!" % ents[j]["name"])
+					_say("%s went down!" % ents[j]["name"])
+					downed += 1
 					light = minf(LIGHT_MAX, light + LIGHT_ON_KO)
 					create_tween().tween_property(ents[j]["node"], "modulate:a", 0.0, 0.35)
 				return true)
 		"rally_seed":
-			_say("The Rally Seed works by itself when the leader faints.")
+			_say("Second Wind works by itself when the leader goes down.")
 
 
 ## Whether any wild creature's wind-up marks tile p.
@@ -3444,6 +3695,7 @@ func _draw_floor_fx() -> void:
 	if pond.size != Vector2i.ZERO:
 		BossIntro.draw_floor(self, _floor_fx)
 	CrewScene.draw(self, _floor_fx, false)
+	_draw_water()
 	var k: float = 0.5 + 0.5 * sin(Time.get_ticks_msec() / 130.0)
 	if boss_alive() and visible_tiles.has(data["stairs"]) and not cutscene:
 		# Sealed stairs: a dark slab with a cross over them.
@@ -3686,7 +3938,7 @@ func _draw_hud() -> void:
 			h.draw_texture(face, Vector2(28, y + 1), Color(0.45, 0.45, 0.45, 0.8) if down else Color.WHITE)
 		h.draw_rect(Rect2(28, y + 1, 48, 48), UI.EDGE_LIGHT if e == ents[0] else UI.EDGE, false, 1.0)
 		UI.text(h, Vector2(84, y + 20), String(e["name"]), 19, UI.HP_LOW if down else (UI.EDGE_LIGHT if e == ents[0] else UI.TEXT))
-		var tag := "Lv %d" % level_of(e["line"]) + ("" if e == ents[0] else "   IQ %d" % iq_of(e))
+		var tag := "Lv %d" % level_of(e["line"]) + ("" if e == ents[0] else "   Sense %d" % iq_of(e))
 		UI.say(h, Vector2(84, y + 20), tag, "label", UI.MUTED, 246, HORIZONTAL_ALIGNMENT_RIGHT)
 		UI.bar(h, Rect2(84, y + 27, 170, 9), k, UI.hp_col(k))
 		UI.say(h, Vector2(262, y + 38), "%d/%d" % [e["hp"], e["max_hp"]], "number", UI.TEXT)

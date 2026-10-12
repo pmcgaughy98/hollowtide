@@ -1,11 +1,14 @@
 extends RefCounted
-## The Wayline Hall's crew in their rooms, and the morning roll call (Claude, 2026-10-11; Preston approved the crew,
-## docs/creatures/guild-crew-2026-10-11.md, and asked for the roll-call floor). Built on scene_kit.gd.
+## The Wayline Hall's crew in their rooms, and the morning mail call (Claude, 2026-10-11; Preston approved the crew,
+## docs/creatures/guild-crew-2026-10-11.md, and asked for the lower floor). Built on scene_kit.gd.
 ##
 ## Outside scenes each crew member stands at their post and says a line when the leader talks to them (E).
-## The roll call plays on the Hall's lower floor once before each run, after the guild has taken the team on:
-## Wayling calls the roll on the mark, the crew lines up, Starward comes out of the chamber with the word of the
-## day, and everyone goes back to their post. The lines are Claude's drafts for Preston, in the house voice
+## The mail call plays on the Hall's lower floor once before each run, after the Wayline has taken the team on
+## (R3 of docs/design/genre-synthesis-2026-10-12.md, 2026-10-12: parcel sorting in our own shape, not a briefing
+## with a cheer). Wayling has the morning's mail on the table by the mark; the crew gather round; Wayling calls
+## routes, not names, and whoever runs that route claims it. Muskin is late as ever and gets the route nobody
+## wants. The runners get no route from the table: theirs comes from the Postmaster, who comes out with the
+## morning's note. Then everyone peels off to work. The lines are Claude's drafts for Preston, in the house voice
 ## (docs/design/dialogue-voice-guide.md). Rinsepaw the cook keeps the kitchen hatch (sprites made 2026-10-11).
 
 const SceneKit := preload("res://scripts/town/scene_kit.gd")
@@ -24,25 +27,25 @@ static func lines_for(form: String, story: Dictionary) -> Array:
 		"wayling":
 			if story.get("runner", false):
 				return [["Wayling", "Runners! Jobs go up on the board outside. Bring me the slip when you're done, and don't fold it."]]
-			return [["Wayling", "The Guildmaster's downstairs. Mind the third step, it squeaks."]]
+			return [["Wayling", "The Postmaster's downstairs. Mind the third step, it squeaks."]]
 		"grubbit":
-			return [["Grubbit", "...Oh! You walked right up on me."], ["Grubbit", "Parcel for the bend, parcel for Highbank... I go by feel down here. Never misread one yet."]]
+			return [["Grubbit", "...Oh! You walked right up on me.", "surprised"], ["Grubbit", "Parcel for the bend, parcel for Highbank... I go by feel down here. Never misread one yet.", "happy"]]
 		"stillwade":
-			return [["Stillwade", "River's up two notches since sunup."], ["Stillwade", "Not flood-up. Just... thinking about it."]]
+			return [["Stillwade", "River's up two notches since sunup.", "worried"], ["Stillwade", "Not flood-up. Just... thinking about it.", "determined"]]
 		"wickglow":
-			return [["Wickglow", "Did you hear? Somebody saw Gruntle's bunch sneaking round the Warren again."], ["Wickglow", "Don't tell Wayling I told you. Actually, tell everybody."]]
+			return [["Wickglow", "Did you hear? Somebody saw Gruntle's bunch sneaking round the Warren again.", "mischievous"], ["Wickglow", "Don't tell Wayling I told you. Actually, tell everybody.", "happy"]]
 		"muskin":
-			return [["Muskin", "Am I late? I'm late. I'm always late."], ["Muskin", "Wait. Are you guys late too? Oh good."]]
+			return [["Muskin", "Am I late? I'm late. I'm always late.", "worried"], ["Muskin", "Wait. Are you guys late too? Oh good.", "surprised"]]
 		"rinsepaw":
-			return [["Rinsepaw", "Supper's at sundown, hon. Late gets what's left."], ["Rinsepaw", "And Muskin's always late, so there's never much left. You two eat."]]
+			return [["Rinsepaw", "Supper's at sundown, hon. Late gets what's left.", "happy"], ["Rinsepaw", "And Muskin's always late, so there's never much left. You two eat.", "sad"]]
 		"slipjaw":
 			if story.get("runner", false):
-				return [["Slipjaw", "Fine. You're runners. Doesn't mean you're faster than me."]]
-			return [["Slipjaw", "You two? Runners? Ha. We'll see who gets there first."]]
+				return [["Slipjaw", "Fine. You're runners. Doesn't mean you're faster than me.", "angry"]]
+			return [["Slipjaw", "You two? Runners? Ha. We'll see who gets there first.", "determined"]]
 	return []
 
 
-## The crew at their posts in this room (not during the roll call, not while a guild scene owns the room).
+## The crew at their posts in this room (not during the mail call, not while a guild scene owns the room).
 static func place(room) -> void:
 	var story: Dictionary = room._record().get("story", {})
 	if not story.get("guild_trial", false):
@@ -52,10 +55,10 @@ static func place(room) -> void:
 		e["lines"] = lines_for(p[0], story)
 
 
-# ---------------------------------------------------------------- the roll call
+# ---------------------------------------------------------------- the mail call
 
 const MARK := Vector2i(14, 9)
-const CALLER := Vector2i(14, 6)                 # Wayling, in front of the mark, facing the room
+const CALLER := Vector2i(14, 6)                 # Wayling at the sorting table, in front of the mark, facing the room
 const STAND := {"grubbit": Vector2i(12, 8), "stillwade": Vector2i(17, 8), "wickglow": Vector2i(17, 10),
 	"slipjaw": Vector2i(12, 10), "rinsepaw": Vector2i(17, 9)}
 const LATE_DOOR := Vector2i(1, 6)                # Muskin comes in late, from the crew room
@@ -66,7 +69,7 @@ const TEAM_SPOTS := [Vector2i(14, 10), Vector2i(16, 10), Vector2i(15, 11), Vecto
 const STARWARD_AT := Vector2i(15, 5)
 
 
-## Once before each run, after the guild has taken the team on.
+## Once before each run, after the Wayline has taken the team on. (The record's key keeps its old name, rollcall_runs.)
 static func pending(room) -> bool:
 	if room.room_id != "hall_low":
 		return false
@@ -81,14 +84,15 @@ static func _runs(rec: Dictionary) -> int:
 	return int(rec.get("cleared", 0)) + int(rec.get("faints", 0))
 
 
-static func _word_of_the_day(story: Dictionary) -> Array:
+## The Postmaster's morning note: the runners' route comes from here, by where the story stands.
+static func _postmasters_note(story: Dictionary) -> Array:
 	if story.get("runner", false) and String(story.get("stone", "")) == "":
-		return [["Starward", "Word of the day. The river took a lot of mail this week. Every letter you bring home is somebody's whole week.", "determined"],
-			["Starward", "Our runners are going deeper into the Hollow. Wish 'em luck, then get to work.", "happy"]]
+		return [["Starward", "Morning, all. The river took a lot of mail this week. Every letter you bring home is somebody's whole week.", "determined"],
+			["Starward", "Our runners go deeper into the Hollow today. Wish 'em luck, then get to work.", "happy"]]
 	if String(story.get("parcel", "")) == "stolen":
-		return [["Starward", "Word of the day. A parcel of ours is sitting in Rootbank Warren with the wrong crew.", "determined"],
-			["Starward", "These two are bringing it home. The rest of you, keep the Hall running till they do.", "determined"]]
-	return [["Starward", "Word of the day. The river doesn't wait, and neither does the mail.", "determined"],
+		return [["Starward", "Morning. A parcel of ours is sitting in Rootbank Warren with the wrong crew.", "determined"],
+			["Starward", "These two are bringing it home. The rest of you, keep the mail moving till they do.", "determined"]]
+	return [["Starward", "Morning, all. The river doesn't wait, and neither does the mail.", "determined"],
 		["Starward", "Go on, then. Get to it.", "happy"]]
 
 
@@ -107,7 +111,7 @@ static func run(room) -> void:
 	await SceneKit.wait(room, 0.4)
 	await SceneKit.walk_to(room, way, CALLER, 0.2)
 	SceneKit.face(room, way, MARK + Vector2i(0, 3))
-	await _say_each(room, cast, [["Wayling", "Morning, everybody! Line up, line up! On the mark, please!"]])
+	await _say_each(room, cast, [["Wayling", "Mail's in! Gather up, routes are going out. Grab what's yours."]])
 	if not SceneKit._alive(room):
 		return
 	var moves: Array = []
@@ -119,24 +123,28 @@ static func run(room) -> void:
 	await _settle_leader(room)
 	for form in crew:
 		SceneKit.face(room, crew[form], way)
-	await _say_each(room, cast, [["Wayling", "Grubbit?"], ["Grubbit", "...here."], ["Wayling", "Stillwade?"], ["Stillwade", "Here."],
-		["Wayling", "Wickglow?"], ["Wickglow", "Here! Bright and early!"], ["Wayling", "Rinsepaw?"], ["Rinsepaw", "Here, hon. Soup's on at sundown."],
-		["Wayling", "Slipjaw?"], ["Slipjaw", "Obviously."],
-		["Wayling", "Muskin? ...Muskin?"]])
+	# Routes, not names: Wayling reads the table, and whoever runs that route claims it.
+	await _say_each(room, cast, [["Wayling", "The bend. Two parcels, and one's heavy."], ["Grubbit", "...mine. I know that one by the weight.", "happy"],
+		["Wayling", "Levee row, letters. Wet feet."], ["Stillwade", "Mine. River's up two notches, mind.", "worried"],
+		["Wayling", "Highbank windows, the thin ones."], ["Wickglow", "Mine! Gossip's free with every letter.", "mischievous"],
+		["Wayling", "The grocer's slip."], ["Rinsepaw", "That's supper, hon. Mine.", "happy"],
+		["Wayling", "The ford."], ["Slipjaw", "Fastest route. Obviously mine.", "determined"],
+		["Wayling", "Which leaves the Warren road... Muskin? ...Muskin?"]])
 	if not SceneKit._alive(room):
 		return
-	# Muskin, late as ever.
+	# Muskin, late as ever, gets the route nobody wants.
 	var mus: Dictionary = SceneKit.spawn(room, "muskin", LATE_DOOR, "e")
 	crew["muskin"] = mus
 	cast["Muskin"] = mus
 	SceneKit.emote(room, way, "!")
 	await SceneKit.walk_to(room, mus, Vector2i(13, 10), 0.13)
 	SceneKit.face(room, mus, way)
-	await _say_each(room, cast, [["Muskin", "Here! Sorry! Here! The door stuck. The door always sticks."], ["Wayling", "...And our runners?"],
-		["{partner}", "Here!", "joyous"]])
+	await _say_each(room, cast, [["Muskin", "Here! Sorry! Here! The door stuck. The door always sticks.", "worried"], ["Wayling", "The Warren road's yours, then. The door too."],
+		["Muskin", "...everything's always mine.", "worried"], ["Wayling", "And our runners?"], ["{partner}", "Here!", "joyous"],
+		["Wayling", "No route from this table for you two. Yours comes from the Postmaster."]])
 	if not SceneKit._alive(room):
 		return
-	# The Guildmaster comes out for the word of the day.
+	# The Postmaster comes out with the morning's note.
 	var star: Dictionary = SceneKit.spawn(room, "starward", Vector2i(14, 2), "s")
 	cast["Starward"] = star
 	SceneKit.pan(room, room._px(Vector2i(14, 8)), 0.5)
@@ -145,11 +153,12 @@ static func run(room) -> void:
 		SceneKit.face(room, e, star)
 	for form in crew:
 		SceneKit.face(room, crew[form], star)
-	await _say_each(room, cast, _word_of_the_day(story))
+	await _say_each(room, cast, _postmasters_note(story))
 	if not SceneKit._alive(room):
 		return
-	room._sfx("cheer")   # the whole crew (ElevenLabs, 2026-10-11)
-	await _say_each(room, cast, [["Wayling", "You heard the Guildmaster. Wayline!"], ["Muskin", "Wayline!"], ["Wickglow", "Wayline!"]])
+	# No cheer: the crew peel off to their routes, and Muskin is already lost.
+	await _say_each(room, cast, [["Wayling", "Routes are routes. The mail's not getting any drier standing here."], ["Muskin", "Wait, which way's the Warren road?", "worried"],
+		["Slipjaw", "Left. It's always left.", "angry"]])
 	if not SceneKit._alive(room):
 		return
 	rec["rollcall_runs"] = _runs(rec)

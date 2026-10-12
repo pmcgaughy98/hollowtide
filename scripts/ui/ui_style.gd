@@ -281,27 +281,34 @@ static func next_arrow(c: CanvasItem, pos: Vector2, t: float) -> void:
 		c.draw_texture(tex, pos + Vector2(0, 3.0 * float(int(t * 2.0) % 2)))
 
 
-## A whole scene line the Explorers of Sky way: the portrait framed above the box's left corner, the
-## name on a brass tab, the line in parchment, the arrow when there is more. `portrait_tex` may be null
-## (an unseen speaker), and then no portrait shows.
+## A whole scene line in our own frame (R7 of docs/design/genre-synthesis-2026-10-12.md, Claude, 2026-10-12):
+## the portrait set into the box's left end, its frame straddling the top edge like a photograph slipped
+## into a ledger, the name on a brass tab beside it, the line to its right in parchment, the arrow when
+## there is more. Explorers of Sky floats its portrait above the box's corner; ours sits in the box.
+## `portrait_tex` may be null (an unseen speaker), and then the line takes the whole width.
+const PORTRAIT_INSET := 150.0   # how far the line and the name step right of a set-in portrait
+
 static func dialogue(c: CanvasItem, box: Rect2, speaker: String, line: String, portrait_tex: Texture2D, t: float, size := 20, face := "normal") -> void:
-	if portrait_tex != null:
-		portrait(c, Rect2(box.position + Vector2(18, -150), Vector2(120, 120)), portrait_tex, false, face)
 	panel(c, box, 0.95)
+	var inset := 0.0
+	if portrait_tex != null:
+		portrait(c, Rect2(box.position + Vector2(30, -34), Vector2(120, 120)), portrait_tex, false, face)
+		inset = PORTRAIT_INSET
 	var lift := 0.0
 	if speaker != "":
-		nameplate(c, box.position + Vector2(160 if portrait_tex != null else 24, -22), speaker)
+		nameplate(c, box.position + Vector2(24 + inset, -22), speaker)
 		lift = 10.0
 	var f := font("story")
-	var at := (box.position + Vector2(30, 44 + lift)).round()
-	# Two rows at a time: a longer line pages inside the box, as Explorers of Sky's does.
-	var rows := wrap_text(line, box.size.x - 70, "story").split("\n")
+	var at := (box.position + Vector2(30 + inset, 44 + lift)).round()
+	var width: float = box.size.x - 70 - inset
+	# Two rows at a time: a longer line pages inside the box, as the genre's boxes do.
+	var rows := wrap_text(line, width, "story").split("\n")
 	_line_pages(line, ceili(rows.size() / 2.0))
 	var page := int(_line["page"])
 	var page_text := "\n".join(rows.slice(page * 2, page * 2 + 2))
 	var shown := page_text.substr(0, typed(line, page_text))
-	c.draw_multiline_string(f, at + Vector2(2, 2), shown, HORIZONTAL_ALIGNMENT_LEFT, box.size.x - 60, type_size("story"), -1, SHADOW)
-	c.draw_multiline_string(f, at, shown, HORIZONTAL_ALIGNMENT_LEFT, box.size.x - 60, type_size("story"), -1, TEXT)
+	c.draw_multiline_string(f, at + Vector2(2, 2), shown, HORIZONTAL_ALIGNMENT_LEFT, width + 10, type_size("story"), -1, SHADOW)
+	c.draw_multiline_string(f, at, shown, HORIZONTAL_ALIGNMENT_LEFT, width + 10, type_size("story"), -1, TEXT)
 	if _line["done"]:
 		next_arrow(c, box.end - Vector2(48, 36), t)   # more on the next page, or the next line
 

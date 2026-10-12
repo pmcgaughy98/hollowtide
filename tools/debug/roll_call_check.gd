@@ -1,7 +1,9 @@
 extends SceneTree
-## The Wayline Hall crew and the morning roll call (Claude, 2026-10-11; scripts/town/guild_crew.gd). Checks:
-##   1. on the lower floor, once the guild has taken the team on, the roll call plays: Wayling calls everyone,
-##      Muskin comes in late, Starward gives the word of the day, and the crew go back to their posts;
+## The Wayline Hall crew and the morning mail call (Claude, 2026-10-11; scripts/town/guild_crew.gd; rewritten as
+## parcel sorting on 2026-10-12, R3 of the genre synthesis; the file keeps its old name). Checks:
+##   1. on the lower floor, once the Wayline has taken the team on, the mail call plays: Wayling calls routes,
+##      the crew claim them, Muskin comes in late, Starward gives the morning's note, and the crew go back to
+##      their posts;
 ##   2. it does not play again until the team has been on another run;
 ##   3. a crew member at their post talks when spoken to, and stands solid;
 ##   4. upstairs, Wayling and Grubbit are at their posts.
@@ -80,12 +82,22 @@ func _run() -> void:
 				var at: Array = low.team.map(func(e: Dictionary) -> Vector2i: return e["pos"])
 				_ok("The team stands at the mark for the roll (%s)" % str(at), at[0] == Vector2i(14, 10))
 			low.talk.pop_front()
-	_ok("The roll call plays: %d lines, Wayling %s, Muskin %s, Starward %s" % [said.size(), said.has("Wayling"), said.has("Muskin"), said.has("Starward")],
-		said.size() >= 15 and said.has("Wayling") and said.has("Muskin") and said.has("Starward"))
+	_ok("The mail call plays: %d lines, Wayling %s, Muskin %s, Starward %s, every crew member claims a route %s" % [said.size(), said.has("Wayling"), said.has("Muskin"), said.has("Starward"),
+			["Grubbit", "Stillwade", "Wickglow", "Rinsepaw", "Slipjaw"].all(func(n: String) -> bool: return said.has(n))],
+		said.size() >= 15 and said.has("Wayling") and said.has("Muskin") and said.has("Starward")
+		and ["Grubbit", "Stillwade", "Wickglow", "Rinsepaw", "Slipjaw"].all(func(n: String) -> bool: return said.has(n)))
 	await process_frame
 	var posts: Array = _forms(low)
 	_ok("After: the crew at their posts %s, the scene over (%s)" % [str(posts), not low.cutscene], posts == ["muskin", "rinsepaw", "slipjaw", "stillwade", "wickglow"] and not low.cutscene)
 	await _snap("4_after")
+	# Standing south at their posts, the crew keep their job objects: Codex's town/idle_s.png (task 2), wired in
+	# scene_kit.spawn (2026-10-11). Slipjaw faces east and keeps the plain east still.
+	var standing: Array = []
+	for e in low.npcs:
+		if String(e["facing"]) == "s":
+			standing.append("%s:%s" % [e["form"], e["sprite"].texture.resource_path.get_file()])
+	_ok("Crew standing south show their job-object stills %s" % str(standing),
+		standing.size() == 4 and standing.all(func(s: String) -> bool: return s.ends_with(":idle_s.png")))
 	_ok("It is marked done for this run (%s)" % TeamState.data.get("rollcall_runs", -1), int(TeamState.data.get("rollcall_runs", -1)) == 0)
 	# 3. Talk to Stillwade at the window.
 	low.team[0]["pos"] = Vector2i(4, 4)
@@ -108,7 +120,7 @@ func _run() -> void:
 		await process_frame
 	# 2. Not again until another run.
 	var again := await _room("hall_low", true)
-	_ok("Next visit: no roll call (%s), crew at posts %s" % [not again.cutscene, str(_forms(again))], not again.cutscene and _forms(again).size() == 5)
+	_ok("Next visit: no mail call (%s), crew at posts %s" % [not again.cutscene, str(_forms(again))], not again.cutscene and _forms(again).size() == 5)
 	again.queue_free()
 	for k in 2:
 		await process_frame
@@ -129,5 +141,5 @@ func _run() -> void:
 	_ok("Upstairs: %s at their posts" % str(_forms(up)), _forms(up) == ["grubbit", "wayling"])
 	await _snap("6_upstairs")
 	up.queue_free()
-	print("ROLL CALL: %s" % ("all ok" if fails == 0 else "%d FAILED" % fails))
+	print("MAIL CALL: %s" % ("all ok" if fails == 0 else "%d FAILED" % fails))
 	quit(1 if fails else 0)

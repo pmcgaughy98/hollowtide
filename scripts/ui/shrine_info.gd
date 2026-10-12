@@ -185,8 +185,8 @@ func _rebuild() -> void:
 		button.add_theme_stylebox_override("normal", frame)
 		members.add_child(button)
 	if snapshot.get("party", []).is_empty(): members.add_child(_label("No team yet."))
-	status.text = "Shrine dormant: the socket is empty. You can still read your team's growth." if town.stone_state() == "" else ("The pond stone is carried. Set it in to wake the shrine." if town.stone_state() == "carried" else "Shrine awake. All four conditions must be met to evolve.")
-	action.text = "E set stone" if town.panel.get("service", "") == "stone_ask" else ("E evolve" if town.panel.get("service", "") == "evolve_ask" else "E close")
+	status.text = "Shrine dormant: the socket is empty. You can still read your team's growth." if town.stone_state() == "" else ("The pond stone is carried. Set it in to wake the shrine." if town.stone_state() == "carried" else "Shrine awake. All four conditions must be met to grow.")
+	action.text = "E set stone" if town.panel.get("service", "") == "stone_ask" else ("E grow" if town.panel.get("service", "") == "evolve_ask" else "E close")
 	_render_detail()
 
 func select(k: int) -> void:
@@ -198,7 +198,7 @@ func select(k: int) -> void:
 		if Evolution.ready(town._record(), selected):
 			town.panel["service"] = "evolve_ask"
 			town.panel["k"] = selected
-			town.panel["what"] = "%s is ready to evolve. Let it evolve here?" % member(town._record(), selected)["name"]
+			town.panel["what"] = "%s is ready to grow. Let it grow here?" % member(town._record(), selected)["name"]
 		else:
 			town.panel["service"] = "growth"
 			town.panel.erase("k")
@@ -252,7 +252,7 @@ func _render_detail() -> void:
 	title.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	head.add_child(title)
 	title.add_child(_label(data["name"], "name", UI.EDGE_LIGHT))
-	title.add_child(_label("Lv %d    IQ %d" % [data["level"], data["iq"]], "number"))
+	title.add_child(_label("Lv %d    Sense %d" % [data["level"], data["iq"]], "number"))
 	title.add_child(_label("Final stage" if data["final"] else ("Later forms not defined" if data["next"] == "" else "Next form: " + data["next"]), "body", UI.MUTED))
 	if tab == "growth":
 		for condition in data["conditions"]:
@@ -278,14 +278,14 @@ func _render_detail() -> void:
 			count.custom_minimum_size.x = 122
 			count.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
 			row.add_child(count)
-		var message: String = "This is its final form." if data["final"] else (("All conditions met. This creature can evolve here." if town.stone_state() == "installed" else "All conditions met. Ready here once the shrine is awake.") if data["ready"] else "Keep exploring to meet the remaining conditions.")
+		var message: String = "This is its final form." if data["final"] else (("All conditions met. This creature can grow here." if town.stone_state() == "installed" else "All conditions met. Ready here once the shrine is awake.") if data["ready"] else "Keep exploring to meet the remaining conditions.")
 		if not data["final"] and data["conditions"].is_empty(): message = "No evolution conditions are defined for this line yet."
 		details.add_child(_label(message, "body", UI.EVO if data["ready"] else UI.MUTED))
 	else:
 		details.add_child(_label("Known moves", "label", UI.EDGE_LIGHT))
 		for move in data["moves"]: details.add_child(_label(_move_name(move)))
 		_learn_rows("This form's learnset", data["learn"], false)
-		_learn_rows("After evolving into " + data["next"], data["next_learn"], false)
+		_learn_rows("After growing into " + data["next"], data["next_learn"], false)
 		_learn_rows("This form: unavailable in the dungeon", data["waiting"], true)
 		_learn_rows("Next form: unavailable in the dungeon", data["next_waiting"], true)
 		if not data["pending"].is_empty():

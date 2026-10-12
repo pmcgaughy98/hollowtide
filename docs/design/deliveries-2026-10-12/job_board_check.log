@@ -1,0 +1,59 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+[godot_ai game_helper] registered mcp capture (debugger active=false, logger=true)
+ERROR: Condition "!actions.custom_samplers.has(function->arguments[j].tex_builtin)" is true. Continuing.
+   at: _dump_node_code (servers/rendering/shader_compiler.cpp:1329)
+   GDScript backtrace (most recent call first):
+       [0] apply (res://scripts/town/world_finish.gd:67)
+       [1] _ready (res://scripts/town/hub_town.gd:72)
+       [2] _town (res://tools/debug/job_board_check.gd:38)
+       [3] _run (res://tools/debug/job_board_check.gd:49)
+ERROR: Condition "!actions.custom_samplers.has(function->arguments[j].tex_builtin)" is true. Continuing.
+   at: _dump_node_code (servers/rendering/shader_compiler.cpp:1329)
+   GDScript backtrace (most recent call first):
+       [0] apply (res://scripts/arena/creature_finish.gd:9)
+       [1] apply (res://scripts/town/exterior_finish.gd:7)
+       [2] _ready (res://scripts/town/building_exteriors.gd:122)
+       [3] attach (res://scripts/town/building_exteriors.gd:84)
+       [4] _ready (res://scripts/town/hub_town.gd:75)
+       [5] _town (res://tools/debug/job_board_check.gd:38)
+       [6] _run (res://tools/debug/job_board_check.gd:49)
+ERROR: Condition "!actions.custom_samplers.has(function->arguments[j].tex_builtin)" is true. Continuing.
+   at: _dump_node_code (servers/rendering/shader_compiler.cpp:1329)
+   GDScript backtrace (most recent call first):
+       [0] apply (res://scripts/town/exterior_finish.gd:8)
+       [1] _ready (res://scripts/town/building_exteriors.gd:122)
+       [2] attach (res://scripts/town/building_exteriors.gd:84)
+       [3] _ready (res://scripts/town/hub_town.gd:75)
+       [4] _town (res://tools/debug/job_board_check.gd:38)
+       [5] _run (res://tools/debug/job_board_check.gd:49)
+ERROR: Condition "!actions.custom_samplers.has(function->arguments[j].tex_builtin)" is true. Continuing.
+   at: _dump_node_code (servers/rendering/shader_compiler.cpp:1329)
+   GDScript backtrace (most recent call first):
+       [0] apply (res://scripts/town/exterior_finish.gd:8)
+       [1] _ready (res://scripts/town/building_exteriors.gd:122)
+       [2] attach (res://scripts/town/building_exteriors.gd:84)
+       [3] _ready (res://scripts/town/hub_town.gd:75)
+       [4] _town (res://tools/debug/job_board_check.gd:38)
+       [5] _run (res://tools/debug/job_board_check.gd:49)
+Board opens with 4 requests: Recover Cinderhide's Lamp Oil B3F, Find Cinderhide B2F, Find Dustkite B1F, Find Preostmar B3F -> ok
+Taken: ["1_0", "1_1"] -> ok
+On B1F: 1 client waiting, 1 lost item -> ok
+The client blocks the way like a wall -> ok
+Walking into it: job done true, its line 'You came all this way for me? Thank you. I can find the way up to Highbank from here.' -> ok
+Picking up the lost item: job done true, bag unchanged true -> ok
+Paid: ["Find Cinderhide: Reedberry x2, +40 rank", "Recover Cinderhide\'s River Stone: Second Wind x1, +40 rank. Courier Rank 2!"]; rank 80; bag { "reedberry": 3, "rally_seed": 1 } -> ok
+  Taken: Deliver to Dustkite. B1F, before the lantern goes out. The parcel is in the bag.
+Two deliveries taken: parcels in the bag 2; 'Deliver to Dustkite', asked 'before the lantern goes out' -> ok
+One put back: parcels 1 -> ok
+A faint drops the deliveries, keeps the rest: kept 1, lost ["Dustkite"] -> ok
+Both clients wait on B1F (2); the bag carries 2 parcels -> ok
+A faint now would lose both parcels: ["Dustkite", "Preostmar"] -> ok
+The parcel cannot be used (still 2 in the bag) -> ok
+Delivered: lit met true ('the lantern still lit'), careful missed false ('a trap went off on the way'), parcels left 0 -> ok
+Paid by condition: ["Deliver to Dustkite (the lantern still lit): Lamp Oil x2, +40 rank", "Deliver to Preostmar (a trap went off on the way): Lamp Oil x1, +25 rank"]; lamp oil +3, rank +65 -> ok
+JOB BOARD: all ok
+WARNING: 6 ObjectDB instances were leaked at exit (run with `--verbose` for details).
+   at: cleanup (core/object/object.cpp:2536)
+ERROR: 3 resources still in use at exit (run with --verbose for details).
+   at: clear (core/io/resource.cpp:822)

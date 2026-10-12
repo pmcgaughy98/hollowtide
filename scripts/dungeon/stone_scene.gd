@@ -45,7 +45,7 @@ const ARRIVES := [
 	["Starward", "For every one of them.", "angry"],
 ]
 const AFTER_PUNCH := [
-	["{partner}", "G-Guildmaster?! You followed us?", "surprised"],
+	["{partner}", "P-Postmaster?! You followed us?", "surprised"],
 	["Starward", "I follow every first run. Quietly.", "happy"],
 	["Starward", "That thing has kept this pond a long, long time. It was only playing with you.", "worried"],
 ]

@@ -1,0 +1,48 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+[godot_ai game_helper] registered mcp capture (debugger active=false, logger=true)
+ERROR: Condition "!actions.custom_samplers.has(function->arguments[j].tex_builtin)" is true. Continuing.
+   at: _dump_node_code (servers/rendering/shader_compiler.cpp:1329)
+   GDScript backtrace (most recent call first):
+       [0] apply (res://scripts/dungeon/dungeon_finish.gd:38)
+       [1] _build_floor (res://scripts/dungeon/dungeon.gd:586)
+       [2] _ready (res://scripts/dungeon/dungeon.gd:508)
+       [3] _dungeon (res://tools/debug/faint_check.gd:53)
+       [4] _run (res://tools/debug/faint_check.gd:62)
+ERROR: Condition "!actions.custom_samplers.has(function->arguments[j].tex_builtin)" is true. Continuing.
+   at: _dump_node_code (servers/rendering/shader_compiler.cpp:1329)
+   GDScript backtrace (most recent call first):
+       [0] apply (res://scripts/arena/creature_finish.gd:9)
+       [1] _make (res://scripts/dungeon/dungeon.gd:906)
+       [2] _build_floor (res://scripts/dungeon/dungeon.gd:596)
+       [3] _ready (res://scripts/dungeon/dungeon.gd:508)
+       [4] _dungeon (res://tools/debug/faint_check.gd:53)
+       [5] _run (res://tools/debug/faint_check.gd:62)
+A wipe opens the faint screen (faint_screen.tscn) -> ok
+It knows the run: Rootbank Warren B1F, beaten by Whinet, 3 items lost, going home true -> ok
+The partner speaks first (Tallowroot): Kithflare! Hey. Hey, stay with me... okay. Okay. I've got you. We're going home. -> ok
+Then the defeat panel (page 1) -> ok
+ERROR: Condition "!actions.custom_samplers.has(function->arguments[j].tex_builtin)" is true. Continuing.
+   at: _dump_node_code (servers/rendering/shader_compiler.cpp:1329)
+   GDScript backtrace (most recent call first):
+       [0] apply (res://scripts/town/exterior_finish.gd:8)
+       [1] _ready (res://scripts/town/building_exteriors.gd:122)
+       [2] attach (res://scripts/town/building_exteriors.gd:84)
+       [3] _ready (res://scripts/town/hub_town.gd:75)
+ERROR: Condition "!actions.custom_samplers.has(function->arguments[j].tex_builtin)" is true. Continuing.
+   at: _dump_node_code (servers/rendering/shader_compiler.cpp:1329)
+   GDScript backtrace (most recent call first):
+       [0] apply (res://scripts/town/exterior_finish.gd:8)
+       [1] _ready (res://scripts/town/building_exteriors.gd:122)
+       [2] attach (res://scripts/town/building_exteriors.gd:84)
+       [3] _ready (res://scripts/town/hub_town.gd:75)
+E carries the team home (hub_town.tscn), with news: Tallowroot got you up the bank somehow. The bag didn't make it, and the partners are resting. The Hollow's still there when you are. -> ok
+The record: faints 1, bag { "reedberry": 1 }, parcel stolen -> ok
+The next run starts with the leader whole (36 of 36 HP) and faints carried (1) -> ok
+In the Mouth before the road: the faint screen says back to the bank (going home false) -> ok
+E takes the team back into the Mouth, B1F (dungeon.tscn, mouth floor 1, faints 1) -> ok
+FAINT: all ok
+WARNING: 6 ObjectDB instances were leaked at exit (run with `--verbose` for details).
+   at: cleanup (core/object/object.cpp:2536)
+ERROR: 3 resources still in use at exit (run with --verbose for details).
+   at: clear (core/io/resource.cpp:822)

@@ -12,6 +12,7 @@ const Arena := preload("res://scripts/arena/arena_prototype.gd")
 const TeamState := preload("res://scripts/town/team_state.gd")
 const Evolution := preload("res://scripts/town/evolution.gd")
 const Jobs := preload("res://scripts/town/jobs.gd")
+const Storage := preload("res://scripts/town/storage.gd")   # R6, 2026-10-12
 const Music := preload("res://scripts/audio/music.gd")
 const RETURN_SPOT := Vector2i(24, 8)   # back from a run: on the Hall's steps (the guild, as in Explorers of Sky)
 const FONT := preload("res://assets/fonts/Silkscreen-Bold.ttf")
@@ -110,11 +111,15 @@ func _ready() -> void:
 		if parcel == "saved":
 			panel = {"name": "Highbank", "what": "Out of the Hollow, up the far bank, and into a town above the flood. %s still has the parcel, dry. Couriers post their work on the Job Board." % _partner_name(), "service": "news"}
 		elif parcel == "recovered":
-			panel = {"name": "Back in Highbank", "what": "Rootbank Warren is behind you and the parcel is back. Starward will want to see it in the Wayline Hall.", "service": "news"}
+			panel = {"name": "Back in Highbank", "what": "Rootbank Warren is behind you and the parcel is back. Starward will want to see it in the Wayline Hall. And with the crew out of the Warren, the river road's clear: the Storage is open.", "service": "news"}
 		if stone_state() == "carried":
 			panel["what"] = "Home from the Hollow with the %s from the Warden's pond. It hums near the Growth Shrine's empty socket." % StoneScene.STONE_NAME
 	elif news == "fainted":
-		panel = {"name": "Back in Highbank", "what": "The team was carried back from the Hollow. The bag was lost; the partners are resting.", "service": "news"}
+		panel = {"name": "Back in Highbank", "what": "%s got you up the bank somehow. The bag didn't make it, and the partners are resting. The Hollow's still there when you are." % _partner_name(), "service": "news"}
+	# Arriving in Highbank is the save point (Claude, 2026-10-12): home from a run, out of a room, or a new
+	# game's first arrival. The title's Continue reads it back. Setting out saves too (enter_hollow, start_replay).
+	_record()
+	TeamState.autosave()
 
 
 ## The stand-in picture: terrain bands, cliffs, the river, lanes, then each place as a block. Codex
@@ -260,6 +265,9 @@ func act_use() -> Dictionary:
 	if panel.get("service", "") == "board":
 		act_board_pick()
 		return {}
+	if panel.get("service", "") == "storage":
+		act_store(1)
+		return {}
 	if panel.get("service", "") == "way_pick":
 		start_replay(String(REPLAYS[int(panel["sel"])][0]))
 		return {}
@@ -284,9 +292,70 @@ func act_use() -> Dictionary:
 	if p["service"] == "jobs":
 		panel = _board_panel(p)
 		_sfx("board_paper")
+	elif p["service"] == "storage":   # R6: open once the river road past the Warren is clear (scripts/town/storage.gd)
+		panel = _storage_panel(p)
+		_sfx("door")
 	elif p["service"] in DOOR_SERVICES:
 		_sfx("door")
 	return p
+
+
+# ---------------------------------------------------------------- the Storage (R6)
+
+func _storage_panel(p: Dictionary) -> Dictionary:
+	if not Storage.open(_record()):
+		return {"name": p["name"], "what": Storage.shut_text(), "service": "storage_shut"}
+	return {"name": p["name"], "service": "storage", "sel": 0, "said": ""}
+
+
+func storage_rows() -> Array:
+	return Storage.rows(_record())
+
+
+## E puts one of the chosen kind in (n = 1); R takes one out (n = -1).
+func act_store(n: int) -> void:
+	var rows := storage_rows()
+	if rows.is_empty():
+		return
+	var k: int = clampi(int(panel.get("sel", 0)), 0, rows.size() - 1)
+	panel["said"] = Storage.move(_record(), String(rows[k][0]), n)
+	panel["sel"] = clampi(k, 0, maxi(0, storage_rows().size() - 1))
+	_ui_sfx("confirm")
+
+
+func act_store_move(dy: int) -> void:
+	var n := storage_rows().size()
+	if n > 0:
+		panel["sel"] = posmod(int(panel.get("sel", 0)) + dy, n)
+		_ui_sfx("cursor")
+
+
+func _draw_storage(h: CanvasItem) -> void:
+	var rec := _record()
+	var rows := storage_rows()
+	var box := Rect2(166, 64, 820, 160 + 40 * maxi(1, rows.size()))
+	UI.panel(h, box, 0.95)
+	UI.text(h, box.position + Vector2(30, 40), "Storage", 26, UI.EDGE_LIGHT)
+	UI.text(h, box.position + Vector2(30, 72), "Kept between runs. A faint loses the bag, never this.", 16, UI.MUTED, 520)
+	UI.text(h, box.position + Vector2(30, 72), "Bag %d / %d kinds" % [rec.get("bag", {}).size(), Storage.bag_kinds()], 16, UI.MUTED, box.size.x - 60, HORIZONTAL_ALIGNMENT_RIGHT)
+	if rows.is_empty():
+		UI.text(h, box.position + Vector2(30, 118), "Nothing in the bag, and nothing kept here yet.", 18, UI.TEXT, box.size.x - 60)
+	for k in rows.size():
+		var row: Array = rows[k]
+		var r := Rect2(box.position + Vector2(24, 94 + k * 40), Vector2(box.size.x - 48, 36))
+		var on: bool = k == int(panel.get("sel", 0))
+		if on:
+			h.draw_rect(r, UI.FOCUS)
+			h.draw_rect(r, UI.EDGE_LIGHT, false, 2.0)
+		var icon := UI.item_icon(String(row[0]))
+		if icon != null:
+			h.draw_texture(icon, r.position + Vector2(10, 4))
+		UI.text(h, r.position + Vector2(52, 25), Storage.item_name(String(row[0])), 19, UI.EDGE_LIGHT if on else UI.TEXT, 380)
+		UI.text(h, r.position + Vector2(460, 25), "bag x%d" % int(row[1]), 17, UI.TEXT if int(row[1]) > 0 else UI.MUTED, 150)
+		UI.text(h, r.position + Vector2(620, 25), "kept x%d" % int(row[2]), 17, UI.TEXT if int(row[2]) > 0 else UI.MUTED, 150)
+	if String(panel.get("said", "")) != "":
+		UI.text(h, box.end + Vector2(-box.size.x + 30, -44), String(panel["said"]), 16, UI.EDGE_LIGHT, box.size.x - 60)
+	UI.text(h, box.end + Vector2(-box.size.x + 30, -20), "W/S choose     E put one in     R take one out     Esc close", 15, UI.MUTED, box.size.x - 60, HORIZONTAL_ALIGNMENT_RIGHT)
 
 
 ## After the pilot the way down offers every dungeon again. A replay has no boss floor (dungeon.gd `replay`),
@@ -298,6 +367,7 @@ func start_replay(id: String) -> void:
 	panel = {}
 	var dg: Node2D = load("res://scenes/dungeon.tscn").instantiate()
 	TeamState.data["party"] = party.duplicate(true)
+	TeamState.autosave()   # what the town changed (jobs, story) is kept even if the run is abandoned
 	TeamState.give_to(dg)
 	dg.dungeon = id
 	dg.replay = true
@@ -415,10 +485,10 @@ func _shrine_panel(p: Dictionary) -> Dictionary:
 			return {"name": p["name"], "what": "The %s grows warm as you near the empty socket. Set it in?" % StoneScene.STONE_NAME, "service": "stone_ask"}
 	var ready := Evolution.ready_list(_record())
 	if ready.is_empty():
-		return {"name": p["name"], "what": "No one is ready to evolve yet. The Team page (P) shows what each creature still needs.", "service": "growth"}
+		return {"name": p["name"], "what": "No one is ready to grow yet. The Team page (P) shows what each creature still needs.", "service": "growth"}
 	var k: int = ready[0]
 	var name: String = load(Lines.of(party[k][0])["forms"][party[k][1]][1]).creature_name
-	return {"name": p["name"], "what": "%s is ready to evolve. Let it evolve here?      E  yes      Esc  not now" % name, "service": "evolve_ask", "k": k}
+	return {"name": p["name"], "what": "%s is ready to grow. Let it grow here?      E  yes      Esc  not now" % name, "service": "evolve_ask", "k": k}
 
 
 ## The pilot's order (docs/design/pilot-story-2026-10-10.md): Rootbank Warren waits until the guild sends
@@ -429,7 +499,7 @@ func story_gate(dungeon_id: String) -> String:
 	var parcel := String(story.get("parcel", ""))
 	if dungeon_id == "first":
 		if parcel == "saved":
-			return "%s hugs the parcel. \"This is Wayline mail. The guild ought to see it before we go anywhere.\" The Job Board is right there." % _partner_name()
+			return "%s hugs the parcel. \"This is Wayline mail. The Wayline ought to see it before we go anywhere.\" The Job Board is right there." % _partner_name()
 		if parcel == "stolen" and not story.get("guild_trial", false):
 			return "%s stops you. \"We can't go chasing them by ourselves. We gotta tell the Hall first.\"" % _partner_name()
 	elif dungeon_id == "hollow" and parcel == "recovered":
@@ -476,7 +546,7 @@ func install_stone() -> void:
 	stone_fx["wake_at"] = Time.get_ticks_msec()
 	await get_tree().create_timer(1.6).timeout
 	stone_fx.erase("wake_at")
-	panel = {"name": "Growth Shrine", "what": "The stone settles into the socket, and the shrine wakes: light runs through its old stones. A creature that is ready can evolve here now.", "service": "growth_done"}
+	panel = {"name": "Growth Shrine", "what": "The stone settles into the socket, and the shrine wakes: light runs through its old stones. A creature that is ready can grow here now.", "service": "growth_done"}
 	evolving_now = false
 
 
@@ -534,7 +604,7 @@ func evolve_at_shrine(k: int) -> void:
 		notes.append("Its new body can't use %s." % ", ".join(res["lost"].map(func(m: String) -> String: return Arena.MOVES[m]["name"])))
 	if not res["waiting"].is_empty():
 		notes.append("%s will be offered on the next run." % ", ".join(res["waiting"].map(func(m: String) -> String: return Arena.MOVES[m]["name"])))
-	panel = {"name": "Growth Shrine", "what": "%s evolved into %s! %s" % [res["old_name"], res["new_name"], " ".join(notes)], "service": "growth_done"}
+	panel = {"name": "Growth Shrine", "what": "%s has grown into %s! %s" % [res["old_name"], res["new_name"], " ".join(notes)], "service": "growth_done"}
 	evolving_now = false
 
 
@@ -555,6 +625,7 @@ func enter_hollow() -> void:
 	if TeamState.data.is_empty():
 		TeamState.start(party)
 	TeamState.data["party"] = party.duplicate(true)
+	TeamState.autosave()   # setting out: the town's changes are kept even if the run is abandoned
 	TeamState.give_to(dg)
 	# The next dungeon whose boss is not beaten (the town has one way down for now; Codex's layout
 	# can give each its own entrance later).
@@ -643,6 +714,13 @@ func _poll() -> void:
 			act_board_move(-1)
 		if _tapped(KEY_S) or _tapped(KEY_DOWN):
 			act_board_move(1)
+	if panel.get("service", "") == "storage":
+		if _tapped(KEY_W) or _tapped(KEY_UP):
+			act_store_move(-1)
+		if _tapped(KEY_S) or _tapped(KEY_DOWN):
+			act_store_move(1)
+		if _tapped(KEY_R):
+			act_store(-1)
 	if panel.get("service", "") == "way_pick":
 		var dy := int(_tapped(KEY_S) or _tapped(KEY_DOWN)) - int(_tapped(KEY_W) or _tapped(KEY_UP))
 		if dy != 0:
@@ -711,6 +789,8 @@ func _draw_hud() -> void:
 		UI.dialogue(h, Rect2(196, 452, 760, 116), String(line[0]), String(line[1]), UI.dialogue_portrait(form) if form != "" else null, Time.get_ticks_msec() / 1000.0, 20, face)
 	elif panel.get("service", "") == "board":
 		_draw_board(h)
+	elif panel.get("service", "") == "storage":
+		_draw_storage(h)
 	elif panel.get("service", "") == "way_pick":
 		var box := Rect2(196, 452 - 34 * REPLAYS.size(), 760, 92 + 34 * REPLAYS.size())
 		UI.panel(h, box, 0.95)
@@ -727,7 +807,7 @@ func _draw_hud() -> void:
 		UI.panel(h, box, 0.95)
 		UI.text(h, box.position + Vector2(22, 34), String(panel["name"]), 23, UI.EDGE_LIGHT, 716)
 		h.draw_multiline_string(UI.HEAD, box.position + Vector2(22, 64), String(panel["what"]), HORIZONTAL_ALIGNMENT_LEFT, 716, 18, 2, UI.TEXT)
-		var hint := "E  evolve     Esc  not now" if panel.get("service", "") == "evolve_ask" else ("E  set it in     Esc  not now" if panel.get("service", "") == "stone_ask" else "E  close")
+		var hint := "E  grow     Esc  not now" if panel.get("service", "") == "evolve_ask" else ("E  set it in     Esc  not now" if panel.get("service", "") == "stone_ask" else "E  close")
 		UI.text(h, box.position + Vector2(22, 116), hint, 15, UI.MUTED, 716, HORIZONTAL_ALIGNMENT_RIGHT)
 
 
@@ -767,7 +847,12 @@ func _draw_board(h: CanvasItem) -> void:
 		h.draw_rect(face_r, UI.EDGE, false, 1.0)
 		var done: bool = j.get("done", false)
 		UI.text(h, r.position + Vector2(70, 27), Jobs.title(j), 20, UI.EDGE_LIGHT if on else UI.TEXT, 340)
-		UI.text(h, r.position + Vector2(70, 51), "B%dF   %s" % [int(j["floor"]), "done, paid on return" if done else ("lost there" if j["kind"] == "rescue" else "dropped there")], 15, UI.MUTED, 300)
+		var where := "done, paid on return"
+		if done and j["kind"] == "delivery":
+			where = "delivered, %s" % Jobs.result_text(j)
+		elif not done:
+			where = {"rescue": "lost there", "lost_item": "dropped there"}.get(j["kind"], "%s, pay x2" % Jobs.cond_text(j))
+		UI.text(h, r.position + Vector2(70, 51), "B%dF   %s" % [int(j["floor"]), where], 15, UI.MUTED, 340)
 		var icon := UI.item_icon(String(j["reward"]))
 		if icon != null:
 			h.draw_texture(icon, r.position + Vector2(420, 15))

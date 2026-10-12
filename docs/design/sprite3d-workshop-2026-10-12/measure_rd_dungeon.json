@@ -1,0 +1,107 @@
+{
+ "folder": "assets/sprites/arena/kithflare/dungeon",
+ "views": {
+  "e": {
+   "h": 22,
+   "w": 22,
+   "feet_row": 30,
+   "foot_x": 17,
+   "area": 247,
+   "colours": 14,
+   "canvas": [
+    37,
+    37
+   ]
+  },
+  "ne": {
+   "h": 23,
+   "w": 21,
+   "feet_row": 30,
+   "foot_x": 20,
+   "area": 238,
+   "colours": 14,
+   "canvas": [
+    37,
+    37
+   ]
+  },
+  "n": {
+   "h": 22,
+   "w": 19,
+   "feet_row": 29,
+   "foot_x": 17,
+   "area": 233,
+   "colours": 15,
+   "canvas": [
+    37,
+    37
+   ]
+  },
+  "nw": {
+   "h": 22,
+   "w": 17,
+   "feet_row": 29,
+   "foot_x": 18,
+   "area": 240,
+   "colours": 13,
+   "canvas": [
+    37,
+    37
+   ]
+  },
+  "w": {
+   "h": 22,
+   "w": 22,
+   "feet_row": 30,
+   "foot_x": 18,
+   "area": 247,
+   "colours": 14,
+   "canvas": [
+    37,
+    37
+   ]
+  },
+  "sw": {
+   "h": 22,
+   "w": 21,
+   "feet_row": 30,
+   "foot_x": 21,
+   "area": 242,
+   "colours": 16,
+   "canvas": [
+    37,
+    37
+   ]
+  },
+  "s": {
+   "h": 21,
+   "w": 15,
+   "feet_row": 29,
+   "foot_x": 13,
+   "area": 204,
+   "colours": 14,
+   "canvas": [
+    37,
+    37
+   ]
+  },
+  "se": {
+   "h": 22,
+   "w": 22,
+   "feet_row": 30,
+   "foot_x": 17,
+   "area": 231,
+   "colours": 13,
+   "canvas": [
+    37,
+    37
+   ]
+  }
+ },
+ "height_spread": 2,
+ "mirror_iou": {
+  "e/w": 1.0,
+  "ne/nw": 0.599,
+  "se/sw": 0.683
+ }
+}
