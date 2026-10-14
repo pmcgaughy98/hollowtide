@@ -1,0 +1,268 @@
+{
+  "shell_source_size": [
+    1434,
+    1097
+  ],
+  "shell_parts": {
+    "north": {
+      "crop": [
+        64,
+        0,
+        1370,
+        145
+      ],
+      "size": [
+        360,
+        72
+      ],
+      "at": [
+        24,
+        0
+      ]
+    },
+    "west": {
+      "crop": [
+        0,
+        430,
+        60,
+        1016
+      ],
+      "size": [
+        24,
+        312
+      ],
+      "at": [
+        0,
+        0
+      ]
+    },
+    "east": {
+      "crop": [
+        1374,
+        430,
+        1434,
+        1016
+      ],
+      "size": [
+        24,
+        312
+      ],
+      "at": [
+        384,
+        0
+      ]
+    },
+    "south_left": {
+      "crop": [
+        64,
+        1018,
+        600,
+        1097
+      ],
+      "size": [
+        144,
+        24
+      ],
+      "at": [
+        24,
+        288
+      ]
+    },
+    "south_right": {
+      "crop": [
+        830,
+        1018,
+        1370,
+        1097
+      ],
+      "size": [
+        144,
+        24
+      ],
+      "at": [
+        240,
+        288
+      ]
+    }
+  },
+  "floor_reused_native_1x": {
+    "path": "C:\\Users\\pmcga\\dev\\hollowtide\\assets\\sprites\\world\\hall_floors_2026_10_11\\lower_floor.png",
+    "crop": [
+      144,
+      72,
+      504,
+      312
+    ],
+    "sha256": "f60539db558d773d9dae1cb0759ed69096e72415820d477ea2e50a3813df1a80"
+  },
+  "props": {
+    "cabinet_left": {
+      "crop": [
+        64,
+        80,
+        448,
+        560
+      ],
+      "size": [
+        72,
+        96
+      ],
+      "alpha_threshold": 224,
+      "alpha_crop_within_source_rect": [
+        26,
+        31,
+        349,
+        453
+      ],
+      "uniform_scale": 0.21052631578947367,
+      "fitted_size": [
+        68,
+        89
+      ],
+      "paste_at": [
+        2,
+        5
+      ]
+    },
+    "cabinet_right": {
+      "crop": [
+        576,
+        80,
+        928,
+        560
+      ],
+      "size": [
+        72,
+        96
+      ],
+      "alpha_threshold": 224,
+      "alpha_crop_within_source_rect": [
+        25,
+        31,
+        319,
+        453
+      ],
+      "uniform_scale": 0.21800947867298578,
+      "fitted_size": [
+        64,
+        92
+      ],
+      "paste_at": [
+        4,
+        2
+      ]
+    },
+    "counter": {
+      "crop": [
+        960,
+        288,
+        1536,
+        560
+      ],
+      "size": [
+        144,
+        60
+      ],
+      "alpha_threshold": 224,
+      "alpha_crop_within_source_rect": [
+        31,
+        29,
+        542,
+        239
+      ],
+      "uniform_scale": 0.26666666666666666,
+      "fitted_size": [
+        136,
+        56
+      ],
+      "paste_at": [
+        4,
+        2
+      ]
+    },
+    "crates": {
+      "crop": [
+        96,
+        640,
+        416,
+        928
+      ],
+      "size": [
+        48,
+        48
+      ],
+      "alpha_threshold": 224,
+      "alpha_crop_within_source_rect": [
+        29,
+        27,
+        283,
+        256
+      ],
+      "uniform_scale": 0.1732283464566929,
+      "fitted_size": [
+        44,
+        40
+      ],
+      "paste_at": [
+        2,
+        6
+      ]
+    },
+    "basket": {
+      "crop": [
+        624,
+        672,
+        928,
+        928
+      ],
+      "size": [
+        48,
+        40
+      ],
+      "alpha_threshold": 224,
+      "alpha_crop_within_source_rect": [
+        31,
+        50,
+        262,
+        213
+      ],
+      "uniform_scale": 0.19047619047619047,
+      "fitted_size": [
+        44,
+        31
+      ],
+      "paste_at": [
+        2,
+        7
+      ]
+    },
+    "lamp": {
+      "crop": [
+        1152,
+        640,
+        1344,
+        928
+      ],
+      "size": [
+        16,
+        32
+      ],
+      "alpha_threshold": 224,
+      "alpha_crop_within_source_rect": [
+        57,
+        47,
+        146,
+        234
+      ],
+      "uniform_scale": 0.1348314606741573,
+      "fitted_size": [
+        12,
+        25
+      ],
+      "paste_at": [
+        2,
+        5
+      ]
+    }
+  }
+}

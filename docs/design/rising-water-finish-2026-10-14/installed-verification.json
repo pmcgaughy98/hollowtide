@@ -1,0 +1,10 @@
+{
+  "protected_existing_sources": 823,
+  "unchanged_sources": 822,
+  "changed_existing_sources": [
+    "scripts/dungeon/dungeon.gd"
+  ],
+  "all_production_code_other_than_render_hook_exact": true,
+  "legacy_water_renderer_exact": true,
+  "new_source_and_textures_exact": true
+}

@@ -1,0 +1,18 @@
+{
+  "command": [
+    "C:/Users/pmcga/Games/Tools/Godot_v4.7.2/Godot_v4.7.2-stable_win64.exe",
+    "--headless",
+    "--check-only",
+    "--path",
+    "C:\\Users\\pmcga\\dev\\hollowtide",
+    "--rendering-method",
+    "gl_compatibility",
+    "--audio-driver",
+    "Dummy",
+    "--script",
+    "res://tools/trailer/record_pitch_v4.gd"
+  ],
+  "APPDATA": "D:\\dev\\hollowtide-full-pitch-v4-20261014\\installed-parse-profile",
+  "LOCALAPPDATA": "D:\\dev\\hollowtide-full-pitch-v4-20261014\\installed-parse-profile",
+  "exit_code": 0
+}

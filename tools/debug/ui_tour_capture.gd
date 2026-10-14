@@ -3,12 +3,16 @@ extends SceneTree
 ## "UI upgrades and visuals... from main menu to town to battle, everything"). Windowed only:
 ## a headless run has no viewport picture.
 ##   Godot --path . --fixed-fps 30 --script res://tools/debug/ui_tour_capture.gd
-## Writes docs/ui/ui-tour-2026-10-10/<n>_<screen>.png.
+## Writes docs/ui/ui-tour-2026-10-10/<n>_<screen>.png, or the folder given after `-- --out res://...`.
 
-const OUT := "res://docs/ui/ui-tour-2026-10-10/"
+var OUT := "res://docs/ui/ui-tour-2026-10-10/"
 
 
 func _initialize() -> void:
+	var args := OS.get_cmdline_user_args()
+	var at := args.find("--out")
+	if at >= 0 and at + 1 < args.size():
+		OUT = args[at + 1].trim_suffix("/") + "/"
 	_run.call_deferred()
 
 

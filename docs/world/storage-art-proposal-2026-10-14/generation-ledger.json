@@ -1,0 +1,31 @@
+{
+  "provider": "built-in image_gen.imagegen",
+  "calls": 2,
+  "exact_model_version": null,
+  "original_outputs_preserved": true,
+  "items": [
+    {
+      "output": "generation/shell.png",
+      "original_tool_path": "C:/Users/pmcga/.codex/generated_images/01a12b4b-7982-7b32-b405-2a584762f412/exec-284e9fab-93ef-472d-881b-fe60d0e95cae.png",
+      "prompt": "shell-prompt.txt",
+      "edit_target": "shell-guide-3x.png",
+      "style_references": [
+        "references/hall-low.png",
+        "references/hall-chamber.png"
+      ],
+      "used_regions": "native-preparation.json shell_parts; floor and accidental side openings not used"
+    },
+    {
+      "output": "generation/props.png",
+      "original_tool_path": "C:/Users/pmcga/.codex/generated_images/01a12b4b-7982-7b32-b405-2a584762f412/exec-adb767f2-0dff-4630-9a60-19d5d17e5f73.png",
+      "prompt": "props-prompt.txt",
+      "edit_target": "props-guide.png",
+      "style_references": [
+        "references/hall-low.png",
+        "generation/shell.png"
+      ],
+      "transparent_background_requested": true,
+      "native_preparation": "source alpha >=224, uniform nearest fit, two-pixel margins, shared material rim"
+    }
+  ]
+}

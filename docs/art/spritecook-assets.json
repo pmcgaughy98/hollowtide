@@ -1,0 +1,70 @@
+{
+  "note": "SpriteCook asset IDs for Hollowtide (spritecook-workflow-essentials manifest): asset_id, sha12 of the saved local file, label. No URLs or tokens.",
+  "assets": [
+    {
+      "asset_id": "46a11c32-7fea-4c70-949b-97bdcbdf2153",
+      "sha12": "86be295d2f57",
+      "label": "kithflare 3D model se render (exam structure)"
+    },
+    {
+      "asset_id": "14017874-2f29-4d76-95dd-b94beb8ca5bb",
+      "sha12": "ff81a2525099",
+      "label": "style ref: kithflare e"
+    },
+    {
+      "asset_id": "ce4d7256-3843-42e1-ba88-7ad8e7824424",
+      "sha12": "261fdbc23af3",
+      "label": "style ref: kithflare s"
+    },
+    {
+      "asset_id": "dccbeff6-82cb-4592-99c8-90f8cee72a24",
+      "sha12": "5fa4bafec1da",
+      "label": "style ref: kithflare n"
+    },
+    {
+      "asset_id": "982f2546-156b-4787-b8d2-e693f6dccb65",
+      "sha12": "8f031cd7e041",
+      "label": "style ref: preostmar se"
+    },
+    {
+      "asset_id": "61002d78-234b-4128-85c7-f23a37abb759",
+      "sha12": "d0d5ac6a3dd7",
+      "label": "style ref: troughspine se"
+    },
+    {
+      "asset_id": "0b50fe13-4671-425d-aa02-671baf2e38b6",
+      "sha12": "5c82581aaf0a",
+      "label": "style ref: tallowroot se"
+    },
+    {
+      "asset_id": "c06a4cc6-3d4d-4e28-bf9f-b9a9ea301f43",
+      "sha12": "0e267b38d45d",
+      "label": "exam: kithflare se repaint (gpt-image-2)"
+    },
+    {
+      "asset_id": "5b37515a-447e-4dea-92b3-68a6405ba60f",
+      "sha12": "6ef25ee9fe4b",
+      "label": "ballastak se master (proposal, nano banana 2.1)"
+    },
+    {
+      "asset_id": "ab949bcd-0b50-409a-8a49-98ee5310f2da",
+      "sha12": "a538aa88a3ff",
+      "label": "ballastak eight directions, 3x3 grid (proposal)"
+    },
+    {
+      "asset_id": "44f7ed28-8bd2-477b-966e-76a6cc9661e2",
+      "sha12": "42729097d41e",
+      "label": "ballastak e, the three-quarter grid cell uploaded to fix"
+    },
+    {
+      "asset_id": "c94ea1f6-f984-4c83-aa4b-260c8d80d1c1",
+      "sha12": "3c746204d31a",
+      "label": "ballastak e, first true-profile edit (replaced)"
+    },
+    {
+      "asset_id": "2a140a95-0221-4ab0-80cc-6220ffdcd647",
+      "sha12": "c746322a21b5",
+      "label": "ballastak e, second profile edit (used for e, mirrored for w)"
+    }
+  ]
+}

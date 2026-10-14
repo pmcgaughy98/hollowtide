@@ -1,0 +1,18 @@
+--- original/docs/team/CODEX_START_HERE_2026-10-14.md
++++ installed/docs/team/CODEX_START_HERE_2026-10-14.md
+@@ -2,10 +2,14 @@
+ 
+ Live project: **C:/Users/pmcga/dev/hollowtide**. Codex's writable workspace is **D:/dev**.
+ 
++## Current status
++
++Task 1 complete: native 32px sealed Parcel icon, exact existing Scroll paper/wax palette and six-colour outline recipe. Generic item lookup/Bag resolve automatically; delivery-only Board hook shows cargo beside the title while retaining the separate reward icon. Native 20/20 staging and 20/20 installed live: take a generated delivery at the real Board, exact Board cargo/reward pixels, actual Bag row and selected 3x detail, put-back cargo removal. All 17 prior icon recipes and 809 other protected source/UI files exact. Original sources, diff, native import, private drivers, captures and receipts: docs/ui/parcel-icon-2026-10-14/README.md. AI-assisted native-grid art; no image generation, paid call, rule/save/settings/other-asset edit or commit. Claude proposals and local training untouched. Task 2, painted rising water, is next; tasks 2-5 remain pending.
++
+ ## Read before work
+ 
+ 1. Live `AGENTS.md`, `CLAUDE.md`, and the top entries in `docs/AI_COLLABORATION.md` (2026-10-12 onward).
+-2. **Current queue: `docs/team/CODEX_TASKS_2026-10-14.md`.** Five tasks, in order: the Parcel icon, the painted
++2. **Current queue: `docs/team/CODEX_TASKS_2026-10-14.md`.** Five tasks, in order: the Parcel icon (complete), the painted
+    rising water, the Storage room's art, the dialogue frame's left corner, the AI asset inventory refresh.
+ 3. The 2026-10-11 start-here (`docs/team/CODEX_START_HERE_2026-10-11.md`) for your finished work and its evidence
+    folders, and its **Safe workflow and tools** section, which still applies as written (staging folders, native

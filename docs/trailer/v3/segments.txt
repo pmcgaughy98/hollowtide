@@ -1,0 +1,22 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+D3D12 12_0 - Forward+ - Using Device #0: NVIDIA - NVIDIA GeForce GTX 1660 SUPER
+
+Movie Maker mode enabled, recording movie in 1152×648 @ 30 FPS...
+[godot_ai game_helper] registered mcp capture (debugger active=false, logger=true)
+SEG title_continue 149 346
+SEG mail_call 366 2016
+SEG board 2036 2276
+SEG water 2306 2723
+SEG faint 2733 3082
+SEG storage 3123 3308
+SEG growth 3358 3651
+SEG standoff 3663 5973
+RECORDED 5973 frames
+--------------------------------------------------------------------------------
+Done recording movie at path: C:/Users/pmcga/dev/hollowtide/docs/trailer/v3/raw.avi
+5974 frames at 30 FPS (movie length: 00:03:19:04), recorded in 00:02:28 (134% of real-time speed).
+CPU render time: 0.45 seconds (average: 0.07 ms/frame)
+GPU render time: 6.58 seconds (average: 1.10 ms/frame)
+Encoding time: 45.51 seconds (average: 7.62 ms/frame)
+--------------------------------------------------------------------------------
+ERROR: 864 RID allocations of type 'N10RendererRD14TextureStorage7TextureE' were leaked at exit.

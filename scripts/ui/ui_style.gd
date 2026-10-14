@@ -74,6 +74,14 @@ static func say(c: CanvasItem, pos: Vector2, s: String, role := "body", col := T
 	var f := font(role)
 	var n := type_size(role)
 	var px := float(TYPE[role]["px"])
+	if width > 0.0 and align != HORIZONTAL_ALIGNMENT_LEFT:
+		# Still too wide at the smallest role: grow the box toward the left (right-aligned) or both ways
+		# (centred) instead of running off its right edge, which at a screen edge cut words off
+		# ("The Hollow's mouth starts a r"). Claude, 2026-10-14.
+		var over: float = width_in(s, role) - width
+		if over > 0.0:
+			pos.x -= over if align == HORIZONTAL_ALIGNMENT_RIGHT else over * 0.5
+			width += over
 	pos = pos.round()
 	if role == "number":
 		c.draw_string_outline(f, pos, s, align, width, n, int(px) * 2, Color(0.05, 0.05, 0.05, col.a))
@@ -91,6 +99,16 @@ static func fit(s: String, role: String, width: float) -> String:
 
 static func width_in(s: String, role: String) -> float:
 	return font(role).get_string_size(s, HORIZONTAL_ALIGNMENT_LEFT, -1, type_size(role)).x
+
+
+## `s` cut short with ".." so it fits `width` in `role` (whole when it already fits).
+static func clip(s: String, role: String, width: float) -> String:
+	if width_in(s, role) <= width:
+		return s
+	var cut := s
+	while cut.length() > 1 and width_in(cut.strip_edges() + "..", role) > width:
+		cut = cut.substr(0, cut.length() - 1)
+	return cut.strip_edges() + ".."
 
 
 ## Which role an older call's font size stands for, so screens not yet given roles still land on the grid.
@@ -286,13 +304,13 @@ static func next_arrow(c: CanvasItem, pos: Vector2, t: float) -> void:
 ## into a ledger, the name on a brass tab beside it, the line to its right in parchment, the arrow when
 ## there is more. Explorers of Sky floats its portrait above the box's corner; ours sits in the box.
 ## `portrait_tex` may be null (an unseen speaker), and then the line takes the whole width.
-const PORTRAIT_INSET := 150.0   # how far the line and the name step right of a set-in portrait
+const PORTRAIT_INSET := 162.0   # how far the line and the name step right of a set-in portrait
 
 static func dialogue(c: CanvasItem, box: Rect2, speaker: String, line: String, portrait_tex: Texture2D, t: float, size := 20, face := "normal") -> void:
 	panel(c, box, 0.95)
 	var inset := 0.0
 	if portrait_tex != null:
-		portrait(c, Rect2(box.position + Vector2(30, -34), Vector2(120, 120)), portrait_tex, false, face)
+		portrait(c, Rect2(box.position + Vector2(42, -34), Vector2(120, 120)), portrait_tex, false, face)
 		inset = PORTRAIT_INSET
 	var lift := 0.0
 	if speaker != "":

@@ -1,0 +1,87 @@
+{
+  "board_seed": 2,
+  "checks": [
+    {
+      "check": "Generic item lookup returns Parcel",
+      "ok": true
+    },
+    {
+      "check": "Imported 32px RGBA exact",
+      "ok": true
+    },
+    {
+      "check": "Unknown item fallback retained",
+      "ok": true
+    },
+    {
+      "check": "Existing icon: reedberry",
+      "ok": true
+    },
+    {
+      "check": "Existing icon: lamp_oil",
+      "ok": true
+    },
+    {
+      "check": "Existing icon: river_stone",
+      "ok": true
+    },
+    {
+      "check": "Existing icon: rally_seed",
+      "ok": true
+    },
+    {
+      "check": "Existing icon: scroll:claw",
+      "ok": true
+    },
+    {
+      "check": "Actual Job Board opens",
+      "ok": true
+    },
+    {
+      "check": "Generated board has Deliver to request",
+      "ok": true
+    },
+    {
+      "check": "Taking delivery puts one Parcel in bag",
+      "ok": true
+    },
+    {
+      "check": "Board retains taken delivery and unchanged reward",
+      "ok": true
+    },
+    {
+      "check": "Real Board cargo icon rendered pixel exact",
+      "ok": true
+    },
+    {
+      "check": "Real Board reward icon still rendered pixel exact",
+      "ok": true
+    },
+    {
+      "check": "Actual Bag has Parcel row with icon",
+      "ok": true
+    },
+    {
+      "check": "Bag selects Parcel and count",
+      "ok": true
+    },
+    {
+      "check": "Bag detail uses exact nearest 3x icon",
+      "ok": true
+    },
+    {
+      "check": "Real Bag row icon visible",
+      "ok": true
+    },
+    {
+      "check": "Real Bag detail icon rendered pixel exact",
+      "ok": true
+    },
+    {
+      "check": "Putting delivery back removes cargo without altering other bag items",
+      "ok": true
+    }
+  ],
+  "passed": 20,
+  "total": 20
+}

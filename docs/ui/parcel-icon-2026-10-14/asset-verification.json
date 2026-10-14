@@ -1,0 +1,16 @@
+{
+  "size": [
+    32,
+    32
+  ],
+  "logical_grid": [
+    16,
+    16
+  ],
+  "hard_alpha": true,
+  "existing_scroll_palette_exact": true,
+  "opaque_colors": 6,
+  "legacy_icon_recipes_exact": 17,
+  "protected_existing_files_exact": 811,
+  "new_asset_sha256": "ef8f571712498ee21c6470d8651a205e90a4a36ba309b43a6b6a4ea90ee41919"
+}

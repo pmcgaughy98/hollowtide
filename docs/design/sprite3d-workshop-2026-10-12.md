@@ -97,3 +97,40 @@ not the art.
 
 Spent $0.18 of Retro Diffusion's $0.29 ($0.10 model, $0.08 walk); $0.11 left. Nothing spent on the generation
 server (Meshy preflight only, 38 credits of 84).
+
+## 8. Kithflare, built by hand (2026-10-13)
+
+Preston: "How about trying to build a hollowtide creature." The workshop's second option, for free: a model made to
+match the drawn sprite instead of a generator following a guessed prompt. `tools/art/kithflare_model.py` builds
+Kithflare from about 70 rounded shapes placed by reading its drawn views first (an upright gecko, a long oval head,
+gold eyes high and forward, a smile line, a cream strip down the front, short bent legs with splayed toes, the ember
+and flame in the right hand, a striped tail curling into a spiral with a flame tip). Stripes, belly, eyes and mouth
+are painted on the 3D surface, so they sit in the same place from every angle. Each view is ray cast, supersampled
+and voted down so no colours mix, and shading only ever picks from Kithflare's own 36 measured colours. The 128 set
+gets the drawn set's black outline and contour lines; the dungeon set gets Hollowtide's sel-out edges
+(`tools/arena/selout.py`'s rule for shrunk sets), because a black line eats a 22-pixel sprite.
+
+Output in `sprite3d-workshop-2026-10-12/model_kithflare/`: eight views at both sizes, contact sheets with the drawn
+views underneath, `scores.json`. Nothing in `assets/` changed; nothing was spent.
+
+| | 128 set | dungeon set |
+|---|---|---|
+| shape match to the drawn view, mean of eight (silhouettes at one height, 1.0 = identical) | 0.56 | 0.58 |
+| best and worst view | n 0.67, sw 0.43 | s 0.70, sw 0.46 |
+| height spread across the eight: model / drawn | 13 / 4 px | 3 / 2 px |
+| mirror match east and west: model / drawn | 0.70 / 1.00 | 0.70 / 1.00 |
+
+How to read it. The model is one object, so every view agrees and the ember stays in the right hand from every side;
+the drawn west view is a literal flip of the east one, which is why its mirror score is a perfect 1.00 and why it
+moves the ember to the other hand. The drawn set also turns the tail spiral toward the camera in the diagonal views,
+which no single object can do, and that is most of the gap in the sw and se scores. The height spread is the same
+story: the drawn views were evened out by hand, the model's heights change honestly with the tail and eyes.
+
+What the look says. At 128 px the drawn set is still better: its face is more expressive, its stripes cleaner, its
+flame shaped by hand; the model's front view reads a little frog-like (the eyes sit above the head's outline). At
+dungeon size, where the game shows Kithflare most, the model with sel-out is close to the drawn set. Against
+yesterday's $0.10 Retro model it is the right creature, consistent and free; four passes took it from 0.53 to 0.58.
+
+Where it earns its place is motion: one rig gives a walk or an action in all eight directions with every frame
+agreeing, which the drawn walks only reach after the foot fixes in `dungeon.gd`. That is the next step if Preston
+wants it.

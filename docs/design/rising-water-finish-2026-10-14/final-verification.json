@@ -1,0 +1,17 @@
+{
+  "stage": {
+    "logic_passed": 6,
+    "art_save_resume_passed": 16,
+    "total_passed": 22,
+    "dry_and_wall_pixels_changed": 0
+  },
+  "live": {
+    "logic_passed": 6,
+    "art_save_resume_passed": 16,
+    "total_passed": 22,
+    "dry_and_wall_pixels_changed": 0
+  },
+  "protected_sources": 823,
+  "unchanged_sources": 822,
+  "runtime_candidates_exact": true
+}

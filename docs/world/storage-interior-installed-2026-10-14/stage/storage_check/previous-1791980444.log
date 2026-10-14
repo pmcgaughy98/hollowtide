@@ -1,0 +1,20 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+OpenGL API 3.3.0 NVIDIA 596.49 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce GTX 1660 SUPER
+
+[godot_ai game_helper] registered mcp capture (debugger active=false, logger=true)
+Before the Warren is beaten the Storage is shut: 'Shut. A note on the door: "Back when the river road's clear.' -> ok
+Unlocked door enters the painted Storage room -> ok
+After: the panel opens with the bag's kinds [["reedberry", 2, 0], ["lamp_oil", 1, 0], ["parcel", 1, 0]] -> ok
+E puts one reedberry in: bag 1, kept 1, said 'Put in: Reedberry. It stays here through anything.' -> ok
+The parcel is refused: 'The parcel's for carrying, not keeping.', kept has no parcel true -> ok
+R takes it back out: bag 2, kept {  } -> ok
+Both berries in: the bag has none, the row stays as a kept-only row [["reedberry", 0, 2]] -> ok
+A full bag (10 kinds) cannot take a new kind out: 'The bag holds 10 kinds. Put something in first.' -> ok
+After a run's take_from the store is untouched: { "reedberry": 2 } -> ok
+The faint screen's Kept row names the Storage: 'Kept: levels, moves, your partners, and everything the story gave you. What's in Storage is still there.' -> ok
+The save carries the store: loaded true, kept { "reedberry": 2 } -> ok
+STORAGE: all ok
+WARNING: 4 ObjectDB instances were leaked at exit (run with `--verbose` for details).
+   at: cleanup (core/object/object.cpp:2536)
+ERROR: 2 resources still in use at exit (run with --verbose for details).
+   at: clear (core/io/resource.cpp:822)

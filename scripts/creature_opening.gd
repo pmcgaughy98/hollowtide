@@ -217,6 +217,10 @@ func _build_menu() -> void:
 	_input_hint.add_theme_font_override("font",HINT_FACE)
 	_input_hint.position=Vector2(80,608)
 	_ui.add_child(_input_hint)
+	# Laid out from the hint line up, not from a fixed top: with Continue listed first (five rows) the
+	# menu ran from 324 to 650 and "Quit" sat on the hint. Four rows keep their old place. Claude, 2026-10-14.
+	_main_panel.position.y=menu_top(_buttons.size())
+
 	for b in _buttons:
 		b.focus_entered.connect(_selected_action.bind(b))
 		b.mouse_entered.connect(_set_input_device.bind("mouse"))
@@ -421,3 +425,8 @@ func _begin_journey() -> void:
 		_fade.mouse_filter=Control.MOUSE_FILTER_IGNORE
 		_show_page("main",_buttons[0])
 
+
+## The menu's top for this many rows: its old 324, or higher so it ends 12 px above the hint line at 608.
+static func menu_top(rows:int) -> float:
+	var tall:=32.0+rows*54.0+maxi(0,rows-1)*6.0
+	return minf(324.0,608.0-12.0-tall)

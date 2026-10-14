@@ -1,0 +1,245 @@
+{
+  "take": "take3",
+  "capture_checks": 26,
+  "segments": 9,
+  "raw_recorded_counter": 9679,
+  "media": {
+    "raw.avi": {
+      "seconds": 322.666667,
+      "frames": 9680,
+      "width": 1152,
+      "height": 648,
+      "fps": "30/1",
+      "video_codec": "mjpeg",
+      "audio_codec": "pcm_s16le",
+      "bytes": 1353364808,
+      "sha256": "2d928fc26463ddf9674a2e7a211c65471e291658280622db54e67fb202f193fc"
+    },
+    "hollowtide_pitch_v4.mp4": {
+      "seconds": 99.7,
+      "frames": 2991,
+      "width": 1920,
+      "height": 1080,
+      "fps": "30/1",
+      "video_codec": "h264",
+      "audio_codec": "aac",
+      "bytes": 55115490,
+      "sha256": "2b5fea46dd677a5c9a675feec48a918ff7001000832b1721ca81970ec9dfad81"
+    },
+    "hollowtide_pitch_v4_share.mp4": {
+      "seconds": 99.7,
+      "frames": 2991,
+      "width": 1920,
+      "height": 1080,
+      "fps": "30/1",
+      "video_codec": "h264",
+      "audio_codec": "aac",
+      "bytes": 23559347,
+      "sha256": "e1fa73a94d679502fc4765b7be6b4ce068dcf16fd4c79aab76fcd32f763564d4"
+    }
+  },
+  "audio_mean_db": -19.7,
+  "audio_sample_peak_db": -1.8,
+  "blackdetect_ranges": [],
+  "decode_full_and_share": "passed",
+  "actual_shot_boundaries": [
+    {
+      "shot": 1,
+      "name": "01_storm_open",
+      "kind": "cold",
+      "start": 0,
+      "duration": 4.533333333333333
+    },
+    {
+      "shot": 2,
+      "name": "river",
+      "kind": "card",
+      "start": 4.533333333333333,
+      "duration": 2.2666666666666666
+    },
+    {
+      "shot": 3,
+      "name": "mark:flood_partner",
+      "kind": "clip",
+      "start": 6.8,
+      "duration": 2.2666666666666666
+    },
+    {
+      "shot": 4,
+      "name": "03_ruin_rises",
+      "kind": "clip",
+      "start": 9.066666666666666,
+      "duration": 2.2666666666666666
+    },
+    {
+      "shot": 5,
+      "name": "seg:title_continue",
+      "kind": "clip",
+      "start": 11.333333333333332,
+      "duration": 2.2666666666666666
+    },
+    {
+      "shot": 6,
+      "name": "seg:title_continue",
+      "kind": "clip",
+      "start": 13.599999999999998,
+      "duration": 2.2666666666666666
+    },
+    {
+      "shot": 7,
+      "name": "mail",
+      "kind": "card",
+      "start": 15.866666666666664,
+      "duration": 2.2666666666666666
+    },
+    {
+      "shot": 8,
+      "name": "mark:mail_early",
+      "kind": "clip",
+      "start": 18.13333333333333,
+      "duration": 6.8
+    },
+    {
+      "shot": 9,
+      "name": "seg:mail_call",
+      "kind": "clip",
+      "start": 24.93333333333333,
+      "duration": 4.533333333333333
+    },
+    {
+      "shot": 10,
+      "name": "mark:board_parcel",
+      "kind": "clip",
+      "start": 29.46666666666666,
+      "duration": 4.533333333333333
+    },
+    {
+      "shot": 11,
+      "name": "turn",
+      "kind": "card",
+      "start": 33.99999999999999,
+      "duration": 2.2666666666666666
+    },
+    {
+      "shot": 12,
+      "name": "mark:water_rows_1",
+      "kind": "clip",
+      "start": 36.26666666666666,
+      "duration": 4.533333333333333
+    },
+    {
+      "shot": 13,
+      "name": "mark:water_rows_2",
+      "kind": "clip",
+      "start": 40.79999999999999,
+      "duration": 4.533333333333333
+    },
+    {
+      "shot": 14,
+      "name": "v2hollow",
+      "kind": "clip",
+      "start": 45.33333333333332,
+      "duration": 4.533333333333333
+    },
+    {
+      "shot": 15,
+      "name": "home",
+      "kind": "card",
+      "start": 49.86666666666665,
+      "duration": 2.2666666666666666
+    },
+    {
+      "shot": 16,
+      "name": "seg:faint",
+      "kind": "clip",
+      "start": 52.13333333333332,
+      "duration": 2.2666666666666666
+    },
+    {
+      "shot": 17,
+      "name": "mark:faint_information",
+      "kind": "clip",
+      "start": 54.399999999999984,
+      "duration": 4.533333333333333
+    },
+    {
+      "shot": 18,
+      "name": "mark:storage_shelves",
+      "kind": "clip",
+      "start": 58.933333333333316,
+      "duration": 4.533333333333333
+    },
+    {
+      "shot": 19,
+      "name": "mark:storage_deposit",
+      "kind": "clip",
+      "start": 63.46666666666665,
+      "duration": 2.2666666666666666
+    },
+    {
+      "shot": 20,
+      "name": "mark:storage_withdraw",
+      "kind": "clip",
+      "start": 65.73333333333332,
+      "duration": 2.2666666666666666
+    },
+    {
+      "shot": 21,
+      "name": "grow",
+      "kind": "card",
+      "start": 67.99999999999999,
+      "duration": 2.2666666666666666
+    },
+    {
+      "shot": 22,
+      "name": "seg:growth",
+      "kind": "clip",
+      "start": 70.26666666666665,
+      "duration": 6.8
+    },
+    {
+      "shot": 23,
+      "name": "below",
+      "kind": "card",
+      "start": 77.06666666666665,
+      "duration": 2.2666666666666666
+    },
+    {
+      "shot": 24,
+      "name": "seg:standoff",
+      "kind": "clip",
+      "start": 79.33333333333331,
+      "duration": 4.533333333333333
+    },
+    {
+      "shot": 25,
+      "name": "mark:standoff_starward",
+      "kind": "clip",
+      "start": 83.86666666666665,
+      "duration": 6.8
+    },
+    {
+      "shot": 26,
+      "name": "mark:stone_rises",
+      "kind": "clip",
+      "start": 90.66666666666664,
+      "duration": 2.2666666666666666
+    },
+    {
+      "shot": 27,
+      "name": "end",
+      "kind": "end",
+      "start": 92.93333333333331,
+      "duration": 6.8
+    }
+  ],
+  "planned_seconds": 99.62264150943396,
+  "visual_review": "passed",
+  "visual_review_details": {
+    "reviewer": "Codex",
+    "date": "2026-10-14",
+    "coverage": "all 27 final shots sampled at start, middle and end; native key frames reviewed",
+    "findings": "Continue black fade removed by separate title/town cuts; shoreline party stays above HUD; Parcel, shared portraits, Storage counts, growth result, Warden and end card readable; final fade intentional",
+    "audio_review": "full stream decode plus numerical mix/peak analysis; no listening-session claim"
+  }
+}

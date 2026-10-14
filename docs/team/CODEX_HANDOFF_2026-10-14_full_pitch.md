@@ -1,0 +1,7 @@
+# Full V4 pitch handoff, October14,2026
+
+Full V4 pitch COMPLETE: 99.700s,1920x1080/30fps H.264/AAC, 2991 frames; full and 23.6MB share MP4s in docs/trailer/v4/full/. Nine current native engine segments passed26/26 capture checks, including fresh flood portraits, Parcel, painted water, defeat, real indoor Storage deposit/withdraw, growth and Warden/stone return. The27-shot edit retains three historical storm/ruin/V2-combat cutaways plus existing title painting, proposed cards and Suno-origin hollow_flute music; it is staged private-state footage, not an uninterrupted playthrough or generative video. Full/share streams decode cleanly; all27 shots reviewed at start/middle/end; audio sample peak-1.8dBFS. Updated only the V4 recorder, added its marker-based cutter; installed parse check clean. All581 other protected files exact, including V3 and the earlier Storage-shot outputs. Raw take, frame markers, exact edit commands, source/provenance records and QA: docs/trailer/v4/full/README.md. Original October14 queue and both game integrations remain complete. No core game/rule/save-format edits, new generation, paid calls, training change, export, posting or commit.
+
+Best preview: [V4 share MP4](../trailer/v4/full/hollowtide_pitch_v4_share.mp4). Evidence/reproduction: [full V4 README](../trailer/v4/full/README.md).
+
+No mandatory October14 Codex queue work remains. Outside playtests, publisher decisions and posting remain Preston's; no chat or external site was messaged. Preserve Claude's concurrent creature proposals and training workspace.

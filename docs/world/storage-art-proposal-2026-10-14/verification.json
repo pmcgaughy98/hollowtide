@@ -1,0 +1,123 @@
+{
+  "props": [
+    {
+      "name": "cabinet_left",
+      "size": [
+        72,
+        96
+      ],
+      "hard_alpha": true,
+      "two_pixel_canvas_margin": true,
+      "rim_changed_pixels": 307,
+      "changed_interior_pixels": 0
+    },
+    {
+      "name": "cabinet_right",
+      "size": [
+        72,
+        96
+      ],
+      "hard_alpha": true,
+      "two_pixel_canvas_margin": true,
+      "rim_changed_pixels": 305,
+      "changed_interior_pixels": 0
+    },
+    {
+      "name": "counter",
+      "size": [
+        144,
+        60
+      ],
+      "hard_alpha": true,
+      "two_pixel_canvas_margin": true,
+      "rim_changed_pixels": 356,
+      "changed_interior_pixels": 0
+    },
+    {
+      "name": "crates",
+      "size": [
+        48,
+        48
+      ],
+      "hard_alpha": true,
+      "two_pixel_canvas_margin": true,
+      "rim_changed_pixels": 162,
+      "changed_interior_pixels": 0
+    },
+    {
+      "name": "basket",
+      "size": [
+        48,
+        40
+      ],
+      "hard_alpha": true,
+      "two_pixel_canvas_margin": true,
+      "rim_changed_pixels": 118,
+      "changed_interior_pixels": 0
+    },
+    {
+      "name": "lamp",
+      "size": [
+        16,
+        32
+      ],
+      "hard_alpha": true,
+      "two_pixel_canvas_margin": true,
+      "rim_changed_pixels": 59,
+      "changed_interior_pixels": 0
+    }
+  ],
+  "native_renderer_checks": {
+    "changed_unselected_pixels": 0,
+    "checks": [
+      {
+        "check": "Native art and mask are 408x312",
+        "ok": true
+      },
+      {
+        "check": "Real review viewport is exact 3x",
+        "ok": true
+      },
+      {
+        "check": "Space toggles real material off",
+        "ok": true
+      },
+      {
+        "check": "Unshaded native output equals prepared PNG",
+        "ok": true
+      },
+      {
+        "check": "Shared 0.75 shader adds purposeful selected detail",
+        "ok": true
+      },
+      {
+        "check": "All unselected quiet floor pixels exact",
+        "ok": true
+      },
+      {
+        "check": "M toggles real material-mask view",
+        "ok": true
+      },
+      {
+        "check": "M restores finished art",
+        "ok": true
+      }
+    ],
+    "passed": 8,
+    "shader_changed_pixels": 43615,
+    "total": 8
+  },
+  "room_size": [
+    408,
+    312
+  ],
+  "original_hall_floor_crop_exact": true,
+  "three_tile_aisle_and_threshold_exact": true,
+  "proposed_walkable_tiles": 108,
+  "proposed_reachable_tiles": 108,
+  "proposed_service_approach_reachable": true,
+  "collision_installed": false,
+  "protected_existing_sources_exact": 539,
+  "changed_protected_sources": [],
+  "keeper_added": false
+}

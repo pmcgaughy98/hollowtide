@@ -158,3 +158,51 @@ research (Gemini). Claude reviews and integrates when asked.
   code, licences, business basics) with attachments: every name in the game's data, the mechanics one line each
   for a patent scan, the tools and licences, the store text drafts. Preston sends it; the plan R1 to R8 is now
   all in his hands or done.
+- 2026-10-12, the pitch capture: docs/trailer/v3/hollowtide_pitch_v3.mp4 (101.9 s) and its _share copy, from
+  tools/trailer/record_pitch_v3.gd (the title with Continue, the mail call, the board with deliveries, the
+  valley floor with the water rising under a scripted shore walk, a faint and the defeat screen, the Storage,
+  growth at the shrine, the Warden stand-off and the stone) cut by tools/trailer/cut_pitch_v3.py on v2's
+  rules (bar-line cuts, whole-number pixels, a cold open on the storm, the end painting). Two shots failed the
+  first review (the water off-frame; a Second Wind in the bag cancelled the faint) and were re-recorded. Card
+  lines are proposals.
+- 2026-10-12, the feedback post: docs/pitch/feedback-post-2026-10-12.md (where to post and each place's rule from
+  two 2026 surveys, the AI note, three post variants, what to do with answers) and four GIFs cut from the
+  capture in docs/pitch/feedback-post-2026-10-12/. Reddit's rule pages are blocked for the browser pane and the
+  scraper, so the sidebars are Preston's to read before posting. No playable build yet: Godot's export templates
+  are not installed and there is no export preset (a ~1 GB download, Preston's call).
+- 2026-10-13, Kithflare built by hand (Preston: "trying to build a hollowtide creature", after the GBA canine for
+  the mech project in D:\dev\new-mech-rpg\docs\art\2d\gba_canine_voxel\). tools/art/kithflare_model.py: about 70
+  ellipsoids placed from the drawn views, surface-painted stripes, belly, eyes and mouth, ray cast and voted down
+  in Kithflare's own colours; black outline at 128, Hollowtide sel-out at dungeon size. Shape match to the drawn
+  views 0.56 at 128 and 0.58 at dungeon size after four passes; the model is consistent from every side, the drawn
+  set is still better at 128. Write-up in the workshop doc, section 8. Nothing in assets changed; nothing spent.
+- 2026-10-13, sprite generator skill-up (Preston: the model "still looks like a roblox model"; find something to
+  reverse engineer or synthesize). docs/design/sprite-generator-skillup-2026-10-13.md: why renders read as 3D, the
+  stock-take (SpriteCook new with 40 free credits, PixelLab's free workbench, RD $0.11), Zoids Legacy's decompilation
+  (one hand-drawn body per Zoid plus palette variants plus anchored equipment sprites), and a held-out exam: a
+  GPT-Image-2 repaint of the model's se view with three drawn views as style, then our palette snap and stray
+  cleanup, matched the drawn se at 0.82 (model 0.48) and its pixel measures; it ignored the pose and used 34
+  colours to 18. 9 SpriteCook credits spent, 31 left.
+- 2026-10-13, skill-up then a new creature (Preston liked the Kithflare repaint). tools/art/finish_sprite.py: palette
+  snap or own palette, a colour budget that keeps the darkest, brightest and most saturated accents, contrast-aware
+  despeckle (a patch that stands out is detail), outline in the creature's own outline colour, the game's canvas,
+  and gates taken from PixelLab's lint rules. Then Ballastak (Stone digger stage 1, named, briefed, no art): a Nano
+  Banana 2.1 master and an eight-direction 3x3 grid via SpriteCook (24 credits, 7 left), finished and sliced into
+  docs/design/new-creature-ballastak-2026-10-13/views_128/. Height spread 2 px, mirror pairs 0.94 to 0.99. Proposal
+  art: not in assets until Preston approves and Grok writes the numbers.
+- 2026-10-13, Preston on Ballastak: "the raw from banana was better"; Preostmar out of the style set, Tallowroot in
+  (memory sprite-reference-choices). Views re-sliced untouched (tools/art/slice_grid.py). East and west were
+  three-quarter cells; now a true side profile from two GPT-Image-2 low edits (4 SpriteCook credits, 3 left), west
+  mirrored. Stage 2 Switchhold started on PixelLab Pro Flash (8 of 25 trial and daily generations, the Ballastak
+  master as the style image), because SpriteCook cannot afford Nano Banana and Retro Diffusion's quote was $0.18.
+- 2026-10-14, the nine-task refinement pass (Preston: "skill-up with the synthesis then do 9 task refinement pass
+  and upgrade"). docs/design/refinement-pass-2026-10-14/README.md.
+  - Stock-take: the watch skill was patched for ffmpeg 9, and the UI tour takes --out.
+  - Fixes: team rows fit every creature name; the learn prompt's keys get their own row; the pause menu fits
+    (658 to 626 px); the title's five rows clear the key line; right-aligned text no longer runs off screen;
+    the message box leaves after 4 s of quiet; the corner map draws outlines at up to 5 px a tile; the
+    riverbank hints have no em-dashes.
+  - New guard: tools/debug/ui_fit_check.gd (29 of 29). faint_check now presses until the screen leaves (the
+    162 px inset pages the Mouth line).
+  - Pilot chain twice on the same code: run 1 lost the Warren replay five times (8 faints); run 2 was all ok in
+    533 s with 0 faints. The floors are random per run, so it was floor luck, not this pass.

@@ -1,0 +1,70 @@
+{
+  "checks": [
+    {
+      "check": "Native painted atlases available",
+      "ok": true
+    },
+    {
+      "check": "Native ripples atlas RGBA exact",
+      "ok": true
+    },
+    {
+      "check": "Native shoreline atlas RGBA exact",
+      "ok": true
+    },
+    {
+      "check": "Turn nine still dry",
+      "ok": true
+    },
+    {
+      "check": "Turn ten floods exactly the first row",
+      "ok": true
+    },
+    {
+      "check": "Rendering changes no suspend fields",
+      "ok": true
+    },
+    {
+      "check": "Suspend writes isolated save",
+      "ok": true
+    },
+    {
+      "check": "Disk retains exact water rows and run fields",
+      "ok": true
+    },
+    {
+      "check": "Actual title is ready for Continue",
+      "ok": true
+    },
+    {
+      "check": "Actual Continue opens dungeon scene",
+      "ok": true
+    },
+    {
+      "check": "Resumed valley, seed and water height exact",
+      "ok": true
+    },
+    {
+      "check": "Resumed clock and lantern exact",
+      "ok": true
+    },
+    {
+      "check": "Resume still starts above water with stairs dry",
+      "ok": true
+    },
+    {
+      "check": "One-use suspend consumed in memory and on disk",
+      "ok": true
+    },
+    {
+      "check": "No extra rise between beats after resume",
+      "ok": true
+    },
+    {
+      "check": "Next scheduled rise reaches original ceiling",
+      "ok": true
+    }
+  ],
+  "passed": 16,
+  "total": 16
+}

@@ -1,0 +1,56 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+[godot_ai game_helper] registered mcp capture (debugger active=false, logger=true)
+ERROR: Condition "!actions.custom_samplers.has(function->arguments[j].tex_builtin)" is true. Continuing.
+   at: _dump_node_code (servers/rendering/shader_compiler.cpp:1329)
+   GDScript backtrace (most recent call first):
+       [0] finish (res://scripts/town/hall_room_art.gd:65)
+       [1] _ready (res://scripts/town/town_room.gd:176)
+       [2] _open_room (D:/dev/hollowtide-storage-integration-20261014/checks/hall_floors_check.gd:45)
+       [3] _run (D:/dev/hollowtide-storage-integration-20261014/checks/hall_floors_check.gd:71)
+ERROR: Condition "!actions.custom_samplers.has(function->arguments[j].tex_builtin)" is true. Continuing.
+   at: _dump_node_code (servers/rendering/shader_compiler.cpp:1329)
+   GDScript backtrace (most recent call first):
+       [0] apply (res://scripts/arena/creature_finish.gd:9)
+       [1] _make (res://scripts/town/town_room.gd:259)
+       [2] _ready (res://scripts/town/town_room.gd:205)
+       [3] _open_room (D:/dev/hollowtide-storage-integration-20261014/checks/hall_floors_check.gd:45)
+       [4] _run (D:/dev/hollowtide-storage-integration-20261014/checks/hall_floors_check.gd:71)
+Work floor: the stairs lead down (hall_low) -> ok
+Lower floor: the team lands at (24, 14), side by side (true), off the stairs -> ok
+The roll-call floor answers E (Sorting Floor) -> ok
+Lower floor: the runners' room is locked before they are runners (true) -> ok
+Lower floor: once runners, the door opens their room (runners) -> ok
+Runners' room: the bunk answers E (Your Bunk) -> ok
+Runners' room: the door leads back to the Hall floor (hall_low) -> ok
+Lower floor: the back door opens the chamber (chamber) -> ok
+Lower floor: the stairs lead back up (hall) -> ok
+ERROR: Condition "!actions.custom_samplers.has(function->arguments[j].tex_builtin)" is true. Continuing.
+   at: _dump_node_code (servers/rendering/shader_compiler.cpp:1329)
+   GDScript backtrace (most recent call first):
+       [0] <anonymous lambda> (res://scripts/arena/creature_finish.gd:18)
+       [1] _place (res://scripts/town/town_room.gd:328)
+       [2] spawn (res://scripts/town/scene_kit.gd:77)
+       [3] _ready (res://scripts/town/town_room.gd:215)
+       [4] _open_room (D:/dev/hollowtide-storage-integration-20261014/checks/hall_floors_check.gd:45)
+       [5] _run (D:/dev/hollowtide-storage-integration-20261014/checks/hall_floors_check.gd:126)
+       [6] _frames (D:/dev/hollowtide-storage-integration-20261014/checks/hall_floors_check.gd:36)
+ERROR: Condition "!actions.custom_samplers.has(function->arguments[j].tex_builtin)" is true. Continuing.
+   at: _dump_node_code (servers/rendering/shader_compiler.cpp:1329)
+   GDScript backtrace (most recent call first):
+       [0] <anonymous lambda> (res://scripts/arena/creature_finish.gd:18)
+       [1] _place (res://scripts/town/town_room.gd:328)
+       [2] spawn (res://scripts/town/scene_kit.gd:77)
+       [3] _ready (res://scripts/town/town_room.gd:215)
+       [4] _open_room (D:/dev/hollowtide-storage-integration-20261014/checks/hall_floors_check.gd:45)
+       [5] _run (D:/dev/hollowtide-storage-integration-20261014/checks/hall_floors_check.gd:126)
+       [6] _frames (D:/dev/hollowtide-storage-integration-20261014/checks/hall_floors_check.gd:36)
+Chamber: Starward is there (1) -> ok
+Chamber: Starward stands solid (true) and talks (1) -> ok
+Chamber: the talk ends (true) -> ok
+Chamber: the door leads back down (hall_low) -> ok
+HALL FLOORS: all ok
+WARNING: 2 ObjectDB instances were leaked at exit (run with `--verbose` for details).
+   at: cleanup (core/object/object.cpp:2536)
+ERROR: 1 resources still in use at exit (run with --verbose for details).
+   at: clear (core/io/resource.cpp:822)

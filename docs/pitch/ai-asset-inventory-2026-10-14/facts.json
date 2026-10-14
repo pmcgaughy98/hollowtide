@@ -1,0 +1,253 @@
+{
+  "date": "2026-10-14",
+  "scope": "targeted October12-14 refresh, not a new full census or export audit",
+  "expressions": [
+    {
+      "form": "grubbit",
+      "face": "surprised",
+      "path": "assets/sprites/ui/dialogue/grubbit_surprised.png",
+      "size": [
+        40,
+        40
+      ],
+      "raw": "docs/ui/crew-expressions-2026-10-12/grubbit_surprised_edit.png"
+    },
+    {
+      "form": "grubbit",
+      "face": "happy",
+      "path": "assets/sprites/ui/dialogue/grubbit_happy.png",
+      "size": [
+        40,
+        40
+      ],
+      "raw": "docs/ui/crew-expressions-2026-10-12/grubbit_happy_edit.png"
+    },
+    {
+      "form": "stillwade",
+      "face": "worried",
+      "path": "assets/sprites/ui/dialogue/stillwade_worried.png",
+      "size": [
+        40,
+        40
+      ],
+      "raw": "docs/ui/crew-expressions-2026-10-12/stillwade_worried_edit.png"
+    },
+    {
+      "form": "stillwade",
+      "face": "determined",
+      "path": "assets/sprites/ui/dialogue/stillwade_determined.png",
+      "size": [
+        40,
+        40
+      ],
+      "raw": "docs/ui/crew-expressions-2026-10-12/stillwade_determined_edit.png"
+    },
+    {
+      "form": "wickglow",
+      "face": "mischievous",
+      "path": "assets/sprites/ui/dialogue/wickglow_mischievous.png",
+      "size": [
+        40,
+        40
+      ],
+      "raw": "docs/ui/crew-expressions-2026-10-12/wickglow_mischievous_edit.png"
+    },
+    {
+      "form": "wickglow",
+      "face": "happy",
+      "path": "assets/sprites/ui/dialogue/wickglow_happy.png",
+      "size": [
+        40,
+        40
+      ],
+      "raw": "docs/ui/crew-expressions-2026-10-12/wickglow_happy_edit.png"
+    },
+    {
+      "form": "muskin",
+      "face": "surprised",
+      "path": "assets/sprites/ui/dialogue/muskin_surprised.png",
+      "size": [
+        40,
+        40
+      ],
+      "raw": "docs/ui/crew-expressions-2026-10-12/muskin_surprised_edit.png"
+    },
+    {
+      "form": "muskin",
+      "face": "worried",
+      "path": "assets/sprites/ui/dialogue/muskin_worried.png",
+      "size": [
+        40,
+        40
+      ],
+      "raw": "docs/ui/crew-expressions-2026-10-12/muskin_worried_edit.png"
+    },
+    {
+      "form": "slipjaw",
+      "face": "angry",
+      "path": "assets/sprites/ui/dialogue/slipjaw_angry.png",
+      "size": [
+        40,
+        40
+      ],
+      "raw": "docs/ui/crew-expressions-2026-10-12/slipjaw_angry_edit.png"
+    },
+    {
+      "form": "slipjaw",
+      "face": "determined",
+      "path": "assets/sprites/ui/dialogue/slipjaw_determined.png",
+      "size": [
+        40,
+        40
+      ],
+      "raw": "docs/ui/crew-expressions-2026-10-12/slipjaw_determined_edit.png"
+    },
+    {
+      "form": "rinsepaw",
+      "face": "happy",
+      "path": "assets/sprites/ui/dialogue/rinsepaw_happy.png",
+      "size": [
+        40,
+        40
+      ],
+      "raw": "docs/ui/crew-expressions-2026-10-12/rinsepaw_happy_edit.png"
+    },
+    {
+      "form": "rinsepaw",
+      "face": "sad",
+      "path": "assets/sprites/ui/dialogue/rinsepaw_sad.png",
+      "size": [
+        40,
+        40
+      ],
+      "raw": "docs/ui/crew-expressions-2026-10-12/rinsepaw_sad_edit.png"
+    }
+  ],
+  "gifs": [
+    {
+      "path": "docs/pitch/feedback-post-2026-10-12/mail_call.gif",
+      "size": [
+        576,
+        324
+      ],
+      "frames": 98,
+      "duration_seconds": 6.54,
+      "sha256": "5310cfaf82e3bfd24234c5e3f0b92314022212be917f6b04eba8464ae3353291"
+    },
+    {
+      "path": "docs/pitch/feedback-post-2026-10-12/water_rises.gif",
+      "size": [
+        576,
+        324
+      ],
+      "frames": 98,
+      "duration_seconds": 6.54,
+      "sha256": "3cd162fb64268dfb5faa0d998fa1b9b06bc7a6149fc7feed5399f581f33c4dcf"
+    },
+    {
+      "path": "docs/pitch/feedback-post-2026-10-12/carried_home.gif",
+      "size": [
+        576,
+        324
+      ],
+      "frames": 98,
+      "duration_seconds": 6.54,
+      "sha256": "103a4199db2ab55b24852e2178f1dd04cc23163ed66379ffd39da92a2904f523"
+    },
+    {
+      "path": "docs/pitch/feedback-post-2026-10-12/standoff.gif",
+      "size": [
+        576,
+        324
+      ],
+      "frames": 98,
+      "duration_seconds": 6.54,
+      "sha256": "623028169cb0d4298f6496716a33a458c80cda7cee25f5801011651f3db32f88"
+    }
+  ],
+  "videos": [
+    {
+      "path": "docs/trailer/v3/hollowtide_pitch_v3.mp4",
+      "probe": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "h264",
+            "codec_type": "video",
+            "width": 1920,
+            "height": 1080,
+            "r_frame_rate": "30/1"
+          },
+          {
+            "codec_name": "aac",
+            "codec_type": "audio",
+            "r_frame_rate": "0/0"
+          }
+        ],
+        "format": {
+          "duration": "101.966667"
+        }
+      },
+      "sha256": "7dc10b605496dc1b33945d45d8c081863360e0558cb0a7940aed83162d8dee4c"
+    },
+    {
+      "path": "docs/trailer/v3/hollowtide_pitch_v3_share.mp4",
+      "probe": {
+        "programs": [],
+        "stream_groups": [],
+        "streams": [
+          {
+            "codec_name": "h264",
+            "codec_type": "video",
+            "width": 1920,
+            "height": 1080,
+            "r_frame_rate": "30/1"
+          },
+          {
+            "codec_name": "aac",
+            "codec_type": "audio",
+            "r_frame_rate": "0/0"
+          }
+        ],
+        "format": {
+          "duration": "101.966667"
+        }
+      },
+      "sha256": "b906927fb3ed2b7563a6efd3e3634067144ae1c636b7cf6bd44b19c83c535b58"
+    }
+  ],
+  "normal_portraits_unchanged": {
+    "grubbit": true,
+    "stillwade": true,
+    "wickglow": true,
+    "muskin": true,
+    "slipjaw": true,
+    "rinsepaw": true
+  },
+  "proposal_only": {
+    "ballastak": {
+      "matching_asset_paths": [],
+      "literal_resource_consumers": [],
+      "limits": "Name/path scan only; dated design records explicitly mark proposal. Names in roster/rules do not establish installed creature art."
+    },
+    "switchhold": {
+      "matching_asset_paths": [],
+      "literal_resource_consumers": [],
+      "limits": "Name/path scan only; dated design records explicitly mark proposal. Names in roster/rules do not establish installed creature art."
+    }
+  },
+  "source_scan": {
+    "patterns": "HTTPRequest|HTTPClient|https?://|api_key|generate_content",
+    "directories": [
+      "scripts",
+      "scenes",
+      "dialogue",
+      "data"
+    ],
+    "matches": [],
+    "limits": "Static marker scan only, not a network trace, plugin audit, reachability proof or export audit."
+  },
+  "main_scene": "scenes/creature_opening.tscn",
+  "export_presets_present": false
+}

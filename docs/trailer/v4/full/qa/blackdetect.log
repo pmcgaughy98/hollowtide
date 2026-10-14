@@ -1,0 +1,35 @@
+Input #0, mov,mp4,m4a,3gp,3g2,mj2, from 'D:\dev\hollowtide-full-pitch-v4-20261014\delivery-final\hollowtide_pitch_v4.mp4':
+  Metadata:
+    major_brand     : isom
+    minor_version   : 512
+    compatible_brands: isomiso2avc1mp41
+    encoder         : Lavf63.1.100
+  Duration: 00:01:39.70, start: 0.000000, bitrate: 4422 kb/s
+  Stream #0:0[0x1](und): Video: h264 (High) (avc1 / 0x31637661), yuvj420p(pc, bt470bg/unknown/unknown, progressive), 1920x1080 [SAR 1:1 DAR 16:9], 4219 kb/s, 30 fps, 30 tbr, 15360 tbn (default)
+    Metadata:
+      handler_name    : VideoHandler
+      encoder         : Lavc63.1.100 libx264
+  Stream #0:1[0x2](und): Audio: aac (LC) (mp4a / 0x6134706D), 48000 Hz, stereo, fltp, 193 kb/s (default)
+    Metadata:
+      handler_name    : SoundHandler
+Stream mapping:
+  Stream #0:0 -> #0:0 (h264 (native) -> wrapped_avframe (native))
+Press [q] to stop, [?] for help
+Output #0, null, to 'pipe:':
+  Metadata:
+    major_brand     : isom
+    minor_version   : 512
+    compatible_brands: isomiso2avc1mp41
+    encoder         : Lavf63.1.100
+  Stream #0:0(und): Video: wrapped_avframe, yuvj420p(pc, bt470bg/unknown/unknown, progressive), 1920x1080 [SAR 1:1 DAR 16:9], q=2-31, 200 kb/s, 30 fps, 30 tbn (default)
+    Metadata:
+      encoder         : Lavc63.1.100 wrapped_avframe
+      handler_name    : VideoHandler
+frame=  328 fps=0.0 q=-0.0 size=N/A time=00:00:10.93 bitrate=N/A speed=21.7x elapsed=0:00:00.50    
+frame=  834 fps=812 q=-0.0 size=N/A time=00:00:27.83 bitrate=N/A speed=27.1x elapsed=0:00:01.02    
+frame= 1283 fps=835 q=-0.0 size=N/A time=00:00:42.76 bitrate=N/A speed=27.8x elapsed=0:00:01.53    
+frame= 1816 fps=882 q=-0.0 size=N/A time=00:01:00.53 bitrate=N/A speed=29.4x elapsed=0:00:02.05    
+frame= 2294 fps=894 q=-0.0 size=N/A time=00:01:16.46 bitrate=N/A speed=29.8x elapsed=0:00:02.56    
+frame= 2665 fps=861 q=-0.0 size=N/A time=00:01:28.83 bitrate=N/A speed=28.7x elapsed=0:00:03.09    
+[out#0/null @ 0000023d9b5bff40] video:1238KiB audio:0KiB subtitle:0KiB other streams:0KiB global headers:0KiB muxing overhead: unknown
+frame= 2991 fps=872 q=-0.0 Lsize=N/A time=00:01:39.76 bitrate=N/A speed=29.1x elapsed=0:00:03.42    

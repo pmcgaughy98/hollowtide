@@ -1,0 +1,26 @@
+{
+  "protected_live_files_exact": 814,
+  "native_flood_assertions": {
+    "before": 5,
+    "proposal": 5
+  },
+  "native_gallery_assertions": {
+    "before": 5,
+    "proposal": 5
+  },
+  "pixel_exact_controls": {
+    "gallery-narration": true,
+    "gallery-shared-panels": true
+  },
+  "geometry_screen_pixels": {
+    "old_portrait_frame_left": 15,
+    "new_portrait_frame_left": 27,
+    "ornament_right_exclusive": 21,
+    "new_clearance": 6,
+    "new_name_to_portrait_frame_gap": 9,
+    "new_text_to_portrait_frame_gap": 15,
+    "old_text_width": 540,
+    "new_text_width": 528
+  },
+  "live_layout_changed": false
+}

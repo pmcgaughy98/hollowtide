@@ -1,0 +1,57 @@
+{
+  "phase": "stage",
+  "native_results": {
+    "storage_check": 11,
+    "integration": 20,
+    "quit_check": 5,
+    "town_room_check": 4,
+    "hall_floors_check": 13
+  },
+  "native_total": 53,
+  "native_result_logs": {
+    "storage_check": "stage/storage_check/godot.log",
+    "integration": "stage/integration/godot.log",
+    "quit_check": "stage/quit_check/godot.log",
+    "town_room_check": "stage/town_room_check/godot.log",
+    "hall_floors_check": "stage/hall_floors_check/godot.log"
+  },
+  "shutdown_diagnostics": {
+    "storage_check": [],
+    "integration": [],
+    "quit_check": [],
+    "town_room_check": [],
+    "hall_floors_check": []
+  },
+  "protected_existing_files": 1091,
+  "expected_changed_files": [
+    "scripts/town/hub_town.gd",
+    "scripts/town/town_room.gd",
+    "scripts/ui/game_pause_menu.gd",
+    "tools/debug/storage_check.gd"
+  ],
+  "other_existing_files_exact": 1087,
+  "installed_file_hashes": {
+    "assets/sprites/world/storage_interior_2026_10_14/shell-mask.png": "d519c9c05e8beb4da78eebe1136c1bc2499c5eb98485daa241e7d0be099e3dae",
+    "assets/sprites/world/storage_interior_2026_10_14/shell.png": "df85cd8408920c43e28433f57192c251f59bdb24d9e13b0f6fc8150183ac6c49",
+    "assets/sprites/world/storage_interior_2026_10_14/props/basket.png": "7085b0b25c4dc1e4f93466562aee198a0ed4936198998b34570cd7c5bdc8d35e",
+    "assets/sprites/world/storage_interior_2026_10_14/props/cabinet_left.png": "38f1062a19857cca8cae336fdadb51c7de61af37a3eb2cdf429c692b1bb2748c",
+    "assets/sprites/world/storage_interior_2026_10_14/props/cabinet_right.png": "cffd71d0cb68a4fd99837e30442aa2413dd72d436a37ca1b62b480b54f8aa816",
+    "assets/sprites/world/storage_interior_2026_10_14/props/counter.png": "46d33f486b06a2ee3a98ea4afc66e77c9f3a168a3abb8bbc4378a2d8a3e96a08",
+    "assets/sprites/world/storage_interior_2026_10_14/props/crates.png": "d17eec066e64b54770635401ed723faf766c4e1b8ec148c3d77bee4494d98e7d",
+    "assets/sprites/world/storage_interior_2026_10_14/props/lamp.png": "f3ebe9807d1873d960ebd85e0eee07c0ee21f46f32ca0547ddc2a67ed487ccaf",
+    "scripts/town/hub_town.gd": "96c6874f97f82b7edc7ed0138407de5dfbcbc1190148c9311d93e3719dc786b1",
+    "scripts/town/storage_panel.gd": "d8c12b23a50b10791aab740bc62d8007111a6c2e2625dd4110ba547ab53820a7",
+    "scripts/town/storage_room_art.gd": "057e775f63923cabb9a8f4b0ed7b1be1382da87306e87f421e58a1cef00b4157",
+    "scripts/town/town_room.gd": "d43c40c198fb36b6083bed9a2d04faf3ff5fcd7b176e0bbe65da835c1ed0525f",
+    "scripts/ui/game_pause_menu.gd": "251e599a13b0ed5463c21ed83e35f2b41284b9b932dba2970e82b3982ceafa5f",
+    "tools/debug/storage_check.gd": "37688c6ecc8e4bdd1e7e5463ad92c54534ea5b169ff01bff02567db1e8410f56"
+  },
+  "original_art_files_exact": 7,
+  "new_generation_calls": 0,
+  "storage_rules_and_state_model_unchanged": true,
+  "panel_origin": [
+    166,
+    64
+  ],
+  "room_open_tiles": 108
+}

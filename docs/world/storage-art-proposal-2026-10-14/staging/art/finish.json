@@ -1,0 +1,10 @@
+{
+  "cpu_finish": "exact shared scripts/art/selout.gd",
+  "detail_ink": 0.75,
+  "instances": 7,
+  "native_size": [
+    408,
+    312
+  ],
+  "prop_count": 6
+}

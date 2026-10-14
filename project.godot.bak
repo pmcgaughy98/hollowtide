@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Hollowtide"
-run/main_scene="res://scenes/dungeon.tscn"
+run/main_scene="res://scenes/creature_opening.tscn"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -86,7 +86,7 @@ toggle_dex={
 
 [internationalization]
 
-locale/translations_pot_files=PackedStringArray("res://dialogue/flood_bank.dialogue")
+locale/translations_pot_files=PackedStringArray("res://dialogue/flood_bank.dialogue", "res://dialogue/road_to_highbank.dialogue")
 
 [physics]
 

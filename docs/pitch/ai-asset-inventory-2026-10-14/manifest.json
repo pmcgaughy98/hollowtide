@@ -1,0 +1,16 @@
+{
+  "build.py": "62b91c82e0f935a821910a12e6c64873fa4906f5369070244bc6bd79e3fb715e",
+  "evidence-sha256.json": "6d2d6601829d489c84f68c6b3f2a487b57b229ffa93ac897156e63e238c3db10",
+  "facts.json": "86f18f0812622a80e5998aa0b75e81b7a9c550ef5908a9fda1181f105f9e8508",
+  "inspect.py": "9c585dce468837ee03330a7ac070900b2dd34f668d109f69b5f14defb4243387",
+  "installed-validation.json": "84e80a5ac3cdb0e6bb418ce1a77ed250dbcaec0315b00ab9e9df43628e3c7afc",
+  "inventory.diff": "20d440b5b0f51cff93edd28e30af1b2823fe4fca8f7e91ca8fdb37682d2e9a45",
+  "original-inventory.md": "cd0f99f0bc02c8518d878897183fccf98ea66909d80dcb94fe7141dd3af9b0f6",
+  "publish.py": "f3de1af56976659f6cc796598abcd593b09ff711b41f95179b93facf52ad14ba",
+  "README.md": "05799b11a8e56b5af42118c3a864f17e8fabbb153d4e9266521a2b3f4e54be6d",
+  "validation.json": "a8d321ca882be201f91741b25ced148de163298348d9bfd388ef3db74843a259",
+  "original-docs/docs/AI_COLLABORATION.md": "08c0f7b59333c416e9fc766597b278b26a01dfa5811a71ad292fa1801653fbef",
+  "original-docs/docs/pitch/ai-asset-inventory.md": "cd0f99f0bc02c8518d878897183fccf98ea66909d80dcb94fe7141dd3af9b0f6",
+  "original-docs/docs/team/CODEX_START_HERE_2026-10-14.md": "3dd04fed99d2f5bbf77c60a526842408bb1a97693d98cc4c745b5bbb12c52ea9",
+  "original-docs/docs/team/CODEX_TASKS_2026-10-14.md": "2dd89a64a530c14f544208a9f6215fed96ea6dfa9b7d10f15640888627d1fa56"
+}

@@ -1,0 +1,18 @@
+--- original/docs/team/CODEX_TASKS_2026-10-14.md
++++ installed/docs/team/CODEX_TASKS_2026-10-14.md
+@@ -24,7 +24,7 @@
+ 
+ ## Tasks, in order
+ 
+-1. **A Parcel icon.** Deliveries (R4) put a Parcel in the bag, but `UI.item_icon("parcel")` returns none, so the
++1. **DONE: A Parcel icon.** Deliveries (R4) put a Parcel in the bag, but `UI.item_icon("parcel")` returns none, so the
+    Job Board row and the Bag page draw it without an icon. Make a small sealed-parcel icon at the existing item
+    icons' size and palette and wire it so `item_icon("parcel")` returns it. Done when: take a "Deliver to X" job
+    from the Job Board, and the board row and the Bag page both show the icon.
+@@ -66,3 +66,6 @@
+ - Finish one visible, runnable slice per session with native checks and a short handoff below.
+ 
+ ## Codex notes (write below)
++
++
++Codex, October 14: Task 1 complete: native 32px sealed Parcel icon, exact existing Scroll paper/wax palette and six-colour outline recipe. Generic item lookup/Bag resolve automatically; delivery-only Board hook shows cargo beside the title while retaining the separate reward icon. Native 20/20 staging and 20/20 installed live: take a generated delivery at the real Board, exact Board cargo/reward pixels, actual Bag row and selected 3x detail, put-back cargo removal. All 17 prior icon recipes and 809 other protected source/UI files exact. Original sources, diff, native import, private drivers, captures and receipts: docs/ui/parcel-icon-2026-10-14/README.md. AI-assisted native-grid art; no image generation, paid call, rule/save/settings/other-asset edit or commit. Claude proposals and local training untouched. Task 2, painted rising water, is next; tasks 2-5 remain pending.

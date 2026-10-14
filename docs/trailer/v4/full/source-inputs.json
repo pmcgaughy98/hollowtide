@@ -1,0 +1,30 @@
+{
+  "docs/design/videos-2026-10-11/01_storm_open.mp4": {
+    "sha256": "6d26e933810b2b8f943b142e4e92f34a53a0a5b91e164f78d9dfe58acc0aedbc",
+    "bytes": 7044992
+  },
+  "docs/design/videos-2026-10-11/03_ruin_rises.mp4": {
+    "sha256": "e75d086fb5addca49f7f1218ff61e51c7fbb855ad7a2dac06bb31a02560ee593",
+    "bytes": 4035010
+  },
+  "docs/trailer/v2/hollow.avi": {
+    "sha256": "e327ca221ad9a063d65728d7b666470d12b96e9a23ceb31f2485756cbbc6f082",
+    "bytes": 130916972
+  },
+  "assets/audio/music/hollow_flute.mp3": {
+    "sha256": "e7d312d8884f5b880f3839adbef280380c6944186acbeb77636bdad0be36cd23",
+    "bytes": 2676355
+  },
+  "assets/sprites/menu/creature_village_2026_10_09.png": {
+    "sha256": "f6a9ca44abe87744988460faf3cdcb442a9ab681e7bdbc8013fe1dbae412215d",
+    "bytes": 31529
+  },
+  "assets/fonts/Jersey10-Regular.ttf": {
+    "sha256": "db9cbd091617048a145d249daa2b815fe7083be6ab66ac26626e21a4e01c3e82",
+    "bytes": 77732
+  },
+  "assets/fonts/AlegreyaSansSC-Bold.ttf": {
+    "sha256": "1f7f1ca33c4ae013a94d374106fd4044820b3d915e7f7a22182ddaf49b9c7912",
+    "bytes": 275612
+  }
+}

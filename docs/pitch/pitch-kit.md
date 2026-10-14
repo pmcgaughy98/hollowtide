@@ -68,8 +68,12 @@ Audience: **[YOU]** (who are you making it for? fans of Explorers of Sky who wan
 Status: plays start to the first growth and a replay in a checked run, `tools/debug/pilot_chain_check.gd`, all ok in
 720 s on 2026-10-12 (`docs/design/faint-2026-10-12/pilot_chain_check3.log`); before that day the check had never
 passed The Hollow. Story: `docs/design/pilot-story-2026-10-10.md`.
-To make it pitch-ready: a title screen to pilot end with no dead ends, outside playtests, Codex's finishing pass
-on art, and a two-minute capture of the best moments. Done since: the guild crew's portraits and their expression
+To make it pitch-ready: outside playtests and Codex's finishing pass on art. The capture of the best moments is
+[V4 share MP4](../trailer/v4/full/hollowtide_pitch_v4_share.mp4) (99.700 s, 2026-10-14;
+[full MP4 and capture/QA notes](../trailer/v4/full/README.md); card lines remain proposals in
+`tools/trailer/cut_pitch_v4.py`). V4 adds current Parcel, painted water, shared portraits and indoor Storage,
+with nine freshly staged engine segments and three retained storm/ruin/V2-combat cutaways. It is an edited
+private-state capture; V3 remains preserved as history. Done since: the guild crew's portraits and their expression
 faces (2026-10-12); a faint sends the team home with a defeat screen instead of a restart; the game's own words
 (Sense, Orders, nests, growth) after the genre synthesis in `docs/design/genre-synthesis-2026-10-12.md`; the climax
 is unlosable (once the Warden is awake, a fallen leader starts the stand-off); and the save: Highbank saves on
@@ -100,7 +104,9 @@ slice). 9. Roadmap. 10. Budget and timeline. 11. Team, and who you need. 12. The
 ## 5. The next three steps (no more than three at once)
 1. **Finish the slice**: the pilot plays start to evolution with no dead ends (Claude).
 2. **Three outside playtests**: watch, don't help, write down where they get stuck (you).
-3. **Post it for feedback** with an honest AI note (r/IndieDev or a Feedback Friday thread) (you, Claude drafts the post).
+3. **Post it for feedback** with an honest AI note: the draft, the places and their rules, and four GIFs are in
+   `docs/pitch/feedback-post-2026-10-12.md` (you post; read each sidebar first). A playable build for itch
+   needs Godot's export templates installed first (your call, about a gigabyte).
 
 ## Sources (structure only)
 - FirstLook, "A step-by-step guide to getting your indie game published": the slice, the deck, player data; begin 12 to 18 months before launch.

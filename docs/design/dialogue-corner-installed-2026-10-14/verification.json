@@ -1,0 +1,14 @@
+{
+  "native_live_flood": 5,
+  "native_live_gallery": 5,
+  "other_protected_files_exact": 813,
+  "only_changed_source": "scripts/ui/ui_style.gd",
+  "source_reverse_two_values_equals_original_bytes": true,
+  "pixel_controls": {
+    "gallery-narration": true,
+    "gallery-shared-panels": true,
+    "gallery-long-page1-matches-checked-proposal": true,
+    "gallery-long-lastpage-matches-checked-proposal": true
+  },
+  "new_image_generation": false
+}

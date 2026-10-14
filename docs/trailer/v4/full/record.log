@@ -1,0 +1,77 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+OpenGL API 3.3.0 NVIDIA 596.49 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce GTX 1660 SUPER
+
+Movie Maker mode enabled, recording movie in 1152×648 @ 30 FPS...
+[godot_ai game_helper] registered mcp capture (debugger active=false, logger=true)
+SHOT segment_flood_talk 7
+CAPTURE_CHECK flood opens on real narration -> ok
+CAPTURE_CHECK flood offers partner choices -> ok
+CAPTURE_CHECK chosen partner speaks with its current portrait -> ok
+SHOT flood_partner 238
+SEG flood_talk 7 331
+SHOT segment_title_continue 481
+CAPTURE_CHECK title ready for Continue -> ok
+CAPTURE_CHECK Continue enters real Highbank -> ok
+SEG title_continue 481 682
+SHOT segment_mail_call 702
+SHOT mail_early 912
+CAPTURE_CHECK mail call completes -> ok
+SEG mail_call 702 3534
+CAPTURE_CHECK board has requests -> ok
+SHOT segment_board 3554
+CAPTURE_CHECK taking a delivery puts a Parcel in bag -> ok
+SHOT board_parcel 3604
+SEG board 3554 3797
+SHOT segment_water 3827
+SHOT water_rows_1 3869
+SHOT water_rows_2 4023
+SHOT water_rows_3 4177
+CAPTURE_CHECK current water reaches at least two painted rows -> ok
+SEG water 3827 4256
+SHOT segment_faint 4266
+CAPTURE_CHECK leader loss reaches actual defeat scene -> ok
+SHOT faint_information 4435
+SEG faint 4266 4618
+CAPTURE_CHECK defeat returns team to town -> ok
+SHOT segment_storage 4649
+SHOT storage_door 4649
+CAPTURE_CHECK door enters current Storage room -> ok
+CAPTURE_CHECK all three current party members enter -> ok
+SHOT storage_interior 4689
+CAPTURE_CHECK walk behind the counter -> ok
+SHOT storage_shelves 4784
+CAPTURE_CHECK walk to the counter front -> ok
+CAPTURE_CHECK counter opens the real Storage panel -> ok
+SHOT storage_panel 4873
+CAPTURE_CHECK deposit is exactly one berry -> ok
+SHOT storage_deposit 4911
+CAPTURE_CHECK withdraw restores two berries and empty store -> ok
+SHOT storage_withdraw 4984
+CAPTURE_CHECK walk back to the south threshold -> ok
+CAPTURE_CHECK door returns to real Highbank scene -> ok
+CAPTURE_CHECK return lands outside Storage -> ok
+CAPTURE_CHECK party record survives the shot -> ok
+CAPTURE_CHECK capture uses its own save -> ok
+SHOT storage_return 5086
+SEG storage 4649 5134
+STORAGE SHOT: 12/12
+SHOT segment_growth 5184
+CAPTURE_CHECK shrine grows Kithflare to Sparkwick -> ok
+SHOT growth_result 5387
+SEG growth 5184 5480
+SHOT segment_standoff 5492
+SHOT standoff_starward 7368
+SHOT stone_rises 8869
+CAPTURE_CHECK Warden stand-off returns to town -> ok
+CAPTURE_CHECK stand-off carries shrine stone home -> ok
+SHOT standoff_return 9608
+SEG standoff 5492 9671
+CAPTURE TOTAL: 26/26
+RECORDED 9679 frames
+--------------------------------------------------------------------------------
+Done recording movie at path: D:\dev\hollowtide-full-pitch-v4-20261014\take3\raw.avi
+9680 frames at 30 FPS (movie length: 00:05:22:20), recorded in 00:03:46 (142% of real-time speed).
+CPU render time: 2.40 seconds (average: 0.25 ms/frame)
+GPU render time: 5.09 seconds (average: 0.53 ms/frame)
+Encoding time: 92.24 seconds (average: 9.53 ms/frame)
+--------------------------------------------------------------------------------

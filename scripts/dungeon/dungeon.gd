@@ -21,6 +21,7 @@ const Gen := preload("res://scripts/hollow/hollow_gen.gd")
 const Painter := preload("res://scripts/dungeon/floor_painter.gd")
 const RuinPainter := preload("res://scripts/dungeon/ruin_painter.gd")
 const BankPainter := preload("res://scripts/dungeon/riverbank_painter.gd")
+const RisingWaterArt := preload("res://scripts/dungeon/rising_water_art.gd")
 const DungeonFinish := preload("res://scripts/dungeon/dungeon_finish.gd")
 const CrewPortraitCanvas := preload("res://scripts/ui/crew_portrait_canvas.gd")
 const ValleyPainter := preload("res://scripts/dungeon/valley_painter.gd")
@@ -433,6 +434,10 @@ var _floor_fx: Node2D                     # warning tiles, drawn on the floor un
 var data: Dictionary = {}
 var ents: Array[Dictionary] = []        # every creature on the floor; ents[0] is the leader
 var log_lines: Array[String] = []
+## The message box steps out of the way when nothing new has been said for a while, as Explorers of
+## Sky's does, and is back on the next message (the menu's Message log keeps the history).
+const LOG_LINGER := 4.0
+var _log_at := 0                        # msec of the newest message
 var explored := PackedByteArray()
 var _fields := {}
 var _pops: Array[Dictionary] = []       # floating numbers and words
@@ -640,6 +645,8 @@ func _water_tick() -> void:
 
 func _draw_water() -> void:
 	if water_rows <= 0:
+		return
+	if RisingWaterArt.draw(self, _floor_fx):
 		return
 	var tick := int(Time.get_ticks_msec() / 400)
 	var top: int = water_base - water_rows
@@ -3937,9 +3944,9 @@ func _draw_hud() -> void:
 		if face != null:
 			h.draw_texture(face, Vector2(28, y + 1), Color(0.45, 0.45, 0.45, 0.8) if down else Color.WHITE)
 		h.draw_rect(Rect2(28, y + 1, 48, 48), UI.EDGE_LIGHT if e == ents[0] else UI.EDGE, false, 1.0)
-		UI.text(h, Vector2(84, y + 20), String(e["name"]), 19, UI.HP_LOW if down else (UI.EDGE_LIGHT if e == ents[0] else UI.TEXT))
-		var tag := "Lv %d" % level_of(e["line"]) + ("" if e == ents[0] else "   Sense %d" % iq_of(e))
-		UI.say(h, Vector2(84, y + 20), tag, "label", UI.MUTED, 246, HORIZONTAL_ALIGNMENT_RIGHT)
+		var nt: Array = hud_name_tag(String(e["name"]), level_of(e["line"]), -1 if e == ents[0] else iq_of(e))
+		UI.say(h, Vector2(84, y + 20), nt[0], "body", UI.HP_LOW if down else (UI.EDGE_LIGHT if e == ents[0] else UI.TEXT))
+		UI.say(h, Vector2(84, y + 20), nt[1], "label", UI.MUTED, HUD_ROW_W, HORIZONTAL_ALIGNMENT_RIGHT)
 		UI.bar(h, Rect2(84, y + 27, 170, 9), k, UI.hp_col(k))
 		UI.say(h, Vector2(262, y + 38), "%d/%d" % [e["hp"], e["max_hp"]], "number", UI.TEXT)
 		if e["stage"] < 2:
@@ -3977,8 +3984,10 @@ func _draw_hud() -> void:
 			sub = "Heal"
 		UI.text(h, box.position + Vector2(50, 42), sub, 14, UI.MUTED if ready else UI.HP_MID, 108)
 	# The message box (hidden while a scene's dialogue is showing), names in colour.
-	if talk.is_empty():
-		var lb := Rect2(342, 526, 600, 108)
+	var log_idle: float = (Time.get_ticks_msec() - _log_at) / 1000.0
+	var log_away: float = smoothstep(0.0, 1.0, (log_idle - LOG_LINGER) / 0.3)   # 0 shown, 1 below the screen edge
+	if talk.is_empty() and log_away < 1.0:
+		var lb := Rect2(342, 526 + 124.0 * log_away, 600, 108)
 		UI.panel(h, lb, 0.86)
 		var marks := {}
 		for e in ents:
@@ -4024,12 +4033,13 @@ func _draw_hud() -> void:
 			UI.text(h, Vector2(box.position.x + 248, yy), String(it["what"]), 14, UI.MUTED, 216)
 	if teach_kind != "":
 		var rows := teach_rows()
-		var tbox := Rect2(336, 120, 480, 84 + 32 * maxi(1, rows.size()))
+		# The keys sit on their own footer row: on the question's row they were drawn over it. Claude, 2026-10-14.
+		var tbox := Rect2(336, 120, 480, 84 + 32 * maxi(1, rows.size()) + 26)
 		UI.panel(h, tbox, 0.96)
 		var title: String = ("%s: %s" % [ents[teach_learner]["name"], Arena.MOVES[teach_kind.get_slice(":", 1)]["name"]]) if teach_kind.begins_with("learn:") else item_info(teach_kind)["name"]
 		UI.text(h, tbox.position + Vector2(20, 32), title, 21, UI.EDGE_LIGHT, 440)
-		UI.text(h, tbox.position + Vector2(20, 56), "Who learns it?" if teach_learner < 0 else "It knows four moves. Forget one?", 16, UI.TEXT, 300)
-		UI.text(h, tbox.position + Vector2(20, 56), "W/S choose   J pick   Esc close", 14, UI.MUTED, 440, HORIZONTAL_ALIGNMENT_RIGHT)
+		UI.text(h, tbox.position + Vector2(20, 56), "Who learns it?" if teach_learner < 0 else "It knows four moves. Forget one?", 16, UI.TEXT, 440)
+		UI.text(h, tbox.position + Vector2(20, tbox.size.y - 18), "W/S choose   J pick   Esc close", 14, UI.MUTED, 440, HORIZONTAL_ALIGNMENT_RIGHT)
 		for k in rows.size():
 			var yy: float = tbox.position.y + 92 + k * 32
 			if k == teach_sel:
@@ -4037,28 +4047,69 @@ func _draw_hud() -> void:
 				h.draw_rect(Rect2(tbox.position.x + 8, yy - 21, tbox.size.x - 16, 28), UI.EDGE_LIGHT, false, 1.0)
 			UI.text(h, Vector2(tbox.position.x + 24, yy), String(rows[k]["text"]).capitalize(), 17, UI.TEXT if rows[k]["ok"] else UI.FOE, 430)
 	# The minimap: explored floor, the stairs once seen, your team, the wild creatures in sight.
-	var mm := Vector2(1136 - data["w"] * 3, 44)
-	UI.panel(h, Rect2(mm - Vector2(8, 8), Vector2(data["w"] * 3, data["h"] * 3) + Vector2(16, 16)), 0.55)
-	for ty in data["h"]:
-		for tx in data["w"]:
-			var k2: int = ty * data["w"] + tx
-			if explored[k2] == 1 and data["tiles"][k2] == Gen.FLOOR:
-				h.draw_rect(Rect2(mm + Vector2(tx, ty) * 3, Vector2(3, 3)), Color(0.55, 0.7, 0.85, 0.55))
+	# Explorers of Sky draws its map as see-through outlines of the rooms and halls; ours does the same
+	# in the corner: a faint fill, a bright line where explored floor meets rock, and as large as the
+	# corner allows (3 px a tile had left a 168 px map that read as a smudge). Claude, 2026-10-14.
+	var mw: int = data["w"]
+	var mh: int = data["h"]
+	var s: int = minimap_scale(mw, mh)
+	var mm := Vector2(1136 - mw * s, 44)
+	UI.panel(h, Rect2(mm - Vector2(8, 8), Vector2(mw * s, mh * s) + Vector2(16, 16)), 0.55)
+	var fill := Color(0.55, 0.75, 0.95, 0.2)
+	var line := Color(0.8, 0.92, 1.0, 0.85)
+	for ty in mh:
+		for tx in mw:
+			var k2: int = ty * mw + tx
+			if explored[k2] != 1 or data["tiles"][k2] != Gen.FLOOR:
+				continue
+			var at := mm + Vector2(tx, ty) * s
+			h.draw_rect(Rect2(at, Vector2(s, s)), fill)
+			for nd in [Vector2i(0, -1), Vector2i(0, 1), Vector2i(-1, 0), Vector2i(1, 0)]:
+				var nx: int = tx + nd.x
+				var ny: int = ty + nd.y
+				if nx >= 0 and ny >= 0 and nx < mw and ny < mh and data["tiles"][ny * mw + nx] == Gen.FLOOR:
+					continue
+				var edge := Rect2(at + Vector2(s - 1 if nd.x > 0 else 0, s - 1 if nd.y > 0 else 0), Vector2(1 if nd.x != 0 else s, 1 if nd.y != 0 else s))
+				h.draw_rect(edge, line)
+	var dot := func(p: Vector2i, size: float, col: Color) -> void:
+		h.draw_rect(Rect2((mm + (Vector2(p) + Vector2(0.5, 0.5)) * s - Vector2(size, size) * 0.5).round(), Vector2(size, size)), col)
 	for it in floor_items:
-		if explored[it["pos"].y * data["w"] + it["pos"].x] == 1:
-			h.draw_rect(Rect2(mm + Vector2(it["pos"]) * 3, Vector2(3, 3)), item_info(it["kind"])["col"])
+		if explored[it["pos"].y * mw + it["pos"].x] == 1:
+			dot.call(it["pos"], s - 1.0, item_info(it["kind"])["col"])
 	var st: Vector2i = data["stairs"]
-	if explored[st.y * data["w"] + st.x] == 1:
-		h.draw_rect(Rect2(mm + Vector2(st) * 3 - Vector2(1, 1), Vector2(5, 5)), Color(1, 0.85, 0.3))
+	if explored[st.y * mw + st.x] == 1:
+		dot.call(st, s + 2.0, Color(1, 0.85, 0.3))
 	for e in ents:
 		if e["hp"] <= 0:
 			continue
 		if e["team"] == 1 and not _sees(ents[0]["pos"], e["pos"]) or e.get("hidden", false):
 			continue
-		h.draw_rect(Rect2(mm + Vector2(e["pos"]) * 3 - Vector2(1, 1), Vector2(4, 4)), Color("#ffb347") if e == ents[0] else (Color("#7fd0ff") if e["team"] == 0 else Color("#ff5a4a")))
+		dot.call(e["pos"], s + 1.0 if e == ents[0] else float(s), Color("#ffb347") if e == ents[0] else (Color("#7fd0ff") if e["team"] == 0 else Color("#ff5a4a")))
+
+
+## Pixels per tile on the corner map: as large as fits 232 x 170 px of the top right, 3 to 5.
+static func minimap_scale(w: int, h: int) -> int:
+	return clampi(mini(int(232.0 / maxi(1, w)), int(170.0 / maxi(1, h))), 3, 5)
+
+
+## A team row's name and its level tag, fitted to the row's 246 px together. A long name ("Cutbank Listener",
+## Lv and Sense) used to run into the tag; the tag tightens, then drops Sense (the team screen still shows
+## it), and only then is the name cut. sense < 0 is the leader, who shows no Sense. Claude, 2026-10-14.
+const HUD_ROW_W := 246.0
+
+
+static func hud_name_tag(nm: String, lv: int, sense: int) -> Array:
+	var tags: Array = ["Lv %d" % lv] if sense < 0 else ["Lv %d   Sense %d" % [lv, sense], "Lv %d  Sense %d" % [lv, sense], "Lv %d" % lv]
+	var tag: String = tags[tags.size() - 1]
+	for t in tags:
+		if UI.width_in(nm, "body") + 10.0 + UI.width_in(t, "label") <= HUD_ROW_W:
+			tag = t
+			break
+	return [UI.clip(nm, "body", HUD_ROW_W - 10.0 - UI.width_in(tag, "label")), tag]
 
 
 func _say(text: String) -> void:
+	_log_at = Time.get_ticks_msec()
 	log_lines.append(text)
 	if log_lines.size() > 40:
 		log_lines.pop_front()

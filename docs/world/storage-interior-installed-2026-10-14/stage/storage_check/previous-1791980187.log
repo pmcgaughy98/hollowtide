@@ -1,0 +1,23 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+OpenGL API 3.3.0 NVIDIA 596.49 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce GTX 1660 SUPER
+
+[godot_ai game_helper] registered mcp capture (debugger active=false, logger=true)
+Before the Warren is beaten the Storage is shut: 'Shut. A note on the door: "Back when the river road's clear.' -> ok
+SCRIPT ERROR: Parse Error: Identifier "last_sfx" not declared in the current scope.
+   at: GDScript::reload (res://scripts/town/town_room.gd:550)
+   GDScript backtrace (most recent call first):
+       [0] enter_room (res://scripts/town/hub_town.gd:588)
+       [1] act_use (res://scripts/town/hub_town.gd:299)
+       [2] _run (D:/dev/hollowtide-storage-integration-20261014/checks/storage_check.gd:69)
+       [3] _town (D:/dev/hollowtide-storage-integration-20261014/checks/storage_check.gd:51)
+       [4] _frames (D:/dev/hollowtide-storage-integration-20261014/checks/storage_check.gd:27)
+ERROR: Failed to load script "res://scripts/town/town_room.gd" with error "Parse error".
+   at: load (modules/gdscript/gdscript_resource_format.cpp:46)
+   GDScript backtrace (most recent call first):
+       [0] enter_room (res://scripts/town/hub_town.gd:588)
+       [1] act_use (res://scripts/town/hub_town.gd:299)
+       [2] _run (D:/dev/hollowtide-storage-integration-20261014/checks/storage_check.gd:69)
+       [3] _town (D:/dev/hollowtide-storage-integration-20261014/checks/storage_check.gd:51)
+       [4] _frames (D:/dev/hollowtide-storage-integration-20261014/checks/storage_check.gd:27)
+SCRIPT ERROR: Invalid assignment of property or key 'room_id' with value of type 'String' on a base object of type 'Node2D'.
+   at: enter_room (res://scripts/town/hub_town.gd:589)

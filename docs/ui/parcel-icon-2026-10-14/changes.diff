@@ -1,0 +1,51 @@
+--- original/tools/ui/build_icons.py
++++ installed/tools/ui/build_icons.py
+@@ -248,6 +248,25 @@
+         "....oo1111oo....",
+         "......oooo......",
+         "................",
++    ]),
++    # Sealed paper delivery parcel: the scroll's existing paper/wax palette.
++    "item/parcel": ({'1': '#8a6a3a', '2': '#d8c08a', '3': '#f6ead0', 'g': '#8a1f2e', 'G': '#c84a5a'}, [
++        '................',
++        '................',
++        '......ooooo.....',
++        '....oo33332oo...',
++        '...o333332222o..',
++        '..o33333222221o.',
++        '..o22223322221o.',
++        '..o2223o322221o.',
++        '..o2223Gg22221o.',
++        '..o222gGGg2221o.',
++        '..o2222gg32221o.',
++        '..o22222322221o.',
++        '..o12222322111o.',
++        '..o11113111111o.',
++        '...ooooooooooo..',
++        '................',
+     ]),
+     "item/lamp_oil": ({"1": "#8a5a10", "2": "#f2c14e", "3": "#fff0b0", "g": "#5c4a36", "G": "#8f7a5c"}, [
+         "................",
+--- original/scripts/town/hub_town.gd
++++ installed/scripts/town/hub_town.gd
+@@ -846,13 +846,18 @@
+ 			h.draw_texture_rect(face, face_r, false)
+ 		h.draw_rect(face_r, UI.EDGE, false, 1.0)
+ 		var done: bool = j.get("done", false)
+-		UI.text(h, r.position + Vector2(70, 27), Jobs.title(j), 20, UI.EDGE_LIGHT if on else UI.TEXT, 340)
++		# Delivery cargo has its own icon; the reward keeps its existing icon.
++		var cargo := UI.item_icon("parcel") if j["kind"] == "delivery" else null
++		var cargo_inset := 40 if cargo != null else 0
++		if cargo != null:
++			h.draw_texture(cargo, r.position + Vector2(70, 11))
++		UI.text(h, r.position + Vector2(70 + cargo_inset, 27), Jobs.title(j), 20, UI.EDGE_LIGHT if on else UI.TEXT, 340 - cargo_inset)
+ 		var where := "done, paid on return"
+ 		if done and j["kind"] == "delivery":
+ 			where = "delivered, %s" % Jobs.result_text(j)
+ 		elif not done:
+ 			where = {"rescue": "lost there", "lost_item": "dropped there"}.get(j["kind"], "%s, pay x2" % Jobs.cond_text(j))
+-		UI.text(h, r.position + Vector2(70, 51), "B%dF   %s" % [int(j["floor"]), where], 15, UI.MUTED, 340)
++		UI.text(h, r.position + Vector2(70 + cargo_inset, 51), "B%dF   %s" % [int(j["floor"]), where], 15, UI.MUTED, 340 - cargo_inset)
+ 		var icon := UI.item_icon(String(j["reward"]))
+ 		if icon != null:
+ 			h.draw_texture(icon, r.position + Vector2(420, 15))

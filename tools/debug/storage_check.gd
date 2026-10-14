@@ -1,6 +1,6 @@
 extends SceneTree
 ## The Storage (R6 of the genre synthesis; Claude, 2026-10-12; scripts/town/storage.gd). Checks: shut until
-## Rootbank Warren is beaten (the river road); then a panel that moves items between the bag and the store,
+## Rootbank Warren is beaten (the river road); then its painted room and counter panel that move items between the bag and the store,
 ## refuses parcels, honours the bag's kinds cap; what is kept survives a run's take_from and a faint, is named
 ## on the faint screen, and rides in the save. Windowed it saves a still of the panel.
 ##   Godot --headless --path . --script res://tools/debug/storage_check.gd
@@ -42,6 +42,7 @@ func _town() -> Node2D:
 	town.poll_input = false
 	TeamState.give_to(town)
 	root.add_child(town)
+	current_scene = town
 	await _frames(6)
 	var door: Dictionary = town.Layout.PLACES.filter(func(p: Dictionary) -> bool: return p["id"] == "storage")[0]
 	town.team[0]["pos"] = door["door"] + Vector2i(0, 1)
@@ -51,6 +52,8 @@ func _town() -> Node2D:
 
 
 func _run() -> void:
+	TeamState.save_path = CHECK_PATH
+	TeamState.erase_save()
 	TeamState.start([[0, 0], [1, 0]])
 	TeamState.data["bag"] = {"reedberry": 2, "lamp_oil": 1, "parcel": 1}
 	TeamState.data["beaten"] = ["mouth"]
@@ -60,6 +63,15 @@ func _run() -> void:
 	_ok("Before the Warren is beaten the Storage is shut: '%s'" % String(town.panel.get("what", "")).left(60), town.panel.get("service", "") == "storage_shut" and "river road" in String(town.panel.get("what", "")))
 	town.panel = {}
 	TeamState.data["beaten"] = ["mouth", "first"]
+	town.act_use()
+	await _frames(8)
+	town = current_scene
+	town.poll_input = false
+	_ok("Unlocked door enters the painted Storage room", town.get("room_id") == "storage")
+	for k in 4:
+		await town.act_move(Vector2i.UP)
+		await _frames(1)
+	town.team[0]["facing"] = "n"
 	town.act_use()
 	var rows: Array = town.storage_rows()
 	_ok("After: the panel opens with the bag's kinds %s" % str(rows), town.panel.get("service", "") == "storage" and rows.size() == 3 and rows[0][0] == "reedberry" and rows[0][1] == 2 and rows[0][2] == 0)
@@ -121,4 +133,7 @@ func _run() -> void:
 	TeamState.erase_save()
 	TeamState.save_path = TeamState.SAVE_PATH
 	print("STORAGE: %s" % ("all ok" if fails == 0 else "%d FAILED" % fails))
+	var music = root.get_node_or_null("HollowtideMusic")
+	if music != null: music.queue_free()
+	await _frames(4)
 	quit(1 if fails else 0)

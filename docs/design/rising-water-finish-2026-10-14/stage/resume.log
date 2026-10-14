@@ -1,0 +1,23 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+OpenGL API 3.3.0 NVIDIA 596.49 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce GTX 1660 SUPER
+
+ERROR: Failed to read the root certificate store.
+   at: get_system_ca_certificates (platform/windows/os_windows.cpp:2582)
+[godot_ai game_helper] registered mcp capture (debugger active=false, logger=true)
+Native painted atlases available -> ok
+Native ripples atlas RGBA exact -> ok
+Native shoreline atlas RGBA exact -> ok
+Turn nine still dry -> ok
+Turn ten floods exactly the first row -> ok
+Rendering changes no suspend fields -> ok
+Suspend writes isolated save -> ok
+Disk retains exact water rows and run fields -> ok
+Actual title is ready for Continue -> ok
+Actual Continue opens dungeon scene -> ok
+Resumed valley, seed and water height exact -> ok
+Resumed clock and lantern exact -> ok
+Resume still starts above water with stairs dry -> ok
+One-use suspend consumed in memory and on disk -> ok
+No extra rise between beats after resume -> ok
+Next scheduled rise reaches original ceiling -> ok
+WATER RESUME: 16/16

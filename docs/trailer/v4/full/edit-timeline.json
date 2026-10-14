@@ -1,0 +1,311 @@
+{
+  "planned_seconds": 99.62264150943396,
+  "fps": 30,
+  "bars": 44,
+  "shots": [
+    [
+      "cold",
+      "01_storm_open",
+      1.6,
+      2
+    ],
+    [
+      "card",
+      "river",
+      0,
+      1
+    ],
+    [
+      "clip",
+      "mark:flood_partner",
+      0.15,
+      1
+    ],
+    [
+      "clip",
+      "03_ruin_rises",
+      0.6,
+      1
+    ],
+    [
+      "clip",
+      "seg:title_continue",
+      0.0,
+      1
+    ],
+    [
+      "clip",
+      "seg:title_continue",
+      4.4,
+      1
+    ],
+    [
+      "card",
+      "mail",
+      0,
+      1
+    ],
+    [
+      "clip",
+      "mark:mail_early",
+      0.2,
+      3
+    ],
+    [
+      "clip",
+      "seg:mail_call",
+      24.0,
+      2
+    ],
+    [
+      "clip",
+      "mark:board_parcel",
+      0.4,
+      2
+    ],
+    [
+      "card",
+      "turn",
+      0,
+      1
+    ],
+    [
+      "clip",
+      "mark:water_rows_1",
+      0.2,
+      2
+    ],
+    [
+      "clip",
+      "mark:water_rows_2",
+      0.2,
+      2
+    ],
+    [
+      "clip",
+      "v2hollow",
+      28.3,
+      2
+    ],
+    [
+      "card",
+      "home",
+      0,
+      1
+    ],
+    [
+      "clip",
+      "seg:faint",
+      0.8,
+      1
+    ],
+    [
+      "clip",
+      "mark:faint_information",
+      0.2,
+      2
+    ],
+    [
+      "clip",
+      "mark:storage_shelves",
+      0.1,
+      2
+    ],
+    [
+      "clip",
+      "mark:storage_deposit",
+      0.1,
+      1
+    ],
+    [
+      "clip",
+      "mark:storage_withdraw",
+      0.1,
+      1
+    ],
+    [
+      "card",
+      "grow",
+      0,
+      1
+    ],
+    [
+      "clip",
+      "seg:growth",
+      0.5,
+      3
+    ],
+    [
+      "card",
+      "below",
+      0,
+      1
+    ],
+    [
+      "clip",
+      "seg:standoff",
+      1.0,
+      2
+    ],
+    [
+      "clip",
+      "mark:standoff_starward",
+      0.3,
+      3
+    ],
+    [
+      "clip",
+      "mark:stone_rises",
+      0.0,
+      1
+    ],
+    [
+      "end",
+      "end",
+      0,
+      3
+    ]
+  ],
+  "resolved_clips": [
+    {
+      "name": "01_storm_open",
+      "path": "C:\\Users\\pmcga\\dev\\hollowtide\\docs\\design\\videos-2026-10-11\\01_storm_open.mp4",
+      "source_start_seconds": 1.6,
+      "length_seconds": 4.528301886792453,
+      "keep_audio": true
+    },
+    {
+      "name": "mark:flood_partner",
+      "path": "D:\\dev\\hollowtide-full-pitch-v4-20261014\\take3\\raw.avi",
+      "source_start_seconds": 8.083333333333334,
+      "length_seconds": 2.2641509433962264,
+      "keep_audio": false
+    },
+    {
+      "name": "03_ruin_rises",
+      "path": "C:\\Users\\pmcga\\dev\\hollowtide\\docs\\design\\videos-2026-10-11\\03_ruin_rises.mp4",
+      "source_start_seconds": 0.6,
+      "length_seconds": 2.2641509433962264,
+      "keep_audio": false
+    },
+    {
+      "name": "seg:title_continue",
+      "path": "D:\\dev\\hollowtide-full-pitch-v4-20261014\\take3\\raw.avi",
+      "source_start_seconds": 16.033333333333335,
+      "length_seconds": 2.2641509433962264,
+      "keep_audio": false
+    },
+    {
+      "name": "seg:title_continue",
+      "path": "D:\\dev\\hollowtide-full-pitch-v4-20261014\\take3\\raw.avi",
+      "source_start_seconds": 20.433333333333337,
+      "length_seconds": 2.2641509433962264,
+      "keep_audio": false
+    },
+    {
+      "name": "mark:mail_early",
+      "path": "D:\\dev\\hollowtide-full-pitch-v4-20261014\\take3\\raw.avi",
+      "source_start_seconds": 30.599999999999998,
+      "length_seconds": 6.7924528301886795,
+      "keep_audio": false
+    },
+    {
+      "name": "seg:mail_call",
+      "path": "D:\\dev\\hollowtide-full-pitch-v4-20261014\\take3\\raw.avi",
+      "source_start_seconds": 47.4,
+      "length_seconds": 4.528301886792453,
+      "keep_audio": false
+    },
+    {
+      "name": "mark:board_parcel",
+      "path": "D:\\dev\\hollowtide-full-pitch-v4-20261014\\take3\\raw.avi",
+      "source_start_seconds": 120.53333333333335,
+      "length_seconds": 4.528301886792453,
+      "keep_audio": false
+    },
+    {
+      "name": "mark:water_rows_1",
+      "path": "D:\\dev\\hollowtide-full-pitch-v4-20261014\\take3\\raw.avi",
+      "source_start_seconds": 129.16666666666666,
+      "length_seconds": 4.528301886792453,
+      "keep_audio": false
+    },
+    {
+      "name": "mark:water_rows_2",
+      "path": "D:\\dev\\hollowtide-full-pitch-v4-20261014\\take3\\raw.avi",
+      "source_start_seconds": 134.29999999999998,
+      "length_seconds": 4.528301886792453,
+      "keep_audio": false
+    },
+    {
+      "name": "v2hollow",
+      "path": "C:\\Users\\pmcga\\dev\\hollowtide\\docs\\trailer\\v2\\hollow.avi",
+      "source_start_seconds": 28.3,
+      "length_seconds": 4.528301886792453,
+      "keep_audio": false
+    },
+    {
+      "name": "seg:faint",
+      "path": "D:\\dev\\hollowtide-full-pitch-v4-20261014\\take3\\raw.avi",
+      "source_start_seconds": 143.0,
+      "length_seconds": 2.2641509433962264,
+      "keep_audio": false
+    },
+    {
+      "name": "mark:faint_information",
+      "path": "D:\\dev\\hollowtide-full-pitch-v4-20261014\\take3\\raw.avi",
+      "source_start_seconds": 148.03333333333333,
+      "length_seconds": 4.528301886792453,
+      "keep_audio": false
+    },
+    {
+      "name": "mark:storage_shelves",
+      "path": "D:\\dev\\hollowtide-full-pitch-v4-20261014\\take3\\raw.avi",
+      "source_start_seconds": 159.56666666666666,
+      "length_seconds": 4.528301886792453,
+      "keep_audio": false
+    },
+    {
+      "name": "mark:storage_deposit",
+      "path": "D:\\dev\\hollowtide-full-pitch-v4-20261014\\take3\\raw.avi",
+      "source_start_seconds": 163.79999999999998,
+      "length_seconds": 2.2641509433962264,
+      "keep_audio": false
+    },
+    {
+      "name": "mark:storage_withdraw",
+      "path": "D:\\dev\\hollowtide-full-pitch-v4-20261014\\take3\\raw.avi",
+      "source_start_seconds": 166.23333333333332,
+      "length_seconds": 2.2641509433962264,
+      "keep_audio": false
+    },
+    {
+      "name": "seg:growth",
+      "path": "D:\\dev\\hollowtide-full-pitch-v4-20261014\\take3\\raw.avi",
+      "source_start_seconds": 173.3,
+      "length_seconds": 6.7924528301886795,
+      "keep_audio": false
+    },
+    {
+      "name": "seg:standoff",
+      "path": "D:\\dev\\hollowtide-full-pitch-v4-20261014\\take3\\raw.avi",
+      "source_start_seconds": 184.06666666666666,
+      "length_seconds": 4.528301886792453,
+      "keep_audio": false
+    },
+    {
+      "name": "mark:standoff_starward",
+      "path": "D:\\dev\\hollowtide-full-pitch-v4-20261014\\take3\\raw.avi",
+      "source_start_seconds": 245.9,
+      "length_seconds": 6.7924528301886795,
+      "keep_audio": false
+    },
+    {
+      "name": "mark:stone_rises",
+      "path": "D:\\dev\\hollowtide-full-pitch-v4-20261014\\take3\\raw.avi",
+      "source_start_seconds": 295.6333333333333,
+      "length_seconds": 2.2641509433962264,
+      "keep_audio": false
+    }
+  ]
+}

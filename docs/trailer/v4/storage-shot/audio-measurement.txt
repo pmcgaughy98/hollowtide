@@ -1,0 +1,38 @@
+Input #0, mov,mp4,m4a,3gp,3g2,mj2, from 'D:\dev\hollowtide-storage-capture-20261014\delivery\storage_room.mp4':
+  Metadata:
+    major_brand     : isom
+    minor_version   : 512
+    compatible_brands: isomiso2avc1mp41
+    encoder         : Lavf63.1.100
+  Duration: 00:00:16.17, start: 0.000000, bitrate: 2448 kb/s
+  Stream #0:0[0x1](und): Video: h264 (High) (avc1 / 0x31637661), yuvj420p(pc, bt470bg/unknown/unknown, progressive), 1152x648 [SAR 1:1 DAR 16:9], 2276 kb/s, 30 fps, 30 tbr, 15360 tbn (default)
+    Metadata:
+      handler_name    : VideoHandler
+      encoder         : Lavc63.1.100 libx264
+  Stream #0:1[0x2](und): Audio: aac (LC) (mp4a / 0x6134706D), 48000 Hz, stereo, fltp, 162 kb/s (default)
+    Metadata:
+      handler_name    : SoundHandler
+[Parsed_volumedetect_0 @ 000002c7690f0d40] n_samples: 0
+Stream mapping:
+  Stream #0:1 -> #0:0 (aac (native) -> pcm_s16le (native))
+Press [q] to stop, [?] for help
+Output #0, null, to 'pipe:':
+  Metadata:
+    major_brand     : isom
+    minor_version   : 512
+    compatible_brands: isomiso2avc1mp41
+    encoder         : Lavf63.1.100
+  Stream #0:0(und): Audio: pcm_s16le, 48000 Hz, stereo, s16, 1536 kb/s (default)
+    Metadata:
+      encoder         : Lavc63.1.100 pcm_s16le
+      handler_name    : SoundHandler
+[Parsed_volumedetect_0 @ 000002c768bf0740] n_samples: 1552000
+[Parsed_volumedetect_0 @ 000002c768bf0740] mean_volume: -22.3 dB
+[Parsed_volumedetect_0 @ 000002c768bf0740] max_volume: -7.1 dB
+[Parsed_volumedetect_0 @ 000002c768bf0740] histogram_7db: 34
+[Parsed_volumedetect_0 @ 000002c768bf0740] histogram_8db: 103
+[Parsed_volumedetect_0 @ 000002c768bf0740] histogram_9db: 339
+[Parsed_volumedetect_0 @ 000002c768bf0740] histogram_10db: 942
+[Parsed_volumedetect_0 @ 000002c768bf0740] histogram_11db: 2199
+[out#0/null @ 000002c767140f80] video:0KiB audio:3031KiB subtitle:0KiB other streams:0KiB global headers:0KiB muxing overhead: unknown
+size=N/A time=00:00:16.16 bitrate=N/A speed=1.12e+03x elapsed=0:00:00.01    

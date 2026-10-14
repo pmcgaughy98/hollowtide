@@ -1,5 +1,76 @@
 # Working Together on Hollowtide
 
+## Claude: nine-task refinement pass, UI fit (October 14, 2026)
+
+Preston asked for a synthesis skill-up, then a nine-task refinement pass. The write-up is
+`docs/design/refinement-pass-2026-10-14/README.md`.
+
+**For Codex, two of your files changed:**
+- `scripts/ui/game_pause_menu.gd`: the Hollow main page uses 40 px rows with 3 px padding, ending at 626 of
+  648. A new `_keep_on_screen` moves any page up that would run past the screen.
+- `scripts/creature_opening.gd`: `menu_top(rows)` lays the title menu out from the key line up. Four rows keep
+  324; five, with Continue, start at 270.
+
+**Shared and new:**
+- `UI.say` grows a right-aligned or centred line leftward instead of off the screen.
+- `UI.clip` is new.
+- `tools/debug/ui_fit_check.gd` guards all of this. Run it after UI changes.
+
+**`faint_check` note:** your 162 px portrait inset makes the Mouth faint line two pages, so the check now presses
+until the screen leaves.
+
+## Claude: next Codex queue, creature views (October 14, 2026)
+
+Preston: "Codex tasks." Codex's first October 14 queue is fully complete, including the follow-up
+integrations and the V4 pitch. The new queue is `docs/team/CODEX_TASKS_2026-10-14_creatures.md`. It has three
+tasks, all proposal art in `docs/design/`:
+1. A facing audit of every cut eight-view set (Flintram, Mortarback and the agile line). The agile Stage II
+   sheet came back mirrored and was relabelled.
+2. Repainting agile Stage III's ne and nw views from behind.
+3. Clearing two specks in agile Stage I.
+
+The start-here file, `docs/team/CODEX_START_HERE_2026-10-14.md`, now points to the new queue.
+
+## Codex: full V4 pitch recorded and edited (October14,2026)
+
+Full V4 pitch COMPLETE: 99.700s,1920x1080/30fps H.264/AAC, 2991 frames; full and 23.6MB share MP4s in docs/trailer/v4/full/. Nine current native engine segments passed26/26 capture checks, including fresh flood portraits, Parcel, painted water, defeat, real indoor Storage deposit/withdraw, growth and Warden/stone return. The27-shot edit retains three historical storm/ruin/V2-combat cutaways plus existing title painting, proposed cards and Suno-origin hollow_flute music; it is staged private-state footage, not an uninterrupted playthrough or generative video. Full/share streams decode cleanly; all27 shots reviewed at start/middle/end; audio sample peak-1.8dBFS. Updated only the V4 recorder, added its marker-based cutter; installed parse check clean. All581 other protected files exact, including V3 and the earlier Storage-shot outputs. Raw take, frame markers, exact edit commands, source/provenance records and QA: docs/trailer/v4/full/README.md. Original October14 queue and both game integrations remain complete. No core game/rule/save-format edits, new generation, paid calls, training change, export, posting or commit.
+
+## Codex: V4 Storage capture workflow and fresh shot (October14,2026)
+
+Capture follow-up COMPLETE: added tools/trailer/record_pitch_v4.gd as a new derivative of Claude's preserved V3, with one shared current indoor Storage segment and --storage-only mode. Native live Movie Maker12/12 checks: actual door/three-member party/walks/counter/deposit/withdraw/exit/private save, clean log. Delivered a16.167s1152x648/30fps MP4 with engine audio,8.67s768x432/15fps GIF,503-frame raw AVI, frame markers, exact FFmpeg edits and reviewed movie frames: docs/trailer/v4/storage-shot/README.md. MP4 has485 frames; audio peak-7.1dB. All554 protected current source/old trailer/V3-root/four-GIF files exact; no existing game/V3 file edited, no real save, generation, paid call or commit. Full V4 script parse-check passes, but only its shared Storage segment was recorded; no full eight-segment V4 pitch or V4 cutter is claimed. October14 queue and game integrations remain complete. A full current pitch recording/cut is the remaining optional media follow-up.
+
+## Codex: Storage interior integrated and played (October14,2026)
+
+Storage integration INSTALLED after Preston asked for the next slice: the unlocked town door enters the painted17x13 room; the solid counter opens the existing Storage panel at166,64. Shared panel extracted without changing Storage.open/rows/move or state/save format; three-tile exit, furniture collision, separate foot-sorted props and existing0.75 finish. Pause Return to title now uses the existing town save call inside Storage; actual Continue restores counts. Native53/53 staging and53/53 live: Storage11, real route/keys/sorting/exits20, pause/Continue5, Home/Hall4, Hall floors13. All108 open tiles connected; no keeper. All five final native suites finish cleanly after private fixture teardown. Four existing files changed, two helpers and eight native PNGs added;1087 other protected source/data/dialogue/UI files exact. Evidence, originals, patch and captures: docs/world/storage-interior-installed-2026-10-14/README.md. No new generation, paid call, balance/story/state-schema/training edit or commit. All October14 queue deliverables and both follow-up integrations are now installed/complete. Historical v3 recorder still assumes the old outside Storage panel and needs its shot adapted before rerunning; Claude-owned v3 tools/proposal art preserved.
+
+## Codex: shared dialogue correction installed (October14,2026)
+
+Follow-up complete: the checked shared dialogue corner correction is now INSTALLED in scripts/ui/ui_style.gd (PORTRAIT_INSET162.0, portrait offset42,-34). Portrait/name/prose move12px right together, clearing the complete brass stud with6px spare. Native installed flood5/5 plus gallery5/5; narration and ordinary/dim/focused shared panels pixel-exact to baseline; long-line first/final pages pixel-exact to the checked proposal. Exactly two value replacements; reverse patch restores original source bytes;813 other protected source/data/dialogue/UI files exact. Evidence, original source, patch and native captures: docs/design/dialogue-corner-installed-2026-10-14/README.md. All five October14 queue deliverables remain complete. The dialogue integration is no longer pending; only Claude's Storage room/door/collision/panel integration remains. No new frame/art, generation, paid call, state/rule/save/other proposal/training change or commit.
+
+## Codex: AI inventory refreshed; October 14 queue deliverables complete (October 14, 2026)
+
+Task 5 complete: refreshed docs/pitch/ai-asset-inventory.md for October12-14. Verified all12 Retro Diffusion crew expressions and their raw edits; six normal portraits exact to October11 prepared files. Probed both101.967s v3 MP4s and measured all four98-frame/6.54s gameplay GIFs; recorded actual engine footage/editing, generated source content and missing per-GIF encoding records separately. Ballastak (SpriteCook/Nano Banana plus GPT-Image-2 profile edits), Switchhold (PixelLab), palette/parts and local SD1.5/LoRA exams remain development proposals, not installed gameplay; the dated training note says parked, not a fresh process audit. Added installed Parcel/water provenance and staged Storage/imagegen and dialogue-value status; exact models/legacy unknowns remain explicit. Current entry scene corrected to creature_opening. Evidence, hashes and checks: docs/pitch/ai-asset-inventory-2026-10-14/README.md;98 local links resolved; all814 protected existing source/data/dialogue/UI files exact. Documentation only; no generation, paid call, policy/terms research, game/media edit or commit. All five October14 queue deliverables complete: tasks1-2 installed, task3 Storage art staged and task4 dialogue values proposed. Claude still owns those two integrations; neither is claimed live.
+
+## Codex: dialogue corner layout proposal checked (October 14, 2026)
+
+Task 4 PROPOSAL COMPLETE: native flood-talk review at 3x confirms a 12px right shift clears the brass corner stud. Proposed shared values PORTRAIT_INSET=162.0 and portrait offset Vector2(42,-34); name/text move together, vertical placement and all shared frame art unchanged. Native flood5/5 plus gallery5/5 on both live baseline and staged candidate; narration and ordinary/dim/focused panel controls pixel-exact, long text pages and fits both current widths. All814 protected existing source/data/dialogue/UI files exact. Two-line patch, original/candidate source, original frame PNGs/recipe, native before/after and receipts: docs/design/dialogue-corner-2026-10-14/README.md. Live layout application remains Claude's, as requested by task4. Storage room wiring also remains pending. Tasks1-4 deliverables complete; task5 AI inventory refresh is next. No generation, paid call, other proposal/training edit or commit.
+
+## Codex: Storage room art staged for Claude (October 14, 2026)
+
+Task 3 ART COMPLETE/STAGED: a proposed 17x13-tile (408x312) Storage interior matching the Hall: exact native Hall limestone floor, rooted timber, brass, two back-wall cabinets, central counter, low stock crates/basket and wall lamps; no keeper or mail parcel stock. Six separate native props, shell, mask, assembled art, placements/depths and a standalone Godot preview delivered for Claude. Shared CPU rim preserves alpha/interiors; native preview8/8 and packaged preview8/8; all unselected floor pixels exact, all108 illustrative walkable tiles connected and three-tile aisle/threshold clear. All539 protected existing game sources/current-finish files exact. No live room, collision, door, Storage panel/data or game hook installed: these stay Claude's. Two built-in imagegen calls; original outputs, exact prompts, Hall references, nearest/alpha preparation and receipts: docs/world/storage-art-proposal-2026-10-14/README.md. No external paid generator, commit, other proposal or training edit. Tasks1-3 deliverables complete; task4 dialogue-frame corner is next, then task5 AI inventory refresh. Claude room integration remains pending.
+
+## Codex: painted rising water installed (October 14, 2026)
+
+Task 2 complete: installed native shoreline/ripple atlases and rising_water_art helper on the existing translucent water, with four quiet 400ms frames. Exactly three presentation lines added to dungeon.gd; all water rules/numbers, suspend/resume and textured valley remain exact (USE_TILE_ART=false). Native 22/22 staging and 22/22 installed live: original six water assertions plus sixteen atlas/turn/save/real Continue checks; one-use suspend and the next rise preserved. Dry/wall pixels and floor data exact at turns9/10/20/30; all 822 other protected source files exact. Originals, diff, native captures, builder/import drivers and receipts: docs/design/rising-water-finish-2026-10-14/README.md. AI-assisted code-painted art; no generation, paid call, other art/creature/settings/audio edit or commit. Claude proposals and local training untouched. Tasks 1-2 complete. Task 3, staged Storage interior art for Claude, is next; tasks 3-5 remain pending.
+
+## Codex: Parcel icon installed (October 14, 2026)
+
+Task 1 complete: native 32px sealed Parcel icon, exact existing Scroll paper/wax palette and six-colour outline recipe. Generic item lookup/Bag resolve automatically; delivery-only Board hook shows cargo beside the title while retaining the separate reward icon. Native 20/20 staging and 20/20 installed live: take a generated delivery at the real Board, exact Board cargo/reward pixels, actual Bag row and selected 3x detail, put-back cargo removal. All 17 prior icon recipes and 809 other protected source/UI files exact. Original sources, diff, native import, private drivers, captures and receipts: docs/ui/parcel-icon-2026-10-14/README.md. AI-assisted native-grid art; no image generation, paid call, rule/save/settings/other-asset edit or commit. Claude proposals and local training untouched. Task 2, painted rising water, is next; tasks 2-5 remain pending.
+
+## Claude: a new Codex queue (October 14, 2026)
+
+Preston: get Codex back on Hollowtide tasks. The October 11 queue is complete. The next one is `docs/team/CODEX_TASKS_2026-10-14.md` (start from `docs/team/CODEX_START_HERE_2026-10-14.md`): the Parcel icon, the painted rising water on The Hollow B1F, the Storage room's art, the dialogue frame's left corner under the portrait, and a refresh of the AI asset inventory. Each comes from a "For Codex" note in the October 12 entries below. The October 13 sprite-generator work is uncommitted proposal art in `docs/design/`; leave it as it is.
+
 ## Claude: the faint flow and the defeat screen (October 12, 2026)
 
 Preston: a wipe must bring the team home like Mystery Dungeon, with a defeat information screen, drawn from several games. Built: `scenes/faint_screen.tscn` (`scripts/ui/faint_screen.gd`). A wipe fades to black; the partner speaks first with its portrait (react before informing, the house voice); then the defeat panel: where the leader fell, what beat it (`dungeon.fell_to`, the last creature to hit the leader), the turns, wild creatures downed (`dungeon.downed`), what was lost (the bag, the run's recruits) and what is kept (levels, moves, partners, story items). E carries the team home to Highbank, whose news line now speaks in voice; in the Hollow Mouth before the road to town is open, E takes the team back to the bank for another go. The penalty is unchanged (the bag and the run's recruits; there is no money yet). Checks: new `tools/debug/faint_check.gd` (both routes, stills in `docs/design/faint-2026-10-12/`), `town_loop_check.gd` and `pilot_chain_check.gd` press through the screen. Also: `SceneKit.walk_all` now waits until every walker has settled (Rinsepaw was placed at her post a step early, on a walk frame), and `roll_call_check.gd` proves the crew's job-object stills. Nothing committed; Codex's and Grok's files untouched.
@@ -29,6 +100,10 @@ Preston: a wipe must bring the team home like Mystery Dungeon, with a defeat inf
 **R7, the dialogue frame.** Every dialogue box in the game goes through `UI.dialogue` in `scripts/ui/ui_style.gd`, so one change moved them all off Sky's arrangement (the portrait floating above the box's left corner) to ours: the portrait set into the box's left end with its frame straddling the top edge, like a photograph slipped into a ledger, the name tab beside it, the line to its right, and the wrap width reduced by the inset so the paging and `line_done` agree with what is drawn. Town, rooms, dungeon, the flood talk, the faint screen and the opening all changed at once; the mail call check passes windowed and its stills are in `docs/design/dialogue-frame-2026-10-12/`. For Codex: the portrait frame now overlaps the panel's left corner ornament; if the 9-slice ever gets a left post that should show, the inset constant `PORTRAIT_INSET` and the portrait's offset (30, -34) are the two numbers to move.
 
 **R8, the lawyer's brief, and a chain finding.** `docs/pitch/lawyer-brief-2026-10-12.md` is the brief Preston sends to a games lawyer: nine questions in the order they matter (the title, the genre label and comparisons, every name, the recruit rule against the capture patents, look and feel as a sum, AI-made content, AI-written code, licences, business basics) with the names, the mechanics one line each for a patent scan, the tools and licences, and the store text drafts attached. That closes R1 to R8 from Claude's side; R8 itself is Preston's to arrange. Separately, the pilot chain failed once this evening with no code cause: a Hollow Mouth seed with six knockouts sent the team into Rootbank Warren at level 2, and the crew beat it three tries running while its levels climbed a step a try. The chain's retry cap is five now (a player keeps going; the game has no dead end there) and the balance note is Grok's in `GROK_TASKS_2026-10-12.md`.
+
+**The pitch capture.** `docs/trailer/v3/hollowtide_pitch_v3.mp4` (102 s) and its share copy: the real game cut on trailer v2's rules (gameplay before the logo, a card then the footage that proves it, hard cuts on the bar lines of "Hollow in the Cottonwoods", pixels enlarged by whole numbers, a cold open on the storm). `tools/trailer/record_pitch_v3.gd` records the moments built since v2 under the movie writer (the title with Continue, the mail call, the board with deliveries, the valley floor with the water rising under a scripted shore walk, a faint and the defeat screen, the Storage, growth at the shrine, the Warden stand-off and the stone) and `tools/trailer/cut_pitch_v3.py` cuts them with v2's scene videos and Hollow fight. Two shots failed the first review and were fixed: the water was off-frame because the camera follows the team, and a Second Wind in the bag revived the leader so there was no faint. For Codex: the raw footage and the work files are in `docs/trailer/v3/` beside v2's; the card lines are proposals for Preston.
+
+**The feedback post.** `docs/pitch/feedback-post-2026-10-12.md`: where to post (r/IndieDev first with GIFs, r/IndieGaming a week later with the capture and the AI use stated the way its rule asks, r/DestroyMyGame only if its sidebar allows disclosed AI art), the AI note in one paragraph, three post variants, the questions worth asking, and what to do with the answers. Four GIFs cut from the capture sit beside it. Preston posts; the sidebars are his to read first because Reddit's rule pages did not open from the tools here. Not ready: a playable build, since Godot's export templates are not installed and the project has no export preset.
 
 ## Codex: Wayling source margin completed (October 11, 2026)
 

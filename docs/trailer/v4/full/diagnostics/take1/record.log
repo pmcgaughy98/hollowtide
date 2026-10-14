@@ -1,0 +1,71 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+OpenGL API 3.3.0 NVIDIA 596.49 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce GTX 1660 SUPER
+
+Movie Maker mode enabled, recording movie in 1152×648 @ 30 FPS...
+[godot_ai game_helper] registered mcp capture (debugger active=false, logger=true)
+SHOT segment_flood_talk 7
+CAPTURE_CHECK flood opens on real narration -> ok
+CAPTURE_CHECK flood offers partner choices -> ok
+CAPTURE_CHECK chosen partner speaks with its current portrait -> ok
+SHOT flood_partner 238
+SEG flood_talk 7 331
+SHOT segment_title_continue 481
+CAPTURE_CHECK title ready for Continue -> ok
+CAPTURE_CHECK Continue enters real Highbank -> ok
+SEG title_continue 481 682
+SHOT segment_mail_call 702
+SHOT mail_early 912
+CAPTURE_CHECK mail call completes -> FAIL
+SEG mail_call 702 2355
+CAPTURE_CHECK board has requests -> ok
+SHOT segment_board 2375
+CAPTURE_CHECK taking a delivery puts a Parcel in bag -> ok
+SHOT board_parcel 2425
+SEG board 2375 2618
+SHOT segment_water 2648
+SHOT water_rows_1 2690
+SHOT water_rows_2 2844
+SHOT water_rows_3 2998
+CAPTURE_CHECK current water reaches at least two painted rows -> ok
+SEG water 2648 3077
+SHOT segment_faint 3087
+CAPTURE_CHECK leader loss reaches actual defeat scene -> ok
+SHOT faint_information 3256
+SEG faint 3087 3439
+CAPTURE_CHECK defeat returns team to town -> ok
+SHOT segment_storage 3470
+SHOT storage_door 3470
+CAPTURE_CHECK door enters current Storage room -> ok
+CAPTURE_CHECK all three current party members enter -> ok
+SHOT storage_interior 3510
+CAPTURE_CHECK walk behind the counter -> ok
+SHOT storage_shelves 3605
+CAPTURE_CHECK walk to the counter front -> ok
+CAPTURE_CHECK counter opens the real Storage panel -> ok
+SHOT storage_panel 3694
+CAPTURE_CHECK deposit is exactly one berry -> ok
+SHOT storage_deposit 3732
+CAPTURE_CHECK withdraw restores two berries and empty store -> ok
+SHOT storage_withdraw 3805
+CAPTURE_CHECK walk back to the south threshold -> ok
+CAPTURE_CHECK door returns to real Highbank scene -> ok
+CAPTURE_CHECK return lands outside Storage -> ok
+CAPTURE_CHECK party record survives the shot -> ok
+CAPTURE_CHECK capture uses its own save -> ok
+SHOT storage_return 3907
+SEG storage 3470 3955
+STORAGE SHOT: 12/12
+SHOT segment_growth 4005
+CAPTURE_CHECK shrine grows Kithflare to Sparkwick -> ok
+SHOT growth_result 4208
+SEG growth 4005 4301
+SHOT segment_standoff 4313
+CAPTURE_CHECK Warden stand-off returns to town -> FAIL
+CAPTURE_CHECK stand-off carries shrine stone home -> FAIL
+SHOT standoff_return 6563
+SEG standoff 4313 6626
+SCRIPT ERROR: Invalid access to property or key 'intro' on a base object of type 'previously freed'.
+   at: _standoff (res://scripts/dungeon/stone_scene.gd:389)
+   GDScript backtrace (most recent call first):
+       [0] _standoff (res://scripts/dungeon/stone_scene.gd:389)
+       [1] _say (res://scripts/dungeon/stone_scene.gd:208)

@@ -1,0 +1,40 @@
+{
+  "changed_unselected_pixels": 0,
+  "checks": [
+    {
+      "check": "Native art and mask are 408x312",
+      "ok": true
+    },
+    {
+      "check": "Real review viewport is exact 3x",
+      "ok": true
+    },
+    {
+      "check": "Space toggles real material off",
+      "ok": true
+    },
+    {
+      "check": "Unshaded native output equals prepared PNG",
+      "ok": true
+    },
+    {
+      "check": "Shared 0.75 shader adds purposeful selected detail",
+      "ok": true
+    },
+    {
+      "check": "All unselected quiet floor pixels exact",
+      "ok": true
+    },
+    {
+      "check": "M toggles real material-mask view",
+      "ok": true
+    },
+    {
+      "check": "M restores finished art",
+      "ok": true
+    }
+  ],
+  "passed": 8,
+  "shader_changed_pixels": 43615,
+  "total": 8
+}

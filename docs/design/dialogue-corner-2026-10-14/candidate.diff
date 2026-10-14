@@ -1,0 +1,18 @@
+--- live/scripts/ui/ui_style.gd
++++ proposal/scripts/ui/ui_style.gd
+@@ -286,13 +286,13 @@
+ ## into a ledger, the name on a brass tab beside it, the line to its right in parchment, the arrow when
+ ## there is more. Explorers of Sky floats its portrait above the box's corner; ours sits in the box.
+ ## `portrait_tex` may be null (an unseen speaker), and then the line takes the whole width.
+-const PORTRAIT_INSET := 150.0   # how far the line and the name step right of a set-in portrait
++const PORTRAIT_INSET := 162.0   # how far the line and the name step right of a set-in portrait
+ 
+ static func dialogue(c: CanvasItem, box: Rect2, speaker: String, line: String, portrait_tex: Texture2D, t: float, size := 20, face := "normal") -> void:
+ 	panel(c, box, 0.95)
+ 	var inset := 0.0
+ 	if portrait_tex != null:
+-		portrait(c, Rect2(box.position + Vector2(30, -34), Vector2(120, 120)), portrait_tex, false, face)
++		portrait(c, Rect2(box.position + Vector2(42, -34), Vector2(120, 120)), portrait_tex, false, face)
+ 		inset = PORTRAIT_INSET
+ 	var lift := 0.0
+ 	if speaker != "":

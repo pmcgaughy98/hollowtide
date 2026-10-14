@@ -1,0 +1,25 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+OpenGL API 3.3.0 NVIDIA 596.49 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce GTX 1660 SUPER
+
+[godot_ai game_helper] registered mcp capture (debugger active=false, logger=true)
+Actual unlocked town door changes to Storage -> ok
+Native room size and three-tile threshold -> ok
+Three-member party spawns on distinct open floor -> ok
+No keeper or NPC stand-in -> ok
+Cabinet/counter/crate/basket footprints block movement -> ok
+All108 open tiles connect to entry and counter -> ok
+North wall and outside south wall are closed -> ok
+Actual steps reach counter through clear aisle -> ok
+E at counter opens original Storage service -> ok
+Real E deposits one and blocks walking while panel open -> ok
+Real R withdraws it -> ok
+Real selection keys reach parcel and refusal leaves records intact -> ok
+Escape closes service panel -> ok
+Can walk around counter to its back -> ok
+Counter draws in front of feet behind it -> ok
+Counter draws behind feet at front approach -> ok
+Walking out left threshold returns to town Storage door -> ok
+Party and stored record survive round trip -> ok
+Actual room exit autosave persists existing Storage record -> ok
+Right threshold also exits rather than trapping the leader -> ok
+STORAGE INTEGRATION: 20/20

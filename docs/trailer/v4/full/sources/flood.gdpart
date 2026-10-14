@@ -1,0 +1,25 @@
+func _flood_next(p: Node) -> void:
+	UI.finish_line()
+	await _frames(3)
+	p.advance()
+	await _frames(4)
+
+func _flood_shot() -> bool:
+	var p: Node=load("res://scenes/creature_prologue.tscn").instantiate()
+	p.hero=0;p.chosen_by_soul=true
+	change_scene_to_node(p);await _frames(8)
+	_begin("flood_talk")
+	if not _checked("flood opens on real narration",p.line!=null and p.line.character==""):return false
+	UI.finish_line();await _frames(45)
+	var guard:=0
+	while p.line!=null and p.line.responses.is_empty() and guard<16:
+		await _flood_next(p);await _frames(40);guard+=1
+	if not _checked("flood offers partner choices",p.line!=null and p.line.responses.size()==2):return false
+	UI.finish_line();await _frames(35)
+	p.choice=0;await _flood_next(p)
+	if not _checked("chosen partner speaks with its current portrait",p.partner==1 and p.line.character=="Tallowroot" and not p.line.tags.is_empty()):return false
+	UI.finish_line();await _frames(3)
+	_mark("flood_partner");await _still("full_flood_partner")
+	await _frames(90)
+	_end()
+	return true

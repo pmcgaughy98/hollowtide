@@ -256,8 +256,17 @@ func show_page(next: String) -> void:
             _action("Return to title" if page == "title" else "Quit Game","ConfirmLeave",leave)
     # Field pages added more rows; keep the dungeon main menu inside the fixed viewport.
     if page == "main" and in_hollow:
-        content.add_theme_constant_override("separation",6)
-        for b in controls: b.custom_minimum_size.y = 44
+        # Ten rows: the frame's 8 px padding held each row at 49 px whatever its minimum, 658 px in all on a
+        # 648 px screen; 3 px padding (the pressed sink kept) lets a row be 40 (Claude, 2026-10-14).
+        content.add_theme_constant_override("separation",4)
+        for b in controls:
+            b.custom_minimum_size.y = 40
+            for state in ["normal","focus","hover","pressed","hover_pressed","disabled"]:
+                if b.has_theme_stylebox_override(state):
+                    var sb = b.get_theme_stylebox(state).duplicate()
+                    sb.content_margin_top = maxf(0.0,sb.content_margin_top-5.0)
+                    sb.content_margin_bottom = maxf(0.0,sb.content_margin_bottom-5.0)
+                    b.add_theme_stylebox_override(state,sb)
     else:
         content.add_theme_constant_override("separation",10)
     for i in controls.size():
@@ -269,7 +278,17 @@ func show_page(next: String) -> void:
         b.focus_neighbor_left = b.get_path()
         b.focus_neighbor_right = b.get_path()
     panel.reset_size.call_deferred()
+    _keep_on_screen.call_deferred(panel)
     _focus_first.call_deferred()
+
+# Ten rows in the Hollow still ran the panel 18 px past the bottom at y 58; any page that grows past
+# the screen moves up to fit it instead (Claude, 2026-10-14).
+func _keep_on_screen(panel: Control) -> void:
+    await get_tree().process_frame
+    if not is_instance_valid(panel) or not panel.visible: return
+    var view_h = 648.0   # the game's fixed canvas, which every screen is laid out on
+    if panel.position.y + panel.size.y > view_h - 8.0:
+        panel.position.y = maxf(8.0, view_h - 8.0 - panel.size.y)
 
 func _focus_first() -> void:
     # A page can be replaced before its deferred focus runs (open followed by Bag).
@@ -404,7 +423,7 @@ func leave() -> void:
     # Continue reads (Claude, 2026-10-12). Leaving a run keeps the run: Continue resumes it at the top of
     # its floor, once (dungeon.suspend()).
     var host = get_parent()
-    if host != null and host.has_method("enter_hollow"):
+    if host != null and (host.has_method("enter_hollow") or (host.has_method("room") and host.room_id == "storage")):
         host._record()
         preload("res://scripts/town/team_state.gd").autosave()
     elif host != null and host.has_method("suspend"):

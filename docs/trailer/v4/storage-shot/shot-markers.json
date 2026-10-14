@@ -1,0 +1,92 @@
+{
+  "checks": [
+    {
+      "label": "door enters current Storage room",
+      "passed": true
+    },
+    {
+      "label": "all three current party members enter",
+      "passed": true
+    },
+    {
+      "label": "walk behind the counter",
+      "passed": true
+    },
+    {
+      "label": "walk to the counter front",
+      "passed": true
+    },
+    {
+      "label": "counter opens the real Storage panel",
+      "passed": true
+    },
+    {
+      "label": "deposit is exactly one berry",
+      "passed": true
+    },
+    {
+      "label": "withdraw restores two berries and empty store",
+      "passed": true
+    },
+    {
+      "label": "walk back to the south threshold",
+      "passed": true
+    },
+    {
+      "label": "door returns to real Highbank scene",
+      "passed": true
+    },
+    {
+      "label": "return lands outside Storage",
+      "passed": true
+    },
+    {
+      "label": "party record survives the shot",
+      "passed": true
+    },
+    {
+      "label": "capture uses its own save",
+      "passed": true
+    }
+  ],
+  "fps": 30,
+  "last_segment_frame": 494,
+  "markers": [
+    {
+      "frame": 9,
+      "name": "storage_door",
+      "seconds": 0.3
+    },
+    {
+      "frame": 49,
+      "name": "storage_interior",
+      "seconds": 1.63333333333333
+    },
+    {
+      "frame": 144,
+      "name": "storage_shelves",
+      "seconds": 4.8
+    },
+    {
+      "frame": 233,
+      "name": "storage_panel",
+      "seconds": 7.76666666666667
+    },
+    {
+      "frame": 271,
+      "name": "storage_deposit",
+      "seconds": 9.03333333333333
+    },
+    {
+      "frame": 344,
+      "name": "storage_withdraw",
+      "seconds": 11.4666666666667
+    },
+    {
+      "frame": 446,
+      "name": "storage_return",
+      "seconds": 14.8666666666667
+    }
+  ],
+  "mode": "storage-only"
+}

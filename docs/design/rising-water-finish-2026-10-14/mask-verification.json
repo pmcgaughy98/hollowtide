@@ -1,0 +1,29 @@
+{
+  "layout_exact": true,
+  "checks": [
+    {
+      "case": "turn09-dry",
+      "rows": 0,
+      "changed_wet_pixels": 0,
+      "changed_dry_wall_pixels": 0
+    },
+    {
+      "case": "turn10-first-rise",
+      "rows": 1,
+      "changed_wet_pixels": 5184,
+      "changed_dry_wall_pixels": 0
+    },
+    {
+      "case": "turn20-two-rows",
+      "rows": 2,
+      "changed_wet_pixels": 14976,
+      "changed_dry_wall_pixels": 0
+    },
+    {
+      "case": "turn30-ceiling",
+      "rows": 3,
+      "changed_wet_pixels": 24768,
+      "changed_dry_wall_pixels": 0
+    }
+  ]
+}

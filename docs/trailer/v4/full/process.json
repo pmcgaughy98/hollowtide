@@ -1,0 +1,8 @@
+{
+  "pid": 4200,
+  "command": [
+    "C:\\Users\\pmcga\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+    "D:\\dev\\hollowtide-full-pitch-v4-20261014\\prepared\\tools\\trailer\\cut_pitch_v4.py"
+  ],
+  "capture_take": "take3"
+}

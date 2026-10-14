@@ -1,0 +1,30 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+OpenGL API 3.3.0 NVIDIA 596.49 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce GTX 1660 SUPER
+
+[godot_ai game_helper] registered mcp capture (debugger active=false, logger=true)
+Actual unlocked town door changes to Storage -> ok
+Native room size and three-tile threshold -> ok
+Three-member party spawns on distinct open floor -> FAIL
+No keeper or NPC stand-in -> ok
+Cabinet/counter/crate/basket footprints block movement -> ok
+All108 open tiles connect to entry and counter -> ok
+North wall and outside south wall are closed -> ok
+Actual steps reach counter through clear aisle -> ok
+E at counter opens original Storage service -> ok
+Real E deposits one and blocks walking while panel open -> ok
+Real R withdraws it -> ok
+Real selection keys reach parcel and refusal leaves records intact -> ok
+Escape closes service panel -> ok
+Can walk around counter to its back -> ok
+ERROR: Node not found: "Storage_counter_132" (relative to "/root/TownRoom/@SubViewport@37/@Node2D@39").
+   at: get_node (scene/main/node.cpp:1975)
+   GDScript backtrace (most recent call first):
+       [0] run (D:/dev/hollowtide-storage-integration-20261014/checks/integration.gd:88)
+       [1] walk (D:/dev/hollowtide-storage-integration-20261014/checks/integration.gd:37)
+       [2] frames (D:/dev/hollowtide-storage-integration-20261014/checks/integration.gd:9)
+SCRIPT ERROR: Invalid access to property or key 'z_index' on a base object of type 'null instance'.
+   at: run (D:/dev/hollowtide-storage-integration-20261014/checks/integration.gd:89)
+   GDScript backtrace (most recent call first):
+       [0] run (D:/dev/hollowtide-storage-integration-20261014/checks/integration.gd:89)
+       [1] walk (D:/dev/hollowtide-storage-integration-20261014/checks/integration.gd:37)
+       [2] frames (D:/dev/hollowtide-storage-integration-20261014/checks/integration.gd:9)

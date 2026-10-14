@@ -1,0 +1,24 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+OpenGL API 3.3.0 NVIDIA 596.49 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce GTX 1660 SUPER
+
+ERROR: Failed to read the root certificate store.
+   at: get_system_ca_certificates (platform/windows/os_windows.cpp:2582)
+WARNING: Loaded resource as image file, this will not work on export: 'res://art/storage-raw.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] run (D:/dev/hollowtide-storage-art-20261014/review.gd:24)
+       [1] frames (D:/dev/hollowtide-storage-art-20261014/review.gd:7)
+WARNING: Loaded resource as image file, this will not work on export: 'res://art/detail-mask.png'. Instead, import the image file as an Image resource and load it normally as a resource.
+   at: load_from_file (core/io/image.cpp:2780)
+   GDScript backtrace (most recent call first):
+       [0] run (D:/dev/hollowtide-storage-art-20261014/review.gd:25)
+       [1] frames (D:/dev/hollowtide-storage-art-20261014/review.gd:7)
+Native art and mask are 408x312 -> ok
+Real review viewport is exact 3x -> ok
+Space toggles real material off -> ok
+Unshaded native output equals prepared PNG -> ok
+Shared 0.75 shader adds purposeful selected detail -> ok
+All unselected quiet floor pixels exact -> ok
+M toggles real material-mask view -> ok
+M restores finished art -> ok
+STORAGE NATIVE: 8/8

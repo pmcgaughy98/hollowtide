@@ -134,11 +134,11 @@ func _process(delta:float)->void:
 
 func _update_hint()->void:
 	if entrance:
-		hint.text="WASD / arrows — walk     Esc — return to riverbank"
-		if leader.distance_to(ARCH)<30:hint.text="E / Enter — approach the arch     Esc — return to riverbank"
+		hint.text="WASD / arrows  walk     Esc  return to riverbank"
+		if leader.distance_to(ARCH)<30:hint.text="E / Enter  approach the arch     Esc  return to riverbank"
 	else:
-		hint.text="WASD / arrows — walk     Stone walkway — the Hollow     H — continue to Highbank"
-		if leader.distance_to(HIGHBANK)<24:hint.text="E / Enter — take the south trail to Highbank"
+		hint.text="WASD / arrows  walk     Stone walkway to the Hollow     H  continue to Highbank"
+		if leader.distance_to(HIGHBANK)<24:hint.text="E / Enter  take the south trail to Highbank"
 
 func _unhandled_input(event:InputEvent)->void:
 	if leaving:return

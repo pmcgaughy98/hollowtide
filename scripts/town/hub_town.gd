@@ -12,6 +12,7 @@ const Arena := preload("res://scripts/arena/arena_prototype.gd")
 const TeamState := preload("res://scripts/town/team_state.gd")
 const Evolution := preload("res://scripts/town/evolution.gd")
 const Jobs := preload("res://scripts/town/jobs.gd")
+const StoragePanel := preload("res://scripts/town/storage_panel.gd")
 const Storage := preload("res://scripts/town/storage.gd")   # R6, 2026-10-12
 const Music := preload("res://scripts/audio/music.gd")
 const RETURN_SPOT := Vector2i(24, 8)   # back from a run: on the Hall's steps (the guild, as in Explorers of Sky)
@@ -292,9 +293,13 @@ func act_use() -> Dictionary:
 	if p["service"] == "jobs":
 		panel = _board_panel(p)
 		_sfx("board_paper")
-	elif p["service"] == "storage":   # R6: open once the river road past the Warren is clear (scripts/town/storage.gd)
-		panel = _storage_panel(p)
-		_sfx("door")
+	elif p["service"] == "storage":   # The same route gate; unlocked service is now inside its painted room.
+		if Storage.open(_record()):
+			panel = {}
+			enter_room("storage")
+		else:
+			panel = _storage_panel(p)
+			_sfx("door")
 	elif p["service"] in DOOR_SERVICES:
 		_sfx("door")
 	return p
@@ -309,53 +314,20 @@ func _storage_panel(p: Dictionary) -> Dictionary:
 
 
 func storage_rows() -> Array:
-	return Storage.rows(_record())
+	return StoragePanel.entries(self)
 
 
 ## E puts one of the chosen kind in (n = 1); R takes one out (n = -1).
 func act_store(n: int) -> void:
-	var rows := storage_rows()
-	if rows.is_empty():
-		return
-	var k: int = clampi(int(panel.get("sel", 0)), 0, rows.size() - 1)
-	panel["said"] = Storage.move(_record(), String(rows[k][0]), n)
-	panel["sel"] = clampi(k, 0, maxi(0, storage_rows().size() - 1))
-	_ui_sfx("confirm")
+	StoragePanel.store(self, n)
 
 
 func act_store_move(dy: int) -> void:
-	var n := storage_rows().size()
-	if n > 0:
-		panel["sel"] = posmod(int(panel.get("sel", 0)) + dy, n)
-		_ui_sfx("cursor")
+	StoragePanel.select_row(self, dy)
 
 
 func _draw_storage(h: CanvasItem) -> void:
-	var rec := _record()
-	var rows := storage_rows()
-	var box := Rect2(166, 64, 820, 160 + 40 * maxi(1, rows.size()))
-	UI.panel(h, box, 0.95)
-	UI.text(h, box.position + Vector2(30, 40), "Storage", 26, UI.EDGE_LIGHT)
-	UI.text(h, box.position + Vector2(30, 72), "Kept between runs. A faint loses the bag, never this.", 16, UI.MUTED, 520)
-	UI.text(h, box.position + Vector2(30, 72), "Bag %d / %d kinds" % [rec.get("bag", {}).size(), Storage.bag_kinds()], 16, UI.MUTED, box.size.x - 60, HORIZONTAL_ALIGNMENT_RIGHT)
-	if rows.is_empty():
-		UI.text(h, box.position + Vector2(30, 118), "Nothing in the bag, and nothing kept here yet.", 18, UI.TEXT, box.size.x - 60)
-	for k in rows.size():
-		var row: Array = rows[k]
-		var r := Rect2(box.position + Vector2(24, 94 + k * 40), Vector2(box.size.x - 48, 36))
-		var on: bool = k == int(panel.get("sel", 0))
-		if on:
-			h.draw_rect(r, UI.FOCUS)
-			h.draw_rect(r, UI.EDGE_LIGHT, false, 2.0)
-		var icon := UI.item_icon(String(row[0]))
-		if icon != null:
-			h.draw_texture(icon, r.position + Vector2(10, 4))
-		UI.text(h, r.position + Vector2(52, 25), Storage.item_name(String(row[0])), 19, UI.EDGE_LIGHT if on else UI.TEXT, 380)
-		UI.text(h, r.position + Vector2(460, 25), "bag x%d" % int(row[1]), 17, UI.TEXT if int(row[1]) > 0 else UI.MUTED, 150)
-		UI.text(h, r.position + Vector2(620, 25), "kept x%d" % int(row[2]), 17, UI.TEXT if int(row[2]) > 0 else UI.MUTED, 150)
-	if String(panel.get("said", "")) != "":
-		UI.text(h, box.end + Vector2(-box.size.x + 30, -44), String(panel["said"]), 16, UI.EDGE_LIGHT, box.size.x - 60)
-	UI.text(h, box.end + Vector2(-box.size.x + 30, -20), "W/S choose     E put one in     R take one out     Esc close", 15, UI.MUTED, box.size.x - 60, HORIZONTAL_ALIGNMENT_RIGHT)
+	StoragePanel.draw(self, h)
 
 
 ## After the pilot the way down offers every dungeon again. A replay has no boss floor (dungeon.gd `replay`),
@@ -846,13 +818,18 @@ func _draw_board(h: CanvasItem) -> void:
 			h.draw_texture_rect(face, face_r, false)
 		h.draw_rect(face_r, UI.EDGE, false, 1.0)
 		var done: bool = j.get("done", false)
-		UI.text(h, r.position + Vector2(70, 27), Jobs.title(j), 20, UI.EDGE_LIGHT if on else UI.TEXT, 340)
+		# Delivery cargo has its own icon; the reward keeps its existing icon.
+		var cargo := UI.item_icon("parcel") if j["kind"] == "delivery" else null
+		var cargo_inset := 40 if cargo != null else 0
+		if cargo != null:
+			h.draw_texture(cargo, r.position + Vector2(70, 11))
+		UI.text(h, r.position + Vector2(70 + cargo_inset, 27), Jobs.title(j), 20, UI.EDGE_LIGHT if on else UI.TEXT, 340 - cargo_inset)
 		var where := "done, paid on return"
 		if done and j["kind"] == "delivery":
 			where = "delivered, %s" % Jobs.result_text(j)
 		elif not done:
 			where = {"rescue": "lost there", "lost_item": "dropped there"}.get(j["kind"], "%s, pay x2" % Jobs.cond_text(j))
-		UI.text(h, r.position + Vector2(70, 51), "B%dF   %s" % [int(j["floor"]), where], 15, UI.MUTED, 340)
+		UI.text(h, r.position + Vector2(70 + cargo_inset, 51), "B%dF   %s" % [int(j["floor"]), where], 15, UI.MUTED, 340 - cargo_inset)
 		var icon := UI.item_icon(String(j["reward"]))
 		if icon != null:
 			h.draw_texture(icon, r.position + Vector2(420, 15))

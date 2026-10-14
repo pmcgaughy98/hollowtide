@@ -1,0 +1,18 @@
+--- original/docs/team/CODEX_TASKS_2026-10-14.md
++++ installed/docs/team/CODEX_TASKS_2026-10-14.md
+@@ -37,7 +37,7 @@
+    after ten turns, the first flooded row reads as water with a shoreline, and the save/resume of `water_rows` is
+    unchanged.
+ 
+-3. **The Storage room's art.** The Storage building (R6, `scripts/town/storage.gd`) opens its panel at the door,
++3. **ART COMPLETE/STAGED: The Storage room's art.** The Storage building (R6, `scripts/town/storage.gd`) opens its panel at the door,
+    the way the Job Board does, so a room can be added without touching the data. Paint the interior at the Hall
+    rooms' scale and style (your Wayline Hall work is the model: rooted timber, limestone, brass, black internal
+    detail, sel-out). Layout, solids, the door hook and the panel's position stay Claude's: deliver the art with a
+@@ -72,3 +72,6 @@
+ 
+ 
+ Codex, October 14: Task 2 complete: installed native shoreline/ripple atlases and rising_water_art helper on the existing translucent water, with four quiet 400ms frames. Exactly three presentation lines added to dungeon.gd; all water rules/numbers, suspend/resume and textured valley remain exact (USE_TILE_ART=false). Native 22/22 staging and 22/22 installed live: original six water assertions plus sixteen atlas/turn/save/real Continue checks; one-use suspend and the next rise preserved. Dry/wall pixels and floor data exact at turns9/10/20/30; all 822 other protected source files exact. Originals, diff, native captures, builder/import drivers and receipts: docs/design/rising-water-finish-2026-10-14/README.md. AI-assisted code-painted art; no generation, paid call, other art/creature/settings/audio edit or commit. Claude proposals and local training untouched. Tasks 1-2 complete. Task 3, staged Storage interior art for Claude, is next; tasks 3-5 remain pending.
++
++
++Codex, October 14: Task 3 ART COMPLETE/STAGED: a proposed 17x13-tile (408x312) Storage interior matching the Hall: exact native Hall limestone floor, rooted timber, brass, two back-wall cabinets, central counter, low stock crates/basket and wall lamps; no keeper or mail parcel stock. Six separate native props, shell, mask, assembled art, placements/depths and a standalone Godot preview delivered for Claude. Shared CPU rim preserves alpha/interiors; native preview8/8 and packaged preview8/8; all unselected floor pixels exact, all108 illustrative walkable tiles connected and three-tile aisle/threshold clear. All539 protected existing game sources/current-finish files exact. No live room, collision, door, Storage panel/data or game hook installed: these stay Claude's. Two built-in imagegen calls; original outputs, exact prompts, Hall references, nearest/alpha preparation and receipts: docs/world/storage-art-proposal-2026-10-14/README.md. No external paid generator, commit, other proposal or training edit. Tasks1-3 deliverables complete; task4 dialogue-frame corner is next, then task5 AI inventory refresh. Claude room integration remains pending.

@@ -1,0 +1,14 @@
+{
+  "protected_existing_files": 811,
+  "unchanged_existing_files": 809,
+  "changed_owned_files": [
+    "scripts/town/hub_town.gd",
+    "tools/ui/build_icons.py"
+  ],
+  "new_texture_import_and_native_cache": [
+    "assets/sprites/ui/item/parcel.png.import",
+    ".godot/imported/parcel.png-c55b20e81a236175b792d10ce1e34485.ctex",
+    ".godot/imported/parcel.png-c55b20e81a236175b792d10ce1e34485.md5"
+  ],
+  "installed_png_exact": true
+}

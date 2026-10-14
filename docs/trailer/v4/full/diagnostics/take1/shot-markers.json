@@ -1,0 +1,285 @@
+{
+  "checks": [
+    {
+      "label": "flood opens on real narration",
+      "passed": true
+    },
+    {
+      "label": "flood offers partner choices",
+      "passed": true
+    },
+    {
+      "label": "chosen partner speaks with its current portrait",
+      "passed": true
+    },
+    {
+      "label": "title ready for Continue",
+      "passed": true
+    },
+    {
+      "label": "Continue enters real Highbank",
+      "passed": true
+    },
+    {
+      "label": "mail call completes",
+      "passed": false
+    },
+    {
+      "label": "board has requests",
+      "passed": true
+    },
+    {
+      "label": "taking a delivery puts a Parcel in bag",
+      "passed": true
+    },
+    {
+      "label": "current water reaches at least two painted rows",
+      "passed": true
+    },
+    {
+      "label": "leader loss reaches actual defeat scene",
+      "passed": true
+    },
+    {
+      "label": "defeat returns team to town",
+      "passed": true
+    },
+    {
+      "label": "door enters current Storage room",
+      "passed": true
+    },
+    {
+      "label": "all three current party members enter",
+      "passed": true
+    },
+    {
+      "label": "walk behind the counter",
+      "passed": true
+    },
+    {
+      "label": "walk to the counter front",
+      "passed": true
+    },
+    {
+      "label": "counter opens the real Storage panel",
+      "passed": true
+    },
+    {
+      "label": "deposit is exactly one berry",
+      "passed": true
+    },
+    {
+      "label": "withdraw restores two berries and empty store",
+      "passed": true
+    },
+    {
+      "label": "walk back to the south threshold",
+      "passed": true
+    },
+    {
+      "label": "door returns to real Highbank scene",
+      "passed": true
+    },
+    {
+      "label": "return lands outside Storage",
+      "passed": true
+    },
+    {
+      "label": "party record survives the shot",
+      "passed": true
+    },
+    {
+      "label": "capture uses its own save",
+      "passed": true
+    },
+    {
+      "label": "shrine grows Kithflare to Sparkwick",
+      "passed": true
+    },
+    {
+      "label": "Warden stand-off returns to town",
+      "passed": false
+    },
+    {
+      "label": "stand-off carries shrine stone home",
+      "passed": false
+    }
+  ],
+  "fps": 30,
+  "last_segment_frame": 6626,
+  "markers": [
+    {
+      "frame": 7,
+      "name": "segment_flood_talk",
+      "seconds": 0.233333333333333
+    },
+    {
+      "frame": 238,
+      "name": "flood_partner",
+      "seconds": 7.93333333333333
+    },
+    {
+      "frame": 481,
+      "name": "segment_title_continue",
+      "seconds": 16.0333333333333
+    },
+    {
+      "frame": 702,
+      "name": "segment_mail_call",
+      "seconds": 23.4
+    },
+    {
+      "frame": 912,
+      "name": "mail_early",
+      "seconds": 30.4
+    },
+    {
+      "frame": 2375,
+      "name": "segment_board",
+      "seconds": 79.1666666666667
+    },
+    {
+      "frame": 2425,
+      "name": "board_parcel",
+      "seconds": 80.8333333333333
+    },
+    {
+      "frame": 2648,
+      "name": "segment_water",
+      "seconds": 88.2666666666667
+    },
+    {
+      "frame": 2690,
+      "name": "water_rows_1",
+      "seconds": 89.6666666666667
+    },
+    {
+      "frame": 2844,
+      "name": "water_rows_2",
+      "seconds": 94.8
+    },
+    {
+      "frame": 2998,
+      "name": "water_rows_3",
+      "seconds": 99.9333333333333
+    },
+    {
+      "frame": 3087,
+      "name": "segment_faint",
+      "seconds": 102.9
+    },
+    {
+      "frame": 3256,
+      "name": "faint_information",
+      "seconds": 108.533333333333
+    },
+    {
+      "frame": 3470,
+      "name": "segment_storage",
+      "seconds": 115.666666666667
+    },
+    {
+      "frame": 3470,
+      "name": "storage_door",
+      "seconds": 115.666666666667
+    },
+    {
+      "frame": 3510,
+      "name": "storage_interior",
+      "seconds": 117.0
+    },
+    {
+      "frame": 3605,
+      "name": "storage_shelves",
+      "seconds": 120.166666666667
+    },
+    {
+      "frame": 3694,
+      "name": "storage_panel",
+      "seconds": 123.133333333333
+    },
+    {
+      "frame": 3732,
+      "name": "storage_deposit",
+      "seconds": 124.4
+    },
+    {
+      "frame": 3805,
+      "name": "storage_withdraw",
+      "seconds": 126.833333333333
+    },
+    {
+      "frame": 3907,
+      "name": "storage_return",
+      "seconds": 130.233333333333
+    },
+    {
+      "frame": 4005,
+      "name": "segment_growth",
+      "seconds": 133.5
+    },
+    {
+      "frame": 4208,
+      "name": "growth_result",
+      "seconds": 140.266666666667
+    },
+    {
+      "frame": 4313,
+      "name": "segment_standoff",
+      "seconds": 143.766666666667
+    },
+    {
+      "frame": 6563,
+      "name": "standoff_return",
+      "seconds": 218.766666666667
+    }
+  ],
+  "mode": "full",
+  "segments": [
+    {
+      "first": 7,
+      "last": 331,
+      "name": "flood_talk"
+    },
+    {
+      "first": 481,
+      "last": 682,
+      "name": "title_continue"
+    },
+    {
+      "first": 702,
+      "last": 2355,
+      "name": "mail_call"
+    },
+    {
+      "first": 2375,
+      "last": 2618,
+      "name": "board"
+    },
+    {
+      "first": 2648,
+      "last": 3077,
+      "name": "water"
+    },
+    {
+      "first": 3087,
+      "last": 3439,
+      "name": "faint"
+    },
+    {
+      "first": 3470,
+      "last": 3955,
+      "name": "storage"
+    },
+    {
+      "first": 4005,
+      "last": 4301,
+      "name": "growth"
+    },
+    {
+      "first": 4313,
+      "last": 6626,
+      "name": "standoff"
+    }
+  ]
+}

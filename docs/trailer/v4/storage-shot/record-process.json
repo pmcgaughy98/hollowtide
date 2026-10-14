@@ -1,0 +1,20 @@
+{
+  "pid": 21952,
+  "command": [
+    "C:/Users/pmcga/Games/Tools/Godot_v4.7.2/Godot_v4.7.2-stable_win64.exe",
+    "--path",
+    "C:\\Users\\pmcga\\dev\\hollowtide",
+    "--rendering-method",
+    "gl_compatibility",
+    "--audio-driver",
+    "Dummy",
+    "--fixed-fps",
+    "30",
+    "--write-movie",
+    "D:\\dev\\hollowtide-storage-capture-20261014\\review\\raw.avi",
+    "--script",
+    "D:\\dev\\hollowtide-storage-capture-20261014\\prepared\\tools\\trailer\\record_pitch_v4.gd",
+    "--",
+    "--storage-only"
+  ]
+}

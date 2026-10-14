@@ -1,0 +1,285 @@
+--- before/scripts/town/hub_town.gd
++++ after/scripts/town/hub_town.gd
+@@ -12,6 +12,7 @@
+ const TeamState := preload("res://scripts/town/team_state.gd")
+ const Evolution := preload("res://scripts/town/evolution.gd")
+ const Jobs := preload("res://scripts/town/jobs.gd")
++const StoragePanel := preload("res://scripts/town/storage_panel.gd")
+ const Storage := preload("res://scripts/town/storage.gd")   # R6, 2026-10-12
+ const Music := preload("res://scripts/audio/music.gd")
+ const RETURN_SPOT := Vector2i(24, 8)   # back from a run: on the Hall's steps (the guild, as in Explorers of Sky)
+@@ -292,9 +293,13 @@
+ 	if p["service"] == "jobs":
+ 		panel = _board_panel(p)
+ 		_sfx("board_paper")
+-	elif p["service"] == "storage":   # R6: open once the river road past the Warren is clear (scripts/town/storage.gd)
+-		panel = _storage_panel(p)
+-		_sfx("door")
++	elif p["service"] == "storage":   # The same route gate; unlocked service is now inside its painted room.
++		if Storage.open(_record()):
++			panel = {}
++			enter_room("storage")
++		else:
++			panel = _storage_panel(p)
++			_sfx("door")
+ 	elif p["service"] in DOOR_SERVICES:
+ 		_sfx("door")
+ 	return p
+@@ -309,53 +314,20 @@
+ 
+ 
+ func storage_rows() -> Array:
+-	return Storage.rows(_record())
++	return StoragePanel.entries(self)
+ 
+ 
+ ## E puts one of the chosen kind in (n = 1); R takes one out (n = -1).
+ func act_store(n: int) -> void:
+-	var rows := storage_rows()
+-	if rows.is_empty():
+-		return
+-	var k: int = clampi(int(panel.get("sel", 0)), 0, rows.size() - 1)
+-	panel["said"] = Storage.move(_record(), String(rows[k][0]), n)
+-	panel["sel"] = clampi(k, 0, maxi(0, storage_rows().size() - 1))
+-	_ui_sfx("confirm")
++	StoragePanel.store(self, n)
+ 
+ 
+ func act_store_move(dy: int) -> void:
+-	var n := storage_rows().size()
+-	if n > 0:
+-		panel["sel"] = posmod(int(panel.get("sel", 0)) + dy, n)
+-		_ui_sfx("cursor")
++	StoragePanel.select_row(self, dy)
+ 
+ 
+ func _draw_storage(h: CanvasItem) -> void:
+-	var rec := _record()
+-	var rows := storage_rows()
+-	var box := Rect2(166, 64, 820, 160 + 40 * maxi(1, rows.size()))
+-	UI.panel(h, box, 0.95)
+-	UI.text(h, box.position + Vector2(30, 40), "Storage", 26, UI.EDGE_LIGHT)
+-	UI.text(h, box.position + Vector2(30, 72), "Kept between runs. A faint loses the bag, never this.", 16, UI.MUTED, 520)
+-	UI.text(h, box.position + Vector2(30, 72), "Bag %d / %d kinds" % [rec.get("bag", {}).size(), Storage.bag_kinds()], 16, UI.MUTED, box.size.x - 60, HORIZONTAL_ALIGNMENT_RIGHT)
+-	if rows.is_empty():
+-		UI.text(h, box.position + Vector2(30, 118), "Nothing in the bag, and nothing kept here yet.", 18, UI.TEXT, box.size.x - 60)
+-	for k in rows.size():
+-		var row: Array = rows[k]
+-		var r := Rect2(box.position + Vector2(24, 94 + k * 40), Vector2(box.size.x - 48, 36))
+-		var on: bool = k == int(panel.get("sel", 0))
+-		if on:
+-			h.draw_rect(r, UI.FOCUS)
+-			h.draw_rect(r, UI.EDGE_LIGHT, false, 2.0)
+-		var icon := UI.item_icon(String(row[0]))
+-		if icon != null:
+-			h.draw_texture(icon, r.position + Vector2(10, 4))
+-		UI.text(h, r.position + Vector2(52, 25), Storage.item_name(String(row[0])), 19, UI.EDGE_LIGHT if on else UI.TEXT, 380)
+-		UI.text(h, r.position + Vector2(460, 25), "bag x%d" % int(row[1]), 17, UI.TEXT if int(row[1]) > 0 else UI.MUTED, 150)
+-		UI.text(h, r.position + Vector2(620, 25), "kept x%d" % int(row[2]), 17, UI.TEXT if int(row[2]) > 0 else UI.MUTED, 150)
+-	if String(panel.get("said", "")) != "":
+-		UI.text(h, box.end + Vector2(-box.size.x + 30, -44), String(panel["said"]), 16, UI.EDGE_LIGHT, box.size.x - 60)
+-	UI.text(h, box.end + Vector2(-box.size.x + 30, -20), "W/S choose     E put one in     R take one out     Esc close", 15, UI.MUTED, box.size.x - 60, HORIZONTAL_ALIGNMENT_RIGHT)
++	StoragePanel.draw(self, h)
+ 
+ 
+ ## After the pilot the way down offers every dungeon again. A replay has no boss floor (dungeon.gd `replay`),
+--- before/scripts/town/town_room.gd
++++ after/scripts/town/town_room.gd
+@@ -6,6 +6,8 @@
+ ## Codex's older courier-era rooms (scenes/courier_hall.tscn, courtyard_home.tscn) are untouched.
+ ##   var room = load("res://scenes/town_room.tscn").instantiate(); room.room_id = "home"
+ 
++const StoragePanel := preload("res://scripts/town/storage_panel.gd")
++const StorageArt := preload("res://scripts/town/storage_room_art.gd")
+ const Objective := preload("res://scripts/town/objective.gd")
+ const Arena := preload("res://scripts/arena/arena_prototype.gd")
+ const Lines := preload("res://scripts/creatures/lines.gd")
+@@ -25,6 +27,11 @@
+ ## Each room: its size in tiles (walls included), its door (on the bottom wall), the furniture that
+ ## blocks walking, and the spots that answer E. The texts are Claude's drafts.
+ const ROOMS := {
++	"storage": {"name": "Storage", "w": 17, "h": 13, "door": Vector2i(8,12), "town_door": "storage", "floor_top": 3,
++		"exit_rect": Rect2i(7,12,3,1),
++		"solid": [Rect2i(2,3,3,2), Rect2i(12,3,3,2), Rect2i(6,5,5,2), Rect2i(2,9,2,2), Rect2i(13,9,2,2)],
++		"spots": [{"id": "store_counter", "rect": Rect2i(6,5,5,2), "name": "Storage", "service": "storage"}]},
++
+ 	"home": {"name": "Home", "w": 14, "h": 10, "door": Vector2i(7, 9), "town_door": "home",
+ 		"solid": [Rect2i(1, 2, 3, 2), Rect2i(9, 2, 4, 1), Rect2i(6, 4, 3, 2), Rect2i(1, 7, 2, 2), Rect2i(11, 6, 2, 2)],
+ 		"spots": [
+@@ -101,6 +108,7 @@
+ var team: Array = []
+ var busy := false
+ var panel := {}
++var last_sfx := ""   # same UI-sound receipt as the town Storage panel
+ var grid := PackedByteArray()
+ var _world: Node2D
+ var _hud: Node2D
+@@ -125,14 +133,17 @@
+ 	grid.resize(r["w"] * r["h"])
+ 	for y in r["h"]:
+ 		for x in r["w"]:
+-			var inside: bool = x >= 1 and x <= r["w"] - 2 and y >= 2 and y <= r["h"] - 2
++			var inside: bool = x >= 1 and x <= r["w"] - 2 and y >= int(r.get("floor_top", 2)) and y <= r["h"] - 2
+ 			grid[y * r["w"] + x] = 1 if inside else 0
+ 	for s in r["solid"]:
+ 		for y in range(s.position.y, s.end.y):
+ 			for x in range(s.position.x, s.end.x):
+ 				grid[y * r["w"] + x] = 0
+ 	if r["door"].x >= 0:
+-		grid[r["door"].y * r["w"] + r["door"].x] = 1
++		var exit: Rect2i = r.get("exit_rect", Rect2i(r["door"], Vector2i.ONE))
++		for y in range(exit.position.y, exit.end.y):
++			for x in range(exit.position.x, exit.end.x):
++				grid[y * r["w"] + x] = 1
+ 	for l in r.get("links", []):   # stairs and inner doors are walked onto
+ 		if not _link_ok(l):
+ 			continue
+@@ -158,12 +169,14 @@
+ 	_world.add_child(dark)
+ 	var map := Sprite2D.new()
+ 	map.centered = false
+-	map.texture = ImageTexture.create_from_image(Painter.paint(room_id, r))
++	map.texture = StorageArt.shell() if room_id == "storage" else ImageTexture.create_from_image(Painter.paint(room_id, r))
+ 	if room_id == "home":
+ 		preload("res://scripts/town/home_room_art.gd").finish(map)
+ 	elif room_id == "hall":
+ 		preload("res://scripts/town/hall_room_art.gd").finish(map)
+ 	_world.add_child(map)
++	if room_id == "storage":
++		StorageArt.finish(_world, map)
+ 	if room_id == "hall":
+ 		_guild_desk(map)
+ 	if room_id in ["hall", "hall_low", "chamber", "runners"]:
+@@ -349,7 +362,7 @@
+ 	for e in team:
+ 		_place(e)
+ 	busy = false
+-	if lead["pos"] == room()["door"]:
++	if room().get("exit_rect", Rect2i(room()["door"], Vector2i.ONE)).has_point(lead["pos"]):
+ 		leave()
+ 		return
+ 	var link := _link_at(lead["pos"])
+@@ -360,6 +373,9 @@
+ ## Use what the leader faces: a spot shows its panel; a second press closes it.
+ func act_use() -> Dictionary:
+ 	if cutscene:
++		return {}
++	if panel.get("service", "") == "storage":
++		act_store(1)
+ 		return {}
+ 	if not panel.is_empty():
+ 		panel = {}
+@@ -372,7 +388,7 @@
+ 			return {"id": "talk_" + String(n["form"])}
+ 	for s in room()["spots"]:
+ 		if s["rect"].has_point(ahead) or s["rect"].has_point(lead["pos"]):
+-			panel = s
++			panel = {"name": "Storage", "service": "storage", "sel": 0, "said": ""} if s.get("service", "") == "storage" else s
+ 			used_log.append(s["id"])
+ 			if s["id"] == "bed":
+ 				for e in team:
+@@ -480,6 +496,10 @@
+ 			else:
+ 				UI.finish_line()   # the first press shows the rest of the line, the next moves on
+ 		return
++	if panel.get("service", "") == "storage":
++		if _tapped(KEY_W) or _tapped(KEY_UP): act_store_move(-1)
++		if _tapped(KEY_S) or _tapped(KEY_DOWN): act_store_move(1)
++		if _tapped(KEY_R): act_store(-1)
+ 	if _tapped(KEY_E) or _tapped(KEY_J) or _tapped(KEY_ENTER):
+ 		act_use()
+ 		return
+@@ -507,9 +527,31 @@
+ 	UI.text(h, Vector2(26, 87), "Next:  " + String(goal["short"]), 16, UI.TEXT, 570)
+ 	UI.text(h, Vector2(946, 562), "WASD walk   E use", 14, Color(UI.MUTED, 0.85), 194, HORIZONTAL_ALIGNMENT_RIGHT)
+ 	UI.text(h, Vector2(946, 580), String(room().get("hint", "The door leads back out")), 14, Color(UI.MUTED, 0.85), 194, HORIZONTAL_ALIGNMENT_RIGHT)
++	if panel.get("service", "") == "storage":
++		StoragePanel.draw(self, h)
++		return
+ 	if not panel.is_empty():
+ 		var box := Rect2(196, 452, 760, 128)
+ 		UI.panel(h, box, 0.95)
+ 		UI.nameplate(h, box.position + Vector2(24, -22), String(panel["name"]))
+ 		h.draw_multiline_string(UI.HEAD, box.position + Vector2(30, 50), String(panel["what"]), HORIZONTAL_ALIGNMENT_LEFT, 700, 18, 3, UI.TEXT)
+ 		UI.next_arrow(h, box.end - Vector2(48, 36), Time.get_ticks_msec() / 1000.0)
++
++
++func storage_rows() -> Array:
++	return StoragePanel.entries(self)
++
++func act_store(n: int) -> void:
++	StoragePanel.store(self, n)
++
++func act_store_move(dy: int) -> void:
++	StoragePanel.select_row(self, dy)
++
++func _ui_sfx(name: String) -> void:
++	last_sfx = name
++	var p := AudioStreamPlayer.new()
++	p.stream = load("res://assets/audio/sfx/ui/%s.wav" % name)
++	p.volume_db = -8.0
++	add_child(p)
++	p.play()
++	p.finished.connect(p.queue_free)
+--- before/scripts/ui/game_pause_menu.gd
++++ after/scripts/ui/game_pause_menu.gd
+@@ -404,7 +404,7 @@
+     # Continue reads (Claude, 2026-10-12). Leaving a run keeps the run: Continue resumes it at the top of
+     # its floor, once (dungeon.suspend()).
+     var host = get_parent()
+-    if host != null and host.has_method("enter_hollow"):
++    if host != null and (host.has_method("enter_hollow") or (host.has_method("room") and host.room_id == "storage")):
+         host._record()
+         preload("res://scripts/town/team_state.gd").autosave()
+     elif host != null and host.has_method("suspend"):
+--- before/tools/debug/storage_check.gd
++++ after/tools/debug/storage_check.gd
+@@ -1,6 +1,6 @@
+ extends SceneTree
+ ## The Storage (R6 of the genre synthesis; Claude, 2026-10-12; scripts/town/storage.gd). Checks: shut until
+-## Rootbank Warren is beaten (the river road); then a panel that moves items between the bag and the store,
++## Rootbank Warren is beaten (the river road); then its painted room and counter panel that move items between the bag and the store,
+ ## refuses parcels, honours the bag's kinds cap; what is kept survives a run's take_from and a faint, is named
+ ## on the faint screen, and rides in the save. Windowed it saves a still of the panel.
+ ##   Godot --headless --path . --script res://tools/debug/storage_check.gd
+@@ -42,6 +42,7 @@
+ 	town.poll_input = false
+ 	TeamState.give_to(town)
+ 	root.add_child(town)
++	current_scene = town
+ 	await _frames(6)
+ 	var door: Dictionary = town.Layout.PLACES.filter(func(p: Dictionary) -> bool: return p["id"] == "storage")[0]
+ 	town.team[0]["pos"] = door["door"] + Vector2i(0, 1)
+@@ -51,6 +52,8 @@
+ 
+ 
+ func _run() -> void:
++	TeamState.save_path = CHECK_PATH
++	TeamState.erase_save()
+ 	TeamState.start([[0, 0], [1, 0]])
+ 	TeamState.data["bag"] = {"reedberry": 2, "lamp_oil": 1, "parcel": 1}
+ 	TeamState.data["beaten"] = ["mouth"]
+@@ -60,6 +63,15 @@
+ 	_ok("Before the Warren is beaten the Storage is shut: '%s'" % String(town.panel.get("what", "")).left(60), town.panel.get("service", "") == "storage_shut" and "river road" in String(town.panel.get("what", "")))
+ 	town.panel = {}
+ 	TeamState.data["beaten"] = ["mouth", "first"]
++	town.act_use()
++	await _frames(8)
++	town = current_scene
++	town.poll_input = false
++	_ok("Unlocked door enters the painted Storage room", town.get("room_id") == "storage")
++	for k in 4:
++		await town.act_move(Vector2i.UP)
++		await _frames(1)
++	town.team[0]["facing"] = "n"
+ 	town.act_use()
+ 	var rows: Array = town.storage_rows()
+ 	_ok("After: the panel opens with the bag's kinds %s" % str(rows), town.panel.get("service", "") == "storage" and rows.size() == 3 and rows[0][0] == "reedberry" and rows[0][1] == 2 and rows[0][2] == 0)
+@@ -121,4 +133,7 @@
+ 	TeamState.erase_save()
+ 	TeamState.save_path = TeamState.SAVE_PATH
+ 	print("STORAGE: %s" % ("all ok" if fails == 0 else "%d FAILED" % fails))
++	var music = root.get_node_or_null("HollowtideMusic")
++	if music != null: music.queue_free()
++	await _frames(4)
+ 	quit(1 if fails else 0)

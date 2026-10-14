@@ -1,0 +1,185 @@
+{
+  "status": "ART PROPOSAL ONLY; Claude chooses final layout, solids, depth and service/door hooks",
+  "native_size": [
+    408,
+    312
+  ],
+  "tile_size": 24,
+  "room_tiles": [
+    17,
+    13
+  ],
+  "floor_rect": [
+    24,
+    72,
+    360,
+    216
+  ],
+  "floor_continuation_under_threshold": [
+    168,
+    288,
+    72,
+    24
+  ],
+  "north_wall_rect": [
+    24,
+    0,
+    360,
+    72
+  ],
+  "side_wall_rects": [
+    [
+      0,
+      0,
+      24,
+      312
+    ],
+    [
+      384,
+      0,
+      24,
+      312
+    ]
+  ],
+  "south_wall_rects": [
+    [
+      0,
+      288,
+      168,
+      24
+    ],
+    [
+      240,
+      288,
+      168,
+      24
+    ]
+  ],
+  "proposed_entry_tile": [
+    8,
+    12
+  ],
+  "proposed_counter_approach_tile": [
+    8,
+    7
+  ],
+  "clear_aisle_rect": [
+    168,
+    168,
+    72,
+    144
+  ],
+  "instances": [
+    {
+      "id": "cabinet_left",
+      "asset": "cabinet_left",
+      "rect": [
+        48,
+        16,
+        72,
+        96
+      ],
+      "depth_y": 112,
+      "suggested_footprint_tiles": [
+        2,
+        3,
+        3,
+        2
+      ]
+    },
+    {
+      "id": "cabinet_right",
+      "asset": "cabinet_right",
+      "rect": [
+        288,
+        16,
+        72,
+        96
+      ],
+      "depth_y": 112,
+      "suggested_footprint_tiles": [
+        12,
+        3,
+        3,
+        2
+      ]
+    },
+    {
+      "id": "counter",
+      "asset": "counter",
+      "rect": [
+        132,
+        96,
+        144,
+        60
+      ],
+      "depth_y": 156,
+      "suggested_footprint_tiles": [
+        6,
+        5,
+        5,
+        2
+      ]
+    },
+    {
+      "id": "crates",
+      "asset": "crates",
+      "rect": [
+        48,
+        216,
+        48,
+        48
+      ],
+      "depth_y": 264,
+      "suggested_footprint_tiles": [
+        2,
+        9,
+        2,
+        2
+      ]
+    },
+    {
+      "id": "basket",
+      "asset": "basket",
+      "rect": [
+        312,
+        220,
+        48,
+        40
+      ],
+      "depth_y": 260,
+      "suggested_footprint_tiles": [
+        13,
+        9,
+        2,
+        2
+      ]
+    },
+    {
+      "id": "lamp_left",
+      "asset": "lamp",
+      "rect": [
+        140,
+        24,
+        16,
+        32
+      ],
+      "depth_y": 56,
+      "suggested_footprint_tiles": null
+    },
+    {
+      "id": "lamp_right",
+      "asset": "lamp",
+      "rect": [
+        252,
+        24,
+        16,
+        32
+      ],
+      "depth_y": 56,
+      "suggested_footprint_tiles": null
+    }
+  ],
+  "no_keeper": true,
+  "existing_storage_panel_rect": "Rect2(166,64,820,160+40*max(1,rows.size())) unchanged; Claude decides room hook"
+}

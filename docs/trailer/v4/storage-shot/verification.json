@@ -1,0 +1,83 @@
+{
+  "source": "live Godot Movie Maker, scripted scene setup, no generative video",
+  "mode": "storage-only",
+  "native_checks": 12,
+  "raw": {
+    "programs": [],
+    "stream_groups": [],
+    "streams": [
+      {
+        "codec_name": "mjpeg",
+        "codec_type": "video",
+        "width": 1152,
+        "height": 648,
+        "r_frame_rate": "30/1",
+        "nb_read_frames": "503"
+      },
+      {
+        "codec_name": "pcm_s16le",
+        "codec_type": "audio",
+        "r_frame_rate": "0/0",
+        "nb_read_frames": "1006"
+      }
+    ],
+    "format": {
+      "duration": "16.766667",
+      "size": "76188550"
+    }
+  },
+  "raw_frame_offset_note": "Recorder process count is one frame below total movie frames, as measured. Cuts use literal logged frame indices; review samples are taken from those raw indices.",
+  "mp4": {
+    "programs": [],
+    "stream_groups": [],
+    "streams": [
+      {
+        "codec_name": "h264",
+        "codec_type": "video",
+        "width": 1152,
+        "height": 648,
+        "r_frame_rate": "30/1",
+        "nb_read_frames": "485"
+      },
+      {
+        "codec_name": "aac",
+        "codec_type": "audio",
+        "r_frame_rate": "0/0",
+        "nb_read_frames": "758"
+      }
+    ],
+    "format": {
+      "duration": "16.166667",
+      "size": "4948137"
+    }
+  },
+  "segment_frames": [
+    9,
+    494
+  ],
+  "gif": {
+    "size": [
+      768,
+      432
+    ],
+    "frames": 130,
+    "duration_seconds": 8.67,
+    "raw_frame_range": [
+      144,
+      404
+    ],
+    "fps": 15,
+    "palette_colors_max": 128,
+    "resize": "nearest; main MP4 remains native resolution"
+  },
+  "audio_peak_db": "-7.1 dB",
+  "sample_frames": {
+    "storage_interior": 64,
+    "storage_shelves": 159,
+    "storage_deposit": 286,
+    "storage_withdraw": 359,
+    "storage_return": 461
+  },
+  "full_eight_segment_branch_recorded": false,
+  "full_script_parse_checked": true
+}

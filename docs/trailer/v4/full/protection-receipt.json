@@ -1,0 +1,20 @@
+{
+  "protected_total": 582,
+  "unchanged": 581,
+  "allowed_existing_change": "tools/trailer/record_pitch_v4.gd",
+  "unexpected_changes": [],
+  "new_tool": "tools/trailer/cut_pitch_v4.py",
+  "v4_recorder_installed_sha256": "ee311de3e6ff0dc61710b891db4f15fde683b71851fce886835b939ca032cd4e",
+  "recorded_script_sha256": "ee311de3e6ff0dc61710b891db4f15fde683b71851fce886835b939ca032cd4e",
+  "v4_cutter_sha256": "92453623ac9617571eacd2cfb2daf9b7110e55689906b306cc2cde6757d91394",
+  "docs_updated": [
+    "docs/team/CODEX_START_HERE_2026-10-14.md",
+    "docs/team/CODEX_TASKS_2026-10-14.md",
+    "docs/AI_COLLABORATION.md",
+    "docs/pitch/ai-asset-inventory.md",
+    "docs/pitch/pitch-kit.md"
+  ],
+  "native_parse": "passed",
+  "real_save_and_core_game_source": "unchanged; isolated private capture profile",
+  "new_generation_paid_calls_external_posts_commits": false
+}

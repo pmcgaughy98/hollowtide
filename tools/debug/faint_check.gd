@@ -111,9 +111,13 @@ func _run() -> void:
 	_ok("In the Mouth before the road: the faint screen says back to the bank (going home %s)" % (str(s2.info.get("to_town")) if on_screen else "no screen"),
 		on_screen and s2.info.get("to_town") == false)
 	if on_screen:
-		s2.advance()
-		s2.advance()
-		s2.advance()
+		# Press until it leaves, not a set three: this line pages once the portrait inset grew to 162
+		# (2026-10-14; 528 px wraps it to three rows, two pages, five presses). Claude, 2026-10-14.
+		for k in 8:
+			if current_scene != s2:
+				break
+			s2.advance()
+			await _frames(2)
 		await _frames(6)
 	var in_dungeon := current_scene.scene_file_path == "res://scenes/dungeon.tscn"
 	_ok("E takes the team back into the Mouth, B1F (%s%s)" % [_scene(), (", %s floor %d, faints %d" % [current_scene.dungeon, current_scene.floor_n, current_scene.faints]) if in_dungeon else ""],

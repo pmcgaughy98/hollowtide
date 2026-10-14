@@ -1,0 +1,18 @@
+{
+  "pid": 29104,
+  "command": [
+    "C:/Users/pmcga/Games/Tools/Godot_v4.7.2/Godot_v4.7.2-stable_win64.exe",
+    "--path",
+    "D:\\dev\\hollowtide-world-refinement-20261008\\project",
+    "--rendering-method",
+    "gl_compatibility",
+    "--audio-driver",
+    "Dummy",
+    "--fixed-fps",
+    "30",
+    "--script",
+    "D:\\dev\\hollowtide-storage-integration-20261014\\checks\\town_room_check.gd",
+    "--",
+    "stage"
+  ]
+}

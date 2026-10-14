@@ -1,0 +1,27 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+OpenGL API 3.3.0 NVIDIA 596.49 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce GTX 1660 SUPER
+
+ERROR: Failed to read the root certificate store.
+   at: get_system_ca_certificates (platform/windows/os_windows.cpp:2582)
+[godot_ai game_helper] registered mcp capture (debugger active=false, logger=true)
+Generic item lookup returns Parcel -> ok
+Imported 32px RGBA exact -> ok
+Unknown item fallback retained -> ok
+Existing icon: reedberry -> ok
+Existing icon: lamp_oil -> ok
+Existing icon: river_stone -> ok
+Existing icon: rally_seed -> ok
+Existing icon: scroll:claw -> ok
+Actual Job Board opens -> ok
+Generated board has Deliver to request -> ok
+Taking delivery puts one Parcel in bag -> ok
+Board retains taken delivery and unchanged reward -> ok
+Real Board cargo icon rendered pixel exact -> ok
+Real Board reward icon still rendered pixel exact -> ok
+Actual Bag has Parcel row with icon -> ok
+Bag selects Parcel and count -> ok
+Bag detail uses exact nearest 3x icon -> ok
+Real Bag row icon visible -> ok
+Real Bag detail icon rendered pixel exact -> ok
+Putting delivery back removes cargo without altering other bag items -> FAIL
+PARCEL: 19/20
