@@ -206,3 +206,14 @@ research (Gemini). Claude reviews and integrates when asked.
     162 px inset pages the Mouth line).
   - Pilot chain twice on the same code: run 1 lost the Warren replay five times (8 faints); run 2 was all ok in
     533 s with 0 faints. The floors are random per run, so it was floor luck, not this pass.
+- 2026-10-14, synthesis bonanza on the dungeon loop's feel (Preston: "/synthesis-bonanza Skill up with the
+  synthesis, upgrade and refine game pass"). docs/design/feel-bonanza-2026-10-14/README.md.
+  - Measured: Explorers of Sky walks at about 2.45 tiles/s against our 9; it has a B-run and an L+B log
+    (manual and on-screen controls).
+  - Built: Ctrl + direction runs (act_run, twice walking pace, stop rules, follows hall bends); L shows the
+    message box again; a fourth HUD key line.
+  - The adversarial subagent (about 242k tokens) found the key stop dead, warps and prompts ignored, and
+    stairs ending runs at once. All fixed; run_stop_check.gd 19/19 with a real-input key test.
+  - Live in Summer Engine: Ctrl+D ran the leader to the wall.
+  - Checks: ui_fit 30/30; dungeon, learn, trap, pace, save, faint, field menu and tactics all pass; pilot
+    chain all ok in 505 s with 0 faints.

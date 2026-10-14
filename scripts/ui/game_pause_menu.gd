@@ -162,6 +162,9 @@ func _volume(bus: String, key: String) -> void:
 
 func open() -> void:
     if overlay.visible or transition or get_tree().paused: return
+    # Pausing ends a dungeon run (Claude, 2026-10-14): it used to carry on after the menu closed.
+    var host = get_parent()
+    if host != null and "running" in host: host.running = false
     music_node = get_tree().root.get_node_or_null("HollowtideMusic")
     if is_instance_valid(music_node):
         music_mode = music_node.process_mode
@@ -212,7 +215,7 @@ func show_page(next: String) -> void:
             status = _label("Changes are saved automatically.",18)
         "controls":
             _label("Town: WASD / arrows move. E / J / Enter uses a place.")
-            _label("Hollow exploration: WASD / arrows move; Shift turns. J / click attacks; 1-3 use moves. I bag; Z rest; E stairs; T team orders; Tab autopilot.",20)
+            _label("Hollow exploration: WASD / arrows move; Shift turns. J / click attacks; 1-3 use moves. I bag; Z rest; E stairs; T team orders; Tab autopilot. Ctrl + direction runs until something is worth stopping for; L shows the messages again.",20)
             _label("Dungeon combat is turn-based. Y / N answers a recruit. The Training Yard is the separate arena mode.",20)
             _label("P / controller Start pauses anywhere. Esc pauses when no dialogue or bag is open. Arrows / D-pad navigate menus; Enter / A chooses; Esc / B goes back.",20)
             _action("Back","Back",show_page.bind("main"))

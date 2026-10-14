@@ -1,5 +1,24 @@
 # Working Together on Hollowtide
 
+## Claude: synthesis bonanza, dungeon run and message keys (October 14, 2026)
+
+Preston called a bonanza on the dungeon loop's feel. The write-up is
+`docs/design/feel-bonanza-2026-10-14/README.md`.
+
+**Measured:**
+- Explorers of Sky walks at about 2.45 tiles/s; ours at about 9.
+- Its manual and its own Controls screen both list a B-run and an L+B message log, which we lacked.
+
+**Added:**
+- **Ctrl + direction runs** (`act_run`): twice walking pace, with stop rules.
+- **L** shows the message box again.
+- A fourth HUD key line.
+- `tools/debug/run_stop_check.gd`: 19 checks, the key test through real input.
+
+**For Codex:** `scripts/ui/game_pause_menu.gd` changed in two small ways.
+- `open()` now ends a running dungeon run.
+- The Controls page lists Ctrl run and L.
+
 ## Claude: nine-task refinement pass, UI fit (October 14, 2026)
 
 Preston asked for a synthesis skill-up, then a nine-task refinement pass. The write-up is

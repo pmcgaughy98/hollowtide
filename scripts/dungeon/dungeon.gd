@@ -459,6 +459,9 @@ var turn_mode := false                  # Shift is held: the leader turns in pla
 var _shift_turned := false              # a direction was pressed during this Shift hold (so it was no tap)
 var _was_dir := Vector2i.ZERO
 var _keys_was := {}
+var running := false                    # a Ctrl + direction run is under way (act_run)
+var _run_ready := true                  # a run starts on a fresh press, not again while Ctrl + direction stays held
+var run_stop := ""                      # why the last run stopped (the checks read it)
 
 var _view: SubViewport
 var _world: Node2D
@@ -1705,7 +1708,8 @@ func _step(i: int, d: Vector2i) -> Tween:
 	e["pos"] += d
 	e["moved"] = true
 	e["facing"] = _facing_of(d)
-	e["walk_t"] = STEP_TIME
+	e["walk_len"] = _step_time()
+	e["walk_t"] = e["walk_len"]
 	return _slide(e, _tile_px(e["pos"]))
 
 
@@ -1716,7 +1720,7 @@ func _slide(e: Dictionary, to: Vector2) -> Tween:
 	if e.get("tw") is Tween and e["tw"].is_valid():
 		e["tw"].kill()
 	var tw := create_tween()
-	tw.tween_property(e["node"], "position", to, STEP_TIME)
+	tw.tween_property(e["node"], "position", to, _step_time())
 	e["tw"] = tw
 	return tw
 
@@ -1756,11 +1760,148 @@ func act_move(d: Vector2i) -> void:
 		# Swap places with a partner.
 		ents[o]["pos"] = lead["pos"]
 		ents[o]["facing"] = _facing_of(-d)
-		ents[o]["walk_t"] = STEP_TIME
+		ents[o]["walk_len"] = _step_time()
+		ents[o]["walk_t"] = ents[o]["walk_len"]
 		tweens.append(_slide(ents[o], _tile_px(ents[o]["pos"])))
 	tweens.append(_step(0, d))
 	await _world_turn(tweens)
 	busy = false
+
+
+## A run, as Explorers of Sky's B + direction (its manual and its own controls screen both list it): one
+## press dashes on until something is worth stopping for, at twice the walking pace (its run is far quicker
+## than its walk in footage). The stops are ours: a foe coming into sight or one in sight closing to two
+## tiles, a hit, a warp, a prompt or a scene, an item or the stairs coming alongside, a seen trap one step
+## ahead, a hall opening into a room or a fork, a wall or a body ahead, the pause menu, or any key. In a
+## hall it follows a bend (one run in the footage turned a corner). Claude, 2026-10-14; the adversarial
+## pass of that day found the key stop dead, warps and prompts ignored, and stairs ending runs at once.
+const RUN_PACE := 0.5                    # a run's step takes this share of a walking step
+const RUN_STOP_KEYS := [KEY_W, KEY_A, KEY_S, KEY_D, KEY_UP, KEY_DOWN, KEY_LEFT, KEY_RIGHT, KEY_J, KEY_SPACE, KEY_ESCAPE, KEY_Z, KEY_E, KEY_I, KEY_T, KEY_L, KEY_1, KEY_2, KEY_3]
+
+
+func act_run(d: Vector2i) -> void:
+	if busy or running or _prompt_up() or d == Vector2i.ZERO or ents.is_empty() or ents[0]["hp"] <= 0:
+		return
+	# Keys already down (the direction that started the run) are not new presses.
+	for k in RUN_STOP_KEYS:
+		_keys_was[k] = Input.is_physical_key_pressed(k)
+	running = true
+	var lead: Dictionary = ents[0]
+	var seen := _foes_in_sight()
+	var near := _worth_near(lead["pos"])
+	var hall: bool = _open_ways(lead["pos"]) <= 2
+	var steps := 0
+	run_stop = "far enough"
+	while running and steps < 60:
+		if hall and not can_step(lead["pos"], d):
+			d = _bend(lead["pos"], d)   # follow the hall round its corner
+		var ahead: Vector2i = lead["pos"] + d
+		if d == Vector2i.ZERO or not can_step(lead["pos"], d) or _occupant(ahead) >= 0 or _seen_trap_at(ahead):
+			run_stop = "trap ahead" if d != Vector2i.ZERO and can_step(lead["pos"], d) and _occupant(ahead) < 0 else ("someone ahead" if d != Vector2i.ZERO and can_step(lead["pos"], d) else "wall")
+			break
+		var hp: int = lead["hp"]
+		var from: Vector2i = lead["pos"]
+		await act_move(d)
+		steps += 1
+		if not running:
+			run_stop = "key"
+			break
+		if lead["hp"] < hp or lead["hp"] <= 0:
+			run_stop = "hit"   # first: a hit that shoves the leader back also leaves it short of where it stepped
+			break
+		if lead["pos"] == from:
+			run_stop = "blocked"
+			break
+		if lead["pos"] != from + d:
+			run_stop = "carried off"   # a warp: somewhere the run did not go
+			break
+		if _prompt_up():
+			run_stop = "prompt"
+			break
+		var now := _foes_in_sight()
+		if now.any(func(n: Node) -> bool: return not seen.has(n)):
+			run_stop = "foe in sight"
+			break
+		if _foe_within(lead["pos"], 2):
+			run_stop = "foe close"
+			break
+		var near_now := _worth_near(lead["pos"])
+		if near_now.any(func(q: Vector2i) -> bool: return not near.has(q)):
+			run_stop = "item or stairs"
+			break
+		near = near_now
+		var ways := _open_ways(lead["pos"])
+		if hall and ways > 2:
+			run_stop = "opening"
+			break   # out of the hall: a room or a fork
+		hall = ways <= 2
+	running = false
+
+
+## A question, a scene, a dialogue, the bag or the learn prompt is up: no step should be taken under it.
+func _prompt_up() -> bool:
+	return asking >= 0 or cutscene or not talk.is_empty() or teach_kind != "" or bag_open
+
+
+## The one way on round a hall's corner (not back the way it came), or ZERO at a dead end or a fork.
+func _bend(p: Vector2i, d: Vector2i) -> Vector2i:
+	var ways: Array[Vector2i] = []
+	for dd in [Vector2i(1, 0), Vector2i(-1, 0), Vector2i(0, 1), Vector2i(0, -1), Vector2i(1, 1), Vector2i(1, -1), Vector2i(-1, 1), Vector2i(-1, -1)]:
+		if dd.x * d.x + dd.y * d.y >= 0 and dd != d and can_step(p, dd):
+			ways.append(dd)
+	return ways[0] if ways.size() == 1 else Vector2i.ZERO
+
+
+## A wild creature in sight within r tiles of p.
+func _foe_within(p: Vector2i, r: int) -> bool:
+	for e in ents:
+		if e["team"] == 1 and e["hp"] > 0 and not e.get("hidden", false) and _cheb(e["pos"], p) <= r and _sees(p, e["pos"]):
+			return true
+	return false
+
+
+## The step time now: a run's steps are quicker than a walk's.
+func _step_time() -> float:
+	return STEP_TIME * (RUN_PACE if running else 1.0)
+
+
+## The wild creatures the leader can see now (their nodes, so a run can tell a new one from an old one).
+func _foes_in_sight() -> Array:
+	var out: Array = []
+	for e in ents:
+		if e["team"] == 1 and e["hp"] > 0 and not e.get("hidden", false) and _sees(ents[0]["pos"], e["pos"]):
+			out.append(e["node"])
+	return out
+
+
+## How many of the eight ways out of p are open: two in a hall, more in a room or at a fork.
+func _open_ways(p: Vector2i) -> int:
+	var n := 0
+	for dd in [Vector2i(1, 0), Vector2i(-1, 0), Vector2i(0, 1), Vector2i(0, -1), Vector2i(1, 1), Vector2i(1, -1), Vector2i(-1, 1), Vector2i(-1, -1)]:
+		if can_step(p, dd):
+			n += 1
+	return n
+
+
+func _seen_trap_at(p: Vector2i) -> bool:
+	for t in traps:
+		if t["seen"] and t["pos"] == p:
+			return true
+	return false
+
+
+## The stairs and items on p or next to it (a run stops when one comes alongside, not for the ones it
+## started beside: a full bag leaves items lying, and a run from the stairs used to end after a step).
+func _worth_near(p: Vector2i) -> Array:
+	var out: Array = []
+	var st: Vector2i = data["stairs"]
+	if _cheb(st, p) <= 1:
+		out.append(st)
+	for it in floor_items:
+		var q: Vector2i = it["pos"]
+		if _cheb(q, p) <= 1:
+			out.append(q)
+	return out
 
 
 func act_face(d: Vector2i) -> void:
@@ -2099,7 +2240,7 @@ func _world_turn(lead_tweens: Array) -> void:
 			continue
 		if e.has("windup"):
 			if not tweens.is_empty():
-				await get_tree().create_timer(STEP_TIME).timeout
+				await get_tree().create_timer(_step_time()).timeout
 				tweens.clear()
 			await _fire_windup(i)
 			if ents[0]["hp"] <= 0:
@@ -2133,13 +2274,13 @@ func _world_turn(lead_tweens: Array) -> void:
 			tweens.append(_step(i, plan["d"]))
 		elif plan["kind"] == "attack":
 			if not tweens.is_empty():
-				await get_tree().create_timer(STEP_TIME).timeout
+				await get_tree().create_timer(_step_time()).timeout
 				tweens.clear()
 			await use_move(i, plan["m"], plan["d"])
 			if ents[0]["hp"] <= 0:
 				break
 	if not tweens.is_empty():
-		await get_tree().create_timer(STEP_TIME).timeout
+		await get_tree().create_timer(_step_time()).timeout
 	_end_turn()
 
 
@@ -3477,7 +3618,7 @@ func _process(delta: float) -> void:
 			e["walk_t"] = maxf(0.0, e["walk_t"] - delta)
 			var frames: Array = e["art"]["walk"][e["facing"]]
 			if not frames.is_empty():
-				_set_tex(e, frames[int((1.0 - e["walk_t"] / STEP_TIME) * 4.0 + turn * 4) % frames.size()])
+				_set_tex(e, frames[int((1.0 - e["walk_t"] / float(e.get("walk_len", STEP_TIME))) * 4.0 + turn * 4) % frames.size()])
 			if e["walk_t"] <= 0.0:
 				_set_tex(e, e["art"]["still"][e["facing"]])
 		e["node"].z_index = int(e["node"].position.y)
@@ -3524,6 +3665,13 @@ func _poll(delta: float) -> void:
 	if cutscene:   # a scene plays itself; J reads its lines
 		if not talk.is_empty() and (_tapped(KEY_J) or _tapped(KEY_ENTER) or _tapped(KEY_SPACE)):
 			act_talk()
+		return
+	if running:
+		# Any key ends a run early (it also ends itself on anything worth stopping for). Read here, before
+		# the busy return: a run is busy on every frame, so a check after it never saw a key.
+		for k in RUN_STOP_KEYS:
+			if _tapped(k):
+				running = false
 		return
 	if busy:
 		return
@@ -3573,6 +3721,7 @@ func _poll(delta: float) -> void:
 	if d == Vector2i.ZERO:
 		_hold = 0.0
 		_was_dir = Vector2i.ZERO
+		_run_ready = true
 	else:
 		if _was_dir == Vector2i.ZERO:
 			_hold += delta
@@ -3582,8 +3731,17 @@ func _poll(delta: float) -> void:
 		if Input.is_key_pressed(KEY_SHIFT):
 			_shift_turned = true
 			act_face(d)
+		elif Input.is_key_pressed(KEY_CTRL):
+			if _run_ready:
+				_run_ready = false
+				act_run(d)
 		else:
+			_run_ready = true
 			act_move(d)
+		return
+	# L shows the message box again for a while (Explorers of Sky's L + B "Check message log").
+	if _tapped(KEY_L):
+		_log_at = Time.get_ticks_msec()
 		return
 	# Shift held is turn mode (arrows show round the leader); a tap of Shift alone faces the nearest foe.
 	var shift := Input.is_key_pressed(KEY_SHIFT)
@@ -3997,8 +4155,8 @@ func _draw_hud() -> void:
 		for k in shown.size():
 			UI.rich(h, lb.position + Vector2(24, 32 + k * 21), shown[k], 16, marks, 0.6 + 0.4 * float(k + 1) / shown.size(), 568)
 	# The keys, short; the full list is under the menu's Controls.
-	for k in 3:
-		UI.text(h, Vector2(946, 546 + k * 17), ["J attack   1 2 3 moves", "I bag   T orders   Z rest", "E stairs   Tab autopilot"][k], 14, Color(UI.MUTED, 0.85), 194, HORIZONTAL_ALIGNMENT_RIGHT)
+	for k in HUD_KEYS.size():
+		UI.text(h, Vector2(946, 529 + k * 17), HUD_KEYS[k], 14, Color(UI.MUTED, 0.85), 194, HORIZONTAL_ALIGNMENT_RIGHT)
 	# A scene's dialogue.
 	if not talk.is_empty():
 		var box := Rect2(196, 412, 760, 116)
@@ -4096,6 +4254,8 @@ static func minimap_scale(w: int, h: int) -> int:
 ## Lv and Sense) used to run into the tag; the tag tightens, then drops Sense (the team screen still shows
 ## it), and only then is the name cut. sense < 0 is the leader, who shows no Sense. Claude, 2026-10-14.
 const HUD_ROW_W := 246.0
+## The key lines at the bottom right (the full list is under the menu's Controls).
+const HUD_KEYS := ["J attack   1 2 3 moves", "I bag   T orders   Z rest", "E stairs   Tab autopilot", "Ctrl run   L messages"]
 
 
 static func hud_name_tag(nm: String, lv: int, sense: int) -> Array:

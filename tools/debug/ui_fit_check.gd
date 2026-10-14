@@ -88,7 +88,7 @@ func _run() -> void:
 		var bottom: float = Opening.call("menu_top", n) + 32.0 + n * 54.0 + (n - 1) * 6.0
 		_ok(bottom <= 596.0, "title, %d rows: menu ends at %.0f, above the key line at 608" % [n, bottom])
 	# 5. Right-aligned hints, grown left when too wide: on screen at both ends.
-	for s in ["WASD walk   E use", "The Hollow's mouth starts a run", "J attack   1 2 3 moves", "I bag   T orders   Z rest", "E stairs   Tab autopilot"]:
+	for s in ["WASD walk   E use", "The Hollow's mouth starts a run"] + Dungeon.HUD_KEYS:
 		var w := UI.width_in(s, UI.fit(s, "label", 194))
 		var left := 946.0 + 194.0 - maxf(194.0, w)
 		_ok(left >= 0.0 and left + maxf(194.0, w) <= 1152.0, "hint '%s': %.0f px, drawn from x %.0f to 1140" % [s, w, left])
