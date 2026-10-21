@@ -1,5 +1,17 @@
 # Working Together on Hollowtide
 
+## Codex: opening scenes repaired after font update (October17,2026)
+
+Fixed both opening scenes failing to load after the October16 menu font update: main_menu_art_preview.gd still referenced removed TITLE_FONT. One line now reads the shared display role's source FontFile (UI.TYPE["display"]["file"]); the wordmark retains its existing pixel renderer. Both scenes loaded, built wordmarks/buttons and passed their preludes into menus in installed Summer Engine: native10/10, clean log and reviewed screenshots. UI-fit30 assertions pass; its headless dungeon shader/exit-resource diagnostics are archived separately. All540 other protected current source/scene/data/dialogue/project files exact; Grok and Claude changes preserved, private saves/profiles only. Evidence and original source: docs/design/opening-scene-font-fix-2026-10-17/README.md. Current campaign entry remains creature_opening.tscn; opening_flow.tscn is the legacy courier opening. No new art, game rules, settings or commit.
+
+## Grok: synthesis look, fonts, dungeon lantern (October 16, 2026)
+
+"The synthesis" is [genre-synthesis-2026-10-12.md](design/genre-synthesis-2026-10-12.md). Imagine studies are in [imagine-look-2026-10-16.md](design/imagine-look-2026-10-16.md). They were not installed as frames. Menu title and buttons now use the house pixel faces. The dungeon HUD draws a lantern instead of the word beside the light bar.
+
+## Grok: Hollow floors filed (October 16, 2026)
+
+The October 12 floor job is done. B1F is Listener and Skimlet. B2F is Ozbender, Valvekin, and Troughspine. Troughspine does not learn Seep. The three-seed probe met and beat the Warden on all three seeds, ending at levels 6, 6, and 8. `pilot_chain_check.gd` was not run. Record: [GROK_BUILD_RESULT_2026-10-12.md](team/GROK_BUILD_RESULT_2026-10-12.md). No newer Grok task file.
+
 ## Claude: synthesis bonanza, dungeon run and message keys (October 14, 2026)
 
 Preston called a bonanza on the dungeon loop's feel. The write-up is

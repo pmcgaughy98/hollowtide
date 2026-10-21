@@ -7,7 +7,7 @@ extends CanvasLayer
 ## lists the items (in the Hollow, choosing one closes the menu and uses it as a normal turn);
 ## FLOOR is the Ground page (floor, turn, lantern, underfoot, the orders); LOG is the last lines.
 ## Codex's pages and buttons are unchanged; the original is in docs/ui/field-menu-2026-10-10.
-const FONT = preload("res://assets/fonts/AlegreyaSansSC-Bold.ttf")
+
 const Lines := preload("res://scripts/creatures/lines.gd")
 const UI = preload("res://scripts/ui/ui_style.gd")
 const DUNGEON = "res://scripts/dungeon/dungeon.gd"   # loaded, not preloaded: dungeon.gd preloads this file
@@ -74,8 +74,6 @@ func _button(text: String) -> Button:
     var b = Button.new()
     b.text = text
     b.custom_minimum_size = Vector2(0,54)
-    b.add_theme_font_override("font",FONT)
-    b.add_theme_font_size_override("font_size",24)
     b.add_theme_color_override("font_color",Color("#fff4e8"))
     b.add_theme_color_override("font_focus_color",Color("#ffe9b0"))
     b.add_theme_color_override("font_hover_color",Color("#ffe9b0"))

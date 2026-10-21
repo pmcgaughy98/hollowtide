@@ -8,7 +8,9 @@ The learnset answer is `docs/creatures/learnset-draft-2026-10-10.md`. Claude cop
 
 ### Open now
 
-The live list is `docs/team/GROK_TASKS_2026-10-11.md`. The result is `docs/team/GROK_BUILD_RESULT_2026-10-11.md`. The Tasks section below is the October 10 list. Do not start it. Springvault is answered there as a proposal and is not applied. The essence chart and the health-carry re-measure were not in the October 11 list.
+As of 2026-10-16 there is no Grok task file newer than `docs/team/GROK_TASKS_2026-10-12.md`. That job is done. The record is `docs/team/GROK_BUILD_RESULT_2026-10-12.md`. Do not redo it, and do not start the October 10 or October 11 lists.
+
+Troughspine no longer learns Seep. Archroot learns it on evolving. Heal 6 and the 3 turns were not changed. `pilot_chain_check.gd` was not run after the floor change. Seed 31337 finished The Hollow at level 8, so a house-heavy floor may enter the Warden above level 5. That moment was not printed. The essence chart and the health-carry re-measure are still parked.
 
 ### Claude changed, and it is not a numbers job unless Preston asks
 

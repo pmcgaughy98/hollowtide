@@ -28,7 +28,6 @@ const PX := 2.0  # screen pixels per art pixel, the same for scenery and charact
 const MENU_ART := "res://assets/sprites/menu/"
 const CREATURE_SHADER = preload("res://scripts/effects/creature_sprite.gdshader")
 const RAIN_SHADER = preload("res://scripts/effects/pixel_rain.gdshader")
-const TITLE_FONT = preload("res://assets/fonts/AlegreyaSansSC-Bold.ttf")
 const SMALL_FONT = preload("res://assets/fonts/Silkscreen-Regular.ttf")
 const MUSIC = preload("res://assets/audio/music/main_menu_pixel_rain.mp3")
 const CONFIRM_SOUND = preload("res://assets/audio/sfx/ui/confirm.wav")
@@ -298,8 +297,8 @@ func _build_menu() -> void:
 	_title = Label.new()
 	_title.name = "Title"
 	_title.text = "HOLLOWTIDE"
-	_title.add_theme_font_override("font", TITLE_FONT)
-	_title.add_theme_font_size_override("font_size", 72)
+	_title.add_theme_font_override("font", UI.font("display"))
+	_title.add_theme_font_size_override("font_size", UI.type_size("display"))
 	_title.add_theme_color_override("font_color", TEXT)
 	_title.add_theme_color_override("font_outline_color", TITLE_EDGE)
 	_title.add_theme_constant_override("outline_size", 10)
@@ -380,8 +379,9 @@ func _list(panel: PanelContainer) -> VBoxContainer:
 func _label(text: String, size: int = 24) -> Label:
 	var label := Label.new()
 	label.text = text
-	label.add_theme_font_override("font", TITLE_FONT)
-	label.add_theme_font_size_override("font_size", size)
+	var role := "title" if size >= 30 else "body"
+	label.add_theme_font_override("font", UI.font(role))
+	label.add_theme_font_size_override("font_size", UI.type_size(role))
 	label.add_theme_color_override("font_color", TEXT)
 	label.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	return label
@@ -604,8 +604,8 @@ func _button(text: String) -> Button:
 	b.text = text
 	b.custom_minimum_size = Vector2(0, 52)
 	b.alignment = HORIZONTAL_ALIGNMENT_LEFT
-	b.add_theme_font_override("font", TITLE_FONT)
-	b.add_theme_font_size_override("font_size", 26)
+	b.add_theme_font_override("font", UI.font("button"))
+	b.add_theme_font_size_override("font_size", UI.type_size("button"))
 	for state in ["font_color", "font_hover_color", "font_focus_color", "font_pressed_color"]:
 		b.add_theme_color_override(state, TEXT)
 	var plain := UI.frame("panel").duplicate()

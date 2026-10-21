@@ -1,0 +1,53 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+[godot_ai game_helper] registered mcp capture (debugger active=false, logger=true)
+ok    team rows: 39 names, widest row 246 of 246 px; 0 names cut, 4 teammates show no Sense at Lv 99
+ok    team rows: no creature name is cut short
+ok    learn prompt: question 224 px, keys 322 px, each within 440
+ok    learn prompt, 1 rows: keys row starts at 108, below the last row's 99
+ok    learn prompt, 4 rows: keys row starts at 204, below the last row's 195
+ok    learn prompt, 5 rows: keys row starts at 236, below the last row's 227
+ok    title, 4 rows: top stays at 324
+ok    title, 4 rows: menu ends at 590, above the key line at 608
+ok    title, 5 rows: menu ends at 596, above the key line at 608
+ok    title, 6 rows: menu ends at 596, above the key line at 608
+ok    hint 'WASD walk   E use': 182 px, drawn from x 946 to 1140
+ok    hint 'The Hollow's mouth starts a run': 210 px, drawn from x 930 to 1140
+ok    hint 'J attack   1 2 3 moves': 142 px, drawn from x 946 to 1140
+ok    hint 'I bag   T orders   Z rest': 155 px, drawn from x 946 to 1140
+ok    hint 'E stairs   Tab autopilot': 148 px, drawn from x 946 to 1140
+ok    hint 'Ctrl run   L messages': 138 px, drawn from x 946 to 1140
+ok    corner map: at most 240 x 180 px, left edge 888 clear of the team panel's 352
+ok    corner map on B1F (42 x 20 tiles): 5 px a tile, 210 x 100 px
+ok    message box: shown right after a message
+ok    message box: gone 4.5 s after the last message
+ok    message box: back on the next message
+ok    pause 'main': panel from 58 to 626 of 648
+ok    pause 'goal': panel from 58 to 339 of 648
+ok    pause 'bag': panel from 42 to 612 of 648
+ok    pause 'floor': panel from 58 to 378 of 648
+ok    pause 'log': panel from 58 to 410 of 648
+ok    pause 'options': panel from 58 to 502 of 648
+ok    pause 'controls': panel from 58 to 528 of 648
+ok    pause 'title': panel from 58 to 403 of 648
+ok    pause 'quit': panel from 58 to 403 of 648
+ui fit: all ok (0 failed)
+ERROR: Condition "!actions.custom_samplers.has(function->arguments[j].tex_builtin)" is true. Continuing.
+   at: _dump_node_code (servers/rendering/shader_compiler.cpp:1329)
+   GDScript backtrace (most recent call first):
+       [0] apply (res://scripts/dungeon/dungeon_finish.gd:38)
+       [1] _build_floor (res://scripts/dungeon/dungeon.gd:697)
+       [2] _ready (res://scripts/dungeon/dungeon.gd:518)
+       [3] _run (res://tools/debug/ui_fit_check.gd:111)
+ERROR: Condition "!actions.custom_samplers.has(function->arguments[j].tex_builtin)" is true. Continuing.
+   at: _dump_node_code (servers/rendering/shader_compiler.cpp:1329)
+   GDScript backtrace (most recent call first):
+       [0] apply (res://scripts/arena/creature_finish.gd:9)
+       [1] _make (res://scripts/dungeon/dungeon.gd:1028)
+       [2] _build_floor (res://scripts/dungeon/dungeon.gd:708)
+       [3] _ready (res://scripts/dungeon/dungeon.gd:518)
+       [4] _run (res://tools/debug/ui_fit_check.gd:111)
+WARNING: 2 ObjectDB instances were leaked at exit (run with `--verbose` for details).
+   at: cleanup (core/object/object.cpp:2536)
+ERROR: 1 resources still in use at exit (run with --verbose for details).
+   at: clear (core/io/resource.cpp:822)

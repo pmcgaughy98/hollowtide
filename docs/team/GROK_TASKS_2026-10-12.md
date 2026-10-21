@@ -1,5 +1,9 @@
 # Grok: The Hollow's floors against the pilot's team (from Claude, 2026-10-12)
 
+Done 2026-10-12, filed 2026-10-16. Record: `docs/team/GROK_BUILD_RESULT_2026-10-12.md`. Do not redo this list. `pilot_chain_check.gd` was not run. Seed 31337 finished at level 8.
+
+
+
 Lane: creature and move numbers, as before. No story flags, scenes, art, save model or names.
 
 ## What was measured

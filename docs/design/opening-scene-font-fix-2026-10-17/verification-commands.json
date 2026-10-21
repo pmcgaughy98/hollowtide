@@ -1,0 +1,37 @@
+[
+  {
+    "name": "summer-scenes",
+    "command": [
+      "C:/Users/pmcga/AppData/Local/SummerEngine/current/Summer.exe",
+      "--path",
+      "C:\\Users\\pmcga\\dev\\hollowtide",
+      "--audio-driver",
+      "Dummy",
+      "--rendering-method",
+      "gl_compatibility",
+      "--fixed-fps",
+      "30",
+      "--resolution",
+      "1152x648",
+      "--script",
+      "D:\\dev\\hollowtide-opening-diagnosis-20261017\\verify_scenes.gd"
+    ],
+    "exit": 0,
+    "APPDATA": "D:\\dev\\hollowtide-opening-diagnosis-20261017\\summer-scenes-profile"
+  },
+  {
+    "name": "ui-fit",
+    "command": [
+      "C:/Users/pmcga/Games/Tools/Godot_v4.7.2/Godot_v4.7.2-stable_win64.exe",
+      "--path",
+      "C:\\Users\\pmcga\\dev\\hollowtide",
+      "--audio-driver",
+      "Dummy",
+      "--headless",
+      "--script",
+      "res://tools/debug/ui_fit_check.gd"
+    ],
+    "exit": 0,
+    "APPDATA": "D:\\dev\\hollowtide-opening-diagnosis-20261017\\ui-fit-profile"
+  }
+]

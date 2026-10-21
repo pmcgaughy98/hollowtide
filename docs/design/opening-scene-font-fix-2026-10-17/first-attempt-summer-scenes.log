@@ -1,0 +1,31 @@
+Welcome to Summer Engine (c) built on the awesome work by Godot 2007-present Juan Linietsky, Ariel Manzur & Godot Contributors.
+OpenGL API 3.3.0 NVIDIA 596.49 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce GTX 1660 SUPER
+
+[SE] AuthManager: CLI credential found; desktop session exchange required
+[godot_ai game_helper] registered mcp capture (debugger active=false, logger=true)
+OPENING_FIX_CHECK opening_flow PackedScene loads -> ok
+OPENING_FIX_CHECK opening_flow script instantiates -> ok
+OPENING_FIX_CHECK opening_flow wordmark built -> FAIL
+OPENING_FIX_CHECK opening_flow menu buttons built -> FAIL
+OPENED opening_flow
+OPENING_FIX_CHECK creature_opening PackedScene loads -> ok
+OPENING_FIX_CHECK creature_opening script instantiates -> ok
+OPENING_FIX_CHECK creature_opening wordmark built -> ok
+OPENING_FIX_CHECK creature_opening menu buttons built -> ok
+OPENED creature_opening
+OPENING FIX: 6/8
+SCRIPT ERROR: Cannot call method 'duplicate' on a null value.
+   at: _build_wordmark (res://scripts/main_menu_art_preview.gd:242)
+   GDScript backtrace (most recent call first):
+       [0] _build_wordmark (res://scripts/main_menu_art_preview.gd:242)
+       [1] _ready (res://scripts/main_menu_art_preview.gd:16)
+       [2] _ready (res://scripts/opening_flow.gd:10)
+SCRIPT ERROR: Invalid access to property or key 'texture' on a base object of type 'Nil'.
+   at: _build_boot (res://scripts/opening_flow.gd:28)
+   GDScript backtrace (most recent call first):
+       [0] _build_boot (res://scripts/opening_flow.gd:28)
+       [1] _ready (res://scripts/opening_flow.gd:13)
+WARNING: 1 RID of type "CanvasItem" was leaked.
+   at: RendererCanvasCull::_free_rids (servers\rendering\renderer_canvas_cull.cpp:2733)
+WARNING: 2 ObjectDB instances were leaked at exit (run with `--verbose` for details).
+   at: ObjectDB::cleanup (core\object\object.cpp:2542)

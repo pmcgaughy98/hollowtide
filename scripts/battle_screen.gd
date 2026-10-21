@@ -1,6 +1,7 @@
 extends CanvasLayer
 
 const Gate = preload("res://scripts/move_gate.gd")
+const UI := preload("res://scripts/ui/ui_style.gd")
 
 ## The battle. Each side chooses one move per round; first creature to zero HP faints.
 ##
@@ -3256,7 +3257,8 @@ func _skin_command_button(button: Button, teal: bool = false) -> void:
 func _make_creature_name() -> Label:
 	var label := _make_label("", 24)
 	label.custom_minimum_size = Vector2(340, 32)
-	label.add_theme_font_override("font", CREATURE_NAME_FONT)
+	label.add_theme_font_override("font", UI.font("button"))
+	label.add_theme_font_size_override("font_size", UI.type_size("button"))
 	label.add_theme_color_override("font_color", Color("#F0F4F8"))
 	label.text_overrun_behavior = TextServer.OVERRUN_TRIM_ELLIPSIS
 	return label
@@ -3277,7 +3279,8 @@ func _make_hp_number() -> Label:
 	var label := _make_label("", 17)
 	label.custom_minimum_size = Vector2(94, 32)
 	label.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
-	label.add_theme_font_override("font", HP_NUMBER_FONT)
+	label.add_theme_font_override("font", UI.font("number"))
+	label.add_theme_font_size_override("font_size", UI.type_size("number"))
 	label.add_theme_color_override("font_color", Color("#DCE7E3"))
 	return label
 

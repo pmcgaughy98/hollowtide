@@ -4038,6 +4038,15 @@ func portrait_of(form: String) -> Texture2D:
 	return _portraits[form]
 
 
+## A brass lantern, drawn in the HUD's own pixels. The run's clock is the lantern, not a borrowed meter.
+func _draw_lantern(c: CanvasItem, at: Vector2) -> void:
+	c.draw_rect(Rect2(at.x + 6, at.y, 4, 3), UI.EDGE)
+	c.draw_rect(Rect2(at.x + 3, at.y + 3, 10, 9), UI.EDGE)
+	c.draw_rect(Rect2(at.x + 5, at.y + 5, 6, 6), UI.LIGHT)
+	c.draw_rect(Rect2(at.x + 7, at.y + 7, 2, 2), UI.TEXT)
+	c.draw_rect(Rect2(at.x + 4, at.y + 12, 8, 3), UI.EDGE)
+
+
 func _draw_hud() -> void:
 	_hud.get_node("CrewPortraitFinish").clear()
 	# One look for every screen (scripts/ui/ui_style.gd, Codex's title and pause menu colours), laid
@@ -4086,8 +4095,8 @@ func _draw_hud() -> void:
 	# The floor and the lantern.
 	UI.panel(h, Rect2(6, 6, 346, 54))
 	UI.say(h, Vector2(28, 44), "B%dF" % floor_n, "button", UI.EDGE_LIGHT)
-	UI.text(h, Vector2(104, 29), "Lantern", 15, UI.MUTED)
-	UI.bar(h, Rect2(104, 36, 170, 9), light / LIGHT_MAX, UI.LIGHT)
+	_draw_lantern(h, Vector2(104, 14))
+	UI.bar(h, Rect2(128, 36, 146, 9), light / LIGHT_MAX, UI.LIGHT)
 	UI.text(h, Vector2(282, 46), "%d" % int(light), 17, UI.LIGHT)
 	# The team: name, level, health, and a sliver of the way to evolving.
 	var team: Array = ents.filter(func(e: Dictionary) -> bool: return e["team"] == 0)

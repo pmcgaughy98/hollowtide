@@ -1,0 +1,6 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+SCRIPT ERROR: Parse Error: Identifier "TITLE_FONT" not declared in the current scope.
+   at: GDScript::reload (res://scripts/main_menu_art_preview.gd:242)
+ERROR: Failed to load script "res://scripts/main_menu_art_preview.gd" with error "Parse error".
+   at: load (modules/gdscript/gdscript_resource_format.cpp:46)

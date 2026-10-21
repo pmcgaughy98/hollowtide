@@ -239,7 +239,7 @@ func _build_wordmark() -> void:
 	if _title == null:
 		return
 	_title.visible = false  # the base title stays as the fallback, hidden
-	var font: FontFile = (TITLE_FONT as FontFile).duplicate()
+	var font: FontFile = (load(UI.TYPE["display"]["file"]) as FontFile).duplicate()
 	font.antialiasing = TextServer.FONT_ANTIALIASING_NONE
 	font.hinting = TextServer.HINTING_NONE
 	font.subpixel_positioning = TextServer.SUBPIXEL_POSITIONING_DISABLED

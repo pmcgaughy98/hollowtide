@@ -1,0 +1,16 @@
+{
+  "date": "2026-10-17",
+  "existing_changed": [
+    "scripts/main_menu_art_preview.gd"
+  ],
+  "protected_total": 541,
+  "other_files_exact": 540,
+  "exact_single_replacement": true,
+  "summer_native_checks": "10/10",
+  "summer_native_log_clean": true,
+  "ui_fit_assertions_passed": 30,
+  "ui_fit_headless_diagnostics": "Dungeon custom-sampler shader and exit resource diagnostics are retained in ui-fit.log; not used as render proof.",
+  "private_profiles": true,
+  "real_player_save_untouched": true,
+  "generations_commits": false
+}

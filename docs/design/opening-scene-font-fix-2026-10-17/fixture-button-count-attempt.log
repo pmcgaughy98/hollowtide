@@ -1,0 +1,16 @@
+Welcome to Summer Engine (c) built on the awesome work by Godot 2007-present Juan Linietsky, Ariel Manzur & Godot Contributors.
+OpenGL API 3.3.0 NVIDIA 596.49 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce GTX 1660 SUPER
+
+[SE] AuthManager: CLI credential found; desktop session exchange required
+[godot_ai game_helper] registered mcp capture (debugger active=false, logger=true)
+OPENING_FIX_CHECK opening_flow PackedScene loads -> ok
+OPENING_FIX_CHECK opening_flow script instantiates -> ok
+OPENING_FIX_CHECK opening_flow wordmark built -> ok
+OPENING_FIX_CHECK opening_flow menu buttons built -> FAIL
+OPENED opening_flow
+OPENING_FIX_CHECK creature_opening PackedScene loads -> ok
+OPENING_FIX_CHECK creature_opening script instantiates -> ok
+OPENING_FIX_CHECK creature_opening wordmark built -> ok
+OPENING_FIX_CHECK creature_opening menu buttons built -> ok
+OPENED creature_opening
+OPENING FIX: 7/8
