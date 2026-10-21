@@ -16,7 +16,7 @@ func _initialize() -> void:
 	_save("picker_step2")
 	picker._pick(2, 2)          # Scourmaw
 	await process_frame
-	picker._team_size = 3
+	picker._size = 3            # the picker's team size (renamed from _team_size in the 2026-10-09 rebuild)
 	picker._build()
 	await process_frame
 	_save("picker_step3")
@@ -40,4 +40,6 @@ func _initialize() -> void:
 
 
 func _save(name: String) -> void:
+	if DisplayServer.get_name() == "headless":
+		return   # no frame to capture without a window
 	root.get_texture().get_image().save_png(OUT + name + ".png")

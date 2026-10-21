@@ -86,6 +86,9 @@ func _dungeon(name: String, start: Callable) -> bool:
 		print("  %s, try %d: back in town %s, news '%s', cleared %d, party %s, levels %s, growth %s" % [name, attempt + 1, ok, news, int(TeamState.data.get("cleared", 0)), str(TeamState.data.get("party", [])), str(TeamState.data.get("levels", {})), str(TeamState.data.get("growth", {}))])
 		if ok and int(TeamState.data.get("cleared", 0)) > before_cleared:   # the town clears its news message once shown
 			return true
+		if _scene() == "dungeon.tscn":
+			print("  %s: still in the dungeon when the budget ran out, a stall and not a faint; no retry" % name)
+			return false   # retrying from here called _town() on the dungeon and crashed on 'panel' four times
 		faints += 1
 	return false
 
@@ -153,15 +156,19 @@ func _run() -> void:
 	await _until(func() -> bool: return _story().get("runner", false) and not current_scene.cutscene, 30 * 180)
 	_ok("Starward names them runners (%s, parcel '%s')" % [_story().get("runner", false), _story().get("parcel", "")], _story().get("runner", false))
 	var hall: Node = current_scene
+	# Compare rooms by id, not by node: the old room is freed on the way out, and a wait that held it logged
+	# "Lambda capture ... was freed" every frame after (Claude, 2026-10-21).
+	var hall_id := hall.get_instance_id()
 	hall.go_room({"to": "hall_low", "at": Vector2i(24, 14), "facing": "w", "sfx": "stairs"})
-	await _until(func() -> bool: return _scene() == "town_room.tscn" and current_scene != hall and current_scene.room_id == "hall_low", 30 * 5)
+	await _until(func() -> bool: return _scene() == "town_room.tscn" and current_scene.get_instance_id() != hall_id and current_scene.room_id == "hall_low", 30 * 5)
 	var low: Node = current_scene
 	await _until(func() -> bool: return low.cutscene, 30 * 3)
 	var played: bool = low.cutscene
 	await _until(func() -> bool: return not low.cutscene, 30 * 120)
 	_ok("The mail call plays on the lower floor (%s), crew at posts %d" % [played, low.npcs.size()], played and low.npcs.size() >= 4)
+	var low_id := low.get_instance_id()
 	low.go_room({"to": "hall", "at": Vector2i(13, 10), "facing": "w", "sfx": "stairs"})
-	await _until(func() -> bool: return _scene() == "town_room.tscn" and current_scene != low, 30 * 5)
+	await _until(func() -> bool: return _scene() == "town_room.tscn" and current_scene.get_instance_id() != low_id, 30 * 5)
 	current_scene.leave()
 	await _until(func() -> bool: return _scene() == "hub_town.tscn", 30 * 5)
 	# 8. The Hollow by the teleport, the Warden, the stone.

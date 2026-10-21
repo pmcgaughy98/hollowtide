@@ -68,7 +68,9 @@ func _run() -> void:
 	town.act_use()
 	await process_frame
 	await process_frame
-	root.get_texture().get_image().save_png(ProjectSettings.globalize_path(OUT + "hall_panel.png"))
+	# Headless has no viewport texture, so the still needs a window; the printed lines are the check (Claude, 2026-10-21).
+	if DisplayServer.get_name() != "headless":
+		root.get_texture().get_image().save_png(ProjectSettings.globalize_path(OUT + "hall_panel.png"))
 	print("Places: %d of %d answered E from their door" % [answered, Layout.PLACES.size() - 1])
 	town.panel = {}
 	town.team[0]["pos"] = Vector2i(32, 28)

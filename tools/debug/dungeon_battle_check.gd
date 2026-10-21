@@ -110,8 +110,9 @@ func _run() -> void:
 			waited += 1
 		print("Flee: the battle ended after %.1f s of distance; log '%s'; the wild Rimefin still standing: %s" % [waited / 30.0, dg.log_lines[-1], str(w2["hp"] > 0)])
 	else:
-		print("Flee: no battle started (WRONG)")
+		print("Flee: no battle started (%s)" % ("real-time battles are off by Preston's 2026-10-09 call, so there is nothing to flee" if not dg.real_time_battles else "WRONG"))
 	# 4. A whole floor on autopilot: fight to fight to the stairs.
+	while dg.busy: await process_frame   # the autopilot switched on in part 1 is still mid-turn; rebuilding the floor under it left its creature indexes pointing past the new list
 	dg.floor_seed = 99
 	dg._build_floor(true)
 	await _frames(3)

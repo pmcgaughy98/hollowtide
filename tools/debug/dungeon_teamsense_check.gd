@@ -116,17 +116,24 @@ func _run() -> void:
 	bad += _check("Keep range, alone", alone.get("why", "") != "keep range", "plan %s" % str(alone))
 
 	# 4. To the hurt: Seep ready, the leader at a quarter health three tiles off.
+	# The healer is a real Archroot (line 10, stage 1), made by the game's own _make the way the
+	# party is, so Seep comes from its learn data, not from this check (Grok, 2026-10-12: Troughspine
+	# does not learn Seep, Archroot does on growing). It takes Troughspine's place on the team for
+	# parts 4 and 5, fresh, so every move is ready (Claude, 2026-10-21).
 	_clear_wild()
-	_put(lead, Vector2i(4, 0)); _put(trough, Vector2i(0, 0)); _put(kith, Vector2i(0, 2))
-	trough["cds"] = {"spring_spit": 0, "seep": 0}
+	var arch: Dictionary = dg._make(10, 1, 0, base)
+	trough["node"].visible = false
+	dg.ents[TI] = arch
+	_put(lead, Vector2i(4, 0)); _put(arch, Vector2i(0, 0)); _put(kith, Vector2i(0, 2))
+	print("the healer: %s knows %s, ready %s" % [arch["name"], str(arch["moves"]), str(arch["cds"])])
 	lead["hp"] = lead["max_hp"] / 4
 	var th: Dictionary = dg._decide(TI)
-	var closer: bool = th.has("d") and dg._cheb(trough["pos"] + th["d"], lead["pos"]) < dg._cheb(trough["pos"], lead["pos"])
+	var closer: bool = th.has("d") and dg._cheb(arch["pos"] + th["d"], lead["pos"]) < dg._cheb(arch["pos"], lead["pos"])
 	bad += _check("To the hurt", th.get("why", "") == "to the hurt" and closer, "plan %s, closer %s" % [str(th), str(closer)])
 	lead["hp"] = lead["max_hp"]
 
-	# 5. To a healer: Kithflare under a third, Troughspine's Seep ready four tiles off.
-	_put(trough, Vector2i(5, 0)); _put(kith, Vector2i(1, 0)); _put(lead, Vector2i(1, 2))
+	# 5. To a healer: Kithflare under a third, Archroot's Seep ready four tiles off.
+	_put(arch, Vector2i(5, 0)); _put(kith, Vector2i(1, 0)); _put(lead, Vector2i(1, 2))
 	kith["hp"] = kith["max_hp"] / 4
 	var tk: Dictionary = dg._decide(KI)
 	bad += _check("To a healer", tk.get("why", "") == "to a healer", "plan %s" % str(tk))

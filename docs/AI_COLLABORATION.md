@@ -1,5 +1,17 @@
 # Working Together on Hollowtide
 
+## Claude: upgrade sweep, part 1: checks that tell the truth, three dungeon bugs (October 21, 2026)
+
+Preston: "complete wire upgrade sweep of hollowtide... SKILL UP FIRST." Skill-up and plan: [SKILLUP.md](team/sweep-2026-10-20/SKILLUP.md) (read its correction at the top first).
+
+- **Run checks with `python tools/debug/run_checks.py`** (add `--long` for the pilot chain, `--arena` for arena checks, or name words to pick some). It always passes `--fixed-fps 30`, gives each check an empty APPDATA (your real save is safe), and reads results from what checks print. Running checks without `--fixed-fps 30` makes most of them fail falsely: that cost this sweep a whole wrong baseline.
+- **Results now:** 48 PASS, 0 FAIL, 12 RAN (print values, assert nothing), 6 need a window, 1 retired. The full pilot chain passes in 122 s. Table: [after-checks.md](team/sweep-2026-10-20/after-checks.md). Why each old failure happened: [diagnosis.md](team/sweep-2026-10-20/diagnosis.md).
+- **Three real bugs fixed in `scripts/dungeon/dungeon.gd`:** Tab autopilot now walks round traps it has seen and round Job Board clients (it looped on a Warp Eddy or froze behind a client), skips items the bag cannot take, and `act_use_item` refuses while a scene or talk box is up (the pause menu's Bag let the awake boss act mid-scene). Plus one missing `_alive` guard in `stone_scene.gd`.
+- **Fifteen checks updated** to match deliberate changes (EXP curve, the boss floor, typed dialogue, the guaranteed first growth, Archroot as the healer). No game numbers changed.
+
+**For Grok:** `move_table_check` regenerated `docs/creatures/move-table-2026-10-09.md`: Mirekit now appears under Rake and Cinder Claw, and Play Dead, Needle Jab and Drain Bite have no users. Also, Troughspine never heals before it grows (your 10-12 rule), so an early healer partner does not walk to hurt teammates; flagged to Preston.
+**For Codex:** `opening_flow_check` and `first_fight_check` pass at 30 fps; nothing in your opening files changed. `hub_town_check` and `dungeon_action_check` now skip screenshots headless.
+
 ## Codex: opening scenes repaired after font update (October17,2026)
 
 Fixed both opening scenes failing to load after the October16 menu font update: main_menu_art_preview.gd still referenced removed TITLE_FONT. One line now reads the shared display role's source FontFile (UI.TYPE["display"]["file"]); the wordmark retains its existing pixel renderer. Both scenes loaded, built wordmarks/buttons and passed their preludes into menus in installed Summer Engine: native10/10, clean log and reviewed screenshots. UI-fit30 assertions pass; its headless dungeon shader/exit-resource diagnostics are archived separately. All540 other protected current source/scene/data/dialogue/project files exact; Grok and Claude changes preserved, private saves/profiles only. Evidence and original source: docs/design/opening-scene-font-fix-2026-10-17/README.md. Current campaign entry remains creature_opening.tscn; opening_flow.tscn is the legacy courier opening. No new art, game rules, settings or commit.

@@ -1,8 +1,8 @@
 extends SceneTree
-## The Springvault line, the healer (Claude, 2026-10-10). In the dungeon: Troughspine knows Spring
+## The Springvault line, the healer (Claude, 2026-10-10). In the dungeon: Archroot knows Spring
 ## Spit and Seep; Seep heals it and the teammate beside it at once and again each turn it stays;
 ## it cannot be knocked back while rooted; moving pulls the roots up; the partner AI chooses Seep
-## when the team beside it is hurt; the heals count toward evolving; it spawns wild on B2F.
+## when the team beside it is hurt; the heals count toward evolving; Troughspine spawns wild on The Hollow's B2F.
 ## In the arena: all three forms fight a full AI match without errors (basic only for now).
 ##   Godot --path . --fixed-fps 30 --script res://tools/debug/springvault_check.gd
 
@@ -28,7 +28,7 @@ func _run() -> void:
 	var dg: Node2D = load("res://scenes/dungeon.tscn").instantiate()
 	dg.floor_seed = 4242
 	dg.poll_input = false
-	dg.party = [[LINE, 0], [0, 0]]
+	dg.party = [[LINE, 1], [0, 0]]   # Archroot: Grok, 2026-10-12, Seep is learned on growing, Troughspine does not know it
 	root.add_child(dg)
 	await _frames(4)
 	for e in dg.ents:
@@ -37,8 +37,22 @@ func _run() -> void:
 			e["node"].visible = false
 	var tr: Dictionary = dg.ents[0]
 	var kith: Dictionary = dg.ents[1]
-	bad += _check("Troughspine", tr["name"] == "Troughspine" and tr["moves"] == ["spring_spit", "seep"] and tr["art"]["still"].has("s"),
-		"%s knows %s, art %s" % [tr["name"], str(tr["moves"]), str(tr["art"]["still"].has("s"))])
+	# What Archroot should know, read from the game's own learn data (LEARN in dungeon.gd, Grok's
+	# table) instead of a list kept here, so a change there shows up as a change here (Claude,
+	# 2026-10-21): its form's basic, then every move the line's forms up to Archroot teach by its
+	# level (evolve moves on growing), that its body can perform. It must know Spring Spit and Seep,
+	# every move the data gives it (while they fit in four), and nothing the data does not give.
+	var lv: int = dg.level_of(LINE)
+	var due: Array = [dg.basic_of(tr["form"])]
+	for st in tr["stage"] + 1:
+		for entry in dg.LEARN.get(dg.form_of(LINE, st), []):
+			var reached: bool = (st > 0) if entry[0] is String else int(entry[0]) <= lv
+			if reached and not entry[1] in due and dg.MoveBody.can_learn(tr["form"], entry[1]):
+				due.append(entry[1])
+	var missing: Array = due.filter(func(m: String) -> bool: return not m in tr["moves"])
+	var extra: Array = tr["moves"].filter(func(m: String) -> bool: return not m in due)
+	bad += _check("Archroot", tr["name"] == "Archroot" and tr["moves"].has("spring_spit") and tr["moves"].has("seep") and (missing.is_empty() or due.size() > dg.MOVES_MAX) and extra.is_empty() and tr["art"]["still"].has("s"),
+		"%s at Lv. %d knows %s; its learn data gives %s (missing %s, outside the data %s), art %s" % [tr["name"], lv, str(tr["moves"]), str(due), str(missing), str(extra), str(tr["art"]["still"].has("s"))])
 
 	# Kithflare hurt, standing beside it; Troughspine hurt a little too.
 	var d := Vector2i.ZERO
@@ -51,11 +65,11 @@ func _run() -> void:
 	kith["hp"] = 10
 	tr["hp"] = tr["max_hp"] - 3
 	var heal: int = dg.Arena.MOVES["seep"]["heal"]
-	await dg.act_attack(1)
+	await dg.act_attack(tr["moves"].find("seep"))
 	await _frames(20)
 	# One heal on use, a second at the end of that turn.
-	bad += _check("Seep", kith["hp"] == 10 + 2 * heal and tr["hp"] == tr["max_hp"] and tr.has("seep") and dg.growth["10:0"]["healed"] == 2 * heal + 3,
-		"Kithflare 10 -> %d (heal %d twice), Troughspine full %s, rooted %s, healed counted %d" % [kith["hp"], heal, str(tr["hp"] == tr["max_hp"]), str(tr.has("seep")), dg.growth["10:0"]["healed"]])
+	bad += _check("Seep", kith["hp"] == 10 + 2 * heal and tr["hp"] == tr["max_hp"] and tr.has("seep") and dg.growth["10:1"]["healed"] == 2 * heal + 3,
+		"Kithflare 10 -> %d (heal %d twice), Archroot full %s, rooted %s, healed counted %d" % [kith["hp"], heal, str(tr["hp"] == tr["max_hp"]), str(tr.has("seep")), dg.growth["10:1"]["healed"]])
 
 	# Rooted: a charge cannot shove it.
 	var at: Vector2i = tr["pos"]
@@ -77,7 +91,7 @@ func _run() -> void:
 	bad += _check("Stay, then move", stayed == 10 + heal and not tr.has("seep") and dg.log_lines.any(func(l: String) -> bool: return l.contains("pulled its roots up")),
 		"stayed: Kithflare 10 -> %d; after the step rooted %s" % [stayed, str(tr.has("seep"))])
 
-	# The partner AI: Troughspine as the partner, the leader hurt beside it.
+	# The partner AI: Archroot as the partner, the leader hurt beside it.
 	dg.ents[0] = kith
 	dg.ents[1] = tr
 	tr["cds"]["seep"] = 0
@@ -93,7 +107,8 @@ func _run() -> void:
 
 	# Evolving reads the heals; B2F can roll it wild.
 	var r: Dictionary = dg.EVO[LINE]
-	bad += _check("Growth", r["way"] == "healed" and dg.FLOOR_SPAWNS[2].has([LINE, 0]), "way %s, B2F spawns %s" % [r["way"], str(dg.FLOOR_SPAWNS[2])])
+	var b2f: Array = dg.DUNGEONS["hollow"]["spawns"][2]   # Troughspine moved to The Hollow on 2026-10-10 (Preston: it belongs there)
+	bad += _check("Growth", r["way"] == "healed" and b2f.has([LINE, 0]), "way %s, Hollow B2F spawns %s" % [r["way"], str(b2f)])
 	dg.queue_free()
 	await _frames(4)
 
@@ -113,7 +128,7 @@ func _run() -> void:
 		await _frames(3)
 		var me: Dictionary = arena._fighters[0]
 		var hp0: int = arena._fighters[1]["hp"]
-		await _frames(600)
+		await create_timer(20.0).timeout   # 20 s of game time, with or without --fixed-fps
 		bad += _check("Arena %s" % me["name"], arena._fighters[1]["hp"] < hp0, "basic %s, Kithflare %d -> %d in 20 s" % [arena.MOVES[me["kit"][0]]["name"], hp0, arena._fighters[1]["hp"]])
 	arena.queue_free()
 	print("RESULT: %s" % ("the healer works" if bad == 0 else "%d problems" % bad))

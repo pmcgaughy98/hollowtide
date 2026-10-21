@@ -965,12 +965,26 @@ func _cheb(a: Vector2i, b: Vector2i) -> int:
 	return maxi(absi(a.x - b.x), absi(a.y - b.y))
 
 
+## The distance field to `goal` with every trap the team has seen walled off, except the tile `from` and the goal
+## itself. Only the autopilot asks for it (round_traps in _step_toward): it took the shortest way over a Warp Eddy it
+## had already sprung, was carried to another room, walked back the same way and stepped on it again, forever (the
+## pilot chain's Warren replay, Claude, 2026-10-21). Not cached, so a trap counts the moment it is seen.
+func _field_round_traps(goal: Vector2i, from: Vector2i) -> PackedInt32Array:
+	var tiles: PackedByteArray = data["tiles"].duplicate()
+	for trap in traps:
+		if trap["seen"] and trap["pos"] != from and trap["pos"] != goal:
+			tiles[trap["pos"].y * data["w"] + trap["pos"].x] = Gen.WALL
+	for c in clients:
+		tiles[c["pos"].y * data["w"] + c["pos"].x] = Gen.WALL   # a Job Board client never steps aside (can_step): one in the straight line to the goal left no shorter step, and the autopilot rested for good (Claude, 2026-10-21)
+	return Gen.distances(tiles, data["w"], data["h"], goal)
+
+
 ## One step toward `goal` around the walls, not onto anyone; ZERO when there is none.
 ## The step for creature i that brings it closest to goal, or ZERO. With through_team, a tile held
 ## by its own team counts as open (the leader swaps places with a partner in the way, never one
 ## behind it: swapping with whoever came first made the pair trade tiles forever in a hallway,
 ## Preston, 2026-10-09).
-func _step_toward(i: int, goal: Vector2i, through_team := false) -> Vector2i:
+func _step_toward(i: int, goal: Vector2i, through_team := false, round_traps := false) -> Vector2i:
 	var from: Vector2i = ents[i]["pos"]
 	if not _floor_at(goal) or not _floor_at(from):
 		return Vector2i.ZERO   # no path to or from a tile that is not open floor
@@ -980,6 +994,10 @@ func _step_toward(i: int, goal: Vector2i, through_team := false) -> Vector2i:
 			_fields.clear()
 		_fields[key] = Gen.distances(data["tiles"], data["w"], data["h"], goal)
 	var field: PackedInt32Array = _fields[key]
+	if round_traps and (not clients.is_empty() or traps.any(func(trap: Dictionary) -> bool: return trap["seen"])):
+		var safe := _field_round_traps(goal, from)
+		if safe[from.y * data["w"] + from.x] >= 0:
+			field = safe   # round the traps it has seen; when they close every way, the plain field as before
 	var here: int = field[from.y * data["w"] + from.x]
 	if here < 0:
 		return Vector2i.ZERO
@@ -3493,7 +3511,7 @@ func _take(kind: String) -> void:
 ## Use an item from the bag. Using one is the leader's action for the turn; one that cannot do
 ## anything (a stone with nobody in its line) is refused for free.
 func act_use_item(kind: String) -> void:
-	if busy or not bag.has(kind) or ents[0]["hp"] <= 0:
+	if busy or cutscene or not talk.is_empty() or not bag.has(kind) or ents[0]["hp"] <= 0:   # never under a scene: the pause menu's Bag also calls this, and a spent turn lets the awake boss act
 		return
 	var lead: Dictionary = ents[0]
 	if kind.begins_with("scroll:"):
@@ -3836,7 +3854,7 @@ func _autopilot() -> void:
 			if lead["cds"][m] == 0 and aim(0, m) != Vector2i.ZERO:
 				act_attack(slot)
 				return
-		var d := _step_toward(0, ents[t]["pos"], true)
+		var d := _step_toward(0, ents[t]["pos"], true, true)
 		if d != Vector2i.ZERO:
 			act_move(d)
 		else:
@@ -3844,9 +3862,9 @@ func _autopilot() -> void:
 		return
 	var goal: Vector2i = data["stairs"]
 	for it in floor_items:
-		if explored[it["pos"].y * data["w"] + it["pos"].x] == 1 and (goal == data["stairs"] or _cheb(lead["pos"], it["pos"]) < _cheb(lead["pos"], goal)):
+		if explored[it["pos"].y * data["w"] + it["pos"].x] == 1 and (it.has("job") or bag.has(it["kind"]) or bag.size() < BAG_KINDS) and (goal == data["stairs"] or _cheb(lead["pos"], it["pos"]) < _cheb(lead["pos"], goal)):
 			goal = it["pos"]   # pick up what it has seen before the stairs
-	var d2 := _step_toward(0, goal, true)
+	var d2 := _step_toward(0, goal, true, true)
 	if d2 != Vector2i.ZERO:
 		act_move(d2)
 	else:

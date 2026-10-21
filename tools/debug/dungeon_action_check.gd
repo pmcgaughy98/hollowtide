@@ -58,7 +58,7 @@ func _run() -> void:
 		await process_frame
 		seen_lead[lead["sprite"].texture] = true
 		seen_w[w["sprite"].texture] = true
-		if k == 5:
+		if k == 5 and DisplayServer.get_name() != "headless":   # no viewport texture headless; stills need a window (Claude, 2026-10-21)
 			root.get_texture().get_image().save_png(ProjectSettings.globalize_path(OUT + "attack_hurt.png"))
 	await _frames(10)
 	print("Attack: the leader showed %d different pictures, the Rimefin %d; back to the still after: %s / %s" % [seen_lead.size(), seen_w.size(), str(lead["sprite"].texture == lead["art"]["still"][lead["facing"]]), str(w["sprite"].texture == w["art"]["still"][w["facing"]])])
@@ -68,7 +68,8 @@ func _run() -> void:
 	for k in 60:
 		await process_frame
 		seen_sleep[w["sprite"].texture] = true
-	root.get_texture().get_image().save_png(ProjectSettings.globalize_path(OUT + "sleep.png"))
+	if DisplayServer.get_name() != "headless":   # same: skipped headless (Claude, 2026-10-21)
+		root.get_texture().get_image().save_png(ProjectSettings.globalize_path(OUT + "sleep.png"))
 	w["awake"] = true
 	await _frames(3)
 	print("Sleep: %d pictures over 2 s asleep; awake again shows the still: %s" % [seen_sleep.size(), str(w["sprite"].texture == w["art"]["still"][w["facing"]])])

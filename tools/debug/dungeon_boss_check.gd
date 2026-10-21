@@ -3,7 +3,7 @@ extends SceneTree
 ## in it, drops in more creatures in bigger rooms with a banner, and relights the lantern when
 ## cleared. The floor plan follows Explorers of Sky: generated floors, an optional rest floor, and
 ## the boss's fixed floor last (one arena, only the boss and its helpers). The boss floor opens on a
-## dialogue scene; the boss sleeps through it, wakes with a banner and a health bar when it ends,
+## dialogue scene; the boss stands awake for it (no sleep pose since 2026-10-10) but no turn passes under it, then gets a banner and a health bar when it ends,
 ## does not budge, still loses a gathered move to a charge, never asks to join, and its fall clears
 ## the dungeon. Then whole runs on autopilot, boss included.
 ##   Godot --path . --fixed-fps 30 --script res://tools/debug/dungeon_boss_check.gd
@@ -106,9 +106,16 @@ func _run() -> void:
 	_save("boss_scene")
 	var lines: int = dg.talk.size()
 	var first: String = "%s: %s" % [dg.talk[0][0], dg.talk[0][1]] if lines > 0 else ""
-	print("Scene: %d lines, first '%s'; boss asleep during it %s" % [lines, first, str(not b["awake"])])
-	for k in lines:
+	var t0: int = dg.turn
+	var berries0: int = int(dg.bag.get("reedberry", 0))
+	await dg.act_use_item("reedberry")   # the pause menu's Bag calls this under a scene too; it must not spend a turn
+	var berries1: int = int(dg.bag.get("reedberry", 0))
+	print("Scene: %d lines, first '%s'; boss awake for it %s (on purpose since 2026-10-10); turns passed under it %d (want 0), berries %d -> %d %s" % [lines, first, str(b["awake"]), dg.turn - t0, berries0, berries1, "ok" if dg.turn == t0 and berries1 == berries0 else "-> WRONG"])
+	var presses := 0
+	while not dg.talk.is_empty() and presses < 40:   # typed lines (2026-10-10): one press finishes a line, the next turns it
 		dg.act_talk()
+		presses += 1
+		await _frames(2)
 	await _frames(3)
 	_save("boss_met")
 	print("After the scene: banner '%s' / '%s', boss awake %s, helpers awake %d" % [dg._banner["text"], dg._banner["sub"], str(b["awake"]), dg.ents.filter(func(e: Dictionary) -> bool: return e.get("minion", false) and e["awake"]).size()])

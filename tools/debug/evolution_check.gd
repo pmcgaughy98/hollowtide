@@ -2,7 +2,7 @@ extends SceneTree
 ## Evolving at the Growth Shrine (Claude, 2026-10-10; Preston: evolve "outside dungeon at a specific
 ## location", with the evolution scene). In town: the Shrine names who is ready and asks; yes plays the
 ## scene (stills of the trade and the reveal in a windowed run) and Kithflare becomes Sparkwick on the
-## record and on the street; asking again, no one is ready. Then a full move set: the move that did
+## record and on the street; asking again, the partner is offered next (never Sparkwick). Then a full move set: the move that did
 ## not fit waits, and the next run's first floor offers it in the learn panel.
 ##   Godot --path . --fixed-fps 30 --script res://tools/debug/evolution_check.gd
 
@@ -76,7 +76,7 @@ func _run() -> void:
 		"party %s, on the street %s, moves %s, '%s'" % [str(rec["party"]), town.team[0]["form"], str(rec["taught"].get("0:1", [])), town.panel.get("what", "")])
 	town.panel = {}
 	town.act_use()
-	bad += _check("No one else", String(town.panel.get("what", "")).contains("No one is ready"), "'%s'" % town.panel.get("what", ""))
+	bad += _check("Partner next", town.panel.get("service", "") == "evolve_ask" and int(town.panel.get("k", -1)) == 1 and String(town.panel.get("what", "")).contains("Tallowroot is ready"), "'%s'" % town.panel.get("what", ""))   # since 2026-10-11 the stone makes the partner's first growth ready too (evolution.gd ready())
 	town.queue_free()
 	await _frames(4)
 

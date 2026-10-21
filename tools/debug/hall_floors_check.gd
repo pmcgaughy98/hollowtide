@@ -52,7 +52,9 @@ func _step(r: Node2D, from: Vector2i, d: Vector2i) -> Dictionary:
 	r.team[0]["pos"] = from
 	r._place(r.team[0])
 	r.act_move(d)
-	await _frames(8)
+	while r.busy:   # a step takes STEP_TIME of real time; a frame count alone is too short when frames run fast
+		await process_frame
+	await _frames(2)
 	return r.get_meta("went", {})
 
 

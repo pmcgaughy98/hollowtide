@@ -100,7 +100,7 @@ func _run() -> void:
 		for k in d2.party.size():
 			var key := "%d:%d" % [d2.party[k][0], d2.party[k][1]]
 			var g: Dictionary = d2.growth.get(key, {})
-			rows.append("%s %s kos %d floors %d way %d (%.0f%%)" % [d2.Arena.LINES[d2.party[k][0]]["forms"][d2.party[k][1]][0], key, g.get("kos", 0), g.get("floors", 0), g.get(d2.EVO[d2.party[k][0]]["way"], 0) if d2.EVO.has(d2.party[k][0]) else 0, 100.0 * d2.evo_progress(d2.party[k][0], d2.party[k][1])])
+			rows.append("%s %s kos %d floors %d way %d (%.0f%%)" % [d2.form_of(d2.party[k][0], d2.party[k][1]), key, g.get("kos", 0), g.get("floors", 0), g.get(d2.EVO[d2.party[k][0]]["way"], 0) if d2.EVO.has(d2.party[k][0]) else 0, 100.0 * d2.evo_progress(d2.party[k][0], d2.party[k][1])])
 		print("Autopilot seed %d, %d runs (%d cleared, %d fainted), %d turns: evolutions %s; %s" % [sd, d2.cleared + d2.faints, d2.cleared, d2.faints, d2.turn, str(d2.evolved_log), "; ".join(rows)])
 		d2.queue_free()
 		await process_frame

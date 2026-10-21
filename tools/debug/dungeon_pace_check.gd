@@ -2,6 +2,10 @@ extends SceneTree
 ## The walk back-and-forth on the turn-based grid (Preston, 2026-10-09: "its doing the walk back and
 ## forth glitch again... its when I walk in hallways"). Before the fix: about 2,200 pacing turns in
 ## four runs and three floors never cleared; after: 6, all a leader turning round. Pass: a handful.
+## A "partner" count is nearly always a swap echo, not the partner's own following: the leader walks onto a partner in
+## its way (often after standing still, as at the end of a fight; sometimes turning round), the two trade tiles, and the
+## partner steps back in behind it the next turn. 2026-10-21: partner 4 to 7 per run, 32 of 34 in six probe runs were
+## such swaps; damage rolls and recruits use the unseeded global RNG, so counts and turn totals vary run to run.
 ##   Godot --path . --fixed-fps 30 --script res://tools/debug/dungeon_pace_check.gd
 ## Autopilot over several floors; after every turn, record each
 ## creature's tile; a creature that returns to the tile it stood on two turns ago, without

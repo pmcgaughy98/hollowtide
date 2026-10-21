@@ -23,12 +23,15 @@ func _run() -> void:
 		seen.append({})
 	for k in 6:
 		town.act_move(Vector2i(1, 0))
-		for f in 5:
+		var f := 0
+		while f < 5 or town.busy:   # the whole step: it takes STEP_TIME of real time, however fast frames run
 			await process_frame
+			f += 1
 			for i in town.team.size():
 				seen[i][town.team[i]["sprite"].texture] = true
 	for f in 20:
 		await process_frame
+	await create_timer(0.3).timeout   # the walk cycle runs on real time (STEP_TIME + 0.06 after the last step)
 	var bad := 0
 	for i in town.team.size():
 		var e: Dictionary = town.team[i]

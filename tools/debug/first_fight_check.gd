@@ -79,4 +79,6 @@ func _frames(n: int) -> void:
 
 
 func _save(name: String) -> void:
+	if DisplayServer.get_name() == "headless":
+		return   # no rendered image headless; stills need a window
 	root.get_texture().get_image().save_png(OUT + name + ".png")

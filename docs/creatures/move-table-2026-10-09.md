@@ -6,13 +6,13 @@ Draft for Grok, from `scripts/moves/move_body.gd`. Grok's rule (DESIGN_RULES.md,
 
 | Move | Needs | Its own users | Other bodies that can learn it |
 |---|---|---|---|
-| Rake | claw | Kithflare, Cinderhide | Sparkwick, Stormwick, Clinkerhide, Ironvent |
+| Rake | claw | Kithflare, Cinderhide | Sparkwick, Stormwick, Clinkerhide, Ironvent, Mirekit |
 | Pounce | springlegs | Sparkwick, Stormwick | Kithflare, Sparkjab, Starward, Dustkite, Waywhistle, Highsignal |
 | Root Snare | roots | Tallowroot, Huskward, Rampartroot | Archroot, Springvault |
 | Burrow | roots | Tallowroot | Huskward, Rampartroot, Archroot, Springvault |
 | Root Wall | roots | Huskward | Tallowroot, Rampartroot, Archroot, Springvault |
 | Root Rampart | roots | Rampartroot | Tallowroot, Huskward, Archroot, Springvault |
-| Cinder Claw | claw | Cinderhide, Clinkerhide, Ironvent | Kithflare, Sparkwick, Stormwick |
+| Cinder Claw | claw | Cinderhide, Clinkerhide, Ironvent | Kithflare, Sparkwick, Stormwick, Mirekit |
 | Sail Cover | sail | Canvaswing, Windcut, Galeshear | Dustkite, Waywhistle, Highsignal |
 | Vantage | sail | Waywhistle, Highsignal | Canvaswing, Windcut, Galeshear, Dustkite |
 
@@ -64,6 +64,12 @@ Draft for Grok, from `scripts/moves/move_body.gd`. Grok's rule (DESIGN_RULES.md,
 | Decoy Call | whistle | Dustkite line |
 | Spring Spit | muzzle | Troughspine line |
 | Seep | gills | Troughspine line |
+| Grub Bite | jaw | Rimefin line |
+| Rot Spit | jaw | Rimefin line |
+| Play Dead | hooktail | nobody (check) |
+| Needle Jab | needle | nobody (check) |
+| Drain Bite | needle | nobody (check) |
+| Buzz Dart | wing | Canvaswing line |
 
 ## Ultimates (final stage only, never taught)
 

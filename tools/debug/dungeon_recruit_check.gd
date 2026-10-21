@@ -91,12 +91,43 @@ func _run() -> void:
 	w4["hp"] = 1
 	await dg.act_attack(0)
 	dg.act_recruit(true)
-	for f in range(dg.floor_n, dg.FLOORS + 1):
+	dg.boss_intro = false   # straight to the boss's talk; the crew's own scene is checked by crew_scene_capture.gd
+	var kept_before: int = dg._party_at_start.size()   # the team a faint goes back to before this clear
+	var with_recruit: int = dg.party.size()
+	# Since the boss floor (2026-10-09) a run is cleared only by beating the boss on the floor after the last
+	# generated one. Go down to it, beat it, then faint once more: a faint goes back to the team as it was
+	# last cleared, so the recruit has to stay.
+	var guard := 0
+	while dg.floor_n <= dg.floors() and guard < 10:
 		dg.ents[0]["pos"] = dg.data["stairs"]
 		dg._place(dg.ents[0])
 		await dg.act_stairs()
 		await _frames(3)
-	print("Cleared: %d cleared, party now %s (the recruit stays)" % [dg.cleared, str(dg.party)])
+		guard += 1
+	var presses := 0
+	while not dg.talk.is_empty() and presses < 40:   # the boss's lines: one press finishes a line, the next turns it
+		dg.act_talk()
+		presses += 1
+		await _frames(2)
+	var c0: int = dg.cleared
+	var boss_floor: int = dg.floor_n
+	if dg.boss_alive():
+		for e in dg.ents:
+			if e.get("minion", false):
+				e["hp"] = 0
+				e["node"].visible = false
+		var b: Dictionary = dg.ents[dg.boss]
+		_place_next(dg, b)
+		b["hp"] = 1
+		await dg.act_attack(0)
+		await _frames(30 * 4)   # the win banner stays 2.2 s, then the fade and the clear
+	var at_clear: String = str(dg.party)
+	dg.ents[0]["hp"] = 0
+	dg.bag.erase("rally_seed")
+	dg._end_turn()
+	await _frames(4)
+	var ok: bool = with_recruit > kept_before and dg.cleared == c0 + 1 and dg.party.size() == with_recruit
+	print("Cleared: the boss on B%dF, cleared %d -> %d, party %s; after a faint %s (the recruit stays)%s" % [boss_floor, c0, dg.cleared, at_clear, str(dg.party), "" if ok else " -> FAIL"])
 	quit()
 
 

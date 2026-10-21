@@ -44,13 +44,15 @@ func _run() -> void:
 	print("A foe downed (stage %d): EXP Kithflare %d, Tallowroot %d, wanted %d each -> %s" % [foe_stage + 1, dg.levels[0]["exp"], dg.levels[1]["exp"], want, "ok" if ok else "WRONG"])
 	bad += 0 if ok else 1
 
-	# 2. Enough EXP for three levels at once: health grows with it.
+	# 2. Enough EXP for three levels at once: health grows with it. The amount is read from Grok's
+	# curve (exp_to_next) so a curve change does not break this; a level up plays "level_up".
 	dg.levels[0] = {"lv": 1, "exp": 0}
 	var hp_before: int = lead["max_hp"]
 	dg.last_sfx.clear()
-	dg._gain_exp(100)
-	ok = dg.level_of(0) == 4 and lead["max_hp"] == dg._hp_at_level(lead["base_hp"], 4) and lead["max_hp"] > hp_before and dg.last_sfx.has("room_clear")
-	print("100 EXP from Lv 1: Lv %d with %d left, health %d -> %d, sound %s -> %s" % [dg.level_of(0), dg.levels[0]["exp"], hp_before, lead["max_hp"], str(dg.last_sfx.keys()), "ok" if ok else "WRONG"])
+	var three: int = dg.exp_to_next(1) + dg.exp_to_next(2) + dg.exp_to_next(3)
+	dg._gain_exp(three)
+	ok = dg.level_of(0) == 4 and int(dg.levels[0]["exp"]) == 0 and lead["max_hp"] == dg._hp_at_level(lead["base_hp"], 4) and lead["max_hp"] > hp_before and dg.last_sfx.has("level_up")
+	print("%d EXP from Lv 1: Lv %d with %d left, health %d -> %d, sound %s -> %s" % [three, dg.level_of(0), dg.levels[0]["exp"], hp_before, lead["max_hp"], str(dg.last_sfx.keys()), "ok" if ok else "WRONG"])
 	bad += 0 if ok else 1
 
 	# 3. Every condition met at Lv 4: still waits for Lv 5. Then the level comes and it is ready.

@@ -14,6 +14,7 @@ func _initialize() -> void:
 
 func _run() -> void:
 	for sd in [99, 7, 31337, 4242, 5, 11]:
+		seed(sd)   # the floors after B1F take their seed from randi(): without this the stall moved from seed to seed between runs
 		var dg: Node2D = load("res://scenes/dungeon.tscn").instantiate()
 		dg.floor_seed = sd
 		dg.poll_input = false
@@ -31,6 +32,8 @@ func _run() -> void:
 			turns += 1
 			while dg.busy:
 				await process_frame
+			dg.ents[0]["max_hp"] = 999   # every turn: a level-up sets max_hp back to the real one (hp += new - old), and
+			dg.ents[0]["hp"] = 999       # the leader then went down and the run restarted at B1F (2026-10-21)
 			if dg.asking >= 0:
 				dg.act_recruit(true)
 				continue
@@ -41,11 +44,15 @@ func _run() -> void:
 				if o >= 0 and dg._foes(0, o) and dg.ents[o]["awake"] and dg.can_step(lead["pos"], d):
 					foe_d = d
 			var near_foe := false
+			var near_at := Vector2i.ZERO
 			for o2 in dg.ents:
 				if o2["team"] == 1 and o2["hp"] > 0 and o2["awake"] and dg._cheb(o2["pos"], lead["pos"]) <= 3 and dg._sees(lead["pos"], o2["pos"]):
 					near_foe = true
+					near_at = o2["pos"]
 			if foe_d != Vector2i.ZERO:
 				await dg.act_move(foe_d)
+			elif near_foe and dg._step_toward(0, near_at, true, true) != Vector2i.ZERO:
+				await dg.act_move(dg._step_toward(0, near_at, true, true))   # walk up to it: a wild that shoots from range never comes next to the leader, which rested beside it for good
 			elif near_foe:
 				await dg.act_rest()
 			elif lead["pos"] == dg.data["stairs"]:
@@ -55,7 +62,7 @@ func _run() -> void:
 				far.clear()
 				continue
 			else:
-				var d2: Vector2i = dg._step_toward(0, dg.data["stairs"], true)
+				var d2: Vector2i = dg._step_toward(0, dg.data["stairs"], true, true)   # round the traps it has seen, as the autopilot does: a Warp Eddy on the straight way to the stairs sent it back to the far room forever
 				if d2 == Vector2i.ZERO:
 					await dg.act_rest()
 				else:
@@ -81,6 +88,8 @@ func _run() -> void:
 				else:
 					far[k] = 0
 		print("seed %d: %d turns, floor %d, team %s; the longest a teammate stayed more than 5 tiles behind: %d turns" % [sd, dg.turn, dg.floor_n, str(dg.ents.filter(func(e: Dictionary) -> bool: return e["team"] == 0).map(func(e: Dictionary) -> String: return e["name"])), longest])
+		if dg.floor_n <= 3:
+			print("seed %d: FAIL, still on B%dF after %d turns of the check" % [sd, dg.floor_n, turns])
 		dg.queue_free()
 		await process_frame
 	quit()

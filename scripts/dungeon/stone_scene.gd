@@ -386,6 +386,8 @@ static func _standoff(dg) -> void:
 	dg._sfx("dizzy", -8.0)
 	BossIntro._pan(dg, (sn.position + lead["node"].position) * 0.5 + Vector2(0, 10), 0.6)
 	await _say(dg, AFTER_PUNCH)
+	if not BossIntro._alive(dg):
+		return
 	dg.intro["starward"] = star
 
 
