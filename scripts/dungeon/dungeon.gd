@@ -1704,7 +1704,8 @@ func _wound(i: int, j: int, dmg: int, col: Color) -> void:
 				_grow(ents[i], "kos", 1)
 				_gain_iq(ents[i], IQ_PER_KO)
 			light = minf(LIGHT_MAX, light + LIGHT_ON_KO)   # beating an opponent lights the floor (the Battle Pyramid)
-			if ents[i]["team"] == 0 and asking < 0 and not o.get("boss", false) and randf() < (recruit_override if recruit_override >= 0.0 else RECRUIT_RATE.get(o["stage"], 0.05)):
+			# Never the boss or its minions: a crew grunt or a Warden's Listener does not join (Preston, 2026-10-21).
+			if ents[i]["team"] == 0 and asking < 0 and not o.get("boss", false) and not o.get("minion", false) and randf() < (recruit_override if recruit_override >= 0.0 else RECRUIT_RATE.get(o["stage"], 0.05)):
 				# It gets back up and asks to come along.
 				asking = j
 				o["hp"] = 1

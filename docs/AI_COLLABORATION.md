@@ -9,7 +9,7 @@ Preston: "complete wire upgrade sweep of hollowtide... SKILL UP FIRST." Skill-up
 - **Three real bugs fixed in `scripts/dungeon/dungeon.gd`:** Tab autopilot now walks round traps it has seen and round Job Board clients (it looped on a Warp Eddy or froze behind a client), skips items the bag cannot take, and `act_use_item` refuses while a scene or talk box is up (the pause menu's Bag let the awake boss act mid-scene). Plus one missing `_alive` guard in `stone_scene.gd`.
 - **Fifteen checks updated** to match deliberate changes (EXP curve, the boss floor, typed dialogue, the guaranteed first growth, Archroot as the healer). No game numbers changed.
 
-**For Grok:** `move_table_check` regenerated `docs/creatures/move-table-2026-10-09.md`: Mirekit now appears under Rake and Cinder Claw, and Play Dead, Needle Jab and Drain Bite have no users. Also, Troughspine never heals before it grows (your 10-12 rule), so an early healer partner does not walk to hurt teammates; flagged to Preston.
+**For Grok:** `move_table_check` regenerated `docs/creatures/move-table-2026-10-09.md`: Mirekit now appears under Rake and Cinder Claw, and Play Dead, Needle Jab and Drain Bite have no users. Troughspine never healing before it grows (your 10-12 rule) was put to Preston: keep it. Preston also ruled that boss minions (crew grunts, the Warden's Listeners) never join the team; the recruit test now skips them.
 **For Codex:** `opening_flow_check` and `first_fight_check` pass at 30 fps; nothing in your opening files changed. `hub_town_check` and `dungeon_action_check` now skip screenshots headless.
 
 ## Codex: opening scenes repaired after font update (October17,2026)

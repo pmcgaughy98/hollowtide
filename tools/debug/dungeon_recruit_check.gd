@@ -112,6 +112,23 @@ func _run() -> void:
 	var c0: int = dg.cleared
 	var boss_floor: int = dg.floor_n
 	if dg.boss_alive():
+		# 8. A boss's minion never asks to join, even with recruiting forced (Preston, 2026-10-21).
+		var mi := -1
+		for k in dg.ents.size():
+			if dg.ents[k].get("minion", false) and dg.ents[k]["hp"] > 0:
+				mi = k
+				break
+		if mi >= 0:
+			var mn: Dictionary = dg.ents[mi]
+			_place_next(dg, mn)
+			mn["hp"] = 1
+			await dg.act_attack(0)
+			await _frames(3)
+			print("Minion: a downed %s with recruiting forced asks to join %s%s" % [dg.form_of(mn["line"], mn["stage"]), dg.asking >= 0, " -> FAIL" if dg.asking >= 0 else " -> ok"])
+			if dg.asking >= 0:
+				dg.act_recruit(false)
+		else:
+			print("Minion: none on the boss floor to test -> FAIL")
 		for e in dg.ents:
 			if e.get("minion", false):
 				e["hp"] = 0

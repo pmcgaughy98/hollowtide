@@ -22,10 +22,12 @@ No game behaviour was changed. The only game-code edit is a missing safety guard
 | matchup_picker_check | STALE_CHECK | The matchup picker (scripts/move_preview.gd) was rebuilt on 2026-10-09 after Preston found it broken, and its team-size variable was renamed from _team_size to _size. The check still sets _team_size, so it errors, never reaches quit(), and Godot sits until the timeout. The two 'save_png on a null value' errors before it are the headless capture limit, not a game bug. | None. The picker sets up a 3v3 Ironvent vs Scourmaw fight and Escape returns to it. | Uses the renamed _size and skips screenshots headless. |
 | dungeon_evolve_check | MIXED | Two check problems and one likely game bug. (1) The check's last section runs two autopilot runs per seed with a budget of 30 x 900 frames, meant for --fixed-fps 30 (its header says so); run without it the turn animations go at real speed, so it ran past 240 s this morning. With --fixed-fps 30 it finishes in 72 to 89 s. (2) Its report line looks creatures up in Arena.LINES, which only holds the original lines; story and dungeon lines (100 and up) live in Lines.EXTRA. When autopilot recruits one of those, the check crashes and never quits. (3) What put line 101 in the party: in the Warren's crew boss fight, a downed Whinet minion can 'get back up' and ask to join, because the recruit roll only skips the boss itself, not its minions. | The check crash and slowness are check-only. The minion recruit is real: in the Rootbank Warren boss fight a downed Whinet (the rival crew's grunt) has about a 12% chance to ask to join the courier's team, and in the Warden fight each downed Listener minion can too. Whether that is wanted is Preston's call. | The report row uses the dungeon's own name lookup, so a recruited crew grunt no longer crashes it. |
 
-## Two things for Preston
+## Two things for Preston (answered 2026-10-21)
 
-1. **Boss minions can join the team.** In the Warren crew fight a downed Whinet grunt can ask to join (about 12% a time), and so can the Warden's Listener minions. Nothing stops it today (`scripts/dungeon/dungeon.gd`, the recruit test checks only "is it the boss"). Keep it, or block minions from joining?
-2. **Troughspine never heals until it grows.** By Grok's 2026-10-12 rule only Archroot learns Seep, so an early Troughspine partner will not walk to hurt teammates and nobody walks to it. Working as written; worth knowing for how the healer line feels early.
+1. **Boss minions can join the team?** Preston: **no.** The recruit test in `scripts/dungeon/dungeon.gd` now skips
+   minions as well as the boss, and `dungeon_recruit_check` downs a crew grunt with recruiting forced and fails if it
+   asks to join (proved to fail with the block switched off).
+2. **Troughspine never heals until it grows** (Grok's 2026-10-12 rule). Preston: **yes, keep it.** No change.
 
 Also noted: `docs/design/dungeon-boss-2026-10-09/README.md` still describes the old Scourmaw boss floor (149 HP, two helpers); the first boss is now Mirekit with one helper.
 
