@@ -4,7 +4,8 @@ extends AudioStreamPlayer
 ## An area's looping music (Route 1's "Two-Note Call", Preston 2026-09-29).
 ## It fades in when the area loads, fades out and pauses when a battle starts
 ## (BattleScreen calls the "area_music" group), and picks up where it left off
-## when the battle ends. Plays on the Music bus, which ducks under attack sounds.
+## when the battle ends. Plays on the Music bus. The bus's duck under attack sounds is off: the
+## sidechain compressor in default_bus_layout.tres is disabled (Preston's call; Claude, 2026-10-22).
 
 ## The level under sound effects, in decibels.
 @export var level_db: float = -10.0

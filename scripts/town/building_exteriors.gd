@@ -142,6 +142,109 @@ func _ready() -> void:
 			frames.append(ImageTexture.create_from_image(_door_frame(k, sprite.texture.get_image(), local_d, id)))
 		door.texture = frames[0]
 		buildings[id] = {"base": base, "sprite": sprite, "door": door, "frames": frames, "phase": 0.0, "frame": 0}
+		if id in SHUT_IDS:
+			var shut := Sprite2D.new()
+			shut.name = "Shut"
+			shut.centered = false
+			shut.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
+			shut.position = door.position
+			shut.texture = ImageTexture.create_from_image(_chain_image() if id == "scrolls" else _boards_image(frames[0].get_image()))
+			base.add_child(shut)   # after the door, so it draws over it
+	if buildings.has("yard"):
+		_rope_across_yard()
+
+
+## Shut for this build (Claude, 2026-10-22, GS-12; Preston's call 9, default shut signs): boards nailed
+## across the Item Shop's door, a chain and padlock on the Scroll Keeper's cellar lid, a rope across the
+## Training Yard's gate. The town's sign says why (hub_town.gd SHUT). Their doors never swing open.
+const SHUT_IDS := ["shop", "scrolls", "yard"]
+const WOOD := Color("#80694a")
+const WOOD_LIT := Color("#bba17a")
+const CARD := Color("#e3c89a")
+const SCRAWL := Color("#8c7a5a")
+const IRON := Color("#48473c")
+const IRON_LIT := Color("#8a8778")
+const BRASS := Color("#d0ac68")
+const HEMP := Color("#c9b98a")
+
+
+## Two planks across the door's opening (its frame-0 shape), the lower one a pixel off level as if
+## nailed by hand, and a card tucked between them.
+static func _boards_image(opening: Image) -> Image:
+	var img := Image.create(opening.get_width(), opening.get_height(), false, Image.FORMAT_RGBA8)
+	var u := opening.get_used_rect()
+	if u.size.x < 6 or u.size.y < 12:
+		u = Rect2i(4, 24, 20, 30)   # no opening found: the usual arch
+	var x0 := maxi(0, u.position.x - 2)
+	var x1 := mini(img.get_width(), u.end.x + 2)
+	for k in 2:
+		var y := u.position.y + int(u.size.y * (0.3 if k == 0 else 0.64)) - 2
+		for half in 2:
+			var a := x0 if half == 0 else (x0 + x1) / 2
+			var b := (x0 + x1) / 2 if half == 0 else x1
+			var dy := 1 if k == 1 and half == 1 else 0
+			img.fill_rect(Rect2i(a, y + dy, b - a, 5), INK)
+			img.fill_rect(Rect2i(a + (1 if half == 0 else 0), y + dy + 1, b - a - 1, 3), WOOD)
+			img.fill_rect(Rect2i(a + (1 if half == 0 else 0), y + dy + 1, b - a - 1, 1), WOOD_LIT)
+		img.set_pixel(x0 + 2, y + 2, INK)   # nails
+		img.set_pixel(x1 - 3, y + 2 + (1 if k == 1 else 0), INK)
+	var cx := u.position.x + u.size.x / 2 - 4
+	var cy := u.position.y + int(u.size.y * 0.3) + 5
+	img.fill_rect(Rect2i(cx, cy, 9, 8), INK)
+	img.fill_rect(Rect2i(cx + 1, cy + 1, 7, 6), CARD)
+	img.fill_rect(Rect2i(cx + 2, cy + 2, 5, 1), SCRAWL)
+	img.fill_rect(Rect2i(cx + 2, cy + 4, 3, 1), SCRAWL)
+	return img
+
+
+## A chain across the shut cellar lid (_scroll_door_frame's frame 0: x 10 to 20, y 15 to 29) and a
+## brass padlock on it.
+static func _chain_image() -> Image:
+	var img := Image.create(28, 36, false, Image.FORMAT_RGBA8)
+	for x in range(7, 24):
+		var lit := (x / 2) % 2 == 0
+		img.set_pixel(x, 21, IRON_LIT if lit else IRON)
+		img.set_pixel(x, 22, IRON if lit else INK)
+	img.fill_rect(Rect2i(14, 21, 4, 2), INK)   # the shackle
+	img.set_pixel(15, 22, Color(0, 0, 0, 0))
+	img.set_pixel(16, 22, Color(0, 0, 0, 0))
+	img.fill_rect(Rect2i(13, 23, 6, 5), INK)
+	img.fill_rect(Rect2i(14, 24, 4, 3), BRASS)
+	img.set_pixel(15, 25, INK)   # the keyhole
+	return img
+
+
+## Two stakes either side of the Yard's gate tile and a rope sagging between them, with a board hung off
+## it. Sorted with the creatures by its foot, so one standing on the gate reads as stopped at the rope.
+func _rope_across_yard() -> void:
+	var yard: Dictionary = Layout.PLACES.filter(func(p: Dictionary) -> bool: return p["id"] == "yard")[0]
+	var w := Layout.T + 6
+	var img := Image.create(w, 20, false, Image.FORMAT_RGBA8)
+	for sx in [0, w - 3]:
+		img.fill_rect(Rect2i(sx, 1, 3, 14), INK)
+		img.fill_rect(Rect2i(sx + 1, 2, 1, 12), WOOD)
+		img.set_pixel(sx + 1, 2, WOOD_LIT)
+	var mid := (w - 1) * 0.5
+	for x in range(3, w - 3):
+		var sag := 4.0 * (1.0 - pow((x - mid) / (mid - 3.0), 2.0))
+		var y := 4 + int(round(sag))
+		img.set_pixel(x, y, HEMP)
+		img.set_pixel(x, y + 1, INK)
+	var bx := int(mid) - 4
+	img.set_pixel(int(mid), 9, INK)   # the cord
+	img.fill_rect(Rect2i(bx, 10, 9, 7), INK)
+	img.fill_rect(Rect2i(bx + 1, 11, 7, 5), Color("#9b855c"))
+	img.fill_rect(Rect2i(bx + 2, 12, 5, 1), SCRAWL)
+	img.fill_rect(Rect2i(bx + 2, 14, 4, 1), SCRAWL)
+	var rope := Sprite2D.new()
+	rope.name = "YardRope"
+	rope.centered = false
+	rope.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
+	rope.texture = ImageTexture.create_from_image(img)
+	var at: Vector2i = yard["door"] * Layout.T + Vector2i(-3, 6)
+	rope.position = Vector2(at)
+	rope.z_index = at.y + 14   # its foot: in front of a creature on the gate tile, behind one below it
+	add_child(rope)
 
 static func _details(size: Vector2i, d: Vector2i, id: String, entrance_width: int = 24) -> Image:
 	if id == "scrolls": return _scroll_details(size, d)
@@ -314,7 +417,7 @@ func _process(delta: float) -> void:
 		if id == "shrine":
 			load("res://scripts/town/growth_shrine_painter.gd").update(b, town, delta)
 			continue
-		var target := 1.0 if town.panel.get("id", "") == id else 0.0
+		var target := 1.0 if town.panel.get("id", "") == id and not id in SHUT_IDS else 0.0
 		b["phase"] = move_toward(b["phase"], target, delta / 0.24)
 		var frame := mini(2, int(b["phase"] * 3.0))
 		if frame != b["frame"]:

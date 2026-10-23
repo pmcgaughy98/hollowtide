@@ -320,7 +320,7 @@ static func dialogue(c: CanvasItem, box: Rect2, speaker: String, line: String, p
 	var at := (box.position + Vector2(30 + inset, 44 + lift)).round()
 	var width: float = box.size.x - 70 - inset
 	# Two rows at a time: a longer line pages inside the box, as the genre's boxes do.
-	var rows := wrap_text(line, width, "story").split("\n")
+	var rows := _dialogue_rows(line, width)
 	_line_pages(line, ceili(rows.size() / 2.0))
 	var page := int(_line["page"])
 	var page_text := "\n".join(rows.slice(page * 2, page * 2 + 2))
@@ -329,6 +329,36 @@ static func dialogue(c: CanvasItem, box: Rect2, speaker: String, line: String, p
 	c.draw_multiline_string(f, at, shown, HORIZONTAL_ALIGNMENT_LEFT, width + 10, type_size("story"), -1, TEXT)
 	if _line["done"]:
 		next_arrow(c, box.end - Vector2(48, 36), t)   # more on the next page, or the next line
+
+
+## The rows of a dialogue line at `width`, with the widow rule (Claude, 2026-10-22, LP-19): when the line
+## pages and its last page is under 12 characters ("go again."), the rows are re-wrapped a little narrower,
+## a step at a time, until the last page carries a real line; a wrap that would add a page is not taken.
+const WIDOW := 12
+
+
+static func _dialogue_rows(line: String, width: float) -> PackedStringArray:
+	var rows := wrap_text(line, width, "story").split("\n")
+	var pages := ceili(rows.size() / 2.0)
+	if pages < 2 or _last_page_len(rows) >= WIDOW:
+		return rows
+	var w := width
+	for k in 8:
+		w *= 0.92
+		var again := wrap_text(line, w, "story").split("\n")
+		if ceili(again.size() / 2.0) > pages:
+			break
+		if _last_page_len(again) >= WIDOW:
+			return again
+	return rows
+
+
+static func _last_page_len(rows: PackedStringArray) -> int:
+	var first := (ceili(rows.size() / 2.0) - 1) * 2
+	var n := 0
+	for k in range(first, rows.size()):
+		n += rows[k].strip_edges().length()
+	return n
 
 
 ## The line typing itself out (Claude, 2026-10-10; Preston: the Mystery Dungeon text sound, "like the old
@@ -356,7 +386,11 @@ static func typed(line: String, shown := "") -> int:
 		_line_pages(line, 1)
 	if _line["done"]:
 		return shown.length()
-	var n := mini(int((Time.get_ticks_msec() - int(_line["start"])) / 1000.0 * TYPE_CPS), shown.length())
+	var speed := float(text_speed())   # the Text pref (Claude, 2026-10-22): 1 normal, 2 fast, 0 instant
+	if speed <= 0.0:
+		_line["done"] = true
+		return shown.length()
+	var n := mini(int((Time.get_ticks_msec() - int(_line["start"])) / 1000.0 * TYPE_CPS * speed), shown.length())
 	if n >= shown.length():
 		_line["done"] = true
 	line = shown
@@ -395,6 +429,7 @@ static func _play_blip() -> void:
 			return
 		_blip = AudioStreamPlayer.new()
 		_blip.volume_db = -16.0
+		_blip.bus = &"UI"   # blips with the clicks, off the effects slider (Claude, 2026-10-22)
 		_blip.max_polyphony = 2
 		tree.root.add_child.call_deferred(_blip)
 		return
@@ -489,3 +524,195 @@ static func essence_icon(essence: String) -> Texture2D:
 
 static func item_icon(kind: String) -> Texture2D:
 	return icon("item/scroll" if kind.begins_with("scroll:") else "item/" + kind)
+
+
+## Menu preferences (Claude, 2026-10-22, the factory contract): user://menu_preferences.cfg, the file the
+## title and pause menus already write, read once and kept. Reduce motion (menu/reduce_motion) halves the
+## fades; text speed (menu/text_speed: 1 normal, 2 fast, 0 instant) scales the typing in typed(); the
+## screen mode (display/fullscreen) is set and saved by apply_screen_mode. A menu that saves a pref calls
+## reload_prefs() so the change counts in the same session.
+const PREFS_PATH := "user://menu_preferences.cfg"
+static var _prefs: ConfigFile = null
+
+
+static func _pref(section: String, key: String, default: Variant) -> Variant:
+	if _prefs == null:
+		_prefs = ConfigFile.new()
+		_prefs.load(PREFS_PATH)   # no file yet reads as every default
+	return _prefs.get_value(section, key, default)
+
+
+## Forget the cached preferences, so the next read sees what a menu just saved.
+static func reload_prefs() -> void:
+	_prefs = null
+
+
+static func reduce_motion() -> bool:
+	return bool(_pref("menu", "reduce_motion", false))
+
+
+## 1 normal, 2 fast, 0 instant; anything else on disk reads as normal.
+static func text_speed() -> int:
+	var v := int(_pref("menu", "text_speed", 1))
+	return v if v in [0, 1, 2] else 1
+
+
+## The saved screen mode, for whoever applies it at launch.
+static func screen_full() -> bool:
+	return bool(_pref("display", "fullscreen", false))
+
+
+## Full screen or windowed, now and on the next launch: the pref is written and the other keys kept.
+static func apply_screen_mode(full: bool) -> void:
+	DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN if full else DisplayServer.WINDOW_MODE_WINDOWED)
+	var c := ConfigFile.new()
+	c.load(PREFS_PATH)
+	c.set_value("display", "fullscreen", full)
+	c.save(PREFS_PATH)
+	reload_prefs()
+
+
+## `secs` as the player asked for it: half under reduce motion, never negative.
+static func motion_secs(secs: float) -> float:
+	return maxf(secs, 0.0) * (0.5 if reduce_motion() else 1.0)
+
+
+static func _tree(tree: SceneTree) -> SceneTree:
+	return tree if tree != null else Engine.get_main_loop() as SceneTree
+
+
+## Menu sounds (Claude, 2026-10-22): cursor, confirm and cancel are the chiptune takes under
+## assets/audio/sfx/ui; open and close are the dungeon's menu pair. One player a kind, kept on the root
+## once made, all on the "UI" bus at -8 dB so the effects slider leaves them alone and they play while the
+## tree is paused. UI.tick("cursor") on a focus change, "confirm" on a choice, "cancel" on a back,
+## "open" and "close" for a menu or page.
+const TICKS := {
+	"cursor": "res://assets/audio/sfx/ui/cursor.wav",
+	"confirm": "res://assets/audio/sfx/ui/confirm.wav",
+	"cancel": "res://assets/audio/sfx/ui/cancel.wav",
+	"open": "res://assets/audio/sfx/dungeon/menu_open.wav",
+	"close": "res://assets/audio/sfx/dungeon/menu_close.wav",
+}
+const TICK_DB := -8.0
+static var _ticks := {}
+
+
+static func tick(kind: String) -> void:
+	if not TICKS.has(kind):
+		return
+	var tree := Engine.get_main_loop() as SceneTree
+	if tree == null:
+		return
+	var p := _tick_player(kind, tree)
+	if p.is_inside_tree():
+		p.play()
+	elif not p.ready.is_connected(p.play):
+		p.ready.connect(p.play, CONNECT_ONE_SHOT)   # the first tick of a run lands a frame later; a second tick in that frame must not connect again
+
+
+static func _tick_player(kind: String, tree: SceneTree) -> AudioStreamPlayer:
+	var p: AudioStreamPlayer = _ticks.get(kind)
+	if p != null and is_instance_valid(p):
+		return p
+	p = AudioStreamPlayer.new()
+	p.name = "UITick_" + kind
+	p.stream = load(TICKS[kind])
+	p.bus = &"UI"
+	p.volume_db = TICK_DB
+	p.max_polyphony = 2
+	p.process_mode = Node.PROCESS_MODE_ALWAYS
+	_ticks[kind] = p
+	tree.root.add_child.call_deferred(p)   # deferred: the root may be busy setting up a scene
+	return p
+
+
+## A short notice in the top right ("Saved.", "Lantern Oil x2"): a label-role strip in the panel frame on
+## its own CanvasLayer over the root, so it outlives a scene change; it fades after `secs`. A new toast
+## replaces the one before it.
+const TOAST_LAYER := 105
+const TOAST_NAME := "UIToast"
+
+
+static func toast(tree: SceneTree, text: String, secs := 1.5) -> void:
+	tree = _tree(tree)
+	if tree == null:
+		return
+	var old := tree.root.get_node_or_null(TOAST_NAME)
+	if old != null:
+		old.queue_free()
+	var layer := CanvasLayer.new()
+	layer.name = TOAST_NAME
+	layer.layer = TOAST_LAYER
+	var strip := PanelContainer.new()
+	strip.add_theme_stylebox_override("panel", frame("panel"))
+	strip.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	var label := Label.new()
+	label.text = text
+	label.add_theme_font_override("font", font("label"))
+	label.add_theme_font_size_override("font_size", type_size("label"))
+	label.add_theme_color_override("font_color", TEXT)
+	label.add_theme_color_override("font_shadow_color", SHADOW)
+	label.add_theme_constant_override("shadow_offset_x", int(TYPE["label"]["px"]))
+	label.add_theme_constant_override("shadow_offset_y", int(TYPE["label"]["px"]))
+	label.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	strip.add_child(label)
+	strip.set_anchors_and_offsets_preset(Control.PRESET_TOP_RIGHT, Control.PRESET_MODE_MINSIZE, 24)
+	strip.grow_horizontal = Control.GROW_DIRECTION_BEGIN
+	strip.grow_vertical = Control.GROW_DIRECTION_END
+	layer.add_child(strip)
+	tree.root.add_child.call_deferred(layer)
+	var tw := layer.create_tween()   # bound to the layer: freeing the layer ends it cleanly
+	tw.set_pause_mode(Tween.TWEEN_PAUSE_PROCESS)
+	tw.tween_interval(maxf(secs, 0.0))
+	tw.tween_property(strip, "modulate:a", 0.0, motion_secs(0.25))
+	tw.tween_callback(layer.queue_free)
+
+
+## The black fade between scenes (Claude, 2026-10-22): fade_out darkens over `secs` and returns the
+## tween's finished signal (await UI.fade_out(get_tree()), then change the scene); fade_in on the next
+## scene clears it and frees the layer, and returns its finished signal too. A fade_in with nothing to
+## clear starts black, so a scene can open from dark. Both halve under reduce motion and run while the
+## tree is paused. The layer sits above every menu (the pause menu is 80, evolution 95).
+const FADE_LAYER := 110
+const FADE_NAME := "UIFade"
+static var _fade: CanvasLayer = null
+
+
+static func fade_out(tree: SceneTree, secs := 0.2) -> Signal:
+	tree = _tree(tree)
+	var rect := _fade_rect(tree, 0.0)
+	var tw := tree.create_tween()
+	tw.set_pause_mode(Tween.TWEEN_PAUSE_PROCESS)
+	tw.tween_property(rect, "color:a", 1.0, motion_secs(secs))
+	return tw.finished
+
+
+static func fade_in(tree: SceneTree, secs := 0.2) -> Signal:
+	tree = _tree(tree)
+	var rect := _fade_rect(tree, 1.0)
+	var layer := _fade
+	_fade = null   # a fade_out during this fade_in starts a fresh layer
+	var tw := tree.create_tween()
+	tw.set_pause_mode(Tween.TWEEN_PAUSE_PROCESS)
+	tw.tween_property(rect, "color:a", 0.0, motion_secs(secs))
+	tw.tween_callback(func() -> void:
+		if is_instance_valid(layer):
+			layer.queue_free())
+	return tw.finished
+
+
+## The fade's ColorRect, made (at `alpha`) and put on the root the first time, reused after.
+static func _fade_rect(tree: SceneTree, alpha: float) -> ColorRect:
+	if _fade != null and is_instance_valid(_fade):
+		return _fade.get_node("Rect") as ColorRect
+	_fade = CanvasLayer.new()
+	_fade.name = FADE_NAME
+	_fade.layer = FADE_LAYER
+	var rect := ColorRect.new()
+	rect.name = "Rect"
+	rect.color = Color(0, 0, 0, alpha)
+	rect.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	rect.set_anchors_preset(Control.PRESET_FULL_RECT)
+	_fade.add_child(rect)
+	tree.root.add_child.call_deferred(_fade)
+	return rect

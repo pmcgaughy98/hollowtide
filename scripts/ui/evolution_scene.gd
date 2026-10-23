@@ -10,16 +10,32 @@ extends CanvasLayer
 
 const UI := preload("res://scripts/ui/ui_style.gd")
 const CreatureIdle := preload("res://scripts/ui/creature_idle.gd")
+const CreatureFinish := preload("res://scripts/arena/creature_finish.gd")
 const Music := preload("res://scripts/audio/music.gd")
 const CENTER := Vector2(576, 300)
 const HEIGHT := 250.0
+## The light the creature turns into (Claude, 2026-10-22, UI-04): a white layer over the finished sprite.
+## The creature itself wears the house finish (CreatureFinish, with its sparkwick palette and outline);
+## this layer is its silhouette, one texel wider so the outline goes white too, at `white` opacity.
+## The texel of room is the finish's own (sel_out.gdshaderinc).
 const WHITE := """shader_type canvas_item;
 uniform float white = 0.0;
-#include "res://scripts/arena/sparkwick_palette.gdshaderinc"
+void vertex() {
+	VERTEX += (UV * 2.0 - 1.0);
+	UV = (UV * (1.0 / TEXTURE_PIXEL_SIZE + 2.0) - 1.0) * TEXTURE_PIXEL_SIZE;
+}
+float art(sampler2D tex, vec2 uv) {
+	return texture(tex, uv).a * step(0.0, uv.x) * step(0.0, uv.y) * (1.0 - step(1.0, uv.x)) * (1.0 - step(1.0, uv.y));
+}
 void fragment() {
-	vec4 c = sparkwick_colour(texture(TEXTURE, UV));
-	COLOR = vec4(mix(c.rgb, vec3(1.0), white), c.a);
+	vec2 px = TEXTURE_PIXEL_SIZE;
+	float a = max(art(TEXTURE, UV), max(max(art(TEXTURE, UV + vec2(0.0, px.y)), art(TEXTURE, UV - vec2(0.0, px.y))),
+		max(art(TEXTURE, UV + vec2(px.x, 0.0)), art(TEXTURE, UV - vec2(px.x, 0.0)))));
+	COLOR = vec4(1.0, 1.0, 1.0, step(0.5, a) * white);
 }"""
+## Where a form's still is looked for when it has no idle: the arena still, then the dungeon set's and the
+## arena's small set's, all facing the same way (CR-07). A form with none of them shows nothing, without an error.
+const STILLS := ["res://assets/sprites/arena/%s/sw.png", "res://assets/sprites/arena/%s/dungeon/sw.png", "res://assets/sprites/arena/%s/small/sw.png"]
 
 var _t := 0.0
 var _flash := 0.0
@@ -47,32 +63,50 @@ func _ready() -> void:
 func _sprite(form: String) -> Sprite2D:
 	var s := Sprite2D.new()
 	s.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
-	s.flip_h = true   # turned to its right, like the headshots
+	s.position = CENTER
+	var frames := CreatureIdle.frames(form)
+	var box := CreatureIdle.box(frames) if not frames.is_empty() else Rect2i()
+	if frames.is_empty():
+		var still := _still(form)
+		frames = [still] if still != null else []
+		box = still.get_image().get_used_rect() if still != null else Rect2i()
+	s.texture = frames[0] if not frames.is_empty() else null
+	# The whole frame is drawn (no region: the finish's outline texel needs the texture's own edges), shifted
+	# so the drawn box sits on CENTER, on whole pixels.
+	if s.texture != null:
+		s.offset = (s.texture.get_size() * 0.5 - Vector2(box.get_center())).round()
+	# A whole scale of at least 1 (Claude, 2026-10-22, UI-04); turned to its right by a mirrored scale, not
+	# flip_h, so the finish's texel of room grows outward.
+	var k := clampf(floorf(HEIGHT / maxi(1, box.size.y)), 1.0, 3.0)
+	s.scale = Vector2(-k, k)
+	CreatureFinish.apply(s, false, form)   # the house outline and palette, as every creature on screen (ART-07)
+	var glow := Sprite2D.new()
+	glow.name = "White"
+	glow.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
+	glow.texture = s.texture
+	glow.offset = s.offset
 	var mat := ShaderMaterial.new()
 	var sh := Shader.new()
 	sh.code = WHITE
 	mat.shader = sh
-	mat.set_shader_parameter("sparkwick_palette", form == "sparkwick")
-	s.material = mat
-	s.position = CENTER
-	s.region_enabled = true
-	var frames := CreatureIdle.frames(form)
-	var box := CreatureIdle.box(frames) if not frames.is_empty() else Rect2i()
-	if frames.is_empty():
-		var still: Texture2D = load("res://assets/sprites/arena/%s/sw.png" % form)
-		frames = [still]
-		box = still.get_image().get_used_rect()
-	s.texture = frames[0]
-	s.region_rect = Rect2(box)
-	var k := floorf(clampf(HEIGHT / box.size.y, 0.5, 3.0) * 2.0) / 2.0
-	s.scale = Vector2(k, k)
+	glow.material = mat
+	s.add_child(glow)
 	s.set_meta("frames", frames)
+	s.set_meta("white", glow)
 	add_child(s)
 	return s
 
 
+## The first still a form has, from STILLS, or null.
+func _still(form: String) -> Texture2D:
+	for path in STILLS:
+		if ResourceLoader.exists(path % form):
+			return load(path % form)
+	return null
+
+
 func _white(s: Sprite2D, w: float) -> void:
-	(s.material as ShaderMaterial).set_shader_parameter("white", w)
+	((s.get_meta("white") as Sprite2D).material as ShaderMaterial).set_shader_parameter("white", w)
 
 
 func _process(delta: float) -> void:
@@ -81,6 +115,7 @@ func _process(delta: float) -> void:
 		if s != null and s.visible:
 			var frames: Array = s.get_meta("frames")
 			s.texture = CreatureIdle.frame_at(frames, _t)
+			(s.get_meta("white") as Sprite2D).texture = s.texture
 	_flash = maxf(0.0, _flash - delta * 1.6)
 	_back.queue_redraw()
 
@@ -138,7 +173,8 @@ func run(old_form: String, new_form: String, old_name: String, new_name: String,
 	var r := create_tween()
 	r.tween_method(func(v: float) -> void: _white(_new, v), 1.0, 0.0, 0.7)
 	_text = "%s has grown into %s!" % [old_name, new_name]
-	_sub = "" if auto else "J  continue"
+	# The town's key first, in the house column style (Claude, 2026-10-22, W12); J and Enter still answer.
+	_sub = "" if auto else "E  continue"
 	await _wait(0.8)
 	if auto:
 		await _wait(1.0)

@@ -60,7 +60,7 @@ func _run() -> void:
 	await _frames(10)
 	await _snap("5_after")
 	bank._town()
-	_ok("The road to Highbank is under water during the flood (%s)" % bank.status.text.contains("water"), bank.status.text.contains("water") and not bank.leaving)
+	_ok("The road to Highbank is under water during the flood (%s)" % bank.line.contains("water"), bank.line.contains("water") and not bank.leaving)
 
 	# 2. The arch starts the Hollow Mouth.
 	bank.queue_free()

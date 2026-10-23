@@ -133,13 +133,13 @@ func _run() -> void:
 	dg.queue_free()
 	await _frames(4)
 
-	# The town: the job board rustles, the shop door creaks.
+	# The town: the job board rustles, the Storage door creaks, the shut Item Shop stays quiet (GS-12).
 	var town: Node2D = load("res://scenes/hub_town.tscn").instantiate()
 	town.poll_input = false
 	root.add_child(town)
 	await _frames(4)
 	town.panel = {}
-	for pair in [["board", "board_paper"], ["shop", "door"]]:
+	for pair in [["board", "board_paper"], ["storage", "door"], ["shop", ""]]:
 		var place: Dictionary = {}
 		for p in town.Layout.PLACES:
 			if p["id"] == pair[0]:

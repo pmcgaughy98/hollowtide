@@ -158,6 +158,7 @@ static func run(room) -> void:
 		SceneKit.release(room)
 		room.cutscene = false
 		return
+	# Retired (Claude, 2026-10-22, FLOW-22): the board scene always takes the parcel first, so steps 4 and 5 play only for a record older than the theft.
 	# 4. Wayling fetches a parcel from behind the counter and hands it to the partner.
 	await SceneKit.walk_to(room, way, Vector2i(14, 2), 0.16)
 	room.scene_fx["parcel"] = room._px(way["pos"]) + Vector2(0, -26)

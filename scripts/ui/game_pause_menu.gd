@@ -14,9 +14,12 @@ const DUNGEON = "res://scripts/dungeon/dungeon.gd"   # loaded, not preloaded: du
 const ArenaData = preload("res://scripts/arena/arena_prototype.gd")
 const TeamRecord = preload("res://scripts/town/team_state.gd")
 const WAY_NAMES = {"flank": "pincer hits", "ambush": "hits on sleepers", "took": "damage taken", "slam": "slams", "healed": "health restored"}
-const HEADINGS = {"goal": "OBJECTIVE", "team": "TEAM", "bag": "BAG", "floor": "FLOOR", "log": "MESSAGE LOG"}
+const HEADINGS = {"goal": "OBJECTIVE", "team": "TEAM", "bag": "BAG", "floor": "FLOOR", "log": "MESSAGE LOG", "options": "OPTIONS", "controls": "CONTROLS"}
 const PREFS = "user://menu_preferences.cfg"
 const TITLE = "res://scenes/creature_opening.tscn"
+const ControlsText = preload("res://scripts/ui/controls_text.gd")
+const SPEED_NAMES = {1: "Normal", 2: "Fast", 0: "Instant"}   # menu/text_speed, as UI.text_speed() reads it
+const SPEED_NEXT = {1: 2, 2: 0, 0: 1}
 var overlay: Control
 var hint: Button
 var content: VBoxContainer
@@ -28,6 +31,10 @@ var motion = false
 var status: Label
 var music_node: Node
 var music_mode = Node.PROCESS_MODE_INHERIT
+# Menu sounds go through UI.tick (Claude, 2026-10-22, GS-21): open, close, cursor on a focus change, confirm,
+# cancel. `sounds` keeps the kinds this menu played, newest last, for the checks; a page's first focus is quiet.
+var sounds: Array[String] = []
+var quiet_focus = false
 
 static func attach(scene: Node) -> void:
     if scene.has_node("GamePauseMenu"): return
@@ -108,6 +115,7 @@ func _label(text: String, size: int = 22) -> Label:
 func _action(text: String, id: String, callback: Callable) -> Button:
     var b = _button(text)
     b.name = id
+    b.pressed.connect(_pressed_sound.bind(id))
     b.pressed.connect(callback)
     content.add_child(b)
     controls.append(b)
@@ -124,10 +132,10 @@ func _save(section: String, key: String, value: Variant) -> void:
     var err = c.save(PREFS)
     if status != null: status.text = "Changes are saved automatically." if err == OK else "Settings could not be saved."
 
-func _volume(bus: String, key: String) -> void:
+func _volume(bus: String, key: String, words: String) -> void:
     var c = _config()
     var value = clampf(float(c.get_value("audio",key,100.0)),0,100)
-    var caption = _label("%s volume   %d%%" % [bus,int(value)])
+    var caption = _label("%s volume   %d%%" % [words,int(value)])
     var slider = HSlider.new()
     slider.name = bus + "Volume"
     slider.max_value = 100
@@ -135,27 +143,39 @@ func _volume(bus: String, key: String) -> void:
     slider.value = value
     slider.custom_minimum_size = Vector2(0,36)
     slider.focus_mode = Control.FOCUS_ALL
+    # The focused slider wears the chosen button's brass frame, its weave left out so the slider shows
+    # through; it stands 10 px clear of the slider so the frame's corners have room (Claude, 2026-10-22, GS-21).
     var ring = Panel.new()
     ring.mouse_filter = Control.MOUSE_FILTER_IGNORE
     ring.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
-    var outline = StyleBoxFlat.new()
-    outline.bg_color = Color.TRANSPARENT
-    outline.border_color = Color("#e4ca8e")
-    outline.set_border_width_all(2)
+    ring.offset_left = -10
+    ring.offset_top = -10
+    ring.offset_right = 10
+    ring.offset_bottom = 10
+    var outline = UI.frame("panel_focus").duplicate()
+    outline.draw_center = false
     ring.add_theme_stylebox_override("panel",outline)
     ring.hide()
     slider.add_child(ring)
     slider.focus_entered.connect(ring.show)
     slider.focus_exited.connect(ring.hide)
+    # A step of the slider ticks on the bus it sets, so the new level is heard at once (silent at 0).
+    var tick = AudioStreamPlayer.new()
+    tick.name = "Tick"
+    tick.stream = load(UI.TICKS["cursor"])
+    tick.bus = bus
+    tick.volume_db = UI.TICK_DB
+    slider.add_child(tick)
     content.add_child(slider)
     controls.append(slider)
     slider.value_changed.connect(func(v: float) -> void:
-        caption.text = "%s volume   %d%%" % [bus,int(v)]
+        caption.text = "%s volume   %d%%" % [words,int(v)]
         var index = AudioServer.get_bus_index(bus)
         if index >= 0:
             AudioServer.set_bus_mute(index,v <= 0)
             AudioServer.set_bus_volume_db(index,linear_to_db(maxf(v/100,0.001)))
         _save("audio",key,v)
+        if tick.is_inside_tree(): tick.play()
     )
 
 func open() -> void:
@@ -170,6 +190,7 @@ func open() -> void:
     get_tree().paused = true
     overlay.show()
     hint.hide()
+    _tick("open")
     show_page("main")
 
 func show_page(next: String) -> void:
@@ -205,18 +226,25 @@ func show_page(next: String) -> void:
             _action("Return to title","ReturnTitle",show_page.bind("title"))
             _action("Quit Game","Quit",show_page.bind("quit"))
         "options":
-            _volume("Master","master")
-            _volume("Music","music")
-            _volume("SFX","sfx")
+            UI.reload_prefs()   # the title's Options may have saved since this menu last read them
+            _volume("Master","master","Master")
+            _volume("Music","music","Music")
+            _volume("SFX","sfx","Sound effects")
+            # Screen mode and text speed (Claude, 2026-10-22, GS-01): the same prefs keys the title's Options use.
+            _action(_screen_words(),"ScreenMode",toggle_screen)
+            _action(_speed_words(),"TextSpeed",cycle_text_speed)
             motion = bool(_config().get_value("menu","reduce_motion",false))
-            _action("Reduce menu motion: " + ("On" if motion else "Off"),"ReduceMotion",toggle_motion)
+            _action("Reduce motion: " + ("On" if motion else "Off"),"ReduceMotion",toggle_motion)
             _action("Back","Back",show_page.bind("main"))
             status = _label("Changes are saved automatically.",18)
         "controls":
-            _label("Town: WASD / arrows move. E / J / Enter uses a place.")
-            _label("Hollow exploration: WASD / arrows move; Shift turns. J / click attacks; 1-3 use moves. I bag; Z rest; E stairs; T team orders; Tab autopilot. Ctrl + direction runs until something is worth stopping for; L shows the messages again.",20)
-            _label("Dungeon combat is turn-based. Y / N answers a recruit. The Training Yard is the separate arena mode.",20)
-            _label("P / controller Start pauses anywhere. Esc pauses when no dialogue or bag is open. Arrows / D-pad navigate menus; Enter / A chooses; Esc / B goes back.",20)
+            # One copy of the keys, shared with the opening's help (scripts/ui/controls_text.gd), under the honest
+            # line about the controller (Claude, 2026-10-22, LP-03).
+            _label(ControlsText.NOTE,18).add_theme_color_override("font_color",UI.MUTED)
+            for g in ControlsText.GROUPS:
+                _label(String(g["head"]),14).add_theme_color_override("font_color",UI.EDGE_LIGHT)
+                for line in g["lines"]: _label(String(line),18)
+                if g["head"] == ControlsText.HOLLOW["head"]: _label(ControlsText.TURNS,18)
             _action("Back","Back",show_page.bind("main"))
         "team":
             var party = load("res://scripts/ui/party_screen.gd").new()
@@ -227,6 +255,7 @@ func show_page(next: String) -> void:
             back.name = "Back"
             back.position = Vector2(950,566)
             back.size = Vector2(130,36)
+            back.pressed.connect(_tick.bind("cancel"))
             back.pressed.connect(show_page.bind("main"))
             party.add_child(back)
             controls.append(back)
@@ -236,7 +265,7 @@ func show_page(next: String) -> void:
             var story: Dictionary = src.story if "ents" in src else TeamRecord.data.get("story",{})
             var beaten: Array = src.beaten if "ents" in src else TeamRecord.data.get("beaten",[])
             var goal: Dictionary = load("res://scripts/town/objective.gd").current(story,beaten)
-            _label(String(goal["short"]),26)
+            _label(String(goal["short"]),30)   # the goal itself in the title face (Claude, 2026-10-22, LP-28)
             _label(String(goal["long"]),20)
             _action("Back","Back",show_page.bind("main"))
         "bag":
@@ -256,12 +285,15 @@ func show_page(next: String) -> void:
             _label("The run is kept. Continue on the title picks it up at the top of this floor, with the team as it stands." if in_hollow else "Highbank is saved. Continue on the title brings you back here.")
             _action("Keep exploring","CancelLeave",show_page.bind("main"))
             _action("Return to title" if page == "title" else "Quit Game","ConfirmLeave",leave)
-    # Field pages added more rows; keep the dungeon main menu inside the fixed viewport.
-    if page == "main" and in_hollow:
+    # Field pages added more rows; keep the dungeon main menu inside the fixed viewport. Options (three
+    # sliders and four rows since the screen and text rows) and Controls are packed the same way, rows
+    # 40 px and the gaps a little wider than the main page's (Claude, 2026-10-22).
+    if (page == "main" and in_hollow) or page in ["options","controls"]:
         # Ten rows: the frame's 8 px padding held each row at 49 px whatever its minimum, 658 px in all on a
         # 648 px screen; 3 px padding (the pressed sink kept) lets a row be 40 (Claude, 2026-10-14).
-        content.add_theme_constant_override("separation",4)
+        content.add_theme_constant_override("separation",4 if page == "main" else 6)
         for b in controls:
+            if not b is Button: continue   # the sliders keep their own height
             b.custom_minimum_size.y = 40
             for state in ["normal","focus","hover","pressed","hover_pressed","disabled"]:
                 if b.has_theme_stylebox_override(state):
@@ -279,6 +311,7 @@ func show_page(next: String) -> void:
         b.focus_next = b.focus_neighbor_bottom
         b.focus_neighbor_left = b.get_path()
         b.focus_neighbor_right = b.get_path()
+        if not b.focus_entered.is_connected(_on_focus): b.focus_entered.connect(_on_focus)
     panel.reset_size.call_deferred()
     _keep_on_screen.call_deferred(panel)
     _focus_first.call_deferred()
@@ -295,7 +328,23 @@ func _keep_on_screen(panel: Control) -> void:
 func _focus_first() -> void:
     # A page can be replaced before its deferred focus runs (open followed by Bag).
     if overlay.visible and not controls.is_empty() and controls[0].is_inside_tree():
+        quiet_focus = true   # the page's own first focus is not a cursor move
         controls[0].grab_focus()
+        quiet_focus = false
+
+func _on_focus() -> void:
+    if not quiet_focus: _tick("cursor")
+
+func _tick(kind: String) -> void:
+    sounds.append(kind)
+    if sounds.size() > 32: sounds.pop_front()
+    UI.tick(kind)
+
+# What a pressed row sounds like: Back and "Keep exploring" cancel, Resume closes (resume() plays it), the
+# rest confirm.
+func _pressed_sound(id: String) -> void:
+    if id == "Resume": return
+    _tick("cancel" if id in ["Back","CancelLeave"] else "confirm")
 
 # The team record: the live run in the Hollow, the carried record in town.
 func _record() -> Dictionary:
@@ -332,13 +381,14 @@ func _team_page() -> void:
             face.texture = load(face_path)
             face.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
             face.custom_minimum_size = Vector2(48,48)
+            # The pixel portrait frame round the river-blue well (Claude, 2026-10-22, UI-06; it was a flat box).
             var frame = PanelContainer.new()
-            var fbox = StyleBoxFlat.new()
-            fbox.bg_color = Color("#63a9a6")   # the normal face's blue, as ui_style.gd PORTRAIT_BG (Preston, 2026-10-10: not white)
-            fbox.border_color = Color("#b69b6d")
-            fbox.set_border_width_all(1)
-            frame.add_theme_stylebox_override("panel",fbox)
-            frame.add_child(face)
+            frame.add_theme_stylebox_override("panel",UI.frame("portrait"))
+            var well = ColorRect.new()
+            well.color = UI.PORTRAIT_BG   # the normal face's blue (Preston, 2026-10-10: not white)
+            well.custom_minimum_size = Vector2(48,48)
+            well.add_child(face)
+            frame.add_child(well)
             row.add_child(frame)
         var name_label = _label(head + ("   (leads)" if k == 0 else ""),20)
         content.remove_child(name_label)
@@ -373,7 +423,8 @@ func _bag_page() -> void:
     var bag_view = load("res://scripts/ui/bag_page.gd").new()
     content.add_child(bag_view)
     bag_view.setup(entries,scene.has_method("act_use_item"),self)
-    _label("Esc / B: back" if bag.is_empty() else "Choose an item to read its effect." if not scene.has_method("act_use_item") else "Arrows / D-pad: browse    Enter / A: choose    Esc / B: back",16)
+    # Key hints in the house column style: the key, two spaces, what it does (Claude, 2026-10-22, W12).
+    _label("Esc / B  back" if bag.is_empty() else "Arrows / D-pad  browse     Esc / B  back" if not scene.has_method("act_use_item") else "Arrows / D-pad  browse     Enter / A  use     Esc / B  back",16)
 
 # Choosing an item closes the menu and uses it the way the bag key does: it spends the turn.
 func _use_item(kind: String) -> void:
@@ -403,8 +454,33 @@ func _floor_page() -> void:
 func toggle_motion() -> void:
     motion = not motion
     _save("menu","reduce_motion",motion)
+    UI.reload_prefs()   # UI.reduce_motion() reads the new value this session
     var b = content.get_node("ReduceMotion") as Button
-    b.text = "Reduce menu motion: " + ("On" if motion else "Off")
+    b.text = "Reduce motion: " + ("On" if motion else "Off")
+
+# Screen mode (Claude, 2026-10-22, GS-01): the row and F11 both go through UI.apply_screen_mode, which sets
+# the window and saves display/fullscreen; the row reads the window itself, so it never claims a mode it is not in.
+func _full_screen() -> bool:
+    var mode = DisplayServer.window_get_mode()
+    return mode == DisplayServer.WINDOW_MODE_FULLSCREEN or mode == DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN
+
+func _screen_words() -> String:
+    return "Screen: " + ("Full screen" if _full_screen() else "Windowed")
+
+func toggle_screen() -> void:
+    UI.apply_screen_mode(not _full_screen())
+    var b = content.get_node_or_null("ScreenMode") as Button
+    if b != null: b.text = _screen_words()
+
+# Text speed (GS-03): Normal, Fast, Instant, round again; UI.typed() reads it.
+func _speed_words() -> String:
+    return "Text: " + SPEED_NAMES[UI.text_speed()]
+
+func cycle_text_speed() -> void:
+    _save("menu","text_speed",SPEED_NEXT[UI.text_speed()])
+    UI.reload_prefs()
+    var b = content.get_node_or_null("TextSpeed") as Button
+    if b != null: b.text = _speed_words()
 
 func _restore_music() -> void:
     if is_instance_valid(music_node): music_node.process_mode = music_mode
@@ -412,6 +488,7 @@ func _restore_music() -> void:
 func resume() -> void:
     if releasing or transition: return
     releasing = true
+    _tick("close")
     # Raw key polling in the game must not see the closing Enter/Escape as a turn.
     while Input.is_action_pressed("ui_accept") or Input.is_action_pressed("ui_cancel") or Input.is_physical_key_pressed(KEY_P) or Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
         await get_tree().process_frame
@@ -426,9 +503,10 @@ func leave() -> void:
     transition = true
     # Leaving from Highbank keeps what the town changed since the last arrival (jobs, story), the same save
     # Continue reads (Claude, 2026-10-12). Leaving a run keeps the run: Continue resumes it at the top of
-    # its floor, once (dungeon.suspend()).
+    # its floor, once (dungeon.suspend()). Any room that keeps the team record autosaves the same way, not
+    # only the Storage (Claude, 2026-10-22, FLOW-09).
     var host = get_parent()
-    if host != null and (host.has_method("enter_hollow") or (host.has_method("room") and host.room_id == "storage")):
+    if host != null and (host.has_method("enter_hollow") or host.has_method("_record")):
         host._record()
         preload("res://scripts/town/team_state.gd").autosave()
     elif host != null and host.has_method("suspend"):
@@ -456,13 +534,20 @@ func _has_modal() -> bool:
 
 func _input(event: InputEvent) -> void:
     if transition or releasing: return
+    # F11 switches full screen wherever this menu is attached, open or not (Claude, 2026-10-22, GS-01).
+    if event is InputEventKey and event.pressed and not event.echo and event.keycode == KEY_F11:
+        toggle_screen()
+        get_viewport().set_input_as_handled()
+        return
     var p = event is InputEventKey and event.pressed and not event.echo and (event.physical_keycode == KEY_P or event.keycode == KEY_P)
     p = p or (event is InputEventJoypadButton and event.pressed and event.button_index == JOY_BUTTON_START)
     var cancel = event.is_action_pressed("ui_cancel") and not event.is_echo()
     if not p and not cancel: return
     if overlay.visible:
         if page == "main": resume()
-        else: show_page("main")
+        else:
+            _tick("cancel")
+            show_page("main")
     elif p or not _has_modal(): open()
     else: return
     get_viewport().set_input_as_handled()

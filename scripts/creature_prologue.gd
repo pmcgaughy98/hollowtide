@@ -4,14 +4,18 @@ extends Node2D
 ## The lines live in dialogue/flood_bank.dialogue (Godot Dialogue Manager, Preston 2026-10-11: "it just needs a
 ## bit of refining"). Narration has no name and no portrait, the partner speaks with its own face, and the
 ## choices sit in a small list over the text box, the way the rooms' talk does (Claude, 2026-10-11).
+## Esc on any line asks "Back to the title?" before leaving, and the menu sounds come from UI.tick on the
+## "UI" bus (Claude, 2026-10-22, FLOW-15 and FEEL-08).
 const Finish=preload("res://scripts/arena/creature_finish.gd")
 const UI=preload("res://scripts/ui/ui_style.gd")
 const Music=preload("res://scripts/audio/music.gd")
 const TALK=preload("res://dialogue/flood_bank.dialogue")
+const TITLE="res://scenes/creature_opening.tscn"   # where the pause menu's Return to title goes too
 const FORMS=["kithflare","tallowroot","rimefin"]
 const NAMES=["Kithflare","Tallowroot","Rimefin"]
 const SENSES=["A warm spark at the end of your tail.","Roots curl against the damp clay.","Cool water runs along your fins."]
 const BOX:=Rect2(196,452,760,116)   # the same text box as the town rooms
+const ASK:=Rect2(396,236,360,176)   # the "Back to the title?" prompt, mid-screen
 var reduce_motion:=false
 var chosen_by_soul:=false # the soul prologue already chose the starter (Claude, 2026-10-10)
 var hero:=0
@@ -24,7 +28,8 @@ var bank:Node2D
 var flood_cover:Node2D
 var line:DialogueLine   # the line on screen; null when the talk is over
 var choice:=0           # the highlighted choice, when the line has some
-var first:=true         # Esc on the opening line goes back to the title
+var asking:=false       # the "Back to the title?" prompt is up (Claude, 2026-10-22, FLOW-15)
+var ask_row:=0          # its highlighted row: 0 Resume, 1 Return
 var _box:Node2D
 var _clock:=0.0
 var _keys_was:={}
@@ -135,15 +140,17 @@ func _tapped(k:int) -> bool:
 	return now and not was
 
 func _poll() -> void:
-	if _tapped(KEY_E) or _tapped(KEY_J) or _tapped(KEY_ENTER) or _tapped(KEY_SPACE):
+	if asking:
+		_poll_ask()
+	elif _tapped(KEY_E) or _tapped(KEY_J) or _tapped(KEY_ENTER) or _tapped(KEY_SPACE):
 		advance()
-	elif _tapped(KEY_ESCAPE) and first:
-		get_tree().change_scene_to_file("res://scenes/creature_opening.tscn")
+	elif _tapped(KEY_ESCAPE):
+		_ask()
 	elif not line.responses.is_empty() and UI.line_done(line.text):
 		var d:=int(_tapped(KEY_S) or _tapped(KEY_DOWN))-int(_tapped(KEY_W) or _tapped(KEY_UP))
 		if d!=0:
 			choice=posmod(choice+d,line.responses.size())
-			_sfx("cursor")
+			UI.tick("cursor")
 
 ## E: show the rest of the line, then the next line (or the chosen answer's branch).
 func advance() -> void:
@@ -154,24 +161,46 @@ func advance() -> void:
 	var next:=line.next_id
 	if not line.responses.is_empty():
 		next=line.responses[choice].next_id
-		_sfx("confirm")
-	first=false
+		UI.tick("confirm")
 	choice=0
 	line=await DialogueManager.get_next_dialogue_line(TALK,next,[self])
 	if line==null:
 		_leave()
 
-func _sfx(name:String) -> void:
-	var path:="res://assets/audio/sfx/ui/%s.wav"%name
-	if not ResourceLoader.exists(path):return
-	var p:=AudioStreamPlayer.new()
-	p.stream=load(path)
-	add_child(p)
-	p.play()
-	p.finished.connect(p.queue_free)
+## Esc on any line: "Back to the title?" with Resume and Return (Claude, 2026-10-22, FLOW-15). Nothing is
+## saved yet, so Return simply starts the opening over.
+func _ask() -> void:
+	asking=true
+	ask_row=0
+	UI.tick("open")
+
+func _poll_ask() -> void:
+	if _tapped(KEY_ESCAPE):
+		asking=false
+		UI.tick("cancel")
+	elif _tapped(KEY_S) or _tapped(KEY_DOWN) or _tapped(KEY_W) or _tapped(KEY_UP):
+		ask_row=1-ask_row
+		UI.tick("cursor")
+	elif _tapped(KEY_E) or _tapped(KEY_J) or _tapped(KEY_ENTER) or _tapped(KEY_SPACE):
+		if ask_row==0:
+			asking=false
+			UI.tick("cancel")
+		else:
+			_title()
+
+func _title() -> void:
+	leaving=true
+	UI.tick("confirm")
+	veil.mouse_filter=Control.MOUSE_FILTER_STOP
+	await create_tween().tween_property(veil,"color:a",1.0,0.15 if reduce_motion else 0.5).finished
+	var error:=get_tree().change_scene_to_file(TITLE)
+	if error!=OK:
+		leaving=false
+		asking=false
+		veil.color.a=0;veil.mouse_filter=Control.MOUSE_FILTER_IGNORE
 
 ## The text box: narration with no name; a speaker with its portrait and face; choices in a small list
-## above the box's right end once the line has typed out.
+## above the box's right end once the line has typed out; the title prompt over everything when it is up.
 func _draw_talk() -> void:
 	if line==null or leaving:return
 	var form:=""
@@ -181,7 +210,12 @@ func _draw_talk() -> void:
 		if i>=0:form=FORMS[i]+(":"+face if face!="normal" else "")
 	var tex:Texture2D=UI.dialogue_portrait(form) if form!="" else null
 	UI.dialogue(_box,BOX,line.character,line.text,tex,_clock,20,face)
-	if line.responses.is_empty() or not UI.line_done(line.text):return
+	if not line.responses.is_empty() and UI.line_done(line.text):
+		_draw_choices()
+	if asking:
+		_draw_ask()
+
+func _draw_choices() -> void:
 	var rows:=line.responses.size()
 	var r:=Rect2(BOX.end.x-260,BOX.position.y-34-rows*34,260,24+rows*34)
 	UI.panel(_box,r,0.95)
@@ -190,6 +224,15 @@ func _draw_talk() -> void:
 		if k==choice:
 			UI.say(_box,at-Vector2(26,0),">","label",UI.EDGE_LIGHT)
 		UI.say(_box,at,String(line.responses[k].text),"label",UI.EDGE_LIGHT if k==choice else UI.MUTED)
+
+func _draw_ask() -> void:
+	UI.panel(_box,ASK,0.95,true)
+	UI.say(_box,ASK.position+Vector2(36,48),"Back to the title?","body",UI.TEXT)
+	for k in 2:
+		var at:=ASK.position+Vector2(80,96+k*36)
+		if k==ask_row:
+			UI.say(_box,at-Vector2(28,0),">","button",UI.EDGE_LIGHT)
+		UI.say(_box,at,["Resume","Return"][k],"button",UI.EDGE_LIGHT if k==ask_row else UI.MUTED)
 
 func _leave() -> void:
 	leaving=true

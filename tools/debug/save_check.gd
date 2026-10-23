@@ -5,6 +5,7 @@ extends SceneTree
 ##   Godot --headless --path . --script res://tools/debug/save_check.gd
 
 const TeamState := preload("res://scripts/town/team_state.gd")
+const UI := preload("res://scripts/ui/ui_style.gd")
 const CHECK_PATH := "user://check_team.save"
 var fails := 0
 
@@ -171,6 +172,49 @@ func _run() -> void:
 	_ok("A missing save with a .bak still shows Continue", TeamState.has_save())
 	TeamState.erase_save()
 	_ok("erase_save takes the .bak too", not TeamState.has_save() and not FileAccess.file_exists(bak))
+
+	# 8. Every room keeps the record (Claude, 2026-10-22, factory lane 7, FLOW-09). Quit to the title from the
+	# Wayline Hall after Starward sets the trial: the trial is on disk (the pause menu saved only from Highbank and
+	# the Storage room, so a quit here lost it). Then the bed at home rests the team and saves (GS-10, lane 4).
+	TeamState.data = {"party": [[0, 1], [1, 0]], "cleared": 1, "beaten": ["mouth"], "rank": 3, "story": {"met_crew": true, "parcel": "stolen"}}
+	TeamState.autosave()   # the arrival in Highbank, before the Hall: no trial on disk yet
+	TeamState.data["story"]["guild_trial"] = true   # what the trial scene sets (guild_scene.gd), in the Hall
+	var hall: Node = load("res://scenes/town_room.tscn").instantiate()
+	hall.room_id = "hall"
+	hall.poll_input = false
+	change_scene_to_node(hall)
+	await _frames(6)
+	var pm3: Node = hall.get_node("GamePauseMenu")
+	pm3.page = "title"
+	pm3.leave()
+	await _frames(8)
+	var hall_story: Dictionary = TeamState._read().get("data", {}).get("story", {})
+	_ok("Quit to the title from the Wayline Hall after the trial keeps the trial (guild_trial on disk %s, scene now %s)" % [str(hall_story.get("guild_trial", false)), _scene()],
+		hall_story.get("guild_trial", false) == true and _scene() == "creature_opening.tscn")
+	TeamState.data["rank"] = 7   # a change since the last save: the bed has to write it
+	TeamState.last_save_at = 0.0
+	var home: Node = load("res://scenes/town_room.tscn").instantiate()
+	home.room_id = "home"
+	home.poll_input = false
+	change_scene_to_node(home)
+	await _frames(6)
+	home.team[0]["pos"] = Vector2i(2, 4)   # just below the Moss Bed (rect 1,2 3x2), facing it
+	home.team[0]["facing"] = "n"
+	for press in 2:   # E at the bed; a second E in case the bed asks first
+		if TeamState.last_save_at > 0.0:
+			break
+		home.act_use()
+		for k in 30 * 4:   # the rest fades out and in before it saves
+			if TeamState.last_save_at > 0.0:
+				break
+			if "talk" in home and not home.talk.is_empty() and k % 4 == 0:
+				UI.finish_line()
+				home.talk.pop_front()
+			await process_frame
+	await _frames(4)
+	var rested: Dictionary = TeamState._read().get("data", {})
+	_ok("The bed at home rests the team and saves (rank on disk %d, saved at %.0f)" % [int(rested.get("rank", -1)), TeamState.last_save_at],
+		TeamState.last_save_at > 0.0 and int(rested.get("rank", -1)) == 7)
 	TeamState.erase_save()
 	TeamState.save_path = TeamState.SAVE_PATH
 	print("SAVE: %s" % ("all ok" if fails == 0 else "%d FAILED" % fails))

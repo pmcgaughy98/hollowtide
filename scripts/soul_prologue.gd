@@ -93,6 +93,7 @@ func _ready() -> void:
 	_blip = AudioStreamPlayer.new()
 	_blip.stream = load("res://assets/audio/sfx/ui/text.wav")
 	_blip.volume_db = -20.0
+	_blip.bus = &"UI"   # the typed blip with the clicks (FEEL-08; Claude, 2026-10-22)
 	add_child(_blip)
 	var rng := RandomNumberGenerator.new()
 	rng.seed = 2026

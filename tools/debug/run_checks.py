@@ -29,6 +29,7 @@
 #   WINDOW   a check that needs a drawn frame, run headless; a printed failure still makes it FAIL
 #   TIMEOUT  it did not finish in time; RETIRED  it says it is retired (exit 2); BROKEN  a parse or compile error
 # The runner itself exits 1 if any check FAILs, BREAKs or TIMEs OUT, and 2 if nothing was selected or Godot is missing.
+# It ends with one table sorted by result (failures first) and an "exit N" line saying why (Claude, 2026-10-22, T0).
 
 import argparse
 import concurrent.futures
@@ -58,7 +59,7 @@ WINDOW_HEADLESS_SECS = 60
 # Tools that live with the checks but need arguments; not run.
 SKIP = {"back_idle_check": "a tool that needs an argument"}
 # Long autopilot runs get more time than the default (or --timeout, if that is longer).
-LONG = {"pilot_chain_check": 1500, "dungeon_boss_check": 600, "dungeon_chain_check": 600, "dungeon_evolve_check": 600}
+LONG = {"pilot_chain_check": 1500, "dungeon_boss_check": 600, "dungeon_chain_check": 600, "dungeon_evolve_check": 600, "lv1_run_check": 600}
 # Excluded unless asked for: by flag, or by a word that starts the check's name ("arena", "pilot").
 EXCLUDED = {"arena": lambda n: n.startswith("arena_"), "long": lambda n: n == "pilot_chain_check"}
 IMPORT_SECS = 1200
@@ -316,6 +317,13 @@ def main() -> int:
 
     order = ["BROKEN", "FAIL", "TIMEOUT", "WINDOW", "RAN", "RETIRED", "PASS"]
     results.sort(key=lambda r: (order.index(r["class"]), r["name"]))
+    # The whole run once more as one table, failures first, for the integrator (Claude, 2026-10-22, T0):
+    # the lines above arrive in finishing order, this one is sorted by result.
+    print(f"\n{'RESULT':8s} {'CHECK':32s} {'SECS':>6s}  {'EXIT':>4s}  FIRST PROBLEM OR NOTE")
+    for r in results:
+        print(f"{r['class']:8s} {r['name']:32s} {r['secs']:6.1f}  {r['exit']:4d}  {r['first'][:100]}")
+    for n in skipped:
+        print(f"{'SKIPPED':8s} {n:32s} {'':6s}  {'':4s}  {SKIP[n]}")
     counts = {}
     for r in results:
         counts[r["class"]] = counts.get(r["class"], 0) + 1
@@ -337,6 +345,7 @@ def main() -> int:
         md.parent.mkdir(parents=True, exist_ok=True)
         md.write_bytes((f"Totals: {summary}\n\n{legend}\n\n" + "\n".join(rows) + "\n").encode("utf-8"))
     bad = sum(counts.get(k, 0) for k in ("BROKEN", "FAIL", "TIMEOUT"))
+    print(f"exit {1 if bad else 0}: " + (f"{bad} check{'' if bad == 1 else 's'} failed, broke or timed out" if bad else "nothing failed"))
     return 1 if bad else 0
 
 

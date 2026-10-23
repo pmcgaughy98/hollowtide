@@ -7,16 +7,24 @@ extends SceneTree
 ##   flood talk -> riverbank -> Hollow Mouth (no boss) -> Highbank, way down held -> Job Board theft ->
 ##   guild trial -> way down opens -> Rootbank Warren and the crew boss -> parcel back -> runners named ->
 ##   roll call -> The Hollow -> the Warden and the stone -> the stone set in the Growth Shrine -> evolution.
-## A faint sends the team home, as in the game; the run tries that dungeon again (up to 3 times).
+## A faint sends the team home, as in the game; the run tries that dungeon again (up to 5 times).
 ## The storm and soul openings have their own checks (storm_open_check, soul_prologue_check).
+## Pass 2 (Claude, 2026-10-22, factory lane 7, FLOW-21): the detours a player takes that the straight run never
+## did. The first Warren try goes down on purpose and the faint screen is read page by page; a quit mid-run in The
+## Hollow keeps the run, and the title's Continue resumes it. On by default; `-- --plain` runs the straight chain
+## alone. Both read the end card after the first growth (GS-16, lane 3's pilot_end.gd).
 ##   Godot --headless --path . --fixed-fps 30 --script res://tools/debug/pilot_chain_check.gd
 
 const TeamState := preload("res://scripts/town/team_state.gd")
 const UI := preload("res://scripts/ui/ui_style.gd")
+const CHECK_SAVE := "user://pilot_chain_check.save"   # pass 2's suspend writes here, never to the real save
 var fails := 0
 var log_lines: Array = []
 var stage := ""
 var faints := 0   # dungeon runs that ended in a faint (a balance signal for Grok)
+var pass_two := not OS.get_cmdline_user_args().has("--plain")   # FLOW-21's detours, on unless `-- --plain`
+var hold := false   # pass 2 holds the autopilot and the faint screen's presses while it reads them
+var last_faint := ""   # what the last faint screen said (its info), printed beside a try that did not clear (Claude, 2026-10-22)
 
 
 func _initialize() -> void:
@@ -47,7 +55,7 @@ func _tick() -> void:
 		return
 	var file := _scene()
 	if file == "dungeon.tscn":
-		s.autopilot = true
+		s.autopilot = not hold
 		if not s.talk.is_empty() and Engine.get_process_frames() % 4 == 0:
 			UI.finish_line()
 			s.act_talk()
@@ -57,8 +65,11 @@ func _tick() -> void:
 	if file == "mouth_escape.tscn" and s.line != null and Engine.get_process_frames() % 4 == 0:
 		UI.finish_line()   # the dawn walk up to Highbank, read like the flood talk
 		s.advance()
-	if file == "faint_screen.tscn" and Engine.get_process_frames() % 8 == 0:
-		s.advance()   # the faint screen (2026-10-12): the partner's word, the defeat panel, then home or back to the bank
+	if file == "faint_screen.tscn" and last_faint == "":
+		var fi: Dictionary = s.info
+		last_faint = "%s %s, turns %s, fell to %s, leader %s" % [fi.get("dungeon", "?"), fi.get("floor", "?"), str(fi.get("turns", "?")), str(fi.get("fell_to", "?")), str(fi.get("leader", "?"))]
+	if file == "faint_screen.tscn" and not hold and Engine.get_process_frames() % 8 == 0:
+		s.advance()   # the faint screen (2026-10-12): the partner's word, the defeat panel, then home or back to the top
 	if file == "hub_town.tscn" and s.panel is Dictionary and s.panel.get("service", "") == "news":
 		s.panel = {}
 
@@ -72,15 +83,20 @@ func _until(done: Callable, frames: int) -> bool:
 	return done.call()
 
 
-## A dungeon, played to the end (back in town); a faint retries it, as a player would.
-func _dungeon(name: String, start: Callable) -> bool:
+## A dungeon, played to the end (back in town); a faint retries it, as a player would. `detour` (pass 2) runs once
+## the first try is underway; it returns true when it put the team down on purpose, which is not a balance faint.
+func _dungeon(name: String, start: Callable, detour := Callable()) -> bool:
 	# Five tries, not three (2026-10-12): a short Hollow Mouth seed sent the team into Rootbank Warren at level 2
 	# and the crew beat it three times running while its levels climbed a step a try; a player keeps going, and
 	# the game has no dead end there (every try keeps levels). Grok has the balance note (GROK_TASKS_2026-10-12.md).
 	for attempt in 5:
 		var before_cleared := int(TeamState.data.get("cleared", 0))
+		last_faint = ""
 		start.call()
 		await _until(func() -> bool: return _scene() == "dungeon.tscn", 30 * 20)
+		var forced := false
+		if attempt == 0 and detour.is_valid() and _scene() == "dungeon.tscn":
+			forced = await detour.call()
 		var ok := await _until(func() -> bool: return _scene() == "hub_town.tscn", 30 * 900)
 		var news := String(TeamState.data.get("news", ""))
 		print("  %s, try %d: back in town %s, news '%s', cleared %d, party %s, levels %s, growth %s" % [name, attempt + 1, ok, news, int(TeamState.data.get("cleared", 0)), str(TeamState.data.get("party", [])), str(TeamState.data.get("levels", {})), str(TeamState.data.get("growth", {}))])
@@ -89,7 +105,113 @@ func _dungeon(name: String, start: Callable) -> bool:
 		if _scene() == "dungeon.tscn":
 			print("  %s: still in the dungeon when the budget ran out, a stall and not a faint; no retry" % name)
 			return false   # retrying from here called _town() on the dungeon and crashed on 'panel' four times
-		faints += 1
+		if not forced:
+			faints += 1
+			print("  %s, try %d did not clear; the faint screen said: %s" % [name, attempt + 1, last_faint if last_faint != "" else "(no faint screen seen)"])
+	return false
+
+
+## Pass 2 (FLOW-21): the first Warren try goes down on purpose on B1F. The faint screen is read as a player sees
+## it, the partner's word and then the defeat panel, and E carries the team home; the chain tries the Warren again.
+func _faint_in_warren() -> bool:
+	hold = true
+	var id := current_scene.get_instance_id()
+	await _until(func() -> bool:
+		var d: Object = instance_from_id(id)
+		return d == null or (d.talk.is_empty() and not d.busy and not d.cutscene), 30 * 20)
+	var dg: Object = instance_from_id(id)
+	if dg == null or _scene() != "dungeon.tscn":
+		hold = false
+		_ok("Pass 2: the Warren is underway for the faint on purpose (%s)" % _scene(), false)
+		return false
+	var faints_before := int(TeamState.data.get("faints", 0))
+	dg.autopilot = false
+	dg.bag.erase("rally_seed")   # no Second Wind: going down is the point here
+	dg.ents[0]["hp"] = 0
+	dg._end_turn()
+	await _until(func() -> bool: return _scene() == "faint_screen.tscn", 30 * 5)
+	if _scene() != "faint_screen.tscn":
+		hold = false
+		_ok("Pass 2: going down in the Warren opens the faint screen (%s)" % _scene(), false)
+		return false
+	var screen: Node = current_scene
+	var info: Dictionary = screen.info
+	var word := String(screen._word())
+	_ok("Pass 2: going down in Rootbank Warren opens the faint screen: %s %s, going home %s, %s speaks first: '%s'" % [info.get("dungeon"), info.get("floor"), str(info.get("to_town")), info.get("partner", ""), word],
+		info.get("dungeon") == "Rootbank Warren" and info.get("to_town") == true and screen.page == 0 and String(info.get("partner", "")) != "" and "home" in word.to_lower())
+	for k in 4:   # the first press finishes the typed line, the next turns to the panel
+		if screen.page == 1:
+			break
+		screen.advance()
+		await _until(func() -> bool: return false, 2)
+	# The panel's lines as drawn (lane 5's _layout: heading, rows, key hint), or the rows alone on an older screen.
+	var lines: Array = screen.call("_layout")[0].map(func(item: Array) -> String: return String(item[0])) if screen.has_method("_layout") else screen._rows().map(func(r: Array) -> String: return String(r[0]))
+	var said := " ".join(lines)
+	_ok("Pass 2: the defeat panel reads '%s'" % " | ".join(lines),
+		screen.page == 1 and "went down on B1F of Rootbank Warren" in said and "Lost:" in said and "Kept:" in said)
+	screen.advance()   # E: home
+	hold = false
+	var home := await _until(func() -> bool: return _scene() == "hub_town.tscn", 30 * 10)
+	_ok("Pass 2: E carries the team home (%s): faints %d -> %d, parcel '%s', trial %s" % [_scene(), faints_before, int(TeamState.data.get("faints", 0)), _story().get("parcel", ""), str(_story().get("guild_trial", false))],
+		home and int(TeamState.data.get("faints", 0)) == faints_before + 1 and _story().get("parcel", "") == "stolen" and _story().get("guild_trial", false))
+	return true
+
+
+## Pass 2 (FLOW-21): a quit mid-run in The Hollow. The pause menu's leave keeps the run (dungeon.suspend()), the
+## title comes up with Continue, and Continue opens the run again at the top of the same floor; the chain then
+## plays it out as before. The save goes to CHECK_SAVE, never the real one.
+func _suspend_in_hollow() -> bool:
+	var id := current_scene.get_instance_id()
+	await _until(func() -> bool:
+		var d: Object = instance_from_id(id)
+		return d == null or d.turn >= 12, 30 * 90)   # a few turns in, so the turn count and the lantern have moved
+	hold = true
+	for k in 30 * 20:   # a quiet moment, one a player could open the menu in
+		var d: Object = instance_from_id(id)
+		if d == null:
+			break
+		if d.asking >= 0:
+			d.act_recruit(true)
+		if not d.busy and d.talk.is_empty() and not d.cutscene and d.asking < 0 and not d._finishing:
+			break
+		await _tick()
+	var dg: Object = instance_from_id(id)
+	if dg == null or _scene() != "dungeon.tscn":
+		hold = false
+		_ok("Pass 2: The Hollow is underway for the quit (%s)" % _scene(), false)
+		return false
+	var was := {"floor_n": int(dg.floor_n), "floor_seed": int(dg.floor_seed), "turn": int(dg.turn), "hp": int(dg.ents[0]["hp"])}
+	TeamState.save_path = CHECK_SAVE
+	TeamState.erase_save()
+	var pm: Node = dg.get_node("GamePauseMenu")
+	pm.page = "title"
+	pm.leave()
+	var at_title := await _until(func() -> bool: return _scene() == "creature_opening.tscn", 30 * 10)
+	var kept: Dictionary = TeamState._read().get("data", {}).get("suspend", {})
+	_ok("Pass 2: a quit mid-run in The Hollow keeps the run on disk: B%dF, seed %d, turn %d (the title is up: %s)" % [int(kept.get("floor_n", 0)), int(kept.get("floor_seed", 0)), int(kept.get("turn", 0)), at_title],
+		at_title and String(kept.get("dungeon", "")) == "hollow" and int(kept.get("floor_n", 0)) == was["floor_n"] and int(kept.get("floor_seed", 0)) == was["floor_seed"] and int(kept.get("turn", 0)) == was["turn"])
+	if not at_title:
+		hold = false
+		return false
+	var tid := current_scene.get_instance_id()
+	await _until(func() -> bool:
+		var t: Object = instance_from_id(tid)
+		return t == null or not ("_boot_done" in t) or bool(t.get("_boot_done")), 30 * 20)
+	var title: Object = instance_from_id(tid)
+	if title == null:
+		hold = false
+		_ok("Pass 2: the title stays up for Continue", false)
+		return false
+	TeamState.data = {}   # Continue reads the file, not what is still in memory
+	title._on_continue()
+	var back := await _until(func() -> bool: return _scene() == "dungeon.tscn", 30 * 10)
+	var run: Node = current_scene
+	_ok("Pass 2: Continue resumes The Hollow at the top of B%dF: seed %d, turn %d, leader HP %d (was %d), home after %s, the kept run used up %s" % [
+			int(run.get("floor_n")) if back else 0, int(run.get("floor_seed")) if back else 0, int(run.get("turn")) if back else 0,
+			int(run.ents[0]["hp"]) if back else 0, was["hp"], str(run.get("return_to_town")) if back else "?", str(not TeamState.has_suspended())],
+		back and run.dungeon == "hollow" and run.floor_n == was["floor_n"] and run.floor_seed == was["floor_seed"] and run.turn == was["turn"]
+			and int(run.ents[0]["hp"]) == mini(int(was["hp"]), int(run.ents[0]["max_hp"])) and run.return_to_town and not TeamState.has_suspended())
+	hold = false
 	return false
 
 
@@ -143,7 +265,7 @@ func _run() -> void:
 	current_scene.leave()
 	await _until(func() -> bool: return _scene() == "hub_town.tscn", 30 * 5)
 	# 6. Rootbank Warren and the crew boss.
-	var warren_ok := await _dungeon("Rootbank Warren", func() -> void: _town().enter_hollow())
+	var warren_ok := await _dungeon("Rootbank Warren", func() -> void: _town().enter_hollow(), _faint_in_warren if pass_two else Callable())
 	_ok("Rootbank Warren cleared; parcel '%s', beaten %s" % [_story().get("parcel", ""), str(TeamState.data.get("beaten", []))], warren_ok and _story().get("parcel", "") == "recovered" and "first" in TeamState.data.get("beaten", []))
 	town = _town()
 	town.enter_hollow()
@@ -177,7 +299,8 @@ func _run() -> void:
 		(func() -> void:
 			await _until(func() -> bool: return _scene() == "hollow_approach.tscn", 30 * 5)
 			if _scene() == "hollow_approach.tscn":
-				current_scene.confirm()).call())
+				current_scene.confirm()).call(),
+		_suspend_in_hollow if pass_two else Callable())
 	_ok("The Hollow cleared, the Warden beaten; the stone is '%s'" % _story().get("stone", ""), hollow_ok and _story().get("stone", "") == "carried")
 	# 9. The Growth Shrine: the stone goes in, then the evolution.
 	town = _town()
@@ -205,20 +328,51 @@ func _run() -> void:
 			await _until(func() -> bool: return town.evolving_now, 30 * 3)
 			await _until(func() -> bool: return not town.evolving_now, 30 * 90)   # the whole growth scene, with room to spare
 			_ok("Grown: party %s -> %s" % [str(before), str(TeamState.data.get("party", []))], TeamState.data.get("party", []) != before)
+			# 9b. The end card (GS-16, lane 3's pilot_end.gd; Claude, 2026-10-22, factory lane 7, FLOW-21): closing the
+			# growth's line rolls it, once a save; it sets story.pilot_end_seen and hands the street back. With the
+			# town's poll_input off the card reads itself, as a player's E would end it.
+			town = _town()
+			if town != null and ResourceLoader.exists("res://scripts/town/pilot_end.gd") and town.has_method("_close_panel"):
+				var grew_line: bool = town.panel.get("grew", false)
+				town.poll_input = false
+				town._close_panel()
+				var card_id := town.get_instance_id()
+				await _until(func() -> bool:
+					var t: Object = instance_from_id(card_id)
+					return t == null or (bool(_story().get("pilot_end_seen", false)) and not t.cutscene and not t.has_node("PilotEnd")), 30 * 30)
+				town = _town()
+				if town != null:
+					town.poll_input = true
+				_ok("The end card plays after the first growth and hands back the street (growth line %s, pilot_end_seen %s, %s)" % [grew_line, str(_story().get("pilot_end_seen", false)), _scene()],
+					grew_line and bool(_story().get("pilot_end_seen", false)) and town != null and not town.cutscene and not town.has_node("PilotEnd"))
+			else:
+				print("  The end card is not in yet (no scripts/town/pilot_end.gd or hub_town._close_panel); its step is not judged")
 		# 10. After the pilot the way down offers every dungeon again; a replay has no boss (Preston, 2026-10-11).
 		town = _town()
-		await _until(func() -> bool: return not town.evolving_now and not town.cutscene and town.talk.is_empty(), 30 * 10)
+		var town_id := town.get_instance_id() if town != null else 0
+		await _until(func() -> bool:
+			var t: Object = instance_from_id(town_id)
+			return t == null or (not t.evolving_now and not t.cutscene and t.talk.is_empty()), 30 * 10)
 		town.panel = {}
 		town.enter_hollow()
 		var pick: String = town.panel.get("service", "")
 		_ok("After the pilot the way down asks where to go (%s)" % pick, pick == "way_pick")
 		if pick == "way_pick":
 			var warren_again := await _dungeon("Rootbank Warren again", func() -> void:
+				# A retry after a faint starts from the street, so the way down is asked again (Claude, 2026-10-22:
+				# the retry used to press E on a closed picker and never left town).
+				if _town().panel.get("service", "") != "way_pick":
+					_town().panel = {}
+					_town().enter_hollow()
 				_town().panel["sel"] = 1
 				_town().act_use())
 			_ok("A Warren replay clears with no boss and comes home (story parcel '%s')" % _story().get("parcel", ""), warren_again)
-	print("Faints along the way: %d" % faints)
-	log_lines.append("Faints along the way: %d" % faints)
+	var tally := "Faints along the way: %d%s" % [faints, " (pass 2 went down once more on purpose, not counted)" if pass_two else ""]
+	print(tally)
+	log_lines.append(tally)
+	if TeamState.save_path == CHECK_SAVE:   # never erase while the path is the real save's
+		TeamState.erase_save()
+	TeamState.save_path = TeamState.SAVE_PATH
 	print("PILOT CHAIN: %s in %.0f s" % ["all ok" if fails == 0 else "%d FAILED" % fails, (Time.get_ticks_msec() - t0) / 1000.0])
 	var f := FileAccess.open("res://docs/design/pilot-chain-2026-10-11.log", FileAccess.WRITE)
 	if f:

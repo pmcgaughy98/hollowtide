@@ -68,7 +68,7 @@ func _build() -> void:
 		_fill_random()
 		_build())
 	var dungeon := _button("DUNGEON", Vector2(920, 40), Vector2(150, 34))
-	dungeon.tooltip_text = "The turn-based mystery dungeon with your side as the team (the first one leads)"
+	dungeon.tooltip_text = "The turn-based Hollow with your side as the team (the first one leads)"   # the house word, never the genre label (Claude, 2026-10-22, GS-09)
 	dungeon.pressed.connect(start_dungeon)
 	var hollow := _button("HOLLOW", Vector2(920, 80), Vector2(150, 34))
 	hollow.tooltip_text = "Explore a generated Hollow floor with your side as the team (the first one leads)"

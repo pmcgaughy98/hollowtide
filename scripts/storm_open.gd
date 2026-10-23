@@ -229,6 +229,7 @@ func _sfx(name: String, db: float, loop := false) -> AudioStreamPlayer:
 		stream.loop_end = int(stream.get_length() * stream.mix_rate)
 	p.stream = stream
 	p.volume_db = db
+	p.bus = &"SFX"   # the storm's world sounds on the effects slider (FEEL-08; Claude, 2026-10-22)
 	add_child(p)
 	p.play()
 	if not loop:

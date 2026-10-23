@@ -15,8 +15,13 @@ speaker cannot play; a low-pass on bright ones), trimmed, faded, lowered by 432/
 A = 432 with the rest of the game (and an octave or two further for the two chimes, which measured
 88 to 99% above 2 kHz), normalised and written to assets/audio/sfx/dungeon/<name>.wav.
 
-  python tools/audio/build_dungeon_sfx.py
+  python tools/audio/build_dungeon_sfx.py [--force]
+
+Five of these names (stairs, pickup, faint, menu_open, menu_close) were replaced on disk by the synthesised
+chiptune set (tools/audio/make_ui_sounds.py, 2026-10-10), and Preston's 2026-10-22 call keeps that set.
+So a plain run leaves those five alone; --force rebuilds them from the ElevenLabs takes (Claude, 2026-10-22).
 """
+import argparse
 import subprocess
 import wave
 from pathlib import Path
@@ -117,6 +122,9 @@ PICKS = {
 }
 # Not used: step (both takes were a steady hiss with no footfall; the dungeon stays quiet underfoot,
 # as Explorers of Sky does).
+# Kept as the chiptune set on disk (make_ui_sounds.py; Preston, 2026-10-22): skipped unless --force, so a rerun
+# of this builder does not put the ElevenLabs takes back over them (Claude, 2026-10-22).
+CHIPTUNE = {"stairs", "pickup", "faint", "menu_open", "menu_close"}
 
 
 def decode(take: str, filters: str) -> np.ndarray:
@@ -150,7 +158,13 @@ def save(path: Path, x: np.ndarray, peak_db: float) -> None:
 
 
 if __name__ == "__main__":
+    ap = argparse.ArgumentParser(description="Build the dungeon's and the town's sounds from the ElevenLabs takes.")
+    ap.add_argument("--force", action="store_true", help="also rebuild the five chiptune names (stairs, pickup, faint, menu_open, menu_close)")
+    args = ap.parse_args()
     for name, (take, a, b, fin, fout, peak, filters, octaves) in PICKS.items():
+        if name in CHIPTUNE and not args.force:
+            print(f"{name:15} kept (the chiptune set on disk; --force rebuilds it from {take})")
+            continue
         x = fade(decode(take, filters)[int(a * SR):int(b * SR)], fin, fout)
         x = slow(x, RETUNE * 2 ** octaves)
         save(OUT / f"{name}.wav", x, peak)

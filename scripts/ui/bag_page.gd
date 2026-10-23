@@ -124,6 +124,7 @@ func _select(entry: Dictionary, can_use: bool, button: Button, reveal: bool) -> 
     item_name.text = entry["name"]
     count.text = "x%d" % entry["count"]
     effect.text = entry["what"]
-    instruction.text = "Choose to open the learning panel." if can_use and selected_kind.begins_with("scroll:") else "Enter / A: choose item" if can_use else "Items are used in the Hollow."
+    # The key, two spaces, what it does: the house column style for hints (Claude, 2026-10-22, W12).
+    instruction.text = "Enter / A  learn the move" if can_use and selected_kind.begins_with("scroll:") else "Enter / A  use" if can_use else "Items are used in the Hollow."
     if reveal and button != null:
         scroll.ensure_control_visible.call_deferred(button)

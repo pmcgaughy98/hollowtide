@@ -2,6 +2,43 @@
 
 Every sampled or generated sound that is not synthesised in a `tools/build_*_sounds.py` script, with where it came from and the terms. Rule: `sampled-sounds-rule-2026-10-07.md`.
 
+## Buses and the mix (Claude, 2026-10-22, the factory pass)
+
+The four buses in `default_bus_layout.tres`, and the contract every `AudioStreamPlayer` follows: it names one of the three
+below; nothing plays on Master. `tools/debug/music_check.gd` walks the tree after each scene's `_ready` and reports any
+player left on Master, and since a one-shot click is freed before a walk can see it, it also reads `scripts/` for a
+player made with no bus or set to Master. Left out as outside the campaign: the arena's eight-player sound pool
+(`scripts/arena/arena_prototype.gd`, no bus) and the old Route 1 battle screen (`scripts/battle_screen.gd`, its UI
+sounds on Master).
+
+| Bus | Index | Send | What plays on it | Slider |
+|---|---|---|---|---|
+| Master | 0 | out | nothing directly; a limiter (ceiling -1 dB, threshold -3 dB) | Master |
+| SFX | 1 | Master | world and scene sounds: the dungeon's `_sfx`, the town's doors and board, scene sounds (storm rain, pond, the Warden), the evolution scene | SFX |
+| Music | 2 | Master | `scripts/audio/music.gd` (two crossfading players and the jingle player), `scripts/area_music.gd`, the title's music | Music |
+| UI | 3 | Master, 0 dB | clicks and blips: `UI.tick` (cursor, confirm, cancel, open, close at -8 dB) and the typed-dialogue blip, both in `scripts/ui/ui_style.gd` | Master only, for now (see below) |
+
+- **Which slider scales UI: open.** The sliders set a bus's volume by name (`scripts/ui/game_pause_menu.gd`,
+  `scripts/main_menu.gd` `_apply_volume`). Today no slider names "UI", so only Master scales the clicks and blips; that
+  matches Preston's 2026-10-22 answer (game sounds on the SFX slider, UI off it) and the comments in `ui_style.gd`. The
+  factory plan (FEEL-08) asks the SFX slider to scale "UI" as well, so one effects slider covers clicks and world sounds.
+  That is a one-line change in each menu, lane 5's (the pause menu) and Codex's (the title menu), requested and not made
+  here; since it reverses his answer, it waits on Preston. The bus works either way.
+- **The duck is off (Preston, 2026-10-22).** The Music bus carries a sidechain compressor keyed to SFX (threshold -24,
+  ratio 8, release 320 ms) and it is disabled (`bus/2/effect/0/enabled = false`); music does not dip under hits.
+  Separate from that, `music.gd` lowers its own track to -18 dB under a jingle by a tween, and that stays. Comments that
+  still describe the music dipping under attack sounds are stale (`scripts/battle_screen.gd` lines 16, 2915 and 2925,
+  `docs/audio/music-prompts.md` line 34; other owners, requested); `scripts/area_music.gd` was corrected today.
+- **The chiptune set stands (Preston's call, 2026-10-22).** `stairs`, `pickup`, `faint`, `menu_open` and `menu_close` on
+  disk are the synthesised set from `tools/audio/make_ui_sounds.py`; the ElevenLabs picks for the same five names stay in
+  `build_dungeon_sfx.py` for the record but are skipped unless it is run with `--force`. Running either tool, in either
+  order, leaves the files on disk as they are. Nothing was deleted.
+- **Unused on disk:** `sfx/dungeon/cheer.wav` (the roll call plays no cheer, `scripts/town/guild_crew.gd`). `fall_whoosh.wav`
+  is in use (`scripts/dungeon/boss_intro.gd`, the Warden coming down), despite the factory plan listing it as unused.
+- **Parked (LP-26):** the two footstep takes, `takes/step_0.mp3` and `takes/step_1.mp3` (both a steady hiss with no
+  footfall, neither chosen). They stay on disk, unwired, until Preston decides whether to wire or delete them; the dungeon
+  stays quiet underfoot.
+
 ## ElevenLabs sound effects (Preston's account, commercial use under his plan)
 Flow: https://elevenlabs.io/app/flows/RMxmaDwxIdMvCZBpMxiw. Model `eleven_text_to_sound_v2`, prompt influence 0.3, two takes each. Preston topped up on 2026-10-07; the four earlier attempts failed unpaid at 0 credits. Takes in `assets/audio/sfx/arena/takes/`; the chosen trims in `tools/build_arena_takes.py`.
 

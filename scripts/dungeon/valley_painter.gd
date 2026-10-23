@@ -14,6 +14,8 @@ const USE_TILE_ART := false
 const Gen := preload("res://scripts/hollow/hollow_gen.gd")
 const R := preload("res://scripts/dungeon/ruin_painter.gd")   # its hash and noise
 
+## The one grass ramp (Claude, 2026-10-22, WORLD-02): the riverbank's GRASS reads this, and Highbank's turf
+## (highbank_painter.gd TURF) is these same three tones, so the world's grass is one green. Change it here.
 const MEADOW := [Color("#4f7a36"), Color("#5b8a3c"), Color("#67974a")]
 const TUFT := Color("#86b25a")
 const TUFT_LO := Color("#3e6229")

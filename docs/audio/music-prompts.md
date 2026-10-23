@@ -31,7 +31,7 @@ Instrumental chiptune battle theme for a moody, handmade monster-collecting RPG,
 **Tips:**
 - **Make it sound like the same game:** if your Suno plan allows audio upload, use the menu track as the reference (Cover, or Extend from its ending) with the style above. The battle theme then inherits the menu's instruments and mix.
 - **Picking takes:** generate a few, and pick the one whose first 4 bars sound like a clear intro and whose middle section repeats cleanly. Godot can then play the intro once and loop the rest (set the loop point on the imported file).
-- **Ducking:** the battle's Music bus already ducks under attack sounds (`default_bus_layout.tres`), so signature moves like Molten Glass will cut through the music.
+- **Ducking:** off. The Music bus's sidechain compressor keyed to SFX is disabled (Preston, 2026-10-22: it cut the music 31 dB on every hit); see docs/audio/sources.md, "Buses and the mix".
 
 **Status:** Preston made it ("Galloping Triplet Pulse"; the current take is 1:36). It is in the game as `assets/audio/music/battle_theme.mp3`: it fades in when a battle starts, loops, plays at -10 dB on the Music bus (ducking under attack sounds), and fades out when the battle ends. Change it with `battle_music` and `music_db` on the BattleScreen node.
 

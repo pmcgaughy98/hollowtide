@@ -6,14 +6,17 @@ extends Control
 ## did it; Hades sends you home to people who react to how you died; Spelunky and Slay the Spire sum the run up.
 ## Ours, in the house voice: react first (the partner, with its portrait), then inform (the defeat panel: where you
 ## fell, what beat you, the turns, what was lost and what is kept), then E carries the team home. Before the town
-## exists in the story (the Hollow Mouth), E takes the team back to the bank for another go instead.
+## exists in the story (the Hollow Mouth), E takes the team back to the top, B1F, for another go instead.
 ## The dungeon builds `info` (dungeon._faint_screen) and hands over with the team record already taken.
 const UI := preload("res://scripts/ui/ui_style.gd")
 const TeamState := preload("res://scripts/town/team_state.gd")
 const TOWN_SCENE := "res://scenes/hub_town.tscn"
 const DUNGEON_SCENE := "res://scenes/dungeon.tscn"
 const BOX := Rect2(196, 412, 760, 116)        # the dialogue box, where the dungeon draws its lines
-const PANEL := Rect2(206, 96, 740, 430)
+## The defeat panel's sides; its height follows what it says and it sits centred (Claude, 2026-10-22, LP-22).
+const PANEL_X := 206.0
+const PANEL_W := 740.0
+const RAIN := "res://assets/audio/sfx/dungeon/water_rain.wav"
 const GOLD := Color("f2d27a")
 const DIM := Color("c9c2b0")
 
@@ -25,6 +28,16 @@ var done := false    # the next scene is on its way
 
 func _ready() -> void:
 	set_process_unhandled_input(true)
+	# Rain under the whole screen, low, on the effects bus (Claude, 2026-10-22, FEEL-14). The take does not
+	# loop on its own, so it starts again when it ends.
+	var bed := AudioStreamPlayer.new()
+	bed.name = "RainBed"
+	bed.stream = load(RAIN)
+	bed.bus = &"SFX"
+	bed.volume_db = -18.0
+	bed.finished.connect(bed.play)
+	add_child(bed)
+	bed.play()
 
 
 func _process(delta: float) -> void:
@@ -34,7 +47,10 @@ func _process(delta: float) -> void:
 
 func _unhandled_input(event: InputEvent) -> void:
 	var press: bool = event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT
-	if event is InputEventKey and event.pressed and not event.echo and event.keycode in [KEY_E, KEY_ENTER, KEY_SPACE, KEY_Z, KEY_KP_ENTER]:
+	# J (the dungeon's confirm) and ui_accept (a controller's A) answer too (Claude, 2026-10-22, FEEL-02).
+	if event is InputEventKey and event.pressed and not event.echo and event.keycode in [KEY_E, KEY_J, KEY_ENTER, KEY_SPACE, KEY_Z, KEY_KP_ENTER]:
+		press = true
+	elif event.is_action_pressed("ui_accept") and not event.is_echo():
 		press = true
 	if press:
 		advance()
@@ -60,7 +76,8 @@ func _word() -> String:
 		return "The lantern goes out. Something carries you back the way you came."
 	if info.get("to_town", true):
 		return "%s! Hey. Hey, stay with me... okay. Okay. I've got you. We're going home." % lead
-	return "%s! Hey... okay, you're still here. I've got you. Back to the bank. We'll go again." % lead
+	# The team goes back to the top of the Mouth, B1F, not to the bank (Claude, 2026-10-22, FLOW-06; proposal line).
+	return "%s! Hey... okay, you're still here. I've got you. Let's head back up top and go again." % lead
 
 
 func _draw() -> void:
@@ -70,18 +87,43 @@ func _draw() -> void:
 		var tex: Texture2D = UI.dialogue_portrait(String(info.get("partner_form", "")) + ":sad") if partner != "" else null
 		UI.dialogue(self, BOX, partner, _word(), tex, clock, 20, "sad")
 		return
-	UI.panel(self, PANEL)
+	var laid := _layout()
+	var r := Rect2(PANEL_X, roundf((648.0 - float(laid[1])) * 0.5), PANEL_W, float(laid[1]))   # as panel_rect()
+	UI.panel(self, r)
+	for item in laid[0]:
+		UI.say(self, Vector2(r.position.x + 36, r.position.y + float(item[3])), String(item[0]), String(item[1]), item[2], PANEL_W - 72, item[4])
+	UI.next_arrow(self, Vector2(r.end.x - 44, r.end.y - 40), clock)
+
+
+## The defeat panel's rect: PANEL_X and PANEL_W across, as tall as its lines, centred on the screen.
+func panel_rect() -> Rect2:
+	var h: float = _layout()[1]
+	return Rect2(PANEL_X, roundf((648.0 - h) * 0.5), PANEL_W, h)
+
+
+## The panel's lines top to bottom (Claude, 2026-10-22, LP-22): the heading in the title face, the rows in
+## body, the key hint. Each is [text, role, colour, baseline below the panel's top, align]; the second value
+## is the panel's height. Rows are split where they wrap, so each line is drawn on its own.
+func _layout() -> Array:
 	var to_town: bool = info.get("to_town", true)
-	var x := PANEL.position.x + 36
-	var w := PANEL.size.x - 72
-	UI.text(self, Vector2(x, PANEL.position.y + 28), "CARRIED HOME" if to_town else "BACK TO THE BANK", 30, GOLD, w, HORIZONTAL_ALIGNMENT_CENTER)
-	var y := PANEL.position.y + 92
+	var w := PANEL_W - 72.0
+	var head_f := UI.font("title")
+	var head_n := UI.type_size("title")
+	var body_f := UI.font("body")
+	var body_n := UI.type_size("body")
+	var out: Array = []
+	var y := 30.0 + head_f.get_ascent(head_n)
+	out.append(["CARRIED HOME" if to_town else "BACK TO THE TOP", "title", GOLD, y, HORIZONTAL_ALIGNMENT_CENTER])
+	y += head_f.get_descent(head_n) + 18.0
 	for row in _rows():
-		var s: String = UI.wrap_text(row[0], w, "body")
-		UI.text(self, Vector2(x, y), s, 20, row[1], w)
-		y += 30 * (s.count("\n") + 1) + 10
-	UI.text(self, Vector2(x, PANEL.end.y - 50), "E   %s" % ("Go home" if to_town else "Try again"), 18, GOLD, w, HORIZONTAL_ALIGNMENT_CENTER)
-	UI.next_arrow(self, Vector2(PANEL.end.x - 44, PANEL.end.y - 40), clock)
+		for line in UI.wrap_text(row[0], w, "body").split("\n"):
+			out.append([line, "body", row[1], y + body_f.get_ascent(body_n), HORIZONTAL_ALIGNMENT_LEFT])
+			y += body_f.get_height(body_n) + 6.0
+		y += 10.0
+	y += 8.0
+	out.append(["E   %s" % ("Go home" if to_town else "Try again"), "body", GOLD, y + body_f.get_ascent(body_n), HORIZONTAL_ALIGNMENT_CENTER])
+	y += body_f.get_height(body_n) + 34.0   # room under the hint for the next arrow and the frame
+	return [out, roundf(y)]
 
 
 ## The defeat panel's lines, from the dungeon's record of the run.
@@ -97,7 +139,7 @@ func _rows() -> Array:
 	if not recruits.is_empty():
 		lost += " The run's recruits went back into the hollow: %s." % ", ".join(recruits)
 	rows.append([lost, Color("e6a07a")])
-	var kept := "Kept: levels, moves, your partners, and everything the story gave you."
+	var kept := "Kept: levels, moves and your partners."   # ends at the partners (Claude, 2026-10-22, W30)
 	if not TeamState.data.get("stored", {}).is_empty():   # the Storage never goes down with the bag (R6)
 		kept += " What's in Storage is still there."
 	rows.append([kept, Color("a9d48a")])

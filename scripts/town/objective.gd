@@ -6,6 +6,8 @@ extends RefCounted
 ##   Objective.current(story, beaten) -> {"short": String, "long": String}
 ## Places in Highbank (town_layout.gd): the Hall and the Job Board at the top middle, the Growth Shrine on the
 ## west side, the Mouth of the Hollow by the Old Ferry Landing at the south-east edge.
+## Directions once (Claude, 2026-10-22, W25): each place's whereabouts are given the first time the story sends
+## the team there; after that the line names the place only, so no direction phrase appears twice in this file.
 
 
 static func current(story: Dictionary, beaten: Array) -> Dictionary:
@@ -19,21 +21,24 @@ static func current(story: Dictionary, beaten: Array) -> Dictionary:
 			"Your partner wants Highbank to see the parcel it saved. The Job Board stands beside the Wayline Hall's steps, at the top middle of town.")
 	if parcel == "stolen" and not story.get("guild_trial", false):
 		return _goal("Tell Starward at the Wayline Hall",
-			"The Shortcut Crew took the parcel. The Wayline Hall is at the top middle of town; Starward, the Postmaster, is in the chamber at the back.")
+			"The Shortcut Crew took the parcel. Starward, the Postmaster, is at the counter inside the Wayline Hall.")
 	if parcel == "stolen":
 		return _goal("Get the parcel back in Rootbank Warren",
 			"The crew went to ground in Rootbank Warren. The way down is the Mouth of the Hollow, by the Old Ferry Landing at the south-east edge of town.")
 	if parcel == "recovered":
 		return _goal("Bring the parcel to Starward",
-			"The parcel is back. Take it to Starward in the Wayline Hall, at the top middle of town.")
+			"The parcel is back. Take it to Starward at the counter in the Wayline Hall.")
 	if not "hollow" in beaten:
 		return _goal("Go down to The Hollow",
-			"You're runners now. The Hollow is the next way down: the Mouth of the Hollow, by the Old Ferry Landing at the south-east edge of town.")
+			"You're runners now. The Hollow is the next way down, through the Mouth of the Hollow.")
 	if stone == "carried":
 		return _goal("Set the Warden's stone in the Growth Shrine",
 			"The Warden let you take its stone. The Growth Shrine is on the west side of town; its socket is waiting.")
-	return _goal("Grow at the Growth Shrine, or run a dungeon again",
-		"The shrine is awake. A creature that is ready grows there. The way down, by the Old Ferry Landing, takes you back into any dungeon to grow the rest of the team.")
+	if story.get("pilot_end_seen", false):   # set by the end card after the first growth (scripts/town/pilot_end.gd)
+		return _goal("That's the first stretch. Run the Hollows again or rest at home.",
+			"That's the first stretch. Run the Hollows again or rest at home. The shrine is there for whoever is ready next.")
+	return _goal("Grow at the Growth Shrine, or run a Hollow again",
+		"The shrine is awake. A creature that is ready grows there. The Mouth of the Hollow takes you back into any Hollow to grow the rest of the team.")
 
 
 static func _goal(short: String, long: String) -> Dictionary:

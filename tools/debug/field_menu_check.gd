@@ -47,6 +47,8 @@ func _run() -> void:
 	var ok := main.contains("Team") and main.contains("Bag") and main.contains("Floor") and main.contains("Message log") and main.contains("Options") and main.contains("Quit Game")
 	print("Hollow main page: %s -> %s" % [main, "ok" if ok else "WRONG"])
 	bad += 0 if ok else 1
+	menu.controls[1].grab_focus()   # one cursor move, for the menu sounds step below
+	await _frames(1)
 	for pg in ["team", "bag", "floor", "log"]:
 		menu.show_page(pg)
 		await _frames(2)
@@ -66,6 +68,16 @@ func _run() -> void:
 	await _frames(40)
 	ok = not paused and lead["hp"] > 10 and not dg.bag.has("reedberry") and dg.turn > turn0
 	print("Use from the bag: paused %s, leader 10 -> %d, berries left %d, turn %d -> %d -> %s" % [str(paused), lead["hp"], dg.bag.get("reedberry", 0), turn0, dg.turn, "ok" if ok else "WRONG"])
+	bad += 0 if ok else 1
+	# The menu's sounds (GS-21): open, one cursor move and the close when the item resumed the run, each played
+	# by a UITick_ player on the "UI" bus.
+	var heard := ", ".join(menu.sounds)
+	var buses: Array[String] = []
+	for kind in ["open", "cursor", "close"]:
+		var p: Node = root.get_node_or_null("UITick_" + kind)
+		buses.append("%s on %s" % [kind, str(p.get("bus")) if p != null else "nothing"])
+	ok = heard.begins_with("open, cursor") and heard.ends_with("close") and ", ".join(buses).count(" on UI") == 3
+	print("Menu sounds: %s; players %s -> %s" % [heard, ", ".join(buses), "ok" if ok else "WRONG"])
 	bad += 0 if ok else 1
 	dg.queue_free()
 	await _frames(4)

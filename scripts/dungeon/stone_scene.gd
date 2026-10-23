@@ -234,6 +234,7 @@ static func _standoff(dg) -> void:
 	# 2. It draws itself up: it was holding back.
 	dg.intro["spent"] = false
 	wn.scale = Vector2.ONE
+	w["sprite"].position.y = 0.0   # the breath (draw_standoff) ends on its ground pixel
 	var grow: Tween = dg.create_tween()
 	grow.tween_property(wn, "scale", Vector2(1.12, 1.12), 0.5).set_trans(Tween.TRANS_BACK).set_ease(Tween.EASE_OUT)
 	dg._sfx("warden_rise", 0.0)
@@ -405,8 +406,10 @@ static func draw_standoff(dg, c: CanvasItem) -> void:
 			var p: Vector2 = (e["node"].position + Vector2(8 + ph * 6.0, top + 10 - ph * 10.0)).round()
 			c.draw_rect(Rect2(p, Vector2(3, 2)), Color(1, 1, 1, 0.55 * (1.0 - ph)))
 			c.draw_rect(Rect2(p + Vector2(-2, -2), Vector2(2, 2)), Color(1, 1, 1, 0.35 * (1.0 - ph)))
-		var wn: Node2D = dg.ents[dg.boss]["node"]
-		wn.scale = Vector2(1.0, 1.0 + 0.03 * sin(t * 6.0))
+		# Claude, 2026-10-22 (UI-07): the Warden breathes by whole pixels, its sprite lifted 1 px for half of
+		# a 0.6 s cycle; its scale stays Vector2.ONE so the pixels never swim.
+		var wsp: Sprite2D = dg.ents[dg.boss]["sprite"]
+		wsp.position.y = -1.0 if fmod(t, 0.6) < 0.3 else 0.0
 	if dg.intro.has("doom"):
 		var p: Vector2 = dg.intro["doom"]
 		var k := 0.5 + 0.5 * sin(t * 14.0)

@@ -3,8 +3,8 @@ extends SceneTree
 ## information screen). A wipe in a run from town fades to the faint screen: the partner's word first, then the
 ## defeat panel (where, what beat you, the turns, what was lost). E carries the team home to Highbank with the record
 ## intact: the faint counted, the bag gone, the story untouched, and the next run starts whole. In the Hollow Mouth
-## before the road to town is open, E takes the team back to the bank instead. Windowed it saves both pages to
-## docs/design/faint-2026-10-12/.
+## before the road to town is open, E starts the Mouth again from B1F instead. The words on the screen have to match
+## where E goes (FLOW-06, 2026-10-22). Windowed it saves both pages to docs/design/faint-2026-10-12/.
 ##   Godot --headless --path . --script res://tools/debug/faint_check.gd
 
 const TeamState := preload("res://scripts/town/team_state.gd")
@@ -35,6 +35,22 @@ func _snap(name: String) -> void:
 		await process_frame
 	await RenderingServer.frame_post_draw
 	root.get_texture().get_image().save_png(ProjectSettings.globalize_path(OUT + name + ".png"))
+
+
+## The defeat panel's lines top to bottom (heading, rows, key hint), from the screen's _layout() (lane 5, LP-22);
+## [] when the screen draws them inline, which a headless run cannot read. Claude, 2026-10-22.
+func _panel(screen: Node) -> Array:
+	if not screen.has_method("_layout"):
+		return []
+	var laid: Array = screen.call("_layout")
+	if laid.is_empty() or not (laid[0] is Array):
+		return []
+	return laid[0].map(func(item: Array) -> String: return String(item[0]))
+
+
+## How the panel reads in an ok line: its heading and key hint.
+func _panel_note(lines: Array) -> String:
+	return ", panel '%s' ... '%s'" % [lines[0], lines[-1]] if not lines.is_empty() else " (the panel is drawn inline, not read)"
 
 
 func _scene() -> String:
@@ -78,6 +94,11 @@ func _run() -> void:
 	screen.advance()   # the line finishes
 	screen.advance()   # the panel
 	_ok("Then the defeat panel (page %d)" % screen.page, screen.page == 1)
+	# FLOW-06 (Claude, 2026-10-22, factory lane 7): the words match the next scene. Here that is Highbank.
+	var word1 := String(screen._word())
+	var panel1 := _panel(screen)
+	_ok("The words match the next scene, Highbank: '%s'%s" % [word1, _panel_note(panel1)],
+		"home" in word1.to_lower() and (panel1.is_empty() or ("HOME" in String(panel1[0]).to_upper() and "home" in String(panel1[-1]).to_lower())))
 	await _snap("2_panel")
 	screen.advance()   # home
 	await _frames(6)
@@ -108,9 +129,16 @@ func _run() -> void:
 	await create_timer(0.9).timeout
 	var s2: Node = current_scene
 	var on_screen := current_scene.scene_file_path == FAINT
-	_ok("In the Mouth before the road: the faint screen says back to the bank (going home %s)" % (str(s2.info.get("to_town")) if on_screen else "no screen"),
+	_ok("In the Mouth before the road: the faint screen sends the team back into the Mouth (going home %s)" % (str(s2.info.get("to_town")) if on_screen else "no screen"),
 		on_screen and s2.info.get("to_town") == false)
 	if on_screen:
+		# FLOW-06: E starts the Mouth again at B1F, so nothing on the screen may promise the bank or home (the bank
+		# is where the team woke, not where E goes); the panel's heading says the top.
+		var word2 := String(s2._word())
+		var panel2 := _panel(s2)
+		var said := (word2 + " " + " ".join(panel2)).to_lower()
+		_ok("The words match the next scene, the Mouth's B1F: '%s'%s" % [word2, _panel_note(panel2)],
+			not ("bank" in said) and not ("home" in said) and (panel2.is_empty() or "TOP" in String(panel2[0]).to_upper()))
 		# Press until it leaves, not a set three: this line pages once the portrait inset grew to 162
 		# (2026-10-14; 528 px wraps it to three rows, two pages, five presses). Claude, 2026-10-14.
 		for k in 8:

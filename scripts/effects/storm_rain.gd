@@ -30,6 +30,7 @@ func _ready() -> void:
 		_player = AudioStreamPlayer.new()
 		_player.stream = stream
 		_player.volume_db = sound_db
+		_player.bus = &"SFX"   # a world sound: the effects slider, not Master (Claude, 2026-10-22)
 		add_child(_player)
 		_player.play()
 

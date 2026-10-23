@@ -64,6 +64,7 @@ func setup(scene: Node) -> void:
 	_sound = AudioStreamPlayer.new()
 	_sound.stream = load("res://assets/audio/sfx/ui/cursor.wav")
 	_sound.volume_db = -12.0
+	_sound.bus = &"UI"   # with the other menu clicks, off the effects slider (Claude, 2026-10-22, W12)
 	add_child(_sound)
 	_sparkwick_art = preload("res://scripts/ui/sparkwick_canvas.gd").new()
 	add_child(_sparkwick_art)
@@ -181,8 +182,28 @@ func _page_rect(k: int) -> Rect2:
 	return Rect2(RIGHT.position.x + 12 + k * 132, RIGHT.position.y - 34, 126, 36)
 
 
+## The moves sit in a well as tall as the list, a row every 60 px with 17 px above the first and below the
+## last: rows x 60 + 24 (Claude, 2026-10-22, LP-08). Its top lines up with the move box beside it.
 func _move_rect(k: int) -> Rect2:
-	return Rect2(RIGHT.position.x + 20, RIGHT.position.y + 26 + k * 58, 290, 50)
+	return Rect2(RIGHT.position.x + 20, RIGHT.position.y + 39 + k * 60, 290, 50)
+
+
+func _move_well(rows: int) -> Rect2:
+	return Rect2(RIGHT.position.x + 12, RIGHT.position.y + 22, 306, rows * 60 + 24)
+
+
+## The creature's scale on the stage: a whole number from 1 to 2 (Claude, 2026-10-22, LP-08 and UI-04). Half
+## steps drew some art pixels two screen pixels wide and their neighbours one. The checks read it per form.
+func scale_for(c: Dictionary) -> float:
+	var idle: Array = c["idle"]
+	if not idle.is_empty():
+		var ib: Rect2i = c["idle_box"]
+		return clampf(floorf(minf(236.0 / maxi(1, ib.size.y), 310.0 / maxi(1, ib.size.x))), 1.0, 2.0)
+	var tex: Texture2D = c["still"]
+	if tex == null:
+		return 1.0
+	var used := tex.get_image().get_used_rect()
+	return clampf(floorf(minf(220.0 / maxi(1, used.size.y), 300.0 / maxi(1, used.size.x))), 1.0, 2.0)
 
 
 func _ess_of_move(m: String, c: Dictionary) -> String:
@@ -241,18 +262,19 @@ func _draw_left(c: Dictionary) -> void:
 	draw_style_box(UI.frame("portrait"), stage)
 	var scene: Texture2D = _stage_tex(String(c["ess"][0])) if not c["ess"].is_empty() else null
 	if scene != null:
-		# Fill the frame's inside, cropped from the scene's middle at its own height (its floor at the bottom).
+		# Fill the frame's inside, cropped from the scene's middle with its floor at the bottom, at a whole
+		# scale of at least 1 (Claude, 2026-10-22, LP-08): a 0.97 shrink dropped rows of the painted stage.
 		var inner := stage.grow(-9.0)
-		var ks := inner.size.y / scene.get_height()
-		var src := Rect2((scene.get_width() - inner.size.x / ks) * 0.5, 0, inner.size.x / ks, scene.get_height())
+		var ks := maxf(1.0, floorf(inner.size.y / scene.get_height()))
+		var cut := inner.size / ks
+		var src := Rect2((scene.get_width() - cut.x) * 0.5, scene.get_height() - cut.y, cut.x, cut.y)
 		draw_texture_rect_region(scene, inner, src, Color(0.86, 0.86, 0.86) if c["hp"] != 0 else Color(0.5, 0.5, 0.5))
 		draw_rect(inner, UI.EDGE, false, 1.0)
 	var idle: Array = c["idle"]
 	if not idle.is_empty():
 		# The detailed front idle, playing, turned to its right like the headshots (mirrored).
 		var ib: Rect2i = c["idle_box"]
-		var k := clampf(minf(236.0 / ib.size.y, 310.0 / ib.size.x), 0.5, 2.0)
-		k = floorf(k * 2.0) / 2.0
+		var k := scale_for(c)
 		var foot := stage.position + Vector2(stage.size.x * 0.5, stage.size.y - 18)
 		draw_set_transform(foot, 0.0, Vector2(1.0, 0.28))
 		draw_circle(Vector2.ZERO, ib.size.x * k * 0.42, Color(0, 0, 0, 0.18))
@@ -266,8 +288,7 @@ func _draw_left(c: Dictionary) -> void:
 	var tex: Texture2D = c["still"]
 	if tex != null and idle.is_empty():
 		var used := tex.get_image().get_used_rect()
-		var k := clampf(minf(220.0 / used.size.y, 300.0 / used.size.x), 1.0, 2.0)
-		k = floorf(k * 2.0) / 2.0   # whole or half steps keep the pixels square
+		var k := scale_for(c)   # whole steps keep every pixel the same size
 		var foot := stage.position + Vector2(stage.size.x * 0.5, stage.size.y - 26)
 		var shadow_w := used.size.x * k * 0.45
 		draw_set_transform(foot, 0.0, Vector2(1.0, 0.28))
@@ -343,6 +364,10 @@ func _draw_status(c: Dictionary) -> void:
 func _draw_moves(c: Dictionary) -> void:
 	var moves: Array = c["moves"]
 	move_sel = clampi(move_sel, 0, maxi(0, moves.size() - 1))
+	if not moves.is_empty():
+		var well := _move_well(moves.size())
+		draw_rect(well, Color(0, 0, 0, 0.22))
+		draw_rect(well, Color(UI.EDGE, 0.6), false, 1.0)
 	for k in moves.size():
 		var m: String = moves[k]
 		var mv: Dictionary = ArenaData.MOVES.get(m, {"name": m, "damage": 0})
@@ -362,15 +387,6 @@ func _draw_moves(c: Dictionary) -> void:
 	# The chosen move, in full.
 	var m: String = moves[move_sel]
 	var mv: Dictionary = ArenaData.MOVES.get(m, {"name": m, "damage": 0, "range": 0.0, "cooldown": 0.0})
-	var d := Rect2(RIGHT.position.x + 326, RIGHT.position.y + 22, 302, 380)
-	draw_rect(d, Color(0, 0, 0, 0.22))
-	draw_rect(d, Color(UI.EDGE, 0.6), false, 1.0)
-	var ess := _ess_of_move(m, c)
-	var big := UI.essence_icon(ess)
-	if big != null:
-		draw_texture_rect(big, Rect2(d.position + Vector2(16, 16), Vector2(48, 48)), false)
-	UI.text(self, d.position + Vector2(76, 40), String(mv["name"]), 22, UI.EDGE_LIGHT, 220)
-	UI.text(self, d.position + Vector2(76, 62), String(ess).capitalize(), 16, UI.MUTED)
 	var reach: Dictionary = _D.move_reach(m)
 	var heal: int = mv.get("heal", 0)
 	var turns := maxi(1, int(ceil(mv["cooldown"])))
@@ -380,15 +396,48 @@ func _draw_moves(c: Dictionary) -> void:
 	var cd: int = int(c["cds"].get(m, 0))
 	if cd > 0:
 		facts.append(["Ready in", "%d turn%s" % [cd, "" if cd == 1 else "s"]])
+	var parts: Array = MoveBody.NEEDS.get(m, [])
+	var box := move_box(_describe(reach, heal), facts.size(), not parts.is_empty())
+	var d := Rect2(RIGHT.position.x + 326, RIGHT.position.y + 22, 302, float(box["height"]))
+	draw_rect(d, Color(0, 0, 0, 0.22))
+	draw_rect(d, Color(UI.EDGE, 0.6), false, 1.0)
+	var ess := _ess_of_move(m, c)
+	var big := UI.essence_icon(ess)
+	if big != null:
+		draw_texture_rect(big, Rect2(d.position + Vector2(16, 16), Vector2(48, 48)), false)
+	UI.text(self, d.position + Vector2(76, 40), String(mv["name"]), 22, UI.EDGE_LIGHT, 220)
+	UI.text(self, d.position + Vector2(76, 62), String(ess).capitalize(), 16, UI.MUTED)
 	for k in facts.size():
 		UI.text(self, d.position + Vector2(18, 104 + k * 26), String(facts[k][0]), 16, UI.MUTED)
 		UI.text(self, d.position + Vector2(120, 104 + k * 26), String(facts[k][1]), 16, UI.TEXT, 170)
-	var y := d.position.y + 104 + facts.size() * 26 + 16
-	draw_line(Vector2(d.position.x + 16, y - 8), Vector2(d.end.x - 16, y - 8), Color(UI.EDGE, 0.4), 1.0)
-	draw_multiline_string(UI.HEAD, Vector2(d.position.x + 18, y + 14), _describe(reach, heal), HORIZONTAL_ALIGNMENT_LEFT, d.size.x - 36, 16, 5, UI.TEXT)
-	var parts: Array = MoveBody.NEEDS.get(m, [])
-	if not parts.is_empty():
-		UI.text(self, Vector2(d.position.x + 18, d.end.y - 18), "Comes from its %s" % " and ".join(parts), 14, UI.MUTED, d.size.x - 36)
+	var rule: float = d.position.y + float(box["rule"])
+	draw_line(Vector2(d.position.x + 16, rule), Vector2(d.end.x - 16, rule), Color(UI.EDGE, 0.4), 1.0)
+	# The description in the body face, a row at a time (it was drawn in the old heading face, UI.HEAD).
+	var rows: PackedStringArray = box["lines"]
+	for i in rows.size():
+		UI.say(self, Vector2(d.position.x + 18, d.position.y + float(box["first"]) + i * float(box["line_h"])), rows[i], "body", UI.TEXT, d.size.x - 36)
+	if not parts.is_empty():   # the body part right under what the move does (LP-08)
+		UI.text(self, Vector2(d.position.x + 18, d.position.y + float(box["parts"])), "Comes from its %s" % " and ".join(parts), 14, UI.MUTED, d.size.x - 36)
+
+
+## The move box's layout, measured down from its top (Claude, 2026-10-22, LP-08): the facts, a rule, the
+## description in the body face wrapped at 266 px, then the body-part note right under it. The box is as tall
+## as that, never past the right panel's frame. "first" and "parts" are baselines; the checks call this with
+## every move's description.
+func move_box(desc: String, facts_n: int, has_parts: bool) -> Dictionary:
+	var f := UI.font("body")
+	var n := UI.type_size("body")
+	var lf := UI.font("label")
+	var ln := UI.type_size("label")
+	var line_h := f.get_height(n) + 2.0
+	var lines := UI.wrap_text(desc, 266.0, "body").split("\n")
+	var rule := 104.0 + (facts_n - 1) * 26.0 + 16.0
+	var first := rule + 10.0 + f.get_ascent(n)
+	var end := first + (lines.size() - 1) * line_h + f.get_descent(n)
+	var parts := end + 10.0 + lf.get_ascent(ln) if has_parts else end
+	var bottom := (parts + lf.get_descent(ln) if has_parts else end) + 16.0
+	return {"lines": lines, "line_h": line_h, "rule": rule, "first": first, "parts": parts,
+		"height": minf(roundf(bottom), RIGHT.size.y - 46.0), "needs": roundf(bottom)}
 
 
 func _describe(reach: Dictionary, heal: int) -> String:

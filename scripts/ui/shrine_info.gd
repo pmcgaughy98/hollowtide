@@ -7,6 +7,9 @@ const Arena := preload("res://scripts/arena/arena_prototype.gd")
 const Finish := preload("res://scripts/arena/creature_finish.gd")
 const WAY_NAMES := {"flank": "Pincer hits", "ambush": "Hits on sleepers", "took": "Damage taken", "slam": "Slams", "healed": "Health restored"}
 const SERVICES := ["growth", "stone_ask", "evolve_ask"]
+## What the shrine says of a line nobody has seen grow (Claude, 2026-10-22, W23; a proposal line): it replaces
+## "Later forms not defined" and "No evolution conditions are defined", which read as unfinished data.
+const UNSEEN := "Nobody in Highbank has seen this line grow."
 var town: Node2D
 var screen: PanelContainer
 var members: VBoxContainer
@@ -192,6 +195,7 @@ func _rebuild() -> void:
 func select(k: int) -> void:
 	var count: int = town._record().get("party", []).size()
 	if count == 0: return
+	if posmod(k, count) != selected: UI.tick("cursor")   # W/S or a click moved the choice (Claude, 2026-10-22, W23)
 	selected = posmod(k, count)
 	# Selection offers the same confirmation for this creature; no rule or record changes.
 	if town.stone_state() == "installed":
@@ -210,6 +214,7 @@ func _reveal_selected() -> void:
 		members.get_parent().ensure_control_visible(members.get_child(selected))
 
 func _set_tab(kind: String) -> void:
+	if kind != tab: UI.tick("cursor")
 	tab = kind
 	_render_detail()
 
@@ -253,8 +258,10 @@ func _render_detail() -> void:
 	head.add_child(title)
 	title.add_child(_label(data["name"], "name", UI.EDGE_LIGHT))
 	title.add_child(_label("Lv %d    Sense %d" % [data["level"], data["iq"]], "number"))
-	title.add_child(_label("Final stage" if data["final"] else ("Later forms not defined" if data["next"] == "" else "Next form: " + data["next"]), "body", UI.MUTED))
+	title.add_child(_label("Final stage" if data["final"] else (UNSEEN if data["next"] == "" else "Next form: " + data["next"]), "body", UI.MUTED))
 	if tab == "growth":
+		if not data["conditions"].is_empty():
+			details.add_child(_label("To grow", "label", UI.EDGE_LIGHT))   # the rows' heading (Claude, 2026-10-22, W24)
 		for condition in data["conditions"]:
 			var row := HBoxContainer.new()
 			row.custom_minimum_size.y = 26
@@ -262,32 +269,32 @@ func _render_detail() -> void:
 			var label := _label(condition[0], "body")
 			label.custom_minimum_size.x = 180
 			row.add_child(label)
-			var bar := ProgressBar.new()
+			# The game's own gauge (UI.bar: dark well, fill, brass rim), green once met, as on the Team screen
+			# (Claude, 2026-10-22, W23; it was a ProgressBar in flat boxes).
+			var met: bool = int(condition[1]) >= int(condition[2])
+			var frac: float = float(condition[1]) / maxf(1.0, float(condition[2]))
+			var bar := Control.new()
+			bar.name = "Gauge"
 			bar.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 			bar.size_flags_vertical = Control.SIZE_SHRINK_CENTER
-			bar.custom_minimum_size.y = 9
-			bar.max_value = maxf(1, condition[2])
-			bar.value = condition[1]
-			bar.show_percentage = false
-			for state in ["background", "fill"]:
-				var style := StyleBoxFlat.new()
-				style.bg_color = UI.PANEL.darkened(0.35) if state == "background" else UI.EVO
-				bar.add_theme_stylebox_override(state, style)
+			bar.custom_minimum_size.y = 10
+			bar.mouse_filter = Control.MOUSE_FILTER_IGNORE
+			bar.draw.connect(func() -> void: UI.bar(bar, Rect2(Vector2.ZERO, bar.size), frac, UI.HP_GOOD if met else UI.EVO))
 			row.add_child(bar)
-			var count := _label("%d / %d" % [condition[1], condition[2]], "number", UI.EVO)
+			var count := _label("%d / %d" % [condition[1], condition[2]], "number", UI.HP_GOOD if met else UI.EVO)
 			count.custom_minimum_size.x = 122
 			count.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
 			row.add_child(count)
 		var message: String = "This is its final form." if data["final"] else (("All conditions met. This creature can grow here." if town.stone_state() == "installed" else "All conditions met. Ready here once the shrine is awake.") if data["ready"] else "Keep exploring to meet the remaining conditions.")
-		if not data["final"] and data["conditions"].is_empty(): message = "No evolution conditions are defined for this line yet."
-		details.add_child(_label(message, "body", UI.EVO if data["ready"] else UI.MUTED))
+		if not data["final"] and data["conditions"].is_empty(): message = "" if data["next"] == "" else UNSEEN   # the head row already says it
+		if message != "": details.add_child(_label(message, "body", UI.EVO if data["ready"] else UI.MUTED))
 	else:
 		details.add_child(_label("Known moves", "label", UI.EDGE_LIGHT))
 		for move in data["moves"]: details.add_child(_label(_move_name(move)))
 		_learn_rows("This form's learnset", data["learn"], false)
 		_learn_rows("After growing into " + data["next"], data["next_learn"], false)
-		_learn_rows("This form: unavailable in the dungeon", data["waiting"], true)
-		_learn_rows("Next form: unavailable in the dungeon", data["next_waiting"], true)
+		# Moves the Hollow cannot teach yet stay off the page (Claude, 2026-10-22, W23): "unavailable in the
+		# dungeon" read as unfinished data. They are still in data["waiting"] and data["next_waiting"].
 		if not data["pending"].is_empty():
 			details.add_child(_label("Waiting for the next run's move choice", "label", UI.EDGE_LIGHT))
 			for move in data["pending"]: details.add_child(_label(_move_name(move)))
@@ -304,6 +311,7 @@ func _learn_rows(heading: String, entries: Array, waiting: bool) -> void:
 		details.add_child(_label("%s   %s%s" % [when, _move_name(entry[1]), " (not taught yet)" if waiting else ""]))
 
 func _close() -> void:
+	UI.tick("cancel")
 	town.panel = {}
 	screen.hide()
 

@@ -640,7 +640,7 @@ func _sound(stream: AudioStream) -> void:
 	var p := AudioStreamPlayer.new()
 	p.stream = stream
 	p.volume_db = -6.0
-	p.bus = &"Master"
+	p.bus = &"UI"   # title clicks with the other clicks (FEEL-08; Claude, 2026-10-22)
 	add_child(p)
 	p.finished.connect(p.queue_free)
 	p.play()

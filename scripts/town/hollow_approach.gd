@@ -14,15 +14,16 @@ extends Node2D
 ## Two modes since Preston's opening (2026-10-10: wake in the flood, retreat into the Hollow, a first dungeon
 ## with no boss, then the theft in town):
 ##   "flood"    from the waking scene: the team runs from where it woke to the walkway, straight up to the
-##              door, no turning back, into the Hollow Mouth (dungeon.gd "mouth", two floors, no boss).
-##   "teleport" from town, Mystery Dungeon style: the team arrives in a column of light at the foot of the
+##              door, no turning back, into the Hollow Mouth (dungeon.gd "mouth", four floors, no boss).
+##   "teleport" from town: the team arrives in a column of light at the foot of the
 ##              walkway, Enter or Back to Highbank, then up to the door and into The Hollow.
 
 const Finish := preload("res://scripts/arena/creature_finish.gd")
 const UI := preload("res://scripts/ui/ui_style.gd")
 const Lines := preload("res://scripts/creatures/lines.gd")
 const TeamState := preload("res://scripts/town/team_state.gd")
-const ENTRANCE := "res://assets/sprites/world/waking_bank_2026_10_10/entrance_native.png"
+const Music := preload("res://scripts/audio/music.gd")
+const ENTRANCE :="res://assets/sprites/world/waking_bank_2026_10_10/entrance_native.png"
 const EntranceFinish := preload("res://scripts/ui/hollow_entrance_finish.gd")
 const NODE_AT := Vector2(244, 79)          # the bank end of the stone walkway in waking_bank.gd
 const DOOR_AT := Vector2(192, 110)         # the doorway's foot in the entrance painting, at 384x216
@@ -113,9 +114,14 @@ func _ready() -> void:
 	veil.color = Color(0, 0, 0, 1)
 	veil.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	ui.add_child(veil)
+	# The town's black fade lifts onto this scene's own veil (Claude, 2026-10-22, GS-11); a check that adds
+	# the scene as a plain child gets none.
+	if get_tree().current_scene == self or get_tree().root.has_node(UI.FADE_NAME):
+		UI.fade_in(get_tree())
 	if mode == "flood":
 		_run_bank()
 	else:
+		Music.play(get_tree(), "hollow_flute")   # the walk up from town has its own tune (FEEL-14); the flood keeps the storm's
 		_arrive()
 
 
@@ -205,6 +211,7 @@ func _back_to_town() -> void:
 	prompt.hide()
 	await _fade(1.0)
 	TeamState.data["party"] = party.duplicate(true)
+	TeamState.data["arrive_at"] = "gate"   # back where the team left: below the Mouth (FLOW-08), not at Home
 	var town: Node = load("res://scenes/hub_town.tscn").instantiate()
 	TeamState.give_to(town)
 	if is_inside_tree() and get_tree().current_scene == self:

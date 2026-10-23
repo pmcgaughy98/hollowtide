@@ -3,7 +3,8 @@ extends SceneTree
 ## round the start, wild creatures asleep; a step is one turn and everyone else acts; walls and
 ## wall corners stop steps; bumping an enemy attacks it; a move with nobody in reach is refused
 ## for free; cooldowns count in turns; a wild creature wakes when seen; the autopilot clears a
-## floor and goes down the stairs; two creatures never share a tile and none stands in a wall.
+## floor and goes down the stairs; two creatures never share a tile and none stands in a wall;
+## twenty seeded floors with no jobs put no parcel on the floor (LP-14, 2026-10-22).
 ##   Godot --path . --fixed-fps 30 --script res://tools/debug/dungeon_check.gd
 ## Stills to docs/design/dungeon-slice-2026-10-09/.
 
@@ -141,6 +142,28 @@ func _run() -> void:
 		if e["team"] == 0:
 			team.append("%s %d/%d" % [e["name"], e["hp"], e["max_hp"]])
 	print("B2F: team %s; %d wild creatures asleep; the log ends: %s" % [str(team), dg.ents.filter(func(e: Dictionary) -> bool: return e["team"] == 1 and not e["awake"]).size(), str(dg.log_lines.slice(-4))])
+	# 6. The random pool never drops a parcel (Claude, 2026-10-22, LP-14): twenty seeded floors with no jobs
+	# taken, and no floor item of kind "parcel" on any of them; a parcel only ever comes from a taken delivery.
+	var parcel_floors := 0
+	var items_seen := 0
+	for sd in range(1, 21):
+		var d2: Node2D = load("res://scenes/dungeon.tscn").instantiate()
+		d2.floor_seed = sd * 101
+		d2.party = [[0, 0], [1, 0]]
+		d2.poll_input = false
+		d2.jobs = []
+		root.add_child(d2)
+		await _frames(2)
+		var found := 0
+		for it in d2.floor_items:
+			items_seen += 1
+			if String(it["kind"]) == "parcel":
+				found += 1
+		if found > 0:
+			parcel_floors += 1
+		d2.queue_free()
+		await process_frame
+	print("Stock: 20 seeded floors with no jobs, %d floor items, a parcel lying on %d floors%s" % [items_seen, parcel_floors, "" if parcel_floors == 0 else " (WRONG)"])
 	quit()
 
 

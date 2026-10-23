@@ -10,7 +10,9 @@ A human soul becoming a creature, a partner, a guild and a first mission is Expl
 and the genre's. What we do not copy: waking on a beach at sunset with no memory, a partner who just walks
 by, the guild's entry gimmicks. Every beat here has a Hollowtide reason.
 
-## The arc
+## The arc (superseded)
+Superseded the same day by "The opening, revised" below, which is the order the game plays and the order
+`tools/debug/pilot_chain_check.gd` runs. Kept because the reasons behind each beat still hold (marked 2026-10-22).
 1. **The night it starts.** The soul arrives (the presence speaks, the soul picks its creature;
    `scenes/soul_prologue.tscn`). The same night the riverbank collapses and **The Hollow rises out of
    the river**. These are one event: the presence is tied to what lies in the Warden's pond.
@@ -65,6 +67,10 @@ of Sky way, by what would live in each place:
 Skimlet, Ozbender and Valvekin join their floors once Preston picks their takes
 (`docs/creatures/hollow-wilds-2026-10-10.md`).
 
+The two Hollow rows above are stale against `DUNGEONS["hollow"]["spawns"]` in `scripts/dungeon/dungeon.gd` (Grok,
+2026-10-12). Grok rewrites them: FLOW-17 in `docs/team/GROK_TASKS_2026-10-22.md`; the numbers are his. The Mouth is not
+in this table; its stock is `DUNGEONS["mouth"]`. The Rootbank Warren rows match the code (checked 2026-10-22).
+
 ## Still Preston's to decide
 - Which creature is the partner, and does it get its own name?
 - The town role creatures' designs (Claude proposes stage 3s for the shop, scroll keeper, storage,
@@ -86,13 +92,16 @@ Skimlet, Ozbender and Valvekin join their floors once Preston picks their takes
 Preston: reincarnate during the flood, the partner is there, it is dire so the two retreat into the Hollow; that is the first dungeon, with no boss; the partner then shows the parcel, it is stolen, and the second dungeon is the first boss, the rival crew. Claude's lean on the open choices was approved with it:
 1. The soul arrives (unchanged).
 2. Waking on the riverbank mid-flood (Codex's walkable riverbank, `scripts/riverbank_journey.gd`). The first time, the ruin and its stone path rise out of the river (`scripts/ui/hollow_rise.gd`): the team are the first to set foot in it. The road to Highbank is under water.
-3. Dungeon 1, the Hollow Mouth (working name; `dungeon.gd` "mouth"): the outer Hollow, two floors, no boss, a tutorial. Its last stairs clear it. Later: a rumble and a presence in the deep to foreshadow the Warden (not built yet).
-4. Out the far side, the partner shows the one parcel saved, still dry (not built yet).
-5. Highbank, the Job Board: the theft. Gruntle shoves the partner and the crew takes the parcel (board scene; the snatch is not built yet).
-6. The guild: Starward turned the trainee away for having no partner; now there are two, and the trial is to bring back what was stolen (guild scene lines to change; not built yet).
+3. Dungeon 1, the Hollow Mouth (working name; `dungeon.gd` "mouth"): the outer Hollow, four floors (Preston, 2026-10-11; `DUNGEONS["mouth"]["floors"]`), no boss, a tutorial. Its last stairs clear it. On the way out a rumble and a presence below foreshadow the Warden (built: `dungeon.gd` `_mouth_exit`).
+4. Out the far side, the partner shows the one parcel saved, still dry (built: the last lines of `_mouth_exit`, then the dawn walk to Highbank in `scripts/mouth_escape.gd` with `dialogue/road_to_highbank.dialogue`).
+5. Highbank, the Job Board: the theft. Gruntle shoves the partner and the crew takes the parcel (built: `scripts/town/board_scene.gd`; story `parcel` goes from "saved" to "stolen").
+6. The guild: Starward turned the trainee away for having no partner; now there are two, and the trial is to bring back what was stolen (built: `scripts/town/guild_scene.gd`, the stolen-parcel line sets; story `guild_trial`).
 7. Dungeon 2, Rootbank Warren: the first boss, the rival crew; the parcel comes back, the two become runners.
 8. Later, The Hollow again by teleport from town (`scripts/town/hollow_approach.gd` "teleport"), deeper: the Warden twist, the pond stone, the Growth Shrine.
 Checks: `tools/debug/flood_opening_check.gd` (steps 2 and 3, the rise, the road, the no-boss clear).
 
 ## The Wayline Hall on two floors (2026-10-10 late)
-Preston chose two floors, like Sky's guild. Upstairs is the work floor, where the guild scenes still play. Stairs lead down to the lower floor: the roll-call floor, crew and runners' rooms (not yet enterable), the mess hall, and the door to Starward's chamber. Once the trial is set, Starward waits in the chamber and speaks by story state. Claude's drafts for Preston: the room names and lines. Next: move the morning roll call and the runners naming onto the lower floor, and open the runners' room once the team are runners.
+Preston chose two floors, like Sky's guild. Upstairs is the work floor, where the guild scenes still play. Stairs lead down to the lower floor: the roll-call floor, the crew room (a door you read, not enter) and the runners' room (its door opens once the team are runners: the `town_room.gd` link needs "runner"), the mess hall, and the door to Starward's chamber. Once the trial is set, Starward waits in the chamber and speaks by story state. Claude's drafts for Preston: the room names and lines. Done since: the morning mail call (the roll call in this plan) plays on the lower floor once before each run after the Wayline has taken the team on (`scripts/town/guild_crew.gd`), and the two are named runners when the parcel comes back (`guild_scene.gd`, story `runner`).
+
+## Where the alpha stops (factory plan, 2026-10-22)
+The build ends after the first growth at the Growth Shrine: the end card (fade, 'The first stretch of Hollowtide', three lines of what comes next, 'Thanks for running it.', 'E  Keep running routes'), then Highbank with every Hollow open and the objective line "That's the first stretch. Run the Hollows again or rest at home." Section 9 of `docs/team/sweep-2026-10-20/FACTORY_PLAN_2026-10-22.md` is the authority; `docs/team/TESTER_NOTES.md` says the same for testers.

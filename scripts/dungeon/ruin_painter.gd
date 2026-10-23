@@ -9,6 +9,7 @@ const USE_TILE_ART := false
 ## seams, cracks, silt and standing water; walls of carved stone blocks, dark and wet, a green water
 ## line at their foot where the river once stood. A set of 24 px tiles is drawn once and stamped.
 ##   Painter.paint(data, t, seed) -> Image, the same call as floor_painter.gd
+##   Painter.paint(data, t, seed, "mouth") for the Hollow Mouth (Claude, 2026-10-22, WORLD-01); see VARIANTS
 
 const Gen := preload("res://scripts/hollow/hollow_gen.gd")
 
@@ -25,6 +26,18 @@ const MORTAR := Color("#262c2b")
 const LIP := Color("#7b8780")
 const ALGAE := Color("#3f5e37")
 const ALGAE_HI := Color("#5b7d45")
+
+## The Mouth's look (Claude, 2026-10-22, WORLD-01): the same stone where the river still reaches it, silt-washed
+## paler and warmer, the moss yellower in the light near the entrance, and the river's old high-water marks lying
+## across the slabs as thin silt lines. paint() takes `variant`: "hollow" (the default, the look above, unchanged)
+## or "mouth". An unknown name paints the Hollow.
+const STONE_MOUTH := [Color("#9c9d8f"), Color("#a2a293"), Color("#abaa98"), Color("#96988c"), Color("#a4a69a")]
+const MOSS_MOUTH := Color("#6d883d")
+const MOSS_MOUTH_LO := Color("#556b31")
+const VARIANTS := {
+	"hollow": {"stone": STONE, "moss": MOSS, "moss_lo": MOSS_LO, "silt_lines": false},
+	"mouth": {"stone": STONE_MOUTH, "moss": MOSS_MOUTH, "moss_lo": MOSS_MOUTH_LO, "silt_lines": true},
+}
 
 static var _tiles := {}
 
@@ -119,16 +132,20 @@ static func _floor_set(t: int) -> Array:
 	return _tiles[key]
 
 
-static func paint(data: Dictionary, t: int, seed_value: int) -> Image:
+static func paint(data: Dictionary, t: int, seed_value: int, variant := "hollow") -> Image:
 	if USE_TILE_ART and t == 24: return TileArt.paint(data,t,seed_value,"ruin")
+	var look: Dictionary = VARIANTS.get(variant, VARIANTS["hollow"])   # Claude, 2026-10-22: the Hollow or the Mouth
+	var stones: Array = look["stone"]
 	var w: int = data["w"]
 	var h: int = data["h"]
 	var tiles: PackedByteArray = data["tiles"]
 	var W := w * t
 	var H := h * t
 	var img := Image.create(W, H, false, Image.FORMAT_RGBA8)
-	_slabs(img, seed_value)
-	_weather(img, data, t, seed_value)
+	_slabs(img, seed_value, look)
+	_weather(img, data, t, seed_value, look)
+	if look["silt_lines"]:
+		_silt_lines(img, data, t, seed_value)
 	for y in h:
 		for x in w:
 			if tiles[y * w + x] != Gen.WALL and y > 0 and tiles[(y - 1) * w + x] == Gen.WALL:
@@ -141,13 +158,16 @@ static func paint(data: Dictionary, t: int, seed_value: int) -> Image:
 	img.fill_rect(Rect2i(s - Vector2i(2, 2), Vector2i(24, 20)), SEAM)
 	img.fill_rect(Rect2i(s, Vector2i(20, 16)), Color(0.04, 0.05, 0.06))
 	for k in 3:
-		img.fill_rect(Rect2i(s + Vector2i(2 + k * 2, 2 + k * 5), Vector2i(16 - k * 4, 2)), STONE[2].lightened(0.1 - k * 0.05))
+		img.fill_rect(Rect2i(s + Vector2i(2 + k * 2, 2 + k * 5), Vector2i(16 - k * 4, 2)), stones[2].lightened(0.1 - k * 0.05))
 	return img
 
 
 ## Flagstones over the whole floor: rows of uneven slabs in a running bond, each slab its own tone,
 ## lit on the top-left, shaded bottom-right, a few specks, now and then a crack.
-static func _slabs(img: Image, seed_value: int) -> void:
+static func _slabs(img: Image, seed_value: int, look: Dictionary = {}) -> void:
+	if look.is_empty():
+		look = VARIANTS["hollow"]
+	var stones: Array = look["stone"]
 	var W := img.get_width()
 	var H := img.get_height()
 	var y := 0
@@ -158,7 +178,7 @@ static func _slabs(img: Image, seed_value: int) -> void:
 		var k := 0
 		while x < W:
 			var sw := 16 + int(_h(row * 131 + k, seed_value, 22) * 22)
-			var c: Color = STONE[int(_h(row, k, 23) * STONE.size())]
+			var c: Color = stones[int(_h(row, k, 23) * stones.size())]
 			c = c.lightened((_h(k, row, 24) - 0.5) * 0.12)
 			var r := Rect2i(x, y, sw, rh).intersection(Rect2i(0, 0, W, H))
 			if r.size.x > 0 and r.size.y > 0:
@@ -202,7 +222,11 @@ static func _noise(x: float, y: float, cell: float, k: int) -> float:
 
 ## Weather over the stones, in 2-pixel blocks: silt washed into soft stains, moss creeping out of the
 ## seams (more of it near the walls), and a few shallow pools left by the river.
-static func _weather(img: Image, data: Dictionary, t: int, seed_value: int) -> void:
+static func _weather(img: Image, data: Dictionary, t: int, seed_value: int, look: Dictionary = {}) -> void:
+	if look.is_empty():
+		look = VARIANTS["hollow"]
+	var moss_hi: Color = look["moss"]
+	var moss_lo: Color = look["moss_lo"]
 	var w: int = data["w"]
 	var tiles: PackedByteArray = data["tiles"]
 	var W := img.get_width()
@@ -239,10 +263,51 @@ static func _weather(img: Image, data: Dictionary, t: int, seed_value: int) -> v
 							c = c.lerp(SILT, clampf((silt - 0.66) * 2.2, 0.0, 0.5))
 						if moss > 0.74 or (moss > 0.71 and (x + y) % 2 == 0):
 							# Solid clumps, two tones from a second, finer noise; a dithered rim.
-							c = MOSS if _noise(x, y, 6.0, 36) > 0.45 else MOSS_LO
+							c = moss_hi if _noise(x, y, 6.0, 36) > 0.45 else moss_lo
 						elif moss > 0.66 and c.v < 0.3:
-							c = MOSS_LO   # moss starting in the seams around a clump
+							c = moss_lo   # moss starting in the seams around a clump
 					img.set_pixel(x, y, c)
+
+
+## Mouth only (Claude, 2026-10-22, WORLD-01): the river's old high-water marks, thin broken silt lines lying
+## across the flagstones in twos and threes, a band of them every so often down the floor. Standing water is
+## left alone (the mark stops at the shore); wall tiles are skipped, and the walls are drawn over them after.
+static func _silt_lines(img: Image, data: Dictionary, t: int, seed_value: int) -> void:
+	var w: int = data["w"]
+	var tiles: PackedByteArray = data["tiles"]
+	var W := img.get_width()
+	var H := img.get_height()
+	var s := seed_value % 757
+	var y := 5 + int(_h(s, 0, 40) * 12)
+	var band := 0
+	while y < H - 3:
+		var lines := 2 + int(_h(band, s, 41) * 2)
+		for n in lines:
+			var ly := y + n * (2 + int(_h(band, n, 42) * 2))
+			if ly >= H:
+				break
+			var x := 0
+			while x < W:
+				var run := 10 + int(_h(x + band * 97, ly, 43) * 26)
+				var gap := 3 + int(_h(x, ly + band, 44) * 9)
+				if _h(x, band * 13 + n, 45) > 0.3:
+					for k in run:
+						var px := x + k
+						if px >= W:
+							break
+						if tiles[(ly / t) * w + px / t] == Gen.WALL:
+							continue
+						var c: Color = img.get_pixel(px, ly)
+						if c.b > c.r + 0.1:
+							continue   # standing water
+						img.set_pixel(px, ly, c.lerp(SILT, 0.6))
+						if ly + 1 < H and _h(px, ly, 47) > 0.5:
+							var under: Color = img.get_pixel(px, ly + 1)
+							if under.b <= under.r + 0.1:
+								img.set_pixel(px, ly + 1, under.lerp(SILT, 0.25))   # a softer pixel under the line
+				x += run + gap
+		y += 16 + int(_h(band, s, 46) * 16)
+		band += 1
 
 
 ## Walls: the top of carved masonry seen from above, a lit lip where it meets the floor, and where a

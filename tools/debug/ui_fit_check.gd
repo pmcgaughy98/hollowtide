@@ -8,6 +8,12 @@ extends SceneTree
 ##   5. right-aligned hints kept on screen,
 ##   6. the message box leaving after LOG_LINGER seconds and coming back on news,
 ##   7. the corner map inside the top right, clear of the team panel.
+## Added 2026-10-22 (Claude, the factory pass, UI-08):
+##   8. the town's 760 x 128 sign panel at two lines (the street) and three (a room), every sign text in it,
+##   9. the Team screen's move box: every move's description in its five lines, above the body-part note,
+##  10. the Growth Shrine's rows for every line that grows: condition names, counts and team buttons,
+##  11. the dialogue box with every line in dialogue/*.dialogue (the longest named),
+##  12. the title's Options and How to play panels ending by 636 (LP-01, LP-02).
 ## Headless it only measures:
 ##   Godot --headless --path . --script res://tools/debug/ui_fit_check.gd
 ## In a window it also saves proof shots to docs/ui/ui-fit-2026-10-14/:
@@ -16,7 +22,12 @@ extends SceneTree
 const UI := preload("res://scripts/ui/ui_style.gd")
 const Dungeon := preload("res://scripts/dungeon/dungeon.gd")
 const Arena := preload("res://scripts/arena/arena_prototype.gd")
+const Lines := preload("res://scripts/creatures/lines.gd")
+const Layout := preload("res://scripts/town/town_layout.gd")
 const OUT := "res://docs/ui/ui-fit-2026-10-14/"
+## The brass bevel of a UI.panel frame, measured from assets/sprites/ui/frame/panel.png (Claude, 2026-10-22):
+## rows 0 to 11 from the edge are the frame, the weave starts at 12. FRAME_MARGIN's 24 adds 12 px of padding.
+const FRAME_BEVEL := 12.0
 
 var fails := 0
 var shots := false
@@ -36,6 +47,11 @@ func _ok(cond: bool, what: String) -> void:
 func _frames(n: int) -> void:
 	for k in n:
 		await process_frame
+
+
+## How many lines `s` takes when drawn with draw_multiline_string at `width` (Claude, 2026-10-22).
+func _lines(f: Font, s: String, width: float, size: int) -> int:
+	return int(round(f.get_multiline_string_size(s, HORIZONTAL_ALIGNMENT_LEFT, width, size).y / f.get_height(size)))
 
 
 func _snap(name: String) -> void:
@@ -88,7 +104,7 @@ func _run() -> void:
 		var bottom: float = Opening.call("menu_top", n) + 32.0 + n * 54.0 + (n - 1) * 6.0
 		_ok(bottom <= 596.0, "title, %d rows: menu ends at %.0f, above the key line at 608" % [n, bottom])
 	# 5. Right-aligned hints, grown left when too wide: on screen at both ends.
-	for s in ["WASD walk   E use", "The Hollow's mouth starts a run"] + Dungeon.HUD_KEYS:
+	for s in ["WASD  walk     E  use", "The Hollow's mouth starts a run"] + Dungeon.HUD_KEYS:
 		var w := UI.width_in(s, UI.fit(s, "label", 194))
 		var left := 946.0 + 194.0 - maxf(194.0, w)
 		_ok(left >= 0.0 and left + maxf(194.0, w) <= 1152.0, "hint '%s': %.0f px, drawn from x %.0f to 1140" % [s, w, left])
@@ -99,6 +115,119 @@ func _run() -> void:
 			var sc := Dungeon.minimap_scale(w, h)
 			worst = Vector2(maxf(worst.x, w * sc), maxf(worst.y, h * sc))
 	_ok(1136.0 - worst.x - 8.0 >= 360.0 and 44.0 + worst.y + 8.0 <= 260.0, "corner map: at most %.0f x %.0f px, left edge %.0f clear of the team panel's 352" % [worst.x, worst.y, 1136.0 - worst.x - 8.0])
+	# 8. The town's sign panel, Rect2(196, 452, 760, 128) (Claude, 2026-10-22, UI-08). On the street
+	# (hub_town.gd) the text starts at y 64 with two lines at 716 px, above the key hint at 116; in a room
+	# (town_room.gd) at y 50 with three lines at 700 px, inside the frame. A longer text is cut, not wrapped.
+	var head_h: float = UI.HEAD.get_height(18)
+	var frame_b := FRAME_BEVEL
+	var hint_top: float = 116.0 - UI.font("label").get_ascent(UI.type_size("label"))
+	var street_end: float = 64.0 + head_h + UI.HEAD.get_descent(18)
+	_ok(street_end <= hint_top, "town panel, 2 lines: the text ends at %.0f, above the key hint's top at %.0f" % [street_end, hint_top])
+	var room_end: float = 50.0 + 2.0 * head_h + UI.HEAD.get_descent(18)
+	_ok(room_end <= 128.0 - frame_b, "town panel, 3 lines: the text ends at %.0f, inside the frame at %.0f" % [room_end, 128.0 - frame_b])
+	var signs := 0
+	var sign_cut: Array[String] = []
+	for p in Layout.PLACES:
+		if String(p.get("service", "")) in ["growth", "storage"]:
+			continue   # the shrine and storage draw their own panels
+		signs += 1
+		var n := _lines(UI.HEAD, String(p.get("what", "")), 716.0, 18)
+		if n > 2:
+			sign_cut.append("%s (%d lines)" % [p["name"], n])
+	var rooms: Dictionary = load("res://scripts/town/town_room.gd").get_script_constant_map()["ROOMS"]
+	for r in rooms:
+		for spot in rooms[r].get("spots", []):
+			if String(spot.get("what", "")) == "" or String(spot.get("service", "")) == "storage":
+				continue
+			signs += 1
+			var n := _lines(UI.HEAD, String(spot["what"]), 700.0, 18)
+			if n > 3:
+				sign_cut.append("%s in %s (%d lines)" % [spot["name"], r, n])
+	_ok(sign_cut.is_empty(), "town panel: %d sign texts, each within its lines (street 2, room 3)%s" % [signs, "" if sign_cut.is_empty() else "; cut short: " + ", ".join(sign_cut)])
+	# 9. The Team screen's move box, measured by the screen itself (party_screen.gd move_box, LP-08): with four
+	# facts shown (Ready in as well), every move's description in the body face at 266 px with the body-part note
+	# right under it, the box as tall as that and inside the right panel (RIGHT less 46 px).
+	var ps: Control = load("res://scripts/ui/party_screen.gd").new()
+	var MoveBody: GDScript = load("res://scripts/moves/move_body.gd")
+	var cap: float = (ps.RIGHT as Rect2).size.y - 46.0
+	var desc_end := 0.0
+	var desc_bad: Array[String] = []
+	for m in Arena.MOVES:
+		var txt: String = ps._describe(Dungeon.move_reach(m), int(Arena.MOVES[m].get("heal", 0)))
+		var box: Dictionary = ps.move_box(txt, 4, not MoveBody.NEEDS.get(m, []).is_empty())
+		desc_end = maxf(desc_end, float(box["needs"]))
+		if float(box["needs"]) > cap:
+			desc_bad.append("%s (%d lines, %.0f px)" % [m, box["lines"].size(), box["needs"]])
+	ps.free()
+	_ok(desc_bad.is_empty(), "team move box: %d moves, the tallest box %.0f of %.0f px%s" % [Arena.MOVES.size(), desc_end, cap, "" if desc_bad.is_empty() else "; over: " + ", ".join(desc_bad)])
+	# 10. The Growth Shrine (shrine_info.gd) for every line that grows: each condition's name in its 180 px
+	# column, its count with a three-digit tally in the 122 px column, every form's name on a 206 px button.
+	var way_names: Dictionary = load("res://scripts/ui/shrine_info.gd").get_script_constant_map()["WAY_NAMES"]
+	var cond_w := 0.0
+	var count_w := 0.0
+	var shrine_bad: Array[String] = []
+	for ln in Dungeon.EVO:
+		var r: Dictionary = Dungeon.EVO[ln]
+		var forms: Array = Lines.of(ln)["forms"]
+		for st in [0, 1]:
+			var conds := [["Level", Dungeon.EVO_LEVEL[st]], ["Knockouts", r["kos"][st]], ["Floors cleared", r["floors"][st]], [way_names.get(r["way"], r["way"]), r["need"][st]]]
+			for c in conds:
+				var lw := UI.width_in(String(c[0]), "body")
+				var count := "%d / %d" % [maxi(999, int(c[1])), int(c[1])]
+				var cw := UI.width_in(count, "number")
+				cond_w = maxf(cond_w, lw)
+				count_w = maxf(count_w, cw)
+				if lw > 180.0 or cw > 122.0:
+					shrine_bad.append("line %d stage %d: '%s' %.0f px, '%s' %.0f px" % [ln, st + 1, c[0], lw, count, cw])
+		for f in forms:
+			var nm := String(load(f[1]).creature_name)
+			var nw := UI.width_in(nm, UI.fit(nm, "name", 206))
+			if nw > 206.0:
+				shrine_bad.append("%s %.0f px on its button" % [nm, nw])
+	_ok(shrine_bad.is_empty(), "shrine rows: %d growing lines, widest condition %.0f of 180 px, widest count %.0f of 122 px%s" % [Dungeon.EVO.size(), cond_w, count_w, "" if shrine_bad.is_empty() else "; over: " + "; ".join(shrine_bad)])
+	# 11. The dialogue box (UI.dialogue, 760 x 116) with every line of dialogue/*.dialogue. A name slot
+	# ({{...}}) is filled with the widest creature name; a spoken line is measured beside a portrait (528 px),
+	# narration across the box (690 px). Each page is two rows: both inside the frame, each row within the width.
+	var fill := ""
+	for nm in names:
+		if UI.width_in(nm, "story") > UI.width_in(fill, "story"):
+			fill = nm
+	var story_n := UI.type_size("story")
+	var page_end: float = 54.0 + UI.font("story").get_height(story_n) + UI.font("story").get_descent(story_n)
+	_ok(page_end <= 116.0 - frame_b, "dialogue box: a two-row page ends at %.0f, inside the frame at %.0f" % [page_end, 116.0 - frame_b])
+	var speaker := RegEx.create_from_string("^(\\{\\{\\w+\\}\\}|[A-Z][\\w' ]{0,24}):\\s+(.*)$")
+	var tags := RegEx.create_from_string("\\[[^\\]]*\\]")
+	var slots := RegEx.create_from_string("\\{\\{\\w+\\}\\}")
+	var said := 0
+	var longest := ""
+	var longest_pages := 0
+	var wide_rows: Array[String] = []
+	for f in DirAccess.get_files_at("res://dialogue/"):
+		if not f.ends_with(".dialogue"):
+			continue
+		for raw in FileAccess.get_file_as_string("res://dialogue/" + f).split("\n"):
+			var s := raw.strip_edges()
+			if s == "" or s == "else" or s.begins_with("- ") or s.begins_with("=>"):
+				continue
+			if ["#", "~", "do ", "set ", "if ", "elif ", "while ", "match ", "when ", "import ", "using "].any(func(p: String) -> bool: return s.begins_with(p)):
+				continue
+			var width := 690.0
+			var m := speaker.search(s)
+			if m != null:
+				s = m.get_string(2)
+				width = 760.0 - 70.0 - UI.PORTRAIT_INSET
+			s = slots.sub(tags.sub(s, "", true), fill, true).strip_edges()
+			if s == "":
+				continue
+			said += 1
+			var rows: PackedStringArray = UI._dialogue_rows(s, width)
+			for row in rows:
+				if UI.width_in(row, "story") > width + 10.0:
+					wide_rows.append("'%s' %.0f px" % [row, UI.width_in(row, "story")])
+			if s.length() > longest.length():
+				longest = s
+				longest_pages = ceili(rows.size() / 2.0)
+	_ok(said > 0 and wide_rows.is_empty(), "dialogue box: %d lines, every row within its width; the longest (%d letters) takes %d page%s%s" % [said, longest.length(), longest_pages, "" if longest_pages == 1 else "s", "" if wide_rows.is_empty() else "; too wide: " + ", ".join(wide_rows)])
 	# A live floor for 3, 6 and 7, with the longest names in the team.
 	var listener := -1
 	for i in Arena.LINES.size():
@@ -147,6 +276,29 @@ func _run() -> void:
 	menu.resume()
 	await _frames(4)
 	dg.queue_free()
+	await _frames(4)
+	# 12. The title's Options and How to play (both help topics) end by 636, clear of the key line below them
+	# (Claude, 2026-10-22, UI-08 for LP-01 and LP-02).
+	var title: Node = load("res://scenes/creature_opening.tscn").instantiate()
+	root.add_child(title)
+	var waited := 0
+	while not (title._boot_done and title._page == "main") and waited < 300:
+		await process_frame
+		waited += 1
+	if title._page == "main":
+		title._show_page("options", title._options_controls[0])
+		await _frames(4)
+		var op: Control = title._options_panel
+		_ok(op.position.y + op.size.y <= 636.0, "title Options: panel from %.0f to %.0f, to end by 636" % [op.position.y, op.position.y + op.size.y])
+		for topic in ["journey", "controls"]:
+			title._show_page("help", title._help_controls[0])
+			title._show_help_topic(topic)
+			await _frames(4)
+			var hp: Control = title._help_panel
+			_ok(hp.position.y + hp.size.y <= 636.0, "title How to play, %s: panel from %.0f to %.0f, to end by 636" % [topic, hp.position.y, hp.position.y + hp.size.y])
+	else:
+		_ok(false, "title: no main menu after %d frames" % waited)
+	title.queue_free()
 	await _frames(4)
 	print("ui fit: %s (%d failed)" % ["all ok" if fails == 0 else "FAILED", fails])
 	quit(1 if fails > 0 else 0)

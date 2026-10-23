@@ -3,6 +3,9 @@ extends RefCounted
 ## Code-native, seeded pixel clusters; source creature art and the blockout stay intact.
 const Layout = preload("res://scripts/town/town_layout.gd")
 const T = Layout.T
+# Claude, 2026-10-22 (WORLD-02): these four tones are a key, not the grass you see. highbank_painter.gd finds
+# this plain ground by them (its PLAIN_GRASS) and paints its TURF over it, and TURF is the valley's MEADOW
+# ramp, the one grass. Change these only together with PLAIN_GRASS.
 const GRASS = [Color("#637849"), Color("#677c4c"), Color("#6b804f"), Color("#6f8352")]
 const EARTH = [Color("#8b7c5b"), Color("#8f805e"), Color("#948461"), Color("#998866")]
 const STONE = [Color("#ac9874"), Color("#b5a07d"), Color("#bea986"), Color("#c4ae8b")]

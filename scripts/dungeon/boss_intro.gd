@@ -138,6 +138,7 @@ static func _ambience(dg) -> void:
 	stream.loop_end = int(stream.get_length() * stream.mix_rate)
 	var p := AudioStreamPlayer.new()
 	p.stream = stream
+	p.bus = &"SFX"   # Claude, 2026-10-22 (FEEL-08): the pond bed rides the SFX slider, never Master
 	p.volume_db = -30.0
 	dg.add_child(p)
 	p.play()

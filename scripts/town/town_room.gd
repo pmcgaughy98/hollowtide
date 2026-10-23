@@ -25,7 +25,8 @@ const WALK_FPS := 12.0
 const DIRS := [Vector2i(1, 0), Vector2i(1, 1), Vector2i(0, 1), Vector2i(-1, 1), Vector2i(-1, 0), Vector2i(-1, -1), Vector2i(0, -1), Vector2i(1, -1)]
 
 ## Each room: its size in tiles (walls included), its door (on the bottom wall), the furniture that
-## blocks walking, and the spots that answer E. The texts are Claude's drafts.
+## blocks walking, and the spots that answer E. The texts are Claude's drafts. A spot's "what_if" is
+## [story flag, text]: the text it shows once that flag is set (Claude, 2026-10-22, CR-02).
 const ROOMS := {
 	"storage": {"name": "Storage", "w": 17, "h": 13, "door": Vector2i(8,12), "town_door": "storage", "floor_top": 3,
 		"exit_rect": Rect2i(7,12,3,1),
@@ -35,7 +36,7 @@ const ROOMS := {
 	"home": {"name": "Home", "w": 14, "h": 10, "door": Vector2i(7, 9), "town_door": "home",
 		"solid": [Rect2i(1, 2, 3, 2), Rect2i(9, 2, 4, 1), Rect2i(6, 4, 3, 2), Rect2i(1, 7, 2, 2), Rect2i(11, 6, 2, 2)],
 		"spots": [
-			{"id": "bed", "rect": Rect2i(1, 2, 3, 2), "name": "Moss Bed", "what": "Rest here and the day ends: the team wakes up whole. (Saving comes with the save system.)"},
+			{"id": "bed", "rect": Rect2i(1, 2, 3, 2), "name": "Moss Bed", "what": "Rest here and the day ends: the team wakes up whole."},
 			{"id": "hearth", "rect": Rect2i(9, 2, 4, 1), "name": "Hearth", "what": "Warm stones and a kettle. The light the house is built round."},
 			{"id": "table", "rect": Rect2i(6, 4, 3, 2), "name": "Table", "what": "A lantern, a map of the river, the parcel slip from the first job."},
 			{"id": "shelf", "rect": Rect2i(1, 7, 2, 2), "name": "Shelf", "what": "Jars of reedberries and a stack of old Wayline reports."},
@@ -45,7 +46,7 @@ const ROOMS := {
 			Rect2i(1, 8, 1, 3), Rect2i(20, 8, 1, 3), Rect2i(5, 7, 2, 2), Rect2i(15, 7, 2, 2), Rect2i(2, 12, 2, 1), Rect2i(18, 12, 2, 1),
 			Rect2i(4, 6, 1, 1), Rect2i(17, 6, 1, 1)],
 		"spots": [
-			{"id": "counter", "rect": Rect2i(7, 3, 8, 2), "name": "Dispatch Counter", "what": "The dispatcher hands out the board's requests and takes reports. (The Job Board outside lists them.)", "service": "jobs"},
+			{"id": "counter", "rect": Rect2i(7, 3, 8, 2), "name": "Dispatch Counter", "what": "The dispatcher hands out the board's requests and takes reports.", "service": "jobs"},
 			{"id": "notices", "rect": Rect2i(2, 2, 2, 1), "name": "Notice Wall", "what": "Sightings, closures, a warning about a crew poaching deliveries."},
 			{"id": "roster", "rect": Rect2i(18, 2, 2, 1), "name": "Roster Board", "what": "Every team on the Wayline, by rank. Yours is near the bottom, for now."},
 			{"id": "benches", "rect": Rect2i(1, 8, 1, 3), "name": "Bench", "what": "Where couriers wait for the river to settle."},
@@ -69,7 +70,8 @@ const ROOMS := {
 			{"id": "window_w", "rect": Rect2i(3, 1, 2, 1), "name": "River Window", "what": "The Hall is cut into the bank. Through the glass the river runs a long way down."},
 			{"id": "window_e", "rect": Rect2i(25, 1, 2, 1), "name": "River Window", "what": "Rain on the glass, and the far bank green after the flood."},
 			{"id": "crew_room", "rect": Rect2i(0, 5, 1, 2), "name": "Crew Room", "what": "Bunks for the Hall's crew. Someone is snoring."},
-			{"id": "runners_room", "rect": Rect2i(29, 5, 1, 2), "name": "Runners' Room", "what": "Bunks kept for runners of the Wayline. The door is locked."},
+			{"id": "runners_room", "rect": Rect2i(29, 5, 1, 2), "name": "Runners' Room", "what": "Runners only. The door is locked.",
+				"what_if": ["runner", "Your bunks now. Rest here or go on."]},
 			{"id": "mess", "rect": Rect2i(3, 12, 6, 2), "name": "Mess Hall", "what": "The long table. Supper is at the end of the day, for whoever made it back."},
 			{"id": "hatch", "rect": Rect2i(1, 8, 1, 2), "name": "Kitchen Hatch", "what": "Something with river greens in it is simmering."},
 			{"id": "shelf", "rect": Rect2i(27, 2, 1, 1), "name": "Supply Shelf", "what": "Rope, lantern oil, spare satchels, a jar of reedberries."}],
@@ -81,7 +83,7 @@ const ROOMS := {
 	"runners": {"name": "Runners' Room", "w": 14, "h": 10, "door": Vector2i(-1, -1), "landing": Vector2i(1, 5), "hint": "The door leads back to the Hall",
 		"solid": [Rect2i(3, 2, 2, 2), Rect2i(8, 2, 2, 2), Rect2i(11, 7, 2, 1), Rect2i(12, 4, 1, 2)],
 		"spots": [
-			{"id": "bed", "rect": Rect2i(3, 2, 2, 2), "name": "Your Bunk", "what": "Moss and a wool blanket. Rest here and the day ends: the team wakes up whole. (Saving comes with the save system.)"},
+			{"id": "bed", "rect": Rect2i(3, 2, 2, 2), "name": "Your Bunk", "what": "Moss and a wool blanket. Rest here and the day ends: the team wakes up whole."},
 			{"id": "bunk2", "rect": Rect2i(8, 2, 2, 2), "name": "The Other Bunk", "what": "Already claimed. There's a reedberry on the pillow."},
 			{"id": "window", "rect": Rect2i(6, 1, 1, 1), "name": "Window", "what": "The river, and past it the road the flood covered."},
 			{"id": "firstrun", "rect": Rect2i(10, 1, 2, 1), "name": "First Run", "what": "The way to Rootbank Warren, inked by hand, with a star where the parcel was found."},
@@ -100,6 +102,12 @@ const ROOMS := {
 		"links": [{"rect": Rect2i(7, 10, 3, 1), "to": "hall_low", "at": Vector2i(14, 3), "facing": "s", "sfx": "door"}]},
 }
 const STAIRS_DOWN := Rect2i(14, 10, 2, 2)   # on the Hall's work floor, right of the runner
+# The bed (Claude, 2026-10-22, GS-10): the line on the panel when the screen comes back up, and the fade.
+const REST_LINE := "Morning. Highbank remembers."
+const REST_FADE := 0.35
+const REST_HOLD := 0.25   # the dark between the fades: the night
+# The key hints, bottom right, key then action in the column style the menus use (W12).
+const KEYS_HINT := "WASD  walk     E  use"
 
 @export var room_id := "home"
 var arrive := Vector2i(-1, -1)   # set when the team comes by stairs or a door from another room
@@ -122,6 +130,9 @@ var npcs: Array = []          # creatures in the room that are not the team
 var scene_fx := {}            # a scene's bubbles and props
 var force_scenes := false     # the checks set poll_input off; this still lets a scene play
 var _labels: Node2D
+var _resting := false         # the bed's fade is up: its panel waits until the screen comes back
+var rested := false           # the last rest saved the record (the checks read it)
+var _tick_frame := {}         # menu sound kind -> the frame it last played
 
 
 func room() -> Dictionary:
@@ -191,18 +202,9 @@ func _ready() -> void:
 	var d: Vector2i = r["door"]
 	if d.x < 0 and arrive.x < 0:
 		arrive = r.get("landing", Vector2i(r["w"] / 2, r["h"] - 3))   # a room with no town door: its landing, never off the map
+	var stands := _arrival_tiles(party.size())
 	for k in party.size():
-		var at := d + Vector2i(0, -1 - k)
-		if k > 0 and not _open(at):
-			at = d + Vector2i([1, -1][k % 2], -1)
-		if arrive.x >= 0:   # by stairs or an inner door: the leader on the landing, the others beside
-			at = arrive
-			for o in [Vector2i(0, 0), Vector2i(1, 0), Vector2i(-1, 0), Vector2i(0, 1), Vector2i(0, -1), Vector2i(1, 1), Vector2i(-1, 1)]:
-				var t: Vector2i = arrive + o * (1 if k > 0 else 0)
-				if _open(t) and not _link_at(t) and team.all(func(e: Dictionary) -> bool: return e["pos"] != t):
-					at = t
-					break
-		var e := _make(party[k][0], party[k][1], at)
+		var e := _make(party[k][0], party[k][1], stands[k])
 		e["facing"] = arrive_facing if arrive.x >= 0 else "n"
 		_place(e)
 		team.append(e)
@@ -223,6 +225,42 @@ func _ready() -> void:
 		(func() -> void: GuildCrew.run(self)).call_deferred()   # the morning mail call (R3, 2026-10-12)
 	else:
 		GuildCrew.place(self)   # the crew at their posts
+
+
+## Where the team stands on arrival (Claude, 2026-10-22, LP-18): through the town door, a short line straight
+## up from it; by stairs or an inner door, the leader on the landing and the rest nearest it. Each member gets
+## its own open tile that is not a solid rect, the way out, a stair or an inner door, found breadth-first from
+## the first tile when the straight line is blocked.
+func _arrival_tiles(n: int) -> Array:
+	var d: Vector2i = room()["door"]
+	var first: Vector2i = arrive if arrive.x >= 0 else d + Vector2i(0, -1)
+	var picked: Array = []
+	if arrive.x < 0:
+		for k in n:
+			var t := d + Vector2i(0, -1 - k)
+			if not _stand_ok(t, picked):
+				break
+			picked.append(t)
+	var seen := {first: true}
+	var queue: Array = [first]
+	while picked.size() < n and not queue.is_empty():
+		var c: Vector2i = queue.pop_front()
+		if _stand_ok(c, picked):
+			picked.append(c)
+		for o in [Vector2i(1, 0), Vector2i(-1, 0), Vector2i(0, 1), Vector2i(0, -1), Vector2i(1, 1), Vector2i(-1, 1), Vector2i(1, -1), Vector2i(-1, -1)]:
+			var nb: Vector2i = c + o
+			if not seen.has(nb) and _open(nb):
+				seen[nb] = true
+				queue.append(nb)
+	while picked.size() < n:   # too little floor for the team; no room above is that small
+		picked.append(first)
+	return picked
+
+
+func _stand_ok(t: Vector2i, taken: Array) -> bool:
+	var d: Vector2i = room()["door"]
+	var way_out: Rect2i = room().get("exit_rect", Rect2i(d, Vector2i.ONE))
+	return _open(t) and _link_at(t).is_empty() and not (d.x >= 0 and way_out.has_point(t)) and not t in taken
 
 
 ## The team record the town carries (scripts/town/team_state.gd).
@@ -389,14 +427,47 @@ func act_use() -> Dictionary:
 			return {"id": "talk_" + String(n["form"])}
 	for s in room()["spots"]:
 		if s["rect"].has_point(ahead) or s["rect"].has_point(lead["pos"]):
-			panel = {"name": "Storage", "service": "storage", "sel": 0, "said": ""} if s.get("service", "") == "storage" else s
+			panel = {"name": "Storage", "service": "storage", "sel": 0, "said": ""} if s.get("service", "") == "storage" else _spot_panel(s)
 			used_log.append(s["id"])
 			if s["id"] == "bed":
-				for e in team:
-					e["facing"] = "s"
-					_place(e)
+				rest()
 			return s
 	return {}
+
+
+## A spot's panel: a copy of the spot, its text swapped for "what_if" once that story flag is set (CR-02),
+## and the morning line on a bed (GS-10). Claude, 2026-10-22.
+func _spot_panel(s: Dictionary) -> Dictionary:
+	var p := s.duplicate()
+	var alt: Array = s.get("what_if", [])
+	if alt.size() == 2 and _record().get("story", {}).get(String(alt[0]), false):
+		p["what"] = String(alt[1])
+	if s["id"] == "bed":
+		p["what"] = REST_LINE
+	return p
+
+
+## The bed rests the team (Claude, 2026-10-22, GS-10): the screen fades out, the night passes, the record is
+## saved, and the screen comes back on the morning line. The town record holds no HP (every run starts at
+## full), so waking up whole needs nothing more. The save is made at once, so a check reads it without
+## waiting; the fade runs on the tree, so the screen comes back even if the room is gone by then.
+func rest() -> void:
+	for e in team:
+		e["facing"] = "s"
+		_place(e)
+	rested = TeamState.autosave()
+	if not is_inside_tree():
+		return
+	_resting = true
+	_night(get_tree(), self)
+
+
+static func _night(tree: SceneTree, host: Node) -> void:
+	await UI.fade_out(tree, REST_FADE)
+	await tree.create_timer(UI.motion_secs(REST_HOLD)).timeout
+	if is_instance_valid(host):
+		host.set("_resting", false)
+	UI.fade_in(tree, REST_FADE)
 
 
 ## The stairs or inner door under `t`, or {}.
@@ -505,6 +576,8 @@ func _poll() -> void:
 		act_use()
 		return
 	if _tapped(KEY_ESCAPE):
+		if not panel.is_empty():
+			UI.tick("cancel")   # GS-21: closing a panel sounds like every other back
 		panel = {}
 	var d := Vector2i(int(Input.is_key_pressed(KEY_D) or Input.is_key_pressed(KEY_RIGHT)) - int(Input.is_key_pressed(KEY_A) or Input.is_key_pressed(KEY_LEFT)),
 		int(Input.is_key_pressed(KEY_S) or Input.is_key_pressed(KEY_DOWN)) - int(Input.is_key_pressed(KEY_W) or Input.is_key_pressed(KEY_UP)))
@@ -526,17 +599,30 @@ func _draw_hud() -> void:
 	var goal: Dictionary = Objective.current(TeamState.data.get("story", {}), TeamState.data.get("beaten", []))
 	UI.panel(h, Rect2(6, 64, 600, 34), 0.9)
 	UI.text(h, Vector2(26, 87), "Next:  " + String(goal["short"]), 16, UI.TEXT, 570)
-	UI.text(h, Vector2(946, 562), "WASD walk   E use", 14, Color(UI.MUTED, 0.85), 194, HORIZONTAL_ALIGNMENT_RIGHT)
-	UI.text(h, Vector2(946, 580), String(room().get("hint", "The door leads back out")), 14, Color(UI.MUTED, 0.85), 194, HORIZONTAL_ALIGNMENT_RIGHT)
+	if panel.is_empty():
+		_draw_hints(h)
 	if panel.get("service", "") == "storage":
 		StoragePanel.draw(self, h)
 		return
-	if not panel.is_empty():
+	if not panel.is_empty() and not _resting:
 		var box := Rect2(196, 452, 760, 128)
 		UI.panel(h, box, 0.95)
 		UI.nameplate(h, box.position + Vector2(24, -22), String(panel["name"]))
 		h.draw_multiline_string(UI.HEAD, box.position + Vector2(30, 50), String(panel["what"]), HORIZONTAL_ALIGNMENT_LEFT, 700, 18, 3, UI.TEXT)
 		UI.next_arrow(h, box.end - Vector2(48, 36), Time.get_ticks_msec() / 1000.0)
+
+
+## The key hints and where the way out is, bottom right on a see-through panel strip sized to the wider
+## line (Claude, 2026-10-22, GS-21). The key line gets the width it needs in the label role (the key-hint
+## role), so the column spacing does not drop it to the tight font; the way-out line keeps its 194 px box
+## and grows left as before.
+func _draw_hints(h: Node2D) -> void:
+	var where := String(room().get("hint", "The door leads back out"))
+	var keys_w := maxf(194.0, ceilf(UI.width_in(KEYS_HINT, "label")) + 1.0)
+	var w := maxf(keys_w, UI.width_in(where, UI.fit(where, "label", 194.0)))
+	UI.panel(h, Rect2(1140.0 - w - 20.0, 542, w + 26.0, 48), 0.85)
+	UI.text(h, Vector2(1140.0 - keys_w, 562), KEYS_HINT, 14, Color(UI.MUTED, 0.85), keys_w, HORIZONTAL_ALIGNMENT_RIGHT)
+	UI.text(h, Vector2(946, 580), where, 14, Color(UI.MUTED, 0.85), 194, HORIZONTAL_ALIGNMENT_RIGHT)
 
 
 func storage_rows() -> Array:
@@ -548,11 +634,14 @@ func act_store(n: int) -> void:
 func act_store_move(dy: int) -> void:
 	StoragePanel.select_row(self, dy)
 
+## Menu sounds through the shared ticks, on the "UI" bus (Claude, 2026-10-22, GS-21): a kind the ticks do
+## not know plays nothing instead of loading a missing file. `last_sfx` stays the receipt the checks read.
+## One tick of a kind a frame: two in one frame sound as one, and the tick's first player is not yet in the
+## tree then (it joins at the frame's end).
 func _ui_sfx(name: String) -> void:
 	last_sfx = name
-	var p := AudioStreamPlayer.new()
-	p.stream = load("res://assets/audio/sfx/ui/%s.wav" % name)
-	p.volume_db = -8.0
-	add_child(p)
-	p.play()
-	p.finished.connect(p.queue_free)
+	var now := Engine.get_process_frames()
+	if int(_tick_frame.get(name, -1)) == now:
+		return
+	_tick_frame[name] = now
+	UI.tick(name)
