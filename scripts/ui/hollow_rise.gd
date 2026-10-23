@@ -180,6 +180,7 @@ func _sfx(name: String, db: float) -> void:
 	var p := AudioStreamPlayer.new()
 	p.stream = load(path)
 	p.volume_db = db
+	p.bus = &"SFX"
 	add_child(p)
 	p.play()
 	p.finished.connect(p.queue_free)

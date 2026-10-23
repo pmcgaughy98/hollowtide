@@ -1,6 +1,8 @@
 extends SceneTree
-## Player-fired abilities (Claude, 2026-10-07): Stormwick's Flashstep charges, Lantern Volley,
-## Lantern Lunge hit and miss, the pounce basic, and the ability bar.
+## Player-fired abilities (Claude, 2026-10-07): Stormwick's Ember Feint charges, Lantern Volley,
+## the pounce basic, and the ability bar. Updated 2026-10-22: Ember Feint replaced Flashstep on
+## 2026-10-08, Lantern Lunge became Lantern Tackle (arena_tackle_check), and since manual control
+## your creature's basic waits for J, so the pounce count runs your side on auto.
 ##   Godot --path . --fixed-fps 30 --script res://tools/debug/arena_abilities_check.gd
 ## Stills to docs/creatures/arena-feel-2026-10-07/abilities_*.png.
 
@@ -20,17 +22,15 @@ func _initialize() -> void:
 	var me: Dictionary = arena._fighters[0]
 	var foe: Dictionary = arena._fighters[1]
 	foe["stun"] = 60.0   # holds still for the staged casts
-	# 1. Flashstep: three charges, each on its own 3 s timer.
+	# 1. Ember Feint: two charges, each on its own 5 s timer; a third press is refused.
 	var before: Vector2 = me["body"].position
-	var used := 0
-	for k in 4:
-		var cd: float = me["cds"]["flashstep"]
+	for k in 3:
 		arena.cast(0)
 		await _frames(2)
-		if me["cds"]["flashstep"] != cd or k < 3:
-			used += 1
 		me["act"] = 0.0
-	print("Flashstep: charge timers after four presses %s (three should be charging, the fourth press refused); moved %.0f px" % [str(me["charge_cds"]["flashstep"].map(func(x): return snappedf(x, 0.1))), me["body"].position.distance_to(before)])
+	var timers: Array = me["charge_cds"]["ember_feint"]
+	var charging: int = timers.filter(func(x): return x > 0.0).size()
+	print("Ember Feint: charge timers after three presses %s, %d charging, last refusal '%s'%s; moved %.0f px" % [str(timers.map(func(x): return snappedf(x, 0.1))), charging, arena._why, "" if charging == timers.size() and arena._why.begins_with("EMBER FEINT IN") else " (WRONG)", me["body"].position.distance_to(before)])
 	_save("abilities_bar")
 	# 2. Lantern Volley: hops back, then three lantern balls in a spread.
 	me["body"].position = foe["body"].position + Vector2(-70, 0)
@@ -46,22 +46,9 @@ func _initialize() -> void:
 	print("Lantern Volley: hopped %.0f px back, %d lantern balls in the air" % [p0.distance_to(me["body"].position), balls])
 	_save("abilities_volley")
 	await _frames(30)
-	# 3. Lantern Lunge: lands from 75 px (in reach at the end), misses from 130 px.
-	for d in [75.0, 130.0]:
-		me["body"].position = foe["body"].position + Vector2(-d, 0)
-		me["cds"]["lantern_lunge"] = 0.0
-		me["act"] = 0.0
-		me["windup"] = {}
-		var hp: int = foe["hp"]
-		arena.cast(2)
-		while not me["windup"].is_empty() or me["ram_t"] > 0.0:
-			await process_frame
-		await _frames(2)
-		if d == 75.0:
-			_save("abilities_lunge_hit")
-		print("Lantern Lunge from %.0f px: Rampartroot HP %d -> %d (%s)" % [d, hp, foe["hp"], "HIT" if foe["hp"] < hp else "miss"])
-	# 4. The pounce basic in a live fight: count pounces the AI makes in 8 s.
+	# 3. The pounce basic in a live fight: count the pounces Stormwick's AI makes in 8 s (a reading, not a verdict).
 	foe["stun"] = 0.0
+	arena.auto_you = true   # manual control: your basic waits for J unless your side is on auto
 	arena._rival = 2   # Scourmaw: no roots, so the in-and-out rhythm shows
 	arena._new_match()
 	me = arena._fighters[0]
@@ -87,7 +74,7 @@ func _initialize() -> void:
 		was = me["ram_t"]
 		if k % 15 == 0:
 			dists.append(int(me["body"].position.distance_to(foe["body"].position)))
-	print("Pounce vs Scourmaw: %d wind-ups, %d pounces, %d wind-ups ended without a dash, in 8 s; distance every half second %s; abilities untouched by its AI: %s" % [windups, pounces, interrupted, str(dists), str(me["cds"]["lantern_volley"] <= 0.0 and me["cds"]["lantern_lunge"] <= 0.0)])
+	print("Pounce vs Scourmaw: %d wind-ups, %d pounces, %d wind-ups ended without a dash, in 8 s on auto (Kit Sense may pick abilities instead); distance every half second %s" % [windups, pounces, interrupted, str(dists)])
 	quit()
 
 

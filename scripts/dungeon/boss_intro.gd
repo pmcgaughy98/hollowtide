@@ -94,7 +94,7 @@ static func _alive(dg) -> bool:
 
 static func _wait(dg, s: float) -> void:
 	if _alive(dg):
-		await dg.get_tree().create_timer(s).timeout
+		await dg.get_tree().create_timer(s, false).timeout
 
 
 ## Pan the camera from where it looks now to `to` over `s` seconds.
@@ -332,7 +332,7 @@ static func run(dg) -> void:
 	dg._flash = 0.55
 	dg._shake = 7.0
 	dg._sfx("pond_burst", 0.0)
-	dg._play("res://assets/audio/sfx/ui/hit_strong.wav", -6.0)
+	dg._play("res://assets/audio/sfx/ui/hit_strong.wav", -6.0, &"SFX")
 	_ambience_fade(dg, -80.0, 0.3)
 	for k in 3:
 		dg._burst(pc, Color("#cfe9f5"), 26, 150.0, 1.1, 260.0, 2.0)

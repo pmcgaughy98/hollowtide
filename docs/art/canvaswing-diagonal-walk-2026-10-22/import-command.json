@@ -1,0 +1,15 @@
+{
+  "command": [
+    "C:/Users/pmcga/Games/Tools/Godot_v4.7.2/Godot_v4.7.2-stable_win64.exe",
+    "--headless",
+    "--editor",
+    "--path",
+    "C:/Users/pmcga/dev/hollowtide",
+    "--rendering-method",
+    "gl_compatibility",
+    "--audio-driver",
+    "Dummy",
+    "--import"
+  ],
+  "exit": 0
+}

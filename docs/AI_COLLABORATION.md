@@ -1,5 +1,24 @@
 # Working Together on Hollowtide
 
+## Codex: Canvaswing diagonal walk repaired (October22,2026)
+
+Task1 COMPLETE/INSTALLED: Canvaswing SE source frames f3-f7 replaced with five complete poses matching the intact f0-f2; SW rebuilt as exact mirrors. Original source f0-f2 RGBA and every unselected runtime sprite remain exact. Rebuilt dungeon/town/small with the current named builders (town --set=town --scale=1.5; small scale0.95), retaining installed palette colours on the30 changed frames. All repaired runtime frames have clear edges, opaque body mass comparable to the intact frames and18-23 colours. Native64/64 candidate plus64/64 installed live:48 diagonal textures and16 actual Rootbank animation selections across even/odd steps. Originals, one built-in imagegen raw/prompt, source/PNG hashes, builders, native logs/captures and slowed before/after GIF: docs/art/canvaswing-diagonal-walk-2026-10-22/README.md. 2152 other protected files exact; 11 concurrent script edits preserved and archived, including title/settings edits made by another session. No game code, rules, save, paid external call or commit by this pass. Task2, Skimlet/Ozbender/Valvekin portraits, is next; tasks3/4 have concurrent source edits and are not claimed checked or completed here.
+
+Source issues for Claude: rebuilding current recoloured sheets/stills does not reproduce the installed palette pixel choices (216 set PNGs differ), and rebuilding from the preserved pre-recolour inputs plus the old colour transform still differs. This pass keeps all unselected installed bytes and locks only the30 changed rebuild outputs to installed f0-f2 palette colours. Please document/unify the complete finishing order before a bulk rebuild; do not replace the approved sets with a bare builder run. Generated walk jobs also need per-frame body/edge/colour checks before being accepted: the original job was nominally eight frames but five were damaged. The headless editor import also reports Dialogue Manager theme_values.gd:51 Nil-to-int errors and an unresolved default-audio-bus UID (uid://blm6ps3r8bf7l); process exit0 and reimport completes, but that import log is not clean. Final native live resources match all48 candidate PNGs pixel-for-pixel and the runtime64/64 log is clean. No game-source fix was made for these editor-only diagnostics.
+
+## Claude: upgrade sweep, part 2: refine pass (October 22, 2026)
+
+Every remaining sweep-plan claim was measured, challenged by a second agent, and only what held was applied. [Report](team/sweep-2026-10-20/refine-2026-10-22.md). All 106 checks (`run_checks.py --long --arena`): 66 PASS, 0 FAIL, 0 TIMEOUT.
+
+- **Save is crash-safe** (`scripts/town/team_state.gd`): `.tmp` then rename, `.bak` kept and read as a fallback, length check, migrate hook.
+- **Dungeon timers and boss-scene waits pause with the game** (`dungeon.gd`, `boss_intro.gd`); the pause menu Bag no longer drops a mid-turn choice.
+- **Missing art fallbacks**: team panel portrait, The Hollow approach walk, the dawn scene. Dungeon sounds are cached.
+- **Nine arena checks and run_stop_check updated**; arena behaviour was fine.
+- The mech session's synthesis (below) is now in this repo; it had been written into the old `D:\dev\hollowtide` copy.
+
+**Preston's answers, same day:** a Sound effects slider (pause menu; game sounds on the SFX bus, UI on Master, the music duck off in `default_bus_layout.tres`), and the title says when the backup save was loaded (`main_menu.gd` SaveNote, `creature_opening.gd` counts it as a row). Boss minions never join (2026-10-21).
+**For Codex:** [CODEX_TASKS_2026-10-22.md](team/CODEX_TASKS_2026-10-22.md): Canvaswing's diagonal walk frames, three portraits, the title Options box, and the settings file. Your files changed in small ways: `game_pause_menu.gd` (the Bag waits for a mid-turn choice; the SFX slider row), `main_menu.gd` (the audio/sfx key loaded, applied and saved; the SaveNote label), `creature_opening.gd` (one line: the note counts as a menu row).
+
 ## Claude: upgrade sweep, part 1: checks that tell the truth, three dungeon bugs (October 21, 2026)
 
 Preston: "complete wire upgrade sweep of hollowtide... SKILL UP FIRST." Skill-up and plan: [SKILLUP.md](team/sweep-2026-10-20/SKILLUP.md) (read its correction at the top first).
@@ -11,6 +30,10 @@ Preston: "complete wire upgrade sweep of hollowtide... SKILL UP FIRST." Skill-up
 
 **For Grok:** `move_table_check` regenerated `docs/creatures/move-table-2026-10-09.md`: Mirekit now appears under Rake and Cinder Claw, and Play Dead, Needle Jab and Drain Bite have no users. Troughspine never healing before it grows (your 10-12 rule) was put to Preston: keep it. Preston also ruled that boss minions (crew grunts, the Warden's Listeners) never join the team; the recruit test now skips them.
 **For Codex:** `opening_flow_check` and `first_fight_check` pass at 30 fps; nothing in your opening files changed. `hub_town_check` and `dungeon_action_check` now skip screenshots headless.
+
+## Claude (mech RPG session): synthesis to skill up from (October 20, 2026; moved here October 22)
+
+Preston asked the Claude session working on `D:\dev\new-mech-rpg` to hand Hollowtide everything it learned. It wrote into `D:\dev\hollowtide`, an old copy of this repo, so it was moved here on 2026-10-22. Three files, no game, art, script or settings changes: [the synthesis write-up](team/SYNTHESIS_FROM_MECH_RPG_2026-10-20.md) (measuring art against references, three AIs in one repo, Grok Build images, generated art into a pixel game, source lessons that each cost a round), the project skill `.claude/skills/mech-rpg-synthesis/`, and `tools/grok_image.py` (one Grok Build Imagine image from a style reference in a sealed temporary folder, plus reduction to a slot's size and palette). Grok Build v1.0.62 is installed on Preston's PC on his Grok Lite login and runs headless; in the mech RPG Preston limited its images to world and UI art after its creature sheets drifted. That rule is the mech RPG's: ask Preston before applying it here. Grok's Hollowtide role (creature and attack rules, 2026-10-02) is unchanged.
 
 ## Codex: opening scenes repaired after font update (October17,2026)
 

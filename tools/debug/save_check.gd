@@ -149,6 +149,28 @@ func _run() -> void:
 			int(run.get("turn")) if on_run else 0, int(run.ents[0]["hp"]) if on_run else 0, int(run.bag.get("lamp_oil", 0)) if on_run else 0, str(run.get("dungeon")) if on_run else "?"],
 		on_run and run.floor_n == 2 and run.floor_seed == 11 and run.light == 40 and run.turn == 57 and run.ents[0]["hp"] == 5 and run.bag.get("lamp_oil", 0) == 3 and run.dungeon == "hollow" and run.return_to_town)
 	_ok("The run is consumed: the file holds no run now, so the next Continue goes to Highbank", not TeamState._read().get("data", {}).has("suspend") and not TeamState.has_suspended() and TeamState.has_save())
+	# 7. A crash mid-write cannot cost the save (Claude, 2026-10-22): each save goes to .tmp and is renamed into
+	# place, the one before it kept as .bak, and a save that will not read falls back to the .bak.
+	TeamState.erase_save()
+	for n in [3, 4, 5]:
+		TeamState.data = {"party": [[0, 1], [1, 0]], "cleared": n}
+		TeamState.autosave()
+	var bak := CHECK_PATH + ".bak"
+	var held: Variant = FileAccess.open(bak, FileAccess.READ).get_var() if FileAccess.file_exists(bak) else {}
+	if not (held is Dictionary):
+		held = {}
+	_ok("Three saves keep the newest (cleared %d) and the one before as the .bak (cleared %d), no .tmp left" % [int(TeamState._read().get("data", {}).get("cleared", -1)), int(held.get("data", {}).get("cleared", -1))],
+		int(TeamState._read().get("data", {}).get("cleared", -1)) == 5 and int(held.get("data", {}).get("cleared", -1)) == 4 and not FileAccess.file_exists(CHECK_PATH + ".tmp"))
+	var cut := FileAccess.open(CHECK_PATH, FileAccess.WRITE)   # what a crash mid-write left before: a cut-short file
+	cut.store_32(4096)
+	cut.close()
+	TeamState.data = {}
+	_ok("A cut-short save falls back to the .bak: Continue stays (cleared %d)" % int(TeamState.summary().get("cleared", -1)),
+		TeamState.has_save() and TeamState.load_save() and int(TeamState.data.get("cleared", -1)) == 4)
+	DirAccess.remove_absolute(ProjectSettings.globalize_path(CHECK_PATH))   # a crash between the two renames
+	_ok("A missing save with a .bak still shows Continue", TeamState.has_save())
+	TeamState.erase_save()
+	_ok("erase_save takes the .bak too", not TeamState.has_save() and not FileAccess.file_exists(bak))
 	TeamState.erase_save()
 	TeamState.save_path = TeamState.SAVE_PATH
 	print("SAVE: %s" % ("all ok" if fails == 0 else "%d FAILED" % fails))

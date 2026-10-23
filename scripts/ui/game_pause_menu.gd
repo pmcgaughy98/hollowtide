@@ -207,6 +207,7 @@ func show_page(next: String) -> void:
         "options":
             _volume("Master","master")
             _volume("Music","music")
+            _volume("SFX","sfx")
             motion = bool(_config().get_value("menu","reduce_motion",false))
             _action("Reduce menu motion: " + ("On" if motion else "Off"),"ReduceMotion",toggle_motion)
             _action("Back","Back",show_page.bind("main"))
@@ -378,7 +379,10 @@ func _bag_page() -> void:
 func _use_item(kind: String) -> void:
     await resume()
     var s = get_parent()
-    if is_instance_valid(s) and not s.busy: s.act_use_item(kind)
+    # A turn still playing when the menu opened finishes first; the item is then the next turn.
+    while is_instance_valid(s) and s.busy and not s.cutscene: await get_tree().process_frame
+    # A recruit question that turn raised is answered first (a step waits for it too).
+    if is_instance_valid(s) and not s.busy and s.asking < 0: s.act_use_item(kind)
 
 func _floor_page() -> void:
     var s = get_parent()

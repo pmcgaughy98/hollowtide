@@ -326,14 +326,18 @@ static func _facing_of(d: Vector2) -> String:
 
 func _face(e: Dictionary, facing: String) -> void:
 	e["facing"] = facing
+	# The Hollow wilds (Skimlet, Ozbender, Valvekin) have no arena small set: walk them with their dungeon set.
+	var dir := "res://assets/sprites/arena/%s/small/" % e["form"]
+	if not ResourceLoader.exists(dir + "s.png"):
+		dir = "res://assets/sprites/arena/%s/dungeon/" % e["form"]
 	if not e["frames"].has(facing):
 		var fr: Array = []
 		var i := 0
-		while ResourceLoader.exists("res://assets/sprites/arena/%s/small/walk_%s_f%d.png" % [e["form"], facing, i]):
-			fr.append(load("res://assets/sprites/arena/%s/small/walk_%s_f%d.png" % [e["form"], facing, i]))
+		while ResourceLoader.exists(dir + "walk_%s_f%d.png" % [facing, i]):
+			fr.append(load(dir + "walk_%s_f%d.png" % [facing, i]))
 			i += 1
 		e["frames"][facing] = fr
-	var still := "res://assets/sprites/arena/%s/small/%s.png" % [e["form"], facing]
+	var still := dir + "%s.png" % facing
 	if ResourceLoader.exists(still):
 		_set_tex(e["sprite"], load(still))
 

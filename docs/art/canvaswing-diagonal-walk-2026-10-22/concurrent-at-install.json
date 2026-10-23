@@ -1,0 +1,12 @@
+{
+  "scripts/creature_opening.gd": "0c789801c022f25df65c6e22976ab133f6418c4a586ad7e0346294c232f83e9e",
+  "scripts/main_menu.gd": "6f97bcae588f1dd46373fb433ea7d6c26313bcfa3a482b3b8c75e79564ef02d5",
+  "scripts/dungeon/boss_intro.gd": "531d4ee16fc474a4fcca887ae7776e0e7e7734036541aedec6b21ffe37f7481c",
+  "scripts/dungeon/dungeon.gd": "880d1e35c34d0eaa02b11ee9f68a06370acc3fc236511f70f4e2c0770632795e",
+  "scripts/town/hub_town.gd": "20ae51505a4e7d0a04e6b11a4c4fbc4a329f965885564eae438b9236a721fa45",
+  "scripts/town/team_state.gd": "776683b96d89706081d54e08bb4a6a826880658177d93de384b859650bab36f2",
+  "scripts/town/town_room.gd": "ecabe0754362af94c3848f4b2d48553c384f3c481f83bd2472156e4572eb7ed1",
+  "scripts/ui/evolution_scene.gd": "1d9b6b1e6938c53385593387b454081aad965dc8a90c4f8593bd33a3b6c90fb0",
+  "scripts/ui/game_pause_menu.gd": "1d83aa945b0701da0cfbb01958ccab67e257ddd1eb875c55552cf4825475e7bf",
+  "scripts/ui/hollow_rise.gd": "28b909e80b4ed971d71fcc9a3ccb89d0e8b489ed3659b92c96f771ec60b1644e"
+}

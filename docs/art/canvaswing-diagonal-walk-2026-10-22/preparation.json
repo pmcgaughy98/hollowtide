@@ -1,0 +1,97 @@
+{
+  "generated_size": [
+    1774,
+    887
+  ],
+  "source_cell": 128,
+  "existing_palette_colors": 26,
+  "new_frames": [
+    {
+      "frame": 3,
+      "generated_cell": [
+        1329,
+        0,
+        443,
+        443
+      ],
+      "bbox": [
+        22,
+        28,
+        109,
+        104
+      ],
+      "pixels": 3044,
+      "colors": 24
+    },
+    {
+      "frame": 4,
+      "generated_cell": [
+        0,
+        443,
+        443,
+        443
+      ],
+      "bbox": [
+        24,
+        30,
+        111,
+        100
+      ],
+      "pixels": 3039,
+      "colors": 24
+    },
+    {
+      "frame": 5,
+      "generated_cell": [
+        443,
+        443,
+        443,
+        443
+      ],
+      "bbox": [
+        25,
+        25,
+        109,
+        103
+      ],
+      "pixels": 3134,
+      "colors": 24
+    },
+    {
+      "frame": 6,
+      "generated_cell": [
+        886,
+        443,
+        443,
+        443
+      ],
+      "bbox": [
+        20,
+        27,
+        109,
+        103
+      ],
+      "pixels": 3256,
+      "colors": 24
+    },
+    {
+      "frame": 7,
+      "generated_cell": [
+        1329,
+        443,
+        443,
+        443
+      ],
+      "bbox": [
+        22,
+        29,
+        106,
+        103
+      ],
+      "pixels": 3127,
+      "colors": 24
+    }
+  ],
+  "first_three_exact": true,
+  "method": "crop generated 4x2 cells, Lanczos native-grid reduction, alpha>=128, existing palette redmean lock; original f0-f2 copied exactly"
+}

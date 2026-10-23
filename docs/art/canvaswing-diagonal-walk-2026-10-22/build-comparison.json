@@ -1,0 +1,869 @@
+{
+  "new_source_changes": [],
+  "baseline_vs_installed": [
+    {
+      "path": "assets/sprites/arena/canvaswing/dungeon/e.png",
+      "pixels": 127
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/dungeon/n.png",
+      "pixels": 96
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/dungeon/ne.png",
+      "pixels": 106
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/dungeon/nw.png",
+      "pixels": 122
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/dungeon/s.png",
+      "pixels": 147
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/dungeon/se.png",
+      "pixels": 156
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/dungeon/sw.png",
+      "pixels": 134
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/dungeon/w.png",
+      "pixels": 103
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/dungeon/walk_e_f0.png",
+      "pixels": 124
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/dungeon/walk_e_f1.png",
+      "pixels": 118
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/dungeon/walk_e_f2.png",
+      "pixels": 121
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/dungeon/walk_e_f3.png",
+      "pixels": 106
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/dungeon/walk_e_f4.png",
+      "pixels": 123
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/dungeon/walk_e_f5.png",
+      "pixels": 126
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/dungeon/walk_e_f6.png",
+      "pixels": 138
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/dungeon/walk_e_f7.png",
+      "pixels": 131
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/dungeon/walk_ne_f0.png",
+      "pixels": 123
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/dungeon/walk_ne_f1.png",
+      "pixels": 134
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/dungeon/walk_ne_f2.png",
+      "pixels": 135
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/dungeon/walk_ne_f3.png",
+      "pixels": 122
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/dungeon/walk_ne_f4.png",
+      "pixels": 108
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/dungeon/walk_ne_f5.png",
+      "pixels": 104
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/dungeon/walk_ne_f6.png",
+      "pixels": 112
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/dungeon/walk_ne_f7.png",
+      "pixels": 131
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/dungeon/walk_nw_f0.png",
+      "pixels": 123
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/dungeon/walk_nw_f1.png",
+      "pixels": 134
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/dungeon/walk_nw_f2.png",
+      "pixels": 135
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/dungeon/walk_nw_f3.png",
+      "pixels": 122
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/dungeon/walk_nw_f4.png",
+      "pixels": 108
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/dungeon/walk_nw_f5.png",
+      "pixels": 104
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/dungeon/walk_nw_f6.png",
+      "pixels": 112
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/dungeon/walk_nw_f7.png",
+      "pixels": 131
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/dungeon/walk_n_f0.png",
+      "pixels": 71
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/dungeon/walk_n_f1.png",
+      "pixels": 83
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/dungeon/walk_n_f2.png",
+      "pixels": 86
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/dungeon/walk_n_f3.png",
+      "pixels": 80
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/dungeon/walk_n_f4.png",
+      "pixels": 76
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/dungeon/walk_n_f5.png",
+      "pixels": 94
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/dungeon/walk_n_f6.png",
+      "pixels": 74
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/dungeon/walk_n_f7.png",
+      "pixels": 85
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/dungeon/walk_se_f0.png",
+      "pixels": 164
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/dungeon/walk_se_f1.png",
+      "pixels": 161
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/dungeon/walk_se_f2.png",
+      "pixels": 147
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/dungeon/walk_se_f3.png",
+      "pixels": 172
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/dungeon/walk_se_f4.png",
+      "pixels": 66
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/dungeon/walk_se_f5.png",
+      "pixels": 147
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/dungeon/walk_se_f6.png",
+      "pixels": 36
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/dungeon/walk_se_f7.png",
+      "pixels": 74
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/dungeon/walk_sw_f0.png",
+      "pixels": 164
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/dungeon/walk_sw_f1.png",
+      "pixels": 161
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/dungeon/walk_sw_f2.png",
+      "pixels": 147
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/dungeon/walk_sw_f3.png",
+      "pixels": 172
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/dungeon/walk_sw_f4.png",
+      "pixels": 66
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/dungeon/walk_sw_f5.png",
+      "pixels": 147
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/dungeon/walk_sw_f6.png",
+      "pixels": 36
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/dungeon/walk_sw_f7.png",
+      "pixels": 74
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/dungeon/walk_s_f0.png",
+      "pixels": 142
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/dungeon/walk_s_f1.png",
+      "pixels": 136
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/dungeon/walk_s_f2.png",
+      "pixels": 139
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/dungeon/walk_s_f3.png",
+      "pixels": 119
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/dungeon/walk_s_f4.png",
+      "pixels": 117
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/dungeon/walk_s_f5.png",
+      "pixels": 110
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/dungeon/walk_s_f6.png",
+      "pixels": 126
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/dungeon/walk_s_f7.png",
+      "pixels": 145
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/dungeon/walk_w_f0.png",
+      "pixels": 124
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/dungeon/walk_w_f1.png",
+      "pixels": 118
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/dungeon/walk_w_f2.png",
+      "pixels": 121
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/dungeon/walk_w_f3.png",
+      "pixels": 106
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/dungeon/walk_w_f4.png",
+      "pixels": 123
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/dungeon/walk_w_f5.png",
+      "pixels": 126
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/dungeon/walk_w_f6.png",
+      "pixels": 138
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/dungeon/walk_w_f7.png",
+      "pixels": 131
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/town/e.png",
+      "pixels": 263
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/town/n.png",
+      "pixels": 191
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/town/ne.png",
+      "pixels": 245
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/town/nw.png",
+      "pixels": 238
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/town/s.png",
+      "pixels": 269
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/town/se.png",
+      "pixels": 321
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/town/sw.png",
+      "pixels": 275
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/town/w.png",
+      "pixels": 261
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/town/walk_e_f0.png",
+      "pixels": 265
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/town/walk_e_f1.png",
+      "pixels": 260
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/town/walk_e_f2.png",
+      "pixels": 256
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/town/walk_e_f3.png",
+      "pixels": 240
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/town/walk_e_f4.png",
+      "pixels": 245
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/town/walk_e_f5.png",
+      "pixels": 232
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/town/walk_e_f6.png",
+      "pixels": 221
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/town/walk_e_f7.png",
+      "pixels": 260
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/town/walk_ne_f0.png",
+      "pixels": 247
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/town/walk_ne_f1.png",
+      "pixels": 262
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/town/walk_ne_f2.png",
+      "pixels": 249
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/town/walk_ne_f3.png",
+      "pixels": 247
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/town/walk_ne_f4.png",
+      "pixels": 236
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/town/walk_ne_f5.png",
+      "pixels": 245
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/town/walk_ne_f6.png",
+      "pixels": 251
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/town/walk_ne_f7.png",
+      "pixels": 254
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/town/walk_nw_f0.png",
+      "pixels": 247
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/town/walk_nw_f1.png",
+      "pixels": 262
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/town/walk_nw_f2.png",
+      "pixels": 249
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/town/walk_nw_f3.png",
+      "pixels": 247
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/town/walk_nw_f4.png",
+      "pixels": 236
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/town/walk_nw_f5.png",
+      "pixels": 245
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/town/walk_nw_f6.png",
+      "pixels": 251
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/town/walk_nw_f7.png",
+      "pixels": 254
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/town/walk_n_f0.png",
+      "pixels": 169
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/town/walk_n_f1.png",
+      "pixels": 186
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/town/walk_n_f2.png",
+      "pixels": 189
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/town/walk_n_f3.png",
+      "pixels": 187
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/town/walk_n_f4.png",
+      "pixels": 176
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/town/walk_n_f5.png",
+      "pixels": 165
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/town/walk_n_f6.png",
+      "pixels": 179
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/town/walk_n_f7.png",
+      "pixels": 188
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/town/walk_se_f0.png",
+      "pixels": 306
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/town/walk_se_f1.png",
+      "pixels": 320
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/town/walk_se_f2.png",
+      "pixels": 285
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/town/walk_se_f3.png",
+      "pixels": 347
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/town/walk_se_f4.png",
+      "pixels": 126
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/town/walk_se_f5.png",
+      "pixels": 265
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/town/walk_se_f6.png",
+      "pixels": 99
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/town/walk_se_f7.png",
+      "pixels": 152
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/town/walk_sw_f0.png",
+      "pixels": 306
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/town/walk_sw_f1.png",
+      "pixels": 320
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/town/walk_sw_f2.png",
+      "pixels": 285
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/town/walk_sw_f3.png",
+      "pixels": 347
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/town/walk_sw_f4.png",
+      "pixels": 126
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/town/walk_sw_f5.png",
+      "pixels": 265
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/town/walk_sw_f6.png",
+      "pixels": 99
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/town/walk_sw_f7.png",
+      "pixels": 152
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/town/walk_s_f0.png",
+      "pixels": 288
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/town/walk_s_f1.png",
+      "pixels": 278
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/town/walk_s_f2.png",
+      "pixels": 263
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/town/walk_s_f3.png",
+      "pixels": 241
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/town/walk_s_f4.png",
+      "pixels": 234
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/town/walk_s_f5.png",
+      "pixels": 259
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/town/walk_s_f6.png",
+      "pixels": 267
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/town/walk_s_f7.png",
+      "pixels": 290
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/town/walk_w_f0.png",
+      "pixels": 265
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/town/walk_w_f1.png",
+      "pixels": 260
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/town/walk_w_f2.png",
+      "pixels": 256
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/town/walk_w_f3.png",
+      "pixels": 240
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/town/walk_w_f4.png",
+      "pixels": 245
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/town/walk_w_f5.png",
+      "pixels": 232
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/town/walk_w_f6.png",
+      "pixels": 221
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/town/walk_w_f7.png",
+      "pixels": 260
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/small/e.png",
+      "pixels": 140
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/small/n.png",
+      "pixels": 95
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/small/ne.png",
+      "pixels": 126
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/small/nw.png",
+      "pixels": 121
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/small/s.png",
+      "pixels": 144
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/small/se.png",
+      "pixels": 182
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/small/sw.png",
+      "pixels": 143
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/small/w.png",
+      "pixels": 136
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/small/walk_e_f0.png",
+      "pixels": 131
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/small/walk_e_f1.png",
+      "pixels": 135
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/small/walk_e_f2.png",
+      "pixels": 133
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/small/walk_e_f3.png",
+      "pixels": 124
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/small/walk_e_f4.png",
+      "pixels": 118
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/small/walk_e_f5.png",
+      "pixels": 136
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/small/walk_e_f6.png",
+      "pixels": 126
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/small/walk_e_f7.png",
+      "pixels": 142
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/small/walk_ne_f0.png",
+      "pixels": 132
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/small/walk_ne_f1.png",
+      "pixels": 124
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/small/walk_ne_f2.png",
+      "pixels": 132
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/small/walk_ne_f3.png",
+      "pixels": 127
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/small/walk_ne_f4.png",
+      "pixels": 138
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/small/walk_ne_f5.png",
+      "pixels": 126
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/small/walk_ne_f6.png",
+      "pixels": 122
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/small/walk_ne_f7.png",
+      "pixels": 129
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/small/walk_nw_f0.png",
+      "pixels": 132
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/small/walk_nw_f1.png",
+      "pixels": 124
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/small/walk_nw_f2.png",
+      "pixels": 132
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/small/walk_nw_f3.png",
+      "pixels": 127
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/small/walk_nw_f4.png",
+      "pixels": 138
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/small/walk_nw_f5.png",
+      "pixels": 126
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/small/walk_nw_f6.png",
+      "pixels": 122
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/small/walk_nw_f7.png",
+      "pixels": 129
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/small/walk_n_f0.png",
+      "pixels": 95
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/small/walk_n_f1.png",
+      "pixels": 81
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/small/walk_n_f2.png",
+      "pixels": 77
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/small/walk_n_f3.png",
+      "pixels": 89
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/small/walk_n_f4.png",
+      "pixels": 88
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/small/walk_n_f5.png",
+      "pixels": 92
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/small/walk_n_f6.png",
+      "pixels": 83
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/small/walk_n_f7.png",
+      "pixels": 86
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/small/walk_se_f0.png",
+      "pixels": 169
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/small/walk_se_f1.png",
+      "pixels": 169
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/small/walk_se_f2.png",
+      "pixels": 153
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/small/walk_se_f3.png",
+      "pixels": 194
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/small/walk_se_f4.png",
+      "pixels": 72
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/small/walk_se_f5.png",
+      "pixels": 169
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/small/walk_se_f6.png",
+      "pixels": 46
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/small/walk_se_f7.png",
+      "pixels": 86
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/small/walk_sw_f0.png",
+      "pixels": 169
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/small/walk_sw_f1.png",
+      "pixels": 169
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/small/walk_sw_f2.png",
+      "pixels": 153
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/small/walk_sw_f3.png",
+      "pixels": 194
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/small/walk_sw_f4.png",
+      "pixels": 72
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/small/walk_sw_f5.png",
+      "pixels": 169
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/small/walk_sw_f6.png",
+      "pixels": 46
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/small/walk_sw_f7.png",
+      "pixels": 86
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/small/walk_s_f0.png",
+      "pixels": 161
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/small/walk_s_f1.png",
+      "pixels": 150
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/small/walk_s_f2.png",
+      "pixels": 144
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/small/walk_s_f3.png",
+      "pixels": 131
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/small/walk_s_f4.png",
+      "pixels": 131
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/small/walk_s_f5.png",
+      "pixels": 142
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/small/walk_s_f6.png",
+      "pixels": 133
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/small/walk_s_f7.png",
+      "pixels": 156
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/small/walk_w_f0.png",
+      "pixels": 131
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/small/walk_w_f1.png",
+      "pixels": 135
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/small/walk_w_f2.png",
+      "pixels": 133
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/small/walk_w_f3.png",
+      "pixels": 124
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/small/walk_w_f4.png",
+      "pixels": 118
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/small/walk_w_f5.png",
+      "pixels": 136
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/small/walk_w_f6.png",
+      "pixels": 126
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/small/walk_w_f7.png",
+      "pixels": 142
+    }
+  ]
+}

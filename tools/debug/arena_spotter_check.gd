@@ -141,13 +141,16 @@ func _initialize() -> void:
 	_save("high_signal")
 	var e0: Dictionary = arena._fighters[enemies[0]]
 	e0["slabs"] = 0
-	var ally: Dictionary = arena._fighters[mine[1]]
+	# The hitter must own an ability to spend the signal on. Since 2026-10-10 the second slot is
+	# the Springvault line, basic-only in the arena, so take the first ally that has one.
+	var helper: int = mine.filter(func(j): return j != 0 and not arena._fighters[j]["abilities"].is_empty())[0]
+	var ally: Dictionary = arena._fighters[helper]
 	ally["last_move"] = ally["abilities"][0]
 	hp = e0["hp"]
-	arena._hurt(enemies[0], 20, Vector2.ZERO, mine[1])
+	arena._hurt(enemies[0], 20, Vector2.ZERO, helper)
 	var doubled: int = hp - e0["hp"]
 	hp = e0["hp"]
-	arena._hurt(enemies[0], 20, Vector2.ZERO, mine[1])
+	arena._hurt(enemies[0], 20, Vector2.ZERO, helper)
 	print("High Signal: %d of 3 enemies marked and signalled; an ally's 20 ability hit took %d (marked x1.15, signal x2), the next %d" % [marked, doubled, hp - e0["hp"]])
 	while arena._sig.active:
 		await process_frame

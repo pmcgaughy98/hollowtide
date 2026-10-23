@@ -60,6 +60,7 @@ var _music: AudioStreamPlayer
 var _fade: ColorRect
 var _buttons: Array[Button] = []
 var _continue_button: Button   # only when a save exists (Claude, 2026-10-12)
+var _save_note: Label   # only when the save came from its backup (Preston, 2026-10-22)
 var _motion_button: Button
 var _leaving := false
 var _quiet_focus := false
@@ -89,6 +90,7 @@ var _options_status: Label
 var _selected_courier := "Male"
 var _master_volume := 100.0
 var _music_volume := 100.0
+var _sfx_volume := 100.0   # set from the pause menu's SFX slider; kept and applied here
 var _route_scene: PackedScene
 var _route_request_error: Error = OK
 var _settings_dirty := false
@@ -328,6 +330,14 @@ func _build_menu() -> void:
 		_buttons.append(b)
 		if entry[0] == "Continue":
 			_continue_button = b
+	# The last save was damaged (a crash or power cut mid-write) and the one before it was read instead:
+	# say so, as Preston asked, instead of quietly continuing from an older point (2026-10-22).
+	if _continue_button != null and TeamState.restored_from_backup:
+		# Two fixed lines, no autowrap: a wrapping label with no minimum width asks its container for one
+		# character per line, and the panel grew to 1373 px (measured 2026-10-22).
+		_save_note = _label("Your last save was damaged.\nThe one before it was loaded.", 18)
+		_save_note.name = "SaveNote"
+		list.add_child(_save_note)
 
 	_build_journey_panel()
 	_build_options_panel()
@@ -785,12 +795,14 @@ func _load_preferences() -> void:
 		return
 	_master_volume = clampf(float(config.get_value("audio", "master", 100.0)), 0.0, 100.0)
 	_music_volume = clampf(float(config.get_value("audio", "music", 100.0)), 0.0, 100.0)
+	_sfx_volume = clampf(float(config.get_value("audio", "sfx", 100.0)), 0.0, 100.0)
 	_reduce_motion = bool(config.get_value("menu", "reduce_motion", false))
 	_selected_courier = str(config.get_value("menu", "courier", "Male"))
 	if _selected_courier not in ["Male", "Female"]:
 		_selected_courier = "Male"
 	_apply_volume("Master", _master_volume)
 	_apply_volume("Music", _music_volume)
+	_apply_volume("SFX", _sfx_volume)
 
 
 func _save_preferences() -> void:
@@ -799,6 +811,7 @@ func _save_preferences() -> void:
 	var config := ConfigFile.new()
 	config.set_value("audio", "master", _master_volume)
 	config.set_value("audio", "music", _music_volume)
+	config.set_value("audio", "sfx", _sfx_volume)
 	config.set_value("menu", "reduce_motion", _reduce_motion)
 	config.set_value("menu", "courier", _selected_courier)
 	var error := config.save(PREFERENCES)

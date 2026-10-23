@@ -15,6 +15,8 @@ This inventories player-facing content wired into the current pilot and its reta
 
 The **October 11 snapshot** [group register](ai-asset-inventory-2026-10-11/asset-groups.csv) covers every media/resource folder found under `assets`, including raw takes and backups. The [reference census](ai-asset-inventory-2026-10-11/source-references.json) records literal `res://` references in scripts, scenes, resources and dialogue. Dynamic paths and optional fallbacks require the consumers below; the census is not a reachability proof. [Method and limitations](ai-asset-inventory-2026-10-11/README.md).
 
+October22 addition: **Canvaswing SE walk source f3-f7 and30 derived SE/SW dungeon/town/small frames** use one built-in `image_gen.imagegen` edit, with the existing three good poses and still as references. Exact model/version is not exposed. Native crops, palette lock and unchanged builders/installed-palette preservation are AI-assisted preparation; the new pose source remains AI-generated. Original three source frames and all unselected artwork are preserved. [Prompt, raw output, original snapshots and native verification](../art/canvaswing-diagonal-walk-2026-10-22/README.md).
+
 ## Current player-facing content
 
 | Asset group and current use | Classification and tools | Preparation and evidence |

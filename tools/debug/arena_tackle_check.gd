@@ -1,7 +1,8 @@
 extends SceneTree
-## Stormwick's second kit (Claude, 2026-10-07): Flashstep invulnerability, bouncing lantern
-## balls that mark, the Lantern Tackle zip with a chosen landing, crates, and SPACE switching
-## the controlled creature in a 3v3.
+## Stormwick's second kit (Claude, 2026-10-07): Ember Feint invulnerability (it replaced Flashstep
+## on 2026-10-08), bouncing lantern balls that mark, the Lantern Tackle zip with a chosen landing,
+## crates, and, since SPACE became the dash (2026-10-09), steering another slot of a 3v3 while the
+## Stormwick you are not steering fights on its AI.
 ##   Godot --path . --fixed-fps 30 --script res://tools/debug/arena_tackle_check.gd
 ## Stills to docs/creatures/arena-feel-2026-10-07/tackle_*.png.
 
@@ -22,14 +23,14 @@ func _initialize() -> void:
 	for f in arena._fighters:
 		if f["team"] == 1:
 			f["stun"] = 60.0   # rivals hold still for the staged casts
-	# 1. Flashstep invulnerability: hurt it during the frames; HP must not move.
-	me["cds"]["flashstep"] = 0.0
+	# 1. Ember Feint invulnerability: hurt it during the frames; HP must not move.
+	me["cds"]["ember_feint"] = 0.0
 	var hp0: int = me["hp"]
 	arena.cast(0)
 	await process_frame
 	var inv: float = me["invuln"]
 	arena._hurt(0, 20, Vector2(1, 0), 3)
-	print("Flashstep: invulnerable for %.2f s after the step; a 20-damage hit during it left HP %d -> %d" % [inv, hp0, me["hp"]])
+	print("Ember Feint: invulnerable for %.2f s after the hop; a 20-damage hit during it left HP %d -> %d%s" % [inv, hp0, me["hp"], "" if inv > 0.0 and me["hp"] == hp0 else " (WRONG)"])
 	# 2. Volley: aim across the field so the balls reach the edge; count bounces and marks.
 	me["body"].position = arena.ARENAS[arena._arena]["floor"].get_center() + Vector2(-60, 0)
 	me["cds"]["lantern_volley"] = 0.0
@@ -90,20 +91,21 @@ func _initialize() -> void:
 			struck.append("%s -%d" % [arena._fighters[j]["name"], before[j] - arena._fighters[j]["hp"]])
 	var at_crate: float = me["body"].position.distance_to(arena._rocks[crate]["pos"])
 	print("Tackle: invulnerable %.2f s; landing chosen %s; struck %s; landed %.0f px from the crate" % [tk_inv, str(land_choice), ", ".join(struck), at_crate])
-	# 4. SPACE switches control; the AI of the uncontrolled Stormwick should fire abilities.
+	# 4. Steer slot 1 (the picker's choice since SPACE became the dash); the Stormwick you are
+	# not steering should fire its abilities through its AI.
 	var c0: int = arena.controlled
-	arena._switch_control()
+	arena.control_slot = 1
+	arena._new_match()
+	await _frames(3)
 	var c1: int = arena.controlled
-	for f in arena._fighters:
-		f["stun"] = 0.0
 	var fired := false
 	for k in 240:
 		await process_frame
 		var s: Dictionary = arena._fighters[0]
-		if s["hp"] > 0 and (s["cds"]["lantern_volley"] > 0.0 or s["cds"]["lantern_tackle"] > 0.0 or s["charge_cds"]["flashstep"].max() > 0.0) and arena.controlled != 0:
-			fired = true
+		if s["hp"] > 0 and s["last_move"] in s["abilities"] and arena.controlled != 0:
+			fired = true   # last_move, not cooldowns: every ability starts a match on a 0.5 s cooldown
 	_save("tackle_switched")
-	print("Space: control %d -> %d (%s); the uncontrolled Stormwick's AI used its abilities in 8 s: %s" % [c0, c1, arena._fighters[c1]["name"], str(fired)])
+	print("Steering slot %d -> %d (%s); the Stormwick you are not steering used its abilities in 8 s: %s" % [c0, c1, arena._fighters[c1]["name"], "yes" if fired else "no (WRONG)"])
 	quit()
 
 

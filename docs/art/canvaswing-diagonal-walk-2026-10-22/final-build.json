@@ -1,0 +1,556 @@
+{
+  "commands": [
+    {
+      "command": [
+        "C:\\Users\\pmcga\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+        "D:\\dev\\hollowtide-canvaswing-walk-20261022\\project\\tools\\arena\\build_dungeon_set.py",
+        "canvaswing"
+      ],
+      "cwd": "D:\\dev\\hollowtide-canvaswing-walk-20261022\\project",
+      "stdout": "canvaswing   stage 1: shrunk by 3.27, size 15.4 (target 15.5, set dungeon), walks 8\n",
+      "stderr": "",
+      "exit": 0
+    },
+    {
+      "command": [
+        "C:\\Users\\pmcga\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+        "D:\\dev\\hollowtide-canvaswing-walk-20261022\\project\\tools\\arena\\build_dungeon_set.py",
+        "canvaswing",
+        "--set=town",
+        "--scale=1.5"
+      ],
+      "cwd": "D:\\dev\\hollowtide-canvaswing-walk-20261022\\project",
+      "stdout": "canvaswing   stage 1: shrunk by 2.18, size 23.3 (target 23.2, set town), walks 8\n",
+      "stderr": "",
+      "exit": 0
+    },
+    {
+      "command": [
+        "C:\\Users\\pmcga\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+        "D:\\dev\\hollowtide-canvaswing-walk-20261022\\project\\tools\\arena\\build_small.py",
+        "canvaswing"
+      ],
+      "cwd": "D:\\dev\\hollowtide-canvaswing-walk-20261022\\project",
+      "stdout": "canvaswing walks: s, se, e, ne, n, nw(mirrored), w(mirrored), sw(mirrored)\n",
+      "stderr": "",
+      "exit": 0
+    }
+  ],
+  "selected": [
+    "assets/sprites/arena/canvaswing/dungeon/walk_se_f3.png",
+    "assets/sprites/arena/canvaswing/dungeon/walk_se_f4.png",
+    "assets/sprites/arena/canvaswing/dungeon/walk_se_f5.png",
+    "assets/sprites/arena/canvaswing/dungeon/walk_se_f6.png",
+    "assets/sprites/arena/canvaswing/dungeon/walk_se_f7.png",
+    "assets/sprites/arena/canvaswing/dungeon/walk_sw_f3.png",
+    "assets/sprites/arena/canvaswing/dungeon/walk_sw_f4.png",
+    "assets/sprites/arena/canvaswing/dungeon/walk_sw_f5.png",
+    "assets/sprites/arena/canvaswing/dungeon/walk_sw_f6.png",
+    "assets/sprites/arena/canvaswing/dungeon/walk_sw_f7.png",
+    "assets/sprites/arena/canvaswing/town/walk_se_f3.png",
+    "assets/sprites/arena/canvaswing/town/walk_se_f4.png",
+    "assets/sprites/arena/canvaswing/town/walk_se_f5.png",
+    "assets/sprites/arena/canvaswing/town/walk_se_f6.png",
+    "assets/sprites/arena/canvaswing/town/walk_se_f7.png",
+    "assets/sprites/arena/canvaswing/town/walk_sw_f3.png",
+    "assets/sprites/arena/canvaswing/town/walk_sw_f4.png",
+    "assets/sprites/arena/canvaswing/town/walk_sw_f5.png",
+    "assets/sprites/arena/canvaswing/town/walk_sw_f6.png",
+    "assets/sprites/arena/canvaswing/town/walk_sw_f7.png",
+    "assets/sprites/arena/canvaswing/small/walk_se_f3.png",
+    "assets/sprites/arena/canvaswing/small/walk_se_f4.png",
+    "assets/sprites/arena/canvaswing/small/walk_se_f5.png",
+    "assets/sprites/arena/canvaswing/small/walk_se_f6.png",
+    "assets/sprites/arena/canvaswing/small/walk_se_f7.png",
+    "assets/sprites/arena/canvaswing/small/walk_sw_f3.png",
+    "assets/sprites/arena/canvaswing/small/walk_sw_f4.png",
+    "assets/sprites/arena/canvaswing/small/walk_sw_f5.png",
+    "assets/sprites/arena/canvaswing/small/walk_sw_f6.png",
+    "assets/sprites/arena/canvaswing/small/walk_sw_f7.png"
+  ],
+  "facts": [
+    {
+      "path": "assets/sprites/arena/canvaswing/dungeon/walk_se_f3.png",
+      "bbox": [
+        7,
+        9,
+        33,
+        31
+      ],
+      "size": [
+        39,
+        39
+      ],
+      "pixels": 282,
+      "colors": 20,
+      "palette_size": 22
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/dungeon/walk_se_f4.png",
+      "bbox": [
+        7,
+        9,
+        33,
+        30
+      ],
+      "size": [
+        39,
+        39
+      ],
+      "pixels": 278,
+      "colors": 20,
+      "palette_size": 22
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/dungeon/walk_se_f5.png",
+      "bbox": [
+        8,
+        8,
+        33,
+        31
+      ],
+      "size": [
+        39,
+        39
+      ],
+      "pixels": 289,
+      "colors": 20,
+      "palette_size": 22
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/dungeon/walk_se_f6.png",
+      "bbox": [
+        6,
+        8,
+        33,
+        31
+      ],
+      "size": [
+        39,
+        39
+      ],
+      "pixels": 302,
+      "colors": 20,
+      "palette_size": 22
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/dungeon/walk_se_f7.png",
+      "bbox": [
+        7,
+        9,
+        32,
+        31
+      ],
+      "size": [
+        39,
+        39
+      ],
+      "pixels": 292,
+      "colors": 20,
+      "palette_size": 22
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/dungeon/walk_sw_f3.png",
+      "bbox": [
+        6,
+        9,
+        32,
+        31
+      ],
+      "size": [
+        39,
+        39
+      ],
+      "pixels": 282,
+      "colors": 20,
+      "palette_size": 22
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/dungeon/walk_sw_f4.png",
+      "bbox": [
+        6,
+        9,
+        32,
+        30
+      ],
+      "size": [
+        39,
+        39
+      ],
+      "pixels": 278,
+      "colors": 20,
+      "palette_size": 22
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/dungeon/walk_sw_f5.png",
+      "bbox": [
+        6,
+        8,
+        31,
+        31
+      ],
+      "size": [
+        39,
+        39
+      ],
+      "pixels": 289,
+      "colors": 20,
+      "palette_size": 22
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/dungeon/walk_sw_f6.png",
+      "bbox": [
+        6,
+        8,
+        33,
+        31
+      ],
+      "size": [
+        39,
+        39
+      ],
+      "pixels": 302,
+      "colors": 20,
+      "palette_size": 22
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/dungeon/walk_sw_f7.png",
+      "bbox": [
+        7,
+        9,
+        32,
+        31
+      ],
+      "size": [
+        39,
+        39
+      ],
+      "pixels": 292,
+      "colors": 20,
+      "palette_size": 22
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/town/walk_se_f3.png",
+      "bbox": [
+        10,
+        13,
+        50,
+        48
+      ],
+      "size": [
+        59,
+        59
+      ],
+      "pixels": 646,
+      "colors": 22,
+      "palette_size": 24
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/town/walk_se_f4.png",
+      "bbox": [
+        11,
+        14,
+        51,
+        46
+      ],
+      "size": [
+        59,
+        59
+      ],
+      "pixels": 643,
+      "colors": 21,
+      "palette_size": 24
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/town/walk_se_f5.png",
+      "bbox": [
+        11,
+        12,
+        50,
+        48
+      ],
+      "size": [
+        59,
+        59
+      ],
+      "pixels": 665,
+      "colors": 23,
+      "palette_size": 24
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/town/walk_se_f6.png",
+      "bbox": [
+        9,
+        12,
+        50,
+        47
+      ],
+      "size": [
+        59,
+        59
+      ],
+      "pixels": 695,
+      "colors": 23,
+      "palette_size": 24
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/town/walk_se_f7.png",
+      "bbox": [
+        10,
+        13,
+        49,
+        47
+      ],
+      "size": [
+        59,
+        59
+      ],
+      "pixels": 663,
+      "colors": 22,
+      "palette_size": 24
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/town/walk_sw_f3.png",
+      "bbox": [
+        9,
+        13,
+        49,
+        48
+      ],
+      "size": [
+        59,
+        59
+      ],
+      "pixels": 646,
+      "colors": 22,
+      "palette_size": 24
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/town/walk_sw_f4.png",
+      "bbox": [
+        8,
+        14,
+        48,
+        46
+      ],
+      "size": [
+        59,
+        59
+      ],
+      "pixels": 643,
+      "colors": 21,
+      "palette_size": 24
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/town/walk_sw_f5.png",
+      "bbox": [
+        9,
+        12,
+        48,
+        48
+      ],
+      "size": [
+        59,
+        59
+      ],
+      "pixels": 665,
+      "colors": 23,
+      "palette_size": 24
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/town/walk_sw_f6.png",
+      "bbox": [
+        9,
+        12,
+        50,
+        47
+      ],
+      "size": [
+        59,
+        59
+      ],
+      "pixels": 695,
+      "colors": 23,
+      "palette_size": 24
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/town/walk_sw_f7.png",
+      "bbox": [
+        10,
+        13,
+        49,
+        47
+      ],
+      "size": [
+        59,
+        59
+      ],
+      "pixels": 663,
+      "colors": 22,
+      "palette_size": 24
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/small/walk_se_f3.png",
+      "bbox": [
+        7,
+        9,
+        35,
+        33
+      ],
+      "size": [
+        41,
+        41
+      ],
+      "pixels": 314,
+      "colors": 18,
+      "palette_size": 22
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/small/walk_se_f4.png",
+      "bbox": [
+        8,
+        10,
+        35,
+        32
+      ],
+      "size": [
+        41,
+        41
+      ],
+      "pixels": 310,
+      "colors": 19,
+      "palette_size": 22
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/small/walk_se_f5.png",
+      "bbox": [
+        8,
+        8,
+        35,
+        33
+      ],
+      "size": [
+        41,
+        41
+      ],
+      "pixels": 323,
+      "colors": 21,
+      "palette_size": 22
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/small/walk_se_f6.png",
+      "bbox": [
+        6,
+        9,
+        35,
+        33
+      ],
+      "size": [
+        41,
+        41
+      ],
+      "pixels": 333,
+      "colors": 20,
+      "palette_size": 22
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/small/walk_se_f7.png",
+      "bbox": [
+        7,
+        10,
+        34,
+        33
+      ],
+      "size": [
+        41,
+        41
+      ],
+      "pixels": 321,
+      "colors": 19,
+      "palette_size": 22
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/small/walk_sw_f3.png",
+      "bbox": [
+        6,
+        9,
+        34,
+        33
+      ],
+      "size": [
+        41,
+        41
+      ],
+      "pixels": 314,
+      "colors": 18,
+      "palette_size": 22
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/small/walk_sw_f4.png",
+      "bbox": [
+        6,
+        10,
+        33,
+        32
+      ],
+      "size": [
+        41,
+        41
+      ],
+      "pixels": 310,
+      "colors": 19,
+      "palette_size": 22
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/small/walk_sw_f5.png",
+      "bbox": [
+        6,
+        8,
+        33,
+        33
+      ],
+      "size": [
+        41,
+        41
+      ],
+      "pixels": 323,
+      "colors": 21,
+      "palette_size": 22
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/small/walk_sw_f6.png",
+      "bbox": [
+        6,
+        9,
+        35,
+        33
+      ],
+      "size": [
+        41,
+        41
+      ],
+      "pixels": 333,
+      "colors": 20,
+      "palette_size": 22
+    },
+    {
+      "path": "assets/sprites/arena/canvaswing/small/walk_sw_f7.png",
+      "bbox": [
+        7,
+        10,
+        34,
+        33
+      ],
+      "size": [
+        41,
+        41
+      ],
+      "pixels": 321,
+      "colors": 19,
+      "palette_size": 22
+    }
+  ],
+  "source_first_three_exact": true,
+  "finish": "nearest existing installed f0-f2 per-set palette, same source/canvas/alpha; all unselected PNGs restored exact",
+  "native_validation": "64/64 candidate plus64/64 installed; installed resource RGBA exact to candidate PNGs, actual even/odd step selection"
+}

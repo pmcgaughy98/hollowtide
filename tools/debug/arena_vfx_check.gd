@@ -27,6 +27,9 @@ func _initialize() -> void:
 	quit()
 
 func _snap(n: String) -> void:
+	if DisplayServer.get_name() == "headless":
+		print("skipped ", n, " (headless: no drawn frame)")
+		return
 	await RenderingServer.frame_post_draw
 	root.get_texture().get_image().save_png(OUT + n + ".png")
 	print("saved ", n)

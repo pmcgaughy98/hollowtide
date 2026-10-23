@@ -76,6 +76,9 @@ func _initialize() -> void:
 	arena._fighters[0]["walk"] = 0.3
 	arena._fighters[1]["walk"] = 0.3
 	await process_frame
+	if DisplayServer.get_name() == "headless":
+		quit()   # no rendered image headless: the two stills below need a window
+		return
 	root.get_texture().get_image().save_png(OUT + "warden_windcut.png")
 	var me: Dictionary = arena._fighters[0]
 	var strip := Image.create(8 * 70, 80, false, Image.FORMAT_RGBA8)

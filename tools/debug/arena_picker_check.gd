@@ -12,7 +12,7 @@ func _initialize() -> void:
 	root.add_child(picker)
 	await process_frame
 	await process_frame
-	root.get_texture().get_image().save_png(OUT + "picker.png")
+	_save("picker")
 	# A 3v3 with every slot chosen: Warden, Galeshear, Starward against Scourmaw, Oxbowarchon, Vitrecrag.
 	picker._size = 3
 	picker._teams = [[[7, 2], [8, 2], [6, 2]], [[2, 2], [5, 2], [4, 2]]]
@@ -22,7 +22,7 @@ func _initialize() -> void:
 	picker._rocks = false
 	picker._build()
 	await process_frame
-	root.get_texture().get_image().save_png(OUT + "picker_filled.png")
+	_save("picker_filled")
 	picker.start_fight()
 	await process_frame
 	await process_frame
@@ -31,7 +31,7 @@ func _initialize() -> void:
 	for f in arena._fighters:
 		names.append("%s:%s" % ["you" if f["team"] == 0 else "foe", f["name"]])
 	print("3v3 from the picker: %s; you steer %s with charm %s; arena %d, rocks %d" % [str(names), arena._fighters[arena.controlled]["name"], arena._fighters[arena.controlled]["charm"], arena._arena, arena._rocks.size()])
-	root.get_texture().get_image().save_png(OUT + "fight_3v3.png")
+	_save("fight_3v3")
 	# Escape back, then a 2v2 with one slot left for the random fill.
 	arena.queue_free()
 	picker._arena = null
@@ -52,5 +52,11 @@ func _initialize() -> void:
 	for f in arena._fighters:
 		names.append("%s:%s" % ["you" if f["team"] == 0 else "foe", f["name"]])
 	print("2v2 with an empty slot filled at random: %s; you steer %s (charm %s, its role's)" % [str(names), arena._fighters[arena.controlled]["name"], arena._fighters[arena.controlled]["charm"]])
-	root.get_texture().get_image().save_png(OUT + "fight_2v2.png")
+	_save("fight_2v2")
 	quit()
+
+
+func _save(name: String) -> void:
+	if DisplayServer.get_name() == "headless":
+		return   # no rendered image headless; stills need a window
+	root.get_texture().get_image().save_png(OUT + name + ".png")

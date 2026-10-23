@@ -26,18 +26,18 @@ func _initialize() -> void:
 		await _snap()
 	me["charge"] = 0.0
 	# Wick Bolt and the smoulder it leaves.
-	arena._do_move(0, "wick_bolt", foe)
+	arena._do_move(0, "wick_bolt", 1)
 	await _hold(2)
 	await _snap()
 	await _hold(14)
 	await _snap()
 	# Raptor Rake up close.
 	me["body"].position = foe["body"].position + Vector2(-16, 4)
-	arena._do_move(0, "claw", foe)
+	arena._do_move(0, "claw", 1)
 	await _hold(2)
 	await _snap()
 	# Flashstep back out.
-	arena._do_move(0, "flashstep", foe)
+	arena._do_move(0, "flashstep", 1)
 	await _hold(2)
 	await _snap()
 	await _hold(5)
@@ -52,6 +52,8 @@ func _hold(frames: int) -> void:
 		await process_frame
 
 func _snap() -> void:
+	if DisplayServer.get_name() == "headless":
+		return   # headless never draws a frame, so frame_post_draw would never come
 	await RenderingServer.frame_post_draw
 	var img := root.get_texture().get_image()
 	img.save_png(OUT + "storm_%d.png" % shots.size())

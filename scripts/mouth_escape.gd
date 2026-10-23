@@ -109,6 +109,8 @@ func _dir(d: Vector2) -> String:
 func _pose() -> void:
 	for i in actors.size():
 		var dir := "res://assets/sprites/arena/%s/small/" % forms[i]
+		if not ResourceLoader.exists(dir + "s.png"):
+			dir = "res://assets/sprites/arena/%s/dungeon/" % forms[i]   # the Hollow wilds have no small set
 		var path := dir + "%s.png" % _facing
 		if _walking > 0.0:
 			var walk := dir + "walk_%s_f%d.png" % [_facing, int(_clock * WALK_FPS) % 8]

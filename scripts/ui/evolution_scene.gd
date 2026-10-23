@@ -92,6 +92,7 @@ func _wait(seconds: float) -> void:
 func _sound(name: String, db: float) -> void:
 	var p := AudioStreamPlayer.new()
 	p.stream = load("res://assets/audio/sfx/dungeon/%s.wav" % name)
+	p.bus = &"SFX"
 	p.volume_db = db
 	p.process_mode = Node.PROCESS_MODE_ALWAYS
 	add_child(p)

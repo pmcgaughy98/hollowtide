@@ -355,6 +355,7 @@ var last_faint := {}                      # the last faint's record (what the fa
 var light := LIGHT_MAX
 var bag := {"reedberry": 1}
 var last_sfx := {}   # sound name -> the turn it last played (read by tools/debug/dungeon_sfx_check.gd)
+static var _streams := {}   # sound path -> its stream, so _play reads each file from disk once a session
 var bag_open := false
 var bag_sel := 0
 var floor_items: Array[Dictionary] = []   # {pos, kind}
@@ -1407,7 +1408,7 @@ func use_move(i: int, m: String, d: Vector2i) -> bool:
 	tw2.tween_property(e["node"], "position", origin, HIT_TIME * 0.6)
 	if r["kind"] in ["line", "burst"] and not res["hits"].is_empty():
 		_launch(origin + Vector2(0, -10), ents[res["hits"][0]]["node"].position + Vector2(0, -10), m, r["kind"] == "burst", e)
-	await get_tree().create_timer(HIT_TIME * 0.5).timeout
+	await get_tree().create_timer(HIT_TIME * 0.5, false).timeout
 	if res["hits"].is_empty():
 		_say("It missed.")
 		_sfx("miss", -4.0)
@@ -1417,7 +1418,7 @@ func use_move(i: int, m: String, d: Vector2i) -> bool:
 		_hit(i, j, m)
 	if _heavy:
 		_heavy = false
-		await get_tree().create_timer(_stop).timeout   # the hit-stop
+		await get_tree().create_timer(_stop, false).timeout   # the hit-stop
 		_stop = 0.08
 	if tw2.is_valid() and tw2.is_running():
 		await tw2.finished   # (the hit-stop can outlast the lunge; waiting on a finished tween hung the dungeon, 2026-10-09)
@@ -1470,7 +1471,7 @@ func _fire_windup(i: int) -> void:
 		if not hits.is_empty():
 			aim_at = ents[hits[0]]["node"].position + Vector2(0, -10)
 		_launch(origin + Vector2(0, -10), aim_at, m, kind == "burst", e)
-	await get_tree().create_timer(HIT_TIME * 0.5).timeout
+	await get_tree().create_timer(HIT_TIME * 0.5, false).timeout
 	if hits.is_empty():
 		dodged += 1
 		_say("It missed: nobody was where it struck.")
@@ -1479,7 +1480,7 @@ func _fire_windup(i: int) -> void:
 		_hit(i, j, m)
 	if _heavy:
 		_heavy = false
-		await get_tree().create_timer(0.08).timeout
+		await get_tree().create_timer(0.08, false).timeout
 	if tw.is_valid() and tw.is_running():
 		await tw.finished
 	if kind == "dash" and not hits.is_empty():
@@ -2259,7 +2260,7 @@ func _world_turn(lead_tweens: Array) -> void:
 			continue
 		if e.has("windup"):
 			if not tweens.is_empty():
-				await get_tree().create_timer(_step_time()).timeout
+				await get_tree().create_timer(_step_time(), false).timeout
 				tweens.clear()
 			await _fire_windup(i)
 			if ents[0]["hp"] <= 0:
@@ -2293,13 +2294,13 @@ func _world_turn(lead_tweens: Array) -> void:
 			tweens.append(_step(i, plan["d"]))
 		elif plan["kind"] == "attack":
 			if not tweens.is_empty():
-				await get_tree().create_timer(_step_time()).timeout
+				await get_tree().create_timer(_step_time(), false).timeout
 				tweens.clear()
 			await use_move(i, plan["m"], plan["d"])
 			if ents[0]["hp"] <= 0:
 				break
 	if not tweens.is_empty():
-		await get_tree().create_timer(_step_time()).timeout
+		await get_tree().create_timer(_step_time(), false).timeout
 	_end_turn()
 
 
@@ -2584,7 +2585,7 @@ func _meet_boss() -> void:
 		if e["team"] == 1 and (e.get("boss", false) or e.get("minion", false)):
 			e["awake"] = true
 	_banner_show(String(ents[boss]["name"]).to_upper(), "BOSS", Color(1, 0.35, 0.35))
-	_play("res://assets/audio/sfx/ui/hit_strong.wav", -2.0)
+	_play("res://assets/audio/sfx/ui/hit_strong.wav", -2.0, &"SFX")
 	_sfx("boss_appear", -2.0)
 
 
@@ -2650,7 +2651,7 @@ func _finish_after_boss() -> void:
 	if _finishing:
 		return
 	_finishing = true
-	await get_tree().create_timer(2.2).timeout
+	await get_tree().create_timer(2.2, false).timeout
 	busy = true
 	var tw := create_tween()
 	tw.tween_property(_fade, "color:a", 1.0, 0.4)
@@ -3028,7 +3029,7 @@ func _seep(i: int, m: String) -> bool:
 		e["seep"]["node"].queue_free()
 	e["seep"] = {"turns": SEEP_TURNS, "pos": e["pos"], "heal": int(Arena.MOVES[m]["heal"]), "node": pool}
 	_heal_around(i)
-	await get_tree().create_timer(HIT_TIME).timeout
+	await get_tree().create_timer(HIT_TIME, false).timeout
 	return true
 
 
@@ -4049,11 +4050,22 @@ func _rise(at: Vector2, col: Color, n: int) -> void:
 var _portraits := {}
 
 
-## A creature's small square portrait, or null when its form has none yet.
+## A creature's small square portrait. A form with no portrait.png yet (Skimlet, Ozbender and Valvekin can
+## be recruited without one) gets its dungeon still centred in the 48 px box, so the team panel never shows
+## an empty frame. tools/arena/build_portraits.py still makes the real one.
 func portrait_of(form: String) -> Texture2D:
 	if not _portraits.has(form):
 		var path := "res://assets/sprites/arena/%s/portrait.png" % form
+		var still := "res://assets/sprites/arena/%s/dungeon/s.png" % form
 		_portraits[form] = load(path) if ResourceLoader.exists(path) else null
+		if _portraits[form] == null and ResourceLoader.exists(still):
+			var img: Image = load(still).get_image()
+			img.convert(Image.FORMAT_RGBA8)
+			var u := img.get_used_rect()
+			var cut := Rect2i(u.position.x + (u.size.x - mini(u.size.x, 48)) / 2, u.position.y, mini(u.size.x, 48), mini(u.size.y, 48))
+			var box := Image.create(48, 48, false, Image.FORMAT_RGBA8)
+			box.blit_rect(img, cut, Vector2i((48 - cut.size.x) / 2, 48 - cut.size.y))
+			_portraits[form] = ImageTexture.create_from_image(box)
 	return _portraits[form]
 
 
@@ -4308,13 +4320,16 @@ func _say(text: String) -> void:
 ## the checks can see what played.
 func _sfx(name: String, db: float) -> void:
 	last_sfx[name] = turn
-	_play("res://assets/audio/sfx/dungeon/%s.wav" % name, db)
+	_play("res://assets/audio/sfx/dungeon/%s.wav" % name, db, &"SFX")
 
 
-func _play(path: String, db: float) -> void:
+func _play(path: String, db: float, bus: StringName = &"Master") -> void:
 	var p := AudioStreamPlayer.new()
-	p.stream = load(path)
+	if not _streams.has(path):
+		_streams[path] = load(path)
+	p.stream = _streams[path]
 	p.volume_db = db
+	p.bus = bus   # game sounds on SFX (the effects slider); UI clicks stay on Master, as in battle_screen.gd
 	add_child(p)
 	p.play()
 	p.finished.connect(p.queue_free)

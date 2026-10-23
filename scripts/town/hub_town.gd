@@ -361,6 +361,7 @@ func _sfx(name: String) -> void:
 	last_sfx = name
 	var p := AudioStreamPlayer.new()
 	p.stream = load("res://assets/audio/sfx/dungeon/%s.wav" % name)
+	p.bus = &"SFX"
 	p.volume_db = -4.0
 	add_child(p)
 	p.play()

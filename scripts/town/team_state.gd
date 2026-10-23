@@ -17,6 +17,7 @@ static var data := {}
 ## Where saves go. A check under `--script` that leaves this at SAVE_PATH never touches the real save.
 static var save_path := SAVE_PATH
 static var last_save_at := 0.0   # unix time of the last successful save this session (the checks read it)
+static var restored_from_backup := false   # the last read came from the .bak: the title says so (Preston, 2026-10-22)
 
 
 ## A new game: the team the prologue chose, and nothing else yet.
@@ -43,18 +44,32 @@ static func give_to(node: Node) -> void:
 
 
 ## Write the record to disk. False when there is nothing to save or the file could not be written.
+## Crash-safe (Claude, 2026-10-22): the record is written whole to <save>.tmp, the save before it is kept as
+## <save>.bak, and only then does the .tmp take the save's name. Opening the save itself for writing empties it at
+## once, so a crash or power cut mid-write used to leave a cut-short file and the title dropped Continue.
 static func save() -> bool:
 	if data.is_empty():
 		return false
-	var f := FileAccess.open(save_path, FileAccess.WRITE)
+	var tmp := save_path + ".tmp"
+	var f := FileAccess.open(tmp, FileAccess.WRITE)
 	if f == null:
-		push_warning("TeamState: could not write %s (%s)" % [save_path, error_string(FileAccess.get_open_error())])
+		push_warning("TeamState: could not write %s (%s)" % [tmp, error_string(FileAccess.get_open_error())])
 		return false
 	var record := data.duplicate(true)
 	record.erase("news")        # the town has already read these by the time it saves
 	record.erase("arrive_at")
-	f.store_var({"version": SAVE_VERSION, "saved": Time.get_unix_time_from_system(), "data": record})
+	var stored := f.store_var({"version": SAVE_VERSION, "saved": Time.get_unix_time_from_system(), "data": record})
 	f.close()
+	if not stored:
+		push_warning("TeamState: could not finish writing %s" % tmp)
+		return false
+	var main := ProjectSettings.globalize_path(save_path)
+	if FileAccess.file_exists(save_path):
+		DirAccess.rename_absolute(main, main + ".bak")   # replaces the older .bak
+	var err := DirAccess.rename_absolute(ProjectSettings.globalize_path(tmp), main)
+	if err != OK:
+		push_warning("TeamState: could not move %s into place (%s)" % [tmp, error_string(err)])
+		return false
 	last_save_at = Time.get_unix_time_from_system()
 	return true
 
@@ -75,7 +90,7 @@ static func autosave() -> bool:
 
 
 static func has_save() -> bool:
-	return FileAccess.file_exists(save_path) and not _read().is_empty()
+	return not _read().is_empty()   # the save, or its .bak
 
 
 ## A run kept by a quit mid-dungeon (dungeon.suspend()). Continue opens it instead of Highbank, once:
@@ -109,19 +124,47 @@ static func summary() -> Dictionary:
 	return {"party": d.get("party", []), "cleared": int(d.get("cleared", 0)), "beaten": d.get("beaten", []), "saved": float(wrapper.get("saved", 0.0))}
 
 
+## Bring an older save up to SAVE_VERSION, one step per bump, so a new version upgrades old saves instead of hiding
+## them (the title drops Continue and the next arrival writes over them). Version 1 is the only one so far, so there
+## is no step yet. Bump SAVE_VERSION only together with a step here.
+static func _migrate(v: Dictionary) -> Dictionary:
+	return v
+
+
 static func erase_save() -> void:
-	if FileAccess.file_exists(save_path):
-		DirAccess.remove_absolute(ProjectSettings.globalize_path(save_path))
+	for path in [save_path, save_path + ".bak", save_path + ".tmp"]:
+		if FileAccess.file_exists(path):
+			DirAccess.remove_absolute(ProjectSettings.globalize_path(path))
 
 
+## The save, or its .bak when the save is missing, cut short or unreadable (a crash or power cut between writes).
 static func _read() -> Dictionary:
-	if _real_file_in_a_check() or not FileAccess.file_exists(save_path):
+	if _real_file_in_a_check():
 		return {}
-	var f := FileAccess.open(save_path, FileAccess.READ)
+	for path in [save_path, save_path + ".bak"]:
+		var v := _read_file(path)
+		if not v.is_empty():
+			restored_from_backup = path != save_path
+			return v
+	return {}
+
+
+static func _read_file(path: String) -> Dictionary:
+	if not FileAccess.file_exists(path):
+		return {}
+	var f := FileAccess.open(path, FileAccess.READ)
 	if f == null:
 		return {}
+	# store_var writes a 4-byte length, then the value. A file cut short fails this test quietly, where get_var
+	# would print an engine ERROR (and run_checks.py counts every engine ERROR as a failed check).
+	if f.get_length() < 8 or f.get_32() + 4 != f.get_length():
+		f.close()
+		return {}
+	f.seek(0)
 	var v: Variant = f.get_var()
 	f.close()
+	if v is Dictionary and int(v.get("version", 0)) < SAVE_VERSION:
+		v = _migrate(v)
 	if not (v is Dictionary) or int(v.get("version", 0)) != SAVE_VERSION or not (v.get("data") is Dictionary) or v["data"].is_empty():
 		return {}
 	return v

@@ -1,0 +1,15 @@
+{
+  "date": "2026-10-22",
+  "tool": "image_gen.imagegen",
+  "model": "not exposed by built-in tool",
+  "prompt": "Use case: precise-object-edit. Asset type: repair an existing eight-frame pixel-art game walk sprite sheet. First image is the edit target, a 4-column by 2-row 512x256 sheet with 128x128 cells. The first three cells are the correct Canvaswing southeast walk poses; the last five cells are corrupted and must be completely repainted as real poses of the SAME creature. Second image enlarges the three correct frames for exact identity, pose, palette and material reference; third image is the approved southeast still. Produce the repaired complete 4x2 sheet, eight equally spaced cells, with true transparent background. Keep the first three frames as faithful as possible. For frames 3,4,5,6,7: fully opaque complete creature bodies and cream canvas sail membranes inside a crisp dark brown outline; tan brown compact dragon/glider kit, two long swept sail spars, same folded cream wing sails, brown downward-right snout, tiny green eyes, crouched torso, tiny claw feet. SAME southeast/down-right view throughout, no turn or flip. Smooth cyclic small walk/shuffle with alternating foot steps, a gentle one-pixel-like body bob and small sail flex; finish toward the first pose. Match the correct frames' scale and bounding box, roughly 80x72 art pixels centered on 128x128 cells with at least 20-pixel margins. Pixel-art bitmap drawn on the same native coarse pixel grid, limited existing warm canvas/tan/brown palette, no new anatomy, no new colors, no antlers, no text, no grid borders, no ground shadow, no green outlines, no ghosts, no monochrome blocks, no clipped body or touching any cell edge. Keep every pose distinct. This is ONE repaired animation asset, not a character redesign.",
+  "referenced_image_paths": [
+    "references/original-se-sheet.png",
+    "references/good-frames-4x.png",
+    "assets/sprites/arena/canvaswing/se.png"
+  ],
+  "transparent_background": true,
+  "original_generated_path": "C:/Users/pmcga/.codex/generated_images/01a12b4b-7982-7b32-b405-2a584762f412/exec-6c4be28b-3113-4810-b959-631f96a01b24.png",
+  "calls": 1,
+  "external_paid_generation_calls": 0
+}

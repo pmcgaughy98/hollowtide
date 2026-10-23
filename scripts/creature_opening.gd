@@ -219,7 +219,7 @@ func _build_menu() -> void:
 	_ui.add_child(_input_hint)
 	# Laid out from the hint line up, not from a fixed top: with Continue listed first (five rows) the
 	# menu ran from 324 to 650 and "Quit" sat on the hint. Four rows keep their old place. Claude, 2026-10-14.
-	_main_panel.position.y=menu_top(_buttons.size())
+	_main_panel.position.y=menu_top(_buttons.size() + (1 if _save_note != null else 0))   # the save note counts as a row
 
 	for b in _buttons:
 		b.focus_entered.connect(_selected_action.bind(b))

@@ -9,6 +9,7 @@ func _initialize() -> void:
 	arena.team_size = 3
 	arena._you = 6; arena._you_stage = 2       # Starward, Stormwick, Rampartroot
 	arena._rival = 3; arena._rival_stage = 2   # Ironvent, Vitrecrag, Oxbowarchon
+	arena.teams_override = [[[6, 2], [0, 2], [1, 2]], [[3, 2], [4, 2], [5, 2]]]   # the lineup above; the filled-in lines moved when lines 7-10 joined
 	arena._new_match()
 	await process_frame
 	var x := 70.0
@@ -23,6 +24,7 @@ func _initialize() -> void:
 		x += 42.0
 	for k in 6:
 		await process_frame
-	root.get_texture().get_image().save_png("res://docs/creatures/arena-feel-2026-10-07/sizes_lineup.png")
+	if DisplayServer.get_name() != "headless":   # no rendered image headless; the still needs a window
+		root.get_texture().get_image().save_png("res://docs/creatures/arena-feel-2026-10-07/sizes_lineup.png")
 	print(line)
 	quit()

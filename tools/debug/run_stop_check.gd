@@ -177,15 +177,16 @@ func _run() -> void:
 	var steps_in := func() -> int: return maxi(absi(lead["pos"].x - p.x), absi(lead["pos"].y - p.y))
 	# 1. To the wall, timed against a walk.
 	_put(dg, p)
-	var t0 := Time.get_ticks_msec()
+	# Timed in game frames: under --fixed-fps 30 a frame is 1/30 s of game time, while wall-clock ms only measure the machine.
+	var t0 := Engine.get_process_frames()
 	await dg.act_run(d)
-	var ms := float(Time.get_ticks_msec() - t0) / maxi(1, steps_in.call())
+	var ms := float(Engine.get_process_frames() - t0) / maxi(1, steps_in.call())
 	_ok(lead["pos"] == p + d * n, "a run crosses the room to the wall: %d of %d steps (%s)" % [steps_in.call(), n, dg.run_stop])
 	_put(dg, p)
-	var t1 := Time.get_ticks_msec()
+	var t1 := Engine.get_process_frames()
 	await dg.act_move(d)
-	var walk_ms := float(Time.get_ticks_msec() - t1)
-	_ok(ms < walk_ms * 0.75, "a run is quicker than a walk: %.0f ms a step against %.0f" % [ms, walk_ms])
+	var walk_ms := float(Engine.get_process_frames() - t1)
+	_ok(ms < walk_ms * 0.75, "a run is quicker than a walk: %.1f frames a step against %.0f" % [ms, walk_ms])
 	# 2. An item four steps ahead: it stops beside it.
 	_put(dg, p)
 	dg.floor_items.append({"pos": p + d * 4, "kind": "reedberry"})

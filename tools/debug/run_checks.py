@@ -162,12 +162,14 @@ def classify(name: str, out: str, code: int, timed_out: bool, window: bool = Fal
     t = traits(name)
     printed, blocks = _blocks(lines)
     fails = [l.strip() for l in printed if FAIL_LINE.search(l) or (t["bool_verdict"] and BOOL_FAIL_LINE.search(l))]
-    real_errors, capture_errors = [], 0
+    real_errors, capture_errors, stuck_at = [], 0, ""
     for b in blocks:
         where = b["at"] or b["frame"]
         if b["kind"] == "SCRIPT ERROR":
             if CAPTURE_SCRIPT.search(b["msg"]) and IN_CHECK_CODE.search(b["at"]):
                 capture_errors += 1
+                if "_initialize (" in b["at"]:
+                    stuck_at = b["at"]   # the check's main coroutine ended here, so its quit() never runs
             else:
                 real_errors.append(f"SCRIPT ERROR: {b['msg']} {where}")
         elif b["kind"] in ("ERROR", "USER ERROR"):
@@ -186,7 +188,8 @@ def classify(name: str, out: str, code: int, timed_out: bool, window: bool = Fal
     elif needs_window:
         cls, first = "WINDOW", f"needs a window; last line: {last}"
     elif timed_out:
-        cls, first = "TIMEOUT", (fails or real_errors or [f"last line: {last}"])[0]
+        stuck = [f"stopped at a headless screenshot ({stuck_at}); guard it or use --window"] if stuck_at else []
+        cls, first = "TIMEOUT", (fails or real_errors or stuck or [f"last line: {last}"])[0]
     elif code == 2 and "RETIRED" in out:
         cls, first = "RETIRED", "retired on purpose"
     elif fails or real_errors:

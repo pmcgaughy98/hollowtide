@@ -239,6 +239,7 @@ func _sfx(name: String) -> void:
 	var p := AudioStreamPlayer.new()
 	p.stream = load(path)
 	p.volume_db = -4.0
+	p.bus = &"SFX"
 	add_child(p)
 	p.play()
 	p.finished.connect(p.queue_free)

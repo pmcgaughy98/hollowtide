@@ -31,6 +31,7 @@ func _initialize() -> void:
 	var me: Dictionary = arena._fighters[arena.controlled]
 	for f in arena._fighters:
 		f["stun"] = 60.0
+		f["charm_cd"] = 99.0   # Beads (Bruiser, Ambusher, Controller) break a stun; held means held
 	me["stun"] = 0.0
 	var p0: Vector2 = me["body"].position
 	arena.debug_input = Vector2.ZERO
