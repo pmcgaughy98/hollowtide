@@ -464,14 +464,16 @@ var _hold := 0.0                        # a first key press waits this long so t
 var turn_mode := false                  # Shift is held: the leader turns in place and the arrows show
 var _shift_turned := false              # a direction was pressed during this Shift hold (so it was no tap)
 var _was_dir := Vector2i.ZERO
-var _keys_was := {}
-var running := false                    # a Ctrl + direction run is under way (act_run)
+# Keys and buttons are actions now (Claude, 2026-10-23, factory pass 2): UI.tapped keeps what _keys_was kept,
+# per key or button, and _ready starts it fresh as _keys_was used to start.
+var running := false                   # a Ctrl + direction run is under way (act_run)
 var _run_ready := true                  # a run starts on a fresh press, not again while Ctrl + direction stays held
 var run_stop := ""                      # why the last run stopped (the checks read it)
 # The press buffer (FEEL-05, Claude, 2026-10-22): an attack or rest pressed while the last action still plays
 # out is kept BUFFER_SECS and taken as soon as the leader is free, so a quick J between steps is not lost.
 const BUFFER_SECS := 0.15
-const BUFFER_KEYS := [[KEY_J, 0], [KEY_SPACE, 0], [KEY_1, 1], [KEY_2, 2], [KEY_3, 3], [KEY_Z, -1], [KEY_PERIOD, -1]]   # slot, or -1 for a rest
+# Actions, so a pad's A or RB+X is kept too (Claude, 2026-10-23): attack is J or Space, the moves 1 to 3, rest Z or Period.
+const BUFFER_ACTIONS := [["attack", 0], ["move_slot_1", 1], ["move_slot_2", 2], ["move_slot_3", 3], ["rest", -1]]   # slot, or -1 for a rest
 const REDUCED_SHAKE := 1.0              # the most the screen shakes under the menu's Reduce motion (FEEL-04)
 var _buffered := 0
 var _buffer_left := 0.0
@@ -486,6 +488,7 @@ var _fade: ColorRect
 
 
 func _ready() -> void:
+	UI.forget_taps()   # a fresh slate, as the old per-scene _keys_was was (Claude, 2026-10-23)
 	if floor_seed == 0:
 		floor_seed = randi()
 	_party_at_start = party.duplicate(true)
@@ -1938,15 +1941,17 @@ func act_move(d: Vector2i) -> void:
 ## hall it follows a bend (one run in the footage turned a corner). Claude, 2026-10-14; the adversarial
 ## pass of that day found the key stop dead, warps and prompts ignored, and stairs ending runs at once.
 const RUN_PACE := 0.5                    # a run's step takes this share of a walking step
-const RUN_STOP_KEYS := [KEY_W, KEY_A, KEY_S, KEY_D, KEY_UP, KEY_DOWN, KEY_LEFT, KEY_RIGHT, KEY_J, KEY_SPACE, KEY_ESCAPE, KEY_Z, KEY_E, KEY_I, KEY_T, KEY_L, KEY_1, KEY_2, KEY_3]
+# The actions whose press ends a run (Claude, 2026-10-23: the old key list as actions, so a pad's buttons and stick
+# stop it too; Period, a rest key, now stops one as Z did).
+const RUN_STOP_ACTIONS := ["move_left", "move_right", "move_up", "move_down", "attack", "cancel", "rest", "interact", "bag",
+	"tactics", "log", "move_slot_1", "move_slot_2", "move_slot_3"]
 
 
 func act_run(d: Vector2i) -> void:
 	if busy or running or _prompt_up() or d == Vector2i.ZERO or ents.is_empty() or ents[0]["hp"] <= 0:
 		return
-	# Keys already down (the direction that started the run) are not new presses.
-	for k in RUN_STOP_KEYS:
-		_keys_was[k] = Input.is_physical_key_pressed(k)
+	# Keys and buttons already down (the direction that started the run) are not new presses.
+	UI.sync_taps(RUN_STOP_ACTIONS)
 	running = true
 	var lead: Dictionary = ents[0]
 	var seen := _foes_in_sight()
@@ -2173,11 +2178,17 @@ func act_stairs() -> void:
 ## lantern under half), through the talk box, and its story flag keeps a replay or a later run from saying it again.
 ## The words are Claude's proposals; they ship unless Preston rewrites them (factory plan, Preston's call 8).
 const B1F_LESSONS := [
-	["taught_wild", "Whoa, heads up, there's one of 'em over there. If it comes at us, J swings, or 1, 2 and 3 for our moves.", "determined"],
-	["taught_item", "Ooh, somebody dropped this. It's ours now. Press I whenever you want to dig through the bag.", "joyous"],
-	["taught_lantern", "Lantern's burning down, huh. It flares back up when we beat something. Z rests us, but it keeps burning while we sit.", "worried"],
+	["taught_wild", "Whoa, heads up, there's one of 'em over there. If it comes at us, {attack} swings, or {moves} for our moves.", "determined"],
+	["taught_item", "Ooh, somebody dropped this. It's ours now. Press {bag} whenever you want to dig through the bag.", "joyous"],
+	["taught_lantern", "Lantern's burning down, huh. It flares back up when we beat something. {rest} rests us, but it keeps burning while we sit.", "worried"],
 ]
 var _got_item := false                    # an item went into the bag on this floor (the item lesson waits for it)
+
+
+## The keys in a lesson are the player's own (Claude, 2026-10-23): J, 1, 2 and 3, I and Z on a keyboard as before,
+## A, RB+A/X/Y, Y and RB+B when the last press was on a pad.
+static func lesson_keys() -> Dictionary:
+	return {"attack": key_hint("attack"), "moves": moves_hint("", true), "bag": key_hint("bag"), "rest": key_hint("rest")}
 
 
 func _b1f_lessons() -> void:
@@ -2192,7 +2203,7 @@ func _b1f_lessons() -> void:
 		var due: bool = _wild_in_view() if lesson[0] == "taught_wild" else (_got_item if lesson[0] == "taught_item" else light < LIGHT_MAX * 0.5)
 		if due:
 			story[lesson[0]] = true
-			talk.append([String(mate["name"]), String(lesson[1]), String(mate["form"]) + ":" + String(lesson[2])])
+			talk.append([String(mate["name"]), String(lesson[1]).format(lesson_keys()), String(mate["form"]) + ":" + String(lesson[2])])
 			return   # one at a time; the next waits for a later turn
 
 
@@ -3560,7 +3571,7 @@ func _end_turn() -> void:
 		else:
 			call_deferred("_build_floor", true)
 	elif ents[0]["pos"] == data["stairs"]:
-		_say("Stairs. Press E to go down.")
+		_say("Stairs. Press %s to go down." % key_hint("interact"))   # E; X on a pad (Claude, 2026-10-23)
 	if ents[0]["hp"] > 0:
 		_b1f_lessons()
 	if real_time_battles and not in_battle and ents[0]["hp"] > 0 and asking < 0:
@@ -3912,33 +3923,34 @@ func _process(delta: float) -> void:
 
 func _poll(delta: float) -> void:
 	_buffer_left = maxf(0.0, _buffer_left - delta)
-	if cutscene:   # a scene plays itself; J (or E, the use key, FEEL-02) reads its lines
-		if not talk.is_empty() and (_tapped(KEY_J) or _tapped(KEY_ENTER) or _tapped(KEY_SPACE) or _tapped(KEY_E)):
+	# Every read below is an action (Claude, 2026-10-23, factory pass 2): the same keys as before, and a pad beside
+	# them (scripts/ui/ui_style.gd, INPUT CONTRACT). The pad's moves are RB chords; UI.tapped knows that rule.
+	if cutscene:   # a scene plays itself; J (or E, the use key, FEEL-02) reads its lines; A or X on a pad
+		if not talk.is_empty() and UI.tapped_any(UI.INPUT_ADVANCE):
 			act_talk()
 		return
 	if running:
 		# Any key ends a run early (it also ends itself on anything worth stopping for). Read here, before
 		# the busy return: a run is busy on every frame, so a check after it never saw a key.
-		for k in RUN_STOP_KEYS:
-			if _tapped(k):
-				running = false
+		if UI.tapped_any(RUN_STOP_ACTIONS):
+			running = false
 		return
 	if busy:
-		for pair in BUFFER_KEYS:
-			if _tapped(pair[0]):
+		for pair in BUFFER_ACTIONS:
+			if UI.tapped(pair[0]):
 				_buffered = pair[1]
 				_buffer_left = BUFFER_SECS
 		return
 	if _prompt_up():
 		_buffer_left = 0.0   # a question or a line came up: the press was not meant for it
 	if asking >= 0:
-		if _tapped(KEY_Y) or _tapped(KEY_ENTER):
+		if UI.tapped("yes"):   # Y or Enter; A on a pad
 			act_recruit(true)
-		elif _tapped(KEY_N) or _tapped(KEY_ESCAPE):
+		elif UI.tapped("no"):   # N or Escape; B on a pad
 			act_recruit(false)
 		return
 	if not talk.is_empty():
-		if _tapped(KEY_J) or _tapped(KEY_ENTER) or _tapped(KEY_SPACE) or _tapped(KEY_E):
+		if UI.tapped_any(UI.INPUT_ADVANCE):
 			act_talk()
 		return
 	if teach_kind != "":
@@ -3946,24 +3958,24 @@ func _poll(delta: float) -> void:
 		var was_sel := teach_sel
 		if skip_ask:
 			# Escape over a level's move asked first (GS-21, FEEL-22): Y lets it go, N or Escape goes back to the list.
-			if _tapped(KEY_Y) or _tapped(KEY_ENTER) or _tapped(KEY_J):
+			if UI.tapped_any(["yes", "confirm"]):   # Y, Enter or J
 				skip_ask = false
 				_tick("confirm")
 				act_teach(teach_learner, -2)   # letting a level's move go
-			elif _tapped(KEY_N) or _tapped(KEY_ESCAPE) or _tapped(KEY_I):
+			elif UI.tapped_any(["no", "bag"]):   # N, Escape or I
 				skip_ask = false
 				_tick("cancel")
 			return
-		if _tapped(KEY_W) or _tapped(KEY_UP):
+		if UI.tapped("move_up"):
 			teach_sel = maxi(0, teach_sel - 1)
-		elif _tapped(KEY_S) or _tapped(KEY_DOWN):
+		elif UI.tapped("move_down"):
 			teach_sel = mini(rows.size() - 1, teach_sel + 1)
-		elif (_tapped(KEY_J) or _tapped(KEY_ENTER)) and not rows.is_empty():
+		elif UI.tapped("confirm") and not rows.is_empty():
 			if teach_learner < 0:
 				act_teach(rows[teach_sel]["i"])
 			else:
 				act_teach(teach_learner, rows[teach_sel]["slot"])
-		elif _tapped(KEY_ESCAPE) or _tapped(KEY_I):
+		elif UI.tapped_any(["cancel", "bag"]):
 			_tick("cancel")
 			if teach_kind.begins_with("learn:"):
 				skip_ask = true   # ask before the move is let go
@@ -3974,17 +3986,17 @@ func _poll(delta: float) -> void:
 			_tick("cursor")
 		return
 	if bag_open:
-		# The bag: W and S choose, J or Enter uses, I or Escape closes.
+		# The bag: W and S choose, J or Enter uses, I or Escape closes (the D-pad, A, and Y or B on a pad).
 		var kinds: Array = bag.keys()
 		var was_bag := bag_sel
-		if _tapped(KEY_W) or _tapped(KEY_UP):
+		if UI.tapped("move_up"):
 			bag_sel = maxi(0, bag_sel - 1)
-		elif _tapped(KEY_S) or _tapped(KEY_DOWN):
+		elif UI.tapped("move_down"):
 			bag_sel = mini(kinds.size() - 1, bag_sel + 1)
-		elif (_tapped(KEY_J) or _tapped(KEY_ENTER)) and not kinds.is_empty():
+		elif UI.tapped("confirm") and not kinds.is_empty():
 			bag_open = false
 			act_use_item(kinds[clampi(bag_sel, 0, kinds.size() - 1)])
-		elif _tapped(KEY_I) or _tapped(KEY_ESCAPE):
+		elif UI.tapped_any(["bag", "cancel"]):
 			bag_open = false
 			_tick("cancel")   # the menu sounds on the UI bus (GS-21, Claude, 2026-10-22)
 		if bag_sel != was_bag:
@@ -3997,7 +4009,8 @@ func _poll(delta: float) -> void:
 		else:
 			act_attack(_buffered)
 		return
-	var d := Vector2i(int(_key(KEY_D) or _key(KEY_RIGHT)) - int(_key(KEY_A) or _key(KEY_LEFT)), int(_key(KEY_S) or _key(KEY_DOWN)) - int(_key(KEY_W) or _key(KEY_UP)))
+	# WASD or the arrows as before; the D-pad or the left stick on a pad, one of eight ways (UI.dir8).
+	var d := UI.dir8()
 	if d == Vector2i.ZERO:
 		_hold = 0.0
 		_was_dir = Vector2i.ZERO
@@ -4008,10 +4021,10 @@ func _poll(delta: float) -> void:
 			if _hold < 0.07:
 				return   # a moment for the second key of a diagonal
 		_was_dir = d
-		if Input.is_key_pressed(KEY_SHIFT):
+		if UI.held("turn"):   # Shift; LT on a pad
 			_shift_turned = true
 			act_face(d)
-		elif Input.is_key_pressed(KEY_CTRL):
+		elif UI.held("run"):   # Ctrl; RT on a pad
 			if _run_ready:
 				_run_ready = false
 				act_run(d)
@@ -4020,32 +4033,33 @@ func _poll(delta: float) -> void:
 			act_move(d)
 		return
 	# L shows the message box again for a while (Explorers of Sky's L + B "Check message log").
-	if _tapped(KEY_L):
+	if UI.tapped("log"):   # R3 on a pad
 		_log_at = Time.get_ticks_msec()
 		return
-	# Shift held is turn mode (arrows show round the leader); a tap of Shift alone faces the nearest foe.
-	var shift := Input.is_key_pressed(KEY_SHIFT)
+	# Shift held is turn mode (arrows show round the leader); a tap of Shift alone faces the nearest foe. LT on a pad.
+	var shift := UI.held("turn")
 	if shift and not turn_mode:
 		_shift_turned = false
 	elif not shift and turn_mode and not _shift_turned:
 		act_face_nearest()
 	turn_mode = shift
-	for pair in [[KEY_J, 0], [KEY_SPACE, 0], [KEY_1, 1], [KEY_2, 2], [KEY_3, 3]]:
-		if _tapped(pair[0]):
+	# J or Space attacks, 1 to 3 use the moves; on a pad A attacks and RB with A, X or Y uses the moves.
+	for pair in [["attack", 0], ["move_slot_1", 1], ["move_slot_2", 2], ["move_slot_3", 3]]:
+		if UI.tapped(pair[0]):
 			act_attack(pair[1])
 			return
-	if _tapped(KEY_I):
+	if UI.tapped("bag"):
 		bag_open = not bag_open
 		bag_sel = 0
 		_tick("open")
 		return
-	if _tapped(KEY_Z) or _tapped(KEY_PERIOD):
+	if UI.tapped("rest"):   # Z or Period; RB+B on a pad
 		act_rest()
-	elif _tapped(KEY_E):
+	elif UI.tapped("interact"):   # E; X on a pad
 		act_stairs()
-	elif _tapped(KEY_T):
+	elif UI.tapped("tactics"):   # T; LB on a pad
 		act_tactic()
-	elif _tapped(KEY_TAB):
+	elif UI.tapped("autopilot"):   # Tab; Back on a pad
 		autopilot = not autopilot
 		_say("Autopilot %s." % ("on" if autopilot else "off"))
 		_tick("open" if autopilot else "close")   # FEEL-11
@@ -4069,15 +4083,42 @@ func _tick(kind: String) -> void:
 	UI.tick(kind)
 
 
-func _key(k: int) -> bool:
-	return Input.is_physical_key_pressed(k)
+## What a hint prints for `action` (Claude, 2026-10-23, factory pass 2): the binding on the last device used, so a
+## pad player reads "A attack" where a keyboard player reads "J attack", and a rebound key shows as rebound. On a
+## keyboard a letter is shown before an arrow key (the hints always said W/S, not Up/Down); an action with nothing on
+## the pad prints its keyboard key. `device` is "keyboard" or "pad"; "" is the last one used.
+const ARROW_WORDS := ["Up", "Down", "Left", "Right"]
 
 
-func _tapped(k: int) -> bool:
-	var now := Input.is_physical_key_pressed(k)
-	var was: bool = _keys_was.get(k, false)
-	_keys_was[k] = now
-	return now and not was
+static func key_hint(action: StringName, device := "") -> String:
+	var dev := device if device != "" else UI.last_device()
+	var all := UI.binding_text(action, dev, true).split(" / ", false)
+	if all.is_empty() and dev == "pad":
+		all = UI.binding_text(action, "keyboard", true).split(" / ", false)
+	for t in all:
+		if t not in ARROW_WORDS:
+			return t
+	return all[0] if not all.is_empty() else ""
+
+
+## Two keys that choose up and down a list: "W/S", or "D-pad" on a pad.
+static func pair_hint(a: StringName, b: StringName, device := "") -> String:
+	var ta := key_hint(a, device)
+	var tb := key_hint(b, device)
+	if ta.begins_with("D-pad ") and tb.begins_with("D-pad "):
+		return "D-pad"
+	return "%s/%s" % [ta, tb]
+
+
+## The three move keys: "1 2 3" ("1, 2 and 3" when `spoken`), or "RB+A/X/Y" when they share a hold on a pad.
+static func moves_hint(device := "", spoken := false) -> String:
+	var t := PackedStringArray()
+	for n in [1, 2, 3]:
+		t.append(key_hint("move_slot_%d" % n, device))
+	var pre := t[0].get_slice("+", 0) + "+" if t[0].contains("+") else ""
+	if pre != "" and t[1].begins_with(pre) and t[2].begins_with(pre):
+		return pre + "/".join(PackedStringArray([t[0].trim_prefix(pre), t[1].trim_prefix(pre), t[2].trim_prefix(pre)]))
+	return "%s, %s and %s" % [t[0], t[1], t[2]] if spoken else " ".join(t)
 
 
 ## Tab: the leader plays itself: the nearest wild creature it knows of, then the stairs.
@@ -4319,26 +4360,11 @@ func _rise(at: Vector2, col: Color, n: int) -> void:
 			"t": -randf() * 0.25, "life": randf_range(0.6, 0.95), "col": col.lerp(Color.WHITE, randf() * 0.4), "size": 1.0, "grav": 0.0})
 
 
-var _portraits := {}
-
-
-## A creature's small square portrait. A form with no portrait.png yet (Skimlet, Ozbender and Valvekin can
-## be recruited without one) gets its dungeon still centred in the 48 px box, so the team panel never shows
-## an empty frame. tools/arena/build_portraits.py still makes the real one.
+## A creature's small square portrait: a 16 px cut of its dialogue face at 3x (UI-05, Claude, 2026-10-23), so the
+## team row has the dialogue's pixel size. UI.portrait_3x falls back as this did: portrait.png, then the dungeon
+## still centred in the 48 px box, so the team panel never shows an empty frame.
 func portrait_of(form: String) -> Texture2D:
-	if not _portraits.has(form):
-		var path := "res://assets/sprites/arena/%s/portrait.png" % form
-		var still := "res://assets/sprites/arena/%s/dungeon/s.png" % form
-		_portraits[form] = load(path) if ResourceLoader.exists(path) else null
-		if _portraits[form] == null and ResourceLoader.exists(still):
-			var img: Image = load(still).get_image()
-			img.convert(Image.FORMAT_RGBA8)
-			var u := img.get_used_rect()
-			var cut := Rect2i(u.position.x + (u.size.x - mini(u.size.x, 48)) / 2, u.position.y, mini(u.size.x, 48), mini(u.size.y, 48))
-			var box := Image.create(48, 48, false, Image.FORMAT_RGBA8)
-			box.blit_rect(img, cut, Vector2i((48 - cut.size.x) / 2, 48 - cut.size.y))
-			_portraits[form] = ImageTexture.create_from_image(box)
-	return _portraits[form]
+	return UI.portrait_3x(form)
 
 
 ## A brass lantern, drawn in the HUD's own pixels. The run's clock is the lantern, not a borrowed meter.
@@ -4408,7 +4434,7 @@ func _draw_hud() -> void:
 	for e in team:
 		var k: float = float(e["hp"]) / e["max_hp"]
 		var down: bool = e["hp"] <= 0
-		# Its portrait (tools/arena/build_portraits.py: a 48 px square cut from its own front sprite).
+		# Its face: a 16 px cut of its dialogue face drawn 3x into the 48 px box (UI-05, Claude, 2026-10-23).
 		var face := portrait_of(e["form"])
 		h.draw_rect(Rect2(28, y + 1, 48, 48), Color(UI.PORTRAIT_BG, 0.55) if down else UI.PORTRAIT_BG)
 		if face != null:
@@ -4446,7 +4472,7 @@ func _draw_hud() -> void:
 		var ess_icon := UI.essence_icon(_ess_name(m, lead))
 		if ess_icon != null:
 			h.draw_texture(ess_icon, box.position + Vector2(14, 11), Color(1, 1, 1, 1.0 if ready else 0.4))
-		UI.text(h, box.position + Vector2(0, 19), "J" if s == 0 else str(s), 14, UI.EDGE_LIGHT if ready else UI.MUTED, 144, HORIZONTAL_ALIGNMENT_RIGHT)
+		UI.text(h, box.position + Vector2(0, 19), key_hint("attack") if s == 0 else key_hint("move_slot_%d" % s), 14, UI.EDGE_LIGHT if ready else UI.MUTED, 144, HORIZONTAL_ALIGNMENT_RIGHT)
 		UI.text(h, box.position + Vector2(50, 25), String(Arena.MOVES[m]["name"]), 17, Color(UI.TEXT, 1.0 if ready else 0.55), 96)
 		var r := move_reach(m)
 		var sub: String = ("%s %d" % [String(r["kind"]).capitalize(), r["n"]]) if ready else ("%d turn%s" % [lead["cds"][m], "" if lead["cds"][m] == 1 else "s"])
@@ -4471,7 +4497,7 @@ func _draw_hud() -> void:
 	# The keys, short; the full list is under the menu's Controls. They sit on their own label-role strip in the
 	# panel frame (CR-07); while a creature asks to join, the strip holds that answer's keys instead of the
 	# message (LP-17). Claude, 2026-10-22.
-	var keys: Array = HUD_KEYS_ASKING if asking >= 0 else HUD_KEYS
+	var keys: Array = hud_keys(asking >= 0)   # the pad's buttons after a pad press (Claude, 2026-10-23)
 	var strip_h := 40.0 + 17.0 * keys.size()   # four rows fill the message box's own height, 526 to 634
 	var strip := Rect2(944, 634.0 - strip_h, 202, strip_h)
 	UI.panel(h, strip, 0.86)
@@ -4487,13 +4513,13 @@ func _draw_hud() -> void:
 		var ask_box := Rect2(336, 196, 480, 88)
 		UI.panel(h, ask_box, 0.96)
 		UI.text(h, ask_box.position + Vector2(20, 34), "%s wants to join your team" % String(ents[asking]["name"]), 21, UI.EDGE_LIGHT, 440)
-		UI.text(h, ask_box.position + Vector2(20, 66), "Y  welcome it          N  let it go", 18, UI.TEXT, 440)
+		UI.text(h, ask_box.position + Vector2(20, 66), "%s  welcome it          %s  let it go" % [key_hint("yes"), key_hint("no")], 18, UI.TEXT, 440)
 	if bag_open:
 		var kinds: Array = bag.keys()
 		var box := Rect2(336, 120, 480, 64 + 40 * maxi(1, kinds.size()))
 		UI.panel(h, box, 0.96)
 		UI.text(h, box.position + Vector2(20, 32), "Bag", 22, UI.EDGE_LIGHT)
-		UI.text(h, box.position + Vector2(20, 32), "W/S choose   J use   I close", 14, UI.MUTED, 440, HORIZONTAL_ALIGNMENT_RIGHT)
+		UI.text(h, box.position + Vector2(20, 32), "%s choose   %s use   %s close" % [pair_hint("move_up", "move_down"), key_hint("confirm"), key_hint("bag")], 14, UI.MUTED, 440, HORIZONTAL_ALIGNMENT_RIGHT)
 		if kinds.is_empty():
 			UI.text(h, box.position + Vector2(20, 70), "Empty", 18, UI.MUTED)
 		for k in kinds.size():
@@ -4518,9 +4544,10 @@ func _draw_hud() -> void:
 		UI.text(h, tbox.position + Vector2(20, 32), title, 21, UI.EDGE_LIGHT, 440)
 		var ask := "Who learns it?" if teach_learner < 0 else "It knows four moves. Forget one?"
 		if skip_ask:
-			ask = "Let %s go unlearned? Y/N" % Arena.MOVES[teach_kind.get_slice(":", 1)]["name"]
+			ask = "Let %s go unlearned? %s/%s" % [Arena.MOVES[teach_kind.get_slice(":", 1)]["name"], key_hint("yes"), key_hint("no")]
 		UI.text(h, tbox.position + Vector2(20, 56), ask, 16, UI.EDGE_LIGHT if skip_ask else UI.TEXT, 440)
-		UI.text(h, tbox.position + Vector2(20, tbox.size.y - 18), "Y let it go   N keep it" if skip_ask else "W/S choose   J pick   Esc close", 14, UI.MUTED, 440, HORIZONTAL_ALIGNMENT_RIGHT)
+		var tkeys: String = ("%s let it go   %s keep it" % [key_hint("yes"), key_hint("no")]) if skip_ask else ("%s choose   %s pick   %s close" % [pair_hint("move_up", "move_down"), key_hint("confirm"), key_hint("cancel")])
+		UI.text(h, tbox.position + Vector2(20, tbox.size.y - 18), tkeys, 14, UI.MUTED, 440, HORIZONTAL_ALIGNMENT_RIGHT)
 		for k in rows.size():
 			var yy: float = tbox.position.y + 92 + k * 32
 			if k == teach_sel:
@@ -4578,9 +4605,21 @@ static func minimap_scale(w: int, h: int) -> int:
 ## used to drop it, and a partner's Sense vanished from the HUD), and only then is the name cut. sense < 0 is
 ## the leader, who shows no Sense. Claude, 2026-10-14.
 const HUD_ROW_W := 246.0
-## The key lines at the bottom right (the full list is under the menu's Controls).
+## The key lines at the bottom right (the full list is under the menu's Controls). These are the keyboard defaults;
+## the strip draws hud_keys(), the same lines from the live bindings (Claude, 2026-10-23), and a pad's after a pad press.
 const HUD_KEYS := ["J attack   1 2 3 moves", "I bag   T orders   Z rest", "E stairs   Tab autopilot", "Ctrl run   L messages"]
 const HUD_KEYS_ASKING := ["Y join   N leave"]   # the hint row while a beaten creature asks (LP-17, Claude, 2026-10-22)
+
+
+## The strip's lines for `device` ("" is the last one used): HUD_KEYS on a keyboard with the default keys, and on a pad
+## "A attack   RB+A/X/Y moves", "Y bag   LB orders   RB+B rest", "X stairs   Back autopilot", "RT run   R3 messages".
+static func hud_keys(asking_now := false, device := "") -> Array:
+	if asking_now:
+		return ["%s join   %s leave" % [key_hint("yes", device), key_hint("no", device)]]
+	return ["%s attack   %s moves" % [key_hint("attack", device), moves_hint(device)],
+		"%s bag   %s orders   %s rest" % [key_hint("bag", device), key_hint("tactics", device), key_hint("rest", device)],
+		"%s stairs   %s autopilot" % [key_hint("interact", device), key_hint("autopilot", device)],
+		"%s run   %s messages" % [key_hint("run", device), key_hint("log", device)]]
 
 
 static func hud_name_tag(nm: String, lv: int, sense: int) -> Array:

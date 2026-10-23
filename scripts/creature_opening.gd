@@ -336,10 +336,10 @@ func _show_help_topic(topic: String) -> void:
 			["IN HIGHBANK",23],
 			["WASD / arrows: move. E / J / Enter: use a place.",20],
 			["IN A HOLLOW",23],
-			["WASD / arrows: step. Shift: turn. J / click: attack. 1–3: moves. I: bag. Z: rest. E: stairs.",20],
+			["WASD / arrows: step. Shift: turn. J / Space: attack. 1-3: moves. I: bag. Z: rest. E: stairs.",20],
 			["T: team orders. Tab: autopilot. Y / N: answer a recruit.",20],
 			["YOUR MENUS",23],
-			["P / controller Start: pause. Arrows / D-pad: move focus. Enter / A: choose. Esc / B: back. Field movement uses the keyboard.",20]]
+			["P / controller Start: pause. Arrows / D-pad: move focus. Enter / A: choose. Esc / B: back. A controller works everywhere.",20]]
 	for entry in lines:
 		var l := _label(entry[0],entry[1])
 		l.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART

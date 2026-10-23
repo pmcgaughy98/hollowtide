@@ -106,8 +106,11 @@ const STAIRS_DOWN := Rect2i(14, 10, 2, 2)   # on the Hall's work floor, right of
 const REST_LINE := "Morning. Highbank remembers."
 const REST_FADE := 0.35
 const REST_HOLD := 0.25   # the dark between the fades: the night
-# The key hints, bottom right, key then action in the column style the menus use (W12).
-const KEYS_HINT := "WASD  walk     E  use"
+# The key hints, bottom right, key then action in the column style the menus use (W12). The keys are the
+# device's (Claude, 2026-10-23): "WASD  walk     E  use" on a keyboard, "Stick  walk     A  use" on a pad.
+static func keys_hint() -> String:
+	return "%s  walk     %s  use" % [SceneKit.walk_keys(), SceneKit.use_key()]
+
 
 @export var room_id := "home"
 var arrive := Vector2i(-1, -1)   # set when the team comes by stairs or a door from another room
@@ -120,7 +123,6 @@ var last_sfx := ""   # same UI-sound receipt as the town Storage panel
 var grid := PackedByteArray()
 var _world: Node2D
 var _hud: Node2D
-var _keys_was := {}
 var used_log: Array = []   # spots used, for the checks
 # Scenes in rooms (Claude, 2026-10-10): the hooks scripts/town/scene_kit.gd uses, as in hub_town.gd.
 var talk: Array = []          # [speaker, line, "form:face"]; E reads on
@@ -192,6 +194,7 @@ func _ready() -> void:
 		_guild_desk(map)
 	if room_id in ["hall", "hall_low", "chamber", "runners"]:
 		preload("res://scripts/town/hall_floors_art.gd").finish(map, room_id)
+	_lift_furniture(map)   # LP-29: tall furniture in front of a creature behind it
 	var layer := CanvasLayer.new()
 	add_child(layer)
 	_hud = Node2D.new()
@@ -355,6 +358,98 @@ func _guild_desk(map: Sprite2D) -> void:
 	desk.position = Vector2(DESK_AT)
 	desk.z_index = DESK_AT.y + 46   # its front's foot
 	_world.add_child(desk)
+
+
+## Tall furniture in front of a creature behind it (Claude, 2026-10-23, LP-29). The rooms' furniture is part of
+## the room picture, so every creature drew over it, even one standing behind a pillar or beside a bed's far end.
+## Each solid piece of the room data that is more than one row deep, or whose art stands up past its tiles (the
+## Hall's pillars, ferns and benches), gets a copy of its pixels drawn at its base row's depth, the way creatures
+## and the Hall's desk sort by their feet: a creature whose feet are on a row above the base row draws under it,
+## one on the base row or below draws over it. The copy is the room picture itself through the room's own finish
+## (so its pixels are the picture's exactly), clipped to the piece's shape: the room's prop sprites where it has
+## them (the Hall, the lower floor, the chamber, the runners' room), else the piece's own tiles (the Home is one
+## painted picture). The Storage's props and the Hall's desk are their own sorted sprites already.
+const LIFT_FLAT := ["rug", "runner", "rollcall"]   # props that lie flat on the floor, never in front of anyone
+const LIFT_REACH := 6   # a prop stands on a piece when its foot is inside the piece's tiles or this far below them
+var lifts: Array = []   # {"rect": the solid rect, "z": its depth, "node": the clip}, one per lifted piece (the checks)
+static var _lift_shapes := {}   # room id -> [[solid rect, picture rect, shape], ...], cut once a session
+
+
+func _lift_furniture(map: Sprite2D) -> void:
+	if room_id == "storage" or map.texture == null:
+		return
+	if not _lift_shapes.has(room_id):
+		_lift_shapes[room_id] = _furniture_shapes()
+	for piece in _lift_shapes[room_id]:
+		var rect: Rect2i = piece[0]
+		var at: Rect2i = piece[1]
+		# The shape, never drawn itself, clips the copy of the picture under it (Godot's clip children).
+		var clip := Sprite2D.new()
+		clip.centered = false
+		clip.texture = ImageTexture.create_from_image(piece[2])
+		clip.position = Vector2(at.position)
+		clip.clip_children = CanvasItem.CLIP_CHILDREN_ONLY
+		clip.z_index = (rect.end.y - 1) * T + int(T * 0.5)   # the base row's middle: feet above it sort under
+		var copy := Sprite2D.new()
+		copy.centered = false
+		copy.texture = map.texture
+		copy.region_enabled = true
+		copy.region_rect = Rect2(at)
+		copy.material = map.material   # the same finish, reading the whole picture, so the pixels match
+		clip.add_child(copy)
+		_world.add_child(clip)
+		lifts.append({"rect": rect, "z": clip.z_index, "node": clip})
+
+
+## Each piece to lift: [its solid rect, the picture rect its shape covers, the shape (white where the piece is)].
+func _furniture_shapes() -> Array:
+	var props := _room_props()
+	var out: Array = []
+	for s in room()["solid"]:
+		var rect: Rect2i = s
+		if room_id == "hall" and rect == Rect2i(7, 3, 8, 2) and FileAccess.file_exists(DESK):
+			continue   # the Guildmaster's desk sorts itself
+		var tiles := Rect2i(rect.position * T, rect.size * T)
+		var stands: Array = props.filter(func(p: Array) -> bool:
+			var pr: Rect2i = p[0]
+			var across := mini(pr.end.x, tiles.end.x) - maxi(pr.position.x, tiles.position.x)
+			return pr.end.y > tiles.position.y and pr.end.y <= tiles.end.y + LIFT_REACH and across * 2 >= pr.size.x)
+		if stands.is_empty():
+			if rect.size.y < 2:
+				continue   # one row with no art standing above it: nothing of it is ever behind a creature
+			var whole := Image.create(tiles.size.x, tiles.size.y, false, Image.FORMAT_RGBA8)
+			whole.fill(Color.WHITE)
+			out.append([rect, tiles, whole])
+			continue
+		var at: Rect2i = stands[0][0]
+		for p in stands:
+			at = at.merge(p[0])
+		var shape := Image.create(at.size.x, at.size.y, false, Image.FORMAT_RGBA8)
+		for p in stands:
+			var pr: Rect2i = p[0]
+			var img: Image = p[1]
+			for y in mini(pr.size.y, img.get_height()):
+				for x in mini(pr.size.x, img.get_width()):
+					if img.get_pixel(x, y).a > 0.5:   # the props' soft fringe stays floor
+						shape.set_pixel(pr.position.x - at.position.x + x, pr.position.y - at.position.y + y, Color.WHITE)
+		out.append([rect, at, shape])
+	return out
+
+
+## The prop sprites painted into this room's picture, with where they were painted: [[rect, Image], ...].
+func _room_props() -> Array:
+	var out: Array = []
+	if room_id == "hall":
+		var art := preload("res://scripts/town/hall_room_art.gd")
+		if art.available():
+			for p in art.PROPS:
+				out.append([p[1], art._prop(p[0])])
+	var floors := preload("res://scripts/town/hall_floors_art.gd")
+	if floors.PROPS.has(room_id) and floors.available(room_id):
+		for p in floors.PROPS[room_id]:
+			if not LIFT_FLAT.any(func(w: String) -> bool: return String(p[0]).contains(w)):
+				out.append([p[1], floors._prop(p)])
+	return out
 
 
 func _px(t: Vector2i) -> Vector2:
@@ -553,34 +648,29 @@ func _process(delta: float) -> void:
 	_labels.queue_redraw()
 
 
-func _tapped(k: int) -> bool:
-	var now := Input.is_key_pressed(k)
-	var was: bool = _keys_was.get(k, false)
-	_keys_was[k] = now
-	return now and not was
-
-
+## Every press is an action in the Input Map (Claude, 2026-10-23, factory pass 2: controller support), read
+## through ui_style.gd's helpers, as in hub_town.gd: the keyboard keeps E, J or Enter to use, Esc to close, W/S and
+## R in the Storage; a pad walks with the stick or D-pad, uses with A or X, closes with B, takes out with Y.
 func _poll() -> void:
-	if cutscene:   # a scene plays itself; E reads its lines
-		if not talk.is_empty() and (_tapped(KEY_E) or _tapped(KEY_J) or _tapped(KEY_ENTER) or _tapped(KEY_SPACE)):
+	if cutscene:   # a scene plays itself; E (or J, Enter, Space) reads its lines
+		if not talk.is_empty() and UI.tapped_any(UI.INPUT_ADVANCE):
 			if UI.line_done(String(talk[0][1])):
 				talk.pop_front()
 			else:
 				UI.finish_line()   # the first press shows the rest of the line, the next moves on
 		return
 	if panel.get("service", "") == "storage":
-		if _tapped(KEY_W) or _tapped(KEY_UP): act_store_move(-1)
-		if _tapped(KEY_S) or _tapped(KEY_DOWN): act_store_move(1)
-		if _tapped(KEY_R): act_store(-1)
-	if _tapped(KEY_E) or _tapped(KEY_J) or _tapped(KEY_ENTER):
+		if UI.tapped(&"move_up"): act_store_move(-1)
+		if UI.tapped(&"move_down"): act_store_move(1)
+		if UI.tapped(&"take_out"): act_store(-1)
+	if UI.tapped_any([&"confirm", &"interact"]):
 		act_use()
 		return
-	if _tapped(KEY_ESCAPE):
+	if UI.tapped(&"cancel"):
 		if not panel.is_empty():
 			UI.tick("cancel")   # GS-21: closing a panel sounds like every other back
 		panel = {}
-	var d := Vector2i(int(Input.is_key_pressed(KEY_D) or Input.is_key_pressed(KEY_RIGHT)) - int(Input.is_key_pressed(KEY_A) or Input.is_key_pressed(KEY_LEFT)),
-		int(Input.is_key_pressed(KEY_S) or Input.is_key_pressed(KEY_DOWN)) - int(Input.is_key_pressed(KEY_W) or Input.is_key_pressed(KEY_UP)))
+	var d := UI.dir8()
 	if d != Vector2i.ZERO:
 		act_move(d)
 
@@ -618,10 +708,11 @@ func _draw_hud() -> void:
 ## and grows left as before.
 func _draw_hints(h: Node2D) -> void:
 	var where := String(room().get("hint", "The door leads back out"))
-	var keys_w := maxf(194.0, ceilf(UI.width_in(KEYS_HINT, "label")) + 1.0)
+	var keys := keys_hint()
+	var keys_w := maxf(194.0, ceilf(UI.width_in(keys, "label")) + 1.0)
 	var w := maxf(keys_w, UI.width_in(where, UI.fit(where, "label", 194.0)))
 	UI.panel(h, Rect2(1140.0 - w - 20.0, 542, w + 26.0, 48), 0.85)
-	UI.text(h, Vector2(1140.0 - keys_w, 562), KEYS_HINT, 14, Color(UI.MUTED, 0.85), keys_w, HORIZONTAL_ALIGNMENT_RIGHT)
+	UI.text(h, Vector2(1140.0 - keys_w, 562), keys, 14, Color(UI.MUTED, 0.85), keys_w, HORIZONTAL_ALIGNMENT_RIGHT)
 	UI.text(h, Vector2(946, 580), where, 14, Color(UI.MUTED, 0.85), 194, HORIZONTAL_ALIGNMENT_RIGHT)
 
 

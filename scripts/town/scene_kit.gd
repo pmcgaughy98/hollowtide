@@ -14,11 +14,13 @@ extends RefCounted
 ##   SceneKit.rows(center, count, per_row)         line-up marks: rows facing a speaker
 ##   SceneKit.ring(center, count, radius)          a crowd round a speaker
 ##   SceneKit.draw(host, canvas)                   the bubbles, from the host's label/world layer
+##   SceneKit.use_key(), walk_keys(), pick_keys()  the town's key hints, from the Input Map (2026-10-23)
 ## A host provides: team, npcs, talk, cutscene, cam_focus, scene_fx, _world, _px(tile), _place(e),
 ## _facing_of(d), and an open-tile test (_open or open_at).
 
 const Arena := preload("res://scripts/arena/arena_prototype.gd")
 const Lines := preload("res://scripts/creatures/lines.gd")
+const UI := preload("res://scripts/ui/ui_style.gd")
 const DIRS4 := [Vector2i(1, 0), Vector2i(-1, 0), Vector2i(0, 1), Vector2i(0, -1)]
 const DIRS8 := [Vector2i(1, 0), Vector2i(-1, 0), Vector2i(0, 1), Vector2i(0, -1), Vector2i(1, 1), Vector2i(-1, 1), Vector2i(1, -1), Vector2i(-1, -1)]
 
@@ -248,3 +250,39 @@ static func draw_parcel(c: CanvasItem, at: Vector2) -> void:
 	c.draw_rect(Rect2(o + Vector2(1, 2), Vector2(10, 1)), Color("#ead9b0"))
 	c.draw_rect(Rect2(o + Vector2(5, 1), Vector2(2, 2)), Color("#2f8f8a"))
 	c.draw_rect(Rect2(o + Vector2(5, 1), Vector2(1, 1)), Color("#7fd4c8"))
+
+
+## The town's key hints (Claude, 2026-10-23, factory pass 2): each names the keys or buttons of the device the
+## player last pressed with, read from the Input Map (UI.binding_text), so a rebind or a pad shows its own. A
+## keyboard on the defaults prints what the town always printed: "WASD", "E", "W/S". The pad words are proposals.
+## The key that uses what is ahead: interact (E) on a keyboard; confirm (A) on a pad, the button a pad player
+## reaches for (interact's X does the same).
+static func use_key() -> String:
+	return UI.binding_text(&"confirm" if UI.last_device() == "pad" else &"interact")
+
+
+## The walk keys: each way's letter ("WASD", or the letters a French layout prints there); "Stick" on a pad.
+static func walk_keys() -> String:
+	if UI.last_device() == "pad":
+		return "Stick"
+	return _letters([&"move_up", &"move_left", &"move_down", &"move_right"], "")
+
+
+## The keys that move a list's cursor: "W/S"; "D-pad" on a pad.
+static func pick_keys() -> String:
+	if UI.last_device() == "pad":
+		return "D-pad"
+	return _letters([&"move_up", &"move_down"], "/")
+
+
+## Each action's one-letter key, joined; an action with no letter key shows its first key ("Up").
+static func _letters(actions: Array, sep: String) -> String:
+	var out := PackedStringArray()
+	for a in actions:
+		var shown := UI.binding_text(a, "keyboard")
+		for s in UI.binding_text(a, "keyboard", true).split(" / "):
+			if s.length() == 1:
+				shown = s
+				break
+		out.append(shown)
+	return sep.join(out)

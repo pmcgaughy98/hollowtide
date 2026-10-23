@@ -32,7 +32,6 @@ var asking:=false       # the "Back to the title?" prompt is up (Claude, 2026-10
 var ask_row:=0          # its highlighted row: 0 Resume, 1 Return
 var _box:Node2D
 var _clock:=0.0
-var _keys_was:={}
 
 # Read by the dialogue file ({{...}}).
 var sense:String:
@@ -133,21 +132,17 @@ func _process(delta:float) -> void:
 	if not leaving and line!=null:_poll()
 	_box.queue_redraw()
 
-func _tapped(k:int) -> bool:
-	var now:=Input.is_key_pressed(k)
-	var was:bool=_keys_was.get(k,false)
-	_keys_was[k]=now
-	return now and not was
-
+## Actions, not keys (Claude, 2026-10-23, factory pass 2): the next line is E, J, Enter or Space as before, or A or
+## X on a pad; Esc or B asks about the title; up and down (W, S, the arrows, the D-pad, the stick) move the choice.
 func _poll() -> void:
 	if asking:
 		_poll_ask()
-	elif _tapped(KEY_E) or _tapped(KEY_J) or _tapped(KEY_ENTER) or _tapped(KEY_SPACE):
+	elif UI.tapped_any(UI.INPUT_ADVANCE):
 		advance()
-	elif _tapped(KEY_ESCAPE):
+	elif UI.tapped("cancel"):
 		_ask()
 	elif not line.responses.is_empty() and UI.line_done(line.text):
-		var d:=int(_tapped(KEY_S) or _tapped(KEY_DOWN))-int(_tapped(KEY_W) or _tapped(KEY_UP))
+		var d:=int(UI.tapped("move_down"))-int(UI.tapped("move_up"))
 		if d!=0:
 			choice=posmod(choice+d,line.responses.size())
 			UI.tick("cursor")
@@ -175,13 +170,13 @@ func _ask() -> void:
 	UI.tick("open")
 
 func _poll_ask() -> void:
-	if _tapped(KEY_ESCAPE):
+	if UI.tapped("cancel"):
 		asking=false
 		UI.tick("cancel")
-	elif _tapped(KEY_S) or _tapped(KEY_DOWN) or _tapped(KEY_W) or _tapped(KEY_UP):
+	elif UI.tapped_any(["move_down","move_up"]):
 		ask_row=1-ask_row
 		UI.tick("cursor")
-	elif _tapped(KEY_E) or _tapped(KEY_J) or _tapped(KEY_ENTER) or _tapped(KEY_SPACE):
+	elif UI.tapped_any(UI.INPUT_ADVANCE):
 		if ask_row==0:
 			asking=false
 			UI.tick("cancel")

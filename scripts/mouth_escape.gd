@@ -33,7 +33,6 @@ var _facing := "s"
 var _box: Node2D
 var _veil: ColorRect
 var _clock := 0.0
-var _keys_was := {}
 
 # Read by the dialogue file ({{...}}).
 var partner_name: String:
@@ -133,18 +132,13 @@ func _process(delta: float) -> void:
 	_box.queue_redraw()
 
 
-func _tapped(k: int) -> bool:
-	var now := Input.is_key_pressed(k)
-	var was: bool = _keys_was.get(k, false)
-	_keys_was[k] = now
-	return now and not was
-
-
+## Actions, not keys (Claude, 2026-10-23, factory pass 2): the next line is E, J, Enter or Space as before, or A or
+## X on a pad; up and down (W, S, the arrows, the D-pad, the stick) move the choice.
 func _poll() -> void:
-	if _tapped(KEY_E) or _tapped(KEY_J) or _tapped(KEY_ENTER) or _tapped(KEY_SPACE):
+	if UI.tapped_any(UI.INPUT_ADVANCE):
 		advance()
 	elif not line.responses.is_empty() and UI.line_done(line.text):
-		var d := int(_tapped(KEY_S) or _tapped(KEY_DOWN)) - int(_tapped(KEY_W) or _tapped(KEY_UP))
+		var d := int(UI.tapped("move_down")) - int(UI.tapped("move_up"))
 		if d != 0:
 			choice = posmod(choice + d, line.responses.size())
 

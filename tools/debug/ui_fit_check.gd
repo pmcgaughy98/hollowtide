@@ -104,7 +104,8 @@ func _run() -> void:
 		var bottom: float = Opening.call("menu_top", n) + 32.0 + n * 54.0 + (n - 1) * 6.0
 		_ok(bottom <= 596.0, "title, %d rows: menu ends at %.0f, above the key line at 608" % [n, bottom])
 	# 5. Right-aligned hints, grown left when too wide: on screen at both ends.
-	for s in ["WASD  walk     E  use", "The Hollow's mouth starts a run"] + Dungeon.HUD_KEYS:
+	# The pad key strips too (Claude, 2026-10-23, pass 2): the strip follows the last device used.
+	for s in ["WASD  walk     E  use", "The Hollow's mouth starts a run"] + Dungeon.HUD_KEYS + Dungeon.hud_keys(false, "pad") + Dungeon.hud_keys(true, "pad"):
 		var w := UI.width_in(s, UI.fit(s, "label", 194))
 		var left := 946.0 + 194.0 - maxf(194.0, w)
 		_ok(left >= 0.0 and left + maxf(194.0, w) <= 1152.0, "hint '%s': %.0f px, drawn from x %.0f to 1140" % [s, w, left])
@@ -265,7 +266,7 @@ func _run() -> void:
 	# 3. The pause panel on every page that shows it.
 	var menu: CanvasLayer = dg.get_node("GamePauseMenu")
 	menu.open()
-	for page in ["main", "goal", "bag", "floor", "log", "options", "controls", "title", "quit"]:
+	for page in ["main", "goal", "bag", "floor", "log", "options", "controls", "rebind", "title", "quit"]:
 		menu.show_page(page)
 		await _frames(4)
 		var panel: Control = menu.overlay.get_node("PausePanel")

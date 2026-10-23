@@ -43,7 +43,6 @@ var _view: SubViewport
 var _world: Node2D
 var _labels: Node2D
 var _hud: Node2D
-var _keys_was := {}
 var _building_exteriors: Node2D
 # Town scenes (Claude, 2026-10-10): the Job Board meeting with the Shortcut Crew (scripts/town/board_scene.gd).
 var talk: Array = []          # [speaker, line, "form:face"] shown one at a time; E reads on
@@ -442,7 +441,8 @@ func _board_panel(p: Dictionary) -> Dictionary:
 var _faces := {}
 
 
-## A creature's 48 px headshot (tools/arena/build_portraits.py), loaded once.
+## A creature's 48 px headshot (tools/arena/build_portraits.py), loaded once. The board's rows now cut theirs from
+## the dialogue face (UI.portrait_3x, UI-05); shrine_info.gd still asks for this one, at 72 px.
 func _face(form: String) -> Texture2D:
 	if not _faces.has(form):
 		var path := "res://assets/sprites/arena/%s/portrait.png" % form
@@ -476,7 +476,7 @@ func _cache_board(into: Dictionary, rows: Array) -> void:
 			where = {"rescue": "lost there", "lost_item": "dropped there"}.get(j["kind"], "%s, pay x2" % Jobs.cond_text(j))
 		drawn.append({"job": j, "title": Jobs.title(j), "where": "B%dF   %s" % [int(j["floor"]), where],
 			"reward": "%s x%d   +%d" % [Jobs.item_name(j["reward"]), int(j["count"]), int(j["pts"])],
-			"face": _face(Jobs.client_form(j)), "icon": UI.item_icon(String(j["reward"])),
+			"face": UI.portrait_3x(Jobs.client_form(j)), "icon": UI.item_icon(String(j["reward"])),
 			"cargo": UI.item_icon("parcel") if j["kind"] == "delivery" else null, "taken": Jobs.is_taken(rec, j)})
 	into["rows"] = drawn
 
@@ -515,10 +515,10 @@ func _shrine_panel(p: Dictionary) -> Dictionary:
 			return {"name": p["name"], "what": "The %s grows warm as you near the empty socket. Set it in?" % StoneScene.STONE_NAME, "service": "stone_ask"}
 	var ready := Evolution.ready_list(_record())
 	if ready.is_empty():
-		return {"name": p["name"], "what": "No one is ready to grow yet. The Team page (P) shows what each creature still needs.", "service": "growth"}
+		return {"name": p["name"], "what": "No one is ready to grow yet. The Team page (%s) shows what each creature still needs." % UI.binding_text(&"pause"), "service": "growth"}
 	var k: int = ready[0]
 	var name: String = load(Lines.of(party[k][0])["forms"][party[k][1]][1]).creature_name
-	return {"name": p["name"], "what": "%s is ready to grow. Let it grow here?      E  yes      Esc  not now" % name, "service": "evolve_ask", "k": k}
+	return {"name": p["name"], "what": "%s is ready to grow. Let it grow here?      %s  yes      %s  not now" % [name, SceneKit.use_key(), UI.binding_text(&"cancel")], "service": "evolve_ask", "k": k}
 
 
 ## The pilot's order (docs/design/pilot-story-2026-10-10.md): Rootbank Warren waits until the guild sends
@@ -856,51 +856,44 @@ func _someone_at(t: Vector2i) -> bool:
 	return false
 
 
-func _key(k: int) -> bool:
-	return Input.is_key_pressed(k)
-
-
-func _tapped(k: int) -> bool:
-	var now := Input.is_key_pressed(k)
-	var was: bool = _keys_was.get(k, false)
-	_keys_was[k] = now
-	return now and not was
-
-
+## Every press is an action in the Input Map (Claude, 2026-10-23, factory pass 2: controller support), read
+## through ui_style.gd's helpers: the keyboard keeps its keys (E, J or Enter uses, Esc closes, W/S choose, R takes
+## out), and a pad walks with the stick or D-pad, uses with A or X, and closes with B. The tap memory is shared
+## (UI.tapped), so shrine_info.gd reads its page from it too; the town's own _tapped and _keys_was are gone.
 func _poll() -> void:
 	if get_node("ShrineInfo").poll():
 		return
-	if cutscene:   # a scene plays itself; E reads its lines
-		if not talk.is_empty() and (_tapped(KEY_E) or _tapped(KEY_J) or _tapped(KEY_ENTER) or _tapped(KEY_SPACE)):
+	if cutscene:   # a scene plays itself; E (or J, Enter, Space) reads its lines
+		if not talk.is_empty() and UI.tapped_any(UI.INPUT_ADVANCE):
 			if UI.line_done(String(talk[0][1])):
 				talk.pop_front()
 			else:
 				UI.finish_line()   # the first press shows the rest of the line, the next moves on
 		return
 	if panel.get("service", "") == "board":
-		if _tapped(KEY_W) or _tapped(KEY_UP):
+		if UI.tapped(&"move_up"):
 			act_board_move(-1)
-		if _tapped(KEY_S) or _tapped(KEY_DOWN):
+		if UI.tapped(&"move_down"):
 			act_board_move(1)
 	if panel.get("service", "") == "storage":
-		if _tapped(KEY_W) or _tapped(KEY_UP):
+		if UI.tapped(&"move_up"):
 			act_store_move(-1)
-		if _tapped(KEY_S) or _tapped(KEY_DOWN):
+		if UI.tapped(&"move_down"):
 			act_store_move(1)
-		if _tapped(KEY_R):
+		if UI.tapped(&"take_out"):
 			act_store(-1)
 	if panel.get("service", "") == "way_pick":
-		var dy := int(_tapped(KEY_S) or _tapped(KEY_DOWN)) - int(_tapped(KEY_W) or _tapped(KEY_UP))
+		var dy := int(UI.tapped(&"move_down")) - int(UI.tapped(&"move_up"))
 		if dy != 0:
 			panel["sel"] = posmod(int(panel["sel"]) + dy, REPLAYS.size())
 			UI.tick("cursor")   # GS-21
-	if _tapped(KEY_E) or _tapped(KEY_J) or _tapped(KEY_ENTER):
+	if UI.tapped_any([&"confirm", &"interact"]):
 		act_use()
 		return
-	if _tapped(KEY_ESCAPE) and not panel.is_empty():
+	if UI.tapped(&"cancel") and not panel.is_empty():
 		UI.tick("cancel")   # GS-21
 		_close_panel()
-	var d := Vector2i(int(_key(KEY_D) or _key(KEY_RIGHT)) - int(_key(KEY_A) or _key(KEY_LEFT)), int(_key(KEY_S) or _key(KEY_DOWN)) - int(_key(KEY_W) or _key(KEY_UP)))
+	var d := UI.dir8()
 	if d != Vector2i.ZERO:
 		act_move(d)
 
@@ -974,29 +967,35 @@ func _draw_hud() -> void:
 			if on:
 				UI.text(h, at - Vector2(24, 0), ">", 20, UI.EDGE_LIGHT)
 			UI.text(h, at, String(REPLAYS[i][1]), 20, UI.EDGE_LIGHT if on else UI.TEXT)
-		UI.text(h, box.end - Vector2(738, 14), "W/S  choose     E  go     Esc  not now", 15, UI.MUTED, 716, HORIZONTAL_ALIGNMENT_RIGHT)
+		UI.text(h, box.end - Vector2(738, 14), "%s  choose     %s  go     %s  not now" % [SceneKit.pick_keys(), SceneKit.use_key(), UI.binding_text(&"cancel")], 15, UI.MUTED, 716, HORIZONTAL_ALIGNMENT_RIGHT)
 	elif not panel.is_empty():
 		var box := Rect2(196, 452, 760, 128)
 		UI.panel(h, box, 0.95)
 		UI.text(h, box.position + Vector2(22, 34), String(panel["name"]), 23, UI.EDGE_LIGHT, 716)
 		h.draw_multiline_string(UI.HEAD, box.position + Vector2(22, 64), String(panel["what"]), HORIZONTAL_ALIGNMENT_LEFT, 716, 18, 2, UI.TEXT)
-		var hint := "E  grow     Esc  not now" if panel.get("service", "") == "evolve_ask" else ("E  set it in     Esc  not now" if panel.get("service", "") == "stone_ask" else "E  close")
+		# The keys of the device in use (2026-10-23): "E  close" on a keyboard, "A  close" on a pad.
+		var use := SceneKit.use_key()
+		var back := UI.binding_text(&"cancel")
+		var hint := ("%s  grow     %s  not now" % [use, back]) if panel.get("service", "") == "evolve_ask" else (("%s  set it in     %s  not now" % [use, back]) if panel.get("service", "") == "stone_ask" else "%s  close" % use)
 		UI.text(h, box.position + Vector2(22, 116), hint, 15, UI.MUTED, 716, HORIZONTAL_ALIGNMENT_RIGHT)
 
 
 ## The walk keys, bottom right, on a label-role strip in the panel frame so they read on any ground
-## (Claude, 2026-10-22, GS-21; before, bare text over the street).
-const KEY_LINES := ["WASD walk   E use", "The Hollow's mouth starts a run"]
+## (Claude, 2026-10-22, GS-21; before, bare text over the street). Since 2026-10-23 the keys are the device's:
+## "WASD walk   E use" on a keyboard, "Stick walk   A use" on a pad.
+func key_lines() -> Array:
+	return ["%s walk   %s use" % [SceneKit.walk_keys(), SceneKit.use_key()], "The Hollow's mouth starts a run"]
 
 
 func _draw_key_strip(h: CanvasItem) -> void:
+	var lines := key_lines()
 	var w := 0.0
-	for s in KEY_LINES:
+	for s in lines:
 		w = maxf(w, UI.width_in(s, "label"))
 	var strip := Rect2(Vector2(1146 - w - 40, 538), Vector2(w + 40, 62))
 	UI.panel(h, strip, 0.85)
-	for k in KEY_LINES.size():
-		UI.say(h, strip.position + Vector2(20, 26 + 20 * k), KEY_LINES[k], "label", Color(UI.MUTED, 0.95))
+	for k in lines.size():
+		UI.say(h, strip.position + Vector2(20, 26 + 20 * k), lines[k], "label", Color(UI.MUTED, 0.95))
 
 
 ## The board, drawn the Explorers of Sky way: the rank at the top, one row per request with the
@@ -1045,4 +1044,4 @@ func _draw_board(h: CanvasItem) -> void:
 		UI.text(h, r.position + Vector2(458, 37), String(row["reward"]), 16, UI.TEXT, 180)
 		if row["taken"]:
 			UI.nameplate(h, r.position + Vector2(r.size.x - 112, 13), "Taken", 18)
-	UI.text(h, box.end + Vector2(-box.size.x + 30, -22), "W/S  choose     E  take or put back     Esc  close", 15, UI.MUTED, box.size.x - 60, HORIZONTAL_ALIGNMENT_RIGHT)
+	UI.text(h, box.end + Vector2(-box.size.x + 30, -22), "%s  choose     %s  take or put back     %s  close" % [SceneKit.pick_keys(), SceneKit.use_key(), UI.binding_text(&"cancel")], 15, UI.MUTED, box.size.x - 60, HORIZONTAL_ALIGNMENT_RIGHT)

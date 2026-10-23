@@ -9,6 +9,7 @@ extends CanvasLayer
 ##   await s.run(old_form, new_form, old_name, new_name, auto)   # auto: no key needed to finish
 
 const UI := preload("res://scripts/ui/ui_style.gd")
+const ControlsText := preload("res://scripts/ui/controls_text.gd")
 const CreatureIdle := preload("res://scripts/ui/creature_idle.gd")
 const CreatureFinish := preload("res://scripts/arena/creature_finish.gd")
 const Music := preload("res://scripts/audio/music.gd")
@@ -174,19 +175,29 @@ func run(old_form: String, new_form: String, old_name: String, new_name: String,
 	r.tween_method(func(v: float) -> void: _white(_new, v), 1.0, 0.0, 0.7)
 	_text = "%s has grown into %s!" % [old_name, new_name]
 	# The town's key first, in the house column style (Claude, 2026-10-22, W12); J and Enter still answer.
-	_sub = "" if auto else "E  continue"
+	# The key is the device's in use, drawn each frame: E, or A on a pad (Claude, 2026-10-23).
+	_sub = "" if auto else "continue"
 	await _wait(0.8)
 	if auto:
 		await _wait(1.0)
 	else:
 		var waited := 0.0
-		while waited < 6.0 and not (Input.is_action_just_pressed("ui_accept") or Input.is_key_pressed(KEY_J) or Input.is_key_pressed(KEY_E)):
+		while waited < 6.0 and not (Input.is_action_just_pressed("ui_accept") or _advance_held()):
 			await get_tree().process_frame
 			waited += get_process_delta_time()
 	stage = "done"
 	var out := create_tween()
 	out.tween_property(self, "_rays", 0.0, 0.3)
 	await _wait(0.3)
+
+
+## A "next" action down (UI.INPUT_ADVANCE: J, Space, E, Enter; A or X on a pad). Held, not tapped, as the old
+## J and E reads were: a key still down from the shrine's question moves on at once (Claude, 2026-10-23).
+func _advance_held() -> bool:
+	for a in UI.INPUT_ADVANCE:
+		if UI.held(a):
+			return true
+	return false
 
 
 func _draw_back() -> void:
@@ -212,6 +223,6 @@ func _draw_back() -> void:
 	UI.panel(c, box, 0.95)
 	UI.text(c, box.position + Vector2(0, 44), _text, 26, UI.EDGE_LIGHT, box.size.x, HORIZONTAL_ALIGNMENT_CENTER)
 	if _sub != "":
-		UI.text(c, box.position + Vector2(0, 76), _sub, 15, UI.MUTED, box.size.x - 20, HORIZONTAL_ALIGNMENT_RIGHT)
+		UI.text(c, box.position + Vector2(0, 76), "%s  %s" % [ControlsText.advance_text(), _sub], 15, UI.MUTED, box.size.x - 20, HORIZONTAL_ALIGNMENT_RIGHT)
 	if _flash > 0.0:
 		c.draw_rect(Rect2(0, 0, 1152, 648), Color(1, 1, 1, _flash))

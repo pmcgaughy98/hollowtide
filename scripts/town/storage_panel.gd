@@ -2,6 +2,7 @@ extends RefCounted
 ## One unchanged Storage panel and controls shared by the town fallback and painted interior.
 const Storage := preload("res://scripts/town/storage.gd")
 const UI := preload("res://scripts/ui/ui_style.gd")
+const SceneKit := preload("res://scripts/town/scene_kit.gd")
 
 static func entries(host: Node) -> Array:
 	return Storage.rows(host._record())
@@ -46,6 +47,8 @@ static func draw(host: Node, h: CanvasItem) -> void:
 		UI.text(h, r.position + Vector2(620, 25), "kept x%d" % int(row[2]), 17, UI.TEXT if int(row[2]) > 0 else UI.MUTED, 150)
 	if String(host.panel.get("said", "")) != "":
 		UI.text(h, box.end + Vector2(-box.size.x + 30, -44), String(host.panel["said"]), 16, UI.EDGE_LIGHT, box.size.x - 60)
-	# Key hints in the column style, key then action (Claude, 2026-10-22, W12).
-	UI.text(h, box.end + Vector2(-box.size.x + 30, -20), "W/S  choose     E  put one in     R  take one out     Esc  close", 15, UI.MUTED, box.size.x - 60, HORIZONTAL_ALIGNMENT_RIGHT)
+	# Key hints in the column style, key then action (Claude, 2026-10-22, W12); the device's keys since 2026-10-23
+	# ("W/S  choose     E  put one in     R  take one out     Esc  close" on a keyboard).
+	var keys := "%s  choose     %s  put one in     %s  take one out     %s  close" % [SceneKit.pick_keys(), SceneKit.use_key(), UI.binding_text(&"take_out"), UI.binding_text(&"cancel")]
+	UI.text(h, box.end + Vector2(-box.size.x + 30, -20), keys, 15, UI.MUTED, box.size.x - 60, HORIZONTAL_ALIGNMENT_RIGHT)
 

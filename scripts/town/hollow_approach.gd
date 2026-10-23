@@ -153,6 +153,10 @@ static func _stand_in() -> Image:
 
 func _process(delta: float) -> void:
 	t += delta
+	if prompt.visible:
+		var line := prompt_line()
+		if prompt_text.text != line:
+			prompt_text.text = line   # the player picked up a pad, or put it down
 	for e in team:
 		var s: Sprite2D = e["sprite"]
 		if e.get("walking", false):
@@ -162,13 +166,19 @@ func _process(delta: float) -> void:
 	fx.queue_redraw()
 
 
+## The prompt at the walkway, in the keys of the device in use (Claude, 2026-10-23): "[Enter]" and "[Esc]" on a
+## keyboard, "[A]" and "[B]" on a pad.
+func prompt_line() -> String:
+	return "The Hollow.\nEnter?   [%s]          Back to Highbank   [%s]" % [UI.binding_text(&"ui_accept"), UI.binding_text(&"ui_cancel")]
+
+
 func _unhandled_input(event: InputEvent) -> void:
 	if busy or not ready_to_cross:
 		return
-	if event.is_action_pressed("ui_accept"):
+	if UI.pressed(event, &"ui_accept"):   # Enter or Space; A on a pad (Claude, 2026-10-23)
 		get_viewport().set_input_as_handled()
 		confirm()
-	elif event.is_action_pressed("ui_cancel"):
+	elif UI.pressed(event, &"ui_cancel"):   # Esc; B on a pad
 		get_viewport().set_input_as_handled()
 		_back_to_town()
 
@@ -253,7 +263,7 @@ func _arrive() -> void:
 	tw = create_tween()
 	tw.tween_property(self, "beam", 0.0, 0.2 if reduce_motion else 0.6)
 	await tw.finished
-	prompt_text.text = "The Hollow.\nEnter?   [Enter]          Back to Highbank   [Esc]"
+	prompt_text.text = prompt_line()
 	prompt.show()
 	busy = false
 	ready_to_cross = true

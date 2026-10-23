@@ -21,7 +21,7 @@ const NEXT := [
 	"And the Wayline crew has a lot more to say.",
 ]
 const THANKS := "Thanks for running it."
-const KEY_HINT := "E  Keep running routes"
+const KEY_HINT := "%s  Keep running routes"   # the use key of the device in use: E on a keyboard, A on a pad
 
 var dark := 0.0     # the black over the street
 var shown := 0.0    # how far the card is up: 1 the title, 2 to 4 the three lines, 5 the thanks
@@ -85,14 +85,18 @@ func _to(prop: String, to: float, secs: float) -> Signal:
 
 
 ## A fresh press of E, J, Enter or the accept button (one still held from closing the growth's line does
-## not count), and none while the pause menu is up.
+## not count), and none while the pause menu is up. The keys are actions since 2026-10-23 (Claude, factory pass
+## 2): the line's advance keys (E, J, Enter, Space; A or X on a pad) and Godot's accept.
+const KEYS := [&"confirm", &"attack", &"interact", &"ui_accept"]
+
+
 func _wait_for_key() -> void:
 	var was := true
 	while is_inside_tree():
 		await get_tree().process_frame
 		if get_tree().paused:
 			continue
-		var now := Input.is_key_pressed(KEY_E) or Input.is_key_pressed(KEY_J) or Input.is_key_pressed(KEY_ENTER) or Input.is_action_pressed("ui_accept")
+		var now: bool = KEYS.any(func(a: StringName) -> bool: return UI.held(a))
 		if now and not was:
 			return
 		was = now
@@ -115,4 +119,4 @@ func _draw_card() -> void:
 	if ta > 0.0:
 		UI.say(c, Vector2(0, 498), THANKS, "story", Color(UI.EDGE_LIGHT, ta), w, HORIZONTAL_ALIGNMENT_CENTER)
 	if key_a > 0.0:
-		UI.say(c, Vector2(0, 598), KEY_HINT, "label", Color(UI.MUTED, key_a * fade), w, HORIZONTAL_ALIGNMENT_CENTER)
+		UI.say(c, Vector2(0, 598), KEY_HINT % SceneKit.use_key(), "label", Color(UI.MUTED, key_a * fade), w, HORIZONTAL_ALIGNMENT_CENTER)

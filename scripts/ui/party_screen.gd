@@ -106,8 +106,11 @@ func setup(scene: Node) -> void:
 		card["still"] = load(still) if ResourceLoader.exists(still) else null
 		card["idle"] = CreatureIdle.frames(form[0])   # the big front idle, when the form has one
 		card["idle_box"] = CreatureIdle.box(card["idle"])
-		var face := "res://assets/sprites/arena/%s/portrait.png" % form[0]
-		card["face"] = load(face) if ResourceLoader.exists(face) else (UI.dialogue_portrait(String(form[0])) if preload("res://scripts/arena/creature_finish.gd").new_creature(String(form[0])) else null)
+		# The strip's headshot: a 16 x 16 cut of the dialogue face drawn 3x in the 48 px box, the dialogue's own pixel
+		# size (Claude, 2026-10-23, UI-05; it was the 48 x 48 portrait.png at 1x). `face_cut` marks a cut: it is
+		# drawn as the dialogue draws it, plain; a form without a dialogue face keeps its portrait.png and finish.
+		card["face"] = UI.portrait_3x(String(form[0]))
+		card["face_cut"] = UI.dialogue_portrait(String(form[0])) != null
 		cards.append(card)
 		lines.append("%s   Lv %d   Sense %d" % [String(data.creature_name).to_upper(), lv, card["iq"]] + ("   HP %d/%d" % [card["hp"], card["max_hp"]] if card["hp"] >= 0 else ""))
 		if card.has("evo"):
@@ -128,14 +131,21 @@ func _beep() -> void:
 
 
 func _input(event: InputEvent) -> void:
-	if not is_visible_in_tree() or cards.is_empty() or not (event is InputEventKey or event is InputEventJoypadButton) or not event.is_pressed() or event.is_echo():
+	if not is_visible_in_tree() or cards.is_empty() or not (event is InputEventKey or event is InputEventJoypadButton or event is InputEventJoypadMotion) or not event.is_pressed() or event.is_echo():
 		return
+	# Godot's menu directions through UI.pressed (Claude, 2026-10-23, FEEL-01): the same keys, the D-pad, and now
+	# the left stick, once per push. Choose and back stay the engine's ui_accept and ui_cancel, as every menu
+	# button reads them (the menus context): a chord-muted A would fall through to the focused Back button.
+	var left := UI.pressed(event, "ui_left")
+	var right := UI.pressed(event, "ui_right")
+	var up := UI.pressed(event, "ui_up")
+	var down := UI.pressed(event, "ui_down")
 	var handled := true
-	if event.is_action_pressed("ui_left") or event.is_action_pressed("ui_right"):
-		page = (page + (1 if event.is_action_pressed("ui_right") else -1) + PAGES.size()) % PAGES.size()
+	if left or right:
+		page = (page + (1 if right else -1) + PAGES.size()) % PAGES.size()
 		picking = false
-	elif event.is_action_pressed("ui_up") or event.is_action_pressed("ui_down"):
-		var step := 1 if event.is_action_pressed("ui_down") else -1
+	elif up or down:
+		var step := 1 if down else -1
 		if picking:
 			move_sel = posmod(move_sel + step, maxi(1, cards[sel]["moves"].size()))
 		else:
@@ -216,7 +226,9 @@ func _draw() -> void:
 	var frame := Rect2(40, 28, 1072, 592)
 	UI.panel(self, frame, 0.97)
 	UI.text(self, Vector2(64, 70), "Team", 30, UI.EDGE_LIGHT)
-	UI.text(self, Vector2(64, 70), "Left / Right  page     Up / Down  creature     Esc  back", 14, UI.MUTED, 1024, HORIZONTAL_ALIGNMENT_RIGHT)
+	# The keys of the device in use (Claude, 2026-10-23): Esc on a keyboard, B on a pad, from the Input Map.
+	var pad := UI.last_device() == "pad"
+	UI.text(self, Vector2(64, 70), "%sLeft / Right  page     Up / Down  creature     %s  back" % ["D-pad " if pad else "", UI.binding_text("ui_cancel")], 14, UI.MUTED, 1024, HORIZONTAL_ALIGNMENT_RIGHT)
 	draw_line(Vector2(64, 80), Vector2(1088, 80), Color(UI.EDGE, 0.5), 1.0)
 	if cards.is_empty():
 		UI.text(self, Vector2(64, 130), "No team yet.", 20, UI.MUTED)
@@ -250,7 +262,9 @@ func _draw_left(c: Dictionary) -> void:
 		draw_rect(r, UI.PORTRAIT_BG if k == sel else Color(UI.PORTRAIT_BG, 0.45))
 		if cards[k]["face"] != null:
 			var tint := Color.WHITE if k == sel else Color(1, 1, 1, 0.55)
-			if cards[k]["form"] == "sparkwick":
+			if cards[k]["face_cut"]:
+				draw_texture_rect(cards[k]["face"], Rect2(r.position + Vector2(1, 1), Vector2(48, 48)), false, tint)
+			elif cards[k]["form"] == "sparkwick":
 				_sparkwick_art.draws.append({"at": Vector2.ZERO, "scale": Vector2.ONE, "tex": cards[k]["face"], "dest": r.grow(-1.0), "region": Rect2(Vector2.ZERO, cards[k]["face"].get_size()), "colour": tint})
 			elif preload("res://scripts/arena/creature_finish.gd").new_creature(String(cards[k]["form"])):
 				_new_creature_art.paint(cards[k]["face"], r.grow(-2.0), Rect2(Vector2.ZERO, cards[k]["face"].get_size()), tint)

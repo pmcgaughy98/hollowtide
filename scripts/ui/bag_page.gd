@@ -124,7 +124,9 @@ func _select(entry: Dictionary, can_use: bool, button: Button, reveal: bool) -> 
     item_name.text = entry["name"]
     count.text = "x%d" % entry["count"]
     effect.text = entry["what"]
-    # The key, two spaces, what it does: the house column style for hints (Claude, 2026-10-22, W12).
-    instruction.text = "Enter / A  learn the move" if can_use and selected_kind.begins_with("scroll:") else "Enter / A  use" if can_use else "Items are used in the Hollow."
+    # The key, two spaces, what it does: the house column style for hints (Claude, 2026-10-22, W12). The key is
+    # the device's in use, Enter or A, from the Input Map (Claude, 2026-10-23).
+    var key = UI.binding_text("ui_accept")
+    instruction.text = "%s  learn the move" % key if can_use and selected_kind.begins_with("scroll:") else "%s  use" % key if can_use else "Items are used in the Hollow."
     if reveal and button != null:
         scroll.ensure_control_visible.call_deferred(button)

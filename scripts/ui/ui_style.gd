@@ -716,3 +716,447 @@ static func _fade_rect(tree: SceneTree, alpha: float) -> ColorRect:
 	_fade.add_child(rect)
 	tree.root.add_child.call_deferred(_fade)
 	return rect
+
+
+## Input (Claude, 2026-10-23, factory pass 2: controller support and rebinding). Every key and button the game
+## reads is an action in project.godot's Input Map, keeping the keyboard defaults the raw reads had (physical keys,
+## so W sits in the same place on every layout) with an Xbox-layout pad beside them. Screens ask for actions here:
+##   UI.tapped("attack")               a fresh press. Kept per key or button, as the dungeon's old _tapped kept
+##                                     _keys_was: a press made while a scene was busy still counts the next time
+##                                     it asks, if the key is still down. Two actions sharing J never both fire.
+##   UI.held("run")                    down now
+##   UI.tapped_any(UI.INPUT_ADVANCE)   any of them, every one read (no short cut): "the next line"
+##   UI.dir8()                         the step asked for: keys, D-pad or left stick, one of eight ways or ZERO
+##   UI.pressed(event, "pause")        for screens that take events in _input or _unhandled_input
+##   UI.last_device()                  "keyboard" or "pad", from the last press (InputPrefs.device_changed says when)
+##   UI.binding_text("bag")            "I" on a keyboard, "Y" on a pad: what to print in a hint
+## The pad's moves are chords (INPUT_CHORDS): hold RB (moves_hold) and press A, X or Y for moves 1 to 3, B to rest.
+## While RB is down, A, X, Y and B mean nothing else, so a move never also attacks, takes the stairs or opens the
+## bag. Only these helpers know that rule: Input.is_action_pressed("move_slot_1") is also true for a bare A.
+## Saved rebinds and the device watch live in the InputPrefs autoload (scripts/ui/input_prefs.gd).
+
+## Which actions are live together, for the rebind clash rule and the input check: one input may not be bound to
+## two actions that share a context, except two INPUT_ADVANCE actions (they all mean "next" where they meet).
+## Godot's focus moves (ui_up, ui_down, ui_left, ui_right) stay the engine's and are not rebound.
+const INPUT_CONTEXTS := {
+	# Walking a Hollow's floor: J or Space attacks, E takes the stairs, Esc or B opens the pause menu.
+	"hollow": ["move_left", "move_right", "move_up", "move_down", "attack", "move_slot_1", "move_slot_2", "move_slot_3",
+		"moves_hold", "rest", "bag", "interact", "tactics", "log", "autopilot", "run", "turn", "cancel", "pause", "fullscreen"],
+	# A question in a Hollow: take a recruit, let a move go. Y or Enter, N or Esc.
+	"hollow_prompt": ["yes", "no", "pause", "fullscreen"],
+	# The bag and the move lists in a Hollow: up and down choose, J or Enter takes, Esc or I closes.
+	"hollow_menu": ["move_up", "move_down", "confirm", "cancel", "bag", "pause", "fullscreen"],
+	# Walking Highbank and its rooms: E, J or Enter uses what is ahead, Esc closes a panel.
+	"town": ["move_left", "move_right", "move_up", "move_down", "interact", "confirm", "cancel", "pause", "fullscreen"],
+	# The board, storage, the shrine and the way-down list: R takes one out of storage, Page Up and Down scroll.
+	"town_menu": ["move_left", "move_right", "move_up", "move_down", "confirm", "interact", "cancel", "take_out",
+		"page_up", "page_down", "pause", "fullscreen"],
+	# A line or a scene anywhere (the soul's prologue, a Hollow's scenes, the faint screen, which also takes rest).
+	"story": ["confirm", "attack", "interact", "rest", "cancel", "move_left", "move_right", "move_up", "move_down", "pause",
+		"fullscreen"],
+	# The title, the pause menu and the party screen: Godot's focus, read through ui_accept and ui_cancel.
+	"menus": ["ui_accept", "ui_cancel", "pause", "fullscreen"],
+}
+## The actions that move a line or a scene on (J, Enter, Space and E today; A and X on a pad).
+const INPUT_ADVANCE := ["confirm", "attack", "interact"]
+## Pad chords: the pad buttons of these actions count only while the named action is held.
+const INPUT_CHORDS := {"move_slot_1": "moves_hold", "move_slot_2": "moves_hold", "move_slot_3": "moves_hold", "rest": "moves_hold"}
+## The words a rebinding page shows for each action (proposals; Preston's to change).
+const INPUT_NAMES := {
+	"move_up": "Up", "move_down": "Down", "move_left": "Left", "move_right": "Right",
+	"attack": "Attack", "move_slot_1": "Move 1", "move_slot_2": "Move 2", "move_slot_3": "Move 3",
+	"moves_hold": "Hold for moves", "rest": "Rest", "bag": "Bag", "interact": "Use / stairs", "tactics": "Team orders",
+	"log": "Messages", "autopilot": "Autopilot", "run": "Run", "turn": "Turn", "confirm": "Choose", "cancel": "Back",
+	"yes": "Yes", "no": "No", "take_out": "Take out", "page_up": "Scroll up", "page_down": "Scroll down",
+	"pause": "Pause", "fullscreen": "Full screen",
+}
+const TAP_DEAD := 0.5      # how far a stick or trigger must go to count as a press
+const DIR_DEAD := 0.5      # dir8's dead zone, round the stick's centre
+const DIAG_RATIO := 0.577  # tan 30 degrees: a stick reads diagonal only inside the middle 30 of each 90 degrees
+const KEY_WORDS := {KEY_ESCAPE: "Esc", KEY_ENTER: "Enter", KEY_KP_ENTER: "Enter", KEY_SPACE: "Space", KEY_PERIOD: ".",
+	KEY_PAGEUP: "PgUp", KEY_PAGEDOWN: "PgDn", KEY_CTRL: "Ctrl", KEY_SHIFT: "Shift", KEY_TAB: "Tab"}
+const PAD_WORDS := {JOY_BUTTON_A: "A", JOY_BUTTON_B: "B", JOY_BUTTON_X: "X", JOY_BUTTON_Y: "Y", JOY_BUTTON_BACK: "Back",
+	JOY_BUTTON_GUIDE: "Guide", JOY_BUTTON_START: "Start", JOY_BUTTON_LEFT_STICK: "L3", JOY_BUTTON_RIGHT_STICK: "R3",
+	JOY_BUTTON_LEFT_SHOULDER: "LB", JOY_BUTTON_RIGHT_SHOULDER: "RB", JOY_BUTTON_DPAD_UP: "D-pad Up",
+	JOY_BUTTON_DPAD_DOWN: "D-pad Down", JOY_BUTTON_DPAD_LEFT: "D-pad Left", JOY_BUTTON_DPAD_RIGHT: "D-pad Right"}
+static var _was := {}               # an input's id -> it was down the last time any action read it
+static var _device := "keyboard"
+static var _axis_on := {}           # for pressed(): a stick direction was past TAP_DEAD at its last motion event
+static var _edge_event := 0         # the motion event last judged, so two actions reading one event agree
+static var _edge_fire := {}
+
+
+## A fresh press of `action` since the last time its keys or buttons were read.
+static func tapped(action: StringName) -> bool:
+	if not InputMap.has_action(action):
+		return false
+	var hit := false
+	for ev: InputEvent in InputMap.action_get_events(action):
+		if _muted(action, ev):
+			continue   # left unread, so the press is still fresh for the action it belongs to
+		var id := _input_id(ev)
+		if id == "":
+			continue
+		var now := _down(ev)
+		if now and not bool(_was.get(id, false)):
+			hit = true
+		_was[id] = now
+	return hit
+
+
+## Any of `actions` tapped. Every one is read, so none keeps a stale press for a later frame.
+static func tapped_any(actions: Array) -> bool:
+	var hit := false
+	for a in actions:
+		if tapped(a):
+			hit = true
+	return hit
+
+
+static func held(action: StringName) -> bool:
+	if not InputMap.has_action(action):
+		return false
+	for ev: InputEvent in InputMap.action_get_events(action):
+		if not _muted(action, ev) and _down(ev):
+			return true
+	# Input.action_press (how some checks walk) sets an action with nothing down behind it. Actions in the chord
+	# rule skip this: the engine also sets move_slot_1 for a bare A.
+	return not _chord_role(action) and Input.is_action_pressed(action)
+
+
+## Count what is down now as already seen (all actions when `actions` is empty): a run started by Ctrl and a
+## direction must not take that held direction as a key that stops it.
+static func sync_taps(actions: Array = []) -> void:
+	for a in (actions if not actions.is_empty() else InputMap.get_actions()):
+		if InputMap.has_action(a):
+			for ev: InputEvent in InputMap.action_get_events(a):
+				var id := _input_id(ev)
+				if id != "":
+					_was[id] = _down(ev)
+
+
+## Forget every press, as a screen with a fresh _keys_was used to start.
+static func forget_taps() -> void:
+	_was.clear()
+
+
+## The step asked for: (-1..1, -1..1), or ZERO. Keys give the same steps the raw reads did (D and S together is
+## down-right, A and D cancel); a stick inside DIR_DEAD is still, and under 30 degrees off a straight line it is straight.
+static func dir8() -> Vector2i:
+	var v := Input.get_vector(&"move_left", &"move_right", &"move_up", &"move_down", DIR_DEAD)
+	if v.length() < 0.01:
+		return Vector2i.ZERO
+	var x := int(signf(v.x))
+	var y := int(signf(v.y))
+	if absf(v.x) < absf(v.y) * DIAG_RATIO:
+		x = 0
+	elif absf(v.y) < absf(v.x) * DIAG_RATIO:
+		y = 0
+	return Vector2i(x, y)
+
+
+## `event` is a fresh press of `action`, chord rule kept. For _input and _unhandled_input.
+static func pressed(event: InputEvent, action: StringName) -> bool:
+	if event == null or event.is_echo() or not InputMap.has_action(action) or not event.is_action_pressed(action, false, false):
+		return false
+	if event is InputEventJoypadButton:
+		if INPUT_CHORDS.has(String(action)):
+			return _hold_down(INPUT_CHORDS[String(action)])
+		if event.button_index in _chord_buttons() and _any_hold_down():
+			return false
+	elif event is InputEventJoypadMotion:
+		return _motion_edge(event)   # a stick sends a stream of motion: only the crossing counts
+	return true
+
+
+static func last_device() -> String:
+	return _device
+
+
+## Note the device behind `event` (the InputPrefs autoload calls this for every event). True when it changed.
+static func note_input(event: InputEvent) -> bool:
+	var d := ""
+	if (event is InputEventKey or event is InputEventMouseButton) and event.pressed:
+		d = "keyboard"   # the mouse reads as the keyboard: its hints are the keyboard's
+	elif event is InputEventJoypadButton and event.pressed:
+		d = "pad"
+	elif event is InputEventJoypadMotion and absf(event.axis_value) > TAP_DEAD:
+		d = "pad"
+	return d != "" and set_device(d)
+
+
+static func set_device(d: String) -> bool:
+	if d == _device or d not in ["keyboard", "pad"]:
+		return false
+	_device = d
+	return true
+
+
+## The binding a hint prints for `action` on `device` ("keyboard" or "pad"; the last one used when ""): "J",
+## "Space", "A", "RB+A". `every` lists them all ("J / Space"). "" when the device has none (full screen on a pad).
+static func binding_text(action: StringName, device := "", every := false) -> String:
+	if device == "":
+		device = _device
+	var out := PackedStringArray()
+	if not InputMap.has_action(action):
+		return ""
+	for ev: InputEvent in InputMap.action_get_events(action):
+		if _is_pad(ev) != (device == "pad"):
+			continue
+		var s := _event_text(ev)
+		if s != "" and ev is InputEventJoypadButton and INPUT_CHORDS.has(String(action)):
+			s = binding_text(INPUT_CHORDS[String(action)], "pad") + "+" + s
+		if s != "" and not out.has(s):
+			out.append(s)
+		if not every and not out.is_empty():
+			break
+	return " / ".join(out)
+
+
+## The actions that already use the input in `event` where `action` is live too (the clash rule above), so a
+## rebinding page can ask before it takes the input from them.
+static func binding_clashes(action: StringName, event: InputEvent) -> PackedStringArray:
+	var out := PackedStringArray()
+	var want := _bind_id(action, event)
+	if want == "":
+		return out
+	var me := String(action)
+	for ctx in INPUT_CONTEXTS:
+		var live: Array = INPUT_CONTEXTS[ctx]
+		if not live.has(me):
+			continue
+		for other in live:
+			if other == me or out.has(other) or (INPUT_ADVANCE.has(other) and INPUT_ADVANCE.has(me)):
+				continue
+			if InputMap.has_action(other):
+				for ev: InputEvent in InputMap.action_get_events(other):
+					if _bind_id(other, ev) == want:
+						out.append(other)
+						break
+	return out
+
+
+static func _is_pad(ev: InputEvent) -> bool:
+	return ev is InputEventJoypadButton or ev is InputEventJoypadMotion
+
+
+## One id per physical input, shared by every action bound to it.
+static func _input_id(ev: InputEvent) -> String:
+	if ev is InputEventKey:
+		if ev.physical_keycode != KEY_NONE:
+			return "k%d" % ev.physical_keycode
+		if ev.keycode != KEY_NONE:
+			return "l%d" % ev.keycode
+		return "t%d" % ev.key_label if ev.key_label != KEY_NONE else ""
+	if ev is InputEventJoypadButton:
+		return "b%d" % ev.button_index
+	if ev is InputEventJoypadMotion:
+		return "a%d%s" % [ev.axis, "+" if ev.axis_value > 0.0 else "-"]
+	if ev is InputEventMouseButton:
+		return "m%d" % ev.button_index
+	return ""
+
+
+## A binding's id for the clash rule: a chord's pad button is its own input ("RB then A" is not "A").
+static func _bind_id(action: StringName, ev: InputEvent) -> String:
+	var id := _input_id(ev)
+	if id != "" and ev is InputEventJoypadButton and INPUT_CHORDS.has(String(action)):
+		return "%s+%s" % [INPUT_CHORDS[String(action)], id]
+	return id
+
+
+static func _down(ev: InputEvent) -> bool:
+	if ev is InputEventKey:
+		if ev.physical_keycode != KEY_NONE:
+			return Input.is_physical_key_pressed(ev.physical_keycode)
+		if ev.keycode != KEY_NONE:
+			return Input.is_key_pressed(ev.keycode)
+		return ev.key_label != KEY_NONE and Input.is_key_label_pressed(ev.key_label)
+	if ev is InputEventJoypadButton:
+		for d in _pads(ev.device):
+			if Input.is_joy_button_pressed(d, ev.button_index):
+				return true
+		return false
+	if ev is InputEventJoypadMotion:
+		var s := signf(ev.axis_value)
+		for d in _pads(ev.device):
+			if Input.get_joy_axis(d, ev.axis) * s > TAP_DEAD:
+				return true
+		return false
+	if ev is InputEventMouseButton:
+		return Input.is_mouse_button_pressed(ev.button_index)
+	return false
+
+
+## The pads to read: one device, or every connected pad and device 0 (where a check's made-up events land).
+static func _pads(device: int) -> Array:
+	if device >= 0:
+		return [device]
+	var p: Array = Input.get_connected_joypads()
+	if not p.has(0):
+		p.append(0)
+	return p
+
+
+## The pad buttons the chords use (A, X, Y and B by default).
+static func _chord_buttons() -> Array:
+	var out := []
+	for a in INPUT_CHORDS:
+		if InputMap.has_action(a):
+			for ev: InputEvent in InputMap.action_get_events(a):
+				if ev is InputEventJoypadButton and not out.has(ev.button_index):
+					out.append(ev.button_index)
+	return out
+
+
+static func _chord_role(action: StringName) -> bool:
+	var a := String(action)
+	if INPUT_CHORDS.has(a):
+		return true
+	if INPUT_CHORDS.values().has(a) or not InputMap.has_action(action):
+		return false
+	var used := _chord_buttons()
+	for ev: InputEvent in InputMap.action_get_events(action):
+		if ev is InputEventJoypadButton and used.has(ev.button_index):
+			return true
+	return false
+
+
+## A pad press of `action` that the chord rule hides: a chord's button without its hold, or a plain action's
+## button while a hold is down. Keys are never hidden.
+static func _muted(action: StringName, ev: InputEvent) -> bool:
+	if not (ev is InputEventJoypadButton):
+		return false
+	var a := String(action)
+	if INPUT_CHORDS.has(a):
+		return not _hold_down(INPUT_CHORDS[a])
+	if INPUT_CHORDS.values().has(a):
+		return false   # the hold itself
+	return ev.button_index in _chord_buttons() and _any_hold_down()
+
+
+## The hold action down (read straight from its events, so the chord rule never asks itself).
+static func _hold_down(hold: String) -> bool:
+	if not InputMap.has_action(hold):
+		return false
+	for ev: InputEvent in InputMap.action_get_events(hold):
+		if _down(ev):
+			return true
+	return false
+
+
+static func _any_hold_down() -> bool:
+	var seen := []
+	for a in INPUT_CHORDS:
+		var hold: String = INPUT_CHORDS[a]
+		if not seen.has(hold):
+			seen.append(hold)
+			if _hold_down(hold):
+				return true
+	return false
+
+
+static func _motion_edge(ev: InputEventJoypadMotion) -> bool:
+	if ev.get_instance_id() != _edge_event:
+		_edge_event = ev.get_instance_id()
+		for s in [-1, 1]:
+			var id := "a%d%s" % [ev.axis, "+" if s > 0 else "-"]
+			var on: bool = ev.axis_value * s > TAP_DEAD
+			_edge_fire[s] = on and not bool(_axis_on.get(id, false))
+			_axis_on[id] = on
+	return bool(_edge_fire[1 if ev.axis_value > 0.0 else -1])
+
+
+static func _event_text(ev: InputEvent) -> String:
+	if ev is InputEventKey:
+		var code: int = ev.physical_keycode
+		if code != KEY_NONE:
+			# What that key prints on this keyboard (a French layout's physical W is Z). Headless has no keyboard
+			# map and prints an error for the question.
+			if DisplayServer.get_name() != "headless":
+				var shown := DisplayServer.keyboard_get_keycode_from_physical(code)
+				if shown != KEY_NONE:
+					code = shown
+		else:
+			code = ev.keycode
+		if code == KEY_NONE:
+			return ""
+		return KEY_WORDS.get(code, OS.get_keycode_string(code))
+	if ev is InputEventJoypadButton:
+		return PAD_WORDS.get(ev.button_index, "Button %d" % ev.button_index)
+	if ev is InputEventJoypadMotion:
+		match ev.axis:
+			JOY_AXIS_LEFT_X, JOY_AXIS_RIGHT_X:
+				return ("Left stick " if ev.axis == JOY_AXIS_LEFT_X else "Right stick ") + ("Right" if ev.axis_value > 0.0 else "Left")
+			JOY_AXIS_LEFT_Y, JOY_AXIS_RIGHT_Y:
+				return ("Left stick " if ev.axis == JOY_AXIS_LEFT_Y else "Right stick ") + ("Down" if ev.axis_value > 0.0 else "Up")
+			JOY_AXIS_TRIGGER_LEFT:
+				return "LT"
+			JOY_AXIS_TRIGGER_RIGHT:
+				return "RT"
+		return "Axis %d" % ev.axis
+	return ""
+
+
+## One pixel density for small faces (UI-05, Claude, 2026-10-23): the team row, the pause menu's team page and
+## the party cards drew 48x48 portraits at 1x while dialogue faces are 40x40 at 3x. portrait_3x(form) is a
+## `span` x `span` cut of the dialogue face (16 by default, so 48x48), scaled 3x with no smoothing; drawn at 1x in
+## the old 48 px box it matches the dialogue's pixels. The cut is centred on FACE_AT, the middle of each face
+## (picked by eye from the 40x40 faces, 2026-10-23; a form not listed is cut round (20, 18)). A form with no
+## dialogue face falls back to its portrait.png, then to its dungeon still in a 48 px box, as the team row did.
+## Cached per form and span. "kithflare:joyous" cuts the joyous face round kithflare's centre.
+const FACE_AT := {
+	"archroot": Vector2i(24, 22), "cairnshell": Vector2i(19, 18), "caller": Vector2i(19, 21), "canvaswing": Vector2i(12, 17),
+	"cinderhide": Vector2i(18, 12), "clinkerhide": Vector2i(29, 18), "crawdukes": Vector2i(16, 18), "dustkite": Vector2i(17, 21),
+	"fusern": Vector2i(20, 19), "galeshear": Vector2i(21, 18), "grubbit": Vector2i(25, 20), "gruntle": Vector2i(20, 21),
+	"highsignal": Vector2i(20, 11), "huskward": Vector2i(19, 18), "inkhoot": Vector2i(25, 20), "ironvent": Vector2i(18, 15),
+	"kithflare": Vector2i(21, 13), "listener": Vector2i(18, 18), "mirekit": Vector2i(20, 21), "muskin": Vector2i(23, 19),
+	"oathfen": Vector2i(17, 19), "oxbowarchon": Vector2i(16, 20), "ozbender": Vector2i(14, 18), "pouchbill": Vector2i(14, 12),
+	"preostmar": Vector2i(21, 13), "rampartroot": Vector2i(14, 14), "riftfin": Vector2i(24, 16), "rimefin": Vector2i(24, 17),
+	"rinsepaw": Vector2i(21, 16), "scourmaw": Vector2i(26, 16), "skimlet": Vector2i(17, 21), "slagglass": Vector2i(23, 24),
+	"slipjaw": Vector2i(20, 14), "sparkwick": Vector2i(20, 16), "springvault": Vector2i(19, 12), "starward": Vector2i(23, 14),
+	"stillwade": Vector2i(22, 10), "stormwick": Vector2i(18, 16), "swaphoard": Vector2i(24, 28), "tallowroot": Vector2i(21, 13),
+	"troughspine": Vector2i(16, 22), "valvekin": Vector2i(13, 17), "vitrecrag": Vector2i(18, 14), "warden": Vector2i(24, 24),
+	"wayling": Vector2i(24, 23), "waywhistle": Vector2i(14, 14), "whinet": Vector2i(24, 20), "wickglow": Vector2i(15, 21),
+	"windcut": Vector2i(26, 25),
+}
+static var _faces3x := {}
+
+
+## Preston, 2026-10-23: a 24 x 24 cut (the 16 x 16 one mostly showed one eye). It is scaled by the whole number that
+## fills the 48 px face boxes (24 x 2, 16 x 3), never a fraction, so the pixels stay square.
+static func portrait_3x(form: String, span := 24) -> Texture2D:
+	var key := "%s@%d" % [form, span]
+	if _faces3x.has(key):
+		return _faces3x[key]
+	var base := form.get_slice(":", 0)
+	var out: Texture2D = null
+	var face := dialogue_portrait(form)
+	var img: Image = face.get_image() if face != null else null
+	if img != null and not img.is_empty():
+		if img.is_compressed():
+			img.decompress()
+		img.convert(Image.FORMAT_RGBA8)
+		var s := clampi(span, 1, mini(img.get_width(), img.get_height()))
+		var mid: Vector2i = FACE_AT.get(base, Vector2i(20, 18))
+		var at := Vector2i(clampi(mid.x - s / 2, 0, img.get_width() - s), clampi(mid.y - s / 2, 0, img.get_height() - s))
+		var cut := img.get_region(Rect2i(at, Vector2i(s, s)))
+		var k := maxi(1, 48 / s)   # whole-number scale into the 48 px box
+		cut.resize(s * k, s * k, Image.INTERPOLATE_NEAREST)
+		out = ImageTexture.create_from_image(cut)
+	if out == null:
+		var path := "res://assets/sprites/arena/%s/portrait.png" % base
+		var still := "res://assets/sprites/arena/%s/dungeon/s.png" % base
+		if ResourceLoader.exists(path):
+			out = load(path)
+		elif ResourceLoader.exists(still):
+			# The dungeon still centred in the 48 px box, its feet on the bottom edge (as dungeon.gd's portrait_of).
+			var st: Image = load(still).get_image()
+			st.convert(Image.FORMAT_RGBA8)
+			var u := st.get_used_rect()
+			var cut2 := Rect2i(u.position.x + (u.size.x - mini(u.size.x, 48)) / 2, u.position.y, mini(u.size.x, 48), mini(u.size.y, 48))
+			var box := Image.create(48, 48, false, Image.FORMAT_RGBA8)
+			box.blit_rect(st, cut2, Vector2i((48 - cut2.size.x) / 2, 48 - cut2.size.y))
+			out = ImageTexture.create_from_image(box)
+	_faces3x[key] = out
+	return out

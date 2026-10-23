@@ -4,19 +4,19 @@ Highbank: the way down is held before the Job Board (true) -> ok
 Job Board: the parcel is stolen (stolen) -> ok
 Wayline Hall: the trial is set (true) -> ok
 Pass 2: going down in Rootbank Warren opens the faint screen: Rootbank Warren B1F, going home true, Tallowroot speaks first: 'Kithflare! Hey. Hey, stay with me... okay. Okay. I've got you. We're going home.' -> ok
-Pass 2: the defeat panel reads 'CARRIED HOME | Kithflare went down on B1F of Rootbank Warren. | Beaten by the dark after 0 turns. Wild creatures downed on the way: 0. | Lost: the bag (13 items). | Kept: levels, moves and your partners. | E   Go home' -> ok
-Pass 2: E carries the team home (hub_town.tscn): faints 2 -> 3, parcel 'stolen', trial true -> ok
+Pass 2: the defeat panel reads 'CARRIED HOME | Kithflare went down on B1F of Rootbank Warren. | Beaten by the dark after 0 turns. Wild creatures downed on the way: 0. | Lost: the bag (10 items). | Kept: levels, moves and your partners. | E   Go home' -> ok
+Pass 2: E carries the team home (hub_town.tscn): faints 0 -> 1, parcel 'stolen', trial true -> ok
 Rootbank Warren cleared; parcel 'recovered', beaten ["mouth", "first"] -> ok
 Back in Highbank: The Hollow is held until Starward has the parcel (true) -> ok
 Starward names them runners (true, parcel 'delivered') -> ok
 The mail call plays on the lower floor (true), crew at posts 5 -> ok
-Pass 2: a quit mid-run in The Hollow keeps the run on disk: B1F, seed 1253447315, turn 12 (the title is up: true) -> ok
-Pass 2: Continue resumes The Hollow at the top of B1F: seed 1253447315, turn 12, leader HP 40 (was 40), home after true, the kept run used up true -> ok
+Pass 2: a quit mid-run in The Hollow keeps the run on disk: B1F, seed 1460247133, turn 12 (the title is up: true) -> ok
+Pass 2: Continue resumes The Hollow at the top of B1F: seed 1460247133, turn 12, leader HP 28 (was 28), home after true, the kept run used up true -> ok
 The Hollow cleared, the Warden beaten; the stone is 'carried' -> ok
 The stone is set in the Growth Shrine (asked 'stone_ask', now installed) -> ok
 The shrine offers an evolution after the pilot's three dungeons (evolve_ask, 2 ready) -> ok
-Grown: party [[0, 0], [1, 0], [3, 0], [7, 0]] -> [[0, 1], [1, 0], [3, 0], [7, 0]] -> ok
+Grown: party [[0, 0], [1, 0], [7, 0], [104, 0]] -> [[0, 1], [1, 0], [7, 0], [104, 0]] -> ok
 The end card plays after the first growth and hands back the street (growth line true, pilot_end_seen true, hub_town.tscn) -> ok
 After the pilot the way down asks where to go (way_pick) -> ok
 A Warren replay clears with no boss and comes home (story parcel 'delivered') -> ok
-Faints along the way: 1 (pass 2 went down once more on purpose, not counted)
+Faints along the way: 0 (pass 2 went down once more on purpose, not counted)

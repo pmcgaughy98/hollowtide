@@ -14,7 +14,9 @@ const DUNGEON = "res://scripts/dungeon/dungeon.gd"   # loaded, not preloaded: du
 const ArenaData = preload("res://scripts/arena/arena_prototype.gd")
 const TeamRecord = preload("res://scripts/town/team_state.gd")
 const WAY_NAMES = {"flank": "pincer hits", "ambush": "hits on sleepers", "took": "damage taken", "slam": "slams", "healed": "health restored"}
-const HEADINGS = {"goal": "OBJECTIVE", "team": "TEAM", "bag": "BAG", "floor": "FLOOR", "log": "MESSAGE LOG", "options": "OPTIONS", "controls": "CONTROLS"}
+const HEADINGS = {"goal": "OBJECTIVE", "team": "TEAM", "bag": "BAG", "floor": "FLOOR", "log": "MESSAGE LOG", "options": "OPTIONS", "controls": "CONTROLS", "rebind": "REBIND KEYS"}
+# Where Esc, B or Back goes from a page: the main page unless named here (Claude, 2026-10-23, GS-04).
+const PARENT_PAGE = {"rebind": "options"}
 const PREFS = "user://menu_preferences.cfg"
 const TITLE = "res://scenes/creature_opening.tscn"
 const ControlsText = preload("res://scripts/ui/controls_text.gd")
@@ -35,6 +37,7 @@ var music_mode = Node.PROCESS_MODE_INHERIT
 # cancel. `sounds` keeps the kinds this menu played, newest last, for the checks; a page's first focus is quiet.
 var sounds: Array[String] = []
 var quiet_focus = false
+var bag_hint: Label   # the bag page's key line, retold when the device changes
 
 static func attach(scene: Node) -> void:
     if scene.has_node("GamePauseMenu"): return
@@ -45,11 +48,12 @@ static func attach(scene: Node) -> void:
 func _ready() -> void:
     layer = 80
     process_mode = Node.PROCESS_MODE_ALWAYS
-    hint = _button("Menu  [P]")
+    hint = _button("")
     hint.name = "OpenMenu"
     hint.position = Vector2(984,586)
     hint.size = Vector2(160,52)
     hint.custom_minimum_size.y = 52
+    _place_hint()
     hint.focus_mode = Control.FOCUS_NONE
     hint.pressed.connect(open)
     add_child(hint)
@@ -76,6 +80,27 @@ func _ready() -> void:
     content.add_theme_constant_override("separation",10)
     panel.add_child(content)
     overlay.hide()
+    # Hints name the device in use: [P] on a keyboard, [Start] on a pad (Claude, 2026-10-23, FEEL-01).
+    var prefs = get_node_or_null("/root/InputPrefs")
+    if prefs != null: prefs.device_changed.connect(_on_device_changed)
+
+func _hint_words() -> String:
+    var k = UI.binding_text("pause")
+    return "Menu  [%s]" % k if k != "" else "Menu"
+
+# The corner button keeps its width: "Menu  [P]" (141 px) stays in the button face, a longer key such as
+# "[Start]" (207 px) steps down to the label face.
+func _place_hint() -> void:
+    hint.text = _hint_words()
+    var role = UI.fit(hint.text,"button",150.0)   # "Menu  [P]" is 141 px and keeps the button face
+    hint.add_theme_font_override("font",UI.font(role))
+    hint.add_theme_font_size_override("font_size",UI.type_size(role))
+
+func _on_device_changed(_device: String) -> void:
+    _place_hint()
+    if not overlay.visible: return
+    if page == "controls": show_page("controls")   # its only row is Back, so nothing is lost
+    elif page == "bag" and is_instance_valid(bag_hint): bag_hint.text = _bag_hint_words(bag_hint.get_meta("empty",false),bag_hint.get_meta("use",false))
 
 func _button(text: String) -> Button:
     var b = Button.new()
@@ -209,8 +234,8 @@ func show_page(next: String) -> void:
         old_party.queue_free()
     var panel = overlay.get_node("PausePanel") as PanelContainer
     panel.visible = page != "team"
-    panel.position = Vector2(96,42) if page == "bag" else Vector2(316,58)
-    panel.custom_minimum_size = Vector2(960,0) if page == "bag" else Vector2(520,0)
+    panel.position = Vector2(96,42) if page == "bag" else Vector2(196,8) if page == "rebind" else Vector2(316,58)
+    panel.custom_minimum_size = Vector2(960,0) if page == "bag" else Vector2(760,0) if page == "rebind" else Vector2(520,0)
     panel.size = Vector2.ZERO
     match page:
         "main":
@@ -235,17 +260,25 @@ func show_page(next: String) -> void:
             _action(_speed_words(),"TextSpeed",cycle_text_speed)
             motion = bool(_config().get_value("menu","reduce_motion",false))
             _action("Reduce motion: " + ("On" if motion else "Off"),"ReduceMotion",toggle_motion)
+            # Every key and button can be changed (Claude, 2026-10-23, GS-04): scripts/ui/rebind_page.gd.
+            _action("Rebind keys","Rebind",show_page.bind("rebind"))
             _action("Back","Back",show_page.bind("main"))
             status = _label("Changes are saved automatically.",18)
         "controls":
             # One copy of the keys, shared with the opening's help (scripts/ui/controls_text.gd), under the honest
-            # line about the controller (Claude, 2026-10-22, LP-03).
-            _label(ControlsText.NOTE,18).add_theme_color_override("font_color",UI.MUTED)
-            for g in ControlsText.GROUPS:
+            # line about the controller (Claude, 2026-10-22, LP-03). The keys are the live ones for the device in
+            # use, so a rebound key or a pad reads true (Claude, 2026-10-23).
+            _label(ControlsText.note(),18).add_theme_color_override("font_color",UI.MUTED)
+            for g in ControlsText.groups():
                 _label(String(g["head"]),14).add_theme_color_override("font_color",UI.EDGE_LIGHT)
                 for line in g["lines"]: _label(String(line),18)
                 if g["head"] == ControlsText.HOLLOW["head"]: _label(ControlsText.TURNS,18)
             _action("Back","Back",show_page.bind("main"))
+        "rebind":
+            var rebind = load("res://scripts/ui/rebind_page.gd").new()
+            content.add_child(rebind)
+            rebind.setup(self)
+            _action("Back","Back",show_page.bind("options"))
         "team":
             var party = load("res://scripts/ui/party_screen.gd").new()
             party.name = "PartyScreen"
@@ -287,8 +320,9 @@ func show_page(next: String) -> void:
             _action("Return to title" if page == "title" else "Quit Game","ConfirmLeave",leave)
     # Field pages added more rows; keep the dungeon main menu inside the fixed viewport. Options (three
     # sliders and four rows since the screen and text rows) and Controls are packed the same way, rows
-    # 40 px and the gaps a little wider than the main page's (Claude, 2026-10-22).
-    if (page == "main" and in_hollow) or page in ["options","controls"]:
+    # 40 px and the gaps a little wider than the main page's (Claude, 2026-10-22). Options has five rows since the
+    # Controls row, and the rebinding page's rows are packed the same way (Claude, 2026-10-23).
+    if (page == "main" and in_hollow) or page in ["options","controls","rebind"]:
         # Ten rows: the frame's 8 px padding held each row at 49 px whatever its minimum, 658 px in all on a
         # 648 px screen; 3 px padding (the pressed sink kept) lets a row be 40 (Claude, 2026-10-14).
         content.add_theme_constant_override("separation",4 if page == "main" else 6)
@@ -375,10 +409,11 @@ func _team_page() -> void:
         if not e.is_empty(): head += "   HP %d/%d" % [e["hp"],e["max_hp"]]
         var row = HBoxContainer.new()
         row.add_theme_constant_override("separation",10)
-        var face_path = "res://assets/sprites/arena/%s/portrait.png" % form[0]
-        if ResourceLoader.exists(face_path):
+        # The dialogue face cut at 3x, one pixel size with the dialogue (Claude, 2026-10-23, UI-05).
+        var face_tex = UI.portrait_3x(String(form[0]))
+        if face_tex != null:
             var face = TextureRect.new()
-            face.texture = load(face_path)
+            face.texture = face_tex
             face.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
             face.custom_minimum_size = Vector2(48,48)
             # The pixel portrait frame round the river-blue well (Claude, 2026-10-22, UI-06; it was a flat box).
@@ -423,8 +458,18 @@ func _bag_page() -> void:
     var bag_view = load("res://scripts/ui/bag_page.gd").new()
     content.add_child(bag_view)
     bag_view.setup(entries,scene.has_method("act_use_item"),self)
-    # Key hints in the house column style: the key, two spaces, what it does (Claude, 2026-10-22, W12).
-    _label("Esc / B  back" if bag.is_empty() else "Arrows / D-pad  browse     Esc / B  back" if not scene.has_method("act_use_item") else "Arrows / D-pad  browse     Enter / A  use     Esc / B  back",16)
+    # Key hints in the house column style: the key, two spaces, what it does (Claude, 2026-10-22, W12). The
+    # keys are the device's in use (Claude, 2026-10-23): Arrows, Enter and Esc, or D-pad, A and B.
+    bag_hint = _label(_bag_hint_words(bag.is_empty(),scene.has_method("act_use_item")),16)
+    bag_hint.set_meta("empty",bag.is_empty())
+    bag_hint.set_meta("use",scene.has_method("act_use_item"))
+
+func _bag_hint_words(empty: bool, can_use: bool) -> String:
+    var pad = UI.last_device() == "pad"
+    var back = "%s  back" % UI.binding_text("ui_cancel")
+    if empty: return back
+    var browse = "%s  browse     " % ("D-pad" if pad else "Arrows")
+    return browse + back if not can_use else browse + "%s  use     " % UI.binding_text("ui_accept") + back
 
 # Choosing an item closes the menu and uses it the way the bag key does: it spends the turn.
 func _use_item(kind: String) -> void:
@@ -441,13 +486,14 @@ func _floor_page() -> void:
     _label("B%dF   turn %d" % [s.floor_n,s.turn],22)
     _label("Lantern %d%%" % int(round(100.0 * s.light / s.LIGHT_MAX)),20)
     var under = "nothing"
-    if lead["pos"] == s.data["stairs"]: under = "the stairs (E goes down)"
+    # The keys named are the live ones for the device in use (Claude, 2026-10-23): E and T, or X and LB on a pad.
+    if lead["pos"] == s.data["stairs"]: under = "the stairs (%s goes down)" % UI.binding_text("interact")
     for t in s.traps:
         if t["pos"] == lead["pos"] and t["seen"]: under = "a %s trap" % t["kind"]
     if "water_rows" in s and s.wet(lead["pos"]): under = "water (the lantern's getting wet)"
     _label("Underfoot: " + under,20)
     if "water_rows" in s and s.water_rows > 0: _label("Water: %d rows up from the low end, rising" % s.water_rows if s.water_rows < s.water_max else "Water: %d rows up from the low end, as high as it gets" % s.water_rows,20)
-    _label("Partners' order: " + s.TACTIC_NAMES[s.tactic] + " (T changes it)",20)
+    _label("Partners' order: " + s.TACTIC_NAMES[s.tactic] + " (%s changes it)" % UI.binding_text("tactics"),20)
     if s.boss_alive(): _label("%s guards this floor. The stairs are sealed." % s.ents[s.boss]["name"],20)
     if s.monster_sprung: _label("The nest: " + ("cleared" if s.house_cleared else "still fighting"),20)
 
@@ -489,8 +535,9 @@ func resume() -> void:
     if releasing or transition: return
     releasing = true
     _tick("close")
-    # Raw key polling in the game must not see the closing Enter/Escape as a turn.
-    while Input.is_action_pressed("ui_accept") or Input.is_action_pressed("ui_cancel") or Input.is_physical_key_pressed(KEY_P) or Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
+    # Raw key polling in the game must not see the closing Enter/Escape as a turn. Pause and Back are read as
+    # actions, so a rebound key or a pad's Start and B are waited out too (Claude, 2026-10-23).
+    while Input.is_action_pressed("ui_accept") or Input.is_action_pressed("ui_cancel") or UI.held("pause") or UI.held("cancel") or Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT):
         await get_tree().process_frame
     overlay.hide()
     hint.show()
@@ -535,19 +582,23 @@ func _has_modal() -> bool:
 func _input(event: InputEvent) -> void:
     if transition or releasing: return
     # F11 switches full screen wherever this menu is attached, open or not (Claude, 2026-10-22, GS-01).
-    if event is InputEventKey and event.pressed and not event.echo and event.keycode == KEY_F11:
+    # Pause (P, Start), full screen (F11) and back (Esc, B; the "cancel" action too, so a rebound Back works
+    # here) are actions now, read through UI.pressed so the pad's chord rule holds: RB+B rests, it never opens
+    # this menu (Claude, 2026-10-23, FEEL-01). The rebinding page takes every press first while it listens.
+    if UI.pressed(event,"fullscreen"):
         toggle_screen()
         get_viewport().set_input_as_handled()
         return
-    var p = event is InputEventKey and event.pressed and not event.echo and (event.physical_keycode == KEY_P or event.keycode == KEY_P)
-    p = p or (event is InputEventJoypadButton and event.pressed and event.button_index == JOY_BUTTON_START)
-    var cancel = event.is_action_pressed("ui_cancel") and not event.is_echo()
+    var p = UI.pressed(event,"pause")
+    # Open, Back is the engine's ui_cancel as on every menu button (RB+B too); closed, the chord rule decides.
+    var cancel = (event.is_action_pressed("ui_cancel") and not event.is_echo()) if overlay.visible else UI.pressed(event,"ui_cancel")
+    cancel = UI.pressed(event,"cancel") or cancel
     if not p and not cancel: return
     if overlay.visible:
         if page == "main": resume()
         else:
             _tick("cancel")
-            show_page("main")
+            show_page(PARENT_PAGE.get(page,"main"))
     elif p or not _has_modal(): open()
     else: return
     get_viewport().set_input_as_handled()

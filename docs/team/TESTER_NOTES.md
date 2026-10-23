@@ -16,8 +16,10 @@ crew; runners named; The Hollow and the Warden; the stone; the Growth Shrine and
 automated run of that path, with the autopilot playing, took about 12 minutes on 2026-10-12; a person who reads every
 line will take longer.
 
-## Keyboard only
-A controller works in the menus only for now. Field movement, fights and the town are keyboard.
+## Keyboard or controller
+Both work everywhere (2026-10-23). On a controller: D-pad or left stick walks, A attacks and chooses, B goes back,
+Y opens the bag, X uses a place or the stairs, hold RB with A, X or Y for moves 1 to 3, Start pauses. Every key and
+button can be changed under Options, Rebind keys. The keyboard keys below are the defaults.
 
 In Highbank: WASD / arrows move. E / J / Enter use a place.
 
@@ -25,7 +27,7 @@ In a Hollow: WASD / arrows step. Shift turns in place. J attacks. 1-3 fire moves
 Z rests a turn. E takes the stairs. Ctrl + direction runs. L shows the recent messages again. T gives team orders.
 Y / N answer a recruit's offer.
 
-Menus: P pauses: Objective, Team, Bag, Options and Controls, plus Floor and Message log in a Hollow. Arrows move the
+Menus: P (Start on a controller) pauses: Objective, Team, Bag, Options and Controls, plus Floor and Message log in a Hollow. Arrows move the
 focus, Enter chooses, Esc goes back. F11 toggles full screen anywhere, and the same switch is in Options. The Controls
 page in the pause menu lists all of this.
 
@@ -38,7 +40,7 @@ Preston's call.
 ## Not in this build
 - The Item Shop, the Scroll Keeper and the Training Yard are shut (a sign at each door). Scrolls found in a Hollow still
   teach moves.
-- Controller play in the field, and mouse play. Keyboard only.
+- Mouse play in the field. The mouse works in menus only.
 - Anything past the end card: the deeper Hollow, more routes and the crew come later.
 - Final names. Hollow Mouth, the pond stone, the traps and several skills carry working names.
 - Credits. They come with a later title-screen pass.

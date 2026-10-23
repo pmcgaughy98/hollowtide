@@ -9,6 +9,7 @@ extends Control
 ## exists in the story (the Hollow Mouth), E takes the team back to the top, B1F, for another go instead.
 ## The dungeon builds `info` (dungeon._faint_screen) and hands over with the team record already taken.
 const UI := preload("res://scripts/ui/ui_style.gd")
+const ControlsText := preload("res://scripts/ui/controls_text.gd")
 const TeamState := preload("res://scripts/town/team_state.gd")
 const TOWN_SCENE := "res://scenes/hub_town.tscn"
 const DUNGEON_SCENE := "res://scenes/dungeon.tscn"
@@ -47,11 +48,12 @@ func _process(delta: float) -> void:
 
 func _unhandled_input(event: InputEvent) -> void:
 	var press: bool = event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT
-	# J (the dungeon's confirm) and ui_accept (a controller's A) answer too (Claude, 2026-10-22, FEEL-02).
-	if event is InputEventKey and event.pressed and not event.echo and event.keycode in [KEY_E, KEY_J, KEY_ENTER, KEY_SPACE, KEY_Z, KEY_KP_ENTER]:
-		press = true
-	elif event.is_action_pressed("ui_accept") and not event.is_echo():
-		press = true
+	# J (the dungeon's confirm) and ui_accept (a controller's A) answer too (Claude, 2026-10-22, FEEL-02). Since
+	# 2026-10-23 they are actions: every "next" action (UI.INPUT_ADVANCE: J, Enter, Space, E; A and X on a pad),
+	# rest (Z, Period; RB+B) and ui_accept, so a rebound key answers here too (Claude, 2026-10-23, FEEL-01).
+	for a in UI.INPUT_ADVANCE + ["rest", "ui_accept"]:
+		if UI.pressed(event, a):
+			press = true
 	if press:
 		advance()
 
@@ -121,7 +123,8 @@ func _layout() -> Array:
 			y += body_f.get_height(body_n) + 6.0
 		y += 10.0
 	y += 8.0
-	out.append(["E   %s" % ("Go home" if to_town else "Try again"), "body", GOLD, y + body_f.get_ascent(body_n), HORIZONTAL_ALIGNMENT_CENTER])
+	# The key is the device's in use: E on a keyboard, A on a pad (Claude, 2026-10-23, ControlsText.advance_text).
+	out.append(["%s   %s" % [ControlsText.advance_text(), "Go home" if to_town else "Try again"], "body", GOLD, y + body_f.get_ascent(body_n), HORIZONTAL_ALIGNMENT_CENTER])
 	y += body_f.get_height(body_n) + 34.0   # room under the hint for the next arrow and the frame
 	return [out, roundf(y)]
 

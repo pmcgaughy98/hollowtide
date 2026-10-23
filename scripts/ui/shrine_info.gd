@@ -1,6 +1,7 @@
 extends CanvasLayer
 ## Read-only creature information. The town still owns the stone and evolution actions.
 const UI := preload("res://scripts/ui/ui_style.gd")
+const ControlsText := preload("res://scripts/ui/controls_text.gd")
 const Lines := preload("res://scripts/creatures/lines.gd")
 const Evolution := preload("res://scripts/town/evolution.gd")
 const Arena := preload("res://scripts/arena/arena_prototype.gd")
@@ -23,6 +24,8 @@ var shown := false
 var snapshot: Dictionary = {}
 var panel_key := ""
 var tabs: HBoxContainer
+var keys_hint: Label     # the footer's key line and the close button, retold when the device changes
+var close_button: Button
 
 static func attach(owner: Node2D) -> void:
 	var view = load("res://scripts/ui/shrine_info.gd").new()
@@ -142,16 +145,37 @@ func _ready() -> void:
 	var footer := HBoxContainer.new()
 	footer.add_theme_constant_override("separation", 12)
 	column.add_child(footer)
-	var hint := _label("W/S team   A/D page   PgUp/PgDn scroll", "label", UI.MUTED)
-	hint.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	hint.size_flags_vertical = Control.SIZE_SHRINK_CENTER
-	footer.add_child(hint)
+	keys_hint = _label("", "label", UI.MUTED)
+	keys_hint.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	keys_hint.size_flags_vertical = Control.SIZE_SHRINK_CENTER
+	footer.add_child(keys_hint)
 	action = _button("Close", town.act_use)
 	action.name = "ShrineAction"
 	action.custom_minimum_size.x = 210
 	footer.add_child(action)
-	footer.add_child(_button("Esc close", _close))
+	close_button = _button("", _close)
+	footer.add_child(close_button)
+	_hints()
+	# The keys named are the device's in use: W/S and E on a keyboard, the D-pad and A on a pad (Claude, 2026-10-23).
+	var prefs := get_node_or_null("/root/InputPrefs")
+	if prefs != null:
+		prefs.device_changed.connect(_on_device)
 	screen.hide()
+
+func _on_device(_device: String) -> void:
+	_hints()
+
+## The footer's words from the live bindings (ControlsText): "W/S team   A/D page   PgUp/PgDn scroll", the
+## action button's "E set stone" and "Esc close" on a keyboard; the pad's buttons on a pad.
+func _hints() -> void:
+	var words := "%s team   %s page   %s scroll" % [ControlsText.pair("move_up", "move_down"), ControlsText.pair("move_left", "move_right"), ControlsText.pair("page_up", "page_down")]
+	var role := UI.fit(words, "label", 520.0)
+	keys_hint.text = words
+	keys_hint.add_theme_font_override("font", UI.font(role))
+	keys_hint.add_theme_font_size_override("font_size", UI.type_size(role))
+	close_button.text = "%s close" % UI.binding_text("cancel")
+	var service: String = town.panel.get("service", "") if town != null else ""
+	action.text = "%s %s" % [ControlsText.advance_text(), "set stone" if service == "stone_ask" else ("grow" if service == "evolve_ask" else "close")]
 
 func _process(_delta: float) -> void:
 	var active: bool = town.panel.get("service", "") in SERVICES and not town.cutscene and town.talk.is_empty() and not town.evolving_now
@@ -189,7 +213,7 @@ func _rebuild() -> void:
 		members.add_child(button)
 	if snapshot.get("party", []).is_empty(): members.add_child(_label("No team yet."))
 	status.text = "Shrine dormant: the socket is empty. You can still read your team's growth." if town.stone_state() == "" else ("The pond stone is carried. Set it in to wake the shrine." if town.stone_state() == "carried" else "Shrine awake. All four conditions must be met to grow.")
-	action.text = "E set stone" if town.panel.get("service", "") == "stone_ask" else ("E grow" if town.panel.get("service", "") == "evolve_ask" else "E close")
+	_hints()   # the action button's words: "E set stone", "E grow", "E close" (A on a pad)
 	_render_detail()
 
 func select(k: int) -> void:
@@ -318,12 +342,15 @@ func _close() -> void:
 func poll() -> bool:
 	if town.cutscene or not town.talk.is_empty() or town.evolving_now: return false
 	if town.panel.get("service", "") not in SERVICES: return false
-	if town._tapped(KEY_W) or town._tapped(KEY_UP): select(selected - 1)
-	if town._tapped(KEY_S) or town._tapped(KEY_DOWN): select(selected + 1)
-	if town._tapped(KEY_A) or town._tapped(KEY_LEFT): _set_tab("growth")
-	if town._tapped(KEY_D) or town._tapped(KEY_RIGHT): _set_tab("moves")
-	if town._tapped(KEY_PAGEUP): detail_scroll.scroll_vertical -= 120
-	if town._tapped(KEY_PAGEDOWN): detail_scroll.scroll_vertical += 120
-	if town._tapped(KEY_E) or town._tapped(KEY_J) or town._tapped(KEY_ENTER): town.act_use()
-	if town._tapped(KEY_ESCAPE): _close()
+	# Actions, not keys (Claude, 2026-10-23, FEEL-01): the same W/S, A/D, Page Up/Down, E/J/Enter and Esc on a
+	# keyboard (physical keys now, as in a Hollow), the D-pad or left stick, the right stick, A or X and B on a
+	# pad, and whatever the player rebound. The shared tap memory (UI.tapped) replaces the town's _tapped.
+	if UI.tapped("move_up"): select(selected - 1)
+	if UI.tapped("move_down"): select(selected + 1)
+	if UI.tapped("move_left"): _set_tab("growth")
+	if UI.tapped("move_right"): _set_tab("moves")
+	if UI.tapped("page_up"): detail_scroll.scroll_vertical -= 120
+	if UI.tapped("page_down"): detail_scroll.scroll_vertical += 120
+	if UI.tapped_any(["confirm", "interact"]): town.act_use()
+	if UI.tapped("cancel"): _close()
 	return true

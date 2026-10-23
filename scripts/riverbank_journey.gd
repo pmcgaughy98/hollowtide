@@ -157,7 +157,9 @@ func _process(delta:float)->void:
 	clock+=delta
 	_box.queue_redraw()
 	if leaving or asking or line!="":return
-	var direction:=Input.get_vector("move_left","move_right","move_up","move_down")
+	# The step from UI.dir8 (Claude, 2026-10-23, factory pass 2): keys walk as before (a diagonal at the same speed),
+	# and the D-pad or stick walks the eight ways Highbank's streets do.
+	var direction:=Vector2(UI.dir8()).normalized()
 	var moved:=false
 	if direction.length()>0:
 		var next:=leader+direction*48.0*delta
@@ -180,24 +182,66 @@ func _process(delta:float)->void:
 	else:
 		if leader.distance_to(WALKWAY)<10:_travel(true)
 
+## Claude, 2026-10-23 (factory pass 2): the hint's keys come from the bindings, the same words as before on a
+## keyboard ("WASD / arrows", "E / Enter", "Esc") and the pad's when a pad was used last. H has no pad button, so
+## a pad's hint leaves it out; the south trail's own prompt still takes the team to Highbank.
 func _update_hint()->void:
+	var walk:=_walk_keys()+"  walk"
+	var use:=_use_keys()
+	var back:="     "+UI.binding_text("cancel")+"  return to riverbank"
 	if entrance:
-		hint.text="WASD / arrows  walk     Esc  return to riverbank"
-		if leader.distance_to(ARCH)<30:hint.text="E / Enter  approach the arch     Esc  return to riverbank"
+		hint.text=walk+back
+		if leader.distance_to(ARCH)<30:hint.text=use+"  approach the arch"+back
 	elif not _mouth_beaten():
 		# Claude, 2026-10-22 (LP-10): during the flood the hint says why Highbank is not on offer; no H key.
-		hint.text="WASD / arrows  walk     The road to Highbank is under water. The stone walkway is the way."
-		if leader.distance_to(HIGHBANK)<24:hint.text="E / Enter  try the south trail"
+		hint.text=walk+"     The road to Highbank is under water. The stone walkway is the way."
+		if leader.distance_to(HIGHBANK)<24:hint.text=use+"  try the south trail"
 	else:
-		hint.text="WASD / arrows  walk     Stone walkway to the Hollow     H  continue to Highbank"
-		if leader.distance_to(HIGHBANK)<24:hint.text="E / Enter  take the south trail to Highbank"
+		hint.text=walk+"     Stone walkway to the Hollow"+("" if UI.last_device()=="pad" else "     H  continue to Highbank")
+		if leader.distance_to(HIGHBANK)<24:hint.text=use+"  take the south trail to Highbank"
+
+## "WASD / arrows" with the default keys (the letters as this keyboard prints them), "D-pad / Left stick" on a pad.
+func _walk_keys()->String:
+	var dirs:=["move_up","move_left","move_down","move_right"]
+	var out:=PackedStringArray()
+	if UI.last_device()=="pad":
+		for b in UI.binding_text("move_up","pad",true).split(" / ",false):out.append(b.trim_suffix(" Up"))
+		return " / ".join(out)
+	var letters:=""
+	var arrows:=0
+	for k in dirs.size():
+		for b in UI.binding_text(dirs[k],"keyboard",true).split(" / ",false):
+			if b==["Up","Left","Down","Right"][k]:arrows+=1
+			elif b.length()==1 and letters.length()==k:letters+=b
+	if letters.length()==4:out.append(letters)
+	if arrows==4:out.append("arrows")
+	if out.is_empty():   # rebound past both sets: the first key of each way
+		for a in dirs:out.append(UI.binding_text(a,"keyboard"))
+		return " ".join(out)
+	return " / ".join(out)
+
+## "E / Enter" on a keyboard (interact, then ui_accept's first key), "A" on a pad.
+func _use_keys()->String:
+	if UI.last_device()=="pad":return UI.binding_text("confirm","pad")
+	var out:=PackedStringArray()
+	for a in ["interact","ui_accept"]:
+		var t:=UI.binding_text(a,"keyboard")
+		if t!="" and not out.has(t):out.append(t)
+	return " / ".join(out)
+
+## A press that uses what is ahead or moves the partner's line on (Claude, 2026-10-23, factory pass 2): E, Enter or
+## Space as before (the number pad's Enter too, through ui_accept), J now as in the dungeon, A or X on a pad.
+func _accept(event:InputEvent)->bool:
+	for a in UI.INPUT_ADVANCE+["ui_accept"]:
+		if UI.pressed(event,a):return true
+	return false
 
 func _unhandled_input(event:InputEvent)->void:
 	if leaving:return
 	if asking:
 		_ask_input(event);return
-	var accept:=event.is_action_pressed("interact") or event.is_action_pressed("ui_accept")
-	if event.is_action_pressed("ui_cancel"):
+	var accept:=_accept(event)
+	if UI.pressed(event,"cancel"):
 		get_viewport().set_input_as_handled()
 		if entrance:_travel(false)
 		else:_ask()
@@ -247,11 +291,11 @@ func _ask_close()->void:
 	asking=false;UI.tick("cancel")
 
 func _ask_input(event:InputEvent)->void:
-	if event.is_action_pressed("ui_cancel"):
+	if UI.pressed(event,"cancel"):
 		get_viewport().set_input_as_handled();_ask_close()
-	elif event.is_action_pressed("move_up") or event.is_action_pressed("move_down"):
+	elif UI.pressed(event,"move_up") or UI.pressed(event,"move_down"):
 		get_viewport().set_input_as_handled();choice=1-choice;UI.tick("cursor")
-	elif event.is_action_pressed("interact") or event.is_action_pressed("ui_accept"):
+	elif _accept(event):
 		get_viewport().set_input_as_handled()
 		if choice==0:_ask_close()
 		else:_title()
