@@ -225,11 +225,12 @@ func _walk_out(room: Node) -> bool:
 		if not PAD.has(d):
 			return false
 		_button(PAD[d], true)
-		await _until(func() -> bool: return not is_instance_valid(room) or _scene() != ROOM or room.team[0]["pos"] == step, 40)
+		var ref: WeakRef = weakref(room)   # a lambda holding the room itself errors once walking out frees it (Claude, 2026-10-23)
+		await _until(func() -> bool: return ref.get_ref() == null or _scene() != ROOM or ref.get_ref().team[0]["pos"] == step, 40)
 		_button(PAD[d], false)
 		await _frames(2)
 		if is_instance_valid(room) and _scene() == ROOM:
-			await _until(func() -> bool: return not is_instance_valid(room) or not room.busy, 30)
+			await _until(func() -> bool: return ref.get_ref() == null or not ref.get_ref().busy, 30)
 	return await _until(func() -> bool: return _scene() == TOWN, 60)
 
 

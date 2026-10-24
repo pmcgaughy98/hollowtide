@@ -28,6 +28,7 @@ const EntranceFinish := preload("res://scripts/ui/hollow_entrance_finish.gd")
 const NODE_AT := Vector2(244, 79)          # the bank end of the stone walkway in waking_bank.gd
 const DOOR_AT := Vector2(192, 110)         # the doorway's foot in the entrance painting, at 384x216
 const WALK_FPS := 10.0
+const DUNGEON := "res://scenes/dungeon.tscn"   # read on a thread while the team walks up (Claude, 2026-10-23, S7)
 
 var party: Array = [[0, 0], [1, 0]]
 var auto := false                          # the check confirms by itself
@@ -118,6 +119,9 @@ func _ready() -> void:
 	# the scene as a plain child gets none.
 	if get_tree().current_scene == self or get_tree().root.has_node(UI.FADE_NAME):
 		UI.fade_in(get_tree())
+	# The Hollow is read from disk on a thread while the team walks to the door, and taken there (Claude,
+	# 2026-10-23, S7): the door used to load it on the main thread.
+	ResourceLoader.load_threaded_request(DUNGEON)
 	if mode == "flood":
 		_run_bank()
 	else:
@@ -289,19 +293,35 @@ func _climb() -> void:
 	_enter_dungeon()
 
 
+## Into the Hollow (Claude, 2026-10-23, S7). The veil is already black; the shared black goes up under it at once,
+## so it stays black while the floor is built and lifts off the first floor (as hub_town.gd _leave_to does).
 func _enter_dungeon() -> void:
-	var dg: Node2D = load("res://scenes/dungeon.tscn").instantiate()
+	var live := is_inside_tree() and get_tree().current_scene == self
+	var tree := get_tree()
+	if live:
+		await UI.fade_out(tree, 0.0)
+	var dg: Node2D = _dungeon_scene().instantiate()
 	if TeamState.data.is_empty():
 		TeamState.start(party)
 	TeamState.data["party"] = party.duplicate(true)
 	TeamState.give_to(dg)
 	dg.dungeon = "mouth" if mode == "flood" else "hollow"
 	dg.return_to_town = true
-	if is_inside_tree() and get_tree().current_scene == self:
-		get_tree().change_scene_to_node(dg)
+	if live:
+		tree.change_scene_to_node(dg)
+		UI.fade_in(tree)
 	else:
 		set_meta("entered", dg.dungeon)   # the check reads this instead of leaving the scene
 		dg.free()
+
+
+## The scene the walk started loading, or a plain load when that never started or failed.
+func _dungeon_scene() -> PackedScene:
+	if ResourceLoader.load_threaded_get_status(DUNGEON) != ResourceLoader.THREAD_LOAD_INVALID_RESOURCE:
+		var res := ResourceLoader.load_threaded_get(DUNGEON)
+		if res is PackedScene:
+			return res
+	return load(DUNGEON)
 
 
 # --- moving and drawing ----------------------------------------------------------------------------

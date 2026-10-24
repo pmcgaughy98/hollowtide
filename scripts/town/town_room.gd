@@ -230,20 +230,33 @@ func _ready() -> void:
 		GuildCrew.place(self)   # the crew at their posts
 
 
-## Where the team stands on arrival (Claude, 2026-10-22, LP-18): through the town door, a short line straight
-## up from it; by stairs or an inner door, the leader on the landing and the rest nearest it. Each member gets
-## its own open tile that is not a solid rect, the way out, a stair or an inner door, found breadth-first from
-## the first tile when the straight line is blocked.
+## Where the team stands on arrival (Claude, 2026-10-22, LP-18). Each member gets its own open tile that is not
+## a solid rect, the way out, a stair or an inner door. The leader goes in front (Claude, 2026-10-23, R3: it
+## stood nearest the door with the partner in its way, and its first step up landed on the partner): through
+## the town door it stands two tiles in, by stairs or an inner door on the landing. Each follower then takes the
+## tile beside the one ahead that is most behind it, away from the way the team faces, straight back before
+## diagonal; a member with no such tile gets the nearest open one, found breadth-first from the first tile.
 func _arrival_tiles(n: int) -> Array:
 	var d: Vector2i = room()["door"]
 	var first: Vector2i = arrive if arrive.x >= 0 else d + Vector2i(0, -1)
 	var picked: Array = []
-	if arrive.x < 0:
-		for k in n:
-			var t := d + Vector2i(0, -1 - k)
-			if not _stand_ok(t, picked):
-				break
+	for t in ([arrive] if arrive.x >= 0 else [d + Vector2i(0, -2), d + Vector2i(0, -1)]):
+		if _stand_ok(t, picked):
 			picked.append(t)
+			break
+	var back: Vector2i = -DIRS[Arena.FACINGS.find(arrive_facing if arrive.x >= 0 else "n")]
+	while not picked.is_empty() and picked.size() < n:
+		var ahead: Vector2i = picked[picked.size() - 1]
+		var best := Vector2i(-1, -1)
+		var best_score := -INF
+		for o in DIRS:
+			var score := float(o.x * back.x + o.y * back.y) - 0.5 * float(absi(o.x) + absi(o.y))
+			if score > best_score and _stand_ok(ahead + o, picked):
+				best = ahead + o
+				best_score = score
+		if best.x < 0:
+			break
+		picked.append(best)
 	var seen := {first: true}
 	var queue: Array = [first]
 	while picked.size() < n and not queue.is_empty():
@@ -327,8 +340,31 @@ const DESK := "res://assets/sprites/world/guild_desk/desk_detail_2026_10_10.png"
 const OLD_COUNTER := Rect2i(160, 46, 208, 54)
 
 
+## A picture as an Image (Claude, 2026-10-24, pass 4 T11 / LV-19): the imported texture first, which an exported
+## game has, else the PNG on disk; RGBA8 either way. The rule of town-art's A4 (UI.res_image), kept here so this
+## file does not wait on it; swap to that helper once it lands.
+static func _art_image(path: String) -> Image:
+	var img: Image = null
+	if ResourceLoader.exists(path):
+		var tex := load(path) as Texture2D
+		if tex != null:
+			img = tex.get_image()
+	if (img == null or img.is_empty()) and FileAccess.file_exists(path):
+		img = Image.load_from_file(ProjectSettings.globalize_path(path))
+	if img == null or img.is_empty():
+		return null
+	if img.has_mipmaps():
+		img.clear_mipmaps()
+	img.convert(Image.FORMAT_RGBA8)
+	return img
+
+
+static func _art_found(path: String) -> bool:
+	return ResourceLoader.exists(path) or FileAccess.file_exists(path)
+
+
 func _guild_desk(map: Sprite2D) -> void:
-	if not FileAccess.file_exists(DESK):
+	if not _art_found(DESK):
 		return
 	var img: Image = map.texture.get_image()
 	var carpet := Vector2i(226, 302)   # the carpet's columns; stone is taken from beside it there
@@ -344,8 +380,10 @@ func _guild_desk(map: Sprite2D) -> void:
 		mat.set_shader_parameter("detail_mask", ImageTexture.create_from_image(mask))
 	var desk := Sprite2D.new()
 	desk.centered = false
-	var desk_image := Image.load_from_file(ProjectSettings.globalize_path(DESK))
-	desk_image.convert(Image.FORMAT_RGBA8)
+	var desk_image := _art_image(DESK)
+	if desk_image == null:
+		desk.free()
+		return
 	desk.texture = ImageTexture.create_from_image(preload("res://scripts/art/selout.gd").selout(desk_image))
 	desk.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
 	var desk_mask := Image.create(desk_image.get_width(),desk_image.get_height(),false,Image.FORMAT_RGBA8)
@@ -407,7 +445,7 @@ func _furniture_shapes() -> Array:
 	var out: Array = []
 	for s in room()["solid"]:
 		var rect: Rect2i = s
-		if room_id == "hall" and rect == Rect2i(7, 3, 8, 2) and FileAccess.file_exists(DESK):
+		if room_id == "hall" and rect == Rect2i(7, 3, 8, 2) and _art_found(DESK):
 			continue   # the Guildmaster's desk sorts itself
 		var tiles := Rect2i(rect.position * T, rect.size * T)
 		var stands: Array = props.filter(func(p: Array) -> bool:
@@ -468,7 +506,14 @@ func _facing_of(d: Vector2i) -> String:
 	return Arena.FACINGS[DIRS.find(d)] if DIRS.has(d) else "s"
 
 
-## One step for the leader; the others follow in a chain. Stepping onto the door leaves the room.
+## A creature's place mid-step, drawn at its feet's depth as _place draws it at rest.
+func _feet(p: Vector2, node: Node2D) -> void:
+	node.position = p
+	node.z_index = int(p.y)
+
+
+## One step for the leader; the others follow in a chain, one tile back (SceneKit.follow). Stepping onto the
+## door leaves the room.
 func act_move(d: Vector2i) -> void:
 	if busy or cutscene or not panel.is_empty():
 		return
@@ -484,14 +529,15 @@ func act_move(d: Vector2i) -> void:
 	busy = true
 	var trail: Array = team.map(func(e: Dictionary) -> Vector2i: return e["pos"])
 	lead["pos"] = to
-	for k in range(1, team.size()):
-		if team[k]["pos"].distance_to(team[k - 1]["pos"]) > 1.5:
-			team[k]["facing"] = _facing_of((trail[k - 1] - team[k]["pos"]).clamp(Vector2i(-1, -1), Vector2i(1, 1)))
-			team[k]["pos"] = trail[k - 1]
+	# Each follower takes the tile the one ahead left, never the leader's, a teammate's or furniture (Claude,
+	# 2026-10-23, R3: before, a follower within a tile stayed put, so the leader could walk onto the partner).
+	SceneKit.follow(self, trail)
 	for e in team:
 		if _px(e["pos"]) != e["node"].position:
 			e["walk_t"] = STEP_TIME + 0.06
-		create_tween().tween_property(e["node"], "position", _px(e["pos"]), STEP_TIME)
+		# Depth follows the feet every frame, as in SceneKit.walk_to, so a creature crossing a teammate or a lifted
+		# piece of furniture changes places with it as it passes, not when the step ends (R3).
+		create_tween().tween_method(_feet.bind(e["node"]), e["node"].position, _px(e["pos"]), STEP_TIME)
 	await get_tree().create_timer(STEP_TIME).timeout
 	for e in team:
 		_place(e)
@@ -539,6 +585,7 @@ func _spot_panel(s: Dictionary) -> Dictionary:
 		p["what"] = String(alt[1])
 	if s["id"] == "bed":
 		p["what"] = REST_LINE
+		p["narration"] = true   # the morning line is narration: the text box, no name plate (pass 4 T7)
 	return p
 
 
@@ -560,9 +607,10 @@ func rest() -> void:
 static func _night(tree: SceneTree, host: Node) -> void:
 	await UI.fade_out(tree, REST_FADE)
 	await tree.create_timer(UI.motion_secs(REST_HOLD)).timeout
+	# The morning line waits until the black has lifted (Claude, 2026-10-24, pass 4 T7 / LV-34): it drew under it.
+	await UI.fade_in(tree, REST_FADE)
 	if is_instance_valid(host):
 		host.set("_resting", false)
-	UI.fade_in(tree, REST_FADE)
 
 
 ## The stairs or inner door under `t`, or {}.
@@ -578,18 +626,32 @@ func _link_ok(l: Dictionary) -> bool:
 	return not l.has("needs") or _record().get("story", {}).get(l["needs"], false)
 
 
-## Down the stairs or through a door: the same team, in the next room, on its landing.
+## Down the stairs or through a door: the same team, in the next room, on its landing. The screen goes black
+## before the next room is built (Claude, 2026-10-23, R4), so its painting sits on black, not on a frozen frame,
+## and lifts once the new room has drawn.
 func go_room(link: Dictionary) -> void:
 	_sfx(String(link.get("sfx", "door")))
 	used_log.append("to_" + String(link["to"]))
 	if is_inside_tree() and get_tree().current_scene == self:
+		busy = true   # no steps while the screen goes dark
+		var tree := get_tree()
+		await UI.fade_out(tree)
 		var next: Node = load("res://scenes/town_room.tscn").instantiate()
 		next.room_id = link["to"]
 		next.arrive = link["at"]
 		next.arrive_facing = link["facing"]
-		get_tree().change_scene_to_node(next)
+		tree.change_scene_to_node(next)
+		_lift(tree)
 	else:
 		set_meta("went", link)   # the checks read this instead of leaving the scene
+
+
+## The fade off the next room, two frames after the change: the room paints in the frame the change lands, and a
+## fade started before that long frame would spend its whole time in it and pop up instead of fading (R4).
+static func _lift(tree: SceneTree) -> void:
+	await tree.process_frame
+	await tree.process_frame
+	UI.fade_in(tree)
 
 
 ## A word from someone standing in the room (the team turns to them; E reads on).
@@ -610,13 +672,17 @@ func _starward_lines() -> Array:
 	return [["Starward", "The Hall is open to anyone who carries for it.", "normal"]]
 
 
-## Back out to Highbank, standing on this building's door.
+## Back out to Highbank, standing on this building's door. Black first, then Highbank is built (Claude,
+## 2026-10-23, R4); Highbank lifts the fade itself in its _ready (hub_town.gd).
 func leave() -> void:
 	TeamState.data["arrive_at"] = room()["town_door"]
 	if is_inside_tree() and get_tree().current_scene == self:
+		busy = true
+		var tree := get_tree()
+		await UI.fade_out(tree)
 		var town: Node = load("res://scenes/hub_town.tscn").instantiate()
 		TeamState.give_to(town)
-		get_tree().change_scene_to_node(town)
+		tree.change_scene_to_node(town)
 	else:
 		set_meta("left", true)
 
@@ -644,6 +710,14 @@ func _process(delta: float) -> void:
 		focus = Vector2(size.x * 0.5 if size.x <= VIEW.x else clampf(focus.x, half.x, size.x - half.x),
 			size.y * 0.5 if size.y <= VIEW.y else clampf(focus.y, half.y, size.y - half.y))
 		_world.position = (half - focus).round()
+	# The Menu button under the key strip and as wide as it, as on Highbank's street (Claude, 2026-10-24, pass 4
+	# T1): it sat over the strip's last 4 px and ran past its right edge. A scene hides it with the rest of the HUD.
+	var menu := get_node_or_null("GamePauseMenu")
+	if menu != null and menu.hint != null:
+		menu.hint.visible = not cutscene and not menu.overlay.visible
+		var ks: Rect2 = hint_now()["strip"]
+		menu.hint.position = Vector2(ks.position.x, ks.end.y + 4)
+		menu.hint.size = Vector2(ks.size.x, 52)
 	_hud.queue_redraw()
 	_labels.queue_redraw()
 
@@ -695,25 +769,73 @@ func _draw_hud() -> void:
 		StoragePanel.draw(self, h)
 		return
 	if not panel.is_empty() and not _resting:
-		var box := Rect2(196, 452, 760, 128)
+		if panel.get("narration", false):   # the bed's morning line: narration, as the riverbank's (pass 4 T7)
+			UI.dialogue(h, Rect2(196, 452, 760, 116), "", String(panel["what"]), null, Time.get_ticks_msec() / 1000.0, 20)
+			return
+		var lay := spot_layout(String(panel["what"]))
+		var box: Rect2 = lay["box"]
 		UI.panel(h, box, 0.95)
 		UI.nameplate(h, box.position + Vector2(24, -22), String(panel["name"]))
-		h.draw_multiline_string(UI.HEAD, box.position + Vector2(30, 50), String(panel["what"]), HORIZONTAL_ALIGNMENT_LEFT, 700, 18, 3, UI.TEXT)
+		var rows: PackedStringArray = lay["rows"]
+		for k in rows.size():
+			UI.say(h, lay["at"] + Vector2(0, k * float(lay["row_h"])), rows[k], "story")
 		UI.next_arrow(h, box.end - Vector2(48, 36), Time.get_ticks_msec() / 1000.0)
 
 
-## The key hints and where the way out is, bottom right on a see-through panel strip sized to the wider
-## line (Claude, 2026-10-22, GS-21). The key line gets the width it needs in the label role (the key-hint
-## role), so the column spacing does not drop it to the tight font; the way-out line keeps its 194 px box
-## and grows left as before.
+## A spot's panel (Claude, 2026-10-23, R2): its words in the face the scene lines use, the "story" role (on the
+## pixel grid at twice its design size, where the panels used the old heading face), wrapped and placed as
+## UI.dialogue places a named line. Past two rows the box grows upward a row at a time, so its foot stays where
+## the scene lines' box stands and no text is cut (the Chart Table's runs to three).
+const SPOT_BOX := Rect2(196, 452, 760, 128)
+
+
+static func spot_layout(what: String) -> Dictionary:
+	var width := SPOT_BOX.size.x - 70.0   # as UI.dialogue: 30 in from the left, 40 clear of the right
+	var rows := UI.wrap_text(what, width, "story").split("\n")
+	var row_h := UI.font("story").get_height(UI.type_size("story"))
+	var extra := maxf(0.0, rows.size() - 2) * row_h
+	var box := Rect2(SPOT_BOX.position - Vector2(0, extra), SPOT_BOX.size + Vector2(0, extra))
+	return {"box": box, "rows": rows, "at": box.position + Vector2(30, 54), "row_h": row_h}
+
+
+## The key hints and where the way out is, bottom right on a see-through panel strip (Claude, 2026-10-22,
+## GS-21). Laid out inside the strip (Claude, 2026-10-23, R1: "The door leads back out" was cut at the frame
+## and "E USE" ran into the corner stud): the strip is sized first, then both lines are right-aligned 12 px
+## inside its brass edge, clear of the studs, the way-out line gets the strip's whole text width before it
+## steps down a face, and the two rows sit between the top and bottom edges.
+## Since 2026-10-24 (Claude, pass 4 T1 and T2, LV-11) the strip is Highbank's (hub_town.gd key_strip): from 516 to
+## 578, so the Menu button fits under it, and both lines are in the label face, 20 px apart; the way-out line
+## used to step down to the mixed-case prose face when it was the longer one.
+const HINT_RIGHT := 1146.0   # the strip's right edge: 6 px in from the screen's, as the top-left panels sit
+const HINT_BOTTOM := 578.0
+const HINT_H := 62.0
+const HINT_EDGE := 12.0      # the frame's brass bevel
+const HINT_IN := 24.0        # the text's right end to the strip's: the bevel and 12 px more
+const HINT_MIN := 194.0      # the narrowest text column, as before
+
+
+static func hint_layout(where: String, keys: String) -> Dictionary:
+	var where_role := "label"   # the keys' face (T2)
+	var width := maxf(HINT_MIN, ceilf(maxf(UI.width_in(keys, "label"), UI.width_in(where, where_role))) + 1.0)
+	var strip := Rect2(HINT_RIGHT - width - 2.0 * HINT_IN, HINT_BOTTOM - HINT_H, width + 2.0 * HINT_IN, HINT_H)
+	var left := strip.position.x + HINT_IN
+	return {"strip": strip, "width": width, "keys": Vector2(left, strip.position.y + 26.0),
+		"where": Vector2(left, strip.position.y + 46.0), "where_role": where_role}
+
+
+## This room's strip as drawn now: its way-out line and the keys of the device in use.
+func hint_now() -> Dictionary:
+	return hint_layout(String(room().get("hint", "The door leads back out")), keys_hint())
+
+
 func _draw_hints(h: Node2D) -> void:
 	var where := String(room().get("hint", "The door leads back out"))
 	var keys := keys_hint()
-	var keys_w := maxf(194.0, ceilf(UI.width_in(keys, "label")) + 1.0)
-	var w := maxf(keys_w, UI.width_in(where, UI.fit(where, "label", 194.0)))
-	UI.panel(h, Rect2(1140.0 - w - 20.0, 542, w + 26.0, 48), 0.85)
-	UI.text(h, Vector2(1140.0 - keys_w, 562), keys, 14, Color(UI.MUTED, 0.85), keys_w, HORIZONTAL_ALIGNMENT_RIGHT)
-	UI.text(h, Vector2(946, 580), where, 14, Color(UI.MUTED, 0.85), 194, HORIZONTAL_ALIGNMENT_RIGHT)
+	var lay := hint_now()
+	var col := Color(UI.MUTED, 0.85)
+	UI.panel(h, lay["strip"], 0.85)
+	UI.say(h, lay["keys"], keys, "label", col, lay["width"], HORIZONTAL_ALIGNMENT_RIGHT)
+	UI.say(h, lay["where"], where, lay["where_role"], col, lay["width"], HORIZONTAL_ALIGNMENT_RIGHT)
 
 
 func storage_rows() -> Array:

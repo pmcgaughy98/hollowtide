@@ -4,6 +4,10 @@ extends SceneTree
 ## each creature showed while moving, whether each is back on its standing picture after, and (Claude,
 ## 2026-10-22, LP-18) that no two team members share a tile after any step: the chain's followers each
 ## take the tile the one ahead just left.
+## Claude, 2026-10-23, T4 / L21: a scripted walk up the Hall's steps, along its two door tiles and back, then in and
+## out of Home's door; after every step no partner stands where a follower may not (a building's footprint, its door
+## tiles included) or on the leader's tile. T5 / LO-04: while the Training Yard is shut its gate tile (41,12) cannot
+## be entered, and E from the tile in front, facing it, still reads the board.
 ##   Godot --path . --fixed-fps 30 --script res://tools/debug/town_walk_check.gd
 
 const TeamState := preload("res://scripts/town/team_state.gd")
@@ -69,5 +73,48 @@ func _run() -> void:
 	var walked_ok: bool = steps == STEPS and overlaps == 0
 	print("Tiles: %d of %d steps from %s, the team now on %s; steps ending with two members on one tile: %d%s -> %s" % [steps, STEPS, str(start), str(tiles), overlaps, first_overlap, "ok" if walked_ok else "WRONG"])
 	bad += 0 if walked_ok else 1
+	# Past the facades (T4): [where the team starts, leader first], then the leader's steps.
+	var walks := [
+		[[Vector2i(24, 9), Vector2i(25, 9), Vector2i(26, 9)], [Vector2i(0, -1), Vector2i(0, -1), Vector2i(0, -1), Vector2i(-1, 0), Vector2i(1, 0), Vector2i(0, 1), Vector2i(0, 1), Vector2i(-1, 1)]],
+		[[Vector2i(5, 9), Vector2i(4, 9), Vector2i(3, 9)], [Vector2i(0, -1), Vector2i(0, -1), Vector2i(0, 1), Vector2i(0, -1), Vector2i(0, 1), Vector2i(1, 0)]],
+	]
+	var facade_steps := 0
+	var facade_bad: Array[String] = []
+	for w in walks:
+		for i in town.team.size():
+			town.team[i]["pos"] = w[0][i]
+			town._place(town.team[i])
+		for d in w[1]:
+			town.act_move(d)
+			var f2 := 0
+			while f2 < 5 or town.busy:
+				await process_frame
+				f2 += 1
+			facade_steps += 1
+			var lead: Vector2i = town.team[0]["pos"]
+			var at2 := {lead: 0}
+			for i in range(1, town.team.size()):
+				var p: Vector2i = town.team[i]["pos"]
+				if not town.follower_ok(p) or at2.has(p):
+					facade_bad.append("%s on %s with the leader on %s%s" % [town.team[i]["form"], str(p), str(lead), "" if town.follower_ok(p) else " (a footprint or solid tile)"])
+				at2[p] = i
+	var facade_ok := facade_bad.is_empty()
+	print("Past the facades: %d steps by the Hall's and Home's doors, partners never on a footprint, a door tile or the leader's tile%s -> %s" % [facade_steps, "" if facade_ok else "; " + ", ".join(facade_bad.slice(0, 3)), "ok" if facade_ok else "WRONG"])
+	bad += 0 if facade_ok else 1
+	# The shut Training Yard (T5): the leader stops at the rope and reads the board.
+	var gate := Vector2i(41, 12)
+	for i in town.team.size():
+		town.team[i]["pos"] = Vector2i(41 - i, 11)
+		town._place(town.team[i])
+	town.act_move(Vector2i(0, 1))
+	for f3 in 5:
+		await process_frame
+	var stopped: bool = not town.open_at(gate) and town.team[0]["pos"] == Vector2i(41, 11)
+	town.act_use()
+	var read: bool = String(town.panel.get("service", "")) == "shut" and String(town.panel.get("name", "")) == "Training Yard"
+	var sign: String = String(town.panel.get("what", ""))
+	town.panel = {}
+	print("Training Yard shut: its gate %s cannot be entered (the leader stays on %s), and E in front of it reads \"%s\" -> %s" % [str(gate), str(town.team[0]["pos"]), sign.left(40), "ok" if stopped and read else "WRONG"])
+	bad += 0 if stopped and read else 1
 	print("RESULT: %s" % ("the team walks" if bad == 0 else "%d problems" % bad))
 	quit()

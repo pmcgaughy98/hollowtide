@@ -8,12 +8,16 @@ extends SceneTree
 ## twenty new floors also show whether the cache lets memory grow without end.
 ## Normal floors only: a boss floor starts its scene on build (the crew, the Warden), and that scene would play on
 ## in the background while the next floor is timed.
+## Highbank (Claude, 2026-10-23, T1 / LO-03): the first arrival paints the street and is printed with each step of
+## hub_town._ready; after two rooms, a warm arrival reuses the session's kept picture and is judged at or under
+## WARM_MAX seconds (it took 5.2 to 6.1 s before the picture was kept).
 ##   Godot --headless --path . --fixed-fps 30 --script res://tools/debug/timing_check.gd
 
 const TeamState := preload("res://scripts/town/team_state.gd")
 const BUILD_MAX := 3.5       # seconds, one _build_floor
 const MEM_MAX_MB := 20.0     # static memory growth over BUILDS floors
 const BUILDS := 20
+const WARM_MAX := 2.5        # seconds, a Highbank arrival once the street is painted this session
 # (dungeon, floor): the normal floors of the three dungeons; the plan repeats with a new seed each lap.
 const FLOOR_PLAN := [["mouth", 1], ["mouth", 2], ["mouth", 3], ["mouth", 4], ["first", 1], ["first", 2], ["first", 3], ["hollow", 1], ["hollow", 2]]
 var fails := 0
@@ -41,6 +45,27 @@ func _mb(bytes: int) -> float:
 ## Milliseconds since `t0` (a Time.get_ticks_usec() reading).
 func _ms(t0: int) -> float:
 	return (Time.get_ticks_usec() - t0) / 1000.0
+
+
+var _reused := false   # the last arrival's street_cached
+
+
+## One Highbank arrival: hub_town's _ready timed whole, then its own steps (ready_ms) printed in order.
+func _arrive(what: String) -> float:
+	var town: Node = load("res://scenes/hub_town.tscn").instantiate()
+	TeamState.give_to(town)
+	town.poll_input = false
+	var t := Time.get_ticks_usec()
+	root.add_child(town)   # _ready paints the street (or reuses this session's picture) and places the team
+	var town_ms := _ms(t)
+	await _frames(3)
+	_reused = town.street_cached
+	print("Highbank arrival, %s (hub_town _ready): %.0f ms%s" % [what, town_ms, ", street picture reused" if _reused else ", street painted"])
+	for step in town.ready_ms:
+		print("  %-26s %7.1f ms" % [step, town.ready_ms[step]])
+	town.queue_free()
+	await _frames(2)
+	return town_ms
 
 
 func _run() -> void:
@@ -94,16 +119,9 @@ func _run() -> void:
 	await _frames(2)
 	dg.queue_free()
 	await _frames(2)
-	# 2. A Highbank arrival and two rooms: printed, not judged (CR-01 names only the floors and the memory).
-	var town: Node = load("res://scenes/hub_town.tscn").instantiate()
-	TeamState.give_to(town)
-	t = Time.get_ticks_usec()
-	root.add_child(town)   # _ready paints the street and places the team
-	var town_ms := _ms(t)
-	await _frames(3)
-	print("Highbank arrival (hub_town _ready): %.0f ms" % town_ms)
-	town.queue_free()
-	await _frames(2)
+	# 2. Highbank's first arrival (it paints the street), two rooms, then a warm arrival (the kept picture), each
+	# with every step of hub_town._ready. Only the warm one is judged (T1); the first stays printed.
+	var first_ms := await _arrive("first")
 	for id in ["hall", "home"]:
 		var room: Node = load("res://scenes/town_room.tscn").instantiate()
 		room.room_id = id
@@ -115,6 +133,9 @@ func _run() -> void:
 		print("Room '%s' (town_room _ready): %.0f ms" % [id, room_ms])
 		room.queue_free()
 		await _frames(2)
+	TeamState.data["arrive_at"] = "home"   # back out of Home's door, as the room does
+	var warm_ms := await _arrive("warm")
+	_ok("A warm Highbank arrival within %.1f s: %.2f s, the street picture reused %s (the first arrival, which paints it, took %.2f s)" % [WARM_MAX, warm_ms / 1000.0, str(_reused), first_ms / 1000.0], warm_ms <= WARM_MAX * 1000.0 and _reused)
 	print("Static memory at the end: %.1f MB" % _mb(OS.get_static_memory_usage()))
 	print("TIMING: %s" % ("PASS" if fails == 0 else "%d FAILED" % fails))
 	quit(1 if fails else 0)

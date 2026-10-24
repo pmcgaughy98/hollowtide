@@ -2,18 +2,19 @@ extends RefCounted
 ## Finished Home art over Claude's unchanged room/event grid. Original painter is the fallback.
 const ART := "res://assets/sprites/world/home_interior_2026_10_10/home_native.png"
 const SHADER := preload("res://scripts/dungeon/dungeon_finish.gdshader")
+const UI := preload("res://scripts/ui/ui_style.gd")
 const DETAILS := [Rect2i(20,38,80,62),Rect2i(222,18,96,47),Rect2i(141,98,76,48),Rect2i(19,163,57,56),Rect2i(264,143,54,51)]
 
 static func available() -> bool:
-	return FileAccess.file_exists(ART)
+	# Claude, 2026-10-24 (A4, LV-19): UI.res_image reads the imported texture, which an exported game has; the PNG it does not.
+	return UI.res_exists(ART)
 
 static func paint(fallback: Image) -> Image:
 	if not available(): return fallback
-	var img := Image.load_from_file(ProjectSettings.globalize_path(ART))
+	var img := UI.res_image(ART)
 	if img == null or img.get_size()!=fallback.get_size():
 		push_warning("Home interior art does not match the room; retaining original painter.")
 		return fallback
-	img.convert(Image.FORMAT_RGBA8)
 	# The live south exit and its frame are the exact original drawing, never a generated warp.
 	var door := Rect2i(165,216,30,24)
 	img.blit_rect(fallback,door,door.position)

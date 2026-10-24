@@ -1,11 +1,15 @@
 extends SceneTree
 ## Feel and control check (Claude, 2026-10-07): your target order is obeyed, telegraphs show
 ## before AI attacks, hitstop freezes the creatures on a hit, and shake is capped.
+## Judged since Claude, 2026-10-24 (H20): your side runs on auto in step 1 so its telegraphs
+## show, the order stands on Scourmaw and it loses HP, light hitstop, the shake cap, the rival
+## still. The freeze-movement line stays printed, not judged (Q11).
 ##   Godot --path . --fixed-fps 30 --script res://tools/debug/arena_feel_check.gd
 ## Stills to docs/creatures/arena-feel-2026-10-07/.
 
 const OUT := "res://docs/creatures/arena-feel-2026-10-07/"
 var arena: Node2D
+var fails := 0
 
 func _initialize() -> void:
 	DirAccess.make_dir_recursive_absolute(ProjectSettings.globalize_path(OUT))
@@ -17,6 +21,7 @@ func _initialize() -> void:
 	arena.team_size = 3
 	arena._you = 0; arena._you_stage = 2
 	arena._rival = 0; arena._rival_stage = 2
+	arena.auto_you = true   # since manual control, your creature waits for keys; on auto it attacks and telegraphs (Claude, 2026-10-24)
 	arena._new_match()
 	await _frames(5)
 	var scour := -1
@@ -50,6 +55,10 @@ func _initialize() -> void:
 			dealt_to_others += arena._fighters[j]["max_hp"] - arena._fighters[j]["hp"]
 	print("Target order: your Stormwick's target is %s; rival Scourmaw lost %d HP, the other two rivals lost %d between them (some of that is your allies); your creature spent %d frames winding up telegraphed moves" % [
 		arena._fighters[arena._fighters[0]["target"]]["name"] if arena._fighters[0]["target"] >= 0 else "none", dealt_to_target, dealt_to_others, telegraph_frames])
+	_ok("Your creature telegraphs its moves (wind-up frames > 0)", telegraph_frames > 0)
+	_ok("Your order stands: the target is Scourmaw and Scourmaw lost HP",
+		arena._fighters[0]["target"] >= 0 and arena._fighters[arena._fighters[0]["target"]]["name"] == "Scourmaw" and dealt_to_target > 0)
+	arena.auto_you = false   # the later steps ran with your side manual before; keep them that way
 	# 2. Hitstop: a staged hit, then the creatures must not move for the frozen frames.
 	arena.team_size = 1
 	arena._new_match()
@@ -61,9 +70,11 @@ func _initialize() -> void:
 	_save("hitstop")
 	var moved: float = arena._fighters[1]["body"].position.distance_to(before)
 	print("Hitstop: %.3f s after a 10-damage hit (heavy would be %.2f); rival moved %.1f px during the first frozen frame; shiver offset %s" % [stop, arena.HITSTOP_HEAVY, moved, str(arena._fighters[1]["sprite"].position)])
+	_ok("A 10-damage hit gives the light hitstop (HITSTOP_LIGHT)", is_equal_approx(stop, arena.HITSTOP_LIGHT))
 	# 3. Shake cap: a signature asks for 9, must be capped.
 	arena._shake_by(9.0)
 	print("Shake cap: asked 9, got %.1f (cap %.1f); V toggles it (shake_on=%s)" % [arena._shake, arena.SHAKE_MAX, str(arena.shake_on)])
+	_ok("Shake asked for 9 stays at or under SHAKE_MAX", arena._shake <= arena.SHAKE_MAX)
 	# 4. A rival telegraph still (Rampartroot winding up Club Slam at you).
 	arena._you = 0; arena._rival = 1; arena._rival_stage = 2
 	arena._new_match()
@@ -74,6 +85,7 @@ func _initialize() -> void:
 		if not w.is_empty() and w["t"] < 0.12:
 			_save("telegraph_rival_" + String(w["m"])); got = true; break
 	print("Rival telegraph still: %s" % ("saved" if got else "none seen in 400 frames"))
+	_ok("The rival winds up a telegraphed move within 400 frames (still saved)", got)
 	# 5. Readability: Tallowroot's Seed Pod lands on Kithflare; the creature must stay visible
 	#    through the burst, the smoke and the scorch (stills at 0.4 s and 1.0 s after the hit).
 	arena._you = 1; arena._you_stage = 0
@@ -89,7 +101,15 @@ func _initialize() -> void:
 	await _frames(18)
 	_save("seedpod_1_0s")
 	print("Seed Pod stills saved; smoke puffs now %d per hit" % int(28.0 / 5.0))
-	quit()
+	print("ARENA FEEL: %s" % ("all ok" if fails == 0 else "%d FAILED" % fails))
+	quit(1 if fails > 0 else 0)
+
+
+## One judged line: "what -> ok" or "what -> FAIL" (Claude, 2026-10-24).
+func _ok(what: String, good: bool) -> void:
+	print("%s -> %s" % [what, "ok" if good else "FAIL"])
+	if not good:
+		fails += 1
 
 
 func _frames(n: int) -> void:

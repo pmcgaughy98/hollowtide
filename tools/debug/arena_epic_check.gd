@@ -2,11 +2,14 @@ extends SceneTree
 ## Signature terrain and the marquee Furnace Roar (Claude, 2026-10-07 night): Molten Glass
 ## leaves glass pools that burn and slow enemies only; Furnace Roar's geysers stun every
 ## enemy and its lava seams stay burning along the cone.
+## Judged since Claude, 2026-10-24 (H21): pools appear, they burn and slow the enemy only
+## (POOL_SLOW), the geysers stun all three enemies, and seams are left on the floor.
 ##   Godot --path . --fixed-fps 30 --script res://tools/debug/arena_epic_check.gd
 ## Stills to docs/creatures/arena-feel-2026-10-07/epic_*.png.
 
 const OUT := "res://docs/creatures/arena-feel-2026-10-07/"
 var arena: Node2D
+var fails := 0
 
 func _initialize() -> void:
 	arena = load("res://scenes/arena_prototype.tscn").instantiate()
@@ -30,6 +33,11 @@ func _initialize() -> void:
 		if e["kind"] == "glass_pool":
 			pools.append(e)
 	_save("epic_glass_pools")
+	_ok("Molten Glass leaves glass pools (%d)" % pools.size(), pools.size() > 0)
+	if pools.size() < 2:
+		_ok("Two pools to stand an enemy and an ally in", false)
+		_finish()
+		return
 	var enemy := -1
 	var ally := -1
 	for j in arena._fighters.size():
@@ -44,7 +52,14 @@ func _initialize() -> void:
 	var e_hp: int = arena._fighters[enemy]["hp"]
 	var a_hp: int = arena._fighters[ally]["hp"]
 	await _frames(60)
-	print("Molten Glass: %d glass pools; in 2 s the enemy standing in one lost %d HP, the ally standing in one lost %d; enemy slow factor %.2f, ally %.2f" % [pools.size(), e_hp - arena._fighters[enemy]["hp"], a_hp - arena._fighters[ally]["hp"], arena._hazard_slow(enemy), arena._hazard_slow(ally)])
+	var e_lost: int = e_hp - arena._fighters[enemy]["hp"]
+	var a_lost: int = a_hp - arena._fighters[ally]["hp"]
+	var e_slow: float = arena._hazard_slow(enemy)
+	var a_slow: float = arena._hazard_slow(ally)
+	print("Molten Glass: %d glass pools; in 2 s the enemy standing in one lost %d HP, the ally standing in one lost %d; enemy slow factor %.2f, ally %.2f" % [pools.size(), e_lost, a_lost, e_slow, a_slow])
+	_ok("The pool burns the enemy standing in it", e_lost > 0)
+	_ok("The pool leaves the ally standing in it alone", a_lost == 0)
+	_ok("The pool slows the enemy to POOL_SLOW and the ally not at all", is_equal_approx(e_slow, arena.POOL_SLOW) and is_equal_approx(a_slow, 1.0))
 	_save("epic_glass_stand")
 	# 2. Furnace Roar in a 3v3 with Ironvent leading.
 	arena._you = 3
@@ -76,9 +91,23 @@ func _initialize() -> void:
 		if f["team"] == 1:
 			line += "  %s %d->%d" % [f["name"], hp_before[j], f["hp"]]
 	print(line)
+	_ok("Furnace Roar's geysers stun all 3 enemies", stunned_at_geysers == 3)
+	_ok("Furnace Roar leaves lava seams on the floor", seams > 0)
 	await _frames(20)
 	_save("epic_roar_after")
-	quit()
+	_finish()
+
+
+func _finish() -> void:
+	print("ARENA EPIC: %s" % ("all ok" if fails == 0 else "%d FAILED" % fails))
+	quit(1 if fails > 0 else 0)
+
+
+## One judged line: "what -> ok" or "what -> FAIL" (Claude, 2026-10-24).
+func _ok(what: String, good: bool) -> void:
+	print("%s -> %s" % [what, "ok" if good else "FAIL"])
+	if not good:
+		fails += 1
 
 
 func _frames(n: int) -> void:

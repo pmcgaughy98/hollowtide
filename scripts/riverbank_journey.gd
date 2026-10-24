@@ -4,6 +4,9 @@ extends Node2D
 ## Claude, 2026-10-22 (factory pass, lane 6): the partner's lines go through the shared text box with its
 ## name and face, Esc asks before going back to the title, the labels sit on the type roles, and the
 ## partner walks one tile behind the leader.
+## Claude, 2026-10-23 (factory pass 3, story lane): a place card that fades instead of the corner heading, the
+## narration in the text box, the keys on Highbank's bottom-right strip, the partner a full step behind, and the
+## Hollow loaded during the walk with the screen black before it is built.
 const Bank=preload("res://scripts/ui/waking_bank.gd")
 const EntranceFinish=preload("res://scripts/ui/hollow_entrance_finish.gd")
 const Finish=preload("res://scripts/arena/creature_finish.gd")
@@ -14,7 +17,20 @@ const ENTRANCE_ART="res://assets/sprites/world/waking_bank_2026_10_10/entrance_n
 const TITLE="res://scenes/creature_opening.tscn"   # where the pause menu's Return to title goes too
 const BOX=Rect2(196,452,760,116)   # the same text box as the flood talk and the rooms
 const ASK=Rect2(396,236,360,176)   # the "Back to the title?" prompt, mid-screen
-const TILE=16   # one tile (hollow/hollow_gen.gd TILE): how far behind the leader the partner walks
+const TILE=16   # one tile (hollow/hollow_gen.gd TILE): the least a follower stands behind the one ahead
+const TRAIL=160   # trail points kept, about a pixel apart: room for three followers at any frame rate
+const DUNGEON="res://scenes/dungeon.tscn"   # loaded on a thread while the team walks to the arch (S7)
+# The place card (S1): the floor card's gold (dungeon.gd CARD_COL) in the title face, mid-screen, gone by 2.5 s.
+# Preston's call P4 picks the words; until then they are the first halves of the old corner headings.
+const PLACE_BANK="RIVERBANK"
+const PLACE_ARCH="THE HOLLOW"
+const CARD_COL=Color(0.95,0.85,0.6)
+const PLACE_Y=300.0
+# Claude, 2026-10-24 (pass 4 T9, LV-24): the ruin's card sits above the arch, over the ruin's top, so the walk up
+# to the arch never passes under it (mid-screen it covered the leader). Same words (Preston's call Q2).
+const PLACE_Y_ARCH=96.0
+const PLACE_SECS=2.5
+const PLACE_FADE=0.6
 const WALKWAY=Vector2(240,82)
 const HIGHBANK=Vector2(130,187)
 const ARCH=Vector2(192,118)
@@ -33,14 +49,16 @@ var facing:="s"
 var clock:=0.0
 var leaving:=false
 var denied:=false
-var status:Label
-var hint:Label
-var hint_panel:PanelContainer
+# Claude, 2026-10-23 (S2): narration ("The ground shakes...", a route that would not open) goes in the text box
+# with no name plate; the keys sit on a small strip at the bottom right, as on Highbank's streets.
+var narration:=""
+var follow:Array[Vector2]=[]   # each follower's spot before it is rounded to the pixel (S6)
+var step:=float(TILE)          # how far behind the one ahead each follower walks (S6, set in _ready)
 var view:SubViewport
 var bank:Node2D
 var textures:Dictionary={}
 # Claude, 2026-10-22 (LP-09, FLOW-15): `line` is the partner's line on screen ("" when none) and the team
-# holds still under it; the status label keeps narration only. `asking` is the "Back to the title?" prompt.
+# holds still under it; narration has its own `narration` (2026-10-23). `asking` is the "Back to the title?" prompt.
 var line:=""
 var face:="normal"
 var partner_name:="Your partner"
@@ -66,6 +84,8 @@ func _ready()->void:
 			EntranceFinish.apply(background,img)
 		else:background.texture=ImageTexture.create_from_image(Bank.paint())
 		view.add_child(background);leader=Vector2(192,177)
+		# The Hollow is read from disk on a thread while the team walks up; the arch takes it (S7).
+		ResourceLoader.load_threaded_request(DUNGEON)
 	else:
 		bank=Bank.new();bank.reduce_motion=reduce_motion;bank.show_actor_shadows=false
 		view.add_child(bank)
@@ -74,9 +94,12 @@ func _ready()->void:
 		var form:String=Lines.of(party[i][0]).forms[party[i][1]][0]
 		forms.append(form)
 		var actor:=Sprite2D.new();actor.texture_filter=CanvasItem.TEXTURE_FILTER_NEAREST
-		actor.position=leader+Vector2(0,i*TILE) if entrance or from_entrance or returning else Vector2(168,83) if i==0 else Vector2(222,84+i-1)
 		Finish.apply(actor,false,form);view.add_child(actor);actors.append(actor)
 		_set_texture(i,"s",-1)
+	step=_follow_step()
+	for i in actors.size():
+		actors[i].position=leader+Vector2(0,i*step) if entrance or from_entrance or returning else Vector2(168,83) if i==0 else Vector2(222,84+i-1)
+		follow.append(actors[i].position)
 	if party.size()>1:   # the partner's own name on its name plate, as the dawn walk reads it
 		partner_name=load(Lines.of(party[1][0]).forms[party[1][1]][1]).creature_name
 	# The trail starts as a line from the leader back to the last follower's spot, so each follower's place
@@ -86,15 +109,7 @@ func _ready()->void:
 	var shadows:=preload("res://scripts/ui/journey_shadows.gd").new()
 	shadows.actors=actors;view.add_child(shadows)
 	var canvas:=CanvasLayer.new();add_child(canvas)
-	var heading:=_label("THE HOLLOW  /  RIVER APPROACH" if entrance else "RIVERBANK  /  THE FIRST ROUTE",30)
-	heading.position=Vector2(36,20);canvas.add_child(heading)
-	hint_panel=PanelContainer.new();hint_panel.position=Vector2(24,564);hint_panel.custom_minimum_size=Vector2(1104,66)
-	var frame:=UI.frame("panel_dim").duplicate();frame.set_content_margin_all(18)
-	hint_panel.add_theme_stylebox_override("panel",frame);canvas.add_child(hint_panel)
-	hint=_label("",22);hint_panel.add_child(hint)
-	status=_label("",22);status.position=Vector2(36,522);canvas.add_child(status)
 	_box=Node2D.new();_box.draw.connect(_draw_talk);canvas.add_child(_box)
-	_update_hint()
 	# Claude, 2026-10-10 (Preston: the ruin and its stone path should rise out of the river, so the team is
 	# the first to explore it): the first time, during the flood, it rises before the team can move.
 	if not entrance and not from_entrance and not returning and not _mouth_beaten():
@@ -108,24 +123,41 @@ func _rise()->void:
 	var r:=preload("res://scripts/ui/hollow_rise.gd").new()
 	r.source=bank.background.texture.get_image();r.finish=bank.background.material;r.reduce_motion=reduce_motion
 	view.add_child(r);view.move_child(r,bank.get_index()+1)
-	status.text="The ground shakes. Something is coming up out of the river..."
+	narration="The ground shakes. Something is coming up out of the river..."
 	await r.play()
-	status.text=""
+	narration=""
 	leaving=false
 	_say("That wasn't there before! The water's still rising. Up the stones, now!","surprised")
 
 func _mouth_beaten()->bool:
 	return "mouth" in TeamState.data.get("beaten",[])
 
-## A label on the type roles, as game_pause_menu._label does (Claude, 2026-10-22, LP-04): a size of 30 or
-## more is a heading in the title face, anything smaller is prose in the body face, both on the pixel grid.
-func _label(text:String,size:int)->Label:
-	var role:="title" if size>=30 else UI.role_for(size)
-	var l:=Label.new();l.text=text;l.add_theme_font_override("font",UI.font(role))
-	l.add_theme_font_size_override("font_size",UI.type_size(role));l.add_theme_color_override("font_color",UI.TEXT)
-	l.add_theme_color_override("font_shadow_color",UI.SHADOW)
-	l.add_theme_constant_override("shadow_offset_x",int(UI.TYPE[role]["px"]));l.add_theme_constant_override("shadow_offset_y",int(UI.TYPE[role]["px"]))
-	return l
+## The place card (Claude, 2026-10-23, S1): the floor card's look on the art, the place's name in the title face in
+## the floor card's gold over a dark band that softens in three steps (no ruled line), held, then faded out by
+## PLACE_SECS. It replaces the corner heading that stayed on screen the whole time.
+func _draw_place()->void:
+	var a:=1.0 if clock<PLACE_SECS-PLACE_FADE else clampf((PLACE_SECS-clock)/PLACE_FADE,0.0,1.0)
+	if a<=0.0:return
+	var y:=place_rect().get_center().y
+	for k in 3:
+		var grow:=8.0*k
+		_box.draw_rect(Rect2(0,y-28-grow,1152,56+grow*2),Color(0,0,0,0.22*a))
+	UI.say(_box,Vector2(0,y+16),PLACE_ARCH if entrance else PLACE_BANK,"title",Color(CARD_COL,a),1152,HORIZONTAL_ALIGNMENT_CENTER)
+
+## The card's band at its widest, in screen pixels (the checks read it).
+func place_rect()->Rect2:
+	var y:=PLACE_Y_ARCH if entrance else PLACE_Y
+	return Rect2(0,y-44,1152,88)
+
+## One full step (Claude, 2026-10-23, S6): the tallest or widest standing sprite and two pixels, never under a tile,
+## so a follower straight behind the leader never has its head over the leader's feet (at a tile they overlapped).
+func _follow_step()->float:
+	var size:=0
+	for a in actors:
+		if a.texture!=null:
+			var used:=a.texture.get_image().get_used_rect()
+			size=maxi(size,maxi(used.size.x,used.size.y))
+	return maxf(TILE,size+2)
 
 func _set_texture(index:int,direction:String,frame:int)->void:
 	var stem:="walk_%s_f%d"%[direction,frame] if frame>=0 else direction
@@ -148,10 +180,24 @@ func walkable(p:Vector2)->bool:
 func _trail_at(dist:float)->Vector2:
 	var left:=dist
 	for k in trail.size()-1:
-		var step:=trail[k].distance_to(trail[k+1])
-		if step>=left:return trail[k].lerp(trail[k+1],left/step) if step>0.0 else trail[k]
-		left-=step
+		var seg:=trail[k].distance_to(trail[k+1])
+		if seg>=left:return trail[k].lerp(trail[k+1],left/seg) if seg>0.0 else trail[k]
+		left-=seg
 	return trail[trail.size()-1]
+
+## The leader's new spot onto the trail, about a pixel from the last (Claude, 2026-10-23, S6), so the trail's length
+## is the same at any frame rate. When the leader turns back into the line, the trail is laid out straight from the
+## leader through the first follower instead, so the followers step back to their places rather than meet the
+## leader on the way (the old trail ran back through the leader's own spot).
+func _lay_trail()->void:
+	if actors.size()>1 and leader.distance_to(follow[1])<step*0.85:
+		var away:=follow[1]-leader
+		away=away.normalized() if away.length()>0.5 else Vector2.DOWN
+		trail.clear()
+		for k in int(step*actors.size())+2:trail.append(leader+away*k)
+	elif trail.size()>1 and trail[0].distance_to(trail[1])<1.0:trail[0]=leader
+	else:
+		trail.push_front(leader);trail.resize(TRAIL)
 
 func _process(delta:float)->void:
 	clock+=delta
@@ -165,18 +211,21 @@ func _process(delta:float)->void:
 		var next:=leader+direction*48.0*delta
 		if walkable(next):
 			leader=next;moved=true;stepped=true
-			trail.push_front(leader);trail.resize(80)
+			_lay_trail()
 			facing="e" if direction.x>0.4 else "w" if direction.x< -0.4 else "n" if direction.y<0 else "s"
 	for i in actors.size():
 		var walking:=moved
 		if i==0:actors[i].position=leader.round()
 		else:
-			var before:=actors[i].position
-			if stepped:actors[i].position=actors[i].position.move_toward(_trail_at(i*TILE),48.0*delta).round()
-			walking=actors[i].position!=before
+			# Kept unrounded and drawn rounded (Claude, 2026-10-23): rounding the kept spot each frame held a
+			# follower still whenever its step was under half a pixel, as on a 144 Hz screen.
+			var before:=follow[i]
+			var spot:=_trail_at(i*step)
+			if stepped and walkable(spot):follow[i]=follow[i].move_toward(spot,60.0*delta)   # a little quicker than the leader, to take its place back
+			walking=follow[i].distance_to(before)>0.01
+			actors[i].position=follow[i].round()
 		actors[i].z_index=int(actors[i].position.y)
 		_set_texture(i,facing,int(clock*10)%8 if walking else -1)
-	_update_hint()
 	if entrance:
 		if leader.distance_to(ARCH)<8 and not denied:_enter_arch()
 	else:
@@ -185,20 +234,34 @@ func _process(delta:float)->void:
 ## Claude, 2026-10-23 (factory pass 2): the hint's keys come from the bindings, the same words as before on a
 ## keyboard ("WASD / arrows", "E / Enter", "Esc") and the pad's when a pad was used last. H has no pad button, so
 ## a pad's hint leaves it out; the south trail's own prompt still takes the team to Highbank.
-func _update_hint()->void:
+## Claude, 2026-10-23 (factory pass 3, S2): the same words, one line each, for the strip at the bottom right.
+func key_lines()->Array[String]:
 	var walk:=_walk_keys()+"  walk"
 	var use:=_use_keys()
-	var back:="     "+UI.binding_text("cancel")+"  return to riverbank"
+	var back:=UI.binding_text("cancel")+"  return to riverbank"
 	if entrance:
-		hint.text=walk+back
-		if leader.distance_to(ARCH)<30:hint.text=use+"  approach the arch"+back
-	elif not _mouth_beaten():
+		if leader.distance_to(ARCH)<30:return [use+"  approach the arch",back]
+		return [walk,back]
+	if not _mouth_beaten():
 		# Claude, 2026-10-22 (LP-10): during the flood the hint says why Highbank is not on offer; no H key.
-		hint.text=walk+"     The road to Highbank is under water. The stone walkway is the way."
-		if leader.distance_to(HIGHBANK)<24:hint.text=use+"  try the south trail"
-	else:
-		hint.text=walk+"     Stone walkway to the Hollow"+("" if UI.last_device()=="pad" else "     H  continue to Highbank")
-		if leader.distance_to(HIGHBANK)<24:hint.text=use+"  take the south trail to Highbank"
+		if leader.distance_to(HIGHBANK)<24:return [use+"  try the south trail"]
+		return [walk,"The road to Highbank is under water.","The stone walkway is the way."]
+	if leader.distance_to(HIGHBANK)<24:return [use+"  take the south trail to Highbank"]
+	var lines:Array[String]=[walk,"Stone walkway to the Hollow"]
+	if UI.last_device()!="pad":lines.append("H  continue to Highbank")
+	return lines
+
+## The keys on a label-role strip in the panel frame, bottom right, as Highbank's streets draw theirs
+## (hub_town.gd _draw_key_strip): sized to its longest line, its foot where Highbank's is.
+func _draw_keys()->void:
+	var lines:=key_lines()
+	var w:=0.0
+	for s in lines:w=maxf(w,UI.width_in(s,"label"))
+	var tall:=22.0+20.0*lines.size()
+	var strip:=Rect2(Vector2(1146-w-40,600-tall),Vector2(w+40,tall))
+	UI.panel(_box,strip,0.85)
+	for k in lines.size():
+		UI.say(_box,strip.position+Vector2(20,26+20*k),lines[k],"label",Color(UI.MUTED,0.95))
 
 ## "WASD / arrows" with the default keys (the letters as this keyboard prints them), "D-pad / Left stick" on a pad.
 func _walk_keys()->String:
@@ -251,6 +314,11 @@ func _unhandled_input(event:InputEvent)->void:
 			get_viewport().set_input_as_handled()
 			if UI.line_done(line):_dismiss()
 			else:UI.finish_line()
+	elif narration!="" and accept:
+		# A notice in the box (a route that would not open) goes the same way (Claude, 2026-10-23, S2).
+		get_viewport().set_input_as_handled()
+		if UI.line_done(narration):narration=""
+		else:UI.finish_line()
 	elif accept:
 		get_viewport().set_input_as_handled()
 		if entrance and leader.distance_to(ARCH)<30:_enter_arch()
@@ -262,21 +330,27 @@ func _unhandled_input(event:InputEvent)->void:
 		get_viewport().set_input_as_handled();_town()
 
 ## The partner speaks in the shared box with its name and face (Claude, 2026-10-22, LP-09). The team holds
-## still until the line is put away; the hint strip and the status narration step aside under it.
+## still until the line is put away; the key strip steps aside under it.
 func _say(text:String,face_tag:="normal")->void:
 	line=text;face=face_tag
 	partner_tex=UI.dialogue_portrait(forms[1]+(":"+face if face!="normal" else "")) if forms.size()>1 else null
-	status.visible=false;hint_panel.visible=false
 
 func _dismiss()->void:
-	line="";status.visible=true;hint_panel.visible=true
+	line=""
 
+## The place card, then the box: the partner's line with its name and face, or narration with no name plate and no
+## face (Claude, 2026-10-23, S2), or else the key strip. While the ruin rises the narration stays up.
 func _draw_talk()->void:
-	if leaving:return
+	_draw_place()
+	if leaving:
+		if narration!="":UI.dialogue(_box,BOX,"",narration,null,clock,20)
+		return
 	if line!="":UI.dialogue(_box,BOX,partner_name,line,partner_tex,clock,20,face)
+	elif narration!="":UI.dialogue(_box,BOX,"",narration,null,clock,20)
+	else:_draw_keys()
 	if asking:
 		UI.panel(_box,ASK,0.95,true)
-		UI.say(_box,ASK.position+Vector2(36,48),"Back to the title?","body",UI.TEXT)
+		UI.say(_box,ASK.position+Vector2(36,48),"Back to the title?","label",UI.TEXT)   # the prompts' label face (pass 4 T10)
 		for k in 2:
 			var at:=ASK.position+Vector2(80,96+k*36)
 			if k==choice:UI.say(_box,at-Vector2(28,0),">","button",UI.EDGE_LIGHT)
@@ -308,7 +382,7 @@ func _title()->void:
 	await create_tween().tween_property(veil,"color:a",1.0,0.15 if reduce_motion else 0.5).finished
 	var error:=get_tree().change_scene_to_file(TITLE)
 	if error!=OK:
-		veil.queue_free();leaving=false;asking=false;status.text="The title could not open. Your team is still here."
+		veil.queue_free();leaving=false;asking=false;narration="The title could not open. Your team is still here."
 
 func _travel(close_up:bool)->void:
 	var scene:Node2D=load("res://scenes/hollow_entrance.tscn" if close_up else "res://scenes/waking_riverbank.tscn").instantiate()
@@ -320,20 +394,37 @@ func _enter_arch()->void:
 	# Claude, 2026-10-10 (Preston: wake in the flood, retreat into the Hollow, a first dungeon with no boss):
 	# until it is cleared, the arch is the retreat into the Hollow Mouth (dungeon.gd "mouth").
 	if not _mouth_beaten():
-		var refuge:Node2D=load("res://scenes/dungeon.tscn").instantiate()
-		TeamState.give_to(refuge);refuge.party=party.duplicate(true)
-		refuge.dungeon="mouth";refuge.return_to_town=true
-		_change(refuge,"Try the arch again.");return
+		_into_hollow("mouth");return
 	# Existing pilot order stays intact: first training route, then the Warden's Hollow. After the Mouth the
 	# way to the Hollow is Highbank's own (town/hollow_approach.gd) and nothing in the game reopens this
 	# scene, only flood_opening_check with `returning`; the lines stay as that path's answer rather than
 	# leave the arch dead (Claude, 2026-10-22, LP-10).
 	if not "first" in TeamState.data.get("beaten",[]):
 		denied=true;_say("Nope. Highbank first. Let's tell them what we found. We can come back together.","determined");return
-	var dungeon:Node2D=load("res://scenes/dungeon.tscn").instantiate()
+	_into_hollow("hollow")
+
+## Through the arch (Claude, 2026-10-23, S7): the screen fades to black first, then the Hollow loaded during the
+## walk is taken and built, so the long build sits under black instead of a frozen last frame; the black lifts off
+## the first floor (as hub_town.gd _leave_to does). A check that adds this scene as a plain child changes at once.
+func _into_hollow(which:String)->void:
+	leaving=true
+	var tree:=get_tree()
+	var faded:=tree.current_scene==self
+	if faded:await UI.fade_out(tree)
+	var dungeon:Node2D=_hollow_scene().instantiate()
 	TeamState.give_to(dungeon);dungeon.party=party.duplicate(true)
-	dungeon.dungeon="hollow";dungeon.return_to_town=true
-	_change(dungeon,"Try the arch again.")
+	dungeon.dungeon=which;dungeon.return_to_town=true
+	var error:=tree.change_scene_to_node(dungeon)
+	if error!=OK:
+		dungeon.free();leaving=false;narration="The route could not open. Try the arch again."
+	if faded:UI.fade_in(tree)
+
+## The scene the walk started loading, or a plain load when that never started or failed.
+func _hollow_scene()->PackedScene:
+	if ResourceLoader.load_threaded_get_status(DUNGEON)!=ResourceLoader.THREAD_LOAD_INVALID_RESOURCE:
+		var res:=ResourceLoader.load_threaded_get(DUNGEON)
+		if res is PackedScene:return res
+	return load(DUNGEON)
 
 func _town()->void:
 	# Claude, 2026-10-10: during the flood the road to Highbank is under water; the walkway is the way out.
@@ -349,4 +440,4 @@ func _change(scene:Node,retry:String)->void:
 	leaving=true
 	var error:=get_tree().change_scene_to_node(scene)
 	if error!=OK:
-		scene.free();leaving=false;status.text="The route could not open. "+retry
+		scene.free();leaving=false;narration="The route could not open. "+retry

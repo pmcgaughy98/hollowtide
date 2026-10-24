@@ -4,15 +4,27 @@ extends SceneTree
 ## ultimates, every current kit checked against the body gate. Part 2 plays a move scroll in the
 ## dungeon: a body without the part is refused, one with it learns, a full kit forgets a move
 ## of the player's choice, the move stays across floors and hits, and floors stock scrolls.
+## Every kit passing Grok's body gate and each scroll step are verdict lines; the share of floor items that
+## are scrolls stays printed for Preston's call (Q11) (Claude, 2026-10-24, H10).
 ##   Godot --path . --fixed-fps 30 --script res://tools/debug/move_table_check.gd
+## The table goes to the runner's logs folder (HT_CHECK_LOGS) as move-table.md, or user:// on a direct run;
+## `-- --update-doc` rewrites the tracked docs/creatures/move-table-2026-10-09.md instead, so a suite run leaves
+## docs/ alone (Claude, 2026-10-24, H10; pilot_chain_check.gd's pattern).
 
 const Arena := preload("res://scripts/arena/arena_prototype.gd")
 const MoveBody := preload("res://scripts/moves/move_body.gd")
-const OUT := "res://docs/creatures/move-table-2026-10-09.md"
+const DOC := "res://docs/creatures/move-table-2026-10-09.md"
+var fails := 0
 
 
 func _initialize() -> void:
 	_run.call_deferred()
+
+
+func _ok(what: String, good: bool) -> void:
+	print("%s -> %s" % [what, "ok" if good else "FAIL"])
+	if not good:
+		fails += 1
 
 
 func _name(m: String) -> String:
@@ -53,24 +65,32 @@ func _run() -> void:
 	for li in Arena.LINES.size():
 		t += "- %s: %s\n" % [String(Arena.LINES[li]["forms"][2][0]).capitalize(), Arena.LINES[li].get("signature", "")]
 	t += "\n## Current kits that fail the gate\n\nThese kits were written for the arena before this table. Changing a kit is Grok's and Preston's call; nothing was changed.\n\n| Creature | Move | Missing |\n|---|---|---|\n"
-	var fails := 0
+	var gate_fails := 0
 	for form in Arena.KITS:
 		var kit: Dictionary = Arena.KITS[form]
 		for m in kit.get("moves", []) + kit.get("abilities", []):
 			var miss: Array = MoveBody.missing(form, m)
 			if not miss.is_empty():
 				t += "| %s | %s | %s |\n" % [String(form).capitalize(), _name(m), ", ".join(miss)]
-				fails += 1
+				gate_fails += 1
 	var ungated: Array = []
 	for m in kit_users:
 		if not MoveBody.NEEDS.has(m):
 			ungated.append(_name(m))
 	if not ungated.is_empty():
 		t += "\nNot gated yet (no part list): %s\n" % ", ".join(ungated)
-	var f := FileAccess.open(OUT, FileAccess.WRITE)
-	f.store_string(t)
-	f.close()
-	print("Table: %d shared signatures (%s); %d kit moves fail the gate; ungated %s" % [shared.size(), ", ".join(shared.map(func(m): return _name(m))), fails, str(ungated)])
+	var log_dir := OS.get_environment("HT_CHECK_LOGS")
+	var out: String = DOC if OS.get_cmdline_user_args().has("--update-doc") else (log_dir.path_join("move-table.md") if log_dir != "" else "user://move-table-2026-10-09.md")
+	var f := FileAccess.open(out, FileAccess.WRITE)
+	if f:
+		f.store_string(t)
+		f.close()
+		print("Table written to %s" % ProjectSettings.globalize_path(out))
+	else:
+		print("Table could not be written to %s (error %d)" % [out, FileAccess.get_open_error()])
+	print("Table: %d shared signatures (%s); %d kit moves fail the gate; ungated %s" % [shared.size(), ", ".join(shared.map(func(m): return _name(m))), gate_fails, str(ungated)])
+	_ok("Grok's body gate: every current kit move has its parts (%d fail)" % gate_fails, gate_fails == 0)
+	_ok("Grok's body gate: every kit move has a part list (not gated %s)" % str(ungated), ungated.is_empty())
 
 	# ---- Part 2: a scroll in the dungeon
 	var dg: Node2D = load("res://scenes/dungeon.tscn").instantiate()
@@ -92,6 +112,8 @@ func _run() -> void:
 	var r1: String = dg.act_teach(1)
 	var r2: String = dg.act_teach(0)
 	print("Tallowroot: %s; Kithflare: %s; Kithflare's moves %s; scroll left %d; turns spent %d" % [r1, r2, str(kith["moves"].map(func(m): return _name(m))), dg.bag.get("scroll:cinder_claw", 0), dg.turn - t0])
+	_ok("Scroll: Tallowroot, with no claws, is refused for its body (%s)" % r1, r1 == "body")
+	_ok("Scroll: Kithflare learns Cinder Claw (%s) and the scroll is used up (%d left)" % [r2, dg.bag.get("scroll:cinder_claw", 0)], r2 == "learned" and "cinder_claw" in kith["moves"] and int(dg.bag.get("scroll:cinder_claw", 0)) == 0)
 	# A full kit: Kithflare now knows four. A Pounce scroll asks what to forget.
 	dg.bag["scroll:pounce"] = 1
 	dg.act_use_item("scroll:pounce")
@@ -99,12 +121,15 @@ func _run() -> void:
 	var forget_rows: Array = dg.teach_rows()
 	var r4: String = dg.act_teach(0, 1)
 	print("Full: first answer %s, choices %s; then %s; moves %s" % [r3, str(forget_rows.map(func(r): return r["text"])), r4, str(kith["moves"].map(func(m): return _name(m)))])
+	_ok("Scroll on a full kit: it asks (%s) with %d moves to forget" % [r3, forget_rows.size()], r3 == "full" and forget_rows.size() == 3)
+	_ok("Scroll on a full kit: after the choice Kithflare learns Pounce (%s) and knows %d moves" % [r4, kith["moves"].size()], r4 == "learned" and "pounce" in kith["moves"] and kith["moves"].size() == 4)
+	var kept: Array = kith["moves"].duplicate()
 	# Down a floor: the team is rebuilt and keeps what it learned.
 	dg.floor_n += 1
 	dg._build_floor(true)
 	for k in 3:
 		await process_frame
-	print("Next floor: Kithflare's moves %s" % str(dg.ents[0]["moves"].map(func(m): return _name(m))))
+	_ok("Next floor: Kithflare keeps its moves %s" % str(dg.ents[0]["moves"].map(func(m): return _name(m))), dg.ents[0]["moves"] == kept)
 	# The learned move hits.
 	var lead: Dictionary = dg.ents[0]
 	var p: Vector2i = lead["pos"]
@@ -118,7 +143,7 @@ func _run() -> void:
 	dg._place(w)
 	var hp: int = w["hp"]
 	await dg.use_move(0, "cinder_claw", d)
-	print("Cinder Claw on a Rimefin: %d damage" % (hp - w["hp"]))
+	_ok("Cinder Claw on a Rimefin: %d damage" % (hp - w["hp"]), hp - w["hp"] > 0)
 	# Floors stock scrolls.
 	var scrolls := 0
 	var items := 0
@@ -130,4 +155,5 @@ func _run() -> void:
 			if String(it["kind"]).begins_with("scroll:"):
 				scrolls += 1
 	print("Stock: %d of %d floor items over 30 floors were scrolls" % [scrolls, items])
-	quit()
+	_ok("Stock: floors stock scrolls (%d over 30 floors)" % scrolls, scrolls > 0)
+	quit(1 if fails else 0)

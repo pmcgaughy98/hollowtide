@@ -2,11 +2,14 @@ extends SceneTree
 ## Combat upgrades (Claude, 2026-10-08): the essence combos (shatter, kindle, quench,
 ## conduct), the procedural animation layer (wind-up lean, strike lunge, flinch, landing
 ## squash, the KO beat), and Kit Sense wanting a combo more.
+## Judged since Claude, 2026-10-24 (H19): each combo against its constant with the status
+## cleared, the animation names and the strike squash, the KO beat, and the combo desire.
 ##   Godot --path . --fixed-fps 30 --script res://tools/debug/arena_combat_check.gd
 ## Stills to docs/creatures/arena-feel-2026-10-07/combat_*.png.
 
 const OUT := "res://docs/creatures/arena-feel-2026-10-07/"
 var arena: Node2D
+var fails := 0
 
 func _initialize() -> void:
 	arena = load("res://scenes/arena_prototype.tscn").instantiate()
@@ -33,21 +36,30 @@ func _initialize() -> void:
 	me["last_move"] = "jade_lance"
 	var hp: int = arena._fighters[e0]["hp"]
 	arena._hurt(e0, 20, Vector2(1, 0), 0)
-	print("Shatter: a 20 Stone hit on a Glassed target took %d and left the glass at %.1f" % [hp - arena._fighters[e0]["hp"], arena._fighters[e0]["glassed"]])
+	var took: int = hp - arena._fighters[e0]["hp"]
+	print("Shatter: a 20 Stone hit on a Glassed target took %d and left the glass at %.1f" % [took, arena._fighters[e0]["glassed"]])
+	_ok("Shatter takes 20 x SHATTER_BONUS (%d) and clears the glass" % int(round(20 * arena.SHATTER_BONUS)),
+		took == int(round(20 * arena.SHATTER_BONUS)) and arena._fighters[e0]["glassed"] == 0.0)
 	_save("combat_shatter")
 	# Kindle: an Ember move on a rooted target.
 	arena._fighters[e0]["rooted"] = 2.0
 	me["last_move"] = "fireball"
 	hp = arena._fighters[e0]["hp"]
 	arena._hurt(e0, 20, Vector2(1, 0), 0)
-	print("Kindle: a 20 Ember hit on a rooted target took %d and left the roots at %.1f" % [hp - arena._fighters[e0]["hp"], arena._fighters[e0]["rooted"]])
+	took = hp - arena._fighters[e0]["hp"]
+	print("Kindle: a 20 Ember hit on a rooted target took %d and left the roots at %.1f" % [took, arena._fighters[e0]["rooted"]])
+	_ok("Kindle takes 20 x KINDLE_BONUS (%d) and clears the roots" % int(round(20 * arena.KINDLE_BONUS)),
+		took == int(round(20 * arena.KINDLE_BONUS)) and arena._fighters[e0]["rooted"] == 0.0)
 	# Quench: a Tide move on a smouldering target.
 	arena._fighters[e0]["smoulder"] = 1.5
 	arena._fighters[e0]["dazzle"] = 0.0
 	me["last_move"] = "beam"
 	hp = arena._fighters[e0]["hp"]
 	arena._hurt(e0, 10, Vector2(1, 0), 0)
-	print("Quench: a 10 Tide hit on a smouldering target took %d, left the smoulder at %.1f and dazed it %.1f s" % [hp - arena._fighters[e0]["hp"], arena._fighters[e0]["smoulder"], arena._fighters[e0]["dazzle"]])
+	took = hp - arena._fighters[e0]["hp"]
+	print("Quench: a 10 Tide hit on a smouldering target took %d, left the smoulder at %.1f and dazed it %.1f s" % [took, arena._fighters[e0]["smoulder"], arena._fighters[e0]["dazzle"]])
+	_ok("Quench takes 10 x QUENCH_BONUS (%d), clears the smoulder and dazes QUENCH_DAZE" % int(round(10 * arena.QUENCH_BONUS)),
+		took == int(round(10 * arena.QUENCH_BONUS)) and arena._fighters[e0]["smoulder"] == 0.0 and is_equal_approx(arena._fighters[e0]["dazzle"], arena.QUENCH_DAZE))
 	# Overgrow: a Bloom move on a target standing in water.
 	var pool0: Vector2 = me["body"].position + Vector2(-90, 0)
 	arena._fighters[e0]["body"].position = pool0
@@ -57,6 +69,7 @@ func _initialize() -> void:
 	me["last_move"] = "seed"
 	arena._hurt(e0, 10, Vector2(1, 0), 0)
 	print("Overgrow: a Bloom hit on a target standing in water rooted it %.1f s" % arena._fighters[e0]["rooted"])
+	_ok("Overgrow roots for OVERGROW_ROOT", is_equal_approx(arena._fighters[e0]["rooted"], arena.OVERGROW_ROOT))
 	# Conduct: an Electric move on a target in a riptide, with another enemy in the same riptide.
 	var pool: Vector2 = me["body"].position + Vector2(90, 0)
 	arena._fighters[e0]["body"].position = pool + Vector2(-8, 0)
@@ -66,8 +79,12 @@ func _initialize() -> void:
 	me["last_move"] = "rail_shot"
 	hp = arena._fighters[e0]["hp"]
 	var hp1: int = arena._fighters[e1]["hp"]
+	var in_water: bool = arena._in_riptide(e1)
 	arena._hurt(e0, 20, Vector2(1, 0), 0)
-	print("Conduct: an Electric hit in a riptide took %d from the target and %d from the other enemy in the water (in the riptide: %s)" % [hp - arena._fighters[e0]["hp"], hp1 - arena._fighters[e1]["hp"], "yes" if arena._in_riptide(e1) else "no"])
+	var shared: int = hp1 - arena._fighters[e1]["hp"]
+	print("Conduct: an Electric hit in a riptide took %d from the target and %d from the other enemy in the water (in the riptide: %s)" % [hp - arena._fighters[e0]["hp"], shared, "yes" if in_water else "no"])
+	_ok("Conduct passes 20 x CONDUCT_SHARE (%d) to the other enemy in the riptide" % maxi(1, int(round(20 * arena.CONDUCT_SHARE))),
+		in_water and shared == maxi(1, int(round(20 * arena.CONDUCT_SHARE))))
 	await _frames(2)
 	_save("combat_conduct")
 	# Kit Sense wants the combo: desire for Jade Lance on a Glassed target against a clean one.
@@ -79,6 +96,8 @@ func _initialize() -> void:
 	var d_glass: float = arena._desire(0, "jade_lance", e0, "engage")
 	var d_clean: float = arena._desire(0, "jade_lance", e1, "engage")
 	print("Kit Sense: Jade Lance desire %.2f on the Glassed enemy against %.2f on the clean one" % [d_glass, d_clean])
+	# Only "not lower" is judged; both sit at the 1.00 cap here, so a real preference needs a restage (Q11).
+	_ok("Kit Sense wants Jade Lance on the Glassed enemy at least as much as on the clean one", d_glass >= d_clean)
 	# The animation layer: a wind-up lean, then the strike lunge, then a flinch.
 	me["act"] = 0.0
 	me["cds"]["rail_shot"] = 0.0
@@ -98,14 +117,25 @@ func _initialize() -> void:
 	await process_frame
 	var flinch_anim: String = arena._fighters[e1]["anim"]
 	print("Animation: during the wind-up %s with scale (%.2f, %.2f); at the strike %s with scale (%.2f, %.2f); after a hit %s" % [wind_anim, wind_scale.x, wind_scale.y, strike_anim, strike_scale.x, strike_scale.y, flinch_anim])
+	_ok("Animation runs wind, then strike, then flinch on the one hit", wind_anim == "wind" and strike_anim == "strike" and flinch_anim == "flinch")
+	_ok("The strike squashes the sprite (scale is not ONE)", not strike_scale.is_equal_approx(Vector2.ONE))
 	# The KO beat.
 	arena._fighters[e1]["hp"] = 5
 	me["last_move"] = "jade_lance"
 	arena._hurt(e1, 20, Vector2(1, 0), 0)
 	print("KO: hitstop %.2f s, anim %s, %s" % [arena._hitstop, arena._fighters[e1]["anim"], "down" if arena._fighters[e1]["hp"] <= 0 else "still up"])
+	_ok("KO beat: hitstop KO_HITSTOP, anim ko, HP at 0", is_equal_approx(arena._hitstop, arena.KO_HITSTOP) and arena._fighters[e1]["anim"] == "ko" and arena._fighters[e1]["hp"] <= 0)
 	await _frames(2)
 	_save("combat_ko")
-	quit()
+	print("ARENA COMBAT: %s" % ("all ok" if fails == 0 else "%d FAILED" % fails))
+	quit(1 if fails > 0 else 0)
+
+
+## One judged line: "what -> ok" or "what -> FAIL" (Claude, 2026-10-24).
+func _ok(what: String, good: bool) -> void:
+	print("%s -> %s" % [what, "ok" if good else "FAIL"])
+	if not good:
+		fails += 1
 
 
 func _frames(n: int) -> void:

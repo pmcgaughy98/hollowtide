@@ -31,13 +31,15 @@ func _initialize() -> void:
 	_save("vfx_lantern_balls")
 	await _frames(40)
 	_save("vfx_marks")
-	# Teleport flash: Flashstep to the marked target.
+	# Ember Feint toward the marked target (Claude, 2026-10-24): slot 0 has been Ember Feint since
+	# it replaced Flashstep on 2026-10-08 (KITS "stormwick"); the still keeps its old file name.
 	foe["marked"] = 8.0
-	me["cds"]["flashstep"] = 0.0
+	me["cds"]["ember_feint"] = 0.0
 	me["act"] = 0.0
 	arena.cast(0)
 	await _frames(3)
 	_save("vfx_teleport")
+	print("Ember Feint still (slot 0, toward the marked target): vfx_teleport.png")
 	# Light slash: a pounce strike.
 	me["cds"]["pounce"] = 0.0
 	me["body"].position = foe["body"].position + Vector2(-40, 0)

@@ -2,6 +2,7 @@ extends RefCounted
 ## Notice-board presentation only. The town owns requests, carried state and service input.
 const Layout = preload("res://scripts/town/town_layout.gd")
 const Finish = preload("res://scripts/town/exterior_finish.gd")
+const UI = preload("res://scripts/ui/ui_style.gd")
 const ART := "res://assets/sprites/world/job_board_2026_10_10/board_native.png"
 const DISPLAY_ART := "res://assets/sprites/world/job_board_selout_2026_10_10/board_native.png"
 
@@ -29,10 +30,10 @@ static func apply(img: Image, ground: Image, reading_ground: Image) -> Image:
 
 static func _display_texture() -> Texture2D:
 	# The original 48x24 stand is retained as the exact fallback.
-	if FileAccess.file_exists(DISPLAY_ART):
-		var image := Image.load_from_file(ProjectSettings.globalize_path(DISPLAY_ART))
-		if image != null and image.get_size()==Vector2i(96,48):
-			return ImageTexture.create_from_image(image)
+	# Claude, 2026-10-24 (A4, LV-19): UI.res_image reads the imported texture, which an exported game has; the PNG it does not.
+	var image := UI.res_image(DISPLAY_ART)
+	if image != null and image.get_size()==Vector2i(96,48):
+		return ImageTexture.create_from_image(image)
 	return load(ART)
 
 static func _visual_scale(texture: Texture2D) -> Vector2:

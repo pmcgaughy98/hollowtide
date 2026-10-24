@@ -3,6 +3,7 @@ extends RefCounted
 ## Generated topology, authored terrain and walking surfaces are never rebuilt.
 const Gen := preload("res://scripts/hollow/hollow_gen.gd")
 const SHADER := preload("res://scripts/dungeon/dungeon_finish.gdshader")
+const RuinPainter := preload("res://scripts/dungeon/ruin_painter.gd")   # the stairs' footprint
 
 static func floor_at(data: Dictionary, x: int, y: int) -> bool:
 	return x >= 0 and y >= 0 and x < data.w and y < data.h and data.tiles[y * data.w + x] != Gen.WALL
@@ -27,9 +28,11 @@ static func mask(data: Dictionary, t: int, look: String) -> Image:
 				image.fill_rect(Rect2i(p, Vector2i(t, side)), Color.WHITE)
 			if floor_at(data, x, y + 1):
 				image.fill_rect(Rect2i(p + Vector2i(0, t - face_h), Vector2i(t, face_h)), Color.WHITE)
-	# Both code painters have the same 24x20 stair surround. The atlas uses the whole tile.
+	# The code painters draw their stairs with ruin_painter.gd's paint_stairs, inside stairs_rect (22x20 on a 24 px
+	# tile; Claude, 2026-10-23, pass 3 D1). The atlas uses the whole tile.
 	var st: Vector2i = data.stairs * t
-	var stairs := Rect2i(st, Vector2i(t, t)) if look == "bank" else Rect2i(st + Vector2i(t / 2 - 12, t / 2 - 10), Vector2i(24, 20))
+	var cut := RuinPainter.stairs_rect(t)
+	var stairs := Rect2i(st, Vector2i(t, t)) if look == "bank" else Rect2i(st + cut.position, cut.size)
 	image.fill_rect(stairs, Color.WHITE)
 	return image
 

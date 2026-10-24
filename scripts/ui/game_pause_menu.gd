@@ -22,6 +22,7 @@ const TITLE = "res://scenes/creature_opening.tscn"
 const ControlsText = preload("res://scripts/ui/controls_text.gd")
 const SPEED_NAMES = {1: "Normal", 2: "Fast", 0: "Instant"}   # menu/text_speed, as UI.text_speed() reads it
 const SPEED_NEXT = {1: 2, 2: 0, 0: 1}
+const FLOOR_W = 532.0   # the Floor page's text width: its 600 px panel less the frame's 34 px each side
 var overlay: Control
 var hint: Button
 var content: VBoxContainer
@@ -100,7 +101,10 @@ func _on_device_changed(_device: String) -> void:
     _place_hint()
     if not overlay.visible: return
     if page == "controls": show_page("controls")   # its only row is Back, so nothing is lost
-    elif page == "bag" and is_instance_valid(bag_hint): bag_hint.text = _bag_hint_words(bag_hint.get_meta("empty",false),bag_hint.get_meta("use",false))
+    elif page == "bag" and is_instance_valid(bag_hint):
+        bag_hint.text = _bag_hint_words(bag_hint.get_meta("empty",false),bag_hint.get_meta("use",false))
+        var view = content.get_node_or_null("BagPage")
+        if view != null: view.retell()   # its "ENTER  USE" line names the device's key too (Claude, 2026-10-24, LV-21)
 
 func _button(text: String) -> Button:
     var b = Button.new()
@@ -137,6 +141,42 @@ func _label(text: String, size: int = 22) -> Label:
     content.add_child(l)
     return l
 
+# A message log row with its creature names coloured (`marks`: name -> colour, from the dungeon's log_marks); a row
+# with none is a plain label (pass 3 D8, Claude, 2026-10-23).
+func _log_row(text: String, marks: Dictionary) -> Control:
+    if marks.is_empty(): return _label(text,16)
+    var role = UI.role_for(16)
+    var r = RichTextLabel.new()
+    r.bbcode_enabled = true
+    r.fit_content = true
+    r.scroll_active = false
+    r.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+    r.custom_minimum_size.x = 470
+    r.add_theme_font_override("normal_font",UI.font(role))
+    r.add_theme_font_size_override("normal_font_size",UI.type_size(role))
+    r.add_theme_color_override("default_color",Color("#fff4e8"))
+    r.add_theme_color_override("font_shadow_color",UI.SHADOW)
+    r.add_theme_constant_override("shadow_offset_x",int(UI.TYPE[role]["px"]))
+    r.add_theme_constant_override("shadow_offset_y",int(UI.TYPE[role]["px"]))
+    var out = ""
+    var rest = text
+    while rest != "":
+        var at = -1
+        var word = ""
+        for w in marks:
+            var k = rest.find(String(w))
+            if k >= 0 and (at < 0 or k < at):
+                at = k
+                word = String(w)
+        if at < 0:
+            out += rest.replace("[","[lb]")
+            break
+        out += rest.substr(0,at).replace("[","[lb]") + "[color=#%s]%s[/color]" % [Color(marks[word]).to_html(false),word.replace("[","[lb]")]
+        rest = rest.substr(at+word.length())
+    r.text = out
+    content.add_child(r)
+    return r
+
 func _action(text: String, id: String, callback: Callable) -> Button:
     var b = _button(text)
     b.name = id
@@ -152,38 +192,52 @@ func _config() -> ConfigFile:
     return c
 
 func _save(section: String, key: String, value: Variant) -> void:
-    var c = _config()
-    c.set_value(section,key,value)
-    var err = c.save(PREFS)
-    if status != null: status.text = "Changes are saved automatically." if err == OK else "Settings could not be saved."
+    # Each pref goes to its own file: text speed to user://game_prefs.cfg, where a title save cannot wipe it (Claude, 2026-10-23, U1).
+    var ok = UI.save_pref(section,key,value)
+    if status != null: status.text = "Changes are saved automatically." if ok else "Settings could not be saved."
 
+# A volume row (Claude, 2026-10-24, LV-04): the caption and its slider side by side in a framed row that wears
+# the same brass as the button rows, panel_focus while the slider has focus. The slider keeps one look in every
+# state: its framed track, the filled part up to the value and its pixel grabber (_slider_look).
 func _volume(bus: String, key: String, words: String) -> void:
     var c = _config()
     var value = clampf(float(c.get_value("audio",key,100.0)),0,100)
+    var row = PanelContainer.new()
+    row.name = bus + "Row"
+    row.custom_minimum_size.y = 40   # a compact button row's height
+    var plain = UI.frame("panel").duplicate()
+    var lit = UI.frame("panel_focus").duplicate()
+    for sb in [plain,lit]:
+        sb.content_margin_top = 3
+        sb.content_margin_bottom = 3
+    row.add_theme_stylebox_override("panel",plain)
+    var line = HBoxContainer.new()
+    line.add_theme_constant_override("separation",12)
+    row.add_child(line)
     var caption = _label("%s volume   %d%%" % [words,int(value)])
+    content.remove_child(caption)
+    caption.autowrap_mode = TextServer.AUTOWRAP_OFF
+    caption.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+    # Every caption as wide as the widest, so the three sliders start in one column.
+    caption.custom_minimum_size.x = ceilf(UI.width_in("Sound effects volume   100%",UI.role_for(22)))
+    line.add_child(caption)
     var slider = HSlider.new()
     slider.name = bus + "Volume"
     slider.max_value = 100
     slider.step = 5
     slider.value = value
-    slider.custom_minimum_size = Vector2(0,36)
+    slider.size_flags_horizontal = Control.SIZE_EXPAND_FILL
     slider.focus_mode = Control.FOCUS_ALL
-    # The focused slider wears the chosen button's brass frame, its weave left out so the slider shows
-    # through; it stands 10 px clear of the slider so the frame's corners have room (Claude, 2026-10-22, GS-21).
-    var ring = Panel.new()
-    ring.mouse_filter = Control.MOUSE_FILTER_IGNORE
-    ring.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
-    ring.offset_left = -10
-    ring.offset_top = -10
-    ring.offset_right = 10
-    ring.offset_bottom = 10
-    var outline = UI.frame("panel_focus").duplicate()
-    outline.draw_center = false
-    ring.add_theme_stylebox_override("panel",outline)
-    ring.hide()
-    slider.add_child(ring)
-    slider.focus_entered.connect(ring.show)
-    slider.focus_exited.connect(ring.hide)
+    _slider_look(slider)
+    line.add_child(slider)
+    slider.focus_entered.connect(func() -> void:
+        row.add_theme_stylebox_override("panel",lit)
+        caption.add_theme_color_override("font_color",UI.EDGE_LIGHT)
+    )
+    slider.focus_exited.connect(func() -> void:
+        row.add_theme_stylebox_override("panel",plain)
+        caption.add_theme_color_override("font_color",UI.TEXT)
+    )
     # A step of the slider ticks on the bus it sets, so the new level is heard at once (silent at 0).
     var tick = AudioStreamPlayer.new()
     tick.name = "Tick"
@@ -191,7 +245,7 @@ func _volume(bus: String, key: String, words: String) -> void:
     tick.bus = bus
     tick.volume_db = UI.TICK_DB
     slider.add_child(tick)
-    content.add_child(slider)
+    content.add_child(row)
     controls.append(slider)
     slider.value_changed.connect(func(v: float) -> void:
         caption.text = "%s volume   %d%%" % [words,int(v)]
@@ -202,6 +256,58 @@ func _volume(bus: String, key: String, words: String) -> void:
         _save("audio",key,v)
         if tick.is_inside_tree(): tick.play()
     )
+
+# The slider's parts, drawn a pixel at a time at 1x in the UI colours and shown at 3x like the frames
+# (tools/ui/build_frames.py), made once a session (Claude, 2026-10-24, LV-04). The track is a 9-slice: ink rim,
+# brass bevel, a sunken moss well. The fill is the lantern's gold, clear over the rim so the frame always shows.
+# The grabber is a brass knob with two grip lines. The same parts are given for every state, so focus and hover
+# never change the slider itself; the row's frame shows focus.
+static var _slider_parts := {}
+
+static func _slider_look(slider: HSlider) -> void:
+    if _slider_parts.is_empty():
+        var ink = UI.INK
+        var brass = {"i": ink, "h": UI.EDGE_LIGHT, "b": UI.EDGE, "l": UI.EDGE.darkened(0.3), "g": UI.EDGE.darkened(0.55)}
+        var track = _pixels(PackedStringArray([".iiii.","ihhhhi","ibwwbi","ibddbi","ibddbi","ibddbi","illlli",".iiii."]),
+            {"i": ink, "h": UI.EDGE_LIGHT, "b": UI.EDGE, "l": UI.EDGE.darkened(0.3), "w": UI.PANEL.darkened(0.45), "d": UI.PANEL.darkened(0.2)})
+        var fill = _pixels(PackedStringArray(["...","...","..F","..f","..f","..d","...","..."]),
+            {"F": UI.LIGHT.lightened(0.35), "f": UI.LIGHT, "d": UI.LIGHT.darkened(0.25)})
+        var knob = _pixels(PackedStringArray([".iiii.","ihhhbi","ihbbli","ihggli","ihbbli","ihggli","ihbbli","ihbbli","ibllli",".iiii."]),brass)
+        var well = StyleBoxTexture.new()
+        well.texture = track
+        well.texture_margin_left = 6
+        well.texture_margin_right = 6
+        well.texture_margin_top = 9
+        well.texture_margin_bottom = 6
+        # The slider draws its track at the style's minimum height: 24 px, 8 pixels of UI art.
+        well.content_margin_left = 6
+        well.content_margin_right = 6
+        well.content_margin_top = 12
+        well.content_margin_bottom = 12
+        var gold = StyleBoxTexture.new()
+        gold.texture = fill
+        gold.texture_margin_left = 6
+        gold.texture_margin_top = 6
+        gold.texture_margin_bottom = 6
+        gold.content_margin_top = 12
+        gold.content_margin_bottom = 12
+        _slider_parts = {"track": well, "fill": gold, "knob": knob}
+    slider.add_theme_stylebox_override("slider",_slider_parts["track"])
+    for state in ["grabber_area","grabber_area_highlight"]:
+        slider.add_theme_stylebox_override(state,_slider_parts["fill"])
+    for state in ["grabber","grabber_highlight","grabber_disabled"]:
+        slider.add_theme_icon_override(state,_slider_parts["knob"])
+    slider.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
+
+# Pixel art from rows of letters, each letter a colour ("." clear), scaled 3x with nearest sampling.
+static func _pixels(rows: PackedStringArray, colours: Dictionary) -> ImageTexture:
+    var img = Image.create(rows[0].length(),rows.size(),false,Image.FORMAT_RGBA8)
+    for y in rows.size():
+        for x in rows[y].length():
+            var ch = rows[y][x]
+            if colours.has(ch): img.set_pixel(x,y,colours[ch])
+    img.resize(img.get_width()*3,img.get_height()*3,Image.INTERPOLATE_NEAREST)
+    return ImageTexture.create_from_image(img)
 
 func open() -> void:
     if overlay.visible or transition or get_tree().paused: return
@@ -234,8 +340,9 @@ func show_page(next: String) -> void:
         old_party.queue_free()
     var panel = overlay.get_node("PausePanel") as PanelContainer
     panel.visible = page != "team"
-    panel.position = Vector2(96,42) if page == "bag" else Vector2(196,8) if page == "rebind" else Vector2(316,58)
-    panel.custom_minimum_size = Vector2(960,0) if page == "bag" else Vector2(760,0) if page == "rebind" else Vector2(520,0)
+    # The Floor page is a little wider so its longest value keeps to one line (Claude, 2026-10-24, LV-22).
+    panel.position = Vector2(96,42) if page == "bag" else Vector2(196,8) if page == "rebind" else Vector2(276,58) if page == "floor" else Vector2(316,58)
+    panel.custom_minimum_size = Vector2(960,0) if page == "bag" else Vector2(760,0) if page == "rebind" else Vector2(600,0) if page == "floor" else Vector2(520,0)
     panel.size = Vector2.ZERO
     match page:
         "main":
@@ -297,7 +404,9 @@ func show_page(next: String) -> void:
             var src = get_parent()
             var story: Dictionary = src.story if "ents" in src else TeamRecord.data.get("story",{})
             var beaten: Array = src.beaten if "ents" in src else TeamRecord.data.get("beaten",[])
-            var goal: Dictionary = load("res://scripts/town/objective.gd").current(story,beaten)
+            # Below in a Hollow, the line leaves out how to get down from town (Claude, 2026-10-24, LV-23).
+            var below = String(src.scene_file_path).ends_with("dungeon.tscn")
+            var goal: Dictionary = load("res://scripts/town/objective.gd").current(story,beaten,below)
             _label(String(goal["short"]),30)   # the goal itself in the title face (Claude, 2026-10-22, LP-28)
             _label(String(goal["long"]),20)
             _action("Back","Back",show_page.bind("main"))
@@ -308,9 +417,13 @@ func show_page(next: String) -> void:
             _floor_page()
             _action("Back","Back",show_page.bind("main"))
         "log":
+            # Names in their side's colours, as the message box shows them (pass 3 D8, Claude, 2026-10-23).
             var lines: Array = get_parent().log_lines
-            for line in lines.slice(maxi(0,lines.size()-12)):
-                _label(line,16)
+            var marks = get_parent().get("log_marks")
+            if marks == null: marks = []
+            for k in range(maxi(0,lines.size()-12),lines.size()):
+                var at = marks.size()-lines.size()+k
+                _log_row(String(lines[k]),marks[at] if at >= 0 and at < marks.size() else {})
             if lines.is_empty(): _label("Nothing has happened yet.",18)
             _action("Back","Back",show_page.bind("main"))
         "title", "quit":
@@ -459,17 +572,19 @@ func _bag_page() -> void:
     content.add_child(bag_view)
     bag_view.setup(entries,scene.has_method("act_use_item"),self)
     # Key hints in the house column style: the key, two spaces, what it does (Claude, 2026-10-22, W12). The
-    # keys are the device's in use (Claude, 2026-10-23): Arrows, Enter and Esc, or D-pad, A and B.
-    bag_hint = _label(_bag_hint_words(bag.is_empty(),scene.has_method("act_use_item")),16)
+    # keys are the device's in use (Claude, 2026-10-23): Arrows, Enter and Esc, or D-pad, A and B. In capitals
+    # in the label face, as the Hollow's own key hints read ("KEY  USE", Claude, 2026-10-24, LV-21).
+    bag_hint = _label(_bag_hint_words(bag.is_empty(),scene.has_method("act_use_item")),14)
+    bag_hint.add_theme_color_override("font_color",UI.MUTED)
     bag_hint.set_meta("empty",bag.is_empty())
     bag_hint.set_meta("use",scene.has_method("act_use_item"))
 
 func _bag_hint_words(empty: bool, can_use: bool) -> String:
     var pad = UI.last_device() == "pad"
     var back = "%s  back" % UI.binding_text("ui_cancel")
-    if empty: return back
+    if empty: return back.to_upper()
     var browse = "%s  browse     " % ("D-pad" if pad else "Arrows")
-    return browse + back if not can_use else browse + "%s  use     " % UI.binding_text("ui_accept") + back
+    return (browse + back if not can_use else browse + "%s  use     " % UI.binding_text("ui_accept") + back).to_upper()
 
 # Choosing an item closes the menu and uses it the way the bag key does: it spends the turn.
 func _use_item(kind: String) -> void:
@@ -480,22 +595,70 @@ func _use_item(kind: String) -> void:
     # A recruit question that turn raised is answered first (a step waits for it too).
     if is_instance_valid(s) and not s.busy and s.asking < 0: s.act_use_item(kind)
 
+# The Ground page (Claude, 2026-10-24, LV-22): the dungeon's name as the heading with the floor under it, as its
+# place card shows them, then one labelled row each for the turn, the lantern (a bar and its value), what is
+# underfoot, the water and the partners' order. The words are the page's own from before.
 func _floor_page() -> void:
     var s = get_parent()
     var lead: Dictionary = s.ents[0]
-    _label("B%dF   turn %d" % [s.floor_n,s.turn],22)
-    _label("Lantern %d%%" % int(round(100.0 * s.light / s.LIGHT_MAX)),20)
+    var head = content.get_child(0) as Label
+    if "dungeon" in s and s.DUNGEONS.has(s.dungeon):
+        head.text = String(s.DUNGEONS[s.dungeon]["name"]).to_upper()
+        var role = UI.fit(head.text,"title",head.custom_minimum_size.x)
+        head.add_theme_font_override("font",UI.font(role))
+        head.add_theme_font_size_override("font_size",UI.type_size(role))
+    var floor_label = _label("B%dF" % s.floor_n,22)
+    floor_label.add_theme_font_override("font",UI.font("button"))
+    floor_label.add_theme_font_size_override("font_size",UI.type_size("button"))
+    floor_label.add_theme_color_override("font_color",UI.EDGE_LIGHT)
     var under = "nothing"
     # The keys named are the live ones for the device in use (Claude, 2026-10-23): E and T, or X and LB on a pad.
     if lead["pos"] == s.data["stairs"]: under = "the stairs (%s goes down)" % UI.binding_text("interact")
     for t in s.traps:
         if t["pos"] == lead["pos"] and t["seen"]: under = "a %s trap" % t["kind"]
     if "water_rows" in s and s.wet(lead["pos"]): under = "water (the lantern's getting wet)"
-    _label("Underfoot: " + under,20)
-    if "water_rows" in s and s.water_rows > 0: _label("Water: %d rows up from the low end, rising" % s.water_rows if s.water_rows < s.water_max else "Water: %d rows up from the low end, as high as it gets" % s.water_rows,20)
-    _label("Partners' order: " + s.TACTIC_NAMES[s.tactic] + " (%s changes it)" % UI.binding_text("tactics"),20)
+    var keys = ["Turn","Lantern","Underfoot","Water","Partners' order","The nest"]
+    var key_w = 0.0
+    for k in keys: key_w = maxf(key_w,UI.width_in(String(k).to_upper(),"label"))
+    _floor_row("Turn","%d" % s.turn,key_w)
+    var lantern = _floor_row("Lantern","%d%%" % int(round(100.0 * s.light / s.LIGHT_MAX)),key_w,146.0)
+    var gauge = Control.new()
+    gauge.name = "LanternBar"
+    gauge.custom_minimum_size = Vector2(146,lantern.get_child(0).custom_minimum_size.y)
+    gauge.size_flags_vertical = Control.SIZE_SHRINK_BEGIN
+    var frac = clampf(s.light / s.LIGHT_MAX,0.0,1.0)
+    gauge.draw.connect(func() -> void: UI.bar(gauge,Rect2(0,roundf((gauge.size.y-9.0)/2.0),gauge.size.x,9),frac,UI.LIGHT))
+    lantern.add_child(gauge)
+    lantern.move_child(gauge,1)
+    _floor_row("Underfoot",under,key_w)
+    if "water_rows" in s and s.water_rows > 0: _floor_row("Water","%d rows up from the low end, rising" % s.water_rows if s.water_rows < s.water_max else "%d rows up from the low end, as high as it gets" % s.water_rows,key_w)
+    _floor_row("Partners' order",s.TACTIC_NAMES[s.tactic] + " (%s changes it)" % UI.binding_text("tactics"),key_w)
+    if s.monster_sprung: _floor_row("The nest","cleared" if s.house_cleared else "still fighting",key_w)
     if s.boss_alive(): _label("%s guards this floor. The stairs are sealed." % s.ents[s.boss]["name"],20)
-    if s.monster_sprung: _label("The nest: " + ("cleared" if s.house_cleared else "still fighting"),20)
+
+# One labelled row of the Floor page: the label in the label face, its value in the body face beside it, the
+# labels one column wide (`key_w`) so the values line up; `beside` keeps room for a gauge before the value. The
+# value is given its width up front: a wrapping label that starts at no width measures itself a word a line tall.
+# Returns the row.
+func _floor_row(key: String, value: String, key_w: float, beside := 0.0) -> HBoxContainer:
+    var row = HBoxContainer.new()
+    row.add_theme_constant_override("separation",14)
+    var line_h = ceilf(UI.font("body").get_height(UI.type_size("body")))
+    var k = _label(key,14)
+    content.remove_child(k)
+    k.autowrap_mode = TextServer.AUTOWRAP_OFF
+    k.custom_minimum_size = Vector2(ceilf(key_w),line_h)
+    k.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+    k.size_flags_vertical = Control.SIZE_SHRINK_BEGIN
+    k.add_theme_color_override("font_color",UI.MUTED)
+    row.add_child(k)
+    var v = _label(value,20)
+    content.remove_child(v)
+    v.custom_minimum_size.x = FLOOR_W - ceilf(key_w) - 14.0 - (beside + 14.0 if beside > 0.0 else 0.0)
+    v.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+    row.add_child(v)
+    content.add_child(row)
+    return row
 
 func toggle_motion() -> void:
     motion = not motion
@@ -561,12 +724,17 @@ func leave() -> void:
     if page == "quit":
         get_tree().quit()
         return
+    # The black fade first, as every other exit of ours (Claude, 2026-10-24, LV-07b): it runs while the tree is
+    # still paused, then the title opens under it and it lifts (the title does not lift a fade itself).
+    var tree = get_tree()
+    await UI.fade_out(tree)
     _restore_music()
-    get_tree().paused = false
-    var err = get_tree().change_scene_to_file(TITLE)
+    tree.paused = false
+    var err = tree.change_scene_to_file(TITLE)
+    UI.fade_in(tree)
     if err != OK:
         transition = false
-        get_tree().paused = true
+        tree.paused = true
         if is_instance_valid(music_node): music_node.process_mode = Node.PROCESS_MODE_ALWAYS
         show_page("main")
         _label("The title could not open. You can still resume.")

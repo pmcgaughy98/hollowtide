@@ -6,6 +6,7 @@ extends RefCounted
 ## dark way down with lit steps. No new art and no paid generation.
 
 const Gen := preload("res://scripts/hollow/hollow_gen.gd")
+const RuinPainter := preload("res://scripts/dungeon/ruin_painter.gd")   # its stairs (pass 3 D1)
 const GRASS := "res://assets/backgrounds/arena/arena_grass.png"
 const GRASS_FLOOR := Rect2(30, 60, 340, 150)
 
@@ -58,13 +59,9 @@ static func paint_procedural(data: Dictionary, t: int, seed_value: int) -> Image
 					var shade: float = 1.0 - 0.06 * k
 					img.fill_rect(Rect2i(x * t, y0 + k, t, 1), Color(0.36 * shade, 0.29 * shade, 0.22 * shade) if k < face_h - 1 else Color(0.08, 0.06, 0.05))
 				img.fill_rect(Rect2i(x * t, y0 - 1, t, 1), Color(0.62, 0.55, 0.44))
-	# The stairs.
-	var st: Vector2i = data["stairs"]
-	var s := Vector2i(st.x * t + t / 2 - 10, st.y * t + t / 2 - 8)
-	img.fill_rect(Rect2i(s, Vector2i(20, 16)), Color(0.05, 0.05, 0.07))
-	for k in 3:
-		img.fill_rect(Rect2i(s + Vector2i(2 + k * 2, 2 + k * 5), Vector2i(16 - k * 4, 2)), Color(0.55, 0.6, 0.66))
-	img.fill_rect(Rect2i(s - Vector2i(1, 1), Vector2i(22, 1)), Color(0.85, 0.8, 0.6))
+	# The stairs: a way down cut into the bank, in the bank's own earth (Claude, 2026-10-23, pass 3 D1: the three
+	# grey bars on a black slab read as a menu icon). The drawing is ruin_painter.gd's paint_stairs.
+	RuinPainter.paint_stairs(img, data["stairs"], t, Color(0.62, 0.55, 0.44), top, Color(0.05, 0.04, 0.03), seed_value)
 	return img
 
 

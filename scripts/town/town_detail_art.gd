@@ -4,14 +4,15 @@ const DIR="res://assets/sprites/world/town_detail_2026_10_10/"
 const SIZES={"lookout":Vector2i(144,96),"landing":Vector2i(288,108),"dock":Vector2i(144,72),"river":Vector2i(384,72),"floor":Vector2i(160,96)} # 12px landing fringe over the existing bank; collision footprint stays 288x96.
 const Layout=preload("res://scripts/town/town_layout.gd")
 const Selout=preload("res://scripts/art/selout.gd")
+const UI=preload("res://scripts/ui/ui_style.gd")
 static var cache:Dictionary={}
 static func image(id:String)->Image:
 	if cache.has(id):return cache[id]
 	var path:=DIR+id+"_native.png"
-	if not FileAccess.file_exists(path):return null
-	var img:=Image.load_from_file(ProjectSettings.globalize_path(path))
+	# Claude, 2026-10-24 (A4, LV-19): UI.res_image reads the imported texture, which an exported game has; the PNG it does not.
+	var img:=UI.res_image(path)
 	if img==null or img.get_size()!=SIZES[id]:return null
-	img.convert(Image.FORMAT_RGBA8);cache[id]=img
+	cache[id]=img
 	return img
 static func available(id:String)->bool:return image(id)!=null
 static func floor_material(base:Image,area:Rect2i)->void:

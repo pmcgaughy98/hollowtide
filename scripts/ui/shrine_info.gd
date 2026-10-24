@@ -253,8 +253,10 @@ func _portrait(form: String) -> Control:
 	background.color = UI.PORTRAIT_BG
 	background.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	well.add_child(background)
-	var tex: Texture2D = town._face(form)
-	if tex == null: tex = UI.dialogue_portrait(form)
+	# The same 24 x 24 face cut every other screen shows (UI.portrait_3x, with its own fallback), drawn at a whole
+	# 3x of the cut in the 72 px well: its 48 px texture is the cut at 2x, so 1.5 here (Claude, 2026-10-23, T8 / LO-06;
+	# it was the old 48 px portrait.png through the town's _face, now gone).
+	var tex: Texture2D = UI.portrait_3x(form)
 	if tex != null:
 		var sprite := Sprite2D.new()
 		sprite.centered = false

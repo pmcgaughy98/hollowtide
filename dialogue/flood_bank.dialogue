@@ -24,16 +24,20 @@ Whose voice do you answer?
 - {{name_b}}
 	do pick_partner(1)
 {{partner_name}}: [#surprised] Hey! Hey, you alive down there?
-{{partner_name}}: [#worried] Oh, thank goodness. I seen you laying in the mud and thought you were a log. Then the log blinked.
+{{partner_name}}: [#worried] Oh, thank goodness. I seen you laying in the mud and thought you were a log.
+{{partner_name}}: [#worried] Then the log blinked.
 - I'm okay, I think.
 	{{partner_name}}: [#happy] "I think" is good. I'll take "I think."
 - Where am I?
 	{{partner_name}}: [#surprised] Right under Highbank. Well, what's left of the bank. It's mostly river now.
 {{partner_name}}: [#worried] You picked a bad night to nap by the river, I'll tell you what.
 {{partner_name}} is hugging something to its chest. A parcel, wrapped tight in oilcloth.
-{{partner_name}}: [#sad] Oh, this? It's mail. The river took the whole mail shed right off its posts. This is the only one I could grab.
-{{partner_name}}: [#worried] I'm not even supposed to be out here. I'm not a runner yet. Starward won't let me run a route without a partner, and nobody wants to pair up with the trainee.
-{{partner_name}}: [#worried] But I was laying there listening to it rain, and something just told me I needed to come down here tonight. Don't ask me what.
+{{partner_name}}: [#sad] Oh, this? It's mail. The river took the whole mail shed right off its posts.
+{{partner_name}}: [#sad] This is the only one I could grab.
+{{partner_name}}: [#worried] I'm not even supposed to be out here. I'm not a runner yet.
+{{partner_name}}: [#worried] Starward won't let me run a route without a partner, and nobody wants to pair up with the trainee.
+{{partner_name}}: [#worried] But I was laying there listening to it rain, and something just told me I needed to come down here tonight.
+{{partner_name}}: [#worried] Don't ask me what.
 {{partner_name}}: [#surprised] ...And then there's you.
 Thunder. A slab of the bank slumps into the water right behind you.
 {{partner_name}}: [#surprised] Okay! Okay, nope. The road up's already under. We gotta get higher.

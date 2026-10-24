@@ -323,7 +323,7 @@ static func dialogue(c: CanvasItem, box: Rect2, speaker: String, line: String, p
 	var rows := _dialogue_rows(line, width)
 	_line_pages(line, ceili(rows.size() / 2.0))
 	var page := int(_line["page"])
-	var page_text := "\n".join(rows.slice(page * 2, page * 2 + 2))
+	var page_text := "\n".join(rows.slice(page * 2, page * 2 + 2)).rstrip("\n")   # a one-row page's empty second row
 	var shown := page_text.substr(0, typed(line, page_text))
 	c.draw_multiline_string(f, at + Vector2(2, 2), shown, HORIZONTAL_ALIGNMENT_LEFT, width + 10, type_size("story"), -1, SHADOW)
 	c.draw_multiline_string(f, at, shown, HORIZONTAL_ALIGNMENT_LEFT, width + 10, type_size("story"), -1, TEXT)
@@ -331,34 +331,139 @@ static func dialogue(c: CanvasItem, box: Rect2, speaker: String, line: String, p
 		next_arrow(c, box.end - Vector2(48, 36), t)   # more on the next page, or the next line
 
 
-## The rows of a dialogue line at `width`, with the widow rule (Claude, 2026-10-22, LP-19): when the line
-## pages and its last page is under 12 characters ("go again."), the rows are re-wrapped a little narrower,
-## a step at a time, until the last page carries a real line; a wrap that would add a page is not taken.
-const WIDOW := 12
+## The rows of a dialogue line at `width`, two to a page (Claude, 2026-10-23, U7 for L06; it replaces the
+## 2026-10-22 widow rule). A page ends where a sentence ends whenever the next page would otherwise open
+## mid-sentence ("sure where they come from."). A sentence splits across pages only when it is longer than two
+## rows by itself, and then at least ORPHAN of its words go over together. A short sentence is not left alone on
+## a page ahead of one that splits anyway, and a last page under ORPHAN words takes the sentence before it when
+## both fit. A page that ends on its first row gets an empty second row, so pages stay pairs of rows. The words
+## never change. Cached per line and width, as the box is drawn every frame.
+const ORPHAN := 4
+static var _rows_cache := {}
 
 
 static func _dialogue_rows(line: String, width: float) -> PackedStringArray:
-	var rows := wrap_text(line, width, "story").split("\n")
-	var pages := ceili(rows.size() / 2.0)
-	if pages < 2 or _last_page_len(rows) >= WIDOW:
+	var key := "%d|%s" % [roundi(width), line]
+	if not _rows_cache.has(key):
+		if _rows_cache.size() > 64:
+			_rows_cache.clear()
+		_rows_cache[key] = _page_rows(line, width)
+	return _rows_cache[key]
+
+
+static func _page_rows(line: String, width: float) -> PackedStringArray:
+	var plain := wrap_text(line, width, "story").split("\n")
+	if "\n" in line:
+		return plain   # a line that breaks itself
+	if plain.size() <= 2:
+		return _page_wrap(line, width)   # one page
+	var words := line.split(" ")
+	var n := words.size()
+	var pages: Array = []   # [first word, end] of each page
+	var i := 0
+	while i < n:
+		var j := mini(n, i + _fit_words(words, i, width))
+		if j >= n:
+			pages.append([i, n])
+			break
+		var k := _last_break(words, i, j)
+		if k > i and k - i < ORPHAN and _rows_of(words, k, _sentence_end(words, k), width) > 2:
+			k = -1   # a short sentence ahead of a long one: fill the page, the long one splits anyway
+		if k <= i:
+			k = _split_at(words, i, j)
+		pages.append([i, k])
+		i = k
+	if pages.size() >= 2 and int(pages[-1][1]) - int(pages[-1][0]) < ORPHAN:
+		var before: Array = pages[-2]
+		var k := _last_break(words, int(before[0]), int(before[1]) - 1)
+		if k > int(before[0]) and _rows_of(words, k, n, width) <= 2:
+			before[1] = k
+			pages[-1][0] = k
+	var rows := PackedStringArray()
+	for p: Array in pages:
+		var page := _page_wrap(" ".join(words.slice(int(p[0]), int(p[1]))), width)
+		rows.append_array(page)
+		if page.size() == 1 and p != pages[-1]:
+			rows.append("")
+	return rows
+
+
+## One page's rows. A second row under WIDOW letters ("spring.") is evened out: the page is re-wrapped a little
+## narrower, a step at a time, while it still takes two rows (the 2026-10-22 widow rule, now for every page).
+const WIDOW := 12
+
+
+static func _page_wrap(s: String, width: float) -> PackedStringArray:
+	var rows := wrap_text(s, width, "story").split("\n")
+	if rows.size() != 2 or rows[1].length() >= WIDOW:
 		return rows
 	var w := width
 	for k in 8:
 		w *= 0.92
-		var again := wrap_text(line, w, "story").split("\n")
-		if ceili(again.size() / 2.0) > pages:
+		var again := wrap_text(s, w, "story").split("\n")
+		if again.size() > 2:
 			break
-		if _last_page_len(again) >= WIDOW:
+		if again[1].length() >= WIDOW:
 			return again
 	return rows
 
 
-static func _last_page_len(rows: PackedStringArray) -> int:
-	var first := (ceili(rows.size() / 2.0) - 1) * 2
+## How many words from `i` two rows hold.
+static func _fit_words(words: PackedStringArray, i: int, width: float) -> int:
+	var rows := wrap_text(" ".join(words.slice(i)), width, "story").split("\n")
 	var n := 0
-	for k in range(first, rows.size()):
-		n += rows[k].strip_edges().length()
+	for r in mini(2, rows.size()):
+		n += rows[r].split(" ").size()
 	return n
+
+
+static func _rows_of(words: PackedStringArray, from: int, to: int, width: float) -> int:
+	return wrap_text(" ".join(words.slice(from, to)), width, "story").split("\n").size()
+
+
+## Where a sentence too long for one page splits, from the page's middle to the most words it holds (`j`): before a
+## word with a capital ("told me / I needed"), else after a comma, semicolon, colon or dash, else as full as it
+## goes. At least ORPHAN of the sentence's words go over together.
+static func _split_at(words: PackedStringArray, i: int, j: int) -> int:
+	var e := _sentence_end(words, j)
+	var hi := j
+	if e - j < ORPHAN and e - ORPHAN > i:
+		hi = e - ORPHAN
+	var lo := maxi(i + 1, i + (j - i + 1) / 2)
+	for k in range(hi, lo - 1, -1):
+		var c := words[k].lstrip("'\"(‘“").left(1)
+		if c != c.to_lower():
+			return k
+	for k in range(hi, lo - 1, -1):
+		if ",;:-".contains(words[k - 1].right(1)):
+			return k
+	return hi
+
+
+## A sentence ends before word `k`: the word ahead ends in . ! or ? (a closing quote or bracket may follow) and
+## word `k` does not start in lower case ("Well... maybe" runs on).
+static func _breaks_before(words: PackedStringArray, k: int) -> bool:
+	if k <= 0 or k >= words.size():
+		return false
+	var ahead := words[k - 1].rstrip("'\")]\u2019\u201d")
+	var next := words[k].lstrip("'\"(\u2018\u201c")
+	return ahead != "" and ".!?".contains(ahead.right(1)) and next != "" and next.left(1) == next.left(1).to_upper()
+
+
+## The last sentence break after word `i`, up to and including `j`; -1 when there is none.
+static func _last_break(words: PackedStringArray, i: int, j: int) -> int:
+	for k in range(j, i, -1):
+		if _breaks_before(words, k):
+			return k
+	return -1
+
+
+## Where the sentence holding word `k` ends: the next break after it, or the end of the line.
+static func _sentence_end(words: PackedStringArray, k: int) -> int:
+	for e in range(k + 1, words.size()):
+		if _breaks_before(words, e):
+			return e
+	return words.size()
 
 
 ## The line typing itself out (Claude, 2026-10-10; Preston: the Mystery Dungeon text sound, "like the old
@@ -526,25 +631,131 @@ static func item_icon(kind: String) -> Texture2D:
 	return icon("item/scroll" if kind.begins_with("scroll:") else "item/" + kind)
 
 
-## Menu preferences (Claude, 2026-10-22, the factory contract): user://menu_preferences.cfg, the file the
-## title and pause menus already write, read once and kept. Reduce motion (menu/reduce_motion) halves the
-## fades; text speed (menu/text_speed: 1 normal, 2 fast, 0 instant) scales the typing in typed(); the
-## screen mode (display/fullscreen) is set and saved by apply_screen_mode. A menu that saves a pref calls
-## reload_prefs() so the change counts in the same session.
+## The pixels of a res:// picture, in RGBA8, in the editor and in an exported game alike (Claude, 2026-10-24, A4
+## for LV-19). An export carries the imported texture and not the PNG, so Image.load_from_file on a globalized
+## path found nothing there and every art layer quietly fell back to its stand-in painting. The imported texture
+## is read first (on the main thread, where the renderer hands its pixels back), the file itself only when there
+## is no import. A copy every time, so a painter can draw on it. Null when neither exists.
+static func res_image(path: String) -> Image:
+	var img: Image = null
+	if ResourceLoader.exists(path) and OS.get_thread_caller_id() == OS.get_main_thread_id():
+		var res := load(path)
+		if res is Texture2D:
+			img = (res as Texture2D).get_image()
+		elif res is Image:
+			img = res
+	if (img == null or img.is_empty()) and FileAccess.file_exists(path):
+		img = Image.load_from_file(path)
+	if img == null or img.is_empty():
+		return null
+	img = img.duplicate()
+	if img.is_compressed():
+		img.decompress()
+	img.convert(Image.FORMAT_RGBA8)
+	return img
+
+
+## Whether res_image(path) has a picture to give: an imported texture (all an export has) or the file.
+static func res_exists(path: String) -> bool:
+	return ResourceLoader.exists(path) or FileAccess.file_exists(path)
+
+
+## Menu preferences (Claude, 2026-10-22, the factory contract), read once and kept. Reduce motion
+## (menu/reduce_motion) halves the fades; text speed (menu/text_speed: 1 normal, 2 fast, 0 instant) scales the
+## typing in typed(); the screen mode (display/fullscreen) is set and saved by apply_screen_mode. A menu that
+## saves a pref with save_pref sees it at once; one that writes a file itself calls reload_prefs().
+## Two files (Claude, 2026-10-23, U1 for LO-01): the title saves user://menu_preferences.cfg whole from a fresh
+## ConfigFile, so that file keeps only the keys the title writes (TITLE_KEYS: the three volumes, reduce motion,
+## the courier). Every other pref (text speed, full screen, InputPrefs' [input] bindings) lives in
+## user://game_prefs.cfg, where a title save cannot wipe it. A game key found in the title's file (an older
+## build's prefs, or a menu that still saves one there) moves into game_prefs.cfg the next time prefs are read,
+## so a missing game_prefs.cfg is filled from the old file once.
 const PREFS_PATH := "user://menu_preferences.cfg"
+const GAME_PREFS_PATH := "user://game_prefs.cfg"
+const TITLE_KEYS := {"audio": ["master", "music", "sfx"], "menu": ["reduce_motion", "courier"]}
 static var _prefs: ConfigFile = null
+static var _game_prefs: ConfigFile = null
 
 
 static func _pref(section: String, key: String, default: Variant) -> Variant:
-	if _prefs == null:
+	if _prefs == null or _game_prefs == null:
+		_move_game_keys()
 		_prefs = ConfigFile.new()
 		_prefs.load(PREFS_PATH)   # no file yet reads as every default
-	return _prefs.get_value(section, key, default)
+		_game_prefs = ConfigFile.new()
+		_game_prefs.load(GAME_PREFS_PATH)
+	return (_prefs if is_title_pref(section, key) else _game_prefs).get_value(section, key, default)
 
 
 ## Forget the cached preferences, so the next read sees what a menu just saved.
 static func reload_prefs() -> void:
 	_prefs = null
+	_game_prefs = null
+
+
+## Whether a pref belongs in the title's file (one the title's Options write) rather than game_prefs.cfg.
+static func is_title_pref(section: String, key: String) -> bool:
+	return TITLE_KEYS.has(section) and (TITLE_KEYS[section] as Array).has(key)
+
+
+## Save one pref in the file it belongs to; the file is loaded first, so its other keys stay.
+static func save_pref(section: String, key: String, value: Variant) -> bool:
+	if is_title_pref(section, key):
+		var title := ConfigFile.new()
+		title.load(PREFS_PATH)
+		title.set_value(section, key, value)
+		return write_prefs(title, PREFS_PATH)
+	var game := load_game_prefs()
+	game.set_value(section, key, value)
+	return write_prefs(game)
+
+
+## game_prefs.cfg as it is on disk (empty when there is none yet), once any game key left in the title's file
+## has moved in. InputPrefs edits it and hands it back to write_prefs.
+static func load_game_prefs() -> ConfigFile:
+	_move_game_keys()
+	var cfg := ConfigFile.new()
+	cfg.load(GAME_PREFS_PATH)
+	return cfg
+
+
+## `cfg` written whole to `path`: to <path>.tmp first, the file before it kept as <path>.bak, then the .tmp takes
+## the name (the team save's crash-safe write, team_state.gd). The cached prefs are dropped after.
+static func write_prefs(cfg: ConfigFile, path := GAME_PREFS_PATH) -> bool:
+	var tmp := path + ".tmp"
+	var err := cfg.save(tmp)
+	if err == OK:
+		var main := ProjectSettings.globalize_path(path)
+		if FileAccess.file_exists(path):
+			DirAccess.rename_absolute(main, main + ".bak")   # replaces the older .bak
+		err = DirAccess.rename_absolute(ProjectSettings.globalize_path(tmp), main)
+	reload_prefs()
+	if err != OK:
+		push_warning("Prefs: could not save %s (%s)" % [path, error_string(err)])
+	return err == OK
+
+
+## Every game key still in the title's file moves into game_prefs.cfg. Nothing of ours saves a game key there
+## now, so one found there was saved after game_prefs.cfg was, and it wins. The title's file loses the keys
+## only once game_prefs.cfg holds them.
+static func _move_game_keys() -> void:
+	var title := ConfigFile.new()
+	if title.load(PREFS_PATH) != OK:
+		return
+	var moving: Array = []
+	for section in title.get_sections():
+		for key in title.get_section_keys(section):
+			if not is_title_pref(section, key):
+				moving.append([section, key])
+	if moving.is_empty():
+		return
+	var game := ConfigFile.new()
+	game.load(GAME_PREFS_PATH)
+	for sk: Array in moving:
+		game.set_value(sk[0], sk[1], title.get_value(sk[0], sk[1]))
+		title.erase_section_key(sk[0], sk[1])
+	if write_prefs(game):
+		write_prefs(title, PREFS_PATH)
 
 
 static func reduce_motion() -> bool:
@@ -562,14 +773,12 @@ static func screen_full() -> bool:
 	return bool(_pref("display", "fullscreen", false))
 
 
-## Full screen or windowed, now and on the next launch: the pref is written and the other keys kept.
-static func apply_screen_mode(full: bool) -> void:
+## Full screen or windowed, now and on the next launch: the pref is written and the other keys kept. InputPrefs
+## restores the saved mode at launch with `save` false (Claude, 2026-10-23, U2).
+static func apply_screen_mode(full: bool, save := true) -> void:
 	DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN if full else DisplayServer.WINDOW_MODE_WINDOWED)
-	var c := ConfigFile.new()
-	c.load(PREFS_PATH)
-	c.set_value("display", "fullscreen", full)
-	c.save(PREFS_PATH)
-	reload_prefs()
+	if save:
+		save_pref("display", "fullscreen", full)
 
 
 ## `secs` as the player asked for it: half under reduce motion, never negative.
@@ -903,7 +1112,7 @@ static func binding_text(action: StringName, device := "", every := false) -> St
 	for ev: InputEvent in InputMap.action_get_events(action):
 		if _is_pad(ev) != (device == "pad"):
 			continue
-		var s := _event_text(ev)
+		var s := event_text(ev)
 		if s != "" and ev is InputEventJoypadButton and INPUT_CHORDS.has(String(action)):
 			s = binding_text(INPUT_CHORDS[String(action)], "pad") + "+" + s
 		if s != "" and not out.has(s):
@@ -1067,7 +1276,9 @@ static func _motion_edge(ev: InputEventJoypadMotion) -> bool:
 	return bool(_edge_fire[1 if ev.axis_value > 0.0 else -1])
 
 
-static func _event_text(ev: InputEvent) -> String:
+## What one key, button or stick push prints in a hint ("J", "Space", "A", "Left stick Up"); "" for none. Public
+## since 2026-10-23 (Claude, U4): the rebinding page names what the player pressed with it.
+static func event_text(ev: InputEvent) -> String:
 	if ev is InputEventKey:
 		var code: int = ev.physical_keycode
 		if code != KEY_NONE:
@@ -1100,23 +1311,26 @@ static func _event_text(ev: InputEvent) -> String:
 
 ## One pixel density for small faces (UI-05, Claude, 2026-10-23): the team row, the pause menu's team page and
 ## the party cards drew 48x48 portraits at 1x while dialogue faces are 40x40 at 3x. portrait_3x(form) is a
-## `span` x `span` cut of the dialogue face (16 by default, so 48x48), scaled 3x with no smoothing; drawn at 1x in
-## the old 48 px box it matches the dialogue's pixels. The cut is centred on FACE_AT, the middle of each face
-## (picked by eye from the 40x40 faces, 2026-10-23; a form not listed is cut round (20, 18)). A form with no
+## `span` x `span` cut of the dialogue face (24 by default since Preston's 24 x 24 call, so 48x48 at 2x; 16 at 3x
+## before), scaled with no smoothing and drawn at 1x in the old 48 px box. The cut is centred on FACE_AT, the middle of each face
+## (picked by eye from the 40x40 faces, 2026-10-23; a form not listed is cut round (20, 18)). Pass 3 (Claude,
+## 2026-10-23, U8 for LO-07) moved seven that sat off the face (Cairnshell, Crawdukes, Riftfin, Troughspine,
+## Warden, Vitrecrag, Rampartroot) and set three that a 24 x 24 cut pushed back in at an edge to where it lands
+## (Clinkerhide, Highsignal, Stillwade); tools/debug/face_crop_check.gd keeps every cut inside its face. A form with no
 ## dialogue face falls back to its portrait.png, then to its dungeon still in a 48 px box, as the team row did.
 ## Cached per form and span. "kithflare:joyous" cuts the joyous face round kithflare's centre.
 const FACE_AT := {
-	"archroot": Vector2i(24, 22), "cairnshell": Vector2i(19, 18), "caller": Vector2i(19, 21), "canvaswing": Vector2i(12, 17),
-	"cinderhide": Vector2i(18, 12), "clinkerhide": Vector2i(29, 18), "crawdukes": Vector2i(16, 18), "dustkite": Vector2i(17, 21),
+	"archroot": Vector2i(24, 22), "cairnshell": Vector2i(20, 18), "caller": Vector2i(19, 21), "canvaswing": Vector2i(12, 17),
+	"cinderhide": Vector2i(18, 12), "clinkerhide": Vector2i(28, 18), "crawdukes": Vector2i(18, 19), "dustkite": Vector2i(17, 21),
 	"fusern": Vector2i(20, 19), "galeshear": Vector2i(21, 18), "grubbit": Vector2i(25, 20), "gruntle": Vector2i(20, 21),
-	"highsignal": Vector2i(20, 11), "huskward": Vector2i(19, 18), "inkhoot": Vector2i(25, 20), "ironvent": Vector2i(18, 15),
+	"highsignal": Vector2i(20, 12), "huskward": Vector2i(19, 18), "inkhoot": Vector2i(25, 20), "ironvent": Vector2i(18, 15),
 	"kithflare": Vector2i(21, 13), "listener": Vector2i(18, 18), "mirekit": Vector2i(20, 21), "muskin": Vector2i(23, 19),
 	"oathfen": Vector2i(17, 19), "oxbowarchon": Vector2i(16, 20), "ozbender": Vector2i(14, 18), "pouchbill": Vector2i(14, 12),
-	"preostmar": Vector2i(21, 13), "rampartroot": Vector2i(14, 14), "riftfin": Vector2i(24, 16), "rimefin": Vector2i(24, 17),
+	"preostmar": Vector2i(21, 13), "rampartroot": Vector2i(16, 17), "riftfin": Vector2i(27, 21), "rimefin": Vector2i(24, 17),
 	"rinsepaw": Vector2i(21, 16), "scourmaw": Vector2i(26, 16), "skimlet": Vector2i(17, 21), "slagglass": Vector2i(23, 24),
 	"slipjaw": Vector2i(20, 14), "sparkwick": Vector2i(20, 16), "springvault": Vector2i(19, 12), "starward": Vector2i(23, 14),
-	"stillwade": Vector2i(22, 10), "stormwick": Vector2i(18, 16), "swaphoard": Vector2i(24, 28), "tallowroot": Vector2i(21, 13),
-	"troughspine": Vector2i(16, 22), "valvekin": Vector2i(13, 17), "vitrecrag": Vector2i(18, 14), "warden": Vector2i(24, 24),
+	"stillwade": Vector2i(22, 12), "stormwick": Vector2i(18, 16), "swaphoard": Vector2i(24, 28), "tallowroot": Vector2i(21, 13),
+	"troughspine": Vector2i(15, 23), "valvekin": Vector2i(13, 17), "vitrecrag": Vector2i(16, 18), "warden": Vector2i(19, 18),
 	"wayling": Vector2i(24, 23), "waywhistle": Vector2i(14, 14), "whinet": Vector2i(24, 20), "wickglow": Vector2i(15, 21),
 	"windcut": Vector2i(26, 25),
 }

@@ -22,6 +22,10 @@ static func _path_at(x: int, y: int) -> bool:
 			return true
 	return false
 
+## How wide the road's verge is `along` px down a seam (`line` names it): 2 to 4 px, in runs of 5 (T2).
+static func _verge(along: int, line: int) -> int:
+	return 2 + _hash(along / 5, line, 61) % 3
+
 static func paint(blockout: Image) -> Image:
 	var img = Image.create(Layout.W * T, Layout.H * T, false, Image.FORMAT_RGBA8)
 	# Larger islands of close tones, rather than independent pixel noise or a 24px checkerboard.
@@ -95,8 +99,13 @@ static func paint(blockout: Image) -> Image:
 				c = Color("#998465")
 			if n % 7 == 0 and sx in [5, 6] and sy in [3, 4]:
 				c = Color("#a28e6c")
-			# A soft earthen verge stays inside the road's authored footprint.
-			if (x % T < 2 and not _path_at(x / T - 1, y / T)) or (x % T > 21 and not _path_at(x / T + 1, y / T)) or (y % T < 2 and not _path_at(x / T, y / T - 1)) or (y % T > 21 and not _path_at(x / T, y / T + 1)):
+			# A soft earthen verge stays inside the road's authored footprint. Its width wanders 2 to 4 px and its
+			# inner pixel is dithered, so the road's edge is no ruled line (Claude, 2026-10-23, T2).
+			var vx = _verge(y, x / T * T)
+			var vy = _verge(x, y / T * T + 7)
+			var rim = (x % T < vx and not _path_at(x / T - 1, y / T)) or (x % T > T - 1 - vx and not _path_at(x / T + 1, y / T)) or (y % T < vy and not _path_at(x / T, y / T - 1)) or (y % T > T - 1 - vy and not _path_at(x / T, y / T + 1))
+			var inner = (x % T == vx and not _path_at(x / T - 1, y / T)) or (x % T == T - 1 - vx and not _path_at(x / T + 1, y / T)) or (y % T == vy and not _path_at(x / T, y / T - 1)) or (y % T == T - 1 - vy and not _path_at(x / T, y / T + 1))
+			if rim or (inner and (x + y) % 2 == 0):
 				c = Color("#918461")
 			img.set_pixel(x, y, c)
 	# Stair treads signal elevation only at the two existing cliff crossings.
@@ -136,9 +145,7 @@ static func paint(blockout: Image) -> Image:
 		if place["id"] == "shrine":
 			shrine_ground = img.get_region(px)
 		if place["kind"] == "area":
-			var col = Color("#92956a") if place["id"] in ["lookout", "shrine", "yard"] else Color("#b2a17c")
-			for edge in [Rect2i(px.position, Vector2i(px.size.x, 1)), Rect2i(px.position + Vector2i(0, px.size.y - 1), Vector2i(px.size.x, 1)), Rect2i(px.position, Vector2i(1, px.size.y)), Rect2i(px.position + Vector2i(px.size.x - 1, 0), Vector2i(1, px.size.y))]:
-				img.fill_rect(edge, col)
+			# No ruled line round the area's rectangle any more (Claude, 2026-10-23, T2): its art and the ground meet.
 			for door in Layout.door_tiles(place):
 				var d: Vector2i = door * T
 				img.fill_rect(Rect2i(d + Vector2i(7, 17), Vector2i(10, 2)), Color("#d0b891"))

@@ -6,6 +6,7 @@ const Stone := preload("res://scripts/dungeon/ruin_painter.gd")
 const Gen := preload("res://scripts/hollow/hollow_gen.gd")
 const ART := "res://assets/sprites/world/waking_bank_2026_10_10/waking_native.png"
 const Finish := preload("res://scripts/ui/waking_bank_finish.gd")
+const UI := preload("res://scripts/ui/ui_style.gd")
 var reduce_motion := false
 var companion_visible := false
 var show_actor_shadows := true
@@ -24,10 +25,9 @@ func _ready() -> void:
 	add_child(background)
 
 static func detailed_image(path: String = ART) -> Image:
-	if not FileAccess.file_exists(path): return null
-	var img := Image.load_from_file(ProjectSettings.globalize_path(path))
-	if img == null or img.is_empty() or img.get_size() != Vector2i(384,216): return null
-	img.convert(Image.FORMAT_RGBA8)
+	# Claude, 2026-10-24 (A4, LV-19): UI.res_image reads the imported texture, which an exported game has; the PNG it does not.
+	var img := UI.res_image(path)
+	if img == null or img.get_size() != Vector2i(384,216): return null
 	return img
 
 func water_at(x: int, y: int) -> bool:

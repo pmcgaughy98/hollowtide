@@ -2,6 +2,7 @@ extends RefCounted
 ## Authored native 24px terrain. Neighbour rules select silhouettes, never blur a floor.
 const Gen := preload("res://scripts/hollow/hollow_gen.gd")
 const Rim := preload("res://scripts/art/selout.gd")
+const UI := preload("res://scripts/ui/ui_style.gd")
 const T := 24
 const FOLDER := "res://assets/tilesets/dungeon_tiles_2026_10_10/"
 const DIRS := [Vector2i.UP,Vector2i.RIGHT,Vector2i.DOWN,Vector2i.LEFT,Vector2i(1,-1),Vector2i(1,1),Vector2i(-1,1),Vector2i(-1,-1)]
@@ -132,7 +133,8 @@ static func tile(look: String, kind: String, index: int) -> Image:
 	var key := look+"_"+kind
 	if not cache.has(key):
 		var path := FOLDER+key+".png"
-		cache[key] = Image.load_from_file(ProjectSettings.globalize_path(path)) if FileAccess.file_exists(path) else null
+		# Claude, 2026-10-24 (A4, LV-19): UI.res_image reads the imported texture, which an exported game has; the PNG it does not.
+		cache[key] = UI.res_image(path)
 	var atlas: Image = cache[key]
 	var cols := 4 if kind in ["floor","decor"] else 16
 	if atlas != null and atlas.get_size() == Vector2i(cols*T,T if cols == 4 else 16*T):

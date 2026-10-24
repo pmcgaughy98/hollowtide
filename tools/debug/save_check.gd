@@ -140,7 +140,7 @@ func _run() -> void:
 	TeamState.data = {}
 	title3._on_continue()
 	guard = 0
-	while (current_scene == title3 or current_scene == null) and guard < 30 * 10:
+	while (current_scene == title3 or current_scene == null or ("ents" in current_scene and current_scene.ents.is_empty())) and guard < 30 * 10:
 		await process_frame
 		guard += 1
 	var run: Node = current_scene

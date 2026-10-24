@@ -37,7 +37,8 @@ const GROUPS := [TOWN, HOLLOW, MENUS]
 ## The line over the groups and the rule under IN A HOLLOW (Claude, 2026-10-22, LP-03: GS-05, W07). The pads
 ## work everywhere since 2026-10-23, so the old "A controller works in the menus only for now" went (proposal).
 ## The pause menu's Controls page draws note() and TURNS; the opening's help can draw them the same way.
-const NOTE := "A keyboard or a controller works everywhere. Change any key or button under Options, Controls."
+## The page that changes keys is Options, Rebind keys; the lines named the Controls page by mistake (Claude, 2026-10-24, LV-10).
+const NOTE := "A keyboard or a controller works everywhere. Change any key or button under Options, Rebind keys."
 const TURNS := "Fights in a Hollow are turn-based."
 const MOVE_ACTIONS := ["move_up", "move_left", "move_down", "move_right"]   # in WASD order
 const FOCUS_ACTIONS := ["ui_up", "ui_left", "ui_down", "ui_right"]          # Godot's own, for the menus
@@ -46,8 +47,8 @@ const FOCUS_ACTIONS := ["ui_up", "ui_left", "ui_down", "ui_right"]          # Go
 ## The line over the groups, for the device shown (proposal lines).
 static func note(device := "") -> String:
 	if _device(device) == "pad":
-		return "Showing the controller. The keyboard works everywhere too. Change any button under Options, Controls."
-	return "Showing the keyboard. A controller works everywhere too. Change any key under Options, Controls."
+		return "Showing the controller. The keyboard works everywhere too. Change any button under Options, Rebind keys."
+	return "Showing the keyboard. A controller works everywhere too. Change any key under Options, Rebind keys."
 
 
 ## The three groups with the keys as they are now: [{"head": ..., "lines": [...]}, ...]. A key the device has

@@ -2,19 +2,39 @@ extends SceneTree
 ## The hub town blockout (Claude, 2026-10-09): the layout holds together (no place overlaps another,
 ## every door is on open ground and reachable from Home, the switchbacks connect the bluff to the
 ## ferry), the team walks and follows, every place answers E, and the Mouth of the Hollow starts a run.
+## Each of those is a verdict line (Claude, 2026-10-24, H03).
 ##   Godot --path . --fixed-fps 30 --script res://tools/debug/hub_town_check.gd
-## Stills to docs/world/hub-layout-2026-10-09/.
+## The layout picture (and the Hall panel still, with a window) go to the runner's logs folder (HT_CHECK_LOGS),
+## or user:// on a direct run. `-- --update-doc` writes them to docs/world/hub-layout-2026-10-09/ instead, so a
+## suite run leaves the tracked docs alone (Claude, 2026-10-24, H03; pilot_chain_check.gd's pattern).
 
 const Layout := preload("res://scripts/town/town_layout.gd")
-const OUT := "res://docs/world/hub-layout-2026-10-09/"
+const DOC := "res://docs/world/hub-layout-2026-10-09/"
+const FERRY := Vector2i(28, 27)   # the ferry landing the switchbacks lead down to
+var fails := 0
 
 
 func _initialize() -> void:
 	_run.call_deferred()
 
 
+func _ok(what: String, good: bool) -> void:
+	print("%s -> %s" % [what, "ok" if good else "FAIL"])
+	if not good:
+		fails += 1
+
+
+## Where the pictures go: the tracked docs only when asked, else the runner's logs folder.
+func _out_dir() -> String:
+	if OS.get_cmdline_user_args().has("--update-doc"):
+		return DOC
+	var log_dir := OS.get_environment("HT_CHECK_LOGS")
+	return log_dir if log_dir != "" else "user://"
+
+
 func _run() -> void:
-	DirAccess.make_dir_recursive_absolute(ProjectSettings.globalize_path(OUT))
+	var out := _out_dir()
+	DirAccess.make_dir_recursive_absolute(ProjectSettings.globalize_path(out))
 	var g: PackedByteArray = Layout.grid()
 	# Overlaps.
 	var overlaps: Array = []
@@ -36,10 +56,17 @@ func _run() -> void:
 	for p in Layout.PLACES:
 		if not seen.has(p["door"]):
 			unreached.append(p["id"])
-	print("Layout: %d places, building overlaps %s, doors not reachable from Home %s, the ferry reachable %s" % [Layout.PLACES.size(), str(overlaps), str(unreached), str(seen.has(Vector2i(28, 27)))])
+	print("Layout: %d places, building overlaps %s, doors not reachable from Home %s, the ferry reachable %s" % [Layout.PLACES.size(), str(overlaps), str(unreached), str(seen.has(FERRY))])
+	_ok("Layout: no building overlaps another %s" % str(overlaps), overlaps.is_empty())
+	_ok("Layout: every door is reachable from Home (not reached %s)" % str(unreached), unreached.is_empty())
+	_ok("Layout: the ferry %s is reachable from Home" % str(FERRY), seen.has(FERRY))
 	Layout.new()
 	var img: Image = load("res://scripts/town/hub_town.gd").paint()
-	img.save_png(ProjectSettings.globalize_path(OUT + "layout_full.png"))
+	_ok("Layout: the street paints (an image %s)" % str(img != null), img != null)   # a broken painter fails here, not a hang
+	if img != null:
+		var png := ProjectSettings.globalize_path(out.path_join("layout_full.png"))
+		var err := img.save_png(png)
+		print("Layout picture %s %s" % ["written to" if err == OK else "could not be written to", png])
 	# Walk it.
 	var town: Node2D = load("res://scenes/hub_town.tscn").instantiate()
 	town.poll_input = false
@@ -49,7 +76,12 @@ func _run() -> void:
 	var start: Vector2i = town.team[0]["pos"]
 	for k in 4:
 		await town.act_move(Vector2i(1, 0))
-	print("Walk: the leader went %s -> %s; the partner follows at %s (%d apart)" % [str(start), str(town.team[0]["pos"]), str(town.team[1]["pos"]), int(town.team[0]["pos"].distance_to(town.team[1]["pos"]))])
+	var lead_at: Vector2i = town.team[0]["pos"]
+	var mate_at: Vector2i = town.team[1]["pos"]
+	var apart: int = maxi(absi(lead_at.x - mate_at.x), absi(lead_at.y - mate_at.y))   # Chebyshev: a diagonal neighbour is 1
+	print("Walk: the leader went %s -> %s; the partner follows at %s (%d apart)" % [str(start), str(lead_at), str(mate_at), apart])
+	_ok("Walk: four steps east take the leader from %s to %s" % [str(start), str(lead_at)], lead_at == start + Vector2i(4, 0))
+	_ok("Walk: the partner follows one tile behind (%d apart)" % apart, apart == 1)
 	# Every place answers.
 	var answered := 0
 	for p in Layout.PLACES:
@@ -70,11 +102,11 @@ func _run() -> void:
 	await process_frame
 	# Headless has no viewport texture, so the still needs a window; the printed lines are the check (Claude, 2026-10-21).
 	if DisplayServer.get_name() != "headless":
-		root.get_texture().get_image().save_png(ProjectSettings.globalize_path(OUT + "hall_panel.png"))
-	print("Places: %d of %d answered E from their door" % [answered, Layout.PLACES.size() - 1])
+		root.get_texture().get_image().save_png(ProjectSettings.globalize_path(out.path_join("hall_panel.png")))
+	_ok("Places: %d of %d answered E from their door" % [answered, Layout.PLACES.size() - 1], answered == Layout.PLACES.size() - 1)
 	town.panel = {}
 	town.team[0]["pos"] = Vector2i(32, 28)
 	town._place(town.team[0])
 	await town.act_move(Vector2i(1, 0))
-	print("The Mouth of the Hollow: stepping on it started a run %s" % str(town.has_meta("entered")))
-	quit()
+	_ok("The Mouth of the Hollow: stepping on it started a run (%s)" % str(town.get_meta("entered", "")), town.has_meta("entered"))
+	quit(1 if fails else 0)

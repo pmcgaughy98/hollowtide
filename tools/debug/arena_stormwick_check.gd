@@ -1,70 +1,13 @@
 extends SceneTree
-## Stages Stormwick's lightbulb kit and saves close-up stills (Claude, 2026-10-07).
-##   Godot --path . --fixed-fps 30 --script res://tools/debug/arena_stormwick_check.gd
-## Saves user://arena_captures/storm_<n>.png and a contact sheet of crops around Stormwick.
-var OUT := ProjectSettings.globalize_path("user://arena_captures/")
-var arena: Node2D
-var shots: Array[Image] = []
+## Stormwick's lightbulb kit stills (Claude, 2026-10-07): staged Wick Bolt, Raptor Rake and
+## Flashstep and saved close-ups to user://arena_captures/.
+## Retired (Claude, 2026-10-24, H31): Stormwick's kit is now Pounce, Ember Feint (replaced
+## Flashstep on 2026-10-08), Lantern Volley and Lantern Tackle, so the moves this staged are in
+## no kit. The old staging code is in git history. Deleting the file is Preston's call.
+##   Current checks: arena_abilities_check.gd (Ember Feint charges, Lantern Volley, the pounce)
+##   and arena_tackle_check.gd (marks and the Lantern Tackle zip).
 
 func _initialize() -> void:
-	DirAccess.make_dir_recursive_absolute(OUT)
-	arena = load("res://scenes/arena_prototype.tscn").instantiate()
-	root.add_child(arena)
-	await process_frame
-	await process_frame
-	arena._you = 0; arena._you_stage = 2; arena._rival = 1; arena._rival_stage = 1
-	arena._new_match()
-	var me: Dictionary = arena._fighters[0]
-	var foe: Dictionary = arena._fighters[1]
-	foe["ai"] = true
-	me["body"].position = Vector2(150, 140)
-	foe["body"].position = Vector2(225, 125)
-	# Lantern at rest, then half charged, then full (white-hot).
-	for c in [0.0, 55.0, 100.0]:
-		me["charge"] = c
-		await _hold(4)
-		await _snap()
-	me["charge"] = 0.0
-	# Wick Bolt and the smoulder it leaves.
-	arena._do_move(0, "wick_bolt", 1)
-	await _hold(2)
-	await _snap()
-	await _hold(14)
-	await _snap()
-	# Raptor Rake up close.
-	me["body"].position = foe["body"].position + Vector2(-16, 4)
-	arena._do_move(0, "claw", 1)
-	await _hold(2)
-	await _snap()
-	# Flashstep back out.
-	arena._do_move(0, "flashstep", 1)
-	await _hold(2)
-	await _snap()
-	await _hold(5)
-	await _snap()
-	_sheet()
-	print("saved ", shots.size(), " stills; rival hp ", foe["hp"], "/", foe["max_hp"])
-	quit()
-
-func _hold(frames: int) -> void:
-	arena._fighters[1]["act"] = 9.0   # keep the rival still so the shots are clean
-	for i in frames:
-		await process_frame
-
-func _snap() -> void:
-	if DisplayServer.get_name() == "headless":
-		return   # headless never draws a frame, so frame_post_draw would never come
-	await RenderingServer.frame_post_draw
-	var img := root.get_texture().get_image()
-	img.save_png(OUT + "storm_%d.png" % shots.size())
-	shots.append(img)
-
-## Crops round the two creatures, side by side.
-func _sheet() -> void:
-	var w := 480
-	var h := 300
-	var sheet := Image.create(w * 4, h * 2, false, Image.FORMAT_RGBA8)
-	for k in shots.size():
-		var crop := shots[k].get_region(Rect2i(300, 220, w, h))
-		sheet.blit_rect(crop, Rect2i(0, 0, w, h), Vector2i((k % 4) * w, (k / 4) * h))
-	sheet.save_png(OUT + "storm_sheet.png")
+	print("RETIRED: arena_stormwick_check staged Wick Bolt, Raptor Rake and Flashstep, which Stormwick no longer has; no assertions ran.")
+	print("Use res://tools/debug/arena_abilities_check.gd and res://tools/debug/arena_tackle_check.gd for the current kit.")
+	quit(2) # Distinct non-success status: retirement is never a green check.

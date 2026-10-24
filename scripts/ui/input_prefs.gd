@@ -1,14 +1,17 @@
 extends Node
 ## Saved key and button choices (Claude, 2026-10-23, factory pass 2: controller support and rebinding). An
 ## autoload: project.godot names it InputPrefs. At launch it lays the player's saved bindings, the [input] section
-## of user://menu_preferences.cfg (the file the menus already keep), over the Input Map. A rebinding page saves one
-## binding with save_binding and puts actions back with reset_defaults. It also watches every input event for the
-## device in use, so a hint can say "J" on a keyboard and "A" on a pad (UI.last_device, and device_changed).
+## of user://game_prefs.cfg (UI.GAME_PREFS_PATH; until pass 3 they sat in the title's menu_preferences.cfg, which a
+## title save wiped, and UI moves them over once), over the Input Map, and puts the window back in full screen when
+## that was the last choice. A rebinding page saves one binding with save_binding and puts actions back with
+## reset_defaults. It also watches every input event for the device in use, so a hint can say "J" on a keyboard and
+## "A" on a pad (UI.last_device, and device_changed).
 ##   InputPrefs.save_binding("attack", event)        # a key, a pad button or a stick push; saved at once
 ##   InputPrefs.reset_defaults()                     # every action back to project.godot's map ("bag": just one)
 ##   InputPrefs.device_changed.connect(_on_device)   # "keyboard" or "pad", when the player switches
-## A check (the main loop has a script) keeps project.godot's map, so a stray save cannot fail it. A check that
-## tests saved bindings opts in: get_tree().set_meta("apply_input_prefs", true) in its _init, or apply_saved(true).
+## A check (the main loop has a script) keeps project.godot's map and a window, so a stray save cannot fail it. A
+## check that tests saved bindings opts in: get_tree().set_meta("apply_input_prefs", true) in its _init, or
+## apply_saved(true).
 ## Saved form, one key per action, the action's whole list: attack=[{"key": 74}, {"key": 32}, {"button": 0}] (a
 ## physical key code, a pad button index, or {"axis": 5, "value": 1.0} for a stick or trigger direction).
 
@@ -26,6 +29,10 @@ func _ready() -> void:
 	get_tree().root.window_input.connect(_on_window_input)
 	Input.joy_connection_changed.connect(_on_joy_connection)
 	apply_saved()
+	# The saved screen mode at launch (Claude, 2026-10-23, U2 for LO-02): before this only the pause menu and F11
+	# set it. Behind the same guard as the bindings, so a check run stays in its window.
+	if _applies(false) and UI.screen_full():
+		UI.apply_screen_mode(true, false)
 
 
 func _on_window_input(event: InputEvent) -> void:
@@ -42,11 +49,10 @@ func _on_joy_connection(_device: int, connected: bool) -> void:
 ## Lay the saved bindings over the Input Map; returns how many actions were set. A check is skipped unless it
 ## opted in or passes `force`.
 func apply_saved(force := false) -> int:
-	var tree := get_tree()
-	if not force and tree != null and tree.get_script() != null and not tree.has_meta(OPT_IN):
+	if not _applies(force):
 		return 0
-	var cfg := ConfigFile.new()
-	if cfg.load(UI.PREFS_PATH) != OK or not cfg.has_section(SECTION):
+	var cfg := UI.load_game_prefs()
+	if not cfg.has_section(SECTION):
 		return 0
 	var n := 0
 	for action in cfg.get_section_keys(SECTION):
@@ -62,6 +68,12 @@ func apply_saved(force := false) -> int:
 	if n > 0:
 		bindings_changed.emit()
 	return n
+
+
+## Saved prefs apply to the game itself, a check that opted in, or when `force`d; never to other checks.
+func _applies(force: bool) -> bool:
+	var tree := get_tree()
+	return force or tree == null or tree.get_script() == null or tree.has_meta(OPT_IN)
 
 
 ## Give `action` the input in `event` and save it at once. It takes the place of the action's `slot`-th binding of
@@ -94,10 +106,9 @@ func save_binding(action: StringName, event: InputEvent, slot := 0) -> bool:
 	InputMap.action_erase_events(action)
 	for e: InputEvent in kept:
 		InputMap.action_add_event(action, e)
-	var cfg := ConfigFile.new()
-	cfg.load(UI.PREFS_PATH)   # no file yet is an empty one; the menus' own keys are kept
+	var cfg := UI.load_game_prefs()   # no file yet is an empty one; the other prefs are kept
 	cfg.set_value(SECTION, String(action), _encode(kept))
-	var ok := _write(cfg)
+	var ok := UI.write_prefs(cfg)
 	bindings_changed.emit()
 	return ok
 
@@ -105,8 +116,7 @@ func save_binding(action: StringName, event: InputEvent, slot := 0) -> bool:
 ## Put `action` (every rebindable action and every saved one when empty) back to project.godot's map, and forget
 ## what was saved for it.
 func reset_defaults(action: StringName = &"") -> void:
-	var cfg := ConfigFile.new()
-	cfg.load(UI.PREFS_PATH)
+	var cfg := UI.load_game_prefs()
 	var names: Array = []
 	if action != &"":
 		names.append(String(action))
@@ -125,7 +135,7 @@ func reset_defaults(action: StringName = &"") -> void:
 					InputMap.action_add_event(a, ev.duplicate())
 		if cfg.has_section_key(SECTION, a):
 			cfg.erase_section_key(SECTION, a)
-	_write(cfg)
+	UI.write_prefs(cfg)
 	bindings_changed.emit()
 
 
@@ -197,23 +207,3 @@ func _decode(list: Variant) -> Array:
 			m.axis_value = e["value"]
 			out.append(m)
 	return out
-
-
-## Written whole to <file>.tmp first, the file before it kept as <file>.bak, then the .tmp takes the name (the
-## team save's crash-safe write, team_state.gd). The UI's cached preferences are dropped after.
-func _write(cfg: ConfigFile) -> bool:
-	var path := UI.PREFS_PATH
-	var tmp := path + ".tmp"
-	var err := cfg.save(tmp)
-	if err != OK:
-		push_warning("InputPrefs: could not write %s (%s)" % [tmp, error_string(err)])
-		return false
-	var main := ProjectSettings.globalize_path(path)
-	if FileAccess.file_exists(path):
-		DirAccess.rename_absolute(main, main + ".bak")   # replaces the older .bak
-	err = DirAccess.rename_absolute(ProjectSettings.globalize_path(tmp), main)
-	if err != OK:
-		push_warning("InputPrefs: could not move %s into place (%s)" % [tmp, error_string(err)])
-		return false
-	UI.reload_prefs()
-	return true

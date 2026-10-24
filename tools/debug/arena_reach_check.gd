@@ -2,11 +2,14 @@ extends SceneTree
 ## Your reach on the floor (Claude, 2026-10-09, Preston: "4"): the ring at the basic's reach,
 ## the ghost toward the cursor, your wind-ups as the shape they take (a wedge along your aim, a
 ## spot where the lob lands) and the reach flash after an out-of-range refusal.
+## Judged since Claude, 2026-10-24 (H24): the ring reach, the wedge kind, side and reach, the
+## refusal flash's reach and time, the lob spot at the cursor, and the enemy's wind-up kind.
 ##   Godot --path . --fixed-fps 30 --script res://tools/debug/arena_reach_check.gd
 ## Stills to docs/creatures/arena-reach-2026-10-09/.
 
 const OUT := "res://docs/creatures/arena-reach-2026-10-09/"
 var arena: Node2D
+var fails := 0
 
 func _initialize() -> void:
 	arena = load("res://scenes/arena_prototype.tscn").instantiate()
@@ -35,7 +38,10 @@ func _initialize() -> void:
 	arena.mouse_override = here + Vector2(60, 60)
 	await _frames(2)
 	_save("ring_ghost")
-	print("Ring at the basic's reach: %d px (%s %d + %d); the ghost is a wedge toward the cursor (see ring_ghost.png)" % [int(arena.MOVES[basic]["range"] + arena.SWEEP_REACH_EXTRA), arena.MOVES[basic]["name"], int(arena.MOVES[basic]["range"]), int(arena.SWEEP_REACH_EXTRA)])
+	# The ring _draw_player_reach draws: the basic's range plus SWEEP_REACH_EXTRA, plus VANTAGE_RANGE only when perched.
+	var ring: float = arena.MOVES[basic]["range"] + arena.SWEEP_REACH_EXTRA
+	print("Ring at the basic's reach: %d px (%s %d + %d); the ghost is a wedge toward the cursor (see ring_ghost.png)" % [int(ring), arena.MOVES[basic]["name"], int(arena.MOVES[basic]["range"]), int(arena.SWEEP_REACH_EXTRA)])
+	_ok("Ring is the basic's range plus SWEEP_REACH_EXTRA (not perched, so no vantage bonus)", me["perched"] < 0 and ring > float(arena.MOVES[basic]["range"]))
 	# 2. A melee wind-up of yours is a wedge along your aim.
 	_tap()
 	await process_frame
@@ -43,6 +49,11 @@ func _initialize() -> void:
 	await _frames(2)
 	_save("wedge")
 	print("Your Cinder Claw wind-up: shape %s, dir %s, reach %d" % [str(s.get("kind")), str(s.get("dir", Vector2.ZERO).round()), int(s.get("r", 0))])
+	var cursor := Vector2(60, 60)   # the cursor offset set above
+	var wdir: Vector2 = s.get("dir", Vector2.ZERO)
+	_ok("Your melee wind-up is a wedge", s.get("kind") == "wedge")
+	_ok("The wedge points to the cursor's side", signf(wdir.x) == signf(cursor.x) and signf(wdir.y) == signf(cursor.y))
+	_ok("The wedge reaches as far as the ring", is_equal_approx(float(s.get("r", 0.0)), ring))
 	await _frames(20)
 	# 3. An out-of-range refusal flashes that ability's reach.
 	await _until_free(me, basic)
@@ -54,12 +65,18 @@ func _initialize() -> void:
 		if arena.MOVES[mm]["damage"] > 0 and arena.MOVES[mm]["range"] > 0.0 and not arena.MOVES[mm].get("mobility", false):
 			rs = k
 			break
-	var ar: String = me["abilities"][rs]
+	_ok("Ironvent has a damaging ranged ability to refuse", rs >= 0)
+	var ar: String = me["abilities"][maxi(rs, 0)]
 	me["cds"][ar] = 0.0
 	arena.cast(rs)
+	# Read the flash the moment it is set; it fades with every frame after.
+	var hint_r: float = arena._range_hint["r"]
+	var hint_t: float = arena._range_hint["t"]
 	await process_frame
 	_save("range_hint")
-	print("%s refused at 300 px: the reach flash shows %d px for %.1f s" % [arena.MOVES[ar]["name"], int(arena._range_hint["r"]), arena._range_hint["t"]])
+	print("%s refused at 300 px: the reach flash shows %d px for %.1f s" % [arena.MOVES[ar]["name"], int(hint_r), hint_t])
+	_ok("The refusal flash shows the move's range plus SWEEP_REACH_EXTRA", is_equal_approx(hint_r, arena.MOVES[ar]["range"] + arena.SWEEP_REACH_EXTRA))
+	_ok("The refusal flash lasts RANGE_HINT_SECONDS", is_equal_approx(hint_t, arena.RANGE_HINT_SECONDS))
 	# 4. A lob of yours shows its landing spot at the cursor.
 	arena._you = 1; arena._you_stage = 2   # Rampartroot: Seed
 	arena._rival = 3
@@ -81,6 +98,7 @@ func _initialize() -> void:
 	await _frames(2)
 	_save("spot")
 	print("Your Seed wind-up with the foe south and the cursor at (50, -20): shape %s at %s, spot radius %d" % [str(s.get("kind")), str((s.get("at", Vector2.ZERO) - here).round()), int(s.get("r", 0))])
+	_ok("Your lob's spot lands at the cursor, (50, -20) from you", s.get("kind") == "spot" and (s.get("at", Vector2.ZERO) - here).round() == Vector2(50, -20))
 	# 5. The enemy's telegraph is untouched: red, at its target.
 	await _frames(20)
 	foe["stun"] = 0.0
@@ -92,7 +110,16 @@ func _initialize() -> void:
 	await process_frame
 	_save("enemy_telegraph")
 	print("The enemy's wind-up still draws the old way (enemy_telegraph.png): kind %s" % str(foe["windup"].get("kind", "")))
-	quit()
+	_ok("The enemy winds up, and its wind-up kind is not your wedge", not foe["windup"].is_empty() and foe["windup"].get("kind", "") != "wedge")
+	print("ARENA REACH: %s" % ("all ok" if fails == 0 else "%d FAILED" % fails))
+	quit(1 if fails > 0 else 0)
+
+
+## One judged line: "what -> ok" or "what -> FAIL" (Claude, 2026-10-24).
+func _ok(what: String, good: bool) -> void:
+	print("%s -> %s" % [what, "ok" if good else "FAIL"])
+	if not good:
+		fails += 1
 
 
 func _tap() -> void:

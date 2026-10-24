@@ -7,6 +7,7 @@ extends RefCounted
 const R := preload("res://scripts/dungeon/ruin_painter.gd")   # hash and noise
 const T := 24
 const INK := Color("#1f1610")
+const UI := preload("res://scripts/ui/ui_style.gd")
 
 
 static func paint(id: String, r: Dictionary) -> Image:
@@ -60,11 +61,11 @@ static func _fixtures(id: String, img: Image) -> void:
 ## base, standing on floor row `row` with its back to the back wall.
 static func _cabinet(img: Image, name: String, x: int, row: int) -> void:
 	var path := "res://assets/sprites/world/hall_floors_2026_10_11/%s.png" % name
-	if not FileAccess.file_exists(path):
+	# Claude, 2026-10-24 (A4, LV-19): UI.res_image reads the imported texture, which an exported game has; the PNG it does not.
+	var src := UI.res_image(path)
+	if src == null:
 		_upright(img, x, T - 4, row, "books" if name == "ledgers" else ("keepsakes" if name == "keepsakes" else "supplies"))
 		return
-	var src := Image.load_from_file(ProjectSettings.globalize_path(path))
-	src.convert(Image.FORMAT_RGBA8)
 	var top_part := 56
 	var base := 6
 	var case := Image.create(src.get_width(), top_part + base, false, Image.FORMAT_RGBA8)
@@ -129,16 +130,34 @@ static func _walls(img: Image, r: Dictionary, top: Color, rim: Color) -> void:
 		img.set_pixel(x, (h - 1) * T, rim)
 
 
+## The way out, seen from above: the gap in the bottom wall with daylight beyond (Claude, 2026-10-24, A3 for LV-12b:
+## it was a smooth cream-to-green gradient box, the one blend in a hand-pixelled room). A dark jamb each side, the
+## sill board across the top with its shadow under it, and the light outside in three flat bands (the sunlit step,
+## lit grass, grass) joined by rows of ordered dither. The Home, the Hall and Storage all go out through it.
+const DOOR_LIGHT := [Color("#e8d9a8"), Color("#b1b180"), Color("#7a8a58")]   # the old two ends and their middle
+const DOOR_BANDS := [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.25, 0.5, 0.75, 1.0, 1.0, 1.0, 1.0, 1.25, 1.5, 1.75, 2.0, 2.0, 2.0, 2.0, 2.0, 2.0]
+const BAYER := [0, 8, 2, 10, 12, 4, 14, 6, 3, 11, 1, 9, 15, 7, 13, 5]   # 4 x 4 ordered dither
+
+
 static func _door(img: Image, r: Dictionary, frame: Color) -> void:
 	var d: Vector2i = r["door"]
 	var x0 := d.x * T
 	var y0 := d.y * T
 	img.fill_rect(Rect2i(x0 - 3, y0, T + 6, T), INK)
-	img.fill_rect(Rect2i(x0 - 2, y0, 2, T), frame)
-	img.fill_rect(Rect2i(x0 + T, y0, 2, T), frame)
-	for y in T:   # daylight through the open door, brightest at the sill
-		img.fill_rect(Rect2i(x0, y0 + y, T, 1), Color("#e8d9a8").lerp(Color("#7a8a58"), float(y) / T))
-	img.fill_rect(Rect2i(x0 - 2, y0, T + 4, 2), frame.lightened(0.15))   # the sill
+	for y in range(2, T):   # the light, row 2 down: a band a row, dithered where the bands meet
+		var v: float = DOOR_BANDS[y - 2]
+		for x in T:
+			var band := int(v)
+			if v - band > (BAYER[(y % 4) * 4 + x % 4] + 0.5) / 16.0:
+				band += 1
+			if x == 0 or x == T - 1 or y == 2:
+				band = mini(band + 1, 2)   # the jambs and the sill shade the light next to them
+			img.set_pixel(x0 + x, y0 + y, DOOR_LIGHT[band])
+	for jx in [x0 - 2, x0 + T]:   # the jambs: the wall's cut ends, dark, the inner pixel darkest
+		img.fill_rect(Rect2i(jx, y0, 2, T), frame.darkened(0.35))
+		img.fill_rect(Rect2i(jx + (1 if jx < x0 else 0), y0 + 2, 1, T - 2), frame.darkened(0.6))
+	img.fill_rect(Rect2i(x0 - 2, y0, T + 4, 1), frame.lightened(0.15))   # the sill, lit along its edge
+	img.fill_rect(Rect2i(x0 - 2, y0 + 1, T + 4, 1), frame.darkened(0.15))
 
 
 # ---------------------------------------------------------------- home

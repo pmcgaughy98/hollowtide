@@ -22,11 +22,14 @@ func _texts(menu: CanvasLayer) -> String:
 	return " | ".join(out)
 
 
-# Labels and buttons in page order, including the ones inside a portrait row.
+# Labels and buttons in page order, including the ones inside a portrait row. A message log row is a
+# RichTextLabel since pass 3 (names in their side's colours, D8), read as the words it shows (Claude, 2026-10-23).
 func _collect(node: Node, out: Array[String]) -> void:
 	for n in node.get_children():
 		if n is Label or n is Button:
 			out.append(n.text)
+		elif n is RichTextLabel:
+			out.append((n as RichTextLabel).get_parsed_text())
 		elif n is Container:
 			_collect(n, out)
 

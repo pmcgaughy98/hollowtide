@@ -14,6 +14,9 @@ extends SceneTree
 ##  10. the Growth Shrine's rows for every line that grows: condition names, counts and team buttons,
 ##  11. the dialogue box with every line in dialogue/*.dialogue (the longest named),
 ##  12. the title's Options and How to play panels ending by 636 (LP-01, LP-02).
+## Added 2026-10-24 (Claude, factory pass 4, T1):
+##  13. the Menu button under the walk keys' strip on Highbank's street and in the Home, on a keyboard and a pad:
+##      clear of the strip and its right edge at 1146 or less.
 ## Headless it only measures:
 ##   Godot --headless --path . --script res://tools/debug/ui_fit_check.gd
 ## In a window it also saves proof shots to docs/ui/ui-fit-2026-10-14/:
@@ -49,6 +52,29 @@ func _frames(n: int) -> void:
 		await process_frame
 
 
+## Point 13 for one scene (Claude, 2026-10-24, pass 4 T1): the Menu button's rect against the key strip `strip_of`
+## returns, with the keyboard's keys and then a pad's; the device in use is put back after.
+func _menu_point(where: String, scene: Node, strip_of: Callable) -> void:
+	var device := UI.last_device()
+	var menu: CanvasLayer = scene.get_node_or_null("GamePauseMenu")
+	var bad: Array[String] = []
+	var seen: Array[String] = []
+	for dev in ["keyboard", "pad"]:
+		UI.set_device(dev)
+		await _frames(2)
+		if menu == null:
+			bad.append("no pause menu")
+			break
+		var r: Rect2 = menu.hint.get_rect()
+		var strip: Rect2 = strip_of.call()
+		seen.append("%s: button %s, strip %s" % [dev, r, strip])
+		if r.intersects(strip) or r.end.x > 1146.0 or not menu.hint.visible:
+			bad.append("%s: button %s over or past the strip %s (visible %s)" % [dev, r, strip, menu.hint.visible])
+	UI.set_device(device)
+	await _frames(2)
+	_ok(bad.is_empty(), "%s Menu button under the key strip, right edge at 1146 or less: %s" % [where, "; ".join(seen) if bad.is_empty() else "; ".join(bad)])
+
+
 ## How many lines `s` takes when drawn with draw_multiline_string at `width` (Claude, 2026-10-22).
 func _lines(f: Font, s: String, width: float, size: int) -> int:
 	return int(round(f.get_multiline_string_size(s, HORIZONTAL_ALIGNMENT_LEFT, width, size).y / f.get_height(size)))
@@ -73,6 +99,8 @@ func _run() -> void:
 			if c != null and "creature_name" in c and String(c.creature_name) != "":
 				names.append(String(c.creature_name))
 	var cut := 0
+	var bare := 0                       # cut with no ".." to say so
+	var cut_names: Array[String] = []
 	var no_sense := 0
 	var widest := 0.0
 	for nm in names:
@@ -84,10 +112,16 @@ func _run() -> void:
 				_ok(false, "team row: %s with %s needs %.0f of %.0f px" % [nt[0], nt[1], used, Dungeon.HUD_ROW_W])
 			if nt[0] != nm:
 				cut += 1
+				cut_names.append("%s as %s" % [nm, nt[0]])
+				if not String(nt[0]).ends_with(".."):
+					bare += 1
 			if sense >= 0 and not String(nt[1]).contains("Sense"):
 				no_sense += 1
 	_ok(widest <= Dungeon.HUD_ROW_W, "team rows: %d names, widest row %.0f of %.0f px; %d names cut, %d teammates show no Sense at Lv 99" % [names.size(), widest, Dungeon.HUD_ROW_W, cut, no_sense])
-	_ok(cut == 0, "team rows: no creature name is cut short")
+	# Since pass 4 D6 (dungeon lane, 2026-10-24: a teammate's row always says Sense and a long name clips) a cut name
+	# is expected; it must say so with UI.clip's "..", never stop bare (Claude, 2026-10-24: this point read "no
+	# creature name is cut short", the rule before D6).
+	_ok(bare == 0 and no_sense == 0, "team rows: %d cut names, each ending in '..'%s; every teammate shows Sense" % [cut, "" if cut_names.is_empty() else " (" + ", ".join(cut_names) + ")"])
 	# 2. The learn prompt: the question fits its row and the keys have their own footer row.
 	var q_w := UI.width_in("It knows four moves. Forget one?", UI.fit("It knows four moves. Forget one?", "body", 440))
 	var k_w := UI.width_in("W/S choose   J pick   Esc close", UI.fit("W/S choose   J pick   Esc close", "label", 440))
@@ -117,33 +151,41 @@ func _run() -> void:
 			worst = Vector2(maxf(worst.x, w * sc), maxf(worst.y, h * sc))
 	_ok(1136.0 - worst.x - 8.0 >= 360.0 and 44.0 + worst.y + 8.0 <= 260.0, "corner map: at most %.0f x %.0f px, left edge %.0f clear of the team panel's 352" % [worst.x, worst.y, 1136.0 - worst.x - 8.0])
 	# 8. The town's sign panel, Rect2(196, 452, 760, 128) (Claude, 2026-10-22, UI-08). On the street
-	# (hub_town.gd) the text starts at y 64 with two lines at 716 px, above the key hint at 116; in a room
-	# (town_room.gd) at y 50 with three lines at 700 px, inside the frame. A longer text is cut, not wrapped.
-	var head_h: float = UI.HEAD.get_height(18)
+	# (hub_town.gd) the text starts at y 64, two rows of the prose role at 716 px, above the key hint at 116;
+	# in a room (town_room.gd spot_layout) the story face, the box growing upward a row past two
+	# (Claude, 2026-10-23, pass 3 T9 and R2: both moved off UI.HEAD).
 	var frame_b := FRAME_BEVEL
 	var hint_top: float = 116.0 - UI.font("label").get_ascent(UI.type_size("label"))
-	var street_end: float = 64.0 + head_h + UI.HEAD.get_descent(18)
+	# The street's sign is in the prose role since 2026-10-23 (hub_town.gd, T9): rows of UI.font("body"), 22 px apart.
+	var body_h: float = roundf(UI.font("body").get_height(UI.type_size("body")))
+	var street_end: float = 64.0 + body_h + UI.font("body").get_descent(UI.type_size("body"))
 	_ok(street_end <= hint_top, "town panel, 2 lines: the text ends at %.0f, above the key hint's top at %.0f" % [street_end, hint_top])
-	var room_end: float = 50.0 + 2.0 * head_h + UI.HEAD.get_descent(18)
-	_ok(room_end <= 128.0 - frame_b, "town panel, 3 lines: the text ends at %.0f, inside the frame at %.0f" % [room_end, 128.0 - frame_b])
+	# In a room the panel is town_room.gd's spot_layout (Claude, 2026-10-23, R2): the story face, two rows in the
+	# 128 px box, the box growing upward a row for each row past two. Measured by the room's own layout.
+	var TownRoom: GDScript = load("res://scripts/town/town_room.gd")
+	var room_lay: Dictionary = TownRoom.call("spot_layout", "The river and its Hollows, pinned where couriers have gone. A new pin sits on the water near Highbank.")
+	var room_rows: int = (room_lay["rows"] as PackedStringArray).size()
+	var room_end: float = (room_lay["at"] as Vector2).y + float(room_lay["row_h"]) * (room_rows - 1) + UI.font("story").get_descent(UI.type_size("story"))
+	var room_floor: float = (room_lay["box"] as Rect2).end.y - frame_b
+	_ok(room_end <= room_floor, "town panel in a room, %d rows: the text ends at %.0f, inside the frame at %.0f" % [room_rows, room_end, room_floor])
 	var signs := 0
 	var sign_cut: Array[String] = []
 	for p in Layout.PLACES:
 		if String(p.get("service", "")) in ["growth", "storage"]:
 			continue   # the shrine and storage draw their own panels
 		signs += 1
-		var n := _lines(UI.HEAD, String(p.get("what", "")), 716.0, 18)
+		var n := UI.wrap_text(String(p.get("what", "")), 716.0, "body").split("\n").size()   # hub_town.gd wraps the street's signs this way (T9)
 		if n > 2:
 			sign_cut.append("%s (%d lines)" % [p["name"], n])
-	var rooms: Dictionary = load("res://scripts/town/town_room.gd").get_script_constant_map()["ROOMS"]
+	var rooms: Dictionary = TownRoom.get_script_constant_map()["ROOMS"]
 	for r in rooms:
 		for spot in rooms[r].get("spots", []):
 			if String(spot.get("what", "")) == "" or String(spot.get("service", "")) == "storage":
 				continue
 			signs += 1
-			var n := _lines(UI.HEAD, String(spot["what"]), 700.0, 18)
-			if n > 3:
-				sign_cut.append("%s in %s (%d lines)" % [spot["name"], r, n])
+			var lay: Dictionary = TownRoom.call("spot_layout", String(spot["what"]))
+			if (lay["box"] as Rect2).position.y - 22.0 < 104.0:   # a room's box grows up a row past two; its name tab stays below the Next strip
+				sign_cut.append("%s in %s (%d rows)" % [spot["name"], r, (lay["rows"] as PackedStringArray).size()])
 	_ok(sign_cut.is_empty(), "town panel: %d sign texts, each within its lines (street 2, room 3)%s" % [signs, "" if sign_cut.is_empty() else "; cut short: " + ", ".join(sign_cut)])
 	# 9. The Team screen's move box, measured by the screen itself (party_screen.gd move_box, LP-08): with four
 	# facts shown (Ready in as well), every move's description in the body face at 266 px with the body-part note
@@ -277,6 +319,26 @@ func _run() -> void:
 	menu.resume()
 	await _frames(4)
 	dg.queue_free()
+	await _frames(4)
+	# 13. The Menu button under the key strip (Claude, 2026-10-24, pass 4 T1): on Highbank's street (hub_town.gd
+	# key_strip) and in the Home (town_room.gd hint_now), each frame placed under the strip, for both devices.
+	load("res://scripts/town/team_state.gd").call("start", [[0, 0], [1, 0]])
+	var town: Node2D = load("res://scenes/hub_town.tscn").instantiate()
+	town.poll_input = false
+	root.add_child(town)
+	await _frames(6)
+	await _menu_point("Highbank", town, func() -> Rect2: return town.key_strip())
+	await _snap("05_highbank_menu")
+	town.queue_free()
+	await _frames(4)
+	var home: Node2D = load("res://scenes/town_room.tscn").instantiate()
+	home.room_id = "home"
+	home.poll_input = false
+	root.add_child(home)
+	await _frames(6)
+	await _menu_point("Home", home, func() -> Rect2: return home.hint_now()["strip"])
+	await _snap("06_home_menu")
+	home.queue_free()
 	await _frames(4)
 	# 12. The title's Options and How to play (both help topics) end by 636, clear of the key line below them
 	# (Claude, 2026-10-22, UI-08 for LP-01 and LP-02).

@@ -15,6 +15,7 @@ extends RefCounted
 ##   SceneKit.ring(center, count, radius)          a crowd round a speaker
 ##   SceneKit.draw(host, canvas)                   the bubbles, from the host's label/world layer
 ##   SceneKit.use_key(), walk_keys(), pick_keys()  the town's key hints, from the Input Map (2026-10-23)
+##   SceneKit.follow(host, trail)                  the team's line after a leader step (2026-10-23)
 ## A host provides: team, npcs, talk, cutscene, cam_focus, scene_fx, _world, _px(tile), _place(e),
 ## _facing_of(d), and an open-tile test (_open or open_at).
 
@@ -129,6 +130,67 @@ static func walk_to(host, e: Dictionary, goal: Vector2i, step := 0.24) -> void:
 		await wait(host, step)
 	if _alive(host):
 		host._place(e)
+
+
+## The line after one leader step (Claude, 2026-10-23, R3). The leader is already on its new tile; `trail` is
+## every member's tile before the step. Each follower takes the tile the one ahead just left, so the line keeps
+## its shape one tile back. When the leader walks back into its own line, that tile can be taken: the follower
+## then stays put if it is still beside the one ahead, else steps to the open tile beside the one ahead nearest
+## itself. A follower never ends on the leader's tile, a teammate's, a townsfolk's, or anything the host's open
+## test calls solid (furniture in a room, a building in Highbank). The host tweens and places them after.
+static func follow(host, trail: Array) -> void:
+	var team: Array = host.team
+	var taken := {}
+	for n in host.npcs:
+		if is_instance_valid(n["node"]) and n["node"].visible:
+			taken[n["pos"]] = true
+	taken[team[0]["pos"]] = true
+	for k in range(1, team.size()):
+		var e: Dictionary = team[k]
+		var here: Vector2i = e["pos"]
+		var ahead: Vector2i = team[k - 1]["pos"]
+		var to := here
+		if _free(host, trail[k - 1], taken):
+			to = trail[k - 1]
+		elif not (_free(host, here, taken) and _beside(here, ahead)):
+			to = _gap_beside(host, ahead, here, taken)
+		var fd: Vector2i = (to - here).clamp(Vector2i(-1, -1), Vector2i(1, 1))
+		if fd != Vector2i.ZERO:
+			e["facing"] = host._facing_of(fd)
+		e["pos"] = to
+		taken[to] = true
+
+
+static func _free(host, t: Vector2i, taken: Dictionary) -> bool:
+	return _open(host, t) and not taken.has(t)
+
+
+static func _beside(a: Vector2i, b: Vector2i) -> bool:
+	return maxi(absi(a.x - b.x), absi(a.y - b.y)) <= 1
+
+
+## The open, untaken tile beside `ahead` that `from` reaches in one step without cutting a corner, nearest
+## `from`; else `from` itself when it is free (the follower catches up next step); else any free tile beside it.
+static func _gap_beside(host, ahead: Vector2i, from: Vector2i, taken: Dictionary) -> Vector2i:
+	var best := from
+	var best_d := INF
+	for d in DIRS8:
+		var t: Vector2i = ahead + d
+		var s: Vector2i = t - from
+		if t == from or not _free(host, t, taken) or not _beside(t, from):
+			continue
+		if s.x != 0 and s.y != 0 and (not _open(host, from + Vector2i(s.x, 0)) or not _open(host, from + Vector2i(0, s.y))):
+			continue
+		var dist := Vector2(s).length_squared()
+		if dist < best_d:
+			best = t
+			best_d = dist
+	if best_d < INF or _free(host, from, taken):
+		return best
+	for d in DIRS8:
+		if _free(host, from + d, taken):
+			return from + d
+	return from
 
 
 ## Several walkers at once; returns when the last has arrived and settled on its still. Each walker recomputes

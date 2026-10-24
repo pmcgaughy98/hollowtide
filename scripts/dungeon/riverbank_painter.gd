@@ -39,21 +39,18 @@ static func paint(data: Dictionary, t: int, seed_value: int) -> Image:
 	var tiles: PackedByteArray = data["tiles"]
 	var img := Image.create(w * t, h * t, false, Image.FORMAT_RGBA8)
 	var s := seed_value % 977
-	_ground(img, data, t, s)
-	_pebbles_and_roots(img, data, t, s)
+	var shore: Array[Vector2i] = []   # spots along the pools' edges, for pebbles (pass 4 R3)
+	_ground(img, data, t, s, shore)
+	_pebbles_and_roots(img, data, t, s, shore)
 	for y in h:
 		for x in w:
 			if tiles[y * w + x] != Gen.WALL and y > 0 and tiles[(y - 1) * w + x] == Gen.WALL:
 				for k in 4:
 					R._darken(img, Rect2i(x * t, y * t + k, t, 1), 0.55 + 0.1 * k)   # the bank's shadow
 	_walls(img, data, t, s)
-	# The way down: a dark hole in the clay, worn steps of packed earth.
-	var st: Vector2i = data["stairs"]
-	var p := Vector2i(st.x * t + t / 2 - 10, st.y * t + t / 2 - 8)
-	img.fill_rect(Rect2i(p - Vector2i(2, 2), Vector2i(24, 20)), SPECK_LO)
-	img.fill_rect(Rect2i(p, Vector2i(20, 16)), Color(0.05, 0.04, 0.03))
-	for k in 3:
-		img.fill_rect(Rect2i(p + Vector2i(2 + k * 2, 2 + k * 5), Vector2i(16 - k * 4, 2)), CLAY[2].lightened(0.15 - k * 0.05))
+	# The way down: a dark hole in the clay, worn steps of packed earth going down into it (Claude, 2026-10-23,
+	# pass 3 D1: ruin_painter.gd's paint_stairs in the Warren's clay; the three bars read as a menu icon).
+	R.paint_stairs(img, data["stairs"], t, CLAY[2], SPECK_LO, Color(0.05, 0.04, 0.03), seed_value)
 	return RootbankDetail.finish(img, data, t, seed_value)
 
 
@@ -99,8 +96,9 @@ static func _layer(ox: int, oy: int, W: int, H: int, cell: float, k: int) -> Arr
 	return [lat, lw, col, fxs, row, fys]
 
 
-## Clay, sand and grass, pixel by pixel from soft noise; a rare pool.
-static func _ground(img: Image, data: Dictionary, t: int, s: int) -> void:
+## Clay, sand and grass, pixel by pixel from soft noise; a rare pool. A few spots just outside each pool's wet
+## rim go into `shore`, where _pebbles_and_roots heaps pebbles.
+static func _ground(img: Image, data: Dictionary, t: int, s: int, shore: Array[Vector2i] = []) -> void:
 	var w: int = data["w"]
 	var h: int = data["h"]
 	var tiles: PackedByteArray = data["tiles"]
@@ -179,12 +177,11 @@ static func _ground(img: Image, data: Dictionary, t: int, s: int) -> void:
 					f = fx3[x]
 					var grass := lerpf(lerpf(lat3[i], lat3[i + 1], f), lerpf(lat3[i + lw3], lat3[i + lw3 + 1], f), v3) + 0.12 * walls
 					if grass > 0.8 or (grass > 0.77 and (x + y) % 2 == 0):
-						# Solid clumps in two tones from a finer noise, a dithered rim, the odd clover flower.
+						# Solid clumps in two tones from a finer noise, a dithered rim. (The white clover dots are gone,
+						# Claude, 2026-10-24, pass 4 R4: in the live run they read as specks on the moss.)
 						c = GRASS[1] if R._noise(x, y, 5.0, 46) > 0.45 else GRASS[0]
 						if grass > 0.84 and R._noise(x, y, 4.0, 45) > 0.7:
 							c = GRASS[2]
-						if R._h(x, y, 47) > 0.985:
-							c = Color("#e8e2c4")
 					i = r4 + col4[x]
 					f = fx4[x]
 					var pool := lerpf(lerpf(lat4[i], lat4[i + 1], f), lerpf(lat4[i + lw4], lat4[i + lw4 + 1], f), v4)
@@ -193,37 +190,53 @@ static func _ground(img: Image, data: Dictionary, t: int, s: int) -> void:
 						c = POOL if pool > 0.873 else c.lerp(Color(0.25, 0.18, 0.12), 0.45)
 						if pool > 0.875 and pool < 0.884 and R._noise(x, y + 3, 6.0, 49) > 0.5:
 							c = POOL_HI
+					elif pool > 0.845 and R._h(x, y, 90) > 0.96:
+						shore.append(Vector2i(x, y))
 					img.set_pixel(x, y, c)
 
 
-## Pebbles scattered over the clay (rounded, lit top-left), and roots wandering out from the banks.
-static func _pebbles_and_roots(img: Image, data: Dictionary, t: int, s: int) -> void:
+## Pebbles heaped where the water and the banks left them, and roots wandering out from the banks (Claude,
+## 2026-10-24, pass 4 R3; the live run read the even field of grey and white specks as noise). Small heaps of three
+## to five pebbles along the foot of the banks and round the pools, the odd lone pebble out on the open clay, clean
+## dirt between. A pebble lands only on bare clay or sand, never on the moss, a pool or another pebble.
+static func _pebbles_and_roots(img: Image, data: Dictionary, t: int, s: int, shore: Array[Vector2i] = []) -> void:
 	var w: int = data["w"]
 	var h: int = data["h"]
 	var tiles: PackedByteArray = data["tiles"]
 	var W := img.get_width()
 	var H := img.get_height()
-	for gy in range(0, H, 9):
-		for gx in range(0, W, 9):
-			if R._h(gx + s, gy, 50) < 0.8:
+	var heaps: Array[Vector2i] = []
+	for ty in h:
+		for tx in w:
+			if not _floor(tiles, w, h, tx, ty):
 				continue
-			var cx := gx + int(R._h(gx, gy, 51) * 7)
-			var cy := gy + int(R._h(gx, gy, 52) * 7)
-			if not _floor(tiles, w, h, cx / t, cy / t):
+			# Along each bank this tile meets: up to three heaps at its foot.
+			for d in [Vector2i(0, -1), Vector2i(-1, 0), Vector2i(1, 0), Vector2i(0, 1)]:
+				if _floor(tiles, w, h, tx + d.x, ty + d.y):
+					continue
+				for k in 3:
+					if R._h(tx * 7 + k, ty * 5 + d.x * 3 + d.y, 50 + s) < 0.22:
+						continue
+					var along := 3 + int(R._h(tx + k * 11, ty, 51 + d.x * 2 + d.y) * (t - 8))
+					var off := (4 if d.y < 0 else 2) + int(R._h(tx, ty + k * 13, 52) * 8)   # below the bank's shadow
+					var at := Vector2i(along, off) if d.y < 0 else (Vector2i(along, t - 4 - off / 2) if d.y > 0 else Vector2i(off if d.x < 0 else t - 4 - off, along))
+					heaps.append(Vector2i(tx * t, ty * t) + at)
+	for p in shore:
+		heaps.append(p)
+	for n in heaps.size():
+		var p: Vector2i = heaps[n]
+		for k in 3 + int(R._h(p.x, p.y, 53) * 3):
+			var q := p + Vector2i(int((R._h(n, k, 54) - 0.5) * 10.0), int((R._h(k, n, 55) - 0.5) * 7.0))
+			var roll := R._h(q.x, q.y, 56)
+			_pebble(img, q, 2 if roll < 0.4 else (3 if roll < 0.8 else 4), PEBBLE[int(R._h(q.y, q.x, 57) * PEBBLE.size())])
+	# The open clay: now and then one small pebble on its own.
+	for gy in range(0, H, 16):
+		for gx in range(0, W, 16):
+			if R._h(gx + s, gy, 58) < 0.88:
 				continue
-			var r := 1 + int(R._h(gx, gy, 53) * 2.0)
-			var col: Color = PEBBLE[int(R._h(gx, gy, 54) * PEBBLE.size())]
-			for dy in range(-r, r + 1):
-				for dx in range(-r - 1, r + 2):
-					if dx * dx + dy * dy * 2 <= r * r + 2 and cx + dx < W and cy + dy < H and cx + dx >= 0 and cy + dy >= 0:
-						var pc := col
-						if dx < 0 and dy < 0:
-							pc = PEB_HI
-						elif dx > 0 and dy > 0:
-							pc = col.darkened(0.25)
-						img.set_pixel(cx + dx, cy + dy, pc)
-			if cy + r + 1 < H:
-				img.set_pixel(cx, cy + r + 1, PEB_LO)   # its shadow
+			var q := Vector2i(gx + int(R._h(gx, gy, 51) * 12), gy + int(R._h(gx, gy, 52) * 12))
+			if _floor(tiles, w, h, q.x / t, q.y / t):
+				_pebble(img, q, 2, PEBBLE[int(R._h(gx, gy, 54) * PEBBLE.size())])
 	# Roots: a few per floor, each wandering out of a bank face across the ground.
 	for k in 26:
 		var tx := int(R._h(k, s, 55) * w)
@@ -243,6 +256,31 @@ static func _pebbles_and_roots(img: Image, data: Dictionary, t: int, s: int) -> 
 				img.set_pixel(q.x, q.y + 1, ROOT.darkened(0.3))   # its shadow on the clay
 			dir = dir.rotated((R._h(k, step, 60) - 0.5) * 0.7)
 			p += dir
+
+
+## One pebble, 2, 3 or 4 pixels across, lit top-left, its shadow under it to the right (pass 4 R3). Each row is
+## [x, y, tone]: h the lit spot, c the stone, d its shade, s the shadow on the clay. Drawn only when every pixel
+## lands on bare clay or sand (red over green; moss, pools and pebbles all fail it).
+const PEBBLE_SHAPES := {
+	2: [[0, 0, "c"], [1, 0, "c"], [0, 1, "c"], [1, 1, "d"], [1, 2, "s"]],
+	3: [[0, 0, "h"], [1, 0, "c"], [2, 0, "c"], [0, 1, "c"], [1, 1, "c"], [2, 1, "d"], [1, 2, "s"], [2, 2, "s"]],
+	4: [[1, 0, "h"], [2, 0, "c"], [0, 1, "c"], [1, 1, "c"], [2, 1, "c"], [3, 1, "d"], [1, 2, "c"], [2, 2, "d"], [1, 3, "s"], [2, 3, "s"]],
+}
+
+
+static func _pebble(img: Image, at: Vector2i, size: int, col: Color) -> void:
+	var shape: Array = PEBBLE_SHAPES[size]
+	for q in shape:
+		var x: int = at.x + int(q[0])
+		var y: int = at.y + int(q[1])
+		if x < 0 or y < 0 or x >= img.get_width() or y >= img.get_height():
+			return
+		var c := img.get_pixel(x, y)
+		if c.r - c.g < 0.06:
+			return
+	var tones := {"h": PEB_HI, "c": col, "d": col.darkened(0.25), "s": PEB_LO}
+	for q in shape:
+		img.set_pixel(at.x + int(q[0]), at.y + int(q[1]), tones[q[2]])
 
 
 ## The bank itself: turf on top seen from above, a grassy lip, and where it stands above floor, a face

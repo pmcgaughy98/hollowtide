@@ -3,14 +3,16 @@ extends RefCounted
 ## know where to go"). One short line for the screen and a longer one, with where the place is in Highbank,
 ## for the Objective page in the menu. Finished games keep this to one goal at a time (Coromon's and Cassette
 ## Beasts' current-quest line, Explorers of Sky's partner reminders); structure only.
-##   Objective.current(story, beaten) -> {"short": String, "long": String}
+##   Objective.current(story, beaten, in_hollow) -> {"short": String, "long": String}
 ## Places in Highbank (town_layout.gd): the Hall and the Job Board at the top middle, the Growth Shrine on the
 ## west side, the Mouth of the Hollow by the Old Ferry Landing at the south-east edge.
 ## Directions once (Claude, 2026-10-22, W25): each place's whereabouts are given the first time the story sends
 ## the team there; after that the line names the place only, so no direction phrase appears twice in this file.
+## In a Hollow (Claude, 2026-10-24, LV-23): `in_hollow` true drops the sentence that says how to get down from
+## town, which reads wrong once the team is already below. Town callers keep the default and the whole line.
 
 
-static func current(story: Dictionary, beaten: Array) -> Dictionary:
+static func current(story: Dictionary, beaten: Array, in_hollow := false) -> Dictionary:
 	var parcel := String(story.get("parcel", ""))
 	var stone := String(story.get("stone", ""))
 	if not "mouth" in beaten:
@@ -24,7 +26,7 @@ static func current(story: Dictionary, beaten: Array) -> Dictionary:
 			"The Shortcut Crew took the parcel. Starward, the Postmaster, is at the counter inside the Wayline Hall.")
 	if parcel == "stolen":
 		return _goal("Get the parcel back in Rootbank Warren",
-			"The crew went to ground in Rootbank Warren. The way down is the Mouth of the Hollow, by the Old Ferry Landing at the south-east edge of town.")
+			"The crew went to ground in Rootbank Warren." + ("" if in_hollow else " The way down is the Mouth of the Hollow, by the Old Ferry Landing at the south-east edge of town."))
 	if parcel == "recovered":
 		return _goal("Bring the parcel to Starward",
 			"The parcel is back. Take it to Starward at the counter in the Wayline Hall.")

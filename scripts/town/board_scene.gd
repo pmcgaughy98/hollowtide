@@ -93,7 +93,10 @@ static func make_npc(town, form: String, pos: Vector2i) -> Dictionary:
 			walk[f] = frames
 	else:
 		# Stand-in until the rotation is cut: the chosen front art at the crew's boss size, one view.
-		var img := Image.load_from_file(ProjectSettings.globalize_path("res://docs/creatures/arena-starters-2026-10-07/forms/%s_arena_front_chosen.png" % form))
+		# The docs/ path stays until Codex's C22 moves the art into assets/ (Claude, 2026-10-24, pass 4 T11).
+		var img := _art_image("res://docs/creatures/arena-starters-2026-10-07/forms/%s_arena_front_chosen.png" % form)
+		if img == null:
+			img = Image.create(66, 66, false, Image.FORMAT_RGBA8)   # no art anywhere: an empty stand-in, not a crash
 		img.resize(66, 66, Image.INTERPOLATE_NEAREST)   # about 1.25x the town set's 51 to 59 px crew (Preston: 78 was "a tad too big")
 		var tex := ImageTexture.create_from_image(img)
 		for f in ["s", "se", "e", "ne", "n", "nw", "w", "sw"]:
@@ -104,6 +107,25 @@ static func make_npc(town, form: String, pos: Vector2i) -> Dictionary:
 		"facing": "s", "walk_t": 0.0, "walk_clock": 0.0, "npc": true}
 	town._place(e)
 	return e
+
+
+## A picture as an Image (Claude, 2026-10-24, pass 4 T11 / LV-19): the imported texture first, which an exported
+## game has, else the PNG on disk (docs/ is not imported); RGBA8 either way. The rule of town-art's A4
+## (UI.res_image), kept here so this file does not wait on it; swap to that helper once it lands.
+static func _art_image(path: String) -> Image:
+	var img: Image = null
+	if ResourceLoader.exists(path):
+		var tex := load(path) as Texture2D
+		if tex != null:
+			img = tex.get_image()
+	if (img == null or img.is_empty()) and FileAccess.file_exists(path):
+		img = Image.load_from_file(ProjectSettings.globalize_path(path))
+	if img == null or img.is_empty():
+		return null
+	if img.has_mipmaps():
+		img.clear_mipmaps()
+	img.convert(Image.FORMAT_RGBA8)
+	return img
 
 
 static func _npc(town, form: String) -> Dictionary:
@@ -136,6 +158,89 @@ static func _lines(town, lines: Array) -> void:
 		town.talk.append([who, String(l[1]), form])
 	while _alive(town) and not town.talk.is_empty():
 		await town.get_tree().process_frame
+
+
+## The opening shot (Claude, 2026-10-24, pass 4 T5 / LV-28): the board, the crew and the team in one frame, every
+## head at least SHOT_TOP from the top of the screen and every foot above the text box (UI.dialogue's box starts at
+## 452 of 648). It was the midpoint of the board and the leader, which put the crew's heads at the top edge when the
+## team stood three rows down. When they cannot all fit, the heads win. Three screen pixels to a view pixel.
+const SHOT_TOP := 48.0     # screen px: the highest head at least this far down
+const SHOT_FOOT := 440.0   # screen px: the lowest foot at most this far down, 12 px above the text box
+
+
+## with_board false frames the actors alone (the get-up lines, once the crew are gone; integrator, 2026-10-24).
+static func _shot(town, actors: Array, with_board := true) -> Vector2:
+	var box := Rect2()
+	var rects: Array[Rect2] = []
+	for e in actors:
+		if e is Dictionary and not e.is_empty():
+			rects.append(_ink(town, e.get("sprite")))
+	var stand: Node = town._world.find_child("NoticeStand", true, false)   # job_board_painter.gd's board art
+	if not with_board:
+		pass
+	elif stand is Sprite2D:
+		rects.append(_ink(town, stand))
+	else:   # no art: the board's two tiles and the row above them
+		var place: Dictionary = Layout.PLACES.filter(func(p: Dictionary) -> bool: return p["id"] == "board")[0]
+		var r: Rect2i = place["rect"]
+		rects.append(Rect2(Vector2(r.position * T()) - Vector2(0, T()), Vector2(r.size * T()) + Vector2(0, T())))
+	for r in rects:
+		if r.has_area():
+			box = r if not box.has_area() else box.merge(r)
+	var half: Vector2 = Vector2(town.VIEW) * 0.5
+	var px: float = town.SCALE
+	var hi := box.position.y + half.y - SHOT_TOP / px   # the camera's y at most this: heads on screen
+	var lo := box.end.y + half.y - SHOT_FOOT / px       # and at least this: feet above the box
+	return Vector2(box.get_center().x, (lo + hi) * 0.5 if lo <= hi else hi).round()
+
+
+## Followers behind the leader step up beside it as the scene opens (Claude, 2026-10-24, pass 4 T5): walking up
+## from the street below, the partner trailed a row under the leader, a row too low for the whole cast to fit above
+## the text box. A follower one step from a free tile beside the leader takes it (not awaited: it walks while the
+## crew tear at the board); one further back stays and is framed where it is. Returns the ones that stepped.
+static func _catch_up(town, lead: Dictionary) -> Array:
+	var moved: Array = []
+	var taken: Array = []
+	for e in town.npcs + town.team:
+		taken.append(e["pos"])
+	for k in range(1, town.team.size()):
+		var e: Dictionary = town.team[k]
+		if e["pos"].y <= lead["pos"].y:
+			continue
+		var side := -1 if e["pos"].x <= lead["pos"].x else 1
+		for dx in [side, -side, 2 * side, -2 * side]:
+			var to: Vector2i = lead["pos"] + Vector2i(dx, 0)
+			var d: Vector2i = to - e["pos"]
+			if maxi(absi(d.x), absi(d.y)) != 1 or taken.has(to) or not town.follower_ok(to):
+				continue
+			taken.erase(e["pos"])
+			taken.append(to)
+			_step(town, e, d, 0.22)
+			moved.append(e)
+			break
+	return moved
+
+
+## Where a sprite's drawn pixels are, in the town's world (the camera's space).
+static func _ink(town, s: Variant) -> Rect2:
+	if not (s is Sprite2D) or s.texture == null:
+		return Rect2()
+	var r: Rect2 = s.get_rect()
+	var img: Image = s.texture.get_image()
+	if img != null and not img.is_empty():
+		var used := img.get_used_rect()
+		if used.has_area():
+			r = Rect2(r.position + Vector2(used.position) * r.size / Vector2(img.get_size()), Vector2(used.size) * r.size / Vector2(img.get_size()))
+	var xf: Transform2D = town._world.get_global_transform().affine_inverse() * s.get_global_transform()
+	return xf * r
+
+
+## Pan the camera to `to` over `secs` (not awaited). The pass 4 integrator's re-shoot (2026-10-24) found the opening
+## shot was the only framed one: after the shove the partner lay under the text box, and the get-up lines put the
+## pair's heads at the top edge (LV-28). The shove and the get-up now re-frame with _shot.
+static func _pan(town, to: Vector2, secs: float) -> void:
+	var from: Vector2 = town.cam_focus if town.cam_focus != null else to
+	town.create_tween().tween_method(func(v: Vector2) -> void: town.cam_focus = v, from, to, secs).set_trans(Tween.TRANS_SINE)
 
 
 ## Frame two places together, held above the text box (it covers the bottom third of the view).
@@ -249,14 +354,26 @@ static func run(town) -> void:
 	var g := _npc(town, "gruntle")
 	var mk := _npc(town, "mirekit")
 	var wh := _npc(town, "whinet")
-	var door := board_door()
-	town.cam_focus = (town._px(door) + lead["node"].position) * 0.5 + Vector2(0, 10)   # the board, the crew and the team in one frame
+	# The board, the crew and the team in one frame (T5). A follower a row behind the leader steps up beside it while
+	# the crew tear at the board; then its feet are on the leader's row, which the frame already holds.
+	var stepped := _catch_up(town, lead)
+	var cast: Array = [g, mk, wh]
+	for e in town.team:
+		if not stepped.has(e):
+			cast.append(e)
+	town.cam_focus = _shot(town, cast)
+	# Every await below is followed by a look at the town: Return to title frees it mid-scene, and the next line
+	# would call into a freed town (Claude, 2026-10-24, pass 4 T6 / LV-29).
 	# 1. The crew, backs turned, tearing postings off the board.
 	for k in 2:
 		town.board_fx["torn_at"] = Time.get_ticks_msec()
 		town._sfx("paper_tear")   # ElevenLabs takes, tools/audio/build_dungeon_sfx.py
 		await _wait(town, 0.6)
+		if not _alive(town):
+			return
 	await _lines(town, TEAR)
+	if not _alive(town):
+		return
 	# 2. The partner marches up past the leader to the board and calls out; the crew turn round.
 	var to: Vector2i = g["pos"] + Vector2i(0, 1)
 	for d in [Vector2i(0, 1), Vector2i(-1, 1), Vector2i(1, 1)]:
@@ -272,6 +389,8 @@ static func run(town) -> void:
 		if not town.open_at(partner["pos"] + d):
 			break
 		await _step(town, partner, d, 0.2)
+	if not _alive(town):
+		return
 	_face(town, partner, "n")
 	_face(town, lead, "n")
 	await _lines(town, OBJECT)
@@ -283,6 +402,8 @@ static func run(town) -> void:
 	for e in [g, mk, wh]:
 		_face(town, e, "s")
 	await _wait(town, 0.7)
+	if not _alive(town):
+		return
 	var saved := String(town._record().get("story", {}).get("parcel", "")) == "saved"
 	await _lines(town, MOCK.slice(0, MOCK.size() - 1) + (SHOW_OFF if saved else MOCK.slice(MOCK.size() - 1)))
 	if not _alive(town):
@@ -313,6 +434,7 @@ static func run(town) -> void:
 	await fly.finished
 	if not _alive(town):
 		return
+	_pan(town, _shot(town, [g, mk, wh, lead, partner]), 0.4)   # the fallen partner stays above the text box
 	town.board_fx["dust"] = {"at": p1, "t0": Time.get_ticks_msec()}
 	if saved:   # the parcel flies loose and lands beside the partner
 		var c0: Vector2 = town.scene_fx.get("parcel", p1)
@@ -320,11 +442,15 @@ static func run(town) -> void:
 		var drop: Tween = town.create_tween()
 		drop.tween_method(func(t: float) -> void: town.scene_fx["parcel"] = c0.lerp(c1, t) + Vector2(0, -14.0 * sin(t * PI)), 0.0, 1.0, 0.4)
 	await _wait(town, 0.6)
+	if not _alive(town):
+		return
 	# The leader turns to face Gruntle.
 	_face(town, lead, town._facing_of((g["pos"] - lead["pos"]).clamp(Vector2i(-1, -1), Vector2i(1, 1))))
 	town.board_fx["emote"] = {"e": lead, "at": Time.get_ticks_msec()}
 	town._sfx("emote_alert")
 	await _wait(town, 0.6)
+	if not _alive(town):
+		return
 	await _lines(town, AFTER_SHOVE)
 	if not _alive(town):
 		return
@@ -335,12 +461,16 @@ static func run(town) -> void:
 		var dart: Tween = town.create_tween()
 		dart.tween_property(mk["node"], "position", at + Vector2(-6, 26), 0.25)
 		await dart.finished
+		if not _alive(town):
+			return
 		town._sfx("pickup")
 		town.scene_fx["parcel"] = mk["node"].position + Vector2(0, -34)
 		var hop_back: Tween = town.create_tween()
 		hop_back.tween_property(mk["node"], "position", m0, 0.3)
 		hop_back.parallel().tween_method(func(p: Vector2) -> void: town.scene_fx["parcel"] = p + Vector2(0, -34), mk["node"].position, m0, 0.3)
 		await hop_back.finished
+		if not _alive(town):
+			return
 		await _lines(town, SNATCH)
 		if not _alive(town):
 			return
@@ -348,9 +478,9 @@ static func run(town) -> void:
 	# where they went (Preston, 2026-10-11: "make the rival crew run towards it after stealing parcel").
 	town._sfx("hog_trot")
 	await _run_for_the_way_down(town, [g, mk, wh], mk if saved else {})
-	town.scene_fx.erase("parcel")
 	if not _alive(town):
 		return
+	town.scene_fx.erase("parcel")
 	for e in [g, mk, wh]:
 		e["node"].queue_free()
 	town.npcs.clear()
@@ -360,8 +490,15 @@ static func run(town) -> void:
 	town._place(partner)
 	town._sfx("dizzy")
 	await _wait(town, 0.4)
+	if not _alive(town):
+		return
 	await _beside(town, lead, partner)
+	if not _alive(town):
+		return
+	_pan(town, _shot(town, [lead, partner], false), 0.3)   # the pair alone, heads clear of the top edge
 	await _wait(town, 0.3)
+	if not _alive(town):
+		return
 	await _lines(town, GET_UP_STOLEN if saved else GET_UP)
 	if not _alive(town):
 		return

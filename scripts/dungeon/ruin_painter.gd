@@ -36,8 +36,20 @@ const MOSS_MOUTH := Color("#6d883d")
 const MOSS_MOUTH_LO := Color("#556b31")
 const VARIANTS := {
 	"hollow": {"stone": STONE, "moss": MOSS, "moss_lo": MOSS_LO, "silt_lines": false},
-	"mouth": {"stone": STONE_MOUTH, "moss": MOSS_MOUTH, "moss_lo": MOSS_MOUTH_LO, "silt_lines": true},
+	"mouth": {"stone": STONE_MOUTH, "moss": MOSS_MOUTH, "moss_lo": MOSS_MOUTH_LO, "silt_lines": true, "painted": true,
+		"water": WATER_MOUTH, "water_deep": WATER_MOUTH_DEEP, "water_hi": WATER_MOUTH_HI, "wall_top": WALL_TOP_MOUTH},
 }
+## The Mouth, painted (Claude, 2026-10-23, pass 3 D2; the audit: flat grey-blue slabs, square bright pools and a
+## grey border beside the warm Rootbank Warren). "painted" adds what the Warren has: small clusters of lighter and
+## darker grain in every slab, pools with ragged edges, a ring of wet stone and deeper water in the middle, a warm
+## light and cool shade lying across the floor, wall tops in a warmer dark that falls away into black away from the
+## floor. The Mouth's own stone, moss and silt are kept; the Hollow's look ("hollow") is unchanged.
+const WATER_MOUTH := Color("#3e5d61")
+const WATER_MOUTH_DEEP := Color("#2b464c")
+const WATER_MOUTH_HI := Color("#a3bfb9")
+const WALL_TOP_MOUTH := Color("#302d28")
+const WARM := Color(1.0, 0.88, 0.66)   # the light, warm (also the stairs' lit rim)
+const COOL := Color(0.30, 0.38, 0.52)  # the shade, cool
 
 static var _tiles := {}
 
@@ -151,15 +163,232 @@ static func paint(data: Dictionary, t: int, seed_value: int, variant := "hollow"
 			if tiles[y * w + x] != Gen.WALL and y > 0 and tiles[(y - 1) * w + x] == Gen.WALL:
 				for k in 4:
 					_darken(img, Rect2i(x * t, y * t + k, t, 1), 0.55 + 0.1 * k)   # the wall's shadow
-	_walls(img, data, t)
-	# The stairs: a dark way down cut into the flagstones, carved steps.
-	var st: Vector2i = data["stairs"]
-	var s := Vector2i(st.x * t + t / 2 - 10, st.y * t + t / 2 - 8)
-	img.fill_rect(Rect2i(s - Vector2i(2, 2), Vector2i(24, 20)), SEAM)
-	img.fill_rect(Rect2i(s, Vector2i(20, 16)), Color(0.04, 0.05, 0.06))
-	for k in 3:
-		img.fill_rect(Rect2i(s + Vector2i(2 + k * 2, 2 + k * 5), Vector2i(16 - k * 4, 2)), stones[2].lightened(0.1 - k * 0.05))
+	if look.get("painted", false):
+		_light(img, seed_value)   # the floor's light and shade, under the walls (Claude, 2026-10-24, pass 4 R1)
+	_walls(img, data, t, look)
+	# The stairs: a dark way down cut into the flagstones (pass 3 D1, paint_stairs below).
+	paint_stairs(img, data["stairs"], t, stones[2], SEAM, Color(0.04, 0.05, 0.06), seed_value)
 	return img
+
+
+## The way down (Claude, 2026-10-23, pass 3 D1; the audit read the old slab and three grey bars as a menu icon).
+## A dark opening cut into the floor: a stone rim lit warm on its far and left edges and shaded cool on the right,
+## a seam round it, the shaft's far wall going down into the dark, four steps that narrow and darken as they go
+## down, and a few chips of rubble on the rim. `stone` is the floor's own stone (or clay, or slab), `seam` its joint
+## colour, `hole` the dark at the bottom, so every painter's stairs sit in its own palette. The footprint is
+## stairs_rect(t), which dungeon_finish.gd's sel-out mask uses too; drawn a pixel a design pixel, doubled on a tile
+## twice the size.
+const STAIRS_SIZE := Vector2i(22, 20)
+
+
+## The stairs' footprint inside their tile, centred: 22 x 20 on a 24 px tile.
+static func stairs_rect(t: int) -> Rect2i:
+	var size := STAIRS_SIZE * maxi(1, t / 24)
+	return Rect2i(Vector2i(t, t) / 2 - size / 2, size)
+
+
+static func paint_stairs(img: Image, tile: Vector2i, t: int, stone: Color, seam: Color, hole: Color, seed_value := 0) -> void:
+	var k := maxi(1, t / 24)
+	var at := tile * t + stairs_rect(t).position
+	var mix := seed_value + tile.x * 31 + tile.y * 17
+	var px := {}
+	for y in STAIRS_SIZE.y:
+		for x in STAIRS_SIZE.x:
+			var c := _stair_px(x, y, stone, seam, hole, mix)
+			if c.a > 0.0:
+				px[Vector2i(x, y)] = c
+	# Rubble: a few chips on the rim, each with its shadow under it, and a pebble on the top step.
+	var chips := [Vector2i(4, 1), Vector2i(12, 2), Vector2i(17, 1), Vector2i(1, 5), Vector2i(2, 13), Vector2i(20, 7), Vector2i(19, 14), Vector2i(5, 18), Vector2i(14, 17), Vector2i(18, 18)]
+	var placed := 0
+	for i in chips.size():
+		if placed >= 4 or _h(i, mix, 71) < 0.55:
+			continue
+		placed += 1
+		var q: Vector2i = chips[i]
+		px[q] = stone.lerp(WARM, 0.3)
+		if px.has(q + Vector2i(0, 1)):
+			px[q + Vector2i(0, 1)] = _shade(stone, 0.6)
+	var peb := Vector2i(6 + int(_h(mix, 3, 72) * 10), 14)
+	px[peb] = stone.lerp(WARM, 0.2)
+	px[peb + Vector2i(0, 1)] = _shade(stone, 0.55)
+	for q in px:
+		img.fill_rect(Rect2i(at + q * k, Vector2i(k, k)), px[q])
+
+
+## One design pixel of the stairs (22 x 20); a clear colour where the floor shows through (the rounded corners).
+static func _stair_px(x: int, y: int, stone: Color, seam: Color, hole: Color, mix: int) -> Color:
+	var right := STAIRS_SIZE.x - 1
+	var bottom := STAIRS_SIZE.y - 1
+	if (x == 0 or x == right) and (y == 0 or y == bottom):
+		return Color(0, 0, 0, 0)
+	if x == 0 or x == right or y == 0 or y == bottom:
+		return seam if y < bottom else _shade(seam, 0.85)   # the seam round the opening
+	var c: Color
+	if y <= 2 or y >= bottom - 2 or x <= 2 or x >= right - 2:
+		# The rim, carved blocks: lit on the far and left edges, the near lip catching the light, the right in shade.
+		if y == 1:
+			c = stone.lerp(WARM, 0.25)
+		elif y == 2:
+			c = stone.lerp(WARM, 0.1)
+		elif y == bottom - 2:
+			c = stone.lerp(WARM, 0.16)
+		elif y == bottom - 1:
+			c = _shade(stone, 0.92)
+		elif x == 1:
+			c = stone.lerp(WARM, 0.16)
+		elif x == 2:
+			c = stone.lerp(WARM, 0.06)
+		elif x == right - 1:
+			c = _shade(stone, 0.8).lerp(COOL, 0.12)
+		else:
+			c = _shade(stone, 0.9)
+		var joint := (y <= 2 and (x == 7 or x == 15)) or (x <= 2 and y == 9) or (x >= right - 2 and y == 11) or (y >= bottom - 2 and x == 10)
+		if joint:
+			return seam.lerp(stone, 0.25)
+		var n := _h(x, y, mix + 70)
+		if n > 0.86:
+			c = _shade(c, 0.9)
+		elif n < 0.06:
+			c = c.lerp(WARM, 0.08)
+		return c
+	# Inside: the far wall of the shaft, then the steps; the dark round them.
+	if y <= 5:
+		var wall := _shade(stone, 0.5 - 0.1 * (y - 3)).lerp(COOL, 0.15 + 0.05 * (y - 3))
+		if (y == 3 and (x == 7 or x == 13)) or (y > 3 and (x == 10 or x == 16)):
+			wall = _shade(wall, 0.7)
+		return wall
+	# [tread rows, riser row, first x, last x, brightness] from the deepest step to the top one.
+	for s in [[[7], 8, 7, 14, 0.34], [[9], 10, 6, 15, 0.5], [[11, 12], 13, 5, 16, 0.7], [[14, 15], 16, 4, 17, 0.92]]:
+		var b: float = s[4]
+		if x < int(s[2]) or x > int(s[3]):
+			continue
+		if y in s[0]:
+			var tread := _shade(stone, b).lerp(WARM, 0.12 * b) if y == s[0][0] else _shade(stone, b * 0.94)
+			if x == int(s[2]):
+				tread = tread.lerp(WARM, 0.08)
+			elif x == int(s[3]):
+				tread = _shade(tread, 0.85)
+			return tread
+		if y == int(s[1]):
+			return _shade(stone, b * 0.62).lerp(COOL, 0.2)
+	if x == right - 3:
+		return hole.lerp(stone, 0.14)   # the shaft's right side, faintly lit from the left
+	return hole
+
+
+## Mouth only: the light and the shade across the floor (pass 3 D2). A smooth field over the floor picks warm light
+## in some places and cool shade in others; both go on as soft overlays, built small and scaled up, so the cost is
+## two image blends.
+static func _light(img: Image, seed_value: int) -> void:
+	var W := img.get_width()
+	var H := img.get_height()
+	var cell := 24
+	var gw := W / cell + 2
+	var gh := H / cell + 2
+	var s := seed_value % 613
+	var warm := Image.create(gw, gh, false, Image.FORMAT_RGBA8)
+	var cool := Image.create(gw, gh, false, Image.FORMAT_RGBA8)
+	for gy in gh:
+		for gx in gw:
+			var v := _noise(gx * cell + s * 7, gy * cell + s * 3, 110.0, 64)
+			warm.set_pixel(gx, gy, Color(WARM, clampf((v - 0.5) * 0.7, 0.0, 0.18)))
+			cool.set_pixel(gx, gy, Color(COOL, clampf((0.5 - v) * 0.75, 0.0, 0.2)))
+	for over in [warm, cool]:
+		over.resize(gw * cell, gh * cell, Image.INTERPOLATE_BILINEAR)
+		img.blend_rect(over, Rect2i(0, 0, W, H), Vector2i.ZERO)
+
+
+## Mouth only: the wall tops (Claude, 2026-10-24, pass 4 R1 and R2; the live run read the corridor walls as blurry
+## grey boxes and every edge as a smooth gradient into the dark). Each wall beside the floor, room or corridor, gets
+## the room walls' masonry: a lit brink, a row of carved block tops, the joint behind them; where it stands above
+## floor the face of courses comes after (_walls). Past the joint the rough top falls into black in three dithered
+## steps (three pixels in four, two, one), each step's edge wandering up to six pixels so no edge runs straight. Only
+## the walls' own colours: the face's stones and their lit tops, the mortar, the lip, the dark top and black.
+## Distances are Chebyshev from the lit ground: floor tiles, and the face (with its brink line) of a wall above floor.
+const CAP := 7     # the brick-top row: the brink, five rows of block tops, the joint
+const STEP := 4    # each dithered step's depth
+const BAYER := [0, 2, 3, 1]   # 2 x 2 ordered dither
+
+
+static func _wall_tops(img: Image, data: Dictionary, t: int, face_h: int, top: Color) -> void:
+	var w: int = data["w"]
+	var h: int = data["h"]
+	var tiles: PackedByteArray = data["tiles"]
+	var lit_rows := face_h + 1
+	var lit_tops: Array = []
+	for c in WALL:
+		lit_tops.append(c.lightened(0.08))   # the face's course tops, the same colours
+	var ex := PackedInt32Array()
+	var ey := PackedInt32Array()
+	for y in h:
+		for x in w:
+			if tiles[y * w + x] != Gen.WALL:
+				continue
+			# The lit ground near this tile, in this tile's pixels: a floor tile whole, a face and its brink.
+			var rects: Array[Rect2i] = []
+			for oy in range(-1, 2):
+				for ox in range(-1, 2):
+					var xx := x + ox
+					var yy := y + oy
+					if xx < 0 or yy < 0 or xx >= w or yy >= h:
+						continue
+					if tiles[yy * w + xx] != Gen.WALL:
+						rects.append(Rect2i(ox * t, oy * t, t, t))
+					elif yy + 1 < h and tiles[(yy + 1) * w + xx] != Gen.WALL:
+						rects.append(Rect2i(ox * t, oy * t + t - lit_rows, t, lit_rows))
+			if rects.is_empty():
+				img.fill_rect(Rect2i(x * t, y * t, t, t), Color.BLACK)   # deep in the rock: unseen
+				continue
+			var n := rects.size()
+			ex.resize(n * t)
+			ey.resize(n * t)
+			for r in n:
+				var q: Rect2i = rects[r]
+				for k in t:
+					ex[r * t + k] = maxi(q.position.x - k, k - q.end.x + 1)
+					ey[r * t + k] = maxi(q.position.y - k, k - q.end.y + 1)
+			for py in t:
+				var gy := y * t + py
+				for px in t:
+					var d := 99
+					var soft := 99   # the same, with the corners rounded off, for the dark's steps
+					var along_x := true
+					for r in n:
+						var a := ex[r * t + px]
+						var b := ey[r * t + py]
+						var m := maxi(a, b)
+						if m < d:
+							d = m
+							along_x = b >= a   # above or below the lit ground: the edge runs along x
+						soft = mini(soft, m + (mini(a, b) >> 1 if a > 0 and b > 0 else 0))
+					if d <= 0:
+						continue   # the tile's own face: _walls paints it
+					d -= 1
+					var gx := x * t + px
+					var c: Color
+					if d == 0:
+						c = LIP   # the brink, lit
+					elif d < CAP - 1:
+						var along := gx if along_x else gy
+						if (along + 3) % 8 == 0:
+							c = MORTAR   # the joint between two blocks
+						else:
+							var tone := int(_h((along + 3) / 8, y if along_x else x, 82 if along_x else 84) * WALL.size())
+							c = lit_tops[tone] if d <= 2 else WALL[tone]
+							if d >= 2 and _h(gx, gy, 83) > 0.94:
+								c = MORTAR   # a chip in the block
+					elif d == CAP - 1:
+						c = MORTAR   # the joint behind the row
+					elif soft > CAP + 3 * STEP + 7:
+						c = Color.BLACK
+					else:
+						# Rough dark top, then the steps; their edges wander up to six pixels on a soft noise.
+						var e := soft - CAP - 1 - int(_noise(gx, gy, 9.0, 81) * 7.0)
+						var lit := 4 if e < 0 else 3 - e / STEP
+						c = top if BAYER[(gy & 1) * 2 + (gx & 1)] < lit else Color.BLACK
+						if lit == 4 and _h(gx, gy, 86) > 0.9:
+							c = MORTAR   # grit in the rough top
+					img.set_pixel(gx, gy, c)
 
 
 ## Flagstones over the whole floor: rows of uneven slabs in a running bond, each slab its own tone,
@@ -193,6 +422,17 @@ static func _slabs(img: Image, seed_value: int, look: Dictionary = {}) -> void:
 					var p := Vector2i(r.position.x + 2 + int(_h(n, k * 7 + row, 25) * maxi(1, r.size.x - 4)), r.position.y + 2 + int(_h(n, k + row * 3, 26) * maxi(1, r.size.y - 4)))
 					if r.has_point(p):
 						img.set_pixel(p.x, p.y, _shade(c, 0.88) if n % 2 == 0 else c.lightened(0.06))
+				var inner := Rect2i(r.position + Vector2i(1, 1), r.size - Vector2i(2, 2))
+				if look.get("painted", false) and inner.size.x > 0 and inner.size.y > 0:
+					# Grain (pass 3 D2): small clusters of lighter and darker stone, one or two pixels, and pits.
+					for n in (r.size.x * r.size.y) / 12:
+						var g := Vector2i(inner.position.x + int(_h(n, k * 13 + row, 52) * maxi(1, inner.size.x - 1)), inner.position.y + int(_h(n + 7, k + row * 5, 53) * maxi(1, inner.size.y - 1)))
+						var kind := _h(n, k + row, 54)
+						var gs := Vector2i(2, 1) if kind < 0.4 else (Vector2i(1, 2) if kind < 0.6 else Vector2i.ONE)
+						var gc: Color = c.lightened(0.07) if _h(n, row, 55) > 0.5 else _shade(c, 0.9)
+						if kind > 0.92:
+							gc = _shade(c, 0.8)   # a pit
+						img.fill_rect(Rect2i(g, gs).intersection(inner), gc)
 				if _h(k, row, 27) > 0.88:   # a crack, a few pixels wandering down the slab
 					var cx := r.position.x + 3 + int(_h(k, row, 28) * maxi(1, r.size.x - 6))
 					for q in mini(r.size.y - 2, 7):
@@ -227,6 +467,10 @@ static func _weather(img: Image, data: Dictionary, t: int, seed_value: int, look
 		look = VARIANTS["hollow"]
 	var moss_hi: Color = look["moss"]
 	var moss_lo: Color = look["moss_lo"]
+	var painted: bool = look.get("painted", false)
+	var water: Color = look.get("water", WATER)
+	var water_deep: Color = look.get("water_deep", WATER)
+	var water_hi: Color = look.get("water_hi", WATER_HI)
 	var w: int = data["w"]
 	var tiles: PackedByteArray = data["tiles"]
 	var W := img.get_width()
@@ -253,6 +497,21 @@ static func _weather(img: Image, data: Dictionary, t: int, seed_value: int, look
 					if x >= W or y >= H:
 						continue
 					var c: Color = img.get_pixel(x, y)
+					if painted and pool > 0.8:
+						# Pass 3 D2: the shore wanders a pixel at a time, a ring of wet stone round it, the water
+						# deeper toward the middle, a broken glint along the shore.
+						var pj := pool + (_noise(x, y, 3.0, 62) - 0.5) * 0.03
+						if pj > 0.84:
+							c = water.lerp(water_deep, clampf((pj - 0.85) / 0.05, 0.0, 1.0))
+							if pj < 0.847 and _noise(x, y, 2.0, 33) > 0.72:
+								c = water_hi
+							elif _h(x / 3, y, 63) > 0.985:
+								c = water.lightened(0.12)   # a ripple
+						elif pj > 0.822:
+							c = _shade(c, 0.8).lerp(water, 0.16)
+						if pj > 0.822:
+							img.set_pixel(x, y, c)
+							continue
 					if pool > 0.84:
 						var edge := pool < 0.855
 						c = WATER.lightened(0.04 if pool < 0.88 else 0.0) if not edge else _shade(c, 0.72)
@@ -312,35 +571,40 @@ static func _silt_lines(img: Image, data: Dictionary, t: int, seed_value: int) -
 
 ## Walls: the top of carved masonry seen from above, a lit lip where it meets the floor, and where a
 ## wall stands above floor, its face: courses of blocks, mortar, and a green water line at the foot.
-static func _walls(img: Image, data: Dictionary, t: int) -> void:
+static func _walls(img: Image, data: Dictionary, t: int, look: Dictionary = {}) -> void:
+	var top: Color = look.get("wall_top", WALL_TOP)
+	var painted: bool = look.get("painted", false)
 	var w: int = data["w"]
 	var h: int = data["h"]
 	var tiles: PackedByteArray = data["tiles"]
 	var face_h: int = int(t * 0.6)
+	if painted:
+		_wall_tops(img, data, t, face_h, top)   # the Mouth's masonry and its dithered dark (pass 4 R1, R2)
 	for y in h:
 		for x in w:
 			if tiles[y * w + x] != Gen.WALL:
 				continue
-			for py in t:
-				for px in t:
-					var gx := x * t + px
-					var gy := y * t + py
-					# Rough dark stone, big blocks with faint joints and soft light and dark patches.
-					var c := WALL_TOP.lightened((_noise(gx, gy, 10.0, 16) - 0.5) * 0.12)
-					var row := gy / 16
-					if gy % 16 == 0 or (gx + int(_h(row, 0, 37) * 24)) % 30 == 0:
-						c = _shade(c, 0.88)
-					img.set_pixel(gx, gy, c)
 			var fl := func(dx: int, dy: int) -> bool:
 				var xx := x + dx
 				var yy := y + dy
 				return xx >= 0 and yy >= 0 and xx < w and yy < h and tiles[yy * w + xx] == Gen.FLOOR
-			if fl.call(-1, 0):
-				img.fill_rect(Rect2i(x * t, y * t, 1, t), LIP)
-			if fl.call(1, 0):
-				img.fill_rect(Rect2i(x * t + t - 1, y * t, 1, t), LIP)
-			if fl.call(0, -1):
-				img.fill_rect(Rect2i(x * t, y * t, t, 2), LIP)
+			if not painted:
+				for py in t:
+					for px in t:
+						var gx := x * t + px
+						var gy := y * t + py
+						# Rough dark stone, big blocks with faint joints and soft light and dark patches.
+						var c := top.lightened((_noise(gx, gy, 10.0, 16) - 0.5) * 0.12)
+						var row := gy / 16
+						if gy % 16 == 0 or (gx + int(_h(row, 0, 37) * 24)) % 30 == 0:
+							c = _shade(c, 0.88)
+						img.set_pixel(gx, gy, c)
+				if fl.call(-1, 0):
+					img.fill_rect(Rect2i(x * t, y * t, 1, t), LIP)
+				if fl.call(1, 0):
+					img.fill_rect(Rect2i(x * t + t - 1, y * t, 1, t), LIP)
+				if fl.call(0, -1):
+					img.fill_rect(Rect2i(x * t, y * t, t, 2), LIP)
 			if fl.call(0, 1):
 				var y0: int = y * t + t - face_h
 				img.fill_rect(Rect2i(x * t, y0 - 1, t, 1), LIP.lightened(0.15))

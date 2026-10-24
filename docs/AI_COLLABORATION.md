@@ -1,5 +1,31 @@
 # Working Together on Hollowtide
 
+## Claude: factory pass 4, harden and polish (October 24, 2026)
+
+Eight Claude lanes worked the live playthrough's findings and the check-hardening audit, then one integrator merged them. Nothing is committed yet. [Result](team/sweep-2026-10-20/PASS4_RESULT_2026-10-24.md), [plan](team/sweep-2026-10-20/PASS4_PLAN_2026-10-24.md), [checks](team/sweep-2026-10-20/after-pass4-checks.md). Full suite: 97 PASS, then 98 after one rerun (pass 3: 72). 28 checks that only printed numbers now judge them, and RAN fell from 32 to 4. The one red check is still ui_fit's three title-panel points (Codex's C2). Of the live audit's 36 findings, 19 now read fixed and 3 more have Claude's part done with the words waiting on Preston.
+
+- **Dungeon:** the floor card is up on black at once instead of seconds of plain black; floor items use the bag's pixel icons; damage numbers and callouts no longer overlap; a long turn keeps its "X used Y!" line; T flashes the three order names; the Mouth's walls are carved block tops that dither into black; the Warren's pebbles sit in heaps.
+- **Highbank and rooms:** a HIGHBANK card on a session's first arrival; the key strip and MENU no longer collide; the flat walk and the gradient doorway are painted; one client per job on a board; the crew scene keeps everyone in frame, including after the shove and on the get-up lines (the integrator's fix in board_scene.gd).
+- **Pause menu:** framed, filled sliders; a Floor page with labelled rows; the Objective drops town directions underground; leaving to the title fades first.
+- **Art loading:** every res:// picture is read through the imported texture first (`UI.res_image` in ui_style.gd), so an exported build keeps its painted art. Codex's C11 export test is the proof.
+
+**Shared files that changed:** scripts/riverbank_journey.gd (ruin card placement, prompt font), scripts/ui/ui_style.gd (`res_image`, `res_exists`), scripts/town/jobs.gd (client swap only; no reward or count changed), docs/world/hub-layout-2026-10-09/layout_full.png (redrawn ground). Checks that follow real scene changes must wait for a built scene now: the town and the floor are built two frames after the scene appears.
+
+**Codex reads:** docs/team/CODEX_TASKS_2026-10-22.md section 7 (C1 to C22, then three integrator lines; the title's Options can reuse `_slider_look` from game_pause_menu.gd). **Grok reads:** docs/team/GROK_TASKS_2026-10-22.md, "Pass 4 lines" (Mouth spawns and REST_TO first, the body gate rule, the Job Board client pool). No creature numbers changed.
+
+## Claude: factory pass 3, the look pass (October 23, 2026)
+
+Six Claude lanes worked through the live audit's look problems, then one integrator merged them; nothing is committed yet. [Result](team/sweep-2026-10-20/PASS3_RESULT_2026-10-23.md), [plan](team/sweep-2026-10-20/PASS3_PLAN_2026-10-23.md). Full suite: 72 PASS, 1 FAIL (ui_fit's three title-panel points, Codex's C2), 0 TIMEOUT; the new rebind_check and face_crop_check pass. Of the audit's 33 findings, 20 now read fixed and 4 better; the other 9 wait on Codex's title work or on Preston's calls P1 to P8.
+
+- **Prefs are two files now.** `user://menu_preferences.cfg` keeps only the keys main_menu.gd writes (audio master, music, sfx; menu reduce_motion, courier). Bindings, full screen and text speed live in `user://game_prefs.cfg` (`UI.GAME_PREFS_PATH`); write a pref with `UI.save_pref(section, key, value)`, which picks the file. InputPrefs restores full screen at launch.
+- **Dungeon:** real stairs on every floor look, the Mouth painted, one floor card on black, moves in one row with keycaps, foe and team names in different colours in the log, every exit fades to black before the next scene loads.
+- **Highbank:** the painted street is cached, so a warm arrival takes about 0.4 s (was 5.5 to 6); ground rectangles lost their black outlines; the Scroll Keeper's porch stands on the grass; the save toast shows only after a run or on a session's first arrival.
+- **Rooms and story:** the team walks in behind the leader and stays off furniture; spot panels and narration use the dialogue face and box; the riverbank heading is a fading place card; the dawn walk has a morning grade and no rain.
+
+**Files Codex has worked in that changed:** project.godot (`default_clear_color` black); scripts/riverbank_journey.gd, scripts/mouth_escape.gd and scripts/town/hollow_approach.gd (story lane); dialogue/flood_bank.dialogue and dialogue/road_to_highbank.dialogue (long lines split at sentence ends, same words).
+
+**Codex reads:** docs/team/CODEX_TASKS_2026-10-22.md section 6 (C1 to C15, then three integrator lines). **Grok reads:** docs/team/GROK_TASKS_2026-10-22.md, "Signals from the factory passes" and "Pass 3 lines" (Mouth spawns and REST_TO first). No creature numbers changed.
+
 ## Claude: factory pass 2, controller and rebinding (October 23, 2026)
 
 A controller now plays the whole campaign (walk, attack, moves, bag, stairs, talk, Job Board, storage, shrine, faint screen, pause menu, end card), and every key and button can be changed under pause menu, Options, Controls. Keyboard defaults are unchanged. One shared contract (23 new Input Map actions in project.godot, the `UI.tapped/held/pressed/dir8/binding_text` helpers in ui_style.gd, the new InputPrefs autoload in `scripts/ui/input_prefs.gd`), then lanes for the dungeon, town, menus, story scenes and checks, then one integrator. [Result](team/sweep-2026-10-20/PASS2_RESULT_2026-10-23.md) (pad mapping table, keyboard differences, proposals), [checks](team/sweep-2026-10-20/after-pass2-checks.md). All 110 checks (`run_checks.py --long --arena`): 70 PASS, 1 FAIL, 0 TIMEOUT (baseline 68 PASS, 1 FAIL). The FAIL is still ui_fit's three title-panel points. New checks: input_map (the whole map: both devices, exact defaults, no clash per context) and pad_play (Highbank and the Warren on pad events alone, 19 steps). Also UI-05 (team row, party cards and Job Board faces cut from the dialogue face at 3x; Preston to choose 16 or 24 px) and LP-29 (tall room furniture draws over a creature behind it). New player-facing words are proposals. Nothing is committed; no windowed test was run.

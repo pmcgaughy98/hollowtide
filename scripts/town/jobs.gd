@@ -39,16 +39,28 @@ const RANK_STEPS := [0, 60, 150, 300, 500]   # points to reach Courier Rank 1..5
 
 
 ## Fresh requests for a board. The same seed always posts the same four.
+## Each client posts at most once a board while there are at least as many clients as requests (Claude, 2026-10-24,
+## pass 4 T8 / LV-27: the first board was four Canvaswing jobs). A client already on the board is swapped for one
+## that is not, from the same floor's creatures when one is left, else from the nearest floor's. The swap draws
+## from its own stream, so every floor, kind, item, condition and payment rolled here is the one it was.
 static func post(seed: int) -> Array:
 	var c: Dictionary = load(DUNGEON).get_script_constant_map()
 	var spawns: Dictionary = c["FLOOR_SPAWNS"]
+	var floors := int(c["FLOORS"])
 	var rng := RandomNumberGenerator.new()
 	rng.seed = seed * 7919 + 13
+	var swap := RandomNumberGenerator.new()
+	swap.seed = seed * 104729 + 7
+	var once := clients(spawns, floors).size() >= POSTED
+	var posted := {}
 	var out: Array = []
 	for k in POSTED:
-		var fl := rng.randi_range(1, int(c["FLOORS"]))
+		var fl := rng.randi_range(1, floors)
 		var pool: Array = spawns.get(fl, spawns[1])
 		var who: Array = pool[rng.randi_range(0, pool.size() - 1)]
+		if once and posted.has(_client_key(who)):
+			who = _fresh_client(spawns, floors, fl, posted, swap)
+		posted[_client_key(who)] = true
 		var kind: String = KINDS.keys()[rng.randi_range(0, KINDS.size() - 1)]
 		var job := {"id": "%d_%d" % [seed, k], "kind": kind, "line": who[0], "stage": who[1], "floor": fl, "done": false,
 			"reward": KINDS[kind]["reward"], "count": KINDS[kind]["count"], "pts": KINDS[kind]["pts"] + FLOOR_PTS * (fl - 1)}
@@ -60,6 +72,35 @@ static func post(seed: int) -> Array:
 				job["turns"] = QUICK_TURNS_PER_FLOOR * fl
 		out.append(job)
 	return out
+
+
+## Every creature that can be a client: each floor's wild creatures, [line, stage], once each.
+static func clients(spawns: Dictionary, floors: int) -> Array:
+	var out: Array = []
+	var seen := {}
+	for f in range(1, floors + 1):
+		for who in spawns.get(f, spawns[1]):
+			if not seen.has(_client_key(who)):
+				seen[_client_key(who)] = true
+				out.append(who)
+	return out
+
+
+static func _client_key(who: Array) -> String:
+	return "%d_%d" % [int(who[0]), int(who[1])]
+
+
+## A client not on the board yet: from floor `fl`'s creatures if one is left, else the nearest floor's (the lower
+## first on a tie). The board keeps the floor it rolled, so the pay is the same.
+static func _fresh_client(spawns: Dictionary, floors: int, fl: int, posted: Dictionary, swap: RandomNumberGenerator) -> Array:
+	for dist in floors:
+		for f in [fl - dist, fl + dist]:
+			if f < 1 or f > floors:
+				continue
+			var left: Array = spawns.get(f, spawns[1]).filter(func(w: Array) -> bool: return not posted.has(_client_key(w)))
+			if not left.is_empty():
+				return left[swap.randi_range(0, left.size() - 1)]
+	return spawns.get(fl, spawns[1])[0]   # every client is on the board already (the caller checks there are enough)
 
 
 ## The condition as the board asks it: "before the lantern goes out".

@@ -2,6 +2,7 @@ extends RefCounted
 ## Hall presentation over the existing 22x14 room/event grid; original painter remains the fallback.
 const ART := "res://assets/sprites/world/hall_interior_2026_10_10/hall_native.png"
 const SHADER := preload("res://scripts/dungeon/dungeon_finish.gdshader")
+const UI := preload("res://scripts/ui/ui_style.gd")
 const FOLDER := "res://assets/sprites/world/hall_interior_2026_10_10/"
 const PROPS := [
 	["pillar",Rect2i(73,122,22,46)],["pillar",Rect2i(433,122,22,46)],
@@ -13,23 +14,21 @@ const PROPS := [
 ]
 
 static func _prop(name: String) -> Image:
-	var img := Image.load_from_file(ProjectSettings.globalize_path(FOLDER+name+".png"))
-	img.convert(Image.FORMAT_RGBA8)
-	return img
+	# Claude, 2026-10-24 (A4, LV-19): UI.res_image reads the imported texture, which an exported game has; the PNG it does not.
+	return UI.res_image(FOLDER+name+".png")
 
 static func available() -> bool:
-	if not FileAccess.file_exists(ART): return false
+	if not UI.res_exists(ART): return false
 	for p in PROPS:
-		if not FileAccess.file_exists(FOLDER+p[0]+".png"): return false
+		if not UI.res_exists(FOLDER+p[0]+".png"): return false
 	return true
 
 static func paint(fallback: Image) -> Image:
 	if not available(): return fallback
-	var img := Image.load_from_file(ProjectSettings.globalize_path(ART))
+	var img := UI.res_image(ART)
 	if img == null or img.get_size()!=fallback.get_size():
 		push_warning("Hall interior art does not match the room; retaining original painter.")
 		return fallback
-	img.convert(Image.FORMAT_RGBA8)
 	# Transparent prop sprites are fitted to the original painter's exact visual rectangles.
 	# The floor is clean beneath them; no copied floor patches or moved collision tiles.
 	for p in PROPS:

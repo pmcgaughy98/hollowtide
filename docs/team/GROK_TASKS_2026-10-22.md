@@ -46,3 +46,54 @@ sign this pass.
 
 ## 6. W28, later
 One in-world line per creature description before any entry screen ships. Nothing ships an entry screen in this pass.
+
+## Signals from the factory passes (Claude, 2026-10-23)
+Things the two factory passes saw that touch your side. No numbers changed (stats, EXP, learnsets, spawns, damage).
+- In both full suites the post-pilot Rootbank Warren replay went down once, with the team at level 8 to 9 (B3F, turn 427,
+  to Preostmar). Pass 3's own chain run (2026-10-23) cleared the same replay with no faints, so it is a signal, not a
+  verdict; say if the replay floors want a look.
+- A wild beside its target with a wall corner between them now waits instead of pacing round (`scripts/dungeon/dungeon.gd`,
+  the "blocked" wait, FEEL-17). It no longer spends turns walking round the corner.
+- A partner now follows whichever teammate is between it and the leader, so a team walks as a line in halls.
+
+## Pass 3 lines (plan, 2026-10-23)
+From `sweep-2026-10-20/PASS3_PLAN_2026-10-23.md`, section "Grok". These are sections 1 to 5 above in a new order, with one
+new measurement. Pass 3 changed none of your numbers. (Claude, integrator, 2026-10-23)
+1. G1 (LO-16, LP-25 first): decide the Hollow Mouth spawns and REST_TO for a new player. Measured: a level 1 leader that
+   only bumps clears the Mouth on 3 of 10 seeds, and went down 27 times in the lv1 table. Claude applies any spawn
+   table you hand over without changing its numbers.
+2. G2 (FLOW-17, section 1): `docs/design/pilot-story-2026-10-10.md` line 70 says the two Hollow spawn rows are stale;
+   confirm or replace them.
+3. G3 (FX-02, section 3): which of the 13 status moves belong in the dungeon.
+4. G4 (W27, section 4): keep or retire `data/moves/fire_move.tres`.
+5. G5 (GS-20, section 5): Lantern Tackle, Verdant Roar and Ember Feint still live in `arena_prototype.gd` and
+   `arena_signature.gd`; decide their home.
+6. G6 (LO-15): read "Signals from the factory passes" just above. One more data point from the integrator's final suite
+   (2026-10-23, about 19:50): the post-pilot Warren replay went down once again, this time at level 7 (B3F, turn 335,
+   to Preostmar, leader Sparkwick), then cleared on its second try. So in pass 3 one chain run cleared it with no faints
+   and one went down once.
+
+## Pass 4 lines (plan, 2026-10-24)
+From `sweep-2026-10-20/PASS4_PLAN_2026-10-24.md`, section "Grok". Result: `sweep-2026-10-20/PASS4_RESULT_2026-10-24.md`.
+Pass 4 changed none of your numbers (stats, EXP, learnsets, spawns, damage). (Claude, integrator, 2026-10-24)
+1. G1 (live LV-36, leftovers LV-25): take G1 first (Mouth spawns and REST_TO), then G2 to G5, and read G6 above.
+   Signals: lv1_run, 10 seeds, 4 cleared, 22 downs, lowest leader HP 3% on six; the live Tab-autopilot run went down on
+   B3F at Lv 2; the post-pilot Warren replay lost on B3F to Preostmar. Claude applies any table unchanged and reruns
+   pilot_chain, dungeon_chain and lv1_run.
+2. Body gate (H10): move_table_check now judges '0 kit moves fail the body gate' as a verdict, so any new kit move
+   without its parts turns the suite red. Confirm that is the rule from docs/creatures/DESIGN_RULES.md (2026-10-02).
+3. dual_essence_check (H34) stays RAN as your print tool of essence_chart.gd multipliers (ARENA_CHART outranks it).
+   Say if you want it retired.
+
+Added by the pass 4 integrator, from the lanes' notes:
+4. Job Board clients (town lane T8, live LV-27): a board no longer posts two jobs for the same creature while 4 or more
+   clients are possible. jobs.gd keeps no record of creatures met, so the client pool is every creature in the floors'
+   spawn lists (5 today). A repeated client is swapped for one not on the board, from the same floor's list if one is
+   left, otherwise the nearest floor's. Floors, kinds, items, rewards, counts and pts are unchanged, but a swapped client
+   can come from another floor's list (for example Preostmar, a B3F creature, posting a B1F job). Say if a client must
+   stay on its own floor.
+5. Guardian passive (arena check lanes): no creature carries the Guardian passive any more (Starward's passive is the
+   punch Chain). arena_protector_check prints the Guardian line only ('a 20 blow on the ally beside Starward took 20').
+   Say whether Guardian comes back or its step is dropped (Preston's Q11).
+6. One more data point for G6 from the pass 4 full suite (2026-10-24, about 10:05): lv1_run again cleared 4 of 10 seeds
+   with 22 downs; the pilot chain's post-pilot Warren replay cleared with no faints.

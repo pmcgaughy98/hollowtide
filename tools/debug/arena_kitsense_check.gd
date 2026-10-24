@@ -3,11 +3,15 @@ extends SceneTree
 ## team's called target and damage dealers switch to it; a kill on the table puts a creature
 ## in finish mode and it takes it; a skirmisher that is low with a blow coming kites; the
 ## protector peels; and the log explains every decision.
+## Judged since Claude, 2026-10-24 (H22): the call, the finish and its kill, kite, peel, and a
+## full 3v3 that runs to a winner with calls and engage decisions. How many switched to the
+## called target stays printed, not judged (Q11).
 ##   Godot --path . --fixed-fps 30 --script res://tools/debug/arena_kitsense_check.gd
 ## Stills to docs/creatures/arena-feel-2026-10-07/kitsense_*.png.
 
 const OUT := "res://docs/creatures/arena-feel-2026-10-07/"
 var arena: Node2D
+var fails := 0
 
 func _initialize() -> void:
 	arena = load("res://scenes/arena_prototype.tscn").instantiate()
@@ -53,6 +57,7 @@ func _initialize() -> void:
 		if arena._foe_of(j) == enemies[1]:
 			switched += 1
 	print("Called target: the rooted %s is the team's call (%s); %d of 3 switched to it" % [arena._fighters[enemies[1]]["name"], "yes" if called == enemies[1] else "no", switched])
+	_ok("The rooted enemy becomes the team's called target", called == enemies[1])
 	_save("kitsense_call")
 	# 2. Finish: an enemy at 8 HP beside Stormwick.
 	for j in enemies:
@@ -70,6 +75,7 @@ func _initialize() -> void:
 			finish_line = arena.ai_log[k]
 			break
 	print("Finish: %s; the 8 HP enemy is %s" % [finish_line if finish_line != "" else "no finish decision logged", "down" if arena._fighters[enemies[0]]["hp"] <= 0 else "still up"])
+	_ok("A finish decision is logged and the 8 HP enemy goes down", finish_line != "" and arena._fighters[enemies[0]]["hp"] <= 0)
 	# 3. Kite: a Scourmaw at a third of its HP with a claw coming.
 	arena.team_size = 1
 	arena._you = 2
@@ -91,6 +97,7 @@ func _initialize() -> void:
 		if arena.ai_log[k].find("kite") >= 0:
 			kite_line = arena.ai_log[k]
 	print("Kite: mode %s; %s" % [me["mode"], kite_line if kite_line != "" else "no kite decision logged"])
+	_ok("The low skirmisher with a blow coming is in kite mode and logs it", me["mode"] == "kite" and kite_line != "")
 	# 4. Peel: Starward with a hurt ally and an enemy on it.
 	arena.team_size = 3
 	arena._you = 6
@@ -119,14 +126,19 @@ func _initialize() -> void:
 	for k in range(before, arena.ai_log.size()):
 		if arena.ai_log[k].find("peel") >= 0:
 			peel_line = arena.ai_log[k]
-	print("Peel: mode %s; %s; Starward now %.0f px from the hurt ally" % [me["mode"], peel_line if peel_line != "" else "no peel decision logged", me["body"].position.distance_to(arena._fighters[mine[0]]["body"].position)])
+	var peel_gap: float = me["body"].position.distance_to(arena._fighters[mine[0]]["body"].position)
+	print("Peel: mode %s; %s; Starward now %.0f px from the hurt ally" % [me["mode"], peel_line if peel_line != "" else "no peel decision logged", peel_gap])
+	_ok("The protector peels, logs it and stays within 80 px of the hurt ally", me["mode"] == "peel" and peel_line != "" and peel_gap < 80.0)
 	_save("kitsense_peel")
 	# 5. A full AI 3v3 with the log on.
 	arena._you = 0
 	arena._rival = 3
 	arena._new_match()
 	var frames := 0
-	while arena._winner < 0 and frames < 2700:
+	# The match ends on points after MATCH_SECONDS of unfrozen time; hitstop and signatures stop
+	# that clock, so the budget is the full match plus 60 s of slack (Claude, 2026-10-24).
+	var budget: int = int(arena.MATCH_SECONDS * 30.0) + 1800
+	while arena._winner < 0 and frames < budget:
 		await process_frame
 		frames += 1
 		if frames == 300:
@@ -139,10 +151,21 @@ func _initialize() -> void:
 		for mode in ["finish", "peel", "kite", "hold", "engage"]:
 			if line.find(" " + mode + ":") >= 0:
 				modes[mode] = modes.get(mode, 0) + 1
-	print("AI 3v3 Stormwick team vs Ironvent team: %s after %.0f s; in the last %d logged decisions: %s; %d calls" % [("your team" if arena._fighters[arena._winner]["team"] == 0 else "the rival team") if arena._winner >= 0 else "draw", frames / 30.0, arena.ai_log.size(), str(modes), calls])
+	# _winner is a team index (0 yours, 1 the rival's), not a fighter index (Claude, 2026-10-24).
+	print("AI 3v3 Stormwick team vs Ironvent team: %s after %.0f s; in the last %d logged decisions: %s; %d calls" % [("your team" if arena._winner == 0 else "the rival team") if arena._winner >= 0 else "no winner yet", frames / 30.0, arena.ai_log.size(), str(modes), calls])
 	for k in range(maxi(0, arena.ai_log.size() - 6), arena.ai_log.size()):
 		print("  " + arena.ai_log[k])
-	quit()
+	_ok("The AI 3v3 reaches a winner within the match clock plus slack", arena._winner >= 0)
+	_ok("The AI 3v3 makes at least one call and some engage decisions", calls >= 1 and modes.has("engage"))
+	print("ARENA KIT SENSE: %s" % ("all ok" if fails == 0 else "%d FAILED" % fails))
+	quit(1 if fails > 0 else 0)
+
+
+## One judged line: "what -> ok" or "what -> FAIL" (Claude, 2026-10-24).
+func _ok(what: String, good: bool) -> void:
+	print("%s -> %s" % [what, "ok" if good else "FAIL"])
+	if not good:
+		fails += 1
 
 
 func _frames(n: int) -> void:

@@ -134,14 +134,19 @@ func _rows() -> Array:
 	var rows: Array = []
 	rows.append(["%s went down on %s of %s." % [info.get("leader", "The leader"), info.get("floor", "B1F"), info.get("dungeon", "the Hollow")], UI.TEXT])
 	rows.append(["Beaten by %s after %d turns. Wild creatures downed on the way: %d." % [info.get("fell_to", "the dark"), int(info.get("turns", 0)), int(info.get("downed", 0))], DIM])
-	var lost := "Lost: the bag (%d items)." % int(info.get("lost_items", 0))
+	# An empty bag is not a loss: no "Lost: the bag (0 items)." line (pass 3 D10, Claude, 2026-10-23). The parcels
+	# and the run's recruits are still told when they went.
+	var lost := ""
+	if int(info.get("lost_items", 0)) > 0:
+		lost = "Lost: the bag (%d items)." % int(info.get("lost_items", 0))
 	var parcels: Array = info.get("lost_parcels", [])
 	if not parcels.is_empty():   # the deliveries went with the bag (R4)
 		lost = "Lost: the bag (%d items), with the parcel for %s." % [int(info.get("lost_items", 0)), " and ".join(parcels)]
 	var recruits: Array = info.get("lost_recruits", [])
 	if not recruits.is_empty():
-		lost += " The run's recruits went back into the hollow: %s." % ", ".join(recruits)
-	rows.append([lost, Color("e6a07a")])
+		lost += (" " if lost != "" else "") + "The run's recruits went back into the hollow: %s." % ", ".join(recruits)
+	if lost != "":
+		rows.append([lost, Color("e6a07a")])
 	var kept := "Kept: levels, moves and your partners."   # ends at the partners (Claude, 2026-10-22, W30)
 	if not TeamState.data.get("stored", {}).is_empty():   # the Storage never goes down with the bag (R6)
 		kept += " What's in Storage is still there."
@@ -164,7 +169,13 @@ func go() -> void:
 		next.replay = bool(info.get("replay", false))
 		next.boss_intro = bool(info.get("boss_intro", true))
 	if is_inside_tree() and get_tree().current_scene == self:
-		get_tree().change_scene_to_node(next)
+		# The next scene is built under UI's black (pass 3 D11, Claude, 2026-10-23). Highbank lifts it in its own
+		# _ready; the dungeon does not, so it is lifted here, over the dungeon's own floor card.
+		var tree := get_tree()
+		await UI.fade_out(tree, 0.1)   # quick: the screen is black round the panel already
+		tree.change_scene_to_node(next)
+		if not info.get("to_town", true):
+			UI.fade_in(tree)
 	else:
 		set_meta("went", "town" if info.get("to_town", true) else "dungeon")   # the checks read this
 		next.free()

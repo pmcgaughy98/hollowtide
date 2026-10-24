@@ -13,10 +13,13 @@
 # Each check also gets its own empty APPDATA folder, so no check can touch Preston's real save.
 #
 # Running the checks DOES change files in the repo. move_table_check rewrites docs/creatures/move-table-2026-10-09.md,
-# pilot_chain_check rewrites docs/design/pilot-chain-2026-10-11.log, 37 other non-arena checks (and 34 arena ones)
+# 37 other non-arena checks (and 34 arena ones)
 # name a res://docs/ folder for stills or JSON, and galeshear_wings, opening_launch and relay_yard write to
 # D:/dev/hollowtide-* folders.
 # Check git status after a run and put back what you did not mean to change.
+# Each check gets the logs folder as HT_CHECK_LOGS. pilot_chain_check writes its step log there (pilot-chain.log)
+# and rewrites docs/design/pilot-chain-2026-10-11.log only when run directly with `-- --update-doc`
+# (Claude, 2026-10-23, LO-11).
 #
 # Most checks exit 0 even when a line fails, so the result is read from what the check prints, not its exit code.
 # The failure words below come from the checks themselves (grep of tools/debug/*_check.gd, 2026-10-21):
@@ -206,7 +209,8 @@ def classify(name: str, out: str, code: int, timed_out: bool, window: bool = Fal
 
 def run_one(godot: str, name: str, timeout: int, window: bool, logs: Path) -> dict:
     appdata = Path(tempfile.mkdtemp(prefix=f"ht_{name}_"))
-    env = dict(os.environ, APPDATA=str(appdata), XDG_DATA_HOME=str(appdata))
+    # HT_CHECK_LOGS: where a check may put its own files (forward slashes for Godot), not docs/ (Claude, 2026-10-23)
+    env = dict(os.environ, APPDATA=str(appdata), XDG_DATA_HOME=str(appdata), HT_CHECK_LOGS=logs.resolve().as_posix())
     cmd = [godot] + ([] if window else ["--headless"]) + [
         "--fixed-fps", "30", "--path", str(ROOT), "--script", f"res://tools/debug/{name}.gd"]
     start = time.time()

@@ -7,6 +7,7 @@ const WOOD_LIGHT := Color("#bc9457")
 const BRASS := Color("#b99a52")
 const STONE := Color("#9d8d6c")
 const SIZES := {"hall":Vector2i(528,336),"hall_low":Vector2i(720,432),"chamber":Vector2i(408,264),"runners":Vector2i(336,240)}
+const UI := preload("res://scripts/ui/ui_style.gd")
 
 static func regions(id: String) -> Array:
 	match id:
@@ -107,10 +108,9 @@ static func _hatch(img: Image) -> void:
 
 static func _source(name: String) -> Image:
 	var path:="res://assets/sprites/world/hall_floors_2026_10_11/%s.png" % name
-	if not FileAccess.file_exists(path):return null
-	var src:=Image.load_from_file(ProjectSettings.globalize_path(path))
+	# Claude, 2026-10-24 (A4, LV-19): UI.res_image reads the imported texture, which an exported game has; the PNG it does not.
+	var src:=UI.res_image(path)
 	if src==null or src.get_width()!=20 or src.get_height()<62:return null
-	src.convert(Image.FORMAT_RGBA8)
 	return src
 
 static func _case_mask(img: Image,name: String,x: int) -> void:

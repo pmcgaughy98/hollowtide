@@ -43,6 +43,8 @@ static func ground_apply(img: Image, ground: Image, place: Dictionary) -> Image:
 	var px := Rect2i(r.position * Layout.T, r.size * Layout.T)
 	img.blit_rect(ground, Rect2i(Vector2i.ZERO, px.size), px.position)
 	var art: Image = load(SOURCES[place["id"]]).get_image()
+	if place["id"] == "scrolls":
+		art = _scroll_standing(art)   # the shadow falls from the porch where it now stands (T3)
 	# A two-pixel contact band, falling bottom-right from the common top-left light.
 	for y in range(1, px.size.y + 2):
 		for x in range(1, px.size.x + 2):
@@ -119,6 +121,19 @@ func _ready() -> void:
 		sprite.centered = false
 		sprite.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
 		sprite.texture = load(SOURCES[id])
+		var lift := PORCH_LIFT if id == "scrolls" else 0
+		if id == "scrolls":
+			# The cellar porch stands on the ground at the door, off the roof (Claude, 2026-10-23, T3).
+			var parts := _scroll_parts(sprite.texture.get_image())
+			sprite.texture = ImageTexture.create_from_image(parts[0])
+			var porch := Sprite2D.new()
+			porch.name = "Porch"
+			porch.centered = false
+			porch.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
+			porch.texture = ImageTexture.create_from_image(parts[1])
+			porch.position = Vector2(0, -lift)
+			Finish.apply(porch, true)
+			base.add_child(porch)
 		Finish.apply(sprite, true)   # Shared sel-out includes purposeful internal contours.
 		base.add_child(sprite)
 		var entrance: Vector2i = place["door"]
@@ -130,11 +145,12 @@ func _ready() -> void:
 		details.name = "FoundationAndSign"
 		details.centered = false
 		details.texture = ImageTexture.create_from_image(_details(r.size * Layout.T, local_d, id, entrance_width))
+		details.position = Vector2(0, -lift)   # the Scroll Keeper's landing line and sign go up with its porch
 		base.add_child(details)
 		var door := Sprite2D.new()
 		door.name = "Door"
 		door.centered = false
-		door.position = Vector2(local_d + Vector2i(-2, 0 if id == "scrolls" else -48 if id == "hall" else -36))
+		door.position = Vector2(local_d + Vector2i(-2, -lift if id == "scrolls" else -48 if id == "hall" else -36))
 		Finish.apply(door)
 		base.add_child(door)
 		var frames: Array[Texture2D] = []
@@ -152,6 +168,52 @@ func _ready() -> void:
 			base.add_child(shut)   # after the door, so it draws over it
 	if buildings.has("yard"):
 		_rope_across_yard()
+
+
+## The Scroll Keeper's cellar porch (Claude, 2026-10-23, T3 / L23). Its source art draws the porch, lanterns, crates
+## and purple banners against the top of the mossy roof, so from the street it read as a market stall up on the
+## roof. The porch is cut from the roof along the foot of its stone ledge and drawn PORCH_LIFT px higher, standing
+## on the ground at the door with a strip of grass between it and the roof; the cellar lid, its chain and the sign
+## go up with it. The roof's ridge beam stays with the roof. The source PNG is not changed. The other signs (Hall,
+## Item Shop, Storage) stand at their own doors and were checked in the same render.
+const PORCH_LIFT := 12
+
+
+## How many rows from the top of column `x` of the Scroll Keeper's art belong to the porch (0: none). The cut
+## slants up at both ends, so the roof's side frames keep their posts and the grass between reads as ground, not
+## a square hole in the roof.
+static func _porch_rows(x: int) -> int:
+	if x < 30 or x >= 112:
+		return 0
+	if x >= 64 and x < 78:
+		return 30   # the ridge beam's end stays with the roof
+	if x < 40:
+		return 26 + (x - 30) * 14 / 10
+	if x >= 102:
+		return 26 + (111 - x) * 14 / 10
+	return 40
+
+
+## [roof, porch]: the Scroll Keeper's art split along the porch's ledge, each at full size with the other cleared.
+static func _scroll_parts(art: Image) -> Array:
+	var roof: Image = art.duplicate()
+	if roof.is_compressed():
+		roof.decompress()
+	roof.convert(Image.FORMAT_RGBA8)
+	var porch := Image.create(roof.get_width(), roof.get_height(), false, Image.FORMAT_RGBA8)
+	for x in roof.get_width():
+		for y in mini(_porch_rows(x), roof.get_height()):
+			porch.set_pixel(x, y, roof.get_pixel(x, y))
+			roof.set_pixel(x, y, Color(0, 0, 0, 0))
+	return [roof, porch]
+
+
+## The Scroll Keeper as it stands: the roof, and the porch PORCH_LIFT px up (rows lifted past the top are cut off).
+static func _scroll_standing(art: Image) -> Image:
+	var parts := _scroll_parts(art)
+	var out: Image = parts[0]
+	out.blend_rect(parts[1], Rect2i(0, PORCH_LIFT, out.get_width(), out.get_height() - PORCH_LIFT), Vector2i.ZERO)
+	return out
 
 
 ## Shut for this build (Claude, 2026-10-22, GS-12; Preston's call 9, default shut signs): boards nailed

@@ -5,6 +5,7 @@ const FOLDER := "res://assets/sprites/world/hall_floors_2026_10_11/"
 const OLD_PROPS := "res://assets/sprites/world/hall_interior_2026_10_10/"
 const SelOut := preload("res://scripts/art/selout.gd")
 const SHADER := preload("res://scripts/dungeon/dungeon_finish.gdshader")
+const UI := preload("res://scripts/ui/ui_style.gd")
 const SIZES := {"hall": Vector2i(528,336), "hall_low": Vector2i(720,432), "chamber": Vector2i(408,264), "runners": Vector2i(336,240)}
 const SHELLS := {"hall_low":"lower", "chamber":"chamber", "runners":"runners"}
 const PROPS := {
@@ -35,10 +36,8 @@ static func _path(name: String) -> String:
 	return (OLD_PROPS if name in ["fern","pillar"] else FOLDER)+name+".png"
 
 static func _load(path: String) -> Image:
-	if not FileAccess.file_exists(path): return null
-	var img := Image.load_from_file(ProjectSettings.globalize_path(path))
-	if img != null: img.convert(Image.FORMAT_RGBA8)
-	return img
+	# Claude, 2026-10-24 (A4, LV-19): UI.res_image reads the imported texture, which an exported game has; the PNG it does not.
+	return UI.res_image(path)
 
 static func _bands(id: String) -> Array:
 	var s: Vector2i = SIZES[id]

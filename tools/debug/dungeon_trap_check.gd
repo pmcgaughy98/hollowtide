@@ -4,10 +4,21 @@ extends SceneTree
 ## floors: no trap in a hallway, in front of a hallway opening, in the start room or a Monster
 ## House, and at most TRAP_WARP_MAX warps a floor. A partner walking onto a trap sets nothing off;
 ## the leader does. Then autopilot runs: the longest a partner stays more than 4 tiles behind.
+## Placement, the trap trigger and each seed's run are verdict lines; the partner's lag stays printed for
+## Preston's call (Q11) (Claude, 2026-10-24, H05).
 ##   Godot --path . --fixed-fps 30 --script res://tools/debug/dungeon_trap_check.gd
+
+var fails := 0
+
 
 func _initialize() -> void:
 	_run.call_deferred()
+
+
+func _ok(what: String, good: bool) -> void:
+	print("%s -> %s" % [what, "ok" if good else "FAIL"])
+	if not good:
+		fails += 1
 
 
 func _run() -> void:
@@ -45,6 +56,8 @@ func _run() -> void:
 				warps += 1
 		most_warps = maxi(most_warps, warps)
 	print("Placement over 40 floors: %d traps; in hallways %d, in front of an opening %d, in the start room %d, in a Monster House %d; most warps on a floor %d" % [total, hall, opening, start_room, in_house, most_warps])
+	_ok("Placement: no trap in a hallway (%d), in front of an opening (%d), in the start room (%d) or in a Monster House (%d)" % [hall, opening, start_room, in_house], hall == 0 and opening == 0 and start_room == 0 and in_house == 0)
+	_ok("Placement: at most %d warp a floor (most %d)" % [dg.TRAP_WARP_MAX, most_warps], most_warps <= dg.TRAP_WARP_MAX)
 	# A partner on a trap sets nothing off; the leader does.
 	dg.floor_seed = 4242
 	dg._build_floor(true)
@@ -61,7 +74,7 @@ func _run() -> void:
 	lead["pos"] = tr["pos"]
 	lead["moved"] = true
 	dg._spring_traps()
-	print("A %s trap: the partner on it set it off %s; the leader on it set it off %s" % [tr["kind"], str(partner_hit), str(tr["seen"])])
+	_ok("A %s trap: the partner on it set it off %s; the leader on it set it off %s" % [tr["kind"], str(partner_hit), str(tr["seen"])], not partner_hit and tr["seen"])
 	dg.queue_free()
 	await process_frame
 	# The chain on autopilot.
@@ -92,7 +105,8 @@ func _run() -> void:
 					longest = maxi(longest, streak[k])
 				else:
 					streak[k] = 0
-		print("Autopilot seed %d: %s after %d turns; the longest a partner stayed more than 4 tiles behind: %d turns" % [sd, "reached B2F" if d2.floor_n > 1 else ("fainted" if d2.faints > 0 else "still on B1F"), d2.turn, longest])
+		print("Autopilot seed %d: %s after %d turns; the longest a partner stayed more than 4 tiles behind: %d turns" % [sd, "reached B2F" if d2.floor_n > 1 else ("went down" if d2.faints > 0 else "still on B1F"), d2.turn, longest])
+		_ok("Autopilot seed %d reaches B2F without going down (B%dF, faints %d)" % [sd, d2.floor_n, d2.faints], d2.floor_n > 1 and d2.faints == 0)
 		d2.queue_free()
 		await process_frame
-	quit()
+	quit(1 if fails else 0)

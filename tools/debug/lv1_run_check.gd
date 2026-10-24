@@ -6,8 +6,9 @@ extends SceneTree
 ## at level 1, with an empty story, so the Mouth's last stairs play the parcel scene as in the pilot.
 ## One row per seed: how the run ended, the times it went down, the turns over every try (a try after going down
 ## starts again at B1F on a new layout, as the game does when the Mouth runs alone), the deepest floor, the lowest share of
-## health the leader stood at, the leader's level and the team's size at the end. It judges nothing: the table is
-## for Grok (docs/team/GROK_TASKS_2026-10-22.md, LP-25: the Mouth's spawns and the autopilot's REST_TO are his).
+## health the leader stood at, the leader's level and the team's size at the end. It judges only that every seed gave
+## its row (Claude, 2026-10-24, H27), so a run that stops part way shows: the table is for Grok
+## (docs/team/GROK_TASKS_2026-10-22.md, LP-25: the Mouth's spawns and the autopilot's REST_TO are his).
 ## Engine.time_scale plays the animations faster; every count here is in turns, which it does not change.
 ##   Godot --headless --path . --fixed-fps 30 --script res://tools/debug/lv1_run_check.gd
 
@@ -127,4 +128,5 @@ func _run() -> void:
 			await process_frame
 	Engine.time_scale = 1.0
 	print("Seeds run %d: cleared %d, went down %d times in all, %.0f turns a seed on average" % [rows, cleared_n, downs_sum, turns_sum / maxf(1.0, rows)])
-	quit()
+	print("Every seed gave a row: %d of %d -> %s" % [rows, SEEDS.size(), "ok" if rows == SEEDS.size() else "FAIL"])
+	quit(0 if rows == SEEDS.size() else 1)

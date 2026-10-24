@@ -14,6 +14,9 @@ extends SceneTree
 ## Hollow keeps the run, and the title's Continue resumes it. On by default; `-- --plain` runs the straight chain
 ## alone. Both read the end card after the first growth (GS-16, lane 3's pilot_end.gd).
 ##   Godot --headless --path . --fixed-fps 30 --script res://tools/debug/pilot_chain_check.gd
+## The step log goes to the runner's logs folder (HT_CHECK_LOGS, set by run_checks.py) as pilot-chain.log, or to
+## user://pilot-chain.log on a direct run. `-- --update-doc` also rewrites the tracked
+## docs/design/pilot-chain-2026-10-11.log, so a suite run leaves docs/ alone (Claude, 2026-10-23, LO-11).
 
 const TeamState := preload("res://scripts/town/team_state.gd")
 const UI := preload("res://scripts/ui/ui_style.gd")
@@ -25,6 +28,7 @@ var faints := 0   # dungeon runs that ended in a faint (a balance signal for Gro
 var pass_two := not OS.get_cmdline_user_args().has("--plain")   # FLOW-21's detours, on unless `-- --plain`
 var hold := false   # pass 2 holds the autopilot and the faint screen's presses while it reads them
 var last_faint := ""   # what the last faint screen said (its info), printed beside a try that did not clear (Claude, 2026-10-22)
+var boss_seen := false   # the dungeon in play had a boss set up (boss_cfg() not empty); reset by each _dungeon (Claude, 2026-10-24, H01)
 
 
 func _initialize() -> void:
@@ -47,6 +51,25 @@ func _story() -> Dictionary:
 	return TeamState.data.get("story", {})
 
 
+## The growth changed one party entry, [line, stage], to the same line one stage on, and nothing else: the same
+## party size, every other entry as it was (Claude, 2026-10-24, H01; "party != before" passed on any change).
+func _grew_one(before: Array, after: Array) -> bool:
+	if after.size() != before.size():
+		return false
+	var grew := 0
+	for k in before.size():
+		var b: Array = before[k]
+		var a: Array = after[k]
+		var same_rest := a.size() == b.size() and str(a.slice(2)) == str(b.slice(2))
+		if same_rest and int(a[0]) == int(b[0]) and int(a[1]) == int(b[1]):
+			continue
+		if same_rest and int(a[0]) == int(b[0]) and int(a[1]) == int(b[1]) + 1:
+			grew += 1
+		else:
+			return false
+	return grew == 1
+
+
 ## One frame of a player who reads every line and lets the dungeon play itself.
 func _tick() -> void:
 	await process_frame
@@ -56,6 +79,8 @@ func _tick() -> void:
 	var file := _scene()
 	if file == "dungeon.tscn":
 		s.autopilot = not hold
+		if s.has_method("boss_cfg") and not s.boss_cfg().is_empty():
+			boss_seen = true
 		if not s.talk.is_empty() and Engine.get_process_frames() % 4 == 0:
 			UI.finish_line()
 			s.act_talk()
@@ -89,15 +114,16 @@ func _dungeon(name: String, start: Callable, detour := Callable()) -> bool:
 	# Five tries, not three (2026-10-12): a short Hollow Mouth seed sent the team into Rootbank Warren at level 2
 	# and the crew beat it three times running while its levels climbed a step a try; a player keeps going, and
 	# the game has no dead end there (every try keeps levels). Grok has the balance note (GROK_TASKS_2026-10-12.md).
+	boss_seen = false   # _tick sets it while any try of this dungeon has a boss set up (Claude, 2026-10-24, H01)
 	for attempt in 5:
 		var before_cleared := int(TeamState.data.get("cleared", 0))
 		last_faint = ""
 		start.call()
-		await _until(func() -> bool: return _scene() == "dungeon.tscn", 30 * 20)
+		await _until(_in_dungeon, 30 * 20)
 		var forced := false
-		if attempt == 0 and detour.is_valid() and _scene() == "dungeon.tscn":
+		if attempt == 0 and detour.is_valid() and _in_dungeon():
 			forced = await detour.call()
-		var ok := await _until(func() -> bool: return _scene() == "hub_town.tscn", 30 * 900)
+		var ok := await _until(_in_town, 30 * 900)
 		var news := String(TeamState.data.get("news", ""))
 		print("  %s, try %d: back in town %s, news '%s', cleared %d, party %s, levels %s, growth %s" % [name, attempt + 1, ok, news, int(TeamState.data.get("cleared", 0)), str(TeamState.data.get("party", [])), str(TeamState.data.get("levels", {})), str(TeamState.data.get("growth", {}))])
 		if ok and int(TeamState.data.get("cleared", 0)) > before_cleared:   # the town clears its news message once shown
@@ -118,9 +144,9 @@ func _faint_in_warren() -> bool:
 	var id := current_scene.get_instance_id()
 	await _until(func() -> bool:
 		var d: Object = instance_from_id(id)
-		return d == null or (d.talk.is_empty() and not d.busy and not d.cutscene), 30 * 20)
+		return d == null or (not d.ents.is_empty() and d.talk.is_empty() and not d.busy and not d.cutscene), 30 * 20)
 	var dg: Object = instance_from_id(id)
-	if dg == null or _scene() != "dungeon.tscn":
+	if dg == null or _scene() != "dungeon.tscn" or dg.ents.is_empty():
 		hold = false
 		_ok("Pass 2: the Warren is underway for the faint on purpose (%s)" % _scene(), false)
 		return false
@@ -151,7 +177,7 @@ func _faint_in_warren() -> bool:
 		screen.page == 1 and "went down on B1F of Rootbank Warren" in said and "Lost:" in said and "Kept:" in said)
 	screen.advance()   # E: home
 	hold = false
-	var home := await _until(func() -> bool: return _scene() == "hub_town.tscn", 30 * 10)
+	var home := await _until(_in_town, 30 * 10)
 	_ok("Pass 2: E carries the team home (%s): faints %d -> %d, parcel '%s', trial %s" % [_scene(), faints_before, int(TeamState.data.get("faints", 0)), _story().get("parcel", ""), str(_story().get("guild_trial", false))],
 		home and int(TeamState.data.get("faints", 0)) == faints_before + 1 and _story().get("parcel", "") == "stolen" and _story().get("guild_trial", false))
 	return true
@@ -204,7 +230,7 @@ func _suspend_in_hollow() -> bool:
 		return false
 	TeamState.data = {}   # Continue reads the file, not what is still in memory
 	title._on_continue()
-	var back := await _until(func() -> bool: return _scene() == "dungeon.tscn", 30 * 10)
+	var back := await _until(_in_dungeon, 30 * 10)
 	var run: Node = current_scene
 	_ok("Pass 2: Continue resumes The Hollow at the top of B%dF: seed %d, turn %d, leader HP %d (was %d), home after %s, the kept run used up %s" % [
 			int(run.get("floor_n")) if back else 0, int(run.get("floor_seed")) if back else 0, int(run.get("turn")) if back else 0,
@@ -215,8 +241,22 @@ func _suspend_in_hollow() -> bool:
 	return false
 
 
+## A dungeon floor once it is built: since pass 4 (L03b) an arrival with input on shows the floor card for two frames
+## before _build_floor, so "the scene is dungeon" alone met an empty ents and the faint on purpose stopped on
+## ents[0] (Claude, 2026-10-24).
+func _in_dungeon() -> bool:
+	return _scene() == "dungeon.tscn" and not current_scene.ents.is_empty()
+
+
+## Highbank once it is built. Since pass 4 (T4) a first arrival with input on puts the place card up and waits two
+## frames before it builds the street and the team, so "the scene is hub_town" alone met an empty town.team and
+## the Job Board scene stopped on team[0] (Claude, 2026-10-24). The team is the last thing _ready waits for.
+func _in_town() -> bool:
+	return _scene() == "hub_town.tscn" and not current_scene.team.is_empty()
+
+
 func _town() -> Node:
-	return current_scene if _scene() == "hub_town.tscn" else null
+	return current_scene if _in_town() else null
 
 
 func _run() -> void:
@@ -246,7 +286,7 @@ func _run() -> void:
 		current_scene.queue_free()
 		current_scene = arch
 		arch._enter_arch())
-	_ok("Hollow Mouth cleared, no boss; parcel '%s', beaten %s" % [_story().get("parcel", ""), str(TeamState.data.get("beaten", []))], mouth_ok and _story().get("parcel", "") == "saved" and "mouth" in TeamState.data.get("beaten", []))
+	_ok("Hollow Mouth cleared, no boss fought (boss set up %s); parcel '%s', beaten %s" % [boss_seen, _story().get("parcel", ""), str(TeamState.data.get("beaten", []))], mouth_ok and not boss_seen and _story().get("parcel", "") == "saved" and "mouth" in TeamState.data.get("beaten", []))
 	# 3. Highbank: the way down is held until the guild is told.
 	var town := _town()
 	town.enter_hollow()
@@ -263,7 +303,7 @@ func _run() -> void:
 	await _until(func() -> bool: return _story().get("guild_trial", false) and not current_scene.cutscene, 30 * 180)
 	_ok("Wayline Hall: the trial is set (%s)" % _story().get("guild_trial", false), _story().get("guild_trial", false))
 	current_scene.leave()
-	await _until(func() -> bool: return _scene() == "hub_town.tscn", 30 * 5)
+	await _until(_in_town, 30 * 5)
 	# 6. Rootbank Warren and the crew boss.
 	var warren_ok := await _dungeon("Rootbank Warren", func() -> void: _town().enter_hollow(), _faint_in_warren if pass_two else Callable())
 	_ok("Rootbank Warren cleared; parcel '%s', beaten %s" % [_story().get("parcel", ""), str(TeamState.data.get("beaten", []))], warren_ok and _story().get("parcel", "") == "recovered" and "first" in TeamState.data.get("beaten", []))
@@ -292,7 +332,7 @@ func _run() -> void:
 	low.go_room({"to": "hall", "at": Vector2i(13, 10), "facing": "w", "sfx": "stairs"})
 	await _until(func() -> bool: return _scene() == "town_room.tscn" and current_scene.get_instance_id() != low_id, 30 * 5)
 	current_scene.leave()
-	await _until(func() -> bool: return _scene() == "hub_town.tscn", 30 * 5)
+	await _until(_in_town, 30 * 5)
 	# 8. The Hollow by the teleport, the Warden, the stone.
 	var hollow_ok := await _dungeon("The Hollow", func() -> void:
 		_town().enter_hollow()
@@ -327,7 +367,8 @@ func _run() -> void:
 			# read the party too early, then walked to the way down while the scene still owned the town).
 			await _until(func() -> bool: return town.evolving_now, 30 * 3)
 			await _until(func() -> bool: return not town.evolving_now, 30 * 90)   # the whole growth scene, with room to spare
-			_ok("Grown: party %s -> %s" % [str(before), str(TeamState.data.get("party", []))], TeamState.data.get("party", []) != before)
+			# Exactly one creature grew one stage and the rest of the party is as it was (Claude, 2026-10-24, H01).
+			_ok("Grown: party %s -> %s" % [str(before), str(TeamState.data.get("party", []))], _grew_one(before, TeamState.data.get("party", [])))
 			# 9b. The end card (GS-16, lane 3's pilot_end.gd; Claude, 2026-10-22, factory lane 7, FLOW-21): closing the
 			# growth's line rolls it, once a save; it sets story.pilot_end_seen and hands the street back. With the
 			# town's poll_input off the card reads itself, as a player's E would end it.
@@ -345,8 +386,8 @@ func _run() -> void:
 					town.poll_input = true
 				_ok("The end card plays after the first growth and hands back the street (growth line %s, pilot_end_seen %s, %s)" % [grew_line, str(_story().get("pilot_end_seen", false)), _scene()],
 					grew_line and bool(_story().get("pilot_end_seen", false)) and town != null and not town.cutscene and not town.has_node("PilotEnd"))
-			else:
-				print("  The end card is not in yet (no scripts/town/pilot_end.gd or hub_town._close_panel); its step is not judged")
+			else:   # a missing step fails instead of passing quietly (Claude, 2026-10-24, H01)
+				_ok("The end card can play: back in town %s, scripts/town/pilot_end.gd %s, hub_town._close_panel %s" % [town != null, ResourceLoader.exists("res://scripts/town/pilot_end.gd"), town != null and town.has_method("_close_panel")], false)
 		# 10. After the pilot the way down offers every dungeon again; a replay has no boss (Preston, 2026-10-11).
 		town = _town()
 		var town_id := town.get_instance_id() if town != null else 0
@@ -366,7 +407,9 @@ func _run() -> void:
 					_town().enter_hollow()
 				_town().panel["sel"] = 1
 				_town().act_use())
-			_ok("A Warren replay clears with no boss and comes home (story parcel '%s')" % _story().get("parcel", ""), warren_again)
+			_ok("A Warren replay clears with no boss fought (boss set up %s) and comes home (story parcel '%s')" % [boss_seen, _story().get("parcel", "")], warren_again and not boss_seen)
+	else:   # The Hollow did not bring the team home, so steps 9 and 10 cannot run (Claude, 2026-10-24, H01)
+		_ok("Back in Highbank after The Hollow (%s)" % _scene(), false)
 	var tally := "Faints along the way: %d%s" % [faints, " (pass 2 went down once more on purpose, not counted)" if pass_two else ""]
 	print(tally)
 	log_lines.append(tally)
@@ -374,7 +417,15 @@ func _run() -> void:
 		TeamState.erase_save()
 	TeamState.save_path = TeamState.SAVE_PATH
 	print("PILOT CHAIN: %s in %.0f s" % ["all ok" if fails == 0 else "%d FAILED" % fails, (Time.get_ticks_msec() - t0) / 1000.0])
-	var f := FileAccess.open("res://docs/design/pilot-chain-2026-10-11.log", FileAccess.WRITE)
-	if f:
-		f.store_string("\n".join(log_lines) + "\n")
+	var log_dir := OS.get_environment("HT_CHECK_LOGS")   # the runner's --logs folder (Claude, 2026-10-23, LO-11)
+	var log_paths: Array = [log_dir.path_join("pilot-chain.log") if log_dir != "" else "user://pilot-chain.log"]
+	if OS.get_cmdline_user_args().has("--update-doc"):
+		log_paths.append("res://docs/design/pilot-chain-2026-10-11.log")
+	for path in log_paths:
+		var f := FileAccess.open(path, FileAccess.WRITE)
+		if f:
+			f.store_string("\n".join(log_lines) + "\n")
+			print("Chain log written to %s" % ProjectSettings.globalize_path(path))
+		else:
+			print("Chain log could not be written to %s (error %d)" % [path, FileAccess.get_open_error()])
 	quit(1 if fails else 0)

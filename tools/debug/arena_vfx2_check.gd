@@ -1,11 +1,14 @@
 extends SceneTree
 ## VFX pass 2 (Claude, 2026-10-08): the 24 new painted sheets load, and stills show them in
 ## place: zones on the floor, statuses on creatures, one-shots on moves.
+## Judged since Claude, 2026-10-24 (H28): every IMPACTS sheet loads. The stills stay for a
+## person to look at.
 ##   Godot --path . --fixed-fps 30 --script res://tools/debug/arena_vfx2_check.gd
 ## Stills to docs/creatures/arena-vfx2-2026-10-08/.
 
 const OUT := "res://docs/creatures/arena-vfx2-2026-10-08/"
 var arena: Node2D
+var fails := 0
 
 func _initialize() -> void:
 	arena = load("res://scenes/arena_prototype.tscn").instantiate()
@@ -18,6 +21,7 @@ func _initialize() -> void:
 		if not arena._impact_frames.has(name):
 			missing.append(name)
 	print("Sheets: %d of %d loaded%s" % [arena._impact_frames.size(), arena.IMPACTS.size(), "" if missing.is_empty() else ", missing " + str(missing)])
+	_ok("Every IMPACTS sheet loads", missing.is_empty())
 	# 1. Zones: a 3v3 with everyone held; riptide, still water, downdraft, glass pool, star field, ember patches, a snare.
 	arena.team_size = 3
 	arena._you = 7; arena._you_stage = 2       # Warden, Galeshear, Stormwick
@@ -75,7 +79,14 @@ func _initialize() -> void:
 	await _frames(7)
 	_save("projectiles")
 	print("Stills: zones, statuses, oneshots, projectiles")
-	quit()
+	quit(1 if fails > 0 else 0)
+
+
+## One judged line: "what -> ok" or "what -> FAIL" (Claude, 2026-10-24).
+func _ok(what: String, good: bool) -> void:
+	print("%s -> %s" % [what, "ok" if good else "FAIL"])
+	if not good:
+		fails += 1
 
 
 func _frames(n: int) -> void:

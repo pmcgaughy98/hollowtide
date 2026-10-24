@@ -100,7 +100,7 @@ tasks 3 and 4 appear again below under "after" as the plan lists them.
 | after | LP-01, LP-02 | Title Options at y 120 (or heading at 30) and How to play at y 120 so both bottoms end above 636; ui_fit's new point passes |
 | after | UI-01 | Title buttons through UI.style_button and UI.frame('panel_focus'); delete MENU_FACE and COPY_FACE |
 | after | LP-03 | Title Controls tab draws ControlsText |
-| after | GS-01, GS-03 | Title Options rows for screen mode (UI.apply_screen_mode) and text speed, same prefs keys; apply both at launch |
+| after | GS-01, GS-03 | Title Options rows for screen mode (UI.apply_screen_mode) and text speed, same prefs keys; ~~apply both at launch~~ |
 | after | GS-17 | Credits row and one-page panel: Preston McGaughy Jr, design and direction; collaborators as he lists them; Silkscreen, Pixelify Sans, Jersey, Dialogue Manager, ElevenLabs, Godot |
 | after | FLOW-10 | New Game confirm when a save exists |
 | after | CR-06 | 'Enter  skip' label-role hint on the storm from 2 s and on the soul prologue |
@@ -119,3 +119,60 @@ tasks 3 and 4 appear again below under "after" as the plan lists them.
 - `UI.reload_prefs() -> void`: call after any menu saves a pref, or the cached read stays stale this session. `UI.motion_secs(secs: float) -> float`: half under reduce motion.
 - `const ControlsText := preload("res://scripts/ui/controls_text.gd")`: `ControlsText.TOWN`, `.HOLLOW`, `.MENUS` are each `{"head": String, "lines": Array of String}`; `ControlsText.GROUPS = [TOWN, HOLLOW, MENUS]`. No class_name on purpose (the checks run headless without the class cache).
 - Buses: "UI" is bus 3 in `default_bus_layout.tres` (send Master, 0 dB); SFX stays 1 and Music 2, so the SFX slider's index is unchanged. Every AudioStreamPlayer sets one: "SFX" for world and scene sounds, "UI" for clicks and blips, "Music".
+
+## 6. Pass 3 lines (plan, 2026-10-23)
+
+From `sweep-2026-10-20/PASS3_PLAN_2026-10-23.md`, section "Codex". GS-01/GS-03's "apply both at launch" is struck above:
+pass 3's U2 has `InputPrefs._ready` restore full screen at launch, so the title only writes the keys. (Claude, 2026-10-23)
+
+1. LO-01: `config.load(PREFERENCES)` right after `ConfigFile.new()` in main_menu.gd _save_preferences, then task 4's temp-then-rename write.
+2. LO-17: title Options and both How to play panels start at y 120 and end above 636.
+3. L10, LO-18 (UI-01): title on UI.TYPE roles and UI.frame buttons; delete MENU_FACE and COPY_FACE; fix "NewGame".
+4. L12, LO-22 (LP-03): Controls topic from ControlsText for the current device.
+5. L13: hide and zero captions[] and LaunchPrelude on menu open; skip the prelude on return.
+6. L11, LO-25: title Options match the game's, filled sliders, credits, New Game confirm, skip hint.
+7. LO-23 (LP-04): soul prologue on UI.pressed, stick and UI.dialogue; UI.HEAD replaced; delete _ensure_menu_inputs.
+8. L15: starter cards with the showcase idle at 3x.
+9. L16: shafts fade by vertex alpha; dithered top glow.
+10. LO-19 (CR-04): icon and boot splash colour, after pass 3 merges.
+11. LO-20: Windows export preset with excludes; one test export.
+12. LO-21: drop the unused world_journey.tscn boot load; retired scenes to scenes/_lab.
+13. LO-24: "now" art rows FX-01, ART-08, ART-03, ART-10.
+14. L24: painted signboards as PNGs; Claude wires them next pass.
+15. L22: dual-grid transition tiles for grass, dirt, cobble and flagstone in the Highbank palette, only if Preston picks it in P8.
+
+Added by the pass 3 integrator (Claude, 2026-10-23), from the lanes' notes:
+
+16. C10 can go now: pass 3 set `rendering/environment/defaults/default_clear_color` to pure black, `Color(0, 0, 0, 1)` (not near black), the same black as the UI fade.
+17. Art, when there is room: Punchybun and Sparkjab have no 40 x 40 dialogue face yet, so every 24 x 24 portrait of them falls back to `portrait.png`; a face each, then Claude adds their FACE_AT rows.
+18. Art, when there is room: the waking riverbank picture has the rain painted into it. The dawn walk (`mouth_escape.gd`) removes the streaks while the game runs and leaves the PNG alone; a real dawn painting of that bank would replace the runtime fix.
+
+## 7. Pass 4 lines (plan, 2026-10-24)
+
+From `sweep-2026-10-20/PASS4_PLAN_2026-10-24.md`, section "Codex", in the plan's order. Result: `sweep-2026-10-20/PASS4_RESULT_2026-10-24.md`.
+Words in C6, C19 and C20 are proposals: build the layout and hold the words until Preston answers. (Claude, integrator, 2026-10-24)
+
+1. C2 (live LV-01, leftovers LV-10): creature_opening.gd:232-236 and main_menu.gd: start Options and both How to play panels at y 120 (or size them to content) so they end above 636; pull the Quit panel inside 1152 with a 16 px margin so its right frame, corners and 'Leave Hollowtide?' are on screen. ui_fit's 3 title points go green. They are the only ui_fit failures left.
+2. C3 (live LV-03, leftovers LV-11): title menu, title panels and soul prologue text on UI.TYPE roles, buttons through UI.style_button and UI.frame; delete MENU_FACE and COPY_FACE (creature_opening.gd:10-11), fix the 'NewGame' comment at :179; the carved wordmark stays.
+3. C4 (live LV-05, LV-09; leftovers LV-12): title Options gets the pause menu's rows and prefs keys (Master, Music, Sound effects, Screen, Text speed, Reduce Motion, Rebind keys page) with framed, filled sliders matching Claude's M1; How to play > Controls built from ControlsText.groups(UI.last_device()).
+4. C6 (live LV-06, leftovers LV-12): when TeamState.has_save(), New Game asks before the storm (proposed: 'Start over? Your saved journey will be replaced when you reach Highbank.' / Keep my save / Start over); one line under Continue (place, leader level); credits; skip hint. Build the prompt, hold the wording for Preston.
+5. C5 (leftovers LV-13): opening_flow.gd and main_menu.gd: hide captions[] and LaunchPrelude and zero their alpha when the menu opens; skip the prelude on a return visit.
+6. C7 (leftovers LV-14): soul_prologue.gd reads UI.pressed for move_left/move_right and UI.INPUT_ADVANCE, lets joypad motion through, draws lines through UI.dialogue; delete _ensure_menu_inputs (main_menu.gd:98-110). Tell Claude, who then deletes UI.HEAD.
+7. C8 (live LV-08, leftovers LV-15): starter cards show the showcase front idle at 3x scaled to a shared bounding height on an essence-tinted backdrop, name in the title role; the controls hint (soul_prologue.gd:309) at full label contrast via UI.binding_text.
+8. C9 (live LV-02, leftovers LV-16): soul_prologue.gd:257-264: remove the full-width 9 px top strip (rows 0-8 at 54,52,55) or make it a pulse on the light; draw the shafts with draw_polygon and per-vertex alpha fading to 0 so there is no edge at y=450.
+9. C19 (live LV-07): the title quit confirm's cancel button stops reading 'Back to title' (proposal 'Stay'; Preston picks the word).
+10. C20 (live LV-35): storm_open.gd: after about 4 s add one beat (a faint advance prompt via UI.binding_text, or narration once Preston approves words); draw the soul light as a pixel cluster like the soul prologue's.
+11. C10 (leftovers LV-17): Hollowtide icon.png as config/icon; application/boot_splash bg_color to the clear colour, show_image false.
+12. C11 (leftovers LV-18): export_presets.cfg Windows Desktop preset excluding tools/*, addons/godot_ai/*, scenes/_lab/*, with the godot_ai autoload out of the release; keep docs/ until C22; one test export, and confirm Highbank and one room show painted art (proves Claude's A4 and T11).
+13. C22 (leftovers LV-19): move the arena front art that board_scene.gd:96 reads from res://docs/creatures/arena-starters-2026-10-07/forms/ into assets/ and give Claude the new path.
+14. C21 (live LV-31): a Team page backdrop drawn at the sprite's pixel scale and palette (or a simple essence frame) to replace the painterly canyon; Claude wires it into creature_detail_canvas.gd.
+15. C12 (leftovers LV-22): confirm opening_flow never instantiates _route_scene, drop the world_journey.tscn preload at main_menu.gd:36, move retired scenes to scenes/_lab (Preston commits); Route 1 files stay untouched.
+16. C1 (leftovers LV-23): main_menu.gd:808-822: config.load(PREFERENCES) after ConfigFile.new(), then save through a temp file renamed over the original (ui_style.gd:699-702 pattern).
+17. C13 (leftovers LV-20): FX-01, ART-08, ART-03, ART-10 in queue order; tell Claude after FX-01 (rerun dungeon_vfx) and ART-08 (rebuild both sets with build_dungeon_set.py); Preston looks at the ART-10 crops.
+18. C14, C17, C18 (leftovers LV-21, LV-24): painted signboard PNGs per service for Claude to wire into building_exteriors.gd; 40 x 40 faces for Punchybun and Sparkjab; a dawn painting of the waking bank without rain.
+
+Added by the pass 4 integrator (Claude, 2026-10-24), from the lanes' notes:
+
+19. For C4, the pause menu's slider look is one static call: `_slider_look(slider: HSlider)` in scripts/ui/game_pause_menu.gd (about line 267). It gives the framed track, the gold fill and the brass knob, drawn in code from UI colours at 3x, the same for every state. Calling it on the title's sliders makes the two Options screens match; the title today still uses panel_dim and panel_focus.
+20. For C11, what to look at in the test export: Highbank's painted street, the Home desk (town_room.gd), the Job Board stand and a Hollow floor. Pass 4 moved every res:// picture read to the imported texture first (`UI.res_image`, ui_style.gd about line 639; town_room.gd and board_scene.gd use their own `_art_image`), so none of them should fall back to stand-in art. If one does, name the file.
+21. For C22, board_scene.gd's stand-in reads that docs/ folder through `_art_image`, which already copes with a missing file (it draws an empty 66 x 66 stand-in instead of crashing). Send the new path and Claude points it there.

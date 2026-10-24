@@ -58,13 +58,9 @@ static func paint(data: Dictionary, t: int, seed_value: int) -> Image:
 			if tiles[y * w + x] != Gen.WALL and y > 0 and tiles[(y - 1) * w + x] == Gen.WALL:
 				for k in 4:
 					R._darken(img, Rect2i(x * t, y * t + k, t, 1), 0.6 + 0.1 * k)   # the hill's shadow
-	# The way on: a dark cleft in the ground with stone steps going down into the structure.
-	var st: Vector2i = data["stairs"]
-	var p := Vector2i(st.x * t + t / 2 - 10, st.y * t + t / 2 - 8)
-	img.fill_rect(Rect2i(p - Vector2i(2, 2), Vector2i(24, 20)), SEAM)
-	img.fill_rect(Rect2i(p, Vector2i(20, 16)), Color(0.04, 0.05, 0.05))
-	for k in 3:
-		img.fill_rect(Rect2i(p + Vector2i(2 + k * 2, 2 + k * 5), Vector2i(16 - k * 4, 2)), SLAB[2].lightened(0.1 - k * 0.05))
+	# The way on: a dark cleft in the ground with stone steps going down into the structure (Claude, 2026-10-23,
+	# pass 3 D1: ruin_painter.gd's paint_stairs in the valley's slab).
+	R.paint_stairs(img, data["stairs"], t, SLAB[2], SEAM, Color(0.04, 0.05, 0.05), seed_value)
 	return img
 
 

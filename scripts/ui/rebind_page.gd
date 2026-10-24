@@ -3,7 +3,9 @@ extends VBoxContainer
 ## Every action a player can change (UI.INPUT_NAMES) is a row: its name, its keyboard keys and its controller
 ## buttons as the Input Map holds them now. Choose a row, then press a key or a button:
 ##   a key takes the place of the row's first key that is not an arrow (the arrows also move every menu's
-##   cursor, so they stay); a button takes the place of the row's first button, a stick push its first stick.
+##   cursor, so they stay), or its second one when the second keyboard cell is picked (Left or Right on the row,
+##   or a click on the cell; Claude, 2026-10-23, U5), so attack's Space, Choose's Enter and Rest's period can
+##   change too; a button takes the place of the row's first button, a stick push its first stick.
 ##   For a move on the pad (Move 1 to 3, Rest) the button is the one pressed with RB, so RB alone is skipped.
 ##   Esc or B stops listening (B counts as a move's button while RB is held, as in a Hollow).
 ## A key another action already uses where both are live (UI.binding_clashes, the clash rule beside
@@ -14,7 +16,9 @@ extends VBoxContainer
 ##   menu.content.add_child(page)
 ##   page.setup(menu)          # rows join menu.controls, so the pause menu's focus, sounds and packing apply
 ##   page.listen("attack")     # what choosing the Attack row does; the next key or button is the binding
-## The checks read `listening`, `message`, row_text(action) and take(event) (a press while listening).
+## The checks read `listening`, `message`, row_text(action), choose_cell(action, cell) and take(event) (a press
+## while listening); tools/debug/rebind_check.gd runs the page end to end.
+## The list shows whole rows only (U6, L31): a heading or row the scroll cuts is hidden until it is in full view.
 
 const UI := preload("res://scripts/ui/ui_style.gd")
 ## The rows in reading order, in three headed groups (the Controls page's order). An action in UI.INPUT_NAMES
@@ -29,10 +33,13 @@ const GROUPS := [
 const OTHER_NAMES := {"ui_accept": "Menu choose", "ui_cancel": "Menu back"}
 const ARROWS := [KEY_UP, KEY_DOWN, KEY_LEFT, KEY_RIGHT]
 const ROW_W := 664.0
-const KEY_X := 262.0      # the keyboard column's left edge in a row
+const KEY_X := 262.0      # the keyboard column's left edge in a row: its first cell
+const KEY2_X := 362.0     # the keyboard column's second cell (U5)
+const KEY_W := 96.0
 const PAD_X := 466.0      # the controller column's
 const COL_W := 192.0
 const VISIBLE_ROWS := 7   # rows the list shows at once; it scrolls to the chosen one
+const LISTEN_WORDS := "Press a key or a button"   # one line across both columns while a row listens (U6)
 
 var menu: CanvasLayer
 var prefs: Node
@@ -44,6 +51,8 @@ var reset_row: Button
 var note: Label
 var hint: Label
 var listening := ""       # the action waiting for a key or button; "" when none
+var listening_cell := 0   # which keyboard cell the listening row's key replaces: 0 the first, 1 the second
+var key_cell := {}        # action -> the keyboard cell picked on its row (0 when not in it)
 var message := ""
 var reset_armed := false
 var _axis_on := {}        # while listening: "axis+sign" -> that stick direction was already pushed
@@ -80,6 +89,10 @@ func setup(owner_menu: CanvasLayer) -> void:
 	list.name = "RebindRows"
 	list.add_theme_constant_override("separation", 4)
 	scroll.add_child(list)
+	# Whole rows only (U6): every scroll, and every new layout, hides what the scroll's edge would cut.
+	bar.value_changed.connect(func(_v: float) -> void: _clip_rows())
+	list.sort_children.connect(func() -> void: _clip_rows.call_deferred())
+	scroll.resized.connect(func() -> void: _clip_rows.call_deferred())
 	var seen: Array = []
 	var groups: Array = GROUPS.duplicate(true)
 	var rest: Array = UI.INPUT_NAMES.keys().filter(func(a: String) -> bool: return not GROUPS.any(func(g: Array) -> bool: return g[1].has(a)))
@@ -144,8 +157,10 @@ func _text(s: String, role: String, col: Color) -> Label:
 	return l
 
 
-## A row: the pause menu's framed button with the action's name as its text (gold when chosen), and the two
-## binding columns as labels laid over it.
+## A row: the pause menu's framed button with the action's name as its text (gold when chosen), and the binding
+## cells as labels laid over it: two keyboard cells (Keys, Keys2) and the controller's (Pad). The picked keyboard
+## cell's words turn lantern gold while the row is chosen (the frame leaves no room for a rule under them).
+## Prompt is the listening line across all three.
 func _row(action: String) -> Button:
 	var b: Button = menu._button(_name(action))
 	b.name = "Row_" + action
@@ -153,41 +168,107 @@ func _row(action: String) -> Button:
 	b.custom_minimum_size = Vector2(ROW_W, 40)
 	b.add_theme_font_override("font", UI.font("label"))   # the button face is too wide for "Hold for moves"
 	b.add_theme_font_size_override("font_size", UI.type_size("label"))
-	for col in [["Keys", KEY_X], ["Pad", PAD_X]]:
+	for col in [["Keys", KEY_X, KEY_W], ["Keys2", KEY2_X, KEY_W], ["Pad", PAD_X, COL_W]]:
 		var l := _text("", "body", UI.TEXT)
 		l.name = String(col[0])
 		l.position = Vector2(float(col[1]), 0)
-		l.size = Vector2(COL_W, 40)
+		l.size = Vector2(float(col[2]), 40)
 		l.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
 		l.clip_text = true
 		b.add_child(l)
+	var prompt := _text(LISTEN_WORDS, "body", UI.LIGHT)
+	prompt.name = "Prompt"
+	prompt.position = Vector2(KEY_X, 0)
+	prompt.size = Vector2(ROW_W - 16.0 - KEY_X, 40)
+	prompt.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	prompt.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+	prompt.hide()
+	b.add_child(prompt)
 	b.pressed.connect(listen.bind(action))
 	b.focus_entered.connect(_show_head.bind(action))
+	b.focus_entered.connect(_mark.bind(action))
+	b.focus_exited.connect(_mark.bind(action))
+	b.gui_input.connect(_row_click.bind(action))
 	return b
+
+
+## A click on a keyboard cell picks it before the press chooses the row.
+func _row_click(event: InputEvent, action: String) -> void:
+	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT and listening == "":
+		if event.position.x >= KEY_X and event.position.x < PAD_X:
+			choose_cell(action, 1 if event.position.x >= KEY2_X else 0)
+
+
+## Pick the keyboard cell (0 the first, 1 the second) a key pressed for `action` will replace.
+func choose_cell(action: String, cell: int) -> void:
+	key_cell[action] = clampi(cell, 0, 1)
+	_mark(action)
+
+
+## The keyboard cells' colours: the picked one lantern gold while the row is chosen and not listening, the others
+## parchment, or muted where they read "none".
+func _mark(action: String) -> void:
+	if not rows.has(action):
+		return
+	var row: Button = rows[action]
+	var picked := int(key_cell.get(action, 0)) if row.has_focus() and listening != action else -1
+	for i in 2:
+		var l := row.get_node("Keys" if i == 0 else "Keys2") as Label
+		l.add_theme_color_override("font_color", UI.LIGHT if i == picked else UI.MUTED if l.text == "none" else UI.TEXT)
+
+
+## Whether `action`'s row shows its picked keyboard cell in gold now (the checks read it).
+func cell_marked(action: String, cell: int) -> bool:
+	return rows.has(action) and (rows[action].get_node("Keys" if cell == 0 else "Keys2") as Label).get_theme_color("font_color") == UI.LIGHT
 
 
 func _name(action: String) -> String:
 	return String(UI.INPUT_NAMES.get(action, OTHER_NAMES.get(action, action.capitalize())))
 
 
-## Every row's two columns from the Input Map; "none" where a device has nothing (full screen on a pad).
+## Every row's cells from the Input Map; "none" where a device has nothing (full screen on a pad). The first
+## keyboard cell is the first key that is not an arrow; the second holds every other key (an arrow stays there).
+## A listening row shows LISTEN_WORDS as one line across the cells instead (U6).
 func refresh() -> void:
 	for a in rows:
 		var row: Button = rows[a]
-		var keys := row.get_node("Keys") as Label
-		var pad := row.get_node("Pad") as Label
-		if a == listening:
-			keys.text = "Press a key"
-			pad.text = "or a button"
-			keys.add_theme_color_override("font_color", UI.LIGHT)
-			pad.add_theme_color_override("font_color", UI.LIGHT)
+		var on: bool = a == listening
+		for cell in ["Keys", "Keys2", "Pad"]:
+			(row.get_node(cell) as Label).visible = not on
+		(row.get_node("Prompt") as Label).visible = on
+		if on:
 			continue
-		for pair in [[keys, "keyboard"], [pad, "pad"]]:
-			var l: Label = pair[0]
-			var s := _short(UI.binding_text(a, pair[1], true))
-			l.text = UI.clip(s, "body", COL_W - 8.0) if s != "" else "none"
+		var keys := _key_texts(a)
+		var cells := [[row.get_node("Keys"), keys[0], KEY_W], [row.get_node("Keys2"), keys[1], KEY_W],
+			[row.get_node("Pad"), _short(UI.binding_text(a, "pad", true)), COL_W]]
+		for c in cells:
+			var l: Label = c[0]
+			var s: String = c[1]
+			l.text = UI.clip(s, "body", float(c[2]) - 8.0) if s != "" else "none"
 			l.add_theme_color_override("font_color", UI.TEXT if s != "" else UI.MUTED)
+		_mark(a)
 	_hint()
+
+
+## The two keyboard cells' words: [the first key that is not an arrow, every other key joined].
+func _key_texts(action: String) -> Array:
+	var first := ""
+	var rest := PackedStringArray()
+	for ev: InputEvent in InputMap.action_get_events(action):
+		if not ev is InputEventKey:
+			continue
+		var s := UI.event_text(ev)
+		if s == "":
+			continue
+		if first == "" and not ARROWS.has(_code(ev)):
+			first = s
+		elif s != first and not rest.has(s):
+			rest.append(s)
+	return [first, " / ".join(rest)]
+
+
+func _code(ev: InputEventKey) -> int:
+	return ev.physical_keycode if ev.physical_keycode != KEY_NONE else ev.keycode
 
 
 ## A direction said once: "D-pad Down / Left stick Down" reads "D-pad / Left stick Down".
@@ -205,11 +286,16 @@ func _short(s: String) -> String:
 	return " / ".join(heads) + " " + last
 
 
-## Both columns of a row as one string, "J / Space | A" (the checks read it).
+## A row's cells as one string, "J / Space | A" (the checks read it); a listening row reads its prompt.
 func row_text(action: String) -> String:
 	if not rows.has(action):
 		return ""
-	return "%s | %s" % [(rows[action].get_node("Keys") as Label).text, (rows[action].get_node("Pad") as Label).text]
+	var row: Button = rows[action]
+	if action == listening:
+		return (row.get_node("Prompt") as Label).text
+	var k1 := (row.get_node("Keys") as Label).text
+	var k2 := (row.get_node("Keys2") as Label).text
+	return "%s | %s" % [k1 if k2 == "none" else k1 + " / " + k2, (row.get_node("Pad") as Label).text]
 
 
 func _hint() -> void:
@@ -218,7 +304,7 @@ func _hint() -> void:
 	if listening != "":
 		hint.text = "Esc / B  stop listening"
 	else:
-		hint.text = "%s  change     %s  back" % [UI.binding_text("ui_accept"), UI.binding_text("ui_cancel")]
+		hint.text = "%s  change    Left / Right  first or second key    %s  back" % [UI.binding_text("ui_accept"), UI.binding_text("ui_cancel")]
 
 
 func _on_device(_device: String) -> void:
@@ -237,6 +323,25 @@ func _show_head(action: String) -> void:
 		scroll.ensure_control_visible.call_deferred(heads[action])
 
 
+## Whole rows only (Claude, 2026-10-23, U6 for L31): a heading or row the scroll's edge would cut in half
+## ("IN A HOLLOW" at the bottom) is hidden until it is in full view. It keeps its place, so nothing moves.
+func _clip_rows() -> void:
+	if not is_instance_valid(scroll) or not is_instance_valid(list):
+		return
+	var top := float(scroll.scroll_vertical)
+	var bottom := top + scroll.size.y
+	for c in list.get_children():
+		var item := c as Control
+		if item != null:
+			var whole := item.position.y >= top - 0.5 and item.position.y + item.size.y <= bottom + 0.5
+			item.modulate.a = 1.0 if whole else 0.0
+
+
+## Whether `item` (a heading or row) shows: in the list's view, not cut by its edge (the checks read it).
+func shows(item: Control) -> bool:
+	return item.is_visible_in_tree() and item.modulate.a > 0.5
+
+
 ## Wait for the next key or button for `action`. Choosing the row already listening stops it.
 func listen(action: String) -> void:
 	_disarm()
@@ -244,6 +349,7 @@ func listen(action: String) -> void:
 		_stop("Left as it was.")
 		return
 	listening = action
+	listening_cell = int(key_cell.get(action, 0))
 	_axis_on.clear()
 	for d in Input.get_connected_joypads():
 		for ax in JOY_AXIS_MAX:
@@ -252,7 +358,7 @@ func listen(action: String) -> void:
 				_axis_on["%d%s" % [ax, "+" if v > 0.0 else "-"]] = true   # a stick already pushed is not the answer
 	menu._tick("confirm")
 	refresh()
-	_say("%s: press the new key or button." % _name(action))
+	_say(("%s: press the new key or button." if listening_cell == 0 else "%s, second key: press the new key or button.") % _name(action))
 
 
 func _stop(said: String) -> void:
@@ -262,7 +368,19 @@ func _stop(said: String) -> void:
 
 
 func _input(event: InputEvent) -> void:
-	if listening == "" or not is_visible_in_tree():
+	if not is_visible_in_tree():
+		return
+	if listening == "":
+		# Left or Right on a row picks its first or second keyboard cell (U5); the pause menu's focus never moves
+		# sideways, so nothing else wants them here.
+		var side := 0 if event.is_action_pressed("ui_left") else 1 if event.is_action_pressed("ui_right") else -1
+		var row := get_viewport().gui_get_focus_owner()
+		if side >= 0 and not event.is_echo() and row != null and rows.values().has(row):
+			var a := String(row.name).trim_prefix("Row_")
+			if int(key_cell.get(a, 0)) != side:
+				choose_cell(a, side)
+				menu._tick("cursor")
+			get_viewport().set_input_as_handled()
 		return
 	if event is InputEventMouseMotion or event is InputEventJoypadMotion and not _axis_edge(event):
 		if event is InputEventJoypadMotion:
@@ -306,7 +424,7 @@ func take(event: InputEvent) -> void:
 		menu._tick("cancel")
 		_say("%s is already %s. Choose another, or change %s first." % [words, who, who])
 		return
-	var slot := _pad_slot(a, event) if pad else _key_slot(a)
+	var slot := _pad_slot(a, event) if pad else _key_slot(a, listening_cell)
 	if prefs == null or not prefs.save_binding(a, event, slot):
 		_say("%s can't be used here. Choose another." % (words if words != "" else "That"))
 		return
@@ -316,14 +434,18 @@ func take(event: InputEvent) -> void:
 	_say("%s now uses %s." % [_name(a), words])
 
 
-## The row's first key that is not an arrow, or the end of its keys when it has only arrows.
-func _key_slot(action: String) -> int:
+## Where among the row's keys the new key goes (InputPrefs.save_binding's slot): its first key that is not an
+## arrow for the first cell, its second such key for the second cell (U5), or the end of its keys when it has no
+## such key (the new one joins them).
+func _key_slot(action: String, cell := 0) -> int:
 	var k := 0
+	var seen := 0
 	for ev: InputEvent in InputMap.action_get_events(action):
 		if ev is InputEventKey:
-			var code: int = ev.physical_keycode if ev.physical_keycode != KEY_NONE else ev.keycode
-			if not ARROWS.has(code):
-				return k
+			if not ARROWS.has(_code(ev)):
+				if seen == cell:
+					return k
+				seen += 1
 			k += 1
 	return k
 
@@ -348,7 +470,7 @@ func _is_hold_button(hold: String, button: int) -> bool:
 
 ## What the player pressed, as a hint prints it ("K", "Y", "RB+X", "Left stick Up").
 func _words(action: String, event: InputEvent) -> String:
-	var s := UI._event_text(event)
+	var s := UI.event_text(event)
 	if s != "" and event is InputEventJoypadButton and UI.INPUT_CHORDS.has(action):
 		s = UI.binding_text(UI.INPUT_CHORDS[action], "pad") + "+" + s
 	return s

@@ -9,19 +9,24 @@ var count: Label
 var effect: Label
 var instruction: Label
 var selected_kind = ""
+var _shown: Dictionary = {}   # the entry the detail panel shows, so the key hint can be retold
+var _can_use = false
 
 func _label(text: String, role: String, color: Color = UI.TEXT) -> Label:
     var label = Label.new()
     label.text = text
-    label.add_theme_font_override("font",UI.font(role))
-    label.add_theme_font_size_override("font_size",UI.type_size(role))
+    _set_role(label,role)
     label.add_theme_color_override("font_color",color)
     label.add_theme_color_override("font_shadow_color",UI.SHADOW)
-    label.add_theme_constant_override("shadow_offset_x",int(UI.TYPE[role]["px"]))
-    label.add_theme_constant_override("shadow_offset_y",int(UI.TYPE[role]["px"]))
     label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
     label.mouse_filter = Control.MOUSE_FILTER_IGNORE
     return label
+
+func _set_role(label: Label, role: String) -> void:
+    label.add_theme_font_override("font",UI.font(role))
+    label.add_theme_font_size_override("font_size",UI.type_size(role))
+    label.add_theme_constant_override("shadow_offset_x",int(UI.TYPE[role]["px"]))
+    label.add_theme_constant_override("shadow_offset_y",int(UI.TYPE[role]["px"]))
 
 func setup(entries: Array, can_use: bool, menu: CanvasLayer) -> void:
     name = "BagPage"
@@ -124,9 +129,22 @@ func _select(entry: Dictionary, can_use: bool, button: Button, reveal: bool) -> 
     item_name.text = entry["name"]
     count.text = "x%d" % entry["count"]
     effect.text = entry["what"]
-    # The key, two spaces, what it does: the house column style for hints (Claude, 2026-10-22, W12). The key is
-    # the device's in use, Enter or A, from the Input Map (Claude, 2026-10-23).
-    var key = UI.binding_text("ui_accept")
-    instruction.text = "%s  learn the move" % key if can_use and selected_kind.begins_with("scroll:") else "%s  use" % key if can_use else "Items are used in the Hollow."
+    _shown = entry
+    _can_use = can_use
+    retell()
     if reveal and button != null:
         scroll.ensure_control_visible.call_deferred(button)
+
+# The key, two spaces, what it does: the house column style for hints (Claude, 2026-10-22, W12). The key is
+# ui_accept's, the action these rows answer to, for the device in use (Enter or A); in capitals in the label face,
+# as the Hollow's quick bag hint reads ("KEY  USE", D8). The menu calls this again when the device changes
+# (Claude, 2026-10-24, LV-21).
+func retell() -> void:
+    if _shown.is_empty(): return
+    if not _can_use:
+        _set_role(instruction,"body")
+        instruction.text = "Items are used in the Hollow."
+        return
+    var key = UI.binding_text("ui_accept")
+    _set_role(instruction,"label")
+    instruction.text = ("%s  learn the move" % key if String(_shown["kind"]).begins_with("scroll:") else "%s  use" % key).to_upper()
