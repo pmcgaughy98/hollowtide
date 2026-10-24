@@ -3,7 +3,7 @@ extends SceneTree
 ## play their jingles. Reads the music player's current track and last jingle.
 ## Judged rows (Claude, 2026-10-22, the factory pass): after each scene's _ready no AudioStreamPlayer sits
 ## on the Master bus (every player names SFX, UI or Music: docs/audio/sources.md, "Buses and the mix"), the
-## way to The Hollow plays hollow_flute, and the faint screen beds water_rain on SFX. A one-shot click is
+## way to The Hollow plays hollow_flute, and the faint screen beds storm_rain on SFX. A one-shot click is
 ## freed before a tree walk can see it, so the sources are read too: every player made in code sets a bus.
 ##   Godot --path . --fixed-fps 30 --script res://tools/debug/music_check.gd
 
@@ -190,7 +190,7 @@ func _run() -> void:
 	ap.queue_free()
 	await _frames(2)
 	# The faint screen (scenes/faint_screen.tscn), reached the way the player reaches it: a wipe in a run
-	# started from town, as faint_check does. Under it, water_rain on SFX.
+	# started from town, as faint_check does. Under it, storm_rain on SFX.
 	TeamState.start([[0, 0], [1, 0]])
 	TeamState.data["story"] = {"met_crew": true, "parcel": "stolen", "guild_trial": true}
 	TeamState.data["bag"] = {"reedberry": 2, "lamp_oil": 1}
@@ -211,8 +211,8 @@ func _run() -> void:
 	print("a wipe opens the faint screen: %s -> %s" % [current_scene.scene_file_path.get_file() if on_faint else str(current_scene), "ok" if on_faint else "WRONG"])
 	bad += 0 if on_faint else 1
 	await _frames(2)
-	var bed := _playing("water_rain", root, load("res://assets/audio/sfx/dungeon/water_rain.wav"))
-	print("the faint screen beds water_rain: %s -> %s" % [bed if bed != "" else "nothing plays it", "ok" if bed.ends_with("on SFX") else "WRONG"])
+	var bed := _playing("storm_rain", root, load("res://assets/audio/sfx/story/storm_rain.wav"))
+	print("the faint screen beds storm_rain: %s -> %s" % [bed if bed != "" else "nothing plays it", "ok" if bed.ends_with("on SFX") else "WRONG"])
 	bad += 0 if bed.ends_with("on SFX") else 1
 	_master_row("the faint screen")
 	var loose: Array[String] = []

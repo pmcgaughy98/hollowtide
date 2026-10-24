@@ -65,6 +65,36 @@ var _lap_at := 0
 ## afresh), as dungeon.gd keeps its floor pictures; and whether Highbank has been reached yet this session.
 static var _street := {}
 static var _arrived := false
+## The painted street on disk (Claude, 2026-10-24, pass 5 T10 / PERF-02): painting it is 4 to 5 s of the first arrival,
+## so the picture is saved once under user:// and read back in a later session. Its file is named by _street_key():
+## the layout, STREET_VERSION, and the modified times of the painters and the art they read (in the editor a change to
+## any of them paints afresh; an exported game reads 0 for them all). Raise STREET_VERSION whenever a street painter
+## changes what it draws. 1 was the street before pass 5's T9.
+const STREET_VERSION := 2
+const STREET_DIR := "user://street"
+const STREET_SOURCES := [
+	"res://scripts/town/hub_town.gd", "res://scripts/town/town_layout.gd", "res://scripts/town/highbank_ground_painter.gd",
+	"res://scripts/town/highbank_painter.gd", "res://scripts/town/world_tile_art.gd", "res://scripts/town/town_detail_art.gd",
+	"res://scripts/town/world_finish.gd", "res://scripts/town/job_board_painter.gd", "res://scripts/town/wayline_hall_painter.gd",
+	"res://scripts/town/home_painter.gd", "res://scripts/town/item_shop_painter.gd", "res://scripts/town/storage_painter.gd",
+	"res://scripts/town/growth_shrine_painter.gd", "res://scripts/town/scroll_keeper_painter.gd",
+	"res://scripts/town/training_yard_painter.gd", "res://scripts/town/crossroads_painter.gd",
+	"res://scripts/town/hollow_mouth_painter.gd", "res://scripts/dungeon/ruin_painter.gd", "res://scripts/dungeon/valley_painter.gd",
+	"res://scripts/dungeon/dungeon_tile_art.gd", "res://scripts/art/selout.gd",
+	"res://assets/sprites/world/world_tiles_2026_10_10/", "res://assets/sprites/world/town_detail_2026_10_10/",
+	"res://assets/sprites/world/growth_shrine_2026_10_10/", "res://assets/sprites/world/home_2026_10_09/",
+	"res://assets/sprites/world/item_shop_2026_10_09/", "res://assets/sprites/world/wayline_hall_2026_10_10/",
+	"res://assets/sprites/world/wayline_hall_2026_10_09/", "res://assets/sprites/world/hollow_mouth_2026_10_10/",
+	"res://assets/sprites/world/training_yard_2026_10_10/", "res://assets/sprites/world/job_board_2026_10_10/",
+	"res://assets/sprites/world/job_board_selout_2026_10_10/", "res://assets/tilesets/dungeon_tiles_2026_10_10/",
+]
+static var _sources_stamp := ""   # STREET_SOURCES' modified times, read once a session
+var street_from_disk := false     # this arrival read the street picture from disk (the checks read it)
+## The team's and the townsfolk's sprites, held for the session (Claude, 2026-10-24, pass 5 T11 / PERF-04): a town that
+## is freed let its textures go, so every arrival and every room loaded them from disk again (159 to 184 ms). Held here,
+## later load() calls in this script, town_room.gd and board_scene.gd find them in Godot's resource cache. Path ->
+## texture, or null for a picture that does not exist (so its check is made once).
+static var _held := {}
 
 
 func _lap(step: String) -> void:
@@ -80,7 +110,7 @@ func _ready() -> void:
 	# card goes up on black first and two frames are drawn before any of it starts, so the wait reads as the card,
 	# not a stuck screen (Claude, 2026-10-24, pass 4 T4 / L03a). A check with poll_input off adds the town and reads
 	# it at once, so it builds as before. Painting on a thread is a later step.
-	if poll_input and not _street.has(_layout_key()):
+	if poll_input and not _street.has(_street_key()):
 		set_process(false)   # nothing to move or draw yet
 		_card_up()
 		for k in 2:
@@ -106,8 +136,9 @@ func _ready() -> void:
 	_lap("grid and view")
 	var map := Sprite2D.new()
 	map.centered = false
-	street_cached = _street.has(_layout_key())
+	street_cached = _street.has(_street_key())
 	var street := street_picture(ready_ms)
+	street_from_disk = not street_cached and bool(street.get("from_disk", false))
 	map.texture = street["tex"]
 	map.material = street["finish"]
 	_world.add_child(map)
@@ -137,15 +168,9 @@ func _ready() -> void:
 		if p["id"] == back:
 			at = p["door"] + Vector2i(0, 1)
 	_lap("hud and arrival spot")
-	var placed: Array = []
+	var placed := arrival_tiles(at, party.size())
 	for k in party.size():
-		var pos: Vector2i = at + Vector2i(0, k) if news != "" else (at + Vector2i(-k, 0) if k < 2 else at + Vector2i(1, 0))
-		if k > 0:
-			# A partner whose spot is blocked takes the nearest free tile by the one ahead, never the leader's
-			# own tile (Claude, 2026-10-23, T4; it used to stack on the leader).
-			pos = _follow_tile(pos, pos, placed[k - 1], placed)
-		placed.append(pos)
-		team.append(_make(party[k][0], party[k][1], pos))
+		team.append(_make(party[k][0], party[k][1], placed[k]))
 	_lap("team sprites")
 	_music_update()
 	preload("res://scripts/ui/game_pause_menu.gd").attach(self)
@@ -153,6 +178,8 @@ func _ready() -> void:
 	_lap("menus")
 	if BoardScene.pending(self):
 		BoardScene.place_crew(self)   # the Shortcut Crew at the board until the team has met them
+		for e in npcs:
+			_hold(e)
 	# The return panels name the place the run went to (dungeon.gd writes last_run; Claude, 2026-10-22, GS-15).
 	var went: String = String(TeamState.data.get("last_run", "the Hollow"))
 	went = went.left(1).to_upper() + went.substr(1)   # it starts the sentence
@@ -227,24 +254,87 @@ func _card_down() -> void:
 
 ## The street's picture and its finish (world_finish.gd's ink shader), painted on the session's first arrival and
 ## kept (Claude, 2026-10-23, T1 / LO-03: painting is 4 to 5 s of a 5 to 6 s arrival). `steps` gets each painting
-## step's milliseconds when it paints.
-static func street_picture(steps: Dictionary = {}) -> Dictionary:
-	var key := _layout_key()
+## step's milliseconds when it paints. Since pass 5 (T10) the picture is read from disk when a session before painted it,
+## and saved when this one paints; `version` stands in for STREET_VERSION (a probe passes another to see it repaint).
+static func street_picture(steps: Dictionary = {}, version := STREET_VERSION) -> Dictionary:
+	var key := _street_key(version)
 	if not _street.has(key):
-		var tex := ImageTexture.create_from_image(paint(steps))
+		var img := _street_from_disk(key, steps)
+		var from_disk := img != null
+		if img == null:
+			img = paint(steps)
+			_street_to_disk(key, img, steps)
+		var tex := ImageTexture.create_from_image(img)
 		var t := Time.get_ticks_usec()
 		var finish := ShaderMaterial.new()
 		finish.shader = WorldFinish.SHADER
 		finish.set_shader_parameter("detail_mask", ImageTexture.create_from_image(_finish_mask()))
 		finish.set_shader_parameter("detail_ink", 0.55)
 		steps["street: finish mask"] = _since(t)
-		_street = {key: {"tex": tex, "finish": finish}}   # one layout at a time
+		_street = {key: {"tex": tex, "finish": finish, "from_disk": from_disk}}   # one layout at a time
 	return _street[key]
 
 
 ## What the street's picture depends on: the layout's size, bands, lanes and places.
 static func _layout_key() -> String:
 	return "%dx%d|%d" % [Layout.W, Layout.H, str([Layout.BANDS, Layout.PATHS, Layout.PLACES]).hash()]
+
+
+## The layout, the street's version and its sources' modified times: a change to any of them is a new picture.
+static func _street_key(version := STREET_VERSION) -> String:
+	if _sources_stamp == "":
+		var times := PackedStringArray()
+		for path: String in STREET_SOURCES:
+			if path.ends_with("/"):
+				for f in DirAccess.get_files_at(path):
+					times.append("%s=%d" % [f, FileAccess.get_modified_time(path + f)])
+			else:   # a script an export has remapped is not there by this name: it counts as unchanged
+				times.append(str(FileAccess.get_modified_time(path)) if FileAccess.file_exists(path) else "-")
+		_sources_stamp = ",".join(times).md5_text()
+	return "%s|v%d|%s" % [_layout_key(), version, _sources_stamp]
+
+
+static func _street_file(key: String) -> String:
+	return STREET_DIR.path_join("highbank_%s.png" % key.md5_text())
+
+
+## The street saved by an earlier session for this key, or null. A file that will not load or is the wrong size is
+## removed, and the street is painted again.
+static func _street_from_disk(key: String, steps: Dictionary) -> Image:
+	var path := _street_file(key)
+	if not FileAccess.file_exists(path):
+		return null
+	var t := Time.get_ticks_usec()
+	var img := Image.load_from_file(path)
+	if img == null or img.get_size() != Vector2i(Layout.W * T, Layout.H * T):
+		DirAccess.remove_absolute(path)
+		return null
+	if img.get_format() != Image.FORMAT_RGBA8:
+		img.convert(Image.FORMAT_RGBA8)
+	steps["street: read from disk"] = _since(t)
+	return img
+
+
+## Save the painted street for later sessions: written to a temporary file, then renamed, so a quit mid-write never
+## leaves half a picture under the real name; pictures saved for an older key are removed. A failed write only costs
+## the next session a repaint.
+static func _street_to_disk(key: String, img: Image, steps: Dictionary) -> void:
+	var t := Time.get_ticks_usec()
+	var path := _street_file(key)
+	var tmp := path + ".tmp"
+	DirAccess.make_dir_recursive_absolute(STREET_DIR)
+	if img.save_png(tmp) != OK:
+		DirAccess.remove_absolute(tmp)
+		return
+	if FileAccess.file_exists(path):
+		DirAccess.remove_absolute(path)
+	if DirAccess.rename_absolute(tmp, path) != OK:
+		DirAccess.remove_absolute(tmp)
+		return
+	for f in DirAccess.get_files_at(STREET_DIR):
+		if f.begins_with("highbank_") and STREET_DIR.path_join(f) != path:
+			DirAccess.remove_absolute(STREET_DIR.path_join(f))
+	steps["street: saved to disk"] = _since(t)
 
 
 ## world_finish.gd's ink mask (the cliff ledges and their stair crossings) without the lanes' borders: the lanes
@@ -329,16 +419,16 @@ func _make(line: int, stage: int, pos: Vector2i) -> Dictionary:
 	preload("res://scripts/arena/creature_finish.gd").apply(sprite)
 	# The town set: every creature half again its dungeon size, so the world reads bigger than a dungeon
 	# floor (Preston, 2026-10-10: "they look too small"; built by build_dungeon_set.py --set=town --scale=1.5).
-	var set := "town" if ResourceLoader.exists("res://assets/sprites/arena/%s/town/s.png" % form) else ("dungeon" if ResourceLoader.exists("res://assets/sprites/arena/%s/dungeon/s.png" % form) else "small")
+	var set := "town" if _tex("res://assets/sprites/arena/%s/town/s.png" % form) != null else ("dungeon" if _tex("res://assets/sprites/arena/%s/dungeon/s.png" % form) != null else "small")
 	var still := {}
 	var walk := {}   # facing -> the walk cycle (the dungeon set's 8 frames), so the team walks, not slides
 	for f in Arena.FACINGS:
-		still[f] = load("res://assets/sprites/arena/%s/%s/%s.png" % [form, set, f])
+		still[f] = _tex("res://assets/sprites/arena/%s/%s/%s.png" % [form, set, f])
 		var frames: Array = []
 		for k in 8:
-			var path := "res://assets/sprites/arena/%s/%s/walk_%s_f%d.png" % [form, set, f, k]
-			if ResourceLoader.exists(path):
-				frames.append(load(path))
+			var frame := _tex("res://assets/sprites/arena/%s/%s/walk_%s_f%d.png" % [form, set, f, k])
+			if frame != null:
+				frames.append(frame)
 		walk[f] = frames
 	var e := {"line": line, "stage": stage, "form": form, "pos": pos, "node": node, "sprite": sprite, "still": still, "walk": walk,
 		"facing": "s", "walk_t": 0.0, "walk_clock": 0.0}
@@ -349,10 +439,28 @@ func _make(line: int, stage: int, pos: Vector2i) -> Dictionary:
 ## Knocked flat: its lying-down sleep pose (the action frames), from the town set if built.
 func _down_tex(e: Dictionary) -> Texture2D:
 	for set in ["town", "dungeon"]:
-		var path := "res://assets/sprites/arena/%s/%s/sleep_s_f0.png" % [e["form"], set]
-		if ResourceLoader.exists(path):
-			return load(path)
+		var tex := _tex("res://assets/sprites/arena/%s/%s/sleep_s_f0.png" % [e["form"], set])
+		if tex != null:
+			return tex
 	return e["still"][e["facing"]]
+
+
+## A sprite by path, held for the session (T11 above), or null when there is none.
+static func _tex(path: String) -> Texture2D:
+	if not _held.has(path):
+		_held[path] = load(path) if ResourceLoader.exists(path) else null
+	return _held[path]
+
+
+## Hold what a townsfolk creature was made with (board_scene.gd and scene_kit.gd load their own), so the next arrival
+## and the rooms find it in the cache too.
+func _hold(e: Dictionary) -> void:
+	var all: Array = e.get("still", {}).values()
+	for frames in e.get("walk", {}).values():
+		all.append_array(frames)
+	for tex in all:
+		if tex is Texture2D and tex.resource_path != "" and not _held.has(tex.resource_path):
+			_held[tex.resource_path] = tex
 
 
 func _px(t: Vector2i) -> Vector2:
@@ -406,6 +514,29 @@ func _follow_tile(want: Vector2i, at: Vector2i, ahead: Vector2i, taken: Array) -
 		if best_d < INF:
 			return best
 	return at
+
+
+## Where the team stands on arriving (Claude, 2026-10-24, pass 5 T6 / LV-15): the leader on `at`, facing down the
+## street; each partner one tile behind the one ahead, the way the team came (north: out of a door, or up from the
+## Hollow to the Hall's steps), else the nearest tile round that one that is not ahead of it. So the line is a tile
+## apart from the first frame and the first steps south keep it so; no partner stands on another's tile. Before,
+## a partner stood beside the leader and a third on the far side, and the first step crossed it over the others.
+const BEHIND := [Vector2i(0, -1), Vector2i(-1, -1), Vector2i(1, -1), Vector2i(-1, 0), Vector2i(1, 0)]
+
+
+func arrival_tiles(at: Vector2i, n: int) -> Array:
+	var out: Array = [at]
+	for k in range(1, n):
+		var ahead: Vector2i = out[k - 1]
+		var pick := Vector2i(-1, -1)
+		for d in BEHIND:
+			if follower_ok(ahead + d) and not out.has(ahead + d):
+				pick = ahead + d
+				break
+		if pick == Vector2i(-1, -1):   # boxed in: the nearest free tile round the one ahead, as a walk would give
+			pick = _follow_tile(ahead + Vector2i(0, -1), ahead + Vector2i(0, -1), ahead, out)
+		out.append(pick)
+	return out
 
 
 func _facing_of(d: Vector2i) -> String:
@@ -509,6 +640,8 @@ func act_use() -> Dictionary:
 		else:
 			panel = _storage_panel(p)
 			_sfx("door")
+	elif p["service"] == "growth":
+		_sfx("presence_swell")   # the shrine hums, it has no door (Claude, 2026-10-24, pass 5 T7 / LV-29)
 	elif p["service"] in DOOR_SERVICES:
 		_sfx("door")
 	return p
@@ -542,6 +675,25 @@ func _draw_storage(h: CanvasItem) -> void:
 ## After the pilot the way down offers every dungeon again. A replay has no boss floor (dungeon.gd `replay`),
 ## so the crew and the Warden's scenes don't play twice; the last stairs clear it.
 const REPLAYS := [["mouth", "Hollow Mouth"], ["first", "Rootbank Warren"], ["hollow", "The Hollow"]]
+const WAY_ROW := 52   # px from one Hollow's row to the next: a client's face fits each
+
+
+## What each row of the way down shows beside its name (Claude, 2026-10-24, pass 5 T8 / LV-33), with the board's own
+## marks and no new words: how deep the Hollow goes in the board's floor notation ("B4F"), set on the brass tab the
+## board marks taken requests with once that Hollow is cleared, and the faces of the clients waiting in it for the
+## requests the team has taken, as the board draws them.
+func way_marks() -> Array:
+	var rec := _record()
+	var beaten: Array = rec.get("beaten", [])
+	var dungeons: Dictionary = load(Jobs.DUNGEON).get_script_constant_map()["DUNGEONS"]
+	var out: Array = []
+	for r in REPLAYS:
+		var id: String = r[0]
+		var faces: Array = []
+		for j in Jobs.waiting_in(rec, id).slice(0, Jobs.TAKE_MAX):
+			faces.append(UI.portrait_3x(Jobs.client_form(j)))
+		out.append({"floors": "B%dF" % int(dungeons[id]["floors"]) if dungeons.has(id) else "", "cleared": id in beaten, "faces": faces})
+	return out
 
 
 func start_replay(id: String) -> void:
@@ -574,7 +726,7 @@ const SHUT := {
 var last_sfx := ""
 
 
-func _sfx(name: String) -> void:
+func _sfx(name: String, keep := false) -> void:
 	last_sfx = name
 	var path := "res://assets/audio/sfx/dungeon/%s.wav" % name
 	if not ResourceLoader.exists(path):
@@ -583,9 +735,13 @@ func _sfx(name: String) -> void:
 	p.stream = load(path)
 	p.bus = &"SFX"
 	p.volume_db = -4.0
+	p.finished.connect(p.queue_free)
+	if keep and is_inside_tree():   # on the root, so a door plays on past the change of scene (Claude, 2026-10-24, rooms RM5)
+		p.autoplay = true
+		get_tree().root.add_child.call_deferred(p)
+		return
 	add_child(p)
 	p.play()
-	p.finished.connect(p.queue_free)
 
 
 ## The town's track by where the leader is: Highbank's theme on the bluff, the Hall's march around
@@ -653,7 +809,8 @@ func _cache_board(into: Dictionary, rows: Array) -> void:
 			where = "delivered, %s" % Jobs.result_text(j)
 		elif not done:
 			where = {"rescue": "lost there", "lost_item": "dropped there"}.get(j["kind"], "%s, pay x2" % Jobs.cond_text(j))
-		drawn.append({"job": j, "title": Jobs.title(j), "where": "B%dF   %s" % [int(j["floor"]), where],
+		# The Hollow with the floor, "Rootbank Warren B3F" (Claude, 2026-10-24, pass 5 T8 / LV-33; it was the floor alone).
+		drawn.append({"job": j, "title": Jobs.title(j), "where": "%s   %s" % [Jobs.place_text(j), where],
 			"reward": "%s x%d   +%d" % [Jobs.item_name(j["reward"]), int(j["count"]), int(j["pts"])],
 			"face": UI.portrait_3x(Jobs.client_form(j)), "icon": UI.item_icon(String(j["reward"])),
 			"cargo": UI.item_icon("parcel") if j["kind"] == "delivery" else null, "taken": Jobs.is_taken(rec, j)})
@@ -738,11 +895,31 @@ func _socket_px() -> Vector2:
 	return Vector2(shrine["rect"].position * T) + Vector2(72, 64)
 
 
+## Where the camera looks while the stone goes in (Claude, 2026-10-24, pass 5 T5 / LV-17): halfway between the leader
+## and the socket, then up as far as the highest head needs, so long as the socket and the light round it stay in
+## view. It looked at the socket alone, and the team on the shrine's door was cut off at the top of the screen.
+func shrine_look() -> Vector2:
+	var sock := _socket_px()
+	var look: Vector2 = (team[0]["node"].position + Vector2(0, -12)).lerp(sock + Vector2(0, 22), 0.5)
+	var half := Vector2(VIEW) * 0.5
+	var top := INF
+	for e in team:
+		var s: Sprite2D = e["sprite"]
+		if s.texture != null:
+			top = minf(top, e["node"].position.y + s.position.y - s.texture.get_size().y * 0.5 - 2.0)
+	var over := (look.y - half.y) - top   # how far the highest head is above the view
+	if over > 0.0:
+		var room := (look.y + half.y) - (sock.y + 14.0)   # how far the view may rise with the socket still in it
+		look.y -= minf(over, maxf(0.0, room))
+	return look
+
+
 ## The stone leaves the leader, settles into the socket, and the shrine wakes in a ring of light.
 func install_stone() -> void:
 	evolving_now = true   # holds input like the evolution scene
 	panel = {}
 	shrine_view = true
+	cutscene = true   # the HUD steps aside while the stone goes in, so the place panels never cover the team (pass 5 T5)
 	var from: Vector2 = team[0]["node"].position + Vector2(0, -30)
 	var to := _socket_px()
 	_sfx("presence_swell")
@@ -757,6 +934,7 @@ func install_stone() -> void:
 	await get_tree().create_timer(1.6).timeout
 	stone_fx.erase("wake_at")
 	panel = {"name": "Growth Shrine", "what": "The stone settles into the socket, and the shrine wakes: light runs through its old stones. A creature that is ready can grow here now.", "service": "growth_done"}
+	cutscene = false
 	evolving_now = false
 
 
@@ -787,16 +965,30 @@ func _draw_stone() -> void:
 		c.draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE)
 
 
+## Into the growth scene and out of it through black (Claude, 2026-10-24, pass 5 T1 / LV-06; it was a hard cut both
+## ways). The frame the player last saw (the shrine's page) is held and fades to black, the scene comes up out of it,
+## and at the end the scene goes to black; under the black the creature changes on the street. Then either the street
+## comes back with the growth's line, or, after the first growth, the end card starts on that same black and the town
+## is not seen until the card is done.
+const EVO_FADE := 0.3
+
+
 func evolve_at_shrine(k: int) -> void:
 	evolving_now = true
+	var tree := get_tree()
+	_hold_frame()   # before the page closes, so its closing is not seen
 	panel = {}
 	var rec := _record()
 	var ln: int = party[k][0]
 	var st: int = party[k][1]
+	await UI.fade_out(tree, EVO_FADE)
+	_drop_frame()
 	var scene: CanvasLayer = load("res://scripts/ui/evolution_scene.gd").new()
 	add_child(scene)
+	UI.fade_in(tree, EVO_FADE)
 	await scene.run(Lines.of(ln)["forms"][st][0], Lines.of(ln)["forms"][st + 1][0],
 		load(Lines.of(ln)["forms"][st][1]).creature_name, load(Lines.of(ln)["forms"][st + 1][1]).creature_name, not poll_input)
+	await UI.fade_out(tree, EVO_FADE)
 	scene.queue_free()
 	var res := Evolution.evolve(rec, k)
 	party = rec["party"].duplicate(true)
@@ -814,13 +1006,50 @@ func evolve_at_shrine(k: int) -> void:
 		notes.append("Its new body can't use %s." % ", ".join(res["lost"].map(func(m: String) -> String: return Arena.MOVES[m]["name"])))
 	if not res["waiting"].is_empty():
 		notes.append("%s will be offered on the next run." % ", ".join(res["waiting"].map(func(m: String) -> String: return Arena.MOVES[m]["name"])))
-	# "grew" marks a real growth (install_stone's line shares the service): closing it rolls the end card once.
+	# "grew" marks a real growth (install_stone's line shares the service). After the first growth the end card
+	# rolls on the growth scene's black, over this line, which shows when the card is done (pass 5 T1).
 	panel = {"name": "Growth Shrine", "what": "%s has grown into %s! %s" % [res["old_name"], res["new_name"], " ".join(notes)], "service": "growth_done", "grew": true}
+	if PilotEnd.due(rec):
+		PilotEnd.run(self, true)   # not awaited: it holds the street (cutscene) until its key; its black is up now
+		await tree.process_frame   # the card's black is drawn before the fade's lifts
+		UI.fade_in(tree, 0.0)
+	else:
+		UI.fade_in(tree, EVO_FADE)
 	evolving_now = false
 
 
-## Close the open panel (E on a sign, or Esc). Closing the first growth's line rolls the end card
-## (scripts/town/pilot_end.gd, GS-16), once per save.
+## The last frame drawn, held over everything under the fade (Claude, 2026-10-24, pass 5 T1): a CanvasLayer just
+## below UI.FADE_LAYER with a picture of the screen, so whatever closes under it this frame is not seen. Not in a
+## headless run, which draws no frames.
+var _frame_hold: CanvasLayer = null
+
+
+func _hold_frame() -> void:
+	if DisplayServer.get_name() == "headless" or not is_inside_tree():
+		return
+	var img := get_viewport().get_texture().get_image()
+	if img == null or img.is_empty():
+		return
+	_frame_hold = CanvasLayer.new()
+	_frame_hold.layer = UI.FADE_LAYER - 1
+	var pic := TextureRect.new()
+	pic.texture = ImageTexture.create_from_image(img)
+	pic.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	pic.stretch_mode = TextureRect.STRETCH_SCALE
+	pic.size = get_viewport().get_visible_rect().size
+	pic.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	_frame_hold.add_child(pic)
+	add_child(_frame_hold)
+
+
+func _drop_frame() -> void:
+	if is_instance_valid(_frame_hold):
+		_frame_hold.queue_free()
+	_frame_hold = null
+
+
+## Close the open panel (E on a sign, or Esc). Closing a growth's line rolls the end card (scripts/town/pilot_end.gd,
+## GS-16) if it is still owed: since pass 5 it rolls straight after the first growth, so this is the fallback.
 func _close_panel() -> void:
 	var grew: bool = panel.get("grew", false)
 	panel = {}
@@ -840,13 +1069,18 @@ func _leave_to(next: Node, lifts_itself := false) -> void:
 	busy = true   # no steps while the screen goes dark
 	var tree := get_tree()
 	# A toast still up from the arrival ("Highbank remembers.") goes before the black, so it does not ride into the
-	# Home or the Hall (Claude, 2026-10-24, pass 4 T3 / L32). Every way out comes through here, enter_room too. A
-	# toast raised this frame ("The run is kept." on setting out) is not in the tree yet (UI.toast adds it deferred),
-	# so it stays.
+	# Home or the Hall (Claude, 2026-10-24, pass 4 T3 / L32). Every way out comes through here, enter_room too.
 	var toast := tree.root.get_node_or_null(UI.TOAST_NAME)
 	if toast != null:
 		toast.queue_free()
 	await UI.fade_out(tree)
+	# "The run is kept.", raised as the team sets out, was not in the tree at the line above (UI.toast adds it
+	# deferred) and rode into the run over the Hollow's minimap (pass 5 T4 / LV-08). It is in the tree now, under the
+	# black: it goes before the scene does. (Holding the street until it had been read broke town_loop_check, which
+	# expects the run within 8 frames of the step onto the Mouth; see the pass 5 notes.)
+	toast = tree.root.get_node_or_null(UI.TOAST_NAME)
+	if toast != null:
+		toast.free()
 	tree.change_scene_to_node(next)
 	if not lifts_itself:
 		UI.fade_in(tree)
@@ -854,7 +1088,7 @@ func _leave_to(next: Node, lifts_itself := false) -> void:
 
 ## Step inside the Home or the Wayline Hall: a room at the town's scale (scripts/town/town_room.gd).
 func enter_room(id: String) -> void:
-	_sfx("door")
+	_sfx("door", true)   # the 0.66 s door outlasts the fade that frees the town (rooms RM5)
 	TeamState.data["party"] = party.duplicate(true)
 	if is_inside_tree() and get_tree().current_scene == self:
 		var room: Node = load("res://scenes/town_room.tscn").instantiate()
@@ -876,7 +1110,8 @@ func enter_hollow() -> void:
 	var beaten: Array = TeamState.data.get("beaten", [])
 	if "hollow" in beaten:   # the pilot is done: any dungeon can be run again (Preston, 2026-10-11)
 		dg.free()
-		panel = {"name": "The way down", "what": "Where to?", "service": "way_pick", "sel": 0}
+		panel = {"name": "The way down", "what": "Where to?", "service": "way_pick", "sel": 0, "marks": way_marks()}
+		_ui_sfx("open")   # a list opens as the menus do (pass 5 T7 / LV-29)
 		return
 	dg.dungeon = "hollow" if "first" in beaten else "first"
 	dg.return_to_town = true
@@ -920,11 +1155,12 @@ func _process(_delta: float) -> void:
 				e["sprite"].texture = frames[int(e["walk_clock"] * WALK_FPS) % frames.size()]
 			if e["walk_t"] <= 0.0:
 				e["sprite"].texture = e["still"][e["facing"]]
+	SceneKit.idle_bob(movers, Time.get_ticks_msec() / 1000.0)   # pass 5 T12: standing creatures breathe
 	if not team.is_empty():
 		var half := Vector2(VIEW) * 0.5
 		if shrine_view and not evolving_now and panel.is_empty():
 			shrine_view = false   # back to following the leader once the shrine's line is closed
-		var look: Vector2 = (_socket_px() + Vector2(0, 22)) if shrine_view else (team[0]["node"].position + Vector2(0, -12))
+		var look: Vector2 = shrine_look() if shrine_view else (team[0]["node"].position + Vector2(0, -12))
 		if cam_focus != null:
 			look = cam_focus
 		var focus: Vector2 = look.clamp(half, Vector2(Layout.W, Layout.H) * T - half)
@@ -1153,15 +1389,17 @@ func _draw_hud() -> void:
 	elif panel.get("service", "") == "storage":
 		_draw_storage(h)
 	elif panel.get("service", "") == "way_pick":
-		var box := Rect2(196, 452 - 34 * REPLAYS.size(), 760, 92 + 34 * REPLAYS.size())
+		var box := Rect2(196, 452 - WAY_ROW * REPLAYS.size(), 760, 92 + WAY_ROW * REPLAYS.size())
 		UI.panel(h, box, 0.95)
 		UI.text(h, box.position + Vector2(22, 34), String(panel["name"]), 23, UI.EDGE_LIGHT, 716)
+		var marks: Array = panel.get("marks", [])
 		for i in REPLAYS.size():
-			var at := box.position + Vector2(48, 72 + 34 * i)
+			var at := box.position + Vector2(48, 78 + WAY_ROW * i)
 			var on: bool = i == int(panel["sel"])
 			if on:
 				UI.text(h, at - Vector2(24, 0), ">", 20, UI.EDGE_LIGHT)
 			UI.text(h, at, String(REPLAYS[i][1]), 20, UI.EDGE_LIGHT if on else UI.TEXT)
+			_draw_way_marks(h, marks[i] if i < marks.size() else {}, Vector2(box.end.x - 22, at.y))
 		UI.text(h, box.end - Vector2(738, 14), "%s  choose     %s  go     %s  not now" % [SceneKit.pick_keys(), SceneKit.use_key(), UI.binding_text(&"cancel")], 15, UI.MUTED, 716, HORIZONTAL_ALIGNMENT_RIGHT)
 	elif not panel.is_empty():
 		var box := Rect2(196, 452, 760, 128)
@@ -1178,6 +1416,30 @@ func _draw_hud() -> void:
 		var back := UI.binding_text(&"cancel")
 		var hint := ("%s  grow     %s  not now" % [use, back]) if panel.get("service", "") == "evolve_ask" else (("%s  set it in     %s  not now" % [use, back]) if panel.get("service", "") == "stone_ask" else "%s  close" % use)
 		UI.text(h, box.position + Vector2(22, 116), hint, 15, UI.MUTED, 716, HORIZONTAL_ALIGNMENT_RIGHT)
+
+
+## One way-down row's marks (way_marks), right-aligned to `right` on the row's text line `right.y`: the floors on the
+## board's brass tab for a cleared Hollow (plain and muted otherwise), then to its left a face for each waiting client,
+## in the board's face box.
+func _draw_way_marks(h: CanvasItem, m: Dictionary, right: Vector2) -> void:
+	var x := right.x
+	var floors := String(m.get("floors", ""))
+	if floors != "":
+		if m.get("cleared", false):
+			var w := maxf(96.0, UI.font("name").get_string_size(floors, HORIZONTAL_ALIGNMENT_LEFT, -1, UI.type_size("name")).x + 40.0)
+			UI.nameplate(h, Vector2(x - w, right.y - 25), floors)
+			x -= w + 12
+		else:
+			var w2 := UI.width_of(floors, 20)
+			UI.text(h, Vector2(x - w2, right.y), floors, 20, UI.MUTED)
+			x -= w2 + 12
+	for face in m.get("faces", []):
+		var r := Rect2(x - 48, right.y - 31, 48, 48)
+		h.draw_rect(r, UI.PORTRAIT_BG)
+		if face != null:
+			h.draw_texture_rect(face, r, false)
+		h.draw_rect(r, UI.EDGE, false, 1.0)
+		x -= 54
 
 
 ## The walk keys, bottom right, on a label-role strip in the panel frame so they read on any ground
@@ -1207,11 +1469,16 @@ func _draw_key_strip(h: CanvasItem) -> void:
 ## The board, drawn the Explorers of Sky way: the rank at the top, one row per request with the
 ## client's headshot, where to go and what it pays; a brass TAKEN tab on the ones in the satchel.
 ## It draws from the rows built when it opened (_cache_board, LP-12), not from the jobs every frame.
+## 960 wide since pass 5 (T8): the where line names the Hollow too, and the longest, a delivery's, is 405 px.
+const BOARD_W := 960.0
+const BOARD_REWARD_X := 560.0   # the reward's icon, from the row's left; the where line ends 10 px before it
+
+
 func _draw_board(h: CanvasItem) -> void:
 	if not panel.has("rows"):
 		board_rows()
 	var rows: Array = panel["rows"]
-	var box := Rect2(166, 64, 820, 132 + 70 * maxi(1, rows.size()))
+	var box := Rect2((1152.0 - BOARD_W) * 0.5, 64, BOARD_W, 132 + 70 * maxi(1, rows.size()))
 	UI.panel(h, box, 0.96)
 	UI.nameplate(h, box.position + Vector2(28, -22), String(panel["name"]), 22)
 	UI.text(h, box.position + Vector2(30, 46), String(panel["rank_s"]), 18, UI.EDGE_LIGHT)
@@ -1241,13 +1508,14 @@ func _draw_board(h: CanvasItem) -> void:
 		var cargo_inset := 40 if cargo != null else 0
 		if cargo != null:
 			h.draw_texture(cargo, r.position + Vector2(70, 11))
-		UI.text(h, r.position + Vector2(70 + cargo_inset, 27), String(row["title"]), 20, UI.EDGE_LIGHT if on else UI.TEXT, 340 - cargo_inset)
+		var text_w := BOARD_REWARD_X - 10.0 - 70.0 - cargo_inset
+		UI.text(h, r.position + Vector2(70 + cargo_inset, 27), String(row["title"]), 20, UI.EDGE_LIGHT if on else UI.TEXT, text_w)
 		# The where line is prose in the body face on every row, delivery or not (LP-24; at size 15 it had
 		# fallen to the capital label face).
-		UI.say(h, r.position + Vector2(70 + cargo_inset, 51), String(row["where"]), "body", UI.MUTED, 340 - cargo_inset)
+		UI.say(h, r.position + Vector2(70 + cargo_inset, 51), String(row["where"]), "body", UI.MUTED, text_w)
 		if row["icon"] != null:
-			h.draw_texture(row["icon"], r.position + Vector2(420, 15))
-		UI.text(h, r.position + Vector2(458, 37), String(row["reward"]), 16, UI.TEXT, 180)
+			h.draw_texture(row["icon"], r.position + Vector2(BOARD_REWARD_X, 15))
+		UI.text(h, r.position + Vector2(BOARD_REWARD_X + 38, 37), String(row["reward"]), 16, UI.TEXT, 180)
 		if row["taken"]:
 			UI.nameplate(h, r.position + Vector2(r.size.x - 112, 13), "Taken", 18)
 	UI.text(h, box.end + Vector2(-box.size.x + 30, -22), "%s  choose     %s  take or put back     %s  close" % [SceneKit.pick_keys(), SceneKit.use_key(), UI.binding_text(&"cancel")], 15, UI.MUTED, box.size.x - 60, HORIZONTAL_ALIGNMENT_RIGHT)

@@ -117,6 +117,7 @@ static func paint(base: Image) -> Image:
 	Tiles.aprons(img)
 	Tiles.clearings(img)
 	_fray(img)
+	_soften(img)   # pass 5 T9: the ruled edges below Wayline Hall
 	# The cliff ledges keep their contour; the lanes no longer get one (Claude, 2026-10-23, T2): world_finish.gd's
 	# paint() rims both, over the whole map, and the lane rim was the ink line round every street rectangle.
 	return _cliff_contour(Detail.river(img))
@@ -766,6 +767,142 @@ static func _taper(img: Image, src: Image, r: Rect2i, d: Vector2i) -> void:
 			var wear := 1.0 - float(u) / TAPER
 			if u < 0 or 0.65 * R._noise(p.x, p.y, 5.0, 139) + 0.35 * R._h(p.x, p.y, 140) < 0.15 + 0.7 * pow(wear, 1.5):
 				img.set_pixelv(p, dirt)
+
+
+# ---------------------------------------------------------------- below Wayline Hall (Claude, 2026-10-24, pass 5 T9 / LV-12)
+## Below the Hall the street, the Crossroads' clearing and the Job Board's reading pad still met the grass along ruled
+## lines (Preston's live run, LV-12: the Crossroads' top edge ran straight for 113 px). Here an irregular noise mask
+## moves every straight edge between grass and paving or dirt off its line: along the edge the boundary wanders up to
+## SOFT_REACH px either way (two value noises, on 12 px and 4 px cells), the pixels it crosses take their new side's
+## texture from SOFT_SHIFT px further in, so stones and blades run on, and the new edge's own row is dithered. Edges
+## across columns first, then across rows. A building keeps its pixels; pictures only, the walkable grid is the same.
+## Highbank's street picture is kept on disk: raise hub_town.gd's STREET_VERSION with any change here.
+const SOFT_TILES := Rect2i(15, 7, 19, 5)   # columns 15 to 33, rows 7 to 11: from the Hall's steps to the Crossroads
+const SOFT_REACH := 3     # px the edge may move either way
+const SOFT_SHIFT := 6     # px further in that a moved pixel takes its new side's texture from
+const SOFT_CLEAN := 2     # px of one kind on each side that make an edge (a tuft, a flower or a stone stays as it is)
+const SOFT_RUN := 5       # an edge this many px straight, or more, is moved
+const K_OTHER := 0
+const K_GRASS := 1
+const K_PAVED := 2        # cobble, mortar, packed dirt: the warm ground
+
+
+static func _soften(img: Image) -> void:
+	var area := Rect2i(SOFT_TILES.position * T, SOFT_TILES.size * T)
+	var pad := SOFT_REACH + SOFT_SHIFT + SOFT_CLEAN + 1
+	var span := area.grow(pad).intersection(Rect2i(Vector2i.ZERO, img.get_size()))
+	var solid := _solid_mask(span)
+	for across in [Vector2i(0, 1), Vector2i(1, 0)]:   # (0, 1): edges between a row and the next, so lines run along x
+		var src: Image = img.duplicate()
+		var kinds := _kinds(src, span)
+		var along := Vector2i(across.y, across.x)
+		var lanes: int = area.size.y if across.y == 1 else area.size.x   # the lines an edge can sit on
+		var steps: int = area.size.x if across.y == 1 else area.size.y   # the px along each line
+		var next: int = 1 if across.y == 0 else span.size.x              # the px across the edge, in `kinds`
+		for li in lanes:
+			var run: Array[int] = []
+			var run_kind := -1
+			for si in steps + 1:
+				var edge := -1
+				if si < steps:
+					var p: Vector2i = area.position + along * si + across * li
+					var at: int = (p.y - span.position.y) * span.size.x + (p.x - span.position.x)
+					if kinds[at] != kinds[at + next] and kinds[at] != K_OTHER and kinds[at + next] != K_OTHER:   # most px: no edge
+						edge = _edge_at(kinds, span, solid, p, across)
+				if edge >= 0 and edge == run_kind:
+					run.append(si)
+					continue
+				if run.size() >= SOFT_RUN:
+					for s in run:
+						_move_edge(img, src, kinds, span, solid, area.position + along * s + across * li, across, run_kind)
+				run.clear()
+				run_kind = edge
+				if edge >= 0:
+					run.append(si)
+
+
+## The kind of each px in `span`: grass (green over red), paved (warm: red over green and blue) or other. Read from the
+## raw bytes, as get_pixel per px costs about ten times as much.
+static func _kinds(src: Image, span: Rect2i) -> PackedByteArray:
+	var region := src.get_region(span)
+	if region.get_format() != Image.FORMAT_RGBA8:
+		region.convert(Image.FORMAT_RGBA8)
+	var bytes := region.get_data()
+	var out := PackedByteArray()
+	out.resize(span.size.x * span.size.y)
+	for i in out.size():
+		var r := bytes[i * 4]
+		var g := bytes[i * 4 + 1]
+		var b := bytes[i * 4 + 2]
+		if g > r + 6 and g >= b:
+			out[i] = K_GRASS
+		elif r >= g and r > b + 12:
+			out[i] = K_PAVED
+	return out
+
+
+static func _kind(kinds: PackedByteArray, span: Rect2i, p: Vector2i) -> int:
+	if not span.has_point(p):
+		return K_OTHER
+	return kinds[(p.y - span.position.y) * span.size.x + (p.x - span.position.x)]
+
+
+## 1 for each px of `span` inside a building's footprint: its art is never moved, nor copied.
+static func _solid_mask(span: Rect2i) -> PackedByteArray:
+	var out := PackedByteArray()
+	out.resize(span.size.x * span.size.y)
+	for p in Layout.PLACES:
+		if p["kind"] != "building":
+			continue
+		var r := Rect2i(p["rect"].position * T, p["rect"].size * T).intersection(span)
+		for y in range(r.position.y, r.end.y):
+			for x in range(r.position.x, r.end.x):
+				out[(y - span.position.y) * span.size.x + (x - span.position.x)] = 1
+	return out
+
+
+## The edge between `p` and `p + across`, as its two kinds (top or left kind * 3 + the other), when both sides are grass
+## or paved, different, SOFT_CLEAN px deep each, and neither is a building's; else -1.
+static func _edge_at(kinds: PackedByteArray, span: Rect2i, solid: PackedByteArray, p: Vector2i, across: Vector2i) -> int:
+	var a := _kind(kinds, span, p)
+	var b := _kind(kinds, span, p + across)
+	if a == b or a == K_OTHER or b == K_OTHER:
+		return -1
+	for i in SOFT_CLEAN:
+		if _kind(kinds, span, p - across * i) != a or _kind(kinds, span, p + across * (1 + i)) != b:
+			return -1
+	if _solid(solid, span, p) or _solid(solid, span, p + across):
+		return -1
+	return a * 3 + b
+
+
+static func _solid(solid: PackedByteArray, span: Rect2i, p: Vector2i) -> bool:
+	return not span.has_point(p) or solid[(p.y - span.position.y) * span.size.x + (p.x - span.position.x)] == 1
+
+
+## Moves one px column (or row) of an edge: the near side (kind a, at `p`) reaches o px past the old line, o from -3 to 3
+## along the edge; each px it crosses takes its new side's texture from SOFT_SHIFT px further in, or its mirror across the
+## old line when that px is not of the kind. The first px past the new line is dithered back to the near side. A building's
+## px is never written or read: the edge stops at its footprint (the Hall's steps meet its door).
+static func _move_edge(img: Image, src: Image, kinds: PackedByteArray, span: Rect2i, solid: PackedByteArray, p: Vector2i, across: Vector2i, edge: int) -> void:
+	var a := edge / 3
+	var b := edge % 3
+	var g: int = p.x if across.y == 1 else p.y            # where along the edge
+	var line: int = (p.y if across.y == 1 else 70000 + p.x)   # one noise per line
+	var w := 0.7 * _wander(g, line, 12.0, 180) + 0.3 * _wander(g, line, 4.0, 181)
+	var o := clampi(roundi(-SOFT_REACH + 2.0 * SOFT_REACH * w), -SOFT_REACH, SOFT_REACH)
+	# i counts px past the old line on the far side (1 is p + across); the near side now holds up to i == o.
+	for i in range(mini(o, 0) + 1, maxi(o, 0) + 2):
+		var q: Vector2i = p + across * i
+		var near := i <= o or (i == o + 1 and _dither(q) > 0.5)
+		var want := a if near else b
+		if _kind(kinds, span, q) == want or _solid(solid, span, q):
+			continue
+		var from: Vector2i = q - across * SOFT_SHIFT if near else q + across * SOFT_SHIFT
+		if _kind(kinds, span, from) != want or _solid(solid, span, from):
+			from = p - across * (i - 1) if near else p + across * (1 - i)   # the mirror across the old line
+		if _kind(kinds, span, from) == want and not _solid(solid, span, from):
+			img.set_pixelv(q, src.get_pixelv(from))
 
 
 ## The cliff ledges' contour (world_finish.gd's sel-out on its cliff mask), run on the two cliff rows alone instead

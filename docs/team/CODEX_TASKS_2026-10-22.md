@@ -176,3 +176,34 @@ Added by the pass 4 integrator (Claude, 2026-10-24), from the lanes' notes:
 19. For C4, the pause menu's slider look is one static call: `_slider_look(slider: HSlider)` in scripts/ui/game_pause_menu.gd (about line 267). It gives the framed track, the gold fill and the brass knob, drawn in code from UI colours at 3x, the same for every state. Calling it on the title's sliders makes the two Options screens match; the title today still uses panel_dim and panel_focus.
 20. For C11, what to look at in the test export: Highbank's painted street, the Home desk (town_room.gd), the Job Board stand and a Hollow floor. Pass 4 moved every res:// picture read to the imported texture first (`UI.res_image`, ui_style.gd about line 639; town_room.gd and board_scene.gd use their own `_art_image`), so none of them should fall back to stand-in art. If one does, name the file.
 21. For C22, board_scene.gd's stand-in reads that docs/ folder through `_art_image`, which already copes with a missing file (it draws an empty 66 x 66 stand-in instead of crashing). Send the new path and Claude points it there.
+
+## 8. Pass 5 lines (plan, 2026-10-24)
+
+From `sweep-2026-10-20/PASS5_PLAN_2026-10-24.md`, section "Codex", in the plan's order. Result: `sweep-2026-10-20/PASS5_RESULT_2026-10-24.md`. Many repeat pass 4's lines with the pass 5 live audit's evidence added; the title files are yours, and Route 1 stays untouched. Words in C6 are proposals: build the prompt and keep it off until Preston picks them. (Claude, integrator, 2026-10-24)
+
+1. C11 (LO5-01): add export_presets.cfg with a Windows Desktop preset that leaves out tools/*, addons/godot_ai/* and scenes/_lab/*, keeps the godot_ai autoload out of the release, and keeps docs/ until C22; make one test export and check that Highbank's street, the Home desk, the Job Board stand and one Hollow floor show painted art, not stand-ins.
+2. C2 (LO5-02, live LV-21, LV-22): in creature_opening.gd and main_menu.gd start the title Options and both How to play panels so they end by y 636 (start at 120 or size to content); pull the Quit panel inside 1152 with a 16 px margin. ui_fit's three title points should then go green.
+3. C3 (LO5-03, LV-23): move the title menu, its panels and the soul prologue text onto UI.TYPE roles with UI.style_button and UI.frame; delete MENU_FACE and COPY_FACE (creature_opening.gd:10-11) and fix the 'NewGame' comment at :179. The carved wordmark stays.
+4. C4 (LO5-04, LV-21): title Options gets the pause menu's rows and prefs keys (Sound effects, Screen, Text speed, Rebind keys) and calls game_pause_menu.gd `_slider_look` on its sliders; How to play > Controls is built from `ControlsText.groups(UI.last_device())`.
+5. C6 (LO5-05): when `TeamState.has_save()` is true, New Game asks before the storm. Build the prompt but keep it off until Preston picks the words; one line under Continue with the place and the leader's level.
+6. C5 (LO5-06): when the menu opens, hide captions[] and LaunchPrelude (alpha 0); skip the prelude on a return visit.
+7. C7 (LO5-07): soul_prologue.gd reads UI.pressed for move_left and move_right and UI.INPUT_ADVANCE, lets joypad motion through, and draws lines through UI.dialogue; delete main_menu.gd `_ensure_menu_inputs`. Then tell Claude, so UI.HEAD can be deleted.
+8. C8 (LO5-08, LV-26): starter cards show the showcase front idle at 3x on an essence-tinted backdrop with the name in the title role; moving between cards plays the UI cursor tick and picking plays confirm (not text.wav); the hint at full label contrast through UI.binding_text.
+9. C9 (LO5-09, LV-25): remove the 3 px full-width strip at soul_prologue.gd:264 (or make it a pulse on the light); draw each shaft with per-vertex alpha fading to 0 so no edge shows at y 450; size the backdrop to the expanded viewport.
+10. C10 (LO5-10): set the Hollowtide icon.png as config/icon; boot_splash bg_color to the clear colour and show_image false.
+11. C12 (LO5-11): confirm opening_flow never instantiates _route_scene, drop the world_journey preload at main_menu.gd:36, and move retired scenes to scenes/_lab (Preston commits). Route 1 files stay untouched.
+12. C1 (LO5-12): main_menu.gd:811-817 loads PREFERENCES before saving and writes through a temp file and rename (the ui_style.gd:699-702 pattern).
+13. C20 (LO5-13): storm_open.gd shows a faint advance prompt through UI.binding_text after about 4 s; draw the soul light as a pixel cluster, not four draw_circle calls.
+14. LV-24: the splash either waits for the key it names or drops 'ENTER TO CONTINUE'; fade the splash wordmark fully out before the title wordmark appears; no dim 55-frame hold on the return to title; silence the focus-grab cursor tick at title load and the doubled confirm and cursor when Options opens.
+15. LV-27: creature_prologue.gd and opening_dialogue.gd use one dialogue face (the Pixelify prose role) and draw response choices at the dialogue's pixel scale.
+16. LV-13: redraw the Scroll Keeper exterior (scroll_keeper_painter.gd, landmark_exteriors.gd) at the Item Shop's scale and outline weight, or as an object set built from existing pieces.
+17. C13 (LO5-14): FX-01, ART-08, ART-03, ART-10 in queue order. After FX-01 Claude reruns dungeon_vfx; after ART-08 Claude rebuilds both sets with build_dungeon_set.py; Preston looks at the ART-10 crops.
+18. C14, C17, C18 (LO5-15, LV-14): paint a hanging wooden signboard PNG per service in the building palette, 40 x 40 faces for Punchybun and Sparkjab, and a dawn waking-bank painting without rain; send Claude the paths for wiring.
+19. C21 (LO5-16): a Team page backdrop at the sprite's pixel scale and palette (or a simple essence frame); send Claude the path for party_screen.gd:43.
+20. C22 (LO5-17): move the arena-starters front images read at board_scene.gd:97 from docs/ into assets/ and send Claude the path (board_scene now reads them through `UI.res_image`, which copes with a missing file).
+21. PERF-08: build_dungeon_set.py writes each frame's foot row into a small data file beside the sets, so `_read_art` can skip its GPU readbacks (138 to 169 ms on a session's first floor); Claude then switches `_read_art` to read it.
+
+Added by the pass 5 integrator (Claude, 2026-10-24), from the lanes' notes:
+
+22. From the town lane (T2): the growth scene draws both stages from one art family. Rimefin to Riftfin falls back to the small arena stills, because Riftfin's stills are long and low (75 to 78 px). A taller Riftfin front idle, like the other lines' showcase idles, would let that pair use the big 2x family.
+23. For C11, one more thing to look at in the test export: Highbank's painted street is now saved once to user://street/highbank_<key>.png and read back in later sessions (hub_town.gd STREET_VERSION and STREET_SOURCES). In the export, a second launch should reach Highbank in about 1 s with the same picture.

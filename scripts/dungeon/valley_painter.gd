@@ -36,6 +36,8 @@ static func paint(data: Dictionary, t: int, seed_value: int) -> Image:
 	var tiles: PackedByteArray = data["tiles"]
 	var img := Image.create(w * t, h * t, false, Image.FORMAT_RGBA8)
 	var s := seed_value % 983
+	# The meadow's soft noise laid out once for the whole floor (Claude, 2026-10-24, pass 5 A1; see R._layer).
+	var meadow := R._layer(s * 7, 0, w * t, h * t, 18.0, 70)
 	var room := PackedByteArray()
 	room.resize(w * h)
 	for rr in data["rooms"]:
@@ -49,9 +51,9 @@ static func paint(data: Dictionary, t: int, seed_value: int) -> Image:
 			if tiles[ty * w + tx] == Gen.WALL:
 				continue
 			if room[ty * w + tx] == 1:
-				_meadow_tile(img, tx, ty, t, s)
+				_meadow_tile(img, tx, ty, t, s, meadow)
 			else:
-				_path_tile(img, tx, ty, t, s)
+				_path_tile(img, tx, ty, t, s, meadow)
 	_hills(img, data, t, s)
 	for y in h:
 		for x in w:
@@ -64,18 +66,46 @@ static func paint(data: Dictionary, t: int, seed_value: int) -> Image:
 	return img
 
 
-## Meadow: two greens from soft noise, short blades, tall tufts and flowers here and there.
-static func _meadow_tile(img: Image, tx: int, ty: int, t: int, s: int) -> void:
+## Meadow: two greens from soft noise, short blades, tall tufts and flowers here and there. `L` is the meadow's
+## noise laid out over the whole floor (R._layer at s * 7, 0, cell 18, k 70); a caller without it (highbank_painter.gd's
+## grass, a tile at a time) gets the tile's own, the same numbers (Claude, 2026-10-24, pass 5 A1: the floor was 1.6 s,
+## most of it R._noise and R._h called per pixel; the hashes are written out below, the colours unchanged).
+static func _meadow_tile(img: Image, tx: int, ty: int, t: int, s: int, L: Array = []) -> void:
+	var ox := 0
+	var oy := 0
+	if L.is_empty():
+		ox = tx * t
+		oy = ty * t
+		L = R._layer(ox + s * 7, oy, t, t, 18.0, 70)
+	var lat: PackedFloat64Array = L[0]
+	var lw: int = L[1]
+	var cols: PackedInt32Array = L[2]
+	var fxs: PackedFloat64Array = L[3]
+	var rows: PackedInt32Array = L[4]
+	var fys: PackedFloat64Array = L[5]
+	var lo: Color = MEADOW[0]
+	var hi: Color = MEADOW[2]
 	for py in t:
+		var y := ty * t + py
+		var r := rows[y - oy]
+		var fy := fys[y - oy]
 		for px in t:
 			var x := tx * t + px
-			var y := ty * t + py
-			var n := R._noise(x + s * 7, y, 18.0, 70)
-			var c: Color = MEADOW[0].lerp(MEADOW[2], n)
-			if (x * 3 + y * 7) % 11 == 0 and R._h(x, y, 71) > 0.3:
+			var i := r + cols[x - ox]
+			var f := fxs[x - ox]
+			var c: Color = lo.lerp(hi, lerpf(lerpf(lat[i], lat[i + 1], f), lerpf(lat[i + lw], lat[i + lw + 1], f), fy))
+			var lit := false
+			if (x * 3 + y * 7) % 11 == 0:
+				var hn := (x * 374761393 + y * 668265263 + 71 * 1442695041) & 0x7fffffff   # R._h(x, y, 71)
+				hn = ((hn ^ (hn >> 13)) * 1274126177) & 0x7fffffff
+				lit = float(hn % 1000) / 1000.0 > 0.3
+			if lit:
 				c = c.lightened(0.1)   # a blade catching the light
-			elif R._h(x, y, 72) > 0.94:
-				c = c.darkened(0.15)
+			else:
+				var hd := (x * 374761393 + y * 668265263 + 72 * 1442695041) & 0x7fffffff   # R._h(x, y, 72)
+				hd = ((hd ^ (hd >> 13)) * 1274126177) & 0x7fffffff
+				if float(hd % 1000) / 1000.0 > 0.94:
+					c = c.darkened(0.15)
 			img.set_pixel(x, y, c)
 	# Tall tufts: a few upright blades with a dark root.
 	for k in 3:
@@ -100,8 +130,8 @@ static func _meadow_tile(img: Image, tx: int, ty: int, t: int, s: int) -> void:
 
 
 ## The stone pathway: two worn stepping stones a tile, uneven in size and place, grass between them.
-static func _path_tile(img: Image, tx: int, ty: int, t: int, s: int) -> void:
-	_meadow_tile(img, tx, ty, t, s)
+static func _path_tile(img: Image, tx: int, ty: int, t: int, s: int, L: Array = []) -> void:
+	_meadow_tile(img, tx, ty, t, s, L)
 	for k in 2:
 		var rw := 5 + int(R._h(tx * 2 + k, ty, 80) * 3)
 		var rh := 4 + int(R._h(tx, ty * 2 + k, 81) * 3)
@@ -151,23 +181,71 @@ static func _hills(img: Image, data: Dictionary, t: int, s: int) -> void:
 					if xx >= 0 and yy >= 0 and xx < w and yy < h:
 						best = mini(best, dist[yy * w + xx] + 1)
 				dist[i] = best
+	# The turf's soft noise laid out once, and _height's blend worked out once a column and once a row (Claude,
+	# 2026-10-24, pass 5 A1: the same numbers as R._noise and _height, without a call per pixel).
+	var W := img.get_width()
+	var H := img.get_height()
+	var L := R._layer(s, s, W, H, 22.0, 83)
+	var lat: PackedFloat64Array = L[0]
+	var lw: int = L[1]
+	var col: PackedInt32Array = L[2]
+	var fxs: PackedFloat64Array = L[3]
+	var rows: PackedInt32Array = L[4]
+	var fys: PackedFloat64Array = L[5]
+	var hx0 := PackedInt32Array()
+	var hx1 := PackedInt32Array()
+	var hax := PackedFloat64Array()
+	hx0.resize(W)
+	hx1.resize(W)
+	hax.resize(W)
+	for x in W:
+		var fx := (x + 0.5) / t - 0.5
+		hx0[x] = clampi(int(floorf(fx)), 0, w - 1)
+		hx1[x] = clampi(hx0[x] + 1, 0, w - 1)
+		hax[x] = clampf(fx - floorf(fx), 0.0, 1.0)
+	var hy0 := PackedInt32Array()   # row starts in dist
+	var hy1 := PackedInt32Array()
+	var hay := PackedFloat64Array()
+	hy0.resize(H)
+	hy1.resize(H)
+	hay.resize(H)
+	for y in H:
+		var fy := (y + 0.5) / t - 0.5
+		var y0 := clampi(int(floorf(fy)), 0, h - 1)
+		hy0[y] = y0 * w
+		hy1[y] = clampi(y0 + 1, 0, h - 1) * w
+		hay[y] = clampf(fy - floorf(fy), 0.0, 1.0)
+	var hill_lo: Color = HILL[0]
+	var hill_hi: Color = HILL[2]
 	for ty in h:
 		for tx in w:
 			if tiles[ty * w + tx] != Gen.WALL:
 				continue
 			for py in t:
+				var y := ty * t + py
+				var r := rows[y]
+				var fy := fys[y]
+				var a0 := hy0[y]
+				var a1 := hy1[y]
+				var ay := hay[y]
 				for px in t:
 					var x := tx * t + px
-					var y := ty * t + py
-					var height := _height(dist, w, h, (x + 0.5) / t - 0.5, (y + 0.5) / t - 0.5)
-					var n := R._noise(x + s, y + s, 22.0, 83)
-					var c: Color = HILL[2].lerp(HILL[0], clampf(height + (n - 0.5) * 0.35, 0.0, 1.0))
-					if (x * 3 + y * 7) % 13 == 0 and R._h(x, y, 84) > 0.5:
-						c = c.lightened(0.07)
+					var ax := hax[x]
+					var x0 := hx0[x]
+					var x1 := hx1[x]
+					var v := lerpf(lerpf(dist[a0 + x0], dist[a0 + x1], ax), lerpf(dist[a1 + x0], dist[a1 + x1], ax), ay)
+					var height := clampf(v / 5.0, 0.0, 1.0)   # _height, its axes from the tables above
+					var i := r + col[x]
+					var f := fxs[x]
+					var n := lerpf(lerpf(lat[i], lat[i + 1], f), lerpf(lat[i + lw], lat[i + lw + 1], f), fy)
+					var c: Color = hill_hi.lerp(hill_lo, clampf(height + (n - 0.5) * 0.35, 0.0, 1.0))
+					if (x * 3 + y * 7) % 13 == 0:
+						var hn := (x * 374761393 + y * 668265263 + 84 * 1442695041) & 0x7fffffff   # R._h(x, y, 84)
+						hn = ((hn ^ (hn >> 13)) * 1274126177) & 0x7fffffff
+						if float(hn % 1000) / 1000.0 > 0.5:
+							c = c.lightened(0.07)
 					img.set_pixel(x, y, c)
 	# A lit rim where a hill meets the floor beside or below it.
-	var W := img.get_width()
-	var H := img.get_height()
 	for ty in h:
 		for tx in w:
 			if tiles[ty * w + tx] != Gen.WALL:

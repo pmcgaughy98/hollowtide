@@ -173,6 +173,28 @@ static func title(job: Dictionary) -> String:
 	return KINDS[job["kind"]]["title"] % client_name(job)
 
 
+## The Hollow a request is in (Claude, 2026-10-24, pass 5 T8 / LV-33). post() draws every client from Rootbank Warren's
+## creatures (dungeon.gd FLOOR_SPAWNS, its "first" dungeon), so its requests are there; a job that names its own
+## "hollow" keeps it. (dungeon.gd still places a client on its floor of whichever Hollow the team runs.)
+const HOLLOW := "first"
+
+
+static func hollow_of(job: Dictionary) -> String:
+	return String(job.get("hollow", HOLLOW))
+
+
+## "Rootbank Warren B3F": the Hollow's name and the floor, as the board and its messages print where a request is.
+static func place_text(job: Dictionary) -> String:
+	var dungeons: Dictionary = load(DUNGEON).get_script_constant_map()["DUNGEONS"]
+	var name := String(dungeons.get(hollow_of(job), {}).get("name", ""))
+	return ("%s B%dF" % [name, int(job["floor"])]).strip_edges()
+
+
+## The taken requests not yet done whose clients wait in Hollow `hollow_id` (the way down marks those Hollows).
+static func waiting_in(data: Dictionary, hollow_id: String) -> Array:
+	return data.get("jobs", []).filter(func(j: Dictionary) -> bool: return not j.get("done", false) and hollow_of(j) == hollow_id)
+
+
 ## [rank, points needed for the next rank or -1 at the top].
 static func rank_of(pts: int) -> Array:
 	var r := 1
@@ -226,8 +248,8 @@ static func toggle(data: Dictionary, job: Dictionary) -> String:
 	data["jobs"].append(job.duplicate(true))
 	if job["kind"] == "delivery":
 		_add_parcel(data, 1)
-		return "Taken: %s. B%dF, %s. The parcel is in the bag." % [title(job), int(job["floor"]), cond_text(job)]
-	return "Taken: %s. B%dF." % [title(job), int(job["floor"])]
+		return "Taken: %s. %s, %s. The parcel is in the bag." % [title(job), place_text(job), cond_text(job)]
+	return "Taken: %s. %s." % [title(job), place_text(job)]
 
 
 ## Pay every finished job: its items go in the bag, its points to the rank. Returns one line per job.

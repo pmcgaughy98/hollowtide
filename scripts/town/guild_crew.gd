@@ -59,13 +59,22 @@ static func place(room) -> void:
 
 const MARK := Vector2i(14, 9)
 const CALLER := Vector2i(14, 6)                 # Wayling at the sorting table, in front of the mark, facing the room
-const STAND := {"grubbit": Vector2i(12, 8), "stillwade": Vector2i(17, 8), "wickglow": Vector2i(17, 10),
-	"slipjaw": Vector2i(12, 10), "rinsepaw": Vector2i(17, 9)}
+# The crew stand just off the rug's two long sides, one tile out from where they stood until 2026-10-24 (Claude,
+# pass 5 RM7 / LV-16): at the rug's edge the partner's sprite overlapped Wickglow's and Rinsepaw's all through the
+# call. Both sides moved, so the line-up stays even about the rug's centre line, where the leader stands.
+const STAND := {"grubbit": Vector2i(11, 8), "stillwade": Vector2i(18, 8), "wickglow": Vector2i(18, 10),
+	"slipjaw": Vector2i(11, 10), "rinsepaw": Vector2i(18, 9)}
 const LATE_DOOR := Vector2i(1, 6)                # Muskin comes in late, from the crew room
+const LATE_SPOT := Vector2i(12, 10)              # and squeezes in beside Slipjaw, clear of the leader (RM7)
 # The leader front and centre, the partner beside Wickglow (Preston, 2026-10-11), recruits behind.
 # LEADER_NUDGE puts the leader on the rug's centre line where the star points south, facing north (Preston, 2026-10-11).
+# The marks are on the rug's open south side, and every one stands clear of the crew's sprites (RM7): the fourth
+# stood under Wickglow's feet at (17, 11).
 const LEADER_NUDGE := Vector2(12, 4)   # on the rug's centre line, just under the star's south point
-const TEAM_SPOTS := [Vector2i(14, 10), Vector2i(16, 10), Vector2i(15, 11), Vector2i(17, 11)]
+const TEAM_SPOTS := [Vector2i(14, 10), Vector2i(16, 10), Vector2i(15, 11), Vector2i(15, 12)]
+# The way back to work for those who cross the room (RM7): north of the rug, clear of the team still standing on it.
+const BACK_VIA := {"rinsepaw": [Vector2i(17, 7), Vector2i(11, 7)], "wickglow": [Vector2i(19, 9), Vector2i(18, 7)],
+	"stillwade": [Vector2i(17, 6)], "grubbit": [Vector2i(12, 7), Vector2i(19, 7)], "wayling": [Vector2i(19, 6)]}
 const STARWARD_AT := Vector2i(15, 5)
 
 
@@ -114,10 +123,14 @@ static func run(room) -> void:
 	await _say_each(room, cast, [["Wayling", "Mail's in! Gather up, routes are going out. Grab what's yours."]])
 	if not SceneKit._alive(room):
 		return
+	# The team comes up from below the rug (RM7): each steps down to that row first if it stands higher, crosses to the
+	# tile two rows under its mark, then walks up onto it, so nobody brushes past Wickglow and Rinsepaw on the way in.
 	var moves: Array = []
 	for k in room.team.size():
-		moves.append([room.team[k], TEAM_SPOTS[mini(k, TEAM_SPOTS.size() - 1)]])
-	await SceneKit.walk_all(room, moves, 0.2)
+		var spot: Vector2i = TEAM_SPOTS[mini(k, TEAM_SPOTS.size() - 1)]
+		var at: Vector2i = room.team[k]["pos"]
+		moves.append([room.team[k], [Vector2i(at.x, maxi(at.y, spot.y + 2)), spot + Vector2i(0, 2), spot]])
+	await _walk_routes(room, moves, 0.2)
 	for e in room.team:
 		SceneKit.face(room, e, way)
 	await _settle_leader(room)
@@ -137,7 +150,7 @@ static func run(room) -> void:
 	crew["muskin"] = mus
 	cast["Muskin"] = mus
 	SceneKit.emote(room, way, "!")
-	await SceneKit.walk_to(room, mus, Vector2i(13, 10), 0.13)
+	await SceneKit.walk_to(room, mus, LATE_SPOT, 0.13)
 	SceneKit.face(room, mus, way)
 	await _say_each(room, cast, [["Muskin", "Here! Sorry! Here! The door stuck. The door always sticks.", "worried"], ["Wayling", "The Warren road's yours, then. The door too."],
 		["Muskin", "...everything's always mine.", "worried"], ["Wayling", "And our runners?"], ["{partner}", "Here!", "joyous"],
@@ -163,15 +176,16 @@ static func run(room) -> void:
 		return
 	rec["rollcall_runs"] = _runs(rec)
 	# Everyone back to work: the crew to their posts, Wayling upstairs, Starward into the chamber.
+	# Those crossing the room go round the rug's far (north) side, through BACK_VIA, behind the team, not through it.
 	var back: Array = []
 	for p in POSTS["hall_low"]:
 		if crew.has(p[0]):
-			back.append([crew[p[0]], p[1]])
-	back.append([crew["grubbit"], Vector2i(24, 14)])
-	back.append([way, Vector2i(24, 13)])
-	back.append([star, Vector2i(14, 2)])
+			back.append([crew[p[0]], BACK_VIA.get(p[0], []) + [p[1]]])
+	back.append([crew["grubbit"], BACK_VIA["grubbit"] + [Vector2i(24, 14)]])
+	back.append([way, BACK_VIA["wayling"] + [Vector2i(24, 13)]])
+	back.append([star, [Vector2i(14, 2)]])
 	SceneKit.release(room)
-	await SceneKit.walk_all(room, back, 0.22)
+	await _walk_routes(room, back, 0.22)
 	if not SceneKit._alive(room):
 		return
 	for e in [crew["grubbit"], way, star]:
@@ -197,6 +211,24 @@ static func _say_each(room, cast: Dictionary, lines: Array) -> void:
 			# Everyone else: the whole roll in one frame, Wayling at the top, the team just above the text box.
 			SceneKit.pan(room, room._px(Vector2i(14, 10)) + Vector2(12, -32), 0.35)
 		await SceneKit.say(room, [l])
+
+
+## Walk several at once, each through its own tiles in order (the last is its goal), and wait for the last to
+## arrive. Claude, 2026-10-24 (RM7): SceneKit.walk_all takes the shortest way, which ran the crew past the team.
+static func _walk_routes(room, routes: Array, step: float) -> void:
+	var walking := {"n": routes.size()}
+	for r in routes:
+		var go := func(e: Dictionary, legs: Array) -> void:
+			for t in legs:
+				if not SceneKit._alive(room):
+					break
+				await SceneKit.walk_to(room, e, t, step)
+			walking["n"] -= 1
+		go.call(r[0], r[1])
+	var guard := 0
+	while SceneKit._alive(room) and int(walking["n"]) > 0 and guard < 30 * 30:
+		await room.get_tree().process_frame
+		guard += 1
 
 
 static func _despawn(room, e: Dictionary) -> void:

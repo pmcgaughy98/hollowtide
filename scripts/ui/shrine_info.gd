@@ -6,6 +6,7 @@ const Lines := preload("res://scripts/creatures/lines.gd")
 const Evolution := preload("res://scripts/town/evolution.gd")
 const Arena := preload("res://scripts/arena/arena_prototype.gd")
 const Finish := preload("res://scripts/arena/creature_finish.gd")
+const RebindPage := preload("res://scripts/ui/rebind_page.gd")   # its style_scroll_bar
 const WAY_NAMES := {"flank": "Pincer hits", "ambush": "Hits on sleepers", "took": "Damage taken", "slam": "Slams", "healed": "Health restored"}
 const SERVICES := ["growth", "stone_ask", "evolve_ask"]
 ## What the shrine says of a line nobody has seen grow (Claude, 2026-10-22, W23; a proposal line): it replaces
@@ -90,12 +91,8 @@ func _scroll() -> ScrollContainer:
 	scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
 	scroll.size_flags_vertical = Control.SIZE_EXPAND_FILL
 	scroll.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	var bar := scroll.get_v_scroll_bar()
-	bar.custom_minimum_size.x = 12
-	for state in ["scroll", "grabber", "grabber_highlight", "grabber_pressed"]:
-		var style := StyleBoxFlat.new()
-		style.bg_color = UI.PANEL if state == "scroll" else UI.EDGE
-		bar.add_theme_stylebox_override(state, style)
+	# The pixel bar from the UI frames, which also keeps its width clear of the rows (Claude, 2026-10-24, S3 / LV-34).
+	RebindPage.style_scroll_bar(scroll.get_v_scroll_bar())
 	return scroll
 
 func _ready() -> void:
@@ -307,10 +304,19 @@ func _render_detail() -> void:
 			bar.mouse_filter = Control.MOUSE_FILTER_IGNORE
 			bar.draw.connect(func() -> void: UI.bar(bar, Rect2(Vector2.ZERO, bar.size), frac, UI.HP_GOOD if met else UI.EVO))
 			row.add_child(bar)
-			var count := _label("%d / %d" % [condition[1], condition[2]], "number", UI.HP_GOOD if met else UI.EVO)
-			count.custom_minimum_size.x = 122
+			# "n / goal" right-aligned at the row's end, which stops at the scrollbar now that the bar's width is kept
+			# clear; the column is never narrower than the words, so the gauge gives way and the goal always shows
+			# (Claude, 2026-10-24, S1 / LV-04: the goal after the slash sat under the bar).
+			var said := "%d / %d" % [condition[1], condition[2]]
+			var count := _label(said, "number", UI.HP_GOOD if met else UI.EVO)
+			count.autowrap_mode = TextServer.AUTOWRAP_OFF
+			count.custom_minimum_size.x = maxf(122.0, ceilf(UI.font("number").get_string_size(said, HORIZONTAL_ALIGNMENT_LEFT, -1, UI.type_size("number")).x))
 			count.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
 			row.add_child(count)
+			var gap := Control.new()   # two UI pixels between the goal and the bar's rule
+			gap.custom_minimum_size.x = 6
+			gap.mouse_filter = Control.MOUSE_FILTER_IGNORE
+			row.add_child(gap)
 		var message: String = "This is its final form." if data["final"] else (("All conditions met. This creature can grow here." if town.stone_state() == "installed" else "All conditions met. Ready here once the shrine is awake.") if data["ready"] else "Keep exploring to meet the remaining conditions.")
 		if not data["final"] and data["conditions"].is_empty(): message = "" if data["next"] == "" else UNSEEN   # the head row already says it
 		if message != "": details.add_child(_label(message, "body", UI.EVO if data["ready"] else UI.MUTED))

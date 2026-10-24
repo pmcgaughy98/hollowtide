@@ -17,28 +17,63 @@ const BOX := Rect2(196, 412, 760, 116)        # the dialogue box, where the dung
 ## The defeat panel's sides; its height follows what it says and it sits centred (Claude, 2026-10-22, LP-22).
 const PANEL_X := 206.0
 const PANEL_W := 740.0
-const RAIN := "res://assets/audio/sfx/dungeon/water_rain.wav"
+## The rain bed (Claude, 2026-10-24, S4 / LV-35): the flood night's steady 32 s rain take, looped the way
+## storm_rain.gd loops it, so it starts once and never stops. It was water_rain.wav, a one-second patter that
+## faded out and was started again every second.
+const RAIN := "res://assets/audio/sfx/story/storm_rain.wav"
 const GOLD := Color("f2d27a")
 const DIM := Color("c9c2b0")
+const STILL_TINT := Color(0.25, 0.25, 0.25)   # the last floor frame behind the words, at about a quarter of its light
+const STILL_DARK := 0.06   # a frame no brighter than this anywhere is the fade's black, not the floor
 
 var info := {}
 var page := 0        # 0: the partner's word; 1: the defeat panel
 var clock := 0.0
 var done := false    # the next scene is on its way
+var still: Texture2D   # the last floor frame, dimmed behind everything; null leaves the plain dark fill
 
 
 func _ready() -> void:
 	set_process_unhandled_input(true)
-	# Rain under the whole screen, low, on the effects bus (Claude, 2026-10-22, FEEL-14). The take does not
-	# loop on its own, so it starts again when it ends.
+	still = _floor_still()
+	# Rain under the whole screen, low, on the effects bus (Claude, 2026-10-22, FEEL-14).
+	var rain: AudioStream = load(RAIN)
+	if rain is AudioStreamWAV:
+		rain = rain.duplicate()
+		rain.loop_mode = AudioStreamWAV.LOOP_FORWARD
+		rain.loop_end = int(rain.get_length() * rain.mix_rate)
 	var bed := AudioStreamPlayer.new()
 	bed.name = "RainBed"
-	bed.stream = load(RAIN)
+	bed.stream = rain
 	bed.bus = &"SFX"
 	bed.volume_db = -18.0
-	bed.finished.connect(bed.play)
 	add_child(bed)
 	bed.play()
+
+
+## The last floor frame (Claude, 2026-10-24, S4 / LV-35): the dungeon's own picture in info["floor_still"] (an Image
+## or a texture taken before its fade) when it gives one, else the screen as this one starts. A frame that is
+## black all over (the dungeon has already faded out by the time it hands over) is no picture: the dark fill stays.
+func _floor_still() -> Texture2D:
+	var img: Image = null
+	var given: Variant = info.get("floor_still")
+	if given is Image:
+		img = given
+	elif given is Texture2D:
+		img = (given as Texture2D).get_image()
+	elif is_inside_tree() and DisplayServer.get_name() != "headless":
+		img = get_viewport().get_texture().get_image()
+	if img == null or img.is_empty():
+		return null
+	var look := img.duplicate() as Image
+	if look.is_compressed():
+		look.decompress()
+	look.resize(48, 27, Image.INTERPOLATE_BILINEAR)
+	var light := 0.0
+	for y in look.get_height():
+		for x in look.get_width():
+			light = maxf(light, look.get_pixel(x, y).get_luminance())
+	return ImageTexture.create_from_image(img) if light > STILL_DARK else null
 
 
 func _process(delta: float) -> void:
@@ -84,6 +119,8 @@ func _word() -> String:
 
 func _draw() -> void:
 	draw_rect(Rect2(0, 0, 1152, 648), Color.BLACK)
+	if still != null:
+		draw_texture_rect(still, Rect2(0, 0, 1152, 648), false, STILL_TINT)
 	if page == 0:
 		var partner := String(info.get("partner", ""))
 		var tex: Texture2D = UI.dialogue_portrait(String(info.get("partner_form", "")) + ":sad") if partner != "" else null

@@ -252,7 +252,8 @@ func key_lines()->Array[String]:
 	return lines
 
 ## The keys on a label-role strip in the panel frame, bottom right, as Highbank's streets draw theirs
-## (hub_town.gd _draw_key_strip): sized to its longest line, its foot where Highbank's is.
+## (hub_town.gd _draw_key_strip): sized to its longest line. Its foot sits at 600 because this scene has no MENU
+## button under it; Highbank's strip ends at 578, above its MENU button (Claude, 2026-10-24, LO5-24).
 func _draw_keys()->void:
 	var lines:=key_lines()
 	var w:=0.0

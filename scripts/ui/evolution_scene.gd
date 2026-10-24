@@ -14,7 +14,9 @@ const CreatureIdle := preload("res://scripts/ui/creature_idle.gd")
 const CreatureFinish := preload("res://scripts/arena/creature_finish.gd")
 const Music := preload("res://scripts/audio/music.gd")
 const CENTER := Vector2(576, 300)
-const HEIGHT := 250.0
+## The tallest the two stages may stand on screen (Claude, 2026-10-24, pass 5 T2: 380 so a pair of front idles is drawn
+## at 2x, where 250 put Kithflare at 2x and Sparkwick at 1x; the box under them starts at 520).
+const HEIGHT := 380.0
 ## The light the creature turns into (Claude, 2026-10-22, UI-04): a white layer over the finished sprite.
 ## The creature itself wears the house finish (CreatureFinish, with its sparkwick palette and outline);
 ## this layer is its silhouette, one texel wider so the outline goes white too, at `white` opacity.
@@ -49,6 +51,10 @@ var _old_frames: Array = []
 var _new_frames: Array = []
 var _back: Control
 var stage := "intro"     # intro, whiten, trade, reveal, done (the checks read it)
+## Both stages from one family of art at one whole scale (Claude, 2026-10-24, pass 5 T2 / LV-05). Each used to take its
+## own: Kithflare's front idle at 2x turned into Sparkwick's at 1x, and the grown form stood smaller than the young one.
+var family := ""         # "idle" (the front idles) or the STILLS pattern both were drawn from (the probes read it)
+var scale_k := 1         # the one whole scale of both
 
 
 func _ready() -> void:
@@ -61,24 +67,41 @@ func _ready() -> void:
 	add_child(_back)
 
 
-func _sprite(form: String) -> Sprite2D:
+## The art both stages are drawn from: [family, old frames, old box, new frames, new box]. The front idles when both
+## forms have one, else the first of STILLS both have; of those, the first in which the new form stands at least as
+## tall as the old (Rimefin to Riftfin is shorter in the arena and dungeon stills, not in the small ones), else the
+## first. Empty frames when a form has no art at all.
+func _pick(old_form: String, new_form: String) -> Array:
+	var options: Array = []
+	var oi := CreatureIdle.frames(old_form)
+	var ni := CreatureIdle.frames(new_form)
+	if not oi.is_empty() and not ni.is_empty():
+		options.append(["idle", oi, ni])
+	for path in STILLS:
+		if ResourceLoader.exists(path % old_form) and ResourceLoader.exists(path % new_form):
+			options.append([path, [load(path % old_form)], [load(path % new_form)]])
+	if options.is_empty():
+		return ["", [], Rect2i(), [], Rect2i()]
+	var pick: Array = options[0]
+	for o in options:
+		if CreatureIdle.box(o[2]).size.y >= CreatureIdle.box(o[1]).size.y:
+			pick = o
+			break
+	return [pick[0], pick[1], CreatureIdle.box(pick[1]), pick[2], CreatureIdle.box(pick[2])]
+
+
+func _sprite(form: String, frames: Array, box: Rect2i) -> Sprite2D:
 	var s := Sprite2D.new()
 	s.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
 	s.position = CENTER
-	var frames := CreatureIdle.frames(form)
-	var box := CreatureIdle.box(frames) if not frames.is_empty() else Rect2i()
-	if frames.is_empty():
-		var still := _still(form)
-		frames = [still] if still != null else []
-		box = still.get_image().get_used_rect() if still != null else Rect2i()
 	s.texture = frames[0] if not frames.is_empty() else null
 	# The whole frame is drawn (no region: the finish's outline texel needs the texture's own edges), shifted
 	# so the drawn box sits on CENTER, on whole pixels.
 	if s.texture != null:
 		s.offset = (s.texture.get_size() * 0.5 - Vector2(box.get_center())).round()
-	# A whole scale of at least 1 (Claude, 2026-10-22, UI-04); turned to its right by a mirrored scale, not
-	# flip_h, so the finish's texel of room grows outward.
-	var k := clampf(floorf(HEIGHT / maxi(1, box.size.y)), 1.0, 3.0)
+	# The scene's one whole scale (run() sets it from the taller stage; 2026-10-22 UI-04, pass 5 T2); turned to its
+	# right by a mirrored scale, not flip_h, so the finish's texel of room grows outward.
+	var k := float(scale_k)
 	s.scale = Vector2(-k, k)
 	CreatureFinish.apply(s, false, form)   # the house outline and palette, as every creature on screen (ART-07)
 	var glow := Sprite2D.new()
@@ -96,14 +119,6 @@ func _sprite(form: String) -> Sprite2D:
 	s.set_meta("white", glow)
 	add_child(s)
 	return s
-
-
-## The first still a form has, from STILLS, or null.
-func _still(form: String) -> Texture2D:
-	for path in STILLS:
-		if ResourceLoader.exists(path % form):
-			return load(path % form)
-	return null
 
 
 func _white(s: Sprite2D, w: float) -> void:
@@ -137,8 +152,11 @@ func _sound(name: String, db: float) -> void:
 
 
 func run(old_form: String, new_form: String, old_name: String, new_name: String, auto := false) -> void:
-	_old = _sprite(old_form)
-	_new = _sprite(new_form)
+	var pick := _pick(old_form, new_form)
+	family = pick[0]
+	scale_k = int(clampf(floorf(HEIGHT / maxi(1, maxi(pick[2].size.y, pick[4].size.y))), 1.0, 3.0))
+	_old = _sprite(old_form, pick[1], pick[2])
+	_new = _sprite(new_form, pick[3], pick[4])
 	_new.visible = false
 	# The old form glows in the shrine's light.
 	stage = "intro"
@@ -185,10 +203,11 @@ func run(old_form: String, new_form: String, old_name: String, new_name: String,
 		while waited < 6.0 and not (Input.is_action_just_pressed("ui_accept") or _advance_held()):
 			await get_tree().process_frame
 			waited += get_process_delta_time()
+	# The light dies down while the caller takes the screen to black: it returns at once (pass 5 T1, so the black
+	# starts on the press; it waited the 0.3 s at full light first).
 	stage = "done"
 	var out := create_tween()
 	out.tween_property(self, "_rays", 0.0, 0.3)
-	await _wait(0.3)
 
 
 ## A "next" action down (UI.INPUT_ADVANCE: J, Space, E, Enter; A or X on a pad). Held, not tapped, as the old

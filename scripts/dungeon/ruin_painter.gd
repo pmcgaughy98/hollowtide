@@ -301,69 +301,54 @@ static func _light(img: Image, seed_value: int) -> void:
 ## Mouth only: the wall tops (Claude, 2026-10-24, pass 4 R1 and R2; the live run read the corridor walls as blurry
 ## grey boxes and every edge as a smooth gradient into the dark). Each wall beside the floor, room or corridor, gets
 ## the room walls' masonry: a lit brink, a row of carved block tops, the joint behind them; where it stands above
-## floor the face of courses comes after (_walls). Past the joint the rough top falls into black in three dithered
-## steps (three pixels in four, two, one), each step's edge wandering up to six pixels so no edge runs straight. Only
-## the walls' own colours: the face's stones and their lit tops, the mortar, the lip, the dark top and black.
+## floor the face of courses comes after (_walls). Past the joint the rough top falls into black in three steps of
+## clustered marks (_fall; a 2 x 2 ordered dither until pass 5 A4), each step's edge wandering up to six pixels so no
+## edge runs straight. Only the walls' own colours: the face's stones and their lit tops, the mortar, the lip, the dark
+## top and black.
 ## Distances are Chebyshev from the lit ground: floor tiles, and the face (with its brink line) of a wall above floor.
 const CAP := 7     # the brick-top row: the brink, five rows of block tops, the joint
-const STEP := 4    # each dithered step's depth
-const BAYER := [0, 2, 3, 1]   # 2 x 2 ordered dither
+const STEP := 4    # each step's depth into the dark
 
 
 static func _wall_tops(img: Image, data: Dictionary, t: int, face_h: int, top: Color) -> void:
 	var w: int = data["w"]
 	var h: int = data["h"]
 	var tiles: PackedByteArray = data["tiles"]
-	var lit_rows := face_h + 1
+	var W := w * t
 	var lit_tops: Array = []
 	for c in WALL:
 		lit_tops.append(c.lightened(0.08))   # the face's course tops, the same colours
-	var ex := PackedInt32Array()
-	var ey := PackedInt32Array()
+	# How far each wall pixel is from the lit ground (_wall_field, shared with the Rootbank Warren since pass 5 A3).
+	var F := _wall_field(data, t, face_h + 1)
+	var dists: PackedInt32Array = F[0]
+	var softs: PackedInt32Array = F[1]
+	var alongs: PackedByteArray = F[2]
+	var deep: PackedByteArray = F[4]
+	# The marks' fine noise for the steps into the dark, laid out once (pass 5 A4; _fall).
+	var M := _layer(0, 0, W, h * t, MARK_CELL, MARK_K)
+	var mlat: PackedFloat64Array = M[0]
+	var mlw: int = M[1]
+	var mcol: PackedInt32Array = M[2]
+	var mfxs: PackedFloat64Array = M[3]
+	var mrows: PackedInt32Array = M[4]
+	var mfys: PackedFloat64Array = M[5]
 	for y in h:
 		for x in w:
 			if tiles[y * w + x] != Gen.WALL:
 				continue
-			# The lit ground near this tile, in this tile's pixels: a floor tile whole, a face and its brink.
-			var rects: Array[Rect2i] = []
-			for oy in range(-1, 2):
-				for ox in range(-1, 2):
-					var xx := x + ox
-					var yy := y + oy
-					if xx < 0 or yy < 0 or xx >= w or yy >= h:
-						continue
-					if tiles[yy * w + xx] != Gen.WALL:
-						rects.append(Rect2i(ox * t, oy * t, t, t))
-					elif yy + 1 < h and tiles[(yy + 1) * w + xx] != Gen.WALL:
-						rects.append(Rect2i(ox * t, oy * t + t - lit_rows, t, lit_rows))
-			if rects.is_empty():
+			if deep[y * w + x] == 1:
 				img.fill_rect(Rect2i(x * t, y * t, t, t), Color.BLACK)   # deep in the rock: unseen
 				continue
-			var n := rects.size()
-			ex.resize(n * t)
-			ey.resize(n * t)
-			for r in n:
-				var q: Rect2i = rects[r]
-				for k in t:
-					ex[r * t + k] = maxi(q.position.x - k, k - q.end.x + 1)
-					ey[r * t + k] = maxi(q.position.y - k, k - q.end.y + 1)
 			for py in t:
 				var gy := y * t + py
+				var row := gy * W + x * t
 				for px in t:
-					var d := 99
-					var soft := 99   # the same, with the corners rounded off, for the dark's steps
-					var along_x := true
-					for r in n:
-						var a := ex[r * t + px]
-						var b := ey[r * t + py]
-						var m := maxi(a, b)
-						if m < d:
-							d = m
-							along_x = b >= a   # above or below the lit ground: the edge runs along x
-						soft = mini(soft, m + (mini(a, b) >> 1 if a > 0 and b > 0 else 0))
+					var d := dists[row + px]
 					if d <= 0:
 						continue   # the tile's own face: _walls paints it
 					d -= 1
+					var soft := softs[row + px]
+					var along_x := alongs[row + px] == 1
 					var gx := x * t + px
 					var c: Color
 					if d == 0:
@@ -382,13 +367,113 @@ static func _wall_tops(img: Image, data: Dictionary, t: int, face_h: int, top: C
 					elif soft > CAP + 3 * STEP + 7:
 						c = Color.BLACK
 					else:
-						# Rough dark top, then the steps; their edges wander up to six pixels on a soft noise.
+						# Rough dark top, then the steps (_fall); their edges wander up to six pixels on a soft noise.
 						var e := soft - CAP - 1 - int(_noise(gx, gy, 9.0, 81) * 7.0)
-						var lit := 4 if e < 0 else 3 - e / STEP
-						c = top if BAYER[(gy & 1) * 2 + (gx & 1)] < lit else Color.BLACK
-						if lit == 4 and _h(gx, gy, 86) > 0.9:
-							c = MORTAR   # grit in the rough top
+						var i := mrows[gy] + mcol[gx]
+						var f := mfxs[gx]
+						var v := lerpf(lerpf(mlat[i], mlat[i + 1], f), lerpf(mlat[i + mlw], mlat[i + mlw + 1], f), mfys[gy])
+						c = _fall(e, STEP, v, top, MORTAR, gx, gy)
 					img.set_pixel(gx, gy, c)
+
+
+## The steps into the dark past a wall top's lit rim (Claude, 2026-10-24, pass 5 A3 and A4), shared by the Hollow
+## Mouth and the Rootbank Warren. `e` is how far past the rough top the pixel lies, in pixels, its edge already set
+## wandering by the caller; `v` is the marks' fine soft noise at the pixel (_layer at MARK_CELL, key MARK_K). Before the
+## steps (e < 0) the rough top: `top` with a little `grit`. Then three steps, each `step` pixels deep, of `top` in
+## clustered marks over black, each step thinner than the last (FALL_DENSITY), and black after. The marks are the fine
+## noise thresholded, clumps of two to four pixels, nudged a little per pixel; they replace the 2 x 2 ordered dither,
+## whose checker repeated exactly (LV-10).
+const FALL_DENSITY := [0.6, 0.5, 0.42]
+const MARK_CELL := 2.0
+const MARK_K := 90
+
+
+static func _fall(e: int, step: int, v: float, top: Color, grit: Color, gx: int, gy: int) -> Color:
+	if e < 0:
+		return grit if _h(gx, gy, 86) > 0.9 else top   # grit in the rough top
+	var k := e / step
+	if k > 2:
+		return Color.BLACK
+	return top if v + (_h(gx, gy, 91) - 0.5) * 0.15 < FALL_DENSITY[k] else Color.BLACK
+
+
+## The distance field the wall tops are painted from (Claude, 2026-10-24, pass 5 A3: factored out of _wall_tops so
+## the Rootbank Warren's banks are drawn from the same one). Lit ground is the floor tiles and, where a wall stands
+## above floor, its face, `lit_rows` tall with its brink line. For each pixel of a wall tile with lit ground among its
+## eight neighbours: dist, the Chebyshev distance to that ground in pixels (0 or less on it: a wall's own face); soft,
+## the same with the corners rounded off, for the steps into the dark; along, 1 where the nearest lit edge runs along
+## x (the pixel is above or below it); face, 1 where that nearest lit ground is a face rather than floor. deep is per
+## tile: 1 for a wall with no lit ground round it, unseen rock. Within a tile of the ground the numbers are exact.
+## Returns [dist, soft, along, face, deep]; the first four are the picture's size, row by row, 0 off the walls.
+static func _wall_field(data: Dictionary, t: int, lit_rows: int) -> Array:
+	var w: int = data["w"]
+	var h: int = data["h"]
+	var tiles: PackedByteArray = data["tiles"]
+	var W := w * t
+	var dists := PackedInt32Array()
+	var softs := PackedInt32Array()
+	var alongs := PackedByteArray()
+	var faces := PackedByteArray()
+	var deep := PackedByteArray()
+	dists.resize(W * h * t)
+	softs.resize(W * h * t)
+	alongs.resize(W * h * t)
+	faces.resize(W * h * t)
+	deep.resize(w * h)
+	var ex := PackedInt32Array()
+	var ey := PackedInt32Array()
+	var kinds := PackedByteArray()
+	for y in h:
+		for x in w:
+			if tiles[y * w + x] != Gen.WALL:
+				continue
+			# The lit ground near this tile, in this tile's pixels: a floor tile whole, a face and its brink.
+			var rects: Array[Rect2i] = []
+			kinds.resize(0)
+			for oy in range(-1, 2):
+				for ox in range(-1, 2):
+					var xx := x + ox
+					var yy := y + oy
+					if xx < 0 or yy < 0 or xx >= w or yy >= h:
+						continue
+					if tiles[yy * w + xx] != Gen.WALL:
+						rects.append(Rect2i(ox * t, oy * t, t, t))
+						kinds.append(0)
+					elif yy + 1 < h and tiles[(yy + 1) * w + xx] != Gen.WALL:
+						rects.append(Rect2i(ox * t, oy * t + t - lit_rows, t, lit_rows))
+						kinds.append(1)
+			if rects.is_empty():
+				deep[y * w + x] = 1
+				continue
+			var n := rects.size()
+			ex.resize(n * t)
+			ey.resize(n * t)
+			for r in n:
+				var q: Rect2i = rects[r]
+				for k in t:
+					ex[r * t + k] = maxi(q.position.x - k, k - q.end.x + 1)
+					ey[r * t + k] = maxi(q.position.y - k, k - q.end.y + 1)
+			for py in t:
+				var row := (y * t + py) * W + x * t
+				for px in t:
+					var d := 99
+					var soft := 99   # the same, with the corners rounded off, for the dark's steps
+					var along_x := true
+					var kind := 0
+					for r in n:
+						var a := ex[r * t + px]
+						var b := ey[r * t + py]
+						var m := maxi(a, b)
+						if m < d:
+							d = m
+							along_x = b >= a   # above or below the lit ground: the edge runs along x
+							kind = kinds[r]
+						soft = mini(soft, m + (mini(a, b) >> 1 if a > 0 and b > 0 else 0))
+					dists[row + px] = d
+					softs[row + px] = soft
+					alongs[row + px] = 1 if along_x else 0
+					faces[row + px] = kind
+	return [dists, softs, alongs, faces, deep]
 
 
 ## Flagstones over the whole floor: rows of uneven slabs in a running bond, each slab its own tone,
@@ -460,6 +545,49 @@ static func _noise(x: float, y: float, cell: float, k: int) -> float:
 	return lerpf(lerpf(a, b, fx), lerpf(c, d, fx), fy)
 
 
+## One of _noise's soft noises laid out once over a whole picture (Claude, 2026-10-22, CR-01, in
+## riverbank_painter.gd; moved here 2026-10-24, pass 5 A1, so every painter shares the one copy). _noise hashes the
+## four lattice corners round a pixel on every call; here the corners are hashed once into a grid, with each column's
+## lattice index and eased fraction and each row's, so a pixel reads four numbers and does _noise's own arithmetic on
+## them: the same value as _noise(x + ox, y + oy, cell, k) for 0 <= x < W and 0 <= y < H, to the last bit.
+## Returns [corner grid, grid width, column index per x, eased fx per x, row start per y, eased fy per y].
+static func _layer(ox: int, oy: int, W: int, H: int, cell: float, k: int) -> Array:
+	var gx0 := int(floorf(float(ox) / cell))
+	var gy0 := int(floorf(float(oy) / cell))
+	var lw := int(floorf(float(W - 1 + ox) / cell)) - gx0 + 2
+	var lh := int(floorf(float(H - 1 + oy) / cell)) - gy0 + 2
+	var lat := PackedFloat64Array()
+	lat.resize(lw * lh)
+	var kk := k * 1442695041
+	for j in lh:
+		var yk := (gy0 + j) * 668265263 + kk
+		for i in lw:
+			var n := ((gx0 + i) * 374761393 + yk) & 0x7fffffff   # _h(gx0 + i, gy0 + j, k), written out
+			n = ((n ^ (n >> 13)) * 1274126177) & 0x7fffffff
+			lat[j * lw + i] = float(n % 1000) / 1000.0
+	var col := PackedInt32Array()
+	var fxs := PackedFloat64Array()
+	col.resize(W)
+	fxs.resize(W)
+	for x in W:
+		var xf := float(x + ox)
+		var gx := floorf(xf / cell)
+		var fx := xf / cell - gx
+		fxs[x] = fx * fx * (3.0 - 2.0 * fx)
+		col[x] = int(gx) - gx0
+	var row := PackedInt32Array()
+	var fys := PackedFloat64Array()
+	row.resize(H)
+	fys.resize(H)
+	for y in H:
+		var yf := float(y + oy)
+		var gy := floorf(yf / cell)
+		var fy := yf / cell - gy
+		fys[y] = fy * fy * (3.0 - 2.0 * fy)
+		row[y] = (int(gy) - gy0) * lw
+	return [lat, lw, col, fxs, row, fys]
+
+
 ## Weather over the stones, in 2-pixel blocks: silt washed into soft stains, moss creeping out of the
 ## seams (more of it near the walls), and a few shallow pools left by the river.
 static func _weather(img: Image, data: Dictionary, t: int, seed_value: int, look: Dictionary = {}) -> void:
@@ -472,24 +600,54 @@ static func _weather(img: Image, data: Dictionary, t: int, seed_value: int, look
 	var water_deep: Color = look.get("water_deep", WATER)
 	var water_hi: Color = look.get("water_hi", WATER_HI)
 	var w: int = data["w"]
+	var h: int = data["h"]
 	var tiles: PackedByteArray = data["tiles"]
 	var W := img.get_width()
 	var H := img.get_height()
 	var s := seed_value % 911
+	# The silt, moss and pool noises laid out once (Claude, 2026-10-24, pass 5 A2; _layer, the same numbers as _noise).
+	var LS := _layer(s * 13, 0, W, H, 40.0, 30)
+	var LM := _layer(0, s * 7, W, H, 28.0, 31)
+	var LP := _layer(s * 3, s * 5, W, H, 34.0, 32)
+	var lat_s: PackedFloat64Array = LS[0]
+	var lat_m: PackedFloat64Array = LM[0]
+	var lat_p: PackedFloat64Array = LP[0]
+	var lw_s: int = LS[1]
+	var lw_m: int = LM[1]
+	var lw_p: int = LP[1]
+	var col_s: PackedInt32Array = LS[2]
+	var col_m: PackedInt32Array = LM[2]
+	var col_p: PackedInt32Array = LP[2]
+	var fx_s: PackedFloat64Array = LS[3]
+	var fx_m: PackedFloat64Array = LM[3]
+	var fx_p: PackedFloat64Array = LP[3]
+	var row_s: PackedInt32Array = LS[4]
+	var row_m: PackedInt32Array = LM[4]
+	var row_p: PackedInt32Array = LP[4]
+	var fy_s: PackedFloat64Array = LS[5]
+	var fy_m: PackedFloat64Array = LM[5]
+	var fy_p: PackedFloat64Array = LP[5]
+	var sides := [Vector2i(0, -1), Vector2i(-1, 0), Vector2i(1, 0), Vector2i(0, 1)]
 	for by in range(0, H, 2):
+		var ty := by / t
 		for bx in range(0, W, 2):
 			var tx := bx / t
-			var ty := by / t
 			if tiles[ty * w + tx] == Gen.WALL:
 				continue
 			var near_wall := false
-			for d in [Vector2i(0, -1), Vector2i(-1, 0), Vector2i(1, 0), Vector2i(0, 1)]:
+			for d: Vector2i in sides:
 				var q := Vector2i((bx + d.x * 5) / t, (by + d.y * 5) / t)
-				if q.x >= 0 and q.y >= 0 and q.x < w and q.y < data["h"] and tiles[q.y * w + q.x] == Gen.WALL:
+				if q.x >= 0 and q.y >= 0 and q.x < w and q.y < h and tiles[q.y * w + q.x] == Gen.WALL:
 					near_wall = true
-			var silt := _noise(bx + s * 13, by, 40.0, 30)
-			var moss := _noise(bx, by + s * 7, 28.0, 31) + (0.18 if near_wall else 0.0)
-			var pool := _noise(bx + s * 3, by + s * 5, 34.0, 32)
+			var i := row_s[by] + col_s[bx]
+			var f := fx_s[bx]
+			var silt := lerpf(lerpf(lat_s[i], lat_s[i + 1], f), lerpf(lat_s[i + lw_s], lat_s[i + lw_s + 1], f), fy_s[by])
+			i = row_m[by] + col_m[bx]
+			f = fx_m[bx]
+			var moss := lerpf(lerpf(lat_m[i], lat_m[i + 1], f), lerpf(lat_m[i + lw_m], lat_m[i + lw_m + 1], f), fy_m[by]) + (0.18 if near_wall else 0.0)
+			i = row_p[by] + col_p[bx]
+			f = fx_p[bx]
+			var pool := lerpf(lerpf(lat_p[i], lat_p[i + 1], f), lerpf(lat_p[i + lw_p], lat_p[i + lw_p + 1], f), fy_p[by])
 			for dy in 2:
 				for dx in 2:
 					var x := bx + dx
@@ -578,8 +736,28 @@ static func _walls(img: Image, data: Dictionary, t: int, look: Dictionary = {}) 
 	var h: int = data["h"]
 	var tiles: PackedByteArray = data["tiles"]
 	var face_h: int = int(t * 0.6)
+	# The Hollow's rough tops: their soft noise laid out once, and each 16-pixel row's joint offset worked out once
+	# (Claude, 2026-10-24, pass 5 A2; the same numbers as _noise(gx, gy, 10.0, 16) and _h(row, 0, 37)).
+	var lat := PackedFloat64Array()
+	var lw := 0
+	var cols := PackedInt32Array()
+	var fxs := PackedFloat64Array()
+	var rows := PackedInt32Array()
+	var fys := PackedFloat64Array()
+	var joint := PackedInt32Array()
 	if painted:
 		_wall_tops(img, data, t, face_h, top)   # the Mouth's masonry and its dithered dark (pass 4 R1, R2)
+	else:
+		var L := _layer(0, 0, w * t, h * t, 10.0, 16)
+		lat = L[0]
+		lw = L[1]
+		cols = L[2]
+		fxs = L[3]
+		rows = L[4]
+		fys = L[5]
+		joint.resize((h * t) / 16 + 1)
+		for row in joint.size():
+			joint[row] = int(_h(row, 0, 37) * 24)
 	for y in h:
 		for x in w:
 			if tiles[y * w + x] != Gen.WALL:
@@ -590,13 +768,17 @@ static func _walls(img: Image, data: Dictionary, t: int, look: Dictionary = {}) 
 				return xx >= 0 and yy >= 0 and xx < w and yy < h and tiles[yy * w + xx] == Gen.FLOOR
 			if not painted:
 				for py in t:
+					var gy := y * t + py
+					var r := rows[gy]
+					var fy := fys[gy]
+					var jo := joint[gy / 16]
 					for px in t:
 						var gx := x * t + px
-						var gy := y * t + py
 						# Rough dark stone, big blocks with faint joints and soft light and dark patches.
-						var c := top.lightened((_noise(gx, gy, 10.0, 16) - 0.5) * 0.12)
-						var row := gy / 16
-						if gy % 16 == 0 or (gx + int(_h(row, 0, 37) * 24)) % 30 == 0:
+						var i := r + cols[gx]
+						var f := fxs[gx]
+						var c := top.lightened((lerpf(lerpf(lat[i], lat[i + 1], f), lerpf(lat[i + lw], lat[i + lw + 1], f), fy) - 0.5) * 0.12)
+						if gy % 16 == 0 or (gx + jo) % 30 == 0:
 							c = _shade(c, 0.88)
 						img.set_pixel(gx, gy, c)
 				if fl.call(-1, 0):

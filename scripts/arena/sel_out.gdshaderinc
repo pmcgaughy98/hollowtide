@@ -18,19 +18,19 @@ void vertex() {
 	#endif
 }
 
-vec4 sample_art(sampler2D tex, vec2 uv) {
-	vec4 c = sparkwick_colour(texture(tex, uv));
-	return c * step(0.0, uv.x) * step(0.0, uv.y) * (1.0-step(1.0, uv.x)) * (1.0-step(1.0, uv.y));
-}
+// The art at uv, clear outside the texture. A macro that reads TEXTURE itself, not a function (Claude, 2026-10-24,
+// pass 5 A5, LO5-25): handing TEXTURE, a built-in sampler, to a function printed the engine's 'custom_samplers'
+// error every time one of these shaders loaded. The same sum as the old function's body.
+#define sample_art(uv) (sparkwick_colour(texture(TEXTURE, (uv))) * step(0.0, (uv).x) * step(0.0, (uv).y) * (1.0-step(1.0, (uv).x)) * (1.0-step(1.0, (uv).y)))
 
 float luma(vec3 c) { return dot(c, vec3(0.2126, 0.7152, 0.0722)); }
 
 void fragment() {
-	vec4 c = sample_art(TEXTURE, UV);
-	vec4 n = sample_art(TEXTURE, UV + vec2(0.0, -TEXTURE_PIXEL_SIZE.y));
-	vec4 s = sample_art(TEXTURE, UV + vec2(0.0, TEXTURE_PIXEL_SIZE.y));
-	vec4 e = sample_art(TEXTURE, UV + vec2(TEXTURE_PIXEL_SIZE.x, 0.0));
-	vec4 w = sample_art(TEXTURE, UV + vec2(-TEXTURE_PIXEL_SIZE.x, 0.0));
+	vec4 c = sample_art(UV);
+	vec4 n = sample_art(UV + vec2(0.0, -TEXTURE_PIXEL_SIZE.y));
+	vec4 s = sample_art(UV + vec2(0.0, TEXTURE_PIXEL_SIZE.y));
+	vec4 e = sample_art(UV + vec2(TEXTURE_PIXEL_SIZE.x, 0.0));
+	vec4 w = sample_art(UV + vec2(-TEXTURE_PIXEL_SIZE.x, 0.0));
 	float edge = min(min(n.a, s.a), min(e.a, w.a));
 	if (c.a < 0.5) {
 		// Existing dark contours need no extra thickness. Add a texel only where
@@ -43,10 +43,10 @@ void fragment() {
 		// Remove only weak isolated shade specks surrounded by a repeated colour.
 		// Never average colours, blur edges, erase high-contrast eyes, or flatten glow.
 		vec4 around[8] = vec4[8](n,s,e,w,
-			sample_art(TEXTURE, UV + TEXTURE_PIXEL_SIZE),
-			sample_art(TEXTURE, UV - TEXTURE_PIXEL_SIZE),
-			sample_art(TEXTURE, UV + TEXTURE_PIXEL_SIZE * vec2(1.0,-1.0)),
-			sample_art(TEXTURE, UV + TEXTURE_PIXEL_SIZE * vec2(-1.0,1.0)));
+			sample_art(UV + TEXTURE_PIXEL_SIZE),
+			sample_art(UV - TEXTURE_PIXEL_SIZE),
+			sample_art(UV + TEXTURE_PIXEL_SIZE * vec2(1.0,-1.0)),
+			sample_art(UV + TEXTURE_PIXEL_SIZE * vec2(-1.0,1.0)));
 		float strongest = 4.0;
 		vec3 chosen = c.rgb;
 		for (int i=0; i<8; i++) {
@@ -68,8 +68,8 @@ void fragment() {
 		bool pale_dot = all(equal(rgb, vec3(255.0))) || all(equal(rgb, vec3(225.0, 241.0, 247.0)));
 		if (pale_dot) {
 			float support = n.a+s.a+e.a+w.a;
-			support += sample_art(TEXTURE, UV+TEXTURE_PIXEL_SIZE).a + sample_art(TEXTURE, UV-TEXTURE_PIXEL_SIZE).a;
-			support += sample_art(TEXTURE, UV+TEXTURE_PIXEL_SIZE*vec2(1.0,-1.0)).a + sample_art(TEXTURE, UV+TEXTURE_PIXEL_SIZE*vec2(-1.0,1.0)).a;
+			support += sample_art(UV+TEXTURE_PIXEL_SIZE).a + sample_art(UV-TEXTURE_PIXEL_SIZE).a;
+			support += sample_art(UV+TEXTURE_PIXEL_SIZE*vec2(1.0,-1.0)).a + sample_art(UV+TEXTURE_PIXEL_SIZE*vec2(-1.0,1.0)).a;
 			if (support < 6.5) c.rgb = vec3(72.0, 54.0, 37.0) / 255.0;
 		}
 	}
@@ -82,21 +82,27 @@ void fragment() {
 		float boundary = smoothstep(0.12, 0.23, brightest-lum) * (1.0-smoothstep(0.36, 0.48, lum));
 		float dark_joint = 1.0-smoothstep(0.13, 0.25, lum);
 		float across = max(min(luma(n.rgb)*n.a, luma(s.rgb)*s.a), min(luma(e.rgb)*e.a, luma(w.rgb)*w.a));
-		vec4 ne = sample_art(TEXTURE, UV + TEXTURE_PIXEL_SIZE * vec2(1.0,-1.0));
-		vec4 sw = sample_art(TEXTURE, UV + TEXTURE_PIXEL_SIZE * vec2(-1.0,1.0));
-		vec4 nw = sample_art(TEXTURE, UV - TEXTURE_PIXEL_SIZE);
-		vec4 se = sample_art(TEXTURE, UV + TEXTURE_PIXEL_SIZE);
+		vec4 ne = sample_art(UV + TEXTURE_PIXEL_SIZE * vec2(1.0,-1.0));
+		vec4 sw = sample_art(UV + TEXTURE_PIXEL_SIZE * vec2(-1.0,1.0));
+		vec4 nw = sample_art(UV - TEXTURE_PIXEL_SIZE);
+		vec4 se = sample_art(UV + TEXTURE_PIXEL_SIZE);
 		across = max(across, max(min(luma(ne.rgb)*ne.a, luma(sw.rgb)*sw.a), min(luma(nw.rgb)*nw.a, luma(se.rgb)*se.a)));
 		float carved_seam = smoothstep(0.055, 0.13, across-lum) * (1.0-smoothstep(0.72, 0.86, lum));
 		c.rgb = mix(c.rgb, outline.rgb, detail_ink * max(max(boundary, dark_joint), carved_seam));
 	}
 	#ifdef SEL_OUT_SELECTIVE
 	// Opt-in outer rim only; the original internal detail finish above stays exact.
+	#ifdef SELOUT_RIM_MACRO
+	// The rim as a macro that reads TEXTURE itself, once selout_rim.gdshaderinc defines it (Claude, 2026-10-24,
+	// pass 5 A5); until then the old function, which prints the engine's 'custom_samplers' error.
+	SELECTIVE_RIM(c.rgb, UV, TEXTURE_PIXEL_SIZE, c);
+	#else
 	c.rgb = selective_rim(TEXTURE, UV, TEXTURE_PIXEL_SIZE, c);
+	#endif
 	#endif
 	#ifdef SEL_OUT_MASKED_MAP
 	// Map floors retain the original painter exactly; ink only the supplied geometry mask.
-	c = mix(sample_art(TEXTURE, UV), c, texture(detail_mask, UV).r);
+	c = mix(sample_art(UV), c, texture(detail_mask, UV).r);
 	#endif
 	COLOR = c * tint;
 }

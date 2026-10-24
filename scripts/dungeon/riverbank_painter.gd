@@ -58,57 +58,20 @@ static func _floor(tiles: PackedByteArray, w: int, h: int, x: int, y: int) -> bo
 	return x >= 0 and y >= 0 and x < w and y < h and tiles[y * w + x] != Gen.WALL
 
 
-## One of R._noise's soft noises laid out once over the whole floor (Claude, 2026-10-22, CR-01): R._noise hashes
-## the four lattice corners around a pixel on every call, which was most of the Warren's build time. Here the
-## corners are hashed once into a grid, with each column's lattice index and eased fraction and each row's, so a
-## pixel reads four numbers and does R._noise's own arithmetic on them. The floor is the same pixel for pixel.
-## Returns [corner grid, grid width, column index per x, eased fx per x, row start per y, eased fy per y].
-static func _layer(ox: int, oy: int, W: int, H: int, cell: float, k: int) -> Array:
-	var gx0 := int(floorf(float(ox) / cell))
-	var gy0 := int(floorf(float(oy) / cell))
-	var lw := int(floorf(float(W - 1 + ox) / cell)) - gx0 + 2
-	var lh := int(floorf(float(H - 1 + oy) / cell)) - gy0 + 2
-	var lat := PackedFloat64Array()
-	lat.resize(lw * lh)
-	for j in lh:
-		for i in lw:
-			lat[j * lw + i] = R._h(gx0 + i, gy0 + j, k)
-	var col := PackedInt32Array()
-	var fxs := PackedFloat64Array()
-	col.resize(W)
-	fxs.resize(W)
-	for x in W:
-		var xf := float(x + ox)
-		var gx := floorf(xf / cell)
-		var fx := xf / cell - gx
-		fxs[x] = fx * fx * (3.0 - 2.0 * fx)
-		col[x] = int(gx) - gx0
-	var row := PackedInt32Array()
-	var fys := PackedFloat64Array()
-	row.resize(H)
-	fys.resize(H)
-	for y in H:
-		var yf := float(y + oy)
-		var gy := floorf(yf / cell)
-		var fy := yf / cell - gy
-		fys[y] = fy * fy * (3.0 - 2.0 * fy)
-		row[y] = (int(gy) - gy0) * lw
-	return [lat, lw, col, fxs, row, fys]
-
-
 ## Clay, sand and grass, pixel by pixel from soft noise; a rare pool. A few spots just outside each pool's wet
 ## rim go into `shore`, where _pebbles_and_roots heaps pebbles.
 static func _ground(img: Image, data: Dictionary, t: int, s: int, shore: Array[Vector2i] = []) -> void:
 	var w: int = data["w"]
 	var h: int = data["h"]
 	var tiles: PackedByteArray = data["tiles"]
-	# The four noises every pixel reads (tone, sand, grass, pool), laid out once; see _layer.
+	# The four noises every pixel reads (tone, sand, grass, pool), laid out once; see R._layer (CR-01; shared from
+	# ruin_painter.gd since 2026-10-24, pass 5 A1).
 	var W := w * t
 	var H := h * t
-	var L1 := _layer(s * 11, 0, W, H, 26.0, 40)
-	var L2 := _layer(0, s * 5, W, H, 34.0, 42)
-	var L3 := _layer(s * 3, 0, W, H, 14.0, 44)
-	var L4 := _layer(s * 7, s, W, H, 30.0, 48)
+	var L1 := R._layer(s * 11, 0, W, H, 26.0, 40)
+	var L2 := R._layer(0, s * 5, W, H, 34.0, 42)
+	var L3 := R._layer(s * 3, 0, W, H, 14.0, 44)
+	var L4 := R._layer(s * 7, s, W, H, 30.0, 48)
 	var lat1: PackedFloat64Array = L1[0]
 	var lat2: PackedFloat64Array = L2[0]
 	var lat3: PackedFloat64Array = L3[0]
@@ -283,50 +246,112 @@ static func _pebble(img: Image, at: Vector2i, size: int, col: Color) -> void:
 		img.set_pixel(at.x + int(q[0]), at.y + int(q[1]), tones[q[2]])
 
 
-## The bank itself: turf on top seen from above, a grassy lip, and where it stands above floor, a face
-## of sediment bands with pebbles in them, roots hanging from the turf, dark at the foot.
+## The bank itself (Claude, 2026-10-24, pass 5 A3 and A4; the live run read the old walls as a flat green carpet with
+## a dot grid, no edge and no end). Every bank edge beside the floor gets one rim, drawn from ruin_painter.gd's wall
+## field (R._wall_field, the Hollow Mouth's): a shadow line against the floor, a sliver of clay face, a lit grass lip,
+## then turf in clumps of three greens, never more than a tile deep (TURF_REACH); past it the bank's dark earth falls
+## into black in three steps of clustered marks with wandering edges (R._fall, the Mouth's own steps). Above a face the
+## face's grass row is the lip and the turf starts straight away, so the roots hanging from it stay on the bank.
+## Where the bank stands above floor, its face as before: sediment bands with stones set in them, roots hanging from
+## the turf, dark at the foot. The crew's den (rootbank_detail.gd's is_den) keeps bank all round its room, for its
+## root arch to stand on. Colours: the clay, grass and turf tones, ROOT for the earth, BARK_EDGE for the shadow.
+const TURF_REACH := 9      # the turf's depth from the lip, plus up to TURF_WANDER more on its soft noise
+const TURF_WANDER := 4.0
+const RIM_FACE := 2        # clay face rows between the shadow line and the lip
+const FALL_STEP := 3       # each step into the dark, in pixels
+const BARK_EDGE := Color("#251d17")   # rootbank_detail.gd's root outline, the bank's shadow
+const DARK_AT := TURF_REACH + int(TURF_WANDER) + 5 + 3 * FALL_STEP   # past this soft distance the bank is black
+
+
 static func _walls(img: Image, data: Dictionary, t: int, s: int) -> void:
 	var w: int = data["w"]
 	var h: int = data["h"]
 	var tiles: PackedByteArray = data["tiles"]
 	var face_h: int = int(t * 0.62)
-	# The turf's soft noise laid out once, and the blade tip's colour worked out once (CR-01; see _layer).
-	var L := _layer(0, 0, w * t, h * t, 12.0, 61)
+	var W := w * t
+	var H := h * t
+	var den := RootbankDetail.is_den(data)
+	var F := R._wall_field(data, t, face_h + 1)
+	var dists: PackedInt32Array = F[0]
+	var softs: PackedInt32Array = F[1]
+	var faced: PackedByteArray = F[3]
+	var deep: PackedByteArray = F[4]
+	# The turf's soft noise (its patches and where it ends) and the marks' fine one, laid out once (R._layer).
+	var L := R._layer(0, 0, W, H, 12.0, 61)
 	var lat: PackedFloat64Array = L[0]
 	var lw: int = L[1]
 	var col: PackedInt32Array = L[2]
 	var fxs: PackedFloat64Array = L[3]
 	var rows: PackedInt32Array = L[4]
 	var fys: PackedFloat64Array = L[5]
+	var M := R._layer(0, 0, W, H, R.MARK_CELL, R.MARK_K)
+	var mlat: PackedFloat64Array = M[0]
+	var mlw: int = M[1]
+	var mcol: PackedInt32Array = M[2]
+	var mfxs: PackedFloat64Array = M[3]
+	var mrows: PackedInt32Array = M[4]
+	var mfys: PackedFloat64Array = M[5]
 	var tip: Color = TURF[2].lightened(0.1)
+	var lip_end := RIM_FACE + 2
 	for y in h:
 		for x in w:
 			if tiles[y * w + x] != Gen.WALL:
+				continue
+			var deep_tile := deep[y * w + x] == 1
+			if deep_tile and not den:
+				img.fill_rect(Rect2i(x * t, y * t, t, t), Color.BLACK)   # deep in the bank: unseen
 				continue
 			for py in t:
 				var gy := y * t + py
 				var r := rows[gy]
 				var fy := fys[gy]
+				var mr := mrows[gy]
+				var mfy := mfys[gy]
 				for px in t:
 					var gx := x * t + px
-					# Calm turf: one dark green, softly lighter and darker, with short blade strokes.
+					var k := gy * W + gx
+					var d := 99 if deep_tile else dists[k]
+					if d <= 0:
+						continue   # the face, painted below
+					if not den and softs[k] > DARK_AT:
+						img.set_pixel(gx, gy, Color.BLACK)   # past the furthest the steps can reach
+						continue
+					d -= 1
 					var i := r + col[gx]
 					var f := fxs[gx]
 					var nv := lerpf(lerpf(lat[i], lat[i + 1], f), lerpf(lat[i + lw], lat[i + lw + 1], f), fy)
-					var c: Color = TURF[1].lightened((nv - 0.5) * 0.14)
-					# Upright blades: two pixels tall, a light tip over a dark root, scattered. (The root's own
-					# TURF[0] branch never drew: it asked the same question the tip already answered.)
-					if gx % 3 == 1 and R._h(gx / 3, gy / 4, 62) > 0.6:
-						c = tip if gy % 4 == 0 else (TURF[2] if gy % 4 == 1 else c)
+					i = mr + mcol[gx]
+					f = mfxs[gx]
+					var mv := lerpf(lerpf(mlat[i], mlat[i + 1], f), lerpf(mlat[i + mlw], mlat[i + mlw + 1], f), mfy)
+					var c: Color
+					var reach_f := TURF_REACH + nv * TURF_WANDER   # where the turf ends, wandering
+					var reach := int(reach_f)
+					if not deep_tile and faced[k] == 0 and d <= lip_end:
+						# The rim against the floor: the shadow line, the clay face, the lit grass lip.
+						if d == 0:
+							c = BARK_EDGE
+						elif d <= RIM_FACE:
+							c = BANDS[1] if mv > 0.56 else BANDS[0]
+						elif d < lip_end or mv > 0.45:
+							c = GRASS[2] if mv > 0.38 else GRASS[1]
+						else:
+							c = TURF[1]
+					elif den or d + int((mv - 0.5) * 4.0) < reach:
+						# Turf in clumps: dark and light clumps from the fine noise, the whole lighter or darker in
+						# soft patches, darker toward its far edge; a few blade tips catching the light.
+						var lift := (nv - 0.5) * 0.3 - (0.12 if d > reach - 3 and not den else 0.0)
+						if mv - lift < 0.36:
+							c = TURF[0]
+						elif mv - lift > 0.7:
+							c = tip if mv > 0.8 and d < reach - 3 else TURF[2]
+						else:
+							c = TURF[1]
+					else:
+						# Past the turf, the bank's dark earth, then its three steps into the dark. The steps' edges
+						# follow the turf's soft edge and the marks, so none runs straight.
+						c = R._fall(softs[k] - 3 - int(reach_f + (0.5 - mv) * 3.0), FALL_STEP, mv, ROOT, BARK_EDGE, gx, gy)
 					img.set_pixel(gx, gy, c)
 			var open_below := _floor(tiles, w, h, x, y + 1)
-			for side in [Vector2i(-1, 0), Vector2i(1, 0), Vector2i(0, -1)]:
-				if _floor(tiles, w, h, x + side.x, y + side.y):
-					# Grass blades fringing the lip.
-					for k in t:
-						var bx: int = x * t + (k if side.y != 0 else (0 if side.x < 0 else t - 1))
-						var by: int = y * t + (0 if side.y < 0 else k) if side.y != 0 else y * t + k
-						img.set_pixel(bx, by, GRASS[int(R._h(bx, by, 63) * GRASS.size())])
 			if open_below:
 				var y0: int = y * t + t - face_h
 				var band0 := int(R._h(x, 0, 65) * 3)   # this tile's band offset, the same down the whole face

@@ -1,5 +1,6 @@
 extends Node2D
-## Crisp unseen cells render after every world effect and before the HUD.
+## Crisp unseen cells render after every world effect and before the HUD. The popups draw over it (dungeon.gd _pop_top,
+## z 4096; LV-19, D4, Claude, 2026-10-24).
 var dungeon: Node2D
 func _init(target: Node2D) -> void:
 	dungeon=target

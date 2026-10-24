@@ -247,6 +247,25 @@ static func say(host, lines: Array) -> void:
 		await host.get_tree().process_frame
 
 
+## A standing creature breathes (Claude, 2026-10-24, pass 5 T12 / LV-11): its picture sits 1 px higher for half of
+## every second, each on its own beat (its place in `list`, spread round the second), so a crowd never bobs as one.
+## Walking or knocked flat it sits still. A host calls this every frame with everyone it draws: hub_town.gd passes its
+## team and townsfolk; a room can pass its own. Only the sprite's offset moves, never its tile or its node.
+const BOB_PERIOD := 1.0   # seconds a breath: 0.5 up, 0.5 down
+const BOB_SPREAD := 0.37  # how far round the beat each next creature starts
+
+
+static func idle_bob(list: Array, t: float) -> void:
+	for k in list.size():
+		var e: Dictionary = list[k]
+		var s: Sprite2D = e.get("sprite") as Sprite2D
+		if s == null or not is_instance_valid(s):
+			continue
+		var standing: bool = float(e.get("walk_t", 0.0)) <= 0.0 and not bool(e.get("down", false))
+		var beat := fposmod(t / BOB_PERIOD + BOB_SPREAD * k, 1.0)
+		s.offset.y = -1.0 if standing and beat >= 0.5 else 0.0
+
+
 ## Move the camera over `s` seconds; release() hands it back to the leader.
 static func pan(host, to: Vector2, s := 0.5) -> void:
 	var from: Vector2 = host.cam_focus if host.cam_focus != null else host.team[0]["node"].position

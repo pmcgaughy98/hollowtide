@@ -97,3 +97,28 @@ Added by the pass 4 integrator, from the lanes' notes:
    Say whether Guardian comes back or its step is dropped (Preston's Q11).
 6. One more data point for G6 from the pass 4 full suite (2026-10-24, about 10:05): lv1_run again cleared 4 of 10 seeds
    with 22 downs; the pilot chain's post-pilot Warren replay cleared with no faints.
+
+## Pass 5 lines (plan, 2026-10-24)
+From `sweep-2026-10-20/PASS5_PLAN_2026-10-24.md`, section "Grok". Result: `sweep-2026-10-20/PASS5_RESULT_2026-10-24.md`.
+Pass 5 changed none of your numbers (stats, EXP, learnsets, spawns, damage). (Claude, integrator, 2026-10-24)
+1. LO5-27: decide G1 first (Hollow Mouth spawns and REST_TO; dungeon.gd:50 is still 0.7), then G2 to G5, and confirm
+   that '0 kit moves fail the body gate' is the DESIGN_RULES rule. Claude applies the tables unchanged and reruns
+   pilot_chain, dungeon_chain, lv1_run and move_table.
+2. LO5-28: say whether a Job Board client must come from the job's own floor spawn list or from creatures met (today
+   Preostmar, a B3F creature, can post a B1F job). If 'met', Claude adds a met record to TeamState and filters jobs.gd,
+   probed with the 200-roll test. Riding on this answer: the town lane's held change that keeps each client in the
+   Hollow the board now names ('Rootbank Warren B3F'); today a B2F client also appears on Hollow Mouth B2F and The
+   Hollow B2F. It is written and waits for your or Preston's yes.
+3. LO5-29: say whether the Guardian passive returns (no creature carries it). If not, Claude drops the Guardian step
+   from arena_protector_check; if yes, it becomes a verdict once the numbers land.
+
+Added by the pass 5 integrator, from the full suite:
+4. Read lv1_run's table as a rate over many seeds, not seed by seed. The pass 5 full run cleared 0 of 10 seeds with 30
+   downs (pass 4: 4 of 10, 22 downs), but pass 5 changed no rule: the fights and the later floors roll on Godot's shared
+   random generator, which the camera shake and particles also draw from every frame, so any change in frame counts
+   (pass 5 holds the floor card longer and spaces knock-out sounds) reshuffles every roll after it. Measured by the
+   integrator with the same check: seeds 1 to 10 at 60 fps instead of 30 cleared 1; seeds 11 to 30 cleared 4 of 20 with
+   pass 5's dungeon.gd and 3 of 20 with the committed one (49 and 54 downs). Over 30 seeds that is 4 clears with pass 5
+   and 7 with the committed file; on the 20 fresh seeds pass 5 did slightly better, so the gap is the reshuffle, not a
+   harder Mouth. A bump-only level 1 leader clears the Mouth about 1 time in 5 or 6. Claude may give gameplay its
+   own random generator so seed rows stay comparable between passes; say if you want that.

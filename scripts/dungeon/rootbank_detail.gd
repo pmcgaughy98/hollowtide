@@ -11,12 +11,11 @@ const BARK_EDGE := Color("#251d17")
 const TURF := Color("#33402a")
 const LEAF := Color("#57783a")
 const LEAF_LIT := Color("#6f8f4e")
-const CLAY := Color("#8f6a48")
-const CLAY_LIT := Color("#a78560")
 
 static func finish(img: Image, data: Dictionary, t: int, seed_value: int) -> Image:
 	if t != 24: return img
-	_edges(img, data, t)
+	# The clay reveals on east/west faces (_edges) are now part of every bank edge's rim, drawn from the shared wall
+	# field in riverbank_painter.gd's _walls (Claude, 2026-10-24, pass 5 A3), so they are not drawn twice.
 	# Roots originate in connected banks rather than repeating once per tile.
 	for y in data.h:
 		var x := 0
@@ -29,10 +28,15 @@ static func finish(img: Image, data: Dictionary, t: int, seed_value: int) -> Ima
 			_bank(img, data, t, first, x, y, seed_value)
 	# Fixed crew arena: two old roots brace the dug-out ceiling and side banks.
 	# Recognise its existing geometry; no dungeon/controller or save dependency.
-	if data.rooms.size() == 1:
-		var room: Rect2i = data.rooms[0]
-		if room.size == Vector2i(13, 10): _den(img, data, t, room)
+	if is_den(data): _den(img, data, t, data.rooms[0])
 	return img
+
+## The crew's den: one 13 x 10 room. riverbank_painter.gd asks too, to keep bank all round the den for the arch's
+## roots to stand on (Claude, 2026-10-24, pass 5 A3).
+static func is_den(data: Dictionary) -> bool:
+	if data.rooms.size() != 1: return false
+	var room: Rect2i = data.rooms[0]
+	return room.size == Vector2i(13, 10)
 
 static func _wall(data: Dictionary, x: int, y: int) -> bool:
 	return x >= 0 and y >= 0 and x < data.w and y < data.h and data.tiles[y * data.w + x] == Gen.WALL
@@ -63,21 +67,6 @@ static func _root(img: Image, data: Dictionary, t: int, a: Vector2, b: Vector2, 
 		for p in points: _disc(img, data, t, p + Vector2i(-1, -1), width - 1, BARK_MID)
 	for k in points.size():
 		if k % 9 < 6: _pixel(img, data, t, points[k] + Vector2i(-width, -1), BARK_LIT)
-
-static func _edges(img: Image, data: Dictionary, t: int) -> void:
-	# The old painter has a full clay face only on south-facing walls. Narrow
-	# clay reveals on east/west faces make the banks read as raised ground too.
-	for y in data.h:
-		for x in data.w:
-			if not _wall(data, x, y): continue
-			for side in [-1, 1]:
-				if x + side < 0 or x + side >= data.w or _wall(data, x + side, y): continue
-				for py in t:
-					var gx: int = x * t + (0 if side < 0 else t - 1)
-					var gy: int = y * t + py
-					_pixel(img, data, t, Vector2i(gx, gy), BARK_EDGE)
-					_pixel(img, data, t, Vector2i(gx - side, gy), CLAY if py % 7 < 4 else CLAY_LIT)
-					_pixel(img, data, t, Vector2i(gx - side * 2, gy), TURF)
 
 static func _leaves(img: Image, data: Dictionary, t: int, p: Vector2i) -> void:
 	# Small overlapping clover silhouettes at the roots' origin, never confetti.

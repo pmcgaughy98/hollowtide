@@ -105,7 +105,7 @@ const STAIRS_DOWN := Rect2i(14, 10, 2, 2)   # on the Hall's work floor, right of
 # The bed (Claude, 2026-10-22, GS-10): the line on the panel when the screen comes back up, and the fade.
 const REST_LINE := "Morning. Highbank remembers."
 const REST_FADE := 0.35
-const REST_HOLD := 0.25   # the dark between the fades: the night
+const REST_HOLD := 1.5    # the dark between the fades: the night (Claude, 2026-10-24, pass 5 RM5: 0.25 read as a blink)
 # The key hints, bottom right, key then action in the column style the menus use (W12). The keys are the
 # device's (Claude, 2026-10-23): "WASD  walk     E  use" on a keyboard, "Stick  walk     A  use" on a pad.
 static func keys_hint() -> String:
@@ -135,6 +135,12 @@ var _labels: Node2D
 var _resting := false         # the bed's fade is up: its panel waits until the screen comes back
 var rested := false           # the last rest saved the record (the checks read it)
 var _tick_frame := {}         # menu sound kind -> the frame it last played
+# Each painted room picture, kept for the session (Claude, 2026-10-24, pass 5 RM9 / PERF-05): room id -> [its
+# texture, its finish material]. Painting the Hall took about 0.4 s every time the team walked in; the picture
+# depends only on the room, so it is painted on the first entry and reused after.
+static var _pictures := {}
+static var _desk_art: Array = []   # [the Guildmaster's desk texture, its finish], made once (RM9)
+var _lights: Array = []            # the Home's hearth and lantern glows (RM8): {node, levels, steps, step, left}
 
 
 func room() -> Dictionary:
@@ -182,18 +188,31 @@ func _ready() -> void:
 	_world.add_child(dark)
 	var map := Sprite2D.new()
 	map.centered = false
-	map.texture = StorageArt.shell() if room_id == "storage" else ImageTexture.create_from_image(Painter.paint(room_id, r))
-	if room_id == "home":
-		preload("res://scripts/town/home_room_art.gd").finish(map)
-	elif room_id == "hall":
-		preload("res://scripts/town/hall_room_art.gd").finish(map)
+	if room_id == "storage":
+		map.texture = StorageArt.shell()   # a loaded picture, not painted: the resource cache keeps it
+	elif _pictures.has(room_id):
+		map.texture = _pictures[room_id][0]   # painted on an earlier entry this session (RM9)
+		map.material = _pictures[room_id][1]
+	else:
+		# The first entry paints the picture and finishes it, in the order it always had: the room's art finish,
+		# the Hall's painted counter taken out, then the Hall floors' finish (it keeps the counter's mask).
+		map.texture = ImageTexture.create_from_image(Painter.paint(room_id, r))
+		if room_id == "home":
+			preload("res://scripts/town/home_room_art.gd").finish(map)
+		elif room_id == "hall":
+			preload("res://scripts/town/hall_room_art.gd").finish(map)
+		if room_id == "hall":
+			_clear_counter(map)
+		if room_id in ["hall", "hall_low", "chamber", "runners"]:
+			preload("res://scripts/town/hall_floors_art.gd").finish(map, room_id)
+		_pictures[room_id] = [map.texture, map.material]
 	_world.add_child(map)
 	if room_id == "storage":
 		StorageArt.finish(_world, map)
 	if room_id == "hall":
-		_guild_desk(map)
-	if room_id in ["hall", "hall_low", "chamber", "runners"]:
-		preload("res://scripts/town/hall_floors_art.gd").finish(map, room_id)
+		_guild_desk()
+	if room_id == "home":
+		_home_lights()
 	_lift_furniture(map)   # LP-29: tall furniture in front of a creature behind it
 	var layer := CanvasLayer.new()
 	add_child(layer)
@@ -286,7 +305,9 @@ func _record() -> Dictionary:
 	return TeamState.data
 
 
-func _sfx(name: String) -> void:
+## `keep` puts the player on the tree's root instead of the room (Claude, 2026-10-24, pass 5 RM5): a door or stair
+## sound plays on through the change of scene that frees the room a fade later.
+func _sfx(name: String, keep := false) -> void:
 	var path := "res://assets/audio/sfx/dungeon/%s.wav" % name
 	if not ResourceLoader.exists(path):
 		return
@@ -294,9 +315,13 @@ func _sfx(name: String) -> void:
 	p.stream = load(path)
 	p.volume_db = -4.0
 	p.bus = &"SFX"
+	p.finished.connect(p.queue_free)
+	if keep and is_inside_tree():
+		p.autoplay = true   # plays as it joins the root, at the end of this frame
+		get_tree().root.add_child.call_deferred(p)
+		return
 	add_child(p)
 	p.play()
-	p.finished.connect(p.queue_free)
 
 
 func _open(t: Vector2i) -> bool:
@@ -340,31 +365,10 @@ const DESK := "res://assets/sprites/world/guild_desk/desk_detail_2026_10_10.png"
 const OLD_COUNTER := Rect2i(160, 46, 208, 54)
 
 
-## A picture as an Image (Claude, 2026-10-24, pass 4 T11 / LV-19): the imported texture first, which an exported
-## game has, else the PNG on disk; RGBA8 either way. The rule of town-art's A4 (UI.res_image), kept here so this
-## file does not wait on it; swap to that helper once it lands.
-static func _art_image(path: String) -> Image:
-	var img: Image = null
-	if ResourceLoader.exists(path):
-		var tex := load(path) as Texture2D
-		if tex != null:
-			img = tex.get_image()
-	if (img == null or img.is_empty()) and FileAccess.file_exists(path):
-		img = Image.load_from_file(ProjectSettings.globalize_path(path))
-	if img == null or img.is_empty():
-		return null
-	if img.has_mipmaps():
-		img.clear_mipmaps()
-	img.convert(Image.FORMAT_RGBA8)
-	return img
-
-
-static func _art_found(path: String) -> bool:
-	return ResourceLoader.exists(path) or FileAccess.file_exists(path)
-
-
-func _guild_desk(map: Sprite2D) -> void:
-	if not _art_found(DESK):
+## The painted counter out of the Hall picture, and its ink outline out of the finish's mask, when the desk art is
+## there to stand in its place. Part of the first paint, so the kept picture has it already (RM9).
+func _clear_counter(map: Sprite2D) -> void:
+	if not UI.res_exists(DESK):
 		return
 	var img: Image = map.texture.get_image()
 	var carpet := Vector2i(226, 302)   # the carpet's columns; stone is taken from beside it there
@@ -378,21 +382,29 @@ func _guild_desk(map: Sprite2D) -> void:
 		var mask: Image = preload("res://scripts/town/hall_room_art.gd").mask()
 		mask.fill_rect(OLD_COUNTER, Color.BLACK)
 		mat.set_shader_parameter("detail_mask", ImageTexture.create_from_image(mask))
+
+
+## The desk sprite itself, its picture and finish made once a session (RM9). The picture comes through
+## UI.res_image, which reads the imported texture an exported game has (Claude, 2026-10-24, pass 5 RM10).
+func _guild_desk() -> void:
+	if not UI.res_exists(DESK):
+		return
+	if _desk_art.is_empty():
+		var desk_image := UI.res_image(DESK)
+		if desk_image == null:
+			return
+		var desk_mask := Image.create(desk_image.get_width(),desk_image.get_height(),false,Image.FORMAT_RGBA8)
+		desk_mask.fill(Color.WHITE)
+		var desk_finish := ShaderMaterial.new()
+		desk_finish.shader = preload("res://scripts/dungeon/dungeon_finish.gdshader")
+		desk_finish.set_shader_parameter("detail_mask",ImageTexture.create_from_image(desk_mask))
+		desk_finish.set_shader_parameter("detail_ink",0.55)
+		_desk_art = [ImageTexture.create_from_image(preload("res://scripts/art/selout.gd").selout(desk_image)), desk_finish]
 	var desk := Sprite2D.new()
 	desk.centered = false
-	var desk_image := _art_image(DESK)
-	if desk_image == null:
-		desk.free()
-		return
-	desk.texture = ImageTexture.create_from_image(preload("res://scripts/art/selout.gd").selout(desk_image))
+	desk.texture = _desk_art[0]
 	desk.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
-	var desk_mask := Image.create(desk_image.get_width(),desk_image.get_height(),false,Image.FORMAT_RGBA8)
-	desk_mask.fill(Color.WHITE)
-	var desk_finish := ShaderMaterial.new()
-	desk_finish.shader = preload("res://scripts/dungeon/dungeon_finish.gdshader")
-	desk_finish.set_shader_parameter("detail_mask",ImageTexture.create_from_image(desk_mask))
-	desk_finish.set_shader_parameter("detail_ink",0.55)
-	desk.material = desk_finish
+	desk.material = _desk_art[1]
 	desk.position = Vector2(DESK_AT)
 	desk.z_index = DESK_AT.y + 46   # its front's foot
 	_world.add_child(desk)
@@ -417,14 +429,17 @@ func _lift_furniture(map: Sprite2D) -> void:
 	if room_id == "storage" or map.texture == null:
 		return
 	if not _lift_shapes.has(room_id):
-		_lift_shapes[room_id] = _furniture_shapes()
+		var cut := _furniture_shapes()
+		for piece in cut:   # kept as textures, made once a session like the picture (RM9)
+			piece[2] = ImageTexture.create_from_image(piece[2])
+		_lift_shapes[room_id] = cut
 	for piece in _lift_shapes[room_id]:
 		var rect: Rect2i = piece[0]
 		var at: Rect2i = piece[1]
 		# The shape, never drawn itself, clips the copy of the picture under it (Godot's clip children).
 		var clip := Sprite2D.new()
 		clip.centered = false
-		clip.texture = ImageTexture.create_from_image(piece[2])
+		clip.texture = piece[2]
 		clip.position = Vector2(at.position)
 		clip.clip_children = CanvasItem.CLIP_CHILDREN_ONLY
 		clip.z_index = (rect.end.y - 1) * T + int(T * 0.5)   # the base row's middle: feet above it sort under
@@ -445,7 +460,7 @@ func _furniture_shapes() -> Array:
 	var out: Array = []
 	for s in room()["solid"]:
 		var rect: Rect2i = s
-		if room_id == "hall" and rect == Rect2i(7, 3, 8, 2) and _art_found(DESK):
+		if room_id == "hall" and rect == Rect2i(7, 3, 8, 2) and UI.res_exists(DESK):
 			continue   # the Guildmaster's desk sorts itself
 		var tiles := Rect2i(rect.position * T, rect.size * T)
 		var stands: Array = props.filter(func(p: Array) -> bool:
@@ -512,6 +527,62 @@ func _feet(p: Vector2, node: Node2D) -> void:
 	node.z_index = int(p.y)
 
 
+## The Home's fire and the lantern on its table (Claude, 2026-10-24, pass 5 RM8 / LV-11): a warm glow added over
+## each, at the world's own pixel scale in stepped rings like the painted glows (room_painter.gd _glow), stepping
+## between three levels of light (the fire) or two (the wick) at uneven moments. Each step is [level, seconds held].
+## The fire's glow sits under every creature (its row is behind the hearth's); the lantern's sits just above the
+## table's lifted copy, so it lights the table and anyone in front of the table still draws over it.
+const LIGHTS := [
+	{"at": Vector2(272, 49), "radius": 30, "col": Color("#ffb45a"), "levels": [0.06, 0.12, 0.18], "z": 2 * T + 12,
+		"steps": [[2, 0.21], [1, 0.13], [2, 0.34], [0, 0.17], [1, 0.27], [2, 0.11], [1, 0.4], [0, 0.15], [2, 0.29], [1, 0.19]]},
+	{"at": Vector2(194, 112), "radius": 16, "col": Color("#ffe08a"), "levels": [0.08, 0.15], "z": 5 * T + 13,
+		"steps": [[1, 0.6], [0, 0.23], [1, 0.9], [0, 0.17], [1, 0.41], [0, 0.12], [1, 1.1]]},
+]
+static var _glows := {}   # light index -> its stepped glow texture, made once
+
+
+func _home_lights() -> void:
+	var add := CanvasItemMaterial.new()
+	add.blend_mode = CanvasItemMaterial.BLEND_MODE_ADD
+	for i in LIGHTS.size():
+		var l: Dictionary = LIGHTS[i]
+		var r: int = l["radius"]
+		if not _glows.has(i):
+			var img := Image.create(2 * r + 1, 2 * r + 1, false, Image.FORMAT_RGBA8)
+			for y in 2 * r + 1:
+				for x in 2 * r + 1:
+					var d := Vector2(x - r, y - r).length() / float(r)
+					if d < 1.0:
+						var c: Color = l["col"]
+						c.a = floorf((1.0 - d) * 4.0) / 4.0   # four rings, stepped like pixel art
+						img.set_pixel(x, y, c)
+			_glows[i] = ImageTexture.create_from_image(img)
+		var glow := Sprite2D.new()
+		glow.name = "HomeLight%d" % i
+		glow.texture = _glows[i]
+		glow.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
+		glow.material = add
+		glow.centered = false   # on whole pixels: the texture is an odd size
+		glow.position = Vector2(l["at"]) - Vector2(r, r)
+		glow.z_index = l["z"]
+		var first: Array = l["steps"][0]
+		glow.modulate.a = float(l["levels"][first[0]])
+		_world.add_child(glow)
+		_lights.append({"node": glow, "levels": l["levels"], "steps": l["steps"], "step": 0, "left": float(first[1])})
+
+
+func _flicker(delta: float) -> void:
+	for l in _lights:
+		l["left"] -= delta
+		if l["left"] > 0.0:
+			continue
+		var steps: Array = l["steps"]
+		l["step"] = (int(l["step"]) + 1) % steps.size()
+		var st: Array = steps[l["step"]]
+		l["left"] += float(st[1])
+		(l["node"] as Sprite2D).modulate.a = float(l["levels"][st[0]])
+
+
 ## One step for the leader; the others follow in a chain, one tile back (SceneKit.follow). Stepping onto the
 ## door leaves the room.
 func act_move(d: Vector2i) -> void:
@@ -569,6 +640,8 @@ func act_use() -> Dictionary:
 	for s in room()["spots"]:
 		if s["rect"].has_point(ahead) or s["rect"].has_point(lead["pos"]):
 			panel = {"name": "Storage", "service": "storage", "sel": 0, "said": ""} if s.get("service", "") == "storage" else _spot_panel(s)
+			if s.get("service", "") == "storage":
+				_ui_sfx("open")   # the menu's own opening sound, as the pause menu's (Claude, 2026-10-24, pass 5 RM5)
 			used_log.append(s["id"])
 			if s["id"] == "bed":
 				rest()
@@ -607,6 +680,8 @@ func rest() -> void:
 static func _night(tree: SceneTree, host: Node) -> void:
 	await UI.fade_out(tree, REST_FADE)
 	await tree.create_timer(UI.motion_secs(REST_HOLD)).timeout
+	if is_instance_valid(host) and host.is_inside_tree():
+		host._sfx("wake")   # waking up, as the dungeon's morning does (Claude, 2026-10-24, pass 5 RM5)
 	# The morning line waits until the black has lifted (Claude, 2026-10-24, pass 4 T7 / LV-34): it drew under it.
 	await UI.fade_in(tree, REST_FADE)
 	if is_instance_valid(host):
@@ -630,7 +705,7 @@ func _link_ok(l: Dictionary) -> bool:
 ## before the next room is built (Claude, 2026-10-23, R4), so its painting sits on black, not on a frozen frame,
 ## and lifts once the new room has drawn.
 func go_room(link: Dictionary) -> void:
-	_sfx(String(link.get("sfx", "door")))
+	_sfx(String(link.get("sfx", "door")), true)
 	used_log.append("to_" + String(link["to"]))
 	if is_inside_tree() and get_tree().current_scene == self:
 		busy = true   # no steps while the screen goes dark
@@ -676,6 +751,7 @@ func _starward_lines() -> Array:
 ## 2026-10-23, R4); Highbank lifts the fade itself in its _ready (hub_town.gd).
 func leave() -> void:
 	TeamState.data["arrive_at"] = room()["town_door"]
+	_sfx("door", true)   # the door out, kept past the change of scene (Claude, 2026-10-24, pass 5 RM5)
 	if is_inside_tree() and get_tree().current_scene == self:
 		busy = true
 		var tree := get_tree()
@@ -702,6 +778,10 @@ func _process(delta: float) -> void:
 				e["sprite"].texture = frames[int(e["walk_clock"] * WALK_FPS) % frames.size()]
 			if e["walk_t"] <= 0.0:
 				e["sprite"].texture = e["still"][e["facing"]]
+	# Standing creatures breathe, the team and anyone else in the room, on the street's beat (Claude, 2026-10-24, pass
+	# 5 RM8: SceneKit.idle_bob, T12's helper); the Home's fire and lantern flicker.
+	SceneKit.idle_bob(movers, Time.get_ticks_msec() / 1000.0)
+	_flicker(delta)
 	if not team.is_empty():
 		var r := room()
 		var half := Vector2(VIEW) * 0.5
@@ -711,10 +791,11 @@ func _process(delta: float) -> void:
 			size.y * 0.5 if size.y <= VIEW.y else clampf(focus.y, half.y, size.y - half.y))
 		_world.position = (half - focus).round()
 	# The Menu button under the key strip and as wide as it, as on Highbank's street (Claude, 2026-10-24, pass 4
-	# T1): it sat over the strip's last 4 px and ran past its right edge. A scene hides it with the rest of the HUD.
+	# T1): it sat over the strip's last 4 px and ran past its right edge. A scene hides it with the rest of the HUD,
+	# and so does any open panel, the key strip above it going too (Claude, 2026-10-24, pass 5 RM1 / LV-01).
 	var menu := get_node_or_null("GamePauseMenu")
 	if menu != null and menu.hint != null:
-		menu.hint.visible = not cutscene and not menu.overlay.visible
+		menu.hint.visible = not cutscene and not menu.overlay.visible and panel.is_empty()
 		var ks: Rect2 = hint_now()["strip"]
 		menu.hint.position = Vector2(ks.position.x, ks.end.y + 4)
 		menu.hint.size = Vector2(ks.size.x, 52)
@@ -736,6 +817,8 @@ func _poll() -> void:
 	if panel.get("service", "") == "storage":
 		if UI.tapped(&"move_up"): act_store_move(-1)
 		if UI.tapped(&"move_down"): act_store_move(1)
+		if UI.tapped(&"page_up"): act_store_page(-1)     # a page of the list (RM1)
+		if UI.tapped(&"page_down"): act_store_page(1)
 		if UI.tapped(&"take_out"): act_store(-1)
 	if UI.tapped_any([&"confirm", &"interact"]):
 		act_use()
@@ -757,18 +840,21 @@ func _draw_hud() -> void:
 			var sf: String = String(sl[2]) if sl.size() > 2 else ""
 			UI.dialogue(h, Rect2(196, 452, 760, 116), String(sl[0]), String(sl[1]), UI.dialogue_portrait(sf) if sf != "" else null, Time.get_ticks_msec() / 1000.0, 20, sf.get_slice(":", 1) if ":" in sf else "normal")
 		return
-	UI.panel(h, Rect2(6, 6, 330, 54))
-	UI.text(h, Vector2(28, 43), String(room()["name"]), 26, UI.EDGE_LIGHT)
-	# What to do next, always on screen (Preston, 2026-10-11: "objective tab so players know where to go").
-	var goal: Dictionary = Objective.current(TeamState.data.get("story", {}), TeamState.data.get("beaten", []))
-	UI.panel(h, Rect2(6, 64, 600, 34), 0.9)
-	UI.text(h, Vector2(26, 87), "Next:  " + String(goal["short"]), 16, UI.TEXT, 570)
+	# The place and "Next:" panels and the key strip step aside while a panel is open, as on Highbank's street when
+	# the Job Board is up (Claude, 2026-10-24, pass 5 RM3 / LV-03): the Storage list showed the Next line through it.
 	if panel.is_empty():
+		UI.panel(h, Rect2(6, 6, 330, 54))
+		UI.text(h, Vector2(28, 43), String(room()["name"]), 26, UI.EDGE_LIGHT)
+		# What to do next, always on screen (Preston, 2026-10-11: "objective tab so players know where to go").
+		var goal: Dictionary = Objective.current(TeamState.data.get("story", {}), TeamState.data.get("beaten", []))
+		UI.panel(h, Rect2(6, 64, 600, 34), 0.9)
+		UI.text(h, Vector2(26, 87), "Next:  " + String(goal["short"]), 16, UI.TEXT, 570)
 		_draw_hints(h)
+		return
 	if panel.get("service", "") == "storage":
 		StoragePanel.draw(self, h)
 		return
-	if not panel.is_empty() and not _resting:
+	if not _resting:
 		if panel.get("narration", false):   # the bed's morning line: narration, as the riverbank's (pass 4 T7)
 			UI.dialogue(h, Rect2(196, 452, 760, 116), "", String(panel["what"]), null, Time.get_ticks_msec() / 1000.0, 20)
 			return
@@ -846,6 +932,9 @@ func act_store(n: int) -> void:
 
 func act_store_move(dy: int) -> void:
 	StoragePanel.select_row(self, dy)
+
+func act_store_page(dir: int) -> void:
+	StoragePanel.page(self, dir)
 
 ## Menu sounds through the shared ticks, on the "UI" bus (Claude, 2026-10-22, GS-21): a kind the ticks do
 ## not know plays nothing instead of loading a missing file. `last_sfx` stays the receipt the checks read.

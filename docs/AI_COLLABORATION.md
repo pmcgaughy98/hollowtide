@@ -1,5 +1,18 @@
 # Working Together on Hollowtide
 
+## Claude: factory pass 5, performance and the unseen screens (October 24, 2026)
+
+Five Claude lanes worked the pass 5 live playthrough, the leftovers harvest and the performance audit, then one integrator merged them. Nothing is committed yet. [Result](team/sweep-2026-10-20/PASS5_RESULT_2026-10-24.md), [plan](team/sweep-2026-10-20/PASS5_PLAN_2026-10-24.md), [checks](team/sweep-2026-10-20/after-pass5-checks.md). Full suite: 98 PASS, 1 FAIL (ui_fit's three title-panel points, Codex's C2), the same as after pass 4.
+
+- **Speed:** the slowest floor build went from 3.03 s to 1.56 s, a warm Highbank arrival from 448 ms to 61 ms, and a second session's first arrival from about 4.5 s to 0.7 s (the painted street is saved under `user://street`). Rooms are kept for the session. The engine's `custom_samplers` error lines are gone.
+- **Dungeon:** menus wait for the floor card; the card holds about 1.1 s with the floor number beside the Hollow name; partner talk sits in the bottom strip; pops draw above the fog and off the HUD; the message box fades after 3 s (L pins it); ranged moves sound like throws; creatures bob 1 px; the Warren's walls now share the Mouth's rim and fall to black.
+- **Town and rooms:** the growth scene fades in and out through black and draws both stages at one scale; the end card is framed with the team and music; followers arrive a tile apart; Storage scrolls 7 rows and refuses with denied.wav; the mail call keeps team and crew apart.
+- **Screens:** the shrine's 'n / goal' shows in full; empty rebind slots are key caps; pixel scrollbars; the faint screen shows the dimmed last floor over a steady rain.
+
+**Shared files that changed:** scripts/art/selout_rim.gdshaderinc (the rim is a macro now), scripts/arena/sel_out.gdshaderinc, tools/debug/music_check.gd (the faint screen's bed is storm_rain), scripts/town/scene_kit.gd (`SceneKit.idle_bob`), scripts/town/jobs.gd (`place_text`, `hollow_of`; no reward or count changed), new scripts/creature_brief.gd (commit its .uid with it). Whoever changes a Highbank street painter raises `STREET_VERSION` in hub_town.gd.
+
+**Codex reads:** docs/team/CODEX_TASKS_2026-10-22.md section 8 (21 plan lines, then two from the integrator). **Grok reads:** docs/team/GROK_TASKS_2026-10-22.md, "Pass 5 lines" (G1 first, job clients, Guardian, and why lv1_run's table moved without any rule change). No creature numbers changed.
+
 ## Claude: factory pass 4, harden and polish (October 24, 2026)
 
 Eight Claude lanes worked the live playthrough's findings and the check-hardening audit, then one integrator merged them. Nothing is committed yet. [Result](team/sweep-2026-10-20/PASS4_RESULT_2026-10-24.md), [plan](team/sweep-2026-10-20/PASS4_PLAN_2026-10-24.md), [checks](team/sweep-2026-10-20/after-pass4-checks.md). Full suite: 97 PASS, then 98 after one rerun (pass 3: 72). 28 checks that only printed numbers now judge them, and RAN fell from 32 to 4. The one red check is still ui_fit's three title-panel points (Codex's C2). Of the live audit's 36 findings, 19 now read fixed and 3 more have Claude's part done with the words waiting on Preston.
