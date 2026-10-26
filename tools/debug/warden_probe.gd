@@ -30,6 +30,7 @@ func _run() -> void:
 		for k in 4:
 			await process_frame
 		dg.autopilot = true
+		dg.check_bot = true   # reads lines and welcomes recruits on autopilot (dungeon.gd check_bot, L6-01)
 		var frames := 0
 		var top_floor := 1
 		var met := false

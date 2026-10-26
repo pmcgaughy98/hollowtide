@@ -1,0 +1,6 @@
+{
+  "assets/sprites/arena/ozbender/portrait.png": "7a53acb0ea8eea37eb44a60bd68880edca4572a7faab4c3fe7f29b5b6b6128f0",
+  "assets/sprites/arena/skimlet/portrait.png": "5c2f70a11bbcee7f94f7b0f699c1e81c2282412f66ed19a4ac64ccf695d5cf18",
+  "assets/sprites/arena/valvekin/portrait.png": "0d326a205881de069b397bb7943b88eb95e73439333c5bb228d4cb8035573f3e",
+  "tools/arena/build_portraits.py": "627b9f378e7474e92340fdcf3f70ed1929237b170f7b51cd96aa0f182ac00296"
+}

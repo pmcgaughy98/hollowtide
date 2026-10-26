@@ -6,6 +6,8 @@ extends RefCounted
 ##   SceneKit.spawn(host, form, tile, facing)      a creature that is not on the team
 ##   await SceneKit.walk_to(host, e, tile)         walk there along open tiles, round anything in the way
 ##   await SceneKit.walk_all(host, [[e, tile], ...]) several at once
+##   await SceneKit.settle(host, list)             until each has stopped walking (start walks, play a line, settle)
+##   (a use key press with no line up snaps every walk under way to its end tile, 2026-10-26)
 ##   SceneKit.face(host, e, toward)                turn to a tile or to another creature
 ##   SceneKit.face_all(host, list, toward)
 ##   SceneKit.emote(host, e, "!")                  a "!" or "?" bubble over it
@@ -16,6 +18,7 @@ extends RefCounted
 ##   SceneKit.draw(host, canvas)                   the bubbles, from the host's label/world layer
 ##   SceneKit.use_key(), walk_keys(), pick_keys()  the town's key hints, from the Input Map (2026-10-23)
 ##   SceneKit.follow(host, trail)                  the team's line after a leader step (2026-10-23)
+##   SceneKit.read_ahead(forms)                    read creatures' pictures on a thread before they are spawned (2026-10-24)
 ## A host provides: team, npcs, talk, cutscene, cam_focus, scene_fx, _world, _px(tile), _place(e),
 ## _facing_of(d), and an open-tile test (_open or open_at).
 
@@ -59,27 +62,69 @@ static func spawn(host, form: String, tile: Vector2i, facing := "s") -> Dictiona
 	sprite.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
 	node.add_child(sprite)
 	preload("res://scripts/arena/creature_finish.gd").apply(sprite)
-	var dir := "res://assets/sprites/arena/%s/town/" % form
-	if not ResourceLoader.exists(dir + "s.png"):
-		dir = "res://assets/sprites/arena/%s/dungeon/" % form
+	var dir := _sprite_dir(form)
 	var still := {}
 	var walk := {}
 	for f in Arena.FACINGS:
-		still[f] = load(dir + f + ".png")
+		still[f] = _sprite(dir + f + ".png")
 		var frames: Array = []
 		for k in 8:
-			if ResourceLoader.exists(dir + "walk_%s_f%d.png" % [f, k]):
-				frames.append(load(dir + "walk_%s_f%d.png" % [f, k]))
+			var frame := _sprite(dir + "walk_%s_f%d.png" % [f, k])
+			if frame != null:
+				frames.append(frame)
 		walk[f] = frames
 	# Standing facing south, a crew member keeps its job object (Codex's town/idle_s.png, task 2); walking
 	# uses the walk frames, which drop it (Preston, 2026-10-11).
-	if ResourceLoader.exists(dir + "idle_s.png"):
-		still["s"] = load(dir + "idle_s.png")
+	var idle := _sprite(dir + "idle_s.png")
+	if idle != null:
+		still["s"] = idle
 	var e := {"form": form, "pos": tile, "node": node, "sprite": sprite, "still": still, "walk": walk,
 		"facing": facing, "walk_t": 0.0, "walk_clock": 0.0, "npc": true}
 	host._place(e)
 	host.npcs.append(e)
 	return e
+
+
+## The pictures spawn() uses, kept for the session (Claude, 2026-10-24, pass 6 / L6-15): every room build loaded each
+## crew member's 70-odd pictures from disk again (about 70 ms a creature, most of the Hall's 160 ms of crew), and
+## Muskin and Starward froze the mail call for 0.3 to 0.4 s as they walked in. read_ahead() asks for a creature's
+## pictures on a thread before it is needed (a door's fade, the mail call's start); _sprite() takes a finished read,
+## else loads. Path -> texture, or null for a picture that does not exist.
+static var _sprites := {}
+
+
+static func _sprite(path: String) -> Texture2D:
+	if not _sprites.has(path):
+		var res: Resource = null
+		if ResourceLoader.load_threaded_get_status(path) != ResourceLoader.THREAD_LOAD_INVALID_RESOURCE:
+			res = ResourceLoader.load_threaded_get(path)   # waits if the thread is still reading it
+		elif ResourceLoader.exists(path):
+			res = load(path)
+		_sprites[path] = res as Texture2D
+	return _sprites[path]
+
+
+## The folder spawn() reads a form from: its town set, else its dungeon set.
+static func _sprite_dir(form: String) -> String:
+	var dir := "res://assets/sprites/arena/%s/town/" % form
+	return dir if ResourceLoader.exists(dir + "s.png") else "res://assets/sprites/arena/%s/dungeon/" % form
+
+
+## Ask for every picture spawn() will read for these forms, each on a thread, unless it is kept or asked for already.
+## Not in a headless check, which can quit with a read still going.
+static func read_ahead(forms: Array) -> void:
+	if DisplayServer.get_name() == "headless":
+		return
+	for form in forms:
+		var dir := _sprite_dir(String(form))
+		var paths: Array = [dir + "idle_s.png"]
+		for f in Arena.FACINGS:
+			paths.append(dir + f + ".png")
+			for k in 8:
+				paths.append(dir + "walk_%s_f%d.png" % [f, k])
+		for path: String in paths:
+			if not _sprites.has(path) and ResourceLoader.exists(path) and ResourceLoader.load_threaded_get_status(path) == ResourceLoader.THREAD_LOAD_INVALID_RESOURCE:
+				ResourceLoader.load_threaded_request(path)
 
 
 ## The shortest walk on open tiles that are not taken (eight ways, no cutting a corner), as a list of steps.
@@ -111,11 +156,20 @@ static func path(host, e: Dictionary, goal: Vector2i) -> Array:
 	return out
 
 
-## Walk a creature to a tile, one step at a time with its walk cycle.
+## Walk a creature to a tile, one step at a time with its walk cycle. While it walks e["walking"] is true (settle()
+## waits on it), and the use key snaps it to its end tile when no line is up (Claude, 2026-10-26, pass 7 S2 / L7-07:
+## a reader sat through 2 to 4 s of walking with nothing to read). e["walk_id"] tells a snapped or replaced walk to stop.
 static func walk_to(host, e: Dictionary, goal: Vector2i, step := 0.24) -> void:
-	for t in path(host, e, goal):
-		if not _alive(host):
-			return
+	var route := path(host, e, goal)
+	var id := int(e.get("walk_id", 0)) + 1
+	e["walk_id"] = id
+	if not route.is_empty():
+		e["walking"] = true
+		_walkers.append([host, e, route[route.size() - 1]])
+		_watch_skip()
+	for t in route:
+		if not _alive(host) or int(e["walk_id"]) != id:
+			break
 		var d: Vector2i = t - e["pos"]
 		e["facing"] = host._facing_of(d)
 		e["pos"] = t
@@ -126,9 +180,63 @@ static func walk_to(host, e: Dictionary, goal: Vector2i, step := 0.24) -> void:
 		var follow := func(p: Vector2) -> void:
 			node.position = p
 			node.z_index = int(p.y)
-		host.create_tween().tween_method(follow, node.position, host._px(t), step)
+		var tw: Tween = host.create_tween()
+		tw.tween_method(follow, node.position, host._px(t), step)
+		e["walk_tw"] = tw
 		await wait(host, step)
+	if int(e["walk_id"]) != id:
+		return   # snapped to its end tile, or a newer walk has it
+	_walk_done(e)
 	if _alive(host):
+		host._place(e)
+
+
+## The walks under way, [host, entry, end tile], and whether a watch for the use key is running (2026-10-26, S2).
+static var _walkers: Array = []
+static var _watching := false
+
+
+static func _walk_done(e: Dictionary) -> void:
+	e["walking"] = false
+	e.erase("walk_tw")
+	_walkers = _walkers.filter(func(w: Array) -> bool: return not is_same(w[1], e))
+
+
+## One watch for all walks: each frame while any walk runs, a fresh press of a key that moves a line on (UI.tapped_any
+## of UI.INPUT_ADVANCE, the shared tap memory, so the same press never also turns the next line) snaps every walk of
+## that host to its end tile. Only in a scene (host.cutscene), with no line up, the host reading keys and the game
+## not paused.
+static func _watch_skip() -> void:
+	if _watching:
+		return
+	_watching = true
+	var tree := Engine.get_main_loop() as SceneTree
+	while tree != null and not _walkers.is_empty():
+		await tree.process_frame
+		_walkers = _walkers.filter(func(w: Array) -> bool: return _alive(w[0]) and is_instance_valid(w[1]["node"]))
+		if _walkers.is_empty():
+			break
+		var host: Node = _walkers[0][0]
+		var talk: Variant = host.get("talk")
+		var quiet: bool = talk is Array and (talk as Array).is_empty()   # no line up: a press is not reading one
+		if bool(host.get("cutscene")) and host.get("poll_input") != false and quiet and not tree.paused and UI.tapped_any(UI.INPUT_ADVANCE):
+			_snap_walks(host)
+	_watching = false
+
+
+## Every walk of `host` under way ends on its end tile now, standing on its still.
+static func _snap_walks(host) -> void:
+	for w in _walkers.duplicate():
+		if not is_same(w[0], host):
+			continue
+		var e: Dictionary = w[1]
+		var tw: Variant = e.get("walk_tw")
+		if tw is Tween and tw.is_valid():
+			tw.kill()
+		e["walk_id"] = int(e.get("walk_id", 0)) + 1
+		e["pos"] = w[2]
+		e["walk_t"] = 0.0
+		_walk_done(e)
 		host._place(e)
 
 
@@ -190,20 +298,39 @@ static func _gap_beside(host, ahead: Vector2i, from: Vector2i, taken: Dictionary
 	for d in DIRS8:
 		if _free(host, from + d, taken):
 			return from + d
+	# Hemmed in all round (Claude, 2026-10-24, pass 6 T4 / L6-18): the nearest free floor further out, so a follower
+	# never ends on a tile another member has been given; its own tile only when the room has none at all.
+	var seen := {from: true}
+	var queue: Array = [from]
+	while not queue.is_empty() and seen.size() < 400:
+		var c: Vector2i = queue.pop_front()
+		if _free(host, c, taken):
+			return c
+		for d in DIRS8:
+			var nb: Vector2i = c + d
+			if not seen.has(nb) and _open(host, nb):
+				seen[nb] = true
+				queue.append(nb)
 	return from
 
 
 ## Several walkers at once; returns when the last has arrived and settled on its still. Each walker recomputes
-## its path as it starts and may detour round the others, so the estimate alone can return a step early: after
+## its path as it starts and may detour round the others, so an estimate alone can return a step early: after
 ## the roll call Rinsepaw was placed at her post with 0.02 s of her last step left, on a walk frame (2026-10-12).
+## Since 2026-10-26 (S2) it waits on the walkers themselves (settle), so a snap by the use key ends it at once.
+## Called without await it only starts them: a scene can play a line while they walk, then settle().
 static func walk_all(host, moves: Array, step := 0.24) -> void:
-	var longest := 0
+	var list: Array = []
 	for m in moves:
-		longest = maxi(longest, path(host, m[0], m[1]).size())
+		list.append(m[0])
 		walk_to(host, m[0], m[1], step)
-	await wait(host, longest * step + 0.05)
+	await settle(host, list)
+
+
+## Wait until each creature in `list` has stopped walking and stands on its still (Claude, 2026-10-26, pass 7 S2).
+static func settle(host, list: Array) -> void:
 	var guard := 0
-	while _alive(host) and guard < int((longest * step + 2.0) * 60) and moves.any(func(m: Array) -> bool: return m[0]["walk_t"] > 0.0):
+	while _alive(host) and guard < 1800 and list.any(func(e: Dictionary) -> bool: return bool(e.get("walking", false)) or float(e.get("walk_t", 0.0)) > 0.0):
 		await host.get_tree().process_frame
 		guard += 1
 

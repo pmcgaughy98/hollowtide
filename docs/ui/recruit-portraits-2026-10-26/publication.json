@@ -1,0 +1,16 @@
+{
+  "protected_before": 3484,
+  "protected_unchanged_after_docs": 3481,
+  "existing_baseline_changes": [
+    "docs/AI_COLLABORATION.md",
+    "docs/team/CODEX_TASKS_2026-10-22.md",
+    "tools/arena/build_portraits.py"
+  ],
+  "original_queue_preserved_as_prefix": true,
+  "original_collaboration_body_preserved_as_suffix": true,
+  "evidence": "C:\\Users\\pmcga\\dev\\hollowtide\\docs\\ui\\recruit-portraits-2026-10-26",
+  "handoff": "C:\\Users\\pmcga\\dev\\hollowtide\\docs\\team\\CODEX_HANDOFF_2026-10-26_recruit_portraits.md",
+  "native": "32/32",
+  "face_crop": "5/5",
+  "local_links_resolve": true
+}

@@ -1,0 +1,23 @@
+--- original/scripts/main_menu.gd
++++ installed/scripts/main_menu.gd
+@@ -809,14 +809,19 @@
+ 	if not _settings_dirty:
+ 		return
+ 	var config := ConfigFile.new()
++	config.load(PREFERENCES)   # keep keys this menu does not edit
+ 	config.set_value("audio", "master", _master_volume)
+ 	config.set_value("audio", "music", _music_volume)
+ 	config.set_value("audio", "sfx", _sfx_volume)
+ 	config.set_value("menu", "reduce_motion", _reduce_motion)
+ 	config.set_value("menu", "courier", _selected_courier)
+-	var error := config.save(PREFERENCES)
++	var error := config.save(PREFERENCES + ".tmp")
++	if error == OK:
++		error = DirAccess.rename_absolute(ProjectSettings.globalize_path(PREFERENCES + ".tmp"), ProjectSettings.globalize_path(PREFERENCES))
+ 	if error == OK:
+ 		_settings_dirty = false
++		UI.reload_prefs()
++		_options_status.text = "Changes are saved automatically."
+ 	else:
+ 		_options_status.text = "Settings could not be saved."
+ 		push_warning("Menu preferences could not be saved: %s" % error_string(error))

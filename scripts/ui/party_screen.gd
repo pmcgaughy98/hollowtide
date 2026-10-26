@@ -16,13 +16,14 @@ extends Control
 ## In the Hollow it reads the live run; in town, the carried record. `lines` keeps the facts as text.
 
 const UI := preload("res://scripts/ui/ui_style.gd")
+const ControlsText := preload("res://scripts/ui/controls_text.gd")   # its pair(), for the hint's arrow words
 const Lines := preload("res://scripts/creatures/lines.gd")
 const ArenaData := preload("res://scripts/arena/arena_prototype.gd")
 const TeamRecord := preload("res://scripts/town/team_state.gd")
 const MoveBody := preload("res://scripts/moves/move_body.gd")
 const CreatureIdle := preload("res://scripts/ui/creature_idle.gd")
+const Shrine := preload("res://scripts/ui/shrine_info.gd")   # its stone rule, words and dimming (LF7-07)
 const DUNGEON := "res://scripts/dungeon/dungeon.gd"   # loaded, not preloaded: dungeon.gd preloads the pause menu
-const WAY_NAMES := {"flank": "Pincers", "ambush": "Ambushes", "took": "Hits taken", "slam": "Slams", "healed": "Healing"}
 const PAGES := ["Status", "Moves"]
 const LEFT := Rect2(64, 92, 360, 504)
 const RIGHT := Rect2(440, 128, 648, 420)
@@ -101,7 +102,10 @@ func setup(scene: Node) -> void:
 			var r: Dictionary = c["EVO"][ln]
 			var g: Dictionary = rec.get("growth", {}).get(key, {})
 			card["evo"] = [["Level", lv, c["EVO_LEVEL"][st]], ["KOs", int(g.get("kos", 0)), r["kos"][st]],
-				["Floors", int(g.get("floors", 0)), r["floors"][st]], [WAY_NAMES.get(r["way"], r["way"]), int(g.get(r["way"], 0)), r["need"][st]]]
+				["Floors", int(g.get("floors", 0)), r["floors"][st]], [UI.WAY_NAMES.get(r["way"], r["way"]), int(g.get(r["way"], 0)), r["need"][st]]]   # the shrine's words (L6-22)
+		# Whether the Warden's stone lets it grow whatever these counts, by the shrine's own rule on the carried record
+		# (Claude, 2026-10-26, LF7-07): the leader and the partner at their first stage once the stone is set in.
+		card["stone"] = Shrine.stone_lets(TeamRecord.data, k)
 		var still := "res://assets/sprites/arena/%s/sw.png" % form[0]
 		card["still"] = load(still) if ResourceLoader.exists(still) else null
 		card["idle"] = CreatureIdle.frames(form[0])   # the big front idle, when the form has one
@@ -115,6 +119,8 @@ func setup(scene: Node) -> void:
 		lines.append("%s   Lv %d   Sense %d" % [String(data.creature_name).to_upper(), lv, card["iq"]] + ("   HP %d/%d" % [card["hp"], card["max_hp"]] if card["hp"] >= 0 else ""))
 		if card.has("evo"):
 			lines.append("To grow: " + ", ".join(card["evo"].map(func(b: Array) -> String: return "%s %d/%d" % b)))
+			if card["stone"]:
+				lines.append(Shrine.STONE_NOW)
 		lines.append("Moves: " + ", ".join(moves.map(func(m: String) -> String: return ArenaData.MOVES[m]["name"] if ArenaData.MOVES.has(m) else m)))
 	set_process(true)
 	queue_redraw()
@@ -223,12 +229,15 @@ func _ess_of_move(m: String, c: Dictionary) -> String:
 
 func _draw() -> void:
 	_new_creature_art.clear()
-	var frame := Rect2(40, 28, 1072, 592)
+	# The frame starts 20 px higher than it did so the heading has the pause pages' room above it (Claude, 2026-10-26).
+	var frame := Rect2(40, 8, 1072, 612)
 	UI.panel(self, frame, 0.97)
-	UI.text(self, Vector2(64, 70), "Team", 30, UI.EDGE_LIGHT)
-	# The keys of the device in use (Claude, 2026-10-23): Esc on a keyboard, B on a pad, from the Input Map.
-	var pad := UI.last_device() == "pad"
-	UI.text(self, Vector2(64, 70), "%sLeft / Right  page     Up / Down  creature     %s  back" % ["D-pad " if pad else "", UI.binding_text("ui_cancel")], 14, UI.MUTED, 1024, HORIZONTAL_ALIGNMENT_RIGHT)
+	# The heading every pause page has (Claude, 2026-10-26, L7-22): the page's name in capitals in the title face, in
+	# parchment with its drop shadow, where a small "Team" in the name colour sat.
+	UI.say(self, Vector2(64, 72), "TEAM", "title", UI.TEXT)
+	# The keys of the device in use (Claude, 2026-10-23): Esc on a keyboard, B on a pad, from the Input Map; the arrow
+	# words too since pass 6 (Claude, 2026-10-24, W18): "D-pad Left/Right" on a pad, whatever ui_left and ui_right hold.
+	UI.text(self, Vector2(64, 72), "%s  page     %s  creature     %s  back" % [ControlsText.pair("ui_left", "ui_right"), ControlsText.pair("ui_up", "ui_down"), UI.binding_text("ui_cancel")], 14, UI.MUTED, 1024, HORIZONTAL_ALIGNMENT_RIGHT)
 	draw_line(Vector2(64, 80), Vector2(1088, 80), Color(UI.EDGE, 0.5), 1.0)
 	if cards.is_empty():
 		UI.text(self, Vector2(64, 130), "No team yet.", 20, UI.MUTED)
@@ -350,14 +359,25 @@ func _draw_status(c: Dictionary) -> void:
 	UI.text(self, Vector2(x + 424, y + 65), "%d more to Lv %d" % [c["next"] - c["exp"], c["lv"] + 1], 16, UI.TEXT)
 	y += 104
 	if c.has("evo"):
-		_section(Vector2(x, y), "Growing waits on", UI.EVO)
+		# Under the Warden's stone the counts are not needed this time (Claude, 2026-10-26, LF7-07): the heading, names,
+		# gauges and counts take the shrine's dimmed parchment, the shrine's line says why under the heading, and the
+		# rows close up from 26 px to 22 so the Sense rows below keep their place.
+		var stone: bool = c.get("stone", false)
+		var dim := Color(UI.MUTED, Shrine.STONE_DIM)
+		_section(Vector2(x, y), "Growing waits on", dim if stone else UI.EVO)
+		var top: float = y + 30
+		var step := 26
+		if stone:
+			UI.text(self, Vector2(x, y + 26), Shrine.STONE_NOW, 16, UI.EVO, 600)
+			top = y + 38
+			step = 22
 		for b in c["evo"].size():
 			var row: Array = c["evo"][b]
-			var yy: float = y + 30 + b * 26
+			var yy: float = top + b * step
 			var done: bool = row[1] >= row[2]
-			UI.text(self, Vector2(x, yy + 12), String(row[0]), 16, UI.TEXT if done else UI.MUTED)
-			UI.bar(self, Rect2(x + 110, yy + 2, 300, 10), float(row[1]) / maxf(1.0, row[2]), UI.HP_GOOD if done else UI.EVO)
-			UI.text(self, Vector2(x + 424, yy + 13), ("%d / %d" % [row[1], row[2]]) + ("   done" if done else ""), 15, UI.HP_GOOD if done else UI.TEXT)
+			UI.text(self, Vector2(x, yy + 12), String(row[0]), 16, dim if stone else (UI.TEXT if done else UI.MUTED))
+			UI.bar(self, Rect2(x + 110, yy + 2, 300, 10), float(row[1]) / maxf(1.0, row[2]), dim if stone else (UI.HP_GOOD if done else UI.EVO))
+			UI.text(self, Vector2(x + 424, yy + 13), ("%d / %d" % [row[1], row[2]]) + ("   done" if done else ""), 15, dim if stone else (UI.HP_GOOD if done else UI.TEXT))
 	else:
 		_section(Vector2(x, y), "Final stage", UI.EDGE_LIGHT)
 		UI.text(self, Vector2(x, y + 34), "This line has nowhere further to grow.", 16, UI.MUTED)

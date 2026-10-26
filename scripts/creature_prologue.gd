@@ -210,15 +210,23 @@ func _draw_talk() -> void:
 	if asking:
 		_draw_ask()
 
+## The answers in the line's own face and size (Claude, 2026-10-24, pass 6 S4, LO6-15 and LV-27): the story role at
+## the line's pixel scale, one answer to a row at the line's row height, the list as wide as its longest answer and
+## clear of the text box. The words do not change.
 func _draw_choices() -> void:
 	var rows:=line.responses.size()
-	var r:=Rect2(BOX.end.x-260,BOX.position.y-34-rows*34,260,24+rows*34)
+	var pitch:=UI.font("story").get_height(UI.type_size("story"))   # 40, the line's own row height
+	var w:=0.0
+	for k in rows:w=maxf(w,UI.width_in(String(line.responses[k].text),"story"))
+	var width:=ceilf((w+72.0)*0.5)*2.0   # 44 for the cursor, 28 to the right edge, kept even for the 2x grid
+	var tall:=34.0+rows*pitch
+	var r:=Rect2(BOX.end.x-width,BOX.position.y-10-tall,width,tall)
 	UI.panel(_box,r,0.95)
 	for k in rows:
-		var at:=r.position+Vector2(44,34+k*34)
+		var at:=r.position+Vector2(44,44+k*pitch)   # the first row's baseline as far down as the box's first line
 		if k==choice:
-			UI.say(_box,at-Vector2(26,0),">","label",UI.EDGE_LIGHT)
-		UI.say(_box,at,String(line.responses[k].text),"label",UI.EDGE_LIGHT if k==choice else UI.MUTED)
+			UI.say(_box,at-Vector2(26,0),">","story",UI.EDGE_LIGHT)
+		UI.say(_box,at,String(line.responses[k].text),"story",UI.EDGE_LIGHT if k==choice else UI.MUTED)
 
 func _draw_ask() -> void:
 	UI.panel(_box,ASK,0.95,true)
@@ -229,18 +237,25 @@ func _draw_ask() -> void:
 			UI.say(_box,at-Vector2(28,0),">","button",UI.EDGE_LIGHT)
 		UI.say(_box,at,["Resume","Return"][k],"button",UI.EDGE_LIGHT if k==ask_row else UI.MUTED)
 
+## The room-door fade (Claude, 2026-10-24, pass 6 S1, L6-13): UI's shared black comes down over 0.2 s, the riverbank
+## is built under it, and the riverbank lifts the black two frames after it is built (riverbank_journey.gd
+## _lift_black, as town_room.gd go_room does), so it no longer pops in from black at full brightness. A check that adds
+## this scene as a plain child changes at once.
 func _leave() -> void:
 	leaving=true
 	_box.queue_redraw()
 	veil.mouse_filter=Control.MOUSE_FILTER_STOP
-	await create_tween().tween_property(veil,"color:a",1.0,0.15 if reduce_motion else 0.5).finished
+	var tree:=get_tree()
+	var faded:=tree.current_scene==self
+	if faded:await UI.fade_out(tree)
 	# Preston, 2026-10-10: explore this bank and its close-up entrance immediately after choice.
 	# The flood blocks Highbank; Claude's riverbank hooks open the boss-free Hollow Mouth.
 	preload("res://scripts/town/team_state.gd").start([[hero,0],[partner,0]],{"creature_player":FORMS[hero],"opening_companion":FORMS[partner]})
 	var dungeon:Node2D=load("res://scenes/waking_riverbank.tscn").instantiate()
 	dungeon.reduce_motion=reduce_motion
 	preload("res://scripts/town/team_state.gd").give_to(dungeon)
-	var error:=get_tree().change_scene_to_node(dungeon)
+	var error:=tree.change_scene_to_node(dungeon)
 	if error!=OK:
 		dungeon.free();leaving=false
 		veil.color.a=0;veil.mouse_filter=Control.MOUSE_FILTER_IGNORE
+		if faded:UI.fade_in(tree)

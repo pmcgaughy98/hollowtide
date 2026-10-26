@@ -1,0 +1,20 @@
+{
+  "protected_before": 1373,
+  "protected_unchanged_after_docs": 1369,
+  "existing_baseline_changes": [
+    "docs/AI_COLLABORATION.md",
+    "docs/team/CODEX_TASKS_2026-10-22.md",
+    "scripts/creature_opening.gd",
+    "scripts/main_menu.gd"
+  ],
+  "original_queue_preserved_as_prefix": true,
+  "original_collaboration_body_preserved_as_suffix": true,
+  "local_links_checked": 21,
+  "native_campaign": "12/12",
+  "native_ui_fit": "48/48",
+  "legacy": "6/6; ObjectDB exit warning retained",
+  "official_runner": "PASS; exit0; known exit noise retained",
+  "production_scope": "four placements in two scripts",
+  "evidence": "C:\\Users\\pmcga\\dev\\hollowtide\\docs\\ui\\title-panel-bounds-2026-10-26",
+  "handoff": "C:\\Users\\pmcga\\dev\\hollowtide\\docs\\team\\CODEX_HANDOFF_2026-10-26_title_bounds.md"
+}

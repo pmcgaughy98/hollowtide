@@ -1,0 +1,47 @@
+{
+  "skimlet": {
+    "size": [
+      48,
+      48
+    ],
+    "bbox": [
+      0,
+      0,
+      48,
+      48
+    ],
+    "colours": 15,
+    "source": "s.png",
+    "sha256": "667f9415abaf0db213a5cb52184414aaca0329968879369e3099876106ce5b9c"
+  },
+  "ozbender": {
+    "size": [
+      48,
+      48
+    ],
+    "bbox": [
+      0,
+      0,
+      48,
+      48
+    ],
+    "colours": 30,
+    "source": "s.png",
+    "sha256": "cc566e050a8a512edf156e9bc04af63d61bbcaf18484f07a4fa2a4d63055f5e8"
+  },
+  "valvekin": {
+    "size": [
+      48,
+      48
+    ],
+    "bbox": [
+      0,
+      0,
+      48,
+      48
+    ],
+    "colours": 27,
+    "source": "s.png",
+    "sha256": "6515edbd6cb29e27994bcd2b4505c9253562fcd7323d74c878bd964b839000b2"
+  }
+}

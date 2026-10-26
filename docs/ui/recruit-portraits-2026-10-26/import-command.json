@@ -1,0 +1,18 @@
+{
+  "command": [
+    "C:/Users/pmcga/Games/Tools/Godot_v4.7.2/Godot_v4.7.2-stable_win64.exe",
+    "--path",
+    "C:/Users/pmcga/dev/hollowtide",
+    "--audio-driver",
+    "Dummy",
+    "--fixed-fps",
+    "30",
+    "--headless",
+    "--editor",
+    "--import",
+    "--quit"
+  ],
+  "APPDATA": "D:\\dev\\hollowtide-recruit-portraits-20261026\\private-profile",
+  "LOCALAPPDATA": "D:\\dev\\hollowtide-recruit-portraits-20261026\\private-local-profile",
+  "exit": 0
+}

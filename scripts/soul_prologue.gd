@@ -125,10 +125,7 @@ func _process(delta: float) -> void:
 	_t += delta
 	var full := _text().length()
 	if stage in ["talk", "after"]:
-		var before := int(shown)
 		shown = minf(full, shown + delta * (200.0 if reduce_motion else 46.0))
-		if int(shown) / 3 != before / 3 and int(shown) < full:
-			_blip.play()
 		_speak = move_toward(_speak, 1.0 if shown < full else 0.45, delta * 2.0)
 		if String(_current()[1]) == "river":
 			_river = move_toward(_river, 1.0, delta * 0.6)
@@ -158,6 +155,11 @@ func _process(delta: float) -> void:
 func advance() -> void:
 	match stage:
 		"talk", "after":
+			# Finish the current shared dialogue page before moving to the next story line.
+			if not UI.line_done(_text()):
+				UI.finish_line()
+				shown = _text().length()
+				return
 			if shown < _text().length():
 				shown = _text().length()   # the first press finishes the line
 				return
@@ -287,7 +289,7 @@ func _draw_void() -> void:
 		var r := (12.0 + 4.0 * sin(_t * 2.0 + k)) * _soul_scale
 		c.draw_rect(Rect2((at + Vector2(cos(a2), sin(a2) * 0.6) * r).round(), Vector2(1, 1)), Color(1, 1, 1, 0.6))
 	if _question > 0.0:
-		c.draw_string(UI.HEAD, at + Vector2(10, -16), "?", HORIZONTAL_ALIGNMENT_LEFT, -1, 14, Color(1.0, 0.95, 0.8, minf(1.0, _question)))
+		UI.say(c, at + Vector2(10, -16), "?", "label", Color(1.0, 0.95, 0.8, minf(1.0, _question)))
 	if _flash > 0.0:
 		c.draw_rect(Rect2(Vector2.ZERO, LOW), Color(1, 1, 1, minf(1.0, _flash)))
 
@@ -299,16 +301,11 @@ func _draw_ui() -> void:
 			_draw_card(k)
 	if stage in ["talk", "after", "choose"]:
 		var box := Rect2(140, 498, 872, 122)
-		# The presence has no face: a name tab and no portrait, the way an unseen voice speaks in
-		# Explorers of Sky.
-		UI.panel(c, box, 0.95)
-		UI.nameplate(c, box.position + Vector2(24, -22), "???", 26)
-		var text := _text().substr(0, int(shown)) if stage != "choose" else _text()
-		c.draw_multiline_string(UI.HEAD, box.position + Vector2(30, 50), text, HORIZONTAL_ALIGNMENT_LEFT, box.size.x - 80, 21, 3, UI.TEXT)
+		# An unseen voice uses the same story role and two-row pages as the waking dialogue.
+		UI.dialogue(c, box, "???", _text(), null, _t)
 		if stage == "choose":
-			UI.text(c, box.position + Vector2(0, 108), "A / D  choose      J  this shape", 15, Color(UI.MUTED, 0.6 + 0.4 * sin(_t * 4.0)), box.size.x - 30, HORIZONTAL_ALIGNMENT_RIGHT)
-		elif shown >= _text().length():
-			UI.next_arrow(c, box.end - Vector2(48, 36), _t)
+			UI.finish_line()   # the short choice prompt stays fully visible
+			UI.say(c, box.position + Vector2(0, 108), "A / D  choose      J  this shape", "label", Color(UI.MUTED, 0.6 + 0.4 * sin(_t * 4.0)), box.size.x - 30, HORIZONTAL_ALIGNMENT_RIGHT)
 
 
 var _shared_scale := 0.0
@@ -346,11 +343,11 @@ func _draw_card(k: int) -> void:
 		c.draw_set_transform(Vector2(dest.position.x + dest.size.x, dest.position.y), 0.0, Vector2(-1, 1))   # turned to its right
 		c.draw_texture_rect_region(tex, Rect2(Vector2.ZERO, dest.size), Rect2(box), Color(1, 1, 1, fade))
 		c.draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE)
-	UI.text(c, r.position + Vector2(28, 238), NAMES[k], 24, (UI.EDGE_LIGHT if on else UI.TEXT) * Color(1, 1, 1, fade))
+	UI.say(c, r.position + Vector2(28, 238), NAMES[k], "name", (UI.EDGE_LIGHT if on else UI.TEXT) * Color(1, 1, 1, fade))
 	var ix: float = r.position.x + r.size.x - 28 - 30 * ESSENCES[k].size()
 	for es in ESSENCES[k]:   # the main essence first, as on the party screen
 		var icon := UI.essence_icon(es)
 		if icon != null:
 			c.draw_texture_rect(icon, Rect2(ix, r.position.y + 214, 28, 28), false, Color(1, 1, 1, fade))
 		ix += 30
-	c.draw_multiline_string(UI.HEAD, r.position + Vector2(28, 262), FEEL[k], HORIZONTAL_ALIGNMENT_LEFT, r.size.x - 56, 15, 2, UI.MUTED * Color(1, 1, 1, fade))
+	c.draw_multiline_string(UI.font("body"), r.position + Vector2(28, 262), FEEL[k], HORIZONTAL_ALIGNMENT_LEFT, r.size.x - 56, UI.type_size("body"), 2, UI.MUTED * Color(1, 1, 1, fade))

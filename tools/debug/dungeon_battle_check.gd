@@ -151,6 +151,7 @@ func _run() -> void:
 	dg._build_floor(true)
 	await _frames(3)
 	dg.autopilot = true
+	dg.check_bot = true   # reads lines and welcomes recruits on autopilot (dungeon.gd check_bot, L6-01)
 	var n0: int = dg.battles
 	frames = 0
 	while dg.floor_n == 1 and frames < 30 * 400:

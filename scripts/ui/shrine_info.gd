@@ -6,12 +6,22 @@ const Lines := preload("res://scripts/creatures/lines.gd")
 const Evolution := preload("res://scripts/town/evolution.gd")
 const Arena := preload("res://scripts/arena/arena_prototype.gd")
 const Finish := preload("res://scripts/arena/creature_finish.gd")
-const RebindPage := preload("res://scripts/ui/rebind_page.gd")   # its style_scroll_bar
-const WAY_NAMES := {"flank": "Pincer hits", "ambush": "Hits on sleepers", "took": "Damage taken", "slam": "Slams", "healed": "Health restored"}
+const WAY_NAMES := UI.WAY_NAMES   # the one table, shared with the Team page (Claude, 2026-10-24, L6-22); ui_fit reads it here
 const SERVICES := ["growth", "stone_ask", "evolve_ask"]
 ## What the shrine says of a line nobody has seen grow (Claude, 2026-10-22, W23; a proposal line): it replaces
 ## "Later forms not defined" and "No evolution conditions are defined", which read as unfinished data.
 const UNSEEN := "Nobody in Highbank has seen this line grow."
+## When the Warden's stone makes the leader and the partner ready whatever their counts (Claude, 2026-10-24, L6-22;
+## proposal lines): the status names who can grow, and that creature's page says the counts are not needed.
+const STONE_STATUS := "The Warden's stone wakes the shrine. %s can grow now."
+const STONE_NOW := "The Warden's stone lets it grow now."   # the Team page says this much too (Claude, 2026-10-26, LF7-07)
+const STONE_READY := STONE_NOW + " These counts are not needed this time."
+## How far the rows the stone makes unneeded are dimmed, here and on the Team page: 0.7 keeps their muted parchment
+## above 4:1 on the panel (Claude, 2026-10-26, ACC-16; it was 0.55).
+const STONE_DIM := 0.7
+## The panel's heading, on a brass name tab over its top edge as the town's panels wear theirs (Claude, 2026-10-26,
+## L7-22: it was a line in the name face inside the panel).
+const TITLE := "Growth Shrine"
 var town: Node2D
 var screen: PanelContainer
 var members: VBoxContainer
@@ -27,12 +37,22 @@ var panel_key := ""
 var tabs: HBoxContainer
 var keys_hint: Label     # the footer's key line and the close button, retold when the device changes
 var close_button: Button
+var plate: Control       # the heading's name tab, drawn over the panel's top edge
 
 static func attach(owner: Node2D) -> void:
 	var view = load("res://scripts/ui/shrine_info.gd").new()
 	view.name = "ShrineInfo"
 	view.town = owner
 	owner.add_child(view)
+
+## Whether the Warden's stone makes member `k` ready whatever its counts: the rule in evolution.gd ready() (its
+## lines 33 to 37, read here, never changed): the leader or the partner at its first stage, once the stone is
+## installed, for a line that grows. Claude, 2026-10-24, L6-22.
+static func stone_lets(rec: Dictionary, k: int) -> bool:
+	var party: Array = rec.get("party", [])
+	if k < 0 or k > 1 or k >= party.size() or int(party[k][1]) != 0:
+		return false
+	return String(rec.get("story", {}).get("stone", "")) == "installed" and Evolution.ready(rec, k)
 
 static func member(rec: Dictionary, k: int) -> Dictionary:
 	var party: Array = rec.get("party", [])
@@ -49,7 +69,7 @@ static func member(rec: Dictionary, k: int) -> Dictionary:
 		"next": String(load(forms[st + 1][1]).creature_name) if st + 1 < forms.size() else "",
 		"moves": rec.get("taught", {}).get("%d:%d" % [ln, st], dungeon.moves_for(ln, st, level)).duplicate(),
 		"learn": c["LEARN"].get(form, []).duplicate(true), "waiting": c["WAITING"].get(form, []).duplicate(true),
-		"next_learn": [], "next_waiting": [], "pending": []}
+		"next_learn": [], "next_waiting": [], "pending": [], "stone": stone_lets(rec, k)}
 	if st < 2 and c["EVO"].has(ln):
 		var r: Dictionary = c["EVO"][ln]
 		var g: Dictionary = rec.get("growth", {}).get("%d:%d" % [ln, st], {})
@@ -92,7 +112,7 @@ func _scroll() -> ScrollContainer:
 	scroll.size_flags_vertical = Control.SIZE_EXPAND_FILL
 	scroll.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	# The pixel bar from the UI frames, which also keeps its width clear of the rows (Claude, 2026-10-24, S3 / LV-34).
-	RebindPage.style_scroll_bar(scroll.get_v_scroll_bar())
+	UI.style_scroll_bar(scroll.get_v_scroll_bar())
 	return scroll
 
 func _ready() -> void:
@@ -106,7 +126,6 @@ func _ready() -> void:
 	var column := VBoxContainer.new()
 	column.add_theme_constant_override("separation", 8)
 	screen.add_child(column)
-	column.add_child(_label("Growth Shrine", "name", UI.EDGE_LIGHT))
 	status = _label("", "body", UI.MUTED)
 	status.custom_minimum_size.y = 30
 	column.add_child(status)
@@ -152,12 +171,20 @@ func _ready() -> void:
 	footer.add_child(action)
 	close_button = _button("", _close)
 	footer.add_child(close_button)
+	plate = Control.new()
+	plate.name = "Nameplate"
+	plate.position = screen.position + Vector2(28, -22)   # where hub_town.gd and town_room.gd put theirs
+	plate.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
+	plate.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	plate.draw.connect(func() -> void: UI.nameplate(plate, Vector2.ZERO, TITLE, 22))
+	add_child(plate)
 	_hints()
 	# The keys named are the device's in use: W/S and E on a keyboard, the D-pad and A on a pad (Claude, 2026-10-23).
 	var prefs := get_node_or_null("/root/InputPrefs")
 	if prefs != null:
 		prefs.device_changed.connect(_on_device)
 	screen.hide()
+	plate.hide()
 
 func _on_device(_device: String) -> void:
 	_hints()
@@ -182,6 +209,7 @@ func _process(_delta: float) -> void:
 		_rebuild()
 	shown = active
 	screen.visible = active
+	plate.visible = active
 
 func _panel_key() -> String:
 	return "%s:%d:%s:%s" % [town.panel.get("service", ""), int(town.panel.get("k", 0)), town.stone_state(), str(town.party)]
@@ -195,9 +223,19 @@ func _rebuild() -> void:
 	snapshot = town._record().duplicate(true)
 	panel_key = _panel_key()
 	_clear(members)
+	var lifted: Array = []   # who the Warden's stone lets grow (L6-22)
+	var team: Array = []
 	for k in snapshot.get("party", []).size():
-		var data := member(snapshot, k)
-		var role := UI.fit(data["name"], "name", 206)
+		team.append(member(snapshot, k))
+	# One face for the whole column (Claude, 2026-10-26, L7-09): when any name needs a smaller face to fit its 206 px,
+	# every name takes it, as the Hollow's team rows do since pass 6. "Cutbank Listener" stood alone in a smaller one.
+	var role := "name"
+	for data: Dictionary in team:
+		var fits := UI.fit(data["name"], "name", 206)
+		if UI.type_size(fits) < UI.type_size(role): role = fits
+	for k in team.size():
+		var data: Dictionary = team[k]
+		if data["stone"]: lifted.append(data["name"])
 		var button := _button(data["name"], select.bind(k))
 		button.name = "Member%d" % k
 		button.custom_minimum_size.y = 76
@@ -210,6 +248,9 @@ func _rebuild() -> void:
 		members.add_child(button)
 	if snapshot.get("party", []).is_empty(): members.add_child(_label("No team yet."))
 	status.text = "Shrine dormant: the socket is empty. You can still read your team's growth." if town.stone_state() == "" else ("The pond stone is carried. Set it in to wake the shrine." if town.stone_state() == "carried" else "Shrine awake. All four conditions must be met to grow.")
+	# The stone's own rule says so instead, naming who it lets grow (L6-22), so the line never contradicts the bars.
+	if not lifted.is_empty():
+		status.text = STONE_STATUS % (" and ".join(lifted) if lifted.size() <= 2 else ", ".join(lifted.slice(0, -1)) + " and " + String(lifted[-1]))
 	_hints()   # the action button's words: "E set stone", "E grow", "E close" (A on a pad)
 	_render_detail()
 
@@ -284,17 +325,21 @@ func _render_detail() -> void:
 	title.add_child(_label("Final stage" if data["final"] else (UNSEEN if data["next"] == "" else "Next form: " + data["next"]), "body", UI.MUTED))
 	if tab == "growth":
 		if not data["conditions"].is_empty():
-			details.add_child(_label("To grow", "label", UI.EDGE_LIGHT))   # the rows' heading (Claude, 2026-10-22, W24)
+			details.add_child(_label("To grow", "label", UI.MUTED if data["stone"] else UI.EDGE_LIGHT))   # the rows' heading (Claude, 2026-10-22, W24)
 		for condition in data["conditions"]:
 			var row := HBoxContainer.new()
 			row.custom_minimum_size.y = 26
 			details.add_child(row)
-			var label := _label(condition[0], "body")
+			# Under the stone's rule the rows are not needed this time (L6-22): dimmed, the gauge and count in the muted
+			# parchment, with no purple "still to do" on any of them.
+			if data["stone"]: row.modulate = Color(1, 1, 1, STONE_DIM)
+			var label := _label(condition[0], "body", UI.MUTED if data["stone"] else UI.TEXT)
 			label.custom_minimum_size.x = 180
 			row.add_child(label)
 			# The game's own gauge (UI.bar: dark well, fill, brass rim), green once met, as on the Team screen
 			# (Claude, 2026-10-22, W23; it was a ProgressBar in flat boxes).
 			var met: bool = int(condition[1]) >= int(condition[2])
+			var tint: Color = UI.MUTED if data["stone"] else (UI.HP_GOOD if met else UI.EVO)
 			var frac: float = float(condition[1]) / maxf(1.0, float(condition[2]))
 			var bar := Control.new()
 			bar.name = "Gauge"
@@ -302,13 +347,13 @@ func _render_detail() -> void:
 			bar.size_flags_vertical = Control.SIZE_SHRINK_CENTER
 			bar.custom_minimum_size.y = 10
 			bar.mouse_filter = Control.MOUSE_FILTER_IGNORE
-			bar.draw.connect(func() -> void: UI.bar(bar, Rect2(Vector2.ZERO, bar.size), frac, UI.HP_GOOD if met else UI.EVO))
+			bar.draw.connect(func() -> void: UI.bar(bar, Rect2(Vector2.ZERO, bar.size), frac, tint))
 			row.add_child(bar)
 			# "n / goal" right-aligned at the row's end, which stops at the scrollbar now that the bar's width is kept
 			# clear; the column is never narrower than the words, so the gauge gives way and the goal always shows
 			# (Claude, 2026-10-24, S1 / LV-04: the goal after the slash sat under the bar).
 			var said := "%d / %d" % [condition[1], condition[2]]
-			var count := _label(said, "number", UI.HP_GOOD if met else UI.EVO)
+			var count := _label(said, "number", tint)
 			count.autowrap_mode = TextServer.AUTOWRAP_OFF
 			count.custom_minimum_size.x = maxf(122.0, ceilf(UI.font("number").get_string_size(said, HORIZONTAL_ALIGNMENT_LEFT, -1, UI.type_size("number")).x))
 			count.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
@@ -319,6 +364,7 @@ func _render_detail() -> void:
 			row.add_child(gap)
 		var message: String = "This is its final form." if data["final"] else (("All conditions met. This creature can grow here." if town.stone_state() == "installed" else "All conditions met. Ready here once the shrine is awake.") if data["ready"] else "Keep exploring to meet the remaining conditions.")
 		if not data["final"] and data["conditions"].is_empty(): message = "" if data["next"] == "" else UNSEEN   # the head row already says it
+		if data["stone"]: message = STONE_READY   # not "All conditions met" over unmet bars (L6-22)
 		if message != "": details.add_child(_label(message, "body", UI.EVO if data["ready"] else UI.MUTED))
 	else:
 		details.add_child(_label("Known moves", "label", UI.EDGE_LIGHT))
@@ -346,6 +392,7 @@ func _close() -> void:
 	UI.tick("cancel")
 	town.panel = {}
 	screen.hide()
+	plate.hide()
 
 func poll() -> bool:
 	if town.cutscene or not town.talk.is_empty() or town.evolving_now: return false

@@ -1,0 +1,77 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+OpenGL API 3.3.0 NVIDIA 610.62 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce GTX 1660 SUPER
+
+[godot_ai game_helper] registered mcp capture (debugger active=false, logger=true)
+TITLE_BOUNDS creature_opening reaches main menu -> ok
+TITLE_RECT creature_opening-options [P: (666.0, 180.0), S: (442.0, 479.0)]
+TITLE_BOUNDS creature_opening-options full frame inside safe screen -> FAIL
+TITLE_BOUNDS creature_opening options focus visible -> ok
+TITLE_RECT creature_opening-help-journey [P: (430.0, 168.0), S: (678.0, 501.0)]
+TITLE_BOUNDS creature_opening-help-journey full frame inside safe screen -> FAIL
+TITLE_BOUNDS journey action StartNewGame inside frame -> ok
+TITLE_BOUNDS journey action Back inside frame -> ok
+TITLE_RECT creature_opening-help-controls [P: (430.0, 168.0), S: (678.0, 501.0)]
+TITLE_BOUNDS creature_opening-help-controls full frame inside safe screen -> FAIL
+TITLE_BOUNDS controls action StartNewGame inside frame -> ok
+TITLE_BOUNDS controls action Back inside frame -> ok
+TITLE_RECT creature_opening-quit [P: (666.0, 312.0), S: (501.0, 247.0)]
+TITLE_BOUNDS creature_opening-quit full frame inside safe screen -> FAIL
+TITLE_BOUNDS creature_opening quit question fully inside viewport -> FAIL
+TITLE_BOUNDS creature_opening cancel returns to main -> ok
+TITLE_BOUNDS opening_flow reaches main menu -> ok
+TITLE_RECT opening_flow-options [P: (700.0, 254.0), S: (410.0, 438.0)]
+TITLE_BOUNDS opening_flow-options full frame inside safe screen -> FAIL
+TITLE_BOUNDS opening_flow options focus visible -> ok
+TITLE_RECT opening_flow-quit [P: (720.0, 330.0), S: (393.0, 228.0)]
+TITLE_BOUNDS opening_flow-quit full frame inside safe screen -> ok
+TITLE_BOUNDS opening_flow quit question fully inside viewport -> ok
+TITLE_BOUNDS opening_flow cancel returns to main -> ok
+TITLE BOUNDS: 12/18
+ERROR: Parse Error: Failed. [Resource file res://scenes/effects/scourmaw_undertow.tscn:17]
+   at: _parse_node_tag (scene/resources/resource_format_text.cpp:293)
+ERROR: Failed loading resource: res://scenes/effects/scourmaw_undertow.tscn.
+   at: _load (core/io/resource_loader.cpp:317)
+ERROR: res://data/moves/scourmaw_undertow.tres:19 - Parse Error: .
+   at: _printerr (scene/resources/resource_format_text.cpp:41)
+ERROR: Failed loading resource: res://data/moves/scourmaw_undertow.tres.
+   at: _load (core/io/resource_loader.cpp:317)
+ERROR: res://data/creatures/503_scourmaw.tres:26 - Parse Error: .
+   at: _printerr (scene/resources/resource_format_text.cpp:41)
+ERROR: Failed loading resource: res://data/creatures/503_scourmaw.tres.
+   at: _load (core/io/resource_loader.cpp:317)
+ERROR: res://data/creatures/502_riftfin.tres:26 - Parse Error: .
+   at: _printerr (scene/resources/resource_format_text.cpp:41)
+ERROR: Failed loading resource: res://data/creatures/502_riftfin.tres.
+   at: _load (core/io/resource_loader.cpp:317)
+ERROR: res://data/creatures/001_rimefin.tres:26 - Parse Error: .
+   at: _printerr (scene/resources/resource_format_text.cpp:41)
+ERROR: Failed loading resource: res://data/creatures/001_rimefin.tres.
+   at: _load (core/io/resource_loader.cpp:317)
+SCRIPT ERROR: Parse Error: Could not preload resource file "res://data/creatures/001_rimefin.tres".
+   at: GDScript::reload (res://scripts/courier_partner_story.gd:3)
+SCRIPT ERROR: Parse Error: Could not preload resource file "res://data/portraits/kithflare_front_idle.tres".
+   at: GDScript::reload (res://scripts/courier_partner_story.gd:4)
+SCRIPT ERROR: Parse Error: Could not preload resource file "res://data/portraits/tallowroot_front_idle.tres".
+   at: GDScript::reload (res://scripts/courier_partner_story.gd:4)
+SCRIPT ERROR: Parse Error: Could not preload resource file "res://data/portraits/rimefin_front_idle.tres".
+   at: GDScript::reload (res://scripts/courier_partner_story.gd:4)
+SCRIPT ERROR: Parse Error: Could not preload resource file "res://assets/fonts/Silkscreen-Regular.ttf".
+   at: GDScript::reload (res://scripts/courier_partner_story.gd:57)
+SCRIPT ERROR: Parse Error: Could not preload resource file "res://scenes/arena_prototype.tscn".
+   at: GDScript::reload (res://scripts/first_fight.gd:9)
+SCRIPT ERROR: Parse Error: Cannot infer the type of "ARENA_SCENE" constant because the value doesn't have a set type.
+   at: GDScript::reload (res://scripts/first_fight.gd:9)
+SCRIPT ERROR: Parse Error: Could not preload resource file "res://assets/fonts/AlegreyaSansSC-Bold.ttf".
+   at: GDScript::reload (res://scripts/world_atlas.gd:86)
+SCRIPT ERROR: Parse Error: Could not preload resource file "res://assets/fonts/AlegreyaSansSC-Bold.ttf".
+   at: GDScript::reload (res://scripts/world_atlas.gd:98)
+SCRIPT ERROR: Compile Error: Failed to compile depended scripts.
+   at: GDScript::reload (res://scripts/world_journey.gd:0)
+ERROR: Failed to load script "res://scripts/world_journey.gd" with error "Compilation failed".
+   at: load (modules/gdscript/gdscript_resource_format.cpp:46)
+ERROR: Parse Error: Failed. [Resource file res://scenes/world_journey.tscn:5]
+   at: _parse_node_tag (scene/resources/resource_format_text.cpp:293)
+ERROR: Failed loading resource: res://scenes/world_journey.tscn.
+   at: _load (core/io/resource_loader.cpp:317)
+WARNING: 128 ObjectDB instances were leaked at exit (run with `--verbose` for details).
+   at: cleanup (core/object/object.cpp:2536)

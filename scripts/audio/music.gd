@@ -13,16 +13,23 @@ const DIR := "res://assets/audio/music/%s.mp3"
 const BASE_DB := -6.0
 const DUCK_DB := -18.0
 const FADE := 1.2
+## Bursts (Claude, 2026-10-26, L7-26): a floor change and its scene could ask for two tracks in one beat (deep_hollow
+## then hollow four frames apart, crew_theme and boss_scene in one frame), and both started. A track asked for now
+## waits this long; one asked for in that time takes its place, so only the last of a burst starts. A request for
+## the track playing or waiting changes nothing. The town's street wait (hub_town.gd MUSIC_SETTLE) comes before this.
+const COALESCE := 0.25
 
 static var _inst: Node = null
 
-var current := ""
-var want := ""
+var current := ""   # the track playing, or the one waiting to start (the checks read it)
+var want := ""      # the last track asked for (the town's street music reads it)
 var pending_jingle := ""
 var last_jingle := ""
 var _players: Array[AudioStreamPlayer] = []
 var _active := 0
 var _jingle: AudioStreamPlayer
+var _started := ""   # the track the players last crossfaded to
+var _wait := -1.0    # seconds before `current` starts; below 0 when nothing waits
 
 
 static func _node(tree: SceneTree) -> Node:
@@ -37,7 +44,7 @@ static func play(tree: SceneTree, name: String) -> void:
 	var m: Node = _node(tree)
 	m.want = name
 	if m.is_inside_tree():
-		m._apply()
+		m._ask()
 
 
 static func jingle(tree: SceneTree, name: String) -> void:
@@ -59,7 +66,7 @@ func _ready() -> void:
 	_jingle.volume_db = BASE_DB
 	add_child(_jingle)
 	_jingle.finished.connect(_unduck)
-	_apply()
+	_ask()
 	if pending_jingle != "":
 		_play_jingle()
 
@@ -68,18 +75,35 @@ func _level() -> float:
 	return DUCK_DB if _jingle != null and _jingle.playing else BASE_DB
 
 
-func _apply() -> void:
+## A request: the track waits COALESCE seconds from the last one asked for, unless it is already the one playing.
+func _ask() -> void:
 	if want == current:
-		return
+		return   # playing, or already waiting
 	current = want
+	_wait = -1.0 if current == _started else COALESCE   # asked back to the track still playing: nothing to start
+
+
+func _process(delta: float) -> void:
+	if _wait < 0.0:
+		return
+	_wait -= delta
+	if _wait <= 0.0:
+		_wait = -1.0
+		_apply()
+
+
+func _apply() -> void:
+	if current == _started:
+		return
+	_started = current
 	var old: AudioStreamPlayer = _players[_active]
 	_active = 1 - _active
 	var nu: AudioStreamPlayer = _players[_active]
 	var tw := create_tween().set_parallel(true)
 	if old.playing:
 		tw.tween_property(old, "volume_db", -80.0, FADE)
-	if want != "" and ResourceLoader.exists(DIR % want):
-		var s: AudioStream = load(DIR % want)
+	if _started != "" and ResourceLoader.exists(DIR % _started):
+		var s: AudioStream = load(DIR % _started)
 		if "loop" in s:
 			s.loop = true
 		nu.stream = s
@@ -106,5 +130,5 @@ func _play_jingle() -> void:
 
 
 func _unduck() -> void:
-	if current != "":
+	if _started != "":
 		create_tween().tween_property(_players[_active], "volume_db", BASE_DB, 0.8)

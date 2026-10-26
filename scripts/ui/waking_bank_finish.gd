@@ -54,8 +54,13 @@ static func finished_image(img: Image) -> Image:
 	return result
 
 static func apply(sprite: Sprite2D, img: Image) -> void:
+	apply_mask(sprite,ImageTexture.create_from_image(mask(img)))
+
+## apply() with a mask already made (Claude, 2026-10-26, pass 7 S5): waking_bank.gd keeps its mask's texture for
+## the session. Each sprite still gets its own material.
+static func apply_mask(sprite: Sprite2D, detail_mask: Texture2D) -> void:
 	var material := ShaderMaterial.new()
 	material.shader=SHADER
-	material.set_shader_parameter("detail_mask",ImageTexture.create_from_image(mask(img)))
+	material.set_shader_parameter("detail_mask",detail_mask)
 	material.set_shader_parameter("detail_ink",0.55)
 	sprite.material=material

@@ -1,0 +1,52 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+OpenGL API 3.3.0 NVIDIA 610.62 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce GTX 1660 SUPER
+
+[godot_ai game_helper] registered mcp capture (debugger active=false, logger=true)
+NEW_GAME_CHECK gate defaults off and no save has no Continue detail -> ok
+NEW_GAME_CHECK no-save full main menu above key hint -> ok
+NEW_GAME_CHECK no save bypasses prompt even with preview flag on -> ok
+NEW_GAME_CHECK Highbank detail reads the saved place and leader level -> ok
+NEW_GAME_CHECK Highbank preview preserves saved bytes -> ok
+NEW_GAME_CHECK Highbank full main menu above key hint -> ok
+NEW_GAME_CHECK Highbank summary fits one line below Continue -> ok
+NEW_GAME_CHECK installed prompt remains gated for Highbank -> ok
+NEW_GAME_CHECK default-off saved game retains existing launch behaviour -> ok
+NEW_GAME_CHECK first detail reads the saved place and leader level -> ok
+NEW_GAME_CHECK first preview preserves saved bytes -> ok
+NEW_GAME_CHECK first full main menu above key hint -> ok
+NEW_GAME_CHECK first summary fits one line below Continue -> ok
+NEW_GAME_CHECK installed prompt remains gated for first -> ok
+NEW_GAME_CHECK mouth detail reads the saved place and leader level -> ok
+NEW_GAME_CHECK mouth preview preserves saved bytes -> ok
+NEW_GAME_CHECK mouth full main menu above key hint -> ok
+NEW_GAME_CHECK mouth summary fits one line below Continue -> ok
+NEW_GAME_CHECK installed prompt remains gated for mouth -> ok
+NEW_GAME_CHECK hollow detail reads the saved place and leader level -> ok
+NEW_GAME_CHECK hollow preview preserves saved bytes -> ok
+NEW_GAME_CHECK hollow full main menu above key hint -> ok
+NEW_GAME_CHECK hollow summary fits one line below Continue -> ok
+NEW_GAME_CHECK installed prompt remains gated for hollow -> ok
+NEW_GAME_CHECK backup details and existing recovery note both show -> ok
+NEW_GAME_CHECK backup full main menu above key hint -> ok
+NEW_GAME_CHECK backup summary fits one line below Continue -> ok
+NEW_GAME_CHECK preview never repairs or overwrites a damaged primary -> ok
+NEW_GAME_CHECK main New Game opens prompt before launch -> ok
+NEW_GAME_CHECK main prompt defaults to No -> ok
+NEW_GAME_CHECK main prompt and both buttons fit -> ok
+NEW_GAME_CHECK main No returns to exact origin and leaves save -> ok
+NEW_GAME_CHECK main Esc cancels without launching or changing save -> ok
+NEW_GAME_CHECK main controller Back cancels without changing save -> ok
+NEW_GAME_CHECK main Yes invokes existing launch exactly once -> ok
+NEW_GAME_CHECK main repeated confirmation cannot launch twice -> ok
+NEW_GAME_CHECK help New Game opens prompt before launch -> ok
+NEW_GAME_CHECK help prompt defaults to No -> ok
+NEW_GAME_CHECK help prompt and both buttons fit -> ok
+NEW_GAME_CHECK help No returns to exact origin and leaves save -> ok
+NEW_GAME_CHECK help Esc cancels without launching or changing save -> ok
+NEW_GAME_CHECK help controller Back cancels without changing save -> ok
+NEW_GAME_CHECK help Yes invokes existing launch exactly once -> ok
+NEW_GAME_CHECK help repeated confirmation cannot launch twice -> ok
+NEW_GAME_CHECK real title pauses before storm at private preview prompt -> ok
+NEW_GAME_CHECK real Yes enters existing storm scene -> ok
+NEW_GAME_CHECK real storm entry preserves current saved journey -> ok
+NEW GAME RESULT {"bounds":{"Highbank":[64.0,228.0,320.0,368.0],"backup":[64.0,168.0,320.0,421.0],"first":[64.0,228.0,320.0,368.0],"hollow":[64.0,228.0,320.0,368.0],"mouth":[64.0,228.0,320.0,368.0],"no-save":[64.0,324.0,320.0,266.0]},"failed":0,"passed":47,"prompt_default":"OFF; only private instances enabled for review","total":47}

@@ -48,7 +48,7 @@ const SIZE_UP_STOLEN := [
 	["Starward", "Rootbank Warren. Bring that parcel home, both of you, and you are runners of the Wayline.", "happy"],
 ]
 const SEND_OFF := [
-	["Wayling", "The Warren's under the levee, past the board. Mind the roots."],
+	["Wayling", "The Warren's down through the Mouth, by the Old Ferry Landing. Mind the roots."],   # Claude's proposal, 2026-10-26 (L7-04): the way objective.gd names
 	["{partner}", "We'll get it back!", "joyous"],
 	["Starward", "Off you go. The river doesn't wait.", "happy"],
 ]
@@ -69,7 +69,11 @@ const STARWARD_HOME := Vector2i(11, 2)   # behind the dispatch counter
 const STARWARD_MARK := Vector2i(11, 5)   # in front of it, facing the room
 const WAYLING_HOME := Vector2i(14, 5)
 const WAYLING_MARK := Vector2i(13, 5)
-const LINE := [Vector2i(10, 8), Vector2i(12, 8), Vector2i(11, 9)]   # where the team stands for the line-up
+# Where the team stands for the line-up: one open carpet tile each for a team of four, the pair in front and two
+# recruits behind them (Claude, 2026-10-26, pass 7 S3 / LF7-08: a fourth member stood on the third's tile). All four
+# are open floor in the Hall (checked against town_room's solid tiles); the mini() below is only a guard.
+const LINE := [Vector2i(10, 8), Vector2i(12, 8), Vector2i(10, 9), Vector2i(12, 9)]
+const STEP := 0.2   # seconds a tile for the staged walks (Starward's were 0.3; pass 7 S2 / L7-07)
 
 
 static func pending(room) -> bool:
@@ -106,17 +110,22 @@ static func run(room) -> void:
 	var partner: Dictionary = room.team[1] if room.team.size() > 1 else lead
 	SceneKit.pan(room, room._px(Vector2i(11, 7)), 0.01)
 	await SceneKit.wait(room, 0.6)
-	# 1. The team walks up into the hall; Wayling hops to its mark and calls the line-up.
+	# 1. The team walks up into the hall; Wayling hops to its mark and calls the line-up as they come in (the call
+	# no longer waits for the last step: Claude, 2026-10-26, pass 7 S2), and they face it once they stand.
 	var moves: Array = []
 	for k in room.team.size():
 		moves.append([room.team[k], LINE[mini(k, LINE.size() - 1)]])
 	SceneKit.walk_to(room, way, WAYLING_MARK, 0.18)
-	await SceneKit.walk_all(room, moves)
-	SceneKit.face_all(room, room.team, way)
+	SceneKit.walk_all(room, moves, STEP)   # not awaited: settle() below
+	await SceneKit.wait(room, 0.5)
+	if not SceneKit._alive(room):
+		return   # the room was left (a check's stairs, a door) while the line walked in
 	SceneKit.face(room, way, partner)
 	SceneKit.emote(room, way, "!")
-	await SceneKit.wait(room, 0.5)
 	await SceneKit.say(room, CALL)
+	await SceneKit.settle(room, room.team)
+	SceneKit.face_all(room, room.team, way)
+	SceneKit.face(room, way, partner)
 	# It looks round the empty hall.
 	for f in ["w", "e", "w", "s"]:
 		way["facing"] = f
@@ -125,15 +134,21 @@ static func run(room) -> void:
 	await SceneKit.say(room, EMPTY_STOLEN if stolen else EMPTY)
 	if not SceneKit._alive(room):
 		return
-	# 2. The Guildmaster heard: it comes round the counter to stand before them.
+	# 2. The Guildmaster heard: it comes round the counter to stand before them, talking as it comes (S2: its first
+	# line no longer waits for the walk), and faces the partner once there.
 	SceneKit.emote(room, star, "!")
 	await SceneKit.wait(room, 0.6)
 	SceneKit.pan(room, room._px(Vector2i(11, 6)), 0.6)
-	await SceneKit.walk_to(room, star, STARWARD_MARK, 0.3)
+	SceneKit.walk_to(room, star, STARWARD_MARK, STEP)   # not awaited: settle() below
+	var star_in: Array = STARWARD_IN_STOLEN if stolen else STARWARD_IN
+	await SceneKit.say(room, star_in.slice(0, 1))
+	await SceneKit.settle(room, [star])
+	if not SceneKit._alive(room):
+		return
 	SceneKit.face_all(room, room.team, star)
 	SceneKit.face(room, way, star)
 	SceneKit.face(room, star, partner)
-	await SceneKit.say(room, STARWARD_IN_STOLEN if stolen else STARWARD_IN)
+	await SceneKit.say(room, star_in.slice(1))
 	if not SceneKit._alive(room):
 		return
 	# 3. It looks the stranger over.
@@ -154,7 +169,7 @@ static func run(room) -> void:
 			r["story"] = {}
 		r["story"]["guild_trial"] = true   # the trial: bring the stolen parcel back from Rootbank Warren
 		SceneKit.walk_to(room, way, WAYLING_HOME, 0.2)
-		await SceneKit.walk_to(room, star, STARWARD_HOME, 0.3)
+		await SceneKit.walk_to(room, star, STARWARD_HOME, STEP)
 		SceneKit.release(room)
 		room.cutscene = false
 		return
@@ -182,7 +197,7 @@ static func run(room) -> void:
 	rec["story"]["parcel"] = "carried"
 	# 5. The two go back to their posts; the team is free.
 	SceneKit.walk_to(room, way, WAYLING_HOME, 0.2)
-	await SceneKit.walk_to(room, star, STARWARD_HOME, 0.3)
+	await SceneKit.walk_to(room, star, STARWARD_HOME, STEP)
 	SceneKit.release(room)
 	room.cutscene = false
 
@@ -201,7 +216,7 @@ static func _runners(room) -> void:
 	for k in room.team.size():
 		moves.append([room.team[k], LINE[mini(k, LINE.size() - 1)]])
 	SceneKit.walk_to(room, way, WAYLING_MARK, 0.18)
-	await SceneKit.walk_all(room, moves)
+	await SceneKit.walk_all(room, moves, STEP)   # awaited: the parcel is held up where the partner stands
 	SceneKit.face_all(room, room.team, way)
 	SceneKit.face(room, way, partner)
 	SceneKit.emote(room, way, "!")
@@ -212,7 +227,7 @@ static func _runners(room) -> void:
 		return
 	SceneKit.emote(room, star, "!")
 	SceneKit.pan(room, room._px(Vector2i(11, 6)), 0.6)
-	await SceneKit.walk_to(room, star, STARWARD_MARK, 0.3)
+	await SceneKit.walk_to(room, star, STARWARD_MARK, STEP)
 	SceneKit.face_all(room, room.team, star)
 	SceneKit.face(room, way, star)
 	SceneKit.face(room, star, partner)
@@ -236,6 +251,6 @@ static func _runners(room) -> void:
 	rec["story"]["runner"] = true          # runners of the Wayline
 	rec["story"]["parcel"] = "delivered"
 	SceneKit.walk_to(room, way, WAYLING_HOME, 0.2)
-	await SceneKit.walk_to(room, star, STARWARD_HOME, 0.3)
+	await SceneKit.walk_to(room, star, STARWARD_HOME, STEP)
 	SceneKit.release(room)
 	room.cutscene = false

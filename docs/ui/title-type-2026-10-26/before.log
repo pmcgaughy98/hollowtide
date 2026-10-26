@@ -1,0 +1,38 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+OpenGL API 3.3.0 NVIDIA 610.62 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce GTX 1660 SUPER
+
+[godot_ai game_helper] registered mcp capture (debugger active=false, logger=true)
+TYPE_CHECK title opens with save=false -> ok
+TYPE_CHECK main-save-false full panel inside screen -> ok
+TYPE_CHECK main-save-false visible buttons use shared type/frames and fit ["NewGame role/frame", "NewGame focus frame", "Options role/frame", "Options focus frame", "HowToPlay role/frame", "HowToPlay focus frame", "Quit role/frame", "Quit focus frame"] -> FAIL
+TYPE_CHECK menu hint uses shared label role -> FAIL
+TYPE_CHECK options-save-false full panel inside screen -> ok
+TYPE_CHECK options visible buttons use shared type/frames and fit ["ReduceMotion role/frame", "Back role/frame"] -> FAIL
+TYPE_CHECK Options heading uses shared title role -> FAIL
+TYPE_CHECK help-journey-save-false full panel inside screen -> ok
+TYPE_CHECK help-journey visible buttons use shared type/frames and fit ["Journey role/frame", "Controls role/frame", "StartNewGame role/frame", "Back role/frame"] -> FAIL
+TYPE_CHECK Help prose uses body and section labels use label -> FAIL
+TYPE_CHECK help-controls-save-false full panel inside screen -> ok
+TYPE_CHECK help-controls visible buttons use shared type/frames and fit ["Journey role/frame", "Controls role/frame", "StartNewGame role/frame", "Back role/frame"] -> FAIL
+TYPE_CHECK Help prose uses body and section labels use label -> FAIL
+TYPE_CHECK quit-save-false full panel inside screen -> ok
+TYPE_CHECK quit visible buttons use shared type/frames and fit ["Back role/frame", "ConfirmQuit role/frame"] -> FAIL
+TYPE_CHECK Quit cancel returns main -> ok
+TYPE_CHECK title opens with save=true -> ok
+TYPE_CHECK main-save-true full panel inside screen -> FAIL
+TYPE_CHECK main-save-true visible buttons use shared type/frames and fit ["Continue role/frame", "Continue focus frame", "NewGame role/frame", "NewGame focus frame", "Options role/frame", "Options focus frame", "HowToPlay role/frame", "HowToPlay focus frame", "Quit role/frame", "Quit focus frame"] -> FAIL
+TYPE_CHECK menu hint uses shared label role -> FAIL
+TYPE_CHECK options-save-true full panel inside screen -> ok
+TYPE_CHECK options visible buttons use shared type/frames and fit ["ReduceMotion role/frame", "Back role/frame"] -> FAIL
+TYPE_CHECK Options heading uses shared title role -> FAIL
+TYPE_CHECK help-journey-save-true full panel inside screen -> ok
+TYPE_CHECK help-journey visible buttons use shared type/frames and fit ["Journey role/frame", "Controls role/frame", "StartNewGame role/frame", "Back role/frame"] -> FAIL
+TYPE_CHECK Help prose uses body and section labels use label -> FAIL
+TYPE_CHECK help-controls-save-true full panel inside screen -> ok
+TYPE_CHECK help-controls visible buttons use shared type/frames and fit ["Journey role/frame", "Controls role/frame", "StartNewGame role/frame", "Back role/frame"] -> FAIL
+TYPE_CHECK Help prose uses body and section labels use label -> FAIL
+TYPE_CHECK quit-save-true full panel inside screen -> ok
+TYPE_CHECK quit visible buttons use shared type/frames and fit ["Back role/frame", "ConfirmQuit role/frame"] -> FAIL
+TYPE_CHECK Quit cancel returns main -> ok
+TYPE_CHECK starter choice and resulting story preserved -> ok
+TITLE TYPE RESULT {"bounds":{"help-controls-save-false":[430.0,120.0,678.0,501.0],"help-controls-save-true":[430.0,120.0,678.0,501.0],"help-journey-save-false":[430.0,120.0,678.0,501.0],"help-journey-save-true":[430.0,120.0,678.0,501.0],"main-save-false":[64.0,324.0,320.0,282.0],"main-save-true":[64.0,270.0,320.0,346.0],"options-save-false":[666.0,120.0,442.0,479.0],"options-save-true":[666.0,120.0,442.0,479.0],"quit-save-false":[635.0,312.0,501.0,247.0],"quit-save-true":[635.0,312.0,501.0,247.0]},"failed":19,"passed":14,"phase":"before","total":33}

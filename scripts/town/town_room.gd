@@ -106,6 +106,11 @@ const STAIRS_DOWN := Rect2i(14, 10, 2, 2)   # on the Hall's work floor, right of
 const REST_LINE := "Morning. Highbank remembers."
 const REST_FADE := 0.35
 const REST_HOLD := 1.5    # the dark between the fades: the night (Claude, 2026-10-24, pass 5 RM5: 0.25 read as a blink)
+# Waking (Claude, 2026-10-26, pass 7 T6 / L7-24): the shrine's calm swell, low, in place of the dungeon's wake-up,
+# which was made for a floor's alarm, not a morning in bed.
+const WAKE_SOUND := "presence_swell"
+const WAKE_DB := -14.0
+const MENU_SOUNDS := ["denied"]   # menu answers on the UI bus (_sfx), as hub_town.gd's
 # The key hints, bottom right, key then action in the column style the menus use (W12). The keys are the
 # device's (Claude, 2026-10-23): "WASD  walk     E  use" on a keyboard, "Stick  walk     A  use" on a pad.
 static func keys_hint() -> String:
@@ -141,6 +146,16 @@ var _tick_frame := {}         # menu sound kind -> the frame it last played
 static var _pictures := {}
 static var _desk_art: Array = []   # [the Guildmaster's desk texture, its finish], made once (RM9)
 var _lights: Array = []            # the Home's hearth and lantern glows (RM8): {node, levels, steps, step, left}
+## Each step of _ready in milliseconds, in order (Claude, 2026-10-24, pass 6 T1 / L6-15), as hub_town.gd keeps its
+## ready_ms: the probes read where a room's arrival goes (the Hall's door stall was its first picture and furniture).
+var ready_ms := {}
+var _lap_at := 0
+
+
+func _lap(step: String) -> void:
+	var now := Time.get_ticks_usec()
+	ready_ms[step] = (now - _lap_at) / 1000.0
+	_lap_at = now
 
 
 func room() -> Dictionary:
@@ -148,6 +163,8 @@ func room() -> Dictionary:
 
 
 func _ready() -> void:
+	_lap_at = Time.get_ticks_usec()
+	var began := _lap_at
 	var r := room()
 	grid.resize(r["w"] * r["h"])
 	for y in r["h"]:
@@ -181,6 +198,7 @@ func _ready() -> void:
 	add_child(screen)
 	_world = Node2D.new()
 	view.add_child(_world)
+	_lap("grid and view")
 	var dark := ColorRect.new()
 	dark.color = Color("#1a1410")
 	dark.position = Vector2(-400, -400)
@@ -191,29 +209,22 @@ func _ready() -> void:
 	if room_id == "storage":
 		map.texture = StorageArt.shell()   # a loaded picture, not painted: the resource cache keeps it
 	elif _pictures.has(room_id):
-		map.texture = _pictures[room_id][0]   # painted on an earlier entry this session (RM9)
+		map.texture = _pictures[room_id][0]   # painted on an earlier entry this session (RM9), or made ahead (prepare)
 		map.material = _pictures[room_id][1]
 	else:
-		# The first entry paints the picture and finishes it, in the order it always had: the room's art finish,
-		# the Hall's painted counter taken out, then the Hall floors' finish (it keeps the counter's mask).
-		map.texture = ImageTexture.create_from_image(Painter.paint(room_id, r))
-		if room_id == "home":
-			preload("res://scripts/town/home_room_art.gd").finish(map)
-		elif room_id == "hall":
-			preload("res://scripts/town/hall_room_art.gd").finish(map)
-		if room_id == "hall":
-			_clear_counter(map)
-		if room_id in ["hall", "hall_low", "chamber", "runners"]:
-			preload("res://scripts/town/hall_floors_art.gd").finish(map, room_id)
+		_paint_picture(room_id, map)
 		_pictures[room_id] = [map.texture, map.material]
 	_world.add_child(map)
+	_lap("picture")
 	if room_id == "storage":
 		StorageArt.finish(_world, map)
 	if room_id == "hall":
 		_guild_desk()
 	if room_id == "home":
 		_home_lights()
+	_lap("desk and lights")
 	_lift_furniture(map)   # LP-29: tall furniture in front of a creature behind it
+	_lap("furniture lifted")
 	var layer := CanvasLayer.new()
 	add_child(layer)
 	_hud = Node2D.new()
@@ -224,12 +235,17 @@ func _ready() -> void:
 	var d: Vector2i = r["door"]
 	if d.x < 0 and arrive.x < 0:
 		arrive = r.get("landing", Vector2i(r["w"] / 2, r["h"] - 3))   # a room with no town door: its landing, never off the map
-	var stands := _arrival_tiles(party.size())
+	var facing := arrive_facing if arrive.x >= 0 else "n"
 	for k in party.size():
-		var e := _make(party[k][0], party[k][1], stands[k])
-		e["facing"] = arrive_facing if arrive.x >= 0 else "n"
-		_place(e)
+		var e := _make(party[k][0], party[k][1], Vector2i.ZERO)
+		e["facing"] = facing
 		team.append(e)
+	# Spaced by the sprites' own sizes (T8): each member's opaque box round its feet, facing the way it arrives.
+	var stands := _arrival_tiles(team.size(), team.map(func(e: Dictionary) -> Rect2: return _extent_of(e["still"][facing])))
+	for k in team.size():
+		team[k]["pos"] = stands[k]
+		_place(team[k])
+	_lap("team")
 	preload("res://scripts/ui/game_pause_menu.gd").attach(self)
 	_labels = Node2D.new()
 	_labels.z_index = 2000
@@ -247,6 +263,8 @@ func _ready() -> void:
 		(func() -> void: GuildCrew.run(self)).call_deferred()   # the morning mail call (R3, 2026-10-12)
 	else:
 		GuildCrew.place(self)   # the crew at their posts
+	_lap("menus and crew")
+	ready_ms["total"] = (Time.get_ticks_usec() - began) / 1000.0
 
 
 ## Where the team stands on arrival (Claude, 2026-10-22, LP-18). Each member gets its own open tile that is not
@@ -255,7 +273,17 @@ func _ready() -> void:
 ## the town door it stands two tiles in, by stairs or an inner door on the landing. Each follower then takes the
 ## tile beside the one ahead that is most behind it, away from the way the team faces, straight back before
 ## diagonal; a member with no such tile gets the nearest open one, found breadth-first from the first tile.
-func _arrival_tiles(n: int) -> Array:
+## Since pass 7 (Claude, 2026-10-26, T8 / L7-21) the sprites space the line: `boxes` holds each member's opaque box
+## round its feet (_extent_of), and a tile is taken only if it and no member placed already cover more than OVERLAP_MAX
+## of the smaller one's box (_overlap). Of the tiles that keep clear, the one most behind wins as before, then the one
+## nearest the leader's line, so a team of narrow creatures zigzags back instead of standing on each other's heads; a
+## wide one gets a tile two back (the tile between open) when no tile one back keeps clear, and when none does the
+## least covered tile is taken. The walk's one-tile trail (SceneKit.follow) is unchanged: a member two back closes up
+## on the first step. OVERLAP_MAX is under a quarter, so a line that only just keeps clear still reads as two creatures.
+const OVERLAP_MAX := 0.15
+
+
+func _arrival_tiles(n: int, boxes: Array = []) -> Array:
 	var d: Vector2i = room()["door"]
 	var first: Vector2i = arrive if arrive.x >= 0 else d + Vector2i(0, -1)
 	var picked: Array = []
@@ -266,13 +294,30 @@ func _arrival_tiles(n: int) -> Array:
 	var back: Vector2i = -DIRS[Arena.FACINGS.find(arrive_facing if arrive.x >= 0 else "n")]
 	while not picked.is_empty() and picked.size() < n:
 		var ahead: Vector2i = picked[picked.size() - 1]
+		var k := picked.size()
 		var best := Vector2i(-1, -1)
 		var best_score := -INF
-		for o in DIRS:
-			var score := float(o.x * back.x + o.y * back.y) - 0.5 * float(absi(o.x) + absi(o.y))
-			if score > best_score and _stand_ok(ahead + o, picked):
-				best = ahead + o
-				best_score = score
+		var least := Vector2i(-1, -1)
+		var least_cover := INF
+		for gap in [1, 2]:
+			for o: Vector2i in DIRS:
+				var lean := float(o.x * back.x + o.y * back.y)
+				var t: Vector2i = ahead + o * gap
+				if (gap == 2 and lean <= 0.0) or not _stand_ok(t, picked) or (gap == 2 and not _open(ahead + o)):
+					continue
+				var off := absi((t - picked[0]).x * back.y - (t - picked[0]).y * back.x)   # tiles off the leader's line
+				var score := lean - 0.5 * float(absi(o.x) + absi(o.y)) - 0.1 * float(off)
+				var cover := _worst_overlap(t, k, picked, boxes)
+				if cover <= OVERLAP_MAX and score > best_score:
+					best = t
+					best_score = score
+				if lean >= 0.0 and cover < least_cover:
+					least = t
+					least_cover = cover
+			if best.x >= 0:
+				break   # a tile one back that keeps clear wins over any two back
+		if best.x < 0:
+			best = least
 		if best.x < 0:
 			break
 		picked.append(best)
@@ -292,10 +337,103 @@ func _arrival_tiles(n: int) -> Array:
 	return picked
 
 
+## The most that member `k` standing on `t` and any member already placed cover of each other (T8).
+static func _worst_overlap(t: Vector2i, k: int, placed: Array, boxes: Array) -> float:
+	var worst := 0.0
+	if k < boxes.size():
+		for j in mini(placed.size(), boxes.size()):
+			worst = maxf(worst, _overlap(boxes[k], t, boxes[j], placed[j]))
+	return worst
+
+
+## How much two sprites' boxes cover of each other, as a share of the smaller box: 0 apart, 1 one hidden behind the
+## other. Stricter than a share of the wider one (the plan's measure), which let a small partner vanish behind a big one.
+static func _overlap(ea: Rect2, ta: Vector2i, eb: Rect2, tb: Vector2i) -> float:
+	var ra := Rect2(ea.position + Vector2(ta) * T, ea.size)
+	var rb := Rect2(eb.position + Vector2(tb) * T, eb.size)
+	return ra.intersection(rb).get_area() / maxf(1.0, minf(ra.get_area(), rb.get_area()))
+
+
+## A still's opaque box round the feet it stands on, read once a picture: _place centres the sprite 4 px above its
+## texture's foot (T8; hub_town.gd keeps the same reading for the street).
+static var _extents := {}
+
+
+static func _extent_of(tex: Texture2D) -> Rect2:
+	if tex == null:
+		return Rect2(-12, -24, 24, 24)
+	var key := tex.resource_path if tex.resource_path != "" else str(tex.get_instance_id())
+	if not _extents.has(key):
+		var size := tex.get_size()
+		var used := Rect2(Vector2.ZERO, size)
+		var img := tex.get_image()
+		if img != null and not img.is_empty():
+			used = Rect2(img.get_used_rect())
+		_extents[key] = Rect2(used.position + Vector2(-size.x * 0.5, -size.y + 4.0), used.size)
+	return _extents[key]
+
+
 func _stand_ok(t: Vector2i, taken: Array) -> bool:
 	var d: Vector2i = room()["door"]
 	var way_out: Rect2i = room().get("exit_rect", Rect2i(d, Vector2i.ONE))
 	return _open(t) and _link_at(t).is_empty() and not (d.x >= 0 and way_out.has_point(t)) and not t in taken
+
+
+## The first entry paints the picture and finishes it, in the order it always had: the room's art finish, the Hall's
+## painted counter taken out, then the Hall floors' finish (it keeps the counter's mask). Static since pass 7 (T2), so
+## prepare() makes the same picture before the door is used.
+static func _paint_picture(id: String, map: Sprite2D) -> void:
+	map.texture = ImageTexture.create_from_image(Painter.paint(id, ROOMS[id]))
+	if id == "home":
+		preload("res://scripts/town/home_room_art.gd").finish(map)
+	elif id == "hall":
+		preload("res://scripts/town/hall_room_art.gd").finish(map)
+	if id == "hall":
+		_clear_counter(map)
+	if id in ["hall", "hall_low", "chamber", "runners"]:
+		preload("res://scripts/town/hall_floors_art.gd").finish(map, id)
+
+
+## TownRoom.prepare(id) (Claude, 2026-10-26, pass 7 T2 / LF7-04): make room `id`'s picture, its finish and its
+## furniture's shapes now and keep them, so its first entry of the session builds like a later one (the Hall's door
+## took 0.35 s and the lower Hall's stairs 1.0 s, nearly all of it these). Painter code is unchanged: this is the
+## same work _ready did on a first entry. hub_town.gd's _warm_up makes the Hall's two floors and the Home ahead,
+## the painting on a worker thread (prepared_parts) and the keeping on this one (keep_prepared).
+static func prepare(id: String) -> void:
+	if not prepared(id):
+		keep_prepared(id, prepared_parts(id))
+
+
+## Whether room `id` builds without painting: its picture and furniture are kept (the Storage's are loaded art).
+static func prepared(id: String) -> bool:
+	return id == "storage" or not ROOMS.has(id) or (_pictures.has(id) and _lift_shapes.has(id))
+
+
+## [texture, finish material, furniture pieces] for room `id`, made without touching this script's caches, so it can
+## run on a worker thread while the main one goes on drawing. Off the main thread the art is read from its PNGs
+## (UI.res_image), so call it there only when art_off_main() says they are on disk.
+static func prepared_parts(id: String) -> Array:
+	var map := Sprite2D.new()
+	_paint_picture(id, map)
+	var out := [map.texture, map.material, _shapes_of(id)]
+	map.free()
+	return out
+
+
+## On the main thread: keep what prepared_parts made, unless the room was entered and painted meanwhile.
+static func keep_prepared(id: String, parts: Array) -> void:
+	if parts.size() != 3 or not (parts[0] is Texture2D):
+		return
+	if not _pictures.has(id):
+		_pictures[id] = [parts[0], parts[1]]
+	if not _lift_shapes.has(id):
+		_lift_shapes[id] = parts[2]
+
+
+## Whether the rooms' art can be read off the main thread: UI.res_image there finds only a PNG on disk, which the
+## project has and an exported game does not (it carries the imported textures alone).
+static func art_off_main() -> bool:
+	return FileAccess.file_exists(preload("res://scripts/town/hall_room_art.gd").ART)
 
 
 ## The team record the town carries (scripts/town/team_state.gd).
@@ -306,15 +444,18 @@ func _record() -> Dictionary:
 
 
 ## `keep` puts the player on the tree's root instead of the room (Claude, 2026-10-24, pass 5 RM5): a door or stair
-## sound plays on through the change of scene that frees the room a fade later.
-func _sfx(name: String, keep := false) -> void:
+## sound plays on through the change of scene that frees the room a fade later. A refusal that answers a menu choice
+## (the Storage at its cap) plays on the "UI" bus at the ticks' level, as on the street (hub_town.gd MENU_SOUNDS;
+## Claude, 2026-10-26, pass 7 T6 / L7-23). `db` sets a quieter take (the bed's waking).
+func _sfx(name: String, keep := false, db := -4.0) -> void:
 	var path := "res://assets/audio/sfx/dungeon/%s.wav" % name
 	if not ResourceLoader.exists(path):
 		return
+	var menu: bool = name in MENU_SOUNDS
 	var p := AudioStreamPlayer.new()
 	p.stream = load(path)
-	p.volume_db = -4.0
-	p.bus = &"SFX"
+	p.volume_db = UI.TICK_DB if menu else db
+	p.bus = &"UI" if menu else &"SFX"
 	p.finished.connect(p.queue_free)
 	if keep and is_inside_tree():
 		p.autoplay = true   # plays as it joins the root, at the end of this frame
@@ -367,7 +508,7 @@ const OLD_COUNTER := Rect2i(160, 46, 208, 54)
 
 ## The painted counter out of the Hall picture, and its ink outline out of the finish's mask, when the desk art is
 ## there to stand in its place. Part of the first paint, so the kept picture has it already (RM9).
-func _clear_counter(map: Sprite2D) -> void:
+static func _clear_counter(map: Sprite2D) -> void:
 	if not UI.res_exists(DESK):
 		return
 	var img: Image = map.texture.get_image()
@@ -429,10 +570,7 @@ func _lift_furniture(map: Sprite2D) -> void:
 	if room_id == "storage" or map.texture == null:
 		return
 	if not _lift_shapes.has(room_id):
-		var cut := _furniture_shapes()
-		for piece in cut:   # kept as textures, made once a session like the picture (RM9)
-			piece[2] = ImageTexture.create_from_image(piece[2])
-		_lift_shapes[room_id] = cut
+		_lift_shapes[room_id] = _shapes_of(room_id)
 	for piece in _lift_shapes[room_id]:
 		var rect: Rect2i = piece[0]
 		var at: Rect2i = piece[1]
@@ -454,13 +592,22 @@ func _lift_furniture(map: Sprite2D) -> void:
 		lifts.append({"rect": rect, "z": clip.z_index, "node": clip})
 
 
+## The pieces to lift with their shapes as textures, made once a session like the picture (RM9). Static since pass 7
+## (T2), so prepare() cuts them ahead.
+static func _shapes_of(id: String) -> Array:
+	var cut := _furniture_shapes(id)
+	for piece in cut:
+		piece[2] = ImageTexture.create_from_image(piece[2])
+	return cut
+
+
 ## Each piece to lift: [its solid rect, the picture rect its shape covers, the shape (white where the piece is)].
-func _furniture_shapes() -> Array:
-	var props := _room_props()
+static func _furniture_shapes(id: String) -> Array:
+	var props := _room_props(id)
 	var out: Array = []
-	for s in room()["solid"]:
+	for s in ROOMS[id]["solid"]:
 		var rect: Rect2i = s
-		if room_id == "hall" and rect == Rect2i(7, 3, 8, 2) and UI.res_exists(DESK):
+		if id == "hall" and rect == Rect2i(7, 3, 8, 2) and UI.res_exists(DESK):
 			continue   # the Guildmaster's desk sorts itself
 		var tiles := Rect2i(rect.position * T, rect.size * T)
 		var stands: Array = props.filter(func(p: Array) -> bool:
@@ -490,16 +637,16 @@ func _furniture_shapes() -> Array:
 
 
 ## The prop sprites painted into this room's picture, with where they were painted: [[rect, Image], ...].
-func _room_props() -> Array:
+static func _room_props(id: String) -> Array:
 	var out: Array = []
-	if room_id == "hall":
+	if id == "hall":
 		var art := preload("res://scripts/town/hall_room_art.gd")
 		if art.available():
 			for p in art.PROPS:
 				out.append([p[1], art._prop(p[0])])
 	var floors := preload("res://scripts/town/hall_floors_art.gd")
-	if floors.PROPS.has(room_id) and floors.available(room_id):
-		for p in floors.PROPS[room_id]:
+	if floors.PROPS.has(id) and floors.available(id):
+		for p in floors.PROPS[id]:
 			if not LIFT_FLAT.any(func(w: String) -> bool: return String(p[0]).contains(w)):
 				out.append([p[1], floors._prop(p)])
 	return out
@@ -629,6 +776,7 @@ func act_use() -> Dictionary:
 		act_store(1)
 		return {}
 	if not panel.is_empty():
+		_ui_sfx("close")   # E closes a spot's panel as Esc does, with the menus' close (T6)
 		panel = {}
 		return {}
 	var lead: Dictionary = team[0]
@@ -644,6 +792,7 @@ func act_use() -> Dictionary:
 				_ui_sfx("open")   # the menu's own opening sound, as the pause menu's (Claude, 2026-10-24, pass 5 RM5)
 			used_log.append(s["id"])
 			if s["id"] == "bed":
+				_ui_sfx("open")   # the bed's panel opens with the menus' tick, before the night falls (T6)
 				rest()
 			return s
 	return {}
@@ -681,7 +830,7 @@ static func _night(tree: SceneTree, host: Node) -> void:
 	await UI.fade_out(tree, REST_FADE)
 	await tree.create_timer(UI.motion_secs(REST_HOLD)).timeout
 	if is_instance_valid(host) and host.is_inside_tree():
-		host._sfx("wake")   # waking up, as the dungeon's morning does (Claude, 2026-10-24, pass 5 RM5)
+		host._sfx(WAKE_SOUND, false, WAKE_DB)   # waking up, softly (pass 7 T6; it was the dungeon's wake.wav)
 	# The morning line waits until the black has lifted (Claude, 2026-10-24, pass 4 T7 / LV-34): it drew under it.
 	await UI.fade_in(tree, REST_FADE)
 	if is_instance_valid(host):
@@ -709,6 +858,8 @@ func go_room(link: Dictionary) -> void:
 	used_log.append("to_" + String(link["to"]))
 	if is_inside_tree() and get_tree().current_scene == self:
 		busy = true   # no steps while the screen goes dark
+		if _record().get("story", {}).get("guild_trial", false):
+			SceneKit.read_ahead(GuildCrew.cast_of(String(link["to"])))   # the crew's pictures, read under the fade (pass 6)
 		var tree := get_tree()
 		await UI.fade_out(tree)
 		var next: Node = load("res://scenes/town_room.tscn").instantiate()
@@ -825,7 +976,9 @@ func _poll() -> void:
 		return
 	if UI.tapped(&"cancel"):
 		if not panel.is_empty():
-			UI.tick("cancel")   # GS-21: closing a panel sounds like every other back
+			# Closing a panel (the Storage, a spot) sounds like closing the pause menu (Claude, 2026-10-26, pass 7 T6 /
+			# L7-25); a room's panels ask nothing, so none of them backs out of a choice with the cancel sound.
+			_ui_sfx("close")
 		panel = {}
 	var d := UI.dir8()
 	if d != Vector2i.ZERO:

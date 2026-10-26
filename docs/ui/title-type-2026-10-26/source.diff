@@ -1,0 +1,192 @@
+--- original/scripts/creature_opening.gd
++++ installed/scripts/creature_opening.gd
+@@ -7,9 +7,6 @@
+ const SOUL = preload("res://scenes/storm_open.tscn")   # Claude, 2026-10-10: the storm cold open plays first, then the soul prologue (Preston)
+ const VILLAGE = preload("res://assets/sprites/menu/creature_village_2026_10_09.png")
+ const FRAME_TRIM = preload("res://scripts/ui/title_panel_trim.gd")
+-const MENU_FACE = preload("res://assets/fonts/Vollkorn-Variable.ttf")
+-const COPY_FACE = preload("res://assets/fonts/AlegreyaSansSC-Regular.ttf")
+-const HINT_FACE = preload("res://assets/fonts/Silkscreen-Regular.ttf")
+ const LEGIBILITY = preload("res://scripts/ui/title_legibility.gdshader")
+ var _help_panel: PanelContainer
+ var _help_button: Button
+@@ -121,13 +118,15 @@
+ 	captions[0].modulate=Color("#d1bd91")
+ 	_launch_hint=captions[1]
+ 	_launch_hint.modulate=Color("#a4b09a")
+-	_launch_hint.add_theme_font_override("font",HINT_FACE)
+-	_launch_hint.add_theme_font_size_override("font_size",14)
++	_launch_hint.add_theme_font_override("font",UI.font("label"))
++	_launch_hint.add_theme_font_size_override("font_size",UI.type_size("label"))
+ 	_set_input_device(_input_device)
+ 
+ func _label(text:String,size:int=24) -> Label:
+ 	var l := super._label(text,size)
+-	l.add_theme_font_override("font",MENU_FACE if size>=28 else COPY_FACE)
++	if size==23:   # the Help section labels use the shared compact role
++		l.add_theme_font_override("font",UI.font("label"))
++		l.add_theme_font_size_override("font_size",UI.type_size("label"))
+ 	return l
+ 
+ func _panel(node_name:String,at:Vector2,width:float) -> PanelContainer:
+@@ -140,22 +139,6 @@
+ 	panel.add_child(trim)
+ 	trim.hide() # Shared frame supplies its own corner studs and joinery.
+ 	return panel
+-
+-func _button(text:String) -> Button:
+-	var b:=super._button(text)
+-	b.add_theme_font_override("font",MENU_FACE)
+-	b.add_theme_font_size_override("font_size",25)
+-	var plain:=UI.frame("panel").duplicate()
+-	plain.content_margin_top=8
+-	plain.content_margin_bottom=8
+-	plain.content_margin_left=40
+-	var active:=UI.frame("panel_focus").duplicate()
+-	active.content_margin_top=8
+-	active.content_margin_bottom=8
+-	active.content_margin_left=40
+-	b.add_theme_stylebox_override("normal",plain)
+-	for state in ["focus","hover","pressed"]:b.add_theme_stylebox_override(state,active)
+-	return b
+ 
+ func _build_menu() -> void:
+ 	super._build_menu()
+@@ -176,28 +159,12 @@
+ 	_help_button.name="HowToPlay"
+ 	_help_button.pressed.connect(_open_help)
+ 	choices.add_child(_help_button)
+-	# Keep the original NewGame/Options/Quit identities; display Quit last. By the last button's index, not a
+-	# fixed one, since Continue is listed first when a save exists (Claude, 2026-10-12).
++	# Keep button identities, with How to play immediately before Quit. Use the last button's index
++	# since Continue is listed first when a save exists (Claude, 2026-10-12).
+ 	choices.move_child(_help_button,_buttons[_buttons.size()-1].get_index())
+ 	_buttons.append(_help_button)
+ 	for b in _buttons:
+ 		b.custom_minimum_size.y=54
+-		b.add_theme_font_size_override("font_size",32)
+-		var plain := StyleBoxFlat.new()
+-		plain.bg_color=Color.TRANSPARENT
+-		plain.set_content_margin_all(6)
+-		plain.content_margin_left=32
+-		var selected := plain.duplicate() as StyleBoxFlat
+-		selected.border_color=Color("#cbb280")
+-		selected.border_width_bottom=1
+-		b.add_theme_stylebox_override("normal",plain)
+-		for state in ["focus","hover","pressed"]:b.add_theme_stylebox_override(state,selected)
+-		b.add_theme_color_override("font_color",Color("#e2dbc5"))
+-		for state in ["font_hover_color","font_focus_color","font_pressed_color"]:
+-			b.add_theme_color_override(state,Color("#ffe6af"))
+-		b.add_theme_color_override("font_shadow_color",Color("#111b15"))
+-		b.add_theme_constant_override("shadow_offset_x",1)
+-		b.add_theme_constant_override("shadow_offset_y",2)
+ 	var rule := ColorRect.new()
+ 	rule.custom_minimum_size=Vector2(0,1)
+ 	rule.color=Color("#706c4c")
+@@ -214,7 +181,6 @@
+ 	_input_hint=_label("",14)
+ 	_input_hint.name="InputHint"
+ 	_input_hint.modulate=Color("#c4c5ab")
+-	_input_hint.add_theme_font_override("font",HINT_FACE)
+ 	_input_hint.position=Vector2(80,608)
+ 	_ui.add_child(_input_hint)
+ 	# Laid out from the hint line up, not from a fixed top: with Continue listed first (five rows) the
+--- original/scripts/main_menu.gd
++++ installed/scripts/main_menu.gd
+@@ -389,7 +389,7 @@
+ func _label(text: String, size: int = 24) -> Label:
+ 	var label := Label.new()
+ 	label.text = text
+-	var role := "title" if size >= 30 else "body"
++	var role := "title" if size >= 28 else ("label" if size <= 15 else "body")
+ 	label.add_theme_font_override("font", UI.font(role))
+ 	label.add_theme_font_size_override("font_size", UI.type_size(role))
+ 	label.add_theme_color_override("font_color", TEXT)
+@@ -614,10 +614,6 @@
+ 	b.text = text
+ 	b.custom_minimum_size = Vector2(0, 52)
+ 	b.alignment = HORIZONTAL_ALIGNMENT_LEFT
+-	b.add_theme_font_override("font", UI.font("button"))
+-	b.add_theme_font_size_override("font_size", UI.type_size("button"))
+-	for state in ["font_color", "font_hover_color", "font_focus_color", "font_pressed_color"]:
+-		b.add_theme_color_override(state, TEXT)
+ 	var plain := UI.frame("panel").duplicate()
+ 	plain.content_margin_top = 8
+ 	plain.content_margin_bottom = 8
+@@ -630,6 +626,7 @@
+ 	b.add_theme_stylebox_override("pressed", focus)
+ 	b.add_theme_stylebox_override("hover", focus)
+ 	b.add_theme_stylebox_override("focus", focus)
++	UI.style_button(b)
+ 	b.focus_entered.connect(_on_focus)
+ 	b.focus_entered.connect(_place_cursor)
+ 	b.mouse_entered.connect(b.grab_focus)
+--- original/scripts/soul_prologue.gd
++++ installed/scripts/soul_prologue.gd
+@@ -125,10 +125,7 @@
+ 	_t += delta
+ 	var full := _text().length()
+ 	if stage in ["talk", "after"]:
+-		var before := int(shown)
+ 		shown = minf(full, shown + delta * (200.0 if reduce_motion else 46.0))
+-		if int(shown) / 3 != before / 3 and int(shown) < full:
+-			_blip.play()
+ 		_speak = move_toward(_speak, 1.0 if shown < full else 0.45, delta * 2.0)
+ 		if String(_current()[1]) == "river":
+ 			_river = move_toward(_river, 1.0, delta * 0.6)
+@@ -158,6 +155,11 @@
+ func advance() -> void:
+ 	match stage:
+ 		"talk", "after":
++			# Finish the current shared dialogue page before moving to the next story line.
++			if not UI.line_done(_text()):
++				UI.finish_line()
++				shown = _text().length()
++				return
+ 			if shown < _text().length():
+ 				shown = _text().length()   # the first press finishes the line
+ 				return
+@@ -287,7 +289,7 @@
+ 		var r := (12.0 + 4.0 * sin(_t * 2.0 + k)) * _soul_scale
+ 		c.draw_rect(Rect2((at + Vector2(cos(a2), sin(a2) * 0.6) * r).round(), Vector2(1, 1)), Color(1, 1, 1, 0.6))
+ 	if _question > 0.0:
+-		c.draw_string(UI.HEAD, at + Vector2(10, -16), "?", HORIZONTAL_ALIGNMENT_LEFT, -1, 14, Color(1.0, 0.95, 0.8, minf(1.0, _question)))
++		UI.say(c, at + Vector2(10, -16), "?", "label", Color(1.0, 0.95, 0.8, minf(1.0, _question)))
+ 	if _flash > 0.0:
+ 		c.draw_rect(Rect2(Vector2.ZERO, LOW), Color(1, 1, 1, minf(1.0, _flash)))
+ 
+@@ -299,16 +301,11 @@
+ 			_draw_card(k)
+ 	if stage in ["talk", "after", "choose"]:
+ 		var box := Rect2(140, 498, 872, 122)
+-		# The presence has no face: a name tab and no portrait, the way an unseen voice speaks in
+-		# Explorers of Sky.
+-		UI.panel(c, box, 0.95)
+-		UI.nameplate(c, box.position + Vector2(24, -22), "???", 26)
+-		var text := _text().substr(0, int(shown)) if stage != "choose" else _text()
+-		c.draw_multiline_string(UI.HEAD, box.position + Vector2(30, 50), text, HORIZONTAL_ALIGNMENT_LEFT, box.size.x - 80, 21, 3, UI.TEXT)
++		# An unseen voice uses the same story role and two-row pages as the waking dialogue.
++		UI.dialogue(c, box, "???", _text(), null, _t)
+ 		if stage == "choose":
+-			UI.text(c, box.position + Vector2(0, 108), "A / D  choose      J  this shape", 15, Color(UI.MUTED, 0.6 + 0.4 * sin(_t * 4.0)), box.size.x - 30, HORIZONTAL_ALIGNMENT_RIGHT)
+-		elif shown >= _text().length():
+-			UI.next_arrow(c, box.end - Vector2(48, 36), _t)
++			UI.finish_line()   # the short choice prompt stays fully visible
++			UI.say(c, box.position + Vector2(0, 108), "A / D  choose      J  this shape", "label", Color(UI.MUTED, 0.6 + 0.4 * sin(_t * 4.0)), box.size.x - 30, HORIZONTAL_ALIGNMENT_RIGHT)
+ 
+ 
+ var _shared_scale := 0.0
+@@ -346,11 +343,11 @@
+ 		c.draw_set_transform(Vector2(dest.position.x + dest.size.x, dest.position.y), 0.0, Vector2(-1, 1))   # turned to its right
+ 		c.draw_texture_rect_region(tex, Rect2(Vector2.ZERO, dest.size), Rect2(box), Color(1, 1, 1, fade))
+ 		c.draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE)
+-	UI.text(c, r.position + Vector2(28, 238), NAMES[k], 24, (UI.EDGE_LIGHT if on else UI.TEXT) * Color(1, 1, 1, fade))
++	UI.say(c, r.position + Vector2(28, 238), NAMES[k], "name", (UI.EDGE_LIGHT if on else UI.TEXT) * Color(1, 1, 1, fade))
+ 	var ix: float = r.position.x + r.size.x - 28 - 30 * ESSENCES[k].size()
+ 	for es in ESSENCES[k]:   # the main essence first, as on the party screen
+ 		var icon := UI.essence_icon(es)
+ 		if icon != null:
+ 			c.draw_texture_rect(icon, Rect2(ix, r.position.y + 214, 28, 28), false, Color(1, 1, 1, fade))
+ 		ix += 30
+-	c.draw_multiline_string(UI.HEAD, r.position + Vector2(28, 262), FEEL[k], HORIZONTAL_ALIGNMENT_LEFT, r.size.x - 56, 15, 2, UI.MUTED * Color(1, 1, 1, fade))
++	c.draw_multiline_string(UI.font("body"), r.position + Vector2(28, 262), FEEL[k], HORIZONTAL_ALIGNMENT_LEFT, r.size.x - 56, UI.type_size("body"), 2, UI.MUTED * Color(1, 1, 1, fade))

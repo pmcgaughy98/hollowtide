@@ -287,13 +287,6 @@ static func _pan(town, to: Vector2, secs: float) -> void:
 	town.create_tween().tween_method(func(v: Vector2) -> void: town.cam_focus = v, from, to, secs).set_trans(Tween.TRANS_SINE)
 
 
-## Frame two places together, held above the text box (it covers the bottom third of the view).
-static func _frame(town, a: Vector2, b: Vector2) -> void:
-	var to := (a + b) * 0.5 + Vector2(0, 30)
-	var from: Vector2 = town.cam_focus if town.cam_focus != null else to
-	town.create_tween().tween_method(func(v: Vector2) -> void: town.cam_focus = v, from, to, 0.5).set_trans(Tween.TRANS_SINE)
-
-
 static func _face(town, e: Dictionary, f: String) -> void:
 	e["facing"] = f
 	town._place(e)
@@ -312,15 +305,12 @@ static func _step(town, e: Dictionary, d: Vector2i, time := 0.22) -> void:
 
 ## After the crew are gone the partner walks over to stand beside the leader: the same row, one tile of
 ## ground between them, facing each other (Preston, 2026-10-11: they overlapped after the shove).
-static func _beside(town, lead: Dictionary, partner: Dictionary) -> void:
+## `state` gets "done" once it stands there, for a caller that plays lines while it walks (Claude, 2026-10-26, S2).
+static func _beside(town, lead: Dictionary, partner: Dictionary, state := {}) -> void:
 	if partner == lead:
+		state["done"] = true
 		return
-	var side := 1 if partner["pos"].x >= lead["pos"].x else -1
-	var to: Vector2i = lead["pos"]
-	for c in [Vector2i(2 * side, 0), Vector2i(-2 * side, 0), Vector2i(side, 0), Vector2i(-side, 0)]:
-		if town.open_at(lead["pos"] + c) and not _held(town, lead["pos"] + c, partner):   # not on a teammate (RM11)
-			to = lead["pos"] + c
-			break
+	var to := _beside_tile(town, lead, partner)
 	var guard := 0
 	while _alive(town) and partner["pos"] != to and guard < 8:
 		guard += 1
@@ -332,18 +322,33 @@ static func _beside(town, lead: Dictionary, partner: Dictionary) -> void:
 			if d == Vector2i.ZERO or not town.open_at(partner["pos"] + d):
 				break
 		await _step(town, partner, d, 0.22)
+	state["done"] = true
 	if not _alive(town):
 		return
 	_face(town, partner, "w" if lead["pos"].x < partner["pos"].x else "e")
 	_face(town, lead, "e" if lead["pos"].x < partner["pos"].x else "w")
 
 
+## The tile _beside walks the partner to (split out 2026-10-26, S2, so the shot can frame it before it gets there).
+static func _beside_tile(town, lead: Dictionary, partner: Dictionary) -> Vector2i:
+	if partner == lead:
+		return partner["pos"]
+	var side := 1 if partner["pos"].x >= lead["pos"].x else -1
+	var to: Vector2i = lead["pos"]
+	for c in [Vector2i(2 * side, 0), Vector2i(-2 * side, 0), Vector2i(side, 0), Vector2i(-side, 0)]:
+		if town.open_at(lead["pos"] + c) and not _held(town, lead["pos"] + c, partner):   # not on a teammate (RM11)
+			to = lead["pos"] + c
+			break
+	return to
+
+
 const RUN_STEP := 0.12   # seconds a tile: a run, about twice the team's walk
 
 
 ## The crew's exit: Gruntle's path through the streets to the Mouth of the Hollow, the other two on his heels,
-## Mirekit holding the parcel up. The camera follows them down; at the gate they drop out of sight.
-static func _run_for_the_way_down(town, crew: Array, carrier: Dictionary) -> void:
+## Mirekit holding the parcel up. The camera follows them down; at the gate they drop out of sight. `state` gets
+## "done" at the end, for a caller that plays a line while they run (Claude, 2026-10-26, S2).
+static func _run_for_the_way_down(town, crew: Array, carrier: Dictionary, state := {}) -> void:
 	var gate: Dictionary = Layout.PLACES.filter(func(p: Dictionary) -> bool: return p["id"] == "gate")[0]
 	var route: Array = SceneKit.path(town, crew[0], gate["door"])
 	if route.is_empty():   # no way through: the old stroll off the screen
@@ -366,6 +371,7 @@ static func _run_for_the_way_down(town, crew: Array, carrier: Dictionary) -> voi
 			town.cam_focus = from.lerp(lead_node.position + Vector2(0, -10), minf(1.0, dt * 4.0))
 	if _alive(town):
 		await _wait(town, 0.5)   # a beat on the empty gate
+	state["done"] = true
 
 
 ## One crew member along the route, a tile at a time with its walk frames, fading out on the last tiles.
@@ -524,31 +530,40 @@ static func run(town) -> void:
 		if not _alive(town):
 			return
 	# 4. The crew run for the way down, the Mouth of the Hollow, and the camera follows them so the player sees
-	# where they went (Preston, 2026-10-11: "make the rival crew run towards it after stealing parcel").
+	# where they went (Preston, 2026-10-11: "make the rival crew run towards it after stealing parcel"). The partner's
+	# first words come from the ground as they go (Claude, 2026-10-26, pass 7 S2 / L7-07: the run and the getting up
+	# were 7.5 s with nothing to read).
 	town._sfx("hog_trot")
-	await _run_for_the_way_down(town, [g, mk, wh], mk if saved else {})
+	var run_state := {"done": false}
+	_run_for_the_way_down(town, [g, mk, wh], mk if saved else {}, run_state)   # not awaited: waited on below
+	var get_up: Array = GET_UP_STOLEN if saved else GET_UP
+	await _wait(town, 0.8)
+	if not _alive(town):
+		return
+	await _lines(town, get_up.slice(0, 1))
+	while _alive(town) and not run_state["done"]:
+		await town.get_tree().process_frame
 	if not _alive(town):
 		return
 	town.scene_fx.erase("parcel")
 	for e in [g, mk, wh]:
 		e["node"].queue_free()
 	town.npcs.clear()
-	# 5. The partner gets up.
-	_frame(town, partner["node"].position, lead["node"].position)
+	# 5. The partner gets up and comes over to the leader, talking as it comes (S2). The camera goes straight to the
+	# pair alone, heads clear of the top edge, framed where the partner will stand.
 	partner["down"] = false
 	town._place(partner)
 	town._sfx("dizzy")
+	var spot := _beside_tile(town, lead, partner)
+	_pan(town, _shot(town, [lead, [partner, spot, "w" if lead["pos"].x < spot.x else "e"]], false), 0.4)
 	await _wait(town, 0.4)
 	if not _alive(town):
 		return
-	await _beside(town, lead, partner)
-	if not _alive(town):
-		return
-	_pan(town, _shot(town, [lead, partner], false), 0.3)   # the pair alone, heads clear of the top edge
-	await _wait(town, 0.3)
-	if not _alive(town):
-		return
-	await _lines(town, GET_UP_STOLEN if saved else GET_UP)
+	var walk_state := {"done": false}
+	_beside(town, lead, partner, walk_state)   # not awaited: waited on below
+	await _lines(town, get_up.slice(1))
+	while _alive(town) and not walk_state["done"]:
+		await town.get_tree().process_frame
 	if not _alive(town):
 		return
 	for k in caught["faded"]:   # whoever sat the scene out comes back (RM11)

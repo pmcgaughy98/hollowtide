@@ -79,6 +79,7 @@ func _tick() -> void:
 	var file := _scene()
 	if file == "dungeon.tscn":
 		s.autopilot = not hold
+		s.check_bot = true   # the chain's bot reads the lines and welcomes recruits (dungeon.gd check_bot, L6-01)
 		if s.has_method("boss_cfg") and not s.boss_cfg().is_empty():
 			boss_seen = true
 		if not s.talk.is_empty() and Engine.get_process_frames() % 4 == 0:

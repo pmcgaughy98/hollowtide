@@ -106,7 +106,7 @@ func _run() -> void:
 	for nm in names:
 		for sense in [-1, 9]:
 			var nt: Array = Dungeon.hud_name_tag(nm, 99, sense)
-			var used: float = UI.width_in(nt[0], "body") + 10.0 + UI.width_in(nt[1], "label")
+			var used: float = UI.width_in(nt[0], "body") + 10.0 + UI.width_in(nt[1], String(nt[2]) if nt.size() > 2 else "label")   # the tag in its own role (dungeon.gd hud_name_tag, D3)
 			widest = maxf(widest, used)
 			if used > Dungeon.HUD_ROW_W:
 				_ok(false, "team row: %s with %s needs %.0f of %.0f px" % [nt[0], nt[1], used, Dungeon.HUD_ROW_W])
@@ -118,10 +118,9 @@ func _run() -> void:
 			if sense >= 0 and not String(nt[1]).contains("Sense"):
 				no_sense += 1
 	_ok(widest <= Dungeon.HUD_ROW_W, "team rows: %d names, widest row %.0f of %.0f px; %d names cut, %d teammates show no Sense at Lv 99" % [names.size(), widest, Dungeon.HUD_ROW_W, cut, no_sense])
-	# Since pass 4 D6 (dungeon lane, 2026-10-24: a teammate's row always says Sense and a long name clips) a cut name
-	# is expected; it must say so with UI.clip's "..", never stop bare (Claude, 2026-10-24: this point read "no
-	# creature name is cut short", the rule before D6).
-	_ok(bare == 0 and no_sense == 0, "team rows: %d cut names, each ending in '..'%s; every teammate shows Sense" % [cut, "" if cut_names.is_empty() else " (" + ", ".join(cut_names) + ")"])
+	# Since pass 6 D3 (dungeon lane, 2026-10-24) no name is cut: the tag steps down a face instead (Dungeon.hud_name_tag),
+	# and a teammate's row still always says Sense. Pass 4 D6 had let a long name clip with "..".
+	_ok(cut == 0 and bare == 0 and no_sense == 0, "team rows: %d cut names of %d%s; every teammate shows Sense" % [cut, names.size(), "" if cut_names.is_empty() else " (" + ", ".join(cut_names) + ")"])
 	# 2. The learn prompt: the question fits its row and the keys have their own footer row.
 	var q_w := UI.width_in("It knows four moves. Forget one?", UI.fit("It knows four moves. Forget one?", "body", 440))
 	var k_w := UI.width_in("W/S choose   J pick   Esc close", UI.fit("W/S choose   J pick   Esc close", "label", 440))
@@ -288,8 +287,9 @@ func _run() -> void:
 	# 6. The message box: shown with news, gone after LOG_LINGER, back on the next message.
 	dg._say("Kithflare looks around.")
 	await _frames(2)
-	var away := func() -> float: return smoothstep(0.0, 1.0, ((Time.get_ticks_msec() - dg._log_at) / 1000.0 - Dungeon.LOG_LINGER) / 0.3)
+	var away := func() -> float: return dg.log_away_now()
 	_ok(away.call() == 0.0, "message box: shown right after a message")
+	dg.log_clock_start()   # the player acts: the box's clock starts there, not at the line (ACC-09, pass 7)
 	dg._log_at -= int((Dungeon.LOG_LINGER + 0.5) * 1000.0)
 	await _frames(2)
 	_ok(away.call() == 1.0, "message box: gone %.1f s after the last message" % (Dungeon.LOG_LINGER + 0.5))

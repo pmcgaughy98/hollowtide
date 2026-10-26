@@ -58,6 +58,13 @@ static func after(dg) -> void:
 	var pc: Vector2 = BossIntro.pond_center(dg)
 	dg.cutscene = true
 	dg.talk.clear()
+	# The leader is in the scene from its first frame (L7-02, Claude, 2026-10-26): whole and in sight, never a ring
+	# with no one on it, and lying in the team's down pose when it was the one that fell.
+	var lead: Dictionary = dg.ents[0]
+	dg._stop_ko_fade(lead)
+	if lead["hp"] <= 0:
+		lead["hp"] = 1
+		lead["down"] = true
 	await _standoff(dg)   # the twist: the Warden was holding back, and the Guildmaster ends it
 	if not BossIntro._alive(dg):
 		return

@@ -1,0 +1,11 @@
+# Codex handoff: title panel bounds, October 26, 2026
+
+Original task 3 / latest pass 6 C2 COMPLETE/INSTALLED. Four panel placement changes across scripts/creature_opening.gd and scripts/main_menu.gd. Campaign Options now y120–599; both Help topics y120–621; Quit x635–1136 with 16px right margin, calculated from its actual combined minimum width. Shared base Options y120 also fixes legacy opening_flow's Options (bottom558). No wording/font/row-spacing/input/settings/art changes.
+
+Native campaign 12/12, clean; full current ui_fit assertions native 48/48, clean; official unmodified run_checks.py ui_fit reports PASS, exit0. Three title failures are now green. Legacy geometry/focus/cancel 6/6 but reports ObjectDB exit warnings, retained separately rather than called clean. All four native campaign panel captures inspected. No claim of rerunning the whole suite.
+
+Evidence, preview, exact source diff, original/current hashes and private test drivers: [title-panel-bounds-2026-10-26/README.md](../ui/title-panel-bounds-2026-10-26/README.md). All runs fixed30 with isolated profiles; native uses Compatibility/Dummy and private save paths. Existing Claude source, including its modified ui_fit test, preserved exactly; only the two owned source scripts plus queue/collaboration docs differ among 1373 protected existing files. No asset/generation, paid call, rules, real save or commit.
+
+Source issues for Claude: the first combined fixture freed the legacy menu before its unused world_journey load finished; waiting removed cascading shutdown resource errors. The legacy fixture still reports 100–101 ObjectDB instances at exit across baseline/installed runs. Current campaign and native ui_fit logs are clean. Unused legacy preload removal remains C12. Original task3's separation10 proposal is superseded by the latest C2 y636 target; spacing12 is retained.
+
+Next: original task4 / C1, inspect and check preference preservation plus temp-then-rename saving against the current split menu_preferences.cfg/game_prefs.cfg contract. Portrait task2 and Canvaswing task1 remain done; task2 crop approval remains Preston's. C3 roles/styles, C4 options/controller help and remaining factory/pass requests are still pending; proposed words retain their specified flags.

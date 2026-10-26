@@ -1,0 +1,56 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+[godot_ai game_helper] registered mcp capture (debugger active=false, logger=true)
+ok    team rows: 39 names, widest row 246 of 246 px; 0 names cut, 0 teammates show no Sense at Lv 99
+ok    team rows: 0 cut names of 39; every teammate shows Sense
+ok    learn prompt: question 224 px, keys 322 px, each within 440
+ok    learn prompt, 1 rows: keys row starts at 108, below the last row's 99
+ok    learn prompt, 4 rows: keys row starts at 204, below the last row's 195
+ok    learn prompt, 5 rows: keys row starts at 236, below the last row's 227
+ok    title, 4 rows: top stays at 324
+ok    title, 4 rows: menu ends at 590, above the key line at 608
+ok    title, 5 rows: menu ends at 596, above the key line at 608
+ok    title, 6 rows: menu ends at 596, above the key line at 608
+ok    hint 'WASD  walk     E  use': 132 px, drawn from x 946 to 1140
+ok    hint 'The Hollow's mouth starts a run': 210 px, drawn from x 930 to 1140
+ok    hint 'J attack   1 2 3 moves': 142 px, drawn from x 946 to 1140
+ok    hint 'I bag   T orders   Z rest': 155 px, drawn from x 946 to 1140
+ok    hint 'E stairs   Tab autopilot': 148 px, drawn from x 946 to 1140
+ok    hint 'Ctrl run   L messages': 138 px, drawn from x 946 to 1140
+ok    hint 'A attack   RB+A/X/Y moves': 176 px, drawn from x 946 to 1140
+ok    hint 'Y bag   LB orders   RB+B rest': 191 px, drawn from x 946 to 1140
+ok    hint 'X stairs   Back autopilot': 158 px, drawn from x 946 to 1140
+ok    hint 'RT run   R3 messages': 139 px, drawn from x 946 to 1140
+ok    hint 'A welcome it   B let it go': 157 px, drawn from x 946 to 1140
+ok    corner map: at most 240 x 180 px, left edge 888 clear of the team panel's 352
+ok    town panel, 2 lines: the text ends at 92, above the key hint's top at 99
+ok    town panel in a room, 3 rows: the text ends at 556, inside the frame at 568
+ok    town panel: 46 sign texts, each within its lines (street 2, room 3)
+ok    team move box: 65 moves, the tallest box 349 of 374 px
+ok    shrine rows: 11 growing lines, widest condition 106 of 180 px, widest count 96 of 122 px
+ok    dialogue box: a two-row page ends at 104, inside the frame at 104
+ok    dialogue box: 63 lines, every row within its width; the longest (107 letters) takes 2 pages
+ok    corner map on B1F (42 x 20 tiles): 5 px a tile, 210 x 100 px
+ok    message box: shown right after a message
+ok    message box: gone 3.5 s after the last message
+ok    message box: back on the next message
+ok    pause 'main': panel from 58 to 626 of 648
+ok    pause 'goal': panel from 58 to 503 of 648
+ok    pause 'bag': panel from 42 to 611 of 648
+ok    pause 'floor': panel from 58 to 419 of 648
+ok    pause 'log': panel from 58 to 410 of 648
+ok    pause 'options': panel from 58 to 582 of 648
+ok    pause 'controls': panel from 58 to 559 of 648
+ok    pause 'rebind': panel from 8 to 617 of 648
+ok    pause 'title': panel from 58 to 378 of 648
+ok    pause 'quit': panel from 58 to 403 of 648
+ok    Highbank Menu button under the key strip, right edge at 1146 or less: keyboard: button [P: (768.0, 582.0), S: (378.0, 52.0)], strip [P: (768.0, 516.0), S: (378.0, 62.0)]; pad: button [P: (768.0, 582.0), S: (378.0, 52.0)], strip [P: (768.0, 516.0), S: (378.0, 62.0)]
+ok    Home Menu button under the key strip, right edge at 1146 or less: keyboard: button [P: (847.0, 582.0), S: (299.0, 52.0)], strip [P: (847.0, 516.0), S: (299.0, 62.0)]; pad: button [P: (847.0, 582.0), S: (299.0, 52.0)], strip [P: (847.0, 516.0), S: (299.0, 62.0)]
+ok    title Options: panel from 58 to 582, to end by 636
+ok    title How to play, journey: panel from 120 to 602, to end by 636
+ok    title How to play, controls: panel from 120 to 602, to end by 636
+ui fit: all ok (0 failed)
+WARNING: 11 ObjectDB instances were leaked at exit (run with `--verbose` for details).
+   at: cleanup (core/object/object.cpp:2536)
+ERROR: 5 resources still in use at exit (run with --verbose for details).
+   at: clear (core/io/resource.cpp:822)

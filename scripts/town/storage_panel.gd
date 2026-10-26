@@ -9,8 +9,11 @@ extends RefCounted
 const Storage := preload("res://scripts/town/storage.gd")
 const UI := preload("res://scripts/ui/ui_style.gd")
 const SceneKit := preload("res://scripts/town/scene_kit.gd")
-const ROWS := 7          # rows shown at once: the panel then ends at 64 + 160 + 7 x 40 = 504, well inside 648
+const ROWS := 7          # rows shown at once: the panel then ends at 64 + 134 + 7 x 40 = 478, well inside 648
 const ROW_H := 40.0
+## Since pass 7 (Claude, 2026-10-26, T5 / L7-22) the heading is the brass name tab over the frame, as on the Job Board,
+## and the panel's lines move up 26 px into the line it left: the note at 46, the first row at TOP.
+const TOP := 68.0
 const GUTTER := 28.0     # right of the rows, where the scroll arrows sit
 static var _solid: StyleBoxTexture = null
 
@@ -129,17 +132,17 @@ static func draw(host: Node, h: CanvasItem) -> void:
 	var rows := entries(host)
 	var shown := clampi(rows.size(), 1, ROWS)
 	var top := _top(host, rows.size())
-	var box := Rect2(166, 64, 820, 160 + ROW_H * shown)
+	var box := Rect2(166, 64, 820, 134 + ROW_H * shown)
 	h.draw_style_box(_solid_frame(), box)
-	UI.text(h, box.position + Vector2(30, 40), "Storage", 26, UI.EDGE_LIGHT)
-	UI.text(h, box.position + Vector2(30, 72), "Kept between runs. Going down loses the bag, never this.", 16, UI.MUTED, 520)
-	UI.text(h, box.position + Vector2(30, 72), "Bag %d / %d kinds" % [rec.get("bag", {}).size(), Storage.bag_kinds()], 16, UI.MUTED, box.size.x - 60, HORIZONTAL_ALIGNMENT_RIGHT)
+	UI.nameplate(h, box.position + Vector2(28, -22), "Storage", 22)
+	UI.text(h, box.position + Vector2(30, 46), "Kept between runs. Going down loses the bag, never this.", 16, UI.MUTED, 520)
+	UI.text(h, box.position + Vector2(30, 46), "Bag %d / %d kinds" % [rec.get("bag", {}).size(), Storage.bag_kinds()], 16, UI.MUTED, box.size.x - 60, HORIZONTAL_ALIGNMENT_RIGHT)
 	if rows.is_empty():
-		UI.text(h, box.position + Vector2(30, 118), "Nothing in the bag, and nothing kept here yet.", 18, UI.TEXT, box.size.x - 60)
+		UI.text(h, box.position + Vector2(30, TOP + 24), "Nothing in the bag, and nothing kept here yet.", 18, UI.TEXT, box.size.x - 60)
 	for slot in mini(ROWS, rows.size() - top):
 		var k := top + slot
 		var row: Array = rows[k]
-		var r := Rect2(box.position + Vector2(24, 94 + slot * ROW_H), Vector2(box.size.x - 48 - GUTTER, 36))
+		var r := Rect2(box.position + Vector2(24, TOP + slot * ROW_H), Vector2(box.size.x - 48 - GUTTER, 36))
 		var on: bool = k == int(host.panel.get("sel", 0))
 		if on:
 			h.draw_rect(r, UI.FOCUS)
@@ -155,11 +158,11 @@ static func draw(host: Node, h: CanvasItem) -> void:
 	if arrow != null and rows.size() > ROWS:
 		var ax := roundf(box.end.x - 24.0 - (GUTTER + arrow.get_width()) * 0.5)
 		if top > 0:
-			h.draw_set_transform(Vector2(ax, box.position.y + 94 + 18 + arrow.get_height() * 0.5), 0.0, Vector2(1, -1))
+			h.draw_set_transform(Vector2(ax, box.position.y + TOP + 18 + arrow.get_height() * 0.5), 0.0, Vector2(1, -1))
 			h.draw_texture(arrow, Vector2.ZERO)
 			h.draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE)
 		if top + ROWS < rows.size():
-			h.draw_texture(arrow, Vector2(ax, box.position.y + 94 + (ROWS - 1) * ROW_H + 18 - arrow.get_height() * 0.5))
+			h.draw_texture(arrow, Vector2(ax, box.position.y + TOP + (ROWS - 1) * ROW_H + 18 - arrow.get_height() * 0.5))
 	if String(host.panel.get("said", "")) != "":
 		UI.text(h, box.end + Vector2(-box.size.x + 30, -44), String(host.panel["said"]), 16, UI.EDGE_LIGHT, box.size.x - 60)
 	# Key hints in the column style, key then action (Claude, 2026-10-22, W12); the device's keys since 2026-10-23

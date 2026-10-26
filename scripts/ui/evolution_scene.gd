@@ -17,6 +17,12 @@ const CENTER := Vector2(576, 300)
 ## The tallest the two stages may stand on screen (Claude, 2026-10-24, pass 5 T2: 380 so a pair of front idles is drawn
 ## at 2x, where 250 put Kithflare at 2x and Sparkwick at 1x; the box under them starts at 520).
 const HEIGHT := 380.0
+## The trade's quickest swap (Claude, 2026-10-26, ACC-01): 0.2 s apart is 2.5 light-dark flashes a second, under the
+## three a second WCAG allows for an area this large. Under Reduce motion one cross-fade of CROSS_FADE replaces the
+## trade, and the reveal's white goes to CALM_FLASH instead of full.
+const SWAP_MIN := 0.2
+const CROSS_FADE := 0.4
+const CALM_FLASH := 0.35
 ## The light the creature turns into (Claude, 2026-10-22, UI-04): a white layer over the finished sprite.
 ## The creature itself wears the house finish (CreatureFinish, with its sparkwick palette and outline);
 ## this layer is its silhouette, one texel wider so the outline goes white too, at `white` opacity.
@@ -50,6 +56,12 @@ var _new: Sprite2D
 var _old_frames: Array = []
 var _new_frames: Array = []
 var _back: Control
+## The light behind the creature (the column, the turning rays, the glow and the motes) is drawn at the world's own
+## pixel size and shown at 3x, so every edge steps in whole UI pixels like the soul prologue's beams (Claude,
+## 2026-10-24, L6-32: the rays were smooth polygons at screen size). Colours and timing are as they were.
+const LOW := Vector2i(384, 216)
+var _glow_vp: SubViewport
+var _glow: Node2D
 var stage := "intro"     # intro, whiten, trade, reveal, done (the checks read it)
 ## Both stages from one family of art at one whole scale (Claude, 2026-10-24, pass 5 T2 / LV-05). Each used to take its
 ## own: Kithflare's front idle at 2x turned into Sparkwick's at 1x, and the grown form stood smaller than the young one.
@@ -60,6 +72,14 @@ var scale_k := 1         # the one whole scale of both
 func _ready() -> void:
 	layer = 95
 	process_mode = Node.PROCESS_MODE_ALWAYS
+	_glow_vp = SubViewport.new()
+	_glow_vp.name = "GlowLow"
+	_glow_vp.size = LOW
+	_glow_vp.render_target_update_mode = SubViewport.UPDATE_ALWAYS
+	add_child(_glow_vp)
+	_glow = Node2D.new()
+	_glow.draw.connect(_draw_glow)
+	_glow_vp.add_child(_glow)
 	_back = Control.new()
 	_back.size = Vector2(1152, 648)
 	_back.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
@@ -133,6 +153,7 @@ func _process(delta: float) -> void:
 			s.texture = CreatureIdle.frame_at(frames, _t)
 			(s.get_meta("white") as Sprite2D).texture = s.texture
 	_flash = maxf(0.0, _flash - delta * 1.6)
+	_glow.queue_redraw()
 	_back.queue_redraw()
 
 
@@ -172,21 +193,36 @@ func run(old_form: String, new_form: String, old_name: String, new_name: String,
 	w.tween_method(func(v: float) -> void: _white(_old, v), 0.0, 1.0, 0.8)
 	await _wait(0.9)
 	_white(_new, 1.0)
-	# Old and new trade places, faster and faster.
+	# Old and new trade places, faster and faster, never closer than SWAP_MIN (ACC-01: the gaps reached 0.058 s, eight
+	# swaps of a 67,005 px2 silhouette in the last second). Under Reduce motion the two cross-fade once instead.
 	stage = "trade"
-	var gap := 0.42
-	var showing_new := false
-	while gap > 0.05:
-		showing_new = not showing_new
-		_old.visible = not showing_new
-		_new.visible = showing_new
-		await _wait(gap)
-		gap *= 0.82
+	var calm := UI.reduce_motion()
+	if calm:
+		_new.modulate.a = 0.0
+		_new.visible = true
+		var x := create_tween().set_parallel(true)
+		x.tween_property(_new, "modulate:a", 1.0, CROSS_FADE)
+		x.tween_property(_old, "modulate:a", 0.0, CROSS_FADE)
+		await _wait(CROSS_FADE)
+	else:
+		var gap := 0.42
+		var showing_new := false
+		var at_floor := 0
+		while at_floor < 5:   # 0.42 s down to the floor, then five at it: nine swaps in about 2.3 s, ending on the new form
+			showing_new = not showing_new
+			_old.visible = not showing_new
+			_new.visible = showing_new
+			await _wait(gap)
+			if gap <= SWAP_MIN:
+				at_floor += 1
+			gap = maxf(SWAP_MIN, gap * 0.82)
 	# The flash, and the new form.
 	stage = "reveal"
 	_old.visible = false
+	_old.modulate.a = 1.0
 	_new.visible = true
-	_flash = 1.0
+	_new.modulate.a = 1.0
+	_flash = CALM_FLASH if calm else 1.0
 	_sound("revive", -2.0)
 	Music.jingle(get_tree(), "evolution")
 	var r := create_tween()
@@ -221,22 +257,8 @@ func _advance_held() -> bool:
 
 func _draw_back() -> void:
 	var c := _back
-	c.draw_rect(Rect2(0, 0, 1152, 648), Color(0.07, 0.09, 0.08))
-	# The column of light and the turning rays behind the creature.
-	if _rays > 0.0:
-		for k in 14:
-			var a := _t * 0.25 + k * TAU / 14.0
-			var tip := CENTER + Vector2(cos(a), sin(a)) * 900.0
-			var side := Vector2(-sin(a), cos(a)) * 60.0
-			c.draw_colored_polygon(PackedVector2Array([CENTER, tip + side, tip - side]), Color(UI.EVO, 0.07 * _rays))
-		c.draw_rect(Rect2(CENTER.x - 90, 0, 180, 648), Color(UI.PORTRAIT_BG, 0.08 * _rays))
-		c.draw_circle(CENTER, 150.0, Color(UI.EVO, 0.10 * _rays))
-		c.draw_circle(CENTER, 90.0, Color(1, 1, 1, 0.06 * _rays))
-		# Motes rising through the light.
-		for k in 26:
-			var x := CENTER.x + sin(k * 12.9898) * 170.0
-			var y := fposmod(560.0 - (_t * (30.0 + (k % 7) * 9.0) + k * 37.0), 520.0) + 40.0
-			c.draw_rect(Rect2(roundf(x), roundf(y), 2 + k % 2, 2 + k % 2), Color(1, 1, 1, 0.5 * _rays))
+	# The dark and the light behind the creature, from the low layer at 3x (_back draws with no smoothing).
+	c.draw_texture_rect(_glow_vp.get_texture(), Rect2(0, 0, 1152, 648), false)
 	# The words, in the game's panel.
 	var box := Rect2(236, 520, 680, 92)
 	UI.panel(c, box, 0.95)
@@ -245,3 +267,26 @@ func _draw_back() -> void:
 		UI.text(c, box.position + Vector2(0, 76), "%s  %s" % [ControlsText.advance_text(), _sub], 15, UI.MUTED, box.size.x - 20, HORIZONTAL_ALIGNMENT_RIGHT)
 	if _flash > 0.0:
 		c.draw_rect(Rect2(0, 0, 1152, 648), Color(1, 1, 1, _flash))
+
+
+## The low layer, in UI pixels (a third of the screen's): the dark, then the column of light and the turning rays,
+## the glow round the creature and the motes, each the same shape, colour and pace as at screen size before.
+func _draw_glow() -> void:
+	var c := _glow
+	var mid := CENTER / 3.0
+	c.draw_rect(Rect2(Vector2.ZERO, Vector2(LOW)), Color(0.07, 0.09, 0.08))
+	if _rays <= 0.0:
+		return
+	for k in 14:
+		var a := _t * 0.25 + k * TAU / 14.0
+		var tip := mid + Vector2(cos(a), sin(a)) * 300.0
+		var side := Vector2(-sin(a), cos(a)) * 20.0
+		c.draw_colored_polygon(PackedVector2Array([mid, tip + side, tip - side]), Color(UI.EVO, 0.07 * _rays))
+	c.draw_rect(Rect2(mid.x - 30, 0, 60, LOW.y), Color(UI.PORTRAIT_BG, 0.08 * _rays))
+	c.draw_circle(mid, 50.0, Color(UI.EVO, 0.10 * _rays))
+	c.draw_circle(mid, 30.0, Color(1, 1, 1, 0.06 * _rays))
+	# Motes rising through the light, one UI pixel each (they were 2 or 3 screen pixels at any position).
+	for k in 26:
+		var x := CENTER.x + sin(k * 12.9898) * 170.0
+		var y := fposmod(560.0 - (_t * (30.0 + (k % 7) * 9.0) + k * 37.0), 520.0) + 40.0
+		c.draw_rect(Rect2(floorf(x / 3.0), floorf(y / 3.0), 1, 1), Color(1, 1, 1, 0.5 * _rays))

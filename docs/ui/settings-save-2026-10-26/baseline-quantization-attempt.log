@@ -1,0 +1,21 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+OpenGL API 3.3.0 NVIDIA 610.62 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce GTX 1660 SUPER
+
+[godot_ai game_helper] registered mcp capture (debugger active=false, logger=true)
+SETTINGS_CHECK title reaches menu -> ok
+SETTINGS_CHECK saved courier and three volumes loaded -> ok
+SETTINGS_CHECK initial shared motion cache off -> ok
+SETTINGS_CHECK unknown title section survives actual menu saves -> FAIL
+SETTINGS_CHECK all five title values saved together -> FAIL
+SETTINGS_CHECK title save leaves separate game prefs byte exact -> ok
+SETTINGS_CHECK successful title save clears dirty state -> ok
+SETTINGS_CHECK successful title save leaves no temporary file -> ok
+SETTINGS_CHECK shared motion reader immediately sees title change -> FAIL
+SETTINGS_CHECK bindings speed screen and future game key survive -> ok
+SETTINGS_CHECK pause save keeps female courier and master volume -> FAIL
+SETTINGS_CHECK pause save reports success -> ok
+SETTINGS_CHECK pause helper retains prior complete backup -> ok
+SETTINGS_CHECK pause helper consumes its temporary file -> ok
+SETTINGS_CHECK pause game preference keeps title file exact -> ok
+SETTINGS_CHECK interrupted pending write leaves final file exact -> ok
+SETTINGS RESULT {"failed":4,"passed":12,"phase":"before","total":16,"user_dir":"D:/dev/hollowtide-settings-save-20261026/baseline-profile/Godot/app_userdata/Hollowtide"}

@@ -59,6 +59,14 @@ var _reduce_motion := false
 var _music: AudioStreamPlayer
 var _fade: ColorRect
 var _buttons: Array[Button] = []
+var _continue_details: Label
+# C6 proposal wording: leave this default off until Preston chooses the words.
+@export var new_game_confirm_enabled := false
+var _new_game_panel: PanelContainer
+var _new_game_controls: Array[Control] = []
+var _new_game_return_page := "main"
+var _new_game_return_focus: Control
+var _new_game_confirmed := false
 var _continue_button: Button   # only when a save exists (Claude, 2026-10-12)
 var _save_note: Label   # only when the save came from its backup (Preston, 2026-10-22)
 var _motion_button: Button
@@ -76,6 +84,7 @@ var _step_clock := 0.0
 var _ui: CanvasLayer
 var _main_panel: PanelContainer
 var _journey_panel: PanelContainer
+var _title_settings: CanvasLayer
 var _options_panel: PanelContainer
 var _quit_panel: PanelContainer
 var _page := "main"
@@ -314,7 +323,7 @@ func _build_menu() -> void:
 	_main_panel = _panel("MainChoices", Vector2(820, 410), 290)
 	var list := _list(_main_panel)
 	# Continue is listed first when the team has a save (Claude, 2026-10-12, scripts/town/team_state.gd);
-	# New Game stays as it was and only overwrites the save when the new team first reaches Highbank.
+	# New Game keeps the existing file until the new journey next saves.
 	var entries: Array = []
 	if TeamState.has_save():
 		entries.append(["Continue", "Continue", _on_continue])
@@ -330,6 +339,17 @@ func _build_menu() -> void:
 		_buttons.append(b)
 		if entry[0] == "Continue":
 			_continue_button = b
+			_continue_details = _label(_continue_text(),18)
+			_continue_details.name = "ContinueDetails"
+			_continue_details.custom_minimum_size.y = 24
+			_continue_details.add_theme_color_override("font_color",UI.INK)
+			var details_row := PanelContainer.new()
+			details_row.name = "ContinueSummary"
+			var details_box := UI.frame("nameplate").duplicate()
+			details_box.set_content_margin_all(6)
+			details_row.add_theme_stylebox_override("panel",details_box)
+			details_row.add_child(_continue_details)
+			list.add_child(details_row)
 	# The last save was damaged (a crash or power cut mid-write) and the one before it was read instead:
 	# say so, as Preston asked, instead of quietly continuing from an older point (2026-10-22).
 	if _continue_button != null and TeamState.restored_from_backup:
@@ -342,6 +362,7 @@ func _build_menu() -> void:
 	_build_journey_panel()
 	_build_options_panel()
 	_build_quit_panel()
+	_build_new_game_panel()
 	_cursor = Polygon2D.new()
 	_cursor.name = "FocusCursor"
 	_cursor.polygon = PackedVector2Array([
@@ -389,7 +410,7 @@ func _list(panel: PanelContainer) -> VBoxContainer:
 func _label(text: String, size: int = 24) -> Label:
 	var label := Label.new()
 	label.text = text
-	var role := "title" if size >= 30 else "body"
+	var role := "title" if size >= 28 else ("label" if size <= 15 else "body")
 	label.add_theme_font_override("font", UI.font(role))
 	label.add_theme_font_size_override("font_size", UI.type_size(role))
 	label.add_theme_color_override("font_color", TEXT)
@@ -457,26 +478,110 @@ func _build_journey_panel() -> void:
 	_update_courier_selection()
 
 
+## A read-only preview of the record Continue uses, including a recovered backup.
+func _continue_text() -> String:
+	var record: Dictionary = TeamState._read().get("data", {})
+	var place := "Highbank"
+	var run: Variant = record.get("suspend", {})
+	if run is Dictionary and not run.is_empty():
+		var definitions: Dictionary = load("res://scripts/dungeon/dungeon.gd").get_script_constant_map()["DUNGEONS"]
+		place = "%s B%dF" % [definitions.get(String(run.get("dungeon","first")),{}).get("name","A Hollow"),maxi(1,int(run.get("floor_n",1)))]
+	var level := "?"
+	var party: Variant = record.get("party",[])
+	var levels: Variant = record.get("levels",{})
+	if party is Array and not party.is_empty() and party[0] is Array and not party[0].is_empty() and levels is Dictionary:
+		var entry: Variant = levels.get(int(party[0][0]),{})
+		if entry is Dictionary: level = str(maxi(1,int(entry.get("lv",1))))
+	return "%s   Lv %s" % [place,level]
+
+
+func _build_new_game_panel() -> void:
+	_new_game_panel = _panel("NewGameConfirmation",Vector2(296,216),560)
+	var list := _list(_new_game_panel)
+	list.add_child(_label("Start a new journey?",32))
+	var words := _label("Saving the new journey will replace your current save.",18)
+	words.name = "Consequences"
+	words.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
+	words.custom_minimum_size.x = 512
+	list.add_child(words)
+	for item in [["No",_cancel_new_game],["Yes",_confirm_new_game]]:
+		var button := _button(item[0])
+		button.name = item[0]
+		button.pressed.connect(item[1])
+		list.add_child(button)
+		_new_game_controls.append(button)
+
+
+func _ask_new_game() -> bool:
+	if _new_game_confirmed:
+		_new_game_confirmed = false
+		return false
+	if not new_game_confirm_enabled or not TeamState.has_save(): return false
+	if _page == "new_game": return true
+	_new_game_return_page = _page
+	_new_game_return_focus = get_viewport().gui_get_focus_owner()
+	_quiet_focus = true
+	_sound(CONFIRM_SOUND)
+	_show_page("new_game",_new_game_controls[0])
+	set_deferred("_quiet_focus",false)
+	return true
+
+
+func _cancel_new_game() -> void:
+	if _page != "new_game" or _leaving: return
+	_new_game_confirmed = false
+	var first: Control = _new_game_return_focus if is_instance_valid(_new_game_return_focus) else _buttons[0]
+	_sound(CANCEL_SOUND)
+	_show_page(_new_game_return_page,first)
+
+
+func _confirm_new_game() -> void:
+	if _page != "new_game" or _leaving: return
+	_new_game_confirmed = true
+	_on_new_game()   # one-use consent, then the existing campaign/legacy entry point
+
+
 func _build_options_panel() -> void:
-	_options_panel = _panel("Options", Vector2(700, 254), 410)
-	var list := _list(_options_panel)
-	list.add_child(_label("Options", 34))
-	_volume_control(list, "Master volume", "Master", _master_volume)
-	_volume_control(list, "Music volume", "Music", _music_volume)
-	_motion_button = _button("")
-	_motion_button.name = "ReduceMotion"
-	_motion_button.pressed.connect(_on_toggle_motion)
-	list.add_child(_motion_button)
-	_options_controls.append(_motion_button)
-	_update_motion_label()
-	var back := _button("Back")
-	back.name = "Back"
-	back.pressed.connect(_close_panel)
-	list.add_child(back)
-	_options_controls.append(back)
-	_options_status = _label("Changes are saved automatically.", 18)
-	_options_status.name = "Status"
-	list.add_child(_options_status)
+	_title_settings = load("res://scripts/ui/title_settings.gd").new()
+	add_child(_title_settings)
+	_title_settings.closed.connect(_title_settings_closed)
+	_title_settings.page_changed.connect(_title_settings_page)
+	_title_settings.preferences_changed.connect(_refresh_title_preferences)
+	_title_settings.show_page("options")
+	_title_settings.overlay.hide()
+
+
+func _title_settings_closed() -> void:
+	_refresh_title_preferences()
+	var return_to: Control = _buttons[0]
+	for b in _buttons:
+		if b.name == "Options": return_to = b
+	_show_page("main", return_to)
+
+
+func _title_settings_page() -> void:
+	_options_panel = _title_settings.overlay.get_node("PausePanel")
+	_options_controls.assign(_title_settings.controls)
+	_options_status = _title_settings.status
+	_motion_button = _title_settings.content.get_node_or_null("ReduceMotion")
+	if _page == "options":
+		_focus_controls.assign(_options_controls)
+
+
+func _save_title_option(section: String, key: String, value: Variant) -> void:
+	if section == "audio":
+		set("_%s_volume" % key, float(value))
+	elif key == "reduce_motion":
+		_reduce_motion = bool(value)
+	elif key == "courier":
+		_selected_courier = String(value)
+	_settings_dirty = true
+	_save_preferences()
+
+
+func _refresh_title_preferences() -> void:
+	_load_preferences()
+	_apply_motion_setting()
 
 
 func _volume_control(list: VBoxContainer, caption: String, bus: String, initial: float) -> void:
@@ -552,10 +657,16 @@ func _build_quit_panel() -> void:
 
 func _show_page(page: String, first: Control) -> void:
 	_page = page
+	if _title_settings != null:
+		if page == "options":
+			_title_settings.show_page("options")
+			first = _options_controls[0]
+		_title_settings.overlay.visible = page == "options"
 	_main_panel.visible = page == "main"
 	_journey_panel.visible = page == "journey"
 	_options_panel.visible = page == "options"
 	_quit_panel.visible = page == "quit"
+	_new_game_panel.visible = page == "new_game"
 	_focus_controls.clear()
 	match page:
 		"main":
@@ -567,6 +678,8 @@ func _show_page(page: String, first: Control) -> void:
 			_focus_controls.assign(_options_controls)
 		"quit":
 			_focus_controls.assign(_quit_controls)
+		"new_game":
+			_focus_controls.assign(_new_game_controls)
 	# Every page is its own focus loop. Hidden controls cannot receive focus.
 	for i in _focus_controls.size():
 		var control := _focus_controls[i]
@@ -587,11 +700,15 @@ func _show_page(page: String, first: Control) -> void:
 		for card in _courier_buttons:
 			card.focus_neighbor_bottom = _begin_button.get_path()
 		_begin_button.focus_neighbor_top = _courier_buttons[0 if _selected_courier == "Male" else 1].get_path()
-	first.grab_focus.call_deferred()
+	if page != "options": first.grab_focus.call_deferred()
 	_place_cursor.call_deferred()
 
 
 func _unhandled_input(event: InputEvent) -> void:
+	if _page == "new_game" and (UI.pressed(event,"cancel") or UI.pressed(event,"ui_cancel")):
+		_cancel_new_game()
+		get_viewport().set_input_as_handled()
+		return
 	if event.is_action_pressed("ui_cancel") and _page != "main" and not _leaving:
 		_close_panel()
 		get_viewport().set_input_as_handled()
@@ -614,10 +731,6 @@ func _button(text: String) -> Button:
 	b.text = text
 	b.custom_minimum_size = Vector2(0, 52)
 	b.alignment = HORIZONTAL_ALIGNMENT_LEFT
-	b.add_theme_font_override("font", UI.font("button"))
-	b.add_theme_font_size_override("font_size", UI.type_size("button"))
-	for state in ["font_color", "font_hover_color", "font_focus_color", "font_pressed_color"]:
-		b.add_theme_color_override(state, TEXT)
 	var plain := UI.frame("panel").duplicate()
 	plain.content_margin_top = 8
 	plain.content_margin_bottom = 8
@@ -630,6 +743,7 @@ func _button(text: String) -> Button:
 	b.add_theme_stylebox_override("pressed", focus)
 	b.add_theme_stylebox_override("hover", focus)
 	b.add_theme_stylebox_override("focus", focus)
+	UI.style_button(b)
 	b.focus_entered.connect(_on_focus)
 	b.focus_entered.connect(_place_cursor)
 	b.mouse_entered.connect(b.grab_focus)
@@ -654,6 +768,7 @@ func _on_focus() -> void:
 func _on_new_game() -> void:
 	if _leaving:
 		return
+	if _ask_new_game(): return
 	_sound(CONFIRM_SOUND)
 	_show_page("journey", _courier_buttons[0] if _selected_courier == "Male" else _courier_buttons[1])
 
@@ -744,6 +859,9 @@ func _on_quit() -> void:
 
 
 func _close_panel() -> void:
+	if _page == "new_game":
+		_cancel_new_game()
+		return
 	if _leaving:
 		return
 	# Back to the button that opened the page, by name: Continue may sit first (Claude, 2026-10-12).
@@ -809,14 +927,19 @@ func _save_preferences() -> void:
 	if not _settings_dirty:
 		return
 	var config := ConfigFile.new()
+	config.load(PREFERENCES)   # keep keys this menu does not edit
 	config.set_value("audio", "master", _master_volume)
 	config.set_value("audio", "music", _music_volume)
 	config.set_value("audio", "sfx", _sfx_volume)
 	config.set_value("menu", "reduce_motion", _reduce_motion)
 	config.set_value("menu", "courier", _selected_courier)
-	var error := config.save(PREFERENCES)
+	var error := config.save(PREFERENCES + ".tmp")
+	if error == OK:
+		error = DirAccess.rename_absolute(ProjectSettings.globalize_path(PREFERENCES + ".tmp"), ProjectSettings.globalize_path(PREFERENCES))
 	if error == OK:
 		_settings_dirty = false
+		UI.reload_prefs()
+		_options_status.text = "Changes are saved automatically."
 	else:
 		_options_status.text = "Settings could not be saved."
 		push_warning("Menu preferences could not be saved: %s" % error_string(error))

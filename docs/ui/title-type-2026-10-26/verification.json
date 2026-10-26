@@ -1,0 +1,34 @@
+{
+  "unchanged_functions": {
+    "scripts/main_menu.gd": [
+      "_save_preferences",
+      "_load_preferences",
+      "_volume_control",
+      "_on_new_game",
+      "_on_continue"
+    ],
+    "scripts/creature_opening.gd": [
+      "_build_wordmark",
+      "_on_new_game",
+      "menu_top"
+    ],
+    "scripts/soul_prologue.gd": [
+      "_ready",
+      "_text",
+      "_start_line",
+      "_move_pick",
+      "_fly",
+      "_card_rect",
+      "_card_scale",
+      "_input",
+      "_on_click"
+    ]
+  },
+  "dialogue_constants_exact": true,
+  "creature_font_file_overrides_removed": true,
+  "soul_UI_HEAD_users_removed": true,
+  "installed_hashes_exact": true,
+  "native_title_story": "45/45",
+  "native_ui_fit": "48/48",
+  "official_runner": "3 PASS; exit0"
+}

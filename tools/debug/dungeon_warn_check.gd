@@ -82,6 +82,7 @@ func _run() -> void:
 	await _frames(3)
 	dg.dodged = 0
 	dg.autopilot = true
+	dg.check_bot = true   # reads lines and welcomes recruits on autopilot (dungeon.gd check_bot, L6-01)
 	var frames := 0
 	var gathered_n := 0
 	var seen := 0

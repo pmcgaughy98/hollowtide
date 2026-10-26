@@ -306,8 +306,15 @@ static func _light(img: Image, seed_value: int) -> void:
 ## edge runs straight. Only the walls' own colours: the face's stones and their lit tops, the mortar, the lip, the dark
 ## top and black.
 ## Distances are Chebyshev from the lit ground: floor tiles, and the face (with its brink line) of a wall above floor.
+## The cap row (Claude, 2026-10-24, pass 6 P3, L6-24; the live run read a room's sides as a thin dark band speckling
+## into black, and a hallway's south side as no wall at all): past the joint a back course of cap stones in the wall's
+## shade, in a running bond against the block tops, each stone BACK_MIN to BACK_MIN + BACK_SPAN - 1 pixels deep, so
+## its back edge steps rather than running straight, with a dark line along that edge. Beside or below the floor (a
+## room's sides and south, both sides of a hallway's walls) the dark starts there. Above a face the steps follow it.
 const CAP := 7     # the brick-top row: the brink, five rows of block tops, the joint
 const STEP := 4    # each step's depth into the dark
+const BACK_MIN := 4
+const BACK_SPAN := 4
 
 
 static func _wall_tops(img: Image, data: Dictionary, t: int, face_h: int, top: Color) -> void:
@@ -315,6 +322,7 @@ static func _wall_tops(img: Image, data: Dictionary, t: int, face_h: int, top: C
 	var h: int = data["h"]
 	var tiles: PackedByteArray = data["tiles"]
 	var W := w * t
+	var H := h * t
 	var lit_tops: Array = []
 	for c in WALL:
 		lit_tops.append(c.lightened(0.08))   # the face's course tops, the same colours
@@ -323,6 +331,7 @@ static func _wall_tops(img: Image, data: Dictionary, t: int, face_h: int, top: C
 	var dists: PackedInt32Array = F[0]
 	var softs: PackedInt32Array = F[1]
 	var alongs: PackedByteArray = F[2]
+	var faces: PackedByteArray = F[3]
 	var deep: PackedByteArray = F[4]
 	# The marks' fine noise for the steps into the dark, laid out once (pass 5 A4; _fall).
 	var M := _layer(0, 0, W, h * t, MARK_CELL, MARK_K)
@@ -364,15 +373,35 @@ static func _wall_tops(img: Image, data: Dictionary, t: int, face_h: int, top: C
 								c = MORTAR   # a chip in the block
 					elif d == CAP - 1:
 						c = MORTAR   # the joint behind the row
-					elif soft > CAP + 3 * STEP + 7:
-						c = Color.BLACK
 					else:
-						# Rough dark top, then the steps (_fall); their edges wander up to six pixels on a soft noise.
-						var e := soft - CAP - 1 - int(_noise(gx, gy, 9.0, 81) * 7.0)
-						var i := mrows[gy] + mcol[gx]
-						var f := mfxs[gx]
-						var v := lerpf(lerpf(mlat[i], mlat[i + 1], f), lerpf(mlat[i + mlw], mlat[i + mlw + 1], f), mfys[gy])
-						c = _fall(e, STEP, v, top, MORTAR, gx, gy)
+						# The back course (pass 6 P3): its joints sit halfway along the block tops'; each stone its own depth.
+						var along := gx if along_x else gy
+						var across := y if along_x else x
+						var stone := (along + 7) / 8
+						var depth := BACK_MIN + int(_h(stone, across, 87 if along_x else 88) * BACK_SPAN)
+						if d < CAP + depth:
+							var tone: Color = WALL[int(_h(stone, across, 89) * WALL.size())]
+							c = _shade(tone, 0.62).lerp(COOL, 0.12)
+							if d == CAP:
+								c = _shade(tone, 0.78)   # its near edge, catching the light
+							if (along + 7) % 8 == 0 or (d > CAP and _h(gx, gy, 85) > 0.95):
+								c = _shade(MORTAR, 0.8)   # a joint, or a chip in the stone
+						elif d == CAP + depth:
+							c = _shade(MORTAR, 0.55)   # the dark line along its back edge
+						elif faces[row + px] == 0 or not along_x or soft > CAP + 3 * STEP + 7:
+							c = Color.BLACK   # beside or below the floor: the dark, behind the cap row; above a face: past the steps
+						else:
+							# Above a face: rough dark top, then the steps (_fall); their edges wander up to six pixels.
+							var wander := int(_noise(gx, gy, 9.0, 81) * 7.0)
+							var e := soft - CAP - 1 - wander
+							# Near the picture's edge the pixel is pushed down the steps, so the fall ends in black along a
+							# wandering line instead of being cut off by the frame (Claude, 2026-10-24, pass 6 P1, LO6-04).
+							var edge := mini(mini(gx, gy), mini(W - 1 - gx, H - 1 - gy))
+							e = maxi(e, 3 * STEP - edge + wander)
+							var i := mrows[gy] + mcol[gx]
+							var f := mfxs[gx]
+							var v := lerpf(lerpf(mlat[i], mlat[i + 1], f), lerpf(mlat[i + mlw], mlat[i + mlw + 1], f), mfys[gy])
+							c = _fall(e, STEP, v, top, MORTAR, gx, gy)
 					img.set_pixel(gx, gy, c)
 
 

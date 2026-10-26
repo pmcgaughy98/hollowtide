@@ -24,8 +24,18 @@ static func finished_image(img:Image)->Image:
 					result.set_pixel(x,y,rim.get_pixel(x,y));break
 	return result
 static func apply(sprite:Sprite2D,img:Image)->void:
-	var material:=ShaderMaterial.new()
-	material.shader=BankFinish.SHADER
-	material.set_shader_parameter("detail_mask",ImageTexture.create_from_image(mask(img)))
-	material.set_shader_parameter("detail_ink",0.55)
-	sprite.material=material
+	BankFinish.apply_mask(sprite,_kept(img)[1])
+
+## The finished facade and its mask, made once a session (Claude, 2026-10-26, pass 7 S5 / LF7-05): the walk up from
+## town and the flood's arch each spent about 0.6 s finishing the same picture. Kept with the hash of the picture
+## they came from; the finish math above is unchanged. finished_texture is shared, so nobody draws into it.
+static var _kept_key:=0
+static var _kept_pair:Array=[]
+static func _kept(img:Image)->Array:
+	var key:=hash(img.get_data())
+	if _kept_pair.is_empty() or _kept_key!=key:
+		_kept_pair=[ImageTexture.create_from_image(finished_image(img)),ImageTexture.create_from_image(mask(img))]
+		_kept_key=key
+	return _kept_pair
+static func finished_texture(img:Image)->Texture2D:
+	return _kept(img)[0]

@@ -1,0 +1,17 @@
+{
+  "command": [
+    "C:/Users/pmcga/Games/Tools/Godot_v4.7.2/Godot_v4.7.2-stable_win64.exe",
+    "--headless",
+    "--path",
+    "C:/Users/pmcga/dev/hollowtide",
+    "--audio-driver",
+    "Dummy",
+    "--fixed-fps",
+    "30",
+    "--script",
+    "D:\\dev\\hollowtide-settings-save-20261026\\pause_gap.gd"
+  ],
+  "APPDATA": "D:\\dev\\hollowtide-settings-save-20261026\\pause-gap-profile",
+  "LOCALAPPDATA": "D:\\dev\\hollowtide-settings-save-20261026\\pause-gap-local-profile",
+  "exit": 0
+}

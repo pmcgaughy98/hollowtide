@@ -86,6 +86,7 @@ func _run() -> void:
 		for k in 4:
 			await process_frame
 		d2.autopilot = true
+		d2.check_bot = true   # reads lines and welcomes recruits on autopilot (dungeon.gd check_bot, L6-01)
 		var last_turn: int = d2.turn
 		var streak := {}
 		var longest := 0

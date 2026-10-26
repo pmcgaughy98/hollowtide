@@ -1,0 +1,31 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+OpenGL API 3.3.0 NVIDIA 610.62 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce GTX 1660 SUPER
+
+[godot_ai game_helper] registered mcp capture (debugger active=false, logger=true)
+TITLE_BOUNDS creature_opening reaches main menu -> ok
+TITLE_RECT creature_opening-options [P: (666.0, 180.0), S: (442.0, 479.0)]
+TITLE_BOUNDS creature_opening-options full frame inside safe screen -> FAIL
+TITLE_BOUNDS creature_opening options focus visible -> ok
+TITLE_RECT creature_opening-help-journey [P: (430.0, 168.0), S: (678.0, 501.0)]
+TITLE_BOUNDS creature_opening-help-journey full frame inside safe screen -> FAIL
+TITLE_BOUNDS journey action StartNewGame inside frame -> ok
+TITLE_BOUNDS journey action Back inside frame -> ok
+TITLE_RECT creature_opening-help-controls [P: (430.0, 168.0), S: (678.0, 501.0)]
+TITLE_BOUNDS creature_opening-help-controls full frame inside safe screen -> FAIL
+TITLE_BOUNDS controls action StartNewGame inside frame -> ok
+TITLE_BOUNDS controls action Back inside frame -> ok
+TITLE_RECT creature_opening-quit [P: (666.0, 312.0), S: (501.0, 247.0)]
+TITLE_BOUNDS creature_opening-quit full frame inside safe screen -> FAIL
+TITLE_BOUNDS creature_opening quit question fully inside viewport -> FAIL
+TITLE_BOUNDS creature_opening cancel returns to main -> ok
+TITLE_BOUNDS opening_flow reaches main menu -> ok
+TITLE_RECT opening_flow-options [P: (700.0, 254.0), S: (410.0, 438.0)]
+TITLE_BOUNDS opening_flow-options full frame inside safe screen -> FAIL
+TITLE_BOUNDS opening_flow options focus visible -> ok
+TITLE_RECT opening_flow-quit [P: (720.0, 330.0), S: (393.0, 228.0)]
+TITLE_BOUNDS opening_flow-quit full frame inside safe screen -> ok
+TITLE_BOUNDS opening_flow quit question fully inside viewport -> ok
+TITLE_BOUNDS opening_flow cancel returns to main -> ok
+TITLE BOUNDS: 12/18
+WARNING: 100 ObjectDB instances were leaked at exit (run with `--verbose` for details).
+   at: cleanup (core/object/object.cpp:2536)

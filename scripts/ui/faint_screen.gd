@@ -131,7 +131,8 @@ func _draw() -> void:
 	UI.panel(self, r)
 	for item in laid[0]:
 		UI.say(self, Vector2(r.position.x + 36, r.position.y + float(item[3])), String(item[0]), String(item[1]), item[2], PANEL_W - 72, item[4])
-	UI.next_arrow(self, Vector2(r.end.x - 44, r.end.y - 40), clock)
+	# No "more" arrow here: the defeat panel is the last page, and its key line says what the press does (Claude,
+	# 2026-10-24, W11).
 
 
 ## The defeat panel's rect: PANEL_X and PANEL_W across, as tall as its lines, centred on the screen.
@@ -162,7 +163,7 @@ func _layout() -> Array:
 	y += 8.0
 	# The key is the device's in use: E on a keyboard, A on a pad (Claude, 2026-10-23, ControlsText.advance_text).
 	out.append(["%s   %s" % [ControlsText.advance_text(), "Go home" if to_town else "Try again"], "body", GOLD, y + body_f.get_ascent(body_n), HORIZONTAL_ALIGNMENT_CENTER])
-	y += body_f.get_height(body_n) + 34.0   # room under the hint for the next arrow and the frame
+	y += body_f.get_height(body_n) + 34.0   # room under the hint for the frame (the next arrow's room before W11)
 	return [out, roundf(y)]
 
 
@@ -170,18 +171,19 @@ func _layout() -> Array:
 func _rows() -> Array:
 	var rows: Array = []
 	rows.append(["%s went down on %s of %s." % [info.get("leader", "The leader"), info.get("floor", "B1F"), info.get("dungeon", "the Hollow")], UI.TEXT])
-	rows.append(["Beaten by %s after %d turns. Wild creatures downed on the way: %d." % [info.get("fell_to", "the dark"), int(info.get("turns", 0)), int(info.get("downed", 0))], DIM])
+	rows.append(["Beaten by %s after %s. Wild creatures downed on the way: %d." % [info.get("fell_to", "the dark"), UI.count_words(int(info.get("turns", 0)), "turn"), int(info.get("downed", 0))], DIM])
 	# An empty bag is not a loss: no "Lost: the bag (0 items)." line (pass 3 D10, Claude, 2026-10-23). The parcels
-	# and the run's recruits are still told when they went.
+	# and the run's recruits are still told when they went. A count of one reads "1 item", "1 turn" (Claude, 2026-10-24,
+	# W10), and the recruits go back into the Hollow, the town news's "new partners" (L6-27, W11).
 	var lost := ""
 	if int(info.get("lost_items", 0)) > 0:
-		lost = "Lost: the bag (%d items)." % int(info.get("lost_items", 0))
+		lost = "Lost: the bag (%s)." % UI.count_words(int(info.get("lost_items", 0)), "item")
 	var parcels: Array = info.get("lost_parcels", [])
 	if not parcels.is_empty():   # the deliveries went with the bag (R4)
-		lost = "Lost: the bag (%d items), with the parcel for %s." % [int(info.get("lost_items", 0)), " and ".join(parcels)]
+		lost = "Lost: the bag (%s), with the parcel for %s." % [UI.count_words(int(info.get("lost_items", 0)), "item"), " and ".join(parcels)]
 	var recruits: Array = info.get("lost_recruits", [])
 	if not recruits.is_empty():
-		lost += (" " if lost != "" else "") + "The run's recruits went back into the hollow: %s." % ", ".join(recruits)
+		lost += (" " if lost != "" else "") + "The new partners went back into the Hollow: %s." % ", ".join(recruits)
 	if lost != "":
 		rows.append([lost, Color("e6a07a")])
 	var kept := "Kept: levels, moves and your partners."   # ends at the partners (Claude, 2026-10-22, W30)

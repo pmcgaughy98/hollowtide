@@ -149,6 +149,7 @@ func _run() -> void:
 	root.add_child(run)
 	await _frames(4)
 	run.autopilot = true
+	run.check_bot = true   # reads lines and welcomes recruits on autopilot (dungeon.gd check_bot, L6-01)
 	var t0: int = Time.get_ticks_msec()
 	while run.floor_n < 2 and run.ents[0]["hp"] > 0 and Time.get_ticks_msec() - t0 < 120000:
 		await _frames(10)

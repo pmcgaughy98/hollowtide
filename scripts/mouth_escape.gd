@@ -27,6 +27,7 @@ const TITLE := "res://scenes/creature_opening.tscn"   # where Return goes, as fr
 const PATH := [Vector2(238, 96), Vector2(212, 114), Vector2(184, 128), Vector2(160, 138), Vector2(136, 146)]
 const TRAIL_END := Vector2(134, 186)
 const WALK_FPS := 8.0
+const LIFT_STEP := 0.05   # the most one frame takes off the opening black, in seconds (pass 6 S3)
 const DRY_TOP := 60   # the rain streaks are on the clay below the river; the river and the ruin stay as painted
 # The dawn grade (Claude, 2026-10-23, S3): the night painting's blacks lifted to a morning grey, a little less colour,
 # and a warm light along the far bank, per painting row. It replaces a flat warm tint that only darkened the night.
@@ -61,6 +62,7 @@ var _clock := 0.0
 var _mist: Sprite2D
 var asking := false   # the "Back to the title?" prompt is up (Claude, 2026-10-23, S5)
 var ask_row := 0
+var _lift := 0.0      # while above 0, the seconds the opening black takes to lift (pass 6 S3)
 
 # Read by the dialogue file ({{...}}).
 var partner_name: String:
@@ -118,7 +120,15 @@ func _ready() -> void:
 	_veil.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	ui.add_child(_veil)
 	Music.play(get_tree(), "")   # morning quiet after the storm; the town's music starts in Highbank
-	await create_tween().tween_property(_veil, "color:a", 0.0, 0.3 if reduce_motion else 1.2).finished
+	# The black starts to lift as soon as the scene is built (Claude, 2026-10-24, pass 6 S3, L6-14). _process takes it
+	# down with each frame's step capped at LIFT_STEP, so the long frame that paid for the build (about 0.8 s windowed:
+	# the bank's finish, the dried painting, the mist) cannot spend most of the fade at once and pop the morning in, as
+	# a tween did. The first line comes once it is clear, as before.
+	_lift = 0.3 if reduce_motion else 1.2
+
+
+## The opening black is gone: the partner's first line.
+func _begin_talk() -> void:
 	line = await DialogueManager.get_next_dialogue_line(TALK, "start", [self])
 
 
@@ -166,6 +176,11 @@ func _pose() -> void:
 
 
 func _process(delta: float) -> void:
+	if _lift > 0.0:
+		_veil.color.a = maxf(0.0, _veil.color.a - minf(delta, LIFT_STEP) / _lift)
+		if _veil.color.a <= 0.0:
+			_lift = 0.0
+			_begin_talk()
 	_clock += delta
 	_walking = maxf(0.0, _walking - delta)
 	_pose()
@@ -265,15 +280,24 @@ func _draw_talk() -> void:
 			UI.say(_box, at, ["Resume", "Return"][k], "button", UI.EDGE_LIGHT if k == ask_row else UI.MUTED)
 
 
+## The answers in the line's own face and size, as the flood talk draws them (creature_prologue.gd _draw_choices;
+## Claude, 2026-10-26, pass 7 S4 / LF7-06): the story role at the line's row height, the list as wide as its longest
+## answer and clear of the text box. The words do not change.
 func _draw_choices() -> void:
 	var rows := line.responses.size()
-	var r := Rect2(BOX.end.x - 300, BOX.position.y - 34 - rows * 34, 300, 24 + rows * 34)
+	var pitch := UI.font("story").get_height(UI.type_size("story"))   # the line's own row height
+	var w := 0.0
+	for k in rows:
+		w = maxf(w, UI.width_in(String(line.responses[k].text), "story"))
+	var width := ceilf((w + 72.0) * 0.5) * 2.0   # 44 for the cursor, 28 to the right edge, kept even for the 2x grid
+	var tall := 34.0 + rows * pitch
+	var r := Rect2(BOX.end.x - width, BOX.position.y - 10 - tall, width, tall)
 	UI.panel(_box, r, 0.95)
 	for k in rows:
-		var at := r.position + Vector2(44, 34 + k * 34)
+		var at := r.position + Vector2(44, 44 + k * pitch)   # the first row's baseline as far down as the box's first line
 		if k == choice:
-			UI.say(_box, at - Vector2(26, 0), ">", "label", UI.EDGE_LIGHT)
-		UI.say(_box, at, String(line.responses[k].text), "label", UI.EDGE_LIGHT if k == choice else UI.MUTED)
+			UI.say(_box, at - Vector2(26, 0), ">", "story", UI.EDGE_LIGHT)
+		UI.say(_box, at, String(line.responses[k].text), "story", UI.EDGE_LIGHT if k == choice else UI.MUTED)
 
 
 func _leave() -> void:

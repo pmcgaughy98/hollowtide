@@ -1,0 +1,27 @@
+{
+  "protected_baseline_files": 1002,
+  "protected_unchanged_after_docs": 997,
+  "owned_production_changes": [
+    "scripts/creature_opening.gd",
+    "scripts/main_menu.gd"
+  ],
+  "concurrent_source_changes_preserved": [
+    "tools/debug/timing_check.gd"
+  ],
+  "all_changed_existing_paths": [
+    "docs/AI_COLLABORATION.md",
+    "docs/team/CODEX_TASKS_2026-10-22.md",
+    "scripts/creature_opening.gd",
+    "scripts/main_menu.gd",
+    "tools/debug/timing_check.gd"
+  ],
+  "prior_docs_preserved": true,
+  "native": "47/47 clean",
+  "native_ui_fit": "48/48 clean",
+  "official": "3 PASS; exit0; known raw warnings retained",
+  "prompt_default": "OFF pending wording choice",
+  "shared_preference_gap": "OPEN; prior candidate not installed",
+  "local_links_checked": 19,
+  "evidence": "C:\\Users\\pmcga\\dev\\hollowtide\\docs\\ui\\title-new-game-2026-10-26",
+  "handoff": "C:\\Users\\pmcga\\dev\\hollowtide\\docs\\team\\CODEX_HANDOFF_2026-10-26_title_new_game.md"
+}

@@ -133,7 +133,7 @@ func _entrance_texture() -> Texture2D:
 	var img := preload("res://scripts/ui/waking_bank.gd").detailed_image(ENTRANCE)
 	if img != null:
 		EntranceFinish.apply(entrance, img)
-		return ImageTexture.create_from_image(EntranceFinish.finished_image(img))
+		return EntranceFinish.finished_texture(img)   # made once a session (Claude, 2026-10-26, pass 7 S5)
 	return ImageTexture.create_from_image(_stand_in())
 
 

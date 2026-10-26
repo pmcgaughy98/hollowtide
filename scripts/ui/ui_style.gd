@@ -111,6 +111,12 @@ static func clip(s: String, role: String, width: float) -> String:
 	return cut.strip_edges() + ".."
 
 
+## A count with its word, one or many (Claude, 2026-10-24, W10): count_words(1, "item") is "1 item", 2 is "2 items";
+## `many` for a word that does not just take an s.
+static func count_words(n: int, one: String, many := "") -> String:
+	return "%d %s" % [n, one if n == 1 else (many if many != "" else one + "s")]
+
+
 ## Which role an older call's font size stands for, so screens not yet given roles still land on the grid.
 static func role_for(old_size: int) -> String:
 	return "label" if old_size <= 15 else "body"
@@ -126,7 +132,7 @@ static func style_button(b: Button) -> void:
 	b.add_theme_color_override("font_focus_color", EDGE_LIGHT)
 	b.add_theme_color_override("font_hover_pressed_color", EDGE_LIGHT)
 	b.add_theme_color_override("font_pressed_color", EDGE_LIGHT.darkened(0.15))
-	b.add_theme_color_override("font_disabled_color", Color(MUTED, 0.45))
+	b.add_theme_color_override("font_disabled_color", Color(MUTED, 0.7))   # 0.7, about 4.3:1 on the pause panel (Claude, 2026-10-26, ACC-16; was 0.45)
 	if b.has_theme_stylebox_override("normal"):
 		b.add_theme_stylebox_override("disabled", b.get_theme_stylebox("normal"))   # dimmed, still framed
 	for state in ["pressed", "hover_pressed"]:
@@ -181,6 +187,56 @@ static func panel(c: CanvasItem, r: Rect2, alpha := 0.92, focus := false) -> voi
 	var need: float = 2.0 * float(FRAME_MARGIN[name])
 	r = r.grow_individual(maxf(0.0, need - r.size.x) * 0.5, maxf(0.0, need - r.size.y) * 0.5, maxf(0.0, need - r.size.x) * 0.5, maxf(0.0, need - r.size.y) * 0.5)
 	c.draw_style_box(frame(name), r)
+
+
+## The pixel scrollbar (Claude, 2026-10-24, S3 / LV-34; moved here from rebind_page.gd, LO6-03): a 9-slice track and
+## thumb cut from the UI frames, no flat boxes. The track is a strip of the panel's weave between two of its dark rule
+## lines, a shade darker, so it reads as a channel; the thumb is the name tab's brass, outline, light edge and shadow.
+## The track's side margins add up to the bar's width, so a scroll container keeps that width clear for the bar
+## instead of laying its rows under it (it reserves the bar's own minimum width, not the custom one).
+## The rebind page, the Growth Shrine's two lists and the bag use it.
+const SCROLL_BAR_W := 15.0   # five UI pixels: outline, light, brass, shadow, outline
+static var _bar_styles := {}
+
+
+static func style_scroll_bar(bar: ScrollBar) -> void:
+	if _bar_styles.is_empty():
+		var track := StyleBoxTexture.new()
+		track.texture = frame("panel_dim").texture
+		# Columns 3 to 24 and rows 7 to 20 of the 28 x 28 frame (1x): a dark rule each side, clear of the corner studs.
+		track.region_rect = Rect2(9, 21, 66, 42)
+		track.texture_margin_left = 3.0
+		track.texture_margin_right = 3.0
+		track.content_margin_left = SCROLL_BAR_W * 0.5
+		track.content_margin_right = SCROLL_BAR_W * 0.5
+		track.content_margin_top = 0.0
+		track.content_margin_bottom = 0.0
+		track.axis_stretch_horizontal = StyleBoxTexture.AXIS_STRETCH_MODE_TILE
+		track.axis_stretch_vertical = StyleBoxTexture.AXIS_STRETCH_MODE_TILE
+		track.modulate_color = Color(0.72, 0.72, 0.72)
+		var thumb := StyleBoxTexture.new()
+		thumb.texture = frame("nameplate").texture
+		# The tab is 14 x 12 at 1x: two columns each side (outline and light, shadow and outline) round one of its
+		# brass, three rows on top, two below; the rounded corners come with them.
+		thumb.texture_margin_left = 6.0
+		thumb.texture_margin_right = 6.0
+		thumb.texture_margin_top = 9.0
+		thumb.texture_margin_bottom = 6.0
+		thumb.axis_stretch_horizontal = StyleBoxTexture.AXIS_STRETCH_MODE_TILE
+		thumb.axis_stretch_vertical = StyleBoxTexture.AXIS_STRETCH_MODE_TILE
+		var lit := thumb.duplicate() as StyleBoxTexture   # under the pointer or held: the same brass, brighter
+		lit.modulate_color = Color(1.25, 1.2, 1.1)
+		_bar_styles = {"scroll": track, "scroll_focus": track, "grabber": thumb, "grabber_highlight": lit, "grabber_pressed": lit}
+	bar.custom_minimum_size.x = SCROLL_BAR_W
+	bar.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
+	for state in _bar_styles:
+		bar.add_theme_stylebox_override(state, _bar_styles[state])
+
+
+## The words for a line's way of growing (dungeon.gd EVO's "way"), one table for the Growth Shrine and the Team page
+## (Claude, 2026-10-24, L6-22: the two pages had their own; the shrine's are kept, and the widest, "Health restored",
+## is 106 px of the Team page's 110). Words only: the counts and goals are Grok's.
+const WAY_NAMES := {"flank": "Pincer hits", "ambush": "Hits on sleepers", "took": "Damage taken", "slam": "Slams", "healed": "Health restored"}
 
 
 ## The speaker's brass name tab, sized to the name, its text in dark ink. Returns its rect.
@@ -634,11 +690,11 @@ static func item_icon(kind: String) -> Texture2D:
 ## The pixels of a res:// picture, in RGBA8, in the editor and in an exported game alike (Claude, 2026-10-24, A4
 ## for LV-19). An export carries the imported texture and not the PNG, so Image.load_from_file on a globalized
 ## path found nothing there and every art layer quietly fell back to its stand-in painting. The imported texture
-## is read first (on the main thread, where the renderer hands its pixels back), the file itself only when there
+## is read first (off the main thread the renderer answers on its next frame: poll such a worker, never block on it), the file itself only when there
 ## is no import. A copy every time, so a painter can draw on it. Null when neither exists.
 static func res_image(path: String) -> Image:
 	var img: Image = null
-	if ResourceLoader.exists(path) and OS.get_thread_caller_id() == OS.get_main_thread_id():
+	if ResourceLoader.exists(path):
 		var res := load(path)
 		if res is Texture2D:
 			img = (res as Texture2D).get_image()
@@ -968,7 +1024,8 @@ const INPUT_CONTEXTS := {
 }
 ## The actions that move a line or a scene on (J, Enter, Space and E today; A and X on a pad).
 const INPUT_ADVANCE := ["confirm", "attack", "interact"]
-## Pad chords: the pad buttons of these actions count only while the named action is held.
+## Pad chords: the pad buttons of these actions count only while the named action is held, when another action beside
+## them uses the same button (chord_needed; Claude, 2026-10-26, ACC-04).
 const INPUT_CHORDS := {"move_slot_1": "moves_hold", "move_slot_2": "moves_hold", "move_slot_3": "moves_hold", "rest": "moves_hold"}
 ## The words a rebinding page shows for each action (proposals; Preston's to change).
 const INPUT_NAMES := {
@@ -1070,7 +1127,7 @@ static func pressed(event: InputEvent, action: StringName) -> bool:
 		return false
 	if event is InputEventJoypadButton:
 		if INPUT_CHORDS.has(String(action)):
-			return _hold_down(INPUT_CHORDS[String(action)])
+			return not chord_needed(action, event.button_index) or _hold_down(INPUT_CHORDS[String(action)])
 		if event.button_index in _chord_buttons() and _any_hold_down():
 			return false
 	elif event is InputEventJoypadMotion:
@@ -1113,7 +1170,7 @@ static func binding_text(action: StringName, device := "", every := false) -> St
 		if _is_pad(ev) != (device == "pad"):
 			continue
 		var s := event_text(ev)
-		if s != "" and ev is InputEventJoypadButton and INPUT_CHORDS.has(String(action)):
+		if s != "" and ev is InputEventJoypadButton and chord_needed(action, ev.button_index):
 			s = binding_text(INPUT_CHORDS[String(action)], "pad") + "+" + s
 		if s != "" and not out.has(s):
 			out.append(s)
@@ -1166,10 +1223,11 @@ static func _input_id(ev: InputEvent) -> String:
 	return ""
 
 
-## A binding's id for the clash rule: a chord's pad button is its own input ("RB then A" is not "A").
+## A binding's id for the clash rule: a chord's pad button is its own input ("RB then A" is not "A") while the chord
+## is needed; a chord action's button that nothing beside it uses is the plain button.
 static func _bind_id(action: StringName, ev: InputEvent) -> String:
 	var id := _input_id(ev)
-	if id != "" and ev is InputEventJoypadButton and INPUT_CHORDS.has(String(action)):
+	if id != "" and ev is InputEventJoypadButton and chord_needed(action, ev.button_index):
 		return "%s+%s" % [INPUT_CHORDS[String(action)], id]
 	return id
 
@@ -1231,17 +1289,39 @@ static func _chord_role(action: StringName) -> bool:
 	return false
 
 
-## A pad press of `action` that the chord rule hides: a chord's button without its hold, or a plain action's
-## button while a hold is down. Keys are never hidden.
+## A pad press of `action` that the chord rule hides: a chord's button without its hold (when chord_needed), or a
+## plain action's button while a hold is down. Keys are never hidden.
 static func _muted(action: StringName, ev: InputEvent) -> bool:
 	if not (ev is InputEventJoypadButton):
 		return false
 	var a := String(action)
 	if INPUT_CHORDS.has(a):
-		return not _hold_down(INPUT_CHORDS[a])
+		return not _hold_down(INPUT_CHORDS[a]) and chord_needed(action, ev.button_index)
 	if INPUT_CHORDS.values().has(a):
 		return false   # the hold itself
 	return ev.button_index in _chord_buttons() and _any_hold_down()
+
+
+## Whether a chord action's pad `button` needs its hold (RB) to count (Claude, 2026-10-26, ACC-04): only while another
+## action live in one of the same INPUT_CONTEXTS also uses that button, the binding_clashes rule. The defaults keep
+## every chord, since A, X, Y and B already attack, use, open the bag and go back in a Hollow; a move rebound to a
+## button nothing else there uses (L3) fires alone. False for an action outside INPUT_CHORDS.
+static func chord_needed(action: StringName, button: int) -> bool:
+	var a := String(action)
+	if not INPUT_CHORDS.has(a):
+		return false
+	var hold: String = INPUT_CHORDS[a]
+	for ctx in INPUT_CONTEXTS:
+		var live: Array = INPUT_CONTEXTS[ctx]
+		if not live.has(a):
+			continue
+		for other: String in live:
+			if other == a or other == hold or not InputMap.has_action(other):
+				continue
+			for ev: InputEvent in InputMap.action_get_events(other):
+				if ev is InputEventJoypadButton and ev.button_index == button:
+					return true
+	return false
 
 
 ## The hold action down (read straight from its events, so the chord rule never asks itself).

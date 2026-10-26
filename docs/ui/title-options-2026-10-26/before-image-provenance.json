@@ -1,0 +1,12 @@
+{
+  "status": "Before images reused from previous checked slice; both owned menu originals match that installed source SHA256 exactly",
+  "source_evidence": "docs/ui/title-type-2026-10-26/native-after",
+  "source_files": {
+    "scripts/main_menu.gd": "0e34296726e6e222eef9b4cbaf79413e1958d929510f51564bb79556988c8778",
+    "scripts/creature_opening.gd": "db6ef846a8f204eb44ac048678bc226a3de2dfcf6caeb1338c3b687fb598bf10"
+  },
+  "images": {
+    "controls-keyboard.png": "9519eafaab74edb50227f3ca08413fef0cbd2075e726d9cb0d08cd86cc6f3e42",
+    "options.png": "6dd94528bd14a6dac4cdd7f49f078ac8805a1d4f0df1342648ef4c7749ddefb5"
+  }
+}

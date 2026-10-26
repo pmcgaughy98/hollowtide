@@ -1,0 +1,28 @@
+{
+  "protected_before": 1001,
+  "protected_unchanged_after_docs": 995,
+  "owned_production_change": [
+    "scripts/main_menu.gd"
+  ],
+  "concurrent_source_changes_preserved": [
+    "scripts/dungeon/dungeon.gd",
+    "scripts/town/hub_town.gd",
+    "scripts/town/town_room.gd"
+  ],
+  "all_changed_existing_paths": [
+    "docs/AI_COLLABORATION.md",
+    "docs/team/CODEX_TASKS_2026-10-22.md",
+    "scripts/dungeon/dungeon.gd",
+    "scripts/main_menu.gd",
+    "scripts/town/hub_town.gd",
+    "scripts/town/town_room.gd"
+  ],
+  "current_documentation_preserved": true,
+  "native_installed": "28/28",
+  "official_rebind": "PASS,26 assertions,exit0; known noise archived",
+  "shared_pause_gap": "reproduced; active Claude-owned source unchanged",
+  "candidate_shared_fix": "8/8, proposal only, NOT installed",
+  "local_links_checked": 23,
+  "evidence": "C:\\Users\\pmcga\\dev\\hollowtide\\docs\\ui\\settings-save-2026-10-26",
+  "handoff": "C:\\Users\\pmcga\\dev\\hollowtide\\docs\\team\\CODEX_HANDOFF_2026-10-26_settings_save.md"
+}

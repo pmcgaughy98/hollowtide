@@ -1,0 +1,18 @@
+{
+  "command": [
+    "C:/Users/pmcga/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe",
+    "tools/debug/run_checks.py",
+    "ui_fit",
+    "--jobs",
+    "1",
+    "--logs",
+    "D:\\dev\\hollowtide-title-bounds-20261026\\runner",
+    "--md",
+    "D:\\dev\\hollowtide-title-bounds-20261026\\runner-result.md"
+  ],
+  "cwd": "C:\\Users\\pmcga\\dev\\hollowtide",
+  "APPDATA": "D:\\dev\\hollowtide-title-bounds-20261026\\runner-profile",
+  "LOCALAPPDATA": "D:\\dev\\hollowtide-title-bounds-20261026\\runner-local-profile",
+  "exit": 0,
+  "result": "PASS ui_fit_check"
+}

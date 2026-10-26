@@ -1,0 +1,14 @@
+--- a/scripts/ui/ui_style.gd
++++ b/scripts/ui/ui_style.gd
+@@ -783,8 +783,9 @@
+ 	if err == OK:
+ 		var main := ProjectSettings.globalize_path(path)
+ 		if FileAccess.file_exists(path):
+-			DirAccess.rename_absolute(main, main + ".bak")   # replaces the older .bak
+-		err = DirAccess.rename_absolute(ProjectSettings.globalize_path(tmp), main)
++			err = DirAccess.copy_absolute(main, main + ".bak")   # keep the final readable until replacement
++		if err == OK:
++			err = DirAccess.rename_absolute(ProjectSettings.globalize_path(tmp), main)
+ 	reload_prefs()
+ 	if err != OK:
+ 		push_warning("Prefs: could not save %s (%s)" % [path, error_string(err)])

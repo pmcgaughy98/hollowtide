@@ -1,0 +1,36 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+[godot_ai game_helper] registered mcp capture (debugger active=false, logger=true)
+prefs before: menu_preferences.cfg none, game_prefs.cfg none
+ok    the InputPrefs autoload is there
+ok    a check run skips saved bindings and the saved screen mode unless forced (InputPrefs._applies)
+ok    the pause menu's rebind page opens
+ok    rows read the defaults: Attack 'J / Space | A', Rest 'Z / . | RB+B'
+ok    the key line fits the page: 'Enter  change    Left/Right  first or second key    Esc  back' 630 of 664 px
+ok    listening: the row reads 'Press a key or a button' as one line, the columns hidden
+ok    listening: the prompt is centred across both columns (386 px wide from x 262)
+ok    keyboard: Attack's first key is now K, Space kept (K, Space)
+ok    keyboard: the hints and the row follow ('K', 'K / Space | A')
+ok    pad: Bag's button is now L3 ('I | L3')
+ok    Right on the Attack row picks its second keyboard cell, shown in gold instead of the first
+ok    second key: Space became U and the first key K is unchanged (K, U)
+ok    second key: I is refused, Bag keeps it and the page keeps listening ('I is already Bag. Choose another, or change Bag first.')
+ok    Esc stops listening
+ok    saved in game_prefs.cfg, the title's file untouched
+ok    reloaded: 2 actions back (Attack K, U, Bag on the pad L3)
+ok    after a title save: the rebinds survive
+ok    after a title save: text speed (2) and full screen (true) survive
+ok    after a title save: the title's file holds its own keys only (audio, menu)
+ok    text speed saved in the title's file moves to game_prefs.cfg on the next read (now 0)
+ok    an older install's prefs move to game_prefs.cfg: Attack H, text speed 2, full screen true
+ok    an older install: the title's file keeps the courier and loses only the moved keys
+ok    rebind list scrolled to its end: 7 headings and rows show, none cut by the edge
+ok    rebind list at its top: 7 headings and rows show, none cut by the edge
+ok    Reset to defaults: Attack J, Space, Bag on the pad Y, nothing saved
+prefs after:  menu_preferences.cfg none, game_prefs.cfg none
+ok    both prefs files are back as they were (SHA-256 menu_preferences.cfg none, game_prefs.cfg none)
+rebind: all ok (0 failed)
+WARNING: 11 ObjectDB instances were leaked at exit (run with `--verbose` for details).
+   at: cleanup (core/object/object.cpp:2536)
+ERROR: 5 resources still in use at exit (run with --verbose for details).
+   at: clear (core/io/resource.cpp:822)

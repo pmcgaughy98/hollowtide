@@ -350,6 +350,10 @@ var party: Array = [[0, 0], [1, 0]]     # your team, [line, stage]; the first on
 var floor_n := 1
 var floor_seed := 0
 var autopilot := false
+## Only a check sets this (L6-01, D1, Claude, 2026-10-24): its autopilot still reads the lines and welcomes a creature
+## that asks to join, so the headless chains play to the end. The player's Tab never answers: a line or a question
+## turns the autopilot off and waits for E, or for Y or N.
+var check_bot := false
 var poll_input := true                  # the checks turn this off and call act_* themselves
 var turn := 0
 var busy := false
@@ -445,8 +449,9 @@ var log_marks: Array = []               # each line's name colours, the same len
 ## The message box steps out of the way when nothing new has been said for a while, as Explorers of
 ## Sky's does, and is back on the next message (the menu's Message log keeps the history).
 const LOG_LINGER := 3.0                 # 4.0 until LV-20 (D6, Claude, 2026-10-24): it sat over the map too long
-var _log_at := 0                        # msec of the newest message
+var _log_at := 0                        # msec the box's LOG_LINGER clock started (the player's first action after the newest line)
 var _log_pinned := false                # L opened the box: it stays until L shuts it (D6, D8)
+var _log_waits := false                 # a line is newer than the player's last action: the box stays while the floor waits (ACC-09)
 var explored := PackedByteArray()
 var _fields := {}
 var _pops: Array[Dictionary] = []       # floating numbers and words
@@ -562,6 +567,15 @@ func _ready() -> void:
 		_world.visible = false   # the empty world draws nothing while it waits
 		await get_tree().process_frame
 		await get_tree().process_frame
+		# The build in the stairs' two halves (LF7-01, Claude, 2026-10-26): the map's paint, a drawn frame of the card,
+		# then the creatures and items. As one piece the first floor of a run froze the card for 2 s. The creatures'
+		# pictures load on worker threads while the map is painted. Only with a player at a window (_threads_ok): a
+		# headless run keeps pass 6's two frames and one build, which the checks count (integrator, pass 7).
+		if _threads_ok():
+			_ask_art_ahead()
+			await get_tree().process_frame
+			await _paint_ahead()
+			await get_tree().process_frame
 		_world.visible = true
 	_build_floor(true)
 	if not resume.is_empty():
@@ -743,8 +757,7 @@ func _build_floor(fresh_team: bool) -> void:
 	if floor_kind() == "boss" and intro_here():
 		pond = BossIntro.pond_rect(data["stairs"])
 	var look: String = DUNGEONS[dungeon]["looks"].get(floor_n, "bank")
-	var painter: Variant = {"ruin": RuinPainter, "riverbank": BankPainter, "valley": ValleyPainter}.get(look, Painter)
-	_map.texture = _floor_picture(painter, look)
+	_map.texture = _floor_picture(painter_for(look), look)
 	_trap_ink = trap_ink(look)   # a sprung trap is painted in this floor's colours (pass 3 D4)
 	DungeonFinish.apply(_map, data, T, look)
 	explored = PackedByteArray()
@@ -824,6 +837,13 @@ func _build_floor(fresh_team: bool) -> void:
 			if line.size() > 2:
 				form += ":" + String(line[2])   # the line's face
 			talk.append([String(line[0]).replace("{partner}", partner).replace("{boss}", ents[boss]["name"]), line[1], form])
+	_take_unread_art()   # pictures asked ahead for a wild kind the floor did not place (LF7-01)
+	# The Menu button is hidden from the first frame under the card or a scene (LF7-03, Claude, 2026-10-26): made with
+	# the menu above, it showed "MENU [P]" on the arrival card until _process had counted two frames of hiding.
+	var menu := get_node_or_null("GamePauseMenu")
+	if menu != null and menu.hint != null and (card_showing() or cutscene):
+		menu.hint.visible = false
+		_menu_hidden_for = 2
 
 
 ## Before the floor shows, while the card is up, load what a hit plays (PERF-07, D11, Claude, 2026-10-24): the effect
@@ -894,12 +914,74 @@ var _menu_hidden_for := 0     # frames in a row the Menu button has had a reason
 var _trap_ink := {}           # this floor's trap colours (trap_ink, pass 3 D4)
 
 
+## The painter for a floor's look.
+static func painter_for(look: String) -> Variant:
+	return {"ruin": RuinPainter, "riverbank": BankPainter, "valley": ValleyPainter}.get(look, Painter)
+
+
+## The next floor's picture, painted ahead of _build_floor on the stairs (L6-15, D7, Claude, 2026-10-24). A build is
+## two halves, the map and its paint (300 to 900 ms on Rootbank Warren) and then the creatures and items (10 to 590
+## ms); painted here on the full card, one drawn frame comes between them, and _build_floor makes the same map again
+## from the seed (about 1 ms) and finds its picture in _floor_cache. Nothing else is touched.
+## Every kind of floor (LF7-02, Claude, 2026-10-26): a boss or rest floor's one room is made as _build_floor makes it,
+## so its picture is cached too (the stairs into The Hollow's B3F and the Warren's den were one 1.4 s freeze).
+## With a player watching (poll_input), the paint itself runs on a worker thread and the card keeps drawing while it
+## does (LF7-02, Claude, 2026-10-26): the crew's den alone is 820 ms of painting, one frozen frame on the card. The
+## painters are pure Image work on their own map; the picture is made into a texture and cached back here. Headless
+## runs and checks with input off count frames, so for them it stays one call, as before (_threads_ok).
+func _paint_ahead() -> void:
+	var made: Dictionary = Gen.generate(floor_seed, RECIPE) if floor_kind() == "normal" else _fixed_floor(floor_kind())
+	var look: String = DUNGEONS[dungeon]["looks"].get(floor_n, "bank")
+	var key := _picture_key(look)
+	if _floor_cache.has(key):
+		return
+	var painter: Variant = painter_for(look)
+	var mouth: bool = painter == RuinPainter and dungeon == "mouth"
+	var seed_v := floor_seed
+	if not _threads_ok() or not is_inside_tree():
+		_keep_picture(key, _paint(painter, made, mouth, seed_v))
+		return
+	var out: Array = []
+	var job := WorkerThreadPool.add_task(func() -> void: out.append(_paint(painter, made, mouth, seed_v)))
+	_paint_job = job
+	while not WorkerThreadPool.is_task_completed(job) and is_inside_tree():
+		await get_tree().process_frame
+	if _paint_job != job:
+		return   # the scene left the tree mid-paint and _exit_tree already waited for it
+	_paint_job = -1
+	WorkerThreadPool.wait_for_task_completion(job)
+	if not out.is_empty() and out[0] is Image:
+		_keep_picture(key, out[0])
+
+
+var _paint_job := -1   # the worker task painting ahead, until it is waited for
+
+
+## Work on worker threads under the card only with a player at a real window (LF7-01 and LF7-02, Claude, 2026-10-26):
+## the headless runs (every check, the pilot chain with its input on) keep the one-call build they count frames by,
+## and their dummy renderer cannot make textures off the main thread.
+func _threads_ok() -> bool:
+	return poll_input and DisplayServer.get_name() != "headless"
+
+
 func _floor_picture(painter: Variant, look: String) -> Texture2D:
-	var key := "%s|%d|%d|%s" % [dungeon, floor_n, floor_seed, look]
+	var key := _picture_key(look)
 	if _floor_cache.has(key):
 		return _floor_cache[key]
-	# The Mouth's ruin is the outer Hollow's stone (ruin_painter.gd's "mouth" variant); every other ruin is the Hollow's.
-	var img: Image = painter.paint(data, T, floor_seed, "mouth") if painter == RuinPainter and dungeon == "mouth" else painter.paint(data, T, floor_seed)
+	return _keep_picture(key, _paint(painter, data, painter == RuinPainter and dungeon == "mouth", floor_seed))
+
+
+func _picture_key(look: String) -> String:
+	return "%s|%d|%d|%s" % [dungeon, floor_n, floor_seed, look]
+
+
+## A floor's map painted by its look's painter. The Mouth's ruin is the outer Hollow's stone (ruin_painter.gd's "mouth"
+## variant); every other ruin is the Hollow's. Static, so a worker thread can run it (_paint_ahead).
+static func _paint(painter: Variant, made: Dictionary, mouth: bool, seed_v: int) -> Image:
+	return painter.paint(made, T, seed_v, "mouth") if mouth else painter.paint(made, T, seed_v)
+
+
+func _keep_picture(key: String, img: Image) -> Texture2D:
 	var tex := ImageTexture.create_from_image(img)
 	_floor_cache[key] = tex
 	_floor_cache_keys.append(key)
@@ -1326,18 +1408,18 @@ func _read_art(folder: String, want: String) -> Dictionary:
 	# The dungeon set: one size per stage (tools/arena/build_dungeon_set.py, Preston 2026-10-09);
 	# the arena's tuned small set when a creature has none yet. `want` asks for a bigger set: "boss"
 	# for the boss, "escort" for its escort (Preston, 2026-10-10: bosses tower, as in Mystery Dungeon).
-	var set := want if ResourceLoader.exists("res://assets/sprites/arena/%s/%s/s.png" % [folder, want]) else ("dungeon" if ResourceLoader.exists("res://assets/sprites/arena/%s/dungeon/s.png" % folder) else "small")
+	var set := _art_set(folder, want)
 	var still := {}
 	var walk := {}
 	var foot := {}
 	for f in Arena.FACINGS:
-		still[f] = load("res://assets/sprites/arena/%s/%s/%s.png" % [folder, set, f])
+		still[f] = _art_tex("res://assets/sprites/arena/%s/%s/%s.png" % [folder, set, f])
 		foot[still[f]] = _foot_row(still[f])
 		var frames: Array[Texture2D] = []
 		for i in 8:
 			var p := "res://assets/sprites/arena/%s/%s/walk_%s_f%d.png" % [folder, set, f, i]
-			if ResourceLoader.exists(p):
-				frames.append(load(p))
+			if _res_exists(p):
+				frames.append(_art_tex(p))
 		var rows: Array[float] = []
 		for tex in frames:
 			rows.append(_foot_row(tex))
@@ -1364,8 +1446,8 @@ func _read_art(folder: String, want: String) -> Dictionary:
 			var got: Array[Texture2D] = []
 			for i in 8:
 				var p := "res://assets/sprites/arena/%s/%s/%s_%s_f%d.png" % [folder, set, act, f, i]
-				if ResourceLoader.exists(p):
-					got.append(load(p))
+				if _res_exists(p):
+					got.append(_art_tex(p))
 			for tex in got:
 				foot[tex] = foot[still[f]]   # the same ground line as its still, so an action never hops
 			if not got.is_empty():
@@ -1373,6 +1455,101 @@ func _read_art(folder: String, want: String) -> Dictionary:
 		if not by_facing.is_empty():
 			acts[act] = by_facing
 	return {"still": still, "walk": walk, "foot": foot, "acts": acts}
+
+
+## The set _read_art uses for a form: `want` when it has one, else the dungeon set, else the arena's small one.
+func _art_set(folder: String, want: String) -> String:
+	return want if _res_exists("res://assets/sprites/arena/%s/%s/s.png" % [folder, want]) else ("dungeon" if _res_exists("res://assets/sprites/arena/%s/dungeon/s.png" % folder) else "small")
+
+
+## Creature pictures read on worker threads while the floor card is up (LF7-01 and LF7-02, Claude, 2026-10-26). A
+## first floor's creature half was 1.6 s on the card, most of it about 800 pictures read from disk one after another
+## for the team and the floor's wild creatures (a boss and its escort on the boss floor); asked ahead, they load while
+## the map is painted, and _read_art takes them already made (60 ms for the 800, measured windowed). _has_res keeps
+## each ResourceLoader.exists answer for the session: the asking and the reading ask the same thousand paths.
+static var _has_res := {}
+var _art_asked := {}   # pictures asked for on a thread and not yet taken
+
+
+func _res_exists(p: String) -> bool:
+	if not _has_res.has(p):
+		_has_res[p] = ResourceLoader.exists(p)
+	return _has_res[p]
+
+
+## Every picture of a form's set that _read_art reads.
+func _art_paths(folder: String, set: String) -> Array[String]:
+	var out: Array[String] = []
+	for f in Arena.FACINGS:
+		out.append("res://assets/sprites/arena/%s/%s/%s.png" % [folder, set, f])
+		for i in 8:
+			var p := "res://assets/sprites/arena/%s/%s/walk_%s_f%d.png" % [folder, set, f, i]
+			if _res_exists(p):
+				out.append(p)
+	for act in ["attack", "hurt", "sleep"]:
+		for f in Arena.FACINGS:
+			for i in 8:
+				var p := "res://assets/sprites/arena/%s/%s/%s_%s_f%d.png" % [folder, set, act, f, i]
+				if _res_exists(p):
+					out.append(p)
+	return out
+
+
+## Ask for the next build's creature pictures on worker threads: the team, and this floor's wild kinds, or its boss and
+## escort in their big sets. Forms already in _art_cache, and pictures already loaded, are not asked for.
+## Only with a player watching (_threads_ok): the headless checks' dummy renderer is not safe to make textures on a
+## thread ("Parameter t is null", "already initialized RID"), and they count frames, not the card's time.
+func _ask_art_ahead() -> void:
+	if not _threads_ok():
+		return
+	var want: Array = []   # [form, set wanted]
+	for p in party:
+		want.append([form_of(int(p[0]), int(p[1])), "dungeon"])
+	if floor_kind() == "normal":
+		for sp in recipe()["spawns"]:
+			want.append([form_of(int(sp[0]), int(sp[1])), "dungeon"])
+	elif floor_kind() == "boss" and not boss_cfg().is_empty():
+		var cfg := boss_cfg()
+		var crew: Array = [[cfg["line"], "boss"]]
+		for m in cfg["minions"]:
+			crew.append([m, "escort"])
+		for c in crew:
+			var fm := form_of(int(c[0][0]), int(c[0][1]))
+			want.append([fm, "dungeon"])   # _make reads its plain set before _size_up swaps in the big one
+			want.append([fm, c[1]])
+	for fw in want:
+		if _art_cache.has(String(fw[0]) + "/" + String(fw[1])):
+			continue
+		for p in _art_paths(fw[0], _art_set(fw[0], fw[1])):
+			if _art_asked.has(p) or ResourceLoader.has_cached(p):
+				continue
+			if ResourceLoader.load_threaded_request(p) == OK:
+				_art_asked[p] = true
+
+
+## A creature picture: the thread's copy when it was asked ahead (waiting for it if it is still loading), else a plain load.
+func _art_tex(p: String) -> Texture2D:
+	if _art_asked.has(p):
+		_art_asked.erase(p)
+		var r: Resource = ResourceLoader.load_threaded_get(p)
+		if r is Texture2D:
+			return r
+	return load(p)
+
+
+## Pictures asked for and never read (a wild kind the floor did not place) are taken, so no thread's load is left
+## holding them.
+func _take_unread_art() -> void:
+	for p in _art_asked.keys():
+		ResourceLoader.load_threaded_get(p)
+	_art_asked.clear()
+
+
+func _exit_tree() -> void:
+	_take_unread_art()
+	if _paint_job >= 0:   # left mid-paint (the pause menu's way out under the card): the task is still waited for once
+		WorkerThreadPool.wait_for_task_completion(_paint_job)
+		_paint_job = -1
 
 
 func _foot_row(tex: Texture2D) -> float:
@@ -1469,7 +1646,8 @@ func _dir_of(facing: String) -> Vector2i:
 ## while it asked, it fainted, its tile emptied, and a yes revived it under another creature
 ## (found 2026-10-09 by dungeon_check's overlap count).
 func _foes(i: int, j: int) -> bool:
-	return ents[i]["team"] != ents[j]["team"] and ents[j]["hp"] > 0 and j != asking
+	# A boss already down is no one's target, even when its scene stands it back up at 1 HP (L7-01, Claude, 2026-10-26).
+	return ents[i]["team"] != ents[j]["team"] and ents[j]["hp"] > 0 and j != asking and not ents[j].get("down_handled", false)
 
 
 # ---------------------------------------------------------------- moves
@@ -1912,7 +2090,39 @@ func _callout(e: Dictionary, m: String) -> void:
 	# 44 px up and left by a guess, so a short creature's callout ran into the numbers on the foe beside it.
 	var txt: String = Arena.MOVES[m]["name"] + "!"
 	var wide: float = FONT.get_string_size(txt, HORIZONTAL_ALIGNMENT_LEFT, -1, POP_SIZE).x
-	_add_pop({"pos": e["node"].position + Vector2(6.0 - wide * 0.5, _head_y(e) - 3.0), "text": txt, "t": 0.0, "col": Color(1, 1, 1) if e["team"] == 0 else Color(1, 0.75, 0.6)})
+	# One callout a creature (L7-16, Claude, 2026-10-26): its new move's name replaces its last, so three moves in a
+	# corridor no longer stack three names up into the black over the map.
+	var who: int = e["node"].get_instance_id()
+	_pops = _pops.filter(func(q: Dictionary) -> bool: return int(q.get("caller", 0)) != who)
+	var p := {"pos": e["node"].position + Vector2(6.0 - wide * 0.5, _head_y(e) - 3.0), "text": txt, "t": 0.0, "col": Color(1, 1, 1) if e["team"] == 0 else Color(1, 0.75, 0.6), "caller": who}
+	_add_pop(p)
+	_keep_on_screen(p)
+
+
+## A callout's whole rise stays on the screen and under the floor bar (L7-16, Claude, 2026-10-26): a creature at the
+## top of the view had its move's name cut by the screen's top edge, and a stack pushed names over the floor bar.
+const POP_TOP := 62.0   # screen y under the floor and lantern panel (6 + 54) and its rim
+
+
+func _keep_on_screen(p: Dictionary) -> void:
+	var span := pop_screen_span(p)
+	var dx := 0.0
+	var dy := 0.0
+	if span.position.x < 0.0:
+		dx = -span.position.x
+	elif span.end.x > 1152.0:
+		dx = 1152.0 - span.end.x
+	if span.position.y < POP_TOP:
+		dy = POP_TOP - span.position.y
+	elif span.end.y > 648.0:
+		dy = 648.0 - span.end.y
+	if dx != 0.0 or dy != 0.0:
+		p["pos"] = p["pos"] + Vector2(ceilf(dx / SCALE) if dx > 0.0 else floorf(dx / SCALE), ceilf(dy / SCALE) if dy > 0.0 else floorf(dy / SCALE))
+	# Brought down from above the screen, it can land on the team panel: then to the panel's right, as _add_pop nudges.
+	for hr in hud_rects():
+		span = pop_screen_span(p)
+		if span.intersects(hr):
+			p["pos"] = p["pos"] + Vector2(ceilf((hr.end.x + 2.0 - span.position.x) / SCALE), 0.0)
 
 
 static var _top_rows := {}   # texture path -> its first opaque row (D4)
@@ -2010,6 +2220,8 @@ func _shove(i: int, j: int, d: Vector2i) -> void:
 ## chance a beaten wild creature asks to join.
 func _wound(i: int, j: int, dmg: int, col: Color) -> void:
 	var o: Dictionary = ents[j]
+	if o.get("down_handled", false):
+		return   # a boss already down: its scene (or the clear) runs once and its EXP is paid once (L7-01, Claude, 2026-10-26)
 	if o["team"] == 0:
 		_grow(o, "took", mini(dmg, o["hp"]))
 	o["hp"] = maxi(0, o["hp"] - dmg)
@@ -2033,11 +2245,15 @@ func _wound(i: int, j: int, dmg: int, col: Color) -> void:
 		if o["team"] == 1:
 			downed += 1
 		if o.get("boss", false):
+			# Once (L7-01, Claude, 2026-10-26): the stand-off puts the Warden back at 1 HP, and a queued blow after
+			# that replayed every line of the ending three times and paid its EXP three times.
+			o["down_handled"] = true
 			if not (boss_intro and boss_cfg().get("stone", false)):   # the Warden is not beaten: the stand-off (stone_scene.gd)
 				_banner_show("VICTORY!", "%s is beaten" % o["name"], Color(1, 0.9, 0.4))
 				Music.play(get_tree(), "")
 				Music.jingle(get_tree(), "victory")
-			_fade.color = Color(1, 1, 1, 0.85)   # the white flash as it falls (Rescue Team DX's boss finish)
+			# The white flash as it falls (Rescue Team DX's boss finish); a soft 0.3 under Reduce motion (ACC-13, Claude, 2026-10-26).
+			_fade.color = Color(1, 1, 1, REDUCED_FLASH if UI.reduce_motion() else 0.85)
 			var flash := create_tween()
 			flash.tween_property(_fade, "color:a", 0.0, 0.6)
 			flash.tween_callback(func() -> void: _fade.color = Color(0, 0, 0, 0))
@@ -2071,6 +2287,17 @@ func _wound(i: int, j: int, dmg: int, col: Color) -> void:
 			return   # Mirekit only plays dead, and the Warden only seems beaten: each stays on screen for its scene
 		var tw := create_tween()
 		tw.tween_property(o["node"], "modulate:a", 0.0, 0.35)
+		o["ko_tw"] = tw   # kept, so a leader who is not out after all (Second Wind, the Warden's stand-off) stays seen (L7-02)
+
+
+## A knock-out fade still running on e stops, and e is drawn whole again (L7-02, Claude, 2026-10-26): the fade outlived
+## the stand-off's "it gets back up" and left the Warden's room with the leader's ring and no leader.
+func _stop_ko_fade(e: Dictionary) -> void:
+	if e.get("ko_tw") is Tween and e["ko_tw"].is_valid():
+		e["ko_tw"].kill()
+	e.erase("ko_tw")
+	e["node"].visible = true
+	e["node"].modulate.a = 1.0
 
 
 func _step(i: int, d: Vector2i) -> Tween:
@@ -2324,7 +2551,15 @@ func act_attack(slot: int) -> void:
 	await _player_turn(func() -> bool: return await use_move(0, m, d))
 
 
-func act_rest() -> void:
+## A rest by key (Z or Period; RB+B on a pad) is heard once, softly, at the start of a streak (LO6-05, D8, Claude,
+## 2026-10-24): REST_TAKE at REST_DB on the SFX bus, an existing take nothing else plays. Any other action that takes
+## a turn ends the streak, so holding Z does not patter; the autopilot's rests and the checks' stay quiet (by_key off).
+const REST_TAKE := "spent_pant"
+const REST_DB := -16.0
+var _rest_turn := -1   # the turn count when the last keyed rest ended: a keyed rest at that same count is the streak going on
+
+
+func act_rest(by_key := false) -> void:
 	if busy or asking >= 0:
 		return
 	if not ents.is_empty() and ents[0]["hp"] > 0:
@@ -2333,7 +2568,11 @@ func act_rest() -> void:
 		# (the audit's checker object on the Mouth's B1F; pass 3 D3, Claude, 2026-10-23).
 		_pops = _pops.filter(func(p: Dictionary) -> bool: return not p.get("breath", false))
 		_add_pop({"pos": ents[0]["node"].position + Vector2(-4, -34), "text": "...", "t": 0.0, "col": Color(0.85, 0.9, 1.0), "breath": true})
+		if by_key and _rest_turn != turn:
+			_sfx(REST_TAKE, REST_DB)
 	await _player_turn(func() -> bool: return true)
+	if by_key:
+		_rest_turn = turn
 
 
 func act_stairs() -> void:
@@ -2374,6 +2613,11 @@ func act_stairs() -> void:
 		await get_tree().process_frame
 		await get_tree().process_frame
 	floor_seed = randi()
+	if is_inside_tree():
+		_ask_art_ahead()   # the next floor's creatures load on threads while the map is painted (LF7-02, Claude, 2026-10-26)
+		await get_tree().process_frame
+		await _paint_ahead()   # the map's paint on the full card, then a drawn frame, then the rest of the build (D7)
+		await get_tree().process_frame
 	_build_floor(floor_n == 1)   # Preston, 2026-10-09: health carries between floors; only a new run starts fresh (this read "!=" before, so every floor healed)
 	if floor_kind() != "boss":
 		await _card_hold()   # a boss floor's scene starts at once, as before
@@ -2637,6 +2881,7 @@ func act_recruit(accept: bool) -> void:
 
 func _player_turn(action: Callable) -> void:
 	_turn_begins()   # the box keeps this turn's first line on top (D3)
+	log_clock_start()
 	busy = true
 	if ents[0].get("stagger", 0) > 0:
 		ents[0]["stagger"] -= 1
@@ -2659,6 +2904,8 @@ func _world_turn(lead_tweens: Array) -> void:
 	turn += 1
 	var tweens: Array = lead_tweens.duplicate()
 	for i in range(1, ents.size()):
+		if boss_down():
+			break   # the boss's fall has the floor now: the turn's queued blows and steps are dropped (L7-01, Claude, 2026-10-26)
 		var e: Dictionary = ents[i]
 		if e["hp"] <= 0 or (e["team"] == 1 and not e["awake"]):
 			continue
@@ -2881,6 +3128,12 @@ func boss_alive() -> bool:
 	return boss >= 0 and boss < ents.size() and ents[boss]["hp"] > 0
 
 
+## The boss has fallen and its scene or the clear is under way (L7-01, Claude, 2026-10-26): true from the blow that
+## drops it, even while the Warden's stand-off holds it at 1 HP.
+func boss_down() -> bool:
+	return boss >= 0 and boss < ents.size() and ents[boss].get("down_handled", false)
+
+
 ## The pilot's climax is unlosable (Preston, 2026-10-12: "go with the story-side fix, make the climax unlosable").
 ## Once the Warden is awake, the leader going down in its room starts the stand-off instead of a faint, at any Warden
 ## health: the scene already has both sides spent, the Warden holding back and the team knocked flat, so the story
@@ -2891,14 +3144,24 @@ const STANDOFF_AT := 1.0
 
 
 func _warden_yields() -> bool:
-	if not (boss_intro and boss_cfg().get("stone", false) and boss_alive() and ents[boss]["awake"]):
+	if not (boss_intro and boss_cfg().get("stone", false)):
+		return false
+	if boss_down():   # the Warden fell first this turn: the stand-off already has the room, the leader stays in it
+		ents[0]["hp"] = 1
+		_stop_ko_fade(ents[0])
+		ents[0]["down"] = true
+		return true
+	if not (boss_alive() and ents[boss]["awake"]):
 		return false
 	var w: Dictionary = ents[boss]
 	if w["hp"] > w["max_hp"] * STANDOFF_AT:
 		return false
 	ents[0]["hp"] = 1
-	ents[0]["node"].modulate.a = 1.0
-	_say("%s staggers up. The Warden has stopped." % ents[0]["name"], ents[0])
+	# Its knock-out fade stops here, and it lies where it fell in the team's down pose until the Guildmaster's
+	# punch gets everyone up (L7-02, Claude, 2026-10-26: the fade ran on, so only its ring stood in the stand-off).
+	_stop_ko_fade(ents[0])
+	ents[0]["down"] = true
+	_say("%s is down, but the Warden has stopped." % ents[0]["name"], ents[0])   # proposal line (it said "staggers up", L7-02)
 	_wound(0, boss, int(w["hp"]), Color(0.8, 0.95, 1.0))   # its last point of health: the fall, then the stand-off
 	return true
 
@@ -2933,8 +3196,22 @@ func _faint_info() -> Dictionary:
 func _faint_screen(info: Dictionary) -> void:
 	cutscene = true
 	# The faint screen dims the last floor frame behind its words (Claude, 2026-10-24, S4 / LV-35): taken here, before the black.
+	# The floor alone (LO6-01, D2, Claude, 2026-10-24): the HUD's layer and the Menu button are hidden and one frame is
+	# drawn without them before the still is taken; the still had the team panel, the key strip and the button in it.
+	# _menu_hidden_for at 2 keeps _process from showing the button again. The layer comes back with the HUD still off,
+	# so the black on it fades in over the bare map.
+	_hud.visible = false
+	var menu := get_node_or_null("GamePauseMenu")
+	if menu != null and menu.hint != null:
+		menu.hint.visible = false
+		_menu_hidden_for = 2
 	if DisplayServer.get_name() != "headless":
+		_hud_layer.visible = false
+		await RenderingServer.frame_post_draw
+		if not is_inside_tree():
+			return
 		info["floor_still"] = get_viewport().get_texture().get_image()
+		_hud_layer.visible = true
 	_fade.color = Color(0, 0, 0, _fade.color.a)
 	var tw := create_tween()
 	tw.tween_property(_fade, "color:a", 1.0, 0.6)
@@ -3088,11 +3365,15 @@ func _finish_after_boss() -> void:
 	if _finishing:
 		return
 	_finishing = true
-	await get_tree().create_timer(2.2, false).timeout
+	# The Mouth's last stairs arrive here already black, with no boss banner to read: no 2.6 s hold on black before
+	# the dawn walk (Claude, 2026-10-24, pass 6 S3, L6-14). A boss's clear keeps its banner wait and fade.
+	if _fade.color.a < 0.99:
+		await get_tree().create_timer(2.2, false).timeout
+		busy = true
+		var tw := create_tween()
+		tw.tween_property(_fade, "color:a", 1.0, 0.4)
+		await tw.finished
 	busy = true
-	var tw := create_tween()
-	tw.tween_property(_fade, "color:a", 1.0, 0.4)
-	await tw.finished
 	cleared += 1
 	if not dungeon in beaten:
 		beaten.append(dungeon)   # the town sends the next run on to the next dungeon
@@ -3296,7 +3577,7 @@ func _tell_ready(e: Dictionary, was: bool) -> void:
 		if story.get("stone", "") == "installed":
 			_say("%s is ready to grow! Take it to the Growth Shrine in Highbank." % e["name"], e)
 		else:
-			_say("%s feels ready to change... but nothing in Highbank can help it yet." % e["name"], e)
+			_say("%s feels ready to grow... but nothing in Highbank can help it yet." % e["name"], e)   # "grow" is the new form (D9, Claude, 2026-10-24)
 		_sfx("evolve_ready", -4.0)
 		_add_pop({"pos": e["node"].position + Vector2(0, -40), "text": "READY!", "t": 0.0, "col": Color(0.8, 0.6, 1.0)})
 		_rise(e["node"].position, Color(0.8, 0.6, 1.0), 16)
@@ -3418,7 +3699,7 @@ func _gain_exp(n: int) -> void:
 				if t["hp"] > 0:
 					t["hp"] += new_max - t["max_hp"]
 				t["max_hp"] = new_max
-		_say("%s grew to Lv %d!" % [e["name"], rec["lv"]], e)   # "Lv" as the HUD writes it (LP-17, Claude, 2026-10-22)
+		_say("%s reached Lv %d!" % [e["name"], rec["lv"]], e)   # "Lv" as the HUD writes it (LP-17, Claude, 2026-10-22); "reached", as "grow" means a new form (D9, Claude, 2026-10-24)
 		_sfx_once("level_up", -3.0, KO_STAGGER * 2)   # its own fanfare (tools/audio/make_ui_sounds.py); once a frame, after the faint (D7)
 		_add_pop({"pos": e["node"].position + Vector2(0, -34), "text": "LV %d" % rec["lv"], "t": 0.0, "col": Color(0.6, 0.9, 1.0)})
 		_rise(e["node"].position, Color(1, 0.85, 0.4), 14)
@@ -3715,6 +3996,7 @@ func act_tactic() -> void:
 		if not log_marks.is_empty():
 			log_marks[-1] = _line_marks(null)
 		_log_at = Time.get_ticks_msec()
+		_log_waits = true   # news, as _say makes it (ACC-09)
 	else:
 		_say(line)
 	_order_flash_at = Time.get_ticks_msec()
@@ -3802,7 +4084,7 @@ func _end_turn() -> void:
 		if e.get("blighted", 0) > 0:
 			e["blighted"] -= 1
 			if e["blighted"] == 0 and e["hp"] > 0:
-				_say("The rot on %s wore off." % e["name"], e)
+				_say("The blight on %s wore off." % e["name"], e)   # the status is "blighted" (D9, Claude, 2026-10-24)
 	if turn % LIGHT_DRAIN_EVERY == 0:
 		var was_light := light
 		light = maxf(0.0, light - 1.0)
@@ -3842,7 +4124,7 @@ func _end_turn() -> void:
 	if ents[0]["hp"] <= 0 and bag.get("rally_seed", 0) > 0:
 		_take("rally_seed")
 		ents[0]["hp"] = ents[0]["max_hp"] / 2
-		ents[0]["node"].modulate.a = 1.0
+		_stop_ko_fade(ents[0])   # the knock-out fade could still be running and take it from sight (L7-02, Claude, 2026-10-26)
 		_say("Second Wind! %s gets back up." % ents[0]["name"], ents[0])
 		_sfx("revive", -3.0)
 	if ents[0]["hp"] <= 0 and _warden_yields():
@@ -3904,6 +4186,14 @@ func _reveal() -> void:
 				for y in range(room.position.y - 1, room.end.y + 1):
 					for x in range(room.position.x - 1, room.end.x + 1):
 						visible_tiles[Vector2i(x, y)] = true
+	# The crew's den is one room that is the whole floor, and riverbank_painter.gd paints its bank all the way round
+	# (rootbank_detail.gd's is_den). Lit, all of it is in sight (L7-11, Claude, 2026-10-26): only the wall ring beside the
+	# floor was, so the fog stood a 12 px black pillar at each side of the 384 px view over the 456 px map. The map is
+	# already wider than the view and the camera already held inside it, so no padding was needed.
+	if light > 0.0 and floor_kind() == "boss" and crew_scene_here():
+		for y in data["h"]:
+			for x in w:
+				visible_tiles[Vector2i(x, y)] = true
 	for p in visible_tiles:
 		if p.x >= 0 and p.y >= 0 and p.x < w and p.y < data["h"]:
 			explored[p.y * w + p.x] = 1
@@ -4300,10 +4590,11 @@ func _poll(delta: float) -> void:
 			else:
 				act_teach(teach_learner, rows[teach_sel]["slot"])
 		elif UI.tapped_any(["cancel", "bag"]):
-			_tick("cancel")
 			if teach_kind.begins_with("learn:"):
+				_tick("cancel")   # backing out of a choice
 				skip_ask = true   # ask before the move is let go
 			else:
+				_tick("close")   # the bag's panel shuts, as the bag does (L6-31, D5, Claude, 2026-10-24)
 				teach_kind = ""
 				teach_learner = -1
 		if teach_sel != was_sel:
@@ -4322,14 +4613,16 @@ func _poll(delta: float) -> void:
 			act_use_item(kinds[clampi(bag_sel, 0, kinds.size() - 1)])
 		elif UI.tapped_any(["bag", "cancel"]):
 			bag_open = false
-			_tick("cancel")   # the menu sounds on the UI bus (GS-21, Claude, 2026-10-22)
+			# The menu sounds on the UI bus (GS-21, Claude, 2026-10-22): menu_close, as the log and the pause close
+			# (L6-31, D5, Claude, 2026-10-24); cancel.wav is for backing out of a choice.
+			_tick("close")
 		if bag_sel != was_bag:
 			_tick("cursor")
 		return
 	if _buffer_left > 0.0:
 		_buffer_left = 0.0   # the press made during the last action, now that the leader is free (FEEL-05)
 		if _buffered < 0:
-			act_rest()
+			act_rest(true)   # a key held over from the last turn (D8)
 		else:
 			act_attack(_buffered)
 		return
@@ -4379,7 +4672,7 @@ func _poll(delta: float) -> void:
 		_tick("open")
 		return
 	if UI.tapped("rest"):   # Z or Period; RB+B on a pad
-		act_rest()
+		act_rest(true)
 	elif UI.tapped("interact"):   # E; X on a pad
 		act_stairs()
 	elif UI.tapped("tactics"):   # T; LB on a pad
@@ -4407,6 +4700,7 @@ func act_log() -> void:
 		_log_at = Time.get_ticks_msec()
 		_tick("open")
 	else:
+		_log_waits = false
 		_log_at = Time.get_ticks_msec() - int(LOG_LINGER * 1000.0)   # it fades out now
 		_tick("close")
 
@@ -4477,19 +4771,27 @@ static func moves_hint(device := "", spoken := false) -> String:
 
 
 ## Tab: the leader plays itself: the nearest wild creature it knows of, then the stairs.
+## It moves, fights and takes the stairs, and nothing else (L6-01, D1, Claude, 2026-10-24): a line or a creature asking
+## to join turns it off, as Tab does, and the line waits for E, the question for Y or N. It read the Hollow Mouth's
+## five-line ending away in 8 frames. A check's bot (check_bot) still reads and welcomes.
 func _autopilot() -> void:
 	var lead: Dictionary = ents[0]
 	if cutscene:
 		if not talk.is_empty():
-			act_talk()
+			if check_bot:
+				act_talk()
+			else:
+				act_autopilot()   # off, with Tab's own line and click
 		return
 	if lead["hp"] <= 0 or _finishing:
 		return
-	if not talk.is_empty():
-		act_talk()
-		return
-	if asking >= 0:
-		act_recruit(true)
+	if not talk.is_empty() or asking >= 0:
+		if not check_bot:
+			act_autopilot()
+		elif not talk.is_empty():
+			act_talk()
+		else:
+			act_recruit(true)
 		return
 	if lead["pos"] == data["stairs"] and ents.filter(func(e: Dictionary) -> bool: return e["team"] == 1 and e["hp"] > 0).is_empty():
 		act_stairs()
@@ -4569,6 +4871,7 @@ func _draw_floor_fx() -> void:
 			var r := Rect2(Vector2(t) * T + Vector2(1, 1), Vector2(T - 2, T - 2))
 			_floor_fx.draw_rect(r, Color(0.9, 0.15, 0.1, 0.18 + 0.17 * k))
 			_floor_fx.draw_rect(r, Color(1.0, 0.35, 0.25, 0.75), false, 1.0)
+			_corner_ticks(Rect2(Vector2(t) * T, Vector2(T, T)), WARN_TICK, 4.0)   # pale, so the tile reads off any floor (ACC-07)
 		# The one gathering itself glows in its move's colour (Into the Breach shows who acts).
 		var glow: Color = ESSENCE_COL.get(_ess_name(e["windup"]["m"], e), Color(1, 0.4, 0.3))
 		var c: Vector2 = e["node"].position + Vector2(0, -2)
@@ -4583,8 +4886,11 @@ func _draw_floor_fx() -> void:
 func _draw_trap(c: CanvasItem, tr: Dictionary) -> void:
 	var o: Vector2 = Vector2(tr["pos"]) * T + Vector2(T, T) * 0.5
 	var ink: Dictionary = _trap_ink if not _trap_ink.is_empty() else trap_ink("ruin")
+	var body := {}   # every pixel the mark covers, for its rim (ACC-06)
 	var dot := func(v: Vector2, col: Color) -> void:
-		c.draw_rect(Rect2((o + v).floor(), Vector2.ONE), col)
+		var q := (o + v).floor()
+		body[Vector2i(q)] = true
+		c.draw_rect(Rect2(q, Vector2.ONE), col)
 	match String(tr["kind"]):
 		"silt":
 			# A dip of mud with a ragged edge: its far side in shade, its near side catching the light.
@@ -4627,6 +4933,24 @@ func _draw_trap(c: CanvasItem, tr: Dictionary) -> void:
 					var r := 1.0 + i * 0.33
 					dot.call(Vector2(cos(a) * r * 1.35, sin(a) * r * 0.75).round(), ink["water_hi"])
 			c.draw_rect(Rect2(o + Vector2(-1, -1), Vector2(2, 2)), ink["water_deep"])
+	if String(tr["kind"]) == "snare":
+		# The loop's inside and its knot count as the mark, so the rim runs round the outside of the loop.
+		for y in range(-4, 5):
+			for x in range(-7, 9):
+				if pow(x / 7.5, 2.0) + pow(y / 5.0, 2.0) <= 1.0:
+					body[Vector2i((o + Vector2(x, y)).floor())] = true
+		for y in range(-1, 2):
+			for x in range(6, 9):
+				body[Vector2i((o + Vector2(x, y)).floor())] = true
+	# A 1 px rim in the floor's own deepest earth round the whole mark (ACC-06, Claude, 2026-10-26): a seen trap's mud
+	# or vine sat close to the ground's own tones; the deep ink stands 3:1 or better off all three floors.
+	var rim := {}
+	for q in body:
+		for d in [Vector2i(1, 0), Vector2i(-1, 0), Vector2i(0, 1), Vector2i(0, -1)]:
+			var r: Vector2i = q + d
+			if not body.has(r) and not rim.has(r):
+				rim[r] = true
+				c.draw_rect(Rect2(Vector2(r), Vector2.ONE), ink["deep"])
 
 
 ## The colours a trap is painted in, from the floor's own painter (pass 3 D4): mud for the Silt Pit, vine or root for
@@ -4669,6 +4993,30 @@ func _draw_aim(k: float) -> void:
 	var p: Vector2i = ents[0]["pos"]
 	var front := Rect2(Vector2(p + _dir_of(ents[0]["facing"])) * T + Vector2(1, 1), Vector2(T - 2, T - 2))
 	_floor_fx.draw_rect(front, Color(1.0, 0.95, 0.7, 0.5 + 0.3 * k), false, 1.0)
+
+
+## Pale corner ticks on a tile, drawn as whole pixels like the aim's brackets, each with a dark pixel line on its inner
+## side (ACC-07, Claude, 2026-10-26): the red wash alone was 2:1 or less against the floor, and a pale tick alone was
+## 2.9:1 on the ruin's pale flagstones; the pale on its dark edge reads on any floor.
+const WARN_TICK := Color("#fff0c8")
+const TICK_EDGE := Color(0.10, 0.07, 0.04, 0.85)
+
+
+func _corner_ticks(r: Rect2, col: Color, l: float) -> void:
+	var x0 := r.position.x
+	var y0 := r.position.y
+	var x1 := r.end.x - 1.0
+	var y1 := r.end.y - 1.0
+	for pass_n in 2:
+		for cx in [[x0, 1.0], [x1, -1.0]]:
+			for cy in [[y0, 1.0], [y1, -1.0]]:
+				var sx: float = cx[1]
+				var sy: float = cy[1]
+				var x: float = cx[0] + (sx if pass_n == 0 else 0.0)   # the dark line sits one pixel inside the tick
+				var y: float = cy[0] + (sy if pass_n == 0 else 0.0)
+				var c: Color = TICK_EDGE if pass_n == 0 else col
+				_floor_fx.draw_rect(Rect2(minf(x, x + (l - 1.0) * sx), y, l, 1.0), c)
+				_floor_fx.draw_rect(Rect2(x, minf(y, y + (l - 1.0) * sy), 1.0, l), c)
 
 
 ## Turn mode's eight arrows, over the creatures so none hides them: dark-edged, the faced one gold and larger.
@@ -4964,16 +5312,18 @@ func _draw_hud() -> void:
 		if intro.has("wipe_at"):
 			# Into the fight: streaks of light race across the screen, thicker and brighter as it goes.
 			var wt: float = (Time.get_ticks_msec() - int(intro["wipe_at"])) / 700.0
+			# Under Reduce motion no racing streaks, and the white ends at REDUCED_FLASH (ACC-13, Claude, 2026-10-26).
+			var calm := UI.reduce_motion()
 			var rng := RandomNumberGenerator.new()
 			rng.seed = 77
-			for k in 34:
+			for k in (0 if calm else 34):
 				var y := rng.randf_range(0.0, 648.0)
 				var speed := rng.randf_range(0.8, 1.6)
 				var x := -400.0 + (wt * speed + rng.randf()) * 1700.0
 				var thick := 3.0 if rng.randf() < 0.7 else 6.0
 				h.draw_rect(Rect2(x - 360.0, y, 360.0, thick), Color(0.85, 0.9, 1.0, 0.35 + 0.5 * wt))
 				h.draw_rect(Rect2(x - 120.0, y, 120.0, thick), Color(1, 1, 1, 0.6 + 0.4 * wt))
-			h.draw_rect(Rect2(0, 0, 1152, 648), Color(1, 1, 1, clampf((wt - 0.6) * 2.0, 0.0, 1.0)))
+			h.draw_rect(Rect2(0, 0, 1152, 648), Color(1, 1, 1, clampf((wt - 0.6) * 2.0, 0.0, REDUCED_FLASH if calm else 1.0)))
 		return
 	var a: float = banner_alpha()   # D5
 	if a > 0.0:
@@ -4994,6 +5344,11 @@ func _draw_hud() -> void:
 	UI.text(h, Vector2(282, 46), "%d" % int(light), 17, UI.LIGHT)
 	# The team: name, level, health, and a sliver of the way to evolving.
 	var team: Array = ents.filter(func(e: Dictionary) -> bool: return e["team"] == 0)
+	# One face for the tag column (D3, Claude, 2026-10-24): when one row's tag steps down to fit its name, all do.
+	var tag_roles: Array = ["label", "tight"]
+	for e in team:
+		if hud_name_tag(String(e["name"]), level_of(e["line"]), -1 if e == ents[0] else iq_of(e))[2] != "label":
+			tag_roles = ["tight"]
 	UI.panel(h, Rect2(6, 62, 346, 56 + 50 * team.size()))
 	var y := 76.0
 	for e in team:
@@ -5005,9 +5360,9 @@ func _draw_hud() -> void:
 		if face != null:
 			h.draw_texture(face, Vector2(28, y + 1), Color(0.45, 0.45, 0.45, 0.8) if down else Color.WHITE)
 		h.draw_rect(Rect2(28, y + 1, 48, 48), UI.EDGE_LIGHT if e == ents[0] else UI.EDGE, false, 1.0)
-		var nt: Array = hud_name_tag(String(e["name"]), level_of(e["line"]), -1 if e == ents[0] else iq_of(e))
-		UI.say(h, Vector2(84, y + 20), nt[0], "body", UI.HP_LOW if down else (UI.EDGE_LIGHT if e == ents[0] else UI.TEXT))
-		UI.say(h, Vector2(84, y + 20), nt[1], "label", UI.MUTED, HUD_ROW_W, HORIZONTAL_ALIGNMENT_RIGHT)
+		var nt: Array = hud_name_tag(String(e["name"]), level_of(e["line"]), -1 if e == ents[0] else iq_of(e), tag_roles)
+		UI.say(h, Vector2(84, y + 20), nt[0], "body", DOWN_NAME if down else (UI.EDGE_LIGHT if e == ents[0] else UI.TEXT))
+		UI.say(h, Vector2(84, y + 20), nt[1], nt[2], UI.MUTED, HUD_ROW_W, HORIZONTAL_ALIGNMENT_RIGHT)   # its own role (D3)
 		UI.bar(h, Rect2(84, y + 27, 170, 9), k, UI.hp_col(k))
 		UI.say(h, Vector2(262, y + 38), "%d/%d" % [e["hp"], e["max_hp"]], "number", UI.TEXT)
 		if e["stage"] < 2:
@@ -5054,27 +5409,33 @@ func _draw_hud() -> void:
 	# said with: your team's names in one, the wild creatures' in another, even when both are the same kind (pass 3
 	# D8, log_marks). Claude, 2026-10-23.
 	var log_away := log_away_now()   # 0 shown, 1 gone
-	if talk.is_empty() and log_away < 1.0:
-		var lb := LOG_BOX
-		UI.panel(h, lb, 0.86 * (1.0 - log_away))
+	var shown: Array = log_view()   # a long turn keeps its first line on the top row (D3)
+	# Not under the learn panel (L7-08, Claude, 2026-10-26): the box's letters peeked out at the panel's left edge.
+	if talk.is_empty() and teach_kind == "" and log_away < 1.0 and not shown.is_empty():
+		var lb := log_box(shown.size())   # as tall as its lines (D6)
+		# On the full panel, every row at full strength (ACC-02, Claude, 2026-10-26): the see-through panel and the age
+		# fade left the oldest wild creature's name under 3:1. UI.rich gives a row one alpha for names and words alike,
+		# so the age fade is gone rather than dimming the names with it; the words still fade out when the box leaves.
+		UI.panel(h, lb, 0.92)
 		var marks := _line_marks(null)
-		var shown: Array = log_view()   # a long turn keeps its first line on the top row (D3)
 		var off: int = log_marks.size() - log_lines.size()
 		for k in shown.size():
 			var at: int = int(shown[k]) + off
 			var lm: Dictionary = log_marks[at] if at >= 0 and at < log_marks.size() else marks
-			UI.rich(h, lb.position + Vector2(24, 32 + k * 21), log_lines[int(shown[k])], 16, lm, (0.6 + 0.4 * float(k + 1) / shown.size()) * (1.0 - log_away), lb.size.x - 32.0)
+			UI.rich(h, lb.position + Vector2(24, 32 + k * LOG_ROW_H), log_lines[int(shown[k])], 16, lm, 1.0 - log_away, lb.size.x - 32.0)
 	# The keys, short; the full list is under the menu's Controls. They sit on their own label-role strip in the
 	# panel frame (CR-07); while a creature asks to join, the strip holds that answer's keys instead of the
 	# message (LP-17). Claude, 2026-10-22. The strip is as tall as its lines and stands on the Menu button, which
 	# used to cover its third and fourth lines (pass 3 D6, Claude, 2026-10-23).
-	# The key strip hides while a line is up (LV-18, D3, Claude, 2026-10-24).
-	if talk.is_empty():
-		var keys: Array = hud_keys(asking >= 0)   # the pad's buttons after a pad press (Claude, 2026-10-23)
+	# The key strip hides while a line is up (LV-18, D3, Claude, 2026-10-24), and while a creature asks to join: the
+	# ask box carries the same keys, and the strip said them a second time (L7-08, Claude, 2026-10-26).
+	# On the full panel at full strength (ACC-05, Claude, 2026-10-26): on the see-through panel it read under 4.5:1.
+	if talk.is_empty() and asking < 0:
+		var keys: Array = hud_keys(false)   # the pad's buttons after a pad press (Claude, 2026-10-23)
 		var strip := key_strip(keys)
-		UI.panel(h, strip, 0.86)
+		UI.panel(h, strip, 0.92)
 		for k in keys.size():
-			UI.say(h, Vector2(952, strip.position.y + 28 + k * 17), keys[k], "label", Color(UI.MUTED, 0.9), 180, HORIZONTAL_ALIGNMENT_RIGHT)
+			UI.say(h, Vector2(952, strip.position.y + 28 + k * 17), keys[k], "label", UI.MUTED, 180, HORIZONTAL_ALIGNMENT_RIGHT)
 	# The minimap before the panels below, so a panel opened on its side covers it (D6).
 	_draw_minimap(h)
 	# The partner's lines and warnings in the bottom strip, where the message box sits, its portrait at the strip's left
@@ -5084,7 +5445,7 @@ func _draw_hud() -> void:
 		UI.dialogue(h, talk_box(), String(talk[0][0]), String(talk[0][1]), face, Time.get_ticks_msec() / 1000.0, 20, _face_of(talk[0]))
 	# A beaten creature asking to join.
 	if asking >= 0 and asking < ents.size():
-		var ask_box := Rect2(336, 196, 480, 88)
+		var ask_box := ask_box_rect()
 		UI.panel(h, ask_box, 0.96)
 		UI.text(h, ask_box.position + Vector2(20, 34), "%s wants to join your team" % String(ents[asking]["name"]), 21, UI.EDGE_LIGHT, 440)
 		UI.text(h, ask_box.position + Vector2(20, 66), "%s  welcome it          %s  let it go" % [key_hint("yes"), key_hint("no")], 18, UI.TEXT, 440)
@@ -5134,7 +5495,8 @@ func _draw_hud() -> void:
 		if skip_ask:
 			ask = "Let %s go unlearned? %s/%s" % [Arena.MOVES[teach_kind.get_slice(":", 1)]["name"], key_hint("yes"), key_hint("no")]
 		UI.text(h, tbox.position + Vector2(20, 56), ask, 16, UI.EDGE_LIGHT if skip_ask else UI.TEXT, 440)
-		var tkeys: String = ("%s let it go   %s keep it" % [key_hint("yes"), key_hint("no")]) if skip_ask else ("%s choose   %s pick   %s close" % [pair_hint("move_up", "move_down"), key_hint("confirm"), key_hint("cancel")])
+		# "skip it", not "let it go": letting go is for a creature (W06, D4, Claude, 2026-10-24).
+		var tkeys: String = ("%s skip it   %s keep it" % [key_hint("yes"), key_hint("no")]) if skip_ask else ("%s choose   %s pick   %s close" % [pair_hint("move_up", "move_down"), key_hint("confirm"), key_hint("cancel")])
 		UI.text(h, tbox.position + Vector2(20, tbox.size.y - 18), tkeys, 14, UI.MUTED, 440, HORIZONTAL_ALIGNMENT_RIGHT)
 		for k in rows.size():
 			var yy: float = tbox.position.y + 92 + k * 32
@@ -5142,6 +5504,10 @@ func _draw_hud() -> void:
 				h.draw_rect(Rect2(tbox.position.x + 8, yy - 21, tbox.size.x - 16, 28), UI.FOCUS)
 				h.draw_rect(Rect2(tbox.position.x + 8, yy - 21, tbox.size.x - 16, 28), UI.EDGE_LIGHT, false, 1.0)
 			UI.text(h, Vector2(tbox.position.x + 24, yy), String(rows[k]["text"]).capitalize(), 17, UI.TEXT if rows[k]["ok"] else UI.FOE, 430)
+
+
+## The brightest a full-screen white gets under Reduce motion: the boss's fall and the wipe into a boss fight (ACC-13).
+const REDUCED_FLASH := 0.3
 
 
 ## The leader's point on the screen: its node through the map's camera offset, then the screen sprite's 3x.
@@ -5167,15 +5533,45 @@ func menu_box(w: float, hgt: float) -> Rect2:
 	return Rect2(maxf(8.0, lx - 48.0 - w), y, w, hgt)
 
 
+## The box where a beaten creature asks to join (L7-08, Claude, 2026-10-26): on the half of the screen away from the
+## asker, so it never covers the one asking, and clear of the team panel's frame. It sat in the middle at x 336, over
+## the asker and 16 px into the team panel. Asked from the left half, it opens on the right under the corner map;
+## from the right half, at the left under the team panel and the orders line.
+const ASK_SIZE := Vector2(480, 88)
+
+
+func ask_box_rect() -> Rect2:
+	var ax := 576.0
+	if asking >= 0 and asking < ents.size() and _world != null:
+		ax = (ents[asking]["node"].position + cam_offset()).x * SCALE
+	if ax < 576.0:
+		return Rect2(1152.0 - 16.0 - ASK_SIZE.x, 232.0, ASK_SIZE.x, ASK_SIZE.y)
+	var n := 0
+	for e in ents:
+		if e["team"] == 0:
+			n += 1
+	var foot: float = 62.0 + 56.0 + 50.0 * n   # the team panel's foot
+	return Rect2(16.0, minf(foot + 34.0, LOG_BOX.position.y - 8.0 - ASK_SIZE.y), ASK_SIZE.x, ASK_SIZE.y)
+
+
 ## The partner's line box: the bottom strip, where the message box sits (D3).
 func talk_box() -> Rect2:
 	return LOG_BOX
 
 
-## How far the message box has gone, 0 shown to 1 gone: LOG_LINGER seconds after the newest line it fades over 0.3 s,
+## The message box for `rows` lines (L6-33, D6, Claude, 2026-10-24): LOG_BOX's width and foot, a row's 21 px for each
+## line, so "Hollow Mouth, B1F." alone gets a one-line box (45 px) and not the four-line 108 px one over the map.
+static func log_box(rows: int) -> Rect2:
+	var hgt: float = LOG_BOX.size.y - LOG_ROW_H * (LOG_ROWS - clampi(rows, 1, LOG_ROWS))
+	return Rect2(LOG_BOX.position.x, LOG_BOX.end.y - hgt, LOG_BOX.size.x, hgt)
+
+
+## How far the message box has gone, 0 shown to 1 gone: LOG_LINGER seconds after the clock starts it fades over 0.3 s,
 ## unless L opened it (D6, D8).
+## The clock starts at the player's first action after the newest line, not at the line (ACC-09, Claude, 2026-10-26): a
+## line said while the player read the floor or looked away faded before it was read. The floor waits, so the box does.
 func log_away_now() -> float:
-	if _log_pinned:
+	if _log_pinned or _log_waits:
 		return 0.0
 	return smoothstep(0.0, 1.0, ((Time.get_ticks_msec() - _log_at) / 1000.0 - LOG_LINGER) / 0.3)
 
@@ -5211,14 +5607,23 @@ func _draw_minimap(h: CanvasItem) -> void:
 	for it in floor_items:
 		if explored[it["pos"].y * mw + it["pos"].x] == 1:
 			dot.call(it["pos"], s - 1.0, item_info(it["kind"])["col"])
+	# The stairs as a hollow square and the leader's dot with a dark edge (ACC-12, Claude, 2026-10-26): the two gold-orange
+	# dots read alike, and the leader's was lost on the pale floor fill. Item dots are as they were.
 	var st: Vector2i = data["stairs"]
 	if explored[st.y * mw + st.x] == 1:
-		dot.call(st, s + 2.0, Color(1, 0.85, 0.3))
+		var sq := Rect2((mm + (Vector2(st) + Vector2(0.5, 0.5)) * s - Vector2(s + 2.0, s + 2.0) * 0.5).round(), Vector2(s + 2.0, s + 2.0))
+		var gold := Color(1, 0.85, 0.3)
+		h.draw_rect(Rect2(sq.position, Vector2(sq.size.x, 1)), gold)
+		h.draw_rect(Rect2(sq.position.x, sq.end.y - 1.0, sq.size.x, 1), gold)
+		h.draw_rect(Rect2(sq.position, Vector2(1, sq.size.y)), gold)
+		h.draw_rect(Rect2(sq.end.x - 1.0, sq.position.y, 1, sq.size.y), gold)
 	for e in ents:
 		if e["hp"] <= 0:
 			continue
 		if e["team"] == 1 and not _sees(ents[0]["pos"], e["pos"]) or e.get("hidden", false):
 			continue
+		if e == ents[0]:
+			dot.call(e["pos"], s + 3.0, Color("#1a120b"))   # its 1 px dark edge
 		dot.call(e["pos"], s + 1.0 if e == ents[0] else float(s), Color("#ffb347") if e == ents[0] else (Color("#7fd0ff") if e["team"] == 0 else Color("#ff5a4a")))
 
 
@@ -5237,7 +5642,8 @@ const CARD_ICON_X := 56.0
 const CARD_TEXT_X := 94.0
 const CARD_TEXT_W := 96.0      # the widest move name in the body face is 99 px ("Furnace Shard")
 const KEYCAP_SIZE := Vector2(38, 22)   # "RB+A" fits it in the tight face (32 px), a single key in the label face
-const LOG_BOX := Rect2(8, 466, 818, 108)   # as wide as four cards
+const LOG_BOX := Rect2(8, 466, 818, 108)   # as wide as four cards; four lines tall (log_box sizes it to its lines, D6)
+const LOG_ROW_H := 21.0                     # one message line
 const MENU_AT := Rect2(944, 582, 202, 52)
 const BAG_WHAT_X := 250.0      # a bag row's description: where it starts and how wide it wraps (pass 3 D9)
 const BAG_WHAT_W := 290.0
@@ -5284,21 +5690,25 @@ func _line_marks(who: Variant) -> Dictionary:
 
 
 ## A team row's name and its level tag, fitted to the row's 246 px together. A long name ("Cutbank Listener",
-## Lv and Sense) used to run into the tag; the tag tightens, and then the name is cut. Sense is always spelled out
+## Lv and Sense) used to run into the tag; the tag tightens, then steps down a face, and the name stays whole (D3,
+## hud_name_tag). Sense is always spelled out
 ## (LV-19, D6, Claude, 2026-10-24: "S2" read as nothing; before 2026-10-22, LP-21, it was dropped). sense < 0 is
 ## the leader, who shows no Sense. Claude, 2026-10-14.
 const HUD_ROW_W := 246.0
+## A downed teammate's name (ACC-11, Claude, 2026-10-26): a lighter red than UI.HP_LOW, which stays the bars' colour;
+## HP_LOW text on the team panel read at about 3:1.
+const DOWN_NAME := Color("#ff8a7a")
 ## The key lines at the bottom right (the full list is under the menu's Controls). These are the keyboard defaults;
 ## the strip draws hud_keys(), the same lines from the live bindings (Claude, 2026-10-23), and a pad's after a pad press.
 const HUD_KEYS := ["J attack   1 2 3 moves", "I bag   T orders   Z rest", "E stairs   Tab autopilot", "Ctrl run   L messages"]
-const HUD_KEYS_ASKING := ["Y join   N leave"]   # the hint row while a beaten creature asks (LP-17, Claude, 2026-10-22)
+const HUD_KEYS_ASKING := ["Y welcome it   N let it go"]   # the hint row while a beaten creature asks (LP-17, Claude, 2026-10-22); the box's own words since L6-26 (D4, Claude, 2026-10-24)
 
 
 ## The strip's lines for `device` ("" is the last one used): HUD_KEYS on a keyboard with the default keys, and on a pad
 ## "A attack   RB+A/X/Y moves", "Y bag   LB orders   RB+B rest", "X stairs   Back autopilot", "RT run   R3 messages".
 static func hud_keys(asking_now := false, device := "") -> Array:
 	if asking_now:
-		return ["%s join   %s leave" % [key_hint("yes", device), key_hint("no", device)]]
+		return ["%s welcome it   %s let it go" % [key_hint("yes", device), key_hint("no", device)]]   # as the ask box words it (D4)
 	return ["%s attack   %s moves" % [key_hint("attack", device), moves_hint(device)],
 		"%s bag   %s orders   %s rest" % [key_hint("bag", device), key_hint("tactics", device), key_hint("rest", device)],
 		"%s stairs   %s autopilot" % [key_hint("interact", device), key_hint("autopilot", device)],
@@ -5312,14 +5722,20 @@ static func bag_hint(device := "") -> String:
 	return ("%s  choose   %s  use   %s  close" % [pair_hint("move_up", "move_down", device), key_hint("confirm", device), key_hint("bag", device)]).to_upper()
 
 
-static func hud_name_tag(nm: String, lv: int, sense: int) -> Array:
+## [name, tag, the tag's role]. The name is never cut (L6-25 and W17, D3, Claude, 2026-10-24): it is already in the
+## smallest face (body; "tight" is the same size, and the label face is wider: Quietwater Warden is 129 px in body,
+## 190 in label). When it and the tag do not fit in the label face, the tag steps down to the body face's tight role
+## (Lv 99  Sense 9: 150 px in label, 94 in tight), so the longest name, 129 px, leaves room. Four names were cut
+## with "..": Rampartroot, Cutbank Listener, Quietwater Warden, Oxbowarchon. `roles` are the tag's faces to try,
+## largest first; the HUD passes ["tight"] to every row when one row needs it, so the column keeps one face.
+static func hud_name_tag(nm: String, lv: int, sense: int, roles: Array = ["label", "tight"]) -> Array:
 	var tags: Array = ["Lv %d" % lv] if sense < 0 else ["Lv %d   Sense %d" % [lv, sense], "Lv %d  Sense %d" % [lv, sense]]
-	var tag: String = tags[tags.size() - 1]
-	for t in tags:
-		if UI.width_in(nm, "body") + 10.0 + UI.width_in(t, "label") <= HUD_ROW_W:
-			tag = t
-			break
-	return [UI.clip(nm, "body", HUD_ROW_W - 10.0 - UI.width_in(tag, "label")), tag]
+	var room: float = HUD_ROW_W - 10.0 - UI.width_in(nm, "body")
+	for role in roles:
+		for t in tags:
+			if UI.width_in(t, role) <= room:
+				return [nm, t, role]
+	return [nm, tags[tags.size() - 1], "tight"]   # a name longer than any yet: still whole; ui_fit's team rows catch it
 
 
 ## The message box's rows (LV-16, D3, Claude, 2026-10-24): _said counts every line ever said, and _turn_said is that
@@ -5333,6 +5749,13 @@ var _turn_said := 0
 
 func _turn_begins() -> void:
 	_turn_said = _said
+
+
+## The player acts: a box still waiting on its newest line starts its LOG_LINGER clock now (ACC-09).
+func log_clock_start() -> void:
+	if _log_waits:
+		_log_waits = false
+		_log_at = Time.get_ticks_msec()
 
 
 ## The lines the box shows, as indexes into log_lines, top row first.
@@ -5349,6 +5772,7 @@ func log_view() -> Array:
 ## A message line; `who` is the creature (or creatures) it names, so its name takes that side's colour (pass 3 D8).
 func _say(text: String, who: Variant = null) -> void:
 	_log_at = Time.get_ticks_msec()
+	_log_waits = true   # shown until the player's next action starts its clock (ACC-09)
 	_said += 1
 	log_lines.append(text)
 	log_marks.append(_line_marks(who))

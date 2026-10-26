@@ -11,6 +11,9 @@ const BARK_EDGE := Color("#251d17")
 const TURF := Color("#33402a")
 const LEAF := Color("#57783a")
 const LEAF_LIT := Color("#6f8f4e")
+## A bank's face fills its wall tile but for this many rows of turf at the top (Claude, 2026-10-26, pass 7 F1, L7-12);
+## riverbank_painter.gd paints the face to this height and _bank hangs the root mat from its lip.
+const FACE_TOP := 3
 
 static func finish(img: Image, data: Dictionary, t: int, seed_value: int) -> Image:
 	if t != 24: return img
@@ -29,6 +32,7 @@ static func finish(img: Image, data: Dictionary, t: int, seed_value: int) -> Ima
 	# Fixed crew arena: two old roots brace the dug-out ceiling and side banks.
 	# Recognise its existing geometry; no dungeon/controller or save dependency.
 	if is_den(data): _den(img, data, t, data.rooms[0])
+	else: _lip_roots(img, data, t, seed_value)   # pass 7 F1
 	return img
 
 ## The crew's den: one 13 x 10 room. riverbank_painter.gd asks too, to keep bank all round the den for the arch's
@@ -79,7 +83,7 @@ static func _bank(img: Image, data: Dictionary, t: int, first: int, end: int, y:
 	var length := (end - first) * t
 	var start := first * t
 	var foot := (y + 1) * t - 1
-	var lip := foot - 14
+	var lip := foot - (t - FACE_TOP)   # the face's grass lip (was foot - 14 before the face grew, pass 7 F1)
 	# A root mat follows the bank above its stratified sediment, with occasional
 	# forks reaching down to its foot. Global runs avoid tile-border seams.
 	var k := 12
@@ -95,6 +99,38 @@ static func _bank(img: Image, data: Dictionary, t: int, first: int, end: int, y:
 			_root(img, data, t, Vector2(px + reach / 2, lip + 1), Vector2(px + reach / 2 - 5, lip + 4), Vector2(px + reach / 2 - 3, foot - 5), Vector2(px + reach / 2 - 9, foot), 0)
 		if bend > 0.45: _leaves(img, data, t, Vector2i(px - 5, int(a.y) - 2))
 		k += 49 + int(ClayNoise._h(px, y, phase + 1) * 41)
+
+## Roots over the lip where the bank meets the floor beside or below it (Claude, 2026-10-26, pass 7 F1, L7-12): a room's
+## sides and south and a hallway's walls get roots like the faces have, about one tile in two, each coming out of the
+## turf, crossing the grass lip and ending on the clay rim, with clover at its root now and then. The crew's den has
+## its own arch instead. u runs from the rim (0) back into the bank, v along the edge.
+static func _lip_roots(img: Image, data: Dictionary, t: int, seed_value: int) -> void:
+	var phase := seed_value % 977 + 120
+	for y in data.h:
+		for x in data.w:
+			if not _wall(data, x, y):
+				continue
+			for n: Vector2i in [Vector2i(1, 0), Vector2i(-1, 0), Vector2i(0, -1)]:
+				var fx: int = x + n.x
+				var fy: int = y + n.y
+				if fx < 0 or fy < 0 or fx >= data.w or fy >= data.h or _wall(data, fx, fy):
+					continue
+				var roll := ClayNoise._h(x * 3 + n.x, y * 5 + n.y, phase)
+				if roll < 0.48:
+					continue
+				var out := Vector2(-n.x, -n.y)   # from the rim back into the bank
+				var along := Vector2(absi(n.y), absi(n.x))
+				# The rim: the tile's edge on the floor's side, at a spot along it.
+				var rim := Vector2(x * t, y * t) + Vector2(maxi(n.x, 0) * (t - 1), 0) + along * (4 + int(ClayNoise._h(x, y, phase + n.x + 3) * (t - 12)))
+				var trail := 1.0 if ClayNoise._h(y, x, phase + 7) > 0.5 else -1.0   # which way it trails along the lip
+				# A thin root sweeping out of the turf at a slant, along the lip and over it onto the rim.
+				var a := rim + out * 13 + along * (-9 * trail)
+				_root(img, data, t, a, rim + out * 9 + along * (-3 * trail), rim + out * 4 + along * (3 * trail), rim + out + along * (10 * trail), 0)
+				if roll > 0.9:
+					# Now and then a short twig off it, back the other way.
+					_root(img, data, t, rim + out * 7 + along * (-1 * trail), rim + out * 5 + along * (-4 * trail), rim + out * 3 + along * (-5 * trail), rim + out * 1 + along * (-8 * trail), 0)
+				if roll > 0.86:
+					_leaves(img, data, t, Vector2i(a + out * 2))
 
 static func _den(img: Image, data: Dictionary, t: int, room: Rect2i) -> void:
 	var left := float(room.position.x * t - 9)

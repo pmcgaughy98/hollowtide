@@ -107,6 +107,7 @@ func _run() -> void:
 	# 5. Autopilot: clear the floor and take the stairs.
 	foe["hp"] = mini(foe["hp"], foe["max_hp"])
 	dg.autopilot = true
+	dg.check_bot = true   # reads lines and welcomes recruits on autopilot (dungeon.gd check_bot, L6-01)
 	var overlaps := 0
 	var in_wall := 0
 	var frames := 0

@@ -1,0 +1,68 @@
+{
+	"bounds": {
+		"help-controls-save-false": [
+			430.0,
+			120.0,
+			678.0,
+			501.0
+		],
+		"help-controls-save-true": [
+			430.0,
+			120.0,
+			678.0,
+			501.0
+		],
+		"help-journey-save-false": [
+			430.0,
+			120.0,
+			678.0,
+			501.0
+		],
+		"help-journey-save-true": [
+			430.0,
+			120.0,
+			678.0,
+			501.0
+		],
+		"main-save-false": [
+			64.0,
+			324.0,
+			320.0,
+			282.0
+		],
+		"main-save-true": [
+			64.0,
+			270.0,
+			320.0,
+			346.0
+		],
+		"options-save-false": [
+			666.0,
+			120.0,
+			442.0,
+			479.0
+		],
+		"options-save-true": [
+			666.0,
+			120.0,
+			442.0,
+			479.0
+		],
+		"quit-save-false": [
+			635.0,
+			312.0,
+			501.0,
+			247.0
+		],
+		"quit-save-true": [
+			635.0,
+			312.0,
+			501.0,
+			247.0
+		]
+	},
+	"failed": 19,
+	"passed": 14,
+	"phase": "before",
+	"total": 33
+}

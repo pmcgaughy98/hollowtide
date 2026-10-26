@@ -1,0 +1,35 @@
+--- original/scripts/creature_opening.gd
++++ installed/scripts/creature_opening.gd
+@@ -229,10 +229,10 @@
+ 	_cursor.color=Color("#e4ca8e")
+ 	_cursor.polygon=PackedVector2Array([Vector2(0,0),Vector2(3,0),Vector2(3,2),Vector2(5,2),Vector2(5,4),Vector2(3,4),Vector2(3,6),Vector2(0,6)])
+ 	# Panels share the village palette and stay clear of the wordmark.
+-	_options_panel.position=Vector2(666,180)
++	_options_panel.position=Vector2(666,120)
+ 	_options_panel.custom_minimum_size.x=442
+-	_quit_panel.position=Vector2(666,312)
+ 	_quit_panel.custom_minimum_size.x=442
++	_quit_panel.position=Vector2(minf(666.0,1136.0-_quit_panel.get_combined_minimum_size().x),312)
+ 	_quit_controls[0].text="Back to title"
+ 	_options_panel.get_node("Choices").add_theme_constant_override("separation",12)
+ 	for c in _options_controls:
+@@ -276,7 +276,7 @@
+ 	super._input(event)
+ 
+ func _build_help_panel() -> void:
+-	_help_panel=_panel("HowToPlay",Vector2(430,168),678)
++	_help_panel=_panel("HowToPlay",Vector2(430,120),678)
+ 	var list := _list(_help_panel)
+ 	list.add_child(_label("HOW TO PLAY",30))
+ 	var tabs := HBoxContainer.new()
+--- original/scripts/main_menu.gd
++++ installed/scripts/main_menu.gd
+@@ -458,7 +458,7 @@
+ 
+ 
+ func _build_options_panel() -> void:
+-	_options_panel = _panel("Options", Vector2(700, 254), 410)
++	_options_panel = _panel("Options", Vector2(700, 120), 410)
+ 	var list := _list(_options_panel)
+ 	list.add_child(_label("Options", 34))
+ 	_volume_control(list, "Master volume", "Master", _master_volume)

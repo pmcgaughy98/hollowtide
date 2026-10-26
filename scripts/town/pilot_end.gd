@@ -4,7 +4,9 @@ extends CanvasLayer
 ## you, and E goes back to Highbank with every Hollow open. It sets the story flag pilot_end_seen, so it
 ## shows once a save; scripts/town/objective.gd reads the same flag for the line after it.
 ##   if PilotEnd.due(record): await PilotEnd.run(host)
-##   PilotEnd.run(host, true)   # from a black already up (the growth scene's), without fading the street out
+##   PilotEnd.run(host, true)   # from a black already up, without fading the street out
+## Since pass 6 (Claude, 2026-10-24, T6 / L6-23) hub_town.gd rolls the card when the growth's line is closed, from the
+## street, so the line is read first; the black start stays for a caller that already has the screen dark.
 ## The host is hub_town.gd: its cutscene flag holds the street and the HUD, and SceneKit paces the beats.
 ## With the host's poll_input off (a check) the card reads itself, faster; a check that turns poll_input off while
 ## the card waits for its key ends the wait the same way.

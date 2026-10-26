@@ -21,6 +21,7 @@ extends VBoxContainer
 ## The list shows whole rows only (U6, L31): a heading or row the scroll cuts is hidden until it is in full view.
 
 const UI := preload("res://scripts/ui/ui_style.gd")
+const ControlsText := preload("res://scripts/ui/controls_text.gd")   # its pair(), for the arrow words of the hint
 ## The rows in reading order, in three headed groups (the Controls page's order). An action in UI.INPUT_NAMES
 ## that no group names joins a last group, so a new action is never left off the page.
 const GROUPS := [
@@ -78,7 +79,7 @@ func setup(owner_menu: CanvasLayer) -> void:
 	scroll.follow_focus = true
 	scroll.custom_minimum_size = Vector2(ROW_W + 16, VISIBLE_ROWS * 44 - 4)
 	var bar := scroll.get_v_scroll_bar()
-	style_scroll_bar(bar)
+	UI.style_scroll_bar(bar)   # the pixel bar, shared with the shrine and the bag (Claude, 2026-10-24, LO6-03)
 	add_child(scroll)
 	list = VBoxContainer.new()
 	list.name = "RebindRows"
@@ -129,50 +130,6 @@ func setup(owner_menu: CanvasLayer) -> void:
 		prefs.bindings_changed.connect(refresh)
 	refresh()
 	_say("Choose a row, then press the new key or button.")
-
-
-## The pixel scrollbar (Claude, 2026-10-24, S3 / LV-34): a 9-slice track and thumb cut from the UI frames
-## (UI.frame), no flat boxes. The track is a strip of the panel's weave between two of its dark rule lines, a
-## shade darker, so it reads as a channel; the thumb is the name tab's brass, outline, light edge and shadow.
-## The track's side margins add up to the bar's width, so the scroll container keeps that width clear for the
-## bar instead of laying its rows under it (it reserves the bar's own minimum width, not the custom one).
-## The Growth Shrine's two lists use it too (shrine_info.gd).
-const BAR_W := 15.0   # five UI pixels: outline, light, brass, shadow, outline
-static var _bar_styles := {}
-
-
-static func style_scroll_bar(bar: ScrollBar) -> void:
-	if _bar_styles.is_empty():
-		var track := StyleBoxTexture.new()
-		track.texture = UI.frame("panel_dim").texture
-		# Columns 3 to 24 and rows 7 to 20 of the 28 x 28 frame (1x): a dark rule each side, clear of the corner studs.
-		track.region_rect = Rect2(9, 21, 66, 42)
-		track.texture_margin_left = 3.0
-		track.texture_margin_right = 3.0
-		track.content_margin_left = BAR_W * 0.5
-		track.content_margin_right = BAR_W * 0.5
-		track.content_margin_top = 0.0
-		track.content_margin_bottom = 0.0
-		track.axis_stretch_horizontal = StyleBoxTexture.AXIS_STRETCH_MODE_TILE
-		track.axis_stretch_vertical = StyleBoxTexture.AXIS_STRETCH_MODE_TILE
-		track.modulate_color = Color(0.72, 0.72, 0.72)
-		var thumb := StyleBoxTexture.new()
-		thumb.texture = UI.frame("nameplate").texture
-		# The tab is 14 x 12 at 1x: two columns each side (outline and light, shadow and outline) round one of its
-		# brass, three rows on top, two below; the rounded corners come with them.
-		thumb.texture_margin_left = 6.0
-		thumb.texture_margin_right = 6.0
-		thumb.texture_margin_top = 9.0
-		thumb.texture_margin_bottom = 6.0
-		thumb.axis_stretch_horizontal = StyleBoxTexture.AXIS_STRETCH_MODE_TILE
-		thumb.axis_stretch_vertical = StyleBoxTexture.AXIS_STRETCH_MODE_TILE
-		var lit := thumb.duplicate() as StyleBoxTexture   # under the pointer or held: the same brass, brighter
-		lit.modulate_color = Color(1.25, 1.2, 1.1)
-		_bar_styles = {"scroll": track, "scroll_focus": track, "grabber": thumb, "grabber_highlight": lit, "grabber_pressed": lit}
-	bar.custom_minimum_size.x = BAR_W
-	bar.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
-	for state in _bar_styles:
-		bar.add_theme_stylebox_override(state, _bar_styles[state])
 
 
 func _exit_tree() -> void:
@@ -257,19 +214,22 @@ func _mark(action: String) -> void:
 		l.add_theme_color_override("font_color", UI.LIGHT if i == picked else UI.MUTED if l.text == "" else UI.TEXT)
 
 
-## A cell with nothing bound (Claude, 2026-10-24, S2 / LV-34): an empty key cap instead of the word "none". One UI
-## pixel (3 screen pixels) of rim with its corners left open, round a dark well, in the cell's own colour: muted,
-## or lantern gold when it is the picked cell.
+## A cell with nothing bound (Claude, 2026-10-24, L6-29): a muted "-", the way a printed controls page marks a gap.
+## On the chosen row's picked keyboard cell (lantern gold, see _mark) it is the add prompt instead, since a key
+## pressed there fills it. It was an outlined empty key cap (S2 / LV-34), which read as a form field left blank.
+## The label's own text stays "", so row_text and the colours still read the cell as empty.
+const EMPTY_MARK := "-"
+const EMPTY_ADD := "add a key"   # a proposal (pass 6), Preston's to change
+
+
 func _empty_slot(l: Label) -> void:
 	if l.text != "":
 		return
-	var r := Rect2(0, 12, 36, 18)
-	var rim := Color(l.get_theme_color("font_color"), 0.75)
-	l.draw_rect(r.grow(-3.0), Color(0, 0, 0, 0.3))
-	l.draw_rect(Rect2(r.position.x + 3, r.position.y, r.size.x - 6, 3), rim)
-	l.draw_rect(Rect2(r.position.x + 3, r.end.y - 3, r.size.x - 6, 3), rim)
-	l.draw_rect(Rect2(r.position.x, r.position.y + 3, 3, r.size.y - 6), rim)
-	l.draw_rect(Rect2(r.end.x - 3, r.position.y + 3, 3, r.size.y - 6), rim)
+	var picked := l.get_theme_color("font_color") == UI.LIGHT
+	var f := UI.font("body")
+	var n := UI.type_size("body")
+	var base := roundf((l.size.y - f.get_height(n)) * 0.5 + f.get_ascent(n))
+	UI.say(l, Vector2(0, base), EMPTY_ADD if picked else EMPTY_MARK, "body", UI.LIGHT if picked else UI.MUTED)
 
 
 ## Whether `action`'s row shows its picked keyboard cell in gold now (the checks read it).
@@ -360,7 +320,8 @@ func _hint() -> void:
 	if listening != "":
 		hint.text = "Esc / B  stop listening"
 	else:
-		hint.text = "%s  change    Left / Right  first or second key    %s  back" % [UI.binding_text("ui_accept"), UI.binding_text("ui_cancel")]
+		# The arrow words are the live ones too (Claude, 2026-10-24, W18): "Left/Right", "D-pad Left/Right" on a pad.
+		hint.text = "%s  change    %s  first or second key    %s  back" % [UI.binding_text("ui_accept"), ControlsText.pair("ui_left", "ui_right"), UI.binding_text("ui_cancel")]
 
 
 func _on_device(_device: String) -> void:
@@ -527,7 +488,7 @@ func _is_hold_button(hold: String, button: int) -> bool:
 ## What the player pressed, as a hint prints it ("K", "Y", "RB+X", "Left stick Up").
 func _words(action: String, event: InputEvent) -> String:
 	var s := UI.event_text(event)
-	if s != "" and event is InputEventJoypadButton and UI.INPUT_CHORDS.has(action):
+	if s != "" and event is InputEventJoypadButton and UI.chord_needed(action, event.button_index):
 		s = UI.binding_text(UI.INPUT_CHORDS[action], "pad") + "+" + s
 	return s
 

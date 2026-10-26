@@ -76,7 +76,7 @@ func run()->void:
 	var crisp:=true
 	for y in range(95,155):
 		for x in range(125,260):
-			if dark.get_pixel(x,y)!=Color("#080b0e"):crisp=false
+			if dark.get_pixel(x,y)!=Color.BLACK:crisp=false
 	ok("Unseen cells remain exact opaque dark above world effects",crisp)
 	flash.queue_free();dg._reveal();await frames(3);await RenderingServer.frame_post_draw
 	var lit:=view.get_texture().get_image()

@@ -20,9 +20,32 @@ func _ready() -> void:
 	background.z_index = -1
 	background.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
 	artwork = detailed_image()
-	background.texture = ImageTexture.create_from_image(Finish.finished_image(artwork) if artwork != null else paint())
-	if artwork != null:Finish.apply(background,artwork)
+	background.texture = finished_texture(artwork) if artwork != null else ImageTexture.create_from_image(paint())
+	if artwork != null:Finish.apply_mask(background,mask_texture(artwork))
 	add_child(background)
+
+## The finished painting and its detail mask, made once a session (Claude, 2026-10-26, pass 7 S5 / LF7-05): every
+## bank (the flood talk, the storm, the escape walk, the approach) spent about 0.34 s making the same two pictures
+## again. Each is kept with the hash of the picture it came from, so another picture is still finished on its own.
+## The finish math is Finish's, unchanged. Shared textures: a scene that wants a different picture makes a new one.
+static var _finished: Texture2D
+static var _finished_key := 0
+static var _mask: Texture2D
+static var _mask_key := 0
+
+static func finished_texture(img: Image) -> Texture2D:
+	var key := hash(img.get_data())
+	if _finished == null or _finished_key != key:
+		_finished = ImageTexture.create_from_image(Finish.finished_image(img))
+		_finished_key = key
+	return _finished
+
+static func mask_texture(img: Image) -> Texture2D:
+	var key := hash(img.get_data())
+	if _mask == null or _mask_key != key:
+		_mask = ImageTexture.create_from_image(Finish.mask(img))
+		_mask_key = key
+	return _mask
 
 static func detailed_image(path: String = ART) -> Image:
 	# Claude, 2026-10-24 (A4, LV-19): UI.res_image reads the imported texture, which an exported game has; the PNG it does not.

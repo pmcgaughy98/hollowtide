@@ -1,0 +1,288 @@
+--- original/scripts/creature_opening.gd
++++ installed/scripts/creature_opening.gd
+@@ -7,10 +7,12 @@
+ const SOUL = preload("res://scenes/storm_open.tscn")   # Claude, 2026-10-10: the storm cold open plays first, then the soul prologue (Preston)
+ const VILLAGE = preload("res://assets/sprites/menu/creature_village_2026_10_09.png")
+ const FRAME_TRIM = preload("res://scripts/ui/title_panel_trim.gd")
++const ControlsText := preload("res://scripts/ui/controls_text.gd")
+ const LEGIBILITY = preload("res://scripts/ui/title_legibility.gdshader")
+ var _help_panel: PanelContainer
+ var _help_button: Button
+ var _help_controls: Array[Control] = []
++var _help_scroll: ScrollContainer
+ var _help_copy: VBoxContainer
+ var _help_topic := "journey"
+ var _action_copy: Label
+@@ -192,27 +194,16 @@
+ 		b.mouse_entered.connect(_set_input_device.bind("mouse"))
+ 	_build_help_panel()
+ 	_set_input_device("keyboard")
++	var prefs := get_node_or_null("/root/InputPrefs")
++	if prefs != null:
++		prefs.device_changed.connect(_refresh_help_controls)
++		prefs.bindings_changed.connect(_refresh_help_bindings)
+ 	_cursor.color=Color("#e4ca8e")
+ 	_cursor.polygon=PackedVector2Array([Vector2(0,0),Vector2(3,0),Vector2(3,2),Vector2(5,2),Vector2(5,4),Vector2(3,4),Vector2(3,6),Vector2(0,6)])
+ 	# Panels share the village palette and stay clear of the wordmark.
+-	_options_panel.position=Vector2(666,120)
+-	_options_panel.custom_minimum_size.x=442
+ 	_quit_panel.custom_minimum_size.x=442
+ 	_quit_panel.position=Vector2(minf(666.0,1136.0-_quit_panel.get_combined_minimum_size().x),312)
+ 	_quit_controls[0].text="Back to title"
+-	_options_panel.get_node("Choices").add_theme_constant_override("separation",12)
+-	for c in _options_controls:
+-		if c is HSlider:
+-			var track := UI.frame("panel_dim").duplicate()
+-			var fill := UI.frame("panel_focus").duplicate()
+-			c.add_theme_stylebox_override("slider",track)
+-			c.add_theme_stylebox_override("grabber_area",fill)
+-			c.add_theme_stylebox_override("grabber_area_highlight",fill)
+-			var ring := c.get_node("FocusRing") as Panel
+-			var edge := UI.frame("panel_focus").duplicate()
+-			ring.add_theme_stylebox_override("panel",edge)
+-			var caption_label := _options_panel.get_node("Choices/"+String(c.name).replace("Volume","Value")) as Label
+-			c.focus_entered.connect(func():caption_label.add_theme_color_override("font_color",Color("#e4ca8e")))
+ 
+ func _selected_action(b: Button) -> void:
+ 	if _action_copy == null:return
+@@ -228,7 +219,7 @@
+ func _place_cursor() -> void:
+ 	var focused := get_viewport().gui_get_focus_owner()
+ 	if _cursor == null:return
+-	_cursor.visible=focused is Button and _focus_controls.has(focused) and not _leaving
++	_cursor.visible=_page!="options" and focused is Button and _focus_controls.has(focused) and not _leaving
+ 	if not _cursor.visible:return
+ 	var rect: Rect2=focused.get_global_rect()
+ 	_cursor.position=Vector2(rect.position.x+10,rect.position.y+(rect.size.y-12)*0.5).round()
+@@ -257,11 +248,19 @@
+ 		tab.pressed.connect(_show_help_topic.bind(topic))
+ 		tabs.add_child(tab)
+ 		_help_controls.append(tab)
++	_help_scroll=ScrollContainer.new()
++	_help_scroll.name="GuideScroll"
++	_help_scroll.custom_minimum_size=Vector2(630,246)
++	_help_scroll.horizontal_scroll_mode=ScrollContainer.SCROLL_MODE_DISABLED
++	_help_scroll.follow_focus=true
++	_help_scroll.focus_mode=Control.FOCUS_ALL
++	UI.style_scroll_bar(_help_scroll.get_v_scroll_bar())
++	list.add_child(_help_scroll)
+ 	_help_copy=VBoxContainer.new()
+ 	_help_copy.name="Guide"
+-	_help_copy.custom_minimum_size=Vector2(630,246)
++	_help_copy.size_flags_horizontal=Control.SIZE_EXPAND_FILL
+ 	_help_copy.add_theme_constant_override("separation",8)
+-	list.add_child(_help_copy)
++	_help_scroll.add_child(_help_copy)
+ 	var actions := HBoxContainer.new()
+ 	actions.name="Actions"
+ 	actions.add_theme_constant_override("separation",10)
+@@ -279,15 +278,25 @@
+ 			b.add_theme_stylebox_override("normal",primary)
+ 		actions.add_child(b)
+ 		_help_controls.append(b)
++	_help_controls.append(_help_scroll)
+ 	_show_help_topic("journey")
+ 	_help_panel.hide()
+ 
+ func _show_help_topic(topic: String) -> void:
++	var scroll_y := _help_scroll.scroll_vertical if _help_topic==topic else 0
+ 	_help_topic=topic
+ 	for n in _help_copy.get_children():
+ 		_help_copy.remove_child(n)
+ 		n.queue_free()
+-	for i in 2:(_help_controls[i] as Button).set_pressed_no_signal(topic==["journey","controls"][i])
++	for i in 2:
++		var tab := _help_controls[i] as Button
++		var active: bool = topic==["journey","controls"][i]
++		tab.set_pressed_no_signal(active)
++		var box := UI.frame("panel_focus" if active else "panel").duplicate()
++		box.content_margin_top=8
++		box.content_margin_bottom=8
++		box.content_margin_left=40
++		tab.add_theme_stylebox_override("normal",box)
+ 	var lines: Array
+ 	if topic=="journey":
+ 		lines=[
+@@ -298,20 +307,34 @@
+ 			["03   Watch each other's steps",23],
+ 			["Hollows are turn-based: the floor waits for your action. Watch the lantern, look for stairs, and keep your team close.",20]]
+ 	else:
+-		lines=[
+-			["IN HIGHBANK",23],
+-			["WASD / arrows: move. E / J / Enter: use a place.",20],
+-			["IN A HOLLOW",23],
+-			["WASD / arrows: step. Shift: turn. J / Space: attack. 1-3: moves. I: bag. Z: rest. E: stairs.",20],
+-			["T: team orders. Tab: autopilot. Y / N: answer a recruit.",20],
+-			["YOUR MENUS",23],
+-			["P / controller Start: pause. Arrows / D-pad: move focus. Enter / A: choose. Esc / B: back. A controller works everywhere.",20]]
++		lines=[[ControlsText.note(UI.last_device()),20]]
++		for group in ControlsText.groups(UI.last_device()):
++			lines.append([group["head"],23])
++			for words in group["lines"]:lines.append([words,20])
++			if group["head"]==ControlsText.HOLLOW["head"]:lines.append([ControlsText.TURNS,20])
+ 	for entry in lines:
+ 		var l := _label(entry[0],entry[1])
+ 		l.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART
+-		l.custom_minimum_size.x=630
++		l.size_flags_horizontal=Control.SIZE_EXPAND_FILL
+ 		if entry[1]==23:l.modulate=Color("#e4ca8e")
+ 		_help_copy.add_child(l)
++	_help_scroll.set_deferred("scroll_vertical",scroll_y)
++	_help_panel.reset_size.call_deferred()
++
++func _refresh_help_controls(_device: String) -> void:
++	if _page=="help" and _help_topic=="controls":_show_help_topic("controls")
++
++func _refresh_help_bindings() -> void:
++	_refresh_help_controls(UI.last_device())
++
++func _unhandled_input(event: InputEvent) -> void:
++	if _page=="help":
++		var step := int(UI.pressed(event,"page_down"))-int(UI.pressed(event,"page_up"))
++		if step!=0:
++			_help_scroll.scroll_vertical+=step*int(_help_scroll.size.y*0.75)
++			get_viewport().set_input_as_handled()
++			return
++	super._unhandled_input(event)
+ 
+ func _open_help() -> void:
+ 	if not _boot_done or _leaving:return
+--- original/scripts/main_menu.gd
++++ installed/scripts/main_menu.gd
+@@ -76,6 +76,7 @@
+ var _ui: CanvasLayer
+ var _main_panel: PanelContainer
+ var _journey_panel: PanelContainer
++var _title_settings: CanvasLayer
+ var _options_panel: PanelContainer
+ var _quit_panel: PanelContainer
+ var _page := "main"
+@@ -458,25 +459,46 @@
+ 
+ 
+ func _build_options_panel() -> void:
+-	_options_panel = _panel("Options", Vector2(700, 120), 410)
+-	var list := _list(_options_panel)
+-	list.add_child(_label("Options", 34))
+-	_volume_control(list, "Master volume", "Master", _master_volume)
+-	_volume_control(list, "Music volume", "Music", _music_volume)
+-	_motion_button = _button("")
+-	_motion_button.name = "ReduceMotion"
+-	_motion_button.pressed.connect(_on_toggle_motion)
+-	list.add_child(_motion_button)
+-	_options_controls.append(_motion_button)
+-	_update_motion_label()
+-	var back := _button("Back")
+-	back.name = "Back"
+-	back.pressed.connect(_close_panel)
+-	list.add_child(back)
+-	_options_controls.append(back)
+-	_options_status = _label("Changes are saved automatically.", 18)
+-	_options_status.name = "Status"
+-	list.add_child(_options_status)
++	_title_settings = load("res://scripts/ui/title_settings.gd").new()
++	add_child(_title_settings)
++	_title_settings.closed.connect(_title_settings_closed)
++	_title_settings.page_changed.connect(_title_settings_page)
++	_title_settings.preferences_changed.connect(_refresh_title_preferences)
++	_title_settings.show_page("options")
++	_title_settings.overlay.hide()
++
++
++func _title_settings_closed() -> void:
++	_refresh_title_preferences()
++	var return_to: Control = _buttons[0]
++	for b in _buttons:
++		if b.name == "Options": return_to = b
++	_show_page("main", return_to)
++
++
++func _title_settings_page() -> void:
++	_options_panel = _title_settings.overlay.get_node("PausePanel")
++	_options_controls.assign(_title_settings.controls)
++	_options_status = _title_settings.status
++	_motion_button = _title_settings.content.get_node_or_null("ReduceMotion")
++	if _page == "options":
++		_focus_controls.assign(_options_controls)
++
++
++func _save_title_option(section: String, key: String, value: Variant) -> void:
++	if section == "audio":
++		set("_%s_volume" % key, float(value))
++	elif key == "reduce_motion":
++		_reduce_motion = bool(value)
++	elif key == "courier":
++		_selected_courier = String(value)
++	_settings_dirty = true
++	_save_preferences()
++
++
++func _refresh_title_preferences() -> void:
++	_load_preferences()
++	_apply_motion_setting()
+ 
+ 
+ func _volume_control(list: VBoxContainer, caption: String, bus: String, initial: float) -> void:
+@@ -552,6 +574,11 @@
+ 
+ func _show_page(page: String, first: Control) -> void:
+ 	_page = page
++	if _title_settings != null:
++		if page == "options":
++			_title_settings.show_page("options")
++			first = _options_controls[0]
++		_title_settings.overlay.visible = page == "options"
+ 	_main_panel.visible = page == "main"
+ 	_journey_panel.visible = page == "journey"
+ 	_options_panel.visible = page == "options"
+@@ -587,7 +614,7 @@
+ 		for card in _courier_buttons:
+ 			card.focus_neighbor_bottom = _begin_button.get_path()
+ 		_begin_button.focus_neighbor_top = _courier_buttons[0 if _selected_courier == "Male" else 1].get_path()
+-	first.grab_focus.call_deferred()
++	if page != "options": first.grab_focus.call_deferred()
+ 	_place_cursor.call_deferred()
+ 
+ 
+--- /dev/null
++++ installed/scripts/ui/title_settings.gd
+@@ -0,0 +1,39 @@
++extends "res://scripts/ui/game_pause_menu.gd"
++## The existing pause Options/Rebind pages hosted by the title, without pausing a game or exposing game pages.
++signal closed
++signal page_changed
++signal preferences_changed
++
++func _ready() -> void:
++	super._ready()
++	hint.hide()
++	hint.disabled = true
++	content.name = "Choices"
++
++func show_page(next: String) -> void:
++	if next == "main":
++		resume()
++		return
++	if next not in ["options", "rebind"]:
++		return
++	super.show_page(next)
++	page_changed.emit()
++
++func _save(section: String, key: String, value: Variant) -> void:
++	if UI.is_title_pref(section, key):
++		get_parent()._save_title_option(section, key, value)
++	else:
++		super._save(section, key, value)
++	preferences_changed.emit()
++
++func resume() -> void:
++	overlay.hide()
++	closed.emit()
++
++func open() -> void:
++	# Only the title's Options button opens this host; P/Esc never opens a game pause menu on the title.
++	pass
++
++func _input(event: InputEvent) -> void:
++	if overlay.visible or UI.pressed(event, "fullscreen"):
++		super._input(event)

@@ -45,6 +45,20 @@ static func lines_for(form: String, story: Dictionary) -> Array:
 	return []
 
 
+## Who a room may show once the Wayline has taken the team on (Claude, 2026-10-24, pass 6 / L6-15), for
+## SceneKit.read_ahead under the door's fade: the crew at their posts, on the lower floor the whole mail call, and
+## the Postmaster in the chamber.
+static func cast_of(room_id: String) -> Array:
+	var out: Array = []
+	for p in POSTS.get(room_id, []):
+		out.append(p[0])
+	if room_id == "hall_low":
+		out.append_array(["wayling", "muskin", "starward"])
+	elif room_id == "chamber":
+		out.append("starward")   # at the dais once the trial is set (town_room.gd)
+	return out
+
+
 ## The crew at their posts in this room (not during the mail call, not while a guild scene owns the room).
 static func place(room) -> void:
 	var story: Dictionary = room._record().get("story", {})
@@ -62,10 +76,13 @@ const CALLER := Vector2i(14, 6)                 # Wayling at the sorting table, 
 # The crew stand just off the rug's two long sides, one tile out from where they stood until 2026-10-24 (Claude,
 # pass 5 RM7 / LV-16): at the rug's edge the partner's sprite overlapped Wickglow's and Rinsepaw's all through the
 # call. Both sides moved, so the line-up stays even about the rug's centre line, where the leader stands.
-const STAND := {"grubbit": Vector2i(11, 8), "stillwade": Vector2i(18, 8), "wickglow": Vector2i(18, 10),
-	"slipjaw": Vector2i(11, 10), "rinsepaw": Vector2i(18, 9)}
+# The lower row one tile further out again (Claude, 2026-10-24, pass 6 T7 / LO6-02): Wickglow (19, 10), Slipjaw
+# (10, 10) and Muskin (11, 10), all open floor of the lower Hall (town_room.gd ROOMS["hall_low"]: inside its walls, off
+# its pillars, mess table, hatch and shelves), so the partner on (16, 10) and the leader's nudge have a tile to spare.
+const STAND := {"grubbit": Vector2i(11, 8), "stillwade": Vector2i(18, 8), "wickglow": Vector2i(19, 10),
+	"slipjaw": Vector2i(10, 10), "rinsepaw": Vector2i(18, 9)}
 const LATE_DOOR := Vector2i(1, 6)                # Muskin comes in late, from the crew room
-const LATE_SPOT := Vector2i(12, 10)              # and squeezes in beside Slipjaw, clear of the leader (RM7)
+const LATE_SPOT := Vector2i(11, 10)              # and squeezes in beside Slipjaw, clear of the leader (RM7, T7)
 # The leader front and centre, the partner beside Wickglow (Preston, 2026-10-11), recruits behind.
 # LEADER_NUDGE puts the leader on the rug's centre line where the star points south, facing north (Preston, 2026-10-11).
 # The marks are on the rug's open south side, and every one stands clear of the crew's sprites (RM7): the fourth
@@ -73,6 +90,7 @@ const LATE_SPOT := Vector2i(12, 10)              # and squeezes in beside Slipja
 const LEADER_NUDGE := Vector2(12, 4)   # on the rug's centre line, just under the star's south point
 const TEAM_SPOTS := [Vector2i(14, 10), Vector2i(16, 10), Vector2i(15, 11), Vector2i(15, 12)]
 # The way back to work for those who cross the room (RM7): north of the rug, clear of the team still standing on it.
+# Wickglow's starts at its new post (T7): straight up from (19, 10) to (19, 9), then round the rug's north side.
 const BACK_VIA := {"rinsepaw": [Vector2i(17, 7), Vector2i(11, 7)], "wickglow": [Vector2i(19, 9), Vector2i(18, 7)],
 	"stillwade": [Vector2i(17, 6)], "grubbit": [Vector2i(12, 7), Vector2i(19, 7)], "wayling": [Vector2i(19, 6)]}
 const STARWARD_AT := Vector2i(15, 5)
@@ -107,6 +125,7 @@ static func _postmasters_note(story: Dictionary) -> Array:
 
 static func run(room) -> void:
 	room.cutscene = true
+	SceneKit.read_ahead(["muskin", "starward"])   # the two who walk in later, read while the call starts (pass 6)
 	var rec: Dictionary = room._record()
 	var story: Dictionary = rec.get("story", {})
 	var way: Dictionary = SceneKit.spawn(room, "wayling", Vector2i(14, 3), "s")

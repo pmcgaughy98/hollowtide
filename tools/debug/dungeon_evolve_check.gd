@@ -92,10 +92,18 @@ func _run() -> void:
 		root.add_child(d2)
 		await _frames(4)
 		d2.autopilot = true
+		d2.check_bot = true   # reads lines and welcomes recruits on autopilot (dungeon.gd check_bot, L6-01)
 		var frames := 0
 		while d2.cleared + d2.faints < 2 and frames < 30 * 900:
 			await process_frame
 			frames += 1
+		# Judged, so the runner reads this part too (Claude, 2026-10-26, pass 7 LF7-11): no run at all in the time
+		# means the autopilot stalled, and the pace printed below would be measuring nothing.
+		var runs: int = d2.cleared + d2.faints
+		if runs == 0:
+			print("FAIL  seed %d: 0 runs in %d s" % [sd, frames / 30])
+		else:
+			print("Autopilot seed %d finished %d runs in %d s -> ok" % [sd, runs, frames / 30])
 		var rows: Array = []
 		for k in d2.party.size():
 			var key := "%d:%d" % [d2.party[k][0], d2.party[k][1]]

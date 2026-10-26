@@ -7,13 +7,12 @@ const PROLOGUE = preload("res://scenes/creature_prologue.tscn")
 const SOUL = preload("res://scenes/storm_open.tscn")   # Claude, 2026-10-10: the storm cold open plays first, then the soul prologue (Preston)
 const VILLAGE = preload("res://assets/sprites/menu/creature_village_2026_10_09.png")
 const FRAME_TRIM = preload("res://scripts/ui/title_panel_trim.gd")
-const MENU_FACE = preload("res://assets/fonts/Vollkorn-Variable.ttf")
-const COPY_FACE = preload("res://assets/fonts/AlegreyaSansSC-Regular.ttf")
-const HINT_FACE = preload("res://assets/fonts/Silkscreen-Regular.ttf")
+const ControlsText := preload("res://scripts/ui/controls_text.gd")
 const LEGIBILITY = preload("res://scripts/ui/title_legibility.gdshader")
 var _help_panel: PanelContainer
 var _help_button: Button
 var _help_controls: Array[Control] = []
+var _help_scroll: ScrollContainer
 var _help_copy: VBoxContainer
 var _help_topic := "journey"
 var _action_copy: Label
@@ -121,13 +120,15 @@ func _build_boot() -> void:
 	captions[0].modulate=Color("#d1bd91")
 	_launch_hint=captions[1]
 	_launch_hint.modulate=Color("#a4b09a")
-	_launch_hint.add_theme_font_override("font",HINT_FACE)
-	_launch_hint.add_theme_font_size_override("font_size",14)
+	_launch_hint.add_theme_font_override("font",UI.font("label"))
+	_launch_hint.add_theme_font_size_override("font_size",UI.type_size("label"))
 	_set_input_device(_input_device)
 
 func _label(text:String,size:int=24) -> Label:
 	var l := super._label(text,size)
-	l.add_theme_font_override("font",MENU_FACE if size>=28 else COPY_FACE)
+	if size==23:   # the Help section labels use the shared compact role
+		l.add_theme_font_override("font",UI.font("label"))
+		l.add_theme_font_size_override("font_size",UI.type_size("label"))
 	return l
 
 func _panel(node_name:String,at:Vector2,width:float) -> PanelContainer:
@@ -140,22 +141,6 @@ func _panel(node_name:String,at:Vector2,width:float) -> PanelContainer:
 	panel.add_child(trim)
 	trim.hide() # Shared frame supplies its own corner studs and joinery.
 	return panel
-
-func _button(text:String) -> Button:
-	var b:=super._button(text)
-	b.add_theme_font_override("font",MENU_FACE)
-	b.add_theme_font_size_override("font_size",25)
-	var plain:=UI.frame("panel").duplicate()
-	plain.content_margin_top=8
-	plain.content_margin_bottom=8
-	plain.content_margin_left=40
-	var active:=UI.frame("panel_focus").duplicate()
-	active.content_margin_top=8
-	active.content_margin_bottom=8
-	active.content_margin_left=40
-	b.add_theme_stylebox_override("normal",plain)
-	for state in ["focus","hover","pressed"]:b.add_theme_stylebox_override(state,active)
-	return b
 
 func _build_menu() -> void:
 	super._build_menu()
@@ -176,28 +161,12 @@ func _build_menu() -> void:
 	_help_button.name="HowToPlay"
 	_help_button.pressed.connect(_open_help)
 	choices.add_child(_help_button)
-	# Keep the original NewGame/Options/Quit identities; display Quit last. By the last button's index, not a
-	# fixed one, since Continue is listed first when a save exists (Claude, 2026-10-12).
+	# Keep button identities, with How to play immediately before Quit. Use the last button's index
+	# since Continue is listed first when a save exists (Claude, 2026-10-12).
 	choices.move_child(_help_button,_buttons[_buttons.size()-1].get_index())
 	_buttons.append(_help_button)
 	for b in _buttons:
 		b.custom_minimum_size.y=54
-		b.add_theme_font_size_override("font_size",32)
-		var plain := StyleBoxFlat.new()
-		plain.bg_color=Color.TRANSPARENT
-		plain.set_content_margin_all(6)
-		plain.content_margin_left=32
-		var selected := plain.duplicate() as StyleBoxFlat
-		selected.border_color=Color("#cbb280")
-		selected.border_width_bottom=1
-		b.add_theme_stylebox_override("normal",plain)
-		for state in ["focus","hover","pressed"]:b.add_theme_stylebox_override(state,selected)
-		b.add_theme_color_override("font_color",Color("#e2dbc5"))
-		for state in ["font_hover_color","font_focus_color","font_pressed_color"]:
-			b.add_theme_color_override(state,Color("#ffe6af"))
-		b.add_theme_color_override("font_shadow_color",Color("#111b15"))
-		b.add_theme_constant_override("shadow_offset_x",1)
-		b.add_theme_constant_override("shadow_offset_y",2)
 	var rule := ColorRect.new()
 	rule.custom_minimum_size=Vector2(0,1)
 	rule.color=Color("#706c4c")
@@ -214,39 +183,30 @@ func _build_menu() -> void:
 	_input_hint=_label("",14)
 	_input_hint.name="InputHint"
 	_input_hint.modulate=Color("#c4c5ab")
-	_input_hint.add_theme_font_override("font",HINT_FACE)
 	_input_hint.position=Vector2(80,608)
 	_ui.add_child(_input_hint)
 	# Laid out from the hint line up, not from a fixed top: with Continue listed first (five rows) the
 	# menu ran from 324 to 650 and "Quit" sat on the hint. Four rows keep their old place. Claude, 2026-10-14.
 	_main_panel.position.y=menu_top(_buttons.size() + (1 if _save_note != null else 0))   # the save note counts as a row
+	if _continue_details != null:
+		var details_row := _continue_details.get_parent() as Control
+		_main_panel.position.y -= details_row.get_combined_minimum_size().y + choices.get_theme_constant("separation")
 
 	for b in _buttons:
 		b.focus_entered.connect(_selected_action.bind(b))
 		b.mouse_entered.connect(_set_input_device.bind("mouse"))
 	_build_help_panel()
 	_set_input_device("keyboard")
+	var prefs := get_node_or_null("/root/InputPrefs")
+	if prefs != null:
+		prefs.device_changed.connect(_refresh_help_controls)
+		prefs.bindings_changed.connect(_refresh_help_bindings)
 	_cursor.color=Color("#e4ca8e")
 	_cursor.polygon=PackedVector2Array([Vector2(0,0),Vector2(3,0),Vector2(3,2),Vector2(5,2),Vector2(5,4),Vector2(3,4),Vector2(3,6),Vector2(0,6)])
 	# Panels share the village palette and stay clear of the wordmark.
-	_options_panel.position=Vector2(666,180)
-	_options_panel.custom_minimum_size.x=442
-	_quit_panel.position=Vector2(666,312)
 	_quit_panel.custom_minimum_size.x=442
+	_quit_panel.position=Vector2(minf(666.0,1136.0-_quit_panel.get_combined_minimum_size().x),312)
 	_quit_controls[0].text="Back to title"
-	_options_panel.get_node("Choices").add_theme_constant_override("separation",12)
-	for c in _options_controls:
-		if c is HSlider:
-			var track := UI.frame("panel_dim").duplicate()
-			var fill := UI.frame("panel_focus").duplicate()
-			c.add_theme_stylebox_override("slider",track)
-			c.add_theme_stylebox_override("grabber_area",fill)
-			c.add_theme_stylebox_override("grabber_area_highlight",fill)
-			var ring := c.get_node("FocusRing") as Panel
-			var edge := UI.frame("panel_focus").duplicate()
-			ring.add_theme_stylebox_override("panel",edge)
-			var caption_label := _options_panel.get_node("Choices/"+String(c.name).replace("Volume","Value")) as Label
-			c.focus_entered.connect(func():caption_label.add_theme_color_override("font_color",Color("#e4ca8e")))
 
 func _selected_action(b: Button) -> void:
 	if _action_copy == null:return
@@ -262,7 +222,7 @@ func _set_input_device(device: String) -> void:
 func _place_cursor() -> void:
 	var focused := get_viewport().gui_get_focus_owner()
 	if _cursor == null:return
-	_cursor.visible=focused is Button and _focus_controls.has(focused) and not _leaving
+	_cursor.visible=_page!="options" and focused is Button and _focus_controls.has(focused) and not _leaving
 	if not _cursor.visible:return
 	var rect: Rect2=focused.get_global_rect()
 	_cursor.position=Vector2(rect.position.x+10,rect.position.y+(rect.size.y-12)*0.5).round()
@@ -276,7 +236,7 @@ func _input(event: InputEvent) -> void:
 	super._input(event)
 
 func _build_help_panel() -> void:
-	_help_panel=_panel("HowToPlay",Vector2(430,168),678)
+	_help_panel=_panel("HowToPlay",Vector2(430,120),678)
 	var list := _list(_help_panel)
 	list.add_child(_label("HOW TO PLAY",30))
 	var tabs := HBoxContainer.new()
@@ -291,11 +251,19 @@ func _build_help_panel() -> void:
 		tab.pressed.connect(_show_help_topic.bind(topic))
 		tabs.add_child(tab)
 		_help_controls.append(tab)
+	_help_scroll=ScrollContainer.new()
+	_help_scroll.name="GuideScroll"
+	_help_scroll.custom_minimum_size=Vector2(630,246)
+	_help_scroll.horizontal_scroll_mode=ScrollContainer.SCROLL_MODE_DISABLED
+	_help_scroll.follow_focus=true
+	_help_scroll.focus_mode=Control.FOCUS_ALL
+	UI.style_scroll_bar(_help_scroll.get_v_scroll_bar())
+	list.add_child(_help_scroll)
 	_help_copy=VBoxContainer.new()
 	_help_copy.name="Guide"
-	_help_copy.custom_minimum_size=Vector2(630,246)
+	_help_copy.size_flags_horizontal=Control.SIZE_EXPAND_FILL
 	_help_copy.add_theme_constant_override("separation",8)
-	list.add_child(_help_copy)
+	_help_scroll.add_child(_help_copy)
 	var actions := HBoxContainer.new()
 	actions.name="Actions"
 	actions.add_theme_constant_override("separation",10)
@@ -313,15 +281,25 @@ func _build_help_panel() -> void:
 			b.add_theme_stylebox_override("normal",primary)
 		actions.add_child(b)
 		_help_controls.append(b)
+	_help_controls.append(_help_scroll)
 	_show_help_topic("journey")
 	_help_panel.hide()
 
 func _show_help_topic(topic: String) -> void:
+	var scroll_y := _help_scroll.scroll_vertical if _help_topic==topic else 0
 	_help_topic=topic
 	for n in _help_copy.get_children():
 		_help_copy.remove_child(n)
 		n.queue_free()
-	for i in 2:(_help_controls[i] as Button).set_pressed_no_signal(topic==["journey","controls"][i])
+	for i in 2:
+		var tab := _help_controls[i] as Button
+		var active: bool = topic==["journey","controls"][i]
+		tab.set_pressed_no_signal(active)
+		var box := UI.frame("panel_focus" if active else "panel").duplicate()
+		box.content_margin_top=8
+		box.content_margin_bottom=8
+		box.content_margin_left=40
+		tab.add_theme_stylebox_override("normal",box)
 	var lines: Array
 	if topic=="journey":
 		lines=[
@@ -332,20 +310,34 @@ func _show_help_topic(topic: String) -> void:
 			["03   Watch each other's steps",23],
 			["Hollows are turn-based: the floor waits for your action. Watch the lantern, look for stairs, and keep your team close.",20]]
 	else:
-		lines=[
-			["IN HIGHBANK",23],
-			["WASD / arrows: move. E / J / Enter: use a place.",20],
-			["IN A HOLLOW",23],
-			["WASD / arrows: step. Shift: turn. J / Space: attack. 1-3: moves. I: bag. Z: rest. E: stairs.",20],
-			["T: team orders. Tab: autopilot. Y / N: answer a recruit.",20],
-			["YOUR MENUS",23],
-			["P / controller Start: pause. Arrows / D-pad: move focus. Enter / A: choose. Esc / B: back. A controller works everywhere.",20]]
+		lines=[[ControlsText.note(UI.last_device()),20]]
+		for group in ControlsText.groups(UI.last_device()):
+			lines.append([group["head"],23])
+			for words in group["lines"]:lines.append([words,20])
+			if group["head"]==ControlsText.HOLLOW["head"]:lines.append([ControlsText.TURNS,20])
 	for entry in lines:
 		var l := _label(entry[0],entry[1])
 		l.autowrap_mode=TextServer.AUTOWRAP_WORD_SMART
-		l.custom_minimum_size.x=630
+		l.size_flags_horizontal=Control.SIZE_EXPAND_FILL
 		if entry[1]==23:l.modulate=Color("#e4ca8e")
 		_help_copy.add_child(l)
+	_help_scroll.set_deferred("scroll_vertical",scroll_y)
+	_help_panel.reset_size.call_deferred()
+
+func _refresh_help_controls(_device: String) -> void:
+	if _page=="help" and _help_topic=="controls":_show_help_topic("controls")
+
+func _refresh_help_bindings() -> void:
+	_refresh_help_controls(UI.last_device())
+
+func _unhandled_input(event: InputEvent) -> void:
+	if _page=="help":
+		var step := int(UI.pressed(event,"page_down"))-int(UI.pressed(event,"page_up"))
+		if step!=0:
+			_help_scroll.scroll_vertical+=step*int(_help_scroll.size.y*0.75)
+			get_viewport().set_input_as_handled()
+			return
+	super._unhandled_input(event)
 
 func _open_help() -> void:
 	if not _boot_done or _leaving:return
@@ -400,7 +392,7 @@ func _poll_route() -> void:pass
 func _request_route() -> void:pass # This menu uses the preloaded creature prologue.
 
 func _on_new_game() -> void:
-	if _boot_done and not _leaving:_begin_journey()
+	if _boot_done and not _leaving and not _ask_new_game():_begin_journey()
 
 func _begin_journey() -> void:
 	if _leaving or not _boot_done:return

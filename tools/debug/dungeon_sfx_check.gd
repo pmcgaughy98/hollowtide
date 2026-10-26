@@ -3,6 +3,8 @@ extends SceneTree
 ## one at the right moment: a real attack (swing, the hit, the move's essence impact), a miss, the
 ## stairs, a pickup, a trap, the lantern running low, and the town's job board and doors.
 ## Reads the dungeon's last_sfx (sound name -> turn) and the town's last_sfx.
+## Two markers from the dungeon's sfx_log (Claude, 2026-10-24, factory pass 6): a rest by key is heard once a streak,
+## the autopilot's never (D8); I, Escape, L, L open and shut the bag and the log to menu_open and menu_close (D5).
 ##   Godot --path . --fixed-fps 30 --script res://tools/debug/dungeon_sfx_check.gd
 
 const NAMES := ["swing", "miss", "hit_light", "hit_heavy", "hit_super", "slam", "shove", "windup",
@@ -22,6 +24,22 @@ func _initialize() -> void:
 func _frames(n: int) -> void:
 	for k in n:
 		await process_frame
+
+
+## A key pressed and let go, three frames each way, as a player taps it (the dungeon reads it once a frame).
+func _key(code: Key) -> void:
+	for down in [true, false]:
+		var ev := InputEventKey.new()
+		ev.keycode = code
+		ev.physical_keycode = code
+		ev.pressed = down
+		Input.parse_input_event(ev)
+		await _frames(3)
+
+
+## The sounds of `take` ("dungeon/<name>.wav") in the dungeon's sound log, each [frame, take, bus].
+func _started(dg: Node, take: String) -> Array:
+	return dg.sfx_log.filter(func(s: Array) -> bool: return String(s[1]) == take)
 
 
 func _run() -> void:
@@ -122,6 +140,49 @@ func _run() -> void:
 		await _frames(12)
 	print("lantern goes out (light %.0f): played %s -> %s" % [dg.light, str(dg.last_sfx.keys()), "ok" if dg.last_sfx.has("lantern_out") else "WRONG"])
 	bad += 0 if dg.last_sfx.has("lantern_out") else 1
+	# Resting by key (LO6-05, D8): one soft breath, REST_TAKE, at the start of a streak of five; another after a step
+	# breaks the streak; none for five of the autopilot's rests (act_rest with by_key off, as the checks rest too).
+	var take: String = "dungeon/%s.wav" % dg.REST_TAKE
+	dg.sfx_log.clear()
+	for k in 5:
+		await dg.act_rest(true)
+		await _frames(2)
+	await _frames(6)
+	var streak: Array = _started(dg, take)
+	var step := Vector2i.ZERO
+	for dd in dg.DIRS:
+		if step == Vector2i.ZERO and dg.can_step(lead["pos"], dd) and dg._occupant(lead["pos"] + dd) < 0:
+			step = dd
+	await dg.act_move(step)
+	await _frames(4)
+	dg.sfx_log.clear()
+	await dg.act_rest(true)
+	await _frames(6)
+	var after_step: int = _started(dg, take).size()
+	dg.sfx_log.clear()
+	for k in 5:
+		await dg.act_rest()
+		await _frames(2)
+	await _frames(6)
+	var auto_n: int = _started(dg, take).size()
+	var ok_rest: bool = streak.size() == 1 and String(streak[0][2]) == "SFX" and after_step == 1 and auto_n == 0
+	print("rest by key: a streak of 5 started %s %d time(s)%s, after a step %d, the autopilot's 5 rests %d -> %s" % [take, streak.size(), (" on " + String(streak[0][2])) if streak.size() > 0 else "", after_step, auto_n, "ok" if ok_rest else "WRONG"])
+	bad += 0 if ok_rest else 1
+	# The bag and the message log by key (L6-31, D5): I opens the bag and Escape shuts it, L opens the log and L shuts
+	# it, each to the menu's own open and close on the UI bus (closing the bag played cancel.wav, kept for backing out
+	# of a choice). The floor's first lessons are marked as said, so no line comes up between the keys.
+	for flag in ["taught_wild", "taught_item", "taught_lantern"]:
+		dg.story[flag] = true
+	dg.talk.clear()
+	dg.poll_input = true
+	dg.sfx_log.clear()
+	for key in [KEY_I, KEY_ESCAPE, KEY_L, KEY_L]:
+		await _key(key)
+	dg.poll_input = false
+	var ui_heard: Array = dg.sfx_log.filter(func(s: Array) -> bool: return String(s[2]) == "UI").map(func(s: Array) -> String: return String(s[1]).get_file().get_basename())
+	var ok_menu: bool = ui_heard == ["menu_open", "menu_close", "menu_open", "menu_close"] and not dg.bag_open and not paused
+	print("I, Escape, L, L: UI bus %s, bag open %s, paused %s -> %s" % [str(ui_heard), str(dg.bag_open), str(paused), "ok" if ok_menu else "WRONG"])
+	bad += 0 if ok_menu else 1
 	# The stairs.
 	dg.last_sfx.clear()
 	lead["pos"] = dg.data["stairs"]

@@ -122,3 +122,45 @@ Added by the pass 5 integrator, from the full suite:
    and 7 with the committed file; on the 20 fresh seeds pass 5 did slightly better, so the gap is the reshuffle, not a
    harder Mouth. A bump-only level 1 leader clears the Mouth about 1 time in 5 or 6. Claude may give gameplay its
    own random generator so seed rows stay comparable between passes; say if you want that.
+
+## Pass 6 lines (plan, 2026-10-24)
+From `sweep-2026-10-20/PASS6_PLAN_2026-10-24.md`, section "Grok". Result: `sweep-2026-10-20/PASS6_RESULT_2026-10-24.md`.
+Pass 6 changed none of your numbers (stats, EXP, learnsets, spawns, damage). (Claude, integrator, 2026-10-24)
+1. L6-02: Hollow Mouth B1F rolled a monster house under the shared RECIPE (dungeon.gd:297, monster_house 0.3), and a
+   level 1 team was down 12 s later (audio_opening.tsv frame 5800, faint at 6081). Decide whether Hollow Mouth B1F-B2F
+   keep the 0.3 roll, drop it, or drop it until Hollow Mouth is cleared once. Claude applies your number unchanged.
+2. LO5-27 (LO6-29): decide G1 (Hollow Mouth spawns and REST_TO 0.7 at dungeon.gd:51) first, then G2-G5. The
+   integrator's lv1 table shows 4 clears in 30 seeds with pass 5's dungeon.gd and 7 with the committed one. Confirm
+   whether '0 kit moves fail the body gate' is the DESIGN_RULES rule. Claude applies the tables unchanged and reruns
+   pilot_chain, dungeon_chain, lv1_run and move_table.
+3. LO5-28 (LO6-30): must a Job Board client come from its own floor's spawn list, or from creatures the team has met?
+   (Preostmar, a B3F creature, posts a B1F job, and a Rootbank Warren B2F client stands on other dungeons' B2F.) On an
+   'own floor' answer, Claude applies the held line at dungeon.gd:1054. On 'met', Claude adds a met record.
+4. LO5-29 (LO6-31): does the Guardian passive return? If not, Claude drops the printed-only step from
+   arena_protector_check.gd. If it does, the step becomes a verdict once your numbers land.
+
+Added by the pass 6 integrator, from the lanes and the full suite:
+5. Autopilot (Tab) no longer answers a recruit question or reads story lines for the player: it switches itself off
+   and waits for Y or N, or E (dungeon.gd L6-01). Checks that run whole floors on autopilot set a new `check_bot` flag,
+   so they still welcome every recruit as before. lv1_run does not use autopilot, so its table is unaffected by this.
+6. lv1_run, read as a rate: the pass 6 suite cleared 5 of 10 seeds with 20 downs (pass 5: 0 of 10, 30 downs). No rule
+   changed. lv1_run does not use autopilot; the dungeon lane's stairs change (D7) draws one more frame per stairs, and
+   that reshuffles the shared random generator. On 20 fresh seeds (11 to 30) the dungeon lane measured 5 clears and 48
+   downs (pass 5: 4 and 49). The live re-shoot's level 1 team rolled 7 monster-house ambushes and went down 4 times
+   before clearing the Mouth, which is L6-02's question.
+
+## Pass 7 lines (plan, 2026-10-26)
+From `sweep-2026-10-20/PASS7_PLAN_2026-10-26.md`, section "Grok". Result: `sweep-2026-10-20/PASS7_RESULT_2026-10-26.md`.
+Pass 7 changed none of your numbers (stats, EXP, learnsets, spawns, damage). (Claude, integrator, 2026-10-26)
+1. LF7-19 (L6-02, LO6-29): decide Hollow Mouth B1F-B2F's monster-house roll (dungeon.gd RECIPE monster_house 0.3; in
+   the pass 6 re-shoot a level 1 team rolled 7 ambushes and went down 4 times before clearing) and answer G1 to G5
+   (spawns, REST_TO) in 'Pass 6 lines' items 1 and 2 above. Claude applies the numbers unchanged and reruns pilot,
+   dungeon_chain, lv1_run and move_table.
+2. LF7-20 (LO6-30, LO6-31): should Job Board clients come from the floor's own spawn list or from creatures already met
+   (today Preostmar, a B3F creature, can post a B1F job), and does the Guardian passive return
+   (arena_protector_check's Guardian step prints a number and judges nothing)? 'Pass 6 lines' items 3 and 4 above.
+   Claude then applies the held client line or adds a met record, and drops the Guardian step or turns it into a
+   verdict.
+3. FYI, no answer needed (L7-01): the Warden's defeat branch ran once for every hit that landed at 0 HP, so the boss
+   EXP in that block may have been granted up to three times per win in recent playtests. Pass 7 grants it once, as
+   written (warden_yield_check: the leader gains 130, one grant; 260 with the guard removed). No number changed.

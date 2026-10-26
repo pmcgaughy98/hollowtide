@@ -1,0 +1,20 @@
+{
+  "command": [
+    "C:/Users/pmcga/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe",
+    "tools/debug/run_checks.py",
+    "ui_fit",
+    "soul_prologue",
+    "opening_flow",
+    "--jobs",
+    "1",
+    "--logs",
+    "D:\\dev\\hollowtide-title-type-20261026\\runner",
+    "--md",
+    "D:\\dev\\hollowtide-title-type-20261026\\runner-result.md"
+  ],
+  "cwd": "C:\\Users\\pmcga\\dev\\hollowtide",
+  "APPDATA": "D:\\dev\\hollowtide-title-type-20261026\\runner-profile",
+  "LOCALAPPDATA": "D:\\dev\\hollowtide-title-type-20261026\\runner-local-profile",
+  "exit": 0,
+  "result": "3 PASS; known exit noise in raw logs retained"
+}

@@ -81,6 +81,10 @@ func _run() -> void:
 	var ready_ms := _ms(t)
 	await _frames(3)
 	print("Dungeon scene ready with its first floor (Hollow Mouth B1F, seed 1): %.0f ms" % ready_ms)
+	# The place's music starts COALESCE s after it is asked for (music.gd, pass 7 U8), so its stream used to be read
+	# after this first sample and counted as 3.4 MB of floor growth. Wait it out, so the growth is the floors' alone
+	# (integrator, pass 7, 2026-10-26).
+	await _frames(int(ceil(preload("res://scripts/audio/music.gd").COALESCE * 30.0)) + 2)
 	var mem0 := OS.get_static_memory_usage()
 	var worst := 0.0
 	var worst_what := ""
@@ -122,7 +126,14 @@ func _run() -> void:
 	# 2. Highbank's first arrival (it paints the street), two rooms, then a warm arrival (the kept picture), each
 	# with every step of hub_town._ready. Only the warm one is judged (T1); the first stays printed.
 	var first_ms := await _arrive("first")
-	for id in ["hall", "home"]:
+	# The rooms a player's town makes ahead after its arrival (hub_town.gd _rooms_ahead, on a worker; pass 7 T2), made
+	# here on the main thread with TownRoom.prepare, since a headless check runs no warm-up. Printed for reading.
+	var TownRoom: GDScript = load("res://scripts/town/town_room.gd")
+	for id in ["hall", "hall_low", "home"]:
+		t = Time.get_ticks_usec()
+		TownRoom.prepare(id)
+		print("TownRoom.prepare('%s'): %.0f ms" % [id, _ms(t)])
+	for id in ["hall", "hall_low", "home"]:
 		var room: Node = load("res://scenes/town_room.tscn").instantiate()
 		room.room_id = id
 		room.poll_input = false

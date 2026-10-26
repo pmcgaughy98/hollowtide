@@ -1,0 +1,24 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+OpenGL API 3.3.0 NVIDIA 610.62 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce GTX 1660 SUPER
+
+[godot_ai game_helper] registered mcp capture (debugger active=false, logger=true)
+PORTRAIT_CHECK skimlet imported resource exists -> ok
+PORTRAIT_CHECK skimlet imported 48px RGBA exact -> ok
+PORTRAIT_CHECK skimlet current UI resolver chooses portrait -> FAIL
+PORTRAIT_CHECK skimlet dungeon team-row resolver chooses portrait -> FAIL
+PORTRAIT_CHECK ozbender imported resource exists -> ok
+PORTRAIT_CHECK ozbender imported 48px RGBA exact -> ok
+PORTRAIT_CHECK ozbender current UI resolver chooses portrait -> FAIL
+PORTRAIT_CHECK ozbender dungeon team-row resolver chooses portrait -> FAIL
+PORTRAIT_CHECK valvekin imported resource exists -> ok
+PORTRAIT_CHECK valvekin imported 48px RGBA exact -> ok
+PORTRAIT_CHECK valvekin current UI resolver chooses portrait -> FAIL
+PORTRAIT_CHECK valvekin dungeon team-row resolver chooses portrait -> FAIL
+PORTRAIT_CHECK three recruited forms build actual Team cards -> ok
+PORTRAIT_CHECK skimlet actual Team card uses exact portrait -> FAIL
+PORTRAIT_CHECK skimlet native Team screenshot saved -> ok
+PORTRAIT_CHECK ozbender actual Team card uses exact portrait -> FAIL
+PORTRAIT_CHECK ozbender native Team screenshot saved -> ok
+PORTRAIT_CHECK valvekin actual Team card uses exact portrait -> FAIL
+PORTRAIT_CHECK valvekin native Team screenshot saved -> ok
+RECRUIT PORTRAITS: 10/19

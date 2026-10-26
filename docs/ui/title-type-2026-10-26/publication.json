@@ -1,0 +1,29 @@
+{
+  "protected_before": 1371,
+  "protected_unchanged_after_docs": 1364,
+  "owned_production_changes": [
+    "scripts/creature_opening.gd",
+    "scripts/main_menu.gd",
+    "scripts/soul_prologue.gd"
+  ],
+  "concurrent_source_changes_preserved": [
+    "scripts/dungeon/dungeon.gd",
+    "scripts/riverbank_journey.gd"
+  ],
+  "all_changed_existing_paths": [
+    "docs/AI_COLLABORATION.md",
+    "docs/team/CODEX_TASKS_2026-10-22.md",
+    "scripts/creature_opening.gd",
+    "scripts/dungeon/dungeon.gd",
+    "scripts/main_menu.gd",
+    "scripts/riverbank_journey.gd",
+    "scripts/soul_prologue.gd"
+  ],
+  "original_current_docs_preserved": true,
+  "native_title_story": "45/45 clean",
+  "native_ui_fit": "48/48 clean",
+  "official_runner": "3 PASS; exit0; known noise retained",
+  "local_links_checked": 27,
+  "evidence": "C:\\Users\\pmcga\\dev\\hollowtide\\docs\\ui\\title-type-2026-10-26",
+  "handoff": "C:\\Users\\pmcga\\dev\\hollowtide\\docs\\team\\CODEX_HANDOFF_2026-10-26_title_type.md"
+}

@@ -38,14 +38,9 @@ func setup(entries: Array, can_use: bool, menu: CanvasLayer) -> void:
     scroll.horizontal_scroll_mode = ScrollContainer.SCROLL_MODE_DISABLED
     scroll.size_flags_horizontal = Control.SIZE_EXPAND_FILL
     add_child(scroll)
-    # A narrow, crisp scroll thumb in the same palette, never a soft OS scrollbar.
-    var bar = scroll.get_v_scroll_bar()
-    bar.custom_minimum_size.x = 12
-    for state in ["scroll","grabber","grabber_highlight","grabber_pressed"]:
-        var style = StyleBoxFlat.new()
-        style.bg_color = UI.PANEL if state == "scroll" else UI.EDGE_LIGHT if state != "grabber" else UI.EDGE
-        style.set_content_margin_all(4)
-        bar.add_theme_stylebox_override(state,style)
+    # The pixel scrollbar the rebind page and the shrine use, cut from the UI frames (Claude, 2026-10-24, LO6-03; it was
+    # flat boxes). Its width is kept clear, so the rows stop at the bar instead of running under it.
+    UI.style_scroll_bar(scroll.get_v_scroll_bar())
     rows = VBoxContainer.new()
     rows.name = "ItemRows"
     rows.size_flags_horizontal = Control.SIZE_EXPAND_FILL

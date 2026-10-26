@@ -80,7 +80,7 @@ func _ready()->void:
 		var background:=Sprite2D.new();background.centered=false
 		background.texture_filter=CanvasItem.TEXTURE_FILTER_NEAREST
 		if img!=null:
-			background.texture=ImageTexture.create_from_image(EntranceFinish.finished_image(img))
+			background.texture=EntranceFinish.finished_texture(img)   # made once a session (Claude, 2026-10-26, S5)
 			EntranceFinish.apply(background,img)
 		else:background.texture=ImageTexture.create_from_image(Bank.paint())
 		view.add_child(background);leader=Vector2(192,177)
@@ -117,6 +117,18 @@ func _ready()->void:
 		var rain:=preload("res://scripts/effects/storm_rain.gd").new();rain.reduce_motion=reduce_motion
 		view.add_child(rain)
 		_rise()
+	_lift_black()
+
+## The black a scene change left up (the flood talk, the walkway either way) lifts two frames after this scene is built
+## (Claude, 2026-10-24, pass 6 S1 and S2, L6-13), as town_room.gd's _lift does: a fade started in the long frame that
+## builds the bank would spend itself there and pop the picture in. Only a full black is lifted; a check that adds this
+## scene as a plain child has none.
+func _lift_black()->void:
+	var rect:=get_tree().root.get_node_or_null(UI.FADE_NAME+"/Rect") as ColorRect
+	if rect==null or rect.color.a<0.99:return
+	await get_tree().process_frame
+	await get_tree().process_frame
+	UI.fade_in(get_tree())
 
 func _rise()->void:
 	leaving=true
@@ -232,9 +244,10 @@ func _process(delta:float)->void:
 		if leader.distance_to(WALKWAY)<10:_travel(true)
 
 ## Claude, 2026-10-23 (factory pass 2): the hint's keys come from the bindings, the same words as before on a
-## keyboard ("WASD / arrows", "E / Enter", "Esc") and the pad's when a pad was used last. H has no pad button, so
-## a pad's hint leaves it out; the south trail's own prompt still takes the team to Highbank.
+## keyboard ("WASD / arrows", "E / Enter", "Esc") and the pad's when a pad was used last.
 ## Claude, 2026-10-23 (factory pass 3, S2): the same words, one line each, for the strip at the bottom right.
+## Claude, 2026-10-24 (pass 6 S5, W18): the raw H shortcut to Highbank is gone, from the strip and the input. It was
+## a bare key with no action, so no pad or rebind could reach it; the south trail's own prompt takes the team there.
 func key_lines()->Array[String]:
 	var walk:=_walk_keys()+"  walk"
 	var use:=_use_keys()
@@ -247,9 +260,7 @@ func key_lines()->Array[String]:
 		if leader.distance_to(HIGHBANK)<24:return [use+"  try the south trail"]
 		return [walk,"The road to Highbank is under water.","The stone walkway is the way."]
 	if leader.distance_to(HIGHBANK)<24:return [use+"  take the south trail to Highbank"]
-	var lines:Array[String]=[walk,"Stone walkway to the Hollow"]
-	if UI.last_device()!="pad":lines.append("H  continue to Highbank")
-	return lines
+	return [walk,"Stone walkway to the Hollow"]
 
 ## The keys on a label-role strip in the panel frame, bottom right, as Highbank's streets draw theirs
 ## (hub_town.gd _draw_key_strip): sized to its longest line. Its foot sits at 600 because this scene has no MENU
@@ -325,10 +336,6 @@ func _unhandled_input(event:InputEvent)->void:
 		if entrance and leader.distance_to(ARCH)<30:_enter_arch()
 		elif not entrance and leader.distance_to(WALKWAY)<25:_travel(true)
 		elif not entrance and leader.distance_to(HIGHBANK)<24:_town()
-	elif event is InputEventKey and event.pressed and not event.echo and event.physical_keycode==KEY_H:
-		# During the flood H does nothing; the hint says why (Claude, 2026-10-22, LP-10).
-		if entrance or not _mouth_beaten():return
-		get_viewport().set_input_as_handled();_town()
 
 ## The partner speaks in the shared box with its name and face (Claude, 2026-10-22, LP-09). The team holds
 ## still until the line is put away; the key strip steps aside under it.
@@ -437,8 +444,16 @@ func _town()->void:
 	TeamState.give_to(town);town.party=party.duplicate(true)
 	_change(town,"Try the trail again.")
 
+## Out under UI's shared black (Claude, 2026-10-24, pass 6 S2, L6-13), as through the arch: the screen fades out and
+## the next scene is built under the black (the walkway to the entrance was a straight cut, 50 to 39 in one frame).
+## The scene that arrives lifts it: this one in _lift_black, Highbank in its own _ready. A check that adds this scene
+## as a plain child changes at once, with no fade.
 func _change(scene:Node,retry:String)->void:
 	leaving=true
-	var error:=get_tree().change_scene_to_node(scene)
+	var tree:=get_tree()
+	var faded:=tree.current_scene==self
+	if faded:await UI.fade_out(tree)
+	var error:=tree.change_scene_to_node(scene)
 	if error!=OK:
 		scene.free();leaving=false;narration="The route could not open. "+retry
+		if faded:UI.fade_in(tree)

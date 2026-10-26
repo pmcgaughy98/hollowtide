@@ -162,6 +162,7 @@ func _run() -> void:
 	for sd in [99, 7, 31337]:
 		await _fresh(sd)
 		dg.autopilot = true
+		dg.check_bot = true   # reads the boss's lines and welcomes recruits on autopilot (dungeon.gd check_bot, L6-01)
 		var frames := 0
 		var met := false
 		var boss_t := 0

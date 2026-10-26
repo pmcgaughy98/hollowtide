@@ -13,7 +13,6 @@ const UI = preload("res://scripts/ui/ui_style.gd")
 const DUNGEON = "res://scripts/dungeon/dungeon.gd"   # loaded, not preloaded: dungeon.gd preloads this file
 const ArenaData = preload("res://scripts/arena/arena_prototype.gd")
 const TeamRecord = preload("res://scripts/town/team_state.gd")
-const WAY_NAMES = {"flank": "pincer hits", "ambush": "hits on sleepers", "took": "damage taken", "slam": "slams", "healed": "health restored"}
 const HEADINGS = {"goal": "OBJECTIVE", "team": "TEAM", "bag": "BAG", "floor": "FLOOR", "log": "MESSAGE LOG", "options": "OPTIONS", "controls": "CONTROLS", "rebind": "REBIND KEYS"}
 # Where Esc, B or Back goes from a page: the main page unless named here (Claude, 2026-10-23, GS-04).
 const PARENT_PAGE = {"rebind": "options"}
@@ -408,7 +407,11 @@ func show_page(next: String) -> void:
             var below = String(src.scene_file_path).ends_with("dungeon.tscn")
             var goal: Dictionary = load("res://scripts/town/objective.gd").current(story,beaten,below)
             _label(String(goal["short"]),30)   # the goal itself in the title face (Claude, 2026-10-22, LP-28)
-            _label(String(goal["long"]),20)
+            # The body leaves out the sentence the heading just said (Claude, 2026-10-26, L7-06): after the pilot the
+            # long line opens with the short one, and the page read "That's the first stretch..." twice.
+            var more = String(goal["long"])
+            if more.begins_with(String(goal["short"])): more = more.substr(String(goal["short"]).length()).strip_edges()
+            if more != "": _label(more,20)
             _action("Back","Back",show_page.bind("main"))
         "bag":
             _bag_page()
@@ -549,7 +552,8 @@ func _team_page() -> void:
         elif consts["EVO"].has(ln):
             var r: Dictionary = consts["EVO"][ln]
             var g: Dictionary = rec.get("growth",{}).get("%d:%d" % [ln,st],{})
-            _label("    To grow: Lv %d/%d, KOs %d/%d, floors %d/%d, %s %d/%d" % [lv,consts["EVO_LEVEL"][st],g.get("kos",0),r["kos"][st],g.get("floors",0),r["floors"][st],WAY_NAMES.get(r["way"],r["way"]),g.get(r["way"],0),r["need"][st]],16)
+            # The way's words are the shrine's and the Team page's, lower case mid-line (Claude, 2026-10-24, L6-22).
+            _label("    To grow: Lv %d/%d, KOs %d/%d, floors %d/%d, %s %d/%d" % [lv,consts["EVO_LEVEL"][st],g.get("kos",0),r["kos"][st],g.get("floors",0),r["floors"][st],String(UI.WAY_NAMES.get(r["way"],r["way"])).to_lower(),g.get(r["way"],0),r["need"][st]],16)
         var moves: Array = e["moves"] if not e.is_empty() else rec.get("taught",{}).get("%d:%d" % [ln,st],[])
         if not moves.is_empty(): _label("    Moves: " + ", ".join(moves.map(_move_name)),16)
     if party.is_empty(): _label("No team yet.",18)
@@ -597,7 +601,9 @@ func _use_item(kind: String) -> void:
 
 # The Ground page (Claude, 2026-10-24, LV-22): the dungeon's name as the heading with the floor under it, as its
 # place card shows them, then one labelled row each for the turn, the lantern (a bar and its value), what is
-# underfoot, the water and the partners' order. The words are the page's own from before.
+# underfoot, the water and the team orders. The words are the page's own from before. Pass 6 (Claude, 2026-10-24):
+# the row is "Team orders" as Rebind and Controls name it (W07), a trap goes by the dungeon's own name for it (W09),
+# and one water row reads "1 row" (W10).
 func _floor_page() -> void:
     var s = get_parent()
     var lead: Dictionary = s.ents[0]
@@ -615,9 +621,9 @@ func _floor_page() -> void:
     # The keys named are the live ones for the device in use (Claude, 2026-10-23): E and T, or X and LB on a pad.
     if lead["pos"] == s.data["stairs"]: under = "the stairs (%s goes down)" % UI.binding_text("interact")
     for t in s.traps:
-        if t["pos"] == lead["pos"] and t["seen"]: under = "a %s trap" % t["kind"]
+        if t["pos"] == lead["pos"] and t["seen"]: under = "a " + String(s.TRAPS.get(t["kind"],{}).get("name",t["kind"])).to_lower()
     if "water_rows" in s and s.wet(lead["pos"]): under = "water (the lantern's getting wet)"
-    var keys = ["Turn","Lantern","Underfoot","Water","Partners' order","The nest"]
+    var keys = ["Turn","Lantern","Underfoot","Water","Team orders","The nest"]
     var key_w = 0.0
     for k in keys: key_w = maxf(key_w,UI.width_in(String(k).to_upper(),"label"))
     _floor_row("Turn","%d" % s.turn,key_w)
@@ -631,10 +637,14 @@ func _floor_page() -> void:
     lantern.add_child(gauge)
     lantern.move_child(gauge,1)
     _floor_row("Underfoot",under,key_w)
-    if "water_rows" in s and s.water_rows > 0: _floor_row("Water","%d rows up from the low end, rising" % s.water_rows if s.water_rows < s.water_max else "%d rows up from the low end, as high as it gets" % s.water_rows,key_w)
-    _floor_row("Partners' order",s.TACTIC_NAMES[s.tactic] + " (%s changes it)" % UI.binding_text("tactics"),key_w)
+    if "water_rows" in s and s.water_rows > 0: _floor_row("Water",water_words(s.water_rows,s.water_max),key_w)
+    _floor_row("Team orders",s.TACTIC_NAMES[s.tactic] + " (%s changes it)" % UI.binding_text("tactics"),key_w)
     if s.monster_sprung: _floor_row("The nest","cleared" if s.house_cleared else "still fighting",key_w)
     if s.boss_alive(): _label("%s guards this floor. The stairs are sealed." % s.ents[s.boss]["name"],20)
+
+# The Floor page's water row: how many rows the water has climbed, "1 row" for one (Claude, 2026-10-24, W10).
+static func water_words(rows: int, most: int) -> String:
+    return "%s up from the low end, %s" % [UI.count_words(rows,"row"),"rising" if rows < most else "as high as it gets"]
 
 # One labelled row of the Floor page: the label in the label face, its value in the body face beside it, the
 # labels one column wide (`key_w`) so the values line up; `beside` keeps room for a gauge before the value. The

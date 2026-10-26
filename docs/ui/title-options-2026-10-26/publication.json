@@ -1,0 +1,58 @@
+{
+  "protected_before": 1001,
+  "protected_unchanged_after_docs": 990,
+  "owned_production_changes": [
+    "scripts/creature_opening.gd",
+    "scripts/main_menu.gd",
+    "scripts/ui/title_settings.gd"
+  ],
+  "new_title_host": "scripts/ui/title_settings.gd",
+  "concurrent_source_changes_preserved": [
+    "scripts/dungeon/dungeon.gd",
+    "scripts/dungeon/dungeon_visibility_canvas.gd",
+    "scripts/town/guild_scene.gd",
+    "scripts/ui/rebind_page.gd",
+    "scripts/ui/ui_style.gd",
+    "tools/debug/timing_check.gd",
+    "tools/debug/ui_fit_check.gd"
+  ],
+  "all_changed_existing_paths": [
+    "docs/AI_COLLABORATION.md",
+    "docs/team/CODEX_TASKS_2026-10-22.md",
+    "scripts/creature_opening.gd",
+    "scripts/dungeon/dungeon.gd",
+    "scripts/dungeon/dungeon_visibility_canvas.gd",
+    "scripts/main_menu.gd",
+    "scripts/town/guild_scene.gd",
+    "scripts/ui/rebind_page.gd",
+    "scripts/ui/ui_style.gd",
+    "tools/debug/timing_check.gd",
+    "tools/debug/ui_fit_check.gd"
+  ],
+  "original_current_docs_preserved": true,
+  "native_running_title": "30/30 clean",
+  "native_fresh_launch": "19/19 clean",
+  "native_ui_fit": "48/48 clean",
+  "official_runner": "3 PASS; exit0; known raw noise retained",
+  "shared_save_gap": "still open; staged fix not installed",
+  "before_images": "source-hash verified previous C3 captures",
+  "local_links_checked": 25,
+  "evidence": "C:\\Users\\pmcga\\dev\\hollowtide\\docs\\ui\\title-options-2026-10-26",
+  "handoff": "C:\\Users\\pmcga\\dev\\hollowtide\\docs\\team\\CODEX_HANDOFF_2026-10-26_title_options.md",
+  "final_shared_source_recheck": {
+    "native_settings": "30/30 clean",
+    "fresh_launch": "19/19 clean",
+    "updated_native_ui_fit": "48/48 clean",
+    "official_runner": "3 PASS exit0",
+    "shared_source_hashes": {
+      "scripts/dungeon/dungeon.gd": "d3fa56ddc69f221b450b49602fdb4e09a304640f34dca0ac074e2e49e447899b",
+      "scripts/dungeon/dungeon_visibility_canvas.gd": "ffb4f7087953ceabe3b108326c73e12f3385d610b96e294a5267f28d025c261b",
+      "scripts/town/guild_scene.gd": "ff8feeb82fa43c77d4ae7d8b605ad968511ca15190d041df62a38878d2ea9173",
+      "scripts/ui/rebind_page.gd": "219857e8b926fd9a4bc47495a109063448830fceeacff61f6e3353eb1804f076",
+      "scripts/ui/ui_style.gd": "df99b7c9b7b03a29ea5b3d85f8a9a633487a21b224304558d3e3c8d7afb9bcab",
+      "tools/debug/timing_check.gd": "19cea1b0d6070d2e0be67c333383e274b954a8fe146f8b8c9e0c63948b24f7a6",
+      "tools/debug/ui_fit_check.gd": "b6a4d0f0f228c70375014dce678f3463e8372b10173b59f39aa23125edfdf0e7"
+    },
+    "previous_logs": "before-concurrent-recheck/"
+  }
+}

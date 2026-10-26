@@ -1,0 +1,53 @@
+{
+  "preserved_methods": {
+    "scripts/main_menu.gd": [
+      "_save_preferences",
+      "_load_preferences",
+      "_on_continue",
+      "_on_new_game"
+    ],
+    "scripts/creature_opening.gd": [
+      "_build_wordmark",
+      "_build_scenery",
+      "_on_new_game"
+    ]
+  },
+  "journey_words_exact": true,
+  "shared_sources_read_only": {
+    "scripts/ui/game_pause_menu.gd": {
+      "baseline": "589618aebafabc7dcc32496dde3c6069ea09f5736212710a2a1c804abecb095b",
+      "current": "589618aebafabc7dcc32496dde3c6069ea09f5736212710a2a1c804abecb095b",
+      "exact": true
+    },
+    "scripts/ui/ui_style.gd": {
+      "baseline": "9b872bf2088fdb8686268096c13a27bcb54c2f3d7a5faa95dc2c0d6e157de04c",
+      "current": "df99b7c9b7b03a29ea5b3d85f8a9a633487a21b224304558d3e3c8d7afb9bcab",
+      "exact": false
+    },
+    "scripts/ui/rebind_page.gd": {
+      "baseline": "0788e1f486c05863c57097946c6df4eccb0de065f5b000cbe0190c7a7c7b4d6e",
+      "current": "219857e8b926fd9a4bc47495a109063448830fceeacff61f6e3353eb1804f076",
+      "exact": false
+    },
+    "scripts/ui/controls_text.gd": {
+      "baseline": "c5661e9eff2d80d0ecfa842057dbcb53dfc9ad49e8c58d45632c57a3ab76dd0b",
+      "current": "c5661e9eff2d80d0ecfa842057dbcb53dfc9ad49e8c58d45632c57a3ab76dd0b",
+      "exact": true
+    },
+    "scripts/ui/input_prefs.gd": {
+      "baseline": "d50e65b3622cb926944ee957969dddb9e31a05d9f534e19990e628ce5efd3932",
+      "current": "d50e65b3622cb926944ee957969dddb9e31a05d9f534e19990e628ce5efd3932",
+      "exact": true
+    },
+    "scripts/soul_prologue.gd": {
+      "baseline": "fa1416c6303915e49d33a05b6dd88c2dca822f41cbcaf1bc5499527aa6208814",
+      "current": "fa1416c6303915e49d33a05b6dd88c2dca822f41cbcaf1bc5499527aa6208814",
+      "exact": true
+    }
+  },
+  "native_settings_help": "30/30",
+  "native_restart": "19/19",
+  "native_ui_fit": "48/48",
+  "before_image_provenance": "before-image-provenance.json",
+  "C1_safe_writer_retained": true
+}

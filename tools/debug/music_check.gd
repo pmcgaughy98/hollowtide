@@ -96,10 +96,12 @@ func _run() -> void:
 	town.team[0]["pos"] = Vector2i(24, 9)
 	await town.act_move(Vector2i(0, -1))
 	await _frames(2)
+	await create_timer(town.MUSIC_SETTLE + 0.2).timeout   # the street's track waits for the leader to stay (pass 6 T3)
 	lines.append("by the Hall: %s" % _now())
 	town.team[0]["pos"] = Vector2i(26, 27)
 	await town.act_move(Vector2i(1, 0))
 	await _frames(2)
+	await create_timer(town.MUSIC_SETTLE + 0.2).timeout
 	lines.append("at the ferry landing: %s" % _now())
 	town.queue_free()
 	await _frames(2)
