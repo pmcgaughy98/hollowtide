@@ -9,8 +9,9 @@ extends Node2D
 ## the picture drains to grey. A small light, the only colour left, floats down through the frozen rain to
 ## the spot where the creature will wake. It brightens to white, and the soul's prologue begins (the
 ## presence speaks, the choice is made), then the waking, the rise and the Hollow Mouth, as before.
-## Enter or Space skips. Sounds load when present (assets/audio/sfx/story/).
+## Two released advance presses skip. Sounds load when present (assets/audio/sfx/story/).
 
+const UI := preload("res://scripts/ui/ui_style.gd")
 const Bank := preload("res://scripts/ui/waking_bank.gd")
 const Rise := preload("res://scripts/ui/hollow_rise.gd")
 const NEXT := "res://scenes/soul_prologue.tscn"
@@ -35,9 +36,14 @@ var lights: SubViewport
 var display: Sprite2D
 var rain: Node2D
 var soul: Node2D
+var _skip_armed := false
+var _skip_released := false
+var _skip_hint: Label
 
 
 func _ready() -> void:
+	# Respect both the title handoff and direct entry with the saved accessibility preference.
+	reduce_motion = reduce_motion or UI.reduce_motion()
 	get_tree().root.content_scale_size = Vector2i(1152, 648)
 	get_tree().root.content_scale_aspect = Window.CONTENT_SCALE_ASPECT_KEEP
 	world = _view()
@@ -77,6 +83,22 @@ void fragment() {
 	_show(lights)
 	for k in 340:
 		_drops.append({"p": Vector2(randf() * 420.0 - 20.0, randf() * 216.0), "len": 4.0 + randf() * 4.0})
+	var hint_layer := CanvasLayer.new()
+	hint_layer.layer = 2
+	add_child(hint_layer)
+	_skip_hint = Label.new()
+	_skip_hint.name = "SkipHint"
+	_skip_hint.position = Vector2(24, 600)
+	_skip_hint.size = Vector2(1104, 30)
+	_skip_hint.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	_skip_hint.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	_skip_hint.add_theme_font_override("font", UI.font("label"))
+	_skip_hint.add_theme_font_size_override("font_size", UI.type_size("label"))
+	_skip_hint.add_theme_color_override("font_color", Color(UI.TEXT, 0.8))
+	_skip_hint.add_theme_color_override("font_shadow_color", Color.BLACK)
+	_skip_hint.add_theme_constant_override("shadow_offset_x", 2)
+	_skip_hint.add_theme_constant_override("shadow_offset_y", 2)
+	hint_layer.add_child(_skip_hint)
 	_rain_player = _sfx("storm_rain", -6.0, true)
 	_run()
 
@@ -114,7 +136,7 @@ func _run() -> void:
 	await tw.finished
 	# The storm: three strikes, the wind building.
 	for strike in [1.4, 1.9, 1.2]:
-		await tree.create_timer(strike * (0.4 if reduce_motion else 1.0)).timeout
+		await tree.create_timer(strike).timeout
 		if leaving:
 			return
 		await _lightning()
@@ -145,11 +167,14 @@ func _run() -> void:
 
 
 func _lightning() -> void:
-	for k in 2:
-		flash = 0.85
-		await get_tree().create_timer(0.06).timeout
-		flash = 0.15
-		await get_tree().create_timer(0.07).timeout
+	if reduce_motion or UI.reduce_motion():
+		flash = 0.4   # one soft pulse; the shared fade below lasts 0.35 seconds
+	else:
+		for k in 2:
+			flash = 0.85
+			await get_tree().create_timer(0.06).timeout
+			flash = 0.15
+			await get_tree().create_timer(0.07).timeout
 	var tw := create_tween()
 	tw.tween_property(self, "flash", 0.0, 0.35)
 	_wind = 1.6
@@ -159,6 +184,13 @@ func _lightning() -> void:
 
 func _process(delta: float) -> void:
 	_t += delta
+	_skip_hint.visible = not leaving and (_skip_armed or _t >= 4.0)
+	if _skip_hint.visible:
+		var keys := PackedStringArray()
+		for action in UI.INPUT_ADVANCE:
+			var binding := UI.binding_text(action)
+			if binding != "" and not keys.has(binding): keys.append(binding)
+		_skip_hint.text = "%s  %s" % [" / ".join(keys), "Press again to skip" if _skip_armed else "Skip"]
 	if not frozen:
 		_wind = lerpf(_wind, 1.0 + 0.3 * sin(_t * 0.7), delta)
 		for d in _drops:
@@ -200,9 +232,24 @@ func _draw_soul() -> void:
 
 
 func _unhandled_input(event: InputEvent) -> void:
-	if event.is_action_pressed("ui_accept"):
-		get_viewport().set_input_as_handled()
-		_next()
+	if leaving: return
+	# Centre events match no pressed action, but must reset the shared stick-edge state.
+	if event is InputEventJoypadMotion: UI._motion_edge(event)
+	var advance := false
+	for action in UI.INPUT_ADVANCE:
+		if UI.pressed(event, action): advance = true
+	if advance:
+		get_viewport().set_input_as_handled()   # _next may detach this scene immediately
+		if _skip_armed and _skip_released:
+			_next()
+		else:
+			_skip_armed = true
+			_skip_released = false
+	elif _skip_armed:
+		for action in UI.INPUT_ADVANCE:
+			if event.is_action_released(action):
+				_skip_released = true
+				get_viewport().set_input_as_handled()
 
 
 func _next() -> void:

@@ -5,6 +5,7 @@ extends SceneTree
 ## Reads the dungeon's last_sfx (sound name -> turn) and the town's last_sfx.
 ## Two markers from the dungeon's sfx_log (Claude, 2026-10-24, factory pass 6): a rest by key is heard once a streak,
 ## the autopilot's never (D8); I, Escape, L, L open and shut the bag and the log to menu_open and menu_close (D5).
+## A third (pass 8 D8, 2026-10-26): a full bag's "denied" is on the UI bus.
 ##   Godot --path . --fixed-fps 30 --script res://tools/debug/dungeon_sfx_check.gd
 
 const NAMES := ["swing", "miss", "hit_light", "hit_heavy", "hit_super", "slam", "shove", "windup",
@@ -183,6 +184,22 @@ func _run() -> void:
 	var ok_menu: bool = ui_heard == ["menu_open", "menu_close", "menu_open", "menu_close"] and not dg.bag_open and not paused
 	print("I, Escape, L, L: UI bus %s, bag open %s, paused %s -> %s" % [str(ui_heard), str(dg.bag_open), str(paused), "ok" if ok_menu else "WRONG"])
 	bad += 0 if ok_menu else 1
+	# "denied" answers the player, so it plays on the UI bus as the town's does (L33, D8, Claude, 2026-10-26): a full
+	# bag turning down a Lamp Oil on the leader's tile.
+	var bag_was: Dictionary = dg.bag.duplicate()
+	dg.bag = {}
+	for k in dg.BAG_KINDS:
+		dg.bag["full_%d" % k] = 1
+	dg.floor_items.append({"pos": lead["pos"], "kind": "lamp_oil"})
+	dg.sfx_log.clear()
+	dg._pick_up()
+	await _frames(6)
+	var denied: Array = _started(dg, "dungeon/denied.wav")
+	var ok_denied: bool = denied.size() == 1 and String(denied[0][2]) == "UI"
+	print("full bag: denied started %d time(s)%s -> %s" % [denied.size(), (" on " + String(denied[0][2])) if denied.size() > 0 else "", "ok" if ok_denied else "WRONG"])
+	bad += 0 if ok_denied else 1
+	dg.floor_items = dg.floor_items.filter(func(it: Dictionary) -> bool: return it["pos"] != lead["pos"])
+	dg.bag = bag_was
 	# The stairs.
 	dg.last_sfx.clear()
 	lead["pos"] = dg.data["stairs"]

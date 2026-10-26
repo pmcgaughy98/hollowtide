@@ -24,27 +24,61 @@ const TITLE := "res://scenes/creature_opening.tscn"   # where Return goes, as fr
 # Claude, 2026-10-23 (S4): every stop keeps both feet above the text box's top edge (row 150 of the painting,
 # 452 on screen) and the partner left of the answer list; the last stretch onto the trail is walked under the
 # closing fade, when the box is gone.
-const PATH := [Vector2(238, 96), Vector2(212, 114), Vector2(184, 128), Vector2(160, 138), Vector2(136, 146)]
-const TRAIL_END := Vector2(134, 186)
+# Claude, 2026-10-26 (pass 8 S3, L08): the stops sit higher on the bank, so when an answer list is up (it covers the
+# painting from row 109 down, right of about x 185) the whole party stands above it; the walk goes west along the
+# top of the bank, then down to the trail on the last stretch, when no list comes up again.
+const PATH := [Vector2(238, 96), Vector2(210, 102), Vector2(182, 104), Vector2(156, 104), Vector2(134, 140)]
+# Where each of the party stands from the leader, up to four (S3): a loose single file, each a sprite's width behind
+# the one ahead and a little further up the bank, so a recruit is never drawn over another or hidden behind the
+# partner. The walk goes west and then south-west, so the file trails behind the leader.
+const FORMATION := [Vector2(0, 0), Vector2(26, -6), Vector2(52, -10), Vector2(78, -14)]
+# The walk off the bank (Claude, 2026-10-26, pass 8 S2, L07): down to the south trail, then off the painting's
+# south-west edge, every sprite fully out of the frame before the black is down and Highbank's card comes up.
+const TRAIL_BEND := Vector2(122, 186)
+const TRAIL_OFF := Vector2(94, 276)
+const EXIT_SPEED := 54.0   # pixels a second, a brisk walk
 const WALK_FPS := 8.0
 const LIFT_STEP := 0.05   # the most one frame takes off the opening black, in seconds (pass 6 S3)
 const DRY_TOP := 60   # the rain streaks are on the clay below the river; the river and the ruin stay as painted
-# The dawn grade (Claude, 2026-10-23, S3): the night painting's blacks lifted to a morning grey, a little less colour,
-# and a warm light along the far bank, per painting row. It replaces a flat warm tint that only darkened the night.
+const CHOICE_ARM := 0.3   # seconds an answer list is up before accept takes from it (pass 8 S1, as the flood talk)
+# The dawn grade (Claude, 2026-10-23, S3; retuned 2026-10-26, pass 8 S2, L07: it still read as the night painting
+# with a brown filter). Now a morning light on the painting alone (the party is drawn on its own layer, CAST_TINT):
+# the picture brightened and warmed by a gain over 1 (a modulate, in the shader so it sits with the rest), shadows
+# lifted toward a cool sky blue, a little less colour, the low sun along the far bank, the river showing a pale
+# morning sky, and the ruin's lamplight on the water (REFLECT, painting pixels) mostly gone in the daylight.
 const DAWN_SHADER := """shader_type canvas_item;
-uniform vec3 lift = vec3(0.10, 0.10, 0.11);
-uniform vec3 tint = vec3(1.0, 0.95, 0.88);
-uniform vec3 glow = vec3(1.0, 0.70, 0.42);
+uniform vec3 gain = vec3(1.34, 1.22, 1.04);
+uniform vec3 lift = vec3(0.08, 0.09, 0.11);
+uniform vec3 glow = vec3(1.0, 0.76, 0.46);
+uniform vec3 sky = vec3(0.66, 0.76, 0.78);
+uniform vec4 reflect_box = vec4(246.0, 47.0, 346.0, 66.0);
 void fragment() {
 	vec4 c = texture(TEXTURE, UV);
-	vec3 g = lift + c.rgb * (vec3(1.0) - lift);
+	vec3 s = c.rgb;
+	vec2 px = floor(UV * vec2(384.0, 216.0));
+	bool water = s.b > s.r * 1.25 && s.g > s.r * 1.10 && s.b > s.g * 0.80;
+	bool lamp = px.x >= reflect_box.x && px.x < reflect_box.z && px.y >= reflect_box.y && px.y < reflect_box.w
+		&& s.r > 0.45 && s.b < s.r * 0.8;
+	if (lamp) {
+		s = mix(s, vec3(0.30, 0.42, 0.46), 0.6);
+		water = true;
+	}
+	if (water) {
+		s = mix(s, sky, 0.22 + 0.18 * (1.0 - smoothstep(0.05, 0.35, UV.y)));
+	}
+	vec3 g = s * gain;
+	g = g + lift * (vec3(1.0) - g);
 	float y = dot(g, vec3(0.299, 0.587, 0.114));
-	g = mix(vec3(y), g, 0.8) * tint;
-	float row = floor(UV.y * 216.0) / 216.0;
-	g += glow * 0.14 * (1.0 - smoothstep(0.0, 0.32, row));
+	g = mix(vec3(y), g, 0.88);
+	g += glow * 0.18 * (1.0 - smoothstep(0.0, 0.34, px.y / 216.0));
 	COLOR = vec4(min(g, vec3(1.0)), c.a);
 }
 """
+const CAST_TINT := Color(1.06, 1.03, 0.97)   # the party in the same warm light, without the painting's gain
+# No mist on the water round the ruin and its walkway (S2): there it read as the flood still standing at the ruin's
+# foot. The box, in painting pixels; the mist thins out over MIST_EDGE pixels outside it.
+const MIST_CLEAR := Rect2i(214, 0, 140, 84)
+const MIST_EDGE := 10
 
 var reduce_motion := false
 var line: DialogueLine
@@ -63,6 +97,9 @@ var _mist: Sprite2D
 var asking := false   # the "Back to the title?" prompt is up (Claude, 2026-10-23, S5)
 var ask_row := 0
 var _lift := 0.0      # while above 0, the seconds the opening black takes to lift (pass 6 S3)
+var _list_age := -1.0   # seconds the line's answers have been up, in game time; -1 while none are (pass 8 S1)
+var _list_of: DialogueLine   # the line whose answers _list_age times
+var _fetching := false       # the next line is being read; a second press waits for it
 
 # Read by the dialogue file ({{...}}).
 var partner_name: String:
@@ -72,6 +109,9 @@ var partner_name: String:
 func _ready() -> void:
 	get_tree().root.content_scale_size = Vector2i(1152, 648)
 	get_tree().root.content_scale_aspect = Window.CONTENT_SCALE_ASPECT_KEEP
+	# Highbank's street is painted on a worker while the road talk plays, so the town arrives without its place card
+	# (hub_town.gd bake_ahead; Claude, 2026-10-26, pass 8 street T5 / L14).
+	load("res://scripts/town/hub_town.gd").bake_ahead(get_tree())
 	var vp := SubViewport.new()
 	vp.size = Vector2i(384, 216)
 	vp.render_target_update_mode = SubViewport.UPDATE_ALWAYS
@@ -86,6 +126,20 @@ func _ready() -> void:
 	grade.shader.code = DAWN_SHADER
 	display.material = grade
 	add_child(display)
+	# The party on a see-through layer of its own over the graded painting (pass 8 S2): the grade's gain and its water
+	# and lamp colours are for the painting, and would wash out a creature or tint a blue one like the river.
+	var cast := SubViewport.new()
+	cast.size = Vector2i(384, 216)
+	cast.transparent_bg = true
+	cast.render_target_update_mode = SubViewport.UPDATE_ALWAYS
+	add_child(cast)
+	var cast_display := Sprite2D.new()
+	cast_display.texture = cast.get_texture()
+	cast_display.centered = false
+	cast_display.scale = Vector2.ONE * 3
+	cast_display.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
+	cast_display.modulate = CAST_TINT
+	add_child(cast_display)
 	var bank := Bank.new()   # drawn without the river cover: the ruin has risen
 	bank.reduce_motion = reduce_motion
 	bank.show_actor_shadows = false
@@ -98,15 +152,17 @@ func _ready() -> void:
 	_mist.texture = ImageTexture.create_from_image(mist_image(bank))
 	vp.add_child(_mist)
 	var party: Array = TeamState.data.get("party", [[0, 0], [1, 0]])
-	for i in mini(party.size(), 2):
+	# The whole party, up to four, each on its own spot (Claude, 2026-10-26, pass 8 S3, L08): two were shown, so a
+	# Skimlet recruited in the Mouth was gone on the walk out.
+	for i in mini(party.size(), FORMATION.size()):
 		var form: String = Lines.of(party[i][0]).forms[party[i][1]][0]
 		forms.append(form)
 		_names.append(load(Lines.of(party[i][0]).forms[party[i][1]][1]).creature_name)
 		var s := Sprite2D.new()
 		s.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
-		s.position = PATH[0] + (Vector2(22, 6) if i == 1 else Vector2.ZERO)
+		s.position = PATH[0] + FORMATION[i]
 		Finish.apply(s, false, form)
-		vp.add_child(s)
+		cast.add_child(s)
 		actors.append(s)
 	_pose()
 	var ui := CanvasLayer.new()
@@ -145,10 +201,9 @@ func _walk_to(to: Vector2, secs := -1.0) -> void:
 	var d: Vector2 = to - actors[0].position
 	_facing = _dir(d)
 	var time := secs if secs > 0.0 else d.length() / (60.0 if reduce_motion else 34.0)
-	_walking = time
+	_walking = time + 0.12 * (actors.size() - 1)
 	for i in actors.size():
-		var off := Vector2(22, -8) if i == 1 else Vector2.ZERO   # wide enough that the two do not overlap (2026-10-23)
-		create_tween().tween_property(actors[i], "position", to + off, time).set_delay(0.12 * i)
+		create_tween().tween_property(actors[i], "position", to + FORMATION[i], time).set_delay(0.12 * i)
 
 
 func _dir(d: Vector2) -> String:
@@ -187,6 +242,7 @@ func _process(delta: float) -> void:
 	if _mist != null and not reduce_motion:
 		_mist.modulate.a = 0.85 + 0.15 * sin(_clock * 0.6)   # the mist breathes, slowly
 	if not leaving and line != null:
+		_watch_choices(delta)
 		_poll()
 	_box.queue_redraw()
 
@@ -194,22 +250,49 @@ func _process(delta: float) -> void:
 ## Actions, not keys (Claude, 2026-10-23, factory pass 2): the next line is E, J, Enter or Space as before, or A or
 ## X on a pad; up and down (W, S, the arrows, the D-pad, the stick) move the choice. Esc, P, B or Start ask about
 ## the title (factory pass 3, S5).
+## A press on an answer list that came up under CHOICE_ARM ago is read and dropped (pass 8 S1, as the flood talk), and
+## moving or taking an answer ticks as it does there.
 func _poll() -> void:
 	if asking:
 		_poll_ask()
 	elif UI.tapped_any(UI.INPUT_ADVANCE):
-		advance()
+		if _choices_armed():
+			advance()
 	elif UI.tapped_any(["cancel", "pause"]):
 		_ask()
-	elif not line.responses.is_empty() and UI.line_done(line.text):
+	elif _choices_up():
 		var d := int(UI.tapped("move_down")) - int(UI.tapped("move_up"))
 		if d != 0:
 			choice = posmod(choice + d, line.responses.size())
+			UI.tick("cursor")
+
+
+## The line's answers are on screen: they draw once the line has typed out.
+func _choices_up() -> bool:
+	return line != null and not line.responses.is_empty() and UI.line_done(line.text)
+
+
+## When the answers come up their age starts and every accept key held now counts as seen, so a press held through
+## the line has to come up and go down again (pass 8 S1, L06).
+func _watch_choices(delta: float) -> void:
+	if not _choices_up():
+		_list_age = -1.0
+	elif _list_age < 0.0 or _list_of != line:
+		_list_age = 0.0
+		_list_of = line
+		UI.sync_taps(UI.INPUT_ADVANCE)
+	else:
+		_list_age += delta
+
+
+## Accept may act: no answers up, or they have been up CHOICE_ARM seconds.
+func _choices_armed() -> bool:
+	return _list_age < 0.0 or _list_age >= CHOICE_ARM
 
 
 ## E: show the rest of the line, then the next line (or the chosen answer's branch).
 func advance() -> void:
-	if leaving or line == null:
+	if leaving or line == null or _fetching:
 		return
 	if not UI.line_done(line.text):
 		UI.finish_line()
@@ -217,8 +300,11 @@ func advance() -> void:
 	var next := line.next_id
 	if not line.responses.is_empty():
 		next = line.responses[choice].next_id
+		UI.tick("confirm")
 	choice = 0
+	_fetching = true
 	line = await DialogueManager.get_next_dialogue_line(TALK, next, [self])
+	_fetching = false
 	if line == null:
 		_leave()
 
@@ -283,9 +369,12 @@ func _draw_talk() -> void:
 ## The answers in the line's own face and size, as the flood talk draws them (creature_prologue.gd _draw_choices;
 ## Claude, 2026-10-26, pass 7 S4 / LF7-06): the story role at the line's row height, the list as wide as its longest
 ## answer and clear of the text box. The words do not change.
+## The highlighted answer sits on the menus' focus row with the text box's arrow turned to point at it (pass 8 S1,
+## L06), drawn the same as the flood talk's.
 func _draw_choices() -> void:
 	var rows := line.responses.size()
-	var pitch := UI.font("story").get_height(UI.type_size("story"))   # the line's own row height
+	var f := UI.font("story")
+	var pitch := f.get_height(UI.type_size("story"))   # the line's own row height
 	var w := 0.0
 	for k in rows:
 		w = maxf(w, UI.width_in(String(line.responses[k].text), "story"))
@@ -293,18 +382,51 @@ func _draw_choices() -> void:
 	var tall := 34.0 + rows * pitch
 	var r := Rect2(BOX.end.x - width, BOX.position.y - 10 - tall, width, tall)
 	UI.panel(_box, r, 0.95)
+	var ascent := f.get_ascent(UI.type_size("story"))
 	for k in rows:
 		var at := r.position + Vector2(44, 44 + k * pitch)   # the first row's baseline as far down as the box's first line
 		if k == choice:
-			UI.say(_box, at - Vector2(26, 0), ">", "story", UI.EDGE_LIGHT)
+			var row := Rect2(r.position.x + 15, at.y - ascent + 3, r.size.x - 30, pitch - 6)   # inside the frame's border, on its 3x grid
+			_box.draw_rect(row, UI.FOCUS)
+			_box.draw_rect(row, UI.EDGE_LIGHT, false, 2.0)
+			_cursor(Vector2(r.position.x + 21, row.get_center().y), 0.0 if reduce_motion else _clock)
 		UI.say(_box, at, String(line.responses[k].text), "story", UI.EDGE_LIGHT if k == choice else UI.MUTED)
 
 
+## The text box's "next" arrow (UI.next_arrow's frame/arrow) turned to point right, its middle at `mid`, a pixel step
+## to the right every other half second.
+func _cursor(mid: Vector2, t: float) -> void:
+	var tex: Texture2D = UI.icon("frame/arrow")
+	if tex == null:
+		UI.say(_box, Vector2(mid.x, mid.y + 10), ">", "story", UI.EDGE_LIGHT)
+		return
+	var x := mid.x + 3.0 * float(int(t * 2.0) % 2)
+	_box.draw_set_transform(Vector2(x, roundf(mid.y + tex.get_width() * 0.5)), -PI * 0.5, Vector2.ONE)
+	_box.draw_texture(tex, Vector2.ZERO)
+	_box.draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE)
+
+
+## Off the bank (Claude, 2026-10-26, pass 8 S2, L07): the box goes, the party walks down to the south trail and off
+## the painting's south-west edge, and the black comes down as the last of them leaves the frame; then Highbank, whose
+## own card names it. Under Reduce motion the walk is short and the black quick.
 func _leave() -> void:
 	leaving = true
-	var secs := 0.2 if reduce_motion else 0.8
-	_walk_to(TRAIL_END, secs)   # onto the south trail as the black comes down (S4)
-	await create_tween().tween_property(_veil, "color:a", 1.0, secs).finished
+	var bend_secs := 0.25 if reduce_motion else actors[0].position.distance_to(TRAIL_BEND) / EXIT_SPEED
+	var off_secs := 0.25 if reduce_motion else TRAIL_BEND.distance_to(TRAIL_OFF) / EXIT_SPEED
+	var lag := 0.12   # each follower a beat behind the one ahead, as on the walk down
+	_facing = _dir(TRAIL_BEND - actors[0].position)
+	_walking = bend_secs + off_secs + lag * (actors.size() - 1)
+	for i in actors.size():
+		var tw := create_tween()
+		tw.tween_interval(lag * i)
+		tw.tween_property(actors[i], "position", TRAIL_BEND + FORMATION[i], bend_secs)
+		if i == 0:
+			tw.tween_callback(func() -> void: _facing = _dir(TRAIL_OFF - TRAIL_BEND))
+		tw.tween_property(actors[i], "position", TRAIL_OFF + FORMATION[i], off_secs)
+	# The black starts once the leader is near the bottom edge and is down as the last follower steps out of frame.
+	var fade_secs := 0.2 if reduce_motion else 0.9
+	var fade_at := maxf(0.0, _walking - fade_secs)
+	await create_tween().tween_property(_veil, "color:a", 1.0, fade_secs).set_delay(fade_at).finished
 	var town: Node = load(TOWN_SCENE).instantiate()
 	TeamState.give_to(town)
 	get_tree().change_scene_to_node(town)
@@ -401,6 +523,8 @@ static func _streak(d: PackedByteArray, i: int) -> bool:
 
 ## Low mist on the river (Claude, 2026-10-23, S3): pale and thin, only on the painting's water, thickest against
 ## both banks, in three steps of see-through so it stays pixel art.
+## Claude, 2026-10-26 (pass 8 S2, L07): none round the ruin and its walkway (MIST_CLEAR), where the pale band read as
+## flood water still up at the ruin's foot, and a step thinner everywhere else: the morning has burned most of it off.
 static func mist_image(bank: Bank) -> Image:
 	var img := Image.create(384, 216, false, Image.FORMAT_RGBA8)
 	var painted := bank.artwork != null
@@ -421,8 +545,15 @@ static func mist_image(bank: Bank) -> Image:
 				continue
 			var near := 1.0 - clampf(float(mini(y - top, bottom - y)) / 12.0, 0.0, 1.0)
 			var drift := 0.5 + 0.5 * sin(x * 0.07 + y * 0.9) * sin(x * 0.019 + 2.1)
-			var v := near * (0.55 + 0.45 * drift)
-			var a := 0.38 if v > 0.7 else (0.24 if v > 0.45 else (0.12 if v > 0.25 else 0.0))
+			var v := near * (0.55 + 0.45 * drift) * _clear_fade(x, y)
+			var a := 0.26 if v > 0.7 else (0.16 if v > 0.45 else (0.08 if v > 0.25 else 0.0))
 			if a > 0.0:
 				img.set_pixel(x, y, Color(0.86, 0.89, 0.9, a))
 	return img
+
+
+## 0 inside MIST_CLEAR, rising to 1 at MIST_EDGE pixels outside it.
+static func _clear_fade(x: int, y: int) -> float:
+	var dx := maxi(MIST_CLEAR.position.x - x, x - (MIST_CLEAR.end.x - 1))
+	var dy := maxi(MIST_CLEAR.position.y - y, y - (MIST_CLEAR.end.y - 1))
+	return clampf(float(maxi(dx, dy)) / MIST_EDGE, 0.0, 1.0)

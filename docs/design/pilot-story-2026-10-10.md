@@ -60,16 +60,19 @@ of Sky way, by what would live in each place:
 | | B2F | Dustkite, Canvaswing, Cinderhide (the burrowing Ember lizard) |
 | | B3F | Cinderhide, Fusern, Preostmar (kiln-hard clay, buried river stone) |
 | | Boss | Mirekit and Whinet |
-| The Hollow (the risen river structure) | B1F valley | Listener, Troughspine, Skimlet |
-| | B2F ruin | Listener, Troughspine, Ozbender, Valvekin |
+| The Hollow (the risen river structure) | B1F valley | Listener, Skimlet |
+| | B2F ruin | Ozbender, Valvekin, Troughspine |
 | | Boss | the Quietwater Warden and its Listeners |
 
-Skimlet, Ozbender and Valvekin join their floors once Preston picks their takes
-(`docs/creatures/hollow-wilds-2026-10-10.md`).
+Skimlet, Ozbender and Valvekin are on these floors. Preston picked the takes in
+`docs/creatures/hollow-wilds-2026-10-10.md`.
 
-The two Hollow rows above are stale against `DUNGEONS["hollow"]["spawns"]` in `scripts/dungeon/dungeon.gd` (Grok,
-2026-10-12). Grok rewrites them: FLOW-17 in `docs/team/GROK_TASKS_2026-10-22.md`; the numbers are his. The Mouth is not
-in this table; its stock is `DUNGEONS["mouth"]`. The Rootbank Warren rows match the code (checked 2026-10-22).
+Grok, 2026-10-12: B1F is Listener and Skimlet. Troughspine is off B1F because Spring Spit is a long Tide
+line, about 6 into the Ember leader's 40 HP on that day, and Seep was healing that hit back. Seed 99 went
+down there with one wild downed. B2F is Ozbender, Valvekin and Troughspine, without Listener, so the floor
+before the Warden is not two Tide shots at once. The code matches: `DUNGEONS["hollow"]["spawns"]` is
+`{1: [[7, 0], [103, 0]], 2: [[104, 0], [105, 0], [10, 0]]}`. The Mouth is not in this table. Its stock is
+`DUNGEONS["mouth"]`. The Rootbank Warren rows were not part of this pass.
 
 ## Still Preston's to decide
 - Which creature is the partner, and does it get its own name?

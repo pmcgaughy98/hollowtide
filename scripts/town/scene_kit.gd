@@ -19,6 +19,7 @@ extends RefCounted
 ##   SceneKit.use_key(), walk_keys(), pick_keys()  the town's key hints, from the Input Map (2026-10-23)
 ##   SceneKit.follow(host, trail)                  the team's line after a leader step (2026-10-23)
 ##   SceneKit.read_ahead(forms)                    read creatures' pictures on a thread before they are spawned (2026-10-24)
+##   SceneKit.name_of(line, stage), read_names(team)  a creature's name, its data file read once (2026-10-26)
 ## A host provides: team, npcs, talk, cutscene, cam_focus, scene_fx, _world, _px(tile), _place(e),
 ## _facing_of(d), and an open-tile test (_open or open_at).
 
@@ -125,6 +126,57 @@ static func read_ahead(forms: Array) -> void:
 		for path: String in paths:
 			if not _sprites.has(path) and ResourceLoader.exists(path) and ResourceLoader.load_threaded_get_status(path) == ResourceLoader.THREAD_LOAD_INVALID_RESOURCE:
 				ResourceLoader.load_threaded_request(path)
+
+
+## Creature names, by data file, kept for the session (Claude, 2026-10-26, pass 8 R8 / L15). A creature's name lives in
+## its data file, which also names every idle frame it has, so loading one took 70 to 630 ms cold; say() did it for the
+## leader and the partner on every call, and the Hall froze on the runners scene's first line. read_names() asks for the
+## files on a thread while a room builds under the fade; name_of() takes a finished read, else loads, and keeps only
+## the name, not the file.
+static var _names := {}
+
+
+static func _data_path(line: int, stage: int) -> String:
+	return String(Lines.of(line)["forms"][stage][1])
+
+
+static func name_of(line: int, stage: int) -> String:
+	var path := _data_path(line, stage)
+	if not _names.has(path):
+		var res: Resource = null
+		if ResourceLoader.load_threaded_get_status(path) != ResourceLoader.THREAD_LOAD_INVALID_RESOURCE:
+			res = ResourceLoader.load_threaded_get(path)   # waits if the thread is still reading it
+		elif ResourceLoader.exists(path):
+			res = load(path)
+		_names[path] = String(res.get("creature_name")) if res != null else String(Lines.of(line)["forms"][stage][0]).capitalize()
+	return _names[path]
+
+
+## The name without waiting: a kept one, or one whose read has finished; "" while the read is still going (and a read
+## is asked for if none was). A menu drawn every frame uses this and shows the form's own word meanwhile.
+static func name_ready(line: int, stage: int) -> String:
+	var path := _data_path(line, stage)
+	if _names.has(path):
+		return _names[path]
+	var status := ResourceLoader.load_threaded_get_status(path)
+	if status == ResourceLoader.THREAD_LOAD_LOADED or status == ResourceLoader.THREAD_LOAD_FAILED or DisplayServer.get_name() == "headless":
+		return name_of(line, stage)
+	if status == ResourceLoader.THREAD_LOAD_INVALID_RESOURCE and ResourceLoader.exists(path):
+		ResourceLoader.load_threaded_request(path)
+	return ""
+
+
+## Ask for these creatures' data files on a thread, unless their names are kept or asked for already. `members` holds
+## [line, stage] pairs or team entries. Not in a headless check, which can quit with a read still going.
+static func read_names(members: Array) -> void:
+	if DisplayServer.get_name() == "headless":
+		return
+	for m in members:
+		var line := int(m["line"]) if m is Dictionary else int(m[0])
+		var stage := int(m["stage"]) if m is Dictionary else int(m[1])
+		var path := _data_path(line, stage)
+		if not _names.has(path) and ResourceLoader.exists(path) and ResourceLoader.load_threaded_get_status(path) == ResourceLoader.THREAD_LOAD_INVALID_RESOURCE:
+			ResourceLoader.load_threaded_request(path)
 
 
 ## The shortest walk on open tiles that are not taken (eight ways, no cutting a corner), as a list of steps.
@@ -362,8 +414,11 @@ static func say(host, lines: Array) -> void:
 	if not _alive(host):
 		return
 	var pe: Dictionary = host.team[1] if host.team.size() > 1 else host.team[0]
-	var pname: String = load(Lines.of(pe["line"])["forms"][pe["stage"]][1]).creature_name
-	var lname: String = load(Lines.of(host.team[0]["line"])["forms"][host.team[0]["stage"]][1]).creature_name
+	# The two names only when a line asks for them, from the kept names (Claude, 2026-10-26, pass 8 R8): each call
+	# used to load both creatures' whole data files, 70 to 630 ms cold, and froze the scene on its line.
+	var asks := lines.any(func(l: Array) -> bool: return "{" in String(l[0]) or "{" in String(l[1]))
+	var pname: String = name_of(pe["line"], pe["stage"]) if asks else ""
+	var lname: String = name_of(host.team[0]["line"], host.team[0]["stage"]) if asks else ""
 	for l in lines:
 		var who: String = String(l[0]).replace("{partner}", pname)
 		var form: String = String(pe["form"]) if l[0] == "{partner}" else ("" if who == "???" else who.to_lower())
@@ -481,6 +536,13 @@ static func pick_keys() -> String:
 	if UI.last_device() == "pad":
 		return "D-pad"
 	return _letters([&"move_up", &"move_down"], "/")
+
+
+## The keys that switch a two-sided list's column (Claude, 2026-10-26, pass 8 R6): "A/D"; "D-pad" on a pad.
+static func side_keys() -> String:
+	if UI.last_device() == "pad":
+		return "D-pad"
+	return _letters([&"move_left", &"move_right"], "/")
 
 
 ## Each action's one-letter key, joined; an action with no letter key shows its first key ("Up").

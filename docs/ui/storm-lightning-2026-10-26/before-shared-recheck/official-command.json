@@ -1,0 +1,17 @@
+{
+  "command": [
+    "C:\\Users\\pmcga\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+    "C:\\Users\\pmcga\\dev\\hollowtide\\tools\\debug\\run_checks.py",
+    "storm_open",
+    "opening_flow",
+    "--jobs",
+    "1",
+    "--logs",
+    "D:\\dev\\hollowtide-storm-lightning-20261026\\runner",
+    "--md",
+    "D:\\dev\\hollowtide-storm-lightning-20261026\\runner-result.md"
+  ],
+  "APPDATA": "D:\\dev\\hollowtide-storm-lightning-20261026\\official-profile",
+  "LOCALAPPDATA": "D:\\dev\\hollowtide-storm-lightning-20261026\\official-local-profile",
+  "exit": 0
+}

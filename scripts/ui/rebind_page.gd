@@ -185,6 +185,9 @@ func _row(action: String) -> Button:
 	b.focus_entered.connect(_show_head.bind(action))
 	b.focus_entered.connect(_mark.bind(action))
 	b.focus_exited.connect(_mark.bind(action))
+	if action == "interact":   # the Use / stairs row says what else uses a place in town (U6)
+		b.focus_entered.connect(_use_note)
+		b.focus_exited.connect(_use_note)
 	b.gui_input.connect(_row_click.bind(action))
 	return b
 
@@ -214,11 +217,13 @@ func _mark(action: String) -> void:
 		l.add_theme_color_override("font_color", UI.LIGHT if i == picked else UI.MUTED if l.text == "" else UI.TEXT)
 
 
-## A cell with nothing bound (Claude, 2026-10-24, L6-29): a muted "-", the way a printed controls page marks a gap.
-## On the chosen row's picked keyboard cell (lantern gold, see _mark) it is the add prompt instead, since a key
-## pressed there fills it. It was an outlined empty key cap (S2 / LV-34), which read as a form field left blank.
-## The label's own text stays "", so row_text and the colours still read the cell as empty.
-const EMPTY_MARK := "-"
+## A cell with nothing bound (Claude, 2026-10-24, L6-29): a faint "None" (Claude, 2026-10-26, pass 8 U6 for L29: the
+## muted "-" read as a stray mark), the way a printed controls page names a gap. On the chosen row's picked keyboard
+## cell (lantern gold, see _mark) it is the add prompt instead, since a key pressed there fills it. It was an outlined
+## empty key cap (S2 / LV-34), which read as a form field left blank. The label's own text stays "", so row_text and
+## the colours still read the cell as empty. EMPTY_ALPHA keeps the word at about 4.7 to 1 on the row's moss.
+const EMPTY_MARK := "None"   # a proposal (pass 8), Preston's to change
+const EMPTY_ALPHA := 0.7
 const EMPTY_ADD := "add a key"   # a proposal (pass 6), Preston's to change
 
 
@@ -229,7 +234,7 @@ func _empty_slot(l: Label) -> void:
 	var f := UI.font("body")
 	var n := UI.type_size("body")
 	var base := roundf((l.size.y - f.get_height(n)) * 0.5 + f.get_ascent(n))
-	UI.say(l, Vector2(0, base), EMPTY_ADD if picked else EMPTY_MARK, "body", UI.LIGHT if picked else UI.MUTED)
+	UI.say(l, Vector2(0, base), EMPTY_ADD if picked else EMPTY_MARK, "body", UI.LIGHT if picked else Color(UI.MUTED, EMPTY_ALPHA))
 
 
 ## Whether `action`'s row shows its picked keyboard cell in gold now (the checks read it).
@@ -326,6 +331,16 @@ func _hint() -> void:
 
 func _on_device(_device: String) -> void:
 	_hint()
+	_use_note()
+
+
+## While the Use / stairs row is chosen (and not listening), the note under the list says which other keys use a place
+## in Highbank (ControlsText.use_also, pass 8 U6); otherwise it shows the page's own line. `message` is not changed.
+func _use_note() -> void:
+	if note == null or not rows.has("interact"):
+		return
+	var extra := ControlsText.use_also() if (rows["interact"] as Control).has_focus() and listening == "" else ""
+	note.text = extra if extra != "" else message
 
 
 func _say(s: String) -> void:

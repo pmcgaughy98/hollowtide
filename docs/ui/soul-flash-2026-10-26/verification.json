@@ -1,0 +1,14 @@
+{
+  "baseline_files": 1005,
+  "owned_hash_exact": true,
+  "scope": "only effective saved/forwarded preference initialization and reduced starting strength; all other soul source exact",
+  "baseline_native": "6/6 clean; peak1.6, rendered white",
+  "installed_native": "87/87 clean; all three heroes, normal/forwarded/saved cases; reduced0.4, normal1.6",
+  "official": "soul_prologue and opening_flow PASS; exit0; raw known exit warnings retained",
+  "preference_helper_bodies": "match original tested snapshot",
+  "concurrent_paths_preserved": [],
+  "changed_existing_paths": [
+    "scripts/soul_prologue.gd"
+  ],
+  "next": "A3 opening inputs/skip/white-outs/cards/light; still pending"
+}

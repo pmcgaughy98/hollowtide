@@ -55,7 +55,9 @@ static func walls_beside(seen: Dictionary, data: Dictionary) -> Dictionary:
 				if dx == 0 or dy == 0 or (wall.call(p.x + dx, p.y) and wall.call(p.x, p.y + dy)):
 					out[Vector2i(p.x + dx, p.y + dy)] = true
 					# The bank's top above a north face too, so a Rootbank Warren face reads two tiles high (Claude, 2026-10-26,
-					# pass 7 F1, L7-12). In the Mouth it shows the cap row's steps into the dark above its faces.
-					if dx == 0 and dy == -1 and wall.call(p.x, p.y - 2):
-						out[Vector2i(p.x, p.y - 2)] = true
+					# pass 7 F1, L7-12). In the Mouth it shows the cap row above its faces. At the face's outer corner the
+					# tile above the corner too (Claude, 2026-10-26, pass 8 F1, L12): the painters wrap the top's back
+					# course round the corner there, and the fog cut it off along a straight tile edge.
+					if dy == -1 and wall.call(p.x + dx, p.y - 2):
+						out[Vector2i(p.x + dx, p.y - 2)] = true
 	return out

@@ -73,6 +73,25 @@ static func key(action: StringName, device := "") -> String:
 	return UI.binding_text(action, _device(device))
 
 
+## What else uses a place in Highbank besides the Use / stairs keys (Claude, 2026-10-26, pass 8 U6 for L20). The town
+## reads Choose (confirm) as well as Use (interact; hub_town.gd taps either), so on a pad A opens a door or reads a sign
+## as X does, and on a keyboard J and Enter do what E does. One sentence for the Rebind keys page's Use / stairs row,
+## naming those keys on the device and the row that changes them; "" when Choose has no key of its own there.
+## Proposal words, Preston's to change.
+static func use_also(device := "") -> String:
+	var d := _device(device)
+	var own := _texts("interact", d)
+	var also := PackedStringArray()
+	for t in _texts("confirm", d):
+		if not own.has(t):
+			also.append(t)
+	if also.is_empty():
+		return ""
+	var one := also.size() == 1
+	return "In Highbank, %s also %s a place. %s Choose, under Menus and questions." % [" and ".join(also) if also.size() <= 2 else ", ".join(also),
+		"uses" if one else "use", "It is" if one else "They are"]
+
+
 ## The key a "next" hint names: the town's E on a keyboard, A (confirm) on a pad. Either reads as the next
 ## line, since every INPUT_ADVANCE action does (the faint screen, the evolution scene, the shrine's rows).
 static func advance_text(device := "") -> String:

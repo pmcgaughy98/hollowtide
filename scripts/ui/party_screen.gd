@@ -25,6 +25,23 @@ const CreatureIdle := preload("res://scripts/ui/creature_idle.gd")
 const Shrine := preload("res://scripts/ui/shrine_info.gd")   # its stone rule, words and dimming (LF7-07)
 const DUNGEON := "res://scripts/dungeon/dungeon.gd"   # loaded, not preloaded: dungeon.gd preloads the pause menu
 const PAGES := ["Status", "Moves"]
+## One plain line for each thing growing waits on, beside its gauge, and one for Sense beside its heading (Claude,
+## 2026-10-26, pass 8 U4 for L16 and L21: the Team page named "Pincer hits" and Sense without saying what they count).
+## Keyed by the row's name for the shared three and by EVO's way for the fourth. Words are proposals, Preston's to
+## change; the counts and goals stay Grok's. Each fits the gauge's 300 px in the body face (296 at most).
+const COND_WORDS := {
+	"Level": "Fights earn EXP, and EXP raises it.",
+	"KOs": "Foes it lands the last hit on.",
+	"Floors": "Floors it finishes still standing.",
+	"flank": "A friend behind the foe, or the foe asleep.",
+	"ambush": "Hits on a foe that is still asleep.",
+	"took": "Damage it takes in fights.",
+	"slam": "Foes it charges into a wall or a creature.",
+	"healed": "Health its spring gives back to the team.",
+}
+const SENSE_WORDS := "How well it fights on its own. It grows with every floor and knockout."
+const SENSE_LEAD := "You steer the leader, so its Sense does not grow."   # the leader gains none (dungeon.gd _gain_iq)
+const COND_STEP := 28   # one growth row: the name, its plain line over a slim gauge, the count
 const LEFT := Rect2(64, 92, 360, 504)
 const RIGHT := Rect2(440, 128, 648, 420)
 
@@ -101,8 +118,9 @@ func setup(scene: Node) -> void:
 		if st < 2 and c["EVO"].has(ln):
 			var r: Dictionary = c["EVO"][ln]
 			var g: Dictionary = rec.get("growth", {}).get(key, {})
-			card["evo"] = [["Level", lv, c["EVO_LEVEL"][st]], ["KOs", int(g.get("kos", 0)), r["kos"][st]],
-				["Floors", int(g.get("floors", 0)), r["floors"][st]], [UI.WAY_NAMES.get(r["way"], r["way"]), int(g.get(r["way"], 0)), r["need"][st]]]   # the shrine's words (L6-22)
+			card["evo"] = [["Level", lv, c["EVO_LEVEL"][st], COND_WORDS["Level"]], ["KOs", int(g.get("kos", 0)), r["kos"][st], COND_WORDS["KOs"]],
+				["Floors", int(g.get("floors", 0)), r["floors"][st], COND_WORDS["Floors"]],
+				[UI.WAY_NAMES.get(r["way"], r["way"]), int(g.get(r["way"], 0)), r["need"][st], COND_WORDS.get(r["way"], "")]]   # the shrine's words (L6-22)
 		# Whether the Warden's stone lets it grow whatever these counts, by the shrine's own rule on the carried record
 		# (Claude, 2026-10-26, LF7-07): the leader and the partner at their first stage once the stone is set in.
 		card["stone"] = Shrine.stone_lets(TeamRecord.data, k)
@@ -118,7 +136,7 @@ func setup(scene: Node) -> void:
 		cards.append(card)
 		lines.append("%s   Lv %d   Sense %d" % [String(data.creature_name).to_upper(), lv, card["iq"]] + ("   HP %d/%d" % [card["hp"], card["max_hp"]] if card["hp"] >= 0 else ""))
 		if card.has("evo"):
-			lines.append("To grow: " + ", ".join(card["evo"].map(func(b: Array) -> String: return "%s %d/%d" % b)))
+			lines.append("To grow: " + ", ".join(card["evo"].map(func(b: Array) -> String: return "%s %d/%d" % [b[0], mini(int(b[1]), int(b[2])), b[2]])))
 			if card["stone"]:
 				lines.append(Shrine.STONE_NOW)
 		lines.append("Moves: " + ", ".join(moves.map(func(m: String) -> String: return ArenaData.MOVES[m]["name"] if ArenaData.MOVES.has(m) else m)))
@@ -338,9 +356,16 @@ func _draw_left(c: Dictionary) -> void:
 		UI.text(self, Vector2(LEFT.position.x + 18, y + 34), "Leader", 15, UI.EDGE_LIGHT, 324, HORIZONTAL_ALIGNMENT_RIGHT)
 
 
-func _section(at: Vector2, title: String, col := UI.EDGE_LIGHT) -> void:
+## A heading with its rule; `note` is a plain line in the body face between the heading and the rule (U4).
+func _section(at: Vector2, title: String, col := UI.EDGE_LIGHT, note := "", note_col := Color(UI.MUTED, 0.75)) -> void:
 	UI.text(self, at, title, 18, col)
-	draw_line(at + Vector2(UI.width_of(title, 18) + 10, -6), Vector2(RIGHT.end.x - 20, at.y - 6), Color(UI.EDGE, 0.45), 1.0)
+	var from: float = at.x + UI.width_of(title, 18) + 10
+	if note != "":
+		var room: float = RIGHT.end.x - 20 - (from + 4)
+		UI.say(self, Vector2(from + 4, at.y), UI.clip(note, "body", room), "body", note_col)
+		from += 4 + minf(UI.width_in(note, "body"), room) + 10
+	if from < RIGHT.end.x - 40:
+		draw_line(Vector2(from, at.y - 6), Vector2(RIGHT.end.x - 20, at.y - 6), Color(UI.EDGE, 0.45), 1.0)
 
 
 func _draw_status(c: Dictionary) -> void:
@@ -360,38 +385,39 @@ func _draw_status(c: Dictionary) -> void:
 	y += 104
 	if c.has("evo"):
 		# Under the Warden's stone the counts are not needed this time (Claude, 2026-10-26, LF7-07): the heading, names,
-		# gauges and counts take the shrine's dimmed parchment, the shrine's line says why under the heading, and the
-		# rows close up from 26 px to 22 so the Sense rows below keep their place.
+		# gauges and counts take the shrine's dimmed parchment, and the shrine's line says why beside the heading.
+		# Each row (pass 8 U4): its name, what it counts in one plain line with a slim gauge under it, and the count,
+		# which stops at the goal once it is met ("3 / 3 DONE", never "8 / 3"; L21).
 		var stone: bool = c.get("stone", false)
 		var dim := Color(UI.MUTED, Shrine.STONE_DIM)
-		_section(Vector2(x, y), "Growing waits on", dim if stone else UI.EVO)
-		var top: float = y + 30
-		var step := 26
-		if stone:
-			UI.text(self, Vector2(x, y + 26), Shrine.STONE_NOW, 16, UI.EVO, 600)
-			top = y + 38
-			step = 22
+		_section(Vector2(x, y), "Growing waits on", dim if stone else UI.EVO, Shrine.STONE_NOW if stone else "", UI.EVO)
 		for b in c["evo"].size():
 			var row: Array = c["evo"][b]
-			var yy: float = top + b * step
-			var done: bool = row[1] >= row[2]
-			UI.text(self, Vector2(x, yy + 12), String(row[0]), 16, dim if stone else (UI.TEXT if done else UI.MUTED))
-			UI.bar(self, Rect2(x + 110, yy + 2, 300, 10), float(row[1]) / maxf(1.0, row[2]), dim if stone else (UI.HP_GOOD if done else UI.EVO))
-			UI.text(self, Vector2(x + 424, yy + 13), ("%d / %d" % [row[1], row[2]]) + ("   done" if done else ""), 15, dim if stone else (UI.HP_GOOD if done else UI.TEXT))
+			var base: float = y + 30 + b * COND_STEP
+			var need := int(row[2])
+			var have := mini(int(row[1]), need)
+			var done: bool = int(row[1]) >= need
+			UI.text(self, Vector2(x, base), String(row[0]), 16, dim if stone else (UI.TEXT if done else UI.MUTED))
+			if row.size() > 3 and String(row[3]) != "":
+				UI.say(self, Vector2(x + 110, base), UI.clip(String(row[3]), "body", 300.0), "body", dim if stone else Color(UI.MUTED, 0.75))
+			UI.bar(self, Rect2(x + 110, base + 7, 300, 3), float(have) / maxf(1.0, need), dim if stone else (UI.HP_GOOD if done else UI.EVO))
+			UI.text(self, Vector2(x + 424, base + 1), ("%d / %d" % [have, need]) + ("   done" if done else ""), 15, dim if stone else (UI.HP_GOOD if done else UI.TEXT))
 	else:
 		_section(Vector2(x, y), "Final stage", UI.EDGE_LIGHT)
 		UI.text(self, Vector2(x, y + 34), "This line has nowhere further to grow.", 16, UI.MUTED)
-	y += 146
-	_section(Vector2(x, y), "Sense %d" % c["iq"])
+	y += 152
+	_section(Vector2(x, y), "Sense %d" % c["iq"], UI.EDGE_LIGHT, SENSE_LEAD if c["lead"] else SENSE_WORDS)
 	var shown := 0
 	for sk in _iq_skills:
 		if c["iq"] >= sk["at"] and shown < 3:
-			UI.text(self, Vector2(x, y + 30 + shown * 24), String(sk["name"]), 16, UI.TEXT)
-			UI.text(self, Vector2(x + 150, y + 30 + shown * 24), String(sk["what"]), 14, UI.MUTED, 440)
+			UI.text(self, Vector2(x, y + 30 + shown * 22), String(sk["name"]), 16, UI.TEXT)
+			# One face for every skill's words (pass 8 U4, L16): at size 14 a short one stayed in the capital label face
+			# and a long one stepped down to the body face, so the list mixed two.
+			UI.say(self, Vector2(x + 150, y + 30 + shown * 22), String(sk["what"]), "body", UI.MUTED, 440)
 			shown += 1
 	for sk in _iq_skills:
-		if c["iq"] < sk["at"]:
-			UI.text(self, Vector2(x, y + 30 + shown * 24), "At Sense %d: %s" % [sk["at"], sk["name"]], 15, Color(UI.MUTED, 0.75), 600)
+		if c["iq"] < sk["at"] and not c["lead"]:   # the leader's Sense does not grow, so no next skill is promised (U4)
+			UI.text(self, Vector2(x, y + 30 + shown * 22), "At Sense %d: %s" % [sk["at"], sk["name"]], 15, Color(UI.MUTED, 0.75), 600)
 			break
 
 
@@ -446,7 +472,7 @@ func _draw_moves(c: Dictionary) -> void:
 		UI.text(self, d.position + Vector2(120, 104 + k * 26), String(facts[k][1]), 16, UI.TEXT, 170)
 	var rule: float = d.position.y + float(box["rule"])
 	draw_line(Vector2(d.position.x + 16, rule), Vector2(d.end.x - 16, rule), Color(UI.EDGE, 0.4), 1.0)
-	# The description in the body face, a row at a time (it was drawn in the old heading face, UI.HEAD).
+	# The description in the body face, a row at a time.
 	var rows: PackedStringArray = box["lines"]
 	for i in rows.size():
 		UI.say(self, Vector2(d.position.x + 18, d.position.y + float(box["first"]) + i * float(box["line_h"])), rows[i], "body", UI.TEXT, d.size.x - 36)

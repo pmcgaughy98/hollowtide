@@ -1,0 +1,347 @@
+{
+	"checks": [
+		{
+			"check": "storm-E first press only arms skip",
+			"passed": true
+		},
+		{
+			"check": "storm-E repeat before release cannot skip",
+			"passed": true
+		},
+		{
+			"check": "storm-E release opens second-press gate",
+			"passed": true
+		},
+		{
+			"check": "storm-E second press enters existing soul destination",
+			"passed": true
+		},
+		{
+			"check": "storm-E private saved journey unchanged",
+			"passed": true
+		},
+		{
+			"check": "storm-J first press only arms skip",
+			"passed": true
+		},
+		{
+			"check": "storm-J repeat before release cannot skip",
+			"passed": true
+		},
+		{
+			"check": "storm-J release opens second-press gate",
+			"passed": true
+		},
+		{
+			"check": "storm-J second press enters existing soul destination",
+			"passed": true
+		},
+		{
+			"check": "storm-J private saved journey unchanged",
+			"passed": true
+		},
+		{
+			"check": "storm-Enter first press only arms skip",
+			"passed": true
+		},
+		{
+			"check": "storm-Enter repeat before release cannot skip",
+			"passed": true
+		},
+		{
+			"check": "storm-Enter release opens second-press gate",
+			"passed": true
+		},
+		{
+			"check": "storm-Enter visible bound-key prompt fits",
+			"passed": true
+		},
+		{
+			"check": "storm-Enter second press enters existing soul destination",
+			"passed": true
+		},
+		{
+			"check": "storm-Enter private saved journey unchanged",
+			"passed": true
+		},
+		{
+			"check": "storm-Space first press only arms skip",
+			"passed": true
+		},
+		{
+			"check": "storm-Space repeat before release cannot skip",
+			"passed": true
+		},
+		{
+			"check": "storm-Space release opens second-press gate",
+			"passed": true
+		},
+		{
+			"check": "storm-Space second press enters existing soul destination",
+			"passed": true
+		},
+		{
+			"check": "storm-Space private saved journey unchanged",
+			"passed": true
+		},
+		{
+			"check": "storm-pad-A first press only arms skip",
+			"passed": true
+		},
+		{
+			"check": "storm-pad-A repeat before release cannot skip",
+			"passed": true
+		},
+		{
+			"check": "storm-pad-A release opens second-press gate",
+			"passed": true
+		},
+		{
+			"check": "storm-pad-A visible bound-key prompt fits",
+			"passed": true
+		},
+		{
+			"check": "storm-pad-A second press enters existing soul destination",
+			"passed": true
+		},
+		{
+			"check": "storm-pad-A private saved journey unchanged",
+			"passed": true
+		},
+		{
+			"check": "storm-pad-X first press only arms skip",
+			"passed": true
+		},
+		{
+			"check": "storm-pad-X repeat before release cannot skip",
+			"passed": true
+		},
+		{
+			"check": "storm-pad-X release opens second-press gate",
+			"passed": true
+		},
+		{
+			"check": "storm-pad-X second press enters existing soul destination",
+			"passed": true
+		},
+		{
+			"check": "storm-pad-X private saved journey unchanged",
+			"passed": true
+		},
+		{
+			"check": "storm hint begins hidden",
+			"passed": true
+		},
+		{
+			"check": "storm hint appears after four seconds without arming",
+			"passed": true
+		},
+		{
+			"check": "soul-E advances exactly one story line",
+			"passed": true
+		},
+		{
+			"check": "soul-E echo never advances again",
+			"passed": true
+		},
+		{
+			"check": "soul-J advances exactly one story line",
+			"passed": true
+		},
+		{
+			"check": "soul-J echo never advances again",
+			"passed": true
+		},
+		{
+			"check": "soul-Enter advances exactly one story line",
+			"passed": true
+		},
+		{
+			"check": "soul-Enter echo never advances again",
+			"passed": true
+		},
+		{
+			"check": "soul-Space advances exactly one story line",
+			"passed": true
+		},
+		{
+			"check": "soul-Space echo never advances again",
+			"passed": true
+		},
+		{
+			"check": "soul-pad-A advances exactly one story line",
+			"passed": true
+		},
+		{
+			"check": "soul-pad-X advances exactly one story line",
+			"passed": true
+		},
+		{
+			"check": "left stick selects once",
+			"passed": true
+		},
+		{
+			"check": "held stick does not repeat",
+			"passed": true
+		},
+		{
+			"check": "centred stick can select again in same direction",
+			"passed": true
+		},
+		{
+			"check": "stick opposite direction works",
+			"passed": true
+		},
+		{
+			"check": "pad confirms one selected creature",
+			"passed": true
+		},
+		{
+			"check": "save private binding confirm/0",
+			"passed": true
+		},
+		{
+			"check": "save private binding confirm/1",
+			"passed": true
+		},
+		{
+			"check": "save private binding attack/0",
+			"passed": true
+		},
+		{
+			"check": "save private binding attack/1",
+			"passed": true
+		},
+		{
+			"check": "save private binding interact/0",
+			"passed": true
+		},
+		{
+			"check": "save private binding move_left/0",
+			"passed": true
+		},
+		{
+			"check": "save private binding move_left/1",
+			"passed": true
+		},
+		{
+			"check": "save private binding move_right/0",
+			"passed": true
+		},
+		{
+			"check": "save private binding move_right/1",
+			"passed": true
+		},
+		{
+			"check": "save private binding cancel/0",
+			"passed": true
+		},
+		{
+			"check": "saved bindings reapply from private file",
+			"passed": true
+		},
+		{
+			"check": "retired raw A/D keys no longer bypass rebind",
+			"passed": true
+		},
+		{
+			"check": "saved rebound right works",
+			"passed": true
+		},
+		{
+			"check": "saved rebound left works",
+			"passed": true
+		},
+		{
+			"check": "retired raw advance keys no longer bypass rebind",
+			"passed": true
+		},
+		{
+			"check": "saved rebound confirm chooses once",
+			"passed": true
+		},
+		{
+			"check": "choice input leaves saved journey untouched",
+			"passed": true
+		},
+		{
+			"check": "storm-rebound-K first press only arms skip",
+			"passed": true
+		},
+		{
+			"check": "storm-rebound-K repeat before release cannot skip",
+			"passed": true
+		},
+		{
+			"check": "storm-rebound-K release opens second-press gate",
+			"passed": true
+		},
+		{
+			"check": "storm-rebound-K visible bound-key prompt fits",
+			"passed": true
+		},
+		{
+			"check": "storm-rebound-K second press enters existing soul destination",
+			"passed": true
+		},
+		{
+			"check": "storm-rebound-K private saved journey unchanged",
+			"passed": true
+		},
+		{
+			"check": "save advance trigger rebind",
+			"passed": true
+		},
+		{
+			"check": "storm-trigger first press only arms skip",
+			"passed": true
+		},
+		{
+			"check": "storm-trigger repeat before release cannot skip",
+			"passed": true
+		},
+		{
+			"check": "storm-trigger release opens second-press gate",
+			"passed": true
+		},
+		{
+			"check": "storm-trigger second press enters existing soul destination",
+			"passed": true
+		},
+		{
+			"check": "storm-trigger private saved journey unchanged",
+			"passed": true
+		},
+		{
+			"check": "rebound key consumes title prelude",
+			"passed": true
+		},
+		{
+			"check": "prelude key never starts New Game",
+			"passed": true
+		},
+		{
+			"check": "title no longer patches input map",
+			"passed": true
+		},
+		{
+			"check": "rebound key opens focused title Options",
+			"passed": true
+		},
+		{
+			"check": "rebound Back closes Options",
+			"passed": true
+		},
+		{
+			"check": "rebound key opens focused title Help",
+			"passed": true
+		},
+		{
+			"check": "rebound Back returns to Help button",
+			"passed": true
+		}
+	],
+	"failed": 0,
+	"passed": 85,
+	"total": 85
+}

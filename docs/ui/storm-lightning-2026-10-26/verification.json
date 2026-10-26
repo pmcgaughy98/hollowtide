@@ -1,0 +1,39 @@
+{
+  "baseline_files": 1003,
+  "owned_hash_exact": true,
+  "scope": "one preload, effective preference read, uncompressed strike waits, reduced-only pulse branch; all other storm source exact",
+  "baseline_native": "6/6 clean; 6 bright pulses",
+  "installed_native": "33/33 clean; 3 soft pulses per reduced run; normal 6 pulses retained",
+  "official": "storm_open and opening_flow PASS, exit0; raw known exit warnings retained",
+  "shared_recheck": "Final tests rerun after Claude pref recovery/HEAD updates; current preference helper bodies match tested snapshot",
+  "concurrent_paths_preserved": [
+    "scripts/dungeon/dungeon.gd",
+    "scripts/dungeon/riverbank_painter.gd",
+    "scripts/dungeon/rootbank_detail.gd",
+    "scripts/town/hub_town.gd",
+    "scripts/town/jobs.gd",
+    "scripts/town/objective.gd",
+    "scripts/town/scene_kit.gd",
+    "scripts/town/town_layout.gd",
+    "scripts/ui/evolution_scene.gd",
+    "scripts/ui/party_screen.gd",
+    "scripts/ui/ui_style.gd"
+  ],
+  "changed_existing_paths": [
+    "docs/AI_COLLABORATION.md",
+    "scripts/dungeon/dungeon.gd",
+    "scripts/dungeon/riverbank_painter.gd",
+    "scripts/dungeon/rootbank_detail.gd",
+    "scripts/storm_open.gd",
+    "scripts/town/hub_town.gd",
+    "scripts/town/jobs.gd",
+    "scripts/town/objective.gd",
+    "scripts/town/scene_kit.gd",
+    "scripts/town/town_layout.gd",
+    "scripts/ui/evolution_scene.gd",
+    "scripts/ui/party_screen.gd",
+    "scripts/ui/ui_style.gd"
+  ],
+  "prompt_flag": "C6 OFF, unchanged by this slice",
+  "next": "ACC-14 soul flash; soul source not edited"
+}

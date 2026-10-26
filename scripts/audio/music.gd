@@ -18,6 +18,7 @@ const FADE := 1.2
 ## waits this long; one asked for in that time takes its place, so only the last of a burst starts. A request for
 ## the track playing or waiting changes nothing. The town's street wait (hub_town.gd MUSIC_SETTLE) comes before this.
 const COALESCE := 0.25
+const CLOSE_GRACE_MS := 40   # release()'s wait on a window close (Claude, 2026-10-26, pass 8 U7)
 
 static var _inst: Node = null
 
@@ -52,6 +53,34 @@ static func jingle(tree: SceneTree, name: String) -> void:
 	m.pending_jingle = name
 	if m.is_inside_tree():
 		m._play_jingle()
+
+
+## Everything let go before the game closes (Claude, 2026-10-26, pass 8 U7 for LH8-10). A verbose quit from the crew den
+## (Rootbank Warren's boss floor, the pause menu opened and closed) listed what Godot still held at exit: 11 instances
+## and 5 resources, every one a sound still playing (crew_theme.mp3, floor_arrive.wav, shove.wav, menu_close.wav,
+## text_blip_0.wav) or its playback. No texture was held. A player stopped first lets go of its stream, so this stops
+## every player under the root, then empties the UI's static caches of sounds and pictures (ui_style.gd: the ticks,
+## the blips, the icons, the frames, the bar styles and the 3x faces). Called on the window's close request
+## (_notification) and by the pause menu's Quit just before get_tree().quit().
+static func release(tree: SceneTree) -> void:
+	if tree == null or tree.root == null:
+		return
+	for kind in ["AudioStreamPlayer", "AudioStreamPlayer2D", "AudioStreamPlayer3D"]:
+		for p: Node in tree.root.find_children("*", kind, true, false):
+			p.stop()
+			p.set("stream", null)
+	var ui := preload("res://scripts/ui/ui_style.gd")
+	ui.closing = true   # no blip or tick after this
+	for cache: Variant in [ui._ticks, ui._blips, ui._icons, ui._boxes, ui._bar_styles, ui._faces3x]:
+		cache.clear()
+
+
+## The window's close button: the tree quits at the end of this frame, so the audio thread is given a moment to mix the
+## stopped sounds out before the frame's audio update lets them go (no frame can be waited for here).
+func _notification(what: int) -> void:
+	if what == NOTIFICATION_WM_CLOSE_REQUEST and is_inside_tree():
+		release(get_tree())
+		OS.delay_msec(CLOSE_GRACE_MS)
 
 
 func _ready() -> void:

@@ -70,8 +70,8 @@ static var _arrived := false
 ## so the picture is saved once under user:// and read back in a later session. Its file is named by _street_key():
 ## the layout, STREET_VERSION, and the modified times of the painters and the art they read (in the editor a change to
 ## any of them paints afresh; an exported game reads 0 for them all). Raise STREET_VERSION whenever a street painter
-## changes what it draws. 1 was the street before pass 5's T9.
-const STREET_VERSION := 2
+## changes what it draws. 1 was the street before pass 5's T9; 2 before pass 8's T10 (the Job Board's worn earth).
+const STREET_VERSION := 3
 const STREET_DIR := "user://street"
 const STREET_SOURCES := [
 	"res://scripts/town/hub_town.gd", "res://scripts/town/town_layout.gd", "res://scripts/town/highbank_ground_painter.gd",
@@ -128,13 +128,35 @@ func _ready() -> void:
 	# headless run (`threaded` false), which counts its waits in frames and can quit with a worker still painting.
 	var carded := poll_input and not _street.has(_street_key())
 	var threaded := carded and DisplayServer.get_name() != "headless"
+	# With the street kept (baked during the road talk, or a return), a player's arrival under the last scene's black
+	# reads the team's and the crew's sprites on loader threads too, before building, as the card does (Claude,
+	# 2026-10-26, pass 8 T5 / L15): read here they were up to 0.36 s and 0.41 s of the arrival's one long frame. With
+	# no black up (back from the Hollow's walkway, which lifts its own veil) the town builds at once, as before.
+	var reads_first := not carded and poll_input and DisplayServer.get_name() != "headless" and get_tree().root.has_node(UI.FADE_NAME)
+	if reads_first:
+		set_process(false)   # nothing to move or draw until the town is built (as under the card)
+		var sprites := _team_paths()
+		_request(sprites)
+		if BoardScene.pending(self):
+			SceneKit.read_ahead(BoardScene.SPOTS.keys())
+		await _collect(get_tree(), sprites)
+		if not is_inside_tree():
+			return
+		_lap("sprites on threads")
 	if carded:
 		set_process(false)   # nothing to move or draw until the town is built
 		_card_up()
+		if threaded:
+			# The view and the street's ink shader get their first draw now, with the card's first frame and before its
+			# lantern is lit (T5), so the frame that first draws the street, later under the moving lantern, is not also
+			# the one that makes them (0.2 to 0.3 s of it in a window).
+			_make_view()
+			_warm_finish()
 		for k in 2:
 			await get_tree().process_frame
 		if not is_inside_tree():
 			return
+		_card_light()
 		_lap("place card")
 	if threaded:
 		var reads := _team_paths() + STREET_ART_SCRIPTS + STREET_TRACKS.map(func(t: String) -> String: return Music.DIR % t)
@@ -146,21 +168,12 @@ func _ready() -> void:
 		await _collect(get_tree(), reads)
 		if not is_inside_tree():
 			return
+		_card_settle()
 		_lap("street and sprites on threads")
 	grid = Layout.grid()
 	_close_shut_areas()
-	_view = SubViewport.new()
-	_view.size = VIEW
-	_view.canvas_item_default_texture_filter = Viewport.DEFAULT_CANVAS_ITEM_TEXTURE_FILTER_NEAREST
-	add_child(_view)
-	var screen := Sprite2D.new()
-	screen.texture = _view.get_texture()
-	screen.centered = false
-	screen.scale = Vector2.ONE * SCALE
-	screen.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
-	add_child(screen)
-	_world = Node2D.new()
-	_view.add_child(_world)
+	if _view == null:
+		_make_view()
 	_lap("grid and view")
 	var map := Sprite2D.new()
 	map.centered = false
@@ -170,6 +183,9 @@ func _ready() -> void:
 	map.texture = street["tex"]
 	map.material = street["finish"]
 	_world.add_child(map)
+	var warm := _world.get_node_or_null("WarmFinish")
+	if warm != null:
+		warm.queue_free()
 	_lap("street picture")
 	if threaded:   # the street's first draw, then the exteriors', each on a frame of its own under the card (T1)
 		await get_tree().process_frame
@@ -248,7 +264,26 @@ func _ready() -> void:
 		UI.toast(get_tree(), "Highbank remembers.")
 		toasted = true
 	_arrived = true
-	if get_tree().current_scene == self or get_tree().root.has_node(UI.FADE_NAME):
+	var lifts := get_tree().current_scene == self or get_tree().root.has_node(UI.FADE_NAME)
+	if reads_first:
+		set_process(true)
+	if lifts and not carded and poll_input and DisplayServer.get_name() != "headless":
+		# The build's long frame and the street's first draw stay under the black (Claude, 2026-10-26, pass 8 T5 / L15):
+		# coming home, the fade had started in this frame and its first step came after a 0.3 to 0.8 s frame, so the
+		# street jumped in whole instead of fading up. Two frames later the drawing is cheap again; no keys meanwhile.
+		# The black has to be up for that: the dawn walk ends on its own veil, which leaves with its scene, so arriving
+		# from it the town showed at full light for these frames and then dropped to black to fade in (integrator,
+		# 2026-10-26, pass 8: one bright frame between two dark ones in the re-shoot's luminance log).
+		if not get_tree().root.has_node(UI.FADE_NAME):
+			UI._fade_rect(get_tree(), 1.0)
+		busy = true
+		for k in 2:
+			await get_tree().process_frame
+			if not is_inside_tree():
+				return
+		busy = false
+		_lap("under black")
+	if lifts:
 		UI.fade_in(get_tree())
 	if carded:
 		set_process(true)
@@ -259,6 +294,37 @@ func _ready() -> void:
 	# quits while a thread is still reading dungeon.gd gets a parse error from the half-read script.
 	if poll_input and DisplayServer.get_name() != "headless":
 		_warm_up(get_tree())
+
+
+## The street's view: a 384x216 SubViewport drawn at 3x by a sprite, with the world inside it.
+func _make_view() -> void:
+	_view = SubViewport.new()
+	_view.size = VIEW
+	_view.canvas_item_default_texture_filter = Viewport.DEFAULT_CANVAS_ITEM_TEXTURE_FILTER_NEAREST
+	add_child(_view)
+	var screen := Sprite2D.new()
+	screen.texture = _view.get_texture()
+	screen.centered = false
+	screen.scale = Vector2.ONE * SCALE
+	screen.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
+	add_child(screen)
+	_world = Node2D.new()
+	_view.add_child(_world)
+
+
+## A 2 px stand-in drawn with the street's ink shader while the card waits (T5), freed when the street is put in.
+func _warm_finish() -> void:
+	var dot := Image.create(2, 2, false, Image.FORMAT_RGBA8)
+	dot.fill(Color(0, 0, 0, 1))
+	var m := ShaderMaterial.new()
+	m.shader = WorldFinish.SHADER
+	m.set_shader_parameter("detail_mask", ImageTexture.create_from_image(dot))
+	m.set_shader_parameter("detail_ink", 0.55)
+	var warm := Sprite2D.new()
+	warm.name = "WarmFinish"
+	warm.texture = ImageTexture.create_from_image(dot)
+	warm.material = m
+	_world.add_child(warm)
 
 
 ## After the arrival's fade (Claude, 2026-10-24, pass 6 T1 / L6-15): dungeon.gd (the board's lists of places and
@@ -281,6 +347,89 @@ static func _warm_up(tree: SceneTree) -> void:
 		_bits_of(j)
 		await tree.process_frame
 	await _rooms_ahead(tree)
+	await _walkway_ahead(tree)
+
+
+## The Hollow's walkway made ahead (Claude, 2026-10-26, pass 8 T6 / LH8-09): setting out for The Hollow held one frame
+## for about 1.0 s (990 to 1004 ms, 1381 ms in this pass's window probe) while hollow_approach.gd finished the riverbank
+## painting (267 ms) and its mask (84 ms) and the entrance painting with its mask (580 ms). When the way down leads
+## there next, the warm-up, as _rooms_ahead does, reads the paintings here on the main thread (where an exported game's
+## imported textures hand back their pixels), finishes them on a worker thread (the finish math is the scripts' own,
+## unchanged), makes each texture on the main thread a frame apart, and leaves them in the scripts' own session caches
+## (waking_bank.gd _finished and _mask, hollow_entrance_finish.gd _kept_pair), under the keys those caches check, so the
+## walkway's _ready finds them made. The scripts and the walkway scene are read on a thread first.
+const BANK_SCRIPT := "res://scripts/ui/waking_bank.gd"
+const BANK_FINISH := "res://scripts/ui/waking_bank_finish.gd"
+const ENTRANCE_FINISH := "res://scripts/ui/hollow_entrance_finish.gd"
+const ENTRANCE_ART := "res://assets/sprites/world/waking_bank_2026_10_10/entrance_native.png"   # hollow_approach.gd ENTRANCE
+
+
+## Whether the way down leads to the walkway next: The Hollow, not yet beaten, with the story's hold off it.
+static func walkway_next() -> bool:
+	var rec: Dictionary = TeamState.data
+	var beaten: Array = rec.get("beaten", [])
+	var parcel := String(rec.get("story", {}).get("parcel", ""))
+	return "first" in beaten and not "hollow" in beaten and parcel != "recovered"
+
+
+static func _walkway_ahead(tree: SceneTree) -> void:
+	if not walkway_next():
+		return
+	await _read_on_thread(tree, [BANK_SCRIPT, BANK_FINISH, ENTRANCE_FINISH, APPROACH_SCENE])
+	var bank: Script = _kept.get(BANK_SCRIPT)
+	var bank_finish: Script = _kept.get(BANK_FINISH)
+	var entrance: Script = _kept.get(ENTRANCE_FINISH)
+	if bank == null or bank_finish == null or entrance == null:
+		return
+	var bank_img: Image = bank.detailed_image()
+	await tree.process_frame
+	var ent_img: Image = bank.detailed_image(ENTRANCE_ART)
+	var bank_key := hash(bank_img.get_data()) if bank_img != null else 0
+	var ent_key := hash(ent_img.get_data()) if ent_img != null else 0
+	var need_bank: bool = bank_img != null and (bank.get("_finished") == null or int(bank.get("_finished_key")) != bank_key)
+	var need_mask: bool = bank_img != null and (bank.get("_mask") == null or int(bank.get("_mask_key")) != bank_key)
+	var need_ent: bool = ent_img != null and ((entrance.get("_kept_pair") as Array).is_empty() or int(entrance.get("_kept_key")) != ent_key)
+	if not (need_bank or need_mask or need_ent):
+		return
+	var made := {}
+	var task := WorkerThreadPool.add_task(func() -> void:
+		if need_bank:
+			made["bank"] = bank_finish.finished_image(bank_img)
+		if need_mask:
+			made["mask"] = bank_finish.mask(bank_img)
+		if need_ent:
+			made["ent"] = [entrance.finished_image(ent_img), entrance.mask(ent_img)], false, "Hollow walkway")
+	while not WorkerThreadPool.is_task_completed(task):
+		await tree.process_frame
+	WorkerThreadPool.wait_for_task_completion(task)
+	if made.has("bank"):
+		bank.set("_finished", ImageTexture.create_from_image(made["bank"]))
+		bank.set("_finished_key", bank_key)
+		await tree.process_frame
+	if made.has("mask"):
+		bank.set("_mask", ImageTexture.create_from_image(made["mask"]))
+		bank.set("_mask_key", bank_key)
+		await tree.process_frame
+	if made.has("ent"):
+		entrance.set("_kept_pair", [ImageTexture.create_from_image(made["ent"][0]), ImageTexture.create_from_image(made["ent"][1])])
+		entrance.set("_kept_key", ent_key)
+
+
+## The party's walkway pictures (T6), the ones hollow_approach.gd shows (its first three, each from its small set, else
+## its dungeon set, facing east, north and the two ways between, still and walking): asked for on loader threads as the
+## screen goes dark for the walkway, so its _ready takes them from the threads (hollow_approach.gd _tex).
+func approach_paths() -> Array:
+	var out: Array = []
+	for m in party.slice(0, 3):
+		var form: String = Lines.of(int(m[0]))["forms"][int(m[1])][0]
+		var dir := "res://assets/sprites/arena/%s/small/" % form
+		if not ResourceLoader.exists(dir + "s.png"):
+			dir = "res://assets/sprites/arena/%s/dungeon/" % form
+		for f in ["e", "n", "ne", "nw"]:
+			out.append(dir + "%s.png" % f)
+			for k in 8:
+				out.append(dir + "walk_%s_f%d.png" % [f, k])
+	return out.filter(func(p: String) -> bool: return ResourceLoader.exists(p))
 
 
 ## The rooms' first pictures made ahead (Claude, 2026-10-26, pass 7 T2 / LF7-04): the Hall's upper and lower floors,
@@ -398,8 +547,17 @@ func _card_up() -> void:
 	lamp.position = CARD_LAMP_AT
 	lamp.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
 	lamp.set_meta("step", 0)
-	lamp.draw.connect(func() -> void: _draw_card_lamp(lamp, int(lamp.get_meta("step"))))
+	lamp.set_meta("pulse", 0.0)
+	lamp.draw.connect(func() -> void: _draw_card_lamp(lamp, int(lamp.get_meta("step")), float(lamp.get_meta("pulse"))))
 	card.add_child(lamp)
+
+
+## The card's lantern lit (T5): its flame's steps and the glow's breath start once the card's first frames are drawn,
+## so the long first frame is spent on a still card.
+func _card_light() -> void:
+	var lamp: Node2D = _card.get_node_or_null("Card/Lantern") if _card != null else null
+	if lamp == null:
+		return
 	var tw := lamp.create_tween().set_loops()
 	tw.set_pause_mode(Tween.TWEEN_PAUSE_PROCESS)
 	for st: Array in CARD_FLICKER:
@@ -407,6 +565,19 @@ func _card_up() -> void:
 			lamp.set_meta("step", int(st[0]))
 			lamp.queue_redraw())
 		tw.tween_interval(float(st[1]))
+	# While the card waits on the street (T5 / L14), the glow round the glass swells and settles, a slow breath of
+	# CARD_PULSE seconds, so a long wait reads as a light working and not a stopped screen. Reduce motion keeps the glow
+	# still; the flame's own steps go on.
+	if not UI.reduce_motion():
+		var breath := lamp.create_tween().set_loops()
+		_card_breath = breath
+		breath.set_pause_mode(Tween.TWEEN_PAUSE_PROCESS)
+		breath.tween_method(func(v: float) -> void:
+			lamp.set_meta("pulse", v)
+			lamp.queue_redraw(), 0.0, 1.0, CARD_PULSE * 0.5).set_trans(Tween.TRANS_SINE)
+		breath.tween_method(func(v: float) -> void:
+			lamp.set_meta("pulse", v)
+			lamp.queue_redraw(), 1.0, 0.0, CARD_PULSE * 0.5).set_trans(Tween.TRANS_SINE)
 
 
 ## The card's lantern (T1), drawn in whole pixels at the street's 3x: a ring, a brass cap and base, and the glass with
@@ -422,10 +593,12 @@ const CARD_FLAMES := [
 	[".....", ".....", "..o..", ".omo.", ".mcm.", "..o.."],
 ]
 const CARD_GLOW := [0.10, 0.16, 0.07]   # the glow round the glass for each flame: tall burns brightest
+const CARD_PULSE := 1.6     # seconds a breath of the glow takes, swelling and settling (T5)
+const CARD_PULSE_GAIN := 1.6   # the glow at the top of a breath, times its flame's own
 static var _card_glow: ImageTexture = null
 
 
-static func _draw_card_lamp(c: CanvasItem, step: int) -> void:
+static func _draw_card_lamp(c: CanvasItem, step: int, pulse := 0.0) -> void:
 	var px := 3.0
 	if _card_glow == null:   # four stepped rings of warm light, made once
 		var r := 16
@@ -437,7 +610,8 @@ static func _draw_card_lamp(c: CanvasItem, step: int) -> void:
 					img.set_pixel(x, y, Color(1.0, 0.71, 0.35, floorf((1.0 - d) * 4.0) / 4.0))
 		_card_glow = ImageTexture.create_from_image(img)
 	var glow_at := Vector2(5.5 - 16.5, 9.0 - 16.5) * px
-	c.draw_texture_rect(_card_glow, Rect2(glow_at, Vector2(33, 33) * px), false, Color(1, 1, 1, CARD_GLOW[step]))
+	var glow: float = CARD_GLOW[step] * lerpf(1.0, CARD_PULSE_GAIN, pulse)
+	c.draw_texture_rect(_card_glow, Rect2(glow_at, Vector2(33, 33) * px), false, Color(1, 1, 1, glow))
 	var pal := {"k": UI.INK, "b": UI.EDGE, "l": UI.EDGE_LIGHT, "g": Color("#3a2a1c"),
 		"o": Color("#c8781e"), "m": Color("#f2c14e"), "c": Color("#fff0b0")}
 	for y in CARD_LAMP.size():
@@ -451,6 +625,21 @@ static func _draw_card_lamp(c: CanvasItem, step: int) -> void:
 		for x in row.length():
 			if pal.has(row[x]):
 				c.draw_rect(Rect2(Vector2(3 + x, 6 + y) * px, Vector2(px, px)), pal[row[x]])
+
+
+## The wait is over (T5): the glow stops breathing and settles, before the street's first frames, the build's longest;
+## the flame keeps its stepped flicker, whose steps are held 0.11 to 0.4 s anyway, so a long frame there does not show.
+var _card_breath: Tween = null
+
+
+func _card_settle() -> void:
+	if _card_breath != null and _card_breath.is_valid():
+		_card_breath.kill()
+	_card_breath = null
+	var lamp: Node = _card.get_node_or_null("Card/Lantern") if _card != null else null
+	if lamp != null:
+		lamp.set_meta("pulse", 0.0)
+		lamp.queue_redraw()
 
 
 ## The card fades as UI.fade_in lifts the black (the same 0.2 s), then it is freed.
@@ -488,6 +677,37 @@ static func street_on_thread(tree: SceneTree, steps: Dictionary = {}) -> void:
 	var key := _street_key()
 	if _street.has(key):
 		return
+	if _painting:   # a bake already under way (bake_ahead, T5): wait for it rather than paint a second street
+		while _painting:
+			await tree.process_frame
+		if _street.has(key):
+			return
+	_painting = true
+	await _street_on_thread(tree, key, steps)
+	_painting = false
+
+
+## The street is being painted on a worker (T5): a second asker waits for that picture instead of painting its own.
+static var _painting := false
+
+
+## The street baked ahead, while the scene before Highbank plays (Claude, 2026-10-26, pass 8 T5 / L14 and L15): the
+## first arrival held the place card about 5.4 s in a window while the street was painted. A scene that leads to
+## Highbank (the road talk, scripts/mouth_escape.gd) calls this as it starts; the worker paints (or reads the picture
+## from disk) while the talk plays, only the textures are made on the main thread, and Highbank then arrives with its
+## street kept, without the card. If the talk ends first, the arrival's card waits on this same worker, its lantern
+## pulsing. Not in a headless run: a check could quit with the worker still painting.
+static func bake_ahead(tree: SceneTree) -> void:
+	if tree == null or DisplayServer.get_name() == "headless" or _painting or _street.has(_street_key()):
+		return
+	_painting = true
+	_request(STREET_ART_SCRIPTS)
+	await _collect(tree, STREET_ART_SCRIPTS)   # street_on_thread reads their art on the main thread first
+	await _street_on_thread(tree, _street_key(), {})
+	_painting = false
+
+
+static func _street_on_thread(tree: SceneTree, key: String, steps: Dictionary) -> void:
 	var t := Time.get_ticks_usec()
 	_street_art()
 	steps["street: art read"] = _since(t)
@@ -778,6 +998,95 @@ func follower_ok(t: Vector2i) -> bool:
 	return true
 
 
+## Where a partner may stand still (Claude, 2026-10-26, pass 8 T1 / L01): where a follower may stand, and not on the
+## row along a building's foot beside its doorway. A creature there is drawn over the facade's stone base and reads as
+## standing on the building (Skimlet on the Wayline Hall's foundation, and on Home's front). A lane (the Hall's steps)
+## and the tile straight in front of a door stay open. The walk's trail may still cross the row; arrivals, the team
+## gathering and the settling after a scene (settle_team) keep off it when they can.
+func rest_ok(t: Vector2i) -> bool:
+	return follower_ok(t) and not on_facade_row(t)
+
+
+static func on_facade_row(t: Vector2i) -> bool:
+	for p in Layout.PLACES:
+		var r: Rect2i = p["rect"]
+		if p["kind"] != "building" or t.y != r.end.y or t.x < r.position.x or t.x >= r.end.x:
+			continue
+		if Layout.door_tiles(p).has(t + Vector2i(0, -1)):
+			return false
+		for lane: Rect2i in Layout.PATHS:
+			if lane.has_point(t):
+				return false
+		return true
+	return false
+
+
+## What a facade's row costs a tile in arrival_tiles' choice (T1): more than any overlap two sprites may keep, less
+## than one hiding half another, so a partner takes the row only when the street round it is that crowded.
+const FACADE_COST := 0.5
+
+
+## After a scene (T1 / L01): a partner the scene left on a footprint or a door tile (the board scene can knock one onto
+## the Hall's doorway), on a facade's row, or on a tile another member has, steps to the nearest free tile round the
+## one ahead of it where a partner may stand still; the rest stay where the scene put them. Called when a scene hands
+## the street back (_process), and by the checks.
+func settle_team() -> void:
+	if team.size() < 2 or not is_inside_tree():
+		return
+	var taken: Array = [team[0]["pos"]]
+	var tw: Tween = null
+	var held := not busy   # no steps while partners settle, unless someone else holds the keys already
+	for k in range(1, team.size()):
+		var e: Dictionary = team[k]
+		var at: Vector2i = e["pos"]
+		if rest_ok(at) and not taken.has(at):
+			taken.append(at)
+			continue
+		var to := _rest_tile(taken[k - 1], at, taken)
+		taken.append(to)
+		if to == at:
+			continue
+		e["facing"] = _facing_of((to - at).clamp(Vector2i(-1, -1), Vector2i(1, 1)))
+		e["pos"] = to
+		e["walk_t"] = STEP_TIME * 2.0 + 0.06
+		var node: Node2D = e["node"]
+		var follow := func(p: Vector2) -> void:
+			node.position = p
+			node.z_index = int(p.y)
+		if tw == null:
+			tw = create_tween().set_parallel()
+			if held:
+				busy = true
+		tw.tween_method(follow, node.position, _px(to), STEP_TIME * 2.0)
+	if tw != null:
+		await tw.finished
+		for e in team:
+			e["walk_t"] = 0.0
+			_place(e)
+		if held:
+			busy = false
+
+
+## The free tile one or two rings round `ahead` where a partner may stand still, nearest to `near`; else where a
+## follower may stand (_follow_tile).
+func _rest_tile(ahead: Vector2i, near: Vector2i, taken: Array) -> Vector2i:
+	for ring in [1, 2]:
+		var best := Vector2i(-1, -1)
+		var best_d := INF
+		for y in range(-ring, ring + 1):
+			for x in range(-ring, ring + 1):
+				var t: Vector2i = ahead + Vector2i(x, y)
+				if maxi(absi(x), absi(y)) != ring or taken.has(t) or not rest_ok(t):
+					continue
+				var dist := Vector2(t - near).length()
+				if dist < best_d:
+					best = t
+					best_d = dist
+		if best_d < INF:
+			return best
+	return _follow_tile(near, near, ahead, taken)
+
+
 ## Where a follower goes: `want` (the tile the one ahead left) if a follower may stand there and nobody has it;
 ## else where it stands (`at`), if that is free and still one tile from the one ahead (`ahead`); else the free tile
 ## round the one ahead nearest to it, then one ring further out. `taken` holds the tiles given out already.
@@ -840,6 +1149,13 @@ const BEHIND := [Vector2i(0, -1), Vector2i(-1, 0), Vector2i(1, 0), Vector2i(-1, 
 const OVERLAP_MAX := 0.15
 
 
+## Since pass 8 (Claude, 2026-10-26, T1 / L01) a tile on a facade's row (on_facade_row) costs FACADE_COST on top of its
+## overlap, and when every way behind is a footprint or a facade's row, the ways ahead (AHEAD_WAYS) are tried last:
+## out of Home's door the line had stood along Home's front, now it steps down onto the street. A tile taken from
+## those last ways does not turn the line, so the next partner looks behind again.
+const AHEAD_WAYS := [Vector2i(-1, 1), Vector2i(1, 1), Vector2i(0, 1)]
+
+
 func arrival_tiles(at: Vector2i, n: int, boxes: Array = [], run := Vector2i(0, -1), ways: Array = BEHIND, more: Array = []) -> Array:
 	var out: Array = [at]
 	for k in range(1, n):
@@ -847,19 +1163,20 @@ func arrival_tiles(at: Vector2i, n: int, boxes: Array = [], run := Vector2i(0, -
 		var pick := Vector2i(-1, -1)
 		var least := INF
 		var tries: Array = []
-		for tier in [[run] + ways, more]:
+		for tier in [[run] + ways, more, AHEAD_WAYS]:
 			for gap in [1, 2]:
 				for d: Vector2i in tier:
-					tries.append([d, gap])
+					tries.append([d, gap, tier == AHEAD_WAYS])
 		for tr in tries:
 			var d: Vector2i = tr[0]
 			var t: Vector2i = ahead + d * int(tr[1])
 			if not follower_ok(t) or out.has(t) or (int(tr[1]) == 2 and not open_at(ahead + d)):
 				continue
-			var worst := _worst_overlap(t, k, out, boxes)
+			var worst := _worst_overlap(t, k, out, boxes) + (0.0 if rest_ok(t) else FACADE_COST)
 			if worst <= OVERLAP_MAX:
 				pick = t
-				run = d
+				if not tr[2]:
+					run = d
 				break
 			if worst < least:
 				least = worst
@@ -920,6 +1237,8 @@ static func _extent_of(tex: Texture2D) -> Rect2:
 ## way round (UP_WAYS first).
 const DOWN_WAYS := [Vector2i(-1, 1), Vector2i(-1, 0), Vector2i(0, 1), Vector2i(1, 1), Vector2i(1, 0)]
 const UP_WAYS := [Vector2i(-1, -1), Vector2i(-1, 0), Vector2i(0, -1), Vector2i(1, -1), Vector2i(1, 0)]
+## The line at a building's door (T1): back out from the doorway first, then to the sides of it.
+const DOOR_WAYS := [Vector2i(0, 1), Vector2i(-1, 1), Vector2i(1, 1), Vector2i(-1, 0), Vector2i(1, 0)]
 
 
 func _gather(ways: Array = DOWN_WAYS, more: Array = UP_WAYS) -> void:
@@ -993,6 +1312,12 @@ func act_move(d: Vector2i) -> void:
 	await get_tree().create_timer(STEP_TIME).timeout
 	for e in team:
 		_place(e)
+	if Layout.place_at(to).get("kind", "") == "building":
+		# At a door the line stands clear (T1 / L01): straight back from the doorway the partners stood one over another
+		# (one hidden behind the next on the Hall's steps); they step aside where their sprites keep apart.
+		await _gather(DOOR_WAYS, [])
+		if not is_inside_tree():
+			return
 	busy = false
 	_music_update()
 	if not npcs.is_empty() and not cutscene and (poll_input or force_scenes) and lead["pos"].distance_to(BoardScene.board_door()) <= BoardScene.TRIGGER:
@@ -1093,7 +1418,6 @@ func _draw_storage(h: CanvasItem) -> void:
 const REPLAYS := [["mouth", "Hollow Mouth"], ["first", "Rootbank Warren"], ["hollow", "The Hollow"]]
 const WAY_ROW := 52   # px from one Hollow's row to the next: a client's face fits each
 const WAY_TAB_GAIN := 26   # px the way down's rows rise once its heading is on the name tab (pass 7 T5)
-const SIGN_TOP := 52       # a sign's first baseline in its box, under the name tab (it was 64 under a heading line)
 
 
 ## What each row of the way down shows beside its name (Claude, 2026-10-24, pass 5 T8 / LV-33), with the board's own
@@ -1607,6 +1931,13 @@ func _leave_to(next: String, lifts_itself := false, setup := Callable()) -> void
 static func _lift(tree: SceneTree) -> void:
 	await tree.process_frame
 	await tree.process_frame
+	# Then until the next scene has built, and one frame more (Claude, 2026-10-26, pass 8 R8): the frame after a long
+	# build reports the build's time as its delta, and a fade started before it spent its whole time in that one step.
+	var guard := 0
+	while guard < 30 and (tree.current_scene == null or not tree.current_scene.is_node_ready()):
+		await tree.process_frame
+		guard += 1
+	await tree.process_frame
 	UI.fade_in(tree)
 
 
@@ -1648,6 +1979,10 @@ func enter_hollow() -> void:
 		if id == "hollow":
 			# The Hollow is reached on foot: the riverbank, the walkway node, then its entrance
 			# (Preston, 2026-10-10). hollow_approach.gd starts the run itself and lifts the fade.
+			# The party's walkway pictures are read on threads under the fade (T6 / LH8-09). Not headless: the dummy
+			# renderer gives a picture read on a thread no texture (the pilot check's walk up printed engine errors).
+			if DisplayServer.get_name() != "headless":
+				_request(approach_paths())
 			await _leave_to(APPROACH_SCENE, true)
 			return
 		# The run is read on a thread under the fade and made after it (Claude, 2026-10-24, pass 6 T2 / L6-15).
@@ -1659,7 +1994,13 @@ func enter_hollow() -> void:
 		set_meta("entered", true)   # the checks read this instead of leaving the scene
 
 
+var _scene_was := false   # a scene played last frame (settle_team runs when one hands the street back)
+
+
 func _process(_delta: float) -> void:
+	if _scene_was and not cutscene and not evolving_now:
+		settle_team()   # T1: partners a scene left on a doorway, a facade's row or a shared tile step clear
+	_scene_was = cutscene
 	if poll_input and not busy and not evolving_now:
 		_poll()
 	_npc_idle(_delta)
@@ -1692,10 +2033,12 @@ func _process(_delta: float) -> void:
 		shake = maxf(0.0, shake - _delta * 12.0)
 		_world.position = (half - focus + Vector2(randf_range(-1, 1), randf_range(-1, 1)) * shake).round()
 	# The Menu button under the walk keys' strip and as wide as it, never over it, as dungeon.gd places it; a scene
-	# hides it with the rest of the HUD (Claude, 2026-10-24, pass 4 T1). The open menu hides it itself.
+	# hides it with the rest of the HUD (Claude, 2026-10-24, pass 4 T1). The open menu hides it itself. An open panel
+	# (the board, a sign, the way down) or the shrine's page hides it too: their own hint rows name the keys
+	# (Claude, 2026-10-26, pass 8 T9 / LH8-06).
 	var menu := get_node_or_null("GamePauseMenu")
 	if menu != null and menu.hint != null:
-		menu.hint.visible = not cutscene and not menu.overlay.visible
+		menu.hint.visible = not cutscene and not menu.overlay.visible and panel.is_empty() and not shrine_view
 		var ks := key_strip()
 		menu.hint.position = Vector2(ks.position.x, ks.end.y + 4)
 		menu.hint.size = Vector2(ks.size.x, 52)
@@ -1933,22 +2276,41 @@ func _draw_hud() -> void:
 			_draw_way_marks(h, marks[i] if i < marks.size() else {}, Vector2(box.end.x - 22, at.y))
 		UI.text(h, box.end - Vector2(738, 14), "%s  choose     %s  go     %s  not now" % [SceneKit.pick_keys(), SceneKit.use_key(), UI.binding_text(&"cancel")], 15, UI.MUTED, 716, HORIZONTAL_ALIGNMENT_RIGHT)
 	elif not panel.is_empty():
-		var box := Rect2(196, 452, 760, 128)
+		# A sign or a news line (the arrival's "Back in Highbank" among them) in the talk box's type, the "story" role,
+		# laid out as a room's sign is (town_room.gd spot_layout): two rows in the 128 px box, which grows upward a row
+		# for each row past two, its foot where it stood, so the words are never cut and never left small in a big box
+		# (Claude, 2026-10-26, pass 8 T4 / L11; since 2026-10-23 they were the body role at 19 px, two rows at most).
+		# Small type stays for the lists (the board, the Storage, the way down) and for the key hint.
+		var lay := sign_layout(String(panel["what"]))
+		var box: Rect2 = lay["box"]
 		UI.panel(h, box, 0.95)
-		# The place's name on the brass tab over the frame, as on the Job Board (pass 7 T5 / L7-22); the sign's two
-		# lines move up into the line it left, so the box keeps its size and place.
 		UI.nameplate(h, box.position + Vector2(24, -22), String(panel["name"]), 22)
-		# The sign in the prose role on its own pixel grid, two lines at most, each with prose's drop shadow
-		# (Claude, 2026-10-23, T9 / L14; it was the Alegreya Sans small-caps face at 18).
-		var rows := UI.wrap_text(String(panel["what"]), 716.0, "body").split("\n")
-		var row_h := roundf(UI.font("body").get_height(UI.type_size("body")))
-		for i in mini(2, rows.size()):
-			UI.say(h, box.position + Vector2(22, SIGN_TOP + row_h * i), rows[i], "body", UI.TEXT)
+		var rows: PackedStringArray = lay["rows"]
+		for i in rows.size():
+			UI.say(h, lay["at"] + Vector2(0, float(lay["row_h"]) * i), rows[i], "story", UI.TEXT)
 		# The keys of the device in use (2026-10-23): "E  close" on a keyboard, "A  close" on a pad.
 		var use := SceneKit.use_key()
 		var back := UI.binding_text(&"cancel")
 		var hint := ("%s  grow     %s  not now" % [use, back]) if panel.get("service", "") == "evolve_ask" else (("%s  set it in     %s  not now" % [use, back]) if panel.get("service", "") == "stone_ask" else "%s  close" % use)
-		UI.text(h, box.position + Vector2(22, 116), hint, 15, UI.MUTED, 716, HORIZONTAL_ALIGNMENT_RIGHT)
+		UI.text(h, Vector2(box.position.x + 22, box.end.y - 12), hint, 15, UI.MUTED, 716, HORIZONTAL_ALIGNMENT_RIGHT)
+
+
+## Where a street sign's words go (T4): the numbers of town_room.gd's spot_layout, the rooms' signs, so a sign reads
+## the same out on the street and inside (wrapped as UI.dialogue wraps, 30 px in and 40 clear of the right, two rows
+## in the 128 px box, the box growing upward a row for each row past two), with the box SIGN_HINT_ROOM taller at the
+## top for the street's key hint under the words (a room's sign has the next arrow instead). Its own copy of those
+## numbers, so the street never waits on the room script loading. {box, rows, at (the first row's baseline), row_h}.
+## Static, so the checks can measure it.
+const SIGN_BOX := Rect2(196, 452, 760, 128)
+const SIGN_HINT_ROOM := 14.0
+
+
+static func sign_layout(what: String) -> Dictionary:
+	var rows := UI.wrap_text(what, SIGN_BOX.size.x - 70.0, "story").split("\n")
+	var row_h := UI.font("story").get_height(UI.type_size("story"))
+	var grow := maxf(0.0, rows.size() - 2) * row_h + SIGN_HINT_ROOM
+	var box := Rect2(SIGN_BOX.position - Vector2(0, grow), SIGN_BOX.size + Vector2(0, grow))
+	return {"box": box, "rows": rows, "at": box.position + Vector2(30, 54), "row_h": row_h}
 
 
 ## One way-down row's marks (way_marks), right-aligned to `right` on the row's text line `right.y`: the floors on the
@@ -1984,11 +2346,22 @@ func _draw_way_marks(h: CanvasItem, m: Dictionary, right: Vector2) -> void:
 ## Since pass 7 (Claude, 2026-10-26, T3 / L7-05) the line is out whenever the story holds the way down, not only at the
 ## board: between the theft and the trial (tell the Hall) and between the parcel's return and Starward too, so the strip
 ## never offers a run the Mouth then refuses.
+## Since pass 8 (Claude, 2026-10-26, T8 / L20) the use key is the "interact" action's own binding on either device (E,
+## or X on a pad), the row Rebind keys lists as "Use / stairs"; SceneKit.use_key gave the pad's A, the Choose row's
+## button, which also works here but is not the one the Rebind page names for using. And (T2 / L03) the run line takes
+## its place name from town_layout.gd's gate, so the street's plaque, this line and the objective say the same name.
 func key_lines() -> Array:
-	var lines := ["%s walk   %s use" % [SceneKit.walk_keys(), SceneKit.use_key()]]
+	var lines := ["%s walk   %s use" % [SceneKit.walk_keys(), use_key()]]
 	if _gate_kind(_next_way()) == "":
-		lines.append("The Hollow's mouth starts a run")
+		lines.append("The %s starts a run" % Layout.place_name("gate"))
 	return lines
+
+
+## The walk strip's use key: the binding of "interact", which _poll reads for using (T8); the Choose key when the
+## device has none for it (a pad whose X was unbound), since _poll reads that one too.
+static func use_key() -> String:
+	var k := UI.binding_text(&"interact")
+	return k if k != "" else SceneKit.use_key()
 
 
 ## The strip: as wide as its longest line, its foot at 578 so the Menu button fits under it (Claude, 2026-10-24,
@@ -2024,6 +2397,8 @@ func _draw_key_strip(h: CanvasItem) -> void:
 ## 960 wide since pass 5 (T8): the where line names the Hollow too, and the longest, a delivery's, is 405 px.
 const BOARD_W := 960.0
 const BOARD_REWARD_X := 560.0   # the reward's icon, from the row's left; the where line ends 10 px before it
+const BOARD_CARGO_X := 70.0     # the parcel's column, from the row's left: right of the face (T7)
+const BOARD_TEXT_X := 110.0     # every row's title and where line, right of the parcel's column (T7)
 
 
 func _draw_board(h: CanvasItem) -> void:
@@ -2055,16 +2430,17 @@ func _draw_board(h: CanvasItem) -> void:
 		if row["face"] != null:
 			h.draw_texture_rect(row["face"], face_r, false)
 		h.draw_rect(face_r, UI.EDGE, false, 1.0)
-		# Delivery cargo has its own icon; the reward keeps its existing icon.
+		# Delivery cargo has its own icon; the reward keeps its existing icon. The parcel has a column of its own
+		# on every row, empty on the others, so every title and where line starts at one x (Claude, 2026-10-26,
+		# pass 8 T7 / L19; a delivery's words had stepped 40 px right of the rest).
 		var cargo: Texture2D = row["cargo"]
-		var cargo_inset := 40 if cargo != null else 0
 		if cargo != null:
-			h.draw_texture(cargo, r.position + Vector2(70, 11))
-		var text_w := BOARD_REWARD_X - 10.0 - 70.0 - cargo_inset
-		UI.text(h, r.position + Vector2(70 + cargo_inset, 27), String(row["title"]), 20, UI.EDGE_LIGHT if on else UI.TEXT, text_w)
+			h.draw_texture(cargo, r.position + Vector2(BOARD_CARGO_X, 11))
+		var text_w := BOARD_REWARD_X - 10.0 - BOARD_TEXT_X
+		UI.text(h, r.position + Vector2(BOARD_TEXT_X, 27), String(row["title"]), 20, UI.EDGE_LIGHT if on else UI.TEXT, text_w)
 		# The where line is prose in the body face on every row, delivery or not (LP-24; at size 15 it had
 		# fallen to the capital label face).
-		UI.say(h, r.position + Vector2(70 + cargo_inset, 51), String(row["where"]), "body", UI.MUTED, text_w)
+		UI.say(h, r.position + Vector2(BOARD_TEXT_X, 51), String(row["where"]), "body", UI.MUTED, text_w)
 		if row["icon"] != null:
 			h.draw_texture(row["icon"], r.position + Vector2(BOARD_REWARD_X, 15))
 		UI.text(h, r.position + Vector2(BOARD_REWARD_X + 38, 37), String(row["reward"]), 16, UI.TEXT, 180)

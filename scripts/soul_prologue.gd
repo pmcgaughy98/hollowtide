@@ -66,6 +66,8 @@ var _auto_wait := 0.0
 
 
 func _ready() -> void:
+	# Honor the title handoff and the saved preference when opening this scene directly.
+	reduce_motion = reduce_motion or UI.reduce_motion()
 	get_tree().root.content_scale_size = Vector2i(1152, 648)
 	get_tree().root.content_scale_aspect = Window.CONTENT_SCALE_ASPECT_KEEP
 	var vp := SubViewport.new()
@@ -194,7 +196,7 @@ func _fly() -> void:
 	tw.tween_property(self, "_soul", target, 0.9).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN)
 	tw.tween_property(self, "_soul_scale", 0.2, 0.9)
 	await tw.finished
-	_flash = 1.6
+	_flash = 0.4 if reduce_motion else 1.6
 	await get_tree().create_timer(0.7).timeout
 	stage = "done"
 	var next: Node = load(PROLOGUE).instantiate()
@@ -209,16 +211,19 @@ func _fly() -> void:
 
 
 func _input(event: InputEvent) -> void:
-	if auto or stage in ["fly", "done"] or not (event is InputEventKey or event is InputEventJoypadButton) or not event.is_pressed() or event.is_echo():
-		return
-	if stage == "choose" and (event.is_action_pressed("ui_left") or (event is InputEventKey and event.physical_keycode == KEY_A)):
+	# UI.pressed ignores centre events; feed them to its shared edge tracker too.
+	if event is InputEventJoypadMotion: UI._motion_edge(event)
+	if auto or stage in ["fly", "done"]: return
+	if stage == "choose" and UI.pressed(event, "move_left"):
 		_move_pick(-1)
-	elif stage == "choose" and (event.is_action_pressed("ui_right") or (event is InputEventKey and event.physical_keycode == KEY_D)):
+	elif stage == "choose" and UI.pressed(event, "move_right"):
 		_move_pick(1)
-	elif event.is_action_pressed("ui_accept") or (event is InputEventKey and event.physical_keycode in [KEY_J, KEY_SPACE, KEY_E]):
-		advance()
 	else:
-		return
+		var next := false
+		for action in UI.INPUT_ADVANCE:
+			if UI.pressed(event, action): next = true
+		if not next: return
+		advance()   # one event, even when J/A belongs to more than one advance action
 	get_viewport().set_input_as_handled()
 
 
@@ -305,7 +310,7 @@ func _draw_ui() -> void:
 		UI.dialogue(c, box, "???", _text(), null, _t)
 		if stage == "choose":
 			UI.finish_line()   # the short choice prompt stays fully visible
-			UI.say(c, box.position + Vector2(0, 108), "A / D  choose      J  this shape", "label", Color(UI.MUTED, 0.6 + 0.4 * sin(_t * 4.0)), box.size.x - 30, HORIZONTAL_ALIGNMENT_RIGHT)
+			UI.say(c, box.position + Vector2(0, 108), "%s / %s  choose      %s  this shape" % [UI.binding_text("move_left"), UI.binding_text("move_right"), UI.binding_text("confirm")], "label", Color(UI.MUTED, 0.6 + 0.4 * sin(_t * 4.0)), box.size.x - 30, HORIZONTAL_ALIGNMENT_RIGHT)
 
 
 var _shared_scale := 0.0

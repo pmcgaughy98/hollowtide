@@ -190,29 +190,53 @@ static func _ripples(img: Image, data: Dictionary, t: int, s: int, sand: Array) 
 			if lerpf(lerpf(lat[i], lat[i + 1], f), lerpf(lat[i + lw], lat[i + lw + 1], f), fys[cy]) < RIPPLE_AT:
 				continue
 			var lean := int(R._h(gy, gx, 95) * 3.0) - 1   # every mark in a patch leans the same way
+			# About one patch in three is a single long faint mark, the edge of a wash (Claude, 2026-10-26, pass 8 F3,
+			# LH8-11: the stacks alone repeated too evenly).
+			if R._h(gx, gy, 99) < 0.33:
+				_ripple(img, Vector2i(cx, cy), 11 + int(R._h(cx, cy, 98) * 5.0), lean, 5.0 + R._h(cy, cx, 100) * 5.0, -1, 0.6)
+				continue
 			var n := 3 + int(R._h(gx, gy, 96) * 3.0)
+			# Each gap down the stack its own 4 to 7 pixels and each mark its own sideways offset of -2 to 2 (pass 8 F3;
+			# they were exactly 5 apart in a fixed zigzag), the stack centred on the patch.
+			var gaps: Array[int] = []
+			var span := 0
+			for j in n - 1:
+				gaps.append(4 + int(R._h(j, gx + gy, 101) * 4.0))
+				span += gaps[j]
+			var y := cy - span / 2
 			for j in n:
-				var at := Vector2i(cx + int((R._h(j, gx + gy, 97) - 0.5) * 4.0) - (j % 2) * 2, cy + (j - n / 2) * 5)
-				_ripple(img, at, 6 + int(R._h(at.x, at.y, 98) * 4.0), lean)
+				var at := Vector2i(cx + int(R._h(j, gx + gy, 97) * 5.0) - 2, y)
+				var length := 6 + int(R._h(at.x, at.y, 98) * 4.0)
+				# Some marks lose a pixel at one end (pass 8 F3), so their lengths and ends do not all match.
+				var skip := -1
+				if R._h(at.y, at.x, 102) > 0.6:
+					skip = 0 if R._h(at.x, at.y, 103) > 0.5 else length - 1
+				_ripple(img, at, length, lean, 5.0 + R._h(at.x, at.y, 100) * 5.0, skip)
+				if j < n - 1:
+					y += gaps[j]
 
 
-## One ripple mark, `length` pixels (6 to 9): a low arch, its ends a pixel or two lower than its middle, leaning by
-## `lean` pixels over its length; each crest pixel lifted toward SAND_HI, the pixel under it pressed toward SPECK_LO.
-static func _ripple(img: Image, at: Vector2i, length: int, lean: int) -> void:
+## One ripple mark, `length` pixels: a low arch, its ends lower than its middle by up to a quarter of `depth` (5 to
+## 10, each mark its own, pass 8 F3; it was 8 for every mark), leaning by `lean` pixels over its length; each crest
+## pixel lifted toward SAND_HI, the pixel under it pressed toward SPECK_LO, both by `strength` of their full amount.
+## `skip`, when 0 or more, is a pixel of the mark left out.
+static func _ripple(img: Image, at: Vector2i, length: int, lean: int, depth := 8.0, skip := -1, strength := 1.0) -> void:
 	var half := length / 2
 	for k in length:
+		if k == skip:
+			continue
 		var dx := k - half
 		var x := at.x + dx
 		var u := (k + 0.5) / length - 0.5
-		var y := at.y + roundi(u * u * 8.0) + (dx * lean) / 3   # 0 in the middle, 2 at the ends of the longest
+		var y := at.y + roundi(u * u * depth) + (dx * lean) / 3   # 0 in the middle, 1 or 2 at the ends
 		if x < 0 or y < 0 or x >= img.get_width() or y + 1 >= img.get_height():
 			continue
 		var c := img.get_pixel(x, y)
 		var b := img.get_pixel(x, y + 1)
 		if not _sandy(c) or not _sandy(b):
 			continue
-		img.set_pixel(x, y, c.lerp(SAND_HI, 0.5))
-		img.set_pixel(x, y + 1, b.lerp(SPECK_LO, 0.4))
+		img.set_pixel(x, y, c.lerp(SAND_HI, 0.5 * strength))
+		img.set_pixel(x, y + 1, b.lerp(SPECK_LO, 0.4 * strength))
 
 
 ## Bare sand: warm (red over green, so not moss or a pool) and light (the clay round a patch is darker).
@@ -311,32 +335,32 @@ static func _pebble(img: Image, at: Vector2i, size: int, col: Color) -> void:
 ## The bank itself (Claude, 2026-10-24, pass 5 A3 and A4; the live run read the old walls as a flat green carpet with
 ## a dot grid, no edge and no end). Every bank edge beside the floor gets one rim, drawn from ruin_painter.gd's wall
 ## field (R._wall_field, the Hollow Mouth's): a shadow line against the floor, a sliver of clay face, a lit grass lip,
-## then turf in clumps of three greens, never more than a tile deep (TURF_REACH); past it the bank's dark earth falls
-## into black in three steps of clustered marks with wandering edges (R._fall, the Mouth's own steps). Above a face the
-## face's grass row is the lip and the turf starts straight away, so the roots hanging from it stay on the bank.
+## then turf in clumps of three greens, never more than a tile deep (TURF_REACH); past it the bank's back course of
+## clods, a dark line and black (rootbank_detail.gd's back_course, pass 8). Above a face the face's grass row is the lip
+## and the turf starts straight away, so the roots hanging from it stay on the bank.
 ## Where the bank stands above floor, its face as before: sediment bands with stones set in them, roots hanging from
 ## the turf, dark at the foot. The crew's den (rootbank_detail.gd's is_den) keeps bank all round its room, for its
-## root arch to stand on. Colours: the clay, grass and turf tones, ROOT for the earth, BARK_EDGE for the shadow.
+## root arch to stand on. Colours: the clay, grass and turf tones, ROOT for the roots, BARK_EDGE for the shadow.
 const TURF_REACH := 9      # the turf's depth from the lip, plus up to TURF_WANDER more on its soft noise
 const TURF_WANDER := 4.0
 const RIM_FACE := 2        # clay face rows between the shadow line and the lip
-const FALL_STEP := 3       # each step into the dark, in pixels
 const BARK_EDGE := Color("#251d17")   # rootbank_detail.gd's root outline, the bank's shadow
-## Beside or below the floor (a room's sides and south, both sides of a hallway's walls) the turf's ragged edge crumbles
-## into a lip of dark earth with root ends in it, EARTH_EDGE pixels past where the turf would reach, and the dark starts
-## there: no flat earth band, no marks (Claude, 2026-10-24, pass 6 P3, L6-24). Above a face the steps follow the turf.
-const EARTH_EDGE := 2
-const DARK_AT := TURF_REACH + int(TURF_WANDER) + 5 + 3 * FALL_STEP   # past this soft distance the bank is black
+## Past the turf, beside the floor and above a face alike, the bank's back course (Claude, 2026-10-26, pass 8 F1 and F2,
+## L12; rootbank_detail.gd's back_course): clay clods in shade with a stepped back edge and a dark line along it, then
+## black. It replaces the crumbling earth lip beside the floor (pass 6 P3) and, above a face, the rough top and its three
+## steps of marks (R._fall), which the live run read as a ragged black band along every wall top once the tile above a
+## face was in sight. The turf's own edge now follows only its soft noise, so it wanders without speckling.
 ## One wall language for rooms and hallways (Claude, 2026-10-26, pass 7 F1, L7-12; the live run read a room's sides as a
 ## thin lip of turf into black beside the hallways' tall faces). A face now fills its wall tile but for the top
 ## RootbankDetail.FACE_TOP rows, which are turf, so the turf above it lies in the tile above and the bank stands about two
 ## tiles high; rootbank_detail.gd hangs its roots down the whole face. Beside or below the floor the turf reaches
 ## SIDE_REACH (the rim included) instead of TURF_REACH, most of its tile, and its first LIT_GRASS rows past the lip are
 ## the meadow's grass in clumps, so the bank's edge reads in the light; rootbank_detail.gd lays roots across that lip.
-## Past SIDE_DARK it is black at once, with no noise read.
-const SIDE_REACH := 15
+## Past SIDE_DARK it is black at once, with no noise read. SIDE_REACH was 15 until pass 8: 13 leaves room in the tile
+## for the back course, so the fog's straight tile edge never cuts it.
+const SIDE_REACH := 13
 const LIT_GRASS := 3
-const SIDE_DARK := SIDE_REACH + int(TURF_WANDER) + EARTH_EDGE
+const SIDE_DARK := SIDE_REACH + int(TURF_WANDER) + RootbankDetail.COURSE_MAX + 1
 
 
 static func _walls(img: Image, data: Dictionary, t: int, s: int) -> void:
@@ -349,7 +373,6 @@ static func _walls(img: Image, data: Dictionary, t: int, s: int) -> void:
 	var den := RootbankDetail.is_den(data)
 	var F := R._wall_field(data, t, face_h + 1)
 	var dists: PackedInt32Array = F[0]
-	var softs: PackedInt32Array = F[1]
 	var alongs: PackedByteArray = F[2]
 	var faced: PackedByteArray = F[3]
 	var deep: PackedByteArray = F[4]
@@ -390,23 +413,30 @@ static func _walls(img: Image, data: Dictionary, t: int, s: int) -> void:
 					var d := 99 if deep_tile else dists[k]
 					if d <= 0:
 						continue   # the face, painted below
-					if not den and softs[k] > DARK_AT:
-						img.set_pixel(gx, gy, Color.BLACK)   # past the furthest the steps can reach
-						continue
 					d -= 1
-					var beside := faced[k] == 0 or alongs[k] == 0   # beside or below the floor, not above a face
-					if beside and not den and d >= SIDE_DARK:
-						img.set_pixel(gx, gy, Color.BLACK)   # past the side bank's furthest reach (pass 7 F1)
+					if not den and d >= SIDE_DARK:
+						img.set_pixel(gx, gy, Color.BLACK)   # past the furthest the back course reaches (pass 8)
 						continue
+					var beside := faced[k] == 0 or alongs[k] == 0   # beside or below the floor, not above a face
 					var i := r + col[gx]
 					var f := fxs[gx]
 					var nv := lerpf(lerpf(lat[i], lat[i + 1], f), lerpf(lat[i + lw], lat[i + lw + 1], f), fy)
+					var c: Color
+					var reach := int((SIDE_REACH if beside else TURF_REACH) + nv * TURF_WANDER)   # where the turf ends, wandering
+					if not den and d >= reach:
+						# Past the turf, beside the floor or above a face: the back course, its dark line, then black (pass 8
+						# F1 and F2). It ends inside its tile, so neither the fog's tile edge nor the picture's frame cuts it.
+						# The rim and the lit grass below always lie inside the turf's reach, so they come to no harm here.
+						if d - reach > RootbankDetail.COURSE_MAX:
+							c = Color.BLACK
+						else:
+							var along_x := alongs[k] == 1
+							c = RootbankDetail.back_course(d - reach, gx if along_x else gy, y if along_x else x, BANDS)
+						img.set_pixel(gx, gy, c)
+						continue
 					i = mr + mcol[gx]
 					f = mfxs[gx]
 					var mv := lerpf(lerpf(mlat[i], mlat[i + 1], f), lerpf(mlat[i + mlw], mlat[i + mlw + 1], f), mfy)
-					var c: Color
-					var reach_f := (SIDE_REACH if beside else TURF_REACH) + nv * TURF_WANDER   # where the turf ends, wandering
-					var reach := int(reach_f)
 					if not deep_tile and faced[k] == 0 and d <= lip_end:
 						# The rim against the floor: the shadow line, the clay face, the lit grass lip.
 						if d == 0:
@@ -420,7 +450,7 @@ static func _walls(img: Image, data: Dictionary, t: int, s: int) -> void:
 					elif not deep_tile and faced[k] == 0 and d <= lip_end + LIT_GRASS:
 						# Just past the lip the bank's grass still has the light: the meadow's greens in clumps (pass 7 F1).
 						c = GRASS[1] if mv > 0.5 else (GRASS[0] if mv > 0.34 else TURF[2])
-					elif den or d + int((mv - 0.5) * 4.0) < reach:
+					else:
 						# Turf in clumps: dark and light clumps from the fine noise, the whole lighter or darker in
 						# soft patches, darker toward its far edge; a few blade tips catching the light.
 						var lift := (nv - 0.5) * 0.3 - (0.12 if d > reach - 3 and not den else 0.0)
@@ -430,21 +460,6 @@ static func _walls(img: Image, data: Dictionary, t: int, s: int) -> void:
 							c = tip if mv > 0.8 and d < reach - 3 else TURF[2]
 						else:
 							c = TURF[1]
-					elif beside:
-						# Beside or below the floor: the earth lip, then the dark (pass 6 P3).
-						if d < reach + EARTH_EDGE:
-							c = ROOT_HI if R._h(gx >> 1, gy >> 1, 87) > 0.9 else ROOT
-						else:
-							c = Color.BLACK
-					else:
-						# Above a face: past the turf, the bank's dark earth, then three steps into the dark. The steps' edges
-						# follow the turf's soft edge and the marks, so none runs straight.
-						var wander := int(reach_f + (0.5 - mv) * 3.0) - TURF_REACH   # reach_f is on TURF_REACH here
-						var e := softs[k] - 3 - TURF_REACH - wander
-						# Near the picture's edge the pixel is pushed down the steps, so the fall ends in black along a
-						# wandering line instead of being cut off by the frame (Claude, 2026-10-24, pass 6 P1, LO6-04).
-						var edge := mini(mini(gx, gy), mini(W - 1 - gx, H - 1 - gy))
-						c = R._fall(maxi(e, 3 * FALL_STEP - edge + wander), FALL_STEP, mv, ROOT, BARK_EDGE, gx, gy)
 					img.set_pixel(gx, gy, c)
 			var open_below := _floor(tiles, w, h, x, y + 1)
 			if open_below:

@@ -1,0 +1,50 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+[godot_ai game_helper] registered mcp capture (debugger active=false, logger=true)
+project.godot's [input] section lists 29 actions -> ok
+Scripts under res://scripts read 32 action names in 179 places, every one in the map: attack, autopilot, bag, cancel, confirm, fullscreen, interact, log, move_down, move_left, move_right, move_slot_1, move_slot_2, move_slot_3, move_up, no, page_down, page_up, pause, rest, run, tactics, take_out, toggle_dex, turn, ui_accept, ui_cancel, ui_down, ui_left, ui_right, ui_up, yes -> ok
+Every action UI's contract tables name (contexts, advance, chords, names) is in the map -> ok
+ui_accept: keyboard Enter (logical), Kp Enter (logical), Space (logical); pad A -> ok
+ui_cancel: keyboard Escape (logical); pad B -> ok
+move_left: keyboard Left, A; pad D-pad Left, Left stick X- -> ok
+move_right: keyboard Right, D; pad D-pad Right, Left stick X+ -> ok
+move_up: keyboard Up, W; pad D-pad Up, Left stick Y- -> ok
+move_down: keyboard Down, S; pad D-pad Down, Left stick Y+ -> ok
+interact: keyboard E; pad X -> ok
+toggle_dex: keyboard F1; pad none (keyboard only, by design) -> ok
+confirm: keyboard J, Enter; pad A -> ok
+cancel: keyboard Escape; pad B -> ok
+yes: keyboard Y, Enter; pad A -> ok
+no: keyboard N, Escape; pad B -> ok
+attack: keyboard J, Space; pad A -> ok
+move_slot_1: keyboard 1; pad A -> ok
+move_slot_2: keyboard 2; pad X -> ok
+move_slot_3: keyboard 3; pad Y -> ok
+moves_hold: keyboard none; pad RB (pad only, by design) -> ok
+rest: keyboard Z, Period; pad B -> ok
+bag: keyboard I; pad Y -> ok
+tactics: keyboard T; pad LB -> ok
+log: keyboard L; pad R3 -> ok
+autopilot: keyboard Tab; pad Back -> ok
+run: keyboard Ctrl; pad RT+ -> ok
+turn: keyboard Shift; pad LT+ -> ok
+pause: keyboard P; pad Start -> ok
+take_out: keyboard R; pad Y -> ok
+page_up: keyboard PageUp; pad Right stick Y- -> ok
+page_down: keyboard PageDown; pad Right stick Y+ -> ok
+fullscreen: keyboard F11; pad none (keyboard only, by design) -> ok
+Every project.godot action is in the contract's table -> ok
+All 29 actions keep the contract's defaults in order (the first key and button are what hints print) -> ok
+Every game key is a physical key (checks press physical_keycode) -> ok
+Context 'hollow' (20 actions): no input serves two of them -> ok
+Context 'hollow_prompt' (4 actions): no input serves two of them -> ok
+Context 'hollow_menu' (7 actions): no input serves two of them -> ok
+Context 'town' (9 actions): no input serves two of them -> ok
+Context 'town_menu' (12 actions): no input serves two of them -> ok
+Context 'story' (11 actions): no input serves two of them; the advance actions share confirm/attack on J, confirm/attack on A, as allowed -> ok
+Context 'menus' (4 actions): no input serves two of them -> ok
+The clash judge catches a planted clash (J on the bag): ["attack/bag on J"] -> ok
+UI.binding_clashes agrees: no current binding clashes -> ok
+UI.binding_clashes finds a real clash: J for the bag clashes with ["attack", "confirm"]; A with ["attack", "confirm"] -> ok
+Hints read the map: attack J / A, move 1 1 / RB+A, bag I / Y, use E / X -> ok
+INPUT MAP: all ok

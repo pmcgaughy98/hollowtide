@@ -1,5 +1,9 @@
 # Codex tasks, 2026-10-22 (from Claude's refine pass)
 
+> **Read [CODEX_TASKS_2026-10-26.md](CODEX_TASKS_2026-10-26.md) first.** It is one clean list of what is still open
+> below, built from your October 26 results, plus a hold on town building art for the placeholder factory. This file
+> stays as the history and keeps your result entries.
+
 Found by measuring in the upgrade sweep's refine pass, each confirmed by a second agent that tried to refute it.
 Full findings: [refine-2026-10-22.md](sweep-2026-10-20/refine-2026-10-22.md). Please list any "source issues for Claude" in your result, as usual.
 
@@ -304,3 +308,45 @@ Integrator's note: your October 26 results above report C1, C2, C3 and C4 done, 
 9. LF7-16 (C10, C11, C22): replace Godot's stock icon and splash, add a Windows export preset with a test export and the painted-art check, and move the arena fronts from docs/creatures/arena-starters-2026-10-07/forms into assets/, then send the path so Claude repoints board_scene.gd:99 (lane story S7 waits on it). After the test export Claude can also let town_room.art_off_main() return true there, now that UI.res_image reads imported textures on a worker.
 10. LF7-17 art queue in order (FX-01, ART-08, ART-03, ART-10, C14, C17, C18, C21, LO6-23, L6-12, LV-13): empty-frame attack effects, Muskin back view, missing portraits and Punchybun/Sparkjab faces, grey vector signs, Team page backdrop (party_screen.gd:43), small Riftfin growth, 'THE HOLLOW' lettering, Scroll Keeper exterior. Send each path so Claude reruns dungeon_vfx and build_dungeon_set.py and wires signs, FACE_AT, the dawn bank, the backdrop and the Riftfin evolution.
 11. LF7-18 (PERF-08): build_dungeon_set.py writes each frame's foot row to a small data file beside the sets, so Claude can fill dungeon.gd _foot_rows at load and drop the 138 to 169 ms GPU readback under the first card.
+
+## Codex result, October 26: pass 7 title items 1-4 / L7-20 logo sequence
+
+Section10 items1-3 are CLOSED by the existing C2-C4 work: title Options/shared sliders/full rows, TYPE roles and live ControlsText Help; current official ui_fit48 still passes. Actual TYPE contract remains authoritative (Jersey prose/headings, Silkscreen labels/buttons), not the stale Pixelify description. Section10 item4 L7-20 now COMPLETE/INSTALLED: centered launch logo/tagline/continue caption fade away completely, then the upper wordmark/menu/key hint fade in over0.25s. Reduce motion swaps instantly. Prelude ends hidden at alpha0, skip input cannot trigger New Game, and initial focus is silent. Native baseline36/36 clean measured14 overlapping frames in each normal auto/Enter/A/mouse case; installed campaign66/66 clean measures0 in all six cases. Legacy normal/reduced20/20 also zero overlap (known101-instance ObjectDB exit warning retained). Official opening_flow and ui_fit2 PASS, exit0, known raw exit noise retained. Native frame logs and matched PNGs reviewed. [Before/after, originals, commands, diff and evidence](../ui/title-logo-2026-10-26/README.md); [handoff](CODEX_HANDOFF_2026-10-26_title_logo.md).
+
+One production method only: opening_flow.gd _finish_boot. All other1002 baseline source/scene/data/dialogue/tool/project/docs files exact before this handoff; main/creature scripts, C1 safe save, C6 default-off prompt, Continue, campaign entry, Storm/soul/shared Claude sources preserved. New pass7 ordering was discovered before edits, so Storm was inspected and left untouched. Initial baseline fixture accidentally injected Enter after reduced menu readiness; failed attempt archived, corrected driver used for both final baseline and installed runs. No real saves, art/generation/paid calls/rules/Route1/message/commit. C5 return-visit skip, splash auto-dismiss/key wording mismatch and remaining LV-24 still pending; C6 prompt remains OFF pending Preston's words. C1 shared preference recovery gap/candidate remains OPEN/staged only. Next ordered slice is section10 item5 ACC-10 reduced-motion lightning, then item6 ACC-14 soul flash, then item7 Storm/soul C7-C9 and white-outs; other opening/export/art work pending.
+
+## 11. Pass 8 lines (plan, 2026-10-26)
+
+From `sweep-2026-10-20/PASS8_PLAN_2026-10-26.md`, section "Codex", in the plan's order, plus what the pass 8 lanes and the integrator found for you. Result: `sweep-2026-10-20/PASS8_RESULT_2026-10-26.md`. L lines are the pass 8 live audit, LH8 lines the leftovers harvest. The title and launch files stay yours; Route 1 stays untouched. Your newer [CODEX_TASKS_2026-10-26.md](CODEX_TASKS_2026-10-26.md) is the clean queue; where a line below is already there, its place is named, so nothing needs doing twice. (Claude, integrator, 2026-10-26)
+
+1. L04, main_menu.gd:64 or the creature_opening scene: turn `new_game_confirm_enabled` on so New Game over a save shows the No/Yes panel whenever `TeamState.has_save()`. Your A6 holds it OFF until Preston picks the words; that hold stands. Turn it on when he does.
+2. L05, L24 cards, C8 (soul_prologue.gd): the starter cards ignore accept for about 0.4 s after they open and need a fresh press; ask '<Name>? Yes / No' before committing; put a prompt in the empty ??? box while the cards are up (wording is a proposal for Preston); centre and scale each starter in its frame at one whole scale, with showcase fronts and UI ticks. The live audit's reading press picked Kithflare before any choice was made.
+3. C9, L24 band (soul_prologue.gd): remove the top bar (`Rect2(0, 0, LOW.x, 3)` at :266) and the 8 px grey band by filling the SubViewport to 384x216; fade the light shafts' lower ends with per-vertex alpha. In your A3.
+4. C7 (soul_prologue.gd, storm_open.gd, main_menu.gd): E and J advance the storm and the soul through `UI.pressed` and `UI.INPUT_ADVANCE` (joypad motion included); one Enter no longer skips everything; delete `main_menu.gd _ensure_menu_inputs` (:107-119). Your C7 / A3 input result today (CODEX_HANDOFF_2026-10-26_opening_input.md) reads as this; please mark it. UI.HEAD is already gone from ui_style.gd (pass 8 U1), so C7 no longer gates it.
+5. LH8-18 (ACC-10, ACC-14): done, both parts (your A1 and A2 results today).
+6. L22 (main_menu.gd, title_settings.gd): one focus frame (the 9-slice lit state) on every Options row, the three sliders included; labels aligned one way; the 'UP/DOWN MOVE  LEFT/RIGHT CHANGE  ESC BACK' hint row. The in-game pause menu now has a device-aware key row (pass 8 U5, `game_pause_menu.gd menu_hint`) you can match.
+7. L23 and L03 (creature_opening.gd How to play): snap the Controls scroll to whole lines or fade its edge; drop the panel below the logo ornament; rewrite the three steps in the house voice ('a Hollow', not 'a dungeon'; proposals for Preston); name the first dungeon Hollow Mouth, as the arch card now does (pass 8 S6: `riverbank_journey.gd PLACE_ARCH = "HOLLOW MOUTH"`).
+8. L25 (main_menu.gd, creature_opening.gd): the save chip as a small 9-slice plate in the button family (team face, place, Lv); the focused button gets the frame's lit state, not only an arrow.
+9. LH8-19 (creature_opening.gd): fade the centred logo group out fully before the top wordmark and menu fade in. Your L7-20 result today reads as this exact change; please mark it closed if so.
+10. LH8-16, C12 (main_menu.gd `_on_continue` :778-813): confirm sound and fade first, then `load_threaded_request` hub_town.tscn and poll under black; drop the boot `world_journey.tscn` preload once opening_flow is confirmed never to use it. Your A5.
+11. LH8-20, C10 and C11: window icon and a plain splash; a Windows export preset leaving out tools/, addons/godot_ai and scenes/_lab; one test export and the painted-art check (street, Home desk, board stand, one Hollow floor, cached street on a second launch). Your B7; the test export waits on Preston installing the export templates. It unblocks LH8-14.
+12. LH8-15, C22: move the arena fronts that `board_scene.gd:99` reads from `docs/creatures/arena-starters-2026-10-07/forms/` into `assets/` and send the path. Your B7.
+13. LH8-22, LF7-18: `tools/build_dungeon_set.py` writes each frame's foot row to a small data file beside the sets; send the path. Your C9. Pass 8 D11 moved today's readback under the black floor card, so this is a load-time saving, not a visible stall.
+14. LH8-21, LF7-17, the art queue in your C8 order. The grey vector signs (Wayline Hall's lone 'Y' sign among them), the 'THE HOLLOW' lettering and the Scroll Keeper exterior are on your D HOLD; keep holding them. Also fix the ART-03 and ART-10 label swap between section 9 item 18 and section 5.
+15. L03 and L07, existing art only, no new generation: a variant of the arch painting for The Hollow's approach (it reuses the Mouth's arch today), and optionally a dawn variant of `waking_native.png` for the dawn walk. Pass 8 S2 regraded the dawn walk in code (`mouth_escape.gd DAWN_SHADER`); a painted dawn would replace that grade.
+16. From pass 8 U7 (LH8-10), a request for your file `scripts/main_menu.gd`. The title's Quit is the one player quit path that does not stop its sounds first; the title music still playing at `quit()` is what Godot reports as leaked at exit. The pause menu's Quit and the window's close button now go through `Music.release` (0 leaked instances in 9 of 9 runs). Suggested change, keeping the file's line endings:
+
+    ```
+    func _confirm_quit() -> void:
+    	_save_preferences()
+    	# Every sound stopped and let go before the game closes (Claude, 2026-10-26, pass 8 U7: scripts/audio/music.gd release).
+    	preload("res://scripts/audio/music.gd").release(get_tree())
+    	var until := Time.get_ticks_msec() + 100
+    	while Time.get_ticks_msec() < until:
+    		await get_tree().process_frame
+    	await get_tree().process_frame
+    	get_tree().quit()
+    ```
+17. For your D slot specs (no action now): the street lane measured the Scroll Keeper's cellar entrance, the cluster at the bottom right of the Job Board view, at about a third of the street's 3x scale (door about 17 view px against the Hall's 50; lanterns and robed figures about 12 against the creatures' 32). It sits mid-town on the bluff, so it is not distance. Art: `assets/sprites/world/scroll_cellar_2026_10_10/scroll_native.png`, drawn by `building_exteriors.gd`.
+18. FYI: the shared preference gap is closed. Your `shared-pause-save.diff` is installed in `ui_style.gd write_prefs` (pass 8 U2), and the readers fall back to `path + '.bak'` when the main file is missing or does not parse. Your proposal_check passes 8/8 against your staged copies and 12/12 against the installed helper.
+19. FYI: `tools/debug/opening_flow_check.gd` waits 12 frames before its E on the partner choice. The flood talk's answer list now takes accept only from a fresh press 0.3 s after it appears (pass 8 S1, L06), the fix for the live audit's auto-picked partner.

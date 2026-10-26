@@ -4,13 +4,17 @@ extends SceneTree
 ##   1. on the lower floor, once the Wayline has taken the team on, the mail call plays: Wayling calls routes,
 ##      the crew claim them, Muskin comes in late, Starward gives the morning's note, and the crew go back to
 ##      their posts;
-##   2. it does not play again until the team has been on another run;
+##   2. it plays once in each stage of the story (Claude, 2026-10-26, pass 8 R7 / L-09): not again on the next visit,
+##      not after another run in the same stage, and once more when the story moves on (here: the team named runners);
 ##   3. a crew member at their post talks when spoken to, and stands solid;
 ##   4. upstairs, Wayling and Grubbit are at their posts.
+##   5. with a team of four, Sparkwick in it, the others close up behind the leader after the call, each on its own
+##      tile, off the crew and the furniture (pass 8 R1).
 ## Windowed it saves stills to docs/design/roll-call-2026-10-11/.
 ##   Godot --path . --fixed-fps 30 --script res://tools/debug/roll_call_check.gd
 
 const TeamState := preload("res://scripts/town/team_state.gd")
+const GuildCrew := preload("res://scripts/town/guild_crew.gd")
 const UI := preload("res://scripts/ui/ui_style.gd")
 const OUT := "res://docs/design/roll-call-2026-10-11/"
 const REC_PACE := 3   # with HT_RECORD set (video takes), each line stays this many times longer
@@ -59,7 +63,7 @@ func _forms(r: Node2D) -> Array:
 
 func _run() -> void:
 	DirAccess.make_dir_recursive_absolute(ProjectSettings.globalize_path(OUT))
-	TeamState.start([[0, 0], [1, 0]])
+	TeamState.start([[0, 1], [1, 0], [10, 0], [2, 0]])   # a team of four, Sparkwick leading (pass 8)
 	TeamState.data["story"] = {"met_crew": true, "parcel": "stolen", "guild_trial": true}
 	# 1. The roll call.
 	var low := await _room("hall_low", true)
@@ -98,7 +102,21 @@ func _run() -> void:
 			standing.append("%s:%s" % [e["form"], e["sprite"].texture.resource_path.get_file()])
 	_ok("Crew standing south show their job-object stills %s" % str(standing),
 		standing.size() == 4 and standing.all(func(s: String) -> bool: return s.ends_with(":idle_s.png")))
-	_ok("It is marked done for this run (%s)" % TeamState.data.get("rollcall_runs", -1), int(TeamState.data.get("rollcall_runs", -1)) == 0)
+	var stage := GuildCrew.stage_of(TeamState.data)
+	_ok("It is marked done for this stage of the story (%s)" % str(TeamState.data["story"].get("mail_call", "")), String(TeamState.data["story"].get("mail_call", "")) == stage)
+	# 5. The team after the call: each on its own tile behind the leader, nobody on the crew, a wall or the furniture.
+	var tiles: Array = low.team.map(func(e: Dictionary) -> Vector2i: return e["pos"])
+	var want: Array = low.trail_tiles(String(low.team[0]["facing"]))
+	var bad := ""
+	var seen := {}
+	for e in low.team:
+		var t: Vector2i = e["pos"]
+		if seen.has(t) or not low._open(t) or low.npcs.any(func(n: Dictionary) -> bool: return n["pos"] == t):
+			bad = "%s at %s" % [e["form"], t]
+		seen[t] = true
+		if (e["node"] as Node2D).position.distance_to(low._px(t)) > 0.5:
+			bad = "%s drawn off its tile %s" % [e["form"], t]
+	_ok("After the call the team of four stands behind the leader %s (the arrival rule gives %s)%s" % [str(tiles), str(want), "" if bad == "" else "; wrong: " + bad], bad == "" and tiles == want)
 	# 3. Talk to Stillwade at the window.
 	low.team[0]["pos"] = Vector2i(4, 4)
 	low.team[0]["facing"] = "n"
@@ -118,24 +136,36 @@ func _run() -> void:
 	low.queue_free()
 	for k in 2:
 		await process_frame
-	# 2. Not again until another run.
+	# 2. Once a stage (R7): not on the next visit, not after another run in the same stage, once more when the story
+	# moves on, and then not again in that stage.
 	var again := await _room("hall_low", true)
 	_ok("Next visit: no mail call (%s), crew at posts %s" % [not again.cutscene, str(_forms(again))], not again.cutscene and _forms(again).size() == 5)
 	again.queue_free()
 	for k in 2:
 		await process_frame
 	TeamState.data["cleared"] = 1
-	var after_run := await _room("hall_low", true)
-	_ok("After another run it plays again (%s)" % after_run.cutscene, after_run.cutscene)
-	var g2 := 0
-	while after_run.cutscene and g2 < 30 * 90:   # let it finish before the room closes
-		await process_frame
-		g2 += 1
-		if not after_run.talk.is_empty() and g2 % 6 == 0:
-			after_run.talk.pop_front()
-	after_run.queue_free()
+	var same_stage := await _room("hall_low", true)
+	_ok("After another run in the same stage: still no mail call (%s)" % [not same_stage.cutscene], not same_stage.cutscene)
+	same_stage.queue_free()
 	for k in 2:
 		await process_frame
+	TeamState.data["story"]["parcel"] = "delivered"
+	TeamState.data["story"]["runner"] = true
+	var plays := 0
+	for visit in 2:
+		var next_stage := await _room("hall_low", true)
+		if next_stage.cutscene:
+			plays += 1
+		var g2 := 0
+		while next_stage.cutscene and g2 < 30 * 90:   # let it finish before the room closes
+			await process_frame
+			g2 += 1
+			if not next_stage.talk.is_empty() and g2 % 6 == 0:
+				next_stage.talk.pop_front()
+		next_stage.queue_free()
+		for k in 2:
+			await process_frame
+	_ok("The story moves on (the team named runners): two visits, the mail call plays %d time(s)" % plays, plays == 1)
 	# 4. Upstairs.
 	var up := await _room("hall", false)
 	_ok("Upstairs: %s at their posts" % str(_forms(up)), _forms(up) == ["grubbit", "wayling"])

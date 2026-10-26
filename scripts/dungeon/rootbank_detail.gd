@@ -48,6 +48,34 @@ static func _wall(data: Dictionary, x: int, y: int) -> bool:
 static func _back(data: Dictionary, x: int, y: int) -> bool:
 	return _wall(data, x, y) and y + 1 < data.h and not _wall(data, x, y + 1)
 
+## The back of a bank's turf (Claude, 2026-10-26, pass 8 F1 and F2, L12): the Warren's banks end the way the Hollow
+## Mouth's walls do, with a back course behind the lit rim. The live run read the old crumbling earth beside the rooms,
+## and the rough top and its three steps of marks above every face, as a ragged black band along the wall tops. Past
+## the turf, one row of clay clods in shade, each its own length along the edge (a crack every CLOD pixels or so, up
+## to four either way) and its own depth (COURSE_MIN to COURSE_MAX pixels, so the back edge steps rather than running
+## straight), its near edge a little lighter, a dark line along its back edge, then black. riverbank_painter.gd's _walls
+## calls it with `e` pixels past the turf, `along` the pixel's place along the edge, `across` the tile row or column
+## that edge belongs to, and `tones` the bank's sediment colours.
+const COURSE_MIN := 3
+const COURSE_SPAN := 3
+const COURSE_MAX := COURSE_MIN + COURSE_SPAN - 1
+const CLOD := 8
+
+static func back_course(e: int, along: int, across: int, tones: Array) -> Color:
+	var cell := along / CLOD
+	var crack := cell * CLOD + int(ClayNoise._h(cell, across, 71) * 5.0)
+	var clod := cell if along > crack else cell - 1
+	var roll := ClayNoise._h(clod, across, 72)   # the clod's depth and its tone, from one hash
+	var depth := COURSE_MIN + int(roll * COURSE_SPAN)
+	if e > depth:
+		return Color.BLACK
+	if e == depth:
+		return BARK_EDGE   # the dark line along its back edge
+	if along == crack:
+		return BARK   # the crack between two clods
+	var tone: Color = tones[int(roll * 31.0) % tones.size()]
+	return tone.darkened(0.3 if e == 0 else 0.45)
+
 static func _pixel(img: Image, data: Dictionary, t: int, p: Vector2i, c: Color) -> void:
 	if p.x < 0 or p.y < 0 or p.x >= img.get_width() or p.y >= img.get_height(): return
 	if _wall(data, p.x / t, p.y / t): img.set_pixelv(p, c)
@@ -123,8 +151,9 @@ static func _lip_roots(img: Image, data: Dictionary, t: int, seed_value: int) ->
 				# The rim: the tile's edge on the floor's side, at a spot along it.
 				var rim := Vector2(x * t, y * t) + Vector2(maxi(n.x, 0) * (t - 1), 0) + along * (4 + int(ClayNoise._h(x, y, phase + n.x + 3) * (t - 12)))
 				var trail := 1.0 if ClayNoise._h(y, x, phase + 7) > 0.5 else -1.0   # which way it trails along the lip
-				# A thin root sweeping out of the turf at a slant, along the lip and over it onto the rim.
-				var a := rim + out * 13 + along * (-9 * trail)
+				# A thin root sweeping out of the turf at a slant, along the lip and over it onto the rim. It starts 11 pixels
+				# in (13 until pass 8), inside the turf now that the back course takes the turf's far edge (pass 8 F2).
+				var a := rim + out * 11 + along * (-9 * trail)
 				_root(img, data, t, a, rim + out * 9 + along * (-3 * trail), rim + out * 4 + along * (3 * trail), rim + out + along * (10 * trail), 0)
 				if roll > 0.9:
 					# Now and then a short twig off it, back the other way.

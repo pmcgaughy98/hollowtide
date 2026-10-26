@@ -7,6 +7,7 @@ extends Node2D
 ##   var room = load("res://scenes/town_room.tscn").instantiate(); room.room_id = "home"
 
 const StoragePanel := preload("res://scripts/town/storage_panel.gd")
+const RosterPanel := preload("res://scripts/town/roster_panel.gd")
 const StorageArt := preload("res://scripts/town/storage_room_art.gd")
 const Objective := preload("res://scripts/town/objective.gd")
 const Arena := preload("res://scripts/arena/arena_prototype.gd")
@@ -41,14 +42,19 @@ const ROOMS := {
 			{"id": "table", "rect": Rect2i(6, 4, 3, 2), "name": "Table", "what": "A lantern, a map of the river, the parcel slip from the first job."},
 			{"id": "shelf", "rect": Rect2i(1, 7, 2, 2), "name": "Shelf", "what": "Jars of reedberries and a stack of old Wayline reports."},
 			{"id": "plants", "rect": Rect2i(11, 6, 2, 2), "name": "Planters", "what": "Clover and a stubborn fern. Someone waters them."}]},
-	"hall": {"name": "Wayline Hall", "w": 22, "h": 14, "door": Vector2i(11, 13), "town_door": "hall",
+	# The way out is both tiles under the carpet's end (Claude, 2026-10-26, pass 8 R3 / L13): the carpet and the
+	# doorway in the Hall art are centred on x 264, the line between tiles 10 and 11, and only tile 11 opened, so a
+	# leader walking down the carpet's left half met a wall at the threshold. The door tile moved to 10 with it, so the
+	# team comes in on the carpet's middle (leader on 10, the others filling 10 to 12 behind), not off its right edge.
+	"hall": {"name": "Wayline Hall", "w": 22, "h": 14, "door": Vector2i(10, 13), "town_door": "hall", "exit_rect": Rect2i(10, 13, 2, 1),
 		"solid": [Rect2i(7, 3, 8, 2), Rect2i(2, 2, 2, 1), Rect2i(18, 2, 2, 1), Rect2i(3, 6, 1, 1), Rect2i(18, 6, 1, 1), Rect2i(3, 10, 1, 1), Rect2i(18, 10, 1, 1),
 			Rect2i(1, 8, 1, 3), Rect2i(20, 8, 1, 3), Rect2i(5, 7, 2, 2), Rect2i(15, 7, 2, 2), Rect2i(2, 12, 2, 1), Rect2i(18, 12, 2, 1),
 			Rect2i(4, 6, 1, 1), Rect2i(17, 6, 1, 1)],
 		"spots": [
 			{"id": "counter", "rect": Rect2i(7, 3, 8, 2), "name": "Dispatch Counter", "what": "The dispatcher hands out the board's requests and takes reports.", "service": "jobs"},
 			{"id": "notices", "rect": Rect2i(2, 2, 2, 1), "name": "Notice Wall", "what": "Sightings, closures, a warning about a crew poaching deliveries."},
-			{"id": "roster", "rect": Rect2i(18, 2, 2, 1), "name": "Roster Board", "what": "Every team on the Wayline, by rank. Yours is near the bottom, for now."},
+			# Once the team are runners the board opens the roster panel (pass 8 R6, roster_panel.gd): who waits at the Hall.
+			{"id": "roster", "rect": Rect2i(18, 2, 2, 1), "name": "Roster Board", "what": "Every team on the Wayline, by rank. Yours is near the bottom, for now.", "service_if": ["runner", "roster"]},
 			{"id": "benches", "rect": Rect2i(1, 8, 1, 3), "name": "Bench", "what": "Where couriers wait for the river to settle."},
 			{"id": "benches2", "rect": Rect2i(20, 8, 1, 3), "name": "Bench", "what": "Scratched initials and a forgotten glove."},
 			{"id": "chart", "rect": Rect2i(5, 7, 2, 2), "name": "Chart Table", "what": "The river and its Hollows, pinned where couriers have gone. A new pin sits on the water near Highbank."},
@@ -225,7 +231,10 @@ func _ready() -> void:
 	_lap("desk and lights")
 	_lift_furniture(map)   # LP-29: tall furniture in front of a creature behind it
 	_lap("furniture lifted")
+	# The HUD's own canvas layer, above the room picture: the room and every prop in it are drawn inside the
+	# SubViewport `view` on the scene's base layer, so nothing in the room reaches this layer's talk box (pass 8 R2).
 	var layer := CanvasLayer.new()
+	layer.name = "Hud"
 	add_child(layer)
 	_hud = Node2D.new()
 	_hud.draw.connect(_draw_hud)
@@ -245,6 +254,12 @@ func _ready() -> void:
 	for k in team.size():
 		team[k]["pos"] = stands[k]
 		_place(team[k])
+	# The names a scene's lines use, read on a thread while the room is still under the fade (Claude, 2026-10-26, pass 8
+	# R8): the leader's and the partner's, and in the Hall the whole team's and the waiting creatures' for the Roster Board.
+	var named: Array = team.slice(0, 2)
+	if room_id == "hall":
+		named = team + _record().get("roster", [])
+	SceneKit.read_names(named)
 	_lap("team")
 	preload("res://scripts/ui/game_pause_menu.gd").attach(self)
 	_labels = Node2D.new()
@@ -373,10 +388,43 @@ static func _extent_of(tex: Texture2D) -> Rect2:
 	return _extents[key]
 
 
+## A tile a member may stand on: open floor, not a stair or inner door, not the way out, not taken, and not where a
+## crew member or townsfolk stands (pass 8 R1: the team re-forms after scenes with the crew still about).
 func _stand_ok(t: Vector2i, taken: Array) -> bool:
 	var d: Vector2i = room()["door"]
 	var way_out: Rect2i = room().get("exit_rect", Rect2i(d, Vector2i.ONE))
-	return _open(t) and _link_at(t).is_empty() and not (d.x >= 0 and way_out.has_point(t)) and not t in taken
+	return _open(t) and _link_at(t).is_empty() and not (d.x >= 0 and way_out.has_point(t)) and not t in taken \
+		and not npcs.any(func(n: Dictionary) -> bool: return n["pos"] == t)
+
+
+## Where members 1 to 3 stand behind the leader where it is now (Claude, 2026-10-26, pass 8 R1 and R5 / L01, LH8-04):
+## the arrival rule (_arrival_tiles, spaced by the sprites' boxes from _extent_of) run from the leader's own tile as if
+## the team had just come in facing `facing`. Index 0 is the leader's tile. [] when the leader's tile is not one an
+## arrival may use (a stair, the way out), so callers leave the team as it is.
+func trail_tiles(facing: String) -> Array:
+	if team.is_empty():
+		return []
+	var was := arrive
+	var was_facing := arrive_facing
+	arrive = team[0]["pos"]
+	arrive_facing = facing if Arena.FACINGS.has(facing) else "s"
+	var stands := _arrival_tiles(team.size(), team.map(func(e: Dictionary) -> Rect2: return _extent_of(e["still"][arrive_facing])))
+	arrive = was
+	arrive_facing = was_facing
+	return stands if not stands.is_empty() and stands[0] == team[0]["pos"] else []
+
+
+## Set members 1 to 3 on their tiles behind the leader at once, facing `facing` (the bed's night does it under the black;
+## a scene does it after its walks, for anyone held up). `stands` from trail_tiles, or worked out here when empty.
+func respace(facing: String, stands: Array = []) -> void:
+	if stands.is_empty():
+		stands = trail_tiles(facing)
+	for k in range(1, mini(team.size(), stands.size())):
+		var e: Dictionary = team[k]
+		e["pos"] = stands[k]
+		e["facing"] = facing
+		e["walk_t"] = 0.0
+		_place(e)
 
 
 ## The first entry paints the picture and finishes it, in the order it always had: the room's art finish, the Hall's
@@ -404,30 +452,34 @@ static func prepare(id: String) -> void:
 		keep_prepared(id, prepared_parts(id))
 
 
-## Whether room `id` builds without painting: its picture and furniture are kept (the Storage's are loaded art).
+## Whether room `id` builds without painting: its picture and furniture are kept (the Storage's are loaded art), and in
+## the Hall the Guildmaster's desk too (pass 8 R8).
 static func prepared(id: String) -> bool:
-	return id == "storage" or not ROOMS.has(id) or (_pictures.has(id) and _lift_shapes.has(id))
+	return id == "storage" or not ROOMS.has(id) or (_pictures.has(id) and _lift_shapes.has(id) and (id != "hall" or not _desk_art.is_empty() or not UI.res_exists(DESK)))
 
 
-## [texture, finish material, furniture pieces] for room `id`, made without touching this script's caches, so it can
-## run on a worker thread while the main one goes on drawing. Off the main thread the art is read from its PNGs
-## (UI.res_image), so call it there only when art_off_main() says they are on disk.
+## [texture, finish material, furniture pieces, desk art] for room `id`, made without touching this script's caches, so
+## it can run on a worker thread while the main one goes on drawing. Off the main thread the art is read from its PNGs
+## (UI.res_image), so call it there only when art_off_main() says they are on disk. The desk art ([texture, finish], or
+## [] outside the Hall) joined in pass 8 (Claude, 2026-10-26, R8): its sel-out took 30 to 55 ms of the Hall's build.
 static func prepared_parts(id: String) -> Array:
 	var map := Sprite2D.new()
 	_paint_picture(id, map)
-	var out := [map.texture, map.material, _shapes_of(id)]
+	var out := [map.texture, map.material, _shapes_of(id), _make_desk_art() if id == "hall" and _desk_art.is_empty() else []]
 	map.free()
 	return out
 
 
 ## On the main thread: keep what prepared_parts made, unless the room was entered and painted meanwhile.
 static func keep_prepared(id: String, parts: Array) -> void:
-	if parts.size() != 3 or not (parts[0] is Texture2D):
+	if parts.size() < 3 or not (parts[0] is Texture2D):
 		return
 	if not _pictures.has(id):
 		_pictures[id] = [parts[0], parts[1]]
 	if not _lift_shapes.has(id):
 		_lift_shapes[id] = parts[2]
+	if parts.size() > 3 and parts[3] is Array and (parts[3] as Array).size() == 2 and _desk_art.is_empty():
+		_desk_art = parts[3]
 
 
 ## Whether the rooms' art can be read off the main thread: UI.res_image there finds only a PNG on disk, which the
@@ -531,16 +583,9 @@ func _guild_desk() -> void:
 	if not UI.res_exists(DESK):
 		return
 	if _desk_art.is_empty():
-		var desk_image := UI.res_image(DESK)
-		if desk_image == null:
+		_desk_art = _make_desk_art()
+		if _desk_art.is_empty():
 			return
-		var desk_mask := Image.create(desk_image.get_width(),desk_image.get_height(),false,Image.FORMAT_RGBA8)
-		desk_mask.fill(Color.WHITE)
-		var desk_finish := ShaderMaterial.new()
-		desk_finish.shader = preload("res://scripts/dungeon/dungeon_finish.gdshader")
-		desk_finish.set_shader_parameter("detail_mask",ImageTexture.create_from_image(desk_mask))
-		desk_finish.set_shader_parameter("detail_ink",0.55)
-		_desk_art = [ImageTexture.create_from_image(preload("res://scripts/art/selout.gd").selout(desk_image)), desk_finish]
 	var desk := Sprite2D.new()
 	desk.centered = false
 	desk.texture = _desk_art[0]
@@ -549,6 +594,23 @@ func _guild_desk() -> void:
 	desk.position = Vector2(DESK_AT)
 	desk.z_index = DESK_AT.y + 46   # its front's foot
 	_world.add_child(desk)
+
+
+## [the desk's sel-out picture, its finish], or [] without the art. Touches no cache, so prepared_parts can make it on
+## the town's worker thread (pass 8 R8); _guild_desk makes it here when the Hall is entered before that.
+static func _make_desk_art() -> Array:
+	if not UI.res_exists(DESK):
+		return []
+	var desk_image := UI.res_image(DESK)
+	if desk_image == null:
+		return []
+	var desk_mask := Image.create(desk_image.get_width(),desk_image.get_height(),false,Image.FORMAT_RGBA8)
+	desk_mask.fill(Color.WHITE)
+	var desk_finish := ShaderMaterial.new()
+	desk_finish.shader = preload("res://scripts/dungeon/dungeon_finish.gdshader")
+	desk_finish.set_shader_parameter("detail_mask",ImageTexture.create_from_image(desk_mask))
+	desk_finish.set_shader_parameter("detail_ink",0.55)
+	return [ImageTexture.create_from_image(preload("res://scripts/art/selout.gd").selout(desk_image)), desk_finish]
 
 
 ## Tall furniture in front of a creature behind it (Claude, 2026-10-23, LP-29). The rooms' furniture is part of
@@ -775,6 +837,9 @@ func act_use() -> Dictionary:
 	if panel.get("service", "") == "storage":
 		act_store(1)
 		return {}
+	if panel.get("service", "") == "roster":
+		act_roster_pick()
+		return {}
 	if not panel.is_empty():
 		_ui_sfx("close")   # E closes a spot's panel as Esc does, with the menus' close (T6)
 		panel = {}
@@ -787,6 +852,11 @@ func act_use() -> Dictionary:
 			return {"id": "talk_" + String(n["form"])}
 	for s in room()["spots"]:
 		if s["rect"].has_point(ahead) or s["rect"].has_point(lead["pos"]):
+			if _spot_service(s) == "roster":   # the Roster Board once the team are runners (pass 8 R6)
+				panel = RosterPanel.open_panel(self)
+				_ui_sfx("open")
+				used_log.append(s["id"])
+				return s
 			panel = {"name": "Storage", "service": "storage", "sel": 0, "said": ""} if s.get("service", "") == "storage" else _spot_panel(s)
 			if s.get("service", "") == "storage":
 				_ui_sfx("open")   # the menu's own opening sound, as the pause menu's (Claude, 2026-10-24, pass 5 RM5)
@@ -796,6 +866,15 @@ func act_use() -> Dictionary:
 				rest()
 			return s
 	return {}
+
+
+## The service a spot opens now: its "service", or the one "service_if" names once that story flag is set (Claude,
+## 2026-10-26, pass 8 R6: the Roster Board is a notice until the team are runners, then it opens the roster panel).
+func _spot_service(s: Dictionary) -> String:
+	var gate: Array = s.get("service_if", [])
+	if gate.size() == 2 and _record().get("story", {}).get(String(gate[0]), false):
+		return String(gate[1])
+	return String(s.get("service", ""))
 
 
 ## A spot's panel: a copy of the spot, its text swapped for "what_if" once that story flag is set (CR-02),
@@ -828,6 +907,10 @@ func rest() -> void:
 
 static func _night(tree: SceneTree, host: Node) -> void:
 	await UI.fade_out(tree, REST_FADE)
+	# Under the black the others settle round the leader (Claude, 2026-10-26, pass 8 R5 / LH8-04): beside the bed the
+	# line had bunched against it, and the morning came up on a heap. Each gets its own tile behind the leader.
+	if is_instance_valid(host) and host.is_inside_tree() and host.has_method("respace"):
+		host.respace("s")
 	await tree.create_timer(UI.motion_secs(REST_HOLD)).timeout
 	if is_instance_valid(host) and host.is_inside_tree():
 		host._sfx(WAKE_SOUND, false, WAKE_DB)   # waking up, softly (pass 7 T6; it was the dungeon's wake.wav)
@@ -876,6 +959,13 @@ func go_room(link: Dictionary) -> void:
 ## fade started before that long frame would spend its whole time in it and pop up instead of fading (R4).
 static func _lift(tree: SceneTree) -> void:
 	await tree.process_frame
+	await tree.process_frame
+	# Then until the next room has built, and one frame more (Claude, 2026-10-26, pass 8 R8): the frame after a long
+	# build reports the build's time as its delta, and a fade started before it spent its whole time in that one step.
+	var guard := 0
+	while guard < 30 and (tree.current_scene == null or not tree.current_scene.is_node_ready()):
+		await tree.process_frame
+		guard += 1
 	await tree.process_frame
 	UI.fade_in(tree)
 
@@ -971,10 +1061,17 @@ func _poll() -> void:
 		if UI.tapped(&"page_up"): act_store_page(-1)     # a page of the list (RM1)
 		if UI.tapped(&"page_down"): act_store_page(1)
 		if UI.tapped(&"take_out"): act_store(-1)
+	if panel.get("service", "") == "roster":   # the Roster Board's two lists (pass 8 R6)
+		if UI.tapped(&"move_up"): act_roster_move(-1)
+		if UI.tapped(&"move_down"): act_roster_move(1)
+		if UI.tapped(&"move_left"): act_roster_side(-1)
+		if UI.tapped(&"move_right"): act_roster_side(1)
 	if UI.tapped_any([&"confirm", &"interact"]):
 		act_use()
 		return
 	if UI.tapped(&"cancel"):
+		if panel.get("service", "") == "roster" and RosterPanel.back(self):
+			return   # Esc first lets go of a creature picked to swap; the next one closes the board
 		if not panel.is_empty():
 			# Closing a panel (the Storage, a spot) sounds like closing the pause menu (Claude, 2026-10-26, pass 7 T6 /
 			# L7-25); a room's panels ask nothing, so none of them backs out of a choice with the cancel sound.
@@ -991,7 +1088,8 @@ func _draw_hud() -> void:
 		if not talk.is_empty():
 			var sl: Array = talk[0]
 			var sf: String = String(sl[2]) if sl.size() > 2 else ""
-			UI.dialogue(h, Rect2(196, 452, 760, 116), String(sl[0]), String(sl[1]), UI.dialogue_portrait(sf) if sf != "" else null, Time.get_ticks_msec() / 1000.0, 20, sf.get_slice(":", 1) if ":" in sf else "normal")
+			_solid_under(h, TALK_BOX)
+			UI.dialogue(h, TALK_BOX, String(sl[0]), String(sl[1]), UI.dialogue_portrait(sf) if sf != "" else null, Time.get_ticks_msec() / 1000.0, 20, sf.get_slice(":", 1) if ":" in sf else "normal")
 		return
 	# The place and "Next:" panels and the key strip step aside while a panel is open, as on Highbank's street when
 	# the Job Board is up (Claude, 2026-10-24, pass 5 RM3 / LV-03): the Storage list showed the Next line through it.
@@ -1007,18 +1105,35 @@ func _draw_hud() -> void:
 	if panel.get("service", "") == "storage":
 		StoragePanel.draw(self, h)
 		return
+	if panel.get("service", "") == "roster":
+		RosterPanel.draw(self, h)
+		return
 	if not _resting:
 		if panel.get("narration", false):   # the bed's morning line: narration, as the riverbank's (pass 4 T7)
-			UI.dialogue(h, Rect2(196, 452, 760, 116), "", String(panel["what"]), null, Time.get_ticks_msec() / 1000.0, 20)
+			_solid_under(h, TALK_BOX)
+			UI.dialogue(h, TALK_BOX, "", String(panel["what"]), null, Time.get_ticks_msec() / 1000.0, 20)
 			return
 		var lay := spot_layout(String(panel["what"]))
 		var box: Rect2 = lay["box"]
+		_solid_under(h, box)
 		UI.panel(h, box, 0.95)
 		UI.nameplate(h, box.position + Vector2(24, -22), String(panel["name"]))
 		var rows: PackedStringArray = lay["rows"]
 		for k in rows.size():
 			UI.say(h, lay["at"] + Vector2(0, k * float(lay["row_h"])), rows[k], "story")
 		UI.next_arrow(h, box.end - Vector2(48, 36), Time.get_ticks_msec() / 1000.0)
+
+
+## The scene lines' box, as UI.dialogue draws it.
+const TALK_BOX := Rect2(196, 452, 760, 116)
+const SOLID_IN := 9.0   # the frame's brass is opaque 12 px in from its edge; the backing starts under it
+
+
+## An opaque floor under a talk box or a spot's panel (Claude, 2026-10-26, pass 8 R2 / L02): the panel's woven fill is
+## 92 percent opaque, so a pillar or a creature behind the box still showed through it faintly and read as standing on
+## the box. The backing is the panel's own colour, inside the brass, so the frame looks the same and hides the room.
+static func _solid_under(h: CanvasItem, box: Rect2) -> void:
+	h.draw_rect(box.grow(-SOLID_IN), UI.PANEL)
 
 
 ## A spot's panel (Claude, 2026-10-23, R2): its words in the face the scene lines use, the "story" role (on the
@@ -1088,6 +1203,48 @@ func act_store_move(dy: int) -> void:
 
 func act_store_page(dir: int) -> void:
 	StoragePanel.page(self, dir)
+
+## The Roster Board's panel (pass 8 R6; roster_panel.gd): the cursor, its column, and a pick (swap in, swap out, trade).
+func act_roster_move(dy: int) -> void:
+	RosterPanel.move(self, dy)
+
+func act_roster_side(dx: int) -> void:
+	RosterPanel.side(self, dx)
+
+func act_roster_pick() -> void:
+	RosterPanel.pick(self)
+
+
+## The room's team after the Roster Board changed the record's party (Claude, 2026-10-26, pass 8 R6): the leader stays
+## where it stands; the others are made again from the party and set on their tiles behind it.
+func refresh_team() -> void:
+	var party: Array = _record().get("party", [])
+	if team.is_empty() or party.is_empty():
+		return
+	for k in range(1, team.size()):
+		if is_instance_valid(team[k]["node"]):
+			team[k]["node"].queue_free()
+	team.resize(1)
+	var facing := String(team[0]["facing"])
+	for k in range(1, party.size()):
+		var e := _make(party[k][0], party[k][1], team[0]["pos"])
+		e["facing"] = facing
+		team.append(e)
+	SceneKit.read_names(team)
+	var stands := trail_tiles(facing)
+	if stands.is_empty():   # the leader on a tile no arrival uses: the nearest free floor round it, breadth-first
+		stands = [team[0]["pos"]]
+		var seen := {team[0]["pos"]: true}
+		var queue: Array = [team[0]["pos"]]
+		while stands.size() < team.size() and not queue.is_empty():
+			var c: Vector2i = queue.pop_front()
+			if _stand_ok(c, stands):
+				stands.append(c)
+			for o: Vector2i in DIRS:
+				if not seen.has(c + o) and _open(c + o):
+					seen[c + o] = true
+					queue.append(c + o)
+	respace(facing, stands)
 
 ## Menu sounds through the shared ticks, on the "UI" bus (Claude, 2026-10-22, GS-21): a kind the ticks do
 ## not know plays nothing instead of loading a missing file. `last_sfx` stays the receipt the checks read.

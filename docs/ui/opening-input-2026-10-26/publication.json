@@ -1,0 +1,33 @@
+{
+  "protected_baseline_files": 1007,
+  "owned_production_changes": [
+    "scripts/main_menu.gd",
+    "scripts/opening_flow.gd",
+    "scripts/soul_prologue.gd",
+    "scripts/storm_open.gd"
+  ],
+  "concurrent_source_changes_preserved": [
+    "scripts/town/hub_town.gd"
+  ],
+  "concurrent_during_publication": [],
+  "all_changed_existing_paths": [
+    "docs/AI_COLLABORATION.md",
+    "docs/team/CODEX_TASKS_2026-10-26.md",
+    "scripts/main_menu.gd",
+    "scripts/opening_flow.gd",
+    "scripts/soul_prologue.gd",
+    "scripts/storm_open.gd",
+    "scripts/town/hub_town.gd"
+  ],
+  "prior_docs_preserved": true,
+  "native_input": "85/85 clean",
+  "native_real_flow": "28/28 clean",
+  "official": "4 PASS, exit0, known raw exit noise retained",
+  "C7": "complete; HEAD already removed by Claude",
+  "public_check_followup": "candidate only; private equivalent tested",
+  "A3_remainder": "white-outs, cards, light shafts/pixel soul pending",
+  "prompt_default": "C6 OFF, unchanged",
+  "local_links_checked": 20,
+  "evidence": "C:\\Users\\pmcga\\dev\\hollowtide\\docs\\ui\\opening-input-2026-10-26",
+  "handoff": "C:\\Users\\pmcga\\dev\\hollowtide\\docs\\team\\CODEX_HANDOFF_2026-10-26_opening_input.md"
+}

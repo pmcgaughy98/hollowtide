@@ -301,46 +301,34 @@ static func _light(img: Image, seed_value: int) -> void:
 ## Mouth only: the wall tops (Claude, 2026-10-24, pass 4 R1 and R2; the live run read the corridor walls as blurry
 ## grey boxes and every edge as a smooth gradient into the dark). Each wall beside the floor, room or corridor, gets
 ## the room walls' masonry: a lit brink, a row of carved block tops, the joint behind them; where it stands above
-## floor the face of courses comes after (_walls). Past the joint the rough top falls into black in three steps of
-## clustered marks (_fall; a 2 x 2 ordered dither until pass 5 A4), each step's edge wandering up to six pixels so no
-## edge runs straight. Only the walls' own colours: the face's stones and their lit tops, the mortar, the lip, the dark
-## top and black.
+## floor the face of courses comes after (_walls). Past the joint the cap row, then black. Only the walls' own colours:
+## the face's stones and their lit tops, the mortar, the lip and black.
 ## Distances are Chebyshev from the lit ground: floor tiles, and the face (with its brink line) of a wall above floor.
 ## The cap row (Claude, 2026-10-24, pass 6 P3, L6-24; the live run read a room's sides as a thin dark band speckling
 ## into black, and a hallway's south side as no wall at all): past the joint a back course of cap stones in the wall's
 ## shade, in a running bond against the block tops, each stone BACK_MIN to BACK_MIN + BACK_SPAN - 1 pixels deep, so
-## its back edge steps rather than running straight, with a dark line along that edge. Beside or below the floor (a
-## room's sides and south, both sides of a hallway's walls) the dark starts there. Above a face the steps follow it.
+## its back edge steps rather than running straight, with a dark line along that edge, and the dark starts there.
+## Above a face too since pass 8 (Claude, 2026-10-26, F1, L12): the rough top and its three steps of clustered marks
+## (_fall) there read as a ragged black band along every north wall once the tile above a face was in sight.
 const CAP := 7     # the brick-top row: the brink, five rows of block tops, the joint
 const STEP := 4    # each step's depth into the dark
 const BACK_MIN := 4
 const BACK_SPAN := 4
 
 
-static func _wall_tops(img: Image, data: Dictionary, t: int, face_h: int, top: Color) -> void:
+static func _wall_tops(img: Image, data: Dictionary, t: int, face_h: int, _top: Color) -> void:
 	var w: int = data["w"]
 	var h: int = data["h"]
 	var tiles: PackedByteArray = data["tiles"]
 	var W := w * t
-	var H := h * t
 	var lit_tops: Array = []
 	for c in WALL:
 		lit_tops.append(c.lightened(0.08))   # the face's course tops, the same colours
 	# How far each wall pixel is from the lit ground (_wall_field, shared with the Rootbank Warren since pass 5 A3).
 	var F := _wall_field(data, t, face_h + 1)
 	var dists: PackedInt32Array = F[0]
-	var softs: PackedInt32Array = F[1]
 	var alongs: PackedByteArray = F[2]
-	var faces: PackedByteArray = F[3]
 	var deep: PackedByteArray = F[4]
-	# The marks' fine noise for the steps into the dark, laid out once (pass 5 A4; _fall).
-	var M := _layer(0, 0, W, h * t, MARK_CELL, MARK_K)
-	var mlat: PackedFloat64Array = M[0]
-	var mlw: int = M[1]
-	var mcol: PackedInt32Array = M[2]
-	var mfxs: PackedFloat64Array = M[3]
-	var mrows: PackedInt32Array = M[4]
-	var mfys: PackedFloat64Array = M[5]
 	for y in h:
 		for x in w:
 			if tiles[y * w + x] != Gen.WALL:
@@ -356,7 +344,6 @@ static func _wall_tops(img: Image, data: Dictionary, t: int, face_h: int, top: C
 					if d <= 0:
 						continue   # the tile's own face: _walls paints it
 					d -= 1
-					var soft := softs[row + px]
 					var along_x := alongs[row + px] == 1
 					var gx := x * t + px
 					var c: Color
@@ -388,20 +375,8 @@ static func _wall_tops(img: Image, data: Dictionary, t: int, face_h: int, top: C
 								c = _shade(MORTAR, 0.8)   # a joint, or a chip in the stone
 						elif d == CAP + depth:
 							c = _shade(MORTAR, 0.55)   # the dark line along its back edge
-						elif faces[row + px] == 0 or not along_x or soft > CAP + 3 * STEP + 7:
-							c = Color.BLACK   # beside or below the floor: the dark, behind the cap row; above a face: past the steps
 						else:
-							# Above a face: rough dark top, then the steps (_fall); their edges wander up to six pixels.
-							var wander := int(_noise(gx, gy, 9.0, 81) * 7.0)
-							var e := soft - CAP - 1 - wander
-							# Near the picture's edge the pixel is pushed down the steps, so the fall ends in black along a
-							# wandering line instead of being cut off by the frame (Claude, 2026-10-24, pass 6 P1, LO6-04).
-							var edge := mini(mini(gx, gy), mini(W - 1 - gx, H - 1 - gy))
-							e = maxi(e, 3 * STEP - edge + wander)
-							var i := mrows[gy] + mcol[gx]
-							var f := mfxs[gx]
-							var v := lerpf(lerpf(mlat[i], mlat[i + 1], f), lerpf(mlat[i + mlw], mlat[i + mlw + 1], f), mfys[gy])
-							c = _fall(e, STEP, v, top, MORTAR, gx, gy)
+							c = Color.BLACK   # past the cap row's back line, the dark (above a face too since pass 8 F1)
 					img.set_pixel(gx, gy, c)
 
 

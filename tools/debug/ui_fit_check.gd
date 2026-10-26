@@ -138,7 +138,7 @@ func _run() -> void:
 		_ok(bottom <= 596.0, "title, %d rows: menu ends at %.0f, above the key line at 608" % [n, bottom])
 	# 5. Right-aligned hints, grown left when too wide: on screen at both ends.
 	# The pad key strips too (Claude, 2026-10-23, pass 2): the strip follows the last device used.
-	for s in ["WASD  walk     E  use", "The Hollow's mouth starts a run"] + Dungeon.HUD_KEYS + Dungeon.hud_keys(false, "pad") + Dungeon.hud_keys(true, "pad"):
+	for s in ["WASD  walk     E  use", "The Mouth of the Hollow starts a run"] + Dungeon.HUD_KEYS + Dungeon.hud_keys(false, "pad") + Dungeon.hud_keys(true, "pad"):
 		var w := UI.width_in(s, UI.fit(s, "label", 194))
 		var left := 946.0 + 194.0 - maxf(194.0, w)
 		_ok(left >= 0.0 and left + maxf(194.0, w) <= 1152.0, "hint '%s': %.0f px, drawn from x %.0f to 1140" % [s, w, left])
@@ -155,10 +155,14 @@ func _run() -> void:
 	# (Claude, 2026-10-23, pass 3 T9 and R2: both moved off UI.HEAD).
 	var frame_b := FRAME_BEVEL
 	var hint_top: float = 116.0 - UI.font("label").get_ascent(UI.type_size("label"))
-	# The street's sign is in the prose role since 2026-10-23 (hub_town.gd, T9): rows of UI.font("body"), 22 px apart.
-	var body_h: float = roundf(UI.font("body").get_height(UI.type_size("body")))
-	var street_end: float = 64.0 + body_h + UI.font("body").get_descent(UI.type_size("body"))
-	_ok(street_end <= hint_top, "town panel, 2 lines: the text ends at %.0f, above the key hint's top at %.0f" % [street_end, hint_top])
+	# The street's sign is in the talk box's story role since pass 8 (hub_town.gd sign_layout, street T4), the box
+	# growing upward a row past two with the key hint at its foot less 12: measured by the street's own layout.
+	var HubTown: GDScript = load("res://scripts/town/hub_town.gd")
+	var street_lay: Dictionary = HubTown.call("sign_layout", "Rootbank Warren is behind you and the parcel is back. Starward will want to see it in the Wayline Hall. And with the crew out of the Warren, the river road's clear: the Storage is open.")
+	var street_rows: int = (street_lay["rows"] as PackedStringArray).size()
+	var street_end: float = (street_lay["at"] as Vector2).y + float(street_lay["row_h"]) * (street_rows - 1) + UI.font("story").get_descent(UI.type_size("story"))
+	var street_hint: float = (street_lay["box"] as Rect2).end.y - 12.0 - (116.0 - hint_top)
+	_ok(street_end <= street_hint, "town panel on the street, %d rows: the text ends at %.0f, above the key hint's top at %.0f" % [street_rows, street_end, street_hint])
 	# In a room the panel is town_room.gd's spot_layout (Claude, 2026-10-23, R2): the story face, two rows in the
 	# 128 px box, the box growing upward a row for each row past two. Measured by the room's own layout.
 	var TownRoom: GDScript = load("res://scripts/town/town_room.gd")
@@ -173,9 +177,9 @@ func _run() -> void:
 		if String(p.get("service", "")) in ["growth", "storage"]:
 			continue   # the shrine and storage draw their own panels
 		signs += 1
-		var n := UI.wrap_text(String(p.get("what", "")), 716.0, "body").split("\n").size()   # hub_town.gd wraps the street's signs this way (T9)
-		if n > 2:
-			sign_cut.append("%s (%d lines)" % [p["name"], n])
+		var street_sign: Dictionary = HubTown.call("sign_layout", String(p.get("what", "")))   # pass 8 T4: grows upward as a room's sign does
+		if (street_sign["box"] as Rect2).position.y - 22.0 < 104.0:
+			sign_cut.append("%s (%d rows)" % [p["name"], (street_sign["rows"] as PackedStringArray).size()])
 	var rooms: Dictionary = TownRoom.get_script_constant_map()["ROOMS"]
 	for r in rooms:
 		for spot in rooms[r].get("spots", []):

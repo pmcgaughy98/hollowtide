@@ -1,0 +1,11 @@
+--- a/tools/debug/opening_flow_check.gd
++++ b/tools/debug/opening_flow_check.gd
+@@ -118,6 +118,8 @@
+ 		await capture("3-frozen")
+ 	else:
+ 		await key(KEY_ENTER)
++		verify("One Enter only arms storm skip", scene_name() == "storm_open.tscn" and storm._skip_armed)
++		await key(KEY_ENTER)
+ 	if not verify("Storm enters actual soul scene", await until(func() -> bool: return scene_name() == "soul_prologue.tscn", 900)):
+ 		await finish(); return
+ 	var soul: Node = current_scene

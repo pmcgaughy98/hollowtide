@@ -58,6 +58,7 @@ static func after(dg) -> void:
 	var pc: Vector2 = BossIntro.pond_center(dg)
 	dg.cutscene = true
 	dg.talk.clear()
+	BossIntro._aim = null
 	# The leader is in the scene from its first frame (L7-02, Claude, 2026-10-26): whole and in sight, never a ring
 	# with no one on it, and lying in the team's down pose when it was the one that fell.
 	var lead: Dictionary = dg.ents[0]
@@ -85,15 +86,24 @@ static func after(dg) -> void:
 			return
 		dg._burst(to, Color("#cfe9f5"), 10, 60.0, 0.5, 180.0, 1.0)
 		e["hp"] = 0
-	# 2. The team turns to the pond; it lights from below.
-	BossIntro._pan(dg, pc + Vector2(0, 26), 0.8)   # the pond in the upper half, clear of the text box, room for the stone to rise
-	for e in BossIntro._team(dg):
-		e["facing"] = "n"
-		dg._set_tex(e, e["art"]["still"]["n"])
+	# 2. The pond lights from below, and the team goes to the water's edge to look (Claude, 2026-10-26, pass 8 S4, L26):
+	# they fought well below the pond, so its light and the stone rose with the whole team out of the frame. Side by
+	# side at the near shore, as in the entrance; the Guildmaster strolls up behind them. The camera comes up with them.
 	dg._sfx("ripple", -4.0)
 	dg.intro["ripple_at"] = Time.get_ticks_msec()
 	dg.create_tween().tween_method(func(v: float) -> void: dg.intro["stone_glow"] = v, 0.0, 1.0, 1.6)
-	await BossIntro._wait(dg, 1.0)
+	var walk := _to_shore(dg)
+	BossIntro._pan(dg, pc + Vector2(0, 26), maxf(0.8, walk))   # the pond in the upper half, room for the stone to rise
+	var guard := 0
+	while BossIntro._alive(dg) and BossIntro._team(dg).any(func(e: Dictionary) -> bool: return e.get("walking", false)) and guard < 60:
+		await BossIntro._wait(dg, 0.1)
+		guard += 1
+	if not BossIntro._alive(dg):
+		return
+	for e in BossIntro._team(dg):
+		e["facing"] = "n"
+		dg._set_tex(e, e["art"]["still"]["n"])
+	await BossIntro._wait(dg, 0.4)
 	if not BossIntro._alive(dg):
 		return
 	BossIntro._emote(dg, 1 if dg.ents.size() > 1 and dg.ents[1]["team"] == 0 else 0, "!")
@@ -128,7 +138,7 @@ static func after(dg) -> void:
 	var s1: Vector2 = dg.ents[0]["node"].position + Vector2(0, -38)
 	var drift: Tween = dg.create_tween()
 	drift.tween_method(func(t: float) -> void: dg.intro["stone"] = s0.lerp(s1, t) + Vector2(0, -14.0 * sin(t * PI)), 0.0, 1.0, 1.1).set_trans(Tween.TRANS_SINE)
-	BossIntro._pan(dg, dg.ents[0]["node"].position + Vector2(0, -20), 1.1)
+	BossIntro.frame(dg, dg.ents[0]["node"].position + Vector2(0, -20), 1.1, [dg.intro.get("starward", {})])
 	await drift.finished
 	if not BossIntro._alive(dg):
 		return
@@ -142,6 +152,48 @@ static func after(dg) -> void:
 	dg.intro.erase("stone")
 	dg.cutscene = false
 	dg._finish_after_boss()
+
+
+## Every teammate to the pond's near shore, side by side (S4), and Starward to two rows behind the leader's spot.
+## Returns about how long the longest walk takes, in seconds; the walks run on their own.
+static func _to_shore(dg) -> float:
+	var shore: int = dg.pond.end.y
+	var cx: int = dg.pond.position.x + dg.pond.size.x / 2
+	var spots := [Vector2i(cx, shore), Vector2i(cx + 1, shore), Vector2i(cx - 1, shore), Vector2i(cx + 2, shore)]
+	var team := BossIntro._team(dg)
+	var longest := 0
+	for k in team.size():
+		var to: Vector2i = spots[mini(k, spots.size() - 1)]
+		longest = maxi(longest, absi(to.x - team[k]["pos"].x) + absi(to.y - team[k]["pos"].y))
+		BossIntro._walk_to(dg, team[k], to)
+	var star: Dictionary = dg.intro.get("starward", {})
+	if not star.is_empty() and star["node"].visible:
+		var behind := Vector2i(cx, shore + 2)
+		if not dg._floor_at(behind):
+			behind = Vector2i(cx, shore + 1)
+		_stroll(dg, star, behind, maxf(0.8, longest * 0.3))
+	return longest * 0.3
+
+
+## Starward walks to `to` (a tile) over `secs` with its walk frames, as it walked in, then stands facing north.
+static func _stroll(dg, star: Dictionary, to: Vector2i, secs: float) -> void:
+	var sn: Node2D = star["node"]
+	var dest: Vector2 = dg._tile_px(to)
+	var d := dest - sn.position
+	var face := ("n" if d.y < 0.0 else "s") if absf(d.y) >= absf(d.x) else ("e" if d.x > 0.0 else "w")
+	var frames: Array = star["art"]["walk"].get(face, star["art"]["walk"].get("n", []))
+	star["pos"] = to
+	var t0 := Time.get_ticks_msec()
+	var walk: Tween = dg.create_tween()
+	walk.tween_property(sn, "position", dest, secs)
+	while walk.is_running() and BossIntro._alive(dg):
+		if not frames.is_empty():
+			dg._set_tex(star, frames[int((Time.get_ticks_msec() - t0) / 90) % frames.size()])
+		sn.z_index = int(sn.position.y)
+		await dg.get_tree().process_frame
+	if BossIntro._alive(dg):
+		star["facing"] = "n"
+		dg._set_tex(star, star["art"]["still"]["n"])
 
 
 # ---------------------------------------------------------------- drawing
@@ -211,8 +263,8 @@ static func _say(dg, lines: Array) -> void:
 		if l.size() > 2 and form != "":
 			form += ":" + String(l[2])
 		dg.talk.append([who.replace("{partner}", String(pe["name"])).replace("{boss}", String(b["name"])), String(l[1]).replace("{leader}", String(dg.ents[0]["name"])), form])
-	while BossIntro._alive(dg) and not dg.talk.is_empty():
-		await dg.get_tree().process_frame
+	# Each speaker and the leader in the shot, the team above the bottom bar (S4); Starward is not in the room's list.
+	await BossIntro.read_lines(dg, {"Starward": dg.intro["starward"]} if dg.intro.has("starward") else {})
 
 
 static func _team(dg) -> Array:
@@ -231,7 +283,7 @@ static func _standoff(dg) -> void:
 	# 1. Spent: both sides heaving, breath puffs over everyone.
 	dg.intro["spent"] = true
 	dg._sfx("spent_pant", -2.0)
-	BossIntro._pan(dg, (wn.position + lead["node"].position) * 0.5 + Vector2(0, 10), 0.6)
+	BossIntro.frame(dg, (wn.position + lead["node"].position) * 0.5 + Vector2(0, 10), 0.6, [w])
 	await BossIntro._wait(dg, 1.6)
 	if not BossIntro._alive(dg):
 		return
@@ -310,12 +362,18 @@ static func _standoff(dg) -> void:
 		if dg._floor_at(lead["pos"] + Vector2i(0, k)):
 			gate = lead["pos"] + Vector2i(0, k)
 			break
+	# _make opens a growth record for any team-0 creature; Starward is only shown, so a "6:2" record it opened goes
+	# again and is never saved with the run (Claude, 2026-10-26, pass 8 S5, LH8-08).
+	var had: bool = dg.growth.has("6:2")
 	var star: Dictionary = dg._make(6, 2, 0, gate)   # Starward, the Guildmaster: shown, not part of the fight
+	if not had:
+		dg.growth.erase("6:2")
+	dg.intro["starward"] = star   # known from here, so its lines can frame it (S4)
 	var sn: Node2D = star["node"]
 	star["facing"] = "n"
 	dg._set_tex(star, star["art"]["still"]["n"])
 	sn.position = dg._tile_px(gate) + Vector2(0, 40)
-	BossIntro._pan(dg, (dg._tile_px(gate) + wn.position) * 0.5, 0.8)
+	BossIntro.frame(dg, (dg._tile_px(gate) + wn.position) * 0.5, 0.8, [w])
 	# It walks in, unhurried.
 	var frames: Array = star["art"]["walk"].get("n", [])
 	var t0 := Time.get_ticks_msec()
@@ -392,11 +450,10 @@ static func _standoff(dg) -> void:
 		dg._set_tex(e, e["art"]["still"][e["facing"]])
 	dg.intro["dazed"] = false
 	dg._sfx("dizzy", -8.0)
-	BossIntro._pan(dg, (sn.position + lead["node"].position) * 0.5 + Vector2(0, 10), 0.6)
+	BossIntro.frame(dg, (sn.position + lead["node"].position) * 0.5 + Vector2(0, 10), 0.6, [star])
 	await _say(dg, AFTER_PUNCH)
 	if not BossIntro._alive(dg):
 		return
-	dg.intro["starward"] = star
 
 
 ## Over the creatures: breath puffs while the two sides are spent, the strike gathering under the leader,

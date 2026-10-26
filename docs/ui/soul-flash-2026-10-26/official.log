@@ -1,0 +1,10 @@
+2 checks, 1 at a time, logs in D:\dev\hollowtide-soul-flash-20261026\runner
+  PASS     opening_flow_check                  4.3s  
+  PASS     soul_prologue_check                 3.8s  
+
+RESULT   CHECK                              SECS  EXIT  FIRST PROBLEM OR NOTE
+PASS     opening_flow_check                  4.3     0  
+PASS     soul_prologue_check                 3.8     0  
+
+PASS 2
+exit 0: nothing failed

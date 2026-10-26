@@ -1,0 +1,90 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+OpenGL API 3.3.0 NVIDIA 610.62 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce GTX 1660 SUPER
+
+[godot_ai game_helper] registered mcp capture (debugger active=false, logger=true)
+OPEN_INPUT_CHECK storm-E first press only arms skip -> ok
+OPEN_INPUT_CHECK storm-E repeat before release cannot skip -> ok
+OPEN_INPUT_CHECK storm-E release opens second-press gate -> ok
+OPEN_INPUT_CHECK storm-E second press enters existing soul destination -> ok
+OPEN_INPUT_CHECK storm-E private saved journey unchanged -> ok
+OPEN_INPUT_CHECK storm-J first press only arms skip -> ok
+OPEN_INPUT_CHECK storm-J repeat before release cannot skip -> ok
+OPEN_INPUT_CHECK storm-J release opens second-press gate -> ok
+OPEN_INPUT_CHECK storm-J second press enters existing soul destination -> ok
+OPEN_INPUT_CHECK storm-J private saved journey unchanged -> ok
+OPEN_INPUT_CHECK storm-Enter first press only arms skip -> ok
+OPEN_INPUT_CHECK storm-Enter repeat before release cannot skip -> ok
+OPEN_INPUT_CHECK storm-Enter release opens second-press gate -> ok
+OPEN_INPUT_CHECK storm-Enter visible bound-key prompt fits -> ok
+OPEN_INPUT_CHECK storm-Enter second press enters existing soul destination -> ok
+OPEN_INPUT_CHECK storm-Enter private saved journey unchanged -> ok
+OPEN_INPUT_CHECK storm-Space first press only arms skip -> ok
+OPEN_INPUT_CHECK storm-Space repeat before release cannot skip -> ok
+OPEN_INPUT_CHECK storm-Space release opens second-press gate -> ok
+OPEN_INPUT_CHECK storm-Space second press enters existing soul destination -> ok
+OPEN_INPUT_CHECK storm-Space private saved journey unchanged -> ok
+OPEN_INPUT_CHECK storm-pad-A first press only arms skip -> ok
+OPEN_INPUT_CHECK storm-pad-A repeat before release cannot skip -> ok
+OPEN_INPUT_CHECK storm-pad-A release opens second-press gate -> ok
+OPEN_INPUT_CHECK storm-pad-A visible bound-key prompt fits -> ok
+OPEN_INPUT_CHECK storm-pad-A second press enters existing soul destination -> ok
+OPEN_INPUT_CHECK storm-pad-A private saved journey unchanged -> ok
+OPEN_INPUT_CHECK storm-pad-X first press only arms skip -> ok
+OPEN_INPUT_CHECK storm-pad-X repeat before release cannot skip -> ok
+OPEN_INPUT_CHECK storm-pad-X release opens second-press gate -> ok
+OPEN_INPUT_CHECK storm-pad-X second press enters existing soul destination -> ok
+OPEN_INPUT_CHECK storm-pad-X private saved journey unchanged -> ok
+OPEN_INPUT_CHECK storm hint begins hidden -> ok
+OPEN_INPUT_CHECK storm hint appears after four seconds without arming -> ok
+OPEN_INPUT_CHECK soul-E advances exactly one story line -> ok
+OPEN_INPUT_CHECK soul-E echo never advances again -> ok
+OPEN_INPUT_CHECK soul-J advances exactly one story line -> ok
+OPEN_INPUT_CHECK soul-J echo never advances again -> ok
+OPEN_INPUT_CHECK soul-Enter advances exactly one story line -> ok
+OPEN_INPUT_CHECK soul-Enter echo never advances again -> ok
+OPEN_INPUT_CHECK soul-Space advances exactly one story line -> ok
+OPEN_INPUT_CHECK soul-Space echo never advances again -> ok
+OPEN_INPUT_CHECK soul-pad-A advances exactly one story line -> ok
+OPEN_INPUT_CHECK soul-pad-X advances exactly one story line -> ok
+OPEN_INPUT_CHECK left stick selects once -> ok
+OPEN_INPUT_CHECK held stick does not repeat -> ok
+OPEN_INPUT_CHECK centred stick can select again in same direction -> ok
+OPEN_INPUT_CHECK stick opposite direction works -> ok
+OPEN_INPUT_CHECK pad confirms one selected creature -> ok
+OPEN_INPUT_CHECK save private binding confirm/0 -> ok
+OPEN_INPUT_CHECK save private binding confirm/1 -> ok
+OPEN_INPUT_CHECK save private binding attack/0 -> ok
+OPEN_INPUT_CHECK save private binding attack/1 -> ok
+OPEN_INPUT_CHECK save private binding interact/0 -> ok
+OPEN_INPUT_CHECK save private binding move_left/0 -> ok
+OPEN_INPUT_CHECK save private binding move_left/1 -> ok
+OPEN_INPUT_CHECK save private binding move_right/0 -> ok
+OPEN_INPUT_CHECK save private binding move_right/1 -> ok
+OPEN_INPUT_CHECK save private binding cancel/0 -> ok
+OPEN_INPUT_CHECK saved bindings reapply from private file -> ok
+OPEN_INPUT_CHECK retired raw A/D keys no longer bypass rebind -> ok
+OPEN_INPUT_CHECK saved rebound right works -> ok
+OPEN_INPUT_CHECK saved rebound left works -> ok
+OPEN_INPUT_CHECK retired raw advance keys no longer bypass rebind -> ok
+OPEN_INPUT_CHECK saved rebound confirm chooses once -> ok
+OPEN_INPUT_CHECK choice input leaves saved journey untouched -> ok
+OPEN_INPUT_CHECK storm-rebound-K first press only arms skip -> ok
+OPEN_INPUT_CHECK storm-rebound-K repeat before release cannot skip -> ok
+OPEN_INPUT_CHECK storm-rebound-K release opens second-press gate -> ok
+OPEN_INPUT_CHECK storm-rebound-K visible bound-key prompt fits -> ok
+OPEN_INPUT_CHECK storm-rebound-K second press enters existing soul destination -> ok
+OPEN_INPUT_CHECK storm-rebound-K private saved journey unchanged -> ok
+OPEN_INPUT_CHECK save advance trigger rebind -> ok
+OPEN_INPUT_CHECK storm-trigger first press only arms skip -> ok
+OPEN_INPUT_CHECK storm-trigger repeat before release cannot skip -> ok
+OPEN_INPUT_CHECK storm-trigger release opens second-press gate -> ok
+OPEN_INPUT_CHECK storm-trigger second press enters existing soul destination -> ok
+OPEN_INPUT_CHECK storm-trigger private saved journey unchanged -> ok
+OPEN_INPUT_CHECK rebound key consumes title prelude -> ok
+OPEN_INPUT_CHECK prelude key never starts New Game -> ok
+OPEN_INPUT_CHECK title no longer patches input map -> ok
+OPEN_INPUT_CHECK rebound key opens focused title Options -> ok
+OPEN_INPUT_CHECK rebound Back closes Options -> ok
+OPEN_INPUT_CHECK rebound key opens focused title Help -> ok
+OPEN_INPUT_CHECK rebound Back returns to Help button -> ok
+OPENING INPUT RESULT {"failed":0,"passed":85,"total":85}

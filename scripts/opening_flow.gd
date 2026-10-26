@@ -54,25 +54,41 @@ func _finish_boot() -> void:
 	if _boot_fading or _boot_done:
 		return
 	_boot_fading = true
-	# Start the approved walk-in as the menu is revealed.
-	_time = 0.0
-	_wordmark.show()
-	_show_page("main", _buttons[0])
-	_page = "boot"
-	_main_panel.mouse_filter = Control.MOUSE_FILTER_IGNORE
-	get_viewport().gui_release_focus()
+	# Clear the launch card before the menu wordmark appears: never crossfade two logos.
+	var reveal: Array[CanvasItem] = [_wordmark, _main_panel]
+	var hint := _ui.get_node_or_null("InputHint") as CanvasItem
+	if hint != null: reveal.append(hint)
+	for item in reveal: item.modulate.a = 0.0
+	_quiet_focus = true
 	if not _reduce_motion:
 		await create_tween().tween_property(_boot, "modulate:a", 0.0, 0.5).finished
+	_boot.modulate.a = 0.0
 	_boot.hide()
+	_time = 0.0
+	_wordmark.show()
+	_main_panel.show()
+	_main_panel.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	if not _reduce_motion:
+		var reveal_tween := create_tween().set_parallel()
+		for item in reveal: reveal_tween.tween_property(item, "modulate:a", 1.0, 0.25)
+		await reveal_tween.finished
+	for item in reveal: item.modulate.a = 1.0
 	_boot_done = true
 	_main_panel.mouse_filter = Control.MOUSE_FILTER_STOP
 	_show_page("main", _buttons[0])
+	# _show_page grabs focus deferred; loading a title should be silent.
+	set_deferred("_quiet_focus", false)
+
 
 func _input(event: InputEvent) -> void:
+	if event is InputEventJoypadMotion: UI._motion_edge(event)
 	if _boot_done:
 		return
 	# Consume the skip, including during the reveal, so it cannot start New Game.
-	if event.is_action_pressed("ui_accept") or event.is_action_pressed("ui_cancel") or (event is InputEventMouseButton and event.pressed):
+	var advance := false
+	for action in UI.INPUT_ADVANCE:
+		if UI.pressed(event, action): advance = true
+	if advance or UI.pressed(event,"ui_accept") or UI.pressed(event,"ui_cancel") or UI.pressed(event,"cancel") or (event is InputEventMouseButton and event.pressed):
 		_finish_boot()
 		get_viewport().set_input_as_handled()
 

@@ -1,0 +1,19 @@
+{
+  "command": [
+    "C:\\Users\\pmcga\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+    "C:\\Users\\pmcga\\dev\\hollowtide\\tools\\debug\\run_checks.py",
+    "opening_flow",
+    "soul_prologue",
+    "input_map",
+    "rebind",
+    "--jobs",
+    "1",
+    "--logs",
+    "D:\\dev\\hollowtide-opening-input-20261026\\runner",
+    "--md",
+    "D:\\dev\\hollowtide-opening-input-20261026\\runner-result.md"
+  ],
+  "APPDATA": "D:\\dev\\hollowtide-opening-input-20261026\\official-profile",
+  "LOCALAPPDATA": "D:\\dev\\hollowtide-opening-input-20261026\\official-local-profile",
+  "exit": 0
+}

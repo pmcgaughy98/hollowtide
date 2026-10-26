@@ -1,0 +1,26 @@
+{
+	"cases": [
+		{
+			"case": "normal-auto",
+			"cursor_ticks_at_load": 0,
+			"done_frame": 77,
+			"first_menu_frame": 70,
+			"last_launch_frame": 67,
+			"menu_fade_frames": 7,
+			"overlap_frames": 0
+		},
+		{
+			"case": "reduced-auto",
+			"cursor_ticks_at_load": 0,
+			"done_frame": 5,
+			"first_menu_frame": 5,
+			"last_launch_frame": 4,
+			"menu_fade_frames": 0,
+			"overlap_frames": 0
+		}
+	],
+	"failed": 0,
+	"passed": 20,
+	"phase": "after-legacy",
+	"total": 20
+}

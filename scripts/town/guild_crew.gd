@@ -3,7 +3,8 @@ extends RefCounted
 ## docs/creatures/guild-crew-2026-10-11.md, and asked for the lower floor). Built on scene_kit.gd.
 ##
 ## Outside scenes each crew member stands at their post and says a line when the leader talks to them (E).
-## The mail call plays on the Hall's lower floor once before each run, after the Wayline has taken the team on
+## The mail call plays on the Hall's lower floor once in each stage of the story (Claude, 2026-10-26, pass 8 R7 / L-09;
+## it was once before each run, so the whole 23-line call came back after every run), after the Wayline has taken the team on
 ## (R3 of docs/design/genre-synthesis-2026-10-12.md, 2026-10-12: parcel sorting in our own shape, not a briefing
 ## with a cheer). Wayling has the morning's mail on the table by the mark; the crew gather round; Wayling calls
 ## routes, not names, and whoever runs that route claims it. Muskin is late as ever and gets the route nobody
@@ -47,15 +48,16 @@ static func lines_for(form: String, story: Dictionary) -> Array:
 
 ## Who a room may show once the Wayline has taken the team on (Claude, 2026-10-24, pass 6 / L6-15), for
 ## SceneKit.read_ahead under the door's fade: the crew at their posts, on the lower floor the whole mail call, and
-## the Postmaster in the chamber.
+## the Postmaster in the chamber, and in the Hall for the runners scene (Claude, 2026-10-26, pass 8 R8: it was read
+## on the Hall's build, about 70 ms of the frame the fade lifted on).
 static func cast_of(room_id: String) -> Array:
 	var out: Array = []
 	for p in POSTS.get(room_id, []):
 		out.append(p[0])
 	if room_id == "hall_low":
 		out.append_array(["wayling", "muskin", "starward"])
-	elif room_id == "chamber":
-		out.append("starward")   # at the dais once the trial is set (town_room.gd)
+	elif room_id == "chamber" or room_id == "hall":
+		out.append("starward")   # at the dais once the trial is set (town_room.gd); behind the desk to name the runners
 	return out
 
 
@@ -96,7 +98,9 @@ const BACK_VIA := {"rinsepaw": [Vector2i(17, 7), Vector2i(11, 7)], "wickglow": [
 const STARWARD_AT := Vector2i(15, 5)
 
 
-## Once before each run, after the Wayline has taken the team on. (The record's key keeps its old name, rollcall_runs.)
+## Once in each stage of the story, after the Wayline has taken the team on (pass 8 R7): the story flag "mail_call"
+## holds the stage the call last played in, and the call waits until the story moves on. The old rollcall_runs count
+## in older saves is no longer read.
 static func pending(room) -> bool:
 	if room.room_id != "hall_low":
 		return false
@@ -104,11 +108,16 @@ static func pending(room) -> bool:
 	var story: Dictionary = rec.get("story", {})
 	if not story.get("guild_trial", false):
 		return false
-	return int(rec.get("rollcall_runs", -1)) != _runs(rec)
+	return String(story.get("mail_call", "")) != stage_of(rec)
 
 
-static func _runs(rec: Dictionary) -> int:
-	return int(rec.get("cleared", 0)) + int(rec.get("faints", 0))
+## The story stage, as the mail call reads it: the parcel's state, whether the team are runners, whether the Hollow's
+## Warden is beaten, and where the Warden's stone is. The Postmaster's note changes with these (_postmasters_note).
+static func stage_of(rec: Dictionary) -> String:
+	var story: Dictionary = rec.get("story", {})
+	var beaten: Array = rec.get("beaten", [])
+	return "%s|%s|%s|%s" % [String(story.get("parcel", "")), "runner" if story.get("runner", false) else "",
+		"hollow" if "hollow" in beaten else "", String(story.get("stone", ""))]
 
 
 ## The Postmaster's morning note: the runners' route comes from here, by where the story stands.
@@ -193,7 +202,9 @@ static func run(room) -> void:
 		["Slipjaw", "Left. It's always left.", "angry"]])
 	if not SceneKit._alive(room):
 		return
-	rec["rollcall_runs"] = _runs(rec)
+	if not rec.has("story") or not (rec["story"] is Dictionary):
+		rec["story"] = {}
+	rec["story"]["mail_call"] = stage_of(rec)   # played for this stage of the story (pass 8 R7)
 	# Everyone back to work: the crew to their posts, Wayling upstairs, Starward into the chamber.
 	# Those crossing the room go round the rug's far (north) side, through BACK_VIA, behind the team, not through it.
 	var back: Array = []
@@ -203,10 +214,21 @@ static func run(room) -> void:
 	back.append([crew["grubbit"], BACK_VIA["grubbit"] + [Vector2i(24, 14)]])
 	back.append([way, BACK_VIA["wayling"] + [Vector2i(24, 13)]])
 	back.append([star, [Vector2i(14, 2)]])
+	# The team closes up behind the leader as the crew leave (Claude, 2026-10-26, pass 8 R1 / L01): the line-up round
+	# the mark stood one member a tile off the next and the leader eased off its tile, so the first step after the call
+	# pulled the recruits across the rug in one jump. The leader eases back onto its tile; the others walk to the tiles
+	# a team arriving there would stand on (town_room.gd trail_tiles), each its own, off the crew and the furniture.
+	var lead: Dictionary = room.team[0]
+	room.create_tween().tween_property(lead["node"], "position", room._px(lead["pos"]), 0.15)
+	var stands: Array = room.trail_tiles(String(lead["facing"]))
+	for k in range(1, mini(room.team.size(), stands.size())):
+		back.append([room.team[k], [stands[k]]])
 	SceneKit.release(room)
 	await _walk_routes(room, back, 0.22)
 	if not SceneKit._alive(room):
 		return
+	room.respace(String(lead["facing"]), stands)   # anyone the crew's walk held up is set on its tile
+	room._place(lead)
 	for e in [crew["grubbit"], way, star]:
 		_despawn(room, e)
 	for p in POSTS["hall_low"]:

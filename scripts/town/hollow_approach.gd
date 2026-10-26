@@ -37,8 +37,17 @@ var stop := "bank"                         # "bank", then "entrance"
 var mode := "teleport"                     # "teleport" from town, "flood" from the waking scene
 var beam := 0.0                            # the teleport's light, 1 at full and fading to 0
 const WOKE_AT := [Vector2(168, 83), Vector2(222, 84)]   # where the waking scene left the two (creature_prologue.gd)
-const LANE := [Vector2(0, 0), Vector2(-13, 9), Vector2(13, 10)]
-const ARRIVE_Y := 192.0                    # where the teleport sets the team down on the walkway
+const LANE := [Vector2(0, 0), Vector2(-13, 9), Vector2(13, 10)]   # the flood's start below the frame (_run_entrance)
+## Where the teleport sets the leader down on the walkway (Claude, 2026-10-26, pass 8 T1 / L01): above the prompt,
+## which covers the canvas from row 170 down, with the trail behind the leader also above it. It was 192, under the
+## prompt: only the leader's ears showed over it.
+const ARRIVE_Y := 140.0
+## The team behind the leader (T1): the partners a step back down the walkway, one to each side of the leader, by the
+## sprites' own sizes (trail_spots), so each stands clear of the others (at the door, two partners had stood over each
+## other and over the leader).
+const TRAIL_BACK := 0.45     # of a partner's opaque height: how far back down the walkway it stands
+const TRAIL_SIDE := 0.85     # of its and the leader's mean opaque width: how far to the side, left then right
+const TRAIL_MIN_BACK := 10.0 # px at the least, at full size
 var ready_to_cross := false
 var busy := false
 var t := 0.0
@@ -51,6 +60,7 @@ var veil: ColorRect
 var prompt: PanelContainer
 var prompt_text: Label
 var door_glow := 0.0
+var arrive_spots: Array = []               # where the teleport set each member down (T1), for the light's columns
 
 
 class QuietBank extends "res://scripts/ui/waking_bank.gd":
@@ -163,6 +173,7 @@ func _process(delta: float) -> void:
 			prompt_text.text = line   # the player picked up a pad, or put it down
 	for e in team:
 		var s: Sprite2D = e["sprite"]
+		s.z_index = int(s.position.y)   # the one further down the walkway is in front (T1)
 		if e.get("walking", false):
 			var fr: Array = e["frames"].get(e["facing"], [])
 			if not fr.is_empty():
@@ -255,9 +266,11 @@ func _arrive() -> void:
 	bank.hide()
 	entrance.show()
 	for k in team.size():
-		team[k]["sprite"].position = Vector2(DOOR_AT.x, ARRIVE_Y) + LANE[k]
-		team[k]["sprite"].hide()
 		_face(team[k], "n")
+	arrive_spots = trail_spots(Vector2(DOOR_AT.x, ARRIVE_Y))
+	for k in team.size():
+		team[k]["sprite"].position = arrive_spots[k]
+		team[k]["sprite"].hide()
 	await _fade(0.0)
 	var tw := create_tween()
 	tw.tween_property(self, "beam", 1.0, 0.15 if reduce_motion else 0.35)
@@ -282,7 +295,10 @@ func _climb() -> void:
 	busy = true
 	prompt.hide()
 	for k in team.size():
-		_walk(team[k], DOOR_AT + Vector2(0, 16) + LANE[k] * 0.6, 40.0 if mode == "flood" else 26.0, 0.82)
+		_face(team[k], "n")
+	var spots := trail_spots(DOOR_AT + Vector2(0, 16), 0.82)   # the line at the door, at the size it walks up to (T1)
+	for k in team.size():
+		_walk(team[k], spots[k], 40.0 if mode == "flood" else 26.0, 0.82)
 	await _all()
 	for e in team:
 		_face(e, "n")
@@ -364,25 +380,78 @@ static func _facing_of(d: Vector2) -> String:
 func _face(e: Dictionary, facing: String) -> void:
 	e["facing"] = facing
 	# The Hollow wilds (Skimlet, Ozbender, Valvekin) have no arena small set: walk them with their dungeon set.
-	var dir := "res://assets/sprites/arena/%s/small/" % e["form"]
-	if not ResourceLoader.exists(dir + "s.png"):
-		dir = "res://assets/sprites/arena/%s/dungeon/" % e["form"]
+	var dir := set_dir(e["form"])
 	if not e["frames"].has(facing):
 		var fr: Array = []
 		var i := 0
 		while ResourceLoader.exists(dir + "walk_%s_f%d.png" % [facing, i]):
-			fr.append(load(dir + "walk_%s_f%d.png" % [facing, i]))
+			fr.append(_tex(dir + "walk_%s_f%d.png" % [facing, i]))
 			i += 1
 		e["frames"][facing] = fr
 	var still := dir + "%s.png" % facing
 	if ResourceLoader.exists(still):
-		_set_tex(e["sprite"], load(still))
+		_set_tex(e["sprite"], _tex(still))
 
 
 func _set_tex(s: Sprite2D, tex: Texture2D) -> void:
 	s.texture = tex
-	var used := tex.get_image().get_used_rect()
+	var used := _used(tex)
 	s.offset.y = tex.get_height() * 0.5 - used.end.y   # feet on the position, as in the waking scene
+
+
+## The walkway's pictures, kept for the session (Claude, 2026-10-26, pass 8 T6 / LH8-09): Highbank asks for the party's
+## on loader threads as the screen goes dark (hub_town.gd enter_hollow, approach_paths), and a picture a thread has
+## read is taken from it here instead of read again on this thread. Each picture's opaque box is read once: _set_tex
+## asked the renderer for the whole picture on every walk frame.
+static var _kept := {}
+static var _boxes := {}
+
+
+static func _tex(path: String) -> Texture2D:
+	if not _kept.has(path):
+		var res: Resource = null
+		if ResourceLoader.load_threaded_get_status(path) in [ResourceLoader.THREAD_LOAD_LOADED, ResourceLoader.THREAD_LOAD_IN_PROGRESS]:
+			res = ResourceLoader.load_threaded_get(path)
+		_kept[path] = res if res is Texture2D else load(path)
+	return _kept[path]
+
+
+static func _used(tex: Texture2D) -> Rect2i:
+	var key := tex.resource_path if tex.resource_path != "" else str(tex.get_instance_id())
+	if not _boxes.has(key):
+		var img := tex.get_image()
+		_boxes[key] = img.get_used_rect() if img != null and not img.is_empty() else Rect2i(Vector2i.ZERO, Vector2i(tex.get_size()))
+	return _boxes[key]
+
+
+## The folder a party member's walkway pictures are read from: its small set, else its dungeon set (the Hollow wilds,
+## Skimlet, Ozbender and Valvekin, have no small set). hub_town.gd's approach_paths names the same pictures.
+static func set_dir(form: String) -> String:
+	var dir := "res://assets/sprites/arena/%s/small/" % form
+	if not ResourceLoader.exists(dir + "s.png"):
+		dir = "res://assets/sprites/arena/%s/dungeon/" % form
+	return dir
+
+
+## The team's spots on the walkway (T1): the leader on `head`, the partners behind it, the first to its left and the
+## second to its right (a further pair a row further back), each set back and aside by the opaque sizes of the
+## pictures they show now; `sc` is the size they stand at. Each partner stands in front of the leader's feet and
+## beside it, never over another.
+func trail_spots(head: Vector2, sc := 1.0) -> Array:
+	var out: Array = [head]
+	var lead := _opaque(team[0])
+	for k in range(1, team.size()):
+		var b := _opaque(team[k])
+		var row := float((k + 1) / 2)
+		var back := maxf(TRAIL_MIN_BACK, b.y * TRAIL_BACK) * sc * row
+		var side := (lead.x + b.x) * 0.5 * TRAIL_SIDE * sc * row * (-1.0 if k % 2 == 1 else 1.0)
+		out.append(head + Vector2(side, back).round())
+	return out
+
+
+func _opaque(e: Dictionary) -> Vector2:
+	var s: Sprite2D = e["sprite"]
+	return Vector2(_used(s.texture).size) if s.texture != null else Vector2(24, 24)
 
 
 func _draw_fx() -> void:
@@ -397,8 +466,8 @@ func _draw_fx() -> void:
 		fx.draw_arc(NODE_AT, 4.0, 0, TAU, 14, Color(0.75, 0.85, 0.66, a * 0.7), 1.0)
 		fx.draw_rect(Rect2(NODE_AT - Vector2(0.5, 0.5), Vector2(1, 1)), Color(1, 1, 0.9, a))
 	if beam > 0.0:
-		for k in team.size():
-			var bp: Vector2 = Vector2(DOOR_AT.x, ARRIVE_Y) + LANE[k]
+		for k in mini(team.size(), arrive_spots.size()):
+			var bp: Vector2 = arrive_spots[k]
 			fx.draw_rect(Rect2(bp.x - 6, 0, 12, bp.y), Color(0.93, 0.95, 0.78, beam * 0.45))
 			fx.draw_rect(Rect2(bp.x - 2, 0, 4, bp.y), Color(1, 1, 0.92, beam * 0.8))
 			fx.draw_arc(bp, 9.0 * (1.2 - beam * 0.4), 0, TAU, 20, Color(0.93, 0.92, 0.70, beam), 1.0)

@@ -104,19 +104,7 @@ var _route_scene: PackedScene
 var _route_request_error: Error = OK
 var _settings_dirty := false
 
-func _ensure_menu_inputs() -> void:
-	# The project overrides these defaults with keyboard-only events.
-	# Add standard pad confirm/cancel for this run, preserving all existing keys.
-	for binding in [["ui_accept", JOY_BUTTON_A], ["ui_cancel", JOY_BUTTON_B]]:
-		var event := InputEventJoypadButton.new()
-		event.device = -1
-		event.button_index = binding[1]
-		if not InputMap.action_has_event(binding[0], event):
-			InputMap.action_add_event(binding[0], event)
-
-
 func _ready() -> void:
-	_ensure_menu_inputs()
 	# The first route loads in the background while the menu shows.
 	_request_route()
 	_load_preferences()
@@ -709,9 +697,19 @@ func _unhandled_input(event: InputEvent) -> void:
 		_cancel_new_game()
 		get_viewport().set_input_as_handled()
 		return
-	if event.is_action_pressed("ui_cancel") and _page != "main" and not _leaving:
+	if (UI.pressed(event,"cancel") or UI.pressed(event,"ui_cancel")) and _page != "main" and not _leaving:
 		_close_panel()
 		get_viewport().set_input_as_handled()
+		return
+	if _leaving or ("_boot_done" in self and not get("_boot_done")): return
+	# GUI keeps its normal focus/accept keys; story bindings can also choose a focused title button.
+	var focused := get_viewport().gui_get_focus_owner()
+	if focused is Button and _focus_controls.has(focused) and not focused.disabled:
+		for action in UI.INPUT_ADVANCE:
+			if UI.pressed(event, action):
+				focused.pressed.emit()
+				get_viewport().set_input_as_handled()
+				return
 
 
 func _place_cursor() -> void:

@@ -1,0 +1,15 @@
+{
+  "baseline_files": 1003,
+  "only_owned_method_changed": true,
+  "shared_and_campaign_sources_exact": true,
+  "baseline_native": "36/36 clean; 14 overlapping frames in each normal case",
+  "installed_native": "66/66 clean; zero overlap in six campaign cases",
+  "legacy_native": "20/20; known 101-instance ObjectDB exit warning",
+  "official": "opening_flow and ui_fit PASS; exit0; raw known exit noise retained",
+  "concurrent_changed_paths": [],
+  "changed_existing_paths": [
+    "scripts/opening_flow.gd"
+  ],
+  "prompt_flag": "prior C6 default OFF unchanged",
+  "Storm_and_soul": "untouched; pending next slices"
+}

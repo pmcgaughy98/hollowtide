@@ -1,0 +1,10 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+[godot_ai game_helper] registered mcp capture (debugger active=false, logger=true)
+Hand-over: chose 1, prologue hero 1, starter already chosen true -> ok
+Waking: 'The bank gives way under you, and the river comes up cold around your feet.' / 'You remember being human. Roots curl against the damp clay.', no starter choice true -> ok
+RESULT: the soul prologue works
+WARNING: 7 ObjectDB instances were leaked at exit (run with `--verbose` for details).
+   at: cleanup (core/object/object.cpp:2536)
+ERROR: 3 resources still in use at exit (run with --verbose for details).
+   at: clear (core/io/resource.cpp:822)

@@ -1,0 +1,51 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+OpenGL API 3.3.0 NVIDIA 610.62 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce GTX 1660 SUPER
+
+[godot_ai game_helper] registered mcp capture (debugger active=false, logger=true)
+LOGO_METRIC {"case":"normal-auto","cursor_ticks_at_load":1,"done_frame":69,"first_menu_frame":54,"last_launch_frame":67,"menu_fade_frames":0,"overlap_frames":14}
+LOGO_CHECK normal-auto title reaches playable menu -> ok
+LOGO_CHECK normal-auto skip inputs never start New Game -> ok
+LOGO_CHECK normal-auto first menu button receives focus -> ok
+LOGO_CHECK normal-auto respects private Reduce motion -> ok
+LOGO_CHECK normal-auto completion is idempotent -> ok
+LOGO_CHECK normal-auto Options still opens after reveal -> ok
+LOGO_METRIC {"case":"normal-keyboard","cursor_ticks_at_load":1,"done_frame":17,"first_menu_frame":2,"last_launch_frame":15,"menu_fade_frames":0,"overlap_frames":14}
+LOGO_CHECK normal-keyboard title reaches playable menu -> ok
+LOGO_CHECK normal-keyboard skip inputs never start New Game -> ok
+LOGO_CHECK normal-keyboard first menu button receives focus -> ok
+LOGO_CHECK normal-keyboard respects private Reduce motion -> ok
+LOGO_CHECK normal-keyboard completion is idempotent -> ok
+LOGO_CHECK normal-keyboard Options still opens after reveal -> ok
+LOGO_METRIC {"case":"normal-pad","cursor_ticks_at_load":1,"done_frame":17,"first_menu_frame":2,"last_launch_frame":15,"menu_fade_frames":0,"overlap_frames":14}
+LOGO_CHECK normal-pad title reaches playable menu -> ok
+LOGO_CHECK normal-pad skip inputs never start New Game -> ok
+LOGO_CHECK normal-pad first menu button receives focus -> ok
+LOGO_CHECK normal-pad respects private Reduce motion -> ok
+LOGO_CHECK normal-pad completion is idempotent -> ok
+LOGO_CHECK normal-pad Options still opens after reveal -> ok
+LOGO_METRIC {"case":"normal-mouse","cursor_ticks_at_load":1,"done_frame":17,"first_menu_frame":2,"last_launch_frame":15,"menu_fade_frames":0,"overlap_frames":14}
+LOGO_CHECK normal-mouse title reaches playable menu -> ok
+LOGO_CHECK normal-mouse skip inputs never start New Game -> ok
+LOGO_CHECK normal-mouse first menu button receives focus -> ok
+LOGO_CHECK normal-mouse respects private Reduce motion -> ok
+LOGO_CHECK normal-mouse completion is idempotent -> ok
+LOGO_CHECK normal-mouse Options still opens after reveal -> ok
+LOGO_METRIC {"case":"reduced-auto","cursor_ticks_at_load":1,"done_frame":5,"first_menu_frame":5,"last_launch_frame":4,"menu_fade_frames":0,"overlap_frames":0}
+LOGO_CHECK reduced-auto title reaches playable menu -> ok
+LOGO_CHECK reduced-auto skip inputs never start New Game -> ok
+LOGO_CHECK reduced-auto first menu button receives focus -> ok
+LOGO_CHECK reduced-auto respects private Reduce motion -> ok
+LOGO_CHECK reduced-auto completion is idempotent -> ok
+LOGO_CHECK reduced-auto Options still opens after reveal -> ok
+LOGO_METRIC {"case":"reduced-keyboard","cursor_ticks_at_load":1,"done_frame":2,"first_menu_frame":2,"last_launch_frame":1,"menu_fade_frames":0,"overlap_frames":0}
+LOGO_CHECK reduced-keyboard title reaches playable menu -> FAIL
+LOGO_CHECK reduced-keyboard skip inputs never start New Game -> FAIL
+LOGO_CHECK reduced-keyboard first menu button receives focus -> ok
+LOGO_CHECK reduced-keyboard respects private Reduce motion -> ok
+LOGO_CHECK reduced-keyboard completion is idempotent -> ok
+LOGO_CHECK reduced-keyboard Options still opens after reveal -> FAIL
+LOGO RESULT {"cases":[{"case":"normal-auto","cursor_ticks_at_load":1,"done_frame":69,"first_menu_frame":54,"last_launch_frame":67,"menu_fade_frames":0,"overlap_frames":14},{"case":"normal-keyboard","cursor_ticks_at_load":1,"done_frame":17,"first_menu_frame":2,"last_launch_frame":15,"menu_fade_frames":0,"overlap_frames":14},{"case":"normal-pad","cursor_ticks_at_load":1,"done_frame":17,"first_menu_frame":2,"last_launch_frame":15,"menu_fade_frames":0,"overlap_frames":14},{"case":"normal-mouse","cursor_ticks_at_load":1,"done_frame":17,"first_menu_frame":2,"last_launch_frame":15,"menu_fade_frames":0,"overlap_frames":14},{"case":"reduced-auto","cursor_ticks_at_load":1,"done_frame":5,"first_menu_frame":5,"last_launch_frame":4,"menu_fade_frames":0,"overlap_frames":0},{"case":"reduced-keyboard","cursor_ticks_at_load":1,"done_frame":2,"first_menu_frame":2,"last_launch_frame":1,"menu_fade_frames":0,"overlap_frames":0}],"failed":3,"passed":33,"phase":"before","total":36}
+WARNING: 5 ObjectDB instances were leaked at exit (run with `--verbose` for details).
+   at: cleanup (core/object/object.cpp:2536)
+ERROR: 1 resources still in use at exit (run with --verbose for details).
+   at: clear (core/io/resource.cpp:822)

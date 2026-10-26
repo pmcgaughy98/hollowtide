@@ -1,0 +1,41 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+OpenGL API 3.3.0 NVIDIA 610.62 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce GTX 1660 SUPER
+
+[godot_ai game_helper] registered mcp capture (debugger active=false, logger=true)
+LIGHTNING_METRIC {"case":"normal","done_frame":328,"effective_reduce":false,"passed_reduce":false,"peak":0.85,"pulses":6,"saved_reduce":false,"shader_peak":0.85,"strikes":[{"end":104,"peak":0.85,"seconds":0.666666666666667,"start":84},{"end":182,"peak":0.85,"seconds":0.666666666666667,"start":162},{"end":239,"peak":0.85,"seconds":0.666666666666667,"start":219}],"thunder_count":3}
+LIGHTNING_CHECK normal three completed strikes -> ok
+LIGHTNING_CHECK normal one thunder per strike on existing SFX path -> ok
+LIGHTNING_CHECK normal time stops and greys -> ok
+LIGHTNING_CHECK normal soul still lands at waking spot -> ok
+LIGHTNING_CHECK normal automatic handoff remains soul prologue -> ok
+LIGHTNING_CHECK normal existing private save remains byte exact -> ok
+LIGHTNING_CHECK normal respects title or shared preference -> ok
+LIGHTNING_CHECK normal normal flashes keep their two pulses -> ok
+LIGHTNING_CHECK normal normal peak remains 0.85 -> ok
+LIGHTNING_METRIC {"case":"forwarded","done_frame":318,"effective_reduce":true,"passed_reduce":true,"peak":0.361904758214951,"pulses":3,"saved_reduce":false,"shader_peak":0.361904758214951,"strikes":[{"end":63,"peak":0.361904758214951,"seconds":0.333333333333333,"start":53},{"end":131,"peak":0.361904758214951,"seconds":0.333333333333333,"start":121},{"end":178,"peak":0.361904758214951,"seconds":0.333333333333333,"start":168}],"thunder_count":3}
+LIGHTNING_CHECK forwarded three completed strikes -> ok
+LIGHTNING_CHECK forwarded one thunder per strike on existing SFX path -> ok
+LIGHTNING_CHECK forwarded time stops and greys -> ok
+LIGHTNING_CHECK forwarded soul still lands at waking spot -> ok
+LIGHTNING_CHECK forwarded automatic handoff remains soul prologue -> ok
+LIGHTNING_CHECK forwarded existing private save remains byte exact -> ok
+LIGHTNING_CHECK forwarded respects title or shared preference -> ok
+LIGHTNING_CHECK forwarded one pulse per strike -> ok
+LIGHTNING_CHECK forwarded state and rendered shader peak at most 0.4 -> ok
+LIGHTNING_CHECK forwarded each flash fades monotonically -> ok
+LIGHTNING_CHECK forwarded each fade lasts about 0.35 seconds -> ok
+LIGHTNING_CHECK forwarded no accelerated strike intervals -> ok
+LIGHTNING_METRIC {"case":"saved","done_frame":318,"effective_reduce":true,"passed_reduce":false,"peak":0.361904758214951,"pulses":3,"saved_reduce":true,"shader_peak":0.361904758214951,"strikes":[{"end":63,"peak":0.361904758214951,"seconds":0.333333333333333,"start":53},{"end":131,"peak":0.361904758214951,"seconds":0.333333333333333,"start":121},{"end":178,"peak":0.361904758214951,"seconds":0.333333333333333,"start":168}],"thunder_count":3}
+LIGHTNING_CHECK saved three completed strikes -> ok
+LIGHTNING_CHECK saved one thunder per strike on existing SFX path -> ok
+LIGHTNING_CHECK saved time stops and greys -> ok
+LIGHTNING_CHECK saved soul still lands at waking spot -> ok
+LIGHTNING_CHECK saved automatic handoff remains soul prologue -> ok
+LIGHTNING_CHECK saved existing private save remains byte exact -> ok
+LIGHTNING_CHECK saved respects title or shared preference -> ok
+LIGHTNING_CHECK saved one pulse per strike -> ok
+LIGHTNING_CHECK saved state and rendered shader peak at most 0.4 -> ok
+LIGHTNING_CHECK saved each flash fades monotonically -> ok
+LIGHTNING_CHECK saved each fade lasts about 0.35 seconds -> ok
+LIGHTNING_CHECK saved no accelerated strike intervals -> ok
+LIGHTNING RESULT {"cases":[{"case":"normal","done_frame":328,"effective_reduce":false,"passed_reduce":false,"peak":0.85,"pulses":6,"saved_reduce":false,"shader_peak":0.85,"strikes":[{"end":104,"peak":0.85,"seconds":0.666666666666667,"start":84},{"end":182,"peak":0.85,"seconds":0.666666666666667,"start":162},{"end":239,"peak":0.85,"seconds":0.666666666666667,"start":219}],"thunder_count":3},{"case":"forwarded","done_frame":318,"effective_reduce":true,"passed_reduce":true,"peak":0.361904758214951,"pulses":3,"saved_reduce":false,"shader_peak":0.361904758214951,"strikes":[{"end":63,"peak":0.361904758214951,"seconds":0.333333333333333,"start":53},{"end":131,"peak":0.361904758214951,"seconds":0.333333333333333,"start":121},{"end":178,"peak":0.361904758214951,"seconds":0.333333333333333,"start":168}],"thunder_count":3},{"case":"saved","done_frame":318,"effective_reduce":true,"passed_reduce":false,"peak":0.361904758214951,"pulses":3,"saved_reduce":true,"shader_peak":0.361904758214951,"strikes":[{"end":63,"peak":0.361904758214951,"seconds":0.333333333333333,"start":53},{"end":131,"peak":0.361904758214951,"seconds":0.333333333333333,"start":121},{"end":178,"peak":0.361904758214951,"seconds":0.333333333333333,"start":168}],"thunder_count":3}],"failed":0,"passed":33,"phase":"after","total":33}

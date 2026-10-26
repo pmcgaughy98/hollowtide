@@ -1,0 +1,20 @@
+--- original/scripts/soul_prologue.gd
++++ installed/scripts/soul_prologue.gd
+@@ -66,6 +66,8 @@
+ 
+ 
+ func _ready() -> void:
++	# Honor the title handoff and the saved preference when opening this scene directly.
++	reduce_motion = reduce_motion or UI.reduce_motion()
+ 	get_tree().root.content_scale_size = Vector2i(1152, 648)
+ 	get_tree().root.content_scale_aspect = Window.CONTENT_SCALE_ASPECT_KEEP
+ 	var vp := SubViewport.new()
+@@ -194,7 +196,7 @@
+ 	tw.tween_property(self, "_soul", target, 0.9).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN)
+ 	tw.tween_property(self, "_soul_scale", 0.2, 0.9)
+ 	await tw.finished
+-	_flash = 1.6
++	_flash = 0.4 if reduce_motion else 1.6
+ 	await get_tree().create_timer(0.7).timeout
+ 	stage = "done"
+ 	var next: Node = load(PROLOGUE).instantiate()

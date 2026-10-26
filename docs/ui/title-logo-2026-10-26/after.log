@@ -1,0 +1,77 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+OpenGL API 3.3.0 NVIDIA 610.62 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce GTX 1660 SUPER
+
+[godot_ai game_helper] registered mcp capture (debugger active=false, logger=true)
+LOGO_METRIC {"case":"normal-auto","cursor_ticks_at_load":0,"done_frame":77,"first_menu_frame":70,"last_launch_frame":67,"menu_fade_frames":7,"overlap_frames":0}
+LOGO_CHECK normal-auto title reaches playable menu -> ok
+LOGO_CHECK normal-auto skip inputs never start New Game -> ok
+LOGO_CHECK normal-auto first menu button receives focus -> ok
+LOGO_CHECK normal-auto respects private Reduce motion -> ok
+LOGO_CHECK normal-auto no rendered frame contains both logos -> ok
+LOGO_CHECK normal-auto prelude hidden at alpha zero -> ok
+LOGO_CHECK normal-auto reveal ends at full opacity -> ok
+LOGO_CHECK normal-auto silent initial focus -> ok
+LOGO_CHECK normal-auto sequential fade or instant reduced swap -> ok
+LOGO_CHECK normal-auto completion is idempotent -> ok
+LOGO_CHECK normal-auto Options still opens after reveal -> ok
+LOGO_METRIC {"case":"normal-keyboard","cursor_ticks_at_load":0,"done_frame":25,"first_menu_frame":18,"last_launch_frame":15,"menu_fade_frames":7,"overlap_frames":0}
+LOGO_CHECK normal-keyboard title reaches playable menu -> ok
+LOGO_CHECK normal-keyboard skip inputs never start New Game -> ok
+LOGO_CHECK normal-keyboard first menu button receives focus -> ok
+LOGO_CHECK normal-keyboard respects private Reduce motion -> ok
+LOGO_CHECK normal-keyboard no rendered frame contains both logos -> ok
+LOGO_CHECK normal-keyboard prelude hidden at alpha zero -> ok
+LOGO_CHECK normal-keyboard reveal ends at full opacity -> ok
+LOGO_CHECK normal-keyboard silent initial focus -> ok
+LOGO_CHECK normal-keyboard sequential fade or instant reduced swap -> ok
+LOGO_CHECK normal-keyboard completion is idempotent -> ok
+LOGO_CHECK normal-keyboard Options still opens after reveal -> ok
+LOGO_METRIC {"case":"normal-pad","cursor_ticks_at_load":0,"done_frame":25,"first_menu_frame":18,"last_launch_frame":15,"menu_fade_frames":7,"overlap_frames":0}
+LOGO_CHECK normal-pad title reaches playable menu -> ok
+LOGO_CHECK normal-pad skip inputs never start New Game -> ok
+LOGO_CHECK normal-pad first menu button receives focus -> ok
+LOGO_CHECK normal-pad respects private Reduce motion -> ok
+LOGO_CHECK normal-pad no rendered frame contains both logos -> ok
+LOGO_CHECK normal-pad prelude hidden at alpha zero -> ok
+LOGO_CHECK normal-pad reveal ends at full opacity -> ok
+LOGO_CHECK normal-pad silent initial focus -> ok
+LOGO_CHECK normal-pad sequential fade or instant reduced swap -> ok
+LOGO_CHECK normal-pad completion is idempotent -> ok
+LOGO_CHECK normal-pad Options still opens after reveal -> ok
+LOGO_METRIC {"case":"normal-mouse","cursor_ticks_at_load":0,"done_frame":25,"first_menu_frame":18,"last_launch_frame":15,"menu_fade_frames":7,"overlap_frames":0}
+LOGO_CHECK normal-mouse title reaches playable menu -> ok
+LOGO_CHECK normal-mouse skip inputs never start New Game -> ok
+LOGO_CHECK normal-mouse first menu button receives focus -> ok
+LOGO_CHECK normal-mouse respects private Reduce motion -> ok
+LOGO_CHECK normal-mouse no rendered frame contains both logos -> ok
+LOGO_CHECK normal-mouse prelude hidden at alpha zero -> ok
+LOGO_CHECK normal-mouse reveal ends at full opacity -> ok
+LOGO_CHECK normal-mouse silent initial focus -> ok
+LOGO_CHECK normal-mouse sequential fade or instant reduced swap -> ok
+LOGO_CHECK normal-mouse completion is idempotent -> ok
+LOGO_CHECK normal-mouse Options still opens after reveal -> ok
+LOGO_METRIC {"case":"reduced-auto","cursor_ticks_at_load":0,"done_frame":5,"first_menu_frame":5,"last_launch_frame":4,"menu_fade_frames":0,"overlap_frames":0}
+LOGO_CHECK reduced-auto title reaches playable menu -> ok
+LOGO_CHECK reduced-auto skip inputs never start New Game -> ok
+LOGO_CHECK reduced-auto first menu button receives focus -> ok
+LOGO_CHECK reduced-auto respects private Reduce motion -> ok
+LOGO_CHECK reduced-auto no rendered frame contains both logos -> ok
+LOGO_CHECK reduced-auto prelude hidden at alpha zero -> ok
+LOGO_CHECK reduced-auto reveal ends at full opacity -> ok
+LOGO_CHECK reduced-auto silent initial focus -> ok
+LOGO_CHECK reduced-auto sequential fade or instant reduced swap -> ok
+LOGO_CHECK reduced-auto completion is idempotent -> ok
+LOGO_CHECK reduced-auto Options still opens after reveal -> ok
+LOGO_METRIC {"case":"reduced-keyboard","cursor_ticks_at_load":0,"done_frame":2,"first_menu_frame":2,"last_launch_frame":1,"menu_fade_frames":0,"overlap_frames":0}
+LOGO_CHECK reduced-keyboard title reaches playable menu -> ok
+LOGO_CHECK reduced-keyboard skip inputs never start New Game -> ok
+LOGO_CHECK reduced-keyboard first menu button receives focus -> ok
+LOGO_CHECK reduced-keyboard respects private Reduce motion -> ok
+LOGO_CHECK reduced-keyboard no rendered frame contains both logos -> ok
+LOGO_CHECK reduced-keyboard prelude hidden at alpha zero -> ok
+LOGO_CHECK reduced-keyboard reveal ends at full opacity -> ok
+LOGO_CHECK reduced-keyboard silent initial focus -> ok
+LOGO_CHECK reduced-keyboard sequential fade or instant reduced swap -> ok
+LOGO_CHECK reduced-keyboard completion is idempotent -> ok
+LOGO_CHECK reduced-keyboard Options still opens after reveal -> ok
+LOGO RESULT {"cases":[{"case":"normal-auto","cursor_ticks_at_load":0,"done_frame":77,"first_menu_frame":70,"last_launch_frame":67,"menu_fade_frames":7,"overlap_frames":0},{"case":"normal-keyboard","cursor_ticks_at_load":0,"done_frame":25,"first_menu_frame":18,"last_launch_frame":15,"menu_fade_frames":7,"overlap_frames":0},{"case":"normal-pad","cursor_ticks_at_load":0,"done_frame":25,"first_menu_frame":18,"last_launch_frame":15,"menu_fade_frames":7,"overlap_frames":0},{"case":"normal-mouse","cursor_ticks_at_load":0,"done_frame":25,"first_menu_frame":18,"last_launch_frame":15,"menu_fade_frames":7,"overlap_frames":0},{"case":"reduced-auto","cursor_ticks_at_load":0,"done_frame":5,"first_menu_frame":5,"last_launch_frame":4,"menu_fade_frames":0,"overlap_frames":0},{"case":"reduced-keyboard","cursor_ticks_at_load":0,"done_frame":2,"first_menu_frame":2,"last_launch_frame":1,"menu_fade_frames":0,"overlap_frames":0}],"failed":0,"passed":66,"phase":"after","total":66}

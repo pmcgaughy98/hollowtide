@@ -1,0 +1,185 @@
+--- original/scripts/main_menu.gd
++++ installed/scripts/main_menu.gd
+@@ -104,19 +104,7 @@
+ var _route_request_error: Error = OK
+ var _settings_dirty := false
+ 
+-func _ensure_menu_inputs() -> void:
+-	# The project overrides these defaults with keyboard-only events.
+-	# Add standard pad confirm/cancel for this run, preserving all existing keys.
+-	for binding in [["ui_accept", JOY_BUTTON_A], ["ui_cancel", JOY_BUTTON_B]]:
+-		var event := InputEventJoypadButton.new()
+-		event.device = -1
+-		event.button_index = binding[1]
+-		if not InputMap.action_has_event(binding[0], event):
+-			InputMap.action_add_event(binding[0], event)
+-
+-
+ func _ready() -> void:
+-	_ensure_menu_inputs()
+ 	# The first route loads in the background while the menu shows.
+ 	_request_route()
+ 	_load_preferences()
+@@ -709,9 +697,19 @@
+ 		_cancel_new_game()
+ 		get_viewport().set_input_as_handled()
+ 		return
+-	if event.is_action_pressed("ui_cancel") and _page != "main" and not _leaving:
++	if (UI.pressed(event,"cancel") or UI.pressed(event,"ui_cancel")) and _page != "main" and not _leaving:
+ 		_close_panel()
+ 		get_viewport().set_input_as_handled()
++		return
++	if _leaving or ("_boot_done" in self and not get("_boot_done")): return
++	# GUI keeps its normal focus/accept keys; story bindings can also choose a focused title button.
++	var focused := get_viewport().gui_get_focus_owner()
++	if focused is Button and _focus_controls.has(focused) and not focused.disabled:
++		for action in UI.INPUT_ADVANCE:
++			if UI.pressed(event, action):
++				focused.pressed.emit()
++				get_viewport().set_input_as_handled()
++				return
+ 
+ 
+ func _place_cursor() -> void:
+--- original/scripts/opening_flow.gd
++++ installed/scripts/opening_flow.gd
+@@ -81,10 +81,14 @@
+ 
+ 
+ func _input(event: InputEvent) -> void:
++	if event is InputEventJoypadMotion: UI._motion_edge(event)
+ 	if _boot_done:
+ 		return
+ 	# Consume the skip, including during the reveal, so it cannot start New Game.
+-	if event.is_action_pressed("ui_accept") or event.is_action_pressed("ui_cancel") or (event is InputEventMouseButton and event.pressed):
++	var advance := false
++	for action in UI.INPUT_ADVANCE:
++		if UI.pressed(event, action): advance = true
++	if advance or UI.pressed(event,"ui_accept") or UI.pressed(event,"ui_cancel") or UI.pressed(event,"cancel") or (event is InputEventMouseButton and event.pressed):
+ 		_finish_boot()
+ 		get_viewport().set_input_as_handled()
+ 
+--- original/scripts/soul_prologue.gd
++++ installed/scripts/soul_prologue.gd
+@@ -211,16 +211,19 @@
+ 
+ 
+ func _input(event: InputEvent) -> void:
+-	if auto or stage in ["fly", "done"] or not (event is InputEventKey or event is InputEventJoypadButton) or not event.is_pressed() or event.is_echo():
+-		return
+-	if stage == "choose" and (event.is_action_pressed("ui_left") or (event is InputEventKey and event.physical_keycode == KEY_A)):
++	# UI.pressed ignores centre events; feed them to its shared edge tracker too.
++	if event is InputEventJoypadMotion: UI._motion_edge(event)
++	if auto or stage in ["fly", "done"]: return
++	if stage == "choose" and UI.pressed(event, "move_left"):
+ 		_move_pick(-1)
+-	elif stage == "choose" and (event.is_action_pressed("ui_right") or (event is InputEventKey and event.physical_keycode == KEY_D)):
++	elif stage == "choose" and UI.pressed(event, "move_right"):
+ 		_move_pick(1)
+-	elif event.is_action_pressed("ui_accept") or (event is InputEventKey and event.physical_keycode in [KEY_J, KEY_SPACE, KEY_E]):
+-		advance()
+ 	else:
+-		return
++		var next := false
++		for action in UI.INPUT_ADVANCE:
++			if UI.pressed(event, action): next = true
++		if not next: return
++		advance()   # one event, even when J/A belongs to more than one advance action
+ 	get_viewport().set_input_as_handled()
+ 
+ 
+@@ -307,7 +310,7 @@
+ 		UI.dialogue(c, box, "???", _text(), null, _t)
+ 		if stage == "choose":
+ 			UI.finish_line()   # the short choice prompt stays fully visible
+-			UI.say(c, box.position + Vector2(0, 108), "A / D  choose      J  this shape", "label", Color(UI.MUTED, 0.6 + 0.4 * sin(_t * 4.0)), box.size.x - 30, HORIZONTAL_ALIGNMENT_RIGHT)
++			UI.say(c, box.position + Vector2(0, 108), "%s / %s  choose      %s  this shape" % [UI.binding_text("move_left"), UI.binding_text("move_right"), UI.binding_text("confirm")], "label", Color(UI.MUTED, 0.6 + 0.4 * sin(_t * 4.0)), box.size.x - 30, HORIZONTAL_ALIGNMENT_RIGHT)
+ 
+ 
+ var _shared_scale := 0.0
+--- original/scripts/storm_open.gd
++++ installed/scripts/storm_open.gd
+@@ -9,7 +9,7 @@
+ ## the picture drains to grey. A small light, the only colour left, floats down through the frozen rain to
+ ## the spot where the creature will wake. It brightens to white, and the soul's prologue begins (the
+ ## presence speaks, the choice is made), then the waking, the rise and the Hollow Mouth, as before.
+-## Enter or Space skips. Sounds load when present (assets/audio/sfx/story/).
++## Two released advance presses skip. Sounds load when present (assets/audio/sfx/story/).
+ 
+ const UI := preload("res://scripts/ui/ui_style.gd")
+ const Bank := preload("res://scripts/ui/waking_bank.gd")
+@@ -36,6 +36,9 @@
+ var display: Sprite2D
+ var rain: Node2D
+ var soul: Node2D
++var _skip_armed := false
++var _skip_released := false
++var _skip_hint: Label
+ 
+ 
+ func _ready() -> void:
+@@ -80,6 +83,22 @@
+ 	_show(lights)
+ 	for k in 340:
+ 		_drops.append({"p": Vector2(randf() * 420.0 - 20.0, randf() * 216.0), "len": 4.0 + randf() * 4.0})
++	var hint_layer := CanvasLayer.new()
++	hint_layer.layer = 2
++	add_child(hint_layer)
++	_skip_hint = Label.new()
++	_skip_hint.name = "SkipHint"
++	_skip_hint.position = Vector2(24, 600)
++	_skip_hint.size = Vector2(1104, 30)
++	_skip_hint.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
++	_skip_hint.mouse_filter = Control.MOUSE_FILTER_IGNORE
++	_skip_hint.add_theme_font_override("font", UI.font("label"))
++	_skip_hint.add_theme_font_size_override("font_size", UI.type_size("label"))
++	_skip_hint.add_theme_color_override("font_color", Color(UI.TEXT, 0.8))
++	_skip_hint.add_theme_color_override("font_shadow_color", Color.BLACK)
++	_skip_hint.add_theme_constant_override("shadow_offset_x", 2)
++	_skip_hint.add_theme_constant_override("shadow_offset_y", 2)
++	hint_layer.add_child(_skip_hint)
+ 	_rain_player = _sfx("storm_rain", -6.0, true)
+ 	_run()
+ 
+@@ -165,6 +184,13 @@
+ 
+ func _process(delta: float) -> void:
+ 	_t += delta
++	_skip_hint.visible = not leaving and (_skip_armed or _t >= 4.0)
++	if _skip_hint.visible:
++		var keys := PackedStringArray()
++		for action in UI.INPUT_ADVANCE:
++			var binding := UI.binding_text(action)
++			if binding != "" and not keys.has(binding): keys.append(binding)
++		_skip_hint.text = "%s  %s" % [" / ".join(keys), "Press again to skip" if _skip_armed else "Skip"]
+ 	if not frozen:
+ 		_wind = lerpf(_wind, 1.0 + 0.3 * sin(_t * 0.7), delta)
+ 		for d in _drops:
+@@ -206,9 +232,24 @@
+ 
+ 
+ func _unhandled_input(event: InputEvent) -> void:
+-	if event.is_action_pressed("ui_accept"):
+-		get_viewport().set_input_as_handled()
+-		_next()
++	if leaving: return
++	# Centre events match no pressed action, but must reset the shared stick-edge state.
++	if event is InputEventJoypadMotion: UI._motion_edge(event)
++	var advance := false
++	for action in UI.INPUT_ADVANCE:
++		if UI.pressed(event, action): advance = true
++	if advance:
++		get_viewport().set_input_as_handled()   # _next may detach this scene immediately
++		if _skip_armed and _skip_released:
++			_next()
++		else:
++			_skip_armed = true
++			_skip_released = false
++	elif _skip_armed:
++		for action in UI.INPUT_ADVANCE:
++			if event.is_action_released(action):
++				_skip_released = true
++				get_viewport().set_input_as_handled()
+ 
+ 
+ func _next() -> void:

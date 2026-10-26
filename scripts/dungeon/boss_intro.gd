@@ -49,6 +49,10 @@ const FIREFLIES := 14
 static func setup(dg) -> void:
 	dg.cutscene = true
 	dg.intro = {"t0": Time.get_ticks_msec(), "pond_shadow": 0.0, "ground": {}, "dazed": false}
+	_aim = null
+	# The team side by side before the first frame (Claude, 2026-10-26, pass 8 S4, L08): in a file, the partner walked in
+	# a tile behind the leader and spoke its first line from behind the text box.
+	line_up(dg)
 	for e in dg.ents:
 		if e.get("boss", false) or e.get("minion", false):
 			e["hidden"] = true
@@ -97,13 +101,178 @@ static func _wait(dg, s: float) -> void:
 		await dg.get_tree().create_timer(s, false).timeout
 
 
-## Pan the camera from where it looks now to `to` over `s` seconds.
+## Pan the camera from where it looks now to `to` over `s` seconds. A new pan replaces one still under way (pass 8 S4:
+## two pans at once pulled the camera between them).
 static func _pan(dg, to: Vector2, s: float) -> void:
 	if not _alive(dg):
 		return
+	if _pan_tw != null and _pan_tw.is_valid():
+		_pan_tw.kill()
+	_aim = to
 	var from: Vector2 = dg.cam_focus if dg.cam_focus is Vector2 else dg.ents[0]["node"].position
 	var tw: Tween = dg.create_tween()
 	tw.tween_method(func(v: Vector2) -> void: dg.cam_focus = v, from, to, s).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+	_pan_tw = tw
+
+
+# ---------------------------------------------------------------- framing a line (pass 8 S4)
+
+## Claude, 2026-10-26 (pass 8 S4, L08 and L26): a scene's line showed its speaker behind the text box or a teammate
+## cut by the bottom cinema bar (the crew's partner, the team under the Warden). In the view's pixels (384 x 216, at
+## 3x): the bars cover 0 to 18 and 198 to 216, a line's text box 149 to 187 and its name plate from 141 (dungeon.gd
+## _draw_hud, UI.dialogue).
+const SHOT_HEAD := 26.0   # a speaker's head stays under the top bar, with a little air
+const SHOT_FOOT := 173.0  # every teammate's feet at least one tile above the bottom bar (174), a pixel spare for rounding
+const SHOT_BOX := 140.0   # the leader's and the speakers' feet above the text box and its name plate (141), when there is room
+const SHOT_TOP := 18.0    # the top bar's foot
+const SHOT_SHOWN := 0.65  # at least this much of a speaker's height shows under the top bar
+const SHOT_SIDE := 40.0   # the leader and the speakers no nearer a side than this
+static var _aim: Variant = null   # where the last pan was headed, before any line moved it
+static var _pan_tw: Tween
+
+
+## Where the camera looks to show `aim` with the shot kept, as near aim as it can. In order, each rule over the ones
+## before it: the speakers' and the leader's feet above the text box when there is room; the speakers' heads under the
+## top bar; the leader above the text box whatever happens to a tall speaker's head; SHOT_SHOWN of each speaker's
+## height still under the top bar; and before everything, every teammate's feet a tile above the bottom bar. So
+## the Warden standing three rows over the team loses the top of its crest to the bar, never the leader to the text
+## box or a teammate to the bottom bar. The scenes bring the team close first (line_up, gather, the walk to the
+## shore). cam_offset still holds the view inside the map.
+static func shot(dg, aim: Vector2, who: Array = []) -> Vector2:
+	var half := Vector2(dg.VIEW) * 0.5
+	var cast: Array = [dg.ents[0]]
+	for e in who:
+		if e is Dictionary and e.has("node") and is_instance_valid(e["node"]) and e["node"].visible and not cast.has(e):
+			cast.append(e)
+	var head := INF
+	var feet := -INF
+	var high := INF   # the highest a speaker's feet may sit in the view, as a world y less the view's top
+	var left := INF
+	var right := -INF
+	for e in cast:
+		var p: Vector2 = e["node"].position
+		head = minf(head, p.y + dg._head_y(e))
+		feet = maxf(feet, p.y)
+		if not is_same(e, cast[0]):
+			high = minf(high, p.y - SHOT_TOP + SHOT_SHOWN * dg._head_y(e))
+		left = minf(left, p.x)
+		right = maxf(right, p.x)
+	var lead_y: float = dg.ents[0]["node"].position.y
+	var low := lead_y   # the team alone: a speaker who is not in it may stand lower
+	for e in _team(dg):
+		low = maxf(low, e["node"].position.y)
+	var y := maxf(aim.y, feet - SHOT_BOX + half.y)   # the speakers' and the leader's feet above the text box, if room
+	y = minf(y, head - SHOT_HEAD + half.y)           # their heads under the top bar
+	y = maxf(y, lead_y - SHOT_BOX + half.y)          # the leader above the text box
+	if high < INF:
+		y = minf(y, high + half.y)                   # most of each speaker still in sight
+	y = maxf(y, low - SHOT_FOOT + half.y)            # and before all of it, no teammate under the bottom bar
+	var x := (left + right) * 0.5
+	if right - left <= dg.VIEW.x - 2.0 * SHOT_SIDE:
+		x = clampf(aim.x, right - half.x + SHOT_SIDE, left + half.x - SHOT_SIDE)
+	return Vector2(x, y)
+
+
+## The camera to `aim` with the shot kept (`who` speaks next), over `s` seconds; at once when `s` is 0.
+static func frame(dg, aim: Vector2, s: float, who: Array = []) -> void:
+	if not _alive(dg):
+		return
+	var to := shot(dg, aim, who)
+	if s <= 0.0:
+		if _pan_tw != null and _pan_tw.is_valid():
+			_pan_tw.kill()
+		dg.cam_focus = to
+	else:
+		_pan(dg, to, s)
+	_aim = aim
+
+
+## Before a beat of lines: keep the camera where the scene aimed it, moved only as far as the shot needs for these
+## speakers and the team where they stand now.
+static func reframe(dg, who: Array, s := 0.45) -> void:
+	if not _alive(dg) or dg.ents.is_empty():
+		return
+	var aim: Vector2 = _aim if _aim is Vector2 else (dg.cam_focus if dg.cam_focus is Vector2 else dg.ents[0]["node"].position + Vector2(0, -12))
+	var to := shot(dg, aim, who)
+	var now: Vector2 = dg.cam_focus if dg.cam_focus is Vector2 else to + Vector2(0, 99)
+	if now.distance_to(to) > 1.0:
+		_pan(dg, to, s)
+	_aim = aim
+
+
+## Wait until the queued lines are read (J, or the checks' autopilot), framing each line's speaker with the leader as
+## the line comes up (pass 8 S4): a beat's speakers can stand further apart than one frame holds, as Starward behind
+## the team and the Warden over it do, so the camera turns to whoever is talking. `extra` names a speaker who is not in
+## the dungeon's list, by the name its lines carry.
+static func read_lines(dg, extra := {}) -> void:
+	var cur: Variant = null
+	while _alive(dg) and not dg.talk.is_empty():
+		if not is_same(dg.talk[0], cur):
+			cur = dg.talk[0]
+			reframe(dg, [_named(dg, String(cur[0]), extra)])
+		await dg.get_tree().process_frame
+
+
+## The creature in the room called `who` (or in `extra`); empty for an unseen voice.
+static func _named(dg, who: String, extra := {}) -> Dictionary:
+	if extra.has(who):
+		return extra[who]
+	for e in dg.ents:
+		if String(e["name"]) == who and e["hp"] > 0:
+			return e
+	return {}
+
+
+## The team in a row across the leader's tile (`up` rows further up where the floor is open): the partner on its
+## right, then its left, then two out. Placed, not walked: a scene calls it before its first frame shows.
+static func line_up(dg, up := 0) -> void:
+	var lead: Dictionary = dg.ents[0]
+	for k in up:
+		var to: Vector2i = lead["pos"] + Vector2i(0, -1)
+		if not dg._floor_at(to) or dg._occupant(to) >= 0:
+			break
+		lead["pos"] = to
+	lead["node"].position = dg._tile_px(lead["pos"])
+	var sides := [Vector2i(1, 0), Vector2i(-1, 0), Vector2i(2, 0), Vector2i(-2, 0), Vector2i(1, 1), Vector2i(-1, 1)]
+	var n := 0
+	for e in _team(dg):
+		if is_same(e, lead):
+			continue
+		for k in range(n, sides.size()):
+			var to: Vector2i = lead["pos"] + sides[k]
+			var who: int = dg._occupant(to)
+			if dg._floor_at(to) and (who < 0 or is_same(dg.ents[who], e)):
+				e["pos"] = to
+				e["node"].position = dg._tile_px(to)
+				n = k + 1
+				break
+
+
+## Each teammate walks to a free tile beside the leader (pass 8 S4): a scene that starts mid-fight gathers its team
+## so no one is left off the frame or under the bottom bar. Returns once they have all arrived.
+static func gather(dg) -> void:
+	var lead: Dictionary = dg.ents[0]
+	var sides := [Vector2i(1, 0), Vector2i(-1, 0), Vector2i(1, 1), Vector2i(-1, 1), Vector2i(0, 1), Vector2i(2, 0), Vector2i(-2, 0)]
+	var taken := {lead["pos"]: true}
+	var going: Array = []
+	for e in _team(dg):
+		if is_same(e, lead):
+			continue
+		if dg._cheb(e["pos"], lead["pos"]) <= 1 and not taken.has(e["pos"]):
+			taken[e["pos"]] = true
+			continue
+		for d in sides:
+			var to: Vector2i = lead["pos"] + d
+			var who: int = dg._occupant(to)
+			if not taken.has(to) and dg._floor_at(to) and (who < 0 or is_same(dg.ents[who], e)):
+				taken[to] = true
+				going.append(e)
+				_walk_to(dg, e, to)
+				break
+	var guard := 0
+	while _alive(dg) and going.any(func(e: Dictionary) -> bool: return e.get("walking", false)) and guard < 60:
+		await _wait(dg, 0.1)
+		guard += 1
 
 
 ## Show some lines and wait until the player has read them all (J), or the checks' autopilot has.
@@ -123,8 +292,7 @@ static func _lines(dg, lines: Array) -> void:
 			form += ":" + String(l[2])   # the face for this line (UI.dialogue_portrait)
 		var text: String = String(l[1]).replace("{leader}", String(dg.ents[0]["name"]))
 		dg.talk.append([who.replace("{partner}", String(pe["name"])).replace("{boss}", bname), text, form])
-	while _alive(dg) and not dg.talk.is_empty():
-		await dg.get_tree().process_frame
+	await read_lines(dg)   # each speaker and the leader in the shot, the team above the bottom bar (S4)
 
 
 ## The pond's sound bed (ElevenLabs, tools/audio/build_dungeon_sfx.py), looping under the garden.
@@ -179,8 +347,18 @@ static func _look_around(dg) -> void:
 static func _walk_to(dg, e: Dictionary, to: Vector2i) -> void:
 	e["walking"] = true
 	var guard := 0
-	while _alive(dg) and e["pos"] != to and guard < 40:
+	while _alive(dg) and is_instance_valid(e["node"]) and e["pos"] != to and guard < 40:
 		guard += 1
+		# A blow's lunge finishes first (integrator, 2026-10-26, pass 8): _slide kills the creature's tween, and
+		# use_move waits on that lunge. The crew's den gathers the team in the frame its boss falls, often to the
+		# partner whose blow felled it, and a killed tween never finishes: the turn hung with busy set
+		# (dungeon_evolve_check's autopilot stalled in the den, 0 runs in 900 s).
+		var settle := 0
+		while _alive(dg) and is_instance_valid(e["node"]) and e.get("tw") is Tween and e["tw"].is_valid() and e["tw"].is_running() and settle < 30:
+			await dg.get_tree().process_frame
+			settle += 1
+		if not (_alive(dg) and is_instance_valid(e["node"])):
+			break   # the floor was left or rebuilt while it walked
 		var d: Vector2i = Vector2i(signi(to.x - e["pos"].x), 0) if e["pos"].x != to.x else Vector2i(0, signi(to.y - e["pos"].y))
 		var nxt: Vector2i = e["pos"] + d
 		var who: int = dg._occupant(nxt)
@@ -428,7 +606,7 @@ static func run(dg) -> void:
 	if not _alive(dg):
 		return
 	# 9. The talk, then the fight. The camera holds on the Warden; the team stands under the box.
-	_pan(dg, land + Vector2(0, -2), 0.5)   # the Listeners at its flanks stay above the text box
+	frame(dg, land + Vector2(0, -2), 0.5, [b])   # the Listeners at its flanks stay above the text box; the team above the bar (S4)
 	dg._sfx("warden_croak", -1.0)   # its cry before it speaks, as a boss cries on screen in Explorers of Sky
 	dg._shake = 2.5
 	await _wait(dg, 1.1)
@@ -446,6 +624,7 @@ static func run(dg) -> void:
 	dg.intro.erase("wipe_at")
 	dg.cutscene = false
 	dg.cam_focus = null
+	_aim = null
 	dg.intro["done"] = true
 	dg._meet_boss()
 

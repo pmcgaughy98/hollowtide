@@ -38,6 +38,7 @@ var music_mode = Node.PROCESS_MODE_INHERIT
 var sounds: Array[String] = []
 var quiet_focus = false
 var bag_hint: Label   # the bag page's key line, retold when the device changes
+var menu_hint: Label   # the main and Objective pages' key line, the same kind (Claude, 2026-10-26, pass 8 U5)
 
 static func attach(scene: Node) -> void:
     if scene.has_node("GamePauseMenu"): return
@@ -100,6 +101,7 @@ func _on_device_changed(_device: String) -> void:
     _place_hint()
     if not overlay.visible: return
     if page == "controls": show_page("controls")   # its only row is Back, so nothing is lost
+    elif is_instance_valid(menu_hint): menu_hint.text = _menu_hint_words()
     elif page == "bag" and is_instance_valid(bag_hint):
         bag_hint.text = _bag_hint_words(bag_hint.get_meta("empty",false),bag_hint.get_meta("use",false))
         var view = content.get_node_or_null("BagPage")
@@ -406,7 +408,7 @@ func show_page(next: String) -> void:
             # Below in a Hollow, the line leaves out how to get down from town (Claude, 2026-10-24, LV-23).
             var below = String(src.scene_file_path).ends_with("dungeon.tscn")
             var goal: Dictionary = load("res://scripts/town/objective.gd").current(story,beaten,below)
-            _label(String(goal["short"]),30)   # the goal itself in the title face (Claude, 2026-10-22, LP-28)
+            _two_lines(_label(String(goal["short"]),30))   # the goal itself in the title face (Claude, 2026-10-22, LP-28)
             # The body leaves out the sentence the heading just said (Claude, 2026-10-26, L7-06): after the pilot the
             # long line opens with the short one, and the page read "That's the first stretch..." twice.
             var more = String(goal["long"])
@@ -434,17 +436,26 @@ func show_page(next: String) -> void:
             _label("The run is kept. Continue on the title picks it up at the top of this floor, with the team as it stands." if in_hollow else "Highbank is saved. Continue on the title brings you back here.")
             _action("Keep exploring","CancelLeave",show_page.bind("main"))
             _action("Return to title" if page == "title" else "Quit Game","ConfirmLeave",leave)
+    # The key line under the main and Objective pages, as the bag and the rebinding page have (Claude, 2026-10-26,
+    # pass 8 U5 for L10): the device's own keys, retold when the device changes.
+    menu_hint = null
+    if page in ["main","goal"]:
+        menu_hint = _label(_menu_hint_words(),14)
+        menu_hint.name = "MenuHint"
+        menu_hint.add_theme_color_override("font_color",UI.MUTED)
     # Field pages added more rows; keep the dungeon main menu inside the fixed viewport. Options (three
     # sliders and four rows since the screen and text rows) and Controls are packed the same way, rows
     # 40 px and the gaps a little wider than the main page's (Claude, 2026-10-22). Options has five rows since the
     # Controls row, and the rebinding page's rows are packed the same way (Claude, 2026-10-23).
-    if (page == "main" and in_hollow) or page in ["options","controls","rebind"]:
+    # Town's main page is packed too (pass 8 U5 for L32): its eight rows ran the panel from 8 px to 640; at 44 px, with
+    # the key line, it stands 47 px clear of the top and 46 of the bottom (32 asked for).
+    if page == "main" or page in ["options","controls","rebind"]:
         # Ten rows: the frame's 8 px padding held each row at 49 px whatever its minimum, 658 px in all on a
         # 648 px screen; 3 px padding (the pressed sink kept) lets a row be 40 (Claude, 2026-10-14).
-        content.add_theme_constant_override("separation",4 if page == "main" else 6)
+        content.add_theme_constant_override("separation",4 if page == "main" and in_hollow else 6)
         for b in controls:
             if not b is Button: continue   # the sliders keep their own height
-            b.custom_minimum_size.y = 40
+            b.custom_minimum_size.y = 44 if page == "main" and not in_hollow else 40
             for state in ["normal","focus","hover","pressed","hover_pressed","disabled"]:
                 if b.has_theme_stylebox_override(state):
                     var sb = b.get_theme_stylebox(state).duplicate()
@@ -467,12 +478,15 @@ func show_page(next: String) -> void:
     _focus_first.call_deferred()
 
 # Ten rows in the Hollow still ran the panel 18 px past the bottom at y 58; any page that grows past
-# the screen moves up to fit it instead (Claude, 2026-10-14).
+# the screen moves up to fit it instead (Claude, 2026-10-14). The main page stands in the middle of the screen
+# (Claude, 2026-10-26, pass 8 U5 for L32): 47 px clear above and below in town, 28 in a Hollow's ten rows.
 func _keep_on_screen(panel: Control) -> void:
     await get_tree().process_frame
     if not is_instance_valid(panel) or not panel.visible: return
     var view_h = 648.0   # the game's fixed canvas, which every screen is laid out on
-    if panel.position.y + panel.size.y > view_h - 8.0:
+    if page == "main":
+        panel.position.y = maxf(8.0, roundf((view_h - panel.size.y) / 2.0))
+    elif panel.position.y + panel.size.y > view_h - 8.0:
         panel.position.y = maxf(8.0, view_h - 8.0 - panel.size.y)
 
 func _focus_first() -> void:
@@ -582,6 +596,28 @@ func _bag_page() -> void:
     bag_hint.add_theme_color_override("font_color",UI.MUTED)
     bag_hint.set_meta("empty",bag.is_empty())
     bag_hint.set_meta("use",scene.has_method("act_use_item"))
+
+# The Objective headline keeps to two lines (Claude, 2026-10-26, pass 8 U5 for L10: "That's the first stretch. Run the
+# Hollows again or rest at home." ran to four in the title face): the title face while the words wrap to two lines at
+# the label's width, else the talk box's story face, else the body face. Same words, same colour.
+func _two_lines(l: Label) -> void:
+    var width = l.custom_minimum_size.x - 4.0   # a little short of the label, which wraps by its own measure
+    for role in ["title","story","body"]:
+        if role == "body" or UI.wrap_text(l.text,width,role).split("\n").size() <= 2:
+            l.add_theme_font_override("font",UI.font(role))
+            l.add_theme_font_size_override("font_size",UI.type_size(role))
+            l.add_theme_constant_override("shadow_offset_x",int(UI.TYPE[role]["px"]))
+            l.add_theme_constant_override("shadow_offset_y",int(UI.TYPE[role]["px"]))
+            return
+
+# The main and Objective pages' key line, in the bag's style (the key, two spaces, what it does; capitals in the label
+# face): the arrows or D-pad choose, the menu's accept takes the row, its back closes the menu from the main page and
+# goes back from the Objective page (Claude, 2026-10-26, pass 8 U5; the words are proposals).
+func _menu_hint_words() -> String:
+    var pad = UI.last_device() == "pad"
+    var back = "%s  %s" % [UI.binding_text("ui_cancel"),"close" if page == "main" else "back"]
+    if page == "goal": return back.to_upper()
+    return ("%s  choose   %s  select   " % ["D-pad" if pad else "Arrows",UI.binding_text("ui_accept")] + back).to_upper()
 
 func _bag_hint_words(empty: bool, can_use: bool) -> String:
     var pad = UI.last_device() == "pad"
@@ -732,6 +768,15 @@ func leave() -> void:
     elif host != null and host.has_method("suspend"):
         host.suspend()
     if page == "quit":
+        # Every sound stopped and the UI's caches emptied first, so nothing is still held at exit (Claude, 2026-10-26,
+        # pass 8 U7 for LH8-10: scripts/audio/music.gd release); this page's own slider parts go too.
+        preload("res://scripts/audio/music.gd").release(get_tree())
+        _slider_parts.clear()
+        # A stopped sound is let go once the audio thread has mixed it out and a frame has run after: wait 0.1 s of
+        # real time (frames alone can pass in a few milliseconds), then one more frame.
+        var until = Time.get_ticks_msec() + 100
+        while Time.get_ticks_msec() < until: await get_tree().process_frame
+        await get_tree().process_frame
         get_tree().quit()
         return
     # The black fade first, as every other exit of ours (Claude, 2026-10-24, LV-07b): it runs while the tree is

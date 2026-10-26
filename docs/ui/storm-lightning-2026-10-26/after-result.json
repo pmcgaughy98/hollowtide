@@ -1,0 +1,101 @@
+{
+	"cases": [
+		{
+			"case": "normal",
+			"done_frame": 541,
+			"effective_reduce": false,
+			"passed_reduce": false,
+			"peak": 0.85,
+			"pulses": 6,
+			"saved_reduce": false,
+			"shader_peak": 0.85,
+			"strikes": [
+				{
+					"end": 104,
+					"peak": 0.85,
+					"seconds": 0.666666666666667,
+					"start": 84
+				},
+				{
+					"end": 182,
+					"peak": 0.85,
+					"seconds": 0.666666666666667,
+					"start": 162
+				},
+				{
+					"end": 239,
+					"peak": 0.85,
+					"seconds": 0.666666666666667,
+					"start": 219
+				}
+			],
+			"thunder_count": 3
+		},
+		{
+			"case": "forwarded",
+			"done_frame": 318,
+			"effective_reduce": true,
+			"passed_reduce": true,
+			"peak": 0.361904758214951,
+			"pulses": 3,
+			"saved_reduce": false,
+			"shader_peak": 0.361904758214951,
+			"strikes": [
+				{
+					"end": 63,
+					"peak": 0.361904758214951,
+					"seconds": 0.333333333333333,
+					"start": 53
+				},
+				{
+					"end": 131,
+					"peak": 0.361904758214951,
+					"seconds": 0.333333333333333,
+					"start": 121
+				},
+				{
+					"end": 178,
+					"peak": 0.361904758214951,
+					"seconds": 0.333333333333333,
+					"start": 168
+				}
+			],
+			"thunder_count": 3
+		},
+		{
+			"case": "saved",
+			"done_frame": 318,
+			"effective_reduce": true,
+			"passed_reduce": false,
+			"peak": 0.361904758214951,
+			"pulses": 3,
+			"saved_reduce": true,
+			"shader_peak": 0.361904758214951,
+			"strikes": [
+				{
+					"end": 63,
+					"peak": 0.361904758214951,
+					"seconds": 0.333333333333333,
+					"start": 53
+				},
+				{
+					"end": 131,
+					"peak": 0.361904758214951,
+					"seconds": 0.333333333333333,
+					"start": 121
+				},
+				{
+					"end": 178,
+					"peak": 0.361904758214951,
+					"seconds": 0.333333333333333,
+					"start": 168
+				}
+			],
+			"thunder_count": 3
+		}
+	],
+	"failed": 0,
+	"passed": 33,
+	"phase": "after",
+	"total": 33
+}

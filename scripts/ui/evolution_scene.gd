@@ -259,12 +259,15 @@ func _draw_back() -> void:
 	var c := _back
 	# The dark and the light behind the creature, from the low layer at 3x (_back draws with no smoothing).
 	c.draw_texture_rect(_glow_vp.get_texture(), Rect2(0, 0, 1152, 648), false)
-	# The words, in the game's panel.
+	# The words, in the game's panel, in the talk box's own face and size (TYPE "story"; Claude, 2026-10-26, pass 8 U3 for
+	# L11: the old size 26 fell to the 19 px body face and read small in this box). A line too wide for the story face
+	# steps down the FIT chain on its own. The words sit a little higher when the key line shares the box.
 	var box := Rect2(236, 520, 680, 92)
 	UI.panel(c, box, 0.95)
-	UI.text(c, box.position + Vector2(0, 44), _text, 26, UI.EDGE_LIGHT, box.size.x, HORIZONTAL_ALIGNMENT_CENTER)
+	var pad := 24.0
+	UI.say(c, box.position + Vector2(pad, 48.0 if _sub != "" else 58.0), _text, "story", UI.EDGE_LIGHT, box.size.x - pad * 2.0, HORIZONTAL_ALIGNMENT_CENTER)
 	if _sub != "":
-		UI.text(c, box.position + Vector2(0, 76), "%s  %s" % [ControlsText.advance_text(), _sub], 15, UI.MUTED, box.size.x - 20, HORIZONTAL_ALIGNMENT_RIGHT)
+		UI.text(c, box.position + Vector2(0, 77), "%s  %s" % [ControlsText.advance_text(), _sub], 15, UI.MUTED, box.size.x - 20, HORIZONTAL_ALIGNMENT_RIGHT)
 	if _flash > 0.0:
 		c.draw_rect(Rect2(0, 0, 1152, 648), Color(1, 1, 1, _flash))
 

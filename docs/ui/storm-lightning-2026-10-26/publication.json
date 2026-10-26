@@ -1,0 +1,44 @@
+{
+  "protected_baseline_files": 1003,
+  "owned_production_changes": [
+    "scripts/storm_open.gd"
+  ],
+  "concurrent_source_changes_preserved": [
+    "scripts/dungeon/dungeon.gd",
+    "scripts/dungeon/riverbank_painter.gd",
+    "scripts/dungeon/rootbank_detail.gd",
+    "scripts/town/hub_town.gd",
+    "scripts/town/jobs.gd",
+    "scripts/town/objective.gd",
+    "scripts/town/scene_kit.gd",
+    "scripts/town/town_layout.gd",
+    "scripts/ui/evolution_scene.gd",
+    "scripts/ui/party_screen.gd",
+    "scripts/ui/ui_style.gd"
+  ],
+  "concurrent_during_publication": [],
+  "all_changed_existing_paths": [
+    "docs/AI_COLLABORATION.md",
+    "docs/team/CODEX_TASKS_2026-10-26.md",
+    "scripts/dungeon/dungeon.gd",
+    "scripts/dungeon/riverbank_painter.gd",
+    "scripts/dungeon/rootbank_detail.gd",
+    "scripts/storm_open.gd",
+    "scripts/town/hub_town.gd",
+    "scripts/town/jobs.gd",
+    "scripts/town/objective.gd",
+    "scripts/town/scene_kit.gd",
+    "scripts/town/town_layout.gd",
+    "scripts/ui/evolution_scene.gd",
+    "scripts/ui/party_screen.gd",
+    "scripts/ui/ui_style.gd"
+  ],
+  "prior_docs_preserved": true,
+  "native": "33/33 clean",
+  "official": "2 PASS; exit0; known raw exit warnings retained",
+  "shared_recheck": "Claude updated pref reader/copy recovery; final tests rerun; snapshots archived",
+  "prompt_default": "C6 OFF, unchanged",
+  "local_links_checked": 22,
+  "evidence": "C:\\Users\\pmcga\\dev\\hollowtide\\docs\\ui\\storm-lightning-2026-10-26",
+  "handoff": "C:\\Users\\pmcga\\dev\\hollowtide\\docs\\team\\CODEX_HANDOFF_2026-10-26_storm_lightning.md"
+}

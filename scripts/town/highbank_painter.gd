@@ -116,6 +116,7 @@ static func paint(base: Image) -> Image:
 				_dock(img, p["rect"])
 	Tiles.aprons(img)
 	Tiles.clearings(img)
+	_reading_spot(img, fresh)   # pass 8 T10: the Job Board's reading pad as worn earth, not a tile-sized square
 	_fray(img)
 	_soften(img)   # pass 5 T9: the ruled edges below Wayline Hall
 	# The cliff ledges keep their contour; the lanes no longer get one (Claude, 2026-10-23, T2): world_finish.gd's
@@ -444,6 +445,36 @@ static func _wear(img: Image) -> void:
 					continue
 				var dirt: Color = Tiles.sample(earth, x, y) if earth != null else WORN[int(R._h(x / 2, y / 2, 138) * WORN.size())]
 				img.set_pixelv(p, dirt.lightened(0.05 if Layout.band_of(y / T) == "grass" else 0.08))
+
+
+## The Job Board's reading spot (Claude, 2026-10-26, pass 8 T10 / L30): world_tile_art.gd's clearings() lays the reading
+## pad over its whole tile, a square of earth that, with the corner ticks job_board_painter.gd drew on it, read as a
+## dashed rectangle in front of the board. After it, here, the pad becomes earth worn bare by feet, as the worn spots
+## above are: an uneven oval in the tile's middle with a dithered edge, the rest of the pad's ground back to grass. The
+## same bounds as clearings() (never a lane or a place); the tile, its door and the board are unchanged.
+const READING_RX := 10.5   # the worn oval's half-width and half-height, px
+const READING_RY := 10.0
+
+
+static func _reading_spot(img: Image, fresh: Image) -> void:
+	var board: Array = Layout.PLACES.filter(func(p: Dictionary) -> bool: return p["id"] == "board")
+	if board.is_empty():
+		return
+	var d: Vector2i = board[0]["door"] * T
+	var earth := Tiles.image("earth")
+	var mid := Vector2(d) + Vector2(T * 0.5, T * 0.58)
+	for y in T:
+		for x in range(-4, T + 4):
+			var p := d + Vector2i(x, y)
+			if _path(p.x / T, p.y / T) or _in_place(p / T):
+				continue
+			var off := Vector2(p) + Vector2(0.5, 0.5) - mid
+			var dist := Vector2(off.x / READING_RX, off.y / READING_RY).length() + (R._noise(p.x, p.y, 4.0, 172) - 0.5) * 0.4
+			if dist < 0.72 or (dist < 1.0 and (dist - 0.72) / 0.28 <= _dither(p)):
+				var dirt: Color = Tiles.sample(earth, p.x, p.y) if earth != null else WORN[int(R._h(p.x / 2, p.y / 2, 173) * WORN.size())]
+				img.set_pixelv(p, dirt.lightened(0.05))
+			else:
+				img.set_pixelv(p, fresh.get_pixelv(p))
 
 
 ## [centre px, radius] of each worn spot: every open tile with lane on two sides that meet at one of its corners,

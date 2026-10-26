@@ -1,0 +1,10 @@
+2 checks, 1 at a time, logs in D:\dev\hollowtide-storm-lightning-20261026\runner
+  PASS     opening_flow_check                  4.2s  
+  PASS     storm_open_check                    1.5s  
+
+RESULT   CHECK                              SECS  EXIT  FIRST PROBLEM OR NOTE
+PASS     opening_flow_check                  4.2     0  
+PASS     storm_open_check                    1.5     0  
+
+PASS 2
+exit 0: nothing failed

@@ -1,13 +1,12 @@
 extends RefCounted
 ## Hollowtide's one UI look (Claude, 2026-10-10; Preston: "Do U.I upgrades and visuals... including
 ## from main menu to town to battle everything"). Taken from Codex's title and pause menu so every
-## screen speaks the same language: deep moss panels with a worn brass edge, parchment text, Alegreya
-## Sans SC at sizes that read at 1152x648 (16 and up for anything a player must read).
+## screen speaks the same language: deep moss panels with a worn brass edge, parchment text, and the pixel
+## faces of TYPE below, each in its job (prose, buttons, labels, numbers, titles) at sizes that read at
+## 1152x648. Alegreya Sans SC (the old HEAD) is gone from every screen (Claude, 2026-10-26, pass 8 U1).
 ## Screens that draw their own HUD (the dungeon, the town) call these instead of drawing boxes.
 ##   const UI := preload("res://scripts/ui/ui_style.gd")
-##   UI.panel(canvas, rect); UI.text(canvas, pos, "Lv 3", 18); UI.bar(canvas, rect, 0.5, UI.hp_col(0.5))
-
-const HEAD := preload("res://assets/fonts/AlegreyaSansSC-Bold.ttf")   # kept for screens not yet on a role
+##   UI.panel(canvas, rect); UI.say(canvas, pos, "Lv 3", "number"); UI.bar(canvas, rect, 0.5, UI.hp_col(0.5))
 
 ## Type by job (Claude, 2026-10-10; Preston: "font is the next thing that will make this look non-AI...
 ## not every area is going to use the same font, and it needs to look a certain way when it's a button").
@@ -530,6 +529,9 @@ const TYPE_CPS := 36.0   # with a blip every other letter, 18 a second: inside t
 static var _line := {"text": "", "start": 0, "blips": 0, "done": true, "page": 0, "pages": 1}
 static var _blip: AudioStreamPlayer
 static var _blips: Array = []
+## Set by Music.release as the game closes (Claude, 2026-10-26, pass 8 U7): no blip or tick starts after it, since a
+## sound started in the closing frame would still be held at exit.
+static var closing := false
 
 
 ## A new line starts typing from the first time it is drawn, on its first page.
@@ -581,6 +583,8 @@ static func finish_line() -> void:
 
 
 static func _play_blip() -> void:
+	if closing:
+		return
 	if _blips.is_empty():
 		for k in 3:
 			_blips.append(load("res://assets/audio/sfx/ui/text_blip_%d.wav" % k))
@@ -737,10 +741,21 @@ static func _pref(section: String, key: String, default: Variant) -> Variant:
 	if _prefs == null or _game_prefs == null:
 		_move_game_keys()
 		_prefs = ConfigFile.new()
-		_prefs.load(PREFS_PATH)   # no file yet reads as every default
+		_load_prefs_file(_prefs, PREFS_PATH)   # no file yet reads as every default
 		_game_prefs = ConfigFile.new()
-		_game_prefs.load(GAME_PREFS_PATH)
+		_load_prefs_file(_game_prefs, GAME_PREFS_PATH)
 	return (_prefs if is_title_pref(section, key) else _game_prefs).get_value(section, key, default)
+
+
+## `path` read into `cfg`, or its .bak (the copy write_prefs keeps of the file before) when the file itself is missing
+## or will not parse, so a save cut off between its steps still reads the player's settings (Claude, 2026-10-26, pass 8
+## U2 for LH8-02). OK when either one read; with neither, `cfg` is left empty and every pref reads its default.
+static func _load_prefs_file(cfg: ConfigFile, path: String) -> Error:
+	var err := cfg.load(path)
+	if err != OK and FileAccess.file_exists(path + ".bak"):
+		cfg.clear()   # a half-read file leaves nothing behind
+		err = cfg.load(path + ".bak")
+	return err
 
 
 ## Forget the cached preferences, so the next read sees what a menu just saved.
@@ -758,7 +773,7 @@ static func is_title_pref(section: String, key: String) -> bool:
 static func save_pref(section: String, key: String, value: Variant) -> bool:
 	if is_title_pref(section, key):
 		var title := ConfigFile.new()
-		title.load(PREFS_PATH)
+		_load_prefs_file(title, PREFS_PATH)
 		title.set_value(section, key, value)
 		return write_prefs(title, PREFS_PATH)
 	var game := load_game_prefs()
@@ -771,20 +786,24 @@ static func save_pref(section: String, key: String, value: Variant) -> bool:
 static func load_game_prefs() -> ConfigFile:
 	_move_game_keys()
 	var cfg := ConfigFile.new()
-	cfg.load(GAME_PREFS_PATH)
+	_load_prefs_file(cfg, GAME_PREFS_PATH)
 	return cfg
 
 
-## `cfg` written whole to `path`: to <path>.tmp first, the file before it kept as <path>.bak, then the .tmp takes
+## `cfg` written whole to `path`: to <path>.tmp first, the file before it copied to <path>.bak, then the .tmp takes
 ## the name (the team save's crash-safe write, team_state.gd). The cached prefs are dropped after.
+## Codex's change (Claude, 2026-10-26, pass 8 U2, from docs/ui/settings-save-2026-10-26/proposal/shared-pause-save.diff):
+## the file before is copied, not moved, so a save cut off between the two steps still leaves the final file in
+## place, and a copy that fails stops the save with the final file untouched.
 static func write_prefs(cfg: ConfigFile, path := GAME_PREFS_PATH) -> bool:
 	var tmp := path + ".tmp"
 	var err := cfg.save(tmp)
 	if err == OK:
 		var main := ProjectSettings.globalize_path(path)
 		if FileAccess.file_exists(path):
-			DirAccess.rename_absolute(main, main + ".bak")   # replaces the older .bak
-		err = DirAccess.rename_absolute(ProjectSettings.globalize_path(tmp), main)
+			err = DirAccess.copy_absolute(main, main + ".bak")   # keep the final readable until replacement
+		if err == OK:
+			err = DirAccess.rename_absolute(ProjectSettings.globalize_path(tmp), main)
 	reload_prefs()
 	if err != OK:
 		push_warning("Prefs: could not save %s (%s)" % [path, error_string(err)])
@@ -796,7 +815,7 @@ static func write_prefs(cfg: ConfigFile, path := GAME_PREFS_PATH) -> bool:
 ## only once game_prefs.cfg holds them.
 static func _move_game_keys() -> void:
 	var title := ConfigFile.new()
-	if title.load(PREFS_PATH) != OK:
+	if _load_prefs_file(title, PREFS_PATH) != OK:
 		return
 	var moving: Array = []
 	for section in title.get_sections():
@@ -806,7 +825,7 @@ static func _move_game_keys() -> void:
 	if moving.is_empty():
 		return
 	var game := ConfigFile.new()
-	game.load(GAME_PREFS_PATH)
+	_load_prefs_file(game, GAME_PREFS_PATH)
 	for sk: Array in moving:
 		game.set_value(sk[0], sk[1], title.get_value(sk[0], sk[1]))
 		title.erase_section_key(sk[0], sk[1])
@@ -863,7 +882,7 @@ static var _ticks := {}
 
 
 static func tick(kind: String) -> void:
-	if not TICKS.has(kind):
+	if not TICKS.has(kind) or closing:
 		return
 	var tree := Engine.get_main_loop() as SceneTree
 	if tree == null:

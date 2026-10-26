@@ -111,6 +111,15 @@ static func band_of(y: int) -> String:
 	return "water"
 
 
+## A place's name by its id ("gate" -> "Mouth of the Hollow"), or "" for none (Claude, 2026-10-26, pass 8 T2 / L03):
+## the street's plaque, the town's run line and the objective read the gate's name from here, so a rename is one edit.
+static func place_name(id: String) -> String:
+	for p in PLACES:
+		if p["id"] == id:
+			return String(p["name"])
+	return ""
+
+
 static func place_at(t: Vector2i) -> Dictionary:
 	for p in PLACES:
 		if t in door_tiles(p):

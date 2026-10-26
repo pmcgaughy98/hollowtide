@@ -155,6 +155,7 @@ func _run() -> void:
 	if partner_choice == 1: await key(KEY_DOWN)
 	verify("Keyboard selects requested partner response", flood.choice == partner_choice)
 	await capture("6-partner-choice")
+	await frames(12)   # an answer list takes accept once it has been up 0.3 s (pass 8 S1, L06)
 	await key(KEY_E)
 	var expected_partner: int = others[partner_choice]
 	verify("Chosen partner appears and speaks", flood.partner == expected_partner and flood.partner_sprite.visible and flood.line != null and flood.line.character == flood.NAMES[expected_partner])

@@ -1,0 +1,39 @@
+{
+	"cases": [
+		{
+			"case": "forwarded",
+			"done_frame": 269,
+			"effective_reduce": true,
+			"passed_reduce": true,
+			"peak": 0.85,
+			"pulses": 6,
+			"saved_reduce": true,
+			"shader_peak": 0.85,
+			"strikes": [
+				{
+					"end": 49,
+					"peak": 0.85,
+					"seconds": 0.666666666666667,
+					"start": 29
+				},
+				{
+					"end": 93,
+					"peak": 0.85,
+					"seconds": 0.666666666666667,
+					"start": 73
+				},
+				{
+					"end": 129,
+					"peak": 0.85,
+					"seconds": 0.666666666666667,
+					"start": 109
+				}
+			],
+			"thunder_count": 3
+		}
+	],
+	"failed": 0,
+	"passed": 6,
+	"phase": "before",
+	"total": 6
+}

@@ -1,0 +1,351 @@
+WorkerThreadPool: 12 threads, 3 max low-priority.
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+TextServer: Added interface "Dummy"
+TextServer: Added interface "ICU / HarfBuzz / Graphite (Built-in)"
+Accessibility: AccessKit driver loaded.
+Native OpenGL API detected: 3.3: NVIDIA - NVIDIA GeForce GTX 1660 SUPER
+NVAPI: Init OK!
+NVAPI: Profile not found, creating...
+NVAPI: Application not found in profile, creating...
+NVAPI: Error creating application: NVAPI_EXECUTABLE_ALREADY_IN_USE(code -167)
+Accessibility: window 0 adapter created.
+SDL: Init OK!
+Using "winink" pen tablet driver...
+Shader 'CanvasSdfShaderGLES3' SHA256: 81317e75d72b34f9bfa2b29b2c6d6fb76e7163e680522085fa4e2999f1e80304
+Shader 'SkeletonShaderGLES3' SHA256: dfa67781b939deb0cf1bc86e6bd28dbb4267c208938aad3a6b4167df60da5585
+Shader 'ParticlesShaderGLES3' SHA256: a5470168d9c796e6238a9035338d3c9adeef51ae2fc21ea0390c6f5d821f5569
+Shader 'ParticlesCopyShaderGLES3' SHA256: 777840fb923233eb590593f70549234fb293de563b679caadd9c8207ea13a49d
+Shader 'CopyShaderGLES3' SHA256: a7b9a683a8cac5fb997fc00647bc8a5c9043afd5700bbd6b3f9060b58dfa7a1d
+Shader 'CubemapFilterShaderGLES3' SHA256: 6e1c01ea3e1faff44e145270cf2940a0327af41b7d2a06d112389bae87d4cbc8
+Shader 'GlowShaderGLES3' SHA256: 4eb19d57d5c5339bbf70e447e0aad834563c1097a24d07324adb100ecae5edb2
+Shader 'PostShaderGLES3' SHA256: 4ae5d3c73a471e9711273de962aa149bc2c1189d887d262cb17507197998c4a5
+Shader 'FeedShaderGLES3' SHA256: 356977834552242a7adc57aa93abf1bcee6c09279a7cfb940b28885f28962530
+Shader 'CanvasShaderGLES3' SHA256: 216083f9548fa5ef1a76101115adc339fc67424f13cbab817e6969f27635bec7
+Shader 'CanvasOcclusionShaderGLES3' SHA256: b1579ebcd88d6787867242cb8b4b06fc50c7d18d60a6e981f5932b99a7af830f
+Shader 'SceneShaderGLES3' SHA256: 497687577cebf3386db4500518ded6025af1ca7e2068c565963539ed2bc651c6
+Shader 'SkyShaderGLES3' SHA256: 983bc62a77ecf1bd26c62a55d8455e1809bc5b11e8ae6c2a8f1568b5550c7735
+Shader 'TexBlitShaderGLES3' SHA256: 5a4ff89b3822dc2630f62516f7850dc73fa7054bd6527ee7e721f4c13c6409c3
+OpenGL API 3.3.0 NVIDIA 610.62 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce GTX 1660 SUPER
+
+TextServer: Primary interface set to: "ICU / HarfBuzz / Graphite (Built-in)".
+Loading resource: res://default_bus_layout.tres remapped: res://default_bus_layout.tres
+Completed load for: 'res://default_bus_layout.tres' remapped 'res://default_bus_layout.tres' at thread -1
+CORE API HASH: 2004498165
+EDITOR API HASH: 1696660745
+Loading resource: D:/dev/hollowtide-soul-flash-20261026/native_check.gd remapped: D:/dev/hollowtide-soul-flash-20261026/native_check.gd
+Loading resource: res://scripts/arena/creature_finish.gdshader remapped: res://scripts/arena/creature_finish.gdshader
+Loading resource: res://scripts/arena/sel_out.gdshaderinc remapped: res://scripts/arena/sel_out.gdshaderinc
+Loading resource: res://scripts/arena/sparkwick_palette.gdshaderinc remapped: res://scripts/arena/sparkwick_palette.gdshaderinc
+Completed load for: 'res://scripts/arena/sparkwick_palette.gdshaderinc' remapped 'res://scripts/arena/sparkwick_palette.gdshaderinc' at thread -1
+Completed load for: 'res://scripts/arena/sel_out.gdshaderinc' remapped 'res://scripts/arena/sel_out.gdshaderinc' at thread -1
+Completed load for: 'res://scripts/arena/creature_finish.gdshader' remapped 'res://scripts/arena/creature_finish.gdshader' at thread -1
+Loading resource: res://scripts/arena/starward_finish.gdshader remapped: res://scripts/arena/starward_finish.gdshader
+Loading resource: res://scripts/art/selout_rim.gdshaderinc remapped: res://scripts/art/selout_rim.gdshaderinc
+Completed load for: 'res://scripts/art/selout_rim.gdshaderinc' remapped 'res://scripts/art/selout_rim.gdshaderinc' at thread -1
+Completed load for: 'res://scripts/arena/starward_finish.gdshader' remapped 'res://scripts/arena/starward_finish.gdshader' at thread -1
+Completed load for: 'D:/dev/hollowtide-soul-flash-20261026/native_check.gd' remapped 'D:/dev/hollowtide-soul-flash-20261026/native_check.gd' at thread -1
+SceneTreeFTI: traversal method DEFAULT
+Loading resource: res://scripts/player_party.gd remapped: res://scripts/player_party.gd
+Completed load for: 'res://scripts/player_party.gd' remapped 'res://scripts/player_party.gd' at thread -1
+Loading resource: res://addons/dialogue_manager/dialogue_manager.gd remapped: res://addons/dialogue_manager/dialogue_manager.gd
+Loading resource: res://addons/dialogue_manager/test_scene.tscn remapped: res://addons/dialogue_manager/test_scene.tscn
+Loading resource: res://addons/dialogue_manager/test_scene.gd remapped: res://addons/dialogue_manager/test_scene.gd
+Completed load for: 'res://addons/dialogue_manager/test_scene.gd' remapped 'res://addons/dialogue_manager/test_scene.gd' at thread -1
+Completed load for: 'res://addons/dialogue_manager/test_scene.tscn' remapped 'res://addons/dialogue_manager/test_scene.tscn' at thread -1
+Completed load for: 'res://addons/dialogue_manager/dialogue_manager.gd' remapped 'res://addons/dialogue_manager/dialogue_manager.gd' at thread -1
+Loading resource: res://addons/godot_ai/runtime/game_helper.gd remapped: res://addons/godot_ai/runtime/game_helper.gd
+Completed load for: 'res://addons/godot_ai/runtime/game_helper.gd' remapped 'res://addons/godot_ai/runtime/game_helper.gd' at thread -1
+Loading resource: res://scripts/ui/input_prefs.gd remapped: res://scripts/ui/input_prefs.gd
+Completed load for: 'res://scripts/ui/input_prefs.gd' remapped 'res://scripts/ui/input_prefs.gd' at thread -1
+Loaded system CA certificates
+[godot_ai game_helper] registered mcp capture (debugger active=false, logger=true)
+Loading resource: res://scenes/soul_prologue.tscn remapped: res://scenes/soul_prologue.tscn
+Loading resource: res://scripts/soul_prologue.gd remapped: res://scripts/soul_prologue.gd
+Completed load for: 'res://scripts/soul_prologue.gd' remapped 'res://scripts/soul_prologue.gd' at thread -1
+Completed load for: 'res://scenes/soul_prologue.tscn' remapped 'res://scenes/soul_prologue.tscn' at thread -1
+Loading resource: res://assets/audio/sfx/ui/text.wav remapped: res://assets/audio/sfx/ui/text.wav
+Loading resource: res://.godot/imported/text.wav-1a72347e8b16134f4d7c8170b671936f.sample remapped: res://.godot/imported/text.wav-1a72347e8b16134f4d7c8170b671936f.sample
+Completed load for: 'res://assets/audio/sfx/ui/text.wav' remapped 'res://assets/audio/sfx/ui/text.wav' at thread -1
+Loading resource: res://assets/fonts/Silkscreen-Regular.ttf remapped: res://assets/fonts/Silkscreen-Regular.ttf
+Loading resource: res://.godot/imported/Silkscreen-Regular.ttf-0088f200f2f1c02c371962cb8d277333.fontdata remapped: res://.godot/imported/Silkscreen-Regular.ttf-0088f200f2f1c02c371962cb8d277333.fontdata
+Completed load for: 'res://assets/fonts/Silkscreen-Regular.ttf' remapped 'res://assets/fonts/Silkscreen-Regular.ttf' at thread -1
+Loading resource: res://assets/sprites/ui/frame/panel_focus.png remapped: res://assets/sprites/ui/frame/panel_focus.png
+Loading resource: res://.godot/imported/panel_focus.png-6499baa53c91b19894f11168db422461.ctex remapped: res://.godot/imported/panel_focus.png-6499baa53c91b19894f11168db422461.ctex
+Completed load for: 'res://assets/sprites/ui/frame/panel_focus.png' remapped 'res://assets/sprites/ui/frame/panel_focus.png' at thread -1
+Loading resource: res://assets/sprites/ui/frame/portrait.png remapped: res://assets/sprites/ui/frame/portrait.png
+Loading resource: res://.godot/imported/portrait.png-f72086b3b0cc92c6c68ec8069594f92b.ctex remapped: res://.godot/imported/portrait.png-f72086b3b0cc92c6c68ec8069594f92b.ctex
+Completed load for: 'res://assets/sprites/ui/frame/portrait.png' remapped 'res://assets/sprites/ui/frame/portrait.png' at thread -1
+Loading resource: res://assets/sprites/creatures/starter_material_detail_2026_10_05/kithflare_idle_tail_outline_2026_10_05/f0.png remapped: res://assets/sprites/creatures/starter_material_detail_2026_10_05/kithflare_idle_tail_outline_2026_10_05/f0.png
+Loading resource: res://.godot/imported/f0.png-efbde77cf906a8f37ceb5ce44473ec81.ctex remapped: res://.godot/imported/f0.png-efbde77cf906a8f37ceb5ce44473ec81.ctex
+Completed load for: 'res://assets/sprites/creatures/starter_material_detail_2026_10_05/kithflare_idle_tail_outline_2026_10_05/f0.png' remapped 'res://assets/sprites/creatures/starter_material_detail_2026_10_05/kithflare_idle_tail_outline_2026_10_05/f0.png' at thread -1
+Loading resource: res://assets/sprites/creatures/starter_material_detail_2026_10_05/kithflare_idle_tail_outline_2026_10_05/f1.png remapped: res://assets/sprites/creatures/starter_material_detail_2026_10_05/kithflare_idle_tail_outline_2026_10_05/f1.png
+Loading resource: res://.godot/imported/f1.png-2bd387a4782f2e7cdc9201af4b46ceb8.ctex remapped: res://.godot/imported/f1.png-2bd387a4782f2e7cdc9201af4b46ceb8.ctex
+Completed load for: 'res://assets/sprites/creatures/starter_material_detail_2026_10_05/kithflare_idle_tail_outline_2026_10_05/f1.png' remapped 'res://assets/sprites/creatures/starter_material_detail_2026_10_05/kithflare_idle_tail_outline_2026_10_05/f1.png' at thread -1
+Loading resource: res://assets/sprites/creatures/starter_material_detail_2026_10_05/kithflare_idle_tail_outline_2026_10_05/f2.png remapped: res://assets/sprites/creatures/starter_material_detail_2026_10_05/kithflare_idle_tail_outline_2026_10_05/f2.png
+Loading resource: res://.godot/imported/f2.png-aba1172260d1536fad4ed08219e59dc6.ctex remapped: res://.godot/imported/f2.png-aba1172260d1536fad4ed08219e59dc6.ctex
+Completed load for: 'res://assets/sprites/creatures/starter_material_detail_2026_10_05/kithflare_idle_tail_outline_2026_10_05/f2.png' remapped 'res://assets/sprites/creatures/starter_material_detail_2026_10_05/kithflare_idle_tail_outline_2026_10_05/f2.png' at thread -1
+Loading resource: res://assets/sprites/creatures/starter_material_detail_2026_10_05/kithflare_idle_tail_outline_2026_10_05/f3.png remapped: res://assets/sprites/creatures/starter_material_detail_2026_10_05/kithflare_idle_tail_outline_2026_10_05/f3.png
+Loading resource: res://.godot/imported/f3.png-6dec6024007f4c6fca42c88d1317cc34.ctex remapped: res://.godot/imported/f3.png-6dec6024007f4c6fca42c88d1317cc34.ctex
+Completed load for: 'res://assets/sprites/creatures/starter_material_detail_2026_10_05/kithflare_idle_tail_outline_2026_10_05/f3.png' remapped 'res://assets/sprites/creatures/starter_material_detail_2026_10_05/kithflare_idle_tail_outline_2026_10_05/f3.png' at thread -1
+Loading resource: res://assets/sprites/creatures/starter_material_detail_2026_10_05/kithflare_idle_tail_outline_2026_10_05/f4.png remapped: res://assets/sprites/creatures/starter_material_detail_2026_10_05/kithflare_idle_tail_outline_2026_10_05/f4.png
+Loading resource: res://.godot/imported/f4.png-6ea2df721130b8e976e9f601415aa19d.ctex remapped: res://.godot/imported/f4.png-6ea2df721130b8e976e9f601415aa19d.ctex
+Completed load for: 'res://assets/sprites/creatures/starter_material_detail_2026_10_05/kithflare_idle_tail_outline_2026_10_05/f4.png' remapped 'res://assets/sprites/creatures/starter_material_detail_2026_10_05/kithflare_idle_tail_outline_2026_10_05/f4.png' at thread -1
+Loading resource: res://assets/sprites/creatures/starter_material_detail_2026_10_05/kithflare_idle_tail_outline_2026_10_05/f5.png remapped: res://assets/sprites/creatures/starter_material_detail_2026_10_05/kithflare_idle_tail_outline_2026_10_05/f5.png
+Loading resource: res://.godot/imported/f5.png-07c57e5e895ec472b8d954864256574f.ctex remapped: res://.godot/imported/f5.png-07c57e5e895ec472b8d954864256574f.ctex
+Completed load for: 'res://assets/sprites/creatures/starter_material_detail_2026_10_05/kithflare_idle_tail_outline_2026_10_05/f5.png' remapped 'res://assets/sprites/creatures/starter_material_detail_2026_10_05/kithflare_idle_tail_outline_2026_10_05/f5.png' at thread -1
+Loading resource: res://assets/sprites/creatures/starter_material_detail_2026_10_05/kithflare_idle_tail_outline_2026_10_05/f6.png remapped: res://assets/sprites/creatures/starter_material_detail_2026_10_05/kithflare_idle_tail_outline_2026_10_05/f6.png
+Loading resource: res://.godot/imported/f6.png-9fb421e667409d762c571a8c607a01b3.ctex remapped: res://.godot/imported/f6.png-9fb421e667409d762c571a8c607a01b3.ctex
+Completed load for: 'res://assets/sprites/creatures/starter_material_detail_2026_10_05/kithflare_idle_tail_outline_2026_10_05/f6.png' remapped 'res://assets/sprites/creatures/starter_material_detail_2026_10_05/kithflare_idle_tail_outline_2026_10_05/f6.png' at thread -1
+Loading resource: res://assets/sprites/creatures/starter_material_detail_2026_10_05/kithflare_idle_tail_outline_2026_10_05/f7.png remapped: res://assets/sprites/creatures/starter_material_detail_2026_10_05/kithflare_idle_tail_outline_2026_10_05/f7.png
+Loading resource: res://.godot/imported/f7.png-aedee50b8a2f6ad98377ef15067d48a1.ctex remapped: res://.godot/imported/f7.png-aedee50b8a2f6ad98377ef15067d48a1.ctex
+Completed load for: 'res://assets/sprites/creatures/starter_material_detail_2026_10_05/kithflare_idle_tail_outline_2026_10_05/f7.png' remapped 'res://assets/sprites/creatures/starter_material_detail_2026_10_05/kithflare_idle_tail_outline_2026_10_05/f7.png' at thread -1
+Loading resource: res://assets/sprites/creatures/idle_2026_10_05/1701_tallowroot/f0.png remapped: res://assets/sprites/creatures/idle_2026_10_05/1701_tallowroot/f0.png
+Loading resource: res://.godot/imported/f0.png-982c4ad61df5df208a8ac10e08c8466c.ctex remapped: res://.godot/imported/f0.png-982c4ad61df5df208a8ac10e08c8466c.ctex
+Completed load for: 'res://assets/sprites/creatures/idle_2026_10_05/1701_tallowroot/f0.png' remapped 'res://assets/sprites/creatures/idle_2026_10_05/1701_tallowroot/f0.png' at thread -1
+Loading resource: res://assets/sprites/creatures/idle_2026_10_05/1701_tallowroot/f1.png remapped: res://assets/sprites/creatures/idle_2026_10_05/1701_tallowroot/f1.png
+Loading resource: res://.godot/imported/f1.png-591be503ab9f2c97374922689edaafea.ctex remapped: res://.godot/imported/f1.png-591be503ab9f2c97374922689edaafea.ctex
+Completed load for: 'res://assets/sprites/creatures/idle_2026_10_05/1701_tallowroot/f1.png' remapped 'res://assets/sprites/creatures/idle_2026_10_05/1701_tallowroot/f1.png' at thread -1
+Loading resource: res://assets/sprites/creatures/idle_2026_10_05/1701_tallowroot/f2.png remapped: res://assets/sprites/creatures/idle_2026_10_05/1701_tallowroot/f2.png
+Loading resource: res://.godot/imported/f2.png-3debd2e45b938001d6f7e4ad3f88bc4e.ctex remapped: res://.godot/imported/f2.png-3debd2e45b938001d6f7e4ad3f88bc4e.ctex
+Completed load for: 'res://assets/sprites/creatures/idle_2026_10_05/1701_tallowroot/f2.png' remapped 'res://assets/sprites/creatures/idle_2026_10_05/1701_tallowroot/f2.png' at thread -1
+Loading resource: res://assets/sprites/creatures/idle_2026_10_05/1701_tallowroot/f3.png remapped: res://assets/sprites/creatures/idle_2026_10_05/1701_tallowroot/f3.png
+Loading resource: res://.godot/imported/f3.png-5eecb41400cb9d21975e6ea380fbda70.ctex remapped: res://.godot/imported/f3.png-5eecb41400cb9d21975e6ea380fbda70.ctex
+Completed load for: 'res://assets/sprites/creatures/idle_2026_10_05/1701_tallowroot/f3.png' remapped 'res://assets/sprites/creatures/idle_2026_10_05/1701_tallowroot/f3.png' at thread -1
+Loading resource: res://assets/sprites/creatures/idle_2026_10_05/1701_tallowroot/f4.png remapped: res://assets/sprites/creatures/idle_2026_10_05/1701_tallowroot/f4.png
+Loading resource: res://.godot/imported/f4.png-1a4d1fe6e08219b540fb20b0272fd83f.ctex remapped: res://.godot/imported/f4.png-1a4d1fe6e08219b540fb20b0272fd83f.ctex
+Completed load for: 'res://assets/sprites/creatures/idle_2026_10_05/1701_tallowroot/f4.png' remapped 'res://assets/sprites/creatures/idle_2026_10_05/1701_tallowroot/f4.png' at thread -1
+Loading resource: res://assets/sprites/creatures/idle_2026_10_05/1701_tallowroot/f5.png remapped: res://assets/sprites/creatures/idle_2026_10_05/1701_tallowroot/f5.png
+Loading resource: res://.godot/imported/f5.png-b9dd1df80d3bdb3c4b1d5af1aed0c714.ctex remapped: res://.godot/imported/f5.png-b9dd1df80d3bdb3c4b1d5af1aed0c714.ctex
+Completed load for: 'res://assets/sprites/creatures/idle_2026_10_05/1701_tallowroot/f5.png' remapped 'res://assets/sprites/creatures/idle_2026_10_05/1701_tallowroot/f5.png' at thread -1
+Loading resource: res://assets/sprites/creatures/idle_2026_10_05/1701_tallowroot/f6.png remapped: res://assets/sprites/creatures/idle_2026_10_05/1701_tallowroot/f6.png
+Loading resource: res://.godot/imported/f6.png-1aca1257c4f581889e2269cc6ef5e71e.ctex remapped: res://.godot/imported/f6.png-1aca1257c4f581889e2269cc6ef5e71e.ctex
+Completed load for: 'res://assets/sprites/creatures/idle_2026_10_05/1701_tallowroot/f6.png' remapped 'res://assets/sprites/creatures/idle_2026_10_05/1701_tallowroot/f6.png' at thread -1
+Loading resource: res://assets/sprites/creatures/idle_2026_10_05/1701_tallowroot/f7.png remapped: res://assets/sprites/creatures/idle_2026_10_05/1701_tallowroot/f7.png
+Loading resource: res://.godot/imported/f7.png-8d8f36f778890e8da6baac752861632c.ctex remapped: res://.godot/imported/f7.png-8d8f36f778890e8da6baac752861632c.ctex
+Completed load for: 'res://assets/sprites/creatures/idle_2026_10_05/1701_tallowroot/f7.png' remapped 'res://assets/sprites/creatures/idle_2026_10_05/1701_tallowroot/f7.png' at thread -1
+Loading resource: res://assets/sprites/creatures/idle_2026_10_05/001_rimefin/f0.png remapped: res://assets/sprites/creatures/idle_2026_10_05/001_rimefin/f0.png
+Loading resource: res://.godot/imported/f0.png-a4b09baadb39fc6e9f69f372b26e3eb9.ctex remapped: res://.godot/imported/f0.png-a4b09baadb39fc6e9f69f372b26e3eb9.ctex
+Completed load for: 'res://assets/sprites/creatures/idle_2026_10_05/001_rimefin/f0.png' remapped 'res://assets/sprites/creatures/idle_2026_10_05/001_rimefin/f0.png' at thread -1
+Loading resource: res://assets/sprites/creatures/idle_2026_10_05/001_rimefin/f1.png remapped: res://assets/sprites/creatures/idle_2026_10_05/001_rimefin/f1.png
+Loading resource: res://.godot/imported/f1.png-7aff6a5ced1e0551177e57871d03eeaa.ctex remapped: res://.godot/imported/f1.png-7aff6a5ced1e0551177e57871d03eeaa.ctex
+Completed load for: 'res://assets/sprites/creatures/idle_2026_10_05/001_rimefin/f1.png' remapped 'res://assets/sprites/creatures/idle_2026_10_05/001_rimefin/f1.png' at thread -1
+Loading resource: res://assets/sprites/creatures/idle_2026_10_05/001_rimefin/f2.png remapped: res://assets/sprites/creatures/idle_2026_10_05/001_rimefin/f2.png
+Loading resource: res://.godot/imported/f2.png-e15793f6f5438e5c51fd77d77f510748.ctex remapped: res://.godot/imported/f2.png-e15793f6f5438e5c51fd77d77f510748.ctex
+Completed load for: 'res://assets/sprites/creatures/idle_2026_10_05/001_rimefin/f2.png' remapped 'res://assets/sprites/creatures/idle_2026_10_05/001_rimefin/f2.png' at thread -1
+Loading resource: res://assets/sprites/creatures/idle_2026_10_05/001_rimefin/f3.png remapped: res://assets/sprites/creatures/idle_2026_10_05/001_rimefin/f3.png
+Loading resource: res://.godot/imported/f3.png-de5caa4c12e7f0a755a2edc46a910950.ctex remapped: res://.godot/imported/f3.png-de5caa4c12e7f0a755a2edc46a910950.ctex
+Completed load for: 'res://assets/sprites/creatures/idle_2026_10_05/001_rimefin/f3.png' remapped 'res://assets/sprites/creatures/idle_2026_10_05/001_rimefin/f3.png' at thread -1
+Loading resource: res://assets/sprites/creatures/idle_2026_10_05/001_rimefin/f4.png remapped: res://assets/sprites/creatures/idle_2026_10_05/001_rimefin/f4.png
+Loading resource: res://.godot/imported/f4.png-bce2942a1e4c6ca380807824fbd9c7de.ctex remapped: res://.godot/imported/f4.png-bce2942a1e4c6ca380807824fbd9c7de.ctex
+Completed load for: 'res://assets/sprites/creatures/idle_2026_10_05/001_rimefin/f4.png' remapped 'res://assets/sprites/creatures/idle_2026_10_05/001_rimefin/f4.png' at thread -1
+Loading resource: res://assets/sprites/creatures/idle_2026_10_05/001_rimefin/f5.png remapped: res://assets/sprites/creatures/idle_2026_10_05/001_rimefin/f5.png
+Loading resource: res://.godot/imported/f5.png-3f8b2a0e3914358e9c87518ff6e6fec2.ctex remapped: res://.godot/imported/f5.png-3f8b2a0e3914358e9c87518ff6e6fec2.ctex
+Completed load for: 'res://assets/sprites/creatures/idle_2026_10_05/001_rimefin/f5.png' remapped 'res://assets/sprites/creatures/idle_2026_10_05/001_rimefin/f5.png' at thread -1
+Loading resource: res://assets/sprites/creatures/idle_2026_10_05/001_rimefin/f6.png remapped: res://assets/sprites/creatures/idle_2026_10_05/001_rimefin/f6.png
+Loading resource: res://.godot/imported/f6.png-0d7ff3201d320bc9f7db39e0f0f7446f.ctex remapped: res://.godot/imported/f6.png-0d7ff3201d320bc9f7db39e0f0f7446f.ctex
+Completed load for: 'res://assets/sprites/creatures/idle_2026_10_05/001_rimefin/f6.png' remapped 'res://assets/sprites/creatures/idle_2026_10_05/001_rimefin/f6.png' at thread -1
+Loading resource: res://assets/sprites/creatures/idle_2026_10_05/001_rimefin/f7.png remapped: res://assets/sprites/creatures/idle_2026_10_05/001_rimefin/f7.png
+Loading resource: res://.godot/imported/f7.png-23df3430b174acda5790bf0f0f24e35c.ctex remapped: res://.godot/imported/f7.png-23df3430b174acda5790bf0f0f24e35c.ctex
+Completed load for: 'res://assets/sprites/creatures/idle_2026_10_05/001_rimefin/f7.png' remapped 'res://assets/sprites/creatures/idle_2026_10_05/001_rimefin/f7.png' at thread -1
+Loading resource: res://assets/fonts/Jersey10-Regular.ttf remapped: res://assets/fonts/Jersey10-Regular.ttf
+Loading resource: res://.godot/imported/Jersey10-Regular.ttf-200460e514ca6d2634756f713ee1b38e.fontdata remapped: res://.godot/imported/Jersey10-Regular.ttf-200460e514ca6d2634756f713ee1b38e.fontdata
+Completed load for: 'res://assets/fonts/Jersey10-Regular.ttf' remapped 'res://assets/fonts/Jersey10-Regular.ttf' at thread -1
+Loading resource: res://assets/sprites/ui/essence/ember.png remapped: res://assets/sprites/ui/essence/ember.png
+Loading resource: res://.godot/imported/ember.png-522bc3ad014c70479f0bac59b81289a2.ctex remapped: res://.godot/imported/ember.png-522bc3ad014c70479f0bac59b81289a2.ctex
+Completed load for: 'res://assets/sprites/ui/essence/ember.png' remapped 'res://assets/sprites/ui/essence/ember.png' at thread -1
+Loading resource: res://assets/sprites/ui/essence/electric.png remapped: res://assets/sprites/ui/essence/electric.png
+Loading resource: res://.godot/imported/electric.png-a15ce30f8b46fd29c0dc53f59a188c98.ctex remapped: res://.godot/imported/electric.png-a15ce30f8b46fd29c0dc53f59a188c98.ctex
+Completed load for: 'res://assets/sprites/ui/essence/electric.png' remapped 'res://assets/sprites/ui/essence/electric.png' at thread -1
+Loading resource: res://assets/sprites/ui/frame/panel_dim.png remapped: res://assets/sprites/ui/frame/panel_dim.png
+Loading resource: res://.godot/imported/panel_dim.png-5b1c07a86d598a51b6d7817ee99913ea.ctex remapped: res://.godot/imported/panel_dim.png-5b1c07a86d598a51b6d7817ee99913ea.ctex
+Completed load for: 'res://assets/sprites/ui/frame/panel_dim.png' remapped 'res://assets/sprites/ui/frame/panel_dim.png' at thread -1
+Loading resource: res://assets/sprites/ui/essence/bloom.png remapped: res://assets/sprites/ui/essence/bloom.png
+Loading resource: res://.godot/imported/bloom.png-9253fd9e16eba57e63250c0af5ee7f89.ctex remapped: res://.godot/imported/bloom.png-9253fd9e16eba57e63250c0af5ee7f89.ctex
+Completed load for: 'res://assets/sprites/ui/essence/bloom.png' remapped 'res://assets/sprites/ui/essence/bloom.png' at thread -1
+Loading resource: res://assets/sprites/ui/essence/loam.png remapped: res://assets/sprites/ui/essence/loam.png
+Loading resource: res://.godot/imported/loam.png-319a37ae64ea35434a3e2c998d8a0e51.ctex remapped: res://.godot/imported/loam.png-319a37ae64ea35434a3e2c998d8a0e51.ctex
+Completed load for: 'res://assets/sprites/ui/essence/loam.png' remapped 'res://assets/sprites/ui/essence/loam.png' at thread -1
+Loading resource: res://assets/sprites/ui/essence/tide.png remapped: res://assets/sprites/ui/essence/tide.png
+Loading resource: res://.godot/imported/tide.png-a7108e02eee68f5dc2dab08259bee168.ctex remapped: res://.godot/imported/tide.png-a7108e02eee68f5dc2dab08259bee168.ctex
+Completed load for: 'res://assets/sprites/ui/essence/tide.png' remapped 'res://assets/sprites/ui/essence/tide.png' at thread -1
+Loading resource: res://assets/sprites/ui/essence/murk.png remapped: res://assets/sprites/ui/essence/murk.png
+Loading resource: res://.godot/imported/murk.png-adbf5c2798cd5f4757ac9bd3a7b47101.ctex remapped: res://.godot/imported/murk.png-adbf5c2798cd5f4757ac9bd3a7b47101.ctex
+Completed load for: 'res://assets/sprites/ui/essence/murk.png' remapped 'res://assets/sprites/ui/essence/murk.png' at thread -1
+Loading resource: res://assets/sprites/ui/frame/panel.png remapped: res://assets/sprites/ui/frame/panel.png
+Loading resource: res://.godot/imported/panel.png-579543419dd28a576392dbfa2b95b9c7.ctex remapped: res://.godot/imported/panel.png-579543419dd28a576392dbfa2b95b9c7.ctex
+Completed load for: 'res://assets/sprites/ui/frame/panel.png' remapped 'res://assets/sprites/ui/frame/panel.png' at thread -1
+Loading resource: res://assets/sprites/ui/frame/nameplate.png remapped: res://assets/sprites/ui/frame/nameplate.png
+Loading resource: res://.godot/imported/nameplate.png-14fa3910a4172cffb8bd5588ebb2e554.ctex remapped: res://.godot/imported/nameplate.png-14fa3910a4172cffb8bd5588ebb2e554.ctex
+Completed load for: 'res://assets/sprites/ui/frame/nameplate.png' remapped 'res://assets/sprites/ui/frame/nameplate.png' at thread -1
+SOUL_FLASH_CHECK normal-0 real advance enters flight -> ok
+Loading resource: res://assets/audio/music/hollow_flute.mp3 remapped: res://assets/audio/music/hollow_flute.mp3
+Loading resource: res://.godot/imported/hollow_flute.mp3-64b7d9eb35adde8e9a36e4191c630ce5.mp3str remapped: res://.godot/imported/hollow_flute.mp3-64b7d9eb35adde8e9a36e4191c630ce5.mp3str
+Completed load for: 'res://assets/audio/music/hollow_flute.mp3' remapped 'res://assets/audio/music/hollow_flute.mp3' at thread -1
+Loading resource: res://scenes/creature_prologue.tscn remapped: res://scenes/creature_prologue.tscn
+Loading resource: res://scripts/creature_prologue.gd remapped: res://scripts/creature_prologue.gd
+Loading resource: res://dialogue/flood_bank.dialogue remapped: res://dialogue/flood_bank.dialogue
+Loading resource: res://.godot/imported/flood_bank.dialogue-1cc5db362af5ea47904f6f6aedf577a5.tres remapped: res://.godot/imported/flood_bank.dialogue-1cc5db362af5ea47904f6f6aedf577a5.tres
+Completed load for: 'res://dialogue/flood_bank.dialogue' remapped 'res://dialogue/flood_bank.dialogue' at thread -1
+Loading resource: res://scripts/dungeon/dungeon_finish.gdshader remapped: res://scripts/dungeon/dungeon_finish.gdshader
+Completed load for: 'res://scripts/dungeon/dungeon_finish.gdshader' remapped 'res://scripts/dungeon/dungeon_finish.gdshader' at thread -1
+Completed load for: 'res://scripts/creature_prologue.gd' remapped 'res://scripts/creature_prologue.gd' at thread -1
+Completed load for: 'res://scenes/creature_prologue.tscn' remapped 'res://scenes/creature_prologue.tscn' at thread -1
+SOUL_FLASH_METRIC {"case":"normal-0","corner_rgb":[1.0,1.0,1.0],"effective_reduce":false,"first_flash":26,"first_zero":-1,"forwarded":false,"handoff_frame":48,"hero":0,"image_peak_frame":27,"nonzero_samples":23,"peak":1.6,"saved":false}
+SOUL_FLASH_CHECK normal-0 flight reaches chosen creature before flash -> ok
+SOUL_FLASH_CHECK normal-0 flash decays monotonically -> ok
+SOUL_FLASH_CHECK normal-0 existing handoff delay retained -> ok
+SOUL_FLASH_CHECK normal-0 chosen hero and partner survive handoff -> ok
+SOUL_FLASH_CHECK normal-0 private saved team bytes unchanged -> ok
+SOUL_FLASH_CHECK normal-0 setting reaches soul and next scene -> ok
+SOUL_FLASH_CHECK normal-0 normal starting flash remains 1.6 -> ok
+SOUL_FLASH_CHECK normal-0 normal full-white native peak retained -> ok
+Loading resource: res://scenes/soul_prologue.tscn remapped: res://scenes/soul_prologue.tscn
+Completed load for: 'res://scenes/soul_prologue.tscn' remapped 'res://scenes/soul_prologue.tscn' at thread -1
+Loading resource: res://assets/audio/sfx/ui/text.wav remapped: res://assets/audio/sfx/ui/text.wav
+Loading resource: res://.godot/imported/text.wav-1a72347e8b16134f4d7c8170b671936f.sample remapped: res://.godot/imported/text.wav-1a72347e8b16134f4d7c8170b671936f.sample
+Completed load for: 'res://assets/audio/sfx/ui/text.wav' remapped 'res://assets/audio/sfx/ui/text.wav' at thread -1
+Loading resource: res://assets/sprites/ui/frame/arrow.png remapped: res://assets/sprites/ui/frame/arrow.png
+Loading resource: res://.godot/imported/arrow.png-e6eccf886aa7538070d19f5868747136.ctex remapped: res://.godot/imported/arrow.png-e6eccf886aa7538070d19f5868747136.ctex
+Completed load for: 'res://assets/sprites/ui/frame/arrow.png' remapped 'res://assets/sprites/ui/frame/arrow.png' at thread -1
+SOUL_FLASH_CHECK normal-1 real advance enters flight -> ok
+Loading resource: res://scenes/creature_prologue.tscn remapped: res://scenes/creature_prologue.tscn
+Completed load for: 'res://scenes/creature_prologue.tscn' remapped 'res://scenes/creature_prologue.tscn' at thread -1
+SOUL_FLASH_METRIC {"case":"normal-1","corner_rgb":[1.0,1.0,1.0],"effective_reduce":false,"first_flash":26,"first_zero":-1,"forwarded":false,"handoff_frame":48,"hero":1,"image_peak_frame":27,"nonzero_samples":23,"peak":1.6,"saved":false}
+SOUL_FLASH_CHECK normal-1 flight reaches chosen creature before flash -> ok
+SOUL_FLASH_CHECK normal-1 flash decays monotonically -> ok
+SOUL_FLASH_CHECK normal-1 existing handoff delay retained -> ok
+SOUL_FLASH_CHECK normal-1 chosen hero and partner survive handoff -> ok
+SOUL_FLASH_CHECK normal-1 private saved team bytes unchanged -> ok
+SOUL_FLASH_CHECK normal-1 setting reaches soul and next scene -> ok
+SOUL_FLASH_CHECK normal-1 normal starting flash remains 1.6 -> ok
+SOUL_FLASH_CHECK normal-1 normal full-white native peak retained -> ok
+Loading resource: res://scenes/soul_prologue.tscn remapped: res://scenes/soul_prologue.tscn
+Completed load for: 'res://scenes/soul_prologue.tscn' remapped 'res://scenes/soul_prologue.tscn' at thread -1
+Loading resource: res://assets/audio/sfx/ui/text.wav remapped: res://assets/audio/sfx/ui/text.wav
+Loading resource: res://.godot/imported/text.wav-1a72347e8b16134f4d7c8170b671936f.sample remapped: res://.godot/imported/text.wav-1a72347e8b16134f4d7c8170b671936f.sample
+Completed load for: 'res://assets/audio/sfx/ui/text.wav' remapped 'res://assets/audio/sfx/ui/text.wav' at thread -1
+SOUL_FLASH_CHECK normal-2 real advance enters flight -> ok
+Loading resource: res://scenes/creature_prologue.tscn remapped: res://scenes/creature_prologue.tscn
+Completed load for: 'res://scenes/creature_prologue.tscn' remapped 'res://scenes/creature_prologue.tscn' at thread -1
+SOUL_FLASH_METRIC {"case":"normal-2","corner_rgb":[1.0,1.0,1.0],"effective_reduce":false,"first_flash":26,"first_zero":-1,"forwarded":false,"handoff_frame":48,"hero":2,"image_peak_frame":27,"nonzero_samples":23,"peak":1.6,"saved":false}
+SOUL_FLASH_CHECK normal-2 flight reaches chosen creature before flash -> ok
+SOUL_FLASH_CHECK normal-2 flash decays monotonically -> ok
+SOUL_FLASH_CHECK normal-2 existing handoff delay retained -> ok
+SOUL_FLASH_CHECK normal-2 chosen hero and partner survive handoff -> ok
+SOUL_FLASH_CHECK normal-2 private saved team bytes unchanged -> ok
+SOUL_FLASH_CHECK normal-2 setting reaches soul and next scene -> ok
+SOUL_FLASH_CHECK normal-2 normal starting flash remains 1.6 -> ok
+SOUL_FLASH_CHECK normal-2 normal full-white native peak retained -> ok
+Loading resource: res://scenes/soul_prologue.tscn remapped: res://scenes/soul_prologue.tscn
+Completed load for: 'res://scenes/soul_prologue.tscn' remapped 'res://scenes/soul_prologue.tscn' at thread -1
+Loading resource: res://assets/audio/sfx/ui/text.wav remapped: res://assets/audio/sfx/ui/text.wav
+Loading resource: res://.godot/imported/text.wav-1a72347e8b16134f4d7c8170b671936f.sample remapped: res://.godot/imported/text.wav-1a72347e8b16134f4d7c8170b671936f.sample
+Completed load for: 'res://assets/audio/sfx/ui/text.wav' remapped 'res://assets/audio/sfx/ui/text.wav' at thread -1
+SOUL_FLASH_CHECK forwarded-0 real advance enters flight -> ok
+Loading resource: res://scenes/creature_prologue.tscn remapped: res://scenes/creature_prologue.tscn
+Completed load for: 'res://scenes/creature_prologue.tscn' remapped 'res://scenes/creature_prologue.tscn' at thread -1
+SOUL_FLASH_METRIC {"case":"forwarded-0","corner_rgb":[0.388235300779343,0.388235300779343,0.427450984716415],"effective_reduce":true,"first_flash":26,"first_zero":40,"forwarded":true,"handoff_frame":48,"hero":0,"image_peak_frame":27,"nonzero_samples":14,"peak":0.4,"saved":false}
+SOUL_FLASH_CHECK forwarded-0 flight reaches chosen creature before flash -> ok
+SOUL_FLASH_CHECK forwarded-0 flash decays monotonically -> ok
+SOUL_FLASH_CHECK forwarded-0 existing handoff delay retained -> ok
+SOUL_FLASH_CHECK forwarded-0 chosen hero and partner survive handoff -> ok
+SOUL_FLASH_CHECK forwarded-0 private saved team bytes unchanged -> ok
+SOUL_FLASH_CHECK forwarded-0 setting reaches soul and next scene -> ok
+SOUL_FLASH_CHECK forwarded-0 reduced starting flash capped at 0.4 -> ok
+SOUL_FLASH_CHECK forwarded-0 native flash stays below full white -> ok
+SOUL_FLASH_CHECK forwarded-0 reduced flash clears before existing handoff -> ok
+Loading resource: res://scenes/soul_prologue.tscn remapped: res://scenes/soul_prologue.tscn
+Completed load for: 'res://scenes/soul_prologue.tscn' remapped 'res://scenes/soul_prologue.tscn' at thread -1
+Loading resource: res://assets/audio/sfx/ui/text.wav remapped: res://assets/audio/sfx/ui/text.wav
+Loading resource: res://.godot/imported/text.wav-1a72347e8b16134f4d7c8170b671936f.sample remapped: res://.godot/imported/text.wav-1a72347e8b16134f4d7c8170b671936f.sample
+Completed load for: 'res://assets/audio/sfx/ui/text.wav' remapped 'res://assets/audio/sfx/ui/text.wav' at thread -1
+SOUL_FLASH_CHECK forwarded-1 real advance enters flight -> ok
+Loading resource: res://scenes/creature_prologue.tscn remapped: res://scenes/creature_prologue.tscn
+Completed load for: 'res://scenes/creature_prologue.tscn' remapped 'res://scenes/creature_prologue.tscn' at thread -1
+SOUL_FLASH_METRIC {"case":"forwarded-1","corner_rgb":[0.388235300779343,0.388235300779343,0.427450984716415],"effective_reduce":true,"first_flash":26,"first_zero":40,"forwarded":true,"handoff_frame":48,"hero":1,"image_peak_frame":27,"nonzero_samples":14,"peak":0.4,"saved":false}
+SOUL_FLASH_CHECK forwarded-1 flight reaches chosen creature before flash -> ok
+SOUL_FLASH_CHECK forwarded-1 flash decays monotonically -> ok
+SOUL_FLASH_CHECK forwarded-1 existing handoff delay retained -> ok
+SOUL_FLASH_CHECK forwarded-1 chosen hero and partner survive handoff -> ok
+SOUL_FLASH_CHECK forwarded-1 private saved team bytes unchanged -> ok
+SOUL_FLASH_CHECK forwarded-1 setting reaches soul and next scene -> ok
+SOUL_FLASH_CHECK forwarded-1 reduced starting flash capped at 0.4 -> ok
+SOUL_FLASH_CHECK forwarded-1 native flash stays below full white -> ok
+SOUL_FLASH_CHECK forwarded-1 reduced flash clears before existing handoff -> ok
+Loading resource: res://scenes/soul_prologue.tscn remapped: res://scenes/soul_prologue.tscn
+Completed load for: 'res://scenes/soul_prologue.tscn' remapped 'res://scenes/soul_prologue.tscn' at thread -1
+Loading resource: res://assets/audio/sfx/ui/text.wav remapped: res://assets/audio/sfx/ui/text.wav
+Loading resource: res://.godot/imported/text.wav-1a72347e8b16134f4d7c8170b671936f.sample remapped: res://.godot/imported/text.wav-1a72347e8b16134f4d7c8170b671936f.sample
+Completed load for: 'res://assets/audio/sfx/ui/text.wav' remapped 'res://assets/audio/sfx/ui/text.wav' at thread -1
+SOUL_FLASH_CHECK forwarded-2 real advance enters flight -> ok
+Loading resource: res://scenes/creature_prologue.tscn remapped: res://scenes/creature_prologue.tscn
+Completed load for: 'res://scenes/creature_prologue.tscn' remapped 'res://scenes/creature_prologue.tscn' at thread -1
+SOUL_FLASH_METRIC {"case":"forwarded-2","corner_rgb":[0.388235300779343,0.388235300779343,0.427450984716415],"effective_reduce":true,"first_flash":26,"first_zero":40,"forwarded":true,"handoff_frame":48,"hero":2,"image_peak_frame":27,"nonzero_samples":14,"peak":0.4,"saved":false}
+SOUL_FLASH_CHECK forwarded-2 flight reaches chosen creature before flash -> ok
+SOUL_FLASH_CHECK forwarded-2 flash decays monotonically -> ok
+SOUL_FLASH_CHECK forwarded-2 existing handoff delay retained -> ok
+SOUL_FLASH_CHECK forwarded-2 chosen hero and partner survive handoff -> ok
+SOUL_FLASH_CHECK forwarded-2 private saved team bytes unchanged -> ok
+SOUL_FLASH_CHECK forwarded-2 setting reaches soul and next scene -> ok
+SOUL_FLASH_CHECK forwarded-2 reduced starting flash capped at 0.4 -> ok
+SOUL_FLASH_CHECK forwarded-2 native flash stays below full white -> ok
+SOUL_FLASH_CHECK forwarded-2 reduced flash clears before existing handoff -> ok
+Loading resource: res://scenes/soul_prologue.tscn remapped: res://scenes/soul_prologue.tscn
+Completed load for: 'res://scenes/soul_prologue.tscn' remapped 'res://scenes/soul_prologue.tscn' at thread -1
+Loading resource: res://assets/audio/sfx/ui/text.wav remapped: res://assets/audio/sfx/ui/text.wav
+Loading resource: res://.godot/imported/text.wav-1a72347e8b16134f4d7c8170b671936f.sample remapped: res://.godot/imported/text.wav-1a72347e8b16134f4d7c8170b671936f.sample
+Completed load for: 'res://assets/audio/sfx/ui/text.wav' remapped 'res://assets/audio/sfx/ui/text.wav' at thread -1
+SOUL_FLASH_CHECK saved-0 real advance enters flight -> ok
+Loading resource: res://scenes/creature_prologue.tscn remapped: res://scenes/creature_prologue.tscn
+Completed load for: 'res://scenes/creature_prologue.tscn' remapped 'res://scenes/creature_prologue.tscn' at thread -1
+SOUL_FLASH_METRIC {"case":"saved-0","corner_rgb":[0.388235300779343,0.388235300779343,0.427450984716415],"effective_reduce":true,"first_flash":26,"first_zero":40,"forwarded":false,"handoff_frame":48,"hero":0,"image_peak_frame":27,"nonzero_samples":14,"peak":0.4,"saved":true}
+SOUL_FLASH_CHECK saved-0 flight reaches chosen creature before flash -> ok
+SOUL_FLASH_CHECK saved-0 flash decays monotonically -> ok
+SOUL_FLASH_CHECK saved-0 existing handoff delay retained -> ok
+SOUL_FLASH_CHECK saved-0 chosen hero and partner survive handoff -> ok
+SOUL_FLASH_CHECK saved-0 private saved team bytes unchanged -> ok
+SOUL_FLASH_CHECK saved-0 setting reaches soul and next scene -> ok
+SOUL_FLASH_CHECK saved-0 reduced starting flash capped at 0.4 -> ok
+SOUL_FLASH_CHECK saved-0 native flash stays below full white -> ok
+SOUL_FLASH_CHECK saved-0 reduced flash clears before existing handoff -> ok
+Loading resource: res://scenes/soul_prologue.tscn remapped: res://scenes/soul_prologue.tscn
+Completed load for: 'res://scenes/soul_prologue.tscn' remapped 'res://scenes/soul_prologue.tscn' at thread -1
+Loading resource: res://assets/audio/sfx/ui/text.wav remapped: res://assets/audio/sfx/ui/text.wav
+Loading resource: res://.godot/imported/text.wav-1a72347e8b16134f4d7c8170b671936f.sample remapped: res://.godot/imported/text.wav-1a72347e8b16134f4d7c8170b671936f.sample
+Completed load for: 'res://assets/audio/sfx/ui/text.wav' remapped 'res://assets/audio/sfx/ui/text.wav' at thread -1
+SOUL_FLASH_CHECK saved-1 real advance enters flight -> ok
+Loading resource: res://scenes/creature_prologue.tscn remapped: res://scenes/creature_prologue.tscn
+Completed load for: 'res://scenes/creature_prologue.tscn' remapped 'res://scenes/creature_prologue.tscn' at thread -1
+SOUL_FLASH_METRIC {"case":"saved-1","corner_rgb":[0.388235300779343,0.388235300779343,0.427450984716415],"effective_reduce":true,"first_flash":26,"first_zero":40,"forwarded":false,"handoff_frame":48,"hero":1,"image_peak_frame":27,"nonzero_samples":14,"peak":0.4,"saved":true}
+SOUL_FLASH_CHECK saved-1 flight reaches chosen creature before flash -> ok
+SOUL_FLASH_CHECK saved-1 flash decays monotonically -> ok
+SOUL_FLASH_CHECK saved-1 existing handoff delay retained -> ok
+SOUL_FLASH_CHECK saved-1 chosen hero and partner survive handoff -> ok
+SOUL_FLASH_CHECK saved-1 private saved team bytes unchanged -> ok
+SOUL_FLASH_CHECK saved-1 setting reaches soul and next scene -> ok
+SOUL_FLASH_CHECK saved-1 reduced starting flash capped at 0.4 -> ok
+SOUL_FLASH_CHECK saved-1 native flash stays below full white -> ok
+SOUL_FLASH_CHECK saved-1 reduced flash clears before existing handoff -> ok
+Loading resource: res://scenes/soul_prologue.tscn remapped: res://scenes/soul_prologue.tscn
+Completed load for: 'res://scenes/soul_prologue.tscn' remapped 'res://scenes/soul_prologue.tscn' at thread -1
+Loading resource: res://assets/audio/sfx/ui/text.wav remapped: res://assets/audio/sfx/ui/text.wav
+Loading resource: res://.godot/imported/text.wav-1a72347e8b16134f4d7c8170b671936f.sample remapped: res://.godot/imported/text.wav-1a72347e8b16134f4d7c8170b671936f.sample
+Completed load for: 'res://assets/audio/sfx/ui/text.wav' remapped 'res://assets/audio/sfx/ui/text.wav' at thread -1
+SOUL_FLASH_CHECK saved-2 real advance enters flight -> ok
+Loading resource: res://scenes/creature_prologue.tscn remapped: res://scenes/creature_prologue.tscn
+Completed load for: 'res://scenes/creature_prologue.tscn' remapped 'res://scenes/creature_prologue.tscn' at thread -1
+SOUL_FLASH_METRIC {"case":"saved-2","corner_rgb":[0.388235300779343,0.388235300779343,0.427450984716415],"effective_reduce":true,"first_flash":26,"first_zero":40,"forwarded":false,"handoff_frame":48,"hero":2,"image_peak_frame":27,"nonzero_samples":14,"peak":0.4,"saved":true}
+SOUL_FLASH_CHECK saved-2 flight reaches chosen creature before flash -> ok
+SOUL_FLASH_CHECK saved-2 flash decays monotonically -> ok
+SOUL_FLASH_CHECK saved-2 existing handoff delay retained -> ok
+SOUL_FLASH_CHECK saved-2 chosen hero and partner survive handoff -> ok
+SOUL_FLASH_CHECK saved-2 private saved team bytes unchanged -> ok
+SOUL_FLASH_CHECK saved-2 setting reaches soul and next scene -> ok
+SOUL_FLASH_CHECK saved-2 reduced starting flash capped at 0.4 -> ok
+SOUL_FLASH_CHECK saved-2 native flash stays below full white -> ok
+SOUL_FLASH_CHECK saved-2 reduced flash clears before existing handoff -> ok
+SOUL FLASH RESULT {"cases":[{"case":"normal-0","corner_rgb":[1.0,1.0,1.0],"effective_reduce":false,"first_flash":26,"first_zero":-1,"forwarded":false,"handoff_frame":48,"hero":0,"image_peak_frame":27,"nonzero_samples":23,"peak":1.6,"saved":false},{"case":"normal-1","corner_rgb":[1.0,1.0,1.0],"effective_reduce":false,"first_flash":26,"first_zero":-1,"forwarded":false,"handoff_frame":48,"hero":1,"image_peak_frame":27,"nonzero_samples":23,"peak":1.6,"saved":false},{"case":"normal-2","corner_rgb":[1.0,1.0,1.0],"effective_reduce":false,"first_flash":26,"first_zero":-1,"forwarded":false,"handoff_frame":48,"hero":2,"image_peak_frame":27,"nonzero_samples":23,"peak":1.6,"saved":false},{"case":"forwarded-0","corner_rgb":[0.388235300779343,0.388235300779343,0.427450984716415],"effective_reduce":true,"first_flash":26,"first_zero":40,"forwarded":true,"handoff_frame":48,"hero":0,"image_peak_frame":27,"nonzero_samples":14,"peak":0.4,"saved":false},{"case":"forwarded-1","corner_rgb":[0.388235300779343,0.388235300779343,0.427450984716415],"effective_reduce":true,"first_flash":26,"first_zero":40,"forwarded":true,"handoff_frame":48,"hero":1,"image_peak_frame":27,"nonzero_samples":14,"peak":0.4,"saved":false},{"case":"forwarded-2","corner_rgb":[0.388235300779343,0.388235300779343,0.427450984716415],"effective_reduce":true,"first_flash":26,"first_zero":40,"forwarded":true,"handoff_frame":48,"hero":2,"image_peak_frame":27,"nonzero_samples":14,"peak":0.4,"saved":false},{"case":"saved-0","corner_rgb":[0.388235300779343,0.388235300779343,0.427450984716415],"effective_reduce":true,"first_flash":26,"first_zero":40,"forwarded":false,"handoff_frame":48,"hero":0,"image_peak_frame":27,"nonzero_samples":14,"peak":0.4,"saved":true},{"case":"saved-1","corner_rgb":[0.388235300779343,0.388235300779343,0.427450984716415],"effective_reduce":true,"first_flash":26,"first_zero":40,"forwarded":false,"handoff_frame":48,"hero":1,"image_peak_frame":27,"nonzero_samples":14,"peak":0.4,"saved":true},{"case":"saved-2","corner_rgb":[0.388235300779343,0.388235300779343,0.427450984716415],"effective_reduce":true,"first_flash":26,"first_zero":40,"forwarded":false,"handoff_frame":48,"hero":2,"image_peak_frame":27,"nonzero_samples":14,"peak":0.4,"saved":true}],"failed":0,"passed":87,"phase":"after","total":87}
+XR: Clearing primary interface
+XR: Removed interface "Native mobile"
+XR: Removed interface "OpenXR"
+Accessibility: window 0 adapter destroyed.

@@ -1,0 +1,21 @@
+{
+  "protected_baseline_files": 1005,
+  "owned_production_changes": [
+    "scripts/soul_prologue.gd"
+  ],
+  "concurrent_source_changes_preserved": [],
+  "concurrent_during_publication": [],
+  "all_changed_existing_paths": [
+    "docs/AI_COLLABORATION.md",
+    "docs/team/CODEX_TASKS_2026-10-26.md",
+    "scripts/soul_prologue.gd"
+  ],
+  "prior_docs_preserved": true,
+  "native": "87/87 clean; nine cases",
+  "official": "2 PASS; exit0; known raw exit warnings retained",
+  "preference_helpers": "match original tested bodies",
+  "prompt_default": "C6 OFF, unchanged by this slice",
+  "local_links_checked": 19,
+  "evidence": "C:\\Users\\pmcga\\dev\\hollowtide\\docs\\ui\\soul-flash-2026-10-26",
+  "handoff": "C:\\Users\\pmcga\\dev\\hollowtide\\docs\\team\\CODEX_HANDOFF_2026-10-26_soul_flash.md"
+}

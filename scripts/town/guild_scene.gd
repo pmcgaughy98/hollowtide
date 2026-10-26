@@ -72,7 +72,9 @@ const WAYLING_MARK := Vector2i(13, 5)
 # Where the team stands for the line-up: one open carpet tile each for a team of four, the pair in front and two
 # recruits behind them (Claude, 2026-10-26, pass 7 S3 / LF7-08: a fourth member stood on the third's tile). All four
 # are open floor in the Hall (checked against town_room's solid tiles); the mini() below is only a guard.
-const LINE := [Vector2i(10, 8), Vector2i(12, 8), Vector2i(10, 9), Vector2i(12, 9)]
+# One row since pass 8 (Claude, 2026-10-26, LH8-03): the recruits a row behind stood under the pair's sprites, so the
+# leader and the partner stay in the middle and the recruits stand at the two ends, two tiles out, nobody covered.
+const LINE := [Vector2i(10, 8), Vector2i(12, 8), Vector2i(8, 8), Vector2i(14, 8)]
 const STEP := 0.2   # seconds a tile for the staged walks (Starward's were 0.3; pass 7 S2 / L7-07)
 
 
@@ -169,7 +171,9 @@ static func run(room) -> void:
 			r["story"] = {}
 		r["story"]["guild_trial"] = true   # the trial: bring the stolen parcel back from Rootbank Warren
 		SceneKit.walk_to(room, way, WAYLING_HOME, 0.2)
+		var stands := _close_up(room)
 		await SceneKit.walk_to(room, star, STARWARD_HOME, STEP)
+		await _closed(room, stands)
 		SceneKit.release(room)
 		room.cutscene = false
 		return
@@ -195,11 +199,31 @@ static func run(room) -> void:
 		rec["story"] = {}
 	rec["story"]["guild_trial"] = true      # the entry trial is given: one parcel to the Old Ferry Landing
 	rec["story"]["parcel"] = "carried"
-	# 5. The two go back to their posts; the team is free.
+	# 5. The two go back to their posts; the team closes up behind the leader and is free.
 	SceneKit.walk_to(room, way, WAYLING_HOME, 0.2)
+	var stands := _close_up(room)
 	await SceneKit.walk_to(room, star, STARWARD_HOME, STEP)
+	await _closed(room, stands)
 	SceneKit.release(room)
 	room.cutscene = false
+
+
+## The team closes up behind the leader as a scene ends (Claude, 2026-10-26, pass 8 R1 / L01): the line-up stood the
+## recruits two tiles from the pair, so the first step after the scene pulled them across the carpet in one jump.
+## Members 1 to 3 start walking to the tiles a team arriving on the leader's tile would stand on (town_room.gd
+## trail_tiles); the tiles are returned for _closed, which waits for the walks and sets anyone held up on its tile.
+static func _close_up(room) -> Array:
+	var stands: Array = room.trail_tiles(String(room.team[0]["facing"]))
+	for k in range(1, mini(room.team.size(), stands.size())):
+		if room.team[k]["pos"] != stands[k]:
+			SceneKit.walk_to(room, room.team[k], stands[k], STEP)
+	return stands
+
+
+static func _closed(room, stands: Array) -> void:
+	await SceneKit.settle(room, room.team)
+	if SceneKit._alive(room):
+		room.respace(String(room.team[0]["facing"]), stands)
 
 
 ## Back from Rootbank Warren: the team walks up, the Guildmaster comes round the desk, the partner hands the
@@ -251,6 +275,8 @@ static func _runners(room) -> void:
 	rec["story"]["runner"] = true          # runners of the Wayline
 	rec["story"]["parcel"] = "delivered"
 	SceneKit.walk_to(room, way, WAYLING_HOME, 0.2)
+	var stands := _close_up(room)
 	await SceneKit.walk_to(room, star, STARWARD_HOME, STEP)
+	await _closed(room, stands)
 	SceneKit.release(room)
 	room.cutscene = false

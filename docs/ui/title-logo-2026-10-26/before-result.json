@@ -1,0 +1,62 @@
+{
+	"cases": [
+		{
+			"case": "normal-auto",
+			"cursor_ticks_at_load": 1,
+			"done_frame": 69,
+			"first_menu_frame": 54,
+			"last_launch_frame": 67,
+			"menu_fade_frames": 0,
+			"overlap_frames": 14
+		},
+		{
+			"case": "normal-keyboard",
+			"cursor_ticks_at_load": 1,
+			"done_frame": 17,
+			"first_menu_frame": 2,
+			"last_launch_frame": 15,
+			"menu_fade_frames": 0,
+			"overlap_frames": 14
+		},
+		{
+			"case": "normal-pad",
+			"cursor_ticks_at_load": 1,
+			"done_frame": 17,
+			"first_menu_frame": 2,
+			"last_launch_frame": 15,
+			"menu_fade_frames": 0,
+			"overlap_frames": 14
+		},
+		{
+			"case": "normal-mouse",
+			"cursor_ticks_at_load": 1,
+			"done_frame": 17,
+			"first_menu_frame": 2,
+			"last_launch_frame": 15,
+			"menu_fade_frames": 0,
+			"overlap_frames": 14
+		},
+		{
+			"case": "reduced-auto",
+			"cursor_ticks_at_load": 1,
+			"done_frame": 5,
+			"first_menu_frame": 5,
+			"last_launch_frame": 4,
+			"menu_fade_frames": 0,
+			"overlap_frames": 0
+		},
+		{
+			"case": "reduced-keyboard",
+			"cursor_ticks_at_load": 1,
+			"done_frame": 2,
+			"first_menu_frame": 2,
+			"last_launch_frame": 1,
+			"menu_fade_frames": 0,
+			"overlap_frames": 0
+		}
+	],
+	"failed": 0,
+	"passed": 36,
+	"phase": "before",
+	"total": 36
+}

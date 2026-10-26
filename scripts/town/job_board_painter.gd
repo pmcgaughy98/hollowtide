@@ -19,14 +19,35 @@ static func apply(img: Image, ground: Image, reading_ground: Image) -> Image:
 	var d: Vector2i = place["door"] * Layout.T
 	img.blit_rect(ground, Rect2i(Vector2i.ZERO, ground.get_size()), at)
 	img.blit_rect(reading_ground, Rect2i(Vector2i.ZERO, reading_ground.get_size()), d)
-	# Packed-earth reading pad replaces the old yellow block, leading south to Market Street.
+	# Where readers stand: earth worn bare by feet, an uneven oval with a ragged, dithered edge that runs into the grass
+	# and meets Market Street below (Claude, 2026-10-26, pass 8 T10 / L30). It was a packed-earth square the size of the
+	# tile, which with the corner ticks read as a dashed rectangle drawn on the ground. The oval stays inside the tile:
+	# the turf pass (highbank_painter.gd) paints the tiles round the board afresh, which would cut it square.
+	var mid := Vector2(d) + Vector2(Layout.T * 0.5, Layout.T * 0.6)
 	for y in Layout.T:
 		for x in Layout.T:
-			var edge := mini(x, Layout.T - 1 - x)
-			var c := Color("#8f805e") if (x / 6 + y / 5) % 3 == 0 else Color("#948461")
-			img.set_pixelv(d + Vector2i(x, y), img.get_pixelv(d + Vector2i(x, y)).lerp(c, 0.42 if edge < 2 else 0.88))
+			var p := d + Vector2i(x, y)
+			var off := Vector2(p) + Vector2(0.5, 0.5) - mid
+			var dist := Vector2(off.x / WORN_RX, off.y / WORN_RY).length() + (_h(p.x / 3, p.y / 3, 31) - 0.5) * 0.36
+			if dist >= 1.0 or (dist > 0.72 and (dist - 0.72) / 0.28 > _h(p.x, p.y, 32)):
+				continue
+			var c: Color = WORN[int(_h(p.x / 2, p.y / 2, 33) * WORN.size())]
+			if _h(p.x, p.y, 34) > 0.93:
+				c = c.darkened(0.18)   # a scuff, a pressed pebble
+			img.set_pixelv(p, img.get_pixelv(p).lerp(c, 0.55 if dist > 0.72 else 0.9))
 	# The larger stand casts its contact shadow as a separate sprite on the final ground.
 	return img
+
+
+## The worn patch's half-width and half-height in px, and its earth (the old pad's two tones and a lighter, dustier one).
+const WORN_RX := 10.5
+const WORN_RY := 10.0
+const WORN := [Color("#8f805e"), Color("#948461"), Color("#9c8c68")]
+
+
+## 0 to 1 from a pixel and a salt, the same every paint.
+static func _h(x: int, y: int, salt: int) -> float:
+	return float(posmod((x * 374761393 + y * 668265263 + salt * 144269) ^ ((x * 2654435761) >> 11), 65521)) / 65521.0
 
 static func _display_texture() -> Texture2D:
 	# The original 48x24 stand is retained as the exact fallback.
@@ -93,12 +114,17 @@ static func attach(parent: Node2D, _host: Node2D) -> Dictionary:
 
 static func _marker(k: int) -> Image:
 	var img := Image.create(24, 24, false, Image.FORMAT_RGBA8)
-	var tint: Color = [Color("#ab9265"), Color("#ceb386"), Color("#eee0bf")][k]
-	# Four inset limestone corners frame the unchanged reading spot, never a fake door.
-	for x in [2, 17]:
-		for y in [3, 18]:
-			img.fill_rect(Rect2i(x, y, 5, 2), Color("#394337"))
-			img.fill_rect(Rect2i(x, y, 5, 1), tint)
+	# No marks on the ground at rest (Claude, 2026-10-26, pass 8 T10 / L30): the four limestone corner ticks that framed
+	# the reading spot are gone, the worn earth shows where to stand. While the board is open, its lantern light falls
+	# on the worn earth: a soft warm oval in two steps, clear at its edge.
+	if k == 0:
+		return img
+	var warm := Color("#f2c14e")
+	for y in 24:
+		for x in 24:
+			var r := Vector2((x + 0.5 - 12.0) / 11.0, (y + 0.5 - 14.0) / 8.0).length()
+			if r < 1.0:
+				img.set_pixel(x, y, Color(warm, (0.07 if r > 0.6 else 0.12) * float(k)))
 	return img
 
 static func update(b: Dictionary, town: Node2D, delta: float) -> void:

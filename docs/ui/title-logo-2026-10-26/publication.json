@@ -1,0 +1,22 @@
+{
+  "protected_baseline_files": 1003,
+  "protected_unchanged_after_docs": 1000,
+  "owned_production_changes": [
+    "scripts/opening_flow.gd"
+  ],
+  "concurrent_source_changes_preserved": [],
+  "all_changed_existing_paths": [
+    "docs/AI_COLLABORATION.md",
+    "docs/team/CODEX_TASKS_2026-10-22.md",
+    "scripts/opening_flow.gd"
+  ],
+  "prior_docs_preserved": true,
+  "native_campaign": "66/66 clean; zero overlap",
+  "native_legacy": "20/20; known101-instance exit warning",
+  "official": "2 PASS; exit0; known raw warnings retained",
+  "prompt_default": "C6 OFF, unchanged",
+  "shared_preference_gap": "OPEN; prior candidate not installed",
+  "local_links_checked": 24,
+  "evidence": "C:\\Users\\pmcga\\dev\\hollowtide\\docs\\ui\\title-logo-2026-10-26",
+  "handoff": "C:\\Users\\pmcga\\dev\\hollowtide\\docs\\team\\CODEX_HANDOFF_2026-10-26_title_logo.md"
+}

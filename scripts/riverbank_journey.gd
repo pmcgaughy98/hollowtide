@@ -21,9 +21,10 @@ const TILE=16   # one tile (hollow/hollow_gen.gd TILE): the least a follower sta
 const TRAIL=160   # trail points kept, about a pixel apart: room for three followers at any frame rate
 const DUNGEON="res://scenes/dungeon.tscn"   # loaded on a thread while the team walks to the arch (S7)
 # The place card (S1): the floor card's gold (dungeon.gd CARD_COL) in the title face, mid-screen, gone by 2.5 s.
-# Preston's call P4 picks the words; until then they are the first halves of the old corner headings.
+# Preston's call P4 picks the words. The arch's card names the dungeon it opens, as that dungeon's floor card does
+# (Claude, 2026-10-26, pass 8 S6, L03): "THE HOLLOW" read as the later Hollow, not the Mouth behind this arch.
 const PLACE_BANK="RIVERBANK"
-const PLACE_ARCH="THE HOLLOW"
+const PLACE_ARCH="HOLLOW MOUTH"
 const CARD_COL=Color(0.95,0.85,0.6)
 const PLACE_Y=300.0
 # Claude, 2026-10-24 (pass 4 T9, LV-24): the ruin's card sits above the arch, over the ruin's top, so the walk up

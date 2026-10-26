@@ -27,7 +27,9 @@ const FLEE := [
 ]
 const GOT_IT := [["{partner}", "Our parcel! A little chewed, but it's all here.", "joyous"]]
 # After GOT_IT the story records it (Preston, 2026-10-10: getting it back makes the two runners).
-const WALK_STEPS := 2
+# The team now starts a row nearer (setup's line_up), so it walks one step in, not two, and the fight still opens three
+# rows from the crew as before (Claude, 2026-10-26, pass 8 S4).
+const WALK_STEPS := 1
 const PARCEL_TILE := Vector2i(-1, 3)   # from the stairs: between the two, where they fight over it
 
 
@@ -36,6 +38,11 @@ const PARCEL_TILE := Vector2i(-1, 3)   # from the stairs: between the two, where
 static func setup(dg) -> void:
 	dg.cutscene = true
 	dg.intro = {"t0": Time.get_ticks_msec(), "parcel": dg._tile_px(dg.data["stairs"] + PARCEL_TILE) + Vector2(0, 4)}
+	BossIntro._aim = null
+	# Before the first frame (Claude, 2026-10-26, pass 8 S4, L08): the team side by side a row nearer the crew, so the
+	# opening shot holds the crew and the leader with the team above the text box. In a file at the stairs' foot the
+	# partner stood under the bottom bar while the crew argued. WALK_STEPS is one less to match.
+	BossIntro.line_up(dg, 1)
 	for e in _crew(dg):
 		e["awake"] = true   # no sleep pose, no "z"; no turns run while the scene plays
 		e["facing"] = "n"
@@ -67,8 +74,7 @@ static func _lines(dg, lines: Array) -> void:
 		if l.size() > 2 and form != "":
 			form += ":" + String(l[2])
 		dg.talk.append([who, String(l[1]).replace("{leader}", String(dg.ents[0]["name"])), form])
-	while BossIntro._alive(dg) and not dg.talk.is_empty():
-		await dg.get_tree().process_frame
+	await BossIntro.read_lines(dg)   # each speaker and the leader in the shot, the team above the bottom bar (S4)
 
 
 ## The parcel jolts as the two tug at it.
@@ -91,7 +97,7 @@ static func run(dg) -> void:
 	var b: Dictionary = dg.ents[dg.boss]
 	Music.play(dg.get_tree(), "crew_theme")   # the Shortcut Crew's own theme (ElevenLabs, 2026-10-10)
 	# 1. Fade in on the two bent over the parcel, arguing, their backs to the stairs' approach.
-	dg.cam_focus = dg._tile_px(b["pos"]) + Vector2(-8, 18)
+	BossIntro.frame(dg, dg._tile_px(b["pos"]) + Vector2(-8, 18), 0.0, [b, _whinet(dg)])   # with the leader in it (S4)
 	dg._fade.color.a = 1.0
 	dg.create_tween().tween_property(dg._fade, "color:a", 0.0, 0.9)
 	await BossIntro._wait(dg, 1.0)
@@ -152,6 +158,7 @@ static func run(dg) -> void:
 	dg.intro.erase("wipe_at")
 	dg.cutscene = false
 	dg.cam_focus = null
+	BossIntro._aim = null
 	dg._meet_boss()
 
 
@@ -163,6 +170,7 @@ static func after(dg) -> void:
 	var w := _whinet(dg)
 	dg.cutscene = true
 	dg.talk.clear()
+	BossIntro._aim = null
 	if not w.is_empty():
 		w["awake"] = false   # it takes no more turns; the scene shows no "z" while cutscene is on
 	# 1. It flops over belly up, legs in the air, and gives off a stink: an opossum playing dead.
@@ -173,7 +181,9 @@ static func after(dg) -> void:
 	dg.intro["stink"] = b["node"].position
 	dg._burst(b["node"].position + Vector2(0, -2), Color(0.75, 0.72, 0.66), 10, 30.0, 0.5, -10.0, 1.0)
 	dg._sfx("slam", -10.0)
-	dg.cam_focus = b["node"].position.lerp(dg.ents[0]["node"].position, 0.35)
+	BossIntro.frame(dg, b["node"].position.lerp(dg.ents[0]["node"].position, 0.35), 0.0, [b])
+	# The team comes over to the leader while it lies there (S4): the fight left them anywhere, one under the bottom bar.
+	BossIntro.gather(dg)
 	await BossIntro._wait(dg, 1.6)
 	if not BossIntro._alive(dg):
 		return
@@ -238,7 +248,7 @@ static func after(dg) -> void:
 		e["hp"] = 0
 		e["node"].visible = false
 	# 5. The parcel hops to the leader.
-	dg.cam_focus = dg.ents[0]["node"].position + Vector2(0, -10)
+	BossIntro.frame(dg, dg.ents[0]["node"].position + Vector2(0, -10), 0.0)
 	await BossIntro._wait(dg, 0.5)
 	if not BossIntro._alive(dg):
 		return

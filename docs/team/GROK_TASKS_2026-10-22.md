@@ -1,5 +1,8 @@
 # Grok tasks, 2026-10-22 (from the factory pass)
 
+> **Read [GROK_TASKS_2026-10-26.md](GROK_TASKS_2026-10-26.md) first.** It is one clean list of everything still open
+> below, rechecked on 2026-10-26, plus the new art direction. This file stays as the history.
+
 The factory plan is `docs/team/sweep-2026-10-20/FACTORY_PLAN_2026-10-22.md`; its section 5 is this queue. Nobody in the
 pass changed your numbers (stats, EXP, learnsets, spawns, damage); where a doc disagrees with the code, the doc waits
 for you. House rules as before: no em-dashes, the house words (Sense, nest, Second Wind, went down, Postmaster, Hollow).
@@ -164,3 +167,34 @@ Pass 7 changed none of your numbers (stats, EXP, learnsets, spawns, damage). (Cl
 3. FYI, no answer needed (L7-01): the Warden's defeat branch ran once for every hit that landed at 0 HP, so the boss
    EXP in that block may have been granted up to three times per win in recent playtests. Pass 7 grants it once, as
    written (warden_yield_check: the leader gains 130, one grant; 260 with the guard removed). No number changed.
+
+## Pass 8 lines (plan, 2026-10-26)
+From `sweep-2026-10-20/PASS8_PLAN_2026-10-26.md`, section "Grok". Result: `sweep-2026-10-20/PASS8_RESULT_2026-10-26.md`.
+Pass 8 changed none of your numbers (stats, EXP, learnsets, spawns, damage). The new matchup line in the log reads the
+chart and names the essences; it changes no multiplier. (Claude, integrator, 2026-10-26)
+1. LH8-23 (LF7-19): Hollow Mouth is too hard for a level 1 team (pass 6 re-shoot: 7 monster-house ambushes, 4 times
+   went down). Your `GROK_BUILD_RESULT_2026-10-26.md` task 1 answers it: no Monster House on Mouth B1F and B2F until
+   "mouth" is in `beaten`, spawns stay, `REST_TO` stays 0.7. Not applied in pass 8 (the integration ran first); Claude
+   applies it, with your task 3 learnset cut and the task 4 delete, as the next step and reruns pilot, dungeon_chain,
+   lv1_run and move_table. Say if G1 to G5 of 'Pass 6 lines' has anything your task 1 did not cover.
+2. LH8-24 (LF7-20): the Job Board can post a client from another floor's spawn list (Preostmar, a B3F creature, posting
+   a B1F job), and arena_protector_check's Guardian step prints a number and judges nothing. Answer both; Claude then
+   applies the held client line or a met record and drops or fixes the Guardian step.
+3. L-02, partner growth stalls: over 5 post-pilot replays (about 21 floors) a partner earned about 0.1 flank and 0.5
+   took per floor; the leader took 896 damage and the partner Tallowroot 19; Listener flank stayed 2 of 3 and Sparkwick
+   flank 1 of 8. Retune the partner-side way needs (flank, took) in `EVO` (dungeon.gd:134-145), or say whether team
+   pincers and guard hits should count toward the partner.
+4. L-03: Troughspine's stage 1 condition is 'healed 40', but it has no heal until Archroot (Preston's 2026-10-21 rule).
+   Give it a condition it can earn (took or slam) and keep the no-Seep rule.
+5. L-05, rewards pile up with nothing to spend them on (bag after 5 replays: Second Wind 29, Lamp Oil 23, Reedberry 22,
+   River Stone 22, 5 Pounce scrolls; 0 faints; each board pays 4 to 8 items). Set reward counts and a carry cap per item
+   kind (Storage holds the rest).
+6. L-11: all three Hollows use one map recipe (200 seeds: all 42x20, a 3x2 room grid, the commonest pattern on 14.5
+   percent of floors). Give each Hollow its own recipe numbers in `DUNGEONS` (map size, cols and rows, room density,
+   halls, wild count); the generator already takes them.
+7. L-04: every request is labelled Rootbank Warren with a Warren client (120 of 120 over 30 boards). If Hollow Mouth and
+   The Hollow should post requests, say which spawn table each Hollow's clients draw from. Pass 8 D10 already makes a
+   job's client appear only in its own Hollow (a Warren client is no longer met in The Hollow); pay and posting are
+   unchanged.
+8. L-06: Courier Rank tops out at Rank 5 on the 4th replay (rank points 0, 170, 290, 430, 580, 760). Set the steps once
+   Preston decides what a rank opens.

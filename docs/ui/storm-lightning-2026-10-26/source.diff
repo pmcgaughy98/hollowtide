@@ -1,0 +1,48 @@
+--- original/scripts/storm_open.gd
++++ installed/scripts/storm_open.gd
+@@ -11,6 +11,7 @@
+ ## presence speaks, the choice is made), then the waking, the rise and the Hollow Mouth, as before.
+ ## Enter or Space skips. Sounds load when present (assets/audio/sfx/story/).
+ 
++const UI := preload("res://scripts/ui/ui_style.gd")
+ const Bank := preload("res://scripts/ui/waking_bank.gd")
+ const Rise := preload("res://scripts/ui/hollow_rise.gd")
+ const NEXT := "res://scenes/soul_prologue.tscn"
+@@ -38,6 +39,8 @@
+ 
+ 
+ func _ready() -> void:
++	# Respect both the title handoff and direct entry with the saved accessibility preference.
++	reduce_motion = reduce_motion or UI.reduce_motion()
+ 	get_tree().root.content_scale_size = Vector2i(1152, 648)
+ 	get_tree().root.content_scale_aspect = Window.CONTENT_SCALE_ASPECT_KEEP
+ 	world = _view()
+@@ -114,7 +117,7 @@
+ 	await tw.finished
+ 	# The storm: three strikes, the wind building.
+ 	for strike in [1.4, 1.9, 1.2]:
+-		await tree.create_timer(strike * (0.4 if reduce_motion else 1.0)).timeout
++		await tree.create_timer(strike).timeout
+ 		if leaving:
+ 			return
+ 		await _lightning()
+@@ -145,11 +148,14 @@
+ 
+ 
+ func _lightning() -> void:
+-	for k in 2:
+-		flash = 0.85
+-		await get_tree().create_timer(0.06).timeout
+-		flash = 0.15
+-		await get_tree().create_timer(0.07).timeout
++	if reduce_motion or UI.reduce_motion():
++		flash = 0.4   # one soft pulse; the shared fade below lasts 0.35 seconds
++	else:
++		for k in 2:
++			flash = 0.85
++			await get_tree().create_timer(0.06).timeout
++			flash = 0.15
++			await get_tree().create_timer(0.07).timeout
+ 	var tw := create_tween()
+ 	tw.tween_property(self, "flash", 0.0, 0.35)
+ 	_wind = 1.6

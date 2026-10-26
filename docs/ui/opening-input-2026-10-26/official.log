@@ -1,0 +1,14 @@
+4 checks, 1 at a time, logs in D:\dev\hollowtide-opening-input-20261026\runner
+  PASS     input_map_check                     1.3s  
+  PASS     opening_flow_check                  3.4s  
+  PASS     rebind_check                        1.5s  
+  PASS     soul_prologue_check                 4.1s  
+
+RESULT   CHECK                              SECS  EXIT  FIRST PROBLEM OR NOTE
+PASS     input_map_check                     1.3     0  
+PASS     opening_flow_check                  3.4     0  
+PASS     rebind_check                        1.5     0  
+PASS     soul_prologue_check                 4.1     0  
+
+PASS 4
+exit 0: nothing failed

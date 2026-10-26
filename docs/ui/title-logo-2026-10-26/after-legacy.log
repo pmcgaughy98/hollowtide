@@ -1,0 +1,29 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+OpenGL API 3.3.0 NVIDIA 610.62 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce GTX 1660 SUPER
+
+[godot_ai game_helper] registered mcp capture (debugger active=false, logger=true)
+LOGO_METRIC {"case":"normal-auto","cursor_ticks_at_load":0,"done_frame":77,"first_menu_frame":70,"last_launch_frame":67,"menu_fade_frames":7,"overlap_frames":0}
+LOGO_CHECK normal-auto title reaches playable menu -> ok
+LOGO_CHECK normal-auto skip inputs never start New Game -> ok
+LOGO_CHECK normal-auto first menu button receives focus -> ok
+LOGO_CHECK normal-auto respects private Reduce motion -> ok
+LOGO_CHECK normal-auto no rendered frame contains both logos -> ok
+LOGO_CHECK normal-auto prelude hidden at alpha zero -> ok
+LOGO_CHECK normal-auto reveal ends at full opacity -> ok
+LOGO_CHECK normal-auto silent initial focus -> ok
+LOGO_CHECK normal-auto sequential fade or instant reduced swap -> ok
+LOGO_CHECK normal-auto completion is idempotent -> ok
+LOGO_METRIC {"case":"reduced-auto","cursor_ticks_at_load":0,"done_frame":5,"first_menu_frame":5,"last_launch_frame":4,"menu_fade_frames":0,"overlap_frames":0}
+LOGO_CHECK reduced-auto title reaches playable menu -> ok
+LOGO_CHECK reduced-auto skip inputs never start New Game -> ok
+LOGO_CHECK reduced-auto first menu button receives focus -> ok
+LOGO_CHECK reduced-auto respects private Reduce motion -> ok
+LOGO_CHECK reduced-auto no rendered frame contains both logos -> ok
+LOGO_CHECK reduced-auto prelude hidden at alpha zero -> ok
+LOGO_CHECK reduced-auto reveal ends at full opacity -> ok
+LOGO_CHECK reduced-auto silent initial focus -> ok
+LOGO_CHECK reduced-auto sequential fade or instant reduced swap -> ok
+LOGO_CHECK reduced-auto completion is idempotent -> ok
+LOGO RESULT {"cases":[{"case":"normal-auto","cursor_ticks_at_load":0,"done_frame":77,"first_menu_frame":70,"last_launch_frame":67,"menu_fade_frames":7,"overlap_frames":0},{"case":"reduced-auto","cursor_ticks_at_load":0,"done_frame":5,"first_menu_frame":5,"last_launch_frame":4,"menu_fade_frames":0,"overlap_frames":0}],"failed":0,"passed":20,"phase":"after-legacy","total":20}
+WARNING: 101 ObjectDB instances were leaked at exit (run with `--verbose` for details).
+   at: cleanup (core/object/object.cpp:2536)

@@ -19,6 +19,14 @@ const KINDS := {           # proposals
 	"lost_item": {"title": "Recover %s's %s", "reward": "reedberry", "count": 2, "pts": 20},
 	"delivery": {"title": "Deliver to %s", "reward": "lamp_oil", "count": 1, "pts": 25},   # R4, 2026-10-12
 }
+## The board's own words for each request (Claude, 2026-10-26, pass 8 T7 / L19; proposals, Preston's to rewrite): a
+## short sentence or two, as a note pinned up by the client would read, where "title" above is the short name the
+## board's messages and the pay lines use ("Taken: Find Skimlet."). The delivery's keeps its "Deliver to" opening.
+const NOTES := {
+	"rescue": "%s got lost down there. Bring it home.",
+	"lost_item": "%s dropped its %s. Find it.",
+	"delivery": "Deliver to %s. It's waiting on a parcel.",
+}
 ## Deliveries (R4 of docs/design/genre-synthesis-2026-10-12.md, 2026-10-12: deliveries, not explorations). A taken
 ## delivery puts a parcel in the bag; the client waits on its floor; the condition is judged at the client's
 ## feet, and the pay follows it: met, the reward is MET_COUNT times and MET_PTS more rank; missed, the plain pay.
@@ -51,6 +59,8 @@ static func post(seed: int) -> Array:
 	rng.seed = seed * 7919 + 13
 	var swap := RandomNumberGenerator.new()
 	swap.seed = seed * 104729 + 7
+	var items := RandomNumberGenerator.new()   # T7's swaps of a lost item, on a stream of their own
+	items.seed = seed * 15485863 + 11
 	var once := clients(spawns, floors).size() >= POSTED
 	var posted := {}
 	var out: Array = []
@@ -66,12 +76,31 @@ static func post(seed: int) -> Array:
 			"reward": KINDS[kind]["reward"], "count": KINDS[kind]["count"], "pts": KINDS[kind]["pts"] + FLOOR_PTS * (fl - 1)}
 		if kind == "lost_item":
 			job["item"] = LOST_ITEMS[rng.randi_range(0, LOST_ITEMS.size() - 1)]
+			job["item"] = _fresh_item(String(job["item"]), out, String(job["reward"]), items)
 		elif kind == "delivery":
 			job["cond"] = CONDITIONS.keys()[rng.randi_range(0, CONDITIONS.size() - 1)]
 			if job["cond"] == "quick":
 				job["turns"] = QUICK_TURNS_PER_FLOOR * fl
 		out.append(job)
 	return out
+
+
+## One lost item to a board (Claude, 2026-10-26, pass 8 T7 / L19): `rolled` stands unless another request already
+## lost it, or it is the item this one pays (a Reedberry lost and a Reedberry paid read as one item twice); then one of
+## the others from `items`' own stream, so the board's every other roll is the one it was. A board with three lost
+## items takes the paid one last; with four, one item is lost twice (there are three).
+static func _fresh_item(rolled: String, posted: Array, reward: String, items: RandomNumberGenerator) -> String:
+	var lost: Array = []
+	for j in posted:
+		if j.has("item"):
+			lost.append(String(j["item"]))
+	for named: Array in [lost + [reward], lost]:
+		if not rolled in named:
+			return rolled
+		var left: Array = LOST_ITEMS.filter(func(i: String) -> bool: return not i in named)
+		if not left.is_empty():
+			return String(left[items.randi_range(0, left.size() - 1)])
+	return rolled
 
 
 ## Every creature that can be a client: each floor's wild creatures, [line, stage], once each.
@@ -167,7 +196,15 @@ static func item_name(kind: String) -> String:
 	return String(load(DUNGEON).get_script_constant_map()["ITEMS"][kind]["name"])
 
 
+## The request as the board's row prints it: its note (NOTES, T7), "Skimlet got lost down there. Bring it home."
 static func title(job: Dictionary) -> String:
+	if job["kind"] == "lost_item":
+		return NOTES["lost_item"] % [client_name(job), item_name(job["item"])]
+	return NOTES[job["kind"]] % client_name(job)
+
+
+## The request's short name for the board's messages and the pay lines: "Find Skimlet" (the titles before T7).
+static func label(job: Dictionary) -> String:
 	if job["kind"] == "lost_item":
 		return KINDS["lost_item"]["title"] % [client_name(job), item_name(job["item"])]
 	return KINDS[job["kind"]]["title"] % client_name(job)
@@ -242,14 +279,14 @@ static func toggle(data: Dictionary, job: Dictionary) -> String:
 		data["jobs"] = data["jobs"].filter(func(j: Dictionary) -> bool: return j["id"] != job["id"])
 		if job["kind"] == "delivery":
 			_add_parcel(data, -1)
-		return "Put back: %s." % title(job)
+		return "Put back: %s." % label(job)
 	if data["jobs"].size() >= TAKE_MAX:
 		return "The satchel holds %d jobs. Put one back first." % TAKE_MAX
 	data["jobs"].append(job.duplicate(true))
 	if job["kind"] == "delivery":
 		_add_parcel(data, 1)
-		return "Taken: %s. %s, %s. The parcel is in the bag." % [title(job), place_text(job), cond_text(job)]
-	return "Taken: %s. %s." % [title(job), place_text(job)]
+		return "Taken: %s. %s, %s. The parcel is in the bag." % [label(job), place_text(job), cond_text(job)]
+	return "Taken: %s. %s." % [label(job), place_text(job)]
 
 
 ## Pay every finished job: its items go in the bag, its points to the rank. Returns one line per job.
@@ -273,7 +310,7 @@ static func pay(data: Dictionary) -> Array:
 		data["bag"] = bag
 		var before: int = rank_of(int(data.get("rank", 0)))[0]
 		data["rank"] = int(data.get("rank", 0)) + pts
-		var line := "%s%s: %s x%d, +%d rank" % [title(j), note, item_name(j["reward"]), count, pts]
+		var line := "%s%s: %s x%d, +%d rank" % [label(j), note, item_name(j["reward"]), count, pts]
 		if rank_of(int(data["rank"]))[0] > before:
 			line += ". Courier Rank %d!" % rank_of(int(data["rank"]))[0]
 		said.append(line)
