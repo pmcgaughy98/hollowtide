@@ -1,0 +1,53 @@
+{
+  "checks": [
+    {
+      "check": "highbank-normal Continue exists",
+      "passed": true
+    },
+    {
+      "check": "highbank-normal dispatch plays one confirm",
+      "passed": true
+    },
+    {
+      "check": "highbank-normal destination scene changes",
+      "passed": true
+    },
+    {
+      "check": "highbank-normal Highbank destination",
+      "passed": true
+    },
+    {
+      "check": "highbank-normal Highbank finishes its own covered arrival",
+      "passed": true
+    },
+    {
+      "check": "highbank-normal saved team/cleared/levels survive",
+      "passed": true
+    },
+    {
+      "check": "highbank-normal Highbank lifts shared cover",
+      "passed": true
+    },
+    {
+      "check": "highbank-normal background room warm-up completes before teardown",
+      "passed": true
+    }
+  ],
+  "failed": 0,
+  "failures": [],
+  "metrics": [
+    {
+      "alpha_on_return": 0.0,
+      "case": "highbank-normal",
+      "confirm_ms": 778.428,
+      "dispatch_ms": 779.303,
+      "frames_to_swap": 24,
+      "longest_fade_frame_ms": 16.714,
+      "longest_title_frame_ms": 67.424,
+      "one_confirm": true,
+      "visible_fade_frames": 20
+    }
+  ],
+  "phase": "before",
+  "total": 8
+}

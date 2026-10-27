@@ -7,7 +7,40 @@ const WOOD_LIGHT := Color("#bc9457")
 const BRASS := Color("#b99a52")
 const STONE := Color("#9d8d6c")
 const SIZES := {"hall":Vector2i(528,336),"hall_low":Vector2i(720,432),"chamber":Vector2i(408,264),"runners":Vector2i(336,240)}
-const UI := preload("res://scripts/ui/ui_style.gd")
+const Slots := preload("res://scripts/town/room_slots.gd")
+
+## Codex's four finished fixtures the rooms have never drawn (Claude, 2026-10-26, placeholder factory lane R; census
+## M06 and M09): the stairs down and up (48x48) and the side door (18x52) and kitchen hatch (24x48), slots
+## town.prop.hall_low.<name> with today's PNGs as their legacy. Plan call 8 wires them; Preston's 2026-10-11 notes had
+## the side doors redrawn edge-on ("a side door drawn face-on reads as a door lying sideways", room_painter.gd) and the
+## stairs as an opening, and these four are face-on. So today's code drawing stays on screen and is their placeholder,
+## a slot file installed with his yes shows at once, and SHOW_CODEX turns on the 2026-10-11 PNGs one by one.
+const SHOW_CODEX := {"stairs_down": false, "stairs_up": false, "side_door": false, "kitchen": false}
+## Where each one stands: [room, top-left, mirrored]. The stairs on the code stairs' 2x2 tiles; the side door centred
+## on its wall tile column, 2 px over the opening at each end; the hatch on its two wall tiles.
+const CODEX_AT := {
+	"stairs_down": [["hall", Vector2i(336,240), false]],
+	"stairs_up": [["hall_low", Vector2i(600,312), false]],
+	"side_door": [["hall_low", Vector2i(3,118), false], ["hall_low", Vector2i(699,118), true], ["runners", Vector2i(3,118), false]],
+	"kitchen": [["hall_low", Vector2i(0,192), false]],
+}
+
+## Whether Codex's picture of fixture `name` takes the code drawing's place: a slot file installed for it, or its
+## 2026-10-11 PNG switched on in SHOW_CODEX. Never while forcing placeholders (the code drawing is the placeholder).
+static func live(name: String) -> bool:
+	if ArtSlots.forcing(): return false
+	var src := Slots.source("town.prop.hall_low."+name)
+	return src == "file" or (src == "legacy" and bool(SHOW_CODEX.get(name, false)))
+
+## The live fixtures of room `id` over the picture, where the code drawings were left out.
+static func _codex(id: String, img: Image) -> void:
+	for name in CODEX_AT:
+		if not live(name): continue
+		for at in CODEX_AT[name]:
+			if at[0] != id: continue
+			var pic := Slots.image("town.prop.hall_low."+name)
+			if at[2]: pic.flip_x()
+			img.blend_rect(pic,Rect2i(Vector2i.ZERO,pic.get_size()),at[1])
 
 static func regions(id: String) -> Array:
 	match id:
@@ -21,14 +54,18 @@ static func paint(id: String, fallback: Image) -> Image:
 	if not SIZES.has(id) or fallback.get_size()!=SIZES[id]:return fallback
 	var img:=fallback.duplicate() as Image
 	match id:
-		"hall":_stairs(img,Vector2i(336,240),true)
+		"hall":
+			if not live("stairs_down"):_stairs(img,Vector2i(336,240),true)
 		"hall_low":
-			_stairs(img,Vector2i(600,312),false)
-			_door(img,0,120,true);_door(img,696,120,false)
-			_hatch(img);_case(img,"supply",650)
+			if not live("stairs_up"):_stairs(img,Vector2i(600,312),false)
+			if not live("side_door"):
+				_door(img,0,120,true)
+				_door(img,696,120,false)
+			if not live("kitchen"):_hatch(img)
+			_case(img,"supply",650)
 		"chamber":_case(img,"keepsakes",26);_case(img,"ledgers",362)
 		"runners":
-			_door(img,0,120,true)
+			if not live("side_door"):_door(img,0,120,true)
 			for y in [102,124]:
 				# Empty hooks seen from above: screw head, short brass neck, shaded tip.
 				_rect(img,308,y,7,4,INK)
@@ -36,6 +73,7 @@ static func paint(id: String, fallback: Image) -> Image:
 				_rect(img,309,y+1,5,2,WOOD)
 				_rect(img,309,y+1,2,1,BRASS.lightened(0.2))
 				_rect(img,308,y+2,3,1,BRASS.darkened(0.3))
+	_codex(id, img)
 	return img
 
 static func add_mask(id: String, img: Image) -> Image:
@@ -107,10 +145,11 @@ static func _hatch(img: Image) -> void:
 	_jamb(img,0,187);_jamb(img,0,238)
 
 static func _source(name: String) -> Image:
-	var path:="res://assets/sprites/world/hall_floors_2026_10_11/%s.png" % name
-	# Claude, 2026-10-24 (A4, LV-19): UI.res_image reads the imported texture, which an exported game has; the PNG it does not.
-	var src:=UI.res_image(path)
-	if src==null or src.get_width()!=20 or src.get_height()<62:return null
+	# The case's art slot, town.prop.hall_low.<name> (lane R); on its placeholder the code case stays unfinished.
+	var slot:="town.prop.hall_low."+name
+	if not Slots.real(slot):return null
+	var src:=Slots.image(slot)
+	if src.get_width()!=20 or src.get_height()<62:return null
 	return src
 
 static func _case_mask(img: Image,name: String,x: int) -> void:

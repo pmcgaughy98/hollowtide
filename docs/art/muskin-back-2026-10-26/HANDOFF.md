@@ -1,0 +1,9 @@
+# ART-08 Muskin back palette, October 26, 2026
+
+COMPLETE/INSTALLED. Three existing paths: assets/sprites/arena/muskin/n.png, dungeon/n.png, town/n.png. Back colors 129->21, dungeon 70->18, town 92->20; every opaque RGB is in the unchanged front s.png's 23-color palette. Alpha/canvas/silhouette/registration exact (128x128,37x37,55x55), black outline finish retained. Both current build_dungeon_set.py Muskin commands ran (dungeon default; town --set=town --scale=1.5). Only the two north outputs differ between baseline/updated rebuilds. Source n.png plus those two outputs installed; all 318 other snapshotted Muskin asset/import/source-walk files exact, including all walks, seven facings, south job-object idle and chosen front. No script/tool/scene/settings change.
+
+Native 28/28 clean: imported RGBA exact, alpha/palette limits, shared shader review, actual dungeon loader/_set_tex north and original foot row, actual SceneKit.spawn north/job-object idle/all eight walk frames per facing, private save SHA exact. Minimal texture import clean, existing .import metadata exact; copied only three owned texture/cache pairs. [Before/after, commands, originals, hashes, logs and scope](README.md). Work D:/dev/hollowtide-muskin-back-20261026. No further Claude repoint or set rebuild needed.
+
+Source issues for Claude: a bare baseline rebuild differs from 144 installed finished PNGs, so do not blanket-rebuild/copy the other outputs without preserving their finish. Only selected north outputs were promoted here. Full code/settings preservation check has no concurrent differences; dirty Claude/Grok work retained. No full Hall story/export claim.
+
+Next ART-03 title village 384x216. Portraits await Preston's look; C6 OFF, town/exterior HOLD, full C11 Windows export QA pending templates. No generation/paid call/real save/rules/Route1/message/commit. Codex native review, Preston approval not claimed.

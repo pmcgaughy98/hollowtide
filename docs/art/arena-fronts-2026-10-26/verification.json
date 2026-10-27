@@ -1,0 +1,39 @@
+{
+  "asset_count": 16,
+  "total_png_bytes": 121988,
+  "destination": "assets/sprites/arena/%s/front_chosen.png",
+  "owned": {
+    "export_presets.cfg": "9987f75bbd1076c1cd45415e3feffb5926df042cc84f9d3acfd05190056bef9e",
+    "scripts/town/board_scene.gd": "27616e73cfdd08cb61b8b460b7993046fd76f7c2ff7c5bab793defaa780ea4c7",
+    "assets/sprites/arena/cairnshell/front_chosen.png": "34a8a0c17bf646cac3ccbc319b816a72af58c0394b5c5432b125765af48dcdb8",
+    "assets/sprites/arena/crawdukes/front_chosen.png": "bfb0e22d5b5395af262384e94e51b5cccc97b649f79ddc4e00698000c6ff1695",
+    "assets/sprites/arena/grubbit/front_chosen.png": "9c89375af76d5c5764b6df568dd50c8277146c5d3648d77202e7cdf5fc18d607",
+    "assets/sprites/arena/gruntle/front_chosen.png": "587e13fc9ad4e3790287791d14ffb0f1f5d0c81296b6a4a9fabc6c47f743c423",
+    "assets/sprites/arena/inkhoot/front_chosen.png": "6ab526c264e10149d7aba10c6ae636ac612610c3a7dc40677f31df662f9830d5",
+    "assets/sprites/arena/muskin/front_chosen.png": "6dd73e7411b5fb99974596d320c6deca44ada72936662806b3369416bedb322c",
+    "assets/sprites/arena/ozbender/front_chosen.png": "c4a5b9a387c118af79964fed91ec07ce76831865ee78a32c4aef866f7f8f4d27",
+    "assets/sprites/arena/pouchbill/front_chosen.png": "eb27986901cd5be74fb49bafecfc022055fd0879cf73999089f013a897949491",
+    "assets/sprites/arena/rinsepaw/front_chosen.png": "0a197999c32dc4ea970fd4b85813bba1a4798e26b69a58460eacf4a2e36f8451",
+    "assets/sprites/arena/skimlet/front_chosen.png": "207f63ad0098ff8e899b5b92f88dca4290ccde8e1779688c04ba300383f373e4",
+    "assets/sprites/arena/slipjaw/front_chosen.png": "8d3293571af9e3a2d1938d40cf58ef43156093312d725af5fb7f1036c6a3eea7",
+    "assets/sprites/arena/stillwade/front_chosen.png": "ee8a1f70e174bf7711c6a3fd77b6abffa94f102c66a9a6aade8457dd8fbc74fb",
+    "assets/sprites/arena/swaphoard/front_chosen.png": "a47ed846beded4ef1c452cc260133dc184f345e8fe24b20a560ef35acb1859d4",
+    "assets/sprites/arena/valvekin/front_chosen.png": "59ee5916b348f06143d041a0367d09d287b8a26e11bd3f7ed59ce478fb7d235e",
+    "assets/sprites/arena/wayling/front_chosen.png": "d9c69e10508619fef6d6ee1b47d8ff054de7be96f09248b9ea09fba69ab87ce4",
+    "assets/sprites/arena/wickglow/front_chosen.png": "cdc9cc8332c5b0f072b3fc9beb47c69a3f1b6cc976c2c0ef799a904d09856a4b"
+  },
+  "all_original_form_files_preserved": true,
+  "board_change_only_path_and_comment": true,
+  "all_other_Claude_board_edits_exact": true,
+  "runtime_docs_references": [],
+  "native_checks": 52,
+  "asset_pack_checks": 49,
+  "maintained_board_scene": "PASS",
+  "preexisting_missing_chosen_filenames": [
+    "mirekit",
+    "whinet"
+  ],
+  "current_crew_directional_sets_verified": true,
+  "full_game_exe": "pending export templates",
+  "concurrent_paths_preserved": []
+}

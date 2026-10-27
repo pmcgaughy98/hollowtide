@@ -49,17 +49,24 @@ var cards: Array = []
 # A scene behind the creature by its first essence (Preston, 2026-10-10: "a scene behind them like we did
 # for the old signature moves... each ember gets same scene"): the signature stages from the original
 # battle screen (assets/backgrounds/signature_stages). An essence without one keeps the plain parchment.
-const ESSENCE_STAGE := {
-	"EMBER": "furnace_roar", "TIDE": "undertow", "BLOOM": "root_rampart",
-	"ELECTRIC": "stormlantern", "STONE": "kingstone_rail", "GALE": "gale_bluff",
-}
+# All twelve essences are art slots now (Claude, 2026-10-26, placeholder factory lane U): ui.backdrop.stage_<essence>
+# in scripts/art/slots/ui.gd. Six serve today's signature stages, GALE now gale_bluff_take1.png (the gale_bluff.png it
+# named was never made, so GALE showed parchment); six wait for Codex's paintings. A stage still on its placeholder
+# keeps the plain parchment, as before, unless placeholders are forced (then the slot's placeholder shows).
+const Slots := preload("res://scripts/art/art_slots.gd")
+const STAGE_ESSENCES := ["EMBER", "TIDE", "BLOOM", "ELECTRIC", "STONE", "GALE", "BLIGHT", "HOLLOW", "ICE", "LOAM", "MURK", "SINEW"]
 var _stages := {}
 
 
 func _stage_tex(ess: String) -> Texture2D:
 	if not _stages.has(ess):
-		var path := "res://assets/backgrounds/signature_stages/%s.png" % ESSENCE_STAGE.get(ess, "")
-		_stages[ess] = load(path) if ESSENCE_STAGE.has(ess) and ResourceLoader.exists(path) else null
+		var id := "ui.backdrop.stage_" + ess.to_lower()
+		var tex: Texture2D = null
+		if STAGE_ESSENCES.has(ess) and Slots.has(id):
+			tex = Slots.texture(id)
+			if Slots.source(id) == "placeholder" and not Slots.forcing():
+				tex = null
+		_stages[ess] = tex
 	return _stages[ess]
 var lines: Array[String] = []
 var sel := 0          # which teammate is shown

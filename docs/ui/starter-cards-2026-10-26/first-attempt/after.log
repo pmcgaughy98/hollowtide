@@ -1,0 +1,48 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+OpenGL API 3.3.0 NVIDIA 610.62 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce GTX 1660 SUPER
+
+[godot_ai game_helper] registered mcp capture (debugger active=false, logger=true)
+Real last story line opens three cards: PASS
+Reading press opens cards without committing: FAIL
+Held/repeated reading press stays on cards after guard expires: FAIL
+Fresh accept opens confirmation with No selected: FAIL
+No returns to same uncommitted creature: PASS
+Cancel returns without committing: PASS
+Accept inside first0.4s is ignored: PASS
+Keyboard focuses starter0: PASS
+Yes commits requested starter0: PASS
+Commit press cannot advance first after-line0: PASS
+Pick plays presence swell on UI bus0: PASS
+Keyboard focuses starter1: PASS
+Yes commits requested starter1: PASS
+Commit press cannot advance first after-line1: PASS
+Pick plays presence swell on UI bus1: PASS
+Keyboard focuses starter2: PASS
+Yes commits requested starter2: PASS
+Commit press cannot advance first after-line2: PASS
+Pick plays presence swell on UI bus2: PASS
+Pad A opens confirmation: PASS
+Pad B returns to cards: PASS
+Stick centre and repress move two cards: PASS
+Pad stick plus A commits Rimefin: PASS
+Rebound confirm opens question: PASS
+Rebound confirm commits: PASS
+base mouse focuses Tallowroot: PASS
+base second click asks: PASS
+base mouse No preserves choice: PASS
+base mouse Yes commits: PASS
+wide mouse focuses Tallowroot: PASS
+wide second click asks: PASS
+wide mouse No preserves choice: PASS
+wide mouse Yes commits: PASS
+tall mouse focuses Tallowroot: PASS
+tall second click asks: PASS
+tall mouse No preserves choice: FAIL
+tall mouse Yes commits: FAIL
+Shared showcase scale is a whole art pixel: PASS
+kithflare all-frame union fits portrait interior: PASS
+tallowroot all-frame union fits portrait interior: PASS
+rimefin all-frame union fits portrait interior: PASS
+Selection uses dedicated UI cursor and confirm sounds: PASS
+Saved journey bytes unchanged: PASS
+STARTER CARDS RESULT 43 checks, 5 failures

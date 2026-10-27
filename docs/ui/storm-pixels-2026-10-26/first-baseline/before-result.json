@@ -1,0 +1,146 @@
+{
+  "checks": [
+    {
+      "check": "Native transparent light layer stays384x216",
+      "passed": true
+    },
+    {
+      "check": "Nearest native light layer retained",
+      "passed": true
+    },
+    {
+      "check": "hidden pixels stay aligned to native3x grid",
+      "passed": true
+    },
+    {
+      "check": "No soul pixels when glow is zero",
+      "passed": true
+    },
+    {
+      "check": "appearing pixels stay aligned to native3x grid",
+      "passed": true
+    },
+    {
+      "check": "landed pixels stay aligned to native3x grid",
+      "passed": true
+    },
+    {
+      "check": "Light lands around the original waking coordinate",
+      "passed": true
+    },
+    {
+      "check": "bloom pixels stay aligned to native3x grid",
+      "passed": true
+    },
+    {
+      "check": "peak pixels stay aligned to native3x grid",
+      "passed": true
+    },
+    {
+      "check": "Bloom expands without covering whole viewport",
+      "passed": true
+    },
+    {
+      "check": "reduced-white pixels stay aligned to native3x grid",
+      "passed": true
+    },
+    {
+      "check": "reduced-white original full-screen white opacity retained",
+      "passed": true
+    },
+    {
+      "check": "normal-white pixels stay aligned to native3x grid",
+      "passed": true
+    },
+    {
+      "check": "normal-white original full-screen white opacity retained",
+      "passed": true
+    },
+    {
+      "check": "Private saved journey bytes unchanged",
+      "passed": true
+    }
+  ],
+  "failed": 0,
+  "phase": "before",
+  "samples": [
+    {
+      "case": "hidden",
+      "glow": 0.0,
+      "used": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "white": 0.0
+    },
+    {
+      "case": "appearing",
+      "glow": 0.25,
+      "used": [
+        156,
+        68,
+        24,
+        24
+      ],
+      "white": 0.0
+    },
+    {
+      "case": "landed",
+      "glow": 1.0,
+      "used": [
+        156,
+        68,
+        24,
+        24
+      ],
+      "white": 0.0
+    },
+    {
+      "case": "bloom",
+      "glow": 2.0,
+      "used": [
+        142,
+        54,
+        52,
+        52
+      ],
+      "white": 0.0
+    },
+    {
+      "case": "peak",
+      "glow": 3.0,
+      "used": [
+        128,
+        40,
+        80,
+        80
+      ],
+      "white": 0.0
+    },
+    {
+      "case": "reduced-white",
+      "glow": 3.0,
+      "used": [
+        0,
+        0,
+        384,
+        216
+      ],
+      "white": 0.4
+    },
+    {
+      "case": "normal-white",
+      "glow": 3.0,
+      "used": [
+        0,
+        0,
+        384,
+        216
+      ],
+      "white": 1.0
+    }
+  ],
+  "total": 15
+}

@@ -1,0 +1,195 @@
+{
+  "checks": [
+    {
+      "check": "Real last story line opens three cards",
+      "passed": true
+    },
+    {
+      "check": "Reading press opens cards without committing",
+      "passed": true
+    },
+    {
+      "check": "Held/repeated reading press stays on cards after guard expires",
+      "passed": true
+    },
+    {
+      "check": "Fresh accept opens confirmation with No selected",
+      "passed": true
+    },
+    {
+      "check": "No returns to same uncommitted creature",
+      "passed": true
+    },
+    {
+      "check": "Cancel returns without committing",
+      "passed": true
+    },
+    {
+      "check": "Accept inside first0.4s is ignored",
+      "passed": true
+    },
+    {
+      "check": "Early accept held past guard still needs release",
+      "passed": true
+    },
+    {
+      "check": "Release after early accept permits fresh confirmation",
+      "passed": true
+    },
+    {
+      "check": "Early mouse hold cannot open question after guard",
+      "passed": true
+    },
+    {
+      "check": "Fresh mouse press after guard opens question",
+      "passed": true
+    },
+    {
+      "check": "Keyboard focuses starter0",
+      "passed": true
+    },
+    {
+      "check": "Yes commits requested starter0",
+      "passed": true
+    },
+    {
+      "check": "Commit press cannot advance first after-line0",
+      "passed": true
+    },
+    {
+      "check": "Pick plays presence swell on UI bus0",
+      "passed": true
+    },
+    {
+      "check": "Keyboard focuses starter1",
+      "passed": true
+    },
+    {
+      "check": "Yes commits requested starter1",
+      "passed": true
+    },
+    {
+      "check": "Commit press cannot advance first after-line1",
+      "passed": true
+    },
+    {
+      "check": "Pick plays presence swell on UI bus1",
+      "passed": true
+    },
+    {
+      "check": "Keyboard focuses starter2",
+      "passed": true
+    },
+    {
+      "check": "Yes commits requested starter2",
+      "passed": true
+    },
+    {
+      "check": "Commit press cannot advance first after-line2",
+      "passed": true
+    },
+    {
+      "check": "Pick plays presence swell on UI bus2",
+      "passed": true
+    },
+    {
+      "check": "Pad A opens confirmation",
+      "passed": true
+    },
+    {
+      "check": "Pad B returns to cards",
+      "passed": true
+    },
+    {
+      "check": "Stick centre and repress move two cards",
+      "passed": true
+    },
+    {
+      "check": "Pad stick plus A commits Rimefin",
+      "passed": true
+    },
+    {
+      "check": "Rebound confirm opens question",
+      "passed": true
+    },
+    {
+      "check": "Rebound confirm commits",
+      "passed": true
+    },
+    {
+      "check": "base mouse focuses Tallowroot",
+      "passed": true
+    },
+    {
+      "check": "base second click asks",
+      "passed": true
+    },
+    {
+      "check": "base mouse No preserves choice",
+      "passed": true
+    },
+    {
+      "check": "base mouse Yes commits",
+      "passed": true
+    },
+    {
+      "check": "wide mouse focuses Tallowroot",
+      "passed": true
+    },
+    {
+      "check": "wide second click asks",
+      "passed": true
+    },
+    {
+      "check": "wide mouse No preserves choice",
+      "passed": true
+    },
+    {
+      "check": "wide mouse Yes commits",
+      "passed": true
+    },
+    {
+      "check": "tall mouse focuses Tallowroot",
+      "passed": true
+    },
+    {
+      "check": "tall second click asks",
+      "passed": true
+    },
+    {
+      "check": "tall mouse No preserves choice",
+      "passed": true
+    },
+    {
+      "check": "tall mouse Yes commits",
+      "passed": true
+    },
+    {
+      "check": "Shared showcase scale is a whole art pixel",
+      "passed": true
+    },
+    {
+      "check": "kithflare all-frame union fits portrait interior",
+      "passed": true
+    },
+    {
+      "check": "tallowroot all-frame union fits portrait interior",
+      "passed": true
+    },
+    {
+      "check": "rimefin all-frame union fits portrait interior",
+      "passed": true
+    },
+    {
+      "check": "Selection uses dedicated UI cursor and confirm sounds",
+      "passed": true
+    },
+    {
+      "check": "Saved journey bytes unchanged",
+      "passed": true
+    }
+  ],
+  "failed": 0,
+  "failures": [],
+  "total": 47
+}

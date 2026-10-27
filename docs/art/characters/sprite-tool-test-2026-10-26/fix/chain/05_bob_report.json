@@ -1,0 +1,1093 @@
+{
+ "down": {
+  "gait": {
+   "contact": 1,
+   "phase": 0.56,
+   "wave_amp": 3.91,
+   "method": "stride",
+   "stride": [
+    29,
+    25,
+    20,
+    19,
+    26,
+    24,
+    25,
+    18
+   ],
+   "leg_change": null
+  },
+  "foot_y": [
+   72,
+   71,
+   70,
+   71,
+   72,
+   72,
+   71,
+   70
+  ],
+  "head_offset_by_mass": [
+   0,
+   -1,
+   0,
+   2,
+   1,
+   0,
+   -1,
+   0
+  ],
+  "head_offset_by_top_row": [
+   0,
+   -1,
+   0,
+   2,
+   1,
+   0,
+   -1,
+   0
+  ],
+  "head_offset_before": [
+   0,
+   -1,
+   0,
+   2,
+   1,
+   0,
+   -1,
+   0
+  ],
+  "rhythm": [
+   0,
+   1,
+   0,
+   -1,
+   0,
+   1,
+   0,
+   -1
+  ],
+  "base": 0,
+  "moves": [
+   {
+    "frame": 0,
+    "move_px": 0,
+    "seams": []
+   },
+   {
+    "frame": 1,
+    "move_px": 2,
+    "seams": [
+     {
+      "row": 56,
+      "px_lost_or_doubled": 0
+     },
+     {
+      "row": 58,
+      "px_lost_or_doubled": 1
+     }
+    ]
+   },
+   {
+    "frame": 2,
+    "move_px": 0,
+    "seams": []
+   },
+   {
+    "frame": 3,
+    "move_px": -2,
+    "seams": [
+     {
+      "row": 57,
+      "px_lost_or_doubled": 0
+     },
+     {
+      "row": 56,
+      "px_lost_or_doubled": 0
+     }
+    ]
+   },
+   {
+    "frame": 4,
+    "move_px": -1,
+    "seams": [
+     {
+      "row": 57,
+      "px_lost_or_doubled": 0
+     }
+    ]
+   },
+   {
+    "frame": 5,
+    "move_px": 1,
+    "seams": [
+     {
+      "row": 57,
+      "px_lost_or_doubled": 0
+     }
+    ]
+   },
+   {
+    "frame": 6,
+    "move_px": 1,
+    "seams": [
+     {
+      "row": 56,
+      "px_lost_or_doubled": 1
+     }
+    ]
+   },
+   {
+    "frame": 7,
+    "move_px": -1,
+    "seams": [
+     {
+      "row": 55,
+      "px_lost_or_doubled": 0
+     }
+    ]
+   }
+  ]
+ },
+ "down_left": {
+  "gait": {
+   "contact": 2,
+   "phase": 1.82,
+   "wave_amp": 3.64,
+   "method": "stride",
+   "stride": [
+    14,
+    11,
+    14,
+    12,
+    15,
+    26,
+    29,
+    21
+   ],
+   "leg_change": null
+  },
+  "foot_y": [
+   72,
+   71,
+   71,
+   71,
+   71,
+   69,
+   69,
+   69
+  ],
+  "head_offset_by_mass": [
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "head_offset_by_top_row": [
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "head_offset_before": [
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "rhythm": [
+   -1,
+   0,
+   1,
+   0,
+   -1,
+   0,
+   1,
+   0
+  ],
+  "base": 0,
+  "moves": [
+   {
+    "frame": 0,
+    "move_px": -1,
+    "seams": [
+     {
+      "row": 57,
+      "px_lost_or_doubled": 2
+     }
+    ]
+   },
+   {
+    "frame": 1,
+    "move_px": 0,
+    "seams": []
+   },
+   {
+    "frame": 2,
+    "move_px": 1,
+    "seams": [
+     {
+      "row": 57,
+      "px_lost_or_doubled": 3
+     }
+    ]
+   },
+   {
+    "frame": 3,
+    "move_px": 0,
+    "seams": []
+   },
+   {
+    "frame": 4,
+    "move_px": -1,
+    "seams": [
+     {
+      "row": 56,
+      "px_lost_or_doubled": 1
+     }
+    ]
+   },
+   {
+    "frame": 5,
+    "move_px": 0,
+    "seams": []
+   },
+   {
+    "frame": 6,
+    "move_px": 1,
+    "seams": [
+     {
+      "row": 57,
+      "px_lost_or_doubled": 0
+     }
+    ]
+   },
+   {
+    "frame": 7,
+    "move_px": 0,
+    "seams": []
+   }
+  ]
+ },
+ "left": {
+  "gait": {
+   "contact": 2,
+   "phase": 1.81,
+   "wave_amp": 11.23,
+   "method": "stride",
+   "stride": [
+    11,
+    29,
+    29,
+    19,
+    10,
+    26,
+    35,
+    23
+   ],
+   "leg_change": null
+  },
+  "foot_y": [
+   70,
+   72,
+   70,
+   70,
+   70,
+   70,
+   72,
+   71
+  ],
+  "head_offset_by_mass": [
+   0,
+   0,
+   0,
+   0,
+   1,
+   1,
+   1,
+   1
+  ],
+  "head_offset_by_top_row": [
+   0,
+   0,
+   0,
+   0,
+   1,
+   1,
+   1,
+   1
+  ],
+  "head_offset_before": [
+   0,
+   0,
+   0,
+   0,
+   1,
+   1,
+   1,
+   1
+  ],
+  "rhythm": [
+   -1,
+   0,
+   1,
+   0,
+   -1,
+   0,
+   1,
+   0
+  ],
+  "base": 0,
+  "moves": [
+   {
+    "frame": 0,
+    "move_px": -1,
+    "seams": [
+     {
+      "row": 60,
+      "px_lost_or_doubled": 0
+     }
+    ]
+   },
+   {
+    "frame": 1,
+    "move_px": 0,
+    "seams": []
+   },
+   {
+    "frame": 2,
+    "move_px": 1,
+    "seams": [
+     {
+      "row": 54,
+      "px_lost_or_doubled": 1
+     }
+    ]
+   },
+   {
+    "frame": 3,
+    "move_px": 0,
+    "seams": []
+   },
+   {
+    "frame": 4,
+    "move_px": -2,
+    "seams": [
+     {
+      "row": 59,
+      "px_lost_or_doubled": 0
+     },
+     {
+      "row": 58,
+      "px_lost_or_doubled": 0
+     }
+    ]
+   },
+   {
+    "frame": 5,
+    "move_px": -1,
+    "seams": [
+     {
+      "row": 60,
+      "px_lost_or_doubled": 1
+     }
+    ]
+   },
+   {
+    "frame": 6,
+    "move_px": 0,
+    "seams": []
+   },
+   {
+    "frame": 7,
+    "move_px": -1,
+    "seams": [
+     {
+      "row": 53,
+      "px_lost_or_doubled": 1
+     }
+    ]
+   }
+  ]
+ },
+ "up_left": {
+  "gait": {
+   "contact": 2,
+   "phase": 1.94,
+   "wave_amp": 5.02,
+   "method": "stride",
+   "stride": [
+    15,
+    27,
+    31,
+    23,
+    13,
+    12,
+    17,
+    14
+   ],
+   "leg_change": null
+  },
+  "foot_y": [
+   72,
+   70,
+   70,
+   69,
+   71,
+   70,
+   71,
+   71
+  ],
+  "head_offset_by_mass": [
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "head_offset_by_top_row": [
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "head_offset_before": [
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "rhythm": [
+   -1,
+   0,
+   1,
+   0,
+   -1,
+   0,
+   1,
+   0
+  ],
+  "base": 0,
+  "moves": [
+   {
+    "frame": 0,
+    "move_px": -1,
+    "seams": [
+     {
+      "row": 60,
+      "px_lost_or_doubled": 0
+     }
+    ]
+   },
+   {
+    "frame": 1,
+    "move_px": 0,
+    "seams": []
+   },
+   {
+    "frame": 2,
+    "move_px": 1,
+    "seams": [
+     {
+      "row": 56,
+      "px_lost_or_doubled": 2
+     }
+    ]
+   },
+   {
+    "frame": 3,
+    "move_px": 0,
+    "seams": []
+   },
+   {
+    "frame": 4,
+    "move_px": -1,
+    "seams": [
+     {
+      "row": 58,
+      "px_lost_or_doubled": 0
+     }
+    ]
+   },
+   {
+    "frame": 5,
+    "move_px": 0,
+    "seams": []
+   },
+   {
+    "frame": 6,
+    "move_px": 1,
+    "seams": [
+     {
+      "row": 60,
+      "px_lost_or_doubled": 0
+     }
+    ]
+   },
+   {
+    "frame": 7,
+    "move_px": 0,
+    "seams": []
+   }
+  ]
+ },
+ "up": {
+  "gait": {
+   "contact": 3,
+   "phase": 3.32,
+   "wave_amp": 2.57,
+   "method": "stride",
+   "stride": [
+    24,
+    19,
+    23,
+    24,
+    24,
+    22,
+    20,
+    26
+   ],
+   "leg_change": null
+  },
+  "foot_y": [
+   72,
+   71,
+   72,
+   72,
+   72,
+   72,
+   71,
+   72
+  ],
+  "head_offset_by_mass": [
+   0,
+   1,
+   0,
+   0,
+   0,
+   1,
+   0,
+   0
+  ],
+  "head_offset_by_top_row": [
+   0,
+   1,
+   0,
+   0,
+   0,
+   1,
+   0,
+   0
+  ],
+  "head_offset_before": [
+   0,
+   1,
+   0,
+   0,
+   0,
+   1,
+   0,
+   0
+  ],
+  "rhythm": [
+   0,
+   -1,
+   0,
+   1,
+   0,
+   -1,
+   0,
+   1
+  ],
+  "base": 0,
+  "moves": [
+   {
+    "frame": 0,
+    "move_px": 0,
+    "seams": []
+   },
+   {
+    "frame": 1,
+    "move_px": -2,
+    "seams": [
+     {
+      "row": 62,
+      "px_lost_or_doubled": 1
+     },
+     {
+      "row": 61,
+      "px_lost_or_doubled": 0
+     }
+    ]
+   },
+   {
+    "frame": 2,
+    "move_px": 0,
+    "seams": []
+   },
+   {
+    "frame": 3,
+    "move_px": 1,
+    "seams": [
+     {
+      "row": 58,
+      "px_lost_or_doubled": 0
+     }
+    ]
+   },
+   {
+    "frame": 4,
+    "move_px": 0,
+    "seams": []
+   },
+   {
+    "frame": 5,
+    "move_px": -2,
+    "seams": [
+     {
+      "row": 60,
+      "px_lost_or_doubled": 2
+     },
+     {
+      "row": 59,
+      "px_lost_or_doubled": 0
+     }
+    ]
+   },
+   {
+    "frame": 6,
+    "move_px": 0,
+    "seams": []
+   },
+   {
+    "frame": 7,
+    "move_px": 1,
+    "seams": [
+     {
+      "row": 58,
+      "px_lost_or_doubled": 0
+     }
+    ]
+   }
+  ]
+ },
+ "up_right": {
+  "gait": {
+   "contact": 2,
+   "phase": 1.53,
+   "wave_amp": 3.72,
+   "method": "stride",
+   "stride": [
+    16,
+    14,
+    16,
+    13,
+    21,
+    32,
+    32,
+    23
+   ],
+   "leg_change": null
+  },
+  "foot_y": [
+   71,
+   72,
+   72,
+   72,
+   70,
+   70,
+   70,
+   69
+  ],
+  "head_offset_by_mass": [
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "head_offset_by_top_row": [
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "head_offset_before": [
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "rhythm": [
+   -1,
+   0,
+   1,
+   0,
+   -1,
+   0,
+   1,
+   0
+  ],
+  "base": 0,
+  "moves": [
+   {
+    "frame": 0,
+    "move_px": -1,
+    "seams": [
+     {
+      "row": 57,
+      "px_lost_or_doubled": 0
+     }
+    ]
+   },
+   {
+    "frame": 1,
+    "move_px": 0,
+    "seams": []
+   },
+   {
+    "frame": 2,
+    "move_px": 1,
+    "seams": [
+     {
+      "row": 57,
+      "px_lost_or_doubled": 0
+     }
+    ]
+   },
+   {
+    "frame": 3,
+    "move_px": 0,
+    "seams": []
+   },
+   {
+    "frame": 4,
+    "move_px": -1,
+    "seams": [
+     {
+      "row": 58,
+      "px_lost_or_doubled": 0
+     }
+    ]
+   },
+   {
+    "frame": 5,
+    "move_px": 0,
+    "seams": []
+   },
+   {
+    "frame": 6,
+    "move_px": 1,
+    "seams": [
+     {
+      "row": 59,
+      "px_lost_or_doubled": 1
+     }
+    ]
+   },
+   {
+    "frame": 7,
+    "move_px": 0,
+    "seams": []
+   }
+  ]
+ },
+ "right": {
+  "gait": {
+   "contact": 2,
+   "phase": 1.88,
+   "wave_amp": 10.69,
+   "method": "stride",
+   "stride": [
+    11,
+    28,
+    33,
+    25,
+    10,
+    29,
+    30,
+    24
+   ],
+   "leg_change": null
+  },
+  "foot_y": [
+   72,
+   72,
+   72,
+   72,
+   72,
+   72,
+   71,
+   72
+  ],
+  "head_offset_by_mass": [
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "head_offset_by_top_row": [
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "head_offset_before": [
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "rhythm": [
+   -1,
+   0,
+   1,
+   0,
+   -1,
+   0,
+   1,
+   0
+  ],
+  "base": 0,
+  "moves": [
+   {
+    "frame": 0,
+    "move_px": -1,
+    "seams": [
+     {
+      "row": 58,
+      "px_lost_or_doubled": 0
+     }
+    ]
+   },
+   {
+    "frame": 1,
+    "move_px": 0,
+    "seams": []
+   },
+   {
+    "frame": 2,
+    "move_px": 1,
+    "seams": [
+     {
+      "row": 58,
+      "px_lost_or_doubled": 0
+     }
+    ]
+   },
+   {
+    "frame": 3,
+    "move_px": 0,
+    "seams": []
+   },
+   {
+    "frame": 4,
+    "move_px": -1,
+    "seams": [
+     {
+      "row": 58,
+      "px_lost_or_doubled": 0
+     }
+    ]
+   },
+   {
+    "frame": 5,
+    "move_px": 0,
+    "seams": []
+   },
+   {
+    "frame": 6,
+    "move_px": 1,
+    "seams": [
+     {
+      "row": 58,
+      "px_lost_or_doubled": 0
+     }
+    ]
+   },
+   {
+    "frame": 7,
+    "move_px": 0,
+    "seams": []
+   }
+  ]
+ },
+ "down_right": {
+  "gait": {
+   "contact": 2,
+   "phase": 1.92,
+   "wave_amp": 6.05,
+   "method": "stride",
+   "stride": [
+    15,
+    24,
+    26,
+    21,
+    12,
+    13,
+    25,
+    13
+   ],
+   "leg_change": null
+  },
+  "foot_y": [
+   72,
+   71,
+   70,
+   70,
+   72,
+   72,
+   72,
+   72
+  ],
+  "head_offset_by_mass": [
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "head_offset_by_top_row": [
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "head_offset_before": [
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0,
+   0
+  ],
+  "rhythm": [
+   -1,
+   0,
+   1,
+   0,
+   -1,
+   0,
+   1,
+   0
+  ],
+  "base": 0,
+  "moves": [
+   {
+    "frame": 0,
+    "move_px": -1,
+    "seams": [
+     {
+      "row": 57,
+      "px_lost_or_doubled": 0
+     }
+    ]
+   },
+   {
+    "frame": 1,
+    "move_px": 0,
+    "seams": []
+   },
+   {
+    "frame": 2,
+    "move_px": 1,
+    "seams": [
+     {
+      "row": 56,
+      "px_lost_or_doubled": 0
+     }
+    ]
+   },
+   {
+    "frame": 3,
+    "move_px": 0,
+    "seams": []
+   },
+   {
+    "frame": 4,
+    "move_px": -1,
+    "seams": [
+     {
+      "row": 57,
+      "px_lost_or_doubled": 0
+     }
+    ]
+   },
+   {
+    "frame": 5,
+    "move_px": 0,
+    "seams": []
+   },
+   {
+    "frame": 6,
+    "move_px": 1,
+    "seams": [
+     {
+      "row": 57,
+      "px_lost_or_doubled": 0
+     }
+    ]
+   },
+   {
+    "frame": 7,
+    "move_px": 0,
+    "seams": []
+   }
+  ]
+ }
+}

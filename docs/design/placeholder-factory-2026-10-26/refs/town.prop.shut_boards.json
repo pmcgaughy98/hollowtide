@@ -1,0 +1,64 @@
+{
+	"alpha": "binary",
+	"anchor": [
+		13,
+		49
+	],
+	"anchor_mode": "foot",
+	"area": "town",
+	"brief": "Rough planks nailed across a shut doorway.",
+	"census": "B18",
+	"checks": [
+		"C1",
+		"C12",
+		"C2",
+		"C3",
+		"C4",
+		"C5",
+		"C7",
+		"C8",
+		"C9"
+	],
+	"drawn_at": 3,
+	"edges": "bottom",
+	"file": "res://assets/slots/town/prop/shut_boards.png",
+	"forbid": [
+		"text",
+		"creature",
+		"franchise"
+	],
+	"frames": 1,
+	"id": "town.prop.shut_boards",
+	"kind": "prop",
+	"lane": "B",
+	"legacy": "",
+	"light": "upper_left",
+	"notes": "placeholder: today's code (building_exteriors.gd _boards_image) over a 22 x 48 door; v2 sets it at door_px less (2, 2); v1 keeps boards cut to each door's own opening",
+	"outline": "drawn",
+	"owner": "grok",
+	"palette": {
+		"family": "town_timber",
+		"lock": false,
+		"max": 24,
+		"source": "res://assets/slots/palettes/town_timber.png"
+	},
+	"placeholder": "res://scripts/town/building_exteriors.gd:slot_shut_boards",
+	"rows": 1,
+	"sheet_size": [
+		26,
+		50
+	],
+	"size": [
+		26,
+		50
+	],
+	"slot_file": "town_buildings",
+	"states": {
+		"static": [
+			1,
+			0
+		]
+	},
+	"status": "placeholder",
+	"tiling": "none"
+}

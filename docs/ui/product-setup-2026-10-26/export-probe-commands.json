@@ -1,0 +1,38 @@
+[
+  {
+    "phase": "import",
+    "cmd": [
+      "C:/Users/pmcga/Games/Tools/Godot_v4.7.2/Godot_v4.7.2-stable_win64.exe",
+      "--headless",
+      "--path",
+      "D:\\dev\\hollowtide-product-setup-20261026\\export-probe-existing-hook",
+      "--editor",
+      "--import",
+      "--quit"
+    ],
+    "exit": 0
+  },
+  {
+    "phase": "pack",
+    "cmd": [
+      "C:/Users/pmcga/Games/Tools/Godot_v4.7.2/Godot_v4.7.2-stable_win64.exe",
+      "--headless",
+      "--path",
+      "D:\\dev\\hollowtide-product-setup-20261026\\export-probe-existing-hook",
+      "--export-pack",
+      "Windows Desktop",
+      "D:\\dev\\hollowtide-product-setup-20261026\\export-probe.pck"
+    ],
+    "exit": 0
+  },
+  {
+    "phase": "run-pack",
+    "cmd": [
+      "C:/Users/pmcga/Games/Tools/Godot_v4.7.2/Godot_v4.7.2-stable_win64.exe",
+      "--headless",
+      "--main-pack",
+      "D:\\dev\\hollowtide-product-setup-20261026\\export-probe.pck"
+    ],
+    "exit": 0
+  }
+]

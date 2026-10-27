@@ -1,0 +1,23 @@
+{
+  "command": [
+    "C:/Users/pmcga/Games/Tools/Godot_v4.7.2/Godot_v4.7.2-stable_win64.exe",
+    "--path",
+    "C:\\Users\\pmcga\\dev\\hollowtide",
+    "--rendering-method",
+    "gl_compatibility",
+    "--audio-driver",
+    "Dummy",
+    "--fixed-fps",
+    "30",
+    "--verbose",
+    "--script",
+    "D:\\dev\\hollowtide-storm-pixels-20261026\\natural_flow_check.gd",
+    "--",
+    "hero=0",
+    "partner=1",
+    "automatic-storm"
+  ],
+  "APPDATA": "D:\\dev\\hollowtide-storm-pixels-20261026\\normal-profile",
+  "LOCALAPPDATA": "D:\\dev\\hollowtide-storm-pixels-20261026\\normal-local-profile",
+  "exit": 0
+}

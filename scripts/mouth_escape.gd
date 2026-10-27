@@ -8,14 +8,20 @@ extends Node2D
 ## Claude, 2026-10-23 (factory pass 3, story lane): the morning now looks like the line says (a dawn grade, the
 ## painting's rain taken out, low mist on the river), the two stay above the text box, and Esc, P or Start ask
 ## "Back to the title?" as the flood talk and the riverbank do.
+## Claude, 2026-10-26 (placeholder factory lane S; Preston: "they just appear in the town afterwards ... a scene walking
+## through a forest or something where they are talking"): this stays the opening beat on the dawn bank, the "start"
+## title of the road talk, and then hands off to the road up to Highbank (scenes/road_to_highbank.tscn,
+## scripts/story/route_scene.gd), where the rest of the talk is walked, instead of to the town.
 const Bank := preload("res://scripts/ui/waking_bank.gd")
 const Finish := preload("res://scripts/arena/creature_finish.gd")
 const Lines := preload("res://scripts/creatures/lines.gd")
 const TeamState := preload("res://scripts/town/team_state.gd")
 const UI := preload("res://scripts/ui/ui_style.gd")
 const Music := preload("res://scripts/audio/music.gd")
+const SceneKit := preload("res://scripts/town/scene_kit.gd")
 const TALK := preload("res://dialogue/road_to_highbank.dialogue")
 const TOWN_SCENE := "res://scenes/hub_town.tscn"
+const ROAD_SCENE := "res://scenes/road_to_highbank.tscn"   # the walk up to Highbank, after the bank (lane S)
 const BOX := Rect2(196, 452, 760, 116)   # the same text box as the flood talk and the rooms
 const ASK := Rect2(396, 236, 360, 176)   # the "Back to the title?" prompt, mid-screen, as on the flood talk
 const TITLE := "res://scenes/creature_opening.tscn"   # where Return goes, as from the flood talk and the riverbank
@@ -112,6 +118,10 @@ func _ready() -> void:
 	# Highbank's street is painted on a worker while the road talk plays, so the town arrives without its place card
 	# (hub_town.gd bake_ahead; Claude, 2026-10-26, pass 8 street T5 / L14).
 	load("res://scripts/town/hub_town.gd").bake_ahead(get_tree())
+	# The road up to Highbank is read on a loader thread while the bank plays, so the walk off the bank does not stop
+	# on it under the black (Claude, 2026-10-26, lane S). Not in a headless check, which can quit with a read going.
+	if DisplayServer.get_name() != "headless" and ResourceLoader.exists(ROAD_SCENE):
+		ResourceLoader.load_threaded_request(ROAD_SCENE)
 	var vp := SubViewport.new()
 	vp.size = Vector2i(384, 216)
 	vp.render_target_update_mode = SubViewport.UPDATE_ALWAYS
@@ -146,6 +156,13 @@ func _ready() -> void:
 	vp.add_child(bank)
 	if bank.background != null and bank.background.texture != null:
 		bank.background.texture = ImageTexture.create_from_image(dry_image(bank.background.texture.get_image()))
+	# Codex's dawn painting, once installed in the art slot story.backdrop.dawn_bank, replaces the night painting and its
+	# grade; until then the grade above is that slot's placeholder (Claude, 2026-10-26, placeholder factory lane U).
+	var dawn: Image = Bank.dawn_image()
+	if dawn != null and bank.background != null:
+		bank.background.texture = ImageTexture.create_from_image(dawn)
+		bank.background.material = null
+		display.material = null
 	_mist = Sprite2D.new()
 	_mist.centered = false
 	_mist.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
@@ -157,7 +174,8 @@ func _ready() -> void:
 	for i in mini(party.size(), FORMATION.size()):
 		var form: String = Lines.of(party[i][0]).forms[party[i][1]][0]
 		forms.append(form)
-		_names.append(load(Lines.of(party[i][0]).forms[party[i][1]][1]).creature_name)
+		# Through SceneKit's kept names (lane S, 2026-10-26): the road after the bank reads them from there, not from disk.
+		_names.append(SceneKit.name_of(int(party[i][0]), int(party[i][1])))
 		var s := Sprite2D.new()
 		s.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
 		s.position = PATH[0] + FORMATION[i]
@@ -188,7 +206,8 @@ func _begin_talk() -> void:
 	line = await DialogueManager.get_next_dialogue_line(TALK, "start", [self])
 
 
-## Called from the dialogue: walk the two of you one stretch further down the bank.
+## Called from the dialogue: walk the two of you one stretch further down the bank. Since the road scene (lane S,
+## 2026-10-26) the bank's title has no walk_on; the stops stay for a line that asks for one.
 func walk_on() -> void:
 	if _stop >= PATH.size() - 1:
 		return
@@ -407,8 +426,9 @@ func _cursor(mid: Vector2, t: float) -> void:
 
 
 ## Off the bank (Claude, 2026-10-26, pass 8 S2, L07): the box goes, the party walks down to the south trail and off
-## the painting's south-west edge, and the black comes down as the last of them leaves the frame; then Highbank, whose
-## own card names it. Under Reduce motion the walk is short and the black quick.
+## the painting's south-west edge, and the black comes down as the last of them leaves the frame. Under Reduce motion
+## the walk is short and the black quick. Then the road up to Highbank (Claude, 2026-10-26, lane S), which comes up
+## out of its own black; it hands the team to the town at its end. Without the road scene, the town as before.
 func _leave() -> void:
 	leaving = true
 	var bend_secs := 0.25 if reduce_motion else actors[0].position.distance_to(TRAIL_BEND) / EXIT_SPEED
@@ -427,6 +447,11 @@ func _leave() -> void:
 	var fade_secs := 0.2 if reduce_motion else 0.9
 	var fade_at := maxf(0.0, _walking - fade_secs)
 	await create_tween().tween_property(_veil, "color:a", 1.0, fade_secs).set_delay(fade_at).finished
+	if ResourceLoader.exists(ROAD_SCENE):
+		var asked := ResourceLoader.load_threaded_get_status(ROAD_SCENE) != ResourceLoader.THREAD_LOAD_INVALID_RESOURCE
+		var road: PackedScene = ResourceLoader.load_threaded_get(ROAD_SCENE) if asked else load(ROAD_SCENE)
+		get_tree().change_scene_to_node(road.instantiate())
+		return
 	var town: Node = load(TOWN_SCENE).instantiate()
 	TeamState.give_to(town)
 	get_tree().change_scene_to_node(town)

@@ -1,0 +1,50 @@
+[
+  {
+    "phase": "baseline",
+    "command": [
+      "C:\\Users\\pmcga\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+      "D:\\dev\\hollowtide-muskin-back-20261026\\rebuild-baseline\\tools\\arena\\build_dungeon_set.py",
+      "muskin"
+    ],
+    "stdout": "muskin       stage 1: shrunk by 3.46, size 15.5 (target 15.5, set dungeon), walks 8\n",
+    "stderr": "",
+    "exit": 0
+  },
+  {
+    "phase": "baseline",
+    "command": [
+      "C:\\Users\\pmcga\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+      "D:\\dev\\hollowtide-muskin-back-20261026\\rebuild-baseline\\tools\\arena\\build_dungeon_set.py",
+      "muskin",
+      "--set=town",
+      "--scale=1.5"
+    ],
+    "stdout": "muskin       stage 1: shrunk by 2.31, size 23.1 (target 23.2, set town), walks 8\n",
+    "stderr": "",
+    "exit": 0
+  },
+  {
+    "phase": "updated",
+    "command": [
+      "C:\\Users\\pmcga\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+      "D:\\dev\\hollowtide-muskin-back-20261026\\rebuild-updated\\tools\\arena\\build_dungeon_set.py",
+      "muskin"
+    ],
+    "stdout": "muskin       stage 1: shrunk by 3.46, size 15.5 (target 15.5, set dungeon), walks 8\n",
+    "stderr": "",
+    "exit": 0
+  },
+  {
+    "phase": "updated",
+    "command": [
+      "C:\\Users\\pmcga\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+      "D:\\dev\\hollowtide-muskin-back-20261026\\rebuild-updated\\tools\\arena\\build_dungeon_set.py",
+      "muskin",
+      "--set=town",
+      "--scale=1.5"
+    ],
+    "stdout": "muskin       stage 1: shrunk by 2.31, size 23.1 (target 23.2, set town), walks 8\n",
+    "stderr": "",
+    "exit": 0
+  }
+]

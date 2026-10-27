@@ -83,7 +83,10 @@ func _run() -> void:
 	print("Town: spawned at %s with %s" % [str(town.team[0]["pos"]), str(town.team.map(func(e: Dictionary) -> String: return e["form"]))])
 
 	# 2. Into the Hollow.
-	town.team[0]["pos"] = Vector2i(32, 28)
+	# The tile is an anchor of the town's areas (lane A, Claude, 2026-10-26): in today's map the one this check named; with
+	# Highbank v2 on (HT_HIGHBANK_V2=1) the town goes into that anchor's area first.
+	town.enter_area(town.Layout.anchor_area("mouth_approach"), "mouth_approach")
+	town.team[0]["pos"] = town.Layout.anchor("mouth_approach")
 	town._place(town.team[0])
 	await town.act_move(Vector2i(1, 0))
 	await _frames(8)
@@ -108,12 +111,14 @@ func _run() -> void:
 	var news: String = town.panel.get("what", "")
 	var bag: Dictionary = TeamState.data.get("bag", {})
 	var iq: Dictionary = TeamState.data.get("iq", {})
-	_ok("After a clear: the leader at %s (the Hall's steps %s); news '%s'; the record's bag %s, IQ %s, cleared %s" % [str(town.team[0]["pos"]), str(town.RETURN_SPOT), news, str(bag), str(iq), str(TeamState.data.get("cleared", 0))],
-		town.team[0]["pos"] == town.RETURN_SPOT and news != "" and int(bag.get("lamp_oil", 0)) == 2 and _iq(iq, mate_line) == 7 and int(TeamState.data.get("cleared", 0)) == 1)
+	var back: Vector2i = town.Layout.anchor("return")   # the Hall's steps (RETURN_SPOT; Tower Rise's in v2)
+	_ok("After a clear: the leader at %s (the Hall's steps %s); news '%s'; the record's bag %s, IQ %s, cleared %s" % [str(town.team[0]["pos"]), str(back), news, str(bag), str(iq), str(TeamState.data.get("cleared", 0))],
+		town.team[0]["pos"] == back and news != "" and int(bag.get("lamp_oil", 0)) == 2 and _iq(iq, mate_line) == 7 and int(TeamState.data.get("cleared", 0)) == 1)
 
 	# 4. The next run gets it back.
 	town.panel = {}
-	town.team[0]["pos"] = Vector2i(32, 28)
+	town.enter_area(town.Layout.anchor_area("mouth_approach"), "mouth_approach")
+	town.team[0]["pos"] = town.Layout.anchor("mouth_approach")
 	town._place(town.team[0])
 	await town.act_move(Vector2i(1, 0))
 	await _frames(8)

@@ -21,8 +21,12 @@ func _run() -> void:
 	var town: Node2D = load("res://scenes/hub_town.tscn").instantiate()
 	town.poll_input = false
 	root.add_child(town)
-	for spot in [["street", Vector2i(24, 10)], ["terrace", Vector2i(20, 21)], ["landing", Vector2i(32, 26)]]:
-		town.team[0]["pos"] = spot[1]
+	# The tiles are anchors of the town's areas (lane A, Claude, 2026-10-26): (24,10), (20,21) and (32,26) in today's map;
+	# with Highbank v2 on, the town goes into each anchor's area first.
+	var Layout: GDScript = town.Layout
+	for spot in [["street", "view_street"], ["terrace", "view_terrace"], ["landing", "view_landing"]]:
+		town.enter_area(Layout.anchor_area(spot[1]), spot[1])
+		town.team[0]["pos"] = Layout.anchor(spot[1])
 		town._place(town.team[0])
 		for k in 12:
 			await process_frame

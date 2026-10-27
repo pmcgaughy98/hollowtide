@@ -55,6 +55,15 @@ var board_fx := {}            # the scene's marks: a "!", torn paper, dust
 var shake := 0.0
 var force_scenes := false     # the checks set poll_input off; this lets a scene still start in one
 var scene_fx := {}            # bubbles and props for scenes built on scripts/town/scene_kit.gd
+## Highbank v2's areas (lane A, Claude, 2026-10-26; build plan 2.1). With v2 off none of this is used and the street is
+## built as it always was. With it on, the town shows one area of scripts/world/areas/ at a time (TownLayout.use), its
+## pictures sit under _area_root so enter_area can swap them, and area_arrived says the team has arrived in one (the
+## first arrival and every exit); the Tower scene at the Tower's foot (lane S) starts from it.
+signal area_arrived(id: String)
+var cam_lift := 0.0           # px the camera may rise above the area's top; only a scene lifts it (the pan up the Tower)
+var area_art := {}            # v2: building, lot or place id -> the node drawing it where building_exteriors.gd did not
+var _area_root: Node2D = null
+var _tower_due := false       # v2: the Tower scene waits for the street to be free (no panel, scene or step)
 ## Arrival timing (Claude, 2026-10-23, T1 / LO-03): each step of _ready in milliseconds, in order, for
 ## tools/debug/timing_check.gd. The painted street is kept for the session (_street below), so only the first
 ## arrival paints; street_cached says whether this one reused it.
@@ -126,6 +135,8 @@ func _ready() -> void:
 	# and the slow step after it gets a frame of its own, so no frame of the arrival holds the screen still (one frame
 	# had been 4.4 s). A check with poll_input off adds the town and reads it at once, so it builds as before; so does a
 	# headless run (`threaded` false), which counts its waits in frames and can quit with a worker still painting.
+	if Layout.v2():   # Highbank v2: the area the team arrives in, chosen before the picture's key is read (lane A)
+		Layout.use(_arrival_area(), _record())
 	var carded := poll_input and not _street.has(_street_key())
 	var threaded := carded and DisplayServer.get_name() != "headless"
 	# With the street kept (baked during the road talk, or a return), a player's arrival under the last scene's black
@@ -182,7 +193,7 @@ func _ready() -> void:
 	street_from_disk = not street_cached and bool(street.get("from_disk", false))
 	map.texture = street["tex"]
 	map.material = street["finish"]
-	_world.add_child(map)
+	_area_parent().add_child(map)
 	var warm := _world.get_node_or_null("WarmFinish")
 	if warm != null:
 		warm.queue_free()
@@ -193,7 +204,9 @@ func _ready() -> void:
 			return
 		_lap("the street's first frame")
 	if ResourceLoader.exists("res://scripts/town/building_exteriors.gd"):
-		_building_exteriors = load("res://scripts/town/building_exteriors.gd").attach(_world, self)
+		_building_exteriors = load("res://scripts/town/building_exteriors.gd").attach(_area_parent(), self)
+	if Layout.v2():
+		_dress_area()   # the area's buildings, lots, open-air places and props that the exteriors did not draw
 	_lap("building exteriors")
 	if threaded:
 		await get_tree().process_frame
@@ -215,6 +228,8 @@ func _ready() -> void:
 	var news: String = TeamState.data.get("news", "")
 	TeamState.data.erase("news")
 	var at: Vector2i = RETURN_SPOT if news != "" else Layout.SPAWN
+	if Layout.v2():   # the area's own tiles: the Tower's steps back from a run, else where the area is entered
+		at = Layout.anchor("return") if news != "" and Layout.area_id() == Layout.anchor_area("return") else _entry_tile("")
 	# Back out of a building's room: standing on its door, below it (Claude, 2026-10-10).
 	var back: String = TeamState.data.get("arrive_at", "")
 	TeamState.data.erase("arrive_at")
@@ -233,7 +248,7 @@ func _ready() -> void:
 	preload("res://scripts/ui/game_pause_menu.gd").attach(self)
 	preload("res://scripts/ui/shrine_info.gd").attach(self)
 	_lap("menus")
-	if BoardScene.pending(self):
+	if BoardScene.pending(self) and _board_here():
 		BoardScene.place_crew(self)   # the Shortcut Crew at the board until the team has met them
 		for e in npcs:
 			_hold(e)
@@ -246,7 +261,7 @@ func _ready() -> void:
 		if parcel == "saved":
 			panel = {"name": "Highbank", "what": "Out of the Hollow, up the far bank, and into a town above the flood. %s still has the parcel, dry. Couriers post their work on the Job Board." % _partner_name(), "service": "news"}
 		elif parcel == "recovered":
-			panel = {"name": "Back in Highbank", "what": "Rootbank Warren is behind you and the parcel is back. Starward will want to see it in the Wayline Hall. And with the crew out of the Warren, the river road's clear: the Storage is open.", "service": "news"}
+			panel = {"name": "Back in Highbank", "what": "Rootbank Warren is behind you and the parcel is back. Starward will want to see it in the Wayline Tower. And with the crew out of the Warren, the river road's clear: the Storage is open.", "service": "news"}
 		if stone_state() == "carried":
 			panel["what"] = "Home from the Hollow with the %s from the Warden's pond. It hums near the Growth Shrine's empty socket." % StoneScene.STONE_NAME
 	elif news == "fainted":
@@ -290,6 +305,10 @@ func _ready() -> void:
 	_card_down()
 	_lap("save and fade")
 	ready_ms["total"] = (Time.get_ticks_usec() - began) / 1000.0
+	area_arrived.emit(Layout.area_id())
+	# Arriving home from a run or into the day (not out of a room, which means the team was here already): the Tower
+	# scene, if this is Tower Rise and it is due, once the street is free.
+	_tower_due = Layout.v2() and poll_input and back == ""
 	# A player's town: what the board and the doors will need, after the fade (T1). Not in a headless check: one that
 	# quits while a thread is still reading dungeon.gd gets a parse error from the half-read script.
 	if poll_input and DisplayServer.get_name() != "headless":
@@ -743,11 +762,12 @@ static func _street_images(key: String, job: Dictionary) -> void:
 	var steps: Dictionary = job["steps"]
 	var img := _street_from_disk(key, steps)
 	job["from_disk"] = img != null
+	var v2 := Layout.v2()   # Highbank v2: the area shown, painted by lane C's painter (lane A, 2026-10-26)
 	if img == null:
-		img = paint(steps)
+		img = paint_area_picture(Layout.area(), steps) if v2 else paint(steps)
 		_street_to_disk(key, img, steps)
 	var t := Time.get_ticks_usec()
-	job["mask"] = _finish_mask()
+	job["mask"] = _area_mask(Layout.area()) if v2 else _finish_mask()
 	steps["street: finish mask"] = _since(t)
 	job["img"] = img
 
@@ -759,13 +779,23 @@ static func _street_keep(key: String, job: Dictionary, steps: Dictionary) -> voi
 	finish.shader = WorldFinish.SHADER
 	finish.set_shader_parameter("detail_mask", ImageTexture.create_from_image(job["mask"]))
 	finish.set_shader_parameter("detail_ink", 0.55)
-	_street = {key: {"tex": ImageTexture.create_from_image(job["img"]), "finish": finish, "from_disk": job["from_disk"]}}   # one layout at a time
+	var kept := {"tex": ImageTexture.create_from_image(job["img"]), "finish": finish, "from_disk": job["from_disk"]}
+	if Layout.v2():
+		_street[key] = kept   # Highbank v2: one picture per area, each kept for the session
+	else:
+		_street = {key: kept}   # one layout at a time
 	steps["street: textures"] = _since(t)
 
 
-## What the street's picture depends on: the layout's size, bands, lanes and places.
+## What the street's picture depends on: the layout's size, bands, lanes and places (in v2 also the area and its
+## ground, buildings, lots and props, so each area has a picture of its own).
 static func _layout_key() -> String:
-	return "%dx%d|%d" % [Layout.W, Layout.H, str([Layout.BANDS, Layout.PATHS, Layout.PLACES]).hash()]
+	var size := Layout.size()
+	if Layout.v2():
+		var a := Layout.area()
+		return "%s|%dx%d|%d" % [Layout.area_id(), size.x, size.y, str([Layout.BANDS, Layout.PATHS, Layout.PLACES, a.get("ground", {}),
+			a.get("buildings", []), a.get("lots", []), a.get("props", [])]).hash()]
+	return "%dx%d|%d" % [size.x, size.y, str([Layout.BANDS, Layout.PATHS, Layout.PLACES]).hash()]
 
 
 ## The layout, the street's version and its sources' modified times: a change to any of them is a new picture.
@@ -783,7 +813,13 @@ static func _street_key(version := STREET_VERSION) -> String:
 
 
 static func _street_file(key: String) -> String:
+	if Layout.v2():   # one file per area, named for it, so saving one area's picture keeps the others
+		return STREET_DIR.path_join("%s%s.png" % [_area_prefix(), key.md5_text()])
 	return STREET_DIR.path_join("highbank_%s.png" % key.md5_text())
+
+
+static func _area_prefix() -> String:
+	return "area_%s_" % Layout.area_id()
 
 
 ## The street saved by an earlier session for this key, or null. A file that will not load or is the wrong size is
@@ -794,7 +830,7 @@ static func _street_from_disk(key: String, steps: Dictionary) -> Image:
 		return null
 	var t := Time.get_ticks_usec()
 	var img := Image.load_from_file(path)
-	if img == null or img.get_size() != Vector2i(Layout.W * T, Layout.H * T):
+	if img == null or img.get_size() != Layout.size() * T:
 		DirAccess.remove_absolute(path)
 		return null
 	if img.get_format() != Image.FORMAT_RGBA8:
@@ -819,8 +855,9 @@ static func _street_to_disk(key: String, img: Image, steps: Dictionary) -> void:
 	if DirAccess.rename_absolute(tmp, path) != OK:
 		DirAccess.remove_absolute(tmp)
 		return
+	var older := _area_prefix() if Layout.v2() else "highbank_"
 	for f in DirAccess.get_files_at(STREET_DIR):
-		if f.begins_with("highbank_") and STREET_DIR.path_join(f) != path:
+		if f.begins_with(older) and STREET_DIR.path_join(f) != path:
 			DirAccess.remove_absolute(STREET_DIR.path_join(f))
 	steps["street: saved to disk"] = _since(t)
 
@@ -849,12 +886,15 @@ func _close_shut_areas() -> void:
 			var r: Rect2i = p["rect"]
 			for y in range(r.position.y, r.end.y):
 				for x in range(r.position.x, r.end.x):
-					grid[y * Layout.W + x] = Layout.WALL
+					grid[y * Layout.size().x + x] = Layout.WALL
 
 
 ## The stand-in picture: terrain bands, cliffs, the river, lanes, then each place as a block. Codex
 ## replaces this with art drawn to the same rects. `steps` gets each stage's milliseconds (T1).
 static func paint(steps: Dictionary = {}) -> Image:
+	if Layout.v2() and Layout.area_id() != Layout.V1_AREA:
+		# Today's painters read today's map; in v2 this is the area's stand-in (paint_area_picture asks lane C first).
+		return paint_area_blockout(Layout.area())
 	var t := Time.get_ticks_usec()
 	var blockout := paint_blockout()
 	steps["street: blockout"] = _since(t)
@@ -895,6 +935,88 @@ static func paint_blockout() -> Image:
 		var d: Vector2i = p["door"]
 		img.fill_rect(Rect2i(d * T + Vector2i(6, 4), Vector2i(T - 12, T - 4)), Color("#2a1a12") if p["kind"] == "building" else Color(1, 0.95, 0.6))
 	return img
+
+
+## Highbank v2: an area's ground picture (lane A, Claude, 2026-10-26). Lane C's painter paints any outdoor area in
+## today's style (highbank_painter.gd paint_area); a picture that is not the area's size (its stub paints today's
+## street) gives way to the stand-in below. Static and free of nodes, so it runs on the street's worker thread.
+static func paint_area_picture(area: Dictionary, steps: Dictionary = {}) -> Image:
+	var t := Time.get_ticks_usec()
+	var want: Vector2i = area.get("size", Vector2i.ZERO) * T
+	var img: Image = null
+	var painter := "res://scripts/town/highbank_painter.gd"
+	if ResourceLoader.exists(painter):
+		img = load(painter).paint_area(area)
+	if img == null or img.get_size() != want:
+		img = paint_area_blockout(area)
+	if img.get_format() != Image.FORMAT_RGBA8:
+		img.convert(Image.FORMAT_RGBA8)
+	steps["street: area %s" % String(area.get("id", ""))] = _since(t)
+	return img
+
+
+## The stand-in for an area's ground until lane C paints it: the house's flat terrain colours by band and ground rect,
+## a faint tile weave so a step reads, lanes, steps and planks, the open-air places' pads and the cliff's dark lip.
+## Buildings, lots, landmarks and props are drawn over it as their art slots.
+const HEDGE := Color("#3f5a32")
+const PLANK := Color("#8a6a48")
+
+
+static func paint_area_blockout(area: Dictionary) -> Image:
+	var size: Vector2i = area.get("size", Vector2i.ONE)
+	var img := Image.create(size.x * T, size.y * T, false, Image.FORMAT_RGBA8)
+	var ground: Dictionary = area.get("ground", {})
+	var kinds := PackedStringArray()
+	kinds.resize(size.y)
+	kinds.fill(String(ground.get("base", "grass")))
+	for b in ground.get("bands", []):
+		for y in range(maxi(0, int(b["from"])), mini(size.y, int(b["to"]) + 1)):
+			kinds[y] = String(b["kind"])
+	for y in size.y:
+		for x in size.x:
+			var c: Color = HEDGE if kinds[y] == "hedge" else BLOCK.get(kinds[y], BLOCK["grass"])
+			img.fill_rect(Rect2i(x * T, y * T, T, T), c.lightened(0.03) if (x + y) % 2 == 0 else c)
+	for r in ground.get("rects", []):
+		var c: Color = HEDGE if r["kind"] == "hedge" else BLOCK.get(String(r["kind"]), BLOCK["grass"])
+		img.fill_rect(Rect2i(r["rect"].position * T, r["rect"].size * T), c)
+	for y in size.y:
+		if kinds[y] == "cliff":
+			img.fill_rect(Rect2i(0, y * T + T - 6, size.x * T, 6), BLOCK["cliff"].darkened(0.3))
+		elif kinds[y] == "hedge":
+			for x in range(0, size.x * T, 6):
+				img.fill_rect(Rect2i(x, y * T + T - 4 + (x / 6) % 2, 5, 4), HEDGE.darkened(0.25))
+	for p in area.get("paths", []):
+		var px := Rect2i(p["rect"].position * T, p["rect"].size * T)
+		match String(p.get("kind", "lane")):
+			"boardwalk":
+				img.fill_rect(px, PLANK)
+				for y in range(px.position.y + 7, px.end.y, 8):
+					img.fill_rect(Rect2i(px.position.x, y, px.size.x, 1), PLANK.darkened(0.3))
+			"steps":
+				img.fill_rect(px, BLOCK["path"])
+				for y in range(px.position.y + 5, px.end.y, 6):
+					img.fill_rect(Rect2i(px.position.x, y, px.size.x, 1), BLOCK["path"].darkened(0.25))
+			_:
+				img.fill_rect(px, BLOCK["path"])
+	for p in area.get("places", []):
+		var px := Rect2i(p["rect"].position * T, p["rect"].size * T)
+		img.fill_rect(px.grow(-2), BLOCK["area"] if p["kind"] == "area" else BLOCK["spot"])
+	return img
+
+
+## Highbank v2: the ink finish's mask for an area, from lane C's world_finish.gd (street_mask: the cliff ledges and stair
+## crossings of that area, as _finish_mask makes them for today's map); without it, no ink (a black mask).
+static func _area_mask(area: Dictionary) -> Image:
+	var size: Vector2i = area.get("size", Vector2i.ONE) * T
+	var finish: Script = WorldFinish
+	for m in finish.get_script_method_list():
+		if m["name"] == "street_mask":
+			var got: Variant = finish.call("street_mask", area)
+			if got is Image and (got as Image).get_size() == size:
+				return got
+	var black := Image.create(size.x, size.y, false, Image.FORMAT_RGBA8)
+	black.fill(Color.BLACK)
+	return black
 
 
 func _make(line: int, stage: int, pos: Vector2i) -> Dictionary:
@@ -984,7 +1106,8 @@ func _place(e: Dictionary) -> void:
 
 
 func open_at(t: Vector2i) -> bool:
-	return t.x >= 0 and t.y >= 0 and t.x < Layout.W and t.y < Layout.H and grid[t.y * Layout.W + t.x] == Layout.OPEN
+	var size := Layout.size()
+	return t.x >= 0 and t.y >= 0 and t.x < size.x and t.y < size.y and grid[t.y * size.x + t.x] == Layout.OPEN
 
 
 ## Where a follower may stand (Claude, 2026-10-23, T4): open ground outside every building's and spot's footprint.
@@ -1312,6 +1435,11 @@ func act_move(d: Vector2i) -> void:
 	await get_tree().create_timer(STEP_TIME).timeout
 	for e in team:
 		_place(e)
+	var out: Dictionary = Layout.exit_at(to) if Layout.v2() else {}
+	if not out.is_empty():   # Highbank v2: onto an exit, through to the next area (lane A)
+		busy = false
+		await enter_area(String(out["to"]), String(out["at"]), String(out.get("facing", "")), String(out.get("sfx", "")))
+		return
 	if Layout.place_at(to).get("kind", "") == "building":
 		# At a door the line stands clear (T1 / L01): straight back from the doorway the partners stood one over another
 		# (one hidden behind the next on the Hall's steps); they step aside where their sprites keep apart.
@@ -1362,6 +1490,10 @@ func act_use() -> Dictionary:
 		return p
 	if p["service"] in ["home", "guild"]:
 		enter_room("home" if p["service"] == "home" else "hall")
+		return p
+	if p["service"] in ["lot", "closed"]:
+		# Highbank v2: a lot not open yet, or a shut road. Its line, and no door (lane A, 2026-10-26).
+		panel = {"name": p["name"], "what": p["what"], "service": "shut"}
 		return p
 	if SHUT.has(p["service"]):
 		# Not open in this build: a sign in the town's voice, no door sound, and no "id" in the panel so
@@ -1497,6 +1629,8 @@ func _sfx(name: String, keep := false) -> void:
 ## The town's track by where the leader is: Highbank's theme on the bluff, the Hall's march around
 ## Wayline Hall, the ferry landing's quiet theme on the terraces below the cliff.
 func music_track() -> String:
+	if Layout.v2() and String(Layout.area().get("music", "")) != "":
+		return String(Layout.area()["music"])   # Highbank v2: each area has its track (lane A)
 	var p: Vector2i = team[0]["pos"]
 	if p.y >= 19:
 		return "ferry_landing"
@@ -1678,9 +1812,9 @@ func story_gate(dungeon_id: String) -> String:
 		"board":
 			return "%s hugs the parcel. \"This is Wayline mail. The Wayline ought to see it before we go anywhere.\" The Job Board is right there." % _partner_name()
 		"hall":
-			return "%s stops you. \"We can't go chasing them by ourselves. We gotta tell the Hall first.\"" % _partner_name()
+			return "%s stops you. \"We can't go chasing them by ourselves. We gotta tell the Tower first.\"" % _partner_name()
 		"starward":
-			return "%s holds up the parcel. \"Starward's gonna want to see this first.\" The Wayline Hall is up the street." % _partner_name()
+			return "%s holds up the parcel. \"Starward's gonna want to see this first.\" The Wayline Tower is up the street." % _partner_name()
 	return ""
 
 
@@ -1726,6 +1860,14 @@ var shrine_view := false   # the camera looks at the shrine, above the text box,
 ## The socket: the emblem at the heart of Codex's shrine art (assets/sprites/world/growth_shrine_2026_10_10).
 func _socket_px() -> Vector2:
 	var shrine: Dictionary = Layout.PLACES.filter(func(p: Dictionary) -> bool: return p["id"] == "shrine")[0]
+	if Layout.v2():   # the shrine's "socket" anchor, in its art wherever its art stands (lane A)
+		var art: Variant = area_art.get("shrine")
+		if is_instance_valid(_building_exteriors) and _building_exteriors.buildings.has("shrine"):
+			art = _building_exteriors.buildings["shrine"]
+		if art is Dictionary:   # building_exteriors.gd keeps {"base": node, ...}
+			art = (art as Dictionary).get("base")
+		var at: Vector2 = (art as Node2D).position if art is Node2D else Vector2(shrine["rect"].position * T)
+		return at + Vector2(shrine.get("anchors", {}).get("socket", Vector2i(72, 64)))
 	return Vector2(shrine["rect"].position * T) + Vector2(72, 64)
 
 
@@ -1775,6 +1917,8 @@ func install_stone() -> void:
 ## Over the town: the stone in its socket once set (a slow pulse, motes rising), the dark socket before,
 ## the stone in flight, and the ring of light as the shrine wakes.
 func _draw_stone() -> void:
+	if not _here("shrine"):
+		return   # Highbank v2: the shrine is in another area
 	var c := _labels
 	var t := Time.get_ticks_msec() / 1000.0
 	var sock := _socket_px()
@@ -1941,6 +2085,231 @@ static func _lift(tree: SceneTree) -> void:
 	UI.fade_in(tree)
 
 
+## Move the team into a town area, standing on an anchor or below a place's door (lane A, Claude, 2026-10-26; build
+## plan 2.1). With Highbank v2 off there is one area and the team is already in it, so this does nothing; nor when the
+## team is in `id` already (a check then places the team itself). In v2: the room fade (0.2 s, no card) over the
+## change, the area's picture (painted on a worker under the black the first time), its buildings and props, its grid,
+## music and camera edges, and the crew at the board when they wait there. `at` is an anchor of the area or a place
+## id ("" for where the area is entered); `facing` is the way the team walked in. A check (poll_input off) or a
+## headless run changes at once, without the fade.
+func enter_area(id: String, at: String = "", facing := "", sfx := "") -> void:
+	if id == Layout.area_id():
+		return
+	if not id in Layout.areas():
+		push_warning("enter_area: no area '%s' (at '%s')%s" % [id, at, "" if Layout.v2() else " while Highbank v2 is off"])
+		return
+	var tree := get_tree() if is_inside_tree() else null
+	var live := tree != null and tree.current_scene == self and poll_input and DisplayServer.get_name() != "headless"
+	busy = true
+	if sfx != "":
+		_sfx(sfx)
+	if live:
+		await UI.fade_out(tree)
+	Layout.use(id, _record())
+	grid = Layout.grid()
+	_close_shut_areas()
+	if live and not _street.has(_street_key()):
+		await street_on_thread(tree, ready_ms)   # the black holds while a new area paints
+	if not is_inside_tree() and tree != null:
+		return
+	_rebuild_area()
+	var tile := _entry_tile(at)
+	var runs := {"n": Vector2i(0, 1), "s": Vector2i(0, -1), "e": Vector2i(-1, 0), "w": Vector2i(1, 0)}
+	for e in team:
+		e["walk_t"] = 0.0
+		if facing != "":
+			e["facing"] = facing
+	var placed := arrival_tiles(tile, team.size(), _boxes(), runs.get(facing, Vector2i(0, -1)))
+	for k in team.size():
+		team[k]["pos"] = placed[k]
+		_place(team[k])
+	cam_focus = null
+	_music_update(true)
+	busy = false
+	if live:
+		UI.fade_in(tree)
+	area_arrived.emit(id)
+	_tower_due = facing != ""   # walked in through an exit: Tower Rise's first time plays the Tower scene
+
+
+## The Tower scene at the Tower's foot (lane S, scripts/story/tower_reveal.gd: pending() and run()): the first time a
+## player reaches Tower Rise in v2, the two stop at the doors and the camera pans up the Tower. For a player (poll_input)
+## arriving in the town, or walking in through an exit, once the street is free: a homecoming's news is read first. A
+## check that puts the team on Tower Rise with enter_area does not get it; one that wants it runs it itself
+## (tools/debug/tower_reveal_check.gd). TowerReveal.pending says whether this area and the story want it.
+const TOWER_SCENE := "res://scripts/story/tower_reveal.gd"
+
+
+func _tower_scene() -> void:
+	_tower_due = false
+	if not Layout.v2() or not poll_input or cutscene or not ResourceLoader.exists(TOWER_SCENE):
+		return
+	var reveal: Script = load(TOWER_SCENE)
+	if reveal == null or not reveal.can_instantiate():
+		return   # a script that does not load is skipped, never half run
+	var has := reveal.get_script_method_list().map(func(m: Dictionary) -> String: return String(m["name"]))
+	if "pending" in has and "run" in has and bool(reveal.call("pending", self)):
+		reveal.call("run", self)
+
+
+## The tile an arrival in the current area stands on for `at`: an anchor, or below a place's door, else where the
+## area is entered (its spawn, or the tile an exit into it lands on).
+func _entry_tile(at: String) -> Vector2i:
+	if at != "" and Layout.anchor(at) != Vector2i(-1, -1):
+		return Layout.anchor(at)
+	for p in Layout.PLACES:
+		if at != "" and p["id"] == at:
+			return p["door"] + Vector2i(0, 1)
+	if Layout.anchor("spawn") != Vector2i(-1, -1):
+		return Layout.anchor("spawn")
+	for other in Layout.areas():
+		for e in Layout.area(other).get("exits", []):
+			if e["to"] == Layout.area_id() and Layout.anchor(String(e["at"])) != Vector2i(-1, -1):
+				return Layout.anchor(String(e["at"]))
+	return Vector2i.ONE
+
+
+## Whether a place is in the area shown (always, with v2 off).
+func _here(id: String) -> bool:
+	for p in Layout.PLACES:
+		if p["id"] == id:
+			return true
+	return false
+
+
+func _board_here() -> bool:
+	return _here("board")
+
+
+## The area the town comes up in (v2): out of a room or back from the Hollow's walkway, the area of the place left;
+## home from a run, the area of the "return" anchor (Tower Rise); else the street.
+func _arrival_area() -> String:
+	var back := String(TeamState.data.get("arrive_at", ""))
+	if back != "" and Layout.area_of(back) != "":
+		return Layout.area_of(back)
+	if String(TeamState.data.get("news", "")) != "":
+		return Layout.anchor_area("return")
+	return Layout.Areas.V2_FIRST
+
+
+## Where the area's pictures go: the world itself with v2 off, as always; in v2 one node enter_area can swap.
+func _area_parent() -> Node2D:
+	if not Layout.v2():
+		return _world
+	if not is_instance_valid(_area_root):
+		_area_root = Node2D.new()
+		_area_root.name = "Area"
+		_world.add_child(_area_root)
+		_world.move_child(_area_root, 0)   # under the team, the townsfolk and the labels
+	return _area_root
+
+
+## v2: the shown area's pictures afresh (enter_area): the ground, building_exteriors.gd's places, the rest of its art,
+## and the crew at the board when they wait there. The townsfolk of the area left go with it.
+func _rebuild_area() -> void:
+	if is_instance_valid(_area_root):
+		_area_root.free()
+	_area_root = null
+	_building_exteriors = null
+	for e in npcs:
+		if is_instance_valid(e.get("node")):
+			e["node"].queue_free()
+	npcs.clear()
+	board_fx = {}
+	scene_fx = {}
+	var map := Sprite2D.new()
+	map.centered = false
+	street_cached = _street.has(_street_key())
+	var street := street_picture(ready_ms)
+	map.texture = street["tex"]
+	map.material = street["finish"]
+	_area_parent().add_child(map)
+	if ResourceLoader.exists("res://scripts/town/building_exteriors.gd"):
+		_building_exteriors = load("res://scripts/town/building_exteriors.gd").attach(_area_parent(), self)
+	_dress_area()
+	if BoardScene.pending(self) and _board_here():
+		BoardScene.place_crew(self)
+		for e in npcs:
+			_hold(e)
+
+
+## v2: what the area shows over its ground that building_exteriors.gd did not draw (lane A, 2026-10-26). Each building
+## and lot goes through lane B's template (BuildingTemplate.place) and each prop through lane C's (TownProps.build);
+## where those place nothing yet, the art slot itself stands in its spot (ArtSlots.texture: Codex's or Grok's file
+## once installed, else the coded placeholder). Open-air places keep their art slots (town.landmark.*), bottom-aligned
+## on their rect. Nothing is drawn above an area's top: the Tower scene brings its own sky (lane S).
+const LANDMARKS := {"yard": "town.landmark.yard", "shrine": "town.landmark.shrine", "board": "town.landmark.board",
+	"lookout": "town.landmark.lookout", "landing": "town.landmark.landing", "gate": "town.landmark.mouth", "dock": "town.landmark.dock"}
+
+
+func _dress_area() -> void:
+	var a := Layout.area()
+	var rec := _record()
+	var root := _area_parent()
+	area_art = {}
+	var drawn: Dictionary = _building_exteriors.buildings if is_instance_valid(_building_exteriors) else {}
+	var standing: Array = a.get("buildings", []).duplicate()
+	for l in a.get("lots", []):
+		if Layout.lot_open(l, rec) and l.has("building"):
+			var b: Dictionary = (l["building"] as Dictionary).duplicate()
+			b["base"] = l["base"]
+			b["class"] = l["class"]
+			standing.append(b)
+		else:
+			standing.append(l)   # its before state: the lot's own slot
+	for b in standing:
+		if drawn.has(b["id"]):
+			continue
+		var n: Node2D = BuildingTemplate.place(b, root)
+		if n == null:
+			n = _slot_on(Layout.slot_of(b), b["base"], root)
+		if n != null:
+			area_art[b["id"]] = n
+	for p in a.get("places", []):
+		var slot := String(LANDMARKS.get(p["id"], ""))
+		if drawn.has(p["id"]) or slot == "" or not ArtSlots.has(slot):
+			continue
+		var n := _slot_on(slot, p["rect"], root)
+		if n != null:
+			area_art[p["id"]] = n
+	# The barrier comes down with the road open: a prop that shuts an open exit is left out of the list TownProps gets
+	# (it draws whatever the list holds).
+	var open_ids: Array = Layout._open_exits.map(func(e: Dictionary) -> String: return String(e["id"]))
+	var shown := a.duplicate()
+	shown["props"] = (a.get("props", []) as Array).filter(func(p: Dictionary) -> bool: return not String(p.get("shut_exit", "")) in open_ids)
+	var props: Array = TownProps.build(shown, root)
+	if props.is_empty():
+		for p in shown["props"]:
+			_slot_on(String(p["slot"]), Rect2i(p["tile"], TownProps.footprint(p)), root)
+
+
+## One art slot's first frame standing on `on` (tiles): a foot anchor at the rect's bottom middle, a top-left one
+## centred along it and bottom-aligned (an open-air place's art may rise a row above its rect). A standing thing's
+## depth is its foot row's, so a creature in front of it draws over it and one behind it under it; open-air ground
+## (a landmark slot) lies under anyone standing on its rect.
+func _slot_on(slot: String, on: Rect2i, parent: Node2D) -> Node2D:
+	if not ArtSlots.has(slot):
+		return null
+	var spec := ArtSlots.spec(slot)
+	var tex: Texture2D = ArtSlots.frame(slot)
+	if tex == null:
+		return null
+	var s := Sprite2D.new()
+	s.name = slot.replace(".", "_")
+	s.centered = false
+	s.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
+	s.texture = tex
+	var cell := Vector2(tex.get_size())
+	var foot := Vector2(on.position.x * T + on.size.x * T * 0.5, on.end.y * T)
+	if String(spec.get("anchor_mode", "")) == "foot":
+		s.position = (foot - Vector2(spec.get("anchor", Vector2i.ZERO)) - Vector2(0, 1)).round()
+	else:
+		s.position = (foot - Vector2(cell.x * 0.5, cell.y)).round()
+	s.z_index = on.position.y * T if String(spec.get("kind", "")) == "landmark" else (on.end.y - 1) * T + 12
+	parent.add_child(s)
+	return s
+
+
 ## Step inside the Home or the Wayline Hall: a room at the town's scale (scripts/town/town_room.gd).
 func enter_room(id: String) -> void:
 	_sfx("door", true)   # the 0.66 s door outlasts the fade that frees the town (rooms RM5)
@@ -2003,6 +2372,8 @@ func _process(_delta: float) -> void:
 	_scene_was = cutscene
 	if poll_input and not busy and not evolving_now:
 		_poll()
+	if _tower_due and panel.is_empty() and not busy and not cutscene and not evolving_now:
+		_tower_scene()   # Highbank v2 (lane A): Tower Rise's first visit
 	_npc_idle(_delta)
 	_music_settle(_delta)
 	# The walk cycle (Claude, 2026-10-10; Preston: "they just hopped without animation").
@@ -2029,7 +2400,12 @@ func _process(_delta: float) -> void:
 		var look: Vector2 = shrine_look() if shrine_view else (team[0]["node"].position + Vector2(0, -12))
 		if cam_focus != null:
 			look = cam_focus
-		var focus: Vector2 = look.clamp(half, Vector2(Layout.W, Layout.H) * T - half)
+		# The area's edges hold the camera. A scene may lift the top (the pan up the Tower, v2): by cam_lift, or into the
+		# area's sky (Tower Rise's "sky") while a scene steers the camera there.
+		var lift := cam_lift
+		if lift <= 0.0 and cutscene and cam_focus != null and Layout.v2():
+			lift = float(Layout.area().get("sky", 0))
+		var focus: Vector2 = look.clamp(half - Vector2(0, lift), Vector2(Layout.size()) * T - half)
 		shake = maxf(0.0, shake - _delta * 12.0)
 		_world.position = (half - focus + Vector2(randf_range(-1, 1), randf_range(-1, 1)) * shake).round()
 	# The Menu button under the walk keys' strip and as wide as it, never over it, as dungeon.gd places it; a scene
@@ -2206,6 +2582,8 @@ func _draw_labels() -> void:
 	for p in Layout.PLACES:
 		if is_instance_valid(_building_exteriors) and _building_exteriors.buildings.has(p["id"]):
 			continue   # Finished entrances have their own sign / lantern; other plaques stay.
+		if p["kind"] in ["lot", "barrier"]:
+			continue   # v2: an empty lot or a shut road says what it is when read
 		var r: Rect2i = p["rect"]
 		var at := Vector2(r.position.x * T, r.position.y * T + (r.size.y * T) * 0.5)
 		# A small signboard: a dark plaque with a brass rim behind the name, so it reads on any ground.
@@ -2330,10 +2708,10 @@ func _draw_way_marks(h: CanvasItem, m: Dictionary, right: Vector2) -> void:
 			x -= w2 + 12
 	for face in m.get("faces", []):
 		var r := Rect2(x - 48, right.y - 31, 48, 48)
-		h.draw_rect(r, UI.PORTRAIT_BG)
+		UI.headshot_well(h, r)   # lane U's headshot frame; its placeholder is the old flat square (Claude, 2026-10-26)
 		if face != null:
 			h.draw_texture_rect(face, r, false)
-		h.draw_rect(r, UI.EDGE, false, 1.0)
+		UI.headshot_rim(h, r)
 		x -= 54
 
 
@@ -2423,13 +2801,12 @@ func _draw_board(h: CanvasItem) -> void:
 		var r := Rect2(box.position + Vector2(24, 94 + k * 70), Vector2(box.size.x - 48, 62))
 		var on: bool = k == int(panel.get("sel", 0))
 		if on:
-			h.draw_rect(r, UI.FOCUS)
-			h.draw_rect(r, UI.EDGE_LIGHT, false, 2.0)
+			UI.focus_row(h, r, 2.0)   # lane U's focus row frame; its placeholder is the old 2 px rim (Claude, 2026-10-26)
 		var face_r := Rect2(r.position + Vector2(8, 7), Vector2(48, 48))
-		h.draw_rect(face_r, UI.PORTRAIT_BG)
+		UI.headshot_well(h, face_r)
 		if row["face"] != null:
 			h.draw_texture_rect(row["face"], face_r, false)
-		h.draw_rect(face_r, UI.EDGE, false, 1.0)
+		UI.headshot_rim(h, face_r)
 		# Delivery cargo has its own icon; the reward keeps its existing icon. The parcel has a column of its own
 		# on every row, empty on the others, so every title and where line starts at one x (Claude, 2026-10-26,
 		# pass 8 T7 / L19; a delivery's words had stepped 40 px right of the rest).

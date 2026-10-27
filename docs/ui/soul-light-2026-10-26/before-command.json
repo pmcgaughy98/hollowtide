@@ -1,0 +1,20 @@
+{
+  "command": [
+    "C:/Users/pmcga/Games/Tools/Godot_v4.7.2/Godot_v4.7.2-stable_win64.exe",
+    "--path",
+    "C:\\Users\\pmcga\\dev\\hollowtide",
+    "--rendering-method",
+    "gl_compatibility",
+    "--audio-driver",
+    "Dummy",
+    "--fixed-fps",
+    "30",
+    "--script",
+    "D:\\dev\\hollowtide-soul-light-20261026\\native_check.gd",
+    "--",
+    "before"
+  ],
+  "APPDATA": "D:\\dev\\hollowtide-soul-light-20261026\\before-profile",
+  "LOCALAPPDATA": "D:\\dev\\hollowtide-soul-light-20261026\\before-local-profile",
+  "exit": 0
+}

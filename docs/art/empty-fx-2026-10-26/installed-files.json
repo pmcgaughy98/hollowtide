@@ -1,0 +1,9 @@
+{
+  "assets/sprites/arena/vfx/sail_slash/f04.png": "7642b9573e0369ff756a675ec1475102b200742771bb612ce77565eab2608c65",
+  "assets/sprites/arena/vfx/sail_slash/f08.png": "10fd43def3098938899a9d4b8657cf42c6cb06eb8b6e78cfb6245ad17be2cfa6",
+  "assets/sprites/arena/vfx/sail_slash/f12.png": "f9f9bdb3a480824269b3382f64d23a09931b65a4f3666d4f61bd8650967b412a",
+  "assets/sprites/arena/vfx/mark_glyph/f00.png": "025e698a7b035e7d51d177f24654b01cf380893dac0a7312ed1f60cb3e62339c",
+  "assets/sprites/arena/vfx/mark_glyph/f12.png": "771937bd50a142e4b57971f7e9acf55cc831237ce346e063a3353745aa837c51",
+  "assets/sprites/arena/vfx/mark_glyph/f13.png": "771937bd50a142e4b57971f7e9acf55cc831237ce346e063a3353745aa837c51",
+  "tools/arena/slice_vfx.py": "4bc6cd6ca5c1fe332be8ff84c18b40891d0f974d868b1911a0fdd1837a193b35"
+}

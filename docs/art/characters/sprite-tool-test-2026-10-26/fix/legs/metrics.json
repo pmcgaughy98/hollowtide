@@ -1,0 +1,1856 @@
+{
+ "note": "Measured by tools/art/walk_fix/measure_legs.py on 2026-10-26. before = raw PixelLab atlas, after = fix_legs.py output, rd = the in-game RD atlas (our own art, the target).",
+ "inputs": {
+  "before": "docs/art/characters/sprite-tool-test-2026-10-26/pixellab_courier_walk_native80.png",
+  "after": "docs/art/characters/sprite-tool-test-2026-10-26/fix/legs/after.png",
+  "rd": "C:\\Users\\pmcga\\dev\\hollowtide\\assets\\sprites\\player\\retro_diffusion_chibi_walking_2026_10_01\\male_chibi_walk_matched_turns_native80.png"
+ },
+ "definitions": {
+  "leg_zone": "rows from the row's median hip line (first trouser row under the belt or hem) down",
+  "leg_change_neighbours": "for frames f and f+1 (7 wraps to 0): share of pixels in the union silhouette of the leg zone that differ in alpha or colour",
+  "distinct_leg_poses": "frames whose leg zone differs by more than 10% from every earlier kept frame",
+  "foot_left/right": "lowest leg-mask row left / right of the leg box centre (screen sides); 72 = ground",
+  "foot_gap": "foot_left minus foot_right; its sign flips when the feet trade places",
+  "head_top": "first opaque row (body bob = its range)",
+  "hands": "[x, y, n]: centroid and count of skin pixels beside the leg box, rows 40 to hip+5",
+  "leg_shape_change_neighbours": "for frames f and f+1: share of the union silhouette of the leg zone where only one frame is opaque (outline motion; colour shimmer does not count)",
+  "foot_configurations": "distinct (foot_left, foot_right) row pairs over the 8 frames",
+  "foot_gap_sign_changes": "times the feet trade places around the loop (zero gaps skipped); a walk has 2",
+  "hand_*_moves": "neighbour frame pairs where that hand's centroid changed",
+  "colours": "unique opaque RGB per frame; colours_row = over the row's 8 frames",
+  "dark_outline_share": "silhouette edge pixels with HSV value < 0.3 over all edge pixels (build_compare.py)",
+  "palette_to_reference_pixel_weighted_rgb_dist": "mean RGB distance of every opaque pixel to the nearest reference colour (build_compare.py)",
+  "loop_seam_ratio": "whole-cell change f7 to f0 over the mean of the other 7 steps"
+ },
+ "rows": {
+  "down": {
+   "before": {
+    "frames": [
+     {
+      "frame": 0,
+      "head_top": 7,
+      "hip": 49,
+      "foot_left": 71,
+      "foot_right": 71,
+      "foot_gap": 0,
+      "leg_px": 317,
+      "hands": {
+       "left": [
+        31.16,
+        49.36,
+        25
+       ],
+       "right": [
+        52.64,
+        52.09,
+        11
+       ]
+      },
+      "colours": 40,
+      "semi_alpha_px": 0,
+      "dark_outline_share": 0.9018
+     },
+     {
+      "frame": 1,
+      "head_top": 7,
+      "hip": 49,
+      "foot_left": 70,
+      "foot_right": 72,
+      "foot_gap": -2,
+      "leg_px": 323,
+      "hands": {
+       "left": [
+        30.16,
+        48.36,
+        25
+       ],
+       "right": [
+        51.9,
+        51.7,
+        10
+       ]
+      },
+      "colours": 40,
+      "semi_alpha_px": 0,
+      "dark_outline_share": 0.9157
+     },
+     {
+      "frame": 2,
+      "head_top": 7,
+      "hip": 49,
+      "foot_left": 71,
+      "foot_right": 71,
+      "foot_gap": 0,
+      "leg_px": 304,
+      "hands": {
+       "left": [
+        30.16,
+        48.36,
+        25
+       ],
+       "right": [
+        52.0,
+        46.0,
+        2
+       ]
+      },
+      "colours": 39,
+      "semi_alpha_px": 0,
+      "dark_outline_share": 0.9217
+     },
+     {
+      "frame": 3,
+      "head_top": 7,
+      "hip": 49,
+      "foot_left": 71,
+      "foot_right": 71,
+      "foot_gap": 0,
+      "leg_px": 315,
+      "hands": {
+       "left": [
+        30.08,
+        48.42,
+        26
+       ],
+       "right": [
+        51.91,
+        51.36,
+        11
+       ]
+      },
+      "colours": 40,
+      "semi_alpha_px": 0,
+      "dark_outline_share": 0.8841
+     },
+     {
+      "frame": 4,
+      "head_top": 7,
+      "hip": 49,
+      "foot_left": 71,
+      "foot_right": 69,
+      "foot_gap": 2,
+      "leg_px": 310,
+      "hands": {
+       "left": [
+        30.44,
+        48.89,
+        18
+       ],
+       "right": [
+        51.39,
+        50.89,
+        18
+       ]
+      },
+      "colours": 40,
+      "semi_alpha_px": 0,
+      "dark_outline_share": 0.9268
+     },
+     {
+      "frame": 5,
+      "head_top": 7,
+      "hip": 49,
+      "foot_left": 71,
+      "foot_right": 70,
+      "foot_gap": 1,
+      "leg_px": 312,
+      "hands": {
+       "left": [
+        30.16,
+        48.36,
+        25
+       ],
+       "right": [
+        52.21,
+        50.68,
+        19
+       ]
+      },
+      "colours": 40,
+      "semi_alpha_px": 0,
+      "dark_outline_share": 0.9461
+     },
+     {
+      "frame": 6,
+      "head_top": 7,
+      "hip": 49,
+      "foot_left": 71,
+      "foot_right": 69,
+      "foot_gap": 2,
+      "leg_px": 317,
+      "hands": {
+       "left": [
+        30.18,
+        48.82,
+        22
+       ],
+       "right": [
+        51.96,
+        49.44,
+        25
+       ]
+      },
+      "colours": 40,
+      "semi_alpha_px": 0,
+      "dark_outline_share": 0.8976
+     },
+     {
+      "frame": 7,
+      "head_top": 7,
+      "hip": 49,
+      "foot_left": 71,
+      "foot_right": 69,
+      "foot_gap": 2,
+      "leg_px": 304,
+      "hands": {
+       "left": [
+        31.15,
+        49.48,
+        27
+       ],
+       "right": [
+        52.0,
+        46.33,
+        3
+       ]
+      },
+      "colours": 40,
+      "semi_alpha_px": 0,
+      "dark_outline_share": 0.897
+     }
+    ],
+    "leg_zone_from_row": 49,
+    "leg_change_neighbours": [
+     0.7494,
+     0.6635,
+     0.5322,
+     0.8555,
+     0.5501,
+     0.5637,
+     0.6112,
+     0.8341
+    ],
+    "leg_change_mean": 0.67,
+    "leg_change_min": 0.5322,
+    "whole_change_mean": 0.634,
+    "distinct_leg_poses": 8,
+    "foot_left_rows": [
+     71,
+     70,
+     71,
+     71,
+     71,
+     71,
+     71,
+     71
+    ],
+    "foot_right_rows": [
+     71,
+     72,
+     71,
+     71,
+     69,
+     70,
+     69,
+     69
+    ],
+    "foot_gap_rows": [
+     0,
+     -2,
+     0,
+     0,
+     2,
+     1,
+     2,
+     2
+    ],
+    "foot_left_lift_range": 1,
+    "foot_right_lift_range": 3,
+    "foot_gap_sign_changes": 2,
+    "foot_configurations": 4,
+    "leg_shape_change_neighbours": [
+     0.0974,
+     0.0673,
+     0.0347,
+     0.1303,
+     0.0587,
+     0.0417,
+     0.0685,
+     0.09
+    ],
+    "leg_shape_change_mean": 0.0736,
+    "leg_shape_change_min": 0.0347,
+    "head_top_rows": [
+     7,
+     7,
+     7,
+     7,
+     7,
+     7,
+     7,
+     7
+    ],
+    "bob_range": 0,
+    "hand_left_y_range": 1.12,
+    "hand_left_x_range": 1.08,
+    "hand_right_y_range": 6.09,
+    "hand_right_x_range": 1.25,
+    "hand_left_px": [
+     25,
+     25,
+     25,
+     26,
+     18,
+     25,
+     22,
+     27
+    ],
+    "hand_right_px": [
+     11,
+     10,
+     2,
+     11,
+     18,
+     19,
+     25,
+     3
+    ],
+    "hand_left_moves": 7,
+    "hand_right_moves": 8,
+    "colours_row": 40,
+    "colours_max_frame": 40,
+    "semi_alpha_px_total": 0,
+    "alpha_values": [
+     0,
+     255
+    ],
+    "dark_outline_share_mean": 0.9113,
+    "palette_to_reference_pixel_weighted_rgb_dist": 1.99,
+    "loop_seam_ratio": 1.218
+   },
+   "after": {
+    "frames": [
+     {
+      "frame": 0,
+      "head_top": 7,
+      "hip": 49,
+      "foot_left": 67,
+      "foot_right": 72,
+      "foot_gap": -5,
+      "leg_px": 318,
+      "hands": {
+       "left": [
+        30.71,
+        50.43,
+        21
+       ],
+       "right": [
+        52.7,
+        50.9,
+        10
+       ]
+      },
+      "colours": 40,
+      "semi_alpha_px": 0,
+      "dark_outline_share": 0.9118
+     },
+     {
+      "frame": 1,
+      "head_top": 6,
+      "hip": 48,
+      "foot_left": 68,
+      "foot_right": 71,
+      "foot_gap": -3,
+      "leg_px": 337,
+      "hands": {
+       "left": [
+        29.91,
+        46.35,
+        23
+       ],
+       "right": [
+        51.9,
+        51.7,
+        10
+       ]
+      },
+      "colours": 40,
+      "semi_alpha_px": 0,
+      "dark_outline_share": 0.9191
+     },
+     {
+      "frame": 2,
+      "head_top": 7,
+      "hip": 49,
+      "foot_left": 69,
+      "foot_right": 70,
+      "foot_gap": -1,
+      "leg_px": 313,
+      "hands": {
+       "left": [
+        30.16,
+        47.36,
+        25
+       ],
+       "right": [
+        52.0,
+        46.0,
+        2
+       ]
+      },
+      "colours": 39,
+      "semi_alpha_px": 0,
+      "dark_outline_share": 0.9306
+     },
+     {
+      "frame": 3,
+      "head_top": 9,
+      "hip": 51,
+      "foot_left": 71,
+      "foot_right": 69,
+      "foot_gap": 2,
+      "leg_px": 282,
+      "hands": {
+       "left": [
+        30.08,
+        49.42,
+        26
+       ],
+       "right": [
+        51.91,
+        54.36,
+        11
+       ]
+      },
+      "colours": 40,
+      "semi_alpha_px": 0,
+      "dark_outline_share": 0.8922
+     },
+     {
+      "frame": 4,
+      "head_top": 8,
+      "hip": 50,
+      "foot_left": 72,
+      "foot_right": 68,
+      "foot_gap": 4,
+      "leg_px": 305,
+      "hands": {
+       "left": [
+        30.53,
+        48.82,
+        17
+       ],
+       "right": [
+        51.39,
+        52.89,
+        18
+       ]
+      },
+      "colours": 40,
+      "semi_alpha_px": 0,
+      "dark_outline_share": 0.9518
+     },
+     {
+      "frame": 5,
+      "head_top": 7,
+      "hip": 49,
+      "foot_left": 72,
+      "foot_right": 69,
+      "foot_gap": 3,
+      "leg_px": 340,
+      "hands": {
+       "left": [
+        30.16,
+        49.36,
+        25
+       ],
+       "right": [
+        52.21,
+        49.68,
+        19
+       ]
+      },
+      "colours": 40,
+      "semi_alpha_px": 0,
+      "dark_outline_share": 0.954
+     },
+     {
+      "frame": 6,
+      "head_top": 6,
+      "hip": 48,
+      "foot_left": 71,
+      "foot_right": 68,
+      "foot_gap": 3,
+      "leg_px": 335,
+      "hands": {
+       "left": [
+        30.18,
+        48.82,
+        22
+       ],
+       "right": [
+        51.85,
+        47.38,
+        26
+       ]
+      },
+      "colours": 40,
+      "semi_alpha_px": 0,
+      "dark_outline_share": 0.9061
+     },
+     {
+      "frame": 7,
+      "head_top": 7,
+      "hip": 49,
+      "foot_left": 70,
+      "foot_right": 70,
+      "foot_gap": 0,
+      "leg_px": 313,
+      "hands": {
+       "left": [
+        30.92,
+        50.48,
+        25
+       ],
+       "right": [
+        50.75,
+        46.0,
+        4
+       ]
+      },
+      "colours": 40,
+      "semi_alpha_px": 0,
+      "dark_outline_share": 0.9205
+     }
+    ],
+    "leg_zone_from_row": 49,
+    "leg_change_neighbours": [
+     0.723,
+     0.729,
+     0.768,
+     0.6773,
+     0.6902,
+     0.7737,
+     0.7437,
+     0.7798
+    ],
+    "leg_change_mean": 0.7356,
+    "leg_change_min": 0.6773,
+    "whole_change_mean": 0.7657,
+    "distinct_leg_poses": 8,
+    "foot_left_rows": [
+     67,
+     68,
+     69,
+     71,
+     72,
+     72,
+     71,
+     70
+    ],
+    "foot_right_rows": [
+     72,
+     71,
+     70,
+     69,
+     68,
+     69,
+     68,
+     70
+    ],
+    "foot_gap_rows": [
+     -5,
+     -3,
+     -1,
+     2,
+     4,
+     3,
+     3,
+     0
+    ],
+    "foot_left_lift_range": 5,
+    "foot_right_lift_range": 4,
+    "foot_gap_sign_changes": 2,
+    "foot_configurations": 8,
+    "leg_shape_change_neighbours": [
+     0.1033,
+     0.1103,
+     0.1622,
+     0.0892,
+     0.0934,
+     0.1178,
+     0.1556,
+     0.1371
+    ],
+    "leg_shape_change_mean": 0.1211,
+    "leg_shape_change_min": 0.0892,
+    "head_top_rows": [
+     7,
+     6,
+     7,
+     9,
+     8,
+     7,
+     6,
+     7
+    ],
+    "bob_range": 3,
+    "hand_left_y_range": 4.13,
+    "hand_left_x_range": 1.01,
+    "hand_right_y_range": 8.36,
+    "hand_right_x_range": 1.95,
+    "hand_left_px": [
+     21,
+     23,
+     25,
+     26,
+     17,
+     25,
+     22,
+     25
+    ],
+    "hand_right_px": [
+     10,
+     10,
+     2,
+     11,
+     18,
+     19,
+     26,
+     4
+    ],
+    "hand_left_moves": 8,
+    "hand_right_moves": 8,
+    "colours_row": 40,
+    "colours_max_frame": 40,
+    "semi_alpha_px_total": 0,
+    "alpha_values": [
+     0,
+     255
+    ],
+    "dark_outline_share_mean": 0.9233,
+    "palette_to_reference_pixel_weighted_rgb_dist": 2.14,
+    "loop_seam_ratio": 0.956
+   },
+   "rd": {
+    "frames": [
+     {
+      "frame": 0,
+      "head_top": 7,
+      "hip": 49,
+      "foot_left": 67,
+      "foot_right": 72,
+      "foot_gap": -5,
+      "leg_px": 351,
+      "hands": {
+       "left": [
+        26.56,
+        49.94,
+        16
+       ],
+       "right": [
+        53.91,
+        49.73,
+        11
+       ]
+      },
+      "colours": 35,
+      "semi_alpha_px": 0,
+      "dark_outline_share": 0.9486
+     },
+     {
+      "frame": 1,
+      "head_top": 6,
+      "hip": 48,
+      "foot_left": 68,
+      "foot_right": 71,
+      "foot_gap": -3,
+      "leg_px": 373,
+      "hands": {
+       "left": [
+        27.4,
+        48.2,
+        5
+       ],
+       "right": [
+        52.73,
+        47.8,
+        15
+       ]
+      },
+      "colours": 35,
+      "semi_alpha_px": 0,
+      "dark_outline_share": 0.9432
+     },
+     {
+      "frame": 2,
+      "head_top": 7,
+      "hip": 49,
+      "foot_left": 69,
+      "foot_right": 70,
+      "foot_gap": -1,
+      "leg_px": 339,
+      "hands": {
+       "left": [
+        28.0,
+        48.0,
+        1
+       ],
+       "right": [
+        51.05,
+        46.2,
+        20
+       ]
+      },
+      "colours": 35,
+      "semi_alpha_px": 0,
+      "dark_outline_share": 0.9581
+     },
+     {
+      "frame": 3,
+      "head_top": 9,
+      "hip": 50,
+      "foot_left": 71,
+      "foot_right": 69,
+      "foot_gap": 2,
+      "leg_px": 315,
+      "hands": {
+       "left": [
+        27.67,
+        50.33,
+        3
+       ],
+       "right": [
+        51.14,
+        50.1,
+        21
+       ]
+      },
+      "colours": 35,
+      "semi_alpha_px": 0,
+      "dark_outline_share": 0.9518
+     },
+     {
+      "frame": 4,
+      "head_top": 8,
+      "hip": 49,
+      "foot_left": 72,
+      "foot_right": 68,
+      "foot_gap": 4,
+      "leg_px": 346,
+      "hands": {
+       "left": [
+        26.09,
+        50.45,
+        11
+       ],
+       "right": [
+        53.5,
+        50.17,
+        12
+       ]
+      },
+      "colours": 35,
+      "semi_alpha_px": 0,
+      "dark_outline_share": 0.9593
+     },
+     {
+      "frame": 5,
+      "head_top": 7,
+      "hip": 48,
+      "foot_left": 72,
+      "foot_right": 69,
+      "foot_gap": 3,
+      "leg_px": 382,
+      "hands": {
+       "left": [
+        26.8,
+        48.75,
+        20
+       ],
+       "right": [
+        52.33,
+        48.33,
+        3
+       ]
+      },
+      "colours": 35,
+      "semi_alpha_px": 0,
+      "dark_outline_share": 0.9492
+     },
+     {
+      "frame": 6,
+      "head_top": 6,
+      "hip": 47,
+      "foot_left": 71,
+      "foot_right": 68,
+      "foot_gap": 3,
+      "leg_px": 375,
+      "hands": {
+       "left": [
+        28.45,
+        46.5,
+        22
+       ],
+       "right": [
+        52.0,
+        47.0,
+        1
+       ]
+      },
+      "colours": 35,
+      "semi_alpha_px": 0,
+      "dark_outline_share": 0.9731
+     },
+     {
+      "frame": 7,
+      "head_top": 7,
+      "hip": 48,
+      "foot_left": 70,
+      "foot_right": 70,
+      "foot_gap": 0,
+      "leg_px": 367,
+      "hands": {
+       "left": [
+        29.4,
+        47.95,
+        20
+       ],
+       "right": [
+        52.0,
+        48.0,
+        1
+       ]
+      },
+      "colours": 35,
+      "semi_alpha_px": 0,
+      "dark_outline_share": 0.9661
+     }
+    ],
+    "leg_zone_from_row": 48,
+    "leg_change_neighbours": [
+     0.7631,
+     0.7959,
+     0.7814,
+     0.719,
+     0.7335,
+     0.8283,
+     0.7571,
+     0.8219
+    ],
+    "leg_change_mean": 0.775,
+    "leg_change_min": 0.719,
+    "whole_change_mean": 0.7444,
+    "distinct_leg_poses": 8,
+    "foot_left_rows": [
+     67,
+     68,
+     69,
+     71,
+     72,
+     72,
+     71,
+     70
+    ],
+    "foot_right_rows": [
+     72,
+     71,
+     70,
+     69,
+     68,
+     69,
+     68,
+     70
+    ],
+    "foot_gap_rows": [
+     -5,
+     -3,
+     -1,
+     2,
+     4,
+     3,
+     3,
+     0
+    ],
+    "foot_left_lift_range": 5,
+    "foot_right_lift_range": 4,
+    "foot_gap_sign_changes": 2,
+    "foot_configurations": 8,
+    "leg_shape_change_neighbours": [
+     0.1426,
+     0.1284,
+     0.184,
+     0.1178,
+     0.1012,
+     0.1309,
+     0.1313,
+     0.1781
+    ],
+    "leg_shape_change_mean": 0.1393,
+    "leg_shape_change_min": 0.1012,
+    "head_top_rows": [
+     7,
+     6,
+     7,
+     9,
+     8,
+     7,
+     6,
+     7
+    ],
+    "bob_range": 3,
+    "hand_left_y_range": 3.95,
+    "hand_left_x_range": 3.31,
+    "hand_right_y_range": 3.97,
+    "hand_right_x_range": 2.86,
+    "hand_left_px": [
+     16,
+     5,
+     1,
+     3,
+     11,
+     20,
+     22,
+     20
+    ],
+    "hand_right_px": [
+     11,
+     15,
+     20,
+     21,
+     12,
+     3,
+     1,
+     1
+    ],
+    "hand_left_moves": 8,
+    "hand_right_moves": 8,
+    "colours_row": 35,
+    "colours_max_frame": 35,
+    "semi_alpha_px_total": 0,
+    "alpha_values": [
+     0,
+     255
+    ],
+    "dark_outline_share_mean": 0.9562,
+    "palette_to_reference_pixel_weighted_rgb_dist": 0.0,
+    "loop_seam_ratio": 0.666
+   }
+  },
+  "up": {
+   "before": {
+    "frames": [
+     {
+      "frame": 0,
+      "head_top": 8,
+      "hip": 52,
+      "foot_left": 71,
+      "foot_right": 72,
+      "foot_gap": -1,
+      "leg_px": 270,
+      "hands": {
+       "left": [
+        29.09,
+        51.91,
+        11
+       ],
+       "right": [
+        52.25,
+        43.75,
+        4
+       ]
+      },
+      "colours": 52,
+      "semi_alpha_px": 0,
+      "dark_outline_share": 0.9881
+     },
+     {
+      "frame": 1,
+      "head_top": 8,
+      "hip": 53,
+      "foot_left": 71,
+      "foot_right": 72,
+      "foot_gap": -1,
+      "leg_px": 253,
+      "hands": {
+       "left": [
+        29.5,
+        54.25,
+        16
+       ],
+       "right": [
+        52.5,
+        43.5,
+        2
+       ]
+      },
+      "colours": 50,
+      "semi_alpha_px": 0,
+      "dark_outline_share": 0.9759
+     },
+     {
+      "frame": 2,
+      "head_top": 8,
+      "hip": 53,
+      "foot_left": 71,
+      "foot_right": 72,
+      "foot_gap": -1,
+      "leg_px": 251,
+      "hands": {
+       "left": [
+        29.0,
+        54.67,
+        9
+       ],
+       "right": [
+        52.0,
+        43.67,
+        3
+       ]
+      },
+      "colours": 48,
+      "semi_alpha_px": 0,
+      "dark_outline_share": 0.9824
+     },
+     {
+      "frame": 3,
+      "head_top": 8,
+      "hip": 53,
+      "foot_left": 71,
+      "foot_right": 72,
+      "foot_gap": -1,
+      "leg_px": 246,
+      "hands": {
+       "left": [
+        29.9,
+        53.8,
+        10
+       ],
+       "right": [
+        52.25,
+        44.75,
+        4
+       ]
+      },
+      "colours": 49,
+      "semi_alpha_px": 0,
+      "dark_outline_share": 1.0
+     },
+     {
+      "frame": 4,
+      "head_top": 8,
+      "hip": 52,
+      "foot_left": 72,
+      "foot_right": 71,
+      "foot_gap": 1,
+      "leg_px": 254,
+      "hands": {
+       "left": [
+        30.0,
+        49.67,
+        9
+       ],
+       "right": [
+        52.57,
+        48.71,
+        7
+       ]
+      },
+      "colours": 46,
+      "semi_alpha_px": 0,
+      "dark_outline_share": 0.976
+     },
+     {
+      "frame": 5,
+      "head_top": 8,
+      "hip": 53,
+      "foot_left": 72,
+      "foot_right": 71,
+      "foot_gap": 1,
+      "leg_px": 241,
+      "hands": {
+       "left": [
+        28.71,
+        45.86,
+        7
+       ],
+       "right": [
+        52.57,
+        50.71,
+        7
+       ]
+      },
+      "colours": 46,
+      "semi_alpha_px": 0,
+      "dark_outline_share": 0.9882
+     },
+     {
+      "frame": 6,
+      "head_top": 9,
+      "hip": 53,
+      "foot_left": 72,
+      "foot_right": 71,
+      "foot_gap": 1,
+      "leg_px": 234,
+      "hands": {
+       "left": [
+        28.8,
+        44.2,
+        5
+       ],
+       "right": [
+        52.1,
+        52.8,
+        10
+       ]
+      },
+      "colours": 51,
+      "semi_alpha_px": 0,
+      "dark_outline_share": 0.988
+     },
+     {
+      "frame": 7,
+      "head_top": 8,
+      "hip": 53,
+      "foot_left": 72,
+      "foot_right": 72,
+      "foot_gap": 0,
+      "leg_px": 255,
+      "hands": {
+       "left": [
+        28.86,
+        47.29,
+        7
+       ],
+       "right": [
+        53.0,
+        52.67,
+        9
+       ]
+      },
+      "colours": 50,
+      "semi_alpha_px": 0,
+      "dark_outline_share": 0.9763
+     }
+    ],
+    "leg_zone_from_row": 53,
+    "leg_change_neighbours": [
+     0.6701,
+     0.6129,
+     0.6773,
+     0.9502,
+     0.8489,
+     0.7212,
+     0.7656,
+     0.9403
+    ],
+    "leg_change_mean": 0.7733,
+    "leg_change_min": 0.6129,
+    "whole_change_mean": 0.5311,
+    "distinct_leg_poses": 8,
+    "foot_left_rows": [
+     71,
+     71,
+     71,
+     71,
+     72,
+     72,
+     72,
+     72
+    ],
+    "foot_right_rows": [
+     72,
+     72,
+     72,
+     72,
+     71,
+     71,
+     71,
+     72
+    ],
+    "foot_gap_rows": [
+     -1,
+     -1,
+     -1,
+     -1,
+     1,
+     1,
+     1,
+     0
+    ],
+    "foot_left_lift_range": 1,
+    "foot_right_lift_range": 1,
+    "foot_gap_sign_changes": 2,
+    "foot_configurations": 3,
+    "leg_shape_change_neighbours": [
+     0.0868,
+     0.0072,
+     0.0567,
+     0.2824,
+     0.205,
+     0.0967,
+     0.0623,
+     0.3821
+    ],
+    "leg_shape_change_mean": 0.1474,
+    "leg_shape_change_min": 0.0072,
+    "head_top_rows": [
+     8,
+     8,
+     8,
+     8,
+     8,
+     8,
+     9,
+     8
+    ],
+    "bob_range": 1,
+    "hand_left_y_range": 10.47,
+    "hand_left_x_range": 1.29,
+    "hand_right_y_range": 9.3,
+    "hand_right_x_range": 1.0,
+    "hand_left_px": [
+     11,
+     16,
+     9,
+     10,
+     9,
+     7,
+     5,
+     7
+    ],
+    "hand_right_px": [
+     4,
+     2,
+     3,
+     4,
+     7,
+     7,
+     10,
+     9
+    ],
+    "hand_left_moves": 8,
+    "hand_right_moves": 8,
+    "colours_row": 55,
+    "colours_max_frame": 52,
+    "semi_alpha_px_total": 0,
+    "alpha_values": [
+     0,
+     255
+    ],
+    "dark_outline_share_mean": 0.9844,
+    "palette_to_reference_pixel_weighted_rgb_dist": 2.86,
+    "loop_seam_ratio": 1.174
+   },
+   "after": {
+    "frames": [
+     {
+      "frame": 0,
+      "head_top": 8,
+      "hip": 53,
+      "foot_left": 69,
+      "foot_right": 72,
+      "foot_gap": -3,
+      "leg_px": 294,
+      "hands": {
+       "left": [
+        29.0,
+        54.67,
+        9
+       ],
+       "right": [
+        52.0,
+        43.67,
+        3
+       ]
+      },
+      "colours": 47,
+      "semi_alpha_px": 0,
+      "dark_outline_share": 0.9834
+     },
+     {
+      "frame": 1,
+      "head_top": 9,
+      "hip": 54,
+      "foot_left": 71,
+      "foot_right": 71,
+      "foot_gap": 0,
+      "leg_px": 289,
+      "hands": {
+       "left": [
+        29.9,
+        54.8,
+        10
+       ],
+       "right": [
+        52.25,
+        45.75,
+        4
+       ]
+      },
+      "colours": 46,
+      "semi_alpha_px": 0,
+      "dark_outline_share": 1.0
+     },
+     {
+      "frame": 2,
+      "head_top": 8,
+      "hip": 52,
+      "foot_left": 72,
+      "foot_right": 70,
+      "foot_gap": 2,
+      "leg_px": 323,
+      "hands": {
+       "left": [
+        30.0,
+        49.67,
+        9
+       ],
+       "right": [
+        52.57,
+        48.71,
+        7
+       ]
+      },
+      "colours": 45,
+      "semi_alpha_px": 0,
+      "dark_outline_share": 0.9767
+     },
+     {
+      "frame": 3,
+      "head_top": 8,
+      "hip": 52,
+      "foot_left": 72,
+      "foot_right": 69,
+      "foot_gap": 3,
+      "leg_px": 310,
+      "hands": {
+       "left": [
+        28.71,
+        45.86,
+        7
+       ],
+       "right": [
+        52.57,
+        50.71,
+        7
+       ]
+      },
+      "colours": 46,
+      "semi_alpha_px": 0,
+      "dark_outline_share": 0.9889
+     },
+     {
+      "frame": 4,
+      "head_top": 8,
+      "hip": 52,
+      "foot_left": 72,
+      "foot_right": 69,
+      "foot_gap": 3,
+      "leg_px": 306,
+      "hands": {
+       "left": [
+        28.8,
+        43.2,
+        5
+       ],
+       "right": [
+        52.1,
+        51.8,
+        10
+       ]
+      },
+      "colours": 48,
+      "semi_alpha_px": 0,
+      "dark_outline_share": 0.9887
+     },
+     {
+      "frame": 5,
+      "head_top": 9,
+      "hip": 54,
+      "foot_left": 72,
+      "foot_right": 70,
+      "foot_gap": 2,
+      "leg_px": 284,
+      "hands": {
+       "left": [
+        28.86,
+        48.29,
+        7
+       ],
+       "right": [
+        53.0,
+        53.67,
+        9
+       ]
+      },
+      "colours": 48,
+      "semi_alpha_px": 0,
+      "dark_outline_share": 0.9828
+     },
+     {
+      "frame": 6,
+      "head_top": 8,
+      "hip": 52,
+      "foot_left": 70,
+      "foot_right": 71,
+      "foot_gap": -1,
+      "leg_px": 297,
+      "hands": {
+       "left": [
+        29.09,
+        51.91,
+        11
+       ],
+       "right": [
+        52.25,
+        43.75,
+        4
+       ]
+      },
+      "colours": 50,
+      "semi_alpha_px": 0,
+      "dark_outline_share": 0.989
+     },
+     {
+      "frame": 7,
+      "head_top": 8,
+      "hip": 53,
+      "foot_left": 68,
+      "foot_right": 72,
+      "foot_gap": -4,
+      "leg_px": 296,
+      "hands": {
+       "left": [
+        29.5,
+        54.25,
+        16
+       ],
+       "right": [
+        52.5,
+        43.5,
+        2
+       ]
+      },
+      "colours": 49,
+      "semi_alpha_px": 0,
+      "dark_outline_share": 0.9771
+     }
+    ],
+    "leg_zone_from_row": 52,
+    "leg_change_neighbours": [
+     0.7586,
+     0.7268,
+     0.535,
+     0.5779,
+     0.7331,
+     0.881,
+     0.6141,
+     0.7368
+    ],
+    "leg_change_mean": 0.6954,
+    "leg_change_min": 0.535,
+    "whole_change_mean": 0.5354,
+    "distinct_leg_poses": 8,
+    "foot_left_rows": [
+     69,
+     71,
+     72,
+     72,
+     72,
+     72,
+     70,
+     68
+    ],
+    "foot_right_rows": [
+     72,
+     71,
+     70,
+     69,
+     69,
+     70,
+     71,
+     72
+    ],
+    "foot_gap_rows": [
+     -3,
+     0,
+     2,
+     3,
+     3,
+     2,
+     -1,
+     -4
+    ],
+    "foot_left_lift_range": 4,
+    "foot_right_lift_range": 3,
+    "foot_gap_sign_changes": 2,
+    "foot_configurations": 6,
+    "leg_shape_change_neighbours": [
+     0.1432,
+     0.123,
+     0.1204,
+     0.1161,
+     0.118,
+     0.2381,
+     0.1268,
+     0.0942
+    ],
+    "leg_shape_change_mean": 0.135,
+    "leg_shape_change_min": 0.0942,
+    "head_top_rows": [
+     8,
+     9,
+     8,
+     8,
+     8,
+     9,
+     8,
+     8
+    ],
+    "bob_range": 1,
+    "hand_left_y_range": 11.6,
+    "hand_left_x_range": 1.29,
+    "hand_right_y_range": 10.17,
+    "hand_right_x_range": 1.0,
+    "hand_left_px": [
+     9,
+     10,
+     9,
+     7,
+     5,
+     7,
+     11,
+     16
+    ],
+    "hand_right_px": [
+     3,
+     4,
+     7,
+     7,
+     10,
+     9,
+     4,
+     2
+    ],
+    "hand_left_moves": 8,
+    "hand_right_moves": 8,
+    "colours_row": 55,
+    "colours_max_frame": 50,
+    "semi_alpha_px_total": 0,
+    "alpha_values": [
+     0,
+     255
+    ],
+    "dark_outline_share_mean": 0.9858,
+    "palette_to_reference_pixel_weighted_rgb_dist": 2.64,
+    "loop_seam_ratio": 0.869
+   },
+   "rd": {
+    "frames": [
+     {
+      "frame": 0,
+      "head_top": 8,
+      "hip": 52,
+      "foot_left": 68,
+      "foot_right": 71,
+      "foot_gap": -3,
+      "leg_px": 274,
+      "hands": {
+       "left": [
+        26.0,
+        48.85,
+        13
+       ],
+       "right": [
+        50.17,
+        49.0,
+        6
+       ]
+      },
+      "colours": 38,
+      "semi_alpha_px": 0,
+      "dark_outline_share": 0.9171
+     },
+     {
+      "frame": 1,
+      "head_top": 9,
+      "hip": 52,
+      "foot_left": 70,
+      "foot_right": 70,
+      "foot_gap": 0,
+      "leg_px": 282,
+      "hands": {
+       "left": [
+        26.0,
+        50.85,
+        13
+       ],
+       "right": [
+        50.71,
+        50.57,
+        7
+       ]
+      },
+      "colours": 40,
+      "semi_alpha_px": 0,
+      "dark_outline_share": 0.9651
+     },
+     {
+      "frame": 2,
+      "head_top": 8,
+      "hip": 51,
+      "foot_left": 71,
+      "foot_right": 69,
+      "foot_gap": 2,
+      "leg_px": 299,
+      "hands": {
+       "left": [
+        26.83,
+        51.0,
+        6
+       ],
+       "right": [
+        51.62,
+        51.85,
+        13
+       ]
+      },
+      "colours": 37,
+      "semi_alpha_px": 0,
+      "dark_outline_share": 0.9056
+     },
+     {
+      "frame": 3,
+      "head_top": 8,
+      "hip": 51,
+      "foot_left": 71,
+      "foot_right": 68,
+      "foot_gap": 3,
+      "leg_px": 281,
+      "hands": {
+       "left": [
+        31.0,
+        47.5,
+        2
+       ],
+       "right": [
+        51.6,
+        51.2,
+        15
+       ]
+      },
+      "colours": 38,
+      "semi_alpha_px": 0,
+      "dark_outline_share": 0.9727
+     },
+     {
+      "frame": 4,
+      "head_top": 8,
+      "hip": 51,
+      "foot_left": 71,
+      "foot_right": 68,
+      "foot_gap": 3,
+      "leg_px": 288,
+      "hands": {
+       "left": [
+        31.5,
+        47.5,
+        4
+       ],
+       "right": [
+        51.5,
+        49.07,
+        14
+       ]
+      },
+      "colours": 40,
+      "semi_alpha_px": 0,
+      "dark_outline_share": 0.9222
+     },
+     {
+      "frame": 5,
+      "head_top": 9,
+      "hip": 52,
+      "foot_left": 71,
+      "foot_right": 69,
+      "foot_gap": 2,
+      "leg_px": 275,
+      "hands": {
+       "left": [
+        31.0,
+        48.5,
+        2
+       ],
+       "right": [
+        51.6,
+        51.07,
+        15
+       ]
+      },
+      "colours": 40,
+      "semi_alpha_px": 0,
+      "dark_outline_share": 0.9455
+     },
+     {
+      "frame": 6,
+      "head_top": 8,
+      "hip": 51,
+      "foot_left": 69,
+      "foot_right": 70,
+      "foot_gap": -1,
+      "leg_px": 280,
+      "hands": {
+       "left": [
+        29.62,
+        49.75,
+        8
+       ],
+       "right": [
+        49.88,
+        50.88,
+        8
+       ]
+      },
+      "colours": 38,
+      "semi_alpha_px": 0,
+      "dark_outline_share": 0.9609
+     },
+     {
+      "frame": 7,
+      "head_top": 8,
+      "hip": 51,
+      "foot_left": 67,
+      "foot_right": 71,
+      "foot_gap": -4,
+      "leg_px": 284,
+      "hands": {
+       "left": [
+        27.12,
+        51.88,
+        8
+       ],
+       "right": [
+        49.5,
+        49.5,
+        4
+       ]
+      },
+      "colours": 38,
+      "semi_alpha_px": 0,
+      "dark_outline_share": 0.9432
+     }
+    ],
+    "leg_zone_from_row": 51,
+    "leg_change_neighbours": [
+     0.8053,
+     0.7844,
+     0.5628,
+     0.6149,
+     0.7759,
+     0.8904,
+     0.5897,
+     0.7644
+    ],
+    "leg_change_mean": 0.7235,
+    "leg_change_min": 0.5628,
+    "whole_change_mean": 0.5906,
+    "distinct_leg_poses": 8,
+    "foot_left_rows": [
+     68,
+     70,
+     71,
+     71,
+     71,
+     71,
+     69,
+     67
+    ],
+    "foot_right_rows": [
+     71,
+     70,
+     69,
+     68,
+     68,
+     69,
+     70,
+     71
+    ],
+    "foot_gap_rows": [
+     -3,
+     0,
+     2,
+     3,
+     3,
+     2,
+     -1,
+     -4
+    ],
+    "foot_left_lift_range": 4,
+    "foot_right_lift_range": 3,
+    "foot_gap_sign_changes": 2,
+    "foot_configurations": 6,
+    "leg_shape_change_neighbours": [
+     0.16,
+     0.1247,
+     0.0984,
+     0.0977,
+     0.1176,
+     0.1898,
+     0.114,
+     0.1063
+    ],
+    "leg_shape_change_mean": 0.1261,
+    "leg_shape_change_min": 0.0977,
+    "head_top_rows": [
+     8,
+     9,
+     8,
+     8,
+     8,
+     9,
+     8,
+     8
+    ],
+    "bob_range": 1,
+    "hand_left_y_range": 4.38,
+    "hand_left_x_range": 5.5,
+    "hand_right_y_range": 2.85,
+    "hand_right_x_range": 2.12,
+    "hand_left_px": [
+     13,
+     13,
+     6,
+     2,
+     4,
+     2,
+     8,
+     8
+    ],
+    "hand_right_px": [
+     6,
+     7,
+     13,
+     15,
+     14,
+     15,
+     8,
+     4
+    ],
+    "hand_left_moves": 8,
+    "hand_right_moves": 8,
+    "colours_row": 41,
+    "colours_max_frame": 40,
+    "semi_alpha_px_total": 0,
+    "alpha_values": [
+     0,
+     255
+    ],
+    "dark_outline_share_mean": 0.9415,
+    "palette_to_reference_pixel_weighted_rgb_dist": 11.86,
+    "loop_seam_ratio": 0.982
+   }
+  }
+ },
+ "other_rows_identical": true
+}

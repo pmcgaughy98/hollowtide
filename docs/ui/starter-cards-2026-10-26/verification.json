@@ -1,0 +1,24 @@
+{
+  "owned": {
+    "scripts/soul_prologue.gd": "b58b3128cfa906acbe2e647eee5f9701726b9e2963c3386daeb1be3f9b2323c8",
+    "tools/debug/opening_flow_check.gd": "6cd9e0f3af84cbb2b3b6c1c5b755ad10c1aeb05caebf202b28693539af4d5493"
+  },
+  "exact_methods": [
+    "_fly",
+    "_draw_void",
+    "_fit_backdrop",
+    "_exit_tree",
+    "_reveal_opening",
+    "_text",
+    "_start_line",
+    "_card_rect"
+  ],
+  "story_and_creature_constants_exact": true,
+  "Claude_partner_guard_preserved": true,
+  "native": 47,
+  "real_flow_native": 87,
+  "concurrent_paths_preserved": [
+    "scripts/mouth_escape.gd",
+    "tools/debug/road_check.gd"
+  ]
+}

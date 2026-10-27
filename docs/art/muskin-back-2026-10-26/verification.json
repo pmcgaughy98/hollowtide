@@ -1,0 +1,47 @@
+{
+  "installed_pngs": 3,
+  "other_muskin_files_preserved": 318,
+  "all_source_walks_preserved": true,
+  "native_checks": 28,
+  "native_failures": 0,
+  "source_code_settings_changed_by_this_slice": 0,
+  "concurrent_paths_preserved": [],
+  "metrics": [
+    {
+      "path": "assets/sprites/arena/muskin/n.png",
+      "old_sha256": "bdf40213dde2d5778c50174f45da30177c973b0013310c292c01cf5302db4ed2",
+      "sha256": "370968240fbb9e1fe8d28d703219c4bc1cbcf55aabcb512c49120eca25f5d4f5",
+      "dimensions": [
+        128,
+        128
+      ],
+      "colours": 21,
+      "alpha_exact": true,
+      "front_palette_subset": true
+    },
+    {
+      "path": "assets/sprites/arena/muskin/dungeon/n.png",
+      "old_sha256": "f467bcbd2614958e74cf9ec5402f19cec8de527cc24cf41754114fb3282d86d4",
+      "sha256": "31512404ee9c0da8eb11cfb7758dd042397ab2235b18fcbf076a28cd8562384a",
+      "dimensions": [
+        37,
+        37
+      ],
+      "colours": 18,
+      "alpha_exact": true,
+      "front_palette_subset": true
+    },
+    {
+      "path": "assets/sprites/arena/muskin/town/n.png",
+      "old_sha256": "93eab8caf4d8064eae86e348781d36ebdb19c83458ed170133044b346ae33636",
+      "sha256": "a29b7fd3a4d81b6f093e07920b0682c0c61a3c851eaa09f9cbb1a538512d984b",
+      "dimensions": [
+        55,
+        55
+      ],
+      "colours": 20,
+      "alpha_exact": true,
+      "front_palette_subset": true
+    }
+  ]
+}

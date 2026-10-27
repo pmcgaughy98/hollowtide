@@ -1,0 +1,65 @@
+{
+	"alpha": "binary",
+	"anchor": [
+		24,
+		27
+	],
+	"anchor_mode": "foot",
+	"area": "town",
+	"brief": "A small pinned river map on parchment, the river drawn as one blue line with a few marked bends.",
+	"census": "M14",
+	"checks": [
+		"C1",
+		"C12",
+		"C2",
+		"C3",
+		"C4",
+		"C5",
+		"C7",
+		"C8",
+		"C9"
+	],
+	"drawn_at": 3,
+	"edges": "bottom",
+	"file": "res://assets/slots/town/prop/runners/river_map.png",
+	"forbid": [
+		"text",
+		"creature",
+		"franchise"
+	],
+	"frames": 1,
+	"id": "town.prop.runners.river_map",
+	"kind": "prop",
+	"lane": "R",
+	"legacy": "",
+	"light": "upper_left",
+	"notes": "on screen until a file is installed: today's nearest resize of river_map.png (96x32 to 48x28, room_slots.gd DRAWN), so nothing changes; the registered placeholder is the kind's flat block (C2-C4), seen only when forcing; style_ref is that old file",
+	"outline": "drawn",
+	"owner": "codex",
+	"palette": {
+		"family": "room_runners",
+		"lock": false,
+		"max": 24,
+		"source": "res://assets/slots/palettes/room_runners.png"
+	},
+	"placeholder": "",
+	"rows": 1,
+	"sheet_size": [
+		48,
+		28
+	],
+	"size": [
+		48,
+		28
+	],
+	"slot_file": "town_rooms",
+	"states": {
+		"static": [
+			1,
+			0
+		]
+	},
+	"status": "placeholder",
+	"style_ref": "res://assets/sprites/world/hall_floors_2026_10_11/river_map.png",
+	"tiling": "none"
+}

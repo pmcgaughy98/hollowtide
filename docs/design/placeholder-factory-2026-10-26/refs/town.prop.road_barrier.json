@@ -1,0 +1,64 @@
+{
+	"alpha": "binary",
+	"anchor": [
+		12,
+		59
+	],
+	"anchor_mode": "foot",
+	"area": "town",
+	"brief": "A timber barrier across the road east: two posts and crossed planks that show the way is closed, with no words. No ground shadow: the game draws it.",
+	"census": "H10",
+	"checks": [
+		"C1",
+		"C12",
+		"C2",
+		"C3",
+		"C4",
+		"C5",
+		"C7",
+		"C8",
+		"C9"
+	],
+	"drawn_at": 3,
+	"edges": "bottom",
+	"file": "res://assets/slots/town/prop/road_barrier.png",
+	"forbid": [
+		"text",
+		"creature",
+		"franchise"
+	],
+	"frames": 1,
+	"id": "town.prop.road_barrier",
+	"kind": "prop",
+	"lane": "C",
+	"legacy": "",
+	"light": "upper_left",
+	"notes": "closes the road east exit (1x2 tiles, solid)",
+	"outline": "drawn",
+	"owner": "grok",
+	"palette": {
+		"family": "town_timber",
+		"lock": false,
+		"max": 24,
+		"source": "res://assets/slots/palettes/town_timber.png"
+	},
+	"placeholder": "res://scripts/art/placeholders/street_props.gd:road_barrier",
+	"rows": 1,
+	"sheet_size": [
+		24,
+		60
+	],
+	"size": [
+		24,
+		60
+	],
+	"slot_file": "town_street",
+	"states": {
+		"static": [
+			1,
+			0
+		]
+	},
+	"status": "placeholder",
+	"tiling": "none"
+}

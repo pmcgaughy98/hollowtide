@@ -43,6 +43,7 @@ func _run() -> void:
 	await _frames(30)
 	await _snap("02_town")
 	var place: Dictionary = {}
+	town.enter_area(town.Layout.area_of("hall"), "hall")   # Highbank v2: the Tower's area first (lane A, Claude, 2026-10-26)
 	for p in town.Layout.PLACES:
 		if p["id"] == "hall":
 			place = p

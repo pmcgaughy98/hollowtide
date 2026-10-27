@@ -1,0 +1,10 @@
+2 checks, 1 at a time, logs in D:\dev\hollowtide-continue-load-20261026\runner
+  PASS     opening_flow_check                  6.9s  
+  PASS     save_check                         28.2s  
+
+RESULT   CHECK                              SECS  EXIT  FIRST PROBLEM OR NOTE
+PASS     opening_flow_check                  6.9     0  
+PASS     save_check                         28.2     0  
+
+PASS 2
+exit 0: nothing failed

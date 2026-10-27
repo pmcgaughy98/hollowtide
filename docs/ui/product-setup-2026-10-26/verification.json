@@ -1,0 +1,25 @@
+{
+  "owned": {
+    ".gitignore": "dd893a8d07e15b451ca073a64d5e9776ae657cbf04c5e3dc5db2c207f09cda41",
+    "export_presets.cfg": "4aea1d56f7efda23a8ed034828af1d3669813a14b45e082a488a148a1bfc922c",
+    "project.godot": "f1ce6ee546547f62d278311a95e54a0dd85fde1518615531461b15290d39f074",
+    "icon.png": "608be7039d20d6bf9478b32ffb105c9400c7297c6dd3bf395ac05f091ca803a1",
+    "tools/ui/build_app_icon.gd": "aad5722c8e9fd2d74463e423ba1858306a2ea371841fc00e31c55f666eff0762"
+  },
+  "sidecars": {},
+  "native_checks": 9,
+  "export_pack_checks": 10,
+  "hook_matrix_checks": 10,
+  "normal_windows_icon_checks": 1,
+  "native_icon_error": 0,
+  "all_gameplay_and_wordmark_sources_preserved": true,
+  "project_delta_only_icon_and_plain_splash": true,
+  "existing_godot_ai_hook_used_unchanged": true,
+  "source_debug_autoload_kept": true,
+  "templates_path": "C:\\Users\\pmcga\\AppData\\Roaming\\Godot\\export_templates",
+  "windows_templates_found": [],
+  "game_executable_export": "pending templates",
+  "exported_game_painted_art_qa": "pending real Windows build",
+  "editor_custom_loop_exit": "RID/209 ObjectDB warnings retained; 10 functional assertions pass",
+  "concurrent_paths_preserved": []
+}

@@ -7,7 +7,8 @@ extends RefCounted
 const R := preload("res://scripts/dungeon/ruin_painter.gd")   # hash and noise
 const T := 24
 const INK := Color("#1f1610")
-const UI := preload("res://scripts/ui/ui_style.gd")
+const Slots := preload("res://scripts/town/room_slots.gd")             # the rooms' art slots (lane R, 2026-10-26)
+const Fixtures := preload("res://scripts/town/hall_fixtures_art.gd")
 
 
 static func paint(id: String, r: Dictionary) -> Image:
@@ -20,52 +21,64 @@ static func paint(id: String, r: Dictionary) -> Image:
 		_chamber(img, r)
 	elif id == "runners":
 		_runners(img, r)
+	elif PLAIN.has(id):
+		_plain(img, r, id)
 	else:
 		_home(img, r)
 	if id == "home":
 		img = preload("res://scripts/town/home_room_art.gd").paint(img)
 	elif id == "hall":
 		img = preload("res://scripts/town/hall_room_art.gd").paint(img)
-		_stairs(img, Rect2i(14 * T, 10 * T, 2 * T, 2 * T), true)   # down to the Hall floor (town_room STAIRS_DOWN)
+		if not Fixtures.live("stairs_down"):
+			_stairs(img, Rect2i(14 * T, 10 * T, 2 * T, 2 * T), true)   # down to the Hall floor (town_room STAIRS_DOWN)
 	if id in ["hall", "hall_low", "chamber", "runners"]:
 		img = preload("res://scripts/town/hall_floors_art.gd").paint(id, img)
 		_fixtures(id, img)
-		img = preload("res://scripts/town/hall_fixtures_art.gd").paint(id, img)
+		img = Fixtures.paint(id, img)
+	if PLAIN.has(id):
+		_slotted(id, img)
 	return img
 
 
 ## Drawn last, over Codex's finished room layer (Preston, 2026-10-11): doors and the hatch in the side walls
 ## seen from above, edge-on; tall cases standing against the back wall, front to the viewer; the stairs
 ## down as a dark opening. Codex's own cases are reused, shortened to stand in front of the wall.
+## Codex's own stairs, side door and hatch (art slots, lane R) take the place of these only when live
+## (hall_fixtures_art.gd SHOW_CODEX, or a slot file installed); off by default, so the rooms draw as before.
 static func _fixtures(id: String, img: Image) -> void:
 	var w := img.get_width() / T
 	match id:
 		"hall":
-			_stairs(img, Rect2i(14 * T, 10 * T, 2 * T, 2 * T), true)
+			if not Fixtures.live("stairs_down"):
+				_stairs(img, Rect2i(14 * T, 10 * T, 2 * T, 2 * T), true)
 		"hall_low":
-			_stairs(img, Rect2i(25 * T, 13 * T, 2 * T, 2 * T), false)
-			_side_door(img, 0, 5, 2, true)
-			_side_door(img, w - 1, 5, 2, false)
-			_side_hatch(img, 0, 8, 2)
+			if not Fixtures.live("stairs_up"):
+				_stairs(img, Rect2i(25 * T, 13 * T, 2 * T, 2 * T), false)
+			if not Fixtures.live("side_door"):
+				_side_door(img, 0, 5, 2, true)
+				_side_door(img, w - 1, 5, 2, false)
+			if not Fixtures.live("kitchen"):
+				_side_hatch(img, 0, 8, 2)
 			_cabinet(img, "supply", 27 * T + 2, 2)
 		"chamber":
 			_cabinet(img, "keepsakes", T + 2, 2)
 			_cabinet(img, "ledgers", 15 * T + 2, 2)
 		"runners":
-			_side_door(img, 0, 5, 2, true)
+			if not Fixtures.live("side_door"):
+				_side_door(img, 0, 5, 2, true)
 			for k in 2:   # coat pegs on the east wall, seen from above
 				_block(img, Rect2i((w - 1) * T - 4, 4 * T + 6 + k * 22, 7, 4), Color("#6b4a2e"), 0.2)
 
 
 ## One of Codex's upright cases (assets/sprites/world/hall_floors_2026_10_11/), its top two shelves and its
-## base, standing on floor row `row` with its back to the back wall.
+## base, standing on floor row `row` with its back to the back wall. The case is the art slot
+## town.prop.hall_low.<name> (lane R); on its placeholder the code case stands in, as it did with the file missing.
 static func _cabinet(img: Image, name: String, x: int, row: int) -> void:
-	var path := "res://assets/sprites/world/hall_floors_2026_10_11/%s.png" % name
-	# Claude, 2026-10-24 (A4, LV-19): UI.res_image reads the imported texture, which an exported game has; the PNG it does not.
-	var src := UI.res_image(path)
-	if src == null:
+	var slot := "town.prop.hall_low." + name
+	if not Slots.real(slot):
 		_upright(img, x, T - 4, row, "books" if name == "ledgers" else ("keepsakes" if name == "keepsakes" else "supplies"))
 		return
+	var src := Slots.image(slot)
 	var top_part := 56
 	var base := 6
 	var case := Image.create(src.get_width(), top_part + base, false, Image.FORMAT_RGBA8)
@@ -810,3 +823,122 @@ static func _upright(img: Image, x: int, width: int, row: int, kind: String) -> 
 					_block(img, Rect2i(cx, floor_y - 6, 8, 6), Color("#b08a5a"), 0.15)
 				cx += 9
 			j += 1
+
+
+# ---------------------------------------------------------------- the shut rooms (placeholder factory, lane R)
+
+## The Item Shop's room (14 x 10) and the Scroll Keeper's cellar (12 x 9) (Claude, 2026-10-26, placeholder factory
+## lane R; plan call 5: placeholder rooms whose doors stay shut, so only a debug scene reaches them). Painted here in
+## flat blocks lit from the upper left until Codex paints their five strips (town.room.<id>.floor, north, south, west,
+## east) and Grok their furniture (FURNITURE). Few colours, so each strip's placeholder, its crop of this picture
+## (slot_placeholder), keeps inside its 48-colour budget. course: the floor's rows, boards (6 px) or flags (12 px).
+const PLAIN := {
+	"shop": {"floor": Color("#9a7853"), "wall": Color("#4e3b29"), "back": Color("#7a5a3a"), "course": 6, "joint": 40},
+	"scrolls_cellar": {"floor": Color("#6f6a5e"), "wall": Color("#36322c"), "back": Color("#57524a"), "course": 12, "joint": 24},
+}
+## The shut rooms' furniture, Grok's slots: [slot, top-left in the picture]. Each stands on its solid tiles in
+## town_room.gd ROOMS, the shelves and racks against the back wall with their feet on row 2, and town_room.gd lifts
+## each over a creature behind it, as it does the Hall's props.
+const FURNITURE := {
+	"shop": [["town.prop.shop.shelf", Vector2i(24, 0)], ["town.prop.shop.shelf", Vector2i(264, 0)],
+		["town.prop.shop.counter", Vector2i(120, 96)]],
+	"scrolls_cellar": [["town.prop.scrolls_cellar.rack", Vector2i(24, 0)], ["town.prop.scrolls_cellar.rack", Vector2i(216, 0)],
+		["town.prop.scrolls_cellar.table", Vector2i(120, 80)]],
+}
+
+
+static func _plain(img: Image, r: Dictionary, id: String) -> void:
+	var w: int = r["w"]
+	var h: int = r["h"]
+	var look: Dictionary = PLAIN[id]
+	var floor_c: Color = look["floor"]
+	var wall: Color = look["wall"]
+	var back: Color = look["back"]
+	var course: int = look["course"]
+	var joint: int = look["joint"]
+	img.fill(wall)   # the side and front walls seen from above
+	# The floor in courses: each course's top row dark (the joint), the row under it lit, the end joints staggered.
+	var fl := Rect2i(T, 2 * T, (w - 2) * T, (h - 3) * T)
+	img.fill_rect(fl, floor_c)
+	for y in range(fl.position.y, fl.end.y, course):
+		img.fill_rect(Rect2i(fl.position.x, y, fl.size.x, 1), floor_c.darkened(0.3))
+		img.fill_rect(Rect2i(fl.position.x, y + 1, fl.size.x, 1), floor_c.lightened(0.08))
+		var off := ((y - fl.position.y) / course) * (joint / 2) % joint
+		for x in range(fl.position.x + off, fl.end.x, joint):
+			img.fill_rect(Rect2i(x, y + 1, 1, mini(course - 1, fl.end.y - y - 1)), floor_c.darkened(0.25))
+	# The back wall: a dark beam, panels (the shop) or stone courses (the cellar), a lit rail and the skirting's shadow.
+	img.fill_rect(Rect2i(0, 0, w * T, 2 * T), back)
+	img.fill_rect(Rect2i(0, 0, w * T, 5), wall.darkened(0.3))
+	for x in range(0, w * T, T):
+		img.fill_rect(Rect2i(x, 5, 1, 2 * T - 14), back.darkened(0.3))
+	if course > 6:
+		for y in range(14, 2 * T - 9, 9):
+			img.fill_rect(Rect2i(0, y, w * T, 1), back.darkened(0.3))
+	img.fill_rect(Rect2i(0, 2 * T - 9, w * T, 2), back.lightened(0.2))
+	img.fill_rect(Rect2i(0, 2 * T - 3, w * T, 3), back.darkened(0.4))
+	# The lit rim where the walls meet the floor, then the way out in the front wall.
+	img.fill_rect(Rect2i(T - 1, 2 * T, 1, (h - 3) * T), wall.lightened(0.25))
+	img.fill_rect(Rect2i((w - 1) * T, 2 * T, 1, (h - 3) * T), wall.lightened(0.25))
+	img.fill_rect(Rect2i(T, (h - 1) * T, (w - 2) * T, 1), wall.lightened(0.25))
+	_door(img, r, wall.lightened(0.15))
+
+
+## A shut room's five strips in its picture, the same cut as hall_floors_art.gd's: the floor inside the walls, the
+## back wall two tiles deep, the front wall one, and the side walls between them.
+static func _strips(size: Vector2i) -> Dictionary:
+	return {"floor": Rect2i(T, 2 * T, size.x - 2 * T, size.y - 3 * T), "north": Rect2i(0, 0, size.x, 2 * T),
+		"south": Rect2i(0, size.y - T, size.x, T), "west": Rect2i(0, 2 * T, T, size.y - 3 * T),
+		"east": Rect2i(size.x - T, 2 * T, T, size.y - 3 * T)}
+
+
+## Each piece of FURNITURE[id] as [its rect in the picture, its picture]: the painter's, and town_room.gd's lifts'.
+static func furniture(id: String) -> Array:
+	var out: Array = []
+	for f in FURNITURE.get(id, []):
+		var pic := Slots.image(String(f[0]))
+		out.append([Rect2i(f[1], pic.get_size()), pic])
+	return out
+
+
+## A shut room's slots over its code painting: every strip that has a file installed, then the furniture (its
+## placeholder until Grok's file is installed).
+static func _slotted(id: String, img: Image) -> void:
+	var cut := _strips(img.get_size())
+	for part in cut:
+		var slot := "town.room.%s.%s" % [id, part]
+		if Slots.source(slot) == "file":
+			var r: Rect2i = cut[part]
+			img.blit_rect(Slots.image(slot), Rect2i(Vector2i.ZERO, r.size), r.position)
+	for f in furniture(id):
+		var pic: Image = f[1]
+		img.blend_rect(pic, Rect2i(Vector2i.ZERO, pic.get_size()), (f[0] as Rect2i).position)
+
+
+## The placeholders the rooms' slot rows name ("placeholder": "res://scripts/town/room_painter.gd:slot_placeholder"),
+## exactly the slot's size, or null for the kind's own (PlaceholderPainter): a shut room's strip is its crop of
+## _plain; Codex's four unused fixtures are today's code drawing of them (the stairs, the edge-on side door and the
+## kitchen hatch with hall_fixtures_art.gd's finish), cut from a scratch picture where the rooms draw them.
+static func slot_placeholder(id: String, spec: Dictionary) -> Image:
+	var size: Vector2i = spec.get("sheet_size", Vector2i.ONE)
+	var parts := id.split(".")
+	if parts.size() == 4 and parts[1] == "room" and PLAIN.has(parts[2]):
+		var rooms: Dictionary = load("res://scripts/town/town_room.gd").get_script_constant_map()["ROOMS"]
+		var r: Dictionary = rooms[parts[2]]
+		var img := Image.create(int(r["w"]) * T, int(r["h"]) * T, false, Image.FORMAT_RGBA8)
+		_plain(img, r, parts[2])
+		var cut: Dictionary = _strips(img.get_size())
+		return img.get_region(cut[parts[3]]) if cut.has(parts[3]) else null
+	var scratch := Image.create(3 * T, 11 * T, false, Image.FORMAT_RGBA8)
+	match parts[parts.size() - 1]:
+		"stairs_down", "stairs_up":
+			Fixtures._stairs(scratch, Vector2i.ZERO, id.ends_with("down"))
+			return scratch.get_region(Rect2i(Vector2i.ZERO, size))
+		"side_door":
+			_side_door(scratch, 0, 5, 2, true)
+			Fixtures._door(scratch, 0, 5 * T, true)
+			return scratch.get_region(Rect2i(Vector2i(3, 5 * T - 2), size))
+		"kitchen":
+			_side_hatch(scratch, 0, 8, 2)
+			Fixtures._hatch(scratch)
+			return scratch.get_region(Rect2i(Vector2i(0, 8 * T), size))
+	return null

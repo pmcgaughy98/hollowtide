@@ -1,0 +1,42 @@
+{
+  "checks": [
+    {
+      "check": "Window icon uses Hollowtide PNG",
+      "passed": true
+    },
+    {
+      "check": "Engine splash image disabled",
+      "passed": true
+    },
+    {
+      "check": "Plain splash matches black clear colour",
+      "passed": true
+    },
+    {
+      "check": "Campaign entry unchanged",
+      "passed": true
+    },
+    {
+      "check": "Native development helper still loads",
+      "passed": true
+    },
+    {
+      "check": "Opaque256px app icon loads",
+      "passed": true
+    },
+    {
+      "check": "Campaign launches to usable main menu",
+      "passed": true
+    },
+    {
+      "check": "C6 remains off",
+      "passed": true
+    },
+    {
+      "check": "Private save unchanged",
+      "passed": true
+    }
+  ],
+  "failed": 0,
+  "total": 9
+}

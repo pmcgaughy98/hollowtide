@@ -1,0 +1,25 @@
+--- before/scripts/town/board_scene.gd
++++ after/scripts/town/board_scene.gd
+@@ -94,9 +94,9 @@
+ 			walk[f] = frames
+ 	else:
+ 		# Stand-in until the rotation is cut: the chosen front art at the crew's boss size, one view.
+-		# The docs/ path stays until Codex's C22 moves the art into assets/ (Claude, 2026-10-24, pass 4 T11). Read
++		# Runtime fronts live in assets; original research takes stay in docs. Read
+ 		# through UI.res_image: the imported texture in an exported game, the file on disk here (pass 5 RM10).
+-		var img := UI.res_image("res://docs/creatures/arena-starters-2026-10-07/forms/%s_arena_front_chosen.png" % form)
++		var img := UI.res_image("res://assets/sprites/arena/%s/front_chosen.png" % form)
+ 		if img == null:
+ 			img = Image.create(66, 66, false, Image.FORMAT_RGBA8)   # no art anywhere: an empty stand-in, not a crash
+ 		img.resize(66, 66, Image.INTERPOLATE_NEAREST)   # about 1.25x the town set's 51 to 59 px crew (Preston: 78 was "a tad too big")
+--- before/export_presets.cfg
++++ after/export_presets.cfg
+@@ -7,7 +7,7 @@
+ custom_features="hollowtide_windows"
+ export_filter="all_resources"
+ include_filter="*.json,*.dialogue"
+-exclude_filter="tools/*,addons/godot_ai/*,scenes/_lab/*,builds/*,icon.svg,docs/*.gd,docs/*.tscn,docs/*.tres,docs/*.gdshader"
++exclude_filter="tools/*,addons/godot_ai/*,scenes/_lab/*,builds/*,icon.svg,docs/*"
+ export_path="builds/windows/Hollowtide.exe"
+ script_export_mode=2
+ 

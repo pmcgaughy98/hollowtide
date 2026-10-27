@@ -93,12 +93,16 @@ func _run() -> void:
 	await _frames(4)
 	_master_row("Highbank")
 	lines.append("town at home: %s" % _now())
-	town.team[0]["pos"] = Vector2i(24, 9)
+	# The tile is an anchor of the town's areas (lane A, Claude, 2026-10-26): in today's map the one this check named; with
+	# Highbank v2 on (HT_HIGHBANK_V2=1) the town goes into that anchor's area first.
+	town.enter_area(town.Layout.anchor_area("music_street"), "music_street")
+	town.team[0]["pos"] = town.Layout.anchor("music_street")
 	await town.act_move(Vector2i(0, -1))
 	await _frames(2)
 	await create_timer(town.MUSIC_SETTLE + 0.2).timeout   # the street's track waits for the leader to stay (pass 6 T3)
 	lines.append("by the Hall: %s" % _now())
-	town.team[0]["pos"] = Vector2i(26, 27)
+	town.enter_area(town.Layout.anchor_area("music_ferry"), "music_ferry")
+	town.team[0]["pos"] = town.Layout.anchor("music_ferry")
 	await town.act_move(Vector2i(1, 0))
 	await _frames(2)
 	await create_timer(town.MUSIC_SETTLE + 0.2).timeout

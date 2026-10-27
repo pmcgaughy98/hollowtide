@@ -1,0 +1,11 @@
+config_version=5
+[application]
+config/name="Hollowtide export hook probe"
+run/main_scene="res://main.tscn"
+config/icon="res://icon.png"
+[autoload]
+_mcp_game_helper="*res://addons/godot_ai/runtime/game_helper.gd"
+[editor_plugins]
+enabled=PackedStringArray("res://addons/godot_ai/plugin.cfg")
+[rendering]
+renderer/rendering_method="gl_compatibility"

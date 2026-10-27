@@ -1,0 +1,17 @@
+static func res_image(path: String) -> Image:
+	var img: Image = null
+	if ResourceLoader.exists(path):
+		var res := load(path)
+		if res is Texture2D:
+			img = (res as Texture2D).get_image()
+		elif res is Image:
+			img = res
+	if (img == null or img.is_empty()) and FileAccess.file_exists(path):
+		img = Image.load_from_file(path)
+	if img == null or img.is_empty():
+		return null
+	img = img.duplicate()
+	if img.is_compressed():
+		img.decompress()
+	img.convert(Image.FORMAT_RGBA8)
+	return img

@@ -22,7 +22,7 @@ const TEAR := [
 ]
 const OBJECT := [["{partner}", "Hey! Those are Wayline jobs. You can't just tear them down!", "angry"]]
 const MOCK := [
-	["Gruntle", "Well, well. The little runt the Hall keeps turning away.", "mischievous"],
+	["Gruntle", "Well, well. The little runt the Tower keeps turning away.", "mischievous"],
 	["Whinet", "No partner, no route! Hee hee!", "mischievous"],
 	["{partner}", "I have a partner now. We're seeing the Postmaster today.", "determined"],
 ]
@@ -41,11 +41,11 @@ const SNATCH := [
 const GET_UP_STOLEN := [
 	["{partner}", "...They took it. The one parcel I kept dry through the whole flood.", "sad"],
 	["{partner}", "That was Gruntle's crew. They take jobs and never deliver them.", "angry"],
-	["{partner}", "The Postmaster has to hear about this. The Hall's right there. Come on!", "determined"],
+	["{partner}", "The Postmaster has to hear about this. The Tower's right there. Come on!", "determined"],
 ]
 const GET_UP := [
 	["{partner}", "...That was Gruntle. His crew takes jobs and never delivers them.", "sad"],
-	["{partner}", "Forget them. The Wayline Hall is right there. Let's go!", "determined"],
+	["{partner}", "Forget them. The Wayline Tower is right there. Let's go!", "determined"],
 ]
 # Where the crew loiter, from the board's door: Gruntle at the board, a grunt either side.
 const SPOTS := {"gruntle": Vector2i(1, 0), "mirekit": Vector2i(-1, 0), "whinet": Vector2i(3, 0)}
@@ -94,9 +94,9 @@ static func make_npc(town, form: String, pos: Vector2i) -> Dictionary:
 			walk[f] = frames
 	else:
 		# Stand-in until the rotation is cut: the chosen front art at the crew's boss size, one view.
-		# The docs/ path stays until Codex's C22 moves the art into assets/ (Claude, 2026-10-24, pass 4 T11). Read
+		# Runtime fronts live in assets; original research takes stay in docs. Read
 		# through UI.res_image: the imported texture in an exported game, the file on disk here (pass 5 RM10).
-		var img := UI.res_image("res://docs/creatures/arena-starters-2026-10-07/forms/%s_arena_front_chosen.png" % form)
+		var img := UI.res_image("res://assets/sprites/arena/%s/front_chosen.png" % form)
 		if img == null:
 			img = Image.create(66, 66, false, Image.FORMAT_RGBA8)   # no art anywhere: an empty stand-in, not a crash
 		img.resize(66, 66, Image.INTERPOLATE_NEAREST)   # about 1.25x the town set's 51 to 59 px crew (Preston: 78 was "a tad too big")
@@ -349,8 +349,9 @@ const RUN_STEP := 0.12   # seconds a tile: a run, about twice the team's walk
 ## Mirekit holding the parcel up. The camera follows them down; at the gate they drop out of sight. `state` gets
 ## "done" at the end, for a caller that plays a line while they run (Claude, 2026-10-26, S2).
 static func _run_for_the_way_down(town, crew: Array, carrier: Dictionary, state := {}) -> void:
-	var gate: Dictionary = Layout.PLACES.filter(func(p: Dictionary) -> bool: return p["id"] == "gate")[0]
-	var route: Array = SceneKit.path(town, crew[0], gate["door"])
+	# Highbank v2 (lane A, Claude, 2026-10-26): the Mouth may be in another area; TownLayout.way_to gives the exit
+	# toward it, and in today's map the Mouth's door as before.
+	var route: Array = SceneKit.path(town, crew[0], Layout.way_to("gate"))
 	if route.is_empty():   # no way through: the old stroll off the screen
 		route = [crew[0]["pos"] + Vector2i(-7, 2)]
 	var lag := 0

@@ -1,0 +1,94 @@
+--- before/scripts/opening_flow.gd
++++ after/scripts/opening_flow.gd
+@@ -1,5 +1,8 @@
+ extends "res://scripts/main_menu_art_preview.gd"
+ ## The menu chooses appearance. The first partner is met inside the world.
++# A return to title in this process opens the menu directly. A fresh launch still shows the card.
++static var _launch_seen := false
++var _boot_hint: Label
+ var _boot: Control
+ var _boot_clock := 0.0
+ var _boot_done := false
+@@ -11,6 +14,7 @@
+ 	_fade.z_index = 100
+ 	_begin_button.text = "Start your first morning"
+ 	_build_boot()
++	if _launch_seen: _finish_boot(true)
+ 
+ func _build_boot() -> void:
+ 	_boot = Control.new()
+@@ -37,7 +41,9 @@
+ 	caption.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+ 	caption.modulate = Color("#bdadc7")
+ 	_boot.add_child(caption)
+-	var hint := _label("Enter / A / click to continue", 18)
++	var hint := _label(_launch_skip_text(), 18)
++	_boot_hint = hint
++	hint.name = "LaunchHint"
+ 	hint.position = Vector2(0, 582)
+ 	hint.size = Vector2(1152, 30)
+ 	hint.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+@@ -50,7 +56,15 @@
+ 	_cursor.hide()
+ 	get_viewport().gui_release_focus()
+ 
+-func _finish_boot() -> void:
++func _launch_skip_text() -> String:
++	var keys := PackedStringArray()
++	for action in UI.INPUT_ADVANCE:
++		var binding := UI.binding_text(action)
++		if binding != "" and not keys.has(binding): keys.append(binding)
++	return "%s / click  Skip" % " / ".join(keys)
++
++
++func _finish_boot(instant := false) -> void:
+ 	if _boot_fading or _boot_done:
+ 		return
+ 	_boot_fading = true
+@@ -60,20 +74,25 @@
+ 	if hint != null: reveal.append(hint)
+ 	for item in reveal: item.modulate.a = 0.0
+ 	_quiet_focus = true
+-	if not _reduce_motion:
++	if not _reduce_motion and not instant:
+ 		await create_tween().tween_property(_boot, "modulate:a", 0.0, 0.5).finished
+ 	_boot.modulate.a = 0.0
+ 	_boot.hide()
++	for child in _boot.get_children():
++		if child is Label:
++			child.hide()
++			child.modulate.a = 0.0
+ 	_time = 0.0
+ 	_wordmark.show()
+ 	_main_panel.show()
+ 	_main_panel.mouse_filter = Control.MOUSE_FILTER_IGNORE
+-	if not _reduce_motion:
++	if not _reduce_motion and not instant:
+ 		var reveal_tween := create_tween().set_parallel()
+ 		for item in reveal: reveal_tween.tween_property(item, "modulate:a", 1.0, 0.25)
+ 		await reveal_tween.finished
+ 	for item in reveal: item.modulate.a = 1.0
+ 	_boot_done = true
++	_launch_seen = true
+ 	_main_panel.mouse_filter = Control.MOUSE_FILTER_STOP
+ 	_show_page("main", _buttons[0])
+ 	# _show_page grabs focus deferred; loading a title should be silent.
+@@ -96,6 +115,7 @@
+ func _process(delta: float) -> void:
+ 	super._process(delta)
+ 	if not _boot_done:
++		_boot_hint.text = _launch_skip_text()
+ 		_boot_clock += delta
+ 		if _boot_clock >= (0.2 if _reduce_motion else 1.8): _finish_boot()
+ 		_cursor.hide()
+--- before/scripts/creature_opening.gd
++++ after/scripts/creature_opening.gd
+@@ -215,7 +215,7 @@
+ func _set_input_device(device: String) -> void:
+ 	_input_device=device
+ 	if _launch_hint != null:
+-		_launch_hint.text={"keyboard":"Enter to continue","controller":"A to continue","mouse":"Click to continue"}[device]
++		_launch_hint.text=_launch_skip_text()
+ 	if _input_hint == null:return
+ 	_input_hint.text={"keyboard":"Up/Down  Move   Enter  Choose   Esc  Back","controller":"D-pad  Move   A  Choose   B  Back","mouse":"Click to choose   Esc  Back"}[device]
+ 

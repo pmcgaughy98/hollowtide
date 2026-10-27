@@ -1,0 +1,214 @@
+{
+  "checks": [
+    {
+      "check": "cairnshell raw source and runtime image identical",
+      "passed": true
+    },
+    {
+      "check": "cairnshell actual forced fallback stays66x66 and nonempty",
+      "passed": true
+    },
+    {
+      "check": "cairnshell fallback texture pixels unchanged",
+      "passed": true
+    },
+    {
+      "check": "crawdukes raw source and runtime image identical",
+      "passed": true
+    },
+    {
+      "check": "crawdukes actual forced fallback stays66x66 and nonempty",
+      "passed": true
+    },
+    {
+      "check": "crawdukes fallback texture pixels unchanged",
+      "passed": true
+    },
+    {
+      "check": "grubbit raw source and runtime image identical",
+      "passed": true
+    },
+    {
+      "check": "grubbit actual forced fallback stays66x66 and nonempty",
+      "passed": true
+    },
+    {
+      "check": "grubbit fallback texture pixels unchanged",
+      "passed": true
+    },
+    {
+      "check": "gruntle raw source and runtime image identical",
+      "passed": true
+    },
+    {
+      "check": "gruntle actual forced fallback stays66x66 and nonempty",
+      "passed": true
+    },
+    {
+      "check": "gruntle fallback texture pixels unchanged",
+      "passed": true
+    },
+    {
+      "check": "inkhoot raw source and runtime image identical",
+      "passed": true
+    },
+    {
+      "check": "inkhoot actual forced fallback stays66x66 and nonempty",
+      "passed": true
+    },
+    {
+      "check": "inkhoot fallback texture pixels unchanged",
+      "passed": true
+    },
+    {
+      "check": "muskin raw source and runtime image identical",
+      "passed": true
+    },
+    {
+      "check": "muskin actual forced fallback stays66x66 and nonempty",
+      "passed": true
+    },
+    {
+      "check": "muskin fallback texture pixels unchanged",
+      "passed": true
+    },
+    {
+      "check": "ozbender raw source and runtime image identical",
+      "passed": true
+    },
+    {
+      "check": "ozbender actual forced fallback stays66x66 and nonempty",
+      "passed": true
+    },
+    {
+      "check": "ozbender fallback texture pixels unchanged",
+      "passed": true
+    },
+    {
+      "check": "pouchbill raw source and runtime image identical",
+      "passed": true
+    },
+    {
+      "check": "pouchbill actual forced fallback stays66x66 and nonempty",
+      "passed": true
+    },
+    {
+      "check": "pouchbill fallback texture pixels unchanged",
+      "passed": true
+    },
+    {
+      "check": "rinsepaw raw source and runtime image identical",
+      "passed": true
+    },
+    {
+      "check": "rinsepaw actual forced fallback stays66x66 and nonempty",
+      "passed": true
+    },
+    {
+      "check": "rinsepaw fallback texture pixels unchanged",
+      "passed": true
+    },
+    {
+      "check": "skimlet raw source and runtime image identical",
+      "passed": true
+    },
+    {
+      "check": "skimlet actual forced fallback stays66x66 and nonempty",
+      "passed": true
+    },
+    {
+      "check": "skimlet fallback texture pixels unchanged",
+      "passed": true
+    },
+    {
+      "check": "slipjaw raw source and runtime image identical",
+      "passed": true
+    },
+    {
+      "check": "slipjaw actual forced fallback stays66x66 and nonempty",
+      "passed": true
+    },
+    {
+      "check": "slipjaw fallback texture pixels unchanged",
+      "passed": true
+    },
+    {
+      "check": "stillwade raw source and runtime image identical",
+      "passed": true
+    },
+    {
+      "check": "stillwade actual forced fallback stays66x66 and nonempty",
+      "passed": true
+    },
+    {
+      "check": "stillwade fallback texture pixels unchanged",
+      "passed": true
+    },
+    {
+      "check": "swaphoard raw source and runtime image identical",
+      "passed": true
+    },
+    {
+      "check": "swaphoard actual forced fallback stays66x66 and nonempty",
+      "passed": true
+    },
+    {
+      "check": "swaphoard fallback texture pixels unchanged",
+      "passed": true
+    },
+    {
+      "check": "valvekin raw source and runtime image identical",
+      "passed": true
+    },
+    {
+      "check": "valvekin actual forced fallback stays66x66 and nonempty",
+      "passed": true
+    },
+    {
+      "check": "valvekin fallback texture pixels unchanged",
+      "passed": true
+    },
+    {
+      "check": "wayling raw source and runtime image identical",
+      "passed": true
+    },
+    {
+      "check": "wayling actual forced fallback stays66x66 and nonempty",
+      "passed": true
+    },
+    {
+      "check": "wayling fallback texture pixels unchanged",
+      "passed": true
+    },
+    {
+      "check": "wickglow raw source and runtime image identical",
+      "passed": true
+    },
+    {
+      "check": "wickglow actual forced fallback stays66x66 and nonempty",
+      "passed": true
+    },
+    {
+      "check": "wickglow fallback texture pixels unchanged",
+      "passed": true
+    },
+    {
+      "check": "gruntle current crew directional set remains available",
+      "passed": true
+    },
+    {
+      "check": "mirekit current crew directional set remains available",
+      "passed": true
+    },
+    {
+      "check": "whinet current crew directional set remains available",
+      "passed": true
+    },
+    {
+      "check": "Private team save untouched",
+      "passed": true
+    }
+  ],
+  "failed": 0,
+  "total": 52
+}

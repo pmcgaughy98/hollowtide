@@ -37,6 +37,7 @@ func _town() -> Node2D:
 	TeamState.give_to(town)
 	root.add_child(town)
 	await _frames(6)
+	town.enter_area(town.Layout.area_of("board"), "board")   # Highbank v2: the place's area first (lane A, Claude, 2026-10-26)
 	var board: Dictionary = town.Layout.PLACES.filter(func(p: Dictionary) -> bool: return p["id"] == "board")[0]
 	town.team[0]["pos"] = board["door"]
 	town._place(town.team[0])

@@ -1,0 +1,94 @@
+--- original/scripts/soul_prologue.gd
++++ installed/scripts/soul_prologue.gd
+@@ -64,14 +64,20 @@
+ var _blip: AudioStreamPlayer
+ var _auto_wait := 0.0
+ var _opening_fade := false
++var _backdrop: SubViewport
++var _background_area := Rect2(Vector2.ZERO, LOW)
++var _previous_aspect: Window.ContentScaleAspect
+ 
+ 
+ func _ready() -> void:
+ 	# Honor the title handoff and the saved preference when opening this scene directly.
+ 	reduce_motion = reduce_motion or UI.reduce_motion()
+ 	get_tree().root.content_scale_size = Vector2i(1152, 648)
+-	get_tree().root.content_scale_aspect = Window.CONTENT_SCALE_ASPECT_KEEP
++	_previous_aspect = get_tree().root.content_scale_aspect
++	get_tree().root.content_scale_aspect = Window.CONTENT_SCALE_ASPECT_EXPAND
+ 	var vp := SubViewport.new()
++	_backdrop = vp
++	vp.canvas_item_default_texture_filter = Viewport.DEFAULT_CANVAS_ITEM_TEXTURE_FILTER_NEAREST
+ 	vp.size = LOW
+ 	vp.render_target_update_mode = SubViewport.UPDATE_ALWAYS
+ 	add_child(vp)
+@@ -93,6 +99,8 @@
+ 	_ui.draw.connect(_draw_ui)
+ 	_ui.gui_input.connect(_on_click)
+ 	layer.add_child(_ui)
++	get_viewport().size_changed.connect(_fit_backdrop)
++	_fit_backdrop()
+ 	_blip = AudioStreamPlayer.new()
+ 	_blip.stream = load("res://assets/audio/sfx/ui/text.wav")
+ 	_blip.volume_db = -20.0
+@@ -107,6 +115,24 @@
+ 	if has_meta("opening_black"):
+ 		_opening_fade = true
+ 		_reveal_opening.call_deferred()
++
++
++func _fit_backdrop() -> void:
++	var size := get_viewport().get_visible_rect().size
++	_backdrop.size = Vector2i(ceili(size.x / 3.0), ceili(size.y / 3.0))
++	# Keep the authored composition centred on whole art pixels; the gradient fills the extra space.
++	_void.position = ((Vector2(_backdrop.size) - Vector2(LOW)) * 0.5).floor()
++	_ui.position = _void.position * 3.0
++	_background_area = Rect2(-_void.position, Vector2(_backdrop.size))
++	_void.queue_redraw()
++
++
++func _exit_tree() -> void:
++	var view := get_viewport()
++	if view.size_changed.is_connected(_fit_backdrop): view.size_changed.disconnect(_fit_backdrop)
++	# A destination added before this node is freed may already have chosen its own policy.
++	if get_tree().root.content_scale_aspect == Window.CONTENT_SCALE_ASPECT_EXPAND:
++		get_tree().root.content_scale_aspect = _previous_aspect
+ 
+ 
+ func _reveal_opening() -> void:
+@@ -272,9 +298,9 @@
+ func _draw_void() -> void:
+ 	var c := _void
+ 	# The void: a deep indigo, darker toward the edges.
+-	for y in LOW.y:
+-		var k := float(y) / LOW.y
+-		c.draw_rect(Rect2(0, y, LOW.x, 1), Color(0.03 + 0.02 * k, 0.03 + 0.015 * k, 0.07 + 0.03 * (1.0 - absf(k - 0.4))))
++	for y in range(floori(_background_area.position.y), ceili(_background_area.end.y)):
++		var k := (float(y) - _background_area.position.y) / _background_area.size.y
++		c.draw_rect(Rect2(_background_area.position.x, y, _background_area.size.x, 1), Color(0.03 + 0.02 * k, 0.03 + 0.015 * k, 0.07 + 0.03 * (1.0 - absf(k - 0.4))))
+ 	# Motes drifting up, slower the farther away they are.
+ 	for m in _motes:
+ 		var p: Vector2 = m[0]
+@@ -287,9 +313,10 @@
+ 		for k in 5:
+ 			var x0 := 120.0 + k * 36.0 + sin(_t * 0.3 + k) * 6.0
+ 			var w := 18.0 + 6.0 * sin(_t * 0.7 + k * 1.3)
+-			var poly := PackedVector2Array([Vector2(x0, -2), Vector2(x0 + w, -2), Vector2(x0 + w * 2.4 - 40, 150), Vector2(x0 - 40, 150)])
+-			c.draw_colored_polygon(poly, Color(1.0, 0.92, 0.72, 0.05 * _speak))
+-		c.draw_rect(Rect2(0, 0, LOW.x, 3), Color(1.0, 0.94, 0.78, 0.35 * _speak))
++			var poly := PackedVector2Array([Vector2(x0, _background_area.position.y - 2), Vector2(x0 + w, _background_area.position.y - 2), Vector2(x0 + w * 2.4 - 40, 150), Vector2(x0 - 40, 150)])
++			var top := Color(1.0, 0.92, 0.72, 0.05 * _speak)
++			var end := Color(top, 0.0)
++			c.draw_polygon(poly, PackedColorArray([top, top, end, end]))
+ 	# Hollowtide, far below: the river shimmering into view.
+ 	if _river > 0.0:
+ 		for y in range(176, LOW.y):
+@@ -317,7 +344,7 @@
+ 	if _question > 0.0:
+ 		UI.say(c, at + Vector2(10, -16), "?", "label", Color(1.0, 0.95, 0.8, minf(1.0, _question)))
+ 	if _flash > 0.0:
+-		c.draw_rect(Rect2(Vector2.ZERO, LOW), Color(1, 1, 1, minf(1.0, _flash)))
++		c.draw_rect(_background_area, Color(1, 1, 1, minf(1.0, _flash)))
+ 
+ 
+ func _draw_ui() -> void:

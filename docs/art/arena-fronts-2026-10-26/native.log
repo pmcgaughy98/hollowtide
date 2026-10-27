@@ -1,0 +1,57 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+OpenGL API 3.3.0 NVIDIA 610.62 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce GTX 1660 SUPER
+
+[godot_ai game_helper] registered mcp capture (debugger active=false, logger=true)
+cairnshell raw source and runtime image identical: PASS
+cairnshell actual forced fallback stays66x66 and nonempty: PASS
+cairnshell fallback texture pixels unchanged: PASS
+crawdukes raw source and runtime image identical: PASS
+crawdukes actual forced fallback stays66x66 and nonempty: PASS
+crawdukes fallback texture pixels unchanged: PASS
+grubbit raw source and runtime image identical: PASS
+grubbit actual forced fallback stays66x66 and nonempty: PASS
+grubbit fallback texture pixels unchanged: PASS
+gruntle raw source and runtime image identical: PASS
+gruntle actual forced fallback stays66x66 and nonempty: PASS
+gruntle fallback texture pixels unchanged: PASS
+inkhoot raw source and runtime image identical: PASS
+inkhoot actual forced fallback stays66x66 and nonempty: PASS
+inkhoot fallback texture pixels unchanged: PASS
+muskin raw source and runtime image identical: PASS
+muskin actual forced fallback stays66x66 and nonempty: PASS
+muskin fallback texture pixels unchanged: PASS
+ozbender raw source and runtime image identical: PASS
+ozbender actual forced fallback stays66x66 and nonempty: PASS
+ozbender fallback texture pixels unchanged: PASS
+pouchbill raw source and runtime image identical: PASS
+pouchbill actual forced fallback stays66x66 and nonempty: PASS
+pouchbill fallback texture pixels unchanged: PASS
+rinsepaw raw source and runtime image identical: PASS
+rinsepaw actual forced fallback stays66x66 and nonempty: PASS
+rinsepaw fallback texture pixels unchanged: PASS
+skimlet raw source and runtime image identical: PASS
+skimlet actual forced fallback stays66x66 and nonempty: PASS
+skimlet fallback texture pixels unchanged: PASS
+slipjaw raw source and runtime image identical: PASS
+slipjaw actual forced fallback stays66x66 and nonempty: PASS
+slipjaw fallback texture pixels unchanged: PASS
+stillwade raw source and runtime image identical: PASS
+stillwade actual forced fallback stays66x66 and nonempty: PASS
+stillwade fallback texture pixels unchanged: PASS
+swaphoard raw source and runtime image identical: PASS
+swaphoard actual forced fallback stays66x66 and nonempty: PASS
+swaphoard fallback texture pixels unchanged: PASS
+valvekin raw source and runtime image identical: PASS
+valvekin actual forced fallback stays66x66 and nonempty: PASS
+valvekin fallback texture pixels unchanged: PASS
+wayling raw source and runtime image identical: PASS
+wayling actual forced fallback stays66x66 and nonempty: PASS
+wayling fallback texture pixels unchanged: PASS
+wickglow raw source and runtime image identical: PASS
+wickglow actual forced fallback stays66x66 and nonempty: PASS
+wickglow fallback texture pixels unchanged: PASS
+gruntle current crew directional set remains available: PASS
+mirekit current crew directional set remains available: PASS
+whinet current crew directional set remains available: PASS
+Private team save untouched: PASS
+ARENA FRONTS RESULT 52 checks / 0 failures

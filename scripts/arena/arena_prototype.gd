@@ -19,7 +19,7 @@ extends Node2D
 ## Stormwick's kit, second version (Preston, same evening): Flashstep has invulnerability
 ## frames; Lantern Volley's balls bounce off the arena edge like ping-pong balls and MARK what
 ## they hit (creatures, rocks, crates); his passive lets him teleport in a flash of light to
-## anything marked; the third ability (placeholder name Lantern Tackle) zips between marked
+## anything marked; the third ability, Lantern Relay (Lantern Tackle was the placeholder), zips between marked
 ## enemies, invulnerable, striking each, for a fixed time whether there is one target or
 ## several, and you pick where to land (left/right while it runs). Crates stand in the arena
 ## so there is always something to mark and teleport to in a pinch.
@@ -120,7 +120,7 @@ const KITS := {
 		"passive": "lantern_charge", "profile": "skirmish"},
 	# Stormwick (Preston, 2026-10-07): an agile melee attacker like Pikachu against Onix in the
 	# reference: pounce in, strike, bounce out. 1 Ember Feint (replaced Flashstep 2026-10-08),
-	# 2 Lantern Volley (hops back, fires the bouncing marking balls), 3 Lantern Tackle (the zip
+	# 2 Lantern Volley (hops back, fires the bouncing marking balls), 3 Lantern Relay (Lantern Tackle was the placeholder; the zip
 	# between marks). Passive Lantern Mark. 4 Stormlantern.
 	"stormwick": {"role": "Skirmisher", "moves": ["pounce"], "abilities": ["ember_feint", "lantern_volley", "lantern_tackle"], "speed": 1.4,
 		"passive": "lantern_mark", "profile": "skirmish"},
@@ -134,7 +134,7 @@ const KITS := {
 		"passive": "rampart", "profile": "press"},
 	# Rampartroot (Preston, 2026-10-07 night): a slow-moving tank. Basic Seed Pod; 1 Tail Club
 	# (a club swing with its tail that knocks back), 2 Root Snare, 3 Root Rampart (the old
-	# signature, shrunk to an ability). 4 Verdant Roar, the new signature (placeholder name).
+	# signature, shrunk to an ability). 4 Verdant Roar, the new signature.
 	"rampartroot": {"role": "Tank", "moves": ["seed"], "abilities": ["club_slam", "root_snare", "root_rampart"], "speed": 0.6, "hp": 1.7,
 		"passive": "rampart", "profile": "press"},
 	# Scourmaw line (Tide, then Tide/Hollow).
@@ -249,7 +249,7 @@ const MOVES := {
 	# teleported in place, and it never fit a stage 1). The move stays defined for the old
 	# checks; no kit uses it.
 	"flashstep": {"name": "Flashstep", "damage": 3, "cooldown": 3.0, "range": 0.0, "mobility": true, "charges": 3},
-	# Ember Feint (placeholder name): the skirmisher hops back out of reach, untouchable for the
+	# Ember Feint: the skirmisher hops back out of reach, untouchable for the
 	# hop, and leaves burning embers where it stood, so whoever chases it walks through fire.
 	# Two charges. Works at the wall: it picks the best open direction, not only straight back.
 	"ember_feint": {"name": "Ember Feint", "damage": 3, "cooldown": 5.0, "range": 0.0, "mobility": true, "charges": 2},
@@ -262,7 +262,7 @@ const MOVES := {
 	"pounce": {"name": "Pounce", "damage": 12, "cooldown": 1.4, "range": 58.0},
 	"lantern_volley": {"name": "Lantern Volley", "damage": 7, "cooldown": 6.0, "range": 120.0, "mobility": true},
 	# Placeholder name (Preston: "like Volt Tackle"): teleports between marked enemies, invulnerable.
-	"lantern_tackle": {"name": "Lantern Tackle", "damage": 6, "cooldown": 7.0, "range": 999.0, "mobility": true},
+	"lantern_tackle": {"name": "Lantern Relay", "damage": 6, "cooldown": 7.0, "range": 999.0, "mobility": true},
 	# The Rimefin line (Tide, Hollow as silt). Phase and Deep Jet stay defined for old data and
 	# checks but no kit carries them (2026-10-09).
 	"needle_bite": {"name": "Needle Bite", "damage": 11, "cooldown": 1.0, "range": 30.0},
@@ -1537,7 +1537,7 @@ func _dash(i: int, dir: Vector2, seconds: float, invuln: float) -> bool:
 
 
 ## Your order to your creature: the next (or previous) living enemy, by position left to
-## right. During a Lantern Tackle it picks the landing spot instead.
+## right. During a Lantern Relay (Lantern Tackle was the placeholder) it picks the landing spot instead.
 func _cycle_target(step: int) -> void:
 	var me: Dictionary = _fighters[controlled]
 	if not me["tackle"].is_empty():
@@ -4070,7 +4070,7 @@ func _mark_spot(i: int) -> Vector2:
 	return best
 
 
-## Lantern Tackle in flight: every TACKLE_HOP it flashes to the next marked enemy (alternating
+## Lantern Relay (Lantern Tackle was the placeholder) in flight: every TACKLE_HOP it flashes to the next marked enemy (alternating
 ## sides of a lone target, so it reads as back and forth), strikes it, and leaves an arrow of
 ## light between the two spots. When the time is up it lands at the chosen spot.
 func _update_tackle(i: int, delta: float) -> void:

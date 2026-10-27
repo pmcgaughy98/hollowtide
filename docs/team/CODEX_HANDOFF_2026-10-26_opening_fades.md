@@ -1,0 +1,11 @@
+# A3: smooth white-out handoffs through black
+
+October 26, 2026. **White-out slice complete/installed.** Storm and soul use the existing shared black fade around real scene swaps. Two-frame light hold, about10-frame normal fades, halved by the shared saved Reduce motion helper. Storm final bloom capped0.4 under Reduce motion; prior soul/lightning caps intact. The soul draws two frames before revealing, with input blocked until the reveal finishes. At the bank, the shared cover hands off to Claude's existing opaque build veil and existing reveal; creature_prologue.gd untouched.
+
+Native baseline10/10 clean; installed34/34 clean for normal/reduced natural handoffs and actual two-press skips. Largest sampled normal falling brightness steps drop from0.8845 to0.1020 (Storm) and0.8323 to0.0864 (soul). Actual current_scene changes covered, bank construction covered, hero/pending partner choice/settings intact, dialogue starts and private save bytes exact. Official storm_open/soul_prologue/opening_flow3 PASS, exit0; known raw exit warnings retained. [Frame sequences, luminance CSV, originals, commands and diff](../ui/opening-fades-2026-10-26/README.md).
+
+Only two owned opening scripts changed. Non-current-scene metadata hooks keep their check behavior and are not the fade proof; the current-scene fixture is. Initial baseline fixture's provisional-partner assumption corrected to match the existing bank's story choice setup; failed attempt retained, no gameplay fix for that assertion. Critical story/input/lightning/flash-decay methods preserved; shared helpers and bank match baseline. Claude/Grok concurrent changes preserved. Private profiles/saves only; no assets/generation/paid call/rules/Route1/message/commit.
+
+Source issues for Claude: no new fade-path issue. Dedicated October26 queue says through black, superseding older pass6 'no black frame' wording; the black is deliberate and continuous. C7/A1/A2/logo-repeat work already done. A3's C8 cards/sounds/choice guard/hint contrast, C9 bar/band/shafts and Storm pixel light remain pending. C6 OFF awaiting words, town/exterior art HOLD. No cross-chat message sent.
+
+Next: C9 top bar/grey band and soft light-shaft edges, one checked slice.

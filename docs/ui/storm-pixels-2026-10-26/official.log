@@ -1,0 +1,10 @@
+2 checks, 1 at a time, logs in D:\dev\hollowtide-storm-pixels-20261026\runner
+  PASS     opening_flow_check                  5.3s  
+  PASS     storm_open_check                    2.3s  
+
+RESULT   CHECK                              SECS  EXIT  FIRST PROBLEM OR NOTE
+PASS     opening_flow_check                  5.3     0  
+PASS     storm_open_check                    2.3     0  
+
+PASS 2
+exit 0: nothing failed

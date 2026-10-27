@@ -1,0 +1,68 @@
+{
+	"alpha": "binary",
+	"anchor": [
+		15,
+		19
+	],
+	"anchor_mode": "foot",
+	"area": "town",
+	"brief": "A hemp rope slung between two stakes across a closed gate.",
+	"census": "B18",
+	"checks": [
+		"C1",
+		"C12",
+		"C2",
+		"C3",
+		"C4",
+		"C5",
+		"C7",
+		"C8",
+		"C9"
+	],
+	"drawn_at": 3,
+	"edges": [
+		"left",
+		"right",
+		"bottom"
+	],
+	"file": "res://assets/slots/town/prop/shut_rope.png",
+	"forbid": [
+		"text",
+		"creature",
+		"franchise"
+	],
+	"frames": 1,
+	"id": "town.prop.shut_rope",
+	"kind": "prop",
+	"lane": "B",
+	"legacy": "",
+	"light": "upper_left",
+	"notes": "placeholder: today's code (building_exteriors.gd rope_image); the stakes stand on its left and right edges; v1 and v2 both draw this slot",
+	"outline": "drawn",
+	"owner": "grok",
+	"palette": {
+		"family": "town_timber",
+		"lock": false,
+		"max": 24,
+		"source": "res://assets/slots/palettes/town_timber.png"
+	},
+	"placeholder": "res://scripts/town/building_exteriors.gd:slot_shut_rope",
+	"rows": 1,
+	"sheet_size": [
+		30,
+		20
+	],
+	"size": [
+		30,
+		20
+	],
+	"slot_file": "town_buildings",
+	"states": {
+		"static": [
+			1,
+			0
+		]
+	},
+	"status": "placeholder",
+	"tiling": "none"
+}

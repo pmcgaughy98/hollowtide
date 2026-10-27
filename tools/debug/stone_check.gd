@@ -51,6 +51,7 @@ func _town() -> Node2D:
 	town.poll_input = false
 	root.add_child(town)
 	await _frames(6)
+	town.enter_area(town.Layout.area_of("shrine"), "shrine")   # Highbank v2: the place's area first (lane A, Claude, 2026-10-26)
 	var shrine: Dictionary = town.Layout.PLACES.filter(func(p: Dictionary) -> bool: return p["id"] == "shrine")[0]
 	town.team[0]["pos"] = shrine["door"]
 	town._place(town.team[0])

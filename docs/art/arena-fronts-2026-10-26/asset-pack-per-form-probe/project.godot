@@ -1,0 +1,16 @@
+config_version=5
+[application]
+config/name="C22 asset-only pack probe"
+run/main_scene="res://main.tscn"
+[rendering]
+renderer/rendering_method="gl_compatibility"
+[importer_defaults]
+
+
+texture={
+"compress/mode": 0,
+"detect_3d/compress_to": 0,
+"mipmaps/generate": false,
+"process/fix_alpha_border": false
+}
+

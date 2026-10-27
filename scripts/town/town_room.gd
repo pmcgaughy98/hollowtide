@@ -46,7 +46,7 @@ const ROOMS := {
 	# doorway in the Hall art are centred on x 264, the line between tiles 10 and 11, and only tile 11 opened, so a
 	# leader walking down the carpet's left half met a wall at the threshold. The door tile moved to 10 with it, so the
 	# team comes in on the carpet's middle (leader on 10, the others filling 10 to 12 behind), not off its right edge.
-	"hall": {"name": "Wayline Hall", "w": 22, "h": 14, "door": Vector2i(10, 13), "town_door": "hall", "exit_rect": Rect2i(10, 13, 2, 1),
+	"hall": {"name": "Wayline Tower", "w": 22, "h": 14, "door": Vector2i(10, 13), "town_door": "hall", "exit_rect": Rect2i(10, 13, 2, 1),
 		"solid": [Rect2i(7, 3, 8, 2), Rect2i(2, 2, 2, 1), Rect2i(18, 2, 2, 1), Rect2i(3, 6, 1, 1), Rect2i(18, 6, 1, 1), Rect2i(3, 10, 1, 1), Rect2i(18, 10, 1, 1),
 			Rect2i(1, 8, 1, 3), Rect2i(20, 8, 1, 3), Rect2i(5, 7, 2, 2), Rect2i(15, 7, 2, 2), Rect2i(2, 12, 2, 1), Rect2i(18, 12, 2, 1),
 			Rect2i(4, 6, 1, 1), Rect2i(17, 6, 1, 1)],
@@ -66,16 +66,16 @@ const ROOMS := {
 	# The Hall floor, below the work floor (Claude, 2026-10-10; Preston chose two floors, like Sky's guild:
 	# public work upstairs, the Guildmaster's chamber, the morning roll call, crew rooms and the mess hall
 	# below). Taken from Sky as structure only. Names and lines are Claude's drafts for Preston.
-	"hall_low": {"name": "Wayline Hall, lower floor", "w": 30, "h": 18, "door": Vector2i(-1, -1), "landing": Vector2i(24, 14), "hint": "Stairs up, bottom right",
+	"hall_low": {"name": "Wayline Tower, lower floor", "w": 30, "h": 18, "door": Vector2i(-1, -1), "landing": Vector2i(24, 14), "hint": "Stairs up, bottom right",
 		"solid": [Rect2i(9, 5, 1, 1), Rect2i(20, 5, 1, 1), Rect2i(9, 12, 1, 1), Rect2i(20, 12, 1, 1), Rect2i(3, 12, 6, 2),
 			Rect2i(12, 2, 1, 1), Rect2i(17, 2, 1, 1), Rect2i(27, 2, 1, 1), Rect2i(1, 8, 1, 2)],
 		"spots": [
 			{"id": "chamber_door", "rect": Rect2i(14, 1, 2, 1), "name": "Postmaster's Chamber", "what": "Starward's door."},
 			{"id": "rollcall", "rect": Rect2i(12, 7, 6, 4), "name": "Sorting Floor", "what": "The Wayline's mark, set in brass. Every morning the mail is sorted round it and the routes go out."},
 			{"id": "duty", "rect": Rect2i(9, 1, 2, 1), "name": "Duty Board", "what": "Today's duties: the door watch, the kitchen, the sweeping. Your names aren't on it yet."},
-			{"id": "window_w", "rect": Rect2i(3, 1, 2, 1), "name": "River Window", "what": "The Hall is cut into the bank. Through the glass the river runs a long way down."},
+			{"id": "window_w", "rect": Rect2i(3, 1, 2, 1), "name": "River Window", "what": "The Tower is cut into the bank. Through the glass the river runs a long way down."},
 			{"id": "window_e", "rect": Rect2i(25, 1, 2, 1), "name": "River Window", "what": "Rain on the glass, and the far bank green after the flood."},
-			{"id": "crew_room", "rect": Rect2i(0, 5, 1, 2), "name": "Crew Room", "what": "Bunks for the Hall's crew. Someone is snoring."},
+			{"id": "crew_room", "rect": Rect2i(0, 5, 1, 2), "name": "Crew Room", "what": "Bunks for the Tower's crew. Someone is snoring."},
 			{"id": "runners_room", "rect": Rect2i(29, 5, 1, 2), "name": "Runners' Room", "what": "Runners only. The door is locked.",
 				"what_if": ["runner", "Your bunks now. Rest here or go on."]},
 			{"id": "mess", "rect": Rect2i(3, 12, 6, 2), "name": "Mess Hall", "what": "The long table. Supper is at the end of the day, for whoever made it back."},
@@ -86,7 +86,7 @@ const ROOMS := {
 			{"rect": Rect2i(29, 5, 1, 2), "to": "runners", "at": Vector2i(1, 5), "facing": "e", "sfx": "door", "needs": "runner"}]},
 	# The runners' room, off the lower floor's east side: the team's own bunks once Starward names them
 	# runners (Preston, 2026-10-10: "definitely want runners room"). Sky gives its hero a room in the guild.
-	"runners": {"name": "Runners' Room", "w": 14, "h": 10, "door": Vector2i(-1, -1), "landing": Vector2i(1, 5), "hint": "The door leads back to the Hall",
+	"runners": {"name": "Runners' Room", "w": 14, "h": 10, "door": Vector2i(-1, -1), "landing": Vector2i(1, 5), "hint": "The door leads back to the Tower",
 		"solid": [Rect2i(3, 2, 2, 2), Rect2i(8, 2, 2, 2), Rect2i(11, 7, 2, 1), Rect2i(12, 4, 1, 2)],
 		"spots": [
 			{"id": "bed", "rect": Rect2i(3, 2, 2, 2), "name": "Your Bunk", "what": "Moss and a wool blanket. Rest here and the day ends: the team wakes up whole."},
@@ -104,8 +104,24 @@ const ROOMS := {
 			{"id": "map", "rect": Rect2i(3, 1, 4, 1), "name": "The Whole River", "what": "Every Hollow the Wayline knows, from the springs to the sea. Most of the map is still blank."},
 			{"id": "window", "rect": Rect2i(10, 1, 4, 1), "name": "Window", "what": "The whole of Highbank's bank below, and the river past it."},
 			{"id": "keepsakes", "rect": Rect2i(1, 2, 1, 1), "name": "Keepsakes", "what": "Old satchels, a cracked lantern, a medal shaped like a star."},
-			{"id": "books", "rect": Rect2i(15, 2, 1, 1), "name": "Ledgers", "what": "Every delivery the Hall has ever made, in Wayling's small neat hand."}],
+			{"id": "books", "rect": Rect2i(15, 2, 1, 1), "name": "Ledgers", "what": "Every delivery the Tower has ever made, in Wayling's small neat hand."}],
 		"links": [{"rect": Rect2i(7, 10, 3, 1), "to": "hall_low", "at": Vector2i(14, 3), "facing": "s", "sfx": "door"}]},
+	# The Item Shop and the Scroll Keeper's cellar (Claude, 2026-10-26, placeholder factory lane R; plan call 5): rooms
+	# painted as placeholders (room_painter.gd _plain, FURNITURE) while their doors in Highbank stay shut (hub_town.gd
+	# SHUT), so only a debug scene comes in. Each the shape of its art slots: the shop 14 x 10 tiles, the cellar 12 x 9;
+	# the shelves, racks, counter and table are Grok's slots. Names and lines are Claude's working drafts.
+	"shop": {"name": "Item Shop", "w": 14, "h": 10, "door": Vector2i(7, 9), "town_door": "shop",
+		"solid": [Rect2i(1, 2, 2, 1), Rect2i(11, 2, 2, 1), Rect2i(5, 4, 4, 2)],
+		"spots": [
+			{"id": "shop_counter", "rect": Rect2i(5, 4, 4, 2), "name": "Counter", "what": "Huh, nobody's minding the counter. A card on it says they're out restocking."},
+			{"id": "shelf_w", "rect": Rect2i(1, 2, 2, 1), "name": "Shelves", "what": "Bare shelves, and clean squares in the dust where the stock sat."},
+			{"id": "shelf_e", "rect": Rect2i(11, 2, 2, 1), "name": "Shelves", "what": "Bare shelves, and clean squares in the dust where the stock sat."}]},
+	"scrolls_cellar": {"name": "Scroll Keeper's Cellar", "w": 12, "h": 9, "door": Vector2i(6, 8), "town_door": "scrolls",
+		"solid": [Rect2i(1, 2, 2, 1), Rect2i(9, 2, 2, 1), Rect2i(5, 4, 2, 1)],
+		"spots": [
+			{"id": "rack_w", "rect": Rect2i(1, 2, 2, 1), "name": "Scroll Racks", "what": "Pigeonholes of rolled scrolls, every one tagged in tiny, careful writing."},
+			{"id": "rack_e", "rect": Rect2i(9, 2, 2, 1), "name": "Scroll Racks", "what": "Pigeonholes of rolled scrolls, every one tagged in tiny, careful writing."},
+			{"id": "reading", "rect": Rect2i(5, 4, 2, 1), "name": "Reading Table", "what": "Oh, one's left open, held flat by two river stones. The Keeper's not taking callers yet."}]},
 }
 const STAIRS_DOWN := Rect2i(14, 10, 2, 2)   # on the Hall's work floor, right of the runner
 # The bed (Claude, 2026-10-22, GS-10): the line on the panel when the screen comes back up, and the fade.
@@ -455,7 +471,7 @@ static func prepare(id: String) -> void:
 ## Whether room `id` builds without painting: its picture and furniture are kept (the Storage's are loaded art), and in
 ## the Hall the Guildmaster's desk too (pass 8 R8).
 static func prepared(id: String) -> bool:
-	return id == "storage" or not ROOMS.has(id) or (_pictures.has(id) and _lift_shapes.has(id) and (id != "hall" or not _desk_art.is_empty() or not UI.res_exists(DESK)))
+	return id == "storage" or not ROOMS.has(id) or (_pictures.has(id) and _lift_shapes.has(id) and (id != "hall" or not _desk_art.is_empty() or not RoomSlots.real(DESK_SLOT)))
 
 
 ## [texture, finish material, furniture pieces, desk art] for room `id`, made without touching this script's caches, so
@@ -483,9 +499,12 @@ static func keep_prepared(id: String, parts: Array) -> void:
 
 
 ## Whether the rooms' art can be read off the main thread: UI.res_image there finds only a PNG on disk, which the
-## project has and an exported game does not (it carries the imported textures alone).
+## project has and an exported game does not (it carries the imported textures alone). Since the rooms' art became
+## slots (Claude, 2026-10-26, placeholder factory lane R) this reads the Hall's slot, its file or today's: on the main
+## thread, so ArtSlots has read its registry before a worker thread asks it anything (room_slots.gd).
 static func art_off_main() -> bool:
-	return FileAccess.file_exists(preload("res://scripts/town/hall_room_art.gd").ART)
+	var hall := ArtSlots.spec(preload("res://scripts/town/hall_room_art.gd").SLOT)
+	return FileAccess.file_exists(String(hall.get("file", ""))) or FileAccess.file_exists(String(hall.get("legacy", "")))
 
 
 ## The team record the town carries (scripts/town/team_state.gd).
@@ -554,14 +573,15 @@ func _make(line: int, stage: int, pos: Vector2i) -> Dictionary:
 ## tiles (rows 3 and 4; Preston: "he still goes through it, make it a real obstacle") and row 2 behind it is
 ## open floor. Creatures sort by their feet (z = y): the desk draws over row 2 (feet 66) and under row 5 (138).
 const DESK_AT := Vector2i(168, 70)
-const DESK := "res://assets/sprites/world/guild_desk/desk_detail_2026_10_10.png"
+const DESK_SLOT := "town.prop.hall.desk"   # its art slot (lane R, 2026-10-26): today's desk_detail_2026_10_10.png
+const RoomSlots := preload("res://scripts/town/room_slots.gd")
 const OLD_COUNTER := Rect2i(160, 46, 208, 54)
 
 
 ## The painted counter out of the Hall picture, and its ink outline out of the finish's mask, when the desk art is
 ## there to stand in its place. Part of the first paint, so the kept picture has it already (RM9).
 static func _clear_counter(map: Sprite2D) -> void:
-	if not UI.res_exists(DESK):
+	if not RoomSlots.real(DESK_SLOT):
 		return
 	var img: Image = map.texture.get_image()
 	var carpet := Vector2i(226, 302)   # the carpet's columns; stone is taken from beside it there
@@ -577,10 +597,10 @@ static func _clear_counter(map: Sprite2D) -> void:
 		mat.set_shader_parameter("detail_mask", ImageTexture.create_from_image(mask))
 
 
-## The desk sprite itself, its picture and finish made once a session (RM9). The picture comes through
-## UI.res_image, which reads the imported texture an exported game has (Claude, 2026-10-24, pass 5 RM10).
+## The desk sprite itself, its picture and finish made once a session (RM9). The picture comes through its art slot
+## (room_slots.gd), which reads the imported texture an exported game has (Claude, 2026-10-24, pass 5 RM10).
 func _guild_desk() -> void:
-	if not UI.res_exists(DESK):
+	if not RoomSlots.real(DESK_SLOT):
 		return
 	if _desk_art.is_empty():
 		_desk_art = _make_desk_art()
@@ -599,11 +619,9 @@ func _guild_desk() -> void:
 ## [the desk's sel-out picture, its finish], or [] without the art. Touches no cache, so prepared_parts can make it on
 ## the town's worker thread (pass 8 R8); _guild_desk makes it here when the Hall is entered before that.
 static func _make_desk_art() -> Array:
-	if not UI.res_exists(DESK):
+	if not RoomSlots.real(DESK_SLOT):
 		return []
-	var desk_image := UI.res_image(DESK)
-	if desk_image == null:
-		return []
+	var desk_image := RoomSlots.image(DESK_SLOT)
 	var desk_mask := Image.create(desk_image.get_width(),desk_image.get_height(),false,Image.FORMAT_RGBA8)
 	desk_mask.fill(Color.WHITE)
 	var desk_finish := ShaderMaterial.new()
@@ -669,7 +687,7 @@ static func _furniture_shapes(id: String) -> Array:
 	var out: Array = []
 	for s in ROOMS[id]["solid"]:
 		var rect: Rect2i = s
-		if id == "hall" and rect == Rect2i(7, 3, 8, 2) and UI.res_exists(DESK):
+		if id == "hall" and rect == Rect2i(7, 3, 8, 2) and RoomSlots.real(DESK_SLOT):
 			continue   # the Guildmaster's desk sorts itself
 		var tiles := Rect2i(rect.position * T, rect.size * T)
 		var stands: Array = props.filter(func(p: Array) -> bool:
@@ -698,7 +716,8 @@ static func _furniture_shapes(id: String) -> Array:
 	return out
 
 
-## The prop sprites painted into this room's picture, with where they were painted: [[rect, Image], ...].
+## The prop sprites painted into this room's picture, with where they were painted: [[rect, Image], ...]. The shut
+## rooms' furniture joined on 2026-10-26 (lane R): room_painter.gd FURNITURE, Grok's slots.
 static func _room_props(id: String) -> Array:
 	var out: Array = []
 	if id == "hall":
@@ -710,7 +729,8 @@ static func _room_props(id: String) -> Array:
 	if floors.PROPS.has(id) and floors.available(id):
 		for p in floors.PROPS[id]:
 			if not LIFT_FLAT.any(func(w: String) -> bool: return String(p[0]).contains(w)):
-				out.append([p[1], floors._prop(p)])
+				out.append([p[1], floors._prop(p, id)])
+	out.append_array(Painter.furniture(id))
 	return out
 
 
@@ -985,7 +1005,7 @@ func _starward_lines() -> Array:
 		return [["Starward", "Runners of the Wayline. The river is longer than any map in this room. Go and see it.", "happy"]]
 	if String(story.get("parcel", "")) == "stolen":
 		return [["Starward", "Rootbank Warren. Gruntle's crew went to ground there. Bring the parcel home.", "determined"]]
-	return [["Starward", "The Hall is open to anyone who carries for it.", "normal"]]
+	return [["Starward", "The Tower is open to anyone who carries for it.", "normal"]]
 
 
 ## Back out to Highbank, standing on this building's door. Black first, then Highbank is built (Claude,

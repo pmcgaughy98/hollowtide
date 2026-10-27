@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=18
+type="Resource"
+uid="uid://froix37waw5t"
+path="res://.godot/imported/tower_reveal.dialogue-e4b2544dcdb00be517c2d25e001e5ff0.tres"
+
+[deps]
+
+source_file="res://dialogue/tower_reveal.dialogue"
+dest_files=["res://.godot/imported/tower_reveal.dialogue-e4b2544dcdb00be517c2d25e001e5ff0.tres"]
+
+[params]
+
+defaults=true

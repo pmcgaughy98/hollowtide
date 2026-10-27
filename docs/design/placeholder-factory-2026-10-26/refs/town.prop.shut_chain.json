@@ -1,0 +1,64 @@
+{
+	"alpha": "binary",
+	"anchor": [
+		14,
+		35
+	],
+	"anchor_mode": "foot",
+	"area": "town",
+	"brief": "An iron chain and brass padlock hung across a shut door.",
+	"census": "B18",
+	"checks": [
+		"C1",
+		"C12",
+		"C2",
+		"C3",
+		"C4",
+		"C5",
+		"C7",
+		"C8",
+		"C9"
+	],
+	"drawn_at": 3,
+	"edges": "bottom",
+	"file": "res://assets/slots/town/prop/shut_chain.png",
+	"forbid": [
+		"text",
+		"creature",
+		"franchise"
+	],
+	"frames": 1,
+	"id": "town.prop.shut_chain",
+	"kind": "prop",
+	"lane": "B",
+	"legacy": "",
+	"light": "upper_left",
+	"notes": "placeholder: today's code (building_exteriors.gd _chain_image); v1 and v2 both draw this slot",
+	"outline": "drawn",
+	"owner": "grok",
+	"palette": {
+		"family": "town_timber",
+		"lock": false,
+		"max": 24,
+		"source": "res://assets/slots/palettes/town_timber.png"
+	},
+	"placeholder": "res://scripts/town/building_exteriors.gd:slot_shut_chain",
+	"rows": 1,
+	"sheet_size": [
+		28,
+		36
+	],
+	"size": [
+		28,
+		36
+	],
+	"slot_file": "town_buildings",
+	"states": {
+		"static": [
+			1,
+			0
+		]
+	},
+	"status": "placeholder",
+	"tiling": "none"
+}

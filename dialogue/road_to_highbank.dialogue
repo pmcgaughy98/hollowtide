@@ -4,6 +4,12 @@
 # Same rules as flood_bank.dialogue: "Name: line" is spoken, a bare line is narration, [#face] picks the
 # portrait, "- " lines are choices. "do walk_on()" moves the two of you a stretch further up the trail.
 # How we write: docs/design/dialogue-voice-guide.md.
+# Claude, 2026-10-26 (placeholder factory lane S): split into beats. "start" plays on the dawn bank
+# (scripts/mouth_escape.gd); each title after it plays on the road up to Highbank (scripts/story/route_scene.gd,
+# scenes/road_to_highbank.tscn) when the party reaches its spot on the trail, and the party strolls on while a line is
+# up, so the old "do walk_on()" steps are gone. Every line from before is kept word for word and in order. Lines
+# under a "NEW, proposal" comment are Claude's proposals in the St. Joseph voice, for Preston to keep, change or cut:
+# the lost parcel in the mud and the view from the rise.
 
 ~ start
 You come up out of the dark into gray morning light. The rain has quit.
@@ -19,15 +25,21 @@ The river has gone down to a sulk.
 - Is the parcel okay?
 	{{partner_name}}: [#joyous] Dry as a bone. Don't ask me how, but I'm not complaining.
 {{partner_name}}: [#determined] C'mon. Highbank's up the south trail. Walk with me, I'll fill you in on the way.
-do walk_on()
+=> END
+
+~ trail_bluff
+# By the washed-out ferry sign.
 {{partner_name}}: [#happy] So. Highbank sits way up on the bluff, so the water never gets it.
 {{partner_name}}: [#happy] Every town on this river leans on it.
 {{partner_name}}: Down here the roads wash out every spring.
 {{partner_name}}: Only way anything gets anywhere is if somebody carries it.
 {{partner_name}}: [#joyous] That's the Wayline. Couriers. Runners, we call 'em.
 {{partner_name}}: [#joyous] Mail, medicine, seed, whatever needs going, a runner takes it. Through a Hollow if they have to.
-do walk_on()
-{{partner_name}}: [#happy] The Wayline Hall's right in the middle of town. Starward runs it. The Postmaster.
+=> END
+
+~ trail_tower
+# At the Wayline waymark post.
+{{partner_name}}: [#happy] The Wayline Tower's right in the middle of town. Starward runs it. The Postmaster.
 - You want to be a runner.
 	{{partner_name}}: [#sad] ...Is it that obvious? Yeah. Since I was little.
 - So you're a runner?
@@ -36,7 +48,15 @@ do walk_on()
 {{partner_name}}: [#worried] You run with a partner or you don't run.
 {{partner_name}}: [#sad] And every runner's already paired up.
 {{partner_name}}: [#sad] Nobody wants the trainee who's never carried a thing.
-do walk_on()
+=> END
+
+~ trail_parcel
+# NEW, proposal (Claude, 2026-10-26): a lost parcel half sunk in the mud. The lines from before follow it.
+A parcel sits half sunk in the mud at the edge of the trail, its twine gone black with river water.
+{{partner_name}}: [#sad] Aw, no. Look at that.
+{{partner_name}}: [#sad] Somebody's letter, I bet. Floated down from who knows where.
+{{partner_name}}: [#worried] No mark on it I can read. Whoever's waiting on that one is still waiting.
+# From before.
 {{partner_name}}: [#determined] But this right here is Wayline mail I pulled out of a flood.
 {{partner_name}}: [#determined] If I walk it through that door myself, they gotta take me serious.
 {{partner_name}}: [#worried] ...Only I'd need a partner standing next to me when I do it.
@@ -47,11 +67,22 @@ do walk_on()
 	{{partner_name}}: [#joyous] For real? You're not just saying that? ...Okay. Okay! Partners!
 - Let's see how it goes.
 	{{partner_name}}: [#happy] That's fair. That's fair. I'll grow on you.
-do walk_on()
+=> END
+
+~ trail_crew
 {{partner_name}}: [#worried] One thing, though. Up there, keep an eye on this parcel.
 {{partner_name}}: [#worried] Not everybody who carries mail carries it honest.
 {{partner_name}}: [#angry] There's a bunch that call themselves the Shortcut Crew.
 {{partner_name}}: [#angry] They'll take a job right out of your hands and sell it back to you.
 {{partner_name}}: [#happy] But hey. What are the odds, right?
+=> END
+
+~ rise
+# On the rise, the held view of Highbank below. The first line is from before.
 The trail climbs. Up ahead, Highbank's roofs catch the first of the sun.
+# NEW, proposal (Claude, 2026-10-26): the view from the rise.
+The trees open. Down below, Highbank's lamps are going out one by one, and chimney smoke climbs straight up.
+And over all of it stands a tower, taller than anything you've ever seen.
+{{partner_name}}: [#joyous] ...Every time. Every single time, that thing gets me.
+{{partner_name}}: [#happy] That's the Wayline Tower. On a clear day you can see it three bends down the river.
 => END

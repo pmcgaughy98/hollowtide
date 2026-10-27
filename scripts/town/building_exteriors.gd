@@ -2,6 +2,7 @@ extends Node2D
 ## Finished service exteriors only. Layout, interactions and carried state belong to the town.
 const Layout = preload("res://scripts/town/town_layout.gd")
 const Finish = preload("res://scripts/town/exterior_finish.gd")
+const Template = preload("res://scripts/town/building_template.gd")
 const SOURCES = {
 	"scrolls": "res://assets/sprites/world/scroll_cellar_2026_10_10/scroll_native.png",
 	"storage": "res://assets/sprites/world/storage_2026_10_10/storage_native.png",
@@ -87,27 +88,15 @@ static func attach(parent: Node2D, host: Node2D) -> Node2D:
 	return view
 
 func _ready() -> void:
+	if Layout.v2():
+		show_area(Layout.area())   # Highbank v2: the building template and the art slots (Claude, 2026-10-26)
+		return
 	for place in Layout.PLACES:
 		var id: String = place["id"]
 		if not available(id):
 			continue
-		if id in ["lookout", "landing", "dock"]:
-			buildings[id] = load("res://scripts/town/landmark_exteriors.gd").attach(self, town, id)
-			continue
-		if id == "gate":
-			buildings[id] = load("res://scripts/town/hollow_mouth_painter.gd").attach(self, town)
-			continue
-		if id == "plaza":
-			buildings[id] = load("res://scripts/town/crossroads_painter.gd").attach(self, town)
-			continue
-		if id == "board":
-			buildings[id] = load("res://scripts/town/job_board_painter.gd").attach(self, town)
-			continue
-		if id == "yard":
-			buildings[id] = load("res://scripts/town/training_yard_painter.gd").attach(self, town)
-			continue
-		if id == "shrine":
-			buildings[id] = load("res://scripts/town/growth_shrine_painter.gd").attach(self, town)
+		if id in OPEN_AIR:
+			buildings[id] = _attach_open_air(id)
 			continue
 		var r: Rect2i = place["rect"]
 		var base := Node2D.new()
@@ -164,10 +153,94 @@ func _ready() -> void:
 			shut.centered = false
 			shut.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
 			shut.position = door.position
-			shut.texture = ImageTexture.create_from_image(_chain_image() if id == "scrolls" else _boards_image(frames[0].get_image()))
+			# The chain is a slot (town.prop.shut_chain) whose placeholder is _chain_image(); the boards stay cut to this
+			# door's own opening in v1 (Claude, 2026-10-26, placeholder factory).
+			shut.texture = ArtSlots.texture("town.prop.shut_chain") if id == "scrolls" else ImageTexture.create_from_image(_boards_image(frames[0].get_image()))
 			base.add_child(shut)   # after the door, so it draws over it
 	if buildings.has("yard"):
 		_rope_across_yard()
+
+
+## The open-air places: low pictures under the creatures, drawn by their own painters (Claude, 2026-10-26: one list
+## for v1 and v2; the calls are the ones _ready made before).
+const OPEN_AIR := ["lookout", "landing", "dock", "gate", "plaza", "board", "yard", "shrine"]
+
+
+func _attach_open_air(id: String) -> Dictionary:
+	if id in ["lookout", "landing", "dock"]:
+		return load("res://scripts/town/landmark_exteriors.gd").attach(self, town, id)
+	match id:
+		"gate":
+			return load("res://scripts/town/hollow_mouth_painter.gd").attach(self, town)
+		"plaza":
+			return load("res://scripts/town/crossroads_painter.gd").attach(self, town)
+		"board":
+			return load("res://scripts/town/job_board_painter.gd").attach(self, town)
+		"yard":
+			return load("res://scripts/town/training_yard_painter.gd").attach(self, town)
+		"shrine":
+			return load("res://scripts/town/growth_shrine_painter.gd").attach(self, town)
+	return {}
+
+
+## Highbank v2 (Claude, 2026-10-26, placeholder factory lane B): the area's buildings and lots stand on its grid through
+## the building template, each drawn from its art slot (BuildingTemplate.place); the shut overlays are slots; the
+## open-air places the area lists are drawn by their painters at the rects the area gives them. Lane A calls this
+## again with the new area after enter_area, so one node serves every street area.
+func show_area(area: Dictionary) -> void:
+	for c in get_children():
+		remove_child(c)
+		c.queue_free()
+	buildings.clear()
+	for b in area.get("buildings", []):
+		var node: Node2D = Template.place(b, self)
+		if node == null:
+			continue
+		var id := String(b.get("id", ""))
+		var frames: Array = node.get_meta("frames", [])
+		buildings[id] = {"base": node, "sprite": node.get_node_or_null("Exterior"), "door": node.get_node_or_null("Door"),
+			"frames": frames, "phase": 0.0, "frame": 0}
+		if frames.is_empty():
+			buildings[id]["landmark"] = true   # a stall: no door to swing
+		if id in SHUT_IDS:
+			_shut_over(node, id)
+	# A lot shows its before state until the team's record opens it (TownLayout.lot_open, lane A's rule).
+	var rec: Dictionary = town.call("_record") if is_instance_valid(town) and town.has_method("_record") else {}
+	for lot in area.get("lots", []):
+		var entry: Dictionary = lot
+		if lot.has("building") and Layout.lot_open(lot, rec):
+			entry = lot.duplicate()
+			entry["open"] = true
+		var node: Node2D = Template.place(entry, self)
+		if node != null:
+			buildings[String(lot.get("id", ""))] = {"base": node, "landmark": true}
+	var listed := {}
+	for p in area.get("places", []):
+		if String(p.get("kind", "")) != "building":
+			listed[String(p.get("id", ""))] = true
+	for id in OPEN_AIR:
+		if listed.has(id) and not buildings.has(id) and available(id):
+			buildings[id] = _attach_open_air(id)
+	if buildings.has("yard"):
+		_rope_across_yard()
+
+
+## A v2 shut door: the boards slot over a single door, the chain slot across the Scroll Keeper's.
+func _shut_over(node: Node2D, id: String) -> void:
+	var door: Rect2i = node.get_meta("door_px", Rect2i())
+	if door.size.x <= 0:
+		return
+	var shut := Sprite2D.new()
+	shut.name = "Shut"
+	shut.centered = false
+	shut.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
+	if id == "scrolls":
+		shut.texture = ArtSlots.texture("town.prop.shut_chain")
+		shut.position = Vector2(door.position + Vector2i((door.size.x - 28) / 2, door.size.y / 2 - 22))
+	else:
+		shut.texture = ArtSlots.texture("town.prop.shut_boards")
+		shut.position = Vector2(door.position - Vector2i(2, 2))
+	node.add_child(shut)   # after the door, so it draws over it
 
 
 ## The Scroll Keeper's cellar porch (Claude, 2026-10-23, T3 / L23). Its source art draws the porch, lanterns, crates
@@ -279,7 +352,20 @@ static func _chain_image() -> Image:
 ## Two stakes either side of the Yard's gate tile and a rope sagging between them, with a board hung off
 ## it. Sorted with the creatures by its foot, so one standing on the gate reads as stopped at the rope.
 func _rope_across_yard() -> void:
-	var yard: Dictionary = Layout.PLACES.filter(func(p: Dictionary) -> bool: return p["id"] == "yard")[0]
+	var yard: Dictionary = Template.place_entry("yard")
+	var rope := Sprite2D.new()
+	rope.name = "YardRope"
+	rope.centered = false
+	rope.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
+	rope.texture = ArtSlots.texture("town.prop.shut_rope")   # placeholder: rope_image(), today's rope
+	var at: Vector2i = yard["door"] * Layout.T + Vector2i(-3, 6)
+	rope.position = Vector2(at)
+	rope.z_index = at.y + 14   # its foot: in front of a creature on the gate tile, behind one below it
+	add_child(rope)
+
+
+## The rope across the Yard's gate: two stakes and a sagging hemp rope with a board hung off it (30 x 20).
+static func rope_image() -> Image:
 	var w := Layout.T + 6
 	var img := Image.create(w, 20, false, Image.FORMAT_RGBA8)
 	for sx in [0, w - 3]:
@@ -298,15 +384,95 @@ func _rope_across_yard() -> void:
 	img.fill_rect(Rect2i(bx + 1, 11, 7, 5), Color("#9b855c"))
 	img.fill_rect(Rect2i(bx + 2, 12, 5, 1), SCRAWL)
 	img.fill_rect(Rect2i(bx + 2, 14, 4, 1), SCRAWL)
-	var rope := Sprite2D.new()
-	rope.name = "YardRope"
-	rope.centered = false
-	rope.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
-	rope.texture = ImageTexture.create_from_image(img)
-	var at: Vector2i = yard["door"] * Layout.T + Vector2i(-3, 6)
-	rope.position = Vector2(at)
-	rope.z_index = at.y + 14   # its foot: in front of a creature on the gate tile, behind one below it
-	add_child(rope)
+	return img
+
+
+## Placeholders for lane B's sign and shut overlay slots (Claude, 2026-10-26, placeholder factory): today's coded
+## pictogram boards, planks, chain and rope at each slot's exact size, so a placeholder looks as the town does now.
+## Each row in scripts/art/slots/town_buildings.gd names its function here.
+const SIGN_ICONS := {"sign_hall": "waymark", "sign_shop": "bag", "sign_storage": "crate", "sign_scrolls": "scroll", "sign_yard": "staves"}
+const SIGN_POST_TOP := {"bag": 11, "crate": 13, "waymark": 13, "scroll": 15, "staves": 13}
+
+
+static func slot_sign(id: String, _spec: Dictionary) -> Image:
+	var img := Image.create(24, 24, false, Image.FORMAT_RGBA8)
+	var icon: String = SIGN_ICONS.get(id.get_slice(".", 2), "")
+	sign_board(img, Vector2i(2, 1), icon, 23 - int(SIGN_POST_TOP.get(icon, 13)))   # the post reaches the foot row
+	return img
+
+
+static func slot_shut_boards(_id: String, _spec: Dictionary) -> Image:
+	var opening := Image.create(26, 50, false, Image.FORMAT_RGBA8)
+	opening.fill_rect(Rect2i(3, 2, 20, 47), INK)   # a 22 x 48 door, less the planks' 1 px reach past each jamb
+	return _boards_image(opening)
+
+
+static func slot_shut_chain(_id: String, _spec: Dictionary) -> Image:
+	return _chain_image()
+
+
+static func slot_shut_rope(_id: String, _spec: Dictionary) -> Image:
+	return rope_image()
+
+
+## A sign board at p with its pictogram, on a post; post < 0 keeps each board's v1 post length. The pictograms are
+## the ones _details and _scroll_details drew (moved here unchanged), plus the Yard's crossed staves (a proposal).
+static func sign_board(img: Image, p: Vector2i, icon: String, post: int = -1) -> void:
+	match icon:
+		"bag":
+			img.fill_rect(Rect2i(p + Vector2i(8, 11), Vector2i(2, 16 if post < 0 else post)), INK)
+			img.fill_rect(Rect2i(p, Vector2i(19, 16)), INK)
+			img.fill_rect(Rect2i(p + Vector2i(1, 1), Vector2i(17, 14)), Color("#9b855c"))
+			img.fill_rect(Rect2i(p + Vector2i(2, 2), Vector2i(15, 12)), Color("#665e44"))
+			# Original bag pictogram: tied neck, broad satchel and gold clasp.
+			img.fill_rect(Rect2i(p + Vector2i(6, 5), Vector2i(7, 8)), LIGHT)
+			img.fill_rect(Rect2i(p + Vector2i(7, 3), Vector2i(5, 3)), LIGHT)
+			img.fill_rect(Rect2i(p + Vector2i(5, 8), Vector2i(9, 4)), LIGHT)
+			img.fill_rect(Rect2i(p + Vector2i(7, 6), Vector2i(5, 1)), INK)
+			img.set_pixelv(p + Vector2i(9, 8), Color("#e2bd72"))
+		"crate":
+			img.fill_rect(Rect2i(p + Vector2i(8, 13), Vector2i(2, 17 if post < 0 else post)), INK)
+			img.fill_rect(Rect2i(p, Vector2i(19, 17)), INK)
+			img.fill_rect(Rect2i(p + Vector2i(1, 1), Vector2i(17, 15)), LIGHT)
+			img.fill_rect(Rect2i(p + Vector2i(2, 2), Vector2i(15, 13)), Color("#665e44"))
+			# Crate pictogram: an outlined box with two diagonal braces.
+			img.fill_rect(Rect2i(p + Vector2i(4, 4), Vector2i(11, 10)), INK)
+			img.fill_rect(Rect2i(p + Vector2i(5, 5), Vector2i(9, 8)), Color("#ab9265"))
+			for y in 7:
+				img.set_pixelv(p + Vector2i(5 + y, 5 + y), LIGHT)
+				img.set_pixelv(p + Vector2i(13 - y, 5 + y), LIGHT)
+		"waymark":
+			img.fill_rect(Rect2i(p + Vector2i(8, 13), Vector2i(2, 22 if post < 0 else post)), INK)
+			img.fill_rect(Rect2i(p, Vector2i(19, 19)), INK)
+			img.fill_rect(Rect2i(p + Vector2i(1, 1), Vector2i(17, 17)), LIGHT)
+			img.fill_rect(Rect2i(p + Vector2i(2, 2), Vector2i(15, 15)), Color("#49563d"))
+			# Original waymark pictogram: three routes meeting at one point (visual proposal).
+			for y in 5:
+				img.fill_rect(Rect2i(p + Vector2i(4 + y, 5 + y), Vector2i(2, 2)), Color("#e2bd72"))
+				img.fill_rect(Rect2i(p + Vector2i(13 - y, 5 + y), Vector2i(2, 2)), Color("#e2bd72"))
+			img.fill_rect(Rect2i(p + Vector2i(9, 9), Vector2i(2, 6)), Color("#e2bd72"))
+		"scroll":
+			img.fill_rect(Rect2i(p + Vector2i(8, 15), Vector2i(2, 17 if post < 0 else post)), INK)
+			img.fill_rect(Rect2i(p, Vector2i(19, 17)), INK)
+			img.fill_rect(Rect2i(p + Vector2i(1, 1), Vector2i(17, 15)), LIGHT)
+			img.fill_rect(Rect2i(p + Vector2i(2, 2), Vector2i(15, 13)), Color("#665e44"))
+			# Original rolled parchment pictogram; no text or borrowed artwork.
+			img.fill_rect(Rect2i(p + Vector2i(5, 4), Vector2i(9, 10)), INK)
+			img.fill_rect(Rect2i(p + Vector2i(6, 5), Vector2i(7, 8)), Color("#e3c89a"))
+			img.fill_rect(Rect2i(p + Vector2i(4, 4), Vector2i(10, 2)), LIGHT)
+			img.fill_rect(Rect2i(p + Vector2i(5, 12), Vector2i(10, 2)), LIGHT)
+			img.fill_rect(Rect2i(p + Vector2i(8, 8), Vector2i(3, 1)), Color("#8c7897"))
+		"staves":
+			img.fill_rect(Rect2i(p + Vector2i(8, 13), Vector2i(2, 17 if post < 0 else post)), INK)
+			img.fill_rect(Rect2i(p, Vector2i(19, 17)), INK)
+			img.fill_rect(Rect2i(p + Vector2i(1, 1), Vector2i(17, 15)), LIGHT)
+			img.fill_rect(Rect2i(p + Vector2i(2, 2), Vector2i(15, 13)), Color("#665e44"))
+			# Two crossed sparring staves, their ends bound (a proposal for the Training Yard).
+			for k in 9:
+				img.fill_rect(Rect2i(p + Vector2i(5 + k, 4 + k), Vector2i(2, 1)), WOOD_LIT)
+				img.fill_rect(Rect2i(p + Vector2i(12 - k, 4 + k), Vector2i(2, 1)), WOOD_LIT)
+			for e in [Vector2i(4, 3), Vector2i(13, 3), Vector2i(4, 12), Vector2i(13, 12)]:
+				img.fill_rect(Rect2i(p + e, Vector2i(2, 2)), INK)
 
 static func _details(size: Vector2i, d: Vector2i, id: String, entrance_width: int = 24) -> Image:
 	if id == "scrolls": return _scroll_details(size, d)
@@ -329,40 +495,11 @@ static func _details(size: Vector2i, d: Vector2i, id: String, entrance_width: in
 	img.fill_rect(Rect2i(d.x + 2, size.y - 3, entrance_width - 4, 1), LIGHT)
 	img.fill_rect(Rect2i(d.x + 3, size.y - 2, entrance_width - 6, 1), STONE)
 	if id == "shop":
-		var p := d + Vector2i(31, -6)
-		img.fill_rect(Rect2i(p + Vector2i(8, 11), Vector2i(2, 16)), INK)
-		img.fill_rect(Rect2i(p, Vector2i(19, 16)), INK)
-		img.fill_rect(Rect2i(p + Vector2i(1, 1), Vector2i(17, 14)), Color("#9b855c"))
-		img.fill_rect(Rect2i(p + Vector2i(2, 2), Vector2i(15, 12)), Color("#665e44"))
-		# Original bag pictogram: tied neck, broad satchel and gold clasp.
-		img.fill_rect(Rect2i(p + Vector2i(6, 5), Vector2i(7, 8)), LIGHT)
-		img.fill_rect(Rect2i(p + Vector2i(7, 3), Vector2i(5, 3)), LIGHT)
-		img.fill_rect(Rect2i(p + Vector2i(5, 8), Vector2i(9, 4)), LIGHT)
-		img.fill_rect(Rect2i(p + Vector2i(7, 6), Vector2i(5, 1)), INK)
-		img.set_pixelv(p + Vector2i(9, 8), Color("#e2bd72"))
+		sign_board(img, d + Vector2i(31, -6), "bag")
 	if id == "storage":
-		var p := d + Vector2i(31, -6)
-		img.fill_rect(Rect2i(p + Vector2i(8, 13), Vector2i(2, 17)), INK)
-		img.fill_rect(Rect2i(p, Vector2i(19, 17)), INK)
-		img.fill_rect(Rect2i(p + Vector2i(1, 1), Vector2i(17, 15)), LIGHT)
-		img.fill_rect(Rect2i(p + Vector2i(2, 2), Vector2i(15, 13)), Color("#665e44"))
-		# Crate pictogram: an outlined box with two diagonal braces.
-		img.fill_rect(Rect2i(p + Vector2i(4, 4), Vector2i(11, 10)), INK)
-		img.fill_rect(Rect2i(p + Vector2i(5, 5), Vector2i(9, 8)), Color("#ab9265"))
-		for y in 7:
-			img.set_pixelv(p + Vector2i(5 + y, 5 + y), LIGHT)
-			img.set_pixelv(p + Vector2i(13 - y, 5 + y), LIGHT)
+		sign_board(img, d + Vector2i(31, -6), "crate")
 	if id == "hall":
-		var p := d + Vector2i(entrance_width + 10, -25)
-		img.fill_rect(Rect2i(p + Vector2i(8, 13), Vector2i(2, 22)), INK)
-		img.fill_rect(Rect2i(p, Vector2i(19, 19)), INK)
-		img.fill_rect(Rect2i(p + Vector2i(1, 1), Vector2i(17, 17)), LIGHT)
-		img.fill_rect(Rect2i(p + Vector2i(2, 2), Vector2i(15, 15)), Color("#49563d"))
-		# Original waymark pictogram: three routes meeting at one point (visual proposal).
-		for y in 5:
-			img.fill_rect(Rect2i(p + Vector2i(4 + y, 5 + y), Vector2i(2, 2)), Color("#e2bd72"))
-			img.fill_rect(Rect2i(p + Vector2i(13 - y, 5 + y), Vector2i(2, 2)), Color("#e2bd72"))
-		img.fill_rect(Rect2i(p + Vector2i(9, 9), Vector2i(2, 6)), Color("#e2bd72"))
+		sign_board(img, d + Vector2i(entrance_width + 10, -25), "waymark")
 	return img
 
 static func _door_frame(frame: int, art: Image, d: Vector2i, id: String) -> Image:
@@ -428,17 +565,7 @@ static func _scroll_details(size: Vector2i, d: Vector2i) -> Image:
 	var img := Image.create(size.x, size.y + 1, false, Image.FORMAT_RGBA8)
 	# North landing meets the recessed stairs. Never draw a sill across the stairwell.
 	img.fill_rect(Rect2i(d + Vector2i(7, 13), Vector2i(13, 1)), LIGHT)
-	var p := d + Vector2i(-25, 1)
-	img.fill_rect(Rect2i(p + Vector2i(8, 15), Vector2i(2, 17)), INK)
-	img.fill_rect(Rect2i(p, Vector2i(19, 17)), INK)
-	img.fill_rect(Rect2i(p + Vector2i(1, 1), Vector2i(17, 15)), LIGHT)
-	img.fill_rect(Rect2i(p + Vector2i(2, 2), Vector2i(15, 13)), Color("#665e44"))
-	# Original rolled parchment pictogram; no text or borrowed artwork.
-	img.fill_rect(Rect2i(p + Vector2i(5, 4), Vector2i(9, 10)), INK)
-	img.fill_rect(Rect2i(p + Vector2i(6, 5), Vector2i(7, 8)), Color("#e3c89a"))
-	img.fill_rect(Rect2i(p + Vector2i(4, 4), Vector2i(10, 2)), LIGHT)
-	img.fill_rect(Rect2i(p + Vector2i(5, 12), Vector2i(10, 2)), LIGHT)
-	img.fill_rect(Rect2i(p + Vector2i(8, 8), Vector2i(3, 1)), Color("#8c7897"))
+	sign_board(img, d + Vector2i(-25, 1), "scroll")
 	return img
 
 static func _scroll_door_frame(frame: int, _art: Image, _d: Vector2i) -> Image:

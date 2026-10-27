@@ -1,0 +1,73 @@
+{
+	"checks": [
+		{
+			"check": "native backdrop starts at authored384x216",
+			"passed": true
+		},
+		{
+			"check": "base authored UI position unchanged",
+			"passed": true
+		},
+		{
+			"check": "scene work leaves saved journey bytes exact",
+			"passed": true
+		}
+	],
+	"failed": 0,
+	"metrics": [
+		{
+			"base_top_strip_added": 0.301960792392492,
+			"shaft_end_added": 0.0405228758851687,
+			"shaft_middle_added": 0.0405228783686956
+		},
+		{
+			"case": "wide",
+			"native": [
+				384,
+				216
+			],
+			"ui_offset": [
+				0.0,
+				0.0
+			],
+			"visible": [
+				1152.0,
+				648.0
+			],
+			"void_offset": [
+				0.0,
+				0.0
+			],
+			"window": [
+				1536,
+				648
+			]
+		},
+		{
+			"case": "tall",
+			"native": [
+				384,
+				216
+			],
+			"ui_offset": [
+				0.0,
+				0.0
+			],
+			"visible": [
+				1152.0,
+				648.0
+			],
+			"void_offset": [
+				0.0,
+				0.0
+			],
+			"window": [
+				960,
+				720
+			]
+		}
+	],
+	"passed": 3,
+	"phase": "before",
+	"total": 3
+}

@@ -215,7 +215,7 @@ func _selected_action(b: Button) -> void:
 func _set_input_device(device: String) -> void:
 	_input_device=device
 	if _launch_hint != null:
-		_launch_hint.text={"keyboard":"Enter to continue","controller":"A to continue","mouse":"Click to continue"}[device]
+		_launch_hint.text=_launch_skip_text()
 	if _input_hint == null:return
 	_input_hint.text={"keyboard":"Up/Down  Move   Enter  Choose   Esc  Back","controller":"D-pad  Move   A  Choose   B  Back","mouse":"Click to choose   Esc  Back"}[device]
 

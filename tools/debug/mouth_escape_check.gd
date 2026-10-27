@@ -1,6 +1,7 @@
 extends SceneTree
-## The dawn scene out of the Hollow Mouth and the walk to Highbank (scripts/mouth_escape.gd). Plays every line
-## as a player would and checks it ends in Highbank with the team intact. With HT_RECORD=1 it reads at a
+## The dawn scene out of the Hollow Mouth (scripts/mouth_escape.gd). Plays every line as a player would and checks
+## it hands off to the road up to Highbank with the team intact (since lane S, 2026-10-26, the bank plays the road
+## talk's "start" title and road_check judges the road and the arrival in Highbank). With HT_RECORD=1 it reads at a
 ## watchable pace for --write-movie.
 ##   Godot --path . --fixed-fps 30 --script res://tools/debug/mouth_escape_check.gd
 
@@ -53,7 +54,8 @@ func _run() -> void:
 			break
 		await process_frame
 	var now := current_scene.scene_file_path.get_file() if current_scene != null else "none"
-	_ok("Read %d lines; walked %d stretches down the bank" % [lines, walked], (lines >= 20 or OS.get_environment("HT_RECORD") == "1") and walked >= 4)
-	_ok("Ends in Highbank (%s), team %s" % [now, str(TeamState.data.get("party", []))], now == "hub_town.tscn")
+	_ok("Read %d lines on the bank (walked %d stretches)" % [lines, walked], lines >= 8 or OS.get_environment("HT_RECORD") == "1")
+	_ok("Hands off to the road up to Highbank (%s), team %s" % [now, str(TeamState.data.get("party", []))],
+		now == "road_to_highbank.tscn" and (TeamState.data.get("party", []) as Array).size() >= 2)
 	print("MOUTH ESCAPE: %s" % ("all ok" if fails == 0 else "%d FAILED" % fails))
 	quit(1 if fails else 0)

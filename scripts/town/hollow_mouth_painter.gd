@@ -3,19 +3,22 @@ extends RefCounted
 const Layout = preload("res://scripts/town/town_layout.gd")
 const Finish = preload("res://scripts/town/exterior_finish.gd")
 const ART := "res://assets/sprites/world/hollow_mouth_2026_10_10/mouth_native.png"
+# Claude, 2026-10-26 (placeholder factory lane B): the rect comes from the area showing (v1: the PLACES row itself)
+# and the art from its keep slot (town.landmark.mouth: today's file as its legacy, so the pixels do not change).
+const SLOT := "town.landmark.mouth"
 
 static func _place() -> Dictionary:
-	return Layout.PLACES.filter(func(p: Dictionary) -> bool: return p["id"] == "gate")[0]
+	return BuildingTemplate.place_entry("gate")
 
 static func available() -> bool:
-	return ResourceLoader.exists("res://scripts/town/building_exteriors.gd") and ResourceLoader.exists(ART) and load(ART).get_size() == Vector2(_place()["rect"].size * Layout.T)
+	return ResourceLoader.exists("res://scripts/town/building_exteriors.gd") and ArtSlots.texture(SLOT).get_size() == Vector2(_place()["rect"].size * Layout.T)
 
 static func apply(img: Image, ground: Image) -> Image:
 	if not available(): return img
 	var place := _place()
 	var at: Vector2i = place["rect"].position * Layout.T
 	img.blit_rect(ground, Rect2i(Vector2i.ZERO, ground.get_size()), at)
-	var art: Image = load(ART).get_image()
+	var art: Image = ArtSlots.image(SLOT)
 	# Low rubble's contact band falls bottom-right, in the existing terrace colours.
 	for y in range(2, art.get_height() + 2):
 		for x in range(2, art.get_width() + 2):
@@ -47,7 +50,7 @@ static func attach(parent: Node2D, _host: Node2D) -> Dictionary:
 	sprite.name = "ScourRecess"
 	sprite.centered = false
 	sprite.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
-	sprite.texture = load(ART)
+	sprite.texture = ArtSlots.texture(SLOT)
 	Finish.apply(sprite, true)
 	base.add_child(sprite)
 	return {"base": base, "sprite": sprite}

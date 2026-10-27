@@ -1,0 +1,65 @@
+{
+	"alpha": "binary",
+	"anchor": [
+		78,
+		143
+	],
+	"anchor_mode": "foot",
+	"area": "town",
+	"brief": "An unopened shopfront lot: a shop-class building with its door and windows shuttered with plain boards.",
+	"building_class": "shop",
+	"census": "new",
+	"checks": [
+		"C1",
+		"C12",
+		"C2",
+		"C3",
+		"C4",
+		"C5",
+		"C7",
+		"C8",
+		"C9"
+	],
+	"drawn_at": 3,
+	"edges": "bottom",
+	"file": "res://assets/slots/town/building/lot_before_shop.png",
+	"forbid": [
+		"text",
+		"creature",
+		"franchise"
+	],
+	"frames": 1,
+	"id": "town.building.lot_before_shop",
+	"kind": "building",
+	"lane": "B",
+	"legacy": "",
+	"light": "upper_left",
+	"notes": "lot C before it opens",
+	"outline": "runtime_rim",
+	"owner": "codex",
+	"palette": {
+		"family": "town_timber",
+		"lock": false,
+		"max": 32,
+		"source": "res://assets/slots/palettes/town_timber.png"
+	},
+	"placeholder": "res://scripts/town/building_template.gd:paint_slot",
+	"rows": 1,
+	"sheet_size": [
+		156,
+		144
+	],
+	"size": [
+		156,
+		144
+	],
+	"slot_file": "town_buildings",
+	"states": {
+		"static": [
+			1,
+			0
+		]
+	},
+	"status": "placeholder",
+	"tiling": "none"
+}

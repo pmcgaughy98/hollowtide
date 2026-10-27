@@ -118,6 +118,8 @@ func _run() -> void:
 		await capture("3-frozen")
 	else:
 		await key(KEY_ENTER)
+		verify("First Storm press only arms skip", current_scene == storm and storm._skip_armed)
+		await key(KEY_ENTER)
 	if not verify("Storm enters actual soul scene", await until(func() -> bool: return scene_name() == "soul_prologue.tscn", 900)):
 		await finish(); return
 	var soul: Node = current_scene
@@ -130,6 +132,10 @@ func _run() -> void:
 	for k in hero: await key(KEY_RIGHT)
 	verify("Keyboard selects requested creature", soul.pick == hero)
 	await capture("4-choice")
+	await frames(14)   # cards ignore the reading press for 0.4 s
+	await key(KEY_ENTER)
+	verify("Starter asks before committing and defaults to No", soul.stage == "confirm" and soul.chosen == -1 and soul._answer == 1)
+	await key(KEY_LEFT)
 	await key(KEY_ENTER)
 	verify("Soul confirms selected starter", soul.chosen == hero and soul.stage == "after")
 	for k in 12:

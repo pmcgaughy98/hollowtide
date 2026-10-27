@@ -1,0 +1,17 @@
+[
+  {
+    "case": "hero0",
+    "checks": 29,
+    "failures": []
+  },
+  {
+    "case": "hero1",
+    "checks": 29,
+    "failures": []
+  },
+  {
+    "case": "hero2",
+    "checks": 29,
+    "failures": []
+  }
+]

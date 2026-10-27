@@ -1,0 +1,61 @@
+{
+	"alpha": "opaque",
+	"anchor": [
+		0,
+		0
+	],
+	"anchor_mode": "top_left",
+	"area": "title",
+	"brief": "The launch card's night: the river valley before the title, dark greens and river blues in a few calm bands, with no text.",
+	"census": "T01",
+	"checks": [
+		"C1",
+		"C2",
+		"C3",
+		"C5",
+		"C9"
+	],
+	"drawn_at": 3,
+	"edges": "all",
+	"file": "res://assets/slots/title/backdrop/launch.png",
+	"forbid": [
+		"text",
+		"creature",
+		"franchise"
+	],
+	"frames": 1,
+	"id": "title.backdrop.launch",
+	"kind": "backdrop",
+	"lane": "codex-wire",
+	"legacy": "",
+	"light": "upper_left",
+	"notes": "today a flat #161f1b fill (opening_flow.gd:21); placeholder: that fill in 3 stepped bands",
+	"outline": "none",
+	"owner": "codex",
+	"palette": {
+		"family": "night_bank",
+		"lock": false,
+		"max": 48,
+		"source": "res://assets/slots/palettes/night_bank.png"
+	},
+	"placeholder": "",
+	"rows": 1,
+	"sheet_size": [
+		384,
+		216
+	],
+	"size": [
+		384,
+		216
+	],
+	"slot_file": "title",
+	"states": {
+		"static": [
+			1,
+			0
+		]
+	},
+	"status": "placeholder",
+	"tiling": "none",
+	"tint": "#161f1b"
+}

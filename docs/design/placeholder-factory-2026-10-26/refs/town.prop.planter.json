@@ -1,0 +1,64 @@
+{
+	"alpha": "binary",
+	"anchor": [
+		12,
+		23
+	],
+	"anchor_mode": "foot",
+	"area": "town",
+	"brief": "A stone planter box with a low green shrub. No ground shadow: the game draws it.",
+	"census": "R02",
+	"checks": [
+		"C1",
+		"C12",
+		"C2",
+		"C3",
+		"C4",
+		"C5",
+		"C7",
+		"C8",
+		"C9"
+	],
+	"drawn_at": 3,
+	"edges": "bottom",
+	"file": "res://assets/slots/town/prop/planter.png",
+	"forbid": [
+		"text",
+		"creature",
+		"franchise"
+	],
+	"frames": 1,
+	"id": "town.prop.planter",
+	"kind": "prop",
+	"lane": "C",
+	"legacy": "",
+	"light": "upper_left",
+	"notes": "",
+	"outline": "drawn",
+	"owner": "grok",
+	"palette": {
+		"family": "town_stone",
+		"lock": false,
+		"max": 24,
+		"source": "res://assets/slots/palettes/town_stone.png"
+	},
+	"placeholder": "res://scripts/art/placeholders/street_props.gd:planter",
+	"rows": 1,
+	"sheet_size": [
+		24,
+		24
+	],
+	"size": [
+		24,
+		24
+	],
+	"slot_file": "town_street",
+	"states": {
+		"static": [
+			1,
+			0
+		]
+	},
+	"status": "placeholder",
+	"tiling": "none"
+}

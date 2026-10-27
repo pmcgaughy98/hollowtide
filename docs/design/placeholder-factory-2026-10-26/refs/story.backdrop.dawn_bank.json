@@ -1,0 +1,61 @@
+{
+	"alpha": "opaque",
+	"anchor": [
+		0,
+		0
+	],
+	"anchor_mode": "top_left",
+	"area": "story",
+	"brief": "The waking riverbank at first light after the storm: the same bank as the night painting, washed in pale gold and rose, mist lifting off the river.",
+	"census": "F01",
+	"checks": [
+		"C1",
+		"C2",
+		"C3",
+		"C5",
+		"C9"
+	],
+	"drawn_at": 3,
+	"edges": "all",
+	"file": "res://assets/slots/story/backdrop/dawn_bank.png",
+	"forbid": [
+		"text",
+		"creature",
+		"franchise"
+	],
+	"frames": 1,
+	"id": "story.backdrop.dawn_bank",
+	"kind": "backdrop",
+	"lane": "U",
+	"legacy": "",
+	"light": "upper_left",
+	"notes": "in the game the placeholder is today's DAWN_SHADER grade over S01 (mouth_escape.gd, lane S), so the screen is unchanged until art installs; waking_bank.gd dawn_image() hands mouth_escape the installed file; dawn_placeholder is that grade worked on the CPU and stepped to 48 colours, for the reference render; opaque",
+	"outline": "none",
+	"owner": "codex",
+	"palette": {
+		"family": "dawn",
+		"lock": false,
+		"max": 48,
+		"source": "res://assets/slots/palettes/dawn.png"
+	},
+	"placeholder": "res://scripts/ui/waking_bank.gd:dawn_placeholder",
+	"rows": 1,
+	"sheet_size": [
+		384,
+		216
+	],
+	"size": [
+		384,
+		216
+	],
+	"slot_file": "story",
+	"states": {
+		"static": [
+			1,
+			0
+		]
+	},
+	"status": "placeholder",
+	"tiling": "none",
+	"tint": "#c9a77a"
+}

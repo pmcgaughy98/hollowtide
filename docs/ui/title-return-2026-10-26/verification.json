@@ -1,0 +1,29 @@
+{
+  "owned": {
+    "scripts/opening_flow.gd": "41520002894e06c6b7a005b76682f5e60b0ca396abdebdf5c939031fab0a3a83",
+    "scripts/creature_opening.gd": "2ed1178fcc7e14e6fde7673983548f9c91e82f182acd61b1a4846b24c49b82c8"
+  },
+  "opening_other_methods_exact": [
+    "_input",
+    "_close_panel",
+    "_begin_journey"
+  ],
+  "creature_change_exactly_one_hint_line": true,
+  "main_menu_shared_ui_title_settings_project_exact": true,
+  "C6_still_off": true,
+  "baseline": 11,
+  "campaign_native": 105,
+  "legacy_native": 35,
+  "return_wait_frames_before": 77,
+  "return_wait_frames_after": 0,
+  "legacy_exit_warning": "102 ObjectDB instances; raw log retained, not a clean exit claim",
+  "concurrent_paths_preserved": [
+    "scripts/mouth_escape.gd",
+    "scripts/town/board_scene.gd",
+    "scripts/town/hub_town.gd",
+    "scripts/town/town_layout.gd",
+    "tools/debug/art_slots_check.gd",
+    "tools/debug/mouth_escape_check.gd",
+    "tools/debug/pilot_chain_check.gd"
+  ]
+}

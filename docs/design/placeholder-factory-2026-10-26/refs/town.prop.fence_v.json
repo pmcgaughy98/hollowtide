@@ -1,0 +1,68 @@
+{
+	"alpha": "binary",
+	"anchor": [
+		12,
+		23
+	],
+	"anchor_mode": "foot",
+	"area": "town",
+	"brief": "One span of low timber fence running away from the camera, so it tiles top to bottom. No ground shadow: the game draws it.",
+	"census": "R02",
+	"checks": [
+		"C1",
+		"C12",
+		"C2",
+		"C3",
+		"C4",
+		"C5",
+		"C6",
+		"C7",
+		"C8",
+		"C9"
+	],
+	"drawn_at": 3,
+	"edges": [
+		"top",
+		"bottom"
+	],
+	"file": "res://assets/slots/town/prop/fence_v.png",
+	"forbid": [
+		"text",
+		"creature",
+		"franchise"
+	],
+	"frames": 1,
+	"id": "town.prop.fence_v",
+	"kind": "prop",
+	"lane": "C",
+	"legacy": "",
+	"light": "upper_left",
+	"notes": "",
+	"outline": "drawn",
+	"owner": "grok",
+	"palette": {
+		"family": "town_timber",
+		"lock": false,
+		"max": 24,
+		"source": "res://assets/slots/palettes/town_timber.png"
+	},
+	"placeholder": "res://scripts/art/placeholders/street_props.gd:fence_v",
+	"rows": 1,
+	"sheet_size": [
+		24,
+		24
+	],
+	"size": [
+		24,
+		24
+	],
+	"slot_file": "town_street",
+	"states": {
+		"static": [
+			1,
+			0
+		]
+	},
+	"status": "placeholder",
+	"tiling": "v"
+}

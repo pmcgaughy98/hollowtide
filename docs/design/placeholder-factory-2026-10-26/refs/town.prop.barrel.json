@@ -1,0 +1,64 @@
+{
+	"alpha": "binary",
+	"anchor": [
+		12,
+		27
+	],
+	"anchor_mode": "foot",
+	"area": "town",
+	"brief": "A banded timber water barrel. No ground shadow: the game draws it.",
+	"census": "R02",
+	"checks": [
+		"C1",
+		"C12",
+		"C2",
+		"C3",
+		"C4",
+		"C5",
+		"C7",
+		"C8",
+		"C9"
+	],
+	"drawn_at": 3,
+	"edges": "bottom",
+	"file": "res://assets/slots/town/prop/barrel.png",
+	"forbid": [
+		"text",
+		"creature",
+		"franchise"
+	],
+	"frames": 1,
+	"id": "town.prop.barrel",
+	"kind": "prop",
+	"lane": "C",
+	"legacy": "",
+	"light": "upper_left",
+	"notes": "",
+	"outline": "drawn",
+	"owner": "grok",
+	"palette": {
+		"family": "town_timber",
+		"lock": false,
+		"max": 24,
+		"source": "res://assets/slots/palettes/town_timber.png"
+	},
+	"placeholder": "res://scripts/art/placeholders/street_props.gd:barrel",
+	"rows": 1,
+	"sheet_size": [
+		24,
+		28
+	],
+	"size": [
+		24,
+		28
+	],
+	"slot_file": "town_street",
+	"states": {
+		"static": [
+			1,
+			0
+		]
+	},
+	"status": "placeholder",
+	"tiling": "none"
+}

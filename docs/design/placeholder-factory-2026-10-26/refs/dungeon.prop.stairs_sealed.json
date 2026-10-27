@@ -1,0 +1,64 @@
+{
+	"alpha": "binary",
+	"anchor": [
+		12,
+		23
+	],
+	"anchor_mode": "foot",
+	"area": "dungeon",
+	"brief": "Sealed stairs in a ruin floor: a slate slab over the stair opening with a teal seal ring set into it.",
+	"census": "G08",
+	"checks": [
+		"C1",
+		"C12",
+		"C2",
+		"C3",
+		"C4",
+		"C5",
+		"C7",
+		"C8",
+		"C9"
+	],
+	"drawn_at": 3,
+	"edges": "bottom",
+	"file": "res://assets/slots/dungeon/prop/stairs_sealed.png",
+	"forbid": [
+		"text",
+		"creature",
+		"franchise"
+	],
+	"frames": 1,
+	"id": "dungeon.prop.stairs_sealed",
+	"kind": "prop",
+	"lane": "D",
+	"legacy": "",
+	"light": "upper_left",
+	"notes": "replaced the red X (dungeon.gd _draw_floor_fx, drawn while the boss stands); the coded slab stands in until Grok's file is installed",
+	"outline": "drawn",
+	"owner": "grok",
+	"palette": {
+		"family": "ruin",
+		"lock": false,
+		"max": 24,
+		"source": "res://assets/slots/palettes/ruin.png"
+	},
+	"placeholder": "res://scripts/art/placeholders/dungeon_marks.gd:stairs_sealed",
+	"rows": 1,
+	"sheet_size": [
+		24,
+		24
+	],
+	"size": [
+		24,
+		24
+	],
+	"slot_file": "dungeon",
+	"states": {
+		"static": [
+			1,
+			0
+		]
+	},
+	"status": "placeholder",
+	"tiling": "none"
+}

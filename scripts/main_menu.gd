@@ -100,13 +100,13 @@ var _selected_courier := "Male"
 var _master_volume := 100.0
 var _music_volume := 100.0
 var _sfx_volume := 100.0   # set from the pause menu's SFX slider; kept and applied here
+var _route_requested := false
 var _route_scene: PackedScene
 var _route_request_error: Error = OK
 var _settings_dirty := false
 
 func _ready() -> void:
-	# The first route loads in the background while the menu shows.
-	_request_route()
+	# The legacy courier route is requested only when its New Game page opens.
 	_load_preferences()
 	_build_scenery()
 	_build_characters()
@@ -126,6 +126,9 @@ func _ready() -> void:
 
 
 func _request_route() -> void:
+	if _route_requested: return
+	_route_requested = true
+	if _begin_button != null: _begin_button.disabled = true
 	_route_request_error = ResourceLoader.load_threaded_request(FIRST_SCENE)
 
 
@@ -767,6 +770,7 @@ func _on_new_game() -> void:
 	if _leaving:
 		return
 	if _ask_new_game(): return
+	_request_route()
 	_sound(CONFIRM_SOUND)
 	_show_page("journey", _courier_buttons[0] if _selected_courier == "Male" else _courier_buttons[1])
 
@@ -774,33 +778,12 @@ func _on_new_game() -> void:
 ## Continue (Claude, 2026-10-12): read the team's save and open Highbank with it, the same fade out as
 ## the journey. The save is written by the town (hub_town.gd) when the team arrives or sets out.
 func _on_continue() -> void:
-	if _leaving or ("_boot_done" in self and not get("_boot_done")):
-		return
-	if not TeamState.load_save():
-		_sound(CANCEL_SOUND)
-		if _continue_button != null:
-			_continue_button.disabled = true
-		return
-	# A run kept by a quit mid-dungeon resumes at the top of its floor; otherwise Highbank.
-	var town: Node
-	if TeamState.has_suspended():
-		var run: Dictionary = TeamState.take_suspended()
-		town = load("res://scenes/dungeon.tscn").instantiate()
-		TeamState.give_to(town)
-		town.set("dungeon", String(run.get("dungeon", "first")))
-		town.set("floor_n", int(run.get("floor_n", 1)))
-		town.set("floor_seed", int(run.get("floor_seed", 0)))
-		town.set("replay", bool(run.get("replay", false)))
-		town.set("return_to_town", true)
-		town.set("resume", run)
-	else:
-		town = load("res://scenes/hub_town.tscn").instantiate()
-		TeamState.give_to(town)
-	_save_preferences()
+	if _leaving or ("_boot_done" in self and not get("_boot_done")): return
+	# Feedback first. No destination read or construction can hold the visible title still.
 	_leaving = true
 	_sound(CONFIRM_SOUND)
 	_fade.mouse_filter = Control.MOUSE_FILTER_STOP
-	_cursor.visible = false
+	_cursor.hide()
 	for control in _focus_controls:
 		control.mouse_filter = Control.MOUSE_FILTER_IGNORE
 		control.focus_mode = Control.FOCUS_NONE
@@ -808,17 +791,73 @@ func _on_continue() -> void:
 	tween.tween_property(_fade, "color:a", 1.0, 0.25 if _reduce_motion else 0.7)
 	tween.tween_property(_music, "volume_db", -80.0, 0.25 if _reduce_motion else 0.85)
 	await tween.finished
-	var error := get_tree().change_scene_to_node(town)
+	if not TeamState.load_save():
+		_continue_failed(true)
+		return
+	# Preserve the suspend record until a destination has loaded and the scene change succeeds.
+	var run: Dictionary = TeamState.data.get("suspend", {}).duplicate(true) if TeamState.has_suspended() else {}
+	var path := "res://scenes/hub_town.tscn" if run.is_empty() else "res://scenes/dungeon.tscn"
+	var tree := get_tree()
+	# Highbank's existing card/build/reveal owns this cover after the scene swap.
+	UI._fade_rect(tree, 1.0)
+	await tree.process_frame
+	var packed: PackedScene = await _load_continue(path)
+	if not is_inside_tree(): return
+	if packed == null:
+		_continue_failed()
+		return
+	var town := packed.instantiate()
+	if town == null:
+		_continue_failed()
+		return
+	TeamState.give_to(town)
+	if not run.is_empty():
+		town.set("dungeon", String(run.get("dungeon", "first")))
+		town.set("floor_n", int(run.get("floor_n", 1)))
+		town.set("floor_seed", int(run.get("floor_seed", 0)))
+		town.set("replay", bool(run.get("replay", false)))
+		town.set("return_to_town", true)
+		town.set("resume", run)
+	_save_preferences()
+	var error := tree.change_scene_to_node(town)
 	if error != OK:
 		town.free()
-		_leaving = false
-		_fade.color.a = 0.0
-		_fade.mouse_filter = Control.MOUSE_FILTER_IGNORE
-		_music.volume_db = music_db
-		for control in _focus_controls:
-			control.mouse_filter = Control.MOUSE_FILTER_STOP
-			control.focus_mode = Control.FOCUS_ALL
-		_show_page("main", _buttons[0])
+		_continue_failed()
+		return
+	if not run.is_empty():
+		TeamState.take_suspended()
+		# The dungeon builds under its own opaque floor card and lifts it itself.
+		UI.fade_in(tree, 0.0)
+
+
+func _load_continue(path: String) -> PackedScene:
+	if ResourceLoader.load_threaded_request(path) != OK: return null
+	while is_inside_tree():
+		match ResourceLoader.load_threaded_get_status(path):
+			ResourceLoader.THREAD_LOAD_LOADED:
+				return ResourceLoader.load_threaded_get(path) as PackedScene
+			ResourceLoader.THREAD_LOAD_FAILED, ResourceLoader.THREAD_LOAD_INVALID_RESOURCE:
+				return null
+		await get_tree().process_frame
+	return null
+
+
+func _continue_failed(invalid_save := false) -> void:
+	_leaving = false
+	_fade.color.a = 0.0
+	_fade.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	_music.volume_db = music_db
+	if invalid_save and _continue_button != null: _continue_button.disabled = true
+	for control in _focus_controls:
+		control.mouse_filter = Control.MOUSE_FILTER_STOP
+		control.focus_mode = Control.FOCUS_ALL
+	var first: Control = _buttons.filter(func(b: Button) -> bool: return not b.disabled)[0]
+	_quiet_focus = true
+	_show_page("main", first)
+	set_deferred("_quiet_focus", false)
+	_sound(CANCEL_SOUND)
+	UI.fade_in(get_tree())
+	UI.toast(get_tree(), "Could not continue. Please try again.")
 
 
 func _select_courier(model: String) -> void:
@@ -944,6 +983,7 @@ func _save_preferences() -> void:
 
 
 func _poll_route() -> void:
+	if not _route_requested: return
 	if _route_scene != null:
 		return
 	if _route_request_error != OK:

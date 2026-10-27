@@ -1,0 +1,64 @@
+{
+	"alpha": "opaque",
+	"anchor": [
+		0,
+		0
+	],
+	"anchor_mode": "top_left",
+	"area": "story",
+	"brief": "A clear morning sky over Highbank, deep blue at the top paling toward the bottom, two or three long thin clouds. Sky only. Seen behind the Wayline Tower while the camera pans up it; it does not scroll.",
+	"census": "new",
+	"checks": [
+		"C1",
+		"C2",
+		"C3",
+		"C5",
+		"C9"
+	],
+	"drawn_at": 3,
+	"edges": "all",
+	"file": "res://assets/slots/story/backdrop/tower_sky.png",
+	"forbid": [
+		"text",
+		"creature",
+		"franchise"
+	],
+	"frames": 1,
+	"id": "story.backdrop.tower_sky",
+	"kind": "backdrop",
+	"lane": "S",
+	"legacy": "",
+	"light": "upper_left",
+	"notes": "shown only during the Tower scene, behind the town's world, above the area's top edge",
+	"outline": "none",
+	"owner": "codex",
+	"palette": {
+		"family": "dawn",
+		"lock": false,
+		"max": 32,
+		"source": "res://assets/slots/palettes/dawn.png"
+	},
+	"place_at": [
+		0,
+		0
+	],
+	"placeholder": "res://scripts/story/tower_reveal.gd:paint_sky",
+	"rows": 1,
+	"sheet_size": [
+		384,
+		216
+	],
+	"size": [
+		384,
+		216
+	],
+	"slot_file": "route",
+	"states": {
+		"static": [
+			1,
+			0
+		]
+	},
+	"status": "placeholder",
+	"tiling": "none"
+}

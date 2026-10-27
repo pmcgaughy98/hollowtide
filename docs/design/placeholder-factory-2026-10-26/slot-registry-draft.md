@@ -116,7 +116,7 @@ Palette column: `family/max colours`. Families are swatch strips the reference r
 
 | Census | Visual | Slot id | Owner | Status | File | Size | Scale | Anchor | States | Palette | Notes |
 |---|---|---|---|---|---|---|---|---|---|---|---|
-| B01 | hall | town.building.hall | codex | placeholder | res://assets/slots/town/building/hall.png | 300x192 | 3 | (150,191) | closed 1; open 3 at 12 fps (optional, template cuts from door_px) | town_stone/32 | door_px (127,126,46,64); pass galeshear 62; legacy (v1 only) wayline_hall_2026_10_10/wayline_hall_native.png 240x144 |
+| B01 | hall | town.building.hall | codex | placeholder | res://assets/slots/town/building/hall.png | 300x192 | 3 | (150,191) | closed 1; open 3 at 12 fps (optional, template cuts from door_px) | town_stone/32 | door_px (127,126,46,64); pass galeshear 62; legacy (v1 only) wayline_hall_2026_10_10/wayline_hall_native.png 240x144; canon 2026-10-26: the Wayline Tower, 300x576, door_px (126,510,48,64) in `slots/town_buildings.gd` |
 | B02 | home | town.building.home | codex | placeholder | res://assets/slots/town/building/home.png | 132x144 | 3 | (66,143) | closed 1; open 3 at 12 fps (optional, template cuts from door_px) | town_stone/32 | door_px (55,94,22,48); pass sparkjab 45; legacy (v1 only) home_2026_10_09/home_native.png 120x120 |
 | B03 | shop | town.building.shop | codex | placeholder | res://assets/slots/town/building/shop.png | 156x144 | 3 | (78,143) | closed 1; open 3 at 12 fps (optional, template cuts from door_px) | town_stone/32 | door_px (55,94,22,48); pass sparkjab 45; legacy (v1 only) item_shop_2026_10_09/item_shop_native.png 144x120 |
 | B04 | storage | town.building.storage | codex | placeholder | res://assets/slots/town/building/storage.png | 156x144 | 3 | (78,143) | closed 1; open 3 at 12 fps (optional, template cuts from door_px) | town_stone/32 | door_px (55,94,22,48); pass sparkjab 45; legacy (v1 only) storage_2026_10_10/storage_native.png 144x120 |
@@ -147,7 +147,7 @@ Palette column: `family/max colours`. Families are swatch strips the reference r
 | Census | Visual | Slot id | Owner | Status | File | Size | Scale | Anchor | States | Palette | Notes |
 |---|---|---|---|---|---|---|---|---|---|---|---|
 | R01 | Street lamp | town.lamp.post | grok | placeholder | res://assets/slots/town/lamp/post.png | 24x48 cell, sheet 24x96 | 3 | (12,47) | unlit 1, lit 1 (rows) | lantern/24 | light anchor (12,8); glow and flicker coded |
-| R02 | well | town.prop.well | grok | placeholder | res://assets/slots/town/prop/well.png | 48x56 | 3 | (24,55) | static | town_stone/24 | 2x2 solid; Hall Rise waiting spot |
+| R02 | well | town.prop.well | grok | placeholder | res://assets/slots/town/prop/well.png | 48x56 | 3 | (24,55) | static | town_stone/24 | 2x2 solid; Tower Rise waiting spot |
 | R02 | bench | town.prop.bench | grok | placeholder | res://assets/slots/town/prop/bench.png | 48x32 | 3 | (24,31) | static | town_timber/24 | 2x1 |
 | R02 | crates | town.prop.crates | grok | placeholder | res://assets/slots/town/prop/crates.png | 24x24 | 3 | (12,23) | static | town_timber/24 |  |
 | R02 | barrel | town.prop.barrel | grok | placeholder | res://assets/slots/town/prop/barrel.png | 24x28 | 3 | (12,27) | static | town_timber/24 |  |
@@ -181,7 +181,7 @@ Palette column: `family/max colours`. Families are swatch strips the reference r
 |---|---|---|---|---|---|---|---|---|---|---|---|
 | M01 | Home room | town.room.home | codex | keep | res://assets/sprites/world/home_interior_2026_10_10/home_native.png | 336x240 | 3 | room origin | static | as installed |  |
 | M02 | Hearth light | - | - | code | - | - | - | - | - | - |  |
-| M03 | Hall work floor | town.room.hall | codex | keep | res://assets/sprites/world/hall_interior_2026_10_10/hall_native.png | 528x336 | 3 | room origin | static | as installed |  |
+| M03 | Tower work floor | town.room.hall | codex | keep | res://assets/sprites/world/hall_interior_2026_10_10/hall_native.png | 528x336 | 3 | room origin | static | as installed |  |
 | M04 | pillar | town.prop.hall.pillar | codex | keep | res://assets/sprites/world/hall_interior_2026_10_10/pillar.png | 22x46 | 3 | feet | static | as installed | also placed on the lower floor |
 | M04 | fern | town.prop.hall.fern | codex | keep | res://assets/sprites/world/hall_interior_2026_10_10/fern.png | 24x32 | 3 | feet | static | as installed | also placed on the lower floor |
 | M04 | bench | town.prop.hall.bench | codex | keep | res://assets/sprites/world/hall_interior_2026_10_10/bench.png | 20x70 | 3 | feet | static | as installed |  |

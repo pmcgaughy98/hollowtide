@@ -1,6 +1,6 @@
 # Grok result, 2026-10-26
 
-Tasks 1 to 5. No gameplay numbers changed. Claude applies the task 1 house rule, the task 3 learnset cut, the task 4 delete, and the task 5 display-name change unchanged, then reruns `python tools/debug/run_checks.py pilot dungeon_chain lv1 move_table`. No commit. Tasks 6 to 10 are not answered. Art is on hold until `GROK_ART_TASKS_2026-10-26.md` exists.
+Tasks 1 to 10. No kit numbers changed. Claude applies the task 1 house rule, the task 3 learnset cut, the task 4 delete, the task 5 display-name change, the task 7 client-floor rule, the task 8 check cut, the task 9 gameplay generator, and the task 10 retirement unchanged, then reruns `python tools/debug/run_checks.py pilot dungeon_chain lv1 move_table` and `job_board_check`. Tasks 6, 8, and the description half of 10 need no gameplay edit. No commit. Art is on hold until `GROK_ART_TASKS_2026-10-26.md` exists.
 
 ## 1. Hollow Mouth for a brand-new player
 
@@ -121,16 +121,134 @@ Verdant Roar is the Rampartroot signature key. The roar roots every enemy for `R
 
 No new move ids. The Training Yard stays shut. No Godot this task.
 
+## 6. Body gate
+
+Yes. `move_table_check` should fail the suite when a current kit move fails the body gate. That is the rule in `docs/creatures/DESIGN_RULES.md` (Preston, 2026-10-02).
+
+The rule says a creature may use or learn a move only when its body has every part the move lists. Essence is not permission. Step 3 of the test is to reject a learner that is missing a part. A new form is not approved until its body has every part listed on every move it learns. A current kit is a use. The check walks `Arena.KITS` moves and abilities, and `MoveBody.missing` is the missing-part list. The verdict `gate_fails == 0` is that rule. Leave it.
+
+The same check fails when a kit move has no entry in `NEEDS`. That matches step 1: list the parts before the move is approved. Absence is not a pass.
+
+Two sentences in the 2026-10-02 notes are not exemptions for this check.
+
+- Coalcrest's Plate Rake is the one failure that file calls live. It needs a shell, and Coalcrest does not have one. The note says leave that old file alone until the kit is changed. Job 1 already kept Plate Rake out of these arena kits. Coalcrest is retired. Do not add a Plate Rake exemption, and do not equip it.
+- `move-body-gate.md` says Strike needs no part and stays legal. That is an empty list, not a missing entry. `missing` already treats an empty `NEEDS` list as no required part. Rimefin's current kit is Needle Bite, Lunge, and Silt Dive, not Strike. Do not add Strike. If a later move truly needs no part, write the empty list in `NEEDS`. A missing key stays a suite failure.
+
+No kit retune in this task. No new part names. The generator still prints "nothing was changed" above the failure table. That sentence is old draft voice. A FAIL still fails the suite. Do not edit the check to turn either verdict into a warning.
+
+Not run. The last published line is the 2026-10-10 result: `0 kit moves fail the gate; ungated []`. Today's count was not remeasured.
+
+## 7. Job Board clients
+
+A client comes from the job's own floor. The team does not have to have met them.
+
+`scripts/town/jobs.gd` says the clients are the wild creatures that live on that floor. The board is up before a new file has walked Rootbank Warren, and the file keeps no met record. A met-only pool would post nothing until a record existed. Do not add one.
+
+`post()` already draws from Warren's `FLOOR_SPAWNS`. `HOLLOW` stays `"first"`. The first pick is that floor's list. The leak is the duplicate swap. `_fresh_client` can return a creature from another floor while `job["floor"]` stays the floor that was rolled. The comment says the pay stays with that roll. That is how Preostmar posts a B1F job.
+
+Warren's stage-0 lists:
+
+| Floor | Ids | Who |
+|---|---|---|
+| B1F | 9, 8 | Dustkite, Canvaswing |
+| B2F | 9, 8, 3 | Dustkite, Canvaswing, Cinderhide |
+| B3F | 3, 4, 5 | Cinderhide, Fusern, Preostmar |
+
+Five distinct clients, and the board posts 4, so the once-each swap is on. B1F has two creatures. A third B1F roll has to leave that floor. Preostmar's only row is B3F. Dustkite and Canvaswing are on B1F and B2F. Cinderhide is on B2F and B3F.
+
+When the swap takes a creature from floor `f`, the job's floor becomes `f` before the pay and before a delivery's turn count. The creature and the floor are one fact. A creature is not posted on a floor whose list does not contain it.
+
+Pay for that swapped job is recomputed from the floor it lands on. `FLOOR_PTS` is 10, so the rank points are the kind's base plus `10 * (floor - 1)`.
+
+| Kind | Base | B1F | B2F | B3F |
+|---|---|---|---|---|
+| Rescue | 30 | 30 | 40 | 50 |
+| Lost item | 20 | 20 | 30 | 40 |
+| Delivery | 25 | 25 | 35 | 45 |
+
+Quick turns are `QUICK_TURNS_PER_FLOOR * floor`, and that constant is 70, so 70, 140, and 210. Recompute them from the new floor. The kind, the reward, and the count stay on the roll. `POSTED` stays 4. A repeated client stays off the board while five exist. The last-resort repeat, used only when every client is already posted, stays. It does not run at 5 clients and 4 posts.
+
+`_place_jobs` already keeps a job in the Hollow its label names, and on its floor. That stays. A Warren client does not stand on Hollow Mouth or The Hollow. Those two do not get boards in this task. The sentence above `hollow_of` that says the dungeon still places a client in whichever Hollow the team runs is stale. Strike it.
+
+No Godot. `job_board_check` forces its two test jobs onto B1F, so it does not show this swap.
+
+## 8. The Guardian passive
+
+It does not come back. Claude drops the printed step.
+
+Guardian was the Punchybuns aura: an ally within `GUARDIAN_RADIUS` 40 px takes `GUARDIAN_CUT` 0.85. A 20 blow would be `round(20 * 0.85) = 17`. Preston asked for the punching passive on 2026-10-08, and Chain replaced Guardian on Sparkjab and Starward. Both kits set `"passive": "chain"`. Punchybun sets no passive. No current kit sets `"guardian"`, so the cut never runs.
+
+Chain stays. A payout is every `CHAIN_PAYOUT` 8 hits, a shield of `CHAIN_SHIELD` 0.07 of max HP for `CHAIN_SHIELD_SECONDS` 6, stacking to `CHAIN_STACKS` 3, plus `CHAIN_HASTE` 2. Putting the aura back on the same body would soften every blow beside Starward and then let Chain's shield take what remained. The same shape already belongs to Windbreak on Windcut and Galeshear: radius 30, cut 0.9, so a 20 blow is `round(20 * 0.9) = 18`. The protector does not get a second copy of that.
+
+The boss-music id `guardian` is a different word. Leave it.
+
+Drop the printed Guardian step in `tools/debug/arena_protector_check.gd`: the comment, the `_hurt` of 20 on the ally beside Starward, and the print. Star Guard and Counter Jab stay judged. Strike the word Guardian from that file's header and from the Sparkjab kit comment in `scripts/arena/arena_prototype.gd` that still names it. Leave `GUARDIAN_RADIUS`, `GUARDIAN_CUT`, and the damage branch. Do not set any kit's passive to `"guardian"`. Do not retune Chain.
+
+No Godot.
+
+## 9. A separate random source for gameplay
+
+Yes. The dungeon run gets its own generator. Picture rolls stay on Godot's.
+
+The floor plan is already seeded. `Gen.generate` and the stock use `floor_seed + 7`. A nest fills from `floor_seed + 99`. The rain uses its own generator at seed 77. Those stay.
+
+What shares Godot's generator today, and moves:
+
+- The damage roll, `randf_range(0.9, 1.1)` in `damage()`. The range stays.
+- Both recruit `randf()` calls.
+- The warp's room pick, `randi() % rooms.size()`.
+- Every `floor_seed = randi()`: the start when `floor_seed` is 0, the stairs, the clear that starts again at B1F, and the faint.
+
+What stays on Godot's generator: camera shake, and the particle `randf` and `randf_range` calls. A changed frame count, a longer floor card, or a new puff must not draw the next hit or the next floor.
+
+Seed the gameplay generator from `floor_seed` at the start of each floor. Use a new offset. Do not use `+ 7` or `+ 99`, or the layout and the nest will move. Draw the next `floor_seed` from the current floor's gameplay generator, then seed the next floor from that new value. A floor entered at the same seed, with the same actions, takes the same rolls. A check that sets `floor_seed` before the floor builds keeps that seed.
+
+`jobs.gd` already has its own streams. Leave them. The arena stays on Godot's generator. This split is the dungeon run.
+
+The 0.9 to 1.1 width, the recruit rates, the spawns, and `REST_TO` stay. The split changes which of those rolls come up. The next `lv1_run` is a new baseline, not a balance change.
+
+Published tables, from `GROK_TASKS_2026-10-22.md`, with no rule change between them. Pass 5: seeds 1 to 10 at 60 fps cleared 1. Seeds 11 to 30 cleared 4 of 20 on that pass's file (49 downs) and 3 of 20 on the committed file (54 downs). Over 30 seeds, 4 clears against 7. Pass 6's suite cleared 5 of 10 with 20 downs. Seeds 11 to 30 cleared 5, with 48 downs. Read the next table the same way: a rate over the seeds. Task 1's house gate moves it too. Do not retune from that run.
+
+No Godot.
+
+## 10. Creature lines, and the dual-essence print
+
+Two answers. No entry screen, and the print tool retires.
+
+### One line, when a screen exists
+
+No entry screen in this apply. Nothing in `scripts/` reads `CreatureData.description`. The 32 description fields under `data/creatures/` stay workshop notes: dates, paths, "provisional", "default stats", and names still marked pending. Those sentences do not go on a screen.
+
+An entry screen waits until each of those fields is one sentence a person in the Hollow could read. Preston owns the names, so the sentences are not written in this pass. A working name that the file still calls pending stays pending. When the lines are written: one sentence, the approved name, no date, no path, no agent name, and none of the workshop words above.
+
+### `dual_essence_check`
+
+Retire it. It prints `EssenceChart`, and the dungeon does not play that chart.
+
+`scripts/essence_chart.gd` is the old turn-based chart: strong 2.0, weak 0.5, a missing row 1.0. `scripts/arena/arena_prototype.gd` says `ARENA_CHART` replaced it on 2026-10-07. The dungeon multiplies `ARENA_CHART`. Main strong is 1.5 and main weak is 0.75. Second strong is 1.25 and second weak is 0.9.
+
+Tide into Kithflare, Ember plus Electric. The old chart: Tide against Ember is 2.0, and Tide against Electric has no row, so 1.0. The product is 2.0. The live chart: `1.5 * 0.9 = 1.35`. The check prints the 2.0. A pass that reads that print as the dungeon's hit is wrong.
+
+The suite lists it RAN because the script judges nothing. Make it retire the way `arena_scourmaw_check` does: print `RETIRED` and `quit(2)`. Leave `essence_chart.gd` and `battle_screen.gd`. The old battle still calls that chart. Do not point this check at `ARENA_CHART`, and do not turn the print into a verdict.
+
+No Godot.
+
 ## Source issues for Claude
 
 - Gate the Hollow Mouth house roll at the `recipe()["monster_house"]` check. Leave the shared `0.3` in `RECIPE` where it is.
 - First visit means `dungeon == "mouth"` and `"mouth"` is not in `beaten`, on floors 1 and 2 only. Use `beaten`. Do not add a second flag.
 - Spawns and `REST_TO` need no edit.
-- The next `lv1_run` table will move because the house rule is a real change. Read it as a rate over the seeds. One seed's miss is not a failed apply. Task 9 (a separate gameplay random source) is not answered here, so the shared generator can still reshuffle rows between builds.
+- The next `lv1_run` table will move. The house rule is a real change, and task 9 moves the gameplay rolls onto their own generator. Read it as a rate over the seeds, and as a new baseline. One seed's miss is not a failed apply. Do not retune from that table.
 - `docs/creatures/hollow-wilds-2026-10-10.md` still says the Hollow spawns are B1F Listener, Troughspine, Skimlet and B2F Listener, Troughspine, Ozbender, Valvekin. That sentence is stale. The pilot story is the corrected one. The code was not edited.
 - Status moves: delete only Waywhistle's `WAITING` row for Vantage. Do not delete the move, and do not take it off the arena kit. Do not move any other `WAITING` row into `LEARN`. The job 4 fight rules are not part of this apply. Valvekin's only dungeon move is still Glass Guard, and until that rule is built the turn is a ring.
 - Delete `data/moves/fire_move.tres` and its `.uid` if one is beside it. Do not rename it, and do not add a move id. Leave `scenes/effects/fire_move_effect.tscn` and the Opal sprites. Nothing else in the live `.gd`, `.tscn`, and `.tres` set loads that scene, so it will sit unused. The docs backup that still names the path stays.
 - Display names: in `scripts/arena/arena_prototype.gd`, change only `MOVES["lantern_tackle"]["name"]` from "Lantern Tackle" to "Lantern Relay" (line 265). In that same file, the comments that state the name (lines 22, 123, 1540, 4073) should say Lantern Relay, and should say Lantern Tackle was the placeholder. Strike the words "placeholder name" on the Ember Feint comment (line 252) and the Verdant Roar kit comment (line 137). Do not rename the id `lantern_tackle`, `_update_tackle`, `TACKLE_HOP`, the learnset rows, or any number. Leave the Ember Feint and Verdant Roar strings, the signature keys in `LINES`, `MOVE_ESSENCE`, `arena_signature.gd`, and `arena_rampart_check.gd`, the title card, the docs archives, and the check-script comments.
+- Body gate: no edit. Leave both `_ok` lines in `tools/debug/move_table_check.gd`. A current kit move that is missing a part, or that has no `NEEDS` entry, keeps failing the suite. Do not add a Plate Rake exemption. Do not treat a missing `NEEDS` key as legal. An empty list in `NEEDS` is the no-part case, and Strike is not a current kit move.
+- Job Board: in `scripts/town/jobs.gd`, when `_fresh_client` takes a creature from floor `f`, set `job["floor"]` to `f` before `pts` and before a delivery's `turns`. Pay is `KINDS[kind]["pts"] + 10 * (floor - 1)`. Quick turns are `70 * floor`. A creature is posted only on a floor whose spawn list contains it. Do not add a met record. Leave `POSTED` at 4, the kind roll, the reward, and the count. Leave `_place_jobs` in `scripts/dungeon/dungeon.gd` as it is. Strike the stale sentence above `hollow_of` that says a client is placed in whichever Hollow the team runs. `HOLLOW` stays `"first"`. Rerun `job_board_check` with the usual four.
+- Guardian: drop the printed step in `tools/debug/arena_protector_check.gd` (the comment, the `_hurt` of 20, and the print). Leave the Star Guard and Counter Jab verdicts. Strike the word Guardian from that file's header and from the Sparkjab kit comment in `scripts/arena/arena_prototype.gd`. Leave `GUARDIAN_RADIUS`, `GUARDIAN_CUT`, the damage branch, Chain's numbers, and the boss-music id `guardian`. Do not set any kit's passive to `"guardian"`.
+- Gameplay random: in `scripts/dungeon/dungeon.gd`, give the run its own generator, seeded from `floor_seed` at each floor with a new offset. It draws the damage `randf_range(0.9, 1.1)`, both recruit `randf()` calls, the warp room `randi()`, and every `floor_seed = randi()` (start, stairs, clear, faint). Shake and particles stay on Godot's generator. Leave the floor builder at `floor_seed + 7`, the nest fill at `floor_seed + 99`, the rain at seed 77, and `jobs.gd`'s streams. Do not split the arena. A check that sets `floor_seed` keeps that seed. The 0.9 to 1.1 width and the recruit rates stay.
+- Creature lines: do not add an entry screen, and do not show `CreatureData.description`. Leave the 32 description fields as they are.
+- Dual essence: retire `tools/debug/dual_essence_check.gd`. Print `RETIRED` and `quit(2)`, as `arena_scourmaw_check` does. Leave `scripts/essence_chart.gd` and `scripts/battle_screen.gd`. Do not retarget the print at `ARENA_CHART`.
 
 ## Left alone
 

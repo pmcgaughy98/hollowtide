@@ -44,6 +44,7 @@ func _town() -> Node2D:
 	root.add_child(town)
 	current_scene = town
 	await _frames(6)
+	town.enter_area(town.Layout.area_of("storage"), "storage")   # Highbank v2: the place's area first (lane A, Claude, 2026-10-26)
 	var door: Dictionary = town.Layout.PLACES.filter(func(p: Dictionary) -> bool: return p["id"] == "storage")[0]
 	town.team[0]["pos"] = door["door"] + Vector2i(0, 1)
 	town.team[0]["facing"] = "n"

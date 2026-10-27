@@ -1,0 +1,30 @@
+# The Wayline Tower from its foot (scripts/story/tower_reveal.gd). Claude's proposals for Preston, 2026-10-26 (Preston:
+# a scene where the two are in awe, talking about what couriers are, with a camera pan up the Tower).
+# Plays once, the first time the two reach Tower Rise in the rewired Highbank. "start" at the doors; the camera pans up
+# the Tower during "climb", holds at the beacon for "top", and comes back down during "down".
+# Same rules as road_to_highbank.dialogue. St. Joseph voice: react before informing, never just announce the next step.
+# How we write: docs/design/dialogue-voice-guide.md. Every line here is NEW, a proposal; edit freely.
+
+~ start
+You tip your head back. Then further back.
+{{partner_name}}: [#surprised] ...Oh. Oh, wow.
+{{partner_name}}: [#joyous] I've seen it from the river a hundred times. Never stood right under it.
+=> END
+
+~ climb
+{{partner_name}}: [#happy] Look how far up it goes. My neck's gonna be sore tomorrow.
+{{partner_name}}: [#happy] Every route on the river starts at that door down there.
+{{partner_name}}: [#determined] A runner takes whatever folks can't carry themselves. Letters. Medicine. Seed for the spring.
+{{partner_name}}: [#worried] Even when the road's washed out. Even when there's a Hollow sitting in the way.
+=> END
+
+~ top
+{{partner_name}}: [#surprised] See the lantern way up top? They light it when a runner's out late.
+{{partner_name}}: [#happy] So whoever's still out there knows somebody's waiting up on 'em.
+=> END
+
+~ down
+{{partner_name}}: [#sad] ...Couriers don't get thanked much. The mail just shows up and folks forget somebody walked it there.
+{{partner_name}}: [#determined] But somebody did. That's the whole job. You show up.
+{{partner_name}}: [#happy] ...Okay. Okay. My hands are shaking, look at that.
+=> END

@@ -1,0 +1,164 @@
+{
+  "checks": [
+    {
+      "check": "normal-auto first launch reaches main",
+      "passed": true
+    },
+    {
+      "check": "normal-auto no simultaneous launch/menu logos",
+      "passed": true
+    },
+    {
+      "check": "normal-auto first focus is silent",
+      "passed": true
+    },
+    {
+      "check": "normal-auto first focus belongs to first menu action",
+      "passed": true
+    },
+    {
+      "check": "normal-auto auto splash advertises skipping, not a required key",
+      "passed": true
+    },
+    {
+      "check": "normal-auto prelude and captions hidden at zero alpha",
+      "passed": true
+    },
+    {
+      "check": "normal-auto first launch still displays its timed card",
+      "passed": true
+    },
+    {
+      "check": "normal-auto skip cannot activate New Game",
+      "passed": true
+    },
+    {
+      "check": "normal-auto Options opens",
+      "passed": true
+    },
+    {
+      "check": "normal-auto Options plays exactly one confirm",
+      "passed": true
+    },
+    {
+      "check": "normal-auto Options initial shared focus is quiet",
+      "passed": true
+    },
+    {
+      "check": "normal-auto return opens main before first draw",
+      "passed": true
+    },
+    {
+      "check": "normal-auto return has no dim menu or launch card",
+      "passed": true
+    },
+    {
+      "check": "normal-auto return focus is silent",
+      "passed": true
+    },
+    {
+      "check": "normal-auto returning alone leaves preferences byte exact",
+      "passed": true
+    },
+    {
+      "check": "normal-auto returning alone leaves game preferences byte exact",
+      "passed": true
+    },
+    {
+      "check": "normal-auto unknown preferences survive existing migration",
+      "passed": true
+    },
+    {
+      "check": "reduced-auto first launch reaches main",
+      "passed": true
+    },
+    {
+      "check": "reduced-auto no simultaneous launch/menu logos",
+      "passed": true
+    },
+    {
+      "check": "reduced-auto first focus is silent",
+      "passed": true
+    },
+    {
+      "check": "reduced-auto first focus belongs to first menu action",
+      "passed": true
+    },
+    {
+      "check": "reduced-auto auto splash advertises skipping, not a required key",
+      "passed": true
+    },
+    {
+      "check": "reduced-auto prelude and captions hidden at zero alpha",
+      "passed": true
+    },
+    {
+      "check": "reduced-auto first launch still displays its timed card",
+      "passed": true
+    },
+    {
+      "check": "reduced-auto skip cannot activate New Game",
+      "passed": true
+    },
+    {
+      "check": "reduced-auto Options opens",
+      "passed": true
+    },
+    {
+      "check": "reduced-auto Options plays exactly one confirm",
+      "passed": true
+    },
+    {
+      "check": "reduced-auto Options initial shared focus is quiet",
+      "passed": true
+    },
+    {
+      "check": "reduced-auto return opens main before first draw",
+      "passed": true
+    },
+    {
+      "check": "reduced-auto return has no dim menu or launch card",
+      "passed": true
+    },
+    {
+      "check": "reduced-auto return focus is silent",
+      "passed": true
+    },
+    {
+      "check": "reduced-auto returning alone leaves preferences byte exact",
+      "passed": true
+    },
+    {
+      "check": "reduced-auto returning alone leaves game preferences byte exact",
+      "passed": true
+    },
+    {
+      "check": "reduced-auto unknown preferences survive existing migration",
+      "passed": true
+    },
+    {
+      "check": "Private saved journey remains byte exact",
+      "passed": true
+    }
+  ],
+  "failed": 0,
+  "failures": [],
+  "metrics": [
+    {
+      "case": "normal-auto",
+      "first_done_frame": 76,
+      "first_hint": "J / E / click  Skip",
+      "return_ready_in_ready": true,
+      "return_wait_frames": 0
+    },
+    {
+      "case": "reduced-auto",
+      "first_done_frame": 4,
+      "first_hint": "J / E / click  Skip",
+      "return_ready_in_ready": true,
+      "return_wait_frames": 0
+    }
+  ],
+  "phase": "after-legacy",
+  "total": 35
+}

@@ -1,0 +1,12 @@
+3 checks, 1 at a time, logs in D:\dev\hollowtide-opening-fades-20261026\runner
+  PASS     opening_flow_check                  4.0s  
+  PASS     soul_prologue_check                 3.5s  
+  PASS     storm_open_check                    1.5s  
+
+RESULT   CHECK                              SECS  EXIT  FIRST PROBLEM OR NOTE
+PASS     opening_flow_check                  4.0     0  
+PASS     soul_prologue_check                 3.5     0  
+PASS     storm_open_check                    1.5     0  
+
+PASS 3
+exit 0: nothing failed

@@ -1,0 +1,20 @@
+{
+  "command": [
+    "C:/Users/pmcga/Games/Tools/Godot_v4.7.2/Godot_v4.7.2-stable_win64.exe",
+    "--path",
+    "C:\\Users\\pmcga\\dev\\hollowtide",
+    "--rendering-method",
+    "gl_compatibility",
+    "--audio-driver",
+    "Dummy",
+    "--fixed-fps",
+    "30",
+    "--script",
+    "D:\\dev\\hollowtide-opening-fades-20261026\\native_check.gd",
+    "--",
+    "after"
+  ],
+  "APPDATA": "D:\\dev\\hollowtide-opening-fades-20261026\\after-profile",
+  "LOCALAPPDATA": "D:\\dev\\hollowtide-opening-fades-20261026\\after-local-profile",
+  "exit": 0
+}

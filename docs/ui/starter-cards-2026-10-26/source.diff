@@ -1,0 +1,319 @@
+--- before/scripts/soul_prologue.gd
++++ after/scripts/soul_prologue.gd
+@@ -45,7 +45,7 @@
+ var reduce_motion := false
+ var auto := false          # the checks: advance by itself and pick auto_pick
+ var auto_pick := 1
+-var stage := "talk"        # talk, choose, after, fly, done
++var stage := "talk"        # talk, choose, confirm, after, fly, done
+ var line := 0
+ var shown := 0.0           # characters typed so far
+ var pick := 0
+@@ -61,7 +61,10 @@
+ var _motes: Array = []
+ var _void: Node2D
+ var _ui: Control
+-var _blip: AudioStreamPlayer
++var _presence: AudioStreamPlayer
++var _choice_wait := 0.0
++var _accept_released := true
++var _answer := 1   # Yes / No: a fresh choice starts on No
+ var _auto_wait := 0.0
+ var _opening_fade := false
+ var _backdrop: SubViewport
+@@ -101,11 +104,11 @@
+ 	layer.add_child(_ui)
+ 	get_viewport().size_changed.connect(_fit_backdrop)
+ 	_fit_backdrop()
+-	_blip = AudioStreamPlayer.new()
+-	_blip.stream = load("res://assets/audio/sfx/ui/text.wav")
+-	_blip.volume_db = -20.0
+-	_blip.bus = &"UI"   # the typed blip with the clicks (FEEL-08; Claude, 2026-10-22)
+-	add_child(_blip)
++	_presence = AudioStreamPlayer.new()
++	_presence.stream = preload("res://assets/audio/sfx/dungeon/presence_swell.wav")
++	_presence.volume_db = -14.0
++	_presence.bus = &"UI"
++	add_child(_presence)
+ 	var rng := RandomNumberGenerator.new()
+ 	rng.seed = 2026
+ 	for k in 70:
+@@ -144,6 +147,7 @@
+ 
+ 
+ func _current() -> Array:
++	if stage == "confirm": return ["%s?" % NAMES[pick], ""]
+ 	if stage in ["talk", "choose"]:
+ 		return LINES[line]   # the choice keeps its question on screen
+ 	return AFTER[line] if stage == "after" else ["", ""]
+@@ -163,6 +167,8 @@
+ 
+ func _process(delta: float) -> void:
+ 	_t += delta
++	_choice_wait = maxf(0.0, _choice_wait - delta)
++	if not _accept_down(): _accept_released = true
+ 	var full := _text().length()
+ 	if stage in ["talk", "after"]:
+ 		shown = minf(full, shown + delta * (200.0 if reduce_motion else 46.0))
+@@ -176,7 +182,7 @@
+ 	_flash = maxf(0.0, _flash - delta * 0.9)
+ 	# The soul: floating, bobbing, unsure; over the creature it is considering when choosing.
+ 	var home := Vector2(192, 92)
+-	if stage == "choose":
++	if stage in ["choose", "confirm"]:
+ 		home = Vector2(64 + pick * 128, 46)
+ 	if stage != "fly":
+ 		_soul = _soul.lerp(home, minf(1.0, delta * 3.0))
+@@ -187,6 +193,7 @@
+ 			if stage == "choose" and pick != auto_pick:
+ 				_move_pick(1 if auto_pick > pick else -1)
+ 			else:
++				if stage == "confirm": _answer = 0
+ 				advance()
+ 	_void.queue_redraw()
+ 	_ui.queue_redraw()
+@@ -207,6 +214,8 @@
+ 			if stage == "talk" and line < LINES.size():
+ 				if String(LINES[line][1]) == "choose":
+ 					stage = "choose"   # the last line is shown over the choice
++					_choice_wait = 0.4
++					_accept_released = false
+ 					line = LINES.size() - 1
+ 					shown = _text().length()
+ 					return
+@@ -216,15 +225,49 @@
+ 			elif stage == "after":
+ 				_fly()
+ 		"choose":
++			if not _choice_ready(): return
++			stage = "confirm"
++			_answer = 1
++			_accept_released = false
++			UI.tick("open")
++		"confirm":
++			if not _choice_ready(): return
++			_accept_released = false
++			if _answer == 1:
++				_back_to_cards()
++				return
+ 			chosen = pick
+ 			stage = "after"
+ 			line = 0
++			UI.tick("confirm")
++			_presence.play()
+ 			_start_line()
++
++
++func _accept_down() -> bool:
++	for action in UI.INPUT_ADVANCE:
++		if Input.is_action_pressed(action): return true
++	return Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT)
++
++
++func _choice_ready() -> bool:
++	return _choice_wait <= 0.0 and _accept_released
++
++
++func _back_to_cards() -> void:
++	stage = "choose"
++	_accept_released = false
++	UI.tick("cancel")
+ 
+ 
+ func _move_pick(step: int) -> void:
+ 	pick = posmod(pick + step, 3)
+-	_blip.play()
++	UI.tick("cursor")
++
++
++func _move_answer() -> void:
++	_answer = 1 - _answer
++	UI.tick("cursor")
+ 
+ 
+ func _fly() -> void:
+@@ -260,17 +303,27 @@
+ func _input(event: InputEvent) -> void:
+ 	# UI.pressed ignores centre events; feed them to its shared edge tracker too.
+ 	if event is InputEventJoypadMotion: UI._motion_edge(event)
++	if not _accept_down(): _accept_released = true
+ 	if auto or _opening_fade or stage in ["fly", "done"]: return
+-	if stage == "choose" and UI.pressed(event, "move_left"):
+-		_move_pick(-1)
+-	elif stage == "choose" and UI.pressed(event, "move_right"):
+-		_move_pick(1)
++	if stage == "confirm" and UI.pressed(event, "cancel"):
++		_back_to_cards()
++	elif stage in ["choose", "confirm"] and UI.pressed(event, "move_left"):
++		if stage == "choose": _move_pick(-1)
++		else: _move_answer()
++	elif stage in ["choose", "confirm"] and UI.pressed(event, "move_right"):
++		if stage == "choose": _move_pick(1)
++		else: _move_answer()
+ 	else:
+ 		var next := false
+ 		for action in UI.INPUT_ADVANCE:
+ 			if UI.pressed(event, action): next = true
+ 		if not next: return
+-		advance()   # one event, even when J/A belongs to more than one advance action
++		if stage in ["choose", "confirm"]:
++			advance()
++			_accept_released = false   # even a press inside the opening guard needs releasing
++		elif _accept_released:
++			_accept_released = false
++			advance()   # one event, even when J/A belongs to multiple advance actions
+ 	get_viewport().set_input_as_handled()
+ 
+ 
+@@ -278,19 +331,38 @@
+ 	return Rect2(66 + k * 348, 176 - (12 if k == pick else 0), 324, 312)
+ 
+ 
++func _answer_rect(k: int) -> Rect2:
++	return Rect2(676 + k * 144, 524, 124, 48)
++
++
+ func _on_click(event: InputEvent) -> void:
+-	if auto or not (event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT):
++	if auto or _opening_fade or not (event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT): return
++	if stage == "confirm":
++		if not _choice_ready():
++			_accept_released = false
++			return
++		for k in 2:
++			if _answer_rect(k).has_point(event.position):
++				_answer = k
++				advance()
++				return
+ 		return
+ 	if stage == "choose":
++		if not _choice_ready():
++			_accept_released = false
++			return
+ 		for k in 3:
+ 			if _card_rect(k).has_point(event.position):
+-				if k == pick:
+-					advance()
++				if k == pick: advance()
+ 				else:
+ 					pick = k
+-					_blip.play()
++					UI.tick("cursor")
++					_accept_released = false
+ 				return
+-	advance()
++		return
++	if _accept_released:
++		_accept_released = false
++		advance()
+ 
+ 
+ # ---------------------------------------------------------------- drawing
+@@ -349,21 +421,29 @@
+ 
+ func _draw_ui() -> void:
+ 	var c := _ui
+-	if stage == "choose" or stage == "after" or stage == "fly":
+-		for k in 3:
+-			_draw_card(k)
+-	if stage in ["talk", "after", "choose"]:
+-		var box := Rect2(140, 498, 872, 122)
+-		# An unseen voice uses the same story role and two-row pages as the waking dialogue.
++	if stage in ["choose", "confirm", "after", "fly"]:
++		for k in 3: _draw_card(k)
++	var box := Rect2(140, 498, 872, 122)
++	if stage in ["choose", "confirm"]:
++		# Choices stay fully visible, independent of the shared story typewriter's last page.
++		UI.panel(c, box, 0.95)
++		UI.nameplate(c, box.position + Vector2(24, -22), "???")
++		UI.say(c, box.position + Vector2(30, 56), _text(), "story", UI.TEXT)
++		var hint := "%s / %s  choose      %s  review" % [UI.binding_text("move_left"), UI.binding_text("move_right"), UI.binding_text("confirm")]
++		if stage == "confirm":
++			for k in 2:
++				var answer := _answer_rect(k)
++				UI.panel(c, answer, 1.0, k == _answer)
++				UI.say(c, answer.position + Vector2(0, 32), "Yes" if k == 0 else "No", "button", UI.EDGE_LIGHT if k == _answer else UI.TEXT, answer.size.x, HORIZONTAL_ALIGNMENT_CENTER)
++			hint = "%s / %s  choose      %s  confirm      %s  back" % [UI.binding_text("move_left"), UI.binding_text("move_right"), UI.binding_text("confirm"), UI.binding_text("cancel")]
++		UI.say(c, box.position + Vector2(30, 104), hint, "label", UI.TEXT, box.size.x - 60, HORIZONTAL_ALIGNMENT_RIGHT)
++	elif stage in ["talk", "after"]:
+ 		UI.dialogue(c, box, "???", _text(), null, _t)
+-		if stage == "choose":
+-			UI.finish_line()   # the short choice prompt stays fully visible
+-			UI.say(c, box.position + Vector2(0, 108), "%s / %s  choose      %s  this shape" % [UI.binding_text("move_left"), UI.binding_text("move_right"), UI.binding_text("confirm")], "label", Color(UI.MUTED, 0.6 + 0.4 * sin(_t * 4.0)), box.size.x - 30, HORIZONTAL_ALIGNMENT_RIGHT)
+ 
+ 
+ var _shared_scale := 0.0
+ 
+-## The largest half-step scale at which every starter fits its card, shared by all three.
++## One whole-pixel scale for the existing full-body showcase family, shared by all three.
+ func _card_scale() -> float:
+ 	if _shared_scale > 0.0:
+ 		return _shared_scale
+@@ -373,34 +453,37 @@
+ 		if frames.is_empty():
+ 			continue
+ 		var box := CreatureIdle.box(frames)
+-		fit = minf(fit, minf(146.0 / box.size.y, 246.0 / box.size.x))
+-	_shared_scale = floorf(clampf(fit, 0.5, 2.0) * 2.0) / 2.0
++		fit = minf(fit, minf(156.0 / box.size.y, 256.0 / box.size.x))
++	_shared_scale = maxf(1.0, floorf(fit))
+ 	return _shared_scale
+ 
+ 
+ func _draw_card(k: int) -> void:
+ 	var c := _ui
+ 	var r := _card_rect(k)
+-	var on := k == pick and stage == "choose" or k == chosen
+-	var fade := 1.0 if stage == "choose" or k == chosen else 0.35
++	var on := k == pick and stage in ["choose", "confirm"] or k == chosen
++	var fade := 1.0 if stage in ["choose", "confirm"] or k == chosen else 0.35
+ 	UI.panel(c, r, 0.95 if fade >= 1.0 else 0.7, on)
+ 	var stage_r := Rect2(r.position + Vector2(22, 22), Vector2(r.size.x - 44, 180))
+ 	c.draw_style_box(UI.frame("portrait"), stage_r)
++	# Main-essence colours from the dungeon's existing essence palette.
++	var tint: Color = [Color(1, 0.55, 0.25), Color(0.5, 0.9, 0.4), Color(0.35, 0.75, 1)][k]
++	c.draw_rect(stage_r.grow(-8), Color(tint, 0.12 * fade))
+ 	var frames := CreatureIdle.frames(FORMS[k])
+ 	if not frames.is_empty():
+ 		var box := CreatureIdle.box(frames)
+ 		var s := _card_scale()   # one scale for all three, so they keep their true sizes (Preston, 2026-10-11: Kithflare looked bigger)
+ 		var size := Vector2(box.size) * s
+-		var dest := Rect2(stage_r.position + Vector2((stage_r.size.x - size.x) * 0.5, stage_r.size.y - size.y - 18), size)
++		var dest := Rect2(stage_r.position + Vector2((stage_r.size.x - size.x) * 0.5, (stage_r.size.y - size.y) * 0.5), size)
+ 		var tex: Texture2D = CreatureIdle.frame_at(frames, _t if on else 0.0)
+ 		c.draw_set_transform(Vector2(dest.position.x + dest.size.x, dest.position.y), 0.0, Vector2(-1, 1))   # turned to its right
+ 		c.draw_texture_rect_region(tex, Rect2(Vector2.ZERO, dest.size), Rect2(box), Color(1, 1, 1, fade))
+ 		c.draw_set_transform(Vector2.ZERO, 0.0, Vector2.ONE)
+-	UI.say(c, r.position + Vector2(28, 238), NAMES[k], "name", (UI.EDGE_LIGHT if on else UI.TEXT) * Color(1, 1, 1, fade))
++	UI.say(c, r.position + Vector2(28, 248), NAMES[k], "title", (UI.EDGE_LIGHT if on else UI.TEXT) * Color(1, 1, 1, fade), r.size.x - 56)
+ 	var ix: float = r.position.x + r.size.x - 28 - 30 * ESSENCES[k].size()
+ 	for es in ESSENCES[k]:   # the main essence first, as on the party screen
+ 		var icon := UI.essence_icon(es)
+ 		if icon != null:
+-			c.draw_texture_rect(icon, Rect2(ix, r.position.y + 214, 28, 28), false, Color(1, 1, 1, fade))
++			c.draw_texture_rect(icon, Rect2(ix, r.position.y + 32, 24, 24), false, Color(1, 1, 1, fade))
+ 		ix += 30
+-	c.draw_multiline_string(UI.font("body"), r.position + Vector2(28, 262), FEEL[k], HORIZONTAL_ALIGNMENT_LEFT, r.size.x - 56, UI.type_size("body"), 2, UI.MUTED * Color(1, 1, 1, fade))
++	c.draw_multiline_string(UI.font("body"), r.position + Vector2(28, 278), FEEL[k], HORIZONTAL_ALIGNMENT_LEFT, r.size.x - 56, UI.type_size("body"), 2, UI.MUTED * Color(1, 1, 1, fade))
+--- before/tools/debug/opening_flow_check.gd
++++ after/tools/debug/opening_flow_check.gd
+@@ -118,6 +118,8 @@
+ 		await capture("3-frozen")
+ 	else:
+ 		await key(KEY_ENTER)
++		verify("First Storm press only arms skip", current_scene == storm and storm._skip_armed)
++		await key(KEY_ENTER)
+ 	if not verify("Storm enters actual soul scene", await until(func() -> bool: return scene_name() == "soul_prologue.tscn", 900)):
+ 		await finish(); return
+ 	var soul: Node = current_scene
+@@ -130,6 +132,10 @@
+ 	for k in hero: await key(KEY_RIGHT)
+ 	verify("Keyboard selects requested creature", soul.pick == hero)
+ 	await capture("4-choice")
++	await frames(14)   # cards ignore the reading press for 0.4 s
++	await key(KEY_ENTER)
++	verify("Starter asks before committing and defaults to No", soul.stage == "confirm" and soul.chosen == -1 and soul._answer == 1)
++	await key(KEY_LEFT)
+ 	await key(KEY_ENTER)
+ 	verify("Soul confirms selected starter", soul.chosen == hero and soul.stage == "after")
+ 	for k in 12:

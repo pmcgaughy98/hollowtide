@@ -5,9 +5,12 @@ const Finish = preload("res://scripts/town/exterior_finish.gd")
 const UI = preload("res://scripts/ui/ui_style.gd")
 const ART := "res://assets/sprites/world/job_board_2026_10_10/board_native.png"
 const DISPLAY_ART := "res://assets/sprites/world/job_board_selout_2026_10_10/board_native.png"
+# Claude, 2026-10-26 (placeholder factory lane B): the rect comes from the area showing (v1: the PLACES row itself)
+# and the 96x48 display art from its keep slot (town.landmark.board: DISPLAY_ART as its legacy, so the pixels do not change).
+const SLOT := "town.landmark.board"
 
 static func _place() -> Dictionary:
-	return Layout.PLACES.filter(func(p: Dictionary) -> bool: return p["id"] == "board")[0]
+	return BuildingTemplate.place_entry("board")
 
 static func available() -> bool:
 	return ResourceLoader.exists("res://scripts/town/building_exteriors.gd") and ResourceLoader.exists(ART) and load(ART).get_size() == Vector2(_place()["rect"].size * Layout.T)
@@ -52,6 +55,9 @@ static func _h(x: int, y: int, salt: int) -> float:
 static func _display_texture() -> Texture2D:
 	# The original 48x24 stand is retained as the exact fallback.
 	# Claude, 2026-10-24 (A4, LV-19): UI.res_image reads the imported texture, which an exported game has; the PNG it does not.
+	var slotted := ArtSlots.texture(SLOT)
+	if slotted.get_size() == Vector2(96, 48):
+		return slotted
 	var image := UI.res_image(DISPLAY_ART)
 	if image != null and image.get_size()==Vector2i(96,48):
 		return ImageTexture.create_from_image(image)

@@ -1,0 +1,2931 @@
+{
+ "chain_tests": {
+  "fix_twice_identical_to_once": true,
+  "after_heads_raised_2px_first": {
+   "left": {
+    "head_top": [
+     7,
+     8,
+     9,
+     8,
+     7,
+     8,
+     9,
+     8
+    ],
+    "same_contact_frame": true,
+    "moves_px": [
+     -1,
+     0,
+     1,
+     0,
+     -2,
+     -1,
+     0,
+     -1
+    ]
+   },
+   "right": {
+    "head_top": [
+     8,
+     9,
+     10,
+     9,
+     8,
+     9,
+     10,
+     9
+    ],
+    "same_contact_frame": true,
+    "moves_px": [
+     -1,
+     0,
+     1,
+     0,
+     -1,
+     0,
+     1,
+     0
+    ]
+   },
+   "down_right": {
+    "head_top": [
+     7,
+     8,
+     9,
+     8,
+     7,
+     8,
+     9,
+     8
+    ],
+    "same_contact_frame": true,
+    "moves_px": [
+     -1,
+     0,
+     1,
+     0,
+     -1,
+     0,
+     1,
+     0
+    ]
+   }
+  },
+  "runs_on_rd_atlas": {
+   "down": [
+    0,
+    2,
+    0,
+    -2,
+    -1,
+    1,
+    1,
+    -1
+   ],
+   "down_left": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+    1,
+    -1
+   ],
+   "left": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+    1,
+    0
+   ],
+   "up_left": [
+    -1,
+    -1,
+    0,
+    0,
+    0,
+    1,
+    1,
+    -1
+   ],
+   "up": [
+    0,
+    -2,
+    0,
+    1,
+    0,
+    -2,
+    0,
+    1
+   ],
+   "up_right": [
+    -1,
+    -1,
+    0,
+    0,
+    0,
+    1,
+    1,
+    -1
+   ],
+   "right": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+    1,
+    0
+   ],
+   "down_right": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    -1
+   ]
+  }
+ },
+ "note": "bob lane, 2026-10-26. before = raw PixelLab atlas, after = fix_bob.py applied to it alone, rd = the in-game RD atlas. head_top is the bbox top row (same as measurements.json); contact/passing frames come from fix_bob's leg reading of the raw row (RD uses its own legs).",
+ "definitions": {
+  "head_top_amplitude": "max minus min of the bbox top row over the 8 frames",
+  "head_top_contact_minus_passing": "mean head top on contact frames minus on passing frames; positive = lower on contact (the intended phase)",
+  "head_top_corr_with_rhythm": "correlation of the head top with the +1 contact / -1 passing / 0 between pattern",
+  "rd_share_whole_sprite": "share of RD's frame-to-frame head motion where the feet moved the same way by the same amount (whole sprite) rather than the body moving over still feet",
+  "seams": "per moved frame, the hip row removed (lower) or duplicated (raise) and how many of its pixels differed from both neighbours"
+ },
+ "summary": {
+  "head_top_amplitude_before": {
+   "down": 0,
+   "down_left": 0,
+   "left": 1,
+   "up_left": 0,
+   "up": 1,
+   "up_right": 0,
+   "right": 0,
+   "down_right": 0
+  },
+  "head_top_amplitude_after": {
+   "down": 2,
+   "down_left": 2,
+   "left": 2,
+   "up_left": 2,
+   "up": 2,
+   "up_right": 2,
+   "right": 2,
+   "down_right": 2
+  },
+  "head_top_amplitude_rd": {
+   "down": 3,
+   "down_left": 2,
+   "left": 2,
+   "up_left": 2,
+   "up": 1,
+   "up_right": 2,
+   "right": 2,
+   "down_right": 2
+  },
+  "rows_with_flat_head_before": 6,
+  "rows_with_flat_head_after": 0,
+  "contact_minus_passing_before": {
+   "down": 0.0,
+   "down_left": 0.0,
+   "left": 0.0,
+   "up_left": 0.0,
+   "up": -0.5,
+   "up_right": 0.0,
+   "right": 0.0,
+   "down_right": 0.0
+  },
+  "contact_minus_passing_after": {
+   "down": 2.0,
+   "down_left": 2.0,
+   "left": 2.0,
+   "up_left": 2.0,
+   "up": 2.0,
+   "up_right": 2.0,
+   "right": 2.0,
+   "down_right": 2.0
+  },
+  "contact_minus_passing_rd_own_phase": {
+   "down": -1.5,
+   "down_left": 1.5,
+   "left": 1.0,
+   "up_left": 1.0,
+   "up": -1.0,
+   "up_right": 1.0,
+   "right": 1.0,
+   "down_right": 1.5
+  },
+  "corr_with_rhythm_after": {
+   "down": 1.0,
+   "down_left": 1.0,
+   "left": 1.0,
+   "up_left": 1.0,
+   "up": 1.0,
+   "up_right": 1.0,
+   "right": 1.0,
+   "down_right": 1.0
+  },
+  "corr_with_rhythm_rd_own_phase": {
+   "down": -0.572,
+   "down_left": 0.679,
+   "left": 0.5,
+   "up_left": 0.453,
+   "up": -0.816,
+   "up_right": 0.453,
+   "right": 0.5,
+   "down_right": 0.885
+  },
+  "rd_share_whole_sprite": {
+   "down": 0.38,
+   "down_left": 0.25,
+   "left": 0.33,
+   "up_left": 0.5,
+   "up": 0.25,
+   "up_right": 0.5,
+   "right": 0.33,
+   "down_right": 0.33
+  },
+  "unique_colours_before": {
+   "down": 40,
+   "down_left": 58,
+   "left": 61,
+   "up_left": 55,
+   "up": 55,
+   "up_right": 56,
+   "right": 60,
+   "down_right": 56
+  },
+  "unique_colours_after": {
+   "down": 40,
+   "down_left": 58,
+   "left": 61,
+   "up_left": 55,
+   "up": 55,
+   "up_right": 56,
+   "right": 60,
+   "down_right": 56
+  },
+  "dark_outline_share_before": {
+   "down": 0.9114,
+   "down_left": 0.9851,
+   "left": 0.967,
+   "up_left": 0.9932,
+   "up": 0.9844,
+   "up_right": 0.9426,
+   "right": 0.9789,
+   "down_right": 0.8985
+  },
+  "dark_outline_share_after": {
+   "down": 0.9115,
+   "down_left": 0.985,
+   "left": 0.9672,
+   "up_left": 0.9932,
+   "up": 0.9844,
+   "up_right": 0.9425,
+   "right": 0.9789,
+   "down_right": 0.8986
+  },
+  "neighbour_diff_before": {
+   "down": 0.634,
+   "down_left": 0.7803,
+   "left": 0.7643,
+   "up_left": 0.5824,
+   "up": 0.5311,
+   "up_right": 0.5579,
+   "right": 0.733,
+   "down_right": 0.7345
+  },
+  "neighbour_diff_after": {
+   "down": 0.7717,
+   "down_left": 0.8327,
+   "left": 0.799,
+   "up_left": 0.6551,
+   "up": 0.5866,
+   "up_right": 0.6407,
+   "right": 0.7783,
+   "down_right": 0.8111
+  },
+  "head_redraw_aligned_before": {
+   "down": 0.5064,
+   "down_left": 0.5085,
+   "left": 0.5691,
+   "up_left": 0.2188,
+   "up": 0.2417,
+   "up_right": 0.2787,
+   "right": 0.5402,
+   "down_right": 0.5936
+  },
+  "head_redraw_aligned_after": {
+   "down": 0.5064,
+   "down_left": 0.5085,
+   "left": 0.5691,
+   "up_left": 0.2188,
+   "up": 0.2417,
+   "up_right": 0.2787,
+   "right": 0.5402,
+   "down_right": 0.5936
+  },
+  "feet_untouched_all_rows": true,
+  "colours_added_total": 0,
+  "seam_px_lost_or_doubled_total": 14,
+  "frames_moved": 33,
+  "frames_moved_2px": 2,
+  "chain_fix_twice_identical": true
+ },
+ "rows": {
+  "down": {
+   "gait": {
+    "contact": 1,
+    "phase": 1.11,
+    "wave_amp": 1.52,
+    "method": "stride",
+    "stride": [
+     17,
+     21,
+     18,
+     18,
+     18,
+     20,
+     18,
+     17
+    ],
+    "leg_change": null
+   },
+   "moves_px": [
+    0,
+    1,
+    0,
+    -1,
+    0,
+    1,
+    0,
+    -1
+   ],
+   "seams": {
+    "f1": [
+     {
+      "row": 56,
+      "px_lost_or_doubled": 0
+     }
+    ],
+    "f3": [
+     {
+      "row": 55,
+      "px_lost_or_doubled": 0
+     }
+    ],
+    "f5": [
+     {
+      "row": 57,
+      "px_lost_or_doubled": 0
+     }
+    ],
+    "f7": [
+     {
+      "row": 56,
+      "px_lost_or_doubled": 0
+     }
+    ]
+   },
+   "before": {
+    "head_top": [
+     7,
+     7,
+     7,
+     7,
+     7,
+     7,
+     7,
+     7
+    ],
+    "head_top_amplitude": 0,
+    "head_mass_offset_vs_f0": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "head_mass_amplitude": 0,
+    "foot_y": [
+     71,
+     72,
+     71,
+     71,
+     71,
+     71,
+     71,
+     71
+    ],
+    "height": [
+     65,
+     66,
+     65,
+     65,
+     65,
+     65,
+     65,
+     65
+    ],
+    "contact_frames": [
+     1,
+     5
+    ],
+    "passing_frames": [
+     3,
+     7
+    ],
+    "gait_method": "stride",
+    "stride": [
+     17,
+     21,
+     18,
+     18,
+     18,
+     20,
+     18,
+     17
+    ],
+    "head_top_contact_minus_passing": 0.0,
+    "head_top_corr_with_rhythm": 0.0,
+    "unique_colours": 40,
+    "semi_transparent_px": 0,
+    "dark_outline_share_mean": 0.9114,
+    "opaque_px": [
+     1340,
+     1352,
+     1352,
+     1347,
+     1341,
+     1356,
+     1350,
+     1339
+    ],
+    "neighbour_diff_mean": 0.634,
+    "head_redraw_aligned_mean": 0.5064
+   },
+   "after": {
+    "head_top": [
+     7,
+     8,
+     7,
+     6,
+     7,
+     8,
+     7,
+     6
+    ],
+    "head_top_amplitude": 2,
+    "head_mass_offset_vs_f0": [
+     0,
+     1,
+     0,
+     -1,
+     0,
+     1,
+     0,
+     -1
+    ],
+    "head_mass_amplitude": 2,
+    "foot_y": [
+     71,
+     72,
+     71,
+     71,
+     71,
+     71,
+     71,
+     71
+    ],
+    "height": [
+     65,
+     65,
+     65,
+     66,
+     65,
+     64,
+     65,
+     66
+    ],
+    "contact_frames": [
+     1,
+     5
+    ],
+    "passing_frames": [
+     3,
+     7
+    ],
+    "gait_method": "stride",
+    "stride": [
+     17,
+     21,
+     18,
+     18,
+     18,
+     20,
+     18,
+     17
+    ],
+    "head_top_contact_minus_passing": 2.0,
+    "head_top_corr_with_rhythm": 1.0,
+    "unique_colours": 40,
+    "semi_transparent_px": 0,
+    "dark_outline_share_mean": 0.9115,
+    "opaque_px": [
+     1340,
+     1335,
+     1352,
+     1364,
+     1341,
+     1339,
+     1350,
+     1356
+    ],
+    "neighbour_diff_mean": 0.7717,
+    "head_redraw_aligned_mean": 0.5064
+   },
+   "rd": {
+    "head_top": [
+     7,
+     6,
+     7,
+     9,
+     8,
+     7,
+     6,
+     7
+    ],
+    "head_top_amplitude": 3,
+    "head_mass_offset_vs_f0": [
+     0,
+     -1,
+     0,
+     2,
+     1,
+     0,
+     -1,
+     0
+    ],
+    "head_mass_amplitude": 3,
+    "foot_y": [
+     72,
+     71,
+     70,
+     71,
+     72,
+     72,
+     71,
+     70
+    ],
+    "height": [
+     66,
+     66,
+     64,
+     63,
+     65,
+     66,
+     66,
+     64
+    ],
+    "contact_frames": [
+     1,
+     5
+    ],
+    "passing_frames": [
+     3,
+     7
+    ],
+    "gait_method": "stride",
+    "stride": [
+     29,
+     25,
+     20,
+     19,
+     26,
+     24,
+     25,
+     18
+    ],
+    "head_top_contact_minus_passing": -1.5,
+    "head_top_corr_with_rhythm": -0.572,
+    "unique_colours": 35,
+    "semi_transparent_px": 0,
+    "dark_outline_share_mean": 0.9562,
+    "opaque_px": [
+     1424,
+     1406,
+     1345,
+     1336,
+     1387,
+     1397,
+     1393,
+     1362
+    ],
+    "neighbour_diff_mean": 0.7444,
+    "head_redraw_aligned_mean": 0.0913
+   },
+   "rd_motion": {
+    "head_steps_px": 8,
+    "moved_with_feet_px": 3,
+    "moved_above_feet_px": 5,
+    "share_whole_sprite": 0.38,
+    "foot_y_range": 2
+   },
+   "checks": {
+    "feet_and_knees_untouched_all_frames": true,
+    "colours_added": 0,
+    "alpha_values": [
+     0,
+     255
+    ],
+    "px_changed": [
+     0,
+     786,
+     0,
+     797,
+     0,
+     803,
+     0,
+     825
+    ]
+   }
+  },
+  "down_left": {
+   "gait": {
+    "contact": 2,
+    "phase": 1.82,
+    "wave_amp": 3.64,
+    "method": "stride",
+    "stride": [
+     14,
+     11,
+     14,
+     12,
+     15,
+     26,
+     29,
+     21
+    ],
+    "leg_change": null
+   },
+   "moves_px": [
+    -1,
+    0,
+    1,
+    0,
+    -1,
+    0,
+    1,
+    0
+   ],
+   "seams": {
+    "f0": [
+     {
+      "row": 57,
+      "px_lost_or_doubled": 2
+     }
+    ],
+    "f2": [
+     {
+      "row": 57,
+      "px_lost_or_doubled": 3
+     }
+    ],
+    "f4": [
+     {
+      "row": 56,
+      "px_lost_or_doubled": 1
+     }
+    ],
+    "f6": [
+     {
+      "row": 57,
+      "px_lost_or_doubled": 0
+     }
+    ]
+   },
+   "before": {
+    "head_top": [
+     7,
+     7,
+     7,
+     7,
+     7,
+     7,
+     7,
+     7
+    ],
+    "head_top_amplitude": 0,
+    "head_mass_offset_vs_f0": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "head_mass_amplitude": 0,
+    "foot_y": [
+     72,
+     71,
+     71,
+     71,
+     71,
+     69,
+     69,
+     69
+    ],
+    "height": [
+     66,
+     65,
+     65,
+     65,
+     65,
+     63,
+     63,
+     63
+    ],
+    "contact_frames": [
+     2,
+     6
+    ],
+    "passing_frames": [
+     0,
+     4
+    ],
+    "gait_method": "stride",
+    "stride": [
+     14,
+     11,
+     14,
+     12,
+     15,
+     26,
+     29,
+     21
+    ],
+    "head_top_contact_minus_passing": 0.0,
+    "head_top_corr_with_rhythm": 0.0,
+    "unique_colours": 58,
+    "semi_transparent_px": 0,
+    "dark_outline_share_mean": 0.9851,
+    "opaque_px": [
+     1200,
+     1166,
+     1173,
+     1134,
+     1179,
+     1121,
+     1130,
+     1176
+    ],
+    "neighbour_diff_mean": 0.7803,
+    "head_redraw_aligned_mean": 0.5085
+   },
+   "after": {
+    "head_top": [
+     6,
+     7,
+     8,
+     7,
+     6,
+     7,
+     8,
+     7
+    ],
+    "head_top_amplitude": 2,
+    "head_mass_offset_vs_f0": [
+     0,
+     1,
+     2,
+     1,
+     0,
+     1,
+     2,
+     1
+    ],
+    "head_mass_amplitude": 2,
+    "foot_y": [
+     72,
+     71,
+     71,
+     71,
+     71,
+     69,
+     69,
+     69
+    ],
+    "height": [
+     67,
+     65,
+     64,
+     65,
+     66,
+     63,
+     62,
+     63
+    ],
+    "contact_frames": [
+     2,
+     6
+    ],
+    "passing_frames": [
+     0,
+     4
+    ],
+    "gait_method": "stride",
+    "stride": [
+     14,
+     11,
+     14,
+     12,
+     15,
+     26,
+     29,
+     21
+    ],
+    "head_top_contact_minus_passing": 2.0,
+    "head_top_corr_with_rhythm": 1.0,
+    "unique_colours": 58,
+    "semi_transparent_px": 0,
+    "dark_outline_share_mean": 0.985,
+    "opaque_px": [
+     1213,
+     1166,
+     1162,
+     1134,
+     1194,
+     1121,
+     1113,
+     1176
+    ],
+    "neighbour_diff_mean": 0.8327,
+    "head_redraw_aligned_mean": 0.5085
+   },
+   "rd": {
+    "head_top": [
+     7,
+     8,
+     9,
+     8,
+     7,
+     7,
+     8,
+     9
+    ],
+    "head_top_amplitude": 2,
+    "head_mass_offset_vs_f0": [
+     0,
+     1,
+     2,
+     0,
+     0,
+     0,
+     1,
+     2
+    ],
+    "head_mass_amplitude": 2,
+    "foot_y": [
+     72,
+     71,
+     71,
+     70,
+     71,
+     70,
+     72,
+     72
+    ],
+    "height": [
+     66,
+     64,
+     63,
+     63,
+     65,
+     64,
+     65,
+     64
+    ],
+    "contact_frames": [
+     2,
+     6
+    ],
+    "passing_frames": [
+     0,
+     4
+    ],
+    "gait_method": "stride",
+    "stride": [
+     33,
+     31,
+     28,
+     20,
+     14,
+     15,
+     25,
+     20
+    ],
+    "head_top_contact_minus_passing": 1.5,
+    "head_top_corr_with_rhythm": 0.679,
+    "unique_colours": 27,
+    "semi_transparent_px": 0,
+    "dark_outline_share_mean": 0.974,
+    "opaque_px": [
+     1287,
+     1238,
+     1217,
+     1198,
+     1185,
+     1232,
+     1347,
+     1337
+    ],
+    "neighbour_diff_mean": 0.7851,
+    "head_redraw_aligned_mean": 0.2675
+   },
+   "rd_motion": {
+    "head_steps_px": 8,
+    "moved_with_feet_px": 2,
+    "moved_above_feet_px": 6,
+    "share_whole_sprite": 0.25,
+    "foot_y_range": 2
+   },
+   "checks": {
+    "feet_and_knees_untouched_all_frames": true,
+    "colours_added": 0,
+    "alpha_values": [
+     0,
+     255
+    ],
+    "px_changed": [
+     741,
+     0,
+     797,
+     0,
+     712,
+     0,
+     693,
+     0
+    ]
+   }
+  },
+  "left": {
+   "gait": {
+    "contact": 2,
+    "phase": 1.81,
+    "wave_amp": 11.23,
+    "method": "stride",
+    "stride": [
+     11,
+     29,
+     29,
+     19,
+     10,
+     26,
+     35,
+     23
+    ],
+    "leg_change": null
+   },
+   "moves_px": [
+    -1,
+    0,
+    1,
+    0,
+    -2,
+    -1,
+    0,
+    -1
+   ],
+   "seams": {
+    "f0": [
+     {
+      "row": 60,
+      "px_lost_or_doubled": 0
+     }
+    ],
+    "f2": [
+     {
+      "row": 59,
+      "px_lost_or_doubled": 1
+     }
+    ],
+    "f4": [
+     {
+      "row": 59,
+      "px_lost_or_doubled": 0
+     },
+     {
+      "row": 58,
+      "px_lost_or_doubled": 0
+     }
+    ],
+    "f5": [
+     {
+      "row": 60,
+      "px_lost_or_doubled": 1
+     }
+    ],
+    "f7": [
+     {
+      "row": 60,
+      "px_lost_or_doubled": 1
+     }
+    ]
+   },
+   "before": {
+    "head_top": [
+     10,
+     10,
+     10,
+     10,
+     11,
+     11,
+     11,
+     11
+    ],
+    "head_top_amplitude": 1,
+    "head_mass_offset_vs_f0": [
+     0,
+     0,
+     0,
+     0,
+     1,
+     1,
+     1,
+     1
+    ],
+    "head_mass_amplitude": 1,
+    "foot_y": [
+     70,
+     72,
+     70,
+     70,
+     70,
+     70,
+     72,
+     71
+    ],
+    "height": [
+     61,
+     63,
+     61,
+     61,
+     60,
+     60,
+     62,
+     61
+    ],
+    "contact_frames": [
+     2,
+     6
+    ],
+    "passing_frames": [
+     0,
+     4
+    ],
+    "gait_method": "stride",
+    "stride": [
+     11,
+     29,
+     29,
+     19,
+     10,
+     26,
+     35,
+     23
+    ],
+    "head_top_contact_minus_passing": 0.0,
+    "head_top_corr_with_rhythm": 0.0,
+    "unique_colours": 61,
+    "semi_transparent_px": 0,
+    "dark_outline_share_mean": 0.967,
+    "opaque_px": [
+     822,
+     924,
+     928,
+     864,
+     804,
+     901,
+     914,
+     823
+    ],
+    "neighbour_diff_mean": 0.7643,
+    "head_redraw_aligned_mean": 0.5691
+   },
+   "after": {
+    "head_top": [
+     9,
+     10,
+     11,
+     10,
+     9,
+     10,
+     11,
+     10
+    ],
+    "head_top_amplitude": 2,
+    "head_mass_offset_vs_f0": [
+     0,
+     1,
+     2,
+     1,
+     0,
+     1,
+     2,
+     1
+    ],
+    "head_mass_amplitude": 2,
+    "foot_y": [
+     70,
+     72,
+     70,
+     70,
+     70,
+     70,
+     72,
+     71
+    ],
+    "height": [
+     62,
+     63,
+     60,
+     61,
+     62,
+     61,
+     62,
+     62
+    ],
+    "contact_frames": [
+     2,
+     6
+    ],
+    "passing_frames": [
+     0,
+     4
+    ],
+    "gait_method": "stride",
+    "stride": [
+     11,
+     29,
+     29,
+     19,
+     10,
+     26,
+     35,
+     23
+    ],
+    "head_top_contact_minus_passing": 2.0,
+    "head_top_corr_with_rhythm": 1.0,
+    "unique_colours": 61,
+    "semi_transparent_px": 0,
+    "dark_outline_share_mean": 0.9672,
+    "opaque_px": [
+     831,
+     924,
+     911,
+     864,
+     822,
+     916,
+     914,
+     832
+    ],
+    "neighbour_diff_mean": 0.799,
+    "head_redraw_aligned_mean": 0.5691
+   },
+   "rd": {
+    "head_top": [
+     8,
+     8,
+     10,
+     9,
+     8,
+     8,
+     8,
+     9
+    ],
+    "head_top_amplitude": 2,
+    "head_mass_offset_vs_f0": [
+     0,
+     1,
+     2,
+     1,
+     0,
+     0,
+     1,
+     2
+    ],
+    "head_mass_amplitude": 2,
+    "foot_y": [
+     72,
+     72,
+     72,
+     71,
+     71,
+     71,
+     71,
+     72
+    ],
+    "height": [
+     65,
+     65,
+     63,
+     63,
+     64,
+     64,
+     64,
+     64
+    ],
+    "contact_frames": [
+     2,
+     6
+    ],
+    "passing_frames": [
+     0,
+     4
+    ],
+    "gait_method": "stride",
+    "stride": [
+     20,
+     30,
+     30,
+     20,
+     11,
+     17,
+     26,
+     31
+    ],
+    "head_top_contact_minus_passing": 1.0,
+    "head_top_corr_with_rhythm": 0.5,
+    "unique_colours": 26,
+    "semi_transparent_px": 0,
+    "dark_outline_share_mean": 0.962,
+    "opaque_px": [
+     1047,
+     1037,
+     1042,
+     1007,
+     960,
+     1005,
+     1111,
+     1126
+    ],
+    "neighbour_diff_mean": 0.6981,
+    "head_redraw_aligned_mean": 0.1819
+   },
+   "rd_motion": {
+    "head_steps_px": 6,
+    "moved_with_feet_px": 2,
+    "moved_above_feet_px": 4,
+    "share_whole_sprite": 0.33,
+    "foot_y_range": 1
+   },
+   "checks": {
+    "feet_and_knees_untouched_all_frames": true,
+    "colours_added": 0,
+    "alpha_values": [
+     0,
+     255
+    ],
+    "px_changed": [
+     500,
+     0,
+     550,
+     0,
+     597,
+     544,
+     0,
+     513
+    ]
+   }
+  },
+  "up_left": {
+   "gait": {
+    "contact": 2,
+    "phase": 1.94,
+    "wave_amp": 5.02,
+    "method": "stride",
+    "stride": [
+     15,
+     27,
+     31,
+     23,
+     13,
+     12,
+     17,
+     14
+    ],
+    "leg_change": null
+   },
+   "moves_px": [
+    -1,
+    0,
+    1,
+    0,
+    -1,
+    0,
+    1,
+    0
+   ],
+   "seams": {
+    "f0": [
+     {
+      "row": 60,
+      "px_lost_or_doubled": 0
+     }
+    ],
+    "f2": [
+     {
+      "row": 52,
+      "px_lost_or_doubled": 0
+     }
+    ],
+    "f4": [
+     {
+      "row": 58,
+      "px_lost_or_doubled": 0
+     }
+    ],
+    "f6": [
+     {
+      "row": 60,
+      "px_lost_or_doubled": 0
+     }
+    ]
+   },
+   "before": {
+    "head_top": [
+     8,
+     8,
+     8,
+     8,
+     8,
+     8,
+     8,
+     8
+    ],
+    "head_top_amplitude": 0,
+    "head_mass_offset_vs_f0": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "head_mass_amplitude": 0,
+    "foot_y": [
+     72,
+     70,
+     70,
+     69,
+     71,
+     70,
+     71,
+     71
+    ],
+    "height": [
+     65,
+     63,
+     63,
+     62,
+     64,
+     63,
+     64,
+     64
+    ],
+    "contact_frames": [
+     2,
+     6
+    ],
+    "passing_frames": [
+     0,
+     4
+    ],
+    "gait_method": "stride",
+    "stride": [
+     15,
+     27,
+     31,
+     23,
+     13,
+     12,
+     17,
+     14
+    ],
+    "head_top_contact_minus_passing": 0.0,
+    "head_top_corr_with_rhythm": 0.0,
+    "unique_colours": 55,
+    "semi_transparent_px": 0,
+    "dark_outline_share_mean": 0.9932,
+    "opaque_px": [
+     1117,
+     1098,
+     1070,
+     1086,
+     1088,
+     1078,
+     1105,
+     1122
+    ],
+    "neighbour_diff_mean": 0.5824,
+    "head_redraw_aligned_mean": 0.2188
+   },
+   "after": {
+    "head_top": [
+     7,
+     8,
+     9,
+     8,
+     7,
+     8,
+     9,
+     8
+    ],
+    "head_top_amplitude": 2,
+    "head_mass_offset_vs_f0": [
+     0,
+     1,
+     2,
+     1,
+     0,
+     1,
+     2,
+     1
+    ],
+    "head_mass_amplitude": 2,
+    "foot_y": [
+     72,
+     70,
+     70,
+     69,
+     71,
+     70,
+     71,
+     71
+    ],
+    "height": [
+     66,
+     63,
+     62,
+     62,
+     65,
+     63,
+     63,
+     64
+    ],
+    "contact_frames": [
+     2,
+     6
+    ],
+    "passing_frames": [
+     0,
+     4
+    ],
+    "gait_method": "stride",
+    "stride": [
+     15,
+     27,
+     31,
+     23,
+     13,
+     12,
+     18,
+     14
+    ],
+    "head_top_contact_minus_passing": 2.0,
+    "head_top_corr_with_rhythm": 1.0,
+    "unique_colours": 55,
+    "semi_transparent_px": 0,
+    "dark_outline_share_mean": 0.9932,
+    "opaque_px": [
+     1131,
+     1098,
+     1053,
+     1086,
+     1100,
+     1078,
+     1095,
+     1122
+    ],
+    "neighbour_diff_mean": 0.6551,
+    "head_redraw_aligned_mean": 0.2188
+   },
+   "rd": {
+    "head_top": [
+     8,
+     9,
+     9,
+     8,
+     7,
+     7,
+     8,
+     9
+    ],
+    "head_top_amplitude": 2,
+    "head_mass_offset_vs_f0": [
+     0,
+     1,
+     1,
+     0,
+     -1,
+     -1,
+     0,
+     1
+    ],
+    "head_mass_amplitude": 2,
+    "foot_y": [
+     71,
+     72,
+     72,
+     71,
+     70,
+     70,
+     70,
+     70
+    ],
+    "height": [
+     64,
+     64,
+     64,
+     64,
+     64,
+     64,
+     63,
+     62
+    ],
+    "contact_frames": [
+     2,
+     6
+    ],
+    "passing_frames": [
+     0,
+     4
+    ],
+    "gait_method": "stride",
+    "stride": [
+     15,
+     13,
+     23,
+     15,
+     18,
+     23,
+     32,
+     31
+    ],
+    "head_top_contact_minus_passing": 1.0,
+    "head_top_corr_with_rhythm": 0.453,
+    "unique_colours": 35,
+    "semi_transparent_px": 0,
+    "dark_outline_share_mean": 0.968,
+    "opaque_px": [
+     1243,
+     1244,
+     1247,
+     1232,
+     1252,
+     1191,
+     1172,
+     1167
+    ],
+    "neighbour_diff_mean": 0.6443,
+    "head_redraw_aligned_mean": 0.0044
+   },
+   "rd_motion": {
+    "head_steps_px": 6,
+    "moved_with_feet_px": 3,
+    "moved_above_feet_px": 3,
+    "share_whole_sprite": 0.5,
+    "foot_y_range": 2
+   },
+   "checks": {
+    "feet_and_knees_untouched_all_frames": true,
+    "colours_added": 0,
+    "alpha_values": [
+     0,
+     255
+    ],
+    "px_changed": [
+     545,
+     0,
+     380,
+     0,
+     518,
+     0,
+     551,
+     0
+    ]
+   }
+  },
+  "up": {
+   "gait": {
+    "contact": 0,
+    "phase": 0.09,
+    "wave_amp": 57.03,
+    "method": "leg_change",
+    "stride": [
+     18,
+     18,
+     18,
+     18,
+     15,
+     15,
+     15,
+     16
+    ],
+    "leg_change": [
+     268,
+     165,
+     144,
+     157,
+     247,
+     195,
+     145,
+     172
+    ]
+   },
+   "moves_px": [
+    1,
+    0,
+    -1,
+    0,
+    1,
+    0,
+    -2,
+    0
+   ],
+   "seams": {
+    "f0": [
+     {
+      "row": 57,
+      "px_lost_or_doubled": 0
+     }
+    ],
+    "f2": [
+     {
+      "row": 59,
+      "px_lost_or_doubled": 0
+     }
+    ],
+    "f4": [
+     {
+      "row": 57,
+      "px_lost_or_doubled": 0
+     }
+    ],
+    "f6": [
+     {
+      "row": 56,
+      "px_lost_or_doubled": 1
+     },
+     {
+      "row": 56,
+      "px_lost_or_doubled": 0
+     }
+    ]
+   },
+   "before": {
+    "head_top": [
+     8,
+     8,
+     8,
+     8,
+     8,
+     8,
+     9,
+     8
+    ],
+    "head_top_amplitude": 1,
+    "head_mass_offset_vs_f0": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     1,
+     0
+    ],
+    "head_mass_amplitude": 1,
+    "foot_y": [
+     72,
+     72,
+     72,
+     72,
+     72,
+     72,
+     72,
+     72
+    ],
+    "height": [
+     65,
+     65,
+     65,
+     65,
+     65,
+     65,
+     64,
+     65
+    ],
+    "contact_frames": [
+     0,
+     4
+    ],
+    "passing_frames": [
+     2,
+     6
+    ],
+    "gait_method": "leg_change",
+    "stride": [
+     18,
+     18,
+     18,
+     18,
+     15,
+     15,
+     15,
+     16
+    ],
+    "head_top_contact_minus_passing": -0.5,
+    "head_top_corr_with_rhythm": -0.535,
+    "unique_colours": 55,
+    "semi_transparent_px": 0,
+    "dark_outline_share_mean": 0.9844,
+    "opaque_px": [
+     1245,
+     1237,
+     1227,
+     1224,
+     1231,
+     1258,
+     1197,
+     1252
+    ],
+    "neighbour_diff_mean": 0.5311,
+    "head_redraw_aligned_mean": 0.2417
+   },
+   "after": {
+    "head_top": [
+     9,
+     8,
+     7,
+     8,
+     9,
+     8,
+     7,
+     8
+    ],
+    "head_top_amplitude": 2,
+    "head_mass_offset_vs_f0": [
+     0,
+     -1,
+     -2,
+     -1,
+     0,
+     -1,
+     -2,
+     -1
+    ],
+    "head_mass_amplitude": 2,
+    "foot_y": [
+     72,
+     72,
+     72,
+     72,
+     72,
+     72,
+     72,
+     72
+    ],
+    "height": [
+     64,
+     65,
+     66,
+     65,
+     64,
+     65,
+     66,
+     65
+    ],
+    "contact_frames": [
+     0,
+     4
+    ],
+    "passing_frames": [
+     2,
+     6
+    ],
+    "gait_method": "leg_change",
+    "stride": [
+     18,
+     18,
+     18,
+     18,
+     15,
+     15,
+     15,
+     16
+    ],
+    "head_top_contact_minus_passing": 2.0,
+    "head_top_corr_with_rhythm": 1.0,
+    "unique_colours": 55,
+    "semi_transparent_px": 0,
+    "dark_outline_share_mean": 0.9844,
+    "opaque_px": [
+     1228,
+     1237,
+     1243,
+     1224,
+     1215,
+     1258,
+     1229,
+     1252
+    ],
+    "neighbour_diff_mean": 0.5866,
+    "head_redraw_aligned_mean": 0.2417
+   },
+   "rd": {
+    "head_top": [
+     8,
+     9,
+     8,
+     8,
+     8,
+     9,
+     8,
+     8
+    ],
+    "head_top_amplitude": 1,
+    "head_mass_offset_vs_f0": [
+     0,
+     1,
+     0,
+     0,
+     0,
+     1,
+     0,
+     0
+    ],
+    "head_mass_amplitude": 1,
+    "foot_y": [
+     71,
+     70,
+     71,
+     71,
+     71,
+     71,
+     70,
+     71
+    ],
+    "height": [
+     64,
+     62,
+     64,
+     64,
+     64,
+     63,
+     63,
+     64
+    ],
+    "contact_frames": [
+     3,
+     7
+    ],
+    "passing_frames": [
+     1,
+     5
+    ],
+    "gait_method": "stride",
+    "stride": [
+     24,
+     19,
+     23,
+     25,
+     24,
+     22,
+     20,
+     26
+    ],
+    "head_top_contact_minus_passing": -1.0,
+    "head_top_corr_with_rhythm": -0.816,
+    "unique_colours": 41,
+    "semi_transparent_px": 0,
+    "dark_outline_share_mean": 0.9415,
+    "opaque_px": [
+     1295,
+     1306,
+     1334,
+     1301,
+     1274,
+     1264,
+     1283,
+     1294
+    ],
+    "neighbour_diff_mean": 0.5906,
+    "head_redraw_aligned_mean": 0.1444
+   },
+   "rd_motion": {
+    "head_steps_px": 4,
+    "moved_with_feet_px": 1,
+    "moved_above_feet_px": 3,
+    "share_whole_sprite": 0.25,
+    "foot_y_range": 1
+   },
+   "checks": {
+    "feet_and_knees_untouched_all_frames": true,
+    "colours_added": 0,
+    "alpha_values": [
+     0,
+     255
+    ],
+    "px_changed": [
+     505,
+     0,
+     539,
+     0,
+     524,
+     0,
+     656,
+     0
+    ]
+   }
+  },
+  "up_right": {
+   "gait": {
+    "contact": 2,
+    "phase": 1.53,
+    "wave_amp": 3.72,
+    "method": "stride",
+    "stride": [
+     16,
+     14,
+     16,
+     13,
+     21,
+     32,
+     32,
+     23
+    ],
+    "leg_change": null
+   },
+   "moves_px": [
+    -1,
+    0,
+    1,
+    0,
+    -1,
+    0,
+    1,
+    0
+   ],
+   "seams": {
+    "f0": [
+     {
+      "row": 57,
+      "px_lost_or_doubled": 0
+     }
+    ],
+    "f2": [
+     {
+      "row": 57,
+      "px_lost_or_doubled": 0
+     }
+    ],
+    "f4": [
+     {
+      "row": 58,
+      "px_lost_or_doubled": 0
+     }
+    ],
+    "f6": [
+     {
+      "row": 56,
+      "px_lost_or_doubled": 0
+     }
+    ]
+   },
+   "before": {
+    "head_top": [
+     7,
+     7,
+     7,
+     7,
+     7,
+     7,
+     7,
+     7
+    ],
+    "head_top_amplitude": 0,
+    "head_mass_offset_vs_f0": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "head_mass_amplitude": 0,
+    "foot_y": [
+     71,
+     72,
+     72,
+     72,
+     70,
+     70,
+     70,
+     69
+    ],
+    "height": [
+     65,
+     66,
+     66,
+     66,
+     64,
+     64,
+     64,
+     63
+    ],
+    "contact_frames": [
+     2,
+     6
+    ],
+    "passing_frames": [
+     0,
+     4
+    ],
+    "gait_method": "stride",
+    "stride": [
+     16,
+     14,
+     16,
+     13,
+     21,
+     32,
+     32,
+     23
+    ],
+    "head_top_contact_minus_passing": 0.0,
+    "head_top_corr_with_rhythm": 0.0,
+    "unique_colours": 56,
+    "semi_transparent_px": 0,
+    "dark_outline_share_mean": 0.9426,
+    "opaque_px": [
+     1122,
+     1127,
+     1158,
+     1126,
+     1108,
+     1082,
+     1093,
+     1107
+    ],
+    "neighbour_diff_mean": 0.5579,
+    "head_redraw_aligned_mean": 0.2787
+   },
+   "after": {
+    "head_top": [
+     6,
+     7,
+     8,
+     7,
+     6,
+     7,
+     8,
+     7
+    ],
+    "head_top_amplitude": 2,
+    "head_mass_offset_vs_f0": [
+     0,
+     1,
+     2,
+     1,
+     0,
+     1,
+     2,
+     1
+    ],
+    "head_mass_amplitude": 2,
+    "foot_y": [
+     71,
+     72,
+     72,
+     72,
+     70,
+     70,
+     70,
+     69
+    ],
+    "height": [
+     66,
+     66,
+     65,
+     66,
+     65,
+     64,
+     63,
+     63
+    ],
+    "contact_frames": [
+     2,
+     6
+    ],
+    "passing_frames": [
+     0,
+     4
+    ],
+    "gait_method": "stride",
+    "stride": [
+     16,
+     14,
+     16,
+     13,
+     21,
+     32,
+     32,
+     23
+    ],
+    "head_top_contact_minus_passing": 2.0,
+    "head_top_corr_with_rhythm": 1.0,
+    "unique_colours": 56,
+    "semi_transparent_px": 0,
+    "dark_outline_share_mean": 0.9425,
+    "opaque_px": [
+     1135,
+     1127,
+     1146,
+     1126,
+     1123,
+     1082,
+     1076,
+     1107
+    ],
+    "neighbour_diff_mean": 0.6407,
+    "head_redraw_aligned_mean": 0.2787
+   },
+   "rd": {
+    "head_top": [
+     8,
+     9,
+     9,
+     8,
+     7,
+     7,
+     8,
+     9
+    ],
+    "head_top_amplitude": 2,
+    "head_mass_offset_vs_f0": [
+     0,
+     1,
+     1,
+     0,
+     -1,
+     -1,
+     0,
+     1
+    ],
+    "head_mass_amplitude": 2,
+    "foot_y": [
+     71,
+     72,
+     72,
+     71,
+     70,
+     70,
+     70,
+     70
+    ],
+    "height": [
+     64,
+     64,
+     64,
+     64,
+     64,
+     64,
+     63,
+     62
+    ],
+    "contact_frames": [
+     2,
+     6
+    ],
+    "passing_frames": [
+     0,
+     4
+    ],
+    "gait_method": "stride",
+    "stride": [
+     15,
+     13,
+     17,
+     15,
+     18,
+     23,
+     32,
+     31
+    ],
+    "head_top_contact_minus_passing": 1.0,
+    "head_top_corr_with_rhythm": 0.453,
+    "unique_colours": 35,
+    "semi_transparent_px": 0,
+    "dark_outline_share_mean": 0.968,
+    "opaque_px": [
+     1243,
+     1244,
+     1247,
+     1232,
+     1252,
+     1191,
+     1172,
+     1167
+    ],
+    "neighbour_diff_mean": 0.6443,
+    "head_redraw_aligned_mean": 0.0044
+   },
+   "rd_motion": {
+    "head_steps_px": 6,
+    "moved_with_feet_px": 3,
+    "moved_above_feet_px": 3,
+    "share_whole_sprite": 0.5,
+    "foot_y_range": 2
+   },
+   "checks": {
+    "feet_and_knees_untouched_all_frames": true,
+    "colours_added": 0,
+    "alpha_values": [
+     0,
+     255
+    ],
+    "px_changed": [
+     495,
+     0,
+     547,
+     0,
+     477,
+     0,
+     431,
+     0
+    ]
+   }
+  },
+  "right": {
+   "gait": {
+    "contact": 2,
+    "phase": 1.88,
+    "wave_amp": 10.69,
+    "method": "stride",
+    "stride": [
+     11,
+     28,
+     33,
+     25,
+     10,
+     29,
+     30,
+     24
+    ],
+    "leg_change": null
+   },
+   "moves_px": [
+    -1,
+    0,
+    1,
+    0,
+    -1,
+    0,
+    1,
+    0
+   ],
+   "seams": {
+    "f0": [
+     {
+      "row": 59,
+      "px_lost_or_doubled": 0
+     }
+    ],
+    "f2": [
+     {
+      "row": 56,
+      "px_lost_or_doubled": 1
+     }
+    ],
+    "f4": [
+     {
+      "row": 60,
+      "px_lost_or_doubled": 0
+     }
+    ],
+    "f6": [
+     {
+      "row": 54,
+      "px_lost_or_doubled": 1
+     }
+    ]
+   },
+   "before": {
+    "head_top": [
+     11,
+     11,
+     11,
+     11,
+     11,
+     11,
+     11,
+     11
+    ],
+    "head_top_amplitude": 0,
+    "head_mass_offset_vs_f0": [
+     0,
+     0,
+     0,
+     0,
+     1,
+     0,
+     0,
+     0
+    ],
+    "head_mass_amplitude": 1,
+    "foot_y": [
+     72,
+     72,
+     72,
+     72,
+     72,
+     72,
+     71,
+     72
+    ],
+    "height": [
+     62,
+     62,
+     62,
+     62,
+     62,
+     62,
+     61,
+     62
+    ],
+    "contact_frames": [
+     2,
+     6
+    ],
+    "passing_frames": [
+     0,
+     4
+    ],
+    "gait_method": "stride",
+    "stride": [
+     11,
+     28,
+     33,
+     25,
+     10,
+     29,
+     30,
+     24
+    ],
+    "head_top_contact_minus_passing": 0.0,
+    "head_top_corr_with_rhythm": 0.0,
+    "unique_colours": 60,
+    "semi_transparent_px": 0,
+    "dark_outline_share_mean": 0.9789,
+    "opaque_px": [
+     861,
+     995,
+     1008,
+     909,
+     865,
+     980,
+     979,
+     957
+    ],
+    "neighbour_diff_mean": 0.733,
+    "head_redraw_aligned_mean": 0.5402
+   },
+   "after": {
+    "head_top": [
+     10,
+     11,
+     12,
+     11,
+     10,
+     11,
+     12,
+     11
+    ],
+    "head_top_amplitude": 2,
+    "head_mass_offset_vs_f0": [
+     0,
+     1,
+     2,
+     1,
+     1,
+     1,
+     2,
+     1
+    ],
+    "head_mass_amplitude": 2,
+    "foot_y": [
+     72,
+     72,
+     72,
+     72,
+     72,
+     72,
+     71,
+     72
+    ],
+    "height": [
+     63,
+     62,
+     61,
+     62,
+     63,
+     62,
+     60,
+     62
+    ],
+    "contact_frames": [
+     2,
+     6
+    ],
+    "passing_frames": [
+     0,
+     4
+    ],
+    "gait_method": "stride",
+    "stride": [
+     11,
+     28,
+     33,
+     25,
+     10,
+     29,
+     30,
+     24
+    ],
+    "head_top_contact_minus_passing": 2.0,
+    "head_top_corr_with_rhythm": 1.0,
+    "unique_colours": 60,
+    "semi_transparent_px": 0,
+    "dark_outline_share_mean": 0.9789,
+    "opaque_px": [
+     870,
+     995,
+     995,
+     909,
+     874,
+     980,
+     968,
+     957
+    ],
+    "neighbour_diff_mean": 0.7783,
+    "head_redraw_aligned_mean": 0.5402
+   },
+   "rd": {
+    "head_top": [
+     8,
+     8,
+     10,
+     9,
+     8,
+     8,
+     8,
+     9
+    ],
+    "head_top_amplitude": 2,
+    "head_mass_offset_vs_f0": [
+     0,
+     1,
+     2,
+     1,
+     0,
+     0,
+     1,
+     2
+    ],
+    "head_mass_amplitude": 2,
+    "foot_y": [
+     72,
+     72,
+     72,
+     71,
+     71,
+     71,
+     71,
+     72
+    ],
+    "height": [
+     65,
+     65,
+     63,
+     63,
+     64,
+     64,
+     64,
+     64
+    ],
+    "contact_frames": [
+     2,
+     6
+    ],
+    "passing_frames": [
+     0,
+     4
+    ],
+    "gait_method": "stride",
+    "stride": [
+     20,
+     30,
+     30,
+     20,
+     11,
+     17,
+     26,
+     31
+    ],
+    "head_top_contact_minus_passing": 1.0,
+    "head_top_corr_with_rhythm": 0.5,
+    "unique_colours": 26,
+    "semi_transparent_px": 0,
+    "dark_outline_share_mean": 0.962,
+    "opaque_px": [
+     1047,
+     1037,
+     1042,
+     1007,
+     960,
+     1005,
+     1111,
+     1126
+    ],
+    "neighbour_diff_mean": 0.6981,
+    "head_redraw_aligned_mean": 0.1819
+   },
+   "rd_motion": {
+    "head_steps_px": 6,
+    "moved_with_feet_px": 2,
+    "moved_above_feet_px": 4,
+    "share_whole_sprite": 0.33,
+    "foot_y_range": 1
+   },
+   "checks": {
+    "feet_and_knees_untouched_all_frames": true,
+    "colours_added": 0,
+    "alpha_values": [
+     0,
+     255
+    ],
+    "px_changed": [
+     514,
+     0,
+     514,
+     0,
+     503,
+     0,
+     509,
+     0
+    ]
+   }
+  },
+  "down_right": {
+   "gait": {
+    "contact": 2,
+    "phase": 1.92,
+    "wave_amp": 6.05,
+    "method": "stride",
+    "stride": [
+     15,
+     24,
+     26,
+     21,
+     12,
+     13,
+     25,
+     13
+    ],
+    "leg_change": null
+   },
+   "moves_px": [
+    -1,
+    0,
+    1,
+    0,
+    -1,
+    0,
+    1,
+    0
+   ],
+   "seams": {
+    "f0": [
+     {
+      "row": 58,
+      "px_lost_or_doubled": 0
+     }
+    ],
+    "f2": [
+     {
+      "row": 57,
+      "px_lost_or_doubled": 2
+     }
+    ],
+    "f4": [
+     {
+      "row": 58,
+      "px_lost_or_doubled": 0
+     }
+    ],
+    "f6": [
+     {
+      "row": 57,
+      "px_lost_or_doubled": 0
+     }
+    ]
+   },
+   "before": {
+    "head_top": [
+     10,
+     10,
+     10,
+     10,
+     10,
+     10,
+     10,
+     10
+    ],
+    "head_top_amplitude": 0,
+    "head_mass_offset_vs_f0": [
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0,
+     0
+    ],
+    "head_mass_amplitude": 0,
+    "foot_y": [
+     72,
+     71,
+     70,
+     70,
+     72,
+     72,
+     72,
+     72
+    ],
+    "height": [
+     63,
+     62,
+     61,
+     61,
+     63,
+     63,
+     63,
+     63
+    ],
+    "contact_frames": [
+     2,
+     6
+    ],
+    "passing_frames": [
+     0,
+     4
+    ],
+    "gait_method": "stride",
+    "stride": [
+     15,
+     24,
+     26,
+     21,
+     12,
+     13,
+     25,
+     13
+    ],
+    "head_top_contact_minus_passing": 0.0,
+    "head_top_corr_with_rhythm": 0.0,
+    "unique_colours": 56,
+    "semi_transparent_px": 0,
+    "dark_outline_share_mean": 0.8985,
+    "opaque_px": [
+     1046,
+     1049,
+     1028,
+     1063,
+     1074,
+     1111,
+     1133,
+     1069
+    ],
+    "neighbour_diff_mean": 0.7345,
+    "head_redraw_aligned_mean": 0.5936
+   },
+   "after": {
+    "head_top": [
+     9,
+     10,
+     11,
+     10,
+     9,
+     10,
+     11,
+     10
+    ],
+    "head_top_amplitude": 2,
+    "head_mass_offset_vs_f0": [
+     0,
+     1,
+     2,
+     1,
+     0,
+     1,
+     2,
+     1
+    ],
+    "head_mass_amplitude": 2,
+    "foot_y": [
+     72,
+     71,
+     70,
+     70,
+     72,
+     72,
+     72,
+     72
+    ],
+    "height": [
+     64,
+     62,
+     60,
+     61,
+     64,
+     63,
+     62,
+     63
+    ],
+    "contact_frames": [
+     2,
+     6
+    ],
+    "passing_frames": [
+     0,
+     4
+    ],
+    "gait_method": "stride",
+    "stride": [
+     15,
+     24,
+     26,
+     21,
+     12,
+     13,
+     25,
+     13
+    ],
+    "head_top_contact_minus_passing": 2.0,
+    "head_top_corr_with_rhythm": 1.0,
+    "unique_colours": 56,
+    "semi_transparent_px": 0,
+    "dark_outline_share_mean": 0.8986,
+    "opaque_px": [
+     1060,
+     1049,
+     1011,
+     1063,
+     1088,
+     1111,
+     1121,
+     1069
+    ],
+    "neighbour_diff_mean": 0.8111,
+    "head_redraw_aligned_mean": 0.5936
+   },
+   "rd": {
+    "head_top": [
+     9,
+     10,
+     9,
+     8,
+     9,
+     10,
+     9,
+     9
+    ],
+    "head_top_amplitude": 2,
+    "head_mass_offset_vs_f0": [
+     0,
+     1,
+     0,
+     -1,
+     0,
+     1,
+     0,
+     0
+    ],
+    "head_mass_amplitude": 2,
+    "foot_y": [
+     70,
+     71,
+     71,
+     71,
+     72,
+     71,
+     72,
+     72
+    ],
+    "height": [
+     62,
+     62,
+     63,
+     64,
+     64,
+     62,
+     64,
+     64
+    ],
+    "contact_frames": [
+     1,
+     5
+    ],
+    "passing_frames": [
+     3,
+     7
+    ],
+    "gait_method": "stride",
+    "stride": [
+     27,
+     36,
+     28,
+     20,
+     15,
+     27,
+     17,
+     20
+    ],
+    "head_top_contact_minus_passing": 1.5,
+    "head_top_corr_with_rhythm": 0.885,
+    "unique_colours": 27,
+    "semi_transparent_px": 0,
+    "dark_outline_share_mean": 0.9718,
+    "opaque_px": [
+     1248,
+     1196,
+     1223,
+     1203,
+     1216,
+     1256,
+     1293,
+     1289
+    ],
+    "neighbour_diff_mean": 0.6979,
+    "head_redraw_aligned_mean": 0.1009
+   },
+   "rd_motion": {
+    "head_steps_px": 6,
+    "moved_with_feet_px": 2,
+    "moved_above_feet_px": 4,
+    "share_whole_sprite": 0.33,
+    "foot_y_range": 2
+   },
+   "checks": {
+    "feet_and_knees_untouched_all_frames": true,
+    "colours_added": 0,
+    "alpha_values": [
+     0,
+     255
+    ],
+    "px_changed": [
+     654,
+     0,
+     597,
+     0,
+     676,
+     0,
+     716,
+     0
+    ]
+   }
+  }
+ }
+}

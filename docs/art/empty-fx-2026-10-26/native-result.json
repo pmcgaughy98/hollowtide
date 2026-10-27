@@ -1,0 +1,274 @@
+{
+  "checks": [
+    {
+      "ok": true,
+      "what": "sail_slash actual dungeon loader retains 16 frames"
+    },
+    {
+      "ok": true,
+      "what": "sail_slash f00 imported 32x32 nonempty pixels exact"
+    },
+    {
+      "ok": true,
+      "what": "sail_slash f00 actual dungeon draw visible"
+    },
+    {
+      "ok": true,
+      "what": "sail_slash f01 imported 32x32 nonempty pixels exact"
+    },
+    {
+      "ok": true,
+      "what": "sail_slash f01 actual dungeon draw visible"
+    },
+    {
+      "ok": true,
+      "what": "sail_slash f02 imported 32x32 nonempty pixels exact"
+    },
+    {
+      "ok": true,
+      "what": "sail_slash f02 actual dungeon draw visible"
+    },
+    {
+      "ok": true,
+      "what": "sail_slash f03 imported 32x32 nonempty pixels exact"
+    },
+    {
+      "ok": true,
+      "what": "sail_slash f03 actual dungeon draw visible"
+    },
+    {
+      "ok": true,
+      "what": "sail_slash f04 imported 32x32 nonempty pixels exact"
+    },
+    {
+      "ok": true,
+      "what": "sail_slash f04 actual dungeon draw visible"
+    },
+    {
+      "ok": true,
+      "what": "sail_slash f05 imported 32x32 nonempty pixels exact"
+    },
+    {
+      "ok": true,
+      "what": "sail_slash f05 actual dungeon draw visible"
+    },
+    {
+      "ok": true,
+      "what": "sail_slash f06 imported 32x32 nonempty pixels exact"
+    },
+    {
+      "ok": true,
+      "what": "sail_slash f06 actual dungeon draw visible"
+    },
+    {
+      "ok": true,
+      "what": "sail_slash f07 imported 32x32 nonempty pixels exact"
+    },
+    {
+      "ok": true,
+      "what": "sail_slash f07 actual dungeon draw visible"
+    },
+    {
+      "ok": true,
+      "what": "sail_slash f08 imported 32x32 nonempty pixels exact"
+    },
+    {
+      "ok": true,
+      "what": "sail_slash f08 actual dungeon draw visible"
+    },
+    {
+      "ok": true,
+      "what": "sail_slash f09 imported 32x32 nonempty pixels exact"
+    },
+    {
+      "ok": true,
+      "what": "sail_slash f09 actual dungeon draw visible"
+    },
+    {
+      "ok": true,
+      "what": "sail_slash f10 imported 32x32 nonempty pixels exact"
+    },
+    {
+      "ok": true,
+      "what": "sail_slash f10 actual dungeon draw visible"
+    },
+    {
+      "ok": true,
+      "what": "sail_slash f11 imported 32x32 nonempty pixels exact"
+    },
+    {
+      "ok": true,
+      "what": "sail_slash f11 actual dungeon draw visible"
+    },
+    {
+      "ok": true,
+      "what": "sail_slash f12 imported 32x32 nonempty pixels exact"
+    },
+    {
+      "ok": true,
+      "what": "sail_slash f12 actual dungeon draw visible"
+    },
+    {
+      "ok": true,
+      "what": "sail_slash f13 imported 32x32 nonempty pixels exact"
+    },
+    {
+      "ok": true,
+      "what": "sail_slash f13 actual dungeon draw visible"
+    },
+    {
+      "ok": true,
+      "what": "sail_slash f14 imported 32x32 nonempty pixels exact"
+    },
+    {
+      "ok": true,
+      "what": "sail_slash f14 actual dungeon draw visible"
+    },
+    {
+      "ok": true,
+      "what": "sail_slash f15 imported 32x32 nonempty pixels exact"
+    },
+    {
+      "ok": true,
+      "what": "sail_slash f15 actual dungeon draw visible"
+    },
+    {
+      "ok": true,
+      "what": "mark_glyph actual dungeon loader retains 16 frames"
+    },
+    {
+      "ok": true,
+      "what": "mark_glyph f00 imported 32x32 nonempty pixels exact"
+    },
+    {
+      "ok": true,
+      "what": "mark_glyph f00 actual dungeon draw visible"
+    },
+    {
+      "ok": true,
+      "what": "mark_glyph f01 imported 32x32 nonempty pixels exact"
+    },
+    {
+      "ok": true,
+      "what": "mark_glyph f01 actual dungeon draw visible"
+    },
+    {
+      "ok": true,
+      "what": "mark_glyph f02 imported 32x32 nonempty pixels exact"
+    },
+    {
+      "ok": true,
+      "what": "mark_glyph f02 actual dungeon draw visible"
+    },
+    {
+      "ok": true,
+      "what": "mark_glyph f03 imported 32x32 nonempty pixels exact"
+    },
+    {
+      "ok": true,
+      "what": "mark_glyph f03 actual dungeon draw visible"
+    },
+    {
+      "ok": true,
+      "what": "mark_glyph f04 imported 32x32 nonempty pixels exact"
+    },
+    {
+      "ok": true,
+      "what": "mark_glyph f04 actual dungeon draw visible"
+    },
+    {
+      "ok": true,
+      "what": "mark_glyph f05 imported 32x32 nonempty pixels exact"
+    },
+    {
+      "ok": true,
+      "what": "mark_glyph f05 actual dungeon draw visible"
+    },
+    {
+      "ok": true,
+      "what": "mark_glyph f06 imported 32x32 nonempty pixels exact"
+    },
+    {
+      "ok": true,
+      "what": "mark_glyph f06 actual dungeon draw visible"
+    },
+    {
+      "ok": true,
+      "what": "mark_glyph f07 imported 32x32 nonempty pixels exact"
+    },
+    {
+      "ok": true,
+      "what": "mark_glyph f07 actual dungeon draw visible"
+    },
+    {
+      "ok": true,
+      "what": "mark_glyph f08 imported 32x32 nonempty pixels exact"
+    },
+    {
+      "ok": true,
+      "what": "mark_glyph f08 actual dungeon draw visible"
+    },
+    {
+      "ok": true,
+      "what": "mark_glyph f09 imported 32x32 nonempty pixels exact"
+    },
+    {
+      "ok": true,
+      "what": "mark_glyph f09 actual dungeon draw visible"
+    },
+    {
+      "ok": true,
+      "what": "mark_glyph f10 imported 32x32 nonempty pixels exact"
+    },
+    {
+      "ok": true,
+      "what": "mark_glyph f10 actual dungeon draw visible"
+    },
+    {
+      "ok": true,
+      "what": "mark_glyph f11 imported 32x32 nonempty pixels exact"
+    },
+    {
+      "ok": true,
+      "what": "mark_glyph f11 actual dungeon draw visible"
+    },
+    {
+      "ok": true,
+      "what": "mark_glyph f12 imported 32x32 nonempty pixels exact"
+    },
+    {
+      "ok": true,
+      "what": "mark_glyph f12 actual dungeon draw visible"
+    },
+    {
+      "ok": true,
+      "what": "mark_glyph f13 imported 32x32 nonempty pixels exact"
+    },
+    {
+      "ok": true,
+      "what": "mark_glyph f13 actual dungeon draw visible"
+    },
+    {
+      "ok": true,
+      "what": "mark_glyph f14 imported 32x32 nonempty pixels exact"
+    },
+    {
+      "ok": true,
+      "what": "mark_glyph f14 actual dungeon draw visible"
+    },
+    {
+      "ok": true,
+      "what": "mark_glyph f15 imported 32x32 nonempty pixels exact"
+    },
+    {
+      "ok": true,
+      "what": "mark_glyph f15 actual dungeon draw visible"
+    },
+    {
+      "ok": true,
+      "what": "Private save unchanged"
+    }
+  ],
+  "failed": 0,
+  "total": 67
+}

@@ -1,9 +1,12 @@
 extends RefCounted
 ## Hall presentation over the existing 22x14 room/event grid; original painter remains the fallback.
-const ART := "res://assets/sprites/world/hall_interior_2026_10_10/hall_native.png"
+## The picture and its props are art slots (Claude, 2026-10-26, placeholder factory lane R): town.room.hall and
+## town.prop.hall.<name>, today's files through ArtSlots until a slot file is installed at the same size. On the
+## placeholder (HT_FORCE_PLACEHOLDERS=1, or a file missing) the original painter shows, as it always did.
+const SLOT := "town.room.hall"
+const PROP_SLOT := "town.prop.hall."
 const SHADER := preload("res://scripts/dungeon/dungeon_finish.gdshader")
-const UI := preload("res://scripts/ui/ui_style.gd")
-const FOLDER := "res://assets/sprites/world/hall_interior_2026_10_10/"
+const Slots := preload("res://scripts/town/room_slots.gd")
 const PROPS := [
 	["pillar",Rect2i(73,122,22,46)],["pillar",Rect2i(433,122,22,46)],
 	["pillar",Rect2i(73,218,22,46)],["pillar",Rect2i(433,218,22,46)],
@@ -14,18 +17,17 @@ const PROPS := [
 ]
 
 static func _prop(name: String) -> Image:
-	# Claude, 2026-10-24 (A4, LV-19): UI.res_image reads the imported texture, which an exported game has; the PNG it does not.
-	return UI.res_image(FOLDER+name+".png")
+	return Slots.image(PROP_SLOT+name)
 
 static func available() -> bool:
-	if not UI.res_exists(ART): return false
+	if not Slots.real(SLOT): return false
 	for p in PROPS:
-		if not UI.res_exists(FOLDER+p[0]+".png"): return false
+		if not Slots.real(PROP_SLOT+p[0]): return false
 	return true
 
 static func paint(fallback: Image) -> Image:
 	if not available(): return fallback
-	var img := UI.res_image(ART)
+	var img := Slots.image(SLOT)
 	if img == null or img.get_size()!=fallback.get_size():
 		push_warning("Hall interior art does not match the room; retaining original painter.")
 		return fallback

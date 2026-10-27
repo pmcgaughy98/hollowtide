@@ -1,0 +1,1946 @@
+[
+  {
+    "path": "assets/sprites/arena/muskin/e.png",
+    "size": [
+      128,
+      128
+    ],
+    "colours": 22,
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "path": "assets/sprites/arena/muskin/front_chosen.png",
+    "size": [
+      96,
+      96
+    ],
+    "colours": 43,
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "path": "assets/sprites/arena/muskin/n.png",
+    "size": [
+      128,
+      128
+    ],
+    "colours": 129,
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "path": "assets/sprites/arena/muskin/ne.png",
+    "size": [
+      128,
+      128
+    ],
+    "colours": 22,
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "path": "assets/sprites/arena/muskin/nw.png",
+    "size": [
+      128,
+      128
+    ],
+    "colours": 16,
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "path": "assets/sprites/arena/muskin/s.png",
+    "size": [
+      128,
+      128
+    ],
+    "colours": 23,
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "path": "assets/sprites/arena/muskin/se.png",
+    "size": [
+      128,
+      128
+    ],
+    "colours": 30,
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "path": "assets/sprites/arena/muskin/sw.png",
+    "size": [
+      128,
+      128
+    ],
+    "colours": 21,
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "path": "assets/sprites/arena/muskin/w.png",
+    "size": [
+      128,
+      128
+    ],
+    "colours": 21,
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "path": "assets/sprites/arena/muskin/dungeon/e.png",
+    "size": [
+      37,
+      37
+    ],
+    "colours": 20,
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "path": "assets/sprites/arena/muskin/dungeon/n.png",
+    "size": [
+      37,
+      37
+    ],
+    "colours": 70,
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "path": "assets/sprites/arena/muskin/dungeon/ne.png",
+    "size": [
+      37,
+      37
+    ],
+    "colours": 16,
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "path": "assets/sprites/arena/muskin/dungeon/nw.png",
+    "size": [
+      37,
+      37
+    ],
+    "colours": 10,
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "path": "assets/sprites/arena/muskin/dungeon/s.png",
+    "size": [
+      37,
+      37
+    ],
+    "colours": 16,
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "path": "assets/sprites/arena/muskin/dungeon/se.png",
+    "size": [
+      37,
+      37
+    ],
+    "colours": 22,
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "path": "assets/sprites/arena/muskin/dungeon/sw.png",
+    "size": [
+      37,
+      37
+    ],
+    "colours": 15,
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "path": "assets/sprites/arena/muskin/dungeon/w.png",
+    "size": [
+      37,
+      37
+    ],
+    "colours": 12,
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "path": "assets/sprites/arena/muskin/dungeon/walk_e_f0.png",
+    "size": [
+      37,
+      37
+    ],
+    "colours": 19,
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "path": "assets/sprites/arena/muskin/dungeon/walk_e_f1.png",
+    "size": [
+      37,
+      37
+    ],
+    "colours": 19,
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "path": "assets/sprites/arena/muskin/dungeon/walk_e_f2.png",
+    "size": [
+      37,
+      37
+    ],
+    "colours": 19,
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "path": "assets/sprites/arena/muskin/dungeon/walk_e_f3.png",
+    "size": [
+      37,
+      37
+    ],
+    "colours": 19,
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "path": "assets/sprites/arena/muskin/dungeon/walk_e_f4.png",
+    "size": [
+      37,
+      37
+    ],
+    "colours": 18,
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "path": "assets/sprites/arena/muskin/dungeon/walk_e_f5.png",
+    "size": [
+      37,
+      37
+    ],
+    "colours": 19,
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "path": "assets/sprites/arena/muskin/dungeon/walk_e_f6.png",
+    "size": [
+      37,
+      37
+    ],
+    "colours": 19,
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "path": "assets/sprites/arena/muskin/dungeon/walk_e_f7.png",
+    "size": [
+      37,
+      37
+    ],
+    "colours": 18,
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "path": "assets/sprites/arena/muskin/dungeon/walk_ne_f0.png",
+    "size": [
+      37,
+      37
+    ],
+    "colours": 18,
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "path": "assets/sprites/arena/muskin/dungeon/walk_ne_f1.png",
+    "size": [
+      37,
+      37
+    ],
+    "colours": 17,
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "path": "assets/sprites/arena/muskin/dungeon/walk_ne_f2.png",
+    "size": [
+      37,
+      37
+    ],
+    "colours": 18,
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "path": "assets/sprites/arena/muskin/dungeon/walk_ne_f3.png",
+    "size": [
+      37,
+      37
+    ],
+    "colours": 17,
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "path": "assets/sprites/arena/muskin/dungeon/walk_ne_f4.png",
+    "size": [
+      37,
+      37
+    ],
+    "colours": 17,
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "path": "assets/sprites/arena/muskin/dungeon/walk_ne_f5.png",
+    "size": [
+      37,
+      37
+    ],
+    "colours": 16,
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "path": "assets/sprites/arena/muskin/dungeon/walk_ne_f6.png",
+    "size": [
+      37,
+      37
+    ],
+    "colours": 18,
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "path": "assets/sprites/arena/muskin/dungeon/walk_ne_f7.png",
+    "size": [
+      37,
+      37
+    ],
+    "colours": 18,
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "path": "assets/sprites/arena/muskin/dungeon/walk_nw_f0.png",
+    "size": [
+      37,
+      37
+    ],
+    "colours": 18,
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "path": "assets/sprites/arena/muskin/dungeon/walk_nw_f1.png",
+    "size": [
+      37,
+      37
+    ],
+    "colours": 17,
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "path": "assets/sprites/arena/muskin/dungeon/walk_nw_f2.png",
+    "size": [
+      37,
+      37
+    ],
+    "colours": 18,
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "path": "assets/sprites/arena/muskin/dungeon/walk_nw_f3.png",
+    "size": [
+      37,
+      37
+    ],
+    "colours": 17,
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "path": "assets/sprites/arena/muskin/dungeon/walk_nw_f4.png",
+    "size": [
+      37,
+      37
+    ],
+    "colours": 17,
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "path": "assets/sprites/arena/muskin/dungeon/walk_nw_f5.png",
+    "size": [
+      37,
+      37
+    ],
+    "colours": 16,
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "path": "assets/sprites/arena/muskin/dungeon/walk_nw_f6.png",
+    "size": [
+      37,
+      37
+    ],
+    "colours": 18,
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "path": "assets/sprites/arena/muskin/dungeon/walk_nw_f7.png",
+    "size": [
+      37,
+      37
+    ],
+    "colours": 18,
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "path": "assets/sprites/arena/muskin/dungeon/walk_n_f0.png",
+    "size": [
+      37,
+      37
+    ],
+    "colours": 18,
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "path": "assets/sprites/arena/muskin/dungeon/walk_n_f1.png",
+    "size": [
+      37,
+      37
+    ],
+    "colours": 21,
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "path": "assets/sprites/arena/muskin/dungeon/walk_n_f2.png",
+    "size": [
+      37,
+      37
+    ],
+    "colours": 22,
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "path": "assets/sprites/arena/muskin/dungeon/walk_n_f3.png",
+    "size": [
+      37,
+      37
+    ],
+    "colours": 17,
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "path": "assets/sprites/arena/muskin/dungeon/walk_n_f4.png",
+    "size": [
+      37,
+      37
+    ],
+    "colours": 19,
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "path": "assets/sprites/arena/muskin/dungeon/walk_n_f5.png",
+    "size": [
+      37,
+      37
+    ],
+    "colours": 18,
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "path": "assets/sprites/arena/muskin/dungeon/walk_n_f6.png",
+    "size": [
+      37,
+      37
+    ],
+    "colours": 20,
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "path": "assets/sprites/arena/muskin/dungeon/walk_n_f7.png",
+    "size": [
+      37,
+      37
+    ],
+    "colours": 20,
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "path": "assets/sprites/arena/muskin/dungeon/walk_se_f0.png",
+    "size": [
+      37,
+      37
+    ],
+    "colours": 22,
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "path": "assets/sprites/arena/muskin/dungeon/walk_se_f1.png",
+    "size": [
+      37,
+      37
+    ],
+    "colours": 21,
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "path": "assets/sprites/arena/muskin/dungeon/walk_se_f2.png",
+    "size": [
+      37,
+      37
+    ],
+    "colours": 19,
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "path": "assets/sprites/arena/muskin/dungeon/walk_se_f3.png",
+    "size": [
+      37,
+      37
+    ],
+    "colours": 21,
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "path": "assets/sprites/arena/muskin/dungeon/walk_se_f4.png",
+    "size": [
+      37,
+      37
+    ],
+    "colours": 20,
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "path": "assets/sprites/arena/muskin/dungeon/walk_se_f5.png",
+    "size": [
+      37,
+      37
+    ],
+    "colours": 20,
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "path": "assets/sprites/arena/muskin/dungeon/walk_se_f6.png",
+    "size": [
+      37,
+      37
+    ],
+    "colours": 20,
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "path": "assets/sprites/arena/muskin/dungeon/walk_se_f7.png",
+    "size": [
+      37,
+      37
+    ],
+    "colours": 22,
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "path": "assets/sprites/arena/muskin/dungeon/walk_sw_f0.png",
+    "size": [
+      37,
+      37
+    ],
+    "colours": 22,
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "path": "assets/sprites/arena/muskin/dungeon/walk_sw_f1.png",
+    "size": [
+      37,
+      37
+    ],
+    "colours": 21,
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "path": "assets/sprites/arena/muskin/dungeon/walk_sw_f2.png",
+    "size": [
+      37,
+      37
+    ],
+    "colours": 19,
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "path": "assets/sprites/arena/muskin/dungeon/walk_sw_f3.png",
+    "size": [
+      37,
+      37
+    ],
+    "colours": 21,
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "path": "assets/sprites/arena/muskin/dungeon/walk_sw_f4.png",
+    "size": [
+      37,
+      37
+    ],
+    "colours": 20,
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "path": "assets/sprites/arena/muskin/dungeon/walk_sw_f5.png",
+    "size": [
+      37,
+      37
+    ],
+    "colours": 20,
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "path": "assets/sprites/arena/muskin/dungeon/walk_sw_f6.png",
+    "size": [
+      37,
+      37
+    ],
+    "colours": 20,
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "path": "assets/sprites/arena/muskin/dungeon/walk_sw_f7.png",
+    "size": [
+      37,
+      37
+    ],
+    "colours": 22,
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "path": "assets/sprites/arena/muskin/dungeon/walk_s_f0.png",
+    "size": [
+      37,
+      37
+    ],
+    "colours": 18,
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "path": "assets/sprites/arena/muskin/dungeon/walk_s_f1.png",
+    "size": [
+      37,
+      37
+    ],
+    "colours": 19,
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "path": "assets/sprites/arena/muskin/dungeon/walk_s_f2.png",
+    "size": [
+      37,
+      37
+    ],
+    "colours": 19,
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "path": "assets/sprites/arena/muskin/dungeon/walk_s_f3.png",
+    "size": [
+      37,
+      37
+    ],
+    "colours": 18,
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "path": "assets/sprites/arena/muskin/dungeon/walk_s_f4.png",
+    "size": [
+      37,
+      37
+    ],
+    "colours": 18,
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "path": "assets/sprites/arena/muskin/dungeon/walk_s_f5.png",
+    "size": [
+      37,
+      37
+    ],
+    "colours": 19,
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "path": "assets/sprites/arena/muskin/dungeon/walk_s_f6.png",
+    "size": [
+      37,
+      37
+    ],
+    "colours": 19,
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "path": "assets/sprites/arena/muskin/dungeon/walk_s_f7.png",
+    "size": [
+      37,
+      37
+    ],
+    "colours": 18,
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "path": "assets/sprites/arena/muskin/dungeon/walk_w_f0.png",
+    "size": [
+      37,
+      37
+    ],
+    "colours": 19,
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "path": "assets/sprites/arena/muskin/dungeon/walk_w_f1.png",
+    "size": [
+      37,
+      37
+    ],
+    "colours": 19,
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "path": "assets/sprites/arena/muskin/dungeon/walk_w_f2.png",
+    "size": [
+      37,
+      37
+    ],
+    "colours": 19,
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "path": "assets/sprites/arena/muskin/dungeon/walk_w_f3.png",
+    "size": [
+      37,
+      37
+    ],
+    "colours": 19,
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "path": "assets/sprites/arena/muskin/dungeon/walk_w_f4.png",
+    "size": [
+      37,
+      37
+    ],
+    "colours": 18,
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "path": "assets/sprites/arena/muskin/dungeon/walk_w_f5.png",
+    "size": [
+      37,
+      37
+    ],
+    "colours": 19,
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "path": "assets/sprites/arena/muskin/dungeon/walk_w_f6.png",
+    "size": [
+      37,
+      37
+    ],
+    "colours": 19,
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "path": "assets/sprites/arena/muskin/dungeon/walk_w_f7.png",
+    "size": [
+      37,
+      37
+    ],
+    "colours": 18,
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "path": "assets/sprites/arena/muskin/town/e.png",
+    "size": [
+      55,
+      55
+    ],
+    "colours": 20,
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "path": "assets/sprites/arena/muskin/town/idle_s.png",
+    "size": [
+      55,
+      55
+    ],
+    "colours": 36,
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "path": "assets/sprites/arena/muskin/town/n.png",
+    "size": [
+      55,
+      55
+    ],
+    "colours": 92,
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "path": "assets/sprites/arena/muskin/town/ne.png",
+    "size": [
+      55,
+      55
+    ],
+    "colours": 17,
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "path": "assets/sprites/arena/muskin/town/nw.png",
+    "size": [
+      55,
+      55
+    ],
+    "colours": 15,
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "path": "assets/sprites/arena/muskin/town/s.png",
+    "size": [
+      55,
+      55
+    ],
+    "colours": 21,
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "path": "assets/sprites/arena/muskin/town/se.png",
+    "size": [
+      55,
+      55
+    ],
+    "colours": 25,
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "path": "assets/sprites/arena/muskin/town/sw.png",
+    "size": [
+      55,
+      55
+    ],
+    "colours": 16,
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "path": "assets/sprites/arena/muskin/town/w.png",
+    "size": [
+      55,
+      55
+    ],
+    "colours": 18,
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "path": "assets/sprites/arena/muskin/town/walk_e_f0.png",
+    "size": [
+      55,
+      55
+    ],
+    "colours": 19,
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "path": "assets/sprites/arena/muskin/town/walk_e_f1.png",
+    "size": [
+      55,
+      55
+    ],
+    "colours": 19,
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "path": "assets/sprites/arena/muskin/town/walk_e_f2.png",
+    "size": [
+      55,
+      55
+    ],
+    "colours": 19,
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "path": "assets/sprites/arena/muskin/town/walk_e_f3.png",
+    "size": [
+      55,
+      55
+    ],
+    "colours": 19,
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "path": "assets/sprites/arena/muskin/town/walk_e_f4.png",
+    "size": [
+      55,
+      55
+    ],
+    "colours": 19,
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "path": "assets/sprites/arena/muskin/town/walk_e_f5.png",
+    "size": [
+      55,
+      55
+    ],
+    "colours": 19,
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "path": "assets/sprites/arena/muskin/town/walk_e_f6.png",
+    "size": [
+      55,
+      55
+    ],
+    "colours": 19,
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "path": "assets/sprites/arena/muskin/town/walk_e_f7.png",
+    "size": [
+      55,
+      55
+    ],
+    "colours": 19,
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "path": "assets/sprites/arena/muskin/town/walk_ne_f0.png",
+    "size": [
+      55,
+      55
+    ],
+    "colours": 18,
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "path": "assets/sprites/arena/muskin/town/walk_ne_f1.png",
+    "size": [
+      55,
+      55
+    ],
+    "colours": 18,
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "path": "assets/sprites/arena/muskin/town/walk_ne_f2.png",
+    "size": [
+      55,
+      55
+    ],
+    "colours": 19,
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "path": "assets/sprites/arena/muskin/town/walk_ne_f3.png",
+    "size": [
+      55,
+      55
+    ],
+    "colours": 18,
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "path": "assets/sprites/arena/muskin/town/walk_ne_f4.png",
+    "size": [
+      55,
+      55
+    ],
+    "colours": 17,
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "path": "assets/sprites/arena/muskin/town/walk_ne_f5.png",
+    "size": [
+      55,
+      55
+    ],
+    "colours": 17,
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "path": "assets/sprites/arena/muskin/town/walk_ne_f6.png",
+    "size": [
+      55,
+      55
+    ],
+    "colours": 18,
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "path": "assets/sprites/arena/muskin/town/walk_ne_f7.png",
+    "size": [
+      55,
+      55
+    ],
+    "colours": 18,
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "path": "assets/sprites/arena/muskin/town/walk_nw_f0.png",
+    "size": [
+      55,
+      55
+    ],
+    "colours": 18,
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "path": "assets/sprites/arena/muskin/town/walk_nw_f1.png",
+    "size": [
+      55,
+      55
+    ],
+    "colours": 18,
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "path": "assets/sprites/arena/muskin/town/walk_nw_f2.png",
+    "size": [
+      55,
+      55
+    ],
+    "colours": 19,
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "path": "assets/sprites/arena/muskin/town/walk_nw_f3.png",
+    "size": [
+      55,
+      55
+    ],
+    "colours": 18,
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "path": "assets/sprites/arena/muskin/town/walk_nw_f4.png",
+    "size": [
+      55,
+      55
+    ],
+    "colours": 17,
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "path": "assets/sprites/arena/muskin/town/walk_nw_f5.png",
+    "size": [
+      55,
+      55
+    ],
+    "colours": 17,
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "path": "assets/sprites/arena/muskin/town/walk_nw_f6.png",
+    "size": [
+      55,
+      55
+    ],
+    "colours": 18,
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "path": "assets/sprites/arena/muskin/town/walk_nw_f7.png",
+    "size": [
+      55,
+      55
+    ],
+    "colours": 18,
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "path": "assets/sprites/arena/muskin/town/walk_n_f0.png",
+    "size": [
+      55,
+      55
+    ],
+    "colours": 24,
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "path": "assets/sprites/arena/muskin/town/walk_n_f1.png",
+    "size": [
+      55,
+      55
+    ],
+    "colours": 24,
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "path": "assets/sprites/arena/muskin/town/walk_n_f2.png",
+    "size": [
+      55,
+      55
+    ],
+    "colours": 24,
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "path": "assets/sprites/arena/muskin/town/walk_n_f3.png",
+    "size": [
+      55,
+      55
+    ],
+    "colours": 24,
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "path": "assets/sprites/arena/muskin/town/walk_n_f4.png",
+    "size": [
+      55,
+      55
+    ],
+    "colours": 24,
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "path": "assets/sprites/arena/muskin/town/walk_n_f5.png",
+    "size": [
+      55,
+      55
+    ],
+    "colours": 23,
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "path": "assets/sprites/arena/muskin/town/walk_n_f6.png",
+    "size": [
+      55,
+      55
+    ],
+    "colours": 24,
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "path": "assets/sprites/arena/muskin/town/walk_n_f7.png",
+    "size": [
+      55,
+      55
+    ],
+    "colours": 23,
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "path": "assets/sprites/arena/muskin/town/walk_se_f0.png",
+    "size": [
+      55,
+      55
+    ],
+    "colours": 24,
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "path": "assets/sprites/arena/muskin/town/walk_se_f1.png",
+    "size": [
+      55,
+      55
+    ],
+    "colours": 24,
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "path": "assets/sprites/arena/muskin/town/walk_se_f2.png",
+    "size": [
+      55,
+      55
+    ],
+    "colours": 24,
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "path": "assets/sprites/arena/muskin/town/walk_se_f3.png",
+    "size": [
+      55,
+      55
+    ],
+    "colours": 23,
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "path": "assets/sprites/arena/muskin/town/walk_se_f4.png",
+    "size": [
+      55,
+      55
+    ],
+    "colours": 24,
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "path": "assets/sprites/arena/muskin/town/walk_se_f5.png",
+    "size": [
+      55,
+      55
+    ],
+    "colours": 24,
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "path": "assets/sprites/arena/muskin/town/walk_se_f6.png",
+    "size": [
+      55,
+      55
+    ],
+    "colours": 25,
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "path": "assets/sprites/arena/muskin/town/walk_se_f7.png",
+    "size": [
+      55,
+      55
+    ],
+    "colours": 24,
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "path": "assets/sprites/arena/muskin/town/walk_sw_f0.png",
+    "size": [
+      55,
+      55
+    ],
+    "colours": 24,
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "path": "assets/sprites/arena/muskin/town/walk_sw_f1.png",
+    "size": [
+      55,
+      55
+    ],
+    "colours": 24,
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "path": "assets/sprites/arena/muskin/town/walk_sw_f2.png",
+    "size": [
+      55,
+      55
+    ],
+    "colours": 24,
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "path": "assets/sprites/arena/muskin/town/walk_sw_f3.png",
+    "size": [
+      55,
+      55
+    ],
+    "colours": 23,
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "path": "assets/sprites/arena/muskin/town/walk_sw_f4.png",
+    "size": [
+      55,
+      55
+    ],
+    "colours": 24,
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "path": "assets/sprites/arena/muskin/town/walk_sw_f5.png",
+    "size": [
+      55,
+      55
+    ],
+    "colours": 24,
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "path": "assets/sprites/arena/muskin/town/walk_sw_f6.png",
+    "size": [
+      55,
+      55
+    ],
+    "colours": 25,
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "path": "assets/sprites/arena/muskin/town/walk_sw_f7.png",
+    "size": [
+      55,
+      55
+    ],
+    "colours": 24,
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "path": "assets/sprites/arena/muskin/town/walk_s_f0.png",
+    "size": [
+      55,
+      55
+    ],
+    "colours": 20,
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "path": "assets/sprites/arena/muskin/town/walk_s_f1.png",
+    "size": [
+      55,
+      55
+    ],
+    "colours": 20,
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "path": "assets/sprites/arena/muskin/town/walk_s_f2.png",
+    "size": [
+      55,
+      55
+    ],
+    "colours": 20,
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "path": "assets/sprites/arena/muskin/town/walk_s_f3.png",
+    "size": [
+      55,
+      55
+    ],
+    "colours": 20,
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "path": "assets/sprites/arena/muskin/town/walk_s_f4.png",
+    "size": [
+      55,
+      55
+    ],
+    "colours": 20,
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "path": "assets/sprites/arena/muskin/town/walk_s_f5.png",
+    "size": [
+      55,
+      55
+    ],
+    "colours": 20,
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "path": "assets/sprites/arena/muskin/town/walk_s_f6.png",
+    "size": [
+      55,
+      55
+    ],
+    "colours": 20,
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "path": "assets/sprites/arena/muskin/town/walk_s_f7.png",
+    "size": [
+      55,
+      55
+    ],
+    "colours": 20,
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "path": "assets/sprites/arena/muskin/town/walk_w_f0.png",
+    "size": [
+      55,
+      55
+    ],
+    "colours": 19,
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "path": "assets/sprites/arena/muskin/town/walk_w_f1.png",
+    "size": [
+      55,
+      55
+    ],
+    "colours": 19,
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "path": "assets/sprites/arena/muskin/town/walk_w_f2.png",
+    "size": [
+      55,
+      55
+    ],
+    "colours": 19,
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "path": "assets/sprites/arena/muskin/town/walk_w_f3.png",
+    "size": [
+      55,
+      55
+    ],
+    "colours": 19,
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "path": "assets/sprites/arena/muskin/town/walk_w_f4.png",
+    "size": [
+      55,
+      55
+    ],
+    "colours": 19,
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "path": "assets/sprites/arena/muskin/town/walk_w_f5.png",
+    "size": [
+      55,
+      55
+    ],
+    "colours": 19,
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "path": "assets/sprites/arena/muskin/town/walk_w_f6.png",
+    "size": [
+      55,
+      55
+    ],
+    "colours": 19,
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "path": "assets/sprites/arena/muskin/town/walk_w_f7.png",
+    "size": [
+      55,
+      55
+    ],
+    "colours": 19,
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "path": "docs/creatures/arena-starters-2026-10-07/walk/muskin_e_sheet.png",
+    "size": [
+      512,
+      256
+    ],
+    "colours": 20,
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "path": "docs/creatures/arena-starters-2026-10-07/walk/muskin_ne_sheet.png",
+    "size": [
+      512,
+      256
+    ],
+    "colours": 21,
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "path": "docs/creatures/arena-starters-2026-10-07/walk/muskin_n_sheet.png",
+    "size": [
+      512,
+      256
+    ],
+    "colours": 25,
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "path": "docs/creatures/arena-starters-2026-10-07/walk/muskin_n_sheet_original.png",
+    "size": [
+      512,
+      256
+    ],
+    "colours": 21,
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "path": "docs/creatures/arena-starters-2026-10-07/walk/muskin_n_sheet_paddle_v1.png",
+    "size": [
+      512,
+      256
+    ],
+    "colours": 24,
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "path": "docs/creatures/arena-starters-2026-10-07/walk/muskin_se_sheet.png",
+    "size": [
+      512,
+      256
+    ],
+    "colours": 28,
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "path": "docs/creatures/arena-starters-2026-10-07/walk/muskin_s_sheet.png",
+    "size": [
+      512,
+      256
+    ],
+    "colours": 21,
+    "alpha_values": [
+      0,
+      255
+    ]
+  },
+  {
+    "path": "docs/creatures/arena-starters-2026-10-07/walk/muskin_s_sheet_rejected.png",
+    "size": [
+      512,
+      256
+    ],
+    "colours": 22,
+    "alpha_values": [
+      0,
+      255
+    ]
+  }
+]

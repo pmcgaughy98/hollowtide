@@ -1,0 +1,34 @@
+{
+  "protected_baseline_files": 1039,
+  "owned_production_changes": [
+    "scripts/soul_prologue.gd",
+    "scripts/storm_open.gd"
+  ],
+  "concurrent_source_changes_preserved": [],
+  "concurrent_during_publication": [],
+  "all_changed_existing_paths": [
+    "docs/AI_COLLABORATION.md",
+    "docs/team/CODEX_TASKS_2026-10-26.md",
+    "scripts/soul_prologue.gd",
+    "scripts/storm_open.gd"
+  ],
+  "prior_docs_preserved": true,
+  "native": "34/34 clean; actual scene handoffs",
+  "baseline_native": "10/10 clean",
+  "official": "3 PASS; known raw exit warnings retained",
+  "shared_fade_helpers_and_bank": "unchanged",
+  "normal_largest_drop_before_after": {
+    "Storm": [
+      0.8845,
+      0.102
+    ],
+    "soul": [
+      0.8323,
+      0.0864
+    ]
+  },
+  "A3_remainder": "C8 cards, C9 bar/band/shafts, Storm pixel soul pending",
+  "local_links_checked": 23,
+  "evidence": "C:\\Users\\pmcga\\dev\\hollowtide\\docs\\ui\\opening-fades-2026-10-26",
+  "handoff": "C:\\Users\\pmcga\\dev\\hollowtide\\docs\\team\\CODEX_HANDOFF_2026-10-26_opening_fades.md"
+}

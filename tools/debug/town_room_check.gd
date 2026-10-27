@@ -11,6 +11,8 @@ extends SceneTree
 ## the runners scene and at the Hall's door: no two on one tile and nobody inside a wall or a piece of furniture (R1, R5);
 ## the runners' line-up is one row (R4); the Hall's way out is both tiles at the carpet's end (R3); the Roster Board
 ## swaps a waiting creature in and a member out, the leader never moves, and a save and reload keep the change (R6).
+## Placeholder factory lane R (Claude, 2026-10-26): the rooms' art slots resolve and fit, Codex's four unused fixtures
+## stay off, and the new Item Shop room and Scroll Keeper's cellar build while Highbank keeps their doors shut (_slots).
 ##   Godot --path . --fixed-fps 30 --script res://tools/debug/town_room_check.gd
 ## Stills go to the runner's logs folder (HT_CHECK_LOGS) when run_checks.py runs it, else to OUT.
 
@@ -333,6 +335,7 @@ func _run() -> void:
 			town_now.queue_free()
 			await _frames(2)
 	await _four()
+	await _slots()
 	print("ROOMS: %s" % ("all ok" if fails == 0 else "%d FAILED" % fails))
 	quit()
 
@@ -570,3 +573,101 @@ func _fade_alpha() -> float:
 	if layer == null or layer.is_queued_for_deletion():
 		return 0.0
 	return (layer.get_node("Rect") as ColorRect).color.a
+
+
+## Placeholder factory lane R (Claude, 2026-10-26): the rooms' art through their slots. Every row of
+## scripts/art/slots/town_rooms.gd resolves from the source its status expects (the 53 keep rows from today's files, the
+## four props drawn at another size from today's resize, the new rooms' strips and furniture from their placeholders,
+## everything from its placeholder when forcing); every prop, strip and piece of furniture is exactly its slot's size
+## where the rooms draw it; Codex's four unused fixtures stay off, the code drawing on screen; no room script holds a
+## world art path of its own; and the Item Shop's room and the Scroll Keeper's cellar build, their furniture solid and
+## lifted, while Highbank keeps both doors shut.
+func _slots() -> void:
+	var Slots: GDScript = load("res://scripts/town/room_slots.gd")
+	var Floors: GDScript = load("res://scripts/town/hall_floors_art.gd")
+	var HallArt: GDScript = load("res://scripts/town/hall_room_art.gd")
+	var Fixtures: GDScript = load("res://scripts/town/hall_fixtures_art.gd")
+	var Painter: GDScript = load("res://scripts/town/room_painter.gd")
+	var forced := ArtSlots.forcing()
+	var drawn: Dictionary = Slots.get_script_constant_map()["DRAWN"]
+	# 1. Sources.
+	var rows := 0
+	var keep := 0
+	var wrong: Array = []
+	for id in ArtSlots.ids():
+		var s := ArtSlots.spec(id)
+		if String(s.get("lane", "")) != "R":
+			continue
+		rows += 1
+		if String(s["status"]) == "keep":
+			keep += 1
+		var want := "placeholder"
+		if not forced:
+			if FileAccess.file_exists(String(s.get("file", ""))):
+				want = "file"
+			elif drawn.has(id):
+				want = "drawn"
+			elif String(s["status"]) == "keep":
+				want = "legacy"
+		var got := String(Slots.call("source", id))
+		var img: Image = Slots.call("image", id)
+		if got != want or img.get_size() != Vector2i(s["sheet_size"]):
+			wrong.append("%s %s (want %s) %s" % [id, got, want, str(img.get_size())])
+	_ok("Room slots: %d rows, %d keep, every one from the source it should be%s%s" % [rows, keep, " (forcing placeholders)" if forced else "", "" if wrong.is_empty() else "; " + ", ".join(wrong)],
+		wrong.is_empty() and rows == 71 and keep == 53)
+	# 2. Sizes where the rooms draw them.
+	var misfit: Array = []
+	var props: Dictionary = Floors.get_script_constant_map()["PROPS"]
+	for room in props:
+		for p in props[room]:
+			var slot := String(Floors.call("slot_id", room, p[0]))
+			if ArtSlots.sheet_size(slot) != (p[1] as Rect2i).size:
+				misfit.append("%s %s %s" % [room, slot, str((p[1] as Rect2i).size)])
+		if room != "hall":
+			for b in Floors.call("_bands", room):
+				if ArtSlots.sheet_size(String(b[2])) != (b[1] as Rect2i).size:
+					misfit.append("%s %s" % [room, b[2]])
+	for p in HallArt.get_script_constant_map()["PROPS"]:
+		if ArtSlots.sheet_size("town.prop.hall." + String(p[0])) != (p[1] as Rect2i).size:
+			misfit.append("hall " + String(p[0]))
+	var furniture: Dictionary = Painter.get_script_constant_map()["FURNITURE"]
+	for room in furniture:
+		var r: Dictionary = Room.ROOMS[room]
+		var cut: Dictionary = Painter.call("_strips", Vector2i(r["w"], r["h"]) * 24)
+		for part in cut:
+			if ArtSlots.sheet_size("town.room.%s.%s" % [room, part]) != (cut[part] as Rect2i).size:
+				misfit.append("%s strip %s" % [room, part])
+		for f in Painter.call("furniture", room):
+			var at: Rect2i = f[0]
+			var foot := Vector2i(at.get_center().x / 24, (at.end.y - 1) / 24)
+			if not r["solid"].any(func(sr: Rect2i) -> bool: return sr.has_point(foot)):
+				misfit.append("%s furniture at %s stands on no solid tile" % [room, str(at)])
+	_ok("Room slots: every prop, strip and piece of furniture is its slot's size where the rooms draw it%s" % ("" if misfit.is_empty() else "; " + ", ".join(misfit)), misfit.is_empty())
+	# 3. Codex's four unused fixtures stay off (call 8 wires them behind SHOW_CODEX; Preston's edge-on doors stay).
+	var show: Dictionary = Fixtures.get_script_constant_map()["SHOW_CODEX"]
+	var lit: Array = show.keys().filter(func(n: String) -> bool: return bool(Fixtures.call("live", n)) or bool(show[n]))
+	_ok("Codex's stairs, side door and hatch: wired, off, today's code drawing on screen (%d of %d live)" % [lit.size(), show.size()], lit.is_empty() and show.size() == 4)
+	# 4. No room script keeps a world art path of its own: every picture comes through a slot.
+	var held: Array = []
+	for f in ["town_room", "room_painter", "hall_floors_art", "hall_fixtures_art", "hall_room_art", "home_room_art", "storage_room_art"]:
+		if FileAccess.get_file_as_string("res://scripts/town/%s.gd" % f).contains("res://assets/sprites/world/"):
+			held.append(f)
+	_ok("Room scripts read their art through slots, no world art path left in them%s" % ("" if held.is_empty() else ": " + ", ".join(held)), held.is_empty())
+	# 5. The shut rooms build; Highbank keeps their doors shut.
+	var built: Array = []
+	for id in ["shop", "scrolls_cellar"]:
+		var r := await _room(id)
+		var closed: bool = r.room()["solid"].all(func(sr: Rect2i) -> bool:
+			for y in range(sr.position.y, sr.end.y):
+				for x in range(sr.position.x, sr.end.x):
+					if r._open(Vector2i(x, y)):
+						return false
+			return true)
+		var bad := _heap(r)
+		await _snap(id)
+		if bad != "" or not closed or r.lifts.size() != 3:
+			built.append("%s: %s, solid %s, %d lifted" % [id, bad, closed, r.lifts.size()])
+		await _free(r)
+	var shut: Dictionary = load("res://scripts/town/hub_town.gd").get_script_constant_map()["SHUT"]
+	_ok("Item Shop and Scroll Keeper's cellar: each builds with its team on open tiles and its 3 pieces solid and lifted; Highbank keeps both doors shut (%s)%s" % [shut.has("shop") and shut.has("scrolls"), "" if built.is_empty() else "; " + ", ".join(built)],
+		built.is_empty() and shut.has("shop") and shut.has("scrolls"))

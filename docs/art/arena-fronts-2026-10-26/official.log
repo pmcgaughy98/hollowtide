@@ -1,0 +1,8 @@
+1 checks, 1 at a time, logs in D:\dev\hollowtide-arena-fronts-20261026\runner
+  PASS     board_scene_check                  15.1s  
+
+RESULT   CHECK                              SECS  EXIT  FIRST PROBLEM OR NOTE
+PASS     board_scene_check                  15.1     0  
+
+PASS 1
+exit 0: nothing failed

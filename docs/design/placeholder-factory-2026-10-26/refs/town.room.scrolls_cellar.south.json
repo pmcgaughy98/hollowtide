@@ -1,0 +1,61 @@
+{
+	"alpha": "opaque",
+	"anchor": [
+		0,
+		0
+	],
+	"anchor_mode": "top_left",
+	"area": "town",
+	"brief": "The south strip of the Scroll Keeper's cellar: cool flagstone floor, stone walls lined with scroll racks.",
+	"census": "M20",
+	"checks": [
+		"C1",
+		"C2",
+		"C3",
+		"C4",
+		"C5",
+		"C9"
+	],
+	"drawn_at": 3,
+	"edges": "all",
+	"file": "res://assets/slots/town/room/scrolls_cellar/south.png",
+	"forbid": [
+		"text",
+		"creature",
+		"franchise"
+	],
+	"frames": 1,
+	"id": "town.room.scrolls_cellar.south",
+	"kind": "room",
+	"lane": "R",
+	"legacy": "",
+	"light": "upper_left",
+	"notes": "12x9 tiles, 288x216; placeholder: its crop of room_painter.gd _plain (lane R); town_room.gd ROOMS scrolls_cellar; the door in Highbank stays shut (Preston call 5)",
+	"outline": "none",
+	"owner": "codex",
+	"palette": {
+		"family": "room_scrolls_cellar",
+		"lock": false,
+		"max": 48,
+		"source": "res://assets/slots/palettes/room_scrolls_cellar.png"
+	},
+	"placeholder": "res://scripts/town/room_painter.gd:slot_placeholder",
+	"rows": 1,
+	"sheet_size": [
+		288,
+		24
+	],
+	"size": [
+		288,
+		24
+	],
+	"slot_file": "town_rooms",
+	"states": {
+		"static": [
+			1,
+			0
+		]
+	},
+	"status": "placeholder",
+	"tiling": "none"
+}

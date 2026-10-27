@@ -1,0 +1,171 @@
+{
+ "target_head_top": 8,
+ "head_top_rule": "min bbox top over the 8 frames",
+ "directions": {
+  "down": {
+   "head_top_before": 7,
+   "rows_added": 0,
+   "head_top_after": 7
+  },
+  "down_left": {
+   "head_top_before": 7,
+   "rows_added": 0,
+   "head_top_after": 7
+  },
+  "left": {
+   "head_top_before": 9,
+   "rows_added": 1,
+   "duplicated_rows": [
+    {
+     "y": 40,
+     "band": "torso",
+     "cost": 148
+    }
+   ],
+   "bands": {
+    "torso": [
+     38,
+     48
+    ],
+    "thigh": [
+     51,
+     60
+    ]
+   },
+   "cost_by_row": {
+    "38": 255,
+    "39": 181,
+    "40": 148,
+    "41": 154,
+    "42": 194,
+    "43": 199,
+    "44": 204,
+    "45": 238,
+    "46": 251,
+    "47": 257,
+    "48": 303,
+    "51": 372,
+    "52": 335,
+    "53": 295,
+    "54": 272,
+    "55": 305,
+    "56": 309,
+    "57": 312,
+    "58": 263,
+    "59": 192,
+    "60": 202
+   },
+   "head_top_after": 8
+  },
+  "up_left": {
+   "head_top_before": 8,
+   "rows_added": 0,
+   "head_top_after": 8
+  },
+  "up": {
+   "head_top_before": 8,
+   "rows_added": 0,
+   "head_top_after": 8
+  },
+  "up_right": {
+   "head_top_before": 7,
+   "rows_added": 0,
+   "head_top_after": 7
+  },
+  "right": {
+   "head_top_before": 10,
+   "rows_added": 2,
+   "duplicated_rows": [
+    {
+     "y": 48,
+     "band": "torso",
+     "cost": 183
+    },
+    {
+     "y": 59,
+     "band": "thigh",
+     "cost": 218
+    }
+   ],
+   "bands": {
+    "torso": [
+     38,
+     48
+    ],
+    "thigh": [
+     51,
+     60
+    ]
+   },
+   "cost_by_row": {
+    "38": 358,
+    "39": 274,
+    "40": 217,
+    "41": 228,
+    "42": 268,
+    "43": 263,
+    "44": 227,
+    "45": 187,
+    "46": 187,
+    "47": 194,
+    "48": 183,
+    "51": 262,
+    "52": 341,
+    "53": 369,
+    "54": 285,
+    "55": 275,
+    "56": 249,
+    "57": 239,
+    "58": 226,
+    "59": 218,
+    "60": 227
+   },
+   "head_top_after": 8
+  },
+  "down_right": {
+   "head_top_before": 9,
+   "rows_added": 1,
+   "duplicated_rows": [
+    {
+     "y": 57,
+     "band": "thigh",
+     "cost": 133
+    }
+   ],
+   "bands": {
+    "torso": [
+     38,
+     48
+    ],
+    "thigh": [
+     51,
+     60
+    ]
+   },
+   "cost_by_row": {
+    "38": 463,
+    "39": 363,
+    "40": 353,
+    "41": 390,
+    "42": 456,
+    "43": 496,
+    "44": 387,
+    "45": 322,
+    "46": 387,
+    "47": 456,
+    "48": 459,
+    "51": 463,
+    "52": 431,
+    "53": 395,
+    "54": 374,
+    "55": 372,
+    "56": 254,
+    "57": 133,
+    "58": 149,
+    "59": 187,
+    "60": 208
+   },
+   "head_top_after": 8
+  }
+ }
+}

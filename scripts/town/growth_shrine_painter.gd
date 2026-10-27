@@ -2,20 +2,28 @@ extends RefCounted
 ## Open-air evolution clearing: art/presentation only. Claude owns readiness and evolution.
 const Layout = preload("res://scripts/town/town_layout.gd")
 const ART := "res://assets/sprites/world/growth_shrine_2026_10_10/shrine_native.png"
+# Claude, 2026-10-26 (placeholder factory lane B): the rect comes from the area showing (v1: the PLACES row itself)
+# and the art from its keep slot (town.landmark.shrine: today's file as its legacy, so the pixels do not change).
+const SLOT := "town.landmark.shrine"
 const Finish = preload("res://scripts/town/exterior_finish.gd")
 
 static func available() -> bool:
-	return ResourceLoader.exists("res://scripts/town/building_exteriors.gd") and ResourceLoader.exists(ART) and load(ART).get_size() == Vector2(_place()["rect"].size * Layout.T)
+	return ResourceLoader.exists("res://scripts/town/building_exteriors.gd") and ArtSlots.texture(SLOT).get_width() == _place()["rect"].size.x * Layout.T and _lift() >= 0 and _lift() <= Layout.T
+
+## Rows the art rises above its rect (Claude, 2026-10-26, lane B): 0 in v1, where the rect is the picture; in v2 the
+## area gives the open floor (02 section 5.1: "+ 1 overhang row") and the picture stands on its bottom edge.
+static func _lift() -> int:
+	return ArtSlots.texture(SLOT).get_height() - _place()["rect"].size.y * Layout.T
 
 static func _place() -> Dictionary:
-	return Layout.PLACES.filter(func(p: Dictionary) -> bool: return p["id"] == "shrine")[0]
+	return BuildingTemplate.place_entry("shrine")
 
 static func apply(img: Image, ground: Image) -> Image:
 	if not available(): return img
 	var place := _place()
 	var at: Vector2i = place["rect"].position * Layout.T
 	img.blit_rect(ground, Rect2i(Vector2i.ZERO, ground.get_size()), at)
-	var art: Image = load(ART).get_image()
+	var art: Image = ArtSlots.image(SLOT)
 	for y in range(2, art.get_height()):
 		for x in range(2, art.get_width()):
 			if art.get_pixel(x - 2, y - 2).a < 0.5: continue
@@ -33,7 +41,7 @@ static func apply(img: Image, ground: Image) -> Image:
 static func attach(parent: Node2D, _host: Node2D) -> Dictionary:
 	var base := Node2D.new()
 	base.name = "GrowthShrine"
-	base.position = Vector2(_place()["rect"].position * Layout.T)
+	base.position = Vector2(_place()["rect"].position * Layout.T - Vector2i(0, _lift()))
 	# An open, low-relief floor remains below every creature; no new invisible collision.
 	base.z_index = 0
 	parent.add_child(base)
@@ -41,7 +49,7 @@ static func attach(parent: Node2D, _host: Node2D) -> Dictionary:
 	sprite.name = "Clearing"
 	sprite.centered = false
 	sprite.texture_filter = CanvasItem.TEXTURE_FILTER_NEAREST
-	sprite.texture = load(ART)
+	sprite.texture = ArtSlots.texture(SLOT)
 	Finish.apply(sprite, true)   # Shared sel-out inks pale carved seams and root detail.
 	base.add_child(sprite)
 	var focus := Sprite2D.new()

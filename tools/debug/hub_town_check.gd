@@ -19,7 +19,10 @@ const UI := preload("res://scripts/ui/ui_style.gd")
 const Jobs := preload("res://scripts/town/jobs.gd")
 const FOUR := [[0, 0], [1, 0], [10, 0], [2, 0]]
 const DOC := "res://docs/world/hub-layout-2026-10-09/"
-const FERRY := Vector2i(28, 27)   # the ferry landing the switchbacks lead down to
+## The ferry landing the switchbacks lead down to, (28,27) in today's map: the anchor "ferry_landing" (lane A, Claude,
+## 2026-10-26). Every tile this check stands on is an anchor of the town's areas (scripts/world/areas/), so it runs
+## with Highbank v2 off and on (HT_HIGHBANK_V2=1): in v2 the walk follows the exits from Home's area.
+const FERRY := "ferry_landing"
 var fails := 0
 
 
@@ -44,31 +47,33 @@ func _out_dir() -> String:
 func _run() -> void:
 	var out := _out_dir()
 	DirAccess.make_dir_recursive_absolute(ProjectSettings.globalize_path(out))
-	var g: PackedByteArray = Layout.grid()
-	# Overlaps.
+	# Overlaps, and every door reachable from Home: area by area (today's map is one), the walk going through the
+	# areas' exits (lane A, 2026-10-26).
+	var reach := _reach_from_home()
 	var overlaps: Array = []
-	for a in Layout.PLACES.size():
-		for b in range(a + 1, Layout.PLACES.size()):
-			if Layout.PLACES[a]["kind"] == "building" and Layout.PLACES[b]["kind"] == "building" and Layout.PLACES[a]["rect"].intersects(Layout.PLACES[b]["rect"]):
-				overlaps.append([Layout.PLACES[a]["id"], Layout.PLACES[b]["id"]])
-	# Reachable from the spawn.
-	var seen := {Layout.SPAWN: true}
-	var q: Array = [Layout.SPAWN]
-	while not q.is_empty():
-		var c: Vector2i = q.pop_front()
-		for d in [Vector2i(1, 0), Vector2i(-1, 0), Vector2i(0, 1), Vector2i(0, -1)]:
-			var n: Vector2i = c + d
-			if n.x >= 0 and n.y >= 0 and n.x < Layout.W and n.y < Layout.H and g[n.y * Layout.W + n.x] == Layout.OPEN and not seen.has(n):
-				seen[n] = true
-				q.append(n)
 	var unreached: Array = []
-	for p in Layout.PLACES:
-		if not seen.has(p["door"]):
-			unreached.append(p["id"])
-	print("Layout: %d places, building overlaps %s, doors not reachable from Home %s, the ferry reachable %s" % [Layout.PLACES.size(), str(overlaps), str(unreached), str(seen.has(FERRY))])
+	var total := 0
+	for id in Layout.areas():
+		if Layout.v2():
+			Layout.use(id, {})
+		var here: Array = Layout.PLACES.filter(func(p: Dictionary) -> bool: return not p["kind"] in ["lot", "barrier"])
+		total += here.size()
+		for a in here.size():
+			for b in range(a + 1, here.size()):
+				if here[a]["kind"] == "building" and here[b]["kind"] == "building" and here[a]["rect"].intersects(here[b]["rect"]):
+					overlaps.append([here[a]["id"], here[b]["id"]])
+		for p in here:
+			if not reach.get(id, {}).has(p["door"]):
+				unreached.append(p["id"])
+	var ferry_area := Layout.anchor_area(FERRY)
+	var ferry := Layout.anchor(FERRY, ferry_area)
+	var ferry_seen: bool = reach.get(ferry_area, {}).has(ferry)
+	if Layout.v2():
+		Layout.use(Layout.anchor_area("spawn"), {})   # where a day starts, for the picture below
+	print("Layout: %d places, building overlaps %s, doors not reachable from Home %s, the ferry reachable %s" % [total, str(overlaps), str(unreached), str(ferry_seen)])
 	_ok("Layout: no building overlaps another %s" % str(overlaps), overlaps.is_empty())
 	_ok("Layout: every door is reachable from Home (not reached %s)" % str(unreached), unreached.is_empty())
-	_ok("Layout: the ferry %s is reachable from Home" % str(FERRY), seen.has(FERRY))
+	_ok("Layout: the ferry %s is reachable from Home" % str(ferry), ferry_seen)
 	Layout.new()
 	var img: Image = load("res://scripts/town/hub_town.gd").paint()
 	_ok("Layout: the street paints (an image %s)" % str(img != null), img != null)   # a broken painter fails here, not a hang
@@ -91,18 +96,23 @@ func _run() -> void:
 	print("Walk: the leader went %s -> %s; the partner follows at %s (%d apart)" % [str(start), str(lead_at), str(mate_at), apart])
 	_ok("Walk: four steps east take the leader from %s to %s" % [str(start), str(lead_at)], lead_at == start + Vector2i(4, 0))
 	_ok("Walk: the partner follows one tile behind (%d apart)" % apart, apart == 1)
-	# Every place answers.
+	# Every place answers (each area's in turn; in v2 the town goes into each).
 	var answered := 0
-	for p in Layout.PLACES:
-		if p["service"] == "dungeon":
-			continue
-		town.panel = {}
-		town.team[0]["pos"] = p["door"]
-		town._place(town.team[0])
-		var got: Dictionary = town.act_use()
-		if got.get("id", "") == p["id"]:
-			answered += 1
+	var asked := 0
+	for id in Layout.areas():
+		town.enter_area(id)
+		for p in Layout.PLACES:
+			if p["service"] == "dungeon" or p["kind"] in ["lot", "barrier"]:
+				continue
+			asked += 1
+			town.panel = {}
+			town.team[0]["pos"] = p["door"]
+			town._place(town.team[0])
+			var got: Dictionary = town.act_use()
+			if got.get("id", "") == p["id"]:
+				answered += 1
 	town.panel = {}
+	town.enter_area(Layout.area_of("hall"))
 	town.team[0]["pos"] = Layout.PLACES.filter(func(p: Dictionary) -> bool: return p["id"] == "hall")[0]["door"] + Vector2i(0, 1)
 	town._place(town.team[0])
 	town.team[0]["facing"] = "n"
@@ -112,9 +122,10 @@ func _run() -> void:
 	# Headless has no viewport texture, so the still needs a window; the printed lines are the check (Claude, 2026-10-21).
 	if DisplayServer.get_name() != "headless":
 		root.get_texture().get_image().save_png(ProjectSettings.globalize_path(out.path_join("hall_panel.png")))
-	_ok("Places: %d of %d answered E from their door" % [answered, Layout.PLACES.size() - 1], answered == Layout.PLACES.size() - 1)
+	_ok("Places: %d of %d answered E from their door" % [answered, asked], answered == asked and asked == 12)
 	town.panel = {}
-	town.team[0]["pos"] = Vector2i(32, 28)
+	town.enter_area(Layout.anchor_area("mouth_approach"), "mouth_approach")
+	town.team[0]["pos"] = Layout.anchor("mouth_approach")
 	town._place(town.team[0])
 	await town.act_move(Vector2i(1, 0))
 	_ok("The Mouth of the Hollow: stepping on it started a run (%s)" % str(town.get_meta("entered", "")), town.has_meta("entered"))
@@ -123,6 +134,45 @@ func _run() -> void:
 	await _rest_checks()
 	await _pass8_checks()
 	quit(1 if fails else 0)
+
+
+## Every tile reachable from Home's door, area by area: {area id: {tile: true}}. A walk onto an exit carries on from the
+## tile the exit lands on in its area (Highbank v2; today's map has no exits).
+func _reach_from_home() -> Dictionary:
+	var home := Layout.anchor_area("spawn")
+	var entries := {home: [Layout.anchor("spawn", home)]}
+	var reach := {}
+	var todo: Array = [home]
+	while not todo.is_empty():
+		var id: String = todo.pop_front()
+		if Layout.v2():
+			Layout.use(id, {})
+		var g: PackedByteArray = Layout.grid()
+		var size := Layout.size()
+		var seen: Dictionary = reach.get(id, {})
+		var q: Array = []
+		for t in entries[id]:
+			if not seen.has(t):
+				seen[t] = true
+				q.append(t)
+		while not q.is_empty():
+			var c: Vector2i = q.pop_front()
+			for d in [Vector2i(1, 0), Vector2i(-1, 0), Vector2i(0, 1), Vector2i(0, -1)]:
+				var n: Vector2i = c + d
+				if n.x >= 0 and n.y >= 0 and n.x < size.x and n.y < size.y and g[n.y * size.x + n.x] == Layout.OPEN and not seen.has(n):
+					seen[n] = true
+					q.append(n)
+		reach[id] = seen
+		for e in Layout.area(id).get("exits", []):
+			var r: Rect2i = e["rect"]
+			var hit := false
+			for t in seen:
+				hit = hit or r.has_point(t)
+			var land := Layout.anchor(String(e["at"]), String(e["to"]))
+			if hit and Layout.exit_open(e, {}) and not reach.get(e["to"], {}).has(land):
+				entries[e["to"]] = entries.get(e["to"], []) + [land]
+				todo.append(e["to"])
+	return reach
 
 
 ## A town for the pass 8 checks: a team of four, arriving as `data` says (arrive_at, news, story).
@@ -174,9 +224,10 @@ func _rest_checks() -> void:
 	# the street back, they settle.
 	var t2: Node2D = await _town({"news": "cleared"})
 	var lead: Vector2i = t2.team[0]["pos"]
-	t2.team[1]["pos"] = Vector2i(24, 6)   # the Hall's door tile
+	var hall: Dictionary = Layout.PLACES.filter(func(p: Dictionary) -> bool: return p["id"] == "hall")[0]   # home from a run: by the Hall
+	t2.team[1]["pos"] = hall["door"]       # the Hall's door tile, (24,6) in today's map
 	t2.team[2]["pos"] = lead               # on the leader
-	t2.team[3]["pos"] = Vector2i(21, 7)    # the row along the Hall's foundation
+	t2.team[3]["pos"] = Vector2i(hall["rect"].position.x + 2, hall["rect"].end.y)    # the row along the Hall's foundation, (21,7)
 	for e in t2.team:
 		t2._place(e)
 	t2.cutscene = true
@@ -188,11 +239,12 @@ func _rest_checks() -> void:
 	var bad2 := _team_faults(t2, true)
 	_ok("Rest, after a scene: partners left on the Hall's door, the leader's tile and the foundation's row settle to %s%s" % [_tiles(t2), "" if bad2.is_empty() else "; " + ", ".join(bad2)], bad2.is_empty())
 	# At the doors: the line walks up onto the Hall's door and Home's; nobody shares a tile or stands in the footprint.
-	var walks := [["the Hall's door", [Vector2i(24, 9), Vector2i(25, 9), Vector2i(26, 9), Vector2i(27, 9)]], ["Home's door", [Vector2i(5, 9), Vector2i(6, 9), Vector2i(7, 9), Vector2i(8, 9)]]]
+	var walks := [["the Hall's door", "lane_walk"], ["Home's door", "home_walk"]]   # (24,9) and (5,9) in today's map, the line east of it
 	t2.panel = {}   # the homecoming's news line holds the keys
 	for w in walks:
+		t2.enter_area(Layout.anchor_area(w[1]), w[1])
 		for k in t2.team.size():
-			t2.team[k]["pos"] = w[1][k]
+			t2.team[k]["pos"] = Layout.anchor(w[1]) + Vector2i(k, 0)
 			t2._place(t2.team[k])
 		var bad3: Array = []
 		for step in 3:
@@ -212,7 +264,7 @@ func _pass8_checks() -> void:
 	var texts: Array = [String(town.panel.get("what", ""))]
 	for s in HubTown.SHUT.values():
 		texts.append(s)
-	texts.append("Rootbank Warren is behind you and the parcel is back. Starward will want to see it in the Wayline Hall. And with the crew out of the Warren, the river road's clear: the Storage is open.")
+	texts.append("Rootbank Warren is behind you and the parcel is back. Starward will want to see it in the Wayline Tower. And with the crew out of the Warren, the river road's clear: the Storage is open.")
 	var lay_bad: Array = []
 	var hint_top: float = -UI.font("label").get_ascent(UI.type_size("label"))
 	for s in texts:

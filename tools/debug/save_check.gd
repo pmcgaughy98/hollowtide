@@ -189,7 +189,7 @@ func _run() -> void:
 	pm3.leave()
 	await _frames(8)
 	var hall_story: Dictionary = TeamState._read().get("data", {}).get("story", {})
-	_ok("Quit to the title from the Wayline Hall after the trial keeps the trial (guild_trial on disk %s, scene now %s)" % [str(hall_story.get("guild_trial", false)), _scene()],
+	_ok("Quit to the title from the Wayline Tower after the trial keeps the trial (guild_trial on disk %s, scene now %s)" % [str(hall_story.get("guild_trial", false)), _scene()],
 		hall_story.get("guild_trial", false) == true and _scene() == "creature_opening.tscn")
 	TeamState.data["rank"] = 7   # a change since the last save: the bed has to write it
 	TeamState.last_save_at = 0.0

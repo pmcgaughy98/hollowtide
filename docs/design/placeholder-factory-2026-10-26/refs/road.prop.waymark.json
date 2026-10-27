@@ -1,0 +1,64 @@
+{
+	"alpha": "binary",
+	"anchor": [
+		12,
+		55
+	],
+	"anchor_mode": "foot",
+	"area": "road",
+	"brief": "A Wayline waymark post: a squared timber post with a brass cap, a carved arrow pointing up the trail (right), a teal courier band, and an arm holding an unlit trail lantern.",
+	"census": "new",
+	"checks": [
+		"C1",
+		"C12",
+		"C2",
+		"C3",
+		"C4",
+		"C5",
+		"C7",
+		"C8",
+		"C9"
+	],
+	"drawn_at": 3,
+	"edges": "bottom",
+	"file": "res://assets/slots/road/prop/waymark.png",
+	"forbid": [
+		"text",
+		"creature",
+		"franchise"
+	],
+	"frames": 1,
+	"id": "road.prop.waymark",
+	"kind": "prop",
+	"lane": "S",
+	"legacy": "",
+	"light": "upper_left",
+	"notes": "on the trail at x 1236 (the Tower beat)",
+	"outline": "drawn",
+	"owner": "grok",
+	"palette": {
+		"family": "town_timber",
+		"lock": false,
+		"max": 24,
+		"source": "res://assets/slots/palettes/town_timber.png"
+	},
+	"placeholder": "res://scripts/story/route_scene.gd:paint_slot",
+	"rows": 1,
+	"sheet_size": [
+		24,
+		56
+	],
+	"size": [
+		24,
+		56
+	],
+	"slot_file": "route",
+	"states": {
+		"static": [
+			1,
+			0
+		]
+	},
+	"status": "placeholder",
+	"tiling": "none"
+}

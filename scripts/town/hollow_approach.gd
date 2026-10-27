@@ -140,11 +140,18 @@ func _ready() -> void:
 
 
 func _entrance_texture() -> Texture2D:
-	var img := preload("res://scripts/ui/waking_bank.gd").detailed_image(ENTRANCE)
+	# The entrance painting is the art slot story.backdrop.hollow_entrance (Claude, 2026-10-26, placeholder factory
+	# lane U): an installed file, else today's painting; null while on its placeholder, which is the stand-in below.
+	var img := preload("res://scripts/ui/waking_bank.gd").slot_image("story.backdrop.hollow_entrance")
 	if img != null:
 		EntranceFinish.apply(entrance, img)
 		return EntranceFinish.finished_texture(img)   # made once a session (Claude, 2026-10-26, pass 7 S5)
 	return ImageTexture.create_from_image(_stand_in())
+
+
+## The entrance slot's placeholder (scripts/art/slots/story.gd names it; Claude, 2026-10-26, lane U): the stand-in.
+static func entrance_placeholder(_id: String, _spec: Dictionary) -> Image:
+	return _stand_in()
 
 
 ## Until the entrance painting is in the project: dark water, the walkway, a lit doorway.

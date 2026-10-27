@@ -1,0 +1,110 @@
+{
+	"alpha": "opaque",
+	"anchor": [
+		0,
+		0
+	],
+	"anchor_mode": "top_left",
+	"anchors": {
+		"beacon": [
+			268,
+			8
+		],
+		"chimney_1": [
+			202,
+			126
+		],
+		"chimney_2": [
+			308,
+			124
+		],
+		"chimney_3": [
+			355,
+			125
+		],
+		"chimney_4": [
+			248,
+			136
+		],
+		"lamp_1": [
+			154,
+			152
+		],
+		"lamp_2": [
+			211,
+			141
+		],
+		"lamp_3": [
+			286,
+			140
+		],
+		"lamp_4": [
+			313,
+			154
+		],
+		"lamp_5": [
+			250,
+			168
+		],
+		"party": [
+			84,
+			148
+		]
+	},
+	"area": "road",
+	"brief": "The rise at first light: the willows open on both sides and Highbank lies below on its bluff, rows of roofs and chimneys, and over all of it the Wayline Tower, a tall river-stone tower with a beacon mast and lantern at the top (the beacon anchor). Grassy ground in the near left where the two stand (the party anchor is the leader's feet). Street lamps at the lamp anchors (paint them unlit: the game lights them and puts them out one by one) and chimney tops at the chimney anchors (the game draws the smoke).",
+	"census": "new",
+	"checks": [
+		"C1",
+		"C2",
+		"C3",
+		"C5",
+		"C9"
+	],
+	"drawn_at": 3,
+	"edges": "all",
+	"file": "res://assets/slots/road/backdrop/vista.png",
+	"forbid": [
+		"text",
+		"creature",
+		"franchise"
+	],
+	"frames": 1,
+	"id": "road.backdrop.vista",
+	"kind": "backdrop",
+	"lane": "S",
+	"legacy": "",
+	"light": "upper_left",
+	"notes": "held view at the rise; coded effects: lamps going out one by one, chimney smoke, the beacon glint",
+	"outline": "none",
+	"owner": "codex",
+	"palette": {
+		"family": "dawn",
+		"lock": false,
+		"max": 48,
+		"source": "res://assets/slots/palettes/dawn.png"
+	},
+	"place_at": [
+		0,
+		0
+	],
+	"placeholder": "res://scripts/story/route_scene.gd:paint_slot",
+	"rows": 1,
+	"sheet_size": [
+		384,
+		216
+	],
+	"size": [
+		384,
+		216
+	],
+	"slot_file": "route",
+	"states": {
+		"static": [
+			1,
+			0
+		]
+	},
+	"status": "placeholder",
+	"tiling": "none"
+}

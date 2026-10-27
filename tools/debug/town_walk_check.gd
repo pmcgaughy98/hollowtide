@@ -6,8 +6,8 @@ extends SceneTree
 ## take the tile the one ahead just left.
 ## Claude, 2026-10-23, T4 / L21: a scripted walk up the Hall's steps, along its two door tiles and back, then in and
 ## out of Home's door; after every step no partner stands where a follower may not (a building's footprint, its door
-## tiles included) or on the leader's tile. T5 / LO-04: while the Training Yard is shut its gate tile (41,12) cannot
-## be entered, and E from the tile in front, facing it, still reads the board.
+## tiles included) or on the leader's tile. T5 / LO-04: while the Training Yard is shut its gate tile (41,12; the
+## anchor yard_gate) cannot be entered, and E from the tile in front, facing it, still reads the board.
 ##   Godot --path . --fixed-fps 30 --script res://tools/debug/town_walk_check.gd
 
 const TeamState := preload("res://scripts/town/team_state.gd")
@@ -73,18 +73,22 @@ func _run() -> void:
 	var walked_ok: bool = steps == STEPS and overlaps == 0
 	print("Tiles: %d of %d steps from %s, the team now on %s; steps ending with two members on one tile: %d%s -> %s" % [steps, STEPS, str(start), str(tiles), overlaps, first_overlap, "ok" if walked_ok else "WRONG"])
 	bad += 0 if walked_ok else 1
-	# Past the facades (T4): [where the team starts, leader first], then the leader's steps.
+	# Past the facades (T4): [the anchor the leader starts on, each partner's offset from it], then the leader's steps.
+	# The anchors are the tiles this check used to name, (24,9) below the Hall's steps and (5,9) below Home's door, in
+	# today's map (scripts/world/areas/highbank_v1.gd); with Highbank v2 on, the same places in their areas (lane A,
+	# Claude, 2026-10-26: Tower Rise and the street), entered first.
 	var walks := [
-		[[Vector2i(24, 9), Vector2i(25, 9), Vector2i(26, 9)], [Vector2i(0, -1), Vector2i(0, -1), Vector2i(0, -1), Vector2i(-1, 0), Vector2i(1, 0), Vector2i(0, 1), Vector2i(0, 1), Vector2i(-1, 1)]],
-		[[Vector2i(5, 9), Vector2i(4, 9), Vector2i(3, 9)], [Vector2i(0, -1), Vector2i(0, -1), Vector2i(0, 1), Vector2i(0, -1), Vector2i(0, 1), Vector2i(1, 0)]],
+		["lane_walk", [Vector2i(0, 0), Vector2i(1, 0), Vector2i(2, 0)], [Vector2i(0, -1), Vector2i(0, -1), Vector2i(0, -1), Vector2i(-1, 0), Vector2i(1, 0), Vector2i(0, 1), Vector2i(0, 1), Vector2i(-1, 1)]],
+		["home_walk", [Vector2i(0, 0), Vector2i(-1, 0), Vector2i(-2, 0)], [Vector2i(0, -1), Vector2i(0, -1), Vector2i(0, 1), Vector2i(0, -1), Vector2i(0, 1), Vector2i(1, 0)]],
 	]
 	var facade_steps := 0
 	var facade_bad: Array[String] = []
 	for w in walks:
+		town.enter_area(Layout.anchor_area(w[0]), w[0])
 		for i in town.team.size():
-			town.team[i]["pos"] = w[0][i]
+			town.team[i]["pos"] = Layout.anchor(w[0]) + w[1][i]
 			town._place(town.team[i])
-		for d in w[1]:
+		for d in w[2]:
 			town.act_move(d)
 			var f2 := 0
 			while f2 < 5 or town.busy:
@@ -102,14 +106,16 @@ func _run() -> void:
 	print("Past the facades: %d steps by the Hall's and Home's doors, partners never on a footprint, a door tile or the leader's tile%s -> %s" % [facade_steps, "" if facade_ok else "; " + ", ".join(facade_bad.slice(0, 3)), "ok" if facade_ok else "WRONG"])
 	bad += 0 if facade_ok else 1
 	# The shut Training Yard (T5): the leader stops at the rope and reads the board.
-	var gate := Vector2i(41, 12)
+	town.enter_area(Layout.anchor_area("yard_gate"), "yard_gate_front")
+	var gate := Layout.anchor("yard_gate")
+	var front := Layout.anchor("yard_gate_front")
 	for i in town.team.size():
-		town.team[i]["pos"] = Vector2i(41 - i, 11)
+		town.team[i]["pos"] = front + Vector2i(-i, 0)
 		town._place(town.team[i])
 	town.act_move(Vector2i(0, 1))
 	for f3 in 5:
 		await process_frame
-	var stopped: bool = not town.open_at(gate) and town.team[0]["pos"] == Vector2i(41, 11)
+	var stopped: bool = not town.open_at(gate) and town.team[0]["pos"] == front
 	town.act_use()
 	var read: bool = String(town.panel.get("service", "")) == "shut" and String(town.panel.get("name", "")) == "Training Yard"
 	var sign: String = String(town.panel.get("what", ""))

@@ -1,0 +1,15 @@
+{
+  "checks": [
+    {
+      "check": "Real last story line opens three cards",
+      "passed": true
+    },
+    {
+      "check": "Saved journey bytes unchanged",
+      "passed": true
+    }
+  ],
+  "failed": 0,
+  "failures": [],
+  "total": 2
+}

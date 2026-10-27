@@ -158,7 +158,7 @@ func _run() -> void:
 	# The street's sign is in the talk box's story role since pass 8 (hub_town.gd sign_layout, street T4), the box
 	# growing upward a row past two with the key hint at its foot less 12: measured by the street's own layout.
 	var HubTown: GDScript = load("res://scripts/town/hub_town.gd")
-	var street_lay: Dictionary = HubTown.call("sign_layout", "Rootbank Warren is behind you and the parcel is back. Starward will want to see it in the Wayline Hall. And with the crew out of the Warren, the river road's clear: the Storage is open.")
+	var street_lay: Dictionary = HubTown.call("sign_layout", "Rootbank Warren is behind you and the parcel is back. Starward will want to see it in the Wayline Tower. And with the crew out of the Warren, the river road's clear: the Storage is open.")
 	var street_rows: int = (street_lay["rows"] as PackedStringArray).size()
 	var street_end: float = (street_lay["at"] as Vector2).y + float(street_lay["row_h"]) * (street_rows - 1) + UI.font("story").get_descent(UI.type_size("story"))
 	var street_hint: float = (street_lay["box"] as Rect2).end.y - 12.0 - (116.0 - hint_top)
@@ -173,7 +173,15 @@ func _run() -> void:
 	_ok(room_end <= room_floor, "town panel in a room, %d rows: the text ends at %.0f, inside the frame at %.0f" % [room_rows, room_end, room_floor])
 	var signs := 0
 	var sign_cut: Array[String] = []
-	for p in Layout.PLACES:
+	# Every area's places (lane A, Claude, 2026-10-26): today's map is one; Highbank v2's lots and shut road have lines too.
+	var all_places: Array = []
+	for area_id in Layout.areas():
+		if Layout.v2():
+			Layout.use(area_id, {})
+		all_places.append_array(Layout.PLACES)
+	if Layout.v2():
+		Layout.use(Layout.Areas.V2_FIRST, {})
+	for p in all_places:
 		if String(p.get("service", "")) in ["growth", "storage"]:
 			continue   # the shrine and storage draw their own panels
 		signs += 1

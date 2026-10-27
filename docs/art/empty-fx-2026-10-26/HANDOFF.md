@@ -1,0 +1,9 @@
+# FX-01 empty effect frames, October 26, 2026
+
+INSTALLED: six runtime blanks repaired with exact neighboring-frame holds. Source cells are also fully transparent, so a same-cell re-cut cannot recover drawings. Sail Slash f04<-f03, f08<-f07, f12<-f11; Mark Glyph f00<-f15 (cyclic predecessor), f12/f13<-f11. Six PNGs plus tools/arena/slice_vfx.py only. The cutter applies these holds only while the source cell is empty, accepts future painted cells automatically, and rejects an empty donor. Both 16-frame timelines, 32x32 canvases, palette/registration and all other 26 cuts unchanged. Original sheets/cuts archived.
+
+Paths unchanged: res://assets/sprites/arena/vfx/sail_slash/fNN.png and res://assets/sprites/arena/vfx/mark_glyph/fNN.png. Already used by dungeon/arena; no repoint required. Native 67/67 clean through actual dungeon loader/draw, imported pixels exact and every slot visible, private save hash exact. Maintained dungeon_vfx PASS, with raw 23 ObjectDB/9-resource exit diagnostics retained. Private headless import has plugin/theme/audio-UID diagnostics, not claimed clean. [Before/after, loops, all-frame source audit, commands, logs, manifest, original source and diff](README.md). Work D:/dev/hollowtide-fx-empty-20261026.
+
+Source issues for Claude: missing drawings remain a source-art limitation. These are exact holds, not six new/recovered drawings. Sail Slash's unchanged source also has fragmentary/cell-edge cuts; broader motion polish is separate. No dungeon gameplay, arena, TeamState, UI, project/export settings or other snapshotted sources changed; Claude/Grok dirty work preserved. build_dungeon_set.py is unrelated to these effect frames; dungeon_vfx was rerun.
+
+Next ART-08 Muskin back view. Portrait crops await Preston's look. C6 OFF, town/exterior HOLD, C11 full Windows export QA pending templates. No generation/paid art/real save/rules/Route1/message/commit. Native reviewed by Codex, Preston approval not claimed.

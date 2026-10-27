@@ -1,0 +1,12 @@
+[
+  {
+    "case": "normal",
+    "checks": 34,
+    "failures": []
+  },
+  {
+    "case": "reduced",
+    "checks": 34,
+    "failures": []
+  }
+]

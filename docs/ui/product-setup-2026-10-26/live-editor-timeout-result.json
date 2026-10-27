@@ -1,0 +1,46 @@
+{
+  "checks": [
+    {
+      "check": "Helper retained in source editor settings",
+      "passed": true
+    },
+    {
+      "check": "Target export removes helper setting",
+      "passed": true
+    },
+    {
+      "check": "Export-only settings snapshot saves",
+      "passed": true
+    },
+    {
+      "check": "Serialized export settings omit autoload",
+      "passed": true
+    },
+    {
+      "check": "Other autoloads retained",
+      "passed": true
+    },
+    {
+      "check": "Export end restores exact helper value/order",
+      "passed": true
+    },
+    {
+      "check": "Debug export of filtered preset omits helper too",
+      "passed": true
+    },
+    {
+      "check": "Other presets untouched",
+      "passed": true
+    },
+    {
+      "check": "Absent helper is not invented",
+      "passed": true
+    },
+    {
+      "check": "Source project file never rewritten by hook",
+      "passed": true
+    }
+  ],
+  "failed": 0,
+  "total": 10
+}

@@ -1,0 +1,66 @@
+{
+	"alpha": "binary",
+	"anchor": [
+		80,
+		95
+	],
+	"anchor_mode": "foot",
+	"anchors": {
+		"beacon": [
+			92,
+			6
+		]
+	},
+	"area": "road",
+	"brief": "Highbank seen from miles down the river: a flat-topped bluff with a few rows of roofs on it, and the Wayline Tower rising over the town more than three times its height, a beacon mast and lantern at the very top (the beacon anchor). Silhouette-level detail only: no windows, no doors. The bluff runs off the bottom edge.",
+	"census": "new",
+	"checks": [
+		"C1",
+		"C2",
+		"C3",
+		"C5",
+		"C9"
+	],
+	"drawn_at": 3,
+	"edges": "bottom",
+	"file": "res://assets/slots/road/backdrop/highbank_far.png",
+	"forbid": [
+		"text",
+		"creature",
+		"franchise"
+	],
+	"frames": 1,
+	"id": "road.backdrop.highbank_far",
+	"kind": "backdrop",
+	"lane": "S",
+	"legacy": "",
+	"light": "upper_left",
+	"notes": "drawn at 0.82x growing to 1x as the party nears the rise, hazed by the scene (0.5 down to 0.3); the coded beacon glint sits on anchors.beacon",
+	"outline": "none",
+	"owner": "codex",
+	"palette": {
+		"family": "dawn",
+		"lock": false,
+		"max": 24,
+		"source": "res://assets/slots/palettes/dawn.png"
+	},
+	"placeholder": "res://scripts/story/route_scene.gd:paint_slot",
+	"rows": 1,
+	"sheet_size": [
+		160,
+		96
+	],
+	"size": [
+		160,
+		96
+	],
+	"slot_file": "route",
+	"states": {
+		"static": [
+			1,
+			0
+		]
+	},
+	"status": "placeholder",
+	"tiling": "none"
+}

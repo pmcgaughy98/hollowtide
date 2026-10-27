@@ -1,0 +1,137 @@
+{
+	"checks": [
+		{
+			"check": "native backdrop starts at authored384x216",
+			"passed": true
+		},
+		{
+			"check": "base authored UI position unchanged",
+			"passed": true
+		},
+		{
+			"check": "no full-width speaking strip",
+			"passed": true
+		},
+		{
+			"check": "shaft still visible midway",
+			"passed": true
+		},
+		{
+			"check": "shaft alpha fades to zero at lower edge",
+			"passed": true
+		},
+		{
+			"check": "base screen corners contain the indigo backdrop",
+			"passed": true
+		},
+		{
+			"check": "wide native backdrop covers expanded viewport",
+			"passed": true
+		},
+		{
+			"check": "wide UI and world share whole-pixel centre",
+			"passed": true
+		},
+		{
+			"check": "wide no clear or letterbox band at corners",
+			"passed": true
+		},
+		{
+			"check": "wide flash covers the expanded backdrop too",
+			"passed": true
+		},
+		{
+			"check": "tall native backdrop covers expanded viewport",
+			"passed": true
+		},
+		{
+			"check": "tall UI and world share whole-pixel centre",
+			"passed": true
+		},
+		{
+			"check": "tall no clear or letterbox band at corners",
+			"passed": true
+		},
+		{
+			"check": "tall flash covers the expanded backdrop too",
+			"passed": true
+		},
+		{
+			"check": "centred wide UI keeps mouse card selection",
+			"passed": true
+		},
+		{
+			"check": "scene work leaves saved journey bytes exact",
+			"passed": true
+		},
+		{
+			"check": "scene restores previous stretch policy",
+			"passed": true
+		},
+		{
+			"check": "a letterboxed caller expands during soul scene",
+			"passed": true
+		},
+		{
+			"check": "leaving restores the caller's letterbox policy",
+			"passed": true
+		}
+	],
+	"failed": 0,
+	"metrics": [
+		{
+			"base_top_strip_added": 0.0,
+			"shaft_end_added": 0.0,
+			"shaft_middle_added": 0.0130718946456909
+		},
+		{
+			"case": "wide",
+			"native": [
+				512,
+				216
+			],
+			"ui_offset": [
+				192.0,
+				0.0
+			],
+			"visible": [
+				1536.0,
+				648.0
+			],
+			"void_offset": [
+				64.0,
+				0.0
+			],
+			"window": [
+				1536,
+				648
+			]
+		},
+		{
+			"case": "tall",
+			"native": [
+				384,
+				288
+			],
+			"ui_offset": [
+				0.0,
+				108.0
+			],
+			"visible": [
+				1152.0,
+				864.0
+			],
+			"void_offset": [
+				0.0,
+				36.0
+			],
+			"window": [
+				960,
+				720
+			]
+		}
+	],
+	"passed": 19,
+	"phase": "after",
+	"total": 19
+}

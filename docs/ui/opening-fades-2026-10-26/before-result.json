@@ -1,0 +1,2037 @@
+{
+	"cases": [
+		{
+			"bank_cut": {
+				"cover": 0.0,
+				"frame": 616,
+				"veil": 1.0
+			},
+			"case": "normal-natural",
+			"max_bank_drop": 0.832253805128884,
+			"max_storm_drop": 0.884513747503222,
+			"peak_storm_white": 0.966666638851166,
+			"samples": [
+				{
+					"flash": 0.0,
+					"frame": 526,
+					"luma": 0.363318661379354,
+					"scene": "storm_open.tscn",
+					"shared_black": 0.0,
+					"veil": -1.0,
+					"white": 0.566666662693024
+				},
+				{
+					"flash": 0.0,
+					"frame": 527,
+					"luma": 0.393137650497915,
+					"scene": "storm_open.tscn",
+					"shared_black": 0.0,
+					"veil": -1.0,
+					"white": 0.600000023841858
+				},
+				{
+					"flash": 0.0,
+					"frame": 528,
+					"luma": 0.428537033830211,
+					"scene": "storm_open.tscn",
+					"shared_black": 0.0,
+					"veil": -1.0,
+					"white": 0.633333325386047
+				},
+				{
+					"flash": 0.0,
+					"frame": 529,
+					"luma": 0.462121267979472,
+					"scene": "storm_open.tscn",
+					"shared_black": 0.0,
+					"veil": -1.0,
+					"white": 0.666666686534882
+				},
+				{
+					"flash": 0.0,
+					"frame": 530,
+					"luma": 0.50201359633824,
+					"scene": "storm_open.tscn",
+					"shared_black": 0.0,
+					"veil": -1.0,
+					"white": 0.699999988079071
+				},
+				{
+					"flash": 0.0,
+					"frame": 531,
+					"luma": 0.5396823204424,
+					"scene": "storm_open.tscn",
+					"shared_black": 0.0,
+					"veil": -1.0,
+					"white": 0.733333349227905
+				},
+				{
+					"flash": 0.0,
+					"frame": 532,
+					"luma": 0.584147611932705,
+					"scene": "storm_open.tscn",
+					"shared_black": 0.0,
+					"veil": -1.0,
+					"white": 0.766666650772095
+				},
+				{
+					"flash": 0.0,
+					"frame": 533,
+					"luma": 0.625811933462873,
+					"scene": "storm_open.tscn",
+					"shared_black": 0.0,
+					"veil": -1.0,
+					"white": 0.800000011920929
+				},
+				{
+					"flash": 0.0,
+					"frame": 534,
+					"luma": 0.67517423565258,
+					"scene": "storm_open.tscn",
+					"shared_black": 0.0,
+					"veil": -1.0,
+					"white": 0.833333313465118
+				},
+				{
+					"flash": 0.0,
+					"frame": 535,
+					"luma": 0.720905034790768,
+					"scene": "storm_open.tscn",
+					"shared_black": 0.0,
+					"veil": -1.0,
+					"white": 0.866666674613953
+				},
+				{
+					"flash": 0.0,
+					"frame": 536,
+					"luma": 0.776180671776886,
+					"scene": "storm_open.tscn",
+					"shared_black": 0.0,
+					"veil": -1.0,
+					"white": 0.899999976158142
+				},
+				{
+					"flash": 0.0,
+					"frame": 537,
+					"luma": 0.826091859191684,
+					"scene": "storm_open.tscn",
+					"shared_black": 0.0,
+					"veil": -1.0,
+					"white": 0.933333337306976
+				},
+				{
+					"flash": 0.0,
+					"frame": 538,
+					"luma": 0.884513747503222,
+					"scene": "storm_open.tscn",
+					"shared_black": 0.0,
+					"veil": -1.0,
+					"white": 0.966666638851166
+				},
+				{
+					"flash": 0.0,
+					"frame": 539,
+					"luma": 0.0,
+					"scene": "none",
+					"shared_black": 0.0,
+					"veil": -1.0,
+					"white": 0.0
+				},
+				{
+					"flash": 0.0,
+					"frame": 540,
+					"luma": 0.073106409111227,
+					"scene": "soul_prologue.tscn",
+					"shared_black": 0.0,
+					"veil": -1.0,
+					"white": 0.0
+				},
+				{
+					"flash": 0.0,
+					"frame": 541,
+					"luma": 0.0740310284321724,
+					"scene": "soul_prologue.tscn",
+					"shared_black": 0.0,
+					"veil": -1.0,
+					"white": 0.0
+				},
+				{
+					"flash": 0.0,
+					"frame": 542,
+					"luma": 0.0750682699782548,
+					"scene": "soul_prologue.tscn",
+					"shared_black": 0.0,
+					"veil": -1.0,
+					"white": 0.0
+				},
+				{
+					"flash": 0.0,
+					"frame": 543,
+					"luma": 0.0756276163177031,
+					"scene": "soul_prologue.tscn",
+					"shared_black": 0.0,
+					"veil": -1.0,
+					"white": 0.0
+				},
+				{
+					"flash": 0.0,
+					"frame": 544,
+					"luma": 0.07577375345391,
+					"scene": "soul_prologue.tscn",
+					"shared_black": 0.0,
+					"veil": -1.0,
+					"white": 0.0
+				},
+				{
+					"flash": 0.0,
+					"frame": 545,
+					"luma": 0.0765983794234191,
+					"scene": "soul_prologue.tscn",
+					"shared_black": 0.0,
+					"veil": -1.0,
+					"white": 0.0
+				},
+				{
+					"flash": 0.0,
+					"frame": 546,
+					"luma": 0.0792053002241074,
+					"scene": "soul_prologue.tscn",
+					"shared_black": 0.0,
+					"veil": -1.0,
+					"white": 0.0
+				},
+				{
+					"flash": 0.0,
+					"frame": 547,
+					"luma": 0.0807899728240196,
+					"scene": "soul_prologue.tscn",
+					"shared_black": 0.0,
+					"veil": -1.0,
+					"white": 0.0
+				},
+				{
+					"flash": 0.0,
+					"frame": 548,
+					"luma": 0.0813580599934653,
+					"scene": "soul_prologue.tscn",
+					"shared_black": 0.0,
+					"veil": -1.0,
+					"white": 0.0
+				},
+				{
+					"flash": 0.0,
+					"frame": 549,
+					"luma": 0.0819362209919401,
+					"scene": "soul_prologue.tscn",
+					"shared_black": 0.0,
+					"veil": -1.0,
+					"white": 0.0
+				},
+				{
+					"flash": 0.0,
+					"frame": 550,
+					"luma": 0.0823672947487217,
+					"scene": "soul_prologue.tscn",
+					"shared_black": 0.0,
+					"veil": -1.0,
+					"white": 0.0
+				},
+				{
+					"flash": 0.0,
+					"frame": 551,
+					"luma": 0.0828988646671333,
+					"scene": "soul_prologue.tscn",
+					"shared_black": 0.0,
+					"veil": -1.0,
+					"white": 0.0
+				},
+				{
+					"flash": 0.0,
+					"frame": 552,
+					"luma": 0.0826745375373628,
+					"scene": "soul_prologue.tscn",
+					"shared_black": 0.0,
+					"veil": -1.0,
+					"white": 0.0
+				},
+				{
+					"flash": 0.0,
+					"frame": 553,
+					"luma": 0.0827004760270838,
+					"scene": "soul_prologue.tscn",
+					"shared_black": 0.0,
+					"veil": -1.0,
+					"white": 0.0
+				},
+				{
+					"flash": 0.0,
+					"frame": 554,
+					"luma": 0.0810836663701281,
+					"scene": "soul_prologue.tscn",
+					"shared_black": 0.0,
+					"veil": -1.0,
+					"white": 0.0
+				},
+				{
+					"flash": 0.0,
+					"frame": 555,
+					"luma": 0.0806495969965172,
+					"scene": "soul_prologue.tscn",
+					"shared_black": 0.0,
+					"veil": -1.0,
+					"white": 0.0
+				},
+				{
+					"flash": 0.0,
+					"frame": 556,
+					"luma": 0.0797443694529475,
+					"scene": "soul_prologue.tscn",
+					"shared_black": 0.0,
+					"veil": -1.0,
+					"white": 0.0
+				},
+				{
+					"flash": 0.0,
+					"frame": 557,
+					"luma": 0.0797288151080686,
+					"scene": "soul_prologue.tscn",
+					"shared_black": 0.0,
+					"veil": -1.0,
+					"white": 0.0
+				},
+				{
+					"flash": 0.0,
+					"frame": 558,
+					"luma": 0.0803615844119358,
+					"scene": "soul_prologue.tscn",
+					"shared_black": 0.0,
+					"veil": -1.0,
+					"white": 0.0
+				},
+				{
+					"flash": 0.0,
+					"frame": 559,
+					"luma": 0.0797079732999557,
+					"scene": "soul_prologue.tscn",
+					"shared_black": 0.0,
+					"veil": -1.0,
+					"white": 0.0
+				},
+				{
+					"flash": 0.0,
+					"frame": 560,
+					"luma": 0.079734162480241,
+					"scene": "soul_prologue.tscn",
+					"shared_black": 0.0,
+					"veil": -1.0,
+					"white": 0.0
+				},
+				{
+					"flash": 0.0,
+					"frame": 561,
+					"luma": 0.0804602009724269,
+					"scene": "soul_prologue.tscn",
+					"shared_black": 0.0,
+					"veil": -1.0,
+					"white": 0.0
+				},
+				{
+					"flash": 0.0,
+					"frame": 562,
+					"luma": 0.0798539452184958,
+					"scene": "soul_prologue.tscn",
+					"shared_black": 0.0,
+					"veil": -1.0,
+					"white": 0.0
+				},
+				{
+					"flash": 0.0,
+					"frame": 563,
+					"luma": 0.0795366745691494,
+					"scene": "soul_prologue.tscn",
+					"shared_black": 0.0,
+					"veil": -1.0,
+					"white": 0.0
+				},
+				{
+					"flash": 0.0,
+					"frame": 564,
+					"luma": 0.0801562442795771,
+					"scene": "soul_prologue.tscn",
+					"shared_black": 0.0,
+					"veil": -1.0,
+					"white": 0.0
+				},
+				{
+					"flash": 0.0,
+					"frame": 565,
+					"luma": 0.0797631318282819,
+					"scene": "soul_prologue.tscn",
+					"shared_black": 0.0,
+					"veil": -1.0,
+					"white": 0.0
+				},
+				{
+					"flash": 0.0,
+					"frame": 566,
+					"luma": 0.253029731642019,
+					"scene": "soul_prologue.tscn",
+					"shared_black": 0.0,
+					"veil": -1.0,
+					"white": 0.0
+				},
+				{
+					"flash": 0.0,
+					"frame": 567,
+					"luma": 0.253224194855204,
+					"scene": "soul_prologue.tscn",
+					"shared_black": 0.0,
+					"veil": -1.0,
+					"white": 0.0
+				},
+				{
+					"flash": 0.0,
+					"frame": 568,
+					"luma": 0.252985153473284,
+					"scene": "soul_prologue.tscn",
+					"shared_black": 0.0,
+					"veil": -1.0,
+					"white": 0.0
+				},
+				{
+					"flash": 0.0,
+					"frame": 569,
+					"luma": 0.252796555687381,
+					"scene": "soul_prologue.tscn",
+					"shared_black": 0.0,
+					"veil": -1.0,
+					"white": 0.0
+				},
+				{
+					"flash": 1.6,
+					"frame": 593,
+					"luma": 0.252227309758864,
+					"scene": "soul_prologue.tscn",
+					"shared_black": 0.0,
+					"veil": -1.0,
+					"white": 0.0
+				},
+				{
+					"flash": 1.57,
+					"frame": 594,
+					"luma": 0.849832441840293,
+					"scene": "soul_prologue.tscn",
+					"shared_black": 0.0,
+					"veil": -1.0,
+					"white": 0.0
+				},
+				{
+					"flash": 1.54,
+					"frame": 595,
+					"luma": 0.849832441840293,
+					"scene": "soul_prologue.tscn",
+					"shared_black": 0.0,
+					"veil": -1.0,
+					"white": 0.0
+				},
+				{
+					"flash": 1.51,
+					"frame": 596,
+					"luma": 0.849832441840293,
+					"scene": "soul_prologue.tscn",
+					"shared_black": 0.0,
+					"veil": -1.0,
+					"white": 0.0
+				},
+				{
+					"flash": 1.48,
+					"frame": 597,
+					"luma": 0.849832441840293,
+					"scene": "soul_prologue.tscn",
+					"shared_black": 0.0,
+					"veil": -1.0,
+					"white": 0.0
+				},
+				{
+					"flash": 1.45,
+					"frame": 598,
+					"luma": 0.849832441840293,
+					"scene": "soul_prologue.tscn",
+					"shared_black": 0.0,
+					"veil": -1.0,
+					"white": 0.0
+				},
+				{
+					"flash": 1.42,
+					"frame": 599,
+					"luma": 0.849832441840293,
+					"scene": "soul_prologue.tscn",
+					"shared_black": 0.0,
+					"veil": -1.0,
+					"white": 0.0
+				},
+				{
+					"flash": 1.39,
+					"frame": 600,
+					"luma": 0.849806285342215,
+					"scene": "soul_prologue.tscn",
+					"shared_black": 0.0,
+					"veil": -1.0,
+					"white": 0.0
+				},
+				{
+					"flash": 1.36,
+					"frame": 601,
+					"luma": 0.849806285342215,
+					"scene": "soul_prologue.tscn",
+					"shared_black": 0.0,
+					"veil": -1.0,
+					"white": 0.0
+				},
+				{
+					"flash": 1.33,
+					"frame": 602,
+					"luma": 0.849806285342215,
+					"scene": "soul_prologue.tscn",
+					"shared_black": 0.0,
+					"veil": -1.0,
+					"white": 0.0
+				},
+				{
+					"flash": 1.3,
+					"frame": 603,
+					"luma": 0.849806285342215,
+					"scene": "soul_prologue.tscn",
+					"shared_black": 0.0,
+					"veil": -1.0,
+					"white": 0.0
+				},
+				{
+					"flash": 1.27,
+					"frame": 604,
+					"luma": 0.849806285342215,
+					"scene": "soul_prologue.tscn",
+					"shared_black": 0.0,
+					"veil": -1.0,
+					"white": 0.0
+				},
+				{
+					"flash": 1.24,
+					"frame": 605,
+					"luma": 0.849806285342215,
+					"scene": "soul_prologue.tscn",
+					"shared_black": 0.0,
+					"veil": -1.0,
+					"white": 0.0
+				},
+				{
+					"flash": 1.21,
+					"frame": 606,
+					"luma": 0.849801984930949,
+					"scene": "soul_prologue.tscn",
+					"shared_black": 0.0,
+					"veil": -1.0,
+					"white": 0.0
+				},
+				{
+					"flash": 1.18,
+					"frame": 607,
+					"luma": 0.849801984930949,
+					"scene": "soul_prologue.tscn",
+					"shared_black": 0.0,
+					"veil": -1.0,
+					"white": 0.0
+				},
+				{
+					"flash": 1.15,
+					"frame": 608,
+					"luma": 0.849801984930949,
+					"scene": "soul_prologue.tscn",
+					"shared_black": 0.0,
+					"veil": -1.0,
+					"white": 0.0
+				},
+				{
+					"flash": 1.12,
+					"frame": 609,
+					"luma": 0.849801984930949,
+					"scene": "soul_prologue.tscn",
+					"shared_black": 0.0,
+					"veil": -1.0,
+					"white": 0.0
+				},
+				{
+					"flash": 1.09,
+					"frame": 610,
+					"luma": 0.849801984930949,
+					"scene": "soul_prologue.tscn",
+					"shared_black": 0.0,
+					"veil": -1.0,
+					"white": 0.0
+				},
+				{
+					"flash": 1.06,
+					"frame": 611,
+					"luma": 0.849801984930949,
+					"scene": "soul_prologue.tscn",
+					"shared_black": 0.0,
+					"veil": -1.0,
+					"white": 0.0
+				},
+				{
+					"flash": 1.03,
+					"frame": 612,
+					"luma": 0.84945524080173,
+					"scene": "soul_prologue.tscn",
+					"shared_black": 0.0,
+					"veil": -1.0,
+					"white": 0.0
+				},
+				{
+					"flash": 1.0,
+					"frame": 613,
+					"luma": 0.84945524080173,
+					"scene": "soul_prologue.tscn",
+					"shared_black": 0.0,
+					"veil": -1.0,
+					"white": 0.0
+				},
+				{
+					"flash": 0.97,
+					"frame": 614,
+					"luma": 0.832253805128884,
+					"scene": "soul_prologue.tscn",
+					"shared_black": 0.0,
+					"veil": -1.0,
+					"white": 0.0
+				},
+				{
+					"flash": 0.0,
+					"frame": 615,
+					"luma": 0.0,
+					"scene": "none",
+					"shared_black": 0.0,
+					"veil": -1.0,
+					"white": 0.0
+				},
+				{
+					"flash": 0.0,
+					"frame": 616,
+					"luma": 0.0,
+					"scene": "creature_prologue.tscn",
+					"shared_black": 0.0,
+					"veil": 1.0,
+					"white": 0.0
+				},
+				{
+					"flash": 0.0,
+					"frame": 617,
+					"luma": 0.0,
+					"scene": "creature_prologue.tscn",
+					"shared_black": 0.0,
+					"veil": 1.0,
+					"white": 0.0
+				},
+				{
+					"flash": 0.0,
+					"frame": 618,
+					"luma": 0.0,
+					"scene": "creature_prologue.tscn",
+					"shared_black": 0.0,
+					"veil": 1.0,
+					"white": 0.0
+				},
+				{
+					"flash": 0.0,
+					"frame": 619,
+					"luma": 0.0,
+					"scene": "creature_prologue.tscn",
+					"shared_black": 0.0,
+					"veil": 1.0,
+					"white": 0.0
+				},
+				{
+					"flash": 0.0,
+					"frame": 620,
+					"luma": 0.0104688729602727,
+					"scene": "creature_prologue.tscn",
+					"shared_black": 0.0,
+					"veil": 0.944444417953491,
+					"white": 0.0
+				},
+				{
+					"flash": 0.0,
+					"frame": 621,
+					"luma": 0.0225710743463982,
+					"scene": "creature_prologue.tscn",
+					"shared_black": 0.0,
+					"veil": 0.888888835906982,
+					"white": 0.0
+				},
+				{
+					"flash": 0.0,
+					"frame": 622,
+					"luma": 0.0342559947506361,
+					"scene": "creature_prologue.tscn",
+					"shared_black": 0.0,
+					"veil": 0.833333253860474,
+					"white": 0.0
+				},
+				{
+					"flash": 0.0,
+					"frame": 623,
+					"luma": 0.0466041147898,
+					"scene": "creature_prologue.tscn",
+					"shared_black": 0.0,
+					"veil": 0.777777671813965,
+					"white": 0.0
+				},
+				{
+					"flash": 0.0,
+					"frame": 624,
+					"luma": 0.0577330644883041,
+					"scene": "creature_prologue.tscn",
+					"shared_black": 0.0,
+					"veil": 0.722222089767456,
+					"white": 0.0
+				},
+				{
+					"flash": 0.0,
+					"frame": 625,
+					"luma": 0.0689299934676632,
+					"scene": "creature_prologue.tscn",
+					"shared_black": 0.0,
+					"veil": 0.666666507720947,
+					"white": 0.0
+				},
+				{
+					"flash": 0.0,
+					"frame": 626,
+					"luma": 0.0808918415368746,
+					"scene": "creature_prologue.tscn",
+					"shared_black": 0.0,
+					"veil": 0.611110925674438,
+					"white": 0.0
+				},
+				{
+					"flash": 0.0,
+					"frame": 627,
+					"luma": 0.0930892860720429,
+					"scene": "creature_prologue.tscn",
+					"shared_black": 0.0,
+					"veil": 0.55555534362793,
+					"white": 0.0
+				},
+				{
+					"flash": 0.0,
+					"frame": 628,
+					"luma": 0.103625983148116,
+					"scene": "creature_prologue.tscn",
+					"shared_black": 0.0,
+					"veil": 0.499999791383743,
+					"white": 0.0
+				},
+				{
+					"flash": 0.0,
+					"frame": 629,
+					"luma": 0.117258410921187,
+					"scene": "creature_prologue.tscn",
+					"shared_black": 0.0,
+					"veil": 0.444444239139557,
+					"white": 0.0
+				},
+				{
+					"flash": 0.0,
+					"frame": 630,
+					"luma": 0.127135713406637,
+					"scene": "creature_prologue.tscn",
+					"shared_black": 0.0,
+					"veil": 0.38888868689537,
+					"white": 0.0
+				},
+				{
+					"flash": 0.0,
+					"frame": 631,
+					"luma": 0.143059582007344,
+					"scene": "creature_prologue.tscn",
+					"shared_black": 0.0,
+					"veil": 0.333333134651184,
+					"white": 0.0
+				},
+				{
+					"flash": 0.0,
+					"frame": 632,
+					"luma": 0.152495562210093,
+					"scene": "creature_prologue.tscn",
+					"shared_black": 0.0,
+					"veil": 0.277777582406998,
+					"white": 0.0
+				},
+				{
+					"flash": 0.0,
+					"frame": 633,
+					"luma": 0.1654411044244,
+					"scene": "creature_prologue.tscn",
+					"shared_black": 0.0,
+					"veil": 0.222222030162811,
+					"white": 0.0
+				},
+				{
+					"flash": 0.0,
+					"frame": 634,
+					"luma": 0.175364657467286,
+					"scene": "creature_prologue.tscn",
+					"shared_black": 0.0,
+					"veil": 0.166666477918625,
+					"white": 0.0
+				},
+				{
+					"flash": 0.0,
+					"frame": 635,
+					"luma": 0.190421575716598,
+					"scene": "creature_prologue.tscn",
+					"shared_black": 0.0,
+					"veil": 0.111110925674438,
+					"white": 0.0
+				},
+				{
+					"flash": 0.0,
+					"frame": 636,
+					"luma": 0.199294651260714,
+					"scene": "creature_prologue.tscn",
+					"shared_black": 0.0,
+					"veil": 0.0555553697049618,
+					"white": 0.0
+				},
+				{
+					"flash": 0.0,
+					"frame": 637,
+					"luma": 0.208722731174361,
+					"scene": "creature_prologue.tscn",
+					"shared_black": 0.0,
+					"veil": 0.0,
+					"white": 0.0
+				},
+				{
+					"flash": 0.0,
+					"frame": 638,
+					"luma": 0.205489901237307,
+					"scene": "creature_prologue.tscn",
+					"shared_black": 0.0,
+					"veil": 0.0,
+					"white": 0.0
+				},
+				{
+					"flash": 0.0,
+					"frame": 639,
+					"luma": 0.207920402404419,
+					"scene": "creature_prologue.tscn",
+					"shared_black": 0.0,
+					"veil": 0.0,
+					"white": 0.0
+				},
+				{
+					"flash": 0.0,
+					"frame": 640,
+					"luma": 0.206642467817626,
+					"scene": "creature_prologue.tscn",
+					"shared_black": 0.0,
+					"veil": 0.0,
+					"white": 0.0
+				},
+				{
+					"flash": 0.0,
+					"frame": 641,
+					"luma": 0.207225249224686,
+					"scene": "creature_prologue.tscn",
+					"shared_black": 0.0,
+					"veil": 0.0,
+					"white": 0.0
+				},
+				{
+					"flash": 0.0,
+					"frame": 642,
+					"luma": 0.208141717420772,
+					"scene": "creature_prologue.tscn",
+					"shared_black": 0.0,
+					"veil": 0.0,
+					"white": 0.0
+				},
+				{
+					"flash": 0.0,
+					"frame": 643,
+					"luma": 0.209568639529189,
+					"scene": "creature_prologue.tscn",
+					"shared_black": 0.0,
+					"veil": 0.0,
+					"white": 0.0
+				},
+				{
+					"flash": 0.0,
+					"frame": 644,
+					"luma": 0.208933109342302,
+					"scene": "creature_prologue.tscn",
+					"shared_black": 0.0,
+					"veil": 0.0,
+					"white": 0.0
+				},
+				{
+					"flash": 0.0,
+					"frame": 645,
+					"luma": 0.210423134788199,
+					"scene": "creature_prologue.tscn",
+					"shared_black": 0.0,
+					"veil": 0.0,
+					"white": 0.0
+				},
+				{
+					"flash": 0.0,
+					"frame": 646,
+					"luma": 0.20992286003447,
+					"scene": "creature_prologue.tscn",
+					"shared_black": 0.0,
+					"veil": 0.0,
+					"white": 0.0
+				},
+				{
+					"flash": 0.0,
+					"frame": 647,
+					"luma": 0.210815557311104,
+					"scene": "creature_prologue.tscn",
+					"shared_black": 0.0,
+					"veil": 0.0,
+					"white": 0.0
+				},
+				{
+					"flash": 0.0,
+					"frame": 648,
+					"luma": 0.212203770251119,
+					"scene": "creature_prologue.tscn",
+					"shared_black": 0.0,
+					"veil": 0.0,
+					"white": 0.0
+				},
+				{
+					"flash": 0.0,
+					"frame": 649,
+					"luma": 0.211851674487693,
+					"scene": "creature_prologue.tscn",
+					"shared_black": 0.0,
+					"veil": 0.0,
+					"white": 0.0
+				},
+				{
+					"flash": 0.0,
+					"frame": 650,
+					"luma": 0.212917429175941,
+					"scene": "creature_prologue.tscn",
+					"shared_black": 0.0,
+					"veil": 0.0,
+					"white": 0.0
+				},
+				{
+					"flash": 0.0,
+					"frame": 651,
+					"luma": 0.212371875414272,
+					"scene": "creature_prologue.tscn",
+					"shared_black": 0.0,
+					"veil": 0.0,
+					"white": 0.0
+				}
+			],
+			"storm_cut": {
+				"cover": 0.0,
+				"frame": 540
+			}
+		},
+		{
+			"bank_cut": {
+				"cover": 0.0,
+				"frame": 394,
+				"veil": 1.0
+			},
+			"case": "reduced-natural",
+			"max_bank_drop": 0.251791702761333,
+			"max_storm_drop": 0.884601498647834,
+			"peak_storm_white": 0.966666638851166,
+			"samples": [
+				{
+					"flash": 0.0,
+					"frame": 293,
+					"luma": 0.159874591372511,
+					"scene": "storm_open.tscn",
+					"shared_black": 0.0,
+					"veil": -1.0,
+					"white": 0.200000002980232
+				},
+				{
+					"flash": 0.0,
+					"frame": 294,
+					"luma": 0.167414770645725,
+					"scene": "storm_open.tscn",
+					"shared_black": 0.0,
+					"veil": -1.0,
+					"white": 0.233333334326744
+				},
+				{
+					"flash": 0.0,
+					"frame": 295,
+					"luma": 0.176682909689369,
+					"scene": "storm_open.tscn",
+					"shared_black": 0.0,
+					"veil": -1.0,
+					"white": 0.266666680574417
+				},
+				{
+					"flash": 0.0,
+					"frame": 296,
+					"luma": 0.189239127796937,
+					"scene": "storm_open.tscn",
+					"shared_black": 0.0,
+					"veil": -1.0,
+					"white": 0.300000011920929
+				},
+				{
+					"flash": 0.0,
+					"frame": 297,
+					"luma": 0.202508926642249,
+					"scene": "storm_open.tscn",
+					"shared_black": 0.0,
+					"veil": -1.0,
+					"white": 0.333333343267441
+				},
+				{
+					"flash": 0.0,
+					"frame": 298,
+					"luma": 0.219583414890157,
+					"scene": "storm_open.tscn",
+					"shared_black": 0.0,
+					"veil": -1.0,
+					"white": 0.366666674613953
+				},
+				{
+					"flash": 0.0,
+					"frame": 299,
+					"luma": 0.236775334808286,
+					"scene": "storm_open.tscn",
+					"shared_black": 0.0,
+					"veil": -1.0,
+					"white": 0.400000005960464
+				},
+				{
+					"flash": 0.0,
+					"frame": 300,
+					"luma": 0.258598858465112,
+					"scene": "storm_open.tscn",
+					"shared_black": 0.0,
+					"veil": -1.0,
+					"white": 0.433333337306976
+				},
+				{
+					"flash": 0.0,
+					"frame": 301,
+					"luma": 0.279998871177343,
+					"scene": "storm_open.tscn",
+					"shared_black": 0.0,
+					"veil": -1.0,
+					"white": 0.466666668653488
+				},
+				{
+					"flash": 0.0,
+					"frame": 302,
+					"luma": 0.306681732414111,
+					"scene": "storm_open.tscn",
+					"shared_black": 0.0,
+					"veil": -1.0,
+					"white": 0.5
+				},
+				{
+					"flash": 0.0,
+					"frame": 303,
+					"luma": 0.33222744981721,
+					"scene": "storm_open.tscn",
+					"shared_black": 0.0,
+					"veil": -1.0,
+					"white": 0.533333361148834
+				},
+				{
+					"flash": 0.0,
+					"frame": 304,
+					"luma": 0.363972244144346,
+					"scene": "storm_open.tscn",
+					"shared_black": 0.0,
+					"veil": -1.0,
+					"white": 0.566666662693024
+				},
+				{
+					"flash": 0.0,
+					"frame": 305,
+					"luma": 0.393443472965765,
+					"scene": "storm_open.tscn",
+					"shared_black": 0.0,
+					"veil": -1.0,
+					"white": 0.600000023841858
+				},
+				{
+					"flash": 0.0,
+					"frame": 306,
+					"luma": 0.428907043560029,
+					"scene": "storm_open.tscn",
+					"shared_black": 0.0,
+					"veil": -1.0,
+					"white": 0.633333325386047
+				},
+				{
+					"flash": 0.0,
+					"frame": 307,
+					"luma": 0.462451285583908,
+					"scene": "storm_open.tscn",
+					"shared_black": 0.0,
+					"veil": -1.0,
+					"white": 0.666666686534882
+				},
+				{
+					"flash": 0.0,
+					"frame": 308,
+					"luma": 0.502306453377187,
+					"scene": "storm_open.tscn",
+					"shared_black": 0.0,
+					"veil": -1.0,
+					"white": 0.699999988079071
+				},
+				{
+					"flash": 0.0,
+					"frame": 309,
+					"luma": 0.539943616117942,
+					"scene": "storm_open.tscn",
+					"shared_black": 0.0,
+					"veil": -1.0,
+					"white": 0.733333349227905
+				},
+				{
+					"flash": 0.0,
+					"frame": 310,
+					"luma": 0.584382317801068,
+					"scene": "storm_open.tscn",
+					"shared_black": 0.0,
+					"veil": -1.0,
+					"white": 0.766666650772095
+				},
+				{
+					"flash": 0.0,
+					"frame": 311,
+					"luma": 0.626003633403033,
+					"scene": "storm_open.tscn",
+					"shared_black": 0.0,
+					"veil": -1.0,
+					"white": 0.800000011920929
+				},
+				{
+					"flash": 0.0,
+					"frame": 312,
+					"luma": 0.675334814800597,
+					"scene": "storm_open.tscn",
+					"shared_black": 0.0,
+					"veil": -1.0,
+					"white": 0.833333313465118
+				},
+				{
+					"flash": 0.0,
+					"frame": 313,
+					"luma": 0.721047033692979,
+					"scene": "storm_open.tscn",
+					"shared_black": 0.0,
+					"veil": -1.0,
+					"white": 0.866666674613953
+				},
+				{
+					"flash": 0.0,
+					"frame": 314,
+					"luma": 0.776248091283882,
+					"scene": "storm_open.tscn",
+					"shared_black": 0.0,
+					"veil": -1.0,
+					"white": 0.899999976158142
+				},
+				{
+					"flash": 0.0,
+					"frame": 315,
+					"luma": 0.82616620438212,
+					"scene": "storm_open.tscn",
+					"shared_black": 0.0,
+					"veil": -1.0,
+					"white": 0.933333337306976
+				},
+				{
+					"flash": 0.0,
+					"frame": 316,
+					"luma": 0.884601498647834,
+					"scene": "storm_open.tscn",
+					"shared_black": 0.0,
+					"veil": -1.0,
+					"white": 0.966666638851166
+				},
+				{
+					"flash": 0.0,
+					"frame": 317,
+					"luma": 0.0,
+					"scene": "none",
+					"shared_black": 0.0,
+					"veil": -1.0,
+					"white": 0.0
+				},
+				{
+					"flash": 0.0,
+					"frame": 318,
+					"luma": 0.073106409111227,
+					"scene": "soul_prologue.tscn",
+					"shared_black": 0.0,
+					"veil": -1.0,
+					"white": 0.0
+				},
+				{
+					"flash": 0.0,
+					"frame": 319,
+					"luma": 0.0740310284321724,
+					"scene": "soul_prologue.tscn",
+					"shared_black": 0.0,
+					"veil": -1.0,
+					"white": 0.0
+				},
+				{
+					"flash": 0.0,
+					"frame": 320,
+					"luma": 0.0750682699782548,
+					"scene": "soul_prologue.tscn",
+					"shared_black": 0.0,
+					"veil": -1.0,
+					"white": 0.0
+				},
+				{
+					"flash": 0.0,
+					"frame": 321,
+					"luma": 0.0756276163177031,
+					"scene": "soul_prologue.tscn",
+					"shared_black": 0.0,
+					"veil": -1.0,
+					"white": 0.0
+				},
+				{
+					"flash": 0.0,
+					"frame": 322,
+					"luma": 0.07577375345391,
+					"scene": "soul_prologue.tscn",
+					"shared_black": 0.0,
+					"veil": -1.0,
+					"white": 0.0
+				},
+				{
+					"flash": 0.0,
+					"frame": 323,
+					"luma": 0.0772257136011064,
+					"scene": "soul_prologue.tscn",
+					"shared_black": 0.0,
+					"veil": -1.0,
+					"white": 0.0
+				},
+				{
+					"flash": 0.0,
+					"frame": 324,
+					"luma": 0.0792053002241074,
+					"scene": "soul_prologue.tscn",
+					"shared_black": 0.0,
+					"veil": -1.0,
+					"white": 0.0
+				},
+				{
+					"flash": 0.0,
+					"frame": 325,
+					"luma": 0.0805132734793874,
+					"scene": "soul_prologue.tscn",
+					"shared_black": 0.0,
+					"veil": -1.0,
+					"white": 0.0
+				},
+				{
+					"flash": 0.0,
+					"frame": 326,
+					"luma": 0.0802967799105041,
+					"scene": "soul_prologue.tscn",
+					"shared_black": 0.0,
+					"veil": -1.0,
+					"white": 0.0
+				},
+				{
+					"flash": 0.0,
+					"frame": 327,
+					"luma": 0.079924064445193,
+					"scene": "soul_prologue.tscn",
+					"shared_black": 0.0,
+					"veil": -1.0,
+					"white": 0.0
+				},
+				{
+					"flash": 0.0,
+					"frame": 328,
+					"luma": 0.0796355683353469,
+					"scene": "soul_prologue.tscn",
+					"shared_black": 0.0,
+					"veil": -1.0,
+					"white": 0.0
+				},
+				{
+					"flash": 0.0,
+					"frame": 329,
+					"luma": 0.0793765753460322,
+					"scene": "soul_prologue.tscn",
+					"shared_black": 0.0,
+					"veil": -1.0,
+					"white": 0.0
+				},
+				{
+					"flash": 0.0,
+					"frame": 330,
+					"luma": 0.0806193428298261,
+					"scene": "soul_prologue.tscn",
+					"shared_black": 0.0,
+					"veil": -1.0,
+					"white": 0.0
+				},
+				{
+					"flash": 0.0,
+					"frame": 331,
+					"luma": 0.0800169777872832,
+					"scene": "soul_prologue.tscn",
+					"shared_black": 0.0,
+					"veil": -1.0,
+					"white": 0.0
+				},
+				{
+					"flash": 0.0,
+					"frame": 332,
+					"luma": 0.0800247688785642,
+					"scene": "soul_prologue.tscn",
+					"shared_black": 0.0,
+					"veil": -1.0,
+					"white": 0.0
+				},
+				{
+					"flash": 0.0,
+					"frame": 333,
+					"luma": 0.0803683751398609,
+					"scene": "soul_prologue.tscn",
+					"shared_black": 0.0,
+					"veil": -1.0,
+					"white": 0.0
+				},
+				{
+					"flash": 0.0,
+					"frame": 334,
+					"luma": 0.0797963060327007,
+					"scene": "soul_prologue.tscn",
+					"shared_black": 0.0,
+					"veil": -1.0,
+					"white": 0.0
+				},
+				{
+					"flash": 0.0,
+					"frame": 335,
+					"luma": 0.0797288151080686,
+					"scene": "soul_prologue.tscn",
+					"shared_black": 0.0,
+					"veil": -1.0,
+					"white": 0.0
+				},
+				{
+					"flash": 0.0,
+					"frame": 336,
+					"luma": 0.0803615844119358,
+					"scene": "soul_prologue.tscn",
+					"shared_black": 0.0,
+					"veil": -1.0,
+					"white": 0.0
+				},
+				{
+					"flash": 0.0,
+					"frame": 337,
+					"luma": 0.0797079732999557,
+					"scene": "soul_prologue.tscn",
+					"shared_black": 0.0,
+					"veil": -1.0,
+					"white": 0.0
+				},
+				{
+					"flash": 0.0,
+					"frame": 338,
+					"luma": 0.079734162480241,
+					"scene": "soul_prologue.tscn",
+					"shared_black": 0.0,
+					"veil": -1.0,
+					"white": 0.0
+				},
+				{
+					"flash": 0.0,
+					"frame": 339,
+					"luma": 0.0804602009724269,
+					"scene": "soul_prologue.tscn",
+					"shared_black": 0.0,
+					"veil": -1.0,
+					"white": 0.0
+				},
+				{
+					"flash": 0.0,
+					"frame": 340,
+					"luma": 0.0798539452184958,
+					"scene": "soul_prologue.tscn",
+					"shared_black": 0.0,
+					"veil": -1.0,
+					"white": 0.0
+				},
+				{
+					"flash": 0.0,
+					"frame": 341,
+					"luma": 0.0795366745691494,
+					"scene": "soul_prologue.tscn",
+					"shared_black": 0.0,
+					"veil": -1.0,
+					"white": 0.0
+				},
+				{
+					"flash": 0.0,
+					"frame": 342,
+					"luma": 0.0801562442795771,
+					"scene": "soul_prologue.tscn",
+					"shared_black": 0.0,
+					"veil": -1.0,
+					"white": 0.0
+				},
+				{
+					"flash": 0.0,
+					"frame": 343,
+					"luma": 0.0797631318282819,
+					"scene": "soul_prologue.tscn",
+					"shared_black": 0.0,
+					"veil": -1.0,
+					"white": 0.0
+				},
+				{
+					"flash": 0.0,
+					"frame": 344,
+					"luma": 0.253029731642019,
+					"scene": "soul_prologue.tscn",
+					"shared_black": 0.0,
+					"veil": -1.0,
+					"white": 0.0
+				},
+				{
+					"flash": 0.0,
+					"frame": 345,
+					"luma": 0.253224194855204,
+					"scene": "soul_prologue.tscn",
+					"shared_black": 0.0,
+					"veil": -1.0,
+					"white": 0.0
+				},
+				{
+					"flash": 0.0,
+					"frame": 346,
+					"luma": 0.252985153473284,
+					"scene": "soul_prologue.tscn",
+					"shared_black": 0.0,
+					"veil": -1.0,
+					"white": 0.0
+				},
+				{
+					"flash": 0.0,
+					"frame": 347,
+					"luma": 0.252796555687381,
+					"scene": "soul_prologue.tscn",
+					"shared_black": 0.0,
+					"veil": -1.0,
+					"white": 0.0
+				},
+				{
+					"flash": 0.4,
+					"frame": 371,
+					"luma": 0.252227309758864,
+					"scene": "soul_prologue.tscn",
+					"shared_black": 0.0,
+					"veil": -1.0,
+					"white": 0.0
+				},
+				{
+					"flash": 0.37,
+					"frame": 372,
+					"luma": 0.47387604130095,
+					"scene": "soul_prologue.tscn",
+					"shared_black": 0.0,
+					"veil": -1.0,
+					"white": 0.0
+				},
+				{
+					"flash": 0.34,
+					"frame": 373,
+					"luma": 0.455949319421027,
+					"scene": "soul_prologue.tscn",
+					"shared_black": 0.0,
+					"veil": -1.0,
+					"white": 0.0
+				},
+				{
+					"flash": 0.31,
+					"frame": 374,
+					"luma": 0.437655260961689,
+					"scene": "soul_prologue.tscn",
+					"shared_black": 0.0,
+					"veil": -1.0,
+					"white": 0.0
+				},
+				{
+					"flash": 0.28,
+					"frame": 375,
+					"luma": 0.419504234426966,
+					"scene": "soul_prologue.tscn",
+					"shared_black": 0.0,
+					"veil": -1.0,
+					"white": 0.0
+				},
+				{
+					"flash": 0.25,
+					"frame": 376,
+					"luma": 0.401832406002006,
+					"scene": "soul_prologue.tscn",
+					"shared_black": 0.0,
+					"veil": -1.0,
+					"white": 0.0
+				},
+				{
+					"flash": 0.22,
+					"frame": 377,
+					"luma": 0.3836197091632,
+					"scene": "soul_prologue.tscn",
+					"shared_black": 0.0,
+					"veil": -1.0,
+					"white": 0.0
+				},
+				{
+					"flash": 0.19,
+					"frame": 378,
+					"luma": 0.365515815526388,
+					"scene": "soul_prologue.tscn",
+					"shared_black": 0.0,
+					"veil": -1.0,
+					"white": 0.0
+				},
+				{
+					"flash": 0.16,
+					"frame": 379,
+					"luma": 0.347909030041128,
+					"scene": "soul_prologue.tscn",
+					"shared_black": 0.0,
+					"veil": -1.0,
+					"white": 0.0
+				},
+				{
+					"flash": 0.13,
+					"frame": 380,
+					"luma": 0.329794601804238,
+					"scene": "soul_prologue.tscn",
+					"shared_black": 0.0,
+					"veil": -1.0,
+					"white": 0.0
+				},
+				{
+					"flash": 0.0999999999999999,
+					"frame": 381,
+					"luma": 0.311707222102862,
+					"scene": "soul_prologue.tscn",
+					"shared_black": 0.0,
+					"veil": -1.0,
+					"white": 0.0
+				},
+				{
+					"flash": 0.0699999999999999,
+					"frame": 382,
+					"luma": 0.294116839570308,
+					"scene": "soul_prologue.tscn",
+					"shared_black": 0.0,
+					"veil": -1.0,
+					"white": 0.0
+				},
+				{
+					"flash": 0.0399999999999999,
+					"frame": 383,
+					"luma": 0.276087019628254,
+					"scene": "soul_prologue.tscn",
+					"shared_black": 0.0,
+					"veil": -1.0,
+					"white": 0.0
+				},
+				{
+					"flash": 0.00999999999999993,
+					"frame": 384,
+					"luma": 0.258350971398824,
+					"scene": "soul_prologue.tscn",
+					"shared_black": 0.0,
+					"veil": -1.0,
+					"white": 0.0
+				},
+				{
+					"flash": 0.0,
+					"frame": 385,
+					"luma": 0.252205271512803,
+					"scene": "soul_prologue.tscn",
+					"shared_black": 0.0,
+					"veil": -1.0,
+					"white": 0.0
+				},
+				{
+					"flash": 0.0,
+					"frame": 386,
+					"luma": 0.252219320773646,
+					"scene": "soul_prologue.tscn",
+					"shared_black": 0.0,
+					"veil": -1.0,
+					"white": 0.0
+				},
+				{
+					"flash": 0.0,
+					"frame": 387,
+					"luma": 0.25223164284989,
+					"scene": "soul_prologue.tscn",
+					"shared_black": 0.0,
+					"veil": -1.0,
+					"white": 0.0
+				},
+				{
+					"flash": 0.0,
+					"frame": 388,
+					"luma": 0.252245470017783,
+					"scene": "soul_prologue.tscn",
+					"shared_black": 0.0,
+					"veil": -1.0,
+					"white": 0.0
+				},
+				{
+					"flash": 0.0,
+					"frame": 389,
+					"luma": 0.252305793788753,
+					"scene": "soul_prologue.tscn",
+					"shared_black": 0.0,
+					"veil": -1.0,
+					"white": 0.0
+				},
+				{
+					"flash": 0.0,
+					"frame": 390,
+					"luma": 0.251932229270436,
+					"scene": "soul_prologue.tscn",
+					"shared_black": 0.0,
+					"veil": -1.0,
+					"white": 0.0
+				},
+				{
+					"flash": 0.0,
+					"frame": 391,
+					"luma": 0.251943034159649,
+					"scene": "soul_prologue.tscn",
+					"shared_black": 0.0,
+					"veil": -1.0,
+					"white": 0.0
+				},
+				{
+					"flash": 0.0,
+					"frame": 392,
+					"luma": 0.251791702761333,
+					"scene": "soul_prologue.tscn",
+					"shared_black": 0.0,
+					"veil": -1.0,
+					"white": 0.0
+				},
+				{
+					"flash": 0.0,
+					"frame": 393,
+					"luma": 0.0,
+					"scene": "none",
+					"shared_black": 0.0,
+					"veil": -1.0,
+					"white": 0.0
+				},
+				{
+					"flash": 0.0,
+					"frame": 394,
+					"luma": 0.0,
+					"scene": "creature_prologue.tscn",
+					"shared_black": 0.0,
+					"veil": 1.0,
+					"white": 0.0
+				},
+				{
+					"flash": 0.0,
+					"frame": 395,
+					"luma": 0.0,
+					"scene": "creature_prologue.tscn",
+					"shared_black": 0.0,
+					"veil": 1.0,
+					"white": 0.0
+				},
+				{
+					"flash": 0.0,
+					"frame": 396,
+					"luma": 0.0,
+					"scene": "creature_prologue.tscn",
+					"shared_black": 0.0,
+					"veil": 1.0,
+					"white": 0.0
+				},
+				{
+					"flash": 0.0,
+					"frame": 397,
+					"luma": 0.0,
+					"scene": "creature_prologue.tscn",
+					"shared_black": 0.0,
+					"veil": 1.0,
+					"white": 0.0
+				},
+				{
+					"flash": 0.0,
+					"frame": 398,
+					"luma": 0.0454243519789683,
+					"scene": "creature_prologue.tscn",
+					"shared_black": 0.0,
+					"veil": 0.777777791023254,
+					"white": 0.0
+				},
+				{
+					"flash": 0.0,
+					"frame": 399,
+					"luma": 0.0940491305811819,
+					"scene": "creature_prologue.tscn",
+					"shared_black": 0.0,
+					"veil": 0.555555582046509,
+					"white": 0.0
+				},
+				{
+					"flash": 0.0,
+					"frame": 400,
+					"luma": 0.140815742119935,
+					"scene": "creature_prologue.tscn",
+					"shared_black": 0.0,
+					"veil": 0.333333373069763,
+					"white": 0.0
+				},
+				{
+					"flash": 0.0,
+					"frame": 401,
+					"luma": 0.190294152565624,
+					"scene": "creature_prologue.tscn",
+					"shared_black": 0.0,
+					"veil": 0.111111149191856,
+					"white": 0.0
+				},
+				{
+					"flash": 0.0,
+					"frame": 402,
+					"luma": 0.205125420501192,
+					"scene": "creature_prologue.tscn",
+					"shared_black": 0.0,
+					"veil": 0.0,
+					"white": 0.0
+				},
+				{
+					"flash": 0.0,
+					"frame": 403,
+					"luma": 0.207172839468768,
+					"scene": "creature_prologue.tscn",
+					"shared_black": 0.0,
+					"veil": 0.0,
+					"white": 0.0
+				},
+				{
+					"flash": 0.0,
+					"frame": 404,
+					"luma": 0.208614157552557,
+					"scene": "creature_prologue.tscn",
+					"shared_black": 0.0,
+					"veil": 0.0,
+					"white": 0.0
+				},
+				{
+					"flash": 0.0,
+					"frame": 405,
+					"luma": 0.208264655033804,
+					"scene": "creature_prologue.tscn",
+					"shared_black": 0.0,
+					"veil": 0.0,
+					"white": 0.0
+				},
+				{
+					"flash": 0.0,
+					"frame": 406,
+					"luma": 0.208003155931112,
+					"scene": "creature_prologue.tscn",
+					"shared_black": 0.0,
+					"veil": 0.0,
+					"white": 0.0
+				},
+				{
+					"flash": 0.0,
+					"frame": 407,
+					"luma": 0.209049194468781,
+					"scene": "creature_prologue.tscn",
+					"shared_black": 0.0,
+					"veil": 0.0,
+					"white": 0.0
+				},
+				{
+					"flash": 0.0,
+					"frame": 408,
+					"luma": 0.207482928971084,
+					"scene": "creature_prologue.tscn",
+					"shared_black": 0.0,
+					"veil": 0.0,
+					"white": 0.0
+				},
+				{
+					"flash": 0.0,
+					"frame": 409,
+					"luma": 0.211327952088288,
+					"scene": "creature_prologue.tscn",
+					"shared_black": 0.0,
+					"veil": 0.0,
+					"white": 0.0
+				},
+				{
+					"flash": 0.0,
+					"frame": 410,
+					"luma": 0.21281909526153,
+					"scene": "creature_prologue.tscn",
+					"shared_black": 0.0,
+					"veil": 0.0,
+					"white": 0.0
+				},
+				{
+					"flash": 0.0,
+					"frame": 411,
+					"luma": 0.210059795411475,
+					"scene": "creature_prologue.tscn",
+					"shared_black": 0.0,
+					"veil": 0.0,
+					"white": 0.0
+				},
+				{
+					"flash": 0.0,
+					"frame": 412,
+					"luma": 0.210022893315552,
+					"scene": "creature_prologue.tscn",
+					"shared_black": 0.0,
+					"veil": 0.0,
+					"white": 0.0
+				},
+				{
+					"flash": 0.0,
+					"frame": 413,
+					"luma": 0.212069048029345,
+					"scene": "creature_prologue.tscn",
+					"shared_black": 0.0,
+					"veil": 0.0,
+					"white": 0.0
+				},
+				{
+					"flash": 0.0,
+					"frame": 414,
+					"luma": 0.214244061378689,
+					"scene": "creature_prologue.tscn",
+					"shared_black": 0.0,
+					"veil": 0.0,
+					"white": 0.0
+				},
+				{
+					"flash": 0.0,
+					"frame": 415,
+					"luma": 0.210563542625673,
+					"scene": "creature_prologue.tscn",
+					"shared_black": 0.0,
+					"veil": 0.0,
+					"white": 0.0
+				},
+				{
+					"flash": 0.0,
+					"frame": 416,
+					"luma": 0.212439117602719,
+					"scene": "creature_prologue.tscn",
+					"shared_black": 0.0,
+					"veil": 0.0,
+					"white": 0.0
+				},
+				{
+					"flash": 0.0,
+					"frame": 417,
+					"luma": 0.212602058152998,
+					"scene": "creature_prologue.tscn",
+					"shared_black": 0.0,
+					"veil": 0.0,
+					"white": 0.0
+				},
+				{
+					"flash": 0.0,
+					"frame": 418,
+					"luma": 0.214974278019988,
+					"scene": "creature_prologue.tscn",
+					"shared_black": 0.0,
+					"veil": 0.0,
+					"white": 0.0
+				},
+				{
+					"flash": 0.0,
+					"frame": 419,
+					"luma": 0.213004111519742,
+					"scene": "creature_prologue.tscn",
+					"shared_black": 0.0,
+					"veil": 0.0,
+					"white": 0.0
+				},
+				{
+					"flash": 0.0,
+					"frame": 420,
+					"luma": 0.214153933626245,
+					"scene": "creature_prologue.tscn",
+					"shared_black": 0.0,
+					"veil": 0.0,
+					"white": 0.0
+				},
+				{
+					"flash": 0.0,
+					"frame": 421,
+					"luma": 0.211613271486796,
+					"scene": "creature_prologue.tscn",
+					"shared_black": 0.0,
+					"veil": 0.0,
+					"white": 0.0
+				},
+				{
+					"flash": 0.0,
+					"frame": 422,
+					"luma": 0.217395812787044,
+					"scene": "creature_prologue.tscn",
+					"shared_black": 0.0,
+					"veil": 0.0,
+					"white": 0.0
+				},
+				{
+					"flash": 0.0,
+					"frame": 423,
+					"luma": 0.210724781361609,
+					"scene": "creature_prologue.tscn",
+					"shared_black": 0.0,
+					"veil": 0.0,
+					"white": 0.0
+				},
+				{
+					"flash": 0.0,
+					"frame": 424,
+					"luma": 0.211644239145581,
+					"scene": "creature_prologue.tscn",
+					"shared_black": 0.0,
+					"veil": 0.0,
+					"white": 0.0
+				},
+				{
+					"flash": 0.0,
+					"frame": 425,
+					"luma": 0.213553019726091,
+					"scene": "creature_prologue.tscn",
+					"shared_black": 0.0,
+					"veil": 0.0,
+					"white": 0.0
+				},
+				{
+					"flash": 0.0,
+					"frame": 426,
+					"luma": 0.216813506992684,
+					"scene": "creature_prologue.tscn",
+					"shared_black": 0.0,
+					"veil": 0.0,
+					"white": 0.0
+				},
+				{
+					"flash": 0.0,
+					"frame": 427,
+					"luma": 0.21590396206013,
+					"scene": "creature_prologue.tscn",
+					"shared_black": 0.0,
+					"veil": 0.0,
+					"white": 0.0
+				},
+				{
+					"flash": 0.0,
+					"frame": 428,
+					"luma": 0.216722551426782,
+					"scene": "creature_prologue.tscn",
+					"shared_black": 0.0,
+					"veil": 0.0,
+					"white": 0.0
+				},
+				{
+					"flash": 0.0,
+					"frame": 429,
+					"luma": 0.215814566028915,
+					"scene": "creature_prologue.tscn",
+					"shared_black": 0.0,
+					"veil": 0.0,
+					"white": 0.0
+				}
+			],
+			"storm_cut": {
+				"cover": 0.0,
+				"frame": 318
+			}
+		}
+	],
+	"checks": [
+		{
+			"check": "normal-natural reaches actual soul",
+			"passed": true
+		},
+		{
+			"check": "normal-natural first Enter cannot skip",
+			"passed": true
+		},
+		{
+			"check": "normal-natural saved journey bytes unchanged",
+			"passed": true
+		},
+		{
+			"check": "normal-natural bank keeps hero, setting and pending partner choice",
+			"passed": true
+		},
+		{
+			"check": "normal-natural bank still reveals and starts dialogue",
+			"passed": true
+		},
+		{
+			"check": "reduced-natural reaches actual soul",
+			"passed": true
+		},
+		{
+			"check": "reduced-natural first Enter cannot skip",
+			"passed": true
+		},
+		{
+			"check": "reduced-natural saved journey bytes unchanged",
+			"passed": true
+		},
+		{
+			"check": "reduced-natural bank keeps hero, setting and pending partner choice",
+			"passed": true
+		},
+		{
+			"check": "reduced-natural bank still reveals and starts dialogue",
+			"passed": true
+		}
+	],
+	"failed": 0,
+	"passed": 10,
+	"phase": "before",
+	"total": 10
+}

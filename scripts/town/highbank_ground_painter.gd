@@ -1,6 +1,8 @@
 extends RefCounted
 ## Highbank ground proposal. Claude's collision layout and multi-tile doorway are the contract.
 ## Code-native, seeded pixel clusters; source creature art and the blockout stay intact.
+## Today's map only (Claude, 2026-10-26, lane C): it lays Codex's ground and its place painters under the street. Any other
+## area is painted by highbank_painter.gd paint_area from its own data, its places drawn over it from their art slots.
 const Layout = preload("res://scripts/town/town_layout.gd")
 const T = Layout.T
 # Claude, 2026-10-22 (WORLD-02): these four tones are a key, not the grass you see. highbank_painter.gd finds

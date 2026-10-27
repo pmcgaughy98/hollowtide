@@ -1,0 +1,64 @@
+{
+	"alpha": "binary",
+	"anchor": [
+		12,
+		35
+	],
+	"anchor_mode": "foot",
+	"area": "town",
+	"brief": "A thick timber mooring post at the Ferry Dock with a coil of rope around it. No ground shadow: the game draws it.",
+	"census": "R02",
+	"checks": [
+		"C1",
+		"C12",
+		"C2",
+		"C3",
+		"C4",
+		"C5",
+		"C7",
+		"C8",
+		"C9"
+	],
+	"drawn_at": 3,
+	"edges": "bottom",
+	"file": "res://assets/slots/town/prop/mooring_post.png",
+	"forbid": [
+		"text",
+		"creature",
+		"franchise"
+	],
+	"frames": 1,
+	"id": "town.prop.mooring_post",
+	"kind": "prop",
+	"lane": "C",
+	"legacy": "",
+	"light": "upper_left",
+	"notes": "",
+	"outline": "drawn",
+	"owner": "grok",
+	"palette": {
+		"family": "town_timber",
+		"lock": false,
+		"max": 24,
+		"source": "res://assets/slots/palettes/town_timber.png"
+	},
+	"placeholder": "res://scripts/art/placeholders/street_props.gd:mooring_post",
+	"rows": 1,
+	"sheet_size": [
+		24,
+		36
+	],
+	"size": [
+		24,
+		36
+	],
+	"slot_file": "town_street",
+	"states": {
+		"static": [
+			1,
+			0
+		]
+	},
+	"status": "placeholder",
+	"tiling": "none"
+}

@@ -1,0 +1,118 @@
+{
+  "checks": [
+    {
+      "ok": true,
+      "what": "assets/sprites/arena/muskin/n.png imported pixels match prepared"
+    },
+    {
+      "ok": true,
+      "what": "assets/sprites/arena/muskin/n.png alpha/canvas exact"
+    },
+    {
+      "ok": true,
+      "what": "assets/sprites/arena/muskin/n.png nonempty palette at most 30"
+    },
+    {
+      "ok": true,
+      "what": "assets/sprites/arena/muskin/n.png shared native shader applied 0"
+    },
+    {
+      "ok": true,
+      "what": "assets/sprites/arena/muskin/n.png shared native shader applied 1"
+    },
+    {
+      "ok": true,
+      "what": "assets/sprites/arena/muskin/dungeon/n.png imported pixels match prepared"
+    },
+    {
+      "ok": true,
+      "what": "assets/sprites/arena/muskin/dungeon/n.png alpha/canvas exact"
+    },
+    {
+      "ok": true,
+      "what": "assets/sprites/arena/muskin/dungeon/n.png nonempty palette at most 30"
+    },
+    {
+      "ok": true,
+      "what": "assets/sprites/arena/muskin/dungeon/n.png shared native shader applied 0"
+    },
+    {
+      "ok": true,
+      "what": "assets/sprites/arena/muskin/dungeon/n.png shared native shader applied 1"
+    },
+    {
+      "ok": true,
+      "what": "assets/sprites/arena/muskin/town/n.png imported pixels match prepared"
+    },
+    {
+      "ok": true,
+      "what": "assets/sprites/arena/muskin/town/n.png alpha/canvas exact"
+    },
+    {
+      "ok": true,
+      "what": "assets/sprites/arena/muskin/town/n.png nonempty palette at most 30"
+    },
+    {
+      "ok": true,
+      "what": "assets/sprites/arena/muskin/town/n.png shared native shader applied 0"
+    },
+    {
+      "ok": true,
+      "what": "assets/sprites/arena/muskin/town/n.png shared native shader applied 1"
+    },
+    {
+      "ok": true,
+      "what": "Actual dungeon loader resolves north asset"
+    },
+    {
+      "ok": true,
+      "what": "Actual dungeon set_tex selects north with original foot row"
+    },
+    {
+      "ok": true,
+      "what": "Actual town factory selects repaired north"
+    },
+    {
+      "ok": true,
+      "what": "Town factory keeps job-object south idle"
+    },
+    {
+      "ok": true,
+      "what": "Town s retains eight walk frames"
+    },
+    {
+      "ok": true,
+      "what": "Town se retains eight walk frames"
+    },
+    {
+      "ok": true,
+      "what": "Town e retains eight walk frames"
+    },
+    {
+      "ok": true,
+      "what": "Town ne retains eight walk frames"
+    },
+    {
+      "ok": true,
+      "what": "Town n retains eight walk frames"
+    },
+    {
+      "ok": true,
+      "what": "Town nw retains eight walk frames"
+    },
+    {
+      "ok": true,
+      "what": "Town w retains eight walk frames"
+    },
+    {
+      "ok": true,
+      "what": "Town sw retains eight walk frames"
+    },
+    {
+      "ok": true,
+      "what": "Private save unchanged"
+    }
+  ],
+  "failed": 0,
+  "total": 28
+}

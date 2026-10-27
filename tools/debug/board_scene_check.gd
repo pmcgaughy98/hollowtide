@@ -42,11 +42,13 @@ func _run() -> void:
 	root.add_child(town)
 	for k in 6:
 		await process_frame
+	# Up to the board's area first (Highbank v2: Tower Rise; today's map has one area) (lane A, Claude, 2026-10-26).
+	town.enter_area(town.Layout.area_of("board"), "board_start")
 	_ok("First visit: the crew at the board (%d)" % town.npcs.size(), town.npcs.size() == 3)
-	# Walk up the street to the board from below.
-	var door: Vector2i = town.BoardScene.board_door()
-	town.team[0]["pos"] = door + Vector2i(0, 6)
-	town.team[1]["pos"] = door + Vector2i(0, 7)
+	# Walk up the street to the board from below: from the anchor "board_start", six tiles below its door in today's
+	# map (door + (0, 6)), the partner one behind ("board_follow").
+	town.team[0]["pos"] = town.Layout.anchor("board_start")
+	town.team[1]["pos"] = town.Layout.anchor("board_follow")
 	for e in town.team:
 		town._place(e)
 	await _snap("00_crew_at_board")

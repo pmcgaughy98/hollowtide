@@ -1,0 +1,64 @@
+{
+	"alpha": "binary",
+	"anchor": [
+		24,
+		71
+	],
+	"anchor_mode": "foot",
+	"area": "town",
+	"brief": "A tall cellar rack of rolled scrolls in pigeonholes.",
+	"census": "M20",
+	"checks": [
+		"C1",
+		"C12",
+		"C2",
+		"C3",
+		"C4",
+		"C5",
+		"C7",
+		"C8",
+		"C9"
+	],
+	"drawn_at": 3,
+	"edges": "bottom",
+	"file": "res://assets/slots/town/prop/scrolls_cellar/rack.png",
+	"forbid": [
+		"text",
+		"creature",
+		"franchise"
+	],
+	"frames": 1,
+	"id": "town.prop.scrolls_cellar.rack",
+	"kind": "prop",
+	"lane": "R",
+	"legacy": "",
+	"light": "upper_left",
+	"notes": "solid furniture, placed by room_painter.gd FURNITURE (lane R): two, top-left (24,0) and (216,0), feet on row 2 against the back wall; the kind's stacked blocks are the placeholder",
+	"outline": "drawn",
+	"owner": "grok",
+	"palette": {
+		"family": "room_scrolls_cellar",
+		"lock": false,
+		"max": 24,
+		"source": "res://assets/slots/palettes/room_scrolls_cellar.png"
+	},
+	"placeholder": "",
+	"rows": 1,
+	"sheet_size": [
+		48,
+		72
+	],
+	"size": [
+		48,
+		72
+	],
+	"slot_file": "town_rooms",
+	"states": {
+		"static": [
+			1,
+			0
+		]
+	},
+	"status": "placeholder",
+	"tiling": "none"
+}

@@ -625,7 +625,7 @@ func _objective() -> Dictionary:
 func _goal_tile(goal: String) -> Array:
 	if "Job Board" in goal:
 		return [Vector2i(26, 9), false]
-	if "Starward" in goal or "Wayline Hall" in goal:
+	if "Starward" in goal or "Wayline Tower" in goal:
 		return [Vector2i(24, 6), true]
 	if "Rootbank" in goal or "The Hollow" in goal or "Hollow" in goal and not "Shrine" in goal:
 		return [Vector2i(33, 28), false]

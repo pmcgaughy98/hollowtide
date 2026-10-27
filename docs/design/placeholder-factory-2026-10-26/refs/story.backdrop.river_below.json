@@ -1,0 +1,66 @@
+{
+	"alpha": "opaque",
+	"anchor": [
+		0,
+		0
+	],
+	"anchor_mode": "top_left",
+	"area": "story",
+	"brief": "The river seen from high above while the soul falls: a dark strip of water with faint pale glints, tiling left to right.",
+	"census": "P04",
+	"checks": [
+		"C1",
+		"C2",
+		"C3",
+		"C5",
+		"C6",
+		"C9"
+	],
+	"drawn_at": 3,
+	"edges": "all",
+	"file": "res://assets/slots/story/backdrop/river_below.png",
+	"forbid": [
+		"text",
+		"creature",
+		"franchise"
+	],
+	"frames": 1,
+	"id": "story.backdrop.river_below",
+	"kind": "backdrop",
+	"lane": "codex-wire",
+	"legacy": "",
+	"light": "upper_left",
+	"notes": "2x1 dashes today (soul_prologue.gd:267); shimmer stays coded",
+	"outline": "none",
+	"owner": "codex",
+	"palette": {
+		"family": "night_bank",
+		"lock": false,
+		"max": 48,
+		"source": "res://assets/slots/palettes/night_bank.png"
+	},
+	"place_at": [
+		0,
+		176
+	],
+	"placeholder": "",
+	"rows": 1,
+	"sheet_size": [
+		384,
+		40
+	],
+	"size": [
+		384,
+		40
+	],
+	"slot_file": "story",
+	"states": {
+		"static": [
+			1,
+			0
+		]
+	},
+	"status": "placeholder",
+	"tiling": "h",
+	"tint": "#1b2a33"
+}

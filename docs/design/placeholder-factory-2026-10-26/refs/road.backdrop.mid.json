@@ -1,0 +1,69 @@
+{
+	"alpha": "binary",
+	"anchor": [
+		0,
+		0
+	],
+	"anchor_mode": "tiled",
+	"area": "road",
+	"brief": "The wooded river trail: weeping willows with long hanging strands, their trunks down to the trail, flood debris caught in them (a snapped branch in a fork, driftwood at a root, a tangle of reeds). Gaps between the trees show the river and hills behind. Tiles left to right.",
+	"census": "new",
+	"checks": [
+		"C1",
+		"C2",
+		"C3",
+		"C5",
+		"C6",
+		"C9"
+	],
+	"drawn_at": 3,
+	"edges": [
+		"left",
+		"right",
+		"bottom"
+	],
+	"file": "res://assets/slots/road/backdrop/mid.png",
+	"forbid": [
+		"text",
+		"creature",
+		"franchise"
+	],
+	"frames": 1,
+	"id": "road.backdrop.mid",
+	"kind": "backdrop",
+	"lane": "S",
+	"legacy": "",
+	"light": "upper_left",
+	"notes": "parallax 0.45, hazed 0.1; fades out near the rise (the trees open)",
+	"outline": "none",
+	"owner": "codex",
+	"palette": {
+		"family": "dawn",
+		"lock": false,
+		"max": 32,
+		"source": "res://assets/slots/palettes/dawn.png"
+	},
+	"place_at": [
+		0,
+		36
+	],
+	"placeholder": "res://scripts/story/route_scene.gd:paint_slot",
+	"rows": 1,
+	"sheet_size": [
+		384,
+		112
+	],
+	"size": [
+		384,
+		112
+	],
+	"slot_file": "route",
+	"states": {
+		"static": [
+			1,
+			0
+		]
+	},
+	"status": "placeholder",
+	"tiling": "h"
+}

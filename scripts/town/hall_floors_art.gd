@@ -1,11 +1,12 @@
 extends RefCounted
 ## Presentation only: finished fixtures on Claude's exact Hall room footprints.
 ## The original room painter is returned whole if any required crop is missing or malformed.
-const FOLDER := "res://assets/sprites/world/hall_floors_2026_10_11/"
-const OLD_PROPS := "res://assets/sprites/world/hall_interior_2026_10_10/"
+## Every strip and prop is an art slot (Claude, 2026-10-26, placeholder factory lane R): town.room.<room>.<strip> and
+## the prop slots of slot_id(), read through room_slots.gd, so a slot file installed at the same size replaces today's
+## crop. On a placeholder (HT_FORCE_PLACEHOLDERS=1, or a file missing) the original room painter shows whole.
 const SelOut := preload("res://scripts/art/selout.gd")
 const SHADER := preload("res://scripts/dungeon/dungeon_finish.gdshader")
-const UI := preload("res://scripts/ui/ui_style.gd")
+const Slots := preload("res://scripts/town/room_slots.gd")
 const SIZES := {"hall": Vector2i(528,336), "hall_low": Vector2i(720,432), "chamber": Vector2i(408,264), "runners": Vector2i(336,240)}
 const SHELLS := {"hall_low":"lower", "chamber":"chamber", "runners":"runners"}
 const PROPS := {
@@ -32,39 +33,41 @@ const PROPS := {
 		["chest",Rect2i(264,170,48,22)], ["lamp",Rect2i(43,12,10,18)]]
 }
 
-static func _path(name: String) -> String:
-	return (OLD_PROPS if name in ["fern","pillar"] else FOLDER)+name+".png"
+## The art slot a prop of room `room` draws from (lane R). The pillar and fern are the work floor's (town.prop.hall),
+## the rest the lower floor's unless the chamber or the runners' room has its own: the chamber's rug and wide window,
+## and the runners' window and map, which the rooms draw at a size their old file is not (room_slots.gd DRAWN).
+static func slot_id(room: String, name: String) -> String:
+	match name:
+		"fern","pillar": return "town.prop.hall."+name
+		"teal_rug": return "town.prop.chamber.rug"
+		"dais","window_wide": return "town.prop.chamber."+name
+		"rust_rug","bunk_ochre","bunk_slate","chest": return "town.prop.runners."+name
+		"window": return "town.prop.runners.window" if room == "runners" else "town.prop.hall_low.window"
+		"river_map": return "town.prop.runners.river_map" if room == "runners" else "town.prop.chamber.river_map"
+	return "town.prop.hall_low."+name
 
-static func _load(path: String) -> Image:
-	# Claude, 2026-10-24 (A4, LV-19): UI.res_image reads the imported texture, which an exported game has; the PNG it does not.
-	return UI.res_image(path)
-
+## [old file name, rect, slot] for each of a room's five strips: floor, north, south, west, east.
 static func _bands(id: String) -> Array:
 	var s: Vector2i = SIZES[id]
 	var base: String = SHELLS[id]
-	return [[base+"_floor",Rect2i(24,48,s.x-48,s.y-72)],
-		[base+"_north",Rect2i(0,0,s.x,48)], [base+"_south",Rect2i(0,s.y-24,s.x,24)],
-		[base+"_west",Rect2i(0,48,24,s.y-72)], [base+"_east",Rect2i(s.x-24,48,24,s.y-72)]]
+	var slot := "town.room.%s." % id
+	return [[base+"_floor",Rect2i(24,48,s.x-48,s.y-72),slot+"floor"],
+		[base+"_north",Rect2i(0,0,s.x,48),slot+"north"], [base+"_south",Rect2i(0,s.y-24,s.x,24),slot+"south"],
+		[base+"_west",Rect2i(0,48,24,s.y-72),slot+"west"], [base+"_east",Rect2i(s.x-24,48,24,s.y-72),slot+"east"]]
 
+## Every slot has finished art (today's file, today's resize or an installed file). The slots are each exactly their
+## rect's size (town_room_check measures it), so the old per-crop size checks are the loader's now.
 static func available(id: String) -> bool:
 	if not SIZES.has(id): return false
 	for p in PROPS[id]:
-		var img := _load(_path(p[0]))
-		if img == null: return false
-		var r: Rect2i = p[1]
-		# Refit these crops to Claude's smaller runners' fixtures and widened chamber.
-		if id == "runners" and p[0] in ["window","river_map"]: continue
-		if id == "chamber" and p[0] in ["window_wide","teal_rug"]: continue
-		if img.get_size() != r.size: return false
+		if not Slots.real(slot_id(id,p[0])): return false
 	if id != "hall":
 		for p in _bands(id):
-			var img := _load(FOLDER+p[0]+".png")
-			var r: Rect2i = p[1]
-			if img == null or img.get_size() != r.size: return false
+			if not Slots.real(p[2]): return false
 	return true
 
-static func _prop(p: Array) -> Image:
-	var img := _load(_path(p[0]))
+static func _prop(p: Array, room: String) -> Image:
+	var img := Slots.image(slot_id(room,p[0]))
 	var r: Rect2i = p[1]
 	if img.get_size() != r.size: img.resize(r.size.x,r.size.y,Image.INTERPOLATE_NEAREST)
 	return SelOut.selout(img)
@@ -75,10 +78,10 @@ static func paint(id: String, fallback: Image) -> Image:
 	if id != "hall":
 		for p in _bands(id):
 			var r: Rect2i = p[1]
-			img.blit_rect(_load(FOLDER+p[0]+".png"),Rect2i(Vector2i.ZERO,r.size),r.position)
+			img.blit_rect(Slots.image(p[2]),Rect2i(Vector2i.ZERO,r.size),r.position)
 	for p in PROPS[id]:
 		var r: Rect2i = p[1]
-		img.blend_rect(_prop(p),Rect2i(Vector2i.ZERO,r.size),r.position)
+		img.blend_rect(_prop(p,id),Rect2i(Vector2i.ZERO,r.size),r.position)
 	if id == "chamber":
 		# Keep the wired south threshold exact, including its lit lintel and two open tiles.
 		var exit := Rect2i(165,240,78,24)
@@ -93,7 +96,7 @@ static func mask(id: String) -> Image:
 		for r in [Rect2i(0,0,s.x,48),Rect2i(0,s.y-24,s.x,24),Rect2i(0,48,24,s.y-72),Rect2i(s.x-24,48,24,s.y-72)]:
 			img.fill_rect(r,Color.WHITE)
 	for p in PROPS[id]:
-		var prop := _prop(p)
+		var prop := _prop(p,id)
 		var r: Rect2i = p[1]
 		for y in r.size.y:
 			for x in r.size.x:

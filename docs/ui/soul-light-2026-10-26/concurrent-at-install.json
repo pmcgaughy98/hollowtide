@@ -1,0 +1,5 @@
+[
+  "scripts/story/route_scene.gd",
+  "scripts/town/building_exteriors.gd",
+  "scripts/town/hub_town.gd"
+]

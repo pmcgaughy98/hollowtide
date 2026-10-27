@@ -18,6 +18,42 @@ const NEXT := "res://scenes/soul_prologue.tscn"
 const WAKE_AT := Vector2(168, 80)           # where the waking scene lays the creature down
 const SFX := "res://assets/audio/sfx/story/%s.wav"
 
+# Authored on the same 384x216 pixel grid as the riverbank and rain.
+# Each glyph is a light value; row runs become whole-pixel rectangles, never vector circles.
+const SOUL_PIXELS := [
+	"           ...           ",
+	"        ........         ",
+	"       ...........       ",
+	"     ..............      ",
+	"    .................    ",
+	"   .......+++++.......   ",
+	"  ......+++++++++......  ",
+	"  .....+++++++++++...... ",
+	" .....++++oooo+++++..... ",
+	" ....++++ooooooo++++.....",
+	".....+++ooo#ooooo+++.....",
+	".....+++ooo###ooo+++.....",
+	" ....+++ooo###ooo+++.....",
+	".....+++ooo###ooo+++.... ",
+	"......+++ooooooo+++..... ",
+	" .....++++ooooo++++....  ",
+	"  .....++++ooo++++.....  ",
+	"  ......+++++++++.....   ",
+	"    .....+++++++.....    ",
+	"     .....+++++.....     ",
+	"     ..............      ",
+	"       ...........       ",
+	"        .........        ",
+	"          .....          ",
+	"           ...           ",
+]
+const SOUL_COLOURS := {
+	".": Color(0.75, 0.85, 1.0, 0.10),
+	"+": Color(0.85, 0.92, 1.0, 0.325),
+	"o": Color(0.95, 0.97, 1.0, 0.73),
+	"#": Color.WHITE,
+}
+
 var reduce_motion := false
 var grey := 0.0                             # 0 the storm's colour, 1 time stopped
 var flash := 0.0                            # lightning
@@ -161,7 +197,7 @@ func _run() -> void:
 	await tree.create_timer(0.3 if reduce_motion else 0.8).timeout
 	tw = create_tween().set_parallel()
 	tw.tween_property(self, "soul_glow", 3.0, 0.9)
-	tw.tween_property(self, "white", 1.0, 1.0).set_delay(0.3)
+	tw.tween_property(self, "white", 0.4 if reduce_motion else 1.0, 1.0).set_delay(0.3)
 	await tw.finished
 	_next()
 
@@ -223,12 +259,26 @@ func _draw_soul() -> void:
 		var at := (soul_at + bob).round()
 		var k := minf(soul_glow, 1.0)
 		var big := maxf(soul_glow - 1.0, 0.0)
-		soul.draw_circle(at, 12.0 + big * 14.0, Color(0.75, 0.85, 1.0, 0.10 * k))
-		soul.draw_circle(at, 7.0 + big * 8.0, Color(0.85, 0.92, 1.0, 0.25 * k))
-		soul.draw_circle(at, 4.0 + big * 4.0, Color(0.95, 0.97, 1.0, 0.6 * k))
-		soul.draw_circle(at, 2.0 + big * 2.0, Color(1.0, 1.0, 1.0, k))
+		_draw_soul_cluster(at, k, 1.0 + big * 14.0 / 12.0)
 	if white > 0.0:
 		soul.draw_rect(Rect2(0, 0, 384, 216), Color(1, 1, 1, white))
+
+
+func _draw_soul_cluster(at: Vector2, opacity: float, growth: float) -> void:
+	# Keep the old outer reach (12 + big*14), but grow the authored pixels with crisp edges.
+	for y in SOUL_PIXELS.size():
+		var row: String = SOUL_PIXELS[y]
+		var x := 0
+		while x < row.length():
+			var mark := row.substr(x, 1)
+			var end := x + 1
+			while end < row.length() and row.substr(end, 1) == mark: end += 1
+			if SOUL_COLOURS.has(mark):
+				var colour: Color = SOUL_COLOURS[mark]
+				var begin := (at + Vector2(x - 12, y - 12) * growth).round()
+				var finish := (at + Vector2(end - 12, y - 11) * growth).round()
+				soul.draw_rect(Rect2(begin, finish - begin), Color(colour, colour.a * opacity))
+			x = end
 
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -256,10 +306,17 @@ func _next() -> void:
 	if leaving:
 		return
 	leaving = true
+	var tree := get_tree()
+	var covered := is_inside_tree() and tree.current_scene == self
+	if covered:
+		if white > 0.0:
+			for frame in 2: await tree.process_frame
+		await UI.fade_out(tree, 1.0 / 3.0)
 	var scene: Node = load(NEXT).instantiate()
 	scene.set("reduce_motion", reduce_motion)
-	if is_inside_tree() and get_tree().current_scene == self:
-		get_tree().change_scene_to_node(scene)
+	if covered:
+		scene.set_meta("opening_black", true)
+		tree.change_scene_to_node(scene)
 	else:
 		set_meta("next", NEXT)   # the check reads this instead of leaving the scene
 		scene.free()

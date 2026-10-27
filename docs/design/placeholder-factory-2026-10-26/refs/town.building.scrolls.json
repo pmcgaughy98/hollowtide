@@ -1,0 +1,86 @@
+{
+	"alpha": "binary",
+	"anchor": [
+		78,
+		143
+	],
+	"anchor_mode": "foot",
+	"area": "town",
+	"brief": "The Scroll Keeper's house: a quiet timber house with a south door that leads down to a cellar of move scrolls.",
+	"building_class": "shop",
+	"census": "B05",
+	"checks": [
+		"C1",
+		"C10",
+		"C11",
+		"C12",
+		"C2",
+		"C3",
+		"C4",
+		"C5",
+		"C7",
+		"C8",
+		"C9"
+	],
+	"door_px": [
+		55,
+		94,
+		22,
+		48
+	],
+	"drawn_at": 3,
+	"edges": "bottom",
+	"file": "res://assets/slots/town/building/scrolls.png",
+	"forbid": [
+		"text",
+		"creature",
+		"franchise"
+	],
+	"frames": 1,
+	"id": "town.building.scrolls",
+	"kind": "building",
+	"lane": "B",
+	"legacy": "",
+	"legacy_misfit": true,
+	"legacy_v1": "res://assets/sprites/world/scroll_cellar_2026_10_10/scroll_native.png",
+	"legacy_v1_size": [
+		144,
+		120
+	],
+	"light": "upper_left",
+	"notes": "south door down to a cellar; open frames come from door_px when absent; legacy_v1 is the v1 picture",
+	"optional_states": {
+		"open": [
+			3,
+			12
+		]
+	},
+	"outline": "runtime_rim",
+	"owner": "codex",
+	"palette": {
+		"family": "town_stone",
+		"lock": false,
+		"max": 32,
+		"source": "res://assets/slots/palettes/town_stone.png"
+	},
+	"pass_creature": "sparkjab",
+	"placeholder": "res://scripts/town/building_template.gd:paint_slot",
+	"rows": 1,
+	"sheet_size": [
+		156,
+		144
+	],
+	"size": [
+		156,
+		144
+	],
+	"slot_file": "town_buildings",
+	"states": {
+		"closed": [
+			1,
+			0
+		]
+	},
+	"status": "placeholder",
+	"tiling": "none"
+}

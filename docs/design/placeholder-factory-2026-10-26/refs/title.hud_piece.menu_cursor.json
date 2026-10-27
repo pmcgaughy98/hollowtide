@@ -1,0 +1,62 @@
+{
+	"alpha": "binary",
+	"anchor": [
+		0,
+		4
+	],
+	"anchor_mode": "left_middle",
+	"area": "title",
+	"brief": "The main menu's pointer: a small brass arrowhead pointing right, lit from the upper left.",
+	"census": "T10",
+	"checks": [
+		"C1",
+		"C2",
+		"C3",
+		"C4",
+		"C5",
+		"C8",
+		"C9"
+	],
+	"drawn_at": 3,
+	"edges": "none",
+	"file": "res://assets/slots/title/hud_piece/menu_cursor.png",
+	"forbid": [
+		"text",
+		"creature",
+		"franchise"
+	],
+	"frames": 1,
+	"id": "title.hud_piece.menu_cursor",
+	"kind": "hud_piece",
+	"lane": "codex-wire",
+	"legacy": "",
+	"light": "upper_left",
+	"notes": "Polygon2D today (main_menu.gd:366); the bounce stays coded",
+	"outline": "drawn",
+	"owner": "grok",
+	"palette": {
+		"family": "brass_ui",
+		"lock": false,
+		"max": 16,
+		"source": "res://assets/slots/palettes/brass_ui.png"
+	},
+	"placeholder": "",
+	"rows": 1,
+	"sheet_size": [
+		8,
+		9
+	],
+	"size": [
+		8,
+		9
+	],
+	"slot_file": "title",
+	"states": {
+		"static": [
+			1,
+			0
+		]
+	},
+	"status": "placeholder",
+	"tiling": "none"
+}

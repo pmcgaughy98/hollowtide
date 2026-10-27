@@ -1,0 +1,33 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+OpenGL API 3.3.0 NVIDIA 610.62 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce GTX 1660 SUPER
+
+[godot_ai game_helper] registered mcp capture (debugger active=false, logger=true)
+assets/sprites/arena/muskin/n.png imported pixels match prepared -> ok
+assets/sprites/arena/muskin/n.png alpha/canvas exact -> ok
+assets/sprites/arena/muskin/n.png nonempty palette at most 30 -> ok
+assets/sprites/arena/muskin/n.png shared native shader applied 0 -> ok
+assets/sprites/arena/muskin/n.png shared native shader applied 1 -> ok
+assets/sprites/arena/muskin/dungeon/n.png imported pixels match prepared -> ok
+assets/sprites/arena/muskin/dungeon/n.png alpha/canvas exact -> ok
+assets/sprites/arena/muskin/dungeon/n.png nonempty palette at most 30 -> ok
+assets/sprites/arena/muskin/dungeon/n.png shared native shader applied 0 -> ok
+assets/sprites/arena/muskin/dungeon/n.png shared native shader applied 1 -> ok
+assets/sprites/arena/muskin/town/n.png imported pixels match prepared -> ok
+assets/sprites/arena/muskin/town/n.png alpha/canvas exact -> ok
+assets/sprites/arena/muskin/town/n.png nonempty palette at most 30 -> ok
+assets/sprites/arena/muskin/town/n.png shared native shader applied 0 -> ok
+assets/sprites/arena/muskin/town/n.png shared native shader applied 1 -> ok
+Actual dungeon loader resolves north asset -> ok
+Actual dungeon set_tex selects north with original foot row -> ok
+Actual town factory selects repaired north -> ok
+Town factory keeps job-object south idle -> ok
+Town s retains eight walk frames -> ok
+Town se retains eight walk frames -> ok
+Town e retains eight walk frames -> ok
+Town ne retains eight walk frames -> ok
+Town n retains eight walk frames -> ok
+Town nw retains eight walk frames -> ok
+Town w retains eight walk frames -> ok
+Town sw retains eight walk frames -> ok
+Private save unchanged -> ok
+MUSKIN RESULT 28 checks / 0 failures

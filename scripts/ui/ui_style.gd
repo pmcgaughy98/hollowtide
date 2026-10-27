@@ -631,11 +631,80 @@ static func width_of(s: String, size: int) -> float:
 	return font(role).get_string_size(s, HORIZONTAL_ALIGNMENT_LEFT, -1, type_size(role)).x
 
 
-## A gauge: a dark well, the fill, a thin brass rim.
+## The last flat pieces of the UI kit as pixel 9-slices (Claude, 2026-10-26, placeholder factory lane U; census K05
+## to K07 and X14): the gauges, a list's focused row, the well behind a headshot and the dungeon's banner. Each is a
+## hand-placed frame from tools/ui/build_frames.py --slots (the ui.frame9 rows in scripts/art/slots/ui.gd), saved at
+## 3x like the panels so a UI pixel is a world pixel, and served by ArtSlots. While a frame is on its placeholder
+## (its PNG missing, or HT_FORCE_PLACEHOLDERS=1) each call draws the flat rects it drew before, so the old look is one
+## switch away. Pieces too small for their frame's borders (the 3 px growth slivers) keep the flat drawing.
+const Slots := preload("res://scripts/art/art_slots.gd")
+const FILL_GAIN := 1.25   # bar_fill's grey row is 0.8: tinted by the gauge colour times this, it shows the colour itself
+static var _slice_m := {}   # slot id -> its 9-slice margins [l, t, r, b], read from the registry once
+
+
+## Draws slot `id`'s 9-slice over `r` when its file is in (true), or nothing (false, and the caller draws the flat
+## piece). `centre` false leaves the middle out; `margins` overrides the registry's (the headshot's rim pass).
+static func _slice(c: CanvasItem, id: String, r: Rect2, tint := Color.WHITE, centre := true, margins: Array = []) -> bool:
+	if Slots.source(id) != "file":
+		return false
+	var tex := Slots.texture(id)
+	var m: Array = margins
+	if m.is_empty():
+		if not _slice_m.has(id):
+			_slice_m[id] = Slots.spec(id).get("margins", [0, 0, 0, 0])
+		m = _slice_m[id]
+	RenderingServer.canvas_item_add_nine_patch(c.get_canvas_item(), r, Rect2(Vector2.ZERO, tex.get_size()), tex.get_rid(),
+		Vector2(m[0], m[1]), Vector2(m[2], m[3]), RenderingServer.NINE_PATCH_TILE, RenderingServer.NINE_PATCH_TILE, centre, tint)
+	return true
+
+
+## A gauge: brass end caps, an ink lip and a dark slot (ui.frame9.bar_well), the fill under the lip with a lit top
+## row (ui.frame9.bar_fill, tinted). On the placeholder, or under 18x9: a dark well, the fill, a thin brass rim.
 static func bar(c: CanvasItem, r: Rect2, frac: float, col: Color) -> void:
+	var k := clampf(frac, 0.0, 1.0)
+	if r.size.x >= 18.0 and r.size.y >= 9.0 and _slice(c, "ui.frame9.bar_well", r):
+		var fill := Rect2(r.position + Vector2(3, 3), Vector2((r.size.x - 6.0) * k, r.size.y - 3.0))
+		if fill.size.x > 0.0 and not _slice(c, "ui.frame9.bar_fill", fill, Color(col.r * FILL_GAIN, col.g * FILL_GAIN, col.b * FILL_GAIN, col.a)):
+			c.draw_rect(fill, col)
+		return
 	c.draw_rect(r, Color(0, 0, 0, 0.55))
-	c.draw_rect(Rect2(r.position, Vector2(r.size.x * clampf(frac, 0.0, 1.0), r.size.y)), col)
+	c.draw_rect(Rect2(r.position, Vector2(r.size.x * k, r.size.y)), col)
 	c.draw_rect(r, Color(EDGE, 0.55), false, 1.0)
+
+
+## A list's focused row: moss inside a brass rim lit on its top and left (ui.frame9.focus_row). On the placeholder:
+## the moss fill and a light brass rim `rim` px wide (1 in the dungeon, 2 on the Job Board); `rim` 0 is the fill alone.
+static func focus_row(c: CanvasItem, r: Rect2, rim := 1.0) -> void:
+	if rim > 0.0 and r.size.x >= 12.0 and r.size.y >= 12.0 and _slice(c, "ui.frame9.focus_row", r):
+		return
+	c.draw_rect(r, FOCUS)
+	if rim > 0.0:
+		c.draw_rect(r, EDGE_LIGHT, false, rim)
+
+
+## The well behind a 48 px headshot, drawn before the face (ui.frame9.headshot whole: rim, inner shadow, river-blue
+## ground); `dim` for a creature that is down. On the placeholder: the flat river-blue square.
+static func headshot_well(c: CanvasItem, r: Rect2, dim := false) -> void:
+	if _slice(c, "ui.frame9.headshot", r, Color(1, 1, 1, 0.55) if dim else Color.WHITE):
+		return
+	c.draw_rect(r, Color(PORTRAIT_BG, 0.55) if dim else PORTRAIT_BG)
+
+
+## The headshot's rim, drawn after the face: the frame's outer ring only (one 3x pixel), brightened to light brass
+## for the leader (EDGE times this tint is EDGE_LIGHT). On the placeholder: a 1 px rim, light brass or brass.
+static func headshot_rim(c: CanvasItem, r: Rect2, lit := false) -> void:
+	if _slice(c, "ui.frame9.headshot", r, Color(1.25, 1.3, 1.3) if lit else Color.WHITE, false, [3, 3, 3, 3]):
+		return
+	c.draw_rect(r, EDGE_LIGHT if lit else EDGE, false, 1.0)
+
+
+## The dungeon's place-name banner at alpha `a` (its fade): a moss band that feathers in and out in a pixel dither,
+## no rule across it (pass 3 D5) (ui.frame9.banner, at 0.78 like the band before it). On the placeholder, or under
+## 24 px tall: the flat band.
+static func banner(c: CanvasItem, r: Rect2, a := 1.0) -> void:
+	if r.size.y >= 24.0 and _slice(c, "ui.frame9.banner", r, Color(1, 1, 1, 0.78 * a)):
+		return
+	c.draw_rect(r, Color(PANEL, 0.78 * a))
 
 
 static func hp_col(frac: float) -> Color:

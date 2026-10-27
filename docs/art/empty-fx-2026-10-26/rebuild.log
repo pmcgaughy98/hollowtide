@@ -1,0 +1,8 @@
+mark_glyph f00: source empty, hold f15
+mark_glyph f12: source empty, hold f11
+mark_glyph f13: source empty, hold f11
+mark_glyph 16 frames at 32
+sail_slash f04: source empty, hold f03
+sail_slash f08: source empty, hold f07
+sail_slash f12: source empty, hold f11
+sail_slash 16 frames at 32

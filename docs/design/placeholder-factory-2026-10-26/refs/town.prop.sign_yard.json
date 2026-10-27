@@ -1,0 +1,64 @@
+{
+	"alpha": "binary",
+	"anchor": [
+		12,
+		23
+	],
+	"anchor_mode": "foot",
+	"area": "town",
+	"brief": "A small hanging plank sign with a carved pictogram of two crossed sparring staves (proposal), no letters.",
+	"census": "B17",
+	"checks": [
+		"C1",
+		"C12",
+		"C2",
+		"C3",
+		"C4",
+		"C5",
+		"C7",
+		"C8",
+		"C9"
+	],
+	"drawn_at": 3,
+	"edges": "bottom",
+	"file": "res://assets/slots/town/prop/sign_yard.png",
+	"forbid": [
+		"text",
+		"creature",
+		"franchise"
+	],
+	"frames": 1,
+	"id": "town.prop.sign_yard",
+	"kind": "prop",
+	"lane": "B",
+	"legacy": "",
+	"light": "upper_left",
+	"notes": "placeholder: the coded pictogram board (building_exteriors.gd sign_board); v2 stands it on the doorstep row at the building's sign column; foundations and mats stay template code",
+	"outline": "drawn",
+	"owner": "grok",
+	"palette": {
+		"family": "town_timber",
+		"lock": false,
+		"max": 24,
+		"source": "res://assets/slots/palettes/town_timber.png"
+	},
+	"placeholder": "res://scripts/town/building_exteriors.gd:slot_sign",
+	"rows": 1,
+	"sheet_size": [
+		24,
+		24
+	],
+	"size": [
+		24,
+		24
+	],
+	"slot_file": "town_buildings",
+	"states": {
+		"static": [
+			1,
+			0
+		]
+	},
+	"status": "placeholder",
+	"tiling": "none"
+}

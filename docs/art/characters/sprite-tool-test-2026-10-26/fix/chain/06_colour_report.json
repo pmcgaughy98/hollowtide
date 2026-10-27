@@ -1,0 +1,814 @@
+{
+ "soft_alpha_px_hardened": 0,
+ "palette_size": 40,
+ "palette": [
+  "000000",
+  "00313a",
+  "021511",
+  "03060b",
+  "07515c",
+  "0a6c6d",
+  "0b0c28",
+  "0d0a04",
+  "0d2529",
+  "12837f",
+  "181a18",
+  "1a979b",
+  "1f140e",
+  "2d9e9f",
+  "301a10",
+  "32141c",
+  "33271a",
+  "362120",
+  "3d2105",
+  "46391c",
+  "4b434e",
+  "4d3d2e",
+  "574628",
+  "5f422f",
+  "684822",
+  "7e5c2c",
+  "7f6341",
+  "8f662f",
+  "aa7a45",
+  "b29650",
+  "dfa477",
+  "e7bf69",
+  "ebd1b0",
+  "fcc695",
+  "ffffff",
+  "948236",
+  "7d6d2e",
+  "5e4f21",
+  "da713f",
+  "1ba79c"
+ ],
+ "rd_extras": {
+  "948236": "satchel light (RD up row, y42-52)",
+  "7d6d2e": "satchel mid (RD up_left/up_right, y37-62)",
+  "5e4f21": "satchel shadow and strap (RD up_left/up_right)",
+  "da713f": "deep skin shadow, ears and hands (RD up row)",
+  "1ba79c": "jacket lit edge (RD down_left/down_right)"
+ },
+ "lock": {
+  "source_colours": 131,
+  "already_in_palette": 35,
+  "pixels_recoloured_by_lock": 12021,
+  "steps_if_plain_nearest": {
+   "oklab_dE_ge_0.03": {
+    "touching_pairs": 82389,
+    "kept_share": 0.9545,
+    "light_shadow_pairs": 78705,
+    "light_shadow_kept_share": 0.9576
+   },
+   "oklab_dE_ge_0.05": {
+    "touching_pairs": 72703,
+    "kept_share": 0.989,
+    "light_shadow_pairs": 72133,
+    "light_shadow_kept_share": 0.9889
+   }
+  },
+  "steps_after_ramp_protection": {
+   "oklab_dE_ge_0.03": {
+    "touching_pairs": 82389,
+    "kept_share": 0.9674,
+    "light_shadow_pairs": 78705,
+    "light_shadow_kept_share": 0.9711
+   },
+   "oklab_dE_ge_0.05": {
+    "touching_pairs": 72703,
+    "kept_share": 0.9904,
+    "light_shadow_pairs": 72133,
+    "light_shadow_kept_share": 0.9904
+   }
+  },
+  "moved_off_nearest_to_keep_a_step": {
+   "0a8e8c": {
+    "nearest": "12837f",
+    "chosen": "1a979b",
+    "px": 407
+   },
+   "545c48": {
+    "nearest": "574628",
+    "chosen": "5e4f21",
+    "px": 1
+   },
+   "a05e36": {
+    "nearest": "aa7a45",
+    "chosen": "8f662f",
+    "px": 233
+   },
+   "a18e72": {
+    "nearest": "7f6341",
+    "chosen": "aa7a45",
+    "px": 1
+   },
+   "bb8632": {
+    "nearest": "aa7a45",
+    "chosen": "b29650",
+    "px": 8
+   },
+   "c68e47": {
+    "nearest": "aa7a45",
+    "chosen": "b29650",
+    "px": 371
+   },
+   "cb844f": {
+    "nearest": "aa7a45",
+    "chosen": "dfa477",
+    "px": 200
+   },
+   "d3a04d": {
+    "nearest": "e7bf69",
+    "chosen": "b29650",
+    "px": 8
+   },
+   "db8a66": {
+    "nearest": "dfa477",
+    "chosen": "da713f",
+    "px": 21
+   },
+   "f0b792": {
+    "nearest": "fcc695",
+    "chosen": "dfa477",
+    "px": 56
+   },
+   "f1b782": {
+    "nearest": "fcc695",
+    "chosen": "dfa477",
+    "px": 300
+   },
+   "f6d3a0": {
+    "nearest": "fcc695",
+    "chosen": "ebd1b0",
+    "px": 42
+   },
+   "fcd5a3": {
+    "nearest": "fcc695",
+    "chosen": "ebd1b0",
+    "px": 364
+   }
+  },
+  "mean_oklab_error_px_weighted": 0.0112
+ },
+ "eyes": {},
+ "lens": {
+  "left_f0": {
+   "source": "hole in the gold ring",
+   "core_px": 6,
+   "px": [
+    [
+     12,
+     33,
+     "1e514e",
+     "ffffff"
+    ],
+    [
+     13,
+     32,
+     "715237",
+     "12837f"
+    ],
+    [
+     13,
+     33,
+     "dee9dd",
+     "12837f"
+    ],
+    [
+     14,
+     32,
+     "dee9dd",
+     "12837f"
+    ],
+    [
+     14,
+     33,
+     "1e514e",
+     "12837f"
+    ],
+    [
+     15,
+     32,
+     "1e514e",
+     "07515c"
+    ]
+   ]
+  },
+  "left_f1": {
+   "source": "hole in the gold ring",
+   "core_px": 6,
+   "px": [
+    [
+     13,
+     33,
+     "1e514e",
+     "ffffff"
+    ],
+    [
+     14,
+     32,
+     "715237",
+     "12837f"
+    ],
+    [
+     14,
+     33,
+     "dee9dd",
+     "12837f"
+    ],
+    [
+     15,
+     32,
+     "dee9dd",
+     "12837f"
+    ],
+    [
+     15,
+     33,
+     "1e514e",
+     "12837f"
+    ],
+    [
+     16,
+     32,
+     "1e514e",
+     "07515c"
+    ]
+   ]
+  },
+  "left_f2": {
+   "source": "hole in the gold ring",
+   "core_px": 6,
+   "px": [
+    [
+     14,
+     34,
+     "1e514e",
+     "ffffff"
+    ],
+    [
+     15,
+     33,
+     "715237",
+     "12837f"
+    ],
+    [
+     15,
+     34,
+     "dee9dd",
+     "12837f"
+    ],
+    [
+     16,
+     33,
+     "dee9dd",
+     "12837f"
+    ],
+    [
+     16,
+     34,
+     "1e514e",
+     "12837f"
+    ],
+    [
+     17,
+     33,
+     "1e514e",
+     "07515c"
+    ]
+   ]
+  },
+  "left_f3": {
+   "source": "hole in the gold ring",
+   "core_px": 6,
+   "px": [
+    [
+     13,
+     34,
+     "1e514e",
+     "ffffff"
+    ],
+    [
+     14,
+     33,
+     "715237",
+     "12837f"
+    ],
+    [
+     14,
+     34,
+     "dee9dd",
+     "12837f"
+    ],
+    [
+     15,
+     33,
+     "dee9dd",
+     "12837f"
+    ],
+    [
+     15,
+     34,
+     "1e514e",
+     "12837f"
+    ],
+    [
+     16,
+     33,
+     "1e514e",
+     "07515c"
+    ]
+   ]
+  },
+  "left_f4": {
+   "source": "hole in the gold ring",
+   "core_px": 6,
+   "px": [
+    [
+     12,
+     33,
+     "1e514e",
+     "ffffff"
+    ],
+    [
+     13,
+     32,
+     "715237",
+     "12837f"
+    ],
+    [
+     13,
+     33,
+     "dee9dd",
+     "12837f"
+    ],
+    [
+     14,
+     32,
+     "dee9dd",
+     "12837f"
+    ],
+    [
+     14,
+     33,
+     "1e514e",
+     "12837f"
+    ],
+    [
+     15,
+     32,
+     "1e514e",
+     "07515c"
+    ]
+   ]
+  },
+  "left_f5": {
+   "source": "hole in the gold ring",
+   "core_px": 6,
+   "px": [
+    [
+     13,
+     33,
+     "1e514e",
+     "ffffff"
+    ],
+    [
+     14,
+     32,
+     "715237",
+     "12837f"
+    ],
+    [
+     14,
+     33,
+     "dee9dd",
+     "12837f"
+    ],
+    [
+     15,
+     32,
+     "dee9dd",
+     "12837f"
+    ],
+    [
+     15,
+     33,
+     "1e514e",
+     "12837f"
+    ],
+    [
+     16,
+     32,
+     "1e514e",
+     "07515c"
+    ]
+   ]
+  },
+  "left_f6": {
+   "source": "hole in the gold ring",
+   "core_px": 6,
+   "px": [
+    [
+     14,
+     33,
+     "1e514e",
+     "ffffff"
+    ],
+    [
+     15,
+     32,
+     "715237",
+     "12837f"
+    ],
+    [
+     15,
+     33,
+     "dee9dd",
+     "12837f"
+    ],
+    [
+     16,
+     32,
+     "dee9dd",
+     "12837f"
+    ],
+    [
+     16,
+     33,
+     "1e514e",
+     "12837f"
+    ],
+    [
+     17,
+     32,
+     "1e514e",
+     "07515c"
+    ]
+   ]
+  },
+  "left_f7": {
+   "source": "hole in the gold ring",
+   "core_px": 6,
+   "px": [
+    [
+     13,
+     34,
+     "1e514e",
+     "ffffff"
+    ],
+    [
+     14,
+     33,
+     "715237",
+     "12837f"
+    ],
+    [
+     14,
+     34,
+     "dee9dd",
+     "12837f"
+    ],
+    [
+     15,
+     33,
+     "dee9dd",
+     "12837f"
+    ],
+    [
+     15,
+     34,
+     "1e514e",
+     "12837f"
+    ],
+    [
+     16,
+     33,
+     "1e514e",
+     "07515c"
+    ]
+   ]
+  },
+  "right_f0": {
+   "source": "hole in the gold ring",
+   "core_px": 5,
+   "px": [
+    [
+     12,
+     48,
+     "1e514e",
+     "ffffff"
+    ],
+    [
+     13,
+     48,
+     "dee9dd",
+     "12837f"
+    ],
+    [
+     14,
+     48,
+     "1e514e",
+     "12837f"
+    ],
+    [
+     14,
+     49,
+     "2d9e9f",
+     "12837f"
+    ],
+    [
+     15,
+     49,
+     "1e3d36",
+     "07515c"
+    ]
+   ]
+  },
+  "right_f1": {
+   "source": "hole in the gold ring",
+   "core_px": 5,
+   "px": [
+    [
+     13,
+     48,
+     "1e514e",
+     "ffffff"
+    ],
+    [
+     14,
+     48,
+     "dee9dd",
+     "12837f"
+    ],
+    [
+     15,
+     48,
+     "1e514e",
+     "12837f"
+    ],
+    [
+     15,
+     49,
+     "2d9e9f",
+     "12837f"
+    ],
+    [
+     16,
+     49,
+     "1e3d36",
+     "07515c"
+    ]
+   ]
+  },
+  "right_f2": {
+   "source": "hole in the gold ring",
+   "core_px": 5,
+   "px": [
+    [
+     14,
+     48,
+     "1e514e",
+     "ffffff"
+    ],
+    [
+     15,
+     48,
+     "dee9dd",
+     "12837f"
+    ],
+    [
+     16,
+     48,
+     "1e514e",
+     "12837f"
+    ],
+    [
+     16,
+     49,
+     "2d9e9f",
+     "12837f"
+    ],
+    [
+     17,
+     49,
+     "1e3d36",
+     "07515c"
+    ]
+   ]
+  },
+  "right_f3": {
+   "source": "hole in the gold ring",
+   "core_px": 5,
+   "px": [
+    [
+     13,
+     48,
+     "1e514e",
+     "ffffff"
+    ],
+    [
+     14,
+     48,
+     "dee9dd",
+     "12837f"
+    ],
+    [
+     15,
+     48,
+     "1e514e",
+     "12837f"
+    ],
+    [
+     15,
+     49,
+     "2d9e9f",
+     "12837f"
+    ],
+    [
+     16,
+     49,
+     "1e3d36",
+     "07515c"
+    ]
+   ]
+  },
+  "right_f4": {
+   "source": "hole in the gold ring",
+   "core_px": 5,
+   "px": [
+    [
+     12,
+     48,
+     "1e514e",
+     "ffffff"
+    ],
+    [
+     13,
+     48,
+     "dee9dd",
+     "12837f"
+    ],
+    [
+     14,
+     48,
+     "1e514e",
+     "12837f"
+    ],
+    [
+     14,
+     49,
+     "2d9e9f",
+     "12837f"
+    ],
+    [
+     15,
+     49,
+     "1e3d36",
+     "07515c"
+    ]
+   ]
+  },
+  "right_f5": {
+   "source": "hole in the gold ring",
+   "core_px": 5,
+   "px": [
+    [
+     13,
+     48,
+     "1e514e",
+     "ffffff"
+    ],
+    [
+     14,
+     48,
+     "dee9dd",
+     "12837f"
+    ],
+    [
+     15,
+     48,
+     "1e514e",
+     "12837f"
+    ],
+    [
+     15,
+     49,
+     "2d9e9f",
+     "12837f"
+    ],
+    [
+     16,
+     49,
+     "1e3d36",
+     "07515c"
+    ]
+   ]
+  },
+  "right_f6": {
+   "source": "hole in the gold ring",
+   "core_px": 5,
+   "px": [
+    [
+     14,
+     48,
+     "1e514e",
+     "ffffff"
+    ],
+    [
+     15,
+     48,
+     "dee9dd",
+     "12837f"
+    ],
+    [
+     16,
+     48,
+     "1e514e",
+     "12837f"
+    ],
+    [
+     16,
+     49,
+     "2d9e9f",
+     "12837f"
+    ],
+    [
+     17,
+     49,
+     "1e3d36",
+     "07515c"
+    ]
+   ]
+  },
+  "right_f7": {
+   "source": "hole in the gold ring",
+   "core_px": 5,
+   "px": [
+    [
+     13,
+     48,
+     "1e514e",
+     "ffffff"
+    ],
+    [
+     14,
+     48,
+     "dee9dd",
+     "12837f"
+    ],
+    [
+     15,
+     48,
+     "1e514e",
+     "12837f"
+    ],
+    [
+     15,
+     49,
+     "2d9e9f",
+     "12837f"
+    ],
+    [
+     16,
+     49,
+     "1e3d36",
+     "07515c"
+    ]
+   ]
+  }
+ },
+ "far_leg": {
+  "right_f5": [
+   {
+    "px": 15,
+    "y": [
+     57,
+     64
+    ],
+    "part": "leg",
+    "to": "684822"
+   },
+   {
+    "px": 7,
+    "y": [
+     66,
+     68
+    ],
+    "part": "boot",
+    "to": "33271a"
+   }
+  ],
+  "right_f6": [
+   {
+    "px": 18,
+    "y": [
+     57,
+     61
+    ],
+    "part": "leg",
+    "to": "684822"
+   }
+  ]
+ }
+}

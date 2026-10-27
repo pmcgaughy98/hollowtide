@@ -1,0 +1,23 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+OpenGL API 3.3.0 NVIDIA 610.62 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce GTX 1660 SUPER
+
+[godot_ai game_helper] registered mcp capture (debugger active=false, logger=true)
+highbank-normal Continue exists: PASS
+highbank-normal dispatch plays one confirm: PASS
+highbank-normal destination scene changes: PASS
+highbank-normal Highbank destination: PASS
+highbank-normal Highbank finishes its own covered arrival: PASS
+highbank-normal saved team/cleared/levels survive: PASS
+highbank-normal Highbank lifts shared cover: PASS
+CONTINUE METRIC {"alpha_on_return":0.0,"case":"highbank-normal","confirm_ms":1100.344,"dispatch_ms":1101.897,"frames_to_swap":24,"longest_fade_frame_ms":16.876,"longest_title_frame_ms":68.263,"one_confirm":true,"visible_fade_frames":20}
+CONTINUE LOAD RESULT 7 checks / 0 failures
+SCRIPT ERROR: Parse Error: Could not preload resource file "res://scripts/dungeon/dungeon_finish.gdshader".
+   at: GDScript::reload (res://scripts/town/town_room.gd:628)
+ERROR: Failed to load script "res://scripts/town/town_room.gd" with error "Parse error".
+   at: load (modules/gdscript/gdscript_resource_format.cpp:46)
+ERROR: Parse Error: Failed. [Resource file res://scenes/town_room.tscn:6]
+   at: _parse_node_tag (scene/resources/resource_format_text.cpp:293)
+ERROR: Failed loading resource: res://scenes/town_room.tscn.
+   at: _load (core/io/resource_loader.cpp:317)
+WARNING: 251 ObjectDB instances were leaked at exit (run with `--verbose` for details).
+   at: cleanup (core/object/object.cpp:2536)

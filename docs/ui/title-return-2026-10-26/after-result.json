@@ -1,0 +1,472 @@
+{
+  "checks": [
+    {
+      "check": "normal-auto first launch reaches main",
+      "passed": true
+    },
+    {
+      "check": "normal-auto no simultaneous launch/menu logos",
+      "passed": true
+    },
+    {
+      "check": "normal-auto first focus is silent",
+      "passed": true
+    },
+    {
+      "check": "normal-auto first focus belongs to first menu action",
+      "passed": true
+    },
+    {
+      "check": "normal-auto auto splash advertises skipping, not a required key",
+      "passed": true
+    },
+    {
+      "check": "normal-auto prelude and captions hidden at zero alpha",
+      "passed": true
+    },
+    {
+      "check": "normal-auto first launch still displays its timed card",
+      "passed": true
+    },
+    {
+      "check": "normal-auto skip cannot activate New Game",
+      "passed": true
+    },
+    {
+      "check": "normal-auto Options opens",
+      "passed": true
+    },
+    {
+      "check": "normal-auto Options plays exactly one confirm",
+      "passed": true
+    },
+    {
+      "check": "normal-auto Options initial shared focus is quiet",
+      "passed": true
+    },
+    {
+      "check": "normal-auto return opens main before first draw",
+      "passed": true
+    },
+    {
+      "check": "normal-auto return has no dim menu or launch card",
+      "passed": true
+    },
+    {
+      "check": "normal-auto return focus is silent",
+      "passed": true
+    },
+    {
+      "check": "normal-auto returning alone leaves preferences byte exact",
+      "passed": true
+    },
+    {
+      "check": "normal-auto returning alone leaves game preferences byte exact",
+      "passed": true
+    },
+    {
+      "check": "normal-auto unknown preferences survive existing migration",
+      "passed": true
+    },
+    {
+      "check": "normal-keyboard first launch reaches main",
+      "passed": true
+    },
+    {
+      "check": "normal-keyboard no simultaneous launch/menu logos",
+      "passed": true
+    },
+    {
+      "check": "normal-keyboard first focus is silent",
+      "passed": true
+    },
+    {
+      "check": "normal-keyboard first focus belongs to first menu action",
+      "passed": true
+    },
+    {
+      "check": "normal-keyboard auto splash advertises skipping, not a required key",
+      "passed": true
+    },
+    {
+      "check": "normal-keyboard prelude and captions hidden at zero alpha",
+      "passed": true
+    },
+    {
+      "check": "normal-keyboard skip cannot activate New Game",
+      "passed": true
+    },
+    {
+      "check": "normal-keyboard Options opens",
+      "passed": true
+    },
+    {
+      "check": "normal-keyboard Options plays exactly one confirm",
+      "passed": true
+    },
+    {
+      "check": "normal-keyboard Options initial shared focus is quiet",
+      "passed": true
+    },
+    {
+      "check": "normal-keyboard return opens main before first draw",
+      "passed": true
+    },
+    {
+      "check": "normal-keyboard return has no dim menu or launch card",
+      "passed": true
+    },
+    {
+      "check": "normal-keyboard return focus is silent",
+      "passed": true
+    },
+    {
+      "check": "normal-keyboard returning alone leaves preferences byte exact",
+      "passed": true
+    },
+    {
+      "check": "normal-keyboard returning alone leaves game preferences byte exact",
+      "passed": true
+    },
+    {
+      "check": "normal-keyboard unknown preferences survive existing migration",
+      "passed": true
+    },
+    {
+      "check": "normal-pad first launch reaches main",
+      "passed": true
+    },
+    {
+      "check": "normal-pad no simultaneous launch/menu logos",
+      "passed": true
+    },
+    {
+      "check": "normal-pad first focus is silent",
+      "passed": true
+    },
+    {
+      "check": "normal-pad first focus belongs to first menu action",
+      "passed": true
+    },
+    {
+      "check": "normal-pad auto splash advertises skipping, not a required key",
+      "passed": true
+    },
+    {
+      "check": "normal-pad prelude and captions hidden at zero alpha",
+      "passed": true
+    },
+    {
+      "check": "Splash hint follows controller binding",
+      "passed": true
+    },
+    {
+      "check": "normal-pad skip cannot activate New Game",
+      "passed": true
+    },
+    {
+      "check": "normal-pad Options opens",
+      "passed": true
+    },
+    {
+      "check": "normal-pad Options plays exactly one confirm",
+      "passed": true
+    },
+    {
+      "check": "normal-pad Options initial shared focus is quiet",
+      "passed": true
+    },
+    {
+      "check": "normal-pad return opens main before first draw",
+      "passed": true
+    },
+    {
+      "check": "normal-pad return has no dim menu or launch card",
+      "passed": true
+    },
+    {
+      "check": "normal-pad return focus is silent",
+      "passed": true
+    },
+    {
+      "check": "normal-pad returning alone leaves preferences byte exact",
+      "passed": true
+    },
+    {
+      "check": "normal-pad returning alone leaves game preferences byte exact",
+      "passed": true
+    },
+    {
+      "check": "normal-pad unknown preferences survive existing migration",
+      "passed": true
+    },
+    {
+      "check": "normal-mouse first launch reaches main",
+      "passed": true
+    },
+    {
+      "check": "normal-mouse no simultaneous launch/menu logos",
+      "passed": true
+    },
+    {
+      "check": "normal-mouse first focus is silent",
+      "passed": true
+    },
+    {
+      "check": "normal-mouse first focus belongs to first menu action",
+      "passed": true
+    },
+    {
+      "check": "normal-mouse auto splash advertises skipping, not a required key",
+      "passed": true
+    },
+    {
+      "check": "normal-mouse prelude and captions hidden at zero alpha",
+      "passed": true
+    },
+    {
+      "check": "normal-mouse skip cannot activate New Game",
+      "passed": true
+    },
+    {
+      "check": "normal-mouse Options opens",
+      "passed": true
+    },
+    {
+      "check": "normal-mouse Options plays exactly one confirm",
+      "passed": true
+    },
+    {
+      "check": "normal-mouse Options initial shared focus is quiet",
+      "passed": true
+    },
+    {
+      "check": "normal-mouse return opens main before first draw",
+      "passed": true
+    },
+    {
+      "check": "normal-mouse return has no dim menu or launch card",
+      "passed": true
+    },
+    {
+      "check": "normal-mouse return focus is silent",
+      "passed": true
+    },
+    {
+      "check": "normal-mouse returning alone leaves preferences byte exact",
+      "passed": true
+    },
+    {
+      "check": "normal-mouse returning alone leaves game preferences byte exact",
+      "passed": true
+    },
+    {
+      "check": "normal-mouse unknown preferences survive existing migration",
+      "passed": true
+    },
+    {
+      "check": "reduced-auto first launch reaches main",
+      "passed": true
+    },
+    {
+      "check": "reduced-auto no simultaneous launch/menu logos",
+      "passed": true
+    },
+    {
+      "check": "reduced-auto first focus is silent",
+      "passed": true
+    },
+    {
+      "check": "reduced-auto first focus belongs to first menu action",
+      "passed": true
+    },
+    {
+      "check": "reduced-auto auto splash advertises skipping, not a required key",
+      "passed": true
+    },
+    {
+      "check": "reduced-auto prelude and captions hidden at zero alpha",
+      "passed": true
+    },
+    {
+      "check": "reduced-auto first launch still displays its timed card",
+      "passed": true
+    },
+    {
+      "check": "reduced-auto skip cannot activate New Game",
+      "passed": true
+    },
+    {
+      "check": "reduced-auto Options opens",
+      "passed": true
+    },
+    {
+      "check": "reduced-auto Options plays exactly one confirm",
+      "passed": true
+    },
+    {
+      "check": "reduced-auto Options initial shared focus is quiet",
+      "passed": true
+    },
+    {
+      "check": "reduced-auto return opens main before first draw",
+      "passed": true
+    },
+    {
+      "check": "reduced-auto return has no dim menu or launch card",
+      "passed": true
+    },
+    {
+      "check": "reduced-auto return focus is silent",
+      "passed": true
+    },
+    {
+      "check": "reduced-auto returning alone leaves preferences byte exact",
+      "passed": true
+    },
+    {
+      "check": "reduced-auto returning alone leaves game preferences byte exact",
+      "passed": true
+    },
+    {
+      "check": "reduced-auto unknown preferences survive existing migration",
+      "passed": true
+    },
+    {
+      "check": "normal-rebound first launch reaches main",
+      "passed": true
+    },
+    {
+      "check": "normal-rebound no simultaneous launch/menu logos",
+      "passed": true
+    },
+    {
+      "check": "normal-rebound first focus is silent",
+      "passed": true
+    },
+    {
+      "check": "normal-rebound first focus belongs to first menu action",
+      "passed": true
+    },
+    {
+      "check": "normal-rebound auto splash advertises skipping, not a required key",
+      "passed": true
+    },
+    {
+      "check": "normal-rebound prelude and captions hidden at zero alpha",
+      "passed": true
+    },
+    {
+      "check": "Live rebound Q appears in splash hint",
+      "passed": true
+    },
+    {
+      "check": "normal-rebound skip cannot activate New Game",
+      "passed": true
+    },
+    {
+      "check": "normal-rebound Options opens",
+      "passed": true
+    },
+    {
+      "check": "normal-rebound Options plays exactly one confirm",
+      "passed": true
+    },
+    {
+      "check": "normal-rebound Options initial shared focus is quiet",
+      "passed": true
+    },
+    {
+      "check": "normal-rebound return opens main before first draw",
+      "passed": true
+    },
+    {
+      "check": "normal-rebound return has no dim menu or launch card",
+      "passed": true
+    },
+    {
+      "check": "normal-rebound return focus is silent",
+      "passed": true
+    },
+    {
+      "check": "normal-rebound returning alone leaves preferences byte exact",
+      "passed": true
+    },
+    {
+      "check": "normal-rebound returning alone leaves game preferences byte exact",
+      "passed": true
+    },
+    {
+      "check": "normal-rebound unknown preferences survive existing migration",
+      "passed": true
+    },
+    {
+      "check": "Pause Return to title confirmation offers expected action",
+      "passed": true
+    },
+    {
+      "check": "Actual pause confirmation returns to campaign title",
+      "passed": true
+    },
+    {
+      "check": "Actual paused return never rebuilds the splash hold",
+      "passed": true
+    },
+    {
+      "check": "Return fade lifts onto usable main page",
+      "passed": true
+    },
+    {
+      "check": "Private saved journey remains byte exact",
+      "passed": true
+    }
+  ],
+  "failed": 0,
+  "failures": [],
+  "metrics": [
+    {
+      "case": "normal-auto",
+      "first_done_frame": 76,
+      "first_hint": "J / E / click  Skip",
+      "return_ready_in_ready": true,
+      "return_wait_frames": 0
+    },
+    {
+      "case": "normal-keyboard",
+      "first_done_frame": 25,
+      "first_hint": "J / E / click  Skip",
+      "return_ready_in_ready": true,
+      "return_wait_frames": 0
+    },
+    {
+      "case": "normal-pad",
+      "first_done_frame": 25,
+      "first_hint": "J / E / click  Skip",
+      "return_ready_in_ready": true,
+      "return_wait_frames": 0
+    },
+    {
+      "case": "normal-mouse",
+      "first_done_frame": 25,
+      "first_hint": "A / X / click  Skip",
+      "return_ready_in_ready": true,
+      "return_wait_frames": 0
+    },
+    {
+      "case": "reduced-auto",
+      "first_done_frame": 4,
+      "first_hint": "J / E / click  Skip",
+      "return_ready_in_ready": true,
+      "return_wait_frames": 0
+    },
+    {
+      "case": "normal-rebound",
+      "first_done_frame": 25,
+      "first_hint": "Q / J / E / click  Skip",
+      "return_ready_in_ready": true,
+      "return_wait_frames": 0
+    }
+  ],
+  "phase": "after",
+  "total": 105
+}

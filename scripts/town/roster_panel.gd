@@ -1,6 +1,6 @@
 extends RefCounted
 ## The Roster Board's panel (Claude, 2026-10-26, pass 8 R6 / L-01), built like storage_panel.gd. A recruit that finds
-## the team full "will wait at the Wayline Hall" (dungeon.gd): it goes to the record's "roster". Once the team are
+## the team full "will wait at the Wayline Tower" (dungeon.gd): it goes to the record's "roster". Once the team are
 ## runners, the Roster Board in the Hall opens this panel: the creatures waiting at the Hall on the left, the team on the
 ## right. Choosing a waiting creature brings it onto the team, into an open slot, or, when the team is full, in place of
 ## the member chosen next. Choosing a member in slots 2 to 4 sends it to wait, or, when that would leave the leader
@@ -21,7 +21,7 @@ const COL_W := 372.0     # each column's width
 const GAP := 28.0        # between the columns
 const GUTTER := 28.0     # right of the waiting rows, where the scroll arrows sit
 const BOX := Rect2(166, 64, 820, TOP + ROWS * ROW_H + 74.0)
-const NOTE := "Who runs and who waits at the Hall. The leader always runs."
+const NOTE := "Who runs and who waits at the Tower. The leader always runs."
 const NAME_W := 180.0    # a row's name column
 
 
@@ -86,7 +86,7 @@ static func pick(host: Node) -> void:
 		else:   # the team is full: this one is held while the member to swap is chosen
 			p["held"] = {"side": "wait", "row": row}
 			_go(p, "team", 1)
-			p["said"] = "Who waits at the Hall instead?"
+			p["said"] = "Who waits at the Tower instead?"
 			host._ui_sfx("confirm")
 		return
 	if row < 1 or row >= TEAM_MAX:
@@ -98,7 +98,7 @@ static func pick(host: Node) -> void:
 			_trade(host, row, int(held["row"]))
 	elif row >= party.size():   # an open slot: choose who joins from the other column
 		if waiting.is_empty():
-			_deny(host, "Nobody is waiting at the Hall yet.")
+			_deny(host, "Nobody is waiting at the Tower yet.")
 		else:
 			_go(p, "wait", 0)
 			p["said"] = "Who joins the team?"
@@ -107,7 +107,7 @@ static func pick(host: Node) -> void:
 		var who: Array = party[row]
 		party.remove_at(row)
 		waiting.append(who)
-		_done(host, "%s waits at the Hall." % _name(who))
+		_done(host, "%s waits at the Tower." % _name(who))
 	elif waiting.is_empty():
 		_deny(host, "The leader needs someone along.")
 	else:   # the last one with the leader: held while the one to bring in is chosen
@@ -144,7 +144,7 @@ static func _trade(host: Node, slot: int, wait_row: int) -> void:
 	var coming: Array = waiting[wait_row]
 	party[slot] = coming
 	waiting[wait_row] = going
-	_done(host, "%s joins the team. %s waits at the Hall." % [_name(coming), _name(going)])
+	_done(host, "%s joins the team. %s waits at the Tower." % [_name(coming), _name(going)])
 
 
 ## A change made: say so, let go of any pick, keep the cursor on a row that exists, save, and remake the room's team.
@@ -208,7 +208,7 @@ static func draw(host: Node, h: CanvasItem) -> void:
 	UI.text(h, box.position + Vector2(30, 46), NOTE, 16, UI.MUTED, box.size.x - 60)
 	var left := box.position.x + 24.0
 	var right := left + COL_W + GAP
-	UI.text(h, Vector2(left + 6, box.position.y + 84), "Waiting at the Hall", 18, UI.EDGE_LIGHT, COL_W - 12)
+	UI.text(h, Vector2(left + 6, box.position.y + 84), "Waiting at the Tower", 18, UI.EDGE_LIGHT, COL_W - 12)
 	UI.text(h, Vector2(right + 6, box.position.y + 84), "The team", 18, UI.EDGE_LIGHT, COL_W - 12)
 	# The waiting creatures, scrolling with the cursor.
 	var top := _top(p, waiting.size())

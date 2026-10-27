@@ -1,0 +1,61 @@
+{
+  "checks": [
+    {
+      "check": "normal-auto first launch reaches main",
+      "passed": true
+    },
+    {
+      "check": "normal-auto no simultaneous launch/menu logos",
+      "passed": true
+    },
+    {
+      "check": "normal-auto first focus is silent",
+      "passed": true
+    },
+    {
+      "check": "normal-auto first focus belongs to first menu action",
+      "passed": true
+    },
+    {
+      "check": "normal-auto Options opens",
+      "passed": true
+    },
+    {
+      "check": "normal-auto Options plays exactly one confirm",
+      "passed": true
+    },
+    {
+      "check": "normal-auto Options initial shared focus is quiet",
+      "passed": true
+    },
+    {
+      "check": "normal-auto returning alone leaves preferences byte exact",
+      "passed": true
+    },
+    {
+      "check": "normal-auto returning alone leaves game preferences byte exact",
+      "passed": true
+    },
+    {
+      "check": "normal-auto unknown preferences survive existing migration",
+      "passed": true
+    },
+    {
+      "check": "Private saved journey remains byte exact",
+      "passed": true
+    }
+  ],
+  "failed": 0,
+  "failures": [],
+  "metrics": [
+    {
+      "case": "normal-auto",
+      "first_done_frame": 76,
+      "first_hint": "Enter to continue",
+      "return_ready_in_ready": false,
+      "return_wait_frames": 77
+    }
+  ],
+  "phase": "before",
+  "total": 11
+}

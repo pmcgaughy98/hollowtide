@@ -1,0 +1,100 @@
+{
+	"alpha": "binary",
+	"anchor": [
+		150,
+		575
+	],
+	"anchor_mode": "foot",
+	"anchors": {
+		"beacon": [
+			150,
+			8
+		],
+		"door_mid": [
+			150,
+			542
+		],
+		"lantern": [
+			150,
+			80
+		]
+	},
+	"area": "town",
+	"brief": "The Wayline Tower, the couriers' landmark: a tall river-stone tower on a wide base with a double door, rising more than two and a half screens to a signal lantern on a beacon mast, so the whole town can see it. Keep the placeholder's stages (BuildingTemplate.TOWER_STAGES): base with terrace roof, shaft, lamp gallery, lantern room, cap, mast with the beacon at (150, 8).",
+	"building_class": "hall",
+	"census": "B01",
+	"checks": [
+		"C1",
+		"C10",
+		"C11",
+		"C12",
+		"C2",
+		"C3",
+		"C4",
+		"C5",
+		"C7",
+		"C8",
+		"C9"
+	],
+	"door_px": [
+		126,
+		510,
+		48,
+		64
+	],
+	"drawn_at": 3,
+	"edges": "bottom",
+	"file": "res://assets/slots/town/building/hall.png",
+	"forbid": [
+		"text",
+		"creature",
+		"franchise"
+	],
+	"frames": 1,
+	"id": "town.building.hall",
+	"kind": "building",
+	"lane": "B",
+	"legacy": "",
+	"legacy_misfit": true,
+	"legacy_v1": "res://assets/sprites/world/wayline_hall_2026_10_10/wayline_hall_native.png",
+	"legacy_v1_size": [
+		240,
+		144
+	],
+	"light": "upper_left",
+	"notes": "canon 2026-10-26: the Hall is the Wayline Tower (ids unchanged); base 12x3 and doors kept, at least 540 px tall (576 = 24 tiles); door 48 wide so Galeshear (63 px wide) passes C11; open frames come from door_px when absent; legacy_v1 is the v1 picture",
+	"optional_states": {
+		"open": [
+			3,
+			12
+		]
+	},
+	"outline": "runtime_rim",
+	"owner": "codex",
+	"palette": {
+		"family": "town_stone",
+		"lock": false,
+		"max": 32,
+		"source": "res://assets/slots/palettes/town_stone.png"
+	},
+	"pass_creature": "galeshear",
+	"placeholder": "res://scripts/town/building_template.gd:paint_slot",
+	"rows": 1,
+	"sheet_size": [
+		300,
+		576
+	],
+	"size": [
+		300,
+		576
+	],
+	"slot_file": "town_buildings",
+	"states": {
+		"closed": [
+			1,
+			0
+		]
+	},
+	"status": "placeholder",
+	"tiling": "none"
+}

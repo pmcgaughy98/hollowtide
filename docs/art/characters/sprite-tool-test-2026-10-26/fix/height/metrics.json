@@ -1,0 +1,1280 @@
+{
+ "note": "Turn-height lane, 2026-10-26. before = raw PixelLab atlas, after = fix/height/after.png, rd = in-game RD atlas. Row order everywhere: down, down_left, left, up_left, up, up_right, right, down_right.",
+ "definitions": {
+  "standing_head_top_f0": "bbox top of frame 0 (the number the judges quoted)",
+  "head_top_min": "highest head over the 8 frames; this is what fix_height.py levels",
+  "figure_height": "bbox bottom - bbox top + 1",
+  "head_width / torso_width": "widest opaque row span in the top 35 percent of the figure / opaque span at 53 percent of the height (includes a swinging arm when it crosses that row)",
+  "dark_outline_share_mean": "build_compare.py's rule: boundary pixels (opaque with a transparent 4-neighbour) with HSV value < 0.3, over all boundary pixels",
+  "outline_gap_px_total": "boundary pixels that are not dark, summed over 8 frames",
+  "outline_doubles_total": "L-corners in the dark boundary line (finish_sprite.py's doubles rule), summed over 8 frames"
+ },
+ "plan": {
+  "down": {
+   "head_top_before": 7,
+   "rows_added": 0,
+   "head_top_after": 7
+  },
+  "down_left": {
+   "head_top_before": 7,
+   "rows_added": 0,
+   "head_top_after": 7
+  },
+  "left": {
+   "head_top_before": 10,
+   "rows_added": 2,
+   "duplicated_rows": [
+    {
+     "y": 40,
+     "band": "torso",
+     "cost": 148
+    },
+    {
+     "y": 59,
+     "band": "thigh",
+     "cost": 192
+    }
+   ],
+   "bands": {
+    "torso": [
+     38,
+     48
+    ],
+    "thigh": [
+     51,
+     60
+    ]
+   },
+   "head_top_after": 8
+  },
+  "up_left": {
+   "head_top_before": 8,
+   "rows_added": 0,
+   "head_top_after": 8
+  },
+  "up": {
+   "head_top_before": 8,
+   "rows_added": 0,
+   "head_top_after": 8
+  },
+  "up_right": {
+   "head_top_before": 7,
+   "rows_added": 0,
+   "head_top_after": 7
+  },
+  "right": {
+   "head_top_before": 11,
+   "rows_added": 3,
+   "duplicated_rows": [
+    {
+     "y": 48,
+     "band": "torso",
+     "cost": 183
+    },
+    {
+     "y": 59,
+     "band": "thigh",
+     "cost": 218
+    },
+    {
+     "y": 45,
+     "band": "torso",
+     "cost": 187
+    }
+   ],
+   "bands": {
+    "torso": [
+     39,
+     48
+    ],
+    "thigh": [
+     52,
+     61
+    ]
+   },
+   "head_top_after": 8
+  },
+  "down_right": {
+   "head_top_before": 10,
+   "rows_added": 2,
+   "duplicated_rows": [
+    {
+     "y": 57,
+     "band": "thigh",
+     "cost": 133
+    },
+    {
+     "y": 45,
+     "band": "torso",
+     "cost": 322
+    }
+   ],
+   "bands": {
+    "torso": [
+     38,
+     48
+    ],
+    "thigh": [
+     51,
+     60
+    ]
+   },
+   "head_top_after": 8
+  }
+ },
+ "target_head_top": 8,
+ "checks": {
+  "after_png_matches_memory": true,
+  "unchanged_directions_identical_to_raw": true,
+  "new_colours": 0,
+  "alpha_values_in_output": [
+   0,
+   255
+  ],
+  "pixels_below_the_lowest_duplicated_row_on_the_body_unchanged": true,
+  "opaque_px_added_per_direction": {
+   "left": 202,
+   "right": 331,
+   "down_right": 299
+  }
+ },
+ "chain_tests": {
+  "run_twice_adds_rows": {
+   "down": 0,
+   "down_left": 0,
+   "left": 0,
+   "up_left": 0,
+   "up": 0,
+   "up_right": 0,
+   "right": 0,
+   "down_right": 0
+  },
+  "after_simulated_bob": {
+   "rows_added": {
+    "down": 0,
+    "down_left": 0,
+    "left": 2,
+    "up_left": 0,
+    "up": 0,
+    "up_right": 0,
+    "right": 3,
+    "down_right": 2
+   },
+   "duplicated_rows": {
+    "down": [],
+    "down_left": [],
+    "left": [
+     43,
+     59
+    ],
+    "up_left": [],
+    "up": [],
+    "up_right": [],
+    "right": [
+     45,
+     59,
+     48
+    ],
+    "down_right": [
+     57,
+     41
+    ]
+   },
+   "head_top_min_spread_before_after": [
+    4,
+    1
+   ],
+   "bob_amplitude_kept": true,
+   "lowest_foot_after": [
+    72,
+    72,
+    72,
+    72,
+    72,
+    72,
+    72,
+    72
+   ]
+  },
+  "after_palette_clamp_to_4_bits": {
+   "rows_added": {
+    "down": 0,
+    "down_left": 0,
+    "left": 2,
+    "up_left": 0,
+    "up": 0,
+    "up_right": 0,
+    "right": 3,
+    "down_right": 2
+   },
+   "duplicated_rows": {
+    "down": [],
+    "down_left": [],
+    "left": [
+     40,
+     59
+    ],
+    "up_left": [],
+    "up": [],
+    "up_right": [],
+    "right": [
+     45,
+     59,
+     48
+    ],
+    "down_right": [
+     57,
+     45
+    ]
+   },
+   "same_rows_as_raw_plan": true
+  }
+ },
+ "before": {
+  "rows": {
+   "down": {
+    "standing_head_top_f0": 7,
+    "head_top_min": 7,
+    "head_top_median": 7.0,
+    "head_top_per_frame": [
+     7,
+     7,
+     7,
+     7,
+     7,
+     7,
+     7,
+     7
+    ],
+    "foot_y_per_frame": [
+     71,
+     72,
+     71,
+     71,
+     71,
+     71,
+     71,
+     71
+    ],
+    "lowest_foot": 72,
+    "figure_height_f0": 65,
+    "figure_height_median": 65.0,
+    "figure_height_lowest_foot_to_highest_head": 66,
+    "head_width_median": 27.0,
+    "torso_width_median": 27.0,
+    "unique_opaque_colours": 40,
+    "semi_transparent_px": 0,
+    "neighbour_diff_mean": 0.6172,
+    "loop_seam_diff_f7_f0": 0.752,
+    "dark_outline_share_mean": 0.9114,
+    "outline_gap_px_total": 117,
+    "outline_doubles_total": 26
+   },
+   "down_left": {
+    "standing_head_top_f0": 7,
+    "head_top_min": 7,
+    "head_top_median": 7.0,
+    "head_top_per_frame": [
+     7,
+     7,
+     7,
+     7,
+     7,
+     7,
+     7,
+     7
+    ],
+    "foot_y_per_frame": [
+     72,
+     71,
+     71,
+     71,
+     71,
+     69,
+     69,
+     69
+    ],
+    "lowest_foot": 72,
+    "figure_height_f0": 66,
+    "figure_height_median": 65.0,
+    "figure_height_lowest_foot_to_highest_head": 66,
+    "head_width_median": 25.0,
+    "torso_width_median": 24.5,
+    "unique_opaque_colours": 58,
+    "semi_transparent_px": 0,
+    "neighbour_diff_mean": 0.7734,
+    "loop_seam_diff_f7_f0": 0.8287,
+    "dark_outline_share_mean": 0.9851,
+    "outline_gap_px_total": 20,
+    "outline_doubles_total": 23
+   },
+   "left": {
+    "standing_head_top_f0": 10,
+    "head_top_min": 10,
+    "head_top_median": 10.5,
+    "head_top_per_frame": [
+     10,
+     10,
+     10,
+     10,
+     11,
+     11,
+     11,
+     11
+    ],
+    "foot_y_per_frame": [
+     70,
+     72,
+     70,
+     70,
+     70,
+     70,
+     72,
+     71
+    ],
+    "lowest_foot": 72,
+    "figure_height_f0": 61,
+    "figure_height_median": 61.0,
+    "figure_height_lowest_foot_to_highest_head": 63,
+    "head_width_median": 23.0,
+    "torso_width_median": 13.0,
+    "unique_opaque_colours": 61,
+    "semi_transparent_px": 0,
+    "neighbour_diff_mean": 0.7591,
+    "loop_seam_diff_f7_f0": 0.8011,
+    "dark_outline_share_mean": 0.967,
+    "outline_gap_px_total": 42,
+    "outline_doubles_total": 34
+   },
+   "up_left": {
+    "standing_head_top_f0": 8,
+    "head_top_min": 8,
+    "head_top_median": 8.0,
+    "head_top_per_frame": [
+     8,
+     8,
+     8,
+     8,
+     8,
+     8,
+     8,
+     8
+    ],
+    "foot_y_per_frame": [
+     72,
+     70,
+     70,
+     69,
+     71,
+     70,
+     71,
+     71
+    ],
+    "lowest_foot": 72,
+    "figure_height_f0": 65,
+    "figure_height_median": 63.5,
+    "figure_height_lowest_foot_to_highest_head": 65,
+    "head_width_median": 24.0,
+    "torso_width_median": 19.5,
+    "unique_opaque_colours": 55,
+    "semi_transparent_px": 0,
+    "neighbour_diff_mean": 0.5837,
+    "loop_seam_diff_f7_f0": 0.5731,
+    "dark_outline_share_mean": 0.9932,
+    "outline_gap_px_total": 9,
+    "outline_doubles_total": 27
+   },
+   "up": {
+    "standing_head_top_f0": 8,
+    "head_top_min": 8,
+    "head_top_median": 8.0,
+    "head_top_per_frame": [
+     8,
+     8,
+     8,
+     8,
+     8,
+     8,
+     9,
+     8
+    ],
+    "foot_y_per_frame": [
+     72,
+     72,
+     72,
+     72,
+     72,
+     72,
+     72,
+     72
+    ],
+    "lowest_foot": 72,
+    "figure_height_f0": 65,
+    "figure_height_median": 65.0,
+    "figure_height_lowest_foot_to_highest_head": 65,
+    "head_width_median": 26.0,
+    "torso_width_median": 27.0,
+    "unique_opaque_colours": 55,
+    "semi_transparent_px": 0,
+    "neighbour_diff_mean": 0.5198,
+    "loop_seam_diff_f7_f0": 0.6103,
+    "dark_outline_share_mean": 0.9844,
+    "outline_gap_px_total": 21,
+    "outline_doubles_total": 12
+   },
+   "up_right": {
+    "standing_head_top_f0": 7,
+    "head_top_min": 7,
+    "head_top_median": 7.0,
+    "head_top_per_frame": [
+     7,
+     7,
+     7,
+     7,
+     7,
+     7,
+     7,
+     7
+    ],
+    "foot_y_per_frame": [
+     71,
+     72,
+     72,
+     72,
+     70,
+     70,
+     70,
+     69
+    ],
+    "lowest_foot": 72,
+    "figure_height_f0": 65,
+    "figure_height_median": 64.5,
+    "figure_height_lowest_foot_to_highest_head": 66,
+    "head_width_median": 24.0,
+    "torso_width_median": 21.0,
+    "unique_opaque_colours": 56,
+    "semi_transparent_px": 0,
+    "neighbour_diff_mean": 0.5615,
+    "loop_seam_diff_f7_f0": 0.5331,
+    "dark_outline_share_mean": 0.9426,
+    "outline_gap_px_total": 77,
+    "outline_doubles_total": 19
+   },
+   "right": {
+    "standing_head_top_f0": 11,
+    "head_top_min": 11,
+    "head_top_median": 11.0,
+    "head_top_per_frame": [
+     11,
+     11,
+     11,
+     11,
+     11,
+     11,
+     11,
+     11
+    ],
+    "foot_y_per_frame": [
+     72,
+     72,
+     72,
+     72,
+     72,
+     72,
+     71,
+     72
+    ],
+    "lowest_foot": 72,
+    "figure_height_f0": 62,
+    "figure_height_median": 62.0,
+    "figure_height_lowest_foot_to_highest_head": 62,
+    "head_width_median": 26.0,
+    "torso_width_median": 13.0,
+    "unique_opaque_colours": 60,
+    "semi_transparent_px": 0,
+    "neighbour_diff_mean": 0.7323,
+    "loop_seam_diff_f7_f0": 0.7378,
+    "dark_outline_share_mean": 0.9789,
+    "outline_gap_px_total": 29,
+    "outline_doubles_total": 54
+   },
+   "down_right": {
+    "standing_head_top_f0": 10,
+    "head_top_min": 10,
+    "head_top_median": 10.0,
+    "head_top_per_frame": [
+     10,
+     10,
+     10,
+     10,
+     10,
+     10,
+     10,
+     10
+    ],
+    "foot_y_per_frame": [
+     72,
+     71,
+     70,
+     70,
+     72,
+     72,
+     72,
+     72
+    ],
+    "lowest_foot": 72,
+    "figure_height_f0": 63,
+    "figure_height_median": 63.0,
+    "figure_height_lowest_foot_to_highest_head": 63,
+    "head_width_median": 23.0,
+    "torso_width_median": 22.0,
+    "unique_opaque_colours": 56,
+    "semi_transparent_px": 0,
+    "neighbour_diff_mean": 0.7326,
+    "loop_seam_diff_f7_f0": 0.7473,
+    "dark_outline_share_mean": 0.8985,
+    "outline_gap_px_total": 130,
+    "outline_doubles_total": 21
+   }
+  },
+  "summary": {
+   "standing_head_tops_f0": [
+    7,
+    7,
+    10,
+    8,
+    8,
+    7,
+    11,
+    10
+   ],
+   "standing_head_top_spread": 4,
+   "head_top_min_spread": 4,
+   "median_height_by_direction": [
+    65.0,
+    65.0,
+    61.0,
+    63.5,
+    65.0,
+    64.5,
+    62.0,
+    63.0
+   ],
+   "median_height_spread": 4.0,
+   "lowest_foot_by_direction": [
+    72,
+    72,
+    72,
+    72,
+    72,
+    72,
+    72,
+    72
+   ],
+   "mirror_pair_head_top_gap_f0": {
+    "left/right": 1,
+    "down_left/down_right": 3,
+    "up_left/up_right": 1
+   },
+   "largest_head_drop_between_neighbouring_directions_f0": 4
+  }
+ },
+ "after": {
+  "rows": {
+   "down": {
+    "standing_head_top_f0": 7,
+    "head_top_min": 7,
+    "head_top_median": 7.0,
+    "head_top_per_frame": [
+     7,
+     7,
+     7,
+     7,
+     7,
+     7,
+     7,
+     7
+    ],
+    "foot_y_per_frame": [
+     71,
+     72,
+     71,
+     71,
+     71,
+     71,
+     71,
+     71
+    ],
+    "lowest_foot": 72,
+    "figure_height_f0": 65,
+    "figure_height_median": 65.0,
+    "figure_height_lowest_foot_to_highest_head": 66,
+    "head_width_median": 27.0,
+    "torso_width_median": 27.0,
+    "unique_opaque_colours": 40,
+    "semi_transparent_px": 0,
+    "neighbour_diff_mean": 0.6172,
+    "loop_seam_diff_f7_f0": 0.752,
+    "dark_outline_share_mean": 0.9114,
+    "outline_gap_px_total": 117,
+    "outline_doubles_total": 26
+   },
+   "down_left": {
+    "standing_head_top_f0": 7,
+    "head_top_min": 7,
+    "head_top_median": 7.0,
+    "head_top_per_frame": [
+     7,
+     7,
+     7,
+     7,
+     7,
+     7,
+     7,
+     7
+    ],
+    "foot_y_per_frame": [
+     72,
+     71,
+     71,
+     71,
+     71,
+     69,
+     69,
+     69
+    ],
+    "lowest_foot": 72,
+    "figure_height_f0": 66,
+    "figure_height_median": 65.0,
+    "figure_height_lowest_foot_to_highest_head": 66,
+    "head_width_median": 25.0,
+    "torso_width_median": 24.5,
+    "unique_opaque_colours": 58,
+    "semi_transparent_px": 0,
+    "neighbour_diff_mean": 0.7734,
+    "loop_seam_diff_f7_f0": 0.8287,
+    "dark_outline_share_mean": 0.9851,
+    "outline_gap_px_total": 20,
+    "outline_doubles_total": 23
+   },
+   "left": {
+    "standing_head_top_f0": 8,
+    "head_top_min": 8,
+    "head_top_median": 8.5,
+    "head_top_per_frame": [
+     8,
+     8,
+     8,
+     8,
+     9,
+     9,
+     9,
+     9
+    ],
+    "foot_y_per_frame": [
+     70,
+     72,
+     70,
+     70,
+     70,
+     70,
+     72,
+     71
+    ],
+    "lowest_foot": 72,
+    "figure_height_f0": 63,
+    "figure_height_median": 63.0,
+    "figure_height_lowest_foot_to_highest_head": 65,
+    "head_width_median": 23.0,
+    "torso_width_median": 13.0,
+    "unique_opaque_colours": 61,
+    "semi_transparent_px": 0,
+    "neighbour_diff_mean": 0.7572,
+    "loop_seam_diff_f7_f0": 0.8002,
+    "dark_outline_share_mean": 0.9678,
+    "outline_gap_px_total": 42,
+    "outline_doubles_total": 34
+   },
+   "up_left": {
+    "standing_head_top_f0": 8,
+    "head_top_min": 8,
+    "head_top_median": 8.0,
+    "head_top_per_frame": [
+     8,
+     8,
+     8,
+     8,
+     8,
+     8,
+     8,
+     8
+    ],
+    "foot_y_per_frame": [
+     72,
+     70,
+     70,
+     69,
+     71,
+     70,
+     71,
+     71
+    ],
+    "lowest_foot": 72,
+    "figure_height_f0": 65,
+    "figure_height_median": 63.5,
+    "figure_height_lowest_foot_to_highest_head": 65,
+    "head_width_median": 24.0,
+    "torso_width_median": 19.5,
+    "unique_opaque_colours": 55,
+    "semi_transparent_px": 0,
+    "neighbour_diff_mean": 0.5837,
+    "loop_seam_diff_f7_f0": 0.5731,
+    "dark_outline_share_mean": 0.9932,
+    "outline_gap_px_total": 9,
+    "outline_doubles_total": 27
+   },
+   "up": {
+    "standing_head_top_f0": 8,
+    "head_top_min": 8,
+    "head_top_median": 8.0,
+    "head_top_per_frame": [
+     8,
+     8,
+     8,
+     8,
+     8,
+     8,
+     9,
+     8
+    ],
+    "foot_y_per_frame": [
+     72,
+     72,
+     72,
+     72,
+     72,
+     72,
+     72,
+     72
+    ],
+    "lowest_foot": 72,
+    "figure_height_f0": 65,
+    "figure_height_median": 65.0,
+    "figure_height_lowest_foot_to_highest_head": 65,
+    "head_width_median": 26.0,
+    "torso_width_median": 27.0,
+    "unique_opaque_colours": 55,
+    "semi_transparent_px": 0,
+    "neighbour_diff_mean": 0.5198,
+    "loop_seam_diff_f7_f0": 0.6103,
+    "dark_outline_share_mean": 0.9844,
+    "outline_gap_px_total": 21,
+    "outline_doubles_total": 12
+   },
+   "up_right": {
+    "standing_head_top_f0": 7,
+    "head_top_min": 7,
+    "head_top_median": 7.0,
+    "head_top_per_frame": [
+     7,
+     7,
+     7,
+     7,
+     7,
+     7,
+     7,
+     7
+    ],
+    "foot_y_per_frame": [
+     71,
+     72,
+     72,
+     72,
+     70,
+     70,
+     70,
+     69
+    ],
+    "lowest_foot": 72,
+    "figure_height_f0": 65,
+    "figure_height_median": 64.5,
+    "figure_height_lowest_foot_to_highest_head": 66,
+    "head_width_median": 24.0,
+    "torso_width_median": 21.0,
+    "unique_opaque_colours": 56,
+    "semi_transparent_px": 0,
+    "neighbour_diff_mean": 0.5615,
+    "loop_seam_diff_f7_f0": 0.5331,
+    "dark_outline_share_mean": 0.9426,
+    "outline_gap_px_total": 77,
+    "outline_doubles_total": 19
+   },
+   "right": {
+    "standing_head_top_f0": 8,
+    "head_top_min": 8,
+    "head_top_median": 8.0,
+    "head_top_per_frame": [
+     8,
+     8,
+     8,
+     8,
+     8,
+     8,
+     8,
+     8
+    ],
+    "foot_y_per_frame": [
+     72,
+     72,
+     72,
+     72,
+     72,
+     72,
+     71,
+     72
+    ],
+    "lowest_foot": 72,
+    "figure_height_f0": 65,
+    "figure_height_median": 65.0,
+    "figure_height_lowest_foot_to_highest_head": 65,
+    "head_width_median": 26.0,
+    "torso_width_median": 14.0,
+    "unique_opaque_colours": 60,
+    "semi_transparent_px": 0,
+    "neighbour_diff_mean": 0.7322,
+    "loop_seam_diff_f7_f0": 0.7397,
+    "dark_outline_share_mean": 0.9797,
+    "outline_gap_px_total": 29,
+    "outline_doubles_total": 54
+   },
+   "down_right": {
+    "standing_head_top_f0": 8,
+    "head_top_min": 8,
+    "head_top_median": 8.0,
+    "head_top_per_frame": [
+     8,
+     8,
+     8,
+     8,
+     8,
+     8,
+     8,
+     8
+    ],
+    "foot_y_per_frame": [
+     72,
+     71,
+     70,
+     70,
+     72,
+     72,
+     72,
+     72
+    ],
+    "lowest_foot": 72,
+    "figure_height_f0": 65,
+    "figure_height_median": 65.0,
+    "figure_height_lowest_foot_to_highest_head": 65,
+    "head_width_median": 23.0,
+    "torso_width_median": 22.5,
+    "unique_opaque_colours": 56,
+    "semi_transparent_px": 0,
+    "neighbour_diff_mean": 0.7334,
+    "loop_seam_diff_f7_f0": 0.7457,
+    "dark_outline_share_mean": 0.9003,
+    "outline_gap_px_total": 131,
+    "outline_doubles_total": 21
+   }
+  },
+  "summary": {
+   "standing_head_tops_f0": [
+    7,
+    7,
+    8,
+    8,
+    8,
+    7,
+    8,
+    8
+   ],
+   "standing_head_top_spread": 1,
+   "head_top_min_spread": 1,
+   "median_height_by_direction": [
+    65.0,
+    65.0,
+    63.0,
+    63.5,
+    65.0,
+    64.5,
+    65.0,
+    65.0
+   ],
+   "median_height_spread": 2.0,
+   "lowest_foot_by_direction": [
+    72,
+    72,
+    72,
+    72,
+    72,
+    72,
+    72,
+    72
+   ],
+   "mirror_pair_head_top_gap_f0": {
+    "left/right": 0,
+    "down_left/down_right": 1,
+    "up_left/up_right": 1
+   },
+   "largest_head_drop_between_neighbouring_directions_f0": 1
+  }
+ },
+ "rd": {
+  "rows": {
+   "down": {
+    "standing_head_top_f0": 7,
+    "head_top_min": 6,
+    "head_top_median": 7.0,
+    "head_top_per_frame": [
+     7,
+     6,
+     7,
+     9,
+     8,
+     7,
+     6,
+     7
+    ],
+    "foot_y_per_frame": [
+     72,
+     71,
+     70,
+     71,
+     72,
+     72,
+     71,
+     70
+    ],
+    "lowest_foot": 72,
+    "figure_height_f0": 66,
+    "figure_height_median": 65.5,
+    "figure_height_lowest_foot_to_highest_head": 67,
+    "head_width_median": 27.0,
+    "torso_width_median": 29.0,
+    "unique_opaque_colours": 35,
+    "semi_transparent_px": 0,
+    "neighbour_diff_mean": 0.7769,
+    "loop_seam_diff_f7_f0": 0.5175,
+    "dark_outline_share_mean": 0.9562,
+    "outline_gap_px_total": 61,
+    "outline_doubles_total": 20
+   },
+   "down_left": {
+    "standing_head_top_f0": 7,
+    "head_top_min": 7,
+    "head_top_median": 8.0,
+    "head_top_per_frame": [
+     7,
+     8,
+     9,
+     8,
+     7,
+     7,
+     8,
+     9
+    ],
+    "foot_y_per_frame": [
+     72,
+     71,
+     71,
+     70,
+     71,
+     70,
+     72,
+     72
+    ],
+    "lowest_foot": 72,
+    "figure_height_f0": 66,
+    "figure_height_median": 64.0,
+    "figure_height_lowest_foot_to_highest_head": 66,
+    "head_width_median": 26.0,
+    "torso_width_median": 22.5,
+    "unique_opaque_colours": 27,
+    "semi_transparent_px": 0,
+    "neighbour_diff_mean": 0.7675,
+    "loop_seam_diff_f7_f0": 0.9084,
+    "dark_outline_share_mean": 0.974,
+    "outline_gap_px_total": 35,
+    "outline_doubles_total": 12
+   },
+   "left": {
+    "standing_head_top_f0": 8,
+    "head_top_min": 8,
+    "head_top_median": 8.0,
+    "head_top_per_frame": [
+     8,
+     8,
+     10,
+     9,
+     8,
+     8,
+     8,
+     9
+    ],
+    "foot_y_per_frame": [
+     72,
+     72,
+     72,
+     71,
+     71,
+     71,
+     71,
+     72
+    ],
+    "lowest_foot": 72,
+    "figure_height_f0": 65,
+    "figure_height_median": 64.0,
+    "figure_height_lowest_foot_to_highest_head": 65,
+    "head_width_median": 25.0,
+    "torso_width_median": 15.0,
+    "unique_opaque_colours": 26,
+    "semi_transparent_px": 0,
+    "neighbour_diff_mean": 0.6755,
+    "loop_seam_diff_f7_f0": 0.8559,
+    "dark_outline_share_mean": 0.962,
+    "outline_gap_px_total": 49,
+    "outline_doubles_total": 18
+   },
+   "up_left": {
+    "standing_head_top_f0": 8,
+    "head_top_min": 7,
+    "head_top_median": 8.0,
+    "head_top_per_frame": [
+     8,
+     9,
+     9,
+     8,
+     7,
+     7,
+     8,
+     9
+    ],
+    "foot_y_per_frame": [
+     71,
+     72,
+     72,
+     71,
+     70,
+     70,
+     70,
+     70
+    ],
+    "lowest_foot": 72,
+    "figure_height_f0": 64,
+    "figure_height_median": 64.0,
+    "figure_height_lowest_foot_to_highest_head": 66,
+    "head_width_median": 25.0,
+    "torso_width_median": 24.5,
+    "unique_opaque_colours": 35,
+    "semi_transparent_px": 0,
+    "neighbour_diff_mean": 0.6152,
+    "loop_seam_diff_f7_f0": 0.8483,
+    "dark_outline_share_mean": 0.968,
+    "outline_gap_px_total": 42,
+    "outline_doubles_total": 13
+   },
+   "up": {
+    "standing_head_top_f0": 8,
+    "head_top_min": 8,
+    "head_top_median": 8.0,
+    "head_top_per_frame": [
+     8,
+     9,
+     8,
+     8,
+     8,
+     9,
+     8,
+     8
+    ],
+    "foot_y_per_frame": [
+     71,
+     70,
+     71,
+     71,
+     71,
+     71,
+     70,
+     71
+    ],
+    "lowest_foot": 71,
+    "figure_height_f0": 64,
+    "figure_height_median": 64.0,
+    "figure_height_lowest_foot_to_highest_head": 64,
+    "head_width_median": 25.0,
+    "torso_width_median": 27.5,
+    "unique_opaque_colours": 41,
+    "semi_transparent_px": 0,
+    "neighbour_diff_mean": 0.5919,
+    "loop_seam_diff_f7_f0": 0.5814,
+    "dark_outline_share_mean": 0.9415,
+    "outline_gap_px_total": 83,
+    "outline_doubles_total": 30
+   },
+   "up_right": {
+    "standing_head_top_f0": 8,
+    "head_top_min": 7,
+    "head_top_median": 8.0,
+    "head_top_per_frame": [
+     8,
+     9,
+     9,
+     8,
+     7,
+     7,
+     8,
+     9
+    ],
+    "foot_y_per_frame": [
+     71,
+     72,
+     72,
+     71,
+     70,
+     70,
+     70,
+     70
+    ],
+    "lowest_foot": 72,
+    "figure_height_f0": 64,
+    "figure_height_median": 64.0,
+    "figure_height_lowest_foot_to_highest_head": 66,
+    "head_width_median": 25.0,
+    "torso_width_median": 24.5,
+    "unique_opaque_colours": 35,
+    "semi_transparent_px": 0,
+    "neighbour_diff_mean": 0.6152,
+    "loop_seam_diff_f7_f0": 0.8483,
+    "dark_outline_share_mean": 0.968,
+    "outline_gap_px_total": 42,
+    "outline_doubles_total": 13
+   },
+   "right": {
+    "standing_head_top_f0": 8,
+    "head_top_min": 8,
+    "head_top_median": 8.0,
+    "head_top_per_frame": [
+     8,
+     8,
+     10,
+     9,
+     8,
+     8,
+     8,
+     9
+    ],
+    "foot_y_per_frame": [
+     72,
+     72,
+     72,
+     71,
+     71,
+     71,
+     71,
+     72
+    ],
+    "lowest_foot": 72,
+    "figure_height_f0": 65,
+    "figure_height_median": 64.0,
+    "figure_height_lowest_foot_to_highest_head": 65,
+    "head_width_median": 25.0,
+    "torso_width_median": 15.0,
+    "unique_opaque_colours": 26,
+    "semi_transparent_px": 0,
+    "neighbour_diff_mean": 0.6755,
+    "loop_seam_diff_f7_f0": 0.8559,
+    "dark_outline_share_mean": 0.962,
+    "outline_gap_px_total": 49,
+    "outline_doubles_total": 18
+   },
+   "down_right": {
+    "standing_head_top_f0": 9,
+    "head_top_min": 8,
+    "head_top_median": 9.0,
+    "head_top_per_frame": [
+     9,
+     10,
+     9,
+     8,
+     9,
+     10,
+     9,
+     9
+    ],
+    "foot_y_per_frame": [
+     70,
+     71,
+     71,
+     71,
+     72,
+     71,
+     72,
+     72
+    ],
+    "lowest_foot": 72,
+    "figure_height_f0": 62,
+    "figure_height_median": 63.5,
+    "figure_height_lowest_foot_to_highest_head": 65,
+    "head_width_median": 25.0,
+    "torso_width_median": 23.5,
+    "unique_opaque_colours": 27,
+    "semi_transparent_px": 0,
+    "neighbour_diff_mean": 0.7141,
+    "loop_seam_diff_f7_f0": 0.5849,
+    "dark_outline_share_mean": 0.9718,
+    "outline_gap_px_total": 39,
+    "outline_doubles_total": 20
+   }
+  },
+  "summary": {
+   "standing_head_tops_f0": [
+    7,
+    7,
+    8,
+    8,
+    8,
+    8,
+    8,
+    9
+   ],
+   "standing_head_top_spread": 2,
+   "head_top_min_spread": 2,
+   "median_height_by_direction": [
+    65.5,
+    64.0,
+    64.0,
+    64.0,
+    64.0,
+    64.0,
+    64.0,
+    63.5
+   ],
+   "median_height_spread": 2.0,
+   "lowest_foot_by_direction": [
+    72,
+    72,
+    72,
+    72,
+    71,
+    72,
+    72,
+    72
+   ],
+   "mirror_pair_head_top_gap_f0": {
+    "left/right": 0,
+    "down_left/down_right": 2,
+    "up_left/up_right": 0
+   },
+   "largest_head_drop_between_neighbouring_directions_f0": 2
+  }
+ }
+}

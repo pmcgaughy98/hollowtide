@@ -37,26 +37,67 @@ const PLANK := [Color("#8a6a48"), Color("#9a7853"), Color("#7c5e3f")]
 const FLAG := [Color("#a7a493"), Color("#b3ae9a"), Color("#9a9786")]
 
 
+## Paints any outdoor town area in today's coded style (Claude, 2026-10-26, placeholder factory lane C; build plan 2.3).
+## Today's Highbank ("highbank_v1") goes the way hub_town.gd's paint() goes: the blockout, Codex's ground with its
+## place painters, then paint() below, so its pixels do not change. Any other area (02-town-rewire-design.md section
+## 3.2) gets this same treatment from its own data: its ground kinds (grass, terrace, cliff, water, hedge) tile by
+## tile, its lanes as cobbles (stairs where one crosses a cliff), the Lookout's flags, the Landing's stones and the
+## Dock's planks where those places sit, the walks, wear, tufts and frayed seams, the river at its foot and the cliff
+## contour. Its buildings, landmarks and props are not in the picture: lane B's template and TownProps draw them over
+## it from their art slots. There is no ground slot; the ground stays code-painted.
+static func paint_area(area: Dictionary) -> Image:
+	if area.is_empty() or String(area.get("id", Layout.V1_AREA)) == Layout.V1_AREA:
+		var hub: Script = load("res://scripts/town/hub_town.gd")
+		return paint(load("res://scripts/town/highbank_ground_painter.gd").paint(hub.paint_blockout()))
+	if String(area.get("kind", "exterior")) != "exterior":
+		push_warning("paint_area: '%s' is an interior; its room painter draws it" % String(area.get("id", "")))
+	Tiles.lock.lock()
+	Tiles.use_area(area)
+	_drawn = []
+	_soft = _soft_rects(area)
+	var img := _paint(_area_base())
+	Tiles.use_v1()
+	_drawn = DRAWN
+	_soft = [SOFT_TILES]
+	Tiles.lock.unlock()
+	return img
+
+
+## Today's street over Codex's ground (hub_town.gd's paint() calls this): always today's map, whatever was painted last.
 static func paint(base: Image) -> Image:
+	Tiles.lock.lock()
+	Tiles.use_v1()
+	var img := _paint(base)
+	Tiles.lock.unlock()
+	return img
+
+
+static var _drawn: Array = DRAWN         # places whose ground Codex's painters drew into the base: today's map only
+static var _soft: Array = [SOFT_TILES]   # tile rects _soften works over
+
+
+## The treatment, over `base`, for the map world_tile_art.gd's view holds (Claude, 2026-10-26, lane C: what paint()
+## was, reading that view instead of town_layout.gd, so today's map paints exactly as before).
+static func _paint(base: Image) -> Image:
 	var img: Image = base.duplicate()
 	var keep := PackedByteArray()
-	keep.resize(Layout.W * Layout.H)
-	for p in Layout.PLACES:
-		if p["id"] in DRAWN:
+	keep.resize(Tiles.cols * Tiles.rows)
+	for p in Tiles.places:
+		if p["id"] in _drawn:
 			var r: Rect2i = p["rect"].grow(1)
 			for y in range(r.position.y, r.end.y):
 				for x in range(r.position.x, r.end.x):
-					if x >= 0 and y >= 0 and x < Layout.W and y < Layout.H:
-						keep[y * Layout.W + x] = 1
+					if x >= 0 and y >= 0 and x < Tiles.cols and y < Tiles.rows:
+						keep[y * Tiles.cols + x] = 1
 	# Inside Codex's places, only its plain grass and earth are repainted (from a layer of fresh ground),
 	# so its shadows, door paths and steps stay and no rectangle shows where its area ends.
 	var fresh := Image.create(img.get_width(), img.get_height(), false, Image.FORMAT_RGBA8)
 	var plain_tiles: Array[Vector2i] = []
-	for ty in Layout.H:
-		for tx in Layout.W:
-			if keep[ty * Layout.W + tx] != 1:
+	for ty in Tiles.rows:
+		for tx in Tiles.cols:
+			if keep[ty * Tiles.cols + tx] != 1:
 				continue
-			var kb := Layout.band_of(ty)
+			var kb := Tiles.band(tx, ty)
 			if _path(tx, ty) and kb != "cliff":
 				_cobbles(img, tx, ty)   # one street everywhere, through Codex's places too
 				continue
@@ -68,11 +109,11 @@ static func paint(base: Image) -> Image:
 				continue
 			plain_tiles.append(Vector2i(tx, ty))
 	var open_tiles: Array[Vector2i] = []
-	for ty in Layout.H:
-		for tx in Layout.W:
-			if keep[ty * Layout.W + tx] == 1:
+	for ty in Tiles.rows:
+		for tx in Tiles.cols:
+			if keep[ty * Tiles.cols + tx] == 1:
 				continue
-			var band := Layout.band_of(ty)
+			var band := Tiles.band(tx, ty)
 			var path := _path(tx, ty)
 			if band == "cliff":
 				if not path:
@@ -83,6 +124,8 @@ static func paint(base: Image) -> Image:
 				_river(img, tx, ty)
 			elif path:
 				_cobbles(img, tx, ty)
+			elif band == "hedge":
+				_hedge(img, tx, ty)   # an area's edge (lane C, 2026-10-26); today's map has none
 			else:
 				if band == "grass":
 					_grass(fresh, tx, ty)
@@ -95,7 +138,7 @@ static func paint(base: Image) -> Image:
 	for t in open_tiles:
 		img.blit_rect(fresh, Rect2i(t * T, Vector2i(T, T)), t * T)
 	for t in plain_tiles:
-		var kb := Layout.band_of(t.y)
+		var kb := Tiles.band(t.x, t.y)
 		for py in T:
 			for px in T:
 				var x := t.x * T + px
@@ -106,7 +149,7 @@ static func paint(base: Image) -> Image:
 	_wear(img)             # A2: worn dirt where lanes turn and at an area's step
 	_scatter(img, keep)    # A2: tufts, stones and flowers off the tiles' repeat
 	_reeds(img)
-	for p in Layout.PLACES:
+	for p in Tiles.places:
 		match p["id"]:
 			"lookout":
 				_lookout(img, p["rect"])
@@ -141,10 +184,7 @@ static func _plain(c: Color, band: String) -> bool:
 
 
 static func _path(x: int, y: int) -> bool:
-	for r in Layout.PATHS:
-		if r.has_point(Vector2i(x, y)):
-			return true
-	return false
+	return Tiles.path(x, y)
 
 
 ## Cobbles: rounded stones in offset rows, sandy mortar, grass creeping in at a lane's edge.
@@ -194,7 +234,7 @@ static func _earth(img: Image, tx: int, ty: int) -> void:
 
 ## A cliff tile: a turf lip, then bands of river sediment with stones set in, roots hanging, a dark foot.
 static func _cliff(img: Image, tx: int, ty: int) -> void:
-	if Tiles.tile(img,"cliff" if ty==18 else "cliff_b",tx,ty):return
+	if Tiles.tile(img,Tiles.cliff_art.get(ty,"cliff_b"),tx,ty):return   # today: row 18 cliff, row 24 cliff_b
 	for px in T:
 		var x := tx * T + px
 		var lip := 2 + int(R._h(x, ty, 109) * 2.5)
@@ -220,7 +260,7 @@ static func _cliff(img: Image, tx: int, ty: int) -> void:
 
 ## The river: shallow by the bank, deep further out, current lines drifting along it, a glint now and then.
 static func _river(img: Image, tx: int, ty: int) -> void:
-	var top: int = Layout.BANDS[Layout.BANDS.size() - 1]["from"]
+	var top: int = Tiles.water_top(tx, ty)   # row 30 on today's map
 	for py in T:
 		for px in T:
 			var x := tx * T + px
@@ -243,25 +283,33 @@ static func _river(img: Image, tx: int, ty: int) -> void:
 
 
 ## Reeds along the water's edge, rooted on the last row of the bank.
+## (Claude, 2026-10-26, lane C: on every bank of the painted map, where a column's water meets grass or earth; row 30
+## on today's map. A reed that would leave the picture is not drawn, which never happens on today's map.)
 static func _reeds(img: Image) -> void:
-	var y0: int = Layout.BANDS[Layout.BANDS.size() - 1]["from"] * T
+	var banks := {}   # column -> its bank rows
 	for x in range(0, img.get_width(), 3):
 		if R._h(x, 7, 117) < 0.55:
 			continue
 		var tx := x / T
-		var on_dock := false
-		for p in Layout.PLACES:
-			if p["id"] in ["dock", "landing", "gate"] and p["rect"].grow(1).has_point(Vector2i(tx, Layout.BANDS[Layout.BANDS.size() - 1]["from"] - 1)):
-				on_dock = true
-		if on_dock:
-			continue
-		var hgt := 4 + int(R._h(x, 8, 118) * 6)
-		for k in hgt:
-			var px := x + (1 if k > hgt - 3 and R._h(x, k, 119) > 0.5 else 0)
-			img.set_pixel(px, y0 + 2 - k, REED[0] if k < hgt - 2 else REED[1])
-		if R._h(x, 9, 120) > 0.7:
-			img.set_pixel(x, y0 + 1 - hgt, Color("#7a4f2e"))   # a cattail head
-			img.set_pixel(x, y0 - hgt, Color("#7a4f2e"))
+		if not banks.has(tx):
+			banks[tx] = Tiles.banks(tx)
+		for top: int in banks[tx]:
+			var y0: int = top * T
+			var on_dock := false
+			for p in Tiles.places:
+				if p["id"] in ["dock", "landing", "gate"] and p["rect"].grow(1).has_point(Vector2i(tx, top - 1)):
+					on_dock = true
+			if on_dock:
+				continue
+			var hgt := 4 + int(R._h(x, 8, 118) * 6)
+			if y0 - hgt < 0:
+				continue
+			for k in hgt:
+				var px := x + (1 if k > hgt - 3 and R._h(x, k, 119) > 0.5 else 0)
+				img.set_pixel(mini(px, img.get_width() - 1), y0 + 2 - k, REED[0] if k < hgt - 2 else REED[1])
+			if R._h(x, 9, 120) > 0.7:
+				img.set_pixel(x, y0 + 1 - hgt, Color("#7a4f2e"))   # a cattail head
+				img.set_pixel(x, y0 - hgt, Color("#7a4f2e"))
 
 
 static func _slabs(img: Image, r: Rect2i, cols: Array, salt: int) -> void:
@@ -316,7 +364,7 @@ static func _landing(img: Image, r: Rect2i) -> void:
 
 ## The Ferry Dock: planks running out over the water, gaps between them, posts at the corners.
 static func _dock(img: Image, r: Rect2i) -> void:
-	for y in range(r.position.y * T, r.end.y * T + T):
+	for y in range(r.position.y * T, mini(r.end.y * T + T, img.get_height())):
 		for x in range(r.position.x * T, r.end.x * T):
 			var board := (y - r.position.y * T) / 5
 			var c: Color = PLANK[int(R._h(board, x / 30, 124) * PLANK.size())]
@@ -347,7 +395,7 @@ const PATCH_STEP := {"grass": 0.1, "terrace": 0.085}   # brightness of one step:
 const PATCH_SAT := [1.06, 1.0, 0.96]   # saturation at the darker, plain and lighter steps
 const PATCH_SALT := 141
 const NEIGH8 := [Vector2i.UP, Vector2i.DOWN, Vector2i.LEFT, Vector2i.RIGHT, Vector2i(-1, -1), Vector2i(1, -1), Vector2i(-1, 1), Vector2i(1, 1)]
-static var _patch_masks: Array = []   # [darker, lighter]: whole-map alpha masks, built once
+static var _patch_masks := {}   # map size in tiles -> [darker, lighter]: whole-map alpha masks, built once a size
 
 
 ## The patch field at tile (x, y), 0 to 1: value noise on cells of 3 tiles, a quarter of it on cells of 1.5.
@@ -363,11 +411,11 @@ static func _patches(img: Image) -> void:
 	for i in 2:
 		var lv := -1 if i == 0 else 1
 		var stepped: Image = img.duplicate()
-		for b in Layout.BANDS:
-			if PATCH_STEP.has(b["kind"]):
-				var rows := Rect2i(0, b["from"] * T, img.get_width(), (b["to"] - b["from"] + 1) * T)
+		for run in _kind_runs():   # [px rect, kind]: one per band on today's map
+			if PATCH_STEP.has(run[1]):
+				var rows: Rect2i = run[0]
 				var part := img.get_region(rows)
-				part.adjust_bcs(1.0 + lv * PATCH_STEP[b["kind"]], 1.0, PATCH_SAT[lv + 1])
+				part.adjust_bcs(1.0 + lv * PATCH_STEP[run[1]], 1.0, PATCH_SAT[lv + 1])
 				stepped.blit_rect(part, Rect2i(Vector2i.ZERO, rows.size), rows.position)
 		img.blit_rect_mask(stepped, masks[i], Rect2i(Vector2i.ZERO, img.get_size()), Vector2i.ZERO)
 
@@ -377,15 +425,17 @@ static func _patches(img: Image) -> void:
 ## twice, a pixel's worth of field either side: everything past the outer cut, and every other pixel between the two,
 ## so a patch's edge is a dithered curve.
 static func _masks() -> Array:
-	if not _patch_masks.is_empty():
-		return _patch_masks
-	var size := Vector2i(Layout.W * T, Layout.H * T)
-	var field := Image.create(Layout.W, Layout.H, false, Image.FORMAT_L8)
-	for y in Layout.H:
-		for x in Layout.W:
+	var key := Vector2i(Tiles.cols, Tiles.rows)
+	if _patch_masks.has(key):
+		return _patch_masks[key]
+	var masks: Array = []
+	var size := Vector2i(Tiles.cols * T, Tiles.rows * T)
+	var field := Image.create(Tiles.cols, Tiles.rows, false, Image.FORMAT_L8)
+	for y in Tiles.rows:
+		for x in Tiles.cols:
 			var v := _field(x, y)
 			field.set_pixel(x, y, Color(v, v, v))
-	field.resize(Layout.W * 4, Layout.H * 4, Image.INTERPOLATE_CUBIC)
+	field.resize(Tiles.cols * 4, Tiles.rows * 4, Image.INTERPOLATE_CUBIC)
 	field.resize(size.x, size.y, Image.INTERPOLATE_BILINEAR)
 	var checker := _checker(size)
 	var clear := Image.create(size.x, size.y, false, Image.FORMAT_LA8)
@@ -397,8 +447,9 @@ static func _masks() -> Array:
 		var band := _cut(field, cut - edge, lv > 0)
 		band.blit_rect_mask(clear, checker, whole, Vector2i.ZERO)   # every other pixel of the band
 		band.blit_rect_mask(core, core, whole, Vector2i.ZERO)       # and all of the core
-		_patch_masks.append(band)
-	return _patch_masks
+		masks.append(band)
+	_patch_masks[key] = masks
+	return masks
 
 
 ## An LA8 mask, opaque where `field` (L8) is above `cut` (below it when not `above`): adjust_bcs's contrast pushes
@@ -444,7 +495,7 @@ static func _wear(img: Image) -> void:
 				if dist >= 1.0 or (dist > 0.7 and (dist - 0.7) / 0.3 > _dither(p)) or R._h(x, y, 146) > 0.92:
 					continue
 				var dirt: Color = Tiles.sample(earth, x, y) if earth != null else WORN[int(R._h(x / 2, y / 2, 138) * WORN.size())]
-				img.set_pixelv(p, dirt.lightened(0.05 if Layout.band_of(y / T) == "grass" else 0.08))
+				img.set_pixelv(p, dirt.lightened(0.05 if Tiles.band(x / T, y / T) == "grass" else 0.08))
 
 
 ## The Job Board's reading spot (Claude, 2026-10-26, pass 8 T10 / L30): world_tile_art.gd's clearings() lays the reading
@@ -457,7 +508,7 @@ const READING_RY := 10.0
 
 
 static func _reading_spot(img: Image, fresh: Image) -> void:
-	var board: Array = Layout.PLACES.filter(func(p: Dictionary) -> bool: return p["id"] == "board")
+	var board: Array = Tiles.places.filter(func(p: Dictionary) -> bool: return p["id"] == "board")
 	if board.is_empty():
 		return
 	var d: Vector2i = board[0]["door"] * T
@@ -481,16 +532,16 @@ static func _reading_spot(img: Image, fresh: Image) -> void:
 ## and the ground outside an area's door where the door is on the area's edge (the Shrine and the Yard have walks).
 static func _wear_spots() -> Array:
 	var out: Array = []
-	for ty in Layout.H:
-		for tx in Layout.W:
+	for ty in Tiles.rows:
+		for tx in Tiles.cols:
 			if not _open_ground(Vector2i(tx, ty)):
 				continue
 			for sx in [-1, 1]:
 				for sy in [-1, 1]:
-					if _path(tx + sx, ty) and _path(tx, ty + sy) and Layout.band_of(ty + sy) != "cliff":
+					if _path(tx + sx, ty) and _path(tx, ty + sy) and Tiles.band(tx, ty + sy) != "cliff":
 						var corner := Vector2((tx + maxi(sx, 0)) * T, (ty + maxi(sy, 0)) * T)
 						out.append([corner, 11.0 + R._h(tx, ty, 147) * 3.0])
-	for p in Layout.PLACES:
+	for p in Tiles.places:
 		if p["kind"] != "area" or WALKS.has(p["id"]):
 			continue
 		var door: Vector2i = p["door"]
@@ -504,12 +555,12 @@ static func _wear_spots() -> Array:
 ## stones and dry tufts on the terraces. About one quiet tile in six; never within a tile of a lane, a place, a cliff
 ## or the water (the seams copy ground across from a few px out, and would print a thing twice).
 static func _scatter(img: Image, keep: PackedByteArray) -> void:
-	for ty in Layout.H:
-		var kind := Layout.band_of(ty)
-		if kind != "grass" and kind != "terrace":
-			continue
-		for tx in Layout.W:
-			if keep[ty * Layout.W + tx] == 1 or R._h(tx, ty, 150) > (0.17 if kind == "grass" else 0.14) or not _quiet(tx, ty):
+	for ty in Tiles.rows:
+		for tx in Tiles.cols:
+			var kind := Tiles.band(tx, ty)
+			if kind != "grass" and kind != "terrace":
+				continue
+			if keep[ty * Tiles.cols + tx] == 1 or R._h(tx, ty, 150) > (0.17 if kind == "grass" else 0.14) or not _quiet(tx, ty):
 				continue
 			var p := Vector2i(tx * T + 5 + int(R._h(tx, ty, 151) * 13.0), ty * T + 7 + int(R._h(tx, ty, 152) * 12.0))
 			var roll := R._h(tx, ty, 153)
@@ -578,7 +629,7 @@ const JOINT := Color("#807559")         # the ground painter's road joint
 static func _bridges(img: Image, fresh: Image) -> void:
 	var lane := Tiles.image("lane")
 	var earth := Tiles.image("earth")
-	for p in Layout.PLACES:
+	for p in Tiles.places:
 		if not WALKS.has(p["id"]):
 			continue
 		var w: Dictionary = WALKS[p["id"]]
@@ -646,14 +697,14 @@ const BAYER := [0, 8, 2, 10, 12, 4, 14, 6, 3, 11, 1, 9, 15, 7, 13, 5]   # 4 x 4 
 
 static func _fray(img: Image) -> void:
 	var src: Image = img.duplicate()   # every copy reads the picture as it was before this pass
-	for ty in Layout.H:
-		for tx in Layout.W:
-			if not _path(tx, ty) or Layout.band_of(ty) == "cliff" or _in_place(Vector2i(tx, ty)):
+	for ty in Tiles.rows:
+		for tx in Tiles.cols:
+			if not _path(tx, ty) or Tiles.band(tx, ty) == "cliff" or _in_place(Vector2i(tx, ty)):
 				continue
 			for d in SIDES:
 				if _open_ground(Vector2i(tx, ty) + d):
 					_fray_side(img, src, Vector2i(tx, ty), d, 0)
-	for p in Layout.PLACES:
+	for p in Tiles.places:
 		if p["id"] in ["lookout", "landing"]:
 			var r: Rect2i = p["rect"]
 			for ty in range(r.position.y, r.end.y):
@@ -668,16 +719,13 @@ static func _fray(img: Image) -> void:
 
 ## Open ground a seam can fray into: on the map, grass or terrace, no lane and no place's own art.
 static func _open_ground(t: Vector2i) -> bool:
-	if t.x < 0 or t.y < 0 or t.x >= Layout.W or t.y >= Layout.H:
+	if t.x < 0 or t.y < 0 or t.x >= Tiles.cols or t.y >= Tiles.rows:
 		return false
-	return Layout.band_of(t.y) in ["grass", "terrace"] and not _path(t.x, t.y) and not _in_place(t)
+	return Tiles.band(t.x, t.y) in ["grass", "terrace"] and not _path(t.x, t.y) and not _in_place(t)
 
 
 static func _in_place(t: Vector2i) -> bool:
-	for p in Layout.PLACES:
-		if p["rect"].has_point(t):
-			return true
-	return false
+	return Tiles.in_place(t.x, t.y)
 
 
 ## Smooth value noise along a seam, 0 to 1, over cells `cell` px long.
@@ -700,7 +748,7 @@ static func _fray_side(img: Image, src: Image, t: Vector2i, d: Vector2i, salt: i
 	var across := Vector2i(absi(d.y), absi(d.x))   # runs along the seam
 	var edge: Vector2i = t * T + Vector2i(T - 1 if d.x > 0 else 0, T - 1 if d.y > 0 else 0)   # the paving's outer pixel row
 	var line: int = edge.y if d.y != 0 else 50000 + edge.x   # one seam, one noise, across tile joins
-	var grassy := Layout.band_of((t + d).y) == "grass"
+	var grassy := Tiles.band((t + d).x, (t + d).y) == "grass"
 	for i in T:
 		var e: Vector2i = edge + across * i
 		var g: int = e.x if across.x == 1 else e.y
@@ -723,7 +771,8 @@ static func _fray_side(img: Image, src: Image, t: Vector2i, d: Vector2i, salt: i
 			var green := _at(src, e + d * FRAY_SHIFT)
 			for k in grow:
 				var at: Vector2i = e - d * (root + 1 + k) + (lean if k == grow - 1 and grow > 1 else Vector2i.ZERO)
-				img.set_pixelv(at, green.lightened(0.16) if k == grow - 1 else green.darkened(0.05))
+				if at.x >= 0 and at.y >= 0 and at.x < img.get_width() and at.y < img.get_height():   # an area's edge (lane C)
+					img.set_pixelv(at, green.lightened(0.16) if k == grow - 1 else green.darkened(0.05))
 		elif not grassy and tuft > 0.8 and R._h(g, line, 136 + salt) > 0.5:
 			img.set_pixelv(e - d * (ceili(o) + 1), GRAVEL)   # grit kicked onto the stones
 
@@ -737,7 +786,7 @@ static func _at(src: Image, p: Vector2i) -> Color:
 ## (those not under a place) face ground, where no other lane turns off beside it.
 static func _lane_ends() -> Array:
 	var out: Array = []
-	for r in Layout.PATHS:
+	for r in Tiles.paths:
 		if r.size.x == r.size.y:
 			continue
 		var along := Vector2i(1, 0) if r.size.x > r.size.y else Vector2i(0, 1)
@@ -819,8 +868,16 @@ const K_PAVED := 2        # cobble, mortar, packed dirt: the warm ground
 
 
 static func _soften(img: Image) -> void:
-	var area := Rect2i(SOFT_TILES.position * T, SOFT_TILES.size * T)
+	for soft: Rect2i in _soft:   # SOFT_TILES on today's map (lane C, 2026-10-26: an area names its own)
+		_soften_in(img, soft)
+
+
+static func _soften_in(img: Image, tiles: Rect2i) -> void:
 	var pad := SOFT_REACH + SOFT_SHIFT + SOFT_CLEAN + 1
+	# Kept a pad inside the picture, so an edge read never runs off it (an area's rect may touch its side; today's does not).
+	var area := Rect2i(tiles.position * T, tiles.size * T).intersection(Rect2i(Vector2i(pad, pad), img.get_size() - Vector2i(2 * pad, 2 * pad)))
+	if not area.has_area():
+		return
 	var span := area.grow(pad).intersection(Rect2i(Vector2i.ZERO, img.get_size()))
 	var solid := _solid_mask(span)
 	for across in [Vector2i(0, 1), Vector2i(1, 0)]:   # (0, 1): edges between a row and the next, so lines run along x
@@ -882,7 +939,7 @@ static func _kind(kinds: PackedByteArray, span: Rect2i, p: Vector2i) -> int:
 static func _solid_mask(span: Rect2i) -> PackedByteArray:
 	var out := PackedByteArray()
 	out.resize(span.size.x * span.size.y)
-	for p in Layout.PLACES:
+	for p in Tiles.places:
 		if p["kind"] != "building":
 			continue
 		var r := Rect2i(p["rect"].position * T, p["rect"].size * T).intersection(span)
@@ -939,25 +996,132 @@ static func _move_edge(img: Image, src: Image, kinds: PackedByteArray, span: Rec
 ## The cliff ledges' contour (world_finish.gd's sel-out on its cliff mask), run on the two cliff rows alone instead
 ## of the whole map: the same pixels, a fraction of the work (Claude, 2026-10-23, T1).
 static func _cliff_contour(img: Image) -> Image:
-	if img.get_size() != Vector2i(Layout.W * T, Layout.H * T):
+	if img.get_size() != Vector2i(Tiles.cols * T, Tiles.rows * T):
 		return img
 	var out: Image = img.duplicate()
-	for b in Layout.BANDS:
-		if b["kind"] != "cliff":
-			continue
-		var y0: int = maxi(0, b["from"] * T - 3)
-		var y1: int = mini(img.get_height(), (b["to"] + 1) * T + 3)
+	for run in _cliff_runs():   # [first row, last row]: the two cliff bands on today's map
+		var y0: int = maxi(0, run[0] * T - 3)
+		var y1: int = mini(img.get_height(), (run[1] + 1) * T + 3)
 		var strip := Rect2i(0, y0, img.get_width(), y1 - y0)
 		var mask := Image.create(strip.size.x, strip.size.y, false, Image.FORMAT_RGBA8)
 		mask.fill(Color.BLACK)
-		mask.fill_rect(Rect2i(0, b["from"] * T - y0, strip.size.x, (b["to"] - b["from"] + 1) * T), Color.WHITE)
-		for r in Layout.PATHS:   # the stair channels divide the ledge
+		for ty in range(run[0], run[1] + 1):
+			for tx in Tiles.cols:
+				if Tiles.band(tx, ty) == "cliff":
+					mask.fill_rect(Rect2i(tx * T, ty * T - y0, T, T), Color.WHITE)
+		for r in Tiles.paths:   # the stair channels divide the ledge
 			mask.fill_rect(Rect2i(r.position.x * T, r.position.y * T - y0, r.size.x * T, r.size.y * T), Color.BLACK)
 		var rimmed: Image = SelOut.selout(img.get_region(strip), mask)
 		out.blit_rect(rimmed, Rect2i(Vector2i.ZERO, strip.size), strip.position)
-		for p in Layout.PLACES:   # a place and the tile round it keep their own pixels, as world_finish.gd does
+		for p in Tiles.places:   # a place and the tile round it keep their own pixels, as world_finish.gd does
 			var g: Rect2i = p["rect"].grow(1)
 			var keep := Rect2i(g.position * T, g.size * T).intersection(strip)
 			if keep.has_area():
 				out.blit_rect(img, keep, keep.position)
 	return out
+
+
+# ---------------------------------------------------------------- any outdoor area (Claude, 2026-10-26, placeholder factory lane C)
+## The ground under an area before the treatment: each tile's kind in a flat tone, and stair treads where a lane
+## crosses a cliff, as Codex's ground has them on today's map. _paint lays every tile over this; it only shows where a
+## Codex material is missing.
+const FLAT := {"grass": Color("#637849"), "terrace": Color("#8b7c5b"), "cliff": Color("#8d7452"), "water": Color("#466d66"), "hedge": Color("#3e6229")}
+
+
+static func _area_base() -> Image:
+	var img := Image.create(Tiles.cols * T, Tiles.rows * T, false, Image.FORMAT_RGBA8)
+	for ty in Tiles.rows:
+		for tx in Tiles.cols:
+			var kind := Tiles.band(tx, ty)
+			img.fill_rect(Rect2i(tx * T, ty * T, T, T), FLAT[kind])
+			if kind == "cliff" and _path(tx, ty):
+				for k in 4:
+					img.fill_rect(Rect2i(tx * T + 2, ty * T + k * 6, T - 4, 2), Color("#d0b891"))
+					img.fill_rect(Rect2i(tx * T + 2, ty * T + k * 6 + 4, T - 4, 2), Color("#665a45"))
+	return img
+
+
+## Where _soften works on an area: the tile rects its ground's "soft" list names (SOFT_TILES is that list on today's
+## map; an empty list softens nothing), else the Crossroads and the Job Board's reading spot with a tile round each: the
+## edges that met the grass on ruled lines below the Hall today.
+static func _soft_rects(area: Dictionary) -> Array:
+	var g: Dictionary = area.get("ground", {})
+	if g.get("soft") is Rect2i:
+		return [g["soft"]]
+	if g.get("soft") is Array:
+		return (g["soft"] as Array).filter(func(r: Variant) -> bool: return r is Rect2i)
+	var out := []
+	for p in Tiles.places:
+		if p["id"] in ["plaza", "board"]:
+			var r: Rect2i = Rect2i(p["rect"]).merge(Rect2i(p["door"], Vector2i.ONE)).grow(1)
+			out.append(r.intersection(Rect2i(0, 0, Tiles.cols, Tiles.rows)))
+	return out
+
+
+## The map's ground as pixel rects of one kind each: per row the runs of one kind, and rows whose runs match joined
+## (on today's map, one rect per band, as Layout.BANDS lists them).
+static func _kind_runs() -> Array:
+	var out := []
+	var prev := ""
+	var open := []   # [first column, end column, kind] of the rows being joined
+	var from := 0
+	for ty in Tiles.rows + 1:
+		var runs := []
+		if ty < Tiles.rows:
+			var x0 := 0
+			for tx in range(1, Tiles.cols + 1):
+				if tx == Tiles.cols or Tiles.band(tx, ty) != Tiles.band(x0, ty):
+					runs.append([x0, tx, Tiles.band(x0, ty)])
+					x0 = tx
+		var key := str(runs)
+		if key != prev:
+			for r in open:
+				out.append([Rect2i(r[0] * T, from * T, (r[1] - r[0]) * T, (ty - from) * T), r[2]])
+			open = runs
+			prev = key
+			from = ty
+	return out
+
+
+## The runs of rows that hold a cliff: [first row, last row] each ([18, 18] and [24, 24] on today's map).
+static func _cliff_runs() -> Array:
+	var out := []
+	var first := -1
+	for ty in Tiles.rows + 1:
+		var cliff: bool = ty < Tiles.rows and Tiles.cliff_art.has(ty)
+		if cliff and first < 0:
+			first = ty
+		elif not cliff and first >= 0:
+			out.append([first, ty - 1])
+			first = -1
+	return out
+
+
+## A hedge: the meadow's greens a step down in round clumps, each lit on its upper left and shaded to its lower right,
+## a dark foot where it meets the ground and the odd berry. Solid, as a cliff is. Today's map has none; an area may be
+## edged with one (02-town-rewire-design.md section 6).
+const HEDGE := [Color("#2f4a22"), Color("#3e6229"), Color("#4f7a36"), Color("#5b8a3c"), Color("#67974a")]   # deep to lit
+
+
+static func _hedge(img: Image, tx: int, ty: int) -> void:
+	for py in T:
+		for px in T:
+			var x := tx * T + px
+			var y := ty * T + py
+			var n := R._noise(x, y, 6.0, 190)
+			var slope := n - R._noise(x + 2, y + 2, 6.0, 190)   # rising toward the upper left: the lit side of a clump
+			var k := 1 if n < 0.45 else 2
+			if slope > 0.07:
+				k += 2 if slope > 0.14 else 1
+			elif slope < -0.07:
+				k -= 1
+			var arc := absi(posmod(x, 9) - 4)   # 0 under a bush's middle, 4 where two bushes meet
+			var foot: int = T - [1, 1, 1, 2, 4][arc]   # each bush rounds down to its middle
+			if py >= foot:
+				k = 0   # the dark foot between and under the bushes
+			elif py == foot - 1 and k > 1:
+				k = 1   # the underside of the bush, turning away from the light
+			var c: Color = HEDGE[clampi(k, 0, HEDGE.size() - 1)]
+			if k >= 2 and R._h(x, y, 191) > 0.994:
+				c = V.FLOWERS[0]   # a berry
+			img.set_pixel(x, y, c)

@@ -1,0 +1,64 @@
+{
+	"alpha": "binary",
+	"anchor": [
+		24,
+		55
+	],
+	"anchor_mode": "foot",
+	"area": "town",
+	"brief": "The Tower Rise well where the team waits: a round river-stone well with a small timber roof and a bucket. No ground shadow: the game draws it.",
+	"census": "R02",
+	"checks": [
+		"C1",
+		"C12",
+		"C2",
+		"C3",
+		"C4",
+		"C5",
+		"C7",
+		"C8",
+		"C9"
+	],
+	"drawn_at": 3,
+	"edges": "bottom",
+	"file": "res://assets/slots/town/prop/well.png",
+	"forbid": [
+		"text",
+		"creature",
+		"franchise"
+	],
+	"frames": 1,
+	"id": "town.prop.well",
+	"kind": "prop",
+	"lane": "C",
+	"legacy": "",
+	"light": "upper_left",
+	"notes": "2x2 solid; Preston call 7: a prop only",
+	"outline": "drawn",
+	"owner": "grok",
+	"palette": {
+		"family": "town_stone",
+		"lock": false,
+		"max": 24,
+		"source": "res://assets/slots/palettes/town_stone.png"
+	},
+	"placeholder": "res://scripts/art/placeholders/street_props.gd:well",
+	"rows": 1,
+	"sheet_size": [
+		48,
+		56
+	],
+	"size": [
+		48,
+		56
+	],
+	"slot_file": "town_street",
+	"states": {
+		"static": [
+			1,
+			0
+		]
+	},
+	"status": "placeholder",
+	"tiling": "none"
+}

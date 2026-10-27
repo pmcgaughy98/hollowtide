@@ -24,7 +24,7 @@ const STARWARD_IN := [
 ]
 const SIZE_UP := [
 	["Starward", "A stray, out of the clay the night the river rose. Hm.", "surprised"],
-	["Starward", "The routes are washed out and my Hall is empty. I can spare one parcel. A short run.", "determined"],
+	["Starward", "The routes are washed out and my Tower is empty. I can spare one parcel. A short run.", "determined"],
 	["Starward", "Deliver it, and you are both runners of the Wayline.", "happy"],
 ]
 const HAND_OVER := [

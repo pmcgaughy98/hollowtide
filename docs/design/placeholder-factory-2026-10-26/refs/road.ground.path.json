@@ -1,0 +1,65 @@
+{
+	"alpha": "opaque",
+	"anchor": [
+		0,
+		0
+	],
+	"anchor_mode": "tiled",
+	"area": "road",
+	"brief": "The trail seen from the side: a grass verge at the back, a band of churned mud (rows 4 to 21) with cart ruts and rain puddles holding the sky, then a grassy slope down to the bottom. The party's feet stand on row 10. Tiles left to right.",
+	"census": "new",
+	"checks": [
+		"C1",
+		"C2",
+		"C3",
+		"C5",
+		"C6",
+		"C9"
+	],
+	"drawn_at": 3,
+	"edges": "all",
+	"file": "res://assets/slots/road/ground/path.png",
+	"forbid": [
+		"text",
+		"creature",
+		"franchise"
+	],
+	"frames": 1,
+	"id": "road.ground.path",
+	"kind": "ground",
+	"lane": "S",
+	"legacy": "",
+	"light": "upper_left",
+	"notes": "parallax 1 (moves with the party and the props)",
+	"outline": "none",
+	"owner": "codex",
+	"palette": {
+		"family": "dawn",
+		"lock": false,
+		"max": 24,
+		"source": "res://assets/slots/palettes/dawn.png"
+	},
+	"place_at": [
+		0,
+		136
+	],
+	"placeholder": "res://scripts/story/route_scene.gd:paint_slot",
+	"rows": 1,
+	"sheet_size": [
+		192,
+		80
+	],
+	"size": [
+		192,
+		80
+	],
+	"slot_file": "route",
+	"states": {
+		"static": [
+			1,
+			0
+		]
+	},
+	"status": "placeholder",
+	"tiling": "h"
+}

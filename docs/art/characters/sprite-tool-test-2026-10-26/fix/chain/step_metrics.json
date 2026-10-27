@@ -1,0 +1,1484 @@
+{
+ "raw": "C:\\Users\\pmcga\\dev\\hollowtide\\docs\\art\\characters\\sprite-tool-test-2026-10-26\\pixellab_courier_walk_native80.png",
+ "order": [
+  "headlock",
+  "height",
+  "legs",
+  "satchel",
+  "bob",
+  "colour"
+ ],
+ "bob_keep_rows": [
+  "down",
+  "up"
+ ],
+ "steps": [
+  {
+   "step": "raw",
+   "file": "C:\\Users\\pmcga\\dev\\hollowtide\\docs\\art\\characters\\sprite-tool-test-2026-10-26\\fix\\chain\\00_raw.png",
+   "headline": {
+    "colours_whole_set": 137,
+    "colours_per_row": [
+     40,
+     58,
+     61,
+     55,
+     55,
+     56,
+     60,
+     56
+    ],
+    "colours_per_frame_max": [
+     40,
+     58,
+     58,
+     54,
+     52,
+     54,
+     57,
+     55
+    ],
+    "palette_px_weighted": [
+     1.99,
+     6.83,
+     5.62,
+     3.68,
+     2.86,
+     3.23,
+     4.91,
+     5.78
+    ],
+    "dark_outline_share": [
+     0.9113,
+     0.985,
+     0.967,
+     0.9932,
+     0.9844,
+     0.9426,
+     0.9789,
+     0.8985
+    ],
+    "head_top_f0": [
+     7,
+     7,
+     10,
+     8,
+     8,
+     7,
+     11,
+     10
+    ],
+    "highest_head_top": [
+     7,
+     7,
+     10,
+     8,
+     8,
+     7,
+     11,
+     10
+    ],
+    "bob_range": [
+     0,
+     0,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0
+    ],
+    "head_redraw_aligned": [
+     0.523,
+     0.53,
+     0.577,
+     0.258,
+     0.268,
+     0.312,
+     0.55,
+     0.579
+    ],
+    "blue_eye_px_total": {
+     "down": 0,
+     "down_left": 0,
+     "left": 22,
+     "up_left": 0,
+     "up": 0,
+     "up_right": 0,
+     "right": 16,
+     "down_right": 16
+    },
+    "bag_min_mean": {
+     "down": [
+      2.1,
+      24.5
+     ],
+     "down_left": [
+      3.4,
+      23.3
+     ],
+     "left": [
+      8.9,
+      33.5
+     ],
+     "up_left": [
+      8.9,
+      13.0
+     ],
+     "up": [
+      3.8,
+      7.0
+     ],
+     "up_right": [
+      11.4,
+      14.9
+     ],
+     "down_right": [
+      0.0,
+      16.5
+     ]
+    },
+    "legs": {
+     "down": [
+      8,
+      4,
+      0.0347
+     ],
+     "up": [
+      8,
+      3,
+      0.0072
+     ]
+    },
+    "maroon": {
+     "up": [
+      2,
+      4,
+      0,
+      0,
+      0,
+      0,
+      5,
+      3
+     ],
+     "up_right": [
+      5,
+      2,
+      0,
+      5,
+      1,
+      0,
+      0,
+      3
+     ],
+     "right": [
+      0,
+      4,
+      0,
+      0,
+      0,
+      24,
+      24,
+      9
+     ]
+    },
+    "lowest_foot": [
+     72,
+     72,
+     72,
+     72,
+     72,
+     72,
+     72,
+     72
+    ],
+    "alpha_values": [
+     0,
+     255
+    ],
+    "edge_touch": 0,
+    "holes_px": 6,
+    "loop_seam_ratio": [
+     1.218,
+     1.072,
+     1.055,
+     0.982,
+     1.174,
+     0.949,
+     1.007,
+     1.02
+    ]
+   }
+  },
+  {
+   "step": "headlock",
+   "file": "C:\\Users\\pmcga\\dev\\hollowtide\\docs\\art\\characters\\sprite-tool-test-2026-10-26\\fix\\chain\\01_headlock.png",
+   "seconds": 7.5,
+   "changed_px_per_row": {
+    "down": 1706,
+    "down_left": 1657,
+    "left": 2631,
+    "up_left": 656,
+    "up": 809,
+    "up_right": 873,
+    "right": 2526,
+    "down_right": 3084
+   },
+   "alpha_values": [
+    0,
+    255
+   ],
+   "stdout_tail": [
+    "up_right    master frame6    offsets [(0, 0), (1, 0), (1, 0), (0, 0), (0, 0), (1, 0), (0, 0), (0, 0)] holes 19 relined 0",
+    "right       master rotation  offsets [(2, 0), (2, 0), (2, 0), (2, 0), (2, 0), (2, 0), (2, 0), (2, 0)] holes 40 relined 1",
+    "down_right  master rotation  offsets [(0, 2), (0, 2), (0, 2), (0, 2), (0, 2), (0, 2), (0, 2), (0, 2)] holes 33 relined 0"
+   ],
+   "headline": {
+    "colours_whole_set": 131,
+    "colours_per_row": [
+     40,
+     58,
+     58,
+     54,
+     55,
+     56,
+     58,
+     55
+    ],
+    "colours_per_frame_max": [
+     40,
+     57,
+     58,
+     54,
+     52,
+     54,
+     57,
+     54
+    ],
+    "palette_px_weighted": [
+     2.02,
+     6.77,
+     4.12,
+     3.74,
+     2.79,
+     3.2,
+     3.57,
+     4.8
+    ],
+    "dark_outline_share": [
+     0.922,
+     0.9781,
+     0.9769,
+     0.9947,
+     0.9851,
+     0.9287,
+     0.9814,
+     0.9354
+    ],
+    "head_top_f0": [
+     7,
+     7,
+     9,
+     8,
+     8,
+     7,
+     10,
+     9
+    ],
+    "highest_head_top": [
+     7,
+     7,
+     9,
+     8,
+     8,
+     7,
+     10,
+     9
+    ],
+    "bob_range": [
+     0,
+     0,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0
+    ],
+    "head_redraw_aligned": [
+     0.006,
+     0.017,
+     0.008,
+     0.008,
+     0.021,
+     0.021,
+     0.012,
+     0.012
+    ],
+    "blue_eye_px_total": {
+     "down": 0,
+     "down_left": 0,
+     "left": 0,
+     "up_left": 0,
+     "up": 0,
+     "up_right": 0,
+     "right": 0,
+     "down_right": 0
+    },
+    "bag_min_mean": {
+     "down": [
+      2.1,
+      24.5
+     ],
+     "down_left": [
+      3.4,
+      23.3
+     ],
+     "left": [
+      8.9,
+      33.5
+     ],
+     "up_left": [
+      8.9,
+      13.0
+     ],
+     "up": [
+      3.8,
+      7.0
+     ],
+     "up_right": [
+      11.4,
+      14.9
+     ],
+     "down_right": [
+      0.0,
+      16.5
+     ]
+    },
+    "legs": {
+     "down": [
+      8,
+      4,
+      0.0347
+     ],
+     "up": [
+      8,
+      3,
+      0.0072
+     ]
+    },
+    "maroon": {
+     "up": [
+      2,
+      4,
+      0,
+      0,
+      0,
+      0,
+      5,
+      3
+     ],
+     "up_right": [
+      5,
+      2,
+      0,
+      5,
+      1,
+      0,
+      0,
+      3
+     ],
+     "right": [
+      0,
+      4,
+      0,
+      0,
+      0,
+      24,
+      24,
+      9
+     ]
+    },
+    "lowest_foot": [
+     72,
+     72,
+     72,
+     72,
+     72,
+     72,
+     72,
+     72
+    ],
+    "alpha_values": [
+     0,
+     255
+    ],
+    "edge_touch": 0,
+    "holes_px": 8,
+    "loop_seam_ratio": [
+     1.668,
+     1.245,
+     1.289,
+     0.968,
+     1.36,
+     0.837,
+     0.986,
+     0.994
+    ]
+   }
+  },
+  {
+   "step": "height",
+   "file": "C:\\Users\\pmcga\\dev\\hollowtide\\docs\\art\\characters\\sprite-tool-test-2026-10-26\\fix\\chain\\02_height.png",
+   "seconds": 0.4,
+   "changed_px_per_row": {
+    "down": 0,
+    "down_left": 0,
+    "left": 3013,
+    "up_left": 0,
+    "up": 0,
+    "up_right": 0,
+    "right": 5192,
+    "down_right": 5696
+   },
+   "alpha_values": [
+    0,
+    255
+   ],
+   "stdout_tail": [
+    " },",
+    " \"target_head_top\": 8",
+    "}"
+   ],
+   "headline": {
+    "colours_whole_set": 131,
+    "colours_per_row": [
+     40,
+     58,
+     58,
+     54,
+     55,
+     56,
+     58,
+     55
+    ],
+    "colours_per_frame_max": [
+     40,
+     57,
+     58,
+     54,
+     52,
+     54,
+     57,
+     54
+    ],
+    "palette_px_weighted": [
+     2.02,
+     6.77,
+     4.12,
+     3.74,
+     2.79,
+     3.2,
+     3.54,
+     4.78
+    ],
+    "dark_outline_share": [
+     0.922,
+     0.9781,
+     0.9772,
+     0.9947,
+     0.9851,
+     0.9287,
+     0.9818,
+     0.9362
+    ],
+    "head_top_f0": [
+     7,
+     7,
+     8,
+     8,
+     8,
+     7,
+     8,
+     8
+    ],
+    "highest_head_top": [
+     7,
+     7,
+     8,
+     8,
+     8,
+     7,
+     8,
+     8
+    ],
+    "bob_range": [
+     0,
+     0,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0
+    ],
+    "head_redraw_aligned": [
+     0.006,
+     0.017,
+     0.008,
+     0.008,
+     0.021,
+     0.021,
+     0.012,
+     0.012
+    ],
+    "blue_eye_px_total": {
+     "down": 0,
+     "down_left": 0,
+     "left": 0,
+     "up_left": 0,
+     "up": 0,
+     "up_right": 0,
+     "right": 0,
+     "down_right": 0
+    },
+    "bag_min_mean": {
+     "down": [
+      2.1,
+      24.5
+     ],
+     "down_left": [
+      3.4,
+      23.3
+     ],
+     "left": [
+      10.7,
+      18.8
+     ],
+     "up_left": [
+      8.9,
+      13.0
+     ],
+     "up": [
+      3.8,
+      7.0
+     ],
+     "up_right": [
+      11.4,
+      14.9
+     ],
+     "down_right": [
+      0.0,
+      16.5
+     ]
+    },
+    "legs": {
+     "down": [
+      8,
+      4,
+      0.0347
+     ],
+     "up": [
+      8,
+      3,
+      0.0072
+     ]
+    },
+    "maroon": {
+     "up": [
+      2,
+      4,
+      0,
+      0,
+      0,
+      0,
+      5,
+      3
+     ],
+     "up_right": [
+      5,
+      2,
+      0,
+      5,
+      1,
+      0,
+      0,
+      3
+     ],
+     "right": [
+      0,
+      4,
+      0,
+      0,
+      0,
+      25,
+      29,
+      9
+     ]
+    },
+    "lowest_foot": [
+     72,
+     72,
+     72,
+     72,
+     72,
+     72,
+     72,
+     72
+    ],
+    "alpha_values": [
+     0,
+     255
+    ],
+    "edge_touch": 0,
+    "holes_px": 8,
+    "loop_seam_ratio": [
+     1.668,
+     1.245,
+     1.286,
+     0.968,
+     1.36,
+     0.837,
+     0.987,
+     0.994
+    ]
+   }
+  },
+  {
+   "step": "legs",
+   "file": "C:\\Users\\pmcga\\dev\\hollowtide\\docs\\art\\characters\\sprite-tool-test-2026-10-26\\fix\\chain\\03_legs.png",
+   "seconds": 1.0,
+   "changed_px_per_row": {
+    "down": 5669,
+    "down_left": 0,
+    "left": 0,
+    "up_left": 0,
+    "up": 6187,
+    "up_right": 0,
+    "right": 0,
+    "down_right": 0
+   },
+   "alpha_values": [
+    0,
+    255
+   ],
+   "stdout_tail": [
+    "{\"down\": {\"input_hip\": [49, 49, 49, 49, 49, 49, 49, 49], \"input_hip_found\": [49, 49, 49, 49, 49, 49, 49, 49], \"input_top\": [7, 7, 7, 7, 7, 7, 7, 7], \"input_bob\": [0, 0, 0, 0, 0, 0, 0, 0], \"input_hip_base\": 49, \"rd_hip\": [49, 48, 49, 50, 49, 48, 47, 48], \"rd_hip_found\": [49, 48, 49, 50, 49, 48, 47, 48], \"rd_top\": [7, 6, 7, 9, 8, 7, 6, 7], \"rd_bob\": [0, -1, 0, 2, 1, 0, -1, 0], \"rd_hip_base\": 48, \"input_box\": [[33, 51], [32, 48], [32, 48], [32, 48], [33, 49], [33, 49], [33, 49], [33, 49]], \"rd_box\": [[31, 48], [30, 48], [31, 48], [31, 48], [31, 49], [31, 49], [31, 50], [31, 50]], \"ground_input\": 72, \"ground_rd\": 72, \"x_shift\": 1, \"y_shift_legs\": 0, \"rd_hand_pixels\": {\"left\": [16, 5, 1, 3, 11, 20, 22, 20], \"right\": [11, 15, 20, 21, 12, 3, 1, 1]}, \"input_arm_phase\": [-0.46, -1.07, -0.4, -0.67, 0.27, -0.05, 1.65, 0.73], \"input_arm_swing_rows\": 2.72, \"arms\": \"frozen in the input: each hand moved 1 px with RD's hand timing\", \"hand_dy\": {\"left\": [1, -1, -1, -1, -1, 1, 1, 1], \"right\": [-1, 1, 1, 1, 1, -1, -1, -1]}, \"upper_body_frame_offset\": 0, \"upper_body_dy\": [0, -1, 0, 2, 1, 0, -1, 0], \"rows_fitted_at_thigh\": [0, 0, 0, -1, -1, -1, -1, -1], \"rd_pixels_extruded_under_bag\": [25, 27, 22, 31, 25, 28, 37, 36], \"holes_filled\": [0, 0, 0, 4, 2, 0, 5, 3], \"edge_pixels_outlined\": [6, 3, 5, 5, 3, 5, 2, 1]}, \"up\": {\"input_hip\": [53, 53, 53, 53, 53, 53, 54, 53], \"input_hip_found\": [52, 53, 53, 53, 52, 53, 53, 53], \"input_top\": [8, 8, 8, 8, 8, 8, 9, 8], \"input_bob\": [0, 0, 0, 0, 0, 0, 1, 0], \"input_hip_base\": 53, \"rd_hip\": [52, 52, 51, 51, 51, 52, 51, 51], \"rd_hip_found\": [52, 54, 51, 51, 51, 52, 51, 51], \"rd_top\": [8, 9, 8, 8, 8, 9, 8, 8], \"rd_bob\": [0, 1, 0, 0, 0, 1, 0, 0], \"rd_hip_base\": 51, \"input_box\": [[34, 48], [34, 48], [34, 48], [34, 48], [34, 48], [33, 47], [33, 46], [32, 47]], \"rd_box\": [[31, 48], [31, 48], [30, 47], [30, 47], [31, 47], [30, 47], [31, 48], [31, 48]], \"ground_input\": 72, \"ground_rd\": 71, \"x_shift\": 2, \"y_shift_legs\": 1, \"rd_hand_pixels\": {\"left\": [13, 13, 6, 2, 4, 2, 8, 8], \"right\": [6, 7, 13, 15, 14, 15, 8, 4]}, \"input_arm_phase\": [6.81, 4.17, 4.59, 7.7, -0.39, -6.2, -9.95, -6.73], \"input_arm_swing_rows\": 17.65, \"arms\": \"re-timed: output frame f uses the input's upper body from frame (f + 2) % 8\", \"retime_scores\": {\"0\": -1.9, \"1\": 226.5, \"2\": 365.4, \"3\": 221.4, \"4\": 25.6, \"5\": -247.5, \"6\": -382.7, \"7\": -206.7}, \"upper_body_frame_offset\": 2, \"upper_body_dy\": [0, 1, 0, 0, -1, 1, 0, 0], \"rows_fitted_at_thigh\": [0, -1, -1, -1, -1, -1, -1, -1], \"rd_pixels_extruded_under_bag\": [30, 48, 44, 41, 38, 43, 39, 41], \"holes_filled\": [4, 1, 5, 10, 4, 0, 3, 3], \"edge_pixels_outlined\": [11, 5, 5, 7, 4, 8, 8, 7]}}"
+   ],
+   "headline": {
+    "colours_whole_set": 131,
+    "colours_per_row": [
+     40,
+     58,
+     58,
+     54,
+     55,
+     56,
+     58,
+     55
+    ],
+    "colours_per_frame_max": [
+     40,
+     57,
+     58,
+     54,
+     51,
+     54,
+     57,
+     54
+    ],
+    "palette_px_weighted": [
+     2.16,
+     6.77,
+     4.12,
+     3.74,
+     2.58,
+     3.2,
+     3.54,
+     4.78
+    ],
+    "dark_outline_share": [
+     0.9333,
+     0.9781,
+     0.9772,
+     0.9947,
+     0.9866,
+     0.9287,
+     0.9818,
+     0.9362
+    ],
+    "head_top_f0": [
+     7,
+     7,
+     8,
+     8,
+     8,
+     7,
+     8,
+     8
+    ],
+    "highest_head_top": [
+     6,
+     7,
+     8,
+     8,
+     8,
+     7,
+     8,
+     8
+    ],
+    "bob_range": [
+     3,
+     0,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0
+    ],
+    "head_redraw_aligned": [
+     0.006,
+     0.017,
+     0.008,
+     0.008,
+     0.021,
+     0.021,
+     0.012,
+     0.012
+    ],
+    "blue_eye_px_total": {
+     "down": 0,
+     "down_left": 0,
+     "left": 0,
+     "up_left": 0,
+     "up": 0,
+     "up_right": 0,
+     "right": 0,
+     "down_right": 0
+    },
+    "bag_min_mean": {
+     "down": [
+      6.4,
+      25.8
+     ],
+     "down_left": [
+      3.4,
+      23.3
+     ],
+     "left": [
+      10.7,
+      18.8
+     ],
+     "up_left": [
+      8.9,
+      13.0
+     ],
+     "up": [
+      8.9,
+      10.1
+     ],
+     "up_right": [
+      11.4,
+      14.9
+     ],
+     "down_right": [
+      0.0,
+      16.5
+     ]
+    },
+    "legs": {
+     "down": [
+      8,
+      8,
+      0.0892
+     ],
+     "up": [
+      8,
+      6,
+      0.0942
+     ]
+    },
+    "maroon": {
+     "up": [
+      0,
+      0,
+      0,
+      0,
+      5,
+      0,
+      2,
+      3
+     ],
+     "up_right": [
+      5,
+      2,
+      0,
+      5,
+      1,
+      0,
+      0,
+      3
+     ],
+     "right": [
+      0,
+      4,
+      0,
+      0,
+      0,
+      25,
+      29,
+      9
+     ]
+    },
+    "lowest_foot": [
+     72,
+     72,
+     72,
+     72,
+     72,
+     72,
+     72,
+     72
+    ],
+    "alpha_values": [
+     0,
+     255
+    ],
+    "edge_touch": 0,
+    "holes_px": 7,
+    "loop_seam_ratio": [
+     0.969,
+     1.245,
+     1.286,
+     0.968,
+     0.765,
+     0.837,
+     0.987,
+     0.994
+    ]
+   }
+  },
+  {
+   "step": "satchel",
+   "file": "C:\\Users\\pmcga\\dev\\hollowtide\\docs\\art\\characters\\sprite-tool-test-2026-10-26\\fix\\chain\\04_satchel.png",
+   "seconds": 0.8,
+   "changed_px_per_row": {
+    "down": 446,
+    "down_left": 329,
+    "left": 507,
+    "up_left": 1418,
+    "up": 1484,
+    "up_right": 1313,
+    "right": 0,
+    "down_right": 339
+   },
+   "alpha_values": [
+    0,
+    255
+   ],
+   "stdout_tail": [
+    "down_left  f0:+0+0/52 f1:+0+0/38 f2:+0+0/39 f3:+0+0/50 f4:+0+0/48 f5:+0+0/55 f6:+0+0/55 f7:+0+0/53",
+    "left       f0:+0-1/57 f1:+0-1/48 f2:+0-1/73 f3:+0-1/61 f4:+0-1/65 f5:+0-1/84 f6:+0-1/87 f7:+0-1/79",
+    "down_right f0:+0-1/41 f1:+0-1/53 f2:+0-1/53 f3:+0-1/53 f4:+0-1/53 f5:+0-1/52 f6:+0-1/53 f7:+0-1/51"
+   ],
+   "headline": {
+    "colours_whole_set": 131,
+    "colours_per_row": [
+     40,
+     58,
+     58,
+     54,
+     51,
+     56,
+     58,
+     55
+    ],
+    "colours_per_frame_max": [
+     40,
+     57,
+     57,
+     52,
+     46,
+     52,
+     57,
+     54
+    ],
+    "palette_px_weighted": [
+     2.09,
+     6.59,
+     4.14,
+     3.1,
+     2.09,
+     2.52,
+     3.54,
+     4.68
+    ],
+    "dark_outline_share": [
+     0.9356,
+     0.9794,
+     0.9779,
+     0.9954,
+     0.9866,
+     0.9291,
+     0.9818,
+     0.9396
+    ],
+    "head_top_f0": [
+     7,
+     7,
+     8,
+     8,
+     8,
+     7,
+     8,
+     8
+    ],
+    "highest_head_top": [
+     6,
+     7,
+     8,
+     8,
+     8,
+     7,
+     8,
+     8
+    ],
+    "bob_range": [
+     3,
+     0,
+     1,
+     0,
+     1,
+     0,
+     0,
+     0
+    ],
+    "head_redraw_aligned": [
+     0.006,
+     0.017,
+     0.008,
+     0.008,
+     0.022,
+     0.021,
+     0.012,
+     0.012
+    ],
+    "blue_eye_px_total": {
+     "down": 0,
+     "down_left": 0,
+     "left": 0,
+     "up_left": 0,
+     "up": 0,
+     "up_right": 0,
+     "right": 0,
+     "down_right": 0
+    },
+    "bag_min_mean": {
+     "down": [
+      48.9,
+      83.8
+     ],
+     "down_left": [
+      69.0,
+      88.8
+     ],
+     "left": [
+      50.0,
+      77.7
+     ],
+     "up_left": [
+      100.0,
+      100.0
+     ],
+     "up": [
+      100.0,
+      100.0
+     ],
+     "up_right": [
+      100.0,
+      100.0
+     ],
+     "down_right": [
+      60.7,
+      95.1
+     ]
+    },
+    "legs": {
+     "down": [
+      8,
+      8,
+      0.0856
+     ],
+     "up": [
+      8,
+      6,
+      0.0942
+     ]
+    },
+    "maroon": {
+     "up": [
+      0,
+      0,
+      0,
+      0,
+      5,
+      0,
+      2,
+      3
+     ],
+     "up_right": [
+      5,
+      2,
+      0,
+      5,
+      1,
+      0,
+      0,
+      3
+     ],
+     "right": [
+      0,
+      4,
+      0,
+      0,
+      0,
+      25,
+      29,
+      9
+     ]
+    },
+    "lowest_foot": [
+     72,
+     72,
+     72,
+     72,
+     72,
+     72,
+     72,
+     72
+    ],
+    "alpha_values": [
+     0,
+     255
+    ],
+    "edge_touch": 0,
+    "holes_px": 7,
+    "loop_seam_ratio": [
+     0.906,
+     1.24,
+     1.305,
+     0.97,
+     0.654,
+     0.808,
+     0.987,
+     1.004
+    ]
+   }
+  },
+  {
+   "step": "bob",
+   "file": "C:\\Users\\pmcga\\dev\\hollowtide\\docs\\art\\characters\\sprite-tool-test-2026-10-26\\fix\\chain\\05_bob.png",
+   "seconds": 0.5,
+   "changed_px_per_row": {
+    "down": 0,
+    "down_left": 3009,
+    "left": 2822,
+    "up_left": 2155,
+    "up": 0,
+    "up_right": 2058,
+    "right": 2171,
+    "down_right": 2976
+   },
+   "alpha_values": [
+    0,
+    255
+   ],
+   "stdout_tail": [
+    "up_right   contact f2/f6 (stride, wave 3.72 px)  head before [0, 0, 0, 0, 0, 0, 0, 0]  moves [-1, 0, 1, 0, -1, 0, 1, 0]",
+    "right      contact f2/f6 (stride, wave 10.69 px)  head before [0, 0, 0, 0, 0, 0, 0, 0]  moves [-1, 0, 1, 0, -1, 0, 1, 0]",
+    "down_right contact f2/f6 (stride, wave 6.05 px)  head before [0, 0, 0, 0, 0, 0, 0, 0]  moves [-1, 0, 1, 0, -1, 0, 1, 0]"
+   ],
+   "headline": {
+    "colours_whole_set": 131,
+    "colours_per_row": [
+     40,
+     58,
+     58,
+     54,
+     51,
+     56,
+     58,
+     55
+    ],
+    "colours_per_frame_max": [
+     40,
+     57,
+     57,
+     52,
+     46,
+     52,
+     57,
+     54
+    ],
+    "palette_px_weighted": [
+     2.09,
+     6.61,
+     4.2,
+     3.1,
+     2.09,
+     2.53,
+     3.53,
+     4.69
+    ],
+    "dark_outline_share": [
+     0.9356,
+     0.9794,
+     0.9781,
+     0.9954,
+     0.9866,
+     0.929,
+     0.9818,
+     0.9396
+    ],
+    "head_top_f0": [
+     7,
+     6,
+     7,
+     7,
+     8,
+     6,
+     7,
+     7
+    ],
+    "highest_head_top": [
+     6,
+     6,
+     7,
+     7,
+     8,
+     6,
+     7,
+     7
+    ],
+    "bob_range": [
+     3,
+     2,
+     2,
+     2,
+     1,
+     2,
+     2,
+     2
+    ],
+    "head_redraw_aligned": [
+     0.006,
+     0.017,
+     0.008,
+     0.008,
+     0.022,
+     0.021,
+     0.012,
+     0.012
+    ],
+    "blue_eye_px_total": {
+     "down": 0,
+     "down_left": 0,
+     "left": 0,
+     "up_left": 0,
+     "up": 0,
+     "up_right": 0,
+     "right": 0,
+     "down_right": 0
+    },
+    "bag_min_mean": {
+     "down": [
+      48.9,
+      83.8
+     ],
+     "down_left": [
+      69.0,
+      88.8
+     ],
+     "left": [
+      50.0,
+      76.6
+     ],
+     "up_left": [
+      100.0,
+      100.0
+     ],
+     "up": [
+      100.0,
+      100.0
+     ],
+     "up_right": [
+      100.0,
+      100.0
+     ],
+     "down_right": [
+      60.7,
+      95.1
+     ]
+    },
+    "legs": {
+     "down": [
+      8,
+      8,
+      0.0856
+     ],
+     "up": [
+      8,
+      6,
+      0.0942
+     ]
+    },
+    "maroon": {
+     "up": [
+      0,
+      0,
+      0,
+      0,
+      5,
+      0,
+      2,
+      3
+     ],
+     "up_right": [
+      5,
+      2,
+      0,
+      5,
+      1,
+      0,
+      0,
+      3
+     ],
+     "right": [
+      0,
+      4,
+      0,
+      0,
+      0,
+      25,
+      24,
+      9
+     ]
+    },
+    "lowest_foot": [
+     72,
+     72,
+     72,
+     72,
+     72,
+     72,
+     72,
+     72
+    ],
+    "alpha_values": [
+     0,
+     255
+    ],
+    "edge_touch": 0,
+    "holes_px": 7,
+    "loop_seam_ratio": [
+     0.906,
+     1.022,
+     0.954,
+     0.98,
+     0.654,
+     0.986,
+     1.016,
+     1.003
+    ]
+   }
+  },
+  {
+   "step": "colour",
+   "file": "C:\\Users\\pmcga\\dev\\hollowtide\\docs\\art\\characters\\sprite-tool-test-2026-10-26\\fix\\chain\\06_colour.png",
+   "seconds": 1.5,
+   "changed_px_per_row": {
+    "down": 1265,
+    "down_left": 2863,
+    "left": 1446,
+    "up_left": 1219,
+    "up": 1051,
+    "up_right": 1030,
+    "right": 1251,
+    "down_right": 1904
+   },
+   "alpha_values": [
+    0,
+    255
+   ],
+   "stdout_tail": [
+    "steps kept, plain nearest: {'oklab_dE_ge_0.03': {'touching_pairs': 82389, 'kept_share': 0.9545, 'light_shadow_pairs': 78705, 'light_shadow_kept_share': 0.9576}, 'oklab_dE_ge_0.05': {'touching_pairs': 72703, 'kept_share': 0.989, 'light_shadow_pairs': 72133, 'light_shadow_kept_share': 0.9889}}",
+    "steps kept, ramp-protected: {'oklab_dE_ge_0.03': {'touching_pairs': 82389, 'kept_share': 0.9674, 'light_shadow_pairs': 78705, 'light_shadow_kept_share': 0.9711}, 'oklab_dE_ge_0.05': {'touching_pairs': 72703, 'kept_share': 0.9904, 'light_shadow_pairs': 72133, 'light_shadow_kept_share': 0.9904}}",
+    "eyes repaired in 0 frames, lens in 16 frames, far leg in 2 frames"
+   ],
+   "headline": {
+    "colours_whole_set": 39,
+    "colours_per_row": [
+     35,
+     33,
+     32,
+     30,
+     33,
+     33,
+     32,
+     34
+    ],
+    "colours_per_frame_max": [
+     35,
+     33,
+     32,
+     30,
+     32,
+     33,
+     32,
+     34
+    ],
+    "palette_px_weighted": [
+     0.0,
+     0.0,
+     0.0,
+     0.0,
+     0.4,
+     0.32,
+     0.5,
+     0.42
+    ],
+    "dark_outline_share": [
+     0.9356,
+     0.9794,
+     0.984,
+     0.9954,
+     0.9929,
+     0.9522,
+     0.9832,
+     0.9477
+    ],
+    "head_top_f0": [
+     7,
+     6,
+     7,
+     7,
+     8,
+     6,
+     7,
+     7
+    ],
+    "highest_head_top": [
+     6,
+     6,
+     7,
+     7,
+     8,
+     6,
+     7,
+     7
+    ],
+    "bob_range": [
+     3,
+     2,
+     2,
+     2,
+     1,
+     2,
+     2,
+     2
+    ],
+    "head_redraw_aligned": [
+     0.006,
+     0.017,
+     0.008,
+     0.008,
+     0.022,
+     0.021,
+     0.012,
+     0.012
+    ],
+    "blue_eye_px_total": {
+     "down": 0,
+     "down_left": 0,
+     "left": 0,
+     "up_left": 0,
+     "up": 0,
+     "up_right": 0,
+     "right": 0,
+     "down_right": 0
+    },
+    "bag_min_mean": {
+     "down": [
+      48.9,
+      83.8
+     ],
+     "down_left": [
+      69.0,
+      88.8
+     ],
+     "left": [
+      46.4,
+      69.6
+     ],
+     "up_left": [
+      100.0,
+      100.0
+     ],
+     "up": [
+      100.0,
+      100.0
+     ],
+     "up_right": [
+      100.0,
+      100.0
+     ],
+     "down_right": [
+      60.7,
+      95.1
+     ]
+    },
+    "legs": {
+     "down": [
+      8,
+      8,
+      0.0856
+     ],
+     "up": [
+      8,
+      6,
+      0.0942
+     ]
+    },
+    "maroon": {},
+    "lowest_foot": [
+     72,
+     72,
+     72,
+     72,
+     72,
+     72,
+     72,
+     72
+    ],
+    "alpha_values": [
+     0,
+     255
+    ],
+    "edge_touch": 0,
+    "holes_px": 7,
+    "loop_seam_ratio": [
+     0.91,
+     1.027,
+     0.956,
+     0.966,
+     0.643,
+     0.991,
+     1.005,
+     0.982
+    ]
+   }
+  }
+ ],
+ "final": "C:\\Users\\pmcga\\dev\\hollowtide\\docs\\art\\characters\\sprite-tool-test-2026-10-26\\fix\\pixellab_courier_walk_fixed_native80.png"
+}

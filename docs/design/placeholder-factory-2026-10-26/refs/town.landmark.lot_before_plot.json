@@ -1,0 +1,62 @@
+{
+	"alpha": "binary",
+	"anchor": [
+		0,
+		0
+	],
+	"anchor_mode": "top_left",
+	"area": "town",
+	"brief": "An empty open-air plot: trampled earth inside a low timber fence, a few stakes marking where something will stand.",
+	"census": "new",
+	"checks": [
+		"C1",
+		"C12",
+		"C2",
+		"C3",
+		"C4",
+		"C5",
+		"C9"
+	],
+	"drawn_at": 3,
+	"edges": "all",
+	"file": "res://assets/slots/town/landmark/lot_before_plot.png",
+	"forbid": [
+		"text",
+		"creature",
+		"franchise"
+	],
+	"frames": 1,
+	"id": "town.landmark.lot_before_plot",
+	"kind": "landmark",
+	"lane": "B",
+	"legacy": "",
+	"light": "upper_left",
+	"notes": "lots B and E before they open",
+	"outline": "runtime_rim",
+	"owner": "codex",
+	"palette": {
+		"family": "town_stone",
+		"lock": false,
+		"max": 32,
+		"source": "res://assets/slots/palettes/town_stone.png"
+	},
+	"placeholder": "res://scripts/town/building_template.gd:paint_plot",
+	"rows": 1,
+	"sheet_size": [
+		144,
+		96
+	],
+	"size": [
+		144,
+		96
+	],
+	"slot_file": "town_buildings",
+	"states": {
+		"static": [
+			1,
+			0
+		]
+	},
+	"status": "placeholder",
+	"tiling": "none"
+}

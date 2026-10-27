@@ -1,0 +1,15 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+OpenGL API 3.3.0 NVIDIA 610.62 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce GTX 1660 SUPER
+
+[godot_ai game_helper] registered mcp capture (debugger active=false, logger=true)
+normal-auto first launch reaches main: PASS
+normal-auto no simultaneous launch/menu logos: PASS
+normal-auto first focus is silent: PASS
+normal-auto first focus belongs to first menu action: PASS
+normal-auto Options opens: PASS
+normal-auto Options plays exactly one confirm: PASS
+normal-auto Options initial shared focus is quiet: PASS
+normal-auto returning alone leaves preferences byte exact: PASS
+normal-auto unknown preferences survive: FAIL
+Private saved journey remains byte exact: PASS
+TITLE RETURN RESULT 10 checks / 1 failures

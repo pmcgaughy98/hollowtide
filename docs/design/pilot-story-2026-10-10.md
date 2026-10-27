@@ -23,7 +23,7 @@ Superseded the same day by "The opening, revised" below, which is the order the 
    lone travellers. Your partner keeps being turned away for having no one to run with. You need them to
    understand this world; they need you to get in.
 4. **Highbank and the Guildmaster.** **Starward** (Punchybuns' final form, Preston's call) is the
-   Guildmaster. The collapse washed out routes and every senior runner is out checking them, so the hall
+   Guildmaster. The collapse washed out routes and every senior runner is out checking them, so the Tower
    is short. The partner pleads; Starward agrees to **one parcel, a short run, as the entry trial**:
    deliver it and you are both runners. The walk there meets the shop, the scroll keeper, storage, and
    the Growth Shrine, **dark, a socket at its heart empty**.
@@ -103,7 +103,7 @@ Preston: reincarnate during the flood, the partner is there, it is dire so the t
 8. Later, The Hollow again by teleport from town (`scripts/town/hollow_approach.gd` "teleport"), deeper: the Warden twist, the pond stone, the Growth Shrine.
 Checks: `tools/debug/flood_opening_check.gd` (steps 2 and 3, the rise, the road, the no-boss clear).
 
-## The Wayline Hall on two floors (2026-10-10 late)
+## The Wayline Tower on two floors (2026-10-10 late; the Hall became the Tower on 2026-10-26)
 Preston chose two floors, like Sky's guild. Upstairs is the work floor, where the guild scenes still play. Stairs lead down to the lower floor: the roll-call floor, the crew room (a door you read, not enter) and the runners' room (its door opens once the team are runners: the `town_room.gd` link needs "runner"), the mess hall, and the door to Starward's chamber. Once the trial is set, Starward waits in the chamber and speaks by story state. Claude's drafts for Preston: the room names and lines. Done since: the morning mail call (the roll call in this plan) plays on the lower floor once before each run after the Wayline has taken the team on (`scripts/town/guild_crew.gd`), and the two are named runners when the parcel comes back (`guild_scene.gd`, story `runner`).
 
 ## Where the alpha stops (factory plan, 2026-10-22)

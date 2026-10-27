@@ -22,7 +22,7 @@ const PRESENCE := [
 ]
 const TAKE := [
 	["{partner}", "It's warm. Like it's been waiting for us.", "happy"],
-	["Starward", "Bring that home. The Shrine in Highbank has had an empty socket for longer than I've run the Hall.", "determined"],
+	["Starward", "Bring that home. The Shrine in Highbank has had an empty socket for longer than I've run the Tower.", "determined"],
 ]
 # The stand-off (Preston, 2026-10-10: the Warden is one of those early bosses that turns out to have been far
 # stronger; when it is beaten the team and the Warden face off, both spent, the Warden clearly stronger; as it
@@ -32,7 +32,7 @@ const SPENT := [
 ]
 const RISES := [
 	["{boss}", "...Hm. You fight well, for strays.", "determined"],
-	["{boss}", "I have kept this water since before your Hall had a name. Did you think that was all of me?", "determined"],
+	["{boss}", "I have kept this water since before your Tower had a name. Did you think that was all of me?", "determined"],
 ]
 const PINNED := [
 	["{partner}", "C-can't... move...", "sad"],
@@ -41,7 +41,7 @@ const PINNED := [
 const HEY := [["???", "Hey."]]
 const ARRIVES := [
 	["Starward", "Let go of my runners.", "determined"],
-	["{boss}", "The Hall's old champion. You came all this way for two strays?", "surprised"],
+	["{boss}", "The Tower's old champion. You came all this way for two strays?", "surprised"],
 	["Starward", "For every one of them.", "angry"],
 ]
 const AFTER_PUNCH := [

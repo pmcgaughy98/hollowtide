@@ -1,0 +1,42 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+OpenGL API 3.3.0 NVIDIA 610.62 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce GTX 1660 SUPER
+
+[godot_ai game_helper] registered mcp capture (debugger active=false, logger=true)
+Private saved journey remains byte exact: PASS
+TITLE RETURN RESULT 1 checks / 0 failures
+SCRIPT ERROR: Compile Error: Identifier not found: PlayerParty
+   at: GDScript::reload (res://scripts/opening_flow.gd:127)
+SCRIPT ERROR: Compile Error: Failed to compile depended scripts.
+   at: GDScript::reload (D:/dev/hollowtide-title-return-20261026/native_check.gd:0)
+ERROR: Failed to load script "D:/dev/hollowtide-title-return-20261026/native_check.gd" with error "Compilation failed".
+   at: load (modules/gdscript/gdscript_resource_format.cpp:46)
+ERROR: Parameter "p_script->implicit_initializer" is null.
+   at: _super_implicit_constructor (modules/gdscript/gdscript.cpp:146)
+   GDScript backtrace (most recent call first):
+       [0] load_title (D:/dev/hollowtide-title-return-20261026/native_check.gd:24)
+       [1] one (D:/dev/hollowtide-title-return-20261026/native_check.gd:52)
+       [2] _run (D:/dev/hollowtide-title-return-20261026/native_check.gd:121)
+ERROR: Parameter "p_script->implicit_initializer" is null.
+   at: _super_implicit_constructor (modules/gdscript/gdscript.cpp:146)
+   GDScript backtrace (most recent call first):
+       [0] load_title (D:/dev/hollowtide-title-return-20261026/native_check.gd:24)
+       [1] one (D:/dev/hollowtide-title-return-20261026/native_check.gd:52)
+       [2] _run (D:/dev/hollowtide-title-return-20261026/native_check.gd:121)
+ERROR: Parameter "p_script->implicit_initializer" is null.
+   at: _super_implicit_constructor (modules/gdscript/gdscript.cpp:146)
+   GDScript backtrace (most recent call first):
+       [0] load_title (D:/dev/hollowtide-title-return-20261026/native_check.gd:24)
+       [1] one (D:/dev/hollowtide-title-return-20261026/native_check.gd:52)
+       [2] _run (D:/dev/hollowtide-title-return-20261026/native_check.gd:121)
+SCRIPT ERROR: Invalid call. Nonexistent function '_ready'.
+   at: _ready (res://scripts/creature_opening.gd:30)
+   GDScript backtrace (most recent call first):
+       [0] _ready (res://scripts/creature_opening.gd:30)
+       [1] load_title (D:/dev/hollowtide-title-return-20261026/native_check.gd:25)
+       [2] one (D:/dev/hollowtide-title-return-20261026/native_check.gd:52)
+       [3] _run (D:/dev/hollowtide-title-return-20261026/native_check.gd:121)
+SCRIPT ERROR: Invalid call. Nonexistent function 'get_children' in base 'Nil'.
+   at: one (D:/dev/hollowtide-title-return-20261026/native_check.gd:53)
+   GDScript backtrace (most recent call first):
+       [0] one (D:/dev/hollowtide-title-return-20261026/native_check.gd:53)
+       [1] _run (D:/dev/hollowtide-title-return-20261026/native_check.gd:121)

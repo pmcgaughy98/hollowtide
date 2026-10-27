@@ -1,0 +1,66 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+OpenGL API 3.3.0 NVIDIA 610.62 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce GTX 1660 SUPER
+
+[godot_ai game_helper] registered mcp capture (debugger active=false, logger=true)
+highbank-normal Continue exists: PASS
+highbank-normal dispatch plays one confirm: PASS
+highbank-normal immediate feedback before any destination load: PASS
+highbank-normal rapid duplicate activation is ignored: PASS
+highbank-normal duplicate has no second confirm: PASS
+highbank-normal destination scene changes: PASS
+highbank-normal loader starts under both opaque covers: PASS
+highbank-normal only one threaded load path requested: PASS
+highbank-normal disk save untouched until destination is ready to dispatch: PASS
+highbank-normal Highbank destination: PASS
+highbank-normal Highbank finishes its own covered arrival: PASS
+highbank-normal saved team/cleared/levels survive: PASS
+highbank-normal Highbank lifts shared cover: PASS
+highbank-normal background room warm-up completes before teardown: PASS
+CONTINUE METRIC {"alpha_on_return":0.0,"case":"highbank-normal","confirm_ms":0.062,"dispatch_ms":0.176,"frames_to_swap":46,"longest_fade_frame_ms":16.735,"longest_title_frame_ms":63.145,"one_confirm":true,"probe":{"local_alpha":1.0,"path":"res://scenes/hub_town.tscn","requests":1,"saved_hash":"47529e993a1b476b4068d7bfbb66835d1229ae90b2725f5f3fe7e6ba303a16a7","shared_alpha":1.0,"suspended":false,"time":4626428},"visible_fade_frames":20}
+highbank-reduced Continue exists: PASS
+highbank-reduced dispatch plays one confirm: PASS
+highbank-reduced immediate feedback before any destination load: PASS
+highbank-reduced rapid duplicate activation is ignored: PASS
+highbank-reduced duplicate has no second confirm: PASS
+highbank-reduced destination scene changes: PASS
+highbank-reduced loader starts under both opaque covers: PASS
+highbank-reduced only one threaded load path requested: PASS
+highbank-reduced disk save untouched until destination is ready to dispatch: PASS
+highbank-reduced Highbank destination: PASS
+highbank-reduced Highbank finishes its own covered arrival: PASS
+highbank-reduced saved team/cleared/levels survive: PASS
+highbank-reduced Highbank lifts shared cover: PASS
+highbank-reduced background room warm-up completes before teardown: PASS
+CONTINUE METRIC {"alpha_on_return":0.0,"case":"highbank-reduced","confirm_ms":0.092,"dispatch_ms":0.227,"frames_to_swap":9,"longest_fade_frame_ms":16.7,"longest_title_frame_ms":145.234,"one_confirm":true,"probe":{"local_alpha":1.0,"path":"res://scenes/hub_town.tscn","requests":1,"saved_hash":"b98217b112e5262dd480be59139479b7cd0e03eb9f75c5b517a427c92f2f55ce","shared_alpha":1.0,"suspended":false,"time":13083934},"visible_fade_frames":7}
+warren-suspend Continue exists: PASS
+warren-suspend dispatch plays one confirm: PASS
+warren-suspend immediate feedback before any destination load: PASS
+warren-suspend rapid duplicate activation is ignored: PASS
+warren-suspend duplicate has no second confirm: PASS
+warren-suspend destination scene changes: PASS
+warren-suspend loader starts under both opaque covers: PASS
+warren-suspend only one threaded load path requested: PASS
+warren-suspend disk save untouched until destination is ready to dispatch: PASS
+warren-suspend dungeon destination: PASS
+warren-suspend suspended dungeon/floor/seed preserved: PASS
+warren-suspend suspend consumed once after dispatch: PASS
+warren-suspend saved team and HP resume: PASS
+warren-suspend shared cover is released for dungeon card: PASS
+CONTINUE METRIC {"alpha_on_return":0.0,"case":"warren-suspend","confirm_ms":0.098,"dispatch_ms":0.244,"frames_to_swap":24,"longest_fade_frame_ms":16.875,"longest_title_frame_ms":48.61,"one_confirm":true,"probe":{"local_alpha":1.0,"path":"res://scenes/dungeon.tscn","requests":1,"saved_hash":"8cbd7ebe1b1c7e1dd7160528b4f37c4fa5f06d3ef3c5b3e9f3171c58336a9a72","shared_alpha":1.0,"suspended":true,"time":14460567},"visible_fade_frames":20}
+Simulated loader failure returns to usable title: PASS
+Failed loader preserves unconsumed suspend bytes: PASS
+Failure removes shared black cover: PASS
+Retry after resource failure reaches saved dungeon: PASS
+Successful retry consumes suspend only once: PASS
+Missing save disables only Continue and restores main: PASS
+Missing save does not start a destination load: PASS
+Legacy title does not request unused route at boot: PASS
+Legacy New Game requests its still-used courier route: PASS
+Lazy route eventually enables original Begin action: PASS
+CONTINUE LOAD RESULT 52 checks / 0 failures
+ERROR: Lambda capture at index 0 was freed. Passed "null" instead.
+   at: call (modules/gdscript/gdscript_lambda_callable.cpp:242)
+   GDScript backtrace (most recent call first):
+       [0] until (D:/dev/hollowtide-continue-load-20261026/native_check.gd:21)
+WARNING: 341 ObjectDB instances were leaked at exit (run with `--verbose` for details).
+   at: cleanup (core/object/object.cpp:2536)

@@ -1,0 +1,64 @@
+{
+	"alpha": "opaque",
+	"anchor": [
+		0,
+		0
+	],
+	"anchor_mode": "top_left",
+	"area": "road",
+	"brief": "The dawn sky over the river valley the morning after the storm: cool slate blue at the top, warming through pale grey and rose to gold at the horizon (row 140), a few torn cloud bands lit gold underneath. Sky only, no ground, no sun disc. It does not scroll.",
+	"census": "new",
+	"checks": [
+		"C1",
+		"C2",
+		"C3",
+		"C5",
+		"C9"
+	],
+	"drawn_at": 3,
+	"edges": "all",
+	"file": "res://assets/slots/road/backdrop/sky.png",
+	"forbid": [
+		"text",
+		"creature",
+		"franchise"
+	],
+	"frames": 1,
+	"id": "road.backdrop.sky",
+	"kind": "backdrop",
+	"lane": "S",
+	"legacy": "",
+	"light": "upper_left",
+	"notes": "parallax 0; everything below row 150 is covered by the trail",
+	"outline": "none",
+	"owner": "codex",
+	"palette": {
+		"family": "dawn",
+		"lock": false,
+		"max": 48,
+		"source": "res://assets/slots/palettes/dawn.png"
+	},
+	"place_at": [
+		0,
+		0
+	],
+	"placeholder": "res://scripts/story/route_scene.gd:paint_slot",
+	"rows": 1,
+	"sheet_size": [
+		384,
+		216
+	],
+	"size": [
+		384,
+		216
+	],
+	"slot_file": "route",
+	"states": {
+		"static": [
+			1,
+			0
+		]
+	},
+	"status": "placeholder",
+	"tiling": "none"
+}

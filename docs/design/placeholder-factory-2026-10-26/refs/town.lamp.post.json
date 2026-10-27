@@ -1,0 +1,72 @@
+{
+	"alpha": "binary",
+	"anchor": [
+		12,
+		47
+	],
+	"anchor_mode": "foot",
+	"area": "town",
+	"brief": "A Highbank street lamp: a dark timber post with an iron bracket and a glass lantern box, as an unlit still and a lit still. No glow and no ground shadow: the game draws both.",
+	"census": "R01",
+	"checks": [
+		"C1",
+		"C12",
+		"C2",
+		"C3",
+		"C4",
+		"C5",
+		"C7",
+		"C8",
+		"C9"
+	],
+	"drawn_at": 3,
+	"edges": "bottom",
+	"file": "res://assets/slots/town/lamp/post.png",
+	"forbid": [
+		"text",
+		"creature",
+		"franchise"
+	],
+	"frames": 1,
+	"id": "town.lamp.post",
+	"kind": "lamp",
+	"lane": "C",
+	"legacy": "",
+	"light": "upper_left",
+	"light_anchor": [
+		12,
+		8
+	],
+	"notes": "sheet 24x96, one row per state; the glow, its flicker and the ground shadow stay coded (TownProps)",
+	"outline": "drawn",
+	"owner": "grok",
+	"palette": {
+		"family": "lantern",
+		"lock": false,
+		"max": 24,
+		"source": "res://assets/slots/palettes/lantern.png"
+	},
+	"placeholder": "res://scripts/art/placeholders/street_props.gd:lamp_post",
+	"rows": 2,
+	"sheet_size": [
+		24,
+		96
+	],
+	"size": [
+		24,
+		48
+	],
+	"slot_file": "town_street",
+	"states": {
+		"lit": [
+			1,
+			0
+		],
+		"unlit": [
+			1,
+			0
+		]
+	},
+	"status": "placeholder",
+	"tiling": "none"
+}

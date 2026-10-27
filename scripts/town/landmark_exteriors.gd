@@ -14,8 +14,9 @@ const MOSS := Color("#4f6a38")
 const ROPE := Color("#cab58b")
 static func available(id: String) -> bool:
 	return id in ["lookout","landing","dock"]
+# Claude, 2026-10-26 (placeholder factory lane B): the rect comes from the area showing (v1: the PLACES row itself).
 static func place(id: String) -> Dictionary:
-	return Layout.PLACES.filter(func(p: Dictionary) -> bool:return p["id"]==id)[0]
+	return BuildingTemplate.place_entry(id)
 static func _block(img: Image,r: Rect2i,col: Color,lit: Color,shade: Color) -> void:
 	img.fill_rect(r,INK)
 	img.fill_rect(r.grow(-1),col)
@@ -42,6 +43,11 @@ static func _wave_mark(img: Image,p: Vector2i) -> void:
 			img.set_pixelv(at+Vector2i(0,1),INK)
 			img.set_pixelv(at,Color("#9bb8b1"))
 static func paint(id: String) -> Image:
+	# Claude, 2026-10-26 (placeholder factory lane B): an installed slot file, or the forced placeholder, wins; with
+	# neither, today's art (the slot's legacy is the same file) and today's coded fallback.
+	var slot := "town.landmark." + id
+	if ArtSlots.has(slot) and (ArtSlots.forcing() or ArtSlots.source(slot) == "file"):
+		return ArtSlots.image(slot)
 	var art:=Detail.image(id)
 	return art if art!=null else paint_fallback(id)
 

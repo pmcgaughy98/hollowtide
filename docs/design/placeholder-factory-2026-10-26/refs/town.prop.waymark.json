@@ -1,0 +1,64 @@
+{
+	"alpha": "binary",
+	"anchor": [
+		12,
+		47
+	],
+	"anchor_mode": "foot",
+	"area": "town",
+	"brief": "The Crossroads waymark: a timber post with arrow boards pointing to every place, with no letters on them. No ground shadow: the game draws it.",
+	"census": "B11",
+	"checks": [
+		"C1",
+		"C12",
+		"C2",
+		"C3",
+		"C4",
+		"C5",
+		"C7",
+		"C8",
+		"C9"
+	],
+	"drawn_at": 3,
+	"edges": "bottom",
+	"file": "res://assets/slots/town/prop/waymark.png",
+	"forbid": [
+		"text",
+		"creature",
+		"franchise"
+	],
+	"frames": 1,
+	"id": "town.prop.waymark",
+	"kind": "prop",
+	"lane": "C",
+	"legacy": "",
+	"light": "upper_left",
+	"notes": "placeholder: street_props.gd waymark, a post with three arrow boards in the tints of the Crossroads' carved three-route glyph (crossroads_painter.gd)",
+	"outline": "drawn",
+	"owner": "grok",
+	"palette": {
+		"family": "town_timber",
+		"lock": false,
+		"max": 24,
+		"source": "res://assets/slots/palettes/town_timber.png"
+	},
+	"placeholder": "res://scripts/art/placeholders/street_props.gd:waymark",
+	"rows": 1,
+	"sheet_size": [
+		24,
+		48
+	],
+	"size": [
+		24,
+		48
+	],
+	"slot_file": "town_street",
+	"states": {
+		"static": [
+			1,
+			0
+		]
+	},
+	"status": "placeholder",
+	"tiling": "none"
+}

@@ -1,0 +1,64 @@
+{
+	"alpha": "binary",
+	"anchor": [
+		48,
+		47
+	],
+	"anchor_mode": "foot",
+	"area": "town",
+	"brief": "The Item Shop counter: a long timber counter with a brass scale and a few jars on it.",
+	"census": "M19",
+	"checks": [
+		"C1",
+		"C12",
+		"C2",
+		"C3",
+		"C4",
+		"C5",
+		"C7",
+		"C8",
+		"C9"
+	],
+	"drawn_at": 3,
+	"edges": "bottom",
+	"file": "res://assets/slots/town/prop/shop/counter.png",
+	"forbid": [
+		"text",
+		"creature",
+		"franchise"
+	],
+	"frames": 1,
+	"id": "town.prop.shop.counter",
+	"kind": "prop",
+	"lane": "R",
+	"legacy": "",
+	"light": "upper_left",
+	"notes": "solid furniture, placed by room_painter.gd FURNITURE (lane R): top-left (120,96) on solid tiles (5,4) 4x2; the kind's stacked blocks are the placeholder",
+	"outline": "drawn",
+	"owner": "grok",
+	"palette": {
+		"family": "room_shop",
+		"lock": false,
+		"max": 24,
+		"source": "res://assets/slots/palettes/room_shop.png"
+	},
+	"placeholder": "",
+	"rows": 1,
+	"sheet_size": [
+		96,
+		48
+	],
+	"size": [
+		96,
+		48
+	],
+	"slot_file": "town_rooms",
+	"states": {
+		"static": [
+			1,
+			0
+		]
+	},
+	"status": "placeholder",
+	"tiling": "none"
+}

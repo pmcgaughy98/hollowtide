@@ -33,16 +33,16 @@ static func current(story: Dictionary, beaten: Array, in_hollow := false) -> Dic
 			"The road up to Highbank is under water. Follow the stone walkway into the ruin and find the way out the other side.")
 	if parcel == "saved":
 		return _goal("Show the parcel at the Job Board",
-			"Your partner wants Highbank to see the parcel it saved. The Job Board stands beside the Wayline Hall's steps, at the top middle of town.")
+			"Your partner wants Highbank to see the parcel it saved. The Job Board stands beside the Wayline Tower's steps, at the top middle of town.")
 	if parcel == "stolen" and not story.get("guild_trial", false):
-		return _goal("Tell Starward at the Wayline Hall",
-			"The Shortcut Crew took the parcel. Starward, the Postmaster, is at the counter inside the Wayline Hall.")
+		return _goal("Tell Starward at the Wayline Tower",
+			"The Shortcut Crew took the parcel. Starward, the Postmaster, is at the counter inside the Wayline Tower.")
 	if parcel == "stolen":
 		return _goal("Get the parcel back in Rootbank Warren",
 			"The crew went to ground in Rootbank Warren." + ("" if in_hollow else " The way down is the %s, by the %s at the south-east edge of town." % [gate, Layout.place_name("landing")]))
 	if parcel == "recovered":
 		return _goal("Bring the parcel to Starward",
-			"The parcel is back. Take it to Starward at the counter in the Wayline Hall.")
+			"The parcel is back. Take it to Starward at the counter in the Wayline Tower.")
 	if not "hollow" in beaten:
 		return _goal("Go down to The Hollow",
 			"You're runners now. The Hollow is the next way down, through the %s." % gate)

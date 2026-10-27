@@ -1,0 +1,671 @@
+WorkerThreadPool: 12 threads, 3 max low-priority.
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+TextServer: Added interface "Dummy"
+TextServer: Added interface "ICU / HarfBuzz / Graphite (Built-in)"
+Accessibility: AccessKit driver loaded.
+Native OpenGL API detected: 3.3: NVIDIA - NVIDIA GeForce GTX 1660 SUPER
+NVAPI: Init OK!
+NVAPI: Profile not found, creating...
+NVAPI: Application not found in profile, creating...
+NVAPI: Error creating application: NVAPI_EXECUTABLE_ALREADY_IN_USE(code -167)
+Accessibility: window 0 adapter created.
+SDL: Init OK!
+Using "winink" pen tablet driver...
+Shader 'CanvasSdfShaderGLES3' SHA256: 81317e75d72b34f9bfa2b29b2c6d6fb76e7163e680522085fa4e2999f1e80304
+Shader 'SkeletonShaderGLES3' SHA256: dfa67781b939deb0cf1bc86e6bd28dbb4267c208938aad3a6b4167df60da5585
+Shader 'ParticlesShaderGLES3' SHA256: a5470168d9c796e6238a9035338d3c9adeef51ae2fc21ea0390c6f5d821f5569
+Shader 'ParticlesCopyShaderGLES3' SHA256: 777840fb923233eb590593f70549234fb293de563b679caadd9c8207ea13a49d
+Shader 'CopyShaderGLES3' SHA256: a7b9a683a8cac5fb997fc00647bc8a5c9043afd5700bbd6b3f9060b58dfa7a1d
+Shader 'CubemapFilterShaderGLES3' SHA256: 6e1c01ea3e1faff44e145270cf2940a0327af41b7d2a06d112389bae87d4cbc8
+Shader 'GlowShaderGLES3' SHA256: 4eb19d57d5c5339bbf70e447e0aad834563c1097a24d07324adb100ecae5edb2
+Shader 'PostShaderGLES3' SHA256: 4ae5d3c73a471e9711273de962aa149bc2c1189d887d262cb17507197998c4a5
+Shader 'FeedShaderGLES3' SHA256: 356977834552242a7adc57aa93abf1bcee6c09279a7cfb940b28885f28962530
+Shader 'CanvasShaderGLES3' SHA256: 216083f9548fa5ef1a76101115adc339fc67424f13cbab817e6969f27635bec7
+Shader 'CanvasOcclusionShaderGLES3' SHA256: b1579ebcd88d6787867242cb8b4b06fc50c7d18d60a6e981f5932b99a7af830f
+Shader 'SceneShaderGLES3' SHA256: 497687577cebf3386db4500518ded6025af1ca7e2068c565963539ed2bc651c6
+Shader 'SkyShaderGLES3' SHA256: 983bc62a77ecf1bd26c62a55d8455e1809bc5b11e8ae6c2a8f1568b5550c7735
+Shader 'TexBlitShaderGLES3' SHA256: 5a4ff89b3822dc2630f62516f7850dc73fa7054bd6527ee7e721f4c13c6409c3
+OpenGL API 3.3.0 NVIDIA 610.62 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce GTX 1660 SUPER
+
+TextServer: Primary interface set to: "ICU / HarfBuzz / Graphite (Built-in)".
+Loading resource: res://default_bus_layout.tres remapped: res://default_bus_layout.tres
+Completed load for: 'res://default_bus_layout.tres' remapped 'res://default_bus_layout.tres' at thread -1
+CORE API HASH: 2004498165
+EDITOR API HASH: 1696660745
+Loading resource: D:/dev/hollowtide-storm-pixels-20261026/natural_flow_check.gd remapped: D:/dev/hollowtide-storm-pixels-20261026/natural_flow_check.gd
+Loading resource: res://scripts/arena/creature_finish.gdshader remapped: res://scripts/arena/creature_finish.gdshader
+Loading resource: res://scripts/arena/sel_out.gdshaderinc remapped: res://scripts/arena/sel_out.gdshaderinc
+Loading resource: res://scripts/arena/sparkwick_palette.gdshaderinc remapped: res://scripts/arena/sparkwick_palette.gdshaderinc
+Completed load for: 'res://scripts/arena/sparkwick_palette.gdshaderinc' remapped 'res://scripts/arena/sparkwick_palette.gdshaderinc' at thread -1
+Completed load for: 'res://scripts/arena/sel_out.gdshaderinc' remapped 'res://scripts/arena/sel_out.gdshaderinc' at thread -1
+Completed load for: 'res://scripts/arena/creature_finish.gdshader' remapped 'res://scripts/arena/creature_finish.gdshader' at thread -1
+Loading resource: res://scripts/arena/starward_finish.gdshader remapped: res://scripts/arena/starward_finish.gdshader
+Loading resource: res://scripts/art/selout_rim.gdshaderinc remapped: res://scripts/art/selout_rim.gdshaderinc
+Completed load for: 'res://scripts/art/selout_rim.gdshaderinc' remapped 'res://scripts/art/selout_rim.gdshaderinc' at thread -1
+Completed load for: 'res://scripts/arena/starward_finish.gdshader' remapped 'res://scripts/arena/starward_finish.gdshader' at thread -1
+Completed load for: 'D:/dev/hollowtide-storm-pixels-20261026/natural_flow_check.gd' remapped 'D:/dev/hollowtide-storm-pixels-20261026/natural_flow_check.gd' at thread -1
+SceneTreeFTI: traversal method DEFAULT
+Loading resource: res://scripts/player_party.gd remapped: res://scripts/player_party.gd
+Completed load for: 'res://scripts/player_party.gd' remapped 'res://scripts/player_party.gd' at thread -1
+Loading resource: res://addons/dialogue_manager/dialogue_manager.gd remapped: res://addons/dialogue_manager/dialogue_manager.gd
+Loading resource: res://addons/dialogue_manager/test_scene.tscn remapped: res://addons/dialogue_manager/test_scene.tscn
+Loading resource: res://addons/dialogue_manager/test_scene.gd remapped: res://addons/dialogue_manager/test_scene.gd
+Completed load for: 'res://addons/dialogue_manager/test_scene.gd' remapped 'res://addons/dialogue_manager/test_scene.gd' at thread -1
+Completed load for: 'res://addons/dialogue_manager/test_scene.tscn' remapped 'res://addons/dialogue_manager/test_scene.tscn' at thread -1
+Completed load for: 'res://addons/dialogue_manager/dialogue_manager.gd' remapped 'res://addons/dialogue_manager/dialogue_manager.gd' at thread -1
+Loading resource: res://addons/godot_ai/runtime/game_helper.gd remapped: res://addons/godot_ai/runtime/game_helper.gd
+Completed load for: 'res://addons/godot_ai/runtime/game_helper.gd' remapped 'res://addons/godot_ai/runtime/game_helper.gd' at thread -1
+Loading resource: res://scripts/ui/input_prefs.gd remapped: res://scripts/ui/input_prefs.gd
+Completed load for: 'res://scripts/ui/input_prefs.gd' remapped 'res://scripts/ui/input_prefs.gd' at thread -1
+Loaded system CA certificates
+[godot_ai game_helper] registered mcp capture (debugger active=false, logger=true)
+Valid starter/partner arguments: PASS
+Loading resource: res://scenes/creature_opening.tscn remapped: res://scenes/creature_opening.tscn
+Loading resource: res://scripts/creature_opening.gd remapped: res://scripts/creature_opening.gd
+Loading resource: res://scripts/effects/creature_sprite.gdshader remapped: res://scripts/effects/creature_sprite.gdshader
+Completed load for: 'res://scripts/effects/creature_sprite.gdshader' remapped 'res://scripts/effects/creature_sprite.gdshader' at thread -1
+Loading resource: res://scripts/effects/pixel_rain.gdshader remapped: res://scripts/effects/pixel_rain.gdshader
+Completed load for: 'res://scripts/effects/pixel_rain.gdshader' remapped 'res://scripts/effects/pixel_rain.gdshader' at thread -1
+Loading resource: res://assets/fonts/Silkscreen-Regular.ttf remapped: res://assets/fonts/Silkscreen-Regular.ttf
+Loading resource: res://.godot/imported/Silkscreen-Regular.ttf-0088f200f2f1c02c371962cb8d277333.fontdata remapped: res://.godot/imported/Silkscreen-Regular.ttf-0088f200f2f1c02c371962cb8d277333.fontdata
+Completed load for: 'res://assets/fonts/Silkscreen-Regular.ttf' remapped 'res://assets/fonts/Silkscreen-Regular.ttf' at thread -1
+Loading resource: res://assets/audio/music/main_menu_pixel_rain.mp3 remapped: res://assets/audio/music/main_menu_pixel_rain.mp3
+Loading resource: res://.godot/imported/main_menu_pixel_rain.mp3-3dc8af6bafc020f44b97c51dddd277c0.mp3str remapped: res://.godot/imported/main_menu_pixel_rain.mp3-3dc8af6bafc020f44b97c51dddd277c0.mp3str
+Completed load for: 'res://assets/audio/music/main_menu_pixel_rain.mp3' remapped 'res://assets/audio/music/main_menu_pixel_rain.mp3' at thread -1
+Loading resource: res://assets/audio/sfx/ui/confirm.wav remapped: res://assets/audio/sfx/ui/confirm.wav
+Loading resource: res://.godot/imported/confirm.wav-447f95c9d2259fdec8824499a732b240.sample remapped: res://.godot/imported/confirm.wav-447f95c9d2259fdec8824499a732b240.sample
+Completed load for: 'res://assets/audio/sfx/ui/confirm.wav' remapped 'res://assets/audio/sfx/ui/confirm.wav' at thread -1
+Loading resource: res://assets/audio/sfx/ui/cursor.wav remapped: res://assets/audio/sfx/ui/cursor.wav
+Loading resource: res://.godot/imported/cursor.wav-f9d43327ffe5d754f3c43f5fcaf51ed7.sample remapped: res://.godot/imported/cursor.wav-f9d43327ffe5d754f3c43f5fcaf51ed7.sample
+Completed load for: 'res://assets/audio/sfx/ui/cursor.wav' remapped 'res://assets/audio/sfx/ui/cursor.wav' at thread -1
+Loading resource: res://assets/audio/sfx/ui/cancel.wav remapped: res://assets/audio/sfx/ui/cancel.wav
+Loading resource: res://.godot/imported/cancel.wav-33332b9d9ab2f05525bb0f33a8b9bdea.sample remapped: res://.godot/imported/cancel.wav-33332b9d9ab2f05525bb0f33a8b9bdea.sample
+Completed load for: 'res://assets/audio/sfx/ui/cancel.wav' remapped 'res://assets/audio/sfx/ui/cancel.wav' at thread -1
+Loading resource: res://scenes/creature_prologue.tscn remapped: res://scenes/creature_prologue.tscn
+Loading resource: res://scripts/creature_prologue.gd remapped: res://scripts/creature_prologue.gd
+Loading resource: res://dialogue/flood_bank.dialogue remapped: res://dialogue/flood_bank.dialogue
+Loading resource: res://.godot/imported/flood_bank.dialogue-1cc5db362af5ea47904f6f6aedf577a5.tres remapped: res://.godot/imported/flood_bank.dialogue-1cc5db362af5ea47904f6f6aedf577a5.tres
+Completed load for: 'res://dialogue/flood_bank.dialogue' remapped 'res://dialogue/flood_bank.dialogue' at thread -1
+Loading resource: res://scripts/dungeon/dungeon_finish.gdshader remapped: res://scripts/dungeon/dungeon_finish.gdshader
+Completed load for: 'res://scripts/dungeon/dungeon_finish.gdshader' remapped 'res://scripts/dungeon/dungeon_finish.gdshader' at thread -1
+Completed load for: 'res://scripts/creature_prologue.gd' remapped 'res://scripts/creature_prologue.gd' at thread -1
+Completed load for: 'res://scenes/creature_prologue.tscn' remapped 'res://scenes/creature_prologue.tscn' at thread -1
+Loading resource: res://scenes/storm_open.tscn remapped: res://scenes/storm_open.tscn
+Loading resource: res://scripts/storm_open.gd remapped: res://scripts/storm_open.gd
+Completed load for: 'res://scripts/storm_open.gd' remapped 'res://scripts/storm_open.gd' at thread -1
+Completed load for: 'res://scenes/storm_open.tscn' remapped 'res://scenes/storm_open.tscn' at thread -1
+Loading resource: res://assets/sprites/menu/creature_village_2026_10_09.png remapped: res://assets/sprites/menu/creature_village_2026_10_09.png
+Loading resource: res://.godot/imported/creature_village_2026_10_09.png-65798e4a844e56a3e894515053d6ea80.ctex remapped: res://.godot/imported/creature_village_2026_10_09.png-65798e4a844e56a3e894515053d6ea80.ctex
+Completed load for: 'res://assets/sprites/menu/creature_village_2026_10_09.png' remapped 'res://assets/sprites/menu/creature_village_2026_10_09.png' at thread -1
+Loading resource: res://scripts/ui/title_legibility.gdshader remapped: res://scripts/ui/title_legibility.gdshader
+Completed load for: 'res://scripts/ui/title_legibility.gdshader' remapped 'res://scripts/ui/title_legibility.gdshader' at thread -1
+Loading resource: res://scripts/effects/courier_finish.gdshader remapped: res://scripts/effects/courier_finish.gdshader
+Completed load for: 'res://scripts/effects/courier_finish.gdshader' remapped 'res://scripts/effects/courier_finish.gdshader' at thread -1
+Loading resource: res://assets/fonts/Vollkorn-Variable.ttf remapped: res://assets/fonts/Vollkorn-Variable.ttf
+Loading resource: res://.godot/imported/Vollkorn-Variable.ttf-e1b9cfdb1c3dd6184741d1892f9858c0.fontdata remapped: res://.godot/imported/Vollkorn-Variable.ttf-e1b9cfdb1c3dd6184741d1892f9858c0.fontdata
+Completed load for: 'res://assets/fonts/Vollkorn-Variable.ttf' remapped 'res://assets/fonts/Vollkorn-Variable.ttf' at thread -1
+Completed load for: 'res://scripts/creature_opening.gd' remapped 'res://scripts/creature_opening.gd' at thread -1
+Completed load for: 'res://scenes/creature_opening.tscn' remapped 'res://scenes/creature_opening.tscn' at thread -1
+Loading resource: res://assets/fonts/Jersey10-Regular.ttf remapped: res://assets/fonts/Jersey10-Regular.ttf
+Loading resource: res://.godot/imported/Jersey10-Regular.ttf-200460e514ca6d2634756f713ee1b38e.fontdata remapped: res://.godot/imported/Jersey10-Regular.ttf-200460e514ca6d2634756f713ee1b38e.fontdata
+Completed load for: 'res://assets/fonts/Jersey10-Regular.ttf' remapped 'res://assets/fonts/Jersey10-Regular.ttf' at thread -1
+Loading resource: res://assets/sprites/ui/frame/panel.png remapped: res://assets/sprites/ui/frame/panel.png
+Loading resource: res://.godot/imported/panel.png-579543419dd28a576392dbfa2b95b9c7.ctex remapped: res://.godot/imported/panel.png-579543419dd28a576392dbfa2b95b9c7.ctex
+Completed load for: 'res://assets/sprites/ui/frame/panel.png' remapped 'res://assets/sprites/ui/frame/panel.png' at thread -1
+Loading resource: res://assets/sprites/ui/frame/panel_focus.png remapped: res://assets/sprites/ui/frame/panel_focus.png
+Loading resource: res://.godot/imported/panel_focus.png-6499baa53c91b19894f11168db422461.ctex remapped: res://.godot/imported/panel_focus.png-6499baa53c91b19894f11168db422461.ctex
+Completed load for: 'res://assets/sprites/ui/frame/panel_focus.png' remapped 'res://assets/sprites/ui/frame/panel_focus.png' at thread -1
+Loading resource: res://scripts/ui/title_settings.gd remapped: res://scripts/ui/title_settings.gd
+Loading resource: res://scripts/arena/hollow.gdshader remapped: res://scripts/arena/hollow.gdshader
+Completed load for: 'res://scripts/arena/hollow.gdshader' remapped 'res://scripts/arena/hollow.gdshader' at thread -1
+Loading resource: res://assets/sprites/effects/oxbowarchon/kingstone_rail/orb4_p09.png remapped: res://assets/sprites/effects/oxbowarchon/kingstone_rail/orb4_p09.png
+Loading resource: res://.godot/imported/orb4_p09.png-92446a7ec72070defd7073712b357cad.ctex remapped: res://.godot/imported/orb4_p09.png-92446a7ec72070defd7073712b357cad.ctex
+Completed load for: 'res://assets/sprites/effects/oxbowarchon/kingstone_rail/orb4_p09.png' remapped 'res://assets/sprites/effects/oxbowarchon/kingstone_rail/orb4_p09.png' at thread -1
+Loading resource: res://assets/sprites/effects/oxbowarchon/kingstone_rail/orb1_p07.png remapped: res://assets/sprites/effects/oxbowarchon/kingstone_rail/orb1_p07.png
+Loading resource: res://.godot/imported/orb1_p07.png-813c9c8a470fb9ab448eb436edecbf70.ctex remapped: res://.godot/imported/orb1_p07.png-813c9c8a470fb9ab448eb436edecbf70.ctex
+Completed load for: 'res://assets/sprites/effects/oxbowarchon/kingstone_rail/orb1_p07.png' remapped 'res://assets/sprites/effects/oxbowarchon/kingstone_rail/orb1_p07.png' at thread -1
+Loading resource: res://assets/sprites/effects/oxbowarchon/kingstone_rail/orb2_p06.png remapped: res://assets/sprites/effects/oxbowarchon/kingstone_rail/orb2_p06.png
+Loading resource: res://.godot/imported/orb2_p06.png-bec5f7dbab91adb3466abafce845028d.ctex remapped: res://.godot/imported/orb2_p06.png-bec5f7dbab91adb3466abafce845028d.ctex
+Completed load for: 'res://assets/sprites/effects/oxbowarchon/kingstone_rail/orb2_p06.png' remapped 'res://assets/sprites/effects/oxbowarchon/kingstone_rail/orb2_p06.png' at thread -1
+Loading resource: res://assets/sprites/effects/oxbowarchon/kingstone_rail/orb1_p08.png remapped: res://assets/sprites/effects/oxbowarchon/kingstone_rail/orb1_p08.png
+Loading resource: res://.godot/imported/orb1_p08.png-968f7f023b39332320f64a0dbf26aae0.ctex remapped: res://.godot/imported/orb1_p08.png-968f7f023b39332320f64a0dbf26aae0.ctex
+Completed load for: 'res://assets/sprites/effects/oxbowarchon/kingstone_rail/orb1_p08.png' remapped 'res://assets/sprites/effects/oxbowarchon/kingstone_rail/orb1_p08.png' at thread -1
+Loading resource: res://assets/sprites/effects/oxbowarchon/kingstone_rail/orb3_p10.png remapped: res://assets/sprites/effects/oxbowarchon/kingstone_rail/orb3_p10.png
+Loading resource: res://.godot/imported/orb3_p10.png-d87e880f227fa822670cb8ff92a2bc70.ctex remapped: res://.godot/imported/orb3_p10.png-d87e880f227fa822670cb8ff92a2bc70.ctex
+Completed load for: 'res://assets/sprites/effects/oxbowarchon/kingstone_rail/orb3_p10.png' remapped 'res://assets/sprites/effects/oxbowarchon/kingstone_rail/orb3_p10.png' at thread -1
+Completed load for: 'res://scripts/ui/title_settings.gd' remapped 'res://scripts/ui/title_settings.gd' at thread -1
+Loading resource: res://assets/sprites/ui/frame/panel_dim.png remapped: res://assets/sprites/ui/frame/panel_dim.png
+Loading resource: res://.godot/imported/panel_dim.png-5b1c07a86d598a51b6d7817ee99913ea.ctex remapped: res://.godot/imported/panel_dim.png-5b1c07a86d598a51b6d7817ee99913ea.ctex
+Completed load for: 'res://assets/sprites/ui/frame/panel_dim.png' remapped 'res://assets/sprites/ui/frame/panel_dim.png' at thread -1
+Loading resource: res://assets/sprites/ui/frame/nameplate.png remapped: res://assets/sprites/ui/frame/nameplate.png
+Loading resource: res://.godot/imported/nameplate.png-14fa3910a4172cffb8bd5588ebb2e554.ctex remapped: res://.godot/imported/nameplate.png-14fa3910a4172cffb8bd5588ebb2e554.ctex
+Completed load for: 'res://assets/sprites/ui/frame/nameplate.png' remapped 'res://assets/sprites/ui/frame/nameplate.png' at thread -1
+Loading resource: res://assets/audio/music/title.mp3 remapped: res://assets/audio/music/title.mp3
+Loading resource: res://.godot/imported/title.mp3-12fdd3e8dd8122229ae3eb6228febd6b.mp3str remapped: res://.godot/imported/title.mp3-12fdd3e8dd8122229ae3eb6228febd6b.mp3str
+Completed load for: 'res://assets/audio/music/title.mp3' remapped 'res://assets/audio/music/title.mp3' at thread -1
+Explicit campaign title reveals: PASS
+Title respects Reduce Motion: PASS
+Title is current creature campaign: PASS
+Capture 1-title: PASS
+Loading resource: res://scripts/art/slots/dungeon.gd remapped: res://scripts/art/slots/dungeon.gd
+Completed load for: 'res://scripts/art/slots/dungeon.gd' remapped 'res://scripts/art/slots/dungeon.gd' at thread -1
+Loading resource: res://scripts/art/slots/route.gd remapped: res://scripts/art/slots/route.gd
+Completed load for: 'res://scripts/art/slots/route.gd' remapped 'res://scripts/art/slots/route.gd' at thread -1
+Loading resource: res://scripts/art/slots/story.gd remapped: res://scripts/art/slots/story.gd
+Completed load for: 'res://scripts/art/slots/story.gd' remapped 'res://scripts/art/slots/story.gd' at thread -1
+Loading resource: res://scripts/art/slots/title.gd remapped: res://scripts/art/slots/title.gd
+Completed load for: 'res://scripts/art/slots/title.gd' remapped 'res://scripts/art/slots/title.gd' at thread -1
+Loading resource: res://scripts/art/slots/town_buildings.gd remapped: res://scripts/art/slots/town_buildings.gd
+Completed load for: 'res://scripts/art/slots/town_buildings.gd' remapped 'res://scripts/art/slots/town_buildings.gd' at thread -1
+Loading resource: res://scripts/art/slots/town_rooms.gd remapped: res://scripts/art/slots/town_rooms.gd
+Completed load for: 'res://scripts/art/slots/town_rooms.gd' remapped 'res://scripts/art/slots/town_rooms.gd' at thread -1
+Loading resource: res://scripts/art/slots/town_street.gd remapped: res://scripts/art/slots/town_street.gd
+Completed load for: 'res://scripts/art/slots/town_street.gd' remapped 'res://scripts/art/slots/town_street.gd' at thread -1
+Loading resource: res://scripts/art/slots/ui.gd remapped: res://scripts/art/slots/ui.gd
+Completed load for: 'res://scripts/art/slots/ui.gd' remapped 'res://scripts/art/slots/ui.gd' at thread -1
+Loading resource: res://assets/sprites/world/waking_bank_2026_10_10/waking_native.png remapped: res://assets/sprites/world/waking_bank_2026_10_10/waking_native.png
+Loading resource: res://.godot/imported/waking_native.png-13ee8a31fa8a839da3ad4d5779db45ff.ctex remapped: res://.godot/imported/waking_native.png-13ee8a31fa8a839da3ad4d5779db45ff.ctex
+Completed load for: 'res://assets/sprites/world/waking_bank_2026_10_10/waking_native.png' remapped 'res://assets/sprites/world/waking_bank_2026_10_10/waking_native.png' at thread -1
+Loading resource: res://assets/audio/sfx/story/storm_rain.wav remapped: res://assets/audio/sfx/story/storm_rain.wav
+Loading resource: res://.godot/imported/storm_rain.wav-ecec8d635f8cba979071b55b70ee62b4.sample remapped: res://.godot/imported/storm_rain.wav-ecec8d635f8cba979071b55b70ee62b4.sample
+Completed load for: 'res://assets/audio/sfx/story/storm_rain.wav' remapped 'res://assets/audio/sfx/story/storm_rain.wav' at thread -1
+New Game enters storm via real title button: PASS
+Storm receives Reduce Motion: PASS
+Capture 2-storm: PASS
+Loading resource: res://assets/audio/sfx/story/thunder.wav remapped: res://assets/audio/sfx/story/thunder.wav
+Loading resource: res://.godot/imported/thunder.wav-119341c4db605a7b579e4f4543de5f96.sample remapped: res://.godot/imported/thunder.wav-119341c4db605a7b579e4f4543de5f96.sample
+Completed load for: 'res://assets/audio/sfx/story/thunder.wav' remapped 'res://assets/audio/sfx/story/thunder.wav' at thread -1
+Loading resource: res://assets/audio/sfx/story/time_stop.wav remapped: res://assets/audio/sfx/story/time_stop.wav
+Loading resource: res://.godot/imported/time_stop.wav-9e8551d375217b95716ad0728be995dc.sample remapped: res://.godot/imported/time_stop.wav-9e8551d375217b95716ad0728be995dc.sample
+Completed load for: 'res://assets/audio/sfx/story/time_stop.wav' remapped 'res://assets/audio/sfx/story/time_stop.wav' at thread -1
+Storm time freezes and greys: PASS
+Capture 3-frozen: PASS
+Loading resource: res://assets/audio/sfx/story/soul_descend.wav remapped: res://assets/audio/sfx/story/soul_descend.wav
+Loading resource: res://.godot/imported/soul_descend.wav-668a4f7656ef2c3e99ce3f4a7d7c1965.sample remapped: res://.godot/imported/soul_descend.wav-668a4f7656ef2c3e99ce3f4a7d7c1965.sample
+Completed load for: 'res://assets/audio/sfx/story/soul_descend.wav' remapped 'res://assets/audio/sfx/story/soul_descend.wav' at thread -1
+Soul pixel cluster descends in actual Storm: PASS
+Capture 3b-descending-pixels: PASS
+Soul cluster reaches original waking spot before bloom: PASS
+Capture 3c-landed-pixels: PASS
+Loading resource: res://scenes/soul_prologue.tscn remapped: res://scenes/soul_prologue.tscn
+Loading resource: res://scripts/soul_prologue.gd remapped: res://scripts/soul_prologue.gd
+Loading resource: res://assets/audio/sfx/dungeon/presence_swell.wav remapped: res://assets/audio/sfx/dungeon/presence_swell.wav
+Loading resource: res://.godot/imported/presence_swell.wav-251c1927c9d493a5bbba060d6bae9c85.sample remapped: res://.godot/imported/presence_swell.wav-251c1927c9d493a5bbba060d6bae9c85.sample
+Completed load for: 'res://assets/audio/sfx/dungeon/presence_swell.wav' remapped 'res://assets/audio/sfx/dungeon/presence_swell.wav' at thread -1
+Completed load for: 'res://scripts/soul_prologue.gd' remapped 'res://scripts/soul_prologue.gd' at thread -1
+Completed load for: 'res://scenes/soul_prologue.tscn' remapped 'res://scenes/soul_prologue.tscn' at thread -1
+Storm enters actual soul scene: PASS
+Soul receives Reduce Motion: PASS
+Loading resource: res://assets/audio/music/hollow_flute.mp3 remapped: res://assets/audio/music/hollow_flute.mp3
+Loading resource: res://.godot/imported/hollow_flute.mp3-64b7d9eb35adde8e9a36e4191c630ce5.mp3str remapped: res://.godot/imported/hollow_flute.mp3-64b7d9eb35adde8e9a36e4191c630ce5.mp3str
+Completed load for: 'res://assets/audio/music/hollow_flute.mp3' remapped 'res://assets/audio/music/hollow_flute.mp3' at thread -1
+Loading resource: res://assets/sprites/ui/frame/arrow.png remapped: res://assets/sprites/ui/frame/arrow.png
+Loading resource: res://.godot/imported/arrow.png-e6eccf886aa7538070d19f5868747136.ctex remapped: res://.godot/imported/arrow.png-e6eccf886aa7538070d19f5868747136.ctex
+Completed load for: 'res://assets/sprites/ui/frame/arrow.png' remapped 'res://assets/sprites/ui/frame/arrow.png' at thread -1
+Loading resource: res://assets/audio/sfx/ui/text_blip_0.wav remapped: res://assets/audio/sfx/ui/text_blip_0.wav
+Loading resource: res://.godot/imported/text_blip_0.wav-1991787eaf0879e80770ea85e3498992.sample remapped: res://.godot/imported/text_blip_0.wav-1991787eaf0879e80770ea85e3498992.sample
+Completed load for: 'res://assets/audio/sfx/ui/text_blip_0.wav' remapped 'res://assets/audio/sfx/ui/text_blip_0.wav' at thread -1
+Loading resource: res://assets/audio/sfx/ui/text_blip_1.wav remapped: res://assets/audio/sfx/ui/text_blip_1.wav
+Loading resource: res://.godot/imported/text_blip_1.wav-0b4e8262e33867006e156280c7574799.sample remapped: res://.godot/imported/text_blip_1.wav-0b4e8262e33867006e156280c7574799.sample
+Completed load for: 'res://assets/audio/sfx/ui/text_blip_1.wav' remapped 'res://assets/audio/sfx/ui/text_blip_1.wav' at thread -1
+Loading resource: res://assets/audio/sfx/ui/text_blip_2.wav remapped: res://assets/audio/sfx/ui/text_blip_2.wav
+Loading resource: res://.godot/imported/text_blip_2.wav-ba605b0f9408e178ea078341e7e6d345.sample remapped: res://.godot/imported/text_blip_2.wav-ba605b0f9408e178ea078341e7e6d345.sample
+Completed load for: 'res://assets/audio/sfx/ui/text_blip_2.wav' remapped 'res://assets/audio/sfx/ui/text_blip_2.wav' at thread -1
+Loading resource: res://assets/sprites/ui/frame/portrait.png remapped: res://assets/sprites/ui/frame/portrait.png
+Loading resource: res://.godot/imported/portrait.png-f72086b3b0cc92c6c68ec8069594f92b.ctex remapped: res://.godot/imported/portrait.png-f72086b3b0cc92c6c68ec8069594f92b.ctex
+Completed load for: 'res://assets/sprites/ui/frame/portrait.png' remapped 'res://assets/sprites/ui/frame/portrait.png' at thread -1
+Loading resource: res://assets/sprites/creatures/starter_material_detail_2026_10_05/kithflare_idle_tail_outline_2026_10_05/f0.png remapped: res://assets/sprites/creatures/starter_material_detail_2026_10_05/kithflare_idle_tail_outline_2026_10_05/f0.png
+Loading resource: res://.godot/imported/f0.png-efbde77cf906a8f37ceb5ce44473ec81.ctex remapped: res://.godot/imported/f0.png-efbde77cf906a8f37ceb5ce44473ec81.ctex
+Completed load for: 'res://assets/sprites/creatures/starter_material_detail_2026_10_05/kithflare_idle_tail_outline_2026_10_05/f0.png' remapped 'res://assets/sprites/creatures/starter_material_detail_2026_10_05/kithflare_idle_tail_outline_2026_10_05/f0.png' at thread -1
+Loading resource: res://assets/sprites/creatures/starter_material_detail_2026_10_05/kithflare_idle_tail_outline_2026_10_05/f1.png remapped: res://assets/sprites/creatures/starter_material_detail_2026_10_05/kithflare_idle_tail_outline_2026_10_05/f1.png
+Loading resource: res://.godot/imported/f1.png-2bd387a4782f2e7cdc9201af4b46ceb8.ctex remapped: res://.godot/imported/f1.png-2bd387a4782f2e7cdc9201af4b46ceb8.ctex
+Completed load for: 'res://assets/sprites/creatures/starter_material_detail_2026_10_05/kithflare_idle_tail_outline_2026_10_05/f1.png' remapped 'res://assets/sprites/creatures/starter_material_detail_2026_10_05/kithflare_idle_tail_outline_2026_10_05/f1.png' at thread -1
+Loading resource: res://assets/sprites/creatures/starter_material_detail_2026_10_05/kithflare_idle_tail_outline_2026_10_05/f2.png remapped: res://assets/sprites/creatures/starter_material_detail_2026_10_05/kithflare_idle_tail_outline_2026_10_05/f2.png
+Loading resource: res://.godot/imported/f2.png-aba1172260d1536fad4ed08219e59dc6.ctex remapped: res://.godot/imported/f2.png-aba1172260d1536fad4ed08219e59dc6.ctex
+Completed load for: 'res://assets/sprites/creatures/starter_material_detail_2026_10_05/kithflare_idle_tail_outline_2026_10_05/f2.png' remapped 'res://assets/sprites/creatures/starter_material_detail_2026_10_05/kithflare_idle_tail_outline_2026_10_05/f2.png' at thread -1
+Loading resource: res://assets/sprites/creatures/starter_material_detail_2026_10_05/kithflare_idle_tail_outline_2026_10_05/f3.png remapped: res://assets/sprites/creatures/starter_material_detail_2026_10_05/kithflare_idle_tail_outline_2026_10_05/f3.png
+Loading resource: res://.godot/imported/f3.png-6dec6024007f4c6fca42c88d1317cc34.ctex remapped: res://.godot/imported/f3.png-6dec6024007f4c6fca42c88d1317cc34.ctex
+Completed load for: 'res://assets/sprites/creatures/starter_material_detail_2026_10_05/kithflare_idle_tail_outline_2026_10_05/f3.png' remapped 'res://assets/sprites/creatures/starter_material_detail_2026_10_05/kithflare_idle_tail_outline_2026_10_05/f3.png' at thread -1
+Loading resource: res://assets/sprites/creatures/starter_material_detail_2026_10_05/kithflare_idle_tail_outline_2026_10_05/f4.png remapped: res://assets/sprites/creatures/starter_material_detail_2026_10_05/kithflare_idle_tail_outline_2026_10_05/f4.png
+Loading resource: res://.godot/imported/f4.png-6ea2df721130b8e976e9f601415aa19d.ctex remapped: res://.godot/imported/f4.png-6ea2df721130b8e976e9f601415aa19d.ctex
+Completed load for: 'res://assets/sprites/creatures/starter_material_detail_2026_10_05/kithflare_idle_tail_outline_2026_10_05/f4.png' remapped 'res://assets/sprites/creatures/starter_material_detail_2026_10_05/kithflare_idle_tail_outline_2026_10_05/f4.png' at thread -1
+Loading resource: res://assets/sprites/creatures/starter_material_detail_2026_10_05/kithflare_idle_tail_outline_2026_10_05/f5.png remapped: res://assets/sprites/creatures/starter_material_detail_2026_10_05/kithflare_idle_tail_outline_2026_10_05/f5.png
+Loading resource: res://.godot/imported/f5.png-07c57e5e895ec472b8d954864256574f.ctex remapped: res://.godot/imported/f5.png-07c57e5e895ec472b8d954864256574f.ctex
+Completed load for: 'res://assets/sprites/creatures/starter_material_detail_2026_10_05/kithflare_idle_tail_outline_2026_10_05/f5.png' remapped 'res://assets/sprites/creatures/starter_material_detail_2026_10_05/kithflare_idle_tail_outline_2026_10_05/f5.png' at thread -1
+Loading resource: res://assets/sprites/creatures/starter_material_detail_2026_10_05/kithflare_idle_tail_outline_2026_10_05/f6.png remapped: res://assets/sprites/creatures/starter_material_detail_2026_10_05/kithflare_idle_tail_outline_2026_10_05/f6.png
+Loading resource: res://.godot/imported/f6.png-9fb421e667409d762c571a8c607a01b3.ctex remapped: res://.godot/imported/f6.png-9fb421e667409d762c571a8c607a01b3.ctex
+Completed load for: 'res://assets/sprites/creatures/starter_material_detail_2026_10_05/kithflare_idle_tail_outline_2026_10_05/f6.png' remapped 'res://assets/sprites/creatures/starter_material_detail_2026_10_05/kithflare_idle_tail_outline_2026_10_05/f6.png' at thread -1
+Loading resource: res://assets/sprites/creatures/starter_material_detail_2026_10_05/kithflare_idle_tail_outline_2026_10_05/f7.png remapped: res://assets/sprites/creatures/starter_material_detail_2026_10_05/kithflare_idle_tail_outline_2026_10_05/f7.png
+Loading resource: res://.godot/imported/f7.png-aedee50b8a2f6ad98377ef15067d48a1.ctex remapped: res://.godot/imported/f7.png-aedee50b8a2f6ad98377ef15067d48a1.ctex
+Completed load for: 'res://assets/sprites/creatures/starter_material_detail_2026_10_05/kithflare_idle_tail_outline_2026_10_05/f7.png' remapped 'res://assets/sprites/creatures/starter_material_detail_2026_10_05/kithflare_idle_tail_outline_2026_10_05/f7.png' at thread -1
+Loading resource: res://assets/sprites/creatures/idle_2026_10_05/1701_tallowroot/f0.png remapped: res://assets/sprites/creatures/idle_2026_10_05/1701_tallowroot/f0.png
+Loading resource: res://.godot/imported/f0.png-982c4ad61df5df208a8ac10e08c8466c.ctex remapped: res://.godot/imported/f0.png-982c4ad61df5df208a8ac10e08c8466c.ctex
+Completed load for: 'res://assets/sprites/creatures/idle_2026_10_05/1701_tallowroot/f0.png' remapped 'res://assets/sprites/creatures/idle_2026_10_05/1701_tallowroot/f0.png' at thread -1
+Loading resource: res://assets/sprites/creatures/idle_2026_10_05/1701_tallowroot/f1.png remapped: res://assets/sprites/creatures/idle_2026_10_05/1701_tallowroot/f1.png
+Loading resource: res://.godot/imported/f1.png-591be503ab9f2c97374922689edaafea.ctex remapped: res://.godot/imported/f1.png-591be503ab9f2c97374922689edaafea.ctex
+Completed load for: 'res://assets/sprites/creatures/idle_2026_10_05/1701_tallowroot/f1.png' remapped 'res://assets/sprites/creatures/idle_2026_10_05/1701_tallowroot/f1.png' at thread -1
+Loading resource: res://assets/sprites/creatures/idle_2026_10_05/1701_tallowroot/f2.png remapped: res://assets/sprites/creatures/idle_2026_10_05/1701_tallowroot/f2.png
+Loading resource: res://.godot/imported/f2.png-3debd2e45b938001d6f7e4ad3f88bc4e.ctex remapped: res://.godot/imported/f2.png-3debd2e45b938001d6f7e4ad3f88bc4e.ctex
+Completed load for: 'res://assets/sprites/creatures/idle_2026_10_05/1701_tallowroot/f2.png' remapped 'res://assets/sprites/creatures/idle_2026_10_05/1701_tallowroot/f2.png' at thread -1
+Loading resource: res://assets/sprites/creatures/idle_2026_10_05/1701_tallowroot/f3.png remapped: res://assets/sprites/creatures/idle_2026_10_05/1701_tallowroot/f3.png
+Loading resource: res://.godot/imported/f3.png-5eecb41400cb9d21975e6ea380fbda70.ctex remapped: res://.godot/imported/f3.png-5eecb41400cb9d21975e6ea380fbda70.ctex
+Completed load for: 'res://assets/sprites/creatures/idle_2026_10_05/1701_tallowroot/f3.png' remapped 'res://assets/sprites/creatures/idle_2026_10_05/1701_tallowroot/f3.png' at thread -1
+Loading resource: res://assets/sprites/creatures/idle_2026_10_05/1701_tallowroot/f4.png remapped: res://assets/sprites/creatures/idle_2026_10_05/1701_tallowroot/f4.png
+Loading resource: res://.godot/imported/f4.png-1a4d1fe6e08219b540fb20b0272fd83f.ctex remapped: res://.godot/imported/f4.png-1a4d1fe6e08219b540fb20b0272fd83f.ctex
+Completed load for: 'res://assets/sprites/creatures/idle_2026_10_05/1701_tallowroot/f4.png' remapped 'res://assets/sprites/creatures/idle_2026_10_05/1701_tallowroot/f4.png' at thread -1
+Loading resource: res://assets/sprites/creatures/idle_2026_10_05/1701_tallowroot/f5.png remapped: res://assets/sprites/creatures/idle_2026_10_05/1701_tallowroot/f5.png
+Loading resource: res://.godot/imported/f5.png-b9dd1df80d3bdb3c4b1d5af1aed0c714.ctex remapped: res://.godot/imported/f5.png-b9dd1df80d3bdb3c4b1d5af1aed0c714.ctex
+Completed load for: 'res://assets/sprites/creatures/idle_2026_10_05/1701_tallowroot/f5.png' remapped 'res://assets/sprites/creatures/idle_2026_10_05/1701_tallowroot/f5.png' at thread -1
+Loading resource: res://assets/sprites/creatures/idle_2026_10_05/1701_tallowroot/f6.png remapped: res://assets/sprites/creatures/idle_2026_10_05/1701_tallowroot/f6.png
+Loading resource: res://.godot/imported/f6.png-1aca1257c4f581889e2269cc6ef5e71e.ctex remapped: res://.godot/imported/f6.png-1aca1257c4f581889e2269cc6ef5e71e.ctex
+Completed load for: 'res://assets/sprites/creatures/idle_2026_10_05/1701_tallowroot/f6.png' remapped 'res://assets/sprites/creatures/idle_2026_10_05/1701_tallowroot/f6.png' at thread -1
+Loading resource: res://assets/sprites/creatures/idle_2026_10_05/1701_tallowroot/f7.png remapped: res://assets/sprites/creatures/idle_2026_10_05/1701_tallowroot/f7.png
+Loading resource: res://.godot/imported/f7.png-8d8f36f778890e8da6baac752861632c.ctex remapped: res://.godot/imported/f7.png-8d8f36f778890e8da6baac752861632c.ctex
+Completed load for: 'res://assets/sprites/creatures/idle_2026_10_05/1701_tallowroot/f7.png' remapped 'res://assets/sprites/creatures/idle_2026_10_05/1701_tallowroot/f7.png' at thread -1
+Loading resource: res://assets/sprites/creatures/idle_2026_10_05/001_rimefin/f0.png remapped: res://assets/sprites/creatures/idle_2026_10_05/001_rimefin/f0.png
+Loading resource: res://.godot/imported/f0.png-a4b09baadb39fc6e9f69f372b26e3eb9.ctex remapped: res://.godot/imported/f0.png-a4b09baadb39fc6e9f69f372b26e3eb9.ctex
+Completed load for: 'res://assets/sprites/creatures/idle_2026_10_05/001_rimefin/f0.png' remapped 'res://assets/sprites/creatures/idle_2026_10_05/001_rimefin/f0.png' at thread -1
+Loading resource: res://assets/sprites/creatures/idle_2026_10_05/001_rimefin/f1.png remapped: res://assets/sprites/creatures/idle_2026_10_05/001_rimefin/f1.png
+Loading resource: res://.godot/imported/f1.png-7aff6a5ced1e0551177e57871d03eeaa.ctex remapped: res://.godot/imported/f1.png-7aff6a5ced1e0551177e57871d03eeaa.ctex
+Completed load for: 'res://assets/sprites/creatures/idle_2026_10_05/001_rimefin/f1.png' remapped 'res://assets/sprites/creatures/idle_2026_10_05/001_rimefin/f1.png' at thread -1
+Loading resource: res://assets/sprites/creatures/idle_2026_10_05/001_rimefin/f2.png remapped: res://assets/sprites/creatures/idle_2026_10_05/001_rimefin/f2.png
+Loading resource: res://.godot/imported/f2.png-e15793f6f5438e5c51fd77d77f510748.ctex remapped: res://.godot/imported/f2.png-e15793f6f5438e5c51fd77d77f510748.ctex
+Completed load for: 'res://assets/sprites/creatures/idle_2026_10_05/001_rimefin/f2.png' remapped 'res://assets/sprites/creatures/idle_2026_10_05/001_rimefin/f2.png' at thread -1
+Loading resource: res://assets/sprites/creatures/idle_2026_10_05/001_rimefin/f3.png remapped: res://assets/sprites/creatures/idle_2026_10_05/001_rimefin/f3.png
+Loading resource: res://.godot/imported/f3.png-de5caa4c12e7f0a755a2edc46a910950.ctex remapped: res://.godot/imported/f3.png-de5caa4c12e7f0a755a2edc46a910950.ctex
+Completed load for: 'res://assets/sprites/creatures/idle_2026_10_05/001_rimefin/f3.png' remapped 'res://assets/sprites/creatures/idle_2026_10_05/001_rimefin/f3.png' at thread -1
+Loading resource: res://assets/sprites/creatures/idle_2026_10_05/001_rimefin/f4.png remapped: res://assets/sprites/creatures/idle_2026_10_05/001_rimefin/f4.png
+Loading resource: res://.godot/imported/f4.png-bce2942a1e4c6ca380807824fbd9c7de.ctex remapped: res://.godot/imported/f4.png-bce2942a1e4c6ca380807824fbd9c7de.ctex
+Completed load for: 'res://assets/sprites/creatures/idle_2026_10_05/001_rimefin/f4.png' remapped 'res://assets/sprites/creatures/idle_2026_10_05/001_rimefin/f4.png' at thread -1
+Loading resource: res://assets/sprites/creatures/idle_2026_10_05/001_rimefin/f5.png remapped: res://assets/sprites/creatures/idle_2026_10_05/001_rimefin/f5.png
+Loading resource: res://.godot/imported/f5.png-3f8b2a0e3914358e9c87518ff6e6fec2.ctex remapped: res://.godot/imported/f5.png-3f8b2a0e3914358e9c87518ff6e6fec2.ctex
+Completed load for: 'res://assets/sprites/creatures/idle_2026_10_05/001_rimefin/f5.png' remapped 'res://assets/sprites/creatures/idle_2026_10_05/001_rimefin/f5.png' at thread -1
+Loading resource: res://assets/sprites/creatures/idle_2026_10_05/001_rimefin/f6.png remapped: res://assets/sprites/creatures/idle_2026_10_05/001_rimefin/f6.png
+Loading resource: res://.godot/imported/f6.png-0d7ff3201d320bc9f7db39e0f0f7446f.ctex remapped: res://.godot/imported/f6.png-0d7ff3201d320bc9f7db39e0f0f7446f.ctex
+Completed load for: 'res://assets/sprites/creatures/idle_2026_10_05/001_rimefin/f6.png' remapped 'res://assets/sprites/creatures/idle_2026_10_05/001_rimefin/f6.png' at thread -1
+Loading resource: res://assets/sprites/creatures/idle_2026_10_05/001_rimefin/f7.png remapped: res://assets/sprites/creatures/idle_2026_10_05/001_rimefin/f7.png
+Loading resource: res://.godot/imported/f7.png-23df3430b174acda5790bf0f0f24e35c.ctex remapped: res://.godot/imported/f7.png-23df3430b174acda5790bf0f0f24e35c.ctex
+Completed load for: 'res://assets/sprites/creatures/idle_2026_10_05/001_rimefin/f7.png' remapped 'res://assets/sprites/creatures/idle_2026_10_05/001_rimefin/f7.png' at thread -1
+Loading resource: res://assets/sprites/ui/essence/ember.png remapped: res://assets/sprites/ui/essence/ember.png
+Loading resource: res://.godot/imported/ember.png-522bc3ad014c70479f0bac59b81289a2.ctex remapped: res://.godot/imported/ember.png-522bc3ad014c70479f0bac59b81289a2.ctex
+Completed load for: 'res://assets/sprites/ui/essence/ember.png' remapped 'res://assets/sprites/ui/essence/ember.png' at thread -1
+Loading resource: res://assets/sprites/ui/essence/electric.png remapped: res://assets/sprites/ui/essence/electric.png
+Loading resource: res://.godot/imported/electric.png-a15ce30f8b46fd29c0dc53f59a188c98.ctex remapped: res://.godot/imported/electric.png-a15ce30f8b46fd29c0dc53f59a188c98.ctex
+Completed load for: 'res://assets/sprites/ui/essence/electric.png' remapped 'res://assets/sprites/ui/essence/electric.png' at thread -1
+Loading resource: res://assets/sprites/ui/essence/bloom.png remapped: res://assets/sprites/ui/essence/bloom.png
+Loading resource: res://.godot/imported/bloom.png-9253fd9e16eba57e63250c0af5ee7f89.ctex remapped: res://.godot/imported/bloom.png-9253fd9e16eba57e63250c0af5ee7f89.ctex
+Completed load for: 'res://assets/sprites/ui/essence/bloom.png' remapped 'res://assets/sprites/ui/essence/bloom.png' at thread -1
+Loading resource: res://assets/sprites/ui/essence/loam.png remapped: res://assets/sprites/ui/essence/loam.png
+Loading resource: res://.godot/imported/loam.png-319a37ae64ea35434a3e2c998d8a0e51.ctex remapped: res://.godot/imported/loam.png-319a37ae64ea35434a3e2c998d8a0e51.ctex
+Completed load for: 'res://assets/sprites/ui/essence/loam.png' remapped 'res://assets/sprites/ui/essence/loam.png' at thread -1
+Loading resource: res://assets/sprites/ui/essence/tide.png remapped: res://assets/sprites/ui/essence/tide.png
+Loading resource: res://.godot/imported/tide.png-a7108e02eee68f5dc2dab08259bee168.ctex remapped: res://.godot/imported/tide.png-a7108e02eee68f5dc2dab08259bee168.ctex
+Completed load for: 'res://assets/sprites/ui/essence/tide.png' remapped 'res://assets/sprites/ui/essence/tide.png' at thread -1
+Loading resource: res://assets/sprites/ui/essence/murk.png remapped: res://assets/sprites/ui/essence/murk.png
+Loading resource: res://.godot/imported/murk.png-adbf5c2798cd5f4757ac9bd3a7b47101.ctex remapped: res://.godot/imported/murk.png-adbf5c2798cd5f4757ac9bd3a7b47101.ctex
+Completed load for: 'res://assets/sprites/ui/essence/murk.png' remapped 'res://assets/sprites/ui/essence/murk.png' at thread -1
+Soul dialogue reaches three starter cards: PASS
+Keyboard selects requested creature: PASS
+Capture 4-choice: PASS
+Loading resource: res://assets/audio/sfx/dungeon/menu_open.wav remapped: res://assets/audio/sfx/dungeon/menu_open.wav
+Loading resource: res://.godot/imported/menu_open.wav-b00484fe6d38d5ec9b97823be321777f.sample remapped: res://.godot/imported/menu_open.wav-b00484fe6d38d5ec9b97823be321777f.sample
+Completed load for: 'res://assets/audio/sfx/dungeon/menu_open.wav' remapped 'res://assets/audio/sfx/dungeon/menu_open.wav' at thread -1
+Starter asks before committing and defaults to No: PASS
+Soul confirms selected starter: PASS
+Soul hands off to real flood scene: PASS
+Loading resource: res://assets/sprites/arena/rimefin/small/s.png remapped: res://assets/sprites/arena/rimefin/small/s.png
+Loading resource: res://.godot/imported/s.png-c2f45096565d8682c4f607c971a0a140.ctex remapped: res://.godot/imported/s.png-c2f45096565d8682c4f607c971a0a140.ctex
+Completed load for: 'res://assets/sprites/arena/rimefin/small/s.png' remapped 'res://assets/sprites/arena/rimefin/small/s.png' at thread -1
+Loading resource: res://assets/audio/sfx/story/storm_rain.wav remapped: res://assets/audio/sfx/story/storm_rain.wav
+Loading resource: res://.godot/imported/storm_rain.wav-ecec8d635f8cba979071b55b70ee62b4.sample remapped: res://.godot/imported/storm_rain.wav-ecec8d635f8cba979071b55b70ee62b4.sample
+Completed load for: 'res://assets/audio/sfx/story/storm_rain.wav' remapped 'res://assets/audio/sfx/story/storm_rain.wav' at thread -1
+Dialogue Manager supplies flood narration: PASS
+Chosen hero survives handoff without another starter choice: PASS
+Flood begins as unnamed narration: PASS
+Capture 5-flood: PASS
+Partner choice offers exactly the other two starters: PASS
+Keyboard selects requested partner response: PASS
+Capture 6-partner-choice: PASS
+Loading resource: res://assets/sprites/arena/kithflare/small/s.png remapped: res://assets/sprites/arena/kithflare/small/s.png
+Loading resource: res://.godot/imported/s.png-c8ac24482c0b7ad6c420919cfb814822.ctex remapped: res://.godot/imported/s.png-c8ac24482c0b7ad6c420919cfb814822.ctex
+Completed load for: 'res://assets/sprites/arena/kithflare/small/s.png' remapped 'res://assets/sprites/arena/kithflare/small/s.png' at thread -1
+Loading resource: res://addons/dialogue_manager/l10n/en.po remapped: res://addons/dialogue_manager/l10n/en.po
+Completed load for: 'res://addons/dialogue_manager/l10n/en.po' remapped 'res://addons/dialogue_manager/l10n/en.po' at thread -1
+Loading resource: res://assets/sprites/ui/dialogue/kithflare_surprised.png remapped: res://assets/sprites/ui/dialogue/kithflare_surprised.png
+Loading resource: res://.godot/imported/kithflare_surprised.png-dab29a9a6507698afb2c36ba64bc6bb7.ctex remapped: res://.godot/imported/kithflare_surprised.png-dab29a9a6507698afb2c36ba64bc6bb7.ctex
+Completed load for: 'res://assets/sprites/ui/dialogue/kithflare_surprised.png' remapped 'res://assets/sprites/ui/dialogue/kithflare_surprised.png' at thread -1
+Chosen partner appears and speaks: PASS
+Loading resource: res://assets/sprites/ui/dialogue/kithflare_worried.png remapped: res://assets/sprites/ui/dialogue/kithflare_worried.png
+Loading resource: res://.godot/imported/kithflare_worried.png-d3362f2eeda9bf5daf661398ed8fb8cb.ctex remapped: res://.godot/imported/kithflare_worried.png-d3362f2eeda9bf5daf661398ed8fb8cb.ctex
+Completed load for: 'res://assets/sprites/ui/dialogue/kithflare_worried.png' remapped 'res://assets/sprites/ui/dialogue/kithflare_worried.png' at thread -1
+Loading resource: res://assets/sprites/ui/dialogue/kithflare_happy.png remapped: res://assets/sprites/ui/dialogue/kithflare_happy.png
+Loading resource: res://.godot/imported/kithflare_happy.png-a49988e4e5a84757c15a8c33d2e47f02.ctex remapped: res://.godot/imported/kithflare_happy.png-a49988e4e5a84757c15a8c33d2e47f02.ctex
+Completed load for: 'res://assets/sprites/ui/dialogue/kithflare_happy.png' remapped 'res://assets/sprites/ui/dialogue/kithflare_happy.png' at thread -1
+Loading resource: res://assets/sprites/ui/dialogue/kithflare_sad.png remapped: res://assets/sprites/ui/dialogue/kithflare_sad.png
+Loading resource: res://.godot/imported/kithflare_sad.png-e50cddaf693b937528a558cc0dd0ed5e.ctex remapped: res://.godot/imported/kithflare_sad.png-e50cddaf693b937528a558cc0dd0ed5e.ctex
+Completed load for: 'res://assets/sprites/ui/dialogue/kithflare_sad.png' remapped 'res://assets/sprites/ui/dialogue/kithflare_sad.png' at thread -1
+Loading resource: res://assets/sprites/ui/dialogue/kithflare_determined.png remapped: res://assets/sprites/ui/dialogue/kithflare_determined.png
+Loading resource: res://.godot/imported/kithflare_determined.png-aec4eccd1fb265341e448c81a9046b8b.ctex remapped: res://.godot/imported/kithflare_determined.png-aec4eccd1fb265341e448c81a9046b8b.ctex
+Completed load for: 'res://assets/sprites/ui/dialogue/kithflare_determined.png' remapped 'res://assets/sprites/ui/dialogue/kithflare_determined.png' at thread -1
+Loading resource: res://assets/sprites/ui/dialogue/kithflare_joyous.png remapped: res://assets/sprites/ui/dialogue/kithflare_joyous.png
+Loading resource: res://.godot/imported/kithflare_joyous.png-830b77bc0847de11c08e0eaf24e70620.ctex remapped: res://.godot/imported/kithflare_joyous.png-830b77bc0847de11c08e0eaf24e70620.ctex
+Completed load for: 'res://assets/sprites/ui/dialogue/kithflare_joyous.png' remapped 'res://assets/sprites/ui/dialogue/kithflare_joyous.png' at thread -1
+Loading resource: res://scenes/waking_riverbank.tscn remapped: res://scenes/waking_riverbank.tscn
+Loading resource: res://scripts/riverbank_journey.gd remapped: res://scripts/riverbank_journey.gd
+Completed load for: 'res://scripts/riverbank_journey.gd' remapped 'res://scripts/riverbank_journey.gd' at thread -1
+Completed load for: 'res://scenes/waking_riverbank.tscn' remapped 'res://scenes/waking_riverbank.tscn' at thread -1
+Loading resource: res://assets/sprites/arena/rimefin/small/s.png remapped: res://assets/sprites/arena/rimefin/small/s.png
+Loading resource: res://.godot/imported/s.png-c2f45096565d8682c4f607c971a0a140.ctex remapped: res://.godot/imported/s.png-c2f45096565d8682c4f607c971a0a140.ctex
+Completed load for: 'res://assets/sprites/arena/rimefin/small/s.png' remapped 'res://assets/sprites/arena/rimefin/small/s.png' at thread -1
+Loading resource: res://assets/sprites/arena/kithflare/small/s.png remapped: res://assets/sprites/arena/kithflare/small/s.png
+Loading resource: res://.godot/imported/s.png-c8ac24482c0b7ad6c420919cfb814822.ctex remapped: res://.godot/imported/s.png-c8ac24482c0b7ad6c420919cfb814822.ctex
+Completed load for: 'res://assets/sprites/arena/kithflare/small/s.png' remapped 'res://assets/sprites/arena/kithflare/small/s.png' at thread -1
+Loading resource: res://data/creatures/103_kithflare.tres remapped: res://data/creatures/103_kithflare.tres
+Loading resource: res://assets/sprites/creatures/idle_2026_10_05/103_kithflare/back_f0.png remapped: res://assets/sprites/creatures/idle_2026_10_05/103_kithflare/back_f0.png
+Loading resource: res://.godot/imported/back_f0.png-6e3fbf1e58beed21114eaba9e6ce0ab0.ctex remapped: res://.godot/imported/back_f0.png-6e3fbf1e58beed21114eaba9e6ce0ab0.ctex
+Completed load for: 'res://assets/sprites/creatures/idle_2026_10_05/103_kithflare/back_f0.png' remapped 'res://assets/sprites/creatures/idle_2026_10_05/103_kithflare/back_f0.png' at thread -1
+Loading resource: res://assets/sprites/creatures/idle_2026_10_05/103_kithflare/back_f1.png remapped: res://assets/sprites/creatures/idle_2026_10_05/103_kithflare/back_f1.png
+Loading resource: res://.godot/imported/back_f1.png-ba331895dbb27159affd1600182a21b6.ctex remapped: res://.godot/imported/back_f1.png-ba331895dbb27159affd1600182a21b6.ctex
+Completed load for: 'res://assets/sprites/creatures/idle_2026_10_05/103_kithflare/back_f1.png' remapped 'res://assets/sprites/creatures/idle_2026_10_05/103_kithflare/back_f1.png' at thread -1
+Loading resource: res://assets/sprites/creatures/starter_material_detail_2026_10_05/kithflare_front_lantern_tail_outline.png remapped: res://assets/sprites/creatures/starter_material_detail_2026_10_05/kithflare_front_lantern_tail_outline.png
+Loading resource: res://.godot/imported/kithflare_front_lantern_tail_outline.png-d1759968451d624fef8f6b5d4331ad3d.ctex remapped: res://.godot/imported/kithflare_front_lantern_tail_outline.png-d1759968451d624fef8f6b5d4331ad3d.ctex
+Completed load for: 'res://assets/sprites/creatures/starter_material_detail_2026_10_05/kithflare_front_lantern_tail_outline.png' remapped 'res://assets/sprites/creatures/starter_material_detail_2026_10_05/kithflare_front_lantern_tail_outline.png' at thread -1
+Loading resource: res://assets/sprites/creatures/idle_2026_10_05/103_kithflare/back_f2.png remapped: res://assets/sprites/creatures/idle_2026_10_05/103_kithflare/back_f2.png
+Loading resource: res://.godot/imported/back_f2.png-a79624a6973b1ef18c90cbbcf70cfc29.ctex remapped: res://.godot/imported/back_f2.png-a79624a6973b1ef18c90cbbcf70cfc29.ctex
+Completed load for: 'res://assets/sprites/creatures/idle_2026_10_05/103_kithflare/back_f2.png' remapped 'res://assets/sprites/creatures/idle_2026_10_05/103_kithflare/back_f2.png' at thread -1
+Loading resource: res://data/moves/kithflare_signal_spark.tres remapped: res://data/moves/kithflare_signal_spark.tres
+Loading resource: res://scenes/effects/kithflare_signal_spark.tscn remapped: res://scenes/effects/kithflare_signal_spark.tscn
+Loading resource: res://assets/sprites/effects/forge/clinker_ember.png remapped: res://assets/sprites/effects/forge/clinker_ember.png
+Loading resource: res://.godot/imported/clinker_ember.png-d25163a33cc7503b5a26505667b29613.ctex remapped: res://.godot/imported/clinker_ember.png-d25163a33cc7503b5a26505667b29613.ctex
+Completed load for: 'res://assets/sprites/effects/forge/clinker_ember.png' remapped 'res://assets/sprites/effects/forge/clinker_ember.png' at thread -1
+Loading resource: res://assets/sprites/effects/forge/kith_burst.png remapped: res://assets/sprites/effects/forge/kith_burst.png
+Loading resource: res://.godot/imported/kith_burst.png-03ba320102c1d20f0337ebe5594c240c.ctex remapped: res://.godot/imported/kith_burst.png-03ba320102c1d20f0337ebe5594c240c.ctex
+Completed load for: 'res://assets/sprites/effects/forge/kith_burst.png' remapped 'res://assets/sprites/effects/forge/kith_burst.png' at thread -1
+Loading resource: res://assets/sprites/effects/fire_ember_2.png remapped: res://assets/sprites/effects/fire_ember_2.png
+Loading resource: res://.godot/imported/fire_ember_2.png-e0baaf5c38525c1d74fe06ff9b867278.ctex remapped: res://.godot/imported/fire_ember_2.png-e0baaf5c38525c1d74fe06ff9b867278.ctex
+Completed load for: 'res://assets/sprites/effects/fire_ember_2.png' remapped 'res://assets/sprites/effects/fire_ember_2.png' at thread -1
+Loading resource: res://scripts/effects/vfx_sprite.gd remapped: res://scripts/effects/vfx_sprite.gd
+Completed load for: 'res://scripts/effects/vfx_sprite.gd' remapped 'res://scripts/effects/vfx_sprite.gd' at thread -1
+Loading resource: res://assets/sprites/effects/vfx_basic_2026_10_02/ember_shot_4x4.png remapped: res://assets/sprites/effects/vfx_basic_2026_10_02/ember_shot_4x4.png
+Loading resource: res://.godot/imported/ember_shot_4x4.png-283cf759b5fd8491628b8c47dcde1ddc.ctex remapped: res://.godot/imported/ember_shot_4x4.png-283cf759b5fd8491628b8c47dcde1ddc.ctex
+Completed load for: 'res://assets/sprites/effects/vfx_basic_2026_10_02/ember_shot_4x4.png' remapped 'res://assets/sprites/effects/vfx_basic_2026_10_02/ember_shot_4x4.png' at thread -1
+Loading resource: res://assets/sprites/effects/vfx_basic_2026_10_02/hit_pop_4x4.png remapped: res://assets/sprites/effects/vfx_basic_2026_10_02/hit_pop_4x4.png
+Loading resource: res://.godot/imported/hit_pop_4x4.png-2e32cfc574af0fb3ff099da2442fadef.ctex remapped: res://.godot/imported/hit_pop_4x4.png-2e32cfc574af0fb3ff099da2442fadef.ctex
+Completed load for: 'res://assets/sprites/effects/vfx_basic_2026_10_02/hit_pop_4x4.png' remapped 'res://assets/sprites/effects/vfx_basic_2026_10_02/hit_pop_4x4.png' at thread -1
+Completed load for: 'res://scenes/effects/kithflare_signal_spark.tscn' remapped 'res://scenes/effects/kithflare_signal_spark.tscn' at thread -1
+Completed load for: 'res://data/moves/kithflare_signal_spark.tres' remapped 'res://data/moves/kithflare_signal_spark.tres' at thread -1
+Loading resource: res://assets/sprites/creatures/idle_2026_10_05/103_kithflare/back_f3.png remapped: res://assets/sprites/creatures/idle_2026_10_05/103_kithflare/back_f3.png
+Loading resource: res://.godot/imported/back_f3.png-de947195f3649339030afb4f09ad9a7e.ctex remapped: res://.godot/imported/back_f3.png-de947195f3649339030afb4f09ad9a7e.ctex
+Completed load for: 'res://assets/sprites/creatures/idle_2026_10_05/103_kithflare/back_f3.png' remapped 'res://assets/sprites/creatures/idle_2026_10_05/103_kithflare/back_f3.png' at thread -1
+Loading resource: res://data/moves/kithflare_tail_brake.tres remapped: res://data/moves/kithflare_tail_brake.tres
+Loading resource: res://scenes/effects/kithflare_tail_brake.tscn remapped: res://scenes/effects/kithflare_tail_brake.tscn
+Loading resource: res://assets/sprites/effects/forge/kith_arc.png remapped: res://assets/sprites/effects/forge/kith_arc.png
+Loading resource: res://.godot/imported/kith_arc.png-9609c941f724d491078c36b3a290b4b2.ctex remapped: res://.godot/imported/kith_arc.png-9609c941f724d491078c36b3a290b4b2.ctex
+Completed load for: 'res://assets/sprites/effects/forge/kith_arc.png' remapped 'res://assets/sprites/effects/forge/kith_arc.png' at thread -1
+Loading resource: res://assets/sprites/effects/vfx_basic_2026_10_02/slash_4x4.png remapped: res://assets/sprites/effects/vfx_basic_2026_10_02/slash_4x4.png
+Loading resource: res://.godot/imported/slash_4x4.png-4bb6aace29c6626c738187ff879de996.ctex remapped: res://.godot/imported/slash_4x4.png-4bb6aace29c6626c738187ff879de996.ctex
+Completed load for: 'res://assets/sprites/effects/vfx_basic_2026_10_02/slash_4x4.png' remapped 'res://assets/sprites/effects/vfx_basic_2026_10_02/slash_4x4.png' at thread -1
+Completed load for: 'res://scenes/effects/kithflare_tail_brake.tscn' remapped 'res://scenes/effects/kithflare_tail_brake.tscn' at thread -1
+Completed load for: 'res://data/moves/kithflare_tail_brake.tres' remapped 'res://data/moves/kithflare_tail_brake.tres' at thread -1
+Loading resource: res://assets/sprites/creatures/idle_2026_10_05/103_kithflare/back_f4.png remapped: res://assets/sprites/creatures/idle_2026_10_05/103_kithflare/back_f4.png
+Loading resource: res://.godot/imported/back_f4.png-6602161234fbf19ee09a6307e6d5a93b.ctex remapped: res://.godot/imported/back_f4.png-6602161234fbf19ee09a6307e6d5a93b.ctex
+Completed load for: 'res://assets/sprites/creatures/idle_2026_10_05/103_kithflare/back_f4.png' remapped 'res://assets/sprites/creatures/idle_2026_10_05/103_kithflare/back_f4.png' at thread -1
+Loading resource: res://data/moves/kithflare_shoulder_kindle.tres remapped: res://data/moves/kithflare_shoulder_kindle.tres
+Loading resource: res://scenes/effects/kithflare_shoulder_kindle.tscn remapped: res://scenes/effects/kithflare_shoulder_kindle.tscn
+Loading resource: res://assets/sprites/effects/forge/way_burst.png remapped: res://assets/sprites/effects/forge/way_burst.png
+Loading resource: res://.godot/imported/way_burst.png-4b54a1b25d9c1880a35a06ac8e44ed52.ctex remapped: res://.godot/imported/way_burst.png-4b54a1b25d9c1880a35a06ac8e44ed52.ctex
+Completed load for: 'res://assets/sprites/effects/forge/way_burst.png' remapped 'res://assets/sprites/effects/forge/way_burst.png' at thread -1
+Completed load for: 'res://scenes/effects/kithflare_shoulder_kindle.tscn' remapped 'res://scenes/effects/kithflare_shoulder_kindle.tscn' at thread -1
+Completed load for: 'res://data/moves/kithflare_shoulder_kindle.tres' remapped 'res://data/moves/kithflare_shoulder_kindle.tres' at thread -1
+Loading resource: res://assets/sprites/creatures/idle_2026_10_05/103_kithflare/back_f5.png remapped: res://assets/sprites/creatures/idle_2026_10_05/103_kithflare/back_f5.png
+Loading resource: res://.godot/imported/back_f5.png-7e22bbe2c058d833565c909fbe86e098.ctex remapped: res://.godot/imported/back_f5.png-7e22bbe2c058d833565c909fbe86e098.ctex
+Completed load for: 'res://assets/sprites/creatures/idle_2026_10_05/103_kithflare/back_f5.png' remapped 'res://assets/sprites/creatures/idle_2026_10_05/103_kithflare/back_f5.png' at thread -1
+Loading resource: res://data/moves/kithflare_handoff_dash.tres remapped: res://data/moves/kithflare_handoff_dash.tres
+Loading resource: res://scenes/effects/kithflare_handoff_dash.tscn remapped: res://scenes/effects/kithflare_handoff_dash.tscn
+Loading resource: res://assets/sprites/effects/forge/way_arc.png remapped: res://assets/sprites/effects/forge/way_arc.png
+Loading resource: res://.godot/imported/way_arc.png-9c42ab99576e33f5473d3db9f2024593.ctex remapped: res://.godot/imported/way_arc.png-9c42ab99576e33f5473d3db9f2024593.ctex
+Completed load for: 'res://assets/sprites/effects/forge/way_arc.png' remapped 'res://assets/sprites/effects/forge/way_arc.png' at thread -1
+Completed load for: 'res://scenes/effects/kithflare_handoff_dash.tscn' remapped 'res://scenes/effects/kithflare_handoff_dash.tscn' at thread -1
+Completed load for: 'res://data/moves/kithflare_handoff_dash.tres' remapped 'res://data/moves/kithflare_handoff_dash.tres' at thread -1
+Loading resource: res://assets/sprites/creatures/starter_material_detail_2026_10_05/kithflare_back_lantern_tail_outline.png remapped: res://assets/sprites/creatures/starter_material_detail_2026_10_05/kithflare_back_lantern_tail_outline.png
+Loading resource: res://.godot/imported/kithflare_back_lantern_tail_outline.png-47fb96118be143246a3c9dbac115ddd0.ctex remapped: res://.godot/imported/kithflare_back_lantern_tail_outline.png-47fb96118be143246a3c9dbac115ddd0.ctex
+Completed load for: 'res://assets/sprites/creatures/starter_material_detail_2026_10_05/kithflare_back_lantern_tail_outline.png' remapped 'res://assets/sprites/creatures/starter_material_detail_2026_10_05/kithflare_back_lantern_tail_outline.png' at thread -1
+Loading resource: res://assets/sprites/creatures/idle_2026_10_05/103_kithflare/back_f6.png remapped: res://assets/sprites/creatures/idle_2026_10_05/103_kithflare/back_f6.png
+Loading resource: res://.godot/imported/back_f6.png-4710fd1b67458ab54bd3b785806d7c0e.ctex remapped: res://.godot/imported/back_f6.png-4710fd1b67458ab54bd3b785806d7c0e.ctex
+Completed load for: 'res://assets/sprites/creatures/idle_2026_10_05/103_kithflare/back_f6.png' remapped 'res://assets/sprites/creatures/idle_2026_10_05/103_kithflare/back_f6.png' at thread -1
+Loading resource: res://assets/sprites/creatures/idle_2026_10_05/103_kithflare/back_f7.png remapped: res://assets/sprites/creatures/idle_2026_10_05/103_kithflare/back_f7.png
+Loading resource: res://.godot/imported/back_f7.png-2efb75242e7f535267b37b3a1bce0934.ctex remapped: res://.godot/imported/back_f7.png-2efb75242e7f535267b37b3a1bce0934.ctex
+Completed load for: 'res://assets/sprites/creatures/idle_2026_10_05/103_kithflare/back_f7.png' remapped 'res://assets/sprites/creatures/idle_2026_10_05/103_kithflare/back_f7.png' at thread -1
+Loading resource: res://data/creatures/109_kithflare2.tres remapped: res://data/creatures/109_kithflare2.tres
+Loading resource: res://assets/sprites/creatures/sparkwick_idle_texture_2026_10_06/back_f0.png remapped: res://assets/sprites/creatures/sparkwick_idle_texture_2026_10_06/back_f0.png
+Loading resource: res://.godot/imported/back_f0.png-a3a9b8bbabc6916c13e9e6713a4f436d.ctex remapped: res://.godot/imported/back_f0.png-a3a9b8bbabc6916c13e9e6713a4f436d.ctex
+Completed load for: 'res://assets/sprites/creatures/sparkwick_idle_texture_2026_10_06/back_f0.png' remapped 'res://assets/sprites/creatures/sparkwick_idle_texture_2026_10_06/back_f0.png' at thread -1
+Loading resource: res://assets/sprites/creatures/sparkwick_idle_texture_2026_10_06/back_f1.png remapped: res://assets/sprites/creatures/sparkwick_idle_texture_2026_10_06/back_f1.png
+Loading resource: res://.godot/imported/back_f1.png-f5b59855ebfd6f002afb5334464678a4.ctex remapped: res://.godot/imported/back_f1.png-f5b59855ebfd6f002afb5334464678a4.ctex
+Completed load for: 'res://assets/sprites/creatures/sparkwick_idle_texture_2026_10_06/back_f1.png' remapped 'res://assets/sprites/creatures/sparkwick_idle_texture_2026_10_06/back_f1.png' at thread -1
+Loading resource: res://assets/sprites/creatures/kithflare_line_2026_10_05/kithflare2_front.png remapped: res://assets/sprites/creatures/kithflare_line_2026_10_05/kithflare2_front.png
+Loading resource: res://.godot/imported/kithflare2_front.png-701c2b3eb90bdda27fc4577a8aff3859.ctex remapped: res://.godot/imported/kithflare2_front.png-701c2b3eb90bdda27fc4577a8aff3859.ctex
+Completed load for: 'res://assets/sprites/creatures/kithflare_line_2026_10_05/kithflare2_front.png' remapped 'res://assets/sprites/creatures/kithflare_line_2026_10_05/kithflare2_front.png' at thread -1
+Loading resource: res://assets/sprites/creatures/sparkwick_idle_texture_2026_10_06/f0.png remapped: res://assets/sprites/creatures/sparkwick_idle_texture_2026_10_06/f0.png
+Loading resource: res://.godot/imported/f0.png-2fb020dcf2df4de23e57a2d550f0263c.ctex remapped: res://.godot/imported/f0.png-2fb020dcf2df4de23e57a2d550f0263c.ctex
+Completed load for: 'res://assets/sprites/creatures/sparkwick_idle_texture_2026_10_06/f0.png' remapped 'res://assets/sprites/creatures/sparkwick_idle_texture_2026_10_06/f0.png' at thread -1
+Loading resource: res://assets/sprites/creatures/kithflare_line_2026_10_05/kithflare2_back.png remapped: res://assets/sprites/creatures/kithflare_line_2026_10_05/kithflare2_back.png
+Loading resource: res://.godot/imported/kithflare2_back.png-1f9b17e438c4ab0c5865db0820b1bcfe.ctex remapped: res://.godot/imported/kithflare2_back.png-1f9b17e438c4ab0c5865db0820b1bcfe.ctex
+Completed load for: 'res://assets/sprites/creatures/kithflare_line_2026_10_05/kithflare2_back.png' remapped 'res://assets/sprites/creatures/kithflare_line_2026_10_05/kithflare2_back.png' at thread -1
+Loading resource: res://assets/sprites/creatures/sparkwick_idle_texture_2026_10_06/back_f2.png remapped: res://assets/sprites/creatures/sparkwick_idle_texture_2026_10_06/back_f2.png
+Loading resource: res://.godot/imported/back_f2.png-771e3d2ad5dd35db144b69e9c79ebfe3.ctex remapped: res://.godot/imported/back_f2.png-771e3d2ad5dd35db144b69e9c79ebfe3.ctex
+Completed load for: 'res://assets/sprites/creatures/sparkwick_idle_texture_2026_10_06/back_f2.png' remapped 'res://assets/sprites/creatures/sparkwick_idle_texture_2026_10_06/back_f2.png' at thread -1
+Loading resource: res://data/creatures/110_kithflare3.tres remapped: res://data/creatures/110_kithflare3.tres
+Loading resource: res://assets/sprites/creatures/idle_2026_10_05/110_kithflare3/back_f0.png remapped: res://assets/sprites/creatures/idle_2026_10_05/110_kithflare3/back_f0.png
+Loading resource: res://.godot/imported/back_f0.png-af3c3e811802c785051fd990914235c3.ctex remapped: res://.godot/imported/back_f0.png-af3c3e811802c785051fd990914235c3.ctex
+Completed load for: 'res://assets/sprites/creatures/idle_2026_10_05/110_kithflare3/back_f0.png' remapped 'res://assets/sprites/creatures/idle_2026_10_05/110_kithflare3/back_f0.png' at thread -1
+Loading resource: res://assets/sprites/creatures/idle_2026_10_05/110_kithflare3/back_f1.png remapped: res://assets/sprites/creatures/idle_2026_10_05/110_kithflare3/back_f1.png
+Loading resource: res://.godot/imported/back_f1.png-7785ef0cd1563921cdb63b5a16ee2818.ctex remapped: res://.godot/imported/back_f1.png-7785ef0cd1563921cdb63b5a16ee2818.ctex
+Completed load for: 'res://assets/sprites/creatures/idle_2026_10_05/110_kithflare3/back_f1.png' remapped 'res://assets/sprites/creatures/idle_2026_10_05/110_kithflare3/back_f1.png' at thread -1
+Loading resource: res://assets/sprites/creatures/idle_2026_10_05/110_kithflare3/f0.png remapped: res://assets/sprites/creatures/idle_2026_10_05/110_kithflare3/f0.png
+Loading resource: res://.godot/imported/f0.png-793812624f0794e6f331974e0dd75862.ctex remapped: res://.godot/imported/f0.png-793812624f0794e6f331974e0dd75862.ctex
+Completed load for: 'res://assets/sprites/creatures/idle_2026_10_05/110_kithflare3/f0.png' remapped 'res://assets/sprites/creatures/idle_2026_10_05/110_kithflare3/f0.png' at thread -1
+Loading resource: res://assets/sprites/creatures/starter_texture_refine_2026_10_05/kithflare3_front_source_grid.png remapped: res://assets/sprites/creatures/starter_texture_refine_2026_10_05/kithflare3_front_source_grid.png
+Loading resource: res://.godot/imported/kithflare3_front_source_grid.png-3b46424012d2dff2eda6d9bf894a7cdf.ctex remapped: res://.godot/imported/kithflare3_front_source_grid.png-3b46424012d2dff2eda6d9bf894a7cdf.ctex
+Completed load for: 'res://assets/sprites/creatures/starter_texture_refine_2026_10_05/kithflare3_front_source_grid.png' remapped 'res://assets/sprites/creatures/starter_texture_refine_2026_10_05/kithflare3_front_source_grid.png' at thread -1
+Loading resource: res://assets/sprites/creatures/starter_texture_refine_2026_10_05/kithflare3_back_source_grid.png remapped: res://assets/sprites/creatures/starter_texture_refine_2026_10_05/kithflare3_back_source_grid.png
+Loading resource: res://.godot/imported/kithflare3_back_source_grid.png-a08769a8d3bfb8d7d56c121edeb09120.ctex remapped: res://.godot/imported/kithflare3_back_source_grid.png-a08769a8d3bfb8d7d56c121edeb09120.ctex
+Completed load for: 'res://assets/sprites/creatures/starter_texture_refine_2026_10_05/kithflare3_back_source_grid.png' remapped 'res://assets/sprites/creatures/starter_texture_refine_2026_10_05/kithflare3_back_source_grid.png' at thread -1
+Loading resource: res://assets/sprites/creatures/idle_2026_10_05/110_kithflare3/f1.png remapped: res://assets/sprites/creatures/idle_2026_10_05/110_kithflare3/f1.png
+Loading resource: res://.godot/imported/f1.png-a37e9545c73525a97e03d6f78700fd21.ctex remapped: res://.godot/imported/f1.png-a37e9545c73525a97e03d6f78700fd21.ctex
+Completed load for: 'res://assets/sprites/creatures/idle_2026_10_05/110_kithflare3/f1.png' remapped 'res://assets/sprites/creatures/idle_2026_10_05/110_kithflare3/f1.png' at thread -1
+Loading resource: res://assets/sprites/creatures/idle_2026_10_05/110_kithflare3/back_f2.png remapped: res://assets/sprites/creatures/idle_2026_10_05/110_kithflare3/back_f2.png
+Loading resource: res://.godot/imported/back_f2.png-8d90008bb2875ef1999ee7ca916f2161.ctex remapped: res://.godot/imported/back_f2.png-8d90008bb2875ef1999ee7ca916f2161.ctex
+Completed load for: 'res://assets/sprites/creatures/idle_2026_10_05/110_kithflare3/back_f2.png' remapped 'res://assets/sprites/creatures/idle_2026_10_05/110_kithflare3/back_f2.png' at thread -1
+Loading resource: res://assets/sprites/creatures/idle_2026_10_05/110_kithflare3/back_f3.png remapped: res://assets/sprites/creatures/idle_2026_10_05/110_kithflare3/back_f3.png
+Loading resource: res://.godot/imported/back_f3.png-f314748b0133ce1564fe88f5e334fadd.ctex remapped: res://.godot/imported/back_f3.png-f314748b0133ce1564fe88f5e334fadd.ctex
+Completed load for: 'res://assets/sprites/creatures/idle_2026_10_05/110_kithflare3/back_f3.png' remapped 'res://assets/sprites/creatures/idle_2026_10_05/110_kithflare3/back_f3.png' at thread -1
+Loading resource: res://assets/sprites/creatures/idle_2026_10_05/110_kithflare3/f2.png remapped: res://assets/sprites/creatures/idle_2026_10_05/110_kithflare3/f2.png
+Loading resource: res://.godot/imported/f2.png-804cbb1cd1eca76c7859b0ce48fa4a90.ctex remapped: res://.godot/imported/f2.png-804cbb1cd1eca76c7859b0ce48fa4a90.ctex
+Completed load for: 'res://assets/sprites/creatures/idle_2026_10_05/110_kithflare3/f2.png' remapped 'res://assets/sprites/creatures/idle_2026_10_05/110_kithflare3/f2.png' at thread -1
+Loading resource: res://assets/sprites/creatures/idle_2026_10_05/110_kithflare3/f3.png remapped: res://assets/sprites/creatures/idle_2026_10_05/110_kithflare3/f3.png
+Loading resource: res://.godot/imported/f3.png-7f8064e2ffe05a128a72a54ff3484e47.ctex remapped: res://.godot/imported/f3.png-7f8064e2ffe05a128a72a54ff3484e47.ctex
+Completed load for: 'res://assets/sprites/creatures/idle_2026_10_05/110_kithflare3/f3.png' remapped 'res://assets/sprites/creatures/idle_2026_10_05/110_kithflare3/f3.png' at thread -1
+Loading resource: res://assets/sprites/creatures/idle_2026_10_05/110_kithflare3/back_f4.png remapped: res://assets/sprites/creatures/idle_2026_10_05/110_kithflare3/back_f4.png
+Loading resource: res://.godot/imported/back_f4.png-50ab570066954cf19dfe4932fac27aae.ctex remapped: res://.godot/imported/back_f4.png-50ab570066954cf19dfe4932fac27aae.ctex
+Completed load for: 'res://assets/sprites/creatures/idle_2026_10_05/110_kithflare3/back_f4.png' remapped 'res://assets/sprites/creatures/idle_2026_10_05/110_kithflare3/back_f4.png' at thread -1
+Loading resource: res://assets/sprites/creatures/idle_2026_10_05/110_kithflare3/back_f5.png remapped: res://assets/sprites/creatures/idle_2026_10_05/110_kithflare3/back_f5.png
+Loading resource: res://.godot/imported/back_f5.png-9483dc2dec72ab646da87e5a3a5bd5be.ctex remapped: res://.godot/imported/back_f5.png-9483dc2dec72ab646da87e5a3a5bd5be.ctex
+Completed load for: 'res://assets/sprites/creatures/idle_2026_10_05/110_kithflare3/back_f5.png' remapped 'res://assets/sprites/creatures/idle_2026_10_05/110_kithflare3/back_f5.png' at thread -1
+Loading resource: res://assets/sprites/creatures/idle_2026_10_05/110_kithflare3/f4.png remapped: res://assets/sprites/creatures/idle_2026_10_05/110_kithflare3/f4.png
+Loading resource: res://.godot/imported/f4.png-64b276cf8784730cc15f629fc17f7cb3.ctex remapped: res://.godot/imported/f4.png-64b276cf8784730cc15f629fc17f7cb3.ctex
+Completed load for: 'res://assets/sprites/creatures/idle_2026_10_05/110_kithflare3/f4.png' remapped 'res://assets/sprites/creatures/idle_2026_10_05/110_kithflare3/f4.png' at thread -1
+Loading resource: res://assets/sprites/creatures/idle_2026_10_05/110_kithflare3/f5.png remapped: res://assets/sprites/creatures/idle_2026_10_05/110_kithflare3/f5.png
+Loading resource: res://.godot/imported/f5.png-ada0247300f7b534b517ad1581aaf97d.ctex remapped: res://.godot/imported/f5.png-ada0247300f7b534b517ad1581aaf97d.ctex
+Completed load for: 'res://assets/sprites/creatures/idle_2026_10_05/110_kithflare3/f5.png' remapped 'res://assets/sprites/creatures/idle_2026_10_05/110_kithflare3/f5.png' at thread -1
+Loading resource: res://assets/sprites/creatures/idle_2026_10_05/110_kithflare3/back_f6.png remapped: res://assets/sprites/creatures/idle_2026_10_05/110_kithflare3/back_f6.png
+Loading resource: res://.godot/imported/back_f6.png-014b23cb11a93aad3fadfb09d5013395.ctex remapped: res://.godot/imported/back_f6.png-014b23cb11a93aad3fadfb09d5013395.ctex
+Completed load for: 'res://assets/sprites/creatures/idle_2026_10_05/110_kithflare3/back_f6.png' remapped 'res://assets/sprites/creatures/idle_2026_10_05/110_kithflare3/back_f6.png' at thread -1
+Loading resource: res://assets/sprites/creatures/idle_2026_10_05/110_kithflare3/f6.png remapped: res://assets/sprites/creatures/idle_2026_10_05/110_kithflare3/f6.png
+Loading resource: res://.godot/imported/f6.png-182a738fdd796cef90f5b639a8ba9340.ctex remapped: res://.godot/imported/f6.png-182a738fdd796cef90f5b639a8ba9340.ctex
+Completed load for: 'res://assets/sprites/creatures/idle_2026_10_05/110_kithflare3/f6.png' remapped 'res://assets/sprites/creatures/idle_2026_10_05/110_kithflare3/f6.png' at thread -1
+Loading resource: res://assets/sprites/creatures/idle_2026_10_05/110_kithflare3/back_f7.png remapped: res://assets/sprites/creatures/idle_2026_10_05/110_kithflare3/back_f7.png
+Loading resource: res://.godot/imported/back_f7.png-2de419797712ae81261d6581dc79f68c.ctex remapped: res://.godot/imported/back_f7.png-2de419797712ae81261d6581dc79f68c.ctex
+Completed load for: 'res://assets/sprites/creatures/idle_2026_10_05/110_kithflare3/back_f7.png' remapped 'res://assets/sprites/creatures/idle_2026_10_05/110_kithflare3/back_f7.png' at thread -1
+Loading resource: res://data/moves/kithflare3_stormlantern.tres remapped: res://data/moves/kithflare3_stormlantern.tres
+Loading resource: res://scenes/effects/kithflare3_stormlantern.tscn remapped: res://scenes/effects/kithflare3_stormlantern.tscn
+Loading resource: res://scripts/effects/stormlantern_strike.gd remapped: res://scripts/effects/stormlantern_strike.gd
+Completed load for: 'res://scripts/effects/stormlantern_strike.gd' remapped 'res://scripts/effects/stormlantern_strike.gd' at thread -1
+Loading resource: res://assets/sprites/effects/kithflare3/stormlantern/stormlantern_core.png remapped: res://assets/sprites/effects/kithflare3/stormlantern/stormlantern_core.png
+Loading resource: res://.godot/imported/stormlantern_core.png-0aebb5e71d333a1e5848a23747c76bdb.ctex remapped: res://.godot/imported/stormlantern_core.png-0aebb5e71d333a1e5848a23747c76bdb.ctex
+Completed load for: 'res://assets/sprites/effects/kithflare3/stormlantern/stormlantern_core.png' remapped 'res://assets/sprites/effects/kithflare3/stormlantern/stormlantern_core.png' at thread -1
+Loading resource: res://assets/sprites/effects/kithflare3/stormlantern/orb1_p07.png remapped: res://assets/sprites/effects/kithflare3/stormlantern/orb1_p07.png
+Loading resource: res://.godot/imported/orb1_p07.png-251e53c003ad861680844275e9e62b15.ctex remapped: res://.godot/imported/orb1_p07.png-251e53c003ad861680844275e9e62b15.ctex
+Completed load for: 'res://assets/sprites/effects/kithflare3/stormlantern/orb1_p07.png' remapped 'res://assets/sprites/effects/kithflare3/stormlantern/orb1_p07.png' at thread -1
+Loading resource: res://assets/sprites/effects/kithflare3/stormlantern/orb2_p06.png remapped: res://assets/sprites/effects/kithflare3/stormlantern/orb2_p06.png
+Loading resource: res://.godot/imported/orb2_p06.png-baa1ec14fc2e8c7f36a99a43e99b7ccb.ctex remapped: res://.godot/imported/orb2_p06.png-baa1ec14fc2e8c7f36a99a43e99b7ccb.ctex
+Completed load for: 'res://assets/sprites/effects/kithflare3/stormlantern/orb2_p06.png' remapped 'res://assets/sprites/effects/kithflare3/stormlantern/orb2_p06.png' at thread -1
+Loading resource: res://assets/sprites/effects/kithflare3/stormlantern/orb1_p08.png remapped: res://assets/sprites/effects/kithflare3/stormlantern/orb1_p08.png
+Loading resource: res://.godot/imported/orb1_p08.png-f4ec28309e50a8d89c65f994f3cc4d88.ctex remapped: res://.godot/imported/orb1_p08.png-f4ec28309e50a8d89c65f994f3cc4d88.ctex
+Completed load for: 'res://assets/sprites/effects/kithflare3/stormlantern/orb1_p08.png' remapped 'res://assets/sprites/effects/kithflare3/stormlantern/orb1_p08.png' at thread -1
+Loading resource: res://assets/sprites/effects/kithflare3/stormlantern/orb3_p10.png remapped: res://assets/sprites/effects/kithflare3/stormlantern/orb3_p10.png
+Loading resource: res://.godot/imported/orb3_p10.png-8ee6580799d2620f37f21245c452b75a.ctex remapped: res://.godot/imported/orb3_p10.png-8ee6580799d2620f37f21245c452b75a.ctex
+Completed load for: 'res://assets/sprites/effects/kithflare3/stormlantern/orb3_p10.png' remapped 'res://assets/sprites/effects/kithflare3/stormlantern/orb3_p10.png' at thread -1
+Loading resource: res://assets/sprites/effects/kithflare3/stormlantern/stormlantern_impact_4x4.png remapped: res://assets/sprites/effects/kithflare3/stormlantern/stormlantern_impact_4x4.png
+Loading resource: res://.godot/imported/stormlantern_impact_4x4.png-b7e9a4331b38d88d9b525fabc15a7353.ctex remapped: res://.godot/imported/stormlantern_impact_4x4.png-b7e9a4331b38d88d9b525fabc15a7353.ctex
+Completed load for: 'res://assets/sprites/effects/kithflare3/stormlantern/stormlantern_impact_4x4.png' remapped 'res://assets/sprites/effects/kithflare3/stormlantern/stormlantern_impact_4x4.png' at thread -1
+Completed load for: 'res://scenes/effects/kithflare3_stormlantern.tscn' remapped 'res://scenes/effects/kithflare3_stormlantern.tscn' at thread -1
+Loading resource: res://assets/backgrounds/signature_stages/stormlantern.png remapped: res://assets/backgrounds/signature_stages/stormlantern.png
+Loading resource: res://.godot/imported/stormlantern.png-53d8db38e7c0b2f51ffe7f0aa1827cc5.ctex remapped: res://.godot/imported/stormlantern.png-53d8db38e7c0b2f51ffe7f0aa1827cc5.ctex
+Completed load for: 'res://assets/backgrounds/signature_stages/stormlantern.png' remapped 'res://assets/backgrounds/signature_stages/stormlantern.png' at thread -1
+Loading resource: res://assets/sprites/creatures/attacks/kithflare3_stormlantern/rest.png remapped: res://assets/sprites/creatures/attacks/kithflare3_stormlantern/rest.png
+Loading resource: res://.godot/imported/rest.png-0ce0064f2144616c50b08dcafc7b4153.ctex remapped: res://.godot/imported/rest.png-0ce0064f2144616c50b08dcafc7b4153.ctex
+Completed load for: 'res://assets/sprites/creatures/attacks/kithflare3_stormlantern/rest.png' remapped 'res://assets/sprites/creatures/attacks/kithflare3_stormlantern/rest.png' at thread -1
+Loading resource: res://assets/sprites/creatures/attacks/kithflare3_stormlantern/glow.png remapped: res://assets/sprites/creatures/attacks/kithflare3_stormlantern/glow.png
+Loading resource: res://.godot/imported/glow.png-27fb836b7a37188b7a2a7f00683f8c67.ctex remapped: res://.godot/imported/glow.png-27fb836b7a37188b7a2a7f00683f8c67.ctex
+Completed load for: 'res://assets/sprites/creatures/attacks/kithflare3_stormlantern/glow.png' remapped 'res://assets/sprites/creatures/attacks/kithflare3_stormlantern/glow.png' at thread -1
+Loading resource: res://assets/sprites/creatures/attacks/kithflare3_stormlantern/kindle.png remapped: res://assets/sprites/creatures/attacks/kithflare3_stormlantern/kindle.png
+Loading resource: res://.godot/imported/kindle.png-d4a2f6221d23fd7cba657c6b2d4f50d3.ctex remapped: res://.godot/imported/kindle.png-d4a2f6221d23fd7cba657c6b2d4f50d3.ctex
+Completed load for: 'res://assets/sprites/creatures/attacks/kithflare3_stormlantern/kindle.png' remapped 'res://assets/sprites/creatures/attacks/kithflare3_stormlantern/kindle.png' at thread -1
+Loading resource: res://assets/sprites/creatures/attacks/kithflare3_stormlantern/full.png remapped: res://assets/sprites/creatures/attacks/kithflare3_stormlantern/full.png
+Loading resource: res://.godot/imported/full.png-3b7cceb7615ee8365d441bcb3cf4a316.ctex remapped: res://.godot/imported/full.png-3b7cceb7615ee8365d441bcb3cf4a316.ctex
+Completed load for: 'res://assets/sprites/creatures/attacks/kithflare3_stormlantern/full.png' remapped 'res://assets/sprites/creatures/attacks/kithflare3_stormlantern/full.png' at thread -1
+Loading resource: res://assets/sprites/creatures/attacks/kithflare3_stormlantern/full_b.png remapped: res://assets/sprites/creatures/attacks/kithflare3_stormlantern/full_b.png
+Loading resource: res://.godot/imported/full_b.png-b60f001deab2deec7730da91d48f962f.ctex remapped: res://.godot/imported/full_b.png-b60f001deab2deec7730da91d48f962f.ctex
+Completed load for: 'res://assets/sprites/creatures/attacks/kithflare3_stormlantern/full_b.png' remapped 'res://assets/sprites/creatures/attacks/kithflare3_stormlantern/full_b.png' at thread -1
+Loading resource: res://assets/sprites/creatures/starter_material_detail_2026_10_05/stormwick_signature_title_material_refined.png remapped: res://assets/sprites/creatures/starter_material_detail_2026_10_05/stormwick_signature_title_material_refined.png
+Loading resource: res://.godot/imported/stormwick_signature_title_material_refined.png-44719af490b1cde9e290367e5d6e9088.ctex remapped: res://.godot/imported/stormwick_signature_title_material_refined.png-44719af490b1cde9e290367e5d6e9088.ctex
+Completed load for: 'res://assets/sprites/creatures/starter_material_detail_2026_10_05/stormwick_signature_title_material_refined.png' remapped 'res://assets/sprites/creatures/starter_material_detail_2026_10_05/stormwick_signature_title_material_refined.png' at thread -1
+Loading resource: res://assets/sprites/creatures/attacks/kithflare3_stormlantern/raise.png remapped: res://assets/sprites/creatures/attacks/kithflare3_stormlantern/raise.png
+Loading resource: res://.godot/imported/raise.png-7310c1dc752abaa8f2d51989481b6768.ctex remapped: res://.godot/imported/raise.png-7310c1dc752abaa8f2d51989481b6768.ctex
+Completed load for: 'res://assets/sprites/creatures/attacks/kithflare3_stormlantern/raise.png' remapped 'res://assets/sprites/creatures/attacks/kithflare3_stormlantern/raise.png' at thread -1
+Loading resource: res://assets/sprites/creatures/attacks/kithflare3_stormlantern/spent.png remapped: res://assets/sprites/creatures/attacks/kithflare3_stormlantern/spent.png
+Loading resource: res://.godot/imported/spent.png-4af627d1d7ec8a988c4fe45ce7eb01c6.ctex remapped: res://.godot/imported/spent.png-4af627d1d7ec8a988c4fe45ce7eb01c6.ctex
+Completed load for: 'res://assets/sprites/creatures/attacks/kithflare3_stormlantern/spent.png' remapped 'res://assets/sprites/creatures/attacks/kithflare3_stormlantern/spent.png' at thread -1
+Loading resource: res://assets/sprites/creatures/attacks/kithflare3_stormlantern/snap.png remapped: res://assets/sprites/creatures/attacks/kithflare3_stormlantern/snap.png
+Loading resource: res://.godot/imported/snap.png-816be73661ab7422ea09df890502f58d.ctex remapped: res://.godot/imported/snap.png-816be73661ab7422ea09df890502f58d.ctex
+Completed load for: 'res://assets/sprites/creatures/attacks/kithflare3_stormlantern/snap.png' remapped 'res://assets/sprites/creatures/attacks/kithflare3_stormlantern/snap.png' at thread -1
+Loading resource: res://assets/audio/sfx/stormlantern/crack.wav remapped: res://assets/audio/sfx/stormlantern/crack.wav
+Loading resource: res://.godot/imported/crack.wav-b55d5eb00ae4955cf28136587e487b4f.sample remapped: res://.godot/imported/crack.wav-b55d5eb00ae4955cf28136587e487b4f.sample
+Completed load for: 'res://assets/audio/sfx/stormlantern/crack.wav' remapped 'res://assets/audio/sfx/stormlantern/crack.wav' at thread -1
+Loading resource: res://assets/audio/sfx/stormlantern/crackle.wav remapped: res://assets/audio/sfx/stormlantern/crackle.wav
+Loading resource: res://.godot/imported/crackle.wav-f527dacad33949e45eebe9b800dbf954.sample remapped: res://.godot/imported/crackle.wav-f527dacad33949e45eebe9b800dbf954.sample
+Completed load for: 'res://assets/audio/sfx/stormlantern/crackle.wav' remapped 'res://assets/audio/sfx/stormlantern/crackle.wav' at thread -1
+Loading resource: res://assets/audio/sfx/stormlantern/throw.wav remapped: res://assets/audio/sfx/stormlantern/throw.wav
+Loading resource: res://.godot/imported/throw.wav-5e8a66642b2c7f52d9c283c5314210ad.sample remapped: res://.godot/imported/throw.wav-5e8a66642b2c7f52d9c283c5314210ad.sample
+Completed load for: 'res://assets/audio/sfx/stormlantern/throw.wav' remapped 'res://assets/audio/sfx/stormlantern/throw.wav' at thread -1
+Loading resource: res://assets/audio/sfx/stormlantern/boom.wav remapped: res://assets/audio/sfx/stormlantern/boom.wav
+Loading resource: res://.godot/imported/boom.wav-3c668adb37e16598b2f6095eeeb006bd.sample remapped: res://.godot/imported/boom.wav-3c668adb37e16598b2f6095eeeb006bd.sample
+Completed load for: 'res://assets/audio/sfx/stormlantern/boom.wav' remapped 'res://assets/audio/sfx/stormlantern/boom.wav' at thread -1
+Completed load for: 'res://data/moves/kithflare3_stormlantern.tres' remapped 'res://data/moves/kithflare3_stormlantern.tres' at thread -1
+Loading resource: res://assets/sprites/creatures/idle_2026_10_05/110_kithflare3/f7.png remapped: res://assets/sprites/creatures/idle_2026_10_05/110_kithflare3/f7.png
+Loading resource: res://.godot/imported/f7.png-5f2b0aec8239d4789c4c100e7d5a6077.ctex remapped: res://.godot/imported/f7.png-5f2b0aec8239d4789c4c100e7d5a6077.ctex
+Completed load for: 'res://assets/sprites/creatures/idle_2026_10_05/110_kithflare3/f7.png' remapped 'res://assets/sprites/creatures/idle_2026_10_05/110_kithflare3/f7.png' at thread -1
+Completed load for: 'res://data/creatures/110_kithflare3.tres' remapped 'res://data/creatures/110_kithflare3.tres' at thread -1
+Loading resource: res://assets/sprites/creatures/sparkwick_idle_texture_2026_10_06/back_f3.png remapped: res://assets/sprites/creatures/sparkwick_idle_texture_2026_10_06/back_f3.png
+Loading resource: res://.godot/imported/back_f3.png-df78ea181bf047a89838a86dc3ad3fab.ctex remapped: res://.godot/imported/back_f3.png-df78ea181bf047a89838a86dc3ad3fab.ctex
+Completed load for: 'res://assets/sprites/creatures/sparkwick_idle_texture_2026_10_06/back_f3.png' remapped 'res://assets/sprites/creatures/sparkwick_idle_texture_2026_10_06/back_f3.png' at thread -1
+Loading resource: res://assets/sprites/creatures/sparkwick_idle_texture_2026_10_06/f1.png remapped: res://assets/sprites/creatures/sparkwick_idle_texture_2026_10_06/f1.png
+Loading resource: res://.godot/imported/f1.png-405e9ccd3d60761157bc74932486ae13.ctex remapped: res://.godot/imported/f1.png-405e9ccd3d60761157bc74932486ae13.ctex
+Completed load for: 'res://assets/sprites/creatures/sparkwick_idle_texture_2026_10_06/f1.png' remapped 'res://assets/sprites/creatures/sparkwick_idle_texture_2026_10_06/f1.png' at thread -1
+Loading resource: res://assets/sprites/creatures/sparkwick_idle_texture_2026_10_06/f2.png remapped: res://assets/sprites/creatures/sparkwick_idle_texture_2026_10_06/f2.png
+Loading resource: res://.godot/imported/f2.png-2282518e1b14f231a420841a1f84be3b.ctex remapped: res://.godot/imported/f2.png-2282518e1b14f231a420841a1f84be3b.ctex
+Completed load for: 'res://assets/sprites/creatures/sparkwick_idle_texture_2026_10_06/f2.png' remapped 'res://assets/sprites/creatures/sparkwick_idle_texture_2026_10_06/f2.png' at thread -1
+Loading resource: res://assets/sprites/creatures/sparkwick_idle_texture_2026_10_06/back_f4.png remapped: res://assets/sprites/creatures/sparkwick_idle_texture_2026_10_06/back_f4.png
+Loading resource: res://.godot/imported/back_f4.png-8530abfbed08412ae42e3bd40e7da621.ctex remapped: res://.godot/imported/back_f4.png-8530abfbed08412ae42e3bd40e7da621.ctex
+Completed load for: 'res://assets/sprites/creatures/sparkwick_idle_texture_2026_10_06/back_f4.png' remapped 'res://assets/sprites/creatures/sparkwick_idle_texture_2026_10_06/back_f4.png' at thread -1
+Loading resource: res://assets/sprites/creatures/sparkwick_idle_texture_2026_10_06/back_f5.png remapped: res://assets/sprites/creatures/sparkwick_idle_texture_2026_10_06/back_f5.png
+Loading resource: res://.godot/imported/back_f5.png-07e26b904d9c9420cd2888c9d4b7a0e2.ctex remapped: res://.godot/imported/back_f5.png-07e26b904d9c9420cd2888c9d4b7a0e2.ctex
+Completed load for: 'res://assets/sprites/creatures/sparkwick_idle_texture_2026_10_06/back_f5.png' remapped 'res://assets/sprites/creatures/sparkwick_idle_texture_2026_10_06/back_f5.png' at thread -1
+Loading resource: res://assets/sprites/creatures/sparkwick_idle_texture_2026_10_06/f3.png remapped: res://assets/sprites/creatures/sparkwick_idle_texture_2026_10_06/f3.png
+Loading resource: res://.godot/imported/f3.png-424fce5dc9c13425e6d224d314daef3f.ctex remapped: res://.godot/imported/f3.png-424fce5dc9c13425e6d224d314daef3f.ctex
+Completed load for: 'res://assets/sprites/creatures/sparkwick_idle_texture_2026_10_06/f3.png' remapped 'res://assets/sprites/creatures/sparkwick_idle_texture_2026_10_06/f3.png' at thread -1
+Loading resource: res://assets/sprites/creatures/sparkwick_idle_texture_2026_10_06/f4.png remapped: res://assets/sprites/creatures/sparkwick_idle_texture_2026_10_06/f4.png
+Loading resource: res://.godot/imported/f4.png-ffff26b8e4e5b6205289a3f7cf3dc254.ctex remapped: res://.godot/imported/f4.png-ffff26b8e4e5b6205289a3f7cf3dc254.ctex
+Completed load for: 'res://assets/sprites/creatures/sparkwick_idle_texture_2026_10_06/f4.png' remapped 'res://assets/sprites/creatures/sparkwick_idle_texture_2026_10_06/f4.png' at thread -1
+Loading resource: res://assets/sprites/creatures/sparkwick_idle_texture_2026_10_06/back_f6.png remapped: res://assets/sprites/creatures/sparkwick_idle_texture_2026_10_06/back_f6.png
+Loading resource: res://.godot/imported/back_f6.png-50d9a491d0f6596bc85301f84266955e.ctex remapped: res://.godot/imported/back_f6.png-50d9a491d0f6596bc85301f84266955e.ctex
+Completed load for: 'res://assets/sprites/creatures/sparkwick_idle_texture_2026_10_06/back_f6.png' remapped 'res://assets/sprites/creatures/sparkwick_idle_texture_2026_10_06/back_f6.png' at thread -1
+Loading resource: res://assets/sprites/creatures/sparkwick_idle_texture_2026_10_06/back_f7.png remapped: res://assets/sprites/creatures/sparkwick_idle_texture_2026_10_06/back_f7.png
+Loading resource: res://.godot/imported/back_f7.png-8e2e9c96503aaed84a0c1d44009d46df.ctex remapped: res://.godot/imported/back_f7.png-8e2e9c96503aaed84a0c1d44009d46df.ctex
+Completed load for: 'res://assets/sprites/creatures/sparkwick_idle_texture_2026_10_06/back_f7.png' remapped 'res://assets/sprites/creatures/sparkwick_idle_texture_2026_10_06/back_f7.png' at thread -1
+Loading resource: res://assets/sprites/creatures/sparkwick_idle_texture_2026_10_06/f5.png remapped: res://assets/sprites/creatures/sparkwick_idle_texture_2026_10_06/f5.png
+Loading resource: res://.godot/imported/f5.png-e4dab56aff1a7129acd3cc21833ec450.ctex remapped: res://.godot/imported/f5.png-e4dab56aff1a7129acd3cc21833ec450.ctex
+Completed load for: 'res://assets/sprites/creatures/sparkwick_idle_texture_2026_10_06/f5.png' remapped 'res://assets/sprites/creatures/sparkwick_idle_texture_2026_10_06/f5.png' at thread -1
+Loading resource: res://assets/sprites/creatures/sparkwick_idle_texture_2026_10_06/f6.png remapped: res://assets/sprites/creatures/sparkwick_idle_texture_2026_10_06/f6.png
+Loading resource: res://.godot/imported/f6.png-b13bd82836985042c2a1d164883e14e4.ctex remapped: res://.godot/imported/f6.png-b13bd82836985042c2a1d164883e14e4.ctex
+Completed load for: 'res://assets/sprites/creatures/sparkwick_idle_texture_2026_10_06/f6.png' remapped 'res://assets/sprites/creatures/sparkwick_idle_texture_2026_10_06/f6.png' at thread -1
+Loading resource: res://assets/sprites/creatures/sparkwick_idle_texture_2026_10_06/f7.png remapped: res://assets/sprites/creatures/sparkwick_idle_texture_2026_10_06/f7.png
+Loading resource: res://.godot/imported/f7.png-0448efb8913c18844813b781b756f69c.ctex remapped: res://.godot/imported/f7.png-0448efb8913c18844813b781b756f69c.ctex
+Completed load for: 'res://assets/sprites/creatures/sparkwick_idle_texture_2026_10_06/f7.png' remapped 'res://assets/sprites/creatures/sparkwick_idle_texture_2026_10_06/f7.png' at thread -1
+Completed load for: 'res://data/creatures/109_kithflare2.tres' remapped 'res://data/creatures/109_kithflare2.tres' at thread -1
+Completed load for: 'res://data/creatures/103_kithflare.tres' remapped 'res://data/creatures/103_kithflare.tres' at thread -1
+Loading resource: res://assets/audio/sfx/story/storm_rain.wav remapped: res://assets/audio/sfx/story/storm_rain.wav
+Loading resource: res://.godot/imported/storm_rain.wav-ecec8d635f8cba979071b55b70ee62b4.sample remapped: res://.godot/imported/storm_rain.wav-ecec8d635f8cba979071b55b70ee62b4.sample
+Completed load for: 'res://assets/audio/sfx/story/storm_rain.wav' remapped 'res://assets/audio/sfx/story/storm_rain.wav' at thread -1
+Flood ends on actual playable riverbank: PASS
+Loading resource: res://assets/audio/sfx/dungeon/pond_rumble.wav remapped: res://assets/audio/sfx/dungeon/pond_rumble.wav
+Loading resource: res://.godot/imported/pond_rumble.wav-83f96884a1357e666a8d4d5a0010d9cd.sample remapped: res://.godot/imported/pond_rumble.wav-83f96884a1357e666a8d4d5a0010d9cd.sample
+Completed load for: 'res://assets/audio/sfx/dungeon/pond_rumble.wav' remapped 'res://assets/audio/sfx/dungeon/pond_rumble.wav' at thread -1
+Team record contains exactly chosen hero and partner: PASS
+F5 development scene setting preserved: PASS
+Capture 7-riverbank: PASS
+OPENING FLOW: 34 checks / 0 failures; D:/dev/hollowtide-storm-pixels-20261026/reduced-profile/Godot/app_userdata/Hollowtide/opening-flow-check/
+XR: Clearing primary interface
+XR: Removed interface "Native mobile"
+XR: Removed interface "OpenXR"
+Accessibility: window 0 adapter destroyed.
+Orphan StringName: Vector2 (static: 0, total: 1)
+Orphan StringName: Vector3 (static: 0, total: 1)
+Orphan StringName: Vector4 (static: 0, total: 1)
+Orphan StringName: PackedVector4Array (static: 0, total: 1)
+Orphan StringName: RID (static: 0, total: 1)
+Orphan StringName: Color (static: 0, total: 1)
+Orphan StringName: PackedByteArray (static: 0, total: 1)
+Orphan StringName: Vector2i (static: 0, total: 1)
+Orphan StringName: Callable (static: 0, total: 1)
+Orphan StringName: Vector3i (static: 0, total: 1)
+Orphan StringName: Vector4i (static: 0, total: 1)
+Orphan StringName: PackedStringArray (static: 0, total: 1)
+Orphan StringName: Basis (static: 0, total: 1)
+Orphan StringName: int (static: 0, total: 1)
+Orphan StringName: PackedFloat32Array (static: 0, total: 1)
+Orphan StringName: Plane (static: 0, total: 1)
+Orphan StringName: PackedFloat64Array (static: 0, total: 1)
+Orphan StringName: NodePath (static: 0, total: 1)
+Orphan StringName: Signal (static: 0, total: 1)
+Orphan StringName: StringName (static: 0, total: 1)
+Orphan StringName: String (static: 0, total: 1)
+Orphan StringName: Transform2D (static: 0, total: 1)
+Orphan StringName: Transform3D (static: 0, total: 1)
+Orphan StringName: Array (static: 1, total: 2)
+Orphan StringName: Quaternion (static: 0, total: 1)
+Orphan StringName: bool (static: 0, total: 1)
+Orphan StringName: PackedColorArray (static: 0, total: 1)
+Orphan StringName: PackedVector2Array (static: 0, total: 1)
+Orphan StringName: Object (static: 1, total: 2)
+Orphan StringName: AABB (static: 0, total: 1)
+Orphan StringName: float (static: 0, total: 1)
+Orphan StringName: Dictionary (static: 1, total: 2)
+Orphan StringName: Projection (static: 0, total: 1)
+Orphan StringName: Rect2 (static: 0, total: 1)
+Orphan StringName: PackedVector3Array (static: 0, total: 1)
+Orphan StringName: PackedInt32Array (static: 0, total: 1)
+Orphan StringName: Rect2i (static: 0, total: 1)
+Orphan StringName: PackedInt64Array (static: 0, total: 1)
+StringName: 38 unclaimed string names at exit.

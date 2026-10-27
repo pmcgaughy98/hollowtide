@@ -1,0 +1,17 @@
+{
+  "command": [
+    "C:/Users/pmcga/Games/Tools/Godot_v4.7.2/Godot_v4.7.2-stable_win64.exe",
+    "--path",
+    "C:\\Users\\pmcga\\dev\\hollowtide",
+    "--headless",
+    "--editor",
+    "--import",
+    "--rendering-method",
+    "gl_compatibility",
+    "--audio-driver",
+    "Dummy"
+  ],
+  "APPDATA": "D:\\dev\\hollowtide-fx-empty-20261026\\import-profile",
+  "LOCALAPPDATA": "D:\\dev\\hollowtide-fx-empty-20261026\\import-local-profile",
+  "exit": 0
+}

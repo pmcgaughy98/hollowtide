@@ -1,0 +1,7 @@
+{
+  "tool": "PixelLab pixelart_workbench score (free), mode low",
+  "crop": "up row, frame 3, rows 30 to 76, columns 20 to 60 (lower body and hands)",
+  "raw": {"score": 77.8, "colours": 46, "worst": "singletons -12, near_duplicates -9.0, banding -1.24"},
+  "fixed": {"score": 77.2, "colours": 45, "worst": "singletons -12, near_duplicates -9.0, banding -1.44"},
+  "reading": "No real change in pixel discipline (0.6 points lower, within noise). The fix changes motion, not cleanliness."
+}

@@ -1,0 +1,60 @@
+extends RefCounted
+## Art slots: Title and launch rows (Claude, 2026-10-26, placeholder factory contract). Owner lane: codex-wire: registered by lane U, wired by Codex in its own launch files.
+## Rows use the fields of docs/design/placeholder-factory-2026-10-26/03-spec-format.md 2.1. ArtSlots
+## (scripts/art/art_slots.gd) finds every .gd in this folder by itself, so a lane adds rows here and nothing else.
+## size is one cell in file pixels; a keep row's legacy is today's file at that size. Kind defaults (alpha, edges,
+## outline, tiling, light, forbid) live in ArtSlots.KINDS and are only written here when a row differs.
+
+const SLOTS := {
+	"title.backdrop.launch": {
+		"owner": "codex",
+		"kind": "backdrop",
+		"status": "placeholder",
+		"lane": "codex-wire",
+		"census": "T01",
+		"file": "res://assets/slots/title/backdrop/launch.png",
+		"size": Vector2i(384, 216),
+		"anchor": Vector2i(0, 0),
+		"anchor_mode": "top_left",
+		"states": {"static": [1, 0]},
+		"palette": {"family": "night_bank", "max": 48},
+		"tint": "#161f1b",
+		"brief": "The launch card's night: the river valley before the title, dark greens and river blues in a few calm bands, with no text.",
+		"placeholder": "",
+		"notes": "today a flat #161f1b fill (opening_flow.gd:21); placeholder: that fill in 3 stepped bands",
+	},
+	"title.backdrop.village": {
+		"owner": "codex",
+		"kind": "backdrop",
+		"status": "keep",
+		"lane": "codex-wire",
+		"census": "T04",
+		"file": "res://assets/slots/title/backdrop/village.png",
+		"legacy": "res://assets/sprites/menu/creature_village_2026_10_09.png",
+		"size": Vector2i(256, 144),
+		"drawn_at": 4.5,
+		"anchor": Vector2i(0, 0),
+		"anchor_mode": "top_left",
+		"states": {"static": [1, 0]},
+		"palette": {"family": "as_installed", "max": 0},
+		"brief": "Finished Codex art, registered as it is; the loader serves today's file.",
+		"placeholder": "",
+		"notes": "drawn at 4.5x, not a whole scale (Preston call 8)",
+	},
+	"title.hud_piece.menu_cursor": {
+		"owner": "grok",
+		"kind": "hud_piece",
+		"status": "placeholder",
+		"lane": "codex-wire",
+		"census": "T10",
+		"file": "res://assets/slots/title/hud_piece/menu_cursor.png",
+		"size": Vector2i(8, 9),
+		"anchor": Vector2i(0, 4),
+		"anchor_mode": "left_middle",
+		"states": {"static": [1, 0]},
+		"palette": {"family": "brass_ui", "max": 16},
+		"brief": "The main menu's pointer: a small brass arrowhead pointing right, lit from the upper left.",
+		"placeholder": "",
+		"notes": "Polygon2D today (main_menu.gd:366); the bounce stays coded",
+	},
+}

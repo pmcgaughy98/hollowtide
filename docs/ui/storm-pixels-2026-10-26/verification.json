@@ -1,0 +1,30 @@
+{
+  "owned": {
+    "scripts/storm_open.gd": "2990c26f7356bc71ef5339bd0e4c2b8a70cf4619c90eed5f1477e7044dd49184"
+  },
+  "all_other_original_methods_exact": [
+    "_ready",
+    "_view",
+    "_show",
+    "_run",
+    "_lightning",
+    "_process",
+    "_draw_rain",
+    "_unhandled_input",
+    "_next",
+    "_sfx"
+  ],
+  "state_and_animation_inputs_exact": true,
+  "white_overlay_exact": true,
+  "no_circle_calls_in_storm_soul": true,
+  "baseline": 15,
+  "native_visual": 21,
+  "native_real_flow": 68,
+  "concurrent_paths_preserved": [
+    "scripts/town/hub_town.gd",
+    "tools/art/walk_fix/fix_colour.py",
+    "tools/art/walk_fix/fix_legs.py",
+    "tools/art/walk_fix/fix_satchel.py",
+    "tools/art/walk_fix/satchel_report.py"
+  ]
+}

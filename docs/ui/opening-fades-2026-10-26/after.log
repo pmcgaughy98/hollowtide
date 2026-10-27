@@ -1,0 +1,43 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+OpenGL API 3.3.0 NVIDIA 610.62 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce GTX 1660 SUPER
+
+[godot_ai game_helper] registered mcp capture (debugger active=false, logger=true)
+FADE_METRIC normal-natural drops 0.10196080803871 / 0.08640427932681 cuts { "frame": 551, "cover": 1.0 } / { "frame": 616, "cover": 0.0, "veil": 1.0 }
+FADE_CHECK normal-natural reaches actual soul -> ok
+FADE_CHECK normal-natural first Enter cannot skip -> ok
+FADE_CHECK normal-natural saved journey bytes unchanged -> ok
+FADE_CHECK normal-natural bank keeps hero, setting and pending partner choice -> ok
+FADE_CHECK normal-natural bank still reveals and starts dialogue -> ok
+FADE_CHECK normal-natural Storm swap covered by shared black -> ok
+FADE_CHECK normal-natural input blocked while soul begins under black -> ok
+FADE_CHECK normal-natural no abrupt falling luminance at Storm exit -> ok
+FADE_CHECK normal-natural no abrupt falling luminance at soul exit -> ok
+FADE_CHECK normal-natural bank construction stays black -> ok
+FADE_CHECK normal-natural reduced final Storm white stays capped -> ok
+FADE_METRIC reduced-natural drops 0.05268761059064 / 0.10947738567393 cuts { "frame": 324, "cover": 1.0 } / { "frame": 384, "cover": 0.0, "veil": 1.0 }
+FADE_CHECK reduced-natural reaches actual soul -> ok
+FADE_CHECK reduced-natural first Enter cannot skip -> ok
+FADE_CHECK reduced-natural saved journey bytes unchanged -> ok
+FADE_CHECK reduced-natural bank keeps hero, setting and pending partner choice -> ok
+FADE_CHECK reduced-natural bank still reveals and starts dialogue -> ok
+FADE_CHECK reduced-natural Storm swap covered by shared black -> ok
+FADE_CHECK reduced-natural input blocked while soul begins under black -> ok
+FADE_CHECK reduced-natural no abrupt falling luminance at Storm exit -> ok
+FADE_CHECK reduced-natural no abrupt falling luminance at soul exit -> ok
+FADE_CHECK reduced-natural bank construction stays black -> ok
+FADE_CHECK reduced-natural reduced final Storm white stays capped -> ok
+FADE_METRIC normal-skip drops 0.00354227137736 / 0.0 cuts { "frame": 16, "cover": 1.0 } / {  }
+FADE_CHECK normal-skip reaches actual soul -> ok
+FADE_CHECK normal-skip first Enter cannot skip -> ok
+FADE_CHECK normal-skip saved journey bytes unchanged -> ok
+FADE_CHECK normal-skip Storm swap covered by shared black -> ok
+FADE_CHECK normal-skip input blocked while soul begins under black -> ok
+FADE_CHECK normal-skip no abrupt falling luminance at Storm exit -> ok
+FADE_METRIC reduced-skip drops 0.01920966176307 / 0.0 cuts { "frame": 11, "cover": 1.0 } / {  }
+FADE_CHECK reduced-skip reaches actual soul -> ok
+FADE_CHECK reduced-skip first Enter cannot skip -> ok
+FADE_CHECK reduced-skip saved journey bytes unchanged -> ok
+FADE_CHECK reduced-skip Storm swap covered by shared black -> ok
+FADE_CHECK reduced-skip input blocked while soul begins under black -> ok
+FADE_CHECK reduced-skip no abrupt falling luminance at Storm exit -> ok
+FADE RESULT {"failed":0,"passed":34,"total":34}

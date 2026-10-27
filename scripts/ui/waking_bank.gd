@@ -48,9 +48,115 @@ static func mask_texture(img: Image) -> Texture2D:
 	return _mask
 
 static func detailed_image(path: String = ART) -> Image:
+	# Claude, 2026-10-26 (placeholder factory lane U): the two paintings are art slots, so every caller (the flood
+	# talk, the storm, the escape, the walkway, the town's warm-up) gets them through ArtSlots by the old path.
+	if SLOT_OF.has(path):
+		return slot_image(SLOT_OF[path])
 	# Claude, 2026-10-24 (A4, LV-19): UI.res_image reads the imported texture, which an exported game has; the PNG it does not.
 	var img := UI.res_image(path)
 	if img == null or img.get_size() != Vector2i(384,216): return null
+	return img
+
+## The story backdrops as art slots (Claude, 2026-10-26, placeholder factory lane U; scripts/art/slots/story.gd).
+## The waking bank (S01) and the Hollow entrance (D02) are Codex's finished paintings, kept; the dawn bank (F01) waits
+## for Codex. slot_image is the slot's picture (an installed file, or today's painting), a copy a painter may draw on,
+## or null while the slot is on its placeholder, so the caller paints its code fallback as it always has: paint()
+## here, hollow_approach.gd's stand-in for the entrance, mouth_escape.gd's dawn grade for the dawn.
+const Slots := preload("res://scripts/art/art_slots.gd")
+const ENTRANCE_ART := "res://assets/sprites/world/waking_bank_2026_10_10/entrance_native.png"
+const SLOT_OF := {ART: "story.backdrop.waking_bank", ENTRANCE_ART: "story.backdrop.hollow_entrance"}
+
+static func slot_image(id: String) -> Image:
+	if Slots.source(id) == "placeholder":
+		return null
+	var img := Slots.image(id)
+	if img == null or img.get_size() != Vector2i(384,216): return null
+	return img.duplicate()
+
+## Codex's dawn painting once it is installed, else null: mouth_escape.gd keeps its dawn grade over the night painting.
+static func dawn_image() -> Image:
+	return slot_image("story.backdrop.dawn_bank")
+
+## The waking bank slot's placeholder (story.gd names it): this file's own code painting, as the scene falls back to.
+static func bank_placeholder(_id: String, _spec: Dictionary) -> Image:
+	return _opaque(paint())
+
+## The dawn bank slot's placeholder, for reference renders and forced placeholders: the night painting under the dawn
+## grade, worked on the CPU from mouth_escape.gd's DAWN_SHADER as of pass 8 (gain, lift toward a cool sky, a little
+## less colour, the low sun along the top, a pale sky in the water), then cut to the slot's 48 colours: the 48 most
+## used colour boxes (4 bits a channel) by their average, each pixel to the nearest. In the game the shader still
+## grades the painting until Codex's dawn is installed.
+static func dawn_placeholder(_id: String, spec: Dictionary) -> Image:
+	var img := slot_image("story.backdrop.waking_bank")
+	if img == null:
+		img = paint()
+	var graded: Array[Vector3] = []
+	graded.resize(384 * 216)
+	var gain := Vector3(1.34, 1.22, 1.04)
+	var lift := Vector3(0.08, 0.09, 0.11)
+	var glow := Vector3(1.0, 0.76, 0.46)
+	var sky := Vector3(0.66, 0.76, 0.78)
+	for y in 216:
+		var v := float(y) / 216.0
+		for x in 384:
+			var c := img.get_pixel(x, y)
+			var s := Vector3(c.r, c.g, c.b)
+			var water := s.z > s.x * 1.25 and s.y > s.x * 1.10 and s.z > s.y * 0.80
+			if x >= 246 and x < 346 and y >= 47 and y < 66 and s.x > 0.45 and s.z < s.x * 0.8:
+				s = s.lerp(Vector3(0.30, 0.42, 0.46), 0.6)
+				water = true
+			if water:
+				s = s.lerp(sky, 0.22 + 0.18 * (1.0 - smoothstep(0.05, 0.35, v)))
+			var g := s * gain
+			g = g + lift * (Vector3.ONE - g)
+			var lum := g.dot(Vector3(0.299, 0.587, 0.114))
+			g = Vector3(lum, lum, lum).lerp(g, 0.88)
+			g += glow * 0.18 * (1.0 - smoothstep(0.0, 0.34, v))
+			graded[y * 384 + x] = g.clamp(Vector3.ZERO, Vector3.ONE)
+	return _cut_colours(graded, Vector2i(384, 216), maxi(1, int(spec.get("palette", {}).get("max", 48))))
+
+## `px` (colours as Vector3, row by row) as an opaque image of at most `budget` colours: the most used 4-bit boxes,
+## each by the average of its pixels, and every pixel to the nearest of those (worked once per box, not per pixel).
+static func _cut_colours(px: Array[Vector3], size: Vector2i, budget: int) -> Image:
+	var keys := PackedInt32Array()
+	keys.resize(px.size())
+	var count := {}
+	var total := {}
+	for i in px.size():
+		var c: Vector3 = px[i]
+		var k := (int(c.x * 15.0 + 0.5) << 8) | (int(c.y * 15.0 + 0.5) << 4) | int(c.z * 15.0 + 0.5)
+		keys[i] = k
+		count[k] = int(count.get(k, 0)) + 1
+		total[k] = total.get(k, Vector3.ZERO) + c
+	var boxes := count.keys()
+	boxes.sort_custom(func(a: int, b: int) -> bool: return count[a] > count[b] or (count[a] == count[b] and a < b))
+	var palette: Array[Color] = []
+	for k in boxes.slice(0, budget):
+		var m: Vector3 = total[k] / float(count[k])
+		palette.append(Color(roundf(m.x * 255.0) / 255.0, roundf(m.y * 255.0) / 255.0, roundf(m.z * 255.0) / 255.0, 1.0))
+	var pick := {}
+	for k in boxes:
+		var m: Vector3 = total[k] / float(count[k])
+		var best := 0
+		var best_d := INF
+		for j in palette.size():
+			var d := Vector3(palette[j].r, palette[j].g, palette[j].b).distance_squared_to(m)
+			if d < best_d:
+				best_d = d
+				best = j
+		pick[k] = palette[best]
+	var out := Image.create(size.x, size.y, false, Image.FORMAT_RGBA8)
+	for i in px.size():
+		out.set_pixel(i % size.x, i / size.x, pick[keys[i]])
+	return out
+
+static func _opaque(img: Image) -> Image:
+	# A backdrop slot is opaque: anything the painting left see-through is laid on black.
+	for y in img.get_height():
+		for x in img.get_width():
+			var c := img.get_pixel(x, y)
+			if c.a < 1.0:
+				img.set_pixel(x, y, Color(c.r * c.a, c.g * c.a, c.b * c.a, 1.0))
 	return img
 
 func water_at(x: int, y: int) -> bool:

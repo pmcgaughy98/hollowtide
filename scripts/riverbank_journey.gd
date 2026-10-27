@@ -13,7 +13,6 @@ const Finish=preload("res://scripts/arena/creature_finish.gd")
 const Lines=preload("res://scripts/creatures/lines.gd")
 const TeamState=preload("res://scripts/town/team_state.gd")
 const UI=preload("res://scripts/ui/ui_style.gd")
-const ENTRANCE_ART="res://assets/sprites/world/waking_bank_2026_10_10/entrance_native.png"
 const TITLE="res://scenes/creature_opening.tscn"   # where the pause menu's Return to title goes too
 const BOX=Rect2(196,452,760,116)   # the same text box as the flood talk and the rooms
 const ASK=Rect2(396,236,360,176)   # the "Back to the title?" prompt, mid-screen
@@ -77,13 +76,15 @@ func _ready()->void:
 	var display:=Sprite2D.new();display.texture=view.get_texture();display.centered=false
 	display.scale=Vector2.ONE*3;display.texture_filter=CanvasItem.TEXTURE_FILTER_NEAREST;add_child(display)
 	if entrance:
-		var img:=Bank.detailed_image(ENTRANCE_ART)
+		# The entrance is the art slot story.backdrop.hollow_entrance (Claude, 2026-10-26, placeholder factory lane U):
+		# an installed file, else today's painting; on its placeholder, the slot's stand-in (hollow_approach.gd's).
+		var img:=Bank.slot_image("story.backdrop.hollow_entrance")
 		var background:=Sprite2D.new();background.centered=false
 		background.texture_filter=CanvasItem.TEXTURE_FILTER_NEAREST
 		if img!=null:
 			background.texture=EntranceFinish.finished_texture(img)   # made once a session (Claude, 2026-10-26, S5)
 			EntranceFinish.apply(background,img)
-		else:background.texture=ImageTexture.create_from_image(Bank.paint())
+		else:background.texture=Bank.Slots.texture("story.backdrop.hollow_entrance")
 		view.add_child(background);leader=Vector2(192,177)
 		# The Hollow is read from disk on a thread while the team walks up; the arch takes it (S7).
 		ResourceLoader.load_threaded_request(DUNGEON)

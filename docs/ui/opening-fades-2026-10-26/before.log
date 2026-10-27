@@ -1,0 +1,17 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+OpenGL API 3.3.0 NVIDIA 610.62 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce GTX 1660 SUPER
+
+[godot_ai game_helper] registered mcp capture (debugger active=false, logger=true)
+FADE_METRIC normal-natural drops 0.88451374750322 / 0.83225380512888 cuts { "frame": 540, "cover": 0.0 } / { "frame": 616, "cover": 0.0, "veil": 1.0 }
+FADE_CHECK normal-natural reaches actual soul -> ok
+FADE_CHECK normal-natural first Enter cannot skip -> ok
+FADE_CHECK normal-natural saved journey bytes unchanged -> ok
+FADE_CHECK normal-natural bank keeps hero, setting and pending partner choice -> ok
+FADE_CHECK normal-natural bank still reveals and starts dialogue -> ok
+FADE_METRIC reduced-natural drops 0.88460149864783 / 0.25179170276133 cuts { "frame": 318, "cover": 0.0 } / { "frame": 394, "cover": 0.0, "veil": 1.0 }
+FADE_CHECK reduced-natural reaches actual soul -> ok
+FADE_CHECK reduced-natural first Enter cannot skip -> ok
+FADE_CHECK reduced-natural saved journey bytes unchanged -> ok
+FADE_CHECK reduced-natural bank keeps hero, setting and pending partner choice -> ok
+FADE_CHECK reduced-natural bank still reveals and starts dialogue -> ok
+FADE RESULT {"failed":0,"passed":10,"total":10}

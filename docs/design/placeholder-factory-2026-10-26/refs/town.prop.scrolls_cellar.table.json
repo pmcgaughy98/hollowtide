@@ -1,0 +1,64 @@
+{
+	"alpha": "binary",
+	"anchor": [
+		24,
+		39
+	],
+	"anchor_mode": "foot",
+	"area": "town",
+	"brief": "A low reading table with an open scroll weighed down by two stones.",
+	"census": "M20",
+	"checks": [
+		"C1",
+		"C12",
+		"C2",
+		"C3",
+		"C4",
+		"C5",
+		"C7",
+		"C8",
+		"C9"
+	],
+	"drawn_at": 3,
+	"edges": "bottom",
+	"file": "res://assets/slots/town/prop/scrolls_cellar/table.png",
+	"forbid": [
+		"text",
+		"creature",
+		"franchise"
+	],
+	"frames": 1,
+	"id": "town.prop.scrolls_cellar.table",
+	"kind": "prop",
+	"lane": "R",
+	"legacy": "",
+	"light": "upper_left",
+	"notes": "solid furniture, placed by room_painter.gd FURNITURE (lane R): top-left (120,80) on solid tiles (5,4) 2x1; the kind's stacked blocks are the placeholder",
+	"outline": "drawn",
+	"owner": "grok",
+	"palette": {
+		"family": "room_scrolls_cellar",
+		"lock": false,
+		"max": 24,
+		"source": "res://assets/slots/palettes/room_scrolls_cellar.png"
+	},
+	"placeholder": "",
+	"rows": 1,
+	"sheet_size": [
+		48,
+		40
+	],
+	"size": [
+		48,
+		40
+	],
+	"slot_file": "town_rooms",
+	"states": {
+		"static": [
+			1,
+			0
+		]
+	},
+	"status": "placeholder",
+	"tiling": "none"
+}

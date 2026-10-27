@@ -1,0 +1,65 @@
+{
+	"alpha": "binary",
+	"anchor": [
+		54,
+		119
+	],
+	"anchor_mode": "foot",
+	"area": "town",
+	"brief": "An unopened stall lot: a canvas tarp tied over a bare timber counter frame.",
+	"building_class": "stall",
+	"census": "new",
+	"checks": [
+		"C1",
+		"C12",
+		"C2",
+		"C3",
+		"C4",
+		"C5",
+		"C7",
+		"C8",
+		"C9"
+	],
+	"drawn_at": 3,
+	"edges": "bottom",
+	"file": "res://assets/slots/town/building/lot_before_stall.png",
+	"forbid": [
+		"text",
+		"creature",
+		"franchise"
+	],
+	"frames": 1,
+	"id": "town.building.lot_before_stall",
+	"kind": "building",
+	"lane": "B",
+	"legacy": "",
+	"light": "upper_left",
+	"notes": "lots A and D before they open",
+	"outline": "runtime_rim",
+	"owner": "codex",
+	"palette": {
+		"family": "town_timber",
+		"lock": false,
+		"max": 32,
+		"source": "res://assets/slots/palettes/town_timber.png"
+	},
+	"placeholder": "res://scripts/town/building_template.gd:paint_slot",
+	"rows": 1,
+	"sheet_size": [
+		108,
+		120
+	],
+	"size": [
+		108,
+		120
+	],
+	"slot_file": "town_buildings",
+	"states": {
+		"static": [
+			1,
+			0
+		]
+	},
+	"status": "placeholder",
+	"tiling": "none"
+}

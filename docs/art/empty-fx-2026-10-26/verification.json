@@ -1,0 +1,13 @@
+{
+  "changed_pngs": 6,
+  "unchanged_other_frames": 26,
+  "nonempty_final_frames": 32,
+  "original_source_sheets_unchanged": true,
+  "new_drawn_frames": 0,
+  "repair": "exact neighboring-frame holds for truly blank source cells",
+  "native_checks": 67,
+  "native_failures": 0,
+  "maintained_dungeon_vfx": "PASS",
+  "concurrent_paths_preserved": [],
+  "gameplay_and_rules_unchanged": true
+}

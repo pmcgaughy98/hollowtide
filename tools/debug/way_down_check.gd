@@ -20,6 +20,39 @@ func _ok(what: String, good: bool) -> void:
 		fails += 1
 
 
+## Every tile the team can walk to from `start`, by area: {area: {tile: true}}. The town's own grid in its area; in
+## Highbank v2 a walk onto an open exit carries on in the area it leads to, from the tile it lands on.
+func _walk(town: Node, area: String, start: Vector2i) -> Dictionary:
+	var out := {}
+	var todo: Array = [[area, start]]
+	while not todo.is_empty():
+		var item: Array = todo.pop_front()
+		var id: String = item[0]
+		if out.has(id):
+			continue
+		if Layout.v2():
+			Layout.use(id, TeamState.data)
+		var g: PackedByteArray = Layout.grid()
+		var size := Layout.size()
+		var seen := {item[1]: true}
+		var q: Array = [item[1]]
+		while not q.is_empty():
+			var t: Vector2i = q.pop_front()
+			for d in [Vector2i(1, 0), Vector2i(-1, 0), Vector2i(0, 1), Vector2i(0, -1)]:
+				var n: Vector2i = t + d
+				var open: bool = town.open_at(n) if id == area else (Rect2i(Vector2i.ZERO, size).has_point(n) and g[n.y * size.x + n.x] == Layout.OPEN)
+				if not seen.has(n) and open:
+					seen[n] = true
+					q.append(n)
+				if seen.has(n) and Layout.v2() and not Layout.exit_at(n).is_empty():
+					var e: Dictionary = Layout.exit_at(n)
+					todo.append([String(e["to"]), Layout.anchor(String(e["at"]), String(e["to"]))])
+		out[id] = seen
+	if Layout.v2():
+		Layout.use(area, TeamState.data)   # back to the area the town shows
+	return out
+
+
 func _run() -> void:
 	TeamState.start([[0, 0], [1, 0]], {})
 	TeamState.data["beaten"] = ["mouth"]
@@ -32,18 +65,14 @@ func _run() -> void:
 	await process_frame
 	await process_frame
 	var start: Vector2i = town.team[0]["pos"]
+	var start_area := Layout.area_id()
+	# Breadth-first over open tiles, as the player walks (four directions); with Highbank v2 on, through the areas'
+	# exits too, into the Mouth's area (lane A, Claude, 2026-10-26).
+	var walked := _walk(town, start_area, start)
+	town.enter_area(Layout.area_of("gate"), "gate")
 	var gate: Dictionary = Layout.PLACES.filter(func(p: Dictionary) -> bool: return p["id"] == "gate")[0]
 	var goal: Vector2i = gate["door"]
-	# Breadth-first over open tiles, as the player walks (four directions and diagonals).
-	var seen := {start: true}
-	var q := [start]
-	while not q.is_empty():
-		var t: Vector2i = q.pop_front()
-		for d in [Vector2i(1, 0), Vector2i(-1, 0), Vector2i(0, 1), Vector2i(0, -1)]:
-			var n: Vector2i = t + d
-			if not seen.has(n) and town.open_at(n):
-				seen[n] = true
-				q.append(n)
+	var seen: Dictionary = walked.get(Layout.area_id(), {})
 	_ok("The Mouth of the Hollow (%s) can be walked to from where the team starts (%s); %d tiles reachable" % [goal, start, seen.size()], seen.has(goal))
 	if not seen.has(goal):
 		var near := goal

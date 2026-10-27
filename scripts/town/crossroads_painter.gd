@@ -5,8 +5,9 @@ const Finish = preload("res://scripts/arena/creature_finish.gd")
 const INK := Color("#0b0e11")
 const STONES := [Color("#a69470"), Color("#ae9b77"), Color("#b3a17d"), Color("#ac9874")]
 
+# Claude, 2026-10-26 (placeholder factory lane B): the rect comes from the area showing (v1: the PLACES row itself).
 static func _place() -> Dictionary:
-	return Layout.PLACES.filter(func(p: Dictionary) -> bool: return p["id"] == "plaza")[0]
+	return BuildingTemplate.place_entry("plaza")
 
 static func available() -> bool:
 	return ResourceLoader.exists("res://scripts/town/building_exteriors.gd")

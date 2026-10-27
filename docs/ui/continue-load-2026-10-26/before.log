@@ -1,0 +1,16 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+OpenGL API 3.3.0 NVIDIA 610.62 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce GTX 1660 SUPER
+
+[godot_ai game_helper] registered mcp capture (debugger active=false, logger=true)
+highbank-normal Continue exists: PASS
+highbank-normal dispatch plays one confirm: PASS
+highbank-normal destination scene changes: PASS
+highbank-normal Highbank destination: PASS
+highbank-normal Highbank finishes its own covered arrival: PASS
+highbank-normal saved team/cleared/levels survive: PASS
+highbank-normal Highbank lifts shared cover: PASS
+highbank-normal background room warm-up completes before teardown: PASS
+CONTINUE METRIC {"alpha_on_return":0.0,"case":"highbank-normal","confirm_ms":778.428,"dispatch_ms":779.303,"frames_to_swap":24,"longest_fade_frame_ms":16.714,"longest_title_frame_ms":67.424,"one_confirm":true,"visible_fade_frames":20}
+CONTINUE LOAD RESULT 8 checks / 0 failures
+WARNING: 216 ObjectDB instances were leaked at exit (run with `--verbose` for details).
+   at: cleanup (core/object/object.cpp:2536)

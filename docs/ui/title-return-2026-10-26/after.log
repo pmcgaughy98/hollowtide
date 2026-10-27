@@ -1,0 +1,110 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+OpenGL API 3.3.0 NVIDIA 610.62 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce GTX 1660 SUPER
+
+[godot_ai game_helper] registered mcp capture (debugger active=false, logger=true)
+normal-auto first launch reaches main: PASS
+normal-auto no simultaneous launch/menu logos: PASS
+normal-auto first focus is silent: PASS
+normal-auto first focus belongs to first menu action: PASS
+normal-auto auto splash advertises skipping, not a required key: PASS
+normal-auto prelude and captions hidden at zero alpha: PASS
+normal-auto first launch still displays its timed card: PASS
+normal-auto skip cannot activate New Game: PASS
+normal-auto Options opens: PASS
+normal-auto Options plays exactly one confirm: PASS
+normal-auto Options initial shared focus is quiet: PASS
+normal-auto return opens main before first draw: PASS
+normal-auto return has no dim menu or launch card: PASS
+normal-auto return focus is silent: PASS
+normal-auto returning alone leaves preferences byte exact: PASS
+normal-auto returning alone leaves game preferences byte exact: PASS
+normal-auto unknown preferences survive existing migration: PASS
+normal-keyboard first launch reaches main: PASS
+normal-keyboard no simultaneous launch/menu logos: PASS
+normal-keyboard first focus is silent: PASS
+normal-keyboard first focus belongs to first menu action: PASS
+normal-keyboard auto splash advertises skipping, not a required key: PASS
+normal-keyboard prelude and captions hidden at zero alpha: PASS
+normal-keyboard skip cannot activate New Game: PASS
+normal-keyboard Options opens: PASS
+normal-keyboard Options plays exactly one confirm: PASS
+normal-keyboard Options initial shared focus is quiet: PASS
+normal-keyboard return opens main before first draw: PASS
+normal-keyboard return has no dim menu or launch card: PASS
+normal-keyboard return focus is silent: PASS
+normal-keyboard returning alone leaves preferences byte exact: PASS
+normal-keyboard returning alone leaves game preferences byte exact: PASS
+normal-keyboard unknown preferences survive existing migration: PASS
+normal-pad first launch reaches main: PASS
+normal-pad no simultaneous launch/menu logos: PASS
+normal-pad first focus is silent: PASS
+normal-pad first focus belongs to first menu action: PASS
+normal-pad auto splash advertises skipping, not a required key: PASS
+normal-pad prelude and captions hidden at zero alpha: PASS
+Splash hint follows controller binding: PASS
+normal-pad skip cannot activate New Game: PASS
+normal-pad Options opens: PASS
+normal-pad Options plays exactly one confirm: PASS
+normal-pad Options initial shared focus is quiet: PASS
+normal-pad return opens main before first draw: PASS
+normal-pad return has no dim menu or launch card: PASS
+normal-pad return focus is silent: PASS
+normal-pad returning alone leaves preferences byte exact: PASS
+normal-pad returning alone leaves game preferences byte exact: PASS
+normal-pad unknown preferences survive existing migration: PASS
+normal-mouse first launch reaches main: PASS
+normal-mouse no simultaneous launch/menu logos: PASS
+normal-mouse first focus is silent: PASS
+normal-mouse first focus belongs to first menu action: PASS
+normal-mouse auto splash advertises skipping, not a required key: PASS
+normal-mouse prelude and captions hidden at zero alpha: PASS
+normal-mouse skip cannot activate New Game: PASS
+normal-mouse Options opens: PASS
+normal-mouse Options plays exactly one confirm: PASS
+normal-mouse Options initial shared focus is quiet: PASS
+normal-mouse return opens main before first draw: PASS
+normal-mouse return has no dim menu or launch card: PASS
+normal-mouse return focus is silent: PASS
+normal-mouse returning alone leaves preferences byte exact: PASS
+normal-mouse returning alone leaves game preferences byte exact: PASS
+normal-mouse unknown preferences survive existing migration: PASS
+reduced-auto first launch reaches main: PASS
+reduced-auto no simultaneous launch/menu logos: PASS
+reduced-auto first focus is silent: PASS
+reduced-auto first focus belongs to first menu action: PASS
+reduced-auto auto splash advertises skipping, not a required key: PASS
+reduced-auto prelude and captions hidden at zero alpha: PASS
+reduced-auto first launch still displays its timed card: PASS
+reduced-auto skip cannot activate New Game: PASS
+reduced-auto Options opens: PASS
+reduced-auto Options plays exactly one confirm: PASS
+reduced-auto Options initial shared focus is quiet: PASS
+reduced-auto return opens main before first draw: PASS
+reduced-auto return has no dim menu or launch card: PASS
+reduced-auto return focus is silent: PASS
+reduced-auto returning alone leaves preferences byte exact: PASS
+reduced-auto returning alone leaves game preferences byte exact: PASS
+reduced-auto unknown preferences survive existing migration: PASS
+normal-rebound first launch reaches main: PASS
+normal-rebound no simultaneous launch/menu logos: PASS
+normal-rebound first focus is silent: PASS
+normal-rebound first focus belongs to first menu action: PASS
+normal-rebound auto splash advertises skipping, not a required key: PASS
+normal-rebound prelude and captions hidden at zero alpha: PASS
+Live rebound Q appears in splash hint: PASS
+normal-rebound skip cannot activate New Game: PASS
+normal-rebound Options opens: PASS
+normal-rebound Options plays exactly one confirm: PASS
+normal-rebound Options initial shared focus is quiet: PASS
+normal-rebound return opens main before first draw: PASS
+normal-rebound return has no dim menu or launch card: PASS
+normal-rebound return focus is silent: PASS
+normal-rebound returning alone leaves preferences byte exact: PASS
+normal-rebound returning alone leaves game preferences byte exact: PASS
+normal-rebound unknown preferences survive existing migration: PASS
+Pause Return to title confirmation offers expected action: PASS
+Actual pause confirmation returns to campaign title: PASS
+Actual paused return never rebuilds the splash hold: PASS
+Return fade lifts onto usable main page: PASS
+Private saved journey remains byte exact: PASS
+TITLE RETURN RESULT 105 checks / 0 failures

@@ -1,0 +1,22 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+OpenGL API 3.3.0 NVIDIA 610.62 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce GTX 1660 SUPER
+
+[godot_ai game_helper] registered mcp capture (debugger active=false, logger=true)
+Native transparent light layer stays384x216: PASS
+Nearest native light layer retained: PASS
+hidden pixels stay aligned to native3x grid: PASS
+No soul pixels when glow is zero: PASS
+appearing pixels stay aligned to native3x grid: PASS
+landed pixels stay aligned to native3x grid: PASS
+Light lands around the original waking coordinate: PASS
+bloom pixels stay aligned to native3x grid: PASS
+peak pixels stay aligned to native3x grid: PASS
+Bloom expands without covering whole viewport: PASS
+reduced-white pixels stay aligned to native3x grid: PASS
+reduced-white original full-screen white opacity retained: PASS
+normal-white pixels stay aligned to native3x grid: PASS
+normal-white original full-screen white opacity retained: PASS
+Private saved journey bytes unchanged: PASS
+STORM PIXELS RESULT 15 checks / 0 failures
+WARNING: 2 ObjectDB instances were leaked at exit (run with `--verbose` for details).
+   at: cleanup (core/object/object.cpp:2536)

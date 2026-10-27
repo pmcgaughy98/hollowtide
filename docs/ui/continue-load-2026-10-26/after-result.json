@@ -1,0 +1,278 @@
+{
+  "checks": [
+    {
+      "check": "highbank-normal Continue exists",
+      "passed": true
+    },
+    {
+      "check": "highbank-normal dispatch plays one confirm",
+      "passed": true
+    },
+    {
+      "check": "highbank-normal immediate feedback before any destination load",
+      "passed": true
+    },
+    {
+      "check": "highbank-normal rapid duplicate activation is ignored",
+      "passed": true
+    },
+    {
+      "check": "highbank-normal duplicate has no second confirm",
+      "passed": true
+    },
+    {
+      "check": "highbank-normal destination scene changes",
+      "passed": true
+    },
+    {
+      "check": "highbank-normal loader starts under both opaque covers",
+      "passed": true
+    },
+    {
+      "check": "highbank-normal only one threaded load path requested",
+      "passed": true
+    },
+    {
+      "check": "highbank-normal disk save untouched until destination is ready to dispatch",
+      "passed": true
+    },
+    {
+      "check": "highbank-normal Highbank destination",
+      "passed": true
+    },
+    {
+      "check": "highbank-normal Highbank finishes its own covered arrival",
+      "passed": true
+    },
+    {
+      "check": "highbank-normal saved team/cleared/levels survive",
+      "passed": true
+    },
+    {
+      "check": "highbank-normal Highbank lifts shared cover",
+      "passed": true
+    },
+    {
+      "check": "highbank-normal background room warm-up completes before teardown",
+      "passed": true
+    },
+    {
+      "check": "highbank-reduced Continue exists",
+      "passed": true
+    },
+    {
+      "check": "highbank-reduced dispatch plays one confirm",
+      "passed": true
+    },
+    {
+      "check": "highbank-reduced immediate feedback before any destination load",
+      "passed": true
+    },
+    {
+      "check": "highbank-reduced rapid duplicate activation is ignored",
+      "passed": true
+    },
+    {
+      "check": "highbank-reduced duplicate has no second confirm",
+      "passed": true
+    },
+    {
+      "check": "highbank-reduced destination scene changes",
+      "passed": true
+    },
+    {
+      "check": "highbank-reduced loader starts under both opaque covers",
+      "passed": true
+    },
+    {
+      "check": "highbank-reduced only one threaded load path requested",
+      "passed": true
+    },
+    {
+      "check": "highbank-reduced disk save untouched until destination is ready to dispatch",
+      "passed": true
+    },
+    {
+      "check": "highbank-reduced Highbank destination",
+      "passed": true
+    },
+    {
+      "check": "highbank-reduced Highbank finishes its own covered arrival",
+      "passed": true
+    },
+    {
+      "check": "highbank-reduced saved team/cleared/levels survive",
+      "passed": true
+    },
+    {
+      "check": "highbank-reduced Highbank lifts shared cover",
+      "passed": true
+    },
+    {
+      "check": "highbank-reduced background room warm-up completes before teardown",
+      "passed": true
+    },
+    {
+      "check": "warren-suspend Continue exists",
+      "passed": true
+    },
+    {
+      "check": "warren-suspend dispatch plays one confirm",
+      "passed": true
+    },
+    {
+      "check": "warren-suspend immediate feedback before any destination load",
+      "passed": true
+    },
+    {
+      "check": "warren-suspend rapid duplicate activation is ignored",
+      "passed": true
+    },
+    {
+      "check": "warren-suspend duplicate has no second confirm",
+      "passed": true
+    },
+    {
+      "check": "warren-suspend destination scene changes",
+      "passed": true
+    },
+    {
+      "check": "warren-suspend loader starts under both opaque covers",
+      "passed": true
+    },
+    {
+      "check": "warren-suspend only one threaded load path requested",
+      "passed": true
+    },
+    {
+      "check": "warren-suspend disk save untouched until destination is ready to dispatch",
+      "passed": true
+    },
+    {
+      "check": "warren-suspend dungeon destination",
+      "passed": true
+    },
+    {
+      "check": "warren-suspend suspended dungeon/floor/seed preserved",
+      "passed": true
+    },
+    {
+      "check": "warren-suspend suspend consumed once after dispatch",
+      "passed": true
+    },
+    {
+      "check": "warren-suspend saved team and HP resume",
+      "passed": true
+    },
+    {
+      "check": "warren-suspend shared cover is released for dungeon card",
+      "passed": true
+    },
+    {
+      "check": "Simulated loader failure returns to usable title",
+      "passed": true
+    },
+    {
+      "check": "Failed loader preserves unconsumed suspend bytes",
+      "passed": true
+    },
+    {
+      "check": "Failure removes shared black cover",
+      "passed": true
+    },
+    {
+      "check": "Retry after resource failure reaches saved dungeon",
+      "passed": true
+    },
+    {
+      "check": "Successful retry consumes suspend only once",
+      "passed": true
+    },
+    {
+      "check": "Missing save disables only Continue and restores main",
+      "passed": true
+    },
+    {
+      "check": "Missing save does not start a destination load",
+      "passed": true
+    },
+    {
+      "check": "Legacy title does not request unused route at boot",
+      "passed": true
+    },
+    {
+      "check": "Legacy New Game requests its still-used courier route",
+      "passed": true
+    },
+    {
+      "check": "Lazy route eventually enables original Begin action",
+      "passed": true
+    }
+  ],
+  "failed": 0,
+  "failures": [],
+  "metrics": [
+    {
+      "alpha_on_return": 0.0,
+      "case": "highbank-normal",
+      "confirm_ms": 0.065,
+      "dispatch_ms": 0.175,
+      "frames_to_swap": 48,
+      "longest_fade_frame_ms": 16.714,
+      "longest_title_frame_ms": 60.791,
+      "one_confirm": true,
+      "probe": {
+        "local_alpha": 1.0,
+        "path": "res://scenes/hub_town.tscn",
+        "requests": 1,
+        "saved_hash": "2328ea440dbfa0e642328b917435786e1c133b1f6a98b49c854fe1b7d5127150",
+        "shared_alpha": 1.0,
+        "suspended": false,
+        "time": 5861366
+      },
+      "visible_fade_frames": 20
+    },
+    {
+      "alpha_on_return": 0.0,
+      "case": "highbank-reduced",
+      "confirm_ms": 0.097,
+      "dispatch_ms": 0.232,
+      "frames_to_swap": 9,
+      "longest_fade_frame_ms": 16.678,
+      "longest_title_frame_ms": 137.914,
+      "one_confirm": true,
+      "probe": {
+        "local_alpha": 1.0,
+        "path": "res://scenes/hub_town.tscn",
+        "requests": 1,
+        "saved_hash": "1ea11063e0a3e05310b13d77e87160f7edd40ff759e377ae408ce9efe31a15d7",
+        "shared_alpha": 1.0,
+        "suspended": false,
+        "time": 11857543
+      },
+      "visible_fade_frames": 7
+    },
+    {
+      "alpha_on_return": 0.0,
+      "case": "warren-suspend",
+      "confirm_ms": 0.059,
+      "dispatch_ms": 0.161,
+      "frames_to_swap": 24,
+      "longest_fade_frame_ms": 16.725,
+      "longest_title_frame_ms": 46.866,
+      "one_confirm": true,
+      "probe": {
+        "local_alpha": 1.0,
+        "path": "res://scenes/dungeon.tscn",
+        "requests": 1,
+        "saved_hash": "e2447f79167e062973b62e380e269078e86bb4dad1084130c269d1ef73f05f26",
+        "shared_alpha": 1.0,
+        "suspended": true,
+        "time": 13169114
+      },
+      "visible_fade_frames": 20
+    }
+  ],
+  "phase": "after",
+  "total": 52
+}

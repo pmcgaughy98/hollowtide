@@ -1,0 +1,68 @@
+{
+	"alpha": "binary",
+	"anchor": [
+		0,
+		0
+	],
+	"anchor_mode": "tiled",
+	"area": "road",
+	"brief": "The river glimpsed between the willows: a band of slow brown-green water still high from the flood, pale streaks of current and a few glints of morning sky, a thin dark far bank along its top. Tiles left to right.",
+	"census": "new",
+	"checks": [
+		"C1",
+		"C2",
+		"C3",
+		"C5",
+		"C6",
+		"C9"
+	],
+	"drawn_at": 3,
+	"edges": [
+		"left",
+		"right"
+	],
+	"file": "res://assets/slots/road/backdrop/river.png",
+	"forbid": [
+		"text",
+		"creature",
+		"franchise"
+	],
+	"frames": 1,
+	"id": "road.backdrop.river",
+	"kind": "backdrop",
+	"lane": "S",
+	"legacy": "",
+	"light": "upper_left",
+	"notes": "parallax 0.3; the scene lowers it 18 px and fades it out over the first half of the trail (the river dropping back)",
+	"outline": "none",
+	"owner": "codex",
+	"palette": {
+		"family": "dawn",
+		"lock": false,
+		"max": 16,
+		"source": "res://assets/slots/palettes/dawn.png"
+	},
+	"place_at": [
+		0,
+		114
+	],
+	"placeholder": "res://scripts/story/route_scene.gd:paint_slot",
+	"rows": 1,
+	"sheet_size": [
+		384,
+		24
+	],
+	"size": [
+		384,
+		24
+	],
+	"slot_file": "route",
+	"states": {
+		"static": [
+			1,
+			0
+		]
+	},
+	"status": "placeholder",
+	"tiling": "h"
+}

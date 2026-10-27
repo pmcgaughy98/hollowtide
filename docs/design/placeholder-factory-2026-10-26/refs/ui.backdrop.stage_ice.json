@@ -1,0 +1,61 @@
+{
+	"alpha": "opaque",
+	"anchor": [
+		0,
+		0
+	],
+	"anchor_mode": "top_left",
+	"area": "ui",
+	"brief": "A wide, quiet stage backdrop for the TEAM page in the ice essence's colours: ground, sky and one landmark shape, with open ground in the middle where a creature stands. No creatures, no text.",
+	"census": "Q05",
+	"checks": [
+		"C1",
+		"C2",
+		"C3",
+		"C5",
+		"C9"
+	],
+	"drawn_at": 1,
+	"edges": "all",
+	"file": "res://assets/slots/ui/backdrop/stage_ice.png",
+	"forbid": [
+		"text",
+		"creature",
+		"franchise"
+	],
+	"frames": 1,
+	"id": "ui.backdrop.stage_ice",
+	"kind": "backdrop",
+	"lane": "U",
+	"legacy": "",
+	"light": "upper_left",
+	"notes": "no stage today: party_screen.gd _stage_tex keeps the plain parchment until this file is installed, and shows the placeholder (parchment with 3 essence-colour bands) only when placeholders are forced",
+	"outline": "none",
+	"owner": "codex",
+	"palette": {
+		"family": "stage_ice",
+		"lock": false,
+		"max": 48,
+		"source": "res://assets/slots/palettes/stage_ice.png"
+	},
+	"placeholder": "",
+	"rows": 1,
+	"sheet_size": [
+		448,
+		252
+	],
+	"size": [
+		448,
+		252
+	],
+	"slot_file": "ui",
+	"states": {
+		"static": [
+			1,
+			0
+		]
+	},
+	"status": "placeholder",
+	"tiling": "none",
+	"tint": "#bff2ff"
+}

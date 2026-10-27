@@ -1,0 +1,73 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+OpenGL API 3.3.0 NVIDIA 610.62 - Compatibility - Using Device: NVIDIA - NVIDIA GeForce GTX 1660 SUPER
+
+[godot_ai game_helper] registered mcp capture (debugger active=false, logger=true)
+Real last story line opens three cards: PASS
+Reading press opens cards without committing: PASS
+Held/repeated reading press stays on cards after guard expires: PASS
+Fresh accept opens confirmation with No selected: PASS
+No returns to same uncommitted creature: PASS
+Cancel returns without committing: PASS
+Accept inside first0.4s is ignored: PASS
+Early accept held past guard still needs release: PASS
+Release after early accept permits fresh confirmation: PASS
+MOUSE_LOCAL (228.0, 320.0) stage=choose ready=false
+MOUSE_LOCAL (228.0, 320.0) stage=choose ready=false
+Early mouse hold cannot open question after guard: PASS
+MOUSE_LOCAL (228.0, 320.0) stage=confirm ready=false
+Fresh mouse press after guard opens question: PASS
+Keyboard focuses starter0: PASS
+Yes commits requested starter0: PASS
+Commit press cannot advance first after-line0: PASS
+Pick plays presence swell on UI bus0: PASS
+Keyboard focuses starter1: PASS
+Yes commits requested starter1: PASS
+Commit press cannot advance first after-line1: PASS
+Pick plays presence swell on UI bus1: PASS
+Keyboard focuses starter2: PASS
+Yes commits requested starter2: PASS
+Commit press cannot advance first after-line2: PASS
+Pick plays presence swell on UI bus2: PASS
+Pad A opens confirmation: PASS
+Pad B returns to cards: PASS
+Stick centre and repress move two cards: PASS
+Pad stick plus A commits Rimefin: PASS
+Rebound confirm opens question: PASS
+Rebound confirm commits: PASS
+SCREEN_TRANSFORM base [X: (1.0, 0.0), Y: (0.0, 1.0), O: (0.0, 0.0)] UI=(0.0, 0.0) root=[P: (0.0, 0.0), S: (1152.0, 648.0)]
+MOUSE_LOCAL (576.0, 332.0) stage=choose ready=false
+base mouse focuses Tallowroot: PASS
+MOUSE_LOCAL (576.0, 320.0) stage=confirm ready=false
+base second click asks: PASS
+MOUSE_LOCAL (882.0, 548.0) stage=choose ready=false
+base mouse No preserves choice: PASS
+MOUSE_LOCAL (576.0, 320.0) stage=confirm ready=false
+MOUSE_LOCAL (738.0, 548.0) stage=after ready=false
+base mouse Yes commits: PASS
+SCREEN_TRANSFORM wide [X: (1.0, 0.0), Y: (0.0, 1.0), O: (192.0, 0.0)] UI=(192.0, 0.0) root=[P: (0.0, 0.0), S: (1536.0, 648.0)]
+MOUSE_LOCAL (576.0, 332.0) stage=choose ready=false
+wide mouse focuses Tallowroot: PASS
+MOUSE_LOCAL (576.0, 320.0) stage=confirm ready=false
+wide second click asks: PASS
+MOUSE_LOCAL (882.0, 548.0) stage=choose ready=false
+wide mouse No preserves choice: PASS
+MOUSE_LOCAL (576.0, 320.0) stage=confirm ready=false
+MOUSE_LOCAL (738.0, 548.0) stage=after ready=false
+wide mouse Yes commits: PASS
+SCREEN_TRANSFORM tall [X: (0.833333, 0.0), Y: (0.0, 0.833333), O: (0.0, 90.0)] UI=(0.0, 108.0) root=[P: (0.0, 0.0), S: (1152.0, 864.0)]
+MOUSE_LOCAL (576.0, 332.0) stage=choose ready=false
+tall mouse focuses Tallowroot: PASS
+MOUSE_LOCAL (576.0, 320.0) stage=confirm ready=false
+tall second click asks: PASS
+MOUSE_LOCAL (882.0001, 548.0) stage=choose ready=false
+tall mouse No preserves choice: PASS
+MOUSE_LOCAL (576.0, 320.0) stage=confirm ready=false
+MOUSE_LOCAL (738.0, 548.0) stage=after ready=false
+tall mouse Yes commits: PASS
+Shared showcase scale is a whole art pixel: PASS
+kithflare all-frame union fits portrait interior: PASS
+tallowroot all-frame union fits portrait interior: PASS
+rimefin all-frame union fits portrait interior: PASS
+Selection uses dedicated UI cursor and confirm sounds: PASS
+Saved journey bytes unchanged: PASS
+STARTER CARDS RESULT 47 checks, 0 failures

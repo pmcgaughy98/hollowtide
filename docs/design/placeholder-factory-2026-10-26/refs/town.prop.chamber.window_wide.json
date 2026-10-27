@@ -1,0 +1,65 @@
+{
+	"alpha": "binary",
+	"anchor": [
+		48,
+		31
+	],
+	"anchor_mode": "foot",
+	"area": "town",
+	"brief": "A wide chamber window: three timber-framed panes with river light behind them.",
+	"census": "M12",
+	"checks": [
+		"C1",
+		"C12",
+		"C2",
+		"C3",
+		"C4",
+		"C5",
+		"C7",
+		"C8",
+		"C9"
+	],
+	"drawn_at": 3,
+	"edges": "bottom",
+	"file": "res://assets/slots/town/prop/chamber/window_wide.png",
+	"forbid": [
+		"text",
+		"creature",
+		"franchise"
+	],
+	"frames": 1,
+	"id": "town.prop.chamber.window_wide",
+	"kind": "prop",
+	"lane": "R",
+	"legacy": "",
+	"light": "upper_left",
+	"notes": "on screen until a file is installed: today's nearest resize of window_wide.png (68x32 to 96x32, room_slots.gd DRAWN), so nothing changes; the registered placeholder is the kind's flat block (C2-C4), seen only when forcing; style_ref is that old file",
+	"outline": "drawn",
+	"owner": "codex",
+	"palette": {
+		"family": "room_chamber",
+		"lock": false,
+		"max": 24,
+		"source": "res://assets/slots/palettes/room_chamber.png"
+	},
+	"placeholder": "",
+	"rows": 1,
+	"sheet_size": [
+		96,
+		32
+	],
+	"size": [
+		96,
+		32
+	],
+	"slot_file": "town_rooms",
+	"states": {
+		"static": [
+			1,
+			0
+		]
+	},
+	"status": "placeholder",
+	"style_ref": "res://assets/sprites/world/hall_floors_2026_10_11/window_wide.png",
+	"tiling": "none"
+}

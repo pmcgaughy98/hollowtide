@@ -219,6 +219,7 @@ func _run() -> void:
 	town.panel = {}
 	for pair in [["board", "board_paper"], ["storage", "door"], ["shop", ""]]:
 		var place: Dictionary = {}
+		town.enter_area(town.Layout.area_of(pair[0]), pair[0])   # Highbank v2: the place's area first (lane A, 2026-10-26)
 		for p in town.Layout.PLACES:
 			if p["id"] == pair[0]:
 				place = p

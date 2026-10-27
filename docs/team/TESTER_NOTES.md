@@ -11,7 +11,7 @@ in Highbank with every Hollow open and the objective line "That's the first stre
 home." Nothing new comes after that; you can keep running Hollows.
 
 The path, in order: the storm and the soul's arrival; waking on the riverbank mid-flood; the Hollow Mouth (four floors,
-no boss); the road to Highbank; the Job Board and the theft; the Wayline Hall and the trial; Rootbank Warren and the
+no boss); the road to Highbank; the Job Board and the theft; the Wayline Tower and the trial; Rootbank Warren and the
 crew; runners named; The Hollow and the Warden; the stone; the Growth Shrine and the first growth; the end card. The
 automated run of that path, with the autopilot playing, took about 12 minutes on 2026-10-12; a person who reads every
 line will take longer.

@@ -1,0 +1,194 @@
+[
+  {
+    "form": "cairnshell",
+    "source": "docs/creatures/arena-starters-2026-10-07/forms/cairnshell_arena_front_chosen.png",
+    "destination": "assets/sprites/arena/cairnshell/front_chosen.png",
+    "sha256": "34a8a0c17bf646cac3ccbc319b816a72af58c0394b5c5432b125765af48dcdb8",
+    "size": [
+      128,
+      128
+    ],
+    "rgba_sha256": "15d294ca5d3593594489c49b7d7dec7f0fd48bdcbc8821fa4a1fcf8f83a7dbac",
+    "bytes": 16006
+  },
+  {
+    "form": "crawdukes",
+    "source": "docs/creatures/arena-starters-2026-10-07/forms/crawdukes_arena_front_chosen.png",
+    "destination": "assets/sprites/arena/crawdukes/front_chosen.png",
+    "sha256": "bfb0e22d5b5395af262384e94e51b5cccc97b649f79ddc4e00698000c6ff1695",
+    "size": [
+      128,
+      128
+    ],
+    "rgba_sha256": "460efb385d9dd816403767cf908886f89170f67565ef7fa7e3879c62d3368892",
+    "bytes": 14153
+  },
+  {
+    "form": "grubbit",
+    "source": "docs/creatures/arena-starters-2026-10-07/forms/grubbit_arena_front_chosen.png",
+    "destination": "assets/sprites/arena/grubbit/front_chosen.png",
+    "sha256": "9c89375af76d5c5764b6df568dd50c8277146c5d3648d77202e7cdf5fc18d607",
+    "size": [
+      96,
+      96
+    ],
+    "rgba_sha256": "0db22b242302a639c71ac132bf83e85a778ed416f84fd837a44a48c247a6b280",
+    "bytes": 4115
+  },
+  {
+    "form": "gruntle",
+    "source": "docs/creatures/arena-starters-2026-10-07/forms/gruntle_arena_front_chosen.png",
+    "destination": "assets/sprites/arena/gruntle/front_chosen.png",
+    "sha256": "587e13fc9ad4e3790287791d14ffb0f1f5d0c81296b6a4a9fabc6c47f743c423",
+    "size": [
+      96,
+      96
+    ],
+    "rgba_sha256": "7765bf99b86a70398be63b6a512280e1b7bf9d18edb2b93e5dd24dd9a057d852",
+    "bytes": 5675
+  },
+  {
+    "form": "inkhoot",
+    "source": "docs/creatures/arena-starters-2026-10-07/forms/inkhoot_arena_front_chosen.png",
+    "destination": "assets/sprites/arena/inkhoot/front_chosen.png",
+    "sha256": "6ab526c264e10149d7aba10c6ae636ac612610c3a7dc40677f31df662f9830d5",
+    "size": [
+      128,
+      128
+    ],
+    "rgba_sha256": "6453749caaf54e38b4f54c3bbe917f6022ae80d240ab19e7c4669f44ae41d02e",
+    "bytes": 17384
+  },
+  {
+    "form": "muskin",
+    "source": "docs/creatures/arena-starters-2026-10-07/forms/muskin_arena_front_chosen.png",
+    "destination": "assets/sprites/arena/muskin/front_chosen.png",
+    "sha256": "6dd73e7411b5fb99974596d320c6deca44ada72936662806b3369416bedb322c",
+    "size": [
+      96,
+      96
+    ],
+    "rgba_sha256": "5d525390417270ac2e1004ec37a5ceffa187903f3ba2ffea5c17b0be6d68b797",
+    "bytes": 4990
+  },
+  {
+    "form": "ozbender",
+    "source": "docs/creatures/arena-starters-2026-10-07/forms/ozbender_arena_front_chosen.png",
+    "destination": "assets/sprites/arena/ozbender/front_chosen.png",
+    "sha256": "c4a5b9a387c118af79964fed91ec07ce76831865ee78a32c4aef866f7f8f4d27",
+    "size": [
+      96,
+      96
+    ],
+    "rgba_sha256": "7d9f4dcec6c944f25c505d27f9b3e6bdb61046360e029eae6b2b19f9e0aab343",
+    "bytes": 7041
+  },
+  {
+    "form": "pouchbill",
+    "source": "docs/creatures/arena-starters-2026-10-07/forms/pouchbill_arena_front_chosen.png",
+    "destination": "assets/sprites/arena/pouchbill/front_chosen.png",
+    "sha256": "eb27986901cd5be74fb49bafecfc022055fd0879cf73999089f013a897949491",
+    "size": [
+      112,
+      112
+    ],
+    "rgba_sha256": "a56205d721313a1ee898b2999bc635abb465e22fd00c419b4ad516759f8a35cf",
+    "bytes": 6319
+  },
+  {
+    "form": "rinsepaw",
+    "source": "docs/creatures/arena-starters-2026-10-07/forms/rinsepaw_arena_front_chosen.png",
+    "destination": "assets/sprites/arena/rinsepaw/front_chosen.png",
+    "sha256": "0a197999c32dc4ea970fd4b85813bba1a4798e26b69a58460eacf4a2e36f8451",
+    "size": [
+      112,
+      112
+    ],
+    "rgba_sha256": "cbbb12be48040d1e9db1e7883daa2cd5a0596efd36713c39d6bee21397a04c7a",
+    "bytes": 6388
+  },
+  {
+    "form": "skimlet",
+    "source": "docs/creatures/arena-starters-2026-10-07/forms/skimlet_arena_front_chosen.png",
+    "destination": "assets/sprites/arena/skimlet/front_chosen.png",
+    "sha256": "207f63ad0098ff8e899b5b92f88dca4290ccde8e1779688c04ba300383f373e4",
+    "size": [
+      96,
+      96
+    ],
+    "rgba_sha256": "e95b49a22b3d00d1154f389627bf7854392b459790cf009d7370212e17906926",
+    "bytes": 2972
+  },
+  {
+    "form": "slipjaw",
+    "source": "docs/creatures/arena-starters-2026-10-07/forms/slipjaw_arena_front_chosen.png",
+    "destination": "assets/sprites/arena/slipjaw/front_chosen.png",
+    "sha256": "8d3293571af9e3a2d1938d40cf58ef43156093312d725af5fb7f1036c6a3eea7",
+    "size": [
+      96,
+      96
+    ],
+    "rgba_sha256": "23413edd80d6d65b54cb91257d97070428c569a0e927c989fc74085f4d938cce",
+    "bytes": 5258
+  },
+  {
+    "form": "stillwade",
+    "source": "docs/creatures/arena-starters-2026-10-07/forms/stillwade_arena_front_chosen.png",
+    "destination": "assets/sprites/arena/stillwade/front_chosen.png",
+    "sha256": "ee8a1f70e174bf7711c6a3fd77b6abffa94f102c66a9a6aade8457dd8fbc74fb",
+    "size": [
+      112,
+      112
+    ],
+    "rgba_sha256": "24b1778bfa148c03fdba7b6ef0f39112e75bacd7fcc8c9a097860953e7e7658f",
+    "bytes": 5695
+  },
+  {
+    "form": "swaphoard",
+    "source": "docs/creatures/arena-starters-2026-10-07/forms/swaphoard_arena_front_chosen.png",
+    "destination": "assets/sprites/arena/swaphoard/front_chosen.png",
+    "sha256": "a47ed846beded4ef1c452cc260133dc184f345e8fe24b20a560ef35acb1859d4",
+    "size": [
+      112,
+      112
+    ],
+    "rgba_sha256": "00164c171c291257d238772deff92c918c3dd68f2805b47a1be020970b7ce6cb",
+    "bytes": 9287
+  },
+  {
+    "form": "valvekin",
+    "source": "docs/creatures/arena-starters-2026-10-07/forms/valvekin_arena_front_chosen.png",
+    "destination": "assets/sprites/arena/valvekin/front_chosen.png",
+    "sha256": "59ee5916b348f06143d041a0367d09d287b8a26e11bd3f7ed59ce478fb7d235e",
+    "size": [
+      96,
+      96
+    ],
+    "rgba_sha256": "8ce0d8734d9531c5f3f75faac9e6352230b470a8a64c0aa76ef7aa6f13bc5aa8",
+    "bytes": 5775
+  },
+  {
+    "form": "wayling",
+    "source": "docs/creatures/arena-starters-2026-10-07/forms/wayling_arena_front_chosen.png",
+    "destination": "assets/sprites/arena/wayling/front_chosen.png",
+    "sha256": "d9c69e10508619fef6d6ee1b47d8ff054de7be96f09248b9ea09fba69ab87ce4",
+    "size": [
+      96,
+      104
+    ],
+    "rgba_sha256": "582b1ee4af78d4d0dd034b5f0b34629ba57ab9f73208bfded66496777ce38f53",
+    "bytes": 4550
+  },
+  {
+    "form": "wickglow",
+    "source": "docs/creatures/arena-starters-2026-10-07/forms/wickglow_arena_front_chosen.png",
+    "destination": "assets/sprites/arena/wickglow/front_chosen.png",
+    "sha256": "cdc9cc8332c5b0f072b3fc9beb47c69a3f1b6cc976c2c0ef799a904d09856a4b",
+    "size": [
+      112,
+      112
+    ],
+    "rgba_sha256": "78616309ce88afeb172db2b450e25a254bef34f45c526e2282ef06343d440462",
+    "bytes": 6380
+  }
+]

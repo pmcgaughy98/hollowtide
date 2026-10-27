@@ -38,6 +38,11 @@ const UI := preload("res://scripts/ui/ui_style.gd")   # the shared look (Claude,
 const CreatureBrief := preload("res://scripts/creature_brief.gd")   # names and essences without the pictures (PERF-06, Claude, 2026-10-24)
 
 const T := 24                           # tile size in the low-resolution view
+# Art slots this file draws (placeholder factory lane D, Claude, 2026-10-26; rows in scripts/art/slots/dungeon.gd).
+const STAIRS_SEALED := "dungeon.prop.stairs_sealed"   # Grok's slab over the stairs while a boss stands
+const SLEEP_MARK := "dungeon.hud_piece.sleep_mark"     # the z over a sleeper, three frames of a breath
+const SHOT_SLOT := "dungeon.effect.shot_"              # + the essence in lower case: twelve 6x6 shots
+const SHOT_FPS := 12.0                                 # the shot rows' "fly" rate
 const VIEW := Vector2i(384, 216)
 const SCALE := 3.0
 const FLOORS := 3
@@ -222,7 +227,7 @@ const WAITING := {
 	"canvaswing": [[1, "sail_cover"], [3, "downdraft"]],
 	"windcut": [["evolve", "lift"]],
 	"dustkite": [[1, "signal_mark"], [3, "decoy_call"]],
-	"waywhistle": [["evolve", "vantage"]]}
+	"waywhistle": []}   # Vantage out (Grok, 2026-10-26: no rock in a dungeon for it to land on); the move and its arena kit stay
 # Teammate IQ (Claude, 2026-10-09; Preston: "our system should have the teammate IQ system", then
 # "do teammate iq task"). Structure from Explorers of Sky: a partner's IQ grows, and skills that
 # change how it acts switch on at thresholds. Skill names are working names (Preston names them).
@@ -1217,7 +1222,10 @@ func _stock_floor(rng: RandomNumberGenerator) -> void:
 			warps += 1
 		taken[p] = true
 		traps.append({"pos": p, "kind": kind, "seen": false})
-	if rng.randf() < recipe()["monster_house"]:
+	# Grok, 2026-10-26: no nest on Hollow Mouth B1F and B2F until the Mouth has been beaten once, so a level 1 team does
+	# not lose its first room to an ambush (GROK_BUILD_RESULT_2026-10-26.md task 1). The shared 0.3 stays everywhere else.
+	var first_mouth := dungeon == "mouth" and floor_n <= 2 and not beaten.has("mouth")
+	if not first_mouth and rng.randf() < recipe()["monster_house"]:
 		for room in rooms:
 			if not room.grow(1).has_point(data["start"]) and not room.has_point(data["stairs"]):
 				monster_room = room
@@ -2212,7 +2220,8 @@ func _launch(from: Vector2, to: Vector2, m: String, burst: bool, e: Dictionary) 
 	if spec.has("proj") and not _fx_sheet(spec["proj"]).is_empty():
 		_vfx.append({"name": spec["proj"], "pos": from, "to": to, "t": 0.0, "dur": 0.15})
 	else:
-		_shots.append({"from": from, "to": to, "t": 0.0, "burst": burst, "col": ESSENCE_COL.get(_ess_name(m, e), Color(1, 0.95, 0.7))})
+		var ess := _ess_name(m, e)   # its shot slot's essence (lane D, Claude, 2026-10-26)
+		_shots.append({"from": from, "to": to, "t": 0.0, "burst": burst, "col": ESSENCE_COL.get(ess, Color(1, 0.95, 0.7)), "ess": ess})
 	if spec.has("area"):
 		_vfx.append({"name": spec["area"], "pos": to, "t": -0.12, "dur": FX_SECONDS})
 
@@ -2893,7 +2902,7 @@ func _mouth_exit() -> void:
 		[who, "...Okay, you felt that too, right? I'm not crazy?", f + ":worried"],
 		[who, "Let's not stick around and find out what that was.", f + ":worried"],
 		[who, "Oh! Look at this. Still dry. All that water and not one drop got on it.", f + ":joyous"],
-		[who, "If I walk this into the Hall myself, they can't tell me no again. Come on, Highbank's up this way.", f + ":determined"],
+		[who, "If I walk this into the Tower myself, they can't tell me no again. Come on, Highbank's up this way.", f + ":determined"],
 	]
 	cutscene = true
 	while not talk.is_empty() and is_inside_tree():
@@ -3110,7 +3119,7 @@ func act_recruit(accept: bool) -> void:
 		o["hp"] = 0
 		o["node"].visible = false
 		roster.append([o["line"], o["stage"]])
-		_say("The team is full. %s will wait at the Wayline Hall." % o["name"], o)   # the hall's name (LP-17, Claude, 2026-10-22)
+		_say("The team is full. %s will wait at the Wayline Tower." % o["name"], o)   # the hall's name (LP-17, Claude, 2026-10-22)
 	else:
 		o["team"] = 0
 		o["awake"] = true
@@ -4669,7 +4678,7 @@ func act_use_item(kind: String) -> void:
 				var j := _stone_target(d)
 				lead["facing"] = _facing_of(d)
 				_set_tex(lead, lead["art"]["still"][lead["facing"]])
-				_shots.append({"from": lead["node"].position + Vector2(0, -10), "to": ents[j]["node"].position + Vector2(0, -10), "t": 0.0, "burst": false})
+				_shots.append({"from": lead["node"].position + Vector2(0, -10), "to": ents[j]["node"].position + Vector2(0, -10), "t": 0.0, "burst": false, "ess": "STONE"})   # a River Stone flies as the stone shot (lane D, Claude, 2026-10-26)
 				ents[j]["hp"] = maxi(0, ents[j]["hp"] - 8)
 				ents[j]["flash"] = 0.25
 				ents[j]["awake"] = true
@@ -5180,11 +5189,10 @@ func _draw_floor_fx() -> void:
 			_draw_trap(_floor_fx, tr)
 	var k: float = 0.5 + 0.5 * sin(Time.get_ticks_msec() / 130.0)
 	if boss_alive() and visible_tiles.has(data["stairs"]) and not cutscene:
-		# Sealed stairs: a dark slab with a cross over them.
-		var sr := Rect2(Vector2(data["stairs"]) * T, Vector2(T, T))
-		_floor_fx.draw_rect(sr, Color(0.04, 0.04, 0.07, 0.85))
-		_floor_fx.draw_line(sr.position + Vector2(4, 4), sr.end - Vector2(4, 4), Color(1, 0.35, 0.35, 0.8), 2.0)
-		_floor_fx.draw_line(Vector2(sr.end.x - 4, sr.position.y + 4), Vector2(sr.position.x + 4, sr.end.y - 4), Color(1, 0.35, 0.35, 0.8), 2.0)
+		# Sealed stairs: the stairs_sealed slot laid over them, a slate slab with a teal seal ring until Grok's file is
+		# installed, where a dark slab with a red X was (lane D, Claude, 2026-10-26). The slot is one tile with its foot
+		# at the bottom middle, so its corner sits on the tile's corner.
+		_floor_fx.draw_texture(ArtSlots.texture(STAIRS_SEALED), Vector2(data["stairs"]) * T)
 	_draw_aim(k)
 	for e in ents:
 		if e["hp"] <= 0 or not e.has("windup"):
@@ -5398,19 +5406,30 @@ func _draw_fx() -> void:
 		_fx.draw_circle(c + Vector2(-1, -1), 1.5, Color(1, 1, 1, 0.6))
 	# A seen trap is painted on the floor under the creatures now (_draw_trap, pass 3 D4), not a red X over them.
 
-	# Sleeping wild creatures breathe a "z".
+	# Sleeping wild creatures breathe a "z": the hand-placed sleep_mark slot, its three frames stepped by the same
+	# breath that bobs it 2 px (dim low, bright high), where an 8 px font letter was (lane D, Claude, 2026-10-26).
+	# p is the letter's old baseline; the letter's pixels sat at p + (1..4, -5..-1), and so do the z's, from the
+	# cell's corner at p + (0, -6).
 	for e in ents:
 		if e["team"] == 1 and e["hp"] > 0 and not e["awake"] and visible_tiles.has(e["pos"]) and not e.get("hidden", false) and not cutscene:
-			var p: Vector2 = e["node"].position + Vector2(8, -30 - 2.0 * sin(Time.get_ticks_msec() / 300.0))
-			_fx.draw_string(FONT, p.round(), "z", HORIZONTAL_ALIGNMENT_LEFT, -1, 8, Color(0.85, 0.9, 1.0, 0.85))
+			var breath := sin(Time.get_ticks_msec() / 300.0)
+			var p: Vector2 = e["node"].position + Vector2(8, -30 - 2.0 * breath)
+			var zf := 0 if breath < -0.34 else (2 if breath > 0.34 else 1)
+			_fx.draw_texture(ArtSlots.frame(SLEEP_MARK, "bob", zf), p.round() + Vector2(0, -6), Color(1, 1, 1, 0.85))
 	# The leader's facing: a small chevron on the tile ahead.
 	if not ents.is_empty() and ents[0]["hp"] > 0:
 		var ahead: Vector2 = _tile_px(ents[0]["pos"] + _dir_of(ents[0]["facing"])) + Vector2(0, -T * 0.28)
 		_fx.draw_arc(ahead.round(), 4.0, 0, TAU, 12, Color(1, 0.85, 0.4, 0.55), 1.0)
+	# A shot in flight is its essence's 6x6 shot slot, three frames at the rows' 12 fps, centred where the round dot
+	# flew (lane D, Claude, 2026-10-26). A burst still grows its disc, and a shot with no essence keeps the dot.
 	for s in _shots:
 		var k: float = clampf(s["t"] / 0.15, 0.0, 1.0)
 		var at: Vector2 = s["from"].lerp(s["to"], k)
 		var col: Color = s.get("col", Color(1, 0.95, 0.7))
+		var shot_id: String = SHOT_SLOT + String(s.get("ess", "")).to_lower()
+		if not s["burst"] and ArtSlots.has(shot_id):
+			_fx.draw_texture(ArtSlots.frame(shot_id, "fly", int(s["t"] * SHOT_FPS)), at.round() - Vector2(3, 3), Color(1, 1, 1, 1.0 - k * 0.5))
+			continue
 		_fx.draw_circle(at.round(), 3.0 if not s["burst"] else 2.0 + 8.0 * k, Color(col, 1.0 - k * 0.5))
 	for g in _ghosts:
 		if g["t"] >= 0.0 and g["tex"] != null:
@@ -5652,7 +5671,7 @@ func _draw_hud() -> void:
 	var a: float = banner_alpha()   # D5
 	if a > 0.0:
 		var band := banner_rect()   # right of the team panel when the panel reaches it (L28, D5)
-		h.draw_rect(band, Color(UI.PANEL, 0.78 * a))   # no full-width rules on it any more (pass 3 D5)
+		UI.banner(h, band, a)   # no full-width rules on it any more (pass 3 D5); lane U's banner frame (lane D, Claude, 2026-10-26)
 		UI.say(h, Vector2(band.position.x, 292), _banner["text"], "title", Color(_banner["col"], a), band.size.x, HORIZONTAL_ALIGNMENT_CENTER)   # place names: the title face
 		if _banner["sub"] != "":
 			UI.say(h, Vector2(band.position.x, 316), String(_banner["sub"]), "label", Color(UI.TEXT, 0.85 * a), band.size.x, HORIZONTAL_ALIGNMENT_CENTER)
@@ -5676,10 +5695,11 @@ func _draw_hud() -> void:
 		var down: bool = e["hp"] <= 0
 		# Its face: a 16 px cut of its dialogue face drawn 3x into the 48 px box (UI-05, Claude, 2026-10-23).
 		var face := portrait_of(e["form"])
-		h.draw_rect(Rect2(28, y + 1, 48, 48), Color(UI.PORTRAIT_BG, 0.55) if down else UI.PORTRAIT_BG)
+		var well := Rect2(28, y + 1, 48, 48)
+		UI.headshot_well(h, well, down)   # lane U's headshot frame, under the face and its rim over it (lane D, Claude, 2026-10-26)
 		if face != null:
-			h.draw_texture(face, Vector2(28, y + 1), Color(0.45, 0.45, 0.45, 0.8) if down else Color.WHITE)
-		h.draw_rect(Rect2(28, y + 1, 48, 48), UI.EDGE_LIGHT if e == ents[0] else UI.EDGE, false, 1.0)
+			h.draw_texture(face, well.position, Color(0.45, 0.45, 0.45, 0.8) if down else Color.WHITE)
+		UI.headshot_rim(h, well, e == ents[0])
 		var nt: Array = hud_name_tag(String(e["name"]), level_of(e["line"]), -1 if e == ents[0] else iq_of(e))
 		UI.say(h, Vector2(84, y + 20), nt[0], "body", DOWN_NAME if down else (UI.EDGE_LIGHT if e == ents[0] else UI.TEXT))
 		UI.say(h, Vector2(84, y + 20), nt[1], nt[2], UI.MUTED, HUD_ROW_W, HORIZONTAL_ALIGNMENT_RIGHT)   # the body face on every row (D4; UI.FIT has no step down from it)
@@ -5796,8 +5816,7 @@ func _draw_hud() -> void:
 			var row_h := maxf(40.0, 22.0 + BAG_LINE * lines.size())
 			var yy: float = top + 26   # the name's baseline, as the one-line rows always had it
 			if k == bag_sel:
-				h.draw_rect(Rect2(box.position.x + 8, top, box.size.x - 16, row_h - 4), UI.FOCUS)
-				h.draw_rect(Rect2(box.position.x + 8, top, box.size.x - 16, row_h - 4), UI.EDGE_LIGHT, false, 1.0)
+				UI.focus_row(h, Rect2(box.position.x + 8, top, box.size.x - 16, row_h - 4))   # lane U's focus row (lane D, Claude, 2026-10-26)
 			var it_icon := UI.item_icon(String(kinds[k]))
 			if it_icon != null:
 				h.draw_texture(it_icon, Vector2(box.position.x + 14, top + 2))
@@ -5824,8 +5843,7 @@ func _draw_hud() -> void:
 		for k in rows.size():
 			var yy: float = tbox.position.y + 92 + k * 32
 			if k == teach_sel:
-				h.draw_rect(Rect2(tbox.position.x + 8, yy - 21, tbox.size.x - 16, 28), UI.FOCUS)
-				h.draw_rect(Rect2(tbox.position.x + 8, yy - 21, tbox.size.x - 16, 28), UI.EDGE_LIGHT, false, 1.0)
+				UI.focus_row(h, Rect2(tbox.position.x + 8, yy - 21, tbox.size.x - 16, 28))   # lane U's focus row (lane D, Claude, 2026-10-26)
 			UI.text(h, Vector2(tbox.position.x + 24, yy), String(rows[k]["text"]).capitalize(), 17, UI.TEXT if rows[k]["ok"] else UI.FOE, 430)
 
 

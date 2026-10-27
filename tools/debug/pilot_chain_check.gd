@@ -91,6 +91,8 @@ func _tick() -> void:
 	if file == "mouth_escape.tscn" and s.line != null and Engine.get_process_frames() % 4 == 0:
 		UI.finish_line()   # the dawn walk up to Highbank, read like the flood talk
 		s.advance()
+	if file == "road_to_highbank.tscn" and "autopilot" in s:
+		s.autopilot = true   # the road up to Highbank (lane S's route scene) walks east and reads its own lines
 	if file == "faint_screen.tscn" and last_faint == "":
 		var fi: Dictionary = s.info
 		last_faint = "%s %s, turns %s, fell to %s, leader %s" % [fi.get("dungeon", "?"), fi.get("floor", "?"), str(fi.get("turns", "?")), str(fi.get("fell_to", "?")), str(fi.get("leader", "?"))]
@@ -98,6 +100,16 @@ func _tick() -> void:
 		s.advance()   # the faint screen (2026-10-12): the partner's word, the defeat panel, then home or back to the top
 	if file == "hub_town.tscn" and s.panel is Dictionary and s.panel.get("service", "") == "news":
 		s.panel = {}
+
+
+## Highbank v2 (lane A, Claude, 2026-10-26): the first time the team reaches Tower Rise the Tower scene plays (lane S,
+## scripts/story/tower_reveal.gd) once the arrival's news is read; a player sits through it before anything else, its
+## lines read by _tick. Nothing to wait for with v2 off, or once the story has seen it.
+func _tower_scene_done(town: Node) -> void:
+	if town == null or not town.Layout.v2() or bool(_story().get("tower_seen", false)):
+		return
+	await _until(func() -> bool: return not is_instance_valid(town) or town.cutscene, 30 * 3)
+	await _until(func() -> bool: return not is_instance_valid(town) or not town.cutscene, 30 * 120)
 
 
 ## Play frames until `done` is true or the frame budget runs out.
@@ -290,6 +302,7 @@ func _run() -> void:
 	_ok("Hollow Mouth cleared, no boss fought (boss set up %s); parcel '%s', beaten %s" % [boss_seen, _story().get("parcel", ""), str(TeamState.data.get("beaten", []))], mouth_ok and not boss_seen and _story().get("parcel", "") == "saved" and "mouth" in TeamState.data.get("beaten", []))
 	# 3. Highbank: the way down is held until the guild is told.
 	var town := _town()
+	await _tower_scene_done(town)
 	town.enter_hollow()
 	_ok("Highbank: the way down is held before the Job Board (%s)" % town.has_meta("gated"), town.has_meta("gated"))
 	town.remove_meta("gated")
@@ -302,7 +315,7 @@ func _run() -> void:
 	town.enter_room("hall")
 	await _until(func() -> bool: return _scene() == "town_room.tscn", 30 * 5)
 	await _until(func() -> bool: return _story().get("guild_trial", false) and not current_scene.cutscene, 30 * 180)
-	_ok("Wayline Hall: the trial is set (%s)" % _story().get("guild_trial", false), _story().get("guild_trial", false))
+	_ok("Wayline Tower: the trial is set (%s)" % _story().get("guild_trial", false), _story().get("guild_trial", false))
 	current_scene.leave()
 	await _until(_in_town, 30 * 5)
 	# 6. Rootbank Warren and the crew boss.
@@ -346,6 +359,7 @@ func _run() -> void:
 	# 9. The Growth Shrine: the stone goes in, then the evolution.
 	town = _town()
 	if town != null:
+		town.enter_area(town.Layout.area_of("shrine"), "shrine")   # Highbank v2: the shrine's area first (lane A, 2026-10-26)
 		var shrine: Dictionary = town.Layout.PLACES.filter(func(p: Dictionary) -> bool: return p["id"] == "shrine")[0]
 		town.team[0]["pos"] = shrine["door"]
 		town._place(town.team[0])

@@ -1,0 +1,61 @@
+{
+	"alpha": "opaque",
+	"anchor": [
+		0,
+		0
+	],
+	"anchor_mode": "top_left",
+	"area": "town",
+	"brief": "The east strip of the Item Shop's room: warm plank floor, shelved timber walls.",
+	"census": "M19",
+	"checks": [
+		"C1",
+		"C2",
+		"C3",
+		"C4",
+		"C5",
+		"C9"
+	],
+	"drawn_at": 3,
+	"edges": "all",
+	"file": "res://assets/slots/town/room/shop/east.png",
+	"forbid": [
+		"text",
+		"creature",
+		"franchise"
+	],
+	"frames": 1,
+	"id": "town.room.shop.east",
+	"kind": "room",
+	"lane": "R",
+	"legacy": "",
+	"light": "upper_left",
+	"notes": "14x10 tiles, 336x240; placeholder: its crop of room_painter.gd _plain (lane R); town_room.gd ROOMS shop; the door in Highbank stays shut (Preston call 5)",
+	"outline": "none",
+	"owner": "codex",
+	"palette": {
+		"family": "room_shop",
+		"lock": false,
+		"max": 48,
+		"source": "res://assets/slots/palettes/room_shop.png"
+	},
+	"placeholder": "res://scripts/town/room_painter.gd:slot_placeholder",
+	"rows": 1,
+	"sheet_size": [
+		24,
+		168
+	],
+	"size": [
+		24,
+		168
+	],
+	"slot_file": "town_rooms",
+	"states": {
+		"static": [
+			1,
+			0
+		]
+	},
+	"status": "placeholder",
+	"tiling": "none"
+}

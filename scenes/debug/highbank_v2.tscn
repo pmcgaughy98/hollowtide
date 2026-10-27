@@ -1,0 +1,31 @@
+[gd_scene load_steps=2 format=3]
+
+[sub_resource type="GDScript" id="GDScript_walk_v2"]
+script/source = "extends Node
+## Walk Highbank v2 (lane A, Claude, 2026-10-26; build plan 2.1 step 3): open this scene and press F6. It turns the
+## rewired town on for this session only (TownLayout.force_v2, which also opens every exit, so the East Quarter's road
+## is open) and brings Highbank up on the street. The game's own switch stays off (HIGHBANK_V2 in
+## scripts/town/town_layout.gd, or HT_HIGHBANK_V2=1) until Preston has walked it and says so.
+## The walk saves to a file of its own (user://highbank_v2_walk.save), never over the game's save: the town saves on
+## every arrival. With no team in memory (F6), a fresh pair whose crew meeting is behind them, so the walk is free.
+## The three areas: Highbank Street (Home, the shops, the Shrine, the Yard, the Crossroads), Tower Rise up the north
+## steps (the Wayline Tower and the Job Board), the Old Ferry Ward down the south switchbacks (the Mouth); the East
+## Quarter is the road east past the barrier, empty.
+
+const Layout := preload(\"res://scripts/town/town_layout.gd\")
+const TeamState := preload(\"res://scripts/town/team_state.gd\")
+
+
+func _ready() -> void:
+	Layout.force_v2()
+	TeamState.save_path = \"user://highbank_v2_walk.save\"
+	if TeamState.data.is_empty():
+		TeamState.start([[0, 0], [1, 0]])
+		TeamState.data[\"story\"] = {\"parcel\": \"saved\", \"met_crew\": true}
+	TeamState.data.erase(\"arrive_at\")
+	TeamState.data.erase(\"news\")
+	get_tree().change_scene_to_file.call_deferred(\"res://scenes/hub_town.tscn\")
+"
+
+[node name="HighbankV2Walk" type="Node"]
+script = SubResource("GDScript_walk_v2")

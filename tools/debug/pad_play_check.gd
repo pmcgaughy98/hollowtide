@@ -109,7 +109,10 @@ func _let_go() -> void:
 
 # ---------------------------------------------------------------- Highbank
 
+## A place of the town, by id. With Highbank v2 on the town goes into the place's area first (lane A, Claude,
+## 2026-10-26); today's map has one area, so nothing moves.
 func _place_of(town: Node, id: String) -> Dictionary:
+	town.enter_area(town.Layout.area_of(id), id)
 	return town.Layout.PLACES.filter(func(p: Dictionary) -> bool: return p["id"] == id)[0]
 
 

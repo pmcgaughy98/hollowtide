@@ -1,0 +1,69 @@
+{
+	"alpha": "binary",
+	"anchor": [
+		0,
+		0
+	],
+	"anchor_mode": "tiled",
+	"area": "road",
+	"brief": "Near foliage in front of the trail: dark ferns and reeds with seed heads, close to the camera, darkest of all the layers. Nothing above row 12. Tiles left to right; transparent above the plants.",
+	"census": "new",
+	"checks": [
+		"C1",
+		"C2",
+		"C3",
+		"C5",
+		"C6",
+		"C9"
+	],
+	"drawn_at": 3,
+	"edges": [
+		"left",
+		"right",
+		"bottom"
+	],
+	"file": "res://assets/slots/road/backdrop/near.png",
+	"forbid": [
+		"text",
+		"creature",
+		"franchise"
+	],
+	"frames": 1,
+	"id": "road.backdrop.near",
+	"kind": "backdrop",
+	"lane": "S",
+	"legacy": "",
+	"light": "upper_left",
+	"notes": "parallax 1.35, drawn in front of the party",
+	"outline": "none",
+	"owner": "codex",
+	"palette": {
+		"family": "dawn",
+		"lock": false,
+		"max": 16,
+		"source": "res://assets/slots/palettes/dawn.png"
+	},
+	"place_at": [
+		0,
+		160
+	],
+	"placeholder": "res://scripts/story/route_scene.gd:paint_slot",
+	"rows": 1,
+	"sheet_size": [
+		384,
+		56
+	],
+	"size": [
+		384,
+		56
+	],
+	"slot_file": "route",
+	"states": {
+		"static": [
+			1,
+			0
+		]
+	},
+	"status": "placeholder",
+	"tiling": "h"
+}

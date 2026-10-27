@@ -1,0 +1,22 @@
+--- before/project.godot
++++ after/project.godot
+@@ -13,7 +13,9 @@
+ config/name="Hollowtide"
+ run/main_scene="res://scenes/creature_opening.tscn"
+ config/features=PackedStringArray("4.7", "Forward Plus")
+-config/icon="res://icon.svg"
++config/icon="res://icon.png"
++boot_splash/show_image=false
++boot_splash/bg_color=Color(0, 0, 0, 1)
+ 
+ [audio]
+ 
+--- before/.gitignore
++++ after/.gitignore
+@@ -35,3 +35,6 @@
+ # project.godot.bak: a byte-identical copy of project.godot, committed in 12e3bccd2 and removed from the working
+ # tree (it stays in git history); ignored so a tool that writes one again does not add it back. (Claude, 2026-10-23, LO-10)
+ project.godot.bak
++
++# Local Windows export output.
++/builds/
